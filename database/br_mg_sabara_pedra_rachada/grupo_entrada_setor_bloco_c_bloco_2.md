@@ -106,8 +106,8 @@ escaladas:
     nome: Gaston as avessas
     dificuldade: V4
     destaque: true
-    descricao: Sai em pé com as mãos juntas em uma agarrão invertido, escala o vertical e faz uma virada técnica. 
-      Virando no “Ergot” (26) é o Calango hidráulico v7.
+    descricao: Sai em pé com as mãos juntas em uma agarrão invertido, escala o vertical
+      e faz uma virada técnica. Virando no “Ergot” (26) é o Calango hidráulico v7.
 - uid: uFP6AiK9oJPbp0
   boulder:
     nome: Calango hidráulico
@@ -121,8 +121,9 @@ escaladas:
     conquistadores:
     - Mahavir Jneesh
     data_abertura: '2010'
-    descricao: Mesclando muita técnica e compressão, este boulder marca o estilo único da Rachada. Sai em pé com a mão 
-      esquerda na aresta abaulada e a direita num reglete batente invertido.
+    descricao: Mesclando muita técnica e compressão, este boulder marca o estilo único
+      da Rachada. Sai em pé com a mão esquerda na aresta abaulada e a direita num
+      reglete batente invertido.
 - uid: 53YkCd34DD4iML
   boulder:
     nome: Ergot SDS
@@ -131,8 +132,8 @@ escaladas:
     conquistadores:
     - Mahavir Jneesh
     data_abertura: '2010'
-    descricao: Sai sentado com a mão esquerda na parte mais baixa da aresta abaulada e a direita no reglete mais baixo e
-      entra no “Ergot” (26).
+    descricao: Sai sentado com a mão esquerda na parte mais baixa da aresta abaulada
+      e a direita no reglete mais baixo e entra no “Ergot” (26).
 - uid: xr2FQXXiSTj2Iz
   boulder:
     nome: Trip eterna
@@ -154,8 +155,9 @@ escaladas:
     conquistadores:
     - Rafael Passos
     data_abertura: '2009'
-    descricao: Uma das escaladas mais clássicas da Pedra Rachada é também o mais duro boulder encadenado até então. 
-      Linha reta que sai em pé em um grande batente escorrido e faz movimentos duros e técnicos até uma virada delicada.
+    descricao: Uma das escaladas mais clássicas da Pedra Rachada é também o mais duro
+      boulder encadenado até então. Linha reta que sai em pé em um grande batente
+      escorrido e faz movimentos duros e técnicos até uma virada delicada.
 - uid: C7rsQvdwzouahQ
   boulder:
     nome: Crocância do sabor
@@ -174,20 +176,21 @@ escaladas:
     conquistadores:
     - Gustavo Fontes
     data_abertura: '2010'
-    descricao: Começa em pé com a mão esquerda em um reglete/batente e a direita em um batente grande e escala pra 
-      direita.
+    descricao: Começa em pé com a mão esquerda em um reglete/batente e a direita em
+      um batente grande e escala pra direita.
 - uid: k7WAdPJsT5WzlQ
   boulder:
     nome: Estimulante
     dificuldade: V6
-    descricao: Saída em pé com a mão esquerda alta em um batente e a direita em um micro reglete de lado, acima do 
-      batente grande do Energético (33).
+    descricao: Saída em pé com a mão esquerda alta em um batente e a direita em um
+      micro reglete de lado, acima do batente grande do Energético (33).
 - uid: YoXKvlBtqyVEV9
   boulder:
     nome: Projeto Taurina
     dificuldade: V12_BARRA_V13
-    descricao: 'Projeto que sai sentado com as mãos nas agarras mais baixas: um batente, um gaston, ou um bidedo, e faz dois
-      fortes movimentos até chegar no “Energético” (33) e finalizar como ele.'
+    descricao: 'Projeto que sai sentado com as mãos nas agarras mais baixas: um batente,
+      um gaston, ou um bidedo, e faz dois fortes movimentos até chegar no “Energético”
+      (33) e finalizar como ele.'
 - uid: VVW7BKdL5q2Gbm
   boulder:
     nome: Rala frek lek
@@ -196,8 +199,9 @@ escaladas:
     conquistadores:
     - Rafael Passos
     data_abertura: '2006'
-    descricao: Começa com a mão esquerda em um batente escorrido e a direita no reglete vertical mais baixo, faz alguns 
-      movimentos fortes de compressão e finaliza com um movimento clássico!
+    descricao: Começa com a mão esquerda em um batente escorrido e a direita no reglete
+      vertical mais baixo, faz alguns movimentos fortes de compressão e finaliza com
+      um movimento clássico!
 - uid: xYyG7JKqzRj6Gt
   boulder:
     nome: Rala frek lek SDS
@@ -206,8 +210,8 @@ escaladas:
     conquistadores:
     - Gustavo Fontes
     data_abertura: '2007'
-    descricao: Adiciona 1 movimento ao “Rala frek lek” (36) saindo com a mão esquerda mais baixa, em um reglete 
-      vertical.
+    descricao: Adiciona 1 movimento ao “Rala frek lek” (36) saindo com a mão esquerda
+      mais baixa, em um reglete vertical.
 - uid: yRvJzGiffHQFAr
   boulder:
     nome: Viviane Espíndola
@@ -240,8 +244,9 @@ escaladas:
     nome: Ziglyn
     dificuldade: V4
     destaque: true
-    descricao: Provavelmente o melhor v4 da Rachada! Começa sentado com as mãos juntas em regletes invertidos e segue 
-      pela fenda diagonalmente à esquerda, para uma virada fácil.
+    descricao: Provavelmente o melhor v4 da Rachada! Começa sentado com as mãos juntas
+      em regletes invertidos e segue pela fenda diagonalmente à esquerda, para uma
+      virada fácil.
 - uid: QhcWEshmVYNEW3
   boulder:
     nome: Sai de reto
@@ -253,8 +258,9 @@ escaladas:
     nome: Adrena da cadena
     dificuldade: V6
     destaque: true
-    descricao: Sai sentado com as mãos juntas em um batente, escala por uns regletes e, antes de dominar, atravessa para
-      a esquerda, passando por um movimento dinâmico para um bico/batente.
+    descricao: Sai sentado com as mãos juntas em um batente, escala por uns regletes
+      e, antes de dominar, atravessa para a esquerda, passando por um movimento dinâmico
+      para um bico/batente.
 - uid: JtTmY764yiyQ3l
   boulder:
     nome: Cadena sem adrena
@@ -265,20 +271,20 @@ escaladas:
     nome: Cadê minha força?
     dificuldade: V5
     destaque: true
-    descricao: Sai sentado com as mãos juntas num batente/fenda escorrido e domina reto, passando pelo teto.
+    descricao: Sai sentado com as mãos juntas num batente/fenda escorrido e domina
+      reto, passando pelo teto.
 - uid: Qz6KQHcVQr5b7a
   boulder:
     nome: Ou vai ou racha
     dificuldade: V7
     destaque: true
-    descricao: Começa sentado com a mão esquerda num batente invertido no teto e a direita em um reglete e vira no “Cadê
-      minha força?” (46).
+    descricao: Começa sentado com a mão esquerda num batente invertido no teto e a
+      direita em um reglete e vira no “Cadê minha força?” (46).
 - uid: pGCz7pTq0xq4ZR
   boulder:
     nome: Seg atenciosa
     dificuldade: V6
-    descricao: Sai sentado com a mão esquerda em um batente, a direita em um reglete ao lado e toca reto para uma virada
-      estranha.
+    descricao: Sai sentado com a mão esquerda em um batente, a direita em um reglete
+      ao lado e toca reto para uma virada estranha.
 ---
 
-# Bloco C - Bloco 2

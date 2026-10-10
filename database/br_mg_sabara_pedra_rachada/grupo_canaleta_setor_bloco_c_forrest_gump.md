@@ -17,8 +17,7 @@ escaladas:
     nome: Forest Gump
     dificuldade: V7
     destaque: true
-    descricao: Sai sentado com as mãos nas agarras boas do teto e escala o pequeno bloco com uma movimentação única e 
-      que exige muita tensão corporal.
+    descricao: Sai sentado com as mãos nas agarras boas do teto e escala o pequeno
+      bloco com uma movimentação única e que exige muita tensão corporal.
 ---
 
-# Bloco C - Forrest Gump

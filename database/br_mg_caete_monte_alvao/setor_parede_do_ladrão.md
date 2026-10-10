@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: NPg6eUqYFEWNix
-nome: Parede do Ladrão
+nome: Setor Parede do Ladrão
 escaladas:
 - uid: 6brYAuVDrbBvAw
   via_esportiva:
@@ -58,3 +58,4 @@ escaladas:
     quantidade_protecoes_intermediarias: 8
     quantidade_protecoes_parada: 2
 ---
+

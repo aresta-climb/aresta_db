@@ -848,6 +848,125 @@ class DeployGeneratedTest(unittest.TestCase):
 
             self.assertFalse(pasta.exists())
 
+    def test_verificar_titulos_em_descricao_setor_grupo_avisa_se_tiver_h1(self):
+        compiled_data = {
+            "picos": [
+                {
+                    "nome": "Pico Teste",
+                    "setores_ou_grupos": [
+                        {
+                            "setor": {
+                                "nome": "Setor Bem-vindo",
+                                "descricao": "# Setor Bem-vindo\n\nTexto descritivo do setor."
+                            }
+                        },
+                        {
+                            "grupo": {
+                                "nome": "Grupo Vale Oculto",
+                                "descricao": "# Grupo Vale Oculto",
+                                "setores": [
+                                    {
+                                        "nome": "Sub Setor 1",
+                                        "descricao": "# Sub Setor 1\n\nOutro texto."
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+        captured_output = StringIO()
+        sys.stdout = captured_output
+        try:
+            deploy_generated.verificar_titulos_em_descricao_setor_grupo("croqui_teste", compiled_data)
+        finally:
+            sys.stdout = sys.__stdout__
+
+        saida = captured_output.getvalue()
+        self.assertIn("Aviso: A descrição do setor 'Setor Bem-vindo' no croqui 'croqui_teste' contém título Markdown H1 ('# Setor Bem-vindo').", saida)
+        self.assertIn("Aviso: A descrição do grupo 'Grupo Vale Oculto' no croqui 'croqui_teste' contém título Markdown H1 ('# Grupo Vale Oculto').", saida)
+        self.assertIn("Aviso: A descrição do setor 'Sub Setor 1' no croqui 'croqui_teste' contém título Markdown H1 ('# Sub Setor 1').", saida)
+
+    def test_verificar_titulos_em_descricao_setor_grupo_sem_aviso_se_sem_h1(self):
+        compiled_data = {
+            "picos": [
+                {
+                    "nome": "Pico Teste",
+                    "setores_ou_grupos": [
+                        {
+                            "setor": {
+                                "nome": "Setor Limpo",
+                                "descricao": "Texto sem título no topo.\n\n## Acesso\nSiga pela trilha."
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+        captured_output = StringIO()
+        sys.stdout = captured_output
+        try:
+            deploy_generated.verificar_titulos_em_descricao_setor_grupo("croqui_teste", compiled_data)
+        finally:
+            sys.stdout = sys.__stdout__
+
+        saida = captured_output.getvalue()
+        self.assertEqual(saida.strip(), "")
+
+    def test_verificar_titulos_em_descricao_setor_grupo_ignora_sem_descricao(self):
+        compiled_data = {
+            "picos": [
+                {
+                    "nome": "Pico Teste",
+                    "setores_ou_grupos": [
+                        {
+                            "setor": {
+                                "nome": "Setor Sem Descricao"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+        captured_output = StringIO()
+        sys.stdout = captured_output
+        try:
+            deploy_generated.verificar_titulos_em_descricao_setor_grupo("croqui_teste", compiled_data)
+        finally:
+            sys.stdout = sys.__stdout__
+
+        saida = captured_output.getvalue()
+        self.assertEqual(saida.strip(), "")
+
+    def test_verificar_titulos_em_descricao_setor_grupo_estrutura_invalida(self):
+        compiled_data = {
+            "picos": [
+                "pico_invalido",
+                {
+                    "nome": "Pico Valido",
+                    "setores_ou_grupos": [
+                        "item_invalido",
+                        {
+                            "grupo": {
+                                "nome": "Grupo Sem Lista Setores",
+                                "setores": "invalido"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+        captured_output = StringIO()
+        sys.stdout = captured_output
+        try:
+            deploy_generated.verificar_titulos_em_descricao_setor_grupo("croqui_teste", compiled_data)
+        finally:
+            sys.stdout = sys.__stdout__
+
+        saida = captured_output.getvalue()
+        self.assertEqual(saida.strip(), "")
+
 
 if __name__ == '__main__':
     unittest.main()

@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: lTi8TIXxTU6KF0
-nome: Cachoeira
+nome: Setor Cachoeira
 mapas:
 - caminho_imagem_mapa: imagens/setor_cachoeira_p0_i1.webp
   largura_mapa: 993

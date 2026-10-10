@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: pcQfnDIAUZk99g
-nome: Castelinho
+nome: Setor Castelinho
 mapas:
 - caminho_imagem_mapa: imagens/setor_mapa_1_p0_i0.webp
   largura_mapa: 330
@@ -119,10 +119,9 @@ escaladas:
     dificuldade: PROJETO
     quantidade_protecoes_intermediarias: 3
     quantidade_protecoes_parada: 0
-    descricao: '**INTERDITADA:** Via inacabada, conta com apenas 3 proteções intermediárias e sem parada instalada no topo.'
+    descricao: '**INTERDITADA:** Via inacabada, conta com apenas 3 proteções intermediárias
+      e sem parada instalada no topo.'
 ---
-
-# Setor Castelinho
 
 Setor localizado próximo ao Restaurante Castelinho. Possui vias de graduação
 variada, incluindo algumas vias em móvel.

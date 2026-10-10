@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: pEbY6CRJHCyQhI
-nome: Sessão da Tarde
+nome: Setor Sessão da Tarde
 mapas:
 - caminho_imagem_mapa: imagens/grupo_regiao_3_setor_sessao_da_tarde_p0_i0.webp
   largura_mapa: 1240
@@ -395,8 +395,8 @@ escaladas:
   boulder:
     nome: Globo Curral
     dificuldade: V5
-    descricao: Saída em uma pequena pinça de mão esquerda e um reglete raso de mão direita (assim como o Chá da Tarde) e
-      escala pelo teto até entrar no Altas Horas.
+    descricao: Saída em uma pequena pinça de mão esquerda e um reglete raso de mão
+      direita (assim como o Chá da Tarde) e escala pelo teto até entrar no Altas Horas.
 - uid: n9PNiJKi8gFIB2
   boulder:
     nome: Manual
@@ -417,14 +417,16 @@ escaladas:
   boulder:
     nome: Sessão da Tarde
     dificuldade: V5
-    descricao: Mão esquerda no batente central dessa face do bloco e mão direita em outro batente mais à direita, 
-      seguindo em linha reta pelo sistema de agarras logo acima.
+    descricao: Mão esquerda no batente central dessa face do bloco e mão direita em
+      outro batente mais à direita, seguindo em linha reta pelo sistema de agarras
+      logo acima.
 - uid: 4ujH3wnbjh0RRk
   boulder:
     nome: Vale a Pena Ver de Novo
     dificuldade: V4_BARRA_V5
-    descricao: Mesma saída do Sessão da Tarde, mudando a trajetória para a direita após dominar a pinça. A parte final 
-      do boulder segue para a direita por "cracas" na face positiva, cuidado com agarras frágeis.
+    descricao: Mesma saída do Sessão da Tarde, mudando a trajetória para a direita
+      após dominar a pinça. A parte final do boulder segue para a direita por "cracas"
+      na face positiva, cuidado com agarras frágeis.
 - uid: NAVK7W0avZox4Y
   boulder:
     nome: Vale a Pena Vir de Baixo
@@ -434,7 +436,8 @@ escaladas:
   boulder:
     nome: Chá da Tarde
     dificuldade: V7
-    descricao: Extensão do Sessão da Tarde. Saída em uma pequena pinça de mão esquerda e um reglete raso de mão direita.
+    descricao: Extensão do Sessão da Tarde. Saída em uma pequena pinça de mão esquerda
+      e um reglete raso de mão direita.
 - uid: MfZXzjT9Ty3s0U
   boulder:
     nome: Analógico
@@ -447,7 +450,6 @@ escaladas:
     descricao: Extensão do Analógico.
 ---
 
-# Bloco: Sessão da Tarde
 ## Região 3
 
 O bloco Sessão da Tarde é um dos mais densos em linhas, com agarras variadas e muita técnica.

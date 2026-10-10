@@ -195,8 +195,6 @@ escaladas:
     quantidade_protecoes_intermediarias: 4
 ---
 
-# Croqui 02 da Pedra Branca
-
 O resto da grampeação da via Parede Preta esta no croqui 01 da Pedra Branca.
 
 Considere uma ou duas costuras a mais, pois pode ter erro na contagem das proteções.

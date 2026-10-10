@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: bApNhQfhG9Jsu0
-nome: Diamante de Sangue
+nome: Setor Diamante de Sangue
 mapas:
 - caminho_imagem_mapa: imagens/grupo_regiao_1_setor_diamante_de_sangue_p0_i0.webp
   largura_mapa: 1231
@@ -31,9 +31,8 @@ escaladas:
     nome: Diamante de Sangue
     dificuldade: V6_BARRA_V7
     tipo_parede: NEGATIVO
-    descricao: Saída nos pockets mais baixos da face negativa, seguindo por regletes e pockets até finalizar no positivo
-      de abaulados.
+    descricao: Saída nos pockets mais baixos da face negativa, seguindo por regletes
+      e pockets até finalizar no positivo de abaulados.
 ---
 
-# Bloco: Diamante de Sangue
 ## Região 1

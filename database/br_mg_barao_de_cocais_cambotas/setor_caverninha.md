@@ -3,7 +3,7 @@
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: wo6wwzFaS8yJkf
 caminho_imagem_capa: imagens/setor_caverninha_p0_i1.webp
-nome: Caverninha
+nome: Setor Caverninha
 mapas:
 - caminho_imagem_mapa: imagens/setor_caverninha_p0_i0.webp
 escaladas:
@@ -15,8 +15,8 @@ escaladas:
     conquistadores:
     - Antonio Canelas
     - Elaine
-    descricao: Ótima via em fendas e agarras. Crux protegido com grampos. Começa em cima da caverninha usada como 
-      abrigo. Peças pequenas e médias.
+    descricao: Ótima via em fendas e agarras. Crux protegido com grampos. Começa em
+      cima da caverninha usada como abrigo. Peças pequenas e médias.
 - uid: esM3GBTAv771rt
   via_multiplas_enfiadas:
     nome: Double trouble
@@ -27,8 +27,8 @@ escaladas:
     conquistadores:
     - André Coutinho
     - Breno Araújo
-    descricao: Começa no final da 'princesa léia'. Exige boa leitura de via e domínio da técnica móvel. Terceira enfiada
-      exposta. Peças médias e grandes.
+    descricao: Começa no final da 'princesa léia'. Exige boa leitura de via e domínio
+      da técnica móvel. Terceira enfiada exposta. Peças médias e grandes.
     comprimento_total: 80
 - uid: P1jVHZ8UKRngnR
   via_movel:
@@ -38,8 +38,8 @@ escaladas:
     conquistadores:
     - André Coutinho
     - Breno Araújo
-    descricao: Via mista muito interessante. Possui belas fendas em rocha muito sólida. Peças pequenas e médias. Crux 
-      protegido com chapeletas.
+    descricao: Via mista muito interessante. Possui belas fendas em rocha muito sólida.
+      Peças pequenas e médias. Crux protegido com chapeletas.
 - uid: 6TD5wk3k9E6jBq
   via_esportiva:
     nome: O doce e o amargo
@@ -48,10 +48,8 @@ escaladas:
     conquistadores:
     - Breno Araújo
     - Gustavo Vianna
-    descricao: Talvez a via mai difícil da parede. Crux ainda não foi isolado. Tem um teto espetacular na parte final da
-      via. Muito bonita!
+    descricao: Talvez a via mai difícil da parede. Crux ainda não foi isolado. Tem
+      um teto espetacular na parte final da via. Muito bonita!
 ---
-
-# Setor Caverninha
 
 O setor Caverninha possui algumas das vias mais desafiadoras e interessantes do complexo, incluindo a via "O doce e o amargo".

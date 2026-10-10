@@ -115,6 +115,4 @@ escaladas:
     quantidade_protecoes_parada: 2
 ---
 
-# Setor Xavante
-
 Sombra o dia todo (varia de acordo com a estação).

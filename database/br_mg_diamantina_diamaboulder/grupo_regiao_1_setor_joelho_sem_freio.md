@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: NQyqOjn0nMXiem
-nome: Joelho Sem Freio
+nome: Setor Joelho Sem Freio
 mapas:
 - caminho_imagem_mapa: imagens/grupo_regiao_1_setor_joelho_sem_freio_p0_i0.webp
   largura_mapa: 1234
@@ -51,8 +51,8 @@ escaladas:
   boulder:
     nome: Joelho Sem Freio
     dificuldade: V3
-    descricao: Saída com a mão direita na aresta em meia altura e a mão esquerda em abaulado invertido no teto.
+    descricao: Saída com a mão direita na aresta em meia altura e a mão esquerda em
+      abaulado invertido no teto.
 ---
 
-# Bloco: Joelho Sem Freio
 ## Região 1

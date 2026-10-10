@@ -322,8 +322,6 @@ escaladas:
         dificuldade: BR_9C
 ---
 
-# Setor Santa Línea
-
 ## Conexões e Variantes
 
 Este setor possui diversas conexões entre as vias, permitindo combinar diferentes partes (P1, P2, P3...) de vias adjacentes.

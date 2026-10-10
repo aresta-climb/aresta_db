@@ -3,7 +3,7 @@
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: lTa6I1pECPkqaW
 caminho_imagem_capa: imagens/setor_principais_vias_1_p0.webp
-nome: Principais Vias I
+nome: Setor Principais Vias I
 mapas:
 - caminho_imagem_mapa: raw_pdf_contents/imagens/setor_principais_vias_1/p0.webp
 escaladas:
@@ -238,7 +238,5 @@ escaladas:
     - Alexandre Fei
     - Gustavo Piancastelli
 ---
-
-# Principais Vias da Serra da Cambota, Caeté, MG.
 
 Esta lista apresenta as principais vias do complexo de Cambotas, abrangendo diferentes setores e estilos.

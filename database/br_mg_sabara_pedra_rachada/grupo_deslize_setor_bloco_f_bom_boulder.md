@@ -28,13 +28,14 @@ escaladas:
     nome: Bom boulder
     dificuldade: V5
     destaque: true
-    descricao: Começa sentado com a mão direita no reglete/batente no teto, a esquerda no batente de oposição em baixo 
-      da saída do “Invertida” (33) e termina como ele.
+    descricao: Começa sentado com a mão direita no reglete/batente no teto, a esquerda
+      no batente de oposição em baixo da saída do “Invertida” (33) e termina como
+      ele.
 - uid: eYiSv4K262Sl6a
   boulder:
     nome: Armadilha
     dificuldade: V6
-    descricao: Sai sentado com as mãos em agarras invertidas bem baixas e escala o negativo fazendo movimentos fortes.
+    descricao: Sai sentado com as mãos em agarras invertidas bem baixas e escala o
+      negativo fazendo movimentos fortes.
 ---
 
-# Bloco F - Bom Boulder

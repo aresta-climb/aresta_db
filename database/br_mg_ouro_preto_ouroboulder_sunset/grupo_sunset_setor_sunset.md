@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: Kvnf8ufa5QUEaC
-nome: Sunset
+nome: Bloco Sunset
 escaladas:
 - uid: D9xTKWVJ6iApT9
   boulder:
@@ -89,4 +89,3 @@ mapas:
     - l4RLkaslCoVuyS
 ---
 
-# Bloco Sunset

@@ -3,7 +3,7 @@
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: 4h1CafnoahccsZ
 caminho_imagem_capa: imagens/grupo_rio_das_mortes_setor_thundercats_p0_i3.webp
-nome: Thundercats
+nome: Setor Thundercats
 mapas:
 - caminho_imagem_mapa: imagens/grupo_rio_das_mortes_setor_thundercats_p0_i2.webp
   largura_mapa: 1338
@@ -40,8 +40,9 @@ escaladas:
     - Pedro Naves
     - Mariana Fiche
     - Paulo Martins
-    descricao: Via muito boa para iniciantes. Além de fácil, proporciona um lindo visual e uma foto incrível do 
-      escalador se for tirada da trilha que sobe pro Setor de Cima. Boa para top-rope e primeiras guiadas. 5 + 2 chapas.
+    descricao: Via muito boa para iniciantes. Além de fácil, proporciona um lindo
+      visual e uma foto incrível do escalador se for tirada da trilha que sobe pro
+      Setor de Cima. Boa para top-rope e primeiras guiadas. 5 + 2 chapas.
 - uid: 748nNBqx4bedcn
   via_movel:
     nome: Cracuda
@@ -52,10 +53,9 @@ escaladas:
     - Pedro Naves
     - Mariana Fiche
     - Frederico Araújo
-    descricao: Interessante via móvel com boas colocações. Um jogo de friends e nuts (caso não tenha micro-friends).
+    descricao: Interessante via móvel com boas colocações. Um jogo de friends e nuts
+      (caso não tenha micro-friends).
 ---
-
-# Setor Thundercats
 
 Bem ao lado do setor anterior, descendo alguns metros pra direita. Possui apenas duas vias bem bonitas e com vista incrível do top. Sombra o dia todo na base, sol na via de tarde.
 

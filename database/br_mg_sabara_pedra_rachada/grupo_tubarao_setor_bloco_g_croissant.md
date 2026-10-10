@@ -24,7 +24,7 @@ escaladas:
   boulder:
     nome: Croissant
     dificuldade: V2
-    descricao: Sai sentado com as mãos juntas em um batente loco acima do tetinho e escala em diagonal pra esquerda.
+    descricao: Sai sentado com as mãos juntas em um batente loco acima do tetinho
+      e escala em diagonal pra esquerda.
 ---
 
-# Bloco G - Croissant

@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: ozcB2TQFJRqm4f
-nome: Faca de Pedra
+nome: Setor Faca de Pedra
 mapas:
 - caminho_imagem_mapa: imagens/grupo_regiao_2_setor_faca_de_pedra_p0_i0.webp
   largura_mapa: 1240
@@ -92,5 +92,4 @@ escaladas:
     dificuldade: V7
 ---
 
-# Bloco: Faca de Pedra
 ## Região 2

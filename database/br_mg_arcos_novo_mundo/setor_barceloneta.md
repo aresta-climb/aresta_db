@@ -179,6 +179,4 @@ escaladas:
     data_abertura: '2016'
 ---
 
-# Setor Barceloneta
-
 Sombra das 7h as 12h (varia de acordo com a estação).

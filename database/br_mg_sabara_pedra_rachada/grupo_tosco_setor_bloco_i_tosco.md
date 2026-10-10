@@ -29,8 +29,8 @@ escaladas:
   boulder:
     nome: McDonald’s
     dificuldade: V2
-    descricao: Sai sentado com a mão esquerda em um batente e a direita em um reglete, faz uma travessia para a esquerda
-      e finaliza reto, na parte alta.
+    descricao: Sai sentado com a mão esquerda em um batente e a direita em um reglete,
+      faz uma travessia para a esquerda e finaliza reto, na parte alta.
 - uid: zv45eMrvxygInB
   boulder:
     nome: Tosco
@@ -39,8 +39,9 @@ escaladas:
     conquistadores:
     - Thiago Veloso
     data_abertura: '2005'
-    descricao: Começa como o “McDonald’s” (21) e toca reto passando por uma pinça, e dando um dinâmico clássico de uns 
-      regletes até um batente alto, finalizando com um domínio fácil.
+    descricao: Começa como o “McDonald’s” (21) e toca reto passando por uma pinça,
+      e dando um dinâmico clássico de uns regletes até um batente alto, finalizando
+      com um domínio fácil.
 - uid: 93aq7fDD37gcTV
   boulder:
     nome: Tosqueira
@@ -50,7 +51,8 @@ escaladas:
   boulder:
     nome: Senta no porco
     dificuldade: V3
-    descricao: Começa sentado com as mãos na aresta da direita e escala reto dominando a parte mais baixa do bloco.
+    descricao: Começa sentado com as mãos na aresta da direita e escala reto dominando
+      a parte mais baixa do bloco.
 - uid: CkNAAVw6gVMhkT
   boulder:
     nome: Mr. Rocha Pura
@@ -59,7 +61,7 @@ escaladas:
     conquistadores:
     - Rafael Passos
     data_abertura: '2008'
-    descricao: Sai do “Senta no porco” (24) e atravessa para a esquerda terminando no “Tosco” (22).
+    descricao: Sai do “Senta no porco” (24) e atravessa para a esquerda terminando
+      no “Tosco” (22).
 ---
 
-# Bloco I - Tosco

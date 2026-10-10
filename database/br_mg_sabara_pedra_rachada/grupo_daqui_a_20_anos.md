@@ -23,8 +23,6 @@ setores:
 - caminho: grupo_daqui_a_20_anos_setor_bloco_e_escorregador.md
 ---
 
-# Daqui a 20 Anos
-
 Último setor antes do cume da Pedra Rachada que, apesar de possuir poucos blocos, guarda algumas das escaladas mais desafiadoras mentalmente de todo o complexo. Dois clássicos highball fazem deste setor um dos preferidos de muitos viciados em adrenalina. Se você gosta de apertar, não deixe de tentar o único “Amanita” v11.
 
 ## Acesso (25 min)

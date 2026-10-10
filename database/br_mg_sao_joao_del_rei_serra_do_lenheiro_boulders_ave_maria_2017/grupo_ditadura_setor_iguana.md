@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: pn8gTBpmwrR7Fv
-nome: Iguana
+nome: Setor Iguana
 mapas:
 - caminho_imagem_mapa: imagens/grupo_ditadura_setor_iguana_p0_i0.webp
   largura_mapa: 1501
@@ -51,4 +51,3 @@ escaladas:
     dificuldade: V4
 ---
 
-# Setor Iguana

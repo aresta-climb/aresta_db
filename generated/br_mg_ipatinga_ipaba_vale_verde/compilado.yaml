@@ -14,7 +14,7 @@ picos:
       conteudo:
         uid: YuUHXU1tMi1Ar8
         caminho_imagem_capa: imagens/setor_1_andar_p1_i2.webp
-        nome: 1° Andar
+        nome: Setor 1° Andar
         mapas:
         - caminho_imagem_mapa: imagens/setor_1_andar_p0.webp
           largura_mapa: 442
@@ -378,7 +378,7 @@ picos:
           - alvo_uid: Ly4gwN209FrZnL
             pontos_uids:
             - Hj5jHxlPfqz8N8
-            setor: 2° Andar
+            setor: Setor 2° Andar
             ids:
             - Hj5jHxlPfqz8N8
         escaladas:
@@ -569,8 +569,6 @@ picos:
             quantidade_protecoes_parada: 2
             extensao: 15
         descricao: |-
-          # 1° Andar
-
           O 1° Andar é o principal setor da Falésia do Vale Verde, com uma grande concentração de vias de alta dificuldade técnica.
 
           | ![Vista do 1° Andar](imagens/setor_1_andar_p1_i3.webp) |
@@ -590,7 +588,7 @@ picos:
   - setor:
       conteudo:
         uid: Ly4gwN209FrZnL
-        nome: 2° Andar
+        nome: Setor 2° Andar
         mapas:
         - caminho_imagem_mapa: imagens/setor_2_andar_p0.webp
           largura_mapa: 674
@@ -773,10 +771,8 @@ picos:
             dificuldade: PROJETO
             quantidade_protecoes_intermediarias: 10
             quantidade_protecoes_parada: 2
-        descricao: |-
-          # 2° Andar
-
-          O 2° Andar é um setor mais tranquilo com vias de graduação moderada e muitos projetos aguardando a primeira ascensão.
+        descricao: O 2° Andar é um setor mais tranquilo com vias de graduação moderada
+          e muitos projetos aguardando a primeira ascensão.
         precomputados:
           total_escaladas: 8
           total_esportivas: 8
@@ -830,13 +826,13 @@ picos:
         - alvo_uid: Ly4gwN209FrZnL
           pontos_uids:
           - oGjyirgR041xJE
-          setor: 2° Andar
+          setor: Setor 2° Andar
           ids:
           - oGjyirgR041xJE
         - alvo_uid: YuUHXU1tMi1Ar8
           pontos_uids:
           - UYMvnRvWKApLSV
-          setor: 1° Andar
+          setor: Setor 1° Andar
           ids:
           - UYMvnRvWKApLSV
   precomputados:

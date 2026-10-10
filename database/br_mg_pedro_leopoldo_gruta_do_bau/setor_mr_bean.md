@@ -582,8 +582,6 @@ escaladas:
     - Gabriel Lousada
 ---
 
-# Setor Mr. Bean
-
 **Acesso:** Ao chegar ao maciço, no setor entrada, sair na trilha a direita, em direção ao banheiro. Passando pelo setor Sentinela, a primeira entrada a direita leva ao vale dos Espinhos. Se continuar subindo a trilha irá chegar à bifurcação que leva ao setor Mr. Bean e Onda de Calcário.
 
 O nome do setor é uma homenagem ao escalador Leandro Ianotta, que perdeu a vida fazendo o que mais amava no Fitz Roy na Patagônia argentina. Leandro, que era conhecido por Mr. Bean era um apaixonado pelo Baú e seus primeiros passos na carreira de escalador profissional passaram pela gruta do Baú.

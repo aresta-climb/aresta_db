@@ -14,8 +14,6 @@ setores:
 - caminho: grupo_tres_pontoes_setor_vale_das_sombras.md
 ---
 
-# Três Pontões (CEMONTA)
-
 Setor mais antigo, teve suas primeiras conquistas no final da década de 70 por militares e no início dos anos 80 através de escaladores cariocas como André Ilha e Tonico Magalhães.
 
 Os Três Pontões concentram a maior quantidade de vias clássicas da região, seja por sua imponência, beleza, qualidade ou valor histórico à nível nacional e mundial.

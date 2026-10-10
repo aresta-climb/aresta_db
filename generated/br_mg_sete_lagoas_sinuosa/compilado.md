@@ -166,8 +166,6 @@
 ### Setor (Pico: Sinuosa)
 
 - **descricao**:
-    # Setor de Esquerda
-    
     Um dos mais novos setores a ser desenvolvidos no pico, o "Setor de Esquerda"
     é composto por uma bela parede de coloração clara, amarela e avermelhada que se
     caracteriza com concreções e cristais coloridos, a parede é relativamente baixa
@@ -342,8 +340,6 @@
 ### Setor (Pico: Sinuosa)
 
 - **descricao**:
-    # Setor Panelinha
-    
     O "Panelinha" é composto por paredes escuras em formas circulares que lembram
     "panelas" e teve como objetivo principal nas conquistas, aumentar a possibilidade
     para os iniciantes por serem paredes curtas, verticais e com grande variedades de
@@ -492,8 +488,6 @@
 ### Setor (Pico: Sinuosa)
 
 - **descricao**:
-    # Setor 7 Paralelo
-    
     Setor com grande concentração de vias, predomínio de vias de sétimo grau,
     com altura média entre 15 e 25 metros.
     
@@ -962,8 +956,6 @@
 ### Setor (Pico: Sinuosa)
 
 - **descricao**:
-    # Setor Sentinela
-    
     Setor um pouco mais afastado, localizado após subir as escadas do setor
     "7 Paralelo". Setor com grande incidência do sol entre 11:00 e 15:00 hrs.
     
@@ -1182,8 +1174,6 @@
 ### Setor (Pico: Sinuosa)
 
 - **descricao**:
-    # Setor Death Horse
-    
     Setor que fica logo na entrada. Parede extensa, alta e com trechos muito
     negativos. A beleza da formação da parede impressiona pelas cores, formas curiosas
     e pela magnitude do teto. A base do setor é limpa, ampla e comporta grupos maiores,
@@ -1463,8 +1453,6 @@
 ### Setor (Pico: Sinuosa)
 
 - **descricao**:
-    # Setor Gameleira
-    
     Conta com poucas vias e mesmo assim abriga um dos maiores desafios do pico
     até o momento, a "Sou Fria 9a". Via em uma aresta muito negativa, de encaixe e técnica.
     Impressiona pela beleza da linha e pelo crux que é uma problema de boulder especulado
@@ -1623,8 +1611,6 @@
 ### Setor (Pico: Sinuosa)
 
 - **descricao**:
-    # Setor Vale das Sombras
-    
     Setor com maior concentração de vias, predominância de vias mais altas e verticais
     com saídas ou lances curtos em negativo, algumas vias de resistência e outras de
     crux, ou seja, garantia de escalada diferenciada o dia todo.
@@ -2379,7 +2365,7 @@
 
 ### Setor (Pico: Sinuosa)
 
-- **descricao**: # Setor Imigrantes
+- **descricao**: 
 - **nome**: Setor Imigrantes
 - **uid**: GjARqXDXyIGp2W
 - **mapas**:
@@ -2609,7 +2595,7 @@
 
 ### Setor (Pico: Sinuosa)
 
-- **descricao**: # Setor Vale Zela
+- **descricao**: 
 - **nome**: Setor Vale Zela
 - **uid**: MWoo8hRjlRntGq
 - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_vale_zela_p0_i1.webp)
@@ -2802,7 +2788,7 @@
 
 ### Setor (Pico: Sinuosa)
 
-- **descricao**: # Setor Macaúbas
+- **descricao**: 
 - **nome**: Setor Macaúbas
 - **uid**: IOfSlf58GTdE9g
 - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_macaubas_p0_i1.webp)
@@ -2925,8 +2911,6 @@
 ### Setor (Pico: Sinuosa)
 
 - **descricao**:
-    # Setor Primórdios
-    
     Setor onde tudo começou na década de 90, parede com grande concentração
     de vias e de características bem diferentes. As vias possuem ótimas base e bastante
     espaço para grupos, bom para armar redes e descansar, pois o setor possui sombra
@@ -3235,7 +3219,7 @@
 
 ### Setor (Pico: Sinuosa)
 
-- **descricao**: # Setor 4 Picos
+- **descricao**: 
 - **nome**: Setor 4 Picos
 - **uid**: imSvcK2q24F9DV
 - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_4_picos_p0_i1.webp)
@@ -3379,8 +3363,6 @@
 ### Grupo (Pico: Sinuosa)
 
 - **descricao**:
-    # Vale Oculto Sinuosa
-    
     A área recém descoberta por escaladores locais em 2018, o local deu origem a três sub-setores, chamados: **"De Cara"**, **"Laranja"** e **"Anfiteatro"**.
     
     O Local tem acesso diferente da parte já conhecida dos escaladores. O acesso está ilustrado neste croqui.
@@ -3393,7 +3375,6 @@
     | :--: |
     | *Escalador no Vale Oculto* |
     
-    # Trilha de Acesso Vale Oculto
     
     | ![Mapa de Acesso Vale Oculto](imagens/setor_vale_oculto_p2_i0.webp) |
     | :--: |

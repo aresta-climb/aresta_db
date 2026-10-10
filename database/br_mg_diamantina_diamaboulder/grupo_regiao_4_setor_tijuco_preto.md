@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: QqZiA2ythU83BC
-nome: Tijuco Preto
+nome: Setor Tijuco Preto
 mapas:
 - caminho_imagem_mapa: imagens/grupo_regiao_4_setor_tijuco_preto_p0_i0.webp
   largura_mapa: 1240
@@ -92,5 +92,4 @@ escaladas:
     dificuldade: V3
 ---
 
-# Bloco: Tijuco Preto
 ## Região 4

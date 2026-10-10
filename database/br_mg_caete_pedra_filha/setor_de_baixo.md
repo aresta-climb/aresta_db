@@ -139,6 +139,4 @@ escaladas:
     dificuldade: BR_7B
 ---
 
-# Setor de Baixo
-
 O Setor de Baixo da Pedra Filha (Pedrinha) está localizado na Face Norte e conta com vias que desafiam do 5º ao 9º grau, incluindo trechos em artificial (A0).

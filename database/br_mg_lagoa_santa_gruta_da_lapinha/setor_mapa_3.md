@@ -338,7 +338,8 @@ escaladas:
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 0
     quantidade_protecoes_parada: 0
-    descricao: '**INTERDITADA:** Via totalmente desequipada, restando apenas as pontas de bolts cortados.'
+    descricao: '**INTERDITADA:** Via totalmente desequipada, restando apenas as pontas
+      de bolts cortados.'
     conquistadores:
     - Gabriel Fillizola
     - Sílvio Om
@@ -349,8 +350,8 @@ escaladas:
     dificuldade: BR_8B
     quantidade_protecoes_intermediarias: 5
     quantidade_protecoes_parada: 2
-    descricao: '**INTERDITADA:** 1ª proteção muito baixa; grampos em teto/negativo com dimensionamento a verificar, demandando
-      substituição.'
+    descricao: '**INTERDITADA:** 1ª proteção muito baixa; grampos em teto/negativo
+      com dimensionamento a verificar, demandando substituição.'
     conquistadores:
     - Wagner Morin Gomes
     - Wilson Novaes
@@ -361,7 +362,8 @@ escaladas:
     dificuldade: BR_8A
     quantidade_protecoes_intermediarias: 4
     quantidade_protecoes_parada: 2
-    descricao: '**INTERDITADA:** Grampos com palheta em má situação e instalados em negativo.'
+    descricao: '**INTERDITADA:** Grampos com palheta em má situação e instalados em
+      negativo.'
     conquistadores:
     - Márcio Soares Macena
     - Mozart
@@ -372,7 +374,8 @@ escaladas:
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 3
     quantidade_protecoes_parada: 1
-    descricao: '**INTERDITADA:** 1ª chapa alta; grampos de menor diâmetro que necessitam de substituição integral. Top simples.'
+    descricao: '**INTERDITADA:** 1ª chapa alta; grampos de menor diâmetro que necessitam
+      de substituição integral. Top simples.'
     conquistadores:
     - Daniel Fernandes "Salim"
     - Ramaya Vallias
@@ -394,7 +397,8 @@ escaladas:
     dificuldade: BR_6
     quantidade_protecoes_intermediarias: 5
     quantidade_protecoes_parada: 1
-    descricao: '**INTERDITADA:** Grampos de olhal estreito (dificuldade de clipagem de 2 mosquetões); substituição necessária.'
+    descricao: '**INTERDITADA:** Grampos de olhal estreito (dificuldade de clipagem
+      de 2 mosquetões); substituição necessária.'
     conquistadores:
     - André C. B. "Andrezão"
     - J. Roberto Cardoso "Dagó"
@@ -479,7 +483,8 @@ escaladas:
     dificuldade: PROJETO
     quantidade_protecoes_intermediarias: 2
     quantidade_protecoes_parada: 0
-    descricao: '**INTERDITADA:** Via inacabada, conta com 2 grampos com palheta e sem parada instalada no topo.'
+    descricao: '**INTERDITADA:** Via inacabada, conta com 2 grampos com palheta e
+      sem parada instalada no topo.'
     conquistadores:
     - André Coutinho
 - uid: 0XkrqDPEYpl2vw
@@ -504,7 +509,5 @@ escaladas:
     - Bombom
     data_abertura: '1994'
 ---
-
-# Setor Gruta - Mapa 3
 
 Parte interna e externa da gruta com vias esportivas e móveis.

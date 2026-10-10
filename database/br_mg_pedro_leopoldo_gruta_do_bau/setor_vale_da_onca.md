@@ -777,6 +777,4 @@ escaladas:
     - Átila Cunha
 ---
 
-# Setor Vale da Onça
-
 **Acesso:** Seguindo a trilha, após a entrada dos setores Escola e Geriatria, passar pelo portão de metal e seguir as placas em direção ao setor. Cerca de 15 minutos de caminhada a partir do setor entrada.

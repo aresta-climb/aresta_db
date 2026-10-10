@@ -8,7 +8,8 @@ escaladas:
   boulder:
     nome: Quina
     dificuldade: V0
-    descricao: Começa sentado com as mãos juntas em um batente bom e escala pela aresta por agarras boas.
+    descricao: Começa sentado com as mãos juntas em um batente bom e escala pela aresta
+      por agarras boas.
 - uid: Ah2NDaAIZH7eew
   boulder:
     nome: Pinça
@@ -22,4 +23,3 @@ escaladas:
     descricao: Sai sentado com as mãos juntas em um agarrão e escala por agarras boas.
 ---
 
-# Bloco F - Pinça

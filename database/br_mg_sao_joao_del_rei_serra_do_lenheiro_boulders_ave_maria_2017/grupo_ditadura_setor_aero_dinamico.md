@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: a9RCi2qfPDv3xS
-nome: Aero Dinâmico
+nome: Setor Aero Dinâmico
 mapas:
 - caminho_imagem_mapa: imagens/grupo_ditadura_setor_aero_dinamico_p0_i0.webp
   largura_mapa: 748
@@ -37,4 +37,3 @@ escaladas:
     nome: Projeto (Aero Dinâmico)
 ---
 
-# Aero Dinâmico

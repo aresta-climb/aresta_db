@@ -83,10 +83,7 @@
 
 ### Setor (Pico: Novo Mundo)
 
-- **descricao**:
-    # Setor Cemitério dos Ossos
-    
-    Sombra de 7h as 13h (varia de acordo com a estação).
+- **descricao**: Sombra de 7h as 13h (varia de acordo com a estação).
 - **nome**: Setor Cemitério dos Ossos
 - **uid**: sNFsCYKIltcEmd
 - **mapas**:
@@ -177,8 +174,6 @@
 ### Setor (Pico: Novo Mundo)
 
 - **descricao**:
-    # Setor Aristóteles
-    
     Sombra de 7h as 13h (varia de acordo com a estação).
     Também conhecido como Setor Praça Aristóteles.
 - **nome**: Setor Aristóteles
@@ -583,10 +578,7 @@
 
 ### Setor (Pico: Novo Mundo)
 
-- **descricao**:
-    # Setor Corredor Polonês
-    
-    Sombra o dia todo (varia de acordo com a estação).
+- **descricao**: Sombra o dia todo (varia de acordo com a estação).
 - **nome**: Setor Corredor Polonês
 - **uid**: 0Im8sPD9odkqAH
 - **mapas**:
@@ -786,10 +778,7 @@
 
 ### Setor (Pico: Novo Mundo)
 
-- **descricao**:
-    # Setor Barceloneta
-    
-    Sombra das 7h as 12h (varia de acordo com a estação).
+- **descricao**: Sombra das 7h as 12h (varia de acordo com a estação).
 - **nome**: Setor Barceloneta
 - **uid**: yy0t8zuwWuZbNZ
 - **mapas**:

@@ -61,6 +61,4 @@ escaladas:
     descricao: via em móvel
 ---
 
-# Setor Cemitério dos Ossos
-
 Sombra de 7h as 13h (varia de acordo com a estação).

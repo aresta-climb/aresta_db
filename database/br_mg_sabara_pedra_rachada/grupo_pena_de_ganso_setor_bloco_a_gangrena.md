@@ -51,26 +51,29 @@ escaladas:
   boulder:
     nome: Tala
     dificuldade: VB
-    descricao: Sai em pé com as mãos em dois regletes e toca reto para um domínio fácil.
+    descricao: Sai em pé com as mãos em dois regletes e toca reto para um domínio
+      fácil.
 - uid: 3xWjC2f7El0fj4
   boulder:
     nome: Banho de sangue
     dificuldade: V4
     destaque: true
-    descricao: Começa sentado com a mão direita em um pequeno reglete de gastón, a esquerda em um outro regletinho logo 
-      acima dele e escala a face vertical por regletes pequenos.
+    descricao: Começa sentado com a mão direita em um pequeno reglete de gastón, a
+      esquerda em um outro regletinho logo acima dele e escala a face vertical por
+      regletes pequenos.
 - uid: YFtzhNrc3J72pe
   boulder:
     nome: Aderência
     dificuldade: V3
     destaque: true
-    descricao: Começa em pé, com as mãos juntas em um grande reglete de lado e toca reto.
+    descricao: Começa em pé, com as mãos juntas em um grande reglete de lado e toca
+      reto.
 - uid: myxuj5Jn4Zoihl
   boulder:
     nome: Textura
     dificuldade: V4
-    descricao: Saída sentada do “Aderência” (3) que começa com a mão esquerda num pequeno reglete de lado e a direita 
-      aberta em outro reglete.
+    descricao: Saída sentada do “Aderência” (3) que começa com a mão esquerda num
+      pequeno reglete de lado e a direita aberta em outro reglete.
 - uid: dBGZABlDDZ2Tfm
   boulder:
     nome: Gangrena
@@ -78,30 +81,33 @@ escaladas:
     conquistadores:
     - Ruy Castro
     data_abertura: '2007'
-    descricao: Sai sentado com a mão esquerda em um reglete, a mão direita em um batente/abaulado e escala pelo positivo
-      à esquerda da aresta.
+    descricao: Sai sentado com a mão esquerda em um reglete, a mão direita em um batente/abaulado
+      e escala pelo positivo à esquerda da aresta.
 - uid: WdLdWdUZvLnAym
   boulder:
     nome: Quelóide
     dificuldade: V4
     destaque: true
-    descricao: Começa como o “Gangrena” (5) faz uma travessia para a esquerda terminando no “Aderência” (3).
+    descricao: Começa como o “Gangrena” (5) faz uma travessia para a esquerda terminando
+      no “Aderência” (3).
 - uid: IawWgdBSGS18lt
   boulder:
     nome: Sanguinário
     dificuldade: V6
-    descricao: Sai do “Gangrena” (5) e faz uma travessia para a esquerda terminando no “Banho de sangue” (2).
+    descricao: Sai do “Gangrena” (5) e faz uma travessia para a esquerda terminando
+      no “Banho de sangue” (2).
 - uid: 2zsEzcZfVd6WZm
   boulder:
     nome: Cicatriz
     dificuldade: V6
-    descricao: Sai sentado com a mão esquerda no batente/abaulado da saída do “Gangrena” (5) e a direita em um bidedinho
-      e escala à direita da aresta pelas cracas.
+    descricao: Sai sentado com a mão esquerda no batente/abaulado da saída do “Gangrena”
+      (5) e a direita em um bidedinho e escala à direita da aresta pelas cracas.
 - uid: YyykDapSvsSFDN
   boulder:
     nome: Diagramando
     dificuldade: V0
-    descricao: Começa em pé com as mãos juntas em uma laca / pinça e toca reto pelas cracas.
+    descricao: Começa em pé com as mãos juntas em uma laca / pinça e toca reto pelas
+      cracas.
 - uid: EJ8D361Lo0HAr9
   boulder:
     nome: InDesign
@@ -109,4 +115,3 @@ escaladas:
     descricao: Sai em pé com as mãos nas lacas de lado e escala em diagonal pra direita.
 ---
 
-# Bloco A - Gangrena

@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: PYN5lchFdNhSdp
-nome: Caverna, Mirante e Ground Control
+nome: Setor Caverna, Mirante e Ground Control
 mapas:
 - caminho_imagem_mapa: imagens/setor_caverna_bin_laden_mirante_da_cruz_e_ground_control_p0.webp
   largura_mapa: 2048
@@ -254,7 +254,5 @@ setores:
 - caminho: setor_mirante_da_cruz.md
 - caminho: setor_ground_control.md
 ---
-
-# Caverna, Mirante e Ground Control
 
 Este grupo engloba os setores localizados na parte central do Alto Monte Alvão.

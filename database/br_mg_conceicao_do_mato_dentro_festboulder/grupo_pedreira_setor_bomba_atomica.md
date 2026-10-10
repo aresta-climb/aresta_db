@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: pjU0CL4hDO7jOa
-nome: Bomba Atômica
+nome: Setor Bomba Atômica
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bomba_atomica_p0.webp
   largura_mapa: 754
@@ -292,8 +292,6 @@ escaladas:
     nome: (sem nome 14)
     dificuldade: V1
 ---
-
-# Setor Bomba Atômica
 
 O setor Bomba Atômica possui blocos variados com predominância de negativos e tetos, oferecendo linhas técnicas e de força.
 

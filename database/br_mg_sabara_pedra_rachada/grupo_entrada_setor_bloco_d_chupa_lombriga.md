@@ -32,7 +32,7 @@ escaladas:
   boulder:
     nome: Esqueceram de mim
     dificuldade: V3
-    descricao: Sai como o “Chupa lombriga” (49) e toca pra direita passando por uns regletes.
+    descricao: Sai como o “Chupa lombriga” (49) e toca pra direita passando por uns
+      regletes.
 ---
 
-# Bloco D - Chupa Lombriga

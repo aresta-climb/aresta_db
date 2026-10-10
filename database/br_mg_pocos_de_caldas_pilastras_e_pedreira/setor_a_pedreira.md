@@ -3,7 +3,7 @@
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: 5pN7yJIZtS7qQY
 caminho_imagem_capa: imagens/setor_a_pedreira_p1_i1.webp
-nome: A Pedreira
+nome: Setor A Pedreira
 mapas:
 - caminho_imagem_mapa: imagens/setor_a_pedreira_p1_i2.webp
 - caminho_imagem_mapa: imagens/setor_a_pedreira_p2_i1.webp

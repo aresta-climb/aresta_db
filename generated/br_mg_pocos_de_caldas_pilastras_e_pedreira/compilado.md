@@ -100,7 +100,7 @@
 - **descricao**:
     Escalada tranquila, com vias fáceis, boas para quem está iniciando e aprendendo a guiar. 
     A via número 1 inicia-se a direita da parede para quem está chegando no vale, ou a esquerda para quem vem das pilastras como na foto, caracterizada por dois “P´s” em sua primeira proteção.
-- **nome**: O Vale
+- **nome**: Setor O Vale
 - **uid**: FbReUotUDqxCUZ
 - **mapas**:
   - **[0]**:
@@ -158,7 +158,7 @@
     Setor clássico com escalada em pilastras de pedra.
     Atenção: Abelhas em todas as faces da Segunda Pilastra.
     Terceira Pilastra possui projetos inacabados devido às abelhas.
-- **nome**: As Pilastras
+- **nome**: Setor As Pilastras
 - **uid**: zcuFQgu37KFBnD
 - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_as_pilastras_p0_i1.webp)
 - **mapas**:
@@ -265,7 +265,7 @@
     Siga em direção as Pilastras porém ao invés de entrar à direita após o reservatório continue em frente, passe dois redutores de velocidade e quando encontrar o terceiro olhe a sua esquerda e avistará a pedreira.
     
     Obs: Não tome os graus deste croqui como verdade são apenas sugestões, podem variar de acordo com a técnica e a estatura do escalador.
-- **nome**: A Pedreira
+- **nome**: Setor A Pedreira
 - **uid**: 5pN7yJIZtS7qQY
 - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_a_pedreira_p1_i1.webp)
 - **mapas**:

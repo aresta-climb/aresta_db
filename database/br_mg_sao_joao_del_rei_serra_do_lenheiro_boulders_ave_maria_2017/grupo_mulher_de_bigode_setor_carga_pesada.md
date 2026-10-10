@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: 0HG2zaGIDNfYkO
-nome: Carga Pesada
+nome: Setor Carga Pesada
 mapas:
 - caminho_imagem_mapa: imagens/grupo_mulher_de_bigode_setor_carga_pesada_p0_i1.webp
   largura_mapa: 717
@@ -39,4 +39,3 @@ escaladas:
     dificuldade: V6
 ---
 
-# Setor Carga Pesada

@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: miGSpygWRq6cb6
-nome: Vale Gaules
+nome: Setor Vale Gaules
 mapas:
 - caminho_imagem_mapa: imagens/setor_vale_gaules_p0.webp
   largura_mapa: 2048
@@ -221,7 +221,5 @@ escaladas:
     conquistadores:
     - Jg
 ---
-
-# Vale Gaules
 
 O setor Vale Gaules está localizado no Alto Monte Alvão.

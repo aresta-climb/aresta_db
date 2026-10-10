@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: 7E2CO690WlPLfJ
-nome: Preguiça
+nome: Setor Preguiça
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_preguica_p0.webp
   largura_mapa: 757
@@ -161,8 +161,6 @@ escaladas:
     nome: Carlos Drummond
     dificuldade: V7
 ---
-
-# Setor Preguiça
 
 O setor Preguiça possui blocos com linhas de alta dificuldade e boulders atléticos.
 

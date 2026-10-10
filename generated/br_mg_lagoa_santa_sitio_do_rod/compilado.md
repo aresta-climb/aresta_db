@@ -371,13 +371,11 @@
 ### Setor (Pico: Sítio do Rod)
 
 - **descricao**:
-    # Setor G1
-    
     O setor G1 tem ótimas vias e boulder. Porem é necessário manter o silêncio e prestar muita atenção quanto a presença de abelhas.
     
     **Boulders:**
     Boulders clássicos entre V0 e V4.
-- **nome**: G1
+- **nome**: Setor G1
 - **uid**: JQThCUNwxqH4AX
 - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/pagina_16_imagem_0.webp)
 - **mapas**:
@@ -745,12 +743,10 @@
 ### Setor (Pico: Sítio do Rod)
 
 - **descricao**:
-    # Setor G2
-    
     **Travessias:**
     * C: Boas opções de travessias, muito legais.
     * D: Boas opções de travessias, muito legais.
-- **nome**: G2
+- **nome**: Setor G2
 - **uid**: lge5uD507M5WRB
 - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/pagina_18_imagem_0.webp)
 - **mapas**:
@@ -1297,14 +1293,12 @@
 ### Setor (Pico: Sítio do Rod)
 
 - **descricao**:
-    # Setor G3
-    
     O setor G3 é o maior setor do Sítio do Rod, com vias que variam do 3º ao 10º grau.
     
     **Boulders e travessias:**
     * Boulders e travessias nas colunas desse setor.
     * Boulder tetinho: V3 a V8.
-- **nome**: G3
+- **nome**: Setor G3
 - **uid**: eHmTU7FgrKO1h2
 - **mapas**:
   - **[0]**:

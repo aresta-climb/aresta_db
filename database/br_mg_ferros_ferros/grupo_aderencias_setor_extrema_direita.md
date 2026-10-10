@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: sMtcp04stg3wSX
-nome: Extrema Direita
+nome: Setor Extrema Direita
 mapas:
 - caminho_imagem_mapa: imagens/grupo_aderencias_setor_extrema_direita_p1_i1.webp
   referencias:
@@ -126,13 +126,8 @@ escaladas:
     - Francisco Caetano
     - Ernane "Tufo" Wermelinger
     data_abertura: '2012-01-21'
-    descricao: 'A primeira enfiada passa por um extenso costão de 60 metros, com apenas
-      três grampos. Depois deste ponto, a parede ganha inclinação, aumentando a graduação,
-      pouco a pouco, culminando no crux da via, já nos metros finais da parede. Possui
-      duas passadas em móvel, nos quais se recomenda a utilização de stoppers grandes
-      de camalot #2.
-
-      '
+    descricao: |
+      A primeira enfiada passa por um extenso costão de 60 metros, com apenas três grampos. Depois deste ponto, a parede ganha inclinação, aumentando a graduação, pouco a pouco, culminando no crux da via, já nos metros finais da parede. Possui duas passadas em móvel, nos quais se recomenda a utilização de stoppers grandes de camalot #2.
   mapas:
   - caminho_imagem_mapa: imagens/grupo_aderencias_setor_extrema_direita_p4_i2.webp
     largura_mapa: 524
@@ -148,11 +143,8 @@ escaladas:
     - Tonico Magalhães
     - Celso Ferreira Gomes
     data_abertura: '2010-02-14'
-    descricao: 'A primeira via conquistada na extrema direita da Parede das Aderências,
-      com lances predominantemente em aderência, protegida em grampos de ½ polegada.
-      O crux é uma barriga lisa no final da via.
-
-      '
+    descricao: |
+      A primeira via conquistada na extrema direita da Parede das Aderências, com lances predominantemente em aderência, protegida em grampos de ½ polegada. O crux é uma barriga lisa no final da via.
 - uid: LBIEfNwhK7tjIU
   via_multiplas_enfiadas:
     nome: Mais Chuva Que Sol
@@ -169,15 +161,8 @@ escaladas:
     - Francisco Caetano
     - Ricardo Barros
     data_abertura: '2012-01-22'
-    descricao: 'A via é predominante em aderência, com fendas que ajudam a melhorar
-      a proteção. Seu início é mais inclinado e, logo após a primeira proteção, cai
-      bastante até a P1. Dessa proteção em diante, a inclinação aumenta gradativamente,
-      com uma passada entre um pequeno teto rodeado de mato e grandes blocos soltos,
-      que não aguentariam uma queda. Recomenda-se um jogo de camalots do #0.5 a #3.
-      Os últimos grampos da via estão intercalados entre a vegetação e espaços onde
-      a rocha aflora.
-
-      '
+    descricao: |
+      A via é predominante em aderência, com fendas que ajudam a melhorar a proteção. Seu início é mais inclinado e, logo após a primeira proteção, cai bastante até a P1. Dessa proteção em diante, a inclinação aumenta gradativamente, com uma passada entre um pequeno teto rodeado de mato e grandes blocos soltos, que não aguentariam uma queda. Recomenda-se um jogo de camalots do #0.5 a #3. Os últimos grampos da via estão intercalados entre a vegetação e espaços onde a rocha aflora.
   mapas:
   - caminho_imagem_mapa: imagens/grupo_aderencias_setor_extrema_direita_p4_i1.webp
     largura_mapa: 524

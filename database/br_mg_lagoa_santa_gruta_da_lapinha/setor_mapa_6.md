@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: DzpVy5IyHcY19t
-nome: Vale Verde (Mapa 6)
+nome: Setor Vale Verde (Mapa 6)
 mapas:
 - caminho_imagem_mapa: imagens/setor_mapa_6_p0_i0.webp
   largura_mapa: 510
@@ -265,8 +265,6 @@ escaladas:
     - Ricardo Jardim Leal
     data_abertura: '1998'
 ---
-
-# Setor Vale Verde (Mapa 6)
 
 Setor com vias técnicas e atléticas. O mapa está fora de escala ("fora de escala").
 O Bloco do Raul Seixas está localizado próximo às vias 73, 74 e 75.

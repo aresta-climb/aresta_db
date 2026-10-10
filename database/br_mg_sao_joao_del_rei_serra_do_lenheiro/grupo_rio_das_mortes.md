@@ -10,8 +10,6 @@ setores:
 - caminho: grupo_rio_das_mortes_setor_namata.md
 ---
 
-# Setores do Rio das Mortes
-
 Mais recente área de escalada da cidade, descoberta em 2017, vem se tornando muito popular pelo fato de ter vias bastante variadas em grau, altura e estilo, além de ter sombra o dia inteiro devido à uma agradável floresta. Outro fato positivo é o fácil acesso (são 10min de carro apenas em asfalto e mais 20min de trilha leve). Seus setores ficam muito próximos.
 
 ## Como Chegar

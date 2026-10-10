@@ -13,7 +13,7 @@ picos:
   - setor:
       conteudo:
         uid: qSQoG5K7dOGfrN
-        nome: Highlines - Bocaina Park
+        nome: Setor Highlines - Bocaina Park
         mapas:
         - caminho_imagem_mapa: imagens/setor_highlines_p0.webp
           largura_mapa: 1152
@@ -172,7 +172,7 @@ picos:
               Lado móvel: Terceiro Andar ao chegar na base da via efeito colateral,
               derivar completamente à esquerda em direção às ancoragens.'
             descricao_ancoragem: 'Lado estático: 4 chapeletas Lado móvel: 3 chapeletas.'
-        descricao: '# Highlines - Bocaina Park'
+        descricao: ''
         precomputados:
           total_escaladas: 5
           total_highlines: 5
@@ -180,7 +180,7 @@ picos:
       conteudo:
         uid: yct6sz1JSOdJNh
         caminho_imagem_capa: imagens/setor_ensolarado_p0_i0.webp
-        nome: Ensolarado
+        nome: Setor Ensolarado
         mapas:
         - caminho_imagem_mapa: imagens/setor_ensolarado_p1.webp
           largura_mapa: 1152
@@ -761,8 +761,6 @@ picos:
             - Alexandre FEI
             data_abertura: '2013'
         descricao: |-
-          # Setor Ensolarado
-
           O Setor Ensolarado é um dos setores iniciais do Bocaina Park, caracterizado por vias de graduação variada, do 5º ao 9b.
 
           > [!TIP]
@@ -774,7 +772,7 @@ picos:
       conteudo:
         uid: 246UG6k7cYUggW
         caminho_imagem_capa: imagens/setor_garganta_p0_i0.webp
-        nome: Garganta
+        nome: Setor Garganta
         mapas:
         - caminho_imagem_mapa: imagens/setor_garganta_p1.webp
           largura_mapa: 1152
@@ -1555,8 +1553,6 @@ picos:
             - Alex
             data_abertura: '2013'
         descricao: |-
-          # Setor Garganta
-
           O Setor Garganta é um dos mais icônicos do Bocaina Park, com uma grande concentração de vias de 6º e 7º grau, além da clássica "Ceder Writhe" (8c).
 
           > [!TIP]
@@ -1568,7 +1564,7 @@ picos:
       conteudo:
         uid: SIe8qMFw1Y46zG
         caminho_imagem_capa: imagens/setor_tapa_na_cara_p0_i0.webp
-        nome: Tapa na Cara
+        nome: Setor Tapa na Cara
         mapas:
         - caminho_imagem_mapa: imagens/setor_tapa_na_cara_p1.webp
           largura_mapa: 1148
@@ -1679,8 +1675,6 @@ picos:
             - Paulo
             data_abertura: '2013'
         descricao: |-
-          # Setor Tapa na Cara
-
           Setor com vias curtas e técnicas, ideal para quem busca vias de 6º e 7º grau.
 
           > [!TIP]
@@ -1692,7 +1686,7 @@ picos:
       conteudo:
         uid: bIzbj97ftcBIWw
         caminho_imagem_capa: imagens/setor_terceiro_andar_p0_i0.webp
-        nome: Terceiro Andar
+        nome: Setor Terceiro Andar
         mapas:
         - caminho_imagem_mapa: imagens/setor_terceiro_andar_p1.webp
           largura_mapa: 1143
@@ -2182,8 +2176,6 @@ picos:
             dificuldade: PROJETO
             descricao: Primeiro crux da Cura Trimura com Crux da Grande Hotel.
         descricao: |-
-          # Setor Terceiro Andar
-
           O Setor Terceiro Andar é conhecido por suas vias de alta dificuldade, incluindo projetos e vias de 9º grau consolidado.
 
           > [!TIP]
@@ -2195,7 +2187,7 @@ picos:
       conteudo:
         uid: lqRtz0vbIZQGsV
         caminho_imagem_capa: imagens/setor_paulistas_p0_i0.webp
-        nome: Paulistas
+        nome: Setor Paulistas
         mapas:
         - caminho_imagem_mapa: imagens/setor_paulistas_p1.webp
           largura_mapa: 1143
@@ -2607,8 +2599,6 @@ picos:
             - Daiex de Almeida
             data_abertura: '2014'
         descricao: |-
-          # Setor Paulistas
-
           O Setor Paulistas contém uma grande variedade de vias técnicas, com destaque para a "Cortina de Fumaça" (9c).
 
           > [!TIP]
@@ -2620,7 +2610,7 @@ picos:
       conteudo:
         uid: XtSJq3QnulIdf9
         caminho_imagem_capa: imagens/setor_mezanino_p0_i0.webp
-        nome: Mezanino
+        nome: Setor Mezanino
         mapas:
         - caminho_imagem_mapa: imagens/setor_mezanino_p1.webp
           largura_mapa: 858
@@ -3118,8 +3108,6 @@ picos:
             descricao: Primeiro crux da Egocentrismo com o segundo crux da Universo
               Paralelo.
         descricao: |-
-          # Setor Mezanino
-
           O Setor Mezanino oferece uma excelente mistura de vias fáceis (5º grau) e caminhos extremamente difíceis ultrapassando o 10º grau.
 
           > [!TIP]
@@ -3131,7 +3119,7 @@ picos:
       conteudo:
         uid: ALlNMayNg4qW0W
         caminho_imagem_capa: imagens/setor_shana_crazy_p0_i0.webp
-        nome: Shana Crazy
+        nome: Setor Shana Crazy
         mapas:
         - caminho_imagem_mapa: imagens/setor_shana_crazy_p1.webp
           largura_mapa: 846
@@ -3367,8 +3355,6 @@ picos:
             - Diego Leonardo
             data_abertura: '2011'
         descricao: |-
-          # Setor Shana Crazy
-
           O Setor Shana Crazy possui vias curtas e intensas, variando do 4º ao 7º grau.
 
           > [!TIP]
@@ -3380,7 +3366,7 @@ picos:
       conteudo:
         uid: vcNPgYS6LWY92G
         caminho_imagem_capa: imagens/setor_tsunami_p0_i0.webp
-        nome: Tsunami
+        nome: Setor Tsunami
         mapas:
         - caminho_imagem_mapa: imagens/setor_tsunami_p1.webp
           largura_mapa: 1142
@@ -3989,8 +3975,6 @@ picos:
             - Lucas Ramos
             data_abertura: '2006'
         descricao: |-
-          # Setor Tsunami
-
           O Setor Tsunami é um dos maiores do Bocaina Park, com vias extensas e desafiadoras que chegam ao 10º grau.
 
           > [!TIP]
@@ -4002,7 +3986,7 @@ picos:
       conteudo:
         uid: RDvWM1pC3cmOAz
         caminho_imagem_capa: imagens/setor_udao_p0_i0.webp
-        nome: Udão
+        nome: Setor Udão
         mapas:
         - caminho_imagem_mapa: imagens/setor_udao_p1.webp
           largura_mapa: 1152
@@ -4334,8 +4318,6 @@ picos:
             - Gustavo
             data_abertura: '2016'
         descricao: |-
-          # Setor Udão
-
           O Setor Udão apresenta vias de 5º a 7º grau, com uma boa concentração de vias de 6º sup.
 
           > [!TIP]
@@ -4347,7 +4329,7 @@ picos:
       conteudo:
         uid: sKwnDft8hBVYxs
         caminho_imagem_capa: imagens/setor_tereza_p0_i0.webp
-        nome: Tereza
+        nome: Setor Tereza
         mapas:
         - caminho_imagem_mapa: imagens/setor_tereza_p1.webp
           largura_mapa: 1145
@@ -4523,8 +4505,6 @@ picos:
             - Lucas Ramos
             data_abertura: '2006'
         descricao: |-
-          # Setor Tereza
-
           Setor com vias acessíveis de 5º grau e desafios técnicos de até 7º grau.
 
           > [!TIP]
@@ -4535,7 +4515,7 @@ picos:
   - setor:
       conteudo:
         uid: dwuQyJozrODbgq
-        nome: Bem-vindo
+        nome: Setor Bem-vindo
         mapas:
         - caminho_imagem_mapa: imagens/setor_bem_vindo_p1.webp
           largura_mapa: 1152
@@ -5038,8 +5018,6 @@ picos:
             data_abertura: '2006'
             descricao: Falta topo.
         descricao: |-
-          # Setor Bem-vindo
-
           O Setor Bem-vindo é um dos setores mais tradicionais do parque, com vias que variam de 5º a 8a, e algumas das vias mais longas como "Sainhaca" e "Excalibur" (45m).
 
           > [!TIP]
@@ -5051,7 +5029,7 @@ picos:
       conteudo:
         uid: q0gv91KFyAc9AX
         caminho_imagem_capa: imagens/setor_tetos_p0_i0.webp
-        nome: Tetos
+        nome: Setor Tetos
         mapas:
         - caminho_imagem_mapa: imagens/setor_tetos_p1.webp
           largura_mapa: 1140
@@ -6064,8 +6042,6 @@ picos:
             - Saulo
             data_abertura: '2017'
         descricao: |-
-          # Setor Tetos
-
           O Setor Tetos é conhecido por suas vias atléticas e desafiadoras, com muitos tetos e negativas. Contém vias variadas de 5º a 10a grau, além de vários projetos promissores.
 
           > [!TIP]
@@ -6077,7 +6053,7 @@ picos:
       conteudo:
         uid: uiwowojbrlzAlz
         caminho_imagem_capa: imagens/setor_segundo_andar_p0_i0.webp
-        nome: Segundo Andar
+        nome: Setor Segundo Andar
         mapas:
         - caminho_imagem_mapa: imagens/setor_segundo_andar_p1.webp
           largura_mapa: 1152
@@ -6362,8 +6338,6 @@ picos:
             - Alexandre Fei
             data_abertura: '2017'
         descricao: |-
-          # Setor Segundo Andar
-
           O Setor Segundo Andar oferece vias atléticas com nomes inspirados na cultura pop, variando de 6º a 9º grau.
 
           > [!TIP]
@@ -6375,7 +6349,7 @@ picos:
       conteudo:
         uid: ObPNZKFJ6b8VT1
         caminho_imagem_capa: imagens/setor_pirados_de_rocha_p0_i0.webp
-        nome: Pirados de Rocha
+        nome: Setor Pirados de Rocha
         mapas:
         - caminho_imagem_mapa: imagens/setor_pirados_de_rocha_p1.webp
           largura_mapa: 1152
@@ -6560,8 +6534,6 @@ picos:
             - Vitu
             data_abertura: '2017'
         descricao: |-
-          # Setor Pirados de Rocha
-
           Setor com várias vias de projeto e nomes inspirados no cenário político brasileiro de 2017.
 
           > [!TIP]
@@ -6698,85 +6670,85 @@ picos:
         - alvo_uid: yct6sz1JSOdJNh
           pontos_uids:
           - qqPHZ23QnO0bAu
-          setor: Ensolarado
+          setor: Setor Ensolarado
           ids:
           - qqPHZ23QnO0bAu
         - alvo_uid: 246UG6k7cYUggW
           pontos_uids:
           - A3Stn9NYFd63o4
-          setor: Garganta
+          setor: Setor Garganta
           ids:
           - A3Stn9NYFd63o4
         - alvo_uid: SIe8qMFw1Y46zG
           pontos_uids:
           - 0eHFvB2iSW1fiL
-          setor: Tapa na Cara
+          setor: Setor Tapa na Cara
           ids:
           - 0eHFvB2iSW1fiL
         - alvo_uid: bIzbj97ftcBIWw
           pontos_uids:
           - 7FYKZWR9JDv6ZL
-          setor: Terceiro Andar
+          setor: Setor Terceiro Andar
           ids:
           - 7FYKZWR9JDv6ZL
         - alvo_uid: lqRtz0vbIZQGsV
           pontos_uids:
           - tAGxUBRUlz8zrX
-          setor: Paulistas
+          setor: Setor Paulistas
           ids:
           - tAGxUBRUlz8zrX
         - alvo_uid: XtSJq3QnulIdf9
           pontos_uids:
           - ODEDA5qrB4Cev1
-          setor: Mezanino
+          setor: Setor Mezanino
           ids:
           - ODEDA5qrB4Cev1
         - alvo_uid: ALlNMayNg4qW0W
           pontos_uids:
           - x4L1cX3nmrCZOp
-          setor: Shana Crazy
+          setor: Setor Shana Crazy
           ids:
           - x4L1cX3nmrCZOp
         - alvo_uid: vcNPgYS6LWY92G
           pontos_uids:
           - knkEH4QfDujM7k
-          setor: Tsunami
+          setor: Setor Tsunami
           ids:
           - knkEH4QfDujM7k
         - alvo_uid: RDvWM1pC3cmOAz
           pontos_uids:
           - u27KjU73nLEjy7
-          setor: Udão
+          setor: Setor Udão
           ids:
           - u27KjU73nLEjy7
         - alvo_uid: sKwnDft8hBVYxs
           pontos_uids:
           - XsK3mXFx7904mM
-          setor: Tereza
+          setor: Setor Tereza
           ids:
           - XsK3mXFx7904mM
         - alvo_uid: dwuQyJozrODbgq
           pontos_uids:
           - D7orrsq8HIEhUN
-          setor: Bem-vindo
+          setor: Setor Bem-vindo
           ids:
           - D7orrsq8HIEhUN
         - alvo_uid: q0gv91KFyAc9AX
           pontos_uids:
           - D7orrsq8HIEhUN
-          setor: Tetos
+          setor: Setor Tetos
           ids:
           - D7orrsq8HIEhUN
         - alvo_uid: uiwowojbrlzAlz
           pontos_uids:
           - KdFhsZNkRTtUmz
-          setor: Segundo Andar
+          setor: Setor Segundo Andar
           ids:
           - KdFhsZNkRTtUmz
         - alvo_uid: ObPNZKFJ6b8VT1
           pontos_uids:
           - o6lY5NWsxY7cWK
-          setor: Pirados de Rocha
+          setor: Setor Pirados de Rocha
           ids:
           - o6lY5NWsxY7cWK
   localizacao:

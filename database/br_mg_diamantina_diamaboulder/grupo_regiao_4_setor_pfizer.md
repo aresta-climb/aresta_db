@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: IAHAxZrL76iUE6
-nome: Pfizer
+nome: Setor Pfizer
 mapas:
 - caminho_imagem_mapa: imagens/grupo_regiao_4_setor_pfizer_p0_i0.webp
   largura_mapa: 1240
@@ -72,5 +72,4 @@ escaladas:
     dificuldade: V0
 ---
 
-# Bloco: Pfizer
 ## Região 4

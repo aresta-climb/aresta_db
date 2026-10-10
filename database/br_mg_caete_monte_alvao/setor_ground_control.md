@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: NZGLAfWYiM8NDf
-nome: Ground Control
+nome: Setor Ground Control
 escaladas:
 - uid: SRdjxYR9aFvUic
   via_movel:
@@ -164,3 +164,4 @@ escaladas:
     quantidade_costuras_intermediarias: 10
     quantidade_equipamentos_parada: 2
 ---
+

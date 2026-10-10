@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: oLx7PAaXis7B0M
-nome: X-Tudo
+nome: Setor X-Tudo
 mapas:
 - caminho_imagem_mapa: imagens/grupo_salao_de_pedras_setor_x_tudo_p0.webp
   largura_mapa: 758
@@ -77,8 +77,6 @@ escaladas:
     nome: Kansas
     dificuldade: V3
 ---
-
-# Setor X-Tudo
 
 O setor X-Tudo possui blocos interessantes com linhas de dificuldade intermediária.
 

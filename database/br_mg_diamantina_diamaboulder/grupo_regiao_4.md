@@ -12,6 +12,4 @@ setores:
 - caminho: grupo_regiao_4_setor_tijuco_preto.md
 ---
 
-# Região 4
-
 A Região 4 é a última região do setor Cerrado Groove, contendo o Navio Pirata e outros blocos.

@@ -3,7 +3,7 @@
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: JQThCUNwxqH4AX
 caminho_imagem_capa: imagens/pagina_16_imagem_0.webp
-nome: G1
+nome: Setor G1
 mapas:
 - caminho_imagem_mapa: imagens/pagina_15.webp
   largura_mapa: 813
@@ -169,7 +169,8 @@ escaladas:
     conquistadores:
     - Grots
     - Marcus "Rufino"
-    descricao: Boa via, bom usar stiq-clip nas 2 primeiras. **Atenção se tem abelhas por perto!**
+    descricao: Boa via, bom usar stiq-clip nas 2 primeiras. **Atenção se tem abelhas
+      por perto!**
 - uid: Stl18z42g4jTzV
   via_esportiva:
     nome: Não contavam com minha astucia
@@ -247,8 +248,6 @@ escaladas:
     dificuldade: BR_6
     descricao: Via inacabada. Cuidado abelhas!
 ---
-
-# Setor G1
 
 O setor G1 tem ótimas vias e boulder. Porem é necessário manter o silêncio e prestar muita atenção quanto a presença de abelhas.
 

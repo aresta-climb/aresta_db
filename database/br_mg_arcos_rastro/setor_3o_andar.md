@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: xFIkaiWPCCAZxk
-nome: 3º Andar
+nome: Setor 3º Andar
 mapas:
 - caminho_imagem_mapa: imagens/setor_3o_andar_p0_i0.webp
   largura_mapa: 922
@@ -418,7 +418,5 @@ escaladas:
     quantidade_protecoes_intermediarias: 5
     quantidade_protecoes_parada: 2
 ---
-
-# Setor 3º Andar
 
 Este setor possui sombra o dia todo (variando de acordo com a estação).

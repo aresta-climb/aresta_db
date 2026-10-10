@@ -22,14 +22,15 @@ escaladas:
   boulder:
     nome: Orgulho preto
     dificuldade: V6
-    descricao: Boulder ainda sem repetições que sai sentado com a mão esquerda em um abaulado próximo à aresta e a 
-      direita em um reglete atrás da pedra.
+    descricao: Boulder ainda sem repetições que sai sentado com a mão esquerda em
+      um abaulado próximo à aresta e a direita em um reglete atrás da pedra.
 - uid: BfjKTAdMsGGuDd
   boulder:
     nome: Abraço do calango
     dificuldade: V4
     destaque: true
-    descricao: Começa sentado com os braços abertos abraçando o pequeno bloco e escala em compressão.
+    descricao: Começa sentado com os braços abertos abraçando o pequeno bloco e escala
+      em compressão.
 - uid: V1pPmqvwoIVKtO
   boulder:
     nome: Projeto 3
@@ -37,4 +38,3 @@ escaladas:
     descricao: Boulder que escala a aresta.
 ---
 
-# Bloco E - Abraço do Calango

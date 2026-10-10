@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: 9rTp4J89URZRPy
-nome: Apoio Resende
+nome: Setor Apoio Resende
 mapas:
 - caminho_imagem_mapa: imagens/grupo_reza_setor_apoio_resende_p0_i0.webp
   largura_mapa: 736
@@ -51,7 +51,5 @@ escaladas:
     nome: Sagarana
     dificuldade: V6
 ---
-
-# Setor Apoio Resende
 
 (Face da Batcaverna)

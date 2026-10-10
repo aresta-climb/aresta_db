@@ -290,7 +290,8 @@ escaladas:
     - Eustáquio Macedo Melo Júnior
     - Fábio Luiz Farias "Fabinho"
     data_abertura: '1993'
-    descricao: 'ATENÇÃO: não utilizar o bico de pedra próximo ao top rope como agarra! Risco de queda do bloco!'
+    descricao: 'ATENÇÃO: não utilizar o bico de pedra próximo ao top rope como agarra!
+      Risco de queda do bloco!'
 - uid: ZgB4gVcfZ1FoTC
   via_esportiva:
     nome: Bigode Sujo
@@ -342,7 +343,8 @@ escaladas:
     dificuldade: BR_7C
     quantidade_protecoes_intermediarias: 4
     quantidade_protecoes_parada: 2
-    descricao: '**INTERDITADA:** Bloco com fratura/rachadura crítica na altura da 2ª proteção, com alto risco de descolamento.'
+    descricao: '**INTERDITADA:** Bloco com fratura/rachadura crítica na altura da
+      2ª proteção, com alto risco de descolamento.'
     conquistadores:
     - Dante Martins Borges
     - Sérgio Bastos da Silva
@@ -376,7 +378,8 @@ escaladas:
     dificuldade: PROJETO
     quantidade_protecoes_intermediarias: 4
     quantidade_protecoes_parada: 0
-    descricao: '**INTERDITADA:** Via inacabada, sem parada no topo. Presença de spits e grampos com palheta antigos.'
+    descricao: '**INTERDITADA:** Via inacabada, sem parada no topo. Presença de spits
+      e grampos com palheta antigos.'
     conquistadores:
     - Leonardo Hoffmann
     - Alexandre "Caverna"
@@ -396,7 +399,8 @@ escaladas:
     dificuldade: PROJETO
     quantidade_protecoes_intermediarias: 1
     quantidade_protecoes_parada: 0
-    descricao: '**INTERDITADA:** Via inacabada, possui apenas 1 proteção com palheta e não possui parada no topo.'
+    descricao: '**INTERDITADA:** Via inacabada, possui apenas 1 proteção com palheta
+      e não possui parada no topo.'
     conquistadores:
     - Daniel Fernandes "Salim"
 - uid: fuAERj0RgZMLR5
@@ -409,10 +413,10 @@ escaladas:
     - Emerson Alves Azeredo
     - Gilberto Torres
     data_abertura: '1993'
-    descricao: 'Via mista, laçar a ponte de pedra com uma fita de 120cm entre a 3a proteção e o top.
+    descricao: |-
+      Via mista, laçar a ponte de pedra com uma fita de 120cm entre a 3a proteção e o top.
 
-
-      Muito cuidado nas primeiras três proteções por causa do bloco na base da via.'
+      Muito cuidado nas primeiras três proteções por causa do bloco na base da via.
 - uid: Edh9kZy5L2CndU
   via_esportiva:
     nome: Consolo da Surucucu
@@ -505,8 +509,6 @@ escaladas:
     - Alexandre Magos
     data_abertura: '1998'
 ---
-
-# Setor Túnel de Pedra (Mapa 8)
 
 Vias localizadas na região do Túnel de Pedra.
 O setor possui uma grande concentração de vias esportivas de graduação variada.

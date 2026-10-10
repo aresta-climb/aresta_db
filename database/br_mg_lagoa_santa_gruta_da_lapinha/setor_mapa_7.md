@@ -147,8 +147,8 @@ escaladas:
     dificuldade: BR_7C
     quantidade_protecoes_intermediarias: 6
     quantidade_protecoes_parada: 2
-    descricao: '**INTERDITADA:** Grande quantidade de chapas de spit antigas; chumbador da 1ª proteção com rosca excessivamente
-      exposta para fora; via muito suja.'
+    descricao: '**INTERDITADA:** Grande quantidade de chapas de spit antigas; chumbador
+      da 1ª proteção com rosca excessivamente exposta para fora; via muito suja.'
     conquistadores:
     - Juan Kempen
     - Pedro Assis Leite
@@ -228,7 +228,5 @@ escaladas:
     - Emerson Alves Azeredo
     data_abertura: '1993'
 ---
-
-# Setor Mapa 7
 
 Este setor abriga a base da via "Monte Calvário". Possui vias predominantemente esportivas.

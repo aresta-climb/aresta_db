@@ -122,4 +122,3 @@ escaladas:
     quantidade_protecoes_intermediarias: 4
 ---
 
-# Setor Vale Zela

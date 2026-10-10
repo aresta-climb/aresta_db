@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: bAAZiu44azeNKI
-nome: Caverninha
+nome: Setor Caverninha
 mapas:
 - caminho_imagem_mapa: imagens/grupo_salao_de_pedras_setor_caverninha_p0.webp
   largura_mapa: 758
@@ -231,8 +231,6 @@ escaladas:
     nome: Natural (V6)
     dificuldade: V6
 ---
-
-# Setor Caverninha
 
 O setor Caverninha possui tetos e negativos com linhas de alta dificuldade.
 

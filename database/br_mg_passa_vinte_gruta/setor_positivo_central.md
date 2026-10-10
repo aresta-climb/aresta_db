@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: oQDOpSrgvgbJR2
-nome: ”Positivo” Central
+nome: Setor ”Positivo” Central
 mapas:
 - caminho_imagem_mapa: imagens/setor_positivo_central_p0.webp
   largura_mapa: 1487
@@ -270,3 +270,4 @@ escaladas:
     nome: Sub-Zero
     dificuldade: BR_8C
 ---
+

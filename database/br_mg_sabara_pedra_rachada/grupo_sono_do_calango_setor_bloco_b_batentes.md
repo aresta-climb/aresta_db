@@ -20,12 +20,13 @@ escaladas:
     nome: Batentes
     dificuldade: V0
     destaque: true
-    descricao: Sai sentado com as mãos juntas em um grande batente, passa por outros dois batentes e vira.
+    descricao: Sai sentado com as mãos juntas em um grande batente, passa por outros
+      dois batentes e vira.
 - uid: jqM0mKITqM8HWS
   boulder:
     nome: Quem procura acha
     dificuldade: V0
-    descricao: Começa sentado com as mãos juntas em um batente pequeno e toca reto por regletes.
+    descricao: Começa sentado com as mãos juntas em um batente pequeno e toca reto
+      por regletes.
 ---
 
-# Bloco B - Batentes

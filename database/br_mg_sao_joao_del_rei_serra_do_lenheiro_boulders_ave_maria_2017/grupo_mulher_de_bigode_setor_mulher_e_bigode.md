@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: PIXJYxedJscCy0
-nome: Mulher de Bigode
+nome: Setor Mulher de Bigode
 mapas:
 - caminho_imagem_mapa: imagens/grupo_mulher_de_bigode_setor_mulher_e_bigode_p0_i0.webp
   largura_mapa: 601
@@ -178,4 +178,3 @@ escaladas:
     dificuldade: V2
 ---
 
-# Setor Mulher de Bigode

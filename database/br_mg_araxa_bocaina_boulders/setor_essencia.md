@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: Y3Brqzt8DNN8Mk
-nome: Essência
+nome: Setor Essência
 mapas:
 - caminho_imagem_mapa: imagens/setor_essencia_p0.webp
   largura_mapa: 1089
@@ -125,4 +125,3 @@ escaladas:
     dificuldade: V0
 ---
 
-# Setor Essência

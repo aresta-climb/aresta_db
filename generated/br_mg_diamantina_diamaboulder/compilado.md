@@ -33,19 +33,14 @@
 
 ### Grupo (Pico: Cerrado Groove)
 
-- **descricao**:
-    # Região 1
-    
-    A Região 1 compreende os primeiros blocos do setor Cerrado Groove.
+- **descricao**: A Região 1 compreende os primeiros blocos do setor Cerrado Groove.
 - **nome**: Região 1
 - **uid**: 4FDteNJXNyj54v
 - **setores**:
   - **[0]**:
     - **conteudo**:
-      - **descricao**:
-          # Bloco: Diamante de Sangue
-          ## Região 1
-      - **nome**: Diamante de Sangue
+      - **descricao**: ## Região 1
+      - **nome**: Setor Diamante de Sangue
       - **uid**: bApNhQfhG9Jsu0
       - **mapas**:
         - **[0]**:
@@ -95,11 +90,10 @@
   - **[1]**:
     - **conteudo**:
       - **descricao**:
-          # Bloco: Chiqueirinho
           ## Região 1
           
           O bloco Chiqueirinho possui várias linhas em diferentes faces.
-      - **nome**: Chiqueirinho
+      - **nome**: Setor Chiqueirinho
       - **uid**: YKfvHBUrmFmoKZ
       - **mapas**:
         - **[0]**:
@@ -334,9 +328,7 @@
         - **total_boulders**: 5
   - **[2]**:
     - **conteudo**:
-      - **descricao**:
-          # Bloco: Bloco do Kbeca
-          ## Região 1
+      - **descricao**: ## Região 1
       - **nome**: Bloco do Kbeca
       - **uid**: IvlrAKdN2PKnQY
       - **mapas**:
@@ -416,10 +408,8 @@
         - **total_boulders**: 2
   - **[3]**:
     - **conteudo**:
-      - **descricao**:
-          # Bloco: Flor do Cerrado
-          ## Região 1
-      - **nome**: Flor do Cerrado
+      - **descricao**: ## Região 1
+      - **nome**: Setor Flor do Cerrado
       - **uid**: wywacGfloYJBuk
       - **mapas**:
         - **[0]**:
@@ -466,10 +456,8 @@
         - **total_boulders**: 1
   - **[4]**:
     - **conteudo**:
-      - **descricao**:
-          # Bloco: Joelho Sem Freio
-          ## Região 1
-      - **nome**: Joelho Sem Freio
+      - **descricao**: ## Região 1
+      - **nome**: Setor Joelho Sem Freio
       - **uid**: NQyqOjn0nMXiem
       - **mapas**:
         - **[0]**:
@@ -557,19 +545,14 @@
 
 ### Grupo (Pico: Cerrado Groove)
 
-- **descricao**:
-    # Região 2
-    
-    A Região 2 contém blocos icônicos como Panela do Diabo e Primavera nos Dentes.
+- **descricao**: A Região 2 contém blocos icônicos como Panela do Diabo e Primavera nos Dentes.
 - **nome**: Região 2
 - **uid**: x5DYqeNmedsNxv
 - **setores**:
   - **[0]**:
     - **conteudo**:
-      - **descricao**:
-          # Bloco: Panela do Diabo
-          ## Região 2
-      - **nome**: Panela do Diabo
+      - **descricao**: ## Região 2
+      - **nome**: Setor Panela do Diabo
       - **uid**: eYmBFxup8j7TU9
       - **mapas**:
         - **[0]**:
@@ -831,10 +814,8 @@
         - **total_boulders**: 7
   - **[1]**:
     - **conteudo**:
-      - **descricao**:
-          # Bloco: Faca de Pedra
-          ## Região 2
-      - **nome**: Faca de Pedra
+      - **descricao**: ## Região 2
+      - **nome**: Setor Faca de Pedra
       - **uid**: ozcB2TQFJRqm4f
       - **mapas**:
         - **[0]**:
@@ -977,10 +958,8 @@
         - **total_boulders**: 4
   - **[2]**:
     - **conteudo**:
-      - **descricao**:
-          # Bloco: Serra do Groove
-          ## Região 2
-      - **nome**: Serra do Groove
+      - **descricao**: ## Região 2
+      - **nome**: Setor Serra do Groove
       - **uid**: XDclQaHK6DtyMb
       - **mapas**:
         - **[0]**:
@@ -1028,11 +1007,10 @@
   - **[3]**:
     - **conteudo**:
       - **descricao**:
-          # Bloco: Primavera nos Dentes
           ## Região 2
           
           O bloco Primavera nos Dentes é um dos principais do setor, com linhas de alta dificuldade.
-      - **nome**: Primavera nos Dentes
+      - **nome**: Setor Primavera nos Dentes
       - **uid**: 3eKPXspykrgC71
       - **mapas**:
         - **[0]**:
@@ -1355,10 +1333,8 @@
         - **total_boulders**: 8
   - **[4]**:
     - **conteudo**:
-      - **descricao**:
-          # Bloco: Flor da Montanha
-          ## Região 2
-      - **nome**: Flor da Montanha
+      - **descricao**: ## Região 2
+      - **nome**: Setor Flor da Montanha
       - **uid**: c9S0g5Iak2aLY6
       - **mapas**:
         - **[0]**:
@@ -1437,10 +1413,8 @@
         - **total_boulders**: 2
   - **[5]**:
     - **conteudo**:
-      - **descricao**:
-          # Bloco: Velho Chico
-          ## Região 2
-      - **nome**: Velho Chico
+      - **descricao**: ## Região 2
+      - **nome**: Setor Velho Chico
       - **uid**: mQ1nG9yhF09BxM
       - **mapas**:
         - **[0]**:
@@ -1558,19 +1532,14 @@
 
 ### Grupo (Pico: Cerrado Groove)
 
-- **descricao**:
-    # Região 3
-    
-    A Região 3 apresenta blocos com graduações variadas, incluindo o setor Iceberg e Silicose.
+- **descricao**: A Região 3 apresenta blocos com graduações variadas, incluindo o setor Iceberg e Silicose.
 - **nome**: Região 3
 - **uid**: 0b1TmSRK0dGE9M
 - **setores**:
   - **[0]**:
     - **conteudo**:
-      - **descricao**:
-          # Bloco: Cenas Fortes
-          ## Região 3
-      - **nome**: Cenas Fortes
+      - **descricao**: ## Região 3
+      - **nome**: Setor Cenas Fortes
       - **uid**: vx3tbAOUHIAcGi
       - **mapas**:
         - **[0]**:
@@ -1650,11 +1619,10 @@
   - **[1]**:
     - **conteudo**:
       - **descricao**:
-          # Bloco: Sessão da Tarde
           ## Região 3
           
           O bloco Sessão da Tarde é um dos mais densos em linhas, com agarras variadas e muita técnica.
-      - **nome**: Sessão da Tarde
+      - **nome**: Setor Sessão da Tarde
       - **uid**: pEbY6CRJHCyQhI
       - **mapas**:
         - **[0]**:
@@ -2361,10 +2329,8 @@
         - **total_boulders**: 17
   - **[2]**:
     - **conteudo**:
-      - **descricao**:
-          # Bloco: Que Raio de Reglete
-          ## Região 3
-      - **nome**: Que Raio de Reglete
+      - **descricao**: ## Região 3
+      - **nome**: Setor Que Raio de Reglete
       - **uid**: kocXBrYzeYHO7c
       - **mapas**:
         - **[0]**:
@@ -2443,10 +2409,8 @@
         - **total_boulders**: 2
   - **[3]**:
     - **conteudo**:
-      - **descricao**:
-          # Bloco: Iceberg
-          ## Região 3
-      - **nome**: Iceberg
+      - **descricao**: ## Região 3
+      - **nome**: Setor Iceberg
       - **uid**: yNhPe35ksda8iX
       - **mapas**:
         - **[0]**:
@@ -2527,10 +2491,8 @@
         - **total_boulders**: 2
   - **[4]**:
     - **conteudo**:
-      - **descricao**:
-          # Bloco: Silicose
-          ## Região 3
-      - **nome**: Silicose
+      - **descricao**: ## Região 3
+      - **nome**: Setor Silicose
       - **uid**: ba9j4ZNGXk0wIe
       - **mapas**:
         - **[0]**:
@@ -2616,21 +2578,17 @@
 
 ### Grupo (Pico: Cerrado Groove)
 
-- **descricao**:
-    # Região 4
-    
-    A Região 4 é a última região do setor Cerrado Groove, contendo o Navio Pirata e outros blocos.
+- **descricao**: A Região 4 é a última região do setor Cerrado Groove, contendo o Navio Pirata e outros blocos.
 - **nome**: Região 4
 - **uid**: 5HcZp5MuQIGxmc
 - **setores**:
   - **[0]**:
     - **conteudo**:
       - **descricao**:
-          # Bloco: Navio Pirata
           ## Região 4
           
           O bloco Navio Pirata é um grande bloco com diversas linhas em várias faces.
-      - **nome**: Navio Pirata
+      - **nome**: Setor Navio Pirata
       - **uid**: 5ydIQT3aRXRDbx
       - **mapas**:
         - **[0]**:
@@ -2945,10 +2903,8 @@
         - **total_boulders**: 9
   - **[1]**:
     - **conteudo**:
-      - **descricao**:
-          # Bloco: Pfizer
-          ## Região 4
-      - **nome**: Pfizer
+      - **descricao**: ## Região 4
+      - **nome**: Setor Pfizer
       - **uid**: IAHAxZrL76iUE6
       - **mapas**:
         - **[0]**:
@@ -3059,10 +3015,8 @@
         - **total_boulders**: 3
   - **[2]**:
     - **conteudo**:
-      - **descricao**:
-          # Bloco: Pedra na Canela
-          ## Região 4
-      - **nome**: Pedra na Canela
+      - **descricao**: ## Região 4
+      - **nome**: Setor Pedra na Canela
       - **uid**: ZvxbNlHWswULYG
       - **mapas**:
         - **[0]**:
@@ -3237,10 +3191,8 @@
         - **total_boulders**: 5
   - **[3]**:
     - **conteudo**:
-      - **descricao**:
-          # Bloco: Piseiro
-          ## Região 4
-      - **nome**: Piseiro
+      - **descricao**: ## Região 4
+      - **nome**: Setor Piseiro
       - **uid**: QosMO7Nv63wvuo
       - **mapas**:
         - **[0]**:
@@ -3351,10 +3303,8 @@
         - **total_boulders**: 3
   - **[4]**:
     - **conteudo**:
-      - **descricao**:
-          # Bloco: Raizeiro
-          ## Região 4
-      - **nome**: Raizeiro
+      - **descricao**: ## Região 4
+      - **nome**: Setor Raizeiro
       - **uid**: QPwyD0n8ZTjbOT
       - **mapas**:
         - **[0]**:
@@ -3497,10 +3447,8 @@
         - **total_boulders**: 4
   - **[5]**:
     - **conteudo**:
-      - **descricao**:
-          # Bloco: Tijuco Preto
-          ## Região 4
-      - **nome**: Tijuco Preto
+      - **descricao**: ## Região 4
+      - **nome**: Setor Tijuco Preto
       - **uid**: QqZiA2ythU83BC
       - **mapas**:
         - **[0]**:

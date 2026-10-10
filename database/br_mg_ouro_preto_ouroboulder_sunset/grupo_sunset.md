@@ -107,8 +107,6 @@ setores:
 - caminho: grupo_sunset_setor_camaroa.md
 ---
 
-# Grupo Sunset
-
 O local está localizado a 15 minutos da entrada do setor da pedreira, bem no cume da montanha, o que proporciona um visual amplo e belo, sempre com um maravilhoso pôr-do-sol!
 
 Os boulders deste setor oferecem uma característica mais técnica e menos negativa. Os acessos entre os blocos são mais íngremes e requerem maior atenção no deslocamento. As trilhas estão sinalizadas com fita reflexiva e totens.

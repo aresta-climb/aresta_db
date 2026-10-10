@@ -26,20 +26,22 @@ escaladas:
     nome: Oxidante
     dificuldade: V1
     destaque: true
-    descricao: Começa em pé com as mãos juntas em um batente/abaulado de lado e escala em diagonal para a esquerda.
+    descricao: Começa em pé com as mãos juntas em um batente/abaulado de lado e escala
+      em diagonal para a esquerda.
 - uid: HrXGzd2iEudZxO
   boulder:
     nome: Ferrugem
     dificuldade: V3
     destaque: true
-    descricao: Sai em pé com as mãos juntas em um reglete/pocket e escala em diagonal para a esquerda.
+    descricao: Sai em pé com as mãos juntas em um reglete/pocket e escala em diagonal
+      para a esquerda.
 - uid: 4wMQMv20gcd1fM
   boulder:
     nome: Corrosivo
     dificuldade: V2
     destaque: true
-    descricao: Começa com a mão direita em uma agarra invertida e a esquerda em um batente de gaston e escala em linha 
-      reta.
+    descricao: Começa com a mão direita em uma agarra invertida e a esquerda em um
+      batente de gaston e escala em linha reta.
 - uid: ORK6wT1dXx0p99
   boulder:
     nome: Antitetânica
@@ -47,4 +49,3 @@ escaladas:
     descricao: Sai sentado com as mãos em dois regletes/pockets e toca reto.
 ---
 
-# Bloco P - Ferrugem

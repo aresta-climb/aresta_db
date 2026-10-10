@@ -789,10 +789,10 @@ picos:
                 - Berbari
                 - Chinha
                 data_abertura: '2006'
-            descricao: |-
-              # Setor Estacionamento
-
-              O setor fica na lateral da estrada, ao lado do estacionamento da trilha para a Pedra Grande. A via "Route Setter" e a via "Teto Preto" compartilham as primeiras chapas na saída. Lado esquerdo setor tem sombra após 11h, e o lado direito sombra até 10h.
+            descricao: O setor fica na lateral da estrada, ao lado do estacionamento
+              da trilha para a Pedra Grande. A via "Route Setter" e a via "Teto Preto"
+              compartilham as primeiras chapas na saída. Lado esquerdo setor tem sombra
+              após 11h, e o lado direito sombra até 10h.
             precomputados:
               total_escaladas: 19
               total_esportivas: 19
@@ -5725,8 +5725,6 @@ picos:
             data_abertura: '2013'
             descricao: Termina no mesmo tope que a via Pau Oco.
         descricao: |-
-          # Setor Família I
-
           O setor fica do lado direito do início da trilha para a Pedra Grande. Sombra o dia todo (varia de acordo com a estação).
 
           Veja a trilha para chegar ao setor no Wikiloc: https://loc.wiki/t/169745893?wa=sc
@@ -6176,8 +6174,6 @@ picos:
             - Ró
             data_abertura: '2009'
         descricao: |-
-          # Setor Família II
-
           Sombra após 14h (varia de acordo com a estação).
 
           Veja a trilha para chegar ao Família II no WikiLoc (começando a partir do Família I): https://loc.wiki/t/157623201?wa=sc
@@ -8191,8 +8187,6 @@ picos:
             - Chinha
             data_abertura: '2011'
         descricao: |-
-          # Setor Micos
-
           Sombra até 11h e após 15h.
           Risco de agarras se quebrarem e pedras soltas, é recomendado o uso de capacete ao escalar e nas bases das vias.
           Escalar com a corda passada na primeira proteção nas vias esportivas.
@@ -9112,8 +9106,6 @@ picos:
             - Marcão
             data_abertura: '2022'
         descricao: |-
-          # Setor Igarameca
-
           Sombra após 12h (varia de acordo com a estação).
 
           Veja a trilha para chegar ao setor no WikiLoc: https://loc.wiki/t/160199352?wa=sc
@@ -9306,8 +9298,6 @@ picos:
             - Ruy
             data_abertura: '2005'
         descricao: |-
-          # Setor Totem
-
           Sombra até 10h e após 16h.
 
           Veja a trilha para chegar ao setor no WikiLoc: https://loc.wiki/t/160199352?wa=sc
@@ -9687,10 +9677,7 @@ picos:
             - Berbari
             - Toninho
             data_abertura: '2022'
-        descricao: |-
-          # Setor Pracinha
-
-          Sombra o dia todo (varia de acordo com a estação).
+        descricao: Sombra o dia todo (varia de acordo com a estação).
         precomputados:
           total_escaladas: 8
           total_esportivas: 8
@@ -9926,10 +9913,7 @@ picos:
             - Alex
             - Tonin
             data_abertura: '2006'
-        descricao: |-
-          # Setor dos Tetos
-
-          Sombra após 14h.
+        descricao: Sombra após 14h.
         precomputados:
           total_escaladas: 7
           total_esportivas: 7
@@ -10705,8 +10689,6 @@ picos:
             nome: Mulher do Fim do Mundo
             dificuldade: INDEFINIDO
         descricao: |-
-          # Setor Trad
-
           Este setor engloba as vias tradicionais e de proteção móvel do Complexo Pedra Grande. As informações aqui contidas são provisórias e serão atualizadas conforme o catálogo for sendo refinado.
 
           Catálogo provisório das vias tradicionais e/ou em proteção móvel do Complexo Pedra Grande.

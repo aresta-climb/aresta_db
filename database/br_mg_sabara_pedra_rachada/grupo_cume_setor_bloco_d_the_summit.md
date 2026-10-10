@@ -41,8 +41,7 @@ escaladas:
     conquistadores:
     - Felipe Alvares
     data_abertura: '2011'
-    descricao: Começa sentado com a mão direita em um reglete e a esquerda em um batente e escala o highball com 
-      movimentação clássica!
+    descricao: Começa sentado com a mão direita em um reglete e a esquerda em um batente
+      e escala o highball com movimentação clássica!
 ---
 
-# Bloco D - The Summit

@@ -11,6 +11,4 @@ setores:
 - caminho: grupo_regiao_3_setor_silicose.md
 ---
 
-# Região 3
-
 A Região 3 apresenta blocos com graduações variadas, incluindo o setor Iceberg e Silicose.

@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: PHpzXazAW8J5RO
-nome: Lek Pression
+nome: Setor Lek Pression
 mapas:
 - caminho_imagem_mapa: imagens/grupo_reza_setor_lek_pression_p0_i0.webp
   largura_mapa: 1294
@@ -25,4 +25,3 @@ escaladas:
     dificuldade: V7
 ---
 
-# Setor Lek Pression

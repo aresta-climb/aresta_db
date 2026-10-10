@@ -12,7 +12,7 @@ picos:
   - setor:
       conteudo:
         uid: 2r0UOQl5lu5YVV
-        nome: Pressão Enrustida
+        nome: Setor Pressão Enrustida
         mapas:
         - caminho_imagem_mapa: imagens/setor_pressao_enrustida_p0.webp
           largura_mapa: 1069
@@ -140,14 +140,14 @@ picos:
             dificuldade: V3
             descricao: Saída do Não Contava com minha astúcia fazendo travessia para
               esquerda virando no Maltodextrina.
-        descricao: '# Setor Pressão Enrustida'
+        descricao: ''
         precomputados:
           total_escaladas: 7
           total_boulders: 7
   - setor:
       conteudo:
         uid: D6jFNzrZdEYFsk
-        nome: Caverninha
+        nome: Setor Caverninha
         mapas:
         - caminho_imagem_mapa: imagens/setor_caverninha_p0.webp
           largura_mapa: 1064
@@ -386,14 +386,14 @@ picos:
             dificuldade: V5
             descricao: Saída sentado com a mão esquerda em batente de compressão e
               direita em reglete aberto acima da cabeça.
-        descricao: '# Setor Caverninha'
+        descricao: ''
         precomputados:
           total_escaladas: 11
           total_boulders: 11
   - setor:
       conteudo:
         uid: 5KSqaLJ9K1rbfi
-        nome: Exquadrilha
+        nome: Setor Exquadrilha
         mapas:
         - caminho_imagem_mapa: imagens/setor_exquadrilha_p0.webp
           largura_mapa: 1062
@@ -500,14 +500,14 @@ picos:
             nome: Cypress Hill
             dificuldade: V6
             descricao: Saída do exquadrilha e virando no Planet Hemp.
-        descricao: '# Setor Exquadrilha'
+        descricao: ''
         precomputados:
           total_escaladas: 5
           total_boulders: 5
   - setor:
       conteudo:
         uid: z7vQKwVnhjN7dQ
-        nome: Canil
+        nome: Setor Canil
         mapas:
         - caminho_imagem_mapa: imagens/setor_canil_p0.webp
           largura_mapa: 1062
@@ -643,7 +643,7 @@ picos:
             dificuldade: V6
             descricao: Saída do loboulder em travessia para esquerda virando no Sucrilhos
               no Prato.
-        descricao: '# Setor Canil'
+        descricao: ''
         precomputados:
           total_escaladas: 7
           total_boulders: 7
@@ -801,7 +801,7 @@ picos:
             nome: Colchão de Mola
             dificuldade: V4
             descricao: Saída em pé com as mãos em regletes investidos.
-        descricao: '# Setor Bloco do Guerreiro'
+        descricao: ''
         precomputados:
           total_escaladas: 7
           total_boulders: 7
@@ -1102,14 +1102,14 @@ picos:
             descricao: Saída em pé com mão esquerda no bico e mão direita em pinça
               pequena na altura no quadril, virando reto e seguindo até o final do
               bloco.
-        descricao: '# Setor Bloco do Cabelin'
+        descricao: ''
         precomputados:
           total_escaladas: 14
           total_boulders: 14
   - setor:
       conteudo:
         uid: yPyqzCvOxEEIE3
-        nome: Consciência Limpa
+        nome: Setor Consciência Limpa
         mapas:
         - caminho_imagem_mapa: imagens/setor_consciencia_limpa_p0.webp
           largura_mapa: 1096
@@ -1221,14 +1221,14 @@ picos:
             dificuldade: V2
             descricao: Saída agachado com mão direita em agarra lateral e esquerda
               na aresta.
-        descricao: '# Setor Consciência Limpa'
+        descricao: ''
         precomputados:
           total_escaladas: 5
           total_boulders: 5
   - setor:
       conteudo:
         uid: vBnFROJdRpikVD
-        nome: Haiti
+        nome: Setor Haiti
         mapas:
         - caminho_imagem_mapa: imagens/setor_haiti_p0.webp
           largura_mapa: 1092
@@ -1353,14 +1353,14 @@ picos:
             dificuldade: V5
             descricao: Mesma saída do Haíti seguindo pela aresta em regletes laterais
               e virando reto.
-        descricao: '# Setor Haiti'
+        descricao: ''
         precomputados:
           total_escaladas: 6
           total_boulders: 6
   - setor:
       conteudo:
         uid: ZQv26maQUVi4h5
-        nome: Achados e Perdidos
+        nome: Setor Achados e Perdidos
         mapas:
         - caminho_imagem_mapa: imagens/setor_achados_e_perdidos_p0.webp
           largura_mapa: 1071
@@ -1448,7 +1448,7 @@ picos:
             dificuldade: V3
             descricao: Saida em pé a direita do bloco com mão direita em pinça escorrida
               e esquerda de balcão no equilibrio e segue pela esquerda.
-        descricao: '# Setor Achados e Perdidos'
+        descricao: ''
         precomputados:
           total_escaladas: 4
           total_boulders: 4
@@ -1522,7 +1522,7 @@ picos:
             nome: Dedão de Aquiles
             dificuldade: V3
             descricao: Saída da aresta a direita do bloco e vai arestando até o topo.
-        descricao: '# Setor Bloco do Rock Bocaina'
+        descricao: ''
         precomputados:
           total_escaladas: 3
           total_boulders: 3
@@ -2067,14 +2067,14 @@ picos:
             nome: Ayuaska
             dificuldade: V11
             descricao: Saída do sananga virando no indios.
-        descricao: '# Setor Bloco 45º'
+        descricao: ''
         precomputados:
           total_escaladas: 23
           total_boulders: 23
   - setor:
       conteudo:
         uid: Y3Brqzt8DNN8Mk
-        nome: Essência
+        nome: Setor Essência
         mapas:
         - caminho_imagem_mapa: imagens/setor_essencia_p0.webp
           largura_mapa: 1089
@@ -2235,7 +2235,7 @@ picos:
           boulder:
             nome: Jardim de Infância
             dificuldade: V0
-        descricao: '# Setor Essência'
+        descricao: ''
         precomputados:
           total_escaladas: 9
           total_boulders: 9
@@ -2338,25 +2338,25 @@ picos:
         - alvo_uid: 2r0UOQl5lu5YVV
           pontos_uids:
           - Okb3ORHgARcA1U
-          setor: Pressão Enrustida
+          setor: Setor Pressão Enrustida
           ids:
           - Okb3ORHgARcA1U
         - alvo_uid: D6jFNzrZdEYFsk
           pontos_uids:
           - TCIBc8pDLxW6VQ
-          setor: Caverninha
+          setor: Setor Caverninha
           ids:
           - TCIBc8pDLxW6VQ
         - alvo_uid: 5KSqaLJ9K1rbfi
           pontos_uids:
           - 7jyPtD6I24HZkn
-          setor: Exquadrilha
+          setor: Setor Exquadrilha
           ids:
           - 7jyPtD6I24HZkn
         - alvo_uid: z7vQKwVnhjN7dQ
           pontos_uids:
           - ujpXBEC8WKlmgP
-          setor: Canil
+          setor: Setor Canil
           ids:
           - ujpXBEC8WKlmgP
         - alvo_uid: KbM68ZX0V5vtaT
@@ -2374,19 +2374,19 @@ picos:
         - alvo_uid: yPyqzCvOxEEIE3
           pontos_uids:
           - Uzyt2QtbWgPZNr
-          setor: Consciência Limpa
+          setor: Setor Consciência Limpa
           ids:
           - Uzyt2QtbWgPZNr
         - alvo_uid: vBnFROJdRpikVD
           pontos_uids:
           - m60iLgguuxwMD2
-          setor: Haiti
+          setor: Setor Haiti
           ids:
           - m60iLgguuxwMD2
         - alvo_uid: ZQv26maQUVi4h5
           pontos_uids:
           - PXvlyUDlP0aIBJ
-          setor: Achados e Perdidos
+          setor: Setor Achados e Perdidos
           ids:
           - PXvlyUDlP0aIBJ
         - alvo_uid: hkr7E07rMsU03N
@@ -2404,7 +2404,7 @@ picos:
         - alvo_uid: Y3Brqzt8DNN8Mk
           pontos_uids:
           - ej4CM4H7QLeqTd
-          setor: Essência
+          setor: Setor Essência
           ids:
           - ej4CM4H7QLeqTd
   localizacao:

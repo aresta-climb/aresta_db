@@ -183,6 +183,4 @@ escaladas:
     data_abertura: '2006'
 ---
 
-# Setor dos Tetos
-
 Sombra após 14h.

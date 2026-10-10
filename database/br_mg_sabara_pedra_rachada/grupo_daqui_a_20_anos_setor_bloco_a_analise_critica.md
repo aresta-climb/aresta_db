@@ -20,7 +20,7 @@ escaladas:
     conquistadores:
     - Ruy Castro
     data_abertura: '2008'
-    descricao: Sai em pé com as mãos em um buraco e um pocket e escala a face levemente negativa com um domínio técnico.
+    descricao: Sai em pé com as mãos em um buraco e um pocket e escala a face levemente
+      negativa com um domínio técnico.
 ---
 
-# Bloco A - Análise Crítica

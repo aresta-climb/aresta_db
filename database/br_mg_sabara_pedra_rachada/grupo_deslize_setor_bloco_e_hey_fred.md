@@ -48,7 +48,8 @@ escaladas:
   boulder:
     nome: Pedrita
     dificuldade: V2
-    descricao: Sai em pé com a mão esquerda em um reglete vertical baixo, a direita em outro reglete e toca reto.
+    descricao: Sai em pé com a mão esquerda em um reglete vertical baixo, a direita
+      em outro reglete e toca reto.
 - uid: Z0Tjpo9capRG8H
   boulder:
     nome: Barney
@@ -57,8 +58,9 @@ escaladas:
     conquistadores:
     - Frederico Gonçalves
     data_abertura: '2010'
-    descricao: Começa em pé fazendo compressão com a mão esquerda em um reglete vertical bem baixo e a direita em uma 
-      pinça alta e faz um movimento forte finalizando no “Pedrita” (24).
+    descricao: Começa em pé fazendo compressão com a mão esquerda em um reglete vertical
+      bem baixo e a direita em uma pinça alta e faz um movimento forte finalizando
+      no “Pedrita” (24).
 - uid: x9i9s722cax0Ch
   boulder:
     nome: Hey Fred
@@ -67,8 +69,9 @@ escaladas:
     conquistadores:
     - Rafael Passos
     data_abertura: '2010'
-    descricao: 'Boulder clássico no melhor estilo Pedra Rachada: muita compressão! Começa em pé abraçando a pedra com a mão
-      direita em um batente de oposição e a esquerda em uma pinça alta e escala pra esquerda dominando o pequeno módulo.'
+    descricao: 'Boulder clássico no melhor estilo Pedra Rachada: muita compressão!
+      Começa em pé abraçando a pedra com a mão direita em um batente de oposição e
+      a esquerda em uma pinça alta e escala pra esquerda dominando o pequeno módulo.'
 - uid: Jwwko7zS545r3n
   boulder:
     nome: Hey Fred SDS
@@ -77,19 +80,20 @@ escaladas:
     conquistadores:
     - Rafael Passos
     data_abertura: '2010'
-    descricao: Adiciona um movimento ao “Hey Fred” (26), saindo com a mão direita no batente de baixo, mais próximo ao 
-      chão.
+    descricao: Adiciona um movimento ao “Hey Fred” (26), saindo com a mão direita
+      no batente de baixo, mais próximo ao chão.
 - uid: EGxrC1H2pmKoCM
   boulder:
     nome: Era
     dificuldade: V3
-    descricao: Começa sentado com as mãos nas agarras acima do batente de oposição e segue pela fenda.
+    descricao: Começa sentado com as mãos nas agarras acima do batente de oposição
+      e segue pela fenda.
 - uid: BCVxcTX9z1VzGe
   boulder:
     nome: Yabadabadoo
     dificuldade: V6
-    descricao: Variante do “Era” (28) que vai para a esquerda em busca de uma pinça alta e termina com um tapa na borda 
-      na reta da pinça.
+    descricao: Variante do “Era” (28) que vai para a esquerda em busca de uma pinça
+      alta e termina com um tapa na borda na reta da pinça.
 - uid: yIoJRHFvKRQIh2
   boulder:
     nome: Nova era
@@ -97,8 +101,9 @@ escaladas:
     conquistadores:
     - Gustavo Fontes
     data_abertura: '2013'
-    descricao: Começa com a mão esquerda em uma pinça próxima ao chão, a direita no batente de oposição, faz um 
-      movimento forte para as agarras boas e termina pela fenda.
+    descricao: Começa com a mão esquerda em uma pinça próxima ao chão, a direita no
+      batente de oposição, faz um movimento forte para as agarras boas e termina pela
+      fenda.
 - uid: qWfML9BEmH1wSF
   boulder:
     nome: Era o que faltava
@@ -114,4 +119,3 @@ escaladas:
     descricao: Sai sentado com as mãos juntas em um bico e segue reto.
 ---
 
-# Bloco E - Hey Fred

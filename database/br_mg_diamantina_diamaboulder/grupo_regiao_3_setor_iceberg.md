@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: yNhPe35ksda8iX
-nome: Iceberg
+nome: Setor Iceberg
 mapas:
 - caminho_imagem_mapa: imagens/grupo_regiao_3_setor_iceberg_p0_i0.webp
   largura_mapa: 1240
@@ -46,13 +46,14 @@ escaladas:
   boulder:
     nome: Iceberg
     dificuldade: V11
-    descricao: Saída baixa na extrema direita do bloco e segue por movimentos exigentes de compressão (morfo).
+    descricao: Saída baixa na extrema direita do bloco e segue por movimentos exigentes
+      de compressão (morfo).
 - uid: oykcpaunaVXwVW
   boulder:
     nome: Frigobar
     dificuldade: V5
-    descricao: Saída em pé do iceberg, utilizando mão esquerda na aresta e mão direita no abaulado alto mais à direita.
+    descricao: Saída em pé do iceberg, utilizando mão esquerda na aresta e mão direita
+      no abaulado alto mais à direita.
 ---
 
-# Bloco: Iceberg
 ## Região 3

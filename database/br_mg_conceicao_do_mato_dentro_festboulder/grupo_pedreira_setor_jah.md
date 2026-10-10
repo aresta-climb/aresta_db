@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: QqN6oqb5Sf8vGq
-nome: Jah
+nome: Setor Jah
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_jah_p0.webp
   largura_mapa: 757
@@ -156,8 +156,6 @@ escaladas:
     nome: (sem nome 17)
     dificuldade: V3
 ---
-
-# Setor Jah
 
 O setor Jah possui blocos com linhas atléticas e movimentos fluidos em rocha de boa qualidade.
 

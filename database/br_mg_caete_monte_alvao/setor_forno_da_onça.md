@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: Qb6WGpJV9QBeJY
-nome: Forno da Onça
+nome: Setor Forno da Onça
 escaladas:
 - uid: dZVBFM4DLQod4l
   via_esportiva:
@@ -72,3 +72,4 @@ escaladas:
     quantidade_costuras_intermediarias: 12
     quantidade_equipamentos_parada: 2
 ---
+

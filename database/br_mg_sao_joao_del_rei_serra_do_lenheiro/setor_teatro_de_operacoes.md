@@ -342,7 +342,8 @@ escaladas:
     - Michel Rodrigues
     - Douglas Vaz
     data_abertura: '2024'
-    descricao: Primeira via em um bloco curto e isolado na chegada do setor que pode ser realizada em tope rope.
+    descricao: Primeira via em um bloco curto e isolado na chegada do setor que pode
+      ser realizada em tope rope.
 - uid: YntDcwIw79LnMD
   via_esportiva:
     nome: Flanco Esquerdo
@@ -354,7 +355,8 @@ escaladas:
     - Michel Rodrigues
     - Douglas Vaz
     data_abertura: '2024'
-    descricao: Via curta localizada à extrema esquerda do bloco rochoso. Possui duas chapeletas e uma parada dupla.
+    descricao: Via curta localizada à extrema esquerda do bloco rochoso. Possui duas
+      chapeletas e uma parada dupla.
 - uid: b3OfcK5MuZIcaQ
   via_esportiva:
     nome: Campo Minado
@@ -390,7 +392,8 @@ escaladas:
     - Michel Rodrigues
     - Douglas Vaz
     data_abertura: '2024'
-    descricao: Via curta situada em uma faixa escura que compartilha a parada com a via cortina de fumaça.
+    descricao: Via curta situada em uma faixa escura que compartilha a parada com
+      a via cortina de fumaça.
 - uid: zPlutK7ctZ2JJH
   via_esportiva:
     nome: Cortina de Fumaça
@@ -399,7 +402,8 @@ escaladas:
     - Michel Rodrigues
     - Douglas Vaz
     data_abertura: '2024'
-    descricao: Via curta com saída em boas agarras que compartilha a parada com a via carro de combate.
+    descricao: Via curta com saída em boas agarras que compartilha a parada com a
+      via carro de combate.
 - uid: LSs9oP23GTPXZT
   via_esportiva:
     nome: Dano Colateral
@@ -408,7 +412,8 @@ escaladas:
     - Michel Rodrigues
     - Douglas Vaz
     data_abertura: '2024'
-    descricao: Via que percorre toda a canaleta, com agarras médias e passando por alguns abaulados e platôs.
+    descricao: Via que percorre toda a canaleta, com agarras médias e passando por
+      alguns abaulados e platôs.
 - uid: n6Sc3eii5O62Z2
   via_esportiva:
     nome: Demonstração de Força
@@ -417,7 +422,8 @@ escaladas:
     - Michel Rodrigues
     - Douglas Vaz
     data_abertura: '2024'
-    descricao: Via situada em uma faixa amarela com boas agarras na saída ao lado de uma canaleta.
+    descricao: Via situada em uma faixa amarela com boas agarras na saída ao lado
+      de uma canaleta.
 - uid: LMiWDgLud08Ifh
   via_esportiva:
     nome: Ação de Choque
@@ -445,7 +451,8 @@ escaladas:
     - Michel Rodrigues
     - Douglas Vaz
     data_abertura: '2024'
-    descricao: Via com saída técnica, seguindo para um pequeno platô onde encontra-se a parada.
+    descricao: Via com saída técnica, seguindo para um pequeno platô onde encontra-se
+      a parada.
 - uid: MZztYEERyV5q7h
   via_esportiva:
     nome: Assalto Anfíbio
@@ -454,7 +461,8 @@ escaladas:
     - Michel Rodrigues
     - Douglas Vaz
     data_abertura: '2024'
-    descricao: Via com saída em uma faixa escura e com possível umidade em época de chuva.
+    descricao: Via com saída em uma faixa escura e com possível umidade em época de
+      chuva.
 - uid: bknMcI54CiVQeK
   via_esportiva:
     nome: Operações Psicológicas
@@ -463,7 +471,8 @@ escaladas:
     - Michel Rodrigues
     - Douglas Vaz
     data_abertura: '2024'
-    descricao: Via com saída ao lado uma fenda vertical até a parada, próximo a via Ato de Serviço. Abelhas à esquerda.
+    descricao: Via com saída ao lado uma fenda vertical até a parada, próximo a via
+      Ato de Serviço. Abelhas à esquerda.
 - uid: ukVO1ESortRS6D
   via_esportiva:
     nome: Ato de Serviço
@@ -472,7 +481,8 @@ escaladas:
     - Michel Rodrigues
     - Douglas Vaz
     data_abertura: '2024'
-    descricao: Possível via clássica do setor, que passa por uma bancada e percorre a linha em boas agarras.
+    descricao: Possível via clássica do setor, que passa por uma bancada e percorre
+      a linha em boas agarras.
 - uid: Qd7NgZYe4kI1rW
   via_esportiva:
     nome: Conflito Armado
@@ -481,7 +491,8 @@ escaladas:
     - Michel Rodrigues
     - Douglas Vaz
     data_abertura: '2024'
-    descricao: Via com uma saída em agarras pequenas que percorre a lateral de uma canaleta.
+    descricao: Via com uma saída em agarras pequenas que percorre a lateral de uma
+      canaleta.
 - uid: UHsSeBJxFPJsd9
   via_esportiva:
     nome: Forças Especiais
@@ -508,7 +519,8 @@ escaladas:
     - Michel Rodrigues
     - Douglas Vaz
     data_abertura: '2024'
-    descricao: Via em uma leve diagonal para a esquerda na saída e um platô próximo ao cume.
+    descricao: Via em uma leve diagonal para a esquerda na saída e um platô próximo
+      ao cume.
 - uid: oVcU3617ZkSN4v
   via_esportiva:
     nome: Sentinela da Hora
@@ -526,7 +538,8 @@ escaladas:
     - Michel Rodrigues
     - Douglas Vaz
     data_abertura: '2024'
-    descricao: Entrando no salão, a via encontra-se à esquerda, uma escalada fácil com um crux bem definido no final.
+    descricao: Entrando no salão, a via encontra-se à esquerda, uma escalada fácil
+      com um crux bem definido no final.
 - uid: pgp3zeThUVwlup
   via_esportiva:
     nome: Observador Avançado
@@ -535,7 +548,8 @@ escaladas:
     - Michel Rodrigues
     - Douglas Vaz
     data_abertura: '2024'
-    descricao: Via com uma saída vertical, passa ao lado de um teto e com boas agarras no decorrer da via.
+    descricao: Via com uma saída vertical, passa ao lado de um teto e com boas agarras
+      no decorrer da via.
 - uid: 3A6MZlVQTplO8F
   via_esportiva:
     nome: Técnicas Especiais
@@ -544,7 +558,8 @@ escaladas:
     - Michel Rodrigues
     - Douglas Vaz
     data_abertura: '2024'
-    descricao: Via mais ao fundo do salão, com uma saída forte e movimentos complexos até o cume.
+    descricao: Via mais ao fundo do salão, com uma saída forte e movimentos complexos
+      até o cume.
 - uid: ZH7Myboq6PyvOR
   via_esportiva:
     nome: Prisioneiro de Guerra
@@ -553,7 +568,8 @@ escaladas:
     - Michel Rodrigues
     - Douglas Vaz
     data_abertura: '2024'
-    descricao: Atenção ao escalar esta via devido à quedas próximas à parede atrás do escalador.
+    descricao: Atenção ao escalar esta via devido à quedas próximas à parede atrás
+      do escalador.
 - uid: 1YZOdRGBHIn7Kq
   via_esportiva:
     nome: Estudo de Situação
@@ -571,8 +587,8 @@ escaladas:
     - Michel Rodrigues
     - Douglas Vaz
     data_abertura: '2024'
-    descricao: Via mais clássica do setor que oferece belos registros fotográficos. Aconselha-se sair com a 1ª 
-      costurada.
+    descricao: Via mais clássica do setor que oferece belos registros fotográficos.
+      Aconselha-se sair com a 1ª costurada.
 - uid: GK3F5D04VgMNHF
   via_esportiva:
     nome: Garantia da Lei e da Ordem
@@ -581,12 +597,14 @@ escaladas:
     - Michel Rodrigues
     - Douglas Vaz
     data_abertura: '2024'
-    descricao: A escalada acompanha um arco natural da rocha passando por lances técnicos no decorrer da via.
+    descricao: A escalada acompanha um arco natural da rocha passando por lances técnicos
+      no decorrer da via.
 - uid: 3CbXllwRX8a62m
   via_esportiva:
     nome: Estímulo Estressor
     dificuldade: BR_7B
-    descricao: Via imponente com início técnico. Após o vertical amarelo vem a parada compartilhada com a via anterior.
+    descricao: Via imponente com início técnico. Após o vertical amarelo vem a parada
+      compartilhada com a via anterior.
 - uid: TOjRbM51Mx3zVE
   via_esportiva:
     nome: Controle de Distúrbio
@@ -595,7 +613,8 @@ escaladas:
     - Michel Rodrigues
     - Douglas Vaz
     data_abertura: '2024'
-    descricao: Via fácil com bons descansos, estilo tradicional com um certo grau de exposição na parte final.
+    descricao: Via fácil com bons descansos, estilo tradicional com um certo grau
+      de exposição na parte final.
 - uid: cmZcyr0NbpoG8M
   via_esportiva:
     nome: Interrogatório
@@ -604,7 +623,8 @@ escaladas:
     - Michel Rodrigues
     - Douglas Vaz
     data_abertura: '2024'
-    descricao: Escalada fácil no início e exigente no final. Aconselha-se sair com a primeira proteção costurada.
+    descricao: Escalada fácil no início e exigente no final. Aconselha-se sair com
+      a primeira proteção costurada.
 - uid: gDONrAguWy8waC
   via_esportiva:
     nome: Cabeça de Ponte
@@ -613,7 +633,8 @@ escaladas:
     - Michel Rodrigues
     - Douglas Vaz
     data_abertura: '2024'
-    descricao: Via peculiar do setor, saída técnica e depois no positivo passa por uma formação semelhante à uma ponte.
+    descricao: Via peculiar do setor, saída técnica e depois no positivo passa por
+      uma formação semelhante à uma ponte.
 - uid: Nah4sIHsxB9AZA
   via_esportiva:
     nome: Meios de Fortuna
@@ -649,7 +670,8 @@ escaladas:
     - Michel Rodrigues
     - Douglas Vaz
     data_abertura: '2024'
-    descricao: Via curta com uma exigência maior a anterior. Atenção ao costurar a segunda chapeleta devido à exposição.
+    descricao: Via curta com uma exigência maior a anterior. Atenção ao costurar a
+      segunda chapeleta devido à exposição.
 - uid: Tz5mcMHpFI7CdO
   via_esportiva:
     nome: Flanco Direito
@@ -658,10 +680,9 @@ escaladas:
     - Michel Rodrigues
     - Douglas Vaz
     data_abertura: '2024'
-    descricao: Via curta e fácil, tendo uma inclinação mais positiva em sua parte final.
+    descricao: Via curta e fácil, tendo uma inclinação mais positiva em sua parte
+      final.
 ---
-
-# Setor Teatro de Operações
 
 Este setor conta com diversas vias esportivas, abertas com a intenção de serem aproveitadas em sua maioria nos cursos militares aplicados pelo 11ºBiMth. É possível encontrar vias com diversas características e graduações. Os melhores horários para escalar as vias são no início da manhã, até ás 10:00 e no fim da tarde a partir das 16:00. Além disso, o setor conta com um salão onde é possível obter sombra em boa parte do dia, além de ser um ótimo abrigo.
 

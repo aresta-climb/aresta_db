@@ -9,7 +9,8 @@ escaladas:
     nome: Amarelão
     dificuldade: V2
     destaque: true
-    descricao: Sai com a mão direita em um reglete, a esquerda em um batente e escala por agarras boas.
+    descricao: Sai com a mão direita em um reglete, a esquerda em um batente e escala
+      por agarras boas.
 - uid: aesG73VkIAQPEb
   boulder:
     nome: Amarelinha
@@ -17,4 +18,3 @@ escaladas:
     descricao: Começa com as mãos juntas em uma agarra boa e escala reto.
 ---
 
-# Bloco B - Amarelão

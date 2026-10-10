@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: zkSbaQVnPkafaq
-nome: Pedra do Arco
+nome: Setor Pedra do Arco
 mapas:
 - caminho_imagem_mapa: imagens/setor_pedra_do_arco_p0.webp
   largura_mapa: 2048
@@ -183,8 +183,6 @@ escaladas:
     - Fábio de Melo
     - Rodrigo 'Mussula'
 ---
-
-# Setor Pedra do Arco
 
 Setor com vias de 12m até 17m.
 

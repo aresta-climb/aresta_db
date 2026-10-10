@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: kocXBrYzeYHO7c
-nome: Que Raio de Reglete
+nome: Setor Que Raio de Reglete
 mapas:
 - caminho_imagem_mapa: imagens/grupo_regiao_3_setor_que_raio_de_reglete_p0_i0.webp
   largura_mapa: 1240
@@ -52,5 +52,4 @@ escaladas:
     dificuldade: V3
 ---
 
-# Bloco: Que Raio de Reglete
 ## Região 3

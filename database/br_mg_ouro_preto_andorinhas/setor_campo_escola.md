@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: TFb7MHt7YSa4Am
-nome: Campo Escola
+nome: Setor Campo Escola
 mapas:
 - caminho_imagem_mapa: imagens/setor_campo_escola_p0.webp
   largura_mapa: 2048
@@ -161,8 +161,6 @@ escaladas:
     conquistadores:
     - Rodrigo 'Mussula'
 ---
-
-# Setor Campo Escola
 
 Setor com vias de 8m até 10m.
 

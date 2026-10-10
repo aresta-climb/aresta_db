@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: qSQoG5K7dOGfrN
-nome: Highlines - Bocaina Park
+nome: Setor Highlines - Bocaina Park
 mapas:
 - caminho_imagem_mapa: imagens/setor_highlines_p0.webp
   largura_mapa: 1280
@@ -66,10 +66,11 @@ escaladas:
     - Gustavo Fontes
     - Bruno Miguéis
     data_abertura: '2013'
-    descricao_acesso: 'Lado móvel: Setor dos Paulistas, atrás do totem da via Decadentes. Lado estático: topo da via Puberdade
-      no setor mezanino.'
-    descricao_ancoragem: Lado estático, duas chapeletas com backup no top da via de escalada. Lado móvel 3 chapeletas, 
-      longes uma da outra, corda para ancoragem grande e muita proteção abrasão.
+    descricao_acesso: 'Lado móvel: Setor dos Paulistas, atrás do totem da via Decadentes.
+      Lado estático: topo da via Puberdade no setor mezanino.'
+    descricao_ancoragem: Lado estático, duas chapeletas com backup no top da via de
+      escalada. Lado móvel 3 chapeletas, longes uma da outra, corda para ancoragem
+      grande e muita proteção abrasão.
 - uid: CqE03sWWsdDoWr
   highline:
     nome: Arquibancada
@@ -80,8 +81,9 @@ escaladas:
     - Reginaldo Gomes
     - Diego Leonardo
     data_abertura: '2017'
-    descricao_acesso: 'Lado estático: Trilha setor Aeroshane em cima da via Shana Crazy. Lado móvel: Totem na trilha para
-      terceiro andar no inicio da subida para o setor Paulistas.'
+    descricao_acesso: 'Lado estático: Trilha setor Aeroshane em cima da via Shana
+      Crazy. Lado móvel: Totem na trilha para terceiro andar no inicio da subida para
+      o setor Paulistas.'
     descricao_ancoragem: Lado estático e lado móvel 3 chapeletas cada.
 - uid: Urc67LvE0zKUUa
   highline:
@@ -94,10 +96,11 @@ escaladas:
     - Gustavo Fontes
     - Bruno Miguéis
     data_abertura: '2013'
-    descricao_acesso: 'Lado estático: Escalar a via mulheres ao poder na garganta e após o top da via, derivar para a direita.
-      Lado móvel: Passar pelo terceiro Andar e continuar subindo até nivelar com o top da via mulheres ao poder.'
-    descricao_ancoragem: 'Lado estático: 3 chapeletas. Lado móvel: 4 chapeletas distantes uma da outra, levar bastante proteção
-      de abrasão.'
+    descricao_acesso: 'Lado estático: Escalar a via mulheres ao poder na garganta
+      e após o top da via, derivar para a direita. Lado móvel: Passar pelo terceiro
+      Andar e continuar subindo até nivelar com o top da via mulheres ao poder.'
+    descricao_ancoragem: 'Lado estático: 3 chapeletas. Lado móvel: 4 chapeletas distantes
+      uma da outra, levar bastante proteção de abrasão.'
 - uid: 3CTP6QwsRy0Z1w
   highline:
     nome: Figura Pública
@@ -109,11 +112,13 @@ escaladas:
     - Diego Leonardo
     - Thiago Vasconcelos
     data_abertura: '2017'
-    descricao_acesso: 'Lado estático: Escalar a via De Mão Beijada ate o cume, derivando para a direita após o top. Lado móvel:
-      caminhar no interior da Garganta ate o final da erosão fluvial, depois virar completamente à esquerda no morro da trilha
-      de moto, abandonando a trilha até alcançar o topo das vias de escalada e conseguir visualizar as chapeletas no alinhamento
-      da outra ancoragem.'
-    descricao_ancoragem: Lado estático e móvel, 3 chapeletas cada, necessitando bastante proteção de abrasão.
+    descricao_acesso: 'Lado estático: Escalar a via De Mão Beijada ate o cume, derivando
+      para a direita após o top. Lado móvel: caminhar no interior da Garganta ate
+      o final da erosão fluvial, depois virar completamente à esquerda no morro da
+      trilha de moto, abandonando a trilha até alcançar o topo das vias de escalada
+      e conseguir visualizar as chapeletas no alinhamento da outra ancoragem.'
+    descricao_ancoragem: Lado estático e móvel, 3 chapeletas cada, necessitando bastante
+      proteção de abrasão.
 - uid: QIcKYtvvcXMGdq
   highline:
     nome: Visão além do alcance
@@ -124,10 +129,10 @@ escaladas:
     - Gustavo Fontes
     - Bruno Miguéis
     data_abertura: '2013'
-    descricao_acesso: 'Lado estático: passar pela entrada da garganta e no início do setor ensolarado começar uma escalaminhada
-      em direção às ancoragens. Lado móvel: Terceiro Andar ao chegar na base da via efeito colateral, derivar completamente
+    descricao_acesso: 'Lado estático: passar pela entrada da garganta e no início
+      do setor ensolarado começar uma escalaminhada em direção às ancoragens. Lado
+      móvel: Terceiro Andar ao chegar na base da via efeito colateral, derivar completamente
       à esquerda em direção às ancoragens.'
     descricao_ancoragem: 'Lado estático: 4 chapeletas Lado móvel: 3 chapeletas.'
 ---
 
-# Highlines - Bocaina Park

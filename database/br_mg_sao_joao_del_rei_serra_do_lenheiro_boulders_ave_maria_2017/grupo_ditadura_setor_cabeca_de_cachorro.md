@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: CFkj135WS2iAFC
-nome: Cabeça de Cachorro
+nome: Setor Cabeça de Cachorro
 mapas:
 - caminho_imagem_mapa: imagens/grupo_ditadura_setor_cabeca_de_cachorro_p0_i0.webp
   largura_mapa: 710
@@ -51,4 +51,3 @@ escaladas:
     dificuldade: V0
 ---
 
-# Cabeça de Cachorro

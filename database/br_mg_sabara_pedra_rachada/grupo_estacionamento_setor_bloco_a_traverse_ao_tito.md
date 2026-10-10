@@ -28,36 +28,37 @@ escaladas:
   boulder:
     nome: Esquenta o prato
     dificuldade: V3
-    descricao: Sai sentado com a mão direita em um pequeno reglete/batente de gaston e a esquerda em um batente 
-      invertido, fazendo um movimento forte e continuando reto por agarras boas até o topo.
+    descricao: Sai sentado com a mão direita em um pequeno reglete/batente de gaston
+      e a esquerda em um batente invertido, fazendo um movimento forte e continuando
+      reto por agarras boas até o topo.
 - uid: y8pNozqXqupfuc
   boulder:
     nome: Traverse ao Tito
     dificuldade: V5
     destaque: true
-    descricao: Problema aberto em homenagem à jovem promessa da escalada italiana. Sai como o “Esquenta o prato” (1) e 
-      atravessa pelo alto para a direita, passando por um buraco e pelo módulo até um batente abaulado, finalizando com 
-      um movimento longo até a borda.
+    descricao: Problema aberto em homenagem à jovem promessa da escalada italiana.
+      Sai como o “Esquenta o prato” (1) e atravessa pelo alto para a direita, passando
+      por um buraco e pelo módulo até um batente abaulado, finalizando com um movimento
+      longo até a borda.
 - uid: m5KSKHA1BNAond
   boulder:
     nome: Chupa karma
     dificuldade: V5
     destaque: true
-    descricao: Sai em pé em 02 regletes/batentes invertidos e faz um movimento forte para uma agarra boa, terminando 
-      como o “Taco o fogo” (4).
+    descricao: Sai em pé em 02 regletes/batentes invertidos e faz um movimento forte
+      para uma agarra boa, terminando como o “Taco o fogo” (4).
 - uid: TX3Ddbo6JEPhEk
   boulder:
     nome: Taco o fogo
     dificuldade: V4
-    descricao: Começa sentado, com a mão direita bem baixa num reglete e a esquerda num batente/pinça de lado e toca 
-      reto.
+    descricao: Começa sentado, com a mão direita bem baixa num reglete e a esquerda
+      num batente/pinça de lado e toca reto.
 - uid: PADAVh9eSfibg7
   boulder:
     nome: Pum
     dificuldade: V0
     destaque: true
-    descricao: Sai em pé com a mão direita num reglete de gaston e a esquerda em uma invertida logo acima escalando por 
-      agarras boas.
+    descricao: Sai em pé com a mão direita num reglete de gaston e a esquerda em uma
+      invertida logo acima escalando por agarras boas.
 ---
 
-# Bloco A - Traverse ao Tito

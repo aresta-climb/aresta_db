@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: oCKkGc2VoqL1YW
-nome: Toca do Coelho
+nome: Setor Toca do Coelho
 mapas:
 - caminho_imagem_mapa: imagens/setor_toca_do_coelho_p0_i2.webp
   largura_mapa: 1025
@@ -103,8 +103,8 @@ escaladas:
     - Pablo Veloso
     - Carlos Pádua
     data_abertura: '2021-09-16'
-    descricao: Bela via num belo sistema de chorreiras, formando um estilo diferente do padrão local. 4 chapas e top 
-      duplo.
+    descricao: Bela via num belo sistema de chorreiras, formando um estilo diferente
+      do padrão local. 4 chapas e top duplo.
 - uid: iHcRkKegVCjszC
   via_esportiva:
     nome: Espantalho
@@ -126,7 +126,8 @@ escaladas:
     - André Ilha
     - Lúcia Duarte
     data_abertura: '1990-09-09'
-    descricao: Via levemente negativa com crux na saída, passa por lances de chaminé. Friends diversos. Top numa árvore.
+    descricao: Via levemente negativa com crux na saída, passa por lances de chaminé.
+      Friends diversos. Top numa árvore.
 - uid: vKvu804eyaHo8k
   via_movel:
     nome: Tupã
@@ -138,8 +139,8 @@ escaladas:
     - André Ilha
     - Lúcia Duarte
     data_abertura: '1990-02-27'
-    descricao: Bela fissura com colocações perfeitas. Um jogo de friends até BD#4. Parada móvel no cume e saída por 
-      trilha.
+    descricao: Bela fissura com colocações perfeitas. Um jogo de friends até BD#4.
+      Parada móvel no cume e saída por trilha.
 - uid: JYWVqEcsvwJrsw
   via_esportiva:
     nome: Leão Covarde
@@ -167,7 +168,8 @@ escaladas:
     - Pablo Veloso
     - Carlos Pádua
     data_abertura: '2022'
-    descricao: Via técnica com uma saída no estilo boulder e segue por agarras escorridas e movimentação complexa.
+    descricao: Via técnica com uma saída no estilo boulder e segue por agarras escorridas
+      e movimentação complexa.
 - uid: PjV9lHCnwDc6nQ
   via_esportiva:
     nome: A Brisa da Lagarta
@@ -188,8 +190,6 @@ escaladas:
     data_abertura: '2022'
     descricao: Variante da via anterior.
 ---
-
-# Toca do Coelho
 
 Este setor fica escondido na parte alta à direita do Bloco dos Dois Dedos. A trilha de 5min inicia 100m após os Dois Dedos, à esquerda ao lado de um corte d’água que cruza a estrada.
 

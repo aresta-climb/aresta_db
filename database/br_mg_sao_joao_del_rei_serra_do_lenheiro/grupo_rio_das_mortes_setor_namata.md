@@ -154,8 +154,8 @@ escaladas:
     - Heider Ribeiro (Tio Nem)
     - Webert (Beto) Resende
     data_abertura: '2020'
-    descricao: Via que percorre a parte de fora da grande aresta. Proporciona belas fotos de dentro do Salão. Possui 5 
-      chapeletas e mais duas argolas no top.
+    descricao: Via que percorre a parte de fora da grande aresta. Proporciona belas
+      fotos de dentro do Salão. Possui 5 chapeletas e mais duas argolas no top.
 - uid: rbZ2swQHZxNfvO
   via_esportiva:
     nome: Própolis
@@ -167,8 +167,9 @@ escaladas:
     - Pedro Naves
     - Mariana Fiche
     data_abertura: '2018'
-    descricao: Variante da via a seguir, compartilha as duas primeiras chapas e sai pra esquerda do tetinho. Acima passa
-      por uma grande laca sólida. São 5 chapas e mais 2 no top.
+    descricao: Variante da via a seguir, compartilha as duas primeiras chapas e sai
+      pra esquerda do tetinho. Acima passa por uma grande laca sólida. São 5 chapas
+      e mais 2 no top.
 - uid: TDSdj2F4h5vdQe
   via_esportiva:
     nome: Pão de Mel
@@ -180,7 +181,8 @@ escaladas:
     - Antônio Gilmar (Tonhão)
     - Germano Rezende
     data_abertura: '2018'
-    descricao: Via mais popular da área por ser acessível, bonita e bem protegida. Possui 5 chapas e mais duas no top.
+    descricao: Via mais popular da área por ser acessível, bonita e bem protegida.
+      Possui 5 chapas e mais duas no top.
 - uid: 9x4q9zaA2tkdGf
   via_esportiva:
     nome: Sombra
@@ -200,8 +202,8 @@ escaladas:
     - Pedro Naves
     - Heider Ribeiro (Tio Nem)
     data_abertura: '2020-02-08'
-    descricao: Até o momento a via mais difícil do Rio das Mortes. Passa pelo meio do grande teto e depois segue por 
-      boas agarras.
+    descricao: Até o momento a via mais difícil do Rio das Mortes. Passa pelo meio
+      do grande teto e depois segue por boas agarras.
 - uid: KNWCnjRO9hpQ4C
   via_esportiva:
     nome: Quarentena
@@ -215,8 +217,8 @@ escaladas:
     - Heider Ribeiro (Tio Nem)
     - Michel Rodrigues
     data_abertura: '2020'
-    descricao: Via longa e bonita. Saída no diedro e logo passa pra aresta, desbordando-a até virar pra positivo de 
-      agarra. 9 + 2 chapas.
+    descricao: Via longa e bonita. Saída no diedro e logo passa pra aresta, desbordando-a
+      até virar pra positivo de agarra. 9 + 2 chapas.
 - uid: K2f7thfkjNYMRE
   via_esportiva:
     nome: Terra à Vista
@@ -230,8 +232,9 @@ escaladas:
     - Pedro Naves
     - Mariana Fiche
     data_abertura: '2019'
-    descricao: Talvez a via mais clássica da área, pois além de longa, possui uma grande variedade de estilos como 
-      negativos, positivo de equilíbrio, esticão e aresta. 7 chapas e mais 2 argolas no top.
+    descricao: Talvez a via mais clássica da área, pois além de longa, possui uma
+      grande variedade de estilos como negativos, positivo de equilíbrio, esticão
+      e aresta. 7 chapas e mais 2 argolas no top.
 - uid: fN2YsfZ2WmDqbq
   via_esportiva:
     nome: Jardineiro
@@ -242,10 +245,9 @@ escaladas:
     - Guilherme Otoni
     - Mariana Fiche
     data_abertura: '2022-03-20'
-    descricao: Via dura no início com negativo de agarras seguido de aderência com micro-regletes, segunda metade fácil.
+    descricao: Via dura no início com negativo de agarras seguido de aderência com
+      micro-regletes, segunda metade fácil.
 ---
-
-# Setor Namata
 
 Setor com maior altura e quantidade de vias. É por onde chega a trilha principal. Por estar dentro de uma mata tem sombra o dia todo na base, mas de tarde partes das vias pega sol.
 

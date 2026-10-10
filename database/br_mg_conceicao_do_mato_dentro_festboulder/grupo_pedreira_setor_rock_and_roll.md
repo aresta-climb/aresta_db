@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: ZBKaVEqb9Jnj9Q
-nome: Rock and Roll
+nome: Setor Rock and Roll
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_rock_and_roll_p0.webp
   largura_mapa: 757
@@ -67,8 +67,6 @@ escaladas:
     nome: Go Johnny Go
     dificuldade: V3
 ---
-
-# Setor Rock and Roll
 
 O setor Rock and Roll possui um bloco com linhas acessíveis e bem divertidas.
 

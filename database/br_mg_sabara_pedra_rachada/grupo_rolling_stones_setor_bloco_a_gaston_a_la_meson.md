@@ -41,14 +41,16 @@ escaladas:
   boulder:
     nome: Coral
     dificuldade: V3
-    descricao: Boulder que sai sentado em pequenos regletes de oposição e segue por umas cracas.
+    descricao: Boulder que sai sentado em pequenos regletes de oposição e segue por
+      umas cracas.
 - uid: L4LyF7mhoD8Us8
   boulder:
     nome: Surpreendente
     dificuldade: V5
     destaque: true
-    descricao: Sai em pé com a mão esquerda em uma pinça invertida perto do chão e a mão direita num reglete alto e faz 
-      um movimento forte de esquerda até uma agarra cortante, virando reto pelas cracas.
+    descricao: Sai em pé com a mão esquerda em uma pinça invertida perto do chão e
+      a mão direita num reglete alto e faz um movimento forte de esquerda até uma
+      agarra cortante, virando reto pelas cracas.
 - uid: zAe6hLpGjg8vOW
   boulder:
     nome: Frito
@@ -56,33 +58,36 @@ escaladas:
     conquistadores:
     - Gustavo Fontes
     data_abertura: '2010'
-    descricao: Começa sentado em um grande batente e faz uma sequência de movimentos duros até o domínio.
+    descricao: Começa sentado em um grande batente e faz uma sequência de movimentos
+      duros até o domínio.
 - uid: 0swtYbPEnXHPkF
   boulder:
     nome: Fritei
     dificuldade: V0
-    descricao: Sai como o “Frito” (xx) e atravessa pra direita pelo mesmo batente até um domínio fácil.
+    descricao: Sai como o “Frito” (xx) e atravessa pra direita pelo mesmo batente
+      até um domínio fácil.
 - uid: f1cXKsZObhP6jD
   boulder:
     nome: Vem de baixo
     dificuldade: V1
     destaque: true
-    descricao: Começa com as mãos juntas em batente e escala por agarras boas até a saída do teto, fazendo uma virada 
-      tranqüila.
+    descricao: Começa com as mãos juntas em batente e escala por agarras boas até
+      a saída do teto, fazendo uma virada tranqüila.
 - uid: Ftob4NunF8Vtbw
   boulder:
     nome: Quina da mesa
     dificuldade: V3
     destaque: true
-    descricao: Sai como o “Vem de baixo” (5), vai para um reglete no teto e depois para um pocket/abaulado na aresta e 
-      segue por ela até o fim do “Gastón a la meson” (7).
+    descricao: Sai como o “Vem de baixo” (5), vai para um reglete no teto e depois
+      para um pocket/abaulado na aresta e segue por ela até o fim do “Gastón a la
+      meson” (7).
 - uid: 57BLtHxGgd97eO
   boulder:
     nome: Gaston à la meson
     dificuldade: V6
     destaque: true
-    descricao: Começa como o “Vem de baixo” (5) e atravessa pelo teto passando por um movimento duro de gastón, como na 
-      foto ao lado.
+    descricao: Começa como o “Vem de baixo” (5) e atravessa pelo teto passando por
+      um movimento duro de gastón, como na foto ao lado.
 - uid: tRyDwsk7WLKaYt
   boulder:
     nome: Gaston à la meson FDS
@@ -94,4 +99,3 @@ escaladas:
     descricao: Extensão do “Gastón a la meson” (7) saindo de dois pockets mais abaixo.
 ---
 
-# Bloco A - Gastón a la Mesón

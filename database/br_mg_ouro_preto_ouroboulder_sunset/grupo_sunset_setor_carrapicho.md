@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: jsAkOxynMs1Q1y
-nome: Carrapicho
+nome: Bloco Carrapicho
 escaladas:
 - uid: yYu9f7Q8LNizSu
   boulder:
@@ -82,4 +82,3 @@ mapas:
     - sUAgvK1NQUZxg9
 ---
 
-# Bloco Carrapicho

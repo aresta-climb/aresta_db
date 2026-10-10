@@ -283,8 +283,6 @@ escaladas:
     extensao: 15
 ---
 
-# Setor 7 Paralelo
-
 Setor com grande concentração de vias, predomínio de vias de sétimo grau,
 com altura média entre 15 e 25 metros.
 

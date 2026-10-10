@@ -29,12 +29,13 @@ escaladas:
     nome: Night climb SDS
     dificuldade: V4
     destaque: true
-    descricao: Começa sentado com as mãos juntas em um reglete cavado e termina como o “Night climb” (45).
+    descricao: Começa sentado com as mãos juntas em um reglete cavado e termina como
+      o “Night climb” (45).
 - uid: lrnM8jDDAlTeqv
   boulder:
     nome: Tramontina
     dificuldade: V1
-    descricao: Sai em pé com as mãos em dois regletes cortantes na fendinha e escala pra direita em direção à aresta.
+    descricao: Sai em pé com as mãos em dois regletes cortantes na fendinha e escala
+      pra direita em direção à aresta.
 ---
 
-# Bloco M - Night Climb

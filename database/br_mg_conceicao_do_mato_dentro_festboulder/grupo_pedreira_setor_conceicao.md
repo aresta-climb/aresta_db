@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: 1UnylXLq321R7V
-nome: Conceição
+nome: Setor Conceição
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_conceicao_p0.webp
   largura_mapa: 759
@@ -86,8 +86,6 @@ escaladas:
     nome: (sem nome 16)
     dificuldade: V2
 ---
-
-# Setor Conceição
 
 O setor Conceição apresenta blocos com agarras boas e linhas de técnica.
 

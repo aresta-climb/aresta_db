@@ -3,7 +3,7 @@
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: vcNPgYS6LWY92G
 caminho_imagem_capa: imagens/setor_tsunami_p0_i0.webp
-nome: Tsunami
+nome: Setor Tsunami
 mapas:
 - caminho_imagem_mapa: imagens/setor_tsunami_p1.webp
   largura_mapa: 1280
@@ -492,8 +492,6 @@ escaladas:
     - Lucas Ramos
     data_abertura: '2006'
 ---
-
-# Setor Tsunami
 
 O Setor Tsunami é um dos maiores do Bocaina Park, com vias extensas e desafiadoras que chegam ao 10º grau.
 

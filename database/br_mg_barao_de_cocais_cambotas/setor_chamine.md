@@ -1,9 +1,8 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
-
 uid: 150z6viZ5YGa1C
-nome: Chaminé
+nome: Setor Chaminé
 mapas:
 - caminho_imagem_mapa: imagens/setor_chamine_p0_i0.webp
 escaladas:
@@ -15,8 +14,7 @@ escaladas:
     conquistadores:
     - Alexandre 'paulista'
     - Alexandre Fei
-    descricao: Via difícil, técnica. Agarras abauladas em local sombrio tornam essa via mais delicada. Ótima opção. 
-      Molha bastante no verão.
+    descricao: Via difícil, técnica. Agarras abauladas em local sombrio tornam essa
+      via mais delicada. Ótima opção. Molha bastante no verão.
 ---
 
-# Setor Chaminé

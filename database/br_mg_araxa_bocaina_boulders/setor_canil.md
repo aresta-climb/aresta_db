@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: z7vQKwVnhjN7dQ
-nome: Canil
+nome: Setor Canil
 mapas:
 - caminho_imagem_mapa: imagens/setor_canil_p0.webp
   largura_mapa: 1062
@@ -71,17 +71,20 @@ escaladas:
   boulder:
     nome: Sucrilhos no Prato
     dificuldade: V7
-    descricao: Saída deitado com mão esquerda em pinça e direita na mesma agarra em reglete lateral.
+    descricao: Saída deitado com mão esquerda em pinça e direita na mesma agarra em
+      reglete lateral.
 - uid: QfQqepKuxSJctO
   boulder:
     nome: Titan
     dificuldade: V4
-    descricao: Saída deitado com mao esquerda em pinça na borda e direita batente investido.
+    descricao: Saída deitado com mao esquerda em pinça na borda e direita batente
+      investido.
 - uid: BOIeQZAXjE3hh3
   boulder:
     nome: Lobão
     dificuldade: V7
-    descricao: Saida do Sucrilhos no Prato fazendo travessia para direita virando no Loboulder.
+    descricao: Saida do Sucrilhos no Prato fazendo travessia para direita virando
+      no Loboulder.
 - uid: Qi1Q0PDMpfliDb
   boulder:
     nome: Tião Macalé
@@ -100,7 +103,7 @@ escaladas:
   boulder:
     nome: Savana
     dificuldade: V6
-    descricao: Saída do loboulder em travessia para esquerda virando no Sucrilhos no Prato.
+    descricao: Saída do loboulder em travessia para esquerda virando no Sucrilhos
+      no Prato.
 ---
 
-# Setor Canil

@@ -106,4 +106,3 @@ escaladas:
     altura_mapa: 1211
 ---
 
-# Setor Covide (ala aderência)

@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: laU6kSKcP3t27A
-nome: Ônibus
+nome: Setor Ônibus
 mapas:
 - caminho_imagem_mapa: imagens/grupo_salao_de_pedras_setor_onibus_p0.webp
   largura_mapa: 866
@@ -240,8 +240,6 @@ escaladas:
     nome: Saidex
     dificuldade: V1
 ---
-
-# Setor Ônibus
 
 O setor Ônibus possui dois blocos principais com diversas linhas de boulder.
 

@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: BjL9SR8V0cBhuL
-nome: Curto e Grosso
+nome: Setor Curto e Grosso
 escaladas:
 - uid: CIZ94V52CuEYwg
   via_esportiva:
@@ -45,3 +45,4 @@ escaladas:
     - Jg
     - Arthur King
 ---
+

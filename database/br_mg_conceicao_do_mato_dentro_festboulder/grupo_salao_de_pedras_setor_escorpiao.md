@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: VBkLZLZHoBsl6y
-nome: Escorpião
+nome: Setor Escorpião
 mapas:
 - caminho_imagem_mapa: imagens/grupo_salao_de_pedras_setor_escorpiao_p0.webp
   largura_mapa: 761
@@ -114,8 +114,6 @@ escaladas:
     nome: Sicronismo
     dificuldade: V8
 ---
-
-# Setor Escorpião
 
 O setor Escorpião apresenta boulders com movimentos técnicos e agarras específicas.
 

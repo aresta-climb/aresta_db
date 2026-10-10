@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: hvbt8d3J7iRNJ4
-nome: Free Solo
+nome: Bloco Free Solo
 escaladas:
 - uid: YfMW47oCbmPzNq
   boulder:
@@ -111,4 +111,3 @@ mapas:
     - wrQHbOl8h8h1Gs
 ---
 
-# Bloco Free Solo

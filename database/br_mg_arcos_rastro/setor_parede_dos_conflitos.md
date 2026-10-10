@@ -245,6 +245,4 @@ escaladas:
     quantidade_protecoes_parada: 2
 ---
 
-# Setor Parede dos Conflitos
-
 Este setor possui sombra até as 13h (variando de acordo com a estação).

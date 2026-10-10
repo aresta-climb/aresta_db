@@ -723,8 +723,6 @@ escaladas:
     - Marco Durães
 ---
 
-# Setor Vale dos Espinhos
-
 **Acesso:** Depois de passar pelo setor Sentinela seguir a trilha por uma pequena subida e pegar a bifurcação a esquerda. Evitar o acesso pela gruta para preservar os espeleotemas.
 
 **Coordenadas no Vale dos Espinhos próximo a via 01 e 02:** -19º32.872’ -43º59.426’

@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: lyJ9wythLTiXh7
-nome: Matsuzaki
+nome: Setor Matsuzaki
 mapas:
 - caminho_imagem_mapa: imagens/grupo_laranjinha_setor_matsuzaki_p0_i0.webp
   largura_mapa: 746
@@ -37,3 +37,4 @@ escaladas:
     nome: Agente Laranja
     dificuldade: V4
 ---
+

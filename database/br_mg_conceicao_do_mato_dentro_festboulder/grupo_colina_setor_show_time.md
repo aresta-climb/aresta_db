@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: QPq69lj2cQaMam
-nome: Show Time
+nome: Setor Show Time
 mapas:
 - caminho_imagem_mapa: imagens/grupo_colina_setor_show_time_p0.webp
   largura_mapa: 755
@@ -144,8 +144,6 @@ escaladas:
     nome: Meia Lua
     dificuldade: V3
 ---
-
-# Setor Show Time
 
 O setor Show Time possui blocos isolados com linhas de diversas dificuldades e visuais incríveis.
 

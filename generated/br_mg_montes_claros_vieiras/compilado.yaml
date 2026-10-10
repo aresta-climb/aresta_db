@@ -9,7 +9,7 @@ picos:
   - setor:
       conteudo:
         uid: G0xqU7jw49Gc2R
-        nome: Vieiras
+        nome: Setor Vieiras
         mapas:
         - caminho_imagem_mapa: imagens/setor_vieiras_p0_i0.webp
           largura_mapa: 2048
@@ -74,10 +74,8 @@ picos:
           via_esportiva:
             nome: Ratazana
             dificuldade: BR_7A
-        descricao: |-
-          # Setor Vieiras
-
-          O setor Vieiras é um dos setores clássicos de Montes Claros, com vias que variam do 5° ao 9b.
+        descricao: O setor Vieiras é um dos setores clássicos de Montes Claros, com
+          vias que variam do 5° ao 9b.
         precomputados:
           total_escaladas: 14
           total_esportivas: 13

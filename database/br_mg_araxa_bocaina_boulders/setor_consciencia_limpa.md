@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: yPyqzCvOxEEIE3
-nome: Consciência Limpa
+nome: Setor Consciência Limpa
 mapas:
 - caminho_imagem_mapa: imagens/setor_consciencia_limpa_p0.webp
   largura_mapa: 1096
@@ -69,17 +69,20 @@ escaladas:
   boulder:
     nome: Sabiá
     dificuldade: V1
-    descricao: Saída agachado com as duas mãos em agarras boas laterais e vira a esquerda da planta.
+    descricao: Saída agachado com as duas mãos em agarras boas laterais e vira a esquerda
+      da planta.
 - uid: RoRaerpVLHnnMi
   boulder:
     nome: Consciência Limpa
     dificuldade: V2
-    descricao: Saída sentado com mão direita em reglete lateral branco e esquerda proximo as pedras .
+    descricao: Saída sentado com mão direita em reglete lateral branco e esquerda
+      proximo as pedras .
 - uid: fRmptXErasQlWb
   boulder:
     nome: Consciência
     dificuldade: V1
-    descricao: Saída agachado com as mãos juntas em batente baixo e segue reto pela aresta.
+    descricao: Saída agachado com as mãos juntas em batente baixo e segue reto pela
+      aresta.
 - uid: OfkdNUdYCH06Je
   boulder:
     nome: Mulheres Poderosas
@@ -87,4 +90,3 @@ escaladas:
     descricao: Saída agachado com mão direita em agarra lateral e esquerda na aresta.
 ---
 
-# Setor Consciência Limpa

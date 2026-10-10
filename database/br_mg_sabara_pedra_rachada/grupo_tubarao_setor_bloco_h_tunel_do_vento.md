@@ -25,13 +25,14 @@ escaladas:
     conquistadores:
     - Mahavir Jneesh
     data_abertura: '2011'
-    descricao: Começa sentado com as mãos juntas em um batente invertido, escala comprimindo o “módulo” e atravessa o 
-      teto pela direita, passando por algumas lacas e pinças e dominando pela “chaminé”.
+    descricao: Começa sentado com as mãos juntas em um batente invertido, escala comprimindo
+      o “módulo” e atravessa o teto pela direita, passando por algumas lacas e pinças
+      e dominando pela “chaminé”.
 - uid: ruK2ChvKCGHihG
   boulder:
     nome: Diagonal (Túnel do Vento)
     dificuldade: V1
-    descricao: Começa sentado com as mãos em dois gastons e domina a parte baixa do bloco.
+    descricao: Começa sentado com as mãos em dois gastons e domina a parte baixa do
+      bloco.
 ---
 
-# Bloco H - Túnel do Vento

@@ -8,8 +8,6 @@ setores:
 - caminho: grupo_serra_de_sao_jose_setor_cachoeira_pedra_do_indio.md
 ---
 
-# Serra de São José
-
 Apesar do guia ser sobre a Serra do Lenheiro, vale a pena incluir aqui algumas escaladas da sua vizinha São José, que na verdade são afloramentos diferentes da mesma formação rochosa, sendo separadas por poucos quilômetros (perímetro urbano de São João Del Rei).
 
 ## Cachoeira Pedra do Índio (Marco Zero)

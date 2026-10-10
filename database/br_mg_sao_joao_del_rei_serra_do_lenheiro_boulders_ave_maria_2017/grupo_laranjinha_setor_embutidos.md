@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: 6c6dDcMXtYms7t
-nome: Embutidos
+nome: Setor Embutidos
 mapas:
 - caminho_imagem_mapa: imagens/grupo_laranjinha_setor_embutidos_p0_i1.webp
   largura_mapa: 735
@@ -38,4 +38,3 @@ escaladas:
     dificuldade: V3
 ---
 
-# Setor Embutidos

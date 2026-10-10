@@ -225,7 +225,7 @@
     A base destas vias fica a cinco minutos da sede da fazenda Retiro das Águas, na lateral direita da estrada de terra, ainda acessível por automóveis, logo após uma pequena casa sem uso no lado esquerdo da mesma.
     
     Este setor, apesar de curto e com lances simples, por ficar no sol o dia quase todo, apresenta uma parede bastante quente (como indica o nome de duas das vias), sendo ideal para escaladas pela parte inicial da manhã, ou ao final da tarde.
-- **nome**: Cachoeira
+- **nome**: Setor Cachoeira
 - **uid**: lTi8TIXxTU6KF0
 - **mapas**:
   - **[0]**:
@@ -493,7 +493,7 @@
           Ao cruzar a cerca, a trilha segue pouco definida por 30 metros, até juntar-se à parede. Neste ponto, fica a base da via “Nesse Mato Tem Cachorro”. Subindo para a direita, chega-se à base da “Libera Liberou” e descendo para a esquerda (em meio ao capim), chega-se à base da “Solamente”.
           
           Em geral, são vias de baixa graduação, boas para treinar o psicológico gradualmente, uma vez que as vias variam seu grau de exposição, possuindo vias de E1, E2, E3 e E5, sem possuir lances muito técnicos. A exceção é a via “Dez Mil e Uma Noites”, que apesar da boa grampeação, possui lances de VI grau, exigindo maior atenção e habilidade por parte do escalador.
-      - **nome**: Extrema Esquerda
+      - **nome**: Setor Extrema Esquerda
       - **uid**: FO3KvzGBfKKpB4
       - **mapas**:
         - **[0]**:
@@ -900,7 +900,7 @@
           | ![Eustáquio Júnior na trilha a frente da via “Pescoço de Minhoca”, fotografando os escaladores. (Foto: Pedro Bugim)](imagens/grupo_aderencias_setor_esquerda_p8_i1.webp) |
           | :--: |
           | *Eustáquio Júnior na trilha a frente da via “Pescoço de Minhoca”, fotografando os escaladores. (Foto: Pedro Bugim)* |
-      - **nome**: Esquerda
+      - **nome**: Setor Esquerda
       - **uid**: avRkW8fzw3OF22
       - **mapas**:
         - **[0]**:
@@ -2246,14 +2246,14 @@
               - **alvo_uid**: FO3KvzGBfKKpB4
               - **pontos_uids**:
                 - HRfdiFKUw8SA4o
-              - **setor**: Extrema Esquerda
+              - **setor**: Setor Extrema Esquerda
               - **ids**:
                 - HRfdiFKUw8SA4o
             - **[1]**:
               - **alvo_uid**: avRkW8fzw3OF22
               - **pontos_uids**:
                 - oSTYxOPemGa3hY
-              - **setor**: Esquerda
+              - **setor**: Setor Esquerda
               - **ids**:
                 - oSTYxOPemGa3hY
             - **[2]**:
@@ -2393,7 +2393,7 @@
               - **alvo_uid**: g0ASFec0ovBc9J
               - **pontos_uids**:
                 - ZqKbS4kzj4n5PF
-              - **setor**: Parede Principal – Direita
+              - **setor**: Setor Parede Principal – Direita
               - **ids**:
                 - ZqKbS4kzj4n5PF
         - **[1]**:
@@ -3306,14 +3306,14 @@
               - **alvo_uid**: avRkW8fzw3OF22
               - **pontos_uids**:
                 - 78M7PevSBpfjiD
-              - **setor**: Esquerda
+              - **setor**: Setor Esquerda
               - **ids**:
                 - 78M7PevSBpfjiD
             - **[5]**:
               - **alvo_uid**: g0ASFec0ovBc9J
               - **pontos_uids**:
                 - 8gD4hNa0IGrIJY
-              - **setor**: Parede Principal – Direita
+              - **setor**: Setor Parede Principal – Direita
               - **ids**:
                 - 8gD4hNa0IGrIJY
             - **[6]**:
@@ -3537,7 +3537,7 @@
           O acesso à base das vias da direita (“Mais Chuva Que Sol” e “Só a Cabecinha”) pode ser feito de duas formas: (I) acessar a parede pela picada até a “Bolo de Cenoura”, subir a encosta e acessar o primeiro grampo da via “51, Uma Boa Ideia” e, a partir daí, rapelar até a base das vias em uma diagonal para a direita; ou (II) continuar seguindo a trilha principal até o ponto onde aparece uma porteira de um pequeno curral. Deste ponto, deve-se descer até o córrego à esquerda em direção ao início de um bambuzal, onde pode-se avistar um grotão seco onde se inicia a trilha que dá acesso à parede. A trilha segue por cerca de 50 metros, inicialmente pelo grotão e em seguida subindo para a esquerda até encostar na pedra. Os primeiros grampos das vias ficam logo a vista.
           
           A trilha pode não estar muito bem definida devido à pouca frequência atual neste setor.
-      - **nome**: Extrema Direita
+      - **nome**: Setor Extrema Direita
       - **uid**: sMtcp04stg3wSX
       - **mapas**:
         - **[0]**:
@@ -3862,14 +3862,14 @@
               - **alvo_uid**: lTi8TIXxTU6KF0
               - **pontos_uids**:
                 - v6xgcdbhiBfzEX
-              - **setor**: Cachoeira
+              - **setor**: Setor Cachoeira
               - **ids**:
                 - v6xgcdbhiBfzEX
             - **[1]**:
               - **alvo_uid**: FO3KvzGBfKKpB4
               - **pontos_uids**:
                 - S8U8czODCDed99
-              - **setor**: Extrema Esquerda
+              - **setor**: Setor Extrema Esquerda
               - **ids**:
                 - S8U8czODCDed99
             - **[2]**:
@@ -4798,7 +4798,7 @@
           | ![Cida, Eustáquio Júnior, Larissa Lopes e Maria Fernanda na base da Parede Principal - Direita, durante aula do segundo Curso Básico de Montanhismo do CEM (Foto: Pedro Bugim)](imagens/grupo_principal_setor_direita_p7_i0.webp) |
           | :--: |
           | *Cida, Eustáquio Júnior, Larissa Lopes e Maria Fernanda na base da Parede Principal - Direita, durante aula do segundo Curso Básico de Montanhismo do CEM (Foto: Pedro Bugim)* |
-      - **nome**: Parede Principal – Direita
+      - **nome**: Setor Parede Principal – Direita
       - **uid**: g0ASFec0ovBc9J
       - **mapas**:
         - **[0]**:
@@ -4915,28 +4915,28 @@
               - **alvo_uid**: FO3KvzGBfKKpB4
               - **pontos_uids**:
                 - aEX41RMOZp7Nm1
-              - **setor**: Extrema Esquerda
+              - **setor**: Setor Extrema Esquerda
               - **ids**:
                 - aEX41RMOZp7Nm1
             - **[16]**:
               - **alvo_uid**: avRkW8fzw3OF22
               - **pontos_uids**:
                 - YWDAPGI8CtZog8
-              - **setor**: Esquerda
+              - **setor**: Setor Esquerda
               - **ids**:
                 - YWDAPGI8CtZog8
             - **[17]**:
               - **alvo_uid**: avRkW8fzw3OF22
               - **pontos_uids**:
                 - cOhZKmGz4OyJQM
-              - **setor**: Esquerda
+              - **setor**: Setor Esquerda
               - **ids**:
                 - cOhZKmGz4OyJQM
             - **[18]**:
               - **alvo_uid**: lTi8TIXxTU6KF0
               - **pontos_uids**:
                 - RZRKsCuUp7RwVo
-              - **setor**: Cachoeira
+              - **setor**: Setor Cachoeira
               - **ids**:
                 - RZRKsCuUp7RwVo
             - **[19]**:
@@ -5799,7 +5799,7 @@
               - **alvo_uid**: avRkW8fzw3OF22
               - **pontos_uids**:
                 - a8W4tNycBxA3hP
-              - **setor**: Esquerda
+              - **setor**: Setor Esquerda
               - **ids**:
                 - a8W4tNycBxA3hP
             - **[6]**:
@@ -5820,7 +5820,7 @@
               - **alvo_uid**: g0ASFec0ovBc9J
               - **pontos_uids**:
                 - V2Zk8k8vv5bHvH
-              - **setor**: Parede Principal – Direita
+              - **setor**: Setor Parede Principal – Direita
               - **ids**:
                 - V2Zk8k8vv5bHvH
             - **[9]**:
@@ -7471,7 +7471,7 @@
               - **alvo_uid**: sMtcp04stg3wSX
               - **pontos_uids**:
                 - yMnrBOpRSQ0Iko
-              - **setor**: Extrema Direita
+              - **setor**: Setor Extrema Direita
               - **ids**:
                 - yMnrBOpRSQ0Iko
             - **[22]**:
@@ -8850,7 +8850,7 @@
     Pequena parede apropriada à modalidade solo, que conta com quatro vias de 12 a 18 metros, graduadas de II a IIIsup. Possui um grampo de ½ polegada no topo da pedra para a escalada em *top-rope*, batido imediatamente após as conquistas de outubro de 2010.
     
     As vias são de tipo escalada clássica, apesar de curtas, combinando agarras e aderências, sendo a volta à base feita por caminhada. A aptidão ao solo deve-se ao fato dos lances mais difíceis estarem nas primeiras passadas, ainda em pequena altura. Existe um grampo para proteção dos lances iniciais, caso o escalador queira fazê-los com corda.
-- **nome**: Parede dos Solos
+- **nome**: Setor Parede dos Solos
 - **uid**: yN4hgcwkUvCqJC
 - **mapas**:
   - **[0]**:
@@ -9357,7 +9357,7 @@
 ### Setor (Pico: Ferros)
 
 - **descricao**: Também conhecida como fazenda Baião, esta área é propriedade da CENIBRA (Celulose Nipo-Brasileira) e só possui uma via de escalada.
-- **nome**: Parede da CENIBRA
+- **nome**: Setor Parede da CENIBRA
 - **uid**: FrjVJC9SeIMHep
 - **mapas**:
   - **[0]**:
@@ -9406,7 +9406,7 @@
     As paredes de Água Limpa ficam situadas no vale homônimo e distantes cerca de seis quilômetros do vale do Roncador (onde fica a maioria das escaladas do guia). Para se chegar até a Água Limpa deve-se ir para o encontro dos rios Santo Antonio e Tanque, conhecido ponto turístico de Ferros, encontro esse que pode ser atingido seguindo-se a estrada que acompanha o rio Tanque por cerca de cinco quilômetros abaixo da fazenda-sede. De lá uma rápida estradinha adentra ao mágico vale.
     
     O vale Água Limpa chamou atenção por possuir paredes gigantescas com comprimentos que podem atingir mais de 600 metros. A via Dama de Ferros é a primeira do local e possui mais de 400 metros. Um projeto, que visa aproveitar a máxima extensão da parede, já foi iniciado em meio a uma grande extensão de paredes intocadas.
-- **nome**: Parede da Água Limpa
+- **nome**: Setor Parede da Água Limpa
 - **uid**: JuGO79h5ulqaY7
 - **mapas**:
   - **[0]**:

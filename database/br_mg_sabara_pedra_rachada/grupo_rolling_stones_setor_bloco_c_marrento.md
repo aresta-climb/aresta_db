@@ -25,12 +25,14 @@ escaladas:
   boulder:
     nome: Banzai
     dificuldade: V0
-    descricao: Começa com as mãos juntas em um batente grande, passa por uma laca e termina reto.
+    descricao: Começa com as mãos juntas em um batente grande, passa por uma laca
+      e termina reto.
 - uid: nsF3x2WBZncYhf
   boulder:
     nome: Marrento
     dificuldade: V3
-    descricao: Sai sentado com as mãos juntas em uns regletes/pockets e faz uma diagonal pra esquerda por regletes.
+    descricao: Sai sentado com as mãos juntas em uns regletes/pockets e faz uma diagonal
+      pra esquerda por regletes.
 - uid: fypT4uNFpgpg2e
   boulder:
     nome: Carioquinha
@@ -40,8 +42,7 @@ escaladas:
   boulder:
     nome: Baiano
     dificuldade: V0
-    descricao: Sai sentado com as mãos juntas em um batente à direita da aresta, atravessa pra esquerda e termina como o
-      “Carioquinha” (15).
+    descricao: Sai sentado com as mãos juntas em um batente à direita da aresta, atravessa
+      pra esquerda e termina como o “Carioquinha” (15).
 ---
 
-# Bloco C - Marrento

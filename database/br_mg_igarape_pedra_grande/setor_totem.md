@@ -145,8 +145,6 @@ escaladas:
     data_abertura: '2005'
 ---
 
-# Setor Totem
-
 Sombra até 10h e após 16h.
 
 Veja a trilha para chegar ao setor no WikiLoc: https://loc.wiki/t/160199352?wa=sc

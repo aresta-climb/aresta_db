@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: 3eKPXspykrgC71
-nome: Primavera nos Dentes
+nome: Setor Primavera nos Dentes
 mapas:
 - caminho_imagem_mapa: imagens/grupo_regiao_2_setor_primavera_nos_dentes_p0_i0.webp
   largura_mapa: 1240
@@ -170,12 +170,14 @@ escaladas:
   boulder:
     nome: Monobloco
     dificuldade: V3
-    descricao: Saída com as mãos e pés no bloco menor que sustenta o bloco principal, finalizando logo acima.
+    descricao: Saída com as mãos e pés no bloco menor que sustenta o bloco principal,
+      finalizando logo acima.
 - uid: MnhtFm97fVQKP5
   boulder:
     nome: Canela Queimada
     dificuldade: V2
-    descricao: Saída em batentes bem marcados e segue para a esquerda (sem utilizar os pés no bloco de sustentação).
+    descricao: Saída em batentes bem marcados e segue para a esquerda (sem utilizar
+      os pés no bloco de sustentação).
 - uid: aYDNJqy2N05qHt
   boulder:
     nome: Canela de Ema
@@ -185,36 +187,37 @@ escaladas:
   boulder:
     nome: Primavera nos Dentes
     dificuldade: V7
-    descricao: Saída com as mãos juntas na agarra protuberante (sem utilizar o bloco de sustentação como apoio de pés), 
-      seguindo pelos pequenos regletes escorridos e pockets.
+    descricao: Saída com as mãos juntas na agarra protuberante (sem utilizar o bloco
+      de sustentação como apoio de pés), seguindo pelos pequenos regletes escorridos
+      e pockets.
 - uid: oItaT1GZzNsN0l
   boulder:
     nome: Suave Coisa Nenhuma
     dificuldade: V6
-    descricao: Saída com a mão esquerda na agarra protuberante e mão direita no batente abaulado, seguido de dinâmico no
-      pocket estreito, finalizando como o primavera nos dentes (utiliza-se livremente o(s) pé(s) no bloco de 
-      sustentação).
+    descricao: Saída com a mão esquerda na agarra protuberante e mão direita no batente
+      abaulado, seguido de dinâmico no pocket estreito, finalizando como o primavera
+      nos dentes (utiliza-se livremente o(s) pé(s) no bloco de sustentação).
 - uid: W1ziTvsVxnWYXk
   boulder:
     nome: Primavera Latina
     dificuldade: V10_BARRA_V11
-    descricao: Saída nas agarras da quina do bloco (logo à direita da saída do joelho de porco) e segue em travessia 
-      para a esquerda até finalizar como o primavera nos dentes.
+    descricao: Saída nas agarras da quina do bloco (logo à direita da saída do joelho
+      de porco) e segue em travessia para a esquerda até finalizar como o primavera
+      nos dentes.
 - uid: UHSDVGFiOl9o35
   boulder:
     nome: Sangue Latino
     dificuldade: V9
-    descricao: Mesma saída do primavera nos dentes, mas segue em diagonal para a direita por abaulados e invertidas até 
-      finalizar como o joelho de porco.
+    descricao: Mesma saída do primavera nos dentes, mas segue em diagonal para a direita
+      por abaulados e invertidas até finalizar como o joelho de porco.
 - uid: cFBIt3RonJvkqf
   boulder:
     nome: Joelho de Porco
     dificuldade: V3
-    descricao: Saída com as mãos em copos idênticos quase ao final do abrigo, seguindo por movimentos espremidos rumo à 
-      face externa do bloco.
+    descricao: Saída com as mãos em copos idênticos quase ao final do abrigo, seguindo
+      por movimentos espremidos rumo à face externa do bloco.
 ---
 
-# Bloco: Primavera nos Dentes
 ## Região 2
 
 O bloco Primavera nos Dentes é um dos principais do setor, com linhas de alta dificuldade.

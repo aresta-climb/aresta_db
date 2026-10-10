@@ -369,6 +369,4 @@ escaladas:
     quantidade_protecoes_intermediarias: 3
 ---
 
-# Setor Pataxós
-
 Sombra a partir de 11h (varia de acordo com a sessão).

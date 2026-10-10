@@ -26,6 +26,4 @@ setores:
 - caminho: grupo_ditadura_setor_faixa_preta.md
 ---
 
-# Grupo Ditadura
-
 **Principais blocos:** Ditadura, Cabeça de Cachorro, Catatau, Espiga, Aero-Dinâmico, Coroinha, Iguana, Faixa Preta.

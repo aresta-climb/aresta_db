@@ -16,7 +16,7 @@ picos:
         setores:
         - conteudo:
             uid: bApNhQfhG9Jsu0
-            nome: Diamante de Sangue
+            nome: Setor Diamante de Sangue
             mapas:
             - caminho_imagem_mapa: imagens/grupo_regiao_1_setor_diamante_de_sangue_p0_i0.webp
               largura_mapa: 1231
@@ -55,15 +55,13 @@ picos:
                 tipo_parede: NEGATIVO
                 descricao: Saída nos pockets mais baixos da face negativa, seguindo
                   por regletes e pockets até finalizar no positivo de abaulados.
-            descricao: |-
-              # Bloco: Diamante de Sangue
-              ## Região 1
+            descricao: '## Região 1'
             precomputados:
               total_escaladas: 1
               total_boulders: 1
         - conteudo:
             uid: YKfvHBUrmFmoKZ
-            nome: Chiqueirinho
+            nome: Setor Chiqueirinho
             mapas:
             - caminho_imagem_mapa: imagens/grupo_regiao_1_setor_chiqueirinho_p0_i0.webp
               largura_mapa: 1229
@@ -265,7 +263,6 @@ picos:
                 nome: Porco Aranha
                 dificuldade: V2
             descricao: |-
-              # Bloco: Chiqueirinho
               ## Região 1
 
               O bloco Chiqueirinho possui várias linhas em diferentes faces.
@@ -338,15 +335,13 @@ picos:
               boulder:
                 nome: Projeto
                 dificuldade: INDEFINIDO
-            descricao: |-
-              # Bloco: Bloco do Kbeca
-              ## Região 1
+            descricao: '## Região 1'
             precomputados:
               total_escaladas: 2
               total_boulders: 2
         - conteudo:
             uid: wywacGfloYJBuk
-            nome: Flor do Cerrado
+            nome: Setor Flor do Cerrado
             mapas:
             - caminho_imagem_mapa: imagens/grupo_regiao_1_setor_flor_do_cerrado_p0_i0.webp
               largura_mapa: 1234
@@ -382,15 +377,13 @@ picos:
               boulder:
                 nome: Flor do Cerrado
                 dificuldade: V5
-            descricao: |-
-              # Bloco: Flor do Cerrado
-              ## Região 1
+            descricao: '## Região 1'
             precomputados:
               total_escaladas: 1
               total_boulders: 1
         - conteudo:
             uid: NQyqOjn0nMXiem
-            nome: Joelho Sem Freio
+            nome: Setor Joelho Sem Freio
             mapas:
             - caminho_imagem_mapa: imagens/grupo_regiao_1_setor_joelho_sem_freio_p0_i0.webp
               largura_mapa: 1234
@@ -457,16 +450,11 @@ picos:
                 dificuldade: V3
                 descricao: Saída com a mão direita na aresta em meia altura e a mão
                   esquerda em abaulado invertido no teto.
-            descricao: |-
-              # Bloco: Joelho Sem Freio
-              ## Região 1
+            descricao: '## Região 1'
             precomputados:
               total_escaladas: 2
               total_boulders: 2
-        descricao: |-
-          # Região 1
-
-          A Região 1 compreende os primeiros blocos do setor Cerrado Groove.
+        descricao: A Região 1 compreende os primeiros blocos do setor Cerrado Groove.
         precomputados:
           total_escaladas: 11
           total_boulders: 11
@@ -477,7 +465,7 @@ picos:
         setores:
         - conteudo:
             uid: eYmBFxup8j7TU9
-            nome: Panela do Diabo
+            nome: Setor Panela do Diabo
             mapas:
             - caminho_imagem_mapa: imagens/grupo_regiao_2_setor_panela_do_diabo_p0_i0.webp
               largura_mapa: 1240
@@ -710,15 +698,13 @@ picos:
                 descricao: Saída com as duas mãos no buraco do teto e segue pelo caminho
                   inverso do caldeirão, finalizando por agarrões na face vertical
                   do bloco.
-            descricao: |-
-              # Bloco: Panela do Diabo
-              ## Região 2
+            descricao: '## Região 2'
             precomputados:
               total_escaladas: 7
               total_boulders: 7
         - conteudo:
             uid: ozcB2TQFJRqm4f
-            nome: Faca de Pedra
+            nome: Setor Faca de Pedra
             mapas:
             - caminho_imagem_mapa: imagens/grupo_regiao_2_setor_faca_de_pedra_p0_i0.webp
               largura_mapa: 1240
@@ -838,15 +824,13 @@ picos:
               boulder:
                 nome: Faca de Pedra
                 dificuldade: V7
-            descricao: |-
-              # Bloco: Faca de Pedra
-              ## Região 2
+            descricao: '## Região 2'
             precomputados:
               total_escaladas: 4
               total_boulders: 4
         - conteudo:
             uid: XDclQaHK6DtyMb
-            nome: Serra do Groove
+            nome: Setor Serra do Groove
             mapas:
             - caminho_imagem_mapa: imagens/grupo_regiao_2_setor_serra_do_groove_p0_i0.webp
               largura_mapa: 1240
@@ -882,15 +866,13 @@ picos:
               boulder:
                 nome: Serra do Groove
                 dificuldade: V3
-            descricao: |-
-              # Bloco: Serra do Groove
-              ## Região 2
+            descricao: '## Região 2'
             precomputados:
               total_escaladas: 1
               total_boulders: 1
         - conteudo:
             uid: 3eKPXspykrgC71
-            nome: Primavera nos Dentes
+            nome: Setor Primavera nos Dentes
             mapas:
             - caminho_imagem_mapa: imagens/grupo_regiao_2_setor_primavera_nos_dentes_p0_i0.webp
               largura_mapa: 1240
@@ -1183,7 +1165,6 @@ picos:
                   abrigo, seguindo por movimentos espremidos rumo à face externa do
                   bloco.
             descricao: |-
-              # Bloco: Primavera nos Dentes
               ## Região 2
 
               O bloco Primavera nos Dentes é um dos principais do setor, com linhas de alta dificuldade.
@@ -1192,7 +1173,7 @@ picos:
               total_boulders: 8
         - conteudo:
             uid: c9S0g5Iak2aLY6
-            nome: Flor da Montanha
+            nome: Setor Flor da Montanha
             mapas:
             - caminho_imagem_mapa: imagens/grupo_regiao_2_setor_flor_da_montanha_p0_i0.webp
               largura_mapa: 1240
@@ -1256,15 +1237,13 @@ picos:
               boulder:
                 nome: Flor da Montanha
                 dificuldade: V6
-            descricao: |-
-              # Bloco: Flor da Montanha
-              ## Região 2
+            descricao: '## Região 2'
             precomputados:
               total_escaladas: 2
               total_boulders: 2
         - conteudo:
             uid: mQ1nG9yhF09BxM
-            nome: Velho Chico
+            nome: Setor Velho Chico
             mapas:
             - caminho_imagem_mapa: imagens/grupo_regiao_2_setor_velho_chico_p0_i0.webp
               largura_mapa: 1240
@@ -1356,16 +1335,12 @@ picos:
               boulder:
                 nome: Frango D'Água
                 dificuldade: V3
-            descricao: |-
-              # Bloco: Velho Chico
-              ## Região 2
+            descricao: '## Região 2'
             precomputados:
               total_escaladas: 3
               total_boulders: 3
-        descricao: |-
-          # Região 2
-
-          A Região 2 contém blocos icônicos como Panela do Diabo e Primavera nos Dentes.
+        descricao: A Região 2 contém blocos icônicos como Panela do Diabo e Primavera
+          nos Dentes.
         precomputados:
           total_escaladas: 25
           total_boulders: 25
@@ -1376,7 +1351,7 @@ picos:
         setores:
         - conteudo:
             uid: vx3tbAOUHIAcGi
-            nome: Cenas Fortes
+            nome: Setor Cenas Fortes
             mapas:
             - caminho_imagem_mapa: imagens/grupo_regiao_3_setor_cenas_fortes_p0_i0.webp
               largura_mapa: 1240
@@ -1440,15 +1415,13 @@ picos:
               boulder:
                 nome: Tela Quente
                 dificuldade: V3
-            descricao: |-
-              # Bloco: Cenas Fortes
-              ## Região 3
+            descricao: '## Região 3'
             precomputados:
               total_escaladas: 2
               total_boulders: 2
         - conteudo:
             uid: pEbY6CRJHCyQhI
-            nome: Sessão da Tarde
+            nome: Setor Sessão da Tarde
             mapas:
             - caminho_imagem_mapa: imagens/grupo_regiao_3_setor_sessao_da_tarde_p0_i0.webp
               largura_mapa: 1240
@@ -2074,7 +2047,6 @@ picos:
                 dificuldade: V9_BARRA_V10
                 descricao: Extensão do Analógico.
             descricao: |-
-              # Bloco: Sessão da Tarde
               ## Região 3
 
               O bloco Sessão da Tarde é um dos mais densos em linhas, com agarras variadas e muita técnica.
@@ -2083,7 +2055,7 @@ picos:
               total_boulders: 17
         - conteudo:
             uid: kocXBrYzeYHO7c
-            nome: Que Raio de Reglete
+            nome: Setor Que Raio de Reglete
             mapas:
             - caminho_imagem_mapa: imagens/grupo_regiao_3_setor_que_raio_de_reglete_p0_i0.webp
               largura_mapa: 1240
@@ -2147,15 +2119,13 @@ picos:
               boulder:
                 nome: Que Raio de Reglete
                 dificuldade: V3
-            descricao: |-
-              # Bloco: Que Raio de Reglete
-              ## Região 3
+            descricao: '## Região 3'
             precomputados:
               total_escaladas: 2
               total_boulders: 2
         - conteudo:
             uid: yNhPe35ksda8iX
-            nome: Iceberg
+            nome: Setor Iceberg
             mapas:
             - caminho_imagem_mapa: imagens/grupo_regiao_3_setor_iceberg_p0_i0.webp
               largura_mapa: 1240
@@ -2223,15 +2193,13 @@ picos:
                 dificuldade: V5
                 descricao: Saída em pé do iceberg, utilizando mão esquerda na aresta
                   e mão direita no abaulado alto mais à direita.
-            descricao: |-
-              # Bloco: Iceberg
-              ## Região 3
+            descricao: '## Região 3'
             precomputados:
               total_escaladas: 2
               total_boulders: 2
         - conteudo:
             uid: ba9j4ZNGXk0wIe
-            nome: Silicose
+            nome: Setor Silicose
             mapas:
             - caminho_imagem_mapa: imagens/grupo_regiao_3_setor_silicose_p0_i0.webp
               largura_mapa: 1240
@@ -2295,16 +2263,12 @@ picos:
               boulder:
                 nome: Silicose
                 dificuldade: V7
-            descricao: |-
-              # Bloco: Silicose
-              ## Região 3
+            descricao: '## Região 3'
             precomputados:
               total_escaladas: 2
               total_boulders: 2
-        descricao: |-
-          # Região 3
-
-          A Região 3 apresenta blocos com graduações variadas, incluindo o setor Iceberg e Silicose.
+        descricao: A Região 3 apresenta blocos com graduações variadas, incluindo
+          o setor Iceberg e Silicose.
         precomputados:
           total_escaladas: 25
           total_boulders: 25
@@ -2315,7 +2279,7 @@ picos:
         setores:
         - conteudo:
             uid: 5ydIQT3aRXRDbx
-            nome: Navio Pirata
+            nome: Setor Navio Pirata
             mapas:
             - caminho_imagem_mapa: imagens/grupo_regiao_4_setor_navio_pirata_p0_i0.webp
               largura_mapa: 1240
@@ -2586,7 +2550,6 @@ picos:
                 nome: Desce a Serra
                 dificuldade: V3
             descricao: |-
-              # Bloco: Navio Pirata
               ## Região 4
 
               O bloco Navio Pirata é um grande bloco com diversas linhas em várias faces.
@@ -2595,7 +2558,7 @@ picos:
               total_boulders: 9
         - conteudo:
             uid: IAHAxZrL76iUE6
-            nome: Pfizer
+            nome: Setor Pfizer
             mapas:
             - caminho_imagem_mapa: imagens/grupo_regiao_4_setor_pfizer_p0_i0.webp
               largura_mapa: 1240
@@ -2687,15 +2650,13 @@ picos:
               boulder:
                 nome: Rosa
                 dificuldade: V0
-            descricao: |-
-              # Bloco: Pfizer
-              ## Região 4
+            descricao: '## Região 4'
             precomputados:
               total_escaladas: 3
               total_boulders: 3
         - conteudo:
             uid: ZvxbNlHWswULYG
-            nome: Pedra na Canela
+            nome: Setor Pedra na Canela
             mapas:
             - caminho_imagem_mapa: imagens/grupo_regiao_4_setor_pedra_na_canela_p0_i0.webp
               largura_mapa: 1240
@@ -2843,15 +2804,13 @@ picos:
               boulder:
                 nome: Ofurô
                 dificuldade: V7_BARRA_V8
-            descricao: |-
-              # Bloco: Pedra na Canela
-              ## Região 4
+            descricao: '## Região 4'
             precomputados:
               total_escaladas: 5
               total_boulders: 5
         - conteudo:
             uid: QosMO7Nv63wvuo
-            nome: Piseiro
+            nome: Setor Piseiro
             mapas:
             - caminho_imagem_mapa: imagens/grupo_regiao_4_setor_piseiro_p0_i0.webp
               largura_mapa: 1240
@@ -2943,15 +2902,13 @@ picos:
               boulder:
                 nome: Expresso 22
                 dificuldade: V0
-            descricao: |-
-              # Bloco: Piseiro
-              ## Região 4
+            descricao: '## Região 4'
             precomputados:
               total_escaladas: 3
               total_boulders: 3
         - conteudo:
             uid: QPwyD0n8ZTjbOT
-            nome: Raizeiro
+            nome: Setor Raizeiro
             mapas:
             - caminho_imagem_mapa: imagens/grupo_regiao_4_setor_raizeiro_p0_i0.webp
               largura_mapa: 1240
@@ -3071,15 +3028,13 @@ picos:
               boulder:
                 nome: Garrafada
                 dificuldade: V3
-            descricao: |-
-              # Bloco: Raizeiro
-              ## Região 4
+            descricao: '## Região 4'
             precomputados:
               total_escaladas: 4
               total_boulders: 4
         - conteudo:
             uid: QqZiA2ythU83BC
-            nome: Tijuco Preto
+            nome: Setor Tijuco Preto
             mapas:
             - caminho_imagem_mapa: imagens/grupo_regiao_4_setor_tijuco_preto_p0_i0.webp
               largura_mapa: 1240
@@ -3199,16 +3154,12 @@ picos:
               boulder:
                 nome: Toque no Curralinho
                 dificuldade: V3
-            descricao: |-
-              # Bloco: Tijuco Preto
-              ## Região 4
+            descricao: '## Região 4'
             precomputados:
               total_escaladas: 4
               total_boulders: 4
-        descricao: |-
-          # Região 4
-
-          A Região 4 é a última região do setor Cerrado Groove, contendo o Navio Pirata e outros blocos.
+        descricao: A Região 4 é a última região do setor Cerrado Groove, contendo
+          o Navio Pirata e outros blocos.
         precomputados:
           total_escaladas: 28
           total_boulders: 28

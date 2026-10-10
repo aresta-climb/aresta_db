@@ -266,4 +266,3 @@ escaladas:
         dificuldade: PROJETO
 ---
 
-# Setor Clube da Luta

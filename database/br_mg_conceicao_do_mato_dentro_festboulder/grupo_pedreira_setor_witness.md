@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: MwfeN0k5sY83kY
-nome: Witness
+nome: Setor Witness
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_witness_p0.webp
   largura_mapa: 759
@@ -72,8 +72,6 @@ escaladas:
     nome: Picasso
     dificuldade: V5
 ---
-
-# Setor Witness
 
 O setor Witness possui blocos imponentes com linhas de altíssima dificuldade, incluindo boulders de nível mundial.
 

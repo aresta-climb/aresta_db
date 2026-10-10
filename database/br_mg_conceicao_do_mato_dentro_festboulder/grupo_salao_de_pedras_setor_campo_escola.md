@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: 9izKJaq4CxSHRG
-nome: Campo Escola
+nome: Setor Campo Escola
 mapas:
 - caminho_imagem_mapa: imagens/grupo_salao_de_pedras_setor_campo_escola_p0.webp
   largura_mapa: 582
@@ -184,8 +184,6 @@ escaladas:
     nome: Das Meninas
     dificuldade: V3
 ---
-
-# Setor Campo Escola
 
 O setor Campo Escola é ideal para iniciantes e para quem busca linhas de boulder mais acessíveis.
 

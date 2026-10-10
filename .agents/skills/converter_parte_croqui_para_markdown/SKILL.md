@@ -27,6 +27,8 @@ Para partes que não são setores (i.e. não possuem o prefixo `setor_` ou `grup
 ### 1.2 Grupos
 
 Para grupos (começando com o prefixo `grupo_`), siga RIGOROSAMENTE o formato da mensagem `Grupo` no código fonte `aresta_api/proto/croqui.proto` para representar a lista de setores na seção YAML. Esse tipo de arquivo será principalmente um arquivo Markdown com as informações do grupo de setores, podendo opcionalmente conter um mapa para localização de cada sub-setor, e então uma lista de sub-setores que podem ser especificados pelo campo `setores` da mensagem `Grupo`. Preencha a mensagem `Grupo` e coloque o caminho para os arquivos `.md` de cada sub-setor, que devem ficar em arquivos Markdown independentes.
+- **Nome do Grupo:** Preencha o campo `nome` no YAML Frontmatter com o nome do grupo (ex: `nome: Vale Oculto`). Não adicione o prefixo "Grupo " a menos que faça parte do nome próprio.
+- **Sem H1 no Corpo:** NUNCA inclua cabeçalhos H1 (`# Grupo ...`) no corpo Markdown.
 
 ### 1.3 Mapas Gerais
 
@@ -97,6 +99,11 @@ Para setores (começando com o prefixo `setor_`), siga RIGOROSAMENTE o formato d
     - Se a página possuía diagramação com sobreposições vetoriais ou transparências, o particionador terá detectado o fatiamento e gerado automaticamente a imagem de página completa `pX.webp`. Nesses casos, use diretamente `pX.webp`.
     - Se a página possuía uma foto individual limpa e íntegra sem fatiamento, `pX_i0.webp` estará disponível e deve ser utilizada normalmente.
 
+  - **Nome do Setor e Prefixação no Frontmatter:**
+    - Para setores de vias: use SEMPRE o prefixo `"Setor "` no campo `nome:` do frontmatter (ex: `nome: Setor Bem-vindo`).
+    - Para blocos de boulder: use SEMPRE o prefixo `"Bloco "` no campo `nome:` do frontmatter (ex: `nome: Bloco 45º`).
+  - **Proibição Estrita de Títulos H1 no Corpo Markdown:**
+    - NUNCA adicione títulos H1 (`# Setor <Nome>` ou `# Bloco <Nome>`) no corpo do Markdown. O aplicativo já renderiza o nome do setor/bloco automaticamente no topo da tela a partir do campo `nome`. Adicionar títulos H1 no corpo causa duplicação visual e aciona avisos no pipeline de deploy. Subtítulos informativos (como `## Acesso` ou `## Observações`) são permitidos se houver texto relevante. Se não houver texto descritivo para o setor além de seus dados estruturados, o corpo Markdown deve ficar vazio.
   - Quaisquer informação restante que não mapear diretamente para um campo no proto, adicione à área de texto livre do markdown ou ao campo `descricao` da escalada, o que for mais apropriado.
   - **IMPORTANTE**: TODA a informação do setor, incluindo partes textuais, deve ser transcrita para algum campo do protobuf ou da área de markdown.
   - Organizar a estrutura hierárquica: `Setores` -> `Escaladas` -> (uma entre `ViaEsportiva`, `Boulder`, `ViaMovel`, `ViaMultiplasEnfiadas`)

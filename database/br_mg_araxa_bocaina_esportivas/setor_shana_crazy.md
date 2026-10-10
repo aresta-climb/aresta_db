@@ -3,7 +3,7 @@
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: ALlNMayNg4qW0W
 caminho_imagem_capa: imagens/setor_shana_crazy_p0_i0.webp
-nome: Shana Crazy
+nome: Setor Shana Crazy
 mapas:
 - caminho_imagem_mapa: imagens/setor_shana_crazy_p1.webp
   largura_mapa: 1280
@@ -194,8 +194,6 @@ escaladas:
     - Diego Leonardo
     data_abertura: '2011'
 ---
-
-# Setor Shana Crazy
 
 O Setor Shana Crazy possui vias curtas e intensas, variando do 4º ao 7º grau.
 

@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: JuGO79h5ulqaY7
-nome: Parede da Água Limpa
+nome: Setor Parede da Água Limpa
 mapas:
 - caminho_imagem_mapa: imagens/setor_parede_da_agua_limpa_p1_i0.webp
   referencias:
@@ -41,26 +41,12 @@ escaladas:
     - Celso Ferreira Gomes
     - Tonico Magalhães
     data_abertura: '2015-09-06'
-    descricao: 'Atualmente, a única via da parede, e maior via da região de Ferros,
-      contando com 405 metros de parede. Foi conquistada em três investidas com participantes
-      distintos, demorando cerca de quatro anos para ser finalizada:
-
-      por Luciano Bender, Gustavo "Xaxá" Carrozino, Celso Ferreira Gomes e Tonico
-      Magalhães em 22/04/2011 (Base à P2);
-
-      por Tiago "Fox" Bastos, Elton Soares, Rodrigo Tinoco e Alexandre Mesquita em
-      07/09/2012 (P2 à P3);
-
+    descricao: |
+      Atualmente, a única via da parede, e maior via da região de Ferros, contando com 405 metros de parede. Foi conquistada em três investidas com participantes distintos, demorando cerca de quatro anos para ser finalizada:
+      por Luciano Bender, Gustavo "Xaxá" Carrozino, Celso Ferreira Gomes e Tonico Magalhães em 22/04/2011 (Base à P2);
+      por Tiago "Fox" Bastos, Elton Soares, Rodrigo Tinoco e Alexandre Mesquita em 07/09/2012 (P2 à P3);
       por Pedro Bugim e Vivianne Sawczuk em 06/09/2015 (P3 à P8).
-
-      Corta toda a parede frontal principal, seguindo uma linha bem natural e sem
-      lances muito complicados. Predomina a aderência, e, em alguns lances, agarras
-      abauladas. Proteção predominante em grampos de ½, possuindo algumas chapeletas
-      na enfiada final. Nesta última enfiada, é possível rapelar de chapas com argola,
-      colocadas a cada 25 metros. Rapel possível com corda de 60m, sendo recomendado
-      a utilização de duas cordas de 60.
-
-      '
+      Corta toda a parede frontal principal, seguindo uma linha bem natural e sem lances muito complicados. Predomina a aderência, e, em alguns lances, agarras abauladas. Proteção predominante em grampos de ½, possuindo algumas chapeletas na enfiada final. Nesta última enfiada, é possível rapelar de chapas com argola, colocadas a cada 25 metros. Rapel possível com corda de 60m, sendo recomendado a utilização de duas cordas de 60.
   mapas:
   - caminho_imagem_mapa: imagens/setor_parede_da_agua_limpa_p2_i1.webp
     largura_mapa: 816

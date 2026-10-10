@@ -266,6 +266,6 @@ mapas:
   - alvo_uid: iq18pu1OI70n0h
     pontos_uids:
     - '37'
+nome: Setor Bigorna ou Lapa da Zumba
 ---
 
-# Setor Bigorna ou Lapa da Zumba

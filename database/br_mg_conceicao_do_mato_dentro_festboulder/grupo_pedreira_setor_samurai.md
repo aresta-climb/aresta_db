@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: X2Ug9CixcMKYd8
-nome: Samurai
+nome: Setor Samurai
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_samurai_p0.webp
   largura_mapa: 754
@@ -86,8 +86,6 @@ escaladas:
     nome: Ouro Branco
     dificuldade: V7
 ---
-
-# Setor Samurai
 
 O setor Samurai possui boulders negativos com agarras pequenas e movimentos potentes.
 

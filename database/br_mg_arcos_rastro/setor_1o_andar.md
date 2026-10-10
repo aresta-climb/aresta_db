@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: rTPz6f4oHTpzLr
-nome: 1º Andar
+nome: Setor 1º Andar
 mapas:
 - caminho_imagem_mapa: imagens/setor_1o_andar_p0_i0.webp
   largura_mapa: 848
@@ -211,7 +211,5 @@ escaladas:
     quantidade_protecoes_intermediarias: 7
     quantidade_protecoes_parada: 2
 ---
-
-# Setor 1º Andar
 
 Este setor possui sombra a partir das 13h (variando de acordo com a estação).

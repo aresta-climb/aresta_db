@@ -180,6 +180,4 @@ setores:
 - caminho: grupo_pedreira_setor_maos_de_sebo.md
 ---
 
-# Grupo Pedreira
-
 A Pedreira é o grupo com maior número de setores e linhas, apresentando desafios para todos os níveis.

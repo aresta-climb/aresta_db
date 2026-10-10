@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: wywacGfloYJBuk
-nome: Flor do Cerrado
+nome: Setor Flor do Cerrado
 mapas:
 - caminho_imagem_mapa: imagens/grupo_regiao_1_setor_flor_do_cerrado_p0_i0.webp
   largura_mapa: 1234
@@ -32,5 +32,4 @@ escaladas:
     dificuldade: V5
 ---
 
-# Bloco: Flor do Cerrado
 ## Região 1

@@ -474,8 +474,6 @@ escaladas:
     - André Braga
 ---
 
-# Setor Geriatria
-
 **Acesso:** Após a entrada para o Setor Mr Bean, seguir sentido Vale da Onça pela trilha. Após 1 minuto de caminhada entrar na trilha a direita antes do portão de metal.
 
 **Acesso secundário:** pela trilha do Setor Onda de Calcário.

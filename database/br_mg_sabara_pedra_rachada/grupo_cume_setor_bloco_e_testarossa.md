@@ -41,8 +41,8 @@ escaladas:
     conquistadores:
     - Felipe Alvares
     data_abertura: '2007'
-    descricao: Sai em pé com as mãos juntas em um bico e um pocket e atravessa para a esquerda, dominando pela lateral 
-      do bloco em agarras boas.
+    descricao: Sai em pé com as mãos juntas em um bico e um pocket e atravessa para
+      a esquerda, dominando pela lateral do bloco em agarras boas.
 - uid: zcmz0bsZspDWJT
   boulder:
     nome: Mistral SDS
@@ -59,7 +59,8 @@ escaladas:
     conquistadores:
     - André Berezoski
     data_abertura: '2009'
-    descricao: Começa como o “Mistral” (12) e toca reto pelo negativo com uma movimentação muito clássica!
+    descricao: Começa como o “Mistral” (12) e toca reto pelo negativo com uma movimentação
+      muito clássica!
 - uid: lhMvXrCQSCVEY0
   boulder:
     nome: Testarossa SDS
@@ -67,7 +68,8 @@ escaladas:
     conquistadores:
     - Jean Ouriques
     data_abertura: '2009'
-    descricao: Sai com as mãos juntas em dois pequenos regletes, mais abaixo no teto, e entra no “Testarossa” (14).
+    descricao: Sai com as mãos juntas em dois pequenos regletes, mais abaixo no teto,
+      e entra no “Testarossa” (14).
 - uid: qBvZz7GdYnhVKe
   boulder:
     nome: Talismã
@@ -76,8 +78,8 @@ escaladas:
     conquistadores:
     - Rafael Passos
     data_abertura: '2008'
-    descricao: Começa com as mãos juntas em um grande batente em forma de triângulo e escala em diagonal pra direita, 
-      dominando por abaulados.
+    descricao: Começa com as mãos juntas em um grande batente em forma de triângulo
+      e escala em diagonal pra direita, dominando por abaulados.
 - uid: X6kOHldh31Qr2T
   boulder:
     nome: Talismã SDS
@@ -94,8 +96,7 @@ escaladas:
     conquistadores:
     - Rafael Passos
     data_abertura: '2009'
-    descricao: Boulder que começa nas agarras boas no final do “Mistral” (12) e faz o caminho inverso, atravessando para
-      a direita e terminando no “Talismã” (16).
+    descricao: Boulder que começa nas agarras boas no final do “Mistral” (12) e faz
+      o caminho inverso, atravessando para a direita e terminando no “Talismã” (16).
 ---
 
-# Bloco E - Testarossa

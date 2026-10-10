@@ -402,8 +402,6 @@ escaladas:
     dificuldade: BR_4
 ---
 
-# Croqui 01 da Pedra Branca
-
 Considere uma ou duas costuras a mais, pois pode ter erro na contagem das proteções.
 
 **Autores:** Mauricio Juntolli, Danilo Stehling.

@@ -583,6 +583,4 @@ escaladas:
     data_abertura: '2006'
 ---
 
-# Setor Estacionamento
-
 O setor fica na lateral da estrada, ao lado do estacionamento da trilha para a Pedra Grande. A via "Route Setter" e a via "Teto Preto" compartilham as primeiras chapas na saída. Lado esquerdo setor tem sombra após 11h, e o lado direito sombra até 10h.

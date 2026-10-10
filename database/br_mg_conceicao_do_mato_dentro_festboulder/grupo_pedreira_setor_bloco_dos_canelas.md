@@ -40,8 +40,6 @@ escaladas:
     dificuldade: V7
 ---
 
-# Setor Bloco dos Canelas
-
 O setor Bloco dos Canelas possui um bloco com linhas interessantes em um ambiente agradável.
 
 Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.

@@ -152,8 +152,6 @@ escaladas:
     quantidade_protecoes_parada: 2
 ---
 
-# Setor Mezanino
-
 Este setor possui sombra a partir das 13h (variando de acordo com a estação). O acesso pode ser feito pelo "Portal", "Túnel" ou "Escada de acesso" que leva ao Jardim Suspenso.
 
 **Observações**:

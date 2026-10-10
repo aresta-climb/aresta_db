@@ -878,8 +878,6 @@ escaladas:
     - Samuel Lucas
 ---
 
-# Setor 2º Andar
-
 **Acesso:** Ao chegar ao maciço, no setor entrada, subir no “trepa pedras” a direita da via Túnel do Tempo. Passar por um túnel de pedra e seguir para direita, subindo em direção ao segundo andar. O acesso é por uma ponte com dois troncos de madeira.
 
 **Coordenadas na base da via Doc Holliday:** -19º32.916’ -43º59.336’

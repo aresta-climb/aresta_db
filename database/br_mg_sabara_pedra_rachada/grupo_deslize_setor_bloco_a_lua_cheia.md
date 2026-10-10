@@ -44,7 +44,8 @@ escaladas:
     nome: Rala peito
     dificuldade: V2
     destaque: true
-    descricao: Sai em pé com a mão esquerda num reglete e a direita num gastón e escala reto.
+    descricao: Sai em pé com a mão esquerda num reglete e a direita num gastón e escala
+      reto.
 - uid: WSx72zTeldQqw3
   boulder:
     nome: Rala peito SDS
@@ -52,14 +53,16 @@ escaladas:
     conquistadores:
     - Frederico Gonçalves
     data_abertura: '2011'
-    descricao: Começa sentado com as mãos em dois regletes de oposição bem baixos e praticamente sem pés, faz um 
-      movimento muito duro para a saída do “Rala peito” (1) e termina como ele.
+    descricao: Começa sentado com as mãos em dois regletes de oposição bem baixos
+      e praticamente sem pés, faz um movimento muito duro para a saída do “Rala peito”
+      (1) e termina como ele.
 - uid: 2DnZFhkDbQZsAB
   boulder:
     nome: Regletes batentes
     dificuldade: V4
-    descricao: Sai em pé com a mão esquerda em um reglete/batente e a direita em outro reglete/batente um pouco mais 
-      alto. Começa fazendo um movimento forte e continua reto, escalando por regletes.
+    descricao: Sai em pé com a mão esquerda em um reglete/batente e a direita em outro
+      reglete/batente um pouco mais alto. Começa fazendo um movimento forte e continua
+      reto, escalando por regletes.
 - uid: YHqLJ4IGhaUhlG
   boulder:
     nome: Rebordose
@@ -67,7 +70,8 @@ escaladas:
     conquistadores:
     - Tomaz Hamdan
     data_abertura: '2011'
-    descricao: Começa como o “Lua cheia” (6) e atravessa pra esquerda, finalizando no “Regletes batentes” (3).
+    descricao: Começa como o “Lua cheia” (6) e atravessa pra esquerda, finalizando
+      no “Regletes batentes” (3).
 - uid: V3B59fYmv7suwR
   boulder:
     nome: Sabará não para
@@ -75,27 +79,31 @@ escaladas:
     conquistadores:
     - Frederico Gonçalves
     data_abertura: '2011'
-    descricao: Sai como o “Rebordose” (4) e atravessa pra esquerda até o “Rala peito” (2), terminando por ele.
+    descricao: Sai como o “Rebordose” (4) e atravessa pra esquerda até o “Rala peito”
+      (2), terminando por ele.
 - uid: 8MaKxN6zSVXdhb
   boulder:
     nome: Lua cheia
     dificuldade: V5
     destaque: true
-    descricao: É o boulder da Pedra Rachada com maior número de cadenas registradas no site 8a.nu, um clássico! Começa 
-      em uma grande agarra de lado, vai para um reglete logo acima, escala pela esquerda passando por agarras invertidas
-      e domina o bloco escalando por regletes.
+    descricao: É o boulder da Pedra Rachada com maior número de cadenas registradas
+      no site 8a.nu, um clássico! Começa em uma grande agarra de lado, vai para um
+      reglete logo acima, escala pela esquerda passando por agarras invertidas e domina
+      o bloco escalando por regletes.
 - uid: PGhG1Hh5vofzaw
   boulder:
     nome: Carne moída
     dificuldade: V6
     destaque: true
-    descricao: Uma linha incrível, mas que recebeu poucas cadenas. Sai como o “Lua cheia” (6), porém do reglete, vai 
-      para uma pequena pinça alta de esquerda e dá um bote em um batente alto com agarras cortantes.
+    descricao: Uma linha incrível, mas que recebeu poucas cadenas. Sai como o “Lua
+      cheia” (6), porém do reglete, vai para uma pequena pinça alta de esquerda e
+      dá um bote em um batente alto com agarras cortantes.
 - uid: I70i6DK6O0dg4w
   boulder:
     nome: Toca da cobra
     dificuldade: V0
-    descricao: Sai em pé com as mãos juntas em uma agarra boa e escala reto pelas cracas.
+    descricao: Sai em pé com as mãos juntas em uma agarra boa e escala reto pelas
+      cracas.
 - uid: 4NVfNeAQxPcoVu
   boulder:
     nome: Lua nova
@@ -106,7 +114,7 @@ escaladas:
   boulder:
     nome: Quarentinha
     dificuldade: V3
-    descricao: Sai com as mãos em duas pinças/batentes em baixo do tetinho e escala reto.
+    descricao: Sai com as mãos em duas pinças/batentes em baixo do tetinho e escala
+      reto.
 ---
 
-# Bloco A - Lua Cheia

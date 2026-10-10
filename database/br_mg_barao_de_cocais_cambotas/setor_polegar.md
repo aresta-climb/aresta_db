@@ -3,7 +3,7 @@
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: gCQIZNzt5Tk1Ij
 caminho_imagem_capa: imagens/setor_polegar_p0.webp
-nome: Polegar
+nome: Setor Polegar
 mapas:
 - caminho_imagem_mapa: imagens/setor_polegar_p1.webp
 escaladas:
@@ -15,8 +15,8 @@ escaladas:
     conquistadores:
     - Alexandre Fei
     - Gustavo Piancastelli
-    descricao: Linda via que segue a aresta direita do polegar. Ultima enfiada móvel. Peças variadas, especialmente 
-      médias.
+    descricao: Linda via que segue a aresta direita do polegar. Ultima enfiada móvel.
+      Peças variadas, especialmente médias.
     comprimento_total: 100
 - uid: 8GR3tfLMtGuw9c
   via_esportiva:
@@ -34,7 +34,5 @@ escaladas:
     - Gustavo Piancastelli
     descricao: Projeto na grande chaminé entre o Polegar e a parede principal.
 ---
-
-# Setor Polegar
 
 O setor Polegar apresenta vias que exploram as arestas e chaminés desta formação característica.

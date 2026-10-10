@@ -22,15 +22,16 @@ escaladas:
   boulder:
     nome: Velocípede
     dificuldade: V2
-    descricao: Sai sentado com a mão esquerda em um pocket e a direita em um batente. Faz alguns movimentos até a aresta
-      e escala o positivo até o topo.
+    descricao: Sai sentado com a mão esquerda em um pocket e a direita em um batente.
+      Faz alguns movimentos até a aresta e escala o positivo até o topo.
 - uid: uLcbrhyvMrCjNU
   boulder:
     nome: Bicicletinha 2000
     dificuldade: V5
     destaque: true
-    descricao: Um dos primeiros boulders a serem abertos no setor. Sai como o “Velocípede” (6) e escala para a direita, 
-      passando por um batente, uma invertida e um abaulado até o módulo, finalizando reto por agarras boas.
+    descricao: Um dos primeiros boulders a serem abertos no setor. Sai como o “Velocípede”
+      (6) e escala para a direita, passando por um batente, uma invertida e um abaulado
+      até o módulo, finalizando reto por agarras boas.
 - uid: xGCF7hV9FgP7AY
   boulder:
     nome: Shark Attack
@@ -39,8 +40,8 @@ escaladas:
     conquistadores:
     - Gustavo Fontes
     data_abertura: '2007'
-    descricao: Escala o “Bicicletinha 2000” (7) até o abaulado e depois toca pra direita passando por uns regletinhos e 
-      um gastón até um forte movimento de direita para um biquinho, ao invés de utilizar o módulo da esquerda.
+    descricao: Escala o “Bicicletinha 2000” (7) até o abaulado e depois toca pra direita
+      passando por uns regletinhos e um gastón até um forte movimento de direita para
+      um biquinho, ao invés de utilizar o módulo da esquerda.
 ---
 
-# Bloco B - Bicicletinha 2000

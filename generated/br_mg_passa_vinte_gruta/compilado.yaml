@@ -21,7 +21,7 @@ picos:
   - setor:
       conteudo:
         uid: AiO7NbhclPX3uu
-        nome: Chegada
+        nome: Setor Chegada
         mapas:
         - caminho_imagem_mapa: imagens/setor_chegada_p0.webp
           largura_mapa: 1725
@@ -458,7 +458,7 @@ picos:
   - setor:
       conteudo:
         uid: viX8aQd4Az2cTe
-        nome: Sunshine & Teto Preto
+        nome: Setor Sunshine & Teto Preto
         mapas:
         - caminho_imagem_mapa: imagens/setor_sunshine_e_teto_preto_p0.webp
           largura_mapa: 1718
@@ -857,7 +857,7 @@ picos:
   - setor:
       conteudo:
         uid: oQDOpSrgvgbJR2
-        nome: ”Positivo” Central
+        nome: Setor ”Positivo” Central
         mapas:
         - caminho_imagem_mapa: imagens/setor_positivo_central_p0.webp
           largura_mapa: 1487
@@ -1223,7 +1223,7 @@ picos:
   - setor:
       conteudo:
         uid: XFRy9L107I7q0B
-        nome: ”Negativo” Central
+        nome: Setor ”Negativo” Central
         mapas:
         - caminho_imagem_mapa: imagens/setor_negativo_central_p0.webp
           largura_mapa: 1487
@@ -1926,7 +1926,7 @@ picos:
   - setor:
       conteudo:
         uid: lt12GNvnJUOG87
-        nome: Arquibancada
+        nome: Setor Arquibancada
         mapas:
         - caminho_imagem_mapa: imagens/setor_arquibancada_p0.webp
           largura_mapa: 1415
@@ -2532,7 +2532,7 @@ picos:
   - setor:
       conteudo:
         uid: q9AKDKOS430ey8
-        nome: Gênesis
+        nome: Setor Gênesis
         mapas:
         - caminho_imagem_mapa: imagens/setor_genesis_p0.webp
           largura_mapa: 1727
@@ -3032,7 +3032,7 @@ picos:
   - setor:
       conteudo:
         uid: o45FjTNWXmwkwp
-        nome: Acampamento
+        nome: Setor Acampamento
         mapas:
         - caminho_imagem_mapa: imagens/setor_acampamento_p0.webp
           largura_mapa: 1458
@@ -3603,14 +3603,14 @@ picos:
           pontos_uids:
           - uwTUkt3iXoSuBK
           - 8Z578m02BfOwvE
-          setor: Acampamento
+          setor: Setor Acampamento
           ids:
           - uwTUkt3iXoSuBK
           - 8Z578m02BfOwvE
         - alvo_uid: lt12GNvnJUOG87
           pontos_uids:
           - vVkE6AHhVAoXSx
-          setor: Arquibancada
+          setor: Setor Arquibancada
           ids:
           - vVkE6AHhVAoXSx
   precomputados:

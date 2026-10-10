@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: Nb5NpumVgjymga
-nome: Beiço
+nome: Setor Beiço
 mapas:
 - caminho_imagem_mapa: imagens/grupo_mulher_de_bigode_setor_beico_p0_i0.webp
   largura_mapa: 897
@@ -95,4 +95,3 @@ escaladas:
     dificuldade: V5
 ---
 
-# Beiço

@@ -134,6 +134,4 @@ escaladas:
     data_abertura: '2018'
 ---
 
-# Setor Corredor Polonês
-
 Sombra o dia todo (varia de acordo com a estação).

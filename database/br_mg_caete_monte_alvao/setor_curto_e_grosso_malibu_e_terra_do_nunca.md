@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: JI5tVwPnDWIuk7
-nome: Curto e Grosso, Malibu e Terra do Nunca
+nome: Setor Curto e Grosso, Malibu e Terra do Nunca
 mapas:
 - caminho_imagem_mapa: imagens/setor_curto_e_grosso_malibu_e_terra_do_nunca_p0.webp
   largura_mapa: 2048
@@ -84,7 +84,5 @@ setores:
 - caminho: setor_curto_e_grosso.md
 - caminho: setor_malibu.md
 ---
-
-# Curto e Grosso, Malibu e Terra do Nunca
 
 Estes setores estão localizados na parte sul do Alto Monte Alvão.

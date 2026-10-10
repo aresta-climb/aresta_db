@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: mR729A8fCLvODT
-nome: Ota Aranha
+nome: Setor Ota Aranha
 mapas:
 - caminho_imagem_mapa: imagens/grupo_mulher_de_bigode_setor_ota_aranha_p0_i1.webp
   largura_mapa: 735
@@ -25,4 +25,3 @@ escaladas:
     dificuldade: V9
 ---
 
-# Ota Aranha

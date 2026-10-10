@@ -215,8 +215,6 @@
 ### Grupo (Pico: Serra do Lenheiro)
 
 - **descricao**:
-    # Três Pontões (CEMONTA)
-    
     Setor mais antigo, teve suas primeiras conquistas no final da década de 70 por militares e no início dos anos 80 através de escaladores cariocas como André Ilha e Tonico Magalhães.
     
     Os Três Pontões concentram a maior quantidade de vias clássicas da região, seja por sua imponência, beleza, qualidade ou valor histórico à nível nacional e mundial.
@@ -2649,12 +2647,10 @@
   - **[6]**:
     - **conteudo**:
       - **descricao**:
-          # Vale das Sombras
-          
           É um pequeno bloco localizado ao lado esquerdo da trilha que sobe para os Três Pontões, poucos metros antes de chegar na base do Pontão Maior.
           
           Caracteriza-se por vias curtas e fortes, suas pequenas agarras fazem das vias duras do início ao fim. Tanto as vias quanto a base ficam na sombra o dia todo, pois o bloco está inteiro abaixo da linha das árvores.
-      - **nome**: Vale das Sombras
+      - **nome**: Setor Vale das Sombras
       - **uid**: Z3msjudWpVR1hv
       - **mapas**:
         - **[0]**:
@@ -2758,8 +2754,6 @@
 ### Setor (Pico: Serra do Lenheiro)
 
 - **descricao**:
-    # Ave Maria
-    
     Este setor se tornou famoso entre escaladores esportivos que buscam por uma escalada mais atlética. Suas vias, em geral, são bem negativas e exigentes fisicamente. A área no entorno também possui uma grande quantidade de Boulders, que são tratados num guia independente que pode ser acessado no link disponibilizado no início deste guia.
     
     ### Acesso e Estacionamento
@@ -2785,7 +2779,7 @@
     | ![Jonatas Lima no final da via Apocalipse](imagens/setor_ave_maria_p2_i2.webp) |
     | :--: |
     | *Jonatas Lima no final da via Apocalipse* |
-- **nome**: Ave Maria
+- **nome**: Setor Ave Maria
 - **uid**: kJNk7kWKseMZ5d
 - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_ave_maria_p0_i2.webp)
 - **mapas**:
@@ -3475,8 +3469,6 @@
 ### Setor (Pico: Serra do Lenheiro)
 
 - **descricao**:
-    # Setor Ácidos
-    
     O setor Ácidos apresenta como característica vias verticais com movimentações surpreendentes, podendo ser utilizados entalamentos, bidedo, calcanhar e movimentos dinâmicos. As linhas necessitam de uma leitura apurada e muita criatividade. Todas as vias são fixas e com parada dupla no top.
     
     Localizado no início da formação rochosa da Serra do Lenheiro ao lado do Bloco dos Dois Dedos, tem como grande vantagem a rápida aproximação, pois encontra-se muito próximo da estrada que sobe para o CEMONTA, é a primeira formação mais vertical do lado esquerdo. Fica na sombra durante toda a tarde, porém totalmente no sol de manhã.
@@ -3488,7 +3480,7 @@
     O setor Ácidos apresenta como característica vias verticais com movimentações surpreendentes, podendo ser utilizados entalamentos, bidedo, calcanhar e movimentos dinâmicos. As linhas necessitam de uma leitura apurada e muita criatividade. Todas as vias são fixas e com parada dupla no top.
     
     Localizado no início da formação rochosa da Serra do Lenheiro ao lado do Bloco dos Dois Dedos, tem como grande vantagem a rápida aproximação, pois encontra-se muito próximo da estrada que sobe para o CEMONTA, é a primeira formação mais vertical do lado esquerdo. Fica na sombra durante toda a tarde, porém totalmente no sol de manhã.
-- **nome**: Ácidos
+- **nome**: Setor Ácidos
 - **uid**: JDQ2oA1zZMyay1
 - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_acidos_p1_i2.webp)
 - **mapas**:
@@ -4980,12 +4972,10 @@
 ### Setor (Pico: Serra do Lenheiro)
 
 - **descricao**:
-    # Toca do Coelho
-    
     Este setor fica escondido na parte alta à direita do Bloco dos Dois Dedos. A trilha de 5min inicia 100m após os Dois Dedos, à esquerda ao lado de um corte d’água que cruza a estrada.
     
     Setor agradável, graus variados e base boa. Sugere-se chegar cedo pois pega sol forte à tarde.
-- **nome**: Toca do Coelho
+- **nome**: Setor Toca do Coelho
 - **uid**: oCKkGc2VoqL1YW
 - **mapas**:
   - **[0]**:
@@ -5252,8 +5242,6 @@
 ### Setor (Pico: Serra do Lenheiro)
 
 - **descricao**:
-    # Setor Teatro de Operações
-    
     Este setor conta com diversas vias esportivas, abertas com a intenção de serem aproveitadas em sua maioria nos cursos militares aplicados pelo 11ºBiMth. É possível encontrar vias com diversas características e graduações. Os melhores horários para escalar as vias são no início da manhã, até ás 10:00 e no fim da tarde a partir das 16:00. Além disso, o setor conta com um salão onde é possível obter sombra em boa parte do dia, além de ser um ótimo abrigo.
     
     ## Acesso
@@ -7346,8 +7334,6 @@
 ### Setor (Pico: Serra do Lenheiro)
 
 - **descricao**:
-    # Setor Cruz Credo
-    
     Setor localizado atrás do setor da Ave Maria, ainda com boas possibilidades de novas vias. Atualmente, possui cinco vias e uma variante, quase todas mistas e apenas uma fixa.
     
     Tem como característica os grandes buracos que conferem às vias, agarras impressionantes, tornando a graduação não muito elevada, apesar dos lances levemente negativos. As proteções nem sempre são óbvias, obrigando o escalador e “garimpar” fendas e buracos. Importante ficar atento à agarras quebrando, por se tratar de um setor relativamente novo. Todas as vias possuem grampo no topo, para segurança, top-rope e rapel.
@@ -7375,7 +7361,7 @@
     Setor localizado atrás do setor da Ave Maria, ainda com boas possibilidades de novas vias. Atualmente, possui cinco vias e uma variante, quase todas mistas e apenas uma fixa.
     
     Tem como característica os grandes buracos que conferem às vias, agarras impressionantes, tornando a graduação não muito elevada, apesar dos lances levemente negativos. As proteções nem sempre são óbvias, obrigando o escalador e “garimpar” fendas e buracos. Importante ficar atento à agarras quebrando, por se tratar de um setor relativamente novo. Todas as vias possuem grampo no topo, para segurança, top-rope e rapel.
-- **nome**: Cruz Credo
+- **nome**: Setor Cruz Credo
 - **uid**: yOn34ChLotkzHT
 - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_cruz_credo_p1_i3.webp)
 - **mapas**:
@@ -7579,12 +7565,10 @@
 ### Setor (Pico: Serra do Lenheiro)
 
 - **descricao**:
-    # Rapadura
-    
     Pequeno bloco localizado próximo à Ave Maria e possui apenas vias móveis.
     
     Para acessar basta seguir as mesmas indicações de acesso ao Setor Ave Maria citado acima, a única diferença é que ao invés de virar à direita após o muro de pedra, deve-se seguir mais cerca de 200m pela trilha principal e sair para à esquerda. Como é um setor pouco frequentado, a trilha pode estar bem apagada.
-- **nome**: Rapadura
+- **nome**: Setor Rapadura
 - **uid**: KzHTNv5gusto5Y
 - **mapas**:
   - **[0]**:
@@ -7929,8 +7913,6 @@
 ### Grupo (Pico: Serra do Lenheiro)
 
 - **descricao**:
-    # Setores do Rio das Mortes
-    
     Mais recente área de escalada da cidade, descoberta em 2017, vem se tornando muito popular pelo fato de ter vias bastante variadas em grau, altura e estilo, além de ter sombra o dia inteiro devido à uma agradável floresta. Outro fato positivo é o fácil acesso (são 10min de carro apenas em asfalto e mais 20min de trilha leve). Seus setores ficam muito próximos.
     
     ## Como Chegar
@@ -7963,8 +7945,6 @@
   - **[0]**:
     - **conteudo**:
       - **descricao**:
-          # Setor de Cima
-          
           Setor de vias baixas, levemente negativas e graus variados. Boa para se treinar técnicas e procedimentos (fácil acesso ao top por trás), um bom campo-escola. Sombra só até 11:00.
           
           Setor de vias baixas, levemente negativas e graus variados. Boa para se treinar técnicas e procedimentos (fácil acesso ao top por trás), um bom campo-escola. Sombra só até 11:00.
@@ -8118,8 +8098,6 @@
   - **[1]**:
     - **conteudo**:
       - **descricao**:
-          # Setor Thundercats
-          
           Bem ao lado do setor anterior, descendo alguns metros pra direita. Possui apenas duas vias bem bonitas e com vista incrível do top. Sombra o dia todo na base, sol na via de tarde.
           
           ## Vias
@@ -8135,7 +8113,7 @@
           Interessante via móvel com boas colocações. Um jogo de friends e nuts (caso não tenha micro-friends).
           
           Bem ao lado do setor anterior, descendo alguns metros pra direita. Possui apenas duas vias bem bonitas e com vista incrível do top. Sombra o dia todo na base, sol na via de tarde.
-      - **nome**: Thundercats
+      - **nome**: Setor Thundercats
       - **uid**: 4h1CafnoahccsZ
       - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/grupo_rio_das_mortes_setor_thundercats_p0_i3.webp)
       - **mapas**:
@@ -8209,8 +8187,6 @@
   - **[2]**:
     - **conteudo**:
       - **descricao**:
-          # Setor Salão
-          
           Setor dentro de um salão formado entre duas paredes de rocha, atrás do Setor Namata. Estes dois setores foram separados apenas para melhor visualização no croqui, mas na prática estão no mesmo local. Na parte alta à esquerda sai a trilha que dá acesso aos outros setores.
           
           Base e vias na sombra o dia todo. Embaixo da pedra tem algumas ferramentas e clip-stick.
@@ -8353,8 +8329,6 @@
   - **[3]**:
     - **conteudo**:
       - **descricao**:
-          # Setor Namata
-          
           Setor com maior altura e quantidade de vias. É por onde chega a trilha principal. Por estar dentro de uma mata tem sombra o dia todo na base, mas de tarde partes das vias pega sol.
           
           | ![Beto no teto da Corona Vírus](imagens/grupo_rio_das_mortes_setor_namata_p1_i4.webp) |
@@ -8718,8 +8692,6 @@
 ### Grupo (Pico: Serra do Lenheiro)
 
 - **descricao**:
-    # Setores do Caburu
-    
     Esta área de escalada conta com 2 setores que se dividem em 2 blocos. Eles estão localizados na parte de trás da serra que fica do outro lado do vale do Cemonta.
     
     ## Caburu Debaixo
@@ -8747,8 +8719,6 @@
   - **[0]**:
     - **conteudo**:
       - **descricao**:
-          # Caburu Debaixo
-          
           ## Setores do Caburu
           
           Esta área de escalada conta com 2 setores que se dividem em 2 blocos. Eles estão localizados na parte de trás da serra que fica do outro lado do vale do Cemonta.
@@ -8774,7 +8744,7 @@
           | ![Tio Nem conquistando a via Verdinho Cabuloso](imagens/grupo_caburu_setor_caburu_debaixo_p2_i2.webp) |
           | :--: |
           | *Tio Nem conquistando a via Verdinho Cabuloso* |
-      - **nome**: Caburu Debaixo
+      - **nome**: Setor Caburu Debaixo
       - **uid**: YjBKPMikSzkipy
       - **mapas**:
         - **[0]**:
@@ -9500,8 +9470,6 @@
   - **[1]**:
     - **conteudo**:
       - **descricao**:
-          # Campina do Caburu
-          
           O setor Caburu divide-se em dois blocos principais, os quais possuem vias móveis e esportivas.
           
           É o setor mais distante por ficar no alto da serra e longe de estradas, são cerca de 40 min de caminhada. Para acessar basta seguir as orientações de acesso ao setor Ave Maria até a bifurcação da tronqueira, é nesse ponto onde as trilhas se dividem e deve-se seguir reto na trilha bem apagada em leve descida, que logo cruza um corte de água e começa a subir a serra em diagonal (esta parte pode ser vista da bifurcação). Quase no topo da serra, quando a trilha começa a querer descer, deve-se pegar uma saída para a direita e cruzar o topo da serra, iniciando a descida para o lado oposto. Descendo um pouco chegará num campo aberto, à esquerda estará o Bloco 1 e à direita o Bloco 2. Ver também mapa no início do guia.
@@ -9517,7 +9485,7 @@
           ## Bloco 2
           
           Este bloco encontra-se ao lado esquerdo do bloco 1, possuindo poucas vias de escalada. Quando se chega no campo aberto vindo da trilha principal, caminha-se à direita até o bloco.
-      - **nome**: Campina do Caburu
+      - **nome**: Setor Campina do Caburu
       - **uid**: 0SlrOjrcioJ1ua
       - **mapas**:
         - **[0]**:
@@ -10040,8 +10008,6 @@
 ### Grupo (Pico: Serra do Lenheiro)
 
 - **descricao**:
-    # Serra de São José
-    
     Apesar do guia ser sobre a Serra do Lenheiro, vale a pena incluir aqui algumas escaladas da sua vizinha São José, que na verdade são afloramentos diferentes da mesma formação rochosa, sendo separadas por poucos quilômetros (perímetro urbano de São João Del Rei).
     
     ## Cachoeira Pedra do Índio (Marco Zero)

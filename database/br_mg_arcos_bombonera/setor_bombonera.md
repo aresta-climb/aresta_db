@@ -200,6 +200,4 @@ escaladas:
     data_abertura: '2023'
 ---
 
-# Setor bombonera
-
 Sombra a partir das 12h (varia de acordo com a estação).

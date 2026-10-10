@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: 0J02htQ9ijlNku
-nome: Manda Lá
+nome: Setor Manda Lá
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_manda_la_p0.webp
   largura_mapa: 437
@@ -39,8 +39,6 @@ escaladas:
     nome: Manda Lá
     dificuldade: V8
 ---
-
-# Setor Manda Lá
 
 O setor Manda Lá possui um bloco com linhas atléticas e agarras de régua.
 

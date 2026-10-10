@@ -3,7 +3,7 @@
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: lge5uD507M5WRB
 caminho_imagem_capa: imagens/pagina_18_imagem_0.webp
-nome: G2
+nome: Setor G2
 mapas:
 - caminho_imagem_mapa: imagens/pagina_17.webp
   largura_mapa: 808
@@ -251,8 +251,8 @@ escaladas:
     conquistadores:
     - Grots
     - Marcus "Rufino"
-    descricao: Boa pra iniciantes, Segue ligeiramente a direita da Cactos, peças pequenas e medias, top duplo no final 
-      da canaleta.
+    descricao: Boa pra iniciantes, Segue ligeiramente a direita da Cactos, peças pequenas
+      e medias, top duplo no final da canaleta.
 - uid: 49EHkJKF4z5uZY
   via_esportiva:
     nome: Cactos talidomida
@@ -321,8 +321,8 @@ escaladas:
   via_movel:
     nome: Ossos do orifício
     dificuldade: BR_5
-    descricao: Linda fenda que corta a parte superior da parede. Peças pequenas e médias. Termina no top da "mapa". 
-      Ótima opção!
+    descricao: Linda fenda que corta a parte superior da parede. Peças pequenas e
+      médias. Termina no top da "mapa". Ótima opção!
 - uid: O6CLvjL2vx3MiH
   via_esportiva:
     nome: Baião de dois
@@ -338,7 +338,8 @@ escaladas:
     conquistadores:
     - Gustavo Vianna
     - Marcus "Rufino"
-    descricao: Termina no top da SOS mandacaru. Peças pequenas e médias. Boa opção para iniciantes em móvel.
+    descricao: Termina no top da SOS mandacaru. Peças pequenas e médias. Boa opção
+      para iniciantes em móvel.
 - uid: cUBWjKVDKP0SWw
   via_esportiva:
     nome: SOS mandacaru
@@ -372,8 +373,6 @@ escaladas:
     - Thiago "Tato"
     descricao: Via de equilibrio
 ---
-
-# Setor G2
 
 **Travessias:**
 * C: Boas opções de travessias, muito legais.

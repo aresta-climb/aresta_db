@@ -13,8 +13,6 @@ setores:
 - caminho: grupo_yin_yang_setor_bloco_f_geladeira.md
 ---
 
-# Yin Yang
-
 Esse pequeno aglomerado de blocos, à direita do setor do Deslize, começou a ser explorado em 2006, com a abertura do clássico “Bicicletinha 2000”. Permaneceu sem novidades expressivas por alguns anos até que, em 2011, o escalador Mahavir Jneesh realizou a primeira ascensão do boulder “Yang” e, logo após, sua saída sentada denominada “Yin Yang”, dois mega clássicos da Pedra Rachada!
 
 ## Acesso (15 min)

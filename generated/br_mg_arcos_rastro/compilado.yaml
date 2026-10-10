@@ -171,10 +171,8 @@ picos:
             dificuldade: BR_7B_BARRA_7C
             quantidade_protecoes_intermediarias: 6
             quantidade_protecoes_parada: 2
-        descricao: |-
-          # Setor Zona Leste
-
-          Este setor oferece vias de 6º a 7c grau, com sombra o dia todo (variando de acordo com a estação).
+        descricao: Este setor oferece vias de 6º a 7c grau, com sombra o dia todo
+          (variando de acordo com a estação).
         precomputados:
           total_escaladas: 6
           total_esportivas: 6
@@ -387,7 +385,7 @@ picos:
             pontos_uids:
             - irtD1mffJuYtVd
             - eBKFyJdsJsOmfz
-            setor: 2º Andar
+            setor: Setor 2º Andar
             ids:
             - irtD1mffJuYtVd
             - eBKFyJdsJsOmfz
@@ -406,19 +404,19 @@ picos:
           - alvo_uid: rTPz6f4oHTpzLr
             pontos_uids:
             - eBKFyJdsJsOmfz
-            setor: 1º Andar
+            setor: Setor 1º Andar
             ids:
             - eBKFyJdsJsOmfz
           - alvo_uid: Xxlz6Srh7a9jQT
             pontos_uids:
             - eBKFyJdsJsOmfz
-            setor: Jardim Suspenso
+            setor: Setor Jardim Suspenso
             ids:
             - eBKFyJdsJsOmfz
           - alvo_uid: xFIkaiWPCCAZxk
             pontos_uids:
             - eBKFyJdsJsOmfz
-            setor: 3º Andar
+            setor: Setor 3º Andar
             ids:
             - eBKFyJdsJsOmfz
         escaladas:
@@ -503,8 +501,6 @@ picos:
             quantidade_protecoes_intermediarias: 4
             quantidade_protecoes_parada: 2
         descricao: |-
-          # Setor Chegada
-
           Este setor é o primeiro contato com o afloramento. Possui sombra até as 12h (variando de acordo com a estação).
 
           **Observações**:
@@ -1224,8 +1220,6 @@ picos:
             quantidade_protecoes_intermediarias: 4
             quantidade_protecoes_parada: 2
         descricao: |-
-          # Setor Onça
-
           Este setor possui sombra até as 13h (variando de acordo com a estação).
 
           **Observações**:
@@ -1467,10 +1461,8 @@ picos:
             dificuldade: BR_5
             quantidade_protecoes_intermediarias: 3
             quantidade_protecoes_parada: 2
-        descricao: |-
-          # Setor Toca dos Gatos
-
-          Este setor possui sombra o dia todo (variando de acordo com a estação). O acesso é feito através de um "Túnel de acesso".
+        descricao: Este setor possui sombra o dia todo (variando de acordo com a estação).
+          O acesso é feito através de um "Túnel de acesso".
         precomputados:
           total_escaladas: 8
           total_esportivas: 8
@@ -1726,10 +1718,7 @@ picos:
             destaque: true
             quantidade_protecoes_intermediarias: 5
             quantidade_protecoes_parada: 2
-        descricao: |-
-          # Setor Intermediário
-
-          Este setor possui sombra até as 13h (variando de acordo com a estação).
+        descricao: Este setor possui sombra até as 13h (variando de acordo com a estação).
         precomputados:
           total_escaladas: 8
           total_esportivas: 8
@@ -2411,10 +2400,7 @@ picos:
             destaque: true
             quantidade_protecoes_intermediarias: 6
             quantidade_protecoes_parada: 2
-        descricao: |-
-          # Setor Vale das Sombras
-
-          Este setor possui sombra o dia todo (variando de acordo com a estação).
+        descricao: Este setor possui sombra o dia todo (variando de acordo com a estação).
         precomputados:
           total_escaladas: 29
           total_esportivas: 29
@@ -2739,10 +2725,7 @@ picos:
             dificuldade: BR_6SUP
             quantidade_protecoes_intermediarias: 8
             quantidade_protecoes_parada: 2
-        descricao: |-
-          # Setor Parede dos Conflitos
-
-          Este setor possui sombra até as 13h (variando de acordo com a estação).
+        descricao: Este setor possui sombra até as 13h (variando de acordo com a estação).
         precomputados:
           total_escaladas: 12
           total_esportivas: 12
@@ -3261,10 +3244,7 @@ picos:
             destaque: true
             quantidade_protecoes_intermediarias: 3
             quantidade_protecoes_parada: 2
-        descricao: |-
-          # Setor Leão de Judah
-
-          Este setor possui sombra até as 12h (variando de acordo com a estação).
+        descricao: Este setor possui sombra até as 12h (variando de acordo com a estação).
         precomputados:
           total_escaladas: 22
           total_esportivas: 22
@@ -3738,10 +3718,7 @@ picos:
             destaque: true
             quantidade_protecoes_intermediarias: 3
             quantidade_protecoes_parada: 2
-        descricao: |-
-          # Setor Antigo Camping
-
-          Este setor possui sombra até as 13h (variando de acordo com a estação).
+        descricao: Este setor possui sombra até as 13h (variando de acordo com a estação).
         precomputados:
           total_escaladas: 19
           total_esportivas: 19
@@ -4024,10 +4001,7 @@ picos:
             destaque: true
             quantidade_protecoes_intermediarias: 3
             quantidade_protecoes_parada: 2
-        descricao: |-
-          # Setor Beco do Tiú
-
-          Este setor possui sombra até as 13h (variando de acordo com a estação).
+        descricao: Este setor possui sombra até as 13h (variando de acordo com a estação).
         precomputados:
           total_escaladas: 11
           total_esportivas: 9
@@ -4357,10 +4331,7 @@ picos:
             dificuldade: BR_6
             quantidade_protecoes_intermediarias: 2
             quantidade_protecoes_parada: 2
-        descricao: |-
-          # Setor Savassinha
-
-          Este setor possui sombra até as 12h (variando de acordo com a estação).
+        descricao: Este setor possui sombra até as 12h (variando de acordo com a estação).
         precomputados:
           total_escaladas: 12
           total_esportivas: 12
@@ -4619,10 +4590,7 @@ picos:
             quantidade_protecoes_intermediarias: 8
             quantidade_protecoes_parada: 2
             data_abertura: '2017'
-        descricao: |-
-          # Setor Grutinha
-
-          Este setor possui sombra o dia todo (variando de acordo com a estação).
+        descricao: Este setor possui sombra o dia todo (variando de acordo com a estação).
         precomputados:
           total_escaladas: 9
           total_esportivas: 9
@@ -4777,7 +4745,7 @@ picos:
           - alvo_uid: Xxlz6Srh7a9jQT
             pontos_uids:
             - b5FoaLHq9X7mV4
-            setor: Jardim Suspenso
+            setor: Setor Jardim Suspenso
             ids:
             - b5FoaLHq9X7mV4
         escaladas:
@@ -4825,8 +4793,6 @@ picos:
             quantidade_protecoes_intermediarias: 4
             quantidade_protecoes_parada: 2
         descricao: |-
-          # Setor Mezanino
-
           Este setor possui sombra a partir das 13h (variando de acordo com a estação). O acesso pode ser feito pelo "Portal", "Túnel" ou "Escada de acesso" que leva ao Jardim Suspenso.
 
           **Observações**:
@@ -4837,7 +4803,7 @@ picos:
   - setor:
       conteudo:
         uid: rTPz6f4oHTpzLr
-        nome: 1º Andar
+        nome: Setor 1º Andar
         mapas:
         - caminho_imagem_mapa: imagens/setor_1o_andar_p0_i0.webp
           largura_mapa: 858
@@ -5024,7 +4990,7 @@ picos:
           - alvo_uid: Xxlz6Srh7a9jQT
             pontos_uids:
             - deILCkeAxmThKN
-            setor: Jardim Suspenso
+            setor: Setor Jardim Suspenso
             ids:
             - deILCkeAxmThKN
           - alvo_uid: 07r5MXeygRMMk3
@@ -5110,17 +5076,15 @@ picos:
             dificuldade: BR_5SUP
             quantidade_protecoes_intermediarias: 7
             quantidade_protecoes_parada: 2
-        descricao: |-
-          # Setor 1º Andar
-
-          Este setor possui sombra a partir das 13h (variando de acordo com a estação).
+        descricao: Este setor possui sombra a partir das 13h (variando de acordo com
+          a estação).
         precomputados:
           total_escaladas: 11
           total_esportivas: 11
   - setor:
       conteudo:
         uid: IuQcqJF8uQ0xNz
-        nome: 2º Andar
+        nome: Setor 2º Andar
         mapas:
         - caminho_imagem_mapa: imagens/setor_2o_andar_p0_i0.webp
           largura_mapa: 848
@@ -5457,7 +5421,7 @@ picos:
           - alvo_uid: Xxlz6Srh7a9jQT
             pontos_uids:
             - NdRlDzDZvt2NBX
-            setor: Jardim Suspenso
+            setor: Setor Jardim Suspenso
             ids:
             - NdRlDzDZvt2NBX
           - alvo_uid: OM2BhxRf2VdX7U
@@ -5615,17 +5579,14 @@ picos:
             destaque: true
             quantidade_protecoes_intermediarias: 6
             quantidade_protecoes_parada: 2
-        descricao: |-
-          # Setor 2º Andar
-
-          Este setor possui sombra o dia todo (variando de acordo com a estação).
+        descricao: Este setor possui sombra o dia todo (variando de acordo com a estação).
         precomputados:
           total_escaladas: 21
           total_esportivas: 21
   - setor:
       conteudo:
         uid: Xxlz6Srh7a9jQT
-        nome: Jardim Suspenso
+        nome: Setor Jardim Suspenso
         mapas:
         - caminho_imagem_mapa: imagens/setor_jardim_suspenso_p0_i0.webp
           largura_mapa: 922
@@ -5788,13 +5749,13 @@ picos:
           - alvo_uid: IuQcqJF8uQ0xNz
             pontos_uids:
             - Q8NYqrdOJoU9KT
-            setor: 2º Andar
+            setor: Setor 2º Andar
             ids:
             - Q8NYqrdOJoU9KT
           - alvo_uid: xFIkaiWPCCAZxk
             pontos_uids:
             - Pm4F1BTv2SkgDn
-            setor: 3º Andar
+            setor: Setor 3º Andar
             ids:
             - Pm4F1BTv2SkgDn
         escaladas:
@@ -5852,17 +5813,15 @@ picos:
             dificuldade: BR_7B_BARRA_7C
             quantidade_protecoes_intermediarias: 8
             quantidade_protecoes_parada: 2
-        descricao: |-
-          # Setor Jardim Suspenso
-
-          Este setor possui sombra o dia todo (variando de acordo com a estação). O acesso é feito por uma "Escada de acesso" vinda do Segundo Andar.
+        descricao: Este setor possui sombra o dia todo (variando de acordo com a estação).
+          O acesso é feito por uma "Escada de acesso" vinda do Segundo Andar.
         precomputados:
           total_escaladas: 9
           total_esportivas: 9
   - setor:
       conteudo:
         uid: xFIkaiWPCCAZxk
-        nome: 3º Andar
+        nome: Setor 3º Andar
         mapas:
         - caminho_imagem_mapa: imagens/setor_3o_andar_p0_i0.webp
           largura_mapa: 922
@@ -6229,13 +6188,13 @@ picos:
           - alvo_uid: Xxlz6Srh7a9jQT
             pontos_uids:
             - eoVnVvdsAdeKpX
-            setor: Jardim Suspenso
+            setor: Setor Jardim Suspenso
             ids:
             - eoVnVvdsAdeKpX
           - alvo_uid: IuQcqJF8uQ0xNz
             pontos_uids:
             - eoVnVvdsAdeKpX
-            setor: 2º Andar
+            setor: Setor 2º Andar
             ids:
             - eoVnVvdsAdeKpX
           - alvo_uid: YwghV98vXhOZrJ
@@ -6405,10 +6364,7 @@ picos:
             dificuldade: BR_5
             quantidade_protecoes_intermediarias: 5
             quantidade_protecoes_parada: 2
-        descricao: |-
-          # Setor 3º Andar
-
-          Este setor possui sombra o dia todo (variando de acordo com a estação).
+        descricao: Este setor possui sombra o dia todo (variando de acordo com a estação).
         precomputados:
           total_escaladas: 24
           total_esportivas: 24
@@ -6735,25 +6691,25 @@ picos:
         - alvo_uid: xFIkaiWPCCAZxk
           pontos_uids:
           - l8kjRD9Bpe7YFj
-          setor: 3º Andar
+          setor: Setor 3º Andar
           ids:
           - l8kjRD9Bpe7YFj
         - alvo_uid: Xxlz6Srh7a9jQT
           pontos_uids:
           - 32APJFXzr6N1G4
-          setor: Jardim Suspenso
+          setor: Setor Jardim Suspenso
           ids:
           - 32APJFXzr6N1G4
         - alvo_uid: IuQcqJF8uQ0xNz
           pontos_uids:
           - Cub9sJTALC8sII
-          setor: 2º Andar
+          setor: Setor 2º Andar
           ids:
           - Cub9sJTALC8sII
         - alvo_uid: rTPz6f4oHTpzLr
           pontos_uids:
           - OWEkb67HVVUp22
-          setor: 1º Andar
+          setor: Setor 1º Andar
           ids:
           - OWEkb67HVVUp22
         - alvo_uid: qy0X6QJOgb40Ys

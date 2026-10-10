@@ -584,8 +584,6 @@ escaladas:
     - Samuel Lucas
 ---
 
-# Setor Sentinela e Vale do Joga
-
 **Acesso:** Ao chegar ao maciço, no setor entrada, sair na trilha a direita, em direção ao banheiro. Depois de passar pela base das vias “Retorno de Pitu” e “Mar Revolto” seguir por mais alguns metros e chegará na base da via “Sentinela”.
 
 **Coordenadas na base da via Sentinela:** -19º32.867’ -43º59.381’

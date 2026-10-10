@@ -23,6 +23,4 @@ setores:
 - caminho: grupo_laranjinha_setor_unha_de_gato.md
 ---
 
-# Grupo Laranjinha
-
 **Principais blocos:** Laranjinha, Unha de Gato, Boca de Tubarão, Matsuzaki, Embutidos.

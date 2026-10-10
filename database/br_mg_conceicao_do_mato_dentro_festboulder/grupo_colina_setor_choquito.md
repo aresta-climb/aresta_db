@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: txd3FQ2sso3KfL
-nome: Choquito
+nome: Setor Choquito
 mapas:
 - caminho_imagem_mapa: imagens/grupo_colina_setor_choquito_p0.webp
   largura_mapa: 759
@@ -113,8 +113,6 @@ escaladas:
     nome: (sem nome 3)
     dificuldade: V3
 ---
-
-# Setor Choquito
 
 O setor Choquito possui blocos com linhas variadas.
 

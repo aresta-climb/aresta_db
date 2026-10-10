@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: q9AKDKOS430ey8
-nome: Gênesis
+nome: Setor Gênesis
 mapas:
 - caminho_imagem_mapa: imagens/setor_genesis_p0.webp
   largura_mapa: 1727
@@ -367,3 +367,4 @@ escaladas:
     nome: Sinairo P3
     dificuldade: PROJETO
 ---
+

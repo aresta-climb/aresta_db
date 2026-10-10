@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: FrjVJC9SeIMHep
-nome: Parede da CENIBRA
+nome: Setor Parede da CENIBRA
 mapas:
 - caminho_imagem_mapa: imagens/setor_parede_da_cenibra_p0_i1.webp
   referencias:

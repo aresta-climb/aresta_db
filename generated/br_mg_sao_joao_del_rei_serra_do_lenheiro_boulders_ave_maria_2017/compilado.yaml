@@ -40,13 +40,13 @@ picos:
           - alvo_uid: mjhTMRRTRYEupM
             pontos_uids:
             - bJb7xVraRyvZyx
-            setor: Frigideira
+            setor: Setor Frigideira
             ids:
             - bJb7xVraRyvZyx
         setores:
         - conteudo:
             uid: mjhTMRRTRYEupM
-            nome: Frigideira
+            nome: Setor Frigideira
             mapas:
             - caminho_imagem_mapa: imagens/grupo_frigideira_setor_frigideira_p0_i0.webp
               largura_mapa: 1497
@@ -144,13 +144,13 @@ picos:
               boulder:
                 nome: Passageiros
                 dificuldade: V1
-            descricao: '# Setor Frigideira'
+            descricao: ''
             precomputados:
               total_escaladas: 5
               total_boulders: 5
         - conteudo:
             uid: msOVbYnmbHbFNG
-            nome: Barba Ruiva
+            nome: Setor Barba Ruiva
             mapas:
             - caminho_imagem_mapa: imagens/grupo_frigideira_setor_barba_ruiva_p0_i0.webp
               largura_mapa: 966
@@ -289,13 +289,13 @@ picos:
               boulder:
                 nome: Direitos Iguais
                 dificuldade: V6
-            descricao: '# Barba Ruiva'
+            descricao: ''
             precomputados:
               total_escaladas: 7
               total_boulders: 7
         - conteudo:
             uid: NcIvLGbZlLw50z
-            nome: Escondendo Leite
+            nome: Setor Escondendo Leite
             mapas:
             - caminho_imagem_mapa: imagens/grupo_frigideira_setor_escondendo_leite_p0_i0.webp
               largura_mapa: 739
@@ -393,13 +393,13 @@ picos:
               boulder:
                 nome: Leite Ninho
                 dificuldade: V3
-            descricao: '# Setor Escondendo Leite'
+            descricao: ''
             precomputados:
               total_escaladas: 5
               total_boulders: 5
         - conteudo:
             uid: 4digHEeV3xxXiv
-            nome: Rosquinha da Sogra
+            nome: Setor Rosquinha da Sogra
             mapas:
             - caminho_imagem_mapa: imagens/grupo_frigideira_setor_rosquinha_da_sogra_p0_i1.webp
               largura_mapa: 736
@@ -425,13 +425,13 @@ picos:
               boulder:
                 nome: Rosquinha da Sogra
                 dificuldade: V2
-            descricao: '# Rosquinha da Sogra'
+            descricao: ''
             precomputados:
               total_escaladas: 1
               total_boulders: 1
         - conteudo:
             uid: j3Wp4AMXPaa4og
-            nome: Casa da Sogra
+            nome: Setor Casa da Sogra
             mapas:
             - caminho_imagem_mapa: imagens/grupo_frigideira_setor_casa_da_sogra_p0_i0.webp
               largura_mapa: 811
@@ -475,13 +475,13 @@ picos:
               boulder:
                 nome: Energia
                 dificuldade: V8
-            descricao: '# Casa da Sogra'
+            descricao: ''
             precomputados:
               total_escaladas: 2
               total_boulders: 2
         - conteudo:
             uid: O9shMYbO4wwfHk
-            nome: O Dedo
+            nome: Setor O Dedo
             mapas:
             - caminho_imagem_mapa: imagens/grupo_frigideira_setor_o_dedo_p0_i1.webp
               largura_mapa: 799
@@ -507,13 +507,11 @@ picos:
               boulder:
                 nome: O Dedo
                 dificuldade: V1
-            descricao: '# O Dedo'
+            descricao: ''
             precomputados:
               total_escaladas: 1
               total_boulders: 1
         descricao: |-
-          # Grupo Frigideira
-
           **Bloco: Frigideira**
           Localizado à esquerda da trilha antes do muro de pedra.
 
@@ -542,7 +540,7 @@ picos:
         setores:
         - conteudo:
             uid: QmZl7skoXRvunn
-            nome: O Profeta
+            nome: Setor O Profeta
             mapas:
             - caminho_imagem_mapa: imagens/grupo_reza_setor_o_profeta_p0_i0.webp
               largura_mapa: 1500
@@ -605,13 +603,13 @@ picos:
                 nome: Maomé
                 dificuldade: INDEFINIDO
                 descricao: Projeto
-            descricao: '# Setor O Profeta'
+            descricao: ''
             precomputados:
               total_escaladas: 3
               total_boulders: 3
         - conteudo:
             uid: WawtekZcKgAb5I
-            nome: Reza
+            nome: Setor Reza
             mapas:
             - caminho_imagem_mapa: imagens/grupo_reza_setor_reza_p0_i0.webp
               largura_mapa: 1513
@@ -727,13 +725,13 @@ picos:
               boulder:
                 nome: Ave Maria
                 dificuldade: V7
-            descricao: '# Setor Reza'
+            descricao: ''
             precomputados:
               total_escaladas: 6
               total_boulders: 6
         - conteudo:
             uid: EukNxu39n3k6EU
-            nome: Locomotiva
+            nome: Setor Locomotiva
             mapas:
             - caminho_imagem_mapa: imagens/grupo_reza_setor_locomotiva_p0_i0.webp
               largura_mapa: 1489
@@ -835,13 +833,13 @@ picos:
               boulder:
                 nome: Desayuno
                 dificuldade: V4
-            descricao: '# Setor Locomotiva'
+            descricao: ''
             precomputados:
               total_escaladas: 5
               total_boulders: 5
         - conteudo:
             uid: 5B86oNOyol7VlK
-            nome: Batcaverna
+            nome: Setor Batcaverna
             mapas:
             - caminho_imagem_mapa: imagens/grupo_reza_setor_batcaverna_p0_i0.webp
               largura_mapa: 1498
@@ -903,13 +901,13 @@ picos:
               boulder:
                 nome: Robin Larica
                 dificuldade: V4
-            descricao: '# Batcaverna'
+            descricao: ''
             precomputados:
               total_escaladas: 3
               total_boulders: 3
         - conteudo:
             uid: 9rTp4J89URZRPy
-            nome: Apoio Resende
+            nome: Setor Apoio Resende
             mapas:
             - caminho_imagem_mapa: imagens/grupo_reza_setor_apoio_resende_p0_i0.webp
               largura_mapa: 736
@@ -972,16 +970,13 @@ picos:
               boulder:
                 nome: Sagarana
                 dificuldade: V6
-            descricao: |-
-              # Setor Apoio Resende
-
-              (Face da Batcaverna)
+            descricao: (Face da Batcaverna)
             precomputados:
               total_escaladas: 3
               total_boulders: 3
         - conteudo:
             uid: eiipF4wsDuczUd
-            nome: Busão
+            nome: Setor Busão
             mapas:
             - caminho_imagem_mapa: imagens/grupo_reza_setor_busao_p0_i0.webp
               largura_mapa: 1495
@@ -1143,13 +1138,13 @@ picos:
               boulder:
                 nome: Mancha Cinza
                 dificuldade: V3
-            descricao: '# Setor Busão'
+            descricao: ''
             precomputados:
               total_escaladas: 8
               total_boulders: 8
         - conteudo:
             uid: mn1SfA1bjNHJut
-            nome: Almadém
+            nome: Setor Almadém
             mapas:
             - caminho_imagem_mapa: imagens/grupo_reza_setor_almadem_p0_i0.webp
               largura_mapa: 1221
@@ -1216,13 +1211,13 @@ picos:
               boulder:
                 nome: Almadém
                 dificuldade: V4
-            descricao: '# Almadém'
+            descricao: ''
             precomputados:
               total_escaladas: 3
               total_boulders: 3
         - conteudo:
             uid: PHpzXazAW8J5RO
-            nome: Lek Pression
+            nome: Setor Lek Pression
             mapas:
             - caminho_imagem_mapa: imagens/grupo_reza_setor_lek_pression_p0_i0.webp
               largura_mapa: 1294
@@ -1248,14 +1243,12 @@ picos:
               boulder:
                 nome: Lek Pression
                 dificuldade: V7
-            descricao: '# Setor Lek Pression'
+            descricao: ''
             precomputados:
               total_escaladas: 1
               total_boulders: 1
-        descricao: |-
-          # Grupo Reza
-
-          **Principais blocos:** Reza, Profeta, Locomotiva, Bat-Caverna, Almadém, Busão.
+        descricao: '**Principais blocos:** Reza, Profeta, Locomotiva, Bat-Caverna,
+          Almadém, Busão.'
         precomputados:
           total_escaladas: 32
           total_boulders: 32
@@ -1280,7 +1273,7 @@ picos:
         setores:
         - conteudo:
             uid: lyJ9wythLTiXh7
-            nome: Matsuzaki
+            nome: Setor Matsuzaki
             mapas:
             - caminho_imagem_mapa: imagens/grupo_laranjinha_setor_matsuzaki_p0_i0.webp
               largura_mapa: 746
@@ -1330,7 +1323,7 @@ picos:
               total_boulders: 2
         - conteudo:
             uid: 6c6dDcMXtYms7t
-            nome: Embutidos
+            nome: Setor Embutidos
             mapas:
             - caminho_imagem_mapa: imagens/grupo_laranjinha_setor_embutidos_p0_i1.webp
               largura_mapa: 735
@@ -1374,13 +1367,13 @@ picos:
               boulder:
                 nome: Costelinha
                 dificuldade: V3
-            descricao: '# Setor Embutidos'
+            descricao: ''
             precomputados:
               total_escaladas: 2
               total_boulders: 2
         - conteudo:
             uid: 3o7gqRIGs09Mgp
-            nome: Boca de Tubarão
+            nome: Setor Boca de Tubarão
             mapas:
             - caminho_imagem_mapa: imagens/grupo_laranjinha_setor_boca_de_tubarao_p0_i0.webp
               largura_mapa: 1493
@@ -1406,13 +1399,13 @@ picos:
               boulder:
                 nome: Boca de Tubarão
                 dificuldade: V4
-            descricao: '# Boca de Tubarão'
+            descricao: ''
             precomputados:
               total_escaladas: 1
               total_boulders: 1
         - conteudo:
             uid: cEJi76gPJc0XV6
-            nome: Laranjinha
+            nome: Setor Laranjinha
             mapas:
             - caminho_imagem_mapa: imagens/grupo_laranjinha_setor_laranjinha_p0_i0.webp
               largura_mapa: 944
@@ -1534,13 +1527,13 @@ picos:
               boulder:
                 nome: Quincan
                 dificuldade: V1
-            descricao: '# Laranjinha'
+            descricao: ''
             precomputados:
               total_escaladas: 6
               total_boulders: 6
         - conteudo:
             uid: 8YbwEOVUhJQ0SK
-            nome: Unha de Gato
+            nome: Setor Unha de Gato
             mapas:
             - caminho_imagem_mapa: imagens/grupo_laranjinha_setor_unha_de_gato_p0_i1.webp
               largura_mapa: 1059
@@ -1644,14 +1637,12 @@ picos:
               boulder:
                 nome: Saída Pela Direita
                 dificuldade: V2
-            descricao: '# Setor Unha de Gato'
+            descricao: ''
             precomputados:
               total_escaladas: 5
               total_boulders: 5
-        descricao: |-
-          # Grupo Laranjinha
-
-          **Principais blocos:** Laranjinha, Unha de Gato, Boca de Tubarão, Matsuzaki, Embutidos.
+        descricao: '**Principais blocos:** Laranjinha, Unha de Gato, Boca de Tubarão,
+          Matsuzaki, Embutidos.'
         precomputados:
           total_escaladas: 16
           total_boulders: 16
@@ -1676,7 +1667,7 @@ picos:
         setores:
         - conteudo:
             uid: CqXQ96HqOIWNgI
-            nome: Ditadura
+            nome: Setor Ditadura
             mapas:
             - caminho_imagem_mapa: imagens/grupo_ditadura_setor_ditadura_p0_i0.webp
               largura_mapa: 1420
@@ -1757,13 +1748,13 @@ picos:
                 nome: Via Rupestre
                 dificuldade: V0
                 descricao: v0/6º sup (Proteções Móveis)
-            descricao: '# Ditadura'
+            descricao: ''
             precomputados:
               total_escaladas: 4
               total_boulders: 4
         - conteudo:
             uid: CFkj135WS2iAFC
-            nome: Cabeça de Cachorro
+            nome: Setor Cabeça de Cachorro
             mapas:
             - caminho_imagem_mapa: imagens/grupo_ditadura_setor_cabeca_de_cachorro_p0_i0.webp
               largura_mapa: 710
@@ -1825,13 +1816,13 @@ picos:
               boulder:
                 nome: Rex
                 dificuldade: V0
-            descricao: '# Cabeça de Cachorro'
+            descricao: ''
             precomputados:
               total_escaladas: 3
               total_boulders: 3
         - conteudo:
             uid: fv8zxv4MMyBrJH
-            nome: Catatau
+            nome: Setor Catatau
             mapas:
             - caminho_imagem_mapa: imagens/grupo_ditadura_setor_catatau_p0_i1.webp
               largura_mapa: 727
@@ -1857,13 +1848,13 @@ picos:
               boulder:
                 nome: Catatau
                 dificuldade: V2
-            descricao: '# Setor Catatau'
+            descricao: ''
             precomputados:
               total_escaladas: 1
               total_boulders: 1
         - conteudo:
             uid: W1JNrgMgl63jDJ
-            nome: Espiga
+            nome: Setor Espiga
             mapas:
             - caminho_imagem_mapa: imagens/grupo_ditadura_setor_espiga_p0_i0.webp
               largura_mapa: 1488
@@ -1925,13 +1916,13 @@ picos:
               boulder:
                 nome: Sabugo
                 dificuldade: V0
-            descricao: '# Espiga'
+            descricao: ''
             precomputados:
               total_escaladas: 3
               total_boulders: 3
         - conteudo:
             uid: a9RCi2qfPDv3xS
-            nome: Aero Dinâmico
+            nome: Setor Aero Dinâmico
             mapas:
             - caminho_imagem_mapa: imagens/grupo_ditadura_setor_aero_dinamico_p0_i0.webp
               largura_mapa: 748
@@ -1974,13 +1965,13 @@ picos:
             - uid: Cfd1AWO1fA6mKu
               boulder:
                 nome: Projeto (Aero Dinâmico)
-            descricao: '# Aero Dinâmico'
+            descricao: ''
             precomputados:
               total_escaladas: 2
               total_boulders: 2
         - conteudo:
             uid: gXrhh04vwDtXUk
-            nome: Coroinha
+            nome: Setor Coroinha
             mapas:
             - caminho_imagem_mapa: imagens/grupo_ditadura_setor_coroinha_p0_i1.webp
               largura_mapa: 745
@@ -2006,13 +1997,13 @@ picos:
               boulder:
                 nome: Coroinha
                 dificuldade: V1
-            descricao: '# Setor Coroinha'
+            descricao: ''
             precomputados:
               total_escaladas: 1
               total_boulders: 1
         - conteudo:
             uid: pn8gTBpmwrR7Fv
-            nome: Iguana
+            nome: Setor Iguana
             mapas:
             - caminho_imagem_mapa: imagens/grupo_ditadura_setor_iguana_p0_i0.webp
               largura_mapa: 1501
@@ -2074,13 +2065,13 @@ picos:
               boulder:
                 nome: Camaleão
                 dificuldade: V4
-            descricao: '# Setor Iguana'
+            descricao: ''
             precomputados:
               total_escaladas: 3
               total_boulders: 3
         - conteudo:
             uid: hLJeJsEOyHWdLg
-            nome: Faixa Preta
+            nome: Setor Faixa Preta
             mapas:
             - caminho_imagem_mapa: imagens/grupo_ditadura_setor_faixa_preta_p0_i0.webp
               largura_mapa: 826
@@ -2147,14 +2138,12 @@ picos:
               boulder:
                 nome: Projeto (Faixa Preta)
                 dificuldade: INDEFINIDO
-            descricao: '# Faixa Preta'
+            descricao: ''
             precomputados:
               total_escaladas: 3
               total_boulders: 3
-        descricao: |-
-          # Grupo Ditadura
-
-          **Principais blocos:** Ditadura, Cabeça de Cachorro, Catatau, Espiga, Aero-Dinâmico, Coroinha, Iguana, Faixa Preta.
+        descricao: '**Principais blocos:** Ditadura, Cabeça de Cachorro, Catatau,
+          Espiga, Aero-Dinâmico, Coroinha, Iguana, Faixa Preta.'
         precomputados:
           total_escaladas: 20
           total_boulders: 20
@@ -2179,7 +2168,7 @@ picos:
         setores:
         - conteudo:
             uid: PIXJYxedJscCy0
-            nome: Mulher de Bigode
+            nome: Setor Mulher de Bigode
             mapas:
             - caminho_imagem_mapa: imagens/grupo_mulher_de_bigode_setor_mulher_e_bigode_p0_i0.webp
               largura_mapa: 601
@@ -2413,13 +2402,13 @@ picos:
               boulder:
                 nome: Blue Cheese
                 dificuldade: V2
-            descricao: '# Setor Mulher de Bigode'
+            descricao: ''
             precomputados:
               total_escaladas: 12
               total_boulders: 12
         - conteudo:
             uid: JZKC7a6UCkWjYn
-            nome: Ziriguidum
+            nome: Setor Ziriguidum
             mapas:
             - caminho_imagem_mapa: imagens/grupo_mulher_de_bigode_setor_ziriguidum_p0_i0.webp
               largura_mapa: 1489
@@ -2564,13 +2553,13 @@ picos:
               boulder:
                 nome: Rapunzel
                 dificuldade: V3
-            descricao: '# Ziriguidum'
+            descricao: ''
             precomputados:
               total_escaladas: 5
               total_boulders: 5
         - conteudo:
             uid: yuPPXErIZPAcv3
-            nome: Eco
+            nome: Setor Eco
             mapas:
             - caminho_imagem_mapa: imagens/grupo_mulher_de_bigode_setor_eco_p0_i0.webp
               largura_mapa: 1498
@@ -2632,13 +2621,13 @@ picos:
               boulder:
                 nome: Escotilha
                 dificuldade: V3
-            descricao: '# Eco'
+            descricao: ''
             precomputados:
               total_escaladas: 3
               total_boulders: 3
         - conteudo:
             uid: KqHIgclXOMpIHp
-            nome: Meretríssimo
+            nome: Setor Meretríssimo
             mapas:
             - caminho_imagem_mapa: imagens/grupo_mulher_de_bigode_setor_meretrissimo_p0_i0.webp
               largura_mapa: 748
@@ -2701,13 +2690,13 @@ picos:
               boulder:
                 nome: Toco Preto
                 dificuldade: V2
-            descricao: '# Meretríssimo'
+            descricao: ''
             precomputados:
               total_escaladas: 3
               total_boulders: 3
         - conteudo:
             uid: 9CuBV3INHGsfir
-            nome: Diabinha
+            nome: Setor Diabinha
             mapas:
             - caminho_imagem_mapa: imagens/grupo_mulher_de_bigode_setor_diabinha_p0_i1.webp
               largura_mapa: 687
@@ -2733,13 +2722,13 @@ picos:
               boulder:
                 nome: Diabinha
                 dificuldade: V0
-            descricao: '# Diabinha'
+            descricao: ''
             precomputados:
               total_escaladas: 1
               total_boulders: 1
         - conteudo:
             uid: Nb5NpumVgjymga
-            nome: Beiço
+            nome: Setor Beiço
             mapas:
             - caminho_imagem_mapa: imagens/grupo_mulher_de_bigode_setor_beico_p0_i0.webp
               largura_mapa: 897
@@ -2860,13 +2849,13 @@ picos:
               boulder:
                 nome: Bravo
                 dificuldade: V5
-            descricao: '# Beiço'
+            descricao: ''
             precomputados:
               total_escaladas: 6
               total_boulders: 6
         - conteudo:
             uid: tsLPexCvGZbhiu
-            nome: Fingerboard
+            nome: Setor Fingerboard
             mapas:
             - caminho_imagem_mapa: imagens/grupo_mulher_de_bigode_setor_fingerboard_p0_i0.webp
               largura_mapa: 719
@@ -2892,13 +2881,13 @@ picos:
               boulder:
                 nome: Fingerboard
                 dificuldade: V0
-            descricao: '# Fingerboard'
+            descricao: ''
             precomputados:
               total_escaladas: 1
               total_boulders: 1
         - conteudo:
             uid: 0HG2zaGIDNfYkO
-            nome: Carga Pesada
+            nome: Setor Carga Pesada
             mapas:
             - caminho_imagem_mapa: imagens/grupo_mulher_de_bigode_setor_carga_pesada_p0_i1.webp
               largura_mapa: 717
@@ -2943,13 +2932,13 @@ picos:
               boulder:
                 nome: Carga Pesada
                 dificuldade: V6
-            descricao: '# Setor Carga Pesada'
+            descricao: ''
             precomputados:
               total_escaladas: 2
               total_boulders: 2
         - conteudo:
             uid: C97T2kD4KlLc5k
-            nome: Viúva Negra
+            nome: Setor Viúva Negra
             mapas:
             - caminho_imagem_mapa: imagens/grupo_mulher_de_bigode_setor_viuva_negra_p0_i0.webp
               largura_mapa: 736
@@ -2975,13 +2964,13 @@ picos:
               boulder:
                 nome: Viúva Negra
                 dificuldade: V1
-            descricao: '# Setor Viúva Negra'
+            descricao: ''
             precomputados:
               total_escaladas: 1
               total_boulders: 1
         - conteudo:
             uid: mR729A8fCLvODT
-            nome: Ota Aranha
+            nome: Setor Ota Aranha
             mapas:
             - caminho_imagem_mapa: imagens/grupo_mulher_de_bigode_setor_ota_aranha_p0_i1.webp
               largura_mapa: 735
@@ -3007,13 +2996,13 @@ picos:
               boulder:
                 nome: Ota Aranha
                 dificuldade: V9
-            descricao: '# Ota Aranha'
+            descricao: ''
             precomputados:
               total_escaladas: 1
               total_boulders: 1
         - conteudo:
             uid: j97CGXceBaTVAD
-            nome: Módulo
+            nome: Setor Módulo
             mapas:
             - caminho_imagem_mapa: imagens/grupo_mulher_de_bigode_setor_modulo_p0_i0.webp
               largura_mapa: 1044
@@ -3076,14 +3065,13 @@ picos:
               boulder:
                 nome: Tempestade
                 dificuldade: V3
-            descricao: '# Setor Módulo'
+            descricao: ''
             precomputados:
               total_escaladas: 3
               total_boulders: 3
-        descricao: |-
-          # Grupo Mulher de Bigode
-
-          **Principais blocos:** Mulher de Bigode, Beiço, Diabinha, Eco, Meretríssimo, Ziriguidum, Viúva Negra, Carga pesada, Ota aranha, Fingerboard, Módulo.
+        descricao: '**Principais blocos:** Mulher de Bigode, Beiço, Diabinha, Eco,
+          Meretríssimo, Ziriguidum, Viúva Negra, Carga pesada, Ota aranha, Fingerboard,
+          Módulo.'
         precomputados:
           total_escaladas: 38
           total_boulders: 38

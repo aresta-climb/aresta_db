@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: rsyrhOCEGQJFIs
-nome: Camaroa
+nome: Bloco Camaroa
 escaladas:
 - uid: Whht0JTY2jYPhj
   boulder:
@@ -87,4 +87,3 @@ mapas:
     - RXU7I5LtWkNP1C
 ---
 
-# Bloco Camaroa

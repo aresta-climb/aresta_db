@@ -3,7 +3,7 @@
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: XtSJq3QnulIdf9
 caminho_imagem_capa: imagens/setor_mezanino_p0_i0.webp
-nome: Mezanino
+nome: Setor Mezanino
 mapas:
 - caminho_imagem_mapa: imagens/setor_mezanino_p1.webp
   largura_mapa: 1280
@@ -400,8 +400,6 @@ escaladas:
     dificuldade: BR_10C
     descricao: Primeiro crux da Egocentrismo com o segundo crux da Universo Paralelo.
 ---
-
-# Setor Mezanino
 
 O Setor Mezanino oferece uma excelente mistura de vias fáceis (5º grau) e caminhos extremamente difíceis ultrapassando o 10º grau.
 

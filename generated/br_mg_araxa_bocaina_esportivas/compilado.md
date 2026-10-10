@@ -35,8 +35,8 @@
 
 ### Setor (Pico: Bocaina Park)
 
-- **descricao**: # Highlines - Bocaina Park
-- **nome**: Highlines - Bocaina Park
+- **descricao**: 
+- **nome**: Setor Highlines - Bocaina Park
 - **uid**: qSQoG5K7dOGfrN
 - **mapas**:
   - **[0]**:
@@ -204,13 +204,11 @@
 ### Setor (Pico: Bocaina Park)
 
 - **descricao**:
-    # Setor Ensolarado
-    
     O Setor Ensolarado é um dos setores iniciais do Bocaina Park, caracterizado por vias de graduação variada, do 5º ao 9b.
     
     > [!TIP]
     > Leve seu lixo e outro que encontrar para a cidade. Não faça necessidades fisiológicas nas trilhas e base de vias. Avisar a administração sobre a abertura de novas vias de escalada. **USE CAPACETE NAS BASES DE VIAS DE ESCALADA.**
-- **nome**: Ensolarado
+- **nome**: Setor Ensolarado
 - **uid**: yct6sz1JSOdJNh
 - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_ensolarado_p0_i0.webp)
 - **mapas**:
@@ -875,13 +873,11 @@
 ### Setor (Pico: Bocaina Park)
 
 - **descricao**:
-    # Setor Garganta
-    
     O Setor Garganta é um dos mais icônicos do Bocaina Park, com uma grande concentração de vias de 6º e 7º grau, além da clássica "Ceder Writhe" (8c).
     
     > [!TIP]
     > Leve seu lixo e outro que encontrar para a cidade. Não faça necessidades fisiológicas nas trilhas e base de vias. Avisar a administração sobre a abertura de novas vias de escalada. **USE CAPACETE NAS BASES DE VIAS DE ESCALADA.**
-- **nome**: Garganta
+- **nome**: Setor Garganta
 - **uid**: 246UG6k7cYUggW
 - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_garganta_p0_i0.webp)
 - **mapas**:
@@ -1774,13 +1770,11 @@
 ### Setor (Pico: Bocaina Park)
 
 - **descricao**:
-    # Setor Tapa na Cara
-    
     Setor com vias curtas e técnicas, ideal para quem busca vias de 6º e 7º grau.
     
     > [!TIP]
     > Leve seu lixo e outro que encontrar para a cidade. Não faça necessidades fisiológicas nas trilhas e base de vias. Avisar a administração sobre a abertura de novas vias de escalada. **USE CAPACETE NAS BASES DE VIAS DE ESCALADA.**
-- **nome**: Tapa na Cara
+- **nome**: Setor Tapa na Cara
 - **uid**: SIe8qMFw1Y46zG
 - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_tapa_na_cara_p0_i0.webp)
 - **mapas**:
@@ -1915,13 +1909,11 @@
 ### Setor (Pico: Bocaina Park)
 
 - **descricao**:
-    # Setor Terceiro Andar
-    
     O Setor Terceiro Andar é conhecido por suas vias de alta dificuldade, incluindo projetos e vias de 9º grau consolidado.
     
     > [!TIP]
     > Leve seu lixo e outro que encontrar para a cidade. Não faça necessidades fisiológicas nas trilhas e base de vias. Avisar a administração sobre a abertura de novas vias de escalada. **USE CAPACETE NAS BASES DE VIAS DE ESCALADA.**
-- **nome**: Terceiro Andar
+- **nome**: Setor Terceiro Andar
 - **uid**: bIzbj97ftcBIWw
 - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_terceiro_andar_p0_i0.webp)
 - **mapas**:
@@ -2483,13 +2475,11 @@
 ### Setor (Pico: Bocaina Park)
 
 - **descricao**:
-    # Setor Paulistas
-    
     O Setor Paulistas contém uma grande variedade de vias técnicas, com destaque para a "Cortina de Fumaça" (9c).
     
     > [!TIP]
     > Leve seu lixo e outro que encontrar para a cidade. Não faça necessidades fisiológicas nas trilhas e base de vias. Avisar a administração sobre a abertura de novas vias de escalada. **USE CAPACETE NAS BASES DE VIAS DE ESCALADA.**
-- **nome**: Paulistas
+- **nome**: Setor Paulistas
 - **uid**: lqRtz0vbIZQGsV
 - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_paulistas_p0_i0.webp)
 - **mapas**:
@@ -2963,13 +2953,11 @@
 ### Setor (Pico: Bocaina Park)
 
 - **descricao**:
-    # Setor Mezanino
-    
     O Setor Mezanino oferece uma excelente mistura de vias fáceis (5º grau) e caminhos extremamente difíceis ultrapassando o 10º grau.
     
     > [!TIP]
     > Leve seu lixo e outro que encontrar para a cidade. Não faça necessidades fisiológicas nas trilhas e base de vias. Avisar a administração sobre a abertura de novas vias de escalada. **USE CAPACETE NAS BASES DE VIAS DE ESCALADA.**
-- **nome**: Mezanino
+- **nome**: Setor Mezanino
 - **uid**: XtSJq3QnulIdf9
 - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_mezanino_p0_i0.webp)
 - **mapas**:
@@ -3542,13 +3530,11 @@
 ### Setor (Pico: Bocaina Park)
 
 - **descricao**:
-    # Setor Shana Crazy
-    
     O Setor Shana Crazy possui vias curtas e intensas, variando do 4º ao 7º grau.
     
     > [!TIP]
     > Leve seu lixo e outro que encontrar para a cidade. Não faça necessidades fisiológicas nas trilhas e base de vias. Avisar a administração sobre a abertura de novas vias de escalada. **USE CAPACETE NAS BASES DE VIAS DE ESCALADA.**
-- **nome**: Shana Crazy
+- **nome**: Setor Shana Crazy
 - **uid**: ALlNMayNg4qW0W
 - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_shana_crazy_p0_i0.webp)
 - **mapas**:
@@ -3825,13 +3811,11 @@
 ### Setor (Pico: Bocaina Park)
 
 - **descricao**:
-    # Setor Tsunami
-    
     O Setor Tsunami é um dos maiores do Bocaina Park, com vias extensas e desafiadoras que chegam ao 10º grau.
     
     > [!TIP]
     > Leve seu lixo e outro que encontrar para a cidade. Não faça necessidades fisiológicas nas trilhas e base de vias. Avisar a administração sobre a abertura de novas vias de escalada. **USE CAPACETE NAS BASES DE VIAS DE ESCALADA.**
-- **nome**: Tsunami
+- **nome**: Setor Tsunami
 - **uid**: vcNPgYS6LWY92G
 - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_tsunami_p0_i0.webp)
 - **mapas**:
@@ -4526,13 +4510,11 @@
 ### Setor (Pico: Bocaina Park)
 
 - **descricao**:
-    # Setor Udão
-    
     O Setor Udão apresenta vias de 5º a 7º grau, com uma boa concentração de vias de 6º sup.
     
     > [!TIP]
     > Leve seu lixo e outro que encontrar para a cidade. Não faça necessidades fisiológicas nas trilhas e base de vias. Avisar a administração sobre a abertura de novas vias de escalada. **USE CAPACETE NAS BASES DE VIAS DE ESCALADA.**
-- **nome**: Udão
+- **nome**: Setor Udão
 - **uid**: RDvWM1pC3cmOAz
 - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_udao_p0_i0.webp)
 - **mapas**:
@@ -4916,13 +4898,11 @@
 ### Setor (Pico: Bocaina Park)
 
 - **descricao**:
-    # Setor Tereza
-    
     Setor com vias acessíveis de 5º grau e desafios técnicos de até 7º grau.
     
     > [!TIP]
     > Leve seu lixo e outro que encontrar para a cidade. Não faça necessidades fisiológicas nas trilhas e base de vias. Avisar a administração sobre a abertura de novas vias de escalada. **USE CAPACETE NAS BASES DE VIAS DE ESCALADA.**
-- **nome**: Tereza
+- **nome**: Setor Tereza
 - **uid**: sKwnDft8hBVYxs
 - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_tereza_p0_i0.webp)
 - **mapas**:
@@ -5131,13 +5111,11 @@
 ### Setor (Pico: Bocaina Park)
 
 - **descricao**:
-    # Setor Bem-vindo
-    
     O Setor Bem-vindo é um dos setores mais tradicionais do parque, com vias que variam de 5º a 8a, e algumas das vias mais longas como "Sainhaca" e "Excalibur" (45m).
     
     > [!TIP]
     > Leve seu lixo e outro que encontrar para a cidade. Não faça necessidades fisiológicas nas trilhas e base de vias. Avisar a administração sobre a abertura de novas vias de escalada. **USE CAPACETE NAS BASES DE VIAS DE ESCALADA.**
-- **nome**: Bem-vindo
+- **nome**: Setor Bem-vindo
 - **uid**: dwuQyJozrODbgq
 - **mapas**:
   - **[0]**:
@@ -5714,13 +5692,11 @@
 ### Setor (Pico: Bocaina Park)
 
 - **descricao**:
-    # Setor Tetos
-    
     O Setor Tetos é conhecido por suas vias atléticas e desafiadoras, com muitos tetos e negativas. Contém vias variadas de 5º a 10a grau, além de vários projetos promissores.
     
     > [!TIP]
     > Leve seu lixo e outro que encontrar para a cidade. Não faça necessidades fisiológicas nas trilhas e base de vias. Avisar a administração sobre a abertura de novas vias de escalada. **USE CAPACETE NAS BASES DE VIAS DE ESCALADA.**
-- **nome**: Tetos
+- **nome**: Setor Tetos
 - **uid**: q0gv91KFyAc9AX
 - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_tetos_p0_i0.webp)
 - **mapas**:
@@ -6873,13 +6849,11 @@
 ### Setor (Pico: Bocaina Park)
 
 - **descricao**:
-    # Setor Segundo Andar
-    
     O Setor Segundo Andar oferece vias atléticas com nomes inspirados na cultura pop, variando de 6º a 9º grau.
     
     > [!TIP]
     > Leve seu lixo e outro que encontrar para a cidade. Não faça necessidades fisiológicas nas trilhas e base de vias. Avisar a administração sobre a abertura de novas vias de escalada. **USE CAPACETE NAS BASES DE VIAS DE ESCALADA.**
-- **nome**: Segundo Andar
+- **nome**: Setor Segundo Andar
 - **uid**: uiwowojbrlzAlz
 - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_segundo_andar_p0_i0.webp)
 - **mapas**:
@@ -7210,13 +7184,11 @@
 ### Setor (Pico: Bocaina Park)
 
 - **descricao**:
-    # Setor Pirados de Rocha
-    
     Setor com várias vias de projeto e nomes inspirados no cenário político brasileiro de 2017.
     
     > [!TIP]
     > Leve seu lixo e outro que encontrar para a cidade. Não faça necessidades fisiológicas nas trilhas e base de vias. Avisar a administração sobre a abertura de novas vias de escalada. **USE CAPACETE NAS BASES DE VIAS DE ESCALADA.**
-- **nome**: Pirados de Rocha
+- **nome**: Setor Pirados de Rocha
 - **uid**: ObPNZKFJ6b8VT1
 - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_pirados_de_rocha_p0_i0.webp)
 - **mapas**:

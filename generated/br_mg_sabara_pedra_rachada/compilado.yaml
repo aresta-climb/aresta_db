@@ -100,7 +100,7 @@ picos:
                 destaque: true
                 descricao: Sai em pé com a mão direita num reglete de gaston e a esquerda
                   em uma invertida logo acima escalando por agarras boas.
-            descricao: '# Bloco A - Traverse ao Tito'
+            descricao: ''
             precomputados:
               total_escaladas: 5
               total_boulders: 5
@@ -207,7 +207,7 @@ picos:
                 dificuldade: VB
                 descricao: Sai em pé à direita de uma pequena árvore e toca diagonalmente
                   à direita, até uma fenda, e depois em direção à canaleta.
-            descricao: '# Bloco B - Positive Vibrations'
+            descricao: ''
             precomputados:
               total_escaladas: 7
               total_boulders: 7
@@ -271,7 +271,7 @@ picos:
                 destaque: true
                 descricao: Começa como o “Fenda do biquíni” (14) e domina à direita
                   do módulo.
-            descricao: '# Bloco C - Davy Jones'
+            descricao: ''
             precomputados:
               total_escaladas: 4
               total_boulders: 4
@@ -410,7 +410,7 @@ picos:
                 data_abertura: '2011'
                 descricao: Sai sentado com as mãos juntas em uma agarra invertida
                   e entra no “Medalha” (22).
-            descricao: '# Bloco D - Bloco 0'
+            descricao: ''
             precomputados:
               total_escaladas: 8
               total_boulders: 8
@@ -461,30 +461,29 @@ picos:
                 dificuldade: VB
                 destaque: true
                 descricao: Escala o meio da face positiva por agarras boas.
-            descricao: '# Bloco E - Psicotrópicos'
+            descricao: ''
             precomputados:
               total_escaladas: 3
               total_boulders: 3
-        descricao: "# Estacionamento\n\nOs trabalhos neste setor começaram apenas\
-          \ em 2007, com o descobrimento do imponente Bloco 0 e a abertura de seus\
-          \ primeiros boulders, como o incrível “Verticale” v5. Durante algum tempo\
-          \ o setor permaneceu sem novidades até que, em 2011, o Bloco 0 voltou a\
-          \ ser freqüentado e recebeu os FAs mais duros do setor, incluindo o mítico\
-          \ “Medalhão” v10, que até os dias de hoje recebeu poucas cadenas. Em 2013,\
-          \ os blocos mais próximos do estacionamento começaram a ser explorados e\
-          \ se mostraram um excelente playground para os iniciantes.\n\n## Acesso\
-          \ (10 min)\n\nAo estacionar o carro é possível avistar, a cerca de 100m,\
-          \ os 03 primeiros blocos. Para acessá-los basta pegar a trilha óbvia que\
-          \ vai em direção a eles por cerca de 1min. Já para os outros blocos, siga\
-          \ a estrada que sobe em direção ao setor “Entrada” e, pouco antes da forte\
-          \ curva à direita, você verá duas trilhas: a da direita te leva ao bloco\
-          \ “Psicotrópicos” e a da esquerda ao “Bloco 0”.\n\n## Boulders Clássicos\n\
-          \n- 13 Davy Jones v0\n- 16 Aresta v3\n- 20 Verticale v5\n- 21 Obina v7\n\
-          - 23 Medalhão v10\n\n| ![Escalador no boulder Traverse ao Tito](imagens/setor_estacionamento_p2_i0.webp)\
-          \ |\n| :--: |\n| *Escalador no boulder Traverse ao Tito* |\n\n| ![Escaladora\
-          \ no boulder Davy Jones](imagens/setor_estacionamento_p5_i0.webp) |\n| :--:\
-          \ |\n| *Escaladora no boulder Davy Jones* |\n\n> \"O melhor escalador do\
-          \ mundo é aquele que mais se diverte.\"  \n> — *Alex Lowe*\n\n| ![Fotos\
+        descricao: "Os trabalhos neste setor começaram apenas em 2007, com o descobrimento\
+          \ do imponente Bloco 0 e a abertura de seus primeiros boulders, como o incrível\
+          \ “Verticale” v5. Durante algum tempo o setor permaneceu sem novidades até\
+          \ que, em 2011, o Bloco 0 voltou a ser freqüentado e recebeu os FAs mais\
+          \ duros do setor, incluindo o mítico “Medalhão” v10, que até os dias de\
+          \ hoje recebeu poucas cadenas. Em 2013, os blocos mais próximos do estacionamento\
+          \ começaram a ser explorados e se mostraram um excelente playground para\
+          \ os iniciantes.\n\n## Acesso (10 min)\n\nAo estacionar o carro é possível\
+          \ avistar, a cerca de 100m, os 03 primeiros blocos. Para acessá-los basta\
+          \ pegar a trilha óbvia que vai em direção a eles por cerca de 1min. Já para\
+          \ os outros blocos, siga a estrada que sobe em direção ao setor “Entrada”\
+          \ e, pouco antes da forte curva à direita, você verá duas trilhas: a da\
+          \ direita te leva ao bloco “Psicotrópicos” e a da esquerda ao “Bloco 0”.\n\
+          \n## Boulders Clássicos\n\n- 13 Davy Jones v0\n- 16 Aresta v3\n- 20 Verticale\
+          \ v5\n- 21 Obina v7\n- 23 Medalhão v10\n\n| ![Escalador no boulder Traverse\
+          \ ao Tito](imagens/setor_estacionamento_p2_i0.webp) |\n| :--: |\n| *Escalador\
+          \ no boulder Traverse ao Tito* |\n\n| ![Escaladora no boulder Davy Jones](imagens/setor_estacionamento_p5_i0.webp)\
+          \ |\n| :--: |\n| *Escaladora no boulder Davy Jones* |\n\n> \"O melhor escalador\
+          \ do mundo é aquele que mais se diverte.\"  \n> — *Alex Lowe*\n\n| ![Fotos\
           \ e vídeos de escalada - Pedra Viva](imagens/setor_estacionamento_p7_i1.webp)\
           \ |\n| :--: |\n| *Fotos e vídeos de escalada - Pedra Viva* |\n\n*Fotos e\
           \ vídeos de escalada: [www.facebook.com/vivapedra](https://www.facebook.com/vivapedra)*"
@@ -544,7 +543,7 @@ picos:
                 dificuldade: V0
                 descricao: Começa sentado com as mãos em uma agarra grande e escala
                   reto por agarras boas.
-            descricao: '# Bloco A - Libélula'
+            descricao: ''
             precomputados:
               total_escaladas: 3
               total_boulders: 3
@@ -832,7 +831,7 @@ picos:
                 nome: Bh x Brasília
                 dificuldade: V3
                 descricao: Sai sentado com as mãos na borda do tetinho e domina.
-            descricao: '# Bloco B - Bloco 1'
+            descricao: ''
             precomputados:
               total_escaladas: 20
               total_boulders: 20
@@ -1215,7 +1214,7 @@ picos:
                 dificuldade: V6
                 descricao: Sai sentado com a mão esquerda em um batente, a direita
                   em um reglete ao lado e toca reto para uma virada estranha.
-            descricao: '# Bloco C - Bloco 2'
+            descricao: ''
             precomputados:
               total_escaladas: 25
               total_boulders: 25
@@ -1262,7 +1261,7 @@ picos:
                 dificuldade: V3
                 descricao: Sai como o “Chupa lombriga” (49) e toca pra direita passando
                   por uns regletes.
-            descricao: '# Bloco D - Chupa Lombriga'
+            descricao: ''
             precomputados:
               total_escaladas: 3
               total_boulders: 3
@@ -1312,7 +1311,7 @@ picos:
                 nome: Projeto 3
                 dificuldade: INDEFINIDO
                 descricao: Boulder que escala a aresta.
-            descricao: '# Bloco E - Abraço do Calango'
+            descricao: ''
             precomputados:
               total_escaladas: 3
               total_boulders: 3
@@ -1349,29 +1348,28 @@ picos:
                 destaque: true
                 descricao: Uma verdadeira prova de resistência que escala toda a borda
                   do bloco, de uma ponta a outra.
-            descricao: '# Bloco F - Nave'
+            descricao: ''
             precomputados:
               total_escaladas: 2
               total_boulders: 2
-        descricao: "# Entrada\n\nO mais frequentado setor da Pedra Rachada dá as boas\
-          \ vindas aos seus visitantes com dois grandes blocos, conhecidos por “Bloco\
-          \ 1” e “Bloco 2”. São quase 60 escaladas com os mais variados estilos e\
-          \ diversos clássicos de todos os graus. Neste setor também encontra-se a\
-          \ escalada mais difícil já encadenada em toda Pedra Rachada, o incrível\
-          \ “Projeto Sabará”. Não deixe de checar este boulder único, nem que seja\
-          \ para apreciar sua imponente linha!\n\n## Acesso (15 min)\n\nDo estacionamento,\
-          \ pegue a estrada que sobe em direção às pedras até chegar a um plano onde\
-          \ se encontra o primeiro bloco, o “Libélula”. De lá, continue reto pela\
-          \ trilha principal que segue por mais 1min para acessar os gigantes “Bloco\
-          \ 1” e “Bloco 2”. Os outros blocos estão há menos de 1min deles.\n\n## Boulders\
-          \ Clássicos\n\n- **8. Easy** – V1 (listado como V0 nos destaques)\n- **13.\
-          \ Pipe line** – V2\n- **42. Ziglyn** – V4\n- **46. Cadê minha força?** –\
-          \ V5\n- **36. Rala frek lek** – V7\n- **30. Projeto Sabará** – V12\n\n>\
-          \ \"A felicidade só é real quando compartilhada.\"\n> \n> — *Christopher\
-          \ McCandless*\n\n| ![Detalhe das mãos do escalador em reglete na rocha com\
-          \ crashpad](imagens/setor_entrada_p3_i0.webp) |\n| :--: |\n| *Detalhe das\
-          \ mãos do escalador em reglete na rocha com crashpad* |\n\n| ![Escalador\
-          \ no Bloco 2 sob céu tempestuoso ao entardecer](imagens/setor_entrada_p7_i0.webp)\
+        descricao: "O mais frequentado setor da Pedra Rachada dá as boas vindas aos\
+          \ seus visitantes com dois grandes blocos, conhecidos por “Bloco 1” e “Bloco\
+          \ 2”. São quase 60 escaladas com os mais variados estilos e diversos clássicos\
+          \ de todos os graus. Neste setor também encontra-se a escalada mais difícil\
+          \ já encadenada em toda Pedra Rachada, o incrível “Projeto Sabará”. Não\
+          \ deixe de checar este boulder único, nem que seja para apreciar sua imponente\
+          \ linha!\n\n## Acesso (15 min)\n\nDo estacionamento, pegue a estrada que\
+          \ sobe em direção às pedras até chegar a um plano onde se encontra o primeiro\
+          \ bloco, o “Libélula”. De lá, continue reto pela trilha principal que segue\
+          \ por mais 1min para acessar os gigantes “Bloco 1” e “Bloco 2”. Os outros\
+          \ blocos estão há menos de 1min deles.\n\n## Boulders Clássicos\n\n- **8.\
+          \ Easy** – V1 (listado como V0 nos destaques)\n- **13. Pipe line** – V2\n\
+          - **42. Ziglyn** – V4\n- **46. Cadê minha força?** – V5\n- **36. Rala frek\
+          \ lek** – V7\n- **30. Projeto Sabará** – V12\n\n> \"A felicidade só é real\
+          \ quando compartilhada.\"\n> \n> — *Christopher McCandless*\n\n| ![Detalhe\
+          \ das mãos do escalador em reglete na rocha com crashpad](imagens/setor_entrada_p3_i0.webp)\
+          \ |\n| :--: |\n| *Detalhe das mãos do escalador em reglete na rocha com\
+          \ crashpad* |\n\n| ![Escalador no Bloco 2 sob céu tempestuoso ao entardecer](imagens/setor_entrada_p7_i0.webp)\
           \ |\n| :--: |\n| *Escalador no Bloco 2 sob céu tempestuoso ao entardecer*\
           \ |\n\n> \"Quanto mais eu me elevo, menor eu pareço aos olhos de quem não\
           \ sabe voar.\"\n> \n> — *Friedrich Nietzsche*\n\n| ![Escalador na linha\
@@ -1514,7 +1512,7 @@ picos:
                 destaque: true
                 descricao: Começa agachado com as mãos juntas em um batente e toca
                   reto por batentes e regletes bons.
-            descricao: '# Bloco A - High Vibe'
+            descricao: ''
             precomputados:
               total_escaladas: 2
               total_boulders: 2
@@ -1552,7 +1550,7 @@ picos:
                 dificuldade: V0
                 descricao: Começa sentado com as mãos juntas em um batente pequeno
                   e toca reto por regletes.
-            descricao: '# Bloco B - Batentes'
+            descricao: ''
             precomputados:
               total_escaladas: 2
               total_boulders: 2
@@ -1571,7 +1569,7 @@ picos:
                 nome: Rala-queixo
                 dificuldade: V2
                 descricao: Sai na pedra que apoia o bloco e domina a proa.
-            descricao: '# Bloco C - Rala-Bucho'
+            descricao: ''
             precomputados:
               total_escaladas: 2
               total_boulders: 2
@@ -1585,7 +1583,7 @@ picos:
                 dificuldade: V1
                 descricao: Sai sentado com as mãos juntas no reglete mais baixo (sem
                   usar a pedra que apóia o bloco) e escala reto.
-            descricao: '# Bloco D - Varejeira'
+            descricao: ''
             precomputados:
               total_escaladas: 1
               total_boulders: 1
@@ -1599,7 +1597,7 @@ picos:
                 dificuldade: V0
                 destaque: true
                 descricao: Sai sentado abraçando o bloco e escala até o topo.
-            descricao: '# Bloco E - Tótem'
+            descricao: ''
             precomputados:
               total_escaladas: 1
               total_boulders: 1
@@ -1625,7 +1623,7 @@ picos:
                 destaque: true
                 descricao: Sai sentado com as mãos juntas em um agarrão e escala por
                   agarras boas.
-            descricao: '# Bloco F - Pinça'
+            descricao: ''
             precomputados:
               total_escaladas: 3
               total_boulders: 3
@@ -1701,7 +1699,7 @@ picos:
                 dificuldade: V0
                 descricao: Sai sentado com as mãos juntas em uma agarra boa e toca
                   reto.
-            descricao: '# Bloco G - Das Vias'
+            descricao: ''
             precomputados:
               total_escaladas: 5
               total_boulders: 5
@@ -1976,19 +1974,19 @@ picos:
                 dificuldade: INDEFINIDO
                 descricao: Projeto que sai sentado com as mãos em duas invertidas
                   no teto.
-            descricao: '# Bloco H - Sono do Calango'
+            descricao: ''
             precomputados:
               total_escaladas: 18
               total_boulders: 18
-        descricao: "# Sono do Calango\n\nSetor com uma grande concentração de boulders\
-          \ do circuito verde e muitas linhas clássicas. Apesar de estar ao lado do\
-          \ Setor Entrada, é muito pouco conhecido e freqüentado. É também lugar das\
-          \ duas únicas vias de toda a Rachada, que valem muito a pena serem escaladas!\
-          \ O destaque para este setor fica por conta dos blocos “High vibe”, “Das\
-          \ vias” e “Sono do calango”, que possuem escaladas incríveis dos mais variados\
-          \ graus de dificuldade.\n\n## Acesso (15 min)\n\nO melhor acesso para este\
-          \ setor, a partir do “Estacionamento 2” é pegar a trilha principal até o\
-          \ “Bloco 2” e continuar pela trilha que sobe à direita dele por 1min, chegando\
+        descricao: "Setor com uma grande concentração de boulders do circuito verde\
+          \ e muitas linhas clássicas. Apesar de estar ao lado do Setor Entrada, é\
+          \ muito pouco conhecido e freqüentado. É também lugar das duas únicas vias\
+          \ de toda a Rachada, que valem muito a pena serem escaladas! O destaque\
+          \ para este setor fica por conta dos blocos “High vibe”, “Das vias” e “Sono\
+          \ do calango”, que possuem escaladas incríveis dos mais variados graus de\
+          \ dificuldade.\n\n## Acesso (15 min)\n\nO melhor acesso para este setor,\
+          \ a partir do “Estacionamento 2” é pegar a trilha principal até o “Bloco\
+          \ 2” e continuar pela trilha que sobe à direita dele por 1min, chegando\
           \ ao gigante bloco “Das vias”. Chegando a ele, o bloco “Sono do calango”,\
           \ que da nome ao setor, está à direita, poucos metros mais acima. Para acessar\
           \ os outros blocos, basta seguir a trilha à esquerda do bloco “Das vias”.\n\
@@ -2187,7 +2185,7 @@ picos:
                 dificuldade: V3
                 descricao: Sai com as mãos em duas pinças/batentes em baixo do tetinho
                   e escala reto.
-            descricao: '# Bloco A - Lua Cheia'
+            descricao: ''
             precomputados:
               total_escaladas: 10
               total_boulders: 10
@@ -2256,7 +2254,7 @@ picos:
                 data_abertura: '2013'
                 descricao: Começa com as mãos em dois regletes no teto e termina no
                   “Desnível” (12). Se ligue com a torção no entalamento de calcanhar.
-            descricao: '# Bloco B - Deslize'
+            descricao: ''
             precomputados:
               total_escaladas: 4
               total_boulders: 4
@@ -2345,7 +2343,7 @@ picos:
                   ao lado direito. Sai sentado com a mão esquerda em um reglete na
                   aresta e a direita em um reglete abaixo do teto, escalando pela
                   aresta do bloco.
-            descricao: '# Bloco C - Pequenino'
+            descricao: ''
             precomputados:
               total_escaladas: 5
               total_boulders: 5
@@ -2412,7 +2410,7 @@ picos:
                 dificuldade: V7
                 descricao: Saindo com as duas mãos juntas no abaulado da direita e
                   entra no fim do “Bagagem” (21).
-            descricao: '# Bloco D - Bagagem'
+            descricao: ''
             precomputados:
               total_escaladas: 4
               total_boulders: 4
@@ -2566,7 +2564,7 @@ picos:
                 nome: Dino
                 dificuldade: V1
                 descricao: Sai sentado com as mãos juntas em um bico e segue reto.
-            descricao: '# Bloco E - Hey Fred'
+            descricao: ''
             precomputados:
               total_escaladas: 9
               total_boulders: 9
@@ -2617,7 +2615,7 @@ picos:
                 dificuldade: V6
                 descricao: Sai sentado com as mãos em agarras invertidas bem baixas
                   e escala o negativo fazendo movimentos fortes.
-            descricao: '# Bloco F - Bom Boulder'
+            descricao: ''
             precomputados:
               total_escaladas: 3
               total_boulders: 3
@@ -2641,7 +2639,7 @@ picos:
                 dificuldade: V9_BARRA_V10
                 descricao: Sai de um batente mais à direita, faz dois movimentos fortes,
                   entra no “Rei Leão” (36) e termina como ele.
-            descricao: '# Bloco G - Rei Leão'
+            descricao: ''
             precomputados:
               total_escaladas: 2
               total_boulders: 2
@@ -2726,7 +2724,7 @@ picos:
                 destaque: true
                 descricao: Bloco H (Musgo Centenário). Começa sentado com as mãos
                   juntas em um reglete bom e domina o boulder.
-            descricao: '# Bloco H - Musgo Centenário'
+            descricao: ''
             precomputados:
               total_escaladas: 6
               total_boulders: 6
@@ -2804,11 +2802,11 @@ picos:
                   boa no fundo da caverna. Faz alguns movimentos fortes até sair dessa
                   caverna e, ao invés de tocar reto pelas cracas quebradiças, atravessa
                   pela esquerda terminando no “Zafar” (47).
-            descricao: '# Bloco I - Zafar'
+            descricao: ''
             precomputados:
               total_escaladas: 5
               total_boulders: 5
-        descricao: "# Deslize\n\nSetor com uma grande concentração de boulders, principalmente\
+        descricao: "Setor com uma grande concentração de boulders, principalmente\
           \ do circuito amarelo, o Deslize é também berço do boulder com o maior registro\
           \ de cadenas no site 8a.nu, o mega-clássico “Lua cheia” v5. Neste setor\
           \ também está o primeiro boulder aberto em um teto na Pedra Rachada, o incrível\
@@ -2931,7 +2929,7 @@ picos:
                 destaque: true
                 descricao: Começa como o “Dreadlock” (4), faz uma travessia para a
                   direita pela grande laca e domina reto.
-            descricao: '# Bloco A - Abraço'
+            descricao: ''
             precomputados:
               total_escaladas: 5
               total_boulders: 5
@@ -2990,7 +2988,7 @@ picos:
                   toca pra direita passando por uns regletinhos e um gastón até um
                   forte movimento de direita para um biquinho, ao invés de utilizar
                   o módulo da esquerda.
-            descricao: '# Bloco B - Bicicletinha 2000'
+            descricao: ''
             precomputados:
               total_escaladas: 3
               total_boulders: 3
@@ -3041,7 +3039,7 @@ picos:
                 destaque: true
                 descricao: Escala a face negativa do bloco saindo baixo, com as mãos
                   juntas em uma grande agarra invertido.
-            descricao: '# Bloco C - Travezinha'
+            descricao: ''
             precomputados:
               total_escaladas: 3
               total_boulders: 3
@@ -3078,7 +3076,7 @@ picos:
                 dificuldade: V0
                 descricao: Sai em pé no módulo e domina reto passando pela fenda.
                   Cuidado com agarras que podem vir a quebrar!
-            descricao: '# Bloco D - 12 de Outubro'
+            descricao: ''
             precomputados:
               total_escaladas: 2
               total_boulders: 2
@@ -3135,7 +3133,7 @@ picos:
                 descricao: Para acessar este boulder, contorne o bloco “Geladeira”
                   e desça atrás dele até a canaleta. Ele fica no meio da parede vertical
                   e começa em pé com as mãos juntas em uma agarra boa.
-            descricao: '# Bloco E - Yin Yang'
+            descricao: ''
             precomputados:
               total_escaladas: 3
               total_boulders: 3
@@ -3210,24 +3208,24 @@ picos:
                 dificuldade: VB
                 descricao: Sai em pé com as mãos juntas em uma agarra boa invertida
                   e escala reto.
-            descricao: '# Bloco F - Geladeira'
+            descricao: ''
             precomputados:
               total_escaladas: 5
               total_boulders: 5
-        descricao: "# Yin Yang\n\nEsse pequeno aglomerado de blocos, à direita do\
-          \ setor do Deslize, começou a ser explorado em 2006, com a abertura do clássico\
-          \ “Bicicletinha 2000”. Permaneceu sem novidades expressivas por alguns anos\
-          \ até que, em 2011, o escalador Mahavir Jneesh realizou a primeira ascensão\
-          \ do boulder “Yang” e, logo após, sua saída sentada denominada “Yin Yang”,\
-          \ dois mega clássicos da Pedra Rachada!\n\n## Acesso (15 min)\n\nA partir\
-          \ do “Estacionamento 2”, siga pela trilha principal e, após passar à esquerda\
-          \ do “Bloco 1”, continue subindo até o bloco “Lua Cheia” e contorne-o pela\
-          \ direita, de onde será possível avistar o setor “Yin Yang” à sua direita.\
-          \ Para acessá-lo, basta tomar a trilha à direita em frente ao bloco “Bagagem”\
-          \ que vai em direção ao setor.\n\n## Boulders Clássicos\n\n- 19 Fenda Cega\
-          \ v0\n- 7 Bicicletinha 2000 v5\n- 15 Yin Yang v10/11\n\n| ![Escaladora em\
-          \ teto com mar de nuvens ao fundo](imagens/setor_yin_yang_p3_i0.webp) |\n\
-          | :--: |\n| *Escaladora em teto com mar de nuvens ao fundo* |\n\n> \"A felicidade\
+        descricao: "Esse pequeno aglomerado de blocos, à direita do setor do Deslize,\
+          \ começou a ser explorado em 2006, com a abertura do clássico “Bicicletinha\
+          \ 2000”. Permaneceu sem novidades expressivas por alguns anos até que, em\
+          \ 2011, o escalador Mahavir Jneesh realizou a primeira ascensão do boulder\
+          \ “Yang” e, logo após, sua saída sentada denominada “Yin Yang”, dois mega\
+          \ clássicos da Pedra Rachada!\n\n## Acesso (15 min)\n\nA partir do “Estacionamento\
+          \ 2”, siga pela trilha principal e, após passar à esquerda do “Bloco 1”,\
+          \ continue subindo até o bloco “Lua Cheia” e contorne-o pela direita, de\
+          \ onde será possível avistar o setor “Yin Yang” à sua direita. Para acessá-lo,\
+          \ basta tomar a trilha à direita em frente ao bloco “Bagagem” que vai em\
+          \ direção ao setor.\n\n## Boulders Clássicos\n\n- 19 Fenda Cega v0\n- 7\
+          \ Bicicletinha 2000 v5\n- 15 Yin Yang v10/11\n\n| ![Escaladora em teto com\
+          \ mar de nuvens ao fundo](imagens/setor_yin_yang_p3_i0.webp) |\n| :--: |\n\
+          | *Escaladora em teto com mar de nuvens ao fundo* |\n\n> \"A felicidade\
           \ não está na estrada que leva a algum lugar. A felicidade é a própria estrada.\"\
           \  \n> — *Bob Dylan*\n\n| ![Anúncio Revista PQN - Pão de Queijo Notícias](imagens/setor_yin_yang_p5.webp)\
           \ |\n| :--: |\n| *Anúncio Revista PQN - Pão de Queijo Notícias* |\n\n###\
@@ -3523,7 +3521,7 @@ picos:
                 data_abertura: '2008'
                 descricao: Extensão do “Gastón a la meson” (7) saindo de dois pockets
                   mais abaixo.
-            descricao: '# Bloco A - Gastón a la Mesón'
+            descricao: ''
             precomputados:
               total_escaladas: 8
               total_boulders: 8
@@ -3583,7 +3581,7 @@ picos:
                 dificuldade: V4
                 descricao: Começa sentado com as mãos juntas em um bico/laca e escala
                   reto pela pedra em forma de casulo.
-            descricao: '# Bloco B - Casulo'
+            descricao: ''
             precomputados:
               total_escaladas: 4
               total_boulders: 4
@@ -3645,7 +3643,7 @@ picos:
                 descricao: Sai sentado com as mãos juntas em um batente à direita
                   da aresta, atravessa pra esquerda e termina como o “Carioquinha”
                   (15).
-            descricao: '# Bloco C - Marrento'
+            descricao: ''
             precomputados:
               total_escaladas: 4
               total_boulders: 4
@@ -3778,7 +3776,7 @@ picos:
                 destaque: true
                 descricao: Sai do “The Doors” (28), atravessa para a direita e vira
                   na parte mais baixa do bloco.
-            descricao: '# Bloco D - Rolling Stones'
+            descricao: ''
             precomputados:
               total_escaladas: 15
               total_boulders: 15
@@ -3794,7 +3792,7 @@ picos:
                 descricao: Pequeno bloco à direita do "Rolling Stones". Começa sentado
                   com as mãos em dois regletes/batentes, faz um movimento técnico
                   e domina.
-            descricao: '# Bloco E - Eject'
+            descricao: ''
             precomputados:
               total_escaladas: 1
               total_boulders: 1
@@ -3949,7 +3947,7 @@ picos:
                 - Gustavo Fontes
                 data_abertura: '2009'
                 descricao: “Universo Paralello” (36) virando pelo “Hard core” (33).
-            descricao: '# Bloco F - Universo Paralello'
+            descricao: ''
             precomputados:
               total_escaladas: 9
               total_boulders: 9
@@ -4449,7 +4447,7 @@ picos:
                 nome: Compressão
                 dificuldade: V11
                 descricao: Sai do “Buraco negro” (59) e vira no “Quero mais” (58).
-            descricao: '# Bloco G - Pantaloneta'
+            descricao: ''
             precomputados:
               total_escaladas: 32
               total_boulders: 32
@@ -4478,7 +4476,7 @@ picos:
                 descricao: Sai sentado com as mãos juntas em um batente escorrido,
                   faz dois movimentos para entrar no “Aracnídeo” (73) e finaliza por
                   ele.
-            descricao: '# Bloco H - Octopus'
+            descricao: ''
             precomputados:
               total_escaladas: 2
               total_boulders: 2
@@ -4506,7 +4504,7 @@ picos:
                 destaque: true
                 descricao: Sai em pé em uma agarra invertida e toca reto, à esquerda
                   da aresta, pelo positivo.
-            descricao: '# Bloco I - Prótons'
+            descricao: ''
             precomputados:
               total_escaladas: 3
               total_boulders: 3
@@ -4520,7 +4518,7 @@ picos:
                 dificuldade: V1
                 descricao: Começa sentado com as mãos juntas em um reglete e domina
                   o pequeno bloco.
-            descricao: '# Bloco J - Aranha Albina'
+            descricao: ''
             precomputados:
               total_escaladas: 1
               total_boulders: 1
@@ -4722,7 +4720,7 @@ picos:
                 dificuldade: V0
                 descricao: Sai em pé com as mãos nas lacas de lado e escala em diagonal
                   pra direita.
-            descricao: '# Bloco A - Gangrena'
+            descricao: ''
             precomputados:
               total_escaladas: 10
               total_boulders: 10
@@ -4759,7 +4757,7 @@ picos:
                 dificuldade: V0
                 descricao: Começa sentado com as mãos no batente e escala em diagonal
                   pra esquerda em busca das melhores agarras.
-            descricao: '# Bloco B - Exilado'
+            descricao: ''
             precomputados:
               total_escaladas: 2
               total_boulders: 2
@@ -4913,7 +4911,7 @@ picos:
                 data_abertura: '2013'
                 descricao: Sai com a mão direita em um reglete baixo, adicionando
                   um movimento ao “Lacrimogênio” (19).
-            descricao: '# Bloco C - Pena de Ganso'
+            descricao: ''
             precomputados:
               total_escaladas: 8
               total_boulders: 8
@@ -4940,7 +4938,7 @@ picos:
                   à direita do “Pena de ganso” (15). Sai na face que aponta pro estacionamento,
                   com a mão direita na aresta e a esquerda em um reglete baixo dentro
                   do teto e atravessa por ele dominando pelo outro lado.
-            descricao: '# Bloco D - Escondido'
+            descricao: ''
             precomputados:
               total_escaladas: 1
               total_boulders: 1
@@ -5006,24 +5004,24 @@ picos:
                 destaque: true
                 descricao: Sai sentado com a mão esquerda em um batente, a direita
                   em um reglete e domina reto.
-            descricao: '# Bloco E - Caramujo'
+            descricao: ''
             precomputados:
               total_escaladas: 4
               total_boulders: 4
-        descricao: "# Pena de Ganso\n\nApós muito tempo sem muitas novidades, no ano\
-          \ de 2013 novas linhas abertas nos blocos “Gangrena” e “Pena de ganso” colocaram\
-          \ o setor mais uma vez em movimento. Apesar destas novas linhas, o maior\
-          \ destaque para este setor continua sendo uma de suas escaladas mais antigas,\
-          \ o clássico “Pena de ganso”, que possui uma movimentação única.\n\n## Acesso\
-          \ (15 min)\n\nPara acessar este setor, a partir do “Estacionamento 2”, siga\
-          \ a trilha principal que sobe passando à esquerda do “Bloco 1” e à direita\
-          \ do bloco “Lua cheia”, chegando ao bloco “Rolling Stones”. Contorne-o pela\
-          \ direita e siga reto pela trilha por cerca de 1min até o primeiro bloco\
-          \ deste setor, o “Gangrena”. Os outros blocos estão mais a frente, continuando\
-          \ pela trilha à direita deste bloco.\n\n## Boulders Clássicos\n\n- **25.\
-          \ Tartaruga** – V1\n- **23. Lesma** – V2\n- **3. Aderência** – V3\n- **24.\
-          \ Caramujo** – V4\n- **19. Lacrimogênio** – V6\n- **15. Pena de ganso**\
-          \ – V8\n\n| ![Escaladora com lanterna de cabeça na Pedra Rachada](imagens/setor_pena_de_ganso_p3_i0.webp)\
+        descricao: "Após muito tempo sem muitas novidades, no ano de 2013 novas linhas\
+          \ abertas nos blocos “Gangrena” e “Pena de ganso” colocaram o setor mais\
+          \ uma vez em movimento. Apesar destas novas linhas, o maior destaque para\
+          \ este setor continua sendo uma de suas escaladas mais antigas, o clássico\
+          \ “Pena de ganso”, que possui uma movimentação única.\n\n## Acesso (15 min)\n\
+          \nPara acessar este setor, a partir do “Estacionamento 2”, siga a trilha\
+          \ principal que sobe passando à esquerda do “Bloco 1” e à direita do bloco\
+          \ “Lua cheia”, chegando ao bloco “Rolling Stones”. Contorne-o pela direita\
+          \ e siga reto pela trilha por cerca de 1min até o primeiro bloco deste setor,\
+          \ o “Gangrena”. Os outros blocos estão mais a frente, continuando pela trilha\
+          \ à direita deste bloco.\n\n## Boulders Clássicos\n\n- **25. Tartaruga**\
+          \ – V1\n- **23. Lesma** – V2\n- **3. Aderência** – V3\n- **24. Caramujo**\
+          \ – V4\n- **19. Lacrimogênio** – V6\n- **15. Pena de ganso** – V8\n\n| ![Escaladora\
+          \ com lanterna de cabeça na Pedra Rachada](imagens/setor_pena_de_ganso_p3_i0.webp)\
           \ |\n| :--: |\n| *Escaladora com lanterna de cabeça na Pedra Rachada* |\n\
           \n> \"A coisa mais essencial do espírito vivo de um homem é sua paixão pela\
           \ aventura. A alegria da vida vem de nossos encontros com novas experiências.\"\
@@ -5148,7 +5146,7 @@ picos:
                 dificuldade: V2
                 descricao: Começa sentado com as mãos juntas em um bico batente e
                   escala pra direita terminando por agarras boas.
-            descricao: '# Bloco A - Boliche'
+            descricao: ''
             precomputados:
               total_escaladas: 3
               total_boulders: 3
@@ -5168,7 +5166,7 @@ picos:
                 nome: Amarelinha
                 dificuldade: V0
                 descricao: Começa com as mãos juntas em uma agarra boa e escala reto.
-            descricao: '# Bloco B - Amarelão'
+            descricao: ''
             precomputados:
               total_escaladas: 2
               total_boulders: 2
@@ -5264,7 +5262,7 @@ picos:
                 dificuldade: INDEFINIDO
                 descricao: Projeto que escala o “túnel de pedra” no meio do bloco,
                   abaixo do boulder “Aresta visual” (9), sobre a lage de pedra.
-            descricao: '# Bloco C - Aresta Visual'
+            descricao: ''
             precomputados:
               total_escaladas: 6
               total_boulders: 6
@@ -5284,7 +5282,7 @@ picos:
                 dificuldade: V2
                 descricao: Sai sentado com a mão esquerda em um bico e a direita em
                   uma agarra boa, passa por um batente e domina pela grande laca.
-            descricao: '# Bloco D - Lajinha'
+            descricao: ''
             precomputados:
               total_escaladas: 2
               total_boulders: 2
@@ -5299,7 +5297,7 @@ picos:
                 descricao: Começa sentado com a mão direita em um pocket e a esquerda
                   em um batente escorrido, faz uma sequência de movimentos de muita
                   tensão corporal até a borda e domina por uma virada técnica.
-            descricao: '# Bloco E - Viradinha Nacional'
+            descricao: ''
             precomputados:
               total_escaladas: 1
               total_boulders: 1
@@ -5324,7 +5322,7 @@ picos:
                 dificuldade: V1
                 descricao: Sai como o “Frita pé” (15) e escala a aresta em oposição
                   até o topo.
-            descricao: '# Bloco F - Frita Pé'
+            descricao: ''
             precomputados:
               total_escaladas: 2
               total_boulders: 2
@@ -5346,7 +5344,7 @@ picos:
                 descricao: Começa sentado com as mãos juntas em um bico dentro de
                   uma fenda e toca reto por fendas diagonais virando na parte mais
                   alta do bloco.
-            descricao: '# Bloco G - Rolezinho'
+            descricao: ''
             precomputados:
               total_escaladas: 2
               total_boulders: 2
@@ -5368,7 +5366,7 @@ picos:
                 destaque: true
                 descricao: Sai sentado com as mãos nos dois regletes mais baixos,
                   e escala reto até uma virada fácil.
-            descricao: '# Bloco H - Cor do Bicho'
+            descricao: ''
             precomputados:
               total_escaladas: 2
               total_boulders: 2
@@ -5453,7 +5451,7 @@ picos:
                 data_abertura: '2008'
                 descricao: Sai do “Senta no porco” (24) e atravessa para a esquerda
                   terminando no “Tosco” (22).
-            descricao: '# Bloco I - Tosco'
+            descricao: ''
             precomputados:
               total_escaladas: 5
               total_boulders: 5
@@ -5501,7 +5499,7 @@ picos:
                 dificuldade: V1
                 descricao: Sai praticamente deitado com as mãos juntas em um batente
                   bem baixo e escala por agarras boas.
-            descricao: '# Bloco J - Tô Partindo'
+            descricao: ''
             precomputados:
               total_escaladas: 3
               total_boulders: 3
@@ -5594,7 +5592,7 @@ picos:
                 dificuldade: V1
                 descricao: Começa sentado atrás da árvore com a mão esquerda em um
                   reglete/pocket e a direita em um reglete e escala reto pelas cracas.
-            descricao: '# Bloco K - Oval'
+            descricao: ''
             precomputados:
               total_escaladas: 6
               total_boulders: 6
@@ -5750,7 +5748,7 @@ picos:
                 descricao: Sai como o “Primavera” (43), faz alguns movimentos e, ao
                   invés de seguir pra esquerda pelas agarras boas, domina pela direita,
                   passando por um crux técnico.
-            descricao: '# Bloco L - Motricidade'
+            descricao: ''
             precomputados:
               total_escaladas: 10
               total_boulders: 10
@@ -5801,7 +5799,7 @@ picos:
                 dificuldade: V1
                 descricao: Sai em pé com as mãos em dois regletes cortantes na fendinha
                   e escala pra direita em direção à aresta.
-            descricao: '# Bloco M - Night Climb'
+            descricao: ''
             precomputados:
               total_escaladas: 3
               total_boulders: 3
@@ -5854,7 +5852,7 @@ picos:
                 descricao: Começa sentado com a mão esquerda em um batente/pocket
                   e a direita em um batente, faz um movimento forte para o agarrão
                   e termina como o “Grilo falante” (49).
-            descricao: '# Bloco N - Piolho de Cobra'
+            descricao: ''
             precomputados:
               total_escaladas: 3
               total_boulders: 3
@@ -5916,7 +5914,7 @@ picos:
                 descricao: Sai sentado, em baixo do tetinho, com a mão esquerda em
                   uma pinça invertida na aresta e a direita aberta no batente e escala
                   em diagonal pra direita.
-            descricao: '# Bloco O - Democrático'
+            descricao: ''
             precomputados:
               total_escaladas: 4
               total_boulders: 4
@@ -5980,41 +5978,41 @@ picos:
                 dificuldade: V2
                 descricao: Sai sentado com as mãos em dois regletes/pockets e toca
                   reto.
-            descricao: '# Bloco P - Ferrugem'
+            descricao: ''
             precomputados:
               total_escaladas: 4
               total_boulders: 4
-        descricao: "# Tosco\n\nSetor que abriga uma grande quantidade de boulders\
-          \ do circuito verde e azul, com destaque para o clássico “Aresta visual”\
-          \ v3. Por outro lado, se você escala boulders do circuito amarelo ou vermelho\
-          \ e gosta de dinâmicos, este será um de seus setores preferidos, com escaladas\
-          \ incríveis deste estilo nos blocos “Aresta visual”, “Tosco” e “Motricidade”.\
-          \ Mas não pense que a diversão acaba por aí, se você curte aderência não\
-          \ deixe de visitar o mítico “Frita pé” e quebrar a cabeça desvendando seus\
-          \ betas!\n\n## Acesso (25 min)\n\nA partir do “Estacionamento 2” siga a\
-          \ trilha principal, passando à esquerda do “Bloco 1” e à direita do bloco\
-          \ “Lua cheia” até chegar ao bloco “Rolling Stones”. De lá, siga pela trilha\
-          \ que segue para a esquerda do bloco por 1min até os blocos “Boliche”, o\
-          \ “Amarelão” e o “Lajinha”. Logo acima dele, encontra-se o bloco “Aresta\
-          \ visual” e o acesso para todos os outros blocos.\n\n## Boulders Clássicos\n\
-          \n- **9. Aresta visual** – V3\n- **15. Frita pé** – V6\n- **22. Tosco**\
-          \ – V8\n- **36. Potencial de ação** – V11\n- **38. Motricidade fina** –\
-          \ V11\n\n## Blocos\n\n- **Bloco A** – Boliche (boulders 1 a 3)\n- **Bloco\
-          \ B** – Amarelão (boulders 4 e 5)\n- **Bloco C** – Aresta Visual (boulders\
-          \ 6 a 11)\n- **Bloco D** – Lajinha (boulders 12 e 13)\n- **Bloco E** – Viradinha\
-          \ Nacional (boulder 14)\n- **Bloco F** – Frita Pé (boulders 15 e 16)\n-\
-          \ **Bloco G** – Rolezinho (boulders 17 e 18)\n- **Bloco H** – Cor do Bicho\
-          \ (boulders 19 e 20)\n- **Bloco I** – Tosco (boulders 21 a 25)\n- **Bloco\
-          \ J** – Tô Partindo (boulders 26 a 28)\n- **Bloco K** – Oval (boulders 29\
-          \ a 34)\n- **Bloco L** – Motricidade (boulders 35 a 44)\n- **Bloco M** –\
-          \ Night Climb (boulders 45 a 47)\n- **Bloco N** – Piolho de Cobra (boulders\
-          \ 48 a 50)\n- **Bloco O** – Democrático (boulders 51 a 54)\n- **Bloco P**\
-          \ – Ferrugem (boulders 55 a 58)\n\n| ![Vitor Maciel Fotografia - Você nasceu\
-          \ para grandes coisas. Eternize as que são mais importantes.](imagens/setor_tosco_p3_i0.webp)\
-          \ |\n| :--: |\n| *Vitor Maciel Fotografia - Você nasceu para grandes coisas.\
-          \ Eternize as que são mais importantes.* |\n\n> \"Você nasceu para grandes\
-          \ coisas. Eternize as que são mais importantes.\"  \n> — *Vitor Maciel Fotografia*\n\
-          \n| ![Solo - Sua experiência é única. Vista sua liberdade.](imagens/setor_tosco_p5.webp)\
+        descricao: "Setor que abriga uma grande quantidade de boulders do circuito\
+          \ verde e azul, com destaque para o clássico “Aresta visual” v3. Por outro\
+          \ lado, se você escala boulders do circuito amarelo ou vermelho e gosta\
+          \ de dinâmicos, este será um de seus setores preferidos, com escaladas incríveis\
+          \ deste estilo nos blocos “Aresta visual”, “Tosco” e “Motricidade”. Mas\
+          \ não pense que a diversão acaba por aí, se você curte aderência não deixe\
+          \ de visitar o mítico “Frita pé” e quebrar a cabeça desvendando seus betas!\n\
+          \n## Acesso (25 min)\n\nA partir do “Estacionamento 2” siga a trilha principal,\
+          \ passando à esquerda do “Bloco 1” e à direita do bloco “Lua cheia” até\
+          \ chegar ao bloco “Rolling Stones”. De lá, siga pela trilha que segue para\
+          \ a esquerda do bloco por 1min até os blocos “Boliche”, o “Amarelão” e o\
+          \ “Lajinha”. Logo acima dele, encontra-se o bloco “Aresta visual” e o acesso\
+          \ para todos os outros blocos.\n\n## Boulders Clássicos\n\n- **9. Aresta\
+          \ visual** – V3\n- **15. Frita pé** – V6\n- **22. Tosco** – V8\n- **36.\
+          \ Potencial de ação** – V11\n- **38. Motricidade fina** – V11\n\n## Blocos\n\
+          \n- **Bloco A** – Boliche (boulders 1 a 3)\n- **Bloco B** – Amarelão (boulders\
+          \ 4 e 5)\n- **Bloco C** – Aresta Visual (boulders 6 a 11)\n- **Bloco D**\
+          \ – Lajinha (boulders 12 e 13)\n- **Bloco E** – Viradinha Nacional (boulder\
+          \ 14)\n- **Bloco F** – Frita Pé (boulders 15 e 16)\n- **Bloco G** – Rolezinho\
+          \ (boulders 17 e 18)\n- **Bloco H** – Cor do Bicho (boulders 19 e 20)\n\
+          - **Bloco I** – Tosco (boulders 21 a 25)\n- **Bloco J** – Tô Partindo (boulders\
+          \ 26 a 28)\n- **Bloco K** – Oval (boulders 29 a 34)\n- **Bloco L** – Motricidade\
+          \ (boulders 35 a 44)\n- **Bloco M** – Night Climb (boulders 45 a 47)\n-\
+          \ **Bloco N** – Piolho de Cobra (boulders 48 a 50)\n- **Bloco O** – Democrático\
+          \ (boulders 51 a 54)\n- **Bloco P** – Ferrugem (boulders 55 a 58)\n\n| ![Vitor\
+          \ Maciel Fotografia - Você nasceu para grandes coisas. Eternize as que são\
+          \ mais importantes.](imagens/setor_tosco_p3_i0.webp) |\n| :--: |\n| *Vitor\
+          \ Maciel Fotografia - Você nasceu para grandes coisas. Eternize as que são\
+          \ mais importantes.* |\n\n> \"Você nasceu para grandes coisas. Eternize\
+          \ as que são mais importantes.\"  \n> — *Vitor Maciel Fotografia*\n\n| ![Solo\
+          \ - Sua experiência é única. Vista sua liberdade.](imagens/setor_tosco_p5.webp)\
           \ |\n| :--: |\n| *Solo - Sua experiência é única. Vista sua liberdade.*\
           \ |\n\n*Sua experiência é única. Solo – Vista sua liberdade. www.solobr.com*\n\
           \n| ![Escalador em boulder no Setor Tosco](imagens/setor_tosco_p7_i0.webp)\
@@ -6083,7 +6081,7 @@ picos:
                   permanece como projeto desde então. Começa como o “Cachorro de Tróia”
                   (1) e segue reto pelo negativo passando por regletes pequenos até
                   um agarrão..
-            descricao: '# Bloco A - Cavalo de Tróia'
+            descricao: ''
             precomputados:
               total_escaladas: 3
               total_boulders: 3
@@ -6146,7 +6144,7 @@ picos:
                 descricao: Começa sentado com as mãos juntas em uma agarra boa e atravessa
                   para a esquerda, pelo negativo, terminando como o “Destino oposto”
                   (4)
-            descricao: '# Bloco B - Destinos'
+            descricao: ''
             precomputados:
               total_escaladas: 4
               total_boulders: 4
@@ -6173,7 +6171,7 @@ picos:
                 descricao: Sai sentado com as mãos nas agarras boas do teto e escala
                   o pequeno bloco com uma movimentação única e que exige muita tensão
                   corporal.
-            descricao: '# Bloco C - Forrest Gump'
+            descricao: ''
             precomputados:
               total_escaladas: 1
               total_boulders: 1
@@ -6202,7 +6200,7 @@ picos:
                 descricao: Começa sentado com as mãos juntas em um reglete/batente
                   de oposição na face lateral, próximo à aresta, e atravessa para
                   a esquerda, pelo vertical, dominando pela parte fácil.
-            descricao: '# Bloco D - Fábulas'
+            descricao: ''
             precomputados:
               total_escaladas: 1
               total_boulders: 1
@@ -6253,7 +6251,7 @@ picos:
                 destaque: true
                 descricao: Sai sentado com as mãos nas lacas mais baixas e escala
                   a “proa” pelos pockets.
-            descricao: '# Bloco E - Logística'
+            descricao: ''
             precomputados:
               total_escaladas: 3
               total_boulders: 3
@@ -6316,7 +6314,7 @@ picos:
                   mais ao fundo da caverna, passa para o outro bloco e atravessa todo
                   o teto dominando pelo bloco encaixado acima da árvore na boca da
                   caverna.
-            descricao: '# Bloco F - Puma'
+            descricao: ''
             precomputados:
               total_escaladas: 3
               total_boulders: 3
@@ -6436,7 +6434,7 @@ picos:
                 dificuldade: INDEFINIDO
                 descricao: Projeto duro que sai sentado nas agarras mais baixas, próximas
                   à entrada da caverna, e atravessa para a esquerda.
-            descricao: '# Bloco G - Esparrachado'
+            descricao: ''
             precomputados:
               total_escaladas: 8
               total_boulders: 8
@@ -6501,7 +6499,7 @@ picos:
                 destaque: true
                 descricao: Começa como o “Tim Tones” (25) e atravessa para a direita,
                   dominando pelo positivo.
-            descricao: '# Bloco H - Beto Carneiro'
+            descricao: ''
             precomputados:
               total_escaladas: 4
               total_boulders: 4
@@ -6558,20 +6556,20 @@ picos:
                 descricao: Sai como o “Pote de ouro” (32), sentado, com a mão direita
                   em um reglete pequeno e a esquerda ao lado, em um abaulado, e termina
                   como o “Refração” (31).
-            descricao: '# Bloco I - Prisma'
+            descricao: ''
             precomputados:
               total_escaladas: 6
               total_boulders: 6
-        descricao: "# Canaleta\n\nO setor menos explorado de todos abriga uma das\
-          \ escaladas mais clássicas da Pedra Rachada. Seu nome deve-se à sua formação,\
-          \ uma espécie de canaleta de blocos que se estende por toda a “crista” do\
-          \ morro, de norte a sul. São inúmeros blocos praticamente inexplorados em\
-          \ toda a sua extensão, que se concentram principalmente a sudoeste do setor\
-          \ ”Sono do calango”, um convite aos caçadores de boulders de plantão.\n\n\
-          ## Acesso (20 min)\n\nPara chegar a este setor, a melhor forma é pegar a\
-          \ trilha principal a partir do “Estacionamento 2” e entrar à esquerda na\
-          \ primeira bifurcação, pouco antes da placa “Seja bem vindo a Pedra Rachada”.\
-          \ Para acessar os blocos “Cavalo de Tróia” e “Destinos”, pegue para a direita\
+        descricao: "O setor menos explorado de todos abriga uma das escaladas mais\
+          \ clássicas da Pedra Rachada. Seu nome deve-se à sua formação, uma espécie\
+          \ de canaleta de blocos que se estende por toda a “crista” do morro, de\
+          \ norte a sul. São inúmeros blocos praticamente inexplorados em toda a sua\
+          \ extensão, que se concentram principalmente a sudoeste do setor ”Sono do\
+          \ calango”, um convite aos caçadores de boulders de plantão.\n\n## Acesso\
+          \ (20 min)\n\nPara chegar a este setor, a melhor forma é pegar a trilha\
+          \ principal a partir do “Estacionamento 2” e entrar à esquerda na primeira\
+          \ bifurcação, pouco antes da placa “Seja bem vindo a Pedra Rachada”. Para\
+          \ acessar os blocos “Cavalo de Tróia” e “Destinos”, pegue para a direita\
           \ em frente ao bloco “High vibe”, 50m após a bifurcação.\n\n## Boulders\
           \ Clássicos\n\n- **30. The Dark Side of the Moon** – V3\n- **12. Logística**\
           \ – V5\n- **28. Prisma** – V6\n- **19. Toca da onça** – V6\n- **15. Puma**\
@@ -6687,7 +6685,7 @@ picos:
                 nome: Pôr de Vênus
                 dificuldade: V3
                 descricao: Sai do “Pôr da Lua” (4) e termina no “Fogos de Vênus” (3).
-            descricao: '# Bloco A - Fogos de Vênus'
+            descricao: ''
             precomputados:
               total_escaladas: 5
               total_boulders: 5
@@ -6769,7 +6767,7 @@ picos:
                 dificuldade: V10_BARRA_V11
                 descricao: Projeto que começa em pé com as mãos em uns regletes pequenos
                   acima do teto e toca reto por uma sequência dura.
-            descricao: '# Bloco B - Abrigo de Ferro'
+            descricao: ''
             precomputados:
               total_escaladas: 5
               total_boulders: 5
@@ -6811,7 +6809,7 @@ picos:
                 dificuldade: V3
                 descricao: Sai em pé com as mãos em dois regletes pequenos e faz um
                   movimento forte para um batente de oposição, terminando reto.
-            descricao: '# Bloco C - Meteoro'
+            descricao: ''
             precomputados:
               total_escaladas: 2
               total_boulders: 2
@@ -7186,7 +7184,7 @@ picos:
                 dificuldade: V11
                 descricao: Variante do “Espírito Guerreiro” (36) terminando no “Hanuman”
                   (17).
-            descricao: '# Bloco D - Tubarão'
+            descricao: ''
             precomputados:
               total_escaladas: 25
               total_boulders: 25
@@ -7201,7 +7199,7 @@ picos:
                 destaque: true
                 descricao: Sai sentado com a mão direita em um batente e a esquerda
                   em um reglete invertido baixo e escala o pequeno bloco.
-            descricao: '# Bloco E - Hindu'
+            descricao: ''
             precomputados:
               total_escaladas: 1
               total_boulders: 1
@@ -7219,7 +7217,7 @@ picos:
                 data_abertura: '2010'
                 descricao: Sai sentado com as mãos juntas numa agarra boa no fundo
                   da caverna, escala por agarras boas até um final duro e domina.
-            descricao: '# Bloco F - Ganesh'
+            descricao: ''
             precomputados:
               total_escaladas: 1
               total_boulders: 1
@@ -7255,7 +7253,7 @@ picos:
                 dificuldade: V2
                 descricao: Sai sentado com as mãos juntas em um batente loco acima
                   do tetinho e escala em diagonal pra esquerda.
-            descricao: '# Bloco G - Croissant'
+            descricao: ''
             precomputados:
               total_escaladas: 2
               total_boulders: 2
@@ -7301,40 +7299,39 @@ picos:
                 dificuldade: V1
                 descricao: Começa sentado com as mãos em dois gastons e domina a parte
                   baixa do bloco.
-            descricao: '# Bloco H - Túnel do Vento'
+            descricao: ''
             precomputados:
               total_escaladas: 2
               total_boulders: 2
-        descricao: "# Tubarão\n\nSetor com os projetos mais difíceis da Pedra Rachada,\
-          \ sendo alguns extensões do clássico “Abrigo de ferro”, v11 sólido de movimentação\
-          \ única. O bloco “Fogos de Vênus”, que apoia o bloco Abrigo de Ferro, possui\
-          \ algumas das escaladas verticais mais divertidas de toda a área. Já o bloco\
-          \ “Tubarão”, possui um dos tetos mais explorados da Rachada, com várias\
-          \ linhas e variantes incríveis que garantem aos escaladores do circuito\
-          \ amarelo muita diversão!\n\n## Acesso (25 min)\n\nPara acessar este setor,\
-          \ a partir do “Estacionamento 2”, siga a trilha principal que passa à esquerda\
-          \ do “Bloco 1” e à direita do bloco “Lua cheia” e suba até o bloco “Rolling\
-          \ Stones”. A partir daí, existem duas opções: para os blocos “Fogos de Vênus”\
-          \ e “Abrigo de ferro”, contorne o bloco “Rolling Stones” pela esquerda e\
-          \ pegue a trilha que sobe à direita por 3min. Para acessar o “Tubarão” e\
-          \ os outros blocos, contorne o bloco “Rolling Stones pela direita e pegue\
-          \ a primeira trilha larga à esquerda, subindo por 5min.\n\n## Boulders Clássicos\n\
-          \n- **3. Fogos de Vênus** – V2\n- **2. Vênus** – V3\n- **15. Tubarão** –\
-          \ V5\n- **21. Chivas** – V7\n- **6. Abrigo de ferro** – V11\n\n| ![Escalador\
-          \ com a mão em reglete em teto](imagens/setor_tubarao_p3_i0.webp) |\n| :--:\
-          \ |\n| *Escalador com a mão em reglete em teto* |\n\n## Blocos do Setor\n\
-          \n- **Bloco A – Fogos de Vênus**: boulders 1 a 5.\n- **Bloco B – Abrigo\
-          \ de Ferro**: boulders 6 a 10.\n- **Bloco C – Meteoro**: boulders 11 e 12.\n\
-          - **Bloco D – Tubarão**: boulders 13 a 37.\n- **Bloco E – Hindu**: boulder\
-          \ 38.\n- **Bloco F – Ganesh**: boulder 39.\n- **Bloco G – Croissant**: boulders\
-          \ 40 e 41.\n- **Bloco H – Túnel do Vento**: boulders 42 e 43.\n\n| ![Escalador\
-          \ dominando a borda com agarras de reglete](imagens/setor_tubarao_p5_i0.webp)\
-          \ |\n| :--: |\n| *Escalador dominando a borda com agarras de reglete* |\n\
-          \n> \"É impossível avaliar a força que possuímos sem medir o tamanho do\
-          \ obstáculo que podemos vencer, nem o valor de uma ação sem sabermos o sacrifício\
-          \ que ela comporta.\"  \n> — *H. W. Beecher*\n\n| ![Publicidade Tom Alves\
-          \ Fotografia Outdoor](imagens/setor_tubarao_p6_i0.webp) |\n| :--: |\n| *Publicidade\
-          \ Tom Alves Fotografia Outdoor* |"
+        descricao: "Setor com os projetos mais difíceis da Pedra Rachada, sendo alguns\
+          \ extensões do clássico “Abrigo de ferro”, v11 sólido de movimentação única.\
+          \ O bloco “Fogos de Vênus”, que apoia o bloco Abrigo de Ferro, possui algumas\
+          \ das escaladas verticais mais divertidas de toda a área. Já o bloco “Tubarão”,\
+          \ possui um dos tetos mais explorados da Rachada, com várias linhas e variantes\
+          \ incríveis que garantem aos escaladores do circuito amarelo muita diversão!\n\
+          \n## Acesso (25 min)\n\nPara acessar este setor, a partir do “Estacionamento\
+          \ 2”, siga a trilha principal que passa à esquerda do “Bloco 1” e à direita\
+          \ do bloco “Lua cheia” e suba até o bloco “Rolling Stones”. A partir daí,\
+          \ existem duas opções: para os blocos “Fogos de Vênus” e “Abrigo de ferro”,\
+          \ contorne o bloco “Rolling Stones” pela esquerda e pegue a trilha que sobe\
+          \ à direita por 3min. Para acessar o “Tubarão” e os outros blocos, contorne\
+          \ o bloco “Rolling Stones pela direita e pegue a primeira trilha larga à\
+          \ esquerda, subindo por 5min.\n\n## Boulders Clássicos\n\n- **3. Fogos de\
+          \ Vênus** – V2\n- **2. Vênus** – V3\n- **15. Tubarão** – V5\n- **21. Chivas**\
+          \ – V7\n- **6. Abrigo de ferro** – V11\n\n| ![Escalador com a mão em reglete\
+          \ em teto](imagens/setor_tubarao_p3_i0.webp) |\n| :--: |\n| *Escalador com\
+          \ a mão em reglete em teto* |\n\n## Blocos do Setor\n\n- **Bloco A – Fogos\
+          \ de Vênus**: boulders 1 a 5.\n- **Bloco B – Abrigo de Ferro**: boulders\
+          \ 6 a 10.\n- **Bloco C – Meteoro**: boulders 11 e 12.\n- **Bloco D – Tubarão**:\
+          \ boulders 13 a 37.\n- **Bloco E – Hindu**: boulder 38.\n- **Bloco F – Ganesh**:\
+          \ boulder 39.\n- **Bloco G – Croissant**: boulders 40 e 41.\n- **Bloco H\
+          \ – Túnel do Vento**: boulders 42 e 43.\n\n| ![Escalador dominando a borda\
+          \ com agarras de reglete](imagens/setor_tubarao_p5_i0.webp) |\n| :--: |\n\
+          | *Escalador dominando a borda com agarras de reglete* |\n\n> \"É impossível\
+          \ avaliar a força que possuímos sem medir o tamanho do obstáculo que podemos\
+          \ vencer, nem o valor de uma ação sem sabermos o sacrifício que ela comporta.\"\
+          \  \n> — *H. W. Beecher*\n\n| ![Publicidade Tom Alves Fotografia Outdoor](imagens/setor_tubarao_p6_i0.webp)\
+          \ |\n| :--: |\n| *Publicidade Tom Alves Fotografia Outdoor* |"
         precomputados:
           total_escaladas: 43
           total_boulders: 43
@@ -7386,7 +7383,7 @@ picos:
                 data_abertura: '2008'
                 descricao: Sai em pé com as mãos em um buraco e um pocket e escala
                   a face levemente negativa com um domínio técnico.
-            descricao: '# Bloco A - Análise Crítica'
+            descricao: ''
             precomputados:
               total_escaladas: 1
               total_boulders: 1
@@ -7403,7 +7400,7 @@ picos:
                   Pedra Rachada! Começa sentado com as mãos nas agarras mais ao fundo
                   da caverna, escala o teto por agarras boas, faz uma virada técnica
                   à direita da arvorezinha e termina pelo positivo fácil.
-            descricao: '# Bloco B - Daqui a 20 Anos'
+            descricao: ''
             precomputados:
               total_escaladas: 1
               total_boulders: 1
@@ -7429,7 +7426,7 @@ picos:
                 destaque: true
                 descricao: Sai sentado com as mãos juntas em um reglete bom e escala
                   o negativo com um crux bem definido.
-            descricao: '# Bloco C - Amanita'
+            descricao: ''
             precomputados:
               total_escaladas: 1
               total_boulders: 1
@@ -7444,7 +7441,7 @@ picos:
                 destaque: true
                 descricao: Começa com a mão esquerda em uma pinça grande e a direita
                   em um reglete/pinça e sai do teto com uma movimentação clássica.
-            descricao: '# Bloco D - Surpresa'
+            descricao: ''
             precomputados:
               total_escaladas: 1
               total_boulders: 1
@@ -7482,31 +7479,30 @@ picos:
                 dificuldade: V2
                 descricao: Começa sentado com as mãos juntas em um batente de oposição
                   e escala o vertical.
-            descricao: '# Bloco E - Escorregador'
+            descricao: ''
             precomputados:
               total_escaladas: 2
               total_boulders: 2
-        descricao: "# Daqui a 20 Anos\n\nÚltimo setor antes do cume da Pedra Rachada\
-          \ que, apesar de possuir poucos blocos, guarda algumas das escaladas mais\
-          \ desafiadoras mentalmente de todo o complexo. Dois clássicos highball fazem\
-          \ deste setor um dos preferidos de muitos viciados em adrenalina. Se você\
-          \ gosta de apertar, não deixe de tentar o único “Amanita” v11.\n\n## Acesso\
-          \ (25 min)\n\nEste é o último setor antes do cume. Para acessá-lo, a partir\
-          \ do “Estacionamento 2”, siga a trilha principal que sobe passando à esquerda\
-          \ do “Bloco 1” e à direita do bloco “Lua cheia”, chegando ao bloco “Rolling\
-          \ Stones”. Contorne-o pela direita e siga a trilha pegando a segunda trilha\
-          \ que sobe à esquerda, em direção à grande pedra com uma rachadura no meio\
-          \ (em forma de boca). O primeiro bloco, o “Análise crítica” estará logo\
-          \ acima, uns 100m, à sua direita.\n\n## Boulders Clássicos\n\n- 4 Surpresa\
-          \ v3\n- 1 Análise crítica v6\n- 2 Daqui a 20 anos v7\n- 3 Amanita v11\n\n\
-          | ![Escalador no boulder Amanita v11](imagens/setor_daqui_a_20_anos_p4_i0.webp)\
-          \ |\n| :--: |\n| *Escalador no boulder Amanita v11* |\n\n> \"No que diz\
-          \ respeito ao empenho, ao compromisso, ao esforço, à dedicação, não existe\
-          \ meio termo. Ou você faz uma coisa bem feita ou não faz.\"  \n> — *Airton\
-          \ Senna*\n\n| ![Anúncio 4Climb](imagens/setor_daqui_a_20_anos_p3_i0.webp)\
-          \ |\n| :--: |\n| *Anúncio 4Climb* |\n\n### 4Climb\n\nOs melhores produtos\
-          \ para as melhores experiências. Experimente essa vibe.  \n*Foto: Murilo\
-          \ Vargas*"
+        descricao: "Último setor antes do cume da Pedra Rachada que, apesar de possuir\
+          \ poucos blocos, guarda algumas das escaladas mais desafiadoras mentalmente\
+          \ de todo o complexo. Dois clássicos highball fazem deste setor um dos preferidos\
+          \ de muitos viciados em adrenalina. Se você gosta de apertar, não deixe\
+          \ de tentar o único “Amanita” v11.\n\n## Acesso (25 min)\n\nEste é o último\
+          \ setor antes do cume. Para acessá-lo, a partir do “Estacionamento 2”, siga\
+          \ a trilha principal que sobe passando à esquerda do “Bloco 1” e à direita\
+          \ do bloco “Lua cheia”, chegando ao bloco “Rolling Stones”. Contorne-o pela\
+          \ direita e siga a trilha pegando a segunda trilha que sobe à esquerda,\
+          \ em direção à grande pedra com uma rachadura no meio (em forma de boca).\
+          \ O primeiro bloco, o “Análise crítica” estará logo acima, uns 100m, à sua\
+          \ direita.\n\n## Boulders Clássicos\n\n- 4 Surpresa v3\n- 1 Análise crítica\
+          \ v6\n- 2 Daqui a 20 anos v7\n- 3 Amanita v11\n\n| ![Escalador no boulder\
+          \ Amanita v11](imagens/setor_daqui_a_20_anos_p4_i0.webp) |\n| :--: |\n|\
+          \ *Escalador no boulder Amanita v11* |\n\n> \"No que diz respeito ao empenho,\
+          \ ao compromisso, ao esforço, à dedicação, não existe meio termo. Ou você\
+          \ faz uma coisa bem feita ou não faz.\"  \n> — *Airton Senna*\n\n| ![Anúncio\
+          \ 4Climb](imagens/setor_daqui_a_20_anos_p3_i0.webp) |\n| :--: |\n| *Anúncio\
+          \ 4Climb* |\n\n### 4Climb\n\nOs melhores produtos para as melhores experiências.\
+          \ Experimente essa vibe.  \n*Foto: Murilo Vargas*"
         precomputados:
           total_escaladas: 6
           total_boulders: 6
@@ -7586,7 +7582,7 @@ picos:
                 destaque: true
                 descricao: Sai como o “Ulísses” (1) e termina mais à direita, com
                   um dinâmico em um batente.
-            descricao: '# Bloco A - Ulísses'
+            descricao: ''
             precomputados:
               total_escaladas: 2
               total_boulders: 2
@@ -7624,7 +7620,7 @@ picos:
                 destaque: true
                 descricao: Começa como o “Tangente” (3) e segue reto pela face levemente
                   negativa.
-            descricao: '# Bloco B - Mosquitos'
+            descricao: ''
             precomputados:
               total_escaladas: 2
               total_boulders: 2
@@ -7696,7 +7692,7 @@ picos:
                 descricao: Sai sentado com as mãos em dois pockets e escala em diagonal
                   pra direita, dominando pela proa. Um dos visuais mais clássicos
                   da Rachada!
-            descricao: '# Bloco C - Blood América'
+            descricao: ''
             precomputados:
               total_escaladas: 4
               total_boulders: 4
@@ -7753,7 +7749,7 @@ picos:
                 data_abertura: '2011'
                 descricao: Começa sentado com a mão direita em um reglete e a esquerda
                   em um batente e escala o highball com movimentação clássica!
-            descricao: '# Bloco D - The Summit'
+            descricao: ''
             precomputados:
               total_escaladas: 3
               total_boulders: 3
@@ -7882,7 +7878,7 @@ picos:
                 descricao: Boulder que começa nas agarras boas no final do “Mistral”
                   (12) e faz o caminho inverso, atravessando para a direita e terminando
                   no “Talismã” (16).
-            descricao: '# Bloco E - Testarossa'
+            descricao: ''
             precomputados:
               total_escaladas: 7
               total_boulders: 7
@@ -7909,7 +7905,7 @@ picos:
                 descricao: Começa sentado com as mãos juntas em um grande reglete
                   do lado de dentro da caverna, na parede laranja, e faz uma longa
                   travessia para a esquerda, dominando o teto.
-            descricao: '# Bloco F - Sai do Teto'
+            descricao: ''
             precomputados:
               total_escaladas: 1
               total_boulders: 1
@@ -7965,7 +7961,7 @@ picos:
                 destaque: true
                 descricao: Sai em pé com as mãos juntas em um abaulado e segue pela
                   fenda até um domínio fácil.
-            descricao: '# Bloco G - Laranja Mecânica'
+            descricao: ''
             precomputados:
               total_escaladas: 3
               total_boulders: 3
@@ -8028,7 +8024,7 @@ picos:
                 dificuldade: V2
                 descricao: Saída sentada do “Fenômeno” começando com as mãos em dois
                   regletes bem baixos.
-            descricao: '# Bloco H - Ronaldo'
+            descricao: ''
             precomputados:
               total_escaladas: 4
               total_boulders: 4
@@ -8056,7 +8052,7 @@ picos:
                 dificuldade: V0
                 descricao: Começa com as mãos juntas em um batente de oposição e escala
                   em diagonal pra esquerda, por agarras boas.
-            descricao: '# Bloco I - Siriema'
+            descricao: ''
             precomputados:
               total_escaladas: 3
               total_boulders: 3
@@ -8075,7 +8071,7 @@ picos:
                 nome: Canga
                 dificuldade: VB
                 descricao: Sai em pé com as mãos juntas em um agarrão e escala reto.
-            descricao: '# Bloco J - Cerrado'
+            descricao: ''
             precomputados:
               total_escaladas: 2
               total_boulders: 2
@@ -8121,13 +8117,13 @@ picos:
                 descricao: Começa sentado com as mãos nos batentes mais baixos e escala
                   em diagonal pra direita terminando como o “Difícil de entender”
                   (32).
-            descricao: '# Bloco K - Plutão'
+            descricao: ''
             precomputados:
               total_escaladas: 2
               total_boulders: 2
-        descricao: "# Cume\n\nAlém de algumas das melhores escaladas de toda a Pedra\
-          \ Rachada em todos os circuitos de grau, o setor “Cume” impressiona também\
-          \ pelo visual de tirar o fôlego. São quase 1500m de altitude que proporcionam\
+        descricao: "Além de algumas das melhores escaladas de toda a Pedra Rachada\
+          \ em todos os circuitos de grau, o setor “Cume” impressiona também pelo\
+          \ visual de tirar o fôlego. São quase 1500m de altitude que proporcionam\
           \ 360º de uma vista estonteante de toda a região metropolitana de Belo Horizonte\
           \ e seus arredores, com um pôr do sol digno de filme. Difícil aqui é decidir\
           \ qual linha escalar, mas, independente do seu grau de escalada, não saia\

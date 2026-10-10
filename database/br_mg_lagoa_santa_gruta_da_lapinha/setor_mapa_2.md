@@ -42,13 +42,11 @@ escaladas:
     dificuldade: BR_5
     quantidade_protecoes_intermediarias: 2
     quantidade_protecoes_parada: 1
-    descricao: '**INTERDITADA:** Grampos com palheta demandam substituição por novas ancoragens. Parada simples que necessita
-      ser duplicada.'
+    descricao: '**INTERDITADA:** Grampos com palheta demandam substituição por novas
+      ancoragens. Parada simples que necessita ser duplicada.'
     conquistadores:
     - Daniel Fernandes "Salim"
 ---
-
-# Setor Mapa 2
 
 Localizado próximo à entrada da gruta. 
 **Atenção:** "Não entre em cavernas".

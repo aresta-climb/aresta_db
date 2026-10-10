@@ -16,9 +16,9 @@ escaladas:
   boulder:
     nome: Escondido
     dificuldade: V6
-    descricao: Boulder que fica dentro de um bloco escorado no blocão à direita do “Pena de ganso” (15). Sai na face que
-      aponta pro estacionamento, com a mão direita na aresta e a esquerda em um reglete baixo dentro do teto e atravessa
-      por ele dominando pelo outro lado.
+    descricao: Boulder que fica dentro de um bloco escorado no blocão à direita do
+      “Pena de ganso” (15). Sai na face que aponta pro estacionamento, com a mão direita
+      na aresta e a esquerda em um reglete baixo dentro do teto e atravessa por ele
+      dominando pelo outro lado.
 ---
 
-# Bloco D - Escondido

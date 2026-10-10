@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: CqXQ96HqOIWNgI
-nome: Ditadura
+nome: Setor Ditadura
 mapas:
 - caminho_imagem_mapa: imagens/grupo_ditadura_setor_ditadura_p0_i0.webp
   largura_mapa: 1420
@@ -65,4 +65,3 @@ escaladas:
     descricao: v0/6º sup (Proteções Móveis)
 ---
 
-# Ditadura

@@ -484,8 +484,6 @@
 ### Grupo (Pico: Pedra Rachada)
 
 - **descricao**:
-    # Estacionamento
-    
     Os trabalhos neste setor começaram apenas em 2007, com o descobrimento do imponente Bloco 0 e a abertura de seus primeiros boulders, como o incrível “Verticale” v5. Durante algum tempo o setor permaneceu sem novidades até que, em 2011, o Bloco 0 voltou a ser freqüentado e recebeu os FAs mais duros do setor, incluindo o mítico “Medalhão” v10, que até os dias de hoje recebeu poucas cadenas. Em 2013, os blocos mais próximos do estacionamento começaram a ser explorados e se mostraram um excelente playground para os iniciantes.
     
     ## Acesso (10 min)
@@ -522,7 +520,7 @@
 - **setores**:
   - **[0]**:
     - **conteudo**:
-      - **descricao**: # Bloco A - Traverse ao Tito
+      - **descricao**: 
       - **nome**: Bloco A - Traverse ao Tito
       - **uid**: UF4RAtxtLmMUH5
       - **mapas**:
@@ -605,7 +603,7 @@
         - **total_boulders**: 5
   - **[1]**:
     - **conteudo**:
-      - **descricao**: # Bloco B - Positive Vibrations
+      - **descricao**: 
       - **nome**: Bloco B - Positive Vibrations
       - **uid**: 7zovtK8xpq3Wpg
       - **mapas**:
@@ -725,7 +723,7 @@
         - **total_boulders**: 7
   - **[2]**:
     - **conteudo**:
-      - **descricao**: # Bloco C - Davy Jones
+      - **descricao**: 
       - **nome**: Bloco C - Davy Jones
       - **uid**: 3vsvWLI8sxx8RS
       - **mapas**:
@@ -795,7 +793,7 @@
         - **total_boulders**: 4
   - **[3]**:
     - **conteudo**:
-      - **descricao**: # Bloco D - Bloco 0
+      - **descricao**: 
       - **nome**: Bloco D - Bloco 0
       - **uid**: vdjOdc1lF1PDpT
       - **mapas**:
@@ -946,7 +944,7 @@
         - **total_boulders**: 8
   - **[4]**:
     - **conteudo**:
-      - **descricao**: # Bloco E - Psicotrópicos
+      - **descricao**: 
       - **nome**: Bloco E - Psicotrópicos
       - **uid**: NXumL13y78sla0
       - **mapas**:
@@ -1010,8 +1008,6 @@
 ### Grupo (Pico: Pedra Rachada)
 
 - **descricao**:
-    # Entrada
-    
     O mais frequentado setor da Pedra Rachada dá as boas vindas aos seus visitantes com dois grandes blocos, conhecidos por “Bloco 1” e “Bloco 2”. São quase 60 escaladas com os mais variados estilos e diversos clássicos de todos os graus. Neste setor também encontra-se a escalada mais difícil já encadenada em toda Pedra Rachada, o incrível “Projeto Sabará”. Não deixe de checar este boulder único, nem que seja para apreciar sua imponente linha!
     
     ## Acesso (15 min)
@@ -1067,7 +1063,7 @@
 - **setores**:
   - **[0]**:
     - **conteudo**:
-      - **descricao**: # Bloco A - Libélula
+      - **descricao**: 
       - **nome**: Bloco A - Libélula
       - **uid**: XB90JoHKDpzLZy
       - **mapas**:
@@ -1122,7 +1118,7 @@
         - **total_boulders**: 3
   - **[1]**:
     - **conteudo**:
-      - **descricao**: # Bloco B - Bloco 1
+      - **descricao**: 
       - **nome**: Bloco B - Bloco 1
       - **uid**: rA4a41MO7HZnmE
       - **mapas**:
@@ -1434,7 +1430,7 @@
         - **total_boulders**: 20
   - **[2]**:
     - **conteudo**:
-      - **descricao**: # Bloco C - Bloco 2
+      - **descricao**: 
       - **nome**: Bloco C - Bloco 2
       - **uid**: 3zRNftF5GzoLjS
       - **mapas**:
@@ -1845,7 +1841,7 @@
         - **total_boulders**: 25
   - **[3]**:
     - **conteudo**:
-      - **descricao**: # Bloco D - Chupa Lombriga
+      - **descricao**: 
       - **nome**: Bloco D - Chupa Lombriga
       - **uid**: XHe6qP8eEZS4yz
       - **mapas**:
@@ -1899,7 +1895,7 @@
         - **total_boulders**: 3
   - **[4]**:
     - **conteudo**:
-      - **descricao**: # Bloco E - Abraço do Calango
+      - **descricao**: 
       - **nome**: Bloco E - Abraço do Calango
       - **uid**: YF9rmYrHHUoYxU
       - **mapas**:
@@ -1954,7 +1950,7 @@
         - **total_boulders**: 3
   - **[5]**:
     - **conteudo**:
-      - **descricao**: # Bloco F - Nave
+      - **descricao**: 
       - **nome**: Bloco F - Nave
       - **uid**: 7iaOlaFADmalOy
       - **mapas**:
@@ -2004,8 +2000,6 @@
 ### Grupo (Pico: Pedra Rachada)
 
 - **descricao**:
-    # Sono do Calango
-    
     Setor com uma grande concentração de boulders do circuito verde e muitas linhas clássicas. Apesar de estar ao lado do Setor Entrada, é muito pouco conhecido e freqüentado. É também lugar das duas únicas vias de toda a Rachada, que valem muito a pena serem escaladas! O destaque para este setor fica por conta dos blocos “High vibe”, “Das vias” e “Sono do calango”, que possuem escaladas incríveis dos mais variados graus de dificuldade.
     
     ## Acesso (15 min)
@@ -2143,7 +2137,7 @@
 - **setores**:
   - **[0]**:
     - **conteudo**:
-      - **descricao**: # Bloco A - High Vibe
+      - **descricao**: 
       - **nome**: Bloco A - High Vibe
       - **uid**: YBMtHAcPaK27pa
       - **mapas**:
@@ -2186,7 +2180,7 @@
         - **total_boulders**: 2
   - **[1]**:
     - **conteudo**:
-      - **descricao**: # Bloco B - Batentes
+      - **descricao**: 
       - **nome**: Bloco B - Batentes
       - **uid**: PkRYq4CUk2jKJm
       - **mapas**:
@@ -2228,7 +2222,7 @@
         - **total_boulders**: 2
   - **[2]**:
     - **conteudo**:
-      - **descricao**: # Bloco C - Rala-Bucho
+      - **descricao**: 
       - **nome**: Bloco C - Rala-Bucho
       - **uid**: JbQiAHGbcATAqX
       - **escaladas**:
@@ -2249,7 +2243,7 @@
         - **total_boulders**: 2
   - **[3]**:
     - **conteudo**:
-      - **descricao**: # Bloco D - Varejeira
+      - **descricao**: 
       - **nome**: Bloco D - Varejeira
       - **uid**: bkYpXt5AEC25Gu
       - **escaladas**:
@@ -2264,7 +2258,7 @@
         - **total_boulders**: 1
   - **[4]**:
     - **conteudo**:
-      - **descricao**: # Bloco E - Tótem
+      - **descricao**: 
       - **nome**: Bloco E - Tótem
       - **uid**: kw6YOyBmYdL6DN
       - **escaladas**:
@@ -2280,7 +2274,7 @@
         - **total_boulders**: 1
   - **[5]**:
     - **conteudo**:
-      - **descricao**: # Bloco F - Pinça
+      - **descricao**: 
       - **nome**: Bloco F - Pinça
       - **uid**: coWDdbaTN1ULCv
       - **escaladas**:
@@ -2308,7 +2302,7 @@
         - **total_boulders**: 3
   - **[6]**:
     - **conteudo**:
-      - **descricao**: # Bloco G - Das Vias
+      - **descricao**: 
       - **nome**: Bloco G - Das Vias
       - **uid**: BNeiGihRO5ZZ9i
       - **mapas**:
@@ -2391,7 +2385,7 @@
         - **total_boulders**: 5
   - **[7]**:
     - **conteudo**:
-      - **descricao**: # Bloco H - Sono do Calango
+      - **descricao**: 
       - **nome**: Bloco H - Sono do Calango
       - **uid**: 5Gv7q10SNGtQ9e
       - **mapas**:
@@ -2687,8 +2681,6 @@
 ### Grupo (Pico: Pedra Rachada)
 
 - **descricao**:
-    # Deslize
-    
     Setor com uma grande concentração de boulders, principalmente do circuito amarelo, o Deslize é também berço do boulder com o maior registro de cadenas no site 8a.nu, o mega-clássico “Lua cheia” v5. Neste setor também está o primeiro boulder aberto em um teto na Pedra Rachada, o incrível “Terceira entrada” v7 além de muitas outras escaladas clássicas, como o bote do “Carne moída” v6, o “Deslize” v8 e o “Hey Fred”, um v10 no melhor estilo compressão da Pedra Rachada!
     
     ## Acesso (15 min)
@@ -2792,7 +2784,7 @@
 - **setores**:
   - **[0]**:
     - **conteudo**:
-      - **descricao**: # Bloco A - Lua Cheia
+      - **descricao**: 
       - **nome**: Bloco A - Lua Cheia
       - **uid**: 23f0ZZqIRwG7DQ
       - **mapas**:
@@ -2950,7 +2942,7 @@
         - **total_boulders**: 10
   - **[1]**:
     - **conteudo**:
-      - **descricao**: # Bloco B - Deslize
+      - **descricao**: 
       - **nome**: Bloco B - Deslize
       - **uid**: GT0Fi3x5hIAnAM
       - **mapas**:
@@ -3025,7 +3017,7 @@
         - **total_boulders**: 4
   - **[2]**:
     - **conteudo**:
-      - **descricao**: # Bloco C - Pequenino
+      - **descricao**: 
       - **nome**: Bloco C - Pequenino
       - **uid**: 6uW0jHXkyFgWMp
       - **mapas**:
@@ -3114,7 +3106,7 @@
         - **total_boulders**: 5
   - **[3]**:
     - **conteudo**:
-      - **descricao**: # Bloco D - Bagagem
+      - **descricao**: 
       - **nome**: Bloco D - Bagagem
       - **uid**: 1xPmvjHaFJihgk
       - **mapas**:
@@ -3187,7 +3179,7 @@
         - **total_boulders**: 4
   - **[4]**:
     - **conteudo**:
-      - **descricao**: # Bloco E - Hey Fred
+      - **descricao**: 
       - **nome**: Bloco E - Hey Fred
       - **uid**: Z9yQJow6IJmoSb
       - **mapas**:
@@ -3351,7 +3343,7 @@
         - **total_boulders**: 9
   - **[5]**:
     - **conteudo**:
-      - **descricao**: # Bloco F - Bom Boulder
+      - **descricao**: 
       - **nome**: Bloco F - Bom Boulder
       - **uid**: 3vwraBCMfktto8
       - **mapas**:
@@ -3406,7 +3398,7 @@
         - **total_boulders**: 3
   - **[6]**:
     - **conteudo**:
-      - **descricao**: # Bloco G - Rei Leão
+      - **descricao**: 
       - **nome**: Bloco G - Rei Leão
       - **uid**: bXsoJAcNyth0mw
       - **escaladas**:
@@ -3431,7 +3423,7 @@
         - **total_boulders**: 2
   - **[7]**:
     - **conteudo**:
-      - **descricao**: # Bloco H - Musgo Centenário
+      - **descricao**: 
       - **nome**: Bloco H - Musgo Centenário
       - **uid**: McYlobTLS4cVCj
       - **mapas**:
@@ -3520,7 +3512,7 @@
         - **total_boulders**: 6
   - **[8]**:
     - **conteudo**:
-      - **descricao**: # Bloco I - Zafar
+      - **descricao**: 
       - **nome**: Bloco I - Zafar
       - **uid**: Ouw62BU1UhhFif
       - **mapas**:
@@ -3610,8 +3602,6 @@
 ### Grupo (Pico: Pedra Rachada)
 
 - **descricao**:
-    # Yin Yang
-    
     Esse pequeno aglomerado de blocos, à direita do setor do Deslize, começou a ser explorado em 2006, com a abertura do clássico “Bicicletinha 2000”. Permaneceu sem novidades expressivas por alguns anos até que, em 2011, o escalador Mahavir Jneesh realizou a primeira ascensão do boulder “Yang” e, logo após, sua saída sentada denominada “Yin Yang”, dois mega clássicos da Pedra Rachada!
     
     ## Acesso (15 min)
@@ -3662,7 +3652,7 @@
 - **setores**:
   - **[0]**:
     - **conteudo**:
-      - **descricao**: # Bloco A - Abraço
+      - **descricao**: 
       - **nome**: Bloco A - Abraço
       - **uid**: ZUYYFmkBLl0lgW
       - **mapas**:
@@ -3746,7 +3736,7 @@
         - **total_boulders**: 5
   - **[1]**:
     - **conteudo**:
-      - **descricao**: # Bloco B - Bicicletinha 2000
+      - **descricao**: 
       - **nome**: Bloco B - Bicicletinha 2000
       - **uid**: CF3VY8Q8gKccI5
       - **mapas**:
@@ -3805,7 +3795,7 @@
         - **total_boulders**: 3
   - **[2]**:
     - **conteudo**:
-      - **descricao**: # Bloco C - Travezinha
+      - **descricao**: 
       - **nome**: Bloco C - Travezinha
       - **uid**: ITSfk4PBbxbkyu
       - **mapas**:
@@ -3861,7 +3851,7 @@
         - **total_boulders**: 3
   - **[3]**:
     - **conteudo**:
-      - **descricao**: # Bloco D - 12 de Outubro
+      - **descricao**: 
       - **nome**: Bloco D - 12 de Outubro
       - **uid**: Z9Dq7oenKRrxTq
       - **mapas**:
@@ -3902,7 +3892,7 @@
         - **total_boulders**: 2
   - **[4]**:
     - **conteudo**:
-      - **descricao**: # Bloco E - Yin Yang
+      - **descricao**: 
       - **nome**: Bloco E - Yin Yang
       - **uid**: KDBISU3Tntr9nE
       - **mapas**:
@@ -3958,7 +3948,7 @@
         - **total_boulders**: 3
   - **[5]**:
     - **conteudo**:
-      - **descricao**: # Bloco F - Geladeira
+      - **descricao**: 
       - **nome**: Bloco F - Geladeira
       - **uid**: X68boIjYE41BNm
       - **mapas**:
@@ -4264,7 +4254,7 @@
 - **setores**:
   - **[0]**:
     - **conteudo**:
-      - **descricao**: # Bloco A - Gastón a la Mesón
+      - **descricao**: 
       - **nome**: Bloco A - Gastón a la Mesón
       - **uid**: Not6YbEUHBNfCR
       - **mapas**:
@@ -4399,7 +4389,7 @@
         - **total_boulders**: 8
   - **[1]**:
     - **conteudo**:
-      - **descricao**: # Bloco B - Casulo
+      - **descricao**: 
       - **nome**: Bloco B - Casulo
       - **uid**: b9UBZtnzcTrCRR
       - **mapas**:
@@ -4466,7 +4456,7 @@
         - **total_boulders**: 4
   - **[2]**:
     - **conteudo**:
-      - **descricao**: # Bloco C - Marrento
+      - **descricao**: 
       - **nome**: Bloco C - Marrento
       - **uid**: ok27kAzvZl05g9
       - **mapas**:
@@ -4533,7 +4523,7 @@
         - **total_boulders**: 4
   - **[3]**:
     - **conteudo**:
-      - **descricao**: # Bloco D - Rolling Stones
+      - **descricao**: 
       - **nome**: Bloco D - Rolling Stones
       - **uid**: MdqiBRREJag3jS
       - **escaladas**:
@@ -4659,7 +4649,7 @@
         - **total_boulders**: 15
   - **[4]**:
     - **conteudo**:
-      - **descricao**: # Bloco E - Eject
+      - **descricao**: 
       - **nome**: Bloco E - Eject
       - **uid**: qoi9TE27jV5Gja
       - **escaladas**:
@@ -4675,7 +4665,7 @@
         - **total_boulders**: 1
   - **[5]**:
     - **conteudo**:
-      - **descricao**: # Bloco F - Universo Paralello
+      - **descricao**: 
       - **nome**: Bloco F - Universo Paralello
       - **uid**: dJb3OBUZI4vgKN
       - **mapas**:
@@ -4842,7 +4832,7 @@
         - **total_boulders**: 9
   - **[6]**:
     - **conteudo**:
-      - **descricao**: # Bloco G - Pantaloneta
+      - **descricao**: 
       - **nome**: Bloco G - Pantaloneta
       - **uid**: YOOO9jSie0uDws
       - **mapas**:
@@ -5376,7 +5366,7 @@
         - **total_boulders**: 32
   - **[7]**:
     - **conteudo**:
-      - **descricao**: # Bloco H - Octopus
+      - **descricao**: 
       - **nome**: Bloco H - Octopus
       - **uid**: fTYl4fV5ZSIJej
       - **escaladas**:
@@ -5405,7 +5395,7 @@
         - **total_boulders**: 2
   - **[8]**:
     - **conteudo**:
-      - **descricao**: # Bloco I - Prótons
+      - **descricao**: 
       - **nome**: Bloco I - Prótons
       - **uid**: mF82XDuXLMe8l5
       - **escaladas**:
@@ -5434,7 +5424,7 @@
         - **total_boulders**: 3
   - **[9]**:
     - **conteudo**:
-      - **descricao**: # Bloco J - Aranha Albina
+      - **descricao**: 
       - **nome**: Bloco J - Aranha Albina
       - **uid**: wBYvo4c5sJG6C9
       - **escaladas**:
@@ -5457,8 +5447,6 @@
 ### Grupo (Pico: Pedra Rachada)
 
 - **descricao**:
-    # Pena de Ganso
-    
     Após muito tempo sem muitas novidades, no ano de 2013 novas linhas abertas nos blocos “Gangrena” e “Pena de ganso” colocaram o setor mais uma vez em movimento. Apesar destas novas linhas, o maior destaque para este setor continua sendo uma de suas escaladas mais antigas, o clássico “Pena de ganso”, que possui uma movimentação única.
     
     ## Acesso (15 min)
@@ -5495,7 +5483,7 @@
 - **setores**:
   - **[0]**:
     - **conteudo**:
-      - **descricao**: # Bloco A - Gangrena
+      - **descricao**: 
       - **nome**: Bloco A - Gangrena
       - **uid**: 8nG1nyqYVvmIYC
       - **mapas**:
@@ -5660,7 +5648,7 @@
         - **total_boulders**: 10
   - **[1]**:
     - **conteudo**:
-      - **descricao**: # Bloco B - Exilado
+      - **descricao**: 
       - **nome**: Bloco B - Exilado
       - **uid**: MkigFlguTDTQrj
       - **mapas**:
@@ -5701,7 +5689,7 @@
         - **total_boulders**: 2
   - **[2]**:
     - **conteudo**:
-      - **descricao**: # Bloco C - Pena de Ganso
+      - **descricao**: 
       - **nome**: Bloco C - Pena de Ganso
       - **uid**: 7FDG024uaqj8Jr
       - **mapas**:
@@ -5869,7 +5857,7 @@
         - **total_boulders**: 8
   - **[3]**:
     - **conteudo**:
-      - **descricao**: # Bloco D - Escondido
+      - **descricao**: 
       - **nome**: Bloco D - Escondido
       - **uid**: uk3gLmUoNBsQNX
       - **mapas**:
@@ -5897,7 +5885,7 @@
         - **total_boulders**: 1
   - **[4]**:
     - **conteudo**:
-      - **descricao**: # Bloco E - Caramujo
+      - **descricao**: 
       - **nome**: Bloco E - Caramujo
       - **uid**: csVP38h5v0m0xD
       - **mapas**:
@@ -5975,8 +5963,6 @@
 ### Grupo (Pico: Pedra Rachada)
 
 - **descricao**:
-    # Tosco
-    
     Setor que abriga uma grande quantidade de boulders do circuito verde e azul, com destaque para o clássico “Aresta visual” v3. Por outro lado, se você escala boulders do circuito amarelo ou vermelho e gosta de dinâmicos, este será um de seus setores preferidos, com escaladas incríveis deste estilo nos blocos “Aresta visual”, “Tosco” e “Motricidade”. Mas não pense que a diversão acaba por aí, se você curte aderência não deixe de visitar o mítico “Frita pé” e quebrar a cabeça desvendando seus betas!
     
     ## Acesso (25 min)
@@ -6145,7 +6131,7 @@
 - **setores**:
   - **[0]**:
     - **conteudo**:
-      - **descricao**: # Bloco A - Boliche
+      - **descricao**: 
       - **nome**: Bloco A - Boliche
       - **uid**: 99alQsSLFdPsE3
       - **escaladas**:
@@ -6172,7 +6158,7 @@
         - **total_boulders**: 3
   - **[1]**:
     - **conteudo**:
-      - **descricao**: # Bloco B - Amarelão
+      - **descricao**: 
       - **nome**: Bloco B - Amarelão
       - **uid**: FtiDFZPTn9JHbY
       - **escaladas**:
@@ -6194,7 +6180,7 @@
         - **total_boulders**: 2
   - **[2]**:
     - **conteudo**:
-      - **descricao**: # Bloco C - Aresta Visual
+      - **descricao**: 
       - **nome**: Bloco C - Aresta Visual
       - **uid**: L3p2qmIDt060sz
       - **mapas**:
@@ -6296,7 +6282,7 @@
         - **total_boulders**: 6
   - **[3]**:
     - **conteudo**:
-      - **descricao**: # Bloco D - Lajinha
+      - **descricao**: 
       - **nome**: Bloco D - Lajinha
       - **uid**: Nd5d0HbsulnbTk
       - **escaladas**:
@@ -6317,7 +6303,7 @@
         - **total_boulders**: 2
   - **[4]**:
     - **conteudo**:
-      - **descricao**: # Bloco E - Viradinha Nacional
+      - **descricao**: 
       - **nome**: Bloco E - Viradinha Nacional
       - **uid**: GTseUW4vGNLtVc
       - **escaladas**:
@@ -6332,7 +6318,7 @@
         - **total_boulders**: 1
   - **[5]**:
     - **conteudo**:
-      - **descricao**: # Bloco F - Frita Pé
+      - **descricao**: 
       - **nome**: Bloco F - Frita Pé
       - **uid**: h4WDPKu4z6sKgP
       - **escaladas**:
@@ -6357,7 +6343,7 @@
         - **total_boulders**: 2
   - **[6]**:
     - **conteudo**:
-      - **descricao**: # Bloco G - Rolezinho
+      - **descricao**: 
       - **nome**: Bloco G - Rolezinho
       - **uid**: AvIUYDdfklVTyh
       - **escaladas**:
@@ -6379,7 +6365,7 @@
         - **total_boulders**: 2
   - **[7]**:
     - **conteudo**:
-      - **descricao**: # Bloco H - Cor do Bicho
+      - **descricao**: 
       - **nome**: Bloco H - Cor do Bicho
       - **uid**: QjLe2HtYJTzjAz
       - **escaladas**:
@@ -6401,7 +6387,7 @@
         - **total_boulders**: 2
   - **[8]**:
     - **conteudo**:
-      - **descricao**: # Bloco I - Tosco
+      - **descricao**: 
       - **nome**: Bloco I - Tosco
       - **uid**: RZGfs6DU9fMukU
       - **mapas**:
@@ -6491,7 +6477,7 @@
         - **total_boulders**: 5
   - **[9]**:
     - **conteudo**:
-      - **descricao**: # Bloco J - Tô Partindo
+      - **descricao**: 
       - **nome**: Bloco J - Tô Partindo
       - **uid**: rHY1rbrGbLQVty
       - **mapas**:
@@ -6545,7 +6531,7 @@
         - **total_boulders**: 3
   - **[10]**:
     - **conteudo**:
-      - **descricao**: # Bloco K - Oval
+      - **descricao**: 
       - **nome**: Bloco K - Oval
       - **uid**: Z1yJXlbRBaHJmV
       - **mapas**:
@@ -6646,7 +6632,7 @@
         - **total_boulders**: 6
   - **[11]**:
     - **conteudo**:
-      - **descricao**: # Bloco L - Motricidade
+      - **descricao**: 
       - **nome**: Bloco L - Motricidade
       - **uid**: j3UF2Z1GJzVY2M
       - **mapas**:
@@ -6809,7 +6795,7 @@
         - **total_boulders**: 10
   - **[12]**:
     - **conteudo**:
-      - **descricao**: # Bloco M - Night Climb
+      - **descricao**: 
       - **nome**: Bloco M - Night Climb
       - **uid**: tVKJfjKkPJdUix
       - **mapas**:
@@ -6865,7 +6851,7 @@
         - **total_boulders**: 3
   - **[13]**:
     - **conteudo**:
-      - **descricao**: # Bloco N - Piolho de Cobra
+      - **descricao**: 
       - **nome**: Bloco N - Piolho de Cobra
       - **uid**: a9iYrnv8ZnEoaH
       - **mapas**:
@@ -6920,7 +6906,7 @@
         - **total_boulders**: 3
   - **[14]**:
     - **conteudo**:
-      - **descricao**: # Bloco O - Democrático
+      - **descricao**: 
       - **nome**: Bloco O - Democrático
       - **uid**: cBzYvmPe4YbsGj
       - **mapas**:
@@ -6989,7 +6975,7 @@
         - **total_boulders**: 4
   - **[15]**:
     - **conteudo**:
-      - **descricao**: # Bloco P - Ferrugem
+      - **descricao**: 
       - **nome**: Bloco P - Ferrugem
       - **uid**: PSH8qN1KhqcoDN
       - **mapas**:
@@ -7067,8 +7053,6 @@
 ### Grupo (Pico: Pedra Rachada)
 
 - **descricao**:
-    # Canaleta
-    
     O setor menos explorado de todos abriga uma das escaladas mais clássicas da Pedra Rachada. Seu nome deve-se à sua formação, uma espécie de canaleta de blocos que se estende por toda a “crista” do morro, de norte a sul. São inúmeros blocos praticamente inexplorados em toda a sua extensão, que se concentram principalmente a sudoeste do setor ”Sono do calango”, um convite aos caçadores de boulders de plantão.
     
     ## Acesso (20 min)
@@ -7110,7 +7094,7 @@
 - **setores**:
   - **[0]**:
     - **conteudo**:
-      - **descricao**: # Bloco A - Cavalo de Tróia
+      - **descricao**: 
       - **nome**: Bloco A - Cavalo de Tróia
       - **uid**: oe0oM3OKf5mGtz
       - **mapas**:
@@ -7165,7 +7149,7 @@
         - **total_boulders**: 3
   - **[1]**:
     - **conteudo**:
-      - **descricao**: # Bloco B - Destinos
+      - **descricao**: 
       - **nome**: Bloco B - Destinos
       - **uid**: IcRPBpWO0uiVyd
       - **mapas**:
@@ -7233,7 +7217,7 @@
         - **total_boulders**: 4
   - **[2]**:
     - **conteudo**:
-      - **descricao**: # Bloco C - Forrest Gump
+      - **descricao**: 
       - **nome**: Bloco C - Forrest Gump
       - **uid**: hb3raOpphILWEB
       - **mapas**:
@@ -7262,7 +7246,7 @@
         - **total_boulders**: 1
   - **[3]**:
     - **conteudo**:
-      - **descricao**: # Bloco D - Fábulas
+      - **descricao**: 
       - **nome**: Bloco D - Fábulas
       - **uid**: JB9CpY74cAciLe
       - **mapas**:
@@ -7293,7 +7277,7 @@
         - **total_boulders**: 1
   - **[4]**:
     - **conteudo**:
-      - **descricao**: # Bloco E - Logística
+      - **descricao**: 
       - **nome**: Bloco E - Logística
       - **uid**: OzndYQaTozxg9q
       - **mapas**:
@@ -7349,7 +7333,7 @@
         - **total_boulders**: 3
   - **[5]**:
     - **conteudo**:
-      - **descricao**: # Bloco F - Puma
+      - **descricao**: 
       - **nome**: Bloco F - Puma
       - **uid**: 59WWOgPejfYyAK
       - **mapas**:
@@ -7412,7 +7396,7 @@
         - **total_boulders**: 3
   - **[6]**:
     - **conteudo**:
-      - **descricao**: # Bloco G - Esparrachado
+      - **descricao**: 
       - **nome**: Bloco G - Esparrachado
       - **uid**: zZctFAl97yZ9dd
       - **mapas**:
@@ -7540,7 +7524,7 @@
         - **total_boulders**: 8
   - **[7]**:
     - **conteudo**:
-      - **descricao**: # Bloco H - Beto Carneiro
+      - **descricao**: 
       - **nome**: Bloco H - Beto Carneiro
       - **uid**: SHWTAwWaEAqPSD
       - **mapas**:
@@ -7610,7 +7594,7 @@
         - **total_boulders**: 4
   - **[8]**:
     - **conteudo**:
-      - **descricao**: # Bloco I - Prisma
+      - **descricao**: 
       - **nome**: Bloco I - Prisma
       - **uid**: ZexkRSjLjQ5djK
       - **escaladas**:
@@ -7673,8 +7657,6 @@
 ### Grupo (Pico: Pedra Rachada)
 
 - **descricao**:
-    # Tubarão
-    
     Setor com os projetos mais difíceis da Pedra Rachada, sendo alguns extensões do clássico “Abrigo de ferro”, v11 sólido de movimentação única. O bloco “Fogos de Vênus”, que apoia o bloco Abrigo de Ferro, possui algumas das escaladas verticais mais divertidas de toda a área. Já o bloco “Tubarão”, possui um dos tetos mais explorados da Rachada, com várias linhas e variantes incríveis que garantem aos escaladores do circuito amarelo muita diversão!
     
     ## Acesso (25 min)
@@ -7740,7 +7722,7 @@
 - **setores**:
   - **[0]**:
     - **conteudo**:
-      - **descricao**: # Bloco A - Fogos de Vênus
+      - **descricao**: 
       - **nome**: Bloco A - Fogos de Vênus
       - **uid**: mKWD3p0D9UW2pR
       - **mapas**:
@@ -7824,7 +7806,7 @@
         - **total_boulders**: 5
   - **[1]**:
     - **conteudo**:
-      - **descricao**: # Bloco B - Abrigo de Ferro
+      - **descricao**: 
       - **nome**: Bloco B - Abrigo de Ferro
       - **uid**: KDG2BgZXZa0s84
       - **mapas**:
@@ -7908,7 +7890,7 @@
         - **total_boulders**: 5
   - **[2]**:
     - **conteudo**:
-      - **descricao**: # Bloco C - Meteoro
+      - **descricao**: 
       - **nome**: Bloco C - Meteoro
       - **uid**: MdIc7ontK2Nvt0
       - **mapas**:
@@ -7953,7 +7935,7 @@
         - **total_boulders**: 2
   - **[3]**:
     - **conteudo**:
-      - **descricao**: # Bloco D - Tubarão
+      - **descricao**: 
       - **nome**: Bloco D - Tubarão
       - **uid**: 0bBb6m3oawRRva
       - **mapas**:
@@ -8347,7 +8329,7 @@
         - **total_boulders**: 25
   - **[4]**:
     - **conteudo**:
-      - **descricao**: # Bloco E - Hindu
+      - **descricao**: 
       - **nome**: Bloco E - Hindu
       - **uid**: S0x3xhhSDsx82d
       - **escaladas**:
@@ -8363,7 +8345,7 @@
         - **total_boulders**: 1
   - **[5]**:
     - **conteudo**:
-      - **descricao**: # Bloco F - Ganesh
+      - **descricao**: 
       - **nome**: Bloco F - Ganesh
       - **uid**: 7rL1q5fxDz4nZQ
       - **escaladas**:
@@ -8382,7 +8364,7 @@
         - **total_boulders**: 1
   - **[6]**:
     - **conteudo**:
-      - **descricao**: # Bloco G - Croissant
+      - **descricao**: 
       - **nome**: Bloco G - Croissant
       - **uid**: sRHRKezuqWr6zh
       - **mapas**:
@@ -8423,7 +8405,7 @@
         - **total_boulders**: 2
   - **[7]**:
     - **conteudo**:
-      - **descricao**: # Bloco H - Túnel do Vento
+      - **descricao**: 
       - **nome**: Bloco H - Túnel do Vento
       - **uid**: VFfp0CKDJiXsd3
       - **mapas**:
@@ -8480,8 +8462,6 @@
 ### Grupo (Pico: Pedra Rachada)
 
 - **descricao**:
-    # Daqui a 20 Anos
-    
     Último setor antes do cume da Pedra Rachada que, apesar de possuir poucos blocos, guarda algumas das escaladas mais desafiadoras mentalmente de todo o complexo. Dois clássicos highball fazem deste setor um dos preferidos de muitos viciados em adrenalina. Se você gosta de apertar, não deixe de tentar o único “Amanita” v11.
     
     ## Acesso (25 min)
@@ -8536,7 +8516,7 @@
 - **setores**:
   - **[0]**:
     - **conteudo**:
-      - **descricao**: # Bloco A - Análise Crítica
+      - **descricao**: 
       - **nome**: Bloco A - Análise Crítica
       - **uid**: onz2AdFseL2O0S
       - **mapas**:
@@ -8568,7 +8548,7 @@
         - **total_boulders**: 1
   - **[1]**:
     - **conteudo**:
-      - **descricao**: # Bloco B - Daqui a 20 Anos
+      - **descricao**: 
       - **nome**: Bloco B - Daqui a 20 Anos
       - **uid**: FPiCkhwVy5b8ST
       - **escaladas**:
@@ -8584,7 +8564,7 @@
         - **total_boulders**: 1
   - **[2]**:
     - **conteudo**:
-      - **descricao**: # Bloco C - Amanita
+      - **descricao**: 
       - **nome**: Bloco C - Amanita
       - **uid**: rQMrzXIEzDPsDs
       - **mapas**:
@@ -8613,7 +8593,7 @@
         - **total_boulders**: 1
   - **[3]**:
     - **conteudo**:
-      - **descricao**: # Bloco D - Surpresa
+      - **descricao**: 
       - **nome**: Bloco D - Surpresa
       - **uid**: wEpe9H6ywEQmrY
       - **escaladas**:
@@ -8629,7 +8609,7 @@
         - **total_boulders**: 1
   - **[4]**:
     - **conteudo**:
-      - **descricao**: # Bloco E - Escorregador
+      - **descricao**: 
       - **nome**: Bloco E - Escorregador
       - **uid**: 2oOJLXY7yzCM2H
       - **mapas**:
@@ -8679,8 +8659,6 @@
 ### Grupo (Pico: Pedra Rachada)
 
 - **descricao**:
-    # Cume
-    
     Além de algumas das melhores escaladas de toda a Pedra Rachada em todos os circuitos de grau, o setor “Cume” impressiona também pelo visual de tirar o fôlego. São quase 1500m de altitude que proporcionam 360º de uma vista estonteante de toda a região metropolitana de Belo Horizonte e seus arredores, com um pôr do sol digno de filme. Difícil aqui é decidir qual linha escalar, mas, independente do seu grau de escalada, não saia de lá sem ao menos conhecer o mega-clássico “Blood América”.
     
     ## Acesso (30 min)
@@ -8762,7 +8740,7 @@
 - **setores**:
   - **[0]**:
     - **conteudo**:
-      - **descricao**: # Bloco A - Ulísses
+      - **descricao**: 
       - **nome**: Bloco A - Ulísses
       - **uid**: DAwGeV7jwOuz5Z
       - **mapas**:
@@ -8805,7 +8783,7 @@
         - **total_boulders**: 2
   - **[1]**:
     - **conteudo**:
-      - **descricao**: # Bloco B - Mosquitos
+      - **descricao**: 
       - **nome**: Bloco B - Mosquitos
       - **uid**: db6ajlrPHj5JiG
       - **mapas**:
@@ -8847,7 +8825,7 @@
         - **total_boulders**: 2
   - **[2]**:
     - **conteudo**:
-      - **descricao**: # Bloco C - Blood América
+      - **descricao**: 
       - **nome**: Bloco C - Blood América
       - **uid**: 8hYDWYkbAHWbpZ
       - **mapas**:
@@ -8924,7 +8902,7 @@
         - **total_boulders**: 4
   - **[3]**:
     - **conteudo**:
-      - **descricao**: # Bloco D - The Summit
+      - **descricao**: 
       - **nome**: Bloco D - The Summit
       - **uid**: MJSEWLeX5S66bJ
       - **mapas**:
@@ -8987,7 +8965,7 @@
         - **total_boulders**: 3
   - **[4]**:
     - **conteudo**:
-      - **descricao**: # Bloco E - Testarossa
+      - **descricao**: 
       - **nome**: Bloco E - Testarossa
       - **uid**: 6UZ9BB51g1EYEn
       - **mapas**:
@@ -9124,7 +9102,7 @@
         - **total_boulders**: 7
   - **[5]**:
     - **conteudo**:
-      - **descricao**: # Bloco F - Sai do Teto
+      - **descricao**: 
       - **nome**: Bloco F - Sai do Teto
       - **uid**: 6XLE5SspejONIX
       - **mapas**:
@@ -9153,7 +9131,7 @@
         - **total_boulders**: 1
   - **[6]**:
     - **conteudo**:
-      - **descricao**: # Bloco G - Laranja Mecânica
+      - **descricao**: 
       - **nome**: Bloco G - Laranja Mecânica
       - **uid**: A5Qguqnxxmiaec
       - **mapas**:
@@ -9215,7 +9193,7 @@
         - **total_boulders**: 3
   - **[7]**:
     - **conteudo**:
-      - **descricao**: # Bloco H - Ronaldo
+      - **descricao**: 
       - **nome**: Bloco H - Ronaldo
       - **uid**: xPr8wvdVJfZaXX
       - **mapas**:
@@ -9284,7 +9262,7 @@
         - **total_boulders**: 4
   - **[8]**:
     - **conteudo**:
-      - **descricao**: # Bloco I - Siriema
+      - **descricao**: 
       - **nome**: Bloco I - Siriema
       - **uid**: pa9gNt8On1l48o
       - **escaladas**:
@@ -9313,7 +9291,7 @@
         - **total_boulders**: 3
   - **[9]**:
     - **conteudo**:
-      - **descricao**: # Bloco J - Cerrado
+      - **descricao**: 
       - **nome**: Bloco J - Cerrado
       - **uid**: 3S1uM3IaSsovOm
       - **escaladas**:
@@ -9334,7 +9312,7 @@
         - **total_boulders**: 2
   - **[10]**:
     - **conteudo**:
-      - **descricao**: # Bloco K - Plutão
+      - **descricao**: 
       - **nome**: Bloco K - Plutão
       - **uid**: TB1w4Vo6EIiriN
       - **mapas**:

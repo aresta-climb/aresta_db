@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: oDdDAqETF27BlU
-nome: Conjunto Pôr do sol - Bloco C
+nome: Setor Conjunto Pôr do sol - Bloco C
 mapas:
 - caminho_imagem_mapa: imagens/grupo_conjunto_por_do_sol_setor_bloco_c_p0_i0.webp
   largura_mapa: 720
@@ -37,18 +37,19 @@ escaladas:
   boulder:
     nome: Pedra de toque
     dificuldade: V1
-    descricao: Saída com a esquerda em uma pinça com o encaixe de dedão e a direita na agarra ao lado.
+    descricao: Saída com a esquerda em uma pinça com o encaixe de dedão e a direita
+      na agarra ao lado.
 - uid: fQtbRfpwAhwP7N
   boulder:
     nome: Hematita
     dificuldade: V3
-    descricao: Escalada pela aresta do bloco. Mão direita em um micro reglete e a esquerda em um pocket na lateral.
+    descricao: Escalada pela aresta do bloco. Mão direita em um micro reglete e a
+      esquerda em um pocket na lateral.
 - uid: W0fBNuhC1ju702
   boulder:
     nome: Especularica
     dificuldade: V5
-    descricao: Boulder pela face do bloco, saindo de agarras óbvias e indo pra esquerda até a virada pelo final da 
-      aresta.
+    descricao: Boulder pela face do bloco, saindo de agarras óbvias e indo pra esquerda
+      até a virada pelo final da aresta.
 ---
 
-# Bloco C

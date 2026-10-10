@@ -41,8 +41,8 @@ escaladas:
   boulder:
     nome: La olla
     dificuldade: VB
-    descricao: Sai sentado com as mãos em um batente e atravessa para a esquerda virando na parte mais fácil do 
-      negativo.
+    descricao: Sai sentado com as mãos em um batente e atravessa para a esquerda virando
+      na parte mais fácil do negativo.
 - uid: ykTyyYnc0JA4kk
   boulder:
     nome: Mayday
@@ -58,26 +58,26 @@ escaladas:
   boulder:
     nome: Macadâmia
     dificuldade: VB
-    descricao: Sai sentado com a mão direita em um bico e a esquerda em um reglete bom e toca reto por agarras boas à 
-      esquerda da aresta.
+    descricao: Sai sentado com a mão direita em um bico e a esquerda em um reglete
+      bom e toca reto por agarras boas à esquerda da aresta.
 - uid: BP8271Cj0nFz3A
   boulder:
     nome: King Kong
     dificuldade: VB
     destaque: true
-    descricao: Começa sentado com as mãos juntas em um bico na aresta e escala abraçando a aresta.
+    descricao: Começa sentado com as mãos juntas em um bico na aresta e escala abraçando
+      a aresta.
 - uid: LfN0apLd7Jv8m3
   boulder:
     nome: FormiguinhaZ
     dificuldade: VB
-    descricao: Boulder que sai em pé, em umas lacas logo à direita da aresta, e escala diagonalmente pra direita por 
-      agarras boas.
+    descricao: Boulder que sai em pé, em umas lacas logo à direita da aresta, e escala
+      diagonalmente pra direita por agarras boas.
 - uid: bdc87LGB3hHIQb
   boulder:
     nome: Buttstache
     dificuldade: VB
-    descricao: Sai em pé à direita de uma pequena árvore e toca diagonalmente à direita, até uma fenda, e depois em 
-      direção à canaleta.
+    descricao: Sai em pé à direita de uma pequena árvore e toca diagonalmente à direita,
+      até uma fenda, e depois em direção à canaleta.
 ---
 
-# Bloco B - Positive Vibrations

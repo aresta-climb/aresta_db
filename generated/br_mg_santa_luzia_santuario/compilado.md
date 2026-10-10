@@ -137,7 +137,7 @@
 
 ### Setor (Pico: Santuário)
 
-- **descricao**: # Setor Clube da Luta
+- **descricao**: 
 - **nome**: Setor Clube da Luta
 - **uid**: uyVmwHoHZTaJG4
 - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_clube_da_luta_p0_i0.webp)
@@ -554,8 +554,6 @@
 ### Setor (Pico: Santuário)
 
 - **descricao**:
-    # Setor Santa Línea
-    
     ## Conexões e Variantes
     
     Este setor possui diversas conexões entre as vias, permitindo combinar diferentes partes (P1, P2, P3...) de vias adjacentes.
@@ -1059,7 +1057,7 @@
 
 ### Setor (Pico: Santuário)
 
-- **descricao**: # Setor Democracia
+- **descricao**: 
 - **nome**: Setor Democracia
 - **uid**: lvQcTGzk238Jom
 - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_democracia_p0_i0.webp)

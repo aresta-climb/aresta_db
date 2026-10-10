@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: ORe2ixkg2P8JW0
-nome: Mirante da Cruz
+nome: Setor Mirante da Cruz
 escaladas:
 - uid: NnA3VyWBwYic7a
   via_esportiva:
@@ -59,3 +59,4 @@ escaladas:
     conquistadores:
     - jg
 ---
+

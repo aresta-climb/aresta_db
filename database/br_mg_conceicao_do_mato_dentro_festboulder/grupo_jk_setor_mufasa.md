@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: p7wr5W1PHLpGlE
-nome: Mufasa
+nome: Setor Mufasa
 mapas:
 - caminho_imagem_mapa: imagens/grupo_jk_setor_mufasa_p0.webp
   largura_mapa: 758
@@ -39,8 +39,6 @@ escaladas:
     nome: Mufasa
     dificuldade: V10
 ---
-
-# Setor Mufasa
 
 O setor Mufasa apresenta um bloco com linhas de altíssima dificuldade e movimentos icônicos.
 

@@ -226,4 +226,3 @@ escaladas:
     quantidade_protecoes_parada: 2
 ---
 
-# Setor Quintal

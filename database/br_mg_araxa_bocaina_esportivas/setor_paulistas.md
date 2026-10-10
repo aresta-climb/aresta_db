@@ -3,7 +3,7 @@
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: lqRtz0vbIZQGsV
 caminho_imagem_capa: imagens/setor_paulistas_p0_i0.webp
-nome: Paulistas
+nome: Setor Paulistas
 mapas:
 - caminho_imagem_mapa: imagens/setor_paulistas_p1.webp
   largura_mapa: 1280
@@ -335,8 +335,6 @@ escaladas:
     - Daiex de Almeida
     data_abertura: '2014'
 ---
-
-# Setor Paulistas
 
 O Setor Paulistas contém uma grande variedade de vias técnicas, com destaque para a "Cortina de Fumaça" (9c).
 

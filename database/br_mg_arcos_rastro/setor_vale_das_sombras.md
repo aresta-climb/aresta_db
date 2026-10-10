@@ -519,6 +519,4 @@ escaladas:
     quantidade_protecoes_parada: 2
 ---
 
-# Setor Vale das Sombras
-
 Este setor possui sombra o dia todo (variando de acordo com a estação).

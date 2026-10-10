@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: eYmBFxup8j7TU9
-nome: Panela do Diabo
+nome: Setor Panela do Diabo
 mapas:
 - caminho_imagem_mapa: imagens/grupo_regiao_2_setor_panela_do_diabo_p0_i0.webp
   largura_mapa: 1240
@@ -138,19 +138,20 @@ escaladas:
   boulder:
     nome: Consciência
     dificuldade: V4
-    descricao: Saída baixa em dois regletes pequenos logo à direita do balcão arredondado, seguindo em travessia para a 
-      direita até dominar como o panelaço.
+    descricao: Saída baixa em dois regletes pequenos logo à direita do balcão arredondado,
+      seguindo em travessia para a direita até dominar como o panelaço.
 - uid: 0ddfwYkJen4fIl
   boulder:
     nome: Groove
     dificuldade: V3
-    descricao: Mesma saída do consciência, dominando na face positiva logo acima do balcão.
+    descricao: Mesma saída do consciência, dominando na face positiva logo acima do
+      balcão.
 - uid: SD5GEHWGtSrIBX
   boulder:
     nome: Caldeirão
     dificuldade: V6
-    descricao: Saída nos agarrões da borda de fora do bloco e segue pelo teto até finalizar como o panelaço (sem a 
-      utilização do "jorge"/bloco de sustentação).
+    descricao: Saída nos agarrões da borda de fora do bloco e segue pelo teto até
+      finalizar como o panelaço (sem a utilização do "jorge"/bloco de sustentação).
 - uid: XLNo08IQYW9weU
   boulder:
     nome: Panela do Diabo
@@ -159,7 +160,8 @@ escaladas:
   boulder:
     nome: Consciência para ter Coragem
     dificuldade: V7
-    descricao: Saída similar ao consciência, seguindo em travessia até ligar no boulder coragem.
+    descricao: Saída similar ao consciência, seguindo em travessia até ligar no boulder
+      coragem.
 - uid: k0eTbbOl6kCTx1
   boulder:
     nome: Caldeirão do Groove
@@ -168,9 +170,8 @@ escaladas:
   boulder:
     nome: Coragem
     dificuldade: V5
-    descricao: Saída com as duas mãos no buraco do teto e segue pelo caminho inverso do caldeirão, finalizando por 
-      agarrões na face vertical do bloco.
+    descricao: Saída com as duas mãos no buraco do teto e segue pelo caminho inverso
+      do caldeirão, finalizando por agarrões na face vertical do bloco.
 ---
 
-# Bloco: Panela do Diabo
 ## Região 2

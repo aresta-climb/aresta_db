@@ -106,10 +106,7 @@
 
 ### Setor (Pico: Corumbá)
 
-- **descricao**:
-    # Setor Pataxós
-    
-    Sombra a partir de 11h (varia de acordo com a sessão).
+- **descricao**: Sombra a partir de 11h (varia de acordo com a sessão).
 - **nome**: Setor Pataxós
 - **uid**: iCjYHssizqSvcD
 - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_pataxos_p1_i0.webp)
@@ -664,8 +661,6 @@
 ### Setor (Pico: Corumbá)
 
 - **descricao**:
-    # Setor Cataguás
-    
     > [!WARNING]
     > **O ACESSO A ESTE SETOR ESTÁ PROIBIDO POR HORA.**
     
@@ -737,10 +732,7 @@
 
 ### Setor (Pico: Corumbá)
 
-- **descricao**:
-    # Setor Xavante
-    
-    Sombra o dia todo (varia de acordo com a estação).
+- **descricao**: Sombra o dia todo (varia de acordo com a estação).
 - **nome**: Setor Xavante
 - **uid**: TxDV9kE6vHYvdM
 - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_xavante_p1_i0.webp)
@@ -912,10 +904,7 @@
 
 ### Setor (Pico: Corumbá)
 
-- **descricao**:
-    # Setor Yanomami
-    
-    Sombra até as 14h30 (varia de acordo com a estação).
+- **descricao**: Sombra até as 14h30 (varia de acordo com a estação).
 - **nome**: Setor Yanomami
 - **uid**: NDSstaoHwE6j5z
 - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_yanomami_p1_i0.webp)

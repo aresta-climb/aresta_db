@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: tsLPexCvGZbhiu
-nome: Fingerboard
+nome: Setor Fingerboard
 mapas:
 - caminho_imagem_mapa: imagens/grupo_mulher_de_bigode_setor_fingerboard_p0_i0.webp
   largura_mapa: 719
@@ -25,4 +25,3 @@ escaladas:
     dificuldade: V0
 ---
 
-# Fingerboard

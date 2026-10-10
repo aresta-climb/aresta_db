@@ -789,8 +789,6 @@ escaladas:
     - Marcus Rufino
 ---
 
-# Setor Entrada Inferior
-
 **Acesso:** Seguindo pela estrada partindo do estacionamento, é o primeiro setor que fica na chegada ao maciço.
 
 **Coordenadas na base da via É Brincadeira:** -19º32.879’ -43º59.337’

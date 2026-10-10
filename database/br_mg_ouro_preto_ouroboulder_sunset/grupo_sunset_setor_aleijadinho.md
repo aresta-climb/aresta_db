@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: 8ByzIvimI8JjlP
-nome: Aleijadinho
+nome: Bloco Aleijadinho
 escaladas:
 - uid: gLUBc0gxHnWRFG
   boulder:
@@ -26,4 +26,3 @@ mapas:
     - BepwayUIkwvQgw
 ---
 
-# Bloco Aleijadinho

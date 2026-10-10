@@ -83,11 +83,9 @@
 ### Setor (Pico: Gruta da Lapinha)
 
 - **descricao**:
-    # Setor Castelinho
-    
     Setor localizado próximo ao Restaurante Castelinho. Possui vias de graduação
     variada, incluindo algumas vias em móvel.
-- **nome**: Castelinho
+- **nome**: Setor Castelinho
 - **uid**: pcQfnDIAUZk99g
 - **mapas**:
   - **[0]**:
@@ -265,8 +263,6 @@
 ### Setor (Pico: Gruta da Lapinha)
 
 - **descricao**:
-    # Setor Mapa 2
-    
     Localizado próximo à entrada da gruta. 
     **Atenção:** "Não entre em cavernas".
 - **nome**: Setor Mapa 2
@@ -339,10 +335,7 @@
 
 ### Setor (Pico: Gruta da Lapinha)
 
-- **descricao**:
-    # Setor Gruta - Mapa 3
-    
-    Parte interna e externa da gruta com vias esportivas e móveis.
+- **descricao**: Parte interna e externa da gruta com vias esportivas e móveis.
 - **nome**: Setor Gruta - Mapa 3
 - **uid**: ZxeynNWtcoJYj9
 - **mapas**:
@@ -1062,10 +1055,7 @@
 
 ### Setor (Pico: Gruta da Lapinha)
 
-- **descricao**:
-    # Setor Gruta - Mapa 4 (Sala de Aula)
-    
-    Vias localizadas na região da Sala de Aula e em direção ao setor Savassinha.
+- **descricao**: Vias localizadas na região da Sala de Aula e em direção ao setor Savassinha.
 - **nome**: Setor Gruta - Mapa 4 (Sala de Aula)
 - **uid**: UsSUW7apVi41SD
 - **mapas**:
@@ -1514,7 +1504,7 @@
         - **alvo_uid**: UlccfwkdM6gnf0
         - **pontos_uids**:
           - VhXFpYrylmzxCu
-        - **setor**: Savassinha (Mapa 9)
+        - **setor**: Setor Savassinha (Mapa 9)
         - **ids**:
           - VhXFpYrylmzxCu
 - **escaladas**:
@@ -1687,8 +1677,6 @@
 ### Setor (Pico: Gruta da Lapinha)
 
 - **descricao**:
-    # Setor Mapa 5
-    
     Vias localizadas próximo à região do "Pasto" e "Mancha amarela".
     Confira a localização no mapa.
 - **nome**: Setor Mapa 5
@@ -1959,11 +1947,9 @@
 ### Setor (Pico: Gruta da Lapinha)
 
 - **descricao**:
-    # Setor Vale Verde (Mapa 6)
-    
     Setor com vias técnicas e atléticas. O mapa está fora de escala ("fora de escala").
     O Bloco do Raul Seixas está localizado próximo às vias 73, 74 e 75.
-- **nome**: Vale Verde (Mapa 6)
+- **nome**: Setor Vale Verde (Mapa 6)
 - **uid**: DzpVy5IyHcY19t
 - **mapas**:
   - **[0]**:
@@ -2348,10 +2334,7 @@
 
 ### Setor (Pico: Gruta da Lapinha)
 
-- **descricao**:
-    # Setor Mapa 7
-    
-    Este setor abriga a base da via "Monte Calvário". Possui vias predominantemente esportivas.
+- **descricao**: Este setor abriga a base da via "Monte Calvário". Possui vias predominantemente esportivas.
 - **nome**: Setor Mapa 7
 - **uid**: n7TZtwIPFNeMNy
 - **mapas**:
@@ -2676,8 +2659,6 @@
 ### Setor (Pico: Gruta da Lapinha)
 
 - **descricao**:
-    # Setor Túnel de Pedra (Mapa 8)
-    
     Vias localizadas na região do Túnel de Pedra.
     O setor possui uma grande concentração de vias esportivas de graduação variada.
 - **nome**: Setor Túnel de Pedra (Mapa 8)
@@ -3406,11 +3387,9 @@
 ### Setor (Pico: Gruta da Lapinha)
 
 - **descricao**:
-    # Setor Savassinha (Mapa 9)
-    
     Setor com vias de alto nível técnico e físico.
     Vias localizadas em uma das áreas mais frequentadas da Lapinha.
-- **nome**: Savassinha (Mapa 9)
+- **nome**: Setor Savassinha (Mapa 9)
 - **uid**: UlccfwkdM6gnf0
 - **mapas**:
   - **[0]**:
@@ -3884,8 +3863,6 @@
 ### Setor (Pico: Gruta da Lapinha)
 
 - **descricao**:
-    # Setor Bloco Romano (Mapa 10)
-    
     Setor final do guia, localizado próximo ao Túnel de Pedra e ao Teto.
     Possui vias predominantemente esportivas.
 - **nome**: Bloco Romano (Mapa 10)

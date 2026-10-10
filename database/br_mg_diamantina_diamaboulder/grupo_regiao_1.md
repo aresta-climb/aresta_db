@@ -11,6 +11,4 @@ setores:
 - caminho: grupo_regiao_1_setor_joelho_sem_freio.md
 ---
 
-# Região 1
-
 A Região 1 compreende os primeiros blocos do setor Cerrado Groove.

@@ -8,7 +8,7 @@ picos:
   - setor:
       conteudo:
         uid: FbReUotUDqxCUZ
-        nome: O Vale
+        nome: Setor O Vale
         mapas:
         - caminho_imagem_mapa: imagens/setor_o_vale_p0_i2.webp
           largura_mapa: 1032
@@ -54,7 +54,7 @@ picos:
       conteudo:
         uid: zcuFQgu37KFBnD
         caminho_imagem_capa: imagens/setor_as_pilastras_p0_i1.webp
-        nome: As Pilastras
+        nome: Setor As Pilastras
         mapas:
         - caminho_imagem_mapa: imagens/setor_as_pilastras_p1_i1.webp
           largura_mapa: 1032
@@ -133,7 +133,7 @@ picos:
       conteudo:
         uid: 5pN7yJIZtS7qQY
         caminho_imagem_capa: imagens/setor_a_pedreira_p1_i1.webp
-        nome: A Pedreira
+        nome: Setor A Pedreira
         mapas:
         - caminho_imagem_mapa: imagens/setor_a_pedreira_p1_i2.webp
           largura_mapa: 910

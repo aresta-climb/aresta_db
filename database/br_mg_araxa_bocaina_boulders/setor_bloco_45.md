@@ -276,12 +276,14 @@ escaladas:
   boulder:
     nome: Esquina do Gueto
     dificuldade: V2
-    descricao: Saída do bem vindo e entra para a face da esquerda da pedra, virando por ela.
+    descricao: Saída do bem vindo e entra para a face da esquerda da pedra, virando
+      por ela.
 - uid: A5CATmQ4mbzcON
   boulder:
     nome: Bem-Vindo
     dificuldade: V4
-    descricao: Saída sentado com as mãos em dois bicos baixos, a esquerda do bloco, segue reto.
+    descricao: Saída sentado com as mãos em dois bicos baixos, a esquerda do bloco,
+      segue reto.
 - uid: jEKmEQkJzKkbof
   boulder:
     nome: Siri Cascudo
@@ -291,19 +293,20 @@ escaladas:
   boulder:
     nome: Índios
     dificuldade: V5
-    descricao: Saída do bem vindo,seguindo batente ou fenda horizontal bem marcada, virando no tiro ao alvo.
+    descricao: Saída do bem vindo,seguindo batente ou fenda horizontal bem marcada,
+      virando no tiro ao alvo.
 - uid: zgPCV5sX3RT5mv
   boulder:
     nome: Índios SDS
     dificuldade: V9
-    descricao: Saída sentado com mão direita em reglete pequeno e calcanhar esquerdo na mão esquerda em agarrao, segue 
-      reto, passando pelo reglete da fenda vertical.
+    descricao: Saída sentado com mão direita em reglete pequeno e calcanhar esquerdo
+      na mão esquerda em agarrao, segue reto, passando pelo reglete da fenda vertical.
 - uid: kCkw4BwSQ66JQY
   boulder:
     nome: Família Bocaina
     dificuldade: V10
-    descricao: Saída sentado com a mão direita em reglete bom e esquerda junta na mesma agarra, saindo para uma agarra 
-      de ombro de esquerda.
+    descricao: Saída sentado com a mão direita em reglete bom e esquerda junta na
+      mesma agarra, saindo para uma agarra de ombro de esquerda.
 - uid: hGMouLYyRGoSf8
   boulder:
     nome: Sananga
@@ -313,17 +316,20 @@ escaladas:
   boulder:
     nome: Espírito San
     dificuldade: V8_BARRA_V9
-    descricao: Saída em pé com a mão esquerda em reglete pequeno e mão direita em mono dedo.
+    descricao: Saída em pé com a mão esquerda em reglete pequeno e mão direita em
+      mono dedo.
 - uid: 5j5RDqWyI5pH6E
   boulder:
     nome: Tiro ao Alvo
     dificuldade: V8
-    descricao: Saída agachado com mão esquerda em um buraco abaulado e mão esquerda em reglete ruim.
+    descricao: Saída agachado com mão esquerda em um buraco abaulado e mão esquerda
+      em reglete ruim.
 - uid: e5osFqSTv1yRnl
   boulder:
     nome: Tiro ao Alvo SDS
     dificuldade: V10
-    descricao: Saída sentado com mão esquerda em reglete pequeno e direita em reglete liso com o pÉ esquerdo alto.
+    descricao: Saída sentado com mão esquerda em reglete pequeno e direita em reglete
+      liso com o pÉ esquerdo alto.
 - uid: SFtPEGjCitlzP3
   boulder:
     nome: Mão na Massa
@@ -348,12 +354,14 @@ escaladas:
   boulder:
     nome: Curto e Gross
     dificuldade: V4
-    descricao: SaÍdA sentado com as duas mãos juntas em reglete batente ruim e pés ruins.
+    descricao: SaÍdA sentado com as duas mãos juntas em reglete batente ruim e pés
+      ruins.
 - uid: 117Soh4aoEHw6l
   boulder:
     nome: Carvoeiro
     dificuldade: V1
-    descricao: SaÍda agachado com as mãos em dois agarroes e segue em fenda diagonal pra esquerda em agarroes.
+    descricao: SaÍda agachado com as mãos em dois agarroes e segue em fenda diagonal
+      pra esquerda em agarroes.
 - uid: ZLg4DW5jK5sKLO
   boulder:
     nome: Kadron
@@ -373,13 +381,14 @@ escaladas:
   boulder:
     nome: Siri Queijo
     dificuldade: V7
-    descricao: Saída do bem vindo,seguindo batente ou fenda horizontal bem marcada, virando no tiro ao alvo.
+    descricao: Saída do bem vindo,seguindo batente ou fenda horizontal bem marcada,
+      virando no tiro ao alvo.
 - uid: CBzxeV1m1nvHB0
   boulder:
     nome: Problema Legal
     dificuldade: V7
-    descricao: Saída com a mão esquerda em escama na fenda, mão direita em agarrão baixo com calcanhar esquerdo na 
-      altura da mão esquerda, virando no Siri queijo.
+    descricao: Saída com a mão esquerda em escama na fenda, mão direita em agarrão
+      baixo com calcanhar esquerdo na altura da mão esquerda, virando no Siri queijo.
 - uid: GdAqgqzZrqm0Yz
   boulder:
     nome: Pecado de Chó
@@ -392,4 +401,3 @@ escaladas:
     descricao: Saída do sananga virando no indios.
 ---
 
-# Setor Bloco 45º

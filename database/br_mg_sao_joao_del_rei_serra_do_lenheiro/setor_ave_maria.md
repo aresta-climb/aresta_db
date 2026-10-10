@@ -3,7 +3,7 @@
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: kJNk7kWKseMZ5d
 caminho_imagem_capa: imagens/setor_ave_maria_p0_i2.webp
-nome: Ave Maria
+nome: Setor Ave Maria
 mapas:
 - caminho_imagem_mapa: imagens/setor_ave_maria_p1_i2.webp
   largura_mapa: 1548
@@ -296,8 +296,8 @@ escaladas:
     - Jonatas Lima
     - Tonhão
     data_abertura: '2015'
-    descricao: Apesar de pequena é bem explosiva e boulderística, depois de virar o negativo ainda se escala uma parte 
-      meio rampa até um único grampo para rapel.
+    descricao: Apesar de pequena é bem explosiva e boulderística, depois de virar
+      o negativo ainda se escala uma parte meio rampa até um único grampo para rapel.
 - uid: GC2tIE3EVzolIK
   via_esportiva:
     nome: Pelo Amor de Deus
@@ -307,9 +307,11 @@ escaladas:
     conquistadores:
     - Jonatas Lima
     - Pedro Paulo
-    descricao: O nome diz as característica da via, com agarras super afiadas e cortantes, torna-se um pouco sofrido 
-      ficar parado nelas, sua linha segue uma horizontal pra direita até acessar um grande platô, mais alguns lances pra
-      cima e chega ao top duplo de argola. Atenção antes do platô, ainda existem agarras que podem quebrar.
+    descricao: O nome diz as característica da via, com agarras super afiadas e cortantes,
+      torna-se um pouco sofrido ficar parado nelas, sua linha segue uma horizontal
+      pra direita até acessar um grande platô, mais alguns lances pra cima e chega
+      ao top duplo de argola. Atenção antes do platô, ainda existem agarras que podem
+      quebrar.
 - uid: jl1y5tI29Lmcde
   via_esportiva:
     nome: Livre Arbítrio
@@ -318,8 +320,9 @@ escaladas:
     - Webert Resende (Beto)
     - Jonatas Lima
     data_abertura: '2015'
-    descricao: Uma via com uma saída boulderística e explosiva, passadas em dinâmicos, lances esticados em agarras 
-      grandes deixam essa via com uma beleza rara. O final desta via é compartilhada com a via numero 3.
+    descricao: Uma via com uma saída boulderística e explosiva, passadas em dinâmicos,
+      lances esticados em agarras grandes deixam essa via com uma beleza rara. O final
+      desta via é compartilhada com a via numero 3.
 - uid: oH6CsmHHu7qg2d
   via_esportiva:
     nome: Purgatório
@@ -329,8 +332,9 @@ escaladas:
     - Jonatas Lima
     - João Felipin
     data_abertura: '2003'
-    descricao: Segunda via aberta neste setor e uma das mais clássicas, com uma saída numa laca gigante, passadas em 
-      diagonal, lances de bidedos, regletes e agarras grandes, fazem desta linha uma das mais procuradas.
+    descricao: Segunda via aberta neste setor e uma das mais clássicas, com uma saída
+      numa laca gigante, passadas em diagonal, lances de bidedos, regletes e agarras
+      grandes, fazem desta linha uma das mais procuradas.
 - uid: 85mUFGyzUMl0Fe
   via_esportiva:
     nome: O Pão que o Diabo Amassou
@@ -339,9 +343,10 @@ escaladas:
     - Sérgio Ricardo
     - Jonatas Lima
     data_abertura: '2015'
-    descricao: Está é uma variante aberta sem bater uma chapa, por ser uma junção de 4 vias. Seu início pela Purgatório 
-      passando pelo crux, emendando na Cheia de Graça, por uma passada rápida pela Ave Maria e terminando no top da 
-      Ajoelhou Tem Que Rezar. Entre as graduadas em 8 grau é a mais frequentada do setor.
+    descricao: Está é uma variante aberta sem bater uma chapa, por ser uma junção
+      de 4 vias. Seu início pela Purgatório passando pelo crux, emendando na Cheia
+      de Graça, por uma passada rápida pela Ave Maria e terminando no top da Ajoelhou
+      Tem Que Rezar. Entre as graduadas em 8 grau é a mais frequentada do setor.
 - uid: FzYoAcZmCjp3OW
   via_esportiva:
     nome: Calvário
@@ -350,9 +355,10 @@ escaladas:
     - Jonatas Lima
     - Carlos Pádua
     data_abertura: '2015'
-    descricao: Uma Variante que se trata de duas chapas para fazer a junção de várias vias. Esta linha tem que ser 
-      escalada pela via O Pão Que o Diabo Amassou e quando se chega na parada dupla da Ave Maria toca-se a direita onde 
-      está o real problema, lances de boulder com botes, dinâmicos até emendar na Ajoelhou Tem Que Rezar.
+    descricao: Uma Variante que se trata de duas chapas para fazer a junção de várias
+      vias. Esta linha tem que ser escalada pela via O Pão Que o Diabo Amassou e quando
+      se chega na parada dupla da Ave Maria toca-se a direita onde está o real problema,
+      lances de boulder com botes, dinâmicos até emendar na Ajoelhou Tem Que Rezar.
 - uid: NeUxLotQlHLsEQ
   via_esportiva:
     nome: Estigma
@@ -361,9 +367,10 @@ escaladas:
     - Jonatas Lima
     - Webert Resende
     data_abertura: '2015'
-    descricao: Mais uma variante que tem a saída em comum com a Cheia de Graça. Passando a horizontal à esquerda até 
-      cruzar com o primeiro movimento difícil da Purgatório, continua-se à esquerda em diagonal até emendar com o final 
-      da via Pelo Amor de Deus.
+    descricao: Mais uma variante que tem a saída em comum com a Cheia de Graça. Passando
+      a horizontal à esquerda até cruzar com o primeiro movimento difícil da Purgatório,
+      continua-se à esquerda em diagonal até emendar com o final da via Pelo Amor
+      de Deus.
 - uid: GZX25aIKBylFg7
   via_esportiva:
     nome: Cheia de Graça
@@ -374,9 +381,10 @@ escaladas:
     - Jonatas Lima
     - Jefferson Lara
     data_abertura: '2008'
-    descricao: Outra clássica do setor, com uma saída em monte, e passadas em grandes lacas e uma fenda, lances 
-      dinâmicos, lances de calcanhar, e um final em diagonal a esquerda até chegar no top duplo da Ave Maria. Excelente 
-      via para os que querem se aventurar no setor.
+    descricao: Outra clássica do setor, com uma saída em monte, e passadas em grandes
+      lacas e uma fenda, lances dinâmicos, lances de calcanhar, e um final em diagonal
+      a esquerda até chegar no top duplo da Ave Maria. Excelente via para os que querem
+      se aventurar no setor.
 - uid: HvCXS2UYIBnMAy
   via_esportiva:
     nome: Apocalipse
@@ -385,9 +393,10 @@ escaladas:
     - Jonatas Lima
     - Carlos Pádua
     data_abertura: '2015'
-    descricao: Sua linha é praticamente a via Cheia de Graça, sendo seu diferencial a saída que é mais à direita e o 
-      final que, após o top da Ave Maria, segue pra esquerda com lance forte e aéreo, terminando no top duplo da 
-      Ajoelhou Tem Que Rezar.
+    descricao: Sua linha é praticamente a via Cheia de Graça, sendo seu diferencial
+      a saída que é mais à direita e o final que, após o top da Ave Maria, segue pra
+      esquerda com lance forte e aéreo, terminando no top duplo da Ajoelhou Tem Que
+      Rezar.
 - uid: b6lCh8sGzpgpMZ
   via_esportiva:
     nome: Ave Maria
@@ -397,9 +406,10 @@ escaladas:
     - Luiz Cláudio
     - Rodrigo Araujo
     data_abertura: '2004'
-    descricao: A primeira via a ser conquistada no local, a qual deu o nome ao setor. Percorre uma linha diagonal para a
-      esquerda de grandes agarras. Mas é uma via PERIGOSA, pois uma queda antes da terceira chapa pode vir no chão, como
-      já aconteceu. Portanto melhor entrar só quem já está com o grau muito dominado.
+    descricao: A primeira via a ser conquistada no local, a qual deu o nome ao setor.
+      Percorre uma linha diagonal para a esquerda de grandes agarras. Mas é uma via
+      PERIGOSA, pois uma queda antes da terceira chapa pode vir no chão, como já aconteceu.
+      Portanto melhor entrar só quem já está com o grau muito dominado.
 - uid: xIlBM9Yd3RYOXx
   via_esportiva:
     nome: Ajoelhou Tem Que Rezar
@@ -409,8 +419,9 @@ escaladas:
     - Fabrício Nascimento
     - Carlos Pádua
     data_abertura: '2012'
-    descricao: É a maior via do setor e mais aérea, com chapas um pouco mais distantes as quedas são um pouco maiores e 
-      no vazio, percorre toda aresta de toda rocha, possui uma variedade de estilo diferente das outras do setor.
+    descricao: É a maior via do setor e mais aérea, com chapas um pouco mais distantes
+      as quedas são um pouco maiores e no vazio, percorre toda aresta de toda rocha,
+      possui uma variedade de estilo diferente das outras do setor.
 - uid: LlSJ7DG4Hywok9
   via_esportiva:
     nome: Oratório
@@ -419,8 +430,8 @@ escaladas:
     - Jonatas Lima
     - Márcio Douglas
     data_abertura: '2022'
-    descricao: Compartilha o inicio da via Ajoelhou Tem que Rezar e em sua metade sai pra direita, desborda o final da 
-      rocha e termina no top da Primeira Comunhão.
+    descricao: Compartilha o inicio da via Ajoelhou Tem que Rezar e em sua metade
+      sai pra direita, desborda o final da rocha e termina no top da Primeira Comunhão.
 - uid: D0Hgc9pq0Fp9Dj
   via_esportiva:
     nome: Água Benta
@@ -429,7 +440,8 @@ escaladas:
     - Jonatas Lima
     - Márcio Douglas
     data_abertura: '2022'
-    descricao: Mesma saída da via anterior, mas logo sai pra direita onde toca reto até o top da Primeira Comunhão.
+    descricao: Mesma saída da via anterior, mas logo sai pra direita onde toca reto
+      até o top da Primeira Comunhão.
 - uid: As8VjAKpbALZz6
   via_esportiva:
     nome: Primeira Comunhão
@@ -440,8 +452,9 @@ escaladas:
     - Carlos Pádua
     - Pablo Veloso
     data_abertura: '2015'
-    descricao: Via localizada à extrema direita do bloco rochoso. Sua linha percorre pela aresta terminando em uma 
-      parada dupla. Esta via possibilita fotos incríveis, principalmente ao entardecer.
+    descricao: Via localizada à extrema direita do bloco rochoso. Sua linha percorre
+      pela aresta terminando em uma parada dupla. Esta via possibilita fotos incríveis,
+      principalmente ao entardecer.
 - uid: 1h1ldSzDpYst89
   via_esportiva:
     nome: '?'
@@ -449,8 +462,9 @@ escaladas:
     conquistadores:
     - Felipe Alvares (Kbeça)
     data_abertura: '2023-05-01'
-    descricao: Provavelmente será uma das vias mais difíceis do setor, ainda não possui cadena e nem nome. Saída usando 
-      a primeira chapa da via Ave Maria e toca reto pra cima até a parada dupla das vias anteriores.
+    descricao: Provavelmente será uma das vias mais difíceis do setor, ainda não possui
+      cadena e nem nome. Saída usando a primeira chapa da via Ave Maria e toca reto
+      pra cima até a parada dupla das vias anteriores.
 - uid: lNyqNwPcUEeMDj
   via_esportiva:
     nome: Procissão das Almas
@@ -458,10 +472,12 @@ escaladas:
     conquistadores:
     - Jonatas Lima
     data_abertura: '2022-01-30'
-    descricao: Linha que conecta as principais vias, cruzando todo o setor. Graduação estimada em 9?. Sai pela via Pelo 
-      Amor de Deus, antes do top desce pela Estigma e sai no lance de mono-dedo da via Purgatório. Faz o lance da Pão 
-      que o Diabo Amassou, sobe pelo final da apocalipse e depois volta tudo pela Ajoelhou Tem Que Rezar. Por fim, sobe 
-      pela via Oratório e termina no top da Primeira Comunhão. Ainda sem cadena.
+    descricao: Linha que conecta as principais vias, cruzando todo o setor. Graduação
+      estimada em 9?. Sai pela via Pelo Amor de Deus, antes do top desce pela Estigma
+      e sai no lance de mono-dedo da via Purgatório. Faz o lance da Pão que o Diabo
+      Amassou, sobe pelo final da apocalipse e depois volta tudo pela Ajoelhou Tem
+      Que Rezar. Por fim, sobe pela via Oratório e termina no top da Primeira Comunhão.
+      Ainda sem cadena.
 - uid: dwNixZMbG7bGzh
   via_esportiva:
     nome: Bombonier da Sacristia
@@ -479,7 +495,8 @@ escaladas:
     - Tomás Kesselring
     - Flora Kesselring
     data_abertura: '2015'
-    descricao: Via localizada no Bloco 3, ao lado da via Parabolts em Fúria. Graduação sugerida de 10a?.
+    descricao: Via localizada no Bloco 3, ao lado da via Parabolts em Fúria. Graduação
+      sugerida de 10a?.
 - uid: V2UrBrKXwT54IR
   via_esportiva:
     nome: Parabolts em Fúria
@@ -489,8 +506,9 @@ escaladas:
     - Jonatas Lima
     - Maurício dos Santos
     data_abertura: '2006'
-    descricao: Localizada no Bloco 3. Possui uma linha diagonal à direita e posteriormente um sentido mais vertical, 
-      chegando em uma parada dupla. Atentar-se na saída, devido a primeira proteção estar alta.
+    descricao: Localizada no Bloco 3. Possui uma linha diagonal à direita e posteriormente
+      um sentido mais vertical, chegando em uma parada dupla. Atentar-se na saída,
+      devido a primeira proteção estar alta.
 - uid: bESfwAWf4X0nFZ
   via_movel:
     nome: Contra-grip e resfriado
@@ -501,11 +519,9 @@ escaladas:
     - Pedro Bugim
     - Vivianne Sawczuk
     data_abertura: '2015'
-    descricao: Única via em móvel do setor, localizada no Bloco 3, ao lado esquerdo da via Parabolts em Fúria. Parada 
-      móvel e descida por caminhada.
+    descricao: Única via em móvel do setor, localizada no Bloco 3, ao lado esquerdo
+      da via Parabolts em Fúria. Parada móvel e descida por caminhada.
 ---
-
-# Ave Maria
 
 Este setor se tornou famoso entre escaladores esportivos que buscam por uma escalada mais atlética. Suas vias, em geral, são bem negativas e exigentes fisicamente. A área no entorno também possui uma grande quantidade de Boulders, que são tratados num guia independente que pode ser acessado no link disponibilizado no início deste guia.
 

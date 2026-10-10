@@ -89,10 +89,7 @@
 
 ### Grupo (Pico: Conceição do Mato Dentro)
 
-- **descricao**:
-    # Grupo Salão de Pedras
-    
-    O Salão de Pedras é um dos picos mais tradicionais de Conceição do Mato Dentro, oferecendo uma grande variedade de blocos e linhas de boulder.
+- **descricao**: O Salão de Pedras é um dos picos mais tradicionais de Conceição do Mato Dentro, oferecendo uma grande variedade de blocos e linhas de boulder.
 - **nome**: Salão de Pedras
 - **uid**: erHWzKVZ0X9TlI
 - **mapas**:
@@ -196,56 +193,56 @@
         - **alvo_uid**: laU6kSKcP3t27A
         - **pontos_uids**:
           - paVhfWhT7nd8U4
-        - **setor**: Ônibus
+        - **setor**: Setor Ônibus
         - **ids**:
           - paVhfWhT7nd8U4
       - **[1]**:
         - **alvo_uid**: PNkGaUuHzJplDd
         - **pontos_uids**:
           - gtW4aJUXF38mOa
-        - **setor**: Super Herói
+        - **setor**: Setor Super Herói
         - **ids**:
           - gtW4aJUXF38mOa
       - **[2]**:
         - **alvo_uid**: bAAZiu44azeNKI
         - **pontos_uids**:
           - ahAwTNi9FtjKRu
-        - **setor**: Caverninha
+        - **setor**: Setor Caverninha
         - **ids**:
           - ahAwTNi9FtjKRu
       - **[3]**:
         - **alvo_uid**: 9izKJaq4CxSHRG
         - **pontos_uids**:
           - QRczPpK58M2xSx
-        - **setor**: Campo Escola
+        - **setor**: Setor Campo Escola
         - **ids**:
           - QRczPpK58M2xSx
       - **[4]**:
         - **alvo_uid**: VBkLZLZHoBsl6y
         - **pontos_uids**:
           - Mmq3dhWktQLsmg
-        - **setor**: Escorpião
+        - **setor**: Setor Escorpião
         - **ids**:
           - Mmq3dhWktQLsmg
       - **[5]**:
         - **alvo_uid**: oPnH4R0z6pGdpP
         - **pontos_uids**:
           - b3fPMFNHIebT6n
-        - **setor**: Troféu
+        - **setor**: Setor Troféu
         - **ids**:
           - b3fPMFNHIebT6n
       - **[6]**:
         - **alvo_uid**: oLx7PAaXis7B0M
         - **pontos_uids**:
           - R0YNVd7hR2cyVD
-        - **setor**: X-Tudo
+        - **setor**: Setor X-Tudo
         - **ids**:
           - R0YNVd7hR2cyVD
       - **[7]**:
         - **alvo_uid**: sYADkPTjRnYElG
         - **pontos_uids**:
           - KGsNZLmitDlNDX
-        - **setor**: Domínio Digital
+        - **setor**: Setor Domínio Digital
         - **ids**:
           - KGsNZLmitDlNDX
       - **[8]**:
@@ -266,12 +263,10 @@
   - **[0]**:
     - **conteudo**:
       - **descricao**:
-          # Setor Ônibus
-          
           O setor Ônibus possui dois blocos principais com diversas linhas de boulder.
           
           Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
-      - **nome**: Ônibus
+      - **nome**: Setor Ônibus
       - **uid**: laU6kSKcP3t27A
       - **mapas**:
         - **[0]**:
@@ -645,12 +640,10 @@
   - **[1]**:
     - **conteudo**:
       - **descricao**:
-          # Setor Super Herói
-          
           O setor Super Herói possui linhas clássicas em um bloco bem característico.
           
           Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
-      - **nome**: Super Herói
+      - **nome**: Setor Super Herói
       - **uid**: PNkGaUuHzJplDd
       - **mapas**:
         - **[0]**:
@@ -754,12 +747,10 @@
   - **[2]**:
     - **conteudo**:
       - **descricao**:
-          # Setor Caverninha
-          
           O setor Caverninha possui tetos e negativos com linhas de alta dificuldade.
           
           Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
-      - **nome**: Caverninha
+      - **nome**: Setor Caverninha
       - **uid**: bAAZiu44azeNKI
       - **mapas**:
         - **[0]**:
@@ -1117,12 +1108,10 @@
   - **[3]**:
     - **conteudo**:
       - **descricao**:
-          # Setor Campo Escola
-          
           O setor Campo Escola é ideal para iniciantes e para quem busca linhas de boulder mais acessíveis.
           
           Obs.: Não foram identificadas todas as linhas desse bloco. Certique-se antes de fazer uma possível primeira ascensão.
-      - **nome**: Campo Escola
+      - **nome**: Setor Campo Escola
       - **uid**: 9izKJaq4CxSHRG
       - **mapas**:
         - **[0]**:
@@ -1408,12 +1397,10 @@
   - **[4]**:
     - **conteudo**:
       - **descricao**:
-          # Setor Escorpião
-          
           O setor Escorpião apresenta boulders com movimentos técnicos e agarras específicas.
           
           Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
-      - **nome**: Escorpião
+      - **nome**: Setor Escorpião
       - **uid**: VBkLZLZHoBsl6y
       - **mapas**:
         - **[0]**:
@@ -1589,12 +1576,10 @@
   - **[5]**:
     - **conteudo**:
       - **descricao**:
-          # Setor Troféu
-          
           O setor Troféu é conhecido por suas linhas técnicas e de alta graduação.
           
           Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
-      - **nome**: Troféu
+      - **nome**: Setor Troféu
       - **uid**: oPnH4R0z6pGdpP
       - **mapas**:
         - **[0]**:
@@ -1676,12 +1661,10 @@
   - **[6]**:
     - **conteudo**:
       - **descricao**:
-          # Setor X-Tudo
-          
           O setor X-Tudo possui blocos interessantes com linhas de dificuldade intermediária.
           
           Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
-      - **nome**: X-Tudo
+      - **nome**: Setor X-Tudo
       - **uid**: oLx7PAaXis7B0M
       - **mapas**:
         - **[0]**:
@@ -1797,12 +1780,10 @@
   - **[7]**:
     - **conteudo**:
       - **descricao**:
-          # Setor Domínio Digital
-          
           O setor Domínio Digital possui um bloco com um arco natural e linhas de baixa dificuldade.
           
           Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
-      - **nome**: Domínio Digital
+      - **nome**: Setor Domínio Digital
       - **uid**: sYADkPTjRnYElG
       - **mapas**:
         - **[0]**:
@@ -1890,10 +1871,7 @@
 
 ### Grupo (Pico: Conceição do Mato Dentro)
 
-- **descricao**:
-    # Grupo Colina
-    
-    A Colina abriga diversos setores com abordagens e estilos diferentes, de blocos clássicos a novas linhas.
+- **descricao**: A Colina abriga diversos setores com abordagens e estilos diferentes, de blocos clássicos a novas linhas.
 - **nome**: Colina
 - **uid**: YkAop73CsSuZ6U
 - **mapas**:
@@ -1957,43 +1935,41 @@
         - **alvo_uid**: txd3FQ2sso3KfL
         - **pontos_uids**:
           - wrD6Cr355ncGoe
-        - **setor**: Choquito
+        - **setor**: Setor Choquito
         - **ids**:
           - wrD6Cr355ncGoe
       - **[1]**:
         - **alvo_uid**: YE6JcMIe648G54
         - **pontos_uids**:
           - DdAS8L7n5kBX87
-        - **setor**: Godzilla
+        - **setor**: Setor Godzilla
         - **ids**:
           - DdAS8L7n5kBX87
       - **[2]**:
         - **alvo_uid**: QPq69lj2cQaMam
         - **pontos_uids**:
           - 50ASdNdNKXwgwQ
-        - **setor**: Show Time
+        - **setor**: Setor Show Time
         - **ids**:
           - 50ASdNdNKXwgwQ
       - **[3]**:
         - **alvo_uid**: 5jTRMDJCeaLvnz
         - **pontos_uids**:
           - EJcIYcuiAg2QvU
-        - **setor**: Hiperespaço
+        - **setor**: Setor Hiperespaço
         - **ids**:
           - EJcIYcuiAg2QvU
       - **[4]**:
         - **alvo_uid**: NyRs6pI4NoexjO
         - **pontos_uids**:
           - q8Px7ijHdLpZfB
-        - **setor**: Mergulho em Copo d'Água
+        - **setor**: Setor Mergulho em Copo d'Água
         - **ids**:
           - q8Px7ijHdLpZfB
 - **setores**:
   - **[0]**:
     - **conteudo**:
       - **descricao**:
-          # Setor Choquito
-          
           O setor Choquito possui blocos com linhas variadas.
           
           > [!CAUTION]
@@ -2003,7 +1979,7 @@
           | *Pintura Rupestre* |
           
           Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
-      - **nome**: Choquito
+      - **nome**: Setor Choquito
       - **uid**: txd3FQ2sso3KfL
       - **mapas**:
         - **[0]**:
@@ -2178,12 +2154,10 @@
   - **[1]**:
     - **conteudo**:
       - **descricao**:
-          # Setor Godzilla
-          
           O setor Godzilla possui blocos imponentes com linhas de alta qualidade e dificuldade.
           
           Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
-      - **nome**: Godzilla
+      - **nome**: Setor Godzilla
       - **uid**: YE6JcMIe648G54
       - **mapas**:
         - **[0]**:
@@ -2387,12 +2361,10 @@
   - **[2]**:
     - **conteudo**:
       - **descricao**:
-          # Setor Show Time
-          
           O setor Show Time possui blocos isolados com linhas de diversas dificuldades e visuais incríveis.
           
           Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
-      - **nome**: Show Time
+      - **nome**: Setor Show Time
       - **uid**: QPq69lj2cQaMam
       - **mapas**:
         - **[0]**:
@@ -2619,12 +2591,10 @@
   - **[3]**:
     - **conteudo**:
       - **descricao**:
-          # Setor Hiperespaço
-          
           O setor Hiperespaço apresenta um bloco imponente com linhas de alta graduação e movimentos atléticos.
           
           Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
-      - **nome**: Hiperespaço
+      - **nome**: Setor Hiperespaço
       - **uid**: 5jTRMDJCeaLvnz
       - **mapas**:
         - **[0]**:
@@ -2772,12 +2742,10 @@
   - **[4]**:
     - **conteudo**:
       - **descricao**:
-          # Setor Mergulho em Copo d'Água
-          
           O setor Mergulho em Copo d'Água possui um bloco isolado com uma linha clássica.
           
           Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
-      - **nome**: Mergulho em Copo d'Água
+      - **nome**: Setor Mergulho em Copo d'Água
       - **uid**: NyRs6pI4NoexjO
       - **mapas**:
         - **[0]**:
@@ -2821,10 +2789,7 @@
 
 ### Grupo (Pico: Conceição do Mato Dentro)
 
-- **descricao**:
-    # Grupo JK
-    
-    O Grupo JK possui o setor Mufasa, com linhas de boulder interessantes e acesso facilitado.
+- **descricao**: O Grupo JK possui o setor Mufasa, com linhas de boulder interessantes e acesso facilitado.
 - **nome**: JK
 - **uid**: uqM9RkYH7rbEGj
 - **mapas**:
@@ -2858,19 +2823,17 @@
         - **alvo_uid**: p7wr5W1PHLpGlE
         - **pontos_uids**:
           - tHhznIudpdNmHQ
-        - **setor**: Mufasa
+        - **setor**: Setor Mufasa
         - **ids**:
           - tHhznIudpdNmHQ
 - **setores**:
   - **[0]**:
     - **conteudo**:
       - **descricao**:
-          # Setor Mufasa
-          
           O setor Mufasa apresenta um bloco com linhas de altíssima dificuldade e movimentos icônicos.
           
           Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
-      - **nome**: Mufasa
+      - **nome**: Setor Mufasa
       - **uid**: p7wr5W1PHLpGlE
       - **mapas**:
         - **[0]**:
@@ -2936,10 +2899,7 @@
 
 ### Grupo (Pico: Conceição do Mato Dentro)
 
-- **descricao**:
-    # Grupo Pedreira
-    
-    A Pedreira é o grupo com maior número de setores e linhas, apresentando desafios para todos os níveis.
+- **descricao**: A Pedreira é o grupo com maior número de setores e linhas, apresentando desafios para todos os níveis.
 - **nome**: Pedreira
 - **uid**: fmOEl4JjUwdHIk
 - **mapas**:
@@ -3103,117 +3063,115 @@
         - **alvo_uid**: 7E2CO690WlPLfJ
         - **pontos_uids**:
           - b23vf3N41ACj3A
-        - **setor**: Preguiça
+        - **setor**: Setor Preguiça
         - **ids**:
           - b23vf3N41ACj3A
       - **[1]**:
         - **alvo_uid**: 0J02htQ9ijlNku
         - **pontos_uids**:
           - yFSS81ITy499Qt
-        - **setor**: Manda Lá
+        - **setor**: Setor Manda Lá
         - **ids**:
           - yFSS81ITy499Qt
       - **[2]**:
         - **alvo_uid**: iwFDrJbwDBIZci
         - **pontos_uids**:
           - 52Hlv1eMxygMHM
-        - **setor**: Trabalhador
+        - **setor**: Setor Trabalhador
         - **ids**:
           - 52Hlv1eMxygMHM
       - **[3]**:
         - **alvo_uid**: 9i4ulhHe8Wt2fG
         - **pontos_uids**:
           - PB73eL63DwVfA7
-        - **setor**: Sanfoneiro Maluco
+        - **setor**: Setor Sanfoneiro Maluco
         - **ids**:
           - PB73eL63DwVfA7
       - **[4]**:
         - **alvo_uid**: X2Ug9CixcMKYd8
         - **pontos_uids**:
           - lmqaF1XcTVGOZM
-        - **setor**: Samurai
+        - **setor**: Setor Samurai
         - **ids**:
           - lmqaF1XcTVGOZM
       - **[5]**:
         - **alvo_uid**: pjU0CL4hDO7jOa
         - **pontos_uids**:
           - 1HoVQDzlfoVhxM
-        - **setor**: Bomba Atômica
+        - **setor**: Setor Bomba Atômica
         - **ids**:
           - 1HoVQDzlfoVhxM
       - **[6]**:
         - **alvo_uid**: ZIkSfGNugqHMnX
         - **pontos_uids**:
           - Mlc1tRQzIGLamn
-        - **setor**: Jubileu
+        - **setor**: Setor Jubileu
         - **ids**:
           - Mlc1tRQzIGLamn
       - **[7]**:
         - **alvo_uid**: 1UnylXLq321R7V
         - **pontos_uids**:
           - hmU0vFdMSLuNm6
-        - **setor**: Conceição
+        - **setor**: Setor Conceição
         - **ids**:
           - hmU0vFdMSLuNm6
       - **[8]**:
         - **alvo_uid**: 19m6huz3tACiyA
         - **pontos_uids**:
           - iiV2OFzkqWFKpD
-        - **setor**: Bobsled
+        - **setor**: Setor Bobsled
         - **ids**:
           - iiV2OFzkqWFKpD
       - **[9]**:
         - **alvo_uid**: iZJd5BxEiCNhso
         - **pontos_uids**:
           - B48bdIMXCkM6Af
-        - **setor**: Aresta do Cabeça
+        - **setor**: Setor Aresta do Cabeça
         - **ids**:
           - B48bdIMXCkM6Af
       - **[10]**:
         - **alvo_uid**: FbDfAbWOrmCBZp
         - **pontos_uids**:
           - 2dktKSyJGtDNHE
-        - **setor**: Equinócio
+        - **setor**: Setor Equinócio
         - **ids**:
           - 2dktKSyJGtDNHE
       - **[11]**:
         - **alvo_uid**: MwfeN0k5sY83kY
         - **pontos_uids**:
           - YFf16f3kWzJzF2
-        - **setor**: Witness
+        - **setor**: Setor Witness
         - **ids**:
           - YFf16f3kWzJzF2
       - **[12]**:
         - **alvo_uid**: gUuLVreg1RgUm6
         - **pontos_uids**:
           - pRmlwYnHRxUS3W
-        - **setor**: La Fúria
+        - **setor**: Setor La Fúria
         - **ids**:
           - pRmlwYnHRxUS3W
       - **[13]**:
         - **alvo_uid**: QqN6oqb5Sf8vGq
         - **pontos_uids**:
           - A6PxzdEFL6JoV2
-        - **setor**: Jah
+        - **setor**: Setor Jah
         - **ids**:
           - A6PxzdEFL6JoV2
       - **[14]**:
         - **alvo_uid**: G5dk8AEaYgSzDy
         - **pontos_uids**:
           - ug6uAJPc4cQJ3b
-        - **setor**: Pole Dance
+        - **setor**: Setor Pole Dance
         - **ids**:
           - ug6uAJPc4cQJ3b
 - **setores**:
   - **[0]**:
     - **conteudo**:
       - **descricao**:
-          # Setor Preguiça
-          
           O setor Preguiça possui blocos com linhas de alta dificuldade e boulders atléticos.
           
           Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
-      - **nome**: Preguiça
+      - **nome**: Setor Preguiça
       - **uid**: 7E2CO690WlPLfJ
       - **mapas**:
         - **[0]**:
@@ -3461,12 +3419,10 @@
   - **[1]**:
     - **conteudo**:
       - **descricao**:
-          # Setor Manda Lá
-          
           O setor Manda Lá possui um bloco com linhas atléticas e agarras de régua.
           
           Obs.: Não foram identificadas todas as linhas desse bloco. Certique-se antes de fazer uma possível primeira ascensão.
-      - **nome**: Manda Lá
+      - **nome**: Setor Manda Lá
       - **uid**: 0J02htQ9ijlNku
       - **mapas**:
         - **[0]**:
@@ -3526,12 +3482,10 @@
   - **[2]**:
     - **conteudo**:
       - **descricao**:
-          # Setor Trabalhador
-          
           O setor Trabalhador oferece linhas com regates e batidas, exigindo força e técnica.
           
           Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
-      - **nome**: Trabalhador
+      - **nome**: Setor Trabalhador
       - **uid**: iwFDrJbwDBIZci
       - **mapas**:
         - **[0]**:
@@ -3663,12 +3617,10 @@
   - **[3]**:
     - **conteudo**:
       - **descricao**:
-          # Setor Sanfoneiro Maluco
-          
           O setor Sanfoneiro Maluco possui blocos com linhas de alto nível, exigindo movimentos precisos e força.
           
           Obs.: Não foram identificadas todas as linhas desse bloco. Certique-se antes de fazer uma possível primeira ascensão.
-      - **nome**: Sanfoneiro Maluco
+      - **nome**: Setor Sanfoneiro Maluco
       - **uid**: 9i4ulhHe8Wt2fG
       - **mapas**:
         - **[0]**:
@@ -3828,12 +3780,10 @@
   - **[4]**:
     - **conteudo**:
       - **descricao**:
-          # Setor Samurai
-          
           O setor Samurai possui boulders negativos com agarras pequenas e movimentos potentes.
           
           Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
-      - **nome**: Samurai
+      - **nome**: Setor Samurai
       - **uid**: X2Ug9CixcMKYd8
       - **mapas**:
         - **[0]**:
@@ -3965,12 +3915,10 @@
   - **[5]**:
     - **conteudo**:
       - **descricao**:
-          # Setor Bomba Atômica
-          
           O setor Bomba Atômica possui blocos variados com predominância de negativos e tetos, oferecendo linhas técnicas e de força.
           
           Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
-      - **nome**: Bomba Atômica
+      - **nome**: Setor Bomba Atômica
       - **uid**: pjU0CL4hDO7jOa
       - **mapas**:
         - **[0]**:
@@ -4422,12 +4370,10 @@
   - **[6]**:
     - **conteudo**:
       - **descricao**:
-          # Setor Jubileu
-          
           O setor Jubileu possui blocos interessantes com linhas de dificuldade intermediária.
           
           Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
-      - **nome**: Jubileu
+      - **nome**: Setor Jubileu
       - **uid**: ZIkSfGNugqHMnX
       - **mapas**:
         - **[0]**:
@@ -4543,12 +4489,10 @@
   - **[7]**:
     - **conteudo**:
       - **descricao**:
-          # Setor Conceição
-          
           O setor Conceição apresenta blocos com agarras boas e linhas de técnica.
           
           Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
-      - **nome**: Conceição
+      - **nome**: Setor Conceição
       - **uid**: 1UnylXLq321R7V
       - **mapas**:
         - **[0]**:
@@ -4680,12 +4624,10 @@
   - **[8]**:
     - **conteudo**:
       - **descricao**:
-          # Setor Bobsled
-          
           O setor Bobsled possui um bloco com linhas atléticas e passagens de força.
           
           Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
-      - **nome**: Bobsled
+      - **nome**: Setor Bobsled
       - **uid**: 19m6huz3tACiyA
       - **mapas**:
         - **[0]**:
@@ -4789,12 +4731,10 @@
   - **[9]**:
     - **conteudo**:
       - **descricao**:
-          # Setor Aresta do Cabeça
-          
           O setor Aresta do Cabeça apresenta um bloco com uma linha clássica de aresta, exigindo equilíbrio e técnica.
           
           Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
-      - **nome**: Aresta do Cabeça
+      - **nome**: Setor Aresta do Cabeça
       - **uid**: iZJd5BxEiCNhso
       - **mapas**:
         - **[0]**:
@@ -4832,12 +4772,10 @@
   - **[10]**:
     - **conteudo**:
       - **descricao**:
-          # Setor Equinócio
-          
           O setor Equinócio possui um bloco com linhas interessantes e agarras variadas.
           
           Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
-      - **nome**: Equinócio
+      - **nome**: Setor Equinócio
       - **uid**: FbDfAbWOrmCBZp
       - **mapas**:
         - **[0]**:
@@ -4919,12 +4857,10 @@
   - **[11]**:
     - **conteudo**:
       - **descricao**:
-          # Setor Witness
-          
           O setor Witness possui blocos imponentes com linhas de altíssima dificuldade, incluindo boulders de nível mundial.
           
           Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
-      - **nome**: Witness
+      - **nome**: Setor Witness
       - **uid**: MwfeN0k5sY83kY
       - **mapas**:
         - **[0]**:
@@ -5034,12 +4970,10 @@
   - **[12]**:
     - **conteudo**:
       - **descricao**:
-          # Setor La Fúria
-          
           O setor La Fúria possui blocos com abundância de agarras e linhas de diversas dificuldades, incluindo boulders de alta performance.
           
           Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
-      - **nome**: La Fúria
+      - **nome**: Setor La Fúria
       - **uid**: gUuLVreg1RgUm6
       - **mapas**:
         - **[0]**:
@@ -5670,12 +5604,10 @@
   - **[13]**:
     - **conteudo**:
       - **descricao**:
-          # Setor Jah
-          
           O setor Jah possui blocos com linhas atléticas e movimentos fluidos em rocha de boa qualidade.
           
           Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
-      - **nome**: Jah
+      - **nome**: Setor Jah
       - **uid**: QqN6oqb5Sf8vGq
       - **mapas**:
         - **[0]**:
@@ -5917,12 +5849,10 @@
   - **[14]**:
     - **conteudo**:
       - **descricao**:
-          # Setor Pole Dance
-          
           O setor Pole Dance possui blocos com abundância de agarras horizontais e verticais, permitindo movimentos dinâmicos e técnicos.
           
           Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
-      - **nome**: Pole Dance
+      - **nome**: Setor Pole Dance
       - **uid**: G5dk8AEaYgSzDy
       - **mapas**:
         - **[0]**:
@@ -6363,12 +6293,10 @@
   - **[15]**:
     - **conteudo**:
       - **descricao**:
-          # Setor Rock and Roll
-          
           O setor Rock and Roll possui um bloco com linhas acessíveis e bem divertidas.
           
           Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
-      - **nome**: Rock and Roll
+      - **nome**: Setor Rock and Roll
       - **uid**: ZBKaVEqb9Jnj9Q
       - **mapas**:
         - **[0]**:
@@ -6472,8 +6400,6 @@
   - **[16]**:
     - **conteudo**:
       - **descricao**:
-          # Setor Bloco dos Canelas
-          
           O setor Bloco dos Canelas possui um bloco com linhas interessantes em um ambiente agradável.
           
           Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
@@ -6537,12 +6463,10 @@
   - **[17]**:
     - **conteudo**:
       - **descricao**:
-          # Setor Mãos de Sebo
-          
           O setor Mãos de Sebo possui um bloco com linhas que exigem técnica e controle de agarras.
           
           Obs.: Não foram identificadas todas as linhas desse bloco. Certifique-se antes de fazer uma possível primeira ascensão.
-      - **nome**: Mãos de Sebo
+      - **nome**: Setor Mãos de Sebo
       - **uid**: N1QXZxww2YK0Br
       - **mapas**:
         - **[0]**:

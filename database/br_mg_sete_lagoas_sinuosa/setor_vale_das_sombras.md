@@ -464,8 +464,6 @@ escaladas:
     quantidade_protecoes_intermediarias: 5
 ---
 
-# Setor Vale das Sombras
-
 Setor com maior concentração de vias, predominância de vias mais altas e verticais
 com saídas ou lances curtos em negativo, algumas vias de resistência e outras de
 crux, ou seja, garantia de escalada diferenciada o dia todo.

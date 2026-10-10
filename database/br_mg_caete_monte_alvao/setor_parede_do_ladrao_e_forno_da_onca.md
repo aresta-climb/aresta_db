@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: 8IUjj0RLhfFcWs
-nome: Parede do Ladrão e Forno da Onça
+nome: Setores Parede do Ladrão e Forno da Onça
 mapas:
 - caminho_imagem_mapa: imagens/setor_parede_do_ladrao_e_forno_da_onca_p0.webp
   largura_mapa: 2048
@@ -143,7 +143,5 @@ setores:
 - caminho: setor_forno_da_onça.md
 - caminho: setor_parede_do_ladrão.md
 ---
-
-# Parede do Ladrão e Forno da Onça
 
 Estes setores estão localizados lado a lado no Alto Monte Alvão.

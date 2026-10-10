@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: VvpFZdnJEkLma2
-nome: Malibu
+nome: Setor Malibu
 escaladas:
 - uid: rVUUjHYYMqsyK7
   via_esportiva:
@@ -24,3 +24,4 @@ escaladas:
     - Jg
     - Ana Gonzalez Sanchez
 ---
+

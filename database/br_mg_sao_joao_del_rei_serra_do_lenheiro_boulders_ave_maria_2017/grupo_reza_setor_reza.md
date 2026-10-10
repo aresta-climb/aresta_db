@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: WawtekZcKgAb5I
-nome: Reza
+nome: Setor Reza
 mapas:
 - caminho_imagem_mapa: imagens/grupo_reza_setor_reza_p0_i0.webp
   largura_mapa: 1513
@@ -90,4 +90,3 @@ escaladas:
     dificuldade: V7
 ---
 
-# Setor Reza

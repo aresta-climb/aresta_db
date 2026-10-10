@@ -128,7 +128,7 @@
 
 ### Setor (Pico: Morro do Carrapato)
 
-- **descricao**: # Setor Covide (ala aderência)
+- **descricao**: 
 - **nome**: Setor Covide (ala aderência)
 - **uid**: BCV6smMUbf9DZM
 - **localizacao_estacionamento**:
@@ -270,8 +270,6 @@
 ### Setor (Pico: Morro do Carrapato)
 
 - **descricao**:
-    # Setor Covide (ala esquerda)
-    
     | Nº | Nome da via | P1 |
     |---|---|---|
     | 4 | Coronavaco | IV (1+2) |
@@ -692,8 +690,6 @@
 ### Setor (Pico: Morro do Carrapato)
 
 - **descricao**:
-    # Setor Covide (ala central e direita)
-    
     | Nº | Nome da via | P1 |
     |---|---|---|
     | 14 | Cepadedos | VIIb (4+2) |

@@ -3,7 +3,7 @@
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: bIzbj97ftcBIWw
 caminho_imagem_capa: imagens/setor_terceiro_andar_p0_i0.webp
-nome: Terceiro Andar
+nome: Setor Terceiro Andar
 mapas:
 - caminho_imagem_mapa: imagens/setor_terceiro_andar_p1.webp
   largura_mapa: 1280
@@ -374,7 +374,8 @@ escaladas:
   via_esportiva:
     nome: Efeito Variado
     dificuldade: BR_9A
-    descricao: Faz o primeiro crux da Efeito Colateral e o segundo crux da Só Pra Variar.
+    descricao: Faz o primeiro crux da Efeito Colateral e o segundo crux da Só Pra
+      Variar.
 - uid: HeP33UtMx9NyRt
   via_esportiva:
     nome: Só paracolateral
@@ -386,8 +387,6 @@ escaladas:
     dificuldade: PROJETO
     descricao: Primeiro crux da Cura Trimura com Crux da Grande Hotel.
 ---
-
-# Setor Terceiro Andar
 
 O Setor Terceiro Andar é conhecido por suas vias de alta dificuldade, incluindo projetos e vias de 9º grau consolidado.
 

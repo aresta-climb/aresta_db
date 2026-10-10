@@ -134,8 +134,8 @@ escaladas:
     nome: Buraco louco
     dificuldade: V1
     destaque: true
-    descricao: Começa em pé com as mãos juntas em um batente e escalada por uma linha de regletes diagonalmente à 
-      esquerda.
+    descricao: Começa em pé com as mãos juntas em um batente e escalada por uma linha
+      de regletes diagonalmente à esquerda.
 - uid: XTF6sn3i4N4fQw
   boulder:
     nome: Morena
@@ -144,8 +144,9 @@ escaladas:
     conquistadores:
     - Leonardo Boscolo
     data_abertura: '2013'
-    descricao: Sai em pé com a mão direita em um reglete de oposição e a direita bem aberta em um batente/tridedo em 
-      compressão e da um tapa no batente de saída do “Buraco louco” (42) terminando como ele.
+    descricao: Sai em pé com a mão direita em um reglete de oposição e a direita bem
+      aberta em um batente/tridedo em compressão e da um tapa no batente de saída
+      do “Buraco louco” (42) terminando como ele.
 - uid: 5MzXHe2apxaIWf
   boulder:
     nome: Hard crimp
@@ -154,16 +155,17 @@ escaladas:
     conquistadores:
     - Frederico Gonçalves
     data_abertura: '2013'
-    descricao: Começa com as mãos juntas em dois regletes/pockets e faz três fortes movimentos até o batente do “Buraco 
-      louco” (42) finalizando como ele. Saindo na agarra grande na parte mais baixa do bloco, antes do teto e em cima do
-      “deck”, é o Tapete mágico v10 ★★★. Saindo da “proa”, logo após o “deck” é o Jasmim v10.
+    descricao: Começa com as mãos juntas em dois regletes/pockets e faz três fortes
+      movimentos até o batente do “Buraco louco” (42) finalizando como ele. Saindo
+      na agarra grande na parte mais baixa do bloco, antes do teto e em cima do “deck”,
+      é o Tapete mágico v10 ★★★. Saindo da “proa”, logo após o “deck” é o Jasmim v10.
 - uid: FT6ejI1pLAUfOb
   boulder:
     nome: Tapete mágico
     dificuldade: V10
     destaque: true
-    descricao: Saindo na agarra grande na parte mais baixa do bloco, antes do teto e em cima do “deck”, terminando no 
-      “Hard crimp” (44).
+    descricao: Saindo na agarra grande na parte mais baixa do bloco, antes do teto
+      e em cima do “deck”, terminando no “Hard crimp” (44).
 - uid: NgTMsoyRNvqGXg
   boulder:
     nome: Jasmim
@@ -177,9 +179,10 @@ escaladas:
     conquistadores:
     - Federico Sanz
     data_abertura: '2013'
-    descricao: Sai em pé com a mão esquerda no reglete/pocket mais baixo e a direita em uma pinça abaixo do teto, faz 
-      alguns movimentos no teto e dá um dinâmico em um batente bom na aresta da esquerda. Saindo da “proa”, logo após o 
-      “deck” é o Pantalones v9 ★★.
+    descricao: Sai em pé com a mão esquerda no reglete/pocket mais baixo e a direita
+      em uma pinça abaixo do teto, faz alguns movimentos no teto e dá um dinâmico
+      em um batente bom na aresta da esquerda. Saindo da “proa”, logo após o “deck”
+      é o Pantalones v9 ★★.
 - uid: KK5gfZqMUBrw4U
   boulder:
     nome: Pantalones
@@ -191,20 +194,23 @@ escaladas:
     nome: Teto da aranha
     dificuldade: V2
     destaque: true
-    descricao: Começa sentado com as mãos juntas em umas cracas e escala em diagonal pra esquerda finalizando por 
-      agarras boas. Saindo da “proa”, logo após o “deck” é o Aranha cabeluda v4 ★.
+    descricao: Começa sentado com as mãos juntas em umas cracas e escala em diagonal
+      pra esquerda finalizando por agarras boas. Saindo da “proa”, logo após o “deck”
+      é o Aranha cabeluda v4 ★.
 - uid: mRG7JjKQXHkjVz
   boulder:
     nome: Aranha cabeluda
     dificuldade: V4
     destaque: true
-    descricao: Saindo da “proa”, logo após o “deck”, terminando no “Teto da aranha” (49).
+    descricao: Saindo da “proa”, logo após o “deck”, terminando no “Teto da aranha”
+      (49).
 - uid: oYfnw194M0Ql5A
   boulder:
     nome: Cabelo louco
     dificuldade: V2
     destaque: true
-    descricao: Sai como o “Teto da aranha” e domina pela direita do teto, passando por um gaston.
+    descricao: Sai como o “Teto da aranha” e domina pela direita do teto, passando
+      por um gaston.
 - uid: LwleA4cuNVIWle
   boulder:
     nome: Abismo
@@ -222,19 +228,21 @@ escaladas:
     conquistadores:
     - Daniel Mendes
     data_abertura: '2013'
-    descricao: Sai sentado com as mãos juntas nos dois regletes bons mais ao fundo do teto e termina no “Teto da aranha”
-      (49).
+    descricao: Sai sentado com as mãos juntas nos dois regletes bons mais ao fundo
+      do teto e termina no “Teto da aranha” (49).
 - uid: 2jTceieERkmygP
   boulder:
     nome: Cotonete
     dificuldade: V2
-    descricao: A saída deve ser feita sem crash, deitado na pedra com a mão esquerda em um reglete, a direita em um 
-      pocket e o calcanhar na saída do “Teto da aranha” (49).
+    descricao: A saída deve ser feita sem crash, deitado na pedra com a mão esquerda
+      em um reglete, a direita em um pocket e o calcanhar na saída do “Teto da aranha”
+      (49).
 - uid: SUleoDocJP55Ke
   boulder:
     nome: Buraquinho
     dificuldade: V0
-    descricao: Sai sentado com as mãos juntas em um pocket e escala o positivo por agarras boas.
+    descricao: Sai sentado com as mãos juntas em um pocket e escala o positivo por
+      agarras boas.
 - uid: tjK6SZyPJR89bd
   boulder:
     nome: Caranguejeira
@@ -243,9 +251,10 @@ escaladas:
     conquistadores:
     - Frederico Gonçalves
     data_abertura: '2012'
-    descricao: Sai sentado abraçando a pedra com a mão direita em uma pinça/batente e a esquerda dentro da cave em um 
-      reglete e escala diagonalmente pra esquerda, na face vertical, por uns regletes. Virando no “Quero mais” (58) é o 
-      Armadeira v7.
+    descricao: Sai sentado abraçando a pedra com a mão direita em uma pinça/batente
+      e a esquerda dentro da cave em um reglete e escala diagonalmente pra esquerda,
+      na face vertical, por uns regletes. Virando no “Quero mais” (58) é o Armadeira
+      v7.
 - uid: h7tmttaNLSEBWI
   boulder:
     nome: Armadeira
@@ -265,8 +274,9 @@ escaladas:
     conquistadores:
     - Gustavo Fontes
     data_abertura: '2013'
-    descricao: Sai sentado com a mão esquerda em um abaulado de gaston e direita em um batente de oposição, tocando reto
-      por regletes, terminando como o “Quero mais” (58). Terminando como o “Caranguejeira” (56) é o Manifestante v5.
+    descricao: Sai sentado com a mão esquerda em um abaulado de gaston e direita em
+      um batente de oposição, tocando reto por regletes, terminando como o “Quero
+      mais” (58). Terminando como o “Caranguejeira” (56) é o Manifestante v5.
 - uid: vjOagg8UIkG2r0
   boulder:
     nome: Manifestante
@@ -326,8 +336,8 @@ escaladas:
     conquistadores:
     - Gustavo Fontes
     data_abertura: '2013'
-    descricao: Sai do “Proteste já” (59) e termina no “Teto da aranha” (49). Saindo do “Caranguejeira” (56) é o Teia de 
-      aranha v8.
+    descricao: Sai do “Proteste já” (59) e termina no “Teto da aranha” (49). Saindo
+      do “Caranguejeira” (56) é o Teia de aranha v8.
 - uid: KpooB7pWbjKhVg
   boulder:
     nome: Teia de aranha
@@ -341,12 +351,14 @@ escaladas:
     conquistadores:
     - Frederico Gonçalves
     data_abertura: '2013'
-    descricao: É o “Caranguejeira” (56) saindo do “Abismo” (52). Virando no “Quero mais” (58) é o Comprimido v8.
+    descricao: É o “Caranguejeira” (56) saindo do “Abismo” (52). Virando no “Quero
+      mais” (58) é o Comprimido v8.
 - uid: HcdXAO985EuQ3i
   boulder:
     nome: Comprimido
     dificuldade: V8
-    descricao: É o “Caranguejeira” (56) saindo do “Abismo” (52), virando no “Quero mais” (58).
+    descricao: É o “Caranguejeira” (56) saindo do “Abismo” (52), virando no “Quero
+      mais” (58).
 - uid: Eppjf4w5Y4Y1Fd
   boulder:
     nome: Prensa
@@ -355,8 +367,8 @@ escaladas:
     conquistadores:
     - Daniel Mendes
     data_abertura: '2013'
-    descricao: Sai do “Buraco negro” (59) e termina no Caranguejeira (56). Virando no “Quero mais” (58) é o Compressão 
-      v11.
+    descricao: Sai do “Buraco negro” (59) e termina no Caranguejeira (56). Virando
+      no “Quero mais” (58) é o Compressão v11.
 - uid: vxzTlMaSXvvYhb
   boulder:
     nome: Compressão
@@ -364,4 +376,3 @@ escaladas:
     descricao: Sai do “Buraco negro” (59) e vira no “Quero mais” (58).
 ---
 
-# Bloco G - Pantaloneta

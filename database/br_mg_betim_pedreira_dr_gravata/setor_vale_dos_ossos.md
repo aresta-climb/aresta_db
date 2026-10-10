@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: 9nI88j1Fmvv9NU
-nome: Vale dos Ossos
+nome: Setor Vale dos Ossos
 escaladas:
 - uid: iNvEIBgysLCBWZ
   via_esportiva:

@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: KqHIgclXOMpIHp
-nome: Meretríssimo
+nome: Setor Meretríssimo
 mapas:
 - caminho_imagem_mapa: imagens/grupo_mulher_de_bigode_setor_meretrissimo_p0_i0.webp
   largura_mapa: 748
@@ -52,4 +52,3 @@ escaladas:
     dificuldade: V2
 ---
 
-# Meretríssimo

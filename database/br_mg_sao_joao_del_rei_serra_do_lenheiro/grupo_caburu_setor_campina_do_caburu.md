@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: 0SlrOjrcioJ1ua
-nome: Campina do Caburu
+nome: Setor Campina do Caburu
 mapas:
 - caminho_imagem_mapa: imagens/grupo_caburu_setor_campina_do_caburu_p1_i2.webp
   largura_mapa: 1427
@@ -350,8 +350,6 @@ escaladas:
     - Carlos Pádua
     data_abertura: '2015'
 ---
-
-# Campina do Caburu
 
 O setor Caburu divide-se em dois blocos principais, os quais possuem vias móveis e esportivas.
 

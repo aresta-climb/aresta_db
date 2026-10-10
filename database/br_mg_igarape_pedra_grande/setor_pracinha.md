@@ -281,6 +281,4 @@ escaladas:
     data_abertura: '2022'
 ---
 
-# Setor Pracinha
-
 Sombra o dia todo (varia de acordo com a estação).

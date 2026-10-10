@@ -23,13 +23,14 @@ escaladas:
     nome: Psicotrópicos
     dificuldade: V1
     destaque: true
-    descricao: Começa sentado com as mãos juntas em um pocket abaulado à direita da árvore e toca reto, finalizando pela
-      aresta, como o “Histeria” (25).
+    descricao: Começa sentado com as mãos juntas em um pocket abaulado à direita da
+      árvore e toca reto, finalizando pela aresta, como o “Histeria” (25).
 - uid: 1frVvi6MxsXj6T
   boulder:
     nome: Histeria
     dificuldade: V0
-    descricao: Sai sentado com as mãos em dois batentes verticais e escala a face negativa pela aresta por agarras boas.
+    descricao: Sai sentado com as mãos em dois batentes verticais e escala a face
+      negativa pela aresta por agarras boas.
 - uid: zKnf8ryE2LbO7H
   boulder:
     nome: Café com leite
@@ -38,4 +39,3 @@ escaladas:
     descricao: Escala o meio da face positiva por agarras boas.
 ---
 
-# Bloco E - Psicotrópicos

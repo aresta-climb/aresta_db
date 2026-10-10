@@ -199,6 +199,4 @@ escaladas:
     data_abertura: '2017'
 ---
 
-# Setor Grutinha
-
 Este setor possui sombra o dia todo (variando de acordo com a estação).

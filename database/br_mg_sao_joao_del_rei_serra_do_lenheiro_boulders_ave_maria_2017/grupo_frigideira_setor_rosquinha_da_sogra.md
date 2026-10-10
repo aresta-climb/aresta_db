@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: 4digHEeV3xxXiv
-nome: Rosquinha da Sogra
+nome: Setor Rosquinha da Sogra
 mapas:
 - caminho_imagem_mapa: imagens/grupo_frigideira_setor_rosquinha_da_sogra_p0_i1.webp
   largura_mapa: 736
@@ -25,4 +25,3 @@ escaladas:
     dificuldade: V2
 ---
 
-# Rosquinha da Sogra

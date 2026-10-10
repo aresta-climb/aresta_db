@@ -3,7 +3,7 @@
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: thtijyq3ZnLd0A
 caminho_imagem_capa: imagens/setor_headwall_p0_i0_2.webp
-nome: Headwall
+nome: Setor Headwall
 mapas:
 - caminho_imagem_mapa: imagens/setor_headwall_p0_i1.webp
   largura_mapa: 367
@@ -48,8 +48,8 @@ escaladas:
     - Anthony Hirata
     - Bruno Tebet
     protecoes_moveis: Camalot(1, 2, 2, 3, 4, 5, 6) ou compatíveis
-    descricao: 'Obs: Utilizar costuras longas, parada em móvel podendo equalizar em três pontos. O rapel pode ser feito na
-      parada da via ao lado.'
+    descricao: 'Obs: Utilizar costuras longas, parada em móvel podendo equalizar em
+      três pontos. O rapel pode ser feito na parada da via ao lado.'
 - uid: dPdbm3jr8TbFqI
   via_esportiva:
     nome: Taj Mahola
@@ -69,7 +69,8 @@ escaladas:
     conquistadores:
     - Zé Ricardo
     - Jorge Lima
-    protecoes_moveis: Camalot(.4, .5, .75, 1, 2, 3, 4, 5) ou compatíveis; Nuts (1 a 5, 10) ou compatíveis
+    protecoes_moveis: Camalot(.4, .5, .75, 1, 2, 3, 4, 5) ou compatíveis; Nuts (1
+      a 5, 10) ou compatíveis
     descricao: 'OBSERVAÇÕES: Atenção com esticão do final da fenda até a parada.'
 ---
 

@@ -15,11 +15,8 @@
 
 ### Setor (Pico: Vieiras)
 
-- **descricao**:
-    # Setor Vieiras
-    
-    O setor Vieiras é um dos setores clássicos de Montes Claros, com vias que variam do 5° ao 9b.
-- **nome**: Vieiras
+- **descricao**: O setor Vieiras é um dos setores clássicos de Montes Claros, com vias que variam do 5° ao 9b.
+- **nome**: Setor Vieiras
 - **uid**: G0xqU7jw49Gc2R
 - **mapas**:
   - **[0]**:

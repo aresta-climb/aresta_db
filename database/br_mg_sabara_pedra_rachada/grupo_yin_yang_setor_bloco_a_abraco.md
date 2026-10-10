@@ -29,15 +29,16 @@ escaladas:
     nome: Siga-me
     dificuldade: V0
     destaque: true
-    descricao: Sai sentado com as mãos juntas em um pocket invertido baixo, na linha da fenda, seguindo por ela até o 
-      topo.
+    descricao: Sai sentado com as mãos juntas em um pocket invertido baixo, na linha
+      da fenda, seguindo por ela até o topo.
 - uid: 2IdZw4r8vtXsfQ
   boulder:
     nome: Abraço
     dificuldade: V4
     destaque: true
-    descricao: Começa sentado com a mão esquerda baixa em um abaulado vertical e a direita em um batente. Faz uma 
-      sequência de movimentos abraçando a pedra e domina reto.
+    descricao: Começa sentado com a mão esquerda baixa em um abaulado vertical e a
+      direita em um batente. Faz uma sequência de movimentos abraçando a pedra e domina
+      reto.
 - uid: cGmOgbbvXX2PPA
   boulder:
     nome: Jah Vibes
@@ -48,13 +49,14 @@ escaladas:
     nome: Dreadlock
     dificuldade: V0
     destaque: true
-    descricao: Sai em pé em um reglete e toca reto pelo vertical, levemente positivo. Cuidado com agarras soltas!
+    descricao: Sai em pé em um reglete e toca reto pelo vertical, levemente positivo.
+      Cuidado com agarras soltas!
 - uid: rfBHek5ZFDLvgM
   boulder:
     nome: Rasta
     dificuldade: V1
     destaque: true
-    descricao: Começa como o “Dreadlock” (4), faz uma travessia para a direita pela grande laca e domina reto.
+    descricao: Começa como o “Dreadlock” (4), faz uma travessia para a direita pela
+      grande laca e domina reto.
 ---
 
-# Bloco A - Abraço

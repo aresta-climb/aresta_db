@@ -76,4 +76,3 @@ escaladas:
     quantidade_protecoes_intermediarias: 5
 ---
 
-# Setor Macaúbas

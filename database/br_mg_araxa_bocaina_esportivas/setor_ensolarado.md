@@ -3,7 +3,7 @@
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: yct6sz1JSOdJNh
 caminho_imagem_capa: imagens/setor_ensolarado_p0_i0.webp
-nome: Ensolarado
+nome: Setor Ensolarado
 mapas:
 - caminho_imagem_mapa: imagens/setor_ensolarado_p1.webp
   largura_mapa: 1280
@@ -464,8 +464,6 @@ escaladas:
     - Alexandre FEI
     data_abertura: '2013'
 ---
-
-# Setor Ensolarado
 
 O Setor Ensolarado é um dos setores iniciais do Bocaina Park, caracterizado por vias de graduação variada, do 5º ao 9b.
 

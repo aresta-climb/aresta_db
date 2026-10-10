@@ -92,8 +92,8 @@ escaladas:
     conquistadores:
     - Rafael Passos
     data_abertura: '2005'
-    descricao: Começa com a mão esquerda em um reglete no teto, a direita num reglete/pinça na aresta e o calcanhar 
-      direito em um batente escorrido e escala a aresta.
+    descricao: Começa com a mão esquerda em um reglete no teto, a direita num reglete/pinça
+      na aresta e o calcanhar direito em um batente escorrido e escala a aresta.
 - uid: TSnYtLmrCOVEfP
   boulder:
     nome: No stress the boulder
@@ -102,28 +102,28 @@ escaladas:
     conquistadores:
     - Mahavir Jneesh
     data_abertura: '2010'
-    descricao: Sai sentado com as mãos juntas em uma agarra boa na aresta do teto e finaliza pelo “No stress the blitz” 
-      (4).
+    descricao: Sai sentado com as mãos juntas em uma agarra boa na aresta do teto
+      e finaliza pelo “No stress the blitz” (4).
 - uid: oCcydj1LyWLKpw
   boulder:
     nome: Don’t worry
     dificuldade: V2
-    descricao: Sai como o “No stress the boulder” (5), mas do batente vai em direção à aresta passando por um reglete 
-      bom.
+    descricao: Sai como o “No stress the boulder” (5), mas do batente vai em direção
+      à aresta passando por um reglete bom.
 - uid: ZMIUoYT2JIw0S9
   boulder:
     nome: Caxo de banana
     dificuldade: V2
     destaque: true
-    descricao: Começa em pé com a mão esquerda num reglete de lado e a direita num batente de gastón e escala reto, por 
-      regletes pequenos, até uma virada fácil.
+    descricao: Começa em pé com a mão esquerda num reglete de lado e a direita num
+      batente de gastón e escala reto, por regletes pequenos, até uma virada fácil.
 - uid: OWGK4eMqelppYW
   boulder:
     nome: Easy
     dificuldade: V1
     destaque: true
-    descricao: Começa em pé com a mão esquerda em um batente/pinça e a direita em um reglete e toca reto por regletes 
-      até uma virada fácil.
+    descricao: Começa em pé com a mão esquerda em um batente/pinça e a direita em
+      um reglete e toca reto por regletes até uma virada fácil.
 - uid: xLTmHxR0v6yqxr
   boulder:
     nome: Banana Terra
@@ -134,28 +134,30 @@ escaladas:
   boulder:
     nome: Check point
     dificuldade: V8
-    descricao: Sai sentado com os braços bem abertos em um batente escorrido de mão esquerda, um reglet pequeno de mão 
-      direita e faz um movimento longo e muito duro para um regletinho acima do teto e toca reto.
+    descricao: Sai sentado com os braços bem abertos em um batente escorrido de mão
+      esquerda, um reglet pequeno de mão direita e faz um movimento longo e muito
+      duro para um regletinho acima do teto e toca reto.
 - uid: HIVQjhcDLdwMLF
   boulder:
     nome: Aresta in
     dificuldade: V3
     destaque: true
-    descricao: Boulder que escala a aresta saindo sentado com as mãos num reglete e num abaulado.
+    descricao: Boulder que escala a aresta saindo sentado com as mãos num reglete
+      e num abaulado.
 - uid: 2CeN9A6XELWMYA
   boulder:
     nome: Referência perigosa
     dificuldade: V3
     destaque: true
-    descricao: Começa em pé com as mãos abertas em dois regletes no positivo, passa pelo tetinho e faz um domínio 
-      clássico.
+    descricao: Começa em pé com as mãos abertas em dois regletes no positivo, passa
+      pelo tetinho e faz um domínio clássico.
 - uid: JRLTaJtkYUh7Ld
   boulder:
     nome: Pipe line
     dificuldade: V2
     destaque: true
-    descricao: Sai em uma grande laca abaixo do teto, segue para outra laca à esquerda e domina a "onda" passando por 
-      regletes. Clássico!
+    descricao: Sai em uma grande laca abaixo do teto, segue para outra laca à esquerda
+      e domina a "onda" passando por regletes. Clássico!
 - uid: sV2KwpHieKKL57
   boulder:
     nome: Paulista irado
@@ -166,7 +168,8 @@ escaladas:
     nome: Marrentin carioca
     dificuldade: V3
     destaque: true
-    descricao: Sai sentado com as mãos juntas em um batente bom e um reglete e escala por regletes à direita da proa.
+    descricao: Sai sentado com as mãos juntas em um batente bom e um reglete e escala
+      por regletes à direita da proa.
 - uid: s4f7XudTyJSRQM
   boulder:
     nome: Chato
@@ -176,8 +179,9 @@ escaladas:
   boulder:
     nome: Mantenha o respeito
     dificuldade: V3
-    descricao: Começa sentado com as mão em agarras boas na aresta atrás da árvore. Faz uma travessia pra esquerda, por 
-      regletes, finalizando no “Marrentin carioca” (15).
+    descricao: Começa sentado com as mão em agarras boas na aresta atrás da árvore.
+      Faz uma travessia pra esquerda, por regletes, finalizando no “Marrentin carioca”
+      (15).
 - uid: 7pJr5DPsMV393e
   boulder:
     nome: Mineral
@@ -192,8 +196,8 @@ escaladas:
   boulder:
     nome: Rei do pão
     dificuldade: V1
-    descricao: Sai sentado com as mãos juntas em agarras boas, passa pela fenda até um reglete à direita e finaliza pela
-      esquerda.
+    descricao: Sai sentado com as mãos juntas em agarras boas, passa pela fenda até
+      um reglete à direita e finaliza pela esquerda.
 - uid: vcq6wl9FqoYBuH
   boulder:
     nome: Equilibrista
@@ -211,4 +215,3 @@ escaladas:
     descricao: Sai sentado com as mãos na borda do tetinho e domina.
 ---
 
-# Bloco B - Bloco 1

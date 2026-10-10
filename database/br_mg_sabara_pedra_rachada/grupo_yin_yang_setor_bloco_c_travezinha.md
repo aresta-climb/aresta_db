@@ -22,19 +22,21 @@ escaladas:
   boulder:
     nome: Louva a Deus
     dificuldade: VB
-    descricao: Sai sentado e escala diagonalmente à direita passando por uns regletes e dominando reto.
+    descricao: Sai sentado e escala diagonalmente à direita passando por uns regletes
+      e dominando reto.
 - uid: Phd1JSH90lSOqo
   boulder:
     nome: Travezinha
     dificuldade: V0
     destaque: true
-    descricao: Começa com as mãos juntas em um reglete e um gaston, faz alguns movimentos até um agarrão e vira.
+    descricao: Começa com as mãos juntas em um reglete e um gaston, faz alguns movimentos
+      até um agarrão e vira.
 - uid: jCjUZlPcILFfVj
   boulder:
     nome: São Carlos
     dificuldade: V0
     destaque: true
-    descricao: Escala a face negativa do bloco saindo baixo, com as mãos juntas em uma grande agarra invertido.
+    descricao: Escala a face negativa do bloco saindo baixo, com as mãos juntas em
+      uma grande agarra invertido.
 ---
 
-# Bloco C - Travezinha

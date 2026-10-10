@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: Ly4gwN209FrZnL
-nome: 2° Andar
+nome: Setor 2° Andar
 mapas:
 - caminho_imagem_mapa: imagens/setor_2_andar_p0.webp
   largura_mapa: 643
@@ -144,7 +144,5 @@ escaladas:
     quantidade_protecoes_intermediarias: 10
     quantidade_protecoes_parada: 2
 ---
-
-# 2° Andar
 
 O 2° Andar é um setor mais tranquilo com vias de graduação moderada e muitos projetos aguardando a primeira ascensão.

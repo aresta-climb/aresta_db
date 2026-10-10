@@ -15,7 +15,7 @@ picos:
   - setor:
       conteudo:
         uid: f4TxVRX5QEcLpH
-        nome: Parede Principal
+        nome: Setor Parede Principal
         mapas:
         - caminho_imagem_mapa: imagens/setor_parede_principal_p0_i0.webp
           largura_mapa: 2048

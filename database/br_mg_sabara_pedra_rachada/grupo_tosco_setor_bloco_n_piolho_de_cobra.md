@@ -23,20 +23,21 @@ escaladas:
     nome: Piolho de pedra
     dificuldade: V5
     destaque: true
-    descricao: Começa com a mão esquerda em uma invertida, na base da fendinha, e a mão direita em um reglete de 
-      oposição, terminando pela aresta.
+    descricao: Começa com a mão esquerda em uma invertida, na base da fendinha, e
+      a mão direita em um reglete de oposição, terminando pela aresta.
 - uid: KihrJAepLiaXAD
   boulder:
     nome: Grilo falante
     dificuldade: V1
-    descricao: Sai em pé com a mão esquerda em um gaston e a direita em um reglete, faz um movimento forte para um 
-      agarrão e escala em diagonal para a direita, dominando o positivo da face lateral do bloco.
+    descricao: Sai em pé com a mão esquerda em um gaston e a direita em um reglete,
+      faz um movimento forte para um agarrão e escala em diagonal para a direita,
+      dominando o positivo da face lateral do bloco.
 - uid: aMVAmD70TYbLfO
   boulder:
     nome: Piolho de cobra
     dificuldade: V2
-    descricao: Começa sentado com a mão esquerda em um batente/pocket e a direita em um batente, faz um movimento forte 
-      para o agarrão e termina como o “Grilo falante” (49).
+    descricao: Começa sentado com a mão esquerda em um batente/pocket e a direita
+      em um batente, faz um movimento forte para o agarrão e termina como o “Grilo
+      falante” (49).
 ---
 
-# Bloco N - Piolho de Cobra

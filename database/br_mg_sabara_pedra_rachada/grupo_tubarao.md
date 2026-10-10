@@ -26,8 +26,6 @@ setores:
 - caminho: grupo_tubarao_setor_bloco_h_tunel_do_vento.md
 ---
 
-# Tubarão
-
 Setor com os projetos mais difíceis da Pedra Rachada, sendo alguns extensões do clássico “Abrigo de ferro”, v11 sólido de movimentação única. O bloco “Fogos de Vênus”, que apoia o bloco Abrigo de Ferro, possui algumas das escaladas verticais mais divertidas de toda a área. Já o bloco “Tubarão”, possui um dos tetos mais explorados da Rachada, com várias linhas e variantes incríveis que garantem aos escaladores do circuito amarelo muita diversão!
 
 ## Acesso (25 min)

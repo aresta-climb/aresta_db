@@ -89,4 +89,3 @@ escaladas:
     dificuldade: PROJETO
 ---
 
-# Setor 4 Picos

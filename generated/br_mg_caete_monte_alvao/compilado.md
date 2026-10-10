@@ -23,11 +23,8 @@
 
 ### Setor (Pico: Alto Monte Alvão)
 
-- **descricao**:
-    # Vale Gaules
-    
-    O setor Vale Gaules está localizado no Alto Monte Alvão.
-- **nome**: Vale Gaules
+- **descricao**: O setor Vale Gaules está localizado no Alto Monte Alvão.
+- **nome**: Setor Vale Gaules
 - **uid**: miGSpygWRq6cb6
 - **mapas**:
   - **[0]**:
@@ -344,11 +341,8 @@
 
 ### Grupo (Pico: Alto Monte Alvão)
 
-- **descricao**:
-    # Parede do Ladrão e Forno da Onça
-    
-    Estes setores estão localizados lado a lado no Alto Monte Alvão.
-- **nome**: Parede do Ladrão e Forno da Onça
+- **descricao**: Estes setores estão localizados lado a lado no Alto Monte Alvão.
+- **nome**: Setores Parede do Ladrão e Forno da Onça
 - **uid**: 8IUjj0RLhfFcWs
 - **mapas**:
   - **[0]**:
@@ -582,7 +576,7 @@
   - **[0]**:
     - **conteudo**:
       - **descricao**: 
-      - **nome**: Forno da Onça
+      - **nome**: Setor Forno da Onça
       - **uid**: Qb6WGpJV9QBeJY
       - **escaladas**:
         - **[0]**:
@@ -667,7 +661,7 @@
   - **[1]**:
     - **conteudo**:
       - **descricao**: 
-      - **nome**: Parede do Ladrão
+      - **nome**: Setor Parede do Ladrão
       - **uid**: NPg6eUqYFEWNix
       - **escaladas**:
         - **[0]**:
@@ -743,11 +737,8 @@
 
 ### Grupo (Pico: Alto Monte Alvão)
 
-- **descricao**:
-    # Caverna, Mirante e Ground Control
-    
-    Este grupo engloba os setores localizados na parte central do Alto Monte Alvão.
-- **nome**: Caverna, Mirante e Ground Control
+- **descricao**: Este grupo engloba os setores localizados na parte central do Alto Monte Alvão.
+- **nome**: Setor Caverna, Mirante e Ground Control
 - **uid**: PYN5lchFdNhSdp
 - **mapas**:
   - **[0]**:
@@ -1168,7 +1159,7 @@
   - **[0]**:
     - **conteudo**:
       - **descricao**: 
-      - **nome**: Caverna do Bin Laden
+      - **nome**: Setor Caverna do Bin Laden
       - **uid**: f6qhe8I2ffld4p
       - **escaladas**:
         - **[0]**:
@@ -1292,7 +1283,7 @@
   - **[1]**:
     - **conteudo**:
       - **descricao**: 
-      - **nome**: Mirante da Cruz
+      - **nome**: Setor Mirante da Cruz
       - **uid**: ORe2ixkg2P8JW0
       - **escaladas**:
         - **[0]**:
@@ -1361,7 +1352,7 @@
   - **[2]**:
     - **conteudo**:
       - **descricao**: 
-      - **nome**: Ground Control
+      - **nome**: Setor Ground Control
       - **uid**: NZGLAfWYiM8NDf
       - **escaladas**:
         - **[0]**:
@@ -1558,11 +1549,8 @@
 
 ### Grupo (Pico: Alto Monte Alvão)
 
-- **descricao**:
-    # Curto e Grosso, Malibu e Terra do Nunca
-    
-    Estes setores estão localizados na parte sul do Alto Monte Alvão.
-- **nome**: Curto e Grosso, Malibu e Terra do Nunca
+- **descricao**: Estes setores estão localizados na parte sul do Alto Monte Alvão.
+- **nome**: Setor Curto e Grosso, Malibu e Terra do Nunca
 - **uid**: JI5tVwPnDWIuk7
 - **mapas**:
   - **[0]**:
@@ -1694,7 +1682,7 @@
   - **[0]**:
     - **conteudo**:
       - **descricao**: 
-      - **nome**: Terra do Nunca
+      - **nome**: Setor Terra do Nunca
       - **uid**: 9nBKJkNFTsLt6U
       - **escaladas**:
         - **[0]**:
@@ -1714,7 +1702,7 @@
   - **[1]**:
     - **conteudo**:
       - **descricao**: 
-      - **nome**: Curto e Grosso
+      - **nome**: Setor Curto e Grosso
       - **uid**: BjL9SR8V0cBhuL
       - **escaladas**:
         - **[0]**:
@@ -1767,7 +1755,7 @@
   - **[2]**:
     - **conteudo**:
       - **descricao**: 
-      - **nome**: Malibu
+      - **nome**: Setor Malibu
       - **uid**: VvpFZdnJEkLma2
       - **escaladas**:
         - **[0]**:

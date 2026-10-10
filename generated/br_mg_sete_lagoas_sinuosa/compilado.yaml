@@ -143,8 +143,6 @@ picos:
             quantidade_protecoes_intermediarias: 6
             extensao: 15
         descricao: |-
-          # Setor de Esquerda
-
           Um dos mais novos setores a ser desenvolvidos no pico, o "Setor de Esquerda"
           é composto por uma bela parede de coloração clara, amarela e avermelhada que se
           caracteriza com concreções e cristais coloridos, a parede é relativamente baixa
@@ -278,8 +276,6 @@ picos:
             dificuldade: BR_5
             quantidade_protecoes_intermediarias: 4
         descricao: |-
-          # Setor Panelinha
-
           O "Panelinha" é composto por paredes escuras em formas circulares que lembram
           "panelas" e teve como objetivo principal nas conquistas, aumentar a possibilidade
           para os iniciantes por serem paredes curtas, verticais e com grande variedades de
@@ -682,8 +678,6 @@ picos:
             quantidade_protecoes_intermediarias: 7
             extensao: 15
         descricao: |-
-          # Setor 7 Paralelo
-
           Setor com grande concentração de vias, predomínio de vias de sétimo grau,
           com altura média entre 15 e 25 metros.
 
@@ -880,8 +874,6 @@ picos:
             dificuldade: BR_5
             protecoes_moveis: Móvel. Rapel da chapa com cordelete.
         descricao: |-
-          # Setor Sentinela
-
           Setor um pouco mais afastado, localizado após subir as escadas do setor
           "7 Paralelo". Setor com grande incidência do sol entre 11:00 e 15:00 hrs.
 
@@ -1129,8 +1121,6 @@ picos:
             quantidade_protecoes_intermediarias: 14
             descricao: Projeto (Sem F/A).
         descricao: |-
-          # Setor Death Horse
-
           Setor que fica logo na entrada. Parede extensa, alta e com trechos muito
           negativos. A beleza da formação da parede impressiona pelas cores, formas curiosas
           e pela magnitude do teto. A base do setor é limpa, ampla e comporta grupos maiores,
@@ -1269,8 +1259,6 @@ picos:
             dificuldade: BR_6SUP
             quantidade_protecoes_intermediarias: 6
         descricao: |-
-          # Setor Gameleira
-
           Conta com poucas vias e mesmo assim abriga um dos maiores desafios do pico
           até o momento, a "Sou Fria 9a". Via em uma aresta muito negativa, de encaixe e técnica.
           Impressiona pela beleza da linha e pelo crux que é uma problema de boulder especulado
@@ -1919,8 +1907,6 @@ picos:
             dificuldade: BR_4
             quantidade_protecoes_intermediarias: 5
         descricao: |-
-          # Setor Vale das Sombras
-
           Setor com maior concentração de vias, predominância de vias mais altas e verticais
           com saídas ou lances curtos em negativo, algumas vias de resistência e outras de
           crux, ou seja, garantia de escalada diferenciada o dia todo.
@@ -2137,7 +2123,7 @@ picos:
             nome: Escalada Eclética
             dificuldade: BR_5SUP
             quantidade_protecoes_intermediarias: 6
-        descricao: '# Setor Imigrantes'
+        descricao: ''
         precomputados:
           total_escaladas: 8
           total_esportivas: 8
@@ -2302,7 +2288,7 @@ picos:
             nome: De Menor
             dificuldade: BR_4
             quantidade_protecoes_intermediarias: 4
-        descricao: '# Setor Vale Zela'
+        descricao: ''
         precomputados:
           total_escaladas: 7
           total_esportivas: 7
@@ -2406,7 +2392,7 @@ picos:
             nome: Anfitriões do Dia
             dificuldade: BR_5
             quantidade_protecoes_intermediarias: 5
-        descricao: '# Setor Macaúbas'
+        descricao: ''
         precomputados:
           total_escaladas: 3
           total_esportivas: 3
@@ -2651,8 +2637,6 @@ picos:
             dificuldade: BR_7B
             quantidade_protecoes_intermediarias: 7
         descricao: |-
-          # Setor Primórdios
-
           Setor onde tudo começou na década de 90, parede com grande concentração
           de vias e de características bem diferentes. As vias possuem ótimas base e bastante
           espaço para grupos, bom para armar redes e descansar, pois o setor possui sombra
@@ -2798,7 +2782,7 @@ picos:
           via_esportiva:
             nome: ???
             dificuldade: PROJETO
-        descricao: '# Setor 4 Picos'
+        descricao: ''
         precomputados:
           total_escaladas: 4
           total_esportivas: 4
@@ -3572,8 +3556,6 @@ picos:
               total_escaladas: 15
               total_esportivas: 15
         descricao: |-
-          # Vale Oculto Sinuosa
-
           A área recém descoberta por escaladores locais em 2018, o local deu origem a três sub-setores, chamados: **"De Cara"**, **"Laranja"** e **"Anfiteatro"**.
 
           O Local tem acesso diferente da parte já conhecida dos escaladores. O acesso está ilustrado neste croqui.
@@ -3586,7 +3568,6 @@ picos:
           | :--: |
           | *Escalador no Vale Oculto* |
 
-          # Trilha de Acesso Vale Oculto
 
           | ![Mapa de Acesso Vale Oculto](imagens/setor_vale_oculto_p2_i0.webp) |
           | :--: |

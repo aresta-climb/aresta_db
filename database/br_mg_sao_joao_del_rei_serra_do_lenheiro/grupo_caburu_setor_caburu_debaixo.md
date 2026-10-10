@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: YjBKPMikSzkipy
-nome: Caburu Debaixo
+nome: Setor Caburu Debaixo
 mapas:
 - caminho_imagem_mapa: imagens/grupo_caburu_setor_caburu_debaixo_p1_i2.webp
   largura_mapa: 1253
@@ -381,9 +381,10 @@ escaladas:
     - Heider Ribeiro (Tio Nem)
     - Pedro Naves
     data_abertura: '2018-07-14'
-    descricao: Via mais alta e mais clássica da área. Saída em uma bela sequência negativa no melhor estilo boulder, 
-      depois segue por uma linda aresta até o final em um forte negativo. São 11 chapeletas mais 2 argolas no top. 
-      Costuras mais longas (30 e 60) são aconselháveis.
+    descricao: Via mais alta e mais clássica da área. Saída em uma bela sequência
+      negativa no melhor estilo boulder, depois segue por uma linda aresta até o final
+      em um forte negativo. São 11 chapeletas mais 2 argolas no top. Costuras mais
+      longas (30 e 60) são aconselháveis.
 - uid: 7So6yyPCmZbnWC
   via_esportiva:
     nome: Maluco Beleza
@@ -415,7 +416,8 @@ escaladas:
     - Heider Ribeiro (Tio Nem)
     - Pedro Naves
     data_abertura: '2019-02-15'
-    descricao: Variante da via anterior (Solimões), tornou a linha mais reta. São 6 chapas mais duas argolas no top.
+    descricao: Variante da via anterior (Solimões), tornou a linha mais reta. São
+      6 chapas mais duas argolas no top.
 - uid: mSZyf6qiO0swYz
   via_esportiva:
     nome: Eliseu Frechou
@@ -443,8 +445,9 @@ escaladas:
     conquistadores:
     - Luiz Cláudio
     - Leonardo Rodrigues
-    descricao: Via em um belo diedro fendado. Ao final do diedro passa para dentro da grande cavidade na rocha e chega 
-      no cume por entre os blocos de rocha onde há um grampo. Um jogo de friends (BD 5 ou 6 protege melhor).
+    descricao: Via em um belo diedro fendado. Ao final do diedro passa para dentro
+      da grande cavidade na rocha e chega no cume por entre os blocos de rocha onde
+      há um grampo. Um jogo de friends (BD 5 ou 6 protege melhor).
 - uid: jpBkHvmdrR1mUK
   via_esportiva:
     nome: Indecisão
@@ -474,8 +477,8 @@ escaladas:
     conquistadores:
     - Leonardo Rodrigues
     - João Felipin
-    descricao: Via interessante, saída com proteções escassas em buracos e depois com boas fendas. Top com a via Bela da
-      Tarde (via 3).
+    descricao: Via interessante, saída com proteções escassas em buracos e depois
+      com boas fendas. Top com a via Bela da Tarde (via 3).
 - uid: 8xhvrpt4MSnAPx
   via_movel:
     nome: Via do Felipin
@@ -483,8 +486,6 @@ escaladas:
     conquistadores:
     - João Felipin
 ---
-
-# Caburu Debaixo
 
 ## Setores do Caburu
 

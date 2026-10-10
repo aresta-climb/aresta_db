@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: saaNQTQBg9DF7a
-nome: Planetário
+nome: Bloco Planetário
 escaladas:
 - uid: sWepsfzqCoKmIf
   boulder:
@@ -139,4 +139,3 @@ mapas:
     - TcKj8RRsR58cmk
 ---
 
-# Bloco Planetário

@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: XDclQaHK6DtyMb
-nome: Serra do Groove
+nome: Setor Serra do Groove
 mapas:
 - caminho_imagem_mapa: imagens/grupo_regiao_2_setor_serra_do_groove_p0_i0.webp
   largura_mapa: 1240
@@ -32,5 +32,4 @@ escaladas:
     dificuldade: V3
 ---
 
-# Bloco: Serra do Groove
 ## Região 2

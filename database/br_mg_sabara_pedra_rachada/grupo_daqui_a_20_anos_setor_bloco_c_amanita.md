@@ -17,7 +17,7 @@ escaladas:
     nome: Amanita
     dificuldade: V11
     destaque: true
-    descricao: Sai sentado com as mãos juntas em um reglete bom e escala o negativo com um crux bem definido.
+    descricao: Sai sentado com as mãos juntas em um reglete bom e escala o negativo
+      com um crux bem definido.
 ---
 
-# Bloco C - Amanita

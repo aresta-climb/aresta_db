@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: ZvxbNlHWswULYG
-nome: Pedra na Canela
+nome: Setor Pedra na Canela
 mapas:
 - caminho_imagem_mapa: imagens/grupo_regiao_4_setor_pedra_na_canela_p0_i0.webp
   largura_mapa: 1240
@@ -112,5 +112,4 @@ escaladas:
     dificuldade: V7_BARRA_V8
 ---
 
-# Bloco: Pedra na Canela
 ## Região 4

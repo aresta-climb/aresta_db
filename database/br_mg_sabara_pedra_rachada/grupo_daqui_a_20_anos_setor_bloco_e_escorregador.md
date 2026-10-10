@@ -20,13 +20,13 @@ escaladas:
     nome: Escorregador
     dificuldade: V3
     destaque: true
-    descricao: Sai sentado com a mão esquerda em uma laca e a direita em um bico/buraco ao lado e escala todo o negativo
-      pelas lacas.
+    descricao: Sai sentado com a mão esquerda em uma laca e a direita em um bico/buraco
+      ao lado e escala todo o negativo pelas lacas.
 - uid: 6nUufzuXoydp1C
   boulder:
     nome: Controler
     dificuldade: V2
-    descricao: Começa sentado com as mãos juntas em um batente de oposição e escala o vertical.
+    descricao: Começa sentado com as mãos juntas em um batente de oposição e escala
+      o vertical.
 ---
 
-# Bloco E - Escorregador

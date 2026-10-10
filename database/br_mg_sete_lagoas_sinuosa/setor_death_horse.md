@@ -166,8 +166,6 @@ escaladas:
     descricao: Projeto (Sem F/A).
 ---
 
-# Setor Death Horse
-
 Setor que fica logo na entrada. Parede extensa, alta e com trechos muito
 negativos. A beleza da formação da parede impressiona pelas cores, formas curiosas
 e pela magnitude do teto. A base do setor é limpa, ampla e comporta grupos maiores,

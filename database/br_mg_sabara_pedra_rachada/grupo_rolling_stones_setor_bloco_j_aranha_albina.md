@@ -8,7 +8,7 @@ escaladas:
   boulder:
     nome: Aranha albina
     dificuldade: V1
-    descricao: Começa sentado com as mãos juntas em um reglete e domina o pequeno bloco.
+    descricao: Começa sentado com as mãos juntas em um reglete e domina o pequeno
+      bloco.
 ---
 
-# Bloco J - Aranha Albina

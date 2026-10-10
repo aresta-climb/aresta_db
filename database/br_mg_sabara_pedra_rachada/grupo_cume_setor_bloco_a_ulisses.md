@@ -20,13 +20,14 @@ escaladas:
     nome: Ulísses
     dificuldade: V3
     destaque: true
-    descricao: Começa com as mãos juntas em um batente e escala o vertical por regletes pequenos.
+    descricao: Começa com as mãos juntas em um batente e escala o vertical por regletes
+      pequenos.
 - uid: g7fI2sJJGDouuy
   boulder:
     nome: 1-5-1
     dificuldade: V6
     destaque: true
-    descricao: Sai como o “Ulísses” (1) e termina mais à direita, com um dinâmico em um batente.
+    descricao: Sai como o “Ulísses” (1) e termina mais à direita, com um dinâmico
+      em um batente.
 ---
 
-# Bloco A - Ulísses

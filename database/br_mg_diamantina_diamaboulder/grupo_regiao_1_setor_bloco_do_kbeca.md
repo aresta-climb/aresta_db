@@ -52,5 +52,4 @@ escaladas:
     dificuldade: INDEFINIDO
 ---
 
-# Bloco: Bloco do Kbeca
 ## Região 1

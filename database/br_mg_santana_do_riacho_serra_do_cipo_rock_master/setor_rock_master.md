@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: eGoq2HJJLvRP8o
-nome: Rock Master
+nome: Setor Rock Master
 mapas:
 - caminho_imagem_mapa: imagens/setor_rock_master_p0_i0.webp
   referencias:
@@ -481,8 +481,6 @@ sinal_de_celular: true
 amigavel_a_criancas: true
 amigavel_a_bebes: true
 ---
-
-# Setor Rock Master
 
 Setor clássico de escalada esportiva do Grupo 2 na Serra do Cipó.
 

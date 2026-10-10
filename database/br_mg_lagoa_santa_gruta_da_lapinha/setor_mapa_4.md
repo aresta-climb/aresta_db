@@ -414,6 +414,4 @@ escaladas:
     data_abertura: '1997'
 ---
 
-# Setor Gruta - Mapa 4 (Sala de Aula)
-
 Vias localizadas na região da Sala de Aula e em direção ao setor Savassinha.

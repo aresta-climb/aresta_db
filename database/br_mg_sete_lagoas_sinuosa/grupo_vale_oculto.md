@@ -10,8 +10,6 @@ setores:
 - caminho: grupo_vale_oculto_setor_anfiteatro.md
 ---
 
-# Vale Oculto Sinuosa
-
 A área recém descoberta por escaladores locais em 2018, o local deu origem a três sub-setores, chamados: **"De Cara"**, **"Laranja"** e **"Anfiteatro"**.
 
 O Local tem acesso diferente da parte já conhecida dos escaladores. O acesso está ilustrado neste croqui.
@@ -22,7 +20,6 @@ Os três sub-setores tem características bem diferentes: negativos constantes e
 
 ![Escalador no Vale Oculto](imagens/setor_vale_oculto_p1_i0.webp)
 
-# Trilha de Acesso Vale Oculto
 
 ![Mapa de Acesso Vale Oculto](imagens/setor_vale_oculto_p2_i0.webp)
 

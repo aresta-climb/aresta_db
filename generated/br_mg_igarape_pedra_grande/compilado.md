@@ -183,8 +183,6 @@
 ### Setor (Pico: Complexo Pedra Grande)
 
 - **descricao**:
-    # Setor Família I
-    
     O setor fica do lado direito do início da trilha para a Pedra Grande. Sombra o dia todo (varia de acordo com a estação).
     
     Veja a trilha para chegar ao setor no Wikiloc: https://loc.wiki/t/169745893?wa=sc
@@ -1052,8 +1050,6 @@
 ### Setor (Pico: Complexo Pedra Grande)
 
 - **descricao**:
-    # Setor Família II
-    
     Sombra após 14h (varia de acordo com a estação).
     
     Veja a trilha para chegar ao Família II no WikiLoc (começando a partir do Família I): https://loc.wiki/t/157623201?wa=sc
@@ -1564,8 +1560,6 @@
 ### Setor (Pico: Complexo Pedra Grande)
 
 - **descricao**:
-    # Setor Micos
-    
     Sombra até 11h e após 15h.
     Risco de agarras se quebrarem e pedras soltas, é recomendado o uso de capacete ao escalar e nas bases das vias.
     Escalar com a corda passada na primeira proteção nas vias esportivas.
@@ -1916,8 +1910,6 @@
 ### Setor (Pico: Complexo Pedra Grande)
 
 - **descricao**:
-    # Setor Totem
-    
     Sombra até 10h e após 16h.
     
     Veja a trilha para chegar ao setor no WikiLoc: https://loc.wiki/t/160199352?wa=sc
@@ -2135,8 +2127,6 @@
 ### Setor (Pico: Complexo Pedra Grande)
 
 - **descricao**:
-    # Setor Igarameca
-    
     Sombra após 12h (varia de acordo com a estação).
     
     Veja a trilha para chegar ao setor no WikiLoc: https://loc.wiki/t/160199352?wa=sc
@@ -3173,10 +3163,7 @@
 
 ### Setor (Pico: Complexo Pedra Grande)
 
-- **descricao**:
-    # Setor Pracinha
-    
-    Sombra o dia todo (varia de acordo com a estação).
+- **descricao**: Sombra o dia todo (varia de acordo com a estação).
 - **nome**: Setor Pracinha
 - **uid**: 1g1CrSzJzHeyrv
 - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_pracinha_p1.webp)
@@ -3605,10 +3592,7 @@
 
 ### Setor (Pico: Complexo Pedra Grande)
 
-- **descricao**:
-    # Setor dos Tetos
-    
-    Sombra após 14h.
+- **descricao**: Sombra após 14h.
 - **nome**: Setor dos Tetos
 - **uid**: WVQC6bQetKztOL
 - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_tetos_p1.webp)
@@ -3877,8 +3861,6 @@
 ### Setor (Pico: Complexo Pedra Grande)
 
 - **descricao**:
-    # Setor Trad
-    
     Este setor engloba as vias tradicionais e de proteção móvel do Complexo Pedra Grande. As informações aqui contidas são provisórias e serão atualizadas conforme o catálogo for sendo refinado.
     
     Catálogo provisório das vias tradicionais e/ou em proteção móvel do Complexo Pedra Grande.
@@ -4789,10 +4771,7 @@
 - **setores**:
   - **[0]**:
     - **conteudo**:
-      - **descricao**:
-          # Setor Estacionamento
-          
-          O setor fica na lateral da estrada, ao lado do estacionamento da trilha para a Pedra Grande. A via "Route Setter" e a via "Teto Preto" compartilham as primeiras chapas na saída. Lado esquerdo setor tem sombra após 11h, e o lado direito sombra até 10h.
+      - **descricao**: O setor fica na lateral da estrada, ao lado do estacionamento da trilha para a Pedra Grande. A via "Route Setter" e a via "Teto Preto" compartilham as primeiras chapas na saída. Lado esquerdo setor tem sombra após 11h, e o lado direito sombra até 10h.
       - **nome**: Estacionamento - Esportivas
       - **uid**: SS5kn15JBXfnej
       - **mapas**:

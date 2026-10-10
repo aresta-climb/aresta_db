@@ -515,8 +515,6 @@ escaladas:
     altura_mapa: 1211
 ---
 
-# Setor Covide (ala central e direita)
-
 | Nº | Nome da via | P1 |
 |---|---|---|
 | 14 | Cepadedos | VIIb (4+2) |

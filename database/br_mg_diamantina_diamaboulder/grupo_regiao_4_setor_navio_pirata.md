@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: 5ydIQT3aRXRDbx
-nome: Navio Pirata
+nome: Setor Navio Pirata
 mapas:
 - caminho_imagem_mapa: imagens/grupo_regiao_4_setor_navio_pirata_p0_i0.webp
   largura_mapa: 1240
@@ -202,7 +202,6 @@ escaladas:
     dificuldade: V3
 ---
 
-# Bloco: Navio Pirata
 ## Região 4
 
 O bloco Navio Pirata é um grande bloco com diversas linhas em várias faces.

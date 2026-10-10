@@ -23,14 +23,14 @@ escaladas:
     conquistadores:
     - Ruy Castro
     data_abertura: '2010'
-    descricao: Sai sentado com a mão esquerda em um batente invertido e a direita em um reglete, ambos em baixo do teto,
-      e escala a face vertical com um crux bem definido.
+    descricao: Sai sentado com a mão esquerda em um batente invertido e a direita
+      em um reglete, ambos em baixo do teto, e escala a face vertical com um crux
+      bem definido.
 - uid: ONCcxisRpIdROU
   boulder:
     nome: Cometa
     dificuldade: V3
-    descricao: Sai em pé com as mãos em dois regletes pequenos e faz um movimento forte para um batente de oposição, 
-      terminando reto.
+    descricao: Sai em pé com as mãos em dois regletes pequenos e faz um movimento
+      forte para um batente de oposição, terminando reto.
 ---
 
-# Bloco C - Meteoro

@@ -16,8 +16,8 @@ escaladas:
     quantidade_protecoes_parada: 1
     conquistadores:
     - Bruno Matta (Kbeça)
-    descricao: 'Via Mista: Sai em uma fenda fina, depois 8 chapas + parada. Equipamentos: 1 set cam #.1-1 + set C3 + nuts
-      pequenas.'
+    descricao: 'Via Mista: Sai em uma fenda fina, depois 8 chapas + parada. Equipamentos:
+      1 set cam #.1-1 + set C3 + nuts pequenas.'
 - uid: 54jSG0kw9ohztZ
   via_movel:
     nome: Candelária
@@ -35,7 +35,8 @@ escaladas:
     quantidade_protecoes_parada: 1
     conquistadores:
     - Bruno Matta (Kbeça)
-    descricao: 'Via Mista: sai em duas chapeletas. Equipamentos: 4 chapas + 1 set cam #.1-4 + parada.'
+    descricao: 'Via Mista: sai em duas chapeletas. Equipamentos: 4 chapas + 1 set
+      cam #.1-4 + parada.'
 - uid: tr1eGorhBKPQFe
   via_multiplas_enfiadas:
     nome: Queijin Machine
@@ -44,8 +45,8 @@ escaladas:
     numero_enfiadas: 2
     conquistadores:
     - Bruno Matta (Kbeça)
-    descricao: 'Via Mista (2 cordadas: 1ª cordada com 2 chapas, crux; 2ª cordada 100% em móvel 6 sup). Equipamentos: 2 sets
-      de cam #0.3-3 + cam #4 e cam #5.'
+    descricao: 'Via Mista (2 cordadas: 1ª cordada com 2 chapas, crux; 2ª cordada 100%
+      em móvel 6 sup). Equipamentos: 2 sets de cam #0.3-3 + cam #4 e cam #5.'
 - uid: wD0D3VSM4E2ptw
   via_movel:
     nome: Dragão Chinês
@@ -53,8 +54,9 @@ escaladas:
     extensao: 50
     conquistadores:
     - Bruno Matta (Kbeça)
-    descricao: 'Via Móvel: Inicia-se escalando pela árvore para acessar o diedro (aprox. 8 metros). Rapel com 2 cordas de
-      50m. Equipamentos: 2 sets de cam #.5-4 + 1x #.3 #.4 #.5 + nuts.'
+    descricao: 'Via Móvel: Inicia-se escalando pela árvore para acessar o diedro (aprox.
+      8 metros). Rapel com 2 cordas de 50m. Equipamentos: 2 sets de cam #.5-4 + 1x
+      #.3 #.4 #.5 + nuts.'
 - uid: vCBGcXWS9H6Kjn
   via_movel:
     nome: Kriptonita (1ª cordada)
@@ -62,7 +64,8 @@ escaladas:
     extensao: 32
     conquistadores:
     - Bruno Matta (Kbeça)
-    descricao: 'Equipamentos: 2 jogos completos do #.3 ao 3 + adicional (1x #.75 + #1 + #2) + 1x #4.'
+    descricao: 'Equipamentos: 2 jogos completos do #.3 ao 3 + adicional (1x #.75 +
+      #1 + #2) + 1x #4.'
 - uid: iZT9NWsIoHMlmX
   via_esportiva:
     nome: Via dos Alunos
@@ -104,8 +107,9 @@ escaladas:
     quantidade_protecoes_parada: 1
     conquistadores:
     - Bruno Matta (Kbeça)
-    descricao: 'Via Mista: sai de cima do totem, 6 chapas e depois finaliza na fenda até o platô. Parada compartilhada com
-      via 13 (Fenda da árvore). Equipamentos: 1 set cam #.2-5 + 6 chapas + parada.'
+    descricao: 'Via Mista: sai de cima do totem, 6 chapas e depois finaliza na fenda
+      até o platô. Parada compartilhada com via 13 (Fenda da árvore). Equipamentos:
+      1 set cam #.2-5 + 6 chapas + parada.'
 - uid: 0CFMALvnC4yvfR
   via_esportiva:
     nome: Via Inacabada
@@ -121,8 +125,8 @@ escaladas:
     quantidade_protecoes_parada: 1
     conquistadores:
     - Bruno Matta (Kbeça)
-    descricao: 'Via Mista: sai na fenda e depois 4 chapas. Parada compartilhada com via 11 (Dá a patinha). Equipamentos: 1
-      set cam #.3-3 + nuts + 4 chapas + parada.'
+    descricao: 'Via Mista: sai na fenda e depois 4 chapas. Parada compartilhada com
+      via 11 (Dá a patinha). Equipamentos: 1 set cam #.3-3 + nuts + 4 chapas + parada.'
 - uid: Kx6IkoV4cofNEU
   via_movel:
     nome: Iluminosa
@@ -130,8 +134,9 @@ escaladas:
     extensao: 20
     conquistadores:
     - Bruno Matta (Kbeça)
-    descricao: 'Via Móvel: diedro que sai à direita da Santinha. Parada compartilhada com a via 15 (Meninas Massachussets).
-      Equipamentos: 1 set cam #.2-4 + 1x #.75, #1 + nuts.'
+    descricao: 'Via Móvel: diedro que sai à direita da Santinha. Parada compartilhada
+      com a via 15 (Meninas Massachussets). Equipamentos: 1 set cam #.2-4 + 1x #.75,
+      #1 + nuts.'
 - uid: Lsr0BWSVmYdJW2
   via_esportiva:
     nome: Meninas Massachussets
@@ -141,7 +146,8 @@ escaladas:
     quantidade_protecoes_parada: 1
     conquistadores:
     - Bruno Matta (Kbeça)
-    descricao: Proteção fixa. Parada compartilhada com a via 14 (Iluminosa). 9 chapas + parada.
+    descricao: Proteção fixa. Parada compartilhada com a via 14 (Iluminosa). 9 chapas
+      + parada.
 - uid: JrzrWCQ5nALfih
   via_movel:
     nome: De Novo Não
@@ -151,7 +157,8 @@ escaladas:
     quantidade_protecoes_parada: 1
     conquistadores:
     - Bruno Matta (Kbeça)
-    descricao: 'Via Mista: sai em uma fenda, depois 4 chapas até parada. Equipamentos: 1 set cam #.2-1 + c3 + 4 chapas + parada.'
+    descricao: 'Via Mista: sai em uma fenda, depois 4 chapas até parada. Equipamentos:
+      1 set cam #.2-1 + c3 + 4 chapas + parada.'
 - uid: FUjVaYcXcZoQZU
   via_esportiva:
     nome: Bragasilia
@@ -171,8 +178,8 @@ escaladas:
     quantidade_protecoes_parada: 1
     conquistadores:
     - Bruno Matta (Kbeça)
-    descricao: 'Via Móvel: diedro que sai do platô com 1 chapa. Equipamentos: 2 sets cam #.3-4 + 1x #5 + nuts + 1 chapa +
-      parada.'
+    descricao: 'Via Móvel: diedro que sai do platô com 1 chapa. Equipamentos: 2 sets
+      cam #.3-4 + 1x #5 + nuts + 1 chapa + parada.'
 - uid: due8br48kvPU16
   via_esportiva:
     nome: Via Inacabada
@@ -188,7 +195,8 @@ escaladas:
     quantidade_protecoes_parada: 1
     conquistadores:
     - Bruno Matta (Kbeça)
-    descricao: 'Via Mista localizada no totem na frente da parede principal. Equipamentos: 01 set cam #.3-4 + 2 chapas + parada.'
+    descricao: 'Via Mista localizada no totem na frente da parede principal. Equipamentos:
+      01 set cam #.3-4 + 2 chapas + parada.'
 - uid: sxIYhHCrlQ6L3i
   via_esportiva:
     nome: Tapas e Beijos
@@ -235,8 +243,6 @@ escaladas:
     dificuldade: PROJETO
     descricao: Projeto
 ---
-
-# Setor Principal
 
 O Setor Principal da Pedra do Zé oferece uma grande variedade de vias, desde móveis clássicas até esportivas de alta dificuldade.
 

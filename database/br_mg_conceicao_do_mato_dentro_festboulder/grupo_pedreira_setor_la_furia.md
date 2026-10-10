@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: gUuLVreg1RgUm6
-nome: La Fúria
+nome: Setor La Fúria
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_la_furia_p0.webp
   largura_mapa: 760
@@ -411,8 +411,6 @@ escaladas:
     nome: Travessia da Fúria
     dificuldade: V5
 ---
-
-# Setor La Fúria
 
 O setor La Fúria possui blocos com abundância de agarras e linhas de diversas dificuldades, incluindo boulders de alta performance.
 

@@ -437,10 +437,7 @@
 
 ### Setor (Pico: Bombonera)
 
-- **descricao**:
-    # Setor bombonera
-    
-    Sombra a partir das 12h (varia de acordo com a estação).
+- **descricao**: Sombra a partir das 12h (varia de acordo com a estação).
 - **nome**: Setor Bombonera
 - **uid**: zx4lHNzgwsL23H
 - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_bombonera_p1_i0.webp)

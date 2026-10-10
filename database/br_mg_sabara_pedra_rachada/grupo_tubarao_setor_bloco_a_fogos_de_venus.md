@@ -35,7 +35,8 @@ escaladas:
     nome: Vênus
     dificuldade: V3
     destaque: true
-    descricao: Sai no “Fogos de Vênus” (3) e escala em diagonal pra esquerda terminando no “Marte” (1).
+    descricao: Sai no “Fogos de Vênus” (3) e escala em diagonal pra esquerda terminando
+      no “Marte” (1).
 - uid: Q1deUXKrjXTsTL
   boulder:
     nome: Fogos de Vênus
@@ -55,4 +56,3 @@ escaladas:
     descricao: Sai do “Pôr da Lua” (4) e termina no “Fogos de Vênus” (3).
 ---
 
-# Bloco A - Fogos de Vênus

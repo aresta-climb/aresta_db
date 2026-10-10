@@ -145,13 +145,13 @@ picos:
           - alvo_uid: 9nI88j1Fmvv9NU
             pontos_uids:
             - 9Td3ZxJ26rlJqM
-            setor: Vale dos Ossos
+            setor: Setor Vale dos Ossos
             ids:
             - 9Td3ZxJ26rlJqM
         setores:
         - conteudo:
             uid: 9nI88j1Fmvv9NU
-            nome: Vale dos Ossos
+            nome: Setor Vale dos Ossos
             escaladas:
             - uid: iNvEIBgysLCBWZ
               via_esportiva:

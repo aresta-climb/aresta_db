@@ -201,6 +201,4 @@ escaladas:
     dificuldade: BR_5
 ---
 
-# Setor de Cima
-
 O Setor de Cima da Pedra Filha (Pedrinha) apresenta vias esportivas técnicas em quartzito, com graduações variando do 5º ao 8º grau. A face é predominantemente Sudoeste.

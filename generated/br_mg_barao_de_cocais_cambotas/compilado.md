@@ -34,19 +34,13 @@
     - **texto**: Principais Vias I
     - **destino**:
       - **secao_textual**:
-        - **conteudo**:
-            # Principais Vias da Serra da Cambota, Caeté, MG.
-            
-            Esta lista apresenta as principais vias do complexo de Cambotas, abrangendo diferentes setores e estilos.
+        - **conteudo**: Esta lista apresenta as principais vias do complexo de Cambotas, abrangendo diferentes setores e estilos.
   - **[2]**:
     - **uid**: PM4SkeC8D2GimQ
     - **texto**: Principais Vias II
     - **destino**:
       - **secao_textual**:
-        - **conteudo**:
-            # Principais Vias da Serra da Cambota (Mapa Geral)
-            
-            Este mapa ilustra a localização das principais vias em relação às paredes e setores da Serra da Cambota.
+        - **conteudo**: Este mapa ilustra a localização das principais vias em relação às paredes e setores da Serra da Cambota.
   - **[3]**:
     - **uid**: 3k6IEbv8h5qQTu
     - **texto**: Contato
@@ -74,8 +68,8 @@
 
 ### Setor (Pico: Cambotas)
 
-- **descricao**: # Setor Chaminé
-- **nome**: Chaminé
+- **descricao**: 
+- **nome**: Setor Chaminé
 - **uid**: 150z6viZ5YGa1C
 - **mapas**:
   - **[0]**:
@@ -102,11 +96,8 @@
 
 ### Setor (Pico: Cambotas)
 
-- **descricao**:
-    # Setor Caverninha
-    
-    O setor Caverninha possui algumas das vias mais desafiadoras e interessantes do complexo, incluindo a via "O doce e o amargo".
-- **nome**: Caverninha
+- **descricao**: O setor Caverninha possui algumas das vias mais desafiadoras e interessantes do complexo, incluindo a via "O doce e o amargo".
+- **nome**: Setor Caverninha
 - **uid**: wo6wwzFaS8yJkf
 - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_caverninha_p0_i1.webp)
 - **mapas**:
@@ -169,13 +160,11 @@
 ### Setor (Pico: Cambotas)
 
 - **descricao**:
-    # Setor Torres
-    
     O setor Torres possui paredes positivas com vias longas.
     
     **Dicas de Segurança:**
     Levar 2 cordas de 70m para rapel. Com apenas uma corda, descer pela via Homens Verdes.
-- **nome**: Torres
+- **nome**: Setor Torres
 - **uid**: HVeZ40s3BhupP1
 - **mapas**:
   - **[0]**:
@@ -225,8 +214,8 @@
 
 ### Setor (Pico: Cambotas)
 
-- **descricao**: # Setor Felinas
-- **nome**: Felinas
+- **descricao**: 
+- **nome**: Setor Felinas
 - **uid**: 31DCaF1ZL4cPjb
 - **mapas**:
   - **[0]**:
@@ -344,8 +333,8 @@
 
 ### Setor (Pico: Cambotas)
 
-- **descricao**: # Setor Fendas
-- **nome**: Fendas
+- **descricao**: 
+- **nome**: Setor Fendas
 - **uid**: VoZcuSQ0d3Phq9
 - **mapas**:
   - **[0]**:
@@ -416,11 +405,8 @@
 
 ### Setor (Pico: Cambotas)
 
-- **descricao**:
-    # Setor Arco
-    
-    O setor Arco abriga algumas das vias mais longas e estéticas de Cambotas, com linhas que desafiam o escalador em tetos e fendas impressionantes.
-- **nome**: Arco
+- **descricao**: O setor Arco abriga algumas das vias mais longas e estéticas de Cambotas, com linhas que desafiam o escalador em tetos e fendas impressionantes.
+- **nome**: Setor Arco
 - **uid**: LPvWMOig17W7x6
 - **mapas**:
   - **[0]**:
@@ -506,11 +492,8 @@
 
 ### Setor (Pico: Cambotas)
 
-- **descricao**:
-    # Setor Aresta
-    
-    O setor Aresta é famoso pela imponente "Aresta Eletrizante", uma via de 200 metros que é um marco na escalada mineira.
-- **nome**: Aresta
+- **descricao**: O setor Aresta é famoso pela imponente "Aresta Eletrizante", uma via de 200 metros que é um marco na escalada mineira.
+- **nome**: Setor Aresta
 - **uid**: C1DmpuOYh9LLqC
 - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_aresta_p3.webp)
 - **mapas**:
@@ -629,11 +612,8 @@
 
 ### Setor (Pico: Cambotas)
 
-- **descricao**:
-    # Setor Polegar
-    
-    O setor Polegar apresenta vias que exploram as arestas e chaminés desta formação característica.
-- **nome**: Polegar
+- **descricao**: O setor Polegar apresenta vias que exploram as arestas e chaminés desta formação característica.
+- **nome**: Setor Polegar
 - **uid**: gCQIZNzt5Tk1Ij
 - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_polegar_p0.webp)
 - **mapas**:
@@ -680,11 +660,8 @@
 
 ### Setor (Pico: Cambotas)
 
-- **descricao**:
-    # Setor Totem
-    
-    O setor Totem é uma formação isolada com vias técnicas e estéticas.
-- **nome**: Totem
+- **descricao**: O setor Totem é uma formação isolada com vias técnicas e estéticas.
+- **nome**: Setor Totem
 - **uid**: fLZ4sPn8jHcZ0A
 - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_totem_p0.webp)
 - **mapas**:
@@ -723,11 +700,8 @@
 
 ### Setor (Pico: Cambotas)
 
-- **descricao**:
-    # Setor Enigma da Esfinge
-    
-    O setor é composto pela via homônima, uma linha desafiadora que combina escalada livre técnica com trechos de artificial.
-- **nome**: Enigma da Esfinge
+- **descricao**: O setor é composto pela via homônima, uma linha desafiadora que combina escalada livre técnica com trechos de artificial.
+- **nome**: Setor Enigma da Esfinge
 - **uid**: zPWCMfQPRNCLun
 - **mapas**:
   - **[0]**:
@@ -757,11 +731,8 @@
 
 ### Setor (Pico: Cambotas)
 
-- **descricao**:
-    # Setor Jardim da Fantasia
-    
-    O setor Jardim da Fantasia é composto pela via de 180 metros que percorre uma linha impressionante na parede.
-- **nome**: Jardim da Fantasia
+- **descricao**: O setor Jardim da Fantasia é composto pela via de 180 metros que percorre uma linha impressionante na parede.
+- **nome**: Setor Jardim da Fantasia
 - **uid**: IgnhOcrKCV3Y1z
 - **mapas**:
   - **[0]**:

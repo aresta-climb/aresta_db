@@ -3,7 +3,7 @@
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: XvrC2nA83J5iAU
 caminho_imagem_capa: imagens/setor_roca_master_p0_i0_2.webp
-nome: Roca Master
+nome: Setor Roca Master
 mapas:
 - caminho_imagem_mapa: imagens/setor_roca_master_p0_i0.webp
   largura_mapa: 367

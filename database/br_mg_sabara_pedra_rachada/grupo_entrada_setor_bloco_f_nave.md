@@ -25,7 +25,7 @@ escaladas:
     nome: Nave
     dificuldade: V4
     destaque: true
-    descricao: Uma verdadeira prova de resistência que escala toda a borda do bloco, de uma ponta a outra.
+    descricao: Uma verdadeira prova de resistência que escala toda a borda do bloco,
+      de uma ponta a outra.
 ---
 
-# Bloco F - Nave

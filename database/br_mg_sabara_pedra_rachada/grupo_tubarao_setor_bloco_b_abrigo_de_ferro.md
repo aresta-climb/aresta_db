@@ -32,34 +32,34 @@ escaladas:
     conquistadores:
     - Rafael Passos
     data_abertura: '2009'
-    descricao: Sai com as mãos juntas num batente abaulado invertido no teto e faz movimentos surreais pra sair da 
-      caverna e dominar esta, que é uma das escaladas mais exigentes da Pedra Rachada! Há também uma saída em pé para 
-      este boulder, com a mão esquerda alta, no reglete, e a direita no batente abaulado invertido chamado 7 Medalha de 
-      lata v9.
+    descricao: Sai com as mãos juntas num batente abaulado invertido no teto e faz
+      movimentos surreais pra sair da caverna e dominar esta, que é uma das escaladas
+      mais exigentes da Pedra Rachada! Há também uma saída em pé para este boulder,
+      com a mão esquerda alta, no reglete, e a direita no batente abaulado invertido
+      chamado 7 Medalha de lata v9.
 - uid: LaUKqUV22UDGz7
   boulder:
     nome: Medalha de lata
     dificuldade: V9
-    descricao: Saída em pé para o “Abrigo de ferro” (6), com a mão esquerda alta, no reglete, e a direita no batente 
-      abaulado invertido.
+    descricao: Saída em pé para o “Abrigo de ferro” (6), com a mão esquerda alta,
+      no reglete, e a direita no batente abaulado invertido.
 - uid: kdBfmBP950TvI6
   boulder:
     nome: Projeto 17
     dificuldade: V13_BARRA_V14
-    descricao: Projeto que sai mais ao fundo da caverna e escala uma sequência dura no teto terminando como o “Abrigo de
-      ferro” (6).
+    descricao: Projeto que sai mais ao fundo da caverna e escala uma sequência dura
+      no teto terminando como o “Abrigo de ferro” (6).
 - uid: 1hVECMyQagZqnw
   boulder:
     nome: Projeto 18
     dificuldade: V12
-    descricao: Projeto que sai com as mãos em juntas em um batente bom e atravessa para a esquerda, terminando como o 
-      “Abrigo de ferro” (6).
+    descricao: Projeto que sai com as mãos em juntas em um batente bom e atravessa
+      para a esquerda, terminando como o “Abrigo de ferro” (6).
 - uid: 7QGLeUwcc4yKvl
   boulder:
     nome: Projeto 19
     dificuldade: V10_BARRA_V11
-    descricao: Projeto que começa em pé com as mãos em uns regletes pequenos acima do teto e toca reto por uma sequência
-      dura.
+    descricao: Projeto que começa em pé com as mãos em uns regletes pequenos acima
+      do teto e toca reto por uma sequência dura.
 ---
 
-# Bloco B - Abrigo de Ferro

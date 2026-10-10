@@ -113,6 +113,4 @@ setores:
 - caminho: grupo_salao_de_pedras_setor_dominio_digital.md
 ---
 
-# Grupo Salão de Pedras
-
 O Salão de Pedras é um dos picos mais tradicionais de Conceição do Mato Dentro, oferecendo uma grande variedade de blocos e linhas de boulder.

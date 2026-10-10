@@ -3,7 +3,7 @@
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: C1DmpuOYh9LLqC
 caminho_imagem_capa: imagens/setor_aresta_p3.webp
-nome: Aresta
+nome: Setor Aresta
 mapas:
 - caminho_imagem_mapa: imagens/setor_aresta_p2.webp
 escaladas:
@@ -15,8 +15,8 @@ escaladas:
     conquistadores:
     - Gustavo Vianna
     - Marcus Vinicius
-    descricao: Bela via em agarras, bastante negativa. Tem um interessante bote no inicio que pode ser previamente 
-      protegido pela chaminé. Equipada com chapeletas.
+    descricao: Bela via em agarras, bastante negativa. Tem um interessante bote no
+      inicio que pode ser previamente protegido pela chaminé. Equipada com chapeletas.
 - uid: qls0K2nLyxHfAe
   via_movel:
     nome: Limite da ousadia
@@ -25,7 +25,8 @@ escaladas:
     conquistadores:
     - Gustavo Piancastelli
     - Gustavo Vianna
-    descricao: Interessante via em fenda. O crux é protegido com P's. Peças variadas médias e grandes.
+    descricao: Interessante via em fenda. O crux é protegido com P's. Peças variadas
+      médias e grandes.
 - uid: bzQuO68edMdtbU
   via_movel:
     nome: Diedro urso branco (var.)
@@ -35,7 +36,8 @@ escaladas:
     - Gustavo Piancastelli
     - Gustavo Vianna
     - Marcus Vinicius
-    descricao: Diedro perfeito que começa à esquerda do final da 'macadame'. Friends pequenos e médios. Nuts grandes.
+    descricao: Diedro perfeito que começa à esquerda do final da 'macadame'. Friends
+      pequenos e médios. Nuts grandes.
 - uid: tfYUMKf8rtc3RA
   via_multiplas_enfiadas:
     nome: Só para loucos
@@ -46,8 +48,8 @@ escaladas:
     - Breno Araújo
     - Gustavo Vianna
     - Marcus Vinicius
-    descricao: Via forte, de resistência. Pode ser feita em duas enfiadas. As duas paradas possuem mosquetões de aço pra
-      desequipagem. Usar costuras longas.
+    descricao: Via forte, de resistência. Pode ser feita em duas enfiadas. As duas
+      paradas possuem mosquetões de aço pra desequipagem. Usar costuras longas.
     comprimento_total: 55
 - uid: sg50P5yDvi08k5
   via_esportiva:
@@ -57,7 +59,8 @@ escaladas:
     conquistadores:
     - Juan Kempen
     - Vinicius
-    descricao: Bonita via com um teto no meio. A parte superior, após o teto molha em determinadas épocas do ano.
+    descricao: Bonita via com um teto no meio. A parte superior, após o teto molha
+      em determinadas épocas do ano.
 - uid: rdh2X3PbMuCkgA
   via_esportiva:
     nome: Vinicius?
@@ -66,8 +69,8 @@ escaladas:
     conquistadores:
     - Juan Kempen
     - Vinicius
-    descricao: Bela via, muito estética. Compartilha a primeira proteção com a 'canino quebrado'. Segue em diagonal pra 
-      esquerda. Top na proteção do teto.
+    descricao: Bela via, muito estética. Compartilha a primeira proteção com a 'canino
+      quebrado'. Segue em diagonal pra esquerda. Top na proteção do teto.
 - uid: HMw5kLT5pYwqkm
   via_multiplas_enfiadas:
     nome: Aresta eletrizante
@@ -81,10 +84,11 @@ escaladas:
     - Pablo Almeida
     - André Braga
     - Rodrigo (PR)
-    descricao: Via espetacular. Uma das mais clássicas e mais bonitas escaladas do estado. Exigente no inicio e exposta 
-      no final. Segue a aresta principal da parede num visual incrível. Exige boa leitura especialmente próximo ao cume.
-      Indispensável um croqui para repetição. Chapeletas com spits na primeira enfiada, nas demais P's de 1/2 pol. 
-      Excentric grande, um jogo de friends e nuts na primeira enfiada.
+    descricao: Via espetacular. Uma das mais clássicas e mais bonitas escaladas do
+      estado. Exigente no inicio e exposta no final. Segue a aresta principal da parede
+      num visual incrível. Exige boa leitura especialmente próximo ao cume. Indispensável
+      um croqui para repetição. Chapeletas com spits na primeira enfiada, nas demais
+      P's de 1/2 pol. Excentric grande, um jogo de friends e nuts na primeira enfiada.
     comprimento_total: 200
 - uid: ymyhFTYSg2LHF3
   via_esportiva:
@@ -105,7 +109,5 @@ escaladas:
     - Gustavo Piancastelli
     descricao: Fenda em diagonal que une as duas vias anteriores. Peças médias.
 ---
-
-# Setor Aresta
 
 O setor Aresta é famoso pela imponente "Aresta Eletrizante", uma via de 200 metros que é um marco na escalada mineira.

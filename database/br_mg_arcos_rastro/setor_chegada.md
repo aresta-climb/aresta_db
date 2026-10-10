@@ -246,8 +246,6 @@ escaladas:
     quantidade_protecoes_parada: 2
 ---
 
-# Setor Chegada
-
 Este setor é o primeiro contato com o afloramento. Possui sombra até as 12h (variando de acordo com a estação).
 
 **Observações**:

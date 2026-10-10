@@ -3,7 +3,7 @@
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: JDQ2oA1zZMyay1
 caminho_imagem_capa: imagens/setor_acidos_p1_i2.webp
-nome: Ácidos
+nome: Setor Ácidos
 mapas:
 - caminho_imagem_mapa: imagens/setor_acidos_p0_i2.webp
   largura_mapa: 1212
@@ -114,8 +114,9 @@ escaladas:
     - Everton Alves
     - Jonatas Lima
     - Jefferson Lara
-    descricao: Sua linha tem início em agarras e depois segue por bons abaulados. Desborda toda a aresta em diagonal pra
-      esquerda até encontrar o top da Ácido Lático. São 6 chapeletas e mais o top.
+    descricao: Sua linha tem início em agarras e depois segue por bons abaulados.
+      Desborda toda a aresta em diagonal pra esquerda até encontrar o top da Ácido
+      Lático. São 6 chapeletas e mais o top.
 - uid: ny0mCBHG6xAzg2
   via_esportiva:
     nome: Ácido Sulfúrico
@@ -127,8 +128,8 @@ escaladas:
     - Pedro Naves
     - Bruno Bastos
     data_abertura: '2023-05-22'
-    descricao: Linha mais nova do setor. Segue vertical até a quarta chapa onde junta com a Clorídrico e termina na 
-      Lático.
+    descricao: Linha mais nova do setor. Segue vertical até a quarta chapa onde junta
+      com a Clorídrico e termina na Lático.
 - uid: XOgRGu8LuoJGVw
   via_esportiva:
     nome: Ácido Lático
@@ -141,9 +142,11 @@ escaladas:
     conquistadores:
     - João Felippin
     - Everton Alves
-    descricao: Primeira via conquistada no setor e também a mais clássica! Possui uma interessante movimentação técnica.
-      Seus lances peculiares com pockets, abaulados e lances de equilíbrio fazem dela uma via desafiadora e por isso foi
-      supergraduada no início. Divide o mesmo top com a via Ácido Clorídrico. São 5 chapas e mais o top.
+    descricao: Primeira via conquistada no setor e também a mais clássica! Possui
+      uma interessante movimentação técnica. Seus lances peculiares com pockets, abaulados
+      e lances de equilíbrio fazem dela uma via desafiadora e por isso foi supergraduada
+      no início. Divide o mesmo top com a via Ácido Clorídrico. São 5 chapas e mais
+      o top.
 - uid: tDw3S21yVJarzL
   via_esportiva:
     nome: Olho Clínico
@@ -155,9 +158,10 @@ escaladas:
     conquistadores:
     - Jonatas Lima
     data_abertura: '2013'
-    descricao: Esta é uma via que pode se tornar clássica do setor. Uma saída técnica passando a lances de oposição até 
-      acessar um grande platô, de onde necessita boa leitura caso escale à vista nos lances negativos debaixo do teto 
-      até fazer uma virada em grandes agarras. São 5 chapeletas e mais dois grampos no top.
+    descricao: Esta é uma via que pode se tornar clássica do setor. Uma saída técnica
+      passando a lances de oposição até acessar um grande platô, de onde necessita
+      boa leitura caso escale à vista nos lances negativos debaixo do teto até fazer
+      uma virada em grandes agarras. São 5 chapeletas e mais dois grampos no top.
 - uid: cQ7NQ4tKg06v6E
   via_esportiva:
     nome: Nitroglicerina
@@ -168,9 +172,10 @@ escaladas:
     conquistadores:
     - Jonatas Lima
     data_abertura: '2005'
-    descricao: Segunda via aberta no setor, extremamente explosiva e com passadas esticadas em dinâmicos e lances 
-      certeiros minam a resistência do escalador que ainda tem que dominar um negativo antes de costurar o top final. 
-      São 4 chapas e mais duas no top.
+    descricao: Segunda via aberta no setor, extremamente explosiva e com passadas
+      esticadas em dinâmicos e lances certeiros minam a resistência do escalador que
+      ainda tem que dominar um negativo antes de costurar o top final. São 4 chapas
+      e mais duas no top.
 - uid: defz621puWrWrN
   via_esportiva:
     nome: Carga Explosiva
@@ -182,9 +187,9 @@ escaladas:
     - Jonatas Lima
     - Fabrício Nascimento
     data_abertura: '2012'
-    descricao: Essa via possui a mesma saída da via Nitroglicerina, porém após a segunda proteção a linha segue para a 
-      esquerda em uma escalada horizontal até um pequeno teto. Após isso a via segue vertical até a parada. 6 + 2 
-      chapas.
+    descricao: Essa via possui a mesma saída da via Nitroglicerina, porém após a segunda
+      proteção a linha segue para a esquerda em uma escalada horizontal até um pequeno
+      teto. Após isso a via segue vertical até a parada. 6 + 2 chapas.
 - uid: emgWdzz8JCU5yM
   via_esportiva:
     nome: Menina dos Olhos
@@ -195,9 +200,9 @@ escaladas:
     - Jonatas Lima
     - Fabrício Nascimento
     data_abertura: '2012'
-    descricao: É uma via curta, porém de rara beleza! Com agarras diferenciadas, como buracos bidedos e tridedos, 
-      variedade de agarras. Via curta, porém exigente apesar da graduação. Aconselha-se sair com a primeira proteção 
-      costurada.
+    descricao: É uma via curta, porém de rara beleza! Com agarras diferenciadas, como
+      buracos bidedos e tridedos, variedade de agarras. Via curta, porém exigente
+      apesar da graduação. Aconselha-se sair com a primeira proteção costurada.
 - uid: Aolt48rdPsS0kP
   via_esportiva:
     nome: Capitão Nascimento
@@ -209,9 +214,10 @@ escaladas:
     - Jonatas Lima
     - Andréa Carvalho
     data_abertura: '2014'
-    descricao: Eis que temos a via mais difícil do setor. Uma via curta, porém praticamente todos os lances são de 
-      boulder. Seu crux é logo da primeira para a segunda chapa, após são lances de boulder mais diluídos, porém mantém 
-      uma constância até a parada dupla.
+    descricao: Eis que temos a via mais difícil do setor. Uma via curta, porém praticamente
+      todos os lances são de boulder. Seu crux é logo da primeira para a segunda chapa,
+      após são lances de boulder mais diluídos, porém mantém uma constância até a
+      parada dupla.
 - uid: 8ITuEE6qMLiCCA
   via_esportiva:
     nome: Isolamento Social
@@ -223,12 +229,11 @@ escaladas:
     - Pedro Naves
     - Mariana Fiche
     data_abertura: '2021-08-15'
-    descricao: Via curta, mas inteira dura. Seus micro-regletes e monodedos com movimentação de difícil leitura fazem 
-      dela um belo desafio pra escalada à vista. Ao final passa pra outra face da rocha à esquerda. Sugere-se entrar com
-      as costuras no lugar, pois as agarras de costura são bem ruins.
+    descricao: Via curta, mas inteira dura. Seus micro-regletes e monodedos com movimentação
+      de difícil leitura fazem dela um belo desafio pra escalada à vista. Ao final
+      passa pra outra face da rocha à esquerda. Sugere-se entrar com as costuras no
+      lugar, pois as agarras de costura são bem ruins.
 ---
-
-# Setor Ácidos
 
 O setor Ácidos apresenta como característica vias verticais com movimentações surpreendentes, podendo ser utilizados entalamentos, bidedo, calcanhar e movimentos dinâmicos. As linhas necessitam de uma leitura apurada e muita criatividade. Todas as vias são fixas e com parada dupla no top.
 

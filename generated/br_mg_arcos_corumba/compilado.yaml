@@ -491,10 +491,7 @@ picos:
             dificuldade: PROJETO
             data_abertura: '2020-10-01'
             quantidade_protecoes_intermediarias: 3
-        descricao: |-
-          # Setor Pataxós
-
-          Sombra a partir de 11h (varia de acordo com a sessão).
+        descricao: Sombra a partir de 11h (varia de acordo com a sessão).
         precomputados:
           total_escaladas: 23
           total_esportivas: 22
@@ -551,8 +548,6 @@ picos:
             nome: sem nome (via mixta)
             data_abertura: '2008-01-01'
         descricao: |-
-          # Setor Cataguás
-
           > [!WARNING]
           > **O ACESSO A ESTE SETOR ESTÁ PROIBIDO POR HORA.**
 
@@ -704,10 +699,7 @@ picos:
             data_abertura: '2022-07-25'
             quantidade_protecoes_intermediarias: 8
             quantidade_protecoes_parada: 2
-        descricao: |-
-          # Setor Xavante
-
-          Sombra o dia todo (varia de acordo com a estação).
+        descricao: Sombra o dia todo (varia de acordo com a estação).
         precomputados:
           total_escaladas: 6
           total_esportivas: 6
@@ -1174,10 +1166,7 @@ picos:
             dificuldade: PROJETO
             quantidade_protecoes_intermediarias: 11
             quantidade_protecoes_parada: 2
-        descricao: |-
-          # Setor Yanomami
-
-          Sombra até as 14h30 (varia de acordo com a estação).
+        descricao: Sombra até as 14h30 (varia de acordo com a estação).
         precomputados:
           total_escaladas: 21
           total_esportivas: 21

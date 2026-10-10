@@ -197,7 +197,7 @@
     | ![Apertadinha](imagens/setor_headwall_p5_i0.webp) |
     | :--: |
     | *Apertadinha* |
-- **nome**: Headwall
+- **nome**: Setor Headwall
 - **uid**: thtijyq3ZnLd0A
 - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_headwall_p0_i0_2.webp)
 - **mapas**:
@@ -309,7 +309,7 @@
     | ![Tico Skywalker](imagens/setor_roca_master_p7_i0.webp) |
     | :--: |
     | *Tico Skywalker* |
-- **nome**: Roca Master
+- **nome**: Setor Roca Master
 - **uid**: XvrC2nA83J5iAU
 - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_roca_master_p0_i0_2.webp)
 - **mapas**:
@@ -446,7 +446,7 @@
     ## Projetos
     - El Ninõ (projeto)
     - Univervia (projeto)
-- **nome**: Ecumênico
+- **nome**: Setor Ecumênico
 - **uid**: Jdz9SJrdlOBYw5
 - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_ecumenico_p0_i0_2.webp)
 - **mapas**:

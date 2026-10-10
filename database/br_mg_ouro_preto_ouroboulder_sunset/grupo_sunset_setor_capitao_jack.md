@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: WbGHKuEY0c29Qu
-nome: Capitão Jack
+nome: Bloco Capitão Jack
 escaladas:
 - uid: r4kmo4hFKS1LUc
   boulder:
@@ -96,4 +96,3 @@ mapas:
     - BQuEV7gKbWT3yU
 ---
 
-# Bloco Capitão Jack

@@ -12,4 +12,3 @@ escaladas:
     descricao: Sai sentado abraçando o bloco e escala até o topo.
 ---
 
-# Bloco E - Tótem

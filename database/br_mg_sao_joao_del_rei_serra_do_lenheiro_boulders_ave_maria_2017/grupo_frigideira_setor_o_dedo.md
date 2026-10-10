@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: O9shMYbO4wwfHk
-nome: O Dedo
+nome: Setor O Dedo
 mapas:
 - caminho_imagem_mapa: imagens/grupo_frigideira_setor_o_dedo_p0_i1.webp
   largura_mapa: 799
@@ -25,4 +25,3 @@ escaladas:
     dificuldade: V1
 ---
 
-# O Dedo

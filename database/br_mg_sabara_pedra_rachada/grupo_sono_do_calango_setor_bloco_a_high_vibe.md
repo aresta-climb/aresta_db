@@ -20,14 +20,14 @@ escaladas:
     nome: High vibe
     dificuldade: V0
     destaque: true
-    descricao: Sai sentado com a mão esquerda em uma pinça e a direita em um batente e escala reto por agarras boas até 
-      uma virada fácil.
+    descricao: Sai sentado com a mão esquerda em uma pinça e a direita em um batente
+      e escala reto por agarras boas até uma virada fácil.
 - uid: GUFEBsbKmsMJqK
   boulder:
     nome: Mamãe mandou
     dificuldade: V0
     destaque: true
-    descricao: Começa agachado com as mãos juntas em um batente e toca reto por batentes e regletes bons.
+    descricao: Começa agachado com as mãos juntas em um batente e toca reto por batentes
+      e regletes bons.
 ---
 
-# Bloco A - High Vibe

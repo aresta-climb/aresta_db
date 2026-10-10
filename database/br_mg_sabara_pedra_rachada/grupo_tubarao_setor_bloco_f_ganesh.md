@@ -12,8 +12,7 @@ escaladas:
     conquistadores:
     - Frederico Gonçalves
     data_abertura: '2010'
-    descricao: Sai sentado com as mãos juntas numa agarra boa no fundo da caverna, escala por agarras boas até um final 
-      duro e domina.
+    descricao: Sai sentado com as mãos juntas numa agarra boa no fundo da caverna,
+      escala por agarras boas até um final duro e domina.
 ---
 
-# Bloco F - Ganesh

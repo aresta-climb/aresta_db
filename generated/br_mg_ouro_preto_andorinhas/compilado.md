@@ -21,8 +21,6 @@
 ### Setor (Pico: Andorinhas)
 
 - **descricao**:
-    # Setor Pedra do Arco
-    
     Setor com vias de 12m até 17m.
     
     Tempo de aproximação: 20min.
@@ -30,7 +28,7 @@
     Características: Escalada vertical e negativa.
     
     Recomendações: Uso de capacete. Algumas vias requerem equipamento móvel.
-- **nome**: Pedra do Arco
+- **nome**: Setor Pedra do Arco
 - **uid**: zkSbaQVnPkafaq
 - **mapas**:
   - **[0]**:
@@ -294,8 +292,6 @@
 ### Setor (Pico: Andorinhas)
 
 - **descricao**:
-    # Setor Campo Escola
-    
     Setor com vias de 8m até 10m.
     
     Tempo de aproximação: 25min.
@@ -303,7 +299,7 @@
     Características: Escalada positiva.
     
     Recomendações: Uso de capacete. Algumas vias requerem equipamento móvel.
-- **nome**: Campo Escola
+- **nome**: Setor Campo Escola
 - **uid**: TFb7MHt7YSa4Am
 - **mapas**:
   - **[0]**:
@@ -537,8 +533,6 @@
 ### Setor (Pico: Andorinhas)
 
 - **descricao**:
-    # Setor Tchau Querida
-    
     Setor com vias de 11m até 12m.
     
     Tempo de aproximação: 10min.
@@ -546,7 +540,7 @@
     Características: Escalada vertical e negativa.
     
     Recomendações: Uso de capacete.
-- **nome**: Tchau Querida
+- **nome**: Setor Tchau Querida
 - **uid**: wsG4L2MDOjEQyv
 - **mapas**:
   - **[0]**:
@@ -755,8 +749,6 @@
 ### Setor (Pico: Andorinhas)
 
 - **descricao**:
-    # Setor Pedra Branca
-    
     Setor com vias de 9m até 12m.
     
     Tempo de aproximação: 25min.
@@ -764,7 +756,7 @@
     Características: Escalada vertical.
     
     Recomendações: Uso de capacete. Algumas vias requerem equipamento móvel.
-- **nome**: Pedra Branca
+- **nome**: Setor Pedra Branca
 - **uid**: LwsbKpA62X0tMd
 - **mapas**:
   - **[0]**:

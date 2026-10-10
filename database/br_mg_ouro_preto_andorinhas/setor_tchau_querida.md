@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: wsG4L2MDOjEQyv
-nome: Tchau Querida
+nome: Setor Tchau Querida
 mapas:
 - caminho_imagem_mapa: imagens/setor_tchau_querida_p0.webp
   largura_mapa: 2048
@@ -144,8 +144,6 @@ escaladas:
     - Fábio de Melo
     - Rodrigo 'Mussula'
 ---
-
-# Setor Tchau Querida
 
 Setor com vias de 11m até 12m.
 

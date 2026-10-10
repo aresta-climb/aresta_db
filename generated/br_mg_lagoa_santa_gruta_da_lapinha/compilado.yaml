@@ -11,7 +11,7 @@ picos:
   - setor:
       conteudo:
         uid: pcQfnDIAUZk99g
-        nome: Castelinho
+        nome: Setor Castelinho
         mapas:
         - caminho_imagem_mapa: imagens/setor_mapa_1_p0_i0.webp
           largura_mapa: 330
@@ -161,8 +161,6 @@ picos:
             descricao: '**INTERDITADA:** Via inacabada, conta com apenas 3 proteções
               intermediárias e sem parada instalada no topo.'
         descricao: |-
-          # Setor Castelinho
-
           Setor localizado próximo ao Restaurante Castelinho. Possui vias de graduação
           variada, incluindo algumas vias em móvel.
         precomputados:
@@ -225,8 +223,8 @@ picos:
               por novas ancoragens. Parada simples que necessita ser duplicada.'
             conquistadores:
             - Daniel Fernandes "Salim"
-        descricao: "# Setor Mapa 2\n\nLocalizado próximo à entrada da gruta. \n**Atenção:**\
-          \ \"Não entre em cavernas\"."
+        descricao: "Localizado próximo à entrada da gruta. \n**Atenção:** \"Não entre\
+          \ em cavernas\"."
         precomputados:
           total_escaladas: 2
           total_esportivas: 1
@@ -870,10 +868,7 @@ picos:
             - Douglas
             - Bombom
             data_abertura: '1994'
-        descricao: |-
-          # Setor Gruta - Mapa 3
-
-          Parte interna e externa da gruta com vias esportivas e móveis.
+        descricao: Parte interna e externa da gruta com vias esportivas e móveis.
         precomputados:
           total_escaladas: 26
           total_esportivas: 18
@@ -1274,7 +1269,7 @@ picos:
           - alvo_uid: UlccfwkdM6gnf0
             pontos_uids:
             - VhXFpYrylmzxCu
-            setor: Savassinha (Mapa 9)
+            setor: Setor Savassinha (Mapa 9)
             ids:
             - VhXFpYrylmzxCu
         escaladas:
@@ -1420,10 +1415,8 @@ picos:
             - Eustáquio Macedo Melo Júnior
             - Emerson Alves Azeredo
             data_abertura: '1997'
-        descricao: |-
-          # Setor Gruta - Mapa 4 (Sala de Aula)
-
-          Vias localizadas na região da Sala de Aula e em direção ao setor Savassinha.
+        descricao: Vias localizadas na região da Sala de Aula e em direção ao setor
+          Savassinha.
         precomputados:
           total_escaladas: 17
           total_esportivas: 14
@@ -1660,8 +1653,6 @@ picos:
             - Fabiano Fernandes
             data_abertura: '1994'
         descricao: |-
-          # Setor Mapa 5
-
           Vias localizadas próximo à região do "Pasto" e "Mancha amarela".
           Confira a localização no mapa.
         precomputados:
@@ -1670,7 +1661,7 @@ picos:
   - setor:
       conteudo:
         uid: DzpVy5IyHcY19t
-        nome: Vale Verde (Mapa 6)
+        nome: Setor Vale Verde (Mapa 6)
         mapas:
         - caminho_imagem_mapa: imagens/setor_mapa_6_p0_i0.webp
           largura_mapa: 465
@@ -2003,8 +1994,6 @@ picos:
             - Ricardo Jardim Leal
             data_abertura: '1998'
         descricao: |-
-          # Setor Vale Verde (Mapa 6)
-
           Setor com vias técnicas e atléticas. O mapa está fora de escala ("fora de escala").
           O Bloco do Raul Seixas está localizado próximo às vias 73, 74 e 75.
         precomputados:
@@ -2294,10 +2283,8 @@ picos:
             - Antonio Carlos Magalhães
             - Emerson Alves Azeredo
             data_abertura: '1993'
-        descricao: |-
-          # Setor Mapa 7
-
-          Este setor abriga a base da via "Monte Calvário". Possui vias predominantemente esportivas.
+        descricao: Este setor abriga a base da via "Monte Calvário". Possui vias predominantemente
+          esportivas.
         precomputados:
           total_escaladas: 11
           total_esportivas: 10
@@ -2946,8 +2933,6 @@ picos:
             - Alexandre Magos
             data_abertura: '1998'
         descricao: |-
-          # Setor Túnel de Pedra (Mapa 8)
-
           Vias localizadas na região do Túnel de Pedra.
           O setor possui uma grande concentração de vias esportivas de graduação variada.
         precomputados:
@@ -2956,7 +2941,7 @@ picos:
   - setor:
       conteudo:
         uid: UlccfwkdM6gnf0
-        nome: Savassinha (Mapa 9)
+        nome: Setor Savassinha (Mapa 9)
         mapas:
         - caminho_imagem_mapa: imagens/setor_mapa_9_p0_i0.webp
           largura_mapa: 500
@@ -3367,8 +3352,6 @@ picos:
             - Anderson Vila Nova
             - Bruno Madeira
         descricao: |-
-          # Setor Savassinha (Mapa 9)
-
           Setor com vias de alto nível técnico e físico.
           Vias localizadas em uma das áreas mais frequentadas da Lapinha.
         precomputados:
@@ -3549,8 +3532,6 @@ picos:
             - Emerson Alves Azeredo
             data_abertura: '1993'
         descricao: |-
-          # Setor Bloco Romano (Mapa 10)
-
           Setor final do guia, localizado próximo ao Túnel de Pedra e ao Teto.
           Possui vias predominantemente esportivas.
         precomputados:
@@ -3766,7 +3747,7 @@ picos:
           pontos_uids:
           - aDOtmpbJLB0OKx
           - AnmtvJom6goBgb
-          setor: Vale Verde (Mapa 6)
+          setor: Setor Vale Verde (Mapa 6)
           ids:
           - aDOtmpbJLB0OKx
           - AnmtvJom6goBgb
@@ -3786,14 +3767,14 @@ picos:
           pontos_uids:
           - 936Ry3B1BohHMy
           - D4dqM0x06neIDK
-          setor: Savassinha (Mapa 9)
+          setor: Setor Savassinha (Mapa 9)
           ids:
           - 936Ry3B1BohHMy
           - D4dqM0x06neIDK
         - alvo_uid: pcQfnDIAUZk99g
           pontos_uids:
           - G9UkCk5eoim2vZ
-          setor: Castelinho
+          setor: Setor Castelinho
           ids:
           - G9UkCk5eoim2vZ
         - alvo_uid: RnZKGhZfGOypo1

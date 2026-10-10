@@ -19,13 +19,13 @@ escaladas:
   boulder:
     nome: Vale Tudo
     dificuldade: V0
-    descricao: Escala a face levemente positiva por agarras boas, saindo no módulo. Fique atento com agarras 
-      quebradiças!
+    descricao: Escala a face levemente positiva por agarras boas, saindo no módulo.
+      Fique atento com agarras quebradiças!
 - uid: mO3oa0oNDd0937
   boulder:
     nome: 12 de Outubro
     dificuldade: V0
-    descricao: Sai em pé no módulo e domina reto passando pela fenda. Cuidado com agarras que podem vir a quebrar!
+    descricao: Sai em pé no módulo e domina reto passando pela fenda. Cuidado com
+      agarras que podem vir a quebrar!
 ---
 
-# Bloco D - 12 de Outubro

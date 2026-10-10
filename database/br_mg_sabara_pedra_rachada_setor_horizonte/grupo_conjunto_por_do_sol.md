@@ -38,4 +38,3 @@ setores:
 - caminho: grupo_conjunto_por_do_sol_setor_bloco_c.md
 ---
 
-# Conjunto pôr-do-sol

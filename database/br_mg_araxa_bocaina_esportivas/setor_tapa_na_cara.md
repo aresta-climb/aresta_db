@@ -3,7 +3,7 @@
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: SIe8qMFw1Y46zG
 caminho_imagem_capa: imagens/setor_tapa_na_cara_p0_i0.webp
-nome: Tapa na Cara
+nome: Setor Tapa na Cara
 mapas:
 - caminho_imagem_mapa: imagens/setor_tapa_na_cara_p1.webp
   largura_mapa: 1280
@@ -94,8 +94,6 @@ escaladas:
     - Paulo
     data_abertura: '2013'
 ---
-
-# Setor Tapa na Cara
 
 Setor com vias curtas e técnicas, ideal para quem busca vias de 6º e 7º grau.
 

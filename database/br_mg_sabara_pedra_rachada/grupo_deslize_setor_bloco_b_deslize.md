@@ -26,13 +26,14 @@ escaladas:
     nome: Deslize
     dificuldade: V8
     destaque: true
-    descricao: Começa com as mãos em um grande batente escorrido e escala reto por regletes.
+    descricao: Começa com as mãos em um grande batente escorrido e escala reto por
+      regletes.
 - uid: OF78evauZ6gbbR
   boulder:
     nome: Desnível
     dificuldade: V8
-    descricao: Finalizando mais à direita do “Deslize” (11), com uma movimentação diferente. Se ligue com a torção no 
-      entalamento de calcanhar.
+    descricao: Finalizando mais à direita do “Deslize” (11), com uma movimentação
+      diferente. Se ligue com a torção no entalamento de calcanhar.
 - uid: FSsBOjtFVeHF0F
   boulder:
     nome: Deslizamento
@@ -41,7 +42,8 @@ escaladas:
     conquistadores:
     - Gustavo Fontes
     data_abertura: '2013'
-    descricao: Começa com as mãos em dois regletes no teto e termina como o “Deslize” (11).
+    descricao: Começa com as mãos em dois regletes no teto e termina como o “Deslize”
+      (11).
 - uid: hGlsbbD7sD8woU
   boulder:
     nome: Desnivelado
@@ -49,8 +51,7 @@ escaladas:
     conquistadores:
     - Gustavo Fontes
     data_abertura: '2013'
-    descricao: Começa com as mãos em dois regletes no teto e termina no “Desnível” (12). Se ligue com a torção no 
-      entalamento de calcanhar.
+    descricao: Começa com as mãos em dois regletes no teto e termina no “Desnível”
+      (12). Se ligue com a torção no entalamento de calcanhar.
 ---
 
-# Bloco B - Deslize

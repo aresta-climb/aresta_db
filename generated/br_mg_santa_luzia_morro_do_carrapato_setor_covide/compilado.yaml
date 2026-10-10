@@ -172,7 +172,7 @@ picos:
           - caminho_imagem_mapa: imagens/setor_covide_ala_aderencia_p4.webp
             largura_mapa: 825
             altura_mapa: 1211
-        descricao: '# Setor Covide (ala aderência)'
+        descricao: ''
         precomputados:
           total_escaladas: 3
           total_esportivas: 3
@@ -536,8 +536,6 @@ picos:
             largura_mapa: 825
             altura_mapa: 1211
         descricao: |-
-          # Setor Covide (ala esquerda)
-
           | Nº | Nome da via | P1 |
           |---|---|---|
           | 4 | Coronavaco | IV (1+2) |
@@ -1148,8 +1146,6 @@ picos:
             largura_mapa: 825
             altura_mapa: 1211
         descricao: |-
-          # Setor Covide (ala central e direita)
-
           | Nº | Nome da via | P1 |
           |---|---|---|
           | 14 | Cepadedos | VIIb (4+2) |

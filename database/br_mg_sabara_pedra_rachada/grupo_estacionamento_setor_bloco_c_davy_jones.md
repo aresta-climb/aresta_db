@@ -26,20 +26,21 @@ escaladas:
     nome: Barba ruiva
     dificuldade: V0
     destaque: true
-    descricao: Começa sentado com a mão direita em um reglete/pocket e a esquerda em um reglete e escala o vertical 
-      técnico.
+    descricao: Começa sentado com a mão direita em um reglete/pocket e a esquerda
+      em um reglete e escala o vertical técnico.
 - uid: NLIfUSMgfjga9V
   boulder:
     nome: Davy Jones
     dificuldade: V0
     destaque: true
-    descricao: Escala a proa do bloco, começando em pé com a mão direita em um bico e a esquerda em um batente de 
-      oposição.
+    descricao: Escala a proa do bloco, começando em pé com a mão direita em um bico
+      e a esquerda em um batente de oposição.
 - uid: SUbGEXfGneLyml
   boulder:
     nome: Fenda do Biquíni
     dificuldade: V0
-    descricao: Sai sentado com as mãos juntas em uma agarra boa, toca reto até a borda e vira à esquerda do módulo.
+    descricao: Sai sentado com as mãos juntas em uma agarra boa, toca reto até a borda
+      e vira à esquerda do módulo.
 - uid: peoSaKCrDorXT8
   boulder:
     nome: Motim
@@ -48,4 +49,3 @@ escaladas:
     descricao: Começa como o “Fenda do biquíni” (14) e domina à direita do módulo.
 ---
 
-# Bloco C - Davy Jones

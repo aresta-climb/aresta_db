@@ -188,7 +188,5 @@ escaladas:
     data_abertura: '1994'
 ---
 
-# Setor Mapa 5
-
 Vias localizadas próximo à região do "Pasto" e "Mancha amarela".
 Confira a localização no mapa.

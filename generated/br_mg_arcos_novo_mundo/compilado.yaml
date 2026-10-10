@@ -88,10 +88,7 @@ picos:
             nome: Dente de Aço
             dificuldade: INDEFINIDO
             descricao: via em móvel
-        descricao: |-
-          # Setor Cemitério dos Ossos
-
-          Sombra de 7h as 13h (varia de acordo com a estação).
+        descricao: Sombra de 7h as 13h (varia de acordo com a estação).
         precomputados:
           total_escaladas: 2
           total_esportivas: 1
@@ -444,8 +441,6 @@ picos:
             nome: via inacabada
             dificuldade: INDEFINIDO
         descricao: |-
-          # Setor Aristóteles
-
           Sombra de 7h as 13h (varia de acordo com a estação).
           Também conhecido como Setor Praça Aristóteles.
         precomputados:
@@ -621,10 +616,7 @@ picos:
             quantidade_protecoes_intermediarias: 8
             quantidade_protecoes_parada: 2
             data_abertura: '2018'
-        descricao: |-
-          # Setor Corredor Polonês
-
-          Sombra o dia todo (varia de acordo com a estação).
+        descricao: Sombra o dia todo (varia de acordo com a estação).
         precomputados:
           total_escaladas: 5
           total_esportivas: 5
@@ -858,10 +850,7 @@ picos:
             nome: Maldita Dependência
             dificuldade: BR_7A
             data_abertura: '2016'
-        descricao: |-
-          # Setor Barceloneta
-
-          Sombra das 7h as 12h (varia de acordo com a estação).
+        descricao: Sombra das 7h as 12h (varia de acordo com a estação).
         precomputados:
           total_escaladas: 8
           total_esportivas: 8

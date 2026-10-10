@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: YE6JcMIe648G54
-nome: Godzilla
+nome: Setor Godzilla
 mapas:
 - caminho_imagem_mapa: imagens/grupo_colina_setor_godzilla_p0.webp
   largura_mapa: 755
@@ -133,8 +133,6 @@ escaladas:
     nome: Obra de Arte
     dificuldade: V9
 ---
-
-# Setor Godzilla
 
 O setor Godzilla possui blocos imponentes com linhas de alta qualidade e dificuldade.
 

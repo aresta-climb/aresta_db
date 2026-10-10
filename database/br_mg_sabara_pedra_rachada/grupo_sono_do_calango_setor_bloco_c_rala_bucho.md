@@ -8,7 +8,8 @@ escaladas:
   boulder:
     nome: Rala-bucho
     dificuldade: V3
-    descricao: Começa em um batente escorrido e toca por batentes na lateral esquerda do bloco, com uma virada técnica.
+    descricao: Começa em um batente escorrido e toca por batentes na lateral esquerda
+      do bloco, com uma virada técnica.
 - uid: QtvkgIux4n3rHl
   boulder:
     nome: Rala-queixo
@@ -16,4 +17,3 @@ escaladas:
     descricao: Sai na pedra que apoia o bloco e domina a proa.
 ---
 
-# Bloco C - Rala-Bucho

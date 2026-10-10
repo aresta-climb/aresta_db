@@ -26,6 +26,4 @@ setores:
 - caminho: grupo_reza_setor_lek_pression.md
 ---
 
-# Grupo Reza
-
 **Principais blocos:** Reza, Profeta, Locomotiva, Bat-Caverna, Almadém, Busão.

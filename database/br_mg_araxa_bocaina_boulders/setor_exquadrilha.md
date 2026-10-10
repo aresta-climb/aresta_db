@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: 5KSqaLJ9K1rbfi
-nome: Exquadrilha
+nome: Setor Exquadrilha
 mapas:
 - caminho_imagem_mapa: imagens/setor_exquadrilha_p0.webp
   largura_mapa: 1062
@@ -59,24 +59,26 @@ escaladas:
   boulder:
     nome: Fumaça Sagrada
     dificuldade: V7
-    descricao: Saída com as mãos em regletes invertidos e pés com tail em batente grande e segue pelo Exquadrilha da 
-      Fumaça.
+    descricao: Saída com as mãos em regletes invertidos e pés com tail em batente
+      grande e segue pelo Exquadrilha da Fumaça.
 - uid: IiN1qRHwQtfZVL
   boulder:
     nome: Exquadrilha da Fumaça
     dificuldade: V5
-    descricao: Saída com as mãos e calcanhar esquerdo em batente grande, e segue para direita em agarrão virando na 
-      lateral no bloco.
+    descricao: Saída com as mãos e calcanhar esquerdo em batente grande, e segue para
+      direita em agarrão virando na lateral no bloco.
 - uid: yVtsgImLqEpT3L
   boulder:
     nome: Quadrilha da Fumaça
     dificuldade: V4
-    descricao: Saída com as mãos em buracos na laca, seguindo para agarrão e virando a direita do bloco.
+    descricao: Saída com as mãos em buracos na laca, seguindo para agarrão e virando
+      a direita do bloco.
 - uid: uZFuQjlORYOybS
   boulder:
     nome: Planet Hemp
     dificuldade: V5
-    descricao: Saída com as mãos buracos na laca, seguindo para agarrão e virando reto proa.
+    descricao: Saída com as mãos buracos na laca, seguindo para agarrão e virando
+      reto proa.
 - uid: uOVZG4RDG9ESRh
   boulder:
     nome: Cypress Hill
@@ -84,4 +86,3 @@ escaladas:
     descricao: Saída do exquadrilha e virando no Planet Hemp.
 ---
 
-# Setor Exquadrilha

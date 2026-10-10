@@ -7,7 +7,7 @@ picos:
   - setor:
       conteudo:
         uid: nKwCTW2vS87al0
-        nome: Floresta de pedra
+        nome: Setor Floresta de pedra
         mapas:
         - caminho_imagem_mapa: imagens/setor_floresta_de_pedra_p0_i0.webp
           largura_mapa: 1427
@@ -150,7 +150,7 @@ picos:
           - alvo_uid: SEgxtzL4pAgclV
             pontos_uids:
             - IunakcFTmaHuEU
-            setor: Beija Flor
+            setor: Setor Beija Flor
             ids:
             - IunakcFTmaHuEU
           - alvo_uid: cgYhOqCxY7U7Gx
@@ -162,13 +162,13 @@ picos:
           - alvo_uid: nnYIlTwIYD9Wlp
             pontos_uids:
             - EddG35A3rLwCBJ
-            setor: Moctezuma
+            setor: Setor Moctezuma
             ids:
             - EddG35A3rLwCBJ
         setores:
         - conteudo:
             uid: zA8I9CcpUUdw4Q
-            nome: Conjunto Pôr do sol - Bloco A
+            nome: Setor Conjunto Pôr do sol - Bloco A
             mapas:
             - caminho_imagem_mapa: imagens/grupo_conjunto_por_do_sol_setor_bloco_a_p0_i0.webp
               largura_mapa: 900
@@ -303,16 +303,15 @@ picos:
                 descricao: Boulder de movimentação específica. As duas mão começam
                   juntas em uma agarra invertida muito boa na fenda horizontal e escala
                   reto.
-            descricao: |-
-              # Bloco A
-
-              Dica: Para queda ficar mais segura, posicione alguns crash como “calço” por baixo da camada que irá protegê-lo e entre as duas rochas que afunilam a base. A queda dos boulders é bem neste ponto.
+            descricao: 'Dica: Para queda ficar mais segura, posicione alguns crash
+              como “calço” por baixo da camada que irá protegê-lo e entre as duas
+              rochas que afunilam a base. A queda dos boulders é bem neste ponto.'
             precomputados:
               total_escaladas: 6
               total_boulders: 6
         - conteudo:
             uid: Ioa3yTba2GlkHC
-            nome: Conjunto Pôr do sol - Bloco B
+            nome: Setor Conjunto Pôr do sol - Bloco B
             mapas:
             - caminho_imagem_mapa: imagens/grupo_conjunto_por_do_sol_setor_bloco_b_p0_i0.webp
               largura_mapa: 900
@@ -447,13 +446,13 @@ picos:
                 dificuldade: V0
                 descricao: Sai das agarras grandes no lado direito do bloco e vira
                   reto, na parte mais baixa.
-            descricao: '# Bloco B'
+            descricao: ''
             precomputados:
               total_escaladas: 7
               total_boulders: 7
         - conteudo:
             uid: oDdDAqETF27BlU
-            nome: Conjunto Pôr do sol - Bloco C
+            nome: Setor Conjunto Pôr do sol - Bloco C
             mapas:
             - caminho_imagem_mapa: imagens/grupo_conjunto_por_do_sol_setor_bloco_c_p0_i0.webp
               largura_mapa: 720
@@ -513,18 +512,18 @@ picos:
                 dificuldade: V5
                 descricao: Boulder pela face do bloco, saindo de agarras óbvias e
                   indo pra esquerda até a virada pelo final da aresta.
-            descricao: '# Bloco C'
+            descricao: ''
             precomputados:
               total_escaladas: 4
               total_boulders: 4
-        descricao: '# Conjunto pôr-do-sol'
+        descricao: ''
         precomputados:
           total_escaladas: 17
           total_boulders: 17
   - setor:
       conteudo:
         uid: mE3qfosSuHNyTa
-        nome: Brinquedos
+        nome: Setor Brinquedos
         mapas:
         - caminho_imagem_mapa: imagens/setor_brinquedos_p0_i0.webp
           largura_mapa: 720
@@ -708,17 +707,14 @@ picos:
             dificuldade: V4
             descricao: Boulder clássico pela aresta do bloco, saindo com as mãos juntas
               no agarrão na parte baixa.
-        descricao: |-
-          # Brinquedos
-
-          Foto: Eric Dornellas - Escaladora: Lívia Gonçalves
+        descricao: 'Foto: Eric Dornellas - Escaladora: Lívia Gonçalves'
         precomputados:
           total_escaladas: 8
           total_boulders: 8
   - setor:
       conteudo:
         uid: SEgxtzL4pAgclV
-        nome: Beija Flor
+        nome: Setor Beija Flor
         mapas:
         - caminho_imagem_mapa: imagens/setor_beija_flor_p0_i0.webp
           largura_mapa: 1014
@@ -864,14 +860,14 @@ picos:
             descricao: Mesma saída do boulder “Trinca ferro”, iniciando no módulo
               mais baixo do bloco e seguindo para a direita, finalizando no Beija
               Flor. Incrível!
-        descricao: '# Beija Flor'
+        descricao: ''
         precomputados:
           total_escaladas: 7
           total_boulders: 7
   - setor:
       conteudo:
         uid: PnplZXwMjCuqJA
-        nome: Bacurau
+        nome: Setor Bacurau
         mapas:
         - caminho_imagem_mapa: imagens/setor_bacurau_p0_i0.webp
           largura_mapa: 901
@@ -1009,14 +1005,14 @@ picos:
             dificuldade: V1
             descricao: Boulder no bloco ao lado, com a saída na parte baixa da direita,
               sem usar os blocos de baixo, tocando por toda a aresta.
-        descricao: '# Bacurau'
+        descricao: ''
         precomputados:
           total_escaladas: 6
           total_boulders: 6
   - setor:
       conteudo:
         uid: nnYIlTwIYD9Wlp
-        nome: Moctezuma
+        nome: Setor Moctezuma
         mapas:
         - caminho_imagem_mapa: imagens/setor_moctezuma_p0_i0.webp
           largura_mapa: 1126
@@ -1167,17 +1163,16 @@ picos:
             descricao: Saída com a mão esquerda na laca lateral e a mão direita no
               batente baixo, indo para a direita até um movimento forte em um batente
               liso.
-        descricao: |-
-          # Moctezuma
-
-          OBS: Herança de Ferro aparentava já ter sido escalada. Buscamos informações com alguns escaladores, porém o boulder não foi reconhecido. Caso alguém se lembre da linha, entrar em contato para alteração do croqui.
+        descricao: 'OBS: Herança de Ferro aparentava já ter sido escalada. Buscamos
+          informações com alguns escaladores, porém o boulder não foi reconhecido.
+          Caso alguém se lembre da linha, entrar em contato para alteração do croqui.'
         precomputados:
           total_escaladas: 7
           total_boulders: 7
   - setor:
       conteudo:
         uid: cdvqeGA2kAJhtk
-        nome: Moléstia
+        nome: Setor Moléstia
         mapas:
         - caminho_imagem_mapa: imagens/setor_molestia_p0_i0.webp
           largura_mapa: 1126
@@ -1249,7 +1244,7 @@ picos:
             dificuldade: V4
             descricao: Começa com as mãos juntas em uma pinça/reglete, indo para um
               abaolado com uma virada técnica.
-        descricao: '# Moléstia'
+        descricao: ''
         precomputados:
           total_escaladas: 3
           total_boulders: 3
@@ -1439,10 +1434,9 @@ picos:
             nome: Vertigem
             dificuldade: V5
             descricao: Boulder clássico.
-        descricao: |-
-          # Outros Blocos
-
-          AVISO: O bloco possui um grande módulo no meio com uma linha clássica bem óbvia e alta, porém esse modulo não parece ser sólido e não foi testado por meio de rapel até o momento.
+        descricao: 'AVISO: O bloco possui um grande módulo no meio com uma linha clássica
+          bem óbvia e alta, porém esse modulo não parece ser sólido e não foi testado
+          por meio de rapel até o momento.'
         precomputados:
           total_escaladas: 8
           total_boulders: 8
@@ -1484,7 +1478,7 @@ picos:
         - alvo_uid: SEgxtzL4pAgclV
           pontos_uids:
           - Nz5DEBPd7WJScf
-          setor: Beija Flor
+          setor: Setor Beija Flor
           ids:
           - Nz5DEBPd7WJScf
         - alvo_uid: cgYhOqCxY7U7Gx
@@ -1496,7 +1490,7 @@ picos:
         - alvo_uid: nnYIlTwIYD9Wlp
           pontos_uids:
           - jWueDmG3nXmbgC
-          setor: Moctezuma
+          setor: Setor Moctezuma
           ids:
           - jWueDmG3nXmbgC
   localizacao:

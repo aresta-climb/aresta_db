@@ -29,21 +29,22 @@ escaladas:
     nome: Vendo a vó pela greta
     dificuldade: V0
     destaque: true
-    descricao: Highball que escala a óbvia fenda off-width por agarras boas. Um desafio mental!
+    descricao: Highball que escala a óbvia fenda off-width por agarras boas. Um desafio
+      mental!
 - uid: 5R8i9Bx1v64IKU
   boulder:
     nome: Abraço do jacaré
     dificuldade: V1
     destaque: true
-    descricao: Clássica via que segue pela aresta, domina o tetinho por regletes e finaliza no mesmo top da via 
-      “Papagaio preto” (14). Graduada no guia como 7B/v1.
+    descricao: Clássica via que segue pela aresta, domina o tetinho por regletes e
+      finaliza no mesmo top da via “Papagaio preto” (14). Graduada no guia como 7B/v1.
 - uid: dIEvz3JGNyTgpY
   boulder:
     nome: Papagaio preto
     dificuldade: V0
     destaque: true
-    descricao: Via que escala o vertical com movimentação técnica e domina o tetinho por agarras boas. Graduada no guia 
-      como 7A/v0.
+    descricao: Via que escala o vertical com movimentação técnica e domina o tetinho
+      por agarras boas. Graduada no guia como 7A/v0.
 - uid: 0pTamJhrWcfRNl
   boulder:
     nome: Maritaca
@@ -56,4 +57,3 @@ escaladas:
     descricao: Sai sentado com as mãos juntas em uma agarra boa e toca reto.
 ---
 
-# Bloco G - Das Vias

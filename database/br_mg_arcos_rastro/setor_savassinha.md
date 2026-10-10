@@ -250,6 +250,4 @@ escaladas:
     quantidade_protecoes_parada: 2
 ---
 
-# Setor Savassinha
-
 Este setor possui sombra até as 12h (variando de acordo com a estação).

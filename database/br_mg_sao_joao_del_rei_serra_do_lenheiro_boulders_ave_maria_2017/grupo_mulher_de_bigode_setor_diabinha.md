@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: 9CuBV3INHGsfir
-nome: Diabinha
+nome: Setor Diabinha
 mapas:
 - caminho_imagem_mapa: imagens/grupo_mulher_de_bigode_setor_diabinha_p0_i1.webp
   largura_mapa: 687
@@ -25,4 +25,3 @@ escaladas:
     dificuldade: V0
 ---
 
-# Diabinha

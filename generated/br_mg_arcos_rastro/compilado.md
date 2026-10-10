@@ -99,10 +99,7 @@
 
 ### Setor (Pico: Afloramento Rastro)
 
-- **descricao**:
-    # Setor Zona Leste
-    
-    Este setor oferece vias de 6º a 7c grau, com sombra o dia todo (variando de acordo com a estação).
+- **descricao**: Este setor oferece vias de 6º a 7c grau, com sombra o dia todo (variando de acordo com a estação).
 - **nome**: Setor Zona Leste
 - **uid**: 7WZuOZ1mTtHPAN
 - **mapas**:
@@ -295,8 +292,6 @@
 ### Setor (Pico: Afloramento Rastro)
 
 - **descricao**:
-    # Setor Chegada
-    
     Este setor é o primeiro contato com o afloramento. Possui sombra até as 12h (variando de acordo com a estação).
     
     **Observações**:
@@ -535,7 +530,7 @@
         - **pontos_uids**:
           - irtD1mffJuYtVd
           - eBKFyJdsJsOmfz
-        - **setor**: 2º Andar
+        - **setor**: Setor 2º Andar
         - **ids**:
           - irtD1mffJuYtVd
           - eBKFyJdsJsOmfz
@@ -557,21 +552,21 @@
         - **alvo_uid**: rTPz6f4oHTpzLr
         - **pontos_uids**:
           - eBKFyJdsJsOmfz
-        - **setor**: 1º Andar
+        - **setor**: Setor 1º Andar
         - **ids**:
           - eBKFyJdsJsOmfz
       - **[14]**:
         - **alvo_uid**: Xxlz6Srh7a9jQT
         - **pontos_uids**:
           - eBKFyJdsJsOmfz
-        - **setor**: Jardim Suspenso
+        - **setor**: Setor Jardim Suspenso
         - **ids**:
           - eBKFyJdsJsOmfz
       - **[15]**:
         - **alvo_uid**: xFIkaiWPCCAZxk
         - **pontos_uids**:
           - eBKFyJdsJsOmfz
-        - **setor**: 3º Andar
+        - **setor**: Setor 3º Andar
         - **ids**:
           - eBKFyJdsJsOmfz
 - **escaladas**:
@@ -678,8 +673,6 @@
 ### Setor (Pico: Afloramento Rastro)
 
 - **descricao**:
-    # Setor Onça
-    
     Este setor possui sombra até as 13h (variando de acordo com a estação).
     
     **Observações**:
@@ -1500,10 +1493,7 @@
 
 ### Setor (Pico: Afloramento Rastro)
 
-- **descricao**:
-    # Setor Toca dos Gatos
-    
-    Este setor possui sombra o dia todo (variando de acordo com a estação). O acesso é feito através de um "Túnel de acesso".
+- **descricao**: Este setor possui sombra o dia todo (variando de acordo com a estação). O acesso é feito através de um "Túnel de acesso".
 - **nome**: Setor Toca dos Gatos
 - **uid**: RVnHesmJXyO5RN
 - **mapas**:
@@ -1776,10 +1766,7 @@
 
 ### Setor (Pico: Afloramento Rastro)
 
-- **descricao**:
-    # Setor Intermediário
-    
-    Este setor possui sombra até as 13h (variando de acordo com a estação).
+- **descricao**: Este setor possui sombra até as 13h (variando de acordo com a estação).
 - **nome**: Setor Intermediário
 - **uid**: dzia3Nrh75O9WH
 - **mapas**:
@@ -2073,10 +2060,7 @@
 
 ### Setor (Pico: Afloramento Rastro)
 
-- **descricao**:
-    # Setor Vale das Sombras
-    
-    Este setor possui sombra o dia todo (variando de acordo com a estação).
+- **descricao**: Este setor possui sombra o dia todo (variando de acordo com a estação).
 - **nome**: Setor Vale das Sombras
 - **uid**: I8731IVGqI3fpV
 - **mapas**:
@@ -2856,10 +2840,7 @@
 
 ### Setor (Pico: Afloramento Rastro)
 
-- **descricao**:
-    # Setor Parede dos Conflitos
-    
-    Este setor possui sombra até as 13h (variando de acordo com a estação).
+- **descricao**: Este setor possui sombra até as 13h (variando de acordo com a estação).
 - **nome**: Setor Parede dos Conflitos
 - **uid**: Y0QxY20SyM5soE
 - **mapas**:
@@ -3232,10 +3213,7 @@
 
 ### Setor (Pico: Afloramento Rastro)
 
-- **descricao**:
-    # Setor Leão de Judah
-    
-    Este setor possui sombra até as 12h (variando de acordo com a estação).
+- **descricao**: Este setor possui sombra até as 12h (variando de acordo com a estação).
 - **nome**: Setor Leão de Judah
 - **uid**: 1TCXLdk6niZmLH
 - **mapas**:
@@ -3829,10 +3807,7 @@
 
 ### Setor (Pico: Afloramento Rastro)
 
-- **descricao**:
-    # Setor Antigo Camping
-    
-    Este setor possui sombra até as 13h (variando de acordo com a estação).
+- **descricao**: Este setor possui sombra até as 13h (variando de acordo com a estação).
 - **nome**: Setor Antigo Camping
 - **uid**: iP9J82iDvZhZKf
 - **mapas**:
@@ -4374,10 +4349,7 @@
 
 ### Setor (Pico: Afloramento Rastro)
 
-- **descricao**:
-    # Setor Beco do Tiú
-    
-    Este setor possui sombra até as 13h (variando de acordo com a estação).
+- **descricao**: Este setor possui sombra até as 13h (variando de acordo com a estação).
 - **nome**: Setor Beco do Tiú
 - **uid**: 0wRwwt2zncNQw9
 - **mapas**:
@@ -4702,10 +4674,7 @@
 
 ### Setor (Pico: Afloramento Rastro)
 
-- **descricao**:
-    # Setor Savassinha
-    
-    Este setor possui sombra até as 12h (variando de acordo com a estação).
+- **descricao**: Este setor possui sombra até as 12h (variando de acordo com a estação).
 - **nome**: Setor Savassinha
 - **uid**: TWAauQTbQwW9BY
 - **mapas**:
@@ -5083,10 +5052,7 @@
 
 ### Setor (Pico: Afloramento Rastro)
 
-- **descricao**:
-    # Setor Grutinha
-    
-    Este setor possui sombra o dia todo (variando de acordo com a estação).
+- **descricao**: Este setor possui sombra o dia todo (variando de acordo com a estação).
 - **nome**: Setor Grutinha
 - **uid**: QpFeVnc7tU5y5O
 - **mapas**:
@@ -5383,8 +5349,6 @@
 ### Setor (Pico: Afloramento Rastro)
 
 - **descricao**:
-    # Setor Mezanino
-    
     Este setor possui sombra a partir das 13h (variando de acordo com a estação). O acesso pode ser feito pelo "Portal", "Túnel" ou "Escada de acesso" que leva ao Jardim Suspenso.
     
     **Observações**:
@@ -5558,7 +5522,7 @@
         - **alvo_uid**: Xxlz6Srh7a9jQT
         - **pontos_uids**:
           - b5FoaLHq9X7mV4
-        - **setor**: Jardim Suspenso
+        - **setor**: Setor Jardim Suspenso
         - **ids**:
           - b5FoaLHq9X7mV4
 - **escaladas**:
@@ -5621,11 +5585,8 @@
 
 ### Setor (Pico: Afloramento Rastro)
 
-- **descricao**:
-    # Setor 1º Andar
-    
-    Este setor possui sombra a partir das 13h (variando de acordo com a estação).
-- **nome**: 1º Andar
+- **descricao**: Este setor possui sombra a partir das 13h (variando de acordo com a estação).
+- **nome**: Setor 1º Andar
 - **uid**: rTPz6f4oHTpzLr
 - **mapas**:
   - **[0]**:
@@ -5838,7 +5799,7 @@
         - **alvo_uid**: Xxlz6Srh7a9jQT
         - **pontos_uids**:
           - deILCkeAxmThKN
-        - **setor**: Jardim Suspenso
+        - **setor**: Setor Jardim Suspenso
         - **ids**:
           - deILCkeAxmThKN
       - **[11]**:
@@ -5946,11 +5907,8 @@
 
 ### Setor (Pico: Afloramento Rastro)
 
-- **descricao**:
-    # Setor 2º Andar
-    
-    Este setor possui sombra o dia todo (variando de acordo com a estação).
-- **nome**: 2º Andar
+- **descricao**: Este setor possui sombra o dia todo (variando de acordo com a estação).
+- **nome**: Setor 2º Andar
 - **uid**: IuQcqJF8uQ0xNz
 - **mapas**:
   - **[0]**:
@@ -6333,7 +6291,7 @@
         - **alvo_uid**: Xxlz6Srh7a9jQT
         - **pontos_uids**:
           - NdRlDzDZvt2NBX
-        - **setor**: Jardim Suspenso
+        - **setor**: Setor Jardim Suspenso
         - **ids**:
           - NdRlDzDZvt2NBX
       - **[21]**:
@@ -6523,11 +6481,8 @@
 
 ### Setor (Pico: Afloramento Rastro)
 
-- **descricao**:
-    # Setor Jardim Suspenso
-    
-    Este setor possui sombra o dia todo (variando de acordo com a estação). O acesso é feito por uma "Escada de acesso" vinda do Segundo Andar.
-- **nome**: Jardim Suspenso
+- **descricao**: Este setor possui sombra o dia todo (variando de acordo com a estação). O acesso é feito por uma "Escada de acesso" vinda do Segundo Andar.
+- **nome**: Setor Jardim Suspenso
 - **uid**: Xxlz6Srh7a9jQT
 - **mapas**:
   - **[0]**:
@@ -6713,14 +6668,14 @@
         - **alvo_uid**: IuQcqJF8uQ0xNz
         - **pontos_uids**:
           - Q8NYqrdOJoU9KT
-        - **setor**: 2º Andar
+        - **setor**: Setor 2º Andar
         - **ids**:
           - Q8NYqrdOJoU9KT
       - **[10]**:
         - **alvo_uid**: xFIkaiWPCCAZxk
         - **pontos_uids**:
           - Pm4F1BTv2SkgDn
-        - **setor**: 3º Andar
+        - **setor**: Setor 3º Andar
         - **ids**:
           - Pm4F1BTv2SkgDn
 - **escaladas**:
@@ -6796,11 +6751,8 @@
 
 ### Setor (Pico: Afloramento Rastro)
 
-- **descricao**:
-    # Setor 3º Andar
-    
-    Este setor possui sombra o dia todo (variando de acordo com a estação).
-- **nome**: 3º Andar
+- **descricao**: Este setor possui sombra o dia todo (variando de acordo com a estação).
+- **nome**: Setor 3º Andar
 - **uid**: xFIkaiWPCCAZxk
 - **mapas**:
   - **[0]**:
@@ -7217,14 +7169,14 @@
         - **alvo_uid**: Xxlz6Srh7a9jQT
         - **pontos_uids**:
           - eoVnVvdsAdeKpX
-        - **setor**: Jardim Suspenso
+        - **setor**: Setor Jardim Suspenso
         - **ids**:
           - eoVnVvdsAdeKpX
       - **[23]**:
         - **alvo_uid**: IuQcqJF8uQ0xNz
         - **pontos_uids**:
           - eoVnVvdsAdeKpX
-        - **setor**: 2º Andar
+        - **setor**: Setor 2º Andar
         - **ids**:
           - eoVnVvdsAdeKpX
       - **[24]**:

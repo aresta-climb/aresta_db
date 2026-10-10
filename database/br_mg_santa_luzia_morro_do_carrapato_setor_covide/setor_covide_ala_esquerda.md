@@ -310,8 +310,6 @@ escaladas:
     altura_mapa: 1211
 ---
 
-# Setor Covide (ala esquerda)
-
 | Nº | Nome da via | P1 |
 |---|---|---|
 | 4 | Coronavaco | IV (1+2) |

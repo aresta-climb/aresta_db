@@ -172,8 +172,6 @@
 ### Grupo (Pico: Serra do Lenheiro)
 
 - **descricao**:
-    # Grupo Frigideira
-    
     **Bloco: Frigideira**
     Localizado à esquerda da trilha antes do muro de pedra.
     
@@ -201,14 +199,14 @@
         - **alvo_uid**: mjhTMRRTRYEupM
         - **pontos_uids**:
           - bJb7xVraRyvZyx
-        - **setor**: Frigideira
+        - **setor**: Setor Frigideira
         - **ids**:
           - bJb7xVraRyvZyx
 - **setores**:
   - **[0]**:
     - **conteudo**:
-      - **descricao**: # Setor Frigideira
-      - **nome**: Frigideira
+      - **descricao**: 
+      - **nome**: Setor Frigideira
       - **uid**: mjhTMRRTRYEupM
       - **mapas**:
         - **[0]**:
@@ -328,8 +326,8 @@
         - **total_boulders**: 5
   - **[1]**:
     - **conteudo**:
-      - **descricao**: # Barba Ruiva
-      - **nome**: Barba Ruiva
+      - **descricao**: 
+      - **nome**: Setor Barba Ruiva
       - **uid**: msOVbYnmbHbFNG
       - **mapas**:
         - **[0]**:
@@ -497,8 +495,8 @@
         - **total_boulders**: 7
   - **[2]**:
     - **conteudo**:
-      - **descricao**: # Setor Escondendo Leite
-      - **nome**: Escondendo Leite
+      - **descricao**: 
+      - **nome**: Setor Escondendo Leite
       - **uid**: NcIvLGbZlLw50z
       - **mapas**:
         - **[0]**:
@@ -618,8 +616,8 @@
         - **total_boulders**: 5
   - **[3]**:
     - **conteudo**:
-      - **descricao**: # Rosquinha da Sogra
-      - **nome**: Rosquinha da Sogra
+      - **descricao**: 
+      - **nome**: Setor Rosquinha da Sogra
       - **uid**: 4digHEeV3xxXiv
       - **mapas**:
         - **[0]**:
@@ -655,8 +653,8 @@
         - **total_boulders**: 1
   - **[4]**:
     - **conteudo**:
-      - **descricao**: # Casa da Sogra
-      - **nome**: Casa da Sogra
+      - **descricao**: 
+      - **nome**: Setor Casa da Sogra
       - **uid**: j3Wp4AMXPaa4og
       - **mapas**:
         - **[0]**:
@@ -713,8 +711,8 @@
         - **total_boulders**: 2
   - **[5]**:
     - **conteudo**:
-      - **descricao**: # O Dedo
-      - **nome**: O Dedo
+      - **descricao**: 
+      - **nome**: Setor O Dedo
       - **uid**: O9shMYbO4wwfHk
       - **mapas**:
         - **[0]**:
@@ -757,10 +755,7 @@
 
 ### Grupo (Pico: Serra do Lenheiro)
 
-- **descricao**:
-    # Grupo Reza
-    
-    **Principais blocos:** Reza, Profeta, Locomotiva, Bat-Caverna, Almadém, Busão.
+- **descricao**: **Principais blocos:** Reza, Profeta, Locomotiva, Bat-Caverna, Almadém, Busão.
 - **nome**: Reza
 - **uid**: av1HS7SXs2NGyy
 - **mapas**:
@@ -782,8 +777,8 @@
 - **setores**:
   - **[0]**:
     - **conteudo**:
-      - **descricao**: # Setor O Profeta
-      - **nome**: O Profeta
+      - **descricao**: 
+      - **nome**: Setor O Profeta
       - **uid**: QmZl7skoXRvunn
       - **mapas**:
         - **[0]**:
@@ -862,8 +857,8 @@
         - **total_boulders**: 3
   - **[1]**:
     - **conteudo**:
-      - **descricao**: # Setor Reza
-      - **nome**: Reza
+      - **descricao**: 
+      - **nome**: Setor Reza
       - **uid**: WawtekZcKgAb5I
       - **mapas**:
         - **[0]**:
@@ -1004,8 +999,8 @@
         - **total_boulders**: 6
   - **[2]**:
     - **conteudo**:
-      - **descricao**: # Setor Locomotiva
-      - **nome**: Locomotiva
+      - **descricao**: 
+      - **nome**: Setor Locomotiva
       - **uid**: EukNxu39n3k6EU
       - **mapas**:
         - **[0]**:
@@ -1130,8 +1125,8 @@
         - **total_boulders**: 5
   - **[3]**:
     - **conteudo**:
-      - **descricao**: # Batcaverna
-      - **nome**: Batcaverna
+      - **descricao**: 
+      - **nome**: Setor Batcaverna
       - **uid**: 5B86oNOyol7VlK
       - **mapas**:
         - **[0]**:
@@ -1209,11 +1204,8 @@
         - **total_boulders**: 3
   - **[4]**:
     - **conteudo**:
-      - **descricao**:
-          # Setor Apoio Resende
-          
-          (Face da Batcaverna)
-      - **nome**: Apoio Resende
+      - **descricao**: (Face da Batcaverna)
+      - **nome**: Setor Apoio Resende
       - **uid**: 9rTp4J89URZRPy
       - **mapas**:
         - **[0]**:
@@ -1292,8 +1284,8 @@
         - **total_boulders**: 3
   - **[5]**:
     - **conteudo**:
-      - **descricao**: # Setor Busão
-      - **nome**: Busão
+      - **descricao**: 
+      - **nome**: Setor Busão
       - **uid**: eiipF4wsDuczUd
       - **mapas**:
         - **[0]**:
@@ -1488,8 +1480,8 @@
         - **total_boulders**: 8
   - **[6]**:
     - **conteudo**:
-      - **descricao**: # Almadém
-      - **nome**: Almadém
+      - **descricao**: 
+      - **nome**: Setor Almadém
       - **uid**: mn1SfA1bjNHJut
       - **mapas**:
         - **[0]**:
@@ -1573,8 +1565,8 @@
         - **total_boulders**: 3
   - **[7]**:
     - **conteudo**:
-      - **descricao**: # Setor Lek Pression
-      - **nome**: Lek Pression
+      - **descricao**: 
+      - **nome**: Setor Lek Pression
       - **uid**: PHpzXazAW8J5RO
       - **mapas**:
         - **[0]**:
@@ -1617,10 +1609,7 @@
 
 ### Grupo (Pico: Serra do Lenheiro)
 
-- **descricao**:
-    # Grupo Laranjinha
-    
-    **Principais blocos:** Laranjinha, Unha de Gato, Boca de Tubarão, Matsuzaki, Embutidos.
+- **descricao**: **Principais blocos:** Laranjinha, Unha de Gato, Boca de Tubarão, Matsuzaki, Embutidos.
 - **nome**: Laranjinha
 - **uid**: egMiYDg1rPsLBu
 - **mapas**:
@@ -1643,7 +1632,7 @@
   - **[0]**:
     - **conteudo**:
       - **descricao**: 
-      - **nome**: Matsuzaki
+      - **nome**: Setor Matsuzaki
       - **uid**: lyJ9wythLTiXh7
       - **mapas**:
         - **[0]**:
@@ -1700,8 +1689,8 @@
         - **total_boulders**: 2
   - **[1]**:
     - **conteudo**:
-      - **descricao**: # Setor Embutidos
-      - **nome**: Embutidos
+      - **descricao**: 
+      - **nome**: Setor Embutidos
       - **uid**: 6c6dDcMXtYms7t
       - **mapas**:
         - **[0]**:
@@ -1758,8 +1747,8 @@
         - **total_boulders**: 2
   - **[2]**:
     - **conteudo**:
-      - **descricao**: # Boca de Tubarão
-      - **nome**: Boca de Tubarão
+      - **descricao**: 
+      - **nome**: Setor Boca de Tubarão
       - **uid**: 3o7gqRIGs09Mgp
       - **mapas**:
         - **[0]**:
@@ -1795,8 +1784,8 @@
         - **total_boulders**: 1
   - **[3]**:
     - **conteudo**:
-      - **descricao**: # Laranjinha
-      - **nome**: Laranjinha
+      - **descricao**: 
+      - **nome**: Setor Laranjinha
       - **uid**: cEJi76gPJc0XV6
       - **mapas**:
         - **[0]**:
@@ -1944,8 +1933,8 @@
         - **total_boulders**: 6
   - **[4]**:
     - **conteudo**:
-      - **descricao**: # Setor Unha de Gato
-      - **nome**: Unha de Gato
+      - **descricao**: 
+      - **nome**: Setor Unha de Gato
       - **uid**: 8YbwEOVUhJQ0SK
       - **mapas**:
         - **[0]**:
@@ -2079,10 +2068,7 @@
 
 ### Grupo (Pico: Serra do Lenheiro)
 
-- **descricao**:
-    # Grupo Ditadura
-    
-    **Principais blocos:** Ditadura, Cabeça de Cachorro, Catatau, Espiga, Aero-Dinâmico, Coroinha, Iguana, Faixa Preta.
+- **descricao**: **Principais blocos:** Ditadura, Cabeça de Cachorro, Catatau, Espiga, Aero-Dinâmico, Coroinha, Iguana, Faixa Preta.
 - **nome**: Ditadura
 - **uid**: M8v6w3o5nlDeLU
 - **mapas**:
@@ -2104,8 +2090,8 @@
 - **setores**:
   - **[0]**:
     - **conteudo**:
-      - **descricao**: # Ditadura
-      - **nome**: Ditadura
+      - **descricao**: 
+      - **nome**: Setor Ditadura
       - **uid**: CqXQ96HqOIWNgI
       - **mapas**:
         - **[0]**:
@@ -2205,8 +2191,8 @@
         - **total_boulders**: 4
   - **[1]**:
     - **conteudo**:
-      - **descricao**: # Cabeça de Cachorro
-      - **nome**: Cabeça de Cachorro
+      - **descricao**: 
+      - **nome**: Setor Cabeça de Cachorro
       - **uid**: CFkj135WS2iAFC
       - **mapas**:
         - **[0]**:
@@ -2284,8 +2270,8 @@
         - **total_boulders**: 3
   - **[2]**:
     - **conteudo**:
-      - **descricao**: # Setor Catatau
-      - **nome**: Catatau
+      - **descricao**: 
+      - **nome**: Setor Catatau
       - **uid**: fv8zxv4MMyBrJH
       - **mapas**:
         - **[0]**:
@@ -2321,8 +2307,8 @@
         - **total_boulders**: 1
   - **[3]**:
     - **conteudo**:
-      - **descricao**: # Espiga
-      - **nome**: Espiga
+      - **descricao**: 
+      - **nome**: Setor Espiga
       - **uid**: W1JNrgMgl63jDJ
       - **mapas**:
         - **[0]**:
@@ -2400,8 +2386,8 @@
         - **total_boulders**: 3
   - **[4]**:
     - **conteudo**:
-      - **descricao**: # Aero Dinâmico
-      - **nome**: Aero Dinâmico
+      - **descricao**: 
+      - **nome**: Setor Aero Dinâmico
       - **uid**: a9RCi2qfPDv3xS
       - **mapas**:
         - **[0]**:
@@ -2457,8 +2443,8 @@
         - **total_boulders**: 2
   - **[5]**:
     - **conteudo**:
-      - **descricao**: # Setor Coroinha
-      - **nome**: Coroinha
+      - **descricao**: 
+      - **nome**: Setor Coroinha
       - **uid**: gXrhh04vwDtXUk
       - **mapas**:
         - **[0]**:
@@ -2494,8 +2480,8 @@
         - **total_boulders**: 1
   - **[6]**:
     - **conteudo**:
-      - **descricao**: # Setor Iguana
-      - **nome**: Iguana
+      - **descricao**: 
+      - **nome**: Setor Iguana
       - **uid**: pn8gTBpmwrR7Fv
       - **mapas**:
         - **[0]**:
@@ -2573,8 +2559,8 @@
         - **total_boulders**: 3
   - **[7]**:
     - **conteudo**:
-      - **descricao**: # Faixa Preta
-      - **nome**: Faixa Preta
+      - **descricao**: 
+      - **nome**: Setor Faixa Preta
       - **uid**: hLJeJsEOyHWdLg
       - **mapas**:
         - **[0]**:
@@ -2665,10 +2651,7 @@
 
 ### Grupo (Pico: Serra do Lenheiro)
 
-- **descricao**:
-    # Grupo Mulher de Bigode
-    
-    **Principais blocos:** Mulher de Bigode, Beiço, Diabinha, Eco, Meretríssimo, Ziriguidum, Viúva Negra, Carga pesada, Ota aranha, Fingerboard, Módulo.
+- **descricao**: **Principais blocos:** Mulher de Bigode, Beiço, Diabinha, Eco, Meretríssimo, Ziriguidum, Viúva Negra, Carga pesada, Ota aranha, Fingerboard, Módulo.
 - **nome**: Mulher de Bigode
 - **uid**: iDCGYkAp0pUbMY
 - **mapas**:
@@ -2690,8 +2673,8 @@
 - **setores**:
   - **[0]**:
     - **conteudo**:
-      - **descricao**: # Setor Mulher de Bigode
-      - **nome**: Mulher de Bigode
+      - **descricao**: 
+      - **nome**: Setor Mulher de Bigode
       - **uid**: PIXJYxedJscCy0
       - **mapas**:
         - **[0]**:
@@ -2970,8 +2953,8 @@
         - **total_boulders**: 12
   - **[1]**:
     - **conteudo**:
-      - **descricao**: # Ziriguidum
-      - **nome**: Ziriguidum
+      - **descricao**: 
+      - **nome**: Setor Ziriguidum
       - **uid**: JZKC7a6UCkWjYn
       - **mapas**:
         - **[0]**:
@@ -3145,8 +3128,8 @@
         - **total_boulders**: 5
   - **[2]**:
     - **conteudo**:
-      - **descricao**: # Eco
-      - **nome**: Eco
+      - **descricao**: 
+      - **nome**: Setor Eco
       - **uid**: yuPPXErIZPAcv3
       - **mapas**:
         - **[0]**:
@@ -3224,8 +3207,8 @@
         - **total_boulders**: 3
   - **[3]**:
     - **conteudo**:
-      - **descricao**: # Meretríssimo
-      - **nome**: Meretríssimo
+      - **descricao**: 
+      - **nome**: Setor Meretríssimo
       - **uid**: KqHIgclXOMpIHp
       - **mapas**:
         - **[0]**:
@@ -3304,8 +3287,8 @@
         - **total_boulders**: 3
   - **[4]**:
     - **conteudo**:
-      - **descricao**: # Diabinha
-      - **nome**: Diabinha
+      - **descricao**: 
+      - **nome**: Setor Diabinha
       - **uid**: 9CuBV3INHGsfir
       - **mapas**:
         - **[0]**:
@@ -3341,8 +3324,8 @@
         - **total_boulders**: 1
   - **[5]**:
     - **conteudo**:
-      - **descricao**: # Beiço
-      - **nome**: Beiço
+      - **descricao**: 
+      - **nome**: Setor Beiço
       - **uid**: Nb5NpumVgjymga
       - **mapas**:
         - **[0]**:
@@ -3489,8 +3472,8 @@
         - **total_boulders**: 6
   - **[6]**:
     - **conteudo**:
-      - **descricao**: # Fingerboard
-      - **nome**: Fingerboard
+      - **descricao**: 
+      - **nome**: Setor Fingerboard
       - **uid**: tsLPexCvGZbhiu
       - **mapas**:
         - **[0]**:
@@ -3526,8 +3509,8 @@
         - **total_boulders**: 1
   - **[7]**:
     - **conteudo**:
-      - **descricao**: # Setor Carga Pesada
-      - **nome**: Carga Pesada
+      - **descricao**: 
+      - **nome**: Setor Carga Pesada
       - **uid**: 0HG2zaGIDNfYkO
       - **mapas**:
         - **[0]**:
@@ -3585,8 +3568,8 @@
         - **total_boulders**: 2
   - **[8]**:
     - **conteudo**:
-      - **descricao**: # Setor Viúva Negra
-      - **nome**: Viúva Negra
+      - **descricao**: 
+      - **nome**: Setor Viúva Negra
       - **uid**: C97T2kD4KlLc5k
       - **mapas**:
         - **[0]**:
@@ -3622,8 +3605,8 @@
         - **total_boulders**: 1
   - **[9]**:
     - **conteudo**:
-      - **descricao**: # Ota Aranha
-      - **nome**: Ota Aranha
+      - **descricao**: 
+      - **nome**: Setor Ota Aranha
       - **uid**: mR729A8fCLvODT
       - **mapas**:
         - **[0]**:
@@ -3659,8 +3642,8 @@
         - **total_boulders**: 1
   - **[10]**:
     - **conteudo**:
-      - **descricao**: # Setor Módulo
-      - **nome**: Módulo
+      - **descricao**: 
+      - **nome**: Setor Módulo
       - **uid**: j97CGXceBaTVAD
       - **mapas**:
         - **[0]**:

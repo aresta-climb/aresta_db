@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: LwsbKpA62X0tMd
-nome: Pedra Branca
+nome: Setor Pedra Branca
 mapas:
 - caminho_imagem_mapa: imagens/setor_pedra_branca_p0.webp
   largura_mapa: 2048
@@ -355,8 +355,6 @@ escaladas:
     - Fábio de Melo
     - Marcelo Henriques
 ---
-
-# Setor Pedra Branca
 
 Setor com vias de 9m até 12m.
 

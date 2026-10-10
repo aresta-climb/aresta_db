@@ -17,8 +17,8 @@ escaladas:
     nome: Sai do teto
     dificuldade: V3
     destaque: true
-    descricao: Começa sentado com as mãos juntas em um grande reglete do lado de dentro da caverna, na parede laranja, e
-      faz uma longa travessia para a esquerda, dominando o teto.
+    descricao: Começa sentado com as mãos juntas em um grande reglete do lado de dentro
+      da caverna, na parede laranja, e faz uma longa travessia para a esquerda, dominando
+      o teto.
 ---
 
-# Bloco F - Sai do Teto

@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: gXrhh04vwDtXUk
-nome: Coroinha
+nome: Setor Coroinha
 mapas:
 - caminho_imagem_mapa: imagens/grupo_ditadura_setor_coroinha_p0_i1.webp
   largura_mapa: 745
@@ -25,4 +25,3 @@ escaladas:
     dificuldade: V1
 ---
 
-# Setor Coroinha

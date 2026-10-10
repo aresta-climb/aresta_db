@@ -92,14 +92,15 @@ escaladas:
     conquistadores:
     - Fabrício Mamão
     data_abertura: '2010'
-    descricao: Sai sentado com as mãos em regletes à direita da árvore e escala a face vertical da esquerda da proa do 
-      “Tubarão” (15).
+    descricao: Sai sentado com as mãos em regletes à direita da árvore e escala a
+      face vertical da esquerda da proa do “Tubarão” (15).
 - uid: 1jwFY1XXUN7OXw
   boulder:
     nome: Cação
     dificuldade: V1
     destaque: true
-    descricao: Começa em pé, com as mãos juntas em um batente bom na proa e escala por agarras boas.
+    descricao: Começa em pé, com as mãos juntas em um batente bom na proa e escala
+      por agarras boas.
 - uid: ScD4eUMQ0Wi9we
   boulder:
     nome: Tubarão
@@ -108,8 +109,9 @@ escaladas:
     conquistadores:
     - Ruy Castro
     data_abertura: '2007'
-    descricao: Começa abraçando o teto com a mão esquerda num reglete na face esquerda e a direita num reglete na face 
-      direita e escala o teto em compressão finalizando pelo “Cação” (14).
+    descricao: Começa abraçando o teto com a mão esquerda num reglete na face esquerda
+      e a direita num reglete na face direita e escala o teto em compressão finalizando
+      pelo “Cação” (14).
 - uid: VJumZMb8mBo4sw
   boulder:
     nome: Brahma
@@ -127,13 +129,14 @@ escaladas:
     conquistadores:
     - Frederico Gonçalves
     data_abertura: '2012'
-    descricao: Começa como o “Jurubeba” (18) e escala pela esquerda da árvore terminando no “Brahma” (16).
+    descricao: Começa como o “Jurubeba” (18) e escala pela esquerda da árvore terminando
+      no “Brahma” (16).
 - uid: dKEvDsXqLowp0l
   boulder:
     nome: Jurubeba
     dificuldade: V3
-    descricao: Sai em pé, na aresta do teto, com as mãos juntas em um batente e escala pela direita da árvore, passando 
-      pela pequena proa à direita.
+    descricao: Sai em pé, na aresta do teto, com as mãos juntas em um batente e escala
+      pela direita da árvore, passando pela pequena proa à direita.
 - uid: eSvYxD5g7Zygz1
   boulder:
     nome: Backer
@@ -142,8 +145,9 @@ escaladas:
     conquistadores:
     - Gabriel Vargas
     data_abertura: '2014'
-    descricao: Começa sentado com a mão esquerda em um regletinho na aresta e a mão direita em uma invertida e escala o 
-      teto por agarras boas dominando pelo no “Jurubeba” (18). Terminando no “Hanuman” (17) é o a Original v7.
+    descricao: Começa sentado com a mão esquerda em um regletinho na aresta e a mão
+      direita em uma invertida e escala o teto por agarras boas dominando pelo no
+      “Jurubeba” (18). Terminando no “Hanuman” (17) é o a Original v7.
 - uid: 4KMNyZQ3KwQ7y4
   boulder:
     nome: Original
@@ -157,8 +161,9 @@ escaladas:
     conquistadores:
     - Felipe Alvares
     data_abertura: '2006'
-    descricao: Sai sentado com a mão esquerda em uma agarra boa, a direita em um reglete invertido e escala em linha 
-      reta pelo teto, finalizando no “Jurubeba” (18). Terminando no “Hanuman” (17) é o d Black Label v8.
+    descricao: Sai sentado com a mão esquerda em uma agarra boa, a direita em um reglete
+      invertido e escala em linha reta pelo teto, finalizando no “Jurubeba” (18).
+      Terminando no “Hanuman” (17) é o d Black Label v8.
 - uid: N2Z9OsdN9jWE3g
   boulder:
     nome: Black Label
@@ -172,8 +177,9 @@ escaladas:
     conquistadores:
     - Frederico Gonçalves
     data_abertura: '2010'
-    descricao: Começa nas agarras mais ao fundo da caverna com as mãos em dois regletes, faz dois movimentos para a 
-      saída do “Chivas” (21) e termina por ele. Terminando no “Hanuman” (17) é o g Royal Salute v9.
+    descricao: Começa nas agarras mais ao fundo da caverna com as mãos em dois regletes,
+      faz dois movimentos para a saída do “Chivas” (21) e termina por ele. Terminando
+      no “Hanuman” (17) é o g Royal Salute v9.
 - uid: KfKqedalsOiExz
   boulder:
     nome: Royal Salute
@@ -187,8 +193,9 @@ escaladas:
     conquistadores:
     - Gustavo Fontes
     data_abertura: '2013'
-    descricao: Sai em pé com as mãos em duas agarras boas e escala até entrar no “Jurubeba” (18), finalizando como ele. 
-      Terminando no “Hanuman” (17) é o j Múltipla escolha v8.
+    descricao: Sai em pé com as mãos em duas agarras boas e escala até entrar no “Jurubeba”
+      (18), finalizando como ele. Terminando no “Hanuman” (17) é o j Múltipla escolha
+      v8.
 - uid: QOo3Dtpl0oDzxV
   boulder:
     nome: Múltipla escolha
@@ -201,8 +208,9 @@ escaladas:
     conquistadores:
     - Gustavo Fontes
     data_abertura: '2013'
-    descricao: Começa sentado com as mãos juntas num batente na pequena proa à direita da caverna, atravessa para a face
-      à esquerda e termina no “Jurubeba” (18). Terminando no “Hanuman” (17) é o l In the halls v7.
+    descricao: Começa sentado com as mãos juntas num batente na pequena proa à direita
+      da caverna, atravessa para a face à esquerda e termina no “Jurubeba” (18). Terminando
+      no “Hanuman” (17) é o l In the halls v7.
 - uid: 08KyixA9OS8fmp
   boulder:
     nome: In the halls
@@ -216,8 +224,8 @@ escaladas:
     conquistadores:
     - Daniel Mendes
     data_abertura: '2013'
-    descricao: Começa como o “Halls” (27), mas ao invés de atravessar para a face da esquerda, escala comprimindo o teto
-      e finaliza à direita.
+    descricao: Começa como o “Halls” (27), mas ao invés de atravessar para a face
+      da esquerda, escala comprimindo o teto e finaliza à direita.
 - uid: AdHh9oCr7wVff4
   boulder:
     nome: Serra Malte
@@ -225,13 +233,14 @@ escaladas:
     conquistadores:
     - Gabriel Vargas
     data_abertura: '2014'
-    descricao: Sai do “Chivas” (21) e entra no “Backer” (19). Terminando no “Hanuman” (17) é o x Áustria v8.
+    descricao: Sai do “Chivas” (21) e entra no “Backer” (19). Terminando no “Hanuman”
+      (17) é o x Áustria v8.
 - uid: rdgXwLYq9J77Sr
   boulder:
     nome: Áustria
     dificuldade: V8
-    descricao: Variante do “Serra Malte” (30) que sai do “Chivas” (21), entra no “Backer” (19) e termina no “Hanuman” 
-      (17).
+    descricao: Variante do “Serra Malte” (30) que sai do “Chivas” (21), entra no “Backer”
+      (19) e termina no “Hanuman” (17).
 - uid: 5GAd3ssJil1PQC
   boulder:
     nome: Corona
@@ -239,13 +248,14 @@ escaladas:
     conquistadores:
     - Gustavo Fontes
     data_abertura: '2014'
-    descricao: Começa como o “Chivas SDS” (23) e entra no “Backer” (19). Terminando no “Hanuman” (17) é o v Saideira v9.
+    descricao: Começa como o “Chivas SDS” (23) e entra no “Backer” (19). Terminando
+      no “Hanuman” (17) é o v Saideira v9.
 - uid: nDW5ChYkfFHJMg
   boulder:
     nome: Saideira
     dificuldade: V9
-    descricao: Variante do “Corona” (32) que começa como o “Chivas SDS” (23), entra no “Backer” (19) e termina no 
-      “Hanuman” (17).
+    descricao: Variante do “Corona” (32) que começa como o “Chivas SDS” (23), entra
+      no “Backer” (19) e termina no “Hanuman” (17).
 - uid: JCNZFn8GC3CtIf
   boulder:
     nome: Muniz
@@ -254,9 +264,10 @@ escaladas:
     conquistadores:
     - Gustavo Fontes
     data_abertura: '2013'
-    descricao: Boulder aberto em homenagem ao escalador carioca Fábio Muniz, o Fabinho. Sai do “Chivas” (21) e, após 
-      alguns movimentos, atravessa para a direita passando por uma invertida, escalando até o “Escolha certa” (25) e 
-      terminando como ele. Terminando no “Hanuman” (17) é o n Passagem v10.
+    descricao: Boulder aberto em homenagem ao escalador carioca Fábio Muniz, o Fabinho.
+      Sai do “Chivas” (21) e, após alguns movimentos, atravessa para a direita passando
+      por uma invertida, escalando até o “Escolha certa” (25) e terminando como ele.
+      Terminando no “Hanuman” (17) é o n Passagem v10.
 - uid: NjEDuoVrQFQfOD
   boulder:
     nome: Passagem
@@ -270,7 +281,8 @@ escaladas:
     conquistadores:
     - Rafael Pimenta
     data_abertura: '2014'
-    descricao: É o “Muniz” (34) saindo do “Chivas SDS” (23). Terminando no “Hanuman” (17) é o , Voa colibri v11.
+    descricao: É o “Muniz” (34) saindo do “Chivas SDS” (23). Terminando no “Hanuman”
+      (17) é o , Voa colibri v11.
 - uid: eSukaQ0A9lFtSh
   boulder:
     nome: Voa colibri
@@ -278,4 +290,3 @@ escaladas:
     descricao: Variante do “Espírito Guerreiro” (36) terminando no “Hanuman” (17).
 ---
 
-# Bloco D - Tubarão

@@ -114,8 +114,6 @@ escaladas:
     - GT Baú 2021
 ---
 
-# Setor Escola
-
 **Acesso:** Após a entrada para o Setor Mr Bean, seguir sentido Vale do Cinema pela trilha. Após 1 minuto de caminhada entrar na trilha a esquerda antes do portão de metal e subir um pequeno morro.
 
 Este setor foi destinado as aulas de escalada e turista fazendo alguma vivência de escalada. Vias extremamente fáceis e com a grampeação próxima para facilitar as aulas.

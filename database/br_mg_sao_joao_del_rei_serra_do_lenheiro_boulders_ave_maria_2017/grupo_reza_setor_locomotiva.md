@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: EukNxu39n3k6EU
-nome: Locomotiva
+nome: Setor Locomotiva
 mapas:
 - caminho_imagem_mapa: imagens/grupo_reza_setor_locomotiva_p0_i0.webp
   largura_mapa: 1489
@@ -81,4 +81,3 @@ escaladas:
     dificuldade: V4
 ---
 
-# Setor Locomotiva

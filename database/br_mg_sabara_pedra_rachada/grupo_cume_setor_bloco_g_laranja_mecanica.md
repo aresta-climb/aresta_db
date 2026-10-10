@@ -34,13 +34,14 @@ escaladas:
     conquistadores:
     - Felipe Alvares
     data_abertura: '2007'
-    descricao: Começa sentado com as mãos em duas agarras invertidas no teto e escala em diagonal pra direita.
+    descricao: Começa sentado com as mãos em duas agarras invertidas no teto e escala
+      em diagonal pra direita.
 - uid: nIymZQz8SYLnRY
   boulder:
     nome: Só no suco
     dificuldade: V0
     destaque: true
-    descricao: Sai em pé com as mãos juntas em um abaulado e segue pela fenda até um domínio fácil.
+    descricao: Sai em pé com as mãos juntas em um abaulado e segue pela fenda até
+      um domínio fácil.
 ---
 
-# Bloco G - Laranja Mecânica

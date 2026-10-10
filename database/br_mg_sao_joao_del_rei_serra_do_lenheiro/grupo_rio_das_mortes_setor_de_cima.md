@@ -64,7 +64,8 @@ escaladas:
     - Pedro Naves
     - Mariana Fiche
     data_abertura: '2018'
-    descricao: Via boa para um primeiro contato com a escalada e pra treinar procedimentos, pois tem acesso por cima.
+    descricao: Via boa para um primeiro contato com a escalada e pra treinar procedimentos,
+      pois tem acesso por cima.
 - uid: jPEpoghzQMxN8f
   via_movel:
     nome: No Pelo
@@ -74,7 +75,8 @@ escaladas:
     - Antônio Gilmar (Tonhão)
     - Germano Rezende
     data_abertura: '2018'
-    descricao: Boa para treinar colocação de peças móveis. Parada móvel no top e saída por caminhada.
+    descricao: Boa para treinar colocação de peças móveis. Parada móvel no top e saída
+      por caminhada.
 - uid: 9k1nA9GYtQ6uM5
   via_esportiva:
     nome: Quarteto Fantástico
@@ -103,10 +105,9 @@ escaladas:
     - Pedro Naves
     - Mariana Fiche
     data_abertura: '2017'
-    descricao: Via boulderística e bem técnica, trabalha diferentes técnicas como reglete, dinâmico e negativo.
+    descricao: Via boulderística e bem técnica, trabalha diferentes técnicas como
+      reglete, dinâmico e negativo.
 ---
-
-# Setor de Cima
 
 Setor de vias baixas, levemente negativas e graus variados. Boa para se treinar técnicas e procedimentos (fácil acesso ao top por trás), um bom campo-escola. Sombra só até 11:00.
 

@@ -249,8 +249,6 @@
 ### Setor (Pico: Gruta do Baú)
 
 - **descricao**:
-    # Setor Entrada Inferior
-    
     **Acesso:** Seguindo pela estrada partindo do estacionamento, é o primeiro setor que fica na chegada ao maciço.
     
     **Coordenadas na base da via É Brincadeira:** -19º32.879’ -43º59.337’
@@ -1394,10 +1392,7 @@
 
 ### Setor (Pico: Gruta do Baú)
 
-- **descricao**:
-    # Setor Entrada Superior
-    
-    **Acesso:** Seguindo pela estrada partindo do estacionamento, chega-se no setor entrada, parte inferior. Só subir a direita margeando a parede amarela.
+- **descricao**: **Acesso:** Seguindo pela estrada partindo do estacionamento, chega-se no setor entrada, parte inferior. Só subir a direita margeando a parede amarela.
 - **nome**: Setor Entrada Superior
 - **uid**: 9F7ec7AskioCH1
 - **mapas**:
@@ -2558,8 +2553,6 @@
 ### Setor (Pico: Gruta do Baú)
 
 - **descricao**:
-    # Setor 2º Andar
-    
     **Acesso:** Ao chegar ao maciço, no setor entrada, subir no “trepa pedras” a direita da via Túnel do Tempo. Passar por um túnel de pedra e seguir para direita, subindo em direção ao segundo andar. O acesso é por uma ponte com dois troncos de madeira.
     
     **Coordenadas na base da via Doc Holliday:** -19º32.916’ -43º59.336’
@@ -3820,8 +3813,6 @@
 ### Setor (Pico: Gruta do Baú)
 
 - **descricao**:
-    # Setor Fechadura
-    
     **Acesso:** Ao chegar ao maciço, no setor entrada, seguir a trilha a esquerda margeando o maciço e a gruta. A primeira via do setor é a via “Era de Aquários”. A trilha segue pela esquerda, por fora da gruta.
     
     **Acesso secundário:** Contornando o maciço pela direita a partir do Setor Pasto e subindo em direção a pedra. Por este caminho chegará à base da via “Primeira Batida”.
@@ -4304,8 +4295,6 @@
 ### Setor (Pico: Gruta do Baú)
 
 - **descricao**:
-    # Setor Pasto
-    
     **Acesso:** Seguindo pela estrada partindo do estacionamento, é o setor que se localiza a esquerda. Um pouco antes de chegar na pedra, basta pegar a trilha que desce a esquerda.
     
     **Coordenadas na base da via Rolha de Algodão:** -19º32.911’ -43º59.268’
@@ -4515,8 +4504,6 @@
 ### Setor (Pico: Gruta do Baú)
 
 - **descricao**:
-    # Setor Sentinela e Vale do Joga
-    
     **Acesso:** Ao chegar ao maciço, no setor entrada, sair na trilha a direita, em direção ao banheiro. Depois de passar pela base das vias “Retorno de Pitu” e “Mar Revolto” seguir por mais alguns metros e chegará na base da via “Sentinela”.
     
     **Coordenadas na base da via Sentinela:** -19º32.867’ -43º59.381’
@@ -5364,8 +5351,6 @@
 ### Setor (Pico: Gruta do Baú)
 
 - **descricao**:
-    # Setor Vale dos Espinhos
-    
     **Acesso:** Depois de passar pelo setor Sentinela seguir a trilha por uma pequena subida e pegar a bifurcação a esquerda. Evitar o acesso pela gruta para preservar os espeleotemas.
     
     **Coordenadas no Vale dos Espinhos próximo a via 01 e 02:** -19º32.872’ -43º59.426’
@@ -6410,8 +6395,6 @@
 ### Setor (Pico: Gruta do Baú)
 
 - **descricao**:
-    # Setor Escola
-    
     **Acesso:** Após a entrada para o Setor Mr Bean, seguir sentido Vale do Cinema pela trilha. Após 1 minuto de caminhada entrar na trilha a esquerda antes do portão de metal e subir um pequeno morro.
     
     Este setor foi destinado as aulas de escalada e turista fazendo alguma vivência de escalada. Vias extremamente fáceis e com a grampeação próxima para facilitar as aulas.
@@ -6590,8 +6573,6 @@
 ### Setor (Pico: Gruta do Baú)
 
 - **descricao**:
-    # Setor Geriatria
-    
     **Acesso:** Após a entrada para o Setor Mr Bean, seguir sentido Vale da Onça pela trilha. Após 1 minuto de caminhada entrar na trilha a direita antes do portão de metal.
     
     **Acesso secundário:** pela trilha do Setor Onda de Calcário.
@@ -7282,8 +7263,6 @@
 ### Setor (Pico: Gruta do Baú)
 
 - **descricao**:
-    # Setor Mr. Bean
-    
     **Acesso:** Ao chegar ao maciço, no setor entrada, sair na trilha a direita, em direção ao banheiro. Passando pelo setor Sentinela, a primeira entrada a direita leva ao vale dos Espinhos. Se continuar subindo a trilha irá chegar à bifurcação que leva ao setor Mr. Bean e Onda de Calcário.
     
     O nome do setor é uma homenagem ao escalador Leandro Ianotta, que perdeu a vida fazendo o que mais amava no Fitz Roy na Patagônia argentina. Leandro, que era conhecido por Mr. Bean era um apaixonado pelo Baú e seus primeiros passos na carreira de escalador profissional passaram pela gruta do Baú.
@@ -8140,8 +8119,6 @@
 ### Setor (Pico: Gruta do Baú)
 
 - **descricao**:
-    # Setor Vale do Cinema
-    
     **Acesso:** Após sair do setor sentinela, seguir sentido Onda de Calcário pela trilha. Após 5 minutos de caminhada virar em uma trilha a esquerda, passando próximo de alguns blocos de rocha. Passar pelo portão de metal e subir um pequeno morro. O setor estará à esquerda.
     
     **Coordenadas no Vale do Cinema:** -19º32.941’ -43º59.459’
@@ -8570,8 +8547,6 @@
 ### Setor (Pico: Gruta do Baú)
 
 - **descricao**:
-    # Setor Onda de Calcário
-    
     **Acesso:** Saindo do estacionamento, pegar a trilha que segue a direita. Após cerca de 10 minutos de caminhada, encontrará a bifurcação que dá acesso ao setor.
     
     **Coordenadas na Onda de Calcário:** -19º32.890 -43º59.578
@@ -9058,10 +9033,7 @@
 
 ### Setor (Pico: Gruta do Baú)
 
-- **descricao**:
-    # Setor Vale da Onça
-    
-    **Acesso:** Seguindo a trilha, após a entrada dos setores Escola e Geriatria, passar pelo portão de metal e seguir as placas em direção ao setor. Cerca de 15 minutos de caminhada a partir do setor entrada.
+- **descricao**: **Acesso:** Seguindo a trilha, após a entrada dos setores Escola e Geriatria, passar pelo portão de metal e seguir as placas em direção ao setor. Cerca de 15 minutos de caminhada a partir do setor entrada.
 - **nome**: Setor Vale da Onça
 - **uid**: Fya8VhImuKKlNV
 - **mapas**:

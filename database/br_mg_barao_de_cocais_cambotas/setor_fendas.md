@@ -1,9 +1,8 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
-
 uid: VoZcuSQ0d3Phq9
-nome: Fendas
+nome: Setor Fendas
 mapas:
 - caminho_imagem_mapa: imagens/setor_fendas_p0_i0.webp
 escaladas:
@@ -44,8 +43,8 @@ escaladas:
     extensao: 40
     conquistadores:
     - Gustavo Piancastelli
-    descricao: 'Boa via com fenda no final que pode ser protegida com cam #2 ou similar. Atenção com abelhas próximo da via,
-      à esquerda.'
+    descricao: 'Boa via com fenda no final que pode ser protegida com cam #2 ou similar.
+      Atenção com abelhas próximo da via, à esquerda.'
 - uid: gWC4QzVF0P6SKn
   via_multiplas_enfiadas:
     nome: Princesa Kel
@@ -54,9 +53,8 @@ escaladas:
     conquistadores:
     - Gustavo Piancastelli
     - Leonardo Tangari
-    descricao: Começa no final da 'Positive vibration'. Faz o cume isolado à direita da parede principal. Grampos 
-      somente nas paradas.
+    descricao: Começa no final da 'Positive vibration'. Faz o cume isolado à direita
+      da parede principal. Grampos somente nas paradas.
     comprimento_total: 120
 ---
 
-# Setor Fendas

@@ -327,8 +327,6 @@ escaladas:
     - Eustáquio e Helon
 ---
 
-# Setor Fechadura
-
 **Acesso:** Ao chegar ao maciço, no setor entrada, seguir a trilha a esquerda margeando o maciço e a gruta. A primeira via do setor é a via “Era de Aquários”. A trilha segue pela esquerda, por fora da gruta.
 
 **Acesso secundário:** Contornando o maciço pela direita a partir do Setor Pasto e subindo em direção a pedra. Por este caminho chegará à base da via “Primeira Batida”.

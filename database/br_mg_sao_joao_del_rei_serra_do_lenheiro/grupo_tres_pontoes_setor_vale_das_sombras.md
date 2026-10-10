@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: Z3msjudWpVR1hv
-nome: Vale das Sombras
+nome: Setor Vale das Sombras
 mapas:
 - caminho_imagem_mapa: imagens/grupo_tres_pontoes_setor_vale_das_sombras_p0_i2.webp
   largura_mapa: 841
@@ -68,8 +68,6 @@ escaladas:
     data_abertura: '2022-03-18'
     descricao: Via sem cadena até a data de publicação dessa edição do guia.
 ---
-
-# Vale das Sombras
 
 É um pequeno bloco localizado ao lado esquerdo da trilha que sobe para os Três Pontões, poucos metros antes de chegar na base do Pontão Maior.
 

@@ -180,6 +180,4 @@ escaladas:
     quantidade_protecoes_parada: 2
 ---
 
-# Setor Toca dos Gatos
-
 Este setor possui sombra o dia todo (variando de acordo com a estação). O acesso é feito através de um "Túnel de acesso".

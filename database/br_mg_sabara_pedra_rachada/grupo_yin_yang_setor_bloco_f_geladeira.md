@@ -28,12 +28,14 @@ escaladas:
   boulder:
     nome: Congelador
     dificuldade: V3
-    descricao: Sai sentado com as mãos juntas em um batente e escala em direção à aresta.
+    descricao: Sai sentado com as mãos juntas em um batente e escala em direção à
+      aresta.
 - uid: yg43IPyhVNA5kU
   boulder:
     nome: Geladeira
     dificuldade: V3
-    descricao: Começa como o “Congelador” (17) e toca reto sem usar a pedra à direita da fenda.
+    descricao: Começa como o “Congelador” (17) e toca reto sem usar a pedra à direita
+      da fenda.
 - uid: 6qmeJYKY3v1V1w
   boulder:
     nome: Fenda Cega
@@ -45,7 +47,8 @@ escaladas:
     nome: Diagonal (Geladeira)
     dificuldade: V0
     destaque: true
-    descricao: Começa como o “Fenda cega” (19), passa pela fenda e segue em diagonal pra direita.
+    descricao: Começa como o “Fenda cega” (19), passa pela fenda e segue em diagonal
+      pra direita.
 - uid: Zx8yus4jhgQVQW
   boulder:
     nome: Avesso
@@ -53,4 +56,3 @@ escaladas:
     descricao: Sai em pé com as mãos juntas em uma agarra boa invertida e escala reto.
 ---
 
-# Bloco F - Geladeira

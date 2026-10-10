@@ -3,7 +3,7 @@
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: sKwnDft8hBVYxs
 caminho_imagem_capa: imagens/setor_tereza_p0_i0.webp
-nome: Tereza
+nome: Setor Tereza
 mapas:
 - caminho_imagem_mapa: imagens/setor_tereza_p1.webp
   largura_mapa: 1280
@@ -144,8 +144,6 @@ escaladas:
     - Lucas Ramos
     data_abertura: '2006'
 ---
-
-# Setor Tereza
 
 Setor com vias acessíveis de 5º grau e desafios técnicos de até 7º grau.
 

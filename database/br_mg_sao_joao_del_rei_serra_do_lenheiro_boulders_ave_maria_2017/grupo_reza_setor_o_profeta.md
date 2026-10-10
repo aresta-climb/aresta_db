@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: QmZl7skoXRvunn
-nome: O Profeta
+nome: Setor O Profeta
 mapas:
 - caminho_imagem_mapa: imagens/grupo_reza_setor_o_profeta_p0_i0.webp
   largura_mapa: 1500
@@ -52,4 +52,3 @@ escaladas:
     descricao: Projeto
 ---
 
-# Setor O Profeta

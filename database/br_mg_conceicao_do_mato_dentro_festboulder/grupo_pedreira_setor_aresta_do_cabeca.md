@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: iZJd5BxEiCNhso
-nome: Aresta do Cabeça
+nome: Setor Aresta do Cabeça
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_aresta_do_cabeca_p0.webp
   largura_mapa: 440
@@ -25,8 +25,6 @@ escaladas:
     nome: Aresta do Cabeça
     dificuldade: V6
 ---
-
-# Setor Aresta do Cabeça
 
 O setor Aresta do Cabeça apresenta um bloco com uma linha clássica de aresta, exigindo equilíbrio e técnica.
 

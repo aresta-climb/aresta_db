@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: zA8I9CcpUUdw4Q
-nome: Conjunto Pôr do sol - Bloco A
+nome: Setor Conjunto Pôr do sol - Bloco A
 mapas:
 - caminho_imagem_mapa: imagens/grupo_conjunto_por_do_sol_setor_bloco_a_p0_i0.webp
   largura_mapa: 900
@@ -73,37 +73,39 @@ escaladas:
   boulder:
     nome: Sem querer
     dificuldade: V1
-    descricao: Começa sentado com as duas mãos na agarra óbvia na base da proa, e escala reto
+    descricao: Começa sentado com as duas mãos na agarra óbvia na base da proa, e
+      escala reto
 - uid: 32vqwjDDtOzXgH
   boulder:
     nome: Horizonte
     dificuldade: V4
-    descricao: Começa na mesma saída do “Sem querer” e toca pra direta pela fenda horizontal, até a saída do 
-      “Pôr-do-sol”.
+    descricao: Começa na mesma saída do “Sem querer” e toca pra direta pela fenda
+      horizontal, até a saída do “Pôr-do-sol”.
 - uid: i7DNgPqN72loGR
   boulder:
     nome: Fenda comunista
     dificuldade: V4
-    descricao: Começa como o “Sem querer” e escala toda a fenda lateral, virando no “Base aérea”
+    descricao: Começa como o “Sem querer” e escala toda a fenda lateral, virando no
+      “Base aérea”
 - uid: yFjGfTdHnQhMV1
   boulder:
     nome: Pôr-do-sol
     dificuldade: V3
-    descricao: Variação do “Horizonte”. Começa em pé, as duas mãos em uma agarra em formato de “L” e escala levemente 
-      para a esquerda, utilizando pequenos regletes na rocha.
+    descricao: Variação do “Horizonte”. Começa em pé, as duas mãos em uma agarra em
+      formato de “L” e escala levemente para a esquerda, utilizando pequenos regletes
+      na rocha.
 - uid: 5Piki2ZHYJtUuU
   boulder:
     nome: Bipa aérea
     dificuldade: V3
-    descricao: Extensão do “Base aérea”. Inicia com as duas mãos na laca em formato de “L” e toca pra direita.
+    descricao: Extensão do “Base aérea”. Inicia com as duas mãos na laca em formato
+      de “L” e toca pra direita.
 - uid: xdwgIYlJK2rTz1
   boulder:
     nome: Base aérea
     dificuldade: V2
-    descricao: Boulder de movimentação específica. As duas mão começam juntas em uma agarra invertida muito boa na fenda
-      horizontal e escala reto.
+    descricao: Boulder de movimentação específica. As duas mão começam juntas em uma
+      agarra invertida muito boa na fenda horizontal e escala reto.
 ---
-
-# Bloco A
 
 Dica: Para queda ficar mais segura, posicione alguns crash como “calço” por baixo da camada que irá protegê-lo e entre as duas rochas que afunilam a base. A queda dos boulders é bem neste ponto.

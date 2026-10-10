@@ -30,8 +30,8 @@ escaladas:
     conquistadores:
     - Rafael Pimenta
     data_abertura: '2007'
-    descricao: Boulder clássico de teto! Sai em dois regletes e escala por movimentos clássicos para sair da caverna. 
-      Tem uma virada fácil.
+    descricao: Boulder clássico de teto! Sai em dois regletes e escala por movimentos
+      clássicos para sair da caverna. Tem uma virada fácil.
 - uid: VzC1nqfFtnmvvh
   boulder:
     nome: Última passagem
@@ -39,8 +39,9 @@ escaladas:
     conquistadores:
     - Frederico Gonçalves
     data_abertura: '2013'
-    descricao: Boulder clássico de teto! Sai em dois regletes e escala por movimentos clássicos para sair da caverna. 
-      Tem uma virada fácil. A linha leva este nome pois a maioria das pessoas a mandou na terceira tentativa.
+    descricao: Boulder clássico de teto! Sai em dois regletes e escala por movimentos
+      clássicos para sair da caverna. Tem uma virada fácil. A linha leva este nome
+      pois a maioria das pessoas a mandou na terceira tentativa.
 - uid: C0qDsR8dsf3PrL
   boulder:
     nome: Primeira saída
@@ -49,14 +50,14 @@ escaladas:
     conquistadores:
     - Daniel Mendes
     data_abertura: '2008'
-    descricao: Começa nas agarras mais ao fundo da caverna, escala por agarras boas até uma difícil transição para o 
-      “Terceira entrada” (15) terminando como ele.
+    descricao: Começa nas agarras mais ao fundo da caverna, escala por agarras boas
+      até uma difícil transição para o “Terceira entrada” (15) terminando como ele.
 - uid: R9WKx9ZwCJGfXF
   boulder:
     nome: Pequenino
     dificuldade: V3
-    descricao: Bloco C (Pequenino). Começa sentado com a mão esquerda em um batente/pinça e a direita em um batente na 
-      aresta e domina o pequeno bloco.
+    descricao: Bloco C (Pequenino). Começa sentado com a mão esquerda em um batente/pinça
+      e a direita em um batente na aresta e domina o pequeno bloco.
 - uid: DzicJeyPEtd8Sq
   boulder:
     nome: Quem diria
@@ -64,8 +65,8 @@ escaladas:
     conquistadores:
     - Frederico Gonçalves
     data_abertura: '2012'
-    descricao: Este boulder fica dentro da caverna do “Terceira entrada”, ao lado direito. Sai sentado com a mão 
-      esquerda em um reglete na aresta e a direita em um reglete abaixo do teto, escalando pela aresta do bloco.
+    descricao: Este boulder fica dentro da caverna do “Terceira entrada”, ao lado
+      direito. Sai sentado com a mão esquerda em um reglete na aresta e a direita
+      em um reglete abaixo do teto, escalando pela aresta do bloco.
 ---
 
-# Bloco C - Pequenino

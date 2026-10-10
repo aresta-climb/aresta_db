@@ -615,10 +615,7 @@ picos:
             quantidade_protecoes_intermediarias: 8
             quantidade_protecoes_parada: 2
             data_abertura: '2023'
-        descricao: |-
-          # Setor bombonera
-
-          Sombra a partir das 12h (varia de acordo com a estação).
+        descricao: Sombra a partir das 12h (varia de acordo com a estação).
         precomputados:
           total_escaladas: 12
           total_esportivas: 12

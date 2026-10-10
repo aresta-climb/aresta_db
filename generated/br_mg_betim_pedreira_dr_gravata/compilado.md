@@ -388,7 +388,7 @@
         - **alvo_uid**: 9nI88j1Fmvv9NU
         - **pontos_uids**:
           - 9Td3ZxJ26rlJqM
-        - **setor**: Vale dos Ossos
+        - **setor**: Setor Vale dos Ossos
         - **ids**:
           - 9Td3ZxJ26rlJqM
 - **setores**:
@@ -402,7 +402,7 @@
           | ![Mapa](imagens/mapa_aereo_do_setor_vale_dos_ossos.webp) |
           | :--: |
           | *Mapa* |
-      - **nome**: Vale dos Ossos
+      - **nome**: Setor Vale dos Ossos
       - **uid**: 9nI88j1Fmvv9NU
       - **escaladas**:
         - **[0]**:

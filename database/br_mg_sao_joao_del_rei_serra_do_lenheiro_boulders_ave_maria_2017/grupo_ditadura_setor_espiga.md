@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: W1JNrgMgl63jDJ
-nome: Espiga
+nome: Setor Espiga
 mapas:
 - caminho_imagem_mapa: imagens/grupo_ditadura_setor_espiga_p0_i0.webp
   largura_mapa: 1488
@@ -51,4 +51,3 @@ escaladas:
     dificuldade: V0
 ---
 
-# Espiga

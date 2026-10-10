@@ -267,4 +267,3 @@ escaladas:
     nome: VIA INACABADA 2
 ---
 
-# Setor Democracia

@@ -144,4 +144,3 @@ escaladas:
     quantidade_protecoes_intermediarias: 6
 ---
 
-# Setor Imigrantes

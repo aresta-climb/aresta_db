@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: lt12GNvnJUOG87
-nome: Arquibancada
+nome: Setor Arquibancada
 mapas:
 - caminho_imagem_mapa: imagens/setor_arquibancada_p0.webp
   largura_mapa: 1415
@@ -448,3 +448,4 @@ escaladas:
     nome: Face Oculta (Projeto)
     dificuldade: PROJETO
 ---
+

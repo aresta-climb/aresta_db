@@ -12,6 +12,4 @@ setores:
 - caminho: grupo_regiao_2_setor_velho_chico.md
 ---
 
-# Região 2
-
 A Região 2 contém blocos icônicos como Panela do Diabo e Primavera nos Dentes.

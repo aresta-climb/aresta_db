@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: 19m6huz3tACiyA
-nome: Bobsled
+nome: Setor Bobsled
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bobsled_p0.webp
   largura_mapa: 757
@@ -67,8 +67,6 @@ escaladas:
     nome: Bobsled
     dificuldade: V7
 ---
-
-# Setor Bobsled
 
 O setor Bobsled possui um bloco com linhas atléticas e passagens de força.
 

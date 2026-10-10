@@ -95,8 +95,6 @@ escaladas:
     extensao: 15
 ---
 
-# Setor de Esquerda
-
 Um dos mais novos setores a ser desenvolvidos no pico, o "Setor de Esquerda"
 é composto por uma bela parede de coloração clara, amarela e avermelhada que se
 caracteriza com concreções e cristais coloridos, a parede é relativamente baixa

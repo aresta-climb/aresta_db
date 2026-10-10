@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: PNkGaUuHzJplDd
-nome: Super Herói
+nome: Setor Super Herói
 mapas:
 - caminho_imagem_mapa: imagens/grupo_salao_de_pedras_setor_super_heroi_p0.webp
   largura_mapa: 760
@@ -67,8 +67,6 @@ escaladas:
     nome: Heroína
     dificuldade: V3
 ---
-
-# Setor Super Herói
 
 O setor Super Herói possui linhas clássicas em um bloco bem característico.
 

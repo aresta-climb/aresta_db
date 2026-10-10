@@ -41,12 +41,10 @@
 ### Setor (Pico: Serra do Cipó)
 
 - **descricao**:
-    # Setor Rock Master
-    
     Setor clássico de escalada esportiva do Grupo 2 na Serra do Cipó.
     
     Vias positivas, verticais e negativas com exposição solar vespertina e extensões entre 10m e 20m, que não permitem escalada durante chuva.
-- **nome**: Rock Master
+- **nome**: Setor Rock Master
 - **uid**: eGoq2HJJLvRP8o
 - **mapas**:
   - **[0]**:

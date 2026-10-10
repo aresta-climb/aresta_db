@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: eiipF4wsDuczUd
-nome: Busão
+nome: Setor Busão
 mapas:
 - caminho_imagem_mapa: imagens/grupo_reza_setor_busao_p0_i0.webp
   largura_mapa: 1495
@@ -126,4 +126,3 @@ escaladas:
     dificuldade: V3
 ---
 
-# Setor Busão

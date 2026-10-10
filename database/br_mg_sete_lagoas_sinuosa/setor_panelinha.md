@@ -80,8 +80,6 @@ escaladas:
     quantidade_protecoes_intermediarias: 4
 ---
 
-# Setor Panelinha
-
 O "Panelinha" é composto por paredes escuras em formas circulares que lembram
 "panelas" e teve como objetivo principal nas conquistas, aumentar a possibilidade
 para os iniciantes por serem paredes curtas, verticais e com grande variedades de

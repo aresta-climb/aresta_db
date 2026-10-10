@@ -3,7 +3,7 @@
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: RDvWM1pC3cmOAz
 caminho_imagem_capa: imagens/setor_udao_p0_i0.webp
-nome: Udão
+nome: Setor Udão
 mapas:
 - caminho_imagem_mapa: imagens/setor_udao_p1.webp
   largura_mapa: 1280
@@ -270,8 +270,6 @@ escaladas:
     - Gustavo
     data_abertura: '2016'
 ---
-
-# Setor Udão
 
 O Setor Udão apresenta vias de 5º a 7º grau, com uma boa concentração de vias de 6º sup.
 

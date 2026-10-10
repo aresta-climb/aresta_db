@@ -42,7 +42,7 @@
 
 ### Setor (Pico: Pico da Vó Gusta)
 
-- **descricao**: # Setor Quintal
+- **descricao**: 
 - **nome**: Setor Quintal
 - **uid**: OrUXZcQg0RiAcU
 - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_quintal_p0_i0_2.webp)

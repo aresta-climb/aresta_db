@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: dwuQyJozrODbgq
-nome: Bem-vindo
+nome: Setor Bem-vindo
 mapas:
 - caminho_imagem_mapa: imagens/setor_bem_vindo_p1.webp
   largura_mapa: 1280
@@ -400,8 +400,6 @@ escaladas:
     data_abertura: '2006'
     descricao: Falta topo.
 ---
-
-# Setor Bem-vindo
 
 O Setor Bem-vindo é um dos setores mais tradicionais do parque, com vias que variam de 5º a 8a, e algumas das vias mais longas como "Sainhaca" e "Excalibur" (45m).
 

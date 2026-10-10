@@ -1,9 +1,8 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
-
 uid: G0xqU7jw49Gc2R
-nome: Vieiras
+nome: Setor Vieiras
 mapas:
 - caminho_imagem_mapa: imagens/setor_vieiras_p0_i0.webp
 - caminho_imagem_mapa: imagens/setor_vieiras_p1_i0.webp
@@ -65,7 +64,5 @@ escaladas:
     nome: Ratazana
     dificuldade: BR_7A
 ---
-
-# Setor Vieiras
 
 O setor Vieiras é um dos setores clássicos de Montes Claros, com vias que variam do 5° ao 9b.

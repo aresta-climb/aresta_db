@@ -396,6 +396,4 @@ escaladas:
     quantidade_protecoes_parada: 2
 ---
 
-# Setor Leão de Judah
-
 Este setor possui sombra até as 12h (variando de acordo com a estação).

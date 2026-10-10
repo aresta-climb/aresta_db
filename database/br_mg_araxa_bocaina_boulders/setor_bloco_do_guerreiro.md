@@ -82,7 +82,8 @@ escaladas:
   boulder:
     nome: Strike
     dificuldade: V7_BARRA_V8
-    descricao: Saída sentado com mão esquerda em reglete e direita em pinça pequena seguindo para abaulado virando reto.
+    descricao: Saída sentado com mão esquerda em reglete e direita em pinça pequena
+      seguindo para abaulado virando reto.
 - uid: RTN0rNb2gB7IHF
   boulder:
     nome: Chove e Não Molha
@@ -97,14 +98,14 @@ escaladas:
   boulder:
     nome: Marreteiro
     dificuldade: V5
-    descricao: Saida agachado, com a mão esquerda em reglete escorrido e direita em reglete de meia falange com 
-      calcanhar na mão direita e segue a linha reta.
+    descricao: Saida agachado, com a mão esquerda em reglete escorrido e direita em
+      reglete de meia falange com calcanhar na mão direita e segue a linha reta.
 - uid: X1QTk7WvgkT0M3
   boulder:
     nome: Guerreiro da Bocaina
     dificuldade: V6
-    descricao: Saída agachado com mão esquerda em abaulado com calcanhar esquerdo ao lado da mão e direita em reglete no
-      teto.
+    descricao: Saída agachado com mão esquerda em abaulado com calcanhar esquerdo
+      ao lado da mão e direita em reglete no teto.
 - uid: ts4kATktgPOmh1
   boulder:
     nome: High Line
@@ -117,4 +118,3 @@ escaladas:
     descricao: Saída em pé com as mãos em regletes investidos.
 ---
 
-# Setor Bloco do Guerreiro

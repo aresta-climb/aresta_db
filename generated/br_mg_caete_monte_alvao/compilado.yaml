@@ -15,7 +15,7 @@ picos:
   - setor:
       conteudo:
         uid: miGSpygWRq6cb6
-        nome: Vale Gaules
+        nome: Setor Vale Gaules
         mapas:
         - caminho_imagem_mapa: imagens/setor_vale_gaules_p0.webp
           largura_mapa: 2048
@@ -288,17 +288,14 @@ picos:
             quantidade_protecoes_parada: 2
             conquistadores:
             - Jg
-        descricao: |-
-          # Vale Gaules
-
-          O setor Vale Gaules está localizado no Alto Monte Alvão.
+        descricao: O setor Vale Gaules está localizado no Alto Monte Alvão.
         precomputados:
           total_escaladas: 11
           total_esportivas: 10
   - grupo:
       conteudo:
         uid: PYN5lchFdNhSdp
-        nome: Caverna, Mirante e Ground Control
+        nome: Setor Caverna, Mirante e Ground Control
         mapas:
         - caminho_imagem_mapa: imagens/setor_caverna_bin_laden_mirante_da_cruz_e_ground_control_p0.webp
           largura_mapa: 2048
@@ -668,7 +665,7 @@ picos:
         setores:
         - conteudo:
             uid: f6qhe8I2ffld4p
-            nome: Caverna do Bin Laden
+            nome: Setor Caverna do Bin Laden
             escaladas:
             - uid: am42vvg5w16ewW
               via_esportiva:
@@ -777,7 +774,7 @@ picos:
               total_multiplas_enfiadas: 2
         - conteudo:
             uid: ORe2ixkg2P8JW0
-            nome: Mirante da Cruz
+            nome: Setor Mirante da Cruz
             escaladas:
             - uid: NnA3VyWBwYic7a
               via_esportiva:
@@ -839,7 +836,7 @@ picos:
               total_esportivas: 6
         - conteudo:
             uid: NZGLAfWYiM8NDf
-            nome: Ground Control
+            nome: Setor Ground Control
             escaladas:
             - uid: SRdjxYR9aFvUic
               via_movel:
@@ -1005,10 +1002,8 @@ picos:
               total_escaladas: 12
               total_esportivas: 5
               total_multiplas_enfiadas: 4
-        descricao: |-
-          # Caverna, Mirante e Ground Control
-
-          Este grupo engloba os setores localizados na parte central do Alto Monte Alvão.
+        descricao: Este grupo engloba os setores localizados na parte central do Alto
+          Monte Alvão.
         precomputados:
           total_escaladas: 24
           total_esportivas: 15
@@ -1016,7 +1011,7 @@ picos:
   - grupo:
       conteudo:
         uid: 8IUjj0RLhfFcWs
-        nome: Parede do Ladrão e Forno da Onça
+        nome: Setores Parede do Ladrão e Forno da Onça
         mapas:
         - caminho_imagem_mapa: imagens/setor_parede_do_ladrao_e_forno_da_onca_p0.webp
           largura_mapa: 2048
@@ -1221,7 +1216,7 @@ picos:
         setores:
         - conteudo:
             uid: Qb6WGpJV9QBeJY
-            nome: Forno da Onça
+            nome: Setor Forno da Onça
             escaladas:
             - uid: dZVBFM4DLQod4l
               via_esportiva:
@@ -1297,7 +1292,7 @@ picos:
               total_multiplas_enfiadas: 1
         - conteudo:
             uid: NPg6eUqYFEWNix
-            nome: Parede do Ladrão
+            nome: Setor Parede do Ladrão
             escaladas:
             - uid: 6brYAuVDrbBvAw
               via_esportiva:
@@ -1356,10 +1351,7 @@ picos:
             precomputados:
               total_escaladas: 7
               total_esportivas: 7
-        descricao: |-
-          # Parede do Ladrão e Forno da Onça
-
-          Estes setores estão localizados lado a lado no Alto Monte Alvão.
+        descricao: Estes setores estão localizados lado a lado no Alto Monte Alvão.
         precomputados:
           total_escaladas: 13
           total_esportivas: 12
@@ -1367,7 +1359,7 @@ picos:
   - grupo:
       conteudo:
         uid: JI5tVwPnDWIuk7
-        nome: Curto e Grosso, Malibu e Terra do Nunca
+        nome: Setor Curto e Grosso, Malibu e Terra do Nunca
         mapas:
         - caminho_imagem_mapa: imagens/setor_curto_e_grosso_malibu_e_terra_do_nunca_p0.webp
           largura_mapa: 2048
@@ -1482,7 +1474,7 @@ picos:
         setores:
         - conteudo:
             uid: 9nBKJkNFTsLt6U
-            nome: Terra do Nunca
+            nome: Setor Terra do Nunca
             escaladas:
             - uid: z3iyGVQLgcfWR8
               via_esportiva:
@@ -1500,7 +1492,7 @@ picos:
               total_esportivas: 1
         - conteudo:
             uid: BjL9SR8V0cBhuL
-            nome: Curto e Grosso
+            nome: Setor Curto e Grosso
             escaladas:
             - uid: CIZ94V52CuEYwg
               via_esportiva:
@@ -1548,7 +1540,7 @@ picos:
               total_esportivas: 4
         - conteudo:
             uid: VvpFZdnJEkLma2
-            nome: Malibu
+            nome: Setor Malibu
             escaladas:
             - uid: rVUUjHYYMqsyK7
               via_esportiva:
@@ -1573,10 +1565,7 @@ picos:
             precomputados:
               total_escaladas: 2
               total_esportivas: 2
-        descricao: |-
-          # Curto e Grosso, Malibu e Terra do Nunca
-
-          Estes setores estão localizados na parte sul do Alto Monte Alvão.
+        descricao: Estes setores estão localizados na parte sul do Alto Monte Alvão.
         precomputados:
           total_escaladas: 7
           total_esportivas: 7
@@ -1753,7 +1742,7 @@ picos:
         - alvo_uid: miGSpygWRq6cb6
           pontos_uids:
           - r6gwIBm8vPLkW9
-          setor: Vale Gaules
+          setor: Setor Vale Gaules
           ids:
           - r6gwIBm8vPLkW9
         - alvo_uid: PYN5lchFdNhSdp
@@ -1761,7 +1750,7 @@ picos:
           - PvRLpRmRrTzMLL
           - LWwENdMSUOpsJH
           - dWZZ23ph6JxQ4w
-          grupo: Caverna, Mirante e Ground Control
+          grupo: Setor Caverna, Mirante e Ground Control
           ids:
           - PvRLpRmRrTzMLL
           - LWwENdMSUOpsJH
@@ -1770,7 +1759,7 @@ picos:
           pontos_uids:
           - sFpAb8M5SOrh1g
           - aNbv8RTvEFBSq3
-          grupo: Parede do Ladrão e Forno da Onça
+          grupo: Setores Parede do Ladrão e Forno da Onça
           ids:
           - sFpAb8M5SOrh1g
           - aNbv8RTvEFBSq3
@@ -1779,7 +1768,7 @@ picos:
           - aWutwoCQRIP9Hd
           - G9L6yUVPJNwpKW
           - pQ5EAC5RrakmqG
-          grupo: Curto e Grosso, Malibu e Terra do Nunca
+          grupo: Setor Curto e Grosso, Malibu e Terra do Nunca
           ids:
           - aWutwoCQRIP9Hd
           - G9L6yUVPJNwpKW

@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: FbDfAbWOrmCBZp
-nome: Equinócio
+nome: Setor Equinócio
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_equinocio_p0.webp
   largura_mapa: 756
@@ -53,8 +53,6 @@ escaladas:
     nome: Costela de Adão
     dificuldade: V2
 ---
-
-# Setor Equinócio
 
 O setor Equinócio possui um bloco com linhas interessantes e agarras variadas.
 

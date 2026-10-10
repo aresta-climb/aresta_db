@@ -60,8 +60,6 @@ setores:
 - caminho: grupo_sono_do_calango_setor_bloco_h_sono_do_calango.md
 ---
 
-# Sono do Calango
-
 Setor com uma grande concentração de boulders do circuito verde e muitas linhas clássicas. Apesar de estar ao lado do Setor Entrada, é muito pouco conhecido e freqüentado. É também lugar das duas únicas vias de toda a Rachada, que valem muito a pena serem escaladas! O destaque para este setor fica por conta dos blocos “High vibe”, “Das vias” e “Sono do calango”, que possuem escaladas incríveis dos mais variados graus de dificuldade.
 
 ## Acesso (15 min)

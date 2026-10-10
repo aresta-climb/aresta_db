@@ -129,6 +129,4 @@ escaladas:
     quantidade_protecoes_parada: 2
 ---
 
-# Setor Zona Leste
-
 Este setor oferece vias de 6º a 7c grau, com sombra o dia todo (variando de acordo com a estação).

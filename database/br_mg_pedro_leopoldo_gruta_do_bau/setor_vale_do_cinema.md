@@ -298,8 +298,6 @@ escaladas:
     - Roberto Lincoln
 ---
 
-# Setor Vale do Cinema
-
 **Acesso:** Após sair do setor sentinela, seguir sentido Onda de Calcário pela trilha. Após 5 minutos de caminhada virar em uma trilha a esquerda, passando próximo de alguns blocos de rocha. Passar pelo portão de metal e subir um pequeno morro. O setor estará à esquerda.
 
 **Coordenadas no Vale do Cinema:** -19º32.941’ -43º59.459’

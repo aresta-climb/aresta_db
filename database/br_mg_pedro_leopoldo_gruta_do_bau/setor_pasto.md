@@ -139,8 +139,6 @@ escaladas:
     - Tinoco
 ---
 
-# Setor Pasto
-
 **Acesso:** Seguindo pela estrada partindo do estacionamento, é o setor que se localiza a esquerda. Um pouco antes de chegar na pedra, basta pegar a trilha que desce a esquerda.
 
 **Coordenadas na base da via Rolha de Algodão:** -19º32.911’ -43º59.268’

@@ -16,8 +16,6 @@ setores:
 - caminho: grupo_canaleta_setor_bloco_i_prisma.md
 ---
 
-# Canaleta
-
 O setor menos explorado de todos abriga uma das escaladas mais clássicas da Pedra Rachada. Seu nome deve-se à sua formação, uma espécie de canaleta de blocos que se estende por toda a “crista” do morro, de norte a sul. São inúmeros blocos praticamente inexplorados em toda a sua extensão, que se concentram principalmente a sudoeste do setor ”Sono do calango”, um convite aos caçadores de boulders de plantão.
 
 ## Acesso (20 min)

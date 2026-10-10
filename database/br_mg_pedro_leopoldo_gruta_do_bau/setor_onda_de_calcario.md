@@ -337,8 +337,6 @@ escaladas:
     - Samuel Lucas
 ---
 
-# Setor Onda de Calcário
-
 **Acesso:** Saindo do estacionamento, pegar a trilha que segue a direita. Após cerca de 10 minutos de caminhada, encontrará a bifurcação que dá acesso ao setor.
 
 **Coordenadas na Onda de Calcário:** -19º32.890 -43º59.578

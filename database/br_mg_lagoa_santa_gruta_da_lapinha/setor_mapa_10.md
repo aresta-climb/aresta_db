@@ -140,7 +140,5 @@ escaladas:
     data_abertura: '1993'
 ---
 
-# Setor Bloco Romano (Mapa 10)
-
 Setor final do guia, localizado próximo ao Túnel de Pedra e ao Teto.
 Possui vias predominantemente esportivas.

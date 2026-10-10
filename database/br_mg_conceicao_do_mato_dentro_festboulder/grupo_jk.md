@@ -30,6 +30,4 @@ setores:
 - caminho: grupo_jk_setor_mufasa.md
 ---
 
-# Grupo JK
-
 O Grupo JK possui o setor Mufasa, com linhas de boulder interessantes e acesso facilitado.

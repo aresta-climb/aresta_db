@@ -67,6 +67,4 @@ setores:
 - caminho: grupo_colina_setor_mergulho_em_copo_dagua.md
 ---
 
-# Grupo Colina
-
 A Colina abriga diversos setores com abordagens e estilos diferentes, de blocos clássicos a novas linhas.

@@ -1,9 +1,8 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
-
 uid: HVeZ40s3BhupP1
-nome: Torres
+nome: Setor Torres
 mapas:
 - caminho_imagem_mapa: imagens/setor_torres_p2.webp
 escaladas:
@@ -35,11 +34,9 @@ escaladas:
     conquistadores:
     - Edgardo Abreu
     - Luis Monteiro
-    descricao: Projeto interessante. Possui duas enfiadas em móvel. Paradas também feitas com proteções móveis. Segue um
-      sistema de chaminés de tamanhos variados.
+    descricao: Projeto interessante. Possui duas enfiadas em móvel. Paradas também
+      feitas com proteções móveis. Segue um sistema de chaminés de tamanhos variados.
 ---
-
-# Setor Torres
 
 O setor Torres possui paredes positivas com vias longas.
 

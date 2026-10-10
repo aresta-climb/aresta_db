@@ -9,8 +9,7 @@ escaladas:
     nome: Surpresa
     dificuldade: V3
     destaque: true
-    descricao: Começa com a mão esquerda em uma pinça grande e a direita em um reglete/pinça e sai do teto com uma 
-      movimentação clássica.
+    descricao: Começa com a mão esquerda em uma pinça grande e a direita em um reglete/pinça
+      e sai do teto com uma movimentação clássica.
 ---
 
-# Bloco D - Surpresa

@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: oPnH4R0z6pGdpP
-nome: Troféu
+nome: Setor Troféu
 mapas:
 - caminho_imagem_mapa: imagens/grupo_salao_de_pedras_setor_trofeu_p0.webp
   largura_mapa: 758
@@ -53,8 +53,6 @@ escaladas:
     nome: Dreads de Goiás
     dificuldade: V7
 ---
-
-# Setor Troféu
 
 O setor Troféu é conhecido por suas linhas técnicas e de alta graduação.
 

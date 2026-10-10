@@ -359,6 +359,4 @@ escaladas:
     quantidade_protecoes_parada: 2
 ---
 
-# Setor Yanomami
-
 Sombra até as 14h30 (varia de acordo com a estação).

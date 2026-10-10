@@ -35,12 +35,13 @@ escaladas:
   boulder:
     nome: Mariposa
     dificuldade: V0
-    descricao: Sai sentado com as mãos juntas num batente e um reglete e escala reto por agarras boas.
+    descricao: Sai sentado com as mãos juntas num batente e um reglete e escala reto
+      por agarras boas.
 - uid: bsCDm9Z1I9vI5s
   boulder:
     nome: Casulo
     dificuldade: V4
-    descricao: Começa sentado com as mãos juntas em um bico/laca e escala reto pela pedra em forma de casulo.
+    descricao: Começa sentado com as mãos juntas em um bico/laca e escala reto pela
+      pedra em forma de casulo.
 ---
 
-# Bloco B - Casulo

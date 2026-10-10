@@ -441,6 +441,49 @@ def verificar_mapas_duplicados(croqui_id: str, compiled_data: Dict[str, Any]) ->
             )
 
 
+def verificar_titulos_em_descricao_setor_grupo(croqui_id: str, compiled_data: Dict[str, Any]) -> None:
+    """Verifica se a descrição de algum setor ou grupo contém cabeçalhos H1 e emite aviso."""
+    def _verificar_entidade(tipo: str, entidade: Dict[str, Any]) -> None:
+        nome = entidade.get("nome", "Sem Nome")
+        descricao = entidade.get("descricao")
+        if isinstance(descricao, str):
+            for linha in descricao.splitlines():
+                linha_limpa = linha.strip()
+                if linha_limpa.startswith("# ") or linha_limpa == "#":
+                    print(
+                        f"\nAviso: A descrição do {tipo} '{nome}' no croqui '{croqui_id}' "
+                        f"contém título Markdown H1 ('{linha_limpa}'). "
+                        f"Como o aplicativo já exibe o nome do {tipo} no topo da tela, "
+                        f"recomenda-se remover o título da descrição para evitar duplicação visual."
+                    )
+                    break
+
+    def _percorrer_setores(setores: List[Any]) -> None:
+        if not isinstance(setores, list):
+            return
+        for item in setores:
+            if isinstance(item, dict):
+                setor = item.get("conteudo", item)
+                if isinstance(setor, dict):
+                    _verificar_entidade("setor", setor)
+
+    for pico in compiled_data.get("picos", []):
+        if not isinstance(pico, dict):
+            continue
+        for obj_sg in pico.get("setores_ou_grupos", []):
+            if not isinstance(obj_sg, dict):
+                continue
+            if "grupo" in obj_sg:
+                grupo = obj_sg["grupo"].get("conteudo", obj_sg["grupo"])
+                if isinstance(grupo, dict):
+                    _verificar_entidade("grupo", grupo)
+                    _percorrer_setores(grupo.get("setores", []))
+            elif "setor" in obj_sg:
+                setor = obj_sg["setor"].get("conteudo", obj_sg["setor"])
+                if isinstance(setor, dict):
+                    _verificar_entidade("setor", setor)
+
+
 
 
 # ---------------------------------------------------------------------------
@@ -630,6 +673,7 @@ def passo_a_compilar_croquis(
                 verificar_escaladas_sem_mapa(croqui_id, compiled_data)
                 verificar_imagens_inexistentes(croqui_dir, croqui_id, compiled_data)
                 verificar_mapas_duplicados(croqui_id, compiled_data)
+                verificar_titulos_em_descricao_setor_grupo(croqui_id, compiled_data)
                 
             # Gerar também o compilado.md (opcional)
             if gerar_arquivos_de_debug and dest_yaml:

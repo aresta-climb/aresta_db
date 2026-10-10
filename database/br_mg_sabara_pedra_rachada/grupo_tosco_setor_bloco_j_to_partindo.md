@@ -32,7 +32,7 @@ escaladas:
   boulder:
     nome: Já parti
     dificuldade: V1
-    descricao: Sai praticamente deitado com as mãos juntas em um batente bem baixo e escala por agarras boas.
+    descricao: Sai praticamente deitado com as mãos juntas em um batente bem baixo
+      e escala por agarras boas.
 ---
 
-# Bloco J - Tô Partindo

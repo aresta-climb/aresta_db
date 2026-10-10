@@ -23,7 +23,8 @@ escaladas:
     conquistadores:
     - Frederico Gonçalves
     data_abertura: '2012'
-    descricao: Saída em pé do “Plutão” (33), com as mãos nos batentes escorridos próximos à “fenda”.
+    descricao: Saída em pé do “Plutão” (33), com as mãos nos batentes escorridos próximos
+      à “fenda”.
 - uid: Uv5PLfRmJe9vvB
   boulder:
     nome: Plutão
@@ -32,8 +33,7 @@ escaladas:
     conquistadores:
     - Frederico Gonçalves
     data_abertura: '2013'
-    descricao: Começa sentado com as mãos nos batentes mais baixos e escala em diagonal pra direita terminando como o 
-      “Difícil de entender” (32).
+    descricao: Começa sentado com as mãos nos batentes mais baixos e escala em diagonal
+      pra direita terminando como o “Difícil de entender” (32).
 ---
 
-# Bloco K - Plutão

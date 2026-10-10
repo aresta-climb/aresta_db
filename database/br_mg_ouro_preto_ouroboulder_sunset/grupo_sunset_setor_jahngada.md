@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: n9RzqdO3IwqBxO
-nome: Jahngada
+nome: Bloco Jahngada
 escaladas:
 - uid: z53F6vTUHsg8Sy
   boulder:
@@ -94,4 +94,3 @@ mapas:
     - uenysVUibsZ6he
 ---
 
-# Bloco Jahngada

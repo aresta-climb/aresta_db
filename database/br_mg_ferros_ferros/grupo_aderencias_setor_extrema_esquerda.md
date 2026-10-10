@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: FO3KvzGBfKKpB4
-nome: Extrema Esquerda
+nome: Setor Extrema Esquerda
 mapas:
 - caminho_imagem_mapa: imagens/grupo_aderencias_setor_extrema_esquerda_p1_i1.webp
   referencias:

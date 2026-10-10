@@ -152,8 +152,6 @@
 ### Grupo (Pico: Sunset)
 
 - **descricao**:
-    # Grupo Sunset
-    
     O local está localizado a 15 minutos da entrada do setor da pedreira, bem no cume da montanha, o que proporciona um visual amplo e belo, sempre com um maravilhoso pôr-do-sol!
     
     Os boulders deste setor oferecem uma característica mais técnica e menos negativa. Os acessos entre os blocos são mais íngremes e requerem maior atenção no deslocamento. As trilhas estão sinalizadas com fita reflexiva e totens.
@@ -260,63 +258,63 @@
         - **alvo_uid**: 8ByzIvimI8JjlP
         - **pontos_uids**:
           - iEOTJY7v5TaLXx
-        - **setor**: Aleijadinho
+        - **setor**: Bloco Aleijadinho
         - **ids**:
           - iEOTJY7v5TaLXx
       - **[1]**:
         - **alvo_uid**: WbGHKuEY0c29Qu
         - **pontos_uids**:
           - mtFNeX5ImnsqX5
-        - **setor**: Capitão Jack
+        - **setor**: Bloco Capitão Jack
         - **ids**:
           - mtFNeX5ImnsqX5
       - **[2]**:
         - **alvo_uid**: n9RzqdO3IwqBxO
         - **pontos_uids**:
           - cDZTeCrzxcErS6
-        - **setor**: Jahngada
+        - **setor**: Bloco Jahngada
         - **ids**:
           - cDZTeCrzxcErS6
       - **[3]**:
         - **alvo_uid**: saaNQTQBg9DF7a
         - **pontos_uids**:
           - MRXQpJtofQGGDD
-        - **setor**: Planetário
+        - **setor**: Bloco Planetário
         - **ids**:
           - MRXQpJtofQGGDD
       - **[4]**:
         - **alvo_uid**: hvbt8d3J7iRNJ4
         - **pontos_uids**:
           - CgWESKR6t2XYc1
-        - **setor**: Free Solo
+        - **setor**: Bloco Free Solo
         - **ids**:
           - CgWESKR6t2XYc1
       - **[5]**:
         - **alvo_uid**: jsAkOxynMs1Q1y
         - **pontos_uids**:
           - O2PwAnGVQ7xqJy
-        - **setor**: Carrapicho
+        - **setor**: Bloco Carrapicho
         - **ids**:
           - O2PwAnGVQ7xqJy
       - **[6]**:
         - **alvo_uid**: Kvnf8ufa5QUEaC
         - **pontos_uids**:
           - cKe0q7xwUWzZuq
-        - **setor**: Sunset
+        - **setor**: Bloco Sunset
         - **ids**:
           - cKe0q7xwUWzZuq
       - **[7]**:
         - **alvo_uid**: rsyrhOCEGQJFIs
         - **pontos_uids**:
           - FCZWeLPC0vA91e
-        - **setor**: Camaroa
+        - **setor**: Bloco Camaroa
         - **ids**:
           - FCZWeLPC0vA91e
 - **setores**:
   - **[0]**:
     - **conteudo**:
-      - **descricao**: # Bloco Aleijadinho
-      - **nome**: Aleijadinho
+      - **descricao**: 
+      - **nome**: Bloco Aleijadinho
       - **uid**: 8ByzIvimI8JjlP
       - **escaladas**:
         - **[0]**:
@@ -353,8 +351,8 @@
         - **total_boulders**: 1
   - **[1]**:
     - **conteudo**:
-      - **descricao**: # Bloco Capitão Jack
-      - **nome**: Capitão Jack
+      - **descricao**: 
+      - **nome**: Bloco Capitão Jack
       - **uid**: WbGHKuEY0c29Qu
       - **escaladas**:
         - **[0]**:
@@ -499,8 +497,8 @@
         - **total_boulders**: 4
   - **[2]**:
     - **conteudo**:
-      - **descricao**: # Bloco Jahngada
-      - **nome**: Jahngada
+      - **descricao**: 
+      - **nome**: Bloco Jahngada
       - **uid**: n9RzqdO3IwqBxO
       - **escaladas**:
         - **[0]**:
@@ -643,8 +641,8 @@
         - **total_boulders**: 4
   - **[3]**:
     - **conteudo**:
-      - **descricao**: # Bloco Planetário
-      - **nome**: Planetário
+      - **descricao**: 
+      - **nome**: Bloco Planetário
       - **uid**: saaNQTQBg9DF7a
       - **escaladas**:
         - **[0]**:
@@ -857,8 +855,8 @@
         - **total_boulders**: 6
   - **[4]**:
     - **conteudo**:
-      - **descricao**: # Bloco Free Solo
-      - **nome**: Free Solo
+      - **descricao**: 
+      - **nome**: Bloco Free Solo
       - **uid**: hvbt8d3J7iRNJ4
       - **escaladas**:
         - **[0]**:
@@ -1029,8 +1027,8 @@
         - **total_boulders**: 6
   - **[5]**:
     - **conteudo**:
-      - **descricao**: # Bloco Carrapicho
-      - **nome**: Carrapicho
+      - **descricao**: 
+      - **nome**: Bloco Carrapicho
       - **uid**: jsAkOxynMs1Q1y
       - **escaladas**:
         - **[0]**:
@@ -1156,8 +1154,8 @@
         - **total_boulders**: 5
   - **[6]**:
     - **conteudo**:
-      - **descricao**: # Bloco Sunset
-      - **nome**: Sunset
+      - **descricao**: 
+      - **nome**: Bloco Sunset
       - **uid**: Kvnf8ufa5QUEaC
       - **escaladas**:
         - **[0]**:
@@ -1291,8 +1289,8 @@
         - **total_boulders**: 5
   - **[7]**:
     - **conteudo**:
-      - **descricao**: # Bloco Camaroa
-      - **nome**: Camaroa
+      - **descricao**: 
+      - **nome**: Bloco Camaroa
       - **uid**: rsyrhOCEGQJFIs
       - **escaladas**:
         - **[0]**:

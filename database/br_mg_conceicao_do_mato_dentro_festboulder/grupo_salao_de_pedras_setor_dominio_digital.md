@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: sYADkPTjRnYElG
-nome: Domínio Digital
+nome: Setor Domínio Digital
 mapas:
 - caminho_imagem_mapa: imagens/grupo_salao_de_pedras_setor_dominio_digital_p0.webp
   largura_mapa: 761
@@ -53,8 +53,6 @@ escaladas:
     nome: (sem nome 31)
     dificuldade: V0
 ---
-
-# Setor Domínio Digital
 
 O setor Domínio Digital possui um bloco com um arco natural e linhas de baixa dificuldade.
 

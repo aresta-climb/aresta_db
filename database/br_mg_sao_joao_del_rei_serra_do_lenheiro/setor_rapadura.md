@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: KzHTNv5gusto5Y
-nome: Rapadura
+nome: Setor Rapadura
 mapas:
 - caminho_imagem_mapa: imagens/setor_rapadura_p0_i2.webp
   largura_mapa: 1118
@@ -75,8 +75,6 @@ escaladas:
     - Leonardo Rodrigues
     - Luiz Cláudio
 ---
-
-# Rapadura
 
 Pequeno bloco localizado próximo à Ave Maria e possui apenas vias móveis.
 

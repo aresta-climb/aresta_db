@@ -166,8 +166,6 @@
 ### Setor (Pico: Falésia do Vale Verde)
 
 - **descricao**:
-    # 1° Andar
-    
     O 1° Andar é o principal setor da Falésia do Vale Verde, com uma grande concentração de vias de alta dificuldade técnica.
     
     | ![Vista do 1° Andar](imagens/setor_1_andar_p1_i3.webp) |
@@ -181,7 +179,7 @@
     | ![João TG nos trabalhos de conquista](imagens/setor_1_andar_p1_i5.webp) |
     | :--: |
     | *João TG nos trabalhos de conquista* |
-- **nome**: 1° Andar
+- **nome**: Setor 1° Andar
 - **uid**: YuUHXU1tMi1Ar8
 - **caminho_imagem_capa**: ![caminho_imagem_capa](imagens/setor_1_andar_p1_i2.webp)
 - **mapas**:
@@ -599,7 +597,7 @@
         - **alvo_uid**: Ly4gwN209FrZnL
         - **pontos_uids**:
           - Hj5jHxlPfqz8N8
-        - **setor**: 2° Andar
+        - **setor**: Setor 2° Andar
         - **ids**:
           - Hj5jHxlPfqz8N8
 - **escaladas**:
@@ -822,11 +820,8 @@
 
 ### Setor (Pico: Falésia do Vale Verde)
 
-- **descricao**:
-    # 2° Andar
-    
-    O 2° Andar é um setor mais tranquilo com vias de graduação moderada e muitos projetos aguardando a primeira ascensão.
-- **nome**: 2° Andar
+- **descricao**: O 2° Andar é um setor mais tranquilo com vias de graduação moderada e muitos projetos aguardando a primeira ascensão.
+- **nome**: Setor 2° Andar
 - **uid**: Ly4gwN209FrZnL
 - **mapas**:
   - **[0]**:

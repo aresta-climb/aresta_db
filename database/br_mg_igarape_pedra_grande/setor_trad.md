@@ -429,26 +429,26 @@ escaladas:
   via_movel:
     nome: Igarapé Cascão
     dificuldade: INDEFINIDO
-    descricao: 'Via com caminhada de volta do cume, não é necessário fazer rapel.
+    descricao: |-
+      Via com caminhada de volta do cume, não é necessário fazer rapel.
 
-
-      Veja a trilha para voltar do cume da via de volta para a base: https://loc.wiki/t/162907398?wa=sc'
+      Veja a trilha para voltar do cume da via de volta para a base: https://loc.wiki/t/162907398?wa=sc
 - uid: fEB2sh15G6486N
   via_movel:
     nome: Outra saída da Igarapé Cascão
     dificuldade: INDEFINIDO
-    descricao: 'Via com caminhada de volta do cume, não é necessário fazer rapel.
+    descricao: |-
+      Via com caminhada de volta do cume, não é necessário fazer rapel.
 
-
-      Veja a trilha para voltar do cume da via de volta para a base: https://loc.wiki/t/162907398?wa=sc'
+      Veja a trilha para voltar do cume da via de volta para a base: https://loc.wiki/t/162907398?wa=sc
 - uid: LGdkbkKaNxAOvn
   via_movel:
     nome: Pachamama
     dificuldade: INDEFINIDO
-    descricao: 'Via com caminhada de volta do cume, não é necessário fazer rapel.
+    descricao: |-
+      Via com caminhada de volta do cume, não é necessário fazer rapel.
 
-
-      Veja a trilha para voltar do cume da via de volta para a base: https://loc.wiki/t/162907398?wa=sc'
+      Veja a trilha para voltar do cume da via de volta para a base: https://loc.wiki/t/162907398?wa=sc
 - uid: ptfuJ7GIDc9z9L
   via_movel:
     nome: Sem nome 4
@@ -545,10 +545,10 @@ escaladas:
   via_movel:
     nome: Me Leve ao Cume
     dificuldade: BR_6
-    descricao: 'Trilha principal para a via no WikiLoc: https://loc.wiki/t/142136363?wa=sc
+    descricao: |-
+      Trilha principal para a via no WikiLoc: https://loc.wiki/t/142136363?wa=sc
 
-
-      Trilha alternativa pelo setor Sherpa (pode estar mais sujo / com mais mato): https://loc.wiki/t/255009916?wa=sc'
+      Trilha alternativa pelo setor Sherpa (pode estar mais sujo / com mais mato): https://loc.wiki/t/255009916?wa=sc
 - uid: X0RRGSUeNEDYD9
   via_movel:
     nome: Sem nome 16
@@ -566,8 +566,6 @@ escaladas:
     nome: Mulher do Fim do Mundo
     dificuldade: INDEFINIDO
 ---
-
-# Setor Trad
 
 Este setor engloba as vias tradicionais e de proteção móvel do Complexo Pedra Grande. As informações aqui contidas são provisórias e serão atualizadas conforme o catálogo for sendo refinado.
 

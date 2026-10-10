@@ -119,8 +119,6 @@
 ### Setor (Pico: Pedra do Zé)
 
 - **descricao**:
-    # Setor Principal
-    
     O Setor Principal da Pedra do Zé oferece uma grande variedade de vias, desde móveis clássicas até esportivas de alta dificuldade.
     
     | ![Detalhe Esquerda](imagens/setor_principal_p1_i0.webp) |

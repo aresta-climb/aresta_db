@@ -48,14 +48,14 @@ escaladas:
     conquistadores:
     - Gustavo Fontes
     data_abertura: '2007'
-    descricao: Sai na agarra mais ao fundo da caverna, passa por um grande batente escorrido e domina pelo buraco entre 
-      uns blocos.
+    descricao: Sai na agarra mais ao fundo da caverna, passa por um grande batente
+      escorrido e domina pelo buraco entre uns blocos.
 - uid: MTVBsmMtwBW4QZ
   boulder:
     nome: Hard core
     dificuldade: V3
-    descricao: Começa com a mão direita num batente no teto e a esquerda em um batente na aresta acima do pequeno bloco 
-      que escora o boulder e domina pela aresta.
+    descricao: Começa com a mão direita num batente no teto e a esquerda em um batente
+      na aresta acima do pequeno bloco que escora o boulder e domina pela aresta.
 - uid: Obd6pqhIAzWLyd
   boulder:
     nome: Tribe
@@ -63,8 +63,8 @@ escaladas:
     conquistadores:
     - Gustavo Fontes
     data_abertura: '2009'
-    descricao: Começa como o “Hard core” (33) e atravessa para a direita até o “Universo Paralello” (36) terminando por 
-      ele.
+    descricao: Começa como o “Hard core” (33) e atravessa para a direita até o “Universo
+      Paralello” (36) terminando por ele.
 - uid: tmbl883ZxStVLU
   boulder:
     nome: Calangute
@@ -72,7 +72,8 @@ escaladas:
     conquistadores:
     - Gustavo Fontes
     data_abertura: '2009'
-    descricao: Sai como o “Hard core” (33) e atravessa até a aresta direita do bloco, terminando como o “Rave” (38).
+    descricao: Sai como o “Hard core” (33) e atravessa até a aresta direita do bloco,
+      terminando como o “Rave” (38).
 - uid: XPBP9j2i05SHGh
   boulder:
     nome: Universo Paralello
@@ -81,7 +82,8 @@ escaladas:
     conquistadores:
     - Gustavo Fontes
     data_abertura: '2007'
-    descricao: Começa como o “Cachoeira alta” (32) e atravessa todo o teto finalizando reto.
+    descricao: Começa como o “Cachoeira alta” (32) e atravessa todo o teto finalizando
+      reto.
 - uid: 9jEmdQ0ATspj9T
   boulder:
     nome: Trancedance
@@ -90,8 +92,8 @@ escaladas:
     conquistadores:
     - Gustavo Fontes
     data_abertura: '2007'
-    descricao: Sai com as mãos juntas no grande batente escorrido do teto, após a saída do “Universo Paralello” (36), e 
-      termina como ele.
+    descricao: Sai com as mãos juntas no grande batente escorrido do teto, após a
+      saída do “Universo Paralello” (36), e termina como ele.
 - uid: AD4lN8jFPTDL28
   boulder:
     nome: Rave
@@ -99,8 +101,8 @@ escaladas:
     conquistadores:
     - Gustavo Fontes
     data_abertura: '2009'
-    descricao: Sai na agarra sikada do final do “Universo Paralello” (36) e atravessa pra direita terminando pela 
-      aresta.
+    descricao: Sai na agarra sikada do final do “Universo Paralello” (36) e atravessa
+      pra direita terminando pela aresta.
 - uid: D7czwgySOlLrYS
   boulder:
     nome: Fora do tempo
@@ -119,4 +121,3 @@ escaladas:
     descricao: “Universo Paralello” (36) virando pelo “Hard core” (33).
 ---
 
-# Bloco F - Universo Paralello

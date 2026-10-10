@@ -19,8 +19,8 @@ escaladas:
   boulder:
     nome: Tangente (Mosquitos)
     dificuldade: V0
-    descricao: Começa com a mão direita no bico e a esquerda no buraco e escala em diagonal pra esquerda por agarras 
-      boas.
+    descricao: Começa com a mão direita no bico e a esquerda no buraco e escala em
+      diagonal pra esquerda por agarras boas.
 - uid: vRSD9c4FX1Cj6x
   boulder:
     nome: Mosquitos
@@ -29,4 +29,3 @@ escaladas:
     descricao: Começa como o “Tangente” (3) e segue reto pela face levemente negativa.
 ---
 
-# Bloco B - Mosquitos

@@ -386,7 +386,8 @@ picos:
             - '37'
           largura_mapa: 1676
           altura_mapa: 1446
-        descricao: '# Setor Bigorna ou Lapa da Zumba'
+        nome: Setor Bigorna ou Lapa da Zumba
+        descricao: ''
         precomputados:
           total_escaladas: 37
           total_esportivas: 32

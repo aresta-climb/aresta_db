@@ -103,55 +103,55 @@ picos:
           - alvo_uid: 8ByzIvimI8JjlP
             pontos_uids:
             - iEOTJY7v5TaLXx
-            setor: Aleijadinho
+            setor: Bloco Aleijadinho
             ids:
             - iEOTJY7v5TaLXx
           - alvo_uid: WbGHKuEY0c29Qu
             pontos_uids:
             - mtFNeX5ImnsqX5
-            setor: Capitão Jack
+            setor: Bloco Capitão Jack
             ids:
             - mtFNeX5ImnsqX5
           - alvo_uid: n9RzqdO3IwqBxO
             pontos_uids:
             - cDZTeCrzxcErS6
-            setor: Jahngada
+            setor: Bloco Jahngada
             ids:
             - cDZTeCrzxcErS6
           - alvo_uid: saaNQTQBg9DF7a
             pontos_uids:
             - MRXQpJtofQGGDD
-            setor: Planetário
+            setor: Bloco Planetário
             ids:
             - MRXQpJtofQGGDD
           - alvo_uid: hvbt8d3J7iRNJ4
             pontos_uids:
             - CgWESKR6t2XYc1
-            setor: Free Solo
+            setor: Bloco Free Solo
             ids:
             - CgWESKR6t2XYc1
           - alvo_uid: jsAkOxynMs1Q1y
             pontos_uids:
             - O2PwAnGVQ7xqJy
-            setor: Carrapicho
+            setor: Bloco Carrapicho
             ids:
             - O2PwAnGVQ7xqJy
           - alvo_uid: Kvnf8ufa5QUEaC
             pontos_uids:
             - cKe0q7xwUWzZuq
-            setor: Sunset
+            setor: Bloco Sunset
             ids:
             - cKe0q7xwUWzZuq
           - alvo_uid: rsyrhOCEGQJFIs
             pontos_uids:
             - FCZWeLPC0vA91e
-            setor: Camaroa
+            setor: Bloco Camaroa
             ids:
             - FCZWeLPC0vA91e
         setores:
         - conteudo:
             uid: 8ByzIvimI8JjlP
-            nome: Aleijadinho
+            nome: Bloco Aleijadinho
             escaladas:
             - uid: gLUBc0gxHnWRFG
               boulder:
@@ -178,13 +178,13 @@ picos:
                 escalada: Aleijadinho
                 ids:
                 - BepwayUIkwvQgw
-            descricao: '# Bloco Aleijadinho'
+            descricao: ''
             precomputados:
               total_escaladas: 1
               total_boulders: 1
         - conteudo:
             uid: WbGHKuEY0c29Qu
-            nome: Capitão Jack
+            nome: Bloco Capitão Jack
             escaladas:
             - uid: r4kmo4hFKS1LUc
               boulder:
@@ -307,13 +307,13 @@ picos:
                 ids:
                 - 8yWZVDkH0adIXC
                 - BQuEV7gKbWT3yU
-            descricao: '# Bloco Capitão Jack'
+            descricao: ''
             precomputados:
               total_escaladas: 4
               total_boulders: 4
         - conteudo:
             uid: n9RzqdO3IwqBxO
-            nome: Jahngada
+            nome: Bloco Jahngada
             escaladas:
             - uid: z53F6vTUHsg8Sy
               boulder:
@@ -433,13 +433,13 @@ picos:
                 ids:
                 - v1kffiw28KKZDA
                 - uenysVUibsZ6he
-            descricao: '# Bloco Jahngada'
+            descricao: ''
             precomputados:
               total_escaladas: 4
               total_boulders: 4
         - conteudo:
             uid: saaNQTQBg9DF7a
-            nome: Planetário
+            nome: Bloco Planetário
             escaladas:
             - uid: sWepsfzqCoKmIf
               boulder:
@@ -620,13 +620,13 @@ picos:
                 ids:
                 - xe8rGeTEqeOzNz
                 - TcKj8RRsR58cmk
-            descricao: '# Bloco Planetário'
+            descricao: ''
             precomputados:
               total_escaladas: 6
               total_boulders: 6
         - conteudo:
             uid: hvbt8d3J7iRNJ4
-            nome: Free Solo
+            nome: Bloco Free Solo
             escaladas:
             - uid: YfMW47oCbmPzNq
               boulder:
@@ -769,13 +769,13 @@ picos:
                 escalada: Walkmachine
                 ids:
                 - wrQHbOl8h8h1Gs
-            descricao: '# Bloco Free Solo'
+            descricao: ''
             precomputados:
               total_escaladas: 6
               total_boulders: 6
         - conteudo:
             uid: jsAkOxynMs1Q1y
-            nome: Carrapicho
+            nome: Bloco Carrapicho
             escaladas:
             - uid: yYu9f7Q8LNizSu
               boulder:
@@ -878,13 +878,13 @@ picos:
                 escalada: Dart Vader
                 ids:
                 - sUAgvK1NQUZxg9
-            descricao: '# Bloco Carrapicho'
+            descricao: ''
             precomputados:
               total_escaladas: 5
               total_boulders: 5
         - conteudo:
             uid: Kvnf8ufa5QUEaC
-            nome: Sunset
+            nome: Bloco Sunset
             escaladas:
             - uid: D9xTKWVJ6iApT9
               boulder:
@@ -994,13 +994,13 @@ picos:
                 escalada: Projeto Sunset
                 ids:
                 - l4RLkaslCoVuyS
-            descricao: '# Bloco Sunset'
+            descricao: ''
             precomputados:
               total_escaladas: 5
               total_boulders: 5
         - conteudo:
             uid: rsyrhOCEGQJFIs
-            nome: Camaroa
+            nome: Bloco Camaroa
             escaladas:
             - uid: Whht0JTY2jYPhj
               boulder:
@@ -1108,13 +1108,11 @@ picos:
                 escalada: Camaroa
                 ids:
                 - RXU7I5LtWkNP1C
-            descricao: '# Bloco Camaroa'
+            descricao: ''
             precomputados:
               total_escaladas: 5
               total_boulders: 5
         descricao: |-
-          # Grupo Sunset
-
           O local está localizado a 15 minutos da entrada do setor da pedreira, bem no cume da montanha, o que proporciona um visual amplo e belo, sempre com um maravilhoso pôr-do-sol!
 
           Os boulders deste setor oferecem uma característica mais técnica e menos negativa. Os acessos entre os blocos são mais íngremes e requerem maior atenção no deslocamento. As trilhas estão sinalizadas com fita reflexiva e totens.

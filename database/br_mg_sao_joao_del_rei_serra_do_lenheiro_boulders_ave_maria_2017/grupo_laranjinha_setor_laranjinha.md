@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: cEJi76gPJc0XV6
-nome: Laranjinha
+nome: Setor Laranjinha
 mapas:
 - caminho_imagem_mapa: imagens/grupo_laranjinha_setor_laranjinha_p0_i0.webp
   largura_mapa: 944
@@ -96,4 +96,3 @@ escaladas:
     dificuldade: V1
 ---
 
-# Laranjinha

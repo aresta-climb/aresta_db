@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: PnplZXwMjCuqJA
-nome: Bacurau
+nome: Setor Bacurau
 mapas:
 - caminho_imagem_mapa: imagens/setor_bacurau_p0_i0.webp
   largura_mapa: 901
@@ -78,35 +78,37 @@ escaladas:
   boulder:
     nome: Viuvinha
     dificuldade: V1
-    descricao: Boulder na lateral esquerda do bloco, com a saída nas agarras baixas, indo reto até a virada.
+    descricao: Boulder na lateral esquerda do bloco, com a saída nas agarras baixas,
+      indo reto até a virada.
 - uid: 7o7obsv0PmlAUN
   boulder:
     nome: Eu sou Jaó
     dificuldade: V1
-    descricao: Saída nas agarras baixas da lateral esquerda do bloco, fazendo a travessia por agarras boas até a virada 
-      na parte mais alta à direita.
+    descricao: Saída nas agarras baixas da lateral esquerda do bloco, fazendo a travessia
+      por agarras boas até a virada na parte mais alta à direita.
 - uid: fBrJk1J8EdjfP0
   boulder:
     nome: Ritual
     dificuldade: V3
-    descricao: Começa nas agarras mais baixas à direita do bloco, com um crux de saída, fazendo a travessia para a 
-      virada na parte esquerda.
+    descricao: Começa nas agarras mais baixas à direita do bloco, com um crux de saída,
+      fazendo a travessia para a virada na parte esquerda.
 - uid: xsxNv7ohDyb0i7
   boulder:
     nome: Improviso
     dificuldade: V3
-    descricao: Saída nas agarras baixas da direita do bloco, indo reto até a virada na parte mais alta.
+    descricao: Saída nas agarras baixas da direita do bloco, indo reto até a virada
+      na parte mais alta.
 - uid: 2PN0hdPgKiw2nm
   boulder:
     nome: Buraqueira
     dificuldade: V1
-    descricao: Boulder saindo do buraco na lateral do bloco em agarras baixas, indo reto para a virada em agarras boas.
+    descricao: Boulder saindo do buraco na lateral do bloco em agarras baixas, indo
+      reto para a virada em agarras boas.
 - uid: k7o5hIx7oH5ft6
   boulder:
     nome: Mini Nave
     dificuldade: V1
-    descricao: Boulder no bloco ao lado, com a saída na parte baixa da direita, sem usar os blocos de baixo, tocando por
-      toda a aresta.
+    descricao: Boulder no bloco ao lado, com a saída na parte baixa da direita, sem
+      usar os blocos de baixo, tocando por toda a aresta.
 ---
 
-# Bacurau

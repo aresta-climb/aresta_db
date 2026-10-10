@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: j3Wp4AMXPaa4og
-nome: Casa da Sogra
+nome: Setor Casa da Sogra
 mapas:
 - caminho_imagem_mapa: imagens/grupo_frigideira_setor_casa_da_sogra_p0_i0.webp
   largura_mapa: 811
@@ -38,4 +38,3 @@ escaladas:
     dificuldade: V8
 ---
 
-# Casa da Sogra

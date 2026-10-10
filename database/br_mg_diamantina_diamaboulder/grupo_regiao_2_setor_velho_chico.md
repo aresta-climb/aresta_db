@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: mQ1nG9yhF09BxM
-nome: Velho Chico
+nome: Setor Velho Chico
 mapas:
 - caminho_imagem_mapa: imagens/grupo_regiao_2_setor_velho_chico_p0_i0.webp
   largura_mapa: 1240
@@ -72,5 +72,4 @@ escaladas:
     dificuldade: V3
 ---
 
-# Bloco: Velho Chico
 ## Região 2

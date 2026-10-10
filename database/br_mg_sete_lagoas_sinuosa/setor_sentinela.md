@@ -125,8 +125,6 @@ escaladas:
     protecoes_moveis: Móvel. Rapel da chapa com cordelete.
 ---
 
-# Setor Sentinela
-
 Setor um pouco mais afastado, localizado após subir as escadas do setor
 "7 Paralelo". Setor com grande incidência do sol entre 11:00 e 15:00 hrs.
 

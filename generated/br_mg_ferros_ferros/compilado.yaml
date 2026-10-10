@@ -16,7 +16,7 @@ picos:
   - setor:
       conteudo:
         uid: lTi8TIXxTU6KF0
-        nome: Cachoeira
+        nome: Setor Cachoeira
         mapas:
         - caminho_imagem_mapa: imagens/setor_cachoeira_p0_i1.webp
           largura_mapa: 993
@@ -229,24 +229,14 @@ picos:
               “Ferrugem”, à esquerda. Inicia em uma fissura óbvia e segue a linha
               natural da pedra até o topo.
         caminho_imagem_capa: imagens/setor_cachoeira_p2_i0.webp
-        descricao: '<small>Capa: Maria Fernanda na conquista da "Pé na Chapa" (Foto:
-          Pedro Bugim)</small>
+        descricao: |-
+          <small>Capa: Maria Fernanda na conquista da "Pé na Chapa" (Foto: Pedro Bugim)</small>
 
+          O Subsetor Cachoeira, próximo à Cachoeira do Córrego Sapé, conta com apenas quatro vias, ideais para os primeiros contatos com a escalada em rocha, em particular, para as vias tradicionais, com pouca inclinação e muita aderência.
 
-          O Subsetor Cachoeira, próximo à Cachoeira do Córrego Sapé, conta com apenas
-          quatro vias, ideais para os primeiros contatos com a escalada em rocha,
-          em particular, para as vias tradicionais, com pouca inclinação e muita aderência.
+          A base destas vias fica a cinco minutos da sede da fazenda Retiro das Águas, na lateral direita da estrada de terra, ainda acessível por automóveis, logo após uma pequena casa sem uso no lado esquerdo da mesma.
 
-
-          A base destas vias fica a cinco minutos da sede da fazenda Retiro das Águas,
-          na lateral direita da estrada de terra, ainda acessível por automóveis,
-          logo após uma pequena casa sem uso no lado esquerdo da mesma.
-
-
-          Este setor, apesar de curto e com lances simples, por ficar no sol o dia
-          quase todo, apresenta uma parede bastante quente (como indica o nome de
-          duas das vias), sendo ideal para escaladas pela parte inicial da manhã,
-          ou ao final da tarde.'
+          Este setor, apesar de curto e com lances simples, por ficar no sol o dia quase todo, apresenta uma parede bastante quente (como indica o nome de duas das vias), sendo ideal para escaladas pela parte inicial da manhã, ou ao final da tarde.
         precomputados:
           total_escaladas: 4
           total_esportivas: 3
@@ -258,7 +248,7 @@ picos:
         setores:
         - conteudo:
             uid: FO3KvzGBfKKpB4
-            nome: Extrema Esquerda
+            nome: Setor Extrema Esquerda
             mapas:
             - caminho_imagem_mapa: imagens/grupo_aderencias_setor_extrema_esquerda_p1_i1.webp
               referencias:
@@ -610,45 +600,24 @@ picos:
                   a trilha mais uns 20 metros após o córrego e toma-se à esquerda
                   nesse ponto.
             caminho_imagem_capa: imagens/grupo_aderencias_setor_extrema_esquerda_p0_i0.webp
-            descricao: '<small>Capa: Maria Fernanda na "Vr. Cachorro Louco" (Foto:
-              Pedro Bugim)</small>
+            descricao: |-
+              <small>Capa: Maria Fernanda na "Vr. Cachorro Louco" (Foto: Pedro Bugim)</small>
 
+              Este é o primeiro setor da Parede das Aderências, um pouco isolado do resto da parede, por localizar-se quase na borda inicial do Vale do Roncador e por possuir muita vegetação ao seu redor.
 
-              Este é o primeiro setor da Parede das Aderências, um pouco isolado do
-              resto da parede, por localizar-se quase na borda inicial do Vale do
-              Roncador e por possuir muita vegetação ao seu redor.
+              Para acessar as bases das vias neste setor, é necessário pegar a trilha do Vale do Roncador, que se inicia pouco depois do Subsetor Cachoeira, subindo em diagonal para a direita da estrada de terra.
 
+              Andando pouco mais de 100 metros na trilha, deve-se cruzar o córrego e passar pela cerca de arame farpado ao lado esquerdo. Muita atenção ao fazer este procedimento, primeiro para não causar lesões, e em segundo lugar, para não causar danos à estrutura da cerca. Existe um bom espaço que possibilita a passagem por baixo da cerca, sem grandes esforços.
 
-              Para acessar as bases das vias neste setor, é necessário pegar a trilha
-              do Vale do Roncador, que se inicia pouco depois do Subsetor Cachoeira,
-              subindo em diagonal para a direita da estrada de terra.
+              Ao cruzar a cerca, a trilha segue pouco definida por 30 metros, até juntar-se à parede. Neste ponto, fica a base da via “Nesse Mato Tem Cachorro”. Subindo para a direita, chega-se à base da “Libera Liberou” e descendo para a esquerda (em meio ao capim), chega-se à base da “Solamente”.
 
-
-              Andando pouco mais de 100 metros na trilha, deve-se cruzar o córrego
-              e passar pela cerca de arame farpado ao lado esquerdo. Muita atenção
-              ao fazer este procedimento, primeiro para não causar lesões, e em segundo
-              lugar, para não causar danos à estrutura da cerca. Existe um bom espaço
-              que possibilita a passagem por baixo da cerca, sem grandes esforços.
-
-
-              Ao cruzar a cerca, a trilha segue pouco definida por 30 metros, até
-              juntar-se à parede. Neste ponto, fica a base da via “Nesse Mato Tem
-              Cachorro”. Subindo para a direita, chega-se à base da “Libera Liberou”
-              e descendo para a esquerda (em meio ao capim), chega-se à base da “Solamente”.
-
-
-              Em geral, são vias de baixa graduação, boas para treinar o psicológico
-              gradualmente, uma vez que as vias variam seu grau de exposição, possuindo
-              vias de E1, E2, E3 e E5, sem possuir lances muito técnicos. A exceção
-              é a via “Dez Mil e Uma Noites”, que apesar da boa grampeação, possui
-              lances de VI grau, exigindo maior atenção e habilidade por parte do
-              escalador.'
+              Em geral, são vias de baixa graduação, boas para treinar o psicológico gradualmente, uma vez que as vias variam seu grau de exposição, possuindo vias de E1, E2, E3 e E5, sem possuir lances muito técnicos. A exceção é a via “Dez Mil e Uma Noites”, que apesar da boa grampeação, possui lances de VI grau, exigindo maior atenção e habilidade por parte do escalador.
             precomputados:
               total_escaladas: 5
               total_esportivas: 4
         - conteudo:
             uid: avRkW8fzw3OF22
-            nome: Esquerda
+            nome: Setor Esquerda
             mapas:
             - caminho_imagem_mapa: imagens/grupo_aderencias_setor_esquerda_p1_i1.webp
               largura_mapa: 1628
@@ -1469,15 +1438,8 @@ picos:
                 - Celso Ferreira Gomes
                 - Glesse Gripp
                 data_abertura: '2015-02-17'
-                descricao: 'Via iniciada na mesma base da “Inês é Morta”, em um pequeno
-                  diedro que pode ter sua proteção melhorada com friends médios e
-                  pequenos (opcionais). Segue por pequenos platôs de mato em lances
-                  fáceis até alcançar seu primeiro grampo. Ganha verticalidade ao
-                  longo da via, possuindo um crux bem definido na altura do quinto
-                  grampo. O nome da via está relacionado com a soma das idades dos
-                  autores!
-
-                  '
+                descricao: |
+                  Via iniciada na mesma base da “Inês é Morta”, em um pequeno diedro que pode ter sua proteção melhorada com friends médios e pequenos (opcionais). Segue por pequenos platôs de mato em lances fáceis até alcançar seu primeiro grampo. Ganha verticalidade ao longo da via, possuindo um crux bem definido na altura do quinto grampo. O nome da via está relacionado com a soma das idades dos autores!
               mapas:
               - caminho_imagem_mapa: imagens/grupo_aderencias_setor_esquerda_p6_i1.webp
                 largura_mapa: 816
@@ -1493,11 +1455,8 @@ picos:
                 - Tonico Magalhães
                 - Celso Ferreira Gomes
                 data_abertura: '2011-10-29'
-                descricao: 'Via mista, equipada com 9 grampos de ½, mais 2 “emprestados”
-                  da “Zé Marta”, onde termina. Possui em seu início um diedro, protegido
-                  em móvel, logo após o lance inicial protegido por um grampo.
-
-                  '
+                descricao: |
+                  Via mista, equipada com 9 grampos de ½, mais 2 “emprestados” da “Zé Marta”, onde termina. Possui em seu início um diedro, protegido em móvel, logo após o lance inicial protegido por um grampo.
             - uid: BMS3wqQ0kWHk78
               via_esportiva:
                 nome: Sempre Viva
@@ -1520,12 +1479,8 @@ picos:
                 - Tonico Magalhães
                 - Nádia Moreira
                 data_abertura: '2009-06-13'
-                descricao: 'Via mista, iniciando com um lance de agarras (crux) protegido
-                  por grampos, seguido de uma interessante fissura frontal protegida
-                  em nuts de cabo e friends pequenos, juntando com a via “Zé Marta”
-                  em sua metade. Rapel com corda única pela via “Zé Marta”.
-
-                  '
+                descricao: |
+                  Via mista, iniciando com um lance de agarras (crux) protegido por grampos, seguido de uma interessante fissura frontal protegida em nuts de cabo e friends pequenos, juntando com a via “Zé Marta” em sua metade. Rapel com corda única pela via “Zé Marta”.
             - uid: ULTyZgOtMxNFom
               via_multiplas_enfiadas:
                 nome: Zé Marta
@@ -1537,12 +1492,8 @@ picos:
                 - Tonico Magalhães
                 - Júlio César Cardoso
                 data_abertura: '2009-05-30'
-                descricao: 'Via interessante que se inicia em um veio de cristal.
-                  Possui uma extensão surpreendente o que a tornou uma linha mestra
-                  do local. Toda equipada com grampos. Homenageia o sogro do Tonico
-                  Magalhães que é o supervisor da fazenda.
-
-                  '
+                descricao: |
+                  Via interessante que se inicia em um veio de cristal. Possui uma extensão surpreendente o que a tornou uma linha mestra do local. Toda equipada com grampos. Homenageia o sogro do Tonico Magalhães que é o supervisor da fazenda.
             - uid: NvnbmTWxZwAeaC
               via_esportiva:
                 nome: Bolinha
@@ -1577,11 +1528,8 @@ picos:
                 - Tonico Magalhães
                 - Júlio César Cardoso
                 data_abertura: '2008-10-05'
-                descricao: 'Via esportiva em aderência complexa, apesar de curta,
-                  com proteções generosas. Rapel e/ou top-rope com corda única de
-                  50m. Termina na Maria Diz Graça.
-
-                  '
+                descricao: |
+                  Via esportiva em aderência complexa, apesar de curta, com proteções generosas. Rapel e/ou top-rope com corda única de 50m. Termina na Maria Diz Graça.
             - uid: KareRpi4XssXAb
               via_esportiva:
                 nome: Maria Diz Graça
@@ -1592,11 +1540,8 @@ picos:
                 - Tonico Magalhães
                 - Gustavo "Xaxá" Carrozzino
                 data_abertura: '2006-07-15'
-                descricao: 'Uma das vias mais antigas do polo. Possui belíssimos lances
-                  de aderência e pode ser considerada como um programa obrigatório.
-                  Homenageia a "amável" vizinha da fazenda, filha do famoso Juca Realino.
-
-                  '
+                descricao: |
+                  Uma das vias mais antigas do polo. Possui belíssimos lances de aderência e pode ser considerada como um programa obrigatório. Homenageia a "amável" vizinha da fazenda, filha do famoso Juca Realino.
             - uid: dGowTTpgXqxB0G
               via_esportiva:
                 nome: Zé Mangueira
@@ -1607,11 +1552,8 @@ picos:
                 - Gustavo "Xaxá" Carrozzino
                 - Júlio César Cardoso
                 data_abertura: '2008-10-07'
-                descricao: 'O crux é o terceiro e exigente lance de aderência. Com
-                  boa proteção fixa a via mostra-se muito interessante. Homenageia
-                  o falecido morador da entrada do Vale do Roncador.
-
-                  '
+                descricao: |
+                  O crux é o terceiro e exigente lance de aderência. Com boa proteção fixa a via mostra-se muito interessante. Homenageia o falecido morador da entrada do Vale do Roncador.
             - uid: yLiR02mEPVqHkY
               via_esportiva:
                 nome: Sherlock Holmes
@@ -1650,14 +1592,8 @@ picos:
                 - Pedro Bugim
                 - Maria Fernanda Patrício
                 data_abertura: '2012-02-20'
-                descricao: 'Interessante via que segue, quase em sua totalidade, a
-                  visível faixa branca que corta toda a extensão vertical da parede
-                  neste setor. O crux fica nos primeiros 10 metros, sempre com boa
-                  proteção. Daí para cima, a via perde inclinação e passa por lances
-                  bastante divertidos, em aderência e cristaleiras. P1 aos 40m (parada
-                  dupla), P2 aos 55m (parada simples) e P3 aos 30m (parada dupla).
-
-                  '
+                descricao: |
+                  Interessante via que segue, quase em sua totalidade, a visível faixa branca que corta toda a extensão vertical da parede neste setor. O crux fica nos primeiros 10 metros, sempre com boa proteção. Daí para cima, a via perde inclinação e passa por lances bastante divertidos, em aderência e cristaleiras. P1 aos 40m (parada dupla), P2 aos 55m (parada simples) e P3 aos 30m (parada dupla).
             - uid: KZRNauwDZ1oZM8
               via_multiplas_enfiadas:
                 nome: O Psicopata de Ferros
@@ -1674,15 +1610,8 @@ picos:
                 - Pedro Bugim
                 - Maria Fernanda Patrício
                 data_abertura: '2012-02-20'
-                descricao: 'Boa via que possui seu crux logo nos primeiros 15 metros,
-                  em aderência e pequenos cristais. É necessário fazer proteção móvel
-                  com friend médio, em um buraco, entre o segundo e terceiro grampos
-                  da via. Após a P1, segue em diagonal para a direita, juntando com
-                  a via “Frio na Barriga”. Rapel pela via “Frio na Barriga”, com corda
-                  única de 50m ou pela própria via, com duas cordas de 50m. P1 aos
-                  50m e P2 aos 20m, ambas com paradas duplas.
-
-                  '
+                descricao: |
+                  Boa via que possui seu crux logo nos primeiros 15 metros, em aderência e pequenos cristais. É necessário fazer proteção móvel com friend médio, em um buraco, entre o segundo e terceiro grampos da via. Após a P1, segue em diagonal para a direita, juntando com a via “Frio na Barriga”. Rapel pela via “Frio na Barriga”, com corda única de 50m ou pela própria via, com duas cordas de 50m. P1 aos 50m e P2 aos 20m, ambas com paradas duplas.
             - uid: Lh2c78thHdoOQf
               via_movel:
                 nome: Vr. Caçadora de Micuim
@@ -1694,13 +1623,8 @@ picos:
                 - Claudney Neves
                 - Carla Paiva
                 data_abertura: '2014-10-01'
-                descricao: 'Variante que liga a “Psicopata de Ferros” a “Frio na Barriga”,
-                  seguindo um sistema de finas fissuras, bem protegidas por friends
-                  e nuts pequenos e micros. Boa via para quem está começando a guiar
-                  em móvel, pois além de relativamente curta, possui graduação baixa
-                  e com boas opções de proteção.
-
-                  '
+                descricao: |
+                  Variante que liga a “Psicopata de Ferros” a “Frio na Barriga”, seguindo um sistema de finas fissuras, bem protegidas por friends e nuts pequenos e micros. Boa via para quem está começando a guiar em móvel, pois além de relativamente curta, possui graduação baixa e com boas opções de proteção.
             - uid: pWBcHr8rhwyCCi
               via_multiplas_enfiadas:
                 nome: Frio na Barriga
@@ -1715,13 +1639,8 @@ picos:
                 - Celso Ferreira Gomes
                 - Vicente Alvarenga
                 data_abertura: '2009-04-21'
-                descricao: 'Via que segue uma linha natural, sempre com boa proteção
-                  e paradas duplas. Rapel com corda única de 50m. Inicialmente, possuía
-                  apenas 40 metros, sendo posteriormente complementada. Nota: no guia
-                  original a via está com o croqui incompleto, mostrando apenas a
-                  linha da via.
-
-                  '
+                descricao: |
+                  Via que segue uma linha natural, sempre com boa proteção e paradas duplas. Rapel com corda única de 50m. Inicialmente, possuía apenas 40 metros, sendo posteriormente complementada. Nota: no guia original a via está com o croqui incompleto, mostrando apenas a linha da via.
             - uid: 4n1dwoOH75Lr9B
               via_multiplas_enfiadas:
                 nome: Pescoço de Minhoca
@@ -1735,12 +1654,8 @@ picos:
                 - Tonico Magalhães
                 - Celso Ferreira Gomes
                 data_abertura: '2011-07-20'
-                descricao: 'Via relativamente longa e constante, que conta com 25
-                  grampos de ½. Inicia-se em uma cristaleira espetacular. Rapel com
-                  corda única de 50m. P1 aos 45m (parada simples), P2 aos 45m (parada
-                  dupla) e P3 aos 50m (parada dupla).
-
-                  '
+                descricao: |
+                  Via relativamente longa e constante, que conta com 25 grampos de ½. Inicia-se em uma cristaleira espetacular. Rapel com corda única de 50m. P1 aos 45m (parada simples), P2 aos 45m (parada dupla) e P3 aos 50m (parada dupla).
             - uid: FfXctqsX9cyPNm
               via_multiplas_enfiadas:
                 nome: Grampos de Ferros
@@ -1756,12 +1671,8 @@ picos:
                 - Tonico Magalhães
                 - Celso Ferreira Gomes
                 data_abertura: '2010-09-10'
-                descricao: 'Via altamente recomendada para quem gosta de aderência
-                  em graduação não muito elevada, sempre com boa proteção em grampos
-                  de ½ e paradas duplas. Possui um diedro inicial (crux) em móvel
-                  protegido por friends pequenos e médios. P1 aos 50m e P2 aos 60m.
-
-                  '
+                descricao: |
+                  Via altamente recomendada para quem gosta de aderência em graduação não muito elevada, sempre com boa proteção em grampos de ½ e paradas duplas. Possui um diedro inicial (crux) em móvel protegido por friends pequenos e médios. P1 aos 50m e P2 aos 60m.
             - uid: 23GOgjFLTcBrv1
               via_multiplas_enfiadas:
                 nome: Prateado
@@ -1776,97 +1687,43 @@ picos:
                 - Tonico Magalhães
                 - Glesse Gripp
                 data_abertura: '2011-09-18'
-                descricao: 'Via que conta com 19 grampos de ½ e três paradas duplas.
-                  Homenageia o falecido garanhão Mangalarga-marchador Prateado, que
-                  fez história na fazenda. P1 aos 50m, P2 aos 50m e P3 aos 30m. Nota:
-                  as paradas duplas da via podem estar incorretas, bem como falta
-                  a confirmação da graduação dos lances isoladamente, necessitando
-                  repetição para confirmação.
-
-                  '
+                descricao: |
+                  Via que conta com 19 grampos de ½ e três paradas duplas. Homenageia o falecido garanhão Mangalarga-marchador Prateado, que fez história na fazenda. P1 aos 50m, P2 aos 50m e P3 aos 30m. Nota: as paradas duplas da via podem estar incorretas, bem como falta a confirmação da graduação dos lances isoladamente, necessitando repetição para confirmação.
             caminho_imagem_capa: imagens/grupo_aderencias_setor_esquerda_p0_i1.webp
-            descricao: '<small>Capa: Pedro Bugim na conquista da "O Psicopata de Ferros"
-              (Foto: Maria Fernanda)</small>
+            descricao: |-
+              <small>Capa: Pedro Bugim na conquista da "O Psicopata de Ferros" (Foto: Maria Fernanda)</small>
 
+              O Setor Esquerdo da Parede das Aderências é dividido em duas partes (Esquerda 1 e Esquerda 2), separadas por uma forte língua de vegetação, possuindo vias de 20 até 140 metros de extensão, predominantemente em aderência.
 
-              O Setor Esquerdo da Parede das Aderências é dividido em duas partes
-              (Esquerda 1 e Esquerda 2), separadas por uma forte língua de vegetação,
-              possuindo vias de 20 até 140 metros de extensão, predominantemente em
-              aderência.
-
-
-              Apesar do setor ser predominantemente de aderência, três vias destoam
-              das demais, sendo quase que completamente em móvel (“Fissurim”, “O Psicopata
-              de Ferros” e “Vr. Caçadora de Micuim”), seguindo por bonitas fendas,
-              proporcionando ao escalador um bom treino desta técnica.
-
+              Apesar do setor ser predominantemente de aderência, três vias destoam das demais, sendo quase que completamente em móvel (“Fissurim”, “O Psicopata de Ferros” e “Vr. Caçadora de Micuim”), seguindo por bonitas fendas, proporcionando ao escalador um bom treino desta técnica.
 
               ## Acesso
 
+              O acesso às bases é feito pela trilha principal do Vale do Roncador. Após a primeira travessia do córrego, anda-se aproximadamente 100 metros até encontrar – à esquerda - a entrada da picada que leva às bases das primeiras vias neste setor (“Cordada 171”, “Inês é Morta” e “Sempre Viva”), logo antes de passar por uma porteira. Esta trilha, apesar de pouco visível, está marcada com um totem de pedra em seu início.
 
-              O acesso às bases é feito pela trilha principal do Vale do Roncador.
-              Após a primeira travessia do córrego, anda-se aproximadamente 100 metros
-              até encontrar – à esquerda - a entrada da picada que leva às bases das
-              primeiras vias neste setor (“Cordada 171”, “Inês é Morta” e “Sempre
-              Viva”), logo antes de passar por uma porteira. Esta trilha, apesar de
-              pouco visível, está marcada com um totem de pedra em seu início.
+              Para as demais vias da parte esquerda deste setor, basta continuar por poucos metros na trilha principal, uma vez que as bases saem quase diretamente desta trilha.
 
-
-              Para as demais vias da parte esquerda deste setor, basta continuar por
-              poucos metros na trilha principal, uma vez que as bases saem quase diretamente
-              desta trilha.
-
-
-              Para acessar as bases do setor da direita, segue-se por aproximadamente
-              80 metros na trilha principal até encontrar a picada que sobe à esquerda.
-              Desta picada, pode-se costear a parede, seguindo por cima ou para baixo,
-              com imediata visualização dos grampos das vias “Frio na Barriga” e “Pescoço
-              de Minhoca”.
-
+              Para acessar as bases do setor da direita, segue-se por aproximadamente 80 metros na trilha principal até encontrar a picada que sobe à esquerda. Desta picada, pode-se costear a parede, seguindo por cima ou para baixo, com imediata visualização dos grampos das vias “Frio na Barriga” e “Pescoço de Minhoca”.
 
               ### Esquema de Trilhas
 
-
               - **1**: Base das vias “Cordada 171”, “Inês é Morta” e “Sempre Viva”
-
               - **2**: Base das vias entre “Fissurim” e “Sherlock Holmes”
-
-              - **3**: Base das vias entre “Professor Moriarty” e “O Psicopata de
-              Ferros”
-
+              - **3**: Base das vias entre “Professor Moriarty” e “O Psicopata de Ferros”
               - **4**: Base das vias “Frio na Barriga” e “Pescoço de Minhoca”
-
               - **5**: Base das vias “Grampos de Ferros” e “Prateado”
 
-
-              | ![Giselle Melo repetindo a “Professor Moriarty” logo após a conquista.
-              (Foto: Pedro Bugim)](imagens/grupo_aderencias_setor_esquerda_p8_i0.webp)
-              |
-
+              | ![Giselle Melo repetindo a “Professor Moriarty” logo após a conquista. (Foto: Pedro Bugim)](imagens/grupo_aderencias_setor_esquerda_p8_i0.webp) |
               | :--: |
+              | *Giselle Melo repetindo a “Professor Moriarty” logo após a conquista. (Foto: Pedro Bugim)* |
 
-              | *Giselle Melo repetindo a “Professor Moriarty” logo após a conquista.
-              (Foto: Pedro Bugim)* |
-
-
-              | ![Maria Fernanda na conquista da segunda enfiada do paredão “Que Qui
-              Ocê Foi Fazê Nu Mato?” (Foto: Pedro Bugim)](imagens/grupo_aderencias_setor_esquerda_p8_i2.webp)
-              |
-
+              | ![Maria Fernanda na conquista da segunda enfiada do paredão “Que Qui Ocê Foi Fazê Nu Mato?” (Foto: Pedro Bugim)](imagens/grupo_aderencias_setor_esquerda_p8_i2.webp) |
               | :--: |
+              | *Maria Fernanda na conquista da segunda enfiada do paredão “Que Qui Ocê Foi Fazê Nu Mato?” (Foto: Pedro Bugim)* |
 
-              | *Maria Fernanda na conquista da segunda enfiada do paredão “Que Qui
-              Ocê Foi Fazê Nu Mato?” (Foto: Pedro Bugim)* |
-
-
-              | ![Eustáquio Júnior na trilha a frente da via “Pescoço de Minhoca”,
-              fotografando os escaladores. (Foto: Pedro Bugim)](imagens/grupo_aderencias_setor_esquerda_p8_i1.webp)
-              |
-
+              | ![Eustáquio Júnior na trilha a frente da via “Pescoço de Minhoca”, fotografando os escaladores. (Foto: Pedro Bugim)](imagens/grupo_aderencias_setor_esquerda_p8_i1.webp) |
               | :--: |
-
-              | *Eustáquio Júnior na trilha a frente da via “Pescoço de Minhoca”,
-              fotografando os escaladores. (Foto: Pedro Bugim)* |'
+              | *Eustáquio Júnior na trilha a frente da via “Pescoço de Minhoca”, fotografando os escaladores. (Foto: Pedro Bugim)* |
             precomputados:
               total_escaladas: 19
               total_esportivas: 8
@@ -1969,13 +1826,13 @@ picos:
               - alvo_uid: FO3KvzGBfKKpB4
                 pontos_uids:
                 - HRfdiFKUw8SA4o
-                setor: Extrema Esquerda
+                setor: Setor Extrema Esquerda
                 ids:
                 - HRfdiFKUw8SA4o
               - alvo_uid: avRkW8fzw3OF22
                 pontos_uids:
                 - oSTYxOPemGa3hY
-                setor: Esquerda
+                setor: Setor Esquerda
                 ids:
                 - oSTYxOPemGa3hY
               - alvo_uid: rKxz4SSg8tyORQ
@@ -2095,7 +1952,7 @@ picos:
               - alvo_uid: g0ASFec0ovBc9J
                 pontos_uids:
                 - ZqKbS4kzj4n5PF
-                setor: Parede Principal – Direita
+                setor: Setor Parede Principal – Direita
                 ids:
                 - ZqKbS4kzj4n5PF
             - caminho_imagem_mapa: imagens/grupo_aderencias_setor_face_central_p2_i0.webp
@@ -2900,65 +2757,30 @@ picos:
                   a P1. Da P1 em diante, a via segue por incríveis “corcovas” na pedra,
                   até sua segunda parada. A enfiada final é feita em aderência.
             caminho_imagem_capa: imagens/grupo_aderencias_setor_face_central_p0_i1.webp
-            descricao: '<small>Capa: Celso e Tonico na conquista da "Elementar, Meu
-              Caro Watson!" (Foto: Pedro Bugim)</small>
+            descricao: |-
+              <small>Capa: Celso e Tonico na conquista da "Elementar, Meu Caro Watson!" (Foto: Pedro Bugim)</small>
 
+              A parede central das aderências concentra a maioria das vias longas deste lado do vale, com linhas de até 200 metros.
 
-              A parede central das aderências concentra a maioria das vias longas
-              deste lado do vale, com linhas de até 200 metros.
+              Como o próprio nome sugere, a maioria esmagadora das vias neste setor são predominantemente em aderência, com poucas agarras e buracos, porém, o abrasivo granito confere ao escalador uma ótima confiança nos pés.
 
+              O acesso às bases é realizado pela trilha principal do Vale do Roncador, passando pelo setor das Aderências – Esquerda e seguindo por mais aproximadamente 200 metros. A trilha para as bases encontra-se imediatamente antes da segunda travessia do córrego, à esquerda (de quem está entrando no vale). Neste ponto, é possível também, recarregar os cantis de água, antes e após as escaladas.
 
-              Como o próprio nome sugere, a maioria esmagadora das vias neste setor
-              são predominantemente em aderência, com poucas agarras e buracos, porém,
-              o abrasivo granito confere ao escalador uma ótima confiança nos pés.
+              A trilha sobe por poucos metros e chega à base das vias “Cordeiro de Deus” e “Cinquentona de Ferros”. Para acessar as bases das vias adjacentes, basta costear a parede, para a esquerda ou direita, seguindo sempre pela picada bem definida.
 
+              Para as vias entre a “Vr. Esquibunda” e “Pavão Misterioso”, a trilha começa cerca de 50 metros antes da travessia do córrego, à esquerda, onde possui um totem de pedra indicando a entrada da picada.
 
-              O acesso às bases é realizado pela trilha principal do Vale do Roncador,
-              passando pelo setor das Aderências – Esquerda e seguindo por mais aproximadamente
-              200 metros. A trilha para as bases encontra-se imediatamente antes da
-              segunda travessia do córrego, à esquerda (de quem está entrando no vale).
-              Neste ponto, é possível também, recarregar os cantis de água, antes
-              e após as escaladas.
-
-
-              A trilha sobe por poucos metros e chega à base das vias “Cordeiro de
-              Deus” e “Cinquentona de Ferros”. Para acessar as bases das vias adjacentes,
-              basta costear a parede, para a esquerda ou direita, seguindo sempre
-              pela picada bem definida.
-
-
-              Para as vias entre a “Vr. Esquibunda” e “Pavão Misterioso”, a trilha
-              começa cerca de 50 metros antes da travessia do córrego, à esquerda,
-              onde possui um totem de pedra indicando a entrada da picada.
-
-
-              | ![Xaxá Carrozzino feliz da vida, ao final da conquista da “Expo Cerj!”.
-              Atrás, vista da Parede Principal. (Foto: Pedro Bugim)](imagens/grupo_aderencias_setor_face_central_p5_i0.webp)
-              |
-
+              | ![Xaxá Carrozzino feliz da vida, ao final da conquista da “Expo Cerj!”. Atrás, vista da Parede Principal. (Foto: Pedro Bugim)](imagens/grupo_aderencias_setor_face_central_p5_i0.webp) |
               | :--: |
+              | *Xaxá Carrozzino feliz da vida, ao final da conquista da “Expo Cerj!”. Atrás, vista da Parede Principal. (Foto: Pedro Bugim)* |
 
-              | *Xaxá Carrozzino feliz da vida, ao final da conquista da “Expo Cerj!”.
-              Atrás, vista da Parede Principal. (Foto: Pedro Bugim)* |
-
-
-              | ![Tonico Magalhães e Nádia Moreira, ao entardecer, no topo da via
-              “Social Club” (Foto: Celso Ferreira Gomes)](imagens/grupo_aderencias_setor_face_central_p5_i1.webp)
-              |
-
+              | ![Tonico Magalhães e Nádia Moreira, ao entardecer, no topo da via “Social Club” (Foto: Celso Ferreira Gomes)](imagens/grupo_aderencias_setor_face_central_p5_i1.webp) |
               | :--: |
+              | *Tonico Magalhães e Nádia Moreira, ao entardecer, no topo da via “Social Club” (Foto: Celso Ferreira Gomes)* |
 
-              | *Tonico Magalhães e Nádia Moreira, ao entardecer, no topo da via “Social
-              Club” (Foto: Celso Ferreira Gomes)* |
-
-
-              | ![Glesse Gripp guiando a clássica “Social Club”. (Foto: Nádia Moreira)](imagens/grupo_aderencias_setor_face_central_p5_i2.webp)
-              |
-
+              | ![Glesse Gripp guiando a clássica “Social Club”. (Foto: Nádia Moreira)](imagens/grupo_aderencias_setor_face_central_p5_i2.webp) |
               | :--: |
-
-              | *Glesse Gripp guiando a clássica “Social Club”. (Foto: Nádia Moreira)*
-              |'
+              | *Glesse Gripp guiando a clássica “Social Club”. (Foto: Nádia Moreira)* |
             precomputados:
               total_escaladas: 16
               total_esportivas: 4
@@ -2998,13 +2820,13 @@ picos:
               - alvo_uid: avRkW8fzw3OF22
                 pontos_uids:
                 - 78M7PevSBpfjiD
-                setor: Esquerda
+                setor: Setor Esquerda
                 ids:
                 - 78M7PevSBpfjiD
               - alvo_uid: g0ASFec0ovBc9J
                 pontos_uids:
                 - 8gD4hNa0IGrIJY
-                setor: Parede Principal – Direita
+                setor: Setor Parede Principal – Direita
                 ids:
                 - 8gD4hNa0IGrIJY
               - alvo_uid: nJgmAcSxMTe2Xy
@@ -3195,63 +3017,33 @@ picos:
               - caminho_imagem_mapa: imagens/grupo_aderencias_setor_de_cima_p4_i1.webp
                 largura_mapa: 748
                 altura_mapa: 1078
-            descricao: '<small>Capa: Maria Fernanda descendo a trilha de acesso do
-              Setor de Cima da Parede das Aderências (Foto: Pedro Bugim)</small>
+            descricao: |-
+              <small>Capa: Maria Fernanda descendo a trilha de acesso do Setor de Cima da Parede das Aderências (Foto: Pedro Bugim)</small>
 
+              Trata-se da continuação da Parede das Aderências – Setor Central, seguindo para um setor mais elevado, com parede levemente mais vertical, contando com apenas três vias e com boas possibilidades de novas conquistas, sobretudo, seguindo-se para a direita.
 
-              Trata-se da continuação da Parede das Aderências – Setor Central, seguindo
-              para um setor mais elevado, com parede levemente mais vertical, contando
-              com apenas três vias e com boas possibilidades de novas conquistas,
-              sobretudo, seguindo-se para a direita.
+              O acesso às bases é realizado pela trilha principal do Vale do Roncador, passando pelo setor das Aderências – Central e seguindo mais uns 300 metros após a segunda travessia do córrego. Neste ponto, existe um vasto bambuzal à esquerda da trilha. Deve-se cruzar o mesmo, bem como cruzar o riacho. Neste ponto, a trilha está bem demarcada e é possível ver a parede, logo após cruzar o riacho.
 
-
-              O acesso às bases é realizado pela trilha principal do Vale do Roncador,
-              passando pelo setor das Aderências – Central e seguindo mais uns 300
-              metros após a segunda travessia do córrego. Neste ponto, existe um vasto
-              bambuzal à esquerda da trilha. Deve-se cruzar o mesmo, bem como cruzar
-              o riacho. Neste ponto, a trilha está bem demarcada e é possível ver
-              a parede, logo após cruzar o riacho.
-
-
-              | ![Maria Fernanda descendo a trilha de acesso do Setor de Cima da Parede
-              das Aderências (Foto: Pedro Bugim)](imagens/grupo_aderencias_setor_de_cima_p0_i0.webp)
-              |
-
+              | ![Maria Fernanda descendo a trilha de acesso do Setor de Cima da Parede das Aderências (Foto: Pedro Bugim)](imagens/grupo_aderencias_setor_de_cima_p0_i0.webp) |
               | :--: |
+              | *Maria Fernanda descendo a trilha de acesso do Setor de Cima da Parede das Aderências (Foto: Pedro Bugim)* |
 
-              | *Maria Fernanda descendo a trilha de acesso do Setor de Cima da Parede
-              das Aderências (Foto: Pedro Bugim)* |
+              A trilha segue por um descampado, sempre subindo, até atingir enormes blocos de pedra (nos quais existe possibilidade de abertura de futuros boulders), que devem ser contornados por baixo e pela esquerda.
 
+              A base das vias “São Lourenço” e “Carnaferros” ficam exatamente no ponto em que a trilha chega à parede. Para acessar a base da “Buena Vista”, é necessário costear a rocha para a esquerda, por poucos metros.
 
-              A trilha segue por um descampado, sempre subindo, até atingir enormes
-              blocos de pedra (nos quais existe possibilidade de abertura de futuros
-              boulders), que devem ser contornados por baixo e pela esquerda.
+              Como já dito, a porção direita desta parede permanece inexplorada e apresenta grande potencial para novas linhas, tanto em aderência quanto em convidativos diedros.
 
-
-              A base das vias “São Lourenço” e “Carnaferros” ficam exatamente no ponto
-              em que a trilha chega à parede. Para acessar a base da “Buena Vista”,
-              é necessário costear a rocha para a esquerda, por poucos metros.
-
-
-              Como já dito, a porção direita desta parede permanece inexplorada e
-              apresenta grande potencial para novas linhas, tanto em aderência quanto
-              em convidativos diedros.
-
-
-              | ![Pedro Bugim durante a conquista do “Carnaferros” (Foto: Maria Fernanda)](imagens/grupo_aderencias_setor_de_cima_p3_i0.webp)
-              |
-
+              | ![Pedro Bugim durante a conquista do “Carnaferros” (Foto: Maria Fernanda)](imagens/grupo_aderencias_setor_de_cima_p3_i0.webp) |
               | :--: |
-
-              | *Pedro Bugim durante a conquista do “Carnaferros” (Foto: Maria Fernanda)*
-              |'
+              | *Pedro Bugim durante a conquista do “Carnaferros” (Foto: Maria Fernanda)* |
             precomputados:
               total_escaladas: 3
               total_esportivas: 2
               total_multiplas_enfiadas: 1
         - conteudo:
             uid: sMtcp04stg3wSX
-            nome: Extrema Direita
+            nome: Setor Extrema Direita
             mapas:
             - caminho_imagem_mapa: imagens/grupo_aderencias_setor_extrema_direita_p1_i1.webp
               referencias:
@@ -3426,13 +3218,8 @@ picos:
                 - Francisco Caetano
                 - Ernane "Tufo" Wermelinger
                 data_abertura: '2012-01-21'
-                descricao: 'A primeira enfiada passa por um extenso costão de 60 metros,
-                  com apenas três grampos. Depois deste ponto, a parede ganha inclinação,
-                  aumentando a graduação, pouco a pouco, culminando no crux da via,
-                  já nos metros finais da parede. Possui duas passadas em móvel, nos
-                  quais se recomenda a utilização de stoppers grandes de camalot #2.
-
-                  '
+                descricao: |
+                  A primeira enfiada passa por um extenso costão de 60 metros, com apenas três grampos. Depois deste ponto, a parede ganha inclinação, aumentando a graduação, pouco a pouco, culminando no crux da via, já nos metros finais da parede. Possui duas passadas em móvel, nos quais se recomenda a utilização de stoppers grandes de camalot #2.
               mapas:
               - caminho_imagem_mapa: imagens/grupo_aderencias_setor_extrema_direita_p4_i2.webp
                 largura_mapa: 348
@@ -3448,12 +3235,8 @@ picos:
                 - Tonico Magalhães
                 - Celso Ferreira Gomes
                 data_abertura: '2010-02-14'
-                descricao: 'A primeira via conquistada na extrema direita da Parede
-                  das Aderências, com lances predominantemente em aderência, protegida
-                  em grampos de ½ polegada. O crux é uma barriga lisa no final da
-                  via.
-
-                  '
+                descricao: |
+                  A primeira via conquistada na extrema direita da Parede das Aderências, com lances predominantemente em aderência, protegida em grampos de ½ polegada. O crux é uma barriga lisa no final da via.
             - uid: LBIEfNwhK7tjIU
               via_multiplas_enfiadas:
                 nome: Mais Chuva Que Sol
@@ -3470,16 +3253,8 @@ picos:
                 - Francisco Caetano
                 - Ricardo Barros
                 data_abertura: '2012-01-22'
-                descricao: 'A via é predominante em aderência, com fendas que ajudam
-                  a melhorar a proteção. Seu início é mais inclinado e, logo após
-                  a primeira proteção, cai bastante até a P1. Dessa proteção em diante,
-                  a inclinação aumenta gradativamente, com uma passada entre um pequeno
-                  teto rodeado de mato e grandes blocos soltos, que não aguentariam
-                  uma queda. Recomenda-se um jogo de camalots do #0.5 a #3. Os últimos
-                  grampos da via estão intercalados entre a vegetação e espaços onde
-                  a rocha aflora.
-
-                  '
+                descricao: |
+                  A via é predominante em aderência, com fendas que ajudam a melhorar a proteção. Seu início é mais inclinado e, logo após a primeira proteção, cai bastante até a P1. Dessa proteção em diante, a inclinação aumenta gradativamente, com uma passada entre um pequeno teto rodeado de mato e grandes blocos soltos, que não aguentariam uma queda. Recomenda-se um jogo de camalots do #0.5 a #3. Os últimos grampos da via estão intercalados entre a vegetação e espaços onde a rocha aflora.
               mapas:
               - caminho_imagem_mapa: imagens/grupo_aderencias_setor_extrema_direita_p4_i1.webp
                 largura_mapa: 368
@@ -3505,82 +3280,33 @@ picos:
                   a guiar, sobretudo, para treinar como “garimpar” as proteções móveis
                   (peças pequenas e médias).
             caminho_imagem_capa: imagens/grupo_aderencias_setor_extrema_direita_p3_i0.webp
-            descricao: '<small>Capa: Ricardo Barros na conquista da “Mais Chuva Que
-              Sol” (Foto: Pedro Bugim)</small>
+            descricao: |-
+              <small>Capa: Ricardo Barros na conquista da “Mais Chuva Que Sol” (Foto: Pedro Bugim)</small>
 
+              Paredão rochoso com potencial para novas vias, contando, no momento, com apenas quatro linhas completas.
 
-              Paredão rochoso com potencial para novas vias, contando, no momento,
-              com apenas quatro linhas completas.
+              A caminhada até a base para as duas vias da esquerda (“Bolo de Cenoura” e “51, Uma Boa Ideia”) é praticamente a mesma para acessar as vias do Setor das Clássicas Longas (na Parede Principal), apresentando cerca de dois quilômetros desde a sede da fazenda. Após passar pela bifurcação para a direita, que sobe para a Parede Principal, continue pela trilha principal e pegue a bifurcação à esquerda. É necessário cruzar o córrego localizado em frente à subida para o setor esquerdo da Parede Principal, um pouco antes de um pequeno curral existente.
 
+              Uma boa dica é que este ponto de cruzamento do rio é bem próximo à junção do córrego que vem da trilha da direita com o córrego principal. Outra boa referência é a trilha para a direita para o setor das Clássicas Longas, que se inicia contornando o bambuzal pela esquerda. Ultrapassado o córrego, deve-se subir por cerca de 50 metros entre a mata, bem à direta de um leito seco de um pequeno grotão, e se chegará à parede.
 
-              A caminhada até a base para as duas vias da esquerda (“Bolo de Cenoura”
-              e “51, Uma Boa Ideia”) é praticamente a mesma para acessar as vias do
-              Setor das Clássicas Longas (na Parede Principal), apresentando cerca
-              de dois quilômetros desde a sede da fazenda. Após passar pela bifurcação
-              para a direita, que sobe para a Parede Principal, continue pela trilha
-              principal e pegue a bifurcação à esquerda. É necessário cruzar o córrego
-              localizado em frente à subida para o setor esquerdo da Parede Principal,
-              um pouco antes de um pequeno curral existente.
+              O acesso à base das vias da direita (“Mais Chuva Que Sol” e “Só a Cabecinha”) pode ser feito de duas formas: (I) acessar a parede pela picada até a “Bolo de Cenoura”, subir a encosta e acessar o primeiro grampo da via “51, Uma Boa Ideia” e, a partir daí, rapelar até a base das vias em uma diagonal para a direita; ou (II) continuar seguindo a trilha principal até o ponto onde aparece uma porteira de um pequeno curral. Deste ponto, deve-se descer até o córrego à esquerda em direção ao início de um bambuzal, onde pode-se avistar um grotão seco onde se inicia a trilha que dá acesso à parede. A trilha segue por cerca de 50 metros, inicialmente pelo grotão e em seguida subindo para a esquerda até encostar na pedra. Os primeiros grampos das vias ficam logo a vista.
 
-
-              Uma boa dica é que este ponto de cruzamento do rio é bem próximo à junção
-              do córrego que vem da trilha da direita com o córrego principal. Outra
-              boa referência é a trilha para a direita para o setor das Clássicas
-              Longas, que se inicia contornando o bambuzal pela esquerda. Ultrapassado
-              o córrego, deve-se subir por cerca de 50 metros entre a mata, bem à
-              direta de um leito seco de um pequeno grotão, e se chegará à parede.
-
-
-              O acesso à base das vias da direita (“Mais Chuva Que Sol” e “Só a Cabecinha”)
-              pode ser feito de duas formas: (I) acessar a parede pela picada até
-              a “Bolo de Cenoura”, subir a encosta e acessar o primeiro grampo da
-              via “51, Uma Boa Ideia” e, a partir daí, rapelar até a base das vias
-              em uma diagonal para a direita; ou (II) continuar seguindo a trilha
-              principal até o ponto onde aparece uma porteira de um pequeno curral.
-              Deste ponto, deve-se descer até o córrego à esquerda em direção ao início
-              de um bambuzal, onde pode-se avistar um grotão seco onde se inicia a
-              trilha que dá acesso à parede. A trilha segue por cerca de 50 metros,
-              inicialmente pelo grotão e em seguida subindo para a esquerda até encostar
-              na pedra. Os primeiros grampos das vias ficam logo a vista.
-
-
-              A trilha pode não estar muito bem definida devido à pouca frequência
-              atual neste setor.'
+              A trilha pode não estar muito bem definida devido à pouca frequência atual neste setor.
             precomputados:
               total_escaladas: 4
               total_multiplas_enfiadas: 4
-        descricao: '<small>Capa: Tonico, na conquista da "Solamente" - solo integral
-          (Foto: Celso Gomes)</small>
+        descricao: |-
+          <small>Capa: Tonico, na conquista da "Solamente" - solo integral (Foto: Celso Gomes)</small>
 
+          Ao entrar no vale do Roncador, o excursionista terá à sua esquerda a Parede das Aderências, de dimensões mais reduzidas do que a Parede Principal e com vias predominantemente em aderência - como o próprio nome sugere – variando de 20 a 230 metros de extensão.
 
-          Ao entrar no vale do Roncador, o excursionista terá à sua esquerda a Parede
-          das Aderências, de dimensões mais reduzidas do que a Parede Principal e
-          com vias predominantemente em aderência - como o próprio nome sugere – variando
-          de 20 a 230 metros de extensão.
+          As vias mais longas apresentam grau geral 3º, à exceção da via “Solamente”, paredão com 120 metros, em 1º II, conquistada em solo integral pelo Tonico. Os graus específicos mais frequentes ficam entre IV e V (crux), havendo uma via curta de VIIa (“Ferro na Boneca” – 20m) e outra mista, em VI (“O Psicopata de Ferros”).
 
+          Dentre suas vias, destacam-se a “Cordeiro de Deus” (V – 60m), “O Psicopata de Ferros” (4° VI E2 D1 – 70m – Mista), “Cinquentona de Ferros” (IIIsup – 60m), “Grampos de Ferros” (3º IVsup – 110m) e “Social Club” (3º IIIsup – 200m), vias que, em seu conjunto, permitem um bom conhecimento desse trecho do vale.
 
-          As vias mais longas apresentam grau geral 3º, à exceção da via “Solamente”,
-          paredão com 120 metros, em 1º II, conquistada em solo integral pelo Tonico.
-          Os graus específicos mais frequentes ficam entre IV e V (crux), havendo
-          uma via curta de VIIa (“Ferro na Boneca” – 20m) e outra mista, em VI (“O
-          Psicopata de Ferros”).
+          Este setor é imperdível para aqueles que apreciam a técnica de aderência, bem como aos que estão necessitando de treino na referida. Apesar das poucas agarras, a aderência da pedra é impressionante, conferindo muita confiança ao escalador.
 
-
-          Dentre suas vias, destacam-se a “Cordeiro de Deus” (V – 60m), “O Psicopata
-          de Ferros” (4° VI E2 D1 – 70m – Mista), “Cinquentona de Ferros” (IIIsup
-          – 60m), “Grampos de Ferros” (3º IVsup – 110m) e “Social Club” (3º IIIsup
-          – 200m), vias que, em seu conjunto, permitem um bom conhecimento desse trecho
-          do vale.
-
-
-          Este setor é imperdível para aqueles que apreciam a técnica de aderência,
-          bem como aos que estão necessitando de treino na referida. Apesar das poucas
-          agarras, a aderência da pedra é impressionante, conferindo muita confiança
-          ao escalador.
-
-
-          Curiosamente, algumas destas vias possuem também proteções mistas, ou seja,
-          intercalando grampos fixos e materiais móveis.'
+          Curiosamente, algumas destas vias possuem também proteções mistas, ou seja, intercalando grampos fixos e materiais móveis.
         precomputados:
           total_escaladas: 47
           total_esportivas: 18
@@ -3603,13 +3329,13 @@ picos:
               - alvo_uid: lTi8TIXxTU6KF0
                 pontos_uids:
                 - v6xgcdbhiBfzEX
-                setor: Cachoeira
+                setor: Setor Cachoeira
                 ids:
                 - v6xgcdbhiBfzEX
               - alvo_uid: FO3KvzGBfKKpB4
                 pontos_uids:
                 - S8U8czODCDed99
-                setor: Extrema Esquerda
+                setor: Setor Extrema Esquerda
                 ids:
                 - S8U8czODCDed99
               - alvo_uid: 2CKnFR9GnX0RVk
@@ -4419,61 +4145,34 @@ picos:
                 data_abertura: '2011-06-22'
                 descricao: Primeira via na extrema direita deste setor, seguindo a
                   linha de vegetação. O crux é o primeiro lance.
-            descricao: '<small>Capa: Rodrigo Magalhães guiando a "Couro de Lobisomem"
-              (Foto: Tamires Lima)</small>
+            descricao: |-
+              <small>Capa: Rodrigo Magalhães guiando a "Couro de Lobisomem" (Foto: Tamires Lima)</small>
 
+              Ao entrar no vale, o excursionista terá à sua direita o Setor das Clássicas Curtas, que se estende do início da Parede Principal até uma língua de mato que o separa do núcleo da parede. Este setor concentra vias curtas, variando de 10 a 45 metros.
 
-              Ao entrar no vale, o excursionista terá à sua direita o Setor das Clássicas
-              Curtas, que se estende do início da Parede Principal até uma língua
-              de mato que o separa do núcleo da parede. Este setor concentra vias
-              curtas, variando de 10 a 45 metros.
+              As exceções são as vias “Vou Dançar um Xaxaxá” e “Águas de Março”, que apresentam 90 e 65 metros de extensão, respectivamente, localizadas na extremidade esquerda do setor, junto à referida língua de mato.
 
+              Para acessar a base destas vias, deve-se pegar a trilha principal do vale do Roncador e seguir por aproximadamente 50 metros, até a bifurcação à direita, que sobe alguns poucos metros, juntando com a parede. Esta trilha se estende por toda extensão do setor, sendo necessário apenas seguir pela mesma para atingir o início de todas as vias.
 
-              As exceções são as vias “Vou Dançar um Xaxaxá” e “Águas de Março”, que
-              apresentam 90 e 65 metros de extensão, respectivamente, localizadas
-              na extremidade esquerda do setor, junto à referida língua de mato.
-
-
-              Para acessar a base destas vias, deve-se pegar a trilha principal do
-              vale do Roncador e seguir por aproximadamente 50 metros, até a bifurcação
-              à direita, que sobe alguns poucos metros, juntando com a parede. Esta
-              trilha se estende por toda extensão do setor, sendo necessário apenas
-              seguir pela mesma para atingir o início de todas as vias.
-
-
-              Com graduações variando entre III e VIsup, estas vias são perfeitas
-              para treinamento em top-rope e guiada, neste caso pela ótima proteção
-              que elas oferecem. Algumas vias possuem passadas em móvel, sempre em
-              fendas sólidas, proporcionando proteções “à prova de bomba”.
-
+              Com graduações variando entre III e VIsup, estas vias são perfeitas para treinamento em top-rope e guiada, neste caso pela ótima proteção que elas oferecem. Algumas vias possuem passadas em móvel, sempre em fendas sólidas, proporcionando proteções “à prova de bomba”.
 
               ## Esquema de Trilhas
 
-
               - **1 – Base das vias "Deu Tilt" até "Entrando no Ferro"**
-
               - **2 – Base das vias "Cambal a Quatro" até "Amor Profano"**
-
               - **3 – Base das vias "Ferrolho" e "Ferroada"**
-
               - **4 – Base das vias "Vou Dançar o Xaxaxá" e "Casas da Banha"**
 
-
-              | ![Luciano Bender intermediando um lance durante a conquista da "Casas
-              da Banha" (Foto: Celso Ferreira Gomes)](imagens/grupo_principal_setor_classicas_curtas_p4_i0.webp)
-              |
-
+              | ![Luciano Bender intermediando um lance durante a conquista da "Casas da Banha" (Foto: Celso Ferreira Gomes)](imagens/grupo_principal_setor_classicas_curtas_p4_i0.webp) |
               | :--: |
-
-              | *Luciano Bender intermediando um lance durante a conquista da "Casas
-              da Banha" (Foto: Celso Ferreira Gomes)* |'
+              | *Luciano Bender intermediando um lance durante a conquista da "Casas da Banha" (Foto: Celso Ferreira Gomes)* |
             precomputados:
               total_escaladas: 19
               total_esportivas: 14
               total_multiplas_enfiadas: 1
         - conteudo:
             uid: g0ASFec0ovBc9J
-            nome: Parede Principal – Direita
+            nome: Setor Parede Principal – Direita
             mapas:
             - caminho_imagem_mapa: imagens/grupo_principal_setor_direita_p1_i1.webp
               largura_mapa: 1631
@@ -4572,25 +4271,25 @@ picos:
               - alvo_uid: FO3KvzGBfKKpB4
                 pontos_uids:
                 - aEX41RMOZp7Nm1
-                setor: Extrema Esquerda
+                setor: Setor Extrema Esquerda
                 ids:
                 - aEX41RMOZp7Nm1
               - alvo_uid: avRkW8fzw3OF22
                 pontos_uids:
                 - YWDAPGI8CtZog8
-                setor: Esquerda
+                setor: Setor Esquerda
                 ids:
                 - YWDAPGI8CtZog8
               - alvo_uid: avRkW8fzw3OF22
                 pontos_uids:
                 - cOhZKmGz4OyJQM
-                setor: Esquerda
+                setor: Setor Esquerda
                 ids:
                 - cOhZKmGz4OyJQM
               - alvo_uid: lTi8TIXxTU6KF0
                 pontos_uids:
                 - RZRKsCuUp7RwVo
-                setor: Cachoeira
+                setor: Setor Cachoeira
                 ids:
                 - RZRKsCuUp7RwVo
               - alvo_uid: rKxz4SSg8tyORQ
@@ -5299,86 +4998,40 @@ picos:
                 descricao: Semelhante à via anterior possui grampeação longa e lances
                   simplórios, porém, um pouco mais curta.
             caminho_imagem_capa: imagens/grupo_principal_setor_direita_p0_i1.webp
-            descricao: '<small>Capa: Gustavo “Xaxá” Carrozzino na conquista da “Amor,
-              Meu Grande Amor”, após o diedro em móvel (Foto: Maria Fernanda Patrício)</small>
+            descricao: |-
+              <small>Capa: Gustavo “Xaxá” Carrozzino na conquista da “Amor, Meu Grande Amor”, após o diedro em móvel (Foto: Maria Fernanda Patrício)</small>
 
+              Localizada ao início da Parede Principal com vias de pequena extensão e muito boas para um primeiro contato com o tipo de escalada da região. Concentra vias que vão de 20 a 100 metros, em sua maioria bem protegidas por grampos de ½ polegada, com predominância de agarras, regletes e buracos, possuindo por vezes, algumas fendas interessantes.
 
-              Localizada ao início da Parede Principal com vias de pequena extensão
-              e muito boas para um primeiro contato com o tipo de escalada da região.
-              Concentra vias que vão de 20 a 100 metros, em sua maioria bem protegidas
-              por grampos de ½ polegada, com predominância de agarras, regletes e
-              buracos, possuindo por vezes, algumas fendas interessantes.
+              O acesso às bases pode ser feito por duas picadas que derivam da trilha principal do Vale do Roncador, ambas aproximadamente 200 metros após a primeira travessia do córrego.
 
+              Na primeira opção, pega-se a bifurcação para a esquerda e com poucos metros de caminhada, cruza-se novamente o córrego. A descida é amena, porém após atravessar o córrego, existe um pequeno barranco. Tocando para cima, chega-se na base da via “Rapidinha no Escurinho”.
 
-              O acesso às bases pode ser feito por duas picadas que derivam da trilha
-              principal do Vale do Roncador, ambas aproximadamente 200 metros após
-              a primeira travessia do córrego.
-
-
-              Na primeira opção, pega-se a bifurcação para a esquerda e com poucos
-              metros de caminhada, cruza-se novamente o córrego. A descida é amena,
-              porém após atravessar o córrego, existe um pequeno barranco. Tocando
-              para cima, chega-se na base da via “Rapidinha no Escurinho”.
-
-
-              Na segunda picada, pega-se a bifurcação à esquerda, descendo por uma
-              trilha um pouco íngreme antes de cruzar o córrego, para então, voltar
-              a subir, chegando na base da via “O Burro e o Capacete”, onde se encontra
-              o esqueleto de um burro que veio a falecer após cair do topo da parede
-              (daí, parte do nome da via).
-
+              Na segunda picada, pega-se a bifurcação à esquerda, descendo por uma trilha um pouco íngreme antes de cruzar o córrego, para então, voltar a subir, chegando na base da via “O Burro e o Capacete”, onde se encontra o esqueleto de um burro que veio a falecer após cair do topo da parede (daí, parte do nome da via).
 
               ## Esquema de Trilhas e Acesso
 
-
               - **1 – Base das vias “Cutícula” e “Pelinha”**
-
               - **2 – Base das vias “Rapidinha no Escurinho” até a “Pele Vermelha”**
-
               - **3 – Base das vias “Amor, Meu Grande Amor” e “Tá Bão”**
-
               - **4 – Base da via “O Burro e o Capacete”**
-
               - **5 – Base das vias “Valeu Papito” até a “Lobos do Caraça”**
 
-
-              | ![Ana Paula na "Cutícula" (Foto: Pedro Bugim)](imagens/grupo_principal_setor_direita_p4_i0.webp)
-              |
-
+              | ![Ana Paula na "Cutícula" (Foto: Pedro Bugim)](imagens/grupo_principal_setor_direita_p4_i0.webp) |
               | :--: |
-
               | *Ana Paula na "Cutícula" (Foto: Pedro Bugim)* |
 
-
-              | ![Larissa Lopes na “Flor da Pele”. Parede Principal Direita. (Foto:
-              Pedro Bugim)](imagens/grupo_principal_setor_direita_p7_i1.webp) |
-
+              | ![Larissa Lopes na “Flor da Pele”. Parede Principal Direita. (Foto: Pedro Bugim)](imagens/grupo_principal_setor_direita_p7_i1.webp) |
               | :--: |
+              | *Larissa Lopes na “Flor da Pele”. Parede Principal Direita. (Foto: Pedro Bugim)* |
 
-              | *Larissa Lopes na “Flor da Pele”. Parede Principal Direita. (Foto:
-              Pedro Bugim)* |
-
-
-              | ![Carlos Alberto Carrozzino (Krrô), na conquista da via “Valeu Papito”
-              (Foto: Gustavo “Xaxá” Carrozzino)](imagens/grupo_principal_setor_direita_p7_i2.webp)
-              |
-
+              | ![Carlos Alberto Carrozzino (Krrô), na conquista da via “Valeu Papito” (Foto: Gustavo “Xaxá” Carrozzino)](imagens/grupo_principal_setor_direita_p7_i2.webp) |
               | :--: |
+              | *Carlos Alberto Carrozzino (Krrô), na conquista da via “Valeu Papito” (Foto: Gustavo “Xaxá” Carrozzino)* |
 
-              | *Carlos Alberto Carrozzino (Krrô), na conquista da via “Valeu Papito”
-              (Foto: Gustavo “Xaxá” Carrozzino)* |
-
-
-              | ![Cida, Eustáquio Júnior, Larissa Lopes e Maria Fernanda na base da
-              Parede Principal - Direita, durante aula do segundo Curso Básico de
-              Montanhismo do CEM (Foto: Pedro Bugim)](imagens/grupo_principal_setor_direita_p7_i0.webp)
-              |
-
+              | ![Cida, Eustáquio Júnior, Larissa Lopes e Maria Fernanda na base da Parede Principal - Direita, durante aula do segundo Curso Básico de Montanhismo do CEM (Foto: Pedro Bugim)](imagens/grupo_principal_setor_direita_p7_i0.webp) |
               | :--: |
-
-              | *Cida, Eustáquio Júnior, Larissa Lopes e Maria Fernanda na base da
-              Parede Principal - Direita, durante aula do segundo Curso Básico de
-              Montanhismo do CEM (Foto: Pedro Bugim)* |'
+              | *Cida, Eustáquio Júnior, Larissa Lopes e Maria Fernanda na base da Parede Principal - Direita, durante aula do segundo Curso Básico de Montanhismo do CEM (Foto: Pedro Bugim)* |
             precomputados:
               total_escaladas: 15
               total_esportivas: 8
@@ -5424,7 +5077,7 @@ picos:
               - alvo_uid: avRkW8fzw3OF22
                 pontos_uids:
                 - a8W4tNycBxA3hP
-                setor: Esquerda
+                setor: Setor Esquerda
                 ids:
                 - a8W4tNycBxA3hP
               - alvo_uid: rGOlhPmCuaVWav
@@ -5442,7 +5095,7 @@ picos:
               - alvo_uid: g0ASFec0ovBc9J
                 pontos_uids:
                 - V2Zk8k8vv5bHvH
-                setor: Parede Principal – Direita
+                setor: Setor Parede Principal – Direita
                 ids:
                 - V2Zk8k8vv5bHvH
               - alvo_uid: 0on14wnJabheri
@@ -6564,126 +6217,50 @@ picos:
                 descricao: O crux é logo no início. Via com acesso rápido e muito
                   bem grampeada.
             caminho_imagem_capa: imagens/grupo_principal_setor_central_p0_i0.webp
-            descricao: '<small>Capa: Tonico e Celso na conquista da "Hilda Furacão"
-              (Foto: Glesse Gripp)</small>
+            descricao: |-
+              <small>Capa: Tonico e Celso na conquista da "Hilda Furacão" (Foto: Glesse Gripp)</small>
 
+              O setor apresenta, de um modo geral, vias nas quais predominam lances em agarras e impressionantes buracos, apesar de haver boa solicitação de aderência da sola na pedra. A extensão das vias neste setor (metade esquerda da Parede Principal) varia de 90 até 180 metros, com graduação de IIIsup até Vsup.
 
-              O setor apresenta, de um modo geral, vias nas quais predominam lances
-              em agarras e impressionantes buracos, apesar de haver boa solicitação
-              de aderência da sola na pedra. A extensão das vias neste setor (metade
-              esquerda da Parede Principal) varia de 90 até 180 metros, com graduação
-              de IIIsup até Vsup.
+              Neste setor, destacam-se as vias “Marcado a Ferro” (4º V – 180m), “Hilda Furacão” (3º IV – 165m), “Ferro no Judas” (5° Vsup – 130m), “Pé de Pano” (3° IV E1 – 150m) e “Cordão do Bola Preta” (D1 3° IVsup E2 – 130m – Mista), vias estas que, em seu conjunto, permitem um bom conhecimento desse trecho central da Parede Principal, além de satisfação garantida.
 
-
-              Neste setor, destacam-se as vias “Marcado a Ferro” (4º V – 180m), “Hilda
-              Furacão” (3º IV – 165m), “Ferro no Judas” (5° Vsup – 130m), “Pé de Pano”
-              (3° IV E1 – 150m) e “Cordão do Bola Preta” (D1 3° IVsup E2 – 130m –
-              Mista), vias estas que, em seu conjunto, permitem um bom conhecimento
-              desse trecho central da Parede Principal, além de satisfação garantida.
-
-
-              A título de curiosidade, neste setor localiza-se primeira via da região,
-              a “Iron Men” (4º V – 160m), conquistada por Tonico, Juliano Magalhães
-              e Marcos Leiras em fevereiro de 2006, dando início assim a mais um excelente
-              polo de escaladas!
-
+              A título de curiosidade, neste setor localiza-se primeira via da região, a “Iron Men” (4º V – 160m), conquistada por Tonico, Juliano Magalhães e Marcos Leiras em fevereiro de 2006, dando início assim a mais um excelente polo de escaladas!
 
               ## Acesso
 
-
-              O acesso às bases das primeiras vias desse setor se dá pela trilha principal
-              do Vale do Roncador, bifurcando à direita logo após a segunda travessia
-              do córrego. Para as vias centrais da parede, deve-se seguir por mais
-              alguns metros e pegar uma nova picada também à direita, iniciada em
-              um pequeno barranco com uma árvore firme em cima. É possível margear
-              a parede em quase toda sua extensão neste setor, facilitando assim a
-              identificação da base das vias. Para as vias da extrema esquerda, deve-se
-              pegar um rio seco de pedras, à frente de um bambuzal e ao córrego. A
-              entrada é marcada com um pequeno totem de pedra.
-
+              O acesso às bases das primeiras vias desse setor se dá pela trilha principal do Vale do Roncador, bifurcando à direita logo após a segunda travessia do córrego. Para as vias centrais da parede, deve-se seguir por mais alguns metros e pegar uma nova picada também à direita, iniciada em um pequeno barranco com uma árvore firme em cima. É possível margear a parede em quase toda sua extensão neste setor, facilitando assim a identificação da base das vias. Para as vias da extrema esquerda, deve-se pegar um rio seco de pedras, à frente de um bambuzal e ao córrego. A entrada é marcada com um pequeno totem de pedra.
 
               ## Registros Fotográficos
 
-
-              | ![Pedro Bugim nas fendas em móvel na segunda enfiada da via “Cordão
-              do Bola Preta” (Foto: Maria Fernanda Patrício)](imagens/grupo_principal_setor_central_p5_i0.webp)
-              |
-
+              | ![Pedro Bugim nas fendas em móvel na segunda enfiada da via “Cordão do Bola Preta” (Foto: Maria Fernanda Patrício)](imagens/grupo_principal_setor_central_p5_i0.webp) |
               | :--: |
+              | *Pedro Bugim nas fendas em móvel na segunda enfiada da via “Cordão do Bola Preta” (Foto: Maria Fernanda Patrício)* |
 
-              | *Pedro Bugim nas fendas em móvel na segunda enfiada da via “Cordão
-              do Bola Preta” (Foto: Maria Fernanda Patrício)* |
-
-
-              | ![Pedro Bugim e Maria Fernanda no rapel após a conquista do Pr. “Cordão
-              do Bola Preta”. A grande fenda em diagonal é a segunda enfiada da via,
-              toda em móvel. (Foto: Celso Ferreira Gomes)](imagens/grupo_principal_setor_central_p10_i0.webp)
-              |
-
+              | ![Pedro Bugim e Maria Fernanda no rapel após a conquista do Pr. “Cordão do Bola Preta”. A grande fenda em diagonal é a segunda enfiada da via, toda em móvel. (Foto: Celso Ferreira Gomes)](imagens/grupo_principal_setor_central_p10_i0.webp) |
               | :--: |
+              | *Pedro Bugim e Maria Fernanda no rapel após a conquista do Pr. “Cordão do Bola Preta”. A grande fenda em diagonal é a segunda enfiada da via, toda em móvel. (Foto: Celso Ferreira Gomes)* |
 
-              | *Pedro Bugim e Maria Fernanda no rapel após a conquista do Pr. “Cordão
-              do Bola Preta”. A grande fenda em diagonal é a segunda enfiada da via,
-              toda em móvel. (Foto: Celso Ferreira Gomes)* |
-
-
-              | ![Luciano Bender na conquista da via “Ferro no Judas”. (Foto: Celso
-              Ferreira Gomes)](imagens/grupo_principal_setor_central_p10_i2.webp)
-              |
-
+              | ![Luciano Bender na conquista da via “Ferro no Judas”. (Foto: Celso Ferreira Gomes)](imagens/grupo_principal_setor_central_p10_i2.webp) |
               | :--: |
+              | *Luciano Bender na conquista da via “Ferro no Judas”. (Foto: Celso Ferreira Gomes)* |
 
-              | *Luciano Bender na conquista da via “Ferro no Judas”. (Foto: Celso
-              Ferreira Gomes)* |
-
-
-              | ![Maria Fernanda no rapel do Pr. “Pé de Pano”, após a conquista. (Foto:
-              Pedro Bugim)](imagens/grupo_principal_setor_central_p10_i1.webp) |
-
+              | ![Maria Fernanda no rapel do Pr. “Pé de Pano”, após a conquista. (Foto: Pedro Bugim)](imagens/grupo_principal_setor_central_p10_i1.webp) |
               | :--: |
-
-              | *Maria Fernanda no rapel do Pr. “Pé de Pano”, após a conquista. (Foto:
-              Pedro Bugim)* |
-
+              | *Maria Fernanda no rapel do Pr. “Pé de Pano”, após a conquista. (Foto: Pedro Bugim)* |
 
               ## Parede Principal – Setor de Cima
 
-
-              | ![Vista da Parede Principal – Setor de Cima, durante o rapel da “Um
-              Momento no Tempo”. Todo este setor encontra-se ainda sem vias. (Foto:
-              Pedro Bugim)](imagens/grupo_principal_setor_central_p11_i0.webp) |
-
+              | ![Vista da Parede Principal – Setor de Cima, durante o rapel da “Um Momento no Tempo”. Todo este setor encontra-se ainda sem vias. (Foto: Pedro Bugim)](imagens/grupo_principal_setor_central_p11_i0.webp) |
               | :--: |
+              | *Vista da Parede Principal – Setor de Cima, durante o rapel da “Um Momento no Tempo”. Todo este setor encontra-se ainda sem vias. (Foto: Pedro Bugim)* |
 
-              | *Vista da Parede Principal – Setor de Cima, durante o rapel da “Um
-              Momento no Tempo”. Todo este setor encontra-se ainda sem vias. (Foto:
-              Pedro Bugim)* |
+              Como o nome sugere, este setor fica em uma área mais elevada da Parede Principal, contando com apenas duas vias até o momento. Este setor apresenta uma grande possibilidade de novas linhas, apesar do acesso ainda ser um pouco complexo.
 
+              Para chegar à base desta parede, pode-se subir pela trilha das vias da esquerda, na Parede Principal Central, pegando o rio seco de pedras, à frente de um bambuzal e ao córrego, com a entrada marcada com um pequeno totem de pedra (trilha oposta à utilizada para o acesso da Parede Das Aderências – Setor de Cima). Ao chegar na parede, deve-se costear a mesma para a esquerda, sempre subindo.
 
-              Como o nome sugere, este setor fica em uma área mais elevada da Parede
-              Principal, contando com apenas duas vias até o momento. Este setor apresenta
-              uma grande possibilidade de novas linhas, apesar do acesso ainda ser
-              um pouco complexo.
+              Outra forma de acesso é pegar a trilha da Parede Principal, Setor Clássicas Longas, com acesso às vias da direita. Subir pelo descampado e passar pela enorme laje de pedra. Ao chegar na base da via “Eu Não Sou de Ferro”, continuar margeando a parede para a direita, passar pela base das vias “Rio de Mão Dupla” e “À Francesa” e continuar pela picada que leva diretamente ao setor.
 
-
-              Para chegar à base desta parede, pode-se subir pela trilha das vias
-              da esquerda, na Parede Principal Central, pegando o rio seco de pedras,
-              à frente de um bambuzal e ao córrego, com a entrada marcada com um pequeno
-              totem de pedra (trilha oposta à utilizada para o acesso da Parede Das
-              Aderências – Setor de Cima). Ao chegar na parede, deve-se costear a
-              mesma para a esquerda, sempre subindo.
-
-
-              Outra forma de acesso é pegar a trilha da Parede Principal, Setor Clássicas
-              Longas, com acesso às vias da direita. Subir pelo descampado e passar
-              pela enorme laje de pedra. Ao chegar na base da via “Eu Não Sou de Ferro”,
-              continuar margeando a parede para a direita, passar pela base das vias
-              “Rio de Mão Dupla” e “À Francesa” e continuar pela picada que leva diretamente
-              ao setor.
-
-
-              Atenção às pedras soltas, presentes em muitos pontos da parede neste
-              setor!'
+              Atenção às pedras soltas, presentes em muitos pontos da parede neste setor!
             precomputados:
               total_escaladas: 18
               total_multiplas_enfiadas: 18
@@ -6929,31 +6506,18 @@ picos:
               - caminho_imagem_mapa: imagens/grupo_principal_setor_setor_de_cima_p3_i3.webp
                 largura_mapa: 331
                 altura_mapa: 518
-            descricao: '<small>Capa: Vista da Parede Principal - Setor de Cima, durante
-              o rapel da "Um Momento no Tempo". Todo este setor encontra-se ainda
-              sem vias (Foto: Pedro Bugim)</small>
-
+            descricao: |-
+              <small>Capa: Vista da Parede Principal - Setor de Cima, durante o rapel da "Um Momento no Tempo". Todo este setor encontra-se ainda sem vias (Foto: Pedro Bugim)</small>
 
               ## Esquema de Trilhas e Acesso
 
-
-              - **1 – Base da via "Noite de São João"**: Acessando pela trilha do
-              rio seco, para a parte esquerda da Parede Principal Central.
-
-              - **2 – Base da via "Um Momento no Tempo"**: Acessando pela trilha das
-              vias da direita, da Parede Principal – Clássicas Longas.
-
+              - **1 – Base da via "Noite de São João"**: Acessando pela trilha do rio seco, para a parte esquerda da Parede Principal Central.
+              - **2 – Base da via "Um Momento no Tempo"**: Acessando pela trilha das vias da direita, da Parede Principal – Clássicas Longas.
               - **3 – Acesso à parede deste setor**: Ainda sem conquistas.
 
-
-              | ![Costão inicial na base do Setor de Cima, na Parede Principal (Foto:
-              Maria Fernanda Patrício)](imagens/grupo_principal_setor_setor_de_cima_p2_i1.webp)
-              |
-
+              | ![Costão inicial na base do Setor de Cima, na Parede Principal (Foto: Maria Fernanda Patrício)](imagens/grupo_principal_setor_setor_de_cima_p2_i1.webp) |
               | :--: |
-
-              | *Costão inicial na base do Setor de Cima, na Parede Principal (Foto:
-              Maria Fernanda Patrício)* |'
+              | *Costão inicial na base do Setor de Cima, na Parede Principal (Foto: Maria Fernanda Patrício)* |
             precomputados:
               total_escaladas: 2
               total_multiplas_enfiadas: 2
@@ -7095,7 +6659,7 @@ picos:
               - alvo_uid: sMtcp04stg3wSX
                 pontos_uids:
                 - yMnrBOpRSQ0Iko
-                setor: Extrema Direita
+                setor: Setor Extrema Direita
                 ids:
                 - yMnrBOpRSQ0Iko
               - alvo_uid: aWWidUPbYI6GzD
@@ -7944,78 +7508,37 @@ picos:
                 descricao: Pequena via que se inicia no platô final da via "À Francesa"
                   e segue por uma sequência mais delicada, até encontrar com o final
                   da via "Eu Não Sou de Ferro".
-            descricao: '<small>Capa: Maria Fernanda na terceira passada em móvel (e
-              crux) do Pr. "Ih, Ferrou!" (Foto: Pedro Bugim)</small>
+            descricao: |-
+              <small>Capa: Maria Fernanda na terceira passada em móvel (e crux) do Pr. "Ih, Ferrou!" (Foto: Pedro Bugim)</small>
 
+              Setor da Parede Principal que concentra as maiores vias do Vale do Roncador, com vias de até 220 metros de extensão, como é o caso do Pr. “Eu Não Sou de Ferro”.
 
-              Setor da Parede Principal que concentra as maiores vias do Vale do Roncador,
-              com vias de até 220 metros de extensão, como é o caso do Pr. “Eu Não
-              Sou de Ferro”.
+              Para acessá-lo é necessário seguir a trilha principal do Vale do Roncador por cerca de dois quilômetros, sempre beirando o córrego de mesmo nome. Após cruzar o rio duas vezes, passar por uma tronqueira e contornar um pasto, é necessário pegar uma bifurcação à direita, subindo em diagonal. Em certo ponto, ao encontrar uma laje de pedra com um filete de água escorrendo, vindo da direita, pode-se seguir por ele (cuidado para não escorregar!) ou seguir pelo barranco à esquerda.
 
+              Predominância de vias em agarras e buracos, com destaque para o grande negativo existente no meio da parede, que abriga vias longas e de alta graduação, com mais de três enfiadas de corda, contando inclusive com a via mais difícil do polo (Pr. Conrado Ferro). Destaque ao Paredão CEM, via com quatro enfiadas e que segue uma linha natural impressionante.
 
-              Para acessá-lo é necessário seguir a trilha principal do Vale do Roncador
-              por cerca de dois quilômetros, sempre beirando o córrego de mesmo nome.
-              Após cruzar o rio duas vezes, passar por uma tronqueira e contornar
-              um pasto, é necessário pegar uma bifurcação à direita, subindo em diagonal.
-              Em certo ponto, ao encontrar uma laje de pedra com um filete de água
-              escorrendo, vindo da direita, pode-se seguir por ele (cuidado para não
-              escorregar!) ou seguir pelo barranco à esquerda.
+              Outra opção interessante, é a via “Ih, Ferrou!”, por contar com proteção mista, obrigando o escalador a realizar pelo menos três lances protegendo com materiais móveis, em fendas sólidas e buracos perfeitos, ou a via “Rio de Mão Dupla”, que com 140 metros, conta apenas com dois grampos, sendo todo o resto em móvel.
 
-
-              Predominância de vias em agarras e buracos, com destaque para o grande
-              negativo existente no meio da parede, que abriga vias longas e de alta
-              graduação, com mais de três enfiadas de corda, contando inclusive com
-              a via mais difícil do polo (Pr. Conrado Ferro). Destaque ao Paredão
-              CEM, via com quatro enfiadas e que segue uma linha natural impressionante.
-
-
-              Outra opção interessante, é a via “Ih, Ferrou!”, por contar com proteção
-              mista, obrigando o escalador a realizar pelo menos três lances protegendo
-              com materiais móveis, em fendas sólidas e buracos perfeitos, ou a via
-              “Rio de Mão Dupla”, que com 140 metros, conta apenas com dois grampos,
-              sendo todo o resto em móvel.
-
-
-              Este setor ainda conta com boas possibilidades de novas vias, sobretudo
-              em sua metade da direita, na qual existem apenas três vias longas (“Eu
-              Não Sou de Ferro”, “Rio de Mão Dupla” e “À Francesa”) e uma terceira,
-              curta (“Grand Finale”).
-
+              Este setor ainda conta com boas possibilidades de novas vias, sobretudo em sua metade da direita, na qual existem apenas três vias longas (“Eu Não Sou de Ferro”, “Rio de Mão Dupla” e “À Francesa”) e uma terceira, curta (“Grand Finale”).
 
               ## Esquema de Trilhas
 
-
-              - **1**: Base das vias “Eu Não Sou de Ferro”, “Rio de Mão Dupla” e “À
-              Francesa”
-
+              - **1**: Base das vias “Eu Não Sou de Ferro”, “Rio de Mão Dupla” e “À Francesa”
               - **2**: Base das vias “Jardim do Éden” até “Arco de Ferros”
-
               - **3**: Base da via “Ih, Ferrou!”
-
-              - **4**: Base das vias “O Retorno de Jedi” e “O Nome da Rosa”'
+              - **4**: Base das vias “O Retorno de Jedi” e “O Nome da Rosa”
             precomputados:
               total_escaladas: 22
               total_esportivas: 2
               total_multiplas_enfiadas: 19
-        descricao: '<small>Capa: A Parede Principal, vista do topo da Parede das Aderências
-          - Central. (Foto: Pedro Bugim)</small>
+        descricao: |-
+          <small>Capa: A Parede Principal, vista do topo da Parede das Aderências - Central. (Foto: Pedro Bugim)</small>
 
+          Com vias entre 18 e 220 metros, a Parede Principal é uma das principais atrações para os escaladores que visitam Ferros. Esta parede colossal possui cerca de dois quilômetros de extensão, desde sua extremidade direita (Setor Clássicas Curtas) à sua extrema esquerda (Setor Clássicas Longas), com vias de praticamente todos os tipos.
 
-          Com vias entre 18 e 220 metros, a Parede Principal é uma das principais
-          atrações para os escaladores que visitam Ferros. Esta parede colossal possui
-          cerca de dois quilômetros de extensão, desde sua extremidade direita (Setor
-          Clássicas Curtas) à sua extrema esquerda (Setor Clássicas Longas), com vias
-          de praticamente todos os tipos.
+          A predominância é de vias em agarras e ótimos abaulados / buracos, conferindo ao escalador, lances bem estéticos. Como não poderia deixar de ser, estas paredes apresentam também boas passadas em aderência.
 
-
-          A predominância é de vias em agarras e ótimos abaulados / buracos, conferindo
-          ao escalador, lances bem estéticos. Como não poderia deixar de ser, estas
-          paredes apresentam também boas passadas em aderência.
-
-
-          O interessante é o fato de a parede apresentar vias curtas e longas, ambas,
-          tanto com graduações elevadas, quando com graduações bem simplórias, agradando
-          a todos os gostos.'
+          O interessante é o fato de a parede apresentar vias curtas e longas, ambas, tanto com graduações elevadas, quando com graduações bem simplórias, agradando a todos os gostos.
         precomputados:
           total_escaladas: 76
           total_esportivas: 24
@@ -8475,38 +7998,25 @@ picos:
             - Valdinei Lima
             data_abertura: '2008-02-06'
             descricao: Via atlética cujo crux é o último lance.
-        descricao: '<small>Capa: Visão geral do Setor das Vias Esportivas</small>
+        descricao: |-
+          <small>Capa: Visão geral do Setor das Vias Esportivas</small>
 
+          Apresenta vias curtas, em torno de 10 a 15 metros, de V até VIIIa, de muito fácil acesso, pois o setor está muito próximo da sede da fazenda, a cerca de 15 minutos de caminhada. Permite escalar algumas vias mesmo após dias de chuva moderada, pois um grande teto as protege.
 
-          Apresenta vias curtas, em torno de 10 a 15 metros, de V até VIIIa, de muito
-          fácil acesso, pois o setor está muito próximo da sede da fazenda, a cerca
-          de 15 minutos de caminhada. Permite escalar algumas vias mesmo após dias
-          de chuva moderada, pois um grande teto as protege.
+          Os conquistadores neste setor, até o momento, são: Tonico, Nádia Moreira, Emerson Caverna, Fabiano Fernandes, Juliano Magalhães e Valdinei Lima, com destaque para os dois últimos, em função da quantidade: dez e nove vias, respectivamente.
 
+          Dentre suas 14 vias, destacam-se “Jabá com Jerimum” (VI), “Rabada” (VIIa), “Vomitão em Ferros” (VIIIa) e “Bruxa Albano” (VI).
 
-          Os conquistadores neste setor, até o momento, são: Tonico, Nádia Moreira,
-          Emerson Caverna, Fabiano Fernandes, Juliano Magalhães e Valdinei Lima, com
-          destaque para os dois últimos, em função da quantidade: dez e nove vias,
-          respectivamente.
-
-
-          Dentre suas 14 vias, destacam-se “Jabá com Jerimum” (VI), “Rabada” (VIIa),
-          “Vomitão em Ferros” (VIIIa) e “Bruxa Albano” (VI).
-
-
-          | ![Tonico martelando a “Bruxa Albano” (Foto: Celso Ferreira Gomes)](imagens/setor_vias_esportivas_p2_i0.webp)
-          |
-
+          | ![Tonico martelando a “Bruxa Albano” (Foto: Celso Ferreira Gomes)](imagens/setor_vias_esportivas_p2_i0.webp) |
           | :--: |
-
-          | *Tonico martelando a “Bruxa Albano” (Foto: Celso Ferreira Gomes)* |'
+          | *Tonico martelando a “Bruxa Albano” (Foto: Celso Ferreira Gomes)* |
         precomputados:
           total_escaladas: 14
           total_esportivas: 14
   - setor:
       conteudo:
         uid: yN4hgcwkUvCqJC
-        nome: Parede dos Solos
+        nome: Setor Parede dos Solos
         mapas:
         - caminho_imagem_mapa: imagens/setor_parede_dos_solos_p0_i1.webp
           largura_mapa: 660
@@ -8610,17 +8120,10 @@ picos:
             - Glesse Gripp
             - Celso Ferreira Gomes
             data_abertura: '2010-10-24'
-        descricao: 'Pequena parede apropriada à modalidade solo, que conta com quatro
-          vias de 12 a 18 metros, graduadas de II a IIIsup. Possui um grampo de ½
-          polegada no topo da pedra para a escalada em *top-rope*, batido imediatamente
-          após as conquistas de outubro de 2010.
+        descricao: |-
+          Pequena parede apropriada à modalidade solo, que conta com quatro vias de 12 a 18 metros, graduadas de II a IIIsup. Possui um grampo de ½ polegada no topo da pedra para a escalada em *top-rope*, batido imediatamente após as conquistas de outubro de 2010.
 
-
-          As vias são de tipo escalada clássica, apesar de curtas, combinando agarras
-          e aderências, sendo a volta à base feita por caminhada. A aptidão ao solo
-          deve-se ao fato dos lances mais difíceis estarem nas primeiras passadas,
-          ainda em pequena altura. Existe um grampo para proteção dos lances iniciais,
-          caso o escalador queira fazê-los com corda.'
+          As vias são de tipo escalada clássica, apesar de curtas, combinando agarras e aderências, sendo a volta à base feita por caminhada. A aptidão ao solo deve-se ao fato dos lances mais difíceis estarem nas primeiras passadas, ainda em pequena altura. Existe um grampo para proteção dos lances iniciais, caso o escalador queira fazê-los com corda.
         precomputados:
           total_escaladas: 4
           total_esportivas: 4
@@ -8947,47 +8450,32 @@ picos:
                 - Celso Ferreira Gomes
                 data_abertura: '2011-09-03'
                 descricao: Via em agarras bem protegida.
-            descricao: '<small>Capa: Julinho Cardozo, Tonico e Glesse, na Face das
-              Aderências, da Pedra do Neri (Foto: Celso Ferreira Gomes)</small>
+            descricao: |-
+              <small>Capa: Julinho Cardozo, Tonico e Glesse, na Face das Aderências, da Pedra do Neri (Foto: Celso Ferreira Gomes)</small>
 
-
-              | ![O entorno da Pedra do Neri. É possível vê-la (bem diminuta), no
-              canto superior esquerdo da foto, junto à vegetação. (Foto: Pedro Bugim)](imagens/grupo_pedra_do_neri_setor_aderencias_p1_i0.webp)
-              |
-
+              | ![O entorno da Pedra do Neri. É possível vê-la (bem diminuta), no canto superior esquerdo da foto, junto à vegetação. (Foto: Pedro Bugim)](imagens/grupo_pedra_do_neri_setor_aderencias_p1_i0.webp) |
               | :--: |
-
-              | *O entorno da Pedra do Neri. É possível vê-la (bem diminuta), no canto
-              superior esquerdo da foto, junto à vegetação. (Foto: Pedro Bugim)* |'
+              | *O entorno da Pedra do Neri. É possível vê-la (bem diminuta), no canto superior esquerdo da foto, junto à vegetação. (Foto: Pedro Bugim)* |
             precomputados:
               total_escaladas: 5
               total_esportivas: 5
-        descricao: '<small>Capa: Pedra do Neri - À esquerda, vias esportivas; à direita,
-          vias em aderência. (Foto: Celso Ferreira Gomes)</small>
+        descricao: |-
+          <small>Capa: Pedra do Neri - À esquerda, vias esportivas; à direita, vias em aderência. (Foto: Celso Ferreira Gomes)</small>
 
+          Enorme bloco rolado situado na propriedade do Sr. Neri, próxima do povoado quilombola denominado Mendonça, apresenta duas faces escaláveis, totalizando onze vias implantadas.
 
-          Enorme bloco rolado situado na propriedade do Sr. Neri, próxima do povoado
-          quilombola denominado Mendonça, apresenta duas faces escaláveis, totalizando
-          onze vias implantadas.
+          Este bloco apresenta dois setores distintos: Esportivas (esquerda) e Aderências (direita).
 
+          As seis vias do setor das Esportivas, todas com extensão de 15 metros, foram conquistadas no dia de Natal de 2010 por Juliano Magalhães e Tonico.
 
-          Este bloco apresenta dois setores distintos: Esportivas (esquerda) e Aderências
-          (direita).
-
-
-          As seis vias do setor das Esportivas, todas com extensão de 15 metros, foram
-          conquistadas no dia de Natal de 2010 por Juliano Magalhães e Tonico.
-
-
-          A face das Aderências apresenta cinco vias com extensão de 10 a 12 metros
-          e graduação bastante variável, de IIIsup a VIIc.'
+          A face das Aderências apresenta cinco vias com extensão de 10 a 12 metros e graduação bastante variável, de IIIsup a VIIc.
         precomputados:
           total_escaladas: 11
           total_esportivas: 8
   - setor:
       conteudo:
         uid: FrjVJC9SeIMHep
-        nome: Parede da CENIBRA
+        nome: Setor Parede da CENIBRA
         mapas:
         - caminho_imagem_mapa: imagens/setor_parede_da_cenibra_p0_i1.webp
           referencias:
@@ -9029,7 +8517,7 @@ picos:
   - setor:
       conteudo:
         uid: JuGO79h5ulqaY7
-        nome: Parede da Água Limpa
+        nome: Setor Parede da Água Limpa
         mapas:
         - caminho_imagem_mapa: imagens/setor_parede_da_agua_limpa_p1_i0.webp
           referencias:
@@ -9073,45 +8561,20 @@ picos:
             - Celso Ferreira Gomes
             - Tonico Magalhães
             data_abertura: '2015-09-06'
-            descricao: 'Atualmente, a única via da parede, e maior via da região de
-              Ferros, contando com 405 metros de parede. Foi conquistada em três investidas
-              com participantes distintos, demorando cerca de quatro anos para ser
-              finalizada:
-
-              por Luciano Bender, Gustavo "Xaxá" Carrozino, Celso Ferreira Gomes e
-              Tonico Magalhães em 22/04/2011 (Base à P2);
-
-              por Tiago "Fox" Bastos, Elton Soares, Rodrigo Tinoco e Alexandre Mesquita
-              em 07/09/2012 (P2 à P3);
-
+            descricao: |
+              Atualmente, a única via da parede, e maior via da região de Ferros, contando com 405 metros de parede. Foi conquistada em três investidas com participantes distintos, demorando cerca de quatro anos para ser finalizada:
+              por Luciano Bender, Gustavo "Xaxá" Carrozino, Celso Ferreira Gomes e Tonico Magalhães em 22/04/2011 (Base à P2);
+              por Tiago "Fox" Bastos, Elton Soares, Rodrigo Tinoco e Alexandre Mesquita em 07/09/2012 (P2 à P3);
               por Pedro Bugim e Vivianne Sawczuk em 06/09/2015 (P3 à P8).
-
-              Corta toda a parede frontal principal, seguindo uma linha bem natural
-              e sem lances muito complicados. Predomina a aderência, e, em alguns
-              lances, agarras abauladas. Proteção predominante em grampos de ½, possuindo
-              algumas chapeletas na enfiada final. Nesta última enfiada, é possível
-              rapelar de chapas com argola, colocadas a cada 25 metros. Rapel possível
-              com corda de 60m, sendo recomendado a utilização de duas cordas de 60.
-
-              '
+              Corta toda a parede frontal principal, seguindo uma linha bem natural e sem lances muito complicados. Predomina a aderência, e, em alguns lances, agarras abauladas. Proteção predominante em grampos de ½, possuindo algumas chapeletas na enfiada final. Nesta última enfiada, é possível rapelar de chapas com argola, colocadas a cada 25 metros. Rapel possível com corda de 60m, sendo recomendado a utilização de duas cordas de 60.
           mapas:
           - caminho_imagem_mapa: imagens/setor_parede_da_agua_limpa_p2_i1.webp
             largura_mapa: 816
             altura_mapa: 1224
-        descricao: 'As paredes de Água Limpa ficam situadas no vale homônimo e distantes
-          cerca de seis quilômetros do vale do Roncador (onde fica a maioria das escaladas
-          do guia). Para se chegar até a Água Limpa deve-se ir para o encontro dos
-          rios Santo Antonio e Tanque, conhecido ponto turístico de Ferros, encontro
-          esse que pode ser atingido seguindo-se a estrada que acompanha o rio Tanque
-          por cerca de cinco quilômetros abaixo da fazenda-sede. De lá uma rápida
-          estradinha adentra ao mágico vale.
+        descricao: |-
+          As paredes de Água Limpa ficam situadas no vale homônimo e distantes cerca de seis quilômetros do vale do Roncador (onde fica a maioria das escaladas do guia). Para se chegar até a Água Limpa deve-se ir para o encontro dos rios Santo Antonio e Tanque, conhecido ponto turístico de Ferros, encontro esse que pode ser atingido seguindo-se a estrada que acompanha o rio Tanque por cerca de cinco quilômetros abaixo da fazenda-sede. De lá uma rápida estradinha adentra ao mágico vale.
 
-
-          O vale Água Limpa chamou atenção por possuir paredes gigantescas com comprimentos
-          que podem atingir mais de 600 metros. A via Dama de Ferros é a primeira
-          do local e possui mais de 400 metros. Um projeto, que visa aproveitar a
-          máxima extensão da parede, já foi iniciado em meio a uma grande extensão
-          de paredes intocadas.'
+          O vale Água Limpa chamou atenção por possuir paredes gigantescas com comprimentos que podem atingir mais de 600 metros. A via Dama de Ferros é a primeira do local e possui mais de 400 metros. Um projeto, que visa aproveitar a máxima extensão da parede, já foi iniciado em meio a uma grande extensão de paredes intocadas.
         precomputados:
           total_escaladas: 1
           total_multiplas_enfiadas: 1
@@ -9445,19 +8908,19 @@ picos:
         - alvo_uid: lTi8TIXxTU6KF0
           pontos_uids:
           - IbUvETYLwk7aor
-          setor: Cachoeira
+          setor: Setor Cachoeira
           ids:
           - IbUvETYLwk7aor
         - alvo_uid: FO3KvzGBfKKpB4
           pontos_uids:
           - SrrfY5W7a4SoMG
-          setor: Extrema Esquerda
+          setor: Setor Extrema Esquerda
           ids:
           - SrrfY5W7a4SoMG
         - alvo_uid: avRkW8fzw3OF22
           pontos_uids:
           - 96K2LWJvUM8ahL
-          setor: Esquerda
+          setor: Setor Esquerda
           ids:
           - 96K2LWJvUM8ahL
         - alvo_uid: rGOlhPmCuaVWav
@@ -9475,7 +8938,7 @@ picos:
         - alvo_uid: sMtcp04stg3wSX
           pontos_uids:
           - UdlLE2XE09JMRM
-          setor: Extrema Direita
+          setor: Setor Extrema Direita
           ids:
           - UdlLE2XE09JMRM
         - alvo_uid: rKxz4SSg8tyORQ
@@ -9487,7 +8950,7 @@ picos:
         - alvo_uid: g0ASFec0ovBc9J
           pontos_uids:
           - mYRqccO8ZICq0M
-          setor: Parede Principal – Direita
+          setor: Setor Parede Principal – Direita
           ids:
           - mYRqccO8ZICq0M
         - alvo_uid: nJgmAcSxMTe2Xy
@@ -9511,7 +8974,7 @@ picos:
         - alvo_uid: yN4hgcwkUvCqJC
           pontos_uids:
           - xkikuC5xdALcA5
-          setor: Parede dos Solos
+          setor: Setor Parede dos Solos
           ids:
           - xkikuC5xdALcA5
         - alvo_uid: o2smhkoUzmFDR9
@@ -9535,447 +8998,190 @@ botoes:
   texto: Capa
   destino:
     secao_textual:
-      conteudo: '# Guia de Escaladas
-
+      conteudo: |-
+        # Guia de Escaladas
 
         ## Ferros / MG
 
-
         | ![Capa - Guia de Escaladas Ferros / MG](imagens/capa_p0_i0.webp) |
-
         | :--: |
-
         | *Capa - Guia de Escaladas Ferros / MG* |
 
-
         **Autores:**
-
         - Pedro Bugim Ruel Vergnano
-
         - Antonio Carlos Magalhães
-
         - Celso José Ferreira Gomes
 
-
-        **Ano:** 2015'
+        **Ano:** 2015
 - uid: XYeErJUnmdVfIH
   texto: Apresentação
   destino:
     secao_textual:
-      conteudo: '# Agradecimentos
+      conteudo: |-
+        # Agradecimentos
 
+        À Maria Fernanda Patrício, por suas críticas, incentivo na formulação deste guia e pela ajuda inestimável nas conquistas que fizemos juntos.
 
-        À Maria Fernanda Patrício, por suas críticas, incentivo na formulação deste
-        guia e pela ajuda inestimável nas conquistas que fizemos juntos.
+        Agradecimentos ao amigo Celso Ferreira Gomes, pela elaboração do esboço do guia oficial de Ferros, postado no site do Tonico, com informações valiosas para que este presente guia fosse formulado, pela contribuição de dados e pelo minucioso trabalho de revisão.
 
+        Agradecimentos especiais ao amigo Tonico Magalhães e à esposa Nádia Moreira, grande escalador e conquistador, por vossa hospitalidade ímpar nas investidas às paredes de Ferros e por vossa contribuição com dados precisos e preciosos para a criação deste guia.
 
-        Agradecimentos ao amigo Celso Ferreira Gomes, pela elaboração do esboço do
-        guia oficial de Ferros, postado no site do Tonico, com informações valiosas
-        para que este presente guia fosse formulado, pela contribuição de dados e
-        pelo minucioso trabalho de revisão.
-
-
-        Agradecimentos especiais ao amigo Tonico Magalhães e à esposa Nádia Moreira,
-        grande escalador e conquistador, por vossa hospitalidade ímpar nas investidas
-        às paredes de Ferros e por vossa contribuição com dados precisos e preciosos
-        para a criação deste guia.
-
-
-        Ao Celso e ao Tonico, meu muito obrigado pelo convite para participar deste
-        projeto que, embora muito trabalhoso, está sendo também muito gratificante!
-
+        Ao Celso e ao Tonico, meu muito obrigado pelo convite para participar deste projeto que, embora muito trabalhoso, está sendo também muito gratificante!
 
         *Pedro Bugim*
 
-
-        Ao Centro Excursionista Mineiro, por tão bem congregar o povo da montanha
-        de Minas Gerais, tanto os nativos quanto os naturalizados;
-
+        Ao Centro Excursionista Mineiro, por tão bem congregar o povo da montanha de Minas Gerais, tanto os nativos quanto os naturalizados;
 
         Ao Tonico, amigo de fé e parceiro de mais de cem conquistas;
 
+        Ao amigo Pedro Bugim, uma pessoa verdadeiramente incansável na batalha de executar, e bem, o que se propõe a fazer;
 
-        Ao amigo Pedro Bugim, uma pessoa verdadeiramente incansável na batalha de
-        executar, e bem, o que se propõe a fazer;
+        Aos escaladores e escaladoras com quem já tive a satisfação de escalar em Ferros, especialmente no Vale do Roncador;
 
-
-        Aos escaladores e escaladoras com quem já tive a satisfação de escalar em
-        Ferros, especialmente no Vale do Roncador;
-
-
-        E às pessoas que, animadas por esse guia, nos venham a dar a satisfação da
-        presença.
-
+        E às pessoas que, animadas por esse guia, nos venham a dar a satisfação da presença.
 
         *Celso Ferreira Gomes*
 
-
         ---
-
 
         # Apresentação
 
+        Esse guia apresenta as primeiras 160 vias de escalada implantadas no município mineiro de Ferros, ao longo dos últimos nove anos. Chama a atenção o fato de que mais da metade dessas vias foi o resultado das conquistas dos últimos três anos, o que nos mostra um notável incremento das atividades na área. Não obstante, o potencial para novas conquistas nos pontos já regularmente frequentados ainda permanece muito elevado, no Vale do Roncador e nas paredes vizinhas.
 
-        Esse guia apresenta as primeiras 160 vias de escalada implantadas no município
-        mineiro de Ferros, ao longo dos últimos nove anos. Chama a atenção o fato
-        de que mais da metade dessas vias foi o resultado das conquistas dos últimos
-        três anos, o que nos mostra um notável incremento das atividades na área.
-        Não obstante, o potencial para novas conquistas nos pontos já regularmente
-        frequentados ainda permanece muito elevado, no Vale do Roncador e nas paredes
-        vizinhas.
+        O Vale do Roncador é a área com paredes que mais se destaca na região. Dominado pelo córrego homônimo, tributário do rio Tanque, é ladeado por paredes rochosas muito próximas entre si. Na margem esquerda do córrego, ou seja, à direita de quem entra no vale, subindo o curso de água, situa-se a Parede Principal (Paredes de Aço). No lado oposto, a Parede das Aderências. No momento retratado por esse guia, o Vale do Roncador concentra 130 vias de escalada!
 
+        Apresentando vias clássicas em agarras e aderências, vias esportivas e atléticas, vias com proteção fixa, móvel e mista, além da paisagem notável cortada pelo rio Tanque, o complexo de Ferros é altamente recomendado a todos os tipos de escaladores, desde os iniciantes até os mais experientes, desde os de estilo eclético e que queiram simplesmente praticar o esporte em geral ou se aprimorar na variedade de estilos, até os de estilo mais específico e que, igualmente, queiram se dedicar ao seu estilo predileto ou nele se aprimorar.
 
-        O Vale do Roncador é a área com paredes que mais se destaca na região. Dominado
-        pelo córrego homônimo, tributário do rio Tanque, é ladeado por paredes rochosas
-        muito próximas entre si. Na margem esquerda do córrego, ou seja, à direita
-        de quem entra no vale, subindo o curso de água, situa-se a Parede Principal
-        (Paredes de Aço). No lado oposto, a Parede das Aderências. No momento retratado
-        por esse guia, o Vale do Roncador concentra 130 vias de escalada!
+        Assim, pela variedade e quantidade de vias existentes, pela segura e confortável proteção fixa implantada, pela excelente qualidade da rocha, o mineiríssimo granitóide Borrachudo, e pela facilidade de acesso às áreas de escalada, Ferros apresenta-se hoje como o mais completo polo de escaladas em granito nas imediações de Belo Horizonte.
 
-
-        Apresentando vias clássicas em agarras e aderências, vias esportivas e atléticas,
-        vias com proteção fixa, móvel e mista, além da paisagem notável cortada pelo
-        rio Tanque, o complexo de Ferros é altamente recomendado a todos os tipos
-        de escaladores, desde os iniciantes até os mais experientes, desde os de estilo
-        eclético e que queiram simplesmente praticar o esporte em geral ou se aprimorar
-        na variedade de estilos, até os de estilo mais específico e que, igualmente,
-        queiram se dedicar ao seu estilo predileto ou nele se aprimorar.
-
-
-        Assim, pela variedade e quantidade de vias existentes, pela segura e confortável
-        proteção fixa implantada, pela excelente qualidade da rocha, o mineiríssimo
-        granitóide Borrachudo, e pela facilidade de acesso às áreas de escalada, Ferros
-        apresenta-se hoje como o mais completo polo de escaladas em granito nas imediações
-        de Belo Horizonte.
-
-
-        *Os autores, fevereiro de 2015*'
+        *Os autores, fevereiro de 2015*
 - uid: EQU85C4O073sdq
   texto: Sobre Ferros e História
   destino:
     secao_textual:
-      conteudo: '# Sobre Ferros
+      conteudo: |-
+        # Sobre Ferros
 
+        Ferros é um município brasileiro localizado no Centro-Leste do Estado de Minas Gerais. Sua localização global está situada a 19°13'58 sul e 43°01'20 oeste. A população, de acordo com o censo do IBGE de 2010, é de 10.725 habitantes, sendo dividida meio-a-meio entre a zona urbana e a rural. Dista cerca de 180 km da Capital, Belo Horizonte, no sentido nordeste (saída para Vitória - ES) seguindo pelo percurso: BR 381, MG 434-129 e BR120.
 
-        Ferros é um município brasileiro localizado no Centro-Leste do Estado de Minas
-        Gerais. Sua localização global está situada a 19°13''58 sul e 43°01''20 oeste.
-        A população, de acordo com o censo do IBGE de 2010, é de 10.725 habitantes,
-        sendo dividida meio-a-meio entre a zona urbana e a rural. Dista cerca de 180
-        km da Capital, Belo Horizonte, no sentido nordeste (saída para Vitória - ES)
-        seguindo pelo percurso: BR 381, MG 434-129 e BR120.
+        A principal atividade econômica do município é a pecuária leiteira e de corte. Em férteis pastagens desenvolvidas nas baixas a médias encostas, o gado girolando produz o leite que é utilizado para se fazer principalmente o famoso queijo do Tipo Sêrro e os requeijões negros, típicos da grande bacia leiteira do Leste do Espinhaço.
 
-
-        A principal atividade econômica do município é a pecuária leiteira e de corte.
-        Em férteis pastagens desenvolvidas nas baixas a médias encostas, o gado girolando
-        produz o leite que é utilizado para se fazer principalmente o famoso queijo
-        do Tipo Sêrro e os requeijões negros, típicos da grande bacia leiteira do
-        Leste do Espinhaço.
-
-
-        Ferros também é portadora de fantásticas jazidas de água marinha. O garimpo
-        subterrâneo dessas gemas é uma atividade secular na região.
-
+        Ferros também é portadora de fantásticas jazidas de água marinha. O garimpo subterrâneo dessas gemas é uma atividade secular na região.
 
         ## História
 
+        A região de Ferros era chamada no final do século XVIII por Sertão Proibido. Isto se devia ao controle da coroa portuguesa na Estrada-Real entre Diamantina e Ouro Preto que proibia o desvio da produção de ouro e diamantes pelo vale do Rio Doce visando escapar do pagamento do Quinto. A estrada que acompanha a fazenda e o Rio Tanque, onde estão as escaladas, foi então um ramo alternativo e clandestino da Estrada-Real naquela época.
 
-        A região de Ferros era chamada no final do século XVIII por Sertão Proibido.
-        Isto se devia ao controle da coroa portuguesa na Estrada-Real entre Diamantina
-        e Ouro Preto que proibia o desvio da produção de ouro e diamantes pelo vale
-        do Rio Doce visando escapar do pagamento do Quinto. A estrada que acompanha
-        a fazenda e o Rio Tanque, onde estão as escaladas, foi então um ramo alternativo
-        e clandestino da Estrada-Real naquela época.
-
-
-        | ![Nova Matriz de Santana – Ferros / MG](imagens/sobre_ferros_e_historia_p0_i0.webp)
-        |
-
+        | ![Nova Matriz de Santana – Ferros / MG](imagens/sobre_ferros_e_historia_p0_i0.webp) |
         | :--: |
-
         | *Nova Matriz de Santana – Ferros / MG* |
 
+        Sob a denominação de Santana dos Ferros, surgiu um povoado em função das explorações de ouro e diamantes desenvolvidas às margens do rio Santo Antônio, no último quartel do século XVIII, tendo como fundadores Pedro Fernandes Alves e José Ferreira Santiago, que ali teriam se fixado com o objetivo de minerar. Segundo o cônego Raimundo Trindade e o historiador Waldemar Barbosa, o povoado, em fins do século XIX, prosperou em razão do incremento das atividades de lavoura e pecuária, sendo elevado à vila, com a criação, por lei de 1884, do município, emancipando-se do município de Itabira. A elevação da vila à categoria de Cidade ocorreu dois anos depois. O nome atual, Ferros, foi adotado em 1923, e pode decorrer do processo de mineração então adotado, que, para a retirada do cascalho aurífero do fundo do rio Santo Antônio, compreendia o emprego de ganchos especiais de ferro. Os desbravadores, ao se espalharem pelas profundezas para abrir novas picadas, deixavam suas ferramentas guardadas e, na medida em que delas precisavam, recorriam ao depósito, dizendo: "Vamos aos Ferros!". Por outro lado, nós acreditamos que a origem do nome Ferros possa estar relacionada com os estreitos, porém contínuos, filetes de minério de ferro compacto que cortam diversos locais do município e que foram pré-historicamente e historicamente utilizados como material para machados arqueológicos (já encontrados nas áreas das escaladas) e como primorosa pedra de amolar para foices e facões. Ao longo do tempo, Ferros incorporou ao seu território um grande número de distritos, assim chamados: Esmeralda de Ferros, Cubas, Sete Cachoeiras, Borba Gato, Santa Rita do Rio do Peixe e Santo Antônio. O município possui seu acervo arquitetônico bem preservado e conserva prédios remanescentes de seus primeiros tempos, como as capelas de São José e Nossa Senhora do Rosário e o sobrado da Praça Monsenhor Alípio, que funcionou como Casa de Câmara e Cadeia, passando depois a Fórum e Coletoria, e que atualmente funciona como Casa de Câmara, Biblioteca Municipal, Agência de Passagens e Associação dos Comerciantes.
 
-        Sob a denominação de Santana dos Ferros, surgiu um povoado em função das explorações
-        de ouro e diamantes desenvolvidas às margens do rio Santo Antônio, no último
-        quartel do século XVIII, tendo como fundadores Pedro Fernandes Alves e José
-        Ferreira Santiago, que ali teriam se fixado com o objetivo de minerar. Segundo
-        o cônego Raimundo Trindade e o historiador Waldemar Barbosa, o povoado, em
-        fins do século XIX, prosperou em razão do incremento das atividades de lavoura
-        e pecuária, sendo elevado à vila, com a criação, por lei de 1884, do município,
-        emancipando-se do município de Itabira. A elevação da vila à categoria de
-        Cidade ocorreu dois anos depois. O nome atual, Ferros, foi adotado em 1923,
-        e pode decorrer do processo de mineração então adotado, que, para a retirada
-        do cascalho aurífero do fundo do rio Santo Antônio, compreendia o emprego
-        de ganchos especiais de ferro. Os desbravadores, ao se espalharem pelas profundezas
-        para abrir novas picadas, deixavam suas ferramentas guardadas e, na medida
-        em que delas precisavam, recorriam ao depósito, dizendo: "Vamos aos Ferros!".
-        Por outro lado, nós acreditamos que a origem do nome Ferros possa estar relacionada
-        com os estreitos, porém contínuos, filetes de minério de ferro compacto que
-        cortam diversos locais do município e que foram pré-historicamente e historicamente
-        utilizados como material para machados arqueológicos (já encontrados nas áreas
-        das escaladas) e como primorosa pedra de amolar para foices e facões. Ao longo
-        do tempo, Ferros incorporou ao seu território um grande número de distritos,
-        assim chamados: Esmeralda de Ferros, Cubas, Sete Cachoeiras, Borba Gato, Santa
-        Rita do Rio do Peixe e Santo Antônio. O município possui seu acervo arquitetônico
-        bem preservado e conserva prédios remanescentes de seus primeiros tempos,
-        como as capelas de São José e Nossa Senhora do Rosário e o sobrado da Praça
-        Monsenhor Alípio, que funcionou como Casa de Câmara e Cadeia, passando depois
-        a Fórum e Coletoria, e que atualmente funciona como Casa de Câmara, Biblioteca
-        Municipal, Agência de Passagens e Associação dos Comerciantes.
+        A área das fazendas Retiro das Águas e Roncador, onde estão as escaladas, foi palco de ocupação tupi-guarani pré-histórica com datação de cerâmica confirmada em 660 anos, isto é, cerca de 150 anos antes do descobrimento do Brasil, remontando à idade Média Europeia. Muito tempo depois disso, sabe-se ainda que em meados a fins do século XIX as últimas tribos botocudas rebeladas que habitavam Ferros e todo o Vale do Rio Doce foram expulsas e mortas pelas forças imperiais e teriam sido vistas pela última vez nos Vales do Roncador e Água Limpa.
 
-
-        A área das fazendas Retiro das Águas e Roncador, onde estão as escaladas,
-        foi palco de ocupação tupi-guarani pré-histórica com datação de cerâmica confirmada
-        em 660 anos, isto é, cerca de 150 anos antes do descobrimento do Brasil, remontando
-        à idade Média Europeia. Muito tempo depois disso, sabe-se ainda que em meados
-        a fins do século XIX as últimas tribos botocudas rebeladas que habitavam Ferros
-        e todo o Vale do Rio Doce foram expulsas e mortas pelas forças imperiais e
-        teriam sido vistas pela última vez nos Vales do Roncador e Água Limpa.
-
-
-        Ferros se notabiliza em diversas personalidades importantes. Podemos destacar
-        o romancista Roberto Drummond, da mesma família do famoso poeta modernista
-        Carlos Drummond de Andrade. As principais obras do Roberto, Hilda Furacão
-        e Inês é Morta, dão nome a duas vias maravilhosas e emblemáticas do local.'
+        Ferros se notabiliza em diversas personalidades importantes. Podemos destacar o romancista Roberto Drummond, da mesma família do famoso poeta modernista Carlos Drummond de Andrade. As principais obras do Roberto, Hilda Furacão e Inês é Morta, dão nome a duas vias maravilhosas e emblemáticas do local.
 - uid: wjQZUwNbLdHIKq
   texto: Geografia e Logística
   destino:
     secao_textual:
-      conteudo: '# Geografia
+      conteudo: |-
+        # Geografia
 
+        Ferros possui uma expressiva área de 1090 km², englobando a sede e os seis distritos que possui. Sua altitude máxima é 1260 m na Serra dos Cocais e a altitude mínima é de cerca de 400 m no encontro dos rios Tanque e Santo Antônio. O clima é quente e úmido com inverno seco e verão chuvoso. A temperatura média anual é de 21°C, com temperaturas mais elevadas entre os meses de agosto a março, sendo a máxima 37°C e a mínima 8°C. O período com maior incidência de chuvas é de outubro a março, com média anual de 1200 mm. O município tem muitas serras, ramificação da Cordilheira do Espinhaço: Santana, Rosário, Caçu, Ferreiros, Taquaral, Sapé, Cuité, Bolívia, Cocais, Cumeeiras e outras.
 
-        Ferros possui uma expressiva área de 1090 km², englobando a sede e os seis
-        distritos que possui. Sua altitude máxima é 1260 m na Serra dos Cocais e a
-        altitude mínima é de cerca de 400 m no encontro dos rios Tanque e Santo Antônio.
-        O clima é quente e úmido com inverno seco e verão chuvoso. A temperatura média
-        anual é de 21°C, com temperaturas mais elevadas entre os meses de agosto a
-        março, sendo a máxima 37°C e a mínima 8°C. O período com maior incidência
-        de chuvas é de outubro a março, com média anual de 1200 mm. O município tem
-        muitas serras, ramificação da Cordilheira do Espinhaço: Santana, Rosário,
-        Caçu, Ferreiros, Taquaral, Sapé, Cuité, Bolívia, Cocais, Cumeeiras e outras.
-
-
-        Segundo dados da Companhia Energética de Minas Gerais (Cemig), a temperatura
-        mínima registrada em Ferros foi de 3,6ºC, ocorrida no dia 17 de julho de 2000.
-        Já a máxima foi de 37,2ºC, registrada nos dias 16 de novembro de 1985 e 24
-        de setembro de 1994. O maior acumulado de chuva registrado na cidade em 24
-        horas foi de 186,0 mm, em 20 de fevereiro de 1990.
-
+        Segundo dados da Companhia Energética de Minas Gerais (Cemig), a temperatura mínima registrada em Ferros foi de 3,6ºC, ocorrida no dia 17 de julho de 2000. Já a máxima foi de 37,2ºC, registrada nos dias 16 de novembro de 1985 e 24 de setembro de 1994. O maior acumulado de chuva registrado na cidade em 24 horas foi de 186,0 mm, em 20 de fevereiro de 1990.
 
         ## Vegetação Predominante
 
+        O município de Ferros apresenta cerca de 60% de sua superfície coberta por matas e formações naturais, localizadas preferencialmente em encostas e topos de morros e 5% de área ocupada por reflorestamento de eucalipto, notadamente da Cenibra. Por ter uma topografia acidentada em geral, as férteis baixadas junto aos rios normalmente foram ocupadas pelas habitações e pelas plantações há séculos, inclusive pelas populações pré-históricas que lá existiram e plantavam mandioca, milho, feijão, inhame e batata-doce.
 
-        O município de Ferros apresenta cerca de 60% de sua superfície coberta por
-        matas e formações naturais, localizadas preferencialmente em encostas e topos
-        de morros e 5% de área ocupada por reflorestamento de eucalipto, notadamente
-        da Cenibra. Por ter uma topografia acidentada em geral, as férteis baixadas
-        junto aos rios normalmente foram ocupadas pelas habitações e pelas plantações
-        há séculos, inclusive pelas populações pré-históricas que lá existiram e plantavam
-        mandioca, milho, feijão, inhame e batata-doce.
-
-
-        Apresenta normalmente uma floresta estacional semi-caduca típica das altas
-        porções da bacia do Rio Doce, podendo ser considerada como uma mata atlântica
-        com leves influências da caatinga e dos cerrados. As matas da região, normalmente
-        de porte médio, possuem expressivas quantidades de braúna, vinhático, garapa,
-        jatobá, angico, saltamartin, grão-de-galo, sucupira, peroba, moreira, jacaré,
-        etc. É muito comum nas matas de Ferros a presença de jaboticabeiras e diversos
-        tipos de mandiocas e abacaxis nativos.
-
+        Apresenta normalmente uma floresta estacional semi-caduca típica das altas porções da bacia do Rio Doce, podendo ser considerada como uma mata atlântica com leves influências da caatinga e dos cerrados. As matas da região, normalmente de porte médio, possuem expressivas quantidades de braúna, vinhático, garapa, jatobá, angico, saltamartin, grão-de-galo, sucupira, peroba, moreira, jacaré, etc. É muito comum nas matas de Ferros a presença de jaboticabeiras e diversos tipos de mandiocas e abacaxis nativos.
 
         ## Fauna
 
-
-        Em função da bem preservada cobertura florestal de Ferros e da baixíssima
-        densidade populacional, a presença da fauna é consideravelmente rica. Têm
-        sido relatadas observações de diversos felinos, incluindo onças e gatos mouriscos
-        em várias regiões do município, inclusive no Vale do Roncador onde estão as
-        escaladas. Ao longo dos principais rios podem ser encontrados bandos de capivara.
-        Diversos macacos têm sido vistos, inclusive enormes grupos no vale das escaladas.
-        Outros relatos envolvem lobo guará, raposas, tatu, paca, veado, lontra, porcos
-        do mato, jacu, sagüi-de-cara-branca, etc. Nos rios a fauna é também abundante
-        tendo sido descritos piaus, traíras, bagres, etc. No rio Tanque, que banha
-        a fazenda onde estão as escaladas, pesquisas indicaram uma espécie endêmica
-        chamada de Cachara, um tipo de surubim pequeno com uma cabeça enorme.
-
+        Em função da bem preservada cobertura florestal de Ferros e da baixíssima densidade populacional, a presença da fauna é consideravelmente rica. Têm sido relatadas observações de diversos felinos, incluindo onças e gatos mouriscos em várias regiões do município, inclusive no Vale do Roncador onde estão as escaladas. Ao longo dos principais rios podem ser encontrados bandos de capivara. Diversos macacos têm sido vistos, inclusive enormes grupos no vale das escaladas. Outros relatos envolvem lobo guará, raposas, tatu, paca, veado, lontra, porcos do mato, jacu, sagüi-de-cara-branca, etc. Nos rios a fauna é também abundante tendo sido descritos piaus, traíras, bagres, etc. No rio Tanque, que banha a fazenda onde estão as escaladas, pesquisas indicaram uma espécie endêmica chamada de Cachara, um tipo de surubim pequeno com uma cabeça enorme.
 
         ## Hidrografia
 
+        A rede fluvial do município é densa, rica em pequenos e médios cursos de água, favorecendo assim uma maior divisão de propriedades e fartura hídrica.
 
-        A rede fluvial do município é densa, rica em pequenos e médios cursos de água,
-        favorecendo assim uma maior divisão de propriedades e fartura hídrica.
+        O principal rio é o Santo Antônio, que corta a sede, e correndo para o leste, depois de um percurso de 283 km, vai despejar suas águas no rio Doce já no Vale do Aço. No município de Ferros, o rio Santo Antônio ainda recebe as águas do rio Tanque e rio do Peixe. Faz parte da bacia hidrográfica do rio Doce e tem suas abundantes nascentes principais localizadas na Serra do Espinhaço nos subsetores Serra do Cipó e Serra do Itambé. As sub bacias dos rios Santo Antônio e Tanque são consideradas as de melhor qualidade de água de todo o vale do Rio Doce.
 
-
-        O principal rio é o Santo Antônio, que corta a sede, e correndo para o leste,
-        depois de um percurso de 283 km, vai despejar suas águas no rio Doce já no
-        Vale do Aço. No município de Ferros, o rio Santo Antônio ainda recebe as águas
-        do rio Tanque e rio do Peixe. Faz parte da bacia hidrográfica do rio Doce
-        e tem suas abundantes nascentes principais localizadas na Serra do Espinhaço
-        nos subsetores Serra do Cipó e Serra do Itambé. As sub bacias dos rios Santo
-        Antônio e Tanque são consideradas as de melhor qualidade de água de todo o
-        vale do Rio Doce.
-
-
-        | ![O Rio Tanque e a praia em sua margem](imagens/geografia_e_logistica_p1_i1.webp)
-        |
-
+        | ![O Rio Tanque e a praia em sua margem](imagens/geografia_e_logistica_p1_i1.webp) |
         | :--: |
-
         | *O Rio Tanque e a praia em sua margem* |
 
-
-        O córrego Roncador que domina o vale das escaladas, pode ser considerado uma
-        manancial de altíssima capacidade. Do vale das escaladas, com uma área de
-        apenas 2,5 quilômetros quadrados, escorre uma surpreendente vazão média de
-        cerca de 50 litros por segundo. A razão disso é que o eixo do vale é coincidente
-        com uma importante falha geológica, ainda ativa, por onde ascende tão rico
-        aquífero. É farta a água para consumo nas escaladas e para o banho refrescante
-        ao final.
-
+        O córrego Roncador que domina o vale das escaladas, pode ser considerado uma manancial de altíssima capacidade. Do vale das escaladas, com uma área de apenas 2,5 quilômetros quadrados, escorre uma surpreendente vazão média de cerca de 50 litros por segundo. A razão disso é que o eixo do vale é coincidente com uma importante falha geológica, ainda ativa, por onde ascende tão rico aquífero. É farta a água para consumo nas escaladas e para o banho refrescante ao final.
 
         ## Região das Escaladas
 
+        O complexo de vias de escalada de Ferros situa-se nas Fazendas Roncador e Retiro das Águas, de propriedade do montanhista (detentor de mais de 460 conquistas em sua carreira e conquistador da maioria das vias em Ferros) Antonio Carlos Magalhães (Tonico).
 
-        O complexo de vias de escalada de Ferros situa-se nas Fazendas Roncador e
-        Retiro das Águas, de propriedade do montanhista (detentor de mais de 460 conquistas
-        em sua carreira e conquistador da maioria das vias em Ferros) Antonio Carlos
-        Magalhães (Tonico).
+        As escaladas em Ferros foram iniciadas após a pioneira conquista da via “Iron Men” (4º V – 130 metros), pelo Tonico, seu filho Juliano Magalhães e Marcos Leiras, em 26 de fevereiro de 2006, na chamada Parede Principal, a qual se tornaria a parede com maior concentração de vias longas do local.
 
+        Além de relativa proximidade ao centro de Belo Horizonte (aproximadamente 3 horas de carro), este polo de escaladas impressiona pelo enorme potencial, com paredes de todos os estilos e tamanhos, apresentando vias longas, curtas, de aderência, agarras, negativos, fendas, proteções fixas e móveis, graduações das mais simplórias até vias complexas de alta graduação, etc.
 
-        As escaladas em Ferros foram iniciadas após a pioneira conquista da via “Iron
-        Men” (4º V – 130 metros), pelo Tonico, seu filho Juliano Magalhães e Marcos
-        Leiras, em 26 de fevereiro de 2006, na chamada Parede Principal, a qual se
-        tornaria a parede com maior concentração de vias longas do local.
+        Nos diversos setores da região, é possível fazer escaladas curtas para treinar lances sejam atléticos, ou de puro equilíbrio, ou entrar em vias longas, com mais de quatro enfiadas de corda, testando assim o psicológico e a resistência do escalador.
 
+        Além das inúmeras possibilidades de escalada, a região conta com agradável rio Tanque, com suas águas cálidas (26 a 28 graus) para banho após as atividades, bem como locais estratégicos de camping, como as próprias praias à beira rio.
 
-        Além de relativa proximidade ao centro de Belo Horizonte (aproximadamente
-        3 horas de carro), este polo de escaladas impressiona pelo enorme potencial,
-        com paredes de todos os estilos e tamanhos, apresentando vias longas, curtas,
-        de aderência, agarras, negativos, fendas, proteções fixas e móveis, graduações
-        das mais simplórias até vias complexas de alta graduação, etc.
-
-
-        Nos diversos setores da região, é possível fazer escaladas curtas para treinar
-        lances sejam atléticos, ou de puro equilíbrio, ou entrar em vias longas, com
-        mais de quatro enfiadas de corda, testando assim o psicológico e a resistência
-        do escalador.
-
-
-        Além das inúmeras possibilidades de escalada, a região conta com agradável
-        rio Tanque, com suas águas cálidas (26 a 28 graus) para banho após as atividades,
-        bem como locais estratégicos de camping, como as próprias praias à beira rio.
-
-
-        Água potável é encontrada em abundância, notadamente ao longo de todo o vale
-        do Roncador, que é cortado pelo córrego de mesmo nome, suprindo os excursionistas
-        de água fresca bem próximo às bases.'
+        Água potável é encontrada em abundância, notadamente ao longo de todo o vale do Roncador, que é cortado pelo córrego de mesmo nome, suprindo os excursionistas de água fresca bem próximo às bases.
 - uid: CvBK4aGJk7ZOeu
   texto: Como Chegar
   destino:
     secao_textual:
-      conteudo: '# Como Chegar
-
+      conteudo: |-
+        # Como Chegar
 
         Localização no Google Maps: https://maps.app.goo.gl/hGmJWp5oT1wnXpsG7
 
-
         ## De Carro
 
-
-        Saindo de BH, pegue a BR-262 em direção à Vitória. Vire à esquerda no trevo
-        entre Vitória e Itabira, direção Itabira. Mais adiante, no trevo entre Itabira
-        e Santa Maria do Itabira, pegue à direita, em direção a esta última cidade.
-        No antigo bar “Parada Certa”, que fica a cerca de 20 km de Santa Maria do
-        Itabira, pode-se seguir pelo asfalto em direção ao trevo de Ferros, ou pegar
-        um caminho mais curto, com mais estrada de terra, evitando passar pela cidade.
-        Do centro de Ferros até a área de escaladas, siga o mapa na próxima página.
-        O trajeto total possui cerca de 190 quilômetros, feitos em aproximadamente
-        3 horas.
-
+        Saindo de BH, pegue a BR-262 em direção à Vitória. Vire à esquerda no trevo entre Vitória e Itabira, direção Itabira. Mais adiante, no trevo entre Itabira e Santa Maria do Itabira, pegue à direita, em direção a esta última cidade. No antigo bar “Parada Certa”, que fica a cerca de 20 km de Santa Maria do Itabira, pode-se seguir pelo asfalto em direção ao trevo de Ferros, ou pegar um caminho mais curto, com mais estrada de terra, evitando passar pela cidade. Do centro de Ferros até a área de escaladas, siga o mapa na próxima página. O trajeto total possui cerca de 190 quilômetros, feitos em aproximadamente 3 horas.
 
         ## De Ônibus
 
+        Pegar o ônibus da viação SARITUR, na rodoviária de BH, com destino a Ferros (valor em fevereiro de 2015: R$54,20). A viagem dura em torno de quatro horas.
 
-        Pegar o ônibus da viação SARITUR, na rodoviária de BH, com destino a Ferros
-        (valor em fevereiro de 2015: R$54,20). A viagem dura em torno de quatro horas.
-
-
-        Chegando em Ferros, é fácil conseguir um táxi com corrida combinada, por aproximadamente
-        R$40,00, para percorrer os 11 Km do centro da cidade à área propícia para
-        camping, próxima à base das escaladas. Lembre-se de combinar com o taxista
-        a corrida de retorno!
-
+        Chegando em Ferros, é fácil conseguir um táxi com corrida combinada, por aproximadamente R$40,00, para percorrer os 11 Km do centro da cidade à área propícia para camping, próxima à base das escaladas. Lembre-se de combinar com o taxista a corrida de retorno!
 
         | ![Mapa de BH para Ferros](imagens/como_chegar_p0_i0.webp) |
-
         | :--: |
-
         | *Mapa de BH para Ferros* |
 
-
-        | ![Mapa de BH para Fazenda Retiro das Águas](imagens/mapas_gerais_p1_i1.webp)
-        |
-
+        | ![Mapa de BH para Fazenda Retiro das Águas](imagens/mapas_gerais_p1_i1.webp) |
         | :--: |
-
         | *Mapa de BH para Fazenda Retiro das Águas* |
 
-
-        | ![Mapa de satélite de Ferros à Fazenda Retiro das Águas](imagens/mapas_gerais_p2_i1.webp)
-        |
-
+        | ![Mapa de satélite de Ferros à Fazenda Retiro das Águas](imagens/mapas_gerais_p2_i1.webp) |
         | :--: |
-
-        | *Mapa de satélite de Ferros à Fazenda Retiro das Águas* |'
+        | *Mapa de satélite de Ferros à Fazenda Retiro das Águas* |
 - uid: P1V4VAzoebpbVB
   texto: Regras
   destino:
     secao_textual:
-      conteudo: '# ATENÇÃO!
+      conteudo: |-
+        # ATENÇÃO!
 
+        Escalada é um esporte de risco! Este guia não capacita o leitor a praticar o montanhismo de forma segura. Para tal, procure instrutores qualificados, de preferência federados e/ou guias de um clube oficial de montanhismo. Lembre-se: Você é responsável pelos seus próprios atos.
 
-        Escalada é um esporte de risco! Este guia não capacita o leitor a praticar
-        o montanhismo de forma segura. Para tal, procure instrutores qualificados,
-        de preferência federados e/ou guias de um clube oficial de montanhismo. Lembre-se:
-        Você é responsável pelos seus próprios atos.
+        O montanhismo é um esporte de liberdade e tudo o que não precisamos é levar as regras e leis da cidade para a montanha. Mas isto só é possível porque o montanhista que se define como tal segue dois princípios básicos: proteger as montanhas e respeitar os outros que as frequentam.
 
-
-        O montanhismo é um esporte de liberdade e tudo o que não precisamos é levar
-        as regras e leis da cidade para a montanha. Mas isto só é possível porque
-        o montanhista que se define como tal segue dois princípios básicos: proteger
-        as montanhas e respeitar os outros que as frequentam.
-
-
-        Consulte sempre o código de ética vigente no local em que pretende praticar
-        o montanhismo e pense antes de cada ato na montanha, refletindo assim os nossos
-        ideais no esporte através dos tempos. Não deprede a vegetação, priorize as
-        proteções móveis às fixas, evite a equipagem de vias de parede (vindo de cima)
-        ou a abertura de vias/variantes que interfiram no traçado de outras existentes
-        e seja sempre cortês com os montanhistas, moradores e usuários da região.
-
+        Consulte sempre o código de ética vigente no local em que pretende praticar o montanhismo e pense antes de cada ato na montanha, refletindo assim os nossos ideais no esporte através dos tempos. Não deprede a vegetação, priorize as proteções móveis às fixas, evite a equipagem de vias de parede (vindo de cima) ou a abertura de vias/variantes que interfiram no traçado de outras existentes e seja sempre cortês com os montanhistas, moradores e usuários da região.
 
         ## Links Úteis
 
-
         - CBME (Confederação Brasileira de Montanhismo e Escalada): http://www.cbme.org.br
-
         - CEM (Centro Excursionista Mineiro): http://www.sitedocem.org.br
-
         - Tonico (Site pessoal do Tonico Magalhães): http://www.tonicomagalhaes.com.br
-
         - FEMEMG (Federação de Montanhismo e Escalada de Minas Gerais): http://www.fememg.org
-
         - FEMERJ (Federação de Montanhismo do Estado do Rio de Janeiro): http://www.femerj.org
-
         - FEMESP (Federação de Montanhismo do Estado de São Paulo): http://www.femesp.org
-
         - FEPAM (Federação Paranaense de Montanhismo): http://www.fepampr.org.br
-
         - ACE (Associação Capixaba de Escalada): http://www.ace-es.org.br/
-
         - FGM (Federação Gaúcha de Montanhismo): http://www.fgm.org.br
-
-        - FEMECE (Federação de Montanhismo e Escalada do Estado do Ceará): http://www.femece.org.br'
+        - FEMECE (Federação de Montanhismo e Escalada do Estado do Ceará): http://www.femece.org.br
 ultima_migracao: 5
 publicar_croqui: true
 revisado_manualmente: false

@@ -56,7 +56,8 @@ escaladas:
     - Heider Ribeiro (Tio Nem)
     data_abertura: '2020'
     protecoes_moveis: Dois friends (.3 e 1 BD)
-    descricao: Via curta, mas com movimentação interessante usa apenas dois friends (.3 e 1 BD)
+    descricao: Via curta, mas com movimentação interessante usa apenas dois friends
+      (.3 e 1 BD)
 - uid: OEI5JMRATAxtmp
   via_movel:
     nome: Chaminé Africana
@@ -68,8 +69,8 @@ escaladas:
     - Pedro Naves
     - Frederico Araújo
     data_abertura: '2018'
-    descricao: Via inteira em técnica de chaminé com 3 chapas no início e mais um friend médio. Evitar caso haja 
-      presença de abelhas próximo do top.
+    descricao: Via inteira em técnica de chaminé com 3 chapas no início e mais um
+      friend médio. Evitar caso haja presença de abelhas próximo do top.
 - uid: DhnanbothkDDIb
   via_esportiva:
     nome: Dança do Salão
@@ -79,8 +80,9 @@ escaladas:
     - Pedro Naves
     - Paulo Martins
     data_abertura: '2018'
-    descricao: Via clássica, muito cobiçada por sua estética e beleza dos movimentos que precisam encaixar como uma 
-      dança, pois não permite erros. Sua constância testa a resistência do escalador.
+    descricao: Via clássica, muito cobiçada por sua estética e beleza dos movimentos
+      que precisam encaixar como uma dança, pois não permite erros. Sua constância
+      testa a resistência do escalador.
 - uid: SFGOQuRU6wIHXQ
   via_esportiva:
     nome: Risca da Lista
@@ -90,8 +92,8 @@ escaladas:
     - Paulo Martins
     - Pedro Naves
     data_abertura: '2018'
-    descricao: Via que utiliza a mesma saída da via anterior, mas logo no segundo lance já vai pra direita até a bonita 
-      aresta onde se encontra o crux.
+    descricao: Via que utiliza a mesma saída da via anterior, mas logo no segundo
+      lance já vai pra direita até a bonita aresta onde se encontra o crux.
 - uid: mLM2vQ8V6yn52D
   via_esportiva:
     nome: Curta e Grossa
@@ -102,13 +104,12 @@ escaladas:
     - Pedro Naves
     - Jefferson Lara
     data_abertura: '2020'
-    descricao: Essa via fica à esquerda da Quatro e Vinte, mas como não pôde ser enquadrada na mesma foto, aparece 
-      apenas na foto abaixo (Setor Namata). Via muito interessante, com estilo diferente do padrão local, seu positivo 
-      de equilíbrio e micro-regletes lembra vias de parede. Apesar de curta possui uma movimentação complexa, o que faz 
-      parecer mais longa do que realmente é.
+    descricao: Essa via fica à esquerda da Quatro e Vinte, mas como não pôde ser enquadrada
+      na mesma foto, aparece apenas na foto abaixo (Setor Namata). Via muito interessante,
+      com estilo diferente do padrão local, seu positivo de equilíbrio e micro-regletes
+      lembra vias de parede. Apesar de curta possui uma movimentação complexa, o que
+      faz parecer mais longa do que realmente é.
 ---
-
-# Setor Salão
 
 Setor dentro de um salão formado entre duas paredes de rocha, atrás do Setor Namata. Estes dois setores foram separados apenas para melhor visualização no croqui, mas na prática estão no mesmo local. Na parte alta à esquerda sai a trilha que dá acesso aos outros setores.
 

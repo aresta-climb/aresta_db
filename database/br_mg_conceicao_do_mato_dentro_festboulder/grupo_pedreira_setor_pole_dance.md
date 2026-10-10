@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: G5dk8AEaYgSzDy
-nome: Pole Dance
+nome: Setor Pole Dance
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_pole_dance_p0.webp
   largura_mapa: 760
@@ -283,8 +283,6 @@ escaladas:
     nome: Rocklands
     dificuldade: V4
 ---
-
-# Setor Pole Dance
 
 O setor Pole Dance possui blocos com abundância de agarras horizontais e verticais, permitindo movimentos dinâmicos e técnicos.
 

@@ -19,8 +19,8 @@ escaladas:
     conquistadores:
     - Frederico Gonçalves
     data_abertura: '2012'
-    descricao: Começa sentado com as mãos juntas em um reglete/batente de oposição na face lateral, próximo à aresta, e 
-      atravessa para a esquerda, pelo vertical, dominando pela parte fácil.
+    descricao: Começa sentado com as mãos juntas em um reglete/batente de oposição
+      na face lateral, próximo à aresta, e atravessa para a esquerda, pelo vertical,
+      dominando pela parte fácil.
 ---
 
-# Bloco D - Fábulas

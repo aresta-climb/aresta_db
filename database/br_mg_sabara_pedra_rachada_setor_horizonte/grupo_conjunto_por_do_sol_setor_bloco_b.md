@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: Ioa3yTba2GlkHC
-nome: Conjunto Pôr do sol - Bloco B
+nome: Setor Conjunto Pôr do sol - Bloco B
 mapas:
 - caminho_imagem_mapa: imagens/grupo_conjunto_por_do_sol_setor_bloco_b_p0_i0.webp
   largura_mapa: 900
@@ -70,7 +70,8 @@ escaladas:
   boulder:
     nome: Essa moça
     dificuldade: V0
-    descricao: Saída na agarra grande, fazendo a travessia pra virar na face esquerda do bloco.
+    descricao: Saída na agarra grande, fazendo a travessia pra virar na face esquerda
+      do bloco.
 - uid: 9DJBUZ8WYP5bGA
   boulder:
     nome: Goodsensation
@@ -85,7 +86,8 @@ escaladas:
   boulder:
     nome: Ponto alto sds
     dificuldade: V4
-    descricao: Começa pra direita, em um reglete lateral de esquerda e um bico de direita.
+    descricao: Começa pra direita, em um reglete lateral de esquerda e um bico de
+      direita.
 - uid: c17EdmiaqMkBHd
   boulder:
     nome: Estrelado
@@ -100,7 +102,7 @@ escaladas:
   boulder:
     nome: Gostosinho
     dificuldade: V0
-    descricao: Sai das agarras grandes no lado direito do bloco e vira reto, na parte mais baixa.
+    descricao: Sai das agarras grandes no lado direito do bloco e vira reto, na parte
+      mais baixa.
 ---
 
-# Bloco B

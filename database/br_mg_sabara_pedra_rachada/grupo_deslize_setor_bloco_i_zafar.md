@@ -28,7 +28,8 @@ escaladas:
   boulder:
     nome: Nala
     dificuldade: V1
-    descricao: Sai em pé com as mãos em dois batentes, atravessa para a direita e domina.
+    descricao: Sai em pé com as mãos em dois batentes, atravessa para a direita e
+      domina.
 - uid: RY8KInGbssq9bu
   boulder:
     nome: Timão
@@ -39,8 +40,9 @@ escaladas:
   boulder:
     nome: Pumba
     dificuldade: V3
-    descricao: Sai sentado com as mãos juntas em dois regletes baixos à esquerda da saída do “Zafar” (47) e escala 
-      diagonalmente à esquerda, passando por batentes invertidos.
+    descricao: Sai sentado com as mãos juntas em dois regletes baixos à esquerda da
+      saída do “Zafar” (47) e escala diagonalmente à esquerda, passando por batentes
+      invertidos.
 - uid: bzZdAESnwCC0gI
   boulder:
     nome: Zafar
@@ -51,9 +53,9 @@ escaladas:
   boulder:
     nome: Caverna
     dificuldade: V4
-    descricao: Boulder que sai sentado com as mãos juntas em uma agarra boa no fundo da caverna. Faz alguns movimentos 
-      fortes até sair dessa caverna e, ao invés de tocar reto pelas cracas quebradiças, atravessa pela esquerda 
-      terminando no “Zafar” (47).
+    descricao: Boulder que sai sentado com as mãos juntas em uma agarra boa no fundo
+      da caverna. Faz alguns movimentos fortes até sair dessa caverna e, ao invés
+      de tocar reto pelas cracas quebradiças, atravessa pela esquerda terminando no
+      “Zafar” (47).
 ---
 
-# Bloco I - Zafar

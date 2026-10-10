@@ -3,7 +3,7 @@
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: zcuFQgu37KFBnD
 caminho_imagem_capa: imagens/setor_as_pilastras_p0_i1.webp
-nome: As Pilastras
+nome: Setor As Pilastras
 mapas:
 - caminho_imagem_mapa: imagens/setor_as_pilastras_p1_i1.webp
 escaladas:

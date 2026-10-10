@@ -12,7 +12,8 @@ escaladas:
     conquistadores:
     - Daniel Mendes
     data_abertura: '2013'
-    descricao: Começa com as mãos juntas em um reglete e faz movimentos duros para sair do teto à esquerda.
+    descricao: Começa com as mãos juntas em um reglete e faz movimentos duros para
+      sair do teto à esquerda.
 - uid: UJnfrRGOCOiq1V
   boulder:
     nome: Octopus
@@ -21,8 +22,7 @@ escaladas:
     conquistadores:
     - Daniel Mendes
     data_abertura: '2013'
-    descricao: Sai sentado com as mãos juntas em um batente escorrido, faz dois movimentos para entrar no “Aracnídeo” 
-      (73) e finaliza por ele.
+    descricao: Sai sentado com as mãos juntas em um batente escorrido, faz dois movimentos
+      para entrar no “Aracnídeo” (73) e finaliza por ele.
 ---
 
-# Bloco H - Octopus

@@ -31,18 +31,20 @@ escaladas:
     nome: Ronaldo
     dificuldade: V1
     destaque: true
-    descricao: Sai em pé, com as mãos em dois regletes bons e escala em diagonal pra esquerda.
+    descricao: Sai em pé, com as mãos em dois regletes bons e escala em diagonal pra
+      esquerda.
 - uid: A0HOuWIrepSzu2
   boulder:
     nome: Fenômeno
     dificuldade: V0
     destaque: true
-    descricao: Começa em pé, com as mãos em dois regletes bons e toca reto por uma linha de regletes.
+    descricao: Começa em pé, com as mãos em dois regletes bons e toca reto por uma
+      linha de regletes.
 - uid: FIPX6HBx70tt77
   boulder:
     nome: Fenômeno SDS
     dificuldade: V2
-    descricao: Saída sentada do “Fenômeno” começando com as mãos em dois regletes bem baixos.
+    descricao: Saída sentada do “Fenômeno” começando com as mãos em dois regletes
+      bem baixos.
 ---
 
-# Bloco H - Ronaldo

@@ -362,6 +362,4 @@ escaladas:
     quantidade_protecoes_parada: 2
 ---
 
-# Setor Antigo Camping
-
 Este setor possui sombra até as 13h (variando de acordo com a estação).

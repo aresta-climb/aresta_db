@@ -29,6 +29,4 @@ setores:
 - caminho: grupo_mulher_de_bigode_setor_modulo.md
 ---
 
-# Grupo Mulher de Bigode
-
 **Principais blocos:** Mulher de Bigode, Beiço, Diabinha, Eco, Meretríssimo, Ziriguidum, Viúva Negra, Carga pesada, Ota aranha, Fingerboard, Módulo.

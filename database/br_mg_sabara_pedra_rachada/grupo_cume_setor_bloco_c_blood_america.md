@@ -32,7 +32,8 @@ escaladas:
     nome: Fenda Paraguai
     dificuldade: V1
     destaque: true
-    descricao: Sai com a mão esquerda no início da fenda e a direita aberta em um pocket e escala pela fenda.
+    descricao: Sai com a mão esquerda no início da fenda e a direita aberta em um
+      pocket e escala pela fenda.
 - uid: PmDhuuc3DT7ZIr
   boulder:
     nome: Blood Mexican
@@ -50,8 +51,7 @@ escaladas:
     conquistadores:
     - Ruy Castro
     data_abertura: '2006'
-    descricao: Sai sentado com as mãos em dois pockets e escala em diagonal pra direita, dominando pela proa. Um dos 
-      visuais mais clássicos da Rachada!
+    descricao: Sai sentado com as mãos em dois pockets e escala em diagonal pra direita,
+      dominando pela proa. Um dos visuais mais clássicos da Rachada!
 ---
 
-# Bloco C - Blood América

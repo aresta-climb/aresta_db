@@ -272,7 +272,5 @@ escaladas:
     dificuldade: INDEFINIDO
 ---
 
-# Setor Aristóteles
-
 Sombra de 7h as 13h (varia de acordo com a estação).
 Também conhecido como Setor Praça Aristóteles.

@@ -62,7 +62,7 @@
 ### Setor (Pico: Salão Encantado)
 
 - **descricao**: 
-- **nome**: Parede Principal
+- **nome**: Setor Parede Principal
 - **uid**: f4TxVRX5QEcLpH
 - **mapas**:
   - **[0]**:

@@ -8,8 +8,6 @@ setores:
 - caminho: grupo_caburu_setor_campina_do_caburu.md
 ---
 
-# Setores do Caburu
-
 Esta área de escalada conta com 2 setores que se dividem em 2 blocos. Eles estão localizados na parte de trás da serra que fica do outro lado do vale do Cemonta.
 
 ## Caburu Debaixo

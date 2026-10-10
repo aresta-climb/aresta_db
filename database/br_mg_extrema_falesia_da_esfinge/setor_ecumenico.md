@@ -3,7 +3,7 @@
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: Jdz9SJrdlOBYw5
 caminho_imagem_capa: imagens/setor_ecumenico_p0_i0_2.webp
-nome: Ecumênico
+nome: Setor Ecumênico
 mapas:
 - caminho_imagem_mapa: imagens/setor_ecumenico_p0_i0.webp
   largura_mapa: 367
@@ -62,7 +62,8 @@ escaladas:
     - Jorge Lima
     - André Morales
     - Felipe Pimenta
-    descricao: 'Obs: Utilizar clip stick ou rebite no início da via. Importante: Fazer uso de algumas costuras longas.'
+    descricao: 'Obs: Utilizar clip stick ou rebite no início da via. Importante: Fazer
+      uso de algumas costuras longas.'
 - uid: 1oWJouyozyRHqg
   via_esportiva:
     nome: Meninos de Gesso

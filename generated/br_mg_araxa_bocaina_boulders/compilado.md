@@ -60,8 +60,8 @@
 
 ### Setor (Pico: Bocaina Park)
 
-- **descricao**: # Setor Pressão Enrustida
-- **nome**: Pressão Enrustida
+- **descricao**: 
+- **nome**: Setor Pressão Enrustida
 - **uid**: 2r0UOQl5lu5YVV
 - **mapas**:
   - **[0]**:
@@ -215,8 +215,8 @@
 
 ### Setor (Pico: Bocaina Park)
 
-- **descricao**: # Setor Caverninha
-- **nome**: Caverninha
+- **descricao**: 
+- **nome**: Setor Caverninha
 - **uid**: D6jFNzrZdEYFsk
 - **mapas**:
   - **[0]**:
@@ -489,8 +489,8 @@
 
 ### Setor (Pico: Bocaina Park)
 
-- **descricao**: # Setor Exquadrilha
-- **nome**: Exquadrilha
+- **descricao**: 
+- **nome**: Setor Exquadrilha
 - **uid**: 5KSqaLJ9K1rbfi
 - **mapas**:
   - **[0]**:
@@ -619,8 +619,8 @@
 
 ### Setor (Pico: Bocaina Park)
 
-- **descricao**: # Setor Canil
-- **nome**: Canil
+- **descricao**: 
+- **nome**: Setor Canil
 - **uid**: z7vQKwVnhjN7dQ
 - **mapas**:
   - **[0]**:
@@ -782,7 +782,7 @@
 
 ### Setor (Pico: Bocaina Park)
 
-- **descricao**: # Setor Bloco do Guerreiro
+- **descricao**: 
 - **nome**: Bloco do Guerreiro
 - **uid**: KbM68ZX0V5vtaT
 - **mapas**:
@@ -962,7 +962,7 @@
 
 ### Setor (Pico: Bocaina Park)
 
-- **descricao**: # Setor Bloco do Cabelin
+- **descricao**: 
 - **nome**: Bloco do Cabelin
 - **uid**: OSyxvPq2xEupwz
 - **mapas**:
@@ -1301,8 +1301,8 @@
 
 ### Setor (Pico: Bocaina Park)
 
-- **descricao**: # Setor Consciência Limpa
-- **nome**: Consciência Limpa
+- **descricao**: 
+- **nome**: Setor Consciência Limpa
 - **uid**: yPyqzCvOxEEIE3
 - **mapas**:
   - **[0]**:
@@ -1437,8 +1437,8 @@
 
 ### Setor (Pico: Bocaina Park)
 
-- **descricao**: # Setor Haiti
-- **nome**: Haiti
+- **descricao**: 
+- **nome**: Setor Haiti
 - **uid**: vBnFROJdRpikVD
 - **mapas**:
   - **[0]**:
@@ -1586,8 +1586,8 @@
 
 ### Setor (Pico: Bocaina Park)
 
-- **descricao**: # Setor Achados e Perdidos
-- **nome**: Achados e Perdidos
+- **descricao**: 
+- **nome**: Setor Achados e Perdidos
 - **uid**: ZQv26maQUVi4h5
 - **mapas**:
   - **[0]**:
@@ -1694,7 +1694,7 @@
 
 ### Setor (Pico: Bocaina Park)
 
-- **descricao**: # Setor Bloco do Rock Bocaina
+- **descricao**: 
 - **nome**: Bloco do Rock Bocaina
 - **uid**: hkr7E07rMsU03N
 - **mapas**:
@@ -1780,7 +1780,7 @@
 
 ### Setor (Pico: Bocaina Park)
 
-- **descricao**: # Setor Bloco 45º
+- **descricao**: 
 - **nome**: Bloco 45º
 - **uid**: iZezgdH50SBgEG
 - **mapas**:
@@ -2393,8 +2393,8 @@
 
 ### Setor (Pico: Bocaina Park)
 
-- **descricao**: # Setor Essência
-- **nome**: Essência
+- **descricao**: 
+- **nome**: Setor Essência
 - **uid**: Y3Brqzt8DNN8Mk
 - **mapas**:
   - **[0]**:

@@ -43,8 +43,6 @@ escaladas:
     data_abertura: '2008-01-01'
 ---
 
-# Setor Cataguás
-
 > [!WARNING]
 > **O ACESSO A ESTE SETOR ESTÁ PROIBIDO POR HORA.**
 

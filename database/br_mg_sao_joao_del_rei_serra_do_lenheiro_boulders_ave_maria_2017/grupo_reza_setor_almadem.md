@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: mn1SfA1bjNHJut
-nome: Almadém
+nome: Setor Almadém
 mapas:
 - caminho_imagem_mapa: imagens/grupo_reza_setor_almadem_p0_i0.webp
   largura_mapa: 1221
@@ -56,4 +56,3 @@ escaladas:
     dificuldade: V4
 ---
 
-# Almadém

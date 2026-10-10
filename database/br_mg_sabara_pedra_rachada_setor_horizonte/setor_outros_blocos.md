@@ -102,26 +102,26 @@ escaladas:
   boulder:
     nome: Farol
     dificuldade: V3
-    descricao: Saída das lacas na parte baixa do bloco, indo reto até regletes para fazer a virada por agarradas boas na
-      proa.
+    descricao: Saída das lacas na parte baixa do bloco, indo reto até regletes para
+      fazer a virada por agarradas boas na proa.
 - uid: JBQhRIDquBb9dZ
   boulder:
     nome: Mirante
     dificuldade: V4
-    descricao: Começa nas lacas baixas, igual o Farol, porém faz a travessia para a direita, com a virada pela lateral 
-      do bloco.
+    descricao: Começa nas lacas baixas, igual o Farol, porém faz a travessia para
+      a direita, com a virada pela lateral do bloco.
 - uid: y4MQNt0TrJjMoR
   boulder:
     nome: Queda do Gigante
     dificuldade: V8
-    descricao: Começa nas agarras baixas na direita do bloco, indo para a lateral do bloco por baixo até as cracas que 
-      possibilitam a virada pelo highball.
+    descricao: Começa nas agarras baixas na direita do bloco, indo para a lateral
+      do bloco por baixo até as cracas que possibilitam a virada pelo highball.
 - uid: fUhfpyN6nQrSWc
   boulder:
     nome: Não me toque
     dificuldade: V5
-    descricao: Saída nas agarras baixas na direita do bloco, indo para a lateral pelo feixo de cristais até a virada 
-      pelas cracas da direita.
+    descricao: Saída nas agarras baixas na direita do bloco, indo para a lateral pelo
+      feixo de cristais até a virada pelas cracas da direita.
 - uid: 9U1MyMKZQQmPvt
   boulder:
     nome: Anemia
@@ -143,7 +143,5 @@ escaladas:
     dificuldade: V5
     descricao: Boulder clássico.
 ---
-
-# Outros Blocos
 
 AVISO: O bloco possui um grande módulo no meio com uma linha clássica bem óbvia e alta, porém esse modulo não parece ser sólido e não foi testado por meio de rapel até o momento.

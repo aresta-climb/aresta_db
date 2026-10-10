@@ -71,7 +71,7 @@
 ### Setor (Pico: Pedra Rachada)
 
 - **descricao**: 
-- **nome**: Floresta de pedra
+- **nome**: Setor Floresta de pedra
 - **uid**: nKwCTW2vS87al0
 - **mapas**:
   - **[0]**:
@@ -200,7 +200,7 @@
 
 ### Grupo (Pico: Pedra Rachada)
 
-- **descricao**: # Conjunto pôr-do-sol
+- **descricao**: 
 - **nome**: Conjunto pôr-do-sol
 - **uid**: cgYhOqCxY7U7Gx
 - **mapas**:
@@ -234,7 +234,7 @@
         - **alvo_uid**: SEgxtzL4pAgclV
         - **pontos_uids**:
           - IunakcFTmaHuEU
-        - **setor**: Beija Flor
+        - **setor**: Setor Beija Flor
         - **ids**:
           - IunakcFTmaHuEU
       - **[1]**:
@@ -248,17 +248,14 @@
         - **alvo_uid**: nnYIlTwIYD9Wlp
         - **pontos_uids**:
           - EddG35A3rLwCBJ
-        - **setor**: Moctezuma
+        - **setor**: Setor Moctezuma
         - **ids**:
           - EddG35A3rLwCBJ
 - **setores**:
   - **[0]**:
     - **conteudo**:
-      - **descricao**:
-          # Bloco A
-          
-          Dica: Para queda ficar mais segura, posicione alguns crash como “calço” por baixo da camada que irá protegê-lo e entre as duas rochas que afunilam a base. A queda dos boulders é bem neste ponto.
-      - **nome**: Conjunto Pôr do sol - Bloco A
+      - **descricao**: Dica: Para queda ficar mais segura, posicione alguns crash como “calço” por baixo da camada que irá protegê-lo e entre as duas rochas que afunilam a base. A queda dos boulders é bem neste ponto.
+      - **nome**: Setor Conjunto Pôr do sol - Bloco A
       - **uid**: zA8I9CcpUUdw4Q
       - **mapas**:
         - **[0]**:
@@ -411,8 +408,8 @@
         - **total_boulders**: 6
   - **[1]**:
     - **conteudo**:
-      - **descricao**: # Bloco B
-      - **nome**: Conjunto Pôr do sol - Bloco B
+      - **descricao**: 
+      - **nome**: Setor Conjunto Pôr do sol - Bloco B
       - **uid**: Ioa3yTba2GlkHC
       - **mapas**:
         - **[0]**:
@@ -569,8 +566,8 @@
         - **total_boulders**: 7
   - **[2]**:
     - **conteudo**:
-      - **descricao**: # Bloco C
-      - **nome**: Conjunto Pôr do sol - Bloco C
+      - **descricao**: 
+      - **nome**: Setor Conjunto Pôr do sol - Bloco C
       - **uid**: oDdDAqETF27BlU
       - **mapas**:
         - **[0]**:
@@ -648,11 +645,8 @@
 
 ### Setor (Pico: Pedra Rachada)
 
-- **descricao**:
-    # Brinquedos
-    
-    Foto: Eric Dornellas - Escaladora: Lívia Gonçalves
-- **nome**: Brinquedos
+- **descricao**: Foto: Eric Dornellas - Escaladora: Lívia Gonçalves
+- **nome**: Setor Brinquedos
 - **uid**: mE3qfosSuHNyTa
 - **mapas**:
   - **[0]**:
@@ -865,8 +859,8 @@
 
 ### Setor (Pico: Pedra Rachada)
 
-- **descricao**: # Beija Flor
-- **nome**: Beija Flor
+- **descricao**: 
+- **nome**: Setor Beija Flor
 - **uid**: SEgxtzL4pAgclV
 - **mapas**:
   - **[0]**:
@@ -1036,8 +1030,8 @@
 
 ### Setor (Pico: Pedra Rachada)
 
-- **descricao**: # Bacurau
-- **nome**: Bacurau
+- **descricao**: 
+- **nome**: Setor Bacurau
 - **uid**: PnplZXwMjCuqJA
 - **mapas**:
   - **[0]**:
@@ -1200,11 +1194,8 @@
 
 ### Setor (Pico: Pedra Rachada)
 
-- **descricao**:
-    # Moctezuma
-    
-    OBS: Herança de Ferro aparentava já ter sido escalada. Buscamos informações com alguns escaladores, porém o boulder não foi reconhecido. Caso alguém se lembre da linha, entrar em contato para alteração do croqui.
-- **nome**: Moctezuma
+- **descricao**: OBS: Herança de Ferro aparentava já ter sido escalada. Buscamos informações com alguns escaladores, porém o boulder não foi reconhecido. Caso alguém se lembre da linha, entrar em contato para alteração do croqui.
+- **nome**: Setor Moctezuma
 - **uid**: nnYIlTwIYD9Wlp
 - **mapas**:
   - **[0]**:
@@ -1380,8 +1371,8 @@
 
 ### Setor (Pico: Pedra Rachada)
 
-- **descricao**: # Moléstia
-- **nome**: Moléstia
+- **descricao**: 
+- **nome**: Setor Moléstia
 - **uid**: cdvqeGA2kAJhtk
 - **mapas**:
   - **[0]**:
@@ -1472,10 +1463,7 @@
 
 ### Setor (Pico: Pedra Rachada)
 
-- **descricao**:
-    # Outros Blocos
-    
-    AVISO: O bloco possui um grande módulo no meio com uma linha clássica bem óbvia e alta, porém esse modulo não parece ser sólido e não foi testado por meio de rapel até o momento.
+- **descricao**: AVISO: O bloco possui um grande módulo no meio com uma linha clássica bem óbvia e alta, porém esse modulo não parece ser sólido e não foi testado por meio de rapel até o momento.
 - **nome**: Outros Blocos
 - **uid**: hrcCn87Pwp2pLa
 - **mapas**:

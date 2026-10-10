@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: QPwyD0n8ZTjbOT
-nome: Raizeiro
+nome: Setor Raizeiro
 mapas:
 - caminho_imagem_mapa: imagens/grupo_regiao_4_setor_raizeiro_p0_i0.webp
   largura_mapa: 1240
@@ -92,5 +92,4 @@ escaladas:
     dificuldade: V3
 ---
 
-# Bloco: Raizeiro
 ## Região 4

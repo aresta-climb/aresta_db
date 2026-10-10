@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: c9S0g5Iak2aLY6
-nome: Flor da Montanha
+nome: Setor Flor da Montanha
 mapas:
 - caminho_imagem_mapa: imagens/grupo_regiao_2_setor_flor_da_montanha_p0_i0.webp
   largura_mapa: 1240
@@ -52,5 +52,4 @@ escaladas:
     dificuldade: V6
 ---
 
-# Bloco: Flor da Montanha
 ## Região 2

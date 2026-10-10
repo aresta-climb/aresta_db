@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: hLJeJsEOyHWdLg
-nome: Faixa Preta
+nome: Setor Faixa Preta
 mapas:
 - caminho_imagem_mapa: imagens/grupo_ditadura_setor_faixa_preta_p0_i0.webp
   largura_mapa: 826
@@ -56,4 +56,3 @@ escaladas:
     dificuldade: INDEFINIDO
 ---
 
-# Faixa Preta

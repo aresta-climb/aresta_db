@@ -25,27 +25,28 @@ escaladas:
   boulder:
     nome: Preguiça
     dificuldade: V0
-    descricao: Começa sentado com as mãos juntas em um batente grande e escala reto pelas cracas.
+    descricao: Começa sentado com as mãos juntas em um batente grande e escala reto
+      pelas cracas.
 - uid: wsdvBGnYM34l4W
   boulder:
     nome: Lesma
     dificuldade: V2
     destaque: true
-    descricao: Sai em pé com as mãos juntas no “módulo” batente, atravessa pra esquerda pelos pockets e termina no canto
-      esquerdo do bloco, nas cracas.
+    descricao: Sai em pé com as mãos juntas no “módulo” batente, atravessa pra esquerda
+      pelos pockets e termina no canto esquerdo do bloco, nas cracas.
 - uid: ghflHg2drbmDYj
   boulder:
     nome: Caramujo
     dificuldade: V4
     destaque: true
-    descricao: Começa com a mão esquerda em um batente e a direita em um reglete ao lado e toca reto pela proa com um 
-      domínio técnico no positivo.
+    descricao: Começa com a mão esquerda em um batente e a direita em um reglete ao
+      lado e toca reto pela proa com um domínio técnico no positivo.
 - uid: DlxdhqTloXaDXt
   boulder:
     nome: Tartaruga
     dificuldade: V1
     destaque: true
-    descricao: Sai sentado com a mão esquerda em um batente, a direita em um reglete e domina reto.
+    descricao: Sai sentado com a mão esquerda em um batente, a direita em um reglete
+      e domina reto.
 ---
 
-# Bloco E - Caramujo

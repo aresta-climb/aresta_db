@@ -806,6 +806,4 @@ escaladas:
     - Roberto Lincoln
 ---
 
-# Setor Entrada Superior
-
 **Acesso:** Seguindo pela estrada partindo do estacionamento, chega-se no setor entrada, parte inferior. Só subir a direita margeando a parede amarela.

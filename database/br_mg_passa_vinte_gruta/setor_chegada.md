@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: AiO7NbhclPX3uu
-nome: Chegada
+nome: Setor Chegada
 mapas:
 - caminho_imagem_mapa: imagens/setor_chegada_p0.webp
   largura_mapa: 1725
@@ -322,3 +322,4 @@ escaladas:
     nome: Macunaína
     dificuldade: BR_9B
 ---
+

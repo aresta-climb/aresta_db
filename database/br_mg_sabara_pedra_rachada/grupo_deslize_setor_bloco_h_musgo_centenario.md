@@ -34,14 +34,14 @@ escaladas:
     conquistadores:
     - Frederico Gonçalves
     data_abertura: '2013'
-    descricao: Final do projeto “Os incríveis” (40), saindo em dois regletes pequenos, à esquerda do “Caverna do Dragão”
-      (41).
+    descricao: Final do projeto “Os incríveis” (40), saindo em dois regletes pequenos,
+      à esquerda do “Caverna do Dragão” (41).
 - uid: eQRQ3IocvUcUaw
   boulder:
     nome: Projeto Os Incríveis
     dificuldade: V13
-    descricao: Projeto que sai em dois regletes no teto e faz movimentos fortes até o “Esmagador” (39) finalizando como 
-      ele.
+    descricao: Projeto que sai em dois regletes no teto e faz movimentos fortes até
+      o “Esmagador” (39) finalizando como ele.
 - uid: 96PYZQX2LH0oiF
   boulder:
     nome: Caverna do Dragão
@@ -50,21 +50,22 @@ escaladas:
     conquistadores:
     - Rafael Passos
     data_abertura: '2009'
-    descricao: Sai com a mão esquerda no reglete/bidedo vertical e a direita em um abaulado de ombro. Faz uma sequencia 
-      de movimentos duros até um agarrão à direita e domina o boulder.
+    descricao: Sai com a mão esquerda no reglete/bidedo vertical e a direita em um
+      abaulado de ombro. Faz uma sequencia de movimentos duros até um agarrão à direita
+      e domina o boulder.
 - uid: icm1VwJD6wEswr
   boulder:
     nome: Musgo centenário
     dificuldade: V1
     destaque: true
-    descricao: Bloco H (Musgo Centenário). Sai sentado com a mão esquerda em um abaulado e a direita em um reglete. 
-      Escala reto e domina o pequeno bloco.
+    descricao: Bloco H (Musgo Centenário). Sai sentado com a mão esquerda em um abaulado
+      e a direita em um reglete. Escala reto e domina o pequeno bloco.
 - uid: MACg1TU0oDgKCY
   boulder:
     nome: Regletão da árvore
     dificuldade: V2
     destaque: true
-    descricao: Bloco H (Musgo Centenário). Começa sentado com as mãos juntas em um reglete bom e domina o boulder.
+    descricao: Bloco H (Musgo Centenário). Começa sentado com as mãos juntas em um
+      reglete bom e domina o boulder.
 ---
 
-# Bloco H - Musgo Centenário

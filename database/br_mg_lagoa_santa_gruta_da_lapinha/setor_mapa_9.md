@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: UlccfwkdM6gnf0
-nome: Savassinha (Mapa 9)
+nome: Setor Savassinha (Mapa 9)
 mapas:
 - caminho_imagem_mapa: imagens/setor_mapa_9_p0_i0.webp
   largura_mapa: 500
@@ -318,8 +318,6 @@ escaladas:
     - Anderson Vila Nova
     - Bruno Madeira
 ---
-
-# Setor Savassinha (Mapa 9)
 
 Setor com vias de alto nível técnico e físico.
 Vias localizadas em uma das áreas mais frequentadas da Lapinha.

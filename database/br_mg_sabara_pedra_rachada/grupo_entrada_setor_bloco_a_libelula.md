@@ -22,19 +22,20 @@ escaladas:
   boulder:
     nome: Borboleta
     dificuldade: V1
-    descricao: Sai sentado com as mãos em um bico grande e vai pra aresta dominando na parte baixa da pedra.
+    descricao: Sai sentado com as mãos em um bico grande e vai pra aresta dominando
+      na parte baixa da pedra.
 - uid: kzBZEahT1FKpZW
   boulder:
     nome: Libélula
     dificuldade: V3
     destaque: true
-    descricao: Começa como o Borboleta (1) e, ao invés de ir para a aresta, toca reto por uma linha de regletes e vira 
-      na parte mais alta do bloco.
+    descricao: Começa como o Borboleta (1) e, ao invés de ir para a aresta, toca reto
+      por uma linha de regletes e vira na parte mais alta do bloco.
 - uid: cMuc6sILg49MgP
   boulder:
     nome: Larva
     dificuldade: V0
-    descricao: Começa sentado com as mãos em uma agarra grande e escala reto por agarras boas.
+    descricao: Começa sentado com as mãos em uma agarra grande e escala reto por agarras
+      boas.
 ---
 
-# Bloco A - Libélula

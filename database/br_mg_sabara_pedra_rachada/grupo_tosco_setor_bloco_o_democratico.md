@@ -36,15 +36,14 @@ escaladas:
     nome: Democrático
     dificuldade: V0
     destaque: true
-    descricao: Começa sentado com a mão esquerda em um reglete baixo e a direita em uma pinça um pouco mais alta, na 
-      aresta, e escala reto.
+    descricao: Começa sentado com a mão esquerda em um reglete baixo e a direita em
+      uma pinça um pouco mais alta, na aresta, e escala reto.
 - uid: 0wYRB7AqIHxWaT
   boulder:
     nome: Espacial
     dificuldade: V0
     destaque: true
-    descricao: Sai sentado, em baixo do tetinho, com a mão esquerda em uma pinça invertida na aresta e a direita aberta 
-      no batente e escala em diagonal pra direita.
+    descricao: Sai sentado, em baixo do tetinho, com a mão esquerda em uma pinça invertida
+      na aresta e a direita aberta no batente e escala em diagonal pra direita.
 ---
 
-# Bloco O - Democrático

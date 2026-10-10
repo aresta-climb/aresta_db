@@ -32,14 +32,15 @@ escaladas:
     nome: Oval
     dificuldade: V3
     destaque: true
-    descricao: Começa sentado com as mãos nos batentes da aresta do tetinho e escala reto.
+    descricao: Começa sentado com as mãos nos batentes da aresta do tetinho e escala
+      reto.
 - uid: qFehUUpPqzUToA
   boulder:
     nome: Oval SDS
     dificuldade: V6
     destaque: true
-    descricao: Saindo com as mãos juntas em um batente/pocket escorrido no teto e escala reto terminando como o “Oval” 
-      (29).
+    descricao: Saindo com as mãos juntas em um batente/pocket escorrido no teto e
+      escala reto terminando como o “Oval” (29).
 - uid: nACBX89aEy56A5
   boulder:
     nome: Teimoso
@@ -54,20 +55,20 @@ escaladas:
     conquistadores:
     - Rafael Passos
     data_abertura: '2008'
-    descricao: Sai do “Oval” (29), atravessa para a saída do “Teimoso” (31) e termina como ele.
+    descricao: Sai do “Oval” (29), atravessa para a saída do “Teimoso” (31) e termina
+      como ele.
 - uid: FNxwoqAOpB3x6d
   boulder:
     nome: Descompassado SDS
     dificuldade: V7
     destaque: true
-    descricao: Saindo com as mãos juntas em um batente/pocket escorrido no teto, entra no “Descompassado” (32) e termina
-      no “Teimoso” (31).
+    descricao: Saindo com as mãos juntas em um batente/pocket escorrido no teto, entra
+      no “Descompassado” (32) e termina no “Teimoso” (31).
 - uid: 33rtFWCa2LXyjQ
   boulder:
     nome: Compasso
     dificuldade: V1
-    descricao: Começa sentado atrás da árvore com a mão esquerda em um reglete/pocket e a direita em um reglete e escala
-      reto pelas cracas.
+    descricao: Começa sentado atrás da árvore com a mão esquerda em um reglete/pocket
+      e a direita em um reglete e escala reto pelas cracas.
 ---
 
-# Bloco K - Oval

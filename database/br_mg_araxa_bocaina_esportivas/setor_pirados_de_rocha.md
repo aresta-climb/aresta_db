@@ -3,7 +3,7 @@
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: ObPNZKFJ6b8VT1
 caminho_imagem_capa: imagens/setor_pirados_de_rocha_p0_i0.webp
-nome: Pirados de Rocha
+nome: Setor Pirados de Rocha
 mapas:
 - caminho_imagem_mapa: imagens/setor_pirados_de_rocha_p1.webp
   largura_mapa: 1280
@@ -153,8 +153,6 @@ escaladas:
     - Vitu
     data_abertura: '2017'
 ---
-
-# Setor Pirados de Rocha
 
 Setor com várias vias de projeto e nomes inspirados no cenário político brasileiro de 2017.
 

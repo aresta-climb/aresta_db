@@ -357,7 +357,7 @@ picos:
             - via_esportiva:
                 nome: P2
                 dificuldade: PROJETO
-        descricao: '# Setor Clube da Luta'
+        descricao: ''
         precomputados:
           total_escaladas: 16
           total_esportivas: 10
@@ -759,8 +759,6 @@ picos:
                 nome: P3
                 dificuldade: BR_9C
         descricao: |-
-          # Setor Santa Línea
-
           ## Conexões e Variantes
 
           Este setor possui diversas conexões entre as vias, permitindo combinar diferentes partes (P1, P2, P3...) de vias adjacentes.
@@ -1125,7 +1123,7 @@ picos:
         - uid: mQeQkGR44hEDrz
           via_esportiva:
             nome: VIA INACABADA 2
-        descricao: '# Setor Democracia'
+        descricao: ''
         precomputados:
           total_escaladas: 15
           total_esportivas: 8

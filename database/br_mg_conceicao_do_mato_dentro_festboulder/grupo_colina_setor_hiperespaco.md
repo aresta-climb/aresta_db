@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: 5jTRMDJCeaLvnz
-nome: Hiperespaço
+nome: Setor Hiperespaço
 mapas:
 - caminho_imagem_mapa: imagens/grupo_colina_setor_hiperespaco_p0.webp
   largura_mapa: 757
@@ -95,8 +95,6 @@ escaladas:
     nome: Jardins Suspensos
     dificuldade: V5
 ---
-
-# Setor Hiperespaço
 
 O setor Hiperespaço apresenta um bloco imponente com linhas de alta graduação e movimentos atléticos.
 

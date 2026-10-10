@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: ba9j4ZNGXk0wIe
-nome: Silicose
+nome: Setor Silicose
 mapas:
 - caminho_imagem_mapa: imagens/grupo_regiao_3_setor_silicose_p0_i0.webp
   largura_mapa: 1240
@@ -52,5 +52,4 @@ escaladas:
     dificuldade: V7
 ---
 
-# Bloco: Silicose
 ## Região 3

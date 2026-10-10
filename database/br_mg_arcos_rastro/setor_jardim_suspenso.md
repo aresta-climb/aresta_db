@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: Xxlz6Srh7a9jQT
-nome: Jardim Suspenso
+nome: Setor Jardim Suspenso
 mapas:
 - caminho_imagem_mapa: imagens/setor_jardim_suspenso_p0_i0.webp
   largura_mapa: 1600
@@ -175,7 +175,5 @@ escaladas:
     quantidade_protecoes_intermediarias: 8
     quantidade_protecoes_parada: 2
 ---
-
-# Setor Jardim Suspenso
 
 Este setor possui sombra o dia todo (variando de acordo com a estação). O acesso é feito por uma "Escada de acesso" vinda do Segundo Andar.

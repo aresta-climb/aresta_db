@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: fv8zxv4MMyBrJH
-nome: Catatau
+nome: Setor Catatau
 mapas:
 - caminho_imagem_mapa: imagens/grupo_ditadura_setor_catatau_p0_i1.webp
   largura_mapa: 727
@@ -25,4 +25,3 @@ escaladas:
     dificuldade: V2
 ---
 
-# Setor Catatau

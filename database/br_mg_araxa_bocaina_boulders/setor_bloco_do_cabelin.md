@@ -150,19 +150,20 @@ escaladas:
   boulder:
     nome: Sexto Sentido
     dificuldade: V4
-    descricao: Saída agachado com as mãos juntas em batente bom a direita do bloco e segue pela fenda diagonal para 
-      direita e vira na proa.
+    descricao: Saída agachado com as mãos juntas em batente bom a direita do bloco
+      e segue pela fenda diagonal para direita e vira na proa.
 - uid: RRwb7eFUdX7AXb
   boulder:
     nome: Dread Lock
     dificuldade: V7
-    descricao: Mesma saída do sexto sentido, travessia horizontal por baixo e entra no cabeludo.
+    descricao: Mesma saída do sexto sentido, travessia horizontal por baixo e entra
+      no cabeludo.
 - uid: HLaAx8pUzCP1HW
   boulder:
     nome: Cabeludo
     dificuldade: V7
-    descricao: Saída sentado abrançando a aresta no meio do bloco, faz o primeiro movimento para cima da pedra e sai pra
-      direita e vira no cabelinho.
+    descricao: Saída sentado abrançando a aresta no meio do bloco, faz o primeiro
+      movimento para cima da pedra e sai pra direita e vira no cabelinho.
 - uid: TJILQg2IZpx8hu
   boulder:
     nome: Jacinto Barriguinha
@@ -177,28 +178,32 @@ escaladas:
   boulder:
     nome: Cabelinho
     dificuldade: V5
-    descricao: Saída sentado com mão esquerda em pinça e direita em reglete pequeno, virando a direita do bloco.
+    descricao: Saída sentado com mão esquerda em pinça e direita em reglete pequeno,
+      virando a direita do bloco.
 - uid: Us7eEYwZ3svDyE
   boulder:
     nome: Mágico de Oz
     dificuldade: V7
-    descricao: Saída em pé com mão esquerda em reglete pequeno de gaston ou biquinho, e mão direita em pequeno reglete 
-      abaulado.
+    descricao: Saída em pé com mão esquerda em reglete pequeno de gaston ou biquinho,
+      e mão direita em pequeno reglete abaulado.
 - uid: qgrWA0Q4i3kqjy
   boulder:
     nome: Mágico de Oz SDS
     dificuldade: V8
-    descricao: Saída em pé com mão esquerda em reglete investido e mão direita em pinça investida.
+    descricao: Saída em pé com mão esquerda em reglete investido e mão direita em
+      pinça investida.
 - uid: T2lual8WiIOiry
   boulder:
     nome: Mr. Gordura
     dificuldade: V9
-    descricao: Saída do Mágico de Oz SDS, e segue para direita pela fenda virando no Capim Gordura.
+    descricao: Saída do Mágico de Oz SDS, e segue para direita pela fenda virando
+      no Capim Gordura.
 - uid: 2xjIUndpQYgyn3
   boulder:
     nome: País das Maravilhas
     dificuldade: V10
-    descricao: Saída deitado em agarrão, seguindo para esquerda passando por traz da árvore e virando no Mágico de Oz.
+    descricao: Saída deitado em agarrão, seguindo para esquerda passando por traz
+      da árvore e virando no Mágico de Oz.
 - uid: 4UGPBAPaXeN7Fu
   boulder:
     nome: Capim Louco
@@ -217,8 +222,7 @@ escaladas:
   boulder:
     nome: La Qualitê
     dificuldade: V10
-    descricao: Saída em pé com mão esquerda no bico e mão direita em pinça pequena na altura no quadril, virando reto e 
-      seguindo até o final do bloco.
+    descricao: Saída em pé com mão esquerda no bico e mão direita em pinça pequena
+      na altura no quadril, virando reto e seguindo até o final do bloco.
 ---
 
-# Setor Bloco do Cabelin

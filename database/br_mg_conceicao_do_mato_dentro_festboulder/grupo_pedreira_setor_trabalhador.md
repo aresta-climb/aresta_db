@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: iwFDrJbwDBIZci
-nome: Trabalhador
+nome: Setor Trabalhador
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_trabalhador_p0.webp
   largura_mapa: 758
@@ -86,8 +86,6 @@ escaladas:
     nome: Estamos Trabalhando
     dificuldade: V8
 ---
-
-# Setor Trabalhador
 
 O setor Trabalhador oferece linhas com regates e batidas, exigindo força e técnica.
 

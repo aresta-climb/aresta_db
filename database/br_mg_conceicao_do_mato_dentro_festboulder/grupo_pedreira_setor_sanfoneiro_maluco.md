@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: 9i4ulhHe8Wt2fG
-nome: Sanfoneiro Maluco
+nome: Setor Sanfoneiro Maluco
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_sanfoneiro_maluco_p0.webp
   largura_mapa: 759
@@ -105,8 +105,6 @@ escaladas:
     nome: Zuzuzela
     dificuldade: V6
 ---
-
-# Setor Sanfoneiro Maluco
 
 O setor Sanfoneiro Maluco possui blocos com linhas de alto nível, exigindo movimentos precisos e força.
 

@@ -45,12 +45,14 @@ escaladas:
     nome: Aresta
     dificuldade: V3
     destaque: true
-    descricao: Começa sentado com as mãos juntas em um batente na aresta e segue por ela até o topo.
+    descricao: Começa sentado com as mãos juntas em um batente na aresta e segue por
+      ela até o topo.
 - uid: UNaKoik5viSfes
   boulder:
     nome: Tangente (Bloco 0)
     dificuldade: V3
-    descricao: Sai sentado no meio da face negativa, escala até a aresta e termina no “Aresta” (16).
+    descricao: Sai sentado no meio da face negativa, escala até a aresta e termina
+      no “Aresta” (16).
 - uid: 1pZ2ORZUPzlSkh
   boulder:
     nome: Transição
@@ -63,8 +65,8 @@ escaladas:
     conquistadores:
     - Rafael Passos
     data_abertura: '2011'
-    descricao: Uma linha ainda sem repetições que sai como o “Transição” (18) e toca pra esquerda pelo vertical acima do
-      tetinho.
+    descricao: Uma linha ainda sem repetições que sai como o “Transição” (18) e toca
+      pra esquerda pelo vertical acima do tetinho.
 - uid: HXvr2ET4YJmMqi
   boulder:
     nome: Verticale
@@ -73,7 +75,8 @@ escaladas:
     conquistadores:
     - Gustavo Fontes
     data_abertura: '2007'
-    descricao: Começa em dois regletes baixos, dá um tapa no batente e toca reto por regletes bons.
+    descricao: Começa em dois regletes baixos, dá um tapa no batente e toca reto por
+      regletes bons.
 - uid: n0oAaiAr9TODeg
   boulder:
     nome: Obina
@@ -82,8 +85,9 @@ escaladas:
     conquistadores:
     - Daniel Mendes
     data_abertura: '2011'
-    descricao: Boulder com um movimento inicial muito técnico que sai em pé com a mão esquerda em um abaulado de 
-      oposição e a direita em uma invertida baixa, finalizando no “Verticale” (20).
+    descricao: Boulder com um movimento inicial muito técnico que sai em pé com a
+      mão esquerda em um abaulado de oposição e a direita em uma invertida baixa,
+      finalizando no “Verticale” (20).
 - uid: l0BtBWhuHMpgoU
   boulder:
     nome: Medalha
@@ -92,8 +96,8 @@ escaladas:
     conquistadores:
     - Rafael Passos
     data_abertura: '2011'
-    descricao: Sai em pé com a mão esquerda em um reglete, a direita em uma invertida baixa e escala comprimindo a 
-      aresta abaulada.
+    descricao: Sai em pé com a mão esquerda em um reglete, a direita em uma invertida
+      baixa e escala comprimindo a aresta abaulada.
 - uid: pYn9qgamHOWUOh
   boulder:
     nome: Medalhão
@@ -102,7 +106,7 @@ escaladas:
     conquistadores:
     - Rafael Passos
     data_abertura: '2011'
-    descricao: Sai sentado com as mãos juntas em uma agarra invertida e entra no “Medalha” (22).
+    descricao: Sai sentado com as mãos juntas em uma agarra invertida e entra no “Medalha”
+      (22).
 ---
 
-# Bloco D - Bloco 0

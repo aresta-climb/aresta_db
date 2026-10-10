@@ -16,7 +16,7 @@ picos:
       conteudo:
         uid: JQThCUNwxqH4AX
         caminho_imagem_capa: imagens/pagina_16_imagem_0.webp
-        nome: G1
+        nome: Setor G1
         mapas:
         - caminho_imagem_mapa: imagens/pagina_15.webp
           largura_mapa: 813
@@ -333,8 +333,6 @@ picos:
             dificuldade: BR_6
             descricao: Via inacabada. Cuidado abelhas!
         descricao: |-
-          # Setor G1
-
           O setor G1 tem ótimas vias e boulder. Porem é necessário manter o silêncio e prestar muita atenção quanto a presença de abelhas.
 
           **Boulders:**
@@ -346,7 +344,7 @@ picos:
       conteudo:
         uid: lge5uD507M5WRB
         caminho_imagem_capa: imagens/pagina_18_imagem_0.webp
-        nome: G2
+        nome: Setor G2
         mapas:
         - caminho_imagem_mapa: imagens/pagina_17.webp
           largura_mapa: 808
@@ -821,8 +819,6 @@ picos:
             - Thiago "Tato"
             descricao: Via de equilibrio
         descricao: |-
-          # Setor G2
-
           **Travessias:**
           * C: Boas opções de travessias, muito legais.
           * D: Boas opções de travessias, muito legais.
@@ -832,7 +828,7 @@ picos:
   - setor:
       conteudo:
         uid: eHmTU7FgrKO1h2
-        nome: G3
+        nome: Setor G3
         mapas:
         - caminho_imagem_mapa: imagens/pagina_19.webp
           largura_mapa: 843
@@ -1922,8 +1918,6 @@ picos:
             - GROTS
             descricao: Boa para iniciantes
         descricao: |-
-          # Setor G3
-
           O setor G3 é o maior setor do Sítio do Rod, com vias que variam do 3º ao 10º grau.
 
           **Boulders e travessias:**
@@ -1970,19 +1964,19 @@ picos:
         - alvo_uid: eHmTU7FgrKO1h2
           pontos_uids:
           - rQmEHLrCrwEal6
-          setor: G3
+          setor: Setor G3
           ids:
           - rQmEHLrCrwEal6
         - alvo_uid: lge5uD507M5WRB
           pontos_uids:
           - jlTYCNTlRLHANm
-          setor: G2
+          setor: Setor G2
           ids:
           - jlTYCNTlRLHANm
         - alvo_uid: JQThCUNwxqH4AX
           pontos_uids:
           - tiBDYuu2U0HpcY
-          setor: G1
+          setor: Setor G1
           ids:
           - tiBDYuu2U0HpcY
   localizacao:

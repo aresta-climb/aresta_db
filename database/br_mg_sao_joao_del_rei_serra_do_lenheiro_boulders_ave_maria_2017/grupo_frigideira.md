@@ -28,8 +28,6 @@ setores:
 - caminho: grupo_frigideira_setor_o_dedo.md
 ---
 
-# Grupo Frigideira
-
 **Bloco: Frigideira**
 Localizado à esquerda da trilha antes do muro de pedra.
 

@@ -35,14 +35,16 @@ escaladas:
   boulder:
     nome: Gatuno
     dificuldade: V2
-    descricao: Começa como o “Toca da onça” (19) e faz uma travessia para a esquerda dominando pela aresta.
+    descricao: Começa como o “Toca da onça” (19) e faz uma travessia para a esquerda
+      dominando pela aresta.
 - uid: X6b33peQ0ZjdbO
   boulder:
     nome: Esparrachado
     dificuldade: V8
     destaque: true
-    descricao: Sai como o “Toca da onça” (19) mas do meio do bloco atravessa para a esquerda dominando pela aresta. Um 
-      dos mais clássicos deste grau de toda a Pedra Rachada!
+    descricao: Sai como o “Toca da onça” (19) mas do meio do bloco atravessa para
+      a esquerda dominando pela aresta. Um dos mais clássicos deste grau de toda a
+      Pedra Rachada!
 - uid: JNLfl70F6Xs2LW
   boulder:
     nome: Pantera negra
@@ -51,7 +53,8 @@ escaladas:
     conquistadores:
     - Ruy Castro
     data_abertura: '2010'
-    descricao: Começa em pé com as mãos juntas em uma agarra invertida e termina no “Esparrachado” (17).
+    descricao: Começa em pé com as mãos juntas em uma agarra invertida e termina no
+      “Esparrachado” (17).
 - uid: 1aPJXsPj3aHUgn
   boulder:
     nome: Toca da onça
@@ -60,8 +63,8 @@ escaladas:
     conquistadores:
     - Ruy Castro
     data_abertura: '2010'
-    descricao: Sai sentado com as mãos nas agarras boas mais baixas e escala em diagonal pra direita pelo negativo 
-      dominando na parte mais alta do bloco.
+    descricao: Sai sentado com as mãos nas agarras boas mais baixas e escala em diagonal
+      pra direita pelo negativo dominando na parte mais alta do bloco.
 - uid: F7EFuRhEvJ4KDH
   boulder:
     nome: Pantera
@@ -76,7 +79,8 @@ escaladas:
     nome: Holograma
     dificuldade: V10
     destaque: true
-    descricao: Travessia que sai em pé em um agarrão invertido e termina como o “Esparrachado” (17).
+    descricao: Travessia que sai em pé em um agarrão invertido e termina como o “Esparrachado”
+      (17).
 - uid: 7KgDGIOEOlxZSp
   boulder:
     nome: Projeto 13
@@ -86,8 +90,7 @@ escaladas:
   boulder:
     nome: Projeto 14
     dificuldade: INDEFINIDO
-    descricao: Projeto duro que sai sentado nas agarras mais baixas, próximas à entrada da caverna, e atravessa para a 
-      esquerda.
+    descricao: Projeto duro que sai sentado nas agarras mais baixas, próximas à entrada
+      da caverna, e atravessa para a esquerda.
 ---
 
-# Bloco G - Esparrachado

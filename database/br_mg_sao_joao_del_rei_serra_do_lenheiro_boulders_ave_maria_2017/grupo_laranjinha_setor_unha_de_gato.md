@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: 8YbwEOVUhJQ0SK
-nome: Unha de Gato
+nome: Setor Unha de Gato
 mapas:
 - caminho_imagem_mapa: imagens/grupo_laranjinha_setor_unha_de_gato_p0_i1.webp
   largura_mapa: 1059
@@ -83,4 +83,3 @@ escaladas:
     dificuldade: V2
 ---
 
-# Setor Unha de Gato

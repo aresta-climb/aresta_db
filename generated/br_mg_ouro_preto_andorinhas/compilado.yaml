@@ -12,7 +12,7 @@ picos:
   - setor:
       conteudo:
         uid: zkSbaQVnPkafaq
-        nome: Pedra do Arco
+        nome: Setor Pedra do Arco
         mapas:
         - caminho_imagem_mapa: imagens/setor_pedra_do_arco_p0.webp
           largura_mapa: 2048
@@ -238,8 +238,6 @@ picos:
             - Fábio de Melo
             - Rodrigo 'Mussula'
         descricao: |-
-          # Setor Pedra do Arco
-
           Setor com vias de 12m até 17m.
 
           Tempo de aproximação: 20min.
@@ -253,7 +251,7 @@ picos:
   - setor:
       conteudo:
         uid: TFb7MHt7YSa4Am
-        nome: Campo Escola
+        nome: Setor Campo Escola
         mapas:
         - caminho_imagem_mapa: imagens/setor_campo_escola_p0.webp
           largura_mapa: 2048
@@ -452,8 +450,6 @@ picos:
             conquistadores:
             - Rodrigo 'Mussula'
         descricao: |-
-          # Setor Campo Escola
-
           Setor com vias de 8m até 10m.
 
           Tempo de aproximação: 25min.
@@ -467,7 +463,7 @@ picos:
   - setor:
       conteudo:
         uid: wsG4L2MDOjEQyv
-        nome: Tchau Querida
+        nome: Setor Tchau Querida
         mapas:
         - caminho_imagem_mapa: imagens/setor_tchau_querida_p0.webp
           largura_mapa: 2048
@@ -644,8 +640,6 @@ picos:
             - Fábio de Melo
             - Rodrigo 'Mussula'
         descricao: |-
-          # Setor Tchau Querida
-
           Setor com vias de 11m até 12m.
 
           Tempo de aproximação: 10min.
@@ -659,7 +653,7 @@ picos:
   - setor:
       conteudo:
         uid: LwsbKpA62X0tMd
-        nome: Pedra Branca
+        nome: Setor Pedra Branca
         mapas:
         - caminho_imagem_mapa: imagens/setor_pedra_branca_p0.webp
           largura_mapa: 2048
@@ -1092,8 +1086,6 @@ picos:
             - Fábio de Melo
             - Marcelo Henriques
         descricao: |-
-          # Setor Pedra Branca
-
           Setor com vias de 9m até 12m.
 
           Tempo de aproximação: 25min.
@@ -1160,13 +1152,13 @@ picos:
         - alvo_uid: TFb7MHt7YSa4Am
           pontos_uids:
           - hRGhatp3gidWDz
-          setor: Campo Escola
+          setor: Setor Campo Escola
           ids:
           - hRGhatp3gidWDz
         - alvo_uid: zkSbaQVnPkafaq
           pontos_uids:
           - DDwBiT88WqRP02
-          setor: Pedra do Arco
+          setor: Setor Pedra do Arco
           ids:
           - DDwBiT88WqRP02
       - caminho_imagem_mapa: imagens/mapas_gerais_p1.webp
@@ -1222,13 +1214,13 @@ picos:
         - alvo_uid: wsG4L2MDOjEQyv
           pontos_uids:
           - jQjve7eR9J6A2f
-          setor: Tchau Querida
+          setor: Setor Tchau Querida
           ids:
           - jQjve7eR9J6A2f
         - alvo_uid: LwsbKpA62X0tMd
           pontos_uids:
           - p1tOlIrTUvKK67
-          setor: Pedra Branca
+          setor: Setor Pedra Branca
           ids:
           - p1tOlIrTUvKK67
   localizacao:

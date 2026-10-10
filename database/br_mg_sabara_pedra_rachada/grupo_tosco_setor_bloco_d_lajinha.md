@@ -8,14 +8,13 @@ escaladas:
   boulder:
     nome: Lajinha
     dificuldade: V4
-    descricao: Começa sentado com as mãos em dois regletes e faz uma seqüência de movimentos fortes até um domínio 
-      técnico.
+    descricao: Começa sentado com as mãos em dois regletes e faz uma seqüência de
+      movimentos fortes até um domínio técnico.
 - uid: lcfZW2QvYQxkHM
   boulder:
     nome: Molde
     dificuldade: V2
-    descricao: Sai sentado com a mão esquerda em um bico e a direita em uma agarra boa, passa por um batente e domina 
-      pela grande laca.
+    descricao: Sai sentado com a mão esquerda em um bico e a direita em uma agarra
+      boa, passa por um batente e domina pela grande laca.
 ---
 
-# Bloco D - Lajinha

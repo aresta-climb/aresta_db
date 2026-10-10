@@ -98,7 +98,7 @@
 ### Setor (Pico: Gruta de Passa Vinte)
 
 - **descricao**: 
-- **nome**: Chegada
+- **nome**: Setor Chegada
 - **uid**: AiO7NbhclPX3uu
 - **mapas**:
   - **[0]**:
@@ -604,7 +604,7 @@
 ### Setor (Pico: Gruta de Passa Vinte)
 
 - **descricao**: 
-- **nome**: Sunshine & Teto Preto
+- **nome**: Setor Sunshine & Teto Preto
 - **uid**: viX8aQd4Az2cTe
 - **mapas**:
   - **[0]**:
@@ -1067,7 +1067,7 @@
 ### Setor (Pico: Gruta de Passa Vinte)
 
 - **descricao**: 
-- **nome**: ”Positivo” Central
+- **nome**: Setor ”Positivo” Central
 - **uid**: oQDOpSrgvgbJR2
 - **mapas**:
   - **[0]**:
@@ -1493,7 +1493,7 @@
 ### Setor (Pico: Gruta de Passa Vinte)
 
 - **descricao**: 
-- **nome**: ”Negativo” Central
+- **nome**: Setor ”Negativo” Central
 - **uid**: XFRy9L107I7q0B
 - **mapas**:
   - **[0]**:
@@ -2305,7 +2305,7 @@
 ### Setor (Pico: Gruta de Passa Vinte)
 
 - **descricao**: 
-- **nome**: Arquibancada
+- **nome**: Setor Arquibancada
 - **uid**: lt12GNvnJUOG87
 - **mapas**:
   - **[0]**:
@@ -3004,7 +3004,7 @@
 ### Setor (Pico: Gruta de Passa Vinte)
 
 - **descricao**: 
-- **nome**: Gênesis
+- **nome**: Setor Gênesis
 - **uid**: q9AKDKOS430ey8
 - **mapas**:
   - **[0]**:
@@ -3582,7 +3582,7 @@
 ### Setor (Pico: Gruta de Passa Vinte)
 
 - **descricao**: 
-- **nome**: Acampamento
+- **nome**: Setor Acampamento
 - **uid**: o45FjTNWXmwkwp
 - **mapas**:
   - **[0]**:

@@ -12,8 +12,6 @@ setores:
 - caminho: grupo_pena_de_ganso_setor_bloco_e_caramujo.md
 ---
 
-# Pena de Ganso
-
 Após muito tempo sem muitas novidades, no ano de 2013 novas linhas abertas nos blocos “Gangrena” e “Pena de ganso” colocaram o setor mais uma vez em movimento. Apesar destas novas linhas, o maior destaque para este setor continua sendo uma de suas escaladas mais antigas, o clássico “Pena de ganso”, que possui uma movimentação única.
 
 ## Acesso (15 min)

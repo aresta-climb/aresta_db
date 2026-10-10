@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: f6qhe8I2ffld4p
-nome: Caverna do Bin Laden
+nome: Setor Caverna do Bin Laden
 escaladas:
 - uid: am42vvg5w16ewW
   via_esportiva:
@@ -105,3 +105,4 @@ escaladas:
     - Fred Gonçalves
     descricao: 10?
 ---
+
