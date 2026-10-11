@@ -4,10 +4,15 @@
 import ctypes
 import os
 import sys
+import warnings
 from typing import Any
 from unittest.mock import MagicMock
 
 import pytest
+
+# Suprime avisos de depreciação internos de tipos SWIG de extensões C++ compiladas em Python 3.13
+warnings.filterwarnings("ignore", category=DeprecationWarning, message=r"builtin type SwigPy.*")
+warnings.filterwarnings("ignore", category=DeprecationWarning, message=r"builtin type swigvarlink.*")
 
 # Garante plataforma gráfica headless (offscreen) antes de qualquer importação de PySide6 ou plugins do pytest
 if "QT_QPA_PLATFORM" not in os.environ:

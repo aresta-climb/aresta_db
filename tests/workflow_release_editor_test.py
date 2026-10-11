@@ -461,3 +461,17 @@ class TestWorkflowReleaseEditor(unittest.TestCase):
                 texto,
                 f"O sub-workflow {caminho.name} referencia 'steps.versao' inexistente. Deve usar 'inputs.versao'.",
             )
+
+    def test_subaction_linux_instala_ferramentas_e_dependencias_flatpak_com_sudo_para_sistema(self) -> None:
+        """Garante que o passo de instalação do Flatpak no Linux utiliza sudo para registrar o Flathub no escopo do sistema."""
+        passos = self.conteudo_linux["jobs"]["build_linux"]["steps"]
+        passo_flatpak = next(
+            (s for s in passos if "Instalar Flatpak" in s.get("name", "")), None
+        )
+        self.assertIsNotNone(passo_flatpak, "Passo de instalação de Flatpak não encontrado.")
+        assert passo_flatpak is not None
+        run_cmd = passo_flatpak.get("run", "")
+        self.assertIn("sudo flatpak remote-add", run_cmd)
+        self.assertIn("sudo flatpak install", run_cmd)
+        self.assertNotIn("--user", run_cmd)
+

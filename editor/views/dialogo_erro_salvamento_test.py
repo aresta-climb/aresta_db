@@ -1,6 +1,10 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
+import sys
+
+from typing import Any
+
 from PySide6.QtCore import Qt
 from PySide6.QtWidgets import QApplication, QMessageBox, QWidget
 
@@ -11,7 +15,7 @@ from editor.views.dialogo_erro_salvamento import (
 )
 
 
-def test_criar_dialogo_erro_salvamento_propriedades_basicas(qtbot):
+def test_criar_dialogo_erro_salvamento_propriedades_basicas(qtbot: Any) -> None:
     pai = QWidget()
     qtbot.addWidget(pai)
 
@@ -22,8 +26,14 @@ def test_criar_dialogo_erro_salvamento_propriedades_basicas(qtbot):
 
     assert isinstance(dialogo, QMessageBox)
     assert dialogo.icon() == QMessageBox.Icon.Critical
-    assert "Não foi possível salvar" in dialogo.windowTitle()
+    # No macOS (Cocoa), QMessageBox com pai é configurado como Sheet e não possui barra de título nativa.
+    if sys.platform != "darwin":
+        assert "Não foi possível salvar" in dialogo.windowTitle()
     assert "Não foi possível salvar o croqui" in dialogo.text()
+
+    # Quando criado sem pai (janela independente), o título de janela é preservado em todas as plataformas
+    dialogo_independente = criar_dialogo_erro_salvamento(None, erro)
+    assert "Não foi possível salvar" in dialogo_independente.windowTitle()
 
     # Mensagem informativa amigável que tranquiliza o usuário
     info_text = dialogo.informativeText()
@@ -41,7 +51,7 @@ def test_criar_dialogo_erro_salvamento_propriedades_basicas(qtbot):
     assert "Traceback" in detalhes
 
 
-def test_criar_dialogo_com_objeto_exception(qtbot):
+def test_criar_dialogo_com_objeto_exception(qtbot: Any) -> None:
     pai = QWidget()
     qtbot.addWidget(pai)
 
@@ -51,7 +61,7 @@ def test_criar_dialogo_com_objeto_exception(qtbot):
     assert "Falha de I/O em disco" in dialogo.detailedText()
 
 
-def test_dialogo_erro_salvamento_sanitiza_caminhos(qtbot):
+def test_dialogo_erro_salvamento_sanitiza_caminhos(qtbot: Any) -> None:
     pai = QWidget()
     qtbot.addWidget(pai)
 
@@ -69,7 +79,7 @@ def test_dialogo_erro_salvamento_sanitiza_caminhos(qtbot):
     assert "%userprofile%" in detalhes
 
 
-def test_copiar_para_area_transferencia(qapp):
+def test_copiar_para_area_transferencia(qapp: Any) -> None:
     texto_teste = "Log de erro para suporte técnico"
     copiar_para_area_transferencia(texto_teste)
 
@@ -77,7 +87,7 @@ def test_copiar_para_area_transferencia(qapp):
     assert clipboard.text() == texto_teste
 
 
-def test_botao_copiar_detalhes_clicado(qtbot):
+def test_botao_copiar_detalhes_clicado(qtbot: Any) -> None:
     dialogo = criar_dialogo_erro_salvamento(
         None, "Erro de teste para copiar", "Linha 1 do traceback"
     )
@@ -98,10 +108,10 @@ def test_botao_copiar_detalhes_clicado(qtbot):
     assert "Linha 1 do traceback" in clipboard.text()
 
 
-def test_exibir_dialogo_erro_salvamento_chama_exec(monkeypatch):
+def test_exibir_dialogo_erro_salvamento_chama_exec(monkeypatch: Any) -> None:
     chamou_exec = False
 
-    def fake_exec(self):
+    def fake_exec(self: Any) -> int:
         nonlocal chamou_exec
         chamou_exec = True
         return 1
