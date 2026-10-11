@@ -1,18 +1,20 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
-import unittest
-from unittest.mock import patch, mock_open, MagicMock
-from pathlib import Path
-import sys
 import os
+import sys
+import unittest
+from pathlib import Path
+from unittest.mock import MagicMock, mock_open, patch
+
 sys.path.insert(0, os.path.dirname(__file__))
 
 import medir_saude_croquis
 
+
 class TestMedirSaudeCroquis(unittest.TestCase):
     def test_check_status_desenho_extraivel_missing_file(self):
-        with patch('pathlib.Path.exists', return_value=False):
+        with patch("pathlib.Path.exists", return_value=False):
             self.assertEqual(medir_saude_croquis.check_status_desenho_extraivel(Path("test")), "❌")
 
     def test_check_status_desenho_extraivel_values(self):
@@ -23,38 +25,38 @@ class TestMedirSaudeCroquis(unittest.TestCase):
             ("UNKNOWN", "❌"),
             (None, "❌"),
         ]
-        
+
         for input_val, expected_emoji in test_cases:
             yaml_content = f"status_desenho_extraivel: {input_val}" if input_val else "{}"
-            with patch('pathlib.Path.exists', return_value=True):
-                with patch('builtins.open', mock_open(read_data=yaml_content)):
+            with patch("pathlib.Path.exists", return_value=True):
+                with patch("builtins.open", mock_open(read_data=yaml_content)):
                     result = medir_saude_croquis.check_status_desenho_extraivel(Path("test"))
                     self.assertEqual(result, expected_emoji, f"Failed for {input_val}")
 
     def test_check_croqui_yaml(self):
-        with patch('pathlib.Path.exists', return_value=True):
+        with patch("pathlib.Path.exists", return_value=True):
             self.assertTrue(medir_saude_croquis.check_croqui_yaml(Path("test")))
-        with patch('pathlib.Path.exists', return_value=False):
+        with patch("pathlib.Path.exists", return_value=False):
             self.assertFalse(medir_saude_croquis.check_croqui_yaml(Path("test")))
 
     def test_check_publicar_croqui(self):
         # YAML com publicar_croqui = true
-        with patch('pathlib.Path.exists', return_value=True):
-            with patch('builtins.open', mock_open(read_data="publicar_croqui: true")):
+        with patch("pathlib.Path.exists", return_value=True):
+            with patch("builtins.open", mock_open(read_data="publicar_croqui: true")):
                 self.assertTrue(medir_saude_croquis.check_publicar_croqui(Path("test")))
-                
+
         # YAML com publicar_croqui = false
-        with patch('pathlib.Path.exists', return_value=True):
-            with patch('builtins.open', mock_open(read_data="publicar_croqui: false")):
+        with patch("pathlib.Path.exists", return_value=True):
+            with patch("builtins.open", mock_open(read_data="publicar_croqui: false")):
                 self.assertFalse(medir_saude_croquis.check_publicar_croqui(Path("test")))
-                
+
         # YAML sem publicar_croqui
-        with patch('pathlib.Path.exists', return_value=True):
-            with patch('builtins.open', mock_open(read_data="nome: 'Teste'")):
+        with patch("pathlib.Path.exists", return_value=True):
+            with patch("builtins.open", mock_open(read_data="nome: 'Teste'")):
                 self.assertFalse(medir_saude_croquis.check_publicar_croqui(Path("test")))
-                
+
         # Sem YAML
-        with patch('pathlib.Path.exists', return_value=False):
+        with patch("pathlib.Path.exists", return_value=False):
             self.assertFalse(medir_saude_croquis.check_publicar_croqui(Path("test")))
 
     def test_generate_report_table(self):
@@ -72,7 +74,7 @@ class TestMedirSaudeCroquis(unittest.TestCase):
                 "croqui.yaml": "✅",
                 "Conteúdo PDF": "✅",
                 "partes.json": "✅",
-                "PDF Original": "✅"
+                "PDF Original": "✅",
             },
             {
                 "Nome": "croqui2",
@@ -87,7 +89,7 @@ class TestMedirSaudeCroquis(unittest.TestCase):
                 "croqui.yaml": "✅",
                 "Conteúdo PDF": "❌",
                 "partes.json": "✅",
-                "PDF Original": "✅"
+                "PDF Original": "✅",
             },
             {
                 "Nome": "croqui3",
@@ -104,7 +106,7 @@ class TestMedirSaudeCroquis(unittest.TestCase):
                 "croqui.yaml": "❌",
                 "Conteúdo PDF": "❌",
                 "partes.json": "❌",
-                "PDF Original": "❌"
+                "PDF Original": "❌",
             },
             {
                 "Nome": "croqui4",
@@ -121,10 +123,10 @@ class TestMedirSaudeCroquis(unittest.TestCase):
                 "croqui.yaml": "❌",
                 "Conteúdo PDF": "❌",
                 "partes.json": "❌",
-                "PDF Original": "❌"
-            }
+                "PDF Original": "❌",
+            },
         ]
-        
+
         # Preenche "Betas Pendentes" e "URL Google Maps" nos itens 1 e 2
         report_data[0]["Betas Pendentes"] = "✅"
         report_data[1]["Betas Pendentes"] = "✅"
@@ -132,7 +134,7 @@ class TestMedirSaudeCroquis(unittest.TestCase):
         report_data[1]["URL Google Maps"] = "❌ (0/1)"
 
         table = medir_saude_croquis.generate_report_table(report_data)
-        
+
         # Verifica se o cabeçalho de Desenho Extraível está correto:
         self.assertIn("Desenho Extraível (2/1/1)", table)
         self.assertIn("Revisado Manual (1/4)", table)
@@ -142,12 +144,12 @@ class TestMedirSaudeCroquis(unittest.TestCase):
 
     def test_checar_url_google_maps(self):
         # Sem YAML -> N/A
-        with patch('pathlib.Path.exists', return_value=False):
+        with patch("pathlib.Path.exists", return_value=False):
             self.assertEqual(medir_saude_croquis.checar_url_google_maps(Path("test")), "N/A")
 
         # YAML sem picos -> N/A
-        with patch('pathlib.Path.exists', return_value=True):
-            with patch('builtins.open', mock_open(read_data="nome: 'Croqui sem picos'")):
+        with patch("pathlib.Path.exists", return_value=True):
+            with patch("builtins.open", mock_open(read_data="nome: 'Croqui sem picos'")):
                 self.assertEqual(medir_saude_croquis.checar_url_google_maps(Path("test")), "N/A")
 
         # YAML com picos todos preenchidos -> ✅ (1/1)
@@ -156,10 +158,14 @@ picos:
   - nome: Pico 1
     url_google_maps: https://maps.app.goo.gl/abc123xyz
 """
-        with patch('pathlib.Path.exists', return_value=True):
-            with patch('builtins.open', mock_open(read_data=yaml_valido)):
-                self.assertEqual(medir_saude_croquis.checar_url_google_maps(Path("test")), "✅ (1/1)")
-                self.assertEqual(medir_saude_croquis.check_url_google_maps(Path("test")), "✅ (1/1)")
+        with patch("pathlib.Path.exists", return_value=True):
+            with patch("builtins.open", mock_open(read_data=yaml_valido)):
+                self.assertEqual(
+                    medir_saude_croquis.checar_url_google_maps(Path("test")), "✅ (1/1)"
+                )
+                self.assertEqual(
+                    medir_saude_croquis.check_url_google_maps(Path("test")), "✅ (1/1)"
+                )
 
         # YAML com múltiplos picos onde apenas parte possui URL -> ⚠️ (1/2)
         yaml_parcial = """
@@ -169,32 +175,40 @@ picos:
   - nome: Pico 2
     url_google_maps: ""
 """
-        with patch('pathlib.Path.exists', return_value=True):
-            with patch('builtins.open', mock_open(read_data=yaml_parcial)):
-                self.assertEqual(medir_saude_croquis.checar_url_google_maps(Path("test")), "⚠️ (1/2)")
+        with patch("pathlib.Path.exists", return_value=True):
+            with patch("builtins.open", mock_open(read_data=yaml_parcial)):
+                self.assertEqual(
+                    medir_saude_croquis.checar_url_google_maps(Path("test")), "⚠️ (1/2)"
+                )
 
         # YAML com picos sem URL -> ❌ (0/1)
         yaml_sem_url = """
 picos:
   - nome: Pico 1
 """
-        with patch('pathlib.Path.exists', return_value=True):
-            with patch('builtins.open', mock_open(read_data=yaml_sem_url)):
-                self.assertEqual(medir_saude_croquis.checar_url_google_maps(Path("test")), "❌ (0/1)")
+        with patch("pathlib.Path.exists", return_value=True):
+            with patch("builtins.open", mock_open(read_data=yaml_sem_url)):
+                self.assertEqual(
+                    medir_saude_croquis.checar_url_google_maps(Path("test")), "❌ (0/1)"
+                )
 
         # YAML corrompido / exceção -> ❌ (Erro)
-        with patch('pathlib.Path.exists', return_value=True):
-            with patch('builtins.open', side_effect=Exception("Erro de leitura")):
-                self.assertEqual(medir_saude_croquis.checar_url_google_maps(Path("test")), "❌ (Erro)")
+        with patch("pathlib.Path.exists", return_value=True):
+            with patch("builtins.open", side_effect=Exception("Erro de leitura")):
+                self.assertEqual(
+                    medir_saude_croquis.checar_url_google_maps(Path("test")), "❌ (Erro)"
+                )
 
     def test_check_betas_pendentes(self):
         # Sem arquivo staging -> Saudável (✅)
-        with patch('pathlib.Path.exists', return_value=False):
+        with patch("pathlib.Path.exists", return_value=False):
             self.assertEqual(medir_saude_croquis.check_betas_pendentes(Path("test")), "✅")
 
         # Com arquivo staging e itens pendentes -> ⚠️
-        with patch('pathlib.Path.exists', return_value=True):
-            with patch('coleta_de_betas.inteligencia.avaliador.carregar_betas_pendentes') as mock_load:
+        with patch("pathlib.Path.exists", return_value=True):
+            with patch(
+                "coleta_de_betas.inteligencia.avaliador.carregar_betas_pendentes"
+            ) as mock_load:
                 mock_msg = MagicMock()
                 mock_esc = MagicMock()
                 mock_esc.candidatos = [1, 2, 3]
@@ -203,6 +217,6 @@ picos:
 
                 self.assertEqual(medir_saude_croquis.check_betas_pendentes(Path("test")), "⚠️ (3)")
 
-if __name__ == '__main__':
-    unittest.main()
 
+if __name__ == "__main__":
+    unittest.main()

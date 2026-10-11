@@ -3,6 +3,7 @@
 
 import unittest
 from pathlib import Path
+
 import yaml
 
 
@@ -14,17 +15,24 @@ class TestWorkflowPrCodeValidator(unittest.TestCase):
         if not self.workflow_path.exists():
             self.skipTest(f"Workflow {self.workflow_path} não encontrado no checkout.")
 
-        with open(self.workflow_path, "r", encoding="utf-8") as f:
+        with open(self.workflow_path, encoding="utf-8") as f:
             self.conteudo_yaml = yaml.safe_load(f)
 
     def test_workflow_instala_dependencias_graficas_qt(self) -> None:
         """Garante que o validador de PR instala dependências de sistema para Qt/PySide6 no Ubuntu."""
         passos = self.conteudo_yaml["jobs"]["test"]["steps"]
         passo_deps = next(
-            (s for s in passos if "dependências gráficas" in s.get("name", "").lower() or "qt" in s.get("name", "").lower()),
+            (
+                s
+                for s in passos
+                if "dependências gráficas" in s.get("name", "").lower()
+                or "qt" in s.get("name", "").lower()
+            ),
             None,
         )
-        self.assertIsNotNone(passo_deps, "Passo de instalação de dependências do Qt não encontrado.")
+        self.assertIsNotNone(
+            passo_deps, "Passo de instalação de dependências do Qt não encontrado."
+        )
         assert passo_deps is not None
         run_cmd = passo_deps.get("run", "")
         self.assertIn("libegl1", run_cmd)
@@ -45,3 +53,31 @@ class TestWorkflowPrCodeValidator(unittest.TestCase):
         self.assertIn("uv run pytest", run_cmd)
         self.assertEqual(str(env_vars.get("CI", "")).lower(), "true")
         self.assertEqual(str(env_vars.get("QT_QPA_PLATFORM", "")), "offscreen")
+
+    def test_workflow_executa_checagem_qualidade_ruff(self) -> None:
+        """Garante que a verificação de lint e formatação do Ruff ocorre antes das dependências do Qt."""
+        passos = self.conteudo_yaml["jobs"]["test"]["steps"]
+        idx_ruff = next(
+            (i for i, s in enumerate(passos) if "ruff" in s.get("name", "").lower()),
+            None,
+        )
+        self.assertIsNotNone(idx_ruff, "Passo do Ruff não encontrado.")
+        assert idx_ruff is not None
+
+        idx_qt = next(
+            (
+                i
+                for i, s in enumerate(passos)
+                if "dependências gráficas" in s.get("name", "").lower()
+            ),
+            None,
+        )
+        self.assertIsNotNone(idx_qt, "Passo do Qt não encontrado.")
+        assert idx_qt is not None
+
+        # O Ruff deve rodar antes da instalação pesada do Qt para fail-fast imediato
+        self.assertLess(idx_ruff, idx_qt)
+
+        run_cmd = passos[idx_ruff].get("run", "")
+        self.assertIn("uv run ruff check --output-format=github .", run_cmd)
+        self.assertIn("uv run ruff format --check .", run_cmd)

@@ -7,7 +7,7 @@ Exibe miniatura da imagem, metadados de resolução, caminho do arquivo e contro
 """
 
 from pathlib import Path
-from typing import Any, Optional
+from typing import Any
 
 from PySide6.QtCore import Qt
 from PySide6.QtGui import QPixmap
@@ -25,7 +25,6 @@ from editor.views.componentes.alca_arraste_item import AlcaArrasteItem
 from editor.views.estilo import Icones
 
 
-
 class WidgetCardMapa(QFrame):
     """
     Card aberto e visual para exibição de um Mapa em coleções repetidas.
@@ -36,11 +35,11 @@ class WidgetCardMapa(QFrame):
         self,
         msg_mapa: Any,
         indice: int,
-        model: Optional[Any] = None,
-        controller: Optional[Any] = None,
-        formulario: Optional[Any] = None,
-        extra_path: Optional[str] = None,
-        parent: Optional[QWidget] = None,
+        model: Any | None = None,
+        controller: Any | None = None,
+        formulario: Any | None = None,
+        extra_path: str | None = None,
+        parent: QWidget | None = None,
     ) -> None:
         super().__init__(parent)
         self.msg_mapa = msg_mapa
@@ -88,7 +87,6 @@ class WidgetCardMapa(QFrame):
         self.btn_remover.setCursor(Qt.CursorShape.PointingHandCursor)
 
         layout_cabecalho.addWidget(self.btn_remover)
-
 
         layout_principal.addLayout(layout_cabecalho)
 
@@ -184,7 +182,10 @@ class WidgetCardMapa(QFrame):
 
     def _ao_alterar_imagem(self, caminho_relativo: str) -> None:
         caminho_atual = getattr(self.msg_mapa, "caminho_imagem_mapa", "")
-        if caminho_atual and (caminho_relativo == caminho_atual or Path(caminho_relativo).name == Path(caminho_atual).name):
+        if caminho_atual and (
+            caminho_relativo == caminho_atual
+            or Path(caminho_relativo).name == Path(caminho_atual).name
+        ):
             self.atualizar_dados()
 
     def _ao_clicar_abrir_editor(self) -> None:

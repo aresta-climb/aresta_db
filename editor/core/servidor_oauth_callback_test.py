@@ -1,10 +1,8 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
-import pytest
+
 import requests
-import threading
-import time
 
 from editor.core.servidor_oauth_callback import ServidorCallbackOAuth
 

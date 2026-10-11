@@ -2,14 +2,14 @@
 # Copyright (C) 2026 Aresta Climb Contributors
 
 import unittest
-from unittest.mock import MagicMock, patch
 from pathlib import Path
+from unittest.mock import MagicMock, patch
 
-import pygit2
-from editor.core.worker import TarefaPublicacao, TarefaInicializacao
 from editor.core.gerenciador_sessao import SessaoUsuario
-from editor.core.servico_submissao import ResultadoSubmissao, ErroSubmissao
+from editor.core.servico_submissao import ErroSubmissao, ResultadoSubmissao
 from editor.core.sync import ErroSincronizacaoGit
+from editor.core.worker import TarefaInicializacao, TarefaPublicacao
+
 
 class TestWorker(unittest.TestCase):
     """Testes unitários para as tarefas de background do editor."""
@@ -151,7 +151,9 @@ class TestWorker(unittest.TestCase):
 
     @patch("editor.core.telemetria.capturar_falha_submissao")
     @patch("editor.core.registro_log.logger.critical")
-    def test_tarefa_publicacao_erro_emite_sinal_e_registra_telemetria(self, mock_logger, mock_capturar):
+    def test_tarefa_publicacao_erro_emite_sinal_e_registra_telemetria(
+        self, mock_logger, mock_capturar
+    ):
         """Testa emissão de sinal de erro, logging crítico e telemetria em caso de exceção."""
         mock_servico = MagicMock()
         mock_servico.submeter_sugestao.side_effect = ErroSubmissao("Falha de rede")
@@ -176,13 +178,15 @@ class TestWorker(unittest.TestCase):
 
     @patch("editor.core.worker.GerenciadorCaminhos")
     @patch("editor.core.worker.obter_adaptador_plataforma")
-    def test_tarefa_inicializacao_detecta_atualizacao_store(self, mock_servico_loja_class, mock_storage_class):
+    def test_tarefa_inicializacao_detecta_atualizacao_store(
+        self, mock_servico_loja_class, mock_storage_class
+    ):
         """Quando a Store tem atualização, TarefaInicializacao deve emitir atualizacao_disponivel e interromper."""
         from editor.plataforma import ResultadoAtualizacao, StatusAtualizacao
+
         mock_servico = mock_servico_loja_class.return_value
         res = ResultadoAtualizacao(
-            status=StatusAtualizacao.ATUALIZACAO_DISPONIVEL,
-            versao_disponivel="1.5.0.0"
+            status=StatusAtualizacao.ATUALIZACAO_DISPONIVEL, versao_disponivel="1.5.0.0"
         )
         mock_servico.verificar_atualizacoes_disponiveis.return_value = res
 
@@ -201,15 +205,15 @@ class TestWorker(unittest.TestCase):
     @patch("editor.core.worker.GerenciadorSincronizacao")
     @patch("editor.core.worker.GerenciadorCaminhos")
     @patch("editor.core.worker.obter_adaptador_plataforma")
-    def test_tarefa_inicializacao_bypass_fora_da_store(self, mock_servico_loja_class, mock_storage_class, mock_sync_class):
+    def test_tarefa_inicializacao_bypass_fora_da_store(
+        self, mock_servico_loja_class, mock_storage_class, mock_sync_class
+    ):
         """Quando fora da Store (NAO_APLICAVEL), TarefaInicializacao deve seguir normalmente."""
-        from editor.plataforma import ResultadoAtualizacao, StatusAtualizacao
         from editor.core.gerenciador_sessao import SessaoUsuario
+        from editor.plataforma import ResultadoAtualizacao, StatusAtualizacao
+
         mock_servico = mock_servico_loja_class.return_value
-        res = ResultadoAtualizacao(
-            status=StatusAtualizacao.NAO_APLICAVEL,
-            mensagem="Bypass ativo"
-        )
+        res = ResultadoAtualizacao(status=StatusAtualizacao.NAO_APLICAVEL, mensagem="Bypass ativo")
         mock_servico.verificar_atualizacoes_disponiveis.return_value = res
 
         mock_storage = mock_storage_class.return_value
@@ -253,8 +257,8 @@ class TestWorker(unittest.TestCase):
         self, mock_servico_loja_class, mock_storage_class, mock_sync_class
     ):
         """Valida que TarefaInicializacao utiliza SessaoUsuario válida do Supabase Auth."""
-        from editor.plataforma import ResultadoAtualizacao, StatusAtualizacao
         from editor.core.gerenciador_sessao import SessaoUsuario
+        from editor.plataforma import ResultadoAtualizacao, StatusAtualizacao
 
         mock_servico = mock_servico_loja_class.return_value
         mock_servico.verificar_atualizacoes_disponiveis.return_value = ResultadoAtualizacao(
@@ -528,7 +532,9 @@ class TestWorker(unittest.TestCase):
         mock_servidor = MagicMock()
         mock_servidor.porta = 8888
         mock_servidor.codigo_sessao = "f0zbudvq"
-        mock_servidor.obter_url_previa_canonica.return_value = "https://previa.arestaclimb.com/f0zb-udvq"
+        mock_servidor.obter_url_previa_canonica.return_value = (
+            "https://previa.arestaclimb.com/f0zb-udvq"
+        )
         mock_servidor.gerar_qr_code.return_value = b"png_fake_bytes"
 
         tarefa = TarefaDadosConexao(mock_servidor)
@@ -546,9 +552,10 @@ class TestWorker(unittest.TestCase):
     def test_tarefa_salvamento_sucesso(self):
         """Valida que TarefaSalvamento salva croqui.yaml, processa compilação e emite sucesso."""
         from editor.core.worker import TarefaSalvamento
+
         mock_ws = MagicMock()
         mock_ws.processar_renomeacao_e_compilacao.return_value = (Path("/fake/compilado"), [])
-        
+
         tarefa = TarefaSalvamento(
             workspace=mock_ws,
             storage=None,
@@ -560,11 +567,11 @@ class TestWorker(unittest.TestCase):
         )
         tarefa.sucesso = MagicMock()
         tarefa.erro = MagicMock()
-        
+
         with patch("builtins.open", MagicMock()):
             with patch("yaml.dump"):
                 tarefa.run()
-                
+
         mock_ws.processar_renomeacao_e_compilacao.assert_called_once_with("teste", "teste", None)
         tarefa.sucesso.emit.assert_called_once_with(Path("/fake/compilado"), [], False, 3, False)
         tarefa.erro.emit.assert_not_called()
@@ -572,9 +579,14 @@ class TestWorker(unittest.TestCase):
     def test_tarefa_salvamento_sucesso_com_database_modificado(self):
         """Valida que TarefaSalvamento propaga database_modificado=True quando reportado pelo workspace."""
         from editor.core.worker import TarefaSalvamento
+
         mock_ws = MagicMock()
-        mock_ws.processar_renomeacao_e_compilacao.return_value = (Path("/fake/compilado"), ["Aviso"], True)
-        
+        mock_ws.processar_renomeacao_e_compilacao.return_value = (
+            Path("/fake/compilado"),
+            ["Aviso"],
+            True,
+        )
+
         tarefa = TarefaSalvamento(
             workspace=mock_ws,
             storage=None,
@@ -586,20 +598,23 @@ class TestWorker(unittest.TestCase):
         )
         tarefa.sucesso = MagicMock()
         tarefa.erro = MagicMock()
-        
+
         with patch("builtins.open", MagicMock()):
             with patch("yaml.dump"):
                 tarefa.run()
-                
-        tarefa.sucesso.emit.assert_called_once_with(Path("/fake/compilado"), ["Aviso"], False, 3, True)
+
+        tarefa.sucesso.emit.assert_called_once_with(
+            Path("/fake/compilado"), ["Aviso"], False, 3, True
+        )
         tarefa.erro.emit.assert_not_called()
 
     @patch("editor.core.telemetria.capturar_excecao")
     def test_tarefa_salvamento_erro_envia_sentry_e_emite_sinal(self, mock_capturar_excecao):
         """Valida que falhas reais de I/O em TarefaSalvamento são enviadas ao Sentry e emitem erro."""
         from editor.core.worker import TarefaSalvamento
+
         mock_ws = MagicMock()
-        
+
         tarefa = TarefaSalvamento(
             workspace=mock_ws,
             storage=None,
@@ -611,10 +626,10 @@ class TestWorker(unittest.TestCase):
         )
         tarefa.sucesso = MagicMock()
         tarefa.erro = MagicMock()
-        
-        with patch("builtins.open", side_effect=IOError("Permissão negada")):
+
+        with patch("builtins.open", side_effect=OSError("Permissão negada")):
             tarefa.run()
-                
+
         tarefa.sucesso.emit.assert_not_called()
         tarefa.erro.emit.assert_called_once()
         args_emit, _ = tarefa.erro.emit.call_args
@@ -627,10 +642,15 @@ class TestWorker(unittest.TestCase):
     def test_tarefa_salvamento_com_erros_de_compilacao_emite_sucesso(self):
         """Valida que TarefaSalvamento emite sucesso com a lista de erros quando a compilação retorna erros."""
         from editor.core.worker import TarefaSalvamento
+
         mock_ws = MagicMock()
         erros_compilacao = ["Erro: campo nome obrigatório", "Aviso: ID duplicado"]
-        mock_ws.processar_renomeacao_e_compilacao.return_value = (Path("/fake/compilado"), erros_compilacao, False)
-        
+        mock_ws.processar_renomeacao_e_compilacao.return_value = (
+            Path("/fake/compilado"),
+            erros_compilacao,
+            False,
+        )
+
         tarefa = TarefaSalvamento(
             workspace=mock_ws,
             storage=None,
@@ -642,26 +662,25 @@ class TestWorker(unittest.TestCase):
         )
         tarefa.sucesso = MagicMock()
         tarefa.erro = MagicMock()
-        
+
         with patch("builtins.open", unittest.mock.mock_open()):
             with patch("yaml.dump"):
                 tarefa.run()
-            
+
         tarefa.sucesso.emit.assert_called_once_with(
-            Path("/fake/compilado"),
-            erros_compilacao,
-            False,
-            3,
-            False
+            Path("/fake/compilado"), erros_compilacao, False, 3, False
         )
         tarefa.erro.emit.assert_not_called()
 
     def test_tarefa_salvamento_excecao_compilacao_emite_sucesso_com_mensagem_erro(self):
         """Valida que se a compilação levantar exceção inesperada, o salvamento físico é preservado e emite sucesso com erro."""
         from editor.core.worker import TarefaSalvamento
+
         mock_ws = MagicMock()
-        mock_ws.processar_renomeacao_e_compilacao.side_effect = RuntimeError("Falha inesperada no deploy")
-        
+        mock_ws.processar_renomeacao_e_compilacao.side_effect = RuntimeError(
+            "Falha inesperada no deploy"
+        )
+
         tarefa = TarefaSalvamento(
             workspace=mock_ws,
             storage=None,
@@ -673,11 +692,11 @@ class TestWorker(unittest.TestCase):
         )
         tarefa.sucesso = MagicMock()
         tarefa.erro = MagicMock()
-        
+
         with patch("builtins.open", unittest.mock.mock_open()):
             with patch("yaml.dump"):
                 tarefa.run()
-            
+
         tarefa.sucesso.emit.assert_called_once()
         args = tarefa.sucesso.emit.call_args[0]
         self.assertTrue(any("Falha inesperada no deploy" in str(msg) for msg in args[1]))
@@ -687,9 +706,10 @@ class TestWorker(unittest.TestCase):
     def test_tarefa_salvamento_protege_contra_base_exception(self, mock_capturar_excecao):
         """Valida que mesmo BaseException (como SystemExit) é capturada e reportada sem matar o Qt runtime."""
         from editor.core.worker import TarefaSalvamento
+
         mock_ws = MagicMock()
         mock_ws.processar_renomeacao_e_compilacao.side_effect = SystemExit(1)
-        
+
         tarefa = TarefaSalvamento(
             workspace=mock_ws,
             storage=None,
@@ -701,29 +721,30 @@ class TestWorker(unittest.TestCase):
         )
         tarefa.sucesso = MagicMock()
         tarefa.erro = MagicMock()
-        
+
         with patch("builtins.open", MagicMock()):
             with patch("yaml.dump"):
                 tarefa.run()
-                
+
         tarefa.sucesso.emit.assert_not_called()
         tarefa.erro.emit.assert_called_once()
         mock_capturar_excecao.assert_called_once()
 
     def test_tarefa_salvamento_grava_croqui_yaml_com_spdx_e_copyright(self):
         """Valida que TarefaSalvamento salva o arquivo croqui.yaml já com os cabeçalhos SPDX e Copyright."""
-        import tempfile
         import shutil
+        import tempfile
+
         from editor.core.worker import TarefaSalvamento
 
         mock_ws = MagicMock()
         tmp_dir = Path(tempfile.mkdtemp())
         try:
             mock_ws.processar_renomeacao_e_compilacao.return_value = (tmp_dir, [])
-            
+
             caminho_db = tmp_dir / "croqui_teste"
             caminho_db.mkdir()
-            
+
             tarefa = TarefaSalvamento(
                 workspace=mock_ws,
                 storage=None,
@@ -735,9 +756,9 @@ class TestWorker(unittest.TestCase):
             )
             tarefa.sucesso = MagicMock()
             tarefa.erro = MagicMock()
-            
+
             tarefa.run()
-            
+
             yaml_salvo = caminho_db / "croqui.yaml"
             assert yaml_salvo.exists()
             linhas = yaml_salvo.read_text(encoding="utf-8").splitlines()
@@ -750,8 +771,8 @@ class TestWorker(unittest.TestCase):
 
     def test_tarefa_sincronizacao_pr_sucesso(self):
         """Testa que TarefaSincronizacaoPR emite sucesso ao mesclar alterações remotas."""
-        from editor.core.worker import TarefaSincronizacaoPR
         from editor.core.servico_submissao import ResultadoSincronizacao, StatusSincronizacao
+        from editor.core.worker import TarefaSincronizacaoPR
 
         mock_servico = MagicMock()
         res = ResultadoSincronizacao(
@@ -789,8 +810,8 @@ class TestWorker(unittest.TestCase):
 
     def test_tarefa_sincronizacao_pr_aviso_quando_atualizado(self):
         """Testa que TarefaSincronizacaoPR emite aviso se já estiver atualizado."""
-        from editor.core.worker import TarefaSincronizacaoPR
         from editor.core.servico_submissao import ResultadoSincronizacao, StatusSincronizacao
+        from editor.core.worker import TarefaSincronizacaoPR
 
         mock_servico = MagicMock()
         res = ResultadoSincronizacao(
@@ -819,8 +840,8 @@ class TestWorker(unittest.TestCase):
 
     def test_tarefa_sincronizacao_pr_conflito(self):
         """Testa que TarefaSincronizacaoPR emite conflito com os arquivos conflitantes."""
-        from editor.core.worker import TarefaSincronizacaoPR
         from editor.core.servico_submissao import ResultadoSincronizacao, StatusSincronizacao
+        from editor.core.worker import TarefaSincronizacaoPR
 
         mock_servico = MagicMock()
         res = ResultadoSincronizacao(
@@ -876,4 +897,3 @@ class TestWorker(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
-

@@ -1,17 +1,16 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
-import sys
 import argparse
+import sys
+from collections.abc import Sequence
 from pathlib import Path
-from typing import List, Union, Optional, Sequence
-from aresta_api.proto.generated import beta_pb2
+
 from coleta_de_betas.io_yaml import carregar_candidatos_brutos_yaml
 
 
 def converter_yaml_para_staging(
-    caminho_yaml: Union[Path, str],
-    caminho_binarypb: Optional[Union[Path, str]] = None
+    caminho_yaml: Path | str, caminho_binarypb: Path | str | None = None
 ) -> Path:
     """
     Lê o arquivo YAML de candidatos e grava no formato Protobuf binário (betas_pendentes.binarypb).
@@ -34,7 +33,7 @@ def converter_yaml_para_staging(
     return caminho_destino
 
 
-def executar_cli_salvar_staging(argv: Optional[Sequence[str]] = None) -> int:
+def executar_cli_salvar_staging(argv: Sequence[str] | None = None) -> int:
     """Ponto de entrada CLI para conversão de YAML para staging binário."""
     parser = argparse.ArgumentParser(
         description="Converte candidatos_brutos.yaml (ou arquivo avaliado) no arquivo binário betas_pendentes.binarypb."
@@ -42,25 +41,30 @@ def executar_cli_salvar_staging(argv: Optional[Sequence[str]] = None) -> int:
     parser.add_argument(
         "croqui_dir",
         type=str,
-        help="Caminho para o diretório do croqui (ex: database/br_mg_ouro_preto_ouroboulder)"
+        help="Caminho para o diretório do croqui (ex: database/br_mg_ouro_preto_ouroboulder)",
     )
     parser.add_argument(
-        "-i", "--entrada",
+        "-i",
+        "--entrada",
         type=str,
         default="",
-        help="Caminho opcional do arquivo YAML de entrada (padrão: <croqui_dir>/candidatos_brutos.yaml)"
+        help="Caminho opcional do arquivo YAML de entrada (padrão: <croqui_dir>/candidatos_brutos.yaml)",
     )
     parser.add_argument(
-        "-o", "--saida",
+        "-o",
+        "--saida",
         type=str,
         default="",
-        help="Caminho opcional de saída do binarypb (padrão: <croqui_dir>/betas_pendentes.binarypb)"
+        help="Caminho opcional de saída do binarypb (padrão: <croqui_dir>/betas_pendentes.binarypb)",
     )
 
     args = parser.parse_args(argv)
     pico_dir = Path(args.croqui_dir)
     if not pico_dir.exists() or not pico_dir.is_dir():
-        print(f"Erro: Diretório de croqui inválido ou não encontrado: {args.croqui_dir}", file=sys.stderr)
+        print(
+            f"Erro: Diretório de croqui inválido ou não encontrado: {args.croqui_dir}",
+            file=sys.stderr,
+        )
         return 1
 
     caminho_entrada = Path(args.entrada) if args.entrada else pico_dir / "candidatos_brutos.yaml"
@@ -73,4 +77,3 @@ def executar_cli_salvar_staging(argv: Optional[Sequence[str]] = None) -> int:
     except Exception as e:
         print(f"Erro ao salvar staging: {e}", file=sys.stderr)
         return 1
-

@@ -1,18 +1,19 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
-import pygit2
 from pathlib import Path
 from unittest.mock import MagicMock, patch
+
+import pygit2
 from PySide6.QtWidgets import QMessageBox
 
-from editor.core.workspace import ExperimentalWorkspace
-from editor.core.worker import TarefaSalvamento, TarefaSincronizacaoPR
 from editor.controllers.publish_controller import PublishController
 from editor.core.servico_submissao import (
     ServicoSubmissao,
     StatusSincronizacao,
 )
+from editor.core.worker import TarefaSalvamento, TarefaSincronizacaoPR
+from editor.core.workspace import ExperimentalWorkspace
 
 
 def inicializar_repo_git(caminho: Path) -> pygit2.Repository:
@@ -107,8 +108,10 @@ class TestIntegracaoSincronizacaoPR:
         )
         controller_pub.croqui_data = dados_croqui
 
-        with patch("editor.controllers.publish_controller.QMessageBox") as mock_mb, \
-             patch.object(controller_pub, "_prosseguir_publicacao") as mock_prosseguir:
+        with (
+            patch("editor.controllers.publish_controller.QMessageBox") as mock_mb,
+            patch.object(controller_pub, "_prosseguir_publicacao") as mock_prosseguir,
+        ):
             mock_mb.StandardButton = QMessageBox.StandardButton
             # Usuário confirma o envio mesmo com erro
             mock_mb.question.return_value = QMessageBox.StandardButton.Yes
@@ -210,7 +213,9 @@ class TestIntegracaoSincronizacaoPR:
             )
 
         assert res_conflito.status == StatusSincronizacao.CONFLITO
-        assert (caminho_db_croqui / "croqui.yaml").read_text(encoding="utf-8") == "nome: Falésia Local\n"
+        assert (caminho_db_croqui / "croqui.yaml").read_text(
+            encoding="utf-8"
+        ) == "nome: Falésia Local\n"
 
         # Resolve conflito a favor da versão local mantendo o histórico de ambos
         res_resolucao = servico_submissao.resolver_conflito_pr(
@@ -227,4 +232,6 @@ class TestIntegracaoSincronizacaoPR:
         assert commit_merge_final.parent_ids[0] == c_loc_oid
         assert commit_merge_final.parent_ids[1] == c_rem_conflito_oid
         # O conteúdo final deve ser o local
-        assert (caminho_db_croqui / "croqui.yaml").read_text(encoding="utf-8") == "nome: Falésia Local\n"
+        assert (caminho_db_croqui / "croqui.yaml").read_text(
+            encoding="utf-8"
+        ) == "nome: Falésia Local\n"

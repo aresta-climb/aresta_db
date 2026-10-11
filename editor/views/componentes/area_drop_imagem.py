@@ -6,13 +6,12 @@ Componente visual para seleção e arrastar e soltar (Drag & Drop) de imagens.
 """
 
 from pathlib import Path
-from typing import Optional, Tuple, Any, Union
-from PySide6.QtWidgets import QWidget, QVBoxLayout, QLabel, QFileDialog, QMessageBox, QRubberBand
-from PySide6.QtCore import Qt, Signal, QRect, QPoint, QSize
-from PySide6.QtGui import QPixmap, QDragEnterEvent, QDropEvent, QMouseEvent, QImage
 
+from PySide6.QtCore import QPoint, QRect, QSize, Qt, Signal
+from PySide6.QtGui import QDragEnterEvent, QDropEvent, QImage, QMouseEvent, QPixmap
+from PySide6.QtWidgets import QFileDialog, QLabel, QMessageBox, QRubberBand, QVBoxLayout, QWidget
 
-EXTENSOES_IMAGEM_SUPORTADAS: Tuple[str, ...] = (
+EXTENSOES_IMAGEM_SUPORTADAS: tuple[str, ...] = (
     ".png",
     ".jpg",
     ".jpeg",
@@ -34,10 +33,11 @@ class AreaDropImagem(QWidget):
     Área visual para arrastar e soltar (Drag & Drop), clicar para selecionar uma imagem
     e seleção interativa de recorte retangular (Rubber-band selection).
     """
+
     imagem_selecionada = Signal(str)
     regiao_selecionada = Signal(tuple)
 
-    def __init__(self, parent: Optional[QWidget] = None) -> None:
+    def __init__(self, parent: QWidget | None = None) -> None:
         super().__init__(parent)
         self.setAcceptDrops(True)
         self.setMinimumSize(420, 220)
@@ -59,7 +59,9 @@ class AreaDropImagem(QWidget):
 
         self.label_info = QLabel("Arraste e solte uma imagem aqui\nou clique para selecionar")
         self.label_info.setAlignment(Qt.AlignmentFlag.AlignCenter)
-        self.label_info.setStyleSheet("border: none; background: transparent; color: #555; font-size: 13px;")
+        self.label_info.setStyleSheet(
+            "border: none; background: transparent; color: #555; font-size: 13px;"
+        )
 
         self.label_preview = QLabel()
         self.label_preview.setAlignment(Qt.AlignmentFlag.AlignCenter)
@@ -71,15 +73,17 @@ class AreaDropImagem(QWidget):
 
         # Suporte a seleção com Rubber-band
         self.rubber_band = QRubberBand(QRubberBand.Shape.Rectangle, self)
-        self._ponto_origem_selecao: Optional[QPoint] = None
-        self._retangulo_selecionado_img: Optional[Tuple[int, int, int, int]] = None
-        self.bytes_imagem_atual: Optional[bytes] = None
-        self.dimensoes_imagem_original: Optional[Tuple[int, int]] = None
+        self._ponto_origem_selecao: QPoint | None = None
+        self._retangulo_selecionado_img: tuple[int, int, int, int] | None = None
+        self.bytes_imagem_atual: bytes | None = None
+        self.dimensoes_imagem_original: tuple[int, int] | None = None
 
     def mousePressEvent(self, event: QMouseEvent) -> None:
         if event.button() == Qt.MouseButton.LeftButton:
             if self.bytes_imagem_atual and self.label_preview.isVisible():
-                self._ponto_origem_selecao = event.position().toPoint() if hasattr(event, "position") else event.pos()
+                self._ponto_origem_selecao = (
+                    event.position().toPoint() if hasattr(event, "position") else event.pos()
+                )
                 self.rubber_band.setGeometry(QRect(self._ponto_origem_selecao, QSize()))
                 self.rubber_band.show()
                 return
@@ -150,7 +154,7 @@ class AreaDropImagem(QWidget):
             self._ponto_origem_selecao = None
         super().mouseReleaseEvent(event)
 
-    def obter_retangulo_selecionado_imagem(self) -> Optional[Tuple[int, int, int, int]]:
+    def obter_retangulo_selecionado_imagem(self) -> tuple[int, int, int, int] | None:
         """Retorna o retângulo de seleção mapeado para as coordenadas em pixels da imagem."""
         return self._retangulo_selecionado_img
 
@@ -181,14 +185,18 @@ class AreaDropImagem(QWidget):
             self.label_info.hide()
             self.label_preview.show()
 
-    def processar_caminho(self, caminho_arquivo: Union[str, Path]) -> None:
+    def processar_caminho(self, caminho_arquivo: str | Path) -> None:
         caminho = Path(caminho_arquivo)
         if not caminho.exists() or not caminho.is_file():
-            QMessageBox.warning(self, "Erro", "Não foi possível carregar o arquivo de imagem selecionado.")
+            QMessageBox.warning(
+                self, "Erro", "Não foi possível carregar o arquivo de imagem selecionado."
+            )
             return
         pixmap = QPixmap(str(caminho_arquivo))
         if pixmap.isNull():
-            QMessageBox.warning(self, "Erro", "Não foi possível carregar o arquivo de imagem selecionado.")
+            QMessageBox.warning(
+                self, "Erro", "Não foi possível carregar o arquivo de imagem selecionado."
+            )
             return
         try:
             self.definir_preview_bytes(caminho.read_bytes())
@@ -200,6 +208,7 @@ class AreaDropImagem(QWidget):
         if qimage.isNull():
             return
         from PySide6.QtCore import QBuffer, QIODevice
+
         buffer = QBuffer()
         buffer.open(QIODevice.OpenModeFlag.ReadWrite)
         qimage.save(buffer, "PNG")  # type: ignore[call-overload]

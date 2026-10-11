@@ -1,9 +1,9 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
-import os
 import unittest
 from pathlib import Path
+
 from tests.validador_tipagem import (
     executar_verificacao_mypy,
     verificar_arquivo_ast,
@@ -82,7 +82,7 @@ class TestTipagemEstaticaArestaDb(unittest.TestCase):
         self.assertEqual(
             erros_totais,
             [],
-            f"Funções/métodos sem anotação completa encontrados na base de produção:\n"
+            "Funções/métodos sem anotação completa encontrados na base de produção:\n"
             + "\n".join(erros_totais),
         )
 
@@ -108,8 +108,3 @@ class TestTipagemEstaticaArestaDb(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
-
-
-
-
-

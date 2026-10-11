@@ -2,21 +2,22 @@
 # Copyright (C) 2026 Aresta Climb Contributors
 
 import pytest
+
 from editor.core.coordenadas import (
     e7_para_graus,
-    graus_para_e7,
-    formatar_graus,
-    obter_indicador_cardinal_latitude,
-    obter_indicador_cardinal_longitude,
     formatar_cardinal_latitude,
     formatar_cardinal_longitude,
-    validar_latitude,
-    validar_longitude,
+    formatar_graus,
+    gerar_url_google_maps,
+    graus_para_e7,
+    interpretar_coordenada_individual,
+    interpretar_par_coordenadas,
+    obter_indicador_cardinal_latitude,
+    obter_indicador_cardinal_longitude,
     restringir_latitude,
     restringir_longitude,
-    gerar_url_google_maps,
-    interpretar_par_coordenadas,
-    interpretar_coordenada_individual,
+    validar_latitude,
+    validar_longitude,
 )
 
 

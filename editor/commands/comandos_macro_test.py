@@ -1,16 +1,15 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
-import pytest
 from aresta_api.proto.generated import croqui_pb2
-from editor.models.croqui_model import CroquiModel
 from editor.commands.comandos_protobuf import (
     CmdAlterarPrimitivo,
     CmdMacro,
     deserializar_comando,
 )
-from editor.core.historico import GerenciadorHistorico
 from editor.core.diario import GerenciadorDiario
+from editor.core.historico import GerenciadorHistorico
+from editor.models.croqui_model import CroquiModel
 
 
 def _criar_model_teste():

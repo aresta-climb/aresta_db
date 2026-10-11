@@ -18,16 +18,16 @@ O sistema MUST armazenar a sessão do usuário de forma segura no sistema operac
 - **THEN** a aplicação MUST reter os dados da sessão em memória para uso contínuo durante a execução atual do aplicativo
 
 ### Requirement: Verificação de Disponibilidade do Cofre de Senhas
-O sistema MUST verificar a disponibilidade e acessibilidade do cofre do sistema operacional antes da autenticação e alertar o usuário caso esteja trancado ou inacessível.
+O sistema MUST consolidar o acesso ao cofre em etapa única na inicialização e alertar o usuário com aviso de sessão temporária apenas quando o desbloqueio do cofre for cancelado ou falhar.
 
 #### Scenario: Cofre trancado ou inacessível na tela de autenticação
-- **WHEN** a tela de abertura apresentar a tela de autenticação e o cofre do sistema estiver trancado ou inacessível
-- **THEN** a interface MUST exibir uma mensagem de aviso informativa antes do login: "Cofre do sistema está trancado; para que sua sessão seja lembrada na próxima vez que abrir o app, desbloqueie o cofre de senhas do sistema."
+- **WHEN** a tela de abertura apresentar a tela de autenticação e o cofre do sistema não tiver sido desbloqueado pelo usuário durante a etapa de inicialização
+- **THEN** a interface MUST exibir uma mensagem de aviso informativa: "O cofre de senhas não foi desbloqueado (ação cancelada). Você pode fazer login normalmente, mas sua sessão só será lembrada durante esta execução do app."
 - **AND** a aplicação MUST permitir que o usuário faça login normalmente utilizando retenção de sessão em memória RAM durante a execução atual
 
 #### Scenario: Cofre desbloqueado e operacional
-- **WHEN** a tela de abertura apresentar a tela de autenticação e o cofre do sistema estiver acessível
-- **THEN** a interface MUST ocultar qualquer aviso sobre cofre trancado e persistir as credenciais normalmente no chaveiro
+- **WHEN** a tela de abertura apresentar a tela de autenticação e o cofre do sistema tiver sido desbloqueado na inicialização
+- **THEN** a interface MUST ocultar qualquer aviso sobre cofre e persistir as credenciais normalmente no cofre
 
 ### Requirement: Validação de Token Existente
 A aplicação MUST validar a sessão armazenada durante a inicialização antes de prosseguir.

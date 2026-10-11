@@ -3,12 +3,13 @@
 
 """Módulo de utilitários para deduplicação e geração padronizada de nomes de arquivos e mapas."""
 
-from typing import Any, Optional
+from typing import Any
+
 from aresta_api.proto.generated import croqui_pb2
 from editor.core.formatacao import para_snake_case
 
 
-def deduplicar_prefixo(nome: Optional[str], prefixo: str) -> str:
+def deduplicar_prefixo(nome: str | None, prefixo: str) -> str:
     """Deduplica o prefixo em nomes de entidades para geração de nomes em snake_case.
 
     Evita nomes redundantes como 'setor_setor_fugitivos' ou 'setor_bloco_fugitivos'.
@@ -34,9 +35,7 @@ def deduplicar_prefixo(nome: Optional[str], prefixo: str) -> str:
 
     # Se a entidade for setor e o nome iniciar com 'bloco' ou 'blocos', adota o próprio bloco como prefixo
     if prefixo_limpo == "setor" and (
-        slug in ("bloco", "blocos")
-        or slug.startswith("bloco_")
-        or slug.startswith("blocos_")
+        slug in ("bloco", "blocos") or slug.startswith("bloco_") or slug.startswith("blocos_")
     ):
         return slug
 
@@ -46,20 +45,26 @@ def deduplicar_prefixo(nome: Optional[str], prefixo: str) -> str:
     return f"{prefixo_limpo}_{slug}"
 
 
-def extrair_prefixo_e_nome_escalada(obj: Any) -> tuple[str, Optional[str]]:
+def extrair_prefixo_e_nome_escalada(obj: Any) -> tuple[str, str | None]:
     """Extrai o prefixo ('boulder', 'via', 'highline') e o nome de uma escalada ou sub-mensagem."""
     if isinstance(obj, croqui_pb2.Escalada):
         campo_tipo = obj.WhichOneof("tipo")
         if campo_tipo:
             sub = getattr(obj, campo_tipo)
-            prefixo = "boulder" if campo_tipo == "boulder" else ("highline" if campo_tipo == "highline" else "via")
+            prefixo = (
+                "boulder"
+                if campo_tipo == "boulder"
+                else ("highline" if campo_tipo == "highline" else "via")
+            )
             nome = getattr(sub, "nome", None)
             return prefixo, nome
         return "escalada", None
 
     if isinstance(obj, croqui_pb2.Boulder):
         return "boulder", getattr(obj, "nome", None)
-    if isinstance(obj, (croqui_pb2.ViaEsportiva, croqui_pb2.ViaMovel, croqui_pb2.ViaMultiplasEnfiadas)):
+    if isinstance(
+        obj, (croqui_pb2.ViaEsportiva, croqui_pb2.ViaMovel, croqui_pb2.ViaMultiplasEnfiadas)
+    ):
         return "via", getattr(obj, "nome", None)
     if isinstance(obj, croqui_pb2.Highline):
         return "highline", getattr(obj, "nome", None)
@@ -102,8 +107,7 @@ def gerar_nome_mapa_sugerido(entidade: Any, indice: int) -> str:
     return f"{base}_p{indice}.webp"
 
 
-
-def gerar_nome_arquivo_entidade(nome: Optional[str], tipo: str) -> str:
+def gerar_nome_arquivo_entidade(nome: str | None, tipo: str) -> str:
     """Gera nome de arquivo Markdown para um Setor ou Grupo deduplicando prefixo.
 
     Exemplos:

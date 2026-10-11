@@ -8,22 +8,23 @@ de alta resolução e SVG vetorial para impressão, adesivos e corte a laser.
 """
 
 import base64
-from io import BytesIO
-from pathlib import Path
 import re
 import sys
-from typing import Any, cast
 import unicodedata
+from io import BytesIO
+from pathlib import Path
+from typing import Any, cast
 
 _RAIZ = str(Path(__file__).resolve().parent.parent)
 if _RAIZ not in sys.path:
     sys.path.insert(0, _RAIZ)  # pragma: no cover
 
-from PIL import Image, ImageChops, ImageDraw, ImageFont
-from PIL.ImageFont import FreeTypeFont, ImageFont as PILImageFont
 import qrcode
 import qrcode.constants
 import yaml
+from PIL import Image, ImageChops, ImageDraw, ImageFont
+from PIL.ImageFont import FreeTypeFont
+from PIL.ImageFont import ImageFont as PILImageFont
 
 from aresta_api.proto.generated import croqui_pb2
 
@@ -40,9 +41,7 @@ def slugify(texto: str) -> str:
 
     # Normaliza em decomposição canônica (NFD) e remove acentos
     texto_normalizado = unicodedata.normalize("NFD", texto)
-    sem_acentos = "".join(
-        c for c in texto_normalizado if unicodedata.category(c) != "Mn"
-    )
+    sem_acentos = "".join(c for c in texto_normalizado if unicodedata.category(c) != "Mn")
 
     # Substitui caracteres especiais por underline e converte para minúsculas
     limpo = re.sub(r"[^a-zA-Z0-9]+", "_", sem_acentos.lower())
@@ -195,9 +194,7 @@ def gerar_qrcode_com_logo(
             pass
 
     if imagem_qr.size != (tamanho_px, tamanho_px):
-        imagem_qr = imagem_qr.resize(
-            (tamanho_px, tamanho_px), Image.Resampling.LANCZOS
-        )
+        imagem_qr = imagem_qr.resize((tamanho_px, tamanho_px), Image.Resampling.LANCZOS)
 
     return imagem_qr
 
@@ -220,9 +217,7 @@ def recortar_bordas_vazias(img: Image.Image) -> Image.Image:
     return img
 
 
-def carregar_imagem_topo(
-    caminho: Path | str | None, dpi: int = 300
-) -> Image.Image | None:
+def carregar_imagem_topo(caminho: Path | str | None, dpi: int = 300) -> Image.Image | None:
     """Carrega uma imagem ou vetor PDF para o cabeçalho/topo da placa."""
     if caminho is None:
         return None
@@ -281,7 +276,6 @@ def obter_logo_topo_padrao(
             if c.exists():
                 return c
     return None
-
 
 
 def _obter_fonte(tamanho: int, negrito: bool = False) -> FreeTypeFont | PILImageFont:
@@ -531,7 +525,11 @@ def gerar_placa_png(
     x_linha_dir_ini = (largura + w_cat) // 2 + gap_linha
     x_linha_dir_fim = x_linha_dir_ini + largura_linha_cat
 
-    desenho.line([(x_linha_esq_ini, y_cat), (x_linha_esq_fim, y_cat)], fill=COR_VERMELHO, width=espessura_linha_cat)
+    desenho.line(
+        [(x_linha_esq_ini, y_cat), (x_linha_esq_fim, y_cat)],
+        fill=COR_VERMELHO,
+        width=espessura_linha_cat,
+    )
     desenho.text(
         (largura // 2, y_cat),
         cat_texto,
@@ -541,7 +539,11 @@ def gerar_placa_png(
         stroke_width=stroke_cat,
         stroke_fill=COR_TEXTO_ESCURO,
     )
-    desenho.line([(x_linha_dir_ini, y_cat), (x_linha_dir_fim, y_cat)], fill=COR_VERMELHO, width=espessura_linha_cat)
+    desenho.line(
+        [(x_linha_dir_ini, y_cat), (x_linha_dir_fim, y_cat)],
+        fill=COR_VERMELHO,
+        width=espessura_linha_cat,
+    )
 
     y_nome = y_cat + int(360 * fator)
     stroke_nome = int(10 * fator)
@@ -608,9 +610,19 @@ def gerar_placa_png(
     x_lsec_dir_ini = (largura + w_sec) // 2 + gap_sec
     x_lsec_dir_fim = largura - margem_linha_sec
 
-    desenho.line([(x_lsec_esq_ini, y_sec), (x_lsec_esq_fim, y_sec)], fill=COR_CINZA_LINHA, width=esp_linha_sec)
-    desenho.text((largura // 2, y_sec), sec_texto, fill=COR_TEXTO_ESCURO, font=fonte_sec, anchor="mm")
-    desenho.line([(x_lsec_dir_ini, y_sec), (x_lsec_dir_fim, y_sec)], fill=COR_CINZA_LINHA, width=esp_linha_sec)
+    desenho.line(
+        [(x_lsec_esq_ini, y_sec), (x_lsec_esq_fim, y_sec)],
+        fill=COR_CINZA_LINHA,
+        width=esp_linha_sec,
+    )
+    desenho.text(
+        (largura // 2, y_sec), sec_texto, fill=COR_TEXTO_ESCURO, font=fonte_sec, anchor="mm"
+    )
+    desenho.line(
+        [(x_lsec_dir_ini, y_sec), (x_lsec_dir_fim, y_sec)],
+        fill=COR_CINZA_LINHA,
+        width=esp_linha_sec,
+    )
 
     # 7. Quatro Regras com Ícones Vetoriais
     tam_icon = int(155 * fator)
@@ -642,24 +654,54 @@ def gerar_placa_png(
     # Regra 1: Folha
     y1 = y_base_regras
     placa.paste(icon_leaf, (x_bloco, y1 - tam_icon // 2), icon_leaf)
-    desenho.text((x_texto_regra, y1), "Deixe a menor marca possível na natureza", fill=COR_TEXTO_ESCURO, font=fonte_regra, anchor="lm")
+    desenho.text(
+        (x_texto_regra, y1),
+        "Deixe a menor marca possível na natureza",
+        fill=COR_TEXTO_ESCURO,
+        font=fonte_regra,
+        anchor="lm",
+    )
 
     # Regra 2: Rocha
     y2 = y1 + esp_regras
     placa.paste(icon_rock, (x_bloco, y2 - tam_icon // 2), icon_rock)
-    desenho.text((x_texto_regra, y2), "Preserve a rocha: não quebre nem altere agarras", fill=COR_TEXTO_ESCURO, font=fonte_regra, anchor="lm")
+    desenho.text(
+        (x_texto_regra, y2),
+        "Preserve a rocha: não quebre nem altere agarras",
+        fill=COR_TEXTO_ESCURO,
+        font=fonte_regra,
+        anchor="lm",
+    )
 
     # Regra 3: Lixo
     y3 = y2 + esp_regras
     placa.paste(icon_trash, (x_bloco, y3 - tam_icon // 2), icon_trash)
-    desenho.text((x_texto_regra, y3), "Leve todo o seu lixo de volta com você", fill=COR_TEXTO_ESCURO, font=fonte_regra, anchor="lm")
+    desenho.text(
+        (x_texto_regra, y3),
+        "Leve todo o seu lixo de volta com você",
+        fill=COR_TEXTO_ESCURO,
+        font=fonte_regra,
+        anchor="lm",
+    )
 
     # Regra 4: Entorno (duas linhas)
     y4 = y3 + esp_regras
     altura_linha_regra4 = int(140 * fator)
     placa.paste(icon_users, (x_bloco, y4 + altura_linha_regra4 // 2 - tam_icon // 2), icon_users)
-    desenho.text((x_texto_regra, y4), "Preserve o entorno: faça suas necessidades", fill=COR_TEXTO_ESCURO, font=fonte_regra, anchor="lm")
-    desenho.text((x_texto_regra, y4 + altura_linha_regra4), "nos sanitários disponibilizados pelo evento", fill=COR_TEXTO_ESCURO, font=fonte_regra, anchor="lm")
+    desenho.text(
+        (x_texto_regra, y4),
+        "Preserve o entorno: faça suas necessidades",
+        fill=COR_TEXTO_ESCURO,
+        font=fonte_regra,
+        anchor="lm",
+    )
+    desenho.text(
+        (x_texto_regra, y4 + altura_linha_regra4),
+        "nos sanitários disponibilizados pelo evento",
+        fill=COR_TEXTO_ESCURO,
+        font=fonte_regra,
+        anchor="lm",
+    )
 
     return placa
 
@@ -740,10 +782,7 @@ def gerar_placa_svg(
 
     def escapar(t: str) -> str:
         return (
-            t.replace("&", "&amp;")
-            .replace("<", "&lt;")
-            .replace(">", "&gt;")
-            .replace('"', "&quot;")
+            t.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;").replace('"', "&quot;")
         )
 
     caminho_aresta_resolvido = (
@@ -858,7 +897,9 @@ def gerar_placa_svg(
     while w_nome > largura_max_nome and tam_fonte_nome > limite_min_nome:
         tam_fonte_nome -= 10
         fonte_teste = _obter_fonte(tam_fonte_nome, negrito=True)
-        bb_nome = desenho_temp.textbbox((0, 0), nome_texto, font=fonte_teste, stroke_width=stroke_nome)
+        bb_nome = desenho_temp.textbbox(
+            (0, 0), nome_texto, font=fonte_teste, stroke_width=stroke_nome
+        )
         w_nome = bb_nome[2] - bb_nome[0]
 
     y_inst = y_nome + int(290 * fator)
@@ -919,7 +960,11 @@ def gerar_placa_svg(
     y4 = y3 + esp_regras
 
     escala_icon = f"{tam_icon / 24:.4f}"
-    subtitulo_tag = f'<text class="subtitulo" style="display:none">{escapar(subtitulo)}</text>' if subtitulo else ''
+    subtitulo_tag = (
+        f'<text class="subtitulo" style="display:none">{escapar(subtitulo)}</text>'
+        if subtitulo
+        else ""
+    )
 
     return f"""<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {largura} {altura}" width="{largura}" height="{altura}">
@@ -1176,7 +1221,7 @@ def extrair_itens_croqui(
     # 2. Se não houver compilado, lê a pasta database/
     caminho_yaml = raiz_projeto / "database" / pico_id / "croqui.yaml"
     if caminho_yaml.exists():
-        with open(caminho_yaml, "r", encoding="utf-8") as f:
+        with open(caminho_yaml, encoding="utf-8") as f:
             dados_yaml = yaml.safe_load(f)
 
         nome_pico = dados_yaml.get("nome", pico_id)
@@ -1194,9 +1239,7 @@ def extrair_itens_croqui(
             for sg in p_yaml.get("setores_ou_grupos", []):
                 if "setor" in sg:
                     caminho_setor = sg["setor"].get("caminho", "")
-                    slug = caminho_setor.replace(".md", "").replace(
-                        "setor_", ""
-                    )
+                    slug = caminho_setor.replace(".md", "").replace("setor_", "")
                     titulo = slug.replace("_", " ").title()
                     itens.append(
                         {
@@ -1257,20 +1300,14 @@ def exportar_placas_pico(
     if raiz_projeto is None:
         raiz_projeto = DIRETORIO_RAIZ_PADRAO
 
-    itens = extrair_itens_croqui(
-        pico_id, raiz_projeto=raiz_projeto, incluir_vias=incluir_vias
-    )
+    itens = extrair_itens_croqui(pico_id, raiz_projeto=raiz_projeto, incluir_vias=incluir_vias)
     if limite_itens is not None:
         itens = itens[:limite_itens]
 
     if caminho_logo_topo is None:
-        caminho_logo_topo = obter_logo_topo_padrao(
-            pico_id, raiz_projeto=raiz_projeto
-        )
+        caminho_logo_topo = obter_logo_topo_padrao(pico_id, raiz_projeto=raiz_projeto)
     if caminho_logo_aresta is None:
-        caminho_logo_aresta = obter_logo_aresta_padrao(
-            raiz_projeto=raiz_projeto
-        )
+        caminho_logo_aresta = obter_logo_aresta_padrao(raiz_projeto=raiz_projeto)
 
     arquivos_gerados: list[dict[str, Any]] = []
 

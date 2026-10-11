@@ -5,7 +5,7 @@
 Testes unitários para o componente AlcaArrasteItem.
 """
 
-from PySide6.QtCore import Qt, QPoint, QPointF
+from PySide6.QtCore import QPoint, QPointF, Qt
 from PySide6.QtGui import QMouseEvent
 from PySide6.QtWidgets import QApplication
 

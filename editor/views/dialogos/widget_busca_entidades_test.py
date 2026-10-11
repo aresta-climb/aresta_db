@@ -8,7 +8,7 @@ Atende aos Princípios I, II, III e IV de AGENTS.md (TDD, 100% de cobertura).
 
 import pytest
 from PySide6.QtWidgets import QApplication
-from PySide6.QtCore import Qt
+
 from aresta_api.proto.generated import croqui_pb2
 from editor.models.croqui_model import CroquiModel
 from editor.views.dialogos.widget_busca_entidades import WidgetBuscaEntidades
@@ -130,18 +130,16 @@ def test_mapa_filtro_marca_escaladas_ja_mapeadas_como_greyed_out(qapp):
     mapa.referencias.add(alvo_uid="Bacon com Linguiça", pontos_uids=["linha_1"])
 
     model = CroquiModel(croqui)
-    widget = WidgetBuscaEntidades(
-        model=model,
-        mapa_filtro=mapa,
-        tipos_permitidos={"Escalada"}
-    )
+    widget = WidgetBuscaEntidades(model=model, mapa_filtro=mapa, tipos_permitidos={"Escalada"})
 
     # "Bacon com Linguiça" NÃO deve ser omitida; deve estar presente com ja_mapeada=True
     nomes = [e["escalada"] for e in widget.todas_entidades]
     assert "Bacon com Linguiça" in nomes
     assert "Vía Láctea" in nomes
 
-    entidade_mapeada = next(e for e in widget.todas_entidades if e["escalada"] == "Bacon com Linguiça")
+    entidade_mapeada = next(
+        e for e in widget.todas_entidades if e["escalada"] == "Bacon com Linguiça"
+    )
     assert entidade_mapeada["ja_mapeada"] is True
 
     entidade_livre = next(e for e in widget.todas_entidades if e["escalada"] == "Vía Láctea")
@@ -159,7 +157,6 @@ def test_mapa_filtro_marca_escaladas_ja_mapeadas_como_greyed_out(qapp):
     assert "[já no mapa]" in item_mapeado.text()
     assert "Esta escalada já possui traçado neste mapa" in item_mapeado.toolTip()
     assert item_mapeado.foreground().color().name().lower() == "#888888"
-
 
 
 def test_busca_insensivel_a_acentos_e_caixa(qapp):
@@ -184,13 +181,14 @@ def test_permitir_criacao_nova_adiciona_item_especial(qapp):
     croqui, _, _ = _criar_croqui_teste()
     model = CroquiModel(croqui)
     widget = WidgetBuscaEntidades(
-        model=model,
-        tipos_permitidos={"Escalada"},
-        permitir_criacao_nova=True
+        model=model, tipos_permitidos={"Escalada"}, permitir_criacao_nova=True
     )
 
     # Sem texto de busca: nenhum item especial
-    assert not any("Criar Nova" in widget.lista_resultados.item(i).text() for i in range(widget.lista_resultados.count()))
+    assert not any(
+        "Criar Nova" in widget.lista_resultados.item(i).text()
+        for i in range(widget.lista_resultados.count())
+    )
 
     # Com texto de busca: o último item deve ser o especial de criação
     widget.definir_filtro("Novo Projeto")
@@ -214,11 +212,13 @@ def test_emissao_de_sinais_selecionada_e_ativada(qapp):
     widget = WidgetBuscaEntidades(model=model)
 
     selecionada = None
+
     def ao_selecionar(dados):
         nonlocal selecionada
         selecionada = dados
 
     ativada = None
+
     def ao_ativar(dados):
         nonlocal ativada
         ativada = dados
@@ -312,6 +312,7 @@ def test_dificuldade_com_atributo_name(qapp):
     class EscaladaFake:
         def WhichOneof(self, campo):
             return "boulder"
+
         boulder = ConteudoFake()
 
     widget = WidgetBuscaEntidades()
@@ -319,4 +320,3 @@ def test_dificuldade_com_atributo_name(qapp):
     assert nome == "Fake Route"
     assert tipo == "boulder"
     assert grau == "V10"
-

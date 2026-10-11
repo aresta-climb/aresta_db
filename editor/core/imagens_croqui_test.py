@@ -2,11 +2,11 @@
 # Copyright (C) 2026 Aresta Climb Contributors
 
 from aresta_api.proto.generated import croqui_pb2
-from editor.models.readonly_proxy import ReadOnlyProxy
 from editor.core.imagens_croqui import (
     extrair_caminhos_imagens,
     obter_imagens_orfas_ao_remover,
 )
+from editor.models.readonly_proxy import ReadOnlyProxy
 
 
 class TestImagensCroqui:
@@ -93,7 +93,9 @@ class TestImagensCroqui:
     def test_obter_imagens_orfas_ao_remover_item_sem_caminhos_imagem(self):
         croqui = croqui_pb2.Croqui()
         pico_sem_mapas = croqui_pb2.Pico(nome="Pico sem mapas")
-        orfas = obter_imagens_orfas_ao_remover(croqui, pico_sem_mapas, {"imagens/teste.webp": b"123"})
+        orfas = obter_imagens_orfas_ao_remover(
+            croqui, pico_sem_mapas, {"imagens/teste.webp": b"123"}
+        )
         assert orfas == {}
 
     def test_obter_imagens_orfas_ao_remover_caminhos_nao_presentes_na_ram(self):
@@ -113,10 +115,14 @@ class TestImagensCroqui:
         assert orfas == {}
 
     def test_extrair_caminhos_imagens_setor_e_grupo_com_capa(self):
-        setor = croqui_pb2.Setor(nome="Setor Com Capa", caminho_imagem_capa="imagens\\capa_setor.webp")
+        setor = croqui_pb2.Setor(
+            nome="Setor Com Capa", caminho_imagem_capa="imagens\\capa_setor.webp"
+        )
         assert extrair_caminhos_imagens(setor) == ["imagens/capa_setor.webp"]
 
-        grupo = croqui_pb2.Grupo(nome="Grupo Com Capa", caminho_imagem_capa="imagens/capa_grupo.webp")
+        grupo = croqui_pb2.Grupo(
+            nome="Grupo Com Capa", caminho_imagem_capa="imagens/capa_grupo.webp"
+        )
         assert extrair_caminhos_imagens(grupo) == ["imagens/capa_grupo.webp"]
 
     def test_obter_imagens_orfas_ao_remover_setor_com_capa(self):

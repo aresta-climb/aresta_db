@@ -7,8 +7,6 @@ Permite a distribuição e atualização automática do pacote MSIX do canal Bet
 """
 
 import re
-from typing import Optional
-
 
 PADRAO_VERSAO_TRES_DIGITOS = re.compile(r"^\d+\.\d+\.\d+$")
 PADRAO_VERSAO_QUATRO_DIGITOS = re.compile(r"^\d+\.\d+\.\d+\.\d+$")
@@ -29,7 +27,9 @@ def formatar_versao_quatro_partes(versao: str) -> str:
     if PADRAO_VERSAO_TRES_DIGITOS.match(versao_limpa):
         return f"{versao_limpa}.0"
 
-    raise ValueError(f"Versão inválida para o manifesto AppInstaller: '{versao}'. Esperado formato X.Y.Z ou X.Y.Z.W.")
+    raise ValueError(
+        f"Versão inválida para o manifesto AppInstaller: '{versao}'. Esperado formato X.Y.Z ou X.Y.Z.W."
+    )
 
 
 def gerar_conteudo_appinstaller(

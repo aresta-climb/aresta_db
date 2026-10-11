@@ -2,16 +2,16 @@
 # Copyright (C) 2026 Aresta Climb Contributors
 
 import io
-from pathlib import Path
-from PIL import Image
+
 import pytest
+from PIL import Image
 
 from editor.core.processamento_imagem_campo import (
-    sanitizar_nome_arquivo_imagem,
-    verificar_conflito_nome_imagem,
-    sugerir_nome_arquivo_disponivel,
-    obter_metadados_imagem,
     comprimir_imagem_para_bytes_webp,
+    obter_metadados_imagem,
+    sanitizar_nome_arquivo_imagem,
+    sugerir_nome_arquivo_disponivel,
+    verificar_conflito_nome_imagem,
 )
 
 
@@ -34,6 +34,7 @@ def imagem_rgba_bytes():
 @pytest.fixture
 def imagem_heic_bytes():
     import pillow_heif
+
     pillow_heif.register_heif_opener()
     buf = io.BytesIO()
     img = Image.new("RGB", (250, 150), color=(80, 120, 160))
@@ -46,7 +47,10 @@ class TestSanitizacaoENomes:
         assert sanitizar_nome_arquivo_imagem("Foto do Setor 01!.jpg") == "foto_do_setor_01.webp"
         assert sanitizar_nome_arquivo_imagem("Capa_Principal.PNG") == "capa_principal.webp"
         assert sanitizar_nome_arquivo_imagem("miniatura.webp") == "miniatura.webp"
-        assert sanitizar_nome_arquivo_imagem("caminho/para/arquivo/Imagem 123.jpeg") == "imagem_123.webp"
+        assert (
+            sanitizar_nome_arquivo_imagem("caminho/para/arquivo/Imagem 123.jpeg")
+            == "imagem_123.webp"
+        )
         assert sanitizar_nome_arquivo_imagem("") == "imagem.webp"
 
     def test_verificar_conflito_nome_imagem(self, tmp_path):
@@ -59,8 +63,14 @@ class TestSanitizacaoENomes:
 
         # Verifica conflito também com buffer em memória
         imagens_memoria = {"imagens/em_memoria.webp": b"123"}
-        assert verificar_conflito_nome_imagem("em_memoria.webp", pasta_imagens, imagens_memoria) is True
-        assert verificar_conflito_nome_imagem("inexistente.webp", pasta_imagens, imagens_memoria) is False
+        assert (
+            verificar_conflito_nome_imagem("em_memoria.webp", pasta_imagens, imagens_memoria)
+            is True
+        )
+        assert (
+            verificar_conflito_nome_imagem("inexistente.webp", pasta_imagens, imagens_memoria)
+            is False
+        )
 
     def test_sugerir_nome_arquivo_disponivel(self, tmp_path):
         pasta_imagens = tmp_path / "imagens"
@@ -129,7 +139,9 @@ class TestMetadadosECompressao:
     def test_verificar_conflito_nome_vazio_e_com_prefixo_imagens(self, tmp_path):
         assert verificar_conflito_nome_imagem("", tmp_path) is False
         imagens_memoria = {"imagens/teste.webp": b"123"}
-        assert verificar_conflito_nome_imagem("imagens/teste.webp", tmp_path, imagens_memoria) is True
+        assert (
+            verificar_conflito_nome_imagem("imagens/teste.webp", tmp_path, imagens_memoria) is True
+        )
 
     def test_obter_metadados_tamanhos_variados(self, tmp_path):
         # Tamanho pequeno < 1KB
@@ -254,24 +266,28 @@ class TestMetadadosECompressao:
 
     def test_garantir_suporte_heif_com_e_sem_modulo(self, monkeypatch):
         from editor.core.processamento_imagem_campo import garantir_suporte_heif
+
         assert garantir_suporte_heif() is True
 
         import sys
+
         monkeypatch.setitem(sys.modules, "pillow_heif", None)
         assert garantir_suporte_heif() is False
 
     def test_constantes_padrao_processamento_imagem(self):
         from editor.core.processamento_imagem_campo import (
             AREA_MAXIMA_PADRAO,
-            QUALIDADE_WEBP_PADRAO,
             METODO_WEBP_PADRAO,
+            QUALIDADE_WEBP_PADRAO,
         )
+
         assert AREA_MAXIMA_PADRAO == 2_500_000
         assert QUALIDADE_WEBP_PADRAO == 85
         assert METODO_WEBP_PADRAO == 6
 
     def test_comprimir_imagem_com_valores_padrao_2_5_mp_e_metodo_6(self, monkeypatch):
         from editor.core.processamento_imagem_campo import comprimir_imagem_para_bytes_webp
+
         # Imagem com 3 MP (2000 x 1500 = 3.000.000 > 2.500.000)
         img_grande = Image.new("RGB", (2000, 1500), color=(10, 20, 30))
 
@@ -299,15 +315,17 @@ class TestMetadadosECompressao:
             AREA_MAXIMA_ESCALADA,
             QUALIDADE_WEBP_ESCALADA,
         )
+
         assert AREA_MAXIMA_ESCALADA == 1_000_000
         assert QUALIDADE_WEBP_ESCALADA == 85
 
     def test_comprimir_imagem_perfil_escalada_1_0_mp_e_qualidade_85(self, monkeypatch):
         from editor.core.processamento_imagem_campo import (
-            comprimir_imagem_para_bytes_webp,
             AREA_MAXIMA_ESCALADA,
             QUALIDADE_WEBP_ESCALADA,
+            comprimir_imagem_para_bytes_webp,
         )
+
         # Imagem com 1.5 MP (1500 x 1000 = 1.500.000 > 1.000.000)
         img_grande = Image.new("RGB", (1500, 1000), color=(50, 60, 70))
 
@@ -334,4 +352,3 @@ class TestMetadadosECompressao:
         assert save_chamadas[0].get("quality") == 85
         assert save_chamadas[0].get("method") == 6
         assert save_chamadas[0].get("format") == "WEBP"
-

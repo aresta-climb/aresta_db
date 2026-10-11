@@ -1,14 +1,11 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
-import pytest
 import yaml
-from pathlib import Path
+
 from aresta_api.proto.generated import beta_pb2
-from coleta_de_betas.persistencia.salvamento import (
-    injetar_betas_no_markdown,
-    persistir_aprovacoes
-)
+from coleta_de_betas.persistencia.salvamento import injetar_betas_no_markdown, persistir_aprovacoes
+
 
 def test_injetar_betas_no_markdown(tmp_path):
     arquivo_md = tmp_path / "setor_teste.md"
@@ -50,7 +47,7 @@ Este é o texto descritivo do setor.
     partes = conteudo_pos.split("---")
     frontmatter = yaml.safe_load(partes[1])
     assert len(frontmatter["escaladas"]) == 2
-    
+
     esc1 = frontmatter["escaladas"][0]
     assert esc1["via_esportiva"]["nome"] == "Fusca Azul"
     assert "betas" in esc1
@@ -66,14 +63,17 @@ def test_persistir_aprovacoes_e_limpar_staging(tmp_path):
     pico_dir.mkdir()
 
     setor_md = pico_dir / "grupo_1_setor_1.md"
-    setor_md.write_text("""---
+    setor_md.write_text(
+        """---
 nome: Setor 1
 escaladas:
   - via_esportiva:
       nome: Fusca Azul
 ---
 Descricao
-""", encoding="utf-8")
+""",
+        encoding="utf-8",
+    )
 
     staging_pb = pico_dir / "betas_pendentes.binarypb"
     staging_pb.write_bytes(b"dummy")

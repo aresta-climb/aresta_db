@@ -2,17 +2,16 @@
 # Copyright (C) 2026 Aresta Climb Contributors
 
 import io
-from pathlib import Path
+
 from PIL import Image
-import pytest
-from PySide6.QtWidgets import QFileDialog
 from PySide6.QtGui import QUndoStack
+from PySide6.QtWidgets import QFileDialog
 
 from aresta_api.proto.generated import croqui_pb2
-from editor.models.croqui_model import CroquiModel
 from editor.controllers.croqui_controller import CroquiController
-from editor.views.widget_editor_mapas import WidgetEditorMapas
 from editor.legacy_views.widget_editor_imagens import WidgetEditorImagens
+from editor.models.croqui_model import CroquiModel
+from editor.views.widget_editor_mapas import WidgetEditorMapas
 
 
 def criar_imagem_webp_bytes(cor=(100, 100, 100), tamanho=(200, 150)) -> bytes:
@@ -23,14 +22,16 @@ def criar_imagem_webp_bytes(cor=(100, 100, 100), tamanho=(200, 150)) -> bytes:
 
 
 class TestMapasImagensIntegracao:
-    def test_sincronizacao_cruzada_mapas_e_imagens_com_undo_redo(self, qtbot, tmp_path, monkeypatch):
+    def test_sincronizacao_cruzada_mapas_e_imagens_com_undo_redo(
+        self, qtbot, tmp_path, monkeypatch
+    ):
         # 1. Setup Croqui com 1 mapa
         croqui = croqui_pb2.Croqui(nome="Croqui Teste Sincronização")
         pico = croqui.picos.add(nome="Pico 1")
         sg = pico.setores_ou_grupos.add()
         setor = sg.setor.conteudo
         setor.nome = "Setor Principal"
-        
+
         mapa = setor.mapas.add()
         mapa.caminho_imagem_mapa = "imagens/mapa_setor.webp"
         mapa.largura_mapa = 200
@@ -72,7 +73,9 @@ class TestMapasImagensIntegracao:
         img1 = Image.new("RGB", (300, 200), color=(255, 0, 0))
         img1.save(nova_foto_1, format="PNG")
 
-        monkeypatch.setattr(QFileDialog, "getOpenFileName", lambda *a, **k: (str(nova_foto_1), "PNG"))
+        monkeypatch.setattr(
+            QFileDialog, "getOpenFileName", lambda *a, **k: (str(nova_foto_1), "PNG")
+        )
         widget_mapas.substituir_imagem_mapa()
 
         bytes_alterados_1 = model.obter_bytes_imagem("imagens/mapa_setor.webp")
@@ -80,14 +83,18 @@ class TestMapasImagensIntegracao:
         assert bytes_alterados_1.startswith(b"RIFF")
 
         # Verifica se o editor de imagens recarregou em RAM
-        assert widget_imagens.states[str(pasta_imagens / "mapa_setor.webp")].working_image is not None
+        assert (
+            widget_imagens.states[str(pasta_imagens / "mapa_setor.webp")].working_image is not None
+        )
 
         # 4. Substitui a imagem a partir do WidgetEditorImagens
         nova_foto_2 = tmp_path / "nova_foto_2.png"
         img2 = Image.new("RGB", (400, 250), color=(0, 255, 0))
         img2.save(nova_foto_2, format="PNG")
 
-        monkeypatch.setattr(QFileDialog, "getOpenFileName", lambda *a, **k: (str(nova_foto_2), "PNG"))
+        monkeypatch.setattr(
+            QFileDialog, "getOpenFileName", lambda *a, **k: (str(nova_foto_2), "PNG")
+        )
         widget_imagens.substituir_imagem_selecionada()
 
         bytes_alterados_2 = model.obter_bytes_imagem("imagens/mapa_setor.webp")
@@ -112,9 +119,11 @@ class TestMapasImagensIntegracao:
         undo_stack.redo()
         assert model.obter_bytes_imagem("imagens/mapa_setor.webp") == bytes_alterados_2
 
-    def test_abrir_no_editor_imagens_a_partir_de_mapas_seleciona_imagem_exata_na_ui(self, qtbot, tmp_path):
-        from editor.legacy_views.area_principal import JanelaPrincipal
+    def test_abrir_no_editor_imagens_a_partir_de_mapas_seleciona_imagem_exata_na_ui(
+        self, qtbot, tmp_path
+    ):
         from editor.core.workspace import ExperimentalWorkspace
+        from editor.legacy_views.area_principal import JanelaPrincipal
 
         pasta_raiz = tmp_path / "croqui_teste_nav"
         pasta_db = pasta_raiz / "database"
@@ -123,8 +132,12 @@ class TestMapasImagensIntegracao:
         pasta_imagens.mkdir()
 
         # Cria 2 imagens no disco
-        Image.new("RGB", (100, 100), color=(255, 0, 0)).save(pasta_imagens / "thumb.webp", format="WEBP")
-        Image.new("RGB", (200, 200), color=(0, 255, 0)).save(pasta_imagens / "mapa_setor_b.webp", format="WEBP")
+        Image.new("RGB", (100, 100), color=(255, 0, 0)).save(
+            pasta_imagens / "thumb.webp", format="WEBP"
+        )
+        Image.new("RGB", (200, 200), color=(0, 255, 0)).save(
+            pasta_imagens / "mapa_setor_b.webp", format="WEBP"
+        )
 
         # Cria croqui com mapa apontando para mapa_setor_b.webp
         yaml_content = """
@@ -172,12 +185,18 @@ picos:
 
         area_principal.historico.obter_pilha().setClean()
 
-    def test_substituir_imagem_mapa_no_editor_mapas_integrado_com_foco_sem_crash(self, qtbot, tmp_path, monkeypatch):
-        from editor.legacy_views.area_principal import JanelaPrincipal
-        from editor.core.workspace import ExperimentalWorkspace
+    def test_substituir_imagem_mapa_no_editor_mapas_integrado_com_foco_sem_crash(
+        self, qtbot, tmp_path, monkeypatch
+    ):
         from PySide6.QtWidgets import QMessageBox
 
-        monkeypatch.setattr("editor.legacy_views.area_principal.QMessageBox.question", lambda *a, **k: QMessageBox.StandardButton.Discard)
+        from editor.core.workspace import ExperimentalWorkspace
+        from editor.legacy_views.area_principal import JanelaPrincipal
+
+        monkeypatch.setattr(
+            "editor.legacy_views.area_principal.QMessageBox.question",
+            lambda *a, **k: QMessageBox.StandardButton.Discard,
+        )
 
         pasta_raiz = tmp_path / "croqui_subst_mapa_integrado"
         pasta_db = pasta_raiz / "database"
@@ -186,7 +205,9 @@ picos:
         pasta_imagens.mkdir()
 
         # Imagem original do mapa
-        Image.new("RGB", (200, 200), color=(10, 20, 30)).save(pasta_imagens / "mapa_principal.webp", format="WEBP")
+        Image.new("RGB", (200, 200), color=(10, 20, 30)).save(
+            pasta_imagens / "mapa_principal.webp", format="WEBP"
+        )
 
         yaml_content = """
 id: croqui_mapa_subst
@@ -220,14 +241,20 @@ picos:
         # Prepara nova imagem
         nova_img = tmp_path / "nova_foto_mapa.png"
         Image.new("RGB", (350, 350), color=(100, 200, 50)).save(nova_img, format="PNG")
-        monkeypatch.setattr("editor.views.widget_editor_mapas.QFileDialog.getOpenFileName", lambda *a, **k: (str(nova_img), "PNG"))
+        monkeypatch.setattr(
+            "editor.views.widget_editor_mapas.QFileDialog.getOpenFileName",
+            lambda *a, **k: (str(nova_img), "PNG"),
+        )
 
         # Executa substituição de imagem do mapa
         editor_mapas.substituir_imagem_mapa()
 
         # Deve permanecer na aba de mapas (índice 2) sem crash
         assert area_principal.stack.currentIndex() == 2
-        assert area_principal.croqui_model.obter_bytes_imagem("imagens/mapa_principal.webp") is not None
+        assert (
+            area_principal.croqui_model.obter_bytes_imagem("imagens/mapa_principal.webp")
+            is not None
+        )
 
         # Testa Undo
         area_principal.historico.obter_pilha().undo()
@@ -239,9 +266,11 @@ picos:
 
         area_principal.historico.obter_pilha().setClean()
 
-    def test_abrir_no_editor_mapas_a_partir_de_imagens_seleciona_mapa_na_janela_principal(self, qtbot, tmp_path):
-        from editor.legacy_views.area_principal import JanelaPrincipal
+    def test_abrir_no_editor_mapas_a_partir_de_imagens_seleciona_mapa_na_janela_principal(
+        self, qtbot, tmp_path
+    ):
         from editor.core.workspace import ExperimentalWorkspace
+        from editor.legacy_views.area_principal import JanelaPrincipal
 
         pasta_raiz = tmp_path / "croqui_nav_img_para_mapa"
         pasta_db = pasta_raiz / "database"
@@ -250,8 +279,12 @@ picos:
         pasta_imagens.mkdir()
 
         # Cria 2 imagens no disco: uma foto avulsa e uma imagem de mapa
-        Image.new("RGB", (100, 100), color=(255, 0, 0)).save(pasta_imagens / "foto_avulsa.webp", format="WEBP")
-        Image.new("RGB", (200, 200), color=(0, 255, 0)).save(pasta_imagens / "mapa_setor_c.webp", format="WEBP")
+        Image.new("RGB", (100, 100), color=(255, 0, 0)).save(
+            pasta_imagens / "foto_avulsa.webp", format="WEBP"
+        )
+        Image.new("RGB", (200, 200), color=(0, 255, 0)).save(
+            pasta_imagens / "mapa_setor_c.webp", format="WEBP"
+        )
 
         yaml_content = """
 id: croqui_nav_img_mapa
@@ -300,6 +333,3 @@ picos:
         assert "mapa_setor_c.webp" in str(editor_mapas.msg_mapa_proxy.caminho_imagem_mapa)
 
         area_principal.historico.obter_pilha().setClean()
-
-
-

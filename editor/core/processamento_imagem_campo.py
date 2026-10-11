@@ -8,12 +8,13 @@ usadas em campos de croqui (como thumbnail e fotos de mapas).
 
 import io
 import math
-import os
 import re
 import unicodedata
 from pathlib import Path
-from typing import Optional, Tuple, Dict, Any
+from typing import Any
+
 from PIL import Image, ImageOps
+
 
 def garantir_suporte_heif() -> bool:
     """
@@ -22,6 +23,7 @@ def garantir_suporte_heif() -> bool:
     """
     try:
         import pillow_heif
+
         abridor_heif = getattr(pillow_heif, "register_heif_opener", None)
         if callable(abridor_heif):
             abridor_heif()
@@ -34,7 +36,6 @@ def garantir_suporte_heif() -> bool:
 garantir_suporte_heif()
 
 
-
 def sanitizar_nome_arquivo_imagem(nome_ou_caminho: str) -> str:
     """
     Sanitiza uma string de caminho ou nome de arquivo gerando um slug limpo com extensão .webp.
@@ -43,8 +44,7 @@ def sanitizar_nome_arquivo_imagem(nome_ou_caminho: str) -> str:
     if not nome_ou_caminho:
         return "imagem.webp"
 
-    nome_base = os.path.basename(str(nome_ou_caminho))
-    nome_sem_ext, _ = os.path.splitext(nome_base)
+    nome_sem_ext = Path(str(nome_ou_caminho)).stem
 
     # Normaliza caracteres acentuados (NFD -> ASCII)
     slug = unicodedata.normalize("NFKD", nome_sem_ext).encode("ASCII", "ignore").decode("utf-8")
@@ -63,8 +63,8 @@ sanitizar_nome_imagem = sanitizar_nome_arquivo_imagem
 
 def verificar_conflito_nome_imagem(
     nome_arquivo: str,
-    pasta_imagens: Optional[Path],
-    imagens_em_memoria: Optional[Dict[str, bytes]] = None,
+    pasta_imagens: Path | None,
+    imagens_em_memoria: dict[str, bytes] | None = None,
 ) -> bool:
     """
     Verifica se já existe um arquivo com o nome informado em disco ou no buffer em memória.
@@ -72,13 +72,15 @@ def verificar_conflito_nome_imagem(
     if not nome_arquivo:
         return False
 
-    caminho_relativo = f"imagens/{nome_arquivo}" if not nome_arquivo.startswith("imagens/") else nome_arquivo
+    caminho_relativo = (
+        f"imagens/{nome_arquivo}" if not nome_arquivo.startswith("imagens/") else nome_arquivo
+    )
 
     if imagens_em_memoria and caminho_relativo in imagens_em_memoria:
         return True
 
     if pasta_imagens and pasta_imagens.exists():
-        nome_puro = os.path.basename(nome_arquivo)
+        nome_puro = Path(nome_arquivo).name
         caminho_disco = pasta_imagens / nome_puro
         if caminho_disco.exists():
             return True
@@ -88,8 +90,8 @@ def verificar_conflito_nome_imagem(
 
 def sugerir_nome_arquivo_disponivel(
     nome_base: str,
-    pasta_imagens: Optional[Path],
-    imagens_em_memoria: Optional[Dict[str, bytes]] = None,
+    pasta_imagens: Path | None,
+    imagens_em_memoria: dict[str, bytes] | None = None,
 ) -> str:
     """
     Se o nome informado já existir, gera um sufixo numérico (ex: 'foto_1.webp', 'foto_2.webp')
@@ -99,7 +101,8 @@ def sugerir_nome_arquivo_disponivel(
     if not verificar_conflito_nome_imagem(nome_sanitizado, pasta_imagens, imagens_em_memoria):
         return nome_sanitizado
 
-    nome_sem_ext, ext = os.path.splitext(nome_sanitizado)
+    caminho_sanitizado = Path(nome_sanitizado)
+    nome_sem_ext, ext = caminho_sanitizado.stem, caminho_sanitizado.suffix
     contador = 1
     while True:
         candidato = f"{nome_sem_ext}_{contador}{ext}"
@@ -108,7 +111,9 @@ def sugerir_nome_arquivo_disponivel(
         contador += 1
 
 
-def obter_metadados_imagem(imagem_path_ou_bytes: str | Path | bytes | None) -> Tuple[int, int, int, str]:
+def obter_metadados_imagem(
+    imagem_path_ou_bytes: str | Path | bytes | None,
+) -> tuple[int, int, int, str]:
     """
     Obtém largura, altura, tamanho em bytes e texto formatado do tamanho para a imagem fornecida.
     Retorna (largura, altura, tamanho_bytes, tamanho_formatado_kb).
@@ -167,7 +172,7 @@ def comprimir_imagem_para_bytes_webp(
     quality: int = QUALIDADE_WEBP_PADRAO,
     max_area: int = AREA_MAXIMA_PADRAO,
     method: int = METODO_WEBP_PADRAO,
-) -> Tuple[bytes, int, int]:
+) -> tuple[bytes, int, int]:
     """
     Redimensiona (se exceder max_area) e comprime uma imagem para bytes em formato WebP.
     Retorna uma tupla (bytes_webp, largura, altura).
@@ -175,7 +180,9 @@ def comprimir_imagem_para_bytes_webp(
     if isinstance(fonte_imagem, Image.Image):
         img_temp = ImageOps.exif_transpose(fonte_imagem)
         if img_temp.mode not in ("RGB", "RGBA"):
-            img_temp = img_temp.convert("RGBA" if "transparency" in img_temp.info or img_temp.mode == "P" else "RGB")
+            img_temp = img_temp.convert(
+                "RGBA" if "transparency" in img_temp.info or img_temp.mode == "P" else "RGB"
+            )
 
         area = img_temp.width * img_temp.height
         if area > max_area:
@@ -202,7 +209,9 @@ def comprimir_imagem_para_bytes_webp(
             img_proc: Image.Image = ImageOps.exif_transpose(img)
             # Garante RGB ou RGBA dependendo de transparência
             if img_proc.mode not in ("RGB", "RGBA"):
-                img_proc = img_proc.convert("RGBA" if "transparency" in img_proc.info or img_proc.mode == "P" else "RGB")
+                img_proc = img_proc.convert(
+                    "RGBA" if "transparency" in img_proc.info or img_proc.mode == "P" else "RGB"
+                )
 
             area = img_proc.width * img_proc.height
             if area > max_area:
@@ -217,5 +226,3 @@ def comprimir_imagem_para_bytes_webp(
     finally:
         if img_source is not None and hasattr(img_source, "close"):
             img_source.close()
-
-

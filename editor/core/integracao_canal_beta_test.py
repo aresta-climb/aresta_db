@@ -2,14 +2,13 @@
 # Copyright (C) 2026 Aresta Climb Contributors
 
 import os
-from unittest.mock import patch, MagicMock
+from unittest.mock import patch
+
 from PySide6.QtWidgets import QApplication
 
 from editor.core.configuracao_canal import (
-    obter_configuracao_canal,
-    ConfiguracaoCanal,
-    CANAL_PRODUCAO,
     CANAL_BETA,
+    obter_configuracao_canal,
 )
 
 
@@ -28,6 +27,7 @@ def test_integracao_contrato_canal_beta_variaveis_e_titulos(qapp: QApplication) 
         assert config.subdiretorio_recursos == "recursos_beta"
 
         from editor.views.tela_de_abertura import TelaDeAbertura
+
         tela = TelaDeAbertura()
         try:
             assert tela.windowTitle() == "Editor Aresta (Beta)"
@@ -52,6 +52,7 @@ def test_integracao_contrato_canal_producao_padrao(qapp: QApplication) -> None:
         assert config.subdiretorio_recursos == "recursos"
 
         from editor.views.tela_de_abertura import TelaDeAbertura
+
         tela = TelaDeAbertura()
         try:
             assert tela.windowTitle() == "Editor Aresta"

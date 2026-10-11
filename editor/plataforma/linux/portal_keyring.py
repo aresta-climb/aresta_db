@@ -15,19 +15,18 @@ import hashlib
 import json
 import logging
 import os
-from pathlib import Path
-import sys
 import tempfile
-from typing import Any, Dict, Optional, cast
 import uuid
+from pathlib import Path
+from typing import Any, cast
 
+import keyring.backend
+import keyring.errors
 from cryptography.hazmat.primitives.ciphers.aead import AESGCM
 from jeepney import DBusAddress, MatchRule, new_method_call
 from jeepney.io.blocking import open_dbus_connection
-import keyring.backend
 from keyring.compat import properties
 from keyring.credentials import SimpleCredential
-import keyring.errors
 
 log = logging.getLogger(__name__)
 
@@ -39,13 +38,13 @@ PORTAL_INTERFACE = "org.freedesktop.portal.Secret"
 class PortalKeyring(keyring.backend.KeyringBackend):
     """
     Keyring backend that integrates with the XDG Desktop Portal Secret service.
-    
+
     The portal returns an application-specific master encryption key.
     Credentials are encrypted using AES-256-GCM and stored in the application's
     local data directory.
     """
 
-    def __init__(self, storage_path: Optional[Path] = None) -> None:
+    def __init__(self, storage_path: Path | None = None) -> None:
         if storage_path is not None:
             self._storage_path = storage_path
         else:
@@ -57,7 +56,7 @@ class PortalKeyring(keyring.backend.KeyringBackend):
                 )
             self._storage_path = Path(xdg_data) / "keyring.enc"
 
-        self._cached_master_key: Optional[bytes] = None
+        self._cached_master_key: bytes | None = None
 
     @properties.classproperty
     def priority(cls) -> float:
@@ -80,7 +79,9 @@ class PortalKeyring(keyring.backend.KeyringBackend):
             with open_dbus_connection(bus="SESSION", enable_fds=True) as conn:
                 available = cls._ping_portal(conn)
                 if not available:
-                    log.warning("PortalKeyring: Desktop Portal did not respond with method return to ping")
+                    log.warning(
+                        "PortalKeyring: Desktop Portal did not respond with method return to ping"
+                    )
                 return available
         except Exception as exc:
             log.warning("PortalKeyring D-Bus connection failed: %s", exc)
@@ -89,7 +90,9 @@ class PortalKeyring(keyring.backend.KeyringBackend):
     @classmethod
     def _ping_portal(cls, connection: Any, timeout: float = 2.0) -> bool:
         """Pings the desktop portal interface via D-Bus Peer ping."""
-        peer_addr = DBusAddress(PORTAL_OBJECT_PATH, bus_name=PORTAL_BUS_NAME, interface="org.freedesktop.DBus.Peer")
+        peer_addr = DBusAddress(
+            PORTAL_OBJECT_PATH, bus_name=PORTAL_BUS_NAME, interface="org.freedesktop.DBus.Peer"
+        )
         msg = new_method_call(peer_addr, "Ping")
         reply = connection.send_and_get_reply(msg, timeout=timeout)
         msg_type = getattr(reply.header.message_type, "value", reply.header.message_type)
@@ -109,8 +112,12 @@ class PortalKeyring(keyring.backend.KeyringBackend):
             path=expected_path,
         )
 
-        portal_addr = DBusAddress(PORTAL_OBJECT_PATH, bus_name=PORTAL_BUS_NAME, interface=PORTAL_INTERFACE)
-        msg = new_method_call(portal_addr, "RetrieveSecret", "ha{sv}", (write_fd, {"handle_token": ("s", token)}))
+        portal_addr = DBusAddress(
+            PORTAL_OBJECT_PATH, bus_name=PORTAL_BUS_NAME, interface=PORTAL_INTERFACE
+        )
+        msg = new_method_call(
+            portal_addr, "RetrieveSecret", "ha{sv}", (write_fd, {"handle_token": ("s", token)})
+        )
 
         with connection.filter(rule) as matches:
             reply = connection.send_and_get_reply(msg, timeout=10.0)
@@ -152,7 +159,9 @@ class PortalKeyring(keyring.backend.KeyringBackend):
         try:
             raw_secret = os.read(read_fd, 1024)
         except OSError as exc:
-            raise keyring.errors.KeyringError(f"Error reading secret from portal pipe: {exc}") from exc
+            raise keyring.errors.KeyringError(
+                f"Error reading secret from portal pipe: {exc}"
+            ) from exc
         finally:
             try:
                 os.close(read_fd)
@@ -170,7 +179,7 @@ class PortalKeyring(keyring.backend.KeyringBackend):
         self._cached_master_key = master_key
         return master_key
 
-    def _load_storage(self) -> Dict[str, str]:
+    def _load_storage(self) -> dict[str, str]:
         """Reads and decrypts the credentials mapping from disk."""
         if not self._storage_path.exists():
             return {}
@@ -185,12 +194,12 @@ class PortalKeyring(keyring.backend.KeyringBackend):
             key = self.get_master_key()
             aesgcm = AESGCM(key)
             decrypted_bytes = aesgcm.decrypt(nonce, ciphertext, associated_data=None)
-            return cast(Dict[str, str], json.loads(decrypted_bytes.decode("utf-8")))
+            return cast(dict[str, str], json.loads(decrypted_bytes.decode("utf-8")))
         except Exception as exc:
             log.warning("Could not decrypt keyring store: %s", exc)
             return {}
 
-    def _save_storage(self, mapping: Dict[str, str]) -> None:
+    def _save_storage(self, mapping: dict[str, str]) -> None:
         """Encrypts and atomically writes the credentials mapping to disk."""
         key = self.get_master_key()
         aesgcm = AESGCM(key)
@@ -205,9 +214,9 @@ class PortalKeyring(keyring.backend.KeyringBackend):
             tf.write(nonce + ciphertext)
             temp_path = Path(tf.name)
 
-        os.replace(temp_path, self._storage_path)
+        temp_path.replace(self._storage_path)
 
-    def get_password(self, service: str, username: str) -> Optional[str]:
+    def get_password(self, service: str, username: str) -> str | None:
         """Gets password for the username on service."""
         storage = self._load_storage()
         return storage.get(f"{service}:{username}")
@@ -227,7 +236,7 @@ class PortalKeyring(keyring.backend.KeyringBackend):
         del storage[key]
         self._save_storage(storage)
 
-    def get_credential(self, service: str, username: Optional[str]) -> Optional[SimpleCredential]:
+    def get_credential(self, service: str, username: str | None) -> SimpleCredential | None:
         """Gets credential for a service and username."""
         if not username:
             return None

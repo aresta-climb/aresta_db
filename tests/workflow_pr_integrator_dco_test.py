@@ -8,6 +8,7 @@ e do workflow do integrador de Pull Requests (.github/workflows/pr-integrator.ym
 
 import unittest
 from pathlib import Path
+
 import yaml
 
 
@@ -21,14 +22,24 @@ class TestWorkflowPrIntegratorDco(unittest.TestCase):
 
     def test_arquivo_dco_config_existe_e_desativa_exigencia_para_membros(self) -> None:
         """Garante que .github/dco.yml existe e possui a diretiva require.members configurada como false."""
-        self.assertTrue(self.caminho_dco.exists(), "O arquivo .github/dco.yml deve existir na raiz.")
+        self.assertTrue(
+            self.caminho_dco.exists(), "O arquivo .github/dco.yml deve existir na raiz."
+        )
 
-        with open(self.caminho_dco, "r", encoding="utf-8") as f:
+        with open(self.caminho_dco, encoding="utf-8") as f:
             conteudo = yaml.safe_load(f)
 
-        self.assertIsInstance(conteudo, dict, "O conteúdo de .github/dco.yml deve ser um dicionário YAML.")
-        self.assertIn("require", conteudo, "A chave 'require' deve estar presente no .github/dco.yml.")
-        self.assertIn("members", conteudo["require"], "A subchave 'members' deve estar presente sob 'require'.")
+        self.assertIsInstance(
+            conteudo, dict, "O conteúdo de .github/dco.yml deve ser um dicionário YAML."
+        )
+        self.assertIn(
+            "require", conteudo, "A chave 'require' deve estar presente no .github/dco.yml."
+        )
+        self.assertIn(
+            "members",
+            conteudo["require"],
+            "A subchave 'members' deve estar presente sob 'require'.",
+        )
         self.assertFalse(
             conteudo["require"]["members"],
             "A diretiva require.members deve ser explicitamente False para isentar membros com commits verificados.",
@@ -36,9 +47,11 @@ class TestWorkflowPrIntegratorDco(unittest.TestCase):
 
     def test_workflow_pr_integrator_possui_passo_verificacao_dco_antes_do_merge(self) -> None:
         """Garante que pr-integrator.yml possui uma etapa dedicada para verificar o DCO antes do merge."""
-        self.assertTrue(self.caminho_workflow.exists(), "O workflow pr-integrator.yml deve existir.")
+        self.assertTrue(
+            self.caminho_workflow.exists(), "O workflow pr-integrator.yml deve existir."
+        )
 
-        with open(self.caminho_workflow, "r", encoding="utf-8") as f:
+        with open(self.caminho_workflow, encoding="utf-8") as f:
             conteudo_workflow = yaml.safe_load(f)
 
         passos = conteudo_workflow["jobs"]["integrate"]["steps"]
@@ -88,23 +101,35 @@ class TestWorkflowPrIntegratorDco(unittest.TestCase):
         # Verifica se o script do passo consulta gh pr checks e o check DCO
         script_dco = passo_dco.get("run", "")
         self.assertIn("gh pr checks", script_dco, "O passo de DCO deve utilizar 'gh pr checks'.")
-        self.assertIn("DCO", script_dco, "O script do passo deve filtrar especificamente o check 'DCO'.")
-        self.assertIn("exit 1", script_dco, "O passo deve abortar com exit 1 em caso de falha no DCO.")
+        self.assertIn(
+            "DCO", script_dco, "O script do passo deve filtrar especificamente o check 'DCO'."
+        )
+        self.assertIn(
+            "exit 1", script_dco, "O passo deve abortar com exit 1 em caso de falha no DCO."
+        )
         self.assertIn("pass", script_dco, "O passo deve tratar o bucket 'pass'.")
         self.assertIn("fail", script_dco, "O passo deve tratar o bucket 'fail'.")
 
-    def test_workflow_pr_integrator_possui_passo_aguardar_e_validar_checagens_antes_do_deploy(self) -> None:
+    def test_workflow_pr_integrator_possui_passo_aguardar_e_validar_checagens_antes_do_deploy(
+        self,
+    ) -> None:
         """Garante que pr-integrator.yml possui etapa no início para validar todos os checks ativos com fail-fast."""
-        self.assertTrue(self.caminho_workflow.exists(), "O workflow pr-integrator.yml deve existir.")
+        self.assertTrue(
+            self.caminho_workflow.exists(), "O workflow pr-integrator.yml deve existir."
+        )
 
-        with open(self.caminho_workflow, "r", encoding="utf-8") as f:
+        with open(self.caminho_workflow, encoding="utf-8") as f:
             conteudo_workflow = yaml.safe_load(f)
 
         passos = conteudo_workflow["jobs"]["integrate"]["steps"]
         nomes_passos = [p.get("name", "") for p in passos]
 
         passo_checks = next(
-            (p for p in passos if "Aguardar e Validar Checagens do Pull Request" in p.get("name", "")),
+            (
+                p
+                for p in passos
+                if "Aguardar e Validar Checagens do Pull Request" in p.get("name", "")
+            ),
             None,
         )
         self.assertIsNotNone(
@@ -115,7 +140,9 @@ class TestWorkflowPrIntegratorDco(unittest.TestCase):
 
         # Deve estar posicionado antes do checkout e deploy
         indice_checks = passos.index(passo_checks)
-        passo_info = next((p for p in passos if "Obter Informações do PR" in p.get("name", "")), None)
+        passo_info = next(
+            (p for p in passos if "Obter Informações do PR" in p.get("name", "")), None
+        )
         self.assertIsNotNone(passo_info, "Passo de obter informações do PR não encontrado.")
         assert passo_info is not None
         indice_info = passos.index(passo_info)
@@ -126,7 +153,9 @@ class TestWorkflowPrIntegratorDco(unittest.TestCase):
             "A etapa de validação de checks deve ser executada após a obtenção das informações do PR.",
         )
 
-        passo_checkout = next((p for p in passos if "Checkout do Repositório" in p.get("name", "")), None)
+        passo_checkout = next(
+            (p for p in passos if "Checkout do Repositório" in p.get("name", "")), None
+        )
         self.assertIsNotNone(passo_checkout, "Passo de checkout não encontrado.")
         assert passo_checkout is not None
         indice_checkout = passos.index(passo_checkout)
@@ -139,7 +168,9 @@ class TestWorkflowPrIntegratorDco(unittest.TestCase):
 
         # Verifica env GH_TOKEN
         env_checks = passo_checks.get("env", {})
-        self.assertIn("GH_TOKEN", env_checks, "O passo de validação de checks deve definir GH_TOKEN.")
+        self.assertIn(
+            "GH_TOKEN", env_checks, "O passo de validação de checks deve definir GH_TOKEN."
+        )
         self.assertEqual(
             env_checks["GH_TOKEN"],
             "${{ steps.app-token.outputs.token }}",
@@ -151,14 +182,22 @@ class TestWorkflowPrIntegratorDco(unittest.TestCase):
         self.assertIn("gh pr checks", script_checks, "O script deve chamar 'gh pr checks'.")
         self.assertIn("fail", script_checks, "O script deve tratar falhas (fail).")
         self.assertIn("cancel", script_checks, "O script deve tratar cancelamentos (cancel).")
-        self.assertIn("pending", script_checks, "O script deve monitorar checagens pendentes (pending).")
-        self.assertIn("exit 1", script_checks, "O script deve abortar com exit 1 em caso de falha de qualquer check.")
+        self.assertIn(
+            "pending", script_checks, "O script deve monitorar checagens pendentes (pending)."
+        )
+        self.assertIn(
+            "exit 1",
+            script_checks,
+            "O script deve abortar com exit 1 em caso de falha de qualquer check.",
+        )
 
     def test_workflow_pr_integrator_inclui_pasta_database_no_staging_do_commit(self) -> None:
         """Garante que a etapa de commit inclui tanto generated/ quanto database/ no git add."""
-        self.assertTrue(self.caminho_workflow.exists(), "O workflow pr-integrator.yml deve existir.")
+        self.assertTrue(
+            self.caminho_workflow.exists(), "O workflow pr-integrator.yml deve existir."
+        )
 
-        with open(self.caminho_workflow, "r", encoding="utf-8") as f:
+        with open(self.caminho_workflow, encoding="utf-8") as f:
             conteudo_workflow = yaml.safe_load(f)
 
         passos = conteudo_workflow["jobs"]["integrate"]["steps"]
@@ -176,4 +215,3 @@ class TestWorkflowPrIntegratorDco(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
-

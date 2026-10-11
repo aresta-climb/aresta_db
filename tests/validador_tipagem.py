@@ -3,7 +3,8 @@
 
 import ast
 import os
-from typing import Sequence
+from collections.abc import Sequence
+
 from mypy import api
 
 
@@ -39,11 +40,7 @@ def verificar_anotacoes_ast(codigo_fonte: str) -> list[str]:
             nome_funcao = no.name
 
             # Verifica parâmetros posicionais e nomeados
-            todos_args = (
-                no.args.posonlyargs
-                + no.args.args
-                + no.args.kwonlyargs
-            )
+            todos_args = no.args.posonlyargs + no.args.args + no.args.kwonlyargs
 
             for arg in todos_args:
                 # Ignora o primeiro argumento convencional de métodos de classe e instância
@@ -79,6 +76,6 @@ def verificar_anotacoes_ast(codigo_fonte: str) -> list[str]:
 
 def verificar_arquivo_ast(caminho_arquivo: str) -> list[str]:
     """Lê um arquivo Python do disco e valida suas anotações via AST."""
-    with open(caminho_arquivo, "r", encoding="utf-8-sig") as f:
+    with open(caminho_arquivo, encoding="utf-8-sig") as f:
         conteudo = f.read()
     return verificar_anotacoes_ast(conteudo)

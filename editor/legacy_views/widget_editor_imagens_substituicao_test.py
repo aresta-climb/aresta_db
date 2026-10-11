@@ -3,15 +3,16 @@
 
 import io
 from pathlib import Path
-from PIL import Image
+
 import pytest
-from PySide6.QtWidgets import QFileDialog, QMessageBox
+from PIL import Image
 from PySide6.QtGui import QUndoStack
+from PySide6.QtWidgets import QFileDialog, QMessageBox
 
 from aresta_api.proto.generated import croqui_pb2
-from editor.models.croqui_model import CroquiModel
 from editor.controllers.croqui_controller import CroquiController
 from editor.legacy_views.widget_editor_imagens import WidgetEditorImagens
+from editor.models.croqui_model import CroquiModel
 
 
 @pytest.fixture
@@ -39,11 +40,15 @@ class TestWidgetEditorImagensSubstituicao:
         assert hasattr(widget, "btn_substituir_imagem")
         assert widget.btn_substituir_imagem.text() == "Substituir Imagem..."
 
-    def test_substituir_imagem_selecionada_com_undo_redo(self, qtbot, croqui_com_imagem_disco, tmp_path, monkeypatch):
+    def test_substituir_imagem_selecionada_com_undo_redo(
+        self, qtbot, croqui_com_imagem_disco, tmp_path, monkeypatch
+    ):
         model, pasta_img, img_orig_path = croqui_com_imagem_disco
         undo_stack = QUndoStack()
         controller = CroquiController(model, undo_stack)
-        widget = WidgetEditorImagens(imagens_path=pasta_img, croqui_model=model, croqui_controller=controller)
+        widget = WidgetEditorImagens(
+            imagens_path=pasta_img, croqui_model=model, croqui_controller=controller
+        )
         qtbot.addWidget(widget)
 
         widget.select_image_by_name("setor_foto.webp")
@@ -109,7 +114,9 @@ class TestWidgetEditorImagensSubstituicao:
         # Erro ao processar arquivo
         avisos = []
         monkeypatch.setattr(QMessageBox, "warning", lambda parent, title, text: avisos.append(text))
-        monkeypatch.setattr(QFileDialog, "getOpenFileName", lambda *a, **k: ("inexistente.png", "PNG"))
+        monkeypatch.setattr(
+            QFileDialog, "getOpenFileName", lambda *a, **k: ("inexistente.png", "PNG")
+        )
         widget.substituir_imagem_selecionada()
         assert len(avisos) == 1
 
@@ -132,8 +139,12 @@ class TestWidgetEditorImagensSubstituicao:
 
         pasta_img = tmp_path / "imagens"
         pasta_img.mkdir(parents=True, exist_ok=True)
-        Image.new("RGB", (200, 200), color=(10, 20, 30)).save(pasta_img / "mapa_setor.webp", format="WEBP")
-        Image.new("RGB", (200, 200), color=(50, 60, 70)).save(pasta_img / "foto_via.webp", format="WEBP")
+        Image.new("RGB", (200, 200), color=(10, 20, 30)).save(
+            pasta_img / "mapa_setor.webp", format="WEBP"
+        )
+        Image.new("RGB", (200, 200), color=(50, 60, 70)).save(
+            pasta_img / "foto_via.webp", format="WEBP"
+        )
 
         model = CroquiModel(croqui)
         model.definir_caminho_db(tmp_path)
@@ -157,7 +168,9 @@ class TestWidgetEditorImagensSubstituicao:
 
         pasta_img = tmp_path / "imagens"
         pasta_img.mkdir(parents=True, exist_ok=True)
-        Image.new("RGB", (200, 200), color=(10, 20, 30)).save(pasta_img / "mapa_geral.webp", format="WEBP")
+        Image.new("RGB", (200, 200), color=(10, 20, 30)).save(
+            pasta_img / "mapa_geral.webp", format="WEBP"
+        )
 
         model = CroquiModel(croqui)
         model.definir_caminho_db(tmp_path)
@@ -180,7 +193,7 @@ class TestWidgetEditorImagensSubstituicao:
         sg = pico.setores_ou_grupos.add()
         grupo = sg.grupo.conteudo
         grupo.nome = "Grupo Principal"
-        
+
         mapa_g = grupo.mapas.add()
         mapa_g.caminho_imagem_mapa = "imagens/mapa_grupo.webp"
 
@@ -199,7 +212,9 @@ class TestWidgetEditorImagensSubstituicao:
         undo_stack = QUndoStack()
         controller = CroquiController(model, undo_stack)
 
-        widget = WidgetEditorImagens(imagens_path=str(pasta_img), croqui_model=model, croqui_controller=controller)
+        widget = WidgetEditorImagens(
+            imagens_path=str(pasta_img), croqui_model=model, croqui_controller=controller
+        )
         qtbot.addWidget(widget)
 
         # Mapa de grupo
@@ -219,12 +234,10 @@ class TestWidgetEditorImagensSubstituicao:
         # Casos de borda
         assert widget.imagem_pertence_a_mapa("") is False
         assert widget.imagem_pertence_a_mapa(None) is False
-        
+
         widget.current_file = None
-        widget.abrir_no_editor_mapas() # Não deve quebrar
+        widget.abrir_no_editor_mapas()  # Não deve quebrar
 
         widget_sem_model = WidgetEditorImagens(imagens_path=str(pasta_img))
         qtbot.addWidget(widget_sem_model)
         assert widget_sem_model.imagem_pertence_a_mapa("mapa_grupo.webp") is False
-
-

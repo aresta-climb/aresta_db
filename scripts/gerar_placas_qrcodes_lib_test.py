@@ -3,22 +3,23 @@
 
 from pathlib import Path
 from typing import Any
+
 import pytest
 from PIL import Image
 
 from scripts.gerar_placas_qrcodes_lib import (
-    slugify,
-    montar_url_deep_link,
-    gerar_qrcode_com_logo,
+    carregar_imagem_topo,
+    exportar_placas_pico,
+    extrair_itens_croqui,
     gerar_placa_png,
     gerar_placa_svg,
-    carregar_imagem_topo,
+    gerar_qrcode_com_logo,
+    montar_url_deep_link,
     obter_logo_aresta_padrao,
     obter_logo_topo_padrao,
     recortar_bordas_vazias,
-    extrair_itens_croqui,
-    exportar_placas_pico,
     resolver_cor_borda_logo,
+    slugify,
 )
 
 
@@ -37,12 +38,8 @@ def test_montar_url_deep_link_niveis() -> None:
     assert url_pico == "https://app.arestaclimb.com/br_mg_igarape_pedra_grande"
 
     # 2 níveis (pico e setor)
-    url_setor = montar_url_deep_link(
-        "br_mg_igarape_pedra_grande", setor="savassinha"
-    )
-    assert (
-        url_setor == "https://app.arestaclimb.com/br_mg_igarape_pedra_grande/savassinha"
-    )
+    url_setor = montar_url_deep_link("br_mg_igarape_pedra_grande", setor="savassinha")
+    assert url_setor == "https://app.arestaclimb.com/br_mg_igarape_pedra_grande/savassinha"
 
     # 3 níveis (pico, grupo e setor)
     url_grupo_setor = montar_url_deep_link(
@@ -74,10 +71,7 @@ def test_montar_url_deep_link_host_customizado() -> None:
         setor="savassinha",
         host="staging.arestaclimb.com",
     )
-    assert (
-        url
-        == "https://staging.arestaclimb.com/br_mg_igarape_pedra_grande/savassinha"
-    )
+    assert url == "https://staging.arestaclimb.com/br_mg_igarape_pedra_grande/savassinha"
 
 
 def test_montar_url_deep_link_pico_obrigatorio() -> None:
@@ -120,9 +114,7 @@ def test_gerar_qrcode_com_logo(tmp_path: Path) -> None:
     img_logo = Image.new("RGBA", (100, 100), color=(217, 119, 6, 255))
     img_logo.save(caminho_logo)
 
-    qr_img = gerar_qrcode_com_logo(
-        url=url, caminho_logo=caminho_logo, tamanho_px=400
-    )
+    qr_img = gerar_qrcode_com_logo(url=url, caminho_logo=caminho_logo, tamanho_px=400)
 
     assert isinstance(qr_img, Image.Image)
     assert qr_img.size == (400, 400)
@@ -214,6 +206,7 @@ def test_gerar_placa_svg_com_erro_leitura_logo(
     caminho_logo.write_bytes(b"dummy")
 
     import builtins
+
     abrir_original = builtins.open
 
     def mock_open(*args: Any, **kwargs: Any) -> Any:
@@ -232,7 +225,9 @@ def test_gerar_placa_svg_com_erro_leitura_logo(
     assert "<image href=" not in svg
 
 
-def test_carregar_imagem_topo_casos_diversos(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
+def test_carregar_imagem_topo_casos_diversos(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
     # 1. Caminho nulo
     assert carregar_imagem_topo(None) is None
 
@@ -319,7 +314,6 @@ def test_obter_logo_topo_padrao(tmp_path: Path) -> None:
     assert obter_logo_topo_padrao("br_mg_igarape_pedra_grande", raiz_projeto=tmp_path) is None
 
 
-
 def test_gerar_placa_png_e_svg_combinacoes_logos(tmp_path: Path) -> None:
     url = "https://app.arestaclimb.com/br_mg_igarape_pedra_grande/setor_estacionamento"
     logo_esq = tmp_path / "logo_esq.png"
@@ -402,7 +396,6 @@ def test_gerar_placa_png_e_svg_combinacoes_logos(tmp_path: Path) -> None:
         altura=1000,
     )
     assert png_nenhum.size == (800, 1000)
-
 
 
 def criar_croqui_teste_pb(raiz: Path, pico_id: str = "pico_teste") -> Path:
@@ -532,11 +525,11 @@ def test_exportar_placas_pico_com_pdf(tmp_path: Path) -> None:
 
 
 def test_formatar_grau() -> None:
-    from scripts.gerar_placas_qrcodes_lib import (
-        _formatar_grau_via,
-        _formatar_grau_boulder,
-    )
     from aresta_api.proto.generated import croqui_pb2
+    from scripts.gerar_placas_qrcodes_lib import (
+        _formatar_grau_boulder,
+        _formatar_grau_via,
+    )
 
     assert _formatar_grau_via("") == ""
     assert _formatar_grau_via("7a") == "7a"
@@ -558,6 +551,7 @@ def test_extrair_itens_croqui_com_vias(tmp_path: Path, monkeypatch: pytest.Monke
     criar_croqui_teste_pb(tmp_path, pico_id=pico_id)
     # Testa chamada sem raiz_projeto explícito para exercitar o caminho padrão configurado
     import scripts.gerar_placas_qrcodes_lib as lib
+
     monkeypatch.setattr(lib, "DIRETORIO_RAIZ_PADRAO", tmp_path)
 
     itens = extrair_itens_croqui(pico_id, incluir_vias=True)
@@ -567,7 +561,6 @@ def test_extrair_itens_croqui_com_vias(tmp_path: Path, monkeypatch: pytest.Monke
     via_exemplo = vias[0]
     assert "via" in via_exemplo
     assert via_exemplo["via"] is not None
-
 
 
 def test_extrair_itens_croqui_fallback_yaml(tmp_path: Path) -> None:
@@ -600,7 +593,9 @@ picos:
 
 def test_obter_fonte_fallback(monkeypatch: pytest.MonkeyPatch) -> None:
     from typing import Any, cast
+
     from PIL import ImageFont
+
     from scripts.gerar_placas_qrcodes_lib import _obter_fonte
 
     real_truetype = ImageFont.truetype
@@ -718,7 +713,7 @@ def test_gerar_placas_com_cor_borda_customizada(tmp_path: Path) -> None:
 
 
 def test_renderizar_icone_svg_sucesso_e_fallback() -> None:
-    from scripts.gerar_placas_qrcodes_lib import _renderizar_icone_svg, SVG_ICONE_FOLHA
+    from scripts.gerar_placas_qrcodes_lib import SVG_ICONE_FOLHA, _renderizar_icone_svg
 
     img_ok = _renderizar_icone_svg(SVG_ICONE_FOLHA, 100, 100)
     assert isinstance(img_ok, Image.Image)
@@ -773,7 +768,9 @@ def test_alinhamento_texto_aresta_com_logo_parceiro(tmp_path: Path) -> None:
     )
 
     # Extrai coordenadas y das imagens do cabeçalho (as duas primeiras tags <image>)
-    matches_y = re.findall(r'<image href="data:image/png;base64,[^"]+" x="[^"]+" y="([0-9.]+)"', svg_conteudo)
+    matches_y = re.findall(
+        r'<image href="data:image/png;base64,[^"]+" x="[^"]+" y="([0-9.]+)"', svg_conteudo
+    )
     assert len(matches_y) >= 2, "Pelo menos duas imagens de logo devem estar presentes no cabeçalho"
     y_esq = float(matches_y[0])
     y_dir = float(matches_y[1])
@@ -782,6 +779,6 @@ def test_alinhamento_texto_aresta_com_logo_parceiro(tmp_path: Path) -> None:
     # garantindo que a palavra ARESTA (que fica na parte inferior do splash) alinhe com a palavra IGARAMECA.
     assert y_esq > y_dir - 50
     # O valor antigo de y_esq era y_centro - h_esq // 2 = 358.5. O novo valor com baseline alinhada é > 400.
-    assert y_esq > 400, f"y_esq ({y_esq}) deve estar alinhado pela linha de base do texto ARESTA (> 400)"
-
-
+    assert y_esq > 400, (
+        f"y_esq ({y_esq}) deve estar alinhado pela linha de base do texto ARESTA (> 400)"
+    )

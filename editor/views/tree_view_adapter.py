@@ -2,12 +2,14 @@
 # Copyright (C) 2026 Aresta Climb Contributors
 
 import re
-from typing import Optional, Any, List, Dict, Union, Sequence
+from collections.abc import Sequence
+from pathlib import Path
+from typing import Any, Optional
 
-from PySide6.QtCore import QAbstractItemModel, QModelIndex, Qt, QObject, QMimeData, QByteArray
-from PySide6.QtGui import QFont
-from google.protobuf.message import Message
 from google.protobuf.descriptor import FieldDescriptor
+from PySide6.QtCore import QAbstractItemModel, QByteArray, QMimeData, QModelIndex, QObject, Qt
+from PySide6.QtGui import QFont
+
 from aresta_api.proto.generated import croqui_pb2
 
 
@@ -16,35 +18,35 @@ class ProtobufNode:
         self,
         name: str,
         parent: Optional["ProtobufNode"] = None,
-        descriptor: Optional[Any] = None,
-        message: Optional[Any] = None,
-        index_in_repeated: Optional[int] = None,
+        descriptor: Any | None = None,
+        message: Any | None = None,
+        index_in_repeated: int | None = None,
         is_expando: bool = False,
         eh_no_adicao: bool = False,
     ) -> None:
         self.name: str = name
-        self.parent_node: Optional["ProtobufNode"] = parent
-        self.children: List["ProtobufNode"] = []
-        self.descriptor: Optional[Any] = descriptor
-        self.message: Optional[Any] = message
-        self.index_in_repeated: Optional[int] = index_in_repeated
+        self.parent_node: ProtobufNode | None = parent
+        self.children: list[ProtobufNode] = []
+        self.descriptor: Any | None = descriptor
+        self.message: Any | None = message
+        self.index_in_repeated: int | None = index_in_repeated
         self.is_expando: bool = is_expando
         self.eh_no_adicao: bool = eh_no_adicao
         self._is_populated: bool = False
-        
+
         if parent:
             parent.children.append(self)
-            
+
     def child(self, row: int) -> Optional["ProtobufNode"]:
         self._populate_children()
         if 0 <= row < len(self.children):
             return self.children[row]
         return None
-        
+
     def child_count(self) -> int:
         self._populate_children()
         return len(self.children)
-        
+
     def row(self) -> int:
         if self.parent_node:
             try:
@@ -53,14 +55,13 @@ class ProtobufNode:
                 return 0
         return 0
 
-
     def _resolve_transparency(self, msg: Any) -> Any:
         """
         Retorna a mensagem interna/campo se msg for uma mensagem formatada como ONEOF ou ONEOF_CONTEUDO.
         """
         if msg is None or not hasattr(msg, "DESCRIPTOR"):
             return msg
-            
+
         options = msg.DESCRIPTOR.GetOptions()
         if options.HasExtension(croqui_pb2.mensagem_formato_na_ui):
             formato = options.Extensions[croqui_pb2.mensagem_formato_na_ui]
@@ -76,13 +77,13 @@ class ProtobufNode:
                 conteudo_field = msg.DESCRIPTOR.fields_by_name.get("conteudo")
                 if conteudo_field and conteudo_field.type == FieldDescriptor.TYPE_MESSAGE:
                     if msg.HasField("conteudo"):
-                        val = getattr(msg, "conteudo")
+                        val = msg.conteudo
                         if val is not None and hasattr(val, "DESCRIPTOR"):
                             return self._resolve_transparency(val)
                 # conteudo e string ou nao esta set: retorna o wrapper (ex: ArquivoMarkdown)
         return msg
 
-    def _is_descriptor_eligible(self, descriptor: Optional[Any]) -> bool:
+    def _is_descriptor_eligible(self, descriptor: Any | None) -> bool:
         if descriptor is None:
             return False
         options = descriptor.GetOptions()
@@ -95,7 +96,7 @@ class ProtobufNode:
             )
         return False
 
-    def _is_descriptor_inline_or_leaf(self, descriptor: Optional[Any]) -> bool:
+    def _is_descriptor_inline_or_leaf(self, descriptor: Any | None) -> bool:
         if descriptor is None:
             return True
         options = descriptor.GetOptions()
@@ -110,17 +111,17 @@ class ProtobufNode:
                 return True
         return False
 
-    def _collect_eligible_under_message(self, msg: Any) -> List[Dict[str, Any]]:
-        results: List[Dict[str, Any]] = []
+    def _collect_eligible_under_message(self, msg: Any) -> list[dict[str, Any]]:
+        results: list[dict[str, Any]] = []
         if msg is None or not hasattr(msg, "DESCRIPTOR"):
             return results
-            
+
         for field in msg.DESCRIPTOR.fields:
             if field.type != FieldDescriptor.TYPE_MESSAGE:
                 continue
-                
+
             is_repeated = field.is_repeated
-            
+
             if is_repeated:
                 repeated_container = getattr(msg, field.name)
                 eligible_items = []
@@ -135,27 +136,21 @@ class ProtobufNode:
                             recursive_results = self._collect_eligible_under_message(resolved_item)
                             for rec_item in recursive_results:
                                 if rec_item["is_repeated"]:
-                                    for sub_msg, sub_idx in rec_item["items"]:
+                                    for sub_msg, _sub_idx in rec_item["items"]:
                                         eligible_items.append((sub_msg, i))
                                 else:
                                     eligible_items.append((rec_item["message"], i))
                 if eligible_items or self._is_descriptor_eligible(field.message_type):
-                    results.append({
-                        "field": field,
-                        "is_repeated": True,
-                        "items": eligible_items
-                    })
+                    results.append({"field": field, "is_repeated": True, "items": eligible_items})
             else:
                 if msg.HasField(field.name):
                     sub_msg = getattr(msg, field.name)
                     resolved_msg = self._resolve_transparency(sub_msg)
                     if resolved_msg is not None and hasattr(resolved_msg, "DESCRIPTOR"):
                         if self._is_descriptor_eligible(resolved_msg.DESCRIPTOR):
-                            results.append({
-                                "field": field,
-                                "is_repeated": False,
-                                "message": resolved_msg
-                            })
+                            results.append(
+                                {"field": field, "is_repeated": False, "message": resolved_msg}
+                            )
                         elif not self._is_descriptor_inline_or_leaf(resolved_msg.DESCRIPTOR):
                             # Busca recursiva
                             recursive_results = self._collect_eligible_under_message(resolved_msg)
@@ -166,34 +161,35 @@ class ProtobufNode:
     def _populate_children(self) -> None:
         if self._is_populated:
             return
-        
+
         self._is_populated = True
-        
+
         if self.is_expando or self.eh_no_adicao:
             return
-            
+
         if self.message is not None:
             resolved_msg = self._resolve_transparency(self.message)
             if resolved_msg is None or not hasattr(resolved_msg, "DESCRIPTOR"):
                 return
-                
+
             eligible_children = self._collect_eligible_under_message(resolved_msg)
-            
+
             for child_info in eligible_children:
                 field = child_info["field"]
                 if child_info["is_repeated"]:
                     # Criar nó expando
                     from editor.views.protobuf_widget_factory import ProtobufWidgetFactory
+
                     expando_name = ProtobufWidgetFactory.get_label(field)
-                    
+
                     exp_node = ProtobufNode(
                         name=expando_name,
                         parent=self,
                         descriptor=field,
                         message=None,
-                        is_expando=True
+                        is_expando=True,
                     )
-                    
+
                     for item_msg, i in child_info["items"]:
                         ProtobufNode(
                             name=f"[{i}]",
@@ -201,13 +197,13 @@ class ProtobufNode:
                             descriptor=field,
                             message=item_msg,
                             index_in_repeated=i,
-                            is_expando=False
+                            is_expando=False,
                         )
-                    
+
                     # Converte CamelCase do tipo para palavras separadas por espaço
                     # Usa o nome original do tipo (em CamelCase) e nao o retorno de get_label
                     # pois get_label aplica capitalize() que apaga as maiusculas internas
-                    if hasattr(field, 'message_type') and field.message_type:
+                    if hasattr(field, "message_type") and field.message_type:
                         nome_tipo_bruto = field.message_type.name
                         if nome_tipo_bruto.startswith("Arquivo") and len(nome_tipo_bruto) > 7:
                             nome_tipo_bruto = nome_tipo_bruto[7:]
@@ -219,7 +215,11 @@ class ProtobufNode:
                             tipo_label = "Setor ou Grupo"
                         else:
                             # Separa CamelCase com espacos e mantém a capitalizacao original
-                            tipo_label = re.sub(r'(?<=[a-z\u00e0-\u00fa])(?=[A-Z\u00c0-\u00da])', ' ', nome_tipo_bruto)
+                            tipo_label = re.sub(
+                                r"(?<=[a-z\u00e0-\u00fa])(?=[A-Z\u00c0-\u00da])",
+                                " ",
+                                nome_tipo_bruto,
+                            )
                     else:
                         tipo_label = expando_name
                     ProtobufNode(
@@ -228,7 +228,7 @@ class ProtobufNode:
                         descriptor=field,
                         message=None,
                         is_expando=False,
-                        eh_no_adicao=True
+                        eh_no_adicao=True,
                     )
                 else:
                     single_msg = child_info["message"]
@@ -238,29 +238,31 @@ class ProtobufNode:
                         descriptor=field,
                         message=single_msg,
                         index_in_repeated=None,
-                        is_expando=False
+                        is_expando=False,
                     )
 
 
 class ProtobufTreeViewAdapter(QAbstractItemModel):
     MIME_TYPE = "application/x-aresta-arvore-item"
 
-    def __init__(self, root_message: Any, parent: Optional[QObject] = None) -> None:
+    def __init__(self, root_message: Any, parent: QObject | None = None) -> None:
         super().__init__(parent)
         self.root_message: Any = root_message
         self.root_node: ProtobufNode = ProtobufNode(name="root", message=None)
         self.croqui_node: ProtobufNode = ProtobufNode(
             name="Croqui",
             parent=self.root_node,
-            descriptor=self.root_message.DESCRIPTOR if hasattr(self.root_message, "DESCRIPTOR") else None,
+            descriptor=self.root_message.DESCRIPTOR
+            if hasattr(self.root_message, "DESCRIPTOR")
+            else None,
             message=self.root_message,
-            is_expando=False
+            is_expando=False,
         )
 
     def supportedDropActions(self) -> Qt.DropAction:
         return Qt.DropAction.MoveAction
 
-    def mimeTypes(self) -> List[str]:
+    def mimeTypes(self) -> list[str]:
         return [self.MIME_TYPE]
 
     def mimeData(self, indexes: Sequence[QModelIndex]) -> QMimeData:
@@ -271,12 +273,19 @@ class ProtobufTreeViewAdapter(QAbstractItemModel):
         if not idx.isValid():
             return mime
         node = idx.internalPointer()
-        if not node or getattr(node, "eh_no_adicao", False) or getattr(node, "is_expando", False) or node.message is None:
+        if (
+            not node
+            or getattr(node, "eh_no_adicao", False)
+            or getattr(node, "is_expando", False)
+            or node.message is None
+        ):
             return mime
         resolved = node._resolve_transparency(node.message)
         tipo = resolved.DESCRIPTOR.name if resolved and hasattr(resolved, "DESCRIPTOR") else ""
-        from editor.views.widget_editor_dados import get_node_path, _get_id
         import json
+
+        from editor.views.widget_editor_dados import _get_id, get_node_path
+
         dados = {
             "row": idx.row(),
             "tipo": tipo,
@@ -286,7 +295,7 @@ class ProtobufTreeViewAdapter(QAbstractItemModel):
         mime.setData(self.MIME_TYPE, QByteArray(json.dumps(dados).encode("utf-8")))
         return mime
 
-    def flags(self, index: Union[QModelIndex, Any]) -> Qt.ItemFlag:
+    def flags(self, index: QModelIndex | Any) -> Qt.ItemFlag:
         if not index.isValid():
             return Qt.ItemFlag.NoItemFlags
 
@@ -310,34 +319,35 @@ class ProtobufTreeViewAdapter(QAbstractItemModel):
 
         return padrao
 
-        
     def rebuild_tree(self) -> None:
         self.beginResetModel()
         self.root_node = ProtobufNode(name="root", message=None)
         self.croqui_node = ProtobufNode(
             name="Croqui",
             parent=self.root_node,
-            descriptor=self.root_message.DESCRIPTOR if hasattr(self.root_message, "DESCRIPTOR") else None,
+            descriptor=self.root_message.DESCRIPTOR
+            if hasattr(self.root_message, "DESCRIPTOR")
+            else None,
             message=self.root_message,
-            is_expando=False
+            is_expando=False,
         )
         self.endResetModel()
-        
-    def rowCount(self, parent: Union[QModelIndex, Any] = QModelIndex()) -> int:
+
+    def rowCount(self, parent: QModelIndex | Any = QModelIndex()) -> int:
         if not parent.isValid():
             parent_node = self.root_node
         else:
             parent_node = parent.internalPointer()
-            
+
         return parent_node.child_count()
-        
-    def columnCount(self, parent: Union[QModelIndex, Any] = QModelIndex()) -> int:
+
+    def columnCount(self, parent: QModelIndex | Any = QModelIndex()) -> int:
         return 1
-        
-    def data(self, index: Union[QModelIndex, Any], role: int = Qt.ItemDataRole.DisplayRole) -> Any:
+
+    def data(self, index: QModelIndex | Any, role: int = Qt.ItemDataRole.DisplayRole) -> Any:
         if not index.isValid():
             return None
-            
+
         node = index.internalPointer()
 
         if role == Qt.ItemDataRole.FontRole:
@@ -358,20 +368,23 @@ class ProtobufTreeViewAdapter(QAbstractItemModel):
 
         if node is self.croqui_node:
             return "Croqui"
-            
+
         if node.is_expando:
             return node.name
-            
+
         msg = node.message
         if msg is not None:
             resolved_msg = node._resolve_transparency(msg)
-            
+
             # 1. Verifica se a mensagem resolvida possui algum campo com a extensão 'titulo_na_ui' setado como True
             titulo_final = None
             if hasattr(resolved_msg, "DESCRIPTOR"):
                 for field in resolved_msg.DESCRIPTOR.fields:
                     options = field.GetOptions()
-                    if options.HasExtension(croqui_pb2.titulo_na_ui) and options.Extensions[croqui_pb2.titulo_na_ui]:
+                    if (
+                        options.HasExtension(croqui_pb2.titulo_na_ui)
+                        and options.Extensions[croqui_pb2.titulo_na_ui]
+                    ):
                         val = getattr(resolved_msg, field.name)
                         if val:
                             titulo_final = str(val)
@@ -379,7 +392,10 @@ class ProtobufTreeViewAdapter(QAbstractItemModel):
             if titulo_final:
                 return titulo_final
 
-            if hasattr(resolved_msg, "DESCRIPTOR") and resolved_msg.DESCRIPTOR.name == "ArquivoMarkdown":
+            if (
+                hasattr(resolved_msg, "DESCRIPTOR")
+                and resolved_msg.DESCRIPTOR.name == "ArquivoMarkdown"
+            ):
                 msg_markdown = resolved_msg
                 active_field = msg_markdown.WhichOneof("arquivo")
                 if active_field == "conteudo" and msg_markdown.conteudo:
@@ -391,9 +407,7 @@ class ProtobufTreeViewAdapter(QAbstractItemModel):
                     return "Conteúdo Markdown"
                 elif active_field == "caminho" and msg_markdown.caminho:
                     # Ex: "introducao.md" -> "Introdução"
-                    import os
-                    filename = os.path.basename(msg_markdown.caminho)
-                    name_without_ext, _ = os.path.splitext(filename)
+                    name_without_ext = Path(msg_markdown.caminho).stem
                     return name_without_ext.replace("_", " ").capitalize()
                 return "Markdown sem título"
 
@@ -402,77 +416,90 @@ class ProtobufTreeViewAdapter(QAbstractItemModel):
                 active_field = msg.WhichOneof(oneof.name)
                 if active_field:
                     if active_field == "caminho" and hasattr(msg, "caminho") and msg.caminho:
-                        import os
-                        filename = os.path.basename(msg.caminho)
-                        name_without_ext, _ = os.path.splitext(filename)
+                        name_without_ext = Path(msg.caminho).stem
                         return name_without_ext.replace("_", " ").capitalize()
-                        
+
                     inner_msg = getattr(msg, active_field)
                     if hasattr(inner_msg, "DESCRIPTOR"):
                         # Tenta obter o titulo_na_ui da sub-mensagem ativa
                         inner_title = None
                         for field in inner_msg.DESCRIPTOR.fields:
                             options = field.GetOptions()
-                            if options.HasExtension(croqui_pb2.titulo_na_ui) and options.Extensions[croqui_pb2.titulo_na_ui]:
+                            if (
+                                options.HasExtension(croqui_pb2.titulo_na_ui)
+                                and options.Extensions[croqui_pb2.titulo_na_ui]
+                            ):
                                 val = getattr(inner_msg, field.name)
                                 if val:
                                     inner_title = str(val)
                                     break
-                        if not inner_title and hasattr(inner_msg, "nome") and getattr(inner_msg, "nome"):
-                            inner_title = getattr(inner_msg, "nome")
+                        if not inner_title and hasattr(inner_msg, "nome") and inner_msg.nome:
+                            inner_title = inner_msg.nome
                         if inner_title:
                             return inner_title
-            
+
             # Se for um wrapper puro (só possui 1 oneof e nenhum outro campo)
-            is_pure_wrapper = len(msg.DESCRIPTOR.oneofs) == 1 and len(msg.DESCRIPTOR.fields) == len(msg.DESCRIPTOR.oneofs[0].fields)
+            is_pure_wrapper = len(msg.DESCRIPTOR.oneofs) == 1 and len(msg.DESCRIPTOR.fields) == len(
+                msg.DESCRIPTOR.oneofs[0].fields
+            )
             if is_pure_wrapper:
                 if msg.DESCRIPTOR.name.startswith("Arquivo"):
                     return "Novo " + msg.DESCRIPTOR.name[7:]
                 else:
-                    return "Nova " + msg.DESCRIPTOR.name if msg.DESCRIPTOR.name.endswith("a") else "Novo " + msg.DESCRIPTOR.name
+                    return (
+                        "Nova " + msg.DESCRIPTOR.name
+                        if msg.DESCRIPTOR.name.endswith("a")
+                        else "Novo " + msg.DESCRIPTOR.name
+                    )
 
-            if hasattr(msg, "nome") and getattr(msg, "nome"):
-                return getattr(msg, "nome")
-            if hasattr(msg, "texto") and getattr(msg, "texto"):
-                return getattr(msg, "texto")
-                
+            if hasattr(msg, "nome") and msg.nome:
+                return msg.nome
+            if hasattr(msg, "texto") and msg.texto:
+                return msg.texto
+
         if node.descriptor:
             from editor.views.protobuf_widget_factory import ProtobufWidgetFactory
+
             return ProtobufWidgetFactory.get_label(node.descriptor)
-            
+
         return node.name
-        
-    def index(self, row: int, column: int, parent: Union[QModelIndex, Any] = QModelIndex()) -> QModelIndex:
+
+    def index(
+        self, row: int, column: int, parent: QModelIndex | Any = QModelIndex()
+    ) -> QModelIndex:
         if not self.hasIndex(row, column, parent):
             return QModelIndex()
-            
+
         if not parent.isValid():
             parent_node = self.root_node
         else:
             parent_node = parent.internalPointer()
-            
+
         child_node = parent_node.child(row)
         if child_node:
             return self.createIndex(row, column, child_node)
         return QModelIndex()
-        
+
     def parent(self, index: Any = QModelIndex()) -> QModelIndex:  # type: ignore[override]
         if not index.isValid():
             return QModelIndex()
-            
+
         child_node = index.internalPointer()
         parent_node = child_node.parent_node
-        
+
         if parent_node == self.root_node or parent_node is None:
             return QModelIndex()
-            
+
         return self.createIndex(parent_node.row(), 0, parent_node)
 
-    def find_index_for_message_id(self, msg_id: Any, parent_idx: Union[QModelIndex, Any] = QModelIndex()) -> QModelIndex:
+    def find_index_for_message_id(
+        self, msg_id: Any, parent_idx: QModelIndex | Any = QModelIndex()
+    ) -> QModelIndex:
         from editor.views.widget_editor_dados import _get_id
+
         if self.root_message and _get_id(self.root_message) == msg_id:
             return self.index(0, 0)
-            
+
         rows = self.rowCount(parent_idx)
         for r in range(rows):
             idx = self.index(r, 0, parent_idx)
@@ -489,12 +516,14 @@ class ProtobufTreeViewAdapter(QAbstractItemModel):
                     return child_match
         return QModelIndex()
 
-    def find_index_for_path(self, path: str, parent_idx: Union[QModelIndex, Any] = QModelIndex()) -> QModelIndex:
+    def find_index_for_path(
+        self, path: str, parent_idx: QModelIndex | Any = QModelIndex()
+    ) -> QModelIndex:
         from editor.views.widget_editor_dados import get_node_path
-        
+
         if self.root_message and path == "node:Croqui":
             return self.index(0, 0)
-            
+
         rows = self.rowCount(parent_idx)
         for r in range(rows):
             idx = self.index(r, 0, parent_idx)
@@ -511,15 +540,15 @@ class ProtobufTreeViewAdapter(QAbstractItemModel):
         parent_idx = self.find_index_for_message_id(msg_id)
         if not parent_idx.isValid():
             return QModelIndex()
-            
+
         parent_node = parent_idx.internalPointer()
         parent_node._populate_children()
-        
+
         for r in range(len(parent_node.children)):
             child = parent_node.children[r]
             if child.is_expando and child.descriptor and child.descriptor.name == campo:
                 return self.index(r, 0, parent_idx)
-                
+
         return QModelIndex()
 
     def _on_campo_alterado(self, msg_id: Any, campo: str, novo_valor: Any) -> None:
@@ -528,7 +557,9 @@ class ProtobufTreeViewAdapter(QAbstractItemModel):
         if idx.isValid():
             self.dataChanged.emit(idx, idx)
 
-    def _on_repeated_item_alterado(self, msg_id: Any, campo: str, index: int, novo_valor: Any) -> None:
+    def _on_repeated_item_alterado(
+        self, msg_id: Any, campo: str, index: int, novo_valor: Any
+    ) -> None:
         exp_idx = self.find_expando_index(msg_id, campo)
         if exp_idx.isValid():
             item_idx = self.index(index, 0, exp_idx)
@@ -539,12 +570,12 @@ class ProtobufTreeViewAdapter(QAbstractItemModel):
         exp_idx = self.find_expando_index(msg_id, campo)
         if not exp_idx.isValid():
             return
-            
+
         exp_node = exp_idx.internalPointer()
         if not exp_node._is_populated:
             exp_node._populate_children()
             return
-            
+
         parent_node = exp_node.parent_node
         if parent_node and parent_node.message:
             try:
@@ -552,31 +583,31 @@ class ProtobufTreeViewAdapter(QAbstractItemModel):
                 item_msg = repeated_field[idx]
             except (AttributeError, IndexError):
                 return
-                
+
             # 1. Corrige os índices dos filhos que estão após o novo índice
             for child in exp_node.children:
                 if child.index_in_repeated is not None and child.index_in_repeated >= idx:
                     child.index_in_repeated += 1
                     child.name = f"[{child.index_in_repeated}]"
-                    
+
             # 2. Cria o novo nó, resolvendo a transparência para o item adicionado
             resolved_msg = exp_node._resolve_transparency(item_msg)
-            
+
             new_node = ProtobufNode(
                 name=f"[{idx}]",
                 parent=None,
                 descriptor=exp_node.descriptor,
                 message=resolved_msg,
                 index_in_repeated=idx,
-                is_expando=False
+                is_expando=False,
             )
-            
+
             # 3. Notifica inserção
             self.beginInsertRows(exp_idx, idx, idx)
             new_node.parent_node = exp_node
             exp_node.children.insert(idx, new_node)
             self.endInsertRows()
-            
+
             # 4. Atualiza visualmente os rótulos deslocados
             row_count = len(exp_node.children)
             if row_count > idx + 1:
@@ -588,11 +619,11 @@ class ProtobufTreeViewAdapter(QAbstractItemModel):
         exp_idx = self.find_expando_index(msg_id, campo)
         if not exp_idx.isValid():
             return
-            
+
         exp_node = exp_idx.internalPointer()
         if not exp_node._is_populated:
             return
-            
+
         # 1. Encontra e remove o filho correspondente ao índice
         row_to_remove = -1
         for r in range(len(exp_node.children)):
@@ -600,19 +631,19 @@ class ProtobufTreeViewAdapter(QAbstractItemModel):
             if child.index_in_repeated == idx:
                 row_to_remove = r
                 break
-                
+
         if row_to_remove != -1:
             self.beginRemoveRows(exp_idx, row_to_remove, row_to_remove)
             del exp_node.children[row_to_remove]
             self.endRemoveRows()
-            
+
             # 2. Ajusta index_in_repeated dos nós restantes
             for child in exp_node.children:
                 if child.index_in_repeated is not None and child.index_in_repeated > idx:
                     child.index_in_repeated -= 1
                     child.name = f"[{child.index_in_repeated}]"
-                    
-            # 3. Atualiza os rótulos            
+
+            # 3. Atualiza os rótulos
             row_count = len(exp_node.children)
             if row_count > row_to_remove:
                 first_changed = self.index(row_to_remove, 0, exp_idx)
@@ -623,7 +654,7 @@ class ProtobufTreeViewAdapter(QAbstractItemModel):
         exp_idx = self.find_expando_index(msg_id, campo)
         if not exp_idx.isValid():
             return
-            
+
         exp_node = exp_idx.internalPointer()
         if not exp_node._is_populated:
             return
@@ -631,21 +662,23 @@ class ProtobufTreeViewAdapter(QAbstractItemModel):
         # QAbstractItemModel has beginMoveRows/endMoveRows.
         # But for QTreeView we must be careful with destination index.
         dest_idx = index_to if index_to < index_from else index_to + 1
-        
+
         self.beginMoveRows(exp_idx, index_from, index_from, exp_idx, dest_idx)
-        
+
         child = exp_node.children.pop(index_from)
         exp_node.children.insert(index_to, child)
-        
+
         self.endMoveRows()
-        
+
         # Atualiza os labels, index_in_repeated e referências de mensagens vivas
         parent_node = exp_node.parent_node
-        repeated_field = getattr(parent_node.message, campo) if parent_node and parent_node.message else None
+        repeated_field = (
+            getattr(parent_node.message, campo) if parent_node and parent_node.message else None
+        )
 
         min_idx = min(index_from, index_to)
         max_idx = max(index_from, index_to)
-        
+
         for i in range(min_idx, max_idx + 1):
             c = exp_node.children[i]
             if c.index_in_repeated is not None:
@@ -654,7 +687,7 @@ class ProtobufTreeViewAdapter(QAbstractItemModel):
                 if repeated_field is not None and 0 <= i < len(repeated_field):
                     nova_msg = exp_node._resolve_transparency(repeated_field[i])
                     self._sincronizar_mensagem_recursiva(c, nova_msg)
-                
+
         # Notifica mudanca visual
         first_changed = self.index(min_idx, 0, exp_idx)
         last_changed = self.index(max_idx, 0, exp_idx)
@@ -690,5 +723,3 @@ class ProtobufTreeViewAdapter(QAbstractItemModel):
                     sub_raw = getattr(nova_msg, child.descriptor.name)
                     sub_nova_msg = child._resolve_transparency(sub_raw)
                     self._sincronizar_mensagem_recursiva(child, sub_nova_msg)
-
-

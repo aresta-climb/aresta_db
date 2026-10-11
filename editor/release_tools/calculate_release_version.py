@@ -1,10 +1,9 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
-from typing import Optional, Union, List
+import argparse
 import re
 import sys
-import argparse
 from pathlib import Path
 
 # Garante que a raiz do repositório esteja no sys.path para importação absoluta do módulo editor
@@ -12,13 +11,14 @@ _raiz_repo = str(Path(__file__).resolve().parents[2])
 if _raiz_repo not in sys.path:  # pragma: no cover
     sys.path.insert(0, _raiz_repo)
 
-from editor.release_tools.bump_version import compare_semver, validar_semver, SemVerError
+from editor.release_tools.bump_version import SemVerError, compare_semver, validar_semver
 
 PADRAO_SEMVER = re.compile(
     r"^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-([a-zA-Z0-9.-]+))?(?:\+([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?$"
 )
 
-def extrair_versao_de_arquivo(caminho_arquivo: Union[str, Path]) -> str:
+
+def extrair_versao_de_arquivo(caminho_arquivo: str | Path) -> str:
     """Extrai a string de versão definida na constante VERSION de um arquivo Python."""
     caminho = Path(caminho_arquivo)
     if not caminho.exists():
@@ -32,7 +32,8 @@ def extrair_versao_de_arquivo(caminho_arquivo: Union[str, Path]) -> str:
 
     return match.group(1).strip()
 
-def calcular_versao_release(versao_atual: str, tipo_bump: str, custom: Optional[str] = None) -> str:
+
+def calcular_versao_release(versao_atual: str, tipo_bump: str, custom: str | None = None) -> str:
     """
     Calcula a versão oficial de release baseada na versão atual e no tipo de incremento.
     Tipos suportados: 'patch', 'minor', 'major', 'custom'.
@@ -68,23 +69,43 @@ def calcular_versao_release(versao_atual: str, tipo_bump: str, custom: Optional[
         try:
             validar_semver(versao_custom)
         except SemVerError as e:
-            raise ValueError(f"A versão customizada {versao_custom} não segue o formato SemVer válido: {e}")
+            raise ValueError(
+                f"A versão customizada {versao_custom} não segue o formato SemVer válido: {e}"
+            )
 
         if compare_semver(versao_custom, versao_atual) <= 0:
-            raise ValueError(f"A versão customizada ({versao_custom}) deve ser estritamente maior que a atual ({versao_atual}).")
+            raise ValueError(
+                f"A versão customizada ({versao_custom}) deve ser estritamente maior que a atual ({versao_atual})."
+            )
 
         return versao_custom
 
     else:
-        raise ValueError(f"Tipo de incremento inválido: '{tipo_bump}'. Use patch, minor, major ou custom.")
+        raise ValueError(
+            f"Tipo de incremento inválido: '{tipo_bump}'. Use patch, minor, major ou custom."
+        )
 
-def main(argv: Optional[List[str]] = None) -> int:
+
+def main(argv: list[str] | None = None) -> int:
     """Função principal da CLI de cálculo de versão de release."""
-    parser = argparse.ArgumentParser(description="Calcula a versão oficial de lançamento do Editor Aresta.")
-    parser.add_argument("--tipo", default="patch", choices=["patch", "minor", "major", "custom"], help="Tipo de incremento (patch, minor, major, custom)")
-    parser.add_argument("--custom", default=None, help="Versão customizada (obrigatória se tipo=custom)")
+    parser = argparse.ArgumentParser(
+        description="Calcula a versão oficial de lançamento do Editor Aresta."
+    )
+    parser.add_argument(
+        "--tipo",
+        default="patch",
+        choices=["patch", "minor", "major", "custom"],
+        help="Tipo de incremento (patch, minor, major, custom)",
+    )
+    parser.add_argument(
+        "--custom", default=None, help="Versão customizada (obrigatória se tipo=custom)"
+    )
     parser.add_argument("--versao-atual", default=None, help="Versão atual explícita para cálculo")
-    parser.add_argument("--arquivo", default=None, help="Caminho do arquivo de versão (padrão: editor/core/version.py)")
+    parser.add_argument(
+        "--arquivo",
+        default=None,
+        help="Caminho do arquivo de versão (padrão: editor/core/version.py)",
+    )
 
     args = parser.parse_args(argv)
 
@@ -92,7 +113,11 @@ def main(argv: Optional[List[str]] = None) -> int:
         if args.versao_atual:
             versao_base = args.versao_atual
         else:
-            caminho_padrao = Path(args.arquivo) if args.arquivo else Path(__file__).resolve().parent.parent / "core" / "version.py"
+            caminho_padrao = (
+                Path(args.arquivo)
+                if args.arquivo
+                else Path(__file__).resolve().parent.parent / "core" / "version.py"
+            )
             versao_base = extrair_versao_de_arquivo(caminho_padrao)
 
         versao_calculada = calcular_versao_release(versao_base, args.tipo, args.custom)
@@ -102,6 +127,6 @@ def main(argv: Optional[List[str]] = None) -> int:
         print(f"Erro: {e}", file=sys.stderr)
         return 1
 
+
 if __name__ == "__main__":  # pragma: no cover
     sys.exit(main())
-

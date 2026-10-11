@@ -10,10 +10,13 @@ para a pasta anexos/ ou apontar para uma URL externa (link web).
 import re
 import unicodedata
 from pathlib import Path
-from typing import Optional, Union, Any
+from typing import Any
+
+from PySide6.QtCore import Qt
 from PySide6.QtWidgets import (
     QDialog,
-    QVBoxLayout,
+    QFileDialog,
+    QFrame,
     QHBoxLayout,
     QLabel,
     QLineEdit,
@@ -21,11 +24,9 @@ from PySide6.QtWidgets import (
     QListWidgetItem,
     QPushButton,
     QTabWidget,
+    QVBoxLayout,
     QWidget,
-    QFileDialog,
-    QFrame,
 )
-from PySide6.QtCore import Qt
 
 
 def sanitizar_nome_arquivo_anexo(nome_arquivo: str) -> str:
@@ -70,19 +71,19 @@ class DialogoInserirBotaoMarkdown(QDialog):
     def __init__(
         self,
         caminho_db: Path,
-        model: Optional[Any] = None,
-        parent: Optional[QWidget] = None,
+        model: Any | None = None,
+        parent: QWidget | None = None,
     ) -> None:
         super().__init__(parent)
         self.setWindowTitle("Inserir Botão ou Link no Markdown")
         self.resize(520, 480)
 
         self.caminho_db: Path = Path(caminho_db)
-        self.model: Optional[Any] = model
+        self.model: Any | None = model
         self.pasta_anexos: Path = self.caminho_db / "anexos"
 
-        self.caminho_anexo_selecionado: Optional[str] = None
-        self.bytes_anexo_importado: Optional[bytes] = None
+        self.caminho_anexo_selecionado: str | None = None
+        self.bytes_anexo_importado: bytes | None = None
 
         self._criar_layout()
         self._carregar_anexos_existentes()
@@ -209,7 +210,11 @@ class DialogoInserirBotaoMarkdown(QDialog):
             for caminho_rel in sorted(anexos_mem.keys()):
                 if caminho_rel not in arquivos_vistos:
                     arquivos_vistos.add(caminho_rel)
-                    rel = caminho_rel[len("anexos/"):] if caminho_rel.startswith("anexos/") else caminho_rel
+                    rel = (
+                        caminho_rel[len("anexos/") :]
+                        if caminho_rel.startswith("anexos/")
+                        else caminho_rel
+                    )
                     item = QListWidgetItem(f"📄 {rel} (novo)")
                     item.setData(Qt.ItemDataRole.UserRole, caminho_rel)
                     self.lista_anexos.addItem(item)
@@ -219,7 +224,9 @@ class DialogoInserirBotaoMarkdown(QDialog):
         for i in range(self.lista_anexos.count()):
             item = self.lista_anexos.item(i)
             caminho = item.data(Qt.ItemDataRole.UserRole) or ""
-            ocultar = bool(texto and texto not in item.text().lower() and texto not in caminho.lower())
+            ocultar = bool(
+                texto and texto not in item.text().lower() and texto not in caminho.lower()
+            )
             item.setHidden(ocultar)
 
     def _ao_selecionar_anexo_lista(self, row: int) -> None:
@@ -241,7 +248,7 @@ class DialogoInserirBotaoMarkdown(QDialog):
         if caminho_arquivo:
             self.importar_arquivo_anexo(Path(caminho_arquivo))
 
-    def importar_arquivo_anexo(self, caminho_arquivo: Union[Path, str]) -> None:
+    def importar_arquivo_anexo(self, caminho_arquivo: Path | str) -> None:
         """Processa e importa um arquivo externo para inclusão em anexos/."""
         path = Path(caminho_arquivo)
         if not path.is_file():
@@ -257,7 +264,9 @@ class DialogoInserirBotaoMarkdown(QDialog):
         # Limpa seleção da lista para priorizar o importado
         self.lista_anexos.setCurrentRow(-1)
 
-        self.label_anexo_importado.setText(f"Arquivo importado pronto para inserção:\n{nome_sanitizado}")
+        self.label_anexo_importado.setText(
+            f"Arquivo importado pronto para inserção:\n{nome_sanitizado}"
+        )
         self.label_anexo_importado.show()
         self._atualizar_estado_botao_inserir()
 
@@ -293,13 +302,13 @@ class DialogoInserirBotaoMarkdown(QDialog):
         """Retorna o rótulo/texto definido para o botão."""
         return self.input_texto.text().strip()
 
-    def obter_caminho_anexo(self) -> Optional[str]:
+    def obter_caminho_anexo(self) -> str | None:
         """Retorna o caminho relativo do anexo (ex: 'anexos/ficha.pdf') ou None se for link externo."""
         if self.tab_widget.currentIndex() == 0:
             return self.caminho_anexo_selecionado
         return None
 
-    def obter_bytes_anexo(self) -> Optional[bytes]:
+    def obter_bytes_anexo(self) -> bytes | None:
         """Retorna os bytes do arquivo anexo se foi importado de fora, ou None."""
         if self.tab_widget.currentIndex() == 0:
             return self.bytes_anexo_importado

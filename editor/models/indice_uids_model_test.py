@@ -11,27 +11,26 @@ Segue rigorosamente os Princípios I, II, III, IV e VII de AGENTS.md:
 - Sincronização via Comandos e Histórico (Undo/Redo)
 """
 
-import pytest
 from PySide6.QtGui import QUndoStack
-from aresta_api.proto.generated import croqui_pb2
-from editor.models.croqui_model import CroquiModel
-from editor.commands.comandos_protobuf import (
-    CmdAlterarPrimitivo,
-    CmdAdicionarRepeated,
-    CmdRemoverRepeated,
-    CmdMigrarSetor,
-    CmdRenomearEscalada,
-)
-from editor.models.indice_uids_model import (
-    TipoEntidadeUid,
-    RegistroUid,
-    IndiceUidsModel,
-)
 
+from aresta_api.proto.generated import croqui_pb2
+from editor.commands.comandos_protobuf import (
+    CmdAdicionarRepeated,
+    CmdAlterarPrimitivo,
+    CmdMigrarSetor,
+    CmdRemoverRepeated,
+)
+from editor.models.croqui_model import CroquiModel
+from editor.models.indice_uids_model import (
+    IndiceUidsModel,
+    RegistroUid,
+    TipoEntidadeUid,
+)
 
 # ==============================================================================
 # 1. Testes de RegistroUid e Formatação
 # ==============================================================================
+
 
 def test_registro_uid_formatacao_grupo():
     reg = RegistroUid(
@@ -99,7 +98,10 @@ def test_registro_uid_formatacao_enfiada():
         nome_escalada="Grande Parede",
         indice_enfiada=2,
     )
-    assert reg.obter_caminho_formatado() == "Falésia dos Ventos > Setor Principal > Grande Parede (2ª Enfiada)"
+    assert (
+        reg.obter_caminho_formatado()
+        == "Falésia dos Ventos > Setor Principal > Grande Parede (2ª Enfiada)"
+    )
 
 
 def test_registro_uid_formatacao_botao():
@@ -123,9 +125,10 @@ def test_registro_uid_formatacao_tipo_desconhecido():
 # Helper de Criação de Croqui Estruturado
 # ==============================================================================
 
+
 def _criar_croqui_teste() -> croqui_pb2.Croqui:
     croqui = croqui_pb2.Croqui(uid="croq_1234567890")
-    
+
     # Botão no croqui
     b = croqui.botoes.add()
     b.uid = "bota_0000000001"
@@ -175,6 +178,7 @@ def _criar_croqui_teste() -> croqui_pb2.Croqui:
 # 2. Testes de Carga Inicial e Busca no IndiceUidsModel
 # ==============================================================================
 
+
 def test_indice_carga_inicial_e_busca(qapp):
     croqui = _criar_croqui_teste()
     indice = IndiceUidsModel(croqui)
@@ -220,7 +224,10 @@ def test_indice_carga_inicial_e_busca(qapp):
     assert reg_enf is not None
     assert reg_enf.nome_escalada == "Grande Parede"
     assert reg_enf.indice_enfiada == 2
-    assert indice.obter_caminho("enfi_0000000002") == "Grupo Alfa > Setor Sul > Grande Parede (2ª Enfiada)"
+    assert (
+        indice.obter_caminho("enfi_0000000002")
+        == "Grupo Alfa > Setor Sul > Grande Parede (2ª Enfiada)"
+    )
 
     # Busca O(1) de escalada em setor isolado
     reg_e3 = indice.obter("esca_0000000003")
@@ -248,6 +255,7 @@ def test_indice_carga_inicial_e_busca(qapp):
 # 3. Testes de Mutação Granular no IndiceUidsModel
 # ==============================================================================
 
+
 def test_indice_renomear_escalada(qapp):
     croqui = _criar_croqui_teste()
     indice = IndiceUidsModel(croqui)
@@ -259,7 +267,10 @@ def test_indice_renomear_escalada(qapp):
     # Renomear via de múltiplas enfiadas deve atualizar o nome nas enfiadas também
     indice.atualizar_nome_escalada("esca_0000000002", "Paredão Novo")
     assert indice.obter("enfi_0000000001").nome_escalada == "Paredão Novo"
-    assert indice.obter_caminho("enfi_0000000001") == "Grupo Alfa > Setor Sul > Paredão Novo (1ª Enfiada)"
+    assert (
+        indice.obter_caminho("enfi_0000000001")
+        == "Grupo Alfa > Setor Sul > Paredão Novo (1ª Enfiada)"
+    )
 
 
 def test_indice_renomear_setor_propaga_para_escaladas(qapp):
@@ -272,9 +283,14 @@ def test_indice_renomear_setor_propaga_para_escaladas(qapp):
 
     # Escaladas filhas devem refletir o novo nome do setor imediatamente
     assert indice.obter("esca_0000000001").nome_setor == "Setor Sul Reformado"
-    assert indice.obter_caminho("esca_0000000001") == "Grupo Alfa > Setor Sul Reformado > Via Simples"
+    assert (
+        indice.obter_caminho("esca_0000000001") == "Grupo Alfa > Setor Sul Reformado > Via Simples"
+    )
     assert indice.obter("enfi_0000000001").nome_setor == "Setor Sul Reformado"
-    assert indice.obter_caminho("enfi_0000000001") == "Grupo Alfa > Setor Sul Reformado > Grande Parede (1ª Enfiada)"
+    assert (
+        indice.obter_caminho("enfi_0000000001")
+        == "Grupo Alfa > Setor Sul Reformado > Grande Parede (1ª Enfiada)"
+    )
 
     # Setor Norte não foi afetado
     assert indice.obter("esca_0000000003").nome_setor == "Setor Norte"
@@ -311,7 +327,9 @@ def test_indice_mover_setor_para_grupo_e_para_isolado(qapp):
     indice = IndiceUidsModel(croqui)
 
     # 1. Mover Setor Norte (que era isolado) para dentro do Grupo Alfa
-    indice.mover_setor("setr_0000000002", novo_grupo_uid="grup_0000000001", novo_nome_grupo="Grupo Alfa")
+    indice.mover_setor(
+        "setr_0000000002", novo_grupo_uid="grup_0000000001", novo_nome_grupo="Grupo Alfa"
+    )
     assert indice.obter("setr_0000000002").grupo_uid == "grup_0000000001"
     assert indice.obter("setr_0000000002").nome_grupo == "Grupo Alfa"
     assert indice.obter_caminho("setr_0000000002") == "Grupo Alfa > Setor Norte"
@@ -379,13 +397,16 @@ def test_indice_remover_em_cascata(qapp):
 # 4. Testes de Integração com CroquiModel e Histórico Undo/Redo
 # ==============================================================================
 
+
 def test_croqui_model_integra_indice_uids_na_inicializacao(qapp):
     croqui = _criar_croqui_teste()
     model = CroquiModel(croqui)
-    
+
     assert hasattr(model, "indice_uids")
     assert len(model.indice_uids) == 9
-    assert model.indice_uids.obter_caminho("esca_0000000001") == "Grupo Alfa > Setor Sul > Via Simples"
+    assert (
+        model.indice_uids.obter_caminho("esca_0000000001") == "Grupo Alfa > Setor Sul > Via Simples"
+    )
 
 
 def test_historico_undo_redo_renomear_escalada_sincroniza_indice(qapp):
@@ -394,7 +415,7 @@ def test_historico_undo_redo_renomear_escalada_sincroniza_indice(qapp):
     undo_stack = QUndoStack()
 
     esc1 = croqui.picos[0].setores_ou_grupos[0].grupo.conteudo.setores[0].conteudo.escaladas[0]
-    
+
     # 1. Executa comando de renomeação de primitivo (nome da via)
     cmd = CmdAlterarPrimitivo(
         model=model,
@@ -407,17 +428,25 @@ def test_historico_undo_redo_renomear_escalada_sincroniza_indice(qapp):
 
     # Verifica que o índice foi atualizado no Redo
     assert model.indice_uids.obter("esca_0000000001").nome_escalada == "Super Fenda 10a"
-    assert model.indice_uids.obter_caminho("esca_0000000001") == "Grupo Alfa > Setor Sul > Super Fenda 10a"
+    assert (
+        model.indice_uids.obter_caminho("esca_0000000001")
+        == "Grupo Alfa > Setor Sul > Super Fenda 10a"
+    )
 
     # 2. Desfaz (Undo)
     undo_stack.undo()
     assert model.indice_uids.obter("esca_0000000001").nome_escalada == "Via Simples"
-    assert model.indice_uids.obter_caminho("esca_0000000001") == "Grupo Alfa > Setor Sul > Via Simples"
+    assert (
+        model.indice_uids.obter_caminho("esca_0000000001") == "Grupo Alfa > Setor Sul > Via Simples"
+    )
 
     # 3. Refaz (Redo)
     undo_stack.redo()
     assert model.indice_uids.obter("esca_0000000001").nome_escalada == "Super Fenda 10a"
-    assert model.indice_uids.obter_caminho("esca_0000000001") == "Grupo Alfa > Setor Sul > Super Fenda 10a"
+    assert (
+        model.indice_uids.obter_caminho("esca_0000000001")
+        == "Grupo Alfa > Setor Sul > Super Fenda 10a"
+    )
 
 
 def test_historico_undo_redo_renomear_setor_sincroniza_indice_e_filhos(qapp):
@@ -439,17 +468,25 @@ def test_historico_undo_redo_renomear_setor_sincroniza_indice_e_filhos(qapp):
     # Redo: Setor e suas vias devem refletir o novo nome
     assert model.indice_uids.obter("setr_0000000001").nome_setor == "Paredão Sul Extremo"
     assert model.indice_uids.obter_caminho("setr_0000000001") == "Grupo Alfa > Paredão Sul Extremo"
-    assert model.indice_uids.obter_caminho("esca_0000000001") == "Grupo Alfa > Paredão Sul Extremo > Via Simples"
+    assert (
+        model.indice_uids.obter_caminho("esca_0000000001")
+        == "Grupo Alfa > Paredão Sul Extremo > Via Simples"
+    )
 
     # Undo: Reverte
     undo_stack.undo()
     assert model.indice_uids.obter("setr_0000000001").nome_setor == "Setor Sul"
-    assert model.indice_uids.obter_caminho("esca_0000000001") == "Grupo Alfa > Setor Sul > Via Simples"
+    assert (
+        model.indice_uids.obter_caminho("esca_0000000001") == "Grupo Alfa > Setor Sul > Via Simples"
+    )
 
     # Redo: Reaplica
     undo_stack.redo()
     assert model.indice_uids.obter("setr_0000000001").nome_setor == "Paredão Sul Extremo"
-    assert model.indice_uids.obter_caminho("esca_0000000001") == "Grupo Alfa > Paredão Sul Extremo > Via Simples"
+    assert (
+        model.indice_uids.obter_caminho("esca_0000000001")
+        == "Grupo Alfa > Paredão Sul Extremo > Via Simples"
+    )
 
 
 def test_historico_undo_redo_renomear_grupo_sincroniza_indice_e_subarvore(qapp):
@@ -470,11 +507,16 @@ def test_historico_undo_redo_renomear_grupo_sincroniza_indice_e_subarvore(qapp):
 
     assert model.indice_uids.obter("grup_0000000001").nome_grupo == "Setorzao Beta"
     assert model.indice_uids.obter_caminho("setr_0000000001") == "Setorzao Beta > Setor Sul"
-    assert model.indice_uids.obter_caminho("esca_0000000001") == "Setorzao Beta > Setor Sul > Via Simples"
+    assert (
+        model.indice_uids.obter_caminho("esca_0000000001")
+        == "Setorzao Beta > Setor Sul > Via Simples"
+    )
 
     undo_stack.undo()
     assert model.indice_uids.obter("grup_0000000001").nome_grupo == "Grupo Alfa"
-    assert model.indice_uids.obter_caminho("esca_0000000001") == "Grupo Alfa > Setor Sul > Via Simples"
+    assert (
+        model.indice_uids.obter_caminho("esca_0000000001") == "Grupo Alfa > Setor Sul > Via Simples"
+    )
 
 
 def test_historico_undo_redo_adicionar_e_remover_escalada(qapp):
@@ -498,7 +540,10 @@ def test_historico_undo_redo_adicionar_e_remover_escalada(qapp):
     undo_stack.push(cmd_add)
 
     assert model.indice_uids.existe("esca_novissima1")
-    assert model.indice_uids.obter_caminho("esca_novissima1") == "Grupo Alfa > Setor Sul > Rota Recém Aberta"
+    assert (
+        model.indice_uids.obter_caminho("esca_novissima1")
+        == "Grupo Alfa > Setor Sul > Rota Recém Aberta"
+    )
 
     # 2. Desfazer adição
     undo_stack.undo()
@@ -508,7 +553,10 @@ def test_historico_undo_redo_adicionar_e_remover_escalada(qapp):
     # 3. Refazer adição
     undo_stack.redo()
     assert model.indice_uids.existe("esca_novissima1")
-    assert model.indice_uids.obter_caminho("esca_novissima1") == "Grupo Alfa > Setor Sul > Rota Recém Aberta"
+    assert (
+        model.indice_uids.obter_caminho("esca_novissima1")
+        == "Grupo Alfa > Setor Sul > Rota Recém Aberta"
+    )
 
     # 4. Remover escalada
     cmd_rem = CmdRemoverRepeated(
@@ -523,7 +571,10 @@ def test_historico_undo_redo_adicionar_e_remover_escalada(qapp):
     # 5. Desfazer remoção
     undo_stack.undo()
     assert model.indice_uids.existe("esca_novissima1")
-    assert model.indice_uids.obter_caminho("esca_novissima1") == "Grupo Alfa > Setor Sul > Rota Recém Aberta"
+    assert (
+        model.indice_uids.obter_caminho("esca_novissima1")
+        == "Grupo Alfa > Setor Sul > Rota Recém Aberta"
+    )
 
 
 def test_historico_undo_redo_migrar_setor_sincroniza_indice(qapp):
@@ -552,7 +603,10 @@ def test_historico_undo_redo_migrar_setor_sincroniza_indice(qapp):
     assert model.indice_uids.obter("setr_0000000002").grupo_uid == "grup_0000000001"
     assert model.indice_uids.obter("setr_0000000002").nome_grupo == "Grupo Alfa"
     assert model.indice_uids.obter_caminho("setr_0000000002") == "Grupo Alfa > Setor Norte"
-    assert model.indice_uids.obter_caminho("esca_0000000003") == "Grupo Alfa > Setor Norte > Dinamico Supremo"
+    assert (
+        model.indice_uids.obter_caminho("esca_0000000003")
+        == "Grupo Alfa > Setor Norte > Dinamico Supremo"
+    )
 
     # Undo: Setor Norte volta a ser isolado no Pico
     undo_stack.undo()
@@ -563,4 +617,7 @@ def test_historico_undo_redo_migrar_setor_sincroniza_indice(qapp):
 
     # Redo: Reaplica migração
     undo_stack.redo()
-    assert model.indice_uids.obter_caminho("esca_0000000003") == "Grupo Alfa > Setor Norte > Dinamico Supremo"
+    assert (
+        model.indice_uids.obter_caminho("esca_0000000003")
+        == "Grupo Alfa > Setor Norte > Dinamico Supremo"
+    )

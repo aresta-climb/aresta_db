@@ -2,14 +2,15 @@
 # Copyright (C) 2026 Aresta Climb Contributors
 
 import io
-from PIL import Image
+
 import pytest
+from PIL import Image
 
 from editor.core.transformacoes_imagem import (
-    rotacionar_imagem_bytes,
-    cortar_imagem_bytes,
     aplicar_mascara_bytes,
+    cortar_imagem_bytes,
     obter_cor_pixel,
+    rotacionar_imagem_bytes,
 )
 
 
@@ -20,6 +21,7 @@ def imagem_teste_bytes() -> bytes:
     img = Image.new("RGB", (200, 100), color=(10, 20, 30))
     # Pinta uma região de destaque em (10, 20) até (20, 30)
     from PIL import ImageDraw
+
     draw = ImageDraw.Draw(img)
     draw.rectangle([10, 20, 20, 30], fill=(255, 128, 0))
     img.save(buf, format="WEBP", quality=95)
@@ -141,7 +143,9 @@ class TestTransformacoesImagem:
         rotacionado = rotacionar_imagem_bytes(bytes_gray, 90)
         assert isinstance(rotacionado, bytes)
 
-    def test_obter_cor_pixel_escala_cinza_e_formato_inesperado(self, monkeypatch: pytest.MonkeyPatch) -> None:
+    def test_obter_cor_pixel_escala_cinza_e_formato_inesperado(
+        self, monkeypatch: pytest.MonkeyPatch
+    ) -> None:
         buf = io.BytesIO()
         img_gray = Image.new("L", (50, 50), color=200)
         img_gray.save(buf, format="PNG")
@@ -169,6 +173,7 @@ class TestTransformacoesImagem:
 
     def test_converter_para_webp_disco(self, imagem_teste_bytes: bytes) -> None:
         from editor.core.transformacoes_imagem import converter_para_webp_disco
+
         bytes_disco = converter_para_webp_disco(imagem_teste_bytes, qualidade=90)
         assert isinstance(bytes_disco, bytes)
         assert bytes_disco.startswith(b"RIFF")
@@ -179,6 +184,3 @@ class TestTransformacoesImagem:
         bytes_lossy = rotacionar_imagem_bytes(imagem_teste_bytes, 90, sem_perdas=False)
         assert isinstance(bytes_lossy, bytes)
         assert bytes_lossy[12:16] == b"VP8 "
-
-
-

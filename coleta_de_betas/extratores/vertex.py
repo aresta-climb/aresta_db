@@ -2,9 +2,11 @@
 # Copyright (C) 2026 Aresta Climb Contributors
 
 import os
+
 import requests
-from typing import List, Optional
+
 from aresta_api.proto.generated import beta_pb2
+
 
 class ExtratorVertexSearch:
     """
@@ -13,10 +15,10 @@ class ExtratorVertexSearch:
 
     def __init__(
         self,
-        project_id: Optional[str] = None,
-        data_store_id: Optional[str] = None,
+        project_id: str | None = None,
+        data_store_id: str | None = None,
         location: str = "global",
-        api_key: Optional[str] = None
+        api_key: str | None = None,
     ) -> None:
         self.project_id = project_id or os.environ.get("VERTEX_PROJECT_ID", "")
         self.data_store_id = data_store_id or os.environ.get("VERTEX_DATA_STORE_ID", "")
@@ -39,8 +41,8 @@ class ExtratorVertexSearch:
         nome_escalada: str,
         nome_setor: str = "",
         nome_pico: str = "",
-        max_resultados: int = 10
-    ) -> List[beta_pb2.MidiaBeta]:
+        max_resultados: int = 10,
+    ) -> list[beta_pb2.MidiaBeta]:
         """
         Executa a busca no Vertex AI Search e retorna objetos MidiaBeta.
         """
@@ -54,11 +56,7 @@ class ExtratorVertexSearch:
         if self.api_key:
             params["key"] = self.api_key
 
-
-        payload = {
-            "query": query,
-            "pageSize": max_resultados
-        }
+        payload = {"query": query, "pageSize": max_resultados}
 
         try:
             resposta = requests.post(url_endpoint, json=payload, params=params, timeout=10)
@@ -66,10 +64,12 @@ class ExtratorVertexSearch:
             raise RuntimeError(f"Erro na conexão com a API do Vertex AI Search: {e}")
 
         if resposta.status_code != 200:
-            raise RuntimeError(f"Erro na API do Vertex AI Search ({resposta.status_code}): {resposta.text}")
+            raise RuntimeError(
+                f"Erro na API do Vertex AI Search ({resposta.status_code}): {resposta.text}"
+            )
 
         dados = resposta.json()
-        resultados: List[beta_pb2.MidiaBeta] = []
+        resultados: list[beta_pb2.MidiaBeta] = []
         termo_lower = nome_escalada.lower().strip()
 
         for item in dados.get("results", []):
@@ -86,7 +86,7 @@ class ExtratorVertexSearch:
             # Extração de thumbnail se presente
             thumb_url = ""
             pagemap = struct_data.get("pagemap", {})
-            if "cse_image" in pagemap and pagemap["cse_image"]:
+            if pagemap.get("cse_image"):
                 thumb_url = pagemap["cse_image"][0].get("src", "")
 
             midia = beta_pb2.MidiaBeta()

@@ -3,7 +3,9 @@
 
 import pytest
 from PySide6.QtWidgets import QApplication
+
 from editor.views.dialogos.dialogo_criar_escalada import DialogoCriarEscalada
+
 
 @pytest.fixture(scope="session")
 def qapp():
@@ -73,6 +75,7 @@ def test_dialogo_criar_escalada_validacao_duplicidade(qapp):
 def test_dialogo_criar_escalada_metodo_estatico_obter_dados(qapp, monkeypatch):
     """Verifica a chamada do método estático obter_dados."""
     from PySide6.QtWidgets import QDialog
+
     monkeypatch.setattr(QDialog, "exec", lambda self: self.setResult(QDialog.DialogCode.Accepted))
 
     tipo, nome, ok = DialogoCriarEscalada.obter_dados(nomes_existentes=[])

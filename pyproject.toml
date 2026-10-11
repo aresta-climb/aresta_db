@@ -87,6 +87,7 @@ dev = [
     "types-qrcode",
     "types-nanoid>=2.0.0.20260508",
     "jeepney",
+    "ruff",
 ]
 
 [tool.uv]
@@ -150,8 +151,74 @@ ignore_missing_imports = true
 
 disallow_untyped_calls = false
 
+[tool.ruff]
+target-version = "py313"
+line-length = 100
 
+exclude = [
+    ".git",
+    ".venv",
+    "build",
+    "dist",
+    "scratch",
+    "database",
+    "migracoes",
+    "aresta_api/proto/generated",
+    "*_pb2.py",
+    "*_pb2.pyi",
+]
 
+[tool.ruff.lint]
+select = [
+    "E",     # pycodestyle errors
+    "W",     # pycodestyle warnings
+    "F",     # Pyflakes (variáveis e imports não utilizados, erros lógicos)
+    "I",     # isort (organização estrita de imports)
+    "UP",    # pyupgrade (sintaxe moderna Python 3.13)
+    "B",     # flake8-bugbear (prevenção de bugs sutis)
+    "C4",    # flake8-comprehensions (comprehensions otimizadas)
+    "PTH",   # flake8-use-pathlib (caminhos seguros multiplataforma com Path)
+    "PERF",  # perflint (performance em loops e iterações)
+    "RUF",   # regras nativas do Ruff
+    "PT",    # flake8-pytest-style (boas práticas no pytest)
+]
 
+ignore = [
+    "E402",     # module-import-not-at-top-of-file (necessário para bootstrapping de sys.path e ambiente Qt)
+    "E501",     # line-too-long (delegado ao ruff format)
+    "W291",     # trailing-whitespace (ignora espaços em strings multilinha de templates/CSS)
+    "W293",     # blank-line-with-whitespace (ignora linhas vazias com espaços em strings multilinha)
+    "B008",     # chamadas em argumentos padrão (FastAPI Depends)
+    "B009",     # getattr com constante (necessário para reflexão de módulos e testes de retrocompatibilidade de campos deprecados)
+    "B010",     # setattr com constante (necessário para atributos dinâmicos em classes Qt/externas sem quebrar o MyPy)
+    "B023",     # function-uses-loop-variable (funções aninhadas e closures em walkers)
+    "B904",     # raise-without-from-inside-except
+    "B905",     # zip without strict (não exige strict=True/False em todos os zips)
+    "PERF203",  # try-except em loops (necessário para processamento resiliente de lotes)
+    "PERF401",  # manual-list-comprehension (permite for loop tradicional com append)
+    "PERF402",  # manual-list-copy
+    "PERF403",  # manual-dict-comprehension
+    "PT009",    # unittest assertion (permite self.assertEqual em classes TestCase)
+    "PT018",    # composite assertion (permite assert a and b)
+    "PT027",    # unittest raises (permite self.assertRaises em classes TestCase)
+    "PTH123",   # builtin-open (permite uso padrão de open() nativo com context manager)
+    "E721",     # type-comparison (permite type(a) == type(b))
+    "E741",     # ambiguous-variable-name (permite 'l' para linhas em processamento de texto)
+    "RUF001",   # ambiguous-unicode-character-string (permite emojis em botões e diálogos de UI)
+    "RUF012",   # mutable-class-default (permite dicionários de mapeamento em classes)
+    "RUF015",   # unnecessary-iterable-allocation-for-first-element (permite list()[0])
+    "RUF046",   # unnecessary-cast-to-int (permite int() defensivo)
+    "RUF059",   # unused-unpacked-variable (permite tuplas desempacotadas sem forçar _)
+]
 
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["B011", "PT011", "F841", "F811", "RUF043", "E721", "PT012", "PT015", "PT017", "PTH"]
+"*_test.py" = ["B011", "PT011", "F841", "F811", "RUF043", "E721", "PT012", "PT015", "PT017", "PTH"]
+"scripts/*" = ["PTH"]
+"serving/*" = ["PTH"]
+"aresta_api/*" = ["PTH"]
+"editor/legacy_views/*" = ["PTH"]
 
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"

@@ -1,10 +1,10 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
-import base64
 import sys
 from pathlib import Path
 from unittest.mock import MagicMock, patch
+
 import pytest
 
 from editor.release_tools.publicar_beta_cli import main as cli_main
@@ -21,13 +21,21 @@ def test_publicar_beta_cli_sucesso(tmp_path: Path) -> None:
     mock_publicador = MagicMock()
     mock_publicador.publicar_e_purgar.return_value = True
 
-    with patch("editor.release_tools.publicar_beta_cli.PublicadorR2Beta", return_value=mock_publicador):
-        codigo_saida = cli_main([
-            "--versao", "0.2.1",
-            "--msix", str(msix),
-            "--cer", str(cer),
-            "--diretorio-saida", str(tmp_path),
-        ])
+    with patch(
+        "editor.release_tools.publicar_beta_cli.PublicadorR2Beta", return_value=mock_publicador
+    ):
+        codigo_saida = cli_main(
+            [
+                "--versao",
+                "0.2.1",
+                "--msix",
+                str(msix),
+                "--cer",
+                str(cer),
+                "--diretorio-saida",
+                str(tmp_path),
+            ]
+        )
 
         assert codigo_saida == 0
         assert (tmp_path / "EditorArestaBeta.appinstaller").exists()
@@ -41,20 +49,32 @@ def test_publicar_beta_cli_com_cer_pem_existente(tmp_path: Path) -> None:
     msix.write_bytes(b"MSIX_TESTE")
 
     cer = tmp_path / "teste_pem.cer"
-    cer.write_text("-----BEGIN CERTIFICATE-----\nMIIB_DADOS\n-----END CERTIFICATE-----", encoding="utf-8")
+    cer.write_text(
+        "-----BEGIN CERTIFICATE-----\nMIIB_DADOS\n-----END CERTIFICATE-----", encoding="utf-8"
+    )
 
     mock_publicador = MagicMock()
     mock_publicador.publicar_e_purgar.return_value = True
 
-    with patch("editor.release_tools.publicar_beta_cli.PublicadorR2Beta", return_value=mock_publicador):
-        codigo = cli_main([
-            "--versao", "0.2.1",
-            "--msix", str(msix),
-            "--cer", str(cer),
-            "--diretorio-saida", str(tmp_path),
-        ])
+    with patch(
+        "editor.release_tools.publicar_beta_cli.PublicadorR2Beta", return_value=mock_publicador
+    ):
+        codigo = cli_main(
+            [
+                "--versao",
+                "0.2.1",
+                "--msix",
+                str(msix),
+                "--cer",
+                str(cer),
+                "--diretorio-saida",
+                str(tmp_path),
+            ]
+        )
         assert codigo == 0
-        conteudo_bat = (tmp_path / "InstalarCertificadoEditorArestaBeta.bat").read_text(encoding="utf-8")
+        conteudo_bat = (tmp_path / "InstalarCertificadoEditorArestaBeta.bat").read_text(
+            encoding="utf-8"
+        )
         assert "MIIB_DADOS" in conteudo_bat
 
 
@@ -69,13 +89,21 @@ def test_publicar_beta_cli_com_bytes_der_nao_utf8(tmp_path: Path) -> None:
     mock_publicador = MagicMock()
     mock_publicador.publicar_e_purgar.return_value = True
 
-    with patch("editor.release_tools.publicar_beta_cli.PublicadorR2Beta", return_value=mock_publicador):
-        codigo = cli_main([
-            "--versao", "0.2.1",
-            "--msix", str(msix),
-            "--cer", str(cer),
-            "--diretorio-saida", str(tmp_path),
-        ])
+    with patch(
+        "editor.release_tools.publicar_beta_cli.PublicadorR2Beta", return_value=mock_publicador
+    ):
+        codigo = cli_main(
+            [
+                "--versao",
+                "0.2.1",
+                "--msix",
+                str(msix),
+                "--cer",
+                str(cer),
+                "--diretorio-saida",
+                str(tmp_path),
+            ]
+        )
         assert codigo == 0
 
 
@@ -87,22 +115,33 @@ def test_publicar_beta_cli_falha_publicacao_retorna_um(tmp_path: Path) -> None:
     mock_publicador = MagicMock()
     mock_publicador.publicar_e_purgar.return_value = False
 
-    with patch("editor.release_tools.publicar_beta_cli.PublicadorR2Beta", return_value=mock_publicador):
-        codigo = cli_main([
-            "--versao", "0.2.1",
-            "--msix", str(msix),
-            "--diretorio-saida", str(tmp_path),
-        ])
+    with patch(
+        "editor.release_tools.publicar_beta_cli.PublicadorR2Beta", return_value=mock_publicador
+    ):
+        codigo = cli_main(
+            [
+                "--versao",
+                "0.2.1",
+                "--msix",
+                str(msix),
+                "--diretorio-saida",
+                str(tmp_path),
+            ]
+        )
         assert codigo == 1
 
 
 def test_publicar_beta_cli_falha_sem_msix(tmp_path: Path) -> None:
     """Garante que a ausência do arquivo MSIX resulte em código de erro diferente de zero."""
     with pytest.raises(FileNotFoundError):
-        cli_main([
-            "--versao", "0.2.1",
-            "--msix", str(tmp_path / "inexistente.msix"),
-        ])
+        cli_main(
+            [
+                "--versao",
+                "0.2.1",
+                "--msix",
+                str(tmp_path / "inexistente.msix"),
+            ]
+        )
 
 
 def test_publicar_beta_cli_execucao_modulo() -> None:
@@ -116,4 +155,3 @@ def test_publicar_beta_cli_execucao_modulo() -> None:
                     publicar_beta_cli.sys.exit(publicar_beta_cli.main())
             mock_main.assert_called_once()
             mock_exit.assert_called_once_with(0)
-

@@ -1,14 +1,15 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
+import os
+import tempfile
 import unittest
+
 from tests.validador_tipagem import (
     executar_verificacao_mypy,
     verificar_anotacoes_ast,
     verificar_arquivo_ast,
 )
-import tempfile
-import os
 
 
 class TestValidadorTipagem(unittest.TestCase):

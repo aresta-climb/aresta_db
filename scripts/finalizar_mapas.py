@@ -1,35 +1,38 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
-from typing import Optional, Dict, Any, Tuple, Union, List
-import os
-import sys
-import json
-import yaml
-import re
 import argparse
+import json
+import re
+import sys
 from pathlib import Path
-from PIL import Image
+from typing import Any
+
+import yaml
 
 sys.path.append(str(Path(__file__).resolve().parent.parent))
 from scripts.gerenciar_uids_lib import gerar_uid, validar_uid
 
-def parse_md_com_frontmatter(caminho_arquivo: Union[str, Path]) -> Tuple[Optional[Dict[str, Any]], str]:
+
+def parse_md_com_frontmatter(caminho_arquivo: str | Path) -> tuple[dict[str, Any] | None, str]:
     """Lê um arquivo Markdown e separa o YAML Frontmatter do conteúdo."""
-    with open(caminho_arquivo, "r", encoding="utf-8") as f:
+    with open(caminho_arquivo, encoding="utf-8") as f:
         conteudo = f.read()
-    
+
     match = re.match(r"^---\s*\n(.*?)\n---\s*\n(.*)$", conteudo, re.DOTALL)
     if match:
         try:
-            frontmatter: Optional[Dict[str, Any]] = yaml.safe_load(match.group(1)) or {}
+            frontmatter: dict[str, Any] | None = yaml.safe_load(match.group(1)) or {}
         except yaml.YAMLError:
             frontmatter = {}
         corpo = match.group(2).strip()
         return frontmatter, corpo
     return None, conteudo.strip()
 
-def salvar_md_com_frontmatter(md_path: Path, frontmatter: Optional[Dict[str, Any]], corpo: str) -> None:
+
+def salvar_md_com_frontmatter(
+    md_path: Path, frontmatter: dict[str, Any] | None, corpo: str
+) -> None:
     """Salva o YAML Frontmatter e o corpo de volta no arquivo markdown."""
     with open(md_path, "w", encoding="utf-8") as f:
         if frontmatter:
@@ -42,7 +45,8 @@ def salvar_md_com_frontmatter(md_path: Path, frontmatter: Optional[Dict[str, Any
             )
         f.write(corpo)
 
-def finalizar_mapas(pico_path: Union[str, Path]) -> None:
+
+def finalizar_mapas(pico_path: str | Path) -> None:
 
     pico_path = Path(pico_path)
     if not pico_path.exists() or not pico_path.is_dir():
@@ -61,7 +65,7 @@ def finalizar_mapas(pico_path: Union[str, Path]) -> None:
 
     for json_file in json_files:
         try:
-            with open(json_file, "r", encoding="utf-8") as f:
+            with open(json_file, encoding="utf-8") as f:
                 dados = json.load(f)
         except Exception as e:
             print(f"Erro ao ler {json_file.name}: {e}")
@@ -70,10 +74,12 @@ def finalizar_mapas(pico_path: Union[str, Path]) -> None:
         md_filename = dados.get("arquivo_md")
         img_relative_path = dados.get("caminho_imagem_mapa")
         if not md_filename or not img_relative_path:
-            print(f"Aviso: JSON incompleto {json_file.name} - faltando arquivo_md ou caminho_imagem_mapa.")
+            print(
+                f"Aviso: JSON incompleto {json_file.name} - faltando arquivo_md ou caminho_imagem_mapa."
+            )
             continue
 
-        full_img_path = pico_path / img_relative_path
+        pico_path / img_relative_path
         full_md_path = pico_path / md_filename
 
         # 1. Atualizar Metadata no arquivo .md
@@ -101,11 +107,18 @@ def finalizar_mapas(pico_path: Union[str, Path]) -> None:
                     if not isinstance(via, dict):
                         continue
                     mapas_esc = via.get("mapas")
-                    if not mapas_esc and "via_multiplas_enfiadas" in via and isinstance(via["via_multiplas_enfiadas"], dict):
+                    if (
+                        not mapas_esc
+                        and "via_multiplas_enfiadas" in via
+                        and isinstance(via["via_multiplas_enfiadas"], dict)
+                    ):
                         mapas_esc = via["via_multiplas_enfiadas"].get("mapas")
                     if mapas_esc and isinstance(mapas_esc, list):
                         for mapa in mapas_esc:
-                            if isinstance(mapa, dict) and mapa.get("caminho_imagem_mapa") == img_relative_path:
+                            if (
+                                isinstance(mapa, dict)
+                                and mapa.get("caminho_imagem_mapa") == img_relative_path
+                            ):
                                 mapa_alvo = mapa
                                 break
                     if mapa_alvo is not None:
@@ -122,8 +135,10 @@ def finalizar_mapas(pico_path: Union[str, Path]) -> None:
             novos_pontos = []
             for pt in dados.get("pontos_de_interesse", []):
                 # Se encontrar formato legado, joga erro conforme solicitado
-                if 'box' in pt and ('xmin' in pt['box'] or 'ymin' in pt['box']):
-                    raise ValueError(f"Erro: Formato legado 'xmin/ymin' detectado no POI '{pt.get('id')}' do mapa {json_file.name}. Por favor migre para o formato de centro (x, y, comprimento, largura).")
+                if "box" in pt and ("xmin" in pt["box"] or "ymin" in pt["box"]):
+                    raise ValueError(
+                        f"Erro: Formato legado 'xmin/ymin' detectado no POI '{pt.get('id')}' do mapa {json_file.name}. Por favor migre para o formato de centro (x, y, comprimento, largura)."
+                    )
 
                 # Converte label para rotulo se presente
                 if "label" in pt:
@@ -136,44 +151,60 @@ def finalizar_mapas(pico_path: Union[str, Path]) -> None:
                 if not validar_uid(p_uid):
                     pt["uid"] = gerar_uid()
 
-                if 'circulo' in pt or 'circular' in pt:
-                    if 'circular' in pt:
-                        pt['circulo'] = pt.pop('circular')
+                if "circulo" in pt or "circular" in pt:
+                    if "circular" in pt:
+                        pt["circulo"] = pt.pop("circular")
                     novos_pontos.append(pt)
-                elif 'quadrado' in pt:
-                    quad = pt['quadrado']
-                    if isinstance(quad, dict) and 'x' in quad and 'y' in quad and ('lado' in quad or ('comprimento' in quad and 'largura' in quad)):
+                elif "quadrado" in pt:
+                    quad = pt["quadrado"]
+                    if (
+                        isinstance(quad, dict)
+                        and "x" in quad
+                        and "y" in quad
+                        and ("lado" in quad or ("comprimento" in quad and "largura" in quad))
+                    ):
                         novos_pontos.append(pt)
                     else:
-                        print(f"Aviso: Ponto de interesse '{pt.get('rotulo', pt.get('id', '?'))}' no mapa {img_relative_path} está incompleto e será ignorado.")
-                elif any(k in pt for k in ['retangulo', 'box']):
-                    box_key = next((k for k in ['retangulo', 'box'] if k in pt), None)
+                        print(
+                            f"Aviso: Ponto de interesse '{pt.get('rotulo', pt.get('id', '?'))}' no mapa {img_relative_path} está incompleto e será ignorado."
+                        )
+                elif any(k in pt for k in ["retangulo", "box"]):
+                    box_key = next((k for k in ["retangulo", "box"] if k in pt), None)
                     box = pt[box_key]
-                    if all(k in box for k in ['x', 'y', 'comprimento', 'largura']):
-                        if box_key == 'box':
-                            pt['retangulo'] = pt.pop('box')
+                    if all(k in box for k in ["x", "y", "comprimento", "largura"]):
+                        if box_key == "box":
+                            pt["retangulo"] = pt.pop("box")
                         # Limpeza de campos legados
-                        if 'angulo' in box:
-                            if 'angulo_graus_x100' not in box:
-                                box['angulo_graus_x100'] = int(round(box['angulo'] * 100))
-                            del box['angulo']
+                        if "angulo" in box:
+                            if "angulo_graus_x100" not in box:
+                                box["angulo_graus_x100"] = int(round(box["angulo"] * 100))
+                            del box["angulo"]
                         novos_pontos.append(pt)
                     else:
-                        print(f"Aviso: Ponto de interesse '{pt.get('rotulo', pt.get('id', '?'))}' no mapa {img_relative_path} está incompleto e será ignorado.")
-                elif 'poligono' in pt or 'area_livre' in pt or 'linha' in pt:
+                        print(
+                            f"Aviso: Ponto de interesse '{pt.get('rotulo', pt.get('id', '?'))}' no mapa {img_relative_path} está incompleto e será ignorado."
+                        )
+                elif "poligono" in pt or "area_livre" in pt or "linha" in pt:
                     novos_pontos.append(pt)
                 else:
-                    print(f"Aviso: Ponto de interesse '{pt.get('rotulo', pt.get('id', '?'))}' no mapa {img_relative_path} tem formato desconhecido e será ignorado.")
-            
+                    print(
+                        f"Aviso: Ponto de interesse '{pt.get('rotulo', pt.get('id', '?'))}' no mapa {img_relative_path} tem formato desconhecido e será ignorado."
+                    )
+
             mapa_alvo["pontos_de_interesse"] = novos_pontos
-            
+
             salvar_md_com_frontmatter(full_md_path, frontmatter, corpo)
             print(f"Sucesso: Metadata atualizado em {md_filename} para o mapa {img_relative_path}.")
         else:
-            print(f"Aviso: O mapa {img_relative_path} não foi encontrado na lista 'mapas' de {md_filename}.")
+            print(
+                f"Aviso: O mapa {img_relative_path} não foi encontrado na lista 'mapas' de {md_filename}."
+            )
+
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Lê os JSONs de mapas e atualiza o Markdown de origem.")
+    parser = argparse.ArgumentParser(
+        description="Lê os JSONs de mapas e atualiza o Markdown de origem."
+    )
     parser.add_argument("pico", help="Pasta do pico que contém a subpasta imagens/raw_mapas/")
     args = parser.parse_args()
     finalizar_mapas(args.pico)

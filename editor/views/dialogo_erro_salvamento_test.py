@@ -1,14 +1,13 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
-import pytest
 from PySide6.QtCore import Qt
 from PySide6.QtWidgets import QApplication, QMessageBox, QWidget
 
 from editor.views.dialogo_erro_salvamento import (
+    copiar_para_area_transferencia,
     criar_dialogo_erro_salvamento,
     exibir_dialogo_erro_salvamento,
-    copiar_para_area_transferencia,
 )
 
 
@@ -28,7 +27,9 @@ def test_criar_dialogo_erro_salvamento_propriedades_basicas(qtbot):
 
     # Mensagem informativa amigável que tranquiliza o usuário
     info_text = dialogo.informativeText()
-    assert "dados em tela permanecem seguros" in info_text or "dados permanecem seguros" in info_text
+    assert (
+        "dados em tela permanecem seguros" in info_text or "dados permanecem seguros" in info_text
+    )
 
     # Garante que não culpa estruturas vazias
     assert "vazio" not in info_text.lower()
@@ -55,10 +56,13 @@ def test_dialogo_erro_salvamento_sanitiza_caminhos(qtbot):
     qtbot.addWidget(pai)
 
     from pathlib import Path
+
     home_dir = str(Path.home())
     traceback_com_usuario = f"Traceback:\n  File '{home_dir}\\arquivo.py', line 5"
 
-    dialogo = criar_dialogo_erro_salvamento(pai, "Erro teste", traceback_detalhado=traceback_com_usuario)
+    dialogo = criar_dialogo_erro_salvamento(
+        pai, "Erro teste", traceback_detalhado=traceback_com_usuario
+    )
     detalhes = dialogo.detailedText()
 
     assert home_dir not in detalhes
@@ -74,7 +78,9 @@ def test_copiar_para_area_transferencia(qapp):
 
 
 def test_botao_copiar_detalhes_clicado(qtbot):
-    dialogo = criar_dialogo_erro_salvamento(None, "Erro de teste para copiar", "Linha 1 do traceback")
+    dialogo = criar_dialogo_erro_salvamento(
+        None, "Erro de teste para copiar", "Linha 1 do traceback"
+    )
     qtbot.addWidget(dialogo)
 
     # Localizar o botão de copiar detalhes

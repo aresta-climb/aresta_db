@@ -2,12 +2,13 @@
 # Copyright (C) 2026 Aresta Climb Contributors
 
 import socket
+
 import pytest
 
 from tests.bloqueador_rede import (
     AcessoInternetBloqueadoErro,
-    eh_endereco_local,
     bloquear_acesso_externo,
+    eh_endereco_local,
     restaurar_acesso_rede,
 )
 

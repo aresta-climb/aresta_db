@@ -9,7 +9,6 @@ Implementa o AdaptadorLinux conforme o protocolo AdaptadorPlataforma.
 import logging
 import os
 from pathlib import Path
-from typing import Optional
 
 log = logging.getLogger("aresta_editor")
 from editor.plataforma.contrato import (
@@ -63,11 +62,47 @@ class AdaptadorLinux(AdaptadorPlataforma):
         return Path.home() / ".local" / "share" / "EditorAresta"
 
     def verificar_atualizacoes_disponiveis(self) -> ResultadoAtualizacao:
-        """No Linux/Flatpak, atualizações são gerenciadas pelo sistema operacional."""
-        return ResultadoAtualizacao(status=StatusAtualizacao.NAO_APLICAVEL)
+        """
+        Consulta o endpoint remoto version.json para verificar se há atualizações
+        disponíveis ou obrigatórias para o canal Linux Flatpak.
+        """
+        import requests
+        from packaging.version import parse as parse_version
+
+        from editor.core.version import VERSION
+
+        url_versao = "https://serving.arestaclimb.com/flatpak/version.json"
+        try:
+            resposta = requests.get(url_versao, timeout=3)
+            if resposta.status_code != 200:
+                log.warning(
+                    "Falha ao consultar versão remota no Linux: HTTP %d", resposta.status_code
+                )
+                return ResultadoAtualizacao(status=StatusAtualizacao.ERRO_CHECAGEM)
+            dados = resposta.json()
+            versao_remota = str(dados.get("versao", "")).strip()
+            obrigatoria = bool(dados.get("obrigatoria", False))
+            if not versao_remota:
+                return ResultadoAtualizacao(status=StatusAtualizacao.ERRO_CHECAGEM)
+
+            if parse_version(versao_remota) > parse_version(VERSION):
+                status = (
+                    StatusAtualizacao.ATUALIZACAO_OBRIGATORIA
+                    if obrigatoria
+                    else StatusAtualizacao.ATUALIZACAO_DISPONIVEL
+                )
+                return ResultadoAtualizacao(
+                    status=status,
+                    versao_disponivel=versao_remota,
+                    mensagem=dados.get("mensagem"),
+                )
+            return ResultadoAtualizacao(status=StatusAtualizacao.SEM_ATUALIZACAO)
+        except Exception as exc:
+            log.warning("Erro ao verificar atualizações no Linux: %s", exc)
+            return ResultadoAtualizacao(status=StatusAtualizacao.ERRO_CHECAGEM)
 
     def solicitar_instalacao_atualizacao(
-        self, resultado: Optional[ResultadoAtualizacao] = None
+        self, resultado: ResultadoAtualizacao | None = None
     ) -> bool:
         """No Linux/Flatpak, o ciclo de vida e updates ocorrem fora do aplicativo."""
         return False
@@ -94,13 +129,17 @@ class AdaptadorLinux(AdaptadorPlataforma):
                     caminho_cofre = self.obter_diretorio_dados_usuario() / "keyring.enc"
                     backend_atual = PortalKeyring(storage_path=caminho_cofre)
                     keyring.set_keyring(backend_atual)
-                    log.info("Cofre de credenciais configurado com PortalKeyring em: %s", caminho_cofre)
+                    log.info(
+                        "Cofre de credenciais configurado com PortalKeyring em: %s", caminho_cofre
+                    )
 
                 try:
                     backend_atual.get_master_key()
                     return True
                 except Exception as exc:
-                    log.warning("PortalKeyring presente, mas chaveiro trancado ou inacessível: %s", exc)
+                    log.warning(
+                        "PortalKeyring presente, mas chaveiro trancado ou inacessível: %s", exc
+                    )
                     return False
             else:
                 log.debug("PortalKeyring indisponível no ambiente atual.")

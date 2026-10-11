@@ -1,27 +1,28 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
-from typing import Callable, Optional
+from collections.abc import Callable
+
 from PySide6.QtCore import QObject, QTimer
 
 
 class TemporizadorCoalescencia(QObject):
     """Gerencia a coalescência (debounce) de eventos frequentes, como digitação.
-    
+
     Adia a execução de uma função de retorno (callback) até que transcorra um
     intervalo sem novos agendamentos, com suporte à descarga forçada imediata.
     """
 
-    def __init__(self, atraso_padrao_ms: int = 250, parent: Optional[QObject] = None) -> None:
+    def __init__(self, atraso_padrao_ms: int = 250, parent: QObject | None = None) -> None:
         super().__init__(parent)
         self.atraso_padrao_ms: int = atraso_padrao_ms
-        self._callback: Optional[Callable[[], None]] = None
+        self._callback: Callable[[], None] | None = None
 
         self._timer: QTimer = QTimer(self)
         self._timer.setSingleShot(True)
         self._timer.timeout.connect(self._ao_expirar_tempo)
 
-    def agendar(self, callback: Callable[[], None], atraso_ms: Optional[int] = None) -> None:
+    def agendar(self, callback: Callable[[], None], atraso_ms: int | None = None) -> None:
         """Agenda ou reinicia o temporizador para executar o callback após o atraso."""
         self._callback = callback
         intervalo = self.atraso_padrao_ms if atraso_ms is None else atraso_ms

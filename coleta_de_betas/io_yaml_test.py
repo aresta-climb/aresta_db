@@ -1,14 +1,14 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
-import pytest
 from pathlib import Path
+
 from aresta_api.proto.generated import beta_pb2
 from coleta_de_betas.io_yaml import (
-    salvar_vias_extraidas_yaml,
+    carregar_candidatos_brutos_yaml,
     carregar_vias_extraidas_yaml,
     salvar_candidatos_brutos_yaml,
-    carregar_candidatos_brutos_yaml,
+    salvar_vias_extraidas_yaml,
 )
 
 

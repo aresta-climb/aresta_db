@@ -1,23 +1,25 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
-from abc import ABC, abstractmethod
-from pathlib import Path
-import subprocess
-import io
-import sys
 import contextlib
+import io
+import subprocess
+import sys
+from pathlib import Path
 from typing import Protocol
 
 from editor.core.classificador_mensagens import filtrar_mensagens_de_log
 
+
 def _filtrar_mensagens(saida_str: str) -> list[str]:
     return filtrar_mensagens_de_log(saida_str)
 
+
 from collections.abc import Iterator
+
 from editor.core.croqui_experimental import GerenciadorCroquiExperimental
-from editor.core.storage import GerenciadorCaminhos
 from editor.core.diario import GerenciadorDiario
+from editor.core.storage import GerenciadorCaminhos
 from scripts.deploy_generated import deploy
 
 
@@ -38,7 +40,7 @@ def capturar_saida() -> Iterator[io.StringIO]:
 class EditorWorkspace(Protocol):
     caminho_raiz: Path
     diario: GerenciadorDiario | None
-    
+
     def obter_caminho_database(self) -> Path: ...
     def obter_caminho_compilado(self) -> Path: ...
     def obter_pasta_servidor_celular(self) -> Path: ...
@@ -46,8 +48,10 @@ class EditorWorkspace(Protocol):
     def obter_tag_titulo(self) -> str: ...
     def obter_diario(self) -> GerenciadorDiario | None: ...
     def obter_commit_base_sha(self) -> str: ...
-    
-    def processar_renomeacao_e_compilacao(self, novo_id: str, id_atual: str, storage: GerenciadorCaminhos | None) -> tuple[Path, list[str], bool]:
+
+    def processar_renomeacao_e_compilacao(
+        self, novo_id: str, id_atual: str, storage: GerenciadorCaminhos | None
+    ) -> tuple[Path, list[str], bool]:
         """Realiza rename se necessário, compila e retorna o caminho raiz, lista de msgs de warning/erro e se o database foi modificado."""
         ...
 
@@ -58,6 +62,7 @@ class ExperimentalWorkspace:
     A estrutura possui `database/` e `compilado/` dentro da raiz.
     O gerenciamento é feito com commits locais pelo GerenciadorCroquiExperimental.
     """
+
     def __init__(self, caminho_raiz: Path | str) -> None:
         self.caminho_raiz: Path = Path(caminho_raiz)
         self.diario: GerenciadorDiario | None = GerenciadorDiario(self.caminho_raiz)
@@ -80,30 +85,32 @@ class ExperimentalWorkspace:
     def obter_diario(self) -> GerenciadorDiario | None:
         return self.diario
 
-
     def obter_commit_base_sha(self) -> str:
         meta_path = self.caminho_raiz / "metadados.json"
         if meta_path.exists():
             try:
                 import json
-                with open(meta_path, "r", encoding="utf-8") as f:
+
+                with open(meta_path, encoding="utf-8") as f:
                     dados = json.load(f)
                     return str(dados.get("commit_base_sha", ""))
             except Exception:
                 pass
         return ""
 
-
-    def processar_renomeacao_e_compilacao(self, novo_id: str, id_atual: str, storage: GerenciadorCaminhos | None) -> tuple[Path, list[str], bool]:
+    def processar_renomeacao_e_compilacao(
+        self, novo_id: str, id_atual: str, storage: GerenciadorCaminhos | None
+    ) -> tuple[Path, list[str], bool]:
         gerenciador = GerenciadorCroquiExperimental(storage or GerenciadorCaminhos())
         caminho = self.caminho_raiz
-        
+
         if novo_id and id_atual and novo_id != id_atual:
             caminho = gerenciador.renomear_pasta_croqui(caminho, novo_id)
             self.caminho_raiz = caminho
             from editor.core.diario import GerenciadorDiario
+
             self.diario = GerenciadorDiario(self.caminho_raiz)
-            
+
         database_modificado = False
         with capturar_saida() as out:
             try:
@@ -111,12 +118,11 @@ class ExperimentalWorkspace:
                 database_modificado = bool(resultado_compilacao)
             except Exception as e:
                 print(f"Erro ao compilar croqui: {e}")
-            
+
         mensagens = _filtrar_mensagens(out.getvalue())
         if self.diario:
             self.diario.consolidar_salvamento()
         return caminho, mensagens, database_modificado
-
 
 
 class LocalRepoWorkspace:
@@ -126,22 +132,26 @@ class LocalRepoWorkspace:
     A saída compilada é `aresta_db/generated/<id>`.
     O rename usa `git mv` nativo.
     """
-    def __init__(self, caminho_raiz: Path | str, storage: GerenciadorCaminhos | None = None) -> None:
+
+    def __init__(
+        self, caminho_raiz: Path | str, storage: GerenciadorCaminhos | None = None
+    ) -> None:
         self.caminho_raiz: Path = Path(caminho_raiz)
         self.storage: GerenciadorCaminhos | None = storage
-        
+
         # Registra caminho raiz do repo para sanitização de privacidade (<aresta_db>)
         from editor.core.telemetria import registrar_caminho_repo_local
+
         try:
             raiz_repo = self.caminho_raiz.parent.parent
             registrar_caminho_repo_local(raiz_repo)
         except Exception:
             pass
-        from editor.core.storage import GerenciadorCaminhos
-        from editor.core.diario import GerenciadorDiario
         gerenciador_caminhos = storage or GerenciadorCaminhos()
         pasta_diario = gerenciador_caminhos.obter_caminho_diarios_locais() / self.caminho_raiz.name
-        self.diario: GerenciadorDiario | None = GerenciadorDiario(pasta_diario, apenas_pendente=True)
+        self.diario: GerenciadorDiario | None = GerenciadorDiario(
+            pasta_diario, apenas_pendente=True
+        )
 
     def obter_commit_base_sha(self) -> str:
         try:
@@ -182,53 +192,60 @@ class LocalRepoWorkspace:
     def obter_diario(self) -> GerenciadorDiario | None:
         return self.diario
 
-    def processar_renomeacao_e_compilacao(self, novo_id: str, id_atual: str, storage: GerenciadorCaminhos | None) -> tuple[Path, list[str], bool]:
+    def processar_renomeacao_e_compilacao(
+        self, novo_id: str, id_atual: str, storage: GerenciadorCaminhos | None
+    ) -> tuple[Path, list[str], bool]:
         caminho = self.caminho_raiz
-        
+
         if novo_id and id_atual and novo_id != id_atual:
             novo_caminho_db = caminho.parent / novo_id
-            
+
             caminho_compilado_atual = self.obter_caminho_compilado()
             novo_caminho_compilado = caminho_compilado_atual.parent / novo_id
-            
+
             try:
                 # Renomeia database/<id>
                 subprocess.run(["git", "mv", str(caminho), str(novo_caminho_db)], check=True)
-                
+
                 # Renomeia generated/<id> se existir
                 if caminho_compilado_atual.is_dir():
-                    subprocess.run(["git", "mv", str(caminho_compilado_atual), str(novo_caminho_compilado)], check=True)
-                    
+                    subprocess.run(
+                        ["git", "mv", str(caminho_compilado_atual), str(novo_caminho_compilado)],
+                        check=True,
+                    )
+
                 caminho = novo_caminho_db
                 self.caminho_raiz = caminho
-                from editor.core.storage import GerenciadorCaminhos
-                from editor.core.diario import GerenciadorDiario
                 gerenciador_caminhos = storage or self.storage or GerenciadorCaminhos()
-                pasta_diario = gerenciador_caminhos.obter_caminho_diarios_locais() / self.caminho_raiz.name
+                pasta_diario = (
+                    gerenciador_caminhos.obter_caminho_diarios_locais() / self.caminho_raiz.name
+                )
                 self.diario = GerenciadorDiario(pasta_diario, apenas_pendente=True)
             except subprocess.CalledProcessError as e:
                 raise RuntimeError(f"Falha ao renomear as pastas via git: {e}")
 
         # No modo local, invocamos a compilação local de forma explícita, sem o wrapper que commita
         # is_producao=False gera HTMLs que apontam para imagens e assets locais
-        
+
         caminho_compilado = self.obter_caminho_compilado().parent
         caminho_base = self.obter_caminho_database()
         database_modificado = False
-        
+
         with capturar_saida() as out:
             try:
-                database_modificado = bool(deploy(
-                    output_dir=caminho_compilado,
-                    target_paths=[caminho_base],
-                    force_thumbnails=True,
-                    gerar_arquivos_de_debug=True,
-                    is_producao=False,
-                    sair_ao_falhar=False
-                ))
+                database_modificado = bool(
+                    deploy(
+                        output_dir=caminho_compilado,
+                        target_paths=[caminho_base],
+                        force_thumbnails=True,
+                        gerar_arquivos_de_debug=True,
+                        is_producao=False,
+                        sair_ao_falhar=False,
+                    )
+                )
             except Exception as e:
                 print(f"Erro ao compilar croqui: {e}")
-                
+
             # Atualiza a saúde dos croquis
             script_saude = self.caminho_raiz.parent.parent / "scripts" / "medir_saude_croquis.py"
             if script_saude.exists():
@@ -236,9 +253,8 @@ class LocalRepoWorkspace:
                     subprocess.run([sys.executable, str(script_saude)], check=False)
                 except Exception as e:
                     print(f"Erro ao medir saúde dos croquis: {e}")
-                
+
         mensagens = _filtrar_mensagens(out.getvalue())
         if self.diario:
             self.diario.consolidar_salvamento()
         return caminho, mensagens, database_modificado
-

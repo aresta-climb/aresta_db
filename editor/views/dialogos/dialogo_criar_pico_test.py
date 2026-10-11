@@ -3,7 +3,9 @@
 
 import pytest
 from PySide6.QtWidgets import QApplication, QDialog
+
 from editor.views.dialogos.dialogo_criar_pico import DialogoCriarPico
+
 
 @pytest.fixture(scope="session")
 def qapp():

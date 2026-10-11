@@ -3,24 +3,30 @@
 
 import io
 from pathlib import Path
+
 from PIL import Image
-import pytest
 
 from editor.core.imagens_markdown import (
-    sanitizar_nome_imagem,
-    gerar_nome_imagem_padrao,
-    gerar_nome_imagem_clipboard,
     formatar_tag_markdown,
+    gerar_nome_imagem_clipboard,
+    gerar_nome_imagem_padrao,
     salvar_imagem_otimizada,
+    sanitizar_nome_imagem,
 )
 
 
 def test_sanitizar_nome_imagem():
     # Converte acentos, pontuações, espaços e extensão para .webp em snake_case
-    assert sanitizar_nome_imagem("Foto do Setor Principal (Cópia).png") == "foto_do_setor_principal_copia.webp"
+    assert (
+        sanitizar_nome_imagem("Foto do Setor Principal (Cópia).png")
+        == "foto_do_setor_principal_copia.webp"
+    )
     assert sanitizar_nome_imagem("Área de Escalada - Via 1!.JPG") == "area_de_escalada_via_1.webp"
     assert sanitizar_nome_imagem("imagem.webp") == "imagem.webp"
-    assert sanitizar_nome_imagem("nome_com___muitos---tracos e espacos.jpeg") == "nome_com_muitos_tracos_e_espacos.webp"
+    assert (
+        sanitizar_nome_imagem("nome_com___muitos---tracos e espacos.jpeg")
+        == "nome_com_muitos_tracos_e_espacos.webp"
+    )
     assert sanitizar_nome_imagem("") == "imagem.webp"
     assert sanitizar_nome_imagem("!!!???...") == "imagem.webp"
     # Trunca o tronco em no máximo 40 caracteres sem deixar underscore no final
@@ -68,7 +74,10 @@ def test_gerar_nome_imagem_clipboard(tmp_path):
 
 
 def test_formatar_tag_markdown():
-    assert formatar_tag_markdown("bloco.webp", "Vista Frontal") == "![Vista Frontal](imagens/bloco.webp)"
+    assert (
+        formatar_tag_markdown("bloco.webp", "Vista Frontal")
+        == "![Vista Frontal](imagens/bloco.webp)"
+    )
     assert formatar_tag_markdown("bloco.webp", "") == "![](imagens/bloco.webp)"
     assert formatar_tag_markdown("bloco.webp", None) == "![](imagens/bloco.webp)"
     assert formatar_tag_markdown("bloco.webp") == "![](imagens/bloco.webp)"

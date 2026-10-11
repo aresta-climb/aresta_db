@@ -36,21 +36,21 @@ Quando `cena.clear()` ou a destruição da cena anterior ocorre, a camada C++ do
 Criar um método helper de ciclo de vida em `WidgetEditorMapas`:
 ```python
 def cancelar_modos_interativos(self) -> None:
-    if getattr(self, 'modo_desenho', False):
+    if getattr(self, "modo_desenho", False):
         self.cancelar_modo_desenho()
-    if getattr(self, 'modo_nova_rota', False):
+    if getattr(self, "modo_nova_rota", False):
         self.cancelar_modo_nova_rota()
-    if getattr(self, 'modo_conversao', False):
+    if getattr(self, "modo_conversao", False):
         self.modo_conversao = False
-        if hasattr(self, 'item_selecao') and self.item_selecao:
+        if hasattr(self, "item_selecao") and self.item_selecao:
             self._remover_item_seguro(self.item_selecao)
             self.item_selecao = None
             self.selection_item = None
         self.visualizador.unsetCursor()
         self.label_modo.setVisible(False)
-    if getattr(self, 'modo_camera', False):
+    if getattr(self, "modo_camera", False):
         self.parar_modo_camera()
-    if getattr(self, 'modo_linkagem', False):
+    if getattr(self, "modo_linkagem", False):
         self.parar_modo_linkagem()
 ```
 Pontos de invocação:
@@ -68,13 +68,14 @@ Para evitar que `cena.removeItem(item)` levante `RuntimeError` caso a cena já t
 ```python
 import shiboken6
 
+
 def _remover_item_seguro(self, item: Any) -> None:
     if not item:
         return
     try:
         valido = getattr(shiboken6, "isValid", lambda obj: True)(item)
-        if valido and self.dados_atuais and 'cena' in self.dados_atuais:
-            cena = self.dados_atuais['cena']
+        if valido and self.dados_atuais and "cena" in self.dados_atuais:
+            cena = self.dados_atuais["cena"]
             if cena and item.scene() == cena:
                 cena.removeItem(item)
     except Exception:

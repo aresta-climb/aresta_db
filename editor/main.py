@@ -1,15 +1,16 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
-import sys
 import os
+import sys
 
 # Define explicitamente a API PySide6 para bibliotecas auxiliares como QtAwesome e QtPy
 os.environ.setdefault("QT_API", "pyside6")
 
+from pathlib import Path
+
 # Adiciona o diretório raiz do projeto ao sys.path para permitir imports do pacote 'editor'
-current_dir = os.path.dirname(os.path.abspath(__file__))
-parent_dir = os.path.dirname(current_dir)
+parent_dir = str(Path(__file__).resolve().parent.parent)
 if parent_dir not in sys.path:
     sys.path.insert(0, parent_dir)
 
@@ -20,35 +21,40 @@ from editor.plataforma import (
 
 configurar_ambiente_plataforma()
 
-from typing import Optional, Any, NoReturn
-from PySide6.QtWidgets import QApplication, QMessageBox, QDialog, QWidget
-from PySide6.QtCore import Qt
-from PySide6.QtNetwork import QLocalServer, QLocalSocket
-from PySide6.QtGui import QIcon
 from pathlib import Path
+from typing import Any
 
-from editor.views.estilo import Icones, configurar_tema_claro_aplicacao
+from PySide6.QtGui import QIcon
+from PySide6.QtWidgets import QApplication, QDialog, QMessageBox
+
+from editor.views.estilo import configurar_tema_claro_aplicacao
 
 
 def __getattr__(name: str) -> Any:
     """Carregamento tardio e sob demanda de classes pesadas para acelerar o arranque do editor."""
     if name == "TarefaInicializacao":
         from editor.core.worker import TarefaInicializacao
+
         return TarefaInicializacao
     if name == "TelaDeCarregamento":
         from editor.legacy_views.tela_de_carregamento import TelaDeCarregamento
+
         return TelaDeCarregamento
     if name == "TelaDeAbertura":
         from editor.views.tela_de_abertura import TelaDeAbertura
+
         return TelaDeAbertura
     if name == "GerenciadorCaminhos":
         from editor.core.storage import GerenciadorCaminhos
+
         return GerenciadorCaminhos
     raise AttributeError(f"module '{__name__}' has no attribute '{name}'")
+
 
 # Configuração de identidade do processo no shell da plataforma (preservando MSIX no Windows)
 try:
     from editor.core.configuracao_canal import obter_configuracao_canal
+
     config_canal_global = obter_configuracao_canal()
     configurar_identidade_processo(config_canal_global.app_user_model_id)
 except Exception:
@@ -57,44 +63,46 @@ except Exception:
 # Placeholder para o Client ID do GitHub (deve ser substituído por um real em produção)
 ID_CLIENTE_GITHUB: str = "Iv23li5kcnSYgMgEfvAC"
 
+
 class ControladorAplicativo:
     """
     Controla o ciclo de vida da aplicação (Abertura -> Diálogo de Seleção -> Janela Principal).
     Permite a navegação de retorno da Janela Principal para a Seleção.
     """
+
     def __init__(self) -> None:
         inst = QApplication.instance()
         if isinstance(inst, QApplication):
             self.app: QApplication = inst
         else:
             self.app = QApplication(sys.argv)
-        
+
         config_canal = obter_configuracao_canal()
         self.app.setApplicationName(config_canal.nome_aplicativo)
         configurar_tema_claro_aplicacao(self.app)
-            
+
         caminho_logo_app = config_canal.obter_caminho_icone_aplicacao()
         self.app.setWindowIcon(QIcon(str(caminho_logo_app)))
-        
+
         try:
             from editor.core.version import VERSION
+
             self.app.setApplicationVersion(VERSION)
         except ImportError:
             pass
 
-            
-        abertura_cls = getattr(sys.modules[__name__], "TelaDeAbertura")
+        abertura_cls = sys.modules[__name__].TelaDeAbertura
         self.abertura: Any = abertura_cls()
-        self.janela_principal: Optional[Any] = None
-        self.tela_carregamento: Optional[Any] = None
-        self.tarefa: Optional[Any] = None
+        self.janela_principal: Any | None = None
+        self.tela_carregamento: Any | None = None
+        self.tarefa: Any | None = None
         self._logout_em_andamento: bool = False
 
         self.iniciar_inicializacao()
 
     def iniciar_inicializacao(self) -> None:
         """Inicia ou reinicia a tarefa de inicialização e sincronização."""
-        tarefa_cls = getattr(sys.modules[__name__], "TarefaInicializacao")
+        tarefa_cls = sys.modules[__name__].TarefaInicializacao
         self.tarefa = tarefa_cls(ID_CLIENTE_GITHUB)
         if hasattr(self.tarefa, "gerenciador_sessao"):
             self.abertura.gerenciador_sessao = self.tarefa.gerenciador_sessao
@@ -112,7 +120,7 @@ class ControladorAplicativo:
         self.abertura.show()
         self.tarefa.start()
 
-    def ao_login_concluido(self, sessao: Optional[Any]) -> None:
+    def ao_login_concluido(self, sessao: Any | None) -> None:
         """Persiste a sessão e desbloqueia a tarefa de inicialização."""
         if sessao and self.tarefa:
             print(f"💾 [Main] Salvando sessão de {sessao.nome_completo}...")
@@ -133,7 +141,11 @@ class ControladorAplicativo:
         if self.tarefa:
             self.abertura.exibir_aviso_atualizacao(
                 resultado,
-                callback_atualizar=lambda: self.tarefa.servico_loja.solicitar_instalacao_atualizacao(resultado) if self.tarefa else None
+                callback_atualizar=lambda: (
+                    self.tarefa.servico_loja.solicitar_instalacao_atualizacao(resultado)
+                    if self.tarefa
+                    else None
+                ),
             )
 
     def executar_selecao(self) -> None:
@@ -152,12 +164,8 @@ class ControladorAplicativo:
         if not self.tarefa:
             return
 
-        usuario = (
-            self.tarefa.sessao_usuario.nome_completo
-            if self.tarefa.sessao_usuario
-            else ""
-        )
-        tela_carregamento_cls = getattr(sys.modules[__name__], "TelaDeCarregamento")
+        usuario = self.tarefa.sessao_usuario.nome_completo if self.tarefa.sessao_usuario else ""
+        tela_carregamento_cls = sys.modules[__name__].TelaDeCarregamento
         self.tela_carregamento = tela_carregamento_cls(
             self.tarefa.storage,
             usuario=usuario,
@@ -186,17 +194,20 @@ class ControladorAplicativo:
         """
         if self.janela_principal:
             self.janela_principal.close()
-            
+
         from editor.core.workspace import ExperimentalWorkspace
         from editor.legacy_views.area_principal import JanelaPrincipal
-        if not self.tela_carregamento or not self.tela_carregamento.caminho_croqui_selecionado or not self.tarefa:
+
+        if (
+            not self.tela_carregamento
+            or not self.tela_carregamento.caminho_croqui_selecionado
+            or not self.tarefa
+        ):
             return
         workspace = ExperimentalWorkspace(self.tela_carregamento.caminho_croqui_selecionado)
-        
+
         self.janela_principal = JanelaPrincipal(
-            storage=self.tarefa.storage,
-            auth=self.tarefa.gerenciador_sessao,
-            workspace=workspace
+            storage=self.tarefa.storage, auth=self.tarefa.gerenciador_sessao, workspace=workspace
         )
         # Conecta o sinal para permitir voltar para a seleção
         self.janela_principal.solicitar_abrir_novo.connect(self.executar_selecao)
@@ -215,9 +226,11 @@ class ControladorAplicativo:
             return int(self.app.exec())
         return 0
 
+
 def main() -> None:
     # Inicializa telemetria Sentry com sanitização universal de dados
     from editor.core.telemetria import inicializar_telemetria
+
     inicializar_telemetria()
 
     # Garante a instância global do QApplication
@@ -227,6 +240,7 @@ def main() -> None:
     else:
         app = QApplication(sys.argv)
     from editor.core.configuracao_canal import obter_configuracao_canal
+
     config_canal = obter_configuracao_canal()
     app.setApplicationName(config_canal.nome_aplicativo)
     configurar_tema_claro_aplicacao(app)
@@ -235,16 +249,18 @@ def main() -> None:
     app.setWindowIcon(QIcon(str(caminho_icone_app)))
     app.processEvents()
 
-
     # Previne múltiplas instâncias do editor usando QLocalServer / QLocalSocket
     # com health-check ativo e recuperação de processos zumbis
     from editor.core.instancia_unica import (
-        verificar_se_ja_em_execucao,
+        NOME_SERVIDOR_PADRAO,
         iniciar_servidor_instancia_unica,
-        NOME_SERVIDOR_PADRAO
+        verificar_se_ja_em_execucao,
     )
+
     if verificar_se_ja_em_execucao(NOME_SERVIDOR_PADRAO):
-        msg = "O Aresta Editor já está em execução. A janela ativa foi trazida para o primeiro plano."
+        msg = (
+            "O Aresta Editor já está em execução. A janela ativa foi trazida para o primeiro plano."
+        )
         print(msg, file=sys.stderr)
         QMessageBox.information(None, "Aresta Editor", msg)
         sys.exit(0)
@@ -257,48 +273,51 @@ def main() -> None:
     if len(sys.argv) > 1:
         caminho_str = sys.argv[1]
         caminho_path = Path(caminho_str).resolve()
-        
+
         # Se apontar diretamente para o arquivo croqui.yaml, obtém a pasta pai
         if caminho_path.is_file() and caminho_path.name == "croqui.yaml":
             caminho_path = caminho_path.parent
-        
+
         if caminho_path.is_dir() and (caminho_path / "croqui.yaml").exists():
-            gerenciador_caminhos_cls = getattr(sys.modules[__name__], "GerenciadorCaminhos")
+            gerenciador_caminhos_cls = sys.modules[__name__].GerenciadorCaminhos
             storage = gerenciador_caminhos_cls()
             caminho_icone_app = config_canal.obter_caminho_icone_aplicacao()
-            
+
             # QIcon precisa receber string
             try:
                 app.setWindowIcon(QIcon(str(caminho_icone_app)))
                 app.processEvents()
             except Exception:
                 pass
-                
+
             try:
                 from editor.core.version import VERSION
+
                 app.setApplicationVersion(VERSION)
             except ImportError:
                 pass
-            
+
             from editor.core.workspace import LocalRepoWorkspace
             from editor.legacy_views.area_principal import JanelaPrincipal
+
             workspace = LocalRepoWorkspace(caminho_path)
-            
+
             janela = JanelaPrincipal(storage=storage, auth=None, workspace=workspace)
             janela.setWindowIcon(QIcon(str(caminho_icone_app)))
             janela.show()
             app.processEvents()
             sys.exit(app.exec())
         elif "database" in caminho_str or caminho_str.endswith("croqui.yaml"):
-            msg_erro = f"Erro: O caminho especificado '{caminho_str}' não contém um croqui.yaml válido."
+            msg_erro = (
+                f"Erro: O caminho especificado '{caminho_str}' não contém um croqui.yaml válido."
+            )
             print(msg_erro, file=sys.stderr)
             QMessageBox.critical(None, "Erro ao Abrir Croqui", msg_erro)
             sys.exit(1)
-            
+
     # Inicialização Padrão (Experimental Workspace com Autenticação e Sync)
     controlador = ControladorAplicativo()
     sys.exit(controlador.executar())
-
 
 
 if __name__ == "__main__":

@@ -5,10 +5,9 @@
 Componente visual de alça de arraste (drag handle) para itens de coleções repetidas.
 """
 
-from typing import Optional
-from PySide6.QtCore import Qt, QPoint, Signal
+from PySide6.QtCore import QPoint, Qt, Signal
 from PySide6.QtGui import QMouseEvent
-from PySide6.QtWidgets import QLabel, QWidget, QApplication
+from PySide6.QtWidgets import QApplication, QLabel, QWidget
 
 
 class AlcaArrasteItem(QLabel):
@@ -20,7 +19,7 @@ class AlcaArrasteItem(QLabel):
 
     solicitar_arraste: Signal = Signal(QPoint)
 
-    def __init__(self, parent: Optional[QWidget] = None) -> None:
+    def __init__(self, parent: QWidget | None = None) -> None:
         super().__init__(parent)
         self.setText("⠿")
         self.setToolTip("Arrastar para reordenar")
@@ -38,7 +37,7 @@ class AlcaArrasteItem(QLabel):
             "  background-color: #e0e8f5;"
             "}"
         )
-        self._pos_inicial: Optional[QPoint] = None
+        self._pos_inicial: QPoint | None = None
 
     def mousePressEvent(self, event: QMouseEvent) -> None:
         if event.button() == Qt.MouseButton.LeftButton:

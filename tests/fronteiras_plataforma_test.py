@@ -11,21 +11,18 @@ Valida estaticamente via AST que:
 """
 
 import ast
-import inspect
 from pathlib import Path
-from typing import List, Tuple, Set
 
 import pytest
 
 from editor.plataforma.contrato import AdaptadorPlataforma
-
 
 PASTA_RAIZ_REPOSITORIO: Path = Path(__file__).resolve().parent.parent
 PASTA_EDITOR: Path = PASTA_RAIZ_REPOSITORIO / "editor"
 PASTA_PLATAFORMA: Path = PASTA_EDITOR / "plataforma"
 
 # Módulos ou símbolos nativos de SO restritos exclusivamente a editor/plataforma/
-IMPORTACOES_NATIVAS_PROIBIDAS: Set[str] = {
+IMPORTACOES_NATIVAS_PROIBIDAS: set[str] = {
     # Windows
     "winrt",
     "winreg",
@@ -53,7 +50,7 @@ IMPORTACOES_NATIVAS_PROIBIDAS: Set[str] = {
     "syslog",
 }
 
-SUBMODULOS_PLATAFORMA_INTERNOS_PROIBIDOS: Set[str] = {
+SUBMODULOS_PLATAFORMA_INTERNOS_PROIBIDOS: set[str] = {
     "editor.plataforma.windows",
     "editor.plataforma.linux",
     "editor.plataforma.macos",
@@ -61,7 +58,7 @@ SUBMODULOS_PLATAFORMA_INTERNOS_PROIBIDOS: Set[str] = {
 }
 
 # Arquivos permitidos para checagens de compilação ou empacotamento externo
-ARQUIVOS_PERMITIDOS_CHECAGEM_SO: Set[str] = {
+ARQUIVOS_PERMITIDOS_CHECAGEM_SO: set[str] = {
     "build.py",
 }
 
@@ -72,7 +69,7 @@ class VisitanteASTFronteirasPlataforma(ast.NodeVisitor):
     def __init__(self, caminho_arquivo: Path, checar_acesso_plataforma: bool = False) -> None:
         self.caminho_arquivo: Path = caminho_arquivo
         self.checar_acesso_plataforma: bool = checar_acesso_plataforma
-        self.violacoes: List[str] = []
+        self.violacoes: list[str] = []
 
     def visit_Import(self, node: ast.Import) -> None:
         for alias in node.names:
@@ -116,7 +113,11 @@ class VisitanteASTFronteirasPlataforma(ast.NodeVisitor):
 
         # Detecta checagens diretas de sys.platform fora dos arquivos permitidos
         if self.checar_acesso_plataforma:
-            if node.attr == "platform" and isinstance(node.value, ast.Name) and node.value.id == "sys":
+            if (
+                node.attr == "platform"
+                and isinstance(node.value, ast.Name)
+                and node.value.id == "sys"
+            ):
                 self.violacoes.append(
                     f"Linha {node.lineno}: checagem direta proibida de 'sys.platform' (delegue para 'editor.plataforma')"
                 )
@@ -133,9 +134,9 @@ class VisitanteASTFronteirasPlataforma(ast.NodeVisitor):
         self.generic_visit(node)
 
 
-def coletar_arquivos_python_editor(ignorar_testes: bool = False) -> List[Path]:
+def coletar_arquivos_python_editor(ignorar_testes: bool = False) -> list[Path]:
     """Retorna todos os arquivos .py dentro de editor/ excluindo a pasta editor/plataforma/."""
-    arquivos: List[Path] = []
+    arquivos: list[Path] = []
     for caminho in PASTA_EDITOR.rglob("*.py"):
         # Ignora arquivos sob editor/plataforma/
         try:
@@ -163,7 +164,7 @@ def test_fronteiras_plataforma_sem_vazamento_de_apis_nativas() -> None:
     arquivos = coletar_arquivos_python_editor()
     assert len(arquivos) > 0, "Nenhum arquivo python encontrado em editor/"
 
-    todas_violacoes: List[Tuple[Path, List[str]]] = []
+    todas_violacoes: list[tuple[Path, list[str]]] = []
 
     for arq in arquivos:
         conteudo = arq.read_text(encoding="utf-8")
@@ -178,7 +179,7 @@ def test_fronteiras_plataforma_sem_vazamento_de_apis_nativas() -> None:
             todas_violacoes.append((arq, visitante.violacoes))
 
     if todas_violacoes:
-        mensagens: List[str] = ["Violações de fronteira de plataforma encontradas:"]
+        mensagens: list[str] = ["Violações de fronteira de plataforma encontradas:"]
         for arq, erros in todas_violacoes:
             rel = arq.relative_to(PASTA_RAIZ_REPOSITORIO)
             mensagens.append(f"\nNo arquivo {rel}:")
@@ -194,7 +195,7 @@ def test_fronteiras_plataforma_sem_checagens_diretas_de_sistema_operacional() ->
     Toda lógica condicional de plataforma deve residir estritamente em editor/plataforma/.
     """
     arquivos_producao = coletar_arquivos_python_editor(ignorar_testes=True)
-    todas_violacoes: List[Tuple[Path, List[str]]] = []
+    todas_violacoes: list[tuple[Path, list[str]]] = []
 
     for arq in arquivos_producao:
         if arq.name in ARQUIVOS_PERMITIDOS_CHECAGEM_SO:
@@ -212,7 +213,7 @@ def test_fronteiras_plataforma_sem_checagens_diretas_de_sistema_operacional() ->
             todas_violacoes.append((arq, visitante.violacoes))
 
     if todas_violacoes:
-        mensagens: List[str] = [
+        mensagens: list[str] = [
             "Checagens diretas de sistema operacional encontradas fora de editor/plataforma/:"
         ]
         for arq, erros in todas_violacoes:
@@ -228,9 +229,9 @@ def test_adaptadores_de_plataforma_implementam_contrato_integralmente() -> None:
     Garante que os adaptadores de todas as plataformas suportadas
     implementem integralmente o protocolo AdaptadorPlataforma com todos os métodos exigidos.
     """
-    from editor.plataforma.windows.integracao import AdaptadorWindows
     from editor.plataforma.linux.integracao import AdaptadorLinux
     from editor.plataforma.macos.integracao import AdaptadorMacOS
+    from editor.plataforma.windows.integracao import AdaptadorWindows
 
     adaptadores = [AdaptadorWindows, AdaptadorLinux, AdaptadorMacOS]
 
@@ -246,10 +247,16 @@ def test_adaptadores_de_plataforma_implementam_contrato_integralmente() -> None:
 
     for cls in adaptadores:
         instancia = cls()
-        assert isinstance(instancia, AdaptadorPlataforma), f"{cls.__name__} deve cumprir o protocolo AdaptadorPlataforma"
+        assert isinstance(instancia, AdaptadorPlataforma), (
+            f"{cls.__name__} deve cumprir o protocolo AdaptadorPlataforma"
+        )
         for metodo in metodos_obrigatorios:
-            assert hasattr(instancia, metodo), f"{cls.__name__} deve implementar o método '{metodo}'"
-            assert callable(getattr(instancia, metodo)), f"'{metodo}' em {cls.__name__} deve ser invocável"
+            assert hasattr(instancia, metodo), (
+                f"{cls.__name__} deve implementar o método '{metodo}'"
+            )
+            assert callable(getattr(instancia, metodo)), (
+                f"'{metodo}' em {cls.__name__} deve ser invocável"
+            )
 
 
 def test_visitante_ast_detecta_violacoes_corretamente(tmp_path: Path) -> None:
@@ -267,7 +274,9 @@ import platform
 platform.system()
 """
     arvore = ast.parse(codigo_infrator)
-    visitante = VisitanteASTFronteirasPlataforma(tmp_path / "infrator.py", checar_acesso_plataforma=True)
+    visitante = VisitanteASTFronteirasPlataforma(
+        tmp_path / "infrator.py", checar_acesso_plataforma=True
+    )
     visitante.visit(arvore)
 
     violacoes = "\n".join(visitante.violacoes)
@@ -277,4 +286,3 @@ platform.system()
     assert "ctypes.windll" in violacoes
     assert "sys.platform" in violacoes
     assert "platform.system" in violacoes
-

@@ -1,15 +1,16 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
-from typing import Any
+import ctypes
 import os
 import sys
-import ctypes
+from typing import Any
 from unittest.mock import MagicMock
 
 # Disponibiliza stub de ctypes.windll em plataformas não-Windows para testes unitários
 if not hasattr(ctypes, "windll"):
-    setattr(ctypes, "windll", MagicMock())
+    ctypes.windll = MagicMock()
+
 
 def pytest_configure(config: Any) -> None:
     if "QT_QPA_PLATFORM" not in os.environ:
@@ -24,7 +25,7 @@ def pytest_configure(config: Any) -> None:
 
 def pytest_sessionfinish(session: Any, exitstatus: int) -> None:
     if hasattr(session, "config"):
-        setattr(session.config, "_aresta_exitstatus", exitstatus)
+        session.config._aresta_exitstatus = exitstatus
 
     try:
         from tests.bloqueador_rede import restaurar_acesso_rede
@@ -41,8 +42,8 @@ def pytest_sessionfinish(session: Any, exitstatus: int) -> None:
         pass
 
     try:
-        from PySide6.QtWidgets import QApplication
         from PySide6.QtCore import QThreadPool
+        from PySide6.QtWidgets import QApplication
 
         app = QApplication.instance()
         if isinstance(app, QApplication):
@@ -53,7 +54,9 @@ def pytest_sessionfinish(session: Any, exitstatus: int) -> None:
         if pool is not None:
             pool.waitForDone(1000)
 
-        if isinstance(app, QApplication) and not (os.environ.get("CI") or os.environ.get("ARESTA_FAST_EXIT")):
+        if isinstance(app, QApplication) and not (
+            os.environ.get("CI") or os.environ.get("ARESTA_FAST_EXIT")
+        ):
             try:
                 import shiboken6
 
@@ -102,4 +105,3 @@ def pytest_unconfigure(config: Any) -> None:
                 pass
 
         os._exit(status)
-

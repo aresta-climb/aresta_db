@@ -1,12 +1,22 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
-import pytest
-from PySide6.QtWidgets import QMainWindow, QToolBar, QStackedWidget, QWidget, QDialog
-from PySide6.QtCore import Qt
-from editor.legacy_views.area_principal import JanelaPrincipal, PaginaDados, PaginaImagens, PaginaMapas, PaginaBetas, PaginaHistorico
-from PySide6.QtGui import QIcon
 from unittest.mock import MagicMock, patch
+
+import pytest
+from PySide6.QtCore import Qt
+from PySide6.QtGui import QIcon
+from PySide6.QtWidgets import QDialog, QMainWindow, QStackedWidget, QToolBar
+
+from editor.legacy_views.area_principal import (
+    JanelaPrincipal,
+    PaginaBetas,
+    PaginaDados,
+    PaginaHistorico,
+    PaginaImagens,
+    PaginaMapas,
+)
+
 
 def test_paginas_especializadas_nao_alocam_label_placeholder(qtbot):
     """Garante que páginas especializadas não criam labels descartados com deleteLater."""
@@ -30,15 +40,18 @@ def test_paginas_especializadas_nao_alocam_label_placeholder(qtbot):
     qtbot.addWidget(p_historico)
     assert hasattr(p_historico, "label") and p_historico.label is not None
 
+
 @pytest.fixture
 def criar_janela(qtbot):
     """Factory fixture que instancia JanelaPrincipal e garante o close() de todas no teardown."""
     janelas = []
+
     def _criar(**kwargs):
         janela = JanelaPrincipal(**kwargs)
         qtbot.addWidget(janela)
         janelas.append(janela)
         return janela
+
     yield _criar
     for j in janelas:
         try:
@@ -46,57 +59,65 @@ def criar_janela(qtbot):
         except Exception:
             pass
 
+
 @pytest.fixture
 def janela_principal(criar_janela):
     """Fixture que fornece uma JanelaPrincipal padrão com teardown garantido."""
     return criar_janela()
 
+
 def test_janela_principal_usa_icones_qtawesome(criar_janela):
     with patch("editor.views.estilo.Icones.obter") as mock_obter:
         mock_obter.return_value = QIcon()
         janela = criar_janela()
-        
+
         # Coleta os nomes de ícones solicitados ao helper
         nomes_solicitados = [chamada.args[0] for chamada in mock_obter.call_args_list]
-        
+
         # Verifica se as principais ações solicitaram ícones ao helper
         acoes_obrigatorias = ["novo", "salvar", "publicar", "dados", "imagens", "mapas"]
         for acao in acoes_obrigatorias:
-            assert acao in nomes_solicitados, f"Ícone para '{acao}' não foi solicitado ao helper Icones"
+            assert acao in nomes_solicitados, (
+                f"Ícone para '{acao}' não foi solicitado ao helper Icones"
+            )
+
 
 def test_janela_principal_e_uma_main_window(janela_principal):
     assert isinstance(janela_principal, QMainWindow)
 
+
 def test_janela_principal_tem_areas_obrigatorias(janela_principal):
     janela = janela_principal
-    
+
     # Verifica Toolbar Superior
     toolbar_superior = janela.findChild(QToolBar, "toolbar_superior")
     assert toolbar_superior is not None
     assert janela.toolBarArea(toolbar_superior) == Qt.ToolBarArea.TopToolBarArea
-    
+
     # Verifica Toolbar Lateral
     toolbar_lateral = janela.findChild(QToolBar, "toolbar_lateral")
     assert toolbar_lateral is not None
     assert janela.toolBarArea(toolbar_lateral) == Qt.ToolBarArea.LeftToolBarArea
-    
+
     # Verifica Widget Central (Stacked)
     widget_central = janela.findChild(QStackedWidget)
     assert widget_central is not None
 
+
 def test_janela_principal_exibe_pagina_dados_inicialmente(janela_principal):
     janela = janela_principal
-    
+
     stack = janela.findChild(QStackedWidget)
     assert isinstance(stack.currentWidget(), PaginaDados)
 
+
 def test_toolbar_superior_tem_acoes_globais(janela_principal):
     janela = janela_principal
-    
+
     toolbar = janela.findChild(QToolBar, "toolbar_superior")
     acoes = toolbar.actions()
-    textos_acoes = [a.toolTip() for a in acoes] # Usando tooltip para identificar ações com ícone
-    
+    textos_acoes = [a.toolTip() for a in acoes]  # Usando tooltip para identificar ações com ícone
+
     assert "Abrir Novo" in textos_acoes
     assert "Salvar" in textos_acoes
     assert "Desfazer" in textos_acoes
@@ -105,108 +126,116 @@ def test_toolbar_superior_tem_acoes_globais(janela_principal):
     assert "Conectar com celular..." in textos_acoes
     assert "Enviar proposta de mudança no croqui" in textos_acoes
 
+
 def test_toolbar_lateral_tem_navegacao_entre_visoes(janela_principal):
     janela = janela_principal
-    
+
     toolbar = janela.findChild(QToolBar, "toolbar_lateral")
     acoes = toolbar.actions()
     textos_acoes = [a.toolTip() for a in acoes]
-    
+
     assert "Dados" in textos_acoes
     assert "Imagens" in textos_acoes
     assert "Mapas" in textos_acoes
     assert "Histórico" in textos_acoes
 
+
 def test_navegacao_lateral_troca_paginas(janela_principal):
     janela = janela_principal
     stack = janela.findChild(QStackedWidget)
-    
+
     toolbar = janela.findChild(QToolBar, "toolbar_lateral")
     acoes = toolbar.actions()
-    
+
     # Encontra ação de Imagens
     acao_imagens = next(a for a in acoes if a.toolTip() == "Imagens")
     acao_imagens.trigger()
     assert isinstance(stack.currentWidget(), PaginaImagens)
-    
+
     # Encontra ação de Mapas
     acao_mapas = next(a for a in acoes if a.toolTip() == "Mapas")
     acao_mapas.trigger()
     assert isinstance(stack.currentWidget(), PaginaMapas)
-    
+
     # Encontra ação de Histórico
     acao_historico = next(a for a in acoes if a.toolTip() == "Histórico")
     acao_historico.trigger()
     assert isinstance(stack.currentWidget(), PaginaHistorico)
-    
+
     # Volta para Dados
     acao_dados = next(a for a in acoes if a.toolTip() == "Dados")
     acao_dados.trigger()
     assert isinstance(stack.currentWidget(), PaginaDados)
 
 
-
 def test_janela_principal_nao_gera_avisos_de_fonte_qt(qtbot, criar_janela):
     """Verifica se a inicialização da janela não dispara avisos de QFont no terminal."""
     avisos = []
-    
+
     def message_handler(mode, context, message):
         # Captura avisos específicos de fonte
-        if ("QFont" in message or "PointSize" in message) and "Cannot find font directory" not in message:
+        if (
+            "QFont" in message or "PointSize" in message
+        ) and "Cannot find font directory" not in message:
             avisos.append(message)
-            
+
     from PySide6.QtCore import qInstallMessageHandler
-    
+
     # Instala o interceptor
     original_handler = qInstallMessageHandler(message_handler)
-    
+
     try:
         janela = criar_janela()
-        
+
         # Simula hover sobre os botões da barra lateral para disparar repaints
         for acao in janela.grupo_nav:
             botao = janela.toolbar_lateral.widgetForAction(acao)
             if botao:
                 qtbot.mouseMove(botao)
-                qtbot.wait(50) # Pequena pausa para processar eventos de pintura
+                qtbot.wait(50)  # Pequena pausa para processar eventos de pintura
     finally:
         # Restaura o handler original
         qInstallMessageHandler(original_handler)
-        
+
     assert len(avisos) == 0, f"Avisos de fonte detectados: {avisos}"
+
 
 from editor.core.croqui_experimental import GerenciadorCroquiExperimental
 
+
 def test_salvar_croqui_exibe_notificacao(qtbot, criar_janela):
     # Mock do Gerenciador para não salvar arquivos reais
-    with patch.object(GerenciadorCroquiExperimental, "compilar_croqui"), \
-         patch("editor.legacy_views.area_principal.QMessageBox.information") as mock_info:
-        
+    with (
+        patch.object(GerenciadorCroquiExperimental, "compilar_croqui"),
+        patch("editor.legacy_views.area_principal.QMessageBox.information") as mock_info,
+    ):
         mock_workspace = MagicMock()
         mock_workspace.obter_caminho_database.return_value = Path("temp_croqui")
         mock_workspace.caminho_raiz.name = "temp_croqui"
         mock_workspace.processar_renomeacao_e_compilacao.return_value = (Path("temp_croqui"), [])
         janela = criar_janela(workspace=mock_workspace)
-        janela.croqui_data = {"id": "teste"} # Simula croqui carregado
+        janela.croqui_data = {"id": "teste"}  # Simula croqui carregado
         janela.croqui_model = MagicMock()
-        
+
         janela.pagina_dados = MagicMock()
         janela.pagina_mapas = MagicMock()
         janela.pagina_imagens = MagicMock()
-        
+
         # Mock do open para não tentar escrever no disco
-        with patch("builtins.open", MagicMock()), \
-             patch("editor.legacy_views.area_principal.yaml.dump"), \
-             patch("editor.legacy_views.area_principal.QMessageBox.critical") as mock_crit, \
-             patch.object(janela, "exibir_notificacao") as mock_notif:
-            
+        with (
+            patch("builtins.open", MagicMock()),
+            patch("editor.legacy_views.area_principal.yaml.dump"),
+            patch("editor.legacy_views.area_principal.QMessageBox.critical") as mock_crit,
+            patch.object(janela, "exibir_notificacao") as mock_notif,
+        ):
             from PySide6.QtCore import QEventLoop, QTimer
+
             loop = QEventLoop()
             janela.salvamento_finalizado.connect(loop.quit)
             janela.salvar_croqui()
             QTimer.singleShot(5000, loop.quit)
             loop.exec()
-            
+
             # Verifica que QMessageBox NÃO foi chamado
             mock_info.assert_not_called()
             if mock_crit.called:
@@ -214,6 +243,7 @@ def test_salvar_croqui_exibe_notificacao(qtbot, criar_janela):
             assert not mock_crit.called
             # Verifica que a notificação FOI chamada
             mock_notif.assert_called_once_with("Croqui salvo e compilado com sucesso!")
+
 
 def test_salvar_croqui_assincrono_nao_trava_ui(qtbot, tmp_path, criar_janela):
     """[TDD] Verifica se o salvamento ocorre de forma assíncrona, não bloqueando a UI."""
@@ -232,34 +262,42 @@ def test_salvar_croqui_assincrono_nao_trava_ui(qtbot, tmp_path, criar_janela):
         janela.pagina_mapas = MagicMock()
         janela.pagina_imagens = MagicMock()
         janela.pagina_imagens.editor.salvar_alteracoes = MagicMock()
-        
-        with patch.object(janela, "exibir_notificacao"), \
-             patch("editor.legacy_views.area_principal.QMessageBox.critical") as mock_crit:
-             
+
+        with (
+            patch.object(janela, "exibir_notificacao"),
+            patch("editor.legacy_views.area_principal.QMessageBox.critical") as mock_crit,
+        ):
             event_loop_ran = False
+
             def process_events_check():
                 nonlocal event_loop_ran
                 event_loop_ran = True
-            
+
             from PySide6.QtCore import QTimer
+
             timer = QTimer()
             timer.timeout.connect(process_events_check)
             timer.start(10)
-            
+
             original_processar = mock_workspace.processar_renomeacao_e_compilacao
+
             def mock_salvar_lento(*args, **kwargs):
                 import time
+
                 time.sleep(0.1)
                 return (Path("temp_croqui"), [])
-                
+
             mock_workspace.processar_renomeacao_e_compilacao.side_effect = mock_salvar_lento
-    
+
             janela.show()
             janela.salvar_croqui()
-    
-            assert hasattr(janela, 'label_status_salvamento') and not janela.label_status_salvamento.isHidden(), "Aviso de salvamento não está visível na UI"
-            
-            if hasattr(janela, 'salvamento_finalizado'):
+
+            assert (
+                hasattr(janela, "label_status_salvamento")
+                and not janela.label_status_salvamento.isHidden()
+            ), "Aviso de salvamento não está visível na UI"
+
+            if hasattr(janela, "salvamento_finalizado"):
                 with qtbot.waitSignal(janela.salvamento_finalizado, timeout=1000):
                     pass
                 timer.stop()
@@ -267,6 +305,7 @@ def test_salvar_croqui_assincrono_nao_trava_ui(qtbot, tmp_path, criar_janela):
                     print("ERRO CAPTURADO:", mock_crit.call_args)
                 assert event_loop_ran, "O Event Loop travou e o QTimer não rodou!"
                 qtbot.waitUntil(lambda: janela.label_status_salvamento.isHidden(), timeout=1000)
+
 
 def test_salvar_croqui_sem_modificacao_database_nao_recarrega(qtbot, tmp_path, criar_janela):
     """Verifica que quando database_modificado=False, o editor não recarrega os dados."""
@@ -276,21 +315,23 @@ def test_salvar_croqui_sem_modificacao_database_nao_recarrega(qtbot, tmp_path, c
     mock_workspace.obter_caminho_database.return_value = db_path
     mock_workspace.caminho_raiz.name = "temp_croqui"
     mock_workspace.processar_renomeacao_e_compilacao.return_value = (db_path, [], False)
-    
+
     janela = criar_janela(workspace=mock_workspace)
     janela.croqui_data = {"id": "teste"}
     janela.croqui_model = MagicMock()
     janela.pagina_dados = MagicMock()
     janela.pagina_mapas = MagicMock()
     janela.pagina_imagens = MagicMock()
-    
-    with patch.object(janela, "_recarregar_dados_apos_salvamento") as mock_recarregar, \
-         patch.object(janela, "exibir_notificacao"), \
-         patch("builtins.open", MagicMock()), \
-         patch("editor.legacy_views.area_principal.yaml.dump"):
+
+    with (
+        patch.object(janela, "_recarregar_dados_apos_salvamento") as mock_recarregar,
+        patch.object(janela, "exibir_notificacao"),
+        patch("builtins.open", MagicMock()),
+        patch("editor.legacy_views.area_principal.yaml.dump"),
+    ):
         with qtbot.waitSignal(janela.salvamento_finalizado, timeout=2000):
             janela.salvar_croqui()
-            
+
         mock_recarregar.assert_not_called()
 
 
@@ -302,101 +343,120 @@ def test_salvar_croqui_com_modificacao_database_chama_recarregar(qtbot, tmp_path
     mock_workspace.obter_caminho_database.return_value = db_path
     mock_workspace.caminho_raiz.name = "temp_croqui"
     mock_workspace.processar_renomeacao_e_compilacao.return_value = (db_path, [], True)
-    
+
     janela = criar_janela(workspace=mock_workspace)
     janela.croqui_data = {"id": "teste"}
     janela.croqui_model = MagicMock()
     janela.pagina_dados = MagicMock()
     janela.pagina_mapas = MagicMock()
     janela.pagina_imagens = MagicMock()
-    
-    with patch.object(janela, "_recarregar_dados_apos_salvamento") as mock_recarregar, \
-         patch.object(janela, "exibir_notificacao"), \
-         patch("builtins.open", MagicMock()), \
-         patch("editor.legacy_views.area_principal.yaml.dump"):
+
+    with (
+        patch.object(janela, "_recarregar_dados_apos_salvamento") as mock_recarregar,
+        patch.object(janela, "exibir_notificacao"),
+        patch("builtins.open", MagicMock()),
+        patch("editor.legacy_views.area_principal.yaml.dump"),
+    ):
         with qtbot.waitSignal(janela.salvamento_finalizado, timeout=2000):
             janela.salvar_croqui()
-            
+
         mock_recarregar.assert_called_once()
 
 
-def test_recarregar_dados_apos_salvamento_reconstroi_dados_e_restaura_selecao(criar_janela, tmp_path):
+def test_recarregar_dados_apos_salvamento_reconstroi_dados_e_restaura_selecao(
+    criar_janela, tmp_path
+):
     """Verifica que _recarregar_dados_apos_salvamento recarrega arquivos e restaura a seleção ativa."""
     db_path = tmp_path / "temp_croqui"
     db_path.mkdir()
     yaml_file = db_path / "croqui.yaml"
     yaml_file.write_text("id: teste_recarga\nnome: Teste Recarga\n", encoding="utf-8")
-    
+
     mock_workspace = MagicMock()
     mock_workspace.obter_caminho_database.return_value = db_path
-    
+
     janela = criar_janela(workspace=mock_workspace)
     janela.croqui_data = {"id": "teste_recarga"}
     janela.croqui_model = MagicMock()
     janela.croqui_controller = MagicMock()
     janela.pagina_dados = MagicMock()
-    
+
     editor_dados_mock = MagicMock()
     editor_dados_mock.obter_caminho_no_selecionado.return_value = "node:croqui/expando:picos/item:0"
     janela.pagina_dados.editor_dados = editor_dados_mock
-    
-    janela._recarregar_dados_apos_salvamento()
-    
-    janela.croqui_model.carregar_arquivos_externos.assert_called_once_with(db_path)
-    janela.pagina_dados.carregar_dados.assert_called_once_with(janela.croqui_model, janela.croqui_controller)
-    editor_dados_mock.selecionar_por_caminho_no.assert_called_once_with("node:croqui/expando:picos/item:0")
 
+    janela._recarregar_dados_apos_salvamento()
+
+    janela.croqui_model.carregar_arquivos_externos.assert_called_once_with(db_path)
+    janela.pagina_dados.carregar_dados.assert_called_once_with(
+        janela.croqui_model, janela.croqui_controller
+    )
+    editor_dados_mock.selecionar_por_caminho_no.assert_called_once_with(
+        "node:croqui/expando:picos/item:0"
+    )
 
 
 def test_janela_principal_tem_icone_configurado(janela_principal):
     """Garante que a Janela Principal carrega o ícone de montanha."""
     assert not janela_principal.windowIcon().isNull()
 
+
 def test_atalhos_teclado_desfazer_refazer(janela_principal):
-    from PySide6.QtGui import QKeySequence
     from PySide6.QtCore import Qt
+    from PySide6.QtGui import QKeySequence
+
     janela = janela_principal
-    
+
     # Verifica desfazer
     shortcuts_undo = janela.acao_desfazer.shortcuts()
     assert QKeySequence.StandardKey.Undo in shortcuts_undo, "Atalho padrão de Undo (Ctrl+Z) ausente"
-    assert janela.acao_desfazer.shortcutContext() == Qt.ShortcutContext.ApplicationShortcut, "Contexto do atalho deve ser global (ApplicationShortcut)"
-    
+    assert janela.acao_desfazer.shortcutContext() == Qt.ShortcutContext.ApplicationShortcut, (
+        "Contexto do atalho deve ser global (ApplicationShortcut)"
+    )
+
     # Verifica refazer
     shortcuts_redo = janela.acao_refazer.shortcuts()
-    assert QKeySequence.StandardKey.Redo in shortcuts_redo, "Atalho padrão de Redo (Ctrl+Y/Ctrl+Shift+Z) ausente"
-    assert janela.acao_refazer.shortcutContext() == Qt.ShortcutContext.ApplicationShortcut, "Contexto do atalho deve ser global (ApplicationShortcut)"
+    assert QKeySequence.StandardKey.Redo in shortcuts_redo, (
+        "Atalho padrão de Redo (Ctrl+Y/Ctrl+Shift+Z) ausente"
+    )
+    assert janela.acao_refazer.shortcutContext() == Qt.ShortcutContext.ApplicationShortcut, (
+        "Contexto do atalho deve ser global (ApplicationShortcut)"
+    )
+
 
 def test_salvar_croqui_remove_foco_do_widget_ativo(qtbot, criar_janela):
-    from PySide6.QtWidgets import QLineEdit
-    from PySide6.QtWidgets import QApplication
-    
+    from PySide6.QtWidgets import QApplication, QLineEdit
+
     with patch.object(GerenciadorCroquiExperimental, "compilar_croqui"):
         mock_workspace = MagicMock()
         mock_workspace.obter_caminho_database.return_value = Path("temp_croqui_db")
         mock_workspace.processar_renomeacao_e_compilacao.return_value = (Path("temp_croqui_db"), [])
         janela = criar_janela(auth=MagicMock(), workspace=mock_workspace)
         janela.croqui_data = {"id": "teste"}
-        
+
         edit = QLineEdit(janela)
-        
-        with patch.object(QApplication, "focusWidget", return_value=edit), \
-             patch.object(edit, "clearFocus") as mock_clear, \
-             patch("builtins.open", MagicMock()), \
-             patch("editor.legacy_views.area_principal.yaml.dump"), \
-             patch("editor.legacy_views.area_principal.QMessageBox.critical") as mock_crit, \
-             patch.object(janela.pagina_imagens.editor, "salvar_alteracoes"):
-             
+
+        with (
+            patch.object(QApplication, "focusWidget", return_value=edit),
+            patch.object(edit, "clearFocus") as mock_clear,
+            patch("builtins.open", MagicMock()),
+            patch("editor.legacy_views.area_principal.yaml.dump"),
+            patch("editor.legacy_views.area_principal.QMessageBox.critical") as mock_crit,
+            patch.object(janela.pagina_imagens.editor, "salvar_alteracoes"),
+        ):
             from PySide6.QtCore import QEventLoop, QTimer
+
             loop = QEventLoop()
             janela.salvamento_finalizado.connect(loop.quit)
             janela.salvar_croqui()
             QTimer.singleShot(5000, loop.quit)
             loop.exec()
-            
+
         mock_clear.assert_called_once()
 
+
 from pathlib import Path
+
 
 def test_salvar_croqui_renomeia_pasta_se_id_alterado(qtbot, tmp_path, criar_janela):
     # Setup de diretório simulando um croqui
@@ -405,26 +465,27 @@ def test_salvar_croqui_renomeia_pasta_se_id_alterado(qtbot, tmp_path, criar_jane
     pasta_croqui = croquis_dir / "20260501_old_id"
     pasta_croqui.mkdir()
     (pasta_croqui / "database").mkdir()
-    
+
     with open(pasta_croqui / "database" / "croqui.yaml", "w", encoding="utf-8") as f:
         f.write("id: old_id\n")
 
     # Mocks para não chamar métodos pesados/reais do UI e Worker
-    with patch("editor.legacy_views.area_principal.QMessageBox.information"), \
-         patch("editor.legacy_views.area_principal.NotificacaoToast"):
-         
+    with (
+        patch("editor.legacy_views.area_principal.QMessageBox.information"),
+        patch("editor.legacy_views.area_principal.NotificacaoToast"),
+    ):
         nova_pasta = croquis_dir / "20260501_new_id"
         mock_workspace = MagicMock()
         mock_workspace.caminho_raiz = pasta_croqui
         mock_workspace.obter_caminho_database.return_value = pasta_croqui / "database"
         mock_workspace.processar_renomeacao_e_compilacao.return_value = (nova_pasta, [])
-        
+
         janela = criar_janela(workspace=mock_workspace)
-        
+
         # Simular a extração que retornaria o novo ID alterado na UI
         janela.croqui_model = MagicMock()
         janela.croqui_model.extrair_arquivos_e_serializar.return_value = {"id": "new_id"}
-        
+
         # Simular editores de imagem e mapa
         janela.pagina_mapas.editor = MagicMock()
         janela.pagina_imagens.editor = MagicMock()
@@ -432,94 +493,105 @@ def test_salvar_croqui_renomeia_pasta_se_id_alterado(qtbot, tmp_path, criar_jane
         janela.pagina_imagens.carregar_imagens = MagicMock()
         janela.croqui_model.carregar_arquivos_externos = MagicMock()
 
-        with patch("builtins.open", MagicMock()), \
-             patch("editor.legacy_views.area_principal.yaml.dump"), \
-             patch("editor.legacy_views.area_principal.QMessageBox.critical") as mock_crit:
-            
+        with (
+            patch("builtins.open", MagicMock()),
+            patch("editor.legacy_views.area_principal.yaml.dump"),
+            patch("editor.legacy_views.area_principal.QMessageBox.critical") as mock_crit,
+        ):
             # Executar a ação alvo
             from PySide6.QtCore import QEventLoop, QTimer
+
             loop = QEventLoop()
             janela.salvamento_finalizado.connect(loop.quit)
             janela.salvar_croqui()
             QTimer.singleShot(5000, loop.quit)
             loop.exec()
-            
+
             # Se chamou error dialog, printar o erro
             if mock_crit.called:
                 print("ERRO:", mock_crit.call_args)
             assert not mock_crit.called
 
         # Verificações
-        mock_workspace.processar_renomeacao_e_compilacao.assert_called_once_with("new_id", "old_id", janela.storage)
-        
+        mock_workspace.processar_renomeacao_e_compilacao.assert_called_once_with(
+            "new_id", "old_id", janela.storage
+        )
+
         # Garantir que salvou as edições (para a pasta antes do reload)
         janela.pagina_imagens.editor.salvar_alteracoes.assert_called_once()
-        
+
         # Garantir que os subeditores receberam a recarga do path com o novo diretório
-        janela.pagina_mapas.carregar_mapas.assert_called_once_with(janela.croqui_model, janela.historico, pasta_croqui / "database")
+        janela.pagina_mapas.carregar_mapas.assert_called_once_with(
+            janela.croqui_model, janela.historico, pasta_croqui / "database"
+        )
         janela.pagina_imagens.carregar_imagens.assert_called_once_with(pasta_croqui / "database")
 
 
 def test_pagina_mapas_recebe_model_e_controller(qtbot):
-    from editor.legacy_views.area_principal import PaginaMapas
     from unittest.mock import MagicMock
-    
+
+    from editor.legacy_views.area_principal import PaginaMapas
+
     pagina = PaginaMapas()
     qtbot.addWidget(pagina)
-    
+
     # Mocks
     model_mock = MagicMock()
     controller_mock = MagicMock()
-    
+
     # Mock do editor interno para verificar se recebe os argumentos corretos
     pagina.editor = MagicMock()
-    
+
     # Executa o metodo
-    # Como carregar_mapas instancia um MapasController internamente, 
+    # Como carregar_mapas instancia um MapasController internamente,
     # devemos mockar a classe MapasController do module editor.controllers.mapas_controller
     with patch("editor.controllers.mapas_controller.MapasController") as MockControllerClass:
         pagina.carregar_mapas(model_mock, controller_mock)
-        
+
         # Verifica se o MapasController foi instanciado
         MockControllerClass.assert_called_once_with(model_mock, controller_mock)
-        
+
         # E se o editor recebeu o controller criado
         assert pagina.editor.mapas_controller == MockControllerClass.return_value
         pagina.editor.configurar_lista_mapas.assert_called_once()
 
 
 def test_salvar_croqui_repassa_erros_ao_controller(qtbot, criar_janela):
-    from editor.legacy_views.area_principal import JanelaPrincipal
-    from unittest.mock import MagicMock, patch
     from pathlib import Path
-    
+    from unittest.mock import MagicMock, patch
+
     mock_workspace = MagicMock()
     mock_workspace.obter_caminho_database.return_value = Path("temp_croqui_db")
-    mock_workspace.processar_renomeacao_e_compilacao.return_value = (Path("temp_croqui"), ["Erro no mapa"])
-    
+    mock_workspace.processar_renomeacao_e_compilacao.return_value = (
+        Path("temp_croqui"),
+        ["Erro no mapa"],
+    )
+
     janela = criar_janela(auth=MagicMock(), workspace=mock_workspace)
-    
+
     janela.croqui_data = {"id": "teste"}
     janela.croqui_model = MagicMock()
     janela.pagina_dados = MagicMock()
     janela.pagina_mapas = MagicMock()
     janela.pagina_imagens = MagicMock()
-    
-    with patch("builtins.open", MagicMock()), \
-         patch("editor.legacy_views.area_principal.yaml.dump"), \
-         patch.object(janela, "exibir_notificacao") as mock_notif, \
-         patch.object(janela.compilacao_controller, "processar_resultado") as mock_processar:
-         
+
+    with (
+        patch("builtins.open", MagicMock()),
+        patch("editor.legacy_views.area_principal.yaml.dump"),
+        patch.object(janela, "exibir_notificacao") as mock_notif,
+        patch.object(janela.compilacao_controller, "processar_resultado") as mock_processar,
+    ):
         from PySide6.QtCore import QEventLoop, QTimer
+
         loop = QEventLoop()
         janela.salvamento_finalizado.connect(loop.quit)
         janela.salvar_croqui()
         QTimer.singleShot(5000, loop.quit)
         loop.exec()
-        
+
         # Verifica se os erros foram passados pro controlador
         mock_processar.assert_called_once_with(["Erro no mapa"])
-        
+
         # Verifica que a notificação toast foi chamada informando avisos
         mock_notif.assert_called_once_with("Croqui salvo com avisos de compilação.")
 
@@ -528,117 +600,133 @@ def test_salvar_croqui_repassa_erros_ao_controller(qtbot, criar_janela):
 def test_botao_abrir_habilitado_em_modo_normal(mock_carregar, qtbot, criar_janela):
     workspace_mock = MagicMock()
     workspace_mock.can_publish_pr.return_value = True
-    
+
     janela = criar_janela(workspace=workspace_mock)
     assert janela.acao_abrir.isEnabled()
+
 
 @patch("editor.legacy_views.area_principal.JanelaPrincipal.carregar_croqui")
 def test_botao_abrir_desabilitado_em_modo_local(mock_carregar, qtbot, criar_janela):
     workspace_mock = MagicMock()
     workspace_mock.can_publish_pr.return_value = False
-    
+
     janela = criar_janela(workspace=workspace_mock)
     assert not janela.acao_abrir.isEnabled()
+
 
 @patch("editor.legacy_views.area_principal.JanelaPrincipal.carregar_croqui")
 def test_atualizar_titulo_mantem_workspace_tag(mock_carregar, qtbot):
     workspace_mock = MagicMock()
     workspace_mock.obter_tag_titulo.return_value = "[Local Mode]"
-    
+
     janela = JanelaPrincipal(workspace=workspace_mock)
     qtbot.addWidget(janela)
-    
+
     janela.croqui_data = {"nome": "Croqui Teste"}
     janela.historico.obter_pilha().isClean = MagicMock(return_value=True)
-    
+
     janela.atualizar_titulo()
     assert "Editor Aresta" in janela.windowTitle()
     assert "[Local Mode]" in janela.windowTitle()
     assert "Croqui Teste" in janela.windowTitle()
     janela.close()
 
+
 @patch("editor.legacy_views.area_principal.JanelaPrincipal.carregar_croqui")
 def test_atualizar_titulo_dirty_state(mock_carregar, qtbot):
     workspace_mock = MagicMock()
     workspace_mock.obter_tag_titulo.return_value = "[Local Mode]"
-    
+
     janela = JanelaPrincipal(workspace=workspace_mock)
     qtbot.addWidget(janela)
-    
+
     janela.croqui_data = {"nome": "Croqui Teste"}
     janela.historico.obter_pilha().isClean = MagicMock(return_value=False)
-    
+
     janela.atualizar_titulo()
     assert "Editor Aresta" in janela.windowTitle()
     assert "[Local Mode]" in janela.windowTitle()
     assert "Croqui Teste *" in janela.windowTitle()
-    
+
     # Restaura para limpo para não abrir prompt de confirmação ao fechar
     janela.historico.obter_pilha().isClean.return_value = True
     janela.close()
 
+
 @patch("editor.legacy_views.area_principal.JanelaPrincipal.carregar_croqui")
 def test_cancelar_fechamento_nao_deleta_undo_stack(mock_carregar, qtbot):
-    from PySide6.QtGui import QUndoCommand, QCloseEvent
-    from PySide6.QtWidgets import QMessageBox
     from unittest.mock import MagicMock
-    
+
+    from PySide6.QtGui import QCloseEvent, QUndoCommand
+    from PySide6.QtWidgets import QMessageBox
+
     workspace_mock = MagicMock()
     janela = JanelaPrincipal(workspace=workspace_mock)
     qtbot.addWidget(janela)
-    
+
     # Suja o histórico para forçar a verificação no closeEvent
     cmd = QUndoCommand()
     janela.historico.obter_pilha().push(cmd)
-    
+
     # Chama o closeEvent simulando o usuário clicando em "Cancel" no alerta
-    with patch("editor.legacy_views.area_principal.QMessageBox.question", return_value=QMessageBox.StandardButton.Cancel):
+    with patch(
+        "editor.legacy_views.area_principal.QMessageBox.question",
+        return_value=QMessageBox.StandardButton.Cancel,
+    ):
         event = MagicMock(spec=QCloseEvent)
         janela.closeEvent(event)
-        
+
         event.ignore.assert_called_once()
-        
+
     # Agora testa se o QUndoStack ainda está vivo e não explode com RuntimeError
     try:
         janela.historico.obter_pilha().isClean()
     except RuntimeError:
         import pytest
+
         pytest.fail("O QUndoStack foi indevidamente deletado após cancelar o fechamento!")
-        
+
     # Limpa o estado e fecha a janela corretamente
     janela.historico.limpar()
     janela.close()
+
+
 from unittest.mock import patch
+
 
 @patch("editor.legacy_views.area_principal.JanelaPrincipal.carregar_croqui")
 def test_area_principal_regex_mapas_gerais(mock_carregar, qtbot):
-    from editor.legacy_views.area_principal import JanelaPrincipal
     from unittest.mock import MagicMock
-    
+
+    from editor.legacy_views.area_principal import JanelaPrincipal
+
     workspace_mock = MagicMock()
     workspace_mock.can_publish_pr.return_value = True
-    
+
     janela = JanelaPrincipal(workspace=workspace_mock)
     qtbot.addWidget(janela)
-    
+
     janela.pagina_mapas = MagicMock()
     janela.pagina_mapas.editor = MagicMock()
-    
-    janela._on_foco_requisitado("page:mapas/expando:picos/item:0/mapas_gerais/conteudo/mapas/expando:mapas/item:0")
-    
+
+    janela._on_foco_requisitado(
+        "page:mapas/expando:picos/item:0/mapas_gerais/conteudo/mapas/expando:mapas/item:0"
+    )
+
     # It should call: self.pagina_mapas.editor.selecionar_mapa_por_indices(p_idx, sg_idx, m_idx, s_idx)
     # But since it's mapas gerais, p_idx=0, m_idx=0, what about sg_idx and s_idx?
     # Wait, the code sets sg_idx=-1 and s_idx=-1.
     janela.pagina_mapas.editor.selecionar_mapa_por_indices.assert_called_with(0, -1, 0, -1)
-    
+
     janela.close()
 
 
 @patch("editor.legacy_views.area_principal.JanelaPrincipal.carregar_croqui")
 def test_area_principal_foco_mapa_escalada_setor(mock_carregar, qtbot):
     """[TDD] Verifica se foco em mapa de escalada em setor repassa e_idx e tipo corretamente."""
-    from editor.legacy_views.area_principal import JanelaPrincipal
     from unittest.mock import MagicMock
+
+    from editor.legacy_views.area_principal import JanelaPrincipal
 
     workspace_mock = MagicMock()
     workspace_mock.can_publish_pr.return_value = True
@@ -661,8 +749,9 @@ def test_area_principal_foco_mapa_escalada_setor(mock_carregar, qtbot):
 @patch("editor.legacy_views.area_principal.JanelaPrincipal.carregar_croqui")
 def test_area_principal_foco_mapa_escalada_subsetor(mock_carregar, qtbot):
     """[TDD] Verifica se foco em mapa de escalada em sub-setor de grupo repassa e_idx, s_idx e tipo."""
-    from editor.legacy_views.area_principal import JanelaPrincipal
     from unittest.mock import MagicMock
+
+    from editor.legacy_views.area_principal import JanelaPrincipal
 
     workspace_mock = MagicMock()
     workspace_mock.can_publish_pr.return_value = True
@@ -685,10 +774,11 @@ def test_area_principal_foco_mapa_escalada_subsetor(mock_carregar, qtbot):
 @patch("editor.legacy_views.area_principal.JanelaPrincipal.carregar_croqui")
 def test_area_principal_foco_arquivo_mapa_escalada(mock_carregar, qtbot):
     """[TDD] Verifica se busca por ctx.arquivo_mapa encontra mapas de escalada."""
-    from editor.legacy_views.area_principal import JanelaPrincipal
-    from aresta_api.proto.generated import croqui_pb2
-    from editor.models.readonly_proxy import ReadOnlyProxy
     from unittest.mock import MagicMock
+
+    from aresta_api.proto.generated import croqui_pb2
+    from editor.legacy_views.area_principal import JanelaPrincipal
+    from editor.models.readonly_proxy import ReadOnlyProxy
 
     workspace_mock = MagicMock()
     workspace_mock.can_publish_pr.return_value = True
@@ -721,10 +811,11 @@ def test_area_principal_foco_arquivo_mapa_escalada(mock_carregar, qtbot):
 @patch("editor.legacy_views.area_principal.JanelaPrincipal.carregar_croqui")
 def test_area_principal_foco_arquivo_mapa_grupo_e_subsetores(mock_carregar, qtbot):
     """[TDD] Verifica se busca por ctx.arquivo_mapa encontra mapas em grupo, subsetores e escaladas de subsetor."""
-    from editor.legacy_views.area_principal import JanelaPrincipal
-    from aresta_api.proto.generated import croqui_pb2
-    from editor.models.readonly_proxy import ReadOnlyProxy
     from unittest.mock import MagicMock
+
+    from aresta_api.proto.generated import croqui_pb2
+    from editor.legacy_views.area_principal import JanelaPrincipal
+    from editor.models.readonly_proxy import ReadOnlyProxy
 
     workspace_mock = MagicMock()
     workspace_mock.can_publish_pr.return_value = True
@@ -773,8 +864,9 @@ def test_area_principal_foco_arquivo_mapa_grupo_e_subsetores(mock_carregar, qtbo
 @patch("editor.legacy_views.area_principal.JanelaPrincipal.carregar_croqui")
 def test_area_principal_foco_caminho_arvore_setor_e_subsetor(mock_carregar, qtbot):
     """[TDD] Verifica foco via caminho_local_arvore para setor e subsetor."""
-    from editor.legacy_views.area_principal import JanelaPrincipal
     from unittest.mock import MagicMock
+
+    from editor.legacy_views.area_principal import JanelaPrincipal
 
     workspace_mock = MagicMock()
     workspace_mock.can_publish_pr.return_value = True
@@ -801,10 +893,11 @@ def test_area_principal_foco_caminho_arvore_setor_e_subsetor(mock_carregar, qtbo
 @patch("editor.legacy_views.area_principal.JanelaPrincipal.carregar_croqui")
 def test_area_principal_foco_arquivo_mapa_geral_e_setor(mock_carregar, qtbot):
     """[TDD] Verifica busca por ctx.arquivo_mapa em mapas gerais do pico e mapas de setor."""
-    from editor.legacy_views.area_principal import JanelaPrincipal
-    from aresta_api.proto.generated import croqui_pb2
-    from editor.models.readonly_proxy import ReadOnlyProxy
     from unittest.mock import MagicMock
+
+    from aresta_api.proto.generated import croqui_pb2
+    from editor.legacy_views.area_principal import JanelaPrincipal
+    from editor.models.readonly_proxy import ReadOnlyProxy
 
     workspace_mock = MagicMock()
     workspace_mock.can_publish_pr.return_value = True
@@ -841,14 +934,16 @@ def test_area_principal_foco_arquivo_mapa_geral_e_setor(mock_carregar, qtbot):
 @patch("editor.legacy_views.area_principal.JanelaPrincipal.carregar_croqui")
 def test_area_principal_foco_editor_fallback_set_mapa_atual(mock_carregar, qtbot):
     """[TDD] Verifica fallback para editor.set_mapa_atual quando editor não possui selecionar_mapa_por_indices."""
-    from editor.legacy_views.area_principal import JanelaPrincipal
-    from aresta_api.proto.generated import croqui_pb2
-    from editor.models.readonly_proxy import ReadOnlyProxy
     from unittest.mock import MagicMock
+
+    from aresta_api.proto.generated import croqui_pb2
+    from editor.legacy_views.area_principal import JanelaPrincipal
+    from editor.models.readonly_proxy import ReadOnlyProxy
 
     class EditorDummy:
         def __init__(self):
             self.chamadas = []
+
         def set_mapa_atual(self, mapa, *args, **kwargs):
             self.chamadas.append((mapa, args, kwargs))
 
@@ -916,70 +1011,81 @@ def test_area_principal_foco_editor_fallback_set_mapa_atual(mock_carregar, qtbot
 
 def test_close_event_enquanto_salva_marca_para_fechar(janela_principal):
     """[TDD] Verifica se tentar fechar a janela durante o salvamento marca _fechar_apos_salvar."""
-    from editor.legacy_views.area_principal import JanelaPrincipal
     from unittest.mock import patch
+
     from PySide6.QtGui import QCloseEvent
 
     janela = janela_principal
-    
+
     # Simula salvamento em andamento
     janela._salvando = True
-    
+
     with patch.object(janela, "_mostrar_modal_espera") as mock_modal:
         event = QCloseEvent()
         janela.closeEvent(event)
-        
+
         assert not event.isAccepted(), "O evento de fechamento deveria ser ignorado (adiado)."
-        assert getattr(janela, "_fechar_apos_salvar", False) is True, "A janela não foi marcada para fechar após o término do salvamento."
+        assert getattr(janela, "_fechar_apos_salvar", False) is True, (
+            "A janela não foi marcada para fechar após o término do salvamento."
+        )
         assert mock_modal.called, "O modal de 'Finalizando salvamento...' deveria ter sido exibido."
-        
+
+
 @patch("editor.legacy_views.area_principal.JanelaPrincipal.carregar_croqui")
 def test_publicar_croqui_instancia_publish_controller_corretamente(mock_carregar, qtbot):
     """Garante que o PublishController é instanciado corretamente evitando TypeErrors."""
+    from unittest.mock import MagicMock, patch
+
     from editor.legacy_views.area_principal import JanelaPrincipal
-    from unittest.mock import patch, MagicMock
 
     workspace_mock = MagicMock()
     janela = JanelaPrincipal(workspace=workspace_mock)
     qtbot.addWidget(janela)
-    
+
     janela.auth = MagicMock()
     janela.storage = MagicMock()
 
-    with patch("editor.controllers.publish_controller.PublishController") as mock_publish_controller_class:
+    with patch(
+        "editor.controllers.publish_controller.PublishController"
+    ) as mock_publish_controller_class:
         # Execução
         janela.publicar_croqui()
-        
+
         # Validação
         mock_publish_controller_class.assert_called_once_with(
             workspace=workspace_mock,
             auth=janela.auth,
             historico=janela.historico,
             storage=janela.storage,
-            parent=janela
+            parent=janela,
         )
-        
+
         mock_publish_controller_class.return_value.iniciar_publicacao.assert_called_once()
-        
+
     # Limpa estado e fecha
     janela.historico.limpar()
     janela.close()
 
-@patch("editor.legacy_views.area_principal.QCoreApplication.applicationVersion", return_value="1.2.3-test")
+
+@patch(
+    "editor.legacy_views.area_principal.QCoreApplication.applicationVersion",
+    return_value="1.2.3-test",
+)
 @patch("editor.legacy_views.area_principal.JanelaPrincipal.carregar_croqui")
 def test_atualizar_titulo_mostra_versao_do_app_seguro(mock_carregar, mock_version, qtbot):
-    from editor.legacy_views.area_principal import JanelaPrincipal
     from unittest.mock import MagicMock
-    
+
+    from editor.legacy_views.area_principal import JanelaPrincipal
+
     workspace_mock = MagicMock()
     workspace_mock.obter_tag_titulo.return_value = None
-    
+
     janela = JanelaPrincipal(workspace=workspace_mock)
     qtbot.addWidget(janela)
-    
+
     janela.croqui_data = {"nome": "Meu Croqui"}
     janela.historico.obter_pilha().isClean = MagicMock(return_value=True)
-    
+
     janela.atualizar_titulo()
     assert janela.windowTitle() == "Editor Aresta v1.2.3-test - Meu Croqui"
     janela.close()
@@ -988,7 +1094,7 @@ def test_atualizar_titulo_mostra_versao_do_app_seguro(mock_carregar, mock_versio
 def test_ao_clicar_abrir_novo_sem_modificacoes_fecha_janela_e_emite_sinal(qtbot):
     janela = JanelaPrincipal()
     qtbot.addWidget(janela)
-    
+
     janela.solicitar_abrir_novo = MagicMock()
     with patch.object(janela, "close", wraps=janela.close) as mock_close:
         janela._on_abrir_novo_clicado()
@@ -998,13 +1104,16 @@ def test_ao_clicar_abrir_novo_sem_modificacoes_fecha_janela_e_emite_sinal(qtbot)
 
 def test_ao_clicar_abrir_novo_com_modificacoes_salva_fecha_janela_e_emite_sinal(qtbot):
     from PySide6.QtWidgets import QMessageBox
+
     janela = JanelaPrincipal()
     qtbot.addWidget(janela)
-    
+
     janela.historico.obter_pilha().isClean = MagicMock(return_value=False)
     janela.solicitar_abrir_novo = MagicMock()
-    
-    with patch("PySide6.QtWidgets.QMessageBox.question", return_value=QMessageBox.StandardButton.Save):
+
+    with patch(
+        "PySide6.QtWidgets.QMessageBox.question", return_value=QMessageBox.StandardButton.Save
+    ):
         with patch.object(janela, "salvar_croqui") as mock_salvar:
             with patch.object(janela, "close", wraps=janela.close) as mock_close:
                 janela._on_abrir_novo_clicado()
@@ -1018,13 +1127,16 @@ def test_ao_clicar_abrir_novo_com_modificacoes_salva_fecha_janela_e_emite_sinal(
 
 def test_ao_clicar_abrir_novo_com_modificacoes_descarta_fecha_janela_e_emite_sinal(qtbot):
     from PySide6.QtWidgets import QMessageBox
+
     janela = JanelaPrincipal()
     qtbot.addWidget(janela)
-    
+
     janela.historico.obter_pilha().isClean = MagicMock(return_value=False)
     janela.solicitar_abrir_novo = MagicMock()
-    
-    with patch("PySide6.QtWidgets.QMessageBox.question", return_value=QMessageBox.StandardButton.Discard):
+
+    with patch(
+        "PySide6.QtWidgets.QMessageBox.question", return_value=QMessageBox.StandardButton.Discard
+    ):
         with patch.object(janela, "close", wraps=janela.close) as mock_close:
             janela._on_abrir_novo_clicado()
             janela.solicitar_abrir_novo.emit.assert_called_once()
@@ -1033,24 +1145,28 @@ def test_ao_clicar_abrir_novo_com_modificacoes_descarta_fecha_janela_e_emite_sin
 
 def test_ao_clicar_abrir_novo_com_modificacoes_cancela_nao_fecha_janela(qtbot):
     from PySide6.QtWidgets import QMessageBox
+
     janela = JanelaPrincipal()
     qtbot.addWidget(janela)
-    
+
     janela.historico.obter_pilha().isClean = MagicMock(return_value=False)
     janela.solicitar_abrir_novo = MagicMock()
-    
-    with patch("PySide6.QtWidgets.QMessageBox.question", return_value=QMessageBox.StandardButton.Cancel):
+
+    with patch(
+        "PySide6.QtWidgets.QMessageBox.question", return_value=QMessageBox.StandardButton.Cancel
+    ):
         with patch.object(janela, "close", wraps=janela.close) as mock_close:
             janela._on_abrir_novo_clicado()
             janela.solicitar_abrir_novo.emit.assert_not_called()
             mock_close.assert_not_called()
-            
+
     janela._forcar_fechamento = True
     janela.close()
 
 
 def test_edicao_na_janela_principal_grava_diario_e_salva_consolida(qtbot, tmp_path):
     from editor.core.workspace import ExperimentalWorkspace
+
     pasta_croqui = tmp_path / "croqui_teste"
     pasta_db = pasta_croqui / "database"
     pasta_db.mkdir(parents=True)
@@ -1075,13 +1191,16 @@ def test_edicao_na_janela_principal_grava_diario_e_salva_consolida(qtbot, tmp_pa
     assert pendentes[0]["valor_novo"] == "Croqui Alterado"
 
     # Simula salvamento
-    with patch("editor.core.croqui_experimental.GerenciadorCroquiExperimental") as mock_cls, \
-         patch("editor.legacy_views.area_principal.QMessageBox.critical") as mock_crit, \
-         patch("editor.legacy_views.area_principal.NotificacaoToast"):
+    with (
+        patch("editor.core.croqui_experimental.GerenciadorCroquiExperimental") as mock_cls,
+        patch("editor.legacy_views.area_principal.QMessageBox.critical") as mock_crit,
+        patch("editor.legacy_views.area_principal.NotificacaoToast"),
+    ):
         mock_gerenciador = mock_cls.return_value
         mock_gerenciador.compilar_croqui.return_value = None
 
         from PySide6.QtCore import QEventLoop, QTimer
+
         loop = QEventLoop()
         janela.salvamento_finalizado.connect(loop.quit)
         janela.salvar_croqui()
@@ -1101,23 +1220,28 @@ def test_edicao_na_janela_principal_grava_diario_e_salva_consolida(qtbot, tmp_pa
 
 
 def test_recuperacao_de_crash_ao_reabrir_croqui_com_pendencias(qtbot, tmp_path):
-    from editor.core.workspace import ExperimentalWorkspace
     from editor.core.diario import GerenciadorDiario
+    from editor.core.workspace import ExperimentalWorkspace
+
     pasta_croqui = tmp_path / "croqui_crash"
     pasta_db = pasta_croqui / "database"
     pasta_db.mkdir(parents=True)
-    (pasta_db / "croqui.yaml").write_text("id: teste_crash\nnome: Nome Original\n", encoding="utf-8")
+    (pasta_db / "croqui.yaml").write_text(
+        "id: teste_crash\nnome: Nome Original\n", encoding="utf-8"
+    )
 
     # Simula gravação prévia no diário pendente (como se tivesse crashado)
     diario = GerenciadorDiario(pasta_croqui)
-    diario.gravar_comando_pendente({
-        "classe": "CmdAlterarPrimitivo",
-        "caminho_msg": "node:root",
-        "campo_nome": "nome",
-        "valor_antigo": "Nome Original",
-        "valor_novo": "Nome Recuperado do Crash",
-        "context_path": None
-    })
+    diario.gravar_comando_pendente(
+        {
+            "classe": "CmdAlterarPrimitivo",
+            "caminho_msg": "node:root",
+            "campo_nome": "nome",
+            "valor_antigo": "Nome Original",
+            "valor_novo": "Nome Recuperado do Crash",
+            "context_path": None,
+        }
+    )
     assert diario.tem_alteracoes_pendentes()
 
     ws = ExperimentalWorkspace(pasta_croqui)
@@ -1141,24 +1265,29 @@ def test_recuperacao_de_crash_ao_reabrir_croqui_com_pendencias(qtbot, tmp_path):
 
 
 def test_reabrir_croqui_com_diario_salvo_habilita_undo_e_preserva_historico(qtbot, tmp_path):
-    from editor.core.workspace import ExperimentalWorkspace
     from editor.core.diario import GerenciadorDiario
+    from editor.core.workspace import ExperimentalWorkspace
+
     pasta_croqui = tmp_path / "croqui_salvo"
     pasta_db = pasta_croqui / "database"
     pasta_db.mkdir(parents=True)
     # O YAML salvo reflete o estado pós-edição
-    (pasta_db / "croqui.yaml").write_text("id: teste_salvo\nnome: Nome Pos Salvamento\n", encoding="utf-8")
+    (pasta_db / "croqui.yaml").write_text(
+        "id: teste_salvo\nnome: Nome Pos Salvamento\n", encoding="utf-8"
+    )
 
     # diario_salvo.bin contém o comando que gerou essa modificação
     diario = GerenciadorDiario(pasta_croqui)
-    diario.gravar_comando_pendente({
-        "classe": "CmdAlterarPrimitivo",
-        "caminho_msg": "",
-        "campo_nome": "nome",
-        "valor_antigo": "Nome Base Original",
-        "valor_novo": "Nome Pos Salvamento",
-        "context_path": None
-    })
+    diario.gravar_comando_pendente(
+        {
+            "classe": "CmdAlterarPrimitivo",
+            "caminho_msg": "",
+            "campo_nome": "nome",
+            "valor_antigo": "Nome Base Original",
+            "valor_novo": "Nome Pos Salvamento",
+            "context_path": None,
+        }
+    )
     diario.consolidar_salvamento()
     assert not diario.tem_alteracoes_pendentes()
     assert len(diario.ler_diario_salvo()) == 1
@@ -1190,9 +1319,12 @@ def test_reabrir_croqui_com_diario_salvo_habilita_undo_e_preserva_historico(qtbo
     janela.close()
 
 
-def test_recuperacao_de_crash_com_diario_salvo_e_pendente_permite_undo_imediato_de_ambos(qtbot, tmp_path):
-    from editor.core.workspace import ExperimentalWorkspace
+def test_recuperacao_de_crash_com_diario_salvo_e_pendente_permite_undo_imediato_de_ambos(
+    qtbot, tmp_path
+):
     from editor.core.diario import GerenciadorDiario
+    from editor.core.workspace import ExperimentalWorkspace
+
     pasta_croqui = tmp_path / "croqui_misto"
     pasta_db = pasta_croqui / "database"
     pasta_db.mkdir(parents=True)
@@ -1201,25 +1333,29 @@ def test_recuperacao_de_crash_com_diario_salvo_e_pendente_permite_undo_imediato_
 
     diario = GerenciadorDiario(pasta_croqui)
     # 1. Comando que foi consolidado no passado
-    diario.gravar_comando_pendente({
-        "classe": "CmdAlterarPrimitivo",
-        "caminho_msg": "",
-        "campo_nome": "nome",
-        "valor_antigo": "Nome Base Original",
-        "valor_novo": "Nome Salvo",
-        "context_path": None
-    })
+    diario.gravar_comando_pendente(
+        {
+            "classe": "CmdAlterarPrimitivo",
+            "caminho_msg": "",
+            "campo_nome": "nome",
+            "valor_antigo": "Nome Base Original",
+            "valor_novo": "Nome Salvo",
+            "context_path": None,
+        }
+    )
     diario.consolidar_salvamento()
 
     # 2. Comando que estava pendente quando ocorreu o crash
-    diario.gravar_comando_pendente({
-        "classe": "CmdAlterarPrimitivo",
-        "caminho_msg": "",
-        "campo_nome": "nome",
-        "valor_antigo": "Nome Salvo",
-        "valor_novo": "Nome Pendente Final",
-        "context_path": None
-    })
+    diario.gravar_comando_pendente(
+        {
+            "classe": "CmdAlterarPrimitivo",
+            "caminho_msg": "",
+            "campo_nome": "nome",
+            "valor_antigo": "Nome Salvo",
+            "valor_novo": "Nome Pendente Final",
+            "context_path": None,
+        }
+    )
 
     assert diario.tem_alteracoes_pendentes()
     assert len(diario.ler_diario_salvo()) == 1
@@ -1261,10 +1397,10 @@ def test_recuperacao_de_crash_com_diario_salvo_e_pendente_permite_undo_imediato_
 
 
 def test_fechar_croqui_sem_salvar_descarta_diario_pendente(qtbot, tmp_path):
-    from editor.core.workspace import ExperimentalWorkspace
-    from editor.core.diario import GerenciadorDiario
-    from PySide6.QtWidgets import QMessageBox
     from PySide6.QtGui import QCloseEvent
+    from PySide6.QtWidgets import QMessageBox
+
+    from editor.core.workspace import ExperimentalWorkspace
 
     pasta_croqui = tmp_path / "croqui_fechar_descarte"
     pasta_db = pasta_croqui / "database"
@@ -1277,7 +1413,11 @@ def test_fechar_croqui_sem_salvar_descarta_diario_pendente(qtbot, tmp_path):
 
     # Realiza uma alteração pendente
     janela.croqui_controller.alterar_primitivo(
-        janela.croqui_model.obter_croqui_readonly(), "nome", "Original", "Modificado", pode_mesclar=True
+        janela.croqui_model.obter_croqui_readonly(),
+        "nome",
+        "Original",
+        "Modificado",
+        pode_mesclar=True,
     )
     diario = ws.obter_diario()
     assert diario.tem_alteracoes_pendentes()
@@ -1295,9 +1435,9 @@ def test_fechar_croqui_sem_salvar_descarta_diario_pendente(qtbot, tmp_path):
 
 
 def test_abrir_novo_sem_salvar_descarta_diario_pendente(qtbot, tmp_path):
-    from editor.core.workspace import ExperimentalWorkspace
-    from editor.core.diario import GerenciadorDiario
     from PySide6.QtWidgets import QMessageBox
+
+    from editor.core.workspace import ExperimentalWorkspace
 
     pasta_croqui = tmp_path / "croqui_voltar_descarte"
     pasta_db = pasta_croqui / "database"
@@ -1310,7 +1450,11 @@ def test_abrir_novo_sem_salvar_descarta_diario_pendente(qtbot, tmp_path):
 
     # Realiza uma alteração pendente
     janela.croqui_controller.alterar_primitivo(
-        janela.croqui_model.obter_croqui_readonly(), "nome", "Original", "Modificado", pode_mesclar=True
+        janela.croqui_model.obter_croqui_readonly(),
+        "nome",
+        "Original",
+        "Modificado",
+        pode_mesclar=True,
     )
     diario = ws.obter_diario()
     assert diario.tem_alteracoes_pendentes()
@@ -1326,14 +1470,15 @@ def test_abrir_novo_sem_salvar_descarta_diario_pendente(qtbot, tmp_path):
 
 
 def test_recuperacao_crash_exatas_3_acoes_com_undos_perfeitos(qtbot, tmp_path):
-    from editor.core.workspace import ExperimentalWorkspace
-    from editor.core.diario import GerenciadorDiario
     from aresta_api.proto.generated import croqui_pb2
+    from editor.core.workspace import ExperimentalWorkspace
 
     pasta_croqui = tmp_path / "croqui_3_acoes"
     pasta_db = pasta_croqui / "database"
     pasta_db.mkdir(parents=True)
-    (pasta_db / "croqui.yaml").write_text("id: teste_3_acoes\nnome: Croqui Original\n", encoding="utf-8")
+    (pasta_db / "croqui.yaml").write_text(
+        "id: teste_3_acoes\nnome: Croqui Original\n", encoding="utf-8"
+    )
 
     ws1 = ExperimentalWorkspace(pasta_croqui)
     janela1 = JanelaPrincipal(workspace=ws1)
@@ -1341,21 +1486,28 @@ def test_recuperacao_crash_exatas_3_acoes_com_undos_perfeitos(qtbot, tmp_path):
 
     # 1. Ação 1: Adiciona um Pico
     pico = croqui_pb2.Pico(nome="Pico 1")
-    janela1.croqui_controller.adicionar_repeated(janela1.croqui_model.obter_croqui_readonly(), "picos", 0, pico)
+    janela1.croqui_controller.adicionar_repeated(
+        janela1.croqui_model.obter_croqui_readonly(), "picos", 0, pico
+    )
 
     # 2. Ação 2: Adiciona um Setor
     sg = croqui_pb2.SetorOuGrupo()
     sg.setor.conteudo.nome = "Setor 1"
-    janela1.croqui_controller.adicionar_repeated(janela1.croqui_model.obter_croqui_readonly().picos[0], "setores_ou_grupos", 0, sg)
+    janela1.croqui_controller.adicionar_repeated(
+        janela1.croqui_model.obter_croqui_readonly().picos[0], "setores_ou_grupos", 0, sg
+    )
 
     # 3. Ação 3: Digita interativamente 7 caracteres no nome do setor
     for texto in ["S", "Se", "Set", "Seto", "Setor", "Setor ", "Setor Final"]:
         janela1.croqui_controller.alterar_primitivo(
-            janela1.croqui_model.obter_croqui_readonly().picos[0].setores_ou_grupos[0].setor.conteudo,
+            janela1.croqui_model.obter_croqui_readonly()
+            .picos[0]
+            .setores_ou_grupos[0]
+            .setor.conteudo,
             "nome",
             "Setor 1" if texto == "S" else "S",
             texto,
-            pode_mesclar=True
+            pode_mesclar=True,
         )
 
     # Verifica que a sessão ativa possui exatamente 3 comandos consolidados
@@ -1371,6 +1523,7 @@ def test_recuperacao_crash_exatas_3_acoes_com_undos_perfeitos(qtbot, tmp_path):
     # Reabre a aplicação
     ws2 = ExperimentalWorkspace(pasta_croqui)
     perguntas_acoes = []
+
     def mock_perguntar(total):
         perguntas_acoes.append(total)
         return True
@@ -1410,14 +1563,17 @@ def test_recuperacao_crash_exatas_3_acoes_com_undos_perfeitos(qtbot, tmp_path):
 
 
 def test_recuperacao_crash_edicao_repeated_creditos_com_undo_visual_imediato(qtbot, tmp_path):
-    from PySide6.QtWidgets import QLineEdit
     from PySide6.QtTest import QTest
+    from PySide6.QtWidgets import QLineEdit
+
     from editor.core.workspace import ExperimentalWorkspace
 
     pasta_croqui = tmp_path / "croqui_creditos"
     pasta_db = pasta_croqui / "database"
     pasta_db.mkdir(parents=True)
-    (pasta_db / "croqui.yaml").write_text("id: teste_cred\nnome: Meu Croqui\ncreditos:\n  - Autor Original\n", encoding="utf-8")
+    (pasta_db / "croqui.yaml").write_text(
+        "id: teste_cred\nnome: Meu Croqui\ncreditos:\n  - Autor Original\n", encoding="utf-8"
+    )
 
     ws1 = ExperimentalWorkspace(pasta_croqui)
     janela1 = JanelaPrincipal(workspace=ws1)
@@ -1426,15 +1582,21 @@ def test_recuperacao_crash_edicao_repeated_creditos_com_undo_visual_imediato(qtb
     form1 = janela1.pagina_dados.editor_dados.form_padrao
 
     # Ação 1: Digita em 'nome'
-    nome_le = [w for w in form1.findChildren(QLineEdit) if w.property("protobuf_field") == "nome"][0]
+    nome_le = [w for w in form1.findChildren(QLineEdit) if w.property("protobuf_field") == "nome"][
+        0
+    ]
     QTest.keyClicks(nome_le, " Oficial")
 
     # Ação 2: Digita em 'descricao'
-    desc_le = [w for w in form1.findChildren(QLineEdit) if w.property("protobuf_field") == "descricao"][0]
+    desc_le = [
+        w for w in form1.findChildren(QLineEdit) if w.property("protobuf_field") == "descricao"
+    ][0]
     QTest.keyClicks(desc_le, "Minha Descricao")
 
     # Ação 3: Digita no primeiro item de 'creditos'
-    cred_le = [w for w in form1.findChildren(QLineEdit) if w.property("protobuf_field") == "creditos[0]"][0]
+    cred_le = [
+        w for w in form1.findChildren(QLineEdit) if w.property("protobuf_field") == "creditos[0]"
+    ][0]
     QTest.keyClicks(cred_le, " Extra")
 
     assert nome_le.text() == "Meu Croqui Oficial"
@@ -1453,9 +1615,17 @@ def test_recuperacao_crash_edicao_repeated_creditos_com_undo_visual_imediato(qtb
         qtbot.addWidget(janela2)
 
         form2 = janela2.pagina_dados.editor_dados.form_padrao
-        nome_le2 = [w for w in form2.findChildren(QLineEdit) if w.property("protobuf_field") == "nome"][0]
-        desc_le2 = [w for w in form2.findChildren(QLineEdit) if w.property("protobuf_field") == "descricao"][0]
-        cred_le2 = [w for w in form2.findChildren(QLineEdit) if w.property("protobuf_field") == "creditos[0]"][0]
+        nome_le2 = [
+            w for w in form2.findChildren(QLineEdit) if w.property("protobuf_field") == "nome"
+        ][0]
+        desc_le2 = [
+            w for w in form2.findChildren(QLineEdit) if w.property("protobuf_field") == "descricao"
+        ][0]
+        cred_le2 = [
+            w
+            for w in form2.findChildren(QLineEdit)
+            if w.property("protobuf_field") == "creditos[0]"
+        ][0]
 
         assert nome_le2.text() == "Meu Croqui Oficial"
         assert desc_le2.text() == "Minha Descricao"
@@ -1489,11 +1659,15 @@ def test_on_salvar_erro_delega_para_exibir_dialogo_erro_salvamento(janela_princi
     janela = janela_principal
     janela._salvando = True
 
-    with patch("editor.views.dialogo_erro_salvamento.exibir_dialogo_erro_salvamento") as mock_exibir:
+    with patch(
+        "editor.views.dialogo_erro_salvamento.exibir_dialogo_erro_salvamento"
+    ) as mock_exibir:
         janela._on_salvar_erro("Erro de compilação teste", "Traceback detalhado teste")
 
         assert janela._salvando is False
-        mock_exibir.assert_called_once_with(janela, "Erro de compilação teste", "Traceback detalhado teste")
+        mock_exibir.assert_called_once_with(
+            janela, "Erro de compilação teste", "Traceback detalhado teste"
+        )
 
 
 def test_salvar_croqui_trata_excecao_e_delega_dialogo(janela_principal):
@@ -1501,8 +1675,13 @@ def test_salvar_croqui_trata_excecao_e_delega_dialogo(janela_principal):
     janela.workspace = MagicMock()
     janela.croqui_data = {"id": "teste"}
 
-    with patch("editor.core.worker.TarefaSalvamento", side_effect=RuntimeError("Falha ao instanciar thread")):
-        with patch("editor.views.dialogo_erro_salvamento.exibir_dialogo_erro_salvamento") as mock_exibir:
+    with patch(
+        "editor.core.worker.TarefaSalvamento",
+        side_effect=RuntimeError("Falha ao instanciar thread"),
+    ):
+        with patch(
+            "editor.views.dialogo_erro_salvamento.exibir_dialogo_erro_salvamento"
+        ) as mock_exibir:
             janela.salvar_croqui()
             mock_exibir.assert_called_once()
             args, _ = mock_exibir.call_args
@@ -1511,7 +1690,9 @@ def test_salvar_croqui_trata_excecao_e_delega_dialogo(janela_principal):
             assert "Falha ao instanciar thread" in str(args[1])
 
 
-@patch("editor.legacy_views.area_principal.QCoreApplication.applicationVersion", return_value="0.3.3")
+@patch(
+    "editor.legacy_views.area_principal.QCoreApplication.applicationVersion", return_value="0.3.3"
+)
 @patch("editor.legacy_views.area_principal.JanelaPrincipal.carregar_croqui")
 def test_atualizar_titulo_canal_beta(mock_carregar, mock_version, qtbot, monkeypatch):
     """Garante que o título da janela principal exiba (Beta) quando executando no canal Beta."""
@@ -1551,7 +1732,9 @@ def test_janela_principal_logo_e_icone_canal_beta(mock_carregar, qtbot, monkeypa
     # O logo Beta (#4196e9) possui tom predominantemente azul, enquanto o padrão (#e95441) é vermelho/laranja
     img = pixmap.toImage()
     cor_centro = img.pixelColor(img.width() // 2, img.height() // 2)
-    assert cor_centro.blue() > cor_centro.red(), f"Esperado azul > vermelho, obteve {cor_centro.name()}"
+    assert cor_centro.blue() > cor_centro.red(), (
+        f"Esperado azul > vermelho, obteve {cor_centro.name()}"
+    )
 
     icone = janela.windowIcon()
     assert not icone.isNull()
@@ -1561,6 +1744,7 @@ def test_janela_principal_logo_e_icone_canal_beta(mock_carregar, qtbot, monkeypa
 def test_pagina_mapas_carregamento_sob_demanda(qtbot):
     """Garante que WidgetEditorMapas não é criado na inicialização de PaginaMapas."""
     from editor.legacy_views.area_principal import PaginaMapas
+
     pagina = PaginaMapas()
     qtbot.addWidget(pagina)
     assert pagina.editor is None
@@ -1578,6 +1762,7 @@ def test_pagina_mapas_carregamento_sob_demanda(qtbot):
 def test_pagina_betas_carregamento_sob_demanda(qtbot):
     """Garante que PainelCuradoria não é criado na inicialização de PaginaBetas."""
     from editor.legacy_views.area_principal import PaginaBetas
+
     pagina = PaginaBetas()
     qtbot.addWidget(pagina)
     assert pagina.painel is None
@@ -1597,18 +1782,21 @@ def test_janela_principal_lazy_loading_mapas_ao_trocar_pagina(criar_janela):
     assert janela.pagina_mapas.editor is not None
 
 
-def test_on_salvar_sucesso_com_erros_de_compilacao_define_clean_e_alimenta_compilacao_controller(janela_principal):
+def test_on_salvar_sucesso_com_erros_de_compilacao_define_clean_e_alimenta_compilacao_controller(
+    janela_principal,
+):
     """Garante que _on_salvar_sucesso define setClean e alimenta compilacao_controller mesmo com erros."""
-    from unittest.mock import MagicMock
     from pathlib import Path
+    from unittest.mock import MagicMock
+
     janela = janela_principal
     janela._salvando = True
     janela.compilacao_controller = MagicMock()
     janela.exibir_notificacao = MagicMock()
-    
+
     erros = ["Erro de sintaxe no croqui.yaml", "Aviso: via sem grau"]
     undo_idx = janela.historico.obter_pilha().index()
-    
+
     janela._on_salvar_sucesso(
         caminho_retornado=Path("/fake/path"),
         erros=erros,
@@ -1616,7 +1804,7 @@ def test_on_salvar_sucesso_com_erros_de_compilacao_define_clean_e_alimenta_compi
         undo_index=undo_idx,
         database_modificado=False,
     )
-    
+
     assert janela._salvando is False
     assert janela.historico.obter_pilha().isClean()
     janela.compilacao_controller.processar_resultado.assert_called_once_with(erros)
@@ -1648,9 +1836,7 @@ def test_acao_sincronizar_desabilitada_sem_pr_branch(criar_janela, tmp_path):
 def test_acao_sincronizar_habilitada_com_pr_branch(criar_janela, tmp_path):
     mock_ws = MagicMock()
     mock_ws.can_publish_pr.return_value = True
-    mock_ws.ler_metadados_experimentais.return_value = {
-        "pull_request_branch": "edicao-bau-1234"
-    }
+    mock_ws.ler_metadados_experimentais.return_value = {"pull_request_branch": "edicao-bau-1234"}
     mock_ws.obter_caminho_database.return_value = tmp_path
     janela = criar_janela(workspace=mock_ws)
 
@@ -1661,9 +1847,7 @@ def test_acao_sincronizar_habilitada_com_pr_branch(criar_janela, tmp_path):
 def test_sincronizar_croqui_dispara_worker(criar_janela, tmp_path):
     mock_ws = MagicMock()
     mock_ws.can_publish_pr.return_value = True
-    mock_ws.ler_metadados_experimentais.return_value = {
-        "pull_request_branch": "edicao-bau-1234"
-    }
+    mock_ws.ler_metadados_experimentais.return_value = {"pull_request_branch": "edicao-bau-1234"}
     mock_ws.obter_caminho_database.return_value = tmp_path
     janela = criar_janela(workspace=mock_ws)
     janela.croqui_data = {"id": "bau"}
@@ -1679,6 +1863,7 @@ def test_sincronizar_croqui_dispara_worker(criar_janela, tmp_path):
 
 def test_on_sincronizacao_conflito_exibe_dialogo_e_resolve_manter_local(janela_principal):
     from editor.views.dialogos.dialogo_conflito_sincronizacao import DecisaoConflito
+
     janela = janela_principal
     janela._recarregar_dados_apos_salvamento = MagicMock()
 
@@ -1686,8 +1871,12 @@ def test_on_sincronizacao_conflito_exibe_dialogo_e_resolve_manter_local(janela_p
     mock_resultado = MagicMock()
     mock_resultado.arquivos_conflito = ["database/bau/croqui.yaml"]
 
-    with patch("editor.views.dialogos.dialogo_conflito_sincronizacao.DialogoConflitoSincronizacao") as mock_dlg_cls, \
-         patch("PySide6.QtWidgets.QMessageBox.information"):
+    with (
+        patch(
+            "editor.views.dialogos.dialogo_conflito_sincronizacao.DialogoConflitoSincronizacao"
+        ) as mock_dlg_cls,
+        patch("PySide6.QtWidgets.QMessageBox.information"),
+    ):
         mock_dlg = MagicMock()
         mock_dlg.exec.return_value = QDialog.DialogCode.Accepted
         mock_dlg.obter_decisao.return_value = DecisaoConflito.MANTER_LOCAL
@@ -1714,6 +1903,7 @@ def test_on_sincronizacao_conflito_exibe_dialogo_e_resolve_manter_local(janela_p
 
 def test_on_sincronizacao_conflito_exibe_dialogo_e_resolve_usar_remoto(janela_principal):
     from editor.views.dialogos.dialogo_conflito_sincronizacao import DecisaoConflito
+
     janela = janela_principal
     janela._recarregar_dados_apos_salvamento = MagicMock()
 
@@ -1721,8 +1911,12 @@ def test_on_sincronizacao_conflito_exibe_dialogo_e_resolve_usar_remoto(janela_pr
     mock_resultado = MagicMock()
     mock_resultado.arquivos_conflito = ["database/bau/croqui.yaml"]
 
-    with patch("editor.views.dialogos.dialogo_conflito_sincronizacao.DialogoConflitoSincronizacao") as mock_dlg_cls, \
-         patch("PySide6.QtWidgets.QMessageBox.information"):
+    with (
+        patch(
+            "editor.views.dialogos.dialogo_conflito_sincronizacao.DialogoConflitoSincronizacao"
+        ) as mock_dlg_cls,
+        patch("PySide6.QtWidgets.QMessageBox.information"),
+    ):
         mock_dlg = MagicMock()
         mock_dlg.exec.return_value = QDialog.DialogCode.Accepted
         mock_dlg.obter_decisao.return_value = DecisaoConflito.USAR_REMOTO
@@ -1749,6 +1943,7 @@ def test_on_sincronizacao_conflito_exibe_dialogo_e_resolve_usar_remoto(janela_pr
 
 def test_on_sincronizacao_conflito_cancelar_nao_chama_resolver(janela_principal):
     from editor.views.dialogos.dialogo_conflito_sincronizacao import DecisaoConflito
+
     janela = janela_principal
     janela._recarregar_dados_apos_salvamento = MagicMock()
 
@@ -1756,7 +1951,9 @@ def test_on_sincronizacao_conflito_cancelar_nao_chama_resolver(janela_principal)
     mock_resultado = MagicMock()
     mock_resultado.arquivos_conflito = ["database/bau/croqui.yaml"]
 
-    with patch("editor.views.dialogos.dialogo_conflito_sincronizacao.DialogoConflitoSincronizacao") as mock_dlg_cls:
+    with patch(
+        "editor.views.dialogos.dialogo_conflito_sincronizacao.DialogoConflitoSincronizacao"
+    ) as mock_dlg_cls:
         mock_dlg = MagicMock()
         mock_dlg.exec.return_value = QDialog.DialogCode.Rejected
         mock_dlg.obter_decisao.return_value = DecisaoConflito.CANCELAR
@@ -1817,19 +2014,12 @@ def test_on_sincronizacao_erro_nao_silencioso_exibe_warning(janela_principal):
 def test_carregar_croqui_com_pr_branch_dispara_sincronizacao_silenciosa(criar_janela, tmp_path):
     mock_ws = MagicMock()
     mock_ws.can_publish_pr.return_value = True
-    mock_ws.ler_metadados_experimentais.return_value = {
-        "pull_request_branch": "edicao-bau-1234"
-    }
-    
+    mock_ws.ler_metadados_experimentais.return_value = {"pull_request_branch": "edicao-bau-1234"}
+
     caminho_yaml = tmp_path / "croqui.yaml"
     caminho_yaml.write_text("id: bau\nnome: Bau\n", encoding="utf-8")
     mock_ws.obter_caminho_database.return_value = tmp_path
-    
+
     with patch.object(JanelaPrincipal, "sincronizar_croqui") as mock_sinc:
         janela = criar_janela(workspace=mock_ws)
         mock_sinc.assert_called_with(silencioso=True)
-
-
-
-
-

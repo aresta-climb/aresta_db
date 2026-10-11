@@ -2,149 +2,163 @@
 # Copyright (C) 2026 Aresta Climb Contributors
 
 import pytest
-from editor.views.widget_painel_referencias import PainelReferencias
+
 from aresta_api.proto.generated import croqui_pb2
+from editor.views.widget_painel_referencias import PainelReferencias
+
 
 def test_painel_referencias_sem_controller(qapp):
     """[TDD] Verifica se o PainelReferencias não falha ao ser utilizado sem um MapasController (modo standalone)."""
     painel = PainelReferencias(None)
-    
+
     mapa = croqui_pb2.Mapa()
     ref = mapa.referencias.add()
     ref.alvo_uid = "Grupo Teste"
-    
+
     painel.carregar_mapa(mapa)
-    
+
     # Simula clicar em adicionar (não deve falhar, simplesmente ignora)
     try:
         painel._ao_clicar_adicionar()
     except Exception as e:
         pytest.fail(f"_ao_clicar_adicionar() disparou exceção com controller None: {e}")
-        
+
     # Simula clicar em remover (não deve falhar, simplesmente ignora)
     try:
         painel._confirmar_remover(0)
     except Exception as e:
         pytest.fail(f"_confirmar_remover() disparou exceção com controller None: {e}")
-        
+
     assert painel.layout_cards.count() == 1
+
 
 def test_emit_iniciar_modo_linkagem_com_readonly_proxy(qapp):
     """[TDD] Verifica se o PyQt não dá TypeError ao emitir a referência empacotada no ReadOnlyProxy."""
     painel = PainelReferencias(None)
-    
+
     from editor.models.readonly_proxy import ReadOnlyProxy
+
     mapa = croqui_pb2.Mapa()
     ref = mapa.referencias.add()
     ref.alvo_uid = "Grupo Teste"
-    
+
     proxy_mapa = ReadOnlyProxy(mapa)
     painel.carregar_mapa(proxy_mapa)
-    
+
     sinais = []
     painel.iniciar_modo_linkagem.connect(lambda idx, r: sinais.append((idx, r)))
-    
+
     card = painel.layout_cards.itemAt(0).widget()
     card.btn_linkar.setChecked(True)
-    
+
     assert len(sinais) == 1
     assert sinais[0][0] == 0
     assert sinais[0][1].alvo_uid == "Grupo Teste"
 
+
 def test_card_texto_dinamico_e_botao_remover(qapp):
     """[TDD] Verifica se botões de câmera mudam de estado se existe ajuste de câmera."""
-    from editor.views.widget_painel_referencias import PainelReferencias
     from editor.models.readonly_proxy import ReadOnlyProxy
-    
+    from editor.views.widget_painel_referencias import PainelReferencias
+
     painel = PainelReferencias(None)
-    
+
     mapa = croqui_pb2.Mapa()
-    ref1 = mapa.referencias.add() # Sem câmera
-    ref2 = mapa.referencias.add() # Com câmera
+    ref1 = mapa.referencias.add()  # Sem câmera
+    ref2 = mapa.referencias.add()  # Com câmera
     ref2.ajuste_de_camera.zoom = 2.0
-    
+
     painel.carregar_mapa(ReadOnlyProxy(mapa))
-    
+
     card1 = painel.layout_cards.itemAt(0).widget()
     card2 = painel.layout_cards.itemAt(1).widget()
-    
+
     # Card 1: Sem câmera
     assert "Adicionar" in card1.btn_camera.text()
-    assert getattr(card1, 'btn_remover_camera', None) is None or card1.btn_remover_camera.isHidden()
-    
+    assert getattr(card1, "btn_remover_camera", None) is None or card1.btn_remover_camera.isHidden()
+
     # Card 2: Com câmera
     assert "Modificar" in card2.btn_camera.text()
-    assert getattr(card2, 'btn_remover_camera', None) is not None
+    assert getattr(card2, "btn_remover_camera", None) is not None
     assert not card2.btn_remover_camera.isHidden()
+
 
 def test_hover_in_envia_referencia(qapp):
     """[TDD] Verifica se hover_in emite a referência inteira, não só os IDs."""
-    from editor.views.widget_painel_referencias import PainelReferencias
     from editor.models.readonly_proxy import ReadOnlyProxy
-    
+    from editor.views.widget_painel_referencias import PainelReferencias
+
     painel = PainelReferencias(None)
     mapa = croqui_pb2.Mapa()
     ref = mapa.referencias.add()
     ref.alvo_uid = "Hover Test"
-    
+
     painel.carregar_mapa(ReadOnlyProxy(mapa))
     card = painel.layout_cards.itemAt(0).widget()
-    
+
     sinais = []
     painel.destacar_pois.connect(lambda r: sinais.append(r))
-    
+
     card.enterEvent(None)
-    
+
     assert len(sinais) == 1
     # O sinal recebido deve ser o proxy da referência, que tem .alvo_uid
     assert sinais[0].alvo_uid == "Hover Test"
 
+
 def test_botoes_layout(qapp):
     """[TDD] Verifica se o botão de remover referência tem o texto correto."""
-    from editor.views.widget_painel_referencias import PainelReferencias
     from editor.models.readonly_proxy import ReadOnlyProxy
-    
+    from editor.views.widget_painel_referencias import PainelReferencias
+
     painel = PainelReferencias(None)
     mapa = croqui_pb2.Mapa()
     mapa.referencias.add()
-    
+
     painel.carregar_mapa(ReadOnlyProxy(mapa))
     card = painel.layout_cards.itemAt(0).widget()
-    
+
     assert card.btn_remover.toolTip().strip() == "Excluir Referência"
     assert card.btn_remover.text().strip() == ""
 
+
 def test_btn_remover_click(qapp):
     """[TDD] Verifica se o clique na lixeira chama _confirmar_remover."""
-    from editor.views.widget_painel_referencias import PainelReferencias
-    from editor.models.readonly_proxy import ReadOnlyProxy
-    from aresta_api.proto.generated import croqui_pb2
     from unittest.mock import MagicMock
-    
+
+    from aresta_api.proto.generated import croqui_pb2
+    from editor.models.readonly_proxy import ReadOnlyProxy
+    from editor.views.widget_painel_referencias import PainelReferencias
+
     painel = PainelReferencias(None)
     mapa = croqui_pb2.Mapa()
     mapa.referencias.add()
-    
+
     painel.carregar_mapa(ReadOnlyProxy(mapa))
     card = painel.layout_cards.itemAt(0).widget()
-    
+
     painel._confirmar_remover = MagicMock()
     card.btn_remover.clicked.emit()
     painel._confirmar_remover.assert_called_once_with(0)
 
+
 def test_excluir_referencia_limpa_modos_ativos(qapp):
     """[TDD] Verifica se ao excluir uma referência, os modos câmera e linkagem são cancelados para evitar crashes."""
-    from editor.views.widget_painel_referencias import PainelReferencias
     from unittest.mock import MagicMock
+
+    from editor.views.widget_painel_referencias import PainelReferencias
+
     painel = PainelReferencias(None)
     painel._limpar_modos_ativos = MagicMock()
     painel._confirmar_remover(0)
     painel._limpar_modos_ativos.assert_called_once()
 
+
 def test_card_referencia_nao_tem_texto_referencia_x_e_tem_botao_lapis(qapp):
     """[TDD] Verifica se o card não exibe Referência X e se tem o botão de lápis para editar o alvo."""
-    from editor.views.widget_painel_referencias import CardReferencia
     from aresta_api.proto.generated import croqui_pb2
+    from editor.views.widget_painel_referencias import CardReferencia
+
     croqui = croqui_pb2.Croqui()
     pico = croqui.picos.add()
     sg = pico.setores_ou_grupos.add()
@@ -152,99 +166,109 @@ def test_card_referencia_nao_tem_texto_referencia_x_e_tem_botao_lapis(qapp):
     sg.grupo.conteudo.uid = "uid_meu_mapa"
     ref = croqui_pb2.Mapa.Referencia(alvo_uid="uid_meu_mapa")
     card = CardReferencia(ref, 0, root_croqui=croqui)
-    
+
     # Não deve ter 'Referência' no label, só o nome do alvo
     # A UI vai ter apenas <b>meu_mapa</b> e o botão.
     assert "Referência" not in card.label_titulo.text()
-    assert getattr(card, 'btn_editar_alvo', None) is not None
+    assert getattr(card, "btn_editar_alvo", None) is not None
     assert card.btn_editar_alvo.toolTip() == "Editar Referência"
+
 
 def test_adicionar_referencia_recusa_duplicada(qapp):
     """[TDD] Verifica se adicionar referência recusa caso o alvo já exista."""
-    from editor.views.widget_painel_referencias import PainelReferencias
-    from editor.models.readonly_proxy import ReadOnlyProxy
-    from aresta_api.proto.generated import croqui_pb2
     from unittest.mock import MagicMock, patch
-    
+
+    from aresta_api.proto.generated import croqui_pb2
+    from editor.models.readonly_proxy import ReadOnlyProxy
+    from editor.views.widget_painel_referencias import PainelReferencias
+
     mapa = croqui_pb2.Mapa()
     ref_existente = mapa.referencias.add()
     ref_existente.alvo_uid = "uid_meu_alvo"
-    
+
     controller = MagicMock()
     painel = PainelReferencias(controller)
     painel.carregar_mapa(ReadOnlyProxy(mapa))
-    
+
     # Mock do dialogo para retornar o mesmo alvo
     ref_nova = croqui_pb2.Mapa.Referencia()
     ref_nova.alvo_uid = "uid_meu_alvo"
-    
-    with patch('editor.views.widget_painel_referencias.DialogoBuscaReferencia') as MockDialogo, \
-         patch('PySide6.QtWidgets.QMessageBox.warning') as MockWarning:
+
+    with (
+        patch("editor.views.widget_painel_referencias.DialogoBuscaReferencia") as MockDialogo,
+        patch("PySide6.QtWidgets.QMessageBox.warning") as MockWarning,
+    ):
         mock_dlg_instance = MockDialogo.return_value
         mock_dlg_instance.exec.return_value = True
         mock_dlg_instance.obter_referencia.return_value = ref_nova
-        
+
         painel._ao_clicar_adicionar()
-        
+
         MockWarning.assert_called_once()
         controller.adicionar_referencia.assert_not_called()
 
+
 def test_editar_referencia_altera_alvo_e_recusa_duplicada(qapp):
     """[TDD] Verifica se editar a referência atualiza o alvo e recusa se houver duplicata."""
-    from editor.views.widget_painel_referencias import PainelReferencias
-    from editor.models.readonly_proxy import ReadOnlyProxy
-    from aresta_api.proto.generated import croqui_pb2
     from unittest.mock import MagicMock, patch
-    
+
+    from aresta_api.proto.generated import croqui_pb2
+    from editor.models.readonly_proxy import ReadOnlyProxy
+    from editor.views.widget_painel_referencias import PainelReferencias
+
     mapa = croqui_pb2.Mapa()
     ref1 = mapa.referencias.add()
     ref1.alvo_uid = "uid_alvo1"
     ref2 = mapa.referencias.add()
     ref2.alvo_uid = "uid_alvo2"
-    
+
     controller = MagicMock()
     painel = PainelReferencias(controller)
     proxy = ReadOnlyProxy(mapa)
     painel.carregar_mapa(proxy)
-    
+
     # 1. Tentar editar alvo1 para alvo2 (duplicada)
     ref_tentativa = croqui_pb2.Mapa.Referencia()
     ref_tentativa.alvo_uid = "uid_alvo2"
-    
-    with patch('editor.views.widget_painel_referencias.DialogoBuscaReferencia') as MockDialogo, \
-         patch('PySide6.QtWidgets.QMessageBox.warning') as MockWarning:
+
+    with (
+        patch("editor.views.widget_painel_referencias.DialogoBuscaReferencia") as MockDialogo,
+        patch("PySide6.QtWidgets.QMessageBox.warning") as MockWarning,
+    ):
         mock_dlg_instance = MockDialogo.return_value
         mock_dlg_instance.exec.return_value = True
         mock_dlg_instance.obter_referencia.return_value = ref_tentativa
-        
+
         painel._ao_clicar_editar_alvo(0, proxy.referencias[0])
-        
+
         MockWarning.assert_called_once()
         controller.alterar_referencia.assert_not_called()
-        
+
     # 2. Tentar editar alvo1 para alvo3 (sucesso)
     ref_tentativa.alvo_uid = "uid_alvo3"
-    with patch('editor.views.widget_painel_referencias.DialogoBuscaReferencia') as MockDialogo, \
-         patch('PySide6.QtWidgets.QMessageBox.warning') as MockWarning:
+    with (
+        patch("editor.views.widget_painel_referencias.DialogoBuscaReferencia") as MockDialogo,
+        patch("PySide6.QtWidgets.QMessageBox.warning") as MockWarning,
+    ):
         mock_dlg_instance = MockDialogo.return_value
         mock_dlg_instance.exec.return_value = True
         mock_dlg_instance.obter_referencia.return_value = ref_tentativa
-        
+
         painel._ao_clicar_editar_alvo(0, proxy.referencias[0])
-        
+
         MockWarning.assert_not_called()
         controller.alterar_referencia.assert_called_once()
         ref_antiga_passada = controller.alterar_referencia.call_args[0][2]
         ref_nova_passada = controller.alterar_referencia.call_args[0][3]
-        
+
         assert ref_antiga_passada.alvo_uid == "uid_alvo1"
         assert ref_nova_passada.alvo_uid == "uid_alvo3"
 
 
 def test_card_referencia_exibe_preview_codenome_valido(qapp):
     """[TDD] Verifica se o CardReferencia exibe badge com o codenome (ex: 5-C) quando há nós identificadores."""
-    from editor.views.widget_painel_referencias import PainelReferencias
     from editor.models.readonly_proxy import ReadOnlyProxy
+    from editor.views.widget_painel_referencias import PainelReferencias
 
     mapa = croqui_pb2.Mapa()
     p1 = mapa.pontos_de_interesse.add()
@@ -273,8 +297,8 @@ def test_card_referencia_exibe_preview_codenome_valido(qapp):
 
 def test_card_referencia_exibe_aviso_sem_rotulo(qapp):
     """[TDD] Verifica se o CardReferencia exibe indicativo de aviso quando a referência não possui identificador."""
-    from editor.views.widget_painel_referencias import PainelReferencias
     from editor.models.readonly_proxy import ReadOnlyProxy
+    from editor.views.widget_painel_referencias import PainelReferencias
 
     mapa = croqui_pb2.Mapa()
     p = mapa.pontos_de_interesse.add()
@@ -296,9 +320,10 @@ def test_card_referencia_exibe_aviso_sem_rotulo(qapp):
 
 def test_card_referencia_botao_inverter_chama_alterar_referencia(qapp):
     """[TDD] Verifica se o clique em Inverter Ordem chama alterar_referencia com os IDs invertidos."""
-    from editor.views.widget_painel_referencias import PainelReferencias
-    from editor.models.readonly_proxy import ReadOnlyProxy
     from unittest.mock import MagicMock
+
+    from editor.models.readonly_proxy import ReadOnlyProxy
+    from editor.views.widget_painel_referencias import PainelReferencias
 
     mapa = croqui_pb2.Mapa()
     ref = mapa.referencias.add()
@@ -325,8 +350,9 @@ def test_card_referencia_botao_inverter_chama_alterar_referencia(qapp):
 def test_inversao_ids_reversibilidade_undo_redo(qapp):
     """[TDD] Verifica a reversibilidade total (Undo/Redo) da inversão de IDs com MapasController real."""
     from PySide6.QtGui import QUndoStack
-    from editor.models.croqui_model import CroquiModel
+
     from editor.controllers.mapas_controller import MapasController
+    from editor.models.croqui_model import CroquiModel
     from editor.views.widget_painel_referencias import PainelReferencias
 
     croqui = croqui_pb2.Croqui()
@@ -402,6 +428,7 @@ def test_ao_clicar_inverter_ids_sem_controller(qapp):
 def test_card_referencia_possui_estilo_qtooltip(qapp):
     """[TDD] Garante que CardReferencia possui regra de estilo para QToolTip com fundo claro e texto escuro."""
     from editor.views.widget_painel_referencias import CardReferencia
+
     ref = croqui_pb2.Mapa.Referencia()
     card = CardReferencia(ref, 0)
     estilo = card.styleSheet()
@@ -445,9 +472,10 @@ def test_atualizar_previews_atualiza_cards(qapp):
 
 def test_card_referencia_clique_define_selecionado_e_emite_sinais(qapp):
     """[TDD] Garante que clicar no CardReferencia seleciona o card, emite referencia_selecionada e toggle emite referencia_desmarcada."""
-    from editor.views.widget_painel_referencias import PainelReferencias
+    from PySide6.QtCore import QEvent, QPointF, Qt
     from PySide6.QtGui import QMouseEvent
-    from PySide6.QtCore import Qt, QPointF, QEvent
+
+    from editor.views.widget_painel_referencias import PainelReferencias
 
     painel = PainelReferencias(None)
     mapa = croqui_pb2.Mapa()
@@ -470,7 +498,14 @@ def test_card_referencia_clique_define_selecionado_e_emite_sinais(qapp):
     assert not card2.selecionado
 
     # 1. Clique com botão esquerdo no Card 1
-    ev_press = QMouseEvent(QEvent.Type.MouseButtonPress, QPointF(10, 10), QPointF(10, 10), Qt.MouseButton.LeftButton, Qt.MouseButton.LeftButton, Qt.KeyboardModifier.NoModifier)
+    ev_press = QMouseEvent(
+        QEvent.Type.MouseButtonPress,
+        QPointF(10, 10),
+        QPointF(10, 10),
+        Qt.MouseButton.LeftButton,
+        Qt.MouseButton.LeftButton,
+        Qt.KeyboardModifier.NoModifier,
+    )
     card1.mousePressEvent(ev_press)
 
     assert card1.selecionado
@@ -481,7 +516,14 @@ def test_card_referencia_clique_define_selecionado_e_emite_sinais(qapp):
     assert len(sinais_desmarcacao) == 0
 
     # 2. Clique no Card 2 desmarca Card 1 e seleciona Card 2
-    ev_press2 = QMouseEvent(QEvent.Type.MouseButtonPress, QPointF(10, 10), QPointF(10, 10), Qt.MouseButton.LeftButton, Qt.MouseButton.LeftButton, Qt.KeyboardModifier.NoModifier)
+    ev_press2 = QMouseEvent(
+        QEvent.Type.MouseButtonPress,
+        QPointF(10, 10),
+        QPointF(10, 10),
+        Qt.MouseButton.LeftButton,
+        Qt.MouseButton.LeftButton,
+        Qt.KeyboardModifier.NoModifier,
+    )
     card2.mousePressEvent(ev_press2)
 
     assert not card1.selecionado
@@ -499,8 +541,9 @@ def test_card_referencia_clique_define_selecionado_e_emite_sinais(qapp):
 
 def test_card_referencia_definir_selecionado_estilo(qapp):
     """[TDD] Verifica se o método definir_selecionado aplica cursor apontador e estilo visual de destaque."""
-    from editor.views.widget_painel_referencias import CardReferencia
     from PySide6.QtCore import Qt
+
+    from editor.views.widget_painel_referencias import CardReferencia
 
     ref = croqui_pb2.Mapa.Referencia()
     card = CardReferencia(ref, 0)
@@ -519,8 +562,9 @@ def test_card_referencia_definir_selecionado_estilo(qapp):
 
 def test_selecionar_referencia_com_rolagem_e_preservacao_ao_atualizar(qapp):
     """[TDD] Verifica se selecionar_referencia chama ensureWidgetVisible e se atualizar_cards preserva a seleção."""
-    from editor.views.widget_painel_referencias import PainelReferencias
     from unittest.mock import MagicMock
+
+    from editor.views.widget_painel_referencias import PainelReferencias
 
     painel = PainelReferencias(None)
     mapa = croqui_pb2.Mapa()
@@ -560,9 +604,10 @@ def test_selecionar_referencia_com_rolagem_e_preservacao_ao_atualizar(qapp):
 
 def test_mouse_press_botao_direito_nao_seleciona(qapp):
     """[TDD] Garante que clicar com botão direito no CardReferencia não emite o sinal de clique de seleção."""
-    from editor.views.widget_painel_referencias import PainelReferencias
+    from PySide6.QtCore import QEvent, QPointF, Qt
     from PySide6.QtGui import QMouseEvent
-    from PySide6.QtCore import Qt, QPointF, QEvent
+
+    from editor.views.widget_painel_referencias import PainelReferencias
 
     painel = PainelReferencias(None)
     mapa = croqui_pb2.Mapa()
@@ -574,7 +619,14 @@ def test_mouse_press_botao_direito_nao_seleciona(qapp):
     sinais_clique = []
     card.clicado.connect(lambda idx: sinais_clique.append(idx))
 
-    ev_direito = QMouseEvent(QEvent.Type.MouseButtonPress, QPointF(10, 10), QPointF(10, 10), Qt.MouseButton.RightButton, Qt.MouseButton.RightButton, Qt.KeyboardModifier.NoModifier)
+    ev_direito = QMouseEvent(
+        QEvent.Type.MouseButtonPress,
+        QPointF(10, 10),
+        QPointF(10, 10),
+        Qt.MouseButton.RightButton,
+        Qt.MouseButton.RightButton,
+        Qt.KeyboardModifier.NoModifier,
+    )
     card.mousePressEvent(ev_direito)
 
     assert len(sinais_clique) == 0
@@ -607,6 +659,7 @@ def test_confirmar_remover_ajusta_indice_selecionado(qapp):
 def test_card_referencia_renomeacao_vincular_elementos_texto_e_tooltip(qapp):
     """[TDD 1.1] Verifica se o botão de vinculação possui o texto e tooltip em português brasileiro."""
     from editor.views.widget_painel_referencias import CardReferencia
+
     ref = croqui_pb2.Mapa.Referencia()
     card = CardReferencia(ref, 0)
 
@@ -614,7 +667,10 @@ def test_card_referencia_renomeacao_vincular_elementos_texto_e_tooltip(qapp):
     assert hasattr(card, "btn_vincular")
     assert card.btn_vincular is card.btn_linkar
     assert "Vincular Elementos" in card.btn_vincular.text()
-    assert "Vincular ou desvincular elementos (pontos e trajetos) do mapa a esta referência" in card.btn_vincular.toolTip()
+    assert (
+        "Vincular ou desvincular elementos (pontos e trajetos) do mapa a esta referência"
+        in card.btn_vincular.toolTip()
+    )
 
 
 def test_card_referencia_botao_vincular_toggle_texto_e_selecao_automatica(qapp):
@@ -708,8 +764,9 @@ def test_atualizar_cards_preserva_modo_vinculacao_ativo(qapp):
 
 def test_painel_referencias_reatividade_controller_e_model(qapp):
     """Verifica se definir mapas_controller ou croqui_model atualiza os nomes nos cards."""
-    from editor.models.croqui_model import CroquiModel
     from unittest.mock import MagicMock
+
+    from editor.models.croqui_model import CroquiModel
 
     croqui = croqui_pb2.Croqui()
     pico = croqui.picos.add(nome="Pico dos Sonhos")
@@ -751,9 +808,10 @@ def test_painel_referencias_reatividade_controller_e_model(qapp):
 
 def test_widget_editor_mapas_propaga_controller_ao_painel(qapp):
     """Verifica que definir mapas_controller ou croqui_model no WidgetEditorMapas propaga para painel_referencias."""
-    from editor.views.widget_editor_mapas import WidgetEditorMapas
-    from editor.models.croqui_model import CroquiModel
     from unittest.mock import MagicMock
+
+    from editor.models.croqui_model import CroquiModel
+    from editor.views.widget_editor_mapas import WidgetEditorMapas
 
     croqui = croqui_pb2.Croqui()
     model = CroquiModel(croqui)
@@ -771,4 +829,3 @@ def test_widget_editor_mapas_propaga_controller_ao_painel(qapp):
 
     widget.croqui_controller = ctrl_mock
     assert widget.croqui_controller is ctrl_mock
-

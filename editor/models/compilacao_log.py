@@ -6,7 +6,7 @@ from editor.core.classificador_mensagens import eh_linha_de_aviso_ou_erro
 
 class CompilacaoLog:
     """Modelo simples para armazenar o estado das saídas de compilação."""
-    
+
     def __init__(self) -> None:
         self._logs: list[str] = []
         self._tem_avisos_ou_erros: bool = False
@@ -15,7 +15,6 @@ class CompilacaoLog:
         """Atualiza o estado dos logs e recalcula se existem erros ou avisos."""
         self._logs = mensagens
         self._tem_avisos_ou_erros = self._verificar_erros_ou_avisos(mensagens)
-
 
     def obter_logs(self) -> list[str]:
         """Retorna a lista de mensagens armazenadas."""
@@ -28,4 +27,3 @@ class CompilacaoLog:
     def _verificar_erros_ou_avisos(self, mensagens: list[str]) -> bool:
         """Verifica se alguma das mensagens é categorizada como erro ou aviso."""
         return any(eh_linha_de_aviso_ou_erro(msg) for msg in mensagens)
-

@@ -1,16 +1,17 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
-import pytest
 from unittest.mock import MagicMock
+
 from aresta_api.proto.generated import beta_pb2
 from coleta_de_betas.inteligencia.avaliador import (
+    avaliar_candidatos,
+    carregar_betas_pendentes,
     gerar_prompt_avaliacao,
     parsear_resposta_llm,
-    avaliar_candidatos,
     salvar_betas_pendentes,
-    carregar_betas_pendentes
 )
+
 
 def test_gerar_prompt_avaliacao():
     candidatos = [
@@ -18,7 +19,7 @@ def test_gerar_prompt_avaliacao():
             "url": "https://youtube.com/v1",
             "titulo": "Mandando Fusca Azul V4",
             "thumbnail_url": "https://img.youtube.com/vi/v1/hqdefault.jpg",
-            "snippet": "Escalada em Ouro Preto"
+            "snippet": "Escalada em Ouro Preto",
         }
     ]
     prompt = gerar_prompt_avaliacao("Fusca Azul", "V4", "Geriatria", "Ouro Preto", candidatos)
@@ -50,7 +51,9 @@ def test_parsear_resposta_llm_json_valido():
 
 
 def test_parsear_resposta_llm_json_direto():
-    json_str = '[{"url": "https://instagram.com/p/123", "score": 40, "justificativa": "Dúvida no setor"}]'
+    json_str = (
+        '[{"url": "https://instagram.com/p/123", "score": 40, "justificativa": "Dúvida no setor"}]'
+    )
     dados = parsear_resposta_llm(json_str)
     assert len(dados) == 1
     assert dados[0]["score"] == 40
@@ -73,8 +76,10 @@ def test_avaliar_candidatos_atualiza_proto():
     ]
     """
 
-    avaliados = avaliar_candidatos("Fusca Azul", "V4", "Geriatria", "Ouro Preto", [m1], client_llm=mock_llm)
-    
+    avaliados = avaliar_candidatos(
+        "Fusca Azul", "V4", "Geriatria", "Ouro Preto", [m1], client_llm=mock_llm
+    )
+
     assert len(avaliados) == 1
     item = avaliados[0]
     assert item.resultado_llm.llm_confidence_score == 90

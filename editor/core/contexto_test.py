@@ -2,7 +2,9 @@
 # Copyright (C) 2026 Aresta Climb Contributors
 
 import unittest
+
 from editor.core.contexto import ContextoUIPath
+
 
 class ContextoUIPathTest(unittest.TestCase):
     def test_parse_vazio(self):
@@ -45,5 +47,6 @@ class ContextoUIPathTest(unittest.TestCase):
         self.assertEqual(ctx.caminho_local_arvore, "node:root/node:Croqui")
         self.assertIsNone(ctx.arquivo_mapa)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     unittest.main()

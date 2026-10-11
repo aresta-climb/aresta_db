@@ -3,9 +3,9 @@
 
 import json
 import threading
-from http.server import HTTPServer, BaseHTTPRequestHandler
-from urllib.parse import urlparse, parse_qs
-from typing import Optional, Dict, Any
+from http.server import BaseHTTPRequestHandler, HTTPServer
+from typing import Any
+from urllib.parse import parse_qs, urlparse
 
 HTML_RESPOSTA_SUCESSO = """<!DOCTYPE html>
 <html lang="pt-BR">
@@ -88,10 +88,9 @@ class ManipuladorRequisicaoOAuth(BaseHTTPRequestHandler):
 
         # Se vier erro na query (ex: autorização negada ou falha do provedor)
         if "error" in params or "error_description" in params:
-            erro = params.get(
-                "error_description", params.get("error", ["Erro na autorização"])
-            )[0]
+            erro = params.get("error_description", params.get("error", ["Erro na autorização"]))[0]
             from editor.core.registro_log import logger
+
             logger.warning(f"[OAuth Callback] Erro retornado pelo provedor: {erro}")
             getattr(self.server, "servidor_oauth").definir_tokens({"erro": erro})
             self.send_response(200)
@@ -104,6 +103,7 @@ class ManipuladorRequisicaoOAuth(BaseHTTPRequestHandler):
         # Se os tokens vierem diretamente por query params (ex: code exchange ou redirect customizado)
         if "access_token" in params:
             from editor.core.registro_log import logger
+
             logger.info("[OAuth Callback] Tokens de autenticação recebidos via query params.")
             tokens = {
                 "access_token": params["access_token"][0],
@@ -131,6 +131,7 @@ class ManipuladorRequisicaoOAuth(BaseHTTPRequestHandler):
             try:
                 dados = json.loads(corpo.decode("utf-8"))
                 from editor.core.registro_log import logger
+
                 logger.info("[OAuth Callback] Tokens de autenticação recebidos via POST /tokens.")
                 getattr(self.server, "servidor_oauth").definir_tokens(dados)
                 self.send_response(200)
@@ -139,7 +140,11 @@ class ManipuladorRequisicaoOAuth(BaseHTTPRequestHandler):
                 self.wfile.write(HTML_RESPOSTA_SUCESSO.encode("utf-8"))
             except Exception as e:
                 from editor.core.registro_log import logger
-                logger.error(f"[OAuth Callback] Erro ao processar tokens recebidos via POST: {e}", exc_info=True)
+
+                logger.error(
+                    f"[OAuth Callback] Erro ao processar tokens recebidos via POST: {e}",
+                    exc_info=True,
+                )
                 self.send_response(400)
                 self.end_headers()
 
@@ -154,27 +159,21 @@ class ServidorCallbackOAuth(QObject):
 
     tokens_recebidos: Signal = Signal(dict)
 
-    def __init__(self, parent: Optional[QObject] = None) -> None:
+    def __init__(self, parent: QObject | None = None) -> None:
         super().__init__(parent)
-        self._servidor_http: Optional[HTTPServer] = None
-        self._thread: Optional[threading.Thread] = None
+        self._servidor_http: HTTPServer | None = None
+        self._thread: threading.Thread | None = None
         self._porta: int = 0
         self._evento_conclusao: threading.Event = threading.Event()
-        self._tokens_recebidos: Optional[Dict[str, Any]] = None
-
+        self._tokens_recebidos: dict[str, Any] | None = None
 
     def iniciar_escuta(self) -> int:
         """Inicia o servidor em uma porta dinâmica livre alocada pelo SO."""
-        self._servidor_http = HTTPServer(
-            ("127.0.0.1", 0), ManipuladorRequisicaoOAuth
-        )
+        self._servidor_http = HTTPServer(("127.0.0.1", 0), ManipuladorRequisicaoOAuth)
         setattr(self._servidor_http, "servidor_oauth", self)
         self._porta = self._servidor_http.server_port
 
-
-        self._thread = threading.Thread(
-            target=self._servidor_http.serve_forever, daemon=True
-        )
+        self._thread = threading.Thread(target=self._servidor_http.serve_forever, daemon=True)
         self._thread.start()
         return self._porta
 
@@ -182,15 +181,13 @@ class ServidorCallbackOAuth(QObject):
         """Retorna a URL de callback a ser passada no redirect_to do OAuth."""
         return f"http://localhost:{self._porta}/callback"
 
-    def definir_tokens(self, tokens: Dict[str, Any]) -> None:
+    def definir_tokens(self, tokens: dict[str, Any]) -> None:
         """Registra os tokens recebidos e sinaliza o evento de conclusão."""
         self._tokens_recebidos = tokens
         self._evento_conclusao.set()
         self.tokens_recebidos.emit(tokens)
 
-    def aguardar_tokens(
-        self, tempo_limite: float = 120.0
-    ) -> Optional[Dict[str, Any]]:
+    def aguardar_tokens(self, tempo_limite: float = 120.0) -> dict[str, Any] | None:
         """Bloqueia até que os tokens sejam recebidos ou ocorra timeout."""
         concluido = self._evento_conclusao.wait(timeout=tempo_limite)
         if concluido:

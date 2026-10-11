@@ -1,9 +1,9 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
-import pytest
-from PySide6.QtWidgets import QDialog
 from unittest.mock import patch
+
+from PySide6.QtWidgets import QDialog
 
 from editor.views.dialogos.dialogo_perfil_autor import DialogoPerfilAutor
 
@@ -61,5 +61,3 @@ class TesteDialogoPerfilAutor:
         assert "background-color" in folha
         assert "#ffffff" in folha
         assert "color:" in folha
-
-

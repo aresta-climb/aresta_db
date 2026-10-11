@@ -4,18 +4,19 @@
 """Biblioteca modular para o cliente WebSocket de saída do túnel de retransmissão."""
 
 import asyncio
-import json
 import base64
 import hashlib
+import json
 import mimetypes
 import re
+import urllib.error
+import urllib.request
+from collections.abc import Callable
 from pathlib import Path
-from typing import Optional, Dict, Any, Callable, cast
+from typing import Any, cast
+
 import websockets
 from websockets.exceptions import ConnectionClosed
-
-import urllib.request
-import urllib.error
 
 URL_RETRANSMISSOR_PADRAO = "wss://previa.arestaclimb.com/ws"
 URL_HTTP_PREVIA_PADRAO = "https://previa.arestaclimb.com"
@@ -24,10 +25,10 @@ URL_HTTP_PREVIA_PADRAO = "https://previa.arestaclimb.com"
 def solicitar_sessao_servidor(
     url_base: str,
     jwt_token: str,
-    ip_local: Optional[str] = None,
-    porta_local: Optional[int] = None,
+    ip_local: str | None = None,
+    porta_local: int | None = None,
     timeout_segundos: float = 10.0,
-) -> Dict[str, Any]:
+) -> dict[str, Any]:
     """
     Solicita ao Cloudflare Worker (POST /sessoes) a criação de uma sessão autenticada.
     Retorna o dicionário contendo codigo, codigo_formatado, url_previa e ws_url.
@@ -36,7 +37,7 @@ def solicitar_sessao_servidor(
         raise ValueError("Token JWT obrigatório para autenticar no Cloudflare Worker.")
 
     url = f"{url_base.rstrip('/')}/sessoes"
-    payload_dict: Dict[str, Any] = {}
+    payload_dict: dict[str, Any] = {}
     if ip_local:
         payload_dict["ipLocal"] = ip_local
     if porta_local:
@@ -56,7 +57,7 @@ def solicitar_sessao_servidor(
 
     with urllib.request.urlopen(req, timeout=timeout_segundos) as resposta:
         corpo = resposta.read().decode("utf-8")
-        return cast(Dict[str, Any], json.loads(corpo))
+        return cast(dict[str, Any], json.loads(corpo))
 
 
 class ClienteTunelRetransmissor:
@@ -66,12 +67,12 @@ class ClienteTunelRetransmissor:
         self,
         codigo_sessao: str,
         pasta_compilado: Path,
-        url_retransmissor_ws: Optional[str] = None,
-        ip_local: Optional[str] = None,
-        porta_local: Optional[int] = None,
-        ao_conectar_dispositivo: Optional[Callable[[], None]] = None,
-        jwt_token: Optional[str] = None,
-        obter_jwt_atualizado: Optional[Callable[[], Optional[str]]] = None,
+        url_retransmissor_ws: str | None = None,
+        ip_local: str | None = None,
+        porta_local: int | None = None,
+        ao_conectar_dispositivo: Callable[[], None] | None = None,
+        jwt_token: str | None = None,
+        obter_jwt_atualizado: Callable[[], str | None] | None = None,
     ) -> None:
         self.codigo_sessao = codigo_sessao
         self.pasta_compilado = Path(pasta_compilado).resolve()
@@ -82,7 +83,7 @@ class ClienteTunelRetransmissor:
         self.jwt_token = jwt_token
         self.obter_jwt_atualizado = obter_jwt_atualizado
         self._rodando = False
-        self._websocket: Optional[Any] = None
+        self._websocket: Any | None = None
         self._evento_parada = asyncio.Event()
 
     def _obter_url_conexao(self) -> str:
@@ -92,7 +93,7 @@ class ClienteTunelRetransmissor:
         else:
             url = f"{URL_RETRANSMISSOR_PADRAO}?sessao={self.codigo_sessao}"
 
-        token_atual: Optional[str] = None
+        token_atual: str | None = None
         if self.obter_jwt_atualizado:
             try:
                 token_atual = self.obter_jwt_atualizado()
@@ -112,7 +113,7 @@ class ClienteTunelRetransmissor:
         return self._obter_url_conexao()
 
     @url_retransmissor_ws.setter
-    def url_retransmissor_ws(self, valor: Optional[str]) -> None:
+    def url_retransmissor_ws(self, valor: str | None) -> None:
         self._url_retransmissor_ws_configurada = valor
 
     async def _loop_heartbeat(self, ws: Any, intervalo: float) -> None:
@@ -147,7 +148,7 @@ class ClienteTunelRetransmissor:
                     tentativas_falhas = 0
 
                     # 1. Envia mensagem inicial de registro com metadados de rede
-                    payload_registro: Dict[str, Any] = {
+                    payload_registro: dict[str, Any] = {
                         "tipo": "registro",
                         "dados": {
                             "codigo": self.codigo_sessao,
@@ -213,7 +214,9 @@ class ClienteTunelRetransmissor:
 
     async def emitir_recarregamento(self, setor_id: str) -> None:
         """Envia uma notificação push de recarregamento em tempo real para os clientes conectados."""
-        print(f"⚡ [TunelRetransmissor] emitir_recarregamento('{setor_id}') | ws={self._websocket is not None}, rodando={self._rodando}")
+        print(
+            f"⚡ [TunelRetransmissor] emitir_recarregamento('{setor_id}') | ws={self._websocket is not None}, rodando={self._rodando}"
+        )
         if self._websocket and self._rodando:
             try:
                 payload = {
@@ -224,13 +227,17 @@ class ClienteTunelRetransmissor:
                     },
                 }
                 await self._websocket.send(json.dumps(payload))
-                print(f"⚡ [TunelRetransmissor] ✅ Push de recarga enviado para o Cloudflare com sucesso: {payload}")
+                print(
+                    f"⚡ [TunelRetransmissor] ✅ Push de recarga enviado para o Cloudflare com sucesso: {payload}"
+                )
             except Exception as e:
                 print(f"🛑 [TunelRetransmissor] Falha ao enviar payload de recarga: {e}")
         else:
-            print(f"⚠️ [TunelRetransmissor] WebSocket não conectado ou túnel inativo (ws={self._websocket}, rodando={self._rodando})")
+            print(
+                f"⚠️ [TunelRetransmissor] WebSocket não conectado ou túnel inativo (ws={self._websocket}, rodando={self._rodando})"
+            )
 
-    async def _tratar_mensagem(self, dados: Dict[str, Any], ws: Any) -> None:
+    async def _tratar_mensagem(self, dados: dict[str, Any], ws: Any) -> None:
         """Processa mensagens recebidas do retransmissor."""
         tipo = dados.get("tipo")
 
@@ -248,10 +255,12 @@ class ClienteTunelRetransmissor:
 
             resposta = self._ler_arquivo_proxy(req_id, caminho, cabecalhos=cabecalhos)
             await ws.send(
-                json.dumps({
-                    "tipo": "resposta_proxy",
-                    "dados": resposta,
-                })
+                json.dumps(
+                    {
+                        "tipo": "resposta_proxy",
+                        "dados": resposta,
+                    }
+                )
             )
         elif tipo == "ping":
             await ws.send(json.dumps({"tipo": "pong"}))
@@ -260,8 +269,8 @@ class ClienteTunelRetransmissor:
         self,
         req_id: str,
         caminho_relativo: str,
-        cabecalhos: Optional[Dict[str, str]] = None,
-    ) -> Dict[str, Any]:
+        cabecalhos: dict[str, str] | None = None,
+    ) -> dict[str, Any]:
         """Lê um arquivo da pasta compilada e formata a resposta base64 com suporte a ETag e isolamento total de diretório."""
         try:
             pasta_base = self.pasta_compilado.resolve()
@@ -290,7 +299,9 @@ class ClienteTunelRetransmissor:
                     "status": 403,
                     "cabecalhos": {"content-type": "application/json"},
                     "corpoBase64": base64.b64encode(
-                        json.dumps({"erro": "Acesso negado: caminho fora do escopo permitido."}).encode()
+                        json.dumps(
+                            {"erro": "Acesso negado: caminho fora do escopo permitido."}
+                        ).encode()
                     ).decode(),
                 }
 
@@ -303,7 +314,9 @@ class ClienteTunelRetransmissor:
                     "status": 403,
                     "cabecalhos": {"content-type": "application/json"},
                     "corpoBase64": base64.b64encode(
-                        json.dumps({"erro": "Acesso negado: caminho fora do escopo permitido."}).encode()
+                        json.dumps(
+                            {"erro": "Acesso negado: caminho fora do escopo permitido."}
+                        ).encode()
                     ).decode(),
                 }
 
@@ -361,9 +374,7 @@ class ClienteTunelRetransmissor:
                 "id": req_id,
                 "status": 500,
                 "cabecalhos": {"content-type": "application/json"},
-                "corpoBase64": base64.b64encode(
-                    json.dumps({"erro": str(e)}).encode()
-                ).decode(),
+                "corpoBase64": base64.b64encode(json.dumps({"erro": str(e)}).encode()).decode(),
             }
 
     async def parar(self) -> None:

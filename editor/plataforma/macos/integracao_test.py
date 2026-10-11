@@ -6,8 +6,9 @@ Testes unitários para o adaptador macOS em editor.plataforma.macos.integracao.
 """
 
 from pathlib import Path
-from unittest.mock import patch, MagicMock
-from editor.plataforma.contrato import StatusAtualizacao, ResultadoAtualizacao
+from unittest.mock import MagicMock, patch
+
+from editor.plataforma.contrato import StatusAtualizacao
 from editor.plataforma.macos.integracao import AdaptadorMacOS
 
 
@@ -30,7 +31,9 @@ def test_adaptador_macos_identidade_processo() -> None:
     assert adaptador.configurar_identidade_processo("com.arestaclimb.Editor") is True
 
     # Teste de cenário de erro defensivo
-    with patch("PySide6.QtGui.QGuiApplication.setDesktopFileName", side_effect=RuntimeError("Erro macOS")):
+    with patch(
+        "PySide6.QtGui.QGuiApplication.setDesktopFileName", side_effect=RuntimeError("Erro macOS")
+    ):
         assert adaptador.configurar_identidade_processo("com.arestaclimb.Editor") is False
 
 
@@ -51,7 +54,9 @@ def test_adaptador_macos_trazer_janela_para_frente() -> None:
         assert adaptador.trazer_janela_para_frente(1234) is True
 
     # Cenário 3: Exceção durante elevação
-    with patch("PySide6.QtWidgets.QApplication.activeWindow", side_effect=RuntimeError("Erro de janela")):
+    with patch(
+        "PySide6.QtWidgets.QApplication.activeWindow", side_effect=RuntimeError("Erro de janela")
+    ):
         assert adaptador.trazer_janela_para_frente(1234) is False
 
 
@@ -60,7 +65,10 @@ def test_adaptador_macos_diretorio_dados_usuario() -> None:
     adaptador = AdaptadorMacOS()
 
     # Cenário 1: QStandardPaths retorna caminho
-    with patch("PySide6.QtCore.QStandardPaths.writableLocation", return_value="/Users/usuario/Library/Application Support/EditorAresta"):
+    with patch(
+        "PySide6.QtCore.QStandardPaths.writableLocation",
+        return_value="/Users/usuario/Library/Application Support/EditorAresta",
+    ):
         caminho = adaptador.obter_diretorio_dados_usuario()
         assert caminho == Path("/Users/usuario/Library/Application Support/EditorAresta")
 
@@ -71,12 +79,160 @@ def test_adaptador_macos_diretorio_dados_usuario() -> None:
             assert caminho_padrao == Path("/Users/usuario/Library/Application Support/EditorAresta")
 
 
-def test_adaptador_macos_atualizacoes() -> None:
-    """Valida a checagem e instalação de atualizações no macOS."""
+def test_adaptador_macos_verificar_atualizacoes_obrigatoria() -> None:
+    """Detecta atualização crítica remota retornando ATUALIZACAO_OBRIGATORIA."""
+    xml_feed = b"""<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle">
+  <channel>
+    <item>
+      <sparkle:criticalUpdate />
+      <enclosure url="https://serving.arestaclimb.com/editor-macos/EditorAresta-1.0.0.dmg"
+                 sparkle:version="1.0.0" />
+    </item>
+  </channel>
+</rss>
+"""
+    adaptador = AdaptadorMacOS(versao_atual="0.4.0")
+    mock_resp = MagicMock()
+    mock_resp.read.return_value = xml_feed
+    mock_resp.__enter__.return_value = mock_resp
+
+    with patch("urllib.request.urlopen", return_value=mock_resp):
+        res = adaptador.verificar_atualizacoes_disponiveis()
+        assert res.status == StatusAtualizacao.ATUALIZACAO_OBRIGATORIA
+        assert res.versao_disponivel == "1.0.0"
+
+
+def test_adaptador_macos_verificar_atualizacoes_disponivel_sem_critical() -> None:
+    """Detecta atualização normal remota sem criticalUpdate retornando ATUALIZACAO_DISPONIVEL."""
+    xml_feed = b"""<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle">
+  <channel>
+    <item>
+      <enclosure url="https://serving.arestaclimb.com/editor-macos/EditorAresta-1.0.0.dmg"
+                 sparkle:version="1.0.0" />
+    </item>
+  </channel>
+</rss>
+"""
+    adaptador = AdaptadorMacOS(versao_atual="0.4.0")
+    mock_resp = MagicMock()
+    mock_resp.read.return_value = xml_feed
+    mock_resp.__enter__.return_value = mock_resp
+
+    with patch("urllib.request.urlopen", return_value=mock_resp):
+        res = adaptador.verificar_atualizacoes_disponiveis()
+        assert res.status == StatusAtualizacao.ATUALIZACAO_DISPONIVEL
+        assert res.versao_disponivel == "1.0.0"
+
+
+def test_adaptador_macos_verificar_atualizacoes_sem_atualizacao() -> None:
+    """Quando a versão remota for menor ou igual à local, retorna SEM_ATUALIZACAO."""
+    xml_feed = b"""<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle">
+  <channel>
+    <item>
+      <enclosure url="https://serving.arestaclimb.com/editor-macos/EditorAresta-0.4.0.dmg"
+                 sparkle:version="0.4.0" />
+    </item>
+  </channel>
+</rss>
+"""
+    adaptador = AdaptadorMacOS(versao_atual="0.4.0")
+    mock_resp = MagicMock()
+    mock_resp.read.return_value = xml_feed
+    mock_resp.__enter__.return_value = mock_resp
+
+    with patch("urllib.request.urlopen", return_value=mock_resp):
+        res = adaptador.verificar_atualizacoes_disponiveis()
+        assert res.status == StatusAtualizacao.SEM_ATUALIZACAO
+
+
+def test_adaptador_macos_verificar_atualizacoes_falha_rede() -> None:
+    """Trata erros de conexão retornando SEM_ATUALIZACAO defensivamente."""
+    adaptador = AdaptadorMacOS(versao_atual="0.4.0")
+    with patch("urllib.request.urlopen", side_effect=OSError("Sem internet")):
+        res = adaptador.verificar_atualizacoes_disponiveis()
+        assert res.status == StatusAtualizacao.SEM_ATUALIZACAO
+
+
+def test_adaptador_macos_verificar_atualizacoes_xml_invalido() -> None:
+    """Trata respostas XML corrompidas retornando SEM_ATUALIZACAO."""
+    adaptador = AdaptadorMacOS(versao_atual="0.4.0")
+    mock_resp = MagicMock()
+    mock_resp.read.return_value = b"<invalido>"
+    mock_resp.__enter__.return_value = mock_resp
+
+    with patch("urllib.request.urlopen", return_value=mock_resp):
+        res = adaptador.verificar_atualizacoes_disponiveis()
+        assert res.status == StatusAtualizacao.SEM_ATUALIZACAO
+
+
+def test_adaptador_macos_verificar_atualizacoes_xml_sem_canal() -> None:
+    """Trata XML sem elemento channel retornando SEM_ATUALIZACAO."""
+    adaptador = AdaptadorMacOS(versao_atual="0.4.0")
+    mock_resp = MagicMock()
+    mock_resp.read.return_value = b"<rss></rss>"
+    mock_resp.__enter__.return_value = mock_resp
+
+    with patch("urllib.request.urlopen", return_value=mock_resp):
+        res = adaptador.verificar_atualizacoes_disponiveis()
+        assert res.status == StatusAtualizacao.SEM_ATUALIZACAO
+
+
+def test_adaptador_macos_verificar_atualizacoes_xml_sem_item() -> None:
+    """Trata XML sem elemento item retornando SEM_ATUALIZACAO."""
+    adaptador = AdaptadorMacOS(versao_atual="0.4.0")
+    mock_resp = MagicMock()
+    mock_resp.read.return_value = b"<rss><channel></channel></rss>"
+    mock_resp.__enter__.return_value = mock_resp
+
+    with patch("urllib.request.urlopen", return_value=mock_resp):
+        res = adaptador.verificar_atualizacoes_disponiveis()
+        assert res.status == StatusAtualizacao.SEM_ATUALIZACAO
+
+
+def test_adaptador_macos_verificar_atualizacoes_xml_sem_enclosure() -> None:
+    """Trata XML sem elemento enclosure retornando SEM_ATUALIZACAO."""
+    adaptador = AdaptadorMacOS(versao_atual="0.4.0")
+    mock_resp = MagicMock()
+    mock_resp.read.return_value = b"<rss><channel><item></item></channel></rss>"
+    mock_resp.__enter__.return_value = mock_resp
+
+    with patch("urllib.request.urlopen", return_value=mock_resp):
+        res = adaptador.verificar_atualizacoes_disponiveis()
+        assert res.status == StatusAtualizacao.SEM_ATUALIZACAO
+
+
+def test_adaptador_macos_verificar_atualizacoes_xml_enclosure_sem_versao() -> None:
+    """Trata XML com enclosure sem chave de versão retornando SEM_ATUALIZACAO."""
+    adaptador = AdaptadorMacOS(versao_atual="0.4.0")
+    mock_resp = MagicMock()
+    mock_resp.read.return_value = (
+        b'<rss><channel><item><enclosure url="teste.dmg" /></item></channel></rss>'
+    )
+    mock_resp.__enter__.return_value = mock_resp
+
+    with patch("urllib.request.urlopen", return_value=mock_resp):
+        res = adaptador.verificar_atualizacoes_disponiveis()
+        assert res.status == StatusAtualizacao.SEM_ATUALIZACAO
+
+
+def test_adaptador_macos_solicitar_instalacao_atualizacao() -> None:
+    """Valida o repasse da solicitação para o módulo de integração Sparkle."""
     adaptador = AdaptadorMacOS()
-    res = adaptador.verificar_atualizacoes_disponiveis()
-    assert res.status == StatusAtualizacao.SEM_ATUALIZACAO
-    assert adaptador.solicitar_instalacao_atualizacao(res) is False
+
+    with patch("editor.plataforma.macos.sparkle.solicitar_verificacao_sparkle", return_value=True):
+        assert adaptador.solicitar_instalacao_atualizacao() is True
+
+    with patch("editor.plataforma.macos.sparkle.solicitar_verificacao_sparkle", return_value=False):
+        assert adaptador.solicitar_instalacao_atualizacao() is False
+
+    with patch(
+        "editor.plataforma.macos.sparkle.solicitar_verificacao_sparkle",
+        side_effect=Exception("Erro"),
+    ):
+        assert adaptador.solicitar_instalacao_atualizacao() is False
 
 
 def test_adaptador_macos_obter_nome_icone_preferencial() -> None:
@@ -104,14 +260,14 @@ def test_adaptador_macos_configurar_cofre_credenciais() -> None:
             mock_set.assert_not_called()
 
     # Cenário 3: Configuração com sucesso
-    with patch("keyring.get_keyring", return_value=FailKeyring()):
+    with patch("keyring.get_keyring", return_value=FailKeyring()):  # type: ignore[no-untyped-call]
         with patch("keyring.backends.macOS.Keyring", return_value=MagicMock()):
             with patch("keyring.set_keyring") as mock_set:
                 assert adaptador.configurar_cofre_credenciais() is True
                 mock_set.assert_called_once()
 
     # Cenário 4: Falha ao instanciar backend
-    with patch("keyring.get_keyring", return_value=FailKeyring()):
+    with patch("keyring.get_keyring", return_value=FailKeyring()):  # type: ignore[no-untyped-call]
         with patch("keyring.backends.macOS.Keyring", side_effect=Exception("Keychain erro")):
             with patch("keyring.set_keyring") as mock_set:
                 assert adaptador.configurar_cofre_credenciais() is False

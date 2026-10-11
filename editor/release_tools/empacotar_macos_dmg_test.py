@@ -6,16 +6,15 @@ Testes unitários para a ferramenta de empacotamento, assinatura e notarização
 """
 
 from pathlib import Path
-from unittest.mock import patch, MagicMock
-import pytest
+from unittest.mock import MagicMock, patch
 
 from editor.release_tools.empacotar_macos_dmg import (
-    gerar_conteudo_info_plist,
-    criar_estrutura_bundle_macos,
     assinar_bundle_macos,
+    criar_estrutura_bundle_macos,
+    empacotar_distribuicao_macos,
+    gerar_conteudo_info_plist,
     gerar_dmg_macos,
     notarizar_dmg_macos,
-    empacotar_distribuicao_macos,
 )
 
 
@@ -27,7 +26,7 @@ def test_gerar_conteudo_info_plist() -> None:
         nome_executavel="EditorAresta",
     )
 
-    assert "<?xml version=\"1.0\" encoding=\"UTF-8\"?>" in plist
+    assert '<?xml version="1.0" encoding="UTF-8"?>' in plist
     assert "<key>CFBundleExecutable</key>" in plist
     assert "<string>EditorAresta</string>" in plist
     assert "<key>CFBundleIdentifier</key>" in plist
@@ -36,6 +35,10 @@ def test_gerar_conteudo_info_plist() -> None:
     assert "<string>0.4.0</string>" in plist
     assert "<key>SUFeedURL</key>" in plist
     assert "https://serving.arestaclimb.com/editor-macos/appcast.xml" in plist
+    assert "<key>SUEnableAutomaticChecks</key>" in plist
+    assert "<key>SUAutomaticallyUpdate</key>" in plist
+    assert "<key>SUScheduledCheckInterval</key>" in plist
+    assert "<integer>3600</integer>" in plist
     assert "<key>SUPublicEDKey</key>" in plist
     assert "<string>BZ+UB+PvZmLAVAKiAoUtFUrrJSBECPFIc2dzvvlVruY=</string>" in plist
 
@@ -57,6 +60,18 @@ def test_gerar_conteudo_info_plist_com_chave_publica_sparkle() -> None:
     )
     assert "<key>SUPublicEDKey</key>" in plist
     assert "<string>CHAVE_PUBLICA_ED25519_BASE64</string>" in plist
+
+
+def test_gerar_conteudo_info_plist_sem_atualizacao_automatica() -> None:
+    """Valida a omissão de SUAutomaticallyUpdate quando atualizar_automaticamente=False."""
+    plist = gerar_conteudo_info_plist(
+        versao="0.4.0",
+        atualizar_automaticamente=False,
+        intervalo_checagem_segundos=7200,
+    )
+    assert "<key>SUAutomaticallyUpdate</key>" not in plist
+    assert "<key>SUScheduledCheckInterval</key>" in plist
+    assert "<integer>7200</integer>" in plist
 
 
 def test_criar_estrutura_bundle_macos(tmp_path: Path) -> None:
@@ -330,5 +345,3 @@ def test_assinar_bundle_macos_com_sparkle_framework(tmp_path: Path) -> None:
             dry_run=False,
         )
         assert any("Sparkle.framework" in c for c in comandos)
-
-

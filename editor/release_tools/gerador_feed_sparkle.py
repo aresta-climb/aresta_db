@@ -9,9 +9,9 @@ e assinatura digital Ed25519 para atualizações automáticas in-app no macOS.
 import base64
 import email.utils
 import re
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
-from typing import Optional
+
 from cryptography.hazmat.primitives.asymmetric import ed25519
 
 PADRAO_VERSAO_SEMANTICA = re.compile(r"^\d+\.\d+\.\d+")
@@ -40,7 +40,7 @@ def gerar_feed_sparkle(
     url_download: str,
     tamanho_bytes: int,
     assinatura_ed25519: str,
-    data_publicacao: Optional[datetime] = None,
+    data_publicacao: datetime | None = None,
     versao_minima_macos: str = "12.0",
     forcar_atualizacao: bool = True,
 ) -> str:
@@ -49,9 +49,11 @@ def gerar_feed_sparkle(
     """
     versao_limpa = versao.strip()
     if not PADRAO_VERSAO_SEMANTICA.match(versao_limpa):
-        raise ValueError(f"Versão inválida para o feed Sparkle: '{versao}'. Esperado formato semântico X.Y.Z.")
+        raise ValueError(
+            f"Versão inválida para o feed Sparkle: '{versao}'. Esperado formato semântico X.Y.Z."
+        )
 
-    data_item = data_publicacao or datetime.now(timezone.utc)
+    data_item = data_publicacao or datetime.now(UTC)
     data_formatada = email.utils.format_datetime(data_item)
     tag_critico = "      <sparkle:criticalUpdate />\n" if forcar_atualizacao else ""
 

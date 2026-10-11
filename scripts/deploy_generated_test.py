@@ -1,18 +1,18 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
-import unittest
 import sys
+import unittest
 from io import StringIO
 from pathlib import Path
 from unittest.mock import patch
-import os
 
 # Adiciona a raiz do projeto ao path
 ROOT_DIR = Path(__file__).resolve().parent.parent
 sys.path.append(str(ROOT_DIR))
 
 from scripts import deploy_generated
+
 
 class DeployGeneratedTest(unittest.TestCase):
     def test_aviso_escalada_duplicada(self):
@@ -29,28 +29,30 @@ class DeployGeneratedTest(unittest.TestCase):
                     "faces": [
                         {
                             "escaladas": [
-                                {"tradicional": {"nome": "Via Normal"}}, # Duplicado!
-                                {"tradicional": {"nome": "Teto do Macaco"}}
+                                {"tradicional": {"nome": "Via Normal"}},  # Duplicado!
+                                {"tradicional": {"nome": "Teto do Macaco"}},
                             ]
                         }
                     ]
-                }
+                },
             ]
         }
-        
+
         # Redirecionar stdout para capturar o aviso
         captured_output = StringIO()
         sys.stdout = captured_output
-        
+
         try:
             # Chamar a função (que ainda vamos implementar)
             deploy_generated.verificar_nomes_duplicados_de_escalada("croqui_teste", compiled_data)
         finally:
             sys.stdout = sys.__stdout__
-            
+
         saida = captured_output.getvalue()
-        
-        self.assertIn("Aviso: A escalada 'Via Normal' aparece mais de uma vez no croqui 'croqui_teste'", saida)
+
+        self.assertIn(
+            "Aviso: A escalada 'Via Normal' aparece mais de uma vez no croqui 'croqui_teste'", saida
+        )
         self.assertNotIn("Fenda do Desespero", saida)
 
     def test_aviso_mapa_duplicado(self):
@@ -66,12 +68,12 @@ class DeployGeneratedTest(unittest.TestCase):
                                 "escaladas": [
                                     {
                                         "tradicional": {"nome": "Via 1"},
-                                        "mapas": [{"caminho_imagem_mapa": "imagens/parede.webp"}]
+                                        "mapas": [{"caminho_imagem_mapa": "imagens/parede.webp"}],
                                     }
-                                ]
+                                ],
                             }
                         }
-                    ]
+                    ],
                 }
             ]
         }
@@ -83,7 +85,10 @@ class DeployGeneratedTest(unittest.TestCase):
             sys.stdout = sys.__stdout__
 
         saida = captured_output.getvalue()
-        self.assertIn("Aviso: O mapa 'imagens/parede.webp' no croqui 'croqui_teste' está sendo exibido em mais de um local", saida)
+        self.assertIn(
+            "Aviso: O mapa 'imagens/parede.webp' no croqui 'croqui_teste' está sendo exibido em mais de um local",
+            saida,
+        )
         self.assertIn("duplicação indevida de informação", saida)
 
     def test_passo_c_gerar_indice_precomputados(self):
@@ -100,7 +105,7 @@ class DeployGeneratedTest(unittest.TestCase):
                         "total_moveis": 3,
                         "total_boulders": 2,
                         "total_multiplas_enfiadas": 0,
-                        "total_highlines": 0
+                        "total_highlines": 0,
                     }
                 },
                 {
@@ -112,23 +117,24 @@ class DeployGeneratedTest(unittest.TestCase):
                         "total_moveis": 0,
                         "total_boulders": 0,
                         "total_multiplas_enfiadas": 5,
-                        "total_highlines": 0
+                        "total_highlines": 0,
                     }
-                }
-            ]
+                },
+            ],
         }
-        
+
         compilados = [("croqui_teste", croqui_data, Path("dummy_pb"))]
         checksums = {"croqui_teste": "dummy_checksum"}
-        
+
         import tempfile
+
         # Inicializa a variável global que é esperada pela função passo_c
         with tempfile.TemporaryDirectory() as tmp_dir:
             deploy_generated.GENERATED_DIR = Path(tmp_dir)
-            
+
             # Chama a função passo_c_gerar_indice e verifica o índice gerado
             indice = deploy_generated.passo_c_gerar_indice(compilados, checksums, is_producao=False)
-            
+
             # Verifica se o resumo foi criado e os precomputados agregados corretamente
             self.assertEqual(len(indice.croquis), 1)
             resumo = indice.croquis[0]
@@ -157,12 +163,14 @@ class DeployGeneratedTest(unittest.TestCase):
                         "total_escaladas": 1,
                     }
                 }
-            ]
+            ],
         }
         checksums = {"croqui_teste": "dummy_checksum"}
 
         import tempfile
+
         import yaml
+
         with tempfile.TemporaryDirectory() as tmp_dir:
             deploy_generated.GENERATED_DIR = Path(tmp_dir)
             croqui_dir = Path(tmp_dir) / "croqui_teste"
@@ -198,10 +206,13 @@ class DeployGeneratedTest(unittest.TestCase):
             dados_yaml = yaml.safe_load(indice_yaml_path.read_text(encoding="utf-8"))
             self.assertIn("croquis", dados_yaml)
             self.assertIn("precomputados", dados_yaml["croquis"][0])
-            self.assertEqual(dados_yaml["croquis"][0]["precomputados"].get("tamanho_download_bytes"), 600)
+            self.assertEqual(
+                dados_yaml["croquis"][0]["precomputados"].get("tamanho_download_bytes"), 600
+            )
 
     def test_passo_d_gerar_manifesto_serving_salva_com_quebras_lf(self):
         import tempfile
+
         from aresta_api.proto.generated import indice_pb2
 
         with tempfile.TemporaryDirectory() as tmp_dir:
@@ -215,7 +226,7 @@ class DeployGeneratedTest(unittest.TestCase):
 
     def test_precompilacao_linhas_mapas(self):
         from scripts.preparar_submissao_lib import precompilar_linhas_mapas_recursivo
-        
+
         croqui_data = {
             "picos": [
                 {
@@ -232,12 +243,22 @@ class DeployGeneratedTest(unittest.TestCase):
                                                 "espessura": 3,
                                                 "conteudo": {
                                                     "nos": [
-                                                        {"x": 10, "y": 20, "tipo": 1, "rotulo": "1"},
+                                                        {
+                                                            "x": 10,
+                                                            "y": 20,
+                                                            "tipo": 1,
+                                                            "rotulo": "1",
+                                                        },
                                                         {"x": 50, "y": 80, "tipo": 0, "rotulo": ""},
-                                                        {"x": 100, "y": 200, "tipo": 5, "rotulo": ""}
+                                                        {
+                                                            "x": 100,
+                                                            "y": 200,
+                                                            "tipo": 5,
+                                                            "rotulo": "",
+                                                        },
                                                     ]
-                                                }
-                                            }
+                                                },
+                                            },
                                         }
                                     ]
                                 }
@@ -247,9 +268,9 @@ class DeployGeneratedTest(unittest.TestCase):
                 }
             ]
         }
-        
+
         precompilar_linhas_mapas_recursivo(croqui_data)
-        
+
         mapa = croqui_data["picos"][0]["mapas_gerais"]["conteudo"]["mapas"][0]
         poi = mapa["pontos_de_interesse"][0]
         self.assertNotIn("conteudo", poi["linha"])
@@ -271,54 +292,28 @@ class DeployGeneratedTest(unittest.TestCase):
 
     def test_validacao_linhas_mapas(self):
         from scripts.preparar_submissao_lib import validar_pontos_de_interesse_recursivo
-        
+
         # Válido com conteúdo
         croqui_valido = {
             "pontos_de_interesse": [
-                {
-                    "id": "v1",
-                    "linha": {
-                        "conteudo": {
-                            "nos": [
-                                {"x": 0, "y": 0},
-                                {"x": 10, "y": 10}
-                            ]
-                        }
-                    }
-                }
+                {"id": "v1", "linha": {"conteudo": {"nos": [{"x": 0, "y": 0}, {"x": 10, "y": 10}]}}}
             ]
         }
         validar_pontos_de_interesse_recursivo(croqui_valido, "raiz")
-        
+
         # Inválido: menos de 2 nós
         croqui_poucos_nos = {
             "pontos_de_interesse": [
-                {
-                    "id": "v1",
-                    "linha": {
-                        "conteudo": {
-                            "nos": [
-                                {"x": 0, "y": 0}
-                            ]
-                        }
-                    }
-                }
+                {"id": "v1", "linha": {"conteudo": {"nos": [{"x": 0, "y": 0}]}}}
             ]
         }
         with self.assertRaises(ValueError):
             validar_pontos_de_interesse_recursivo(croqui_poucos_nos, "raiz")
-            
+
         # Válido com compilado
         croqui_compilado = {
             "pontos_de_interesse": [
-                {
-                    "id": "v1",
-                    "linha": {
-                        "compilado": {
-                            "caminho_svg": "M 0 0 C 1 1 2 2 3 3"
-                        }
-                    }
-                }
+                {"id": "v1", "linha": {"compilado": {"caminho_svg": "M 0 0 C 1 1 2 2 3 3"}}}
             ]
         }
         validar_pontos_de_interesse_recursivo(croqui_compilado, "raiz")
@@ -326,10 +321,19 @@ class DeployGeneratedTest(unittest.TestCase):
     def test_deploy_com_erros_e_sair_ao_falhar_falso_lanca_runtime_error(self):
         """Testa que deploy() com sair_ao_falhar=False não encerra o processo via sys.exit(1), mas lança RuntimeError."""
         from unittest.mock import patch
-        with patch("scripts.deploy_generated.encontrar_croquis", return_value=[(Path("/fake"), {"id": "fake"})]):
-            with patch("scripts.deploy_generated.passo_a_compilar_croquis", return_value=([], ["Erro simulado de compilação"])):
+
+        with patch(
+            "scripts.deploy_generated.encontrar_croquis",
+            return_value=[(Path("/fake"), {"id": "fake"})],
+        ):
+            with patch(
+                "scripts.deploy_generated.passo_a_compilar_croquis",
+                return_value=([], ["Erro simulado de compilação"]),
+            ):
                 with patch("scripts.deploy_generated.preparar_generated"):
-                    with patch("scripts.deploy_generated.carregar_dados_anteriores", return_value={}):
+                    with patch(
+                        "scripts.deploy_generated.carregar_dados_anteriores", return_value={}
+                    ):
                         with self.assertRaises(RuntimeError) as ctx:
                             deploy_generated.deploy(Path("/fake/out"), sair_ao_falhar=False)
                         self.assertIn("Erro simulado de compilação", str(ctx.exception))
@@ -337,33 +341,45 @@ class DeployGeneratedTest(unittest.TestCase):
     def test_deploy_com_erros_encadeia_excecao_original(self):
         """Testa que deploy() encadeia a exceção original causalmente via raise ... from e."""
         from unittest.mock import patch
+
         excecao_raiz = AttributeError("'NoneType' object has no attribute 'get'")
-        with patch("scripts.deploy_generated.encontrar_croquis", return_value=[(Path("/fake"), {"id": "fake"})]):
-            with patch("scripts.deploy_generated.passo_a_compilar_croquis", return_value=([], ["Erro simulado"], [excecao_raiz])):
+        with patch(
+            "scripts.deploy_generated.encontrar_croquis",
+            return_value=[(Path("/fake"), {"id": "fake"})],
+        ):
+            with patch(
+                "scripts.deploy_generated.passo_a_compilar_croquis",
+                return_value=([], ["Erro simulado"], [excecao_raiz]),
+            ):
                 with patch("scripts.deploy_generated.preparar_generated"):
-                    with patch("scripts.deploy_generated.carregar_dados_anteriores", return_value={}):
+                    with patch(
+                        "scripts.deploy_generated.carregar_dados_anteriores", return_value={}
+                    ):
                         with self.assertRaises(RuntimeError) as ctx:
                             deploy_generated.deploy(Path("/fake/out"), sair_ao_falhar=False)
                         self.assertIs(ctx.exception.__cause__, excecao_raiz)
 
     def test_passo_a_compilar_croquis_captura_excecao_e_registra_traceback(self):
         """Testa que passo_a_compilar_croquis registra o traceback completo no console e retorna a exceção."""
-        from unittest.mock import patch
         import tempfile
+        from unittest.mock import patch
+
         croqui_dir = Path("/caminho/fake_croqui")
         croqui_data = {"id": "croqui_teste_erro"}
 
         with patch("scripts.deploy_generated.corrigir_database"):
             with patch("scripts.deploy_generated.processar_thumbnail"):
-                with patch("scripts.deploy_generated.compilar_croqui", side_effect=AttributeError("Teste de falha no compilador")):
+                with patch(
+                    "scripts.deploy_generated.compilar_croqui",
+                    side_effect=AttributeError("Teste de falha no compilador"),
+                ):
                     with tempfile.TemporaryDirectory() as tmp_dir:
                         deploy_generated.GENERATED_DIR = Path(tmp_dir)
                         captured_output = StringIO()
                         sys.stdout = captured_output
                         try:
                             resultado = deploy_generated.passo_a_compilar_croquis(
-                                [(croqui_dir, croqui_data)],
-                                gerar_arquivos_de_debug=False
+                                [(croqui_dir, croqui_data)], gerar_arquivos_de_debug=False
                             )
                         finally:
                             sys.stdout = sys.__stdout__
@@ -381,45 +397,63 @@ class DeployGeneratedTest(unittest.TestCase):
 
     def test_deploy_aviso_referencia_sem_identificador_nao_aborta_compilacao(self):
         """Testa que aviso de referência sem identificador é emitido sem abortar o fluxo de compilação."""
-        from unittest.mock import patch, MagicMock
+        from unittest.mock import MagicMock, patch
+
         from scripts.preparar_submissao_lib import compilar_croqui
 
         croqui_data = {
             "id": "teste_sem_id",
-            "picos": [{
-                "nome": "Pico 1",
-                "setores_ou_grupos": [{
-                    "setor": {
-                        "conteudo": {
-                            "nome": "Setor 1",
-                            "mapas": [{
-                                "pontos_de_interesse": [{"id": "p1", "circulo": {"x": 10, "y": 10, "raio": 5}}],
-                                "referencias": [{"escalada": "Via 1", "ids": ["p1"]}]
-                            }],
-                            "escaladas": [{"via_esportiva": {"nome": "Via 1"}}]
+            "picos": [
+                {
+                    "nome": "Pico 1",
+                    "setores_ou_grupos": [
+                        {
+                            "setor": {
+                                "conteudo": {
+                                    "nome": "Setor 1",
+                                    "mapas": [
+                                        {
+                                            "pontos_de_interesse": [
+                                                {
+                                                    "id": "p1",
+                                                    "circulo": {"x": 10, "y": 10, "raio": 5},
+                                                }
+                                            ],
+                                            "referencias": [{"escalada": "Via 1", "ids": ["p1"]}],
+                                        }
+                                    ],
+                                    "escaladas": [{"via_esportiva": {"nome": "Via 1"}}],
+                                }
+                            }
                         }
-                    }
-                }]
-            }]
+                    ],
+                }
+            ],
         }
 
         captured_output = StringIO()
         sys.stdout = captured_output
         try:
-            with patch("builtins.open", MagicMock()), \
-                 patch("scripts.preparar_submissao_lib.yaml.safe_load", return_value=croqui_data), \
-                 patch("scripts.preparar_submissao_lib.yaml.dump"), \
-                 patch("scripts.preparar_submissao_lib.Path.mkdir"), \
-                 patch("scripts.preparar_submissao_lib.json_format.ParseDict"):
-                resultado = compilar_croqui(Path("dummy_pico"), Path("dummy_dest.yaml"), Path("dummy_dest.binarypb"))
+            with (
+                patch("builtins.open", MagicMock()),
+                patch("scripts.preparar_submissao_lib.yaml.safe_load", return_value=croqui_data),
+                patch("scripts.preparar_submissao_lib.yaml.dump"),
+                patch("scripts.preparar_submissao_lib.Path.mkdir"),
+                patch("scripts.preparar_submissao_lib.json_format.ParseDict"),
+            ):
+                resultado = compilar_croqui(
+                    Path("dummy_pico"), Path("dummy_dest.yaml"), Path("dummy_dest.binarypb")
+                )
         finally:
             sys.stdout = sys.__stdout__
 
     def test_passo_a_compilar_croquis_migra_mapas_gerais_raw_pdf_contents(self):
         """Testa se a compilação completa via passo_a_compilar_croquis migra imagens de mapas gerais."""
-        from PIL import Image
-        import yaml
         import tempfile
+
+        import yaml
+        from PIL import Image
+
         from aresta_api.proto.generated import croqui_pb2
 
         with tempfile.TemporaryDirectory() as tmp_dir:
@@ -443,7 +477,7 @@ class DeployGeneratedTest(unittest.TestCase):
                 "    largura_mapa: 600\n"
                 "    altura_mapa: 400\n"
                 "---\n",
-                encoding="utf-8"
+                encoding="utf-8",
             )
 
             # 3. croqui.yaml
@@ -451,14 +485,7 @@ class DeployGeneratedTest(unittest.TestCase):
             croqui_data = {
                 "id": "lenheiro_fake",
                 "nome": "Lenheiro Fake",
-                "picos": [
-                    {
-                        "nome": "Pico 1",
-                        "mapas_gerais": {
-                            "caminho": "mapas_gerais.md"
-                        }
-                    }
-                ]
+                "picos": [{"nome": "Pico 1", "mapas_gerais": {"caminho": "mapas_gerais.md"}}],
             }
             with open(croqui_yaml, "w", encoding="utf-8") as f:
                 yaml.dump(croqui_data, f)
@@ -466,9 +493,10 @@ class DeployGeneratedTest(unittest.TestCase):
             generated_dir = tmp_path / "generated"
             deploy_generated.GENERATED_DIR = generated_dir
 
-            compilados, erros, excecoes, database_modificado = deploy_generated.passo_a_compilar_croquis(
-                [(croqui_dir, croqui_data)],
-                gerar_arquivos_de_debug=True
+            compilados, erros, excecoes, database_modificado = (
+                deploy_generated.passo_a_compilar_croquis(
+                    [(croqui_dir, croqui_data)], gerar_arquivos_de_debug=True
+                )
             )
 
             self.assertEqual(len(erros), 0, f"Erros durante compilação: {erros}")
@@ -480,13 +508,15 @@ class DeployGeneratedTest(unittest.TestCase):
             self.assertTrue(img_db_migrada.exists())
 
             # Imagem no generated deve ter sido copiada
-            img_gen_migrada = generated_dir / "lenheiro_fake" / "imagens" / "mapas_gerais_p0_i3.webp"
+            img_gen_migrada = (
+                generated_dir / "lenheiro_fake" / "imagens" / "mapas_gerais_p0_i3.webp"
+            )
             self.assertTrue(img_gen_migrada.exists())
 
             # compilado.yaml deve apontar para o novo caminho
             comp_yaml = generated_dir / "lenheiro_fake" / "compilado.yaml"
             self.assertTrue(comp_yaml.exists())
-            with open(comp_yaml, "r", encoding="utf-8") as f:
+            with open(comp_yaml, encoding="utf-8") as f:
                 dados_comp = yaml.safe_load(f)
             mapa_comp = dados_comp["picos"][0]["mapas_gerais"]["conteudo"]["mapas"][0]
             self.assertEqual(mapa_comp["caminho_imagem_mapa"], "imagens/mapas_gerais_p0_i3.webp")
@@ -499,13 +529,15 @@ class DeployGeneratedTest(unittest.TestCase):
                 croqui_pb.ParseFromString(f.read())
             self.assertEqual(
                 croqui_pb.picos[0].mapas_gerais.conteudo.mapas[0].caminho_imagem_mapa,
-                "imagens/mapas_gerais_p0_i3.webp"
+                "imagens/mapas_gerais_p0_i3.webp",
             )
 
     def test_passo_a_compilar_croqui_com_anexos(self):
         import tempfile
+
         import yaml
         from PIL import Image
+
         from aresta_api.proto.generated import croqui_pb2
 
         with tempfile.TemporaryDirectory() as tmp_dir:
@@ -533,14 +565,14 @@ class DeployGeneratedTest(unittest.TestCase):
                 "id": "croqui_com_anexos",
                 "nome": "Croqui com Anexos",
                 "descricao": "Documentos: [Ficha](anexos/ficha.pdf) e [Termo](anexos/termo.pdf)",
-                "picos": [{
-                    "nome": "Pico Teste",
-                    "mapas_gerais": {
-                        "conteudo": {
-                            "mapas": [{"caminho_imagem_mapa": "imagens/foto.webp"}]
-                        }
+                "picos": [
+                    {
+                        "nome": "Pico Teste",
+                        "mapas_gerais": {
+                            "conteudo": {"mapas": [{"caminho_imagem_mapa": "imagens/foto.webp"}]}
+                        },
                     }
-                }]
+                ],
             }
             with open(croqui_yaml, "w", encoding="utf-8") as f:
                 yaml.dump(croqui_data, f)
@@ -548,9 +580,10 @@ class DeployGeneratedTest(unittest.TestCase):
             generated_dir = tmp_path / "generated"
             deploy_generated.GENERATED_DIR = generated_dir
 
-            compilados, erros, excecoes, database_modificado = deploy_generated.passo_a_compilar_croquis(
-                [(croqui_dir, croqui_data)],
-                gerar_arquivos_de_debug=True
+            compilados, erros, excecoes, database_modificado = (
+                deploy_generated.passo_a_compilar_croquis(
+                    [(croqui_dir, croqui_data)], gerar_arquivos_de_debug=True
+                )
             )
 
             self.assertEqual(len(erros), 0, f"Erros durante compilação: {erros}")
@@ -569,23 +602,24 @@ class DeployGeneratedTest(unittest.TestCase):
             with open(dest_pb, "rb") as f:
                 croqui_pb.ParseFromString(f.read())
 
-            caminhos_externos = {arq.caminho: arq.checksum_sha256 for arq in croqui_pb.arquivos_externos}
+            caminhos_externos = {
+                arq.caminho: arq.checksum_sha256 for arq in croqui_pb.arquivos_externos
+            }
             self.assertIn("anexos/ficha.pdf", caminhos_externos)
             self.assertIn("anexos/termo.pdf", caminhos_externos)
             self.assertIn("imagens/foto.webp", caminhos_externos)
 
             # Checksums devem bater com o cálculo real
             self.assertEqual(
-                caminhos_externos["anexos/ficha.pdf"],
-                deploy_generated.calcular_sha256(pdf_ficha)
+                caminhos_externos["anexos/ficha.pdf"], deploy_generated.calcular_sha256(pdf_ficha)
             )
             self.assertEqual(
-                caminhos_externos["anexos/termo.pdf"],
-                deploy_generated.calcular_sha256(pdf_termo)
+                caminhos_externos["anexos/termo.pdf"], deploy_generated.calcular_sha256(pdf_termo)
             )
 
     def test_verificar_imagens_inexistentes_avisa_mapa_inexistente(self):
         import tempfile
+
         with tempfile.TemporaryDirectory() as tmp_dir:
             croqui_dir = Path(tmp_dir)
             compiled_data = {
@@ -606,16 +640,22 @@ class DeployGeneratedTest(unittest.TestCase):
             captured_output = StringIO()
             sys.stdout = captured_output
             try:
-                deploy_generated.verificar_imagens_inexistentes(croqui_dir, "croqui_teste", compiled_data)
+                deploy_generated.verificar_imagens_inexistentes(
+                    croqui_dir, "croqui_teste", compiled_data
+                )
             finally:
                 sys.stdout = sys.__stdout__
 
             saida = captured_output.getvalue()
-            self.assertIn("Aviso: A imagem 'imagens/mapa_inexistente.webp' referenciada no croqui 'croqui_teste'", saida)
+            self.assertIn(
+                "Aviso: A imagem 'imagens/mapa_inexistente.webp' referenciada no croqui 'croqui_teste'",
+                saida,
+            )
             self.assertIn("não foi encontrada no disco", saida)
 
     def test_verificar_imagens_inexistentes_avisa_markdown_inexistente(self):
         import tempfile
+
         with tempfile.TemporaryDirectory() as tmp_dir:
             croqui_dir = Path(tmp_dir)
             compiled_data = {
@@ -626,39 +666,49 @@ class DeployGeneratedTest(unittest.TestCase):
                             "secao_textual": {
                                 "conteudo": "# Capa\n\n![Foto da Pedra](imagens/pedra_inexistente.webp)\n"
                             }
-                        }
+                        },
                     }
                 ]
             }
             captured_output = StringIO()
             sys.stdout = captured_output
             try:
-                deploy_generated.verificar_imagens_inexistentes(croqui_dir, "croqui_teste", compiled_data)
+                deploy_generated.verificar_imagens_inexistentes(
+                    croqui_dir, "croqui_teste", compiled_data
+                )
             finally:
                 sys.stdout = sys.__stdout__
 
             saida = captured_output.getvalue()
-            self.assertIn("Aviso: A imagem 'imagens/pedra_inexistente.webp' referenciada no croqui 'croqui_teste'", saida)
+            self.assertIn(
+                "Aviso: A imagem 'imagens/pedra_inexistente.webp' referenciada no croqui 'croqui_teste'",
+                saida,
+            )
 
     def test_verificar_imagens_inexistentes_avisa_thumbnail_inexistente(self):
         import tempfile
+
         with tempfile.TemporaryDirectory() as tmp_dir:
             croqui_dir = Path(tmp_dir)
-            compiled_data = {
-                "caminho_thumbnail": "imagens/thumb_inexistente.webp"
-            }
+            compiled_data = {"caminho_thumbnail": "imagens/thumb_inexistente.webp"}
             captured_output = StringIO()
             sys.stdout = captured_output
             try:
-                deploy_generated.verificar_imagens_inexistentes(croqui_dir, "croqui_teste", compiled_data)
+                deploy_generated.verificar_imagens_inexistentes(
+                    croqui_dir, "croqui_teste", compiled_data
+                )
             finally:
                 sys.stdout = sys.__stdout__
 
             saida = captured_output.getvalue()
-            self.assertIn("Aviso: A imagem 'imagens/thumb_inexistente.webp' referenciada no croqui 'croqui_teste'", saida)
+            self.assertIn(
+                "Aviso: A imagem 'imagens/thumb_inexistente.webp' referenciada no croqui 'croqui_teste'",
+                saida,
+            )
 
     def test_verificar_imagens_inexistentes_ignora_urls_externas(self):
         import tempfile
+
         with tempfile.TemporaryDirectory() as tmp_dir:
             croqui_dir = Path(tmp_dir)
             compiled_data = {
@@ -667,7 +717,9 @@ class DeployGeneratedTest(unittest.TestCase):
             captured_output = StringIO()
             sys.stdout = captured_output
             try:
-                deploy_generated.verificar_imagens_inexistentes(croqui_dir, "croqui_teste", compiled_data)
+                deploy_generated.verificar_imagens_inexistentes(
+                    croqui_dir, "croqui_teste", compiled_data
+                )
             finally:
                 sys.stdout = sys.__stdout__
 
@@ -676,6 +728,7 @@ class DeployGeneratedTest(unittest.TestCase):
 
     def test_verificar_imagens_inexistentes_sucesso_quando_arquivo_existe(self):
         import tempfile
+
         with tempfile.TemporaryDirectory() as tmp_dir:
             croqui_dir = Path(tmp_dir)
             pasta_img = croqui_dir / "imagens"
@@ -690,9 +743,7 @@ class DeployGeneratedTest(unittest.TestCase):
                             {
                                 "setor": {
                                     "descricao": "![Foto](imagens/foto_ok.webp)",
-                                    "mapas": [
-                                        {"caminho_imagem_mapa": "imagens/mapa_ok.webp"}
-                                    ]
+                                    "mapas": [{"caminho_imagem_mapa": "imagens/mapa_ok.webp"}],
                                 }
                             }
                         ]
@@ -702,7 +753,9 @@ class DeployGeneratedTest(unittest.TestCase):
             captured_output = StringIO()
             sys.stdout = captured_output
             try:
-                deploy_generated.verificar_imagens_inexistentes(croqui_dir, "croqui_teste", compiled_data)
+                deploy_generated.verificar_imagens_inexistentes(
+                    croqui_dir, "croqui_teste", compiled_data
+                )
             finally:
                 sys.stdout = sys.__stdout__
 
@@ -712,6 +765,7 @@ class DeployGeneratedTest(unittest.TestCase):
     def test_deploy_retorna_booleano_database_modificado(self):
         import tempfile
         from unittest.mock import patch
+
         with tempfile.TemporaryDirectory() as tmp_dir:
             out_dir = Path(tmp_dir) / "out"
             with patch("scripts.deploy_generated.encontrar_croquis", return_value=[]):
@@ -724,10 +778,23 @@ class DeployGeneratedTest(unittest.TestCase):
                 fake_croqui_dir.mkdir(exist_ok=True)
                 mock_encontrar.return_value = [(fake_croqui_dir, {"id": "fake"})]
                 with patch("scripts.deploy_generated.carregar_dados_anteriores", return_value={}):
-                    with patch("scripts.deploy_generated.passo_a_compilar_croquis", return_value=([("fake", {"id": "fake"}, fake_croqui_dir / "compilado.binarypb")], [], [], True)):
-                        with patch("scripts.deploy_generated.passo_b_calcular_checksums", return_value={"fake": "hash"}):
+                    with patch(
+                        "scripts.deploy_generated.passo_a_compilar_croquis",
+                        return_value=(
+                            [("fake", {"id": "fake"}, fake_croqui_dir / "compilado.binarypb")],
+                            [],
+                            [],
+                            True,
+                        ),
+                    ):
+                        with patch(
+                            "scripts.deploy_generated.passo_b_calcular_checksums",
+                            return_value={"fake": "hash"},
+                        ):
                             with patch("scripts.deploy_generated.passo_c_gerar_indice"):
-                                with patch("scripts.deploy_generated.passo_d_gerar_manifesto_serving"):
+                                with patch(
+                                    "scripts.deploy_generated.passo_d_gerar_manifesto_serving"
+                                ):
                                     (out_dir / "fake").mkdir(parents=True, exist_ok=True)
                                     (out_dir / "fake" / "compilado.binarypb").write_bytes(b"dummy")
                                     resultado = deploy_generated.deploy(out_dir)
@@ -736,13 +803,16 @@ class DeployGeneratedTest(unittest.TestCase):
     def test_deploy_sem_alvos_compila_todos_os_croquis(self):
         import tempfile
         from unittest.mock import patch
+
         with tempfile.TemporaryDirectory() as tmp_dir:
             out_dir = Path(tmp_dir) / "out"
             fake_croqui_dir = Path(tmp_dir) / "fake"
             fake_croqui_dir.mkdir(exist_ok=True)
             croquis_esperados = [(fake_croqui_dir, {"id": "fake"})]
 
-            with patch("scripts.deploy_generated.encontrar_croquis", return_value=croquis_esperados):
+            with patch(
+                "scripts.deploy_generated.encontrar_croquis", return_value=croquis_esperados
+            ):
                 with patch("scripts.deploy_generated.carregar_dados_anteriores", return_value={}):
                     with patch("scripts.deploy_generated.passo_a_compilar_croquis") as mock_passo_a:
                         mock_passo_a.return_value = (
@@ -751,9 +821,14 @@ class DeployGeneratedTest(unittest.TestCase):
                             [],
                             False,
                         )
-                        with patch("scripts.deploy_generated.passo_b_calcular_checksums", return_value={"fake": "hash"}):
+                        with patch(
+                            "scripts.deploy_generated.passo_b_calcular_checksums",
+                            return_value={"fake": "hash"},
+                        ):
                             with patch("scripts.deploy_generated.passo_c_gerar_indice"):
-                                with patch("scripts.deploy_generated.passo_d_gerar_manifesto_serving"):
+                                with patch(
+                                    "scripts.deploy_generated.passo_d_gerar_manifesto_serving"
+                                ):
                                     (out_dir / "fake").mkdir(parents=True, exist_ok=True)
                                     (out_dir / "fake" / "compilado.binarypb").write_bytes(b"dummy")
                                     deploy_generated.deploy(out_dir, target_paths=None)
@@ -765,7 +840,9 @@ class DeployGeneratedTest(unittest.TestCase):
 
     def test_passo_c_gerar_indice_com_croqui_uid(self):
         import tempfile
+
         import yaml
+
         from scripts.gerenciar_uids_lib import gerar_uid
 
         croqui_uid_esperado = gerar_uid()
@@ -774,7 +851,7 @@ class DeployGeneratedTest(unittest.TestCase):
             "uid": croqui_uid_esperado,
             "nome": "Croqui com UID",
             "publicar_croqui": True,
-            "picos": []
+            "picos": [],
         }
         compilados = [("croqui_com_uid", croqui_data, Path("dummy_pb"))]
         checksums = {"croqui_com_uid": "dummy_hash"}
@@ -790,17 +867,19 @@ class DeployGeneratedTest(unittest.TestCase):
 
             indice_yaml = Path(tmp_dir) / "indice.yaml"
             self.assertTrue(indice_yaml.is_file())
-            with open(indice_yaml, "r", encoding="utf-8") as f:
+            with open(indice_yaml, encoding="utf-8") as f:
                 dados_yaml = yaml.safe_load(f)
             self.assertEqual(dados_yaml["croquis"][0]["croqui_uid"], croqui_uid_esperado)
 
     def test_serving_versao_permanece_v4_com_migracoes_database_only(self):
         from serving.update_serving import get_db_version
+
         versao = get_db_version()
         self.assertEqual(versao, "v4")
 
     def test_copiar_imagens_normaliza_caminhos_e_ignora_raw_mapas(self):
         import tempfile
+
         with tempfile.TemporaryDirectory() as tmp_dir:
             src = Path(tmp_dir) / "imagens_src"
             dest = Path(tmp_dir) / "imagens_dest"
@@ -810,7 +889,10 @@ class DeployGeneratedTest(unittest.TestCase):
             raw_dir.mkdir()
             (raw_dir / "raw.webp").write_bytes(b"raw")
 
-            with patch("scripts.deploy_generated.normalizar_caminho_estendido", side_effect=lambda p: str(p)) as mock_norm:
+            with patch(
+                "scripts.deploy_generated.normalizar_caminho_estendido",
+                side_effect=lambda p: str(p),
+            ) as mock_norm:
                 deploy_generated.copiar_imagens(src, dest)
                 self.assertEqual(mock_norm.call_count, 2)
                 mock_norm.assert_any_call(src)
@@ -821,13 +903,17 @@ class DeployGeneratedTest(unittest.TestCase):
 
     def test_copiar_anexos_normaliza_caminhos(self):
         import tempfile
+
         with tempfile.TemporaryDirectory() as tmp_dir:
             src = Path(tmp_dir) / "anexos_src"
             dest = Path(tmp_dir) / "anexos_dest"
             src.mkdir()
             (src / "documento.pdf").write_bytes(b"pdf")
 
-            with patch("scripts.deploy_generated.normalizar_caminho_estendido", side_effect=lambda p: str(p)) as mock_norm:
+            with patch(
+                "scripts.deploy_generated.normalizar_caminho_estendido",
+                side_effect=lambda p: str(p),
+            ) as mock_norm:
                 deploy_generated.copiar_anexos(src, dest)
                 self.assertEqual(mock_norm.call_count, 2)
                 mock_norm.assert_any_call(src)
@@ -837,12 +923,16 @@ class DeployGeneratedTest(unittest.TestCase):
 
     def test_force_rmtree_normaliza_caminho_e_remove_diretorio(self):
         import tempfile
+
         with tempfile.TemporaryDirectory() as tmp_dir:
             pasta = Path(tmp_dir) / "pasta_teste"
             pasta.mkdir()
             (pasta / "arquivo.txt").write_text("conteudo")
 
-            with patch("scripts.deploy_generated.normalizar_caminho_estendido", side_effect=lambda p: str(p)) as mock_norm:
+            with patch(
+                "scripts.deploy_generated.normalizar_caminho_estendido",
+                side_effect=lambda p: str(p),
+            ) as mock_norm:
                 deploy_generated.force_rmtree(pasta)
                 mock_norm.assert_called_once_with(pasta)
 
@@ -857,7 +947,7 @@ class DeployGeneratedTest(unittest.TestCase):
                         {
                             "setor": {
                                 "nome": "Setor Bem-vindo",
-                                "descricao": "# Setor Bem-vindo\n\nTexto descritivo do setor."
+                                "descricao": "# Setor Bem-vindo\n\nTexto descritivo do setor.",
                             }
                         },
                         {
@@ -867,26 +957,37 @@ class DeployGeneratedTest(unittest.TestCase):
                                 "setores": [
                                     {
                                         "nome": "Sub Setor 1",
-                                        "descricao": "# Sub Setor 1\n\nOutro texto."
+                                        "descricao": "# Sub Setor 1\n\nOutro texto.",
                                     }
-                                ]
+                                ],
                             }
-                        }
-                    ]
+                        },
+                    ],
                 }
             ]
         }
         captured_output = StringIO()
         sys.stdout = captured_output
         try:
-            deploy_generated.verificar_titulos_em_descricao_setor_grupo("croqui_teste", compiled_data)
+            deploy_generated.verificar_titulos_em_descricao_setor_grupo(
+                "croqui_teste", compiled_data
+            )
         finally:
             sys.stdout = sys.__stdout__
 
         saida = captured_output.getvalue()
-        self.assertIn("Aviso: A descrição do setor 'Setor Bem-vindo' no croqui 'croqui_teste' contém título Markdown H1 ('# Setor Bem-vindo').", saida)
-        self.assertIn("Aviso: A descrição do grupo 'Grupo Vale Oculto' no croqui 'croqui_teste' contém título Markdown H1 ('# Grupo Vale Oculto').", saida)
-        self.assertIn("Aviso: A descrição do setor 'Sub Setor 1' no croqui 'croqui_teste' contém título Markdown H1 ('# Sub Setor 1').", saida)
+        self.assertIn(
+            "Aviso: A descrição do setor 'Setor Bem-vindo' no croqui 'croqui_teste' contém título Markdown H1 ('# Setor Bem-vindo').",
+            saida,
+        )
+        self.assertIn(
+            "Aviso: A descrição do grupo 'Grupo Vale Oculto' no croqui 'croqui_teste' contém título Markdown H1 ('# Grupo Vale Oculto').",
+            saida,
+        )
+        self.assertIn(
+            "Aviso: A descrição do setor 'Sub Setor 1' no croqui 'croqui_teste' contém título Markdown H1 ('# Sub Setor 1').",
+            saida,
+        )
 
     def test_verificar_titulos_em_descricao_setor_grupo_sem_aviso_se_sem_h1(self):
         compiled_data = {
@@ -897,17 +998,19 @@ class DeployGeneratedTest(unittest.TestCase):
                         {
                             "setor": {
                                 "nome": "Setor Limpo",
-                                "descricao": "Texto sem título no topo.\n\n## Acesso\nSiga pela trilha."
+                                "descricao": "Texto sem título no topo.\n\n## Acesso\nSiga pela trilha.",
                             }
                         }
-                    ]
+                    ],
                 }
             ]
         }
         captured_output = StringIO()
         sys.stdout = captured_output
         try:
-            deploy_generated.verificar_titulos_em_descricao_setor_grupo("croqui_teste", compiled_data)
+            deploy_generated.verificar_titulos_em_descricao_setor_grupo(
+                "croqui_teste", compiled_data
+            )
         finally:
             sys.stdout = sys.__stdout__
 
@@ -919,20 +1022,16 @@ class DeployGeneratedTest(unittest.TestCase):
             "picos": [
                 {
                     "nome": "Pico Teste",
-                    "setores_ou_grupos": [
-                        {
-                            "setor": {
-                                "nome": "Setor Sem Descricao"
-                            }
-                        }
-                    ]
+                    "setores_ou_grupos": [{"setor": {"nome": "Setor Sem Descricao"}}],
                 }
             ]
         }
         captured_output = StringIO()
         sys.stdout = captured_output
         try:
-            deploy_generated.verificar_titulos_em_descricao_setor_grupo("croqui_teste", compiled_data)
+            deploy_generated.verificar_titulos_em_descricao_setor_grupo(
+                "croqui_teste", compiled_data
+            )
         finally:
             sys.stdout = sys.__stdout__
 
@@ -947,20 +1046,17 @@ class DeployGeneratedTest(unittest.TestCase):
                     "nome": "Pico Valido",
                     "setores_ou_grupos": [
                         "item_invalido",
-                        {
-                            "grupo": {
-                                "nome": "Grupo Sem Lista Setores",
-                                "setores": "invalido"
-                            }
-                        }
-                    ]
-                }
+                        {"grupo": {"nome": "Grupo Sem Lista Setores", "setores": "invalido"}},
+                    ],
+                },
             ]
         }
         captured_output = StringIO()
         sys.stdout = captured_output
         try:
-            deploy_generated.verificar_titulos_em_descricao_setor_grupo("croqui_teste", compiled_data)
+            deploy_generated.verificar_titulos_em_descricao_setor_grupo(
+                "croqui_teste", compiled_data
+            )
         finally:
             sys.stdout = sys.__stdout__
 
@@ -968,7 +1064,5 @@ class DeployGeneratedTest(unittest.TestCase):
         self.assertEqual(saida.strip(), "")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
-
-

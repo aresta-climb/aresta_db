@@ -3,35 +3,37 @@
 
 import sys
 import unittest
+
 from PySide6.QtWidgets import QApplication
-from PySide6.QtCore import Qt
+
 from aresta_api.proto.generated import croqui_pb2
 from editor.models.croqui_model import CroquiModel
 from editor.views.dialogos.dialogo_busca_referencia import DialogoBuscaReferencia
 
 app = QApplication.instance() or QApplication(sys.argv)
 
+
 class DialogoBuscaReferenciaTest(unittest.TestCase):
     def setUp(self):
         croqui = croqui_pb2.Croqui()
         croqui.nome = "Croqui Teste"
-        
+
         pico = croqui.picos.add(nome="Pico Teste")
-        
+
         sg_grupo = pico.setores_ou_grupos.add()
         grupo = sg_grupo.grupo.conteudo
         grupo.uid = "grp_1"
         grupo.nome = "Grupo Teste"
-        
+
         setor_msg = grupo.setores.add()
         setor = setor_msg.conteudo
         setor.uid = "set_1"
         setor.nome = "Setor Teste"
-        
+
         via = setor.escaladas.add()
         via.uid = "esc_1"
         via.via_esportiva.nome = "Via Teste"
-        
+
         self.model = CroquiModel(croqui)
         self.dialogo = DialogoBuscaReferencia(self.model)
 
@@ -45,7 +47,7 @@ class DialogoBuscaReferenciaTest(unittest.TestCase):
     def test_popular_lista_e_filtrar(self):
         # Sem filtro
         self.assertEqual(self.dialogo.lista_resultados.count(), 3)
-        
+
         # Filtrar por "Via"
         self.dialogo.input_busca.setText("Via")
         self.assertEqual(self.dialogo.lista_resultados.count(), 1)
@@ -55,47 +57,59 @@ class DialogoBuscaReferenciaTest(unittest.TestCase):
         # Filtra e seleciona a Via
         self.dialogo.input_busca.setText("Via")
         self.dialogo.lista_resultados.setCurrentRow(0)
-        
+
         self.dialogo.accept()
-        
+
         ref = self.dialogo.obter_referencia()
         self.assertIsNotNone(ref)
         self.assertEqual(ref.alvo_uid, "esc_1")
-        self.assertEqual(len(ref.pontos_uids), 0) # Sem nós linkados ainda
+        self.assertEqual(len(ref.pontos_uids), 0)  # Sem nós linkados ainda
 
     def test_primeiro_item_selecionado_automaticamente(self):
         # Quando a lista inicial carrega, o primeiro item deve estar selecionado
         self.assertEqual(self.dialogo.lista_resultados.currentRow(), 0)
-        
+
         # Filtrar por "Via" também deve deixar o primeiro (único) item selecionado
         self.dialogo.input_busca.setText("Via")
         self.assertEqual(self.dialogo.lista_resultados.currentRow(), 0)
 
     def test_busca_ignora_acentos(self):
         # Vamos adicionar uma entidade com acentos manualmente
-        self.dialogo.todas_entidades.append({
-            "tipo": "Escalada",
-            "display": f"🧗 Via: Conceição > Vía Láctea",
-            "grupo": "",
-            "setor": "Conceição",
-            "escalada": "Vía Láctea"
-        })
-        
+        self.dialogo.todas_entidades.append(
+            {
+                "tipo": "Escalada",
+                "display": "🧗 Via: Conceição > Vía Láctea",
+                "grupo": "",
+                "setor": "Conceição",
+                "escalada": "Vía Láctea",
+            }
+        )
+
         # Filtrar sem acento e tudo minúsculo
         self.dialogo.input_busca.setText("via lactea")
         self.assertEqual(self.dialogo.lista_resultados.count(), 1)
         self.assertIn("Vía Láctea", self.dialogo.lista_resultados.item(0).text())
 
     def test_setter_todas_entidades(self):
-        novas = [{"tipo": "Setor", "display": "🎯 Setor: Novo", "grupo": "", "setor": "Novo", "escalada": ""}]
+        novas = [
+            {
+                "tipo": "Setor",
+                "display": "🎯 Setor: Novo",
+                "grupo": "",
+                "setor": "Novo",
+                "escalada": "",
+            }
+        ]
         self.dialogo.todas_entidades = novas
         self.assertEqual(self.dialogo.todas_entidades, novas)
 
     def test_on_entidade_ativada_chama_accept(self):
         chamou_accept = False
+
         def mock_accept():
             nonlocal chamou_accept
             chamou_accept = True
+
         self.dialogo.accept = mock_accept
         self.dialogo._on_entidade_ativada({})
         self.assertTrue(chamou_accept)
@@ -107,5 +121,5 @@ class DialogoBuscaReferenciaTest(unittest.TestCase):
         self.assertIsNone(self.dialogo.obter_referencia())
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

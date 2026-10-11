@@ -5,26 +5,25 @@
 Testes unitários para a integração nativa com o Windows em editor.plataforma.windows.integracao.
 """
 
-import sys
-import os
-from pathlib import Path
-import pytest
 import ctypes
+import os
+import sys
+from pathlib import Path
 from unittest.mock import MagicMock, patch
 
 if not hasattr(ctypes, "windll"):
     ctypes.windll = MagicMock()
 
+from editor.plataforma.contrato import ResultadoAtualizacao, StatusAtualizacao
 from editor.plataforma.windows.integracao import (
-    configurar_presenca_barra_de_tarefas,
-    configurar_identidade_processo_windows,
-    trazer_janela_para_frente,
-    _esta_executando_em_pacote_msix,
-    AdaptadorWindows,
     ESTILO_ESTENDIDO_APPWINDOW,
     ESTILO_MENU_SISTEMA,
+    AdaptadorWindows,
+    _esta_executando_em_pacote_msix,
+    configurar_identidade_processo_windows,
+    configurar_presenca_barra_de_tarefas,
+    trazer_janela_para_frente,
 )
-from editor.plataforma.contrato import StatusAtualizacao, ResultadoAtualizacao
 
 
 def test_configurar_presenca_barra_de_tarefas_no_op_fora_do_windows() -> None:
@@ -213,9 +212,7 @@ def test_adaptador_windows_metodos() -> None:
     assert isinstance(diretorio, Path)
 
     # Teste fallback quando QStandardPaths retorna vazio
-    with patch(
-        "PySide6.QtCore.QStandardPaths.writableLocation", return_value=""
-    ):
+    with patch("PySide6.QtCore.QStandardPaths.writableLocation", return_value=""):
         with patch.dict(os.environ, {"APPDATA": "C:\\Users\\Teste\\AppData\\Roaming"}):
             dir_appdata = adaptador.obter_diretorio_dados_usuario()
             assert dir_appdata == Path("C:\\Users\\Teste\\AppData\\Roaming") / "EditorAresta"
@@ -282,7 +279,9 @@ def test_adaptador_windows_configurar_cofre_credenciais() -> None:
 
     # Cenário 4: Falha ao instanciar backend
     with patch("keyring.get_keyring", return_value=FailKeyring()):
-        with patch("keyring.backends.Windows.WinVaultKeyring", side_effect=Exception("WinVault erro")):
+        with patch(
+            "keyring.backends.Windows.WinVaultKeyring", side_effect=Exception("WinVault erro")
+        ):
             with patch("keyring.set_keyring") as mock_set:
                 assert adaptador.configurar_cofre_credenciais() is False
                 mock_set.assert_not_called()
@@ -328,6 +327,8 @@ def test_windows_integracao_quando_windll_eh_none() -> None:
     with patch("ctypes.windll", None, create=True), patch("sys.platform", "win32"):
         assert _obter_user32() is None
         assert _esta_executando_em_pacote_msix() is False
-        with patch("editor.plataforma.windows.integracao._esta_executando_em_pacote_msix", return_value=False):
+        with patch(
+            "editor.plataforma.windows.integracao._esta_executando_em_pacote_msix",
+            return_value=False,
+        ):
             assert configurar_identidade_processo_windows("app_id") is False
-

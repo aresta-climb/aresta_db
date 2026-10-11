@@ -1,23 +1,24 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
-from typing import Any
 import logging
 import sys
+from typing import Any
 
 from editor.core.telemetria import sanitizar_texto_caminhos
 
 
 class SanitizingFormatter(logging.Formatter):
     """Formatador de log que sanitiza caminhos absolutos locais para privacidade."""
+
     def format(self, record: logging.LogRecord) -> str:
         mensagem_original = super().format(record)
         return sanitizar_texto_caminhos(mensagem_original)
 
 
 class SafeStreamHandler(logging.StreamHandler[Any]):
-
     """StreamHandler seguro que evita falhas se o stream for fechado durante shutdown ou testes."""
+
     def emit(self, record: logging.LogRecord) -> None:
         try:
             super().emit(record)
@@ -36,21 +37,20 @@ def configurar_logging(nivel: int = logging.INFO) -> logging.Logger:
     """
     logger_raiz = logging.getLogger("aresta_editor")
     logger_raiz.setLevel(nivel)
-    
+
     # Remove handlers antigos para evitar duplicação em reconfigurações
     for handler in list(logger_raiz.handlers):
         logger_raiz.removeHandler(handler)
-        
+
     formato = "%(asctime)s [%(levelname)s] [%(name)s] %(message)s"
     formatter = SanitizingFormatter(formato, datefmt="%Y-%m-%d %H:%M:%S")
-    
+
     # Handler de console (stdout) com sanitização de privacidade
     stream_handler = SafeStreamHandler(sys.stdout)
     stream_handler.setFormatter(formatter)
     logger_raiz.addHandler(stream_handler)
-    
-    return logger_raiz
 
+    return logger_raiz
 
 
 # Inicialização padrão do logger global

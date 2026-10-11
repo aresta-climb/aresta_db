@@ -1,13 +1,12 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
+
 import pytest
 import responses
-from unittest.mock import patch
 
 from editor.core.cliente_auth_supabase import ClienteAuthSupabase
 from editor.core.gerenciador_sessao import GerenciadorSessao, SessaoUsuario
-from editor.core.servidor_oauth_callback import ServidorCallbackOAuth
 
 
 @pytest.fixture

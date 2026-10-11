@@ -1,14 +1,16 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
-import pytest
-from unittest.mock import patch, MagicMock
+from unittest.mock import MagicMock, patch
+
 from PySide6.QtGui import QPixmap
+
 from aresta_api.proto.generated import beta_pb2
 from coleta_de_betas.curadoria.carregador_imagens import (
+    baixar_imagem_sincrona,
     obter_pixmap_fallback,
-    baixar_imagem_sincrona
 )
+
 
 def test_obter_pixmap_fallback_instagram(qtbot):
     pixmap = obter_pixmap_fallback(beta_pb2.FonteMidia.INSTAGRAM)
@@ -26,8 +28,8 @@ def test_obter_pixmap_fallback_youtube(qtbot):
 
 @patch("requests.get")
 def test_baixar_imagem_sincrona_sucesso(mock_get, qtbot):
+    from PySide6.QtCore import QBuffer, QByteArray, QIODevice
     from PySide6.QtGui import QImage
-    from PySide6.QtCore import QBuffer, QIODevice, QByteArray
 
     img = QImage(2, 2, QImage.Format.Format_RGB32)
     ba = QByteArray()
@@ -35,7 +37,7 @@ def test_baixar_imagem_sincrona_sucesso(mock_get, qtbot):
     buf.open(QIODevice.OpenModeFlag.WriteOnly)
     img.save(buf, "PNG")
     png_bytes = bytes(ba.data())
-    
+
     mock_resp = MagicMock()
     mock_resp.status_code = 200
     mock_resp.content = png_bytes
@@ -54,6 +56,8 @@ def test_baixar_imagem_sincrona_erro_usa_fallback(mock_get, qtbot):
     mock_resp.status_code = 404
     mock_get.return_value = mock_resp
 
-    pixmap = baixar_imagem_sincrona("https://exemplo.com/nao_existe.png", beta_pb2.FonteMidia.INSTAGRAM)
+    pixmap = baixar_imagem_sincrona(
+        "https://exemplo.com/nao_existe.png", beta_pb2.FonteMidia.INSTAGRAM
+    )
     assert isinstance(pixmap, QPixmap)
     assert not pixmap.isNull()

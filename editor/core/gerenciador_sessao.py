@@ -1,15 +1,17 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
-import os
 import base64
-from pathlib import Path
-from dataclasses import dataclass, asdict
-from typing import Optional, Dict, Any
 import json
 import logging
+import os
+from dataclasses import asdict, dataclass
+from pathlib import Path
+from typing import Any
+
 import keyring
 from cryptography.hazmat.primitives.ciphers.aead import AESGCM
+
 from editor.core.storage import GerenciadorCaminhos
 from editor.plataforma import configurar_cofre_credenciais
 
@@ -47,19 +49,19 @@ class SessaoUsuario:
     nome_completo: str
     jwt_supabase: str
     token_atualizacao: str
-    token_github: Optional[str] = None
+    token_github: str | None = None
 
     @property
     def eh_mantenedor(self) -> bool:
         """Retorna True se o usuário possui credencial de mantenedor do GitHub."""
         return bool(self.token_github)
 
-    def para_dicionario(self) -> Dict[str, Any]:
+    def para_dicionario(self) -> dict[str, Any]:
         """Serializa os dados da sessão em um dicionário."""
         return asdict(self)
 
     @classmethod
-    def de_dicionario(cls, dados: Dict[str, Any]) -> "SessaoUsuario":
+    def de_dicionario(cls, dados: dict[str, Any]) -> "SessaoUsuario":
         """Reconstrói uma instância de SessaoUsuario a partir de um dicionário."""
         return cls(
             email=dados.get("email", ""),
@@ -84,13 +86,13 @@ class GerenciadorSessao:
         usar_memoria: bool = False,
         nome_servico: str = "editor_aresta",
         identificador_usuario: str = "sessao_atual",
-        caminho_arquivo_sessao: Optional[Path] = None,
+        caminho_arquivo_sessao: Path | None = None,
     ) -> None:
         self.usar_memoria: bool = usar_memoria
         self.nome_servico: str = nome_servico
         self.identificador_usuario: str = identificador_usuario
-        self._sessao_memoria: Optional[str] = None
-        self._cofre_disponivel: Optional[bool] = None
+        self._sessao_memoria: str | None = None
+        self._cofre_disponivel: bool | None = None
         if caminho_arquivo_sessao:
             self._caminho_arquivo: Path = caminho_arquivo_sessao
         else:
@@ -138,9 +140,7 @@ class GerenciadorSessao:
         # Gera nova chave AES-256 (32 bytes) e armazena estritamente no Keyring do SO
         chave = AESGCM.generate_key(bit_length=256)
         chave_b64 = base64.b64encode(chave).decode("ascii")
-        keyring.set_password(
-            self.nome_servico, self.IDENTIFICADOR_CHAVE_CRIPTOGRAFIA, chave_b64
-        )
+        keyring.set_password(self.nome_servico, self.IDENTIFICADOR_CHAVE_CRIPTOGRAFIA, chave_b64)
         return chave
 
     def salvar_sessao(self, sessao: SessaoUsuario) -> None:
@@ -162,11 +162,12 @@ class GerenciadorSessao:
             self._caminho_arquivo.write_bytes(nonce + ciphertext_com_tag)
         except Exception as exc:
             logging.getLogger("aresta_editor").warning(
-                "Falha ao persistir sessão no cofre do sistema: %s. Sessão preservada em memória.", exc
+                "Falha ao persistir sessão no cofre do sistema: %s. Sessão preservada em memória.",
+                exc,
             )
             self._sessao_memoria = payload
 
-    def obter_sessao(self) -> Optional[SessaoUsuario]:
+    def obter_sessao(self) -> SessaoUsuario | None:
         """Recupera e decifra a sessão do usuário com validação de integridade."""
         if self._sessao_memoria:
             try:
@@ -205,9 +206,7 @@ class GerenciadorSessao:
             ciphertext_com_tag = dados[12:]
 
             aesgcm = AESGCM(chave)
-            plaintext = aesgcm.decrypt(
-                nonce, ciphertext_com_tag, associated_data=None
-            )
+            plaintext = aesgcm.decrypt(nonce, ciphertext_com_tag, associated_data=None)
             dados_sessao = json.loads(plaintext.decode("utf-8"))
             return SessaoUsuario.de_dicionario(dados_sessao)
         except Exception:
@@ -215,11 +214,11 @@ class GerenciadorSessao:
             self.limpar_sessao()
             return None
 
-    def carregar_sessao(self) -> Optional[SessaoUsuario]:
+    def carregar_sessao(self) -> SessaoUsuario | None:
         """Alias de compatibilidade para obter_sessao."""
         return self.obter_sessao()
 
-    def recuperar_token(self, auto_renovar: bool = True) -> Optional[str]:
+    def recuperar_token(self, auto_renovar: bool = True) -> str | None:
         """Recupera o token JWT do Supabase da sessão ativa, renovando-o se expirado."""
         sessao = self.obter_sessao()
         if not sessao or not sessao.jwt_supabase:
@@ -230,9 +229,7 @@ class GerenciadorSessao:
                 try:
                     from editor.core.cliente_auth_supabase import ClienteAuthSupabase
 
-                    novos_dados = ClienteAuthSupabase().renovar_sessao(
-                        sessao.token_atualizacao
-                    )
+                    novos_dados = ClienteAuthSupabase().renovar_sessao(sessao.token_atualizacao)
                     if "access_token" in novos_dados:
                         sessao.jwt_supabase = novos_dados["access_token"]
                         sessao.token_atualizacao = novos_dados.get(
@@ -250,9 +247,7 @@ class GerenciadorSessao:
         self._sessao_memoria = None
         if not self.usar_memoria:
             try:
-                keyring.delete_password(
-                    self.nome_servico, self.IDENTIFICADOR_CHAVE_CRIPTOGRAFIA
-                )
+                keyring.delete_password(self.nome_servico, self.IDENTIFICADOR_CHAVE_CRIPTOGRAFIA)
             except Exception:
                 pass
 

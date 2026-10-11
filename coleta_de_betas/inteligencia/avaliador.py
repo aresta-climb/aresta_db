@@ -4,16 +4,13 @@
 import json
 import re
 from pathlib import Path
-from typing import List, Dict, Any, Optional, Union
+from typing import Any
+
 from aresta_api.proto.generated import beta_pb2
 
 
 def gerar_prompt_avaliacao(
-    nome_escalada: str,
-    grau: str,
-    setor: str,
-    pico: str,
-    candidatos: List[Dict[str, Any]]
+    nome_escalada: str, grau: str, setor: str, pico: str, candidatos: list[dict[str, Any]]
 ) -> str:
     """
     Gera o prompt estruturado em português para o modelo LLM avaliar relevância
@@ -25,9 +22,9 @@ Sua missão é avaliar postagens e vídeos coletados na internet para verificar 
 
 Escalada Alvo:
 - Nome da Via/Boulder: {nome_escalada}
-- Grau: {grau or 'Não informado'}
-- Setor: {setor or 'Não informado'}
-- Pico/Região: {pico or 'Não informado'}
+- Grau: {grau or "Não informado"}
+- Setor: {setor or "Não informado"}
+- Pico/Região: {pico or "Não informado"}
 
 Candidatos encontrados na busca (com link, título e thumbnail):
 {json.dumps(candidatos, indent=2, ensure_ascii=False)}
@@ -50,7 +47,7 @@ Responda OBRIGATORIAMENTE em formato JSON puro (uma lista de objetos com "url", 
     return prompt
 
 
-def parsear_resposta_llm(conteudo_resposta: str) -> List[Dict[str, Any]]:
+def parsear_resposta_llm(conteudo_resposta: str) -> list[dict[str, Any]]:
     """
     Extrai e decodifica a lista JSON retornada pelo modelo LLM.
     """
@@ -63,7 +60,11 @@ def parsear_resposta_llm(conteudo_resposta: str) -> List[Dict[str, Any]]:
         dados: Any = json.loads(texto)
         if isinstance(dados, list):
             return [item for item in dados if isinstance(item, dict)]
-        if isinstance(dados, dict) and "candidatos" in dados and isinstance(dados["candidatos"], list):
+        if (
+            isinstance(dados, dict)
+            and "candidatos" in dados
+            and isinstance(dados["candidatos"], list)
+        ):
             return [item for item in dados["candidatos"] if isinstance(item, dict)]
     except Exception:
         # Fallback de busca por array
@@ -83,9 +84,9 @@ def avaliar_candidatos(
     grau: str,
     setor: str,
     pico: str,
-    midias: List[beta_pb2.MidiaBeta],
-    client_llm: Optional[Any] = None
-) -> List[beta_pb2.MidiaBeta]:
+    midias: list[beta_pb2.MidiaBeta],
+    client_llm: Any | None = None,
+) -> list[beta_pb2.MidiaBeta]:
     """
     Avalia em lote os candidatos de uma via usando o client LLM fornecido,
     populando os metadados de score e raciocínio em cada MidiaBeta.
@@ -100,7 +101,7 @@ def avaliar_candidatos(
             "thumbnail_url": m.thumbnail_url,
             "snippets": list(m.snippets),
             "match_multiplas_fontes": m.match_multiplas_fontes,
-            "match_nome_no_snippet": m.match_nome_no_snippet
+            "match_nome_no_snippet": m.match_nome_no_snippet,
         }
         for m in midias
     ]
@@ -123,8 +124,8 @@ def avaliar_candidatos(
 
 def salvar_betas_pendentes(
     id_croqui: str,
-    candidatos_por_escalada: List[beta_pb2.CandidatosBetaPorEscalada],
-    caminho_arquivo: Union[Path, str]
+    candidatos_por_escalada: list[beta_pb2.CandidatosBetaPorEscalada],
+    caminho_arquivo: Path | str,
 ) -> None:
     """
     Serializa a mensagem raiz BetasPendentes em formato protobuf binário (.binarypb).
@@ -139,7 +140,7 @@ def salvar_betas_pendentes(
         f.write(msg.SerializeToString())
 
 
-def carregar_betas_pendentes(caminho_arquivo: Union[Path, str]) -> beta_pb2.BetasPendentes:
+def carregar_betas_pendentes(caminho_arquivo: Path | str) -> beta_pb2.BetasPendentes:
     """
     Desserializa o arquivo intermediário betas_pendentes.binarypb.
     """
@@ -151,4 +152,3 @@ def carregar_betas_pendentes(caminho_arquivo: Union[Path, str]) -> beta_pb2.Beta
     with open(path, "rb") as f:
         msg.ParseFromString(f.read())
     return msg
-

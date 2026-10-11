@@ -5,4 +5,3 @@
 # Não altere manualmente, a menos que saiba o que está fazendo.
 
 VERSION: str = "0.4.9-dev"
-

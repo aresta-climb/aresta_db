@@ -2,69 +2,80 @@
 # Copyright (C) 2026 Aresta Climb Contributors
 
 import unittest
-from aresta_api.proto.generated import croqui_pb2
-from aresta_api.proto.generated.croqui_pb2 import Croqui, Pico, SetorOuGrupo, ArquivoSetor, ArquivoGrupo
+
 from PySide6.QtGui import QUndoStack
+
+from aresta_api.proto.generated import croqui_pb2
+from aresta_api.proto.generated.croqui_pb2 import (
+    ArquivoGrupo,
+    ArquivoSetor,
+    Croqui,
+    Pico,
+    SetorOuGrupo,
+)
 from editor.commands.comandos_protobuf import (
-    CmdAlterarPrimitivo,
     CmdAdicionarRepeated,
-    CmdRemoverRepeated,
+    CmdAlterarMultiplosRepeatedItems,
     CmdAlterarOneof,
+    CmdAlterarPrimitivo,
     CmdAlterarRepeatedItem,
-    CmdAlterarMultiplosRepeatedItems
+    CmdRemoverRepeated,
 )
 from editor.models.croqui_model import CroquiModel
+
 
 class TestComandosProtobuf(unittest.TestCase):
     def test_cmd_alterar_primitivo(self):
         croqui = Croqui()
         croqui.nome = "Antigo Nome"
         model = CroquiModel(croqui)
-        
+
         # Cria e executa o comando
         cmd = CmdAlterarPrimitivo(model, croqui, "nome", "Antigo Nome", "Novo Nome")
         cmd.redo()
         self.assertEqual(croqui.nome, "Novo Nome")
-        
+
         # Desfaz
         cmd.undo()
         self.assertEqual(croqui.nome, "Antigo Nome")
-        
+
         # Refaz
         cmd.redo()
         self.assertEqual(croqui.nome, "Novo Nome")
 
     def test_cmd_alterar_primitivo_esvaziar_string_e_reversao(self):
         from aresta_api.proto.generated.croqui_pb2 import Setor
+
         setor = Setor()
         setor.nome = "Setor Estacionamento"
         model = CroquiModel(setor)
-        
+
         # Esvazia a string
         cmd = CmdAlterarPrimitivo(model, setor, "nome", "Setor Estacionamento", "")
         cmd.redo()
         self.assertFalse(setor.HasField("nome"))
-        
+
         # Desfaz e restaura
         cmd.undo()
         self.assertTrue(setor.HasField("nome"))
         self.assertEqual(setor.nome, "Setor Estacionamento")
-        
+
         # Refaz e limpa novamente
         cmd.redo()
         self.assertFalse(setor.HasField("nome"))
 
     def test_cmd_alterar_primitivo_booleano_tri_state_none(self):
         from aresta_api.proto.generated.croqui_pb2 import Setor
+
         setor = Setor()
         setor.sinal_de_celular = True
         model = CroquiModel(setor)
-        
+
         # Altera para None (indefinido)
         cmd = CmdAlterarPrimitivo(model, setor, "sinal_de_celular", True, None)
         cmd.redo()
         self.assertFalse(setor.HasField("sinal_de_celular"))
-        
+
         # Desfaz
         cmd.undo()
         self.assertTrue(setor.HasField("sinal_de_celular"))
@@ -72,16 +83,17 @@ class TestComandosProtobuf(unittest.TestCase):
 
     def test_cmd_alterar_primitivo_inteiro_nullable_e_zero(self):
         from aresta_api.proto.generated.croqui_pb2 import ViaEsportiva
+
         via = ViaEsportiva()
         model = CroquiModel(via)
         self.assertFalse(via.HasField("extensao"))
-        
+
         # Define como 0 (presente!)
         cmd = CmdAlterarPrimitivo(model, via, "extensao", None, 0)
         cmd.redo()
         self.assertTrue(via.HasField("extensao"))
         self.assertEqual(via.extensao, 0)
-        
+
         # Desfaz (volta a ser None / ausente)
         cmd.undo()
         self.assertFalse(via.HasField("extensao"))
@@ -90,20 +102,20 @@ class TestComandosProtobuf(unittest.TestCase):
         croqui = Croqui()
         croqui.creditos.append("Renato")
         model = CroquiModel(croqui)
-        
+
         # Adicionar "Silva" no índice 1
         cmd_add = CmdAdicionarRepeated(model, croqui, "creditos", 1, "Silva")
         cmd_add.redo()
         self.assertEqual(list(croqui.creditos), ["Renato", "Silva"])
-        
+
         cmd_add.undo()
         self.assertEqual(list(croqui.creditos), ["Renato"])
-        
+
         # Remover "Renato" no índice 0
         cmd_rem = CmdRemoverRepeated(model, croqui, "creditos", 0, "Renato")
         cmd_rem.redo()
         self.assertEqual(list(croqui.creditos), [])
-        
+
         cmd_rem.undo()
         self.assertEqual(list(croqui.creditos), ["Renato"])
 
@@ -112,28 +124,29 @@ class TestComandosProtobuf(unittest.TestCase):
         pico = Pico()
         pico.nome = "Pico Falso"
         model = CroquiModel(croqui)
-        
+
         cmd_add = CmdAdicionarRepeated(model, croqui, "picos", 0, pico)
         cmd_add.redo()
         self.assertEqual(len(croqui.picos), 1)
         self.assertEqual(croqui.picos[0].nome, "Pico Falso")
-        
+
         cmd_add.undo()
         self.assertEqual(len(croqui.picos), 0)
-        
+
         # recoloca para poder testar remoção
         cmd_add.redo()
-        
+
         cmd_rem = CmdRemoverRepeated(model, croqui, "picos", 0, croqui.picos[0])
         cmd_rem.redo()
         self.assertEqual(len(croqui.picos), 0)
-        
+
         cmd_rem.undo()
         self.assertEqual(len(croqui.picos), 1)
         self.assertEqual(croqui.picos[0].nome, "Pico Falso")
 
     def test_cmd_remover_repeated_limpa_imagens_orfas_da_ram_e_restaura_no_undo(self):
         from aresta_api.proto.generated.croqui_pb2 import Croqui
+
         croqui = Croqui()
         pico = croqui.picos.add()
         sg = pico.setores_ou_grupos.add()
@@ -141,13 +154,15 @@ class TestComandosProtobuf(unittest.TestCase):
         setor.nome = "Setor Fugitivos"
         mapa = setor.mapas.add()
         mapa.caminho_imagem_mapa = "imagens/setor_fugitivos_p0.webp"
-        
+
         model = CroquiModel(croqui)
         model.definir_imagem_memoria("imagens/setor_fugitivos_p0.webp", b"conteudo_bytes_ram")
 
         cmd_rem = CmdRemoverRepeated(model, setor, "mapas", 0, setor.mapas[0])
         self.assertIn("imagens/setor_fugitivos_p0.webp", cmd_rem.imagens_removidas_ram)
-        self.assertEqual(cmd_rem.imagens_removidas_ram["imagens/setor_fugitivos_p0.webp"], b"conteudo_bytes_ram")
+        self.assertEqual(
+            cmd_rem.imagens_removidas_ram["imagens/setor_fugitivos_p0.webp"], b"conteudo_bytes_ram"
+        )
 
         cmd_rem.redo()
         self.assertEqual(len(setor.mapas), 0)
@@ -156,10 +171,13 @@ class TestComandosProtobuf(unittest.TestCase):
         cmd_rem.undo()
         self.assertEqual(len(setor.mapas), 1)
         self.assertIn("imagens/setor_fugitivos_p0.webp", model.obter_imagens_em_memoria())
-        self.assertEqual(model.obter_bytes_imagem("imagens/setor_fugitivos_p0.webp"), b"conteudo_bytes_ram")
+        self.assertEqual(
+            model.obter_bytes_imagem("imagens/setor_fugitivos_p0.webp"), b"conteudo_bytes_ram"
+        )
 
     def test_cmd_remover_repeated_preserva_imagem_compartilhada_em_ram(self):
         from aresta_api.proto.generated.croqui_pb2 import Croqui
+
         croqui = Croqui()
         pico = croqui.picos.add()
         sg = pico.setores_ou_grupos.add()
@@ -182,6 +200,7 @@ class TestComandosProtobuf(unittest.TestCase):
     def test_cmd_remover_repeated_serializacao_com_imagens_em_ram(self):
         from aresta_api.proto.generated.croqui_pb2 import Croqui
         from editor.commands.comandos_protobuf import deserializar_comando
+
         croqui = Croqui()
         pico = croqui.picos.add()
         sg = pico.setores_ou_grupos.add()
@@ -198,50 +217,54 @@ class TestComandosProtobuf(unittest.TestCase):
         self.assertEqual(dados["imagens_removidas_ram"], {"imagens/mapa.webp": b"bytes_teste"})
 
         cmd_deserializado = deserializar_comando(dados, model)
-        self.assertEqual(cmd_deserializado.imagens_removidas_ram, {"imagens/mapa.webp": b"bytes_teste"})
+        self.assertEqual(
+            cmd_deserializado.imagens_removidas_ram, {"imagens/mapa.webp": b"bytes_teste"}
+        )
 
         dados_anon = cmd_rem.serializar(anonimizado=True)
         self.assertIn("imagens_removidas_ram", dados_anon)
-        self.assertNotEqual(dados_anon["imagens_removidas_ram"]["imagens/mapa.webp"], b"bytes_teste")
+        self.assertNotEqual(
+            dados_anon["imagens_removidas_ram"]["imagens/mapa.webp"], b"bytes_teste"
+        )
 
     def test_cmd_alterar_oneof(self):
         croqui = Croqui()
         pico = croqui.picos.add()
         sg = pico.setores_ou_grupos.add()
         model = CroquiModel(croqui)
-        
+
         # Inicialmente, nenhum campo do oneof está setado
         self.assertEqual(sg.WhichOneof("tipo"), None)
-        
+
         setor = ArquivoSetor()
         setor.caminho = "caminho/do/setor.md"
-        
+
         # Cria e executa o comando para ativar "setor"
         cmd1 = CmdAlterarOneof(model, sg, "tipo", None, None, "setor", setor)
         cmd1.redo()
-        
+
         self.assertEqual(sg.WhichOneof("tipo"), "setor")
         self.assertEqual(sg.setor.caminho, "caminho/do/setor.md")
-        
+
         # Desfaz
         cmd1.undo()
         self.assertEqual(sg.WhichOneof("tipo"), None)
-        
+
         # Refaz
         cmd1.redo()
         self.assertEqual(sg.WhichOneof("tipo"), "setor")
-        
+
         # Agora muda de "setor" para "grupo"
         grupo = ArquivoGrupo()
         grupo.caminho = "caminho/do/grupo.md"
-        
+
         cmd2 = CmdAlterarOneof(model, sg, "tipo", "setor", setor, "grupo", grupo)
         cmd2.redo()
-        
+
         self.assertEqual(sg.WhichOneof("tipo"), "grupo")
         self.assertEqual(sg.grupo.caminho, "caminho/do/grupo.md")
-        self.assertFalse(sg.HasField("setor")) # Deve ter limpado "setor"
-        
+        self.assertFalse(sg.HasField("setor"))  # Deve ter limpado "setor"
+
         # Desfaz cmd2
         cmd2.undo()
         self.assertEqual(sg.WhichOneof("tipo"), "setor")
@@ -251,34 +274,40 @@ class TestComandosProtobuf(unittest.TestCase):
         croqui = Croqui()
         croqui.creditos.append("Renato")
         model = CroquiModel(croqui)
-        
+
         cmd = CmdAlterarRepeatedItem(model, croqui, "creditos", 0, "Renato", "Silva")
         cmd.redo()
         self.assertEqual(list(croqui.creditos), ["Silva"])
-        
+
         cmd.undo()
         self.assertEqual(list(croqui.creditos), ["Renato"])
 
     def test_gerenciador_historico_runtime_error_no_crash(self):
         """
-        Garante que o _on_index_changed trata silenciosamente o RuntimeError 
+        Garante que o _on_index_changed trata silenciosamente o RuntimeError
         que ocorre quando o QUndoStack C++ subjacente ja foi deletado durante o fechamento do app.
         """
-        from editor.core.historico import GerenciadorHistorico
         from unittest.mock import patch
-        
+
+        from editor.core.historico import GerenciadorHistorico
+
         gerenciador = GerenciadorHistorico()
-        
+
         # Simula o erro do C++ quando o QUndoStack é destruido e command() é chamado
-        with patch.object(gerenciador._pilha, 'command', side_effect=RuntimeError("wrapped C/C++ object of type QUndoStack has been deleted")):
+        with patch.object(
+            gerenciador._pilha,
+            "command",
+            side_effect=RuntimeError("wrapped C/C++ object of type QUndoStack has been deleted"),
+        ):
             # Tenta notificar index change. Não deve propagar a exceção
             gerenciador._ultimo_index = 0
             try:
                 gerenciador._on_index_changed(1)
             except RuntimeError:
                 import pytest
+
                 pytest.fail("RuntimeError vazou do _on_index_changed!")
-                
+
             # O índice interno ainda deve ser atualizado
             assert gerenciador._ultimo_index == 1
 
@@ -286,25 +315,22 @@ class TestComandosProtobuf(unittest.TestCase):
         croqui = Croqui()
         croqui.creditos.extend(["Um", "Dois", "Tres"])
         model = CroquiModel(croqui)
-        
+
         # Cria e executa comando alterando indices 0 e 2
-        alteracoes = [
-            (0, "Um", "NovoUm"),
-            (2, "Tres", "NovoTres")
-        ]
+        alteracoes = [(0, "Um", "NovoUm"), (2, "Tres", "NovoTres")]
         cmd = CmdAlterarMultiplosRepeatedItems(model, croqui, "creditos", alteracoes)
         cmd.redo()
-        
+
         self.assertEqual(croqui.creditos[0], "NovoUm")
         self.assertEqual(croqui.creditos[1], "Dois")
         self.assertEqual(croqui.creditos[2], "NovoTres")
-        
+
         # Desfaz
         cmd.undo()
         self.assertEqual(croqui.creditos[0], "Um")
         self.assertEqual(croqui.creditos[1], "Dois")
         self.assertEqual(croqui.creditos[2], "Tres")
-        
+
         # Refaz novamente
         cmd.redo()
         self.assertEqual(croqui.creditos[0], "NovoUm")
@@ -312,72 +338,83 @@ class TestComandosProtobuf(unittest.TestCase):
 
     def test_gerenciador_historico_sinais(self):
         from editor.core.historico import GerenciadorHistorico
-        
+
         gerenciador = GerenciadorHistorico()
         croqui = Croqui()
         croqui.nome = "Original"
         model = CroquiModel(croqui)
-        
+
         sinais_campo = []
         sinais_add = []
         sinais_rem = []
-        
-        gerenciador.sinal_campo_alterado.connect(lambda msg_id, campo, val: sinais_campo.append((msg_id, campo, val)))
-        gerenciador.sinal_item_adicionado.connect(lambda msg_id, campo, idx: sinais_add.append((msg_id, campo, idx)))
-        gerenciador.sinal_item_removido.connect(lambda msg_id, campo, idx: sinais_rem.append((msg_id, campo, idx)))
-        
+
+        gerenciador.sinal_campo_alterado.connect(
+            lambda msg_id, campo, val: sinais_campo.append((msg_id, campo, val))
+        )
+        gerenciador.sinal_item_adicionado.connect(
+            lambda msg_id, campo, idx: sinais_add.append((msg_id, campo, idx))
+        )
+        gerenciador.sinal_item_removido.connect(
+            lambda msg_id, campo, idx: sinais_rem.append((msg_id, campo, idx))
+        )
+
         # Teste 1: Alterar Primitivo
         cmd = CmdAlterarPrimitivo(model, croqui, "nome", "Original", "Novo")
         gerenciador.executar(cmd)
-        
+
         # Como o Gerenciador não emite mais para nós, vamos apenas testar o modelo
         sinais_modelo_campo = []
         model.dado_alterado.connect(lambda msg, campo: sinais_modelo_campo.append(campo))
-        
+
         # Teste 2: Adicionar Repeated
         cmd_add = CmdAdicionarRepeated(model, croqui, "creditos", 0, "Item1")
         gerenciador.executar(cmd_add)
 
+
 def test_cmd_alterar_metadados_caminho_novo():
-    from editor.commands.comandos_protobuf import CmdAlterarMetadadosCaminhoNovo
     from aresta_api.proto.generated import croqui_pb2
-    
+    from editor.commands.comandos_protobuf import CmdAlterarMetadadosCaminhoNovo
+
     croqui = Croqui()
     sg = croqui.picos.add().setores_ou_grupos.add()
     sg.setor.conteudo.nome = "Setor"
     model = CroquiModel(croqui)
-    
+
     # Executa o comando para mudar caminho novo
-    cmd = CmdAlterarMetadadosCaminhoNovo(model, sg.setor, croqui_pb2.ArquivoSetor.ext_metadados_arquivo, "", "novo_caminho.md")
+    cmd = CmdAlterarMetadadosCaminhoNovo(
+        model, sg.setor, croqui_pb2.ArquivoSetor.ext_metadados_arquivo, "", "novo_caminho.md"
+    )
     cmd.redo()
-    
+
     assert sg.setor.HasExtension(croqui_pb2.ArquivoSetor.ext_metadados_arquivo)
-    assert sg.setor.Extensions[croqui_pb2.ArquivoSetor.ext_metadados_arquivo].caminho_novo == "novo_caminho.md"
-    
+    assert (
+        sg.setor.Extensions[croqui_pb2.ArquivoSetor.ext_metadados_arquivo].caminho_novo
+        == "novo_caminho.md"
+    )
+
     # Desfaz
     cmd.undo()
     assert sg.setor.Extensions[croqui_pb2.ArquivoSetor.ext_metadados_arquivo].caminho_novo == ""
 
 
-
 def test_cmd_mover_repeated():
-    from editor.commands.comandos_protobuf import CmdMoverRepeated
     from aresta_api.proto.generated.croqui_pb2 import Croqui
+    from editor.commands.comandos_protobuf import CmdMoverRepeated
     from editor.models.croqui_model import CroquiModel
 
     croqui = Croqui()
-    croqui.creditos.extend(['A', 'B', 'C'])
+    croqui.creditos.extend(["A", "B", "C"])
     model = CroquiModel(croqui)
-    cmd = CmdMoverRepeated(model, croqui, 'creditos', 0, 2)
+    cmd = CmdMoverRepeated(model, croqui, "creditos", 0, 2)
     cmd.redo()
-    assert croqui.creditos == ['B', 'C', 'A']
+    assert croqui.creditos == ["B", "C", "A"]
     cmd.undo()
-    assert croqui.creditos == ['A', 'B', 'C']
+    assert croqui.creditos == ["A", "B", "C"]
 
 
 def test_cmd_alterar_campo_imagem():
-    from editor.commands.comandos_protobuf import CmdAlterarCampoImagem
     from aresta_api.proto.generated.croqui_pb2 import Croqui
+    from editor.commands.comandos_protobuf import CmdAlterarCampoImagem
     from editor.models.croqui_model import CroquiModel
 
     croqui = Croqui()
@@ -412,8 +449,8 @@ def test_cmd_alterar_campo_imagem():
 
 
 def test_cmd_substituir_imagem_memoria():
-    from editor.commands.comandos_protobuf import CmdSubstituirImagemMemoria
     from aresta_api.proto.generated.croqui_pb2 import Croqui
+    from editor.commands.comandos_protobuf import CmdSubstituirImagemMemoria
     from editor.models.croqui_model import CroquiModel
 
     croqui = Croqui()
@@ -452,21 +489,21 @@ def test_cmd_substituir_imagem_memoria():
 
 
 def test_serializacao_deserializacao_comandos_protobuf():
-    from aresta_api.proto.generated.croqui_pb2 import Croqui, Pico, SetorOuGrupo, Setor, ArquivoSetor
-    from editor.models.croqui_model import CroquiModel
+    from aresta_api.proto.generated.croqui_pb2 import ArquivoSetor, Croqui
     from editor.commands.comandos_protobuf import (
-        CmdAlterarPrimitivo,
         CmdAdicionarRepeated,
-        CmdRemoverRepeated,
-        CmdAlterarOneof,
-        CmdAlterarRepeatedItem,
-        CmdAlterarMultiplosRepeatedItems,
-        CmdMoverRepeated,
-        CmdAlterarMetadadosCaminhoNovo,
         CmdAlterarCampoImagem,
+        CmdAlterarMetadadosCaminhoNovo,
+        CmdAlterarMultiplosRepeatedItems,
+        CmdAlterarOneof,
+        CmdAlterarPrimitivo,
+        CmdAlterarRepeatedItem,
+        CmdMoverRepeated,
+        CmdRemoverRepeated,
         CmdSubstituirImagemMemoria,
-        deserializar_comando
+        deserializar_comando,
     )
+    from editor.models.croqui_model import CroquiModel
 
     croqui = Croqui()
     pico = croqui.picos.add()
@@ -477,7 +514,9 @@ def test_serializacao_deserializacao_comandos_protobuf():
     model = CroquiModel(croqui)
 
     # 1. CmdAlterarPrimitivo
-    cmd_prim = CmdAlterarPrimitivo(model, setor, "nome", "Setor 1", "Setor Principal", context_path="setores.0")
+    cmd_prim = CmdAlterarPrimitivo(
+        model, setor, "nome", "Setor 1", "Setor Principal", context_path="setores.0"
+    )
     dados = cmd_prim.serializar()
     assert dados["classe"] == "CmdAlterarPrimitivo"
     cmd_recriado = deserializar_comando(dados, model)
@@ -488,6 +527,7 @@ def test_serializacao_deserializacao_comandos_protobuf():
 
     # 2. CmdAdicionarRepeated
     from aresta_api.proto.generated.croqui_pb2 import Trilha
+
     trilha = Trilha(nome="Trilha Teste")
     cmd_add = CmdAdicionarRepeated(model, setor, "trilhas", 0, trilha)
     dados = cmd_add.serializar()
@@ -517,7 +557,10 @@ def test_serializacao_deserializacao_comandos_protobuf():
     assert setor.trilhas[1].nome == "Trilha Atualizada"
 
     # 5. CmdAlterarMultiplosRepeatedItems
-    alteracoes = [(0, setor.trilhas[0], Trilha(nome="Trilha Zero")), (1, setor.trilhas[1], Trilha(nome="Trilha Um"))]
+    alteracoes = [
+        (0, setor.trilhas[0], Trilha(nome="Trilha Zero")),
+        (1, setor.trilhas[1], Trilha(nome="Trilha Um")),
+    ]
     cmd_mult = CmdAlterarMultiplosRepeatedItems(model, setor, "trilhas", alteracoes)
     dados = cmd_mult.serializar()
     cmd_recriado = deserializar_comando(dados, model)
@@ -539,21 +582,27 @@ def test_serializacao_deserializacao_comandos_protobuf():
     assert cmd_recriado.oneof_nome == "item"
 
     # 8. CmdAlterarMetadadosCaminhoNovo
-    cmd_meta = CmdAlterarMetadadosCaminhoNovo(model, sg.setor, ArquivoSetor.ext_metadados_arquivo, "", "novo/caminho.md")
+    cmd_meta = CmdAlterarMetadadosCaminhoNovo(
+        model, sg.setor, ArquivoSetor.ext_metadados_arquivo, "", "novo/caminho.md"
+    )
     dados = cmd_meta.serializar()
     cmd_recriado = deserializar_comando(dados, model)
     cmd_recriado.redo()
     assert sg.setor.Extensions[ArquivoSetor.ext_metadados_arquivo].caminho_novo == "novo/caminho.md"
 
     # 9. CmdAlterarCampoImagem (com anonimização)
-    from PIL import Image
     import io
+
+    from PIL import Image
+
     img = Image.new("RGB", (100, 100), color="red")
     buf = io.BytesIO()
     img.save(buf, format="PNG")
     img_bytes = buf.getvalue()
 
-    cmd_img = CmdAlterarCampoImagem(model, croqui, "caminho_thumbnail", "", None, "thumb.webp", img_bytes)
+    cmd_img = CmdAlterarCampoImagem(
+        model, croqui, "caminho_thumbnail", "", None, "thumb.webp", img_bytes
+    )
     dados_normais = cmd_img.serializar(anonimizado=False)
     assert dados_normais["bytes_novo"] == img_bytes
     dados_anon = cmd_img.serializar(anonimizado=True)
@@ -593,17 +642,18 @@ def test_comando_editor_carregamento_silencioso():
 
 def test_guarda_integridade_mensagem_orfa_rejeitada():
     import pytest
-    from aresta_api.proto.generated.croqui_pb2 import Pico, Patrocinador, SetorOuGrupo, ArquivoSetor
+
+    from aresta_api.proto.generated.croqui_pb2 import ArquivoSetor, Patrocinador, Pico
     from editor.commands.comandos_protobuf import (
-        CmdAlterarPrimitivo,
         CmdAdicionarRepeated,
-        CmdRemoverRepeated,
-        CmdAlterarOneof,
-        CmdAlterarRepeatedItem,
-        CmdAlterarMultiplosRepeatedItems,
-        CmdMoverRepeated,
-        CmdAlterarMetadadosCaminhoNovo,
         CmdAlterarCampoImagem,
+        CmdAlterarMetadadosCaminhoNovo,
+        CmdAlterarMultiplosRepeatedItems,
+        CmdAlterarOneof,
+        CmdAlterarPrimitivo,
+        CmdAlterarRepeatedItem,
+        CmdMoverRepeated,
+        CmdRemoverRepeated,
     )
 
     croqui = Croqui(nome="Croqui Teste")
@@ -625,10 +675,14 @@ def test_guarda_integridade_mensagem_orfa_rejeitada():
         CmdAlterarOneof(model, sog_orfa, "tipo", None, None, "setor", ArquivoSetor())
 
     with pytest.raises(ValueError, match="órfã|árvore"):
-        CmdAlterarRepeatedItem(model, pico_orfa, "patrocinadores", 0, Patrocinador(nome="A"), Patrocinador(nome="B"))
+        CmdAlterarRepeatedItem(
+            model, pico_orfa, "patrocinadores", 0, Patrocinador(nome="A"), Patrocinador(nome="B")
+        )
 
     with pytest.raises(ValueError, match="órfã|árvore"):
-        CmdAlterarMultiplosRepeatedItems(model, pico_orfa, "patrocinadores", [(0, Patrocinador(), Patrocinador())])
+        CmdAlterarMultiplosRepeatedItems(
+            model, pico_orfa, "patrocinadores", [(0, Patrocinador(), Patrocinador())]
+        )
 
     with pytest.raises(ValueError, match="órfã|árvore"):
         CmdMoverRepeated(model, pico_orfa, "patrocinadores", 0, 1)
@@ -642,7 +696,8 @@ def test_guarda_integridade_mensagem_orfa_rejeitada():
 
 def test_guarda_integridade_campo_invalido_rejeitado():
     import pytest
-    from editor.commands.comandos_protobuf import CmdAlterarPrimitivo, CmdAdicionarRepeated
+
+    from editor.commands.comandos_protobuf import CmdAdicionarRepeated, CmdAlterarPrimitivo
 
     croqui = Croqui(nome="Croqui Teste")
     model = CroquiModel(croqui)
@@ -656,7 +711,7 @@ def test_guarda_integridade_campo_invalido_rejeitado():
 
 def test_guarda_integridade_mensagem_conectada_valida():
     from aresta_api.proto.generated.croqui_pb2 import Patrocinador
-    from editor.commands.comandos_protobuf import CmdAlterarPrimitivo, CmdAdicionarRepeated
+    from editor.commands.comandos_protobuf import CmdAdicionarRepeated, CmdAlterarPrimitivo
 
     croqui = Croqui(nome="Croqui Teste")
     croqui.picos.add(nome="Pico Legítimo")
@@ -673,6 +728,7 @@ def test_guarda_integridade_mensagem_conectada_valida():
 
 def test_validar_pertence_ao_croqui_casos_limite():
     import pytest
+
     from editor.commands.comandos_protobuf import validar_pertence_ao_croqui
 
     with pytest.raises(ValueError, match="inválida"):
@@ -691,8 +747,8 @@ def test_validar_pertence_ao_croqui_casos_limite():
 
 
 def test_cmd_inserir_imagem_markdown():
-    from editor.commands.comandos_protobuf import CmdInserirImagemMarkdown, deserializar_comando
     from aresta_api.proto.generated.croqui_pb2 import Croqui
+    from editor.commands.comandos_protobuf import CmdInserirImagemMarkdown, deserializar_comando
     from editor.models.croqui_model import CroquiModel
 
     croqui = Croqui()
@@ -745,8 +801,8 @@ def test_cmd_inserir_imagem_markdown():
 
 
 def test_navegar_para_mensagem_limites_e_oneofs():
-    from editor.commands.comandos_protobuf import navegar_para_mensagem
     from aresta_api.proto.generated.croqui_pb2 import Croqui
+    from editor.commands.comandos_protobuf import navegar_para_mensagem
 
     croqui = Croqui()
 
@@ -773,7 +829,9 @@ def test_navegar_para_mensagem_limites_e_oneofs():
     # 5. Oneof inativo: sg.setor tem 'caminho', então acessar 'conteudo' deve retornar None
     assert sg.setor.WhichOneof("arquivo") == "caminho"
     assert navegar_para_mensagem(croqui, "picos.0.setores_ou_grupos.0.setor.conteudo") is None
-    assert navegar_para_mensagem(croqui, "picos.0.setores_ou_grupos.0.setor.conteudo.mapas.0") is None
+    assert (
+        navegar_para_mensagem(croqui, "picos.0.setores_ou_grupos.0.setor.conteudo.mapas.0") is None
+    )
 
     # 6. Campo inexistente
     assert navegar_para_mensagem(croqui, "campo_que_nao_existe") is None
@@ -782,9 +840,10 @@ def test_navegar_para_mensagem_limites_e_oneofs():
 
 def test_comando_editor_resolucao_tardia_e_alvo_inexistente(caplog):
     import logging
+
     from aresta_api.proto.generated.croqui_pb2 import Croqui
-    from editor.models.croqui_model import CroquiModel
     from editor.commands.comandos_protobuf import CmdAlterarPrimitivo
+    from editor.models.croqui_model import CroquiModel
 
     croqui = Croqui()
     pico = croqui.picos.add()
@@ -820,8 +879,8 @@ def test_comando_editor_resolucao_tardia_e_alvo_inexistente(caplog):
 
 def test_deserializar_comando_sem_navegacao_ansiosa():
     from aresta_api.proto.generated.croqui_pb2 import Croqui
+    from editor.commands.comandos_protobuf import CmdAlterarPrimitivo, deserializar_comando
     from editor.models.croqui_model import CroquiModel
-    from editor.commands.comandos_protobuf import deserializar_comando, CmdAlterarPrimitivo
 
     croqui = Croqui()  # Sem picos cadastrados
     model = CroquiModel(croqui)
@@ -843,13 +902,15 @@ def test_deserializar_comando_sem_navegacao_ansiosa():
 
 def test_mensagem_alvo_nao_encontrada_error_e_msg_cache(caplog):
     import logging
+
     import pytest
+
     from aresta_api.proto.generated.croqui_pb2 import Croqui
-    from editor.models.croqui_model import CroquiModel
     from editor.commands.comandos_protobuf import (
         CmdAlterarPrimitivo,
         MensagemAlvoNaoEncontradaError,
     )
+    from editor.models.croqui_model import CroquiModel
 
     # 1. Verifica hierarquia da exceção customizada
     assert issubclass(MensagemAlvoNaoEncontradaError, LookupError)
@@ -900,12 +961,13 @@ def test_mensagem_alvo_nao_encontrada_error_e_msg_cache(caplog):
 
 def test_comando_editor_metodos_base_e_validacao():
     import pytest
+
     from aresta_api.proto.generated.croqui_pb2 import Croqui
-    from editor.models.croqui_model import CroquiModel
     from editor.commands.comandos_protobuf import (
         ComandoEditor,
         _validar_campo_se_msg_existir,
     )
+    from editor.models.croqui_model import CroquiModel
 
     croqui = Croqui(nome="Croqui Teste")
     model = CroquiModel(croqui)
@@ -942,14 +1004,19 @@ def test_comando_editor_metodos_base_e_validacao():
 def test_cmd_migrar_setor_pico_para_grupo():
     """Testa migração de setor de Pico para Grupo com Undo, Redo e alteração de caminho_novo."""
     from editor.commands.comandos_protobuf import CmdMigrarSetor
+
     croqui = Croqui()
     pico = croqui.picos.add()
     pico.nome = "Pico Central"
 
     sg_setor = pico.setores_ou_grupos.add()
     sg_setor.setor.conteudo.nome = "Savassinha"
-    sg_setor.setor.Extensions[croqui_pb2.ArquivoSetor.ext_metadados_arquivo].caminho_original = "setor_savassinha.md"
-    sg_setor.setor.Extensions[croqui_pb2.ArquivoSetor.ext_metadados_arquivo].caminho_novo = "setor_savassinha.md"
+    sg_setor.setor.Extensions[
+        croqui_pb2.ArquivoSetor.ext_metadados_arquivo
+    ].caminho_original = "setor_savassinha.md"
+    sg_setor.setor.Extensions[
+        croqui_pb2.ArquivoSetor.ext_metadados_arquivo
+    ].caminho_novo = "setor_savassinha.md"
 
     sg_grupo = pico.setores_ou_grupos.add()
     sg_grupo.grupo.conteudo.nome = "Vale Oculto"
@@ -966,7 +1033,7 @@ def test_cmd_migrar_setor_pico_para_grupo():
         campo_destino="setores",
         indice_destino=0,
         caminho_novo="grupo_vale_oculto_setor_savassinha.md",
-        caminho_antigo="setor_savassinha.md"
+        caminho_antigo="setor_savassinha.md",
     )
     pilha.push(cmd)
 
@@ -974,13 +1041,23 @@ def test_cmd_migrar_setor_pico_para_grupo():
     assert len(pico.setores_ou_grupos) == 1
     assert len(sg_grupo.grupo.conteudo.setores) == 1
     assert sg_grupo.grupo.conteudo.setores[0].conteudo.nome == "Savassinha"
-    assert sg_grupo.grupo.conteudo.setores[0].Extensions[croqui_pb2.ArquivoSetor.ext_metadados_arquivo].caminho_novo == "grupo_vale_oculto_setor_savassinha.md"
+    assert (
+        sg_grupo.grupo.conteudo.setores[0]
+        .Extensions[croqui_pb2.ArquivoSetor.ext_metadados_arquivo]
+        .caminho_novo
+        == "grupo_vale_oculto_setor_savassinha.md"
+    )
 
     # Undo
     pilha.undo()
     assert len(pico.setores_ou_grupos) == 2
     assert pico.setores_ou_grupos[0].setor.conteudo.nome == "Savassinha"
-    assert pico.setores_ou_grupos[0].setor.Extensions[croqui_pb2.ArquivoSetor.ext_metadados_arquivo].caminho_novo == "setor_savassinha.md"
+    assert (
+        pico.setores_ou_grupos[0]
+        .setor.Extensions[croqui_pb2.ArquivoSetor.ext_metadados_arquivo]
+        .caminho_novo
+        == "setor_savassinha.md"
+    )
     assert len(sg_grupo.grupo.conteudo.setores) == 0
 
     # Redo
@@ -992,6 +1069,7 @@ def test_cmd_migrar_setor_pico_para_grupo():
 def test_cmd_migrar_setor_grupo_para_pico():
     """Testa migração de setor de dentro de um Grupo para a raiz do Pico."""
     from editor.commands.comandos_protobuf import CmdMigrarSetor
+
     croqui = Croqui()
     pico = croqui.picos.add()
 
@@ -999,8 +1077,12 @@ def test_cmd_migrar_setor_grupo_para_pico():
     sg_grupo.grupo.conteudo.nome = "Vale Oculto"
     setor_interno = sg_grupo.grupo.conteudo.setores.add()
     setor_interno.conteudo.nome = "De Cara"
-    setor_interno.Extensions[croqui_pb2.ArquivoSetor.ext_metadados_arquivo].caminho_original = "grupo_vale_oculto_setor_de_cara.md"
-    setor_interno.Extensions[croqui_pb2.ArquivoSetor.ext_metadados_arquivo].caminho_novo = "grupo_vale_oculto_setor_de_cara.md"
+    setor_interno.Extensions[
+        croqui_pb2.ArquivoSetor.ext_metadados_arquivo
+    ].caminho_original = "grupo_vale_oculto_setor_de_cara.md"
+    setor_interno.Extensions[
+        croqui_pb2.ArquivoSetor.ext_metadados_arquivo
+    ].caminho_novo = "grupo_vale_oculto_setor_de_cara.md"
 
     model = CroquiModel(croqui)
     pilha = QUndoStack()
@@ -1014,14 +1096,19 @@ def test_cmd_migrar_setor_grupo_para_pico():
         campo_destino="setores_ou_grupos",
         indice_destino=1,
         caminho_novo="setor_de_cara.md",
-        caminho_antigo="grupo_vale_oculto_setor_de_cara.md"
+        caminho_antigo="grupo_vale_oculto_setor_de_cara.md",
     )
     pilha.push(cmd)
 
     assert len(sg_grupo.grupo.conteudo.setores) == 0
     assert len(pico.setores_ou_grupos) == 2
     assert pico.setores_ou_grupos[1].setor.conteudo.nome == "De Cara"
-    assert pico.setores_ou_grupos[1].setor.Extensions[croqui_pb2.ArquivoSetor.ext_metadados_arquivo].caminho_novo == "setor_de_cara.md"
+    assert (
+        pico.setores_ou_grupos[1]
+        .setor.Extensions[croqui_pb2.ArquivoSetor.ext_metadados_arquivo]
+        .caminho_novo
+        == "setor_de_cara.md"
+    )
 
     pilha.undo()
     assert len(sg_grupo.grupo.conteudo.setores) == 1
@@ -1031,6 +1118,7 @@ def test_cmd_migrar_setor_grupo_para_pico():
 def test_cmd_migrar_setor_serializacao_deserializacao():
     """Testa serialização e deserialização com resolução tardia de caminhos."""
     from editor.commands.comandos_protobuf import CmdMigrarSetor, deserializar_comando
+
     croqui = Croqui()
     pico = croqui.picos.add()
     pico.nome = "Pico Central"
@@ -1051,7 +1139,7 @@ def test_cmd_migrar_setor_serializacao_deserializacao():
         campo_destino="setores",
         indice_destino=0,
         caminho_novo="grupo_vale_oculto_setor_savassinha.md",
-        caminho_antigo="setor_savassinha.md"
+        caminho_antigo="setor_savassinha.md",
     )
 
     dados = cmd.serializar()
@@ -1068,6 +1156,7 @@ def test_cmd_migrar_setor_execucao_apos_deserializacao_e_foco():
     """Testa que comando deserializado resolve caminhos lazy e notifica foco."""
     from editor.commands.comandos_protobuf import CmdMigrarSetor, deserializar_comando
     from editor.models.readonly_proxy import ReadOnlyProxy
+
     croqui = Croqui()
     pico = croqui.picos.add()
     pico.nome = "Pico Central"
@@ -1092,7 +1181,7 @@ def test_cmd_migrar_setor_execucao_apos_deserializacao_e_foco():
         indice_destino=0,
         caminho_novo="grupo_vale_oculto_setor_savassinha.md",
         caminho_antigo="setor_savassinha.md",
-        context_path="setores.0"
+        context_path="setores.0",
     )
 
     assert cmd.pai_origem == pico
@@ -1116,6 +1205,7 @@ def test_cmd_migrar_setor_execucao_apos_deserializacao_e_foco():
 def test_cmd_migrar_setor_casos_borda_e_erros():
     """Testa caminhos inválidos, model nulo e fallbacks de resolução de pai."""
     from editor.commands.comandos_protobuf import CmdMigrarSetor
+
     croqui = Croqui()
     pico = croqui.picos.add()
     model = CroquiModel(croqui)
@@ -1152,10 +1242,11 @@ def test_cmd_migrar_setor_casos_borda_e_erros():
 
 def test_cmd_inserir_botao_markdown_com_anexo_undo_redo():
     """Valida CmdInserirBotaoMarkdown com anexo em memória, Undo e Redo."""
-    from editor.commands.comandos_protobuf import CmdInserirBotaoMarkdown
-    from aresta_api.proto.generated.croqui_pb2 import Croqui
-    from editor.models.croqui_model import CroquiModel
     from PySide6.QtGui import QUndoStack
+
+    from aresta_api.proto.generated.croqui_pb2 import Croqui
+    from editor.commands.comandos_protobuf import CmdInserirBotaoMarkdown
+    from editor.models.croqui_model import CroquiModel
 
     croqui = Croqui()
     croqui.descricao = "Texto inicial sem botão."
@@ -1196,8 +1287,8 @@ def test_cmd_inserir_botao_markdown_com_anexo_undo_redo():
 
 def test_cmd_inserir_botao_markdown_serializacao_deserializacao():
     """Valida serialização e deserialização do CmdInserirBotaoMarkdown."""
-    from editor.commands.comandos_protobuf import CmdInserirBotaoMarkdown, deserializar_comando
     from aresta_api.proto.generated.croqui_pb2 import Croqui
+    from editor.commands.comandos_protobuf import CmdInserirBotaoMarkdown, deserializar_comando
     from editor.models.croqui_model import CroquiModel
 
     croqui = Croqui()
@@ -1228,15 +1319,3 @@ def test_cmd_inserir_botao_markdown_serializacao_deserializacao():
     assert pico.descricao == "Descricao antiga.\n\n[Acessar Guia](https://aresta.app)"
     cmd_recriado.undo()
     assert pico.descricao == "Descricao antiga."
-
-
-
-
-
-
-
-
-
-
-
-

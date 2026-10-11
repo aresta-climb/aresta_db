@@ -1,15 +1,13 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
-import io
 import logging
 from pathlib import Path
-import pytest
 
 from editor.core.registro_log import (
-    obter_logger,
-    configurar_logging,
     SanitizingFormatter,
+    configurar_logging,
+    obter_logger,
 )
 
 
@@ -23,7 +21,7 @@ def test_sanitizing_formatter():
         lineno=10,
         msg=f"Acessando arquivo {user_dir}\\croqui.yaml",
         args=(),
-        exc_info=None
+        exc_info=None,
     )
     formatado = formatter.format(record)
     assert user_dir not in formatado

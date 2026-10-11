@@ -3,14 +3,14 @@
 
 import sys
 from pathlib import Path
-from unittest.mock import patch, mock_open
-import io
+from unittest.mock import mock_open, patch
 
 # Adiciona o diretório raiz ao sys.path para garantir que imports funcionem nos testes também
 sys.path.append(str(Path(__file__).resolve().parent.parent))
 
 from aresta_api.proto.generated import croqui_pb2
 from scripts.verificar_binarypb import verify_pb
+
 
 def test_verificacao_de_pb(capsys):
     # Cria uma estrutura fictícia
@@ -23,18 +23,18 @@ def test_verificacao_de_pb(capsys):
     bot.destino.secao_textual.conteudo = "# Capa"
     elemento = pico.setores_ou_grupos.add()
     elemento.setor.conteudo.nome = "Setor Ficticio"
-    
+
     escalada = elemento.setor.conteudo.escaladas.add()
     escalada.via_esportiva.nome = "Toca"
     escalada.via_esportiva.dificuldade = croqui_pb2.GrauVia.BR_5SUP
-    
+
     serialized_data = croqui.SerializeToString()
-    
+
     # Mock do 'open' function
     m = mock_open(read_data=serialized_data)
     with patch("builtins.open", m):
         verify_pb("fake_file.binarypb")
-        
+
     # Verifica o output impresso pelo verify_pb
     captured = capsys.readouterr()
     assert "Lendo fake_file.binarypb..." in captured.out

@@ -5,7 +5,7 @@ import re
 import unicodedata
 from datetime import datetime
 from pathlib import Path
-from typing import Tuple, Union
+
 from PIL import Image
 
 from editor.core.processamento_imagem_campo import comprimir_imagem_para_bytes_webp
@@ -83,11 +83,11 @@ def formatar_tag_markdown(nome_arquivo: str, legenda: str = "") -> str:
 
 
 def salvar_imagem_otimizada(
-    fonte_imagem: Union[str, Path, bytes, Image.Image],
+    fonte_imagem: str | Path | bytes | Image.Image,
     caminho_destino: Path,
     qualidade: int = 85,
     area_maxima: int = 4194304,
-) -> Tuple[int, int]:
+) -> tuple[int, int]:
     """
     Comprime a imagem para o formato WebP otimizado (padrão quality=85 e max_area=4kk)
     e grava diretamente no arquivo de destino. Retorna (largura, altura).

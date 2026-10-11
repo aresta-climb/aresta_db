@@ -2,20 +2,18 @@
 # Copyright (C) 2026 Aresta Climb Contributors
 
 import io
-from pathlib import Path
-from PIL import Image
-import pytest
-from PySide6.QtWidgets import QApplication
-from PySide6.QtGui import QUndoStack
-from PySide6.QtCore import QItemSelectionModel
 
-from aresta_api.proto.generated.croqui_pb2 import Croqui, Coordenada
-from editor.models.croqui_model import CroquiModel
+import pytest
+from PIL import Image
+from PySide6.QtCore import QItemSelectionModel
+from PySide6.QtGui import QUndoStack
+
+from aresta_api.proto.generated.croqui_pb2 import Croqui
 from editor.controllers.croqui_controller import CroquiController
-from editor.views.widget_editor_dados import WidgetEditorDados
-from editor.views.widget_campo_coordenada_e7 import WidgetCampoCoordenadaE7, TipoCoordenada
-from editor.views.widget_mensagem_coordenada import WidgetMensagemCoordenada
+from editor.models.croqui_model import CroquiModel
 from editor.views.widget_campo_imagem import WidgetCampoImagem
+from editor.views.widget_editor_dados import WidgetEditorDados
+from editor.views.widget_mensagem_coordenada import WidgetMensagemCoordenada
 
 
 @pytest.fixture
@@ -43,9 +41,15 @@ class TestCamposCustomizadosIntegracao:
         # Seleciona o Pico na árvore para renderizar seu formulário
         modelo = widget_editor.tree_model
         croqui_idx = modelo.index(0, 0)
-        expando_picos = next(modelo.index(r, 0, croqui_idx) for r in range(modelo.rowCount(croqui_idx)) if modelo.data(modelo.index(r, 0, croqui_idx)) == "Picos")
+        expando_picos = next(
+            modelo.index(r, 0, croqui_idx)
+            for r in range(modelo.rowCount(croqui_idx))
+            if modelo.data(modelo.index(r, 0, croqui_idx)) == "Picos"
+        )
         pico_idx = modelo.index(0, 0, expando_picos)
-        widget_editor.tree_view.selectionModel().setCurrentIndex(pico_idx, QItemSelectionModel.SelectionFlag.ClearAndSelect)
+        widget_editor.tree_view.selectionModel().setCurrentIndex(
+            pico_idx, QItemSelectionModel.SelectionFlag.ClearAndSelect
+        )
 
         # Localiza o widget de mensagem de coordenada integrado
         widgets_coord = widget_editor.findChildren(WidgetMensagemCoordenada)
@@ -74,7 +78,9 @@ class TestCamposCustomizadosIntegracao:
         assert pico.localizacao.latitude == -201234567
         assert widget_coord.obter_latitude_graus() == pytest.approx(-20.1234567)
 
-    def test_integracao_renderizacao_e_edicao_campo_imagem(self, qtbot, imagem_teste_bytes, tmp_path):
+    def test_integracao_renderizacao_e_edicao_campo_imagem(
+        self, qtbot, imagem_teste_bytes, tmp_path
+    ):
         croqui = Croqui()
         croqui.caminho_thumbnail = "imagens/capa_inicial.webp"
 
@@ -88,11 +94,15 @@ class TestCamposCustomizadosIntegracao:
 
         # Seleciona a raiz do Croqui
         croqui_idx = widget_editor.tree_model.index(0, 0)
-        widget_editor.tree_view.selectionModel().setCurrentIndex(croqui_idx, QItemSelectionModel.SelectionFlag.ClearAndSelect)
+        widget_editor.tree_view.selectionModel().setCurrentIndex(
+            croqui_idx, QItemSelectionModel.SelectionFlag.ClearAndSelect
+        )
 
         # Localiza o widget de imagem
         widgets_img = widget_editor.findChildren(WidgetCampoImagem)
-        assert len(widgets_img) >= 1, "Deve ser renderizado o WidgetCampoImagem para caminho_thumbnail"
+        assert len(widgets_img) >= 1, (
+            "Deve ser renderizado o WidgetCampoImagem para caminho_thumbnail"
+        )
 
         widget_thumb = widgets_img[0]
         assert widget_thumb.obter_caminho_atual() == "imagens/capa_inicial.webp"
@@ -130,9 +140,15 @@ class TestCamposCustomizadosIntegracao:
         # Seleciona o Pico na árvore
         modelo = widget_editor.tree_model
         croqui_idx = modelo.index(0, 0)
-        expando_picos = next(modelo.index(r, 0, croqui_idx) for r in range(modelo.rowCount(croqui_idx)) if modelo.data(modelo.index(r, 0, croqui_idx)) == "Picos")
+        expando_picos = next(
+            modelo.index(r, 0, croqui_idx)
+            for r in range(modelo.rowCount(croqui_idx))
+            if modelo.data(modelo.index(r, 0, croqui_idx)) == "Picos"
+        )
         pico_idx = modelo.index(0, 0, expando_picos)
-        widget_editor.tree_view.selectionModel().setCurrentIndex(pico_idx, QItemSelectionModel.SelectionFlag.ClearAndSelect)
+        widget_editor.tree_view.selectionModel().setCurrentIndex(
+            pico_idx, QItemSelectionModel.SelectionFlag.ClearAndSelect
+        )
 
         widgets_coord = widget_editor.findChildren(WidgetMensagemCoordenada)
         widget_coord = widgets_coord[0]
@@ -198,9 +214,15 @@ class TestCamposCustomizadosIntegracao:
         widget_md.editor.insertPlainText(" - Adicionado")
 
         # Com o temporizador de coalescência, o modelo NÃO deve ter sido mutado imediatamente
-        assert hasattr(widget_md, "temporizador"), "WidgetEditorMarkdown deve possuir uma instância de TemporizadorCoalescencia"
-        assert widget_md.temporizador.esta_ativo() is True, "O temporizador deve estar ativo após digitação"
-        assert botao.destino.secao_textual.conteudo == "# Capa Original", "Modelo não deve alterar antes da expiração do temporizador"
+        assert hasattr(widget_md, "temporizador"), (
+            "WidgetEditorMarkdown deve possuir uma instância de TemporizadorCoalescencia"
+        )
+        assert widget_md.temporizador.esta_ativo() is True, (
+            "O temporizador deve estar ativo após digitação"
+        )
+        assert botao.destino.secao_textual.conteudo == "# Capa Original", (
+            "Modelo não deve alterar antes da expiração do temporizador"
+        )
 
         # Força a descarga do temporizador (simulando pausa ou perda de foco)
         widget_md.temporizador.forcar_descarga()
@@ -216,4 +238,3 @@ class TestCamposCustomizadosIntegracao:
         undo_stack.redo()
         assert botao.destino.secao_textual.conteudo == "# Capa Original - Adicionado"
         assert widget_md.editor.toPlainText() == "# Capa Original - Adicionado"
-

@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
-from typing import Optional, Union
+
 from PySide6.QtWidgets import QApplication, QMessageBox, QWidget
 
 from editor.core.telemetria import sanitizar_texto_caminhos
@@ -16,9 +16,7 @@ def copiar_para_area_transferencia(texto: str) -> None:
 
 
 def criar_dialogo_erro_salvamento(
-    pai: Optional[QWidget],
-    erro: Union[str, Exception],
-    traceback_detalhado: str = ""
+    pai: QWidget | None, erro: str | Exception, traceback_detalhado: str = ""
 ) -> QMessageBox:
     """
     Constrói uma caixa de diálogo informativa e acolhedora orientando o usuário
@@ -55,9 +53,7 @@ def criar_dialogo_erro_salvamento(
 
 
 def exibir_dialogo_erro_salvamento(
-    pai: Optional[QWidget],
-    erro: Union[str, Exception],
-    traceback_detalhado: str = ""
+    pai: QWidget | None, erro: str | Exception, traceback_detalhado: str = ""
 ) -> int:
     """
     Constrói e exibe modalmente o diálogo de erro de salvamento amigável.

@@ -1,12 +1,13 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
-import pytest
 import xml.etree.ElementTree as ET
 
+import pytest
+
 from editor.release_tools.gerador_appinstaller import (
-    gerar_conteudo_appinstaller,
     formatar_versao_quatro_partes,
+    gerar_conteudo_appinstaller,
 )
 
 
@@ -39,14 +40,20 @@ def test_gerar_conteudo_appinstaller_estrutura_xml() -> None:
 
     assert raiz.tag == f"{{{ns['appx']}}}AppInstaller"
     assert raiz.attrib["Version"] == "0.2.1.0"
-    assert raiz.attrib["Uri"] == "https://serving.arestaclimb.com/editor-beta/EditorArestaBeta.appinstaller"
+    assert (
+        raiz.attrib["Uri"]
+        == "https://serving.arestaclimb.com/editor-beta/EditorArestaBeta.appinstaller"
+    )
 
     main_pkg = raiz.find("appx:MainPackage", ns)
     assert main_pkg is not None
     assert main_pkg.attrib["Name"] == "ArestaClimbApps.EditorArestaClimb.Beta"
     assert main_pkg.attrib["Version"] == "0.2.1.0"
     assert main_pkg.attrib["ProcessorArchitecture"] == "x64"
-    assert main_pkg.attrib["Uri"] == "https://serving.arestaclimb.com/editor-beta/EditorArestaBeta.msix"
+    assert (
+        main_pkg.attrib["Uri"]
+        == "https://serving.arestaclimb.com/editor-beta/EditorArestaBeta.msix"
+    )
 
     update_settings = raiz.find("appx:UpdateSettings", ns)
     assert update_settings is not None

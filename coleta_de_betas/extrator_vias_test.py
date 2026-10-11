@@ -1,11 +1,11 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
-import pytest
 from pathlib import Path
+
 import yaml
-from aresta_api.proto.generated import beta_pb2
-from coleta_de_betas.extrator_vias import extrair_vias_de_croqui, executar_cli_extrair_vias
+
+from coleta_de_betas.extrator_vias import executar_cli_extrair_vias, extrair_vias_de_croqui
 
 
 def criar_croqui_de_teste(diretorio: Path) -> Path:
@@ -58,19 +58,13 @@ Descrição da falésia.
                     {
                         "grupo": {
                             "nome": "Setor Principal",
-                            "setores": [
-                                {"caminho": "grupo_1_setor_1.md"}
-                            ]
+                            "setores": [{"caminho": "grupo_1_setor_1.md"}],
                         }
                     },
-                    {
-                        "setor": {
-                            "caminho": "setor_avulso.md"
-                        }
-                    }
-                ]
+                    {"setor": {"caminho": "setor_avulso.md"}},
+                ],
             }
-        ]
+        ],
     }
     with open(croqui_yaml, "w", encoding="utf-8") as f:
         yaml.dump(dados_croqui, f)

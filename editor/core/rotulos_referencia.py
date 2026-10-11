@@ -3,7 +3,8 @@
 
 """Utilitário para extração e resolução de rótulos identificadores de referências de mapa."""
 
-from typing import Any, List, Optional
+from typing import Any
+
 from aresta_api.proto.generated import croqui_pb2
 
 # Identificadores válidos de nós de trajeto que representam círculos identificadores
@@ -32,7 +33,7 @@ def _eh_no_identificador(tipo: Any) -> bool:
     return False
 
 
-def extrair_rotulo_referencia(mapa: Optional[Any], referencia: Optional[Any]) -> str:
+def extrair_rotulo_referencia(mapa: Any | None, referencia: Any | None) -> str:
     """
     Extrai e formata o rótulo identificador (codenome) de uma referência visual de mapa.
 
@@ -70,7 +71,7 @@ def extrair_rotulo_referencia(mapa: Optional[Any], referencia: Optional[Any]) ->
         if p_uid:
             pois_map[str(p_uid)] = p
 
-    rotulos: List[str] = []
+    rotulos: list[str] = []
 
     for id_ref in ref_uids:
         p = pois_map.get(str(id_ref))
@@ -117,9 +118,7 @@ def extrair_rotulo_referencia(mapa: Optional[Any], referencia: Optional[Any]) ->
                     if rot:
                         rotulos.append(rot)
         else:
-            rot = str(
-                (p.get("rotulo") if eh_dict else getattr(p, "rotulo", "")) or ""
-            ).strip()
+            rot = str((p.get("rotulo") if eh_dict else getattr(p, "rotulo", "")) or "").strip()
             if rot:
                 rotulos.append(rot)
 
@@ -127,7 +126,7 @@ def extrair_rotulo_referencia(mapa: Optional[Any], referencia: Optional[Any]) ->
         return ""
 
     # Deduplica rótulos consecutivos idênticos
-    rotulos_deduplicados: List[str] = []
+    rotulos_deduplicados: list[str] = []
     for rotulo in rotulos:
         if not rotulos_deduplicados or rotulos_deduplicados[-1] != rotulo:
             rotulos_deduplicados.append(rotulo)

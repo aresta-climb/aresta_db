@@ -11,17 +11,19 @@ o formato padrão SVG Path ("M ... C ...").
 """
 
 import math
+from collections.abc import Sequence
 from dataclasses import dataclass
-from typing import List, Tuple, Dict, Any, Union, Sequence
+from typing import Any
 
 
 @dataclass(frozen=True)
 class Ponto2D:
     """Representa um ponto bidimensional com coordenadas de ponto flutuante."""
+
     x: float
     y: float
 
-    def distancia_ate(self, outro: 'Ponto2D') -> float:
+    def distancia_ate(self, outro: "Ponto2D") -> float:
         """Calcula a distância euclidiana até outro ponto."""
         return math.hypot(self.x - outro.x, self.y - outro.y)
 
@@ -29,6 +31,7 @@ class Ponto2D:
 @dataclass(frozen=True)
 class SegmentoBezierCubica:
     """Representa um segmento de curva cúbica de Bézier."""
+
     p0: Ponto2D  # Ponto inicial
     c1: Ponto2D  # Primeiro ponto de controle
     c2: Ponto2D  # Segundo ponto de controle
@@ -36,9 +39,8 @@ class SegmentoBezierCubica:
 
 
 def sanitizar_pontos(
-    pontos: Sequence[Union[Tuple[float, float], Ponto2D, Dict[str, Any]]],
-    tolerancia: float = 1e-3
-) -> List[Ponto2D]:
+    pontos: Sequence[tuple[float, float] | Ponto2D | dict[str, Any]], tolerancia: float = 1e-3
+) -> list[Ponto2D]:
     """
     Converte e sanitiza uma lista de coordenadas em instâncias de Ponto2D,
     removendo pontos duplicados ou excessivamente próximos de forma consecutiva.
@@ -46,14 +48,14 @@ def sanitizar_pontos(
     if not pontos:
         return []
 
-    resultado: List[Ponto2D] = []
+    resultado: list[Ponto2D] = []
     for item in pontos:
         if isinstance(item, Ponto2D):
             p = item
         elif isinstance(item, (tuple, list)) and len(item) >= 2:
             p = Ponto2D(float(item[0]), float(item[1]))
-        elif isinstance(item, dict) and 'x' in item and 'y' in item:
-            p = Ponto2D(float(item['x']), float(item['y']))
+        elif isinstance(item, dict) and "x" in item and "y" in item:
+            p = Ponto2D(float(item["x"]), float(item["y"]))
         else:
             continue
 
@@ -64,12 +66,8 @@ def sanitizar_pontos(
 
 
 def _calcular_controles_catmull_rom(
-    p0: Ponto2D,
-    p1: Ponto2D,
-    p2: Ponto2D,
-    p3: Ponto2D,
-    alfa: float = 0.5
-) -> Tuple[Ponto2D, Ponto2D]:
+    p0: Ponto2D, p1: Ponto2D, p2: Ponto2D, p3: Ponto2D, alfa: float = 0.5
+) -> tuple[Ponto2D, Ponto2D]:
     """
     Calcula os dois pontos de controle Bézier (c1, c2) para o segmento entre p1 e p2
     utilizando a formulação Centripetal Catmull-Rom.
@@ -79,9 +77,9 @@ def _calcular_controles_catmull_rom(
     d23 = p2.distancia_ate(p3)
 
     t0 = 0.0
-    t1 = t0 + (d01 ** alfa if d01 > 0 else 1.0)
-    t2 = t1 + (d12 ** alfa if d12 > 0 else 1.0)
-    t3 = t2 + (d23 ** alfa if d23 > 0 else 1.0)
+    t1 = t0 + (d01**alfa if d01 > 0 else 1.0)
+    t2 = t1 + (d12**alfa if d12 > 0 else 1.0)
+    t3 = t2 + (d23**alfa if d23 > 0 else 1.0)
 
     dt01 = t1 - t0 if t1 != t0 else 1.0
     dt12 = t2 - t1 if t2 != t1 else 1.0
@@ -105,9 +103,8 @@ def _calcular_controles_catmull_rom(
 
 
 def converter_pontos_para_bezier(
-    pontos: Sequence[Union[Tuple[float, float], Ponto2D, Dict[str, Any]]],
-    alfa: float = 0.5
-) -> List[SegmentoBezierCubica]:
+    pontos: Sequence[tuple[float, float] | Ponto2D | dict[str, Any]], alfa: float = 0.5
+) -> list[SegmentoBezierCubica]:
     """
     Converte uma lista de nós 2D em uma lista de segmentos cúbicos de Bézier
     suavizados via Catmull-Rom Centripetal.
@@ -124,14 +121,18 @@ def converter_pontos_para_bezier(
         c2 = Ponto2D(p0.x + 2.0 * (p1.x - p0.x) / 3.0, p0.y + 2.0 * (p1.y - p0.y) / 3.0)
         return [SegmentoBezierCubica(p0, c1, c2, p1)]
 
-    segmentos: List[SegmentoBezierCubica] = []
+    segmentos: list[SegmentoBezierCubica] = []
     for i in range(n - 1):
         p1 = pts[i]
         p2 = pts[i + 1]
 
         # Extrapolação virtual para as bordas
         p0 = Ponto2D(2.0 * pts[0].x - pts[1].x, 2.0 * pts[0].y - pts[1].y) if i == 0 else pts[i - 1]
-        p3 = Ponto2D(2.0 * pts[-1].x - pts[-2].x, 2.0 * pts[-1].y - pts[-2].y) if i == n - 2 else pts[i + 2]
+        p3 = (
+            Ponto2D(2.0 * pts[-1].x - pts[-2].x, 2.0 * pts[-1].y - pts[-2].y)
+            if i == n - 2
+            else pts[i + 2]
+        )
 
         c1, c2 = _calcular_controles_catmull_rom(p0, p1, p2, p3, alfa=alfa)
         segmentos.append(SegmentoBezierCubica(p1, c1, c2, p2))
@@ -140,8 +141,7 @@ def converter_pontos_para_bezier(
 
 
 def gerar_caminho_svg(
-    pontos: Sequence[Union[Tuple[float, float], Ponto2D, Dict[str, Any]]],
-    alfa: float = 0.5
+    pontos: Sequence[tuple[float, float] | Ponto2D | dict[str, Any]], alfa: float = 0.5
 ) -> str:
     """
     Gera a string de Path SVG correspondente à Spline dos nós fornecidos.
@@ -164,8 +164,8 @@ def gerar_caminho_svg(
 
 
 def calcular_caixa_delimitadora(
-    pontos: Sequence[Union[Tuple[float, float], Ponto2D, Dict[str, Any]]]
-) -> Tuple[int, int, int, int]:
+    pontos: Sequence[tuple[float, float] | Ponto2D | dict[str, Any]],
+) -> tuple[int, int, int, int]:
     """
     Calcula a caixa delimitadora retangular centralizada (x_centro, y_centro, comprimento, largura)
     a partir de uma lista de pontos.
@@ -188,8 +188,8 @@ def calcular_caixa_delimitadora(
 
 
 def calcular_angulos_tangentes(
-    pontos: Sequence[Union[Tuple[float, float], Ponto2D, Dict[str, Any]]]
-) -> List[float]:
+    pontos: Sequence[tuple[float, float] | Ponto2D | dict[str, Any]],
+) -> list[float]:
     """
     Calcula o ângulo tangencial (em graus, de -180 a 180) para cada nó na sequência.
     Útil para orientar ícones (como chapeletas e tops) de acordo com o sentido do traçado.
@@ -201,7 +201,7 @@ def calcular_angulos_tangentes(
     if n == 1:
         return [0.0]
 
-    angulos: List[float] = []
+    angulos: list[float] = []
     for i in range(n):
         if i == 0:
             dx = pts[1].x - pts[0].x
@@ -220,9 +220,8 @@ def calcular_angulos_tangentes(
 
 
 def calcular_spline_catmull_rom(
-    pontos: Sequence[Union[Tuple[float, float], Ponto2D, Dict[str, Any]]],
-    alfa: float = 0.5
-) -> Dict[str, Any]:
+    pontos: Sequence[tuple[float, float] | Ponto2D | dict[str, Any]], alfa: float = 0.5
+) -> dict[str, Any]:
     """
     Executa o cálculo integrado completo da spline para uma lista de pontos.
     Retorna um dicionário com caminho_svg, caixa_delimitadora, segmentos_bezier e angulos_tangentes.
@@ -235,12 +234,7 @@ def calcular_spline_catmull_rom(
 
     return {
         "caminho_svg": caminho_svg,
-        "caixa_delimitadora": {
-            "x": cx,
-            "y": cy,
-            "comprimento": comp,
-            "largura": larg
-        },
+        "caixa_delimitadora": {"x": cx, "y": cy, "comprimento": comp, "largura": larg},
         "segmentos_bezier": segmentos,
-        "angulos_tangentes": angulos
+        "angulos_tangentes": angulos,
     }

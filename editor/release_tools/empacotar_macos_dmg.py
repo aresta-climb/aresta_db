@@ -11,8 +11,6 @@ import os
 import shutil
 import subprocess
 from pathlib import Path
-from typing import Optional, List
-
 
 FEED_SPARKLE_PADRAO: str = "https://serving.arestaclimb.com/editor-macos/appcast.xml"
 IDENTIFICADOR_BUNDLE_PADRAO: str = "com.arestaclimb.Editor"
@@ -25,13 +23,23 @@ def gerar_conteudo_info_plist(
     identificador_bundle: str = IDENTIFICADOR_BUNDLE_PADRAO,
     nome_executavel: str = NOME_EXECUTAVEL_PADRAO,
     url_feed: str = FEED_SPARKLE_PADRAO,
-    chave_publica_sparkle: Optional[str] = CHAVE_PUBLICA_SPARKLE_PADRAO,
+    chave_publica_sparkle: str | None = CHAVE_PUBLICA_SPARKLE_PADRAO,
+    atualizar_automaticamente: bool = True,
+    intervalo_checagem_segundos: int = 3600,
 ) -> str:
     """
     Gera o conteúdo XML do Info.plist para o bundle macOS do Editor Aresta.
     """
     versao_limpa = versao.strip()
-    tag_chave_publica = f"    <key>SUPublicEDKey</key>\n    <string>{chave_publica_sparkle}</string>\n" if chave_publica_sparkle else ""
+    tag_chave_publica = (
+        f"    <key>SUPublicEDKey</key>\n    <string>{chave_publica_sparkle}</string>\n"
+        if chave_publica_sparkle
+        else ""
+    )
+    tag_atualizacao_automatica = (
+        "    <key>SUAutomaticallyUpdate</key>\n    <true/>\n" if atualizar_automaticamente else ""
+    )
+    tag_intervalo = f"    <key>SUScheduledCheckInterval</key>\n    <integer>{intervalo_checagem_segundos}</integer>\n"
     return f"""<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
@@ -64,7 +72,7 @@ def gerar_conteudo_info_plist(
     <string>{url_feed}</string>
     <key>SUEnableAutomaticChecks</key>
     <true/>
-{tag_chave_publica}</dict>
+{tag_atualizacao_automatica}{tag_intervalo}{tag_chave_publica}</dict>
 </plist>
 """
 
@@ -73,10 +81,10 @@ def criar_estrutura_bundle_macos(
     diretorio_origem_onedir: Path,
     diretorio_destino_app: Path,
     versao: str,
-    caminho_icone_icns: Optional[Path] = None,
+    caminho_icone_icns: Path | None = None,
     identificador_bundle: str = IDENTIFICADOR_BUNDLE_PADRAO,
-    chave_publica_sparkle: Optional[str] = CHAVE_PUBLICA_SPARKLE_PADRAO,
-    caminho_sparkle_framework: Optional[Path] = None,
+    chave_publica_sparkle: str | None = CHAVE_PUBLICA_SPARKLE_PADRAO,
+    caminho_sparkle_framework: Path | None = None,
 ) -> Path:
     """
     Monta a árvore de diretórios do bundle EditorAresta.app a partir da saída onedir.
@@ -124,14 +132,14 @@ def criar_estrutura_bundle_macos(
 def assinar_bundle_macos(
     caminho_app: Path,
     identidade_assinatura: str,
-    caminho_entitlements: Optional[Path] = None,
+    caminho_entitlements: Path | None = None,
     dry_run: bool = False,
-) -> List[str]:
+) -> list[str]:
     """
     Assina todos os binários, frameworks e o bundle principal com o Developer ID.
     Retorna a lista de comandos executados.
     """
-    comandos_executados: List[str] = []
+    comandos_executados: list[str] = []
 
     # Localiza arquivos binários internos (.dylib, .so)
     arquivos_para_assinar = []
@@ -143,13 +151,15 @@ def assinar_bundle_macos(
     cmd_base = [
         "codesign",
         "--force",
-        "--options", "runtime",
+        "--options",
+        "runtime",
         "--timestamp",
-        "--sign", identidade_assinatura,
+        "--sign",
+        identidade_assinatura,
     ]
 
     for binario in arquivos_para_assinar:
-        cmd = cmd_base + [str(binario)]
+        cmd = [*cmd_base, str(binario)]
         comandos_executados.append(" ".join(cmd))
         if not dry_run:
             subprocess.run(cmd, check=True)
@@ -159,7 +169,7 @@ def assinar_bundle_macos(
     if diretorio_frameworks.exists():
         for item in diretorio_frameworks.iterdir():
             if item.suffix == ".framework" or item.is_dir():
-                cmd_fw = cmd_base + [str(item)]
+                cmd_fw = [*cmd_base, str(item)]
                 comandos_executados.append(" ".join(cmd_fw))
                 if not dry_run:
                     subprocess.run(cmd_fw, check=True)
@@ -182,7 +192,7 @@ def gerar_dmg_macos(
     caminho_saida_dmg: Path,
     nome_volume: str = "Editor Aresta",
     dry_run: bool = False,
-) -> List[str]:
+) -> list[str]:
     """
     Gera a imagem de disco DMG utilizando hdiutil.
     """
@@ -193,14 +203,17 @@ def gerar_dmg_macos(
     cmd = [
         "hdiutil",
         "create",
-        "-volname", nome_volume,
-        "-srcfolder", str(caminho_app),
+        "-volname",
+        nome_volume,
+        "-srcfolder",
+        str(caminho_app),
         "-ov",
-        "-format", "UDZO",
+        "-format",
+        "UDZO",
         str(caminho_saida_dmg),
     ]
 
-    comandos: List[str] = [" ".join(cmd)]
+    comandos: list[str] = [" ".join(cmd)]
     if not dry_run:
         subprocess.run(cmd, check=True)
 
@@ -209,26 +222,31 @@ def gerar_dmg_macos(
 
 def notarizar_dmg_macos(
     caminho_dmg: Path,
-    apple_id: Optional[str] = None,
-    app_password: Optional[str] = None,
-    team_id: Optional[str] = None,
-    profile: Optional[str] = None,
+    apple_id: str | None = None,
+    app_password: str | None = None,
+    team_id: str | None = None,
+    profile: str | None = None,
     dry_run: bool = False,
-) -> List[str]:
+) -> list[str]:
     """
     Submete a imagem DMG para notarização Apple e grampeia o ticket (staple).
     """
-    comandos: List[str] = []
+    comandos: list[str] = []
 
     cmd_notary = ["xcrun", "notarytool", "submit", str(caminho_dmg), "--wait"]
     if profile:
         cmd_notary.extend(["--keychain-profile", profile])
     elif apple_id and app_password and team_id:
-        cmd_notary.extend([
-            "--apple-id", apple_id,
-            "--password", app_password,
-            "--team-id", team_id,
-        ])
+        cmd_notary.extend(
+            [
+                "--apple-id",
+                apple_id,
+                "--password",
+                app_password,
+                "--team-id",
+                team_id,
+            ]
+        )
 
     comandos.append(" ".join(cmd_notary))
     if not dry_run:
@@ -246,14 +264,14 @@ def empacotar_distribuicao_macos(
     diretorio_onedir: Path,
     diretorio_saida: Path,
     versao: str,
-    identidade_assinatura: Optional[str] = None,
+    identidade_assinatura: str | None = None,
     notarizar: bool = False,
-    apple_id: Optional[str] = None,
-    app_password: Optional[str] = None,
-    team_id: Optional[str] = None,
-    profile: Optional[str] = None,
-    chave_publica_sparkle: Optional[str] = CHAVE_PUBLICA_SPARKLE_PADRAO,
-    caminho_sparkle_framework: Optional[Path] = None,
+    apple_id: str | None = None,
+    app_password: str | None = None,
+    team_id: str | None = None,
+    profile: str | None = None,
+    chave_publica_sparkle: str | None = CHAVE_PUBLICA_SPARKLE_PADRAO,
+    caminho_sparkle_framework: Path | None = None,
     dry_run: bool = False,
 ) -> Path:
     """

@@ -1,6 +1,7 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
+
 class ContextoUIPath:
     """
     Classe utilitária para analisar strings globais de contexto de foco na UI.
@@ -8,6 +9,7 @@ class ContextoUIPath:
     Ex: 'page:dados/node:root/node:Croqui/expando:Picos'
     Ex: 'page:mapas/file:setor_principal.md'
     """
+
     def __init__(self, raw_path: str | None = None) -> None:
         self.raw_path: str = raw_path if raw_path else ""
         self._pagina: str | None = None
@@ -49,4 +51,3 @@ class ContextoUIPath:
     @property
     def arquivo_mapa(self) -> str | None:
         return self._arquivo_mapa
-

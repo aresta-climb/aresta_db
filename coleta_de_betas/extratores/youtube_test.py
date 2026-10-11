@@ -1,10 +1,13 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
+from unittest.mock import MagicMock, patch
+
 import pytest
-from unittest.mock import patch, MagicMock
+
 from aresta_api.proto.generated import beta_pb2
 from coleta_de_betas.extratores.youtube import ExtratorYouTube
+
 
 def test_extrator_youtube_monta_query_correta():
     extrator = ExtratorYouTube(chave_api="TEST_KEY")
@@ -28,8 +31,8 @@ def test_extrator_youtube_busca_com_sucesso(mock_get):
                     "description": "Vídeo mostrando a beta da via Fusca Azul no setor Geriatria.",
                     "thumbnails": {
                         "high": {"url": "https://img.youtube.com/vi/vid123/hqdefault.jpg"}
-                    }
-                }
+                    },
+                },
             },
             {
                 "id": {"videoId": "vid456"},
@@ -38,9 +41,9 @@ def test_extrator_youtube_busca_com_sucesso(mock_get):
                     "description": "Escalando em Ouro Preto",
                     "thumbnails": {
                         "default": {"url": "https://img.youtube.com/vi/vid456/default.jpg"}
-                    }
-                }
-            }
+                    },
+                },
+            },
         ]
     }
     mock_get.return_value = mock_response
@@ -49,7 +52,7 @@ def test_extrator_youtube_busca_com_sucesso(mock_get):
     resultados = extrator.buscar("Fusca Azul", "Geriatria", "Ouro Preto")
 
     assert len(resultados) == 2
-    
+
     item1 = resultados[0]
     assert isinstance(item1, beta_pb2.MidiaBeta)
     assert item1.url == "https://www.youtube.com/watch?v=vid123"

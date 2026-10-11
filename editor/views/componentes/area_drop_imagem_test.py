@@ -6,17 +6,19 @@ Testes unitários para o componente visual AreaDropImagem.
 """
 
 from pathlib import Path
-from PySide6.QtCore import Qt, QUrl, QMimeData, QPoint
-from PySide6.QtGui import QDragEnterEvent, QDropEvent, QMouseEvent, QPixmap, QImage, QColor
+
+from PySide6.QtCore import QMimeData, QPoint, Qt, QUrl
+from PySide6.QtGui import QColor, QDragEnterEvent, QDropEvent, QImage, QMouseEvent
 from PySide6.QtWidgets import QFileDialog
 
-from editor.views.componentes.area_drop_imagem import AreaDropImagem, EXTENSOES_IMAGEM_SUPORTADAS
+from editor.views.componentes.area_drop_imagem import EXTENSOES_IMAGEM_SUPORTADAS, AreaDropImagem
 
 
 def criar_bytes_imagem_teste(largura: int = 20, altura: int = 20) -> bytes:
     img = QImage(largura, altura, QImage.Format.Format_RGB32)
     img.fill(QColor("blue"))
     from PySide6.QtCore import QBuffer, QIODevice
+
     buffer = QBuffer()
     buffer.open(QIODevice.OpenModeFlag.ReadWrite)
     img.save(buffer, "PNG")
@@ -51,6 +53,7 @@ def test_area_drop_imagem_clique_seleciona_arquivo(qtbot, monkeypatch, tmp_path)
 
     # Simula clique com botão esquerdo
     from PySide6.QtCore import QPointF
+
     evento_clique = QMouseEvent(
         QMouseEvent.Type.MouseButtonPress,
         QPointF(10.0, 10.0),
@@ -79,6 +82,7 @@ def test_area_drop_imagem_clique_cancelado_nao_emite_sinal(qtbot, monkeypatch):
     area.imagem_selecionada.connect(sinais.append)
 
     from PySide6.QtCore import QPointF
+
     evento_clique = QMouseEvent(
         QMouseEvent.Type.MouseButtonPress,
         QPointF(10.0, 10.0),
@@ -104,6 +108,7 @@ def test_area_drop_imagem_clique_botao_direito_ignorado(qtbot, monkeypatch):
     )
 
     from PySide6.QtCore import QPointF
+
     evento_clique = QMouseEvent(
         QMouseEvent.Type.MouseButtonPress,
         QPointF(10.0, 10.0),
@@ -283,7 +288,7 @@ def test_area_drop_imagem_processar_caminho(qtbot, tmp_path, monkeypatch):
 
     def falha_read(self):
         if "foto_valida" in str(self):
-            raise IOError("Falha simulada de leitura")
+            raise OSError("Falha simulada de leitura")
         return orig_read(self)
 
     monkeypatch.setattr(Path, "read_bytes", falha_read)
@@ -306,4 +311,3 @@ def test_area_drop_imagem_processar_qimage(qtbot):
     qimg.fill(QColor("red"))
     area.processar_qimage(qimg)
     assert area.label_preview.isVisible() is True
-

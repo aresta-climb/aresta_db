@@ -51,6 +51,11 @@ jobs:
         run: |
           uv sync --frozen
           
+      - name: Checagem de Qualidade de Código (Ruff)
+        run: |
+          uv run ruff check --output-format=github .
+          uv run ruff format --check .
+
       - name: Instalar Dependências Gráficas do Qt (Ubuntu)
         run: |
           sudo apt-get update

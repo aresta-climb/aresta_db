@@ -6,11 +6,13 @@ Biblioteca utilitária para integração com o subsistema Win32 e Shell do Windo
 Implementa o AdaptadorWindows conforme o protocolo AdaptadorPlataforma.
 """
 
-import sys
 import os
+import sys
 from pathlib import Path
-from typing import Any, Optional
+from typing import Any
+
 from PySide6.QtCore import QStandardPaths
+
 from editor.plataforma.contrato import AdaptadorPlataforma, ResultadoAtualizacao
 from editor.plataforma.windows.servico_loja import ServicoLoja
 
@@ -147,7 +149,7 @@ def trazer_janela_para_frente(identificador_janela: int) -> bool:
 class AdaptadorWindows(AdaptadorPlataforma):
     """Adaptador de integração nativa com o sistema operacional Windows."""
 
-    def __init__(self, servico_loja: Optional[ServicoLoja] = None) -> None:
+    def __init__(self, servico_loja: ServicoLoja | None = None) -> None:
         self.servico_loja: ServicoLoja = servico_loja or ServicoLoja()
 
     def configurar_ambiente_plataforma(self) -> None:
@@ -182,7 +184,7 @@ class AdaptadorWindows(AdaptadorPlataforma):
         return self.servico_loja.verificar_atualizacoes_disponiveis()
 
     def solicitar_instalacao_atualizacao(
-        self, resultado: Optional[ResultadoAtualizacao] = None
+        self, resultado: ResultadoAtualizacao | None = None
     ) -> bool:
         """Dispara a instalação in-app via WinRT ou fallback na loja."""
         return self.servico_loja.solicitar_instalacao_atualizacao(resultado)

@@ -1,17 +1,18 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
-import os
-import json
-import yaml
 import argparse
-from pathlib import Path
-from datetime import datetime
+import json
 import sys
+from datetime import datetime
+from pathlib import Path
+
+import yaml
 
 # Adiciona o diretório raiz do projeto ao sys.path para importar a lib utilitária
 sys.path.append(str(Path(__file__).resolve().parent.parent))
 from scripts.preparar_submissao_lib import parse_md_com_frontmatter
+
 
 def check_partes_json(croqui_path: Path) -> bool:
     """Verifica se partes.json existe e é um JSON válido."""
@@ -19,26 +20,30 @@ def check_partes_json(croqui_path: Path) -> bool:
     if not partes_path.exists():
         return False
     try:
-        with open(partes_path, "r", encoding="utf-8") as f:
+        with open(partes_path, encoding="utf-8") as f:
             data = json.load(f)
-            return bool(data) # Deve ser um JSON preenchido
+            return bool(data)  # Deve ser um JSON preenchido
     except (json.JSONDecodeError, UnicodeDecodeError):
         return False
+
 
 def check_raw_original_pdf(croqui_path: Path) -> bool:
     """Verifica se raw_original_pdf existe e não está vazia."""
     pdf_path = croqui_path / "raw_original_pdf"
     return pdf_path.exists() and pdf_path.is_dir() and any(pdf_path.iterdir())
 
+
 def check_raw_pdf_contents(croqui_path: Path) -> bool:
     """Verifica se raw_pdf_contents existe e não está vazia."""
     contents_path = croqui_path / "raw_pdf_contents"
     return contents_path.exists() and contents_path.is_dir() and any(contents_path.iterdir())
 
+
 def check_croqui_yaml(croqui_path: Path) -> bool:
     """Verifica se croqui.yaml existe."""
     yaml_path = croqui_path / "croqui.yaml"
     return yaml_path.exists()
+
 
 def check_caminho_thumbnail(croqui_path: Path) -> bool:
     """Verifica se croqui.yaml possui caminho_thumbnail preenchido."""
@@ -46,15 +51,17 @@ def check_caminho_thumbnail(croqui_path: Path) -> bool:
     if not yaml_path.exists():
         return False
     try:
-        with open(yaml_path, "r", encoding="utf-8") as f:
+        with open(yaml_path, encoding="utf-8") as f:
             data = yaml.safe_load(f)
             return isinstance(data, dict) and bool(data.get("caminho_thumbnail"))
     except Exception:
         return False
 
+
 def check_mapas_gerais_exists(croqui_path: Path) -> bool:
     """Verifica se mapas_gerais.md existe."""
     return (croqui_path / "mapas_gerais.md").exists()
+
 
 def check_publicar_croqui(croqui_path: Path) -> bool:
     """Verifica se croqui.yaml possui publicar_croqui: true."""
@@ -62,11 +69,12 @@ def check_publicar_croqui(croqui_path: Path) -> bool:
     if not yaml_path.exists():
         return False
     try:
-        with open(yaml_path, "r", encoding="utf-8") as f:
+        with open(yaml_path, encoding="utf-8") as f:
             data = yaml.safe_load(f)
             return isinstance(data, dict) and data.get("publicar_croqui") is True
     except (yaml.YAMLError, UnicodeDecodeError):
         return False
+
 
 def check_revisado_manualmente(croqui_path: Path) -> bool:
     """Verifica se croqui.yaml possui revisado_manualmente: true."""
@@ -74,11 +82,12 @@ def check_revisado_manualmente(croqui_path: Path) -> bool:
     if not yaml_path.exists():
         return False
     try:
-        with open(yaml_path, "r", encoding="utf-8") as f:
+        with open(yaml_path, encoding="utf-8") as f:
             data = yaml.safe_load(f)
             return isinstance(data, dict) and data.get("revisado_manualmente") is True
     except (yaml.YAMLError, UnicodeDecodeError):
         return False
+
 
 def check_revisado_bounding_circle(croqui_path: Path) -> bool:
     """Verifica se croqui.yaml possui revisado_bounding_circle: true."""
@@ -86,11 +95,12 @@ def check_revisado_bounding_circle(croqui_path: Path) -> bool:
     if not yaml_path.exists():
         return False
     try:
-        with open(yaml_path, "r", encoding="utf-8") as f:
+        with open(yaml_path, encoding="utf-8") as f:
             data = yaml.safe_load(f)
             return isinstance(data, dict) and data.get("revisado_bounding_circle") is True
     except (yaml.YAMLError, UnicodeDecodeError):
         return False
+
 
 def check_status_desenho_extraivel(croqui_path: Path) -> str:
     """Verifica o status de desenhos extraíveis no croqui.yaml."""
@@ -98,7 +108,7 @@ def check_status_desenho_extraivel(croqui_path: Path) -> str:
     if not yaml_path.exists():
         return "❌"
     try:
-        with open(yaml_path, "r", encoding="utf-8") as f:
+        with open(yaml_path, encoding="utf-8") as f:
             data = yaml.safe_load(f)
         status = data.get("status_desenho_extraivel")
         if status == "NAO_TEM_DESENHO":
@@ -119,19 +129,24 @@ def check_pico_coordinates(croqui_path: Path) -> str:
     if not yaml_path.exists():
         return "N/A"
     try:
-        with open(yaml_path, "r", encoding="utf-8") as f:
+        with open(yaml_path, encoding="utf-8") as f:
             data = yaml.safe_load(f)
         picos = data.get("picos", [])
         if not picos:
             return "N/A"
-        
+
         passaram = 0
         total = len(picos)
         for pico in picos:
             loc = pico.get("localizacao")
-            if loc and isinstance(loc, dict) and loc.get("latitude") is not None and loc.get("longitude") is not None:
+            if (
+                loc
+                and isinstance(loc, dict)
+                and loc.get("latitude") is not None
+                and loc.get("longitude") is not None
+            ):
                 passaram += 1
-        
+
         if passaram == total:
             return f"✅ ({passaram}/{total})"
         elif passaram > 0:
@@ -141,13 +156,14 @@ def check_pico_coordinates(croqui_path: Path) -> str:
     except Exception:
         return "❌ (Erro)"
 
+
 def checar_url_google_maps(croqui_path: Path) -> str:
     """Verifica se os picos possuem link para o Google Maps preenchido."""
     yaml_path = croqui_path / "croqui.yaml"
     if not yaml_path.exists():
         return "N/A"
     try:
-        with open(yaml_path, "r", encoding="utf-8") as f:
+        with open(yaml_path, encoding="utf-8") as f:
             data = yaml.safe_load(f)
         picos = data.get("picos", [])
         if not picos:
@@ -170,32 +186,36 @@ def checar_url_google_maps(croqui_path: Path) -> str:
     except Exception:
         return "❌ (Erro)"
 
+
 # Alias em inglês para compatibilidade
 check_url_google_maps = checar_url_google_maps
 
-from typing import List, Dict, Any, Optional
+from typing import Any
 
-def find_all_sectors(croqui_path: Path) -> List[Path]:
+
+def find_all_sectors(croqui_path: Path) -> list[Path]:
     """Encontra recursivamente todos os caminhos de setores definidos no croqui.yaml."""
     yaml_path = croqui_path / "croqui.yaml"
     if not yaml_path.exists():
         return list(croqui_path.glob("setor_*.md"))
 
     try:
-        with open(yaml_path, "r", encoding="utf-8") as f:
+        with open(yaml_path, encoding="utf-8") as f:
             data = yaml.safe_load(f)
     except Exception:
         return list(croqui_path.glob("setor_*.md"))
 
-    sector_paths: List[Path] = []
-    
-    def collect_recursively(elements: List[Any]) -> None:
+    sector_paths: list[Path] = []
+
+    def collect_recursively(elements: list[Any]) -> None:
         for e in elements:
-            if not e or not isinstance(e, dict): continue
+            if not e or not isinstance(e, dict):
+                continue
             tipo = "setor" if "setor" in e else "grupo"
             obj = e.get(tipo)
-            if not obj: continue
-            
+            if not obj:
+                continue
+
             if isinstance(obj, str):
                 p = croqui_path / obj
                 if p.suffix == ".md":
@@ -203,15 +223,16 @@ def find_all_sectors(croqui_path: Path) -> List[Path]:
                         sector_paths.append(p)
                 continue
 
-            if not isinstance(obj, dict): continue
-            
+            if not isinstance(obj, dict):
+                continue
+
             if "caminho" in obj:
                 p = croqui_path / obj["caminho"]
                 # Adicionamos .md independentemente de ser setor ou grupo (ambos podem ter mapas)
                 if p.suffix == ".md":
                     if p not in sector_paths:
                         sector_paths.append(p)
-                
+
                 # Se for um grupo com caminho, precisamos olhar o frontmatter dele para sub-setores
                 if tipo == "grupo":
                     try:
@@ -219,7 +240,12 @@ def find_all_sectors(croqui_path: Path) -> List[Path]:
                         if fm:
                             filhos = fm.get("setores") or fm.get("sub_setores")
                             if filhos:
-                                collect_recursively([{"setor": s} if isinstance(s, (str, dict)) else s for s in filhos])
+                                collect_recursively(
+                                    [
+                                        {"setor": s} if isinstance(s, (str, dict)) else s
+                                        for s in filhos
+                                    ]
+                                )
                     except Exception:
                         pass
 
@@ -228,30 +254,33 @@ def find_all_sectors(croqui_path: Path) -> List[Path]:
             if conteudo and isinstance(conteudo, dict):
                 sub = conteudo.get("setores") or conteudo.get("sub_setores")
                 if sub:
-                    collect_recursively([{"setor": s} if isinstance(s, (str, dict)) else s for s in sub if s])
-    
+                    collect_recursively(
+                        [{"setor": s} if isinstance(s, (str, dict)) else s for s in sub if s]
+                    )
+
     if isinstance(data, dict):
         picos = data.get("picos", [])
         if isinstance(picos, list):
             for pico in picos:
                 if isinstance(pico, dict) and "setores_ou_grupos" in pico:
                     collect_recursively(pico["setores_ou_grupos"])
-            
+
     # Se não encontrou nada via YAML, fallback para glob
     if not sector_paths:
-        return sorted(list(croqui_path.glob("setor_*.md")))
-        
+        return sorted(croqui_path.glob("setor_*.md"))
+
     return sorted(sector_paths)
+
 
 def check_pontos_de_interesse(croqui_path: Path) -> str:
     """Verifica pontos de interesse nos arquivos de setor encontrados recursivamente."""
     setores = find_all_sectors(croqui_path)
     if not setores:
         return "N/A"
-    
+
     passaram = 0
     total = len(setores)
-    
+
     for setor_path in setores:
         try:
             if not setor_path.exists():
@@ -260,20 +289,25 @@ def check_pontos_de_interesse(croqui_path: Path) -> str:
             if frontmatter and "mapas" in frontmatter:
                 tem_ponto = False
                 for mapa in frontmatter["mapas"]:
-                    if "pontos_de_interesse" in mapa and isinstance(mapa["pontos_de_interesse"], list) and len(mapa["pontos_de_interesse"]) > 0:
+                    if (
+                        "pontos_de_interesse" in mapa
+                        and isinstance(mapa["pontos_de_interesse"], list)
+                        and len(mapa["pontos_de_interesse"]) > 0
+                    ):
                         tem_ponto = True
                         break
                 if tem_ponto:
                     passaram += 1
         except Exception:
             continue
-                
+
     if passaram == total and total > 0:
         return f"✅ ({passaram}/{total})"
     elif passaram > 0:
         return f"⚠️ ({passaram}/{total})"
     else:
         return f"❌ (0/{total})"
+
 
 def check_betas_pendentes(croqui_path: Path) -> str:
     """
@@ -286,6 +320,7 @@ def check_betas_pendentes(croqui_path: Path) -> str:
 
     try:
         from coleta_de_betas.inteligencia.avaliador import carregar_betas_pendentes
+
         pendentes = carregar_betas_pendentes(staging_file)
         total = sum(len(e.candidatos) for e in pendentes.candidatos_por_escalada)
         if total > 0:
@@ -294,7 +329,8 @@ def check_betas_pendentes(croqui_path: Path) -> str:
         pass
     return "⚠️"
 
-def generate_report_table(report_data: List[Dict[str, Any]]) -> str:
+
+def generate_report_table(report_data: list[dict[str, Any]]) -> str:
     """Gera a tabela Markdown a partir dos dados do relatório."""
     total_croquis = len(report_data)
     if total_croquis == 0:
@@ -313,7 +349,7 @@ def generate_report_table(report_data: List[Dict[str, Any]]) -> str:
     a_partes_json = sum(1 for d in report_data if d["partes.json"] == "✅")
     a_raw_original_pdf = sum(1 for d in report_data if d["PDF Original"] == "✅")
     a_betas_pendentes = sum(1 for d in report_data if d.get("Betas Pendentes") == "✅")
-    
+
     c_nao_tem = sum(1 for d in report_data if d["Status Desenho"] == "✅ (não)")
     c_sim_extraido = sum(1 for d in report_data if d["Status Desenho"] == "✅")
     c_sim_mas_nao = sum(1 for d in report_data if d["Status Desenho"] == "⚠️")
@@ -321,7 +357,7 @@ def generate_report_table(report_data: List[Dict[str, Any]]) -> str:
     a_status_desenho = c_nao_tem + c_sim_extraido
 
     headers = [
-        "Croqui", 
+        "Croqui",
         f"Publicado ({a_publicados}/{total_croquis})",
         f"Revisado Manual ({a_revisados}/{total_croquis})",
         f"Revisado Circ ({a_revisados_circ}/{total_croquis})",
@@ -332,16 +368,16 @@ def generate_report_table(report_data: List[Dict[str, Any]]) -> str:
         f"URL Google Maps ({a_url_google_maps}/{total_croquis})",
         f"Mapas Gerais ({a_mapas_gerais}/{total_croquis})",
         f"Betas Pendentes ({a_betas_pendentes}/{total_croquis})",
-        f"croqui.yaml ({a_croqui_yaml}/{total_croquis})", 
-        f"Conteúdo PDF ({a_raw_pdf_contents}/{total_croquis})", 
-        f"partes.json ({a_partes_json}/{total_croquis})", 
-        f"PDF Original ({a_raw_original_pdf}/{total_croquis})"
+        f"croqui.yaml ({a_croqui_yaml}/{total_croquis})",
+        f"Conteúdo PDF ({a_raw_pdf_contents}/{total_croquis})",
+        f"partes.json ({a_partes_json}/{total_croquis})",
+        f"PDF Original ({a_raw_original_pdf}/{total_croquis})",
     ]
-    
+
     lines = []
     lines.append("| " + " | ".join(headers) + " |")
     lines.append("| " + " | ".join(["---"] * len(headers)) + " |")
-    
+
     for data in report_data:
         row = [
             data["Nome"],
@@ -358,21 +394,27 @@ def generate_report_table(report_data: List[Dict[str, Any]]) -> str:
             data["croqui.yaml"],
             data["Conteúdo PDF"],
             data["partes.json"],
-            data["PDF Original"]
+            data["PDF Original"],
         ]
         lines.append("| " + " | ".join(row) + " |")
-        
+
     return "\n".join(lines)
+
 
 def main() -> None:
 
     parser = argparse.ArgumentParser(description="Mede a saúde dos croquis na base de dados.")
-    parser.add_argument("--output", "-o", default="STATUS_CROQUIS.md", help="Arquivo de saída do relatório Markdown.")
+    parser.add_argument(
+        "--output",
+        "-o",
+        default="STATUS_CROQUIS.md",
+        help="Arquivo de saída do relatório Markdown.",
+    )
     args = parser.parse_args()
-    
+
     root_path = Path(__file__).resolve().parent.parent
     base_path = root_path / "database"
-    
+
     if not base_path.exists():
         print(f"Erro: Pasta database não encontrada em {base_path}")
         return
@@ -395,36 +437,39 @@ def main() -> None:
         mapas_gerais = "✅" if check_mapas_gerais_exists(croqui) else "❌"
         status_desenho = check_status_desenho_extraivel(croqui)
         betas_status = check_betas_pendentes(croqui)
-        
-        report_data.append({
-            "Nome": nome,
-            "Publicado": publicado,
-            "Revisado Manual": revisado,
-            "Revisado Circ": revisado_circ,
-            "Status Desenho": status_desenho,
-            "Pontos de Interesse": pontos,
-            "Thumbnail": thumbnail,
-            "Coordenadas Picos": coord_picos,
-            "URL Google Maps": url_maps,
-            "Mapas Gerais": mapas_gerais,
-            "Betas Pendentes": betas_status,
-            "croqui.yaml": yaml_present,
-            "Conteúdo PDF": raw_contents,
-            "partes.json": partes,
-            "PDF Original": raw_pdf
-        })
-        
+
+        report_data.append(
+            {
+                "Nome": nome,
+                "Publicado": publicado,
+                "Revisado Manual": revisado,
+                "Revisado Circ": revisado_circ,
+                "Status Desenho": status_desenho,
+                "Pontos de Interesse": pontos,
+                "Thumbnail": thumbnail,
+                "Coordenadas Picos": coord_picos,
+                "URL Google Maps": url_maps,
+                "Mapas Gerais": mapas_gerais,
+                "Betas Pendentes": betas_status,
+                "croqui.yaml": yaml_present,
+                "Conteúdo PDF": raw_contents,
+                "partes.json": partes,
+                "PDF Original": raw_pdf,
+            }
+        )
+
     markdown_output = generate_report_table(report_data)
-    
+
     # Define o caminho de saída relativo à raiz do projeto
     output_path = root_path / args.output
-    
+
     with open(output_path, "w", encoding="utf-8") as f:
         f.write("# Estado de Saúde dos Croquis\n\n")
         f.write(f"Relatório gerado em: {datetime.now().strftime('%d/%m/%Y %H:%M:%S')}\n\n")
         f.write(markdown_output)
-        
+
     print(f"Relatório gerado com sucesso em: {output_path}")
+
 
 if __name__ == "__main__":
     main()

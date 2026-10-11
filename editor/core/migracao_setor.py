@@ -4,11 +4,10 @@
 """Módulo de validação e regras de negócio para movimentação e migração de setores na árvore de dados."""
 
 import re
-from typing import Optional, Set
+
 from editor.core.formatacao import para_snake_case
 
-
-TIPOS_VALIDOS_REORDENACAO: Set[str] = {
+TIPOS_VALIDOS_REORDENACAO: set[str] = {
     "setor",
     "arquivosetor",
     "grupo",
@@ -62,8 +61,9 @@ def validar_movimento_permitido(origem_tipo: str, destino_tipo: str, eh_sobre_it
     return False
 
 
-
-def calcular_novo_caminho_setor(caminho_atual: str, nome_setor: str, nome_grupo_destino: Optional[str] = None) -> str:
+def calcular_novo_caminho_setor(
+    caminho_atual: str, nome_setor: str, nome_grupo_destino: str | None = None
+) -> str:
     """Calcula o novo nome de arquivo de um setor ao ser migrado entre o Pico e um Grupo ou entre Grupos.
 
     Args:
@@ -99,9 +99,7 @@ def calcular_novo_caminho_setor(caminho_atual: str, nome_setor: str, nome_grupo_
 
 
 def verificar_colisao_nome_arquivo(
-    novo_caminho: str,
-    caminhos_existentes: Set[str],
-    caminho_atual_proprio: Optional[str] = None
+    novo_caminho: str, caminhos_existentes: set[str], caminho_atual_proprio: str | None = None
 ) -> bool:
     """Verifica se o novo nome de arquivo colide com arquivos já existentes no croqui.
 

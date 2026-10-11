@@ -10,15 +10,14 @@ Teste de integração ponta a ponta:
 5. Simular reabertura do croqui validando persistência e integridade.
 """
 
-from pathlib import Path
-from PySide6.QtGui import QUndoStack, QImage
+from PySide6.QtGui import QImage, QUndoStack
 from PySide6.QtWidgets import QDialog
 
 from aresta_api.proto.generated.croqui_pb2 import Croqui
-from editor.models.croqui_model import CroquiModel
 from editor.controllers.croqui_controller import CroquiController
-from editor.views.widget_editor_dados import WidgetEditorDados, WidgetEditorMarkdown
+from editor.models.croqui_model import CroquiModel
 from editor.views.dialogos.dialogo_inserir_imagem_markdown import DialogoInserirImagemMarkdown
+from editor.views.widget_editor_dados import WidgetEditorDados, WidgetEditorMarkdown
 from scripts.preparar_submissao_lib import limpar_arquivos_nao_utilizados
 
 
@@ -43,7 +42,9 @@ def test_integracao_inserir_imagem_markdown_salvar_limpar_e_reabrir(qapp, tmp_pa
 
     widget_dados = WidgetEditorDados(model, controller)
     campo_desc = croqui.DESCRIPTOR.fields_by_name["descricao"]
-    md_editor = WidgetEditorMarkdown(croqui, campo_desc, widget_dados.form_padrao, parent=widget_dados.form_padrao)
+    md_editor = WidgetEditorMarkdown(
+        croqui, campo_desc, widget_dados.form_padrao, parent=widget_dados.form_padrao
+    )
 
     # 2. Cria imagem externa simulada
     img_externa = tmp_path / "foto_drone.png"
@@ -100,7 +101,9 @@ def test_integracao_inserir_imagem_markdown_salvar_limpar_e_reabrir(qapp, tmp_pa
     limpar_arquivos_nao_utilizados(caminho_db, croqui_yaml_data)
 
     # 6. O arquivo NÃO deve ter sido deletado pelo limpador
-    assert arquivo_disco.exists(), "A imagem WebP referenciada no Markdown NÃO pode ser excluída na limpeza!"
+    assert arquivo_disco.exists(), (
+        "A imagem WebP referenciada no Markdown NÃO pode ser excluída na limpeza!"
+    )
 
     # 7. Simula reabertura do croqui a partir dos arquivos salvos
     bytes_lidos = arquivo_disco.read_bytes()

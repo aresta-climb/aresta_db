@@ -1,11 +1,12 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
+from unittest.mock import patch
+
 import pytest
-import os
-from PySide6.QtWidgets import QApplication
+
 from editor.legacy_views.widget_editor_imagens import WidgetEditorImagens
-from unittest.mock import MagicMock, patch
+
 
 @pytest.fixture
 def mock_folder(tmp_path):
@@ -14,48 +15,54 @@ def mock_folder(tmp_path):
     (imagens_dir / "imagem1.webp").write_text("dummy")
     return str(tmp_path)
 
+
 def test_widget_inicializa_em_modo_integrado(qtbot, mock_folder):
     # O widget deve aceitar o modo_integrado no construtor
     with patch("editor.legacy_views.widget_editor_imagens.QMessageBox.critical") as mock_critical:
         widget = WidgetEditorImagens(mock_folder, modo_integrado=True)
         qtbot.addWidget(widget)
-        
+
         # Verifica se o botão de salvar está oculto
         assert widget.save_btn.isHidden()
+
 
 def test_widget_inicializa_em_modo_autonomo(qtbot, mock_folder):
     with patch("editor.legacy_views.widget_editor_imagens.QMessageBox.critical") as mock_critical:
         widget = WidgetEditorImagens(mock_folder, modo_integrado=False)
         qtbot.addWidget(widget)
-        
+
         # Verifica se o botão de salvar está visível
         assert not widget.save_btn.isHidden()
+
 
 def test_widget_lista_imagens_da_pasta(qtbot, mock_folder):
     with patch("editor.legacy_views.widget_editor_imagens.QMessageBox.critical") as mock_critical:
         widget = WidgetEditorImagens(mock_folder)
         qtbot.addWidget(widget)
-        
+
         assert widget.list_widget.count() == 1
         assert "imagem1.webp" in widget.list_widget.item(0).text()
+
 
 def test_widget_expoe_metodo_salvar_alteracoes(qtbot, mock_folder):
     with patch("editor.legacy_views.widget_editor_imagens.QMessageBox.critical") as mock_critical:
         widget = WidgetEditorImagens(mock_folder)
         qtbot.addWidget(widget)
-        
+
         # Verifica se o método existe
         assert hasattr(widget, "salvar_alteracoes")
         assert callable(widget.salvar_alteracoes)
 
 
 def test_rotacao_horaria_com_controller_e_undo_redo(qtbot, tmp_path):
-    from PIL import Image
     import io
-    from aresta_api.proto.generated import croqui_pb2
-    from editor.models.croqui_model import CroquiModel
-    from editor.controllers.croqui_controller import CroquiController
+
+    from PIL import Image
     from PySide6.QtGui import QUndoStack
+
+    from aresta_api.proto.generated import croqui_pb2
+    from editor.controllers.croqui_controller import CroquiController
+    from editor.models.croqui_model import CroquiModel
 
     pasta_img = tmp_path / "imagens"
     pasta_img.mkdir()
@@ -68,7 +75,9 @@ def test_rotacao_horaria_com_controller_e_undo_redo(qtbot, tmp_path):
     undo_stack = QUndoStack()
     controller = CroquiController(model, undo_stack)
 
-    widget = WidgetEditorImagens(imagens_path=str(pasta_img), croqui_model=model, croqui_controller=controller)
+    widget = WidgetEditorImagens(
+        imagens_path=str(pasta_img), croqui_model=model, croqui_controller=controller
+    )
     qtbot.addWidget(widget)
     widget.select_image_by_name("teste.webp")
 
@@ -95,12 +104,14 @@ def test_rotacao_horaria_com_controller_e_undo_redo(qtbot, tmp_path):
 
 
 def test_rotacao_anti_horaria_com_controller(qtbot, tmp_path):
-    from PIL import Image
     import io
-    from aresta_api.proto.generated import croqui_pb2
-    from editor.models.croqui_model import CroquiModel
-    from editor.controllers.croqui_controller import CroquiController
+
+    from PIL import Image
     from PySide6.QtGui import QUndoStack
+
+    from aresta_api.proto.generated import croqui_pb2
+    from editor.controllers.croqui_controller import CroquiController
+    from editor.models.croqui_model import CroquiModel
 
     pasta_img = tmp_path / "imagens"
     pasta_img.mkdir()
@@ -113,7 +124,9 @@ def test_rotacao_anti_horaria_com_controller(qtbot, tmp_path):
     undo_stack = QUndoStack()
     controller = CroquiController(model, undo_stack)
 
-    widget = WidgetEditorImagens(imagens_path=str(pasta_img), croqui_model=model, croqui_controller=controller)
+    widget = WidgetEditorImagens(
+        imagens_path=str(pasta_img), croqui_model=model, croqui_controller=controller
+    )
     qtbot.addWidget(widget)
     widget.select_image_by_name("teste_ccw.webp")
 
@@ -139,9 +152,10 @@ def test_rotacao_sem_imagem_selecionada(qtbot, tmp_path):
 
 def test_modo_corte_ativacao_e_cancelamento_com_escape(qtbot, tmp_path):
     from PIL import Image
+    from PySide6.QtCore import Qt
+
     from aresta_api.proto.generated import croqui_pb2
     from editor.models.croqui_model import CroquiModel
-    from PySide6.QtCore import Qt
 
     pasta_img = tmp_path / "imagens"
     pasta_img.mkdir()
@@ -167,12 +181,14 @@ def test_modo_corte_ativacao_e_cancelamento_com_escape(qtbot, tmp_path):
 
 
 def test_executar_corte_selecao_com_controller_e_undo_redo(qtbot, tmp_path):
-    from PIL import Image
     import io
-    from aresta_api.proto.generated import croqui_pb2
-    from editor.models.croqui_model import CroquiModel
-    from editor.controllers.croqui_controller import CroquiController
+
+    from PIL import Image
     from PySide6.QtGui import QUndoStack
+
+    from aresta_api.proto.generated import croqui_pb2
+    from editor.controllers.croqui_controller import CroquiController
+    from editor.models.croqui_model import CroquiModel
 
     pasta_img = tmp_path / "imagens"
     pasta_img.mkdir()
@@ -184,7 +200,9 @@ def test_executar_corte_selecao_com_controller_e_undo_redo(qtbot, tmp_path):
     undo_stack = QUndoStack()
     controller = CroquiController(model, undo_stack)
 
-    widget = WidgetEditorImagens(imagens_path=str(pasta_img), croqui_model=model, croqui_controller=controller)
+    widget = WidgetEditorImagens(
+        imagens_path=str(pasta_img), croqui_model=model, croqui_controller=controller
+    )
     qtbot.addWidget(widget)
     widget.select_image_by_name("teste_corte_exec.webp")
 
@@ -209,12 +227,14 @@ def test_executar_corte_selecao_com_controller_e_undo_redo(qtbot, tmp_path):
 
 
 def test_executar_corte_selecao_invalida_ou_muito_pequena_ignorada(qtbot, tmp_path):
-    from PIL import Image
     import io
-    from aresta_api.proto.generated import croqui_pb2
-    from editor.models.croqui_model import CroquiModel
-    from editor.controllers.croqui_controller import CroquiController
+
+    from PIL import Image
     from PySide6.QtGui import QUndoStack
+
+    from aresta_api.proto.generated import croqui_pb2
+    from editor.controllers.croqui_controller import CroquiController
+    from editor.models.croqui_model import CroquiModel
 
     pasta_img = tmp_path / "imagens"
     pasta_img.mkdir()
@@ -226,7 +246,9 @@ def test_executar_corte_selecao_invalida_ou_muito_pequena_ignorada(qtbot, tmp_pa
     undo_stack = QUndoStack()
     controller = CroquiController(model, undo_stack)
 
-    widget = WidgetEditorImagens(imagens_path=str(pasta_img), croqui_model=model, croqui_controller=controller)
+    widget = WidgetEditorImagens(
+        imagens_path=str(pasta_img), croqui_model=model, croqui_controller=controller
+    )
     qtbot.addWidget(widget)
     widget.select_image_by_name("teste_corte_pequeno.webp")
 
@@ -243,9 +265,10 @@ def test_executar_corte_selecao_invalida_ou_muito_pequena_ignorada(qtbot, tmp_pa
 
 def test_modo_mascara_ativacao_e_cancelamento_com_escape(qtbot, tmp_path):
     from PIL import Image
+    from PySide6.QtCore import Qt
+
     from aresta_api.proto.generated import croqui_pb2
     from editor.models.croqui_model import CroquiModel
-    from PySide6.QtCore import Qt
 
     pasta_img = tmp_path / "imagens"
     pasta_img.mkdir()
@@ -268,18 +291,21 @@ def test_modo_mascara_ativacao_e_cancelamento_com_escape(qtbot, tmp_path):
 
 
 def test_modo_mascara_captura_e_preenchimento_com_undo_redo(qtbot, tmp_path):
-    from PIL import Image
     import io
-    from aresta_api.proto.generated import croqui_pb2
-    from editor.models.croqui_model import CroquiModel
-    from editor.controllers.croqui_controller import CroquiController
+
+    from PIL import Image
     from PySide6.QtGui import QUndoStack
+
+    from aresta_api.proto.generated import croqui_pb2
+    from editor.controllers.croqui_controller import CroquiController
+    from editor.models.croqui_model import CroquiModel
 
     pasta_img = tmp_path / "imagens"
     pasta_img.mkdir()
     caminho_img = pasta_img / "teste_mask_exec.webp"
     img = Image.new("RGB", (100, 100), color=(0, 0, 0))
     from PIL import ImageDraw
+
     ImageDraw.Draw(img).rectangle([0, 0, 10, 10], fill=(255, 0, 0))
     img.save(caminho_img, format="WEBP")
 
@@ -288,7 +314,9 @@ def test_modo_mascara_captura_e_preenchimento_com_undo_redo(qtbot, tmp_path):
     undo_stack = QUndoStack()
     controller = CroquiController(model, undo_stack)
 
-    widget = WidgetEditorImagens(imagens_path=str(pasta_img), croqui_model=model, croqui_controller=controller)
+    widget = WidgetEditorImagens(
+        imagens_path=str(pasta_img), croqui_model=model, croqui_controller=controller
+    )
     qtbot.addWidget(widget)
     widget.select_image_by_name("teste_mask_exec.webp")
 
@@ -317,10 +345,11 @@ def test_modo_mascara_captura_e_preenchimento_com_undo_redo(qtbot, tmp_path):
 
 def test_aplicar_mascara_sem_cor_capturada_ignorado(qtbot, tmp_path):
     from PIL import Image
-    from aresta_api.proto.generated import croqui_pb2
-    from editor.models.croqui_model import CroquiModel
-    from editor.controllers.croqui_controller import CroquiController
     from PySide6.QtGui import QUndoStack
+
+    from aresta_api.proto.generated import croqui_pb2
+    from editor.controllers.croqui_controller import CroquiController
+    from editor.models.croqui_model import CroquiModel
 
     pasta_img = tmp_path / "imagens"
     pasta_img.mkdir()
@@ -332,7 +361,9 @@ def test_aplicar_mascara_sem_cor_capturada_ignorado(qtbot, tmp_path):
     undo_stack = QUndoStack()
     controller = CroquiController(model, undo_stack)
 
-    widget = WidgetEditorImagens(imagens_path=str(pasta_img), croqui_model=model, croqui_controller=controller)
+    widget = WidgetEditorImagens(
+        imagens_path=str(pasta_img), croqui_model=model, croqui_controller=controller
+    )
     qtbot.addWidget(widget)
     widget.select_image_by_name("teste_mask_sem_cor.webp")
 
@@ -343,6 +374,7 @@ def test_aplicar_mascara_sem_cor_capturada_ignorado(qtbot, tmp_path):
 
 def test_botoes_obsoletos_removidos_e_barra_simplificada(qtbot, tmp_path):
     from PIL import Image
+
     pasta_img = tmp_path / "imagens"
     pasta_img.mkdir()
     Image.new("RGB", (20, 20), color=(10, 20, 30)).save(pasta_img / "teste.webp", format="WEBP")
@@ -395,20 +427,25 @@ def test_imagem_ajustada_ao_visualizador_ao_ser_exibido(qtbot, tmp_path):
 def test_botoes_transformacao_atualizam_cena_e_visualizador(qtbot, tmp_path):
     from PIL import Image
     from PySide6.QtGui import QUndoStack
-    from editor.models.croqui_model import CroquiModel
-    from editor.controllers.croqui_controller import CroquiController
+
     from aresta_api.proto.generated import croqui_pb2
+    from editor.controllers.croqui_controller import CroquiController
+    from editor.models.croqui_model import CroquiModel
 
     pasta_img = tmp_path / "imagens"
     pasta_img.mkdir()
-    Image.new("RGB", (200, 100), color=(10, 20, 30)).save(pasta_img / "foto_transf.webp", format="WEBP")
+    Image.new("RGB", (200, 100), color=(10, 20, 30)).save(
+        pasta_img / "foto_transf.webp", format="WEBP"
+    )
 
     model = CroquiModel(croqui_pb2.Croqui())
     model.definir_caminho_db(tmp_path)
     undo_stack = QUndoStack()
     controller = CroquiController(model, undo_stack)
 
-    widget = WidgetEditorImagens(imagens_path=str(pasta_img), croqui_model=model, croqui_controller=controller)
+    widget = WidgetEditorImagens(
+        imagens_path=str(pasta_img), croqui_model=model, croqui_controller=controller
+    )
     qtbot.addWidget(widget)
     widget.select_image_by_name("foto_transf.webp")
 
@@ -434,9 +471,3 @@ def test_botoes_transformacao_atualizam_cena_e_visualizador(qtbot, tmp_path):
     undo_stack.undo()
     assert widget.viewer.scene().sceneRect().width() == 200.0
     assert widget.viewer.scene().sceneRect().height() == 100.0
-
-
-
-
-
-

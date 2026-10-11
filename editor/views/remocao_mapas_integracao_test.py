@@ -2,15 +2,13 @@
 # Copyright (C) 2026 Aresta Climb Contributors
 
 import io
-from pathlib import Path
+
 from PIL import Image
-import pytest
 from PySide6.QtGui import QUndoStack
-from PySide6.QtWidgets import QDialog
 
 from aresta_api.proto.generated import croqui_pb2
-from editor.models.croqui_model import CroquiModel
 from editor.controllers.croqui_controller import CroquiController
+from editor.models.croqui_model import CroquiModel
 from editor.views.dialogos.dialogo_adicionar_mapa import DialogoAdicionarMapa
 
 
@@ -22,7 +20,9 @@ def criar_imagem_webp_bytes(cor=(120, 120, 120), tamanho=(300, 200)) -> bytes:
 
 
 class TestRemocaoMapasIntegracao:
-    def test_fluxo_integracao_adicionar_remover_e_readicionar_mapa_com_undo_redo(self, qtbot, tmp_path):
+    def test_fluxo_integracao_adicionar_remover_e_readicionar_mapa_com_undo_redo(
+        self, qtbot, tmp_path
+    ):
         """
         Testa o fluxo de fronteira:
         1. Adiciona mapa com imagem em RAM
@@ -110,11 +110,13 @@ class TestRemocaoMapasIntegracao:
         controller = CroquiController(model, undo_stack)
 
         from editor.views.widget_editor_dados import WidgetEditorDados
+
         widget_dados = WidgetEditorDados(model, controller)
         qtbot.addWidget(widget_dados)
 
         # Importa função de biblioteca para verificar o contrato
         from editor.core.nomes_arquivos import gerar_nome_mapa_sugerido
+
         nome_sugerido = gerar_nome_mapa_sugerido(setor, 0)
         assert nome_sugerido == "setor_fugitivos_i_p0.webp"
         assert "setor_setor" not in nome_sugerido

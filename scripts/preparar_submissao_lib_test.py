@@ -1,11 +1,13 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
-import pytest
 import sys
 from pathlib import Path
-from unittest.mock import patch, MagicMock
+from unittest.mock import MagicMock, patch
+
+import pytest
 import yaml
+
 from aresta_api.proto.generated import croqui_pb2
 
 ROOT_PATH = Path(__file__).resolve().parent.parent
@@ -13,44 +15,34 @@ if str(ROOT_PATH) not in sys.path:
     sys.path.append(str(ROOT_PATH))
 
 from PIL import Image
+
+from scripts.gerenciar_uids_lib import gerar_uid, validar_uid
 from scripts.preparar_submissao_lib import (
-    validar_pontos_de_interesse_recursivo,
-    validar_referencias_mapa,
     compilar_croqui,
-    precompilar_linhas_mapas_recursivo,
+    corrigir_database,
     expandir_arquivo_generico,
     expandir_setores_ou_grupos_recursivo,
-    corrigir_database,
     parse_md_com_frontmatter,
+    precompilar_linhas_mapas_recursivo,
+    validar_pontos_de_interesse_recursivo,
+    validar_referencias_mapa,
 )
-from scripts.gerenciar_uids_lib import gerar_uid, validar_uid
+
 
 def test_validar_poi_sem_id_lanca_erro():
-    obj = {
-        "pontos_de_interesse": [
-            {"circulo": {"x": 10, "y": 20, "raio": 5}}
-        ]
-    }
+    obj = {"pontos_de_interesse": [{"circulo": {"x": 10, "y": 20, "raio": 5}}]}
     with pytest.raises(ValueError, match="campo obrigatório 'uid'"):
         validar_pontos_de_interesse_recursivo(obj)
 
 
 def test_validar_poi_com_id_em_branco_lanca_erro():
-    obj = {
-        "pontos_de_interesse": [
-            {"id": "   ", "circulo": {"x": 10, "y": 20, "raio": 5}}
-        ]
-    }
+    obj = {"pontos_de_interesse": [{"id": "   ", "circulo": {"x": 10, "y": 20, "raio": 5}}]}
     with pytest.raises(ValueError, match="campo obrigatório 'uid'"):
         validar_pontos_de_interesse_recursivo(obj)
 
 
 def test_validar_circulo_valido():
-    obj = {
-        "pontos_de_interesse": [
-            {"id": "1", "circulo": {"x": 10, "y": 20, "raio": 5}}
-        ]
-    }
+    obj = {"pontos_de_interesse": [{"id": "1", "circulo": {"x": 10, "y": 20, "raio": 5}}]}
     # Não deve subir exceção
     validar_pontos_de_interesse_recursivo(obj)
 
@@ -64,39 +56,71 @@ def test_validar_circulo_valido_com_apenas_uid():
     # Não deve subir exceção
     validar_pontos_de_interesse_recursivo(obj)
 
+
 def test_validar_circulo_invalido():
     obj = {
         "pontos_de_interesse": [
-            {"id": "1", "circulo": {"x": 10, "raio": 5}} # faltando y
+            {"id": "1", "circulo": {"x": 10, "raio": 5}}  # faltando y
         ]
     }
     with pytest.raises(ValueError, match="Círculo faltando campo 'y'"):
         validar_pontos_de_interesse_recursivo(obj)
 
+
 def test_validar_retangulo_valido():
     obj = {
         "pontos_de_interesse": [
-            {"id": "1", "retangulo": {"x": 0, "y": 0, "comprimento": 100, "largura": 50, "angulo_graus_x100": 4500}}
+            {
+                "id": "1",
+                "retangulo": {
+                    "x": 0,
+                    "y": 0,
+                    "comprimento": 100,
+                    "largura": 50,
+                    "angulo_graus_x100": 4500,
+                },
+            }
         ]
     }
     validar_pontos_de_interesse_recursivo(obj)
+
 
 def test_validar_retangulo_angulo_valido_negativo():
     obj = {
         "pontos_de_interesse": [
-            {"id": "1", "retangulo": {"x": 0, "y": 0, "comprimento": 100, "largura": 50, "angulo_graus_x100": -4500}}
+            {
+                "id": "1",
+                "retangulo": {
+                    "x": 0,
+                    "y": 0,
+                    "comprimento": 100,
+                    "largura": 50,
+                    "angulo_graus_x100": -4500,
+                },
+            }
         ]
     }
     validar_pontos_de_interesse_recursivo(obj)
 
+
 def test_validar_retangulo_angulo_invalido():
     obj = {
         "pontos_de_interesse": [
-            {"id": "1", "retangulo": {"x": 0, "y": 0, "comprimento": 100, "largura": 50, "angulo_graus_x100": 40000}}
+            {
+                "id": "1",
+                "retangulo": {
+                    "x": 0,
+                    "y": 0,
+                    "comprimento": 100,
+                    "largura": 50,
+                    "angulo_graus_x100": 40000,
+                },
+            }
         ]
     }
     with pytest.raises(ValueError, match="angulo_graus_x100 .* deve estar entre -36000 e 36000"):
         validar_pontos_de_interesse_recursivo(obj)
+
 
 def test_validar_quadrado_valido():
     obj = {
@@ -106,6 +130,7 @@ def test_validar_quadrado_valido():
     }
     validar_pontos_de_interesse_recursivo(obj)
 
+
 def test_validar_poligono_valido():
     obj = {
         "pontos_de_interesse": [
@@ -114,14 +139,12 @@ def test_validar_poligono_valido():
     }
     validar_pontos_de_interesse_recursivo(obj)
 
+
 def test_validar_poligono_impar():
-    obj = {
-        "pontos_de_interesse": [
-            {"id": "1", "poligono": {"coordenadas": [0, 0, 10, 0, 10]}}
-        ]
-    }
+    obj = {"pontos_de_interesse": [{"id": "1", "poligono": {"coordenadas": [0, 0, 10, 0, 10]}}]}
     with pytest.raises(ValueError, match="número par de coordenadas"):
         validar_pontos_de_interesse_recursivo(obj)
+
 
 def test_validar_tipo_invalido():
     obj = {
@@ -132,6 +155,7 @@ def test_validar_tipo_invalido():
     with pytest.raises(ValueError, match="Tipo de área não especificado ou inválido"):
         validar_pontos_de_interesse_recursivo(obj)
 
+
 def test_validar_recursivo():
     obj = {
         "picos": [
@@ -141,7 +165,7 @@ def test_validar_recursivo():
                         "setor": {
                             "conteudo": {
                                 "pontos_de_interesse": [
-                                    {"id": "erro", "circulo": {"x": 10}} # Faltando campos
+                                    {"id": "erro", "circulo": {"x": 10}}  # Faltando campos
                                 ]
                             }
                         }
@@ -153,85 +177,104 @@ def test_validar_recursivo():
     with pytest.raises(ValueError, match="Círculo faltando campo 'y'"):
         validar_pontos_de_interesse_recursivo(obj)
 
+
 def test_validar_referencias_mapa_valido():
     croqui = {
-        "picos": [{
-            "nome": "Pico Teste",
-            "setores_ou_grupos": [{
-                "setor": {
-                    "conteudo": {
-                        "nome": "Setor 1",
-                        "mapas": [{"referencias": [{"escalada": "Via 1", "ids": ["A"]}]}],
-                        "escaladas": [{"via_esportiva": {"nome": "Via 1"}}]
+        "picos": [
+            {
+                "nome": "Pico Teste",
+                "setores_ou_grupos": [
+                    {
+                        "setor": {
+                            "conteudo": {
+                                "nome": "Setor 1",
+                                "mapas": [{"referencias": [{"escalada": "Via 1", "ids": ["A"]}]}],
+                                "escaladas": [{"via_esportiva": {"nome": "Via 1"}}],
+                            }
+                        }
                     }
-                }
-            }]
-        }]
+                ],
+            }
+        ]
     }
     erros = validar_referencias_mapa(croqui)
     assert not erros
+
 
 def test_validar_referencias_mapa_com_uids_e_alvo_uid():
     """Garante que escaladas contendo UID na primeira posição e referências com alvo_uid são validadas sem falsos erros."""
     croqui = {
-        "picos": [{
-            "nome": "Pico Ferros",
-            "setores_ou_grupos": [{
-                "setor": {
-                    "conteudo": {
-                        "uid": "setor_12345678",
-                        "nome": "Cachoeira",
-                        "mapas": [{
-                            "referencias": [
-                                {
-                                    "alvo_uid": "via_1234567890",
-                                    "escalada": "Pé na Chapa",
-                                    "ids": ["p1"]
-                                }
-                            ]
-                        }],
-                        "escaladas": [
-                            {
-                                "uid": "via_1234567890",
-                                "via_esportiva": {"nome": "Pé na Chapa"}
+        "picos": [
+            {
+                "nome": "Pico Ferros",
+                "setores_ou_grupos": [
+                    {
+                        "setor": {
+                            "conteudo": {
+                                "uid": "setor_12345678",
+                                "nome": "Cachoeira",
+                                "mapas": [
+                                    {
+                                        "referencias": [
+                                            {
+                                                "alvo_uid": "via_1234567890",
+                                                "escalada": "Pé na Chapa",
+                                                "ids": ["p1"],
+                                            }
+                                        ]
+                                    }
+                                ],
+                                "escaladas": [
+                                    {
+                                        "uid": "via_1234567890",
+                                        "via_esportiva": {"nome": "Pé na Chapa"},
+                                    }
+                                ],
                             }
-                        ]
+                        }
                     }
-                }
-            }]
-        }]
+                ],
+            }
+        ]
     }
     erros = validar_referencias_mapa(croqui)
     assert not erros
 
+
 def test_validar_referencias_mapa_alvo_uid_inexistente():
     """Garante que alvo_uid inexistente gera erro claro de validação."""
     croqui = {
-        "picos": [{
-            "nome": "Pico Ferros",
-            "setores_ou_grupos": [{
-                "setor": {
-                    "conteudo": {
-                        "nome": "Cachoeira",
-                        "mapas": [{
-                            "referencias": [
-                                {
-                                    "alvo_uid": "via_fantasma_12",
-                                    "escalada": "Via Fantasma",
-                                    "ids": ["p1"]
-                                }
-                            ]
-                        }],
-                        "escaladas": [
-                            {
-                                "uid": "via_real_1234567",
-                                "via_esportiva": {"nome": "Pé na Chapa"}
+        "picos": [
+            {
+                "nome": "Pico Ferros",
+                "setores_ou_grupos": [
+                    {
+                        "setor": {
+                            "conteudo": {
+                                "nome": "Cachoeira",
+                                "mapas": [
+                                    {
+                                        "referencias": [
+                                            {
+                                                "alvo_uid": "via_fantasma_12",
+                                                "escalada": "Via Fantasma",
+                                                "ids": ["p1"],
+                                            }
+                                        ]
+                                    }
+                                ],
+                                "escaladas": [
+                                    {
+                                        "uid": "via_real_1234567",
+                                        "via_esportiva": {"nome": "Pé na Chapa"},
+                                    }
+                                ],
                             }
-                        ]
+                        }
                     }
-                }
-            }]
-        }]
+                ],
+            }
+        ]
     }
     erros = validar_referencias_mapa(croqui)
     assert len(erros) == 1
@@ -240,22 +283,30 @@ def test_validar_referencias_mapa_alvo_uid_inexistente():
 
 def test_validar_referencias_mapa_entidade_inexistente():
     croqui = {
-        "picos": [{
-            "nome": "Pico Teste",
-            "setores_ou_grupos": [{
-                "setor": {
-                    "conteudo": {
-                        "nome": "Setor 1",
-                        "mapas": [{"referencias": [
-                            {"escalada": "Via Inexistente", "ids": ["A"]},
-                            {"setor": "Setor Inexistente", "ids": ["B"]},
-                            {"grupo": "Grupo Inexistente", "ids": ["C"]}
-                        ]}],
-                        "escaladas": [{"via_esportiva": {"nome": "Via 1"}}]
+        "picos": [
+            {
+                "nome": "Pico Teste",
+                "setores_ou_grupos": [
+                    {
+                        "setor": {
+                            "conteudo": {
+                                "nome": "Setor 1",
+                                "mapas": [
+                                    {
+                                        "referencias": [
+                                            {"escalada": "Via Inexistente", "ids": ["A"]},
+                                            {"setor": "Setor Inexistente", "ids": ["B"]},
+                                            {"grupo": "Grupo Inexistente", "ids": ["C"]},
+                                        ]
+                                    }
+                                ],
+                                "escaladas": [{"via_esportiva": {"nome": "Via 1"}}],
+                            }
+                        }
                     }
-                }
-            }]
-        }]
+                ],
+            }
+        ]
     }
     erros = validar_referencias_mapa(croqui)
     assert len(erros) == 3
@@ -263,83 +314,110 @@ def test_validar_referencias_mapa_entidade_inexistente():
     assert any("Setor Inexistente" in e for e in erros)
     assert any("Grupo Inexistente" in e for e in erros)
 
+
 def test_validar_referencias_mapa_id_duplicado_na_mesma_referencia():
     croqui = {
-        "picos": [{
-            "nome": "Pico Teste",
-            "setores_ou_grupos": [{
-                "setor": {
-                    "conteudo": {
-                        "nome": "Setor 1",
-                        "mapas": [{"referencias": [
-                            {"escalada": "Via 1", "ids": ["A", "A"]},
-                            {"escalada": "Via 2", "ids": ["B"]}
-                        ]}],
-                        "escaladas": [
-                            {"via_esportiva": {"nome": "Via 1"}},
-                            {"via_esportiva": {"nome": "Via 2"}}
-                        ]
+        "picos": [
+            {
+                "nome": "Pico Teste",
+                "setores_ou_grupos": [
+                    {
+                        "setor": {
+                            "conteudo": {
+                                "nome": "Setor 1",
+                                "mapas": [
+                                    {
+                                        "referencias": [
+                                            {"escalada": "Via 1", "ids": ["A", "A"]},
+                                            {"escalada": "Via 2", "ids": ["B"]},
+                                        ]
+                                    }
+                                ],
+                                "escaladas": [
+                                    {"via_esportiva": {"nome": "Via 1"}},
+                                    {"via_esportiva": {"nome": "Via 2"}},
+                                ],
+                            }
+                        }
                     }
-                }
-            }]
-        }]
+                ],
+            }
+        ]
     }
     erros = validar_referencias_mapa(croqui)
     assert any("O ID 'A' está duplicado na referência 'Via 1'" in e for e in erros)
 
+
 def test_validar_referencias_mapa_multiplas_enfiadas():
     croqui = {
-        "picos": [{
-            "nome": "Pico 1",
-            "setores_ou_grupos": [{
-                "setor": {
-                    "conteudo": {
-                        "nome": "Setor 1",
-                        "mapas": [{"referencias": [{"escalada": "Enfiada 1", "ids": ["ENF1"]}]}],
-                        "escaladas": [{
-                            "via_multiplas_enfiadas": {
-                                "nome": "Paredao",
-                                "enfiadas": [
-                                    {"via_esportiva": {"nome": "Enfiada 1"}}
-                                ]
+        "picos": [
+            {
+                "nome": "Pico 1",
+                "setores_ou_grupos": [
+                    {
+                        "setor": {
+                            "conteudo": {
+                                "nome": "Setor 1",
+                                "mapas": [
+                                    {"referencias": [{"escalada": "Enfiada 1", "ids": ["ENF1"]}]}
+                                ],
+                                "escaladas": [
+                                    {
+                                        "via_multiplas_enfiadas": {
+                                            "nome": "Paredao",
+                                            "enfiadas": [{"via_esportiva": {"nome": "Enfiada 1"}}],
+                                        }
+                                    }
+                                ],
                             }
-                        }]
+                        }
                     }
-                }
-            }]
-        }]
+                ],
+            }
+        ]
     }
     erros = validar_referencias_mapa(croqui)
     assert not erros
 
+
 def test_validar_referencias_mapa_poi_sem_referencia():
     croqui = {
-        "picos": [{
-            "nome": "Pico Teste",
-            "setores_ou_grupos": [{
-                "setor": {
-                    "conteudo": {
-                        "nome": "Setor 1",
-                        "mapas": [{
-                            "referencias": [{"escalada": "Via 1", "ids": ["01"]}],
-                            "pontos_de_interesse": [
-                                {"id": "01", "label": "01", "circulo": {"x": 10, "y": 10, "raio": 5}},
-                                {
-                                    "id": "d",
-                                    "linha": {
-                                        "compilado": {
-                                            "caminho_svg": "M 0 0 L 10 10",
-                                            "marcadores": [{"rotulo": "1"}]
-                                        }
+        "picos": [
+            {
+                "nome": "Pico Teste",
+                "setores_ou_grupos": [
+                    {
+                        "setor": {
+                            "conteudo": {
+                                "nome": "Setor 1",
+                                "mapas": [
+                                    {
+                                        "referencias": [{"escalada": "Via 1", "ids": ["01"]}],
+                                        "pontos_de_interesse": [
+                                            {
+                                                "id": "01",
+                                                "label": "01",
+                                                "circulo": {"x": 10, "y": 10, "raio": 5},
+                                            },
+                                            {
+                                                "id": "d",
+                                                "linha": {
+                                                    "compilado": {
+                                                        "caminho_svg": "M 0 0 L 10 10",
+                                                        "marcadores": [{"rotulo": "1"}],
+                                                    }
+                                                },
+                                            },
+                                        ],
                                     }
-                                }
-                            ]
-                        }],
-                        "escaladas": [{"via_esportiva": {"nome": "Via 1"}}]
+                                ],
+                                "escaladas": [{"via_esportiva": {"nome": "Via 1"}}],
+                            }
+                        }
                     }
-                }
-            }]
-        }]
+                ],
+            }
+        ]
     }
     erros = validar_referencias_mapa(croqui)
     assert len(erros) == 1
@@ -349,23 +427,29 @@ def test_validar_referencias_mapa_poi_sem_referencia():
 
 def test_validar_referencias_mapa_referencia_aponta_id_inexistente():
     croqui = {
-        "picos": [{
-            "nome": "Pico Teste",
-            "setores_ou_grupos": [{
-                "setor": {
-                    "conteudo": {
-                        "nome": "Setor 1",
-                        "mapas": [{
-                            "referencias": [{"escalada": "Via 1", "ids": ["99"]}],
-                            "pontos_de_interesse": [
-                                {"id": "01", "circulo": {"x": 10, "y": 10, "raio": 5}}
-                            ]
-                        }],
-                        "escaladas": [{"via_esportiva": {"nome": "Via 1"}}]
+        "picos": [
+            {
+                "nome": "Pico Teste",
+                "setores_ou_grupos": [
+                    {
+                        "setor": {
+                            "conteudo": {
+                                "nome": "Setor 1",
+                                "mapas": [
+                                    {
+                                        "referencias": [{"escalada": "Via 1", "ids": ["99"]}],
+                                        "pontos_de_interesse": [
+                                            {"id": "01", "circulo": {"x": 10, "y": 10, "raio": 5}}
+                                        ],
+                                    }
+                                ],
+                                "escaladas": [{"via_esportiva": {"nome": "Via 1"}}],
+                            }
+                        }
                     }
-                }
-            }]
-        }]
+                ],
+            }
+        ]
     }
     erros = validar_referencias_mapa(croqui)
     assert any("aponta para o ID '99', mas esse ID não existe" in e for e in erros)
@@ -375,65 +459,191 @@ def test_validar_referencias_mapa_referencia_aponta_id_inexistente():
 def test_validar_referencias_mapa_sem_label_ou_circulo_identificador():
     """Valida emissão de aviso para referências cujos POIs não possuem label nem nós de círculo identificador com rótulo."""
     croqui = {
-        "picos": [{
-            "nome": "Pico Teste",
-            "setores_ou_grupos": [{
-                "setor": {
-                    "conteudo": {
-                        "nome": "Setor 1",
-                        "escaladas": [
-                            {"via_esportiva": {"nome": "Via Sem Label"}},
-                            {"via_esportiva": {"nome": "Via Com Label"}},
-                            {"via_esportiva": {"nome": "Via Linha Sem Circulo"}},
-                            {"via_esportiva": {"nome": "Via Linha Com Circulo"}},
-                            {"via_esportiva": {"nome": "Via Linha Sit Start"}},
-                            {"via_esportiva": {"nome": "Via Linha Top"}},
-                            {"via_esportiva": {"nome": "Via Linha Circulo Vazio"}},
-                            {"via_esportiva": {"nome": "Via Linha Compilada"}}
-                        ],
-                        "mapas": [{
-                            "pontos_de_interesse": [
-                                {"id": "poi_sem_label", "label": "", "circulo": {"x": 10, "y": 10, "raio": 5}},
-                                {"id": "poi_com_label", "label": "12", "circulo": {"x": 20, "y": 20, "raio": 5}},
-                                {"id": "linha_sem_circulo", "linha": {"conteudo": {"nos": [
-                                    {"x": 10, "y": 10, "tipo": 0, "rotulo": ""},
-                                    {"x": 20, "y": 20, "tipo": 0, "rotulo": ""}
-                                ]}}},
-                                {"id": "linha_com_circulo", "linha": {"conteudo": {"nos": [
-                                    {"x": 10, "y": 10, "tipo": 1, "rotulo": "5"},
-                                    {"x": 20, "y": 20, "tipo": 0, "rotulo": ""}
-                                ]}}},
-                                {"id": "linha_sit_start", "linha": {"conteudo": {"nos": [
-                                    {"x": 10, "y": 10, "tipo": 2, "rotulo": "SS"},
-                                    {"x": 20, "y": 20, "tipo": 0, "rotulo": ""}
-                                ]}}},
-                                {"id": "linha_top", "linha": {"conteudo": {"nos": [
-                                    {"x": 10, "y": 10, "tipo": 0, "rotulo": ""},
-                                    {"x": 20, "y": 20, "tipo": 11, "rotulo": "C"}
-                                ]}}},
-                                {"id": "linha_circulo_vazio", "linha": {"conteudo": {"nos": [
-                                    {"x": 10, "y": 10, "tipo": 1, "rotulo": "  "},
-                                    {"x": 20, "y": 20, "tipo": 0, "rotulo": ""}
-                                ]}}},
-                                {"id": "linha_compilada", "linha": {"compilado": {"marcadores": [
-                                    {"x": 10, "y": 10, "tipo": 1, "rotulo": "10"}
-                                ]}}}
-                            ],
-                            "referencias": [
-                                {"escalada": "Via Sem Label", "ids": ["poi_sem_label"]},
-                                {"escalada": "Via Com Label", "ids": ["poi_com_label"]},
-                                {"escalada": "Via Linha Sem Circulo", "ids": ["linha_sem_circulo"]},
-                                {"escalada": "Via Linha Com Circulo", "ids": ["linha_com_circulo"]},
-                                {"escalada": "Via Linha Sit Start", "ids": ["linha_sit_start"]},
-                                {"escalada": "Via Linha Top", "ids": ["linha_top"]},
-                                {"escalada": "Via Linha Circulo Vazio", "ids": ["linha_circulo_vazio"]},
-                                {"escalada": "Via Linha Compilada", "ids": ["linha_compilada"]}
-                            ]
-                        }]
+        "picos": [
+            {
+                "nome": "Pico Teste",
+                "setores_ou_grupos": [
+                    {
+                        "setor": {
+                            "conteudo": {
+                                "nome": "Setor 1",
+                                "escaladas": [
+                                    {"via_esportiva": {"nome": "Via Sem Label"}},
+                                    {"via_esportiva": {"nome": "Via Com Label"}},
+                                    {"via_esportiva": {"nome": "Via Linha Sem Circulo"}},
+                                    {"via_esportiva": {"nome": "Via Linha Com Circulo"}},
+                                    {"via_esportiva": {"nome": "Via Linha Sit Start"}},
+                                    {"via_esportiva": {"nome": "Via Linha Top"}},
+                                    {"via_esportiva": {"nome": "Via Linha Circulo Vazio"}},
+                                    {"via_esportiva": {"nome": "Via Linha Compilada"}},
+                                ],
+                                "mapas": [
+                                    {
+                                        "pontos_de_interesse": [
+                                            {
+                                                "id": "poi_sem_label",
+                                                "label": "",
+                                                "circulo": {"x": 10, "y": 10, "raio": 5},
+                                            },
+                                            {
+                                                "id": "poi_com_label",
+                                                "label": "12",
+                                                "circulo": {"x": 20, "y": 20, "raio": 5},
+                                            },
+                                            {
+                                                "id": "linha_sem_circulo",
+                                                "linha": {
+                                                    "conteudo": {
+                                                        "nos": [
+                                                            {
+                                                                "x": 10,
+                                                                "y": 10,
+                                                                "tipo": 0,
+                                                                "rotulo": "",
+                                                            },
+                                                            {
+                                                                "x": 20,
+                                                                "y": 20,
+                                                                "tipo": 0,
+                                                                "rotulo": "",
+                                                            },
+                                                        ]
+                                                    }
+                                                },
+                                            },
+                                            {
+                                                "id": "linha_com_circulo",
+                                                "linha": {
+                                                    "conteudo": {
+                                                        "nos": [
+                                                            {
+                                                                "x": 10,
+                                                                "y": 10,
+                                                                "tipo": 1,
+                                                                "rotulo": "5",
+                                                            },
+                                                            {
+                                                                "x": 20,
+                                                                "y": 20,
+                                                                "tipo": 0,
+                                                                "rotulo": "",
+                                                            },
+                                                        ]
+                                                    }
+                                                },
+                                            },
+                                            {
+                                                "id": "linha_sit_start",
+                                                "linha": {
+                                                    "conteudo": {
+                                                        "nos": [
+                                                            {
+                                                                "x": 10,
+                                                                "y": 10,
+                                                                "tipo": 2,
+                                                                "rotulo": "SS",
+                                                            },
+                                                            {
+                                                                "x": 20,
+                                                                "y": 20,
+                                                                "tipo": 0,
+                                                                "rotulo": "",
+                                                            },
+                                                        ]
+                                                    }
+                                                },
+                                            },
+                                            {
+                                                "id": "linha_top",
+                                                "linha": {
+                                                    "conteudo": {
+                                                        "nos": [
+                                                            {
+                                                                "x": 10,
+                                                                "y": 10,
+                                                                "tipo": 0,
+                                                                "rotulo": "",
+                                                            },
+                                                            {
+                                                                "x": 20,
+                                                                "y": 20,
+                                                                "tipo": 11,
+                                                                "rotulo": "C",
+                                                            },
+                                                        ]
+                                                    }
+                                                },
+                                            },
+                                            {
+                                                "id": "linha_circulo_vazio",
+                                                "linha": {
+                                                    "conteudo": {
+                                                        "nos": [
+                                                            {
+                                                                "x": 10,
+                                                                "y": 10,
+                                                                "tipo": 1,
+                                                                "rotulo": "  ",
+                                                            },
+                                                            {
+                                                                "x": 20,
+                                                                "y": 20,
+                                                                "tipo": 0,
+                                                                "rotulo": "",
+                                                            },
+                                                        ]
+                                                    }
+                                                },
+                                            },
+                                            {
+                                                "id": "linha_compilada",
+                                                "linha": {
+                                                    "compilado": {
+                                                        "marcadores": [
+                                                            {
+                                                                "x": 10,
+                                                                "y": 10,
+                                                                "tipo": 1,
+                                                                "rotulo": "10",
+                                                            }
+                                                        ]
+                                                    }
+                                                },
+                                            },
+                                        ],
+                                        "referencias": [
+                                            {"escalada": "Via Sem Label", "ids": ["poi_sem_label"]},
+                                            {"escalada": "Via Com Label", "ids": ["poi_com_label"]},
+                                            {
+                                                "escalada": "Via Linha Sem Circulo",
+                                                "ids": ["linha_sem_circulo"],
+                                            },
+                                            {
+                                                "escalada": "Via Linha Com Circulo",
+                                                "ids": ["linha_com_circulo"],
+                                            },
+                                            {
+                                                "escalada": "Via Linha Sit Start",
+                                                "ids": ["linha_sit_start"],
+                                            },
+                                            {"escalada": "Via Linha Top", "ids": ["linha_top"]},
+                                            {
+                                                "escalada": "Via Linha Circulo Vazio",
+                                                "ids": ["linha_circulo_vazio"],
+                                            },
+                                            {
+                                                "escalada": "Via Linha Compilada",
+                                                "ids": ["linha_compilada"],
+                                            },
+                                        ],
+                                    }
+                                ],
+                            }
+                        }
                     }
-                }
-            }]
-        }]
+                ],
+            }
+        ]
     }
     erros = validar_referencias_mapa(croqui)
     frase_aviso = "não possui label ou rótulo em círculo identificador e não exibirá identificador no mapa do aplicativo"
@@ -467,44 +677,51 @@ def test_compilar_croqui_emite_avisos_em_vez_de_erro(
     mock_path.return_value.exists.return_value = True
     # Precisamos que o Path do arquivo croqui.yaml e do destino existam para o mock
     # compilar_croqui faz: if not pico_path.exists():
-    
+
     mock_yaml.return_value = {"id": "test"}
     mock_expand.return_value = {"id": "test"}
-    
+
     with patch("builtins.open", MagicMock()):
         # Chama compilar_croqui. Não deve subir ValueError.
         compilar_croqui(Path("dummy"), Path("dummy_dest"), Path("dummy_bin"))
-    
+
     # Captura stdout
     captured = capsys.readouterr()
-    
+
     # Verifica se a mensagem de aviso está presente
     assert "AVISO: Inconsistência nas referências de mapa:" in captured.out
     assert "Erro de ID 1" in captured.out
     assert "Erro de ID 2" in captured.out
 
+
 def test_validar_referencias_mapa_ignora_se_nao_houver_referencias_em_lugar_nenhum():
     # Se não houver referências, ele nem faz a validação pesada
     croqui = {
-        "picos": [{
-            "nome": "Pico 1",
-            "setores_ou_grupos": [{
-                "setor": {
-                    "conteudo": {
-                        "nome": "Setor 1",
-                        "mapas": [{"pontos_de_interesse": [{"id": "A"}]}], # POI mas sem referência
-                        "escaladas": [{"via_esportiva": {"nome": "Via 1"}}]
+        "picos": [
+            {
+                "nome": "Pico 1",
+                "setores_ou_grupos": [
+                    {
+                        "setor": {
+                            "conteudo": {
+                                "nome": "Setor 1",
+                                "mapas": [
+                                    {"pontos_de_interesse": [{"id": "A"}]}
+                                ],  # POI mas sem referência
+                                "escaladas": [{"via_esportiva": {"nome": "Via 1"}}],
+                            }
+                        }
                     }
-                }
-            }]
-        }]
+                ],
+            }
+        ]
     }
     erros = validar_referencias_mapa(croqui)
     assert not erros
 
 
-from scripts.preparar_submissao_lib import corrigir_database
 from scripts.helpers_migracao import configurar_croqui_teste
+
 
 @patch("scripts.migrador.aplicar_migracoes")
 def test_corrigir_database_chama_aplicar_migracoes(mock_aplicar, tmp_path):
@@ -514,10 +731,10 @@ def test_corrigir_database_chama_aplicar_migracoes(mock_aplicar, tmp_path):
     nome: Teste Corrigir
     """
     croqui_dir = configurar_croqui_teste(tmp_path, yaml_content=yaml_content)
-    
+
     # Executa corrigir_database
     corrigir_database(croqui_dir)
-    
+
     # Garante que aplicar_migracoes foi chamado
     mock_aplicar.assert_called_once_with(croqui_dir)
 
@@ -525,6 +742,7 @@ def test_corrigir_database_chama_aplicar_migracoes(mock_aplicar, tmp_path):
 @patch("scripts.migrador.aplicar_migracoes")
 def test_corrigir_database_retorna_false_quando_nada_modificado(mock_aplicar, tmp_path):
     from scripts.migrador import obter_ultima_versao_migracao
+
     versao_atual = obter_ultima_versao_migracao()
     yaml_content = f"""# SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
@@ -535,7 +753,7 @@ ultima_migracao: {versao_atual}
 """
     croqui_dir = configurar_croqui_teste(tmp_path, yaml_content=yaml_content)
     (croqui_dir / "imagens").mkdir(exist_ok=True)
-    
+
     modificou = corrigir_database(croqui_dir)
     assert modificou is False
 
@@ -552,7 +770,7 @@ nome: Teste Com Modificacao
     pasta_img = croqui_dir / "imagens"
     pasta_img.mkdir(exist_ok=True)
     (pasta_img / "orfa.webp").write_bytes(b"dummy")
-    
+
     modificou = corrigir_database(croqui_dir)
     assert modificou is True
 
@@ -568,13 +786,13 @@ ultima_migracao: 0
 """
     croqui_dir = configurar_croqui_teste(tmp_path, yaml_content=yaml_content)
     (croqui_dir / "imagens").mkdir(exist_ok=True)
-    
+
     with patch("scripts.migrador.aplicar_migracoes"):
         with patch("scripts.migrador.obter_ultima_versao_migracao", return_value=5):
             modificou = corrigir_database(croqui_dir)
             assert modificou is True
-            
-            with open(croqui_dir / "croqui.yaml", "r", encoding="utf-8") as f:
+
+            with open(croqui_dir / "croqui.yaml", encoding="utf-8") as f:
                 dados = yaml.safe_load(f)
             assert dados.get("ultima_migracao") == 5
 
@@ -590,49 +808,40 @@ ultima_migracao: 5
 """
     croqui_dir = configurar_croqui_teste(tmp_path, yaml_content=yaml_content)
     (croqui_dir / "imagens").mkdir(exist_ok=True)
-    
+
     with patch("scripts.migrador.aplicar_migracoes"):
         with patch("scripts.migrador.obter_ultima_versao_migracao", return_value=5):
             modificou = corrigir_database(croqui_dir)
             assert modificou is False
 
 
-
-
 from scripts.preparar_submissao_lib import limpar_arquivos_nao_utilizados
+
 
 def test_limpar_arquivos_nao_utilizados_deleta_imagens_e_mds(tmp_path):
     # Setup de arquivos falsos no tmp_path
     pasta_img = tmp_path / "imagens"
     pasta_img.mkdir()
-    
+
     img_usada = pasta_img / "usada.jpg"
     img_usada.write_text("dummy")
     img_orfam = pasta_img / "orfam.png"
     img_orfam.write_text("dummy")
-    
+
     md_usado = tmp_path / "usado.md"
     md_usado.write_text("dummy")
     md_orfao = tmp_path / "orfao.md"
     md_orfao.write_text("dummy")
-    
+
     ignorado = tmp_path / "nao_deleta.txt"
     ignorado.write_text("dummy")
 
     croqui_data = {
-        "botoes": [
-            {
-                "destino": {
-                    "secao_textual": {
-                        "caminho": "usado.md"
-                    }
-                }
-            }
-        ],
+        "botoes": [{"destino": {"secao_textual": {"caminho": "usado.md"}}}],
         "caminho_thumbnail": "imagens/usada.jpg",
-        "picos": []
+        "picos": [],
     }
-    
+
     limpar_arquivos_nao_utilizados(tmp_path, croqui_data)
 
     assert img_usada.exists(), "Imagem usada não deve ser deletada"
@@ -641,25 +850,21 @@ def test_limpar_arquivos_nao_utilizados_deleta_imagens_e_mds(tmp_path):
     assert not img_orfam.exists(), "Imagem órfã deve ser deletada"
     assert not md_orfao.exists(), "MD órfão deve ser deletado"
 
+
 def test_limpar_arquivos_preserva_mapas_gerais(tmp_path):
     # Setup de arquivos falsos no tmp_path
     mapa_geral_md = tmp_path / "mapas_gerais.md"
     mapa_geral_md.write_text("dummy")
-    
+
     # Adiciona mapas_gerais na lista de picos
-    croqui_data = {
-        "picos": [
-            {
-                "mapas_gerais": {
-                    "caminho": "mapas_gerais.md"
-                }
-            }
-        ]
-    }
-    
+    croqui_data = {"picos": [{"mapas_gerais": {"caminho": "mapas_gerais.md"}}]}
+
     limpar_arquivos_nao_utilizados(tmp_path, croqui_data)
 
-    assert mapa_geral_md.exists(), "mapas_gerais.md não deve ser deletado se referenciado por um pico"
+    assert mapa_geral_md.exists(), (
+        "mapas_gerais.md não deve ser deletado se referenciado por um pico"
+    )
+
 
 def test_coletar_referencias_arquivos_inclui_anexos(tmp_path: Path) -> None:
     from scripts.preparar_submissao_lib import coletar_referencias_arquivos
@@ -671,18 +876,14 @@ def test_coletar_referencias_arquivos_inclui_anexos(tmp_path: Path) -> None:
         "---\n"
         "Texto com anexo: [Termo](anexos/termo_no_md.pdf), [Link Web](https://aresta.app), "
         "[Email](mailto:info@aresta.app) e [Vazio]() e [Foto](imagens/foto.webp)\n",
-        encoding="utf-8"
+        encoding="utf-8",
     )
 
     croqui_data = {
         "descricao": "Croqui com botão [Ficha](anexos/ficha_croqui.pdf) e [Site](http://exemplo.com)",
         "botoes": [
             {
-                "destino": {
-                    "secao_textual": {
-                        "caminho": "secao.md"
-                    }
-                },
+                "destino": {"secao_textual": {"caminho": "secao.md"}},
                 "caminho_anexo": "formulario.pdf",
             },
             {
@@ -691,7 +892,7 @@ def test_coletar_referencias_arquivos_inclui_anexos(tmp_path: Path) -> None:
             {
                 "caminho_anexo": "https://externo.com/doc.pdf",
             },
-        ]
+        ],
     }
 
     refs = coletar_referencias_arquivos(tmp_path, croqui_data)
@@ -702,6 +903,7 @@ def test_coletar_referencias_arquivos_inclui_anexos(tmp_path: Path) -> None:
     assert "secao.md" in refs
     assert not any("http" in ref for ref in refs)
     assert not any("mailto" in ref for ref in refs)
+
 
 def test_coletar_referencias_arquivos_inclui_caminho_imagem_capa(tmp_path: Path) -> None:
     from scripts.preparar_submissao_lib import coletar_referencias_arquivos
@@ -714,7 +916,7 @@ def test_coletar_referencias_arquivos_inclui_caminho_imagem_capa(tmp_path: Path)
                         "setor": {
                             "conteudo": {
                                 "nome": "Setor Com Capa",
-                                "caminho_imagem_capa": "imagens/capa_setor.webp"
+                                "caminho_imagem_capa": "imagens/capa_setor.webp",
                             }
                         }
                     },
@@ -722,10 +924,10 @@ def test_coletar_referencias_arquivos_inclui_caminho_imagem_capa(tmp_path: Path)
                         "grupo": {
                             "conteudo": {
                                 "nome": "Grupo Com Capa",
-                                "caminho_imagem_capa": "imagens/capa_grupo.webp"
+                                "caminho_imagem_capa": "imagens/capa_grupo.webp",
                             }
                         }
-                    }
+                    },
                 ]
             }
         ]
@@ -745,15 +947,13 @@ def test_limpar_arquivos_nao_utilizados_deleta_anexos_orfaos(tmp_path: Path) -> 
     anexo_orfao = pasta_anexos / "termo_orfao.pdf"
     anexo_orfao.write_bytes(b"%PDF-1.4 Orfao")
 
-    croqui_data = {
-        "descricao": "Baixe o [Termo](anexos/termo_usado.pdf)",
-        "picos": []
-    }
+    croqui_data = {"descricao": "Baixe o [Termo](anexos/termo_usado.pdf)", "picos": []}
 
     limpar_arquivos_nao_utilizados(tmp_path, croqui_data)
 
     assert anexo_usado.exists(), "Anexo usado não deve ser deletado"
     assert not anexo_orfao.exists(), "Anexo órfão deve ser deletado fisicamente do disco"
+
 
 def test_limpar_arquivos_nao_utilizados_remove_pasta_anexos_quando_vazia(tmp_path: Path) -> None:
     pasta_anexos = tmp_path / "anexos"
@@ -762,10 +962,7 @@ def test_limpar_arquivos_nao_utilizados_remove_pasta_anexos_quando_vazia(tmp_pat
     anexo_orfao = pasta_anexos / "termo_orfao.pdf"
     anexo_orfao.write_bytes(b"%PDF-1.4 Orfao")
 
-    croqui_data = {
-        "descricao": "Croqui sem anexos",
-        "picos": []
-    }
+    croqui_data = {"descricao": "Croqui sem anexos", "picos": []}
 
     limpar_arquivos_nao_utilizados(tmp_path, croqui_data)
 
@@ -775,121 +972,129 @@ def test_limpar_arquivos_nao_utilizados_remove_pasta_anexos_quando_vazia(tmp_pat
 
 def test_compilar_croqui_faz_inline_de_mapas_gerais(tmp_path):
     import yaml
+
     from scripts.preparar_submissao_lib import compilar_croqui
-    
+
     # 1. Cria a estrutura do pico fake
     pico_path = tmp_path / "br_mg_fake"
     pico_path.mkdir()
-    
+
     # 2. Cria mapas_gerais.md
     mapas_md = pico_path / "mapas_gerais.md"
-    mapas_md.write_text("---\nmapas:\n  - caminho_imagem_mapa: img1.jpg\n---\nCorpo vazio\n", encoding="utf-8")
-    
+    mapas_md.write_text(
+        "---\nmapas:\n  - caminho_imagem_mapa: img1.jpg\n---\nCorpo vazio\n", encoding="utf-8"
+    )
+
     # 3. Cria croqui.yaml
     croqui_yaml = pico_path / "croqui.yaml"
-    croqui_data_in = {
-        "picos": [
-            {
-                "nome": "Fake",
-                "mapas_gerais": {
-                    "caminho": "mapas_gerais.md"
-                }
-            }
-        ]
-    }
+    croqui_data_in = {"picos": [{"nome": "Fake", "mapas_gerais": {"caminho": "mapas_gerais.md"}}]}
     with open(croqui_yaml, "w", encoding="utf-8") as f:
         yaml.dump(croqui_data_in, f)
-        
+
     # 4. Destinos
     dest_yaml = tmp_path / "compilado.yaml"
     dest_binarypb = tmp_path / "compilado.binarypb"
-    
+
     # 5. Roda compilar_croqui
     compilar_croqui(pico_path, dest_yaml, dest_binarypb)
-    
+
     # 6. Verifica o yaml compilado
-    with open(dest_yaml, "r", encoding="utf-8") as f:
+    with open(dest_yaml, encoding="utf-8") as f:
         compilado = yaml.safe_load(f)
-        
+
     pico = compilado["picos"][0]
     mapas_gerais = pico["mapas_gerais"]
     assert "mapas" in mapas_gerais["conteudo"]
     assert mapas_gerais["conteudo"]["mapas"][0]["caminho_imagem_mapa"] == "img1.jpg"
 
+
 def test_yaml_dump_preserva_aspas_em_strings_numericas():
     import yaml
-    
+
     # "08" é comumente interpretado erroneamente por não ser um octal válido (octais só vão até 7).
     # O PyYAML por padrão remove as aspas de '08', o que quebra a consistência no yaml gerado.
-    dados = {
-        "id": "08",
-        "label": "09",
-        "normal": "texto",
-        "octal_valido": "07"
-    }
+    dados = {"id": "08", "label": "09", "normal": "texto", "octal_valido": "07"}
     yaml_gerado = yaml.dump(dados, sort_keys=False)
-    
+
     # As aspas simples ou duplas devem existir no YAML dump
-    assert "'08'" in yaml_gerado or '"08"' in yaml_gerado, f"YAML não preservou aspas em '08':\n{yaml_gerado}"
-    assert "'09'" in yaml_gerado or '"09"' in yaml_gerado, f"YAML não preservou aspas em '09':\n{yaml_gerado}"
+    assert "'08'" in yaml_gerado or '"08"' in yaml_gerado, (
+        f"YAML não preservou aspas em '08':\n{yaml_gerado}"
+    )
+    assert "'09'" in yaml_gerado or '"09"' in yaml_gerado, (
+        f"YAML não preservou aspas em '09':\n{yaml_gerado}"
+    )
+
 
 from scripts.preparar_submissao_lib import garantir_comentarios_licenca
+
 
 def test_yaml_sem_spdx(tmp_path):
     p = tmp_path / "croqui_sem_spdx.yaml"
     p.write_text("id: teste\nnome: Sem SPDX\n", encoding="utf-8")
     garantir_comentarios_licenca(p)
-    with open(p, "r", encoding="utf-8") as f:
+    with open(p, encoding="utf-8") as f:
         linhas = f.readlines()
     assert linhas[0].strip() == "# SPDX-License-Identifier: ODbL-1.0"
     assert linhas[1].strip() == "# Copyright (C) 2026 Aresta Climb Contributors"
     assert "id: teste" in "".join(linhas)
 
+
 def test_yaml_com_spdx(tmp_path):
     p = tmp_path / "croqui_com_spdx.yaml"
-    p.write_text("# SPDX-License-Identifier: ODbL-1.0\nid: teste2\nnome: Com SPDX\n", encoding="utf-8")
+    p.write_text(
+        "# SPDX-License-Identifier: ODbL-1.0\nid: teste2\nnome: Com SPDX\n", encoding="utf-8"
+    )
     garantir_comentarios_licenca(p)
-    with open(p, "r", encoding="utf-8") as f:
+    with open(p, encoding="utf-8") as f:
         texto = f.read()
     assert texto.count("SPDX-License-Identifier") == 1
+
 
 def test_md_sem_spdx(tmp_path):
     p = tmp_path / "pico_sem_spdx.md"
     p.write_text("---\nnome: Pico\n---\n\nTexto\n", encoding="utf-8")
     garantir_comentarios_licenca(p)
-    with open(p, "r", encoding="utf-8") as f:
+    with open(p, encoding="utf-8") as f:
         linhas = f.readlines()
     assert linhas[0].strip() == "---"
     assert linhas[1].strip() == "# SPDX-License-Identifier: ODbL-1.0"
     assert linhas[2].strip() == "# Copyright (C) 2026 Aresta Climb Contributors"
 
+
 def test_md_com_spdx(tmp_path):
     p = tmp_path / "pico_com_spdx.md"
-    p.write_text("---\n# SPDX-License-Identifier: ODbL-1.0\nnome: Pico 2\n---\n\nTexto\n", encoding="utf-8")
+    p.write_text(
+        "---\n# SPDX-License-Identifier: ODbL-1.0\nnome: Pico 2\n---\n\nTexto\n", encoding="utf-8"
+    )
     garantir_comentarios_licenca(p)
-    with open(p, "r", encoding="utf-8") as f:
+    with open(p, encoding="utf-8") as f:
         texto = f.read()
     assert texto.count("SPDX-License-Identifier") == 1
+
 
 def test_md_sem_frontmatter(tmp_path):
     p = tmp_path / "pico_sem_frontmatter.md"
     p.write_text("# Titulo\n\nTexto\n", encoding="utf-8")
     garantir_comentarios_licenca(p)
-    with open(p, "r", encoding="utf-8") as f:
+    with open(p, encoding="utf-8") as f:
         texto = f.read()
     assert "SPDX-License-Identifier" not in texto
+
 
 def test_yaml_corrige_spdx_errado_ou_incompleto(tmp_path):
     p = tmp_path / "croqui_corrige.yaml"
     # YAML com licença errada e sem copyright, além de um comentário normal
-    p.write_text("# Meu comentário\n# SPDX-License-Identifier: CC-BY\nid: corrige\n", encoding="utf-8")
+    p.write_text(
+        "# Meu comentário\n# SPDX-License-Identifier: CC-BY\nid: corrige\n", encoding="utf-8"
+    )
     garantir_comentarios_licenca(p)
-    with open(p, "r", encoding="utf-8") as f:
+    with open(p, encoding="utf-8") as f:
         linhas = f.readlines()
     assert linhas[0].strip() == "# SPDX-License-Identifier: ODbL-1.0"
     assert linhas[1].strip() == "# Copyright (C) 2026 Aresta Climb Contributors"
     assert linhas[2].strip() == "# Meu comentário"
     assert "id: corrige" in "".join(linhas)
+
 
 def test_md_corrige_spdx_errado_ou_incompleto(tmp_path):
     p = tmp_path / "pico_corrige.md"
@@ -897,7 +1102,7 @@ def test_md_corrige_spdx_errado_ou_incompleto(tmp_path):
     conteudo = "---\n# copyright do ze\n# SPDX-License-Identifier: Outra-Coisa\n# spdx-license-identifier: duplicado\nnome: Pico\n---\nCorpo\n"
     p.write_text(conteudo, encoding="utf-8")
     garantir_comentarios_licenca(p)
-    with open(p, "r", encoding="utf-8") as f:
+    with open(p, encoding="utf-8") as f:
         linhas = f.readlines()
     assert linhas[0].strip() == "---"
     assert linhas[1].strip() == "# SPDX-License-Identifier: ODbL-1.0"
@@ -958,40 +1163,30 @@ def test_garantir_comentarios_licenca_retentativa_sucesso_apos_bloqueio_errno_13
     assert linhas[2].strip() == "# Copyright (C) 2026 Aresta Climb Contributors"
 
 
-from scripts.preparar_submissao_lib import limpar_arquivos_nao_utilizados
-
 def test_limpar_arquivos_nao_utilizados_deleta_imagens_e_mds(tmp_path):
     # Setup de arquivos falsos no tmp_path
     pasta_img = tmp_path / "imagens"
     pasta_img.mkdir()
-    
+
     img_usada = pasta_img / "usada.jpg"
     img_usada.write_text("dummy")
     img_orfam = pasta_img / "orfam.png"
     img_orfam.write_text("dummy")
-    
+
     md_usado = tmp_path / "usado.md"
     md_usado.write_text("dummy")
     md_orfao = tmp_path / "orfao.md"
     md_orfao.write_text("dummy")
-    
+
     ignorado = tmp_path / "nao_deleta.txt"
     ignorado.write_text("dummy")
 
     croqui_data = {
-        "botoes": [
-            {
-                "destino": {
-                    "secao_textual": {
-                        "caminho": "usado.md"
-                    }
-                }
-            }
-        ],
+        "botoes": [{"destino": {"secao_textual": {"caminho": "usado.md"}}}],
         "caminho_thumbnail": "imagens/usada.jpg",
-        "picos": []
+        "picos": [],
     }
-    
+
     limpar_arquivos_nao_utilizados(tmp_path, croqui_data)
 
     assert img_usada.exists(), "Imagem usada não deve ser deletada"
@@ -1000,25 +1195,21 @@ def test_limpar_arquivos_nao_utilizados_deleta_imagens_e_mds(tmp_path):
     assert not img_orfam.exists(), "Imagem órfã deve ser deletada"
     assert not md_orfao.exists(), "MD órfão deve ser deletado"
 
+
 def test_limpar_arquivos_preserva_mapas_gerais(tmp_path):
     # Setup de arquivos falsos no tmp_path
     mapa_geral_md = tmp_path / "mapas_gerais.md"
     mapa_geral_md.write_text("dummy")
-    
+
     # Adiciona mapas_gerais na lista de picos
-    croqui_data = {
-        "picos": [
-            {
-                "mapas_gerais": {
-                    "caminho": "mapas_gerais.md"
-                }
-            }
-        ]
-    }
-    
+    croqui_data = {"picos": [{"mapas_gerais": {"caminho": "mapas_gerais.md"}}]}
+
     limpar_arquivos_nao_utilizados(tmp_path, croqui_data)
 
-    assert mapa_geral_md.exists(), "mapas_gerais.md não deve ser deletado se referenciado por um pico"
+    assert mapa_geral_md.exists(), (
+        "mapas_gerais.md não deve ser deletado se referenciado por um pico"
+    )
+
 
 def test_limpar_arquivos_preserva_imagens_em_descricoes_markdown(tmp_path):
     pasta_img = tmp_path / "imagens"
@@ -1046,7 +1237,7 @@ def test_limpar_arquivos_preserva_imagens_em_descricoes_markdown(tmp_path):
     setor_md = tmp_path / "setor.md"
     setor_md.write_text(
         "---\nmapas:\n  - caminho_imagem_mapa: imagens/fm_foto.webp\n---\nTexto com ![Foto](imagens/md_foto.webp)\n",
-        encoding="utf-8"
+        encoding="utf-8",
     )
 
     croqui_data = {
@@ -1057,11 +1248,7 @@ def test_limpar_arquivos_preserva_imagens_em_descricoes_markdown(tmp_path):
                 "nome": "Pico Teste",
                 "descricao": "Detalhes do pico: ![Pico](imagens/pico_desc.webp)",
                 "setores_ou_grupos": [
-                    {
-                        "setor": {
-                            "caminho": "setor.md"
-                        }
-                    },
+                    {"setor": {"caminho": "setor.md"}},
                     {
                         "setor": {
                             # Referência duplicada para testar md_visitados
@@ -1092,12 +1279,12 @@ def test_limpar_arquivos_preserva_imagens_em_descricoes_markdown(tmp_path):
                                         "descricao": "Água fresca ![Bica](imagens/ponto_desc.webp)",
                                     }
                                 ],
-                            }
+                            },
                         }
-                    }
-                ]
+                    },
+                ],
             }
-        ]
+        ],
     }
 
     limpar_arquivos_nao_utilizados(tmp_path, croqui_data)
@@ -1107,7 +1294,9 @@ def test_limpar_arquivos_preserva_imagens_em_descricoes_markdown(tmp_path):
     assert img_via.exists(), "Imagem da descrição de via não deve ser deletada"
     assert img_trilha.exists(), "Imagem da descrição de trilha não deve ser deletada"
     assert img_ponto.exists(), "Imagem da descrição de ponto de interesse não deve ser deletada"
-    assert img_sem_prefixo.exists(), "Imagem referenciada sem prefixo imagens/ não deve ser deletada"
+    assert img_sem_prefixo.exists(), (
+        "Imagem referenciada sem prefixo imagens/ não deve ser deletada"
+    )
     assert img_md.exists(), "Imagem dentro do corpo do .md não deve ser deletada"
     assert img_fm.exists(), "Imagem dentro do frontmatter do .md não deve ser deletada"
     assert not img_orfa.exists(), "Imagem órfã real deve ser deletada"
@@ -1115,121 +1304,126 @@ def test_limpar_arquivos_preserva_imagens_em_descricoes_markdown(tmp_path):
 
 def test_compilar_croqui_faz_inline_de_mapas_gerais(tmp_path):
     import yaml
+
     from scripts.preparar_submissao_lib import compilar_croqui
-    
+
     # 1. Cria a estrutura do pico fake
     pico_path = tmp_path / "br_mg_fake"
     pico_path.mkdir()
-    
+
     # 2. Cria mapas_gerais.md
     mapas_md = pico_path / "mapas_gerais.md"
-    mapas_md.write_text("---\nmapas:\n  - caminho_imagem_mapa: img1.jpg\n---\nCorpo vazio\n", encoding="utf-8")
-    
+    mapas_md.write_text(
+        "---\nmapas:\n  - caminho_imagem_mapa: img1.jpg\n---\nCorpo vazio\n", encoding="utf-8"
+    )
+
     # 3. Cria croqui.yaml
     croqui_yaml = pico_path / "croqui.yaml"
-    croqui_data_in = {
-        "picos": [
-            {
-                "nome": "Fake",
-                "mapas_gerais": {
-                    "caminho": "mapas_gerais.md"
-                }
-            }
-        ]
-    }
+    croqui_data_in = {"picos": [{"nome": "Fake", "mapas_gerais": {"caminho": "mapas_gerais.md"}}]}
     with open(croqui_yaml, "w", encoding="utf-8") as f:
         yaml.dump(croqui_data_in, f)
-        
+
     # 4. Destinos
     dest_yaml = tmp_path / "compilado.yaml"
     dest_binarypb = tmp_path / "compilado.binarypb"
-    
+
     # 5. Roda compilar_croqui
     compilar_croqui(pico_path, dest_yaml, dest_binarypb)
-    
+
     # 6. Verifica o yaml compilado
-    with open(dest_yaml, "r", encoding="utf-8") as f:
+    with open(dest_yaml, encoding="utf-8") as f:
         compilado = yaml.safe_load(f)
-        
+
     pico = compilado["picos"][0]
     mapas_gerais = pico["mapas_gerais"]
     assert "mapas" in mapas_gerais["conteudo"]
     assert mapas_gerais["conteudo"]["mapas"][0]["caminho_imagem_mapa"] == "img1.jpg"
 
+
 def test_yaml_dump_preserva_aspas_em_strings_numericas():
     import yaml
-    
+
     # "08" é comumente interpretado erroneamente por não ser um octal válido (octais só vão até 7).
     # O PyYAML por padrão remove as aspas de '08', o que quebra a consistência no yaml gerado.
-    dados = {
-        "id": "08",
-        "label": "09",
-        "normal": "texto",
-        "octal_valido": "07"
-    }
+    dados = {"id": "08", "label": "09", "normal": "texto", "octal_valido": "07"}
     yaml_gerado = yaml.dump(dados, sort_keys=False)
-    
-    # As aspas simples ou duplas devem existir no YAML dump
-    assert "'08'" in yaml_gerado or '"08"' in yaml_gerado, f"YAML não preservou aspas em '08':\n{yaml_gerado}"
-    assert "'09'" in yaml_gerado or '"09"' in yaml_gerado, f"YAML não preservou aspas em '09':\n{yaml_gerado}"
 
-from scripts.preparar_submissao_lib import garantir_comentarios_licenca
+    # As aspas simples ou duplas devem existir no YAML dump
+    assert "'08'" in yaml_gerado or '"08"' in yaml_gerado, (
+        f"YAML não preservou aspas em '08':\n{yaml_gerado}"
+    )
+    assert "'09'" in yaml_gerado or '"09"' in yaml_gerado, (
+        f"YAML não preservou aspas em '09':\n{yaml_gerado}"
+    )
+
 
 def test_yaml_sem_spdx(tmp_path):
     p = tmp_path / "croqui_sem_spdx.yaml"
     p.write_text("id: teste\nnome: Sem SPDX\n", encoding="utf-8")
     garantir_comentarios_licenca(p)
-    with open(p, "r", encoding="utf-8") as f:
+    with open(p, encoding="utf-8") as f:
         linhas = f.readlines()
     assert linhas[0].strip() == "# SPDX-License-Identifier: ODbL-1.0"
     assert linhas[1].strip() == "# Copyright (C) 2026 Aresta Climb Contributors"
     assert "id: teste" in "".join(linhas)
 
+
 def test_yaml_com_spdx(tmp_path):
     p = tmp_path / "croqui_com_spdx.yaml"
-    p.write_text("# SPDX-License-Identifier: ODbL-1.0\nid: teste2\nnome: Com SPDX\n", encoding="utf-8")
+    p.write_text(
+        "# SPDX-License-Identifier: ODbL-1.0\nid: teste2\nnome: Com SPDX\n", encoding="utf-8"
+    )
     garantir_comentarios_licenca(p)
-    with open(p, "r", encoding="utf-8") as f:
+    with open(p, encoding="utf-8") as f:
         texto = f.read()
     assert texto.count("SPDX-License-Identifier") == 1
+
 
 def test_md_sem_spdx(tmp_path):
     p = tmp_path / "pico_sem_spdx.md"
     p.write_text("---\nnome: Pico\n---\n\nTexto\n", encoding="utf-8")
     garantir_comentarios_licenca(p)
-    with open(p, "r", encoding="utf-8") as f:
+    with open(p, encoding="utf-8") as f:
         linhas = f.readlines()
     assert linhas[0].strip() == "---"
     assert linhas[1].strip() == "# SPDX-License-Identifier: ODbL-1.0"
     assert linhas[2].strip() == "# Copyright (C) 2026 Aresta Climb Contributors"
 
+
 def test_md_com_spdx(tmp_path):
     p = tmp_path / "pico_com_spdx.md"
-    p.write_text("---\n# SPDX-License-Identifier: ODbL-1.0\nnome: Pico 2\n---\n\nTexto\n", encoding="utf-8")
+    p.write_text(
+        "---\n# SPDX-License-Identifier: ODbL-1.0\nnome: Pico 2\n---\n\nTexto\n", encoding="utf-8"
+    )
     garantir_comentarios_licenca(p)
-    with open(p, "r", encoding="utf-8") as f:
+    with open(p, encoding="utf-8") as f:
         texto = f.read()
     assert texto.count("SPDX-License-Identifier") == 1
+
 
 def test_md_sem_frontmatter(tmp_path):
     p = tmp_path / "pico_sem_frontmatter.md"
     p.write_text("# Titulo\n\nTexto\n", encoding="utf-8")
     garantir_comentarios_licenca(p)
-    with open(p, "r", encoding="utf-8") as f:
+    with open(p, encoding="utf-8") as f:
         texto = f.read()
     assert "SPDX-License-Identifier" not in texto
+
 
 def test_yaml_corrige_spdx_errado_ou_incompleto(tmp_path):
     p = tmp_path / "croqui_corrige.yaml"
     # YAML com licença errada e sem copyright, além de um comentário normal
-    p.write_text("# Meu comentário\n# SPDX-License-Identifier: CC-BY\nid: corrige\n", encoding="utf-8")
+    p.write_text(
+        "# Meu comentário\n# SPDX-License-Identifier: CC-BY\nid: corrige\n", encoding="utf-8"
+    )
     garantir_comentarios_licenca(p)
-    with open(p, "r", encoding="utf-8") as f:
+    with open(p, encoding="utf-8") as f:
         linhas = f.readlines()
     assert linhas[0].strip() == "# SPDX-License-Identifier: ODbL-1.0"
     assert linhas[1].strip() == "# Copyright (C) 2026 Aresta Climb Contributors"
     assert linhas[2].strip() == "# Meu comentário"
     assert "id: corrige" in "".join(linhas)
+
 
 def test_md_corrige_spdx_errado_ou_incompleto(tmp_path):
     p = tmp_path / "pico_corrige.md"
@@ -1237,7 +1431,7 @@ def test_md_corrige_spdx_errado_ou_incompleto(tmp_path):
     conteudo = "---\n# copyright do ze\n# SPDX-License-Identifier: Outra-Coisa\n# spdx-license-identifier: duplicado\nnome: Pico\n---\nCorpo\n"
     p.write_text(conteudo, encoding="utf-8")
     garantir_comentarios_licenca(p)
-    with open(p, "r", encoding="utf-8") as f:
+    with open(p, encoding="utf-8") as f:
         linhas = f.readlines()
     assert linhas[0].strip() == "---"
     assert linhas[1].strip() == "# SPDX-License-Identifier: ODbL-1.0"
@@ -1247,11 +1441,12 @@ def test_md_corrige_spdx_errado_ou_incompleto(tmp_path):
 
 
 from scripts.preparar_submissao_lib import (
-    computar_precomputados_setor,
     computar_precomputados_grupo,
     computar_precomputados_pico,
-    injetar_precomputados
+    computar_precomputados_setor,
+    injetar_precomputados,
 )
+
 
 def test_computar_precomputados_setor():
     setor = {
@@ -1260,7 +1455,7 @@ def test_computar_precomputados_setor():
             {"via_multiplas_enfiadas": {"nome": "Paredao", "enfiadas": [{}]}},
             {"boulder": {"nome": "B1"}},
             {"tradicional": {"nome": "Movel"}},
-            {"highline": {"nome": "Highline 1"}}
+            {"highline": {"nome": "Highline 1"}},
         ]
     }
     computar_precomputados_setor(setor)
@@ -1271,16 +1466,40 @@ def test_computar_precomputados_setor():
     assert setor["precomputados"]["total_moveis"] == 1
     assert setor["precomputados"]["total_highlines"] == 1
 
+
 def test_computar_precomputados_vazio():
     setor = {"escaladas": []}
     computar_precomputados_setor(setor)
     assert len(setor["precomputados"]) == 0
 
+
 def test_computar_precomputados_grupo():
     grupo = {
         "setores": [
-            {"conteudo": {"precomputados": {"total_escaladas": 2, "total_esportivas": 2, "total_moveis": 0, "total_boulders": 0, "total_multiplas_enfiadas": 0, "total_highlines": 0}}},
-            {"conteudo": {"precomputados": {"total_escaladas": 3, "total_esportivas": 1, "total_moveis": 1, "total_boulders": 1, "total_multiplas_enfiadas": 0, "total_highlines": 0}}}
+            {
+                "conteudo": {
+                    "precomputados": {
+                        "total_escaladas": 2,
+                        "total_esportivas": 2,
+                        "total_moveis": 0,
+                        "total_boulders": 0,
+                        "total_multiplas_enfiadas": 0,
+                        "total_highlines": 0,
+                    }
+                }
+            },
+            {
+                "conteudo": {
+                    "precomputados": {
+                        "total_escaladas": 3,
+                        "total_esportivas": 1,
+                        "total_moveis": 1,
+                        "total_boulders": 1,
+                        "total_multiplas_enfiadas": 0,
+                        "total_highlines": 0,
+                    }
+                }
+            },
         ]
     }
     computar_precomputados_grupo(grupo)
@@ -1291,12 +1510,53 @@ def test_computar_precomputados_grupo():
     assert "total_multiplas_enfiadas" not in grupo["precomputados"]
     assert "total_highlines" not in grupo["precomputados"]
 
+
 def test_computar_precomputados_pico():
     pico = {
         "setores_ou_grupos": [
-            {"setor": {"conteudo": {"precomputados": {"total_escaladas": 2, "total_esportivas": 2, "total_moveis": 0, "total_boulders": 0, "total_multiplas_enfiadas": 0, "total_highlines": 0}}}},
-            {"grupo": {"conteudo": {"precomputados": {"total_escaladas": 3, "total_esportivas": 1, "total_moveis": 1, "total_boulders": 1, "total_multiplas_enfiadas": 0, "total_highlines": 0}, "setores": [{}, {}]}}},
-            {"setor": {"conteudo": {"precomputados": {"total_escaladas": 1, "total_esportivas": 0, "total_moveis": 0, "total_boulders": 0, "total_multiplas_enfiadas": 1, "total_highlines": 0}}}}
+            {
+                "setor": {
+                    "conteudo": {
+                        "precomputados": {
+                            "total_escaladas": 2,
+                            "total_esportivas": 2,
+                            "total_moveis": 0,
+                            "total_boulders": 0,
+                            "total_multiplas_enfiadas": 0,
+                            "total_highlines": 0,
+                        }
+                    }
+                }
+            },
+            {
+                "grupo": {
+                    "conteudo": {
+                        "precomputados": {
+                            "total_escaladas": 3,
+                            "total_esportivas": 1,
+                            "total_moveis": 1,
+                            "total_boulders": 1,
+                            "total_multiplas_enfiadas": 0,
+                            "total_highlines": 0,
+                        },
+                        "setores": [{}, {}],
+                    }
+                }
+            },
+            {
+                "setor": {
+                    "conteudo": {
+                        "precomputados": {
+                            "total_escaladas": 1,
+                            "total_esportivas": 0,
+                            "total_moveis": 0,
+                            "total_boulders": 0,
+                            "total_multiplas_enfiadas": 1,
+                            "total_highlines": 0,
+                        }
+                    }
+                }
+            },
         ]
     }
     computar_precomputados_pico(pico)
@@ -1308,6 +1568,7 @@ def test_computar_precomputados_pico():
     assert pico["precomputados"]["total_boulders"] == 1
     assert pico["precomputados"]["total_multiplas_enfiadas"] == 1
     assert "total_highlines" not in pico["precomputados"]
+
 
 def test_injetar_precomputados():
     croqui = {
@@ -1324,23 +1585,37 @@ def test_injetar_precomputados():
                     {
                         "grupo": {
                             "conteudo": {
-                                "setores": [
-                                    {"conteudo": {"escaladas": [{"boulder": {}}]}}
-                                ]
+                                "setores": [{"conteudo": {"escaladas": [{"boulder": {}}]}}]
                             }
                         }
-                    }
+                    },
                 ]
             }
         ]
     }
     injetar_precomputados(croqui)
     pico = croqui["picos"][0]
-    assert pico["setores_ou_grupos"][0]["setor"]["conteudo"]["precomputados"]["total_escaladas"] == 2
-    assert pico["setores_ou_grupos"][0]["setor"]["conteudo"]["precomputados"]["total_esportivas"] == 2
-    assert pico["setores_ou_grupos"][1]["grupo"]["conteudo"]["setores"][0]["conteudo"]["precomputados"]["total_escaladas"] == 1
-    assert pico["setores_ou_grupos"][1]["grupo"]["conteudo"]["setores"][0]["conteudo"]["precomputados"]["total_boulders"] == 1
-    assert pico["setores_ou_grupos"][1]["grupo"]["conteudo"]["precomputados"]["total_escaladas"] == 1
+    assert (
+        pico["setores_ou_grupos"][0]["setor"]["conteudo"]["precomputados"]["total_escaladas"] == 2
+    )
+    assert (
+        pico["setores_ou_grupos"][0]["setor"]["conteudo"]["precomputados"]["total_esportivas"] == 2
+    )
+    assert (
+        pico["setores_ou_grupos"][1]["grupo"]["conteudo"]["setores"][0]["conteudo"][
+            "precomputados"
+        ]["total_escaladas"]
+        == 1
+    )
+    assert (
+        pico["setores_ou_grupos"][1]["grupo"]["conteudo"]["setores"][0]["conteudo"][
+            "precomputados"
+        ]["total_boulders"]
+        == 1
+    )
+    assert (
+        pico["setores_ou_grupos"][1]["grupo"]["conteudo"]["precomputados"]["total_escaladas"] == 1
+    )
     assert pico["precomputados"]["total_escaladas"] == 3
     assert pico["precomputados"]["total_setores"] == 2
     assert pico["precomputados"]["total_grupos"] == 1
@@ -1353,7 +1628,8 @@ def test_compilar_croqui_com_betas(tmp_path):
     Testa se o compilador de croqui serializa corretamente o bloco betas de uma escalada.
     """
     import yaml
-    from aresta_api.proto.generated import croqui_pb2, beta_pb2
+
+    from aresta_api.proto.generated import beta_pb2, croqui_pb2
     from scripts.preparar_submissao_lib import compilar_croqui
 
     pico_dir = tmp_path / "pico_teste"
@@ -1388,17 +1664,8 @@ Descrição do setor de teste.
     croqui_data = {
         "nome": "Croqui Teste Betas",
         "picos": [
-            {
-                "nome": "Pico Teste",
-                "setores_ou_grupos": [
-                    {
-                        "setor": {
-                            "caminho": "setor_1.md"
-                        }
-                    }
-                ]
-            }
-        ]
+            {"nome": "Pico Teste", "setores_ou_grupos": [{"setor": {"caminho": "setor_1.md"}}]}
+        ],
     }
     with open(croqui_yaml, "w", encoding="utf-8") as f:
         yaml.dump(croqui_data, f)
@@ -1425,7 +1692,9 @@ Descrição do setor de teste.
     assert beta.fonte == beta_pb2.FonteMidia.YOUTUBE
     assert beta.thumbnail_url == "https://img.youtube.com/vi/xyz123/hqdefault.jpg"
     assert beta.resultado_llm.llm_confidence_score == 95
-    assert beta.resultado_llm.llm_reasoning == "Nome e grau batem exatamente com a descrição do vídeo."
+    assert (
+        beta.resultado_llm.llm_reasoning == "Nome e grau batem exatamente com a descrição do vídeo."
+    )
     assert beta.match_multiplas_fontes is True
     assert beta.match_nome_no_snippet is True
     assert len(beta.snippets) == 1
@@ -1434,52 +1703,68 @@ Descrição do setor de teste.
 
 def test_precompilar_linhas_mapas_recursivo_valida_protobuf():
     """Testa que precompilar_linhas_mapas_recursivo gera campos compatíveis com o schema Protobuf."""
-    from scripts.preparar_submissao_lib import precompilar_linhas_mapas_recursivo
-    from aresta_api.proto.generated import croqui_pb2
     from google.protobuf import json_format
-    
+
+    from aresta_api.proto.generated import croqui_pb2
+    from scripts.preparar_submissao_lib import precompilar_linhas_mapas_recursivo
+
     croqui_data = {
         "id": "teste_croqui",
         "nome": "Croqui Teste",
-        "picos": [{
-            "nome": "Pico 1",
-            "setores_ou_grupos": [{
-                "setor": {
-                    "conteudo": {
-                        "nome": "Setor 1",
-                        "mapas": [{
-                            "pontos_de_interesse": [{
-                                "id": "linha_1",
-                                "linha": {
-                                    "conteudo": {
-                                        "nos": [
-                                            {"x": 10, "y": 20, "tipo": 1, "rotulo": "1"},
-                                            {"x": 50, "y": 80, "tipo": 3},
-                                            {"x": 90, "y": 120, "tipo": 5}
+        "picos": [
+            {
+                "nome": "Pico 1",
+                "setores_ou_grupos": [
+                    {
+                        "setor": {
+                            "conteudo": {
+                                "nome": "Setor 1",
+                                "mapas": [
+                                    {
+                                        "pontos_de_interesse": [
+                                            {
+                                                "id": "linha_1",
+                                                "linha": {
+                                                    "conteudo": {
+                                                        "nos": [
+                                                            {
+                                                                "x": 10,
+                                                                "y": 20,
+                                                                "tipo": 1,
+                                                                "rotulo": "1",
+                                                            },
+                                                            {"x": 50, "y": 80, "tipo": 3},
+                                                            {"x": 90, "y": 120, "tipo": 5},
+                                                        ]
+                                                    }
+                                                },
+                                            }
                                         ]
                                     }
-                                }
-                            }]
-                        }]
+                                ],
+                            }
+                        }
                     }
-                }
-            }]
-        }]
+                ],
+            }
+        ],
     }
-    
+
     precompilar_linhas_mapas_recursivo(croqui_data)
-    
-    pt = croqui_data["picos"][0]["setores_ou_grupos"][0]["setor"]["conteudo"]["mapas"][0]["pontos_de_interesse"][0]
+
+    pt = croqui_data["picos"][0]["setores_ou_grupos"][0]["setor"]["conteudo"]["mapas"][0][
+        "pontos_de_interesse"
+    ][0]
     assert "compilado" in pt["linha"]
     assert "conteudo" not in pt["linha"]
-    
+
     # Verifica marcadores
     marcadores = pt["linha"]["compilado"]["marcadores"]
     assert len(marcadores) == 3
     # O campo no schema é angulo_graus_x100
     assert "angulo_graus_x100" in marcadores[0]
     assert "angulo_tangente_graus_x100" not in marcadores[0]
-    
+
     # Valida no Protobuf
     msg = croqui_pb2.Croqui()
     json_format.ParseDict(croqui_data, msg, ignore_unknown_fields=False)
@@ -1487,45 +1772,61 @@ def test_precompilar_linhas_mapas_recursivo_valida_protobuf():
 
 def test_precompilar_linhas_mapas_ignora_nos_passagem_em_marcadores():
     """Testa que nós de PASSAGEM (tipo 0, 'PASSAGEM' ou omitido) não geram marcadores compilados."""
-    from scripts.preparar_submissao_lib import precompilar_linhas_mapas_recursivo
-    from aresta_api.proto.generated import croqui_pb2
     from google.protobuf import json_format
+
+    from aresta_api.proto.generated import croqui_pb2
+    from scripts.preparar_submissao_lib import precompilar_linhas_mapas_recursivo
 
     croqui_data = {
         "id": "teste_passagem",
         "nome": "Croqui Teste",
-        "picos": [{
-            "nome": "Pico 1",
-            "setores_ou_grupos": [{
-                "setor": {
-                    "conteudo": {
-                        "nome": "Setor 1",
-                        "mapas": [{
-                            "pontos_de_interesse": [{
-                                "id": "linha_com_passagens",
-                                "linha": {
-                                    "conteudo": {
-                                        "nos": [
-                                            {"x": 10, "y": 20, "tipo": 1, "rotulo": "1"},
-                                            {"x": 30, "y": 40, "tipo": 0},
-                                            {"x": 50, "y": 60, "tipo": "PASSAGEM"},
-                                            {"x": 70, "y": 80},
-                                            {"x": 90, "y": 100, "tipo": 3},
-                                            {"x": 110, "y": 120, "tipo": 5},
+        "picos": [
+            {
+                "nome": "Pico 1",
+                "setores_ou_grupos": [
+                    {
+                        "setor": {
+                            "conteudo": {
+                                "nome": "Setor 1",
+                                "mapas": [
+                                    {
+                                        "pontos_de_interesse": [
+                                            {
+                                                "id": "linha_com_passagens",
+                                                "linha": {
+                                                    "conteudo": {
+                                                        "nos": [
+                                                            {
+                                                                "x": 10,
+                                                                "y": 20,
+                                                                "tipo": 1,
+                                                                "rotulo": "1",
+                                                            },
+                                                            {"x": 30, "y": 40, "tipo": 0},
+                                                            {"x": 50, "y": 60, "tipo": "PASSAGEM"},
+                                                            {"x": 70, "y": 80},
+                                                            {"x": 90, "y": 100, "tipo": 3},
+                                                            {"x": 110, "y": 120, "tipo": 5},
+                                                        ]
+                                                    }
+                                                },
+                                            }
                                         ]
                                     }
-                                }
-                            }]
-                        }]
+                                ],
+                            }
+                        }
                     }
-                }
-            }]
-        }]
+                ],
+            }
+        ],
     }
 
     precompilar_linhas_mapas_recursivo(croqui_data)
 
-    pt = croqui_data["picos"][0]["setores_ou_grupos"][0]["setor"]["conteudo"]["mapas"][0]["pontos_de_interesse"][0]
+    pt = croqui_data["picos"][0]["setores_ou_grupos"][0]["setor"]["conteudo"]["mapas"][0][
+        "pontos_de_interesse"
+    ][0]
     compilado = pt["linha"]["compilado"]
 
     # O caminho SVG ainda contém todos os 6 pontos
@@ -1544,35 +1845,53 @@ def test_precompilar_linhas_mapas_ignora_nos_passagem_em_marcadores():
 
 
 def test_precompilar_linhas_mapas_propaga_raio_e_tamanho_fonte_nos_marcadores():
-    from aresta_api.proto.generated import croqui_pb2
     from google.protobuf import json_format
 
+    from aresta_api.proto.generated import croqui_pb2
+
     croqui_data = {
-        "picos": [{
-            "setores_ou_grupos": [{
-                "setor": {
-                    "conteudo": {
-                        "mapas": [{
-                            "pontos_de_interesse": [{
-                                "id": "via_1",
-                                "linha": {
-                                    "conteudo": {
-                                        "nos": [
-                                            {"x": 10, "y": 20, "tipo": 1, "rotulo": "1", "raio": 20, "tamanho_fonte": 12},
-                                            {"x": 90, "y": 100, "tipo": 5},
+        "picos": [
+            {
+                "setores_ou_grupos": [
+                    {
+                        "setor": {
+                            "conteudo": {
+                                "mapas": [
+                                    {
+                                        "pontos_de_interesse": [
+                                            {
+                                                "id": "via_1",
+                                                "linha": {
+                                                    "conteudo": {
+                                                        "nos": [
+                                                            {
+                                                                "x": 10,
+                                                                "y": 20,
+                                                                "tipo": 1,
+                                                                "rotulo": "1",
+                                                                "raio": 20,
+                                                                "tamanho_fonte": 12,
+                                                            },
+                                                            {"x": 90, "y": 100, "tipo": 5},
+                                                        ]
+                                                    }
+                                                },
+                                            }
                                         ]
                                     }
-                                }
-                            }]
-                        }]
+                                ]
+                            }
+                        }
                     }
-                }
-            }]
-        }]
+                ]
+            }
+        ]
     }
 
     precompilar_linhas_mapas_recursivo(croqui_data)
-    pt = croqui_data["picos"][0]["setores_ou_grupos"][0]["setor"]["conteudo"]["mapas"][0]["pontos_de_interesse"][0]
+    pt = croqui_data["picos"][0]["setores_ou_grupos"][0]["setor"]["conteudo"]["mapas"][0][
+        "pontos_de_interesse"
+    ][0]
     marcadores = pt["linha"]["compilado"]["marcadores"]
     assert len(marcadores) == 2
     assert marcadores[0]["raio"] == 20
@@ -1585,42 +1904,62 @@ def test_precompilar_linhas_mapas_propaga_raio_e_tamanho_fonte_nos_marcadores():
 
 def test_precompilar_linhas_mapas_seta_direcional():
     """Testa que nós do tipo SETA_DIRECIONAL geram marcadores compilados com tipo e ângulo calculados."""
-    from scripts.preparar_submissao_lib import precompilar_linhas_mapas_recursivo
-    from aresta_api.proto.generated import croqui_pb2
     from google.protobuf import json_format
+
+    from aresta_api.proto.generated import croqui_pb2
+    from scripts.preparar_submissao_lib import precompilar_linhas_mapas_recursivo
 
     croqui_data = {
         "id": "teste_seta",
         "nome": "Croqui Teste",
-        "picos": [{
-            "nome": "Pico 1",
-            "setores_ou_grupos": [{
-                "setor": {
-                    "conteudo": {
-                        "nome": "Setor 1",
-                        "mapas": [{
-                            "pontos_de_interesse": [{
-                                "id": "linha_seta",
-                                "linha": {
-                                    "conteudo": {
-                                        "nos": [
-                                            {"x": 0, "y": 0, "tipo": 1, "rotulo": "1"},
-                                            {"x": 50, "y": 50, "tipo": 12},  # SETA_DIRECIONAL
-                                            {"x": 100, "y": 100, "tipo": 5}   # TOP
+        "picos": [
+            {
+                "nome": "Pico 1",
+                "setores_ou_grupos": [
+                    {
+                        "setor": {
+                            "conteudo": {
+                                "nome": "Setor 1",
+                                "mapas": [
+                                    {
+                                        "pontos_de_interesse": [
+                                            {
+                                                "id": "linha_seta",
+                                                "linha": {
+                                                    "conteudo": {
+                                                        "nos": [
+                                                            {
+                                                                "x": 0,
+                                                                "y": 0,
+                                                                "tipo": 1,
+                                                                "rotulo": "1",
+                                                            },
+                                                            {
+                                                                "x": 50,
+                                                                "y": 50,
+                                                                "tipo": 12,
+                                                            },  # SETA_DIRECIONAL
+                                                            {"x": 100, "y": 100, "tipo": 5},  # TOP
+                                                        ]
+                                                    }
+                                                },
+                                            }
                                         ]
                                     }
-                                }
-                            }]
-                        }]
+                                ],
+                            }
+                        }
                     }
-                }
-            }]
-        }]
+                ],
+            }
+        ],
     }
 
     precompilar_linhas_mapas_recursivo(croqui_data)
 
-    pt = croqui_data["picos"][0]["setores_ou_grupos"][0]["setor"]["conteudo"]["mapas"][0]["pontos_de_interesse"][0]
+    pt = croqui_data["picos"][0]["setores_ou_grupos"][0]["setor"]["conteudo"]["mapas"][0][
+        "pontos_de_interesse"
+    ][0]
     compilado = pt["linha"]["compilado"]
     marcadores = compilado["marcadores"]
     assert len(marcadores) == 3
@@ -1635,13 +1974,27 @@ def test_precompilar_linhas_mapas_seta_direcional():
     # Validação rigorosa no Protobuf
     msg = croqui_pb2.Croqui()
     json_format.ParseDict(croqui_data, msg, ignore_unknown_fields=False)
-    assert msg.picos[0].setores_ou_grupos[0].setor.conteudo.mapas[0].pontos_de_interesse[0].linha.compilado.marcadores[1].tipo == croqui_pb2.NoTrajeto.SETA_DIRECIONAL
+    assert (
+        msg.picos[0]
+        .setores_ou_grupos[0]
+        .setor.conteudo.mapas[0]
+        .pontos_de_interesse[0]
+        .linha.compilado.marcadores[1]
+        .tipo
+        == croqui_pb2.NoTrajeto.SETA_DIRECIONAL
+    )
 
     # Valida serialização e desserialização binária (.binarypb)
     bin_bytes = msg.SerializeToString()
     msg_recuperado = croqui_pb2.Croqui()
     msg_recuperado.ParseFromString(bin_bytes)
-    marcador_recuperado = msg_recuperado.picos[0].setores_ou_grupos[0].setor.conteudo.mapas[0].pontos_de_interesse[0].linha.compilado.marcadores[1]
+    marcador_recuperado = (
+        msg_recuperado.picos[0]
+        .setores_ou_grupos[0]
+        .setor.conteudo.mapas[0]
+        .pontos_de_interesse[0]
+        .linha.compilado.marcadores[1]
+    )
     assert marcador_recuperado.tipo == croqui_pb2.NoTrajeto.SETA_DIRECIONAL
     assert marcador_recuperado.x == 50
     assert marcador_recuperado.y == 50
@@ -1651,18 +2004,14 @@ def test_precompilar_linhas_mapas_seta_direcional():
 def test_expandir_arquivo_generico_grupo_com_lista_setores_vazia(tmp_path):
     arquivo_grupo = tmp_path / "grupo_boulders.md"
     arquivo_grupo.write_text(
-        "---\n"
-        "nome: Bloco Central\n"
-        "setores: []\n"
-        "---\n"
-        "Descrição do grupo de boulders\n",
-        encoding="utf-8"
+        "---\nnome: Bloco Central\nsetores: []\n---\nDescrição do grupo de boulders\n",
+        encoding="utf-8",
     )
-    
+
     # Quando o objeto de referência declara tipo 'grupo' ou o arquivo possui a chave setores
     obj_ref = {"caminho": "grupo_boulders.md"}
     tipo_out, dados = expandir_arquivo_generico(obj_ref, tmp_path, tipo_esperado="grupo")
-    
+
     assert tipo_out == "grupo"
     assert dados["conteudo"]["nome"] == "Bloco Central"
     assert dados["conteudo"]["setores"] == []
@@ -1671,16 +2020,8 @@ def test_expandir_arquivo_generico_grupo_com_lista_setores_vazia(tmp_path):
 
 def test_expandir_setores_ou_grupos_recursivo_preserva_grupo_vazio(tmp_path):
     arquivo_grupo = tmp_path / "grupo_boulders.md"
-    arquivo_grupo.write_text(
-        "---\n"
-        "nome: Boulders\n"
-        "setores: []\n"
-        "---\n",
-        encoding="utf-8"
-    )
-    setores_ou_grupos_raw = [
-        {"grupo": {"caminho": "grupo_boulders.md"}}
-    ]
+    arquivo_grupo.write_text("---\nnome: Boulders\nsetores: []\n---\n", encoding="utf-8")
+    setores_ou_grupos_raw = [{"grupo": {"caminho": "grupo_boulders.md"}}]
     resultado = expandir_setores_ou_grupos_recursivo(setores_ou_grupos_raw, tmp_path)
     assert len(resultado) == 1
     assert "grupo" in resultado[0]
@@ -1690,7 +2031,7 @@ def test_expandir_setores_ou_grupos_recursivo_preserva_grupo_vazio(tmp_path):
 
 def test_salvar_md_com_frontmatter_grava_comentarios_spdx_e_copyright(tmp_path):
     from scripts.preparar_submissao_lib import salvar_md_com_frontmatter
-    
+
     arquivo_md = tmp_path / "setor_teste.md"
     frontmatter = {"nome": "Setor Teste", "grau": "V3"}
     corpo = "Descricao do setor de teste\n"
@@ -1708,6 +2049,7 @@ def test_salvar_md_com_frontmatter_grava_comentarios_spdx_e_copyright(tmp_path):
 
 def test_garantir_comentarios_licenca_retentativa_sucesso_apos_bloqueio_errno_22(tmp_path):
     import builtins
+
     from scripts.preparar_submissao_lib import garantir_comentarios_licenca
 
     arquivo_md = tmp_path / "setor_bloqueado.md"
@@ -1726,8 +2068,10 @@ def test_garantir_comentarios_licenca_retentativa_sucesso_apos_bloqueio_errno_22
                 raise OSError(22, "Invalid argument")
         return real_open(*args, **kwargs)
 
-    with patch("builtins.open", side_effect=open_com_falha_transitoria), \
-         patch("time.sleep") as mock_sleep:
+    with (
+        patch("builtins.open", side_effect=open_com_falha_transitoria),
+        patch("time.sleep") as mock_sleep,
+    ):
         garantir_comentarios_licenca(arquivo_md)
 
     assert tentativas == 2
@@ -1739,6 +2083,7 @@ def test_garantir_comentarios_licenca_retentativa_sucesso_apos_bloqueio_errno_22
 
 def test_garantir_comentarios_licenca_retentativa_sucesso_apos_bloqueio_errno_13(tmp_path):
     import builtins
+
     from scripts.preparar_submissao_lib import garantir_comentarios_licenca
 
     arquivo_md = tmp_path / "setor_permissao.md"
@@ -1757,8 +2102,10 @@ def test_garantir_comentarios_licenca_retentativa_sucesso_apos_bloqueio_errno_13
                 raise OSError(13, "Permission denied")
         return real_open(*args, **kwargs)
 
-    with patch("builtins.open", side_effect=open_com_falha_transitoria), \
-         patch("time.sleep") as mock_sleep:
+    with (
+        patch("builtins.open", side_effect=open_com_falha_transitoria),
+        patch("time.sleep") as mock_sleep,
+    ):
         garantir_comentarios_licenca(arquivo_md)
 
     assert tentativas == 2
@@ -1770,6 +2117,7 @@ def test_garantir_comentarios_licenca_retentativa_sucesso_apos_bloqueio_errno_13
 
 def test_garantir_comentarios_licenca_falha_apos_maximo_tentativas(tmp_path, capsys):
     import builtins
+
     from scripts.preparar_submissao_lib import garantir_comentarios_licenca
 
     arquivo_md = tmp_path / "setor_persistente.md"
@@ -1787,8 +2135,10 @@ def test_garantir_comentarios_licenca_falha_apos_maximo_tentativas(tmp_path, cap
             raise OSError(22, "Invalid argument persistente")
         return real_open(*args, **kwargs)
 
-    with patch("builtins.open", side_effect=open_com_falha_continua), \
-         patch("time.sleep") as mock_sleep:
+    with (
+        patch("builtins.open", side_effect=open_com_falha_continua),
+        patch("time.sleep") as mock_sleep,
+    ):
         garantir_comentarios_licenca(arquivo_md)
 
     assert tentativas == 3
@@ -1800,6 +2150,7 @@ def test_garantir_comentarios_licenca_falha_apos_maximo_tentativas(tmp_path, cap
 
 def test_garantir_comentarios_licenca_yaml_ja_correto_nao_reescreve(tmp_path):
     import builtins
+
     from scripts.preparar_submissao_lib import garantir_comentarios_licenca
 
     arquivo_yaml = tmp_path / "correto.yaml"
@@ -1807,7 +2158,7 @@ def test_garantir_comentarios_licenca_yaml_ja_correto_nao_reescreve(tmp_path):
         "# SPDX-License-Identifier: ODbL-1.0\n"
         "# Copyright (C) 2026 Aresta Climb Contributors\n"
         "versao: 1\n",
-        encoding="utf-8"
+        encoding="utf-8",
     )
 
     chamadas_escrita = 0
@@ -1827,6 +2178,7 @@ def test_garantir_comentarios_licenca_yaml_ja_correto_nao_reescreve(tmp_path):
 
 def test_garantir_comentarios_licenca_md_ja_correto_nao_reescreve(tmp_path):
     import builtins
+
     from scripts.preparar_submissao_lib import garantir_comentarios_licenca
 
     arquivo_md = tmp_path / "correto.md"
@@ -1837,7 +2189,7 @@ def test_garantir_comentarios_licenca_md_ja_correto_nao_reescreve(tmp_path):
         "nome: Setor\n"
         "---\n"
         "Descricao\n",
-        encoding="utf-8"
+        encoding="utf-8",
     )
 
     chamadas_escrita = 0
@@ -1911,6 +2263,7 @@ def test_garantir_comentarios_licenca_md_sem_frontmatter(tmp_path):
 
 def test_garantir_comentarios_licenca_excecao_generica_na_escrita(tmp_path, capsys):
     import builtins
+
     from scripts.preparar_submissao_lib import garantir_comentarios_licenca
 
     arquivo_md = tmp_path / "erro_generico.md"
@@ -1946,7 +2299,7 @@ def test_garantir_comentarios_licenca_substitui_comentarios_antigos_yaml(tmp_pat
         "# spdx-license-identifier: MIT\n"
         "# copyright (c) 2020 Antigo\n"
         "versao: 1\n",
-        encoding="utf-8"
+        encoding="utf-8",
     )
 
     garantir_comentarios_licenca(arquivo_yaml)
@@ -1969,7 +2322,7 @@ def test_garantir_comentarios_licenca_substitui_comentarios_antigos_md(tmp_path)
         "nome: Setor\n"
         "---\n"
         "Descricao\n",
-        encoding="utf-8"
+        encoding="utf-8",
     )
 
     garantir_comentarios_licenca(arquivo_md)
@@ -1982,8 +2335,9 @@ def test_garantir_comentarios_licenca_substitui_comentarios_antigos_md(tmp_path)
 
 
 def test_corrigir_markdowns_com_mapas_em_escaladas(tmp_path):
-    from scripts.preparar_submissao_lib import corrigir_setores_ou_grupos_recursivo
     from PIL import Image
+
+    from scripts.preparar_submissao_lib import corrigir_setores_ou_grupos_recursivo
 
     # Cria imagem em raw_pdf_contents/imagens/bloco_1/foto_boulder.webp
     pasta_raw = tmp_path / "raw_pdf_contents" / "imagens" / "bloco_1"
@@ -2006,9 +2360,7 @@ def test_corrigir_markdowns_com_mapas_em_escaladas(tmp_path):
     )
     md_path.write_text(conteudo_md, encoding="utf-8")
 
-    setores_ou_grupos = [
-        {"setor": {"caminho": "setor.md"}}
-    ]
+    setores_ou_grupos = [{"setor": {"caminho": "setor.md"}}]
 
     corrigir_setores_ou_grupos_recursivo(setores_ou_grupos, tmp_path)
 
@@ -2038,16 +2390,18 @@ def test_validar_referencias_mapas_em_escalada():
                                                     {"id": "p1", "label": "Agarra 1"}
                                                 ],
                                                 "referencias": [
-                                                    {"ids": ["p1", "p1"]}  # ID duplicado na mesma referência
-                                                ]
+                                                    {
+                                                        "ids": ["p1", "p1"]
+                                                    }  # ID duplicado na mesma referência
+                                                ],
                                             }
-                                        ]
+                                        ],
                                     }
-                                ]
+                                ],
                             }
                         }
                     }
-                ]
+                ],
             }
         ]
     }
@@ -2064,8 +2418,9 @@ def test_migracao_imagens_redimensiona_por_tipo_entidade(tmp_path):
     - 2.5 MP @ Q85 para mapas de setor/grupo
     - 1.0 MP @ Q85 para mapas de escalada
     """
-    from scripts.preparar_submissao_lib import corrigir_setores_ou_grupos_recursivo
     from PIL import Image
+
+    from scripts.preparar_submissao_lib import corrigir_setores_ou_grupos_recursivo
 
     pasta_raw = tmp_path / "raw_pdf_contents" / "imagens" / "bloco"
     pasta_raw.mkdir(parents=True, exist_ok=True)
@@ -2122,6 +2477,7 @@ def test_compilar_croqui_com_mapas_gerais_e_mapas_de_escaladas(tmp_path):
     mapas específicos dentro de escaladas individuais com pontos de interesse.
     """
     import yaml
+
     from aresta_api.proto.generated import croqui_pb2
     from scripts.preparar_submissao_lib import compilar_croqui
 
@@ -2137,7 +2493,7 @@ def test_compilar_croqui_com_mapas_gerais_e_mapas_de_escaladas(tmp_path):
         "    largura_mapa: 1920\n"
         "    altura_mapa: 1080\n"
         "---\n",
-        encoding="utf-8"
+        encoding="utf-8",
     )
 
     # 2. Setor com mapa de setor e escalada com mapa próprio
@@ -2193,18 +2549,10 @@ def test_compilar_croqui_com_mapas_gerais_e_mapas_de_escaladas(tmp_path):
         "picos": [
             {
                 "nome": "Pico Falésia",
-                "mapas_gerais": {
-                    "caminho": "mapas_gerais.md"
-                },
-                "setores_ou_grupos": [
-                    {
-                        "setor": {
-                            "caminho": "setor_1.md"
-                        }
-                    }
-                ]
+                "mapas_gerais": {"caminho": "mapas_gerais.md"},
+                "setores_ou_grupos": [{"setor": {"caminho": "setor_1.md"}}],
             }
-        ]
+        ],
     }
     with open(croqui_yaml, "w", encoding="utf-8") as f:
         yaml.dump(croqui_data, f)
@@ -2254,6 +2602,7 @@ def test_corrigir_database_migra_mapas_gerais_de_raw_pdf_contents(tmp_path):
     """
     import yaml
     from PIL import Image
+
     from scripts.preparar_submissao_lib import corrigir_database, parse_md_com_frontmatter
 
     # 1. Cria a pasta e imagem em raw_pdf_contents
@@ -2289,14 +2638,7 @@ def test_corrigir_database_migra_mapas_gerais_de_raw_pdf_contents(tmp_path):
     croqui_data = {
         "id": "teste_croqui_lenheiro",
         "nome": "Croqui Teste Lenheiro",
-        "picos": [
-            {
-                "nome": "Serra Teste",
-                "mapas_gerais": {
-                    "caminho": "mapas_gerais.md"
-                }
-            }
-        ]
+        "picos": [{"nome": "Serra Teste", "mapas_gerais": {"caminho": "mapas_gerais.md"}}],
     }
     with open(croqui_yaml, "w", encoding="utf-8") as f:
         yaml.dump(croqui_data, f)
@@ -2322,6 +2664,7 @@ def test_corrigir_database_migra_mapas_gerais_inline_no_yaml(tmp_path):
     """
     import yaml
     from PIL import Image
+
     from scripts.preparar_submissao_lib import corrigir_database
 
     raw_mapas_dir = tmp_path / "raw_pdf_contents" / "imagens" / "mapas_gerais"
@@ -2343,13 +2686,13 @@ def test_corrigir_database_migra_mapas_gerais_inline_no_yaml(tmp_path):
                             {
                                 "caminho_imagem_mapa": "raw_pdf_contents/imagens/mapas_gerais/p0_i3.webp",
                                 "largura_mapa": 400,
-                                "altura_mapa": 300
+                                "altura_mapa": 300,
                             }
                         ]
                     }
-                }
+                },
             }
-        ]
+        ],
     }
     with open(croqui_yaml, "w", encoding="utf-8") as f:
         yaml.dump(croqui_data, f)
@@ -2359,11 +2702,14 @@ def test_corrigir_database_migra_mapas_gerais_inline_no_yaml(tmp_path):
     img_esperada = tmp_path / "imagens" / "mapas_gerais_p0_i3.webp"
     assert img_esperada.exists()
 
-    with open(croqui_yaml, "r", encoding="utf-8") as f:
+    with open(croqui_yaml, encoding="utf-8") as f:
         dados_atualizados = yaml.safe_load(f)
 
     pico = dados_atualizados["picos"][0]
-    assert pico["mapas_gerais"]["conteudo"]["mapas"][0]["caminho_imagem_mapa"] == "imagens/mapas_gerais_p0_i3.webp"
+    assert (
+        pico["mapas_gerais"]["conteudo"]["mapas"][0]["caminho_imagem_mapa"]
+        == "imagens/mapas_gerais_p0_i3.webp"
+    )
 
 
 def test_corrigir_mapas_gerais_casos_borda(tmp_path):
@@ -2384,7 +2730,9 @@ def test_corrigir_mapas_gerais_casos_borda(tmp_path):
 def test_corrigir_mapas_gerais_com_metadados_json_e_coordenadas(tmp_path):
     """Testa integração de JSON de metadados e conversão para E7 em mapas gerais (MD e inline)."""
     import json
+
     from PIL import Image
+
     from scripts.preparar_submissao_lib import corrigir_mapas_gerais, parse_md_com_frontmatter
 
     raw_dir = tmp_path / "raw_pdf_contents" / "imagens" / "mapas_gerais"
@@ -2393,10 +2741,15 @@ def test_corrigir_mapas_gerais_com_metadados_json_e_coordenadas(tmp_path):
     Image.new("RGB", (100, 100)).save(img_raw, format="WEBP")
 
     json_raw = raw_dir / "p0_i3.json"
-    json_raw.write_text(json.dumps({
-        "dimensoes_imagem": {"largura": 500, "altura": 400},
-        "pontos_de_interesse": [{"id": "poi_1", "label": "Ponto Extraido"}]
-    }), encoding="utf-8")
+    json_raw.write_text(
+        json.dumps(
+            {
+                "dimensoes_imagem": {"largura": 500, "altura": 400},
+                "pontos_de_interesse": [{"id": "poi_1", "label": "Ponto Extraido"}],
+            }
+        ),
+        encoding="utf-8",
+    )
 
     # 1. Teste via arquivo .md
     md_path = tmp_path / "mapas_gerais_meta.md"
@@ -2407,7 +2760,7 @@ def test_corrigir_mapas_gerais_com_metadados_json_e_coordenadas(tmp_path):
         "    latitude: -20.123456\n"
         "    longitude: -44.654321\n"
         "---\n",
-        encoding="utf-8"
+        encoding="utf-8",
     )
 
     corrigir_mapas_gerais({"caminho": "mapas_gerais_meta.md"}, tmp_path)
@@ -2425,7 +2778,7 @@ def test_corrigir_mapas_gerais_com_metadados_json_e_coordenadas(tmp_path):
                 {
                     "caminho_imagem_mapa": "raw_pdf_contents/imagens/mapas_gerais/p0_i3.webp",
                     "latitude": -21.0,
-                    "longitude": -43.0
+                    "longitude": -43.0,
                 }
             ]
         }
@@ -2441,8 +2794,8 @@ def test_corrigir_mapas_gerais_com_metadados_json_e_coordenadas(tmp_path):
 def test_desduplicar_referencias_ignora_escaladas(tmp_path: Path):
     from scripts.preparar_submissao_lib import (
         desduplicar_referencias_no_md,
-        salvar_md_com_frontmatter,
         parse_md_com_frontmatter,
+        salvar_md_com_frontmatter,
     )
 
     # Prepara pasta de imagens e imagem fictícia
@@ -2454,19 +2807,11 @@ def test_desduplicar_referencias_ignora_escaladas(tmp_path: Path):
     md_path = tmp_path / "setor_teste.md"
     frontmatter = {
         "nome": "Setor Teste",
-        "mapas": [
-            {"caminho_imagem_mapa": "imagens/parede.webp"}
-        ],
+        "mapas": [{"caminho_imagem_mapa": "imagens/parede.webp"}],
         "escaladas": [
-            {
-                "nome": "Via 1",
-                "mapas": [{"caminho_imagem_mapa": "imagens/parede.webp"}]
-            },
-            {
-                "nome": "Via 2",
-                "mapas": [{"caminho_imagem_mapa": "imagens/parede.webp"}]
-            }
-        ]
+            {"nome": "Via 1", "mapas": [{"caminho_imagem_mapa": "imagens/parede.webp"}]},
+            {"nome": "Via 2", "mapas": [{"caminho_imagem_mapa": "imagens/parede.webp"}]},
+        ],
     }
     salvar_md_com_frontmatter(md_path, frontmatter, "Texto descritivo")
 
@@ -2486,8 +2831,8 @@ def test_desduplicar_referencias_ignora_escaladas(tmp_path: Path):
 def test_corrigir_setores_remove_poi_de_escaladas(tmp_path: Path):
     from scripts.preparar_submissao_lib import (
         corrigir_setores_ou_grupos_recursivo,
-        salvar_md_com_frontmatter,
         parse_md_com_frontmatter,
+        salvar_md_com_frontmatter,
     )
 
     md_path = tmp_path / "setor_pois.md"
@@ -2499,11 +2844,13 @@ def test_corrigir_setores_remove_poi_de_escaladas(tmp_path: Path):
                 "mapas": [
                     {
                         "caminho_imagem_mapa": "imagens/parede.webp",
-                        "pontos_de_interesse": [{"id": "1", "circulo": {"x": 10, "y": 10, "raio": 5}}]
+                        "pontos_de_interesse": [
+                            {"id": "1", "circulo": {"x": 10, "y": 10, "raio": 5}}
+                        ],
                     }
-                ]
+                ],
             }
-        ]
+        ],
     }
     salvar_md_com_frontmatter(md_path, frontmatter, "Texto")
 
@@ -2520,33 +2867,40 @@ def test_validar_referencias_mapa_aviso_mapa_duplicado():
     from scripts.preparar_submissao_lib import validar_referencias_mapa
 
     croqui = {
-        "picos": [{
-            "nome": "Pico Teste",
-            "setores_ou_grupos": [
-                {
-                    "setor": {
-                        "nome": "Setor 1",
-                        "mapas": [{"caminho_imagem_mapa": "imagens/parede.webp"}],
-                        "escaladas": [
-                            {
-                                "nome": "Via 1",
-                                "mapas": [{"caminho_imagem_mapa": "imagens/parede.webp"}]
-                            }
-                        ]
+        "picos": [
+            {
+                "nome": "Pico Teste",
+                "setores_ou_grupos": [
+                    {
+                        "setor": {
+                            "nome": "Setor 1",
+                            "mapas": [{"caminho_imagem_mapa": "imagens/parede.webp"}],
+                            "escaladas": [
+                                {
+                                    "nome": "Via 1",
+                                    "mapas": [{"caminho_imagem_mapa": "imagens/parede.webp"}],
+                                }
+                            ],
+                        }
                     }
-                }
-            ]
-        }]
+                ],
+            }
+        ]
     }
     erros = validar_referencias_mapa(croqui)
-    assert any("A imagem de mapa 'imagens/parede.webp' no pico 'Pico Teste' está sendo exibida em mais de um local" in e for e in erros)
+    assert any(
+        "A imagem de mapa 'imagens/parede.webp' no pico 'Pico Teste' está sendo exibida em mais de um local"
+        in e
+        for e in erros
+    )
     assert any("duplicação indevida de informação" in e for e in erros)
 
 
 def test_corrigir_database_audita_uids_sucesso(tmp_path: Path):
-    from scripts.preparar_submissao_lib import corrigir_database
-    from scripts.gerenciar_uids_lib import gerar_uid
     import yaml
+
+    from scripts.gerenciar_uids_lib import gerar_uid
+    from scripts.preparar_submissao_lib import corrigir_database
 
     croqui_uid = gerar_uid()
     setor_uid = gerar_uid()
@@ -2590,17 +2944,10 @@ Descrição do setor
             {
                 "texto": "Capa",
                 "uid": gerar_uid(),
-                "destino": {"secao_textual": {"caminho": "capa.md"}}
+                "destino": {"secao_textual": {"caminho": "capa.md"}},
             }
         ],
-        "picos": [
-            {
-                "nome": "Pico 1",
-                "setores_ou_grupos": [
-                    {"setor": {"caminho": "setor.md"}}
-                ]
-            }
-        ]
+        "picos": [{"nome": "Pico 1", "setores_ou_grupos": [{"setor": {"caminho": "setor.md"}}]}],
     }
     (tmp_path / "capa.md").write_text("# Capa", encoding="utf-8")
     with open(tmp_path / "croqui.yaml", "w", encoding="utf-8") as f:
@@ -2611,9 +2958,10 @@ Descrição do setor
 
 
 def test_corrigir_database_botao_com_uid_invalido_lanca_erro(tmp_path: Path):
-    from scripts.preparar_submissao_lib import corrigir_database
-    from scripts.gerenciar_uids_lib import gerar_uid
     import yaml
+
+    from scripts.gerenciar_uids_lib import gerar_uid
+    from scripts.preparar_submissao_lib import corrigir_database
 
     croqui_yaml = {
         "id": "croqui_teste",
@@ -2624,28 +2972,31 @@ def test_corrigir_database_botao_com_uid_invalido_lanca_erro(tmp_path: Path):
             {
                 "texto": "Avisos",
                 "uid": "invalido",
-                "destino": {"secao_textual": {"caminho": "avisos.md"}}
+                "destino": {"secao_textual": {"caminho": "avisos.md"}},
             }
         ],
-        "picos": []
+        "picos": [],
     }
     with open(tmp_path / "croqui.yaml", "w", encoding="utf-8") as f:
         yaml.dump(croqui_yaml, f)
 
-    with pytest.raises(ValueError, match="Botão 'Avisos' no croqui .* possui UID ausente ou inválido"):
+    with pytest.raises(
+        ValueError, match="Botão 'Avisos' no croqui .* possui UID ausente ou inválido"
+    ):
         corrigir_database(tmp_path)
 
 
 def test_corrigir_database_croqui_com_uid_invalido_lanca_erro(tmp_path: Path):
-    from scripts.preparar_submissao_lib import corrigir_database
     import yaml
+
+    from scripts.preparar_submissao_lib import corrigir_database
 
     croqui_yaml = {
         "id": "croqui_teste",
         "uid": "uid_invalido_curto",
         "nome": "Croqui Teste",
         "ultima_migracao": 5,
-        "picos": []
+        "picos": [],
     }
     with open(tmp_path / "croqui.yaml", "w", encoding="utf-8") as f:
         yaml.dump(croqui_yaml, f)
@@ -2655,9 +3006,10 @@ def test_corrigir_database_croqui_com_uid_invalido_lanca_erro(tmp_path: Path):
 
 
 def test_corrigir_database_setor_com_uid_invalido_lanca_erro(tmp_path: Path):
-    from scripts.preparar_submissao_lib import corrigir_database
-    from scripts.gerenciar_uids_lib import gerar_uid
     import yaml
+
+    from scripts.gerenciar_uids_lib import gerar_uid
+    from scripts.preparar_submissao_lib import corrigir_database
 
     md_content = """---
 uid: 'invalido'
@@ -2672,14 +3024,7 @@ Desc
         "uid": gerar_uid(),
         "nome": "Croqui Teste",
         "ultima_migracao": 5,
-        "picos": [
-            {
-                "nome": "Pico 1",
-                "setores_ou_grupos": [
-                    {"setor": {"caminho": "setor.md"}}
-                ]
-            }
-        ]
+        "picos": [{"nome": "Pico 1", "setores_ou_grupos": [{"setor": {"caminho": "setor.md"}}]}],
     }
     with open(tmp_path / "croqui.yaml", "w", encoding="utf-8") as f:
         yaml.dump(croqui_yaml, f)
@@ -2689,9 +3034,10 @@ Desc
 
 
 def test_corrigir_database_escalada_com_uid_invalido_lanca_erro(tmp_path: Path):
-    from scripts.preparar_submissao_lib import corrigir_database
-    from scripts.gerenciar_uids_lib import gerar_uid
     import yaml
+
+    from scripts.gerenciar_uids_lib import gerar_uid
+    from scripts.preparar_submissao_lib import corrigir_database
 
     md_content = """---
 uid: '1234567890abcd'
@@ -2710,14 +3056,7 @@ Desc
         "uid": gerar_uid(),
         "nome": "Croqui Teste",
         "ultima_migracao": 5,
-        "picos": [
-            {
-                "nome": "Pico 1",
-                "setores_ou_grupos": [
-                    {"setor": {"caminho": "setor.md"}}
-                ]
-            }
-        ]
+        "picos": [{"nome": "Pico 1", "setores_ou_grupos": [{"setor": {"caminho": "setor.md"}}]}],
     }
     with open(tmp_path / "croqui.yaml", "w", encoding="utf-8") as f:
         yaml.dump(croqui_yaml, f)
@@ -2727,9 +3066,10 @@ Desc
 
 
 def test_corrigir_database_poi_com_uid_invalido_lanca_erro(tmp_path: Path):
-    from scripts.preparar_submissao_lib import corrigir_database
-    from scripts.gerenciar_uids_lib import gerar_uid
     import yaml
+
+    from scripts.gerenciar_uids_lib import gerar_uid
+    from scripts.preparar_submissao_lib import corrigir_database
 
     md_content = """---
 uid: '1234567890abcd'
@@ -2756,14 +3096,7 @@ Desc
         "uid": gerar_uid(),
         "nome": "Croqui Teste",
         "ultima_migracao": 5,
-        "picos": [
-            {
-                "nome": "Pico 1",
-                "setores_ou_grupos": [
-                    {"setor": {"caminho": "setor.md"}}
-                ]
-            }
-        ]
+        "picos": [{"nome": "Pico 1", "setores_ou_grupos": [{"setor": {"caminho": "setor.md"}}]}],
     }
     with open(tmp_path / "croqui.yaml", "w", encoding="utf-8") as f:
         yaml.dump(croqui_yaml, f)
@@ -2773,11 +3106,12 @@ Desc
 
 
 def test_compilar_croqui_injeta_uids_e_preenche_retrocompatibilidade(tmp_path: Path):
-    from scripts.preparar_submissao_lib import compilar_croqui
-    from scripts.gerenciar_uids_lib import gerar_uid
-    from aresta_api.proto.generated import croqui_pb2
-    from PIL import Image
     import yaml
+    from PIL import Image
+
+    from aresta_api.proto.generated import croqui_pb2
+    from scripts.gerenciar_uids_lib import gerar_uid
+    from scripts.preparar_submissao_lib import compilar_croqui
 
     croqui_uid = gerar_uid()
     botao_uid = gerar_uid()
@@ -2826,17 +3160,10 @@ Descrição do setor
             {
                 "texto": "Capa",
                 "uid": botao_uid,
-                "destino": {"secao_textual": {"caminho": "capa.md"}}
+                "destino": {"secao_textual": {"caminho": "capa.md"}},
             }
         ],
-        "picos": [
-            {
-                "nome": "Pico 1",
-                "setores_ou_grupos": [
-                    {"setor": {"caminho": "setor.md"}}
-                ]
-            }
-        ]
+        "picos": [{"nome": "Pico 1", "setores_ou_grupos": [{"setor": {"caminho": "setor.md"}}]}],
     }
     with open(tmp_path / "croqui.yaml", "w", encoding="utf-8") as f:
         yaml.dump(croqui_yaml, f)
@@ -2911,14 +3238,7 @@ Descrição do setor
         "uid": croqui_uid,
         "nome": "Croqui Puro",
         "ultima_migracao": 5,
-        "picos": [
-            {
-                "nome": "Pico 1",
-                "setores_ou_grupos": [
-                    {"setor": {"caminho": "setor.md"}}
-                ]
-            }
-        ]
+        "picos": [{"nome": "Pico 1", "setores_ou_grupos": [{"setor": {"caminho": "setor.md"}}]}],
     }
     with open(tmp_path / "croqui.yaml", "w", encoding="utf-8") as f:
         yaml.dump(croqui_yaml, f)
@@ -2984,13 +3304,8 @@ Descrição do setor rascunho
         "nome": "Croqui Novo Rascunho",
         "ultima_migracao": 5,
         "picos": [
-            {
-                "nome": "Pico 1",
-                "setores_ou_grupos": [
-                    {"setor": {"caminho": "setor_rascunho.md"}}
-                ]
-            }
-        ]
+            {"nome": "Pico 1", "setores_ou_grupos": [{"setor": {"caminho": "setor_rascunho.md"}}]}
+        ],
     }
     with open(tmp_path / "croqui.yaml", "w", encoding="utf-8") as f:
         yaml.dump(croqui_yaml, f)
@@ -2999,7 +3314,7 @@ Descrição do setor rascunho
     assert modificado is True
 
     # Verifica se croqui.yaml ganhou UID
-    with open(tmp_path / "croqui.yaml", "r", encoding="utf-8") as f:
+    with open(tmp_path / "croqui.yaml", encoding="utf-8") as f:
         croqui_atualizado = yaml.safe_load(f)
     assert validar_uid(croqui_atualizado.get("uid"))
 
@@ -3084,13 +3399,8 @@ Descrição do setor parcial
         "nome": "Croqui Parcial",
         "ultima_migracao": 5,
         "picos": [
-            {
-                "nome": "Pico 1",
-                "setores_ou_grupos": [
-                    {"setor": {"caminho": "setor_parcial.md"}}
-                ]
-            }
-        ]
+            {"nome": "Pico 1", "setores_ou_grupos": [{"setor": {"caminho": "setor_parcial.md"}}]}
+        ],
     }
     with open(tmp_path / "croqui.yaml", "w", encoding="utf-8") as f:
         yaml.dump(croqui_yaml, f)
@@ -3098,7 +3408,7 @@ Descrição do setor parcial
     corrigir_database(tmp_path)
 
     # Verifica se UID do croqui se manteve
-    with open(tmp_path / "croqui.yaml", "r", encoding="utf-8") as f:
+    with open(tmp_path / "croqui.yaml", encoding="utf-8") as f:
         croqui_pos = yaml.safe_load(f)
     assert croqui_pos.get("uid") == uid_croqui
 
@@ -3128,6 +3438,3 @@ Descrição do setor parcial
     assert refs[0].get("pontos_uids") == [uid_poi1]
     assert refs[1].get("alvo_uid") == nova_esc_uid
     assert refs[1].get("pontos_uids") == [novo_poi_uid]
-
-
-

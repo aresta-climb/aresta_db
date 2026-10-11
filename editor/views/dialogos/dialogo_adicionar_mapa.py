@@ -8,42 +8,41 @@ pré-processamento automático para WebP em memória RAM e validação contínua
 """
 
 from pathlib import Path
-from typing import Optional, Tuple, Any
+from typing import Any
+
+from PySide6.QtCore import Qt
 from PySide6.QtWidgets import (
     QDialog,
-    QVBoxLayout,
+    QDialogButtonBox,
+    QFileDialog,
+    QFrame,
     QHBoxLayout,
     QLabel,
     QLineEdit,
-    QPushButton,
-    QFileDialog,
     QMessageBox,
-    QDialogButtonBox,
+    QPushButton,
+    QVBoxLayout,
     QWidget,
-    QFrame,
 )
-from PySide6.QtCore import Qt, Signal
-from PySide6.QtGui import QPixmap, QDragEnterEvent, QDropEvent, QImage
 
 from editor.core.processamento_imagem_campo import (
-    sanitizar_nome_imagem,
-    obter_metadados_imagem,
-    comprimir_imagem_para_bytes_webp,
-    verificar_conflito_nome_imagem,
-    garantir_suporte_heif,
-    AREA_MAXIMA_PADRAO,
-    QUALIDADE_WEBP_PADRAO,
-    METODO_WEBP_PADRAO,
     AREA_MAXIMA_ESCALADA,
+    AREA_MAXIMA_PADRAO,
+    METODO_WEBP_PADRAO,
     QUALIDADE_WEBP_ESCALADA,
+    QUALIDADE_WEBP_PADRAO,
+    comprimir_imagem_para_bytes_webp,
+    garantir_suporte_heif,
+    obter_metadados_imagem,
+    sanitizar_nome_imagem,
 )
 from editor.core.transformacoes_imagem import cortar_imagem_bytes
-
-
 from editor.views.componentes.area_drop_imagem import (
-    AreaDropImagem,
-    EXTENSOES_IMAGEM_SUPORTADAS,
+    EXTENSOES_IMAGEM_SUPORTADAS as EXTENSOES_IMAGEM_SUPORTADAS,
+)
+from editor.views.componentes.area_drop_imagem import (
     FILTRO_ARQUIVOS_IMAGEM,
+    AreaDropImagem,
 )
 
 
@@ -52,32 +51,33 @@ class DialogoAdicionarMapa(QDialog):
     Diálogo para cadastro de novo mapa com pré-processamento WebP, validação contínua de nomes
     e ferramenta de recorte interativo (rubber-band crop) com perfil otimizado para escaladas.
     """
+
     def __init__(
         self,
         nome_sugerido: str,
-        db_dir: Optional[Path] = None,
-        model: Optional[Any] = None,
-        parent: Optional[QWidget] = None,
+        db_dir: Path | None = None,
+        model: Any | None = None,
+        parent: QWidget | None = None,
         eh_escalada: bool = False,
     ) -> None:
         super().__init__(parent)
         self.setWindowTitle("Adicionar Novo Mapa")
-        self.db_dir: Optional[Path] = Path(db_dir) if db_dir else None
-        self.model: Optional[Any] = model
-        self.bytes_processados_webp: Optional[bytes] = None
-        self.dimensoes: Optional[Tuple[int, int]] = None
-        self.bytes_originais_carregados: Optional[bytes] = None
-        self.nome_sugerido_origem: Optional[str] = None
+        self.db_dir: Path | None = Path(db_dir) if db_dir else None
+        self.model: Any | None = model
+        self.bytes_processados_webp: bytes | None = None
+        self.dimensoes: tuple[int, int] | None = None
+        self.bytes_originais_carregados: bytes | None = None
+        self.nome_sugerido_origem: str | None = None
         self.corte_ativo: bool = False
 
         # Identifica se o mapa é para o contexto de escalada individual
         self.eh_escalada: bool = (
-            eh_escalada
-            or nome_sugerido.startswith("boulder_")
-            or nome_sugerido.startswith("via_")
+            eh_escalada or nome_sugerido.startswith("boulder_") or nome_sugerido.startswith("via_")
         )
         self.max_area: int = AREA_MAXIMA_ESCALADA if self.eh_escalada else AREA_MAXIMA_PADRAO
-        self.qualidade_webp: int = QUALIDADE_WEBP_ESCALADA if self.eh_escalada else QUALIDADE_WEBP_PADRAO
+        self.qualidade_webp: int = (
+            QUALIDADE_WEBP_ESCALADA if self.eh_escalada else QUALIDADE_WEBP_PADRAO
+        )
         self.metodo_webp: int = METODO_WEBP_PADRAO
 
         layout = QVBoxLayout(self)
@@ -131,7 +131,9 @@ class DialogoAdicionarMapa(QDialog):
 
         # Painel de metadados da imagem
         self.rotulo_metadados = QLabel("")
-        self.rotulo_metadados.setStyleSheet("color: #444; font-size: 12px; background: #f0f0f0; padding: 6px; border-radius: 4px;")
+        self.rotulo_metadados.setStyleSheet(
+            "color: #444; font-size: 12px; background: #f0f0f0; padding: 6px; border-radius: 4px;"
+        )
         self.rotulo_metadados.setAlignment(Qt.AlignmentFlag.AlignCenter)
         self.rotulo_metadados.hide()
         layout.addWidget(self.rotulo_metadados)
@@ -163,7 +165,9 @@ class DialogoAdicionarMapa(QDialog):
         layout.addWidget(self.rotulo_aviso)
 
         # Botões de confirmação
-        self.bbox = QDialogButtonBox(QDialogButtonBox.StandardButton.Ok | QDialogButtonBox.StandardButton.Cancel)
+        self.bbox = QDialogButtonBox(
+            QDialogButtonBox.StandardButton.Ok | QDialogButtonBox.StandardButton.Cancel
+        )
         self.btn_ok = self.bbox.button(QDialogButtonBox.StandardButton.Ok)
         self.btn_ok.setText("Adicionar Mapa")
         self.btn_ok.setEnabled(False)
@@ -197,17 +201,21 @@ class DialogoAdicionarMapa(QDialog):
         except Exception as e:
             QMessageBox.warning(self, "Erro", f"Falha ao ler arquivo: {e}")
 
-    def carregar_imagem_bytes(self, bytes_originais: bytes, nome_sugerido_origem: Optional[str] = None) -> None:
+    def carregar_imagem_bytes(
+        self, bytes_originais: bytes, nome_sugerido_origem: str | None = None
+    ) -> None:
         w_orig, h_orig, tam_orig, txt_tam_orig = obter_metadados_imagem(bytes_originais)
         if w_orig <= 0 or h_orig <= 0:
             ext = Path(nome_sugerido_origem or "").suffix.lower()
-            eh_heic = (ext in (".heic", ".heif")) or (len(bytes_originais) > 12 and b"ftyp" in bytes_originais[4:12])
+            eh_heic = (ext in (".heic", ".heif")) or (
+                len(bytes_originais) > 12 and b"ftyp" in bytes_originais[4:12]
+            )
             if eh_heic and not garantir_suporte_heif():
                 QMessageBox.warning(
                     self,
                     "Erro",
                     "O suporte a imagens HEIC/HEIF requer a biblioteca 'pillow-heif'.\n"
-                    "Reinicie o editor ou instale via 'pip install pillow-heif'."
+                    "Reinicie o editor ou instale via 'pip install pillow-heif'.",
                 )
                 return
             QMessageBox.warning(self, "Erro", "Formato de imagem inválido ou não suportado.")
@@ -240,13 +248,15 @@ class DialogoAdicionarMapa(QDialog):
         self.rotulo_metadados.show()
 
         # Atualiza nome do arquivo caso sugerido
-        if nome_sugerido_origem and (not self.input_nome.text() or self.input_nome.text() == "novo_mapa.webp"):
+        if nome_sugerido_origem and (
+            not self.input_nome.text() or self.input_nome.text() == "novo_mapa.webp"
+        ):
             slug = sanitizar_nome_imagem(nome_sugerido_origem)
             self.input_nome.setText(slug)
 
         self._validar_estado()
 
-    def _ao_selecionar_regiao(self, _rect: Tuple[int, int, int, int]) -> None:
+    def _ao_selecionar_regiao(self, _rect: tuple[int, int, int, int]) -> None:
         self.btn_recortar.setEnabled(True)
 
     def _ao_clicar_recortar(self) -> None:
@@ -254,7 +264,7 @@ class DialogoAdicionarMapa(QDialog):
         if rect:
             self.aplicar_corte(rect)
 
-    def aplicar_corte(self, retangulo: Tuple[int, int, int, int]) -> None:
+    def aplicar_corte(self, retangulo: tuple[int, int, int, int]) -> None:
         """
         Recorta a imagem original na região retangular especificada (x1, y1, x2, y2)
         e a re-processa mantendo máxima fidelidade e orçamento estrito.
@@ -285,8 +295,7 @@ class DialogoAdicionarMapa(QDialog):
 
             _, _, tam_webp, txt_tam_webp = obter_metadados_imagem(bytes_webp)
             self.rotulo_metadados.setText(
-                f"Dimensões: {w_final} x {h_final} px (Recortado)  |  "
-                f"Tamanho WebP: {txt_tam_webp}"
+                f"Dimensões: {w_final} x {h_final} px (Recortado)  |  Tamanho WebP: {txt_tam_webp}"
             )
             self._validar_estado()
         except Exception as e:
@@ -312,7 +321,9 @@ class DialogoAdicionarMapa(QDialog):
         self.btn_recortar.setEnabled(False)
         self.btn_reverter_corte.setEnabled(False)
 
-        w_orig, h_orig, tam_orig, txt_tam_orig = obter_metadados_imagem(self.bytes_originais_carregados)
+        w_orig, h_orig, tam_orig, txt_tam_orig = obter_metadados_imagem(
+            self.bytes_originais_carregados
+        )
         _, _, tam_webp, txt_tam_webp = obter_metadados_imagem(bytes_webp)
         self.rotulo_metadados.setText(
             f"Dimensões: {w_final} x {h_final} px  |  "
@@ -328,15 +339,15 @@ class DialogoAdicionarMapa(QDialog):
         slug = sanitizar_nome_imagem(txt or "mapa")
         return f"imagens/{slug}"
 
-    def obter_caminho_final_absoluto(self) -> Optional[Path]:
+    def obter_caminho_final_absoluto(self) -> Path | None:
         if self.db_dir:
             return self.db_dir / self.obter_caminho_final_relativo()
         return None
 
-    def obter_bytes_imagem_processada(self) -> Optional[bytes]:
+    def obter_bytes_imagem_processada(self) -> bytes | None:
         return self.bytes_processados_webp
 
-    def obter_dimensoes_imagem(self) -> Optional[Tuple[int, int]]:
+    def obter_dimensoes_imagem(self) -> tuple[int, int] | None:
         return self.dimensoes
 
     def _validar_estado(self) -> None:
@@ -384,4 +395,3 @@ class DialogoAdicionarMapa(QDialog):
             return
 
         super().accept()
-

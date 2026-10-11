@@ -6,8 +6,9 @@ Testes de conformidade e integridade dos manifestos Flatpak e metadados AppStrea
 Valida o app-id com.arestaclimb.Editor, declaração de permissões de sandbox e metadados.
 """
 
-from pathlib import Path
 import xml.etree.ElementTree as ET
+from pathlib import Path
+
 import yaml
 
 PASTA_RAIZ = Path(__file__).resolve().parent.parent

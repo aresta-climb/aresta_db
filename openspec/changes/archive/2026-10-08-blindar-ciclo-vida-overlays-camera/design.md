@@ -53,10 +53,10 @@ def _item_grafico_valido(self, item: Any, cena_esperada: Optional[Any] = None) -
 Garantir que a limpeza dos overlays seja executada proativamente:
 1. Em `cancelar_modos_interativos()`:
    ```python
-   if hasattr(self, 'item_hover_camera_overlay') and self.item_hover_camera_overlay:
+   if hasattr(self, "item_hover_camera_overlay") and self.item_hover_camera_overlay:
        self._remover_item_seguro(self.item_hover_camera_overlay)
        self.item_hover_camera_overlay = None
-   if hasattr(self, 'item_camera_overlay') and self.item_camera_overlay:
+   if hasattr(self, "item_camera_overlay") and self.item_camera_overlay:
        self._remover_item_seguro(self.item_camera_overlay)
        self.item_camera_overlay = None
    ```

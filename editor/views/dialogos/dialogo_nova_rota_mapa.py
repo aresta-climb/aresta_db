@@ -7,20 +7,20 @@ Atende à Jornada de Anotação de Rotas em Mapas (AGENTS.md).
 Reutiliza o componente unificado WidgetBuscaEntidades.
 """
 
-from typing import Optional, List, Dict, Any, Tuple
+from typing import Any
+
 from PySide6.QtWidgets import (
+    QComboBox,
     QDialog,
-    QVBoxLayout,
+    QFormLayout,
     QHBoxLayout,
     QLabel,
     QLineEdit,
     QPushButton,
-    QComboBox,
+    QVBoxLayout,
     QWidget,
-    QFormLayout,
 )
-from PySide6.QtCore import Qt
-from aresta_api.proto.generated import croqui_pb2
+
 from editor.models.croqui_model import CroquiModel
 from editor.views.dialogos.widget_busca_entidades import WidgetBuscaEntidades
 
@@ -31,7 +31,7 @@ class DialogoNovaRotaMapa(QDialog):
     ou criar uma nova escalada inline sem sair do Editor de Mapas.
     """
 
-    OPCOES_TIPO: List[Tuple[str, str]] = [
+    OPCOES_TIPO: list[tuple[str, str]] = [
         ("Boulder", "boulder"),
         ("Via Esportiva", "via_esportiva"),
         ("Via Móvel", "via_movel"),
@@ -41,10 +41,10 @@ class DialogoNovaRotaMapa(QDialog):
 
     def __init__(
         self,
-        setor: Optional[Any] = None,
-        mapa: Optional[Any] = None,
-        model: Optional[CroquiModel] = None,
-        parent: Optional[QWidget] = None,
+        setor: Any | None = None,
+        mapa: Any | None = None,
+        model: CroquiModel | None = None,
+        parent: QWidget | None = None,
     ) -> None:
         super().__init__(parent)
         self.setWindowTitle("Nova Rota no Mapa")
@@ -109,9 +109,7 @@ class DialogoNovaRotaMapa(QDialog):
 
         self.btn_confirmar = QPushButton("Confirmar", self)
         self.btn_confirmar.setDefault(True)
-        self.btn_confirmar.setEnabled(
-            self.widget_busca.obter_entidade_selecionada() is not None
-        )
+        self.btn_confirmar.setEnabled(self.widget_busca.obter_entidade_selecionada() is not None)
         self.btn_confirmar.setStyleSheet("""
             QPushButton {
                 background-color: #2b579a;
@@ -133,12 +131,10 @@ class DialogoNovaRotaMapa(QDialog):
         self.widget_busca.entidade_ativada.connect(self._ao_entidade_ativada)
 
         # Inicializa visibilidade do painel conforme o item inicial selecionado
-        self._ao_selecionar_entidade(
-            self.widget_busca.obter_entidade_selecionada() or {}
-        )
+        self._ao_selecionar_entidade(self.widget_busca.obter_entidade_selecionada() or {})
 
     @property
-    def escaladas_disponiveis(self) -> List[Dict[str, Any]]:
+    def escaladas_disponiveis(self) -> list[dict[str, Any]]:
         """Propriedade para compatibilidade com leitores de escaladas disponíveis."""
         return [
             {
@@ -151,7 +147,7 @@ class DialogoNovaRotaMapa(QDialog):
             if e.get("tipo") == "Escalada"
         ]
 
-    def _ao_selecionar_entidade(self, dados: Dict[str, Any]) -> None:
+    def _ao_selecionar_entidade(self, dados: dict[str, Any]) -> None:
         """Atualiza a visibilidade do painel de tipo/grau e o botão confirmar."""
         if dados:
             if dados.get("ja_mapeada", False):
@@ -166,7 +162,7 @@ class DialogoNovaRotaMapa(QDialog):
             self.painel_nova_rota.setVisible(False)
             self.btn_confirmar.setEnabled(False)
 
-    def _ao_entidade_ativada(self, dados: Dict[str, Any]) -> None:
+    def _ao_entidade_ativada(self, dados: dict[str, Any]) -> None:
         """Aceita o diálogo em caso de ativação/duplo-clique se a rota não estiver mapeada."""
         if dados and dados.get("ja_mapeada"):
             return
@@ -186,7 +182,7 @@ class DialogoNovaRotaMapa(QDialog):
         dados = self.widget_busca.obter_entidade_selecionada() or {}
         self._ao_selecionar_entidade(dados)
 
-    def obter_dados_rota(self) -> Dict[str, Any]:
+    def obter_dados_rota(self) -> dict[str, Any]:
         """Retorna os dados completos da rota selecionada ou criada para traçado."""
         dados_entidade = self.widget_busca.obter_entidade_selecionada()
         if not dados_entidade:

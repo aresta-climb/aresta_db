@@ -2,9 +2,11 @@
 # Copyright (C) 2026 Aresta Climb Contributors
 
 import re
-from typing import List, Iterable
-from urllib.parse import urlparse, parse_qs
+from collections.abc import Iterable
+from urllib.parse import parse_qs, urlparse
+
 from aresta_api.proto.generated import beta_pb2
+
 
 def normalizar_url(url: str) -> str:
     """
@@ -28,14 +30,16 @@ def normalizar_url(url: str) -> str:
             video_id = path.lstrip("/")
             return f"https://youtube.com/watch?v={video_id}"
         qs = parse_qs(parsed.query)
-        if "v" in qs and qs["v"]:
+        if qs.get("v"):
             video_id = qs["v"][0]
             return f"https://youtube.com/watch?v={video_id}"
 
     return f"https://{netloc.replace('www.', '')}{path}"
 
 
-def deduplicar_midias(listas_de_midias: Iterable[List[beta_pb2.MidiaBeta]]) -> List[beta_pb2.MidiaBeta]:
+def deduplicar_midias(
+    listas_de_midias: Iterable[list[beta_pb2.MidiaBeta]],
+) -> list[beta_pb2.MidiaBeta]:
     """
     Agrupa e deduplica mídias a partir de suas URLs normalizadas,
     mesclando thumbnails, títulos e ativando a flag match_multiplas_fontes.
@@ -44,7 +48,6 @@ def deduplicar_midias(listas_de_midias: Iterable[List[beta_pb2.MidiaBeta]]) -> L
     contagem_fontes: dict[str, int] = {}
 
     for lista in listas_de_midias:
-
         for midia in lista:
             url_norm = normalizar_url(midia.url)
             if not url_norm:

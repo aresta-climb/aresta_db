@@ -1,10 +1,9 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
-import pytest
 from aresta_api.proto.generated import croqui_pb2
-from editor.models.readonly_proxy import ReadOnlyProxy
 from editor.core.rotulos_referencia import extrair_rotulo_referencia
+from editor.models.readonly_proxy import ReadOnlyProxy
 
 
 def test_extrair_rotulo_referencia_sem_ids():
@@ -173,15 +172,12 @@ def test_extrair_rotulo_referencia_com_dicionarios():
                     "conteudo": {
                         "nos": [
                             {"tipo": "circulo_identificador", "rotulo": "A"},
-                            {"tipo": "FIM_TOP", "rotulo": "B"}
+                            {"tipo": "FIM_TOP", "rotulo": "B"},
                         ]
                     }
-                }
+                },
             }
         ]
     }
-    ref_dict = {
-        "pontos_uids": ["p_dict_1", "id_inexistente"]
-    }
+    ref_dict = {"pontos_uids": ["p_dict_1", "id_inexistente"]}
     assert extrair_rotulo_referencia(mapa_dict, ref_dict) == "A-B"
-

@@ -1,21 +1,22 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
-from typing import Optional
-from PySide6.QtWidgets import QDockWidget, QTextEdit, QWidget, QVBoxLayout
+
 from PySide6.QtCore import Qt
+from PySide6.QtWidgets import QDockWidget, QTextEdit, QVBoxLayout, QWidget
+
 
 class WidgetSaidaCompilacao(QDockWidget):
     """Componente de UI passivo (View) para mostrar a saída da compilação."""
-    
-    def __init__(self, parent: Optional[QWidget] = None) -> None:
+
+    def __init__(self, parent: QWidget | None = None) -> None:
         super().__init__("Saída de Compilação", parent)
         self.setAllowedAreas(Qt.DockWidgetArea.BottomDockWidgetArea)
-        
+
         self.conteudo: QWidget = QWidget()
         layout = QVBoxLayout(self.conteudo)
         layout.setContentsMargins(0, 0, 0, 0)
-        
+
         self.texto_saida: QTextEdit = QTextEdit()
         self.texto_saida.setReadOnly(True)
         # Fundo escuro, fonte monoespaçada
@@ -25,7 +26,7 @@ class WidgetSaidaCompilacao(QDockWidget):
             "color: #333333; "
             "font-size: 13px;"
         )
-        
+
         layout.addWidget(self.texto_saida)
         self.setWidget(self.conteudo)
 
@@ -41,4 +42,3 @@ class WidgetSaidaCompilacao(QDockWidget):
     def ocultar_painel(self) -> None:
         """Oculta o painel."""
         self.hide()
-

@@ -1,19 +1,19 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
-from typing import List, Dict, Any, Optional, Union, Tuple
-import os
-import sys
+import argparse
 import json
 import math
-import numpy as np
-import yaml
 import re
-import argparse
 import time
 from pathlib import Path
-from PIL import Image
+from typing import Any
+
+import numpy as np
+import yaml
 from paddleocr import PaddleOCR
+from PIL import Image
+
 
 class PreparadorDeMapas:
     def __init__(self, idioma: str) -> None:
@@ -22,14 +22,16 @@ class PreparadorDeMapas:
         """
         print(f"Inicializando motor PaddleOCR v5 (Idioma: {idioma})...")
         start_init = time.time()
-        self.ocr_engine = PaddleOCR(use_doc_orientation_classify=False, 
-                                     use_doc_unwarping=False,
-                                     use_textline_orientation=False, 
-                                     lang=idioma)
+        self.ocr_engine = PaddleOCR(
+            use_doc_orientation_classify=False,
+            use_doc_unwarping=False,
+            use_textline_orientation=False,
+            lang=idioma,
+        )
         end_init = time.time()
         print(f"Motor carregado em {end_init - start_init:.2f} segundos.\n")
 
-    def executar(self, pico_path: Union[str, Path]) -> None:
+    def executar(self, pico_path: str | Path) -> None:
         """
         Executa a extração e preparação de mapas para um diretório de pico.
         """
@@ -39,23 +41,28 @@ class PreparadorDeMapas:
             return
 
         # 1. Encontrar todos os arquivos setor_*.md e grupo_*.md, e mapas_gerais.md
-        md_files = list(pico_path.glob("setor_*.md")) + list(pico_path.glob("grupo_*.md")) + list(pico_path.glob("mapas_gerais.md"))
+        md_files = (
+            list(pico_path.glob("setor_*.md"))
+            + list(pico_path.glob("grupo_*.md"))
+            + list(pico_path.glob("mapas_gerais.md"))
+        )
         if not md_files:
-            print(f"Nenhum arquivo 'setor_*.md', 'grupo_*.md' ou 'mapas_gerais.md' encontrado em {pico_path}.")
+            print(
+                f"Nenhum arquivo 'setor_*.md', 'grupo_*.md' ou 'mapas_gerais.md' encontrado em {pico_path}."
+            )
             return
 
         # Pasta de destino para os JSONs
         output_dir = pico_path / "imagens" / "raw_mapas"
         output_dir.mkdir(parents=True, exist_ok=True)
 
-        imagens_de_mapa: List[Path] = []
+        imagens_de_mapa: list[Path] = []
         for md_file in md_files:
             imagens_de_mapa += self._processar_arquivo_md(md_file, pico_path, output_dir)
 
         self._extrair_ocr_das_imagens(imagens_de_mapa, output_dir)
 
-    def _processar_arquivo_md(self, md_file: Path, pico_path: Path, output_dir: Path) -> List[Path]:
-
+    def _processar_arquivo_md(self, md_file: Path, pico_path: Path, output_dir: Path) -> list[Path]:
         """
         Processa um arquivo MD (setor ou grupo) e extrai mapas.
         Retorna os caminhos para as imagens de mapa encontradas.
@@ -67,9 +74,8 @@ class PreparadorDeMapas:
             return []
 
         # Extrair frontmatter para buscar o campo 'mapas'
-        frontmatter: Dict[str, Any] = {}
+        frontmatter: dict[str, Any] = {}
         if content.startswith("---"):
-
             parts = re.split(r"^---$", content, maxsplit=2, flags=re.MULTILINE)
             if len(parts) >= 3:
                 try:
@@ -80,8 +86,8 @@ class PreparadorDeMapas:
 
         imagens_de_mapa = []
 
-        def _extrair_nome_escalada(esc: Dict[str, Any]) -> str:
-            if "nome" in esc and esc["nome"]:
+        def _extrair_nome_escalada(esc: dict[str, Any]) -> str:
+            if esc.get("nome"):
                 return str(esc["nome"])
             for sub in ["boulder", "via_esportiva", "via_movel", "via_multiplas_enfiadas", "via"]:
                 if sub in esc and isinstance(esc[sub], dict) and "nome" in esc[sub]:
@@ -89,10 +95,10 @@ class PreparadorDeMapas:
             return ""
 
         def _registrar_mapa(
-            mapa: Dict[str, Any],
+            mapa: dict[str, Any],
             pertence_a_escalada: bool = False,
             escalada_nome: str = "",
-            escalada_indice: Optional[int] = None,
+            escalada_indice: int | None = None,
         ) -> None:
             caminho_img = mapa.get("caminho_imagem_mapa")
             if not caminho_img:
@@ -115,17 +121,16 @@ class PreparadorDeMapas:
             target_json = output_dir / f"{nome_base}.json"
 
             if target_json.exists():
-                print(f"Aviso: O arquivo JSON {target_json.name} já existe. Pulando criação do metadado.")
+                print(
+                    f"Aviso: O arquivo JSON {target_json.name} já existe. Pulando criação do metadado."
+                )
             else:
                 pontos_existentes = mapa.get("pontos_de_interesse", [])
-                dados: Dict[str, Any] = {
+                dados: dict[str, Any] = {
                     "arquivo_md": md_file.name,
                     "caminho_imagem_mapa": caminho_img,
-                    "dimensoes_imagem": {
-                        "largura": largura,
-                        "altura": altura
-                    },
-                    "pontos_de_interesse": pontos_existentes
+                    "dimensoes_imagem": {"largura": largura, "altura": altura},
+                    "pontos_de_interesse": pontos_existentes,
                 }
                 if pertence_a_escalada:
                     dados["pertence_a_escalada"] = True
@@ -150,7 +155,11 @@ class PreparadorDeMapas:
                 if not isinstance(via, dict):
                     continue
                 mapas_esc = via.get("mapas")
-                if not mapas_esc and "via_multiplas_enfiadas" in via and isinstance(via["via_multiplas_enfiadas"], dict):
+                if (
+                    not mapas_esc
+                    and "via_multiplas_enfiadas" in via
+                    and isinstance(via["via_multiplas_enfiadas"], dict)
+                ):
                     mapas_esc = via["via_multiplas_enfiadas"].get("mapas")
                 if mapas_esc and isinstance(mapas_esc, list):
                     nome_esc = _extrair_nome_escalada(via)
@@ -165,7 +174,7 @@ class PreparadorDeMapas:
 
         return imagens_de_mapa
 
-    def _extrair_ocr_das_imagens(self, imagens_de_mapa: List[Path], output_dir: Path) -> None:
+    def _extrair_ocr_das_imagens(self, imagens_de_mapa: list[Path], output_dir: Path) -> None:
         """
         Extrai o OCR de imagens usando o motor já inicializado.
         """
@@ -175,8 +184,8 @@ class PreparadorDeMapas:
         image_inputs = []
         for img_path in imagens_de_mapa:
             try:
-                img = Image.open(img_path).convert('RGB')
-                img_np = np.array(img)[:, :, ::-1] # BGR para PaddleOCR
+                img = Image.open(img_path).convert("RGB")
+                img_np = np.array(img)[:, :, ::-1]  # BGR para PaddleOCR
                 image_inputs.append(img_np)
             except Exception as e:
                 print(f"Erro ao ler imagem {img_path.name}: {e}")
@@ -188,51 +197,61 @@ class PreparadorDeMapas:
         print(f"OCR finalizado em {end_ocr - start_ocr:.2f} segundos.")
 
         if len(resultados) != len(imagens_de_mapa):
-            print(f"Aviso: O número de resultados ({len(resultados)}) não coincide com o número de imagens ({len(imagens_de_mapa)}).")
+            print(
+                f"Aviso: O número de resultados ({len(resultados)}) não coincide com o número de imagens ({len(imagens_de_mapa)})."
+            )
             return
 
         # Salvar resultados
         for img_path, res in zip(imagens_de_mapa, resultados):
             res.save_to_img(output_dir / f"{img_path.stem}.ocr_result.png")
 
-            custom_data: Dict[str, Any] = {'ocr_result': []}
+            custom_data: dict[str, Any] = {"ocr_result": []}
 
-            texts = res.get('rec_texts', [])
-            boxes = res.get('rec_boxes', [])
+            texts = res.get("rec_texts", [])
+            boxes = res.get("rec_boxes", [])
 
             if len(texts) == len(boxes) and len(texts) > 0:
-                rec_polys = res.get('rec_polys', [])
+                rec_polys = res.get("rec_polys", [])
                 for i, (text, box) in enumerate(zip(texts, boxes)):
                     try:
                         # Priorizar o polígono (4 pontos) se disponível para calcular ângulo
-                        poly = rec_polys[i].tolist() if (i < len(rec_polys) and hasattr(rec_polys[i], 'tolist')) else (rec_polys[i] if i < len(rec_polys) else None)
-                        
+                        poly = (
+                            rec_polys[i].tolist()
+                            if (i < len(rec_polys) and hasattr(rec_polys[i], "tolist"))
+                            else (rec_polys[i] if i < len(rec_polys) else None)
+                        )
+
                         box_data = None
-                        if poly and len(poly) == 4 and isinstance(poly[0], (list, tuple, np.ndarray)):
+                        if (
+                            poly
+                            and len(poly) == 4
+                            and isinstance(poly[0], (list, tuple, np.ndarray))
+                        ):
                             # Caso de 4 pontos (quadrilátero oblíquo) - MAIS PRECISO
                             p0, p1, p2, p3 = poly
                             cx = (p0[0] + p1[0] + p2[0] + p3[0]) / 4
                             cy = (p0[1] + p1[1] + p2[1] + p3[1]) / 4
-                            
-                            comprimento = ((p1[0] - p0[0])**2 + (p1[1] - p0[1])**2)**0.5
-                            largura = ((p2[0] - p1[0])**2 + (p2[1] - p1[1])**2)**0.5
-                            
+
+                            comprimento = ((p1[0] - p0[0]) ** 2 + (p1[1] - p0[1]) ** 2) ** 0.5
+                            largura = ((p2[0] - p1[0]) ** 2 + (p2[1] - p1[1]) ** 2) ** 0.5
+
                             angulo_rad = math.atan2(p1[1] - p0[1], p1[0] - p0[0])
                             angulo_graus = math.degrees(angulo_rad)
-                            
+
                             box_data = {
                                 "x": int(round(cx)),
                                 "y": int(round(cy)),
                                 "comprimento": int(round(comprimento)),
-                                "largura": int(round(largura))
+                                "largura": int(round(largura)),
                             }
-                            
+
                             angulo_x100 = int(round(angulo_graus * 100))
                             if angulo_x100 != 0:
                                 box_data["angulo_graus_x100"] = angulo_x100
                         else:
                             # Fallback para o bbox achatado
-                            bbox = box.tolist() if hasattr(box, 'tolist') else box
+                            bbox = box.tolist() if hasattr(box, "tolist") else box
                             if len(bbox) == 4:
                                 if not isinstance(bbox[0], (list, tuple, np.ndarray)):
                                     xmin, ymin, xmax, ymax = bbox
@@ -240,36 +259,42 @@ class PreparadorDeMapas:
                                         "x": int(round((xmin + xmax) / 2)),
                                         "y": int(round((ymin + ymax) / 2)),
                                         "comprimento": int(xmax - xmin),
-                                        "largura": int(ymax - ymin)
+                                        "largura": int(ymax - ymin),
                                     }
                                 else:
                                     # Caso extremo: bbox são os 4 pontos
                                     p0, p1, p2, p3 = bbox
                                     cx = (p0[0] + p1[0] + p2[0] + p3[0]) / 4
                                     cy = (p0[1] + p1[1] + p2[1] + p3[1]) / 4
-                                    comprimento = ((p1[0] - p0[0])**2 + (p1[1] - p0[1])**2)**0.5
-                                    largura = ((p2[0] - p1[0])**2 + (p2[1] - p1[1])**2)**0.5
+                                    comprimento = (
+                                        (p1[0] - p0[0]) ** 2 + (p1[1] - p0[1]) ** 2
+                                    ) ** 0.5
+                                    largura = ((p2[0] - p1[0]) ** 2 + (p2[1] - p1[1]) ** 2) ** 0.5
                                     angulo_rad = math.atan2(p1[1] - p0[1], p1[0] - p0[0])
                                     angulo_graus = math.degrees(angulo_rad)
                                     box_data = {
                                         "x": int(round(cx)),
                                         "y": int(round(cy)),
                                         "comprimento": int(round(comprimento)),
-                                        "largura": int(round(largura))
+                                        "largura": int(round(largura)),
                                     }
                                     angulo_x100 = int(round(angulo_graus * 100))
                                     if angulo_x100 != 0:
                                         box_data["angulo_graus_x100"] = angulo_x100
 
                         if box_data:
-                            custom_data['ocr_result'].append({
-                                "text": text,
-                                "box": box_data,
-                            })
+                            custom_data["ocr_result"].append(
+                                {
+                                    "text": text,
+                                    "box": box_data,
+                                }
+                            )
                     except Exception as e:
-                        print(f"Aviso: Erro ao processar detecção '{text}' na imagem {img_path.name}: {e}")
+                        print(
+                            f"Aviso: Erro ao processar detecção '{text}' na imagem {img_path.name}: {e}"
+                        )
                         continue
-            
+
             custom_filename = output_dir / f"{img_path.stem}.ocr_result.json"
             try:
                 with open(custom_filename, "w", encoding="utf-8") as f:
@@ -278,8 +303,11 @@ class PreparadorDeMapas:
             except Exception as e:
                 print(f"Erro ao salvar OCR JSON: {e}")
 
+
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Unifica extração de mapas e criação de JSON inicial.")
+    parser = argparse.ArgumentParser(
+        description="Unifica extração de mapas e criação de JSON inicial."
+    )
     parser.add_argument("pico", help="Pasta do pico dentro de database/")
     parser.add_argument("--idioma", default="pt", help="Idioma para o OCR (default: pt)")
     args = parser.parse_args()

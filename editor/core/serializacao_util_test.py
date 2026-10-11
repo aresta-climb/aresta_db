@@ -5,7 +5,6 @@
 Testes unitários para utilitários de sanitização de serialização de croquis.
 """
 
-import pytest
 from editor.core.serializacao_util import sanitizar_dicionario_sem_extensoes
 
 
@@ -48,14 +47,12 @@ def test_sanitizar_dicionario_sem_extensoes_aninhados_e_listas():
                         {
                             "nome": "Setor 1",
                             "ext_metadados_arquivo": {"shadow": True},
-                            "escaladas": [
-                                {"nome": "Via 1", "uid": "via12345678901"}
-                            ]
+                            "escaladas": [{"nome": "Via 1", "uid": "via12345678901"}],
                         }
-                    ]
+                    ],
                 }
             ],
-            "[aresta.Croqui.ext_metadados_arquivo]": {"caminho_original": "croqui.yaml"}
+            "[aresta.Croqui.ext_metadados_arquivo]": {"caminho_original": "croqui.yaml"},
         }
     }
 
@@ -69,11 +66,9 @@ def test_sanitizar_dicionario_sem_extensoes_aninhados_e_listas():
                     "setores": [
                         {
                             "nome": "Setor 1",
-                            "escaladas": [
-                                {"nome": "Via 1", "uid": "via12345678901"}
-                            ]
+                            "escaladas": [{"nome": "Via 1", "uid": "via12345678901"}],
                         }
-                    ]
+                    ],
                 }
             ]
         }

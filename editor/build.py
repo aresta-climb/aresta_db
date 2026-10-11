@@ -1,24 +1,24 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
-from typing import Optional, List, Tuple, Any
+from typing import Any
 
 try:
-    import PyInstaller.__main__  # type: ignore[import-untyped]
+    import PyInstaller.__main__  # type: ignore[import-untyped]  # noqa: F401
 except ImportError:
     pass
 
 
-import os
-import sys
 import argparse
-import pytest
+import os
 import shutil
 import subprocess
+import sys
 import tempfile
 import tomllib
 from pathlib import Path
 
+import pytest
 
 # Caminhos
 DIRETORIO_EDITOR = Path(__file__).parent.resolve()
@@ -31,7 +31,7 @@ ARQUIVO_MANIFESTO_FLATPAK = DIRETORIO_FLATPAK / "com.arestaclimb.Editor.yaml"
 LIMITE_MAXIMO_TAMANHO_EXECUTAVEL_MB = 95.0
 
 
-def obter_versao_projeto(caminho_pyproject: Optional[Path] = None) -> str:
+def obter_versao_projeto(caminho_pyproject: Path | None = None) -> str:
     """
     Retorna a versão do projeto lendo diretamente o arquivo pyproject.toml na raiz do repositório.
     """
@@ -52,6 +52,7 @@ def obter_versao_projeto(caminho_pyproject: Optional[Path] = None) -> str:
 def obter_diretorio_distribuicao_onedir() -> Path:
     """Retorna o diretório onde os binários onedir são gerados pelo PyInstaller."""
     return DIRETORIO_DIST_ONEDIR
+
 
 # Binários pesados de fallback gráfico do Qt que não são necessários no Windows moderno
 BINARIOS_DISPENSAVEIS = {
@@ -89,7 +90,7 @@ FONTES_DISPENSAVEIS = (
 )
 
 
-def obter_modulos_excluidos() -> List[str]:
+def obter_modulos_excluidos() -> list[str]:
     """
     Retorna a lista de módulos pesados de IA, OCR, PDF, visão computacional, pacotes de dados
     e submódulos dispensáveis do PySide6 que não devem ser empacotados no executável do editor.
@@ -120,7 +121,6 @@ def obter_modulos_excluidos() -> List[str]:
         "botocore",
         "google.generativeai",
         "google.ai",
-
         # Pacotes de dados/auxiliares não utilizados pelo editor
         "pandas",
         "openpyxl",
@@ -129,7 +129,6 @@ def obter_modulos_excluidos() -> List[str]:
         "fsspec",
         "psutil",
         "sqlite3",
-
         # Submódulos dispensáveis do PySide6 (não utilizados pelo Editor QtWidgets)
         "PySide6.QtQuick",
         "PySide6.QtQml",
@@ -181,8 +180,8 @@ def obter_modulos_excluidos() -> List[str]:
 
 
 def filtrar_binarios_desnecessarios(
-    binarios: List[Any],
-) -> List[Any]:
+    binarios: list[Any],
+) -> list[Any]:
     """
     Filtra a lista de binários do PyInstaller, removendo DLLs de fallback de hardware
     e submódulos gráficos do Qt sabidamente dispensáveis para Windows e macOS.
@@ -194,17 +193,15 @@ def filtrar_binarios_desnecessarios(
 
         eh_dispensavel = any(
             dispensavel.lower() in nome_binario_lower for dispensavel in BINARIOS_DISPENSAVEIS
-        ) or any(
-            nome_base in nome_binario_lower for nome_base in NOMES_BASE_BINARIOS_DISPENSAVEIS
-        )
+        ) or any(nome_base in nome_binario_lower for nome_base in NOMES_BASE_BINARIOS_DISPENSAVEIS)
         if not eh_dispensavel:
             resultado.append(item)
     return resultado
 
 
 def filtrar_datas_desnecessarios(
-    datas: List[Any],
-) -> List[Any]:
+    datas: list[Any],
+) -> list[Any]:
     """
     Filtra a lista de arquivos de dados do PyInstaller, removendo famílias de fontes
     do QtAwesome não utilizadas pelo tema de ícones do editor.
@@ -219,23 +216,25 @@ def filtrar_datas_desnecessarios(
     return resultado
 
 
-def obter_argumentos_pyinstaller(caminho_spec: Optional[Path] = None) -> List[str]:
+def obter_argumentos_pyinstaller(caminho_spec: Path | None = None) -> list[str]:
     """
     Monta e retorna a lista de argumentos de linha de comando para o PyInstaller
     apontando para o arquivo de especificação .spec.
     """
     arquivo_alvo = caminho_spec or ARQUIVO_SPEC
-    argumentos: List[str] = [
+    argumentos: list[str] = [
         str(arquivo_alvo),
         "--clean",
         "--noconfirm",
-        "--distpath", str(DIRETORIO_EDITOR / "dist"),
-        "--workpath", str(DIRETORIO_EDITOR / "build"),
+        "--distpath",
+        str(DIRETORIO_EDITOR / "dist"),
+        "--workpath",
+        str(DIRETORIO_EDITOR / "build"),
     ]
     return argumentos
 
 
-def obter_caminho_icone_alvo(eh_beta: bool) -> Tuple[Optional[Path], Path]:
+def obter_caminho_icone_alvo(eh_beta: bool) -> tuple[Path | None, Path]:
     """
     Retorna a tupla contendo o caminho do arquivo de ícone alvo (.ico no Windows, .icns no macOS ou None no Linux)
     e o caminho da imagem .png de origem correspondentes ao canal de compilação.
@@ -268,7 +267,7 @@ def obter_caminho_icone_alvo(eh_beta: bool) -> Tuple[Optional[Path], Path]:
 
 def gerar_arquivo_icone(
     caminho_icone: Path,
-    caminho_png: Optional[Path] = None,
+    caminho_png: Path | None = None,
     force_generation: bool = False,
 ) -> None:
     """
@@ -304,7 +303,7 @@ def gerar_arquivo_icone(
 
 def gerar_arquivo_icone_icns(
     caminho_icns: Path,
-    caminho_png: Optional[Path] = None,
+    caminho_png: Path | None = None,
     force_generation: bool = False,
 ) -> None:
     """
@@ -372,8 +371,8 @@ PACOTES_DISPENSAVEIS_FLATPAK = (
 
 
 def gerar_manifesto_dependencias_flatpak(
-    caminho_saida: Optional[Path] = None,
-    raiz_projeto: Optional[Path] = None,
+    caminho_saida: Path | None = None,
+    raiz_projeto: Path | None = None,
 ) -> Path:
     """
     Gera efemeramente o manifesto de fontes de dependências Python (pypi-dependencies.json)
@@ -405,7 +404,7 @@ def gerar_manifesto_dependencias_flatpak(
     )
 
     # Filtra dependências dispensáveis no Linux Flatpak
-    linhas_filtradas: List[str] = []
+    linhas_filtradas: list[str] = []
     for linha in resultado_export.stdout.splitlines():
         linha_limpa = linha.strip()
         if not linha_limpa or linha_limpa.startswith("#"):
@@ -415,11 +414,13 @@ def gerar_manifesto_dependencias_flatpak(
             continue
         linhas_filtradas.append(linha_limpa)
 
-    with tempfile.NamedTemporaryFile("w", suffix="-requirements.txt", delete=False, encoding="utf-8") as tmp_req:
+    with tempfile.NamedTemporaryFile(
+        "w", suffix="-requirements.txt", delete=False, encoding="utf-8"
+    ) as tmp_req:
         tmp_req.write("\n".join(linhas_filtradas) + "\n")
         caminho_tmp_req = Path(tmp_req.name)
 
-    argumentos_extras: List[str] = []
+    argumentos_extras: list[str] = []
     executavel_flatpak = shutil.which("flatpak")
     if executavel_flatpak:
         for runtime_candidato in ("org.kde.Sdk//6.11", "org.kde.Platform//6.11"):
@@ -467,9 +468,9 @@ def gerar_manifesto_dependencias_flatpak(
 
 
 def orquestrar_build_flatpak(
-    caminho_manifesto: Optional[Path] = None,
-    diretorio_dist: Optional[Path] = None,
-    versao: Optional[str] = None,
+    caminho_manifesto: Path | None = None,
+    diretorio_dist: Path | None = None,
+    versao: str | None = None,
 ) -> Path:
     """
     Orquestra a compilação do pacote oficial Flatpak no Linux utilizando flatpak-builder.
@@ -563,7 +564,9 @@ def executar_build(force_icon_generation: bool = False) -> None:
         if not eh_beta:
             caminho_icns_recursos = DIRETORIO_EDITOR / "recursos" / "logo.icns"
             gerar_arquivo_icone_icns(
-                caminho_icns_recursos, caminho_png=caminho_png, force_generation=force_icon_generation
+                caminho_icns_recursos,
+                caminho_png=caminho_png,
+                force_generation=force_icon_generation,
             )
     elif sys.platform.startswith("win"):
         if caminho_icone:
@@ -574,7 +577,9 @@ def executar_build(force_icon_generation: bool = False) -> None:
             # Garante cópia espelhada em editor/recursos/logo.ico para empacotamento no bundle
             caminho_icone_recursos = DIRETORIO_EDITOR / "recursos" / "logo.ico"
             gerar_arquivo_icone(
-                caminho_icone_recursos, caminho_png=caminho_png, force_generation=force_icon_generation
+                caminho_icone_recursos,
+                caminho_png=caminho_png,
+                force_generation=force_icon_generation,
             )
 
     argumentos = obter_argumentos_pyinstaller(caminho_spec=ARQUIVO_SPEC)
@@ -583,6 +588,7 @@ def executar_build(force_icon_generation: bool = False) -> None:
     if mod_pyinstaller is None:
         try:
             import PyInstaller.__main__
+
             mod_pyinstaller = PyInstaller.__main__
         except ImportError:
             raise RuntimeError(
@@ -596,9 +602,25 @@ def executar_build(force_icon_generation: bool = False) -> None:
 
 def executar_testes() -> None:
     """
-    Executa todos os testes do editor utilizando pytest.
+    Executa a checagem estática com Ruff (lint e formatação) e todos os testes do editor com pytest.
     """
-    print(f"Executando testes em {DIRETORIO_EDITOR}...")
+    print("\n[1/3] Executando checagem estática com Ruff (lint)...")
+    res_lint = subprocess.run([sys.executable, "-m", "ruff", "check", str(DIRETORIO_EDITOR)])
+    if res_lint.returncode != 0:
+        print("\nFalha na checagem estática do Ruff!")
+        print("Dica: Execute 'uv run ruff check --fix' para corrigir problemas automaticamente.")
+        sys.exit(res_lint.returncode)
+
+    print("\n[2/3] Executando checagem de formatação com Ruff...")
+    res_fmt = subprocess.run(
+        [sys.executable, "-m", "ruff", "format", "--check", str(DIRETORIO_EDITOR)]
+    )
+    if res_fmt.returncode != 0:
+        print("\nFalha na formatação do Ruff!")
+        print("Dica: Execute 'uv run ruff format' para formatar o código.")
+        sys.exit(res_fmt.returncode)
+
+    print(f"\n[3/3] Executando testes unitários do editor em {DIRETORIO_EDITOR}...")
     resultado = pytest.main([str(DIRETORIO_EDITOR), "-v"])
 
     if resultado == 0:
@@ -611,10 +633,10 @@ def executar_testes() -> None:
 
 
 def gerar_tarball_codigo_fonte(
-    diretorio_saida: Optional[Path] = None,
-    versao: Optional[str] = None,
-    raiz_projeto: Optional[Path] = None,
-) -> Tuple[Path, str]:
+    diretorio_saida: Path | None = None,
+    versao: str | None = None,
+    raiz_projeto: Path | None = None,
+) -> tuple[Path, str]:
     """
     Gera um tarball comprimido (.tar.gz) contendo estritamente os arquivos de código-fonte
     necessários para compilação do Editor Aresta (editor, aresta_api, uv.lock, pyproject.toml),
@@ -643,9 +665,7 @@ def gerar_tarball_codigo_fonte(
         "pyproject.toml",
     ]
 
-
-
-    def filtro_exclusao(tarinfo: tarfile.TarInfo) -> Optional[tarfile.TarInfo]:
+    def filtro_exclusao(tarinfo: tarfile.TarInfo) -> tarfile.TarInfo | None:
         caminho_str = tarinfo.name.replace("\\", "/")
         exclusoes = (
             "/__pycache__",
@@ -678,7 +698,7 @@ def gerar_tarball_codigo_fonte(
     return caminho_tarball, hash_sha256
 
 
-def main(argv: Optional[List[str]] = None) -> None:
+def main(argv: list[str] | None = None) -> None:
     """
     Ponto de entrada de linha de comando para o utilitário de build e testes.
     """

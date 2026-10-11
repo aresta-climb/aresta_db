@@ -1,15 +1,16 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
+import subprocess
 import sys
 import uuid
-import subprocess
-import pytest
 from unittest.mock import MagicMock, patch
+
 from PySide6.QtNetwork import QLocalServer, QLocalSocket
+
 from editor.core.instancia_unica import (
-    verificar_se_ja_em_execucao,
     iniciar_servidor_instancia_unica,
+    verificar_se_ja_em_execucao,
 )
 
 
@@ -21,7 +22,7 @@ def test_verificar_se_ja_em_execucao_quando_nenhum_servidor_ativo(qtbot):
 def test_verificar_se_ja_em_execucao_com_servidor_real_ativo(qtbot):
     """Testa que uma instância ativa real responde ao PING com PONG."""
     nome_servidor = f"aresta_teste_{uuid.uuid4().hex[:8]}"
-    
+
     server_code = f'''
 from PySide6.QtCore import QCoreApplication
 from editor.core.instancia_unica import iniciar_servidor_instancia_unica
@@ -77,8 +78,9 @@ sys.exit(app.exec())
 
 def test_ativar_janela_existente_sem_janelas():
     """Verifica que ativar_janela_existente retorna False quando não há janelas visíveis."""
-    from editor.core.instancia_unica import ativar_janela_existente
     from PySide6.QtWidgets import QApplication
+
+    from editor.core.instancia_unica import ativar_janela_existente
 
     with patch.object(QApplication, "activeWindow", return_value=None):
         with patch.object(QApplication, "topLevelWidgets", return_value=[]):
@@ -87,8 +89,9 @@ def test_ativar_janela_existente_sem_janelas():
 
 def test_ativar_janela_existente_com_janela_visivel(qtbot):
     """Verifica que ativa janela visível encontrada em topLevelWidgets."""
+    from PySide6.QtWidgets import QApplication, QMainWindow
+
     from editor.core.instancia_unica import ativar_janela_existente
-    from PySide6.QtWidgets import QMainWindow, QApplication
 
     janela = QMainWindow()
     qtbot.addWidget(janela)
@@ -96,7 +99,9 @@ def test_ativar_janela_existente_com_janela_visivel(qtbot):
 
     with patch.object(QApplication, "activeWindow", return_value=None):
         with patch.object(QApplication, "topLevelWidgets", return_value=[janela]):
-            with patch("editor.plataforma.trazer_janela_para_frente", return_value=True) as mock_win32:
+            with patch(
+                "editor.plataforma.trazer_janela_para_frente", return_value=True
+            ) as mock_win32:
                 resultado = ativar_janela_existente()
                 assert resultado is True
                 mock_win32.assert_called_once_with(int(janela.winId()))
@@ -104,8 +109,9 @@ def test_ativar_janela_existente_com_janela_visivel(qtbot):
 
 def test_ativar_janela_existente_com_janela_minimizada(qtbot):
     """Verifica que restaura janela se estiver minimizada."""
+    from PySide6.QtWidgets import QApplication, QMainWindow
+
     from editor.core.instancia_unica import ativar_janela_existente
-    from PySide6.QtWidgets import QMainWindow, QApplication
 
     janela = QMainWindow()
     qtbot.addWidget(janela)
@@ -121,8 +127,9 @@ def test_ativar_janela_existente_com_janela_minimizada(qtbot):
 
 def test_ativar_janela_existente_com_active_window():
     """Verifica que prioriza QApplication.activeWindow() quando presente."""
-    from editor.core.instancia_unica import ativar_janela_existente
     from PySide6.QtWidgets import QApplication
+
+    from editor.core.instancia_unica import ativar_janela_existente
 
     mock_janela = MagicMock()
     mock_janela.isMinimized.return_value = False
@@ -138,15 +145,18 @@ def test_ativar_janela_existente_com_active_window():
 
 def test_ativar_janela_existente_ignora_excecao_win32():
     """Garante resiliência caso a integração Win32 lance exceção."""
-    from editor.core.instancia_unica import ativar_janela_existente
     from PySide6.QtWidgets import QApplication
+
+    from editor.core.instancia_unica import ativar_janela_existente
 
     mock_janela = MagicMock()
     mock_janela.isMinimized.return_value = False
     mock_janela.winId.return_value = 12345
 
     with patch.object(QApplication, "activeWindow", return_value=mock_janela):
-        with patch("editor.plataforma.trazer_janela_para_frente", side_effect=RuntimeError("Erro win32")):
+        with patch(
+            "editor.plataforma.trazer_janela_para_frente", side_effect=RuntimeError("Erro win32")
+        ):
             assert ativar_janela_existente() is True
 
 
@@ -189,7 +199,7 @@ def test_servidor_desconexao_de_cliente_limpa_lista(qtbot):
         cliente.connectToServer(nome_servidor)
         assert cliente.waitForConnected(500)
         qtbot.wait(50)
-        clientes = getattr(srv, "_clientes_ativos")
+        clientes = srv._clientes_ativos
         assert len(clientes) == 1
 
         cliente.disconnectFromServer()
@@ -256,7 +266,9 @@ def test_servidor_responde_pong_com_ativar_janela_existente(qtbot):
     from editor.core.instancia_unica import iniciar_servidor_instancia_unica
 
     nome_servidor = f"aresta_teste_{uuid.uuid4().hex[:8]}"
-    with patch("editor.core.instancia_unica.ativar_janela_existente", return_value=True) as mock_ativar:
+    with patch(
+        "editor.core.instancia_unica.ativar_janela_existente", return_value=True
+    ) as mock_ativar:
         srv = iniciar_servidor_instancia_unica(nome_servidor, callback_ativacao=None)
         assert srv is not None
         try:
@@ -278,15 +290,13 @@ def test_servidor_responde_pong_com_ativar_janela_existente(qtbot):
 
 def test_servidor_rejeita_pong_em_processo_quando_sem_janela(qtbot):
     """Testa que servidor sem janela e fora de tolerância responde SEM_JANELA e fecha servidor."""
+
     from editor.core.instancia_unica import iniciar_servidor_instancia_unica
-    from PySide6.QtWidgets import QApplication
 
     nome_servidor = f"aresta_teste_{uuid.uuid4().hex[:8]}"
     with patch("editor.core.instancia_unica.ativar_janela_existente", return_value=False):
         srv = iniciar_servidor_instancia_unica(
-            nome_servidor,
-            callback_ativacao=None,
-            tempo_tolerancia_inicializacao_s=0.0
+            nome_servidor, callback_ativacao=None, tempo_tolerancia_inicializacao_s=0.0
         )
         assert srv is not None
         try:
@@ -323,6 +333,3 @@ def test_servidor_ao_conectar_com_bytes_ja_disponiveis():
     finally:
         srv.close()
         QLocalServer.removeServer(nome_servidor)
-
-
-

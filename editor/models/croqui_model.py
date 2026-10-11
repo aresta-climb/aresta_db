@@ -1,12 +1,13 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
-from typing import Any, Optional, cast
+from typing import Any, cast
+
+from google.protobuf.message import Message
+from PySide6.QtCore import QObject, Signal
+
 from editor.models.readonly_proxy import _copia_segura
 from scripts.gerenciar_uids_lib import gerar_uid, validar_uid
-
-from PySide6.QtCore import QObject, Signal
-from google.protobuf.message import Message
 
 
 class CroquiModel(QObject):
@@ -15,21 +16,25 @@ class CroquiModel(QObject):
     Emite sinais Qt quando ocorre alguma mutação nos dados subjacentes.
     As mutações devem ser feitas EXCLUSIVAMENTE via Comandos na arquitetura MVC.
     """
-    
-    # Sinais genéricos para a View assinar
-    dado_alterado = Signal(object, str) # msg_pai, campo_nome
-    repeated_adicionado = Signal(object, str, int) # msg_pai, campo_nome, indice
-    repeated_removido = Signal(object, str, int) # msg_pai, campo_nome, indice
-    repeated_item_alterado = Signal(object, str, int) # msg_pai, campo_nome, indice
-    repeated_movido = Signal(object, str, int, int) # msg_pai, campo_nome, index_from, index_to
-    oneof_alterado = Signal(object, str) # msg_pai, oneof_nome
-    foco_requisitado = Signal(object) # msg_id
-    imagem_alterada = Signal(str) # caminho_relativo_imagem
 
+    # Sinais genéricos para a View assinar
+    dado_alterado = Signal(object, str)  # msg_pai, campo_nome
+    repeated_adicionado = Signal(object, str, int)  # msg_pai, campo_nome, indice
+    repeated_removido = Signal(object, str, int)  # msg_pai, campo_nome, indice
+    repeated_item_alterado = Signal(object, str, int)  # msg_pai, campo_nome, indice
+    repeated_movido = Signal(object, str, int, int)  # msg_pai, campo_nome, index_from, index_to
+    oneof_alterado = Signal(object, str)  # msg_pai, oneof_nome
+    foco_requisitado = Signal(object)  # msg_id
+    imagem_alterada = Signal(str)  # caminho_relativo_imagem
 
     @staticmethod
     def __desembrulhar_proxy(obj: Any) -> Any:
-        from editor.models.readonly_proxy import ReadOnlyProxy, ReadOnlyListProxy, ReadOnlyExtensionProxy
+        from editor.models.readonly_proxy import (
+            ReadOnlyExtensionProxy,
+            ReadOnlyListProxy,
+            ReadOnlyProxy,
+        )
+
         if isinstance(obj, ReadOnlyProxy):
             return object.__getattribute__(obj, "_obj")
         if isinstance(obj, ReadOnlyExtensionProxy):
@@ -42,11 +47,13 @@ class CroquiModel(QObject):
         super().__init__(parent)
         self.__croqui: Any = croqui
         from editor.models.readonly_proxy import ReadOnlyProxy
+
         self.__croqui_proxy: Any = ReadOnlyProxy(self.__croqui)
         self._imagens_em_memoria: dict[str, bytes] = {}
         self._anexos_em_memoria: dict[str, bytes] = {}
         self._caminho_db_atual: Any = None
         from editor.models.indice_uids_model import IndiceUidsModel
+
         self._indice_uids: Any = IndiceUidsModel(self.__croqui, parent=self)
 
     @property
@@ -61,6 +68,7 @@ class CroquiModel(QObject):
     def definir_caminho_db(self, caminho_db: Any) -> None:
         """Define o caminho base do banco de dados/croqui no disco para busca de arquivos."""
         from pathlib import Path
+
         self._caminho_db_atual = Path(caminho_db) if caminho_db else None
 
     def obter_bytes_imagem(self, caminho_relativo: str) -> Any:
@@ -103,7 +111,7 @@ class CroquiModel(QObject):
         """Limpa o buffer de imagens em memória."""
         self._imagens_em_memoria.clear()
 
-    def obter_bytes_anexo(self, caminho_relativo: str) -> Optional[bytes]:
+    def obter_bytes_anexo(self, caminho_relativo: str) -> bytes | None:
         """
         Obtém os bytes do documento anexo.
         Verifica primeiro o buffer em memória; se não encontrar, tenta ler do disco no caminho_db_atual.
@@ -144,7 +152,6 @@ class CroquiModel(QObject):
         """Retorna uma view somente leitura do Croqui encapsulado."""
         return self.__croqui_proxy
 
-
     def _set_primitivo(self, msg: Any, campo_nome: str, valor_novo: Any) -> None:
         msg = self.__desembrulhar_proxy(msg)
         if valor_novo is None or valor_novo == "":
@@ -158,6 +165,7 @@ class CroquiModel(QObject):
 
         if hasattr(self, "_indice_uids") and self._indice_uids is not None:
             from editor.models.indice_uids_model import TipoEntidadeUid
+
             if campo_nome == "nome":
                 uid = self._indice_uids.obter_uid_por_objeto(msg)
                 if uid:
@@ -211,7 +219,7 @@ class CroquiModel(QObject):
         pai_destino: Any,
         campo_destino: str,
         indice_destino: int,
-        novo_caminho: Optional[str] = None,
+        novo_caminho: str | None = None,
     ) -> None:
         """
         Migra um setor de uma coleção/pai para outra, atualizando opcionalmente seu caminho_novo.
@@ -232,7 +240,9 @@ class CroquiModel(QObject):
             arq_setor.CopyFrom(item_removido)
 
         if novo_caminho is not None:
-            arq_setor.Extensions[croqui_pb2.ArquivoSetor.ext_metadados_arquivo].caminho_novo = novo_caminho
+            arq_setor.Extensions[
+                croqui_pb2.ArquivoSetor.ext_metadados_arquivo
+            ].caminho_novo = novo_caminho
 
         container_origem.pop(indice_origem)
         self.repeated_removido.emit(pai_origem, campo_origem, indice_origem)
@@ -248,10 +258,12 @@ class CroquiModel(QObject):
             self._indice_uids.carregar_do_croqui(self.__croqui)
         self.repeated_adicionado.emit(pai_destino, campo_destino, indice_destino)
 
-    def _alterar_repeated_item(self, msg: Any, campo_nome: str, index: int, valor_novo: Any) -> None:
+    def _alterar_repeated_item(
+        self, msg: Any, campo_nome: str, index: int, valor_novo: Any
+    ) -> None:
         msg = self.__desembrulhar_proxy(msg)
         repeated_container = getattr(msg, campo_nome)
-        
+
         valor_seguro = _copia_segura(valor_novo)
         if isinstance(valor_seguro, Message):
             repeated_container[index].CopyFrom(valor_seguro)
@@ -261,12 +273,14 @@ class CroquiModel(QObject):
             self._indice_uids.carregar_do_croqui(self.__croqui)
         self.repeated_item_alterado.emit(msg, campo_nome, index)
 
-    def _alterar_oneof(self, msg: Any, oneof_nome: str, nome_antigo: Any, campo_novo: Any, valor_novo: Any) -> None:
+    def _alterar_oneof(
+        self, msg: Any, oneof_nome: str, nome_antigo: Any, campo_novo: Any, valor_novo: Any
+    ) -> None:
         msg = self.__desembrulhar_proxy(msg)
         # Limpa o antigo se existir
         if nome_antigo is not None:
             msg.ClearField(nome_antigo)
-            
+
         # Seta o novo
         if campo_novo is not None:
             valor_seguro = _copia_segura(valor_novo)
@@ -274,36 +288,37 @@ class CroquiModel(QObject):
                 getattr(msg, campo_novo).CopyFrom(valor_seguro)
             else:
                 setattr(msg, campo_novo, valor_seguro)
-                
+
         campo_afetado = oneof_nome or nome_antigo or campo_novo
         if hasattr(self, "_indice_uids") and self._indice_uids is not None:
             self._indice_uids.carregar_do_croqui(self.__croqui)
         self.oneof_alterado.emit(msg, campo_afetado)
 
-
-
-    def _alterar_metadados_caminho_novo(self, msg: Any, ext_descriptor: Any, valor_novo: Any) -> None:
+    def _alterar_metadados_caminho_novo(
+        self, msg: Any, ext_descriptor: Any, valor_novo: Any
+    ) -> None:
         msg = self.__desembrulhar_proxy(msg)
         msg.Extensions[ext_descriptor].caminho_novo = valor_novo
         self.dado_alterado.emit(msg, ext_descriptor.name)
-
 
     def carregar_arquivos_externos(self, caminho_db: Any) -> None:
         """Carrega e mescla no protobuf os arquivos externos de Setor/Grupo e Markdowns."""
         if not caminho_db:
             return
-            
+
         self._caminho_db_atual = caminho_db
-        from google.protobuf import json_format
         import yaml
-        
+        from google.protobuf import json_format
+
         croqui_msg = self.__croqui
-        
+
         if not caminho_db.exists():
             return
 
-        def _ler_objeto_com_frontmatter(caminho_arquivo: Any, message_ref: Any, ext_descriptor: Any) -> dict[str, Any]:
-            with open(caminho_arquivo, "r", encoding="utf-8") as f:
+        def _ler_objeto_com_frontmatter(
+            caminho_arquivo: Any, message_ref: Any, ext_descriptor: Any
+        ) -> dict[str, Any]:
+            with open(caminho_arquivo, encoding="utf-8") as f:
                 content = f.read()
             if content.startswith("---"):
                 parts = content.split("---", 2)
@@ -314,7 +329,7 @@ class CroquiModel(QObject):
                     # do "---", parts[2] começará com "\n". Removemos apenas esse \n e preservamos o resto.
                     if body_str.startswith("\n"):
                         body_str = body_str[1:]
-                    
+
                     try:
                         dados = yaml.safe_load(frontmatter_str) or {}
                     except Exception:
@@ -322,10 +337,13 @@ class CroquiModel(QObject):
                     # Configura a extensão se não existir e salva os metadados
                     if not message_ref.HasExtension(ext_descriptor):
                         message_ref.Extensions[ext_descriptor].caminho_original = ""
-                    
+
                     import json
-                    message_ref.Extensions[ext_descriptor].dados_json_originais = json.dumps(dados, ensure_ascii=False)
-                    
+
+                    message_ref.Extensions[ext_descriptor].dados_json_originais = json.dumps(
+                        dados, ensure_ascii=False
+                    )
+
                     if body_str:
                         dados["descricao"] = body_str
                     return dados if isinstance(dados, dict) else {}
@@ -342,17 +360,27 @@ class CroquiModel(QObject):
                 if caminho_arquivo.exists():
                     try:
                         from aresta_api.proto.generated.croqui_pb2 import ArquivoSetor
-                        dados_setor = _ler_objeto_com_frontmatter(caminho_arquivo, arq_setor, ArquivoSetor.ext_metadados_arquivo)
+
+                        dados_setor = _ler_objeto_com_frontmatter(
+                            caminho_arquivo, arq_setor, ArquivoSetor.ext_metadados_arquivo
+                        )
                         if dados_setor:
-                            json_format.ParseDict(dados_setor, arq_setor.conteudo, ignore_unknown_fields=True)
-                            arq_setor.Extensions[ArquivoSetor.ext_metadados_arquivo].caminho_original = nome_relativo
-                            arq_setor.Extensions[ArquivoSetor.ext_metadados_arquivo].caminho_novo = nome_relativo
+                            json_format.ParseDict(
+                                dados_setor, arq_setor.conteudo, ignore_unknown_fields=True
+                            )
+                            arq_setor.Extensions[
+                                ArquivoSetor.ext_metadados_arquivo
+                            ].caminho_original = nome_relativo
+                            arq_setor.Extensions[
+                                ArquivoSetor.ext_metadados_arquivo
+                            ].caminho_novo = nome_relativo
                             arq_setor.ClearField("caminho")
                         else:
                             if arq_setor.HasExtension(ArquivoSetor.ext_metadados_arquivo):
                                 arq_setor.ClearExtension(ArquivoSetor.ext_metadados_arquivo)
                     except Exception as e:
                         from aresta_api.proto.generated.croqui_pb2 import ArquivoSetor
+
                         if arq_setor.HasExtension(ArquivoSetor.ext_metadados_arquivo):
                             arq_setor.ClearExtension(ArquivoSetor.ext_metadados_arquivo)
                         print(f"Erro ao carregar setor externo {arq_setor.caminho}: {e}")
@@ -364,11 +392,20 @@ class CroquiModel(QObject):
                 if caminho_arquivo.exists():
                     try:
                         from aresta_api.proto.generated.croqui_pb2 import ArquivoGrupo
-                        dados_grupo = _ler_objeto_com_frontmatter(caminho_arquivo, arq_grupo, ArquivoGrupo.ext_metadados_arquivo)
+
+                        dados_grupo = _ler_objeto_com_frontmatter(
+                            caminho_arquivo, arq_grupo, ArquivoGrupo.ext_metadados_arquivo
+                        )
                         if dados_grupo:
-                            json_format.ParseDict(dados_grupo, arq_grupo.conteudo, ignore_unknown_fields=True)
-                            arq_grupo.Extensions[ArquivoGrupo.ext_metadados_arquivo].caminho_original = nome_relativo
-                            arq_grupo.Extensions[ArquivoGrupo.ext_metadados_arquivo].caminho_novo = nome_relativo
+                            json_format.ParseDict(
+                                dados_grupo, arq_grupo.conteudo, ignore_unknown_fields=True
+                            )
+                            arq_grupo.Extensions[
+                                ArquivoGrupo.ext_metadados_arquivo
+                            ].caminho_original = nome_relativo
+                            arq_grupo.Extensions[
+                                ArquivoGrupo.ext_metadados_arquivo
+                            ].caminho_novo = nome_relativo
                             arq_grupo.ClearField("caminho")
                             for s in arq_grupo.conteudo.setores:
                                 _carregar_arquivo_setor(s)
@@ -377,6 +414,7 @@ class CroquiModel(QObject):
                                 arq_grupo.ClearExtension(ArquivoGrupo.ext_metadados_arquivo)
                     except Exception as e:
                         from aresta_api.proto.generated.croqui_pb2 import ArquivoGrupo
+
                         if arq_grupo.HasExtension(ArquivoGrupo.ext_metadados_arquivo):
                             arq_grupo.ClearExtension(ArquivoGrupo.ext_metadados_arquivo)
                         print(f"Erro ao carregar grupo externo {arq_grupo.caminho}: {e}")
@@ -388,17 +426,27 @@ class CroquiModel(QObject):
                 if caminho_arquivo.exists():
                     try:
                         from aresta_api.proto.generated.croqui_pb2 import ArquivoMapas
-                        dados_mapas = _ler_objeto_com_frontmatter(caminho_arquivo, arq_mapas, ArquivoMapas.ext_metadados_arquivo)
+
+                        dados_mapas = _ler_objeto_com_frontmatter(
+                            caminho_arquivo, arq_mapas, ArquivoMapas.ext_metadados_arquivo
+                        )
                         if dados_mapas:
-                            json_format.ParseDict(dados_mapas, arq_mapas.conteudo, ignore_unknown_fields=True)
-                            arq_mapas.Extensions[ArquivoMapas.ext_metadados_arquivo].caminho_original = nome_relativo
-                            arq_mapas.Extensions[ArquivoMapas.ext_metadados_arquivo].caminho_novo = nome_relativo
+                            json_format.ParseDict(
+                                dados_mapas, arq_mapas.conteudo, ignore_unknown_fields=True
+                            )
+                            arq_mapas.Extensions[
+                                ArquivoMapas.ext_metadados_arquivo
+                            ].caminho_original = nome_relativo
+                            arq_mapas.Extensions[
+                                ArquivoMapas.ext_metadados_arquivo
+                            ].caminho_novo = nome_relativo
                             arq_mapas.ClearField("caminho")
                         else:
                             if arq_mapas.HasExtension(ArquivoMapas.ext_metadados_arquivo):
                                 arq_mapas.ClearExtension(ArquivoMapas.ext_metadados_arquivo)
                     except Exception as e:
                         from aresta_api.proto.generated.croqui_pb2 import ArquivoMapas
+
                         if arq_mapas.HasExtension(ArquivoMapas.ext_metadados_arquivo):
                             arq_mapas.ClearExtension(ArquivoMapas.ext_metadados_arquivo)
                         print(f"Erro ao carregar mapas externos {arq_mapas.caminho}: {e}")
@@ -412,7 +460,7 @@ class CroquiModel(QObject):
                     caminho_arquivo = caminho_db / nome_relativo
                     if caminho_arquivo.exists():
                         try:
-                            with open(caminho_arquivo, "r", encoding="utf-8") as f:
+                            with open(caminho_arquivo, encoding="utf-8") as f:
                                 conteudo_md = f.read()
 
                             frontmatter_bloco = ""
@@ -427,13 +475,21 @@ class CroquiModel(QObject):
 
                             md.conteudo = corpo_md
                             from aresta_api.proto.generated.croqui_pb2 import ArquivoMarkdown
-                            md.Extensions[ArquivoMarkdown.ext_metadados_arquivo].caminho_original = nome_relativo
-                            md.Extensions[ArquivoMarkdown.ext_metadados_arquivo].caminho_novo = nome_relativo
+
+                            md.Extensions[
+                                ArquivoMarkdown.ext_metadados_arquivo
+                            ].caminho_original = nome_relativo
+                            md.Extensions[
+                                ArquivoMarkdown.ext_metadados_arquivo
+                            ].caminho_novo = nome_relativo
                             if frontmatter_bloco:
-                                md.Extensions[ArquivoMarkdown.ext_metadados_arquivo].dados_json_originais = frontmatter_bloco
+                                md.Extensions[
+                                    ArquivoMarkdown.ext_metadados_arquivo
+                                ].dados_json_originais = frontmatter_bloco
                             md.ClearField("caminho")
                         except Exception as e:
                             from aresta_api.proto.generated.croqui_pb2 import ArquivoMarkdown
+
                             if md.HasExtension(ArquivoMarkdown.ext_metadados_arquivo):
                                 md.ClearExtension(ArquivoMarkdown.ext_metadados_arquivo)
                             print(f"Erro ao carregar markdown externo {nome_relativo}: {e}")
@@ -453,11 +509,19 @@ class CroquiModel(QObject):
 
     def extrair_arquivos_e_serializar(self, caminho_db: Any) -> dict[str, Any]:
         from pathlib import Path
-        from google.protobuf.json_format import MessageToDict
-        from aresta_api.proto.generated.croqui_pb2 import Croqui, ArquivoSetor, ArquivoGrupo, ArquivoMarkdown, ArquivoMapas
-        from editor.core.serializacao_util import sanitizar_dicionario_sem_extensoes
+
         import yaml
-        
+        from google.protobuf.json_format import MessageToDict
+
+        from aresta_api.proto.generated.croqui_pb2 import (
+            ArquivoGrupo,
+            ArquivoMapas,
+            ArquivoMarkdown,
+            ArquivoSetor,
+            Croqui,
+        )
+        from editor.core.serializacao_util import sanitizar_dicionario_sem_extensoes
+
         caminho_db_path = Path(caminho_db)
         if self._imagens_em_memoria:
             for caminho_rel, bytes_img in self._imagens_em_memoria.items():
@@ -470,6 +534,7 @@ class CroquiModel(QObject):
                     and bytes_img[12:16] == b"VP8L"
                 ):
                     from editor.core.transformacoes_imagem import converter_para_webp_disco
+
                     bytes_img = converter_para_webp_disco(bytes_img, qualidade=90)
                 destino.write_bytes(bytes_img)
 
@@ -498,21 +563,23 @@ class CroquiModel(QObject):
                 for item_novo, item_orig in zip(d_novo, d_original):
                     res.append(_reordenar_recursivamente(item_novo, item_orig))
                 if len(d_novo) > len(d_original):
-                    res.extend(d_novo[len(d_original):])
+                    res.extend(d_novo[len(d_original) :])
                 return res
             if not isinstance(d_novo, dict) or not isinstance(d_original, dict):
                 return d_novo
-                
+
             resultado: dict[str, Any] = {}
             for k in d_original.keys():
                 if k in d_novo:
                     resultado[k] = _reordenar_recursivamente(d_novo.pop(k), d_original[k])
-            
+
             for k, v in d_novo.items():
                 resultado[k] = v
             return resultado
 
-        def _limpar_e_garantir_mapas_dict(mapas_lista: list[dict[str, Any]], nome_para_uid: Optional[dict[str, str]] = None) -> None:
+        def _limpar_e_garantir_mapas_dict(
+            mapas_lista: list[dict[str, Any]], nome_para_uid: dict[str, str] | None = None
+        ) -> None:
             for mapa_dict in mapas_lista:
                 if not isinstance(mapa_dict, dict):
                     continue
@@ -550,7 +617,11 @@ class CroquiModel(QObject):
                     ref_dict.pop("ids", None)
                     ref_dict.pop("indice_mapa_alvo", None)
                     if not validar_uid(ref_dict.get("alvo_uid", "")):
-                        alvo_nome = ref_dict.get("escalada") or ref_dict.get("setor") or ref_dict.get("grupo")
+                        alvo_nome = (
+                            ref_dict.get("escalada")
+                            or ref_dict.get("setor")
+                            or ref_dict.get("grupo")
+                        )
                         if nome_para_uid and alvo_nome and alvo_nome in nome_para_uid:
                             ref_dict["alvo_uid"] = nome_para_uid[alvo_nome]
                     if validar_uid(ref_dict.get("alvo_uid", "")):
@@ -568,14 +639,17 @@ class CroquiModel(QObject):
                     for k, v in ref_itens + ref_resto:
                         ref_dict[k] = v
 
-        def _salvar_objeto_com_frontmatter(caminho_arquivo: Any, dados_dict: dict[str, Any], json_original: Optional[str] = None) -> None:
+        def _salvar_objeto_com_frontmatter(
+            caminho_arquivo: Any, dados_dict: dict[str, Any], json_original: str | None = None
+        ) -> None:
             dados = sanitizar_dicionario_sem_extensoes(dados_dict)
             descricao = dados.pop("descricao", "")
             if descricao:
                 descricao = str(descricao).replace("\r\n", "\n")
-            
+
             if json_original:
                 import json
+
                 try:
                     d_original = json.loads(json_original)
                     dados = _reordenar_recursivamente(dados, d_original)
@@ -600,16 +674,17 @@ class CroquiModel(QObject):
                 f.write("---\n")
                 f.write("# SPDX-License-Identifier: ODbL-1.0\n")
                 f.write("# Copyright (C) 2026 Aresta Climb Contributors\n")
-                
-                # Garante que strings compostas apenas por dígitos sejam entre aspas 
+
+                # Garante que strings compostas apenas por dígitos sejam entre aspas
                 # (evita que parser YAML confunda com números inteiros no futuro, ex: id '09' -> 09)
                 def _str_representer(dumper: Any, data: Any) -> Any:
                     style = None
-                    if data.isdigit() or (data.startswith('-') and data[1:].isdigit()):
+                    if data.isdigit() or (data.startswith("-") and data[1:].isdigit()):
                         style = "'"
-                    return dumper.represent_scalar('tag:yaml.org,2002:str', data, style=style)
+                    return dumper.represent_scalar("tag:yaml.org,2002:str", data, style=style)
+
                 yaml.add_representer(str, _str_representer)
-                
+
                 yaml_str = yaml.dump(dados, allow_unicode=True, sort_keys=False)
                 yaml_str = yaml_str.replace("\r\n", "\n")
                 f.write(yaml_str)
@@ -630,7 +705,10 @@ class CroquiModel(QObject):
             for idx_esc, esc in enumerate(conteudo_setor.escaladas):
                 if not validar_uid(esc.uid):
                     esc.uid = gerar_uid()
-                    if ref_setor.HasField("conteudo") and len(ref_setor.conteudo.escaladas) > idx_esc:
+                    if (
+                        ref_setor.HasField("conteudo")
+                        and len(ref_setor.conteudo.escaladas) > idx_esc
+                    ):
                         ref_setor.conteudo.escaladas[idx_esc].uid = esc.uid
                 t = esc.WhichOneof("tipo")
                 if t:
@@ -642,16 +720,26 @@ class CroquiModel(QObject):
                 for idx_poi, poi in enumerate(mapa.pontos_de_interesse):
                     if not validar_uid(poi.uid):
                         poi.uid = gerar_uid()
-                        if ref_setor.HasField("conteudo") and len(ref_setor.conteudo.mapas) > idx_mapa:
+                        if (
+                            ref_setor.HasField("conteudo")
+                            and len(ref_setor.conteudo.mapas) > idx_mapa
+                        ):
                             ref_m = ref_setor.conteudo.mapas[idx_mapa]
                             if len(ref_m.pontos_de_interesse) > idx_poi:
                                 ref_m.pontos_de_interesse[idx_poi].uid = poi.uid
                 for idx_ref, ref in enumerate(mapa.referencias):
                     if not validar_uid(ref.alvo_uid):
-                        alvo_nome = getattr(ref, "escalada", "") or getattr(ref, "setor", "") or getattr(ref, "grupo", "")
+                        alvo_nome = (
+                            getattr(ref, "escalada", "")
+                            or getattr(ref, "setor", "")
+                            or getattr(ref, "grupo", "")
+                        )
                         if alvo_nome in nome_para_uid_vias:
                             ref.alvo_uid = nome_para_uid_vias[alvo_nome]
-                            if ref_setor.HasField("conteudo") and len(ref_setor.conteudo.mapas) > idx_mapa:
+                            if (
+                                ref_setor.HasField("conteudo")
+                                and len(ref_setor.conteudo.mapas) > idx_mapa
+                            ):
                                 ref_m = ref_setor.conteudo.mapas[idx_mapa]
                                 if len(ref_m.referencias) > idx_ref:
                                     ref_m.referencias[idx_ref].alvo_uid = ref.alvo_uid
@@ -666,25 +754,29 @@ class CroquiModel(QObject):
                 ext = arq_setor_ref.Extensions[ArquivoSetor.ext_metadados_arquivo]
             original_caminho = ext.caminho_original if ext else None
             novo_caminho = ext.caminho_novo if ext and ext.caminho_novo else None
-            
+
             if not novo_caminho and original_caminho:
                 novo_caminho = original_caminho
             if not novo_caminho:
                 novo_caminho = f"setor_{arq_setor.conteudo.nome.replace(' ', '_').lower()}.md"
-            
+
             if original_caminho and original_caminho != novo_caminho:
                 old_file_path = caminho_db_path / original_caminho
                 if old_file_path.exists():
-                    try: old_file_path.unlink()
-                    except Exception: pass
-            
+                    try:
+                        old_file_path.unlink()
+                    except Exception:
+                        pass
+
             nome_para_uid = _garantir_uids_setor(arq_setor.conteudo, arq_setor_ref)
             conteudo_dict = MessageToDict(arq_setor.conteudo, preserving_proto_field_name=True)
             if "mapas" in conteudo_dict:
                 _limpar_e_garantir_mapas_dict(conteudo_dict["mapas"], nome_para_uid=nome_para_uid)
 
             json_original = ext.dados_json_originais if ext and ext.dados_json_originais else None
-            _salvar_objeto_com_frontmatter(caminho_db_path / novo_caminho, conteudo_dict, json_original=json_original)
+            _salvar_objeto_com_frontmatter(
+                caminho_db_path / novo_caminho, conteudo_dict, json_original=json_original
+            )
             arq_setor.caminho = novo_caminho
             arq_setor.ClearField("conteudo")
             arq_setor.ClearExtension(ArquivoSetor.ext_metadados_arquivo)
@@ -693,6 +785,7 @@ class CroquiModel(QObject):
 
         def _extrair_arquivo_mapas(arq_mapas: Any, arq_mapas_ref: Any) -> None:
             from aresta_api.proto.generated.croqui_pb2 import ArquivoMapas
+
             if not arq_mapas.HasField("conteudo"):
                 arq_mapas.ClearExtension(ArquivoMapas.ext_metadados_arquivo)
                 return
@@ -701,18 +794,20 @@ class CroquiModel(QObject):
                 ext = arq_mapas_ref.Extensions[ArquivoMapas.ext_metadados_arquivo]
             original_caminho = ext.caminho_original if ext else None
             novo_caminho = ext.caminho_novo if ext and ext.caminho_novo else None
-            
+
             if not novo_caminho and original_caminho:
                 novo_caminho = original_caminho
             if not novo_caminho:
                 novo_caminho = "mapas_gerais.md"
-            
+
             if original_caminho and original_caminho != novo_caminho:
                 old_file_path = caminho_db_path / original_caminho
                 if old_file_path.exists():
-                    try: old_file_path.unlink()
-                    except Exception: pass
-            
+                    try:
+                        old_file_path.unlink()
+                    except Exception:
+                        pass
+
             for mapa in arq_mapas.conteudo.mapas:
                 for poi in mapa.pontos_de_interesse:
                     if not validar_uid(poi.uid):
@@ -723,7 +818,9 @@ class CroquiModel(QObject):
                 _limpar_e_garantir_mapas_dict(conteudo_dict["mapas"])
 
             json_original = ext.dados_json_originais if ext and ext.dados_json_originais else None
-            _salvar_objeto_com_frontmatter(caminho_db_path / novo_caminho, conteudo_dict, json_original=json_original)
+            _salvar_objeto_com_frontmatter(
+                caminho_db_path / novo_caminho, conteudo_dict, json_original=json_original
+            )
             arq_mapas.caminho = novo_caminho
             arq_mapas.ClearField("conteudo")
             arq_mapas.ClearExtension(ArquivoMapas.ext_metadados_arquivo)
@@ -733,13 +830,13 @@ class CroquiModel(QObject):
         # Picos e Grupos/Setores
         for idx_pico, pico in enumerate(croqui_msg_copy.picos):
             pico_ref = self.__croqui.picos[idx_pico]
-            
+
             if pico.HasField("mapas_gerais"):
                 if pico.mapas_gerais.HasField("conteudo"):
                     _extrair_arquivo_mapas(pico.mapas_gerais, pico_ref.mapas_gerais)
                 else:
                     pico.mapas_gerais.ClearExtension(ArquivoMapas.ext_metadados_arquivo)
-                
+
             for idx_sg, sg in enumerate(pico.setores_ou_grupos):
                 sg_ref = pico_ref.setores_ou_grupos[idx_sg]
 
@@ -770,24 +867,36 @@ class CroquiModel(QObject):
                             ext = sg_ref.grupo.Extensions[ArquivoGrupo.ext_metadados_arquivo]
                         original_caminho = ext.caminho_original if ext else None
                         novo_caminho = ext.caminho_novo if ext and ext.caminho_novo else None
-                        
+
                         if not novo_caminho and original_caminho:
                             novo_caminho = original_caminho
                         if not novo_caminho:
-                            novo_caminho = f"grupo_{sg.grupo.conteudo.nome.replace(' ', '_').lower()}.md"
-                        
+                            novo_caminho = (
+                                f"grupo_{sg.grupo.conteudo.nome.replace(' ', '_').lower()}.md"
+                            )
+
                         if original_caminho and original_caminho != novo_caminho:
                             old_file_path = caminho_db_path / original_caminho
                             if old_file_path.exists():
-                                try: old_file_path.unlink()
-                                except Exception: pass
-                        
-                        conteudo_dict = MessageToDict(sg.grupo.conteudo, preserving_proto_field_name=True)
+                                try:
+                                    old_file_path.unlink()
+                                except Exception:
+                                    pass
+
+                        conteudo_dict = MessageToDict(
+                            sg.grupo.conteudo, preserving_proto_field_name=True
+                        )
                         if "mapas" in conteudo_dict:
                             _limpar_e_garantir_mapas_dict(conteudo_dict["mapas"])
 
-                        json_original = ext.dados_json_originais if ext and ext.dados_json_originais else None
-                        _salvar_objeto_com_frontmatter(caminho_db_path / novo_caminho, conteudo_dict, json_original=json_original)
+                        json_original = (
+                            ext.dados_json_originais if ext and ext.dados_json_originais else None
+                        )
+                        _salvar_objeto_com_frontmatter(
+                            caminho_db_path / novo_caminho,
+                            conteudo_dict,
+                            json_original=json_original,
+                        )
                         sg.grupo.caminho = novo_caminho
                         sg.grupo.ClearField("conteudo")
                         sg.grupo.ClearExtension(ArquivoGrupo.ext_metadados_arquivo)
@@ -808,19 +917,23 @@ class CroquiModel(QObject):
                         ext = md_ref.Extensions[ArquivoMarkdown.ext_metadados_arquivo]
                     original_caminho = ext.caminho_original if ext else None
                     novo_caminho = ext.caminho_novo if ext and ext.caminho_novo else None
-                    
+
                     if not novo_caminho and original_caminho:
                         novo_caminho = original_caminho
                     if not novo_caminho:
                         novo_caminho = f"secao_{botao.texto.replace(' ', '_').lower()}.md"
-                    
+
                     if original_caminho and original_caminho != novo_caminho:
                         old_file_path = caminho_db_path / original_caminho
                         if old_file_path.exists():
-                            try: old_file_path.unlink()
-                            except Exception: pass
-                    
-                    frontmatter_bloco = ext.dados_json_originais if ext and ext.dados_json_originais else ""
+                            try:
+                                old_file_path.unlink()
+                            except Exception:
+                                pass
+
+                    frontmatter_bloco = (
+                        ext.dados_json_originais if ext and ext.dados_json_originais else ""
+                    )
                     conteudo_normalizado = (md.conteudo or "").replace("\r\n", "\n")
                     if frontmatter_bloco:
                         if not frontmatter_bloco.endswith("\n"):
@@ -829,7 +942,9 @@ class CroquiModel(QObject):
                     else:
                         conteudo_final = conteudo_normalizado
 
-                    with open(caminho_db_path / novo_caminho, "w", encoding="utf-8", newline="\n") as f:
+                    with open(
+                        caminho_db_path / novo_caminho, "w", encoding="utf-8", newline="\n"
+                    ) as f:
                         f.write(conteudo_final)
                     md.caminho = novo_caminho
                     md.ClearField("conteudo")
@@ -841,14 +956,16 @@ class CroquiModel(QObject):
 
         ext = None
         from aresta_api.proto.generated.croqui_pb2 import Croqui
+
         if self.__croqui.HasExtension(Croqui.ext_metadados_arquivo):
             ext = self.__croqui.Extensions[Croqui.ext_metadados_arquivo]
         croqui_msg_copy.ClearExtension(Croqui.ext_metadados_arquivo)
-            
+
         resultado = MessageToDict(croqui_msg_copy, preserving_proto_field_name=True)
-            
+
         if ext and ext.dados_json_originais:
             import json
+
             try:
                 d_original = json.loads(ext.dados_json_originais)
                 resultado = _reordenar_recursivamente(resultado, d_original)
@@ -873,7 +990,6 @@ class CroquiModel(QObject):
 
         return resultado if isinstance(resultado, dict) else {}
 
-
     def notificar_foco_requisitado(self, path: Any) -> None:
         if path:
-            self.foco_requisitado.emit(path)
+            self.foco_requisitado.emit(path)

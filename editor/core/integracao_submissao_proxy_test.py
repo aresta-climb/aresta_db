@@ -1,14 +1,15 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
-import pytest
-import pygit2
-import responses
 from pathlib import Path
-from unittest.mock import patch, MagicMock
+from unittest.mock import patch
+
+import pygit2
+import pytest
+import responses
 
 from editor.core.gerenciador_sessao import SessaoUsuario
-from editor.core.servico_submissao import ServicoSubmissao, ResultadoSubmissao
+from editor.core.servico_submissao import ResultadoSubmissao, ServicoSubmissao
 
 
 def criar_repositorio_base_teste(caminho: Path) -> pygit2.Repository:
@@ -47,7 +48,7 @@ def ambiente_submissao(tmp_path):
     arquivo_croqui.write_text("id: pedra_do_bau\nnome: Pedra do Baú\n", encoding="utf-8")
 
     arquivo_imagem = caminho_croqui / "foto1.jpg"
-    arquivo_imagem.write_bytes(b"\xFF\xD8\xFF\xE0_TESTE_IMAGEM")
+    arquivo_imagem.write_bytes(b"\xff\xd8\xff\xe0_TESTE_IMAGEM")
 
     sessao = SessaoUsuario(
         email="colaborador@arestaclimb.com",
@@ -124,7 +125,10 @@ class TesteIntegracaoSubmissaoProxy:
             assert head_commit.author.name == "Carlos Escalador"
             assert head_commit.author.email == "colaborador@arestaclimb.com"
             assert "edicao(pedra_do_bau): Adição de novas vias no Baú" in head_commit.message
-            assert "Signed-off-by: Carlos Escalador <colaborador@arestaclimb.com>" in head_commit.message
+            assert (
+                "Signed-off-by: Carlos Escalador <colaborador@arestaclimb.com>"
+                in head_commit.message
+            )
 
             # Valida que o push foi invocado com a branch e o JWT
             mock_push.assert_called_once()
@@ -151,21 +155,25 @@ class TesteIntegracaoSubmissaoProxy:
             },
             status=200,
         )
-        
+
         chamadas_create_pr = []
+
         def callback_create_pr(request):
             import json
+
             payload = json.loads(request.body)
             chamadas_create_pr.append(payload)
             return (
                 200,
                 {"Content-Type": "application/json"},
-                json.dumps({
-                    "sucesso": True,
-                    "pr_number": 88,
-                    "pr_url": "https://github.com/aresta-climb/aresta_db/pull/88",
-                    "branch": payload.get("branch"),
-                }),
+                json.dumps(
+                    {
+                        "sucesso": True,
+                        "pr_number": 88,
+                        "pr_url": "https://github.com/aresta-climb/aresta_db/pull/88",
+                        "branch": payload.get("branch"),
+                    }
+                ),
             )
 
         responses.add_callback(
@@ -191,4 +199,6 @@ class TesteIntegracaoSubmissaoProxy:
 
             assert resultado.sucesso is True
             assert len(chamadas_create_pr) == 1
-            assert chamadas_create_pr[0].get("token_usuario_github") == "gho_token_usuario_oauth_123"
+            assert (
+                chamadas_create_pr[0].get("token_usuario_github") == "gho_token_usuario_oauth_123"
+            )

@@ -17,9 +17,32 @@ PADRAO_COPYRIGHT = re.compile(
     re.MULTILINE,
 )
 
-DIRETORIOS_IGNORADOS = {".git", "generated", "database", ".pytest_cache", "__pycache__", "venv", ".venv", "scratch"}
-DIRETORIOS_IGNORADOS_GPL = {".git", "generated", "database", ".pytest_cache", "__pycache__", "venv", ".venv", "openspec", "scratch"}
-ARQUIVOS_IGNORADOS_GPL = {"codebase_headers_test.py", "validador_cabecalhos.py", "validador_cabecalhos_test.py"}
+DIRETORIOS_IGNORADOS = {
+    ".git",
+    "generated",
+    "database",
+    ".pytest_cache",
+    "__pycache__",
+    "venv",
+    ".venv",
+    "scratch",
+}
+DIRETORIOS_IGNORADOS_GPL = {
+    ".git",
+    "generated",
+    "database",
+    ".pytest_cache",
+    "__pycache__",
+    "venv",
+    ".venv",
+    "openspec",
+    "scratch",
+}
+ARQUIVOS_IGNORADOS_GPL = {
+    "codebase_headers_test.py",
+    "validador_cabecalhos.py",
+    "validador_cabecalhos_test.py",
+}
 
 
 def obter_raiz_repositorio(raiz: Path | None = None) -> Path:
@@ -44,7 +67,7 @@ def verificar_spdx_e_copyright_py(raiz: Path | None = None) -> list[str]:
             continue
 
         try:
-            with open(filepath, "r", encoding="utf-8") as f:
+            with open(filepath, encoding="utf-8") as f:
                 content = f.read()
         except Exception:
             continue
@@ -87,7 +110,7 @@ def verificar_gpl_residual_py(
             continue
 
         try:
-            with open(filepath, "r", encoding="utf-8") as f:
+            with open(filepath, encoding="utf-8") as f:
                 content = f.read()
         except Exception:
             continue
@@ -122,7 +145,7 @@ def verificar_odbl_e_copyright_database(raiz: Path | None = None) -> list[str]:
             continue
 
         try:
-            with open(filepath, "r", encoding="utf-8") as f:
+            with open(filepath, encoding="utf-8") as f:
                 content = f.read()
         except Exception:
             continue

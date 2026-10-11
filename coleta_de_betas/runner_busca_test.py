@@ -1,12 +1,12 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
-import pytest
 from pathlib import Path
 from unittest.mock import MagicMock
+
 from aresta_api.proto.generated import beta_pb2
-from coleta_de_betas.runner_busca import buscar_candidatos_para_croqui, executar_cli_buscar
 from coleta_de_betas.io_yaml import salvar_vias_extraidas_yaml
+from coleta_de_betas.runner_busca import buscar_candidatos_para_croqui, executar_cli_buscar
 
 
 def test_buscar_candidatos_para_croqui():
@@ -51,7 +51,7 @@ def test_buscar_candidatos_para_croqui():
 
     assert resultado_pendentes.id_croqui == "br_mg_croqui"
     assert len(resultado_pendentes.candidatos_por_escalada) == 1
-    
+
     cand_esc = resultado_pendentes.candidatos_por_escalada[0]
     assert cand_esc.nome_escalada == "Fusca Azul"
     assert cand_esc.grau == "V4"
@@ -84,10 +84,7 @@ def test_executar_cli_buscar(tmp_path: Path):
     m.titulo = "Vídeo Teste"
     mock_ext.buscar.return_value = [m]
 
-    retorno = executar_cli_buscar(
-        [str(pico_dir)],
-        extratores=[mock_ext]
-    )
+    retorno = executar_cli_buscar([str(pico_dir)], extratores=[mock_ext])
     assert retorno == 0
     assert candidatos_yaml.exists()
 

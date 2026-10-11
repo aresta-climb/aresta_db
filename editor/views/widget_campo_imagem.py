@@ -7,30 +7,30 @@ armazenadas em memória RAM ou em disco no editor.
 """
 
 from pathlib import Path
-from typing import Optional, Dict
-from PySide6.QtCore import Qt, Signal, QByteArray
-from PySide6.QtGui import QPixmap, QImage
+
+from PySide6.QtCore import Qt, Signal
+from PySide6.QtGui import QPixmap
 from PySide6.QtWidgets import (
-    QWidget,
-    QHBoxLayout,
-    QVBoxLayout,
-    QLabel,
-    QPushButton,
-    QFileDialog,
     QDialog,
-    QLineEdit,
     QDialogButtonBox,
+    QFileDialog,
     QFrame,
+    QHBoxLayout,
+    QLabel,
+    QLineEdit,
+    QPushButton,
+    QVBoxLayout,
+    QWidget,
 )
 
-from editor.models.croqui_model import CroquiModel
 from editor.core.processamento_imagem_campo import (
+    AREA_MAXIMA_PADRAO,
+    comprimir_imagem_para_bytes_webp,
+    obter_metadados_imagem,
     sanitizar_nome_arquivo_imagem,
     verificar_conflito_nome_imagem,
-    obter_metadados_imagem,
-    comprimir_imagem_para_bytes_webp,
-    AREA_MAXIMA_PADRAO,
 )
+from editor.models.croqui_model import CroquiModel
 
 
 class DialogoNomeImagem(QDialog):
@@ -38,12 +38,13 @@ class DialogoNomeImagem(QDialog):
     Diálogo para escolha do nome de destino da imagem quando o campo não possui nome fixo.
     Informa sobre possíveis conflitos com arquivos já existentes.
     """
+
     def __init__(
         self,
         nome_sugerido: str,
-        pasta_imagens: Optional[Path] = None,
-        imagens_em_memoria: Optional[Dict[str, bytes]] = None,
-        parent: Optional[QWidget] = None,
+        pasta_imagens: Path | None = None,
+        imagens_em_memoria: dict[str, bytes] | None = None,
+        parent: QWidget | None = None,
     ) -> None:
 
         super().__init__(parent)
@@ -65,7 +66,9 @@ class DialogoNomeImagem(QDialog):
         self.rotulo_aviso.setStyleSheet("color: #d97706; font-size: 11px;")
         layout.addWidget(self.rotulo_aviso)
 
-        self.botoes = QDialogButtonBox(QDialogButtonBox.StandardButton.Ok | QDialogButtonBox.StandardButton.Cancel)
+        self.botoes = QDialogButtonBox(
+            QDialogButtonBox.StandardButton.Ok | QDialogButtonBox.StandardButton.Cancel
+        )
         self.botoes.accepted.connect(self.accept)
         self.botoes.rejected.connect(self.reject)
         layout.addWidget(self.botoes)
@@ -78,7 +81,9 @@ class DialogoNomeImagem(QDialog):
             nome_sanitizado, self.pasta_imagens, self.imagens_em_memoria
         )
         if tem_conflito:
-            self.rotulo_aviso.setText("⚠️ Já existe um arquivo com este nome. Ele será substituído ao salvar o croqui.")
+            self.rotulo_aviso.setText(
+                "⚠️ Já existe um arquivo com este nome. Ele será substituído ao salvar o croqui."
+            )
         else:
             self.rotulo_aviso.setText("")
 
@@ -96,22 +101,23 @@ class WidgetCampoImagem(QWidget):
     """
     Widget de exibição de miniatura, metadados e controle de troca de imagem.
     """
+
     imagem_alterada = Signal(str, bytes)  # caminho_relativo, bytes_conteudo
     imagem_removida = Signal()
     abrir_no_editor = Signal(str)  # caminho_relativo
 
     def __init__(
         self,
-        model: Optional[CroquiModel] = None,
+        model: CroquiModel | None = None,
         caminho_imagem: str = "",
-        nome_arquivo_fixo: Optional[str] = None,
+        nome_arquivo_fixo: str | None = None,
         area_maxima: int = AREA_MAXIMA_PADRAO,
-        parent: Optional[QWidget] = None,
+        parent: QWidget | None = None,
     ) -> None:
         super().__init__(parent)
-        self.model: Optional[CroquiModel] = model
+        self.model: CroquiModel | None = model
         self._caminho_atual: str = caminho_imagem
-        self.nome_arquivo_fixo: Optional[str] = nome_arquivo_fixo
+        self.nome_arquivo_fixo: str | None = nome_arquivo_fixo
         self.area_maxima: int = area_maxima
 
         layout_principal = QVBoxLayout(self)
@@ -128,7 +134,9 @@ class WidgetCampoImagem(QWidget):
         self.rotulo_preview = QLabel()
         self.rotulo_preview.setFixedSize(140, 100)
         self.rotulo_preview.setAlignment(Qt.AlignmentFlag.AlignCenter)
-        self.rotulo_preview.setStyleSheet("background-color: rgba(0, 0, 0, 0.05); border-radius: 4px;")
+        self.rotulo_preview.setStyleSheet(
+            "background-color: rgba(0, 0, 0, 0.05); border-radius: 4px;"
+        )
         layout_card.addWidget(self.rotulo_preview)
 
         # Informações e botões
@@ -271,4 +279,3 @@ class WidgetCampoImagem(QWidget):
     def _ao_clicar_abrir_editor(self) -> None:
         if self._caminho_atual:
             self.abrir_no_editor.emit(self._caminho_atual)
-

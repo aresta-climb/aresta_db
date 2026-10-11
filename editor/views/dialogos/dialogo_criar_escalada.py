@@ -1,24 +1,23 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
-from typing import Optional, List, Tuple
+
 from PySide6.QtWidgets import (
+    QComboBox,
     QDialog,
-    QVBoxLayout,
     QHBoxLayout,
     QLabel,
     QLineEdit,
-    QComboBox,
     QPushButton,
+    QVBoxLayout,
     QWidget,
 )
-from PySide6.QtCore import Qt
 
 
 class DialogoCriarEscalada(QDialog):
     """Diálogo modal para criação de uma nova escalada com escolha de tipo e nome."""
 
-    OPCOES_TIPO: List[Tuple[str, str]] = [
+    OPCOES_TIPO: list[tuple[str, str]] = [
         ("Via Esportiva", "via_esportiva"),
         ("Via Móvel", "via_movel"),
         ("Boulder", "boulder"),
@@ -26,12 +25,16 @@ class DialogoCriarEscalada(QDialog):
         ("Highline", "highline"),
     ]
 
-    def __init__(self, parent: Optional[QWidget] = None, nomes_existentes: Optional[List[str]] = None) -> None:
+    def __init__(
+        self, parent: QWidget | None = None, nomes_existentes: list[str] | None = None
+    ) -> None:
         super().__init__(parent)
         self.setWindowTitle("Nova Escalada")
         self.setMinimumWidth(380)
 
-        self.nomes_existentes: List[str] = [n.strip().lower() for n in (nomes_existentes or []) if n]
+        self.nomes_existentes: list[str] = [
+            n.strip().lower() for n in (nomes_existentes or []) if n
+        ]
 
         layout_principal = QVBoxLayout(self)
         layout_principal.setSpacing(12)
@@ -112,15 +115,16 @@ class DialogoCriarEscalada(QDialog):
         self.lbl_aviso.setText("")
         self.btn_criar.setEnabled(True)
 
-    def obter_dados_confirmados(self) -> Tuple[str, str, bool]:
+    def obter_dados_confirmados(self) -> tuple[str, str, bool]:
         """Retorna (tipo_chave, nome, confirmado)."""
-        ok = (self.result() == QDialog.DialogCode.Accepted)
+        ok = self.result() == QDialog.DialogCode.Accepted
         return self.obter_tipo_selecionado(), self.edit_nome.text().strip(), ok
 
     @classmethod
-    def obter_dados(cls, parent: Optional[QWidget] = None, nomes_existentes: Optional[List[str]] = None) -> Tuple[str, str, bool]:
+    def obter_dados(
+        cls, parent: QWidget | None = None, nomes_existentes: list[str] | None = None
+    ) -> tuple[str, str, bool]:
         """Método estático de conveniência."""
         dialogo = cls(parent=parent, nomes_existentes=nomes_existentes)
         dialogo.exec()
         return dialogo.obter_dados_confirmados()
-

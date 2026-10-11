@@ -1,16 +1,20 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
-from typing import Any, Dict, List, Tuple, Union, Optional, Iterator
-import io
 import argparse
+from collections.abc import Iterator
+from typing import Any
+
 import pymupdf as _pymupdf
+
 pymupdf: Any = _pymupdf
 
-import shutil
-from PIL import Image
-from pathlib import Path
 import json
+import shutil
+from pathlib import Path
+
+from PIL import Image
+
 
 def converter_para_webp(pasta_destino_path: Path, imagem_origem_path: Path) -> None:
     """Converte uma imagem para WebP com redimensionamento inteligente."""
@@ -24,12 +28,13 @@ def converter_para_webp(pasta_destino_path: Path, imagem_origem_path: Path) -> N
             new_width = int(pil_img.width * scale)
             new_height = int(pil_img.height * scale)
             pil_img.thumbnail((new_width, new_height), Image.Resampling.LANCZOS)
-        
+
         pil_img.save(imagem_destino_path, "WEBP", quality=85)
+
 
 def _corrigir_pdf_malformado(doc: Any) -> None:
     """
-    Remove a árvore de estrutura corrompida do PDF para evitar erros de 
+    Remove a árvore de estrutura corrompida do PDF para evitar erros de
     'No common ancestor in structure tree'. Este erro ocorre em PDFs etiquetados
     com estrutura lógica malformada ao tentar manipular páginas.
     """
@@ -39,6 +44,7 @@ def _corrigir_pdf_malformado(doc: Any) -> None:
     except Exception:
         # Silenciosamente ignoramos falhas na tentativa de correção
         pass
+
 
 def _serializar_objeto_pymupdf(obj: Any) -> Any:
     """Converte objetos do PyMuPDF (Rect, Point, Matrix) em tipos básicos do Python."""
@@ -53,7 +59,7 @@ def _serializar_objeto_pymupdf(obj: Any) -> Any:
             [obj.ul.x, obj.ul.y],
             [obj.ur.x, obj.ur.y],
             [obj.ll.x, obj.ll.y],
-            [obj.lr.x, obj.lr.y]
+            [obj.lr.x, obj.lr.y],
         ]
     if isinstance(obj, dict):
         return {k: _serializar_objeto_pymupdf(v) for k, v in obj.items()}
@@ -61,14 +67,20 @@ def _serializar_objeto_pymupdf(obj: Any) -> Any:
         return [_serializar_objeto_pymupdf(i) for i in obj]
     return obj
 
-def translate_coordinates(drawings: Any, text_dict: Any, img_bbox: Any, zoom: float, img_size_px: Tuple[int, int]) -> Tuple[List[Any], List[Any]]:
+
+def translate_coordinates(
+    drawings: Any, text_dict: Any, img_bbox: Any, zoom: float, img_size_px: tuple[int, int]
+) -> tuple[list[Any], list[Any]]:
     """Traduz coordenadas globais do PDF para coordenadas locais da imagem extraída."""
     scale_x = img_size_px[0] / img_bbox.width if img_bbox.width else 1.0
     scale_y = img_size_px[1] / img_bbox.height if img_bbox.height else 1.0
 
-    def tx(x: float) -> float: return float((x - img_bbox.x0) * scale_x)
-    def ty(y: float) -> float: return float((y - img_bbox.y0) * scale_y)
-    
+    def tx(x: float) -> float:
+        return float((x - img_bbox.x0) * scale_x)
+
+    def ty(y: float) -> float:
+        return float((y - img_bbox.y0) * scale_y)
+
     def transform_obj(obj: Any) -> Any:
 
         if isinstance(obj, pymupdf.Rect):
@@ -80,7 +92,7 @@ def translate_coordinates(drawings: Any, text_dict: Any, img_bbox: Any, zoom: fl
                 pymupdf.Point(tx(obj.ul.x), ty(obj.ul.y)),
                 pymupdf.Point(tx(obj.ur.x), ty(obj.ur.y)),
                 pymupdf.Point(tx(obj.ll.x), ty(obj.ll.y)),
-                pymupdf.Point(tx(obj.lr.x), ty(obj.lr.y))
+                pymupdf.Point(tx(obj.lr.x), ty(obj.lr.y)),
             )
         if isinstance(obj, dict):
             return {k: transform_obj(v) for k, v in obj.items()}
@@ -94,7 +106,7 @@ def translate_coordinates(drawings: Any, text_dict: Any, img_bbox: Any, zoom: fl
             # Verifica se o desenho está contido ou intersecta a imagem
             if not img_bbox.intersects(draw["rect"]):
                 continue
-            
+
             # Traduz coordenadas de todos os elementos do desenho
             t_draw = transform_obj(draw)
             # Serializa para tipos básicos (listas/floats) para o JSON
@@ -103,19 +115,19 @@ def translate_coordinates(drawings: Any, text_dict: Any, img_bbox: Any, zoom: fl
     translated_text = []
     if text_dict and text_dict.get("blocks"):
         for block in text_dict["blocks"]:
-            if block["type"] != 0: # Apenas texto
+            if block["type"] != 0:  # Apenas texto
                 continue
-            
+
             # block["bbox"] em text_dict costuma ser uma tupla de floats, não Rect
             b = block["bbox"]
             b_rect = pymupdf.Rect(b)
             if not img_bbox.intersects(b_rect):
                 continue
-                
+
             t_block = dict(block)
             t_block["bbox"] = [tx(b[0]), ty(b[1]), tx(b[2]), ty(b[3])]
             t_block["lines"] = []
-            
+
             for line in block.get("lines", []):
                 t_line = dict(line)
                 lb = line["bbox"]
@@ -133,20 +145,22 @@ def translate_coordinates(drawings: Any, text_dict: Any, img_bbox: Any, zoom: fl
 
     return translated_draws, translated_text
 
+
 def are_tiles(r1: Any, r2: Any, tolerance: float = 1.5) -> bool:
     """Verifica se dois retângulos são compatíveis como tiles (próximos e alinhados)."""
     # 1. Verifica se estão próximos ou se sobrepõem
     dx = max(0.0, float(r1.x0 - r2.x1), float(r2.x0 - r1.x1))
     dy = max(0.0, float(r1.y0 - r2.y1), float(r2.y0 - r1.y1))
-    if (dx**2 + dy**2)**0.5 > tolerance:
+    if (dx**2 + dy**2) ** 0.5 > tolerance:
         return False
-        
+
     # 2. Verifica alinhamento (mesma largura ou mesma altura)
     # Tiles de fundo costumam ser tiras verticais ou horizontais perfeitas
     same_width = abs(r1.x0 - r2.x0) < tolerance and abs(r1.x1 - r2.x1) < tolerance
     same_height = abs(r1.y0 - r2.y0) < tolerance and abs(r1.y1 - r2.y1) < tolerance
-    
+
     return bool(same_width or same_height)
+
 
 def sao_fatias_adjacentes(r1: Any, r2: Any, tolerancia: float = 2.0) -> bool:
     """Verifica se dois retângulos compartilham uma borda comum (são fatias adjacentes)."""
@@ -163,6 +177,7 @@ def sao_fatias_adjacentes(r1: Any, r2: Any, tolerancia: float = 2.0) -> bool:
         return True
 
     return False
+
 
 def detectar_fatiamento_pagina(page: Any, tolerancia: float = 2.0) -> bool:
     """Detecta se as imagens da página formam um mosaico de fatias decorrente de transparências."""
@@ -209,36 +224,33 @@ def detectar_fatiamento_pagina(page: Any, tolerancia: float = 2.0) -> bool:
     return False
 
 
-def group_rects(rect_info_list: List[Any], tolerance: float = 2.0) -> List[Dict[str, Any]]:
+def group_rects(rect_info_list: list[Any], tolerance: float = 2.0) -> list[dict[str, Any]]:
     """Agrupa retângulos que são compatíveis como tiles."""
-    groups: List[Dict[str, Any]] = []
+    groups: list[dict[str, Any]] = []
     for rect, info in rect_info_list:
-        merged_indices: List[int] = []
+        merged_indices: list[int] = []
         for i, group in enumerate(groups):
             # Tenta encontrar qualquer imagem no grupo que seja um "tile" compatível
-            if any(are_tiles(rect, r, tolerance) for r in group['rects']):
+            if any(are_tiles(rect, r, tolerance) for r in group["rects"]):
                 merged_indices.append(i)
-        
+
         if not merged_indices:
-            groups.append({
-                'rects': [rect],
-                'infos': [info],
-                'union': rect
-            })
+            groups.append({"rects": [rect], "infos": [info], "union": rect})
         else:
             # Mescla com todos os grupos compatíveis
             first_idx = merged_indices[0]
-            groups[first_idx]['rects'].append(rect)
-            groups[first_idx]['infos'].append(info)
-            groups[first_idx]['union'] = groups[first_idx]['union'] | rect
-            
+            groups[first_idx]["rects"].append(rect)
+            groups[first_idx]["infos"].append(info)
+            groups[first_idx]["union"] = groups[first_idx]["union"] | rect
+
             # Se intersectou mais de um grupo, mescla os grupos entre si
             for other_idx in reversed(merged_indices[1:]):
                 other_group = groups.pop(other_idx)
-                groups[first_idx]['rects'].extend(other_group['rects'])
-                groups[first_idx]['infos'].extend(other_group['infos'])
-                groups[first_idx]['union'] = groups[first_idx]['union'] | other_group['union']
+                groups[first_idx]["rects"].extend(other_group["rects"])
+                groups[first_idx]["infos"].extend(other_group["infos"])
+                groups[first_idx]["union"] = groups[first_idx]["union"] | other_group["union"]
     return groups
+
 
 def extrair_imagens_da_parte(
     doc: Any,
@@ -246,7 +258,7 @@ def extrair_imagens_da_parte(
     part_name: str,
     output_path: Path,
     extract_full_pages: bool = False,
-    apenas_extrair: bool = False
+    apenas_extrair: bool = False,
 ) -> Any:
     """Extrai imagens das páginas especificadas, agrupando tiles adjacentes por padrão."""
     raw_image_dir = output_path / "raw_imagens" / part_name
@@ -260,7 +272,7 @@ def extrair_imagens_da_parte(
         page = doc.load_page(page_index)
         drawings = page.get_drawings()
         text_dict = page.get_text("dict")
-        
+
         # Matriz para converter de coordenadas do mediabox (unrotated) para página (rotated)
         trans_mat = page.rotation_matrix
 
@@ -270,7 +282,9 @@ def extrair_imagens_da_parte(
         # 1. Extrair a página inteira como imagem se solicitado ou se fatiamento foi detectado
         if extrair_pagina_atual:
             if fatiamento_detectado and not extract_full_pages:
-                print(f"  [AUTO-DETECT] Fatiamento de imagem detectado na página {local_index} de '{part_name}'. Renderizando página completa.")
+                print(
+                    f"  [AUTO-DETECT] Fatiamento de imagem detectado na página {local_index} de '{part_name}'. Renderizando página completa."
+                )
             pix = page.get_pixmap(dpi=150)
             page_png_path = raw_image_dir / f"p{local_index}.png"
             pix.save(str(page_png_path))
@@ -296,14 +310,14 @@ def extrair_imagens_da_parte(
 
         if apenas_extrair:
             # Com a flag habilitada, cada imagem individual é tratada separadamente (comportamento antigo)
-            groups = [{'rects': [r], 'infos': [i], 'union': r} for r, i in rect_info_list]
+            groups = [{"rects": [r], "infos": [i], "union": r} for r, i in rect_info_list]
         else:
             # Por padrão, agrupa imagens adjacentes e alinhadas (mosaicos)
             groups = group_rects(rect_info_list, tolerance=2)
 
         for g_idx, group in enumerate(groups):
-            img_bbox = group['union']
-            
+            img_bbox = group["union"]
+
             # Se o grupo for minúsculo (área quase zero), ignorar
             if img_bbox.width < 1 or img_bbox.height < 1:
                 continue
@@ -315,15 +329,15 @@ def extrair_imagens_da_parte(
             # Tenta inferir o zoom original baseado na maior largura/altura das imagens do grupo
             # para manter a resolução nativa do PDF
             max_zoom = 1.0
-            for info in group['infos']:
+            for info in group["infos"]:
                 w_px = info.get("width", 1)
                 # Usamos o bbox original para calcular o zoom pois w_px é relativo a ele
                 w_pt = pymupdf.Rect(info["bbox"]).width
                 if w_pt > 0:
                     max_zoom = max(max_zoom, w_px / w_pt)
-            
+
             # Limitar zoom para evitar imagens gigantescas (max ~432 DPI)
-            max_zoom = min(max_zoom, 6.0) 
+            max_zoom = min(max_zoom, 6.0)
 
             # Limitar zoom de forma dinâmica para evitar resolução insana
             if img_bbox.width > 0 and img_bbox.height > 0:
@@ -344,14 +358,15 @@ def extrair_imagens_da_parte(
                 print(f"  Erro crítico ao renderizar {base_name}: {e}. Tentando zoom menor.")
                 mat = pymupdf.Matrix(1.5, 1.5)
                 pix = page.get_pixmap(matrix=mat, clip=img_bbox, colorspace=pymupdf.csRGB)
-            
-            if isinstance(getattr(pix, "width", None), (int, float)) and isinstance(getattr(pix, "height", None), (int, float)):
+
+            if isinstance(getattr(pix, "width", None), (int, float)) and isinstance(
+                getattr(pix, "height", None), (int, float)
+            ):
                 if pix.width <= 0 or pix.height <= 0:
                     continue
 
             img_pil = Image.frombytes("RGB", (int(pix.width), int(pix.height)), pix.samples)
 
-            
             # Aplicar o limite de área para o aplicativo
             max_area = 2048 * 2048
             area = img_pil.width * img_pil.height
@@ -360,16 +375,16 @@ def extrair_imagens_da_parte(
                 new_width = int(img_pil.width * scale)
                 new_height = int(img_pil.height * scale)
                 img_pil.thumbnail((new_width, new_height), Image.Resampling.LANCZOS)
-            
+
             # Salvar WebP
             img_pil.save(final_webp_path, "WEBP", quality=85)
-            
+
             # 3. Extrair os componentes originais (raw) deste grupo para referência
-            for sub_idx, info in enumerate(group['infos']):
+            for sub_idx, info in enumerate(group["infos"]):
                 xref = info.get("xref", 0)
-                sub_rect_rotated = group['rects'][sub_idx]
+                sub_rect_rotated = group["rects"][sub_idx]
                 sub_name = f"raw_{base_name}_{sub_idx}"
-                
+
                 try:
                     if xref > 0:
                         img_data = doc.extract_image(xref)
@@ -382,14 +397,20 @@ def extrair_imagens_da_parte(
                         if not page.rect.intersects(sub_rect_rotated):
                             continue
                         sub_mat = pymupdf.Matrix(max_zoom, max_zoom)
-                        sub_pix = page.get_pixmap(matrix=sub_mat, clip=sub_rect_rotated, colorspace=pymupdf.csRGB)
-                        if isinstance(getattr(sub_pix, "width", None), (int, float)) and isinstance(getattr(sub_pix, "height", None), (int, float)):
+                        sub_pix = page.get_pixmap(
+                            matrix=sub_mat, clip=sub_rect_rotated, colorspace=pymupdf.csRGB
+                        )
+                        if isinstance(getattr(sub_pix, "width", None), (int, float)) and isinstance(
+                            getattr(sub_pix, "height", None), (int, float)
+                        ):
                             if sub_pix.width <= 0 or sub_pix.height <= 0:
                                 continue
                         raw_file_path = raw_image_dir / f"{sub_name}.png"
                         sub_pix.save(str(raw_file_path))
                 except Exception as e:
-                    print(f"  Aviso: Erro ao extrair componente raw {sub_idx} do grupo {base_name}: {e}")
+                    print(
+                        f"  Aviso: Erro ao extrair componente raw {sub_idx} do grupo {base_name}: {e}"
+                    )
 
             # Gera metadados JSON para o mapa interativo
             # Traduz desenhos e blocos de texto para as coordenadas locais desta imagem
@@ -405,7 +426,7 @@ def extrair_imagens_da_parte(
                 "height": img_pil.size[1],
                 "desenhos": translated_draws,
                 "texto": translated_text,
-                "pontos_interesse": [] # Para preenchimento manual posterior
+                "pontos_interesse": [],  # Para preenchimento manual posterior
             }
 
             with open(output_image_dir / f"{base_name}.json", "w", encoding="utf-8") as f:
@@ -418,12 +439,13 @@ def extrair_imagens_da_parte(
 
     return doc
 
+
 def repartir_pdf(
     pdf_path: Path,
-    partes_json: Dict[str, List[int]],
+    partes_json: dict[str, list[int]],
     output_path: Path,
     include_pages: bool = False,
-    apenas_extrair: bool = False
+    apenas_extrair: bool = False,
 ) -> Iterator[Path]:
     """
     Divide o PDF original em sub-pdfs e extrai imagens.
@@ -440,25 +462,28 @@ def repartir_pdf(
 
     for part_name, paginas in partes_json.items():
         print(f"Processando parte: {part_name} (Páginas: {paginas})")
-        
+
         # 1. Gerar o sub-pdf para esta parte
         new_doc = pymupdf.open()
         new_doc.insert_pdf(src, from_page=paginas[0], to_page=paginas[-1])
-        
+
         part_pdf_path = output_path / f"{part_name}.pdf"
         new_doc.save(part_pdf_path)
         new_doc.close()
-        
+
         # 2. Extrair imagens desta parte
         part_doc = pymupdf.open(part_pdf_path)
-        extrair_imagens_da_parte(part_doc, range(len(paginas)), part_name, output_path, include_pages, apenas_extrair)
+        extrair_imagens_da_parte(
+            part_doc, range(len(paginas)), part_name, output_path, include_pages, apenas_extrair
+        )
         part_doc.close()
-        
+
         yield part_pdf_path
 
     src.close()
     if temp_pdf.exists():
         temp_pdf.unlink()
+
 
 def main() -> None:
 
@@ -466,10 +491,18 @@ def main() -> None:
         description="Quebra um PDF de escalada em vários arquivos pdfs "
         "baseado no arquivo partes.json de input e gera os metadados necessários para conversão."
     )
-    
+
     parser.add_argument("db_folder", help="Pasta do croqui no database (ex: database/br_mg_...)")
-    parser.add_argument("--incluir-paginas", action="store_true", help="Extrai também as imagens completas das páginas (pX.webp)")
-    parser.add_argument("--apenas-extrair", action="store_true", help="Extrai cada componente de imagem individualmente sem agrupar mosaicos")
+    parser.add_argument(
+        "--incluir-paginas",
+        action="store_true",
+        help="Extrai também as imagens completas das páginas (pX.webp)",
+    )
+    parser.add_argument(
+        "--apenas-extrair",
+        action="store_true",
+        help="Extrai cada componente de imagem individualmente sem agrupar mosaicos",
+    )
     args = parser.parse_args()
 
     db_folder = Path(args.db_folder)
@@ -495,19 +528,23 @@ def main() -> None:
             shutil.rmtree(output_path)
         except Exception:
             shutil.rmtree(output_path, ignore_errors=True)
-        
+
     output_path.mkdir(parents=True, exist_ok=True)
 
     try:
-        with open(partes_json_path, 'r', encoding='utf-8') as f:
+        with open(partes_json_path, encoding="utf-8") as f:
             partes_json = json.load(f)
 
-        for _ in repartir_pdf(pdf_path, partes_json, output_path, args.incluir_paginas, args.apenas_extrair):
+        for _ in repartir_pdf(
+            pdf_path, partes_json, output_path, args.incluir_paginas, args.apenas_extrair
+        ):
             pass
     except Exception as e:
         import traceback
+
         traceback.print_exc()
         print(f"Error processing: {e}")
+
 
 if __name__ == "__main__":
     main()

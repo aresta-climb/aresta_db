@@ -10,14 +10,14 @@ da implementação dos componentes subjacentes.
 """
 
 import pytest
-from PySide6.QtWidgets import QApplication
-from PySide6.QtCore import Qt, QPointF
-from PySide6.QtGui import QUndoStack
 from google.protobuf.json_format import MessageToDict
+from PySide6.QtCore import QPointF, Qt
+from PySide6.QtGui import QUndoStack
+from PySide6.QtWidgets import QApplication
 
 from aresta_api.proto.generated import croqui_pb2
-from editor.models.croqui_model import CroquiModel
 from editor.controllers.mapas_controller import MapasController
+from editor.models.croqui_model import CroquiModel
 from editor.views.widget_editor_mapas import WidgetEditorMapas
 from scripts.preparar_submissao_lib import validar_referencias_mapa
 
@@ -31,7 +31,7 @@ def _criar_ambiente_teste(tmp_path, num_mapas: int = 1):
     # Cria arquivo de imagem fake no tmp_path
     caminhos_img = []
     for i in range(num_mapas):
-        nome_img = f"mapa_{i+1}.webp"
+        nome_img = f"mapa_{i + 1}.webp"
         p = tmp_path / nome_img
         p.write_bytes(b"\x00" * 100)
         caminhos_img.append(nome_img)
@@ -43,10 +43,7 @@ def _criar_ambiente_teste(tmp_path, num_mapas: int = 1):
     setor.nome = "Setor Central"
 
     for i in range(num_mapas):
-        m = setor.mapas.add(
-            caminho_imagem_mapa=caminhos_img[i],
-            largura_mapa=800
-        )
+        m = setor.mapas.add(caminho_imagem_mapa=caminhos_img[i], largura_mapa=800)
 
     model = CroquiModel(croqui)
     model.definir_caminho_db(tmp_path)
@@ -56,7 +53,7 @@ def _criar_ambiente_teste(tmp_path, num_mapas: int = 1):
     mapas_ctrl.set_caminho_db(tmp_path)
 
     widget = WidgetEditorMapas(croqui_model=model, mapas_controller=mapas_ctrl)
-    
+
     # Carrega o primeiro mapa como ativo
     proxy_mapa = model.obter_croqui_readonly().picos[0].setores_ou_grupos[0].setor.conteudo.mapas[0]
     widget.set_mapa_atual(proxy_mapa, pico_idx=0, grupo_idx=0, mapa_idx=0, tipo="setor")
@@ -90,16 +87,13 @@ def test_01_criacao_direta_nova_rota(qtbot, tmp_path):
 
     # Verifica ausência do botão legado e presença do novo botão
     assert not hasattr(widget, "btn_add_linha"), "O botão legado btn_add_linha deve ser removido"
-    assert hasattr(widget, "btn_nova_rota"), "O widget deve conter o botão btn_nova_rota (+ Nova Rota)"
+    assert hasattr(widget, "btn_nova_rota"), (
+        "O widget deve conter o botão btn_nova_rota (+ Nova Rota)"
+    )
     assert widget.btn_nova_rota.shortcut().toString() == "R" or "R" in widget.btn_nova_rota.text()
 
     # Inicia modo de criação de rota
-    dados_rota = {
-        "nome": "Via Central",
-        "tipo": "boulder",
-        "grau": "V4",
-        "nova": True
-    }
+    dados_rota = {"nome": "Via Central", "tipo": "boulder", "grau": "V4", "nova": True}
     widget.iniciar_modo_nova_rota(dados_rota)
     assert widget.modo_nova_rota is True
 
@@ -163,13 +157,17 @@ def test_02_variante_fatiamento_meio_curva_e_desambiguacao_top(qtbot, tmp_path):
     qtbot.addWidget(widget)
 
     # 1. Cria 'Via Central'
-    widget.iniciar_modo_nova_rota({"nome": "Via Central", "tipo": "boulder", "grau": "V4", "nova": True})
+    widget.iniciar_modo_nova_rota(
+        {"nome": "Via Central", "tipo": "boulder", "grau": "V4", "nova": True}
+    )
     for p in [QPointF(100, 500), QPointF(120, 350), QPointF(130, 200), QPointF(140, 100)]:
         widget.adicionar_ponto_nova_rota(p)
     widget.finalizar_modo_nova_rota()
 
     # 2. Cria 'Variante Direita' conectando e fatiando
-    widget.iniciar_modo_nova_rota({"nome": "Variante Direita", "tipo": "boulder", "grau": "V6", "nova": True})
+    widget.iniciar_modo_nova_rota(
+        {"nome": "Variante Direita", "tipo": "boulder", "grau": "V6", "nova": True}
+    )
     # Snap no início (100, 500)
     widget.adicionar_ponto_nova_rota(QPointF(100, 500))
     # Snap no segundo nó (120, 350)
@@ -190,8 +188,14 @@ def test_02_variante_fatiamento_meio_curva_e_desambiguacao_top(qtbot, tmp_path):
     assert "Variante Direita" in nomes_escaladas
 
     # Referências
-    uids_escaladas = {e.uid: getattr(e, e.WhichOneof("tipo")).nome for e in setor_ro.escaladas if e.WhichOneof("tipo")}
-    refs = {uids_escaladas.get(r.alvo_uid, r.alvo_uid): list(r.pontos_uids) for r in mapa_ro.referencias}
+    uids_escaladas = {
+        e.uid: getattr(e, e.WhichOneof("tipo")).nome
+        for e in setor_ro.escaladas
+        if e.WhichOneof("tipo")
+    }
+    refs = {
+        uids_escaladas.get(r.alvo_uid, r.alvo_uid): list(r.pontos_uids) for r in mapa_ro.referencias
+    }
     assert "Via Central" in refs
     assert "Variante Direita" in refs
 
@@ -237,13 +241,17 @@ def test_03_convergencia_mesmo_top_compartilhado(qtbot, tmp_path):
     qtbot.addWidget(widget)
 
     # 1. Cria 'Via Central'
-    widget.iniciar_modo_nova_rota({"nome": "Via Central", "tipo": "boulder", "grau": "V4", "nova": True})
+    widget.iniciar_modo_nova_rota(
+        {"nome": "Via Central", "tipo": "boulder", "grau": "V4", "nova": True}
+    )
     for p in [QPointF(100, 500), QPointF(120, 350), QPointF(140, 100)]:
         widget.adicionar_ponto_nova_rota(p)
     widget.finalizar_modo_nova_rota()
 
     # 2. Cria 'Entrada Esquerda' convergindo no mesmo topo (140, 100)
-    widget.iniciar_modo_nova_rota({"nome": "Entrada Esquerda", "tipo": "boulder", "grau": "V2", "nova": True})
+    widget.iniciar_modo_nova_rota(
+        {"nome": "Entrada Esquerda", "tipo": "boulder", "grau": "V2", "nova": True}
+    )
     for p in [QPointF(20, 480), QPointF(50, 300), QPointF(140, 100)]:
         widget.adicionar_ponto_nova_rota(p)
     widget.finalizar_modo_nova_rota()
@@ -252,8 +260,14 @@ def test_03_convergencia_mesmo_top_compartilhado(qtbot, tmp_path):
     setor_ro = croqui_ro.picos[0].setores_ou_grupos[0].setor.conteudo
     mapa_ro = setor_ro.mapas[0]
 
-    uids_escaladas = {e.uid: getattr(e, e.WhichOneof("tipo")).nome for e in setor_ro.escaladas if e.WhichOneof("tipo")}
-    refs = {uids_escaladas.get(r.alvo_uid, r.alvo_uid): list(r.pontos_uids) for r in mapa_ro.referencias}
+    uids_escaladas = {
+        e.uid: getattr(e, e.WhichOneof("tipo")).nome
+        for e in setor_ro.escaladas
+        if e.WhichOneof("tipo")
+    }
+    refs = {
+        uids_escaladas.get(r.alvo_uid, r.alvo_uid): list(r.pontos_uids) for r in mapa_ro.referencias
+    }
     pois_por_id = {p.uid: p for p in mapa_ro.pontos_de_interesse}
 
     linha_central = pois_por_id[refs["Via Central"][0]]
@@ -289,13 +303,17 @@ def test_04_travessia_fatiamento_triplo_intermediario(qtbot, tmp_path):
     qtbot.addWidget(widget)
 
     # 1. Rota hospedeira
-    widget.iniciar_modo_nova_rota({"nome": "Linha Base", "tipo": "boulder", "grau": "V3", "nova": True})
+    widget.iniciar_modo_nova_rota(
+        {"nome": "Linha Base", "tipo": "boulder", "grau": "V3", "nova": True}
+    )
     for p in [QPointF(100, 500), QPointF(100, 400), QPointF(100, 300), QPointF(100, 100)]:
         widget.adicionar_ponto_nova_rota(p)
     widget.finalizar_modo_nova_rota()
 
     # 2. Travessia
-    widget.iniciar_modo_nova_rota({"nome": "Travessia", "tipo": "boulder", "grau": "V7", "nova": True})
+    widget.iniciar_modo_nova_rota(
+        {"nome": "Travessia", "tipo": "boulder", "grau": "V7", "nova": True}
+    )
     for p in [QPointF(20, 400), QPointF(100, 400), QPointF(100, 300), QPointF(180, 250)]:
         widget.adicionar_ponto_nova_rota(p)
     widget.finalizar_modo_nova_rota()
@@ -304,8 +322,14 @@ def test_04_travessia_fatiamento_triplo_intermediario(qtbot, tmp_path):
     setor_ro = croqui_ro.picos[0].setores_ou_grupos[0].setor.conteudo
     mapa_ro = setor_ro.mapas[0]
 
-    uids_escaladas = {e.uid: getattr(e, e.WhichOneof("tipo")).nome for e in setor_ro.escaladas if e.WhichOneof("tipo")}
-    refs = {uids_escaladas.get(r.alvo_uid, r.alvo_uid): list(r.pontos_uids) for r in mapa_ro.referencias}
+    uids_escaladas = {
+        e.uid: getattr(e, e.WhichOneof("tipo")).nome
+        for e in setor_ro.escaladas
+        if e.WhichOneof("tipo")
+    }
+    refs = {
+        uids_escaladas.get(r.alvo_uid, r.alvo_uid): list(r.pontos_uids) for r in mapa_ro.referencias
+    }
     ids_base = refs["Linha Base"]
     ids_trav = refs["Travessia"]
 
@@ -336,16 +360,28 @@ def test_05_reversao_total_undo_redo_atomico(qtbot, tmp_path):
     qtbot.addWidget(widget)
 
     # 1. Cria Rota Base
-    widget.iniciar_modo_nova_rota({"nome": "Via Base", "tipo": "boulder", "grau": "V4", "nova": True})
+    widget.iniciar_modo_nova_rota(
+        {"nome": "Via Base", "tipo": "boulder", "grau": "V4", "nova": True}
+    )
     for p in [QPointF(100, 500), QPointF(120, 350), QPointF(130, 200), QPointF(140, 100)]:
         widget.adicionar_ponto_nova_rota(p)
     widget.finalizar_modo_nova_rota()
 
     # Guarda UID original da linha
-    id_original = env["model"].obter_croqui_readonly().picos[0].setores_ou_grupos[0].setor.conteudo.mapas[0].pontos_de_interesse[0].uid
+    id_original = (
+        env["model"]
+        .obter_croqui_readonly()
+        .picos[0]
+        .setores_ou_grupos[0]
+        .setor.conteudo.mapas[0]
+        .pontos_de_interesse[0]
+        .uid
+    )
 
     # 2. Cria Variante
-    widget.iniciar_modo_nova_rota({"nome": "Variante", "tipo": "boulder", "grau": "V5", "nova": True})
+    widget.iniciar_modo_nova_rota(
+        {"nome": "Variante", "tipo": "boulder", "grau": "V5", "nova": True}
+    )
     for p in [QPointF(100, 500), QPointF(120, 350), QPointF(200, 200)]:
         widget.adicionar_ponto_nova_rota(p)
     widget.finalizar_modo_nova_rota()
@@ -357,7 +393,9 @@ def test_05_reversao_total_undo_redo_atomico(qtbot, tmp_path):
     # 3. Executa Undo atômico
     undo_stack.undo()
 
-    setor_pos_undo = env["model"].obter_croqui_readonly().picos[0].setores_ou_grupos[0].setor.conteudo
+    setor_pos_undo = (
+        env["model"].obter_croqui_readonly().picos[0].setores_ou_grupos[0].setor.conteudo
+    )
     mapa_pos_undo = setor_pos_undo.mapas[0]
 
     # Variante desapareceu
@@ -377,7 +415,9 @@ def test_05_reversao_total_undo_redo_atomico(qtbot, tmp_path):
     # 4. Executa Redo atômico
     undo_stack.redo()
 
-    setor_pos_redo = env["model"].obter_croqui_readonly().picos[0].setores_ou_grupos[0].setor.conteudo
+    setor_pos_redo = (
+        env["model"].obter_croqui_readonly().picos[0].setores_ou_grupos[0].setor.conteudo
+    )
     assert len(setor_pos_redo.escaladas) == 2
     mapa_pos_redo = setor_pos_redo.mapas[0]
     assert len(mapa_pos_redo.referencias) == 2
@@ -399,23 +439,31 @@ def test_06_multiplos_mapas_setor_consistencia_e_ids_disjuntos(qtbot, tmp_path):
     qtbot.addWidget(widget)
 
     # 1. Mapa 1: Traça 'Via Central'
-    widget.iniciar_modo_nova_rota({"nome": "Via Central", "tipo": "boulder", "grau": "V4", "nova": True})
+    widget.iniciar_modo_nova_rota(
+        {"nome": "Via Central", "tipo": "boulder", "grau": "V4", "nova": True}
+    )
     for p in [QPointF(100, 500), QPointF(100, 100)]:
         widget.adicionar_ponto_nova_rota(p)
     widget.finalizar_modo_nova_rota()
 
     # 2. Alterna para Mapa 2
-    proxy_mapa_2 = env["model"].obter_croqui_readonly().picos[0].setores_ou_grupos[0].setor.conteudo.mapas[1]
+    proxy_mapa_2 = (
+        env["model"].obter_croqui_readonly().picos[0].setores_ou_grupos[0].setor.conteudo.mapas[1]
+    )
     widget.set_mapa_atual(proxy_mapa_2, pico_idx=0, grupo_idx=0, mapa_idx=1, tipo="setor")
 
     # Traça 'Via Central' no Mapa 2 (já existente no setor)
-    widget.iniciar_modo_nova_rota({"nome": "Via Central", "tipo": "boulder", "grau": "V4", "nova": False})
+    widget.iniciar_modo_nova_rota(
+        {"nome": "Via Central", "tipo": "boulder", "grau": "V4", "nova": False}
+    )
     for p in [QPointF(200, 600), QPointF(200, 150)]:
         widget.adicionar_ponto_nova_rota(p)
     widget.finalizar_modo_nova_rota()
 
     # Traça 'Via Lateral' no Mapa 2 (nova)
-    widget.iniciar_modo_nova_rota({"nome": "Via Lateral", "tipo": "boulder", "grau": "V6", "nova": True})
+    widget.iniciar_modo_nova_rota(
+        {"nome": "Via Lateral", "tipo": "boulder", "grau": "V6", "nova": True}
+    )
     for p in [QPointF(300, 600), QPointF(300, 150)]:
         widget.adicionar_ponto_nova_rota(p)
     widget.finalizar_modo_nova_rota()
@@ -454,13 +502,17 @@ def test_07_sincronizacao_arrasto_nos_soldados_sticky(qtbot, tmp_path):
     qtbot.addWidget(widget)
 
     # 1. Cria base
-    widget.iniciar_modo_nova_rota({"nome": "Linha 1", "tipo": "boulder", "grau": "V3", "nova": True})
+    widget.iniciar_modo_nova_rota(
+        {"nome": "Linha 1", "tipo": "boulder", "grau": "V3", "nova": True}
+    )
     for p in [QPointF(100, 500), QPointF(100, 300), QPointF(100, 100)]:
         widget.adicionar_ponto_nova_rota(p)
     widget.finalizar_modo_nova_rota()
 
     # 2. Cria ramificação a partir de (100, 300)
-    widget.iniciar_modo_nova_rota({"nome": "Linha 2", "tipo": "boulder", "grau": "V5", "nova": True})
+    widget.iniciar_modo_nova_rota(
+        {"nome": "Linha 2", "tipo": "boulder", "grau": "V5", "nova": True}
+    )
     for p in [QPointF(100, 300), QPointF(200, 100)]:
         widget.adicionar_ponto_nova_rota(p)
     widget.finalizar_modo_nova_rota()
@@ -468,11 +520,15 @@ def test_07_sincronizacao_arrasto_nos_soldados_sticky(qtbot, tmp_path):
     # Simula arrasto do nó compartilhado (100, 300) para (150, 320)
     widget.mover_no_soldado(QPointF(100, 300), QPointF(150, 320))
 
-    mapa_ro = env["model"].obter_croqui_readonly().picos[0].setores_ou_grupos[0].setor.conteudo.mapas[0]
+    mapa_ro = (
+        env["model"].obter_croqui_readonly().picos[0].setores_ou_grupos[0].setor.conteudo.mapas[0]
+    )
     for poi in mapa_ro.pontos_de_interesse:
         for no in poi.linha.conteudo.nos:
             if (no.x, no.y) == (100, 300):
-                pytest.fail("Nenhum nó deveria permanecer na coordenada antiga após o arrasto soldado")
+                pytest.fail(
+                    "Nenhum nó deveria permanecer na coordenada antiga após o arrasto soldado"
+                )
 
     # Verifica que ambas as linhas agora possuem nós em (150, 320)
     nos_encontrados = 0
@@ -484,7 +540,9 @@ def test_07_sincronizacao_arrasto_nos_soldados_sticky(qtbot, tmp_path):
 
     # Undo restaura as duas coordenadas
     undo_stack.undo()
-    mapa_pos_undo = env["model"].obter_croqui_readonly().picos[0].setores_ou_grupos[0].setor.conteudo.mapas[0]
+    mapa_pos_undo = (
+        env["model"].obter_croqui_readonly().picos[0].setores_ou_grupos[0].setor.conteudo.mapas[0]
+    )
     nos_originais = 0
     for poi in mapa_pos_undo.pontos_de_interesse:
         for no in poi.linha.conteudo.nos:
@@ -514,14 +572,26 @@ def test_08_busca_escalada_preexistente_sem_duplicacao(qtbot, tmp_path):
 
     # Adiciona via controller
     from editor.commands.comandos_protobuf import CmdAdicionarRepeated
+
     proxy_setor = env["model"].obter_croqui_readonly().picos[0].setores_ou_grupos[0].setor.conteudo
     cmd = CmdAdicionarRepeated(env["model"], proxy_setor, "escaladas", 0, boulder_antigo)
     env["mapas_ctrl"]._executar_comando(cmd)
 
-    assert len(env["model"].obter_croqui_readonly().picos[0].setores_ou_grupos[0].setor.conteudo.escaladas) == 1
+    assert (
+        len(
+            env["model"]
+            .obter_croqui_readonly()
+            .picos[0]
+            .setores_ou_grupos[0]
+            .setor.conteudo.escaladas
+        )
+        == 1
+    )
 
     # Inicia traçado selecionando escalada existente
-    widget.iniciar_modo_nova_rota({"nome": "Boulder Antigo", "tipo": "boulder", "grau": "V5", "nova": False})
+    widget.iniciar_modo_nova_rota(
+        {"nome": "Boulder Antigo", "tipo": "boulder", "grau": "V5", "nova": False}
+    )
     for p in [QPointF(100, 500), QPointF(100, 100)]:
         widget.adicionar_ponto_nova_rota(p)
     widget.finalizar_modo_nova_rota()
@@ -548,7 +618,9 @@ def test_09_cancelamento_gracioso_sem_efeitos_colaterais(qtbot, tmp_path):
     undo_stack = env["undo_stack"]
     qtbot.addWidget(widget)
 
-    widget.iniciar_modo_nova_rota({"nome": "Via Incompleta", "tipo": "boulder", "grau": "V1", "nova": True})
+    widget.iniciar_modo_nova_rota(
+        {"nome": "Via Incompleta", "tipo": "boulder", "grau": "V1", "nova": True}
+    )
     widget.adicionar_ponto_nova_rota(QPointF(50, 50))
     widget.adicionar_ponto_nova_rota(QPointF(80, 80))
 
@@ -580,13 +652,17 @@ def test_10_validacao_compilacao_croqui_sem_erros(qtbot, tmp_path):
     qtbot.addWidget(widget)
 
     # 1. Rota 1
-    widget.iniciar_modo_nova_rota({"nome": "Via Alpha", "tipo": "boulder", "grau": "V3", "nova": True})
+    widget.iniciar_modo_nova_rota(
+        {"nome": "Via Alpha", "tipo": "boulder", "grau": "V3", "nova": True}
+    )
     for p in [QPointF(100, 500), QPointF(120, 300), QPointF(130, 100)]:
         widget.adicionar_ponto_nova_rota(p)
     widget.finalizar_modo_nova_rota()
 
     # 2. Variante Beta fatiando a Alpha
-    widget.iniciar_modo_nova_rota({"nome": "Via Beta", "tipo": "boulder", "grau": "V6", "nova": True})
+    widget.iniciar_modo_nova_rota(
+        {"nome": "Via Beta", "tipo": "boulder", "grau": "V6", "nova": True}
+    )
     for p in [QPointF(100, 500), QPointF(120, 300), QPointF(200, 100)]:
         widget.adicionar_ponto_nova_rota(p)
     widget.finalizar_modo_nova_rota()
@@ -610,7 +686,6 @@ def test_11_separar_traco_em_no_e_desfazer(qtbot, tmp_path):
     - A referência da via é atualizada para conter ambos os novos IDs ordenados.
     - Undo restaura o traçado original e a referência; Redo reaplica a separação.
     """
-    from editor.views.widget_editor_mapas import ItemTrajetoLinha
 
     env = _criar_ambiente_teste(tmp_path)
     widget = env["widget"]
@@ -618,7 +693,9 @@ def test_11_separar_traco_em_no_e_desfazer(qtbot, tmp_path):
     qtbot.addWidget(widget)
 
     # 1. Cria a rota base com 3 nós
-    widget.iniciar_modo_nova_rota({"nome": "Via Longa", "tipo": "boulder", "grau": "V4", "nova": True})
+    widget.iniciar_modo_nova_rota(
+        {"nome": "Via Longa", "tipo": "boulder", "grau": "V4", "nova": True}
+    )
     for p in [QPointF(100, 500), QPointF(120, 300), QPointF(140, 100)]:
         widget.adicionar_ponto_nova_rota(p)
     widget.finalizar_modo_nova_rota()
@@ -650,14 +727,18 @@ def test_11_separar_traco_em_no_e_desfazer(qtbot, tmp_path):
 
     # 3. Testa Undo
     undo_stack.undo()
-    mapa_undo = env["model"].obter_croqui_readonly().picos[0].setores_ou_grupos[0].setor.conteudo.mapas[0]
+    mapa_undo = (
+        env["model"].obter_croqui_readonly().picos[0].setores_ou_grupos[0].setor.conteudo.mapas[0]
+    )
     assert len(mapa_undo.pontos_de_interesse) == 1
     assert str(mapa_undo.pontos_de_interesse[0].uid) == id_orig
     assert list(mapa_undo.referencias[0].pontos_uids) == [id_orig]
 
     # 4. Testa Redo
     undo_stack.redo()
-    mapa_redo = env["model"].obter_croqui_readonly().picos[0].setores_ou_grupos[0].setor.conteudo.mapas[0]
+    mapa_redo = (
+        env["model"].obter_croqui_readonly().picos[0].setores_ou_grupos[0].setor.conteudo.mapas[0]
+    )
     assert len(mapa_redo.pontos_de_interesse) == 2
     assert list(mapa_redo.referencias[0].pontos_uids) == [str(sub1.uid), str(sub2.uid)]
 
@@ -679,20 +760,21 @@ def test_12_adicionar_nova_linha_avulsa_a_partir_de_ponto_final(qtbot, tmp_path)
     qtbot.addWidget(widget)
 
     # 1. Cria a primeira linha com escalada
-    widget.iniciar_modo_nova_rota({"nome": "Via Base", "tipo": "boulder", "grau": "V2", "nova": True})
+    widget.iniciar_modo_nova_rota(
+        {"nome": "Via Base", "tipo": "boulder", "grau": "V2", "nova": True}
+    )
     for p in [QPointF(100, 400), QPointF(100, 200)]:
         widget.adicionar_ponto_nova_rota(p)
     widget.finalizar_modo_nova_rota()
 
-    mapa_ini = env["model"].obter_croqui_readonly().picos[0].setores_ou_grupos[0].setor.conteudo.mapas[0]
+    mapa_ini = (
+        env["model"].obter_croqui_readonly().picos[0].setores_ou_grupos[0].setor.conteudo.mapas[0]
+    )
     assert len(mapa_ini.pontos_de_interesse) == 1
     assert len(mapa_ini.referencias) == 1
 
     # 2. Inicia nova linha avulsa a partir do ponto final (100, 200)
-    widget.iniciar_modo_nova_rota(
-        dados_rota={"sem_ligacao": True},
-        ponto_inicial=QPointF(100, 200)
-    )
+    widget.iniciar_modo_nova_rota(dados_rota={"sem_ligacao": True}, ponto_inicial=QPointF(100, 200))
     assert len(widget.pontos_nova_rota) == 1
     assert widget.pontos_nova_rota[0] == QPointF(100, 200)
 
@@ -709,12 +791,20 @@ def test_12_adicionar_nova_linha_avulsa_a_partir_de_ponto_final(qtbot, tmp_path)
     assert len(mapa_pos.referencias) == 1
 
     linha_avulsa = mapa_pos.pontos_de_interesse[1]
-    assert (linha_avulsa.linha.conteudo.nos[0].x, linha_avulsa.linha.conteudo.nos[0].y) == (100, 200)
-    assert (linha_avulsa.linha.conteudo.nos[1].x, linha_avulsa.linha.conteudo.nos[1].y) == (200, 100)
+    assert (linha_avulsa.linha.conteudo.nos[0].x, linha_avulsa.linha.conteudo.nos[0].y) == (
+        100,
+        200,
+    )
+    assert (linha_avulsa.linha.conteudo.nos[1].x, linha_avulsa.linha.conteudo.nos[1].y) == (
+        200,
+        100,
+    )
 
     # 3. Undo remove a linha avulsa
     undo_stack.undo()
-    mapa_undo = env["model"].obter_croqui_readonly().picos[0].setores_ou_grupos[0].setor.conteudo.mapas[0]
+    mapa_undo = (
+        env["model"].obter_croqui_readonly().picos[0].setores_ou_grupos[0].setor.conteudo.mapas[0]
+    )
     assert len(mapa_undo.pontos_de_interesse) == 1
 
 
@@ -725,8 +815,8 @@ def test_jornada_navegacao_pan_zoom_durante_desenho_de_rota(tmp_path, qtbot):
     pan com Barra de Espaço + Drag, e zoom com Scroll) durante o desenho de uma rota,
     sem que nenhum nó espúrio seja inserido no traçado.
     """
-    from PySide6.QtGui import QMouseEvent, QKeyEvent, QWheelEvent
     from PySide6.QtCore import QPoint, QPointF
+    from PySide6.QtGui import QKeyEvent, QMouseEvent, QWheelEvent
 
     env = _criar_ambiente_teste(tmp_path)
     widget = env["widget"]
@@ -734,7 +824,9 @@ def test_jornada_navegacao_pan_zoom_durante_desenho_de_rota(tmp_path, qtbot):
     qtbot.addWidget(widget)
 
     # 1. Inicia traçado de nova rota
-    widget.iniciar_modo_nova_rota({"nome": "Via Falésia Alta", "tipo": "esportiva", "grau": "7a", "nova": True})
+    widget.iniciar_modo_nova_rota(
+        {"nome": "Via Falésia Alta", "tipo": "esportiva", "grau": "7a", "nova": True}
+    )
     assert widget.modo_nova_rota is True
     assert len(widget.pontos_nova_rota) == 0
 
@@ -752,7 +844,7 @@ def test_jornada_navegacao_pan_zoom_durante_desenho_de_rota(tmp_path, qtbot):
         Qt.MouseButton.NoButton,
         Qt.KeyboardModifier.NoModifier,
         Qt.ScrollPhase.NoScrollPhase,
-        False
+        False,
     )
     vis.wheelEvent(evento_wheel)
     assert len(widget.pontos_nova_rota) == 1, "Zoom não deve adicionar nós"
@@ -767,7 +859,7 @@ def test_jornada_navegacao_pan_zoom_durante_desenho_de_rota(tmp_path, qtbot):
         QPointF(150, 150),
         Qt.MouseButton.MiddleButton,
         Qt.MouseButton.MiddleButton,
-        Qt.KeyboardModifier.NoModifier
+        Qt.KeyboardModifier.NoModifier,
     )
     vis.mousePressEvent(ev_press_meio)
     assert vis._arrastando_mapa is True
@@ -778,7 +870,7 @@ def test_jornada_navegacao_pan_zoom_durante_desenho_de_rota(tmp_path, qtbot):
         QPointF(100, 100),
         Qt.MouseButton.MiddleButton,
         Qt.MouseButton.MiddleButton,
-        Qt.KeyboardModifier.NoModifier
+        Qt.KeyboardModifier.NoModifier,
     )
     vis.mouseMoveEvent(ev_move_meio)
 
@@ -788,14 +880,16 @@ def test_jornada_navegacao_pan_zoom_durante_desenho_de_rota(tmp_path, qtbot):
         QPointF(100, 100),
         Qt.MouseButton.MiddleButton,
         Qt.MouseButton.NoButton,
-        Qt.KeyboardModifier.NoModifier
+        Qt.KeyboardModifier.NoModifier,
     )
     vis.mouseReleaseEvent(ev_release_meio)
     assert vis._arrastando_mapa is False
     assert len(widget.pontos_nova_rota) == 1, "Arrasto com botão do meio não deve adicionar nós"
 
     # 5. Pan com Barra de Espaço + Botão Esquerdo (Space + Left Drag)
-    ev_space_down = QKeyEvent(QKeyEvent.Type.KeyPress, Qt.Key.Key_Space, Qt.KeyboardModifier.NoModifier)
+    ev_space_down = QKeyEvent(
+        QKeyEvent.Type.KeyPress, Qt.Key.Key_Space, Qt.KeyboardModifier.NoModifier
+    )
     vis.keyPressEvent(ev_space_down)
     assert getattr(vis, "_modo_espaco_pan", False) is True
 
@@ -805,7 +899,7 @@ def test_jornada_navegacao_pan_zoom_durante_desenho_de_rota(tmp_path, qtbot):
         QPointF(120, 120),
         Qt.MouseButton.LeftButton,
         Qt.MouseButton.LeftButton,
-        Qt.KeyboardModifier.NoModifier
+        Qt.KeyboardModifier.NoModifier,
     )
     vis.mousePressEvent(ev_press_space_esq)
     assert vis._arrastando_mapa is True
@@ -816,7 +910,7 @@ def test_jornada_navegacao_pan_zoom_durante_desenho_de_rota(tmp_path, qtbot):
         QPointF(80, 80),
         Qt.MouseButton.LeftButton,
         Qt.MouseButton.LeftButton,
-        Qt.KeyboardModifier.NoModifier
+        Qt.KeyboardModifier.NoModifier,
     )
     vis.mouseMoveEvent(ev_move_space_esq)
 
@@ -826,15 +920,19 @@ def test_jornada_navegacao_pan_zoom_durante_desenho_de_rota(tmp_path, qtbot):
         QPointF(80, 80),
         Qt.MouseButton.LeftButton,
         Qt.MouseButton.NoButton,
-        Qt.KeyboardModifier.NoModifier
+        Qt.KeyboardModifier.NoModifier,
     )
     vis.mouseReleaseEvent(ev_release_space_esq)
     assert vis._arrastando_mapa is False
 
-    ev_space_up = QKeyEvent(QKeyEvent.Type.KeyRelease, Qt.Key.Key_Space, Qt.KeyboardModifier.NoModifier)
+    ev_space_up = QKeyEvent(
+        QKeyEvent.Type.KeyRelease, Qt.Key.Key_Space, Qt.KeyboardModifier.NoModifier
+    )
     vis.keyReleaseEvent(ev_space_up)
     assert getattr(vis, "_modo_espaco_pan", False) is False
-    assert len(widget.pontos_nova_rota) == 1, "Arrasto com Espaço + Botão Esquerdo não deve adicionar nós"
+    assert len(widget.pontos_nova_rota) == 1, (
+        "Arrasto com Espaço + Botão Esquerdo não deve adicionar nós"
+    )
 
     # 6. Adiciona o segundo ponto no topo da falésia (100, 100)
     widget.adicionar_ponto_nova_rota(QPointF(100, 100))
@@ -850,5 +948,3 @@ def test_jornada_navegacao_pan_zoom_durante_desenho_de_rota(tmp_path, qtbot):
     assert len(linha_poi.linha.conteudo.nos) == 2
     assert (linha_poi.linha.conteudo.nos[0].x, linha_poi.linha.conteudo.nos[0].y) == (100, 400)
     assert (linha_poi.linha.conteudo.nos[1].x, linha_poi.linha.conteudo.nos[1].y) == (100, 100)
-
-

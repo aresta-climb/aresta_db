@@ -4,8 +4,8 @@
 from aresta_api.proto.generated import croqui_pb2
 from editor.core.nomes_arquivos import (
     deduplicar_prefixo,
-    gerar_nome_mapa_sugerido,
     gerar_nome_arquivo_entidade,
+    gerar_nome_mapa_sugerido,
 )
 
 
@@ -110,5 +110,3 @@ class TestNomesArquivos:
         # Objeto direto ViaEsportiva
         via_direta = croqui_pb2.ViaEsportiva(nome="Sol Nascente")
         assert gerar_nome_mapa_sugerido(via_direta, 0) == "via_sol_nascente_p0.webp"
-
-

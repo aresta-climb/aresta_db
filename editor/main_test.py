@@ -1,22 +1,26 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
-import pytest
-from PySide6.QtWidgets import QMainWindow, QStackedWidget, QDialog
 from unittest.mock import MagicMock, patch
+
+import pytest
+from PySide6.QtWidgets import QDialog, QStackedWidget
+
+from editor.core.worker import TarefaInicializacao
 from editor.legacy_views.area_principal import JanelaPrincipal
 from editor.main import ControladorAplicativo
-from editor.core.worker import TarefaInicializacao
+
 
 def test_janela_principal_tem_stack_central(qtbot):
     mock_storage = MagicMock()
     mock_auth = MagicMock()
     janela = JanelaPrincipal(storage=mock_storage, auth=mock_auth)
     qtbot.addWidget(janela)
-    
+
     # Verifica se existe um QStackedWidget (área principal)
     stack = janela.findChild(QStackedWidget)
     assert stack is not None
+
 
 def test_fluxo_inicializacao_cria_janela_principal(qtbot, tmp_path):
     with patch("editor.main.TarefaInicializacao") as MockTarefa:
@@ -35,54 +39,71 @@ def test_fluxo_inicializacao_cria_janela_principal(qtbot, tmp_path):
             assert controlador.janela_principal is not None
             assert hasattr(controlador.janela_principal, "workspace")
 
+
 def test_controlador_app_conecta_sinais_corretamente(qtbot):
     # Verificamos manualmente se os sinais usados no ControladorApp existem no TarefaInicializacao
-    sinais_necessarios = ["status", "progresso", "mostrar_progresso", "atualizacao_disponivel", "auth_requerida", "auth_concluida", "sucesso", "erro"]
+    sinais_necessarios = [
+        "status",
+        "progresso",
+        "mostrar_progresso",
+        "atualizacao_disponivel",
+        "auth_requerida",
+        "auth_concluida",
+        "sucesso",
+        "erro",
+    ]
     for sinal in sinais_necessarios:
-        assert hasattr(TarefaInicializacao, sinal), f"O TarefaInicializacao não possui o sinal '{sinal}'"
+        assert hasattr(TarefaInicializacao, sinal), (
+            f"O TarefaInicializacao não possui o sinal '{sinal}'"
+        )
+
 
 def test_controlador_app_ao_detectar_atualizacao(qtbot):
     with patch("editor.main.TarefaInicializacao"):
         controlador = ControladorAplicativo()
         qtbot.addWidget(controlador.abertura)
         controlador.abertura.exibir_aviso_atualizacao = MagicMock()
-        
+
         mock_resultado = MagicMock()
         controlador.ao_detectar_atualizacao(mock_resultado)
-        
+
         controlador.abertura.exibir_aviso_atualizacao.assert_called_once()
         args, kwargs = controlador.abertura.exibir_aviso_atualizacao.call_args
         assert args[0] == mock_resultado
         assert callable(kwargs.get("callback_atualizar"))
-        
+
         # Testa a execução do callback
         callback = kwargs.get("callback_atualizar")
         controlador.tarefa.servico_loja = MagicMock()
         callback()
-        controlador.tarefa.servico_loja.solicitar_instalacao_atualizacao.assert_called_once_with(mock_resultado)
+        controlador.tarefa.servico_loja.solicitar_instalacao_atualizacao.assert_called_once_with(
+            mock_resultado
+        )
+
 
 def test_fluxo_inicializacao_transicao(qtbot):
     with patch("editor.main.TarefaInicializacao") as MockTarefa:
         with patch("editor.main.TelaDeCarregamento") as MockDialog:
             mock_tarefa_inst = MockTarefa.return_value
             mock_tarefa_inst.storage = MagicMock()
-            
+
             # Mock para o diálogo retornar 'Accepted'
             mock_dialog_inst = MockDialog.return_value
             mock_dialog_inst.exec.return_value = QDialog.DialogCode.Accepted
-            
+
             controlador = ControladorAplicativo()
             qtbot.addWidget(controlador.abertura)
-            
+
             # Simula sucesso chamando o novo fluxo de seleção
             controlador.executar_selecao()
-            
+
             assert controlador.janela_principal is not None
             assert controlador.janela_principal.isVisible()
             assert not controlador.abertura.isVisible()
-            
+
             qtbot.addWidget(controlador.janela_principal)
             controlador.janela_principal.close()
+
 
 def test_mostrar_erro_esconde_abertura_antes(qtbot):
     with patch("editor.main.TarefaInicializacao"):
@@ -90,15 +111,16 @@ def test_mostrar_erro_esconde_abertura_antes(qtbot):
             with patch("editor.main.QApplication.quit"):
                 controlador = ControladorAplicativo()
                 qtbot.addWidget(controlador.abertura)
-                
+
                 # Espionamos o método hide da abertura
                 controlador.abertura.hide = MagicMock(side_effect=controlador.abertura.hide)
-                
+
                 controlador.mostrar_erro("Erro de teste")
-                
+
                 # Verifica se hide foi chamado ANTES de critical
                 assert controlador.abertura.hide.called
                 assert mock_critical.called
+
 
 def test_controlador_app_define_icone_global(qtbot):
     """Garante que o ícone global da aplicação é configurado na inicialização."""
@@ -107,27 +129,35 @@ def test_controlador_app_define_icone_global(qtbot):
         assert not controlador.app.windowIcon().isNull()
         controlador.abertura.close()
 
+
 def test_tela_de_abertura_tem_icone_configurado(qtbot):
     """Garante que a tela de abertura carrega o ícone de montanha."""
     from editor.views.tela_de_abertura import TelaDeAbertura
+
     abertura = TelaDeAbertura()
     qtbot.addWidget(abertura)
     assert not abertura.windowIcon().isNull()
     abertura.close()
 
+
 def test_application_version_is_set(qtbot):
     """Garante que a constante VERSION do módulo version é setada no QApplication."""
     from editor.core.version import VERSION
+
     with patch("editor.main.TarefaInicializacao"):
         controlador = ControladorAplicativo()
         assert controlador.app.applicationVersion() == VERSION
         controlador.abertura.close()
 
+
 def test_main_impede_multiplas_instancias(qtbot, capsys):
-    with patch("editor.core.instancia_unica.verificar_se_ja_em_execucao", return_value=True) as mock_verif:
+    with patch(
+        "editor.core.instancia_unica.verificar_se_ja_em_execucao", return_value=True
+    ) as mock_verif:
         with patch("editor.main.QMessageBox.information") as mock_info:
             with patch("editor.main.sys.exit", side_effect=SystemExit) as mock_exit:
                 from editor.main import main
+
                 with pytest.raises(SystemExit):
                     main()
 
@@ -140,17 +170,20 @@ def test_main_impede_multiplas_instancias(qtbot, capsys):
 
 def test_main_inicia_servidor_quando_primeira_instancia(qtbot):
     with patch("editor.core.instancia_unica.verificar_se_ja_em_execucao", return_value=False):
-        with patch("editor.core.instancia_unica.iniciar_servidor_instancia_unica") as mock_iniciar_srv:
+        with patch(
+            "editor.core.instancia_unica.iniciar_servidor_instancia_unica"
+        ) as mock_iniciar_srv:
             with patch("editor.main.ControladorAplicativo") as MockControlador:
                 with patch("editor.main.sys.exit", side_effect=SystemExit) as mock_exit:
                     mock_controlador_inst = MockControlador.return_value
                     mock_controlador_inst.executar.return_value = 0
-                    
+
                     from editor.main import main
+
                     with patch("sys.argv", ["editor/main.py"]):
                         with pytest.raises(SystemExit):
                             main()
-                    
+
                     mock_iniciar_srv.assert_called_once()
                     MockControlador.assert_called_once()
                     mock_exit.assert_called_once_with(0)
@@ -163,9 +196,11 @@ def test_main_configura_icone_global_antecipadamente(qtbot):
                 with patch("editor.main.sys.exit", side_effect=SystemExit):
                     mock_controlador_inst = MockControlador.return_value
                     mock_controlador_inst.executar.return_value = 0
-                    
-                    from editor.main import main
+
                     from PySide6.QtWidgets import QApplication
+
+                    from editor.main import main
+
                     with patch("sys.argv", ["editor/main.py"]):
                         with patch.object(QApplication, "setWindowIcon") as mock_set_icon:
                             with patch.object(QApplication, "processEvents") as mock_process_events:
@@ -173,7 +208,6 @@ def test_main_configura_icone_global_antecipadamente(qtbot):
                                     main()
                                 mock_set_icon.assert_called()
                                 mock_process_events.assert_called()
-
 
 
 def test_main_abre_modo_local_repo_com_sucesso(qtbot, tmp_path):
@@ -188,12 +222,13 @@ def test_main_abre_modo_local_repo_com_sucesso(qtbot, tmp_path):
                     with patch("editor.main.sys.exit", side_effect=SystemExit) as mock_exit:
                         with patch("editor.main.QMessageBox.critical") as mock_crit:
                             mock_janela_inst = MockJanela.return_value
-                            
+
                             from editor.main import main
+
                             with patch("sys.argv", ["editor/main.py", str(pasta_croqui)]):
                                 with pytest.raises(SystemExit):
                                     main()
-                                
+
                             MockJanela.assert_called_once()
                             mock_janela_inst.show.assert_called_once()
                             mock_exit.assert_called_once_with(0)
@@ -206,10 +241,11 @@ def test_main_erro_quando_caminho_database_invalido(qtbot, capsys):
             with patch("editor.main.QMessageBox.critical") as mock_crit:
                 with patch("editor.main.sys.exit", side_effect=SystemExit) as mock_exit:
                     from editor.main import main
+
                     with patch("sys.argv", ["editor/main.py", "database/caminho_inexistente_123"]):
                         with pytest.raises(SystemExit):
                             main()
-                            
+
                     mock_crit.assert_called_once()
                     mock_exit.assert_called_once_with(1)
                     captured = capsys.readouterr()
@@ -218,20 +254,22 @@ def test_main_erro_quando_caminho_database_invalido(qtbot, capsys):
 
 def test_qlocalserver_ciclo_vida_e_bloqueio_real(qtbot):
     """Garante a comunicação e bloqueio real de instâncias concorrentes com QLocalServer/QLocalSocket."""
-    from PySide6.QtNetwork import QLocalServer, QLocalSocket
     import uuid
+
+    from PySide6.QtNetwork import QLocalServer, QLocalSocket
+
     nome_servidor = f"aresta_teste_{uuid.uuid4().hex[:8]}"
-    
+
     QLocalServer.removeServer(nome_servidor)
     servidor = QLocalServer()
     assert servidor.listen(nome_servidor) is True
-    
+
     # Segunda conexão deve conectar com sucesso (detectando que o servidor está vivo)
     socket = QLocalSocket()
     socket.connectToServer(nome_servidor)
     assert socket.waitForConnected(500) is True
     socket.close()
-    
+
     # Ao fechar o servidor, nova conexão não conecta
     servidor.close()
     socket2 = QLocalSocket()
@@ -272,14 +310,15 @@ def test_controlador_app_configura_tema_claro_na_inicializacao(qtbot):
             controlador.abertura.close()
 
 
-
 def test_configurar_ambiente_plataforma_define_darkmode_zero(monkeypatch):
     """Garante que a plataforma padrão no Windows desativa o dark mode."""
     from editor.main import configurar_ambiente_plataforma
+
     monkeypatch.delenv("QT_QPA_PLATFORM", raising=False)
     with patch("sys.platform", "win32"):
         configurar_ambiente_plataforma()
         import os
+
         assert os.environ.get("QT_QPA_PLATFORM") == "windows:darkmode=0"
 
 
@@ -296,10 +335,10 @@ def test_controlador_app_configura_canal_beta(qtbot, monkeypatch):
 def test_main_getattr_carregamento_sob_demanda():
     """Garante que classes pesadas são resolvidas sob demanda via PEP 562 __getattr__."""
     import editor.main as main_mod
+    from editor.core.storage import GerenciadorCaminhos as GerenciadorReal
     from editor.core.worker import TarefaInicializacao as TarefaReal
     from editor.legacy_views.tela_de_carregamento import TelaDeCarregamento as TelaCarregamentoReal
     from editor.views.tela_de_abertura import TelaDeAbertura as TelaAberturaReal
-    from editor.core.storage import GerenciadorCaminhos as GerenciadorReal
 
     assert main_mod.__getattr__("TarefaInicializacao") is TarefaReal
     assert main_mod.__getattr__("TelaDeCarregamento") is TelaCarregamentoReal
@@ -336,9 +375,3 @@ def test_controlador_app_mostrar_janela_principal_sem_selecao(qtbot):
         controlador.mostrar_janela_principal()
         assert controlador.janela_principal is None
         controlador.abertura.close()
-
-
-
-
-
-

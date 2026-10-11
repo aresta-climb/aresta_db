@@ -7,11 +7,13 @@ Utiliza a API WinRT StoreContext para consulta assíncrona e instalação in-app
 """
 
 import sys
-from typing import Optional, List, Any
+from typing import Any
+
 from PySide6.QtCore import QUrl
 from PySide6.QtGui import QDesktopServices
 from PySide6.QtWidgets import QApplication
-from editor.plataforma.contrato import StatusAtualizacao, ResultadoAtualizacao
+
+from editor.plataforma.contrato import ResultadoAtualizacao, StatusAtualizacao
 
 
 def obter_pacote_atual() -> Any:
@@ -51,7 +53,7 @@ class ServicoLoja:
 
     ID_PRODUTO_PADRAO = "9N6CQNH78WN8"  # ID oficial do produto na Microsoft Store
 
-    def __init__(self, id_produto: Optional[str] = None) -> None:
+    def __init__(self, id_produto: str | None = None) -> None:
         self.id_produto: str = id_produto or self.ID_PRODUTO_PADRAO
 
     def possui_identidade_pacote(self) -> bool:
@@ -116,11 +118,11 @@ class ServicoLoja:
         except Exception as e:
             return ResultadoAtualizacao(
                 status=StatusAtualizacao.ERRO_CHECAGEM,
-                mensagem=f"Erro ao consultar a Microsoft Store: {str(e)}",
+                mensagem=f"Erro ao consultar a Microsoft Store: {e!s}",
             )
 
     def solicitar_instalacao_atualizacao(
-        self, resultado: Optional[ResultadoAtualizacao] = None, parent_hwnd: Any = None
+        self, resultado: ResultadoAtualizacao | None = None, parent_hwnd: Any = None
     ) -> bool:
         """
         Executa a instalação da atualização adotando a estratégia híbrida:
@@ -146,7 +148,7 @@ class ServicoLoja:
         except Exception:
             return self.abrir_pagina_na_loja()
 
-    def abrir_pagina_na_loja(self, id_produto: Optional[str] = None) -> bool:
+    def abrir_pagina_na_loja(self, id_produto: str | None = None) -> bool:
         """
         Abre a página do produto diretamente na Microsoft Store via protocolo URI e comanda o encerramento do app.
         """

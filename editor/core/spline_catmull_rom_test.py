@@ -2,16 +2,15 @@
 # Copyright (C) 2026 Aresta Climb Contributors
 
 import math
-import pytest
+
 from editor.core.spline_catmull_rom import (
     Ponto2D,
-    SegmentoBezierCubica,
+    calcular_angulos_tangentes,
+    calcular_caixa_delimitadora,
     calcular_spline_catmull_rom,
     converter_pontos_para_bezier,
     gerar_caminho_svg,
-    calcular_caixa_delimitadora,
-    calcular_angulos_tangentes,
-    sanitizar_pontos
+    sanitizar_pontos,
 )
 
 
@@ -27,7 +26,7 @@ class TestSplineCatmullRom:
             Ponto2D(30.0, 40.0),
             "invalido",
             None,
-            [50, 60]
+            [50, 60],
         ]
         pts = sanitizar_pontos(entrada)
         assert len(pts) == 3
@@ -64,7 +63,7 @@ class TestSplineCatmullRom:
             Ponto2D(100.0, 800.0),
             Ponto2D(120.0, 600.0),
             Ponto2D(150.0, 400.0),
-            Ponto2D(130.0, 200.0)
+            Ponto2D(130.0, 200.0),
         ]
         segmentos = converter_pontos_para_bezier(pontos)
         assert len(segmentos) == 3
@@ -85,8 +84,8 @@ class TestSplineCatmullRom:
     def test_calcular_caixa_delimitadora(self):
         pontos = [(100, 200), (300, 600), (200, 400)]
         cx, cy, comp, larg = calcular_caixa_delimitadora(pontos)
-        assert comp == 200 # 300 - 100
-        assert larg == 400 # 600 - 200
+        assert comp == 200  # 300 - 100
+        assert larg == 400  # 600 - 200
         assert cx == 200
         assert cy == 400
 

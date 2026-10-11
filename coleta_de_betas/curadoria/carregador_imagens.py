@@ -1,21 +1,21 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
-from typing import Optional
-import requests
 
-from PySide6.QtCore import QThread, Signal, QObject
-from PySide6.QtGui import QPixmap, QImage, QPainter, QColor, QFont
-from PySide6.QtWidgets import QWidget
+import requests
+from PySide6.QtCore import QObject, QThread, Signal
+from PySide6.QtGui import QColor, QFont, QImage, QPainter, QPixmap
+
 from aresta_api.proto.generated import beta_pb2
+
 
 def obter_pixmap_fallback(fonte: int, largura: int = 120, altura: int = 90) -> QPixmap:
     """
     Gera um QPixmap com visual estilizado para servir de fallback quando a thumbnail não estiver disponível.
     """
     pixmap = QPixmap(largura, altura)
-    is_instagram = (fonte == beta_pb2.FonteMidia.INSTAGRAM)
-    
+    is_instagram = fonte == beta_pb2.FonteMidia.INSTAGRAM
+
     # Cor de fundo temática
     cor_fundo = QColor("#E1306C") if is_instagram else QColor("#FF0000")
     texto = "Instagram" if is_instagram else "YouTube"
@@ -24,17 +24,13 @@ def obter_pixmap_fallback(fonte: int, largura: int = 120, altura: int = 90) -> Q
     painter = QPainter(pixmap)
     painter.setPen(QColor("#FFFFFF"))
     painter.setFont(QFont("Segoe UI", 10, QFont.Weight.Bold))
-    painter.drawText(pixmap.rect(), 0x0084, texto) # AlignCenter
+    painter.drawText(pixmap.rect(), 0x0084, texto)  # AlignCenter
     painter.end()
 
     return pixmap
 
 
-def baixar_imagem_sincrona(
-    url: str,
-    fonte: int,
-    timeout: int = 5
-) -> QPixmap:
+def baixar_imagem_sincrona(url: str, fonte: int, timeout: int = 5) -> QPixmap:
     """
     Baixa uma imagem via HTTP e carrega em um QPixmap. Se falhar, retorna o fallback temático.
     """
@@ -57,9 +53,10 @@ class WorkerCarregadorImagem(QThread):
     """
     Worker assíncrono para download de thumbnail sem travar a thread principal da interface.
     """
+
     imagem_carregada = Signal(QPixmap)
 
-    def __init__(self, url: str, fonte: int, parent: Optional[QObject] = None) -> None:
+    def __init__(self, url: str, fonte: int, parent: QObject | None = None) -> None:
         super().__init__(parent)
         self.url = url
         self.fonte = fonte
@@ -67,4 +64,3 @@ class WorkerCarregadorImagem(QThread):
     def run(self) -> None:
         pixmap = baixar_imagem_sincrona(self.url, self.fonte)
         self.imagem_carregada.emit(pixmap)
-

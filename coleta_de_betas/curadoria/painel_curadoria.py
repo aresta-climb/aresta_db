@@ -2,30 +2,41 @@
 # Copyright (C) 2026 Aresta Climb Contributors
 
 from pathlib import Path
-from typing import Dict, List, Optional, Union
 
-from PySide6.QtWidgets import (
-    QWidget, QVBoxLayout, QHBoxLayout, QLabel, QCheckBox, 
-    QScrollArea, QPushButton, QFrame, QGroupBox
-)
 from PySide6.QtCore import Qt, Signal
-from PySide6.QtGui import QFont, QColor, QPixmap
+from PySide6.QtGui import QFont, QPixmap
+from PySide6.QtWidgets import (
+    QCheckBox,
+    QFrame,
+    QGroupBox,
+    QHBoxLayout,
+    QLabel,
+    QPushButton,
+    QScrollArea,
+    QVBoxLayout,
+    QWidget,
+)
+
 from aresta_api.proto.generated import beta_pb2
 from coleta_de_betas.curadoria.carregador_imagens import (
+    WorkerCarregadorImagem,
     obter_pixmap_fallback,
-    WorkerCarregadorImagem
 )
+
 
 class ItemBetaWidget(QFrame):
     """
     Widget visual que exibe um único candidato a beta com thumbnail, título,
     justificativa, score de confiança e opção de aprovação.
     """
-    def __init__(self, midia: beta_pb2.MidiaBeta, nome_escalada: str = "", parent: Optional[QWidget] = None) -> None:
+
+    def __init__(
+        self, midia: beta_pb2.MidiaBeta, nome_escalada: str = "", parent: QWidget | None = None
+    ) -> None:
         super().__init__(parent)
         self.midia = midia
         self.nome_escalada = nome_escalada
-        self._worker_imagem: Optional[WorkerCarregadorImagem] = None
+        self._worker_imagem: WorkerCarregadorImagem | None = None
 
         self.setFrameShape(QFrame.Shape.StyledPanel)
         self.setStyleSheet("""
@@ -60,7 +71,9 @@ class ItemBetaWidget(QFrame):
 
         # Inicia download da thumbnail se disponível
         if self.midia.thumbnail_url:
-            self._worker_imagem = WorkerCarregadorImagem(self.midia.thumbnail_url, self.midia.fonte, parent=self)
+            self._worker_imagem = WorkerCarregadorImagem(
+                self.midia.thumbnail_url, self.midia.fonte, parent=self
+            )
             self._worker_imagem.imagem_carregada.connect(self._ao_carregar_thumbnail)
             self._worker_imagem.start()
 
@@ -110,7 +123,7 @@ class ItemBetaWidget(QFrame):
 
         layout_principal.addLayout(layout_textos, stretch=1)
 
-    def _ao_carregar_thumbnail(self, pixmap: Optional[QPixmap]) -> None:
+    def _ao_carregar_thumbnail(self, pixmap: QPixmap | None) -> None:
         if pixmap and not pixmap.isNull():
             self.label_thumbnail.setPixmap(pixmap)
 
@@ -122,13 +135,14 @@ class PainelCuradoria(QWidget):
     """
     Aba principal de moderação e curadoria humana de vídeos e postagens de betas.
     """
-    solicitar_salvamento = Signal(dict) # Emite dict[nome_escalada, list[MidiaBeta]]
 
-    def __init__(self, parent: Optional[QWidget] = None) -> None:
+    solicitar_salvamento = Signal(dict)  # Emite dict[nome_escalada, list[MidiaBeta]]
+
+    def __init__(self, parent: QWidget | None = None) -> None:
         super().__init__(parent)
         self.id_croqui = ""
-        self.caminho_staging: Optional[Path] = None
-        self.itens_widgets: List[ItemBetaWidget] = []
+        self.caminho_staging: Path | None = None
+        self.itens_widgets: list[ItemBetaWidget] = []
 
         layout_principal = QVBoxLayout(self)
         layout_principal.setContentsMargins(12, 12, 12, 12)
@@ -175,7 +189,7 @@ class PainelCuradoria(QWidget):
     def obter_id_croqui(self) -> str:
         return self.id_croqui
 
-    def carregar_staging(self, caminho_arquivo: Union[Path, str]) -> None:
+    def carregar_staging(self, caminho_arquivo: Path | str) -> None:
         """
         Lê o arquivo betas_pendentes.binarypb e preenche a lista na interface.
         """
@@ -185,6 +199,7 @@ class PainelCuradoria(QWidget):
             return
 
         from coleta_de_betas.inteligencia.avaliador import carregar_betas_pendentes
+
         pendentes = carregar_betas_pendentes(self.caminho_staging)
         self.id_croqui = pendentes.id_croqui
 
@@ -217,7 +232,7 @@ class PainelCuradoria(QWidget):
             candidatos_ordenados = sorted(
                 escalada_candidatos.candidatos,
                 key=lambda c: c.resultado_llm.llm_confidence_score,
-                reverse=True
+                reverse=True,
             )
 
             for midia in candidatos_ordenados:
@@ -228,7 +243,9 @@ class PainelCuradoria(QWidget):
 
             self.layout_lista.addWidget(grupo)
 
-        self.label_status.setText(f"Croqui: {self.id_croqui} ({total_candidatos} mídias candidatas)")
+        self.label_status.setText(
+            f"Croqui: {self.id_croqui} ({total_candidatos} mídias candidatas)"
+        )
 
     def _aprovar_alta_confianca(self) -> None:
         for widget in self.itens_widgets:
@@ -239,11 +256,11 @@ class PainelCuradoria(QWidget):
         for widget in self.itens_widgets:
             widget.checkbox_aprovado.setChecked(False)
 
-    def obter_betas_aprovados(self) -> Dict[str, List[beta_pb2.MidiaBeta]]:
+    def obter_betas_aprovados(self) -> dict[str, list[beta_pb2.MidiaBeta]]:
         """
         Retorna um dicionário mapeando o nome da via para a lista de MidiaBeta aprovadas.
         """
-        aprovados: Dict[str, List[beta_pb2.MidiaBeta]] = {}
+        aprovados: dict[str, list[beta_pb2.MidiaBeta]] = {}
         for widget in self.itens_widgets:
             if widget.esta_aprovado():
                 nome = widget.nome_escalada
@@ -255,4 +272,3 @@ class PainelCuradoria(QWidget):
     def _ao_clicar_salvar(self) -> None:
         aprovados = self.obter_betas_aprovados()
         self.solicitar_salvamento.emit(aprovados)
-

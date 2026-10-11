@@ -1,15 +1,14 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
-import pytest
-from PySide6.QtWidgets import QApplication
-from PySide6.QtCore import Qt
 from unittest.mock import MagicMock, patch
 
-from editor.views.tela_de_abertura import TelaDeAbertura
-from editor.plataforma import ResultadoAtualizacao, StatusAtualizacao
-from editor.core.gerenciador_sessao import SessaoUsuario
+import pytest
+from PySide6.QtCore import Qt
+
 from editor.core.cliente_auth_supabase import ErroAutenticacaoSupabase
+from editor.plataforma import ResultadoAtualizacao, StatusAtualizacao
+from editor.views.tela_de_abertura import TelaDeAbertura
 
 
 @pytest.fixture
@@ -77,9 +76,7 @@ def test_tela_abertura_transicao_para_formulario_email(qtbot):
     assert abertura.edit_email.text() == ""
 
 
-def test_tela_abertura_solicitar_otp_transicao_para_codigo(
-    qtbot, mock_cliente_auth
-):
+def test_tela_abertura_solicitar_otp_transicao_para_codigo(qtbot, mock_cliente_auth):
     abertura = TelaDeAbertura(cliente_auth=mock_cliente_auth)
     abertura.show()
     qtbot.addWidget(abertura)
@@ -91,9 +88,7 @@ def test_tela_abertura_solicitar_otp_transicao_para_codigo(
     abertura.solicitar_otp()
     qtbot.waitUntil(lambda: abertura.container_auth_codigo.isVisible(), timeout=2000)
 
-    mock_cliente_auth.solicitar_codigo_otp.assert_called_once_with(
-        "escalador@arestaclimb.com"
-    )
+    mock_cliente_auth.solicitar_codigo_otp.assert_called_once_with("escalador@arestaclimb.com")
     assert not abertura.container_auth_email.isVisible()
     assert abertura.container_auth_codigo.isVisible()
     assert "escalador@arestaclimb.com" in abertura.label_info_codigo.text()
@@ -115,9 +110,7 @@ def test_tela_abertura_validador_apenas_digitos(qtbot):
     assert validator.validate("123abc", 0)[0] == QValidator.State.Invalid
 
 
-def test_tela_abertura_validar_codigo_otp_8_digitos_sucesso(
-    qtbot, mock_cliente_auth
-):
+def test_tela_abertura_validar_codigo_otp_8_digitos_sucesso(qtbot, mock_cliente_auth):
     abertura = TelaDeAbertura(cliente_auth=mock_cliente_auth)
     abertura.show()
     qtbot.addWidget(abertura)
@@ -176,15 +169,11 @@ def test_tela_abertura_feedback_reenviar_codigo(qtbot, mock_cliente_auth):
     assert not abertura.btn_reenviar_codigo.isEnabled()
     assert "Reenviando..." in abertura.btn_reenviar_codigo.text()
 
-    qtbot.waitUntil(
-        lambda: "Reenviar em" in abertura.btn_reenviar_codigo.text(), timeout=2000
-    )
+    qtbot.waitUntil(lambda: "Reenviar em" in abertura.btn_reenviar_codigo.text(), timeout=2000)
 
 
 def test_tela_abertura_erro_solicitar_otp(qtbot, mock_cliente_auth):
-    mock_cliente_auth.solicitar_codigo_otp.side_effect = (
-        ErroAutenticacaoSupabase("Rate limit")
-    )
+    mock_cliente_auth.solicitar_codigo_otp.side_effect = ErroAutenticacaoSupabase("Rate limit")
     abertura = TelaDeAbertura(cliente_auth=mock_cliente_auth)
     abertura.show()
     qtbot.addWidget(abertura)
@@ -253,8 +242,11 @@ def test_tela_abertura_exibir_aviso_atualizacao(qtbot):
     assert abertura.update_container.isVisible()
     assert not abertura.label_status.isVisible()
     assert "1.5.0.0" in abertura.label_update_info.text()
+    assert "Microsoft Store" not in abertura.label_update_info.text()
+    assert "Editor Aresta" in abertura.label_update_info.text()
 
     qtbot.mouseClick(abertura.btn_atualizar_store, Qt.MouseButton.LeftButton)
+
     mock_callback.assert_called_once()
 
     abertura.esconder_aviso_atualizacao()
@@ -321,8 +313,8 @@ def test_tela_abertura_drag_and_drop(qtbot):
 
     pos_inicial = abertura.pos()
 
+    from PySide6.QtCore import QEvent, QPointF
     from PySide6.QtGui import QMouseEvent
-    from PySide6.QtCore import QPointF, QEvent
 
     pos_local = QPointF(10.0, 10.0)
     pos_global = abertura.mapToGlobal(pos_local.toPoint())
@@ -359,6 +351,7 @@ def test_tela_abertura_solicitar_otp_com_cliente_padrao_chama_url_absoluta(
     qtbot,
 ):
     import responses
+
     with responses.RequestsMock() as rsps:
         rsps.add(
             responses.POST,
@@ -554,9 +547,9 @@ def test_tela_abertura_banner_cofre_quando_gerenciador_sessao_none(qtbot):
 
 def test_tela_abertura_init_trata_excecao_ao_instanciar_gerenciador_sessao(qtbot):
     """Valida que se a instanciação do GerenciadorSessao falhar no __init__, define como None."""
-    with patch("editor.core.gerenciador_sessao.GerenciadorSessao", side_effect=Exception("Falha init")):
+    with patch(
+        "editor.core.gerenciador_sessao.GerenciadorSessao", side_effect=Exception("Falha init")
+    ):
         abertura = TelaDeAbertura()
         qtbot.addWidget(abertura)
         assert abertura.gerenciador_sessao is None
-
-

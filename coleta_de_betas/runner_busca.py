@@ -1,22 +1,24 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
-import sys
-import os
 import argparse
+import os
+import sys
+from collections.abc import Sequence
 from pathlib import Path
-from typing import List, Union, Optional, Any, Sequence
+from typing import Any
+
 from aresta_api.proto.generated import beta_pb2
-from coleta_de_betas.io_yaml import carregar_vias_extraidas_yaml, salvar_candidatos_brutos_yaml
 from coleta_de_betas.extratores.deduplicador import deduplicar_midias
-from coleta_de_betas.extratores.youtube import ExtratorYouTube
-from coleta_de_betas.extratores.vertex import ExtratorVertexSearch
 from coleta_de_betas.extratores.duckduckgo import ExtratorDuckDuckGo
+from coleta_de_betas.extratores.vertex import ExtratorVertexSearch
+from coleta_de_betas.extratores.youtube import ExtratorYouTube
+from coleta_de_betas.io_yaml import carregar_vias_extraidas_yaml, salvar_candidatos_brutos_yaml
 
 
-def instanciar_extratores_padrao() -> List[Any]:
+def instanciar_extratores_padrao() -> list[Any]:
     """Instancia os extratores padrão disponíveis com base nas credenciais e ambiente."""
-    extratores: List[Any] = []
+    extratores: list[Any] = []
 
     # DuckDuckGo funciona sem autenticação
     extratores.append(ExtratorDuckDuckGo())
@@ -30,19 +32,20 @@ def instanciar_extratores_padrao() -> List[Any]:
     projeto_vertex = os.environ.get("VERTEX_PROJECT_ID", "")
     datastore_vertex = os.environ.get("VERTEX_DATA_STORE_ID", "")
     if projeto_vertex and datastore_vertex:
-        extratores.append(ExtratorVertexSearch(
-            project_id=projeto_vertex,
-            data_store_id=datastore_vertex,
-            location=os.environ.get("VERTEX_LOCATION", "global"),
-            api_key=os.environ.get("VERTEX_API_KEY", "")
-        ))
+        extratores.append(
+            ExtratorVertexSearch(
+                project_id=projeto_vertex,
+                data_store_id=datastore_vertex,
+                location=os.environ.get("VERTEX_LOCATION", "global"),
+                api_key=os.environ.get("VERTEX_API_KEY", ""),
+            )
+        )
 
     return extratores
 
 
 def buscar_candidatos_para_croqui(
-    vias: beta_pb2.ViasExtraidasCroqui,
-    extratores: Optional[Sequence[Any]] = None
+    vias: beta_pb2.ViasExtraidasCroqui, extratores: Sequence[Any] | None = None
 ) -> beta_pb2.BetasPendentes:
     """
     Executa a busca de mídias para cada escalada informada usando os extratores fornecidos,
@@ -55,21 +58,23 @@ def buscar_candidatos_para_croqui(
     pendentes.id_croqui = vias.id_croqui
 
     for via in vias.escaladas:
-        listas_de_resultados: List[List[beta_pb2.MidiaBeta]] = []
+        listas_de_resultados: list[list[beta_pb2.MidiaBeta]] = []
 
         for ext in extratores:
-
             try:
                 # Tenta chamar buscar com argumentos enriquecidos se suportado
                 res = ext.buscar(
                     nome_escalada=via.nome,
                     nome_setor=via.nome_setor,
-                    nome_pico=via.nome_pico or vias.nome_croqui
+                    nome_pico=via.nome_pico or vias.nome_croqui,
                 )
                 listas_de_resultados.append(res)
             except Exception as e:
                 # Registra erro no extrator específico sem interromper o fluxo total
-                print(f"Aviso: Erro no extrator {ext.__class__.__name__} para '{via.nome}': {e}", file=sys.stderr)
+                print(
+                    f"Aviso: Erro no extrator {ext.__class__.__name__} para '{via.nome}': {e}",
+                    file=sys.stderr,
+                )
 
         midias_deduplicadas = deduplicar_midias(listas_de_resultados)
 
@@ -86,7 +91,9 @@ def buscar_candidatos_para_croqui(
     return pendentes
 
 
-def executar_cli_buscar(argv: Optional[Sequence[str]] = None, extratores: Optional[Sequence[Any]] = None) -> int:
+def executar_cli_buscar(
+    argv: Sequence[str] | None = None, extratores: Sequence[Any] | None = None
+) -> int:
     """Ponto de entrada CLI para busca de candidatos."""
     parser = argparse.ArgumentParser(
         description="Executa a busca tripla de betas para as vias de um croqui a partir de vias_extraidas.yaml."
@@ -94,30 +101,37 @@ def executar_cli_buscar(argv: Optional[Sequence[str]] = None, extratores: Option
     parser.add_argument(
         "croqui_dir",
         type=str,
-        help="Caminho para o diretório do croqui (ex: database/br_mg_ouro_preto_ouroboulder)"
+        help="Caminho para o diretório do croqui (ex: database/br_mg_ouro_preto_ouroboulder)",
     )
     parser.add_argument(
-        "-i", "--entrada",
+        "-i",
+        "--entrada",
         type=str,
         default="",
-        help="Caminho opcional do vias_extraidas.yaml (padrão: <croqui_dir>/vias_extraidas.yaml)"
+        help="Caminho opcional do vias_extraidas.yaml (padrão: <croqui_dir>/vias_extraidas.yaml)",
     )
     parser.add_argument(
-        "-o", "--saida",
+        "-o",
+        "--saida",
         type=str,
         default="",
-        help="Caminho opcional do candidatos_brutos.yaml (padrão: <croqui_dir>/candidatos_brutos.yaml)"
+        help="Caminho opcional do candidatos_brutos.yaml (padrão: <croqui_dir>/candidatos_brutos.yaml)",
     )
 
     args = parser.parse_args(argv)
     pico_dir = Path(args.croqui_dir)
     if not pico_dir.exists() or not pico_dir.is_dir():
-        print(f"Erro: Diretório de croqui inválido ou não encontrado: {args.croqui_dir}", file=sys.stderr)
+        print(
+            f"Erro: Diretório de croqui inválido ou não encontrado: {args.croqui_dir}",
+            file=sys.stderr,
+        )
         return 1
 
     caminho_entrada = Path(args.entrada) if args.entrada else pico_dir / "vias_extraidas.yaml"
     if not caminho_entrada.exists():
-        print(f"Erro: Arquivo de vias de entrada não encontrado: {caminho_entrada}", file=sys.stderr)
+        print(
+            f"Erro: Arquivo de vias de entrada não encontrado: {caminho_entrada}", file=sys.stderr
+        )
         return 1
 
     vias = carregar_vias_extraidas_yaml(caminho_entrada)
@@ -128,4 +142,3 @@ def executar_cli_buscar(argv: Optional[Sequence[str]] = None, extratores: Option
     total_cand = sum(len(c.candidatos) for c in pendentes.candidatos_por_escalada)
     print(f"Sucesso: {total_cand} candidatos coletados salvos em {caminho_saida}")
     return 0
-

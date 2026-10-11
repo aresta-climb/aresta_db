@@ -7,7 +7,6 @@ no padrão E7 (graus * 10^7) e ponto flutuante.
 """
 
 import re
-from typing import Optional, Tuple
 
 
 def e7_para_graus(valor_e7: int) -> float:
@@ -25,7 +24,7 @@ def formatar_graus(graus: float, casas_decimais: int = 7) -> str:
     return f"{graus:.{casas_decimais}f}"
 
 
-def obter_indicador_cardinal_latitude(graus: float) -> Tuple[str, str]:
+def obter_indicador_cardinal_latitude(graus: float) -> tuple[str, str]:
     """Retorna a sigla e o nome em português do hemisfério de latitude (S/N)."""
     if graus < 0:
         return ("S", "Sul")
@@ -34,7 +33,7 @@ def obter_indicador_cardinal_latitude(graus: float) -> Tuple[str, str]:
     return ("", "Equador")
 
 
-def obter_indicador_cardinal_longitude(graus: float) -> Tuple[str, str]:
+def obter_indicador_cardinal_longitude(graus: float) -> tuple[str, str]:
     """Retorna a sigla e o nome em português do hemisfério de longitude (W/E)."""
     if graus < 0:
         return ("W", "Oeste")
@@ -84,7 +83,7 @@ def gerar_url_google_maps(latitude: float, longitude: float) -> str:
     return f"https://www.google.com/maps?q={formatar_graus(latitude)},{formatar_graus(longitude)}"
 
 
-def interpretar_coordenada_individual(texto: str) -> Optional[float]:
+def interpretar_coordenada_individual(texto: str) -> float | None:
     """
     Tenta interpretar uma única coordenada a partir de um texto (ex: '-19.898', '19.898S', '43.5W').
     Retorna o valor em ponto flutuante com sinal ou None se inválido.
@@ -109,7 +108,7 @@ def interpretar_coordenada_individual(texto: str) -> Optional[float]:
     return val
 
 
-def interpretar_par_coordenadas(texto: str) -> Optional[Tuple[float, float]]:
+def interpretar_par_coordenadas(texto: str) -> tuple[float, float] | None:
     """
     Interpreta uma string contendo um par de coordenadas (Latitude, Longitude).
     Suporta diversos formatos:
@@ -134,7 +133,9 @@ def interpretar_par_coordenadas(texto: str) -> Optional[Tuple[float, float]]:
         return float(match_url_at.group(1)), float(match_url_at.group(2))
 
     # 2. Tenta formato DMS: Ex: 19°53'52.9"S 43°31'16.4"W
-    padrao_dms = re.findall(r"(\d+)[°\s]+(\d+)[\'\s]+(\d+(?:\.\d+)?)\"?\s*([NSEWOL])", texto, re.IGNORECASE)
+    padrao_dms = re.findall(
+        r"(\d+)[°\s]+(\d+)[\'\s]+(\d+(?:\.\d+)?)\"?\s*([NSEWOL])", texto, re.IGNORECASE
+    )
     if len(padrao_dms) == 2:
         partes_coords = {}
         for d, m, s, card in padrao_dms:
@@ -151,7 +152,9 @@ def interpretar_par_coordenadas(texto: str) -> Optional[Tuple[float, float]]:
             return partes_coords["lat"], partes_coords["lon"]
 
     # 3. Tenta formato com letras cardinais e graus decimais: Ex: 19.898028° S, 43.521234° W
-    padrao_cardinal = re.findall(r"([+-]?\d+(?:[\.,]\d+)?)[°\s]*\s*([NSEWOL])", texto, re.IGNORECASE)
+    padrao_cardinal = re.findall(
+        r"([+-]?\d+(?:[\.,]\d+)?)[°\s]*\s*([NSEWOL])", texto, re.IGNORECASE
+    )
     if len(padrao_cardinal) == 2:
         partes_coords = {}
         for val_str, card in padrao_cardinal:
@@ -182,7 +185,10 @@ def interpretar_par_coordenadas(texto: str) -> Optional[Tuple[float, float]]:
             partes = partes_virgula
         elif len(partes_virgula) == 4:
             # Exemplo: -19,898028, -43,521234
-            partes = [f"{partes_virgula[0]}.{partes_virgula[1]}", f"{partes_virgula[2]}.{partes_virgula[3]}"]
+            partes = [
+                f"{partes_virgula[0]}.{partes_virgula[1]}",
+                f"{partes_virgula[2]}.{partes_virgula[3]}",
+            ]
         else:
             partes = [p.strip() for p in re.split(r"\s+", texto_padronizado) if p.strip()]
     else:

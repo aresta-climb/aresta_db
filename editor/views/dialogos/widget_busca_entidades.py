@@ -8,18 +8,20 @@ Princípios I, II e VI de AGENTS.md.
 """
 
 import unicodedata
-from typing import Optional, List, Dict, Any, Set, Tuple
+from typing import Any
+
+from PySide6.QtCore import Qt, Signal
+from PySide6.QtGui import QColor
 from PySide6.QtWidgets import (
-    QWidget,
-    QVBoxLayout,
     QHBoxLayout,
     QLabel,
     QLineEdit,
     QListWidget,
     QListWidgetItem,
+    QVBoxLayout,
+    QWidget,
 )
-from PySide6.QtCore import Qt, Signal
-from PySide6.QtGui import QColor
+
 from aresta_api.proto.generated import croqui_pb2
 from editor.models.croqui_model import CroquiModel
 
@@ -35,14 +37,14 @@ class WidgetBuscaEntidades(QWidget):
 
     def __init__(
         self,
-        model: Optional[CroquiModel] = None,
-        croqui: Optional[croqui_pb2.Croqui] = None,
-        setor: Optional[Any] = None,
-        mapa_filtro: Optional[Any] = None,
-        tipos_permitidos: Optional[Set[str]] = None,
+        model: CroquiModel | None = None,
+        croqui: croqui_pb2.Croqui | None = None,
+        setor: Any | None = None,
+        mapa_filtro: Any | None = None,
+        tipos_permitidos: set[str] | None = None,
         permitir_criacao_nova: bool = False,
         placeholder_busca: str = "Ex: Bloco Romano, Via Láctea, etc...",
-        parent: Optional[QWidget] = None,
+        parent: QWidget | None = None,
     ) -> None:
         super().__init__(parent)
 
@@ -54,7 +56,7 @@ class WidgetBuscaEntidades(QWidget):
         self.permitir_criacao_nova = permitir_criacao_nova
         self.placeholder_busca = placeholder_busca
 
-        self.todas_entidades: List[Dict[str, Any]] = []
+        self.todas_entidades: list[dict[str, Any]] = []
 
         self._setup_ui()
         self.recarregar_entidades()
@@ -85,8 +87,7 @@ class WidgetBuscaEntidades(QWidget):
     def _remover_acentos(self, texto: str) -> str:
         """Remove marcas diacríticas e acentos para comparação normalizada."""
         return "".join(
-            c for c in unicodedata.normalize("NFD", texto)
-            if unicodedata.category(c) != "Mn"
+            c for c in unicodedata.normalize("NFD", texto) if unicodedata.category(c) != "Mn"
         )
 
     def _extrair_conteudo(self, obj: Any) -> Any:
@@ -94,7 +95,7 @@ class WidgetBuscaEntidades(QWidget):
             return obj.conteudo
         return obj
 
-    def _obter_info_escalada(self, escalada: croqui_pb2.Escalada) -> Tuple[str, str, str]:
+    def _obter_info_escalada(self, escalada: croqui_pb2.Escalada) -> tuple[str, str, str]:
         """Retorna (nome, tipo_campo, grau_formatado) de uma mensagem Escalada."""
         tipo_campo = escalada.WhichOneof("tipo")
         if not tipo_campo:
@@ -113,7 +114,9 @@ class WidgetBuscaEntidades(QWidget):
 
         return (nome, tipo_campo, grau)
 
-    def _formatar_rotulo_escalada(self, tipo_campo: str, nome: str, grau: str, caminho_hierarquia: str) -> str:
+    def _formatar_rotulo_escalada(
+        self, tipo_campo: str, nome: str, grau: str, caminho_hierarquia: str
+    ) -> str:
         """Formata o texto de apresentação na lista com ícone semântico."""
         rotulo_tipo = "Boulder" if tipo_campo == "boulder" else "Via"
         sufixo_grau = f" ({grau})" if grau else ""
@@ -121,7 +124,7 @@ class WidgetBuscaEntidades(QWidget):
             return f"🧗 {rotulo_tipo}: {caminho_hierarquia} > {nome}{sufixo_grau}"
         return f"🧗 {rotulo_tipo}: {nome}{sufixo_grau}"
 
-    def _obter_uids_mapeados(self) -> Set[str]:
+    def _obter_uids_mapeados(self) -> set[str]:
         """Retorna o conjunto de UIDs de entidades já associadas ao mapa ativo."""
         uids = set()
         if self.mapa_filtro and hasattr(self.mapa_filtro, "referencias"):
@@ -147,30 +150,89 @@ class WidgetBuscaEntidades(QWidget):
                     if sg.HasField("grupo"):
                         grupo = self._extrair_conteudo(sg.grupo)
                         uid_grupo = getattr(grupo, "uid", "")
-                        self.todas_entidades.append({
-                            "tipo": "Grupo",
-                            "display": f"🎯 Grupo: {pico.nome} > {grupo.nome}",
-                            "uid": uid_grupo,
-                            "grupo": grupo.nome,
-                            "grupo_obj": grupo,
-                            "setor": "",
-                            "setor_obj": None,
-                            "escalada": "",
-                            "escalada_obj": None,
-                            "tipo_escalada": "",
-                            "grau": "",
-                            "nova": False,
-                            "ja_mapeada": bool((uid_grupo and uid_grupo in uids_mapeados) or (grupo.nome and grupo.nome in uids_mapeados)),
-                        })
+                        self.todas_entidades.append(
+                            {
+                                "tipo": "Grupo",
+                                "display": f"🎯 Grupo: {pico.nome} > {grupo.nome}",
+                                "uid": uid_grupo,
+                                "grupo": grupo.nome,
+                                "grupo_obj": grupo,
+                                "setor": "",
+                                "setor_obj": None,
+                                "escalada": "",
+                                "escalada_obj": None,
+                                "tipo_escalada": "",
+                                "grau": "",
+                                "nova": False,
+                                "ja_mapeada": bool(
+                                    (uid_grupo and uid_grupo in uids_mapeados)
+                                    or (grupo.nome and grupo.nome in uids_mapeados)
+                                ),
+                            }
+                        )
                         for setor_msg in grupo.setores:
                             setor = self._extrair_conteudo(setor_msg)
                             uid_setor = getattr(setor, "uid", "")
-                            self.todas_entidades.append({
+                            self.todas_entidades.append(
+                                {
+                                    "tipo": "Setor",
+                                    "display": f"🎯 Setor: {grupo.nome} > {setor.nome}",
+                                    "uid": uid_setor,
+                                    "grupo": grupo.nome,
+                                    "grupo_obj": grupo,
+                                    "setor": setor.nome,
+                                    "setor_obj": setor,
+                                    "escalada": "",
+                                    "escalada_obj": None,
+                                    "tipo_escalada": "",
+                                    "grau": "",
+                                    "nova": False,
+                                    "ja_mapeada": bool(
+                                        (uid_setor and uid_setor in uids_mapeados)
+                                        or (setor.nome and setor.nome in uids_mapeados)
+                                    ),
+                                }
+                            )
+                            for esc in setor.escaladas:
+                                nome_esc, tipo_campo, grau = self._obter_info_escalada(esc)
+                                if not nome_esc:
+                                    continue
+                                uid_esc = getattr(esc, "uid", "")
+                                ja_mapeada = bool(
+                                    (uid_esc and uid_esc in uids_mapeados)
+                                    or (nome_esc and nome_esc in uids_mapeados)
+                                )
+                                caminho = f"{grupo.nome} > {setor.nome}"
+                                rotulo = self._formatar_rotulo_escalada(
+                                    tipo_campo, nome_esc, grau, caminho
+                                )
+                                self.todas_entidades.append(
+                                    {
+                                        "tipo": "Escalada",
+                                        "display": rotulo,
+                                        "uid": uid_esc,
+                                        "grupo": grupo.nome,
+                                        "grupo_obj": grupo,
+                                        "setor": setor.nome,
+                                        "setor_obj": setor,
+                                        "escalada": nome_esc,
+                                        "escalada_obj": esc,
+                                        "tipo_escalada": tipo_campo,
+                                        "grau": grau,
+                                        "nova": False,
+                                        "ja_mapeada": ja_mapeada,
+                                    }
+                                )
+                    elif sg.HasField("setor"):
+                        setor = self._extrair_conteudo(sg.setor)
+                        uid_setor = getattr(setor, "uid", "")
+                        self.todas_entidades.append(
+                            {
                                 "tipo": "Setor",
-                                "display": f"🎯 Setor: {grupo.nome} > {setor.nome}",
+                                "display": f"🎯 Setor: {pico.nome} > {setor.nome}",
                                 "uid": uid_setor,
-                                "grupo": grupo.nome,
-                                "grupo_obj": grupo,
+                                "grupo": "",
+                                "grupo_obj": None,
                                 "setor": setor.nome,
                                 "setor_obj": setor,
                                 "escalada": "",
@@ -178,22 +240,32 @@ class WidgetBuscaEntidades(QWidget):
                                 "tipo_escalada": "",
                                 "grau": "",
                                 "nova": False,
-                                "ja_mapeada": bool((uid_setor and uid_setor in uids_mapeados) or (setor.nome and setor.nome in uids_mapeados)),
-                            })
-                            for esc in setor.escaladas:
-                                nome_esc, tipo_campo, grau = self._obter_info_escalada(esc)
-                                if not nome_esc:
-                                    continue
-                                uid_esc = getattr(esc, "uid", "")
-                                ja_mapeada = bool((uid_esc and uid_esc in uids_mapeados) or (nome_esc and nome_esc in uids_mapeados))
-                                caminho = f"{grupo.nome} > {setor.nome}"
-                                rotulo = self._formatar_rotulo_escalada(tipo_campo, nome_esc, grau, caminho)
-                                self.todas_entidades.append({
+                                "ja_mapeada": bool(
+                                    (uid_setor and uid_setor in uids_mapeados)
+                                    or (setor.nome and setor.nome in uids_mapeados)
+                                ),
+                            }
+                        )
+                        for esc in setor.escaladas:
+                            nome_esc, tipo_campo, grau = self._obter_info_escalada(esc)
+                            if not nome_esc:
+                                continue
+                            uid_esc = getattr(esc, "uid", "")
+                            ja_mapeada = bool(
+                                (uid_esc and uid_esc in uids_mapeados)
+                                or (nome_esc and nome_esc in uids_mapeados)
+                            )
+                            caminho = setor.nome
+                            rotulo = self._formatar_rotulo_escalada(
+                                tipo_campo, nome_esc, grau, caminho
+                            )
+                            self.todas_entidades.append(
+                                {
                                     "tipo": "Escalada",
                                     "display": rotulo,
                                     "uid": uid_esc,
-                                    "grupo": grupo.nome,
-                                    "grupo_obj": grupo,
+                                    "grupo": "",
+                                    "grupo_obj": None,
                                     "setor": setor.nome,
                                     "setor_obj": setor,
                                     "escalada": nome_esc,
@@ -202,48 +274,8 @@ class WidgetBuscaEntidades(QWidget):
                                     "grau": grau,
                                     "nova": False,
                                     "ja_mapeada": ja_mapeada,
-                                })
-                    elif sg.HasField("setor"):
-                        setor = self._extrair_conteudo(sg.setor)
-                        uid_setor = getattr(setor, "uid", "")
-                        self.todas_entidades.append({
-                            "tipo": "Setor",
-                            "display": f"🎯 Setor: {pico.nome} > {setor.nome}",
-                            "uid": uid_setor,
-                            "grupo": "",
-                            "grupo_obj": None,
-                            "setor": setor.nome,
-                            "setor_obj": setor,
-                            "escalada": "",
-                            "escalada_obj": None,
-                            "tipo_escalada": "",
-                            "grau": "",
-                            "nova": False,
-                            "ja_mapeada": bool((uid_setor and uid_setor in uids_mapeados) or (setor.nome and setor.nome in uids_mapeados)),
-                        })
-                        for esc in setor.escaladas:
-                            nome_esc, tipo_campo, grau = self._obter_info_escalada(esc)
-                            if not nome_esc:
-                                continue
-                            uid_esc = getattr(esc, "uid", "")
-                            ja_mapeada = bool((uid_esc and uid_esc in uids_mapeados) or (nome_esc and nome_esc in uids_mapeados))
-                            caminho = setor.nome
-                            rotulo = self._formatar_rotulo_escalada(tipo_campo, nome_esc, grau, caminho)
-                            self.todas_entidades.append({
-                                "tipo": "Escalada",
-                                "display": rotulo,
-                                "uid": uid_esc,
-                                "grupo": "",
-                                "grupo_obj": None,
-                                "setor": setor.nome,
-                                "setor_obj": setor,
-                                "escalada": nome_esc,
-                                "escalada_obj": esc,
-                                "tipo_escalada": tipo_campo,
-                                "grau": grau,
-                                "nova": False,
-                                "ja_mapeada": ja_mapeada,
-                            })
+                                }
+                            )
 
         elif self.setor and hasattr(self.setor, "escaladas"):
             setor = self._extrair_conteudo(self.setor)
@@ -252,30 +284,34 @@ class WidgetBuscaEntidades(QWidget):
                 if not nome_esc:
                     continue
                 uid_esc = getattr(esc, "uid", "")
-                ja_mapeada = bool((uid_esc and uid_esc in uids_mapeados) or (nome_esc and nome_esc in uids_mapeados))
+                ja_mapeada = bool(
+                    (uid_esc and uid_esc in uids_mapeados)
+                    or (nome_esc and nome_esc in uids_mapeados)
+                )
                 caminho = getattr(setor, "nome", "")
                 rotulo = self._formatar_rotulo_escalada(tipo_campo, nome_esc, grau, caminho)
-                self.todas_entidades.append({
-                    "tipo": "Escalada",
-                    "display": rotulo,
-                    "uid": getattr(esc, "uid", ""),
-                    "grupo": "",
-                    "grupo_obj": None,
-                    "setor": getattr(setor, "nome", ""),
-                    "setor_obj": setor,
-                    "escalada": nome_esc,
-                    "escalada_obj": esc,
-                    "tipo_escalada": tipo_campo,
-                    "grau": grau,
-                    "nova": False,
-                    "ja_mapeada": ja_mapeada,
-                })
+                self.todas_entidades.append(
+                    {
+                        "tipo": "Escalada",
+                        "display": rotulo,
+                        "uid": getattr(esc, "uid", ""),
+                        "grupo": "",
+                        "grupo_obj": None,
+                        "setor": getattr(setor, "nome", ""),
+                        "setor_obj": setor,
+                        "escalada": nome_esc,
+                        "escalada_obj": esc,
+                        "tipo_escalada": tipo_campo,
+                        "grau": grau,
+                        "nova": False,
+                        "ja_mapeada": ja_mapeada,
+                    }
+                )
 
         # Filtro de tipos permitidos
         if self.tipos_permitidos is not None:
             self.todas_entidades = [
-                e for e in self.todas_entidades
-                if e["tipo"] in self.tipos_permitidos
+                e for e in self.todas_entidades if e["tipo"] in self.tipos_permitidos
             ]
 
     def _popular_lista(self, filtro: str = "") -> None:
@@ -294,21 +330,26 @@ class WidgetBuscaEntidades(QWidget):
                 item.setData(Qt.ItemDataRole.UserRole, dict(entidade))
                 if ja_mapeada:
                     item.setForeground(QColor("#888888"))
-                    item.setToolTip("Esta escalada já possui traçado neste mapa. Para ajustar, selecione a linha na imagem ou no painel lateral.")
+                    item.setToolTip(
+                        "Esta escalada já possui traçado neste mapa. Para ajustar, selecione a linha na imagem ou no painel lateral."
+                    )
                 self.lista_resultados.addItem(item)
 
         termo_digitado = filtro.strip()
         if self.permitir_criacao_nova and termo_digitado:
-            item_novo = QListWidgetItem(f"➕ Criar Nova Escalada: \"{termo_digitado}\"")
-            item_novo.setData(Qt.ItemDataRole.UserRole, {
-                "nova": True,
-                "nome": termo_digitado,
-                "tipo": "boulder",
-                "grau": "V4",
-                "tipo_entidade": "Escalada",
-                "setor_obj": self.setor,
-                "ja_mapeada": False,
-            })
+            item_novo = QListWidgetItem(f'➕ Criar Nova Escalada: "{termo_digitado}"')
+            item_novo.setData(
+                Qt.ItemDataRole.UserRole,
+                {
+                    "nova": True,
+                    "nome": termo_digitado,
+                    "tipo": "boulder",
+                    "grau": "V4",
+                    "tipo_entidade": "Escalada",
+                    "setor_obj": self.setor,
+                    "ja_mapeada": False,
+                },
+            )
             self.lista_resultados.addItem(item_novo)
 
         if self.lista_resultados.count() > 0:
@@ -328,7 +369,7 @@ class WidgetBuscaEntidades(QWidget):
         if dados:
             self.entidade_ativada.emit(dados)
 
-    def obter_entidade_selecionada(self) -> Optional[Dict[str, Any]]:
+    def obter_entidade_selecionada(self) -> dict[str, Any] | None:
         """Retorna os dados da entidade atualmente selecionada na lista, ou None."""
         itens = self.lista_resultados.selectedItems()
         if not itens:

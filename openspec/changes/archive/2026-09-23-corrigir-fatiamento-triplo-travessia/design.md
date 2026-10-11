@@ -22,7 +22,11 @@ Atualmente, no método `adicionar_rota_com_tracado` de `editor/controllers/mapas
 ### Decisão 1: Validação de nós únicos e estritamente intermediários no Controller
 - **Abordagem**: Extrair `nos_unicos = sorted(set(indices_no_cand))` e verificar:
   ```python
-  if len(nos_unicos) >= 2 and nos_unicos[0] > 0 and nos_unicos[-1] < len(linha_cand.linha.conteudo.nos) - 1:
+  if (
+      len(nos_unicos) >= 2
+      and nos_unicos[0] > 0
+      and nos_unicos[-1] < len(linha_cand.linha.conteudo.nos) - 1
+  ):
       idx_in = nos_unicos[0]
       idx_out = nos_unicos[-1]
   ```

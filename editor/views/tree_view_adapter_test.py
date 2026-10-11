@@ -1,8 +1,8 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
-import pytest
 from PySide6.QtCore import QModelIndex, Qt
+
 from aresta_api.proto.generated.croqui_pb2 import Croqui
 from editor.views.tree_view_adapter import ProtobufTreeViewAdapter
 
@@ -24,11 +24,14 @@ def test_protobuf_tree_model_empty():
     # A raiz (invisível) deve conter exatamente 1 nó correspondente ao Croqui
     assert model.rowCount(root_index) == 1
     croqui_index = model.index(0, 0, root_index)
-    
+
     # Mesmo com coleções vazias, o nó Croqui deve conter expandos elegíveis (Picos e Botões)
     assert model.rowCount(croqui_index) >= 1
-    
-    nomes_expandos = [model.data(model.index(r, 0, croqui_index), Qt.ItemDataRole.DisplayRole) for r in range(model.rowCount(croqui_index))]
+
+    nomes_expandos = [
+        model.data(model.index(r, 0, croqui_index), Qt.ItemDataRole.DisplayRole)
+        for r in range(model.rowCount(croqui_index))
+    ]
     assert "Picos" in nomes_expandos
     assert "Botões" in nomes_expandos
 
@@ -42,19 +45,18 @@ def test_protobuf_tree_model_empty():
 
 
 def test_protobuf_tree_model_colecoes_vazias_em_pico_grupo_setor():
-    from aresta_api.proto.generated.croqui_pb2 import Pico, Grupo, Setor
     croqui = Croqui()
     pico = croqui.picos.add()
     pico.nome = "Pico Vazio"
-    
+
     model = ProtobufTreeViewAdapter(croqui)
     croqui_idx = model.index(0, 0, QModelIndex())
-    
+
     # Localiza o Pico
     expando_picos = _obter_expando(model, croqui_idx, "Picos")
     pico_node = model.index(0, 0, expando_picos)
     assert model.data(pico_node) == "Pico Vazio"
-    
+
     # Pico vazio deve conter expando 'Setores ou grupos' com nó virtual
     assert model.rowCount(pico_node) >= 1
     sg_expando = model.index(0, 0, pico_node)
@@ -65,7 +67,7 @@ def test_protobuf_tree_model_colecoes_vazias_em_pico_grupo_setor():
     # Adiciona Setor vazio
     sg = pico.setores_ou_grupos.add()
     sg.setor.conteudo.nome = "Setor Vazio"
-    
+
     model_setor = ProtobufTreeViewAdapter(croqui)
     croqui_idx2 = model_setor.index(0, 0, QModelIndex())
     exp_picos2 = _obter_expando(model_setor, croqui_idx2, "Picos")
@@ -73,7 +75,7 @@ def test_protobuf_tree_model_colecoes_vazias_em_pico_grupo_setor():
     sg_expando2 = model_setor.index(0, 0, pico_node2)
     setor_node = model_setor.index(0, 0, sg_expando2)
     assert model_setor.data(setor_node) == "Setor Vazio"
-    
+
     # Setor vazio deve conter expando 'Escaladas' com nó virtual
     assert model_setor.rowCount(setor_node) >= 1
     esc_expando = model_setor.index(0, 0, setor_node)
@@ -87,37 +89,37 @@ def test_protobuf_tree_model_root_categories():
     # Adiciona um pico e um arquivo markdown sob um botão
     pico = croqui.picos.add()
     pico.nome = "Serra do Cipó"
-    
+
     botao = croqui.botoes.add()
     botao.texto = "Como chegar"
     arq_md = botao.destino.secao_textual
     arq_md.caminho = "como_chegar.md"
-    
+
     model = ProtobufTreeViewAdapter(croqui)
     root_index = QModelIndex()
-    
+
     # A raiz (invisível) deve conter o nó Croqui
     assert model.rowCount(root_index) == 1
     croqui_index = model.index(0, 0, root_index)
-    
+
     # O nó Croqui deve conter 2 expandos: "Botões" e "Picos"
     assert model.rowCount(croqui_index) == 2
-    
+
     expando_botoes = _obter_expando(model, croqui_index, "Botões")
     expando_picos = _obter_expando(model, croqui_index, "Picos")
-    
+
     assert expando_botoes.isValid()
     assert expando_picos.isValid()
-    
+
     # Sob o expando picos deve ter o pico "Serra do Cipó" + o nó virtual de adição
     assert model.rowCount(expando_picos) == 2  # 1 pico + 1 nó virtual
     pico_node = model.index(0, 0, expando_picos)
     assert model.data(pico_node, Qt.ItemDataRole.DisplayRole) == "Serra do Cipó"
-    
+
     # O último filho do expando picos deve ser o nó virtual de adição
     no_virtual_picos = model.index(1, 0, expando_picos)
     assert no_virtual_picos.internalPointer().eh_no_adicao is True
-    
+
     # Sob o expando botoes deve ter o botao "Como chegar" + nó virtual
     assert model.rowCount(expando_botoes) == 2  # 1 botao + 1 nó virtual
     botao_node = model.index(0, 0, expando_botoes)
@@ -128,29 +130,29 @@ def test_protobuf_tree_model_nested_transparency():
     croqui = Croqui()
     pico = croqui.picos.add()
     pico.nome = "Gruta da Lapinha"
-    
+
     # Adiciona SetorOuGrupo -> ArquivoSetor -> Setor
     sg = pico.setores_ou_grupos.add()
     arq_setor = sg.setor
     arq_setor.conteudo.nome = "Setor Principal"
-    
+
     model = ProtobufTreeViewAdapter(croqui)
     root_index = QModelIndex()
-    
+
     croqui_index = model.index(0, 0, root_index)
     expando_picos = _obter_expando(model, croqui_index, "Picos")
     pico_node = model.index(0, 0, expando_picos)
-    
+
     # Sob o Pico, deve ter o expando "Setores ou grupos"
     assert model.rowCount(pico_node) == 1
     expando_sg = model.index(0, 0, pico_node)
     assert model.data(expando_sg, Qt.ItemDataRole.DisplayRole) == "Setores ou grupos"
-    
+
     # Sob o expando "Setores ou grupos", deve conter o Setor + o nó virtual
     assert model.rowCount(expando_sg) == 2  # 1 setor + 1 nó virtual
     setor_node = model.index(0, 0, expando_sg)
     assert model.data(setor_node, Qt.ItemDataRole.DisplayRole) == "Setor Principal"
-    
+
     # O último filho deve ser o nó virtual de adição
     no_virtual = model.index(1, 0, expando_sg)
     assert no_virtual.internalPointer().eh_no_adicao is True
@@ -162,30 +164,30 @@ def test_protobuf_tree_model_escalada_oneof():
     sg = pico.setores_ou_grupos.add()
     setor = sg.setor.conteudo
     setor.nome = "Bloco A"
-    
+
     # Adiciona Escalada
     esc = setor.escaladas.add()
     esc.via_esportiva.nome = "Fenda do Bicho"
-    
+
     model = ProtobufTreeViewAdapter(croqui)
     root_index = QModelIndex()
-    
+
     croqui_index = model.index(0, 0, root_index)
     picos_exp = _obter_expando(model, croqui_index, "Picos")
     pico_node = model.index(0, 0, picos_exp)
     sg_exp = model.index(0, 0, pico_node)
     setor_node = model.index(0, 0, sg_exp)
-    
+
     # Sob o setor, deve ter o expando "Escaladas"
     assert model.rowCount(setor_node) == 1
     escaladas_exp = model.index(0, 0, setor_node)
     assert model.data(escaladas_exp, Qt.ItemDataRole.DisplayRole) == "Escaladas"
-    
+
     # Sob o expando "Escaladas", deve ter a Escalada + o nó virtual
     assert model.rowCount(escaladas_exp) == 2  # 1 escalada + 1 nó virtual
     esc_node = model.index(0, 0, escaladas_exp)
     assert model.data(esc_node, Qt.ItemDataRole.DisplayRole) == "Fenda do Bicho"
-    
+
     # O último filho deve ser o nó virtual de adição
     no_virtual = model.index(1, 0, escaladas_exp)
     assert no_virtual.internalPointer().eh_no_adicao is True
@@ -197,7 +199,7 @@ def test_protobuf_tree_model_croqui_display_name():
     model = ProtobufTreeViewAdapter(croqui)
     root_index = QModelIndex()
     croqui_index = model.index(0, 0, root_index)
-    
+
     # O nó do Croqui deve exibir "Croqui" em vez do nome do croqui
     assert model.data(croqui_index, Qt.ItemDataRole.DisplayRole) == "Croqui"
 
@@ -205,48 +207,48 @@ def test_protobuf_tree_model_croqui_display_name():
 def test_protobuf_tree_model_titulo_na_ui():
     croqui = Croqui()
     pico = croqui.picos.add()
-    pico.nome = "Serra do Cipó" # pico.nome has (titulo_na_ui) = true
-    
+    pico.nome = "Serra do Cipó"  # pico.nome has (titulo_na_ui) = true
+
     model = ProtobufTreeViewAdapter(croqui)
     root_index = QModelIndex()
     croqui_index = model.index(0, 0, root_index)
     expando_picos = _obter_expando(model, croqui_index, "Picos")
     pico_node = model.index(0, 0, expando_picos)
-    
+
     # Deve usar o valor de pico.nome porque tem (titulo_na_ui) = true
     assert model.data(pico_node, Qt.ItemDataRole.DisplayRole) == "Serra do Cipó"
 
 
 def test_protobuf_tree_model_arquivo_markdown_titulo():
     croqui = Croqui()
-    
+
     # 1. Com conteudo contendo H1
     bot1 = croqui.botoes.add()
     bot1.texto = "Título Bacana"
     arq_md_1 = bot1.destino.secao_textual
     arq_md_1.conteudo = "# Título Bacana\nEste é o corpo do texto"
-    
+
     # 2. Com conteudo sem H1
     bot2 = croqui.botoes.add()
     bot2.texto = "Conteúdo Markdown"
     arq_md_2 = bot2.destino.secao_textual
     arq_md_2.conteudo = "Este é um texto sem título H1"
-    
+
     # 3. Com caminho
     bot3 = croqui.botoes.add()
     bot3.texto = "Recomendacoes e regras"
     arq_md_3 = bot3.destino.secao_textual
     arq_md_3.caminho = "recomendacoes_e_regras.md"
-    
+
     model = ProtobufTreeViewAdapter(croqui)
     root_index = QModelIndex()
     croqui_index = model.index(0, 0, root_index)
     expando_md = _obter_expando(model, croqui_index, "Botões")
-    
+
     node_1 = model.index(0, 0, expando_md)
     node_2 = model.index(1, 0, expando_md)
     node_3 = model.index(2, 0, expando_md)
-    
+
     assert model.data(node_1, Qt.ItemDataRole.DisplayRole) == "Título Bacana"
     assert model.data(node_2, Qt.ItemDataRole.DisplayRole) == "Conteúdo Markdown"
     assert model.data(node_3, Qt.ItemDataRole.DisplayRole) == "Recomendacoes e regras"
@@ -256,37 +258,37 @@ def test_protobuf_tree_model_oneof_invisible():
     croqui = Croqui()
     pico = croqui.picos.add()
     pico.nome = "Pico de Teste"
-    
+
     # Adiciona SetorOuGrupo (ONEOF) -> ArquivoSetor (ONEOF) -> Setor (SEPARADO)
     sg = pico.setores_ou_grupos.add()
     arq_setor = sg.setor
     setor = arq_setor.conteudo
     setor.nome = "Setor Invisivel Test"
-    
+
     model = ProtobufTreeViewAdapter(croqui)
     root_index = QModelIndex()
-    
+
     croqui_index = model.index(0, 0, root_index)
     expando_picos = _obter_expando(model, croqui_index, "Picos")
     pico_node = model.index(0, 0, expando_picos)
-    
+
     # O pico deve ter apenas 1 filho expando: "Setores ou grupos"
     assert model.rowCount(pico_node) == 1
     expando_sg = model.index(0, 0, pico_node)
     assert model.data(expando_sg, Qt.ItemDataRole.DisplayRole) == "Setores ou grupos"
-    
+
     # O expando "Setores ou grupos" deve conter o Setor + o nó virtual
     assert model.rowCount(expando_sg) == 2  # 1 setor + 1 nó virtual
     setor_node = model.index(0, 0, expando_sg)
-    
+
     # O último filho deve ser o nó virtual de adição
     no_virtual = model.index(1, 0, expando_sg)
     assert no_virtual.internalPointer().eh_no_adicao is True
-    
+
     # O rótulo exibido deve ser o nome do Setor e o pai do Setor na árvore deve ser o expando
     assert model.data(setor_node, Qt.ItemDataRole.DisplayRole) == "Setor Invisivel Test"
     assert setor_node.parent().internalPointer() == expando_sg.internalPointer()
-    
+
     # Nenhuma mensagem intermediária do tipo ONEOF (SetorOuGrupo ou ArquivoSetor) deve existir como nó intermediário
     node_setor = setor_node.internalPointer()
     assert node_setor.message.DESCRIPTOR.name == "Setor"
@@ -383,53 +385,54 @@ def test_oneof_conteudo_arquivo_markdown_retorna_wrapper():
 
 def test_protobuf_tree_model_reactive_updates():
     from aresta_api.proto.generated.croqui_pb2 import Pico
+
     croqui = Croqui()
     pico = croqui.picos.add()
     pico.nome = "Pico A"
-    
+
     model = ProtobufTreeViewAdapter(croqui)
     root_idx = QModelIndex()
     croqui_idx = model.index(0, 0, root_idx)
     picos_exp_idx = _obter_expando(model, croqui_idx, "Picos")
-    
+
     # Garante que os filhos picos estão populados na árvore
     model.rowCount(picos_exp_idx)
-    
+
     # 1. Teste _on_campo_alterado (renomeia Pico A)
     sinais = []
     model.dataChanged.connect(lambda top, bottom, roles=None: sinais.append((top, bottom)))
-    
+
     pico.nome = "Pico Alterado"
     model._on_campo_alterado(id(pico), "nome", "Pico Alterado")
-    
+
     assert len(sinais) == 1
     pico_node_idx = model.index(0, 0, picos_exp_idx)
     assert sinais[0][0] == pico_node_idx
     assert model.data(pico_node_idx) == "Pico Alterado"
-    
+
     # 2. Teste _on_item_adicionado (insere um pico no indice 0)
     pico_novo = Pico(nome="Pico Novo")
     croqui.picos.insert(0, pico_novo)
-    
+
     insercoes = []
     model.rowsInserted.connect(lambda parent, start, end: insercoes.append((parent, start, end)))
-    
+
     model._on_item_adicionado(id(croqui), "picos", 0)
-    
+
     assert len(insercoes) == 1
     assert insercoes[0] == (picos_exp_idx, 0, 0)
-    
+
     # Verifica que o Pico Novo está no índice 0 e o Pico Alterado foi para o índice 1
     assert model.data(model.index(0, 0, picos_exp_idx)) == "Pico Novo"
     assert model.data(model.index(1, 0, picos_exp_idx)) == "Pico Alterado"
-    
+
     # 3. Teste _on_item_removido
     remocoes = []
     model.rowsRemoved.connect(lambda parent, start, end: remocoes.append((parent, start, end)))
-    
+
     croqui.picos.pop(0)
     model._on_item_removido(id(croqui), "picos", 0)
-    
+
     assert len(remocoes) == 1
     assert remocoes[0] == (picos_exp_idx, 0, 0)
     assert model.data(model.index(0, 0, picos_exp_idx)) == "Pico Alterado"
@@ -438,20 +441,23 @@ def test_protobuf_tree_model_reactive_updates():
 def test_protobuf_tree_model_oneof_generico():
     """Testa se a resolução de nomes na árvore funciona genericamente para qualquer ONEOF ativo
     que delegue o título para uma mensagem interna com titulo_na_ui."""
-    from aresta_api.proto.generated.croqui_pb2 import SetorOuGrupo, Setor
+    from aresta_api.proto.generated.croqui_pb2 import SetorOuGrupo
     from editor.views.tree_view_adapter import ProtobufNode
-    
+
     # SetorOuGrupo é um wrapper puro com um oneof "tipo"
     sg = SetorOuGrupo()
     sg.setor.conteudo.nome = "Setor Via ONEOF Genérico"
-    
+
     node = ProtobufNode(name="sg", message=sg)
     model = ProtobufTreeViewAdapter(Croqui())
-    
+
     class MockIndex:
-        def isValid(self): return True
-        def internalPointer(self): return node
-        
+        def isValid(self):
+            return True
+
+        def internalPointer(self):
+            return node
+
     mock_idx = MockIndex()
     nome_extraido = model.data(mock_idx, Qt.ItemDataRole.DisplayRole)
     assert nome_extraido == "Setor Via ONEOF Genérico"
@@ -459,27 +465,28 @@ def test_protobuf_tree_model_oneof_generico():
 
 def test_tree_view_adapter_on_item_adicionado_resolve_transparency(qapp):
     """Garante que _on_item_adicionado chame _resolve_transparency para o item inserido."""
-    from aresta_api.proto.generated.croqui_pb2 import Croqui, Pico
+    from aresta_api.proto.generated.croqui_pb2 import Croqui
     from editor.views.tree_view_adapter import ProtobufTreeViewAdapter
-    
+
     croqui = Croqui()
     pico = croqui.picos.add()
     pico.nome = "Pico de Teste"
-    
+
     model = ProtobufTreeViewAdapter(croqui)
     model.rebuild_tree()
-    
+
     import editor.views.widget_editor_dados
+
     pico_id = editor.views.widget_editor_dados._get_id(pico)
-    
+
     sg = pico.setores_ou_grupos.add()
     sg.setor.conteudo.nome = "Setor Adicionado Direto"
-    
+
     model._on_item_adicionado(pico_id, "setores_ou_grupos", 0)
-    
+
     exp_idx = model.find_expando_index(pico_id, "setores_ou_grupos")
     exp_node = exp_idx.internalPointer()
-    
+
     assert len(exp_node.children) >= 1
     new_node = exp_node.children[0]
     assert new_node.message.DESCRIPTOR.name == "Setor"
@@ -491,17 +498,17 @@ def test_tree_view_adapter_on_item_movido(qapp):
 
     croqui = Croqui()
     p1 = croqui.picos.add()
-    p1.nome = 'A'
+    p1.nome = "A"
     p2 = croqui.picos.add()
-    p2.nome = 'B'
+    p2.nome = "B"
     p3 = croqui.picos.add()
-    p3.nome = 'C'
-    
+    p3.nome = "C"
+
     adapter = ProtobufTreeViewAdapter(croqui)
 
     root_idx = QModelIndex()
     croqui_idx = adapter.index(0, 0, root_idx)
-    
+
     picos_idx = _obter_expando(adapter, croqui_idx, "Picos")
     assert picos_idx.isValid()
     adapter.rowCount(picos_idx)
@@ -510,31 +517,39 @@ def test_tree_view_adapter_on_item_movido(qapp):
     # Move 0 to 2
     p = croqui.picos.pop(0)
     croqui.picos.insert(2, p)
-    adapter._on_item_movido(id(croqui), 'picos', 0, 2)
+    adapter._on_item_movido(id(croqui), "picos", 0, 2)
 
-    assert [c.message.nome for c in picos_node.children if hasattr(c, 'message') and c.message] == ['B', 'C', 'A']
-    assert [c.index_in_repeated for c in picos_node.children if hasattr(c, 'index_in_repeated') and c.index_in_repeated is not None] == [0, 1, 2]
+    assert [c.message.nome for c in picos_node.children if hasattr(c, "message") and c.message] == [
+        "B",
+        "C",
+        "A",
+    ]
+    assert [
+        c.index_in_repeated
+        for c in picos_node.children
+        if hasattr(c, "index_in_repeated") and c.index_in_repeated is not None
+    ] == [0, 1, 2]
 
 
 def test_protobuf_tree_model_mapas_gerais():
     from aresta_api.proto.generated.croqui_pb2 import Croqui
     from editor.views.tree_view_adapter import ProtobufTreeViewAdapter
-    
+
     croqui = Croqui()
     pico = croqui.picos.add()
     pico.nome = "Pico Teste Mapas"
-    
+
     pico.mapas_gerais.caminho = "mapas_gerais.md"
-    
+
     model = ProtobufTreeViewAdapter(croqui)
     root_index = QModelIndex()
-    
+
     croqui_index = model.index(0, 0, root_index)
     expando_picos = _obter_expando(model, croqui_index, "Picos")
     pico_node = model.index(0, 0, expando_picos)
-    
+
     model.rowCount(pico_node)
-    
+
     mapas_gerais_node = None
     labels = []
     for r in range(model.rowCount(pico_node)):
@@ -544,8 +559,10 @@ def test_protobuf_tree_model_mapas_gerais():
         if label == "Mapas gerais":
             mapas_gerais_node = idx
             break
-            
-    assert mapas_gerais_node is not None, f"O nó Mapas gerais deve aparecer na árvore do Pico. Encontrados: {labels}"
+
+    assert mapas_gerais_node is not None, (
+        f"O nó Mapas gerais deve aparecer na árvore do Pico. Encontrados: {labels}"
+    )
     node_ptr = mapas_gerais_node.internalPointer()
     assert node_ptr.message.DESCRIPTOR.name == "ArquivoMapas"
 
@@ -612,6 +629,7 @@ def test_on_item_movido_atualiza_referencias_mensagens_vivas():
 
 def test_sincronizar_mensagem_recursiva_ramos_especiais():
     from editor.views.tree_view_adapter import ProtobufNode
+
     croqui = Croqui()
     pico = croqui.picos.add(nome="Pico Especial")
     adapter = ProtobufTreeViewAdapter(croqui)
@@ -631,7 +649,9 @@ def test_sincronizar_mensagem_recursiva_ramos_especiais():
 
     # Filho singular (que não seja expando)
     campo_picos = Croqui.DESCRIPTOR.fields_by_name["picos"]
-    no_singular = ProtobufNode(name="pico_singular", parent=no_pai, descriptor=campo_picos, is_expando=False)
+    no_singular = ProtobufNode(
+        name="pico_singular", parent=no_pai, descriptor=campo_picos, is_expando=False
+    )
     no_singular._is_populated = True
     no_pai.children.append(no_singular)
 
@@ -644,7 +664,9 @@ def test_sincronizar_mensagem_recursiva_ramos_especiais():
 def test_tree_view_adapter_drag_drop_flags_e_mime():
     """Testa flags de arrastar/soltar e empacotamento MIME no ProtobufTreeViewAdapter."""
     import json
-    from PySide6.QtCore import Qt, QModelIndex
+
+    from PySide6.QtCore import QModelIndex, Qt
+
     from aresta_api.proto.generated.croqui_pb2 import Croqui
 
     croqui = Croqui()
@@ -665,18 +687,17 @@ def test_tree_view_adapter_drag_drop_flags_e_mime():
 
     # Root -> Croqui -> Picos (row 1) -> Pico 1 (row 0) -> Setores ou grupos (row 0) -> Setor A / Grupo G
     idx_croqui = adapter.index(0, 0, QModelIndex())
-    idx_picos_exp = adapter.index(1, 0, idx_croqui) # Expando Picos
-    idx_pico = adapter.index(0, 0, idx_picos_exp) # Pico 1
-    idx_sog_exp = adapter.index(0, 0, idx_pico) # Expando Setores ou grupos
-    idx_setor = adapter.index(0, 0, idx_sog_exp) # Setor A
-    idx_grupo = adapter.index(1, 0, idx_sog_exp) # Grupo G
-    idx_add = adapter.index(2, 0, idx_sog_exp) # + Adicionar Setor ou Grupo
+    idx_picos_exp = adapter.index(1, 0, idx_croqui)  # Expando Picos
+    idx_pico = adapter.index(0, 0, idx_picos_exp)  # Pico 1
+    idx_sog_exp = adapter.index(0, 0, idx_pico)  # Expando Setores ou grupos
+    idx_setor = adapter.index(0, 0, idx_sog_exp)  # Setor A
+    idx_grupo = adapter.index(1, 0, idx_sog_exp)  # Grupo G
+    idx_add = adapter.index(2, 0, idx_sog_exp)  # + Adicionar Setor ou Grupo
 
     # 3. Flags do Setor: ItemIsDragEnabled e não ItemIsDropEnabled (nó folha)
     flags_setor = adapter.flags(idx_setor)
     assert bool(flags_setor & Qt.ItemFlag.ItemIsDragEnabled)
     assert not bool(flags_setor & Qt.ItemFlag.ItemIsDropEnabled)
-
 
     # 4. Flags do Grupo: ItemIsDragEnabled e ItemIsDropEnabled
     flags_grupo = adapter.flags(idx_grupo)
@@ -705,5 +726,3 @@ def test_tree_view_adapter_drag_drop_flags_e_mime():
     assert not mime_vazio.hasFormat(ProtobufTreeViewAdapter.MIME_TYPE)
     mime_add = adapter.mimeData([idx_add])
     assert not mime_add.hasFormat(ProtobufTreeViewAdapter.MIME_TYPE)
-
-

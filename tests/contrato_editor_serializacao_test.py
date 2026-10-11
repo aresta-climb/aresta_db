@@ -13,21 +13,20 @@ Garante que o editor, ao salvar croquis novos ou editados:
 """
 
 from pathlib import Path
-import pytest
+
 import yaml
 
 from aresta_api.proto.generated.croqui_pb2 import (
-    Croqui,
-    ArquivoSetor,
     ArquivoGrupo,
     ArquivoMapas,
     ArquivoMarkdown,
+    ArquivoSetor,
+    Croqui,
 )
 from editor.models.croqui_model import CroquiModel
 from scripts.deploy_generated import validar_sem_extensoes_vazadas
-from scripts.gerenciar_uids_lib import validar_uid, gerar_uid
+from scripts.gerenciar_uids_lib import gerar_uid, validar_uid
 from scripts.preparar_submissao_lib import parse_md_com_frontmatter
-
 
 
 def test_contrato_editor_serializacao_croqui_novo_gera_uids_e_sem_legados(qapp, tmp_path: Path):
@@ -112,11 +111,15 @@ def test_contrato_editor_serializacao_croqui_novo_gera_uids_e_sem_legados(qapp, 
     assert len(refs) == 1
     assert refs[0].get("alvo_uid") == uid_escalada
     assert refs[0].get("pontos_uids") == [uid_poi]
-    assert "escalada" not in refs[0], "O campo depreciado 'escalada' não pode ser emitido pelo editor."
+    assert "escalada" not in refs[0], (
+        "O campo depreciado 'escalada' não pode ser emitido pelo editor."
+    )
     assert "setor" not in refs[0]
     assert "grupo" not in refs[0]
     assert "ids" not in refs[0], "O campo depreciado 'ids' não pode ser emitido pelo editor."
-    assert "indice_mapa_alvo" not in refs[0], "O campo depreciado 'indice_mapa_alvo' não pode ser emitido pelo editor."
+    assert "indice_mapa_alvo" not in refs[0], (
+        "O campo depreciado 'indice_mapa_alvo' não pode ser emitido pelo editor."
+    )
 
 
 def test_contrato_editor_serializacao_preserva_uids_existentes(qapp, tmp_path: Path):
@@ -147,7 +150,9 @@ def test_contrato_editor_serializacao_preserva_uids_existentes(qapp, tmp_path: P
     poi.circulo.y = 60
     poi.circulo.raio = 10
 
-    ref = mapa.referencias.add(alvo_uid=uid_esc_original, pontos_uids=[uid_poi_original], ids=["poi1"])
+    ref = mapa.referencias.add(
+        alvo_uid=uid_esc_original, pontos_uids=[uid_poi_original], ids=["poi1"]
+    )
 
     model = CroquiModel(croqui)
     pasta_destino = tmp_path / "croqui_existente"
@@ -184,39 +189,55 @@ def test_contrato_editor_serializacao_preserva_uids_existentes(qapp, tmp_path: P
     assert ref_salva["pontos_uids"] == [uid_poi_original]
     assert "escalada" not in ref_salva
     assert "ids" not in ref_salva, "O campo depreciado 'ids' não deve ser gravado."
-    assert "indice_mapa_alvo" not in ref_salva, "O campo depreciado 'indice_mapa_alvo' não deve ser gravado."
+    assert "indice_mapa_alvo" not in ref_salva, (
+        "O campo depreciado 'indice_mapa_alvo' não deve ser gravado."
+    )
 
 
 def test_contrato_editor_serializacao_sem_vazamento_extensoes_shadow_state(qapp, tmp_path: Path):
     """Garante que a serialização do editor nunca vaza extensões de shadow state para croqui.yaml nem para arquivos .md."""
     croqui = Croqui(nome="Croqui Teste Vazamento", uid=gerar_uid())
     croqui.Extensions[Croqui.ext_metadados_arquivo].caminho_original = "croqui.yaml"
-    croqui.Extensions[Croqui.ext_metadados_arquivo].dados_json_originais = '{"nome": "Croqui Teste Vazamento"}'
+    croqui.Extensions[
+        Croqui.ext_metadados_arquivo
+    ].dados_json_originais = '{"nome": "Croqui Teste Vazamento"}'
 
     pico = croqui.picos.add(nome="Pico 1")
 
     # Mapas gerais apenas com caminho e extensão de shadow state
     pico.mapas_gerais.caminho = "mapas_gerais.md"
-    pico.mapas_gerais.Extensions[ArquivoMapas.ext_metadados_arquivo].caminho_original = "mapas_gerais.md"
-    pico.mapas_gerais.Extensions[ArquivoMapas.ext_metadados_arquivo].dados_json_originais = '{"mapas": []}'
+    pico.mapas_gerais.Extensions[
+        ArquivoMapas.ext_metadados_arquivo
+    ].caminho_original = "mapas_gerais.md"
+    pico.mapas_gerais.Extensions[
+        ArquivoMapas.ext_metadados_arquivo
+    ].dados_json_originais = '{"mapas": []}'
 
     # Setor apenas com caminho e extensão de shadow state
     sg1 = pico.setores_ou_grupos.add()
     sg1.setor.caminho = "setor_1.md"
     sg1.setor.Extensions[ArquivoSetor.ext_metadados_arquivo].caminho_original = "setor_1.md"
-    sg1.setor.Extensions[ArquivoSetor.ext_metadados_arquivo].dados_json_originais = '{"nome": "Setor 1"}'
+    sg1.setor.Extensions[
+        ArquivoSetor.ext_metadados_arquivo
+    ].dados_json_originais = '{"nome": "Setor 1"}'
 
     # Grupo apenas com caminho e extensão de shadow state
     sg2 = pico.setores_ou_grupos.add()
     sg2.grupo.caminho = "grupo_1.md"
     sg2.grupo.Extensions[ArquivoGrupo.ext_metadados_arquivo].caminho_original = "grupo_1.md"
-    sg2.grupo.Extensions[ArquivoGrupo.ext_metadados_arquivo].dados_json_originais = '{"nome": "Grupo 1"}'
+    sg2.grupo.Extensions[
+        ArquivoGrupo.ext_metadados_arquivo
+    ].dados_json_originais = '{"nome": "Grupo 1"}'
 
     # Botão textual apenas com caminho e extensão de shadow state
     btn = croqui.botoes.add(texto="Informações", uid=gerar_uid())
     btn.destino.secao_textual.caminho = "info.md"
-    btn.destino.secao_textual.Extensions[ArquivoMarkdown.ext_metadados_arquivo].caminho_original = "info.md"
-    btn.destino.secao_textual.Extensions[ArquivoMarkdown.ext_metadados_arquivo].dados_json_originais = "# Info"
+    btn.destino.secao_textual.Extensions[
+        ArquivoMarkdown.ext_metadados_arquivo
+    ].caminho_original = "info.md"
+    btn.destino.secao_textual.Extensions[
+        ArquivoMarkdown.ext_metadados_arquivo
+    ].dados_json_originais = "# Info"
 
     pasta_destino = tmp_path / "croqui_vazamento"
     pasta_destino.mkdir()
@@ -230,4 +251,3 @@ def test_contrato_editor_serializacao_sem_vazamento_extensoes_shadow_state(qapp,
 
     # Nenhuma extensão de shadow state pode vazar no croqui.yaml ou arquivos secundários
     validar_sem_extensoes_vazadas(pasta_destino)
-

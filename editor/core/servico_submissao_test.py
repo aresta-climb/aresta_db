@@ -1,21 +1,20 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
-import pytest
+from pathlib import Path
+from unittest.mock import MagicMock, patch
+
 import pygit2
+import pytest
 import requests
 import responses
-from pathlib import Path
-from unittest.mock import patch, MagicMock
 
 from editor.core.gerenciador_sessao import SessaoUsuario
 from editor.core.servico_submissao import (
-    ServicoSubmissao,
-    ResultadoSubmissao,
     ErroSubmissao,
-    gerar_nome_branch,
+    ServicoSubmissao,
     StatusSincronizacao,
-    ResultadoSincronizacao,
+    gerar_nome_branch,
 )
 
 
@@ -136,6 +135,114 @@ class TesteServicoSubmissaoUnitario:
         )
         assert commit is None
 
+    def teste_criar_commit_sugestao_isola_staging_contra_arquivos_sujos_fora_de_escopo(
+        self, tmp_path
+    ):
+        repo_dir = tmp_path / "repo"
+        repo = inicializar_repo_local(repo_dir)
+
+        servico = ServicoSubmissao(caminho_repo_base=repo_dir)
+        nome_branch = "edicao-setor_norte-isolamento123"
+        commit_base = repo.lookup_reference("refs/remotes/upstream/main").peel()
+        branch = repo.create_branch(nome_branch, commit_base)
+        repo.checkout(branch)
+
+        # Suja arquivos fora de database/
+        readme = repo_dir / "README.md"
+        readme.write_text("# README MODIFICADO FORA DE ESCOPO\n", encoding="utf-8")
+        arquivo_fora = repo_dir / "arquivo_externo.txt"
+        arquivo_fora.write_text("conteudo indevido\n", encoding="utf-8")
+        repo.index.add("README.md")
+        repo.index.add("arquivo_externo.txt")
+        repo.index.write()
+
+        # Adiciona modificação legítima dentro do escopo
+        croqui_yaml = repo_dir / "database" / "setor_norte" / "croqui.yaml"
+        croqui_yaml.parent.mkdir(parents=True, exist_ok=True)
+        croqui_yaml.write_text("nome: Setor Norte com Isolamento\n", encoding="utf-8")
+
+        sessao = SessaoUsuario(
+            email="mariana@escalada.com",
+            nome_completo="Mariana Conquistadora",
+            jwt_supabase="jwt_fake",
+            token_atualizacao="refresh_fake",
+        )
+
+        commit = servico.criar_commit_sugestao(
+            repo=repo,
+            nome_branch=nome_branch,
+            id_croqui="setor_norte",
+            titulo="Mudança com isolamento",
+            descricao="Apenas database/setor_norte deve entrar",
+            sessao=sessao,
+        )
+
+        assert commit is not None
+        diff = repo.diff(commit_base, commit)
+        caminhos_modificados = [delta.new_file.path for delta in diff.deltas]
+
+        # Apenas database/setor_norte/croqui.yaml deve estar no commit
+        assert caminhos_modificados == ["database/setor_norte/croqui.yaml"]
+        assert "README.md" not in caminhos_modificados
+        assert "arquivo_externo.txt" not in caminhos_modificados
+
+    def teste_criar_commit_sugestao_remove_arquivos_excluidos_do_indice(self, tmp_path):
+        repo_dir = tmp_path / "repo"
+        repo = inicializar_repo_local(repo_dir)
+
+        # Adiciona foto no commit base
+        foto = repo_dir / "database" / "setor_norte" / "foto_antiga.png"
+        foto.parent.mkdir(parents=True, exist_ok=True)
+        foto.write_bytes(b"FOTO_ANTIGA")
+        croqui = repo_dir / "database" / "setor_norte" / "croqui.yaml"
+        croqui.write_text("nome: Base\n", encoding="utf-8")
+
+        repo.index.add_all(["database/setor_norte"])
+        repo.index.write()
+        tree_base = repo.index.write_tree()
+        autor = pygit2.Signature("Autor", "a@a.local")
+        head_commit = repo[repo.head.target]
+        commit_com_foto = repo[
+            repo.create_commit(
+                "refs/heads/main", autor, autor, "Base com foto", tree_base, [head_commit.id]
+            )
+        ]
+        repo.create_reference("refs/remotes/upstream/main", commit_com_foto.id, force=True)
+        repo.set_head("refs/heads/main")
+        repo.checkout_head(strategy=pygit2.GIT_CHECKOUT_FORCE)
+
+        servico = ServicoSubmissao(caminho_repo_base=repo_dir)
+        nome_branch = "edicao-setor_norte-exclusao123"
+        branch = repo.create_branch(nome_branch, commit_com_foto)
+        repo.checkout(branch)
+
+        # Remove a foto fisicamente no croqui
+        foto.unlink()
+        croqui.write_text("nome: Base Atualizada Sem Foto\n", encoding="utf-8")
+
+        sessao = SessaoUsuario(
+            email="mariana@escalada.com",
+            nome_completo="Mariana Conquistadora",
+            jwt_supabase="jwt_fake",
+            token_atualizacao="refresh_fake",
+        )
+
+        commit = servico.criar_commit_sugestao(
+            repo=repo,
+            nome_branch=nome_branch,
+            id_croqui="setor_norte",
+            titulo="Remoção de foto antiga",
+            descricao="Foto foi excluída",
+            sessao=sessao,
+        )
+
+        assert commit is not None
+        diff = repo.diff(commit_com_foto, commit)
+        deltas_map = {delta.old_file.path: delta.status for delta in diff.deltas}
+
+        assert "database/setor_norte/foto_antiga.png" in deltas_map
+        assert deltas_map["database/setor_norte/foto_antiga.png"] == pygit2.GIT_DELTA_DELETED
+
     @responses.activate
     def teste_solicitar_abertura_pr_sucesso(self, tmp_path):
         url_supabase = "https://teste.supabase.co"
@@ -200,6 +307,7 @@ class TesteServicoSubmissaoUnitario:
 
         assert resultado["pr_number"] == 100
         import json
+
         corpo = json.loads(responses.calls[0].request.body)
         assert corpo["token_usuario_github"] == "gho_token_usuario_123"
 
@@ -266,6 +374,62 @@ class TesteServicoSubmissaoUnitario:
         assert "Arquivos fora do escopo" in str(info.value)
 
     @responses.activate
+    def teste_solicitar_abertura_pr_erro_com_arquivos_invalidos_lista(self, tmp_path):
+        url_supabase = "https://teste.supabase.co"
+        responses.add(
+            responses.POST,
+            f"{url_supabase}/functions/v1/create-pr",
+            json={
+                "erro": "Violação de segurança: apenas alterações dentro da pasta 'database/' são permitidas. A branch foi removida.",
+                "arquivos_invalidos": ["README.md", "uv.lock"],
+            },
+            status=400,
+        )
+
+        servico = ServicoSubmissao(caminho_repo_base=tmp_path, url_supabase=url_supabase)
+
+        with pytest.raises(ErroSubmissao) as info:
+            servico.solicitar_abertura_pr(
+                jwt="jwt.token.valido",
+                branch="edicao-itacolomi-11223344",
+                titulo="Inválido",
+                descricao="Teste",
+            )
+
+        msg = str(info.value)
+        assert "Violação de segurança" in msg
+        assert "Arquivos fora do escopo permitidos:" in msg
+        assert "• README.md" in msg
+        assert "• uv.lock" in msg
+
+    @responses.activate
+    def teste_solicitar_abertura_pr_erro_com_arquivos_invalidos_vazio(self, tmp_path):
+        url_supabase = "https://teste.supabase.co"
+        responses.add(
+            responses.POST,
+            f"{url_supabase}/functions/v1/create-pr",
+            json={
+                "erro": "Violação de segurança: apenas alterações dentro da pasta 'database/' são permitidas. A branch foi removida.",
+                "arquivos_invalidos": [],
+            },
+            status=400,
+        )
+
+        servico = ServicoSubmissao(caminho_repo_base=tmp_path, url_supabase=url_supabase)
+
+        with pytest.raises(ErroSubmissao) as info:
+            servico.solicitar_abertura_pr(
+                jwt="jwt.token.valido",
+                branch="edicao-itacolomi-11223344",
+                titulo="Inválido",
+                descricao="Teste",
+            )
+
+        msg = str(info.value)
+        assert "Violação de segurança" in msg
+        assert "(Nenhum arquivo modificado foi detectado pelo servidor na branch)" in msg
+
+    @responses.activate
     def teste_solicitar_abertura_pr_erro_servidor_texto_puro(self, tmp_path):
         url_supabase = "https://teste.supabase.co"
         responses.add(
@@ -294,7 +458,9 @@ class TesteServicoSubmissaoUnitario:
             servico.solicitar_abertura_pr("jwt", "edicao-1", "T", "D")
 
     def teste_solicitar_abertura_pr_erro_conexao(self, tmp_path):
-        servico = ServicoSubmissao(caminho_repo_base=tmp_path, url_supabase="https://teste.supabase.co")
+        servico = ServicoSubmissao(
+            caminho_repo_base=tmp_path, url_supabase="https://teste.supabase.co"
+        )
         with patch("requests.post", side_effect=requests.ConnectionError("Sem conexao")):
             with pytest.raises(ErroSubmissao, match="Falha na comunicação com o servidor"):
                 servico.solicitar_abertura_pr("jwt", "edicao-1", "T", "D")
@@ -309,6 +475,7 @@ class TesteServicoSubmissaoUnitario:
         )
 
         mock_remote = MagicMock()
+
         def mock_getitem(nome):
             raise KeyError("proxy")
 
@@ -331,7 +498,9 @@ class TesteServicoSubmissaoUnitario:
         repo_dir = tmp_path / "repo"
         repo = inicializar_repo_local(repo_dir)
         repo.remotes.create("proxy", "https://url_antiga.com")
-        servico = ServicoSubmissao(caminho_repo_base=repo_dir, url_supabase="https://teste.supabase.co")
+        servico = ServicoSubmissao(
+            caminho_repo_base=repo_dir, url_supabase="https://teste.supabase.co"
+        )
 
         with patch("pygit2.Remote.push") as mock_push:
             servico.fazer_push_proxy(repo=repo, nome_branch="sugestao-teste-123", jwt="jwt_teste")
@@ -347,7 +516,9 @@ class TesteServicoSubmissaoUnitario:
     def teste_callbacks_push_credentials_e_progress(self, tmp_path):
         servico = ServicoSubmissao(caminho_repo_base=tmp_path)
         progresso_chamado = []
-        cb = servico._obter_callbacks_push("jwt_123", callback_progresso=lambda p: progresso_chamado.append(p))
+        cb = servico._obter_callbacks_push(
+            "jwt_123", callback_progresso=lambda p: progresso_chamado.append(p)
+        )
 
         # Até 3 tentativas retorna UserPass
         assert isinstance(cb.credentials("https://proxy", "bearer", 0), pygit2.UserPass)
@@ -372,7 +543,10 @@ class TesteServicoSubmissaoUnitario:
         repo = inicializar_repo_local(repo_dir)
         servico = ServicoSubmissao(caminho_repo_base=repo_dir)
 
-        with patch("pygit2.Remote.push", side_effect=Exception("too many redirects or authentication replays")):
+        with patch(
+            "pygit2.Remote.push",
+            side_effect=Exception("too many redirects or authentication replays"),
+        ):
             with pytest.raises(ErroSubmissao, match="Falha na autenticação com o Git Proxy"):
                 servico.fazer_push_proxy(repo=repo, nome_branch="sugestao-1", jwt="jwt_invalido")
 
@@ -381,7 +555,9 @@ class TesteServicoSubmissaoUnitario:
         repo = inicializar_repo_local(repo_dir)
         servico = ServicoSubmissao(caminho_repo_base=repo_dir)
 
-        with patch("pygit2.Remote.push", side_effect=TypeError("credential does not implement interface")):
+        with patch(
+            "pygit2.Remote.push", side_effect=TypeError("credential does not implement interface")
+        ):
             with pytest.raises(ErroSubmissao, match="Falha na autenticação com o Git Proxy"):
                 servico.fazer_push_proxy(repo=repo, nome_branch="sugestao-1", jwt="jwt_invalido")
 
@@ -442,7 +618,9 @@ class TesteServicoSubmissaoUnitario:
         croqui_dir = tmp_path / "croqui" / "database" / "bau"
         croqui_dir.mkdir(parents=True)
         # Cria arquivos idênticos aos que já estariam sincronizados
-        servico = ServicoSubmissao(caminho_repo_base=repo_dir, url_supabase="https://teste.supabase.co")
+        servico = ServicoSubmissao(
+            caminho_repo_base=repo_dir, url_supabase="https://teste.supabase.co"
+        )
 
         sessao = SessaoUsuario(
             email="autor@teste.com",
@@ -472,7 +650,9 @@ class TesteServicoSubmissaoUnitario:
         croqui_dir.mkdir(parents=True)
         (croqui_dir / "croqui.yaml").write_text("nome: Bau Novo\n", encoding="utf-8")
 
-        servico = ServicoSubmissao(caminho_repo_base=repo_dir, url_supabase="https://teste.supabase.co")
+        servico = ServicoSubmissao(
+            caminho_repo_base=repo_dir, url_supabase="https://teste.supabase.co"
+        )
 
         sessao = SessaoUsuario(
             email="autor@teste.com",
@@ -481,7 +661,9 @@ class TesteServicoSubmissaoUnitario:
             token_atualizacao="ref_valido",
         )
 
-        with patch.object(servico.cliente_auth, "obter_usuario_atual", side_effect=Exception("Expirado")):
+        with patch.object(
+            servico.cliente_auth, "obter_usuario_atual", side_effect=Exception("Expirado")
+        ):
             with patch.object(
                 servico.cliente_auth,
                 "renovar_sessao",
@@ -489,7 +671,9 @@ class TesteServicoSubmissaoUnitario:
             ) as mock_renovar:
                 with patch.object(servico, "_executar_push_git") as mock_push:
                     with patch.object(
-                        servico, "solicitar_abertura_pr", return_value={"pr_number": 5, "pr_url": "url_pr"}
+                        servico,
+                        "solicitar_abertura_pr",
+                        return_value={"pr_number": 5, "pr_url": "url_pr"},
                     ):
                         progresso = []
                         resultado = servico.submeter_sugestao(
@@ -514,7 +698,9 @@ class TesteServicoSubmissaoUnitario:
         croqui_dir = tmp_path / "croqui" / "database" / "bau"
         croqui_dir.mkdir(parents=True)
 
-        servico = ServicoSubmissao(caminho_repo_base=repo_dir, url_supabase="https://teste.supabase.co")
+        servico = ServicoSubmissao(
+            caminho_repo_base=repo_dir, url_supabase="https://teste.supabase.co"
+        )
         sessao = SessaoUsuario(
             email="autor@teste.com",
             nome_completo="Autor Teste",
@@ -522,8 +708,12 @@ class TesteServicoSubmissaoUnitario:
             token_atualizacao="ref_invalido",
         )
 
-        with patch.object(servico.cliente_auth, "obter_usuario_atual", side_effect=Exception("Expirado")):
-            with patch.object(servico.cliente_auth, "renovar_sessao", side_effect=Exception("Refresh revogado")):
+        with patch.object(
+            servico.cliente_auth, "obter_usuario_atual", side_effect=Exception("Expirado")
+        ):
+            with patch.object(
+                servico.cliente_auth, "renovar_sessao", side_effect=Exception("Refresh revogado")
+            ):
                 with pytest.raises(ErroSubmissao) as info:
                     servico.submeter_sugestao(
                         caminho_database_croqui=croqui_dir,
@@ -546,7 +736,9 @@ class TesteServicoSubmissaoUnitario:
         croqui_dir.mkdir(parents=True)
         (croqui_dir / "croqui.yaml").write_text("nome: Bau Atualizado\n", encoding="utf-8")
 
-        servico = ServicoSubmissao(caminho_repo_base=repo_dir, url_supabase="https://teste.supabase.co")
+        servico = ServicoSubmissao(
+            caminho_repo_base=repo_dir, url_supabase="https://teste.supabase.co"
+        )
         sessao = SessaoUsuario(
             email="autor@teste.com",
             nome_completo="Autor Teste",
@@ -557,7 +749,9 @@ class TesteServicoSubmissaoUnitario:
         with patch.object(servico.cliente_auth, "obter_usuario_atual", return_value={"id": "123"}):
             with patch.object(servico, "_executar_push_git"):
                 with patch.object(
-                    servico, "solicitar_abertura_pr", return_value={"pr_number": 7, "pr_url": "url_pr"}
+                    servico,
+                    "solicitar_abertura_pr",
+                    return_value={"pr_number": 7, "pr_url": "url_pr"},
                 ):
                     # 1. Branch já existe localmente
                     res1 = servico.submeter_sugestao(
@@ -591,19 +785,30 @@ class TesteServicoSubmissaoUnitario:
         (repo_dir / "README.md").write_text("# Origin Only")
         repo.index.add_all()
         repo.index.write()
-        commit = repo.create_commit("HEAD", pygit2.Signature("A", "a@a.com"), pygit2.Signature("A", "a@a.com"), "init", repo.index.write_tree(), [])
+        commit = repo.create_commit(
+            "HEAD",
+            pygit2.Signature("A", "a@a.com"),
+            pygit2.Signature("A", "a@a.com"),
+            "init",
+            repo.index.write_tree(),
+            [],
+        )
         repo.create_reference("refs/remotes/origin/main", commit)
 
         croqui_dir = tmp_path / "croqui" / "database" / "setor"
         croqui_dir.mkdir(parents=True)
         (croqui_dir / "croqui.yaml").write_text("nome: Novo Setor\n")
 
-        servico = ServicoSubmissao(caminho_repo_base=repo_dir, url_supabase="https://teste.supabase.co")
+        servico = ServicoSubmissao(
+            caminho_repo_base=repo_dir, url_supabase="https://teste.supabase.co"
+        )
         sessao = SessaoUsuario("a@a.com", "Autor", "jwt_fake", "ref_fake")
 
         with patch.object(servico.cliente_auth, "obter_usuario_atual", return_value={"id": "1"}):
             with patch.object(servico, "_executar_push_git"):
-                with patch.object(servico, "solicitar_abertura_pr", return_value={"pr_number": 1, "pr_url": "url"}):
+                with patch.object(
+                    servico, "solicitar_abertura_pr", return_value={"pr_number": 1, "pr_url": "url"}
+                ):
                     res = servico.submeter_sugestao(
                         caminho_database_croqui=croqui_dir,
                         id_croqui="setor",
@@ -623,18 +828,31 @@ class TesteServicoSubmissaoUnitario:
         (repo_dir / "README.md").write_text("# Local Only")
         repo.index.add_all()
         repo.index.write()
-        repo.create_commit("HEAD", pygit2.Signature("A", "a@a.com"), pygit2.Signature("A", "a@a.com"), "init", repo.index.write_tree(), [])
+        repo.create_commit(
+            "HEAD",
+            pygit2.Signature("A", "a@a.com"),
+            pygit2.Signature("A", "a@a.com"),
+            "init",
+            repo.index.write_tree(),
+            [],
+        )
 
         croqui_dir = tmp_path / "croqui_head" / "database" / "setor"
         croqui_dir.mkdir(parents=True)
         (croqui_dir / "croqui.yaml").write_text("nome: Setor Local\n")
 
-        servico = ServicoSubmissao(caminho_repo_base=repo_dir, url_supabase="https://teste.supabase.co")
+        servico = ServicoSubmissao(
+            caminho_repo_base=repo_dir, url_supabase="https://teste.supabase.co"
+        )
         sessao = SessaoUsuario("a@a.com", "Autor", "jwt_fake", "ref_fake")
 
         with patch.object(servico.cliente_auth, "obter_usuario_atual", return_value={"id": "1"}):
             with patch.object(servico, "_executar_push_git"):
-                with patch.object(servico, "solicitar_abertura_pr", return_value={"pr_number": 2, "pr_url": "url2"}):
+                with patch.object(
+                    servico,
+                    "solicitar_abertura_pr",
+                    return_value={"pr_number": 2, "pr_url": "url2"},
+                ):
                     res = servico.submeter_sugestao(
                         caminho_database_croqui=croqui_dir,
                         id_croqui="setor",
@@ -665,8 +883,9 @@ class TesteServicoSubmissaoUnitario:
         with pytest.raises(ErroSubmissao, match="Não foi possível determinar o commit base"):
             servico._obter_commit_base(mock_repo)
 
-
-    def teste_obter_arquivos_modificados_apenas_retorna_arquivos_alterados_adicionados_ou_removidos(self, tmp_path):
+    def teste_obter_arquivos_modificados_apenas_retorna_arquivos_alterados_adicionados_ou_removidos(
+        self, tmp_path
+    ):
         repo_dir = tmp_path / "repo"
         repo_dir.mkdir()
         base_croqui_dir = repo_dir / "database" / "meu_croqui"
@@ -756,8 +975,13 @@ class TesteTelemetriaSubmissaoIntegracao:
             token_atualizacao="refresh_valido",
         )
 
-        with patch.object(servico.cliente_auth, "obter_usuario_atual", return_value={"id": "u1"}), \
-             patch("pygit2.Remote.push", side_effect=Exception("HTTP 500 Internal Server Error no Proxy")):
+        with (
+            patch.object(servico.cliente_auth, "obter_usuario_atual", return_value={"id": "u1"}),
+            patch(
+                "pygit2.Remote.push",
+                side_effect=Exception("HTTP 500 Internal Server Error no Proxy"),
+            ),
+        ):
             with pytest.raises(ErroSubmissao) as excinfo:
                 servico.submeter_sugestao(
                     caminho_database_croqui=caminho_db,
@@ -770,7 +994,9 @@ class TesteTelemetriaSubmissaoIntegracao:
             mock_capturar.assert_called_once()
             args, kwargs = mock_capturar.call_args
             assert kwargs.get("id_croqui") == "croqui_teste" or args[1] == "croqui_teste"
-            assert kwargs.get("categoria") == "git_proxy" or (len(args) > 3 and args[3] == "git_proxy")
+            assert kwargs.get("categoria") == "git_proxy" or (
+                len(args) > 3 and args[3] == "git_proxy"
+            )
             assert mock_breadcrumb.called
 
     @patch("editor.core.servico_submissao.capturar_falha_submissao")
@@ -793,9 +1019,11 @@ class TesteTelemetriaSubmissaoIntegracao:
             token_atualizacao="refresh_valido",
         )
 
-        with patch.object(servico.cliente_auth, "obter_usuario_atual", return_value={"id": "u1"}), \
-             patch.object(servico, "_executar_push_git"), \
-             patch("requests.post", side_effect=Exception("Edge Function create-pr falhou")):
+        with (
+            patch.object(servico.cliente_auth, "obter_usuario_atual", return_value={"id": "u1"}),
+            patch.object(servico, "_executar_push_git"),
+            patch("requests.post", side_effect=Exception("Edge Function create-pr falhou")),
+        ):
             with pytest.raises(ErroSubmissao):
                 servico.submeter_sugestao(
                     caminho_database_croqui=caminho_db,
@@ -811,9 +1039,7 @@ class TesteTelemetriaSubmissaoIntegracao:
             assert kwargs.get("id_croqui") == "croqui_teste" or args[1] == "croqui_teste"
 
     @patch("editor.core.servico_submissao.capturar_falha_submissao")
-    def teste_falha_commit_sugestao_dispara_telemetria_git_local(
-        self, mock_capturar, tmp_path
-    ):
+    def teste_falha_commit_sugestao_dispara_telemetria_git_local(self, mock_capturar, tmp_path):
         repo_dir = tmp_path / "repo"
         repo = inicializar_repo_local(repo_dir)
         servico = ServicoSubmissao(caminho_repo_base=repo_dir)
@@ -829,8 +1055,12 @@ class TesteTelemetriaSubmissaoIntegracao:
             token_atualizacao="refresh_valido",
         )
 
-        with patch.object(servico.cliente_auth, "obter_usuario_atual", return_value={"id": "u1"}), \
-             patch.object(servico, "criar_commit_sugestao", side_effect=RuntimeError("Index lock error")):
+        with (
+            patch.object(servico.cliente_auth, "obter_usuario_atual", return_value={"id": "u1"}),
+            patch.object(
+                servico, "criar_commit_sugestao", side_effect=RuntimeError("Index lock error")
+            ),
+        ):
             with pytest.raises(ErroSubmissao) as excinfo:
                 servico.submeter_sugestao(
                     caminho_database_croqui=caminho_db,
@@ -866,13 +1096,8 @@ class TesteTelemetriaSubmissaoIntegracao:
         assert kwargs["categoria"] == "autenticacao"
         assert kwargs["id_croqui"] == "croqui_xyz"
 
-
-
-
     @patch("editor.core.servico_submissao.capturar_falha_submissao")
-    def teste_falha_renovacao_sessao_dispara_telemetria_autenticacao(
-        self, mock_capturar, tmp_path
-    ):
+    def teste_falha_renovacao_sessao_dispara_telemetria_autenticacao(self, mock_capturar, tmp_path):
         repo_dir = tmp_path / "repo"
         repo = inicializar_repo_local(repo_dir)
         servico = ServicoSubmissao(caminho_repo_base=repo_dir)
@@ -888,8 +1113,16 @@ class TesteTelemetriaSubmissaoIntegracao:
             token_atualizacao="refresh_invalido",
         )
 
-        with patch.object(servico.cliente_auth, "obter_usuario_atual", side_effect=Exception("Token inválido")), \
-             patch.object(servico.cliente_auth, "renovar_sessao", side_effect=Exception("Refresh token revogado")):
+        with (
+            patch.object(
+                servico.cliente_auth, "obter_usuario_atual", side_effect=Exception("Token inválido")
+            ),
+            patch.object(
+                servico.cliente_auth,
+                "renovar_sessao",
+                side_effect=Exception("Refresh token revogado"),
+            ),
+        ):
             with pytest.raises(ErroSubmissao) as excinfo:
                 servico.submeter_sugestao(
                     caminho_database_croqui=caminho_db,
@@ -905,9 +1138,7 @@ class TesteTelemetriaSubmissaoIntegracao:
             assert categoria == "autenticacao"
 
     @patch("editor.core.servico_submissao.capturar_falha_submissao")
-    def teste_falha_git_local_dispara_telemetria_git_local(
-        self, mock_capturar, tmp_path
-    ):
+    def teste_falha_git_local_dispara_telemetria_git_local(self, mock_capturar, tmp_path):
         repo_dir = tmp_path / "repo"
         servico = ServicoSubmissao(caminho_repo_base=repo_dir)
 
@@ -922,8 +1153,12 @@ class TesteTelemetriaSubmissaoIntegracao:
             token_atualizacao="refresh_valido",
         )
 
-        with patch.object(servico.cliente_auth, "obter_usuario_atual", return_value={"id": "u1"}), \
-             patch("pygit2.Repository", side_effect=pygit2.GitError("Falha ao abrir repositório local")):
+        with (
+            patch.object(servico.cliente_auth, "obter_usuario_atual", return_value={"id": "u1"}),
+            patch(
+                "pygit2.Repository", side_effect=pygit2.GitError("Falha ao abrir repositório local")
+            ),
+        ):
             with pytest.raises((ErroSubmissao, pygit2.GitError)):
                 servico.submeter_sugestao(
                     caminho_database_croqui=caminho_db,
@@ -953,8 +1188,12 @@ class TesteTelemetriaSubmissaoIntegracao:
             token_atualizacao="refresh_valido",
         )
 
-        with patch.object(servico.cliente_auth, "obter_usuario_atual", return_value={"id": "u1"}), \
-             patch.object(servico, "_obter_commit_base", side_effect=ErroSubmissao("Falha commit base")):
+        with (
+            patch.object(servico.cliente_auth, "obter_usuario_atual", return_value={"id": "u1"}),
+            patch.object(
+                servico, "_obter_commit_base", side_effect=ErroSubmissao("Falha commit base")
+            ),
+        ):
             with pytest.raises(ErroSubmissao, match="Falha commit base"):
                 servico.submeter_sugestao(
                     caminho_database_croqui=caminho_db,
@@ -980,8 +1219,12 @@ class TesteTelemetriaSubmissaoIntegracao:
             token_atualizacao="refresh_valido",
         )
 
-        with patch.object(servico.cliente_auth, "obter_usuario_atual", return_value={"id": "u1"}), \
-             patch.object(servico, "criar_commit_sugestao", side_effect=ErroSubmissao("Falha criar commit")):
+        with (
+            patch.object(servico.cliente_auth, "obter_usuario_atual", return_value={"id": "u1"}),
+            patch.object(
+                servico, "criar_commit_sugestao", side_effect=ErroSubmissao("Falha criar commit")
+            ),
+        ):
             with pytest.raises(ErroSubmissao, match="Falha criar commit"):
                 servico.submeter_sugestao(
                     caminho_database_croqui=caminho_db,
@@ -1071,7 +1314,9 @@ class TesteSincronizacaoPRServico:
             assert tem_novidades is False
             assert sha == str(commit_base.id)
 
-    def teste_verificar_atualizacoes_remotas_pr_local_a_frente_retorna_sem_novidades(self, tmp_path):
+    def teste_verificar_atualizacoes_remotas_pr_local_a_frente_retorna_sem_novidades(
+        self, tmp_path
+    ):
         repo_dir = tmp_path / "repo"
         repo = inicializar_repo_local(repo_dir)
         repo.remotes.create("origin", "https://github.com/exemplo/repo.git")
@@ -1081,12 +1326,16 @@ class TesteSincronizacaoPRServico:
         branch = repo.create_branch("edicao-bau-ahead", commit_base)
         repo.checkout(branch)
         (repo_dir / "database" / "bau").mkdir(parents=True, exist_ok=True)
-        (repo_dir / "database" / "bau" / "novo.txt").write_text("conteudo local\n", encoding="utf-8")
+        (repo_dir / "database" / "bau" / "novo.txt").write_text(
+            "conteudo local\n", encoding="utf-8"
+        )
         repo.index.add_all()
         repo.index.write()
         tree = repo.index.write_tree()
         autor = pygit2.Signature("Autor", "autor@aresta.local")
-        repo.create_commit("refs/heads/edicao-bau-ahead", autor, autor, "local ahead", tree, [commit_base.id])
+        repo.create_commit(
+            "refs/heads/edicao-bau-ahead", autor, autor, "local ahead", tree, [commit_base.id]
+        )
 
         servico = ServicoSubmissao(caminho_repo_base=repo_dir)
         with patch.object(pygit2.Remote, "fetch"):
@@ -1105,12 +1354,21 @@ class TesteSincronizacaoPRServico:
         repo.create_branch("edicao-bau-behind", commit_base)
 
         (repo_dir / "database" / "bau").mkdir(parents=True, exist_ok=True)
-        (repo_dir / "database" / "bau" / "remoto.txt").write_text("conteudo remoto\n", encoding="utf-8")
+        (repo_dir / "database" / "bau" / "remoto.txt").write_text(
+            "conteudo remoto\n", encoding="utf-8"
+        )
         repo.index.add_all()
         repo.index.write()
         tree = repo.index.write_tree()
         autor = pygit2.Signature("Remoto", "remoto@aresta.local")
-        commit_remoto_oid = repo.create_commit("refs/remotes/origin/edicao-bau-behind", autor, autor, "remoto ahead", tree, [commit_base.id])
+        commit_remoto_oid = repo.create_commit(
+            "refs/remotes/origin/edicao-bau-behind",
+            autor,
+            autor,
+            "remoto ahead",
+            tree,
+            [commit_base.id],
+        )
 
         servico = ServicoSubmissao(caminho_repo_base=repo_dir)
         with patch.object(pygit2.Remote, "fetch"):
@@ -1130,7 +1388,9 @@ class TesteSincronizacaoPRServico:
         pasta_croqui = tmp_path / "croqui_local"
         pasta_croqui.mkdir()
 
-        with patch.object(servico, "verificar_atualizacoes_remotas_pr", return_value=(False, "sha123")):
+        with patch.object(
+            servico, "verificar_atualizacoes_remotas_pr", return_value=(False, "sha123")
+        ):
             resultado = servico.sincronizar_pr_remota(
                 id_croqui="bau",
                 nome_branch="edicao-bau-semnovidades",
@@ -1153,7 +1413,14 @@ class TesteSincronizacaoPRServico:
         repo.index.write()
         tree_rem = repo.index.write_tree()
         autor = pygit2.Signature("Remoto", "remoto@aresta.local")
-        commit_remoto_oid = repo.create_commit("refs/remotes/origin/edicao-bau-ff", autor, autor, "remoto ff", tree_rem, [commit_base.id])
+        commit_remoto_oid = repo.create_commit(
+            "refs/remotes/origin/edicao-bau-ff",
+            autor,
+            autor,
+            "remoto ff",
+            tree_rem,
+            [commit_base.id],
+        )
 
         pasta_croqui = tmp_path / "croqui_local"
         pasta_croqui.mkdir()
@@ -1167,7 +1434,9 @@ class TesteSincronizacaoPRServico:
                 caminho_database_croqui=pasta_croqui,
             )
             assert resultado.status == StatusSincronizacao.MESCLADO
-            assert (pasta_croqui / "croqui.yaml").read_text(encoding="utf-8") == "nome: Bau Remoto\n"
+            assert (pasta_croqui / "croqui.yaml").read_text(
+                encoding="utf-8"
+            ) == "nome: Bau Remoto\n"
             assert repo.lookup_reference("refs/heads/edicao-bau-ff").target == commit_remoto_oid
 
     def teste_sincronizar_pr_remota_branch_local_inexistente(self, tmp_path):
@@ -1183,7 +1452,14 @@ class TesteSincronizacaoPRServico:
         repo.index.write()
         tree_rem = repo.index.write_tree()
         autor = pygit2.Signature("Remoto", "remoto@aresta.local")
-        commit_remoto_oid = repo.create_commit("refs/remotes/origin/edicao-bau-nova", autor, autor, "remoto nova", tree_rem, [commit_base.id])
+        commit_remoto_oid = repo.create_commit(
+            "refs/remotes/origin/edicao-bau-nova",
+            autor,
+            autor,
+            "remoto nova",
+            tree_rem,
+            [commit_base.id],
+        )
 
         pasta_croqui = tmp_path / "croqui_local"
         pasta_croqui.mkdir()
@@ -1196,7 +1472,9 @@ class TesteSincronizacaoPRServico:
                 caminho_database_croqui=pasta_croqui,
             )
             assert resultado.status == StatusSincronizacao.MESCLADO
-            assert (pasta_croqui / "croqui.yaml").read_text(encoding="utf-8") == "nome: Bau Remoto Novo\n"
+            assert (pasta_croqui / "croqui.yaml").read_text(
+                encoding="utf-8"
+            ) == "nome: Bau Remoto Novo\n"
             assert repo.lookup_reference("refs/heads/edicao-bau-nova").target == commit_remoto_oid
 
     def teste_sincronizar_pr_remota_3way_merge_limpo(self, tmp_path):
@@ -1214,14 +1492,23 @@ class TesteSincronizacaoPRServico:
         repo.index.write()
         t_loc = repo.index.write_tree()
         autor = pygit2.Signature("Local", "local@aresta.local")
-        c_loc_oid = repo.create_commit("refs/heads/edicao-bau-limpo", autor, autor, "commit local", t_loc, [commit_base.id])
+        c_loc_oid = repo.create_commit(
+            "refs/heads/edicao-bau-limpo", autor, autor, "commit local", t_loc, [commit_base.id]
+        )
 
         (dir_croqui / "local.txt").unlink()
         (dir_croqui / "remoto.txt").write_text("texto remoto\n", encoding="utf-8")
         repo.index.add_all()
         repo.index.write()
         t_rem = repo.index.write_tree()
-        c_rem_oid = repo.create_commit("refs/remotes/origin/edicao-bau-limpo", autor, autor, "commit remoto", t_rem, [commit_base.id])
+        c_rem_oid = repo.create_commit(
+            "refs/remotes/origin/edicao-bau-limpo",
+            autor,
+            autor,
+            "commit remoto",
+            t_rem,
+            [commit_base.id],
+        )
 
         repo.checkout(branch_local, strategy=pygit2.enums.CheckoutStrategy.FORCE)
 
@@ -1259,13 +1546,22 @@ class TesteSincronizacaoPRServico:
         repo.index.write()
         t_loc = repo.index.write_tree()
         autor = pygit2.Signature("Local", "local@aresta.local")
-        c_loc_oid = repo.create_commit("refs/heads/edicao-bau-conflito", autor, autor, "commit local", t_loc, [commit_base.id])
+        c_loc_oid = repo.create_commit(
+            "refs/heads/edicao-bau-conflito", autor, autor, "commit local", t_loc, [commit_base.id]
+        )
 
         (dir_croqui / "croqui.yaml").write_text("nome: Versao Remota\n", encoding="utf-8")
         repo.index.add_all()
         repo.index.write()
         t_rem = repo.index.write_tree()
-        repo.create_commit("refs/remotes/origin/edicao-bau-conflito", autor, autor, "commit remoto", t_rem, [commit_base.id])
+        repo.create_commit(
+            "refs/remotes/origin/edicao-bau-conflito",
+            autor,
+            autor,
+            "commit remoto",
+            t_rem,
+            [commit_base.id],
+        )
 
         repo.checkout(branch_local, strategy=pygit2.enums.CheckoutStrategy.FORCE)
 
@@ -1282,7 +1578,9 @@ class TesteSincronizacaoPRServico:
             )
             assert resultado.status == StatusSincronizacao.CONFLITO
             assert any("croqui.yaml" in a for a in resultado.arquivos_conflito)
-            assert (pasta_croqui / "croqui.yaml").read_text(encoding="utf-8") == "nome: Versao Local\n"
+            assert (pasta_croqui / "croqui.yaml").read_text(
+                encoding="utf-8"
+            ) == "nome: Versao Local\n"
             assert repo.lookup_reference("refs/heads/edicao-bau-conflito").target == c_loc_oid
 
     def teste_resolver_conflito_pr_manter_local(self, tmp_path):
@@ -1300,13 +1598,22 @@ class TesteSincronizacaoPRServico:
         repo.index.write()
         t_loc = repo.index.write_tree()
         autor = pygit2.Signature("Local", "local@aresta.local")
-        c_loc_oid = repo.create_commit("refs/heads/edicao-bau-res-local", autor, autor, "local", t_loc, [commit_base.id])
+        c_loc_oid = repo.create_commit(
+            "refs/heads/edicao-bau-res-local", autor, autor, "local", t_loc, [commit_base.id]
+        )
 
         (dir_croqui / "croqui.yaml").write_text("nome: Versao Remota\n", encoding="utf-8")
         repo.index.add_all()
         repo.index.write()
         t_rem = repo.index.write_tree()
-        c_rem_oid = repo.create_commit("refs/remotes/origin/edicao-bau-res-local", autor, autor, "remoto", t_rem, [commit_base.id])
+        c_rem_oid = repo.create_commit(
+            "refs/remotes/origin/edicao-bau-res-local",
+            autor,
+            autor,
+            "remoto",
+            t_rem,
+            [commit_base.id],
+        )
 
         repo.checkout(branch_local, strategy=pygit2.enums.CheckoutStrategy.FORCE)
 
@@ -1343,13 +1650,22 @@ class TesteSincronizacaoPRServico:
         repo.index.write()
         t_loc = repo.index.write_tree()
         autor = pygit2.Signature("Local", "local@aresta.local")
-        c_loc_oid = repo.create_commit("refs/heads/edicao-bau-res-remoto", autor, autor, "local", t_loc, [commit_base.id])
+        c_loc_oid = repo.create_commit(
+            "refs/heads/edicao-bau-res-remoto", autor, autor, "local", t_loc, [commit_base.id]
+        )
 
         (dir_croqui / "croqui.yaml").write_text("nome: Versao Remota\n", encoding="utf-8")
         repo.index.add_all()
         repo.index.write()
         t_rem = repo.index.write_tree()
-        c_rem_oid = repo.create_commit("refs/remotes/origin/edicao-bau-res-remoto", autor, autor, "remoto", t_rem, [commit_base.id])
+        c_rem_oid = repo.create_commit(
+            "refs/remotes/origin/edicao-bau-res-remoto",
+            autor,
+            autor,
+            "remoto",
+            t_rem,
+            [commit_base.id],
+        )
 
         repo.checkout(branch_local, strategy=pygit2.enums.CheckoutStrategy.FORCE)
 
@@ -1397,7 +1713,3 @@ class TesteSincronizacaoPRServico:
             autor = servico._obter_autor_assinatura(repo, None)
             assert autor.name == "Aresta Editor"
             assert autor.email == "editor@aresta.local"
-
-
-
-

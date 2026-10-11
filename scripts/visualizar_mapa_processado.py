@@ -1,19 +1,21 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
+import argparse
 import json
 import os
 import sys
-import argparse
+
 from PIL import Image, ImageDraw
 
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+
 
 def processar_mapa(caminho_imagem: str, caminho_json: str) -> None:
     # Determinar caminho de saída: mesma pasta do json, com sufixo _processado.webp
     diretorio_json = os.path.dirname(caminho_json)
     base_nome_json = os.path.splitext(os.path.basename(caminho_json))[0]
-    
+
     caminho_saida = os.path.join(diretorio_json, f"{base_nome_json}_processado.webp")
 
     if not os.path.exists(caminho_imagem):
@@ -25,74 +27,82 @@ def processar_mapa(caminho_imagem: str, caminho_json: str) -> None:
         return
 
     # Carregar JSON
-    with open(caminho_json, 'r', encoding='utf-8') as f:
+    with open(caminho_json, encoding="utf-8") as f:
         dados = json.load(f)
 
     # Abrir Imagem
     with Image.open(caminho_imagem) as raw_img:
-        img = raw_img.convert('RGB')
-        
+        img = raw_img.convert("RGB")
+
         # Obter dimensões do mapa para o crop
-        dim_mapa = dados.get('dimensoes_mapa', {})
-        canto = dim_mapa.get('canto_superior_esquerdo', {'x': 0, 'y': 0})
-        map_x = canto.get('x', 0)
-        map_y = canto.get('y', 0)
-        map_w = dim_mapa.get('largura', img.width)
-        map_h = dim_mapa.get('altura', img.height)
+        dim_mapa = dados.get("dimensoes_mapa", {})
+        canto = dim_mapa.get("canto_superior_esquerdo", {"x": 0, "y": 0})
+        map_x = canto.get("x", 0)
+        map_y = canto.get("y", 0)
+        map_w = dim_mapa.get("largura", img.width)
+        map_h = dim_mapa.get("altura", img.height)
 
         # Realizar o recorte (crop)
         img_recortada = img.crop((map_x, map_y, map_x + map_w, map_y + map_h))
-        
+
         draw = ImageDraw.Draw(img_recortada)
-        tamanho_marcador = 10
 
         from editor.core.geometrias_poi import GeometriaPOI
-        pontos = dados.get('pontos_de_interesse', [])
+
+        pontos = dados.get("pontos_de_interesse", [])
         for ponto in pontos:
             try:
                 geom = GeometriaPOI.from_dict(ponto)
             except ValueError:
                 continue
-            
+
             if geom.x is not None and geom.y is not None:
                 x, y = geom.x, geom.y
-                if geom.tipo == 'circulo' and geom.raio is not None:
+                if geom.tipo == "circulo" and geom.raio is not None:
                     r = geom.raio
                     draw.ellipse([x - r, y - r, x + r, y + r], outline="red", width=3)
-                elif geom.tipo == 'quadrado' and geom.lado is not None:
+                elif geom.tipo == "quadrado" and geom.lado is not None:
                     lado = geom.lado
                     meio = lado / 2.0
                     draw.rectangle([x - meio, y - meio, x + meio, y + meio], outline="red", width=3)
-                elif geom.tipo == 'retangulo' and geom.comprimento is not None and geom.largura is not None:
+                elif (
+                    geom.tipo == "retangulo"
+                    and geom.comprimento is not None
+                    and geom.largura is not None
+                ):
                     w, h = geom.comprimento, geom.largura
-                    angulo = geom.propriedades.get('angulo_graus_x100', 0) / 100.0
-                    
+                    angulo = geom.propriedades.get("angulo_graus_x100", 0) / 100.0
+
                     # Centro é x, y
-                    p1 = (x - w/2, y - h/2)
-                    p2 = (x + w/2, y - h/2)
-                    p3 = (x + w/2, y + h/2)
-                    p4 = (x - w/2, y + h/2)
-                    
+                    p1 = (x - w / 2, y - h / 2)
+                    p2 = (x + w / 2, y - h / 2)
+                    p3 = (x + w / 2, y + h / 2)
+                    p4 = (x - w / 2, y + h / 2)
+
                     if angulo != 0:
                         import math
+
                         rad = math.radians(angulo)
-                        def rotate_point(px: float, py: float, cx: float, cy: float, angle_rad: float) -> tuple[float, float]:
+
+                        def rotate_point(
+                            px: float, py: float, cx: float, cy: float, angle_rad: float
+                        ) -> tuple[float, float]:
                             dx = px - cx
                             dy = py - cy
                             nx = cx + dx * math.cos(angle_rad) - dy * math.sin(angle_rad)
                             ny = cy + dx * math.sin(angle_rad) + dy * math.cos(angle_rad)
                             return (nx, ny)
-                        
+
                         p1 = rotate_point(p1[0], p1[1], x, y, rad)
                         p2 = rotate_point(p2[0], p2[1], x, y, rad)
                         p3 = rotate_point(p3[0], p3[1], x, y, rad)
                         p4 = rotate_point(p4[0], p4[1], x, y, rad)
-                    
+
                     draw.polygon([p1, p2, p3, p4], outline="red", width=3)
-            elif geom.tipo == 'poligono':
+            elif geom.tipo == "poligono":
                 coords = geom.coordenadas
                 if coords and len(coords) >= 4:
-                    pts = [(coords[i], coords[i+1]) for i in range(0, len(coords), 2)]
+                    pts = [(coords[i], coords[i + 1]) for i in range(0, len(coords), 2)]
                     draw.polygon(pts, outline="red", width=3)
 
         # Salvar resultado
@@ -100,15 +110,23 @@ def processar_mapa(caminho_imagem: str, caminho_json: str) -> None:
 
         print(f"Imagem marcada salva com sucesso em: {caminho_saida}")
 
+
 def main() -> None:
 
-    parser = argparse.ArgumentParser(description="Visualizar pontos de interesse em um mapa recortado.")
+    parser = argparse.ArgumentParser(
+        description="Visualizar pontos de interesse em um mapa recortado."
+    )
     parser.add_argument("--imagem", required=True, help="Caminho para o arquivo de imagem do mapa.")
-    parser.add_argument("--pontos_json", required=True, help="Caminho para o arquivo JSON com os pontos de interesse.")
-    
+    parser.add_argument(
+        "--pontos_json",
+        required=True,
+        help="Caminho para o arquivo JSON com os pontos de interesse.",
+    )
+
     args = parser.parse_args()
 
     processar_mapa(args.imagem, args.pontos_json)
+
 
 if __name__ == "__main__":
     main()

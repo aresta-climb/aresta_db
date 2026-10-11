@@ -2,12 +2,12 @@
 # Copyright (C) 2026 Aresta Contributors
 
 import pytest
+
 from editor.core.codigo_sessao import (
     formatar_codigo,
-    validar_codigo,
     normalizar_codigo,
     obter_url_previa,
-    CARACTERES_BASE36,
+    validar_codigo,
 )
 
 
@@ -24,7 +24,7 @@ def test_deve_lancar_erro_ao_formatar_codigo_invalido():
     with pytest.raises(ValueError, match="O código deve ter exatamente 8 caracteres"):
         formatar_codigo("muitolongocommaisdeoito")
     with pytest.raises(ValueError, match="O código deve ter exatamente 8 caracteres"):
-        formatar_codigo(12345678) # type: ignore
+        formatar_codigo(12345678)  # type: ignore
 
 
 def test_deve_validar_codigo_correto():
@@ -39,10 +39,10 @@ def test_deve_invalidar_codigo_incorreto():
     """Retorna False para códigos com caracteres ilegais ou tamanho incorreto."""
     assert validar_codigo("k9x2-p83!") is False
     assert validar_codigo("k9x2@83a") is False
-    assert validar_codigo("k9x2-p83") is False # 7 chars
-    assert validar_codigo("k9x2-p83a1") is False # 9 chars
+    assert validar_codigo("k9x2-p83") is False  # 7 chars
+    assert validar_codigo("k9x2-p83a1") is False  # 9 chars
     assert validar_codigo("") is False
-    assert validar_codigo(None) is False # type: ignore
+    assert validar_codigo(None) is False  # type: ignore
 
 
 def test_deve_normalizar_codigo():
@@ -59,7 +59,7 @@ def test_deve_lancar_erro_ao_normalizar_codigo_invalido():
     with pytest.raises(ValueError, match="Código inválido"):
         normalizar_codigo("invalido_caractere_especial!")
     with pytest.raises(ValueError, match="Código inválido: deve ser uma string"):
-        normalizar_codigo(12345678) # type: ignore
+        normalizar_codigo(12345678)  # type: ignore
 
 
 def test_deve_obter_url_previa_canonica():

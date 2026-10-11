@@ -65,7 +65,7 @@ jobs:
 
       - name: Instalar Flatpak e Ferramentas de Build
         run: |
-          sudo apt-get update && sudo apt-get install -y flatpak flatpak-builder
+          sudo apt-get update && sudo apt-get install -y flatpak flatpak-builder ostree
           sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0 || true
           flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
           flatpak install -y flathub org.kde.Sdk//6.11 org.kde.Platform//6.11
@@ -75,13 +75,55 @@ jobs:
           uv run editor/build.py flatpak-deps --output editor/flatpak/pypi-dependencies.json
           cp editor/flatpak/pypi-dependencies.json /tmp/pypi-dependencies.json
 
-      - name: Compilar Bundle Flatpak com Cache
+      - name: Configurar Chave GPG e Bootstrap do Repositório OSTree
+        env:
+          GPG_PRIVATE_KEY: ${{ secrets.ARESTA_FLATPAK_GPG_PRIVATE_KEY }}
+          PYTHONPATH: .
+        run: |
+          mkdir -p repo
+          if [ -n "$GPG_PRIVATE_KEY" ]; then
+            echo "$GPG_PRIVATE_KEY" | gpg --batch --import
+            GPG_KEY_ID=$(gpg --list-secret-keys --with-colons | grep '^sec' | cut -d: -f5 | head -n1)
+            echo "GPG_KEY_ID=$GPG_KEY_ID" >> $GITHUB_ENV
+            GPG_PUBLIC_B64=$(gpg --export "$GPG_KEY_ID" | base64 -w0)
+            echo "GPG_PUBLIC_B64=$GPG_PUBLIC_B64" >> $GITHUB_ENV
+            echo "Chave GPG configurada com sucesso para assinatura do repositório."
+          else
+            echo "Aviso: ARESTA_FLATPAK_GPG_PRIVATE_KEY não configurada. Repositório será gerado sem assinatura GPG."
+          fi
+
+          # Verifica se o repositório remoto já existe no R2 sem suprimir erros com || true
+          python3 -c "
+          from editor.release_tools.publicar_flatpak_r2 import verificar_estado_repositorio_remoto
+          import subprocess
+          import sys
+
+          url_summary = 'https://serving.arestaclimb.com/flatpak/repo/summary'
+          existe = verificar_estado_repositorio_remoto(url_summary)
+          if existe:
+              print('Repositório remoto encontrado no R2. Puxando commit anterior para static deltas...')
+              subprocess.run(['ostree', '--repo=repo', 'remote', 'add', '--if-not-exists', 'aresta-remote', 'https://serving.arestaclimb.com/flatpak/repo'], check=True)
+              subprocess.run(['ostree', '--repo=repo', 'pull', '--mirror', 'aresta-remote', 'app/com.arestaclimb.Editor/x86_64/stable'], check=True)
+          else:
+              print('Primeira publicação histórica detectada. Inicializando repositório limpo...')
+              subprocess.run(['ostree', '--repo=repo', 'init', '--mode=archive-z2'], check=True)
+          "
+
+      - name: Compilar Repositório Flatpak com Cache
         uses: flatpak/flatpak-github-actions/flatpak-builder@v6
         with:
-          bundle: EditorAresta-${{ inputs.versao }}.flatpak
           manifest-path: editor/flatpak/com.arestaclimb.Editor.yaml
           cache: true
+          build-bundle: false
           run-tests: false
+
+      - name: Atualizar Índices do Repositório OSTree e Gerar Deltas
+        run: |
+          GPG_OPTS=""
+          if [ -n "$GPG_KEY_ID" ]; then
+            GPG_OPTS="--gpg-sign=$GPG_KEY_ID"
+          fi
+          flatpak build-update-repo --generate-static-deltas $GPG_OPTS repo
 
       - name: Gerar e Publicar Source Tarball na Release do GitHub
         env:
@@ -94,65 +136,56 @@ jobs:
           
           # Anexa o tarball enxuto aos assets da Release oficial do GitHub
           gh release upload "editor-v${{ inputs.versao }}" "$TARBALL_PATH" --clobber || true
-          
-          # Exporta o hash SHA-256 para uso no manifesto do Flathub
-          SHA256_SRC=$(sha256sum "$TARBALL_PATH" | awk '{print $1}')
-          echo "SHA256_SRC=$SHA256_SRC" >> $GITHUB_ENV
 
-      - name: Sincronizar Manifesto com Repositório Flathub
-        run: |
-          echo "Sincronizando manifesto Flatpak para a versão ${{ inputs.versao }}..."
-          git config --global user.name "aresta-climb-bot[bot]"
-          git config --global user.email "281080576+aresta-climb-bot[bot]@users.noreply.github.com"
-          
-          # Clona o repositório aresta-editor-flathub usando o app token
-          git clone https://x-access-token:${{ steps.app-token.outputs.token }}@github.com/aresta-climb/aresta-editor-flathub.git /tmp/flathub-repo || true
-          if [ -d "/tmp/flathub-repo" ]; then
-            cd /tmp/flathub-repo
-            cp $GITHUB_WORKSPACE/editor/flatpak/com.arestaclimb.Editor.yaml . || true
-            if [ -f "/tmp/pypi-dependencies.json" ]; then
-              cp /tmp/pypi-dependencies.json ./pypi-dependencies.json
-            fi
-            
-            # Atualiza o manifesto para usar o source archive da release oficial
-            python3 -c "
-            import yaml
-            with open('com.arestaclimb.Editor.yaml', 'r', encoding='utf-8') as f:
-                dados = yaml.safe_load(f)
-            
-            versao = '${{ inputs.versao }}'
-            sha256 = '${{ env.SHA256_SRC }}'
-            url_tarball = f'https://github.com/aresta-climb/aresta_db/releases/download/editor-v{versao}/EditorAresta-{versao}-source.tar.gz'
-            
-            for modulo in dados.get('modules', []):
-                if isinstance(modulo, dict) and modulo.get('name') == 'aresta-editor':
-                    modulo['sources'] = [
-                        {
-                            'type': 'archive',
-                            'url': url_tarball,
-                            'sha256': sha256,
-                            'strip-components': 0,
-                        },
-                    ]
-                    break
-            
-            with open('com.arestaclimb.Editor.yaml', 'w', encoding='utf-8') as f:
-                yaml.dump(dados, f, sort_keys=False, allow_unicode=True)
-            "
-            
-            git add .
-            git commit -m "Atualizar Editor Aresta para versão ${{ inputs.versao }}" || true
-            git push origin HEAD || true
-          fi
+      - name: Publicar Repositório Flatpak no Cloudflare R2 e Purgar Cache
         env:
-          VERSAO: ${{ inputs.versao }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.CLOUDFLARE_S3_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.CLOUDFLARE_S3_SECRET_ACCESS_KEY }}
+          CLOUDFLARE_S3_API_URL: ${{ secrets.CLOUDFLARE_S3_API_URL }}
+          CLOUDFLARE_ZONE_ID: ${{ secrets.CLOUDFLARE_ZONE_ID }}
+          CLOUDFLARE_CACHE_PURGE_API_TOKEN: ${{ secrets.CLOUDFLARE_CACHE_PURGE_API_TOKEN }}
+          GPG_PUBLIC_B64: ${{ env.GPG_PUBLIC_B64 }}
+          PYTHONPATH: .
+        run: |
+          python3 -c "
+          import os
+          from pathlib import Path
+          from editor.release_tools.publicar_flatpak_r2 import PublicadorFlatpakR2
+
+          publicador = PublicadorFlatpakR2()
+          print('Sincronizando repositório OSTree para o Cloudflare R2...')
+          chaves = publicador.sincronizar_diretorio_ostree(Path('repo'))
+          print(f'Upload concluído: {len(chaves)} arquivos sincronizados.')
+
+          chave_gpg = os.environ.get('GPG_PUBLIC_B64', '')
+          arquivos_meta = publicador.publicar_metadados(
+              versao='${{ inputs.versao }}',
+              chave_gpg_base64=chave_gpg,
+              diretorio_saida=Path('dist_flatpak_meta'),
+              obrigatoria=True,
+          )
+          print(f'Metadados publicados: {list(arquivos_meta.keys())}')
+
+          if publicador.zone_id and publicador.api_token:
+              urls = publicador.obter_urls_purga()
+              publicador.purgar_cache(urls)
+              print(f'Purgação de cache executada com sucesso para {len(urls)} URLs na Cloudflare.')
+          else:
+              print('Credenciais da Cloudflare ausentes para purgar cache.')
+          "
+
+      # A sincronização direta com o repositório do Flathub fica comentada enquanto o aplicativo
+      # é distribuído de forma soberana pelo repositório OSTree próprio no Cloudflare R2.
+      # - name: Sincronizar Manifesto com Repositório Flathub
+      #   run: |
+      #     echo "Sincronização com Flathub suspensa temporariamente."
 
       - name: Disponibilizar artefatos Linux no GitHub
         uses: actions/upload-artifact@v7
         with:
           name: EditorAresta-Linux-Flatpak
           path: |
-            EditorAresta-${{ inputs.versao }}.flatpak
+            dist_flatpak_meta/*
             editor/flatpak/*
             /tmp/pypi-dependencies.json
           retention-days: 7

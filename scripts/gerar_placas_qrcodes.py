@@ -8,8 +8,8 @@ todas as placas para um pico a partir do compilado Protobuf ou do banco YAML.
 """
 
 import argparse
-from pathlib import Path
 import sys
+from pathlib import Path
 
 _RAIZ = str(Path(__file__).resolve().parent.parent)
 if _RAIZ not in sys.path:
@@ -24,7 +24,6 @@ from scripts.gerar_placas_qrcodes_lib import (
     obter_logo_topo_padrao,
     slugify,
 )
-
 
 
 def criar_analisador_argumentos() -> argparse.ArgumentParser:
@@ -266,9 +265,7 @@ def main(argumentos: list[str] | None = None) -> int:
             utm_medium=args.utm_medium,
             utm_campaign=args.utm_campaign,
         )
-        print(
-            f"Exportação em lote concluída: {len(arquivos)} placas geradas em {diretorio_saida}."
-        )
+        print(f"Exportação em lote concluída: {len(arquivos)} placas geradas em {diretorio_saida}.")
         return 0
 
     # Modo Individual
@@ -359,4 +356,3 @@ def main(argumentos: list[str] | None = None) -> int:
 
 if __name__ == "__main__":
     sys.exit(main())  # pragma: no cover
-

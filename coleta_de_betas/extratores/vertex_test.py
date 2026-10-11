@@ -1,10 +1,13 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
+from unittest.mock import MagicMock, patch
+
 import pytest
-from unittest.mock import patch, MagicMock
+
 from aresta_api.proto.generated import beta_pb2
 from coleta_de_betas.extratores.vertex import ExtratorVertexSearch
+
 
 def test_extrator_vertex_monta_query():
     extrator = ExtratorVertexSearch(project_id="test-proj", data_store_id="test-store")
@@ -28,9 +31,7 @@ def test_extrator_vertex_busca_com_sucesso(mock_post):
                         "snippets": [
                             {"snippet": "Baita cadena na clássica Fusca Azul em Ouro Preto!"}
                         ],
-                        "pagemap": {
-                            "cse_image": [{"src": "https://instagram.com/thumb123.jpg"}]
-                        }
+                        "pagemap": {"cse_image": [{"src": "https://instagram.com/thumb123.jpg"}]},
                     }
                 }
             },
@@ -39,21 +40,21 @@ def test_extrator_vertex_busca_com_sucesso(mock_post):
                     "derivedStructData": {
                         "link": "https://www.instagram.com/p/Cxyz456/",
                         "title": "Dia de escalada com a galera",
-                        "snippets": [
-                            {"snippet": "Passeio em Ouro Preto no fim de semana."}
-                        ]
+                        "snippets": [{"snippet": "Passeio em Ouro Preto no fim de semana."}],
                     }
                 }
-            }
+            },
         ]
     }
     mock_post.return_value = mock_response
 
-    extrator = ExtratorVertexSearch(project_id="test-proj", data_store_id="test-store", api_key="KEY")
+    extrator = ExtratorVertexSearch(
+        project_id="test-proj", data_store_id="test-store", api_key="KEY"
+    )
     resultados = extrator.buscar("Fusca Azul", "Geriatria", "Ouro Preto")
 
     assert len(resultados) == 2
-    
+
     item1 = resultados[0]
     assert isinstance(item1, beta_pb2.MidiaBeta)
     assert item1.url == "https://www.instagram.com/p/Cxyz123/"

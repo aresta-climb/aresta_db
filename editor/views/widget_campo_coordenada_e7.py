@@ -8,32 +8,33 @@ Utiliza campo de texto simples (QLineEdit) sem botões de incremento (spinbox)
 e com suporte a estado nulo/vazio (onde 0 é uma coordenada válida).
 """
 
+from collections.abc import Callable
 from enum import Enum
-from typing import Optional, Callable
-from PySide6.QtCore import Qt, Signal, QUrl
+
+from PySide6.QtCore import QUrl, Signal
 from PySide6.QtGui import QDesktopServices
 from PySide6.QtWidgets import (
-    QWidget,
-    QHBoxLayout,
-    QVBoxLayout,
-    QLabel,
-    QPushButton,
-    QLineEdit,
+    QApplication,
     QDialog,
     QDialogButtonBox,
-    QApplication,
+    QHBoxLayout,
+    QLabel,
+    QLineEdit,
+    QPushButton,
+    QVBoxLayout,
+    QWidget,
 )
 
 from editor.core.coordenadas import (
-    graus_para_e7,
     e7_para_graus,
+    gerar_url_google_maps,
+    graus_para_e7,
+    interpretar_coordenada_individual,
+    interpretar_par_coordenadas,
     obter_indicador_cardinal_latitude,
     obter_indicador_cardinal_longitude,
     validar_latitude,
     validar_longitude,
-    gerar_url_google_maps,
-    interpretar_coordenada_individual,
-    interpretar_par_coordenadas,
 )
 
 
@@ -47,7 +48,8 @@ class DialogoConfirmarCoordenadas(QDialog):
     Diálogo para confirmação de par de coordenadas detectado via colagem inteligente.
     Permite visualizar a interpretação e inverter os eixos (Latitude <-> Longitude).
     """
-    def __init__(self, latitude: float, longitude: float, parent: Optional[QWidget] = None) -> None:
+
+    def __init__(self, latitude: float, longitude: float, parent: QWidget | None = None) -> None:
         super().__init__(parent)
         self.setWindowTitle("Confirmar Coordenadas Coladas")
         self.setModal(True)
@@ -83,7 +85,9 @@ class DialogoConfirmarCoordenadas(QDialog):
         campos_layout.addLayout(col_lon)
         layout.addLayout(campos_layout)
 
-        botoes = QDialogButtonBox(QDialogButtonBox.StandardButton.Ok | QDialogButtonBox.StandardButton.Cancel)
+        botoes = QDialogButtonBox(
+            QDialogButtonBox.StandardButton.Ok | QDialogButtonBox.StandardButton.Cancel
+        )
         botoes.accepted.connect(self.accept)
         botoes.rejected.connect(self.reject)
         layout.addWidget(botoes)
@@ -117,19 +121,20 @@ class WidgetCampoCoordenadaE7(QWidget):
     Usa QLineEdit direto (sem setas de spinbox) e trata campo vazio como None,
     sendo 0 um valor numérico válido (Equador / Meridiano de Greenwich).
     """
+
     valor_alterado_e7 = Signal(object)  # Optional[int]
 
     def __init__(
         self,
         tipo: TipoCoordenada = TipoCoordenada.LATITUDE,
-        valor_e7: Optional[int] = None,
-        parent: Optional[QWidget] = None,
+        valor_e7: int | None = None,
+        parent: QWidget | None = None,
     ) -> None:
         super().__init__(parent)
         self.tipo: TipoCoordenada = tipo
-        self._valor_e7: Optional[int] = None
-        self._coord_contexto_e7: Optional[int] = None
-        self.ao_receber_par_coordenadas: Optional[Callable[[int, int], None]] = None
+        self._valor_e7: int | None = None
+        self._coord_contexto_e7: int | None = None
+        self.ao_receber_par_coordenadas: Callable[[int, int], None] | None = None
 
         layout = QHBoxLayout(self)
         layout.setContentsMargins(0, 0, 0, 0)
@@ -143,7 +148,9 @@ class WidgetCampoCoordenadaE7(QWidget):
         self.rotulo_cardinal.setMinimumWidth(80)
 
         self.btn_colar: QPushButton = QPushButton("Colar")
-        self.btn_colar.setToolTip("Colar coordenada ou par (latitude, longitude) da área de transferência")
+        self.btn_colar.setToolTip(
+            "Colar coordenada ou par (latitude, longitude) da área de transferência"
+        )
         self.btn_colar.clicked.connect(self._ao_clicar_colar)
 
         self.btn_maps: QPushButton = QPushButton("Abrir no Maps")
@@ -160,29 +167,29 @@ class WidgetCampoCoordenadaE7(QWidget):
 
         self.definir_valor_e7(valor_e7)
 
-    def definir_longitude_contexto(self, lon_e7: Optional[int]) -> None:
+    def definir_longitude_contexto(self, lon_e7: int | None) -> None:
         """Define a coordenada parceira (ex: longitude para latitude) para abrir no Google Maps."""
         self._coord_contexto_e7 = lon_e7
 
-    def definir_latitude_contexto(self, lat_e7: Optional[int]) -> None:
+    def definir_latitude_contexto(self, lat_e7: int | None) -> None:
         """Define a coordenada parceira (ex: latitude para longitude) para abrir no Google Maps."""
         self._coord_contexto_e7 = lat_e7
 
-    def obter_valor_graus(self) -> Optional[float]:
+    def obter_valor_graus(self) -> float | None:
         if self._valor_e7 is None:
             return None
         return e7_para_graus(self._valor_e7)
 
-    def obter_valor_e7(self) -> Optional[int]:
+    def obter_valor_e7(self) -> int | None:
         return self._valor_e7
 
-    def definir_valor_graus(self, graus: Optional[float]) -> None:
+    def definir_valor_graus(self, graus: float | None) -> None:
         if graus is None:
             self.definir_valor_e7(None)
         else:
             self.definir_valor_e7(graus_para_e7(graus))
 
-    def definir_valor_e7(self, valor_e7: Optional[int]) -> None:
+    def definir_valor_e7(self, valor_e7: int | None) -> None:
         self._valor_e7 = valor_e7
         self.edit_texto.blockSignals(True)
         if valor_e7 is None:
@@ -207,7 +214,11 @@ class WidgetCampoCoordenadaE7(QWidget):
 
         try:
             val = float(txt)
-            valido = validar_latitude(val) if self.tipo == TipoCoordenada.LATITUDE else validar_longitude(val)
+            valido = (
+                validar_latitude(val)
+                if self.tipo == TipoCoordenada.LATITUDE
+                else validar_longitude(val)
+            )
             if valido:
                 self._valor_e7 = graus_para_e7(val)
                 self._atualizar_rotulo_cardinal(val)
@@ -300,4 +311,3 @@ class WidgetCampoCoordenadaE7(QWidget):
         )
         url = gerar_url_google_maps(lat, lon)
         QDesktopServices.openUrl(QUrl(url))
-

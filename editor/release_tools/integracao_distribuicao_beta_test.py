@@ -2,8 +2,8 @@
 # Copyright (C) 2026 Aresta Climb Contributors
 
 import json
-from unittest.mock import MagicMock, patch
 from pathlib import Path
+from unittest.mock import MagicMock, patch
 
 from editor.release_tools.gerador_appinstaller import gerar_conteudo_appinstaller
 from editor.release_tools.gerador_instalador_bat import gerar_script_instalador_bat
@@ -22,9 +22,7 @@ def test_integracao_contrato_ponta_a_ponta_distribuicao_beta(tmp_path: Path) -> 
     uri_base = "https://serving.arestaclimb.com/editor-beta"
     url_sucesso = "https://arestaclimb.com/editor/beta/certificado-instalado"
     certificado_falso_pem = (
-        "-----BEGIN CERTIFICATE-----\n"
-        "MIIBtestecertificadofalsobase64==\n"
-        "-----END CERTIFICATE-----"
+        "-----BEGIN CERTIFICATE-----\nMIIBtestecertificadofalsobase64==\n-----END CERTIFICATE-----"
     )
 
     # 1. Geração do .appinstaller
@@ -38,7 +36,10 @@ def test_integracao_contrato_ponta_a_ponta_distribuicao_beta(tmp_path: Path) -> 
     assert "-WindowStyle Hidden" in conteudo_bat
     assert 'certutil -decode "%~f0"' in conteudo_bat
     assert 'certutil -addstore -f "TrustedPeople"' in conteudo_bat
-    assert 'start "" "https://arestaclimb.com/editor/beta/certificado-instalado?origem=instalador&thumbprint=' in conteudo_bat
+    assert (
+        'start "" "https://arestaclimb.com/editor/beta/certificado-instalado?origem=instalador&thumbprint='
+        in conteudo_bat
+    )
     assert certificado_falso_pem in conteudo_bat
 
     # 3 & 4. Simulação de upload no R2 e purgação de cache
@@ -83,7 +84,9 @@ def test_integracao_contrato_ponta_a_ponta_distribuicao_beta(tmp_path: Path) -> 
         # Verifica chamada de purgação de cache na Cloudflare
         mock_urlopen.assert_called_once()
         req = mock_urlopen.call_args[0][0]
-        assert "https://api.cloudflare.com/client/v4/zones/zona_teste_123/purge_cache" in req.full_url
+        assert (
+            "https://api.cloudflare.com/client/v4/zones/zona_teste_123/purge_cache" in req.full_url
+        )
         dados_purge = json.loads(req.data.decode("utf-8"))
         assert f"{uri_base}/EditorArestaBeta.appinstaller" in dados_purge["files"]
         assert f"{uri_base}/EditorArestaBeta.msix" in dados_purge["files"]

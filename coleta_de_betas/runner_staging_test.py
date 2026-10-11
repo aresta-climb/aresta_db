@@ -1,12 +1,12 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
-import pytest
 from pathlib import Path
+
 from aresta_api.proto.generated import beta_pb2
+from coleta_de_betas.inteligencia.avaliador import carregar_betas_pendentes
 from coleta_de_betas.io_yaml import salvar_candidatos_brutos_yaml
 from coleta_de_betas.runner_staging import converter_yaml_para_staging, executar_cli_salvar_staging
-from coleta_de_betas.inteligencia.avaliador import carregar_betas_pendentes
 
 
 def test_converter_yaml_para_staging(tmp_path: Path):

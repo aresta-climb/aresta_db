@@ -2,7 +2,7 @@
 # Copyright (C) 2026 Aresta Climb Contributors
 
 from unittest.mock import MagicMock
-import pytest
+
 from editor.core.temporizador_coalescencia import TemporizadorCoalescencia
 
 

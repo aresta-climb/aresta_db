@@ -1,10 +1,10 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
-import unittest
-import tempfile
-from pathlib import Path
 import sys
+import tempfile
+import unittest
+from pathlib import Path
 
 ROOT_DIR = Path(__file__).resolve().parent.parent
 sys.path.append(str(ROOT_DIR))
@@ -16,23 +16,23 @@ class CalcularTamanhoCroquiLibTest(unittest.TestCase):
     def test_calcular_tamanho_croqui_completo(self):
         with tempfile.TemporaryDirectory() as tmp_dir:
             base_dir = Path(tmp_dir)
-            compilado_pb = base_dir / 'compilado.binarypb'
-            compilado_pb.write_bytes(b'x' * 500)
+            compilado_pb = base_dir / "compilado.binarypb"
+            compilado_pb.write_bytes(b"x" * 500)
 
-            imagens_dir = base_dir / 'imagens'
+            imagens_dir = base_dir / "imagens"
             imagens_dir.mkdir()
-            (imagens_dir / 'foto1.webp').write_bytes(b'a' * 200)
-            (imagens_dir / 'foto2.webp').write_bytes(b'b' * 300)
+            (imagens_dir / "foto1.webp").write_bytes(b"a" * 200)
+            (imagens_dir / "foto2.webp").write_bytes(b"b" * 300)
 
             # Subpasta excluida (padrao raw_mapas)
-            raw_dir = imagens_dir / 'raw_mapas'
+            raw_dir = imagens_dir / "raw_mapas"
             raw_dir.mkdir()
-            (raw_dir / 'rascunho.png').write_bytes(b'c' * 1000)
+            (raw_dir / "rascunho.png").write_bytes(b"c" * 1000)
 
             tamanho = calcular_tamanho_croqui_bytes(
                 caminho_compilado=compilado_pb,
                 pasta_imagens=imagens_dir,
-                pastas_excluidas={'raw_mapas'}
+                pastas_excluidas={"raw_mapas"},
             )
             # 500 + 200 + 300 = 1000
             self.assertEqual(tamanho, 1000)
@@ -40,39 +40,36 @@ class CalcularTamanhoCroquiLibTest(unittest.TestCase):
     def test_calcular_tamanho_sem_pasta_imagens(self):
         with tempfile.TemporaryDirectory() as tmp_dir:
             base_dir = Path(tmp_dir)
-            compilado_pb = base_dir / 'compilado.binarypb'
-            compilado_pb.write_bytes(b'x' * 400)
+            compilado_pb = base_dir / "compilado.binarypb"
+            compilado_pb.write_bytes(b"x" * 400)
 
             tamanho = calcular_tamanho_croqui_bytes(
-                caminho_compilado=compilado_pb,
-                pasta_imagens=None
+                caminho_compilado=compilado_pb, pasta_imagens=None
             )
             self.assertEqual(tamanho, 400)
 
     def test_calcular_tamanho_pasta_imagens_inexistente(self):
         with tempfile.TemporaryDirectory() as tmp_dir:
             base_dir = Path(tmp_dir)
-            compilado_pb = base_dir / 'compilado.binarypb'
-            compilado_pb.write_bytes(b'x' * 400)
+            compilado_pb = base_dir / "compilado.binarypb"
+            compilado_pb.write_bytes(b"x" * 400)
 
             tamanho = calcular_tamanho_croqui_bytes(
-                caminho_compilado=compilado_pb,
-                pasta_imagens=base_dir / 'imagens_inexistente'
+                caminho_compilado=compilado_pb, pasta_imagens=base_dir / "imagens_inexistente"
             )
             self.assertEqual(tamanho, 400)
 
     def test_calcular_tamanho_compilado_inexistente(self):
         with tempfile.TemporaryDirectory() as tmp_dir:
             base_dir = Path(tmp_dir)
-            compilado_inexistente = base_dir / 'compilado.binarypb'
+            compilado_inexistente = base_dir / "compilado.binarypb"
 
-            imagens_dir = base_dir / 'imagens'
+            imagens_dir = base_dir / "imagens"
             imagens_dir.mkdir()
-            (imagens_dir / 'foto1.webp').write_bytes(b'a' * 300)
+            (imagens_dir / "foto1.webp").write_bytes(b"a" * 300)
 
             tamanho = calcular_tamanho_croqui_bytes(
-                caminho_compilado=compilado_inexistente,
-                pasta_imagens=imagens_dir
+                caminho_compilado=compilado_inexistente, pasta_imagens=imagens_dir
             )
             self.assertEqual(tamanho, 300)
 
@@ -80,30 +77,30 @@ class CalcularTamanhoCroquiLibTest(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp_dir:
             base_dir = Path(tmp_dir)
             tamanho = calcular_tamanho_croqui_bytes(
-                caminho_compilado=base_dir / 'compilado.binarypb',
-                pasta_imagens=base_dir / 'imagens'
+                caminho_compilado=base_dir / "compilado.binarypb",
+                pasta_imagens=base_dir / "imagens",
             )
             self.assertEqual(tamanho, 0)
 
     def test_calcular_tamanho_pastas_excluidas_customizadas(self):
         with tempfile.TemporaryDirectory() as tmp_dir:
             base_dir = Path(tmp_dir)
-            imagens_dir = base_dir / 'imagens'
+            imagens_dir = base_dir / "imagens"
             imagens_dir.mkdir()
-            (imagens_dir / 'foto_raiz.webp').write_bytes(b'a' * 100)
+            (imagens_dir / "foto_raiz.webp").write_bytes(b"a" * 100)
 
-            temp_dir = imagens_dir / 'temp'
+            temp_dir = imagens_dir / "temp"
             temp_dir.mkdir()
-            (temp_dir / 'temp.webp').write_bytes(b'b' * 500)
+            (temp_dir / "temp.webp").write_bytes(b"b" * 500)
 
-            sub_dir = imagens_dir / 'setor1'
+            sub_dir = imagens_dir / "setor1"
             sub_dir.mkdir()
-            (sub_dir / 'foto_setor.webp').write_bytes(b'c' * 200)
+            (sub_dir / "foto_setor.webp").write_bytes(b"c" * 200)
 
             tamanho = calcular_tamanho_croqui_bytes(
-                caminho_compilado=base_dir / 'compilado.binarypb',
+                caminho_compilado=base_dir / "compilado.binarypb",
                 pasta_imagens=imagens_dir,
-                pastas_excluidas={'temp'}
+                pastas_excluidas={"temp"},
             )
             # 100 + 200 = 300
             self.assertEqual(tamanho, 300)
@@ -111,27 +108,24 @@ class CalcularTamanhoCroquiLibTest(unittest.TestCase):
     def test_calcular_tamanho_com_pasta_anexos(self):
         with tempfile.TemporaryDirectory() as tmp_dir:
             base_dir = Path(tmp_dir)
-            compilado_pb = base_dir / 'compilado.binarypb'
-            compilado_pb.write_bytes(b'x' * 100)
+            compilado_pb = base_dir / "compilado.binarypb"
+            compilado_pb.write_bytes(b"x" * 100)
 
-            imagens_dir = base_dir / 'imagens'
+            imagens_dir = base_dir / "imagens"
             imagens_dir.mkdir()
-            (imagens_dir / 'foto1.webp').write_bytes(b'a' * 200)
+            (imagens_dir / "foto1.webp").write_bytes(b"a" * 200)
 
-            anexos_dir = base_dir / 'anexos'
+            anexos_dir = base_dir / "anexos"
             anexos_dir.mkdir()
-            (anexos_dir / 'ficha.pdf').write_bytes(b'b' * 350)
-            (anexos_dir / 'termo.pdf').write_bytes(b'c' * 150)
+            (anexos_dir / "ficha.pdf").write_bytes(b"b" * 350)
+            (anexos_dir / "termo.pdf").write_bytes(b"c" * 150)
 
             tamanho = calcular_tamanho_croqui_bytes(
-                caminho_compilado=compilado_pb,
-                pasta_imagens=imagens_dir,
-                pasta_anexos=anexos_dir
+                caminho_compilado=compilado_pb, pasta_imagens=imagens_dir, pasta_anexos=anexos_dir
             )
             # 100 + 200 + 350 + 150 = 800
             self.assertEqual(tamanho, 800)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
-

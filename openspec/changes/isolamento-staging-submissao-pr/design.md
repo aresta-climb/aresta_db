@@ -51,7 +51,9 @@ Conforme detalhado no `proposal.md`, a chamada a `index.write_tree()` sem a rein
   msg = dados_erro.get("erro", resposta.text)
   arquivos_invalidos = dados_erro.get("arquivos_invalidos")
   if arquivos_invalidos:
-      msg += "\n\nArquivos fora do escopo permitidos:\n" + "\n".join(f"• {arq}" for arq in arquivos_invalidos)
+      msg += "\n\nArquivos fora do escopo permitidos:\n" + "\n".join(
+          f"• {arq}" for arq in arquivos_invalidos
+      )
   elif arquivos_invalidos == []:
       msg += "\n\n(Nenhum arquivo modificado foi detectado pelo servidor na branch)."
   ```

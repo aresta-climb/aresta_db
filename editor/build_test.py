@@ -1,16 +1,19 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
-import pytest
 import os
+import subprocess
 import sys
 import types
-from unittest.mock import patch, MagicMock
 from pathlib import Path
+from unittest.mock import MagicMock, patch
+
+import pytest
+
 # Garante stubs em sys.modules para ambientes onde PyInstaller não é instalado (ex: Linux no CI)
 if "PyInstaller" not in sys.modules:
     try:
-        import PyInstaller.__main__  # type: ignore[import-untyped]
+        import PyInstaller.__main__  # noqa: F401 # type: ignore[import-untyped]
     except ImportError:
         _mock_pyinstaller = types.ModuleType("PyInstaller")
         _mock_pyinstaller_main = types.ModuleType("PyInstaller.__main__")
@@ -20,16 +23,16 @@ if "PyInstaller" not in sys.modules:
         sys.modules["PyInstaller.__main__"] = _mock_pyinstaller_main
 
 from editor.build import (
-    executar_build,
-    DIRETORIO_EDITOR,
     ARQUIVO_SPEC,
-    obter_modulos_excluidos,
+    DIRETORIO_EDITOR,
+    LIMITE_MAXIMO_TAMANHO_EXECUTAVEL_MB,
+    executar_build,
+    executar_testes,
     filtrar_binarios_desnecessarios,
     filtrar_datas_desnecessarios,
-    obter_argumentos_pyinstaller,
-    executar_testes,
     main,
-    LIMITE_MAXIMO_TAMANHO_EXECUTAVEL_MB,
+    obter_argumentos_pyinstaller,
+    obter_modulos_excluidos,
 )
 
 
@@ -101,10 +104,26 @@ def test_filtrar_binarios_desnecessarios_remove_opengl_software_qdirect2d_e_qml(
 def test_filtrar_datas_desnecessarios_remove_fontes_nao_utilizadas():
     """Valida se filtrar_datas_desnecessarios remove fontes dispensáveis do QtAwesome e mantém as essenciais."""
     datas_mock = [
-        ("C:\\fake\\qtawesome\\fonts\\phosphor-1.3.0.ttf", "qtawesome\\fonts\\phosphor-1.3.0.ttf", "DATA"),
-        ("C:\\fake\\qtawesome\\fonts\\materialdesignicons6-webfont-6.9.96.ttf", "qtawesome\\fonts\\materialdesignicons6-webfont-6.9.96.ttf", "DATA"),
-        ("C:\\fake\\qtawesome\\fonts\\fontawesome5-solid-webfont-5.15.4.ttf", "qtawesome\\fonts\\fontawesome5-solid-webfont-5.15.4.ttf", "DATA"),
-        ("C:\\fake\\qtawesome\\fonts\\fontawesome5-brands-webfont-5.15.4.ttf", "qtawesome\\fonts\\fontawesome5-brands-webfont-5.15.4.ttf", "DATA"),
+        (
+            "C:\\fake\\qtawesome\\fonts\\phosphor-1.3.0.ttf",
+            "qtawesome\\fonts\\phosphor-1.3.0.ttf",
+            "DATA",
+        ),
+        (
+            "C:\\fake\\qtawesome\\fonts\\materialdesignicons6-webfont-6.9.96.ttf",
+            "qtawesome\\fonts\\materialdesignicons6-webfont-6.9.96.ttf",
+            "DATA",
+        ),
+        (
+            "C:\\fake\\qtawesome\\fonts\\fontawesome5-solid-webfont-5.15.4.ttf",
+            "qtawesome\\fonts\\fontawesome5-solid-webfont-5.15.4.ttf",
+            "DATA",
+        ),
+        (
+            "C:\\fake\\qtawesome\\fonts\\fontawesome5-brands-webfont-5.15.4.ttf",
+            "qtawesome\\fonts\\fontawesome5-brands-webfont-5.15.4.ttf",
+            "DATA",
+        ),
         ("C:\\fake\\editor\\recursos\\logo_app.png", "recursos\\logo_app.png", "DATA"),
     ]
 
@@ -187,18 +206,61 @@ def test_executar_build_trata_excecao_na_geracao_de_icone():
 
 
 def test_executar_testes_sucesso():
-    """Valida chamada do pytest retornando 0."""
-    with patch("pytest.main", return_value=0):
-        # Não deve lançar SystemExit com erro
+    """Valida chamada do ruff e pytest retornando 0."""
+    with (
+        patch(
+            "subprocess.run", return_value=subprocess.CompletedProcess(args=[], returncode=0)
+        ) as mock_sub,
+        patch("pytest.main", return_value=0) as mock_pytest,
+    ):
         executar_testes()
+        assert mock_sub.call_count == 2
+        mock_pytest.assert_called_once()
+
+
+def test_executar_testes_falha_ruff_lint():
+    """Valida bloqueio imediato antes do pytest se o ruff check falhar."""
+    with (
+        patch(
+            "subprocess.run", return_value=subprocess.CompletedProcess(args=[], returncode=1)
+        ) as mock_sub,
+        patch("pytest.main") as mock_pytest,
+        pytest.raises(SystemExit) as exc_info,
+    ):
+        executar_testes()
+
+    assert exc_info.value.code == 1
+    mock_sub.assert_called_once()
+    mock_pytest.assert_not_called()
+
+
+def test_executar_testes_falha_ruff_format():
+    """Valida bloqueio imediato antes do pytest se o ruff format falhar."""
+    respostas_subprocess = [
+        subprocess.CompletedProcess(args=[], returncode=0),  # ruff check
+        subprocess.CompletedProcess(args=[], returncode=2),  # ruff format
+    ]
+    with (
+        patch("subprocess.run", side_effect=respostas_subprocess) as mock_sub,
+        patch("pytest.main") as mock_pytest,
+        pytest.raises(SystemExit) as exc_info,
+    ):
+        executar_testes()
+
+    assert exc_info.value.code == 2
+    assert mock_sub.call_count == 2
+    mock_pytest.assert_not_called()
 
 
 def test_executar_testes_falha():
-    """Valida chamada do pytest retornando código de erro."""
-    with patch("pytest.main", return_value=1):
-        with pytest.raises(SystemExit) as exc_info:
-            executar_testes()
-        assert exc_info.value.code == 1
+    """Valida chamada do pytest retornando código de erro quando o ruff passa."""
+    with (
+        patch("subprocess.run", return_value=subprocess.CompletedProcess(args=[], returncode=0)),
+        patch("pytest.main", return_value=1),
+        pytest.raises(SystemExit) as exc_info,
+    ):
+        executar_testes()
+    assert exc_info.value.code == 1
 
 
 def test_main_cli_dispatch():
@@ -215,9 +277,13 @@ def test_main_cli_dispatch():
 def test_executar_modulo_como_script():
     """Valida execução do bloco __main__ quando executado como script."""
     import runpy
-    with patch("sys.argv", ["build.py", "test"]):
-        with patch("pytest.main", return_value=0):
-            runpy.run_path(str(DIRETORIO_EDITOR / "build.py"), run_name="__main__")
+
+    with (
+        patch("sys.argv", ["build.py", "test"]),
+        patch("subprocess.run", return_value=subprocess.CompletedProcess(args=[], returncode=0)),
+        patch("pytest.main", return_value=0),
+    ):
+        runpy.run_path(str(DIRETORIO_EDITOR / "build.py"), run_name="__main__")
 
 
 def test_validacao_limite_tamanho_executavel_se_existir():
@@ -273,6 +339,7 @@ def test_executar_build_sem_pyinstaller_lanca_excecao():
                 sys.modules.pop("PyInstaller.__main__", None)
                 sys.modules.pop("PyInstaller", None)
                 import builtins
+
                 orig_import = builtins.__import__
 
                 def fake_import(name, *args, **kwargs):
@@ -281,22 +348,29 @@ def test_executar_build_sem_pyinstaller_lanca_excecao():
                     return orig_import(name, *args, **kwargs)
 
                 with patch("builtins.__import__", side_effect=fake_import):
-                    with pytest.raises(RuntimeError, match="PyInstaller não está disponível neste ambiente"):
+                    with pytest.raises(
+                        RuntimeError, match="PyInstaller não está disponível neste ambiente"
+                    ):
                         executar_build()
 
 
 def test_spec_configura_modo_onedir_com_collect_e_sem_upx():
     """Valida se EditorAresta.spec está configurado no modo onedir com COLLECT e upx=False."""
     conteudo_spec = ARQUIVO_SPEC.read_text(encoding="utf-8")
-    assert "COLLECT(" in conteudo_spec, "EditorAresta.spec deve definir bloco COLLECT para distribuição onedir"
+    assert "COLLECT(" in conteudo_spec, (
+        "EditorAresta.spec deve definir bloco COLLECT para distribuição onedir"
+    )
     assert "upx=False" in conteudo_spec, "EditorAresta.spec deve desativar UPX em tempo de execução"
     assert "upx=True" not in conteudo_spec, "EditorAresta.spec não deve conter upx=True"
-    assert "exclude_binaries=True" in conteudo_spec, "EXE deve conter exclude_binaries=True para modo onedir"
+    assert "exclude_binaries=True" in conteudo_spec, (
+        "EXE deve conter exclude_binaries=True para modo onedir"
+    )
 
 
 def test_obter_diretorio_distribuicao_onedir():
     """Valida o diretório de destino da distribuição onedir."""
-    from editor.build import obter_diretorio_distribuicao_onedir, DIRETORIO_DIST_ONEDIR
+    from editor.build import DIRETORIO_DIST_ONEDIR, obter_diretorio_distribuicao_onedir
+
     diretorio = obter_diretorio_distribuicao_onedir()
     assert diretorio == DIRETORIO_EDITOR / "dist" / "EditorAresta"
     assert DIRETORIO_DIST_ONEDIR == DIRETORIO_EDITOR / "dist" / "EditorAresta"
@@ -325,8 +399,6 @@ def test_filtrar_binarios_desnecessarios_unix_so_e_dylib():
     assert "PySide6/libQt6Core.so.6" in nomes_restantes
     assert "PySide6/libQt6Widgets.dylib" in nomes_restantes
     assert "pygit2/_pygit2.so" in nomes_restantes
-
-
 
 
 def test_gerar_arquivo_icone_icns_sucesso():
@@ -411,6 +483,7 @@ def test_obter_caminho_icone_alvo_linux():
 def test_orquestrar_build_flatpak_manifesto_inexistente_lanca_erro():
     """Garante que orquestrar_build_flatpak lance FileNotFoundError se o manifesto não existir."""
     from editor.build import orquestrar_build_flatpak
+
     with patch("pathlib.Path.exists", return_value=False):
         with pytest.raises(FileNotFoundError, match="Manifesto Flatpak não encontrado"):
             orquestrar_build_flatpak()
@@ -419,6 +492,7 @@ def test_orquestrar_build_flatpak_manifesto_inexistente_lanca_erro():
 def test_orquestrar_build_flatpak_sem_ferramenta_lanca_erro():
     """Garante que orquestrar_build_flatpak lance RuntimeError claro caso flatpak-builder não esteja no PATH."""
     from editor.build import orquestrar_build_flatpak
+
     with patch("pathlib.Path.exists", return_value=True):
         with patch("shutil.which", return_value=None):
             with pytest.raises(RuntimeError, match="flatpak-builder não encontrado no PATH"):
@@ -428,6 +502,7 @@ def test_orquestrar_build_flatpak_sem_ferramenta_lanca_erro():
 def test_orquestrar_build_flatpak_executa_comandos():
     """Valida se orquestrar_build_flatpak executa o build e a exportação do bundle com sucesso."""
     from editor.build import orquestrar_build_flatpak
+
     with patch("shutil.which", return_value="/usr/bin/flatpak-builder"):
         with patch("subprocess.run") as mock_subproc:
             with patch("pathlib.Path.exists", return_value=True):
@@ -466,6 +541,7 @@ def test_spec_trata_icones_por_plataforma():
 def test_obter_versao_projeto_sucesso():
     """Valida se obter_versao_projeto lê a versão correta do pyproject.toml."""
     from editor.build import obter_versao_projeto
+
     versao = obter_versao_projeto()
     assert isinstance(versao, str)
     assert len(versao) > 0
@@ -474,6 +550,7 @@ def test_obter_versao_projeto_sucesso():
 def test_obter_versao_projeto_arquivo_inexistente():
     """Valida se FileNotFoundError é levantado se o arquivo pyproject.toml não existir."""
     from editor.build import obter_versao_projeto
+
     caminho_fake = Path("caminho/falso/para/pyproject.toml")
     with pytest.raises(FileNotFoundError, match="Arquivo pyproject.toml não encontrado"):
         obter_versao_projeto(caminho_fake)
@@ -482,6 +559,7 @@ def test_obter_versao_projeto_arquivo_inexistente():
 def test_obter_versao_projeto_campo_invalido(tmp_path):
     """Valida se ValueError é levantado caso o campo project.version seja ausente ou inválido."""
     from editor.build import obter_versao_projeto
+
     toml_invalido = tmp_path / "pyproject.toml"
     toml_invalido.write_text("[project]\nname = 'aresta'\n", encoding="utf-8")
     with pytest.raises(ValueError, match="Campo 'project.version' não encontrado"):
@@ -491,6 +569,7 @@ def test_obter_versao_projeto_campo_invalido(tmp_path):
 def test_gerar_manifesto_dependencias_flatpak_lock_inexistente(tmp_path):
     """Garante que FileNotFoundError é lançado se uv.lock não for encontrado."""
     from editor.build import gerar_manifesto_dependencias_flatpak
+
     with pytest.raises(FileNotFoundError, match="Arquivo uv.lock não encontrado"):
         gerar_manifesto_dependencias_flatpak(raiz_projeto=tmp_path)
 
@@ -498,23 +577,26 @@ def test_gerar_manifesto_dependencias_flatpak_lock_inexistente(tmp_path):
 def test_gerar_manifesto_dependencias_flatpak_sucesso(tmp_path):
     """Valida o fluxo completo de exportação e filtragem de dependências Flatpak."""
     from editor.build import gerar_manifesto_dependencias_flatpak
+
     lock_file = tmp_path / "uv.lock"
     lock_file.write_text("# lock", encoding="utf-8")
     destino = tmp_path / "pypi-dependencies.json"
 
-    export_mock_stdout = "\n".join([
-        "# comentário inicial",
-        "",
-        "pyside6-essentials==6.8.0",
-        "shiboken6==6.8.0",
-        "pyinstaller==6.10.0",
-        "pyinstaller-hooks-contrib==2026.8",
-        "grpcio==1.84.0",
-        "grpcio-tools==1.84.0",
-        "mypy-protobuf==5.1.0",
-        "requests==2.32.3",
-        "qtawesome==1.3.1",
-    ])
+    export_mock_stdout = "\n".join(
+        [
+            "# comentário inicial",
+            "",
+            "pyside6-essentials==6.8.0",
+            "shiboken6==6.8.0",
+            "pyinstaller==6.10.0",
+            "pyinstaller-hooks-contrib==2026.8",
+            "grpcio==1.84.0",
+            "grpcio-tools==1.84.0",
+            "mypy-protobuf==5.1.0",
+            "requests==2.32.3",
+            "qtawesome==1.3.1",
+        ]
+    )
 
     def mock_subprocess(cmd, *args, **kwargs):
         res = MagicMock()
@@ -549,7 +631,11 @@ def test_gerar_manifesto_dependencias_flatpak_sucesso(tmp_path):
 
 def test_flatpak_manifest_e_constantes_otimizadas():
     """Valida se as constantes de otimização de tamanho e o manifesto com.arestaclimb.Editor.yaml contêm os ajustes."""
-    from editor.build import PACOTES_DISPENSAVEIS_FLATPAK, PACOTES_PREFERIR_WHEELS, ARQUIVO_MANIFESTO_FLATPAK
+    from editor.build import (
+        ARQUIVO_MANIFESTO_FLATPAK,
+        PACOTES_DISPENSAVEIS_FLATPAK,
+        PACOTES_PREFERIR_WHEELS,
+    )
 
     assert "grpcio" in PACOTES_DISPENSAVEIS_FLATPAK
     assert "grpcio-tools" in PACOTES_DISPENSAVEIS_FLATPAK
@@ -582,10 +668,10 @@ def test_flatpak_manifest_e_constantes_otimizadas():
     assert "--talk-name=org.kde.kwalletd" not in manifesto_texto
 
 
-
 def test_metainfo_xml_valido_e_bem_formado():
     """Valida se o arquivo com.arestaclimb.Editor.metainfo.xml é um XML válido e possui os nós essenciais do AppStream."""
     import xml.etree.ElementTree as ET
+
     from editor.build import DIRETORIO_FLATPAK
 
     caminho_metainfo = DIRETORIO_FLATPAK / "com.arestaclimb.Editor.metainfo.xml"
@@ -602,12 +688,10 @@ def test_metainfo_xml_valido_e_bem_formado():
     assert raiz.find("releases") is not None
 
 
-
-
-
 def test_gerar_manifesto_dependencias_flatpak_com_runtime_detectado(tmp_path):
     """Valida a inclusão automática de --runtime e --prefer-wheels quando Flatpak runtime está instalado."""
     from editor.build import gerar_manifesto_dependencias_flatpak
+
     lock_file = tmp_path / "uv.lock"
     lock_file.write_text("# lock", encoding="utf-8")
     destino = tmp_path / "pypi-dependencies.json"
@@ -645,6 +729,7 @@ def test_gerar_manifesto_dependencias_flatpak_com_runtime_detectado(tmp_path):
 def test_gerar_manifesto_dependencias_flatpak_falha_geracao_arquivo(tmp_path):
     """Garante que FileNotFoundError é lançado se flatpak_pip_generator não gerar o arquivo."""
     from editor.build import gerar_manifesto_dependencias_flatpak
+
     lock_file = tmp_path / "uv.lock"
     lock_file.write_text("# lock", encoding="utf-8")
     destino = tmp_path / "pypi-dependencies.json"
@@ -657,6 +742,7 @@ def test_gerar_manifesto_dependencias_flatpak_falha_geracao_arquivo(tmp_path):
 def test_orquestrar_build_flatpak_preserva_deps_para_cache():
     """Valida se dependências Flatpak são geradas quando ausentes e preservadas em disco para reuso de cache."""
     from editor.build import orquestrar_build_flatpak
+
     with patch("shutil.which", return_value="/usr/bin/flatpak-builder"):
         with patch("subprocess.run"):
             deps_criado = False
@@ -666,7 +752,10 @@ def test_orquestrar_build_flatpak_preserva_deps_para_cache():
                 deps_criado = True
                 return caminho_saida
 
-            with patch("editor.build.gerar_manifesto_dependencias_flatpak", side_effect=mock_gerar) as mock_gerar_deps:
+            with patch(
+                "editor.build.gerar_manifesto_dependencias_flatpak", side_effect=mock_gerar
+            ) as mock_gerar_deps:
+
                 def mock_exists(self):
                     if "com.arestaclimb.Editor.yaml" in str(self):
                         return True
@@ -682,7 +771,6 @@ def test_orquestrar_build_flatpak_preserva_deps_para_cache():
                         assert bundle.name.endswith(".flatpak")
 
 
-
 def test_main_cli_dispatch_flatpak_deps():
     """Valida o despachante CLI para o modo flatpak-deps."""
     with patch("editor.build.gerar_manifesto_dependencias_flatpak") as mock_gerar:
@@ -694,13 +782,14 @@ def test_spec_inclui_diretorio_migracoes():
     """Valida se o EditorAresta.spec inclui a pasta migracoes nos datas do PyInstaller."""
     conteudo_spec = ARQUIVO_SPEC.read_text(encoding="utf-8")
     assert "'migracoes'" in conteudo_spec
-    assert "repo_root / 'migracoes'" in conteudo_spec or "repo_root / \"migracoes\"" in conteudo_spec
+    assert "repo_root / 'migracoes'" in conteudo_spec or 'repo_root / "migracoes"' in conteudo_spec
 
 
 def test_gerar_tarball_codigo_fonte_sucesso(tmp_path):
     """Valida se gerar_tarball_codigo_fonte cria o arquivo .tar.gz contendo apenas arquivos de código sem database."""
-    from editor.build import gerar_tarball_codigo_fonte
     import tarfile
+
+    from editor.build import gerar_tarball_codigo_fonte
 
     # Cria estrutura simulada
     raiz = tmp_path / "repo"
@@ -753,22 +842,25 @@ def test_gerar_tarball_codigo_fonte_sucesso(tmp_path):
         assert not any("_test.py" in n for n in nomes)
 
 
-
 def test_main_cli_dispatch_source_tarball():
     """Valida o despachante CLI para o modo source-tarball."""
-    with patch("editor.build.gerar_tarball_codigo_fonte", return_value=(Path("tarball.tar.gz"), "hash123")) as mock_tar:
+    with patch(
+        "editor.build.gerar_tarball_codigo_fonte", return_value=(Path("tarball.tar.gz"), "hash123")
+    ) as mock_tar:
         main(["source-tarball", "--output-dir", "custom_dir"])
         mock_tar.assert_called_once_with(diretorio_saida=Path("custom_dir"), versao=None)
 
 
 def test_main_cli_dispatch_source_tarball_com_versao():
     """Valida o despachante CLI para o modo source-tarball com versão explícita."""
-    with patch("editor.build.gerar_tarball_codigo_fonte", return_value=(Path("tarball.tar.gz"), "hash123")) as mock_tar:
+    with patch(
+        "editor.build.gerar_tarball_codigo_fonte", return_value=(Path("tarball.tar.gz"), "hash123")
+    ) as mock_tar:
         main(["source-tarball", "--output-dir", "custom_dir", "--versao", "0.4.0"])
         mock_tar.assert_called_once_with(diretorio_saida=Path("custom_dir"), versao="0.4.0")
 
 
-
-
-
-
+def test_spec_inclui_keyring_macos_no_darwin():
+    """Valida se o EditorAresta.spec inclui keyring.backends.macOS quando executado no darwin."""
+    conteudo_spec = ARQUIVO_SPEC.read_text(encoding="utf-8")
+    assert "keyring.backends.macOS" in conteudo_spec

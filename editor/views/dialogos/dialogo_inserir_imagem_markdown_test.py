@@ -1,12 +1,10 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
-import os
 from pathlib import Path
-import pytest
-from PySide6.QtCore import Qt, QSize, QMimeData, QUrl
-from PySide6.QtGui import QImage, QDropEvent, QDragEnterEvent
-from PySide6.QtWidgets import QDialogButtonBox
+
+from PySide6.QtCore import QMimeData, Qt, QUrl
+from PySide6.QtGui import QDragEnterEvent, QDropEvent, QImage
 
 from editor.views.dialogos.dialogo_inserir_imagem_markdown import DialogoInserirImagemMarkdown
 
@@ -44,7 +42,7 @@ def test_dialogo_galeria_listagem_e_busca(qapp, tmp_path):
     # Seleciona o primeiro item e insere com legenda
     dialogo.lista_imagens.setCurrentRow(0)
     dialogo.input_legenda.setText("Bloco A Principal")
-    
+
     assert dialogo.btn_inserir.isEnabled() is True
     assert dialogo.obter_tag_markdown() == "![Bloco A Principal](imagens/setor_bloco_a.webp)"
     assert dialogo.obter_nome_imagem() == "setor_bloco_a.webp"
@@ -52,6 +50,7 @@ def test_dialogo_galeria_listagem_e_busca(qapp, tmp_path):
 
 def test_dialogo_galeria_legenda_obrigatoria(qapp, tmp_path, monkeypatch):
     from PySide6.QtWidgets import QMessageBox
+
     monkeypatch.setattr(QMessageBox, "warning", lambda *args, **kwargs: None)
 
     pasta_imagens = tmp_path / "imagens"
@@ -64,7 +63,7 @@ def test_dialogo_galeria_legenda_obrigatoria(qapp, tmp_path, monkeypatch):
     dialogo.tab_widget.setCurrentIndex(1)
     dialogo.lista_imagens.setCurrentRow(0)
     assert dialogo.nome_imagem_selecionada == "foto_teste.webp"
-    
+
     # Sem legenda, botão Inserir deve estar desabilitado
     assert dialogo.btn_inserir.isEnabled() is False
     dialogo.accept()
@@ -145,7 +144,10 @@ def test_dialogo_importar_imagem_clipboard(qapp, tmp_path):
 
     arquivo_salvo = caminho_db / "imagens" / "meu_print_personalizado.webp"
     assert arquivo_salvo.exists()
-    assert dialogo.obter_tag_markdown() == "![Croqui esquemático](imagens/meu_print_personalizado.webp)"
+    assert (
+        dialogo.obter_tag_markdown()
+        == "![Croqui esquemático](imagens/meu_print_personalizado.webp)"
+    )
 
 
 def test_dialogo_importar_validacao_nome_vazio(qapp, tmp_path):
@@ -156,7 +158,7 @@ def test_dialogo_importar_validacao_nome_vazio(qapp, tmp_path):
     dialogo = DialogoInserirImagemMarkdown(caminho_db=caminho_db, imagem_inicial=img)
     dialogo.input_legenda.setText("Legenda válida")
     dialogo.input_nome_arquivo.setText("")
-    
+
     # Com nome vazio, não deve permitir aceitar
     assert dialogo.btn_inserir.isEnabled() is False
     dialogo.accept()
@@ -196,6 +198,7 @@ def test_dialogo_area_drop_drag_and_drop_events(qapp, tmp_path):
     area = dialogo.area_drop
 
     from PySide6.QtCore import QPoint, QPointF
+
     # Simula DragEnter com arquivo válido
     mime = QMimeData()
     mime.setUrls([QUrl.fromLocalFile(str(caminho_img))])
@@ -244,7 +247,10 @@ def test_dialogo_area_drop_mouse_press_qfiledialog(qapp, tmp_path, monkeypatch):
     area = dialogo.area_drop
 
     from PySide6.QtWidgets import QFileDialog
-    monkeypatch.setattr(QFileDialog, "getOpenFileName", lambda *args, **kwargs: (str(caminho_img), "PNG"))
+
+    monkeypatch.setattr(
+        QFileDialog, "getOpenFileName", lambda *args, **kwargs: (str(caminho_img), "PNG")
+    )
 
     class FakeMouseEvent:
         def button(self):
@@ -280,6 +286,7 @@ def test_dialogo_area_drop_imagem_invalida(qapp, tmp_path, monkeypatch):
 
     avisos = []
     from PySide6.QtWidgets import QMessageBox
+
     monkeypatch.setattr(QMessageBox, "warning", lambda *args, **kwargs: avisos.append(True))
     area.processar_caminho(str(caminho_txt))
     assert len(avisos) == 1
@@ -322,9 +329,10 @@ def test_dialogo_deselecao_e_accept_vazios(qapp, tmp_path):
     dialogo.accept()
     assert dialogo.result() == 0
 
+
 def test_dialogo_importar_imagem_em_memoria_com_model(qapp, tmp_path):
-    from editor.models.croqui_model import CroquiModel
     from aresta_api.proto.generated.croqui_pb2 import Croqui
+    from editor.models.croqui_model import CroquiModel
 
     croqui = Croqui()
     model = CroquiModel(croqui)
@@ -364,8 +372,8 @@ def test_dialogo_gerar_nome_unico_com_colisao(qapp, tmp_path):
 
 
 def test_dialogo_galeria_lista_imagens_em_memoria(qapp, tmp_path):
-    from editor.models.croqui_model import CroquiModel
     from aresta_api.proto.generated.croqui_pb2 import Croqui
+    from editor.models.croqui_model import CroquiModel
 
     croqui = Croqui()
     model = CroquiModel(croqui)
@@ -373,6 +381,7 @@ def test_dialogo_galeria_lista_imagens_em_memoria(qapp, tmp_path):
 
     img = QImage(20, 20, QImage.Format.Format_RGB32)
     from PySide6.QtCore import QBuffer, QIODevice
+
     buf = QBuffer()
     buf.open(QIODevice.OpenModeFlag.ReadWrite)
     img.save(buf, "WEBP")
@@ -389,18 +398,20 @@ def test_dialogo_galeria_lista_imagens_em_memoria(qapp, tmp_path):
 
 def test_dialogo_area_drop_clique_cancelado(qapp, tmp_path, monkeypatch):
     from PySide6.QtWidgets import QFileDialog
+
     monkeypatch.setattr(QFileDialog, "getOpenFileName", lambda *args, **kwargs: ("", ""))
 
     dialogo = DialogoInserirImagemMarkdown(caminho_db=tmp_path)
-    from PySide6.QtGui import QMouseEvent
     from PySide6.QtCore import QPointF, Qt
+    from PySide6.QtGui import QMouseEvent
+
     event = QMouseEvent(
         QMouseEvent.Type.MouseButtonPress,
         QPointF(10, 10),
         QPointF(10, 10),
         Qt.MouseButton.LeftButton,
         Qt.MouseButton.LeftButton,
-        Qt.KeyboardModifier.NoModifier
+        Qt.KeyboardModifier.NoModifier,
     )
     dialogo.area_drop.mousePressEvent(event)
     assert dialogo.fonte_imagem_importacao is None
@@ -408,22 +419,26 @@ def test_dialogo_area_drop_clique_cancelado(qapp, tmp_path, monkeypatch):
 
 def test_dialogo_area_drop_clique_selecionado(qapp, tmp_path, monkeypatch):
     from PySide6.QtWidgets import QFileDialog
+
     arquivo_png = tmp_path / "selecionado.png"
     img = QImage(20, 20, QImage.Format.Format_RGB32)
     img.save(str(arquivo_png), "PNG")
 
-    monkeypatch.setattr(QFileDialog, "getOpenFileName", lambda *args, **kwargs: (str(arquivo_png), "PNG"))
+    monkeypatch.setattr(
+        QFileDialog, "getOpenFileName", lambda *args, **kwargs: (str(arquivo_png), "PNG")
+    )
 
     dialogo = DialogoInserirImagemMarkdown(caminho_db=tmp_path)
-    from PySide6.QtGui import QMouseEvent
     from PySide6.QtCore import QPointF, Qt
+    from PySide6.QtGui import QMouseEvent
+
     event = QMouseEvent(
         QMouseEvent.Type.MouseButtonPress,
         QPointF(10, 10),
         QPointF(10, 10),
         Qt.MouseButton.LeftButton,
         Qt.MouseButton.LeftButton,
-        Qt.KeyboardModifier.NoModifier
+        Qt.KeyboardModifier.NoModifier,
     )
     dialogo.area_drop.mousePressEvent(event)
     assert dialogo.fonte_imagem_importacao == str(arquivo_png)
@@ -439,7 +454,10 @@ def test_dialogo_cabecalho_botao_selecionar(qapp, tmp_path, monkeypatch):
     assert dialogo.btn_selecionar.text() == "Selecionar Imagem..."
 
     from PySide6.QtWidgets import QFileDialog
-    monkeypatch.setattr(QFileDialog, "getOpenFileName", lambda *args, **kwargs: (str(caminho_img), "PNG"))
+
+    monkeypatch.setattr(
+        QFileDialog, "getOpenFileName", lambda *args, **kwargs: (str(caminho_img), "PNG")
+    )
     dialogo.btn_selecionar.click()
 
     assert dialogo.input_nome_arquivo.text() == "foto_cabecalho.webp"
@@ -465,8 +483,9 @@ def test_dialogo_validacao_colisao_tempo_real(qapp, tmp_path):
     pasta_img.mkdir(parents=True, exist_ok=True)
     (pasta_img / "conflito_disco.webp").write_bytes(b"dummy")
 
-    from editor.models.croqui_model import CroquiModel
     from aresta_api.proto.generated.croqui_pb2 import Croqui
+    from editor.models.croqui_model import CroquiModel
+
     croqui = Croqui()
     model = CroquiModel(croqui)
     model.definir_imagem_memoria("imagens/conflito_ram.webp", b"dummy")
@@ -521,7 +540,7 @@ def test_dialogo_carregar_arquivo_inexistente_ou_erro(qapp, tmp_path, monkeypatc
 
     def falha_leitura_arquivo(self):
         if "arquivo_bloqueado" in str(self):
-            raise IOError("Falha de IO")
+            raise OSError("Falha de IO")
         return orig_read(self)
 
     monkeypatch.setattr(Path, "read_bytes", falha_leitura_arquivo)
@@ -530,8 +549,9 @@ def test_dialogo_carregar_arquivo_inexistente_ou_erro(qapp, tmp_path, monkeypatc
 
 
 def test_dialogo_heic_sem_suporte(qapp, tmp_path, monkeypatch):
-    import editor.views.dialogos.dialogo_inserir_imagem_markdown as dim
     from PySide6.QtWidgets import QMessageBox
+
+    import editor.views.dialogos.dialogo_inserir_imagem_markdown as dim
 
     avisos = []
     monkeypatch.setattr(QMessageBox, "warning", lambda *args, **kwargs: avisos.append(True))
@@ -546,6 +566,7 @@ def test_dialogo_heic_sem_suporte(qapp, tmp_path, monkeypatch):
 
 def test_dialogo_imagem_inicial_caminho_com_excecao(qapp, tmp_path, monkeypatch):
     from PySide6.QtWidgets import QMessageBox
+
     monkeypatch.setattr(QMessageBox, "warning", lambda *args, **kwargs: None)
 
     caminho = tmp_path / "caminho_estranho.webp"
@@ -581,7 +602,3 @@ def test_dialogo_carregar_imagens_existentes_com_erro_de_leitura(qapp, tmp_path,
 
     dialogo = DialogoInserirImagemMarkdown(caminho_db=tmp_path)
     assert dialogo.lista_imagens.count() == 0
-
-
-
-

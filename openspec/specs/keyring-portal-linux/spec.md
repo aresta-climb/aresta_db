@@ -5,12 +5,13 @@ Provides an isolated, sandboxed Python keyring backend using the XDG Desktop Por
 ## Requirements
 
 ### Requirement: Portal Keyring Backend Implementation
-The system SHALL provide a `keyring.backend.KeyringBackend` implementation named `PortalKeyring` that interacts with the `org.freedesktop.portal.Secret` D-Bus service using `jeepney` and stores credentials encrypted with AES-256-GCM in application-isolated storage, handling timeouts and portal errors gracefully.
+The system SHALL provide a `keyring.backend.KeyringBackend` implementation named `PortalKeyring` that interacts with the `org.freedesktop.portal.Secret` D-Bus service using `jeepney` and stores credentials encrypted with AES-256-GCM in application-isolated storage, awaiting user interaction on the system unlock dialog without premature client timeout.
 
 #### Scenario: Secret retrieval via portal D-Bus
 - **WHEN** `PortalKeyring` initializes and requests the application master secret
 - **THEN** it creates a Unix pipe and passes the write file descriptor to `RetrieveSecret` via D-Bus
-- **AND** reads the master secret bytes from the pipe
+- **AND** waits for the portal `Response` signal without imposing an arbitrary client timeout while the system unlock dialog is presented
+- **AND** reads the master secret bytes from the pipe upon successful response
 - **AND** caches the master secret in memory for the process lifetime
 
 #### Scenario: Storing and retrieving credentials in encrypted file
@@ -23,7 +24,7 @@ The system SHALL provide a `keyring.backend.KeyringBackend` implementation named
 - **THEN** `PortalKeyring` removes the entry, re-encrypts the storage file, and persists the update
 
 #### Scenario: Portal response error or cancellation
-- **WHEN** `RetrieveSecret` returns a non-zero response code or cancellation (e.g. locked system keyring)
+- **WHEN** `RetrieveSecret` returns a non-zero response code or cancellation (e.g. user dismissed or cancelled the system unlock prompt)
 - **THEN** `PortalKeyring` raises `KeyringError` immediately without blocking the application thread
 
 #### Scenario: Non-blocking pipe read with timeout

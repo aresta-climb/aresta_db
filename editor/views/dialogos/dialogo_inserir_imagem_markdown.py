@@ -9,37 +9,37 @@ painel de metadados ricos e validação contínua de nomes contra RAM e disco) a
 """
 
 from pathlib import Path
-from typing import Optional, Union, Tuple, Any
+from typing import Any
+
+from PySide6.QtCore import QSize, Qt
+from PySide6.QtGui import QIcon, QImage, QPixmap
 from PySide6.QtWidgets import (
     QDialog,
-    QVBoxLayout,
+    QFileDialog,
+    QFrame,
     QHBoxLayout,
     QLabel,
     QLineEdit,
     QListWidget,
     QListWidgetItem,
+    QMessageBox,
     QPushButton,
     QTabWidget,
+    QVBoxLayout,
     QWidget,
-    QFileDialog,
-    QMessageBox,
-    QFrame,
 )
-from PySide6.QtCore import Qt, QSize
-from PySide6.QtGui import QPixmap, QIcon, QImage
 
-from editor.views.componentes.area_drop_imagem import (
-    AreaDropImagem,
-    EXTENSOES_IMAGEM_SUPORTADAS,
-    FILTRO_ARQUIVOS_IMAGEM,
-)
+from editor.core.imagens_markdown import formatar_tag_markdown
 from editor.core.processamento_imagem_campo import (
-    sanitizar_nome_imagem,
-    obter_metadados_imagem,
     comprimir_imagem_para_bytes_webp,
     garantir_suporte_heif,
+    obter_metadados_imagem,
+    sanitizar_nome_imagem,
 )
-from editor.core.imagens_markdown import formatar_tag_markdown, salvar_imagem_otimizada
+from editor.views.componentes.area_drop_imagem import (
+    FILTRO_ARQUIVOS_IMAGEM,
+    AreaDropImagem,
+)
 
 
 class DialogoInserirImagemMarkdown(QDialog):
@@ -51,22 +51,22 @@ class DialogoInserirImagemMarkdown(QDialog):
     def __init__(
         self,
         caminho_db: Path,
-        model: Optional[Any] = None,
-        imagem_inicial: Optional[Union[Path, str, QImage, bytes]] = None,
-        parent: Optional[QWidget] = None,
+        model: Any | None = None,
+        imagem_inicial: Path | str | QImage | bytes | None = None,
+        parent: QWidget | None = None,
     ) -> None:
         super().__init__(parent)
         self.setWindowTitle("Inserir Imagem no Markdown")
         self.resize(580, 560)
 
         self.caminho_db: Path = Path(caminho_db)
-        self.model: Optional[Any] = model
+        self.model: Any | None = model
         self.pasta_imagens: Path = self.caminho_db / "imagens"
         self.pasta_imagens.mkdir(parents=True, exist_ok=True)
 
-        self.fonte_imagem_importacao: Optional[Union[str, Path, QImage, bytes]] = None
-        self.bytes_processados_webp: Optional[bytes] = None
-        self.dimensoes: Optional[Tuple[int, int]] = None
+        self.fonte_imagem_importacao: str | Path | QImage | bytes | None = None
+        self.bytes_processados_webp: bytes | None = None
+        self.dimensoes: tuple[int, int] | None = None
         self.nome_imagem_selecionada: str = ""
 
         self._criar_layout()
@@ -77,9 +77,10 @@ class DialogoInserirImagemMarkdown(QDialog):
             if isinstance(imagem_inicial, (str, Path)):
                 p = Path(imagem_inicial)
                 try:
-                    if self.pasta_imagens.resolve() in p.resolve().parents or (
-                        self.pasta_imagens / p.name
-                    ).resolve() == p.resolve():
+                    if (
+                        self.pasta_imagens.resolve() in p.resolve().parents
+                        or (self.pasta_imagens / p.name).resolve() == p.resolve()
+                    ):
                         eh_interna = True
                         self.tab_widget.setCurrentIndex(1)  # Galeria
                         for i in range(self.lista_imagens.count()):
@@ -238,7 +239,7 @@ class DialogoInserirImagemMarkdown(QDialog):
         if arquivo:
             self.carregar_imagem_arquivo(arquivo)
 
-    def carregar_imagem_arquivo(self, caminho_arquivo: Union[str, Path]) -> None:
+    def carregar_imagem_arquivo(self, caminho_arquivo: str | Path) -> None:
         caminho = Path(caminho_arquivo)
         if not caminho.exists() or not caminho.is_file():
             QMessageBox.warning(self, "Erro", "Arquivo não encontrado.")
@@ -252,7 +253,7 @@ class DialogoInserirImagemMarkdown(QDialog):
             QMessageBox.warning(self, "Erro", f"Falha ao ler arquivo: {e}")
 
     def carregar_imagem_bytes(
-        self, bytes_originais: bytes, nome_sugerido_origem: Optional[str] = None
+        self, bytes_originais: bytes, nome_sugerido_origem: str | None = None
     ) -> None:
         w_orig, h_orig, tam_orig, txt_tam_orig = obter_metadados_imagem(bytes_originais)
         if w_orig <= 0 or h_orig <= 0:
@@ -302,7 +303,7 @@ class DialogoInserirImagemMarkdown(QDialog):
         self.input_nome_arquivo.setText(nome_sugerido)
         self._validar_estado()
 
-    def carregar_imagem_externa(self, objeto_imagem: Union[str, Path, QImage, bytes]) -> None:
+    def carregar_imagem_externa(self, objeto_imagem: str | Path | QImage | bytes) -> None:
         self.fonte_imagem_importacao = objeto_imagem
         if isinstance(objeto_imagem, (str, Path)):
             self.carregar_imagem_arquivo(objeto_imagem)
@@ -418,10 +419,10 @@ class DialogoInserirImagemMarkdown(QDialog):
         slug = sanitizar_nome_imagem(txt or "imagem.webp")
         return f"imagens/{slug}"
 
-    def obter_bytes_imagem_processada(self) -> Optional[bytes]:
+    def obter_bytes_imagem_processada(self) -> bytes | None:
         return self.bytes_processados_webp
 
-    def obter_dimensoes_imagem(self) -> Optional[Tuple[int, int]]:
+    def obter_dimensoes_imagem(self) -> tuple[int, int] | None:
         return self.dimensoes
 
     def _validar_estado(self) -> None:

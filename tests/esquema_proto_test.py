@@ -3,9 +3,9 @@
 
 """Testes unitários do esquema Protobuf para identificadores estáveis e UIDs universais."""
 
-import pytest
 from google.protobuf import descriptor
-from aresta_api.proto.generated import croqui_pb2, indice_pb2, croqui_experimental_pb2
+
+from aresta_api.proto.generated import croqui_experimental_pb2, croqui_pb2, indice_pb2
 
 
 def test_resumo_croqui_croqui_uid() -> None:
@@ -13,7 +13,9 @@ def test_resumo_croqui_croqui_uid() -> None:
     campo = indice_pb2.ResumoCroqui.DESCRIPTOR.fields_by_name.get("croqui_uid")
     assert campo is not None, "Campo 'croqui_uid' deve existir em ResumoCroqui"
     assert campo.number == 12, "Tag do campo 'croqui_uid' deve ser 12"
-    assert campo.type == descriptor.FieldDescriptor.TYPE_STRING, "Tipo de 'croqui_uid' deve ser string"
+    assert campo.type == descriptor.FieldDescriptor.TYPE_STRING, (
+        "Tipo de 'croqui_uid' deve ser string"
+    )
 
 
 def test_croqui_uid() -> None:
@@ -22,10 +24,12 @@ def test_croqui_uid() -> None:
     assert campo is not None, "Campo 'uid' deve existir em Croqui"
     assert campo.number == 17, "Tag do campo 'uid' deve ser 17"
     assert campo.type == descriptor.FieldDescriptor.TYPE_STRING, "Tipo de 'uid' deve ser string"
-    
+
     opcoes = campo.GetOptions()
     formato = opcoes.Extensions[croqui_pb2.formato_na_ui]
-    assert formato == croqui_pb2.CampoFormatoUi.INVISIVEL, "Campo 'uid' deve ter formato_na_ui = INVISIVEL"
+    assert formato == croqui_pb2.CampoFormatoUi.INVISIVEL, (
+        "Campo 'uid' deve ter formato_na_ui = INVISIVEL"
+    )
 
 
 def test_grupo_uid() -> None:
@@ -34,10 +38,12 @@ def test_grupo_uid() -> None:
     assert campo is not None, "Campo 'uid' deve existir em Grupo"
     assert campo.number == 10, "Tag do campo 'uid' deve ser 10"
     assert campo.type == descriptor.FieldDescriptor.TYPE_STRING, "Tipo de 'uid' deve ser string"
-    
+
     opcoes = campo.GetOptions()
     formato = opcoes.Extensions[croqui_pb2.formato_na_ui]
-    assert formato == croqui_pb2.CampoFormatoUi.INVISIVEL, "Campo 'uid' deve ter formato_na_ui = INVISIVEL"
+    assert formato == croqui_pb2.CampoFormatoUi.INVISIVEL, (
+        "Campo 'uid' deve ter formato_na_ui = INVISIVEL"
+    )
 
 
 def test_setor_uid() -> None:
@@ -46,10 +52,12 @@ def test_setor_uid() -> None:
     assert campo is not None, "Campo 'uid' deve existir em Setor"
     assert campo.number == 16, "Tag do campo 'uid' deve ser 16"
     assert campo.type == descriptor.FieldDescriptor.TYPE_STRING, "Tipo de 'uid' deve ser string"
-    
+
     opcoes = campo.GetOptions()
     formato = opcoes.Extensions[croqui_pb2.formato_na_ui]
-    assert formato == croqui_pb2.CampoFormatoUi.INVISIVEL, "Campo 'uid' deve ter formato_na_ui = INVISIVEL"
+    assert formato == croqui_pb2.CampoFormatoUi.INVISIVEL, (
+        "Campo 'uid' deve ter formato_na_ui = INVISIVEL"
+    )
 
 
 def test_escalada_uid() -> None:
@@ -58,10 +66,12 @@ def test_escalada_uid() -> None:
     assert campo is not None, "Campo 'uid' deve existir em Escalada"
     assert campo.number == 8, "Tag do campo 'uid' deve ser 8"
     assert campo.type == descriptor.FieldDescriptor.TYPE_STRING, "Tipo de 'uid' deve ser string"
-    
+
     opcoes = campo.GetOptions()
     formato = opcoes.Extensions[croqui_pb2.formato_na_ui]
-    assert formato == croqui_pb2.CampoFormatoUi.INVISIVEL, "Campo 'uid' deve ter formato_na_ui = INVISIVEL"
+    assert formato == croqui_pb2.CampoFormatoUi.INVISIVEL, (
+        "Campo 'uid' deve ter formato_na_ui = INVISIVEL"
+    )
 
 
 def test_botao_uid() -> None:
@@ -70,16 +80,18 @@ def test_botao_uid() -> None:
     assert campo is not None, "Campo 'uid' deve existir em Botao"
     assert campo.number == 3, "Tag do campo 'uid' deve ser 3"
     assert campo.type == descriptor.FieldDescriptor.TYPE_STRING, "Tipo de 'uid' deve ser string"
-    
+
     opcoes = campo.GetOptions()
     formato = opcoes.Extensions[croqui_pb2.formato_na_ui]
-    assert formato == croqui_pb2.CampoFormatoUi.INVISIVEL, "Campo 'uid' deve ter formato_na_ui = INVISIVEL"
+    assert formato == croqui_pb2.CampoFormatoUi.INVISIVEL, (
+        "Campo 'uid' deve ter formato_na_ui = INVISIVEL"
+    )
 
 
 def test_ponto_de_interesse_rotulo_e_uid() -> None:
     """Valida os campos rotulo, uid e a deprecação de label em Mapa.PontoDeInteresse."""
     desc = croqui_pb2.Mapa.PontoDeInteresse.DESCRIPTOR
-    
+
     # Campo rotulo
     campo_rotulo = desc.fields_by_name.get("rotulo")
     assert campo_rotulo is not None, "Campo 'rotulo' deve existir em PontoDeInteresse"
@@ -92,17 +104,24 @@ def test_ponto_de_interesse_rotulo_e_uid() -> None:
     assert campo_uid is not None, "Campo 'uid' deve existir em PontoDeInteresse"
     assert campo_uid.number == 13, "Tag de 'uid' deve ser 13"
     assert campo_uid.type == descriptor.FieldDescriptor.TYPE_STRING
-    assert campo_uid.GetOptions().Extensions[croqui_pb2.formato_na_ui] == croqui_pb2.CampoFormatoUi.INVISIVEL
+    assert (
+        campo_uid.GetOptions().Extensions[croqui_pb2.formato_na_ui]
+        == croqui_pb2.CampoFormatoUi.INVISIVEL
+    )
 
     # Campo label depreciado
     campo_label = desc.fields_by_name.get("label")
     assert campo_label is not None
-    assert campo_label.GetOptions().deprecated is True, "Campo 'label' deve ser marcado como deprecated"
+    assert campo_label.GetOptions().deprecated is True, (
+        "Campo 'label' deve ser marcado como deprecated"
+    )
 
     # Campo id depreciado
     campo_id = desc.fields_by_name.get("id")
     assert campo_id is not None
-    assert campo_id.GetOptions().deprecated is True, "Campo 'id' deve ser marcado como deprecated em favor de uid"
+    assert campo_id.GetOptions().deprecated is True, (
+        "Campo 'id' deve ser marcado como deprecated em favor de uid"
+    )
 
 
 def test_referencia_alvo_uid_e_pontos_uids() -> None:
@@ -114,7 +133,10 @@ def test_referencia_alvo_uid_e_pontos_uids() -> None:
     assert campo_alvo is not None, "Campo 'alvo_uid' deve existir em Referencia"
     assert campo_alvo.number == 7, "Tag de 'alvo_uid' deve ser 7"
     assert campo_alvo.type == descriptor.FieldDescriptor.TYPE_STRING
-    assert campo_alvo.GetOptions().Extensions[croqui_pb2.formato_na_ui] == croqui_pb2.CampoFormatoUi.INVISIVEL
+    assert (
+        campo_alvo.GetOptions().Extensions[croqui_pb2.formato_na_ui]
+        == croqui_pb2.CampoFormatoUi.INVISIVEL
+    )
 
     # Campo pontos_uids
     campo_pontos = desc.fields_by_name.get("pontos_uids")
@@ -122,16 +144,23 @@ def test_referencia_alvo_uid_e_pontos_uids() -> None:
     assert campo_pontos.number == 8, "Tag de 'pontos_uids' deve ser 8"
     assert campo_pontos.is_repeated is True, "Campo 'pontos_uids' deve ser repeated"
     assert campo_pontos.type == descriptor.FieldDescriptor.TYPE_STRING
-    assert campo_pontos.GetOptions().Extensions[croqui_pb2.formato_na_ui] == croqui_pb2.CampoFormatoUi.INVISIVEL
+    assert (
+        campo_pontos.GetOptions().Extensions[croqui_pb2.formato_na_ui]
+        == croqui_pb2.CampoFormatoUi.INVISIVEL
+    )
 
     # Campos legados depreciados
     for nome in ("escalada", "setor", "grupo", "ids"):
         campo_legado = desc.fields_by_name.get(nome)
         assert campo_legado is not None
-        assert campo_legado.GetOptions().deprecated is True, f"Campo '{nome}' deve ser marcado como deprecated"
+        assert campo_legado.GetOptions().deprecated is True, (
+            f"Campo '{nome}' deve ser marcado como deprecated"
+        )
 
     # Campo indice_mapa_alvo foi completamente removido do esquema
-    assert desc.fields_by_name.get("indice_mapa_alvo") is None, "Campo 'indice_mapa_alvo' deve ser completamente removido"
+    assert desc.fields_by_name.get("indice_mapa_alvo") is None, (
+        "Campo 'indice_mapa_alvo' deve ser completamente removido"
+    )
 
 
 def test_croqui_experimental_croqui_uid() -> None:

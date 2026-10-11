@@ -36,11 +36,11 @@ Quando o usuário clica sobre o card, o evento não é capturado e nenhum estado
 - **Decisão**: Estender `remover_destaque_pois` em `WidgetEditorMapas` para considerar `referencia_selecionada`:
   ```python
   if not force:
-      if getattr(self, 'referencia_camera_ativa', None):
+      if getattr(self, "referencia_camera_ativa", None):
           self.destacar_pois_temporariamente(self.referencia_camera_ativa)
-      elif getattr(self, 'referencia_linkagem_ativa', None):
+      elif getattr(self, "referencia_linkagem_ativa", None):
           self.destacar_pois_temporariamente(self.referencia_linkagem_ativa)
-      elif getattr(self, 'referencia_selecionada', None):
+      elif getattr(self, "referencia_selecionada", None):
           self.destacar_pois_temporariamente(self.referencia_selecionada)
   ```
 - **Rationale**: Permite que o hover continue funcionando como um preview instantâneo: ao passar o mouse em outro card B, o mapa mostra B; ao sair, o mapa restaura automaticamente a referência A selecionada.

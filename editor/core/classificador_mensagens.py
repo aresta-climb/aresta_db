@@ -10,7 +10,9 @@ utilizando limites estritos de palavras (word boundaries).
 import re
 
 # Padrões com limites de palavras (\b) para evitar falsos positivos
-PADRAO_ERRO = re.compile(r"(?i)\b(erro|erros|falhou|falha|falhas|failed|traceback)\b|\b\w*(error|exception)s?\b")
+PADRAO_ERRO = re.compile(
+    r"(?i)\b(erro|erros|falhou|falha|falhas|failed|traceback)\b|\b\w*(error|exception)s?\b"
+)
 PADRAO_AVISO = re.compile(r"(?i)\b(aviso|avisos|warning|warnings)\b")
 
 

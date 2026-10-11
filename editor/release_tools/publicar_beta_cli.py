@@ -10,12 +10,11 @@ import argparse
 import base64
 import sys
 from pathlib import Path
-from typing import List, Optional
 
 from editor.release_tools.gerador_appinstaller import gerar_conteudo_appinstaller
 from editor.release_tools.gerador_instalador_bat import (
-    gerar_script_instalador_bat,
     URL_SUCESSO_PADRAO,
+    gerar_script_instalador_bat,
 )
 from editor.release_tools.publicador_r2_beta import PublicadorR2Beta
 
@@ -26,15 +25,23 @@ def converter_bytes_para_pem(dados_der: bytes) -> str:
     return f"-----BEGIN CERTIFICATE-----\n{b64}\n-----END CERTIFICATE-----"
 
 
-def main(argv: Optional[List[str]] = None) -> int:
+def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(
         description="Publica o pacote Beta no Cloudflare R2 e purga o cache da CDN."
     )
     parser.add_argument("--versao", required=True, help="Versão oficial de lançamento.")
-    parser.add_argument("--msix", required=True, help="Caminho para o arquivo EditorArestaBeta.msix.")
-    parser.add_argument("--cer", required=False, help="Caminho para o arquivo de certificado .cer público.")
-    parser.add_argument("--url-sucesso", default=URL_SUCESSO_PADRAO, help="URL de redirecionamento do .bat.")
-    parser.add_argument("--diretorio-saida", default=".", help="Diretório onde os artefatos serão gerados.")
+    parser.add_argument(
+        "--msix", required=True, help="Caminho para o arquivo EditorArestaBeta.msix."
+    )
+    parser.add_argument(
+        "--cer", required=False, help="Caminho para o arquivo de certificado .cer público."
+    )
+    parser.add_argument(
+        "--url-sucesso", default=URL_SUCESSO_PADRAO, help="URL de redirecionamento do .bat."
+    )
+    parser.add_argument(
+        "--diretorio-saida", default=".", help="Diretório onde os artefatos serão gerados."
+    )
 
     args = parser.parse_args(argv)
 
@@ -52,7 +59,7 @@ def main(argv: Optional[List[str]] = None) -> int:
     print(f"Manifesto AppInstaller gerado em: {caminho_appinstaller}")
 
     # 2. Gera InstalarCertificadoEditorArestaBeta.bat se certificado for fornecido
-    caminho_bat: Optional[Path] = None
+    caminho_bat: Path | None = None
     if args.cer:
         caminho_cer = Path(args.cer).resolve()
         if caminho_cer.exists():

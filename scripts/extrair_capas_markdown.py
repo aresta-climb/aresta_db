@@ -10,10 +10,11 @@ Promove a primeira imagem encontrada no corpo Markdown para a propriedade
 para evitar duplicação visual e otimiza a imagem em disco se exceder 1 Megapixel.
 """
 
-from typing import Optional, Dict, Any, Tuple
-from pathlib import Path
 import re
 import sys
+from pathlib import Path
+from typing import Any
+
 from PIL import Image
 
 # Adiciona o diretório raiz do projeto ao sys.path
@@ -32,7 +33,7 @@ from scripts.preparar_submissao_lib import (
 PADRAO_IMAGEM_MARKDOWN = re.compile(r"!\[(.*?)\]\((.*?)\)")
 
 
-def extrair_primeira_imagem_markdown(corpo: str) -> Optional[Tuple[str, str, int, int]]:
+def extrair_primeira_imagem_markdown(corpo: str) -> tuple[str, str, int, int] | None:
     """
     Encontra a primeira ocorrência de uma tag de imagem Markdown no corpo do texto.
     Retorna uma tupla (alt_text, caminho_imagem, start_pos, end_pos) ou None.
@@ -153,7 +154,7 @@ def promover_capa_arquivo_md(
 def processar_diretorio(
     diretorio: Path,
     max_area: int = AREA_MAXIMA_ESCALADA,
-) -> Dict[str, Any]:
+) -> dict[str, Any]:
     """
     Percorre o diretório informado procurando arquivos 'setor_*.md' e 'grupo_*.md'
     e promove as capas identificadas.

@@ -2,9 +2,9 @@
 # Copyright (C) 2026 Aresta Climb Contributors
 
 from unittest.mock import MagicMock
+
 from PySide6.QtCore import QBuffer, QIODevice
 from PySide6.QtGui import QColor, QImage
-from PySide6.QtWidgets import QApplication
 
 from aresta_api.proto.generated import croqui_pb2
 from editor.views.componentes.widget_card_mapa import WidgetCardMapa
@@ -60,6 +60,7 @@ def test_widget_card_mapa_inicializacao_com_imagem(qapp):
     assert not card.btn_remover.icon().isNull()
     assert card.btn_abrir_editor is not None
     from PySide6.QtWidgets import QSizePolicy
+
     assert card.btn_abrir_editor.sizePolicy().horizontalPolicy() == QSizePolicy.Policy.Maximum
 
 
@@ -101,6 +102,7 @@ def test_widget_card_mapa_abrir_no_editor_de_mapas(qapp, monkeypatch):
     mock_form.current_node = MagicMock()
 
     import editor.views.widget_editor_dados as wed
+
     monkeypatch.setattr(wed, "get_node_path", lambda node: "expando:setores/item:0")
 
     card = WidgetCardMapa(
@@ -120,8 +122,8 @@ def test_widget_card_mapa_abrir_no_editor_de_mapas(qapp, monkeypatch):
 
 
 def test_widget_card_mapa_reage_a_imagem_alterada(qapp):
-    from editor.models.croqui_model import CroquiModel
     from aresta_api.proto.generated.croqui_pb2 import Croqui
+    from editor.models.croqui_model import CroquiModel
 
     croqui = Croqui()
     model = CroquiModel(croqui)
@@ -163,4 +165,3 @@ def test_widget_card_mapa_abrir_no_editor_sem_controller_ou_sem_form(qapp):
     card2 = WidgetCardMapa(msg_mapa=mapa, indice=0, formulario=mock_form, controller=mock_ctrl)
     card2.btn_abrir_editor.click()
     mock_ctrl.set_contexto.assert_not_called()
-

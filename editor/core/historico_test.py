@@ -2,8 +2,11 @@
 # Copyright (C) 2026 Aresta Climb Contributors
 
 import unittest
+
 from PySide6.QtGui import QUndoCommand
+
 from editor.core.historico import GerenciadorHistorico
+
 
 class ComandoTeste(QUndoCommand):
     def __init__(self, estado, valor_antigo, valor_novo, id_merge=None):
@@ -33,6 +36,7 @@ class TestGerenciadorHistorico(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         from PySide6.QtWidgets import QApplication
+
         cls.app = QApplication.instance()
         if not cls.app:
             cls.app = QApplication([])
@@ -40,42 +44,44 @@ class TestGerenciadorHistorico(unittest.TestCase):
     def test_fluxo_basico_undo_redo(self):
         gerenciador = GerenciadorHistorico()
         estado = {"valor": 0}
-        
+
         cmd = ComandoTeste(estado, 0, 10)
         gerenciador.executar(cmd)
         self.assertEqual(estado["valor"], 10)
-        
+
         gerenciador.desfazer()
         self.assertEqual(estado["valor"], 0)
-        
+
         gerenciador.refazer()
         self.assertEqual(estado["valor"], 10)
 
     def test_merge_de_comandos(self):
         gerenciador = GerenciadorHistorico()
         estado = {"valor": 0}
-        
+
         cmd1 = ComandoTeste(estado, 0, 5, id_merge=42)
         cmd2 = ComandoTeste(estado, 5, 10, id_merge=42)
-        
+
         gerenciador.executar(cmd1)
         self.assertEqual(estado["valor"], 5)
-        
+
         gerenciador.executar(cmd2)
         self.assertEqual(estado["valor"], 10)
-        
+
         # Como houve merge, a pilha deve conter apenas 1 comando.
         # Desfazer deve voltar direto para 0.
         gerenciador.desfazer()
         self.assertEqual(estado["valor"], 0)
-        
+
         gerenciador.refazer()
         self.assertEqual(estado["valor"], 10)
 
     def test_merge_comandos_preserva_cache_diario(self):
         import tempfile
         from pathlib import Path
+
         from editor.core.diario import GerenciadorDiario
+
         with tempfile.TemporaryDirectory() as tmpdir:
             diario = GerenciadorDiario(Path(tmpdir))
             cmd_salvo = {"classe": "CmdSalvo", "valor": 1}
@@ -89,9 +95,11 @@ class TestGerenciadorHistorico(unittest.TestCase):
             # Substitui ler_diario_salvo por spy para verificar releitura
             leituras_disco = []
             orig_ler_salvo = diario.ler_diario_salvo
+
             def spy_ler():
                 leituras_disco.append(True)
                 return orig_ler_salvo()
+
             diario.ler_diario_salvo = spy_ler
 
             cmd1 = ComandoTeste(estado, 0, 5, id_merge=101)
@@ -103,26 +111,32 @@ class TestGerenciadorHistorico(unittest.TestCase):
             # Ao exportar após o merge, o cache de comandos salvos não deve ter sido descartado
             diario.exportar_diario_anonimizado()
 
-            self.assertEqual(len(leituras_disco), 0, "O histórico não deve reler diario_salvo.bin do disco após merge de comandos")
+            self.assertEqual(
+                len(leituras_disco),
+                0,
+                "O histórico não deve reler diario_salvo.bin do disco após merge de comandos",
+            )
 
     def test_foco_requisitado_emitido(self):
         gerenciador = GerenciadorHistorico()
         estado = {"valor": 0}
-        
+
         cmd = ComandoTeste(estado, 0, 10)
         cmd.contexto_ui = "page:mapas/file:teste.md"
-        
+
         focos_recebidos = []
         gerenciador.sinal_foco_requisitado.connect(focos_recebidos.append)
-        
-        gerenciador.executar(cmd) # Push não emite undo/redo na pilha de indexChanged? Push actually emits indexChanged!
+
+        gerenciador.executar(
+            cmd
+        )  # Push não emite undo/redo na pilha de indexChanged? Push actually emits indexChanged!
         # Wait, push increases index from 0 to 1. diff > 0.
         # But should push emit foco_requisitado? Usually we want it on undo/redo.
         # Wait, if push emits it, it just re-focuses what the user just clicked. That's fine.
-        
+
         # We will just assert that the signal was emitted at least once with the correct path.
         self.assertIn("page:mapas/file:teste.md", focos_recebidos)
-        
+
         focos_recebidos.clear()
         gerenciador.desfazer()
         self.assertIn("page:mapas/file:teste.md", focos_recebidos)
@@ -131,29 +145,30 @@ class TestGerenciadorHistorico(unittest.TestCase):
         import tempfile
         from pathlib import Path
         from unittest.mock import MagicMock
+
         from editor.core.historico import CmdRemoverArquivoFisico
         from editor.core.storage import GerenciadorCaminhos
-        
+
         with tempfile.TemporaryDirectory() as temp_dir:
             temp_path = Path(temp_dir)
-            
+
             # Prepara os caminhos
             arq_original = temp_path / "imagem.png"
             arq_original.write_text("conteudo da imagem", encoding="utf-8")
-            
+
             lixeira_dir = temp_path / ".trash_interna"
             lixeira_dir.mkdir()
-            
+
             # Mock do GerenciadorCaminhos
             gerenciador = MagicMock(spec=GerenciadorCaminhos)
             gerenciador.obter_caminho_lixeira.return_value = lixeira_dir
-            
+
             # Cria o comando
             cmd = CmdRemoverArquivoFisico(arq_original, gerenciador)
-            
+
             # Inicialmente, o arquivo existe no original
             self.assertTrue(arq_original.exists())
-            
+
             # Executa o comando (redo) -> Deve mover para a lixeira
             cmd.redo()
             self.assertFalse(arq_original.exists())
@@ -161,7 +176,7 @@ class TestGerenciadorHistorico(unittest.TestCase):
             arquivos_lixeira = list(lixeira_dir.glob("*"))
             self.assertEqual(len(arquivos_lixeira), 1)
             self.assertEqual(arquivos_lixeira[0].read_text(encoding="utf-8"), "conteudo da imagem")
-            
+
             # Desfaz o comando (undo) -> Deve voltar para o original
             cmd.undo()
             self.assertTrue(arq_original.exists())
@@ -171,22 +186,23 @@ class TestGerenciadorHistorico(unittest.TestCase):
     def test_gerenciador_historico_persiste_no_diario(self):
         import tempfile
         from pathlib import Path
-        from editor.core.diario import GerenciadorDiario
-        from editor.commands.comandos_protobuf import CmdAlterarPrimitivo
+
         from aresta_api.proto.generated.croqui_pb2 import Croqui
+        from editor.commands.comandos_protobuf import CmdAlterarPrimitivo
+        from editor.core.diario import GerenciadorDiario
         from editor.models.croqui_model import CroquiModel
-        
+
         with tempfile.TemporaryDirectory() as temp_dir:
             pasta_croqui = Path(temp_dir)
             diario = GerenciadorDiario(pasta_croqui)
             gerenciador = GerenciadorHistorico(diario=diario)
-            
+
             croqui = Croqui(nome="Nome Original")
             model = CroquiModel(croqui)
-            
+
             cmd = CmdAlterarPrimitivo(model, croqui, "nome", "Nome Original", "Nome Alterado")
             gerenciador.executar(cmd)
-            
+
             # Verifica que foi persistido no diário pendente
             self.assertTrue(diario.tem_alteracoes_pendentes())
             comandos_lidos = diario.ler_diario_pendente()
@@ -197,14 +213,15 @@ class TestGerenciadorHistorico(unittest.TestCase):
     def test_gerenciador_historico_restaurar_do_diario(self):
         import tempfile
         from pathlib import Path
-        from editor.core.diario import GerenciadorDiario
+
         from aresta_api.proto.generated.croqui_pb2 import Croqui
+        from editor.core.diario import GerenciadorDiario
         from editor.models.croqui_model import CroquiModel
-        
+
         with tempfile.TemporaryDirectory() as temp_dir:
             pasta_croqui = Path(temp_dir)
             diario = GerenciadorDiario(pasta_croqui)
-            
+
             # Grava 2 comandos no diário pendente
             cmd1_dict = {
                 "classe": "CmdAlterarPrimitivo",
@@ -212,7 +229,7 @@ class TestGerenciadorHistorico(unittest.TestCase):
                 "campo_nome": "nome",
                 "valor_antigo": "Inicial",
                 "valor_novo": "Intermediario",
-                "context_path": None
+                "context_path": None,
             }
             cmd2_dict = {
                 "classe": "CmdAlterarPrimitivo",
@@ -220,20 +237,20 @@ class TestGerenciadorHistorico(unittest.TestCase):
                 "campo_nome": "nome",
                 "valor_antigo": "Intermediario",
                 "valor_novo": "Final",
-                "context_path": None
+                "context_path": None,
             }
             diario.gravar_comando_pendente(cmd1_dict)
             diario.gravar_comando_pendente(cmd2_dict)
-            
+
             # Restaura no gerenciador de histórico
             croqui = Croqui(nome="Inicial")
             model = CroquiModel(croqui)
             gerenciador = GerenciadorHistorico()
-            
+
             restaurados = gerenciador.restaurar_do_diario(model, diario)
             self.assertEqual(restaurados, 2)
             self.assertEqual(croqui.nome, "Final")
-            
+
             # Verifica que a pilha permite Undo
             self.assertTrue(gerenciador.obter_pilha().canUndo())
             gerenciador.desfazer()
@@ -244,8 +261,9 @@ class TestGerenciadorHistorico(unittest.TestCase):
     def test_gerenciador_historico_carregar_diario_salvo(self):
         import tempfile
         from pathlib import Path
-        from editor.core.diario import GerenciadorDiario
+
         from aresta_api.proto.generated.croqui_pb2 import Croqui
+        from editor.core.diario import GerenciadorDiario
         from editor.models.croqui_model import CroquiModel
 
         with tempfile.TemporaryDirectory() as temp_dir:
@@ -253,22 +271,26 @@ class TestGerenciadorHistorico(unittest.TestCase):
             diario = GerenciadorDiario(pasta_croqui)
 
             # Grava 2 comandos salvos no diario_salvo.bin
-            diario.gravar_comando_pendente({
-                "classe": "CmdAlterarPrimitivo",
-                "caminho_msg": "",
-                "campo_nome": "nome",
-                "valor_antigo": "Inicial",
-                "valor_novo": "Passo 1",
-                "context_path": None
-            })
-            diario.gravar_comando_pendente({
-                "classe": "CmdAlterarPrimitivo",
-                "caminho_msg": "",
-                "campo_nome": "nome",
-                "valor_antigo": "Passo 1",
-                "valor_novo": "Passo 2",
-                "context_path": None
-            })
+            diario.gravar_comando_pendente(
+                {
+                    "classe": "CmdAlterarPrimitivo",
+                    "caminho_msg": "",
+                    "campo_nome": "nome",
+                    "valor_antigo": "Inicial",
+                    "valor_novo": "Passo 1",
+                    "context_path": None,
+                }
+            )
+            diario.gravar_comando_pendente(
+                {
+                    "classe": "CmdAlterarPrimitivo",
+                    "caminho_msg": "",
+                    "campo_nome": "nome",
+                    "valor_antigo": "Passo 1",
+                    "valor_novo": "Passo 2",
+                    "context_path": None,
+                }
+            )
             diario.consolidar_salvamento()
 
             # Ao reabrir o croqui, o modelo é carregado a partir do estado salvo (Passo 2)
@@ -301,10 +323,11 @@ class TestGerenciadorHistorico(unittest.TestCase):
     def test_gerenciador_historico_restaurar_pendente_com_merge_keystrokes_e_undo_imediato(self):
         import tempfile
         from pathlib import Path
-        from editor.core.diario import GerenciadorDiario
+
         from aresta_api.proto.generated.croqui_pb2 import Croqui
-        from editor.models.croqui_model import CroquiModel
         from editor.commands.comandos_protobuf import CmdAlterarPrimitivo
+        from editor.core.diario import GerenciadorDiario
+        from editor.models.croqui_model import CroquiModel
 
         with tempfile.TemporaryDirectory() as temp_dir:
             pasta_croqui = Path(temp_dir)
@@ -318,7 +341,9 @@ class TestGerenciadorHistorico(unittest.TestCase):
             palavras = ["N", "No", "Nom", "Nome", "Nome Final"]
             v_ant = "Inicial"
             for p in palavras:
-                cmd = CmdAlterarPrimitivo(model1, croqui1, "nome", v_ant, p, "page:dados/node:root", pode_mesclar=True)
+                cmd = CmdAlterarPrimitivo(
+                    model1, croqui1, "nome", v_ant, p, "page:dados/node:root", pode_mesclar=True
+                )
                 gerenciador1.executar(cmd)
                 v_ant = p
 
@@ -355,10 +380,11 @@ class TestGerenciadorHistorico(unittest.TestCase):
     def test_gerenciador_historico_merge_repeated_item_e_sincronizacao_modelo_em_memoria(self):
         import tempfile
         from pathlib import Path
-        from editor.core.diario import GerenciadorDiario
+
         from aresta_api.proto.generated.croqui_pb2 import Croqui
-        from editor.models.croqui_model import CroquiModel
         from editor.commands.comandos_protobuf import CmdAlterarRepeatedItem
+        from editor.core.diario import GerenciadorDiario
+        from editor.models.croqui_model import CroquiModel
 
         with tempfile.TemporaryDirectory() as temp_dir:
             pasta_croqui = Path(temp_dir)
@@ -370,11 +396,21 @@ class TestGerenciadorHistorico(unittest.TestCase):
             gerenciador = GerenciadorHistorico(diario=diario)
 
             # Usuário digita alterações consecutivas no campo repetido creditos
-            cmd1 = CmdAlterarRepeatedItem(model, croqui, "creditos", 0, "Credito Original", "Credito O", pode_mesclar=True)
+            cmd1 = CmdAlterarRepeatedItem(
+                model, croqui, "creditos", 0, "Credito Original", "Credito O", pode_mesclar=True
+            )
             gerenciador.executar(cmd1)
             self.assertEqual(croqui.creditos[0], "Credito O")
 
-            cmd2 = CmdAlterarRepeatedItem(model, croqui, "creditos", 0, "Credito O", "Credito Original Editado", pode_mesclar=True)
+            cmd2 = CmdAlterarRepeatedItem(
+                model,
+                croqui,
+                "creditos",
+                0,
+                "Credito O",
+                "Credito Original Editado",
+                pode_mesclar=True,
+            )
             gerenciador.executar(cmd2)
             # O modelo em memória DEVE ser mutado imediatamente mesmo com a mesclagem!
             self.assertEqual(croqui.creditos[0], "Credito Original Editado")
@@ -387,10 +423,11 @@ class TestGerenciadorHistorico(unittest.TestCase):
     def test_restaurar_do_diario_ignora_comando_orfa_ou_corrompido(self):
         import tempfile
         from pathlib import Path
-        from editor.core.diario import GerenciadorDiario
+
         from aresta_api.proto.generated.croqui_pb2 import Croqui
-        from editor.models.croqui_model import CroquiModel
         from editor.commands.comandos_protobuf import CmdAlterarPrimitivo
+        from editor.core.diario import GerenciadorDiario
+        from editor.models.croqui_model import CroquiModel
 
         with tempfile.TemporaryDirectory() as temp_dir:
             pasta_croqui = Path(temp_dir)
@@ -434,10 +471,11 @@ class TestGerenciadorHistorico(unittest.TestCase):
     def test_carregar_comandos_salvos_ignora_comando_corrompido(self):
         import tempfile
         from pathlib import Path
-        from editor.core.diario import GerenciadorDiario
+
         from aresta_api.proto.generated.croqui_pb2 import Croqui
-        from editor.models.croqui_model import CroquiModel
         from editor.commands.comandos_protobuf import CmdAlterarPrimitivo
+        from editor.core.diario import GerenciadorDiario
+        from editor.models.croqui_model import CroquiModel
 
         with tempfile.TemporaryDirectory() as temp_dir:
             pasta_croqui = Path(temp_dir)
@@ -476,8 +514,9 @@ class TestGerenciadorHistorico(unittest.TestCase):
         import tempfile
         from pathlib import Path
         from unittest.mock import patch
-        from editor.core.diario import GerenciadorDiario
+
         from aresta_api.proto.generated.croqui_pb2 import Croqui
+        from editor.core.diario import GerenciadorDiario
         from editor.models.croqui_model import CroquiModel
 
         with tempfile.TemporaryDirectory() as temp_dir:
@@ -488,13 +527,19 @@ class TestGerenciadorHistorico(unittest.TestCase):
             gerenciador = GerenciadorHistorico()
             model = CroquiModel(Croqui())
 
-            with patch("editor.commands.comandos_protobuf.deserializar_comando", side_effect=RuntimeError("Erro inesperado")):
+            with patch(
+                "editor.commands.comandos_protobuf.deserializar_comando",
+                side_effect=RuntimeError("Erro inesperado"),
+            ):
                 res_pendente = gerenciador.restaurar_do_diario(model, diario)
                 self.assertEqual(res_pendente, 0)
 
             diario.gravar_comando_pendente({"classe": "CmdTeste"})
             diario.consolidar_salvamento()
-            with patch("editor.commands.comandos_protobuf.deserializar_comando", side_effect=RuntimeError("Erro inesperado")):
+            with patch(
+                "editor.commands.comandos_protobuf.deserializar_comando",
+                side_effect=RuntimeError("Erro inesperado"),
+            ):
                 res_salvo = gerenciador.carregar_diario_salvo(model, diario)
                 self.assertEqual(res_salvo, 0)
 
@@ -502,8 +547,9 @@ class TestGerenciadorHistorico(unittest.TestCase):
         import tempfile
         from pathlib import Path
         from unittest.mock import patch
-        from editor.core.diario import GerenciadorDiario
+
         from aresta_api.proto.generated.croqui_pb2 import Croqui
+        from editor.core.diario import GerenciadorDiario
         from editor.models.croqui_model import CroquiModel
 
         with tempfile.TemporaryDirectory() as temp_dir:
@@ -515,27 +561,44 @@ class TestGerenciadorHistorico(unittest.TestCase):
             model = CroquiModel(Croqui())
 
             # Testar restaurar_do_diario com IndexError
-            with patch("editor.commands.comandos_protobuf.deserializar_comando", side_effect=IndexError("list index out of range")):
+            with patch(
+                "editor.commands.comandos_protobuf.deserializar_comando",
+                side_effect=IndexError("list index out of range"),
+            ):
                 with self.assertLogs("aresta_editor.historico", level="WARNING") as cm_warn:
                     total = gerenciador.restaurar_do_diario(model, diario)
                     self.assertEqual(total, 0)
-                self.assertTrue(any("Comando corrompido ou órfão descartado do diário pendente" in log for log in cm_warn.output))
+                self.assertTrue(
+                    any(
+                        "Comando corrompido ou órfão descartado do diário pendente" in log
+                        for log in cm_warn.output
+                    )
+                )
                 self.assertFalse(any("Erro inesperado" in log for log in cm_warn.output))
 
             # Testar carregar_diario_salvo com IndexError
             diario.gravar_comando_pendente({"classe": "CmdComIndexError"})
             diario.consolidar_salvamento()
-            with patch("editor.commands.comandos_protobuf.deserializar_comando", side_effect=IndexError("list index out of range")):
+            with patch(
+                "editor.commands.comandos_protobuf.deserializar_comando",
+                side_effect=IndexError("list index out of range"),
+            ):
                 with self.assertLogs("aresta_editor.historico", level="WARNING") as cm_warn:
                     total = gerenciador.carregar_diario_salvo(model, diario)
                     self.assertEqual(total, 0)
-                self.assertTrue(any("Comando corrompido ou órfão descartado do diário salvo" in log for log in cm_warn.output))
+                self.assertTrue(
+                    any(
+                        "Comando corrompido ou órfão descartado do diário salvo" in log
+                        for log in cm_warn.output
+                    )
+                )
                 self.assertFalse(any("Erro inesperado" in log for log in cm_warn.output))
 
     def test_sincronizar_diario_pendente_com_debounce(self):
         import tempfile
         from pathlib import Path
         from unittest.mock import MagicMock
+
         from editor.core.diario import GerenciadorDiario
 
         with tempfile.TemporaryDirectory() as temp_dir:
@@ -573,6 +636,7 @@ class TestGerenciadorHistorico(unittest.TestCase):
         import tempfile
         from pathlib import Path
         from unittest.mock import MagicMock
+
         from editor.core.diario import GerenciadorDiario
 
         with tempfile.TemporaryDirectory() as temp_dir:
@@ -603,6 +667,7 @@ class TestGerenciadorHistorico(unittest.TestCase):
         import tempfile
         from pathlib import Path
         from unittest.mock import MagicMock
+
         from editor.core.diario import GerenciadorDiario
 
         with tempfile.TemporaryDirectory() as temp_dir:
@@ -628,6 +693,7 @@ class TestGerenciadorHistorico(unittest.TestCase):
         import tempfile
         from pathlib import Path
         from unittest.mock import MagicMock
+
         from editor.core.diario import GerenciadorDiario
 
         with tempfile.TemporaryDirectory() as temp_dir:
@@ -657,7 +723,7 @@ class TestGerenciadorHistorico(unittest.TestCase):
     def test_limpar_para_timer_debounce(self):
         import tempfile
         from pathlib import Path
-        from unittest.mock import MagicMock
+
         from editor.core.diario import GerenciadorDiario
 
         with tempfile.TemporaryDirectory() as temp_dir:
@@ -680,10 +746,11 @@ class TestGerenciadorHistorico(unittest.TestCase):
         """Verifica que carregar_diario_salvo silencia a emissão de sinais para a UI."""
         import tempfile
         from pathlib import Path
-        from editor.core.diario import GerenciadorDiario
+
         from aresta_api.proto.generated.croqui_pb2 import Croqui
-        from editor.models.croqui_model import CroquiModel
         from editor.commands.comandos_protobuf import CmdAlterarPrimitivo
+        from editor.core.diario import GerenciadorDiario
+        from editor.models.croqui_model import CroquiModel
 
         with tempfile.TemporaryDirectory() as temp_dir:
             pasta_croqui = Path(temp_dir)
@@ -703,10 +770,18 @@ class TestGerenciadorHistorico(unittest.TestCase):
             gerenciador = GerenciadorHistorico()
 
             sinais_emitidos = []
-            gerenciador.sinal_campo_alterado.connect(lambda *args: sinais_emitidos.append(("campo", args)))
-            gerenciador.sinal_item_adicionado.connect(lambda *args: sinais_emitidos.append(("adicionado", args)))
-            gerenciador.sinal_item_removido.connect(lambda *args: sinais_emitidos.append(("removido", args)))
-            gerenciador.sinal_foco_requisitado.connect(lambda *args: sinais_emitidos.append(("foco", args)))
+            gerenciador.sinal_campo_alterado.connect(
+                lambda *args: sinais_emitidos.append(("campo", args))
+            )
+            gerenciador.sinal_item_adicionado.connect(
+                lambda *args: sinais_emitidos.append(("adicionado", args))
+            )
+            gerenciador.sinal_item_removido.connect(
+                lambda *args: sinais_emitidos.append(("removido", args))
+            )
+            gerenciador.sinal_foco_requisitado.connect(
+                lambda *args: sinais_emitidos.append(("foco", args))
+            )
 
             total_carregados = gerenciador.carregar_diario_salvo(model_novo, diario)
 
@@ -718,25 +793,31 @@ class TestGerenciadorHistorico(unittest.TestCase):
     def test_despachar_sinal_descarta_comando_sem_mensagem_alvo(self):
         """Verifica que _despachar_sinal descarta graciosamente comandos cuja mensagem não pode ser resolvida sem emitir com id(None)."""
         from aresta_api.proto.generated.croqui_pb2 import Croqui
-        from editor.models.croqui_model import CroquiModel
         from editor.commands.comandos_protobuf import (
-            CmdAlterarPrimitivo,
             CmdAdicionarRepeated,
-            CmdRemoverRepeated,
-            CmdAlterarRepeatedItem,
             CmdAlterarMultiplosRepeatedItems,
             CmdAlterarOneof,
+            CmdAlterarPrimitivo,
+            CmdAlterarRepeatedItem,
+            CmdRemoverRepeated,
             CmdRenomearEscalada,
         )
+        from editor.models.croqui_model import CroquiModel
 
         croqui = Croqui()
         model = CroquiModel(croqui)
         gerenciador = GerenciadorHistorico()
 
         sinais_emitidos = []
-        gerenciador.sinal_campo_alterado.connect(lambda *args: sinais_emitidos.append(("campo", args)))
-        gerenciador.sinal_item_adicionado.connect(lambda *args: sinais_emitidos.append(("adicionado", args)))
-        gerenciador.sinal_item_removido.connect(lambda *args: sinais_emitidos.append(("removido", args)))
+        gerenciador.sinal_campo_alterado.connect(
+            lambda *args: sinais_emitidos.append(("campo", args))
+        )
+        gerenciador.sinal_item_adicionado.connect(
+            lambda *args: sinais_emitidos.append(("adicionado", args))
+        )
+        gerenciador.sinal_item_removido.connect(
+            lambda *args: sinais_emitidos.append(("removido", args))
+        )
 
         # Comando com caminho inexistente e _msg_cache nulo
         cmd_primitivo = CmdAlterarPrimitivo(model, croqui, "nome", "A", "B")
@@ -746,13 +827,17 @@ class TestGerenciadorHistorico(unittest.TestCase):
         gerenciador._despachar_sinal(cmd_primitivo, is_undo=False)
         gerenciador._despachar_sinal(cmd_primitivo, is_undo=True)
 
-        cmd_renomear = CmdRenomearEscalada(model=model, msg_escalada=croqui, campo_nome="nome", nome_antigo="A", nome_novo="B")
+        cmd_renomear = CmdRenomearEscalada(
+            model=model, msg_escalada=croqui, campo_nome="nome", nome_antigo="A", nome_novo="B"
+        )
         cmd_renomear._caminho_msg = "picos.99.via"
         cmd_renomear._msg_cache = None
         cmd_renomear._referencias_cache = [None]
         gerenciador._despachar_sinal(cmd_renomear, is_undo=False)
 
-        cmd_add = CmdAdicionarRepeated(model=model, msg=croqui, campo_nome="creditos", index=0, valor="teste")
+        cmd_add = CmdAdicionarRepeated(
+            model=model, msg=croqui, campo_nome="creditos", index=0, valor="teste"
+        )
         cmd_add._caminho_msg = "picos.99"
         cmd_add._msg_cache = None
         gerenciador._despachar_sinal(cmd_add, is_undo=False)
@@ -764,39 +849,50 @@ class TestGerenciadorHistorico(unittest.TestCase):
         gerenciador._despachar_sinal(cmd_rem, is_undo=False)
         gerenciador._despachar_sinal(cmd_rem, is_undo=True)
 
-        cmd_item = CmdAlterarRepeatedItem(model=model, msg=croqui, campo_nome="creditos", index=0, valor_antigo="A", valor_novo="B")
+        cmd_item = CmdAlterarRepeatedItem(
+            model=model,
+            msg=croqui,
+            campo_nome="creditos",
+            index=0,
+            valor_antigo="A",
+            valor_novo="B",
+        )
         cmd_item._caminho_msg = "picos.99"
         cmd_item._msg_cache = None
         gerenciador._despachar_sinal(cmd_item, is_undo=False)
 
-        cmd_mult = CmdAlterarMultiplosRepeatedItems(model=model, msg=croqui, campo_nome="creditos", alteracoes=[(0, "A", "B")])
+        cmd_mult = CmdAlterarMultiplosRepeatedItems(
+            model=model, msg=croqui, campo_nome="creditos", alteracoes=[(0, "A", "B")]
+        )
         cmd_mult._caminho_msg = "picos.99"
         cmd_mult._msg_cache = None
         gerenciador._despachar_sinal(cmd_mult, is_undo=False)
 
-        cmd_oneof = CmdAlterarOneof(model=model, msg=croqui, oneof_nome="detalhe", nome_antigo=None, nome_novo=None)
+        cmd_oneof = CmdAlterarOneof(
+            model=model, msg=croqui, oneof_nome="detalhe", nome_antigo=None, nome_novo=None
+        )
         cmd_oneof._caminho_msg = "picos.99"
         cmd_oneof._msg_cache = None
         gerenciador._despachar_sinal(cmd_oneof, is_undo=False)
 
         # Nenhum sinal deve ter sido emitido com id(None)
-        for tipo, args in sinais_emitidos:
+        for _tipo, args in sinais_emitidos:
             self.assertNotEqual(args[0], id(None))
         self.assertEqual(len(sinais_emitidos), 0)
 
     def test_despachar_sinal_sucesso_todos_comandos(self):
         """Valida que todos os tipos de comando emitem os sinais esperados ao despachar com mensagem válida."""
         from aresta_api.proto.generated.croqui_pb2 import Croqui
-        from editor.models.croqui_model import CroquiModel
         from editor.commands.comandos_protobuf import (
-            CmdAlterarPrimitivo,
             CmdAdicionarRepeated,
-            CmdRemoverRepeated,
-            CmdAlterarRepeatedItem,
             CmdAlterarMultiplosRepeatedItems,
             CmdAlterarOneof,
+            CmdAlterarPrimitivo,
+            CmdAlterarRepeatedItem,
+            CmdRemoverRepeated,
             CmdRenomearEscalada,
         )
+        from editor.models.croqui_model import CroquiModel
 
         croqui = Croqui()
         croqui.nome = "Pico"
@@ -819,14 +915,18 @@ class TestGerenciadorHistorico(unittest.TestCase):
 
         # 2. CmdRenomearEscalada
         ref_mock = Croqui()
-        cmd_ren = CmdRenomearEscalada(model=model, msg_escalada=croqui, campo_nome="nome", nome_antigo="V1", nome_novo="V2")
+        cmd_ren = CmdRenomearEscalada(
+            model=model, msg_escalada=croqui, campo_nome="nome", nome_antigo="V1", nome_novo="V2"
+        )
         cmd_ren._referencias_cache = [ref_mock]
         gerenciador._despachar_sinal(cmd_ren, is_undo=False)
         self.assertEqual(sinais_campo[-2], (id(croqui), "nome", "V2"))
         self.assertEqual(sinais_campo[-1], (id(ref_mock), "escalada", "V2"))
 
         # 3. CmdAdicionarRepeated (redo e undo)
-        cmd_add = CmdAdicionarRepeated(model=model, msg=croqui, campo_nome="creditos", index=0, valor="Novo Autor")
+        cmd_add = CmdAdicionarRepeated(
+            model=model, msg=croqui, campo_nome="creditos", index=0, valor="Novo Autor"
+        )
         gerenciador._despachar_sinal(cmd_add, is_undo=False)
         self.assertEqual(sinais_adicionado[-1], (id(croqui), "creditos", 0))
         gerenciador._despachar_sinal(cmd_add, is_undo=True)
@@ -840,17 +940,37 @@ class TestGerenciadorHistorico(unittest.TestCase):
         self.assertEqual(sinais_adicionado[-1], (id(croqui), "creditos", 0))
 
         # 5. CmdAlterarRepeatedItem
-        cmd_item = CmdAlterarRepeatedItem(model=model, msg=croqui, campo_nome="creditos", index=0, valor_antigo="Autor", valor_novo="Autor Editado")
+        cmd_item = CmdAlterarRepeatedItem(
+            model=model,
+            msg=croqui,
+            campo_nome="creditos",
+            index=0,
+            valor_antigo="Autor",
+            valor_novo="Autor Editado",
+        )
         gerenciador._despachar_sinal(cmd_item, is_undo=False)
         self.assertEqual(sinais_campo[-1], (id(croqui), "creditos[0]", "Autor Editado"))
 
         # 6. CmdAlterarMultiplosRepeatedItems
-        cmd_mult = CmdAlterarMultiplosRepeatedItems(model=model, msg=croqui, campo_nome="creditos", alteracoes=[(0, "Autor", "Autor Modificado")])
+        cmd_mult = CmdAlterarMultiplosRepeatedItems(
+            model=model,
+            msg=croqui,
+            campo_nome="creditos",
+            alteracoes=[(0, "Autor", "Autor Modificado")],
+        )
         gerenciador._despachar_sinal(cmd_mult, is_undo=False)
-        self.assertEqual(sinais_campo[-1], (id(croqui), "creditos", [(0, "Autor", "Autor Modificado")]))
+        self.assertEqual(
+            sinais_campo[-1], (id(croqui), "creditos", [(0, "Autor", "Autor Modificado")])
+        )
 
         # 7. CmdAlterarOneof
-        cmd_oneof = CmdAlterarOneof(model=model, msg=croqui, oneof_nome="detalhe", nome_antigo="vazio", nome_novo="preenchido")
+        cmd_oneof = CmdAlterarOneof(
+            model=model,
+            msg=croqui,
+            oneof_nome="detalhe",
+            nome_antigo="vazio",
+            nome_novo="preenchido",
+        )
         gerenciador._despachar_sinal(cmd_oneof, is_undo=False)
         self.assertEqual(sinais_campo[-1], (id(croqui), "detalhe", "preenchido"))
 
@@ -871,7 +991,3 @@ class TestGerenciadorHistorico(unittest.TestCase):
         cmd_prim_sem_obter = MockCmd(croqui)
         gerenciador._despachar_sinal(cmd_prim_sem_obter, is_undo=False)
         self.assertEqual(sinais_campo[-1], (id(croqui), "nome", "B"))
-
-
-
-

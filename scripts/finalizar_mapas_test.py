@@ -1,22 +1,21 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
-import sys
 import json
-import yaml
+import sys
 from pathlib import Path
-from unittest.mock import patch, MagicMock
 
 # Adiciona o diretório raiz ao sys.path para importações relativas seguras
 sys.path.append(str(Path(__file__).resolve().parent.parent))
 
 from scripts.finalizar_mapas import finalizar_mapas, parse_md_com_frontmatter
 
+
 def test_finalizacao_de_mapas(tmp_path):
     pico_path = tmp_path / "pico_teste"
     raw_mapas_dir = pico_path / "imagens" / "raw_mapas"
     raw_mapas_dir.mkdir(parents=True)
-    
+
     # Cria o arquivo markdown
     md_file = pico_path / "setor_teste.md"
     md_content = """---
@@ -26,77 +25,87 @@ mapas:
 Corpo do arquivo.
 """
     md_file.write_text(md_content, encoding="utf-8")
-    
+
     # Cria a imagem falsa
     img_dir = pico_path / "imagens"
     img_dir.mkdir(exist_ok=True)
     img_file = img_dir / "mapa.webp"
     img_file.write_bytes(b"fake_image_data")
-    
+
     # Cria o arquivo JSON do mapa (Formato Novo)
     json_data = {
         "arquivo_md": "setor_teste.md",
         "caminho_imagem_mapa": "imagens/mapa.webp",
         "dimensoes_imagem": {"largura": 500, "altura": 500},
         "pontos_de_interesse": [
-            {"id": "1", "label": "Via Teste", "retangulo": {"x": 50, "y": 50, "comprimento": 50, "largura": 50}}
-        ]
+            {
+                "id": "1",
+                "label": "Via Teste",
+                "retangulo": {"x": 50, "y": 50, "comprimento": 50, "largura": 50},
+            }
+        ],
     }
     json_file = raw_mapas_dir / "mapa.json"
     with open(json_file, "w", encoding="utf-8") as f:
         json.dump(json_data, f)
-        
+
     # Roda a funcao
     finalizar_mapas(str(pico_path))
-    
+
     # Assertions
     # 1. Verifica se o YAML no markdown foi atualizado (coordenadas idênticas, sem corte)
     frontmatter, _ = parse_md_com_frontmatter(str(md_file))
     assert frontmatter["mapas"][0]["largura_mapa"] == 500
     assert frontmatter["mapas"][0]["altura_mapa"] == 500
-    
+
     poi1 = frontmatter["mapas"][0]["pontos_de_interesse"][0]
     assert poi1["id"] == "1"
     assert poi1["retangulo"]["x"] == 50
     assert poi1["retangulo"]["y"] == 50
 
+
 def test_finalizacao_error_on_legacy_format(tmp_path):
     pico_path = tmp_path / "pico_erro"
     raw_mapas_dir = pico_path / "imagens" / "raw_mapas"
     raw_mapas_dir.mkdir(parents=True)
-    
+
     md_file = pico_path / "setor.md"
-    md_file.write_text("---\nmapas:\n- caminho_imagem_mapa: imagens/mapa.webp\n---\n", encoding="utf-8")
-    
+    md_file.write_text(
+        "---\nmapas:\n- caminho_imagem_mapa: imagens/mapa.webp\n---\n", encoding="utf-8"
+    )
+
     json_data = {
         "arquivo_md": "setor.md",
         "caminho_imagem_mapa": "imagens/mapa.webp",
         "dimensoes_mapa": {"largura": 500, "altura": 500},
         "pontos_de_interesse": [
             {"id": "old", "box": {"xmin": 10, "ymin": 10, "xmax": 20, "ymax": 20}}
-        ]
+        ],
     }
     json_file = raw_mapas_dir / "mapa.json"
     with open(json_file, "w", encoding="utf-8") as f:
         json.dump(json_data, f)
 
     import pytest
+
     with pytest.raises(ValueError, match="Formato legado 'xmin/ymin' detectado"):
         finalizar_mapas(str(pico_path))
+
 
 def test_leitura_de_md_sem_frontmatter_yaml(tmp_path):
     md_file = tmp_path / "teste.md"
     md_file.write_text("Hello World Sem Frontmatter!")
-    
+
     frontmatter, corpo = parse_md_com_frontmatter(str(md_file))
     assert frontmatter is None
     assert corpo == "Hello World Sem Frontmatter!"
+
 
 def test_finalizacao_mapas_gerais(tmp_path):
     pico_path = tmp_path / "pico_teste"
     raw_mapas_dir = pico_path / "imagens" / "raw_mapas"
     raw_mapas_dir.mkdir(parents=True)
-    
+
     # Cria o arquivo mapas_gerais.md
     md_file = pico_path / "mapas_gerais.md"
     md_content = """---
@@ -105,32 +114,36 @@ mapas:
 ---
 """
     md_file.write_text(md_content, encoding="utf-8")
-    
+
     # Cria a imagem falsa
     img_dir = pico_path / "imagens" / "mapas_gerais"
     img_dir.mkdir(parents=True, exist_ok=True)
     img_file = img_dir / "p0.webp"
     img_file.write_bytes(b"fake_image_data")
-    
+
     # Cria o arquivo JSON do mapa
     json_data = {
         "arquivo_md": "mapas_gerais.md",
         "caminho_imagem_mapa": "imagens/mapas_gerais/p0.webp",
         "dimensoes_imagem": {"largura": 1024, "altura": 768},
         "pontos_de_interesse": [
-            {"id": "Setor_A", "label": "Setor A", "retangulo": {"x": 100, "y": 100, "comprimento": 50, "largura": 50}}
-        ]
+            {
+                "id": "Setor_A",
+                "label": "Setor A",
+                "retangulo": {"x": 100, "y": 100, "comprimento": 50, "largura": 50},
+            }
+        ],
     }
     json_file = raw_mapas_dir / "p0.json"
     with open(json_file, "w", encoding="utf-8") as f:
         json.dump(json_data, f)
-        
+
     finalizar_mapas(str(pico_path))
-    
+
     frontmatter, _ = parse_md_com_frontmatter(str(md_file))
     assert frontmatter["mapas"][0]["largura_mapa"] == 1024
     assert frontmatter["mapas"][0]["altura_mapa"] == 768
-    
+
     poi1 = frontmatter["mapas"][0]["pontos_de_interesse"][0]
     assert poi1["id"] == "Setor_A"
     assert poi1["retangulo"]["x"] == 100
@@ -167,7 +180,7 @@ Corpo do bloco.
         "escalada_indice": 0,
         "pontos_de_interesse": [
             {"id": "start", "label": "Start", "circulo": {"x": 20, "y": 30, "raio": 15}}
-        ]
+        ],
     }
     json_file = raw_mapas_dir / "mapa_boulder.json"
     with open(json_file, "w", encoding="utf-8") as f:
@@ -189,7 +202,7 @@ Corpo do bloco.
 
 def test_finalizacao_mapas_injeta_uids_e_padroniza_rotulo(tmp_path):
     """Garante que finalizar_mapas gera UIDs NanoID 14c para POIs novos e padroniza label -> rotulo."""
-    from scripts.gerenciar_uids_lib import validar_uid, gerar_uid
+    from scripts.gerenciar_uids_lib import gerar_uid, validar_uid
 
     pico_path = tmp_path / "pico_uids"
     raw_mapas_dir = pico_path / "imagens" / "raw_mapas"
@@ -215,18 +228,14 @@ Corpo do arquivo.
         "caminho_imagem_mapa": "imagens/mapa.webp",
         "dimensoes_imagem": {"largura": 800, "altura": 600},
         "pontos_de_interesse": [
-            {
-                "id": "1",
-                "label": "Via 1",
-                "circulo": {"x": 100, "y": 150, "raio": 20}
-            },
+            {"id": "1", "label": "Via 1", "circulo": {"x": 100, "y": 150, "raio": 20}},
             {
                 "id": "2",
                 "uid": uid_existente,
                 "rotulo": "Via 2",
-                "quadrado": {"x": 200, "y": 250, "lado": 30}
-            }
-        ]
+                "quadrado": {"x": 200, "y": 250, "lado": 30},
+            },
+        ],
     }
     json_file = raw_mapas_dir / "mapa.json"
     with open(json_file, "w", encoding="utf-8") as f:
@@ -287,20 +296,21 @@ def test_finalizar_mapas_erros_json_e_md(tmp_path, capsys):
     (raw_dir / "corrompido.json").write_text("{invalido json", encoding="utf-8")
 
     # 2. JSON faltando campos
-    (raw_dir / "incompleto.json").write_text(json.dumps({"arquivo_md": "teste.md"}), encoding="utf-8")
+    (raw_dir / "incompleto.json").write_text(
+        json.dumps({"arquivo_md": "teste.md"}), encoding="utf-8"
+    )
 
     # 3. MD não existe
-    (raw_dir / "md_inexistente.json").write_text(json.dumps({
-        "arquivo_md": "inexistente.md",
-        "caminho_imagem_mapa": "img.webp"
-    }), encoding="utf-8")
+    (raw_dir / "md_inexistente.json").write_text(
+        json.dumps({"arquivo_md": "inexistente.md", "caminho_imagem_mapa": "img.webp"}),
+        encoding="utf-8",
+    )
 
     # 4. MD sem frontmatter
     (pico / "sem_fm.md").write_text("Apenas texto puro", encoding="utf-8")
-    (raw_dir / "sem_fm.json").write_text(json.dumps({
-        "arquivo_md": "sem_fm.md",
-        "caminho_imagem_mapa": "img.webp"
-    }), encoding="utf-8")
+    (raw_dir / "sem_fm.json").write_text(
+        json.dumps({"arquivo_md": "sem_fm.md", "caminho_imagem_mapa": "img.webp"}), encoding="utf-8"
+    )
 
     finalizar_mapas(pico)
     out = capsys.readouterr().out
@@ -316,11 +326,14 @@ def test_finalizar_mapas_formatos_geometria_e_avisos(tmp_path, capsys):
     raw_dir.mkdir(parents=True)
 
     md_file = pico / "setor.md"
-    md_file.write_text("""---
+    md_file.write_text(
+        """---
 mapas:
 - caminho_imagem_mapa: imagens/mapa.webp
 ---
-""", encoding="utf-8")
+""",
+        encoding="utf-8",
+    )
 
     json_data = {
         "arquivo_md": "setor.md",
@@ -330,7 +343,11 @@ mapas:
             # 1. circular legado
             {"id": "c1", "rotulo": "Circ", "circular": {"x": 10, "y": 10, "raio": 5}},
             # 2. box com angulo legado
-            {"id": "b1", "rotulo": "Box", "box": {"x": 20, "y": 20, "comprimento": 30, "largura": 15, "angulo": 45.0}},
+            {
+                "id": "b1",
+                "rotulo": "Box",
+                "box": {"x": 20, "y": 20, "comprimento": 30, "largura": 15, "angulo": 45.0},
+            },
             # 3. poligono e linha
             {"id": "p1", "rotulo": "Poli", "poligono": [{"x": 1, "y": 1}, {"x": 2, "y": 2}]},
             {"id": "l1", "rotulo": "Linha", "linha": [{"x": 1, "y": 1}, {"x": 2, "y": 2}]},
@@ -339,8 +356,8 @@ mapas:
             # 5. retangulo incompleto
             {"id": "r_bad", "rotulo": "RBad", "retangulo": {"x": 5}},
             # 6. tipo desconhecido
-            {"id": "desc", "rotulo": "Desc", "outro": 123}
-        ]
+            {"id": "desc", "rotulo": "Desc", "outro": 123},
+        ],
     }
     (raw_dir / "mapa.json").write_text(json.dumps(json_data), encoding="utf-8")
 
@@ -365,7 +382,8 @@ def test_finalizar_mapas_via_multiplas_enfiadas_e_mapa_ausente(tmp_path, capsys)
     raw_dir.mkdir(parents=True)
 
     md_file = pico / "setor.md"
-    md_file.write_text("""---
+    md_file.write_text(
+        """---
 escaladas:
 - "escalada_invalida_nao_dict"
 - via_multiplas_enfiadas:
@@ -373,7 +391,9 @@ escaladas:
     mapas:
     - caminho_imagem_mapa: imagens/mapa_multi.webp
 ---
-""", encoding="utf-8")
+""",
+        encoding="utf-8",
+    )
 
     json_data = {
         "arquivo_md": "setor.md",
@@ -381,7 +401,7 @@ escaladas:
         "dimensoes_imagem": {"largura": 500, "altura": 500},
         "pontos_de_interesse": [
             {"id": "e1", "rotulo": "E1", "circulo": {"x": 5, "y": 5, "raio": 2}}
-        ]
+        ],
     }
     (raw_dir / "mapa_multi.json").write_text(json.dumps(json_data), encoding="utf-8")
 
@@ -390,7 +410,7 @@ escaladas:
         "arquivo_md": "setor.md",
         "caminho_imagem_mapa": "imagens/nao_existe.webp",
         "dimensoes_imagem": {"largura": 500, "altura": 500},
-        "pontos_de_interesse": []
+        "pontos_de_interesse": [],
     }
     (raw_dir / "mapa_fantasma.json").write_text(json.dumps(json_nao_encontrado), encoding="utf-8")
 
@@ -405,6 +425,7 @@ escaladas:
 
 def test_finalizar_mapas_main_cli(tmp_path, monkeypatch, capsys):
     import runpy
+
     pico = tmp_path / "pico_cli"
     raw_dir = pico / "imagens" / "raw_mapas"
     raw_dir.mkdir(parents=True)
@@ -414,6 +435,3 @@ def test_finalizar_mapas_main_cli(tmp_path, monkeypatch, capsys):
     runpy.run_path(str(caminho_script), run_name="__main__")
     out = capsys.readouterr().out
     assert "Nenhum arquivo JSON para processar" in out
-
-
-

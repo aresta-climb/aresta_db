@@ -2,19 +2,17 @@
 # Copyright (C) 2026 Aresta Climb Contributors
 
 import os
-from typing import Optional, Dict, Any
+from typing import Any
+
 import requests
 
 _URL_SUPABASE_FALLBACK = "https://yzkhiaoqtxvvcyyuwmqg.supabase.co"
 _CHAVE_PUBLICA_FALLBACK = "sb_publishable_ZOrO8ix2EsWlSHEWrZr42A_JycWrAV3"
 
-_URL_SUPABASE_PADRAO = (
-    (os.getenv("ARESTA_SUPABASE_URL") or "").strip() or _URL_SUPABASE_FALLBACK
-)
+_URL_SUPABASE_PADRAO = (os.getenv("ARESTA_SUPABASE_URL") or "").strip() or _URL_SUPABASE_FALLBACK
 _CHAVE_PUBLICA_PADRAO = (
-    (os.getenv("ARESTA_SUPABASE_PUBLISHABLE_KEY") or "").strip()
-    or _CHAVE_PUBLICA_FALLBACK
-)
+    os.getenv("ARESTA_SUPABASE_PUBLISHABLE_KEY") or ""
+).strip() or _CHAVE_PUBLICA_FALLBACK
 
 
 import re
@@ -67,7 +65,7 @@ def traduzir_mensagem_erro_supabase(mensagem: str) -> str:
 class ErroAutenticacaoSupabase(Exception):
     """Exceção lançada quando ocorre um erro na autenticação com o Supabase."""
 
-    def __init__(self, mensagem: str, codigo_status: Optional[int] = None) -> None:
+    def __init__(self, mensagem: str, codigo_status: int | None = None) -> None:
         super().__init__(traduzir_mensagem_erro_supabase(mensagem))
         self.codigo_status = codigo_status
 
@@ -79,8 +77,8 @@ class ClienteAuthSupabase:
 
     def __init__(
         self,
-        url_supabase: Optional[str] = None,
-        chave_publica: Optional[str] = None,
+        url_supabase: str | None = None,
+        chave_publica: str | None = None,
         tempo_limite: int = 15,
     ) -> None:
         url = (url_supabase or "").strip()
@@ -91,7 +89,6 @@ class ClienteAuthSupabase:
         self.chave_publica: str = chave
         self.tempo_limite: int = tempo_limite
 
-
     def obter_url_autorizacao_github(self, url_redirecionamento: str) -> str:
         """
         Retorna a URL completa para início do fluxo OAuth com o GitHub via Supabase.
@@ -101,7 +98,7 @@ class ClienteAuthSupabase:
             f"provider=github&scopes=read:user,user:email,public_repo&redirect_to={url_redirecionamento}"
         )
 
-    def _obter_cabecalhos(self, jwt: Optional[str] = None) -> Dict[str, str]:
+    def _obter_cabecalhos(self, jwt: str | None = None) -> dict[str, str]:
         token_auth = jwt or self.chave_publica
         cabecalhos = {
             "apikey": self.chave_publica,
@@ -110,7 +107,7 @@ class ClienteAuthSupabase:
         }
         return cabecalhos
 
-    def _tratar_resposta(self, resposta: requests.Response) -> Dict[str, Any]:
+    def _tratar_resposta(self, resposta: requests.Response) -> dict[str, Any]:
         dados: dict[str, Any]
         try:
             res_json = resposta.json()
@@ -126,9 +123,7 @@ class ClienteAuthSupabase:
                 or dados.get("error")
                 or f"Erro HTTP {resposta.status_code}"
             )
-            raise ErroAutenticacaoSupabase(
-                mensagem_erro, codigo_status=resposta.status_code
-            )
+            raise ErroAutenticacaoSupabase(mensagem_erro, codigo_status=resposta.status_code)
 
         return dados
 
@@ -148,7 +143,7 @@ class ClienteAuthSupabase:
         self._tratar_resposta(resposta)
         return True
 
-    def verificar_codigo_otp(self, email: str, token: str) -> Dict[str, Any]:
+    def verificar_codigo_otp(self, email: str, token: str) -> dict[str, Any]:
         """
         Valida o código OTP de 6 dígitos e retorna os dados de sessão (access_token, user, etc.).
         """
@@ -183,7 +178,7 @@ class ClienteAuthSupabase:
         self._tratar_resposta(resposta)
         return True
 
-    def renovar_sessao(self, token_atualizacao: str) -> Dict[str, Any]:
+    def renovar_sessao(self, token_atualizacao: str) -> dict[str, Any]:
         """
         Renova a sessão expirada do usuário utilizando o refresh_token.
         """
@@ -198,7 +193,7 @@ class ClienteAuthSupabase:
         )
         return self._tratar_resposta(resposta)
 
-    def obter_usuario_atual(self, jwt: str) -> Dict[str, Any]:
+    def obter_usuario_atual(self, jwt: str) -> dict[str, Any]:
         """
         Obtém os dados do usuário autenticado a partir do token JWT.
         """

@@ -7,9 +7,10 @@ Permite estritamente o tráfego de loopback local (127.0.0.1, localhost, ::1, 0.
 """
 
 import socket
-from typing import Any, Callable, Set
+from collections.abc import Callable
+from typing import Any
 
-ENDERECOS_LOCAIS_PERMITIDOS: Set[str] = {
+ENDERECOS_LOCAIS_PERMITIDOS: set[str] = {
     "127.0.0.1",
     "localhost",
     "::1",
@@ -23,6 +24,7 @@ _bloqueio_ativo: bool = False
 
 class AcessoInternetBloqueadoErro(RuntimeError):
     """Exceção lançada quando um teste tenta acessar a internet ou resolver DNS externo."""
+
     pass
 
 

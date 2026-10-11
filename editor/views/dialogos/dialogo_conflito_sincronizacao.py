@@ -1,22 +1,23 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
+from collections.abc import Sequence
 from enum import Enum
-from typing import Optional, Sequence
+
 from PySide6.QtWidgets import (
     QDialog,
-    QVBoxLayout,
     QHBoxLayout,
     QLabel,
-    QPushButton,
     QListWidget,
+    QPushButton,
+    QVBoxLayout,
     QWidget,
 )
-from PySide6.QtCore import Qt
 
 
 class DecisaoConflito(Enum):
     """Opções de decisão para resolução de conflitos de sincronização."""
+
     MANTER_LOCAL = "manter_local"
     USAR_REMOTO = "usar_remoto"
     CANCELAR = "cancelar"
@@ -33,7 +34,7 @@ class DialogoConflitoSincronizacao(QDialog):
         id_croqui: str,
         nome_branch: str,
         arquivos_conflito: Sequence[str],
-        parent: Optional[QWidget] = None,
+        parent: QWidget | None = None,
     ) -> None:
         super().__init__(parent)
         self.id_croqui: str = id_croqui

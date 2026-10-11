@@ -2,16 +2,17 @@
 # Copyright (C) 2026 Aresta Climb Contributors
 
 from pathlib import Path
+
 from PIL import Image
-import pytest
+
 from scripts.extrair_capas_markdown import (
-    extrair_primeira_imagem_markdown,
-    remover_tag_imagem_do_corpo,
-    otimizar_imagem_se_necessario,
     encontrar_diretorio_pico,
-    promover_capa_arquivo_md,
-    processar_diretorio,
+    extrair_primeira_imagem_markdown,
     main,
+    otimizar_imagem_se_necessario,
+    processar_diretorio,
+    promover_capa_arquivo_md,
+    remover_tag_imagem_do_corpo,
 )
 
 
@@ -146,6 +147,7 @@ def test_promover_capa_arquivo_md_sucesso(tmp_path: Path):
     assert modificado is True
 
     from scripts.preparar_submissao_lib import parse_md_com_frontmatter
+
     frontmatter, corpo = parse_md_com_frontmatter(md_file)
     assert frontmatter is not None
     assert frontmatter.get("caminho_imagem_capa") == "imagens/foto_setor.webp"
@@ -175,12 +177,7 @@ def test_promover_capa_arquivo_md_idempotente(tmp_path: Path):
 
 def test_promover_capa_arquivo_md_sem_imagem(tmp_path: Path):
     md_file = tmp_path / "setor_sem_imagem.md"
-    conteudo = (
-        "---\n"
-        "nome: Setor Sem Imagem\n"
-        "---\n\n"
-        "Apenas texto sem tag de imagem.\n"
-    )
+    conteudo = "---\nnome: Setor Sem Imagem\n---\n\nApenas texto sem tag de imagem.\n"
     md_file.write_text(conteudo, encoding="utf-8")
 
     modificado = promover_capa_arquivo_md(md_file)
@@ -200,18 +197,14 @@ def test_promover_capa_arquivo_md_sem_frontmatter(tmp_path: Path):
 
 def test_promover_capa_arquivo_md_imagem_nao_encontrada(tmp_path: Path):
     md_file = tmp_path / "setor_img_inexistente.md"
-    conteudo = (
-        "---\n"
-        "nome: Setor\n"
-        "---\n\n"
-        "![Foto Fantasma](imagens/fantasma.webp)\n"
-    )
+    conteudo = "---\nnome: Setor\n---\n\n![Foto Fantasma](imagens/fantasma.webp)\n"
     md_file.write_text(conteudo, encoding="utf-8")
 
     modificado = promover_capa_arquivo_md(md_file)
     assert modificado is True
 
     from scripts.preparar_submissao_lib import parse_md_com_frontmatter
+
     frontmatter, corpo = parse_md_com_frontmatter(md_file)
     assert frontmatter["caminho_imagem_capa"] == "imagens/fantasma.webp"
     assert "![Foto Fantasma]" not in corpo
@@ -285,9 +278,12 @@ def test_main_cli_arquivo_individual(tmp_path: Path, monkeypatch, capsys):
 
 def test_main_cli_padrao_database(monkeypatch, capsys):
     from unittest.mock import MagicMock
+
     import scripts.extrair_capas_markdown as mod
 
-    mock_processar = MagicMock(return_value={"total_verificados": 0, "promovidos": 0, "ignorados": 0})
+    mock_processar = MagicMock(
+        return_value={"total_verificados": 0, "promovidos": 0, "ignorados": 0}
+    )
     monkeypatch.setattr(mod, "processar_diretorio", mock_processar)
     monkeypatch.setattr("sys.argv", ["extrair_capas_markdown.py"])
 
@@ -295,4 +291,3 @@ def test_main_cli_padrao_database(monkeypatch, capsys):
     captured = capsys.readouterr()
     assert "Iniciando extração de capas em:" in captured.out
     assert mock_processar.called
-

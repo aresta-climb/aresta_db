@@ -1,11 +1,10 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
-import pytest
 from editor.core.classificador_mensagens import (
-    eh_linha_de_erro,
     eh_linha_de_aviso,
     eh_linha_de_aviso_ou_erro,
+    eh_linha_de_erro,
     filtrar_mensagens_de_log,
 )
 

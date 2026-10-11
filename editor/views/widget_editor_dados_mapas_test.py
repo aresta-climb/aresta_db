@@ -1,23 +1,27 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
-import sys
-from PySide6.QtWidgets import QApplication, QPushButton
-from aresta_api.proto.generated.croqui_pb2 import Pico, ArquivoMapas, ColecaoDeMapas, Mapa
-from editor.views.widget_editor_dados import WidgetFormularioPadrao
 from unittest.mock import MagicMock
+
+from PySide6.QtWidgets import QApplication, QPushButton
+
+from aresta_api.proto.generated.croqui_pb2 import Pico
+from editor.views.widget_editor_dados import WidgetFormularioPadrao
+
 
 class MockController:
     def alterar_primitivo(self, msg, campo_nome, valor_antigo, valor_novo):
         pass
+
     def alterar_oneof(self, msg, oneof_nome, nome_antigo, valor_antigo, nome_novo, valor_novo):
         pass
+
 
 def test_pico_renders_mapas_gerais_inline(qtbot):
     pico = Pico()
     pico.nome = "Gruta da Lapinha"
     pico.mapas_gerais.conteudo.mapas.add().caminho_imagem_mapa = "mapa1.webp"
-    
+
     controller = MockController()
     mock_model = MagicMock()
     widget = WidgetFormularioPadrao(model=mock_model, controller=controller)
@@ -25,52 +29,61 @@ def test_pico_renders_mapas_gerais_inline(qtbot):
     mock_node.message = pico
     mock_node.field = None
     widget.load_node(mock_node)
-    
+
     # We must find the collapsible widget or the label for Mapas gerais
     from PySide6.QtWidgets import QLabel
+
     found_mapas_gerais = False
     for label in widget.findChildren(QLabel):
         if "Mapas gerais" in label.text() or "Mapas Gerais" in label.text():
             found_mapas_gerais = True
             break
-            
-    assert found_mapas_gerais, "Label 'Mapas gerais' not found inside Pico, so the field is being skipped"
+
+    assert found_mapas_gerais, (
+        "Label 'Mapas gerais' not found inside Pico, so the field is being skipped"
+    )
+
 
 def test_verify_mapas_gerais_path(qtbot, monkeypatch):
     pico = Pico()
     pico.nome = "Gruta da Lapinha"
     pico.mapas_gerais.conteudo.mapas.add().caminho_imagem_mapa = "mapa1.webp"
-    
+
     class MockController2:
         def __init__(self):
             self.last_path = None
+
         def set_contexto(self, path):
             self.last_path = path
-    
+
     controller = MockController2()
     mock_model = MagicMock()
     widget = WidgetFormularioPadrao(model=mock_model, controller=controller)
     mock_node = MagicMock()
     mock_node.message = pico
     mock_node.field = None
-    
+
     # We must patch get_node_path
     import editor.views.widget_editor_dados
-    monkeypatch.setattr(editor.views.widget_editor_dados, "get_node_path", lambda n: "expando:picos/item:0")
-    
+
+    monkeypatch.setattr(
+        editor.views.widget_editor_dados, "get_node_path", lambda n: "expando:picos/item:0"
+    )
+
     widget.load_node(mock_node)
-    
+
     from editor.views.widget_editor_dados import WidgetColapsavel
+
     for colapsavel in widget.findChildren(WidgetColapsavel):
-        colapsavel.toggle_button.setChecked(True) # forces lazy loading if closed
-    
+        colapsavel.toggle_button.setChecked(True)  # forces lazy loading if closed
+
     for btn in widget.findChildren(QPushButton):
         print("BTN:", btn.text())
         if btn.text() == "Abrir no Editor de Mapas":
             btn.click()
             print("PATH EMITTED:", controller.last_path)
             break
-            
+
     assert controller.last_path is not None, "Button was not clicked or path not emitted"
 
 
@@ -86,14 +99,15 @@ def test_integracao_renomear_escalada_com_sincronizacao_mapas_e_sessao_foco(qtbo
     7. Referência adicionada entre sessões é encontrada na nova busca limpa e sincronizada.
     8. Undos em cascata respeitam o isolamento de sessões.
     """
-    from aresta_api.proto.generated import croqui_pb2
-    from editor.models.croqui_model import CroquiModel
-    from editor.controllers.croqui_controller import CroquiController
-    from editor.views.widget_editor_dados import WidgetFormularioPadrao
-    from editor.models.referencias_util import resolver_caminho_referencia
-    from PySide6.QtGui import QUndoStack, QFocusEvent
     from PySide6.QtCore import QEvent
+    from PySide6.QtGui import QFocusEvent, QUndoStack
     from PySide6.QtWidgets import QLineEdit
+
+    from aresta_api.proto.generated import croqui_pb2
+    from editor.controllers.croqui_controller import CroquiController
+    from editor.models.croqui_model import CroquiModel
+    from editor.models.referencias_util import resolver_caminho_referencia
+    from editor.views.widget_editor_dados import WidgetFormularioPadrao
 
     # 1. Configuração do modelo e dados
     croqui = croqui_pb2.Croqui()
@@ -119,9 +133,23 @@ def test_integracao_renomear_escalada_com_sincronizacao_mapas_e_sessao_foco(qtbo
 
     # 2. Carrega a escalada no formulário de dados
     form = WidgetFormularioPadrao(model=model, controller=controller)
-    proxy_via = model.obter_croqui_readonly().picos[0].setores_ou_grupos[0].setor.conteudo.escaladas[0].via_esportiva
-    proxy_ref_setor = model.obter_croqui_readonly().picos[0].setores_ou_grupos[0].setor.conteudo.mapas[0].referencias[0]
-    proxy_ref_geral = model.obter_croqui_readonly().picos[0].mapas_gerais.conteudo.mapas[0].referencias[0]
+    proxy_via = (
+        model.obter_croqui_readonly()
+        .picos[0]
+        .setores_ou_grupos[0]
+        .setor.conteudo.escaladas[0]
+        .via_esportiva
+    )
+    proxy_ref_setor = (
+        model.obter_croqui_readonly()
+        .picos[0]
+        .setores_ou_grupos[0]
+        .setor.conteudo.mapas[0]
+        .referencias[0]
+    )
+    proxy_ref_geral = (
+        model.obter_croqui_readonly().picos[0].mapas_gerais.conteudo.mapas[0].referencias[0]
+    )
 
     mock_node = MagicMock()
     mock_node.message = proxy_via
@@ -146,22 +174,40 @@ def test_integracao_renomear_escalada_com_sincronizacao_mapas_e_sessao_foco(qtbo
     # Verifica mesclagem em 1 único comando no histórico
     assert undo_stack.count() == 1
     assert proxy_via.nome == "Via Normal Direta"
-    assert resolver_caminho_referencia(model.obter_croqui_readonly(), proxy_ref_setor) == "Bauzinho > Via Normal Direta"
-    assert resolver_caminho_referencia(model.obter_croqui_readonly(), proxy_ref_geral) == "Bauzinho > Via Normal Direta"
+    assert (
+        resolver_caminho_referencia(model.obter_croqui_readonly(), proxy_ref_setor)
+        == "Bauzinho > Via Normal Direta"
+    )
+    assert (
+        resolver_caminho_referencia(model.obter_croqui_readonly(), proxy_ref_geral)
+        == "Bauzinho > Via Normal Direta"
+    )
 
     # 4. Undo único reverte tudo ao estado original
     undo_stack.undo()
     assert undo_stack.index() == 0
     assert proxy_via.nome == "Via Normal"
-    assert resolver_caminho_referencia(model.obter_croqui_readonly(), proxy_ref_setor) == "Bauzinho > Via Normal"
-    assert resolver_caminho_referencia(model.obter_croqui_readonly(), proxy_ref_geral) == "Bauzinho > Via Normal"
+    assert (
+        resolver_caminho_referencia(model.obter_croqui_readonly(), proxy_ref_setor)
+        == "Bauzinho > Via Normal"
+    )
+    assert (
+        resolver_caminho_referencia(model.obter_croqui_readonly(), proxy_ref_geral)
+        == "Bauzinho > Via Normal"
+    )
 
     # 5. Redo reaplica a edição consolidada
     undo_stack.redo()
     assert undo_stack.index() == 1
     assert proxy_via.nome == "Via Normal Direta"
-    assert resolver_caminho_referencia(model.obter_croqui_readonly(), proxy_ref_setor) == "Bauzinho > Via Normal Direta"
-    assert resolver_caminho_referencia(model.obter_croqui_readonly(), proxy_ref_geral) == "Bauzinho > Via Normal Direta"
+    assert (
+        resolver_caminho_referencia(model.obter_croqui_readonly(), proxy_ref_setor)
+        == "Bauzinho > Via Normal Direta"
+    )
+    assert (
+        resolver_caminho_referencia(model.obter_croqui_readonly(), proxy_ref_geral)
+        == "Bauzinho > Via Normal Direta"
+    )
 
     # 6. Simula perda e retomada de foco (início de nova sessão de foco)
     evento_focus_out = QFocusEvent(QEvent.Type.FocusOut)
@@ -173,7 +219,13 @@ def test_integracao_renomear_escalada_com_sincronizacao_mapas_e_sessao_foco(qtbo
     # 7. Usuário cria uma nova referência em outro mapa apontando para "Via Normal Direta"
     mapa_novo = setor.mapas.add()
     ref_nova = mapa_novo.referencias.add(alvo_uid="via_normal_uid", pontos_uids=["linha_nova"])
-    proxy_ref_nova = model.obter_croqui_readonly().picos[0].setores_ou_grupos[0].setor.conteudo.mapas[1].referencias[0]
+    proxy_ref_nova = (
+        model.obter_croqui_readonly()
+        .picos[0]
+        .setores_ou_grupos[0]
+        .setor.conteudo.mapas[1]
+        .referencias[0]
+    )
 
     # 8. Digita nova alteração no campo com nova sessão de foco
     campo_nome.setText("Via Normal Direta Variante")
@@ -182,24 +234,46 @@ def test_integracao_renomear_escalada_com_sincronizacao_mapas_e_sessao_foco(qtbo
     assert undo_stack.count() == 2
     assert undo_stack.index() == 2
     assert proxy_via.nome == "Via Normal Direta Variante"
-    assert resolver_caminho_referencia(model.obter_croqui_readonly(), proxy_ref_setor) == "Bauzinho > Via Normal Direta Variante"
-    assert resolver_caminho_referencia(model.obter_croqui_readonly(), proxy_ref_geral) == "Bauzinho > Via Normal Direta Variante"
+    assert (
+        resolver_caminho_referencia(model.obter_croqui_readonly(), proxy_ref_setor)
+        == "Bauzinho > Via Normal Direta Variante"
+    )
+    assert (
+        resolver_caminho_referencia(model.obter_croqui_readonly(), proxy_ref_geral)
+        == "Bauzinho > Via Normal Direta Variante"
+    )
     # A nova referência descoberta na nova busca também foi atualizada!
-    assert resolver_caminho_referencia(model.obter_croqui_readonly(), proxy_ref_nova) == "Bauzinho > Via Normal Direta Variante"
+    assert (
+        resolver_caminho_referencia(model.obter_croqui_readonly(), proxy_ref_nova)
+        == "Bauzinho > Via Normal Direta Variante"
+    )
 
     # 9. Primeiro Undo desfaz a segunda sessão (volta para "Via Normal Direta")
     undo_stack.undo()
     assert undo_stack.index() == 1
     assert proxy_via.nome == "Via Normal Direta"
-    assert resolver_caminho_referencia(model.obter_croqui_readonly(), proxy_ref_setor) == "Bauzinho > Via Normal Direta"
-    assert resolver_caminho_referencia(model.obter_croqui_readonly(), proxy_ref_geral) == "Bauzinho > Via Normal Direta"
-    assert resolver_caminho_referencia(model.obter_croqui_readonly(), proxy_ref_nova) == "Bauzinho > Via Normal Direta"
+    assert (
+        resolver_caminho_referencia(model.obter_croqui_readonly(), proxy_ref_setor)
+        == "Bauzinho > Via Normal Direta"
+    )
+    assert (
+        resolver_caminho_referencia(model.obter_croqui_readonly(), proxy_ref_geral)
+        == "Bauzinho > Via Normal Direta"
+    )
+    assert (
+        resolver_caminho_referencia(model.obter_croqui_readonly(), proxy_ref_nova)
+        == "Bauzinho > Via Normal Direta"
+    )
 
     # 10. Segundo Undo desfaz a primeira sessão (volta para "Via Normal")
     undo_stack.undo()
     assert undo_stack.index() == 0
     assert proxy_via.nome == "Via Normal"
-    assert resolver_caminho_referencia(model.obter_croqui_readonly(), proxy_ref_setor) == "Bauzinho > Via Normal"
-    assert resolver_caminho_referencia(model.obter_croqui_readonly(), proxy_ref_geral) == "Bauzinho > Via Normal"
-
-            
+    assert (
+        resolver_caminho_referencia(model.obter_croqui_readonly(), proxy_ref_setor)
+        == "Bauzinho > Via Normal"
+    )
+    assert (
+        resolver_caminho_referencia(model.obter_croqui_readonly(), proxy_ref_geral)
+        == "Bauzinho > Via Normal"
+    )

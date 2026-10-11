@@ -1,61 +1,62 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
+import asyncio
+import mimetypes
+import random
 import socket
 import threading
-import random
-import mimetypes
-import asyncio
-from typing import Optional, Any
 from pathlib import Path
-from PySide6.QtCore import QObject, Signal
+from typing import Any
 
 import uvicorn
 from fastapi import FastAPI, Request
 from fastapi.responses import JSONResponse
 from fastapi.staticfiles import StaticFiles
+from PySide6.QtCore import QObject, Signal
 
-from editor.core.codigo_sessao import obter_url_previa, DOMINIO_PREVIA_CANONICO
-from editor.core.tunel_retransmissor import ClienteTunelRetransmissor, URL_HTTP_PREVIA_PADRAO
+from editor.core.codigo_sessao import DOMINIO_PREVIA_CANONICO, obter_url_previa
+from editor.core.tunel_retransmissor import ClienteTunelRetransmissor
 
 # Mapeamento customizado de extensões para garantir exibição correta no navegador (usado pelo StaticFiles nativamente)
-mimetypes.add_type('text/plain', '.yaml')
-mimetypes.add_type('text/plain', '.yml')
-mimetypes.add_type('text/plain', '.md')
-mimetypes.add_type('application/octet-stream', '.binarypb')
+mimetypes.add_type("text/plain", ".yaml")
+mimetypes.add_type("text/plain", ".yml")
+mimetypes.add_type("text/plain", ".md")
+mimetypes.add_type("application/octet-stream", ".binarypb")
 
 
 class ServidorCelular(QObject):
     """Gerencia um servidor HTTP local para conexão com o aplicativo móvel e túnel de retransmissão."""
+
     dispositivo_conectado = Signal()
-    
+
     def __init__(
         self,
         pasta_compilado: Path | str,
-        codigo_sessao: Optional[str] = None,
-        url_retransmissor_ws: Optional[str] = None,
-        jwt_token: Optional[str] = None,
-        parent: Optional[QObject] = None,
+        codigo_sessao: str | None = None,
+        url_retransmissor_ws: str | None = None,
+        jwt_token: str | None = None,
+        parent: QObject | None = None,
     ) -> None:
         super().__init__(parent)
         self.pasta_compilado: Path = Path(pasta_compilado)
-        self.codigo_sessao: Optional[str] = codigo_sessao
-        self.url_retransmissor_ws: Optional[str] = url_retransmissor_ws
-        self.url_previa_canonica: Optional[str] = None
-        self.jwt_token: Optional[str] = jwt_token
+        self.codigo_sessao: str | None = codigo_sessao
+        self.url_retransmissor_ws: str | None = url_retransmissor_ws
+        self.url_previa_canonica: str | None = None
+        self.jwt_token: str | None = jwt_token
         if not self.jwt_token:
             self.jwt_token = self._recuperar_jwt()
-        self.porta: Optional[int] = None
+        self.porta: int | None = None
         self.server: Any = None
-        self._thread_servidor: Optional[threading.Thread] = None
-        self._thread_tunel: Optional[threading.Thread] = None
-        self._loop_tunel: Optional[asyncio.AbstractEventLoop] = None
-        self.cliente_tunel: Optional[ClienteTunelRetransmissor] = None
+        self._thread_servidor: threading.Thread | None = None
+        self._thread_tunel: threading.Thread | None = None
+        self._loop_tunel: asyncio.AbstractEventLoop | None = None
+        self.cliente_tunel: ClienteTunelRetransmissor | None = None
         self._servindo: bool = False
         self.conectado: bool = False
         self._trava_sessao = threading.Lock()
 
-    def _recuperar_jwt(self) -> Optional[str]:
+    def _recuperar_jwt(self) -> str | None:
         """Tenta obter ou renovar o token JWT do usuário a partir do GerenciadorSessao."""
         try:
             from editor.core.gerenciador_sessao import GerenciadorSessao
@@ -74,10 +75,13 @@ class ServidorCelular(QObject):
                 self.jwt_token = self._recuperar_jwt()
 
             if not self.jwt_token:
-                print("[WARN] ServidorCelular: Nenhum token JWT de autenticação disponível para o Cloudflare Relay.")
+                print(
+                    "[WARN] ServidorCelular: Nenhum token JWT de autenticação disponível para o Cloudflare Relay."
+                )
                 return False
 
             from editor.core.tunel_retransmissor import solicitar_sessao_servidor as api_solicitar
+
             try:
                 ip = self.obter_ip_local()
                 porta = self.porta or 0
@@ -104,12 +108,14 @@ class ServidorCelular(QObject):
         porta = self.porta or 8000
         return f"http://{ip}:{porta}"
 
-    def obter_porta_disponivel(self, inicio: int = 8000, fim: int = 9000, max_tentativas: int = 10) -> int:
+    def obter_porta_disponivel(
+        self, inicio: int = 8000, fim: int = 9000, max_tentativas: int = 10
+    ) -> int:
         """Busca uma porta disponível no intervalo especificado."""
         for _ in range(max_tentativas):
             porta = random.randint(inicio, fim)
             with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
-                if s.connect_ex(('127.0.0.1', porta)) != 0:
+                if s.connect_ex(("127.0.0.1", porta)) != 0:
                     return porta
         return 0
 
@@ -118,19 +124,20 @@ class ServidorCelular(QObject):
         s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         s.settimeout(3.0)
         try:
-            s.connect(('8.8.8.8', 80))
+            s.connect(("8.8.8.8", 80))
             ip = str(s.getsockname()[0])
         except Exception:
-            ip = '127.0.0.1'
+            ip = "127.0.0.1"
         finally:
             s.close()
         return ip
 
     def gerar_qr_code(self, conteudo: str) -> bytes:
         """Gera um QR Code em memória e retorna o buffer de bytes da imagem PNG."""
-        import qrcode
         from io import BytesIO
-        
+
+        import qrcode
+
         qr = qrcode.QRCode(
             version=1,
             error_correction=qrcode.constants.ERROR_CORRECT_L,
@@ -151,13 +158,13 @@ class ServidorCelular(QObject):
             return
 
         self._servindo = True
-        
+
         def run_server() -> None:
             try:
                 self.porta = self.obter_porta_disponivel()
-                
+
                 app = FastAPI(title="Servidor Celular Aresta", docs_url=None, redoc_url=None)
-                
+
                 @app.get("/handshake")
                 def handshake() -> JSONResponse:
                     self.conectado = True
@@ -167,7 +174,10 @@ class ServidorCelular(QObject):
                 @app.middleware("http")
                 async def notify_connection(request: Request, call_next: Any) -> Any:
                     response = await call_next(request)
-                    if response.status_code in (200, 206, 304) and request.url.path != "/favicon.ico":
+                    if (
+                        response.status_code in (200, 206, 304)
+                        and request.url.path != "/favicon.ico"
+                    ):
                         self.conectado = True
                         self.dispositivo_conectado.emit()
                     return response
@@ -195,12 +205,13 @@ class ServidorCelular(QObject):
                 )
 
                 self.server = uvicorn.Server(config)
-                
+
                 print(f"[INFO] Servidor Celular rodando em http://0.0.0.0:{self.porta}")
                 self.server.run()
                 print("[INFO] Loop ASGI do servidor celular encerrado com sucesso.")
             except Exception as e:
                 import traceback
+
                 print(f"[ERROR] Falha no servidor celular ASGI: {e}")
                 traceback.print_exc()
             finally:
@@ -215,6 +226,7 @@ class ServidorCelular(QObject):
 
     def _iniciar_tunel(self) -> None:
         """Inicia o cliente do túnel de retransmissão em background."""
+
         def run_tunel() -> None:
             import time
 
@@ -239,7 +251,9 @@ class ServidorCelular(QObject):
                 print("[WARN] Túnel retransmissor não iniciado: código de sessão ausente.")
                 return
 
-            print(f"[DEBUG TUNEL] Conectando túnel WebSocket para sessão {self.codigo_sessao} em {self.url_retransmissor_ws}")
+            print(
+                f"[DEBUG TUNEL] Conectando túnel WebSocket para sessão {self.codigo_sessao} em {self.url_retransmissor_ws}"
+            )
             self.cliente_tunel = ClienteTunelRetransmissor(
                 codigo_sessao=self.codigo_sessao,
                 pasta_compilado=self.pasta_compilado,
@@ -272,24 +286,28 @@ class ServidorCelular(QObject):
 
     def emitir_recarregamento(self, setor_id: str) -> None:
         """Dispara evento de recarregamento em tempo real para os clientes conectados."""
-        print(f"⚡ [ServidorCelular] emitir_recarregamento({setor_id=}) | cliente_tunel={self.cliente_tunel is not None} | loop_running={self._loop_tunel.is_running() if self._loop_tunel else False}")
+        print(
+            f"⚡ [ServidorCelular] emitir_recarregamento({setor_id=}) | cliente_tunel={self.cliente_tunel is not None} | loop_running={self._loop_tunel.is_running() if self._loop_tunel else False}"
+        )
         if self.cliente_tunel and self._loop_tunel and self._loop_tunel.is_running():
             asyncio.run_coroutine_threadsafe(
                 self.cliente_tunel.emitir_recarregamento(setor_id),
                 self._loop_tunel,
             )
         else:
-            print(f"⚠️ [ServidorCelular] Não foi possível despachar live reload: cliente_tunel={self.cliente_tunel}, loop={self._loop_tunel}")
+            print(
+                f"⚠️ [ServidorCelular] Não foi possível despachar live reload: cliente_tunel={self.cliente_tunel}, loop={self._loop_tunel}"
+            )
 
     def parar(self) -> None:
         """Encerra o servidor HTTP e o túnel sem bloquear a UI."""
         if not self._servindo:
             return
-            
+
         print("[DEBUG] Solicitando encerramento do servidor celular...")
         self._servindo = False
         self.conectado = False
-        
+
         if self.server:
             print("[DEBUG] Setando should_exit = True no Uvicorn...")
             self.server.should_exit = True

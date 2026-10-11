@@ -1,33 +1,78 @@
-from typing import Optional, Any, Callable, List, Dict, Set, Tuple, Union, cast
+from collections.abc import Callable
+
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
-
 from pathlib import Path
-from PySide6.QtWidgets import (
-    QApplication, QWidget, QHBoxLayout, QTreeView, QStackedWidget, QScrollArea, QVBoxLayout,
-    QLabel, QFrame, QPushButton, QComboBox, QLineEdit, QSpinBox, QDoubleSpinBox,
-    QCheckBox, QTextEdit, QTextBrowser, QMenu, QCompleter, QDialog, QInputDialog,
-    QAbstractItemView, QMessageBox, QToolButton, QSizePolicy
-)
-from PySide6.QtCore import Qt, QModelIndex, QUrl, QItemSelectionModel, QObject, QEvent, QTimer, QMimeData, QByteArray, QPoint
-from PySide6.QtGui import QImage, QPixmap, QTextDocument, QTextCursor, QKeySequence, QDragEnterEvent, QDropEvent, QDragMoveEvent, QDragLeaveEvent, QDrag, QPainter
+from typing import Any, cast
+
 from google.protobuf.descriptor import FieldDescriptor
+from google.protobuf.message_factory import GetMessageClass
+from PySide6.QtCore import (
+    QByteArray,
+    QEvent,
+    QItemSelectionModel,
+    QMimeData,
+    QModelIndex,
+    QObject,
+    QPoint,
+    Qt,
+    QTimer,
+    QUrl,
+)
+from PySide6.QtGui import (
+    QDrag,
+    QDragEnterEvent,
+    QDragMoveEvent,
+    QDropEvent,
+    QImage,
+    QKeySequence,
+    QPainter,
+    QPixmap,
+    QTextCursor,
+    QTextDocument,
+)
+from PySide6.QtWidgets import (
+    QAbstractItemView,
+    QApplication,
+    QCheckBox,
+    QComboBox,
+    QCompleter,
+    QDialog,
+    QDoubleSpinBox,
+    QFrame,
+    QHBoxLayout,
+    QInputDialog,
+    QLabel,
+    QLineEdit,
+    QMenu,
+    QMessageBox,
+    QPushButton,
+    QScrollArea,
+    QSizePolicy,
+    QSpinBox,
+    QStackedWidget,
+    QTextBrowser,
+    QTextEdit,
+    QToolButton,
+    QTreeView,
+    QVBoxLayout,
+    QWidget,
+)
+
 from aresta_api.proto.generated import croqui_pb2
-from editor.views.tree_view_adapter import ProtobufTreeViewAdapter
-from editor.legacy_views.widget_editor_imagens import WidgetEditorImagens
-from editor.views.widget_editor_mapas import WidgetEditorMapas
-from editor.views.protobuf_widget_factory import ProtobufWidgetFactory, ComboBoxSemScroll
-from editor.views.widget_campo_coordenada_e7 import WidgetCampoCoordenadaE7, TipoCoordenada
-from editor.views.widget_mensagem_coordenada import WidgetMensagemCoordenada
-from editor.views.widget_campo_imagem import WidgetCampoImagem
 from editor.views.componentes.alca_arraste_item import AlcaArrasteItem
 from editor.views.componentes.widget_card_mapa import WidgetCardMapa
-from editor.views.dialogos.dialogo_inserir_imagem_markdown import DialogoInserirImagemMarkdown
 from editor.views.dialogos.dialogo_inserir_botao_markdown import DialogoInserirBotaoMarkdown
+from editor.views.dialogos.dialogo_inserir_imagem_markdown import DialogoInserirImagemMarkdown
 from editor.views.estilo import Icones
-from ..core.atualizador_ui import AtualizadorUI
-from google.protobuf.message_factory import GetMessageClass
+from editor.views.protobuf_widget_factory import ComboBoxSemScroll, ProtobufWidgetFactory
+from editor.views.tree_view_adapter import ProtobufTreeViewAdapter
+from editor.views.widget_campo_coordenada_e7 import WidgetCampoCoordenadaE7
+from editor.views.widget_campo_imagem import WidgetCampoImagem
+from editor.views.widget_mensagem_coordenada import WidgetMensagemCoordenada
 from scripts.gerenciar_uids_lib import gerar_uid
+
+from ..core.atualizador_ui import AtualizadorUI
 
 
 def _obter_rotulo_singular(rotulo: str) -> str:
@@ -50,7 +95,9 @@ class GlobalUndoRedoFilter(QObject):
                     # Triggers the main window undo action
                     win = obj.window()
                     for act in win.actions():
-                        if act.shortcutContext() == Qt.ShortcutContext.ApplicationShortcut and (act.text() == "Desfazer" or act.text() == "Undo"):
+                        if act.shortcutContext() == Qt.ShortcutContext.ApplicationShortcut and (
+                            act.text() == "Desfazer" or act.text() == "Undo"
+                        ):
                             act.trigger()
                             return True
             # Check for Redo
@@ -59,7 +106,9 @@ class GlobalUndoRedoFilter(QObject):
                     # Triggers the main window redo action
                     win = obj.window()
                     for act in win.actions():
-                        if act.shortcutContext() == Qt.ShortcutContext.ApplicationShortcut and (act.text() == "Refazer" or act.text() == "Redo"):
+                        if act.shortcutContext() == Qt.ShortcutContext.ApplicationShortcut and (
+                            act.text() == "Refazer" or act.text() == "Redo"
+                        ):
                             act.trigger()
                             return True
         return super().eventFilter(obj, event)
@@ -78,6 +127,7 @@ class FiltroSessaoFoco(QObject):
     delimitando mesclagens contínuas de digitação (mergeWith) estritamente
     à sessão de foco ininterrupto.
     """
+
     _contador_global: int = 1
 
     def eventFilter(self, obj: Any, event: Any) -> bool:
@@ -113,27 +163,29 @@ def get_node_path(node: Any) -> str:
         curr = curr.parent_node
     return "/".join(reversed(path))
 
+
 def _get_id(obj: Any) -> Any:
-    return obj.obter_id_nativo() if hasattr(obj, 'obter_id_nativo') else id(obj)
+    return obj.obter_id_nativo() if hasattr(obj, "obter_id_nativo") else id(obj)
+
 
 class AutoScalingTextBrowser(QTextBrowser):
-    def __init__(self, parent: Optional[QWidget] = None, model: Optional[Any] = None) -> None:
+    def __init__(self, parent: QWidget | None = None, model: Any | None = None) -> None:
         super().__init__(parent)
         self.model = model
 
     def resizeEvent(self, event: Any) -> None:
         super().resizeEvent(event)
         self.scale_images()
-        
+
     def setMarkdown(self, markdown: str) -> None:
         super().setMarkdown(markdown)
         self.scale_images()
-        
+
     def scale_images(self) -> None:
         doc = self.document()
         v_w = self.viewport().width()
         viewport_width = (v_w - 24) if v_w > 24 else 800
-            
+
         block = doc.begin()
         while block.isValid():
             char_it = block.begin()
@@ -144,19 +196,26 @@ class AutoScalingTextBrowser(QTextBrowser):
                     if fmt.isImageFormat():
                         img_fmt = fmt.toImageFormat()
                         name = img_fmt.name()
-                        
+
                         res = doc.resource(QTextDocument.ResourceType.ImageResource, QUrl(name))
                         if res is None and doc.baseUrl().isValid():
-                            res = doc.resource(QTextDocument.ResourceType.ImageResource, doc.baseUrl().resolved(QUrl(name)))
-                            
+                            res = doc.resource(
+                                QTextDocument.ResourceType.ImageResource,
+                                doc.baseUrl().resolved(QUrl(name)),
+                            )
+
                         original_size = None
                         if isinstance(res, (QImage, QPixmap)):
                             original_size = res.size()
                         elif hasattr(res, "size") and callable(res.size):
                             sz = res.size()
-                            if hasattr(sz, "width") and hasattr(sz, "height") and callable(sz.width):
+                            if (
+                                hasattr(sz, "width")
+                                and hasattr(sz, "height")
+                                and callable(sz.width)
+                            ):
                                 original_size = sz
-                        
+
                         if original_size is None:
                             # 1. Tenta obter do buffer de memória RAM do model
                             if self.model and hasattr(self.model, "obter_bytes_imagem"):
@@ -165,9 +224,17 @@ class AutoScalingTextBrowser(QTextBrowser):
                                     img = QImage()
                                     if img.loadFromData(bytes_img) and not img.isNull():
                                         original_size = img.size()
-                                        doc.addResource(QTextDocument.ResourceType.ImageResource, QUrl(name), img)
+                                        doc.addResource(
+                                            QTextDocument.ResourceType.ImageResource,
+                                            QUrl(name),
+                                            img,
+                                        )
                                         if doc.baseUrl().isValid():
-                                            doc.addResource(QTextDocument.ResourceType.ImageResource, doc.baseUrl().resolved(QUrl(name)), img)
+                                            doc.addResource(
+                                                QTextDocument.ResourceType.ImageResource,
+                                                doc.baseUrl().resolved(QUrl(name)),
+                                                img,
+                                            )
 
                             # 2. Tenta obter do arquivo local no disco
                             if original_size is None:
@@ -177,14 +244,25 @@ class AutoScalingTextBrowser(QTextBrowser):
                                     img = QImage(caminho_local)
                                     if not img.isNull():
                                         original_size = img.size()
-                                        doc.addResource(QTextDocument.ResourceType.ImageResource, QUrl(name), img)
+                                        doc.addResource(
+                                            QTextDocument.ResourceType.ImageResource,
+                                            QUrl(name),
+                                            img,
+                                        )
                                         if doc.baseUrl().isValid():
-                                            doc.addResource(QTextDocument.ResourceType.ImageResource, url, img)
-                                
-                        if original_size is not None and hasattr(original_size, "width") and hasattr(original_size, "height") and callable(original_size.width):
+                                            doc.addResource(
+                                                QTextDocument.ResourceType.ImageResource, url, img
+                                            )
+
+                        if (
+                            original_size is not None
+                            and hasattr(original_size, "width")
+                            and hasattr(original_size, "height")
+                            and callable(original_size.width)
+                        ):
                             orig_w = original_size.width()
                             orig_h = original_size.height()
-                            
+
                             if orig_w > 0 and orig_h > 0:
                                 if orig_w > viewport_width:
                                     new_w = viewport_width
@@ -192,21 +270,26 @@ class AutoScalingTextBrowser(QTextBrowser):
                                 else:
                                     new_w = orig_w
                                     new_h = orig_h
-                                    
+
                                 if img_fmt.width() != new_w or img_fmt.height() != new_h:
                                     img_fmt.setWidth(new_w)
                                     img_fmt.setHeight(new_h)
-                                    
+
                                     cursor = QTextCursor(doc)
                                     cursor.setPosition(fragment.position())
-                                    cursor.movePosition(QTextCursor.MoveOperation.Right, QTextCursor.MoveMode.KeepAnchor, fragment.length())
+                                    cursor.movePosition(
+                                        QTextCursor.MoveOperation.Right,
+                                        QTextCursor.MoveMode.KeepAnchor,
+                                        fragment.length(),
+                                    )
                                     cursor.setCharFormat(img_fmt)
-                                
+
                 char_it += 1
             block = block.next()
 
+
 class EditorTextoMarkdown(QTextEdit):
-    def __init__(self, widget_markdown: Any, parent: Optional[QWidget] = None) -> None:
+    def __init__(self, widget_markdown: Any, parent: QWidget | None = None) -> None:
         super().__init__(parent)
         self.widget_markdown = widget_markdown
         self._completer = None
@@ -235,9 +318,10 @@ class EditorTextoMarkdown(QTextEdit):
         cursor.movePosition(QTextCursor.MoveOperation.StartOfBlock, QTextCursor.MoveMode.KeepAnchor)
         bloco = cursor.selectedText()
         import re
-        return bool(re.search(r'(?<!\\)!\[[^\]]*\]\([^)]*$', bloco))
 
-    def _obter_token_sob_cursor(self) -> Tuple[str, str]:
+        return bool(re.search(r"(?<!\\)!\[[^\]]*\]\([^)]*$", bloco))
+
+    def _obter_token_sob_cursor(self) -> tuple[str, str]:
         """
         Retorna (token_completo, prefixo_busca) apenas se o cursor estiver dentro
         dos parênteses de uma tag de imagem Markdown ![](). Caso contrário, retorna ("", "").
@@ -248,20 +332,21 @@ class EditorTextoMarkdown(QTextEdit):
         cursor = self.textCursor()
         cursor.movePosition(QTextCursor.MoveOperation.StartOfBlock, QTextCursor.MoveMode.KeepAnchor)
         bloco = cursor.selectedText()
-        
+
         import re
-        match_imagem = re.search(r'(?<!\\)!\[[^\]]*\]\(([^)]*)$', bloco)
+
+        match_imagem = re.search(r"(?<!\\)!\[[^\]]*\]\(([^)]*)$", bloco)
         if not match_imagem:
             return "", ""
 
         conteudo_parenteses = match_imagem.group(1)
-        match_token = re.search(r'([a-zA-Z0-9_\-\./]+)$', conteudo_parenteses)
+        match_token = re.search(r"([a-zA-Z0-9_\-\./]+)$", conteudo_parenteses)
         if not match_token:
             return "", ""
 
         token = match_token.group(1)
         if token.startswith("imagens/"):
-            busca = token[len("imagens/"):]
+            busca = token[len("imagens/") :]
         else:
             busca = token
         return token, busca
@@ -271,14 +356,16 @@ class EditorTextoMarkdown(QTextEdit):
             return
         cursor = self.textCursor()
         token, _ = self._obter_token_sob_cursor()
-        
+
         if token.startswith("imagens/") and not completion.startswith("imagens/"):
             texto_a_inserir = f"imagens/{completion}"
         else:
             texto_a_inserir = completion
 
         if len(token) > 0:
-            cursor.movePosition(QTextCursor.MoveOperation.Left, QTextCursor.MoveMode.KeepAnchor, len(token))
+            cursor.movePosition(
+                QTextCursor.MoveOperation.Left, QTextCursor.MoveMode.KeepAnchor, len(token)
+            )
         cursor.insertText(texto_a_inserir)
         self.setTextCursor(cursor)
 
@@ -336,13 +423,21 @@ class EditorTextoMarkdown(QTextEdit):
 
     def keyPressEvent(self, event: Any) -> None:
         if self._completer and self._completer.popup().isVisible():
-            if event.key() in (Qt.Key.Key_Enter, Qt.Key.Key_Return, Qt.Key.Key_Escape, Qt.Key.Key_Tab, Qt.Key.Key_Backtab):
+            if event.key() in (
+                Qt.Key.Key_Enter,
+                Qt.Key.Key_Return,
+                Qt.Key.Key_Escape,
+                Qt.Key.Key_Tab,
+                Qt.Key.Key_Backtab,
+            ):
                 event.ignore()
                 return
 
         # Atalho de teclado explícito para autocompletar: Ctrl+Space ou Ctrl+E
-        is_shortcut = (event.modifiers() & Qt.KeyboardModifier.ControlModifier) and (event.key() in (Qt.Key.Key_Space, Qt.Key.Key_E))
-        
+        is_shortcut = (event.modifiers() & Qt.KeyboardModifier.ControlModifier) and (
+            event.key() in (Qt.Key.Key_Space, Qt.Key.Key_E)
+        )
+
         if not is_shortcut:
             super().keyPressEvent(event)
 
@@ -356,7 +451,12 @@ class EditorTextoMarkdown(QTextEdit):
             self._completer.setCompletionPrefix(busca)
             popup = self._completer.popup()
             cr = self.cursorRect()
-            cr.setWidth(max(220, popup.sizeHintForColumn(0) + popup.verticalScrollBar().sizeHint().width() + 30))
+            cr.setWidth(
+                max(
+                    220,
+                    popup.sizeHintForColumn(0) + popup.verticalScrollBar().sizeHint().width() + 30,
+                )
+            )
             self._completer.complete(cr)
             return
 
@@ -369,7 +469,14 @@ class EditorTextoMarkdown(QTextEdit):
             popup = self._completer.popup()
             if popup.model().rowCount() > 0:
                 cr = self.cursorRect()
-                cr.setWidth(max(220, popup.sizeHintForColumn(0) + popup.verticalScrollBar().sizeHint().width() + 30))
+                cr.setWidth(
+                    max(
+                        220,
+                        popup.sizeHintForColumn(0)
+                        + popup.verticalScrollBar().sizeHint().width()
+                        + 30,
+                    )
+                )
                 self._completer.complete(cr)
             else:
                 self._completer.popup().hide()
@@ -378,18 +485,20 @@ class EditorTextoMarkdown(QTextEdit):
 
 
 class WidgetEditorMarkdown(QWidget):
-    def __init__(self, msg: Any, field: Any, formulario: Any, parent: Optional[QWidget] = None) -> None:
+    def __init__(
+        self, msg: Any, field: Any, formulario: Any, parent: QWidget | None = None
+    ) -> None:
         super().__init__(parent)
         self.msg = msg
         self.field = field
         self.model = formulario.model
         self.controller = formulario.controller
         self.formulario = formulario
-        
+
         layout = QHBoxLayout(self)
         layout.setContentsMargins(0, 0, 0, 0)
         layout.setSpacing(10)
-        
+
         self.editor = EditorTextoMarkdown(self)
         self.editor.setUndoRedoEnabled(False)
         self.editor.setPlaceholderText("Escreva seu Markdown aqui...")
@@ -407,7 +516,7 @@ class WidgetEditorMarkdown(QWidget):
                 border: 1px solid #2b579a;
             }
         """)
-        
+
         self.preview = AutoScalingTextBrowser(model=self.model)
         self.preview.setPlaceholderText("A pré-visualização aparecerá aqui...")
         self.preview.setStyleSheet("""
@@ -421,14 +530,14 @@ class WidgetEditorMarkdown(QWidget):
                 padding: 12px;
             }
         """)
-        
+
         left_layout = QVBoxLayout()
         left_layout.setContentsMargins(0, 0, 0, 0)
 
         header_layout = QHBoxLayout()
         left_label = QLabel("Edição (Markdown Raw)")
         left_label.setStyleSheet("color: #666; font-size: 8.5pt; font-weight: bold;")
-        
+
         self.btn_inserir_botao = QPushButton("🔘 Inserir Botão")
         self.btn_inserir_botao.setStyleSheet("""
             QPushButton {
@@ -463,7 +572,9 @@ class WidgetEditorMarkdown(QWidget):
         """)
         self.btn_inserir_imagem.clicked.connect(lambda: self.abrir_dialogo_inserir_imagem())
         self.btn_small = QPushButton("🔤 Small")
-        self.btn_small.setToolTip("Envolver seleção em <small>...</small> ou inserir tag de texto reduzido")
+        self.btn_small.setToolTip(
+            "Envolver seleção em <small>...</small> ou inserir tag de texto reduzido"
+        )
         self.btn_small.setStyleSheet("""
             QPushButton {
                 font-size: 8.5pt;
@@ -488,19 +599,19 @@ class WidgetEditorMarkdown(QWidget):
 
         left_layout.addLayout(header_layout)
         left_layout.addWidget(self.editor)
-        
+
         right_layout = QVBoxLayout()
         right_layout.setContentsMargins(0, 0, 0, 0)
         right_label = QLabel("Pré-visualização (Renderizado)")
         right_label.setStyleSheet("color: #666; font-size: 8.5pt; font-weight: bold;")
         right_layout.addWidget(right_label)
         right_layout.addWidget(self.preview)
-        
+
         layout.addLayout(left_layout, 1)
         layout.addLayout(right_layout, 1)
-        
+
         self.setMinimumHeight(400)
-        
+
         # Resolve caminho do banco de dados a partir do model ou da hierarquia de pais
         caminho_db = None
         if hasattr(self.model, "_caminho_db_atual") and self.model._caminho_db_atual:
@@ -508,13 +619,13 @@ class WidgetEditorMarkdown(QWidget):
         elif hasattr(self.model, "obter_caminho_db") and callable(self.model.obter_caminho_db):
             caminho_db = self.model.obter_caminho_db()
         else:
-            curr: Optional[QObject] = parent
+            curr: QObject | None = parent
             while curr:
-                if hasattr(curr, "caminho_croqui") and getattr(curr, "caminho_croqui"):
-                    caminho_db = getattr(curr, "caminho_croqui") / "database"
+                if hasattr(curr, "caminho_croqui") and curr.caminho_croqui:
+                    caminho_db = curr.caminho_croqui / "database"
                     break
                 curr = curr.parent() if hasattr(curr, "parent") and callable(curr.parent) else None
-            
+
         self.caminho_db = caminho_db
         if caminho_db:
             caminho_str = str(caminho_db).replace("\\", "/")
@@ -523,20 +634,24 @@ class WidgetEditorMarkdown(QWidget):
             base_url = QUrl.fromLocalFile(caminho_str)
             self.preview.document().setBaseUrl(base_url)
             self._configurar_autocompletar()
-        
+
         # Set initial content
         initial_val = getattr(self.msg, self.field.name)
         self.editor.setPlainText(initial_val)
-        
+
         # Renderiza o conteúdo inicial na pré-visualização
         self.preview.setMarkdown(initial_val or "")
-        
+
         # Temporizador de coalescência para digitação fluida e desacoplada
         from editor.core.temporizador_coalescencia import TemporizadorCoalescencia
-        self.temporizador: TemporizadorCoalescencia = TemporizadorCoalescencia(atraso_padrao_ms=250, parent=self)
+
+        self.temporizador: TemporizadorCoalescencia = TemporizadorCoalescencia(
+            atraso_padrao_ms=250, parent=self
+        )
 
         # Connect change signals
         from editor.views.widget_editor_dados import _get_id
+
         self.editor.setProperty("protobuf_field", self.field.name)
         self.editor.setProperty("protobuf_msg_id", _get_id(self.msg))
         self.editor.textChanged.connect(self._on_text_changed)
@@ -545,6 +660,7 @@ class WidgetEditorMarkdown(QWidget):
 
     def _ao_dado_alterado_model(self, msg: Any, campo_nome: str, *args: Any) -> None:
         from editor.views.widget_editor_dados import _get_id
+
         if _get_id(msg) == _get_id(self.msg) and campo_nome == self.field.name:
             has_field = False
             try:
@@ -579,8 +695,8 @@ class WidgetEditorMarkdown(QWidget):
     def _processar_drop_ou_paste_arquivo(self, caminho_arquivo: Path) -> None:
         self.abrir_dialogo_inserir_imagem(imagem_inicial=str(caminho_arquivo))
 
-    def abrir_dialogo_inserir_imagem(self, imagem_inicial: Optional[str] = None) -> None:
-        caminho = self.caminho_db or Path(".")
+    def abrir_dialogo_inserir_imagem(self, imagem_inicial: str | None = None) -> None:
+        caminho = self.caminho_db or Path()
         dialogo = DialogoInserirImagemMarkdown(
             caminho_db=caminho, model=self.model, imagem_inicial=imagem_inicial, parent=self
         )
@@ -593,8 +709,14 @@ class WidgetEditorMarkdown(QWidget):
                 self.editor.setTextCursor(cursor)
                 texto_novo = self.editor.toPlainText()
 
-                nome_imagem = dialogo.obter_nome_imagem() if hasattr(dialogo, "obter_nome_imagem") else None
-                bytes_imagem = dialogo.obter_bytes_imagem_processada() if hasattr(dialogo, "obter_bytes_imagem_processada") else None
+                nome_imagem = (
+                    dialogo.obter_nome_imagem() if hasattr(dialogo, "obter_nome_imagem") else None
+                )
+                bytes_imagem = (
+                    dialogo.obter_bytes_imagem_processada()
+                    if hasattr(dialogo, "obter_bytes_imagem_processada")
+                    else None
+                )
                 caminho_relativo = f"imagens/{nome_imagem}" if nome_imagem else None
 
                 if hasattr(self, "temporizador"):
@@ -619,10 +741,8 @@ class WidgetEditorMarkdown(QWidget):
                 self._atualizar_preview(texto_novo)
 
     def abrir_dialogo_inserir_botao(self) -> None:
-        caminho = self.caminho_db or Path(".")
-        dialogo = DialogoInserirBotaoMarkdown(
-            caminho_db=caminho, model=self.model, parent=self
-        )
+        caminho = self.caminho_db or Path()
+        dialogo = DialogoInserirBotaoMarkdown(caminho_db=caminho, model=self.model, parent=self)
         if dialogo.exec() == QDialog.DialogCode.Accepted:
             tag = dialogo.obter_tag_markdown()
             if tag:
@@ -668,7 +788,7 @@ class WidgetEditorMarkdown(QWidget):
 
     def _atualizar_preview(self, text: str) -> None:
         self.preview.setMarkdown(text or "")
-        
+
     def set_conteudo(self, novo_conteudo: str) -> None:
         text = "" if novo_conteudo is None else str(novo_conteudo)
         if self.editor.toPlainText() == text:
@@ -676,24 +796,24 @@ class WidgetEditorMarkdown(QWidget):
 
         old_text = self.editor.toPlainText()
         old_cursor = self.editor.textCursor().position()
-        
+
         diff_idx = 0
         min_len = min(len(old_text), len(text))
         while diff_idx < min_len and old_text[diff_idx] == text[diff_idx]:
             diff_idx += 1
-        
+
         if old_cursor < diff_idx:
             new_cursor_pos = old_cursor
         else:
             new_cursor_pos = max(0, min(old_cursor + len(text) - len(old_text), len(text)))
-            
+
         self.editor.blockSignals(True)
         self.editor.setPlainText(text)
         cursor = self.editor.textCursor()
         cursor.setPosition(new_cursor_pos)
         self.editor.setTextCursor(cursor)
         self.editor.blockSignals(False)
-            
+
         self._atualizar_preview(text)
 
     def _on_text_changed(self) -> None:
@@ -706,20 +826,23 @@ class WidgetEditorMarkdown(QWidget):
 
     def _consolidar_edicao(self) -> None:
         text = self.editor.toPlainText()
-        
+
         self._atualizar_preview(text)
-        
+
         try:
             has_field = self.msg.HasField(self.field.name)
         except ValueError:
             has_field = bool(getattr(self.msg, self.field.name, None))
         val_antigo = getattr(self.msg, self.field.name) if has_field else None
         if val_antigo != text:
-            self.controller.alterar_primitivo(self.msg, self.field.name, val_antigo, text, pode_mesclar=True)
+            self.controller.alterar_primitivo(
+                self.msg, self.field.name, val_antigo, text, pode_mesclar=True
+            )
             self.formulario._mark_dirty()
             self.formulario._notify_tree_changed()
 
-def _extrair_titulo_heuristico(msg: Any) -> Optional[str]:
+
+def _extrair_titulo_heuristico(msg: Any) -> str | None:
     for field_name in ["nome", "titulo", "rotulo", "uid", "id"]:
         try:
             if msg.HasField(field_name):
@@ -728,33 +851,40 @@ def _extrair_titulo_heuristico(msg: Any) -> Optional[str]:
             pass
     return None
 
+
 class WidgetColapsavel(QWidget):
-    def __init__(self, msg: Any, title_prefix: str, lazy_loader_cb: Any, parent: Optional[QWidget] = None) -> None:
+    def __init__(
+        self, msg: Any, title_prefix: str, lazy_loader_cb: Any, parent: QWidget | None = None
+    ) -> None:
         super().__init__(parent)
         self.msg = msg
         self.title_prefix = title_prefix
         self.lazy_loader_cb = lazy_loader_cb
         self._was_loaded = False
-        
+
         self._layout = QVBoxLayout(self)
         self._layout.setContentsMargins(0, 0, 0, 0)
         self._layout.setSpacing(0)
-        
+
         self.header_widget = QWidget(self)
         self.header_layout = QHBoxLayout(self.header_widget)
         self.header_layout.setContentsMargins(0, 0, 0, 0)
         self.header_layout.setSpacing(6)
-        
-        from PySide6.QtWidgets import QToolButton
+
         self.toggle_button = QToolButton(self)
-        self.toggle_button.setStyleSheet("QToolButton { border: none; font-weight: bold; text-align: left; background-color: #e6e6e6; padding: 6px; }")
+        self.toggle_button.setStyleSheet(
+            "QToolButton { border: none; font-weight: bold; text-align: left; background-color: #e6e6e6; padding: 6px; }"
+        )
         self.toggle_button.setCheckable(True)
         self.toggle_button.setChecked(False)
         self.update_title()
-        self.toggle_button.setSizePolicy(self.toggle_button.sizePolicy().Policy.Expanding, self.toggle_button.sizePolicy().Policy.Fixed)
-        
+        self.toggle_button.setSizePolicy(
+            self.toggle_button.sizePolicy().Policy.Expanding,
+            self.toggle_button.sizePolicy().Policy.Fixed,
+        )
+
         self.header_layout.addWidget(self.toggle_button)
-        
+
         self.content_area = QFrame(self)
         self.content_area.setObjectName("SubMessageFrame")
         self.content_area.setStyleSheet("""
@@ -769,14 +899,14 @@ class WidgetColapsavel(QWidget):
         self.content_layout = QVBoxLayout(self.content_area)
         self.content_layout.setContentsMargins(10, 10, 10, 10)
         self.content_layout.setSpacing(6)
-        
+
         self.content_area.setVisible(False)
-        
+
         self._layout.addWidget(self.header_widget)
         self._layout.addWidget(self.content_area)
-        
+
         self.toggle_button.toggled.connect(self._on_toggled)
-        
+
     def add_header_widget(self, widget: QWidget) -> None:
         self.header_layout.addWidget(widget)
 
@@ -786,7 +916,7 @@ class WidgetColapsavel(QWidget):
     def definir_prefixo_titulo(self, novo_prefixo: str) -> None:
         self.title_prefix = novo_prefixo
         self.update_title()
-        
+
     def update_title(self) -> None:
         heuristico = _extrair_titulo_heuristico(self.msg)
         texto = f"▶ {self.title_prefix}"
@@ -843,13 +973,14 @@ class WidgetSecaoAvancada(QWidget):
     """
     Contêiner colapsável para campos avançados no formulário de dados.
     """
+
     def __init__(
         self,
         total_campos: int,
         campos_preenchidos: int,
         iniciar_expandido: bool = False,
-        ao_alternar_expansao: Optional[Callable[[bool], None]] = None,
-        parent: Optional[QWidget] = None
+        ao_alternar_expansao: Callable[[bool], None] | None = None,
+        parent: QWidget | None = None,
     ) -> None:
         super().__init__(parent)
         self.total_campos = total_campos
@@ -879,7 +1010,10 @@ class WidgetSecaoAvancada(QWidget):
         self.toggle_button.setCursor(Qt.CursorShape.PointingHandCursor)
         self.toggle_button.setCheckable(True)
         self.toggle_button.setChecked(iniciar_expandido)
-        self.toggle_button.setSizePolicy(self.toggle_button.sizePolicy().Policy.Expanding, self.toggle_button.sizePolicy().Policy.Fixed)
+        self.toggle_button.setSizePolicy(
+            self.toggle_button.sizePolicy().Policy.Expanding,
+            self.toggle_button.sizePolicy().Policy.Fixed,
+        )
         self._layout.addWidget(self.toggle_button)
 
         self.content_area = QFrame(self)
@@ -906,10 +1040,18 @@ class WidgetSecaoAvancada(QWidget):
             self.toggle_button.setText("▼ Ocultar Opções Avançadas")
         else:
             if self.campos_preenchidos > 0:
-                texto_preenchidos = f"{self.campos_preenchidos} preenchido de {self.total_campos}" if self.campos_preenchidos == 1 else f"{self.campos_preenchidos} preenchidos de {self.total_campos}"
+                texto_preenchidos = (
+                    f"{self.campos_preenchidos} preenchido de {self.total_campos}"
+                    if self.campos_preenchidos == 1
+                    else f"{self.campos_preenchidos} preenchidos de {self.total_campos}"
+                )
                 self.toggle_button.setText(f"▶ Opções Avançadas ({texto_preenchidos})")
             else:
-                texto_total = f"{self.total_campos} campo" if self.total_campos == 1 else f"{self.total_campos} campos"
+                texto_total = (
+                    f"{self.total_campos} campo"
+                    if self.total_campos == 1
+                    else f"{self.total_campos} campos"
+                )
                 self.toggle_button.setText(f"▶ Opções Avançadas ({texto_total})")
 
     def _on_toggled(self, checked: bool) -> None:
@@ -920,7 +1062,14 @@ class WidgetSecaoAvancada(QWidget):
 
 
 class ContainerRepeatedWidget(QWidget):
-    def __init__(self, msg: Any, field: Any, formulario: Any, parent: Optional[QWidget] = None, extra_path: Optional[str] = None) -> None:
+    def __init__(
+        self,
+        msg: Any,
+        field: Any,
+        formulario: Any,
+        parent: QWidget | None = None,
+        extra_path: str | None = None,
+    ) -> None:
         self.model = formulario.model
         self.controller = formulario.controller
         self.formulario = formulario
@@ -930,7 +1079,7 @@ class ContainerRepeatedWidget(QWidget):
         self.extra_path = extra_path
         self.formulario = formulario
         self.repeated_container = getattr(msg, field.name)
-        self.is_scalar = (field.type != FieldDescriptor.TYPE_MESSAGE)
+        self.is_scalar = field.type != FieldDescriptor.TYPE_MESSAGE
 
         self.layout_principal = QVBoxLayout(self)
         self.layout_principal.setContentsMargins(0, 0, 0, 0)
@@ -944,7 +1093,7 @@ class ContainerRepeatedWidget(QWidget):
         self.header_layout.addWidget(self.label_widget)
 
         tooltip = ProtobufWidgetFactory.get_tooltip(field)
-        self.desc_label: Optional[QLabel] = None
+        self.desc_label: QLabel | None = None
         if tooltip:
             self.desc_label = QLabel(tooltip)
             self.desc_label.setStyleSheet("color: #666666; font-size: 8pt; font-style: italic;")
@@ -965,7 +1114,9 @@ class ContainerRepeatedWidget(QWidget):
         self.btn_add.clicked.connect(self._on_add_clicked)
 
         self.lbl_vazio = QLabel("Nenhum item cadastrado.")
-        self.lbl_vazio.setStyleSheet("color: #888888; font-style: italic; font-size: 9pt; padding: 4px;")
+        self.lbl_vazio.setStyleSheet(
+            "color: #888888; font-style: italic; font-size: 9pt; padding: 4px;"
+        )
 
         if self.is_scalar:
             self.frame_conteudo = QFrame(self)
@@ -1017,49 +1168,50 @@ class ContainerRepeatedWidget(QWidget):
                 if line_edit:
                     line_edit.setFocus()
 
-
     def _on_add_clicked(self) -> None:
         f = self.field
         idx = len(self.repeated_container)
-        
+
         # Interceptação de "Mapas"
         if f.name == "mapas":
-            from pathlib import Path
             from editor.core.storage import GerenciadorCaminhos
-            
-            db_dir = getattr(self.formulario.model, '_caminho_db_atual', None)
+
+            db_dir = getattr(self.formulario.model, "_caminho_db_atual", None)
             if not db_dir:
                 db_dir = GerenciadorCaminhos().obter_caminho_base_repo()
-                
+
             from editor.core.nomes_arquivos import gerar_nome_mapa_sugerido
+
             nome_sugerido = gerar_nome_mapa_sugerido(self.msg, idx)
-            
+
             from editor.views.dialogos.dialogo_adicionar_mapa import DialogoAdicionarMapa
-            
+
             eh_escalada = isinstance(self.msg, croqui_pb2.Escalada)
-            dialog = DialogoAdicionarMapa(nome_sugerido, db_dir, model=self.model, parent=self, eh_escalada=eh_escalada)
+            dialog = DialogoAdicionarMapa(
+                nome_sugerido, db_dir, model=self.model, parent=self, eh_escalada=eh_escalada
+            )
             if dialog.exec() == DialogoAdicionarMapa.DialogCode.Accepted:
                 img_bytes = dialog.obter_bytes_imagem_processada()
                 dimensoes = dialog.obter_dimensoes_imagem() or (0, 0)
                 final_w, final_h = dimensoes
-                
+
                 novo_mapa: Any = GetMessageClass(f.message_type)()
                 novo_mapa.caminho_imagem_mapa = dialog.obter_caminho_final_relativo()
                 novo_mapa.largura_mapa = final_w
                 novo_mapa.altura_mapa = final_h
-                
+
                 self.controller.adicionar_mapa_com_arquivo(
                     msg=self.msg,
                     campo_nome=f.name,
                     index=idx,
                     valor=novo_mapa,
                     caminho_absoluto=dialog.obter_caminho_final_absoluto(),
-                    img_bytes=img_bytes
+                    img_bytes=img_bytes,
                 )
                 self.formulario._mark_dirty()
                 self.formulario._notify_tree_changed()
             return
-            
+
         val: Any = None
         if f.type == FieldDescriptor.TYPE_MESSAGE:
             msg_class = GetMessageClass(f.message_type)
@@ -1068,9 +1220,14 @@ class ContainerRepeatedWidget(QWidget):
         else:
             if f.type == FieldDescriptor.TYPE_BOOL:
                 val = False
-            elif f.type in (FieldDescriptor.TYPE_INT32, FieldDescriptor.TYPE_INT64,
-                            FieldDescriptor.TYPE_UINT32, FieldDescriptor.TYPE_UINT64,
-                            FieldDescriptor.TYPE_SINT32, FieldDescriptor.TYPE_SINT64):
+            elif f.type in (
+                FieldDescriptor.TYPE_INT32,
+                FieldDescriptor.TYPE_INT64,
+                FieldDescriptor.TYPE_UINT32,
+                FieldDescriptor.TYPE_UINT64,
+                FieldDescriptor.TYPE_SINT32,
+                FieldDescriptor.TYPE_SINT64,
+            ):
                 val = 0
             elif f.type in (FieldDescriptor.TYPE_FLOAT, FieldDescriptor.TYPE_DOUBLE):
                 val = 0.0
@@ -1104,7 +1261,12 @@ class ContainerRepeatedWidget(QWidget):
             if current_idx is not None:
                 if hasattr(self.formulario, "forcar_consolidacao_pendente"):
                     self.formulario.forcar_consolidacao_pendente()
-                self.controller.remover_repeated(self.msg, self.field.name, current_idx, getattr(self.msg, self.field.name)[current_idx])
+                self.controller.remover_repeated(
+                    self.msg,
+                    self.field.name,
+                    current_idx,
+                    getattr(self.msg, self.field.name)[current_idx],
+                )
                 self.formulario._mark_dirty()
                 self.formulario._notify_tree_changed()
 
@@ -1117,7 +1279,10 @@ class ContainerRepeatedWidget(QWidget):
             if hasattr(item_msg, "DESCRIPTOR"):
                 opts = item_msg.DESCRIPTOR.GetOptions()
                 if opts.HasExtension(croqui_pb2.mensagem_formato_na_ui):
-                    is_mapa = (opts.Extensions[croqui_pb2.mensagem_formato_na_ui] == croqui_pb2.MensagemFormatoUi.MAPA)
+                    is_mapa = (
+                        opts.Extensions[croqui_pb2.mensagem_formato_na_ui]
+                        == croqui_pb2.MensagemFormatoUi.MAPA
+                    )
                 elif item_msg.DESCRIPTOR.name == "Mapa":
                     is_mapa = True
             elif self.field.name == "mapas":
@@ -1136,28 +1301,31 @@ class ContainerRepeatedWidget(QWidget):
                     extra_path=new_path,
                     parent=item_widget,
                 )
-                card_mapa.alca.solicitar_arraste.connect(lambda pt, w=item_widget: self._iniciar_drag(w))
+                card_mapa.alca.solicitar_arraste.connect(
+                    lambda pt, w=item_widget: self._iniciar_drag(w)
+                )
                 card_mapa.btn_remover.clicked.connect(on_remove_item)
                 item_layout.addWidget(card_mapa)
             else:
+
                 def lazy_loader(msg: Any, layout: Any) -> None:
                     new_path = f"expando:{self.field.name}/item:{idx}"
                     if self.extra_path:
                         new_path = f"{self.extra_path}/{new_path}"
                     self.formulario._render_message_fields(msg, layout, extra_path=new_path)
-                    
+
                 prefix = f"Item {idx}"
                 if hasattr(self.field, "name"):
                     prefix = f"{self.field.name.replace('_', ' ').capitalize()} [{idx}]"
-                
+
                 colapsavel = WidgetColapsavel(item_msg, prefix, lazy_loader, parent=self)
                 colapsavel.inserir_header_widget(0, alca)
                 colapsavel.add_header_widget(btn_remove)
-                
+
                 if not hasattr(self, "_widgets_colapsaveis"):
                     self._widgets_colapsaveis = []
                 self._widgets_colapsaveis.append((item_msg, colapsavel))
-                
+
                 item_layout.addWidget(colapsavel)
         else:
             item_widget.setObjectName("ItemRepeatedLinha")
@@ -1171,6 +1339,7 @@ class ContainerRepeatedWidget(QWidget):
                 widget.setText(val)
                 widget.setMaximumWidth(16777215)
                 widget.setSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Fixed)
+
                 def make_on_item_changed(w: Any = widget) -> Callable[..., None]:
                     def on_item_changed() -> None:
                         current_idx = item_widget.property("repeated_index")
@@ -1178,58 +1347,93 @@ class ContainerRepeatedWidget(QWidget):
                             val_antigo = self.repeated_container[current_idx]
                             val_novo = w.text()
                             if val_antigo != val_novo:
-                                self.controller.alterar_repeated_item(self.msg, self.field.name, current_idx, val_antigo, val_novo, pode_mesclar=True)
+                                self.controller.alterar_repeated_item(
+                                    self.msg,
+                                    self.field.name,
+                                    current_idx,
+                                    val_antigo,
+                                    val_novo,
+                                    pode_mesclar=True,
+                                )
                                 self.formulario._mark_dirty()
                                 self.formulario._notify_tree_changed()
+
                     return on_item_changed
+
                 widget.textChanged.connect(make_on_item_changed())
 
                 def on_enter_pressed(w_self: Any = widget) -> None:
                     if w_self.text().strip():
                         self._on_add_clicked()
                         QTimer.singleShot(50, self._focar_ultimo_item)
+
                 widget.returnPressed.connect(on_enter_pressed)
 
             elif isinstance(widget, QSpinBox):
                 widget.setValue(val)
+
                 def make_on_item_changed(w: Any = widget) -> Callable[..., None]:
                     def on_item_changed(new_val: Any = None) -> None:
                         current_idx = item_widget.property("repeated_index")
                         if current_idx is not None:
                             val_antigo = self.repeated_container[current_idx]
                             if val_antigo != new_val:
-                                self.controller.alterar_repeated_item(self.msg, self.field.name, current_idx, val_antigo, new_val, pode_mesclar=True)
+                                self.controller.alterar_repeated_item(
+                                    self.msg,
+                                    self.field.name,
+                                    current_idx,
+                                    val_antigo,
+                                    new_val,
+                                    pode_mesclar=True,
+                                )
                                 self.formulario._mark_dirty()
                                 self.formulario._notify_tree_changed()
+
                     return on_item_changed
+
                 widget.valueChanged.connect(make_on_item_changed())
 
             elif isinstance(widget, QDoubleSpinBox):
                 widget.setValue(val)
+
                 def make_on_item_changed(w: Any = widget) -> Callable[..., None]:
                     def on_item_changed(new_val: Any = None) -> None:
                         current_idx = item_widget.property("repeated_index")
                         if current_idx is not None:
                             val_antigo = self.repeated_container[current_idx]
                             if val_antigo != new_val:
-                                self.controller.alterar_repeated_item(self.msg, self.field.name, current_idx, val_antigo, new_val, pode_mesclar=True)
+                                self.controller.alterar_repeated_item(
+                                    self.msg,
+                                    self.field.name,
+                                    current_idx,
+                                    val_antigo,
+                                    new_val,
+                                    pode_mesclar=True,
+                                )
                                 self.formulario._mark_dirty()
                                 self.formulario._notify_tree_changed()
+
                     return on_item_changed
+
                 widget.valueChanged.connect(make_on_item_changed())
 
             elif isinstance(widget, QCheckBox):
                 widget.setChecked(val)
+
                 def make_on_item_changed(w: Any = widget) -> Callable[..., None]:
                     def on_item_changed(checked: bool) -> None:
                         current_idx = item_widget.property("repeated_index")
                         if current_idx is not None:
                             val_antigo = self.repeated_container[current_idx]
                             if val_antigo != checked:
-                                self.controller.alterar_repeated_item(self.msg, self.field.name, current_idx, val_antigo, checked)
+                                self.controller.alterar_repeated_item(
+                                    self.msg, self.field.name, current_idx, val_antigo, checked
+                                )
                                 self.formulario._mark_dirty()
                                 self.formulario._notify_tree_changed()
+
                     return on_item_changed
+
                 widget.toggled.connect(make_on_item_changed())
 
             elif isinstance(widget, QComboBox):
@@ -1245,6 +1449,7 @@ class ContainerRepeatedWidget(QWidget):
                     idx_val = widget.findData(val)
                     if idx_val >= 0:
                         widget.setCurrentIndex(idx_val)
+
                 def make_on_item_changed(w: Any = widget) -> Callable[..., None]:
                     def on_item_changed() -> None:
                         new_val = w.currentData()
@@ -1253,10 +1458,14 @@ class ContainerRepeatedWidget(QWidget):
                             if current_idx is not None:
                                 val_antigo = self.repeated_container[current_idx]
                                 if val_antigo != new_val:
-                                    self.controller.alterar_repeated_item(self.msg, self.field.name, current_idx, val_antigo, new_val)
+                                    self.controller.alterar_repeated_item(
+                                        self.msg, self.field.name, current_idx, val_antigo, new_val
+                                    )
                                     self.formulario._mark_dirty()
                                     self.formulario._notify_tree_changed()
+
                     return on_item_changed
+
                 widget.currentIndexChanged.connect(make_on_item_changed())
 
             item_layout.addWidget(alca)
@@ -1293,7 +1502,6 @@ class ContainerRepeatedWidget(QWidget):
         if _get_id(msg) == _get_id(self.msg) and campo == self.field.name:
             self._renderizar_item_no_indice(idx)
             self._atualizar_indices_e_botoes()
-
 
     def _on_item_removido(self, msg: Any, campo: Any, idx: int) -> None:
         if _get_id(msg) == _get_id(self.msg) and campo == self.field.name:
@@ -1334,7 +1542,7 @@ class ContainerRepeatedWidget(QWidget):
             return
 
         mime_data = QMimeData()
-        payload = f"{_get_id(self.msg)}:{self.field.name}:{idx}".encode("utf-8")
+        payload = f"{_get_id(self.msg)}:{self.field.name}:{idx}".encode()
         mime_data.setData("application/x-aresta-repeated-item", QByteArray(payload))
 
         drag = QDrag(self)
@@ -1363,11 +1571,13 @@ class ContainerRepeatedWidget(QWidget):
         drag.exec(Qt.DropAction.MoveAction)
         self._indicador_drop.hide()
 
-    def _extrair_dados_drag(self, mime_data: QMimeData) -> Optional[Tuple[str, str, int]]:
+    def _extrair_dados_drag(self, mime_data: QMimeData) -> tuple[str, str, int] | None:
         if not mime_data.hasFormat("application/x-aresta-repeated-item"):
             return None
         try:
-            dados = bytes(mime_data.data("application/x-aresta-repeated-item").data()).decode("utf-8")
+            dados = bytes(mime_data.data("application/x-aresta-repeated-item").data()).decode(
+                "utf-8"
+            )
             partes = dados.split(":", 2)
             if len(partes) == 3:
                 msg_id_str, campo_nome, idx_str = partes
@@ -1376,12 +1586,12 @@ class ContainerRepeatedWidget(QWidget):
             return None
         return None
 
-    def _calcular_posicao_drop_e_indicador(self, pos_y: float, origem_idx: int) -> Tuple[int, int]:
+    def _calcular_posicao_drop_e_indicador(self, pos_y: float, origem_idx: int) -> tuple[int, int]:
         total_widgets = self.items_layout.count()
         if total_widgets == 0:
             return 0, 0
 
-        geometrias: List[Tuple[int, int, int, float]] = []
+        geometrias: list[tuple[int, int, int, float]] = []
         for i in range(total_widgets):
             item_layout = self.items_layout.itemAt(i)
             w = item_layout.widget() if item_layout else None
@@ -1492,17 +1702,17 @@ class WidgetFormularioPadrao(QStackedWidget):
                         if widget.text() != new_text:
                             old_text = widget.text()
                             old_cursor = widget.cursorPosition()
-                            
+
                             diff_idx = 0
                             min_len = min(len(old_text), len(new_text))
                             while diff_idx < min_len and old_text[diff_idx] == new_text[diff_idx]:
                                 diff_idx += 1
-                            
+
                             if old_cursor < diff_idx:
                                 new_cursor = old_cursor
                             else:
                                 new_cursor = old_cursor + (len(new_text) - len(old_text))
-                            
+
                             widget.setText(new_text)
                             widget.setCursorPosition(max(0, min(new_cursor, len(new_text))))
                     elif isinstance(widget, EditorTextoMarkdown):
@@ -1514,23 +1724,30 @@ class WidgetFormularioPadrao(QStackedWidget):
                         if widget.toPlainText() != new_text:
                             old_text = widget.toPlainText()
                             old_cursor = widget.textCursor().position()
-                            
+
                             diff_idx = 0
                             min_len = min(len(old_text), len(new_text))
                             while diff_idx < min_len and old_text[diff_idx] == new_text[diff_idx]:
                                 diff_idx += 1
-                            
+
                             if old_cursor < diff_idx:
                                 new_cursor_pos = old_cursor
                             else:
-                                new_cursor_pos = max(0, min(old_cursor + len(new_text) - len(old_text), len(new_text)))
-                                
+                                new_cursor_pos = max(
+                                    0,
+                                    min(old_cursor + len(new_text) - len(old_text), len(new_text)),
+                                )
+
                             widget.setPlainText(new_text)
                             cursor = widget.textCursor()
                             cursor.setPosition(new_cursor_pos)
                             widget.setTextCursor(cursor)
                     elif isinstance(widget, QSpinBox):
-                        val = ProtobufWidgetFactory.VALOR_INTEIRO_NULO if (novo_valor is None or novo_valor == "") else int(novo_valor)
+                        val = (
+                            ProtobufWidgetFactory.VALOR_INTEIRO_NULO
+                            if (novo_valor is None or novo_valor == "")
+                            else int(novo_valor)
+                        )
                         if widget.value() != val:
                             widget.setValue(val)
                     elif isinstance(widget, QDoubleSpinBox):
@@ -1560,7 +1777,11 @@ class WidgetFormularioPadrao(QStackedWidget):
                     elif isinstance(widget, WidgetEditorMarkdown):
                         widget.set_conteudo(novo_valor)
                     elif isinstance(widget, WidgetCampoCoordenadaE7):
-                        val_e7 = int(novo_valor) if (novo_valor is not None and novo_valor != "") else None
+                        val_e7 = (
+                            int(novo_valor)
+                            if (novo_valor is not None and novo_valor != "")
+                            else None
+                        )
                         if widget.obter_valor_e7() != val_e7:
                             widget.definir_valor_e7(val_e7)
                     elif isinstance(widget, WidgetCampoImagem):
@@ -1571,7 +1792,9 @@ class WidgetFormularioPadrao(QStackedWidget):
                     widget.blockSignals(False)
                 break
 
-    def _on_repeated_item_alterado(self, msg_id: Any, campo_nome: str, index: int, novo_valor: Any) -> None:
+    def _on_repeated_item_alterado(
+        self, msg_id: Any, campo_nome: str, index: int, novo_valor: Any
+    ) -> None:
         target_field = f"{campo_nome}[{index}]"
         for widget in self.findChildren(QWidget):
             w_field = widget.property("protobuf_field")
@@ -1586,21 +1809,25 @@ class WidgetFormularioPadrao(QStackedWidget):
                         if widget.text() != new_text:
                             old_text = widget.text()
                             old_cursor = widget.cursorPosition()
-                            
+
                             diff_idx = 0
                             min_len = min(len(old_text), len(new_text))
                             while diff_idx < min_len and old_text[diff_idx] == new_text[diff_idx]:
                                 diff_idx += 1
-                            
+
                             if old_cursor < diff_idx:
                                 new_cursor = old_cursor
                             else:
                                 new_cursor = old_cursor + (len(new_text) - len(old_text))
-                            
+
                             widget.setText(new_text)
                             widget.setCursorPosition(max(0, min(new_cursor, len(new_text))))
                     elif isinstance(widget, QSpinBox):
-                        val = ProtobufWidgetFactory.VALOR_INTEIRO_NULO if (novo_valor is None or novo_valor == "") else int(novo_valor)
+                        val = (
+                            ProtobufWidgetFactory.VALOR_INTEIRO_NULO
+                            if (novo_valor is None or novo_valor == "")
+                            else int(novo_valor)
+                        )
                         if widget.value() != val:
                             widget.setValue(val)
                     elif isinstance(widget, QDoubleSpinBox):
@@ -1635,7 +1862,7 @@ class WidgetFormularioPadrao(QStackedWidget):
         key = (msg_id, campo_nome)
         if key in self.field_containers:
             layout, container, desc, msg = self.field_containers[key]
-            if hasattr(desc, 'fields'):  # OneofDescriptor
+            if hasattr(desc, "fields"):  # OneofDescriptor
                 self._render_oneof_inner(msg, desc, layout, container)
             else:
                 self._render_field_inner(msg, desc, layout, container)
@@ -1656,18 +1883,18 @@ class WidgetFormularioPadrao(QStackedWidget):
             texto = f"{total} item cadastrado" if total == 1 else f"{total} itens cadastrados"
             lbl_contador.setText(texto)
 
-    def __init__(self, model: Any, controller: Any, parent: Optional[QWidget] = None) -> None:
+    def __init__(self, model: Any, controller: Any, parent: QWidget | None = None) -> None:
         super().__init__(parent)
         self.model = model
         self.controller = controller
-        self.widget_editor: Optional[Any] = None
-        self.cached_forms: Dict[Any, Any] = {}
+        self.widget_editor: Any | None = None
+        self.cached_forms: dict[Any, Any] = {}
         self.current_node = None
-        self.form_layout: Optional[QVBoxLayout] = None
+        self.form_layout: QVBoxLayout | None = None
         self.atualizador_ui = AtualizadorUI()
-        self.field_containers: Dict[Any, Any] = {}
-        self.card_containers: Dict[Any, Any] = {}
-        
+        self.field_containers: dict[Any, Any] = {}
+        self.card_containers: dict[Any, Any] = {}
+
         self.empty_widget = QWidget()
         empty_layout = QVBoxLayout(self.empty_widget)
         empty_layout.addWidget(QLabel("Selecione um item na árvore para editá-lo."))
@@ -1719,12 +1946,12 @@ class WidgetFormularioPadrao(QStackedWidget):
                 if conteudo_field:
                     if conteudo_field.type == FieldDescriptor.TYPE_MESSAGE:
                         # CopyFrom(instancia vazia) ativa o campo no oneof sem alterar dados
-                        conteudo_sub = getattr(msg, "conteudo")
+                        conteudo_sub = msg.conteudo
                         conteudo_sub.CopyFrom(type(conteudo_sub)())
                         self.inicializar_oneofs(conteudo_sub)
                     else:
                         # campo string (ex: ArquivoMarkdown.conteudo)
-                        setattr(msg, "conteudo", "")
+                        msg.conteudo = ""
                 return  # ONEOF_CONTEUDO tratado; nao usa dialog
 
         for oneof in msg.DESCRIPTOR.oneofs:
@@ -1739,10 +1966,13 @@ class WidgetFormularioPadrao(QStackedWidget):
             default_field = None
             for f in oneof.fields:
                 options = f.GetOptions()
-                if options.HasExtension(croqui_pb2.oneof_default) and options.Extensions[croqui_pb2.oneof_default]:
+                if (
+                    options.HasExtension(croqui_pb2.oneof_default)
+                    and options.Extensions[croqui_pb2.oneof_default]
+                ):
                     default_field = f
                     break
-            
+
             if default_field:
                 if default_field.type == FieldDescriptor.TYPE_MESSAGE:
                     sub = getattr(msg, default_field.name)
@@ -1759,7 +1989,7 @@ class WidgetFormularioPadrao(QStackedWidget):
                     label = ProtobufWidgetFactory.get_label(f)
                     opcoes.append(label)
                     mapa_opcoes[label] = f
-                
+
                 if opcoes:
                     item_escolhido, ok = QInputDialog.getItem(
                         self,
@@ -1767,7 +1997,7 @@ class WidgetFormularioPadrao(QStackedWidget):
                         f"Escolha o tipo para {oneof.name.replace('_', ' ').capitalize()}:",
                         opcoes,
                         0,
-                        False
+                        False,
                     )
                     if ok and item_escolhido:
                         f = mapa_opcoes[item_escolhido]
@@ -1779,14 +2009,13 @@ class WidgetFormularioPadrao(QStackedWidget):
                         else:
                             setattr(msg, f.name, f.default_value)
 
-
     def load_node(self, node: Any) -> None:
         cur_w = self.currentWidget()
         if cur_w and cur_w != self.empty_widget:
             self.atualizador_ui.salvar_estado_foco(cur_w)
-            
+
         self.current_node = node
-        
+
         if not node or not node.message:
             self.setCurrentWidget(self.empty_widget)
             return
@@ -1798,23 +2027,22 @@ class WidgetFormularioPadrao(QStackedWidget):
             if cur_w_cached:
                 self.atualizador_ui.restaurar_estado_foco(cur_w_cached)
             return
-            
+
         scroll_area = QScrollArea()
         scroll_area.setWidgetResizable(True)
         container = QWidget()
         self.form_layout = QVBoxLayout(container)
         scroll_area.setWidget(container)
-        
+
         self.addWidget(scroll_area)
         self.cached_forms[msg_id] = scroll_area
         self.setCurrentWidget(scroll_area)
-            
+
         # Renderiza e exibe o campo do nome do arquivo (caminho_novo) da extensão do Shadow State
         msg_name = node.message.DESCRIPTOR.name
         if msg_name in ("Setor", "Grupo", "ArquivoMarkdown", "ArquivoMapas"):
             self._render_filename_field(node.message, msg_name, node)
-            
-            
+
         # Renderiza recursivamente os campos da mensagem ou o campo ativo de um oneof wrapper de forma direta
         options = node.message.DESCRIPTOR.GetOptions()
         is_oneof = False
@@ -1823,7 +2051,7 @@ class WidgetFormularioPadrao(QStackedWidget):
             formato_msg = options.Extensions[croqui_pb2.mensagem_formato_na_ui]
             is_oneof = formato_msg == croqui_pb2.MensagemFormatoUi.ONEOF
             is_oneof_conteudo = formato_msg == croqui_pb2.MensagemFormatoUi.ONEOF_CONTEUDO
-            
+
         if is_oneof:
             active_field = None
             for oneof in node.message.DESCRIPTOR.oneofs:
@@ -1831,7 +2059,7 @@ class WidgetFormularioPadrao(QStackedWidget):
                 if active_field_name:
                     active_field = node.message.DESCRIPTOR.fields_by_name[active_field_name]
                     break
-                    
+
             if active_field:
                 if active_field.type == FieldDescriptor.TYPE_MESSAGE:
                     sub_msg = getattr(node.message, active_field.name)
@@ -1840,7 +2068,8 @@ class WidgetFormularioPadrao(QStackedWidget):
                     opts = active_field.GetOptions()
                     is_markdown = (
                         opts.HasExtension(croqui_pb2.formato_na_ui)
-                        and opts.Extensions[croqui_pb2.formato_na_ui] == croqui_pb2.CampoFormatoUi.MARKDOWN
+                        and opts.Extensions[croqui_pb2.formato_na_ui]
+                        == croqui_pb2.CampoFormatoUi.MARKDOWN
                     )
                     if is_markdown:
                         w_md = WidgetEditorMarkdown(node.message, active_field, self, parent=self)
@@ -1859,17 +2088,20 @@ class WidgetFormularioPadrao(QStackedWidget):
                     opts = conteudo_field.GetOptions()
                     is_markdown = (
                         opts.HasExtension(croqui_pb2.formato_na_ui)
-                        and opts.Extensions[croqui_pb2.formato_na_ui] == croqui_pb2.CampoFormatoUi.MARKDOWN
+                        and opts.Extensions[croqui_pb2.formato_na_ui]
+                        == croqui_pb2.CampoFormatoUi.MARKDOWN
                     )
                     if is_markdown:
-                        w_cnt_md = WidgetEditorMarkdown(node.message, conteudo_field, self, parent=self)
+                        w_cnt_md = WidgetEditorMarkdown(
+                            node.message, conteudo_field, self, parent=self
+                        )
                         self.form_layout.addWidget(w_cnt_md)
                     else:
                         w_cnt_prim = ProtobufWidgetFactory.create_widget(conteudo_field)
                         self._setup_primitive_widget(w_cnt_prim, node.message, conteudo_field)
                         self.form_layout.addWidget(w_cnt_prim)
                 elif conteudo_field.type == FieldDescriptor.TYPE_MESSAGE:
-                    conteudo_msg = getattr(node.message, "conteudo")
+                    conteudo_msg = node.message.conteudo
                     self._render_message_fields(conteudo_msg, self.form_layout)
             else:
                 self._render_message_fields(node.message, self.form_layout)
@@ -1879,30 +2111,46 @@ class WidgetFormularioPadrao(QStackedWidget):
             self.form_layout.addStretch()
         self.atualizador_ui.restaurar_estado_foco(self)
 
-    def _render_filename_field(self, msg: Any, msg_name: str, node: Optional[Any] = None, parent_layout: Optional[Any] = None) -> None:
+    def _render_filename_field(
+        self, msg: Any, msg_name: str, node: Any | None = None, parent_layout: Any | None = None
+    ) -> None:
         from aresta_api.proto.generated import croqui_pb2
+
         target_layout = parent_layout if parent_layout is not None else self.form_layout
-        
+
         # Encontra o wrapper (ArquivoSetor, ArquivoGrupo, ArquivoMarkdown) que contém a extensão
         wrapper_msg = msg
-        ext_desc: Optional[Any] = None
-        
+        ext_desc: Any | None = None
+
         if msg_name == "Setor" or msg_name == "Grupo":
             if node and node.parent_node and node.parent_node.parent_node:
                 ancestor_node = node.parent_node.parent_node
                 ancestor_msg = ancestor_node.message
                 if ancestor_msg is not None:
                     resolved_ancestor = ancestor_node._resolve_transparency(ancestor_msg)
-                    if hasattr(resolved_ancestor, "setores_ou_grupos") and node.index_in_repeated is not None:
+                    if (
+                        hasattr(resolved_ancestor, "setores_ou_grupos")
+                        and node.index_in_repeated is not None
+                    ):
                         if 0 <= node.index_in_repeated < len(resolved_ancestor.setores_ou_grupos):
                             sg = resolved_ancestor.setores_ou_grupos[node.index_in_repeated]
-                            if msg_name == "Setor" and hasattr(sg, "HasField") and sg.HasField("setor"):
+                            if (
+                                msg_name == "Setor"
+                                and hasattr(sg, "HasField")
+                                and sg.HasField("setor")
+                            ):
                                 wrapper_msg = sg.setor
                                 ext_desc = croqui_pb2.ArquivoSetor.ext_metadados_arquivo
-                            elif msg_name == "Grupo" and hasattr(sg, "HasField") and sg.HasField("grupo"):
+                            elif (
+                                msg_name == "Grupo"
+                                and hasattr(sg, "HasField")
+                                and sg.HasField("grupo")
+                            ):
                                 wrapper_msg = sg.grupo
                                 ext_desc = croqui_pb2.ArquivoGrupo.ext_metadados_arquivo
-                    elif hasattr(resolved_ancestor, "setores") and node.index_in_repeated is not None:
+                    elif (
+                        hasattr(resolved_ancestor, "setores") and node.index_in_repeated is not None
+                    ):
                         if 0 <= node.index_in_repeated < len(resolved_ancestor.setores):
                             s = resolved_ancestor.setores[node.index_in_repeated]
                             if msg_name == "Setor":
@@ -1912,36 +2160,44 @@ class WidgetFormularioPadrao(QStackedWidget):
             ext_desc = croqui_pb2.ArquivoMarkdown.ext_metadados_arquivo
         elif msg_name == "ArquivoMapas":
             ext_desc = croqui_pb2.ArquivoMapas.ext_metadados_arquivo
-            
+
         if not ext_desc or (wrapper_msg == msg and msg_name in ("Setor", "Grupo")):
             # Se não achou a extensão ou o wrapper apropriado, não renderiza o campo (acontece em testes isolados)
             return
-            
+
         row_layout = QHBoxLayout()
         label = QLabel("Nome do arquivo:")
         label.setStyleSheet("font-weight: bold; color: #555;")
-        
-        current_filename = wrapper_msg.Extensions[ext_desc].caminho_novo if wrapper_msg.HasExtension(ext_desc) else ""
-        
+
+        current_filename = (
+            wrapper_msg.Extensions[ext_desc].caminho_novo
+            if wrapper_msg.HasExtension(ext_desc)
+            else ""
+        )
+
         edit = QLineEdit(current_filename)
         self._aplicar_largura_maxima(edit)
         if not current_filename:
             edit.setPlaceholderText("(nome será gerado automaticamente ao salvar)")
-            
+
         edit.setProperty("protobuf_field", "__filename__")
         edit.setProperty("protobuf_msg_id", _get_id(wrapper_msg))
-        
+
         def on_editing_finished() -> None:
             text = edit.text().strip()
-            old_val = wrapper_msg.Extensions[ext_desc].caminho_novo if wrapper_msg.HasExtension(ext_desc) else ""
+            old_val = (
+                wrapper_msg.Extensions[ext_desc].caminho_novo
+                if wrapper_msg.HasExtension(ext_desc)
+                else ""
+            )
             if text != old_val:
                 self.controller.alterar_metadados_caminho_novo(wrapper_msg, ext_desc, old_val, text)
-            
+
         edit.editingFinished.connect(on_editing_finished)
-        
+
         row_layout.addWidget(label)
         row_layout.addWidget(edit, 1)
-        
+
         if target_layout:
             target_layout.addLayout(row_layout)
             line = QFrame()
@@ -1950,10 +2206,12 @@ class WidgetFormularioPadrao(QStackedWidget):
             target_layout.addWidget(line)
             target_layout.addSpacing(10)
 
-    def _render_message_fields(self, msg: Any, parent_layout: Any, extra_path: Optional[str] = None) -> None:
+    def _render_message_fields(
+        self, msg: Any, parent_layout: Any, extra_path: str | None = None
+    ) -> None:
         if not msg:
             return
-            
+
         options = msg.DESCRIPTOR.GetOptions()
         if options.HasExtension(croqui_pb2.mensagem_formato_na_ui):
             formato_msg = options.Extensions[croqui_pb2.mensagem_formato_na_ui]
@@ -1963,41 +2221,47 @@ class WidgetFormularioPadrao(QStackedWidget):
                 conteudo_field = msg.DESCRIPTOR.fields_by_name.get("conteudo")
                 if conteudo_field:
                     if conteudo_field.type == FieldDescriptor.TYPE_MESSAGE:
-                        conteudo_msg = getattr(msg, "conteudo")
+                        conteudo_msg = msg.conteudo
                         self._render_message_fields(conteudo_msg, parent_layout, extra_path)
                     else:
                         self._render_field_container(msg, conteudo_field, parent_layout)
                 else:
-                    parent_layout.addWidget(QLabel("ERRO: Campo 'conteudo' não encontrado na mensagem ONEOF_CONTEUDO."))
+                    parent_layout.addWidget(
+                        QLabel("ERRO: Campo 'conteudo' não encontrado na mensagem ONEOF_CONTEUDO.")
+                    )
                 return
             elif formato_msg == croqui_pb2.MensagemFormatoUi.MAPA:
                 btn_mapa = QPushButton("Abrir no Editor de Mapas")
-                btn_mapa.setStyleSheet("padding: 8px; font-weight: bold; background-color: #4CAF50; color: white;")
-                
+                btn_mapa.setStyleSheet(
+                    "padding: 8px; font-weight: bold; background-color: #4CAF50; color: white;"
+                )
+
                 def go_to_map() -> None:
                     if self.current_node and self.controller:
                         path = "page:mapas/" + get_node_path(self.current_node)
                         if extra_path:
                             path += "/" + extra_path
                         self.controller.set_contexto(path)
-                        if hasattr(self, 'model'):
+                        if hasattr(self, "model"):
                             self.model.notificar_foco_requisitado(path)
-                        
+
                 btn_mapa.clicked.connect(go_to_map)
                 parent_layout.addWidget(btn_mapa)
                 return
             elif formato_msg == croqui_pb2.MensagemFormatoUi.COORDENADA:
-                widget_coord = WidgetMensagemCoordenada(msg, controller=self.controller, model=self.model, parent=self)
+                widget_coord = WidgetMensagemCoordenada(
+                    msg, controller=self.controller, model=self.model, parent=self
+                )
                 parent_layout.addWidget(widget_coord)
                 return
-            
+
         # Mapeia campos contidos em oneofs para não renderizá-los duplicados
         oneofs = msg.DESCRIPTOR.oneofs
         oneof_fields = set()
         for oneof in oneofs:
             for f in oneof.fields:
                 oneof_fields.add(f.name)
-                
+
         # Coleta campos repetidos de subelementos para renderizar como cartões no rodapé
         campos_cartoes = []
         for field in msg.DESCRIPTOR.fields:
@@ -2016,21 +2280,21 @@ class WidgetFormularioPadrao(QStackedWidget):
         for oneof in msg.DESCRIPTOR.oneofs:
             self._render_oneof_container(msg, oneof, parent_layout, extra_path)
             parent_layout.addSpacing(10)
-            
+
         # 2. Segrega os demais campos individuais em principais e avançados
         campos_principais = []
         campos_avancados = []
         for field in msg.DESCRIPTOR.fields:
             if field.name in oneof_fields:
                 continue
-            
+
             # Filtra campos marcados com formato_na_ui = INVISIVEL
             campo_opts = field.GetOptions()
             if campo_opts.HasExtension(croqui_pb2.formato_na_ui):
                 formato_campo = campo_opts.Extensions[croqui_pb2.formato_na_ui]
                 if formato_campo == croqui_pb2.CampoFormatoUi.INVISIVEL:
                     continue
-                
+
             # Ignora sub-mensagens que são exibidas separadamente na árvore (SEPARADO, ONEOF ou ONEOF_CONTEUDO)
             if field.type == FieldDescriptor.TYPE_MESSAGE:
                 options = field.message_type.GetOptions()
@@ -2041,10 +2305,10 @@ class WidgetFormularioPadrao(QStackedWidget):
                         croqui_pb2.MensagemFormatoUi.ONEOF,
                     ):
                         continue
-            
+
             if field.containing_oneof:
                 continue
-                
+
             if _eh_campo_avancado(field):
                 campos_avancados.append(field)
             else:
@@ -2064,20 +2328,26 @@ class WidgetFormularioPadrao(QStackedWidget):
         # 4. Renderiza seção de campos avançados (se houver)
         if campos_avancados:
             total_avancados = len(campos_avancados)
-            preenchidos_avancados = sum(1 for f in campos_avancados if _campo_esta_preenchido(msg, f))
+            preenchidos_avancados = sum(
+                1 for f in campos_avancados if _campo_esta_preenchido(msg, f)
+            )
             secao_avancada = WidgetSecaoAvancada(
                 total_campos=total_avancados,
                 campos_preenchidos=preenchidos_avancados,
                 iniciar_expandido=self.obter_estado_avancado_expandido(),
                 ao_alternar_expansao=self.definir_estado_avancado_expandido,
-                parent=self
+                parent=self,
             )
             parent_layout.addWidget(secao_avancada)
             for field in campos_avancados:
                 if field.is_repeated:
-                    self._render_repeated_field(msg, field, secao_avancada.content_layout, extra_path)
+                    self._render_repeated_field(
+                        msg, field, secao_avancada.content_layout, extra_path
+                    )
                 else:
-                    self._render_field_container(msg, field, secao_avancada.content_layout, extra_path)
+                    self._render_field_container(
+                        msg, field, secao_avancada.content_layout, extra_path
+                    )
                 secao_avancada.content_layout.addSpacing(10)
             parent_layout.addSpacing(10)
 
@@ -2090,9 +2360,9 @@ class WidgetFormularioPadrao(QStackedWidget):
 
     def _renderizar_cartao_subelementos(self, msg: Any, field: Any, parent_layout: Any) -> None:
         """Renderiza um cartão contextual e de ação rápida no rodapé para coleções de subelementos."""
-        from editor.views.protobuf_widget_factory import ProtobufWidgetFactory
         import re
-        from google.protobuf.descriptor import FieldDescriptor
+
+        from editor.views.protobuf_widget_factory import ProtobufWidgetFactory
 
         card = QFrame()
         card.setFrameShape(QFrame.Shape.StyledPanel)
@@ -2113,11 +2383,19 @@ class WidgetFormularioPadrao(QStackedWidget):
         total_itens = len(container)
 
         lbl_titulo = QLabel(titulo_colecao)
-        lbl_titulo.setStyleSheet("font-weight: bold; font-size: 10pt; color: #2b579a; border: none; background: transparent;")
+        lbl_titulo.setStyleSheet(
+            "font-weight: bold; font-size: 10pt; color: #2b579a; border: none; background: transparent;"
+        )
 
-        texto_contador = f"{total_itens} item cadastrado" if total_itens == 1 else f"{total_itens} itens cadastrados"
+        texto_contador = (
+            f"{total_itens} item cadastrado"
+            if total_itens == 1
+            else f"{total_itens} itens cadastrados"
+        )
         lbl_contador = QLabel(texto_contador)
-        lbl_contador.setStyleSheet("color: #666; font-size: 9pt; border: none; background: transparent;")
+        lbl_contador.setStyleSheet(
+            "color: #666; font-size: 9pt; border: none; background: transparent;"
+        )
 
         card_layout.addWidget(lbl_titulo)
         card_layout.addWidget(lbl_contador)
@@ -2126,7 +2404,7 @@ class WidgetFormularioPadrao(QStackedWidget):
         self.card_containers[(_get_id(msg), field.name)] = (lbl_contador, msg, field)
 
         # Determina o rótulo amigável do botão de adição
-        if hasattr(field, 'message_type') and field.message_type:
+        if hasattr(field, "message_type") and field.message_type:
             nome_tipo = field.message_type.name
             if nome_tipo.startswith("Arquivo") and len(nome_tipo) > 7:
                 nome_tipo = nome_tipo[7:]
@@ -2136,7 +2414,9 @@ class WidgetFormularioPadrao(QStackedWidget):
             elif nome_tipo == "SetorOuGrupo":
                 label_tipo = "Setor ou Grupo"
             else:
-                label_tipo = re.sub(r'(?<=[a-z\u00e0-\u00fa])(?=[A-Z\u00c0-\u00da])', ' ', nome_tipo)
+                label_tipo = re.sub(
+                    r"(?<=[a-z\u00e0-\u00fa])(?=[A-Z\u00c0-\u00da])", " ", nome_tipo
+                )
         else:
             label_tipo = titulo_colecao
 
@@ -2158,15 +2438,24 @@ class WidgetFormularioPadrao(QStackedWidget):
 
         parent_layout.addWidget(card)
 
-    def _render_oneof_container(self, msg: Any, oneof: Any, parent_layout: Any, extra_path: Optional[str] = None) -> None:
+    def _render_oneof_container(
+        self, msg: Any, oneof: Any, parent_layout: Any, extra_path: str | None = None
+    ) -> None:
         container = QWidget()
         container_layout = QVBoxLayout(container)
         container_layout.setContentsMargins(0, 0, 0, 0)
         parent_layout.addWidget(container)
-        self.field_containers[(_get_id(msg), oneof.name)] = (container_layout, container, oneof, msg)
+        self.field_containers[(_get_id(msg), oneof.name)] = (
+            container_layout,
+            container,
+            oneof,
+            msg,
+        )
         self._render_oneof_inner(msg, oneof, container_layout, container, extra_path)
 
-    def _render_oneof_inner(self, msg: Any, oneof: Any, layout: Any, container: Any, extra_path: Optional[str] = None) -> None:
+    def _render_oneof_inner(
+        self, msg: Any, oneof: Any, layout: Any, container: Any, extra_path: str | None = None
+    ) -> None:
         while layout.count():
             item = layout.takeAt(0)
             widget = item.widget()
@@ -2177,20 +2466,20 @@ class WidgetFormularioPadrao(QStackedWidget):
                 layout_cleaner.hide()
                 layout_cleaner.setLayout(item.layout())
                 layout_cleaner.deleteLater()
-        
+
         header_layout = QHBoxLayout()
-        
+
         # Rótulo amigável para o oneof
         oneof_label = QLabel(oneof.name.replace("_", " ").capitalize())
         oneof_label.setStyleSheet("font-weight: bold; font-size: 10pt; color: #2b579a;")
         header_layout.addWidget(oneof_label)
-        
+
         combo = ComboBoxSemScroll()
         combo.addItem("Não selecionado", None)
         for f in oneof.fields:
             label = ProtobufWidgetFactory.get_label(f)
             combo.addItem(label, f.name)
-            
+
         # Define seleção atual
         active_field_name = msg.WhichOneof(oneof.name)
         if active_field_name:
@@ -2199,24 +2488,26 @@ class WidgetFormularioPadrao(QStackedWidget):
                 combo.setCurrentIndex(idx)
         else:
             combo.setCurrentIndex(0)
-            
+
         header_layout.addWidget(combo)
         layout.addLayout(header_layout)
-        
+
         # Conecta sinal de mudança do combobox do oneof
-        def make_on_oneof_changed(o: Any = oneof, c: Any = combo, m: Any = msg) -> Callable[[], None]:
+        def make_on_oneof_changed(
+            o: Any = oneof, c: Any = combo, m: Any = msg
+        ) -> Callable[[], None]:
             def on_oneof_changed() -> None:
                 selected_field_name = c.currentData()
                 current_active = m.WhichOneof(o.name)
                 if selected_field_name == current_active:
                     return
-                    
+
                 nome_antigo = current_active
                 valor_antigo = None
                 if nome_antigo:
-                    f_antigo = m.DESCRIPTOR.fields_by_name[nome_antigo]
+                    m.DESCRIPTOR.fields_by_name[nome_antigo]
                     valor_antigo = getattr(m, nome_antigo)
-                
+
                 nome_novo = selected_field_name
                 valor_novo = None
                 if nome_novo:
@@ -2228,21 +2519,24 @@ class WidgetFormularioPadrao(QStackedWidget):
                     else:
                         valor_novo = f_novo.default_value
 
-                self.controller.alterar_oneof(m, o.name, nome_antigo, valor_antigo, nome_novo, valor_novo)
-                
+                self.controller.alterar_oneof(
+                    m, o.name, nome_antigo, valor_antigo, nome_novo, valor_novo
+                )
+
                 self._mark_dirty()
                 self._notify_tree_changed()
                 self._render_oneof_inner(m, o, layout, container, extra_path)
+
             return on_oneof_changed
-            
+
         combo.currentIndexChanged.connect(make_on_oneof_changed())
-        
+
         # Renderiza inline o campo ativo do oneof
         if active_field_name:
             f = msg.DESCRIPTOR.fields_by_name[active_field_name]
             if f.type == FieldDescriptor.TYPE_MESSAGE:
                 sub_msg = getattr(msg, active_field_name)
-                
+
                 # Borda externa delimitando a sub-mensagem inline
                 frame = QFrame()
                 frame.setObjectName("SubMessageFrame")
@@ -2256,7 +2550,7 @@ class WidgetFormularioPadrao(QStackedWidget):
                 frame_layout = QVBoxLayout(frame)
                 frame_layout.setContentsMargins(10, 10, 10, 10)
                 frame_layout.setSpacing(6)
-                
+
                 self._render_message_fields(sub_msg, frame_layout, extra_path)
                 layout.addWidget(frame)
             else:
@@ -2264,9 +2558,12 @@ class WidgetFormularioPadrao(QStackedWidget):
                 is_markdown = False
                 if opts.HasExtension(croqui_pb2.mime_type):
                     is_markdown = opts.Extensions[croqui_pb2.mime_type] == "text/markdown"
-                if opts.HasExtension(croqui_pb2.conteudo_markdown) and opts.Extensions[croqui_pb2.conteudo_markdown]:
+                if (
+                    opts.HasExtension(croqui_pb2.conteudo_markdown)
+                    and opts.Extensions[croqui_pb2.conteudo_markdown]
+                ):
                     is_markdown = True
-                    
+
                 if is_markdown:
                     widget = WidgetEditorMarkdown(msg, f, self, parent=self)
                     layout.addWidget(widget)
@@ -2275,15 +2572,24 @@ class WidgetFormularioPadrao(QStackedWidget):
                     self._setup_primitive_widget(widget, msg, f)
                     layout.addWidget(widget)
 
-    def _render_field_container(self, msg: Any, field: Any, parent_layout: Any, extra_path: Optional[str] = None) -> None:
+    def _render_field_container(
+        self, msg: Any, field: Any, parent_layout: Any, extra_path: str | None = None
+    ) -> None:
         container = QWidget()
         container_layout = QVBoxLayout(container)
         container_layout.setContentsMargins(0, 0, 0, 0)
         parent_layout.addWidget(container)
-        self.field_containers[(_get_id(msg), field.name)] = (container_layout, container, field, msg)
+        self.field_containers[(_get_id(msg), field.name)] = (
+            container_layout,
+            container,
+            field,
+            msg,
+        )
         self._render_field_inner(msg, field, container_layout, container, extra_path)
 
-    def _render_field_inner(self, msg: Any, field: Any, layout: Any, container: Any, extra_path: Optional[str] = None) -> None:
+    def _render_field_inner(
+        self, msg: Any, field: Any, layout: Any, container: Any, extra_path: str | None = None
+    ) -> None:
         while layout.count():
             item = layout.takeAt(0)
             widget = item.widget()
@@ -2300,7 +2606,10 @@ class WidgetFormularioPadrao(QStackedWidget):
         # Filtra campos marcados como INVISIVEL
         campo_opts = field.GetOptions()
         if campo_opts.HasExtension(croqui_pb2.formato_na_ui):
-            if campo_opts.Extensions[croqui_pb2.formato_na_ui] == croqui_pb2.CampoFormatoUi.INVISIVEL:
+            if (
+                campo_opts.Extensions[croqui_pb2.formato_na_ui]
+                == croqui_pb2.CampoFormatoUi.INVISIVEL
+            ):
                 return
 
         # Cria o card (QFrame) que envolve o campo
@@ -2319,12 +2628,12 @@ class WidgetFormularioPadrao(QStackedWidget):
         card_layout.setSpacing(4)
 
         header_layout = QHBoxLayout()
-        
+
         label_text = ProtobufWidgetFactory.get_label(field)
         label_widget = QLabel(label_text)
         label_widget.setStyleSheet("font-weight: bold; color: #333333;")
         header_layout.addWidget(label_widget)
-        
+
         tooltip = ProtobufWidgetFactory.get_tooltip(field)
         if tooltip:
             desc_label = QLabel(tooltip)
@@ -2332,30 +2641,30 @@ class WidgetFormularioPadrao(QStackedWidget):
             desc_label.setWordWrap(True)
         else:
             desc_label = None
-            
+
         header_layout.addStretch()
         card_layout.addLayout(header_layout)
         if desc_label:
             card_layout.addWidget(desc_label)
-            
+
         if field.type == FieldDescriptor.TYPE_MESSAGE:
             sub_msg = getattr(msg, field.name)
-            
+
             new_path = f"{extra_path}/{field.name}" if extra_path else field.name
-            
+
             # Resolução de transparência inline para campos ONEOF_CONTEUDO e INLINE
             options = field.message_type.GetOptions()
             if options.HasExtension(croqui_pb2.mensagem_formato_na_ui):
                 formato = options.Extensions[croqui_pb2.mensagem_formato_na_ui]
                 if formato == croqui_pb2.MensagemFormatoUi.ONEOF_CONTEUDO:
                     if sub_msg.HasField("conteudo"):
-                        sub_msg = getattr(sub_msg, "conteudo")
+                        sub_msg = sub_msg.conteudo
                         new_path += "/conteudo"
                 elif formato == croqui_pb2.MensagemFormatoUi.INLINE:
                     # Renderiza os campos da mensagem inline diretamente no layout sem moldura redundante
                     self._render_message_fields(sub_msg, layout, new_path)
                     return
-                            
+
             frame = QFrame()
             frame.setObjectName("SubMessageFrame")
             frame.setStyleSheet("""
@@ -2368,7 +2677,7 @@ class WidgetFormularioPadrao(QStackedWidget):
             frame_layout = QVBoxLayout(frame)
             frame_layout.setContentsMargins(10, 10, 10, 10)
             frame_layout.setSpacing(6)
-            
+
             self._render_message_fields(sub_msg, frame_layout, new_path)
             card_layout.addWidget(frame)
         else:
@@ -2376,9 +2685,12 @@ class WidgetFormularioPadrao(QStackedWidget):
             is_markdown = False
             if opts.HasExtension(croqui_pb2.mime_type):
                 is_markdown = opts.Extensions[croqui_pb2.mime_type] == "text/markdown"
-            if opts.HasExtension(croqui_pb2.conteudo_markdown) and opts.Extensions[croqui_pb2.conteudo_markdown]:
+            if (
+                opts.HasExtension(croqui_pb2.conteudo_markdown)
+                and opts.Extensions[croqui_pb2.conteudo_markdown]
+            ):
                 is_markdown = True
-                
+
             if is_markdown:
                 widget = WidgetEditorMarkdown(msg, field, self, parent=self)
                 card_layout.addWidget(widget)
@@ -2387,7 +2699,7 @@ class WidgetFormularioPadrao(QStackedWidget):
                 self._aplicar_largura_maxima(widget)
                 self._setup_primitive_widget(widget, msg, field)
                 card_layout.addWidget(widget)
-                
+
         layout.addWidget(card)
 
     def _aplicar_largura_maxima(self, widget: QWidget) -> None:
@@ -2402,8 +2714,9 @@ class WidgetFormularioPadrao(QStackedWidget):
             _garantir_filtro_undo_redo(widget)
             widget.setMaximumWidth(450)
 
-
-    def _render_repeated_field(self, msg: Any, field: Any, parent_layout: Any, extra_path: Optional[str] = None) -> None:
+    def _render_repeated_field(
+        self, msg: Any, field: Any, parent_layout: Any, extra_path: str | None = None
+    ) -> None:
         new_path = f"{extra_path}/{field.name}" if extra_path else field.name
         container_widget = ContainerRepeatedWidget(msg, field, self, extra_path=new_path)
         parent_layout.addWidget(container_widget)
@@ -2418,9 +2731,9 @@ class WidgetFormularioPadrao(QStackedWidget):
         widget.setProperty("protobuf_field", field.name)
         widget.setProperty("protobuf_msg_id", _get_id(msg))
         self._aplicar_largura_maxima(widget)
-        
+
         has_val = self._obter_has_field(msg, field.name)
-        
+
         widget.blockSignals(True)
         try:
             if isinstance(widget, QLineEdit):
@@ -2476,9 +2789,12 @@ class WidgetFormularioPadrao(QStackedWidget):
                     widget.definir_caminho_atual("")
         finally:
             widget.blockSignals(False)
-            
+
         if isinstance(widget, QLineEdit):
-            def make_on_changed(w: Any = widget, m: Any = msg, f: Any = field) -> Callable[..., None]:
+
+            def make_on_changed(
+                w: Any = widget, m: Any = msg, f: Any = field
+            ) -> Callable[..., None]:
                 def on_changed() -> None:
                     val_antigo = getattr(m, f.name) if self._obter_has_field(m, f.name) else None
                     text = w.text()
@@ -2492,53 +2808,84 @@ class WidgetFormularioPadrao(QStackedWidget):
                                 return
                     else:
                         val_novo = text if text != "" else None
-                        
+
                     if val_antigo != val_novo:
                         session_id = w.property("_session_id")
                         self.controller.alterar_primitivo(
-                            m, f.name, val_antigo, val_novo, pode_mesclar=True, session_id=session_id
+                            m,
+                            f.name,
+                            val_antigo,
+                            val_novo,
+                            pode_mesclar=True,
+                            session_id=session_id,
                         )
                         self._mark_dirty()
                         self._notify_tree_changed()
+
                 return on_changed
+
             widget.textChanged.connect(make_on_changed())
-            
+
         elif isinstance(widget, QSpinBox):
-            def make_on_changed(w: Any = widget, m: Any = msg, f: Any = field) -> Callable[..., None]:
+
+            def make_on_changed(
+                w: Any = widget, m: Any = msg, f: Any = field
+            ) -> Callable[..., None]:
                 def on_changed(new_val: Any = None) -> None:
                     val_antigo = getattr(m, f.name) if self._obter_has_field(m, f.name) else None
-                    val_novo = None if new_val == ProtobufWidgetFactory.VALOR_INTEIRO_NULO else new_val
+                    val_novo = (
+                        None if new_val == ProtobufWidgetFactory.VALOR_INTEIRO_NULO else new_val
+                    )
                     if val_antigo != val_novo:
-                        self.controller.alterar_primitivo(m, f.name, val_antigo, val_novo, pode_mesclar=True)
+                        self.controller.alterar_primitivo(
+                            m, f.name, val_antigo, val_novo, pode_mesclar=True
+                        )
                         self._mark_dirty()
                         self._notify_tree_changed()
+
                 return on_changed
+
             widget.valueChanged.connect(make_on_changed())
-            
+
         elif isinstance(widget, QDoubleSpinBox):
-            def make_on_changed(w: Any = widget, m: Any = msg, f: Any = field) -> Callable[..., None]:
+
+            def make_on_changed(
+                w: Any = widget, m: Any = msg, f: Any = field
+            ) -> Callable[..., None]:
                 def on_changed(new_val: Any = None) -> None:
                     val_antigo = getattr(m, f.name) if self._obter_has_field(m, f.name) else None
                     if val_antigo != new_val:
-                        self.controller.alterar_primitivo(m, f.name, val_antigo, new_val, pode_mesclar=True)
+                        self.controller.alterar_primitivo(
+                            m, f.name, val_antigo, new_val, pode_mesclar=True
+                        )
                         self._mark_dirty()
                         self._notify_tree_changed()
+
                 return on_changed
+
             widget.valueChanged.connect(make_on_changed())
-            
+
         elif isinstance(widget, QCheckBox):
-            def make_on_changed(w: Any = widget, m: Any = msg, f: Any = field) -> Callable[..., None]:
+
+            def make_on_changed(
+                w: Any = widget, m: Any = msg, f: Any = field
+            ) -> Callable[..., None]:
                 def on_changed(checked: bool) -> None:
                     val_antigo = getattr(m, f.name) if self._obter_has_field(m, f.name) else None
                     if val_antigo != checked:
                         self.controller.alterar_primitivo(m, f.name, val_antigo, checked)
                         self._mark_dirty()
                         self._notify_tree_changed()
+
                 return on_changed
+
             widget.toggled.connect(make_on_changed())
-            
+
         elif isinstance(widget, QComboBox):
-            def make_on_changed(w: Any = widget, m: Any = msg, f: Any = field) -> Callable[..., None]:
+
+            def make_on_changed(
+                w: Any = widget, m: Any = msg, f: Any = field
+            ) -> Callable[..., None]:
                 def on_changed() -> None:
                     new_val = w.currentData()
                     val_antigo = getattr(m, f.name) if self._obter_has_field(m, f.name) else None
@@ -2546,66 +2893,109 @@ class WidgetFormularioPadrao(QStackedWidget):
                         self.controller.alterar_primitivo(m, f.name, val_antigo, new_val)
                         self._mark_dirty()
                         self._notify_tree_changed()
+
                 return on_changed
+
             widget.currentIndexChanged.connect(make_on_changed())
 
         elif isinstance(widget, WidgetCampoCoordenadaE7):
-            def make_on_changed(w: Any = widget, m: Any = msg, f: Any = field) -> Callable[..., None]:
-                def on_changed(new_val_e7: Optional[int]) -> None:
+
+            def make_on_changed(
+                w: Any = widget, m: Any = msg, f: Any = field
+            ) -> Callable[..., None]:
+                def on_changed(new_val_e7: int | None) -> None:
                     val_antigo = getattr(m, f.name) if self._obter_has_field(m, f.name) else None
                     if val_antigo != new_val_e7:
-                        self.controller.alterar_primitivo(m, f.name, val_antigo, new_val_e7, pode_mesclar=True)
+                        self.controller.alterar_primitivo(
+                            m, f.name, val_antigo, new_val_e7, pode_mesclar=True
+                        )
                         self._mark_dirty()
                         self._notify_tree_changed()
+
                 return on_changed
+
             widget.valor_alterado_e7.connect(make_on_changed())
 
-            def make_on_par_coords(w: Any = widget, m: Any = msg, f: Any = field) -> Callable[[int, int], None]:
+            def make_on_par_coords(
+                w: Any = widget, m: Any = msg, f: Any = field
+            ) -> Callable[[int, int], None]:
                 def on_par(lat_e7: int, lon_e7: int) -> None:
                     if hasattr(m, "latitude") and hasattr(m, "longitude"):
-                        lat_antiga = getattr(m, "latitude") if self._obter_has_field(m, "latitude") else None
-                        lon_antiga = getattr(m, "longitude") if self._obter_has_field(m, "longitude") else None
+                        lat_antiga = m.latitude if self._obter_has_field(m, "latitude") else None
+                        lon_antiga = m.longitude if self._obter_has_field(m, "longitude") else None
                         if lat_antiga != lat_e7:
-                            self.controller.alterar_primitivo(m, "latitude", lat_antiga, lat_e7, pode_mesclar=True)
+                            self.controller.alterar_primitivo(
+                                m, "latitude", lat_antiga, lat_e7, pode_mesclar=True
+                            )
                         if lon_antiga != lon_e7:
-                            self.controller.alterar_primitivo(m, "longitude", lon_antiga, lon_e7, pode_mesclar=True)
+                            self.controller.alterar_primitivo(
+                                m, "longitude", lon_antiga, lon_e7, pode_mesclar=True
+                            )
                         self._mark_dirty()
                         self._notify_tree_changed()
+
                 return on_par
+
             widget.ao_receber_par_coordenadas = make_on_par_coords()
 
         elif isinstance(widget, WidgetCampoImagem):
-            def make_on_imagem_alterada(w: Any = widget, m: Any = msg, f: Any = field) -> Callable[[str, bytes], None]:
+
+            def make_on_imagem_alterada(
+                w: Any = widget, m: Any = msg, f: Any = field
+            ) -> Callable[[str, bytes], None]:
                 def on_alterada(caminho_novo: str, bytes_novos: bytes) -> None:
-                    caminho_antigo = getattr(m, f.name) if self._obter_has_field(m, f.name) else None
-                    bytes_antigo = self.model.obter_bytes_imagem(caminho_antigo) if (self.model and caminho_antigo) else None
-                    self.controller.alterar_campo_imagem(m, f.name, caminho_antigo, bytes_antigo, caminho_novo, bytes_novos)
+                    caminho_antigo = (
+                        getattr(m, f.name) if self._obter_has_field(m, f.name) else None
+                    )
+                    bytes_antigo = (
+                        self.model.obter_bytes_imagem(caminho_antigo)
+                        if (self.model and caminho_antigo)
+                        else None
+                    )
+                    self.controller.alterar_campo_imagem(
+                        m, f.name, caminho_antigo, bytes_antigo, caminho_novo, bytes_novos
+                    )
                     self._mark_dirty()
                     self._notify_tree_changed()
+
                 return on_alterada
+
             widget.imagem_alterada.connect(make_on_imagem_alterada())
 
-            def make_on_imagem_removida(w: Any = widget, m: Any = msg, f: Any = field) -> Callable[[], None]:
+            def make_on_imagem_removida(
+                w: Any = widget, m: Any = msg, f: Any = field
+            ) -> Callable[[], None]:
                 def on_removida() -> None:
-                    caminho_antigo = getattr(m, f.name) if self._obter_has_field(m, f.name) else None
-                    bytes_antigo = self.model.obter_bytes_imagem(caminho_antigo) if (self.model and caminho_antigo) else None
-                    self.controller.alterar_campo_imagem(m, f.name, caminho_antigo, bytes_antigo, "", None)
+                    caminho_antigo = (
+                        getattr(m, f.name) if self._obter_has_field(m, f.name) else None
+                    )
+                    bytes_antigo = (
+                        self.model.obter_bytes_imagem(caminho_antigo)
+                        if (self.model and caminho_antigo)
+                        else None
+                    )
+                    self.controller.alterar_campo_imagem(
+                        m, f.name, caminho_antigo, bytes_antigo, "", None
+                    )
                     self._mark_dirty()
                     self._notify_tree_changed()
+
                 return on_removida
+
             widget.imagem_removida.connect(make_on_imagem_removida())
 
             def make_on_abrir_editor(w: Any = widget) -> Callable[[str], None]:
                 def on_abrir(caminho_rel: str) -> None:
-                    if hasattr(self, 'model') and self.model:
+                    if hasattr(self, "model") and self.model:
                         path = f"page:imagens/{caminho_rel}"
                         self.model.notificar_foco_requisitado(path)
+
                 return on_abrir
+
             widget.abrir_no_editor.connect(make_on_abrir_editor())
 
     def _mark_dirty(self) -> None:
-        window = self.window()
-
+        self.window()
 
     def _notify_tree_changed(self) -> None:
         pass
@@ -2613,10 +3003,11 @@ class WidgetFormularioPadrao(QStackedWidget):
 
 class ArvoreDadosTreeView(QTreeView):
     """QTreeView customizada com interceptação de drag-and-drop para reordenação e migração."""
-    def __init__(self, widget_editor: Any, parent: Optional[QWidget] = None) -> None:
+
+    def __init__(self, widget_editor: Any, parent: QWidget | None = None) -> None:
         super().__init__(parent)
         self.widget_editor = widget_editor
-        self._idx_arrastado: Optional[QModelIndex] = None
+        self._idx_arrastado: QModelIndex | None = None
         self.setDragEnabled(True)
         self.setAcceptDrops(True)
         self.setDropIndicatorShown(True)
@@ -2629,13 +3020,20 @@ class ArvoreDadosTreeView(QTreeView):
         super().startDrag(supportedActions)
 
     def _obter_idx_origem(self, event: Any) -> QModelIndex:
-        if hasattr(self, "_idx_arrastado") and self._idx_arrastado and self._idx_arrastado.isValid():
+        if (
+            hasattr(self, "_idx_arrastado")
+            and self._idx_arrastado
+            and self._idx_arrastado.isValid()
+        ):
             return self._idx_arrastado
         mime = event.mimeData()
         if mime and mime.hasFormat(ProtobufTreeViewAdapter.MIME_TYPE):
             import json
+
             try:
-                dados = json.loads(bytes(mime.data(ProtobufTreeViewAdapter.MIME_TYPE)).decode("utf-8"))
+                dados = json.loads(
+                    bytes(mime.data(ProtobufTreeViewAdapter.MIME_TYPE)).decode("utf-8")
+                )
                 caminho = dados.get("caminho")
                 tree_model = self.model()
                 if caminho and hasattr(tree_model, "find_index_for_path"):
@@ -2681,16 +3079,25 @@ class ArvoreDadosTreeView(QTreeView):
             return
 
         from editor.core.migracao_setor import validar_movimento_permitido
-        eh_sobre = (posicao_drop == QAbstractItemView.DropIndicatorPosition.OnItem)
+
+        eh_sobre = posicao_drop == QAbstractItemView.DropIndicatorPosition.OnItem
         msg_origem = node_origem._resolve_transparency(node_origem.message)
-        tipo_origem = msg_origem.DESCRIPTOR.name.lower() if msg_origem and hasattr(msg_origem, "DESCRIPTOR") else "expando"
+        tipo_origem = (
+            msg_origem.DESCRIPTOR.name.lower()
+            if msg_origem and hasattr(msg_origem, "DESCRIPTOR")
+            else "expando"
+        )
         if getattr(node_destino, "is_expando", False):
             tipo_destino = "expando"
         elif getattr(node_destino, "eh_no_adicao", False):
             tipo_destino = "no_adicao"
         elif node_destino.message is not None:
             msg_dest = node_destino._resolve_transparency(node_destino.message)
-            tipo_destino = msg_dest.DESCRIPTOR.name.lower() if msg_dest and hasattr(msg_dest, "DESCRIPTOR") else "expando"
+            tipo_destino = (
+                msg_dest.DESCRIPTOR.name.lower()
+                if msg_dest and hasattr(msg_dest, "DESCRIPTOR")
+                else "expando"
+            )
         else:
             tipo_destino = "expando"
 
@@ -2717,19 +3124,27 @@ class ArvoreDadosTreeView(QTreeView):
         self._idx_arrastado = None
 
 
-
 class WidgetEditorDados(QWidget):
-    def __init__(self, model: Any, controller: Any, caminhos_originais: Optional[Any] = None, referencias_mensagens: Optional[Any] = None, parent: Optional[QWidget] = None) -> None:
+    def __init__(
+        self,
+        model: Any,
+        controller: Any,
+        caminhos_originais: Any | None = None,
+        referencias_mensagens: Any | None = None,
+        parent: QWidget | None = None,
+    ) -> None:
         super().__init__(parent)
         self.model = model
         self.controller = controller
         self.croqui = model.obter_croqui_readonly()
         self.caminhos_originais = caminhos_originais if caminhos_originais is not None else {}
-        self.referencias_mensagens = referencias_mensagens if referencias_mensagens is not None else {}
-        self._arquivos_existentes_croqui: Optional[Set[str]] = None
+        self.referencias_mensagens = (
+            referencias_mensagens if referencias_mensagens is not None else {}
+        )
+        self._arquivos_existentes_croqui: set[str] | None = None
         self._campos_avancados_expandidos: bool = False
         self.main_layout = QHBoxLayout(self)
-        
+
         self.tree_view = ArvoreDadosTreeView(self)
         self.tree_view.setHeaderHidden(True)
         self.tree_view.setIndentation(12)
@@ -2737,31 +3152,33 @@ class WidgetEditorDados(QWidget):
         self.tree_view.customContextMenuRequested.connect(self._exibir_menu_contexto)
         self.tree_model = ProtobufTreeViewAdapter(self.croqui)
         self.tree_view.setModel(self.tree_model)
-        
+
         self.stacked_widget = QStackedWidget()
-        
+
         self.form_padrao = WidgetFormularioPadrao(self.model, self.controller)
         self.form_padrao.widget_editor = self
-        
+
         self.stacked_widget.addWidget(self.form_padrao)
-        
+
         self.main_layout.addWidget(self.tree_view, 1)
         self.main_layout.addWidget(self.stacked_widget, 2)
-        
+
         self.tree_view.selectionModel().selectionChanged.connect(self._on_tree_selection_changed)
         self.tree_view.clicked.connect(self._on_tree_clicked)
-        
+
         self.expandir_arvore_ate_alvos()
-        
+
         self._bloquear_reconstrucao = False
         self._conectar_sinais_model()
-        
+
         # Seleciona o nó raiz (Croqui) por padrão
         root_idx = self.tree_model.index(0, 0, QModelIndex())
         if root_idx.isValid():
-            self.tree_view.selectionModel().select(root_idx, self.tree_view.selectionModel().SelectionFlag.ClearAndSelect)
+            self.tree_view.selectionModel().select(
+                root_idx, self.tree_view.selectionModel().SelectionFlag.ClearAndSelect
+            )
             self._on_tree_selection_changed(None, None)
-        
+
     def _on_tree_clicked(self, index: QModelIndex) -> None:
         """Trata o clique explícito do usuário em nós da árvore."""
         if not index.isValid():
@@ -2775,33 +3192,35 @@ class WidgetEditorDados(QWidget):
         if not indexes:
             self.stacked_widget.setCurrentIndex(0)
             return
-            
+
         index = indexes[0]
         node = index.internalPointer()
-        
+
         # Seleção do nó virtual de adição não carrega formulário nem abre diálogo modal
         if node and node.eh_no_adicao:
             return
-        
+
         if not node or not node.descriptor:
             self.stacked_widget.setCurrentIndex(0)
             return
-            
+
         self.stacked_widget.setCurrentIndex(0)
         self.form_padrao.load_node(node)
-            
-        if hasattr(self.controller, 'set_contexto'):
+
+        if hasattr(self.controller, "set_contexto"):
             self.controller.set_contexto("page:dados/" + get_node_path(node))
 
     def _on_foco_requisitado(self, path: str) -> None:
         from editor.core.contexto import ContextoUIPath
+
         ctx = ContextoUIPath(path)
         if ctx.pagina is not None and ctx.pagina != "dados":
             return
-            
+
         path_local = ctx.caminho_local_arvore
-        if not path_local: return
-        
+        if not path_local:
+            return
+
         # Verifica se já estamos no nó para evitar loop/flicker
         indexes = self.tree_view.selectionModel().selectedIndexes()
         if indexes:
@@ -2809,14 +3228,16 @@ class WidgetEditorDados(QWidget):
             curr_path = get_node_path(current_node) if current_node else None
             if curr_path == path_local:
                 return
-                
+
         idx = self.tree_model.find_index_for_path(path_local)
         if idx and idx.isValid():
-            self.tree_view.selectionModel().setCurrentIndex(idx, QItemSelectionModel.SelectionFlag.ClearAndSelect)
+            self.tree_view.selectionModel().setCurrentIndex(
+                idx, QItemSelectionModel.SelectionFlag.ClearAndSelect
+            )
             self.tree_view.scrollTo(idx)
             self._on_tree_selection_changed(None, None)
 
-    def obter_caminho_no_selecionado(self) -> Optional[str]:
+    def obter_caminho_no_selecionado(self) -> str | None:
         """Retorna o caminho canônico do nó atualmente selecionado na árvore, ou None."""
         if not hasattr(self, "tree_view") or not self.tree_view.selectionModel():
             return None
@@ -2826,21 +3247,24 @@ class WidgetEditorDados(QWidget):
         node = indexes[0].internalPointer()
         return get_node_path(node) if node else None
 
-    def selecionar_por_caminho_no(self, caminho: Optional[str]) -> bool:
+    def selecionar_por_caminho_no(self, caminho: str | None) -> bool:
         """Restaura a seleção do nó na árvore a partir de seu caminho canônico."""
         if not caminho or not hasattr(self, "tree_model") or not hasattr(self, "tree_view"):
             return False
         idx = self.tree_model.find_index_for_path(caminho)
         if idx and idx.isValid():
-            self.tree_view.selectionModel().setCurrentIndex(idx, QItemSelectionModel.SelectionFlag.ClearAndSelect)
+            self.tree_view.selectionModel().setCurrentIndex(
+                idx, QItemSelectionModel.SelectionFlag.ClearAndSelect
+            )
             self.tree_view.scrollTo(idx)
             self._on_tree_selection_changed(None, None)
             return True
         return False
 
-    def _salvar_estado_expansao(self) -> Dict[int, bool]:
+    def _salvar_estado_expansao(self) -> dict[int, bool]:
         """Salva o estado de expansão de todos os nós da árvore."""
         estado = {}
+
         def _percorrer(parent_index: QModelIndex) -> None:
             total = self.tree_model.rowCount(parent_index)
             for r in range(total):
@@ -2849,11 +3273,13 @@ class WidgetEditorDados(QWidget):
                 if node:
                     estado[id(node)] = self.tree_view.isExpanded(idx)
                 _percorrer(idx)
+
         _percorrer(QModelIndex())
         return estado
 
-    def _restaurar_estado_expansao(self, estado: Dict[int, bool]) -> None:
+    def _restaurar_estado_expansao(self, estado: dict[int, bool]) -> None:
         """Restaura o estado de expansão após reconstruir a árvore."""
+
         def _percorrer(parent_index: QModelIndex) -> None:
             total = self.tree_model.rowCount(parent_index)
             for r in range(total):
@@ -2862,9 +3288,12 @@ class WidgetEditorDados(QWidget):
                 if node and id(node) in estado and estado[id(node)]:
                     self.tree_view.setExpanded(idx, True)
                 _percorrer(idx)
+
         _percorrer(QModelIndex())
 
-    def _reconstruir_arvore_e_expandir(self, selecionar_index_fn: Optional[Callable[[], Optional[QModelIndex]]] = None) -> None:
+    def _reconstruir_arvore_e_expandir(
+        self, selecionar_index_fn: Callable[[], QModelIndex | None] | None = None
+    ) -> None:
         """Reconstrói a árvore e opcionalmente seleciona um índice."""
         self.tree_model.rebuild_tree()
         self.expandir_arvore_ate_alvos()
@@ -2872,13 +3301,14 @@ class WidgetEditorDados(QWidget):
             novo_idx = selecionar_index_fn()
             if novo_idx and novo_idx.isValid():
                 self.tree_view.selectionModel().select(
-                    novo_idx,
-                    self.tree_view.selectionModel().SelectionFlag.ClearAndSelect
+                    novo_idx, self.tree_view.selectionModel().SelectionFlag.ClearAndSelect
                 )
                 self.tree_view.scrollTo(novo_idx)
                 self._on_tree_selection_changed(None, None)
 
-    def _encontrar_parent_expando_e_campo(self, index: QModelIndex) -> Tuple[Optional[Any], Optional[Any], Optional[Any], Optional[int]]:
+    def _encontrar_parent_expando_e_campo(
+        self, index: QModelIndex
+    ) -> tuple[Any | None, Any | None, Any | None, int | None]:
         """Retorna (parent_expando_node, campo_field, repeated_container, indice_no_pai) para um índice."""
         node = index.internalPointer()
         if node is None:
@@ -2916,7 +3346,9 @@ class WidgetEditorDados(QWidget):
                 if md.caminho:
                     arquivos.add(md.caminho.lower())
                 if md.HasExtension(croqui_pb2.ArquivoMarkdown.ext_metadados_arquivo):
-                    novo = md.Extensions[croqui_pb2.ArquivoMarkdown.ext_metadados_arquivo].caminho_novo
+                    novo = md.Extensions[
+                        croqui_pb2.ArquivoMarkdown.ext_metadados_arquivo
+                    ].caminho_novo
                     if novo:
                         arquivos.add(novo.lower())
 
@@ -2925,7 +3357,9 @@ class WidgetEditorDados(QWidget):
                 if p.mapas_gerais.caminho:
                     arquivos.add(p.mapas_gerais.caminho.lower())
                 if p.mapas_gerais.HasExtension(croqui_pb2.ArquivoMapas.ext_metadados_arquivo):
-                    novo = p.mapas_gerais.Extensions[croqui_pb2.ArquivoMapas.ext_metadados_arquivo].caminho_novo
+                    novo = p.mapas_gerais.Extensions[
+                        croqui_pb2.ArquivoMapas.ext_metadados_arquivo
+                    ].caminho_novo
                     if novo:
                         arquivos.add(novo.lower())
 
@@ -2934,21 +3368,27 @@ class WidgetEditorDados(QWidget):
                     if sg.setor.caminho:
                         arquivos.add(sg.setor.caminho.lower())
                     if sg.setor.HasExtension(croqui_pb2.ArquivoSetor.ext_metadados_arquivo):
-                        novo = sg.setor.Extensions[croqui_pb2.ArquivoSetor.ext_metadados_arquivo].caminho_novo
+                        novo = sg.setor.Extensions[
+                            croqui_pb2.ArquivoSetor.ext_metadados_arquivo
+                        ].caminho_novo
                         if novo:
                             arquivos.add(novo.lower())
                 elif sg.HasField("grupo"):
                     if sg.grupo.caminho:
                         arquivos.add(sg.grupo.caminho.lower())
                     if sg.grupo.HasExtension(croqui_pb2.ArquivoGrupo.ext_metadados_arquivo):
-                        novo = sg.grupo.Extensions[croqui_pb2.ArquivoGrupo.ext_metadados_arquivo].caminho_novo
+                        novo = sg.grupo.Extensions[
+                            croqui_pb2.ArquivoGrupo.ext_metadados_arquivo
+                        ].caminho_novo
                         if novo:
                             arquivos.add(novo.lower())
                     for s in sg.grupo.conteudo.setores:
                         if s.caminho:
                             arquivos.add(s.caminho.lower())
                         if s.HasExtension(croqui_pb2.ArquivoSetor.ext_metadados_arquivo):
-                            novo = s.Extensions[croqui_pb2.ArquivoSetor.ext_metadados_arquivo].caminho_novo
+                            novo = s.Extensions[
+                                croqui_pb2.ArquivoSetor.ext_metadados_arquivo
+                            ].caminho_novo
                             if novo:
                                 arquivos.add(novo.lower())
 
@@ -2967,20 +3407,17 @@ class WidgetEditorDados(QWidget):
         if repeated_container is None:
             return
 
-        from editor.views.dialogos.dialogo_criar_setor_ou_grupo import DialogoCriarSetorOuGrupo
         from editor.views.dialogos.dialogo_criar_botao import DialogoCriarBotao
         from editor.views.dialogos.dialogo_criar_escalada import DialogoCriarEscalada
         from editor.views.dialogos.dialogo_criar_pico import DialogoCriarPico
+        from editor.views.dialogos.dialogo_criar_setor_ou_grupo import DialogoCriarSetorOuGrupo
 
         arquivos_existentes = self._coletar_todos_arquivos_croqui()
 
         val: Any = None
         if campo_nome == "picos":
             nomes_existentes = [p.nome for p in msg_pai.picos if p.nome]
-            nome, ok = DialogoCriarPico.obter_dados(
-                parent=self,
-                nomes_existentes=nomes_existentes
-            )
+            nome, ok = DialogoCriarPico.obter_dados(parent=self, nomes_existentes=nomes_existentes)
             if not ok or not nome:
                 return
             val = croqui_pb2.Pico(nome=nome)
@@ -2992,7 +3429,7 @@ class WidgetEditorDados(QWidget):
             texto, arquivo, ok = DialogoCriarBotao.obter_dados(
                 parent=self,
                 textos_existentes=textos_existentes,
-                arquivos_existentes=arquivos_existentes
+                arquivos_existentes=arquivos_existentes,
             )
             if not ok or not texto:
                 return
@@ -3001,7 +3438,9 @@ class WidgetEditorDados(QWidget):
             val.texto = texto
             val.destino.secao_textual.conteudo = ""
             if arquivo:
-                val.destino.secao_textual.Extensions[croqui_pb2.ArquivoMarkdown.ext_metadados_arquivo].caminho_novo = arquivo
+                val.destino.secao_textual.Extensions[
+                    croqui_pb2.ArquivoMarkdown.ext_metadados_arquivo
+                ].caminho_novo = arquivo
 
         elif campo_nome == "setores_ou_grupos":
             nomes_existentes = []
@@ -3015,7 +3454,7 @@ class WidgetEditorDados(QWidget):
                 parent=self,
                 modo="ambos",
                 nomes_existentes=nomes_existentes,
-                arquivos_existentes=arquivos_existentes
+                arquivos_existentes=arquivos_existentes,
             )
             if not ok or not nome:
                 return
@@ -3023,19 +3462,31 @@ class WidgetEditorDados(QWidget):
             if tipo == "setor":
                 val.setor.conteudo.nome = nome
                 if arquivo:
-                    val.setor.Extensions[croqui_pb2.ArquivoSetor.ext_metadados_arquivo].caminho_novo = arquivo
+                    val.setor.Extensions[
+                        croqui_pb2.ArquivoSetor.ext_metadados_arquivo
+                    ].caminho_novo = arquivo
             else:
                 val.grupo.conteudo.nome = nome
                 if arquivo:
-                    val.grupo.Extensions[croqui_pb2.ArquivoGrupo.ext_metadados_arquivo].caminho_novo = arquivo
+                    val.grupo.Extensions[
+                        croqui_pb2.ArquivoGrupo.ext_metadados_arquivo
+                    ].caminho_novo = arquivo
 
-        elif campo_nome == "setores" and hasattr(msg_pai, "DESCRIPTOR") and msg_pai.DESCRIPTOR.name == "Grupo":
-            nomes_existentes = [s.conteudo.nome for s in msg_pai.setores if s.HasField("conteudo") and s.conteudo.nome]
+        elif (
+            campo_nome == "setores"
+            and hasattr(msg_pai, "DESCRIPTOR")
+            and msg_pai.DESCRIPTOR.name == "Grupo"
+        ):
+            nomes_existentes = [
+                s.conteudo.nome
+                for s in msg_pai.setores
+                if s.HasField("conteudo") and s.conteudo.nome
+            ]
             tipo, nome, arquivo, ok = DialogoCriarSetorOuGrupo.obter_dados(
                 parent=self,
                 modo="setor",
                 nomes_existentes=nomes_existentes,
-                arquivos_existentes=arquivos_existentes
+                arquivos_existentes=arquivos_existentes,
             )
             if not ok or not nome:
                 return
@@ -3054,8 +3505,7 @@ class WidgetEditorDados(QWidget):
                         nomes_existentes.append(sub.nome)
 
             tipo_chave, nome, ok = DialogoCriarEscalada.obter_dados(
-                parent=self,
-                nomes_existentes=nomes_existentes
+                parent=self, nomes_existentes=nomes_existentes
             )
             if not ok or not nome:
                 return
@@ -3075,9 +3525,14 @@ class WidgetEditorDados(QWidget):
         else:
             if campo.type == FieldDescriptor.TYPE_BOOL:
                 val = False
-            elif campo.type in (FieldDescriptor.TYPE_INT32, FieldDescriptor.TYPE_INT64,
-                                FieldDescriptor.TYPE_UINT32, FieldDescriptor.TYPE_UINT64,
-                                FieldDescriptor.TYPE_SINT32, FieldDescriptor.TYPE_SINT64):
+            elif campo.type in (
+                FieldDescriptor.TYPE_INT32,
+                FieldDescriptor.TYPE_INT64,
+                FieldDescriptor.TYPE_UINT32,
+                FieldDescriptor.TYPE_UINT64,
+                FieldDescriptor.TYPE_SINT32,
+                FieldDescriptor.TYPE_SINT64,
+            ):
                 val = 0
             elif campo.type in (FieldDescriptor.TYPE_FLOAT, FieldDescriptor.TYPE_DOUBLE):
                 val = 0.0
@@ -3094,8 +3549,7 @@ class WidgetEditorDados(QWidget):
             novo_model_idx = self.tree_model.index(idx, 0, exp_idx)
             if novo_model_idx and novo_model_idx.isValid():
                 self.tree_view.selectionModel().select(
-                    novo_model_idx,
-                    self.tree_view.selectionModel().SelectionFlag.ClearAndSelect
+                    novo_model_idx, self.tree_view.selectionModel().SelectionFlag.ClearAndSelect
                 )
                 self.tree_view.scrollTo(novo_model_idx)
                 novo_node = novo_model_idx.internalPointer()
@@ -3130,42 +3584,60 @@ class WidgetEditorDados(QWidget):
 
     def _executar_remover_item(self, index: QModelIndex) -> None:
         """Remove o item referenciado pelo índice da coleção Protobuf."""
-        expando_node, campo, repeated_container, idx_no_pai = self._encontrar_parent_expando_e_campo(index)
-        if expando_node is None or expando_node.parent_node is None or campo is None or repeated_container is None or idx_no_pai is None:
+        expando_node, campo, repeated_container, idx_no_pai = (
+            self._encontrar_parent_expando_e_campo(index)
+        )
+        if (
+            expando_node is None
+            or expando_node.parent_node is None
+            or campo is None
+            or repeated_container is None
+            or idx_no_pai is None
+        ):
             return
 
-        # Limpa a selecao e foco antes de remover para que o QTreeView nao 
+        # Limpa a selecao e foco antes de remover para que o QTreeView nao
         # tente mover o foco automaticamente para o proximo no (que seria '+ Adicionar')
         self.tree_view.selectionModel().clearSelection()
         from PySide6.QtCore import QModelIndex
+
         self.tree_view.setCurrentIndex(QModelIndex())
-        
+
         msg_pai = expando_node.parent_node.message
-        
+
         self._removendo_item = True
         try:
-            self.controller.remover_repeated(msg_pai, campo.name, idx_no_pai, getattr(msg_pai, campo.name)[idx_no_pai])
+            self.controller.remover_repeated(
+                msg_pai, campo.name, idx_no_pai, getattr(msg_pai, campo.name)[idx_no_pai]
+            )
         finally:
             self._removendo_item = False
 
-        janela = self.window()
-
+        self.window()
 
         self.stacked_widget.setCurrentIndex(0)
         self.form_padrao.load_node(None)
-
 
     def _executar_mover_para_cima(self, index: QModelIndex) -> None:
         """Move o item selecionado uma posição para cima na coleção."""
         if hasattr(self, "form_padrao") and self.form_padrao:
             self.form_padrao.forcar_consolidacao_pendente()
 
-        expando_node, campo, repeated_container, idx_no_pai = self._encontrar_parent_expando_e_campo(index)
-        if expando_node is None or expando_node.parent_node is None or campo is None or repeated_container is None or idx_no_pai is None or idx_no_pai == 0:
+        expando_node, campo, repeated_container, idx_no_pai = (
+            self._encontrar_parent_expando_e_campo(index)
+        )
+        if (
+            expando_node is None
+            or expando_node.parent_node is None
+            or campo is None
+            or repeated_container is None
+            or idx_no_pai is None
+            or idx_no_pai == 0
+        ):
             return
 
         msg_pai = expando_node.parent_node.message
-        
+
         # Salva o QModelIndex do pai antes da mutação, pois o 'index' atual será invalidado (removido)
         parent_idx = index.parent()
 
@@ -3173,7 +3645,7 @@ class WidgetEditorDados(QWidget):
         no_antigo = index.internalPointer()
         if no_antigo and no_antigo.message and hasattr(self, "form_padrao") and self.form_padrao:
             self.form_padrao.descartar_cache_formulario(_get_id(no_antigo.message))
-        
+
         # O controller vai despachar uma Macro de remover e adicionar, e a UI responderá via eventos do model.
         self.controller.mover_repeated_para_cima(msg_pai, campo.name, idx_no_pai)
 
@@ -3195,14 +3667,22 @@ class WidgetEditorDados(QWidget):
         if hasattr(self, "form_padrao") and self.form_padrao:
             self.form_padrao.forcar_consolidacao_pendente()
 
-        expando_node, campo, repeated_container, idx_no_pai = self._encontrar_parent_expando_e_campo(index)
-        if expando_node is None or expando_node.parent_node is None or campo is None or repeated_container is None or idx_no_pai is None:
+        expando_node, campo, repeated_container, idx_no_pai = (
+            self._encontrar_parent_expando_e_campo(index)
+        )
+        if (
+            expando_node is None
+            or expando_node.parent_node is None
+            or campo is None
+            or repeated_container is None
+            or idx_no_pai is None
+        ):
             return
         if idx_no_pai >= len(repeated_container) - 1:
             return
 
         msg_pai = expando_node.parent_node.message
-        
+
         # Salva o QModelIndex do pai antes da mutação, pois o 'index' atual será invalidado (removido)
         parent_idx = index.parent()
 
@@ -3210,7 +3690,7 @@ class WidgetEditorDados(QWidget):
         no_antigo = index.internalPointer()
         if no_antigo and no_antigo.message and hasattr(self, "form_padrao") and self.form_padrao:
             self.form_padrao.descartar_cache_formulario(_get_id(no_antigo.message))
-        
+
         # O controller vai despachar uma Macro de remover e adicionar, e a UI responderá via eventos do model.
         self.controller.mover_repeated_para_baixo(msg_pai, campo.name, idx_no_pai)
 
@@ -3227,7 +3707,7 @@ class WidgetEditorDados(QWidget):
                 self.stacked_widget.setCurrentIndex(0)
                 self.form_padrao.load_node(novo_node)
 
-    def _construir_menu_contexto(self, posicao: Any) -> Optional[QMenu]:
+    def _construir_menu_contexto(self, posicao: Any) -> QMenu | None:
         """Constrói e retorna a instância de QMenu para a posição da árvore especificada."""
         index = self.tree_view.indexAt(posicao)
         if not index.isValid():
@@ -3266,22 +3746,30 @@ class WidgetEditorDados(QWidget):
                     label_adicao = sub.name.lstrip("+ ").strip()
                     break
             acao_add = menu.addAction(f"Adicionar {label_adicao}...")
-            acao_add.triggered.connect(lambda checked=False, idx=index: self._executar_adicionar_item(idx))
+            acao_add.triggered.connect(
+                lambda checked=False, idx=index: self._executar_adicionar_item(idx)
+            )
 
         # 3. Se for um nó filho pertencente a um expando: ações de excluir e mover
         elif not node.eh_no_adicao and node.parent_node and node.parent_node.is_expando:
             _, campo, repeated_container, idx_no_pai = self._encontrar_parent_expando_e_campo(index)
             if repeated_container is not None:
                 acao_remover = menu.addAction("Excluir item")
-                acao_remover.triggered.connect(lambda checked=False, idx=index: self._executar_remover_item(idx))
+                acao_remover.triggered.connect(
+                    lambda checked=False, idx=index: self._executar_remover_item(idx)
+                )
 
                 if idx_no_pai is not None and idx_no_pai > 0:
                     acao_cima = menu.addAction("Mover para Cima")
-                    acao_cima.triggered.connect(lambda checked=False, idx=index: self._executar_mover_para_cima(idx))
+                    acao_cima.triggered.connect(
+                        lambda checked=False, idx=index: self._executar_mover_para_cima(idx)
+                    )
 
                 if idx_no_pai is not None and idx_no_pai < len(repeated_container) - 1:
                     acao_baixo = menu.addAction("Mover para Baixo")
-                    acao_baixo.triggered.connect(lambda checked=False, idx=index: self._executar_mover_para_baixo(idx))
+                    acao_baixo.triggered.connect(
+                        lambda checked=False, idx=index: self._executar_mover_para_baixo(idx)
+                    )
 
         return menu
 
@@ -3299,24 +3787,24 @@ class WidgetEditorDados(QWidget):
                 node = idx.internalPointer()
                 if not node:
                     continue
-                
+
                 deve_expandir = False
-                
+
                 # Nós de mensagem estruturais
                 if node.message is not None:
                     nome_msg = node.message.DESCRIPTOR.name
                     if nome_msg in ("Croqui", "Pico", "Grupo"):
                         deve_expandir = True
-                
+
                 # Nós expandores (coleções repetidas)
                 elif node.is_expando:
                     if node.name in ("Botões", "Picos", "Setores ou grupos", "Setores"):
                         deve_expandir = True
-                        
+
                 if deve_expandir:
                     self.tree_view.expand(idx)
                     _recursivo(idx)
-                    
+
         _recursivo(QModelIndex())
 
     def _conectar_sinais_model(self) -> None:
@@ -3341,7 +3829,7 @@ class WidgetEditorDados(QWidget):
             has_field = msg.HasField(campo_nome)
         except ValueError:
             has_field = bool(getattr(msg, campo_nome, None))
-            
+
         novo_valor = getattr(msg, campo_nome) if has_field else None
         self.form_padrao._on_campo_alterado(_get_id(msg), campo_nome, novo_valor)
         self.tree_model._on_campo_alterado(_get_id(msg), campo_nome, novo_valor)
@@ -3370,7 +3858,9 @@ class WidgetEditorDados(QWidget):
             if not getattr(child, "eh_no_adicao", False):
                 self._descartar_cache_recursivo(child)
 
-    def _on_repeated_movido(self, msg: Any, campo_nome: str, index_from: int, index_to: int) -> None:
+    def _on_repeated_movido(
+        self, msg: Any, campo_nome: str, index_from: int, index_to: int
+    ) -> None:
         if hasattr(self, "form_padrao") and self.form_padrao:
             exp_idx = self.tree_model.find_expando_index(_get_id(msg), campo_nome)
             if exp_idx.isValid():
@@ -3388,11 +3878,14 @@ class WidgetEditorDados(QWidget):
             cur_node = self.form_padrao.current_node
             cur_idx = self.tree_view.currentIndex()
             cur_selected = cur_idx.internalPointer() if cur_idx and cur_idx.isValid() else None
-            if cur_selected == cur_node or (cur_node.message and _get_id(cur_node.message) not in self.form_padrao.cached_forms):
+            if cur_selected == cur_node or (
+                cur_node.message and _get_id(cur_node.message) not in self.form_padrao.cached_forms
+            ):
                 self.form_padrao.load_node(cur_node)
 
-
-    def find_node_index(self, target_node: Any, parent_idx: QModelIndex = QModelIndex()) -> QModelIndex:
+    def find_node_index(
+        self, target_node: Any, parent_idx: QModelIndex = QModelIndex()
+    ) -> QModelIndex:
         if not target_node:
             return QModelIndex()
 
@@ -3407,13 +3900,18 @@ class WidgetEditorDados(QWidget):
             if node:
                 match = False
                 if target_node.eh_no_adicao and node.eh_no_adicao:
-                    match = (target_node.descriptor == node.descriptor)
+                    match = target_node.descriptor == node.descriptor
                 elif target_node.is_expando and node.is_expando:
-                    match = (target_node.descriptor == node.descriptor)
+                    match = target_node.descriptor == node.descriptor
                 elif target_node.message is not None and node.message is not None:
-                    match = (id(target_node.message) == _get_id(node.message))
-                elif target_node.index_in_repeated is not None and node.index_in_repeated is not None:
-                    match = (target_node.descriptor == node.descriptor and target_node.index_in_repeated == node.index_in_repeated)
+                    match = id(target_node.message) == _get_id(node.message)
+                elif (
+                    target_node.index_in_repeated is not None and node.index_in_repeated is not None
+                ):
+                    match = (
+                        target_node.descriptor == node.descriptor
+                        and target_node.index_in_repeated == node.index_in_repeated
+                    )
 
                 if match:
                     return idx
@@ -3424,13 +3922,17 @@ class WidgetEditorDados(QWidget):
 
         return QModelIndex()
 
-    def _obter_caminhos_arquivos_existentes(self) -> Set[str]:
+    def _obter_caminhos_arquivos_existentes(self) -> set[str]:
         """Retorna o conjunto de nomes de arquivos existentes no croqui ou no disco."""
         arquivos_croqui = getattr(self, "_arquivos_existentes_croqui", None)
         if arquivos_croqui is not None:
             return set(arquivos_croqui)
-        caminhos: Set[str] = set()
-        root = self.model.obter_croqui_readonly() if hasattr(self.model, "obter_croqui_readonly") else getattr(self.model, "croqui", None)
+        caminhos: set[str] = set()
+        root = (
+            self.model.obter_croqui_readonly()
+            if hasattr(self.model, "obter_croqui_readonly")
+            else getattr(self.model, "croqui", None)
+        )
         if root is not None:
             for pico in getattr(root, "picos", []):
                 for sg in getattr(pico, "setores_ou_grupos", []):
@@ -3492,20 +3994,24 @@ class WidgetEditorDados(QWidget):
             return False
         origem_tipo = msg_origem_res.DESCRIPTOR.name.lower()
 
-        eh_sobre_item = (posicao_drop == QAbstractItemView.DropIndicatorPosition.OnItem)
+        eh_sobre_item = posicao_drop == QAbstractItemView.DropIndicatorPosition.OnItem
         if getattr(node_destino, "is_expando", False):
             destino_tipo = "expando"
         elif getattr(node_destino, "eh_no_adicao", False):
             destino_tipo = "no_adicao"
         elif node_destino.message is not None:
             msg_destino_res = node_destino._resolve_transparency(node_destino.message)
-            destino_tipo = msg_destino_res.DESCRIPTOR.name.lower() if msg_destino_res and hasattr(msg_destino_res, "DESCRIPTOR") else ""
+            destino_tipo = (
+                msg_destino_res.DESCRIPTOR.name.lower()
+                if msg_destino_res and hasattr(msg_destino_res, "DESCRIPTOR")
+                else ""
+            )
         else:
             destino_tipo = "expando"
 
         from editor.core.migracao_setor import (
-            validar_movimento_permitido,
             calcular_novo_caminho_setor,
+            validar_movimento_permitido,
             verificar_colisao_nome_arquivo,
         )
 
@@ -3581,7 +4087,6 @@ class WidgetEditorDados(QWidget):
                 else:
                     indice_destino = target_row + 1
 
-
         # Caso 1: Reordenação na mesma lista
         if _get_id(pai_origem) == _get_id(pai_destino) and campo_origem == campo_destino:
             if indice_origem == indice_destino:
@@ -3617,6 +4122,7 @@ class WidgetEditorDados(QWidget):
             caminho_atual = ext.caminho_novo or ext.caminho_original or ""
         if not caminho_atual:
             from editor.core.formatacao import para_snake_case
+
             caminho_atual = f"setor_{para_snake_case(nome_setor)}.md"
 
         caminho_antigo = caminho_atual
@@ -3630,7 +4136,7 @@ class WidgetEditorDados(QWidget):
             QMessageBox.warning(
                 self,
                 "Conflito de Nome de Arquivo",
-                f"Não é possível mover o setor: já existe um arquivo com o nome '{novo_caminho}'."
+                f"Não é possível mover o setor: já existe um arquivo com o nome '{novo_caminho}'.",
             )
             return False
 
@@ -3660,4 +4166,3 @@ class WidgetEditorDados(QWidget):
             self.tree_view.setCurrentIndex(idx_setor_novo)
 
         return True
-

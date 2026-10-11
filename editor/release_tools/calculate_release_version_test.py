@@ -1,17 +1,18 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
-import unittest
-from unittest.mock import patch
 import io
 import tempfile
+import unittest
 from pathlib import Path
+from unittest.mock import patch
 
 from editor.release_tools.calculate_release_version import (
     calcular_versao_release,
     extrair_versao_de_arquivo,
     main,
 )
+
 
 class TestCalculateReleaseVersion(unittest.TestCase):
     """Testes unitários para cálculo da versão oficial de release (TDD - 100% Cobertura)."""
@@ -133,6 +134,7 @@ class TestCalculateReleaseVersion(unittest.TestCase):
             codigo = main(["--versao-atual", "0.2.1-dev", "--tipo", "custom", "--custom", ""])
             self.assertEqual(codigo, 1)
             self.assertIn("Erro:", saida_erro.getvalue())
+
 
 if __name__ == "__main__":
     unittest.main()

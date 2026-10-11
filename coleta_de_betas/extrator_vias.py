@@ -1,16 +1,19 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
-import sys
 import argparse
+import sys
+from collections.abc import Sequence
 from pathlib import Path
-from typing import List, Union, Dict, Any, Optional, Sequence
+from typing import Any
+
 import yaml
+
 from aresta_api.proto.generated import beta_pb2
 from coleta_de_betas.io_yaml import salvar_vias_extraidas_yaml
 
 
-def _ler_frontmatter_md(caminho_md: Path) -> Dict[str, Any]:
+def _ler_frontmatter_md(caminho_md: Path) -> dict[str, Any]:
     """Lê o frontmatter YAML de um arquivo markdown."""
     try:
         texto = caminho_md.read_text(encoding="utf-8")
@@ -26,7 +29,7 @@ def _ler_frontmatter_md(caminho_md: Path) -> Dict[str, Any]:
     return {}
 
 
-def extrair_vias_de_croqui(caminho_croqui_dir: Union[Path, str]) -> beta_pb2.ViasExtraidasCroqui:
+def extrair_vias_de_croqui(caminho_croqui_dir: Path | str) -> beta_pb2.ViasExtraidasCroqui:
     """
     Percorre a hierarquia de picos, grupos e setores do croqui e retorna
     um objeto ViasExtraidasCroqui estaticamente tipado.
@@ -34,9 +37,9 @@ def extrair_vias_de_croqui(caminho_croqui_dir: Union[Path, str]) -> beta_pb2.Via
     diretorio = Path(caminho_croqui_dir)
     arquivo_croqui_yaml = diretorio / "croqui.yaml"
 
-    dados_croqui: Dict[str, Any] = {}
+    dados_croqui: dict[str, Any] = {}
     if arquivo_croqui_yaml.exists():
-        with open(arquivo_croqui_yaml, "r", encoding="utf-8") as f:
+        with open(arquivo_croqui_yaml, encoding="utf-8") as f:
             dados_croqui = yaml.safe_load(f) or {}
 
     vias_croqui = beta_pb2.ViasExtraidasCroqui()
@@ -73,7 +76,7 @@ def extrair_vias_de_croqui(caminho_croqui_dir: Union[Path, str]) -> beta_pb2.Via
                         cidade_croqui=vias_croqui.cidade,
                         estado_croqui=vias_croqui.estado,
                         vias_croqui=vias_croqui,
-                        contador_id=contador_id
+                        contador_id=contador_id,
                     )
                     contador_id = len(vias_croqui.escaladas) + 1
 
@@ -92,7 +95,7 @@ def extrair_vias_de_croqui(caminho_croqui_dir: Union[Path, str]) -> beta_pb2.Via
                     cidade_croqui=vias_croqui.cidade,
                     estado_croqui=vias_croqui.estado,
                     vias_croqui=vias_croqui,
-                    contador_id=contador_id
+                    contador_id=contador_id,
                 )
                 contador_id = len(vias_croqui.escaladas) + 1
 
@@ -107,7 +110,7 @@ def _processar_arquivo_setor(
     cidade_croqui: str,
     estado_croqui: str,
     vias_croqui: beta_pb2.ViasExtraidasCroqui,
-    contador_id: int
+    contador_id: int,
 ) -> None:
     """Extrai vias de um arquivo Markdown e as adiciona na mensagem ViasExtraidasCroqui."""
     if not arquivo_md.exists():
@@ -146,7 +149,7 @@ def _processar_arquivo_setor(
             contador_id += 1
 
 
-def executar_cli_extrair_vias(argv: Optional[Sequence[str]] = None) -> int:
+def executar_cli_extrair_vias(argv: Sequence[str] | None = None) -> int:
     """Ponto de entrada CLI para extração de vias."""
     parser = argparse.ArgumentParser(
         description="Extrai todas as vias e boulders de um croqui para um arquivo vias_extraidas.yaml tipado."
@@ -154,19 +157,23 @@ def executar_cli_extrair_vias(argv: Optional[Sequence[str]] = None) -> int:
     parser.add_argument(
         "croqui_dir",
         type=str,
-        help="Caminho para o diretório do croqui (ex: database/br_mg_ouro_preto_ouroboulder)"
+        help="Caminho para o diretório do croqui (ex: database/br_mg_ouro_preto_ouroboulder)",
     )
     parser.add_argument(
-        "-o", "--saida",
+        "-o",
+        "--saida",
         type=str,
         default="",
-        help="Caminho opcional do arquivo de saída (padrão: <croqui_dir>/vias_extraidas.yaml)"
+        help="Caminho opcional do arquivo de saída (padrão: <croqui_dir>/vias_extraidas.yaml)",
     )
 
     args = parser.parse_args(argv)
     pico_dir = Path(args.croqui_dir)
     if not pico_dir.exists() or not pico_dir.is_dir():
-        print(f"Erro: Diretório de croqui inválido ou não encontrado: {args.croqui_dir}", file=sys.stderr)
+        print(
+            f"Erro: Diretório de croqui inválido ou não encontrado: {args.croqui_dir}",
+            file=sys.stderr,
+        )
         return 1
 
     vias = extrair_vias_de_croqui(pico_dir)
@@ -175,4 +182,3 @@ def executar_cli_extrair_vias(argv: Optional[Sequence[str]] = None) -> int:
     salvar_vias_extraidas_yaml(vias, caminho_saida)
     print(f"Sucesso: {len(vias.escaladas)} vias extraídas salvas em {caminho_saida}")
     return 0
-

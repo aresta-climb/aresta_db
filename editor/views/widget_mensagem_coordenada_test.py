@@ -2,15 +2,15 @@
 # Copyright (C) 2026 Aresta Climb Contributors
 
 import pytest
-from PySide6.QtCore import Qt, QPoint, QPointF
-from PySide6.QtGui import QWheelEvent, QUndoStack
-from PySide6.QtWidgets import QApplication, QLineEdit, QDoubleSpinBox, QDialog
+from PySide6.QtCore import QPoint, QPointF, Qt
+from PySide6.QtGui import QUndoStack, QWheelEvent
+from PySide6.QtWidgets import QApplication, QDialog, QDoubleSpinBox, QLineEdit
 
 from aresta_api.proto.generated.croqui_pb2 import Coordenada
-from editor.models.croqui_model import CroquiModel
 from editor.controllers.croqui_controller import CroquiController
-from editor.views.widget_mensagem_coordenada import WidgetMensagemCoordenada
+from editor.models.croqui_model import CroquiModel
 from editor.views.widget_campo_coordenada_e7 import DialogoConfirmarCoordenadas
+from editor.views.widget_mensagem_coordenada import WidgetMensagemCoordenada
 
 
 class TestWidgetMensagemCoordenada:
@@ -85,8 +85,26 @@ class TestWidgetMensagemCoordenada:
         assert len(widget.findChildren(QDoubleSpinBox)) == 0
 
         # Botão de colar e maps únicos
-        assert len([btn for btn in widget.findChildren(type(widget.btn_colar)) if btn.text() == "Colar"]) == 1
-        assert len([btn for btn in widget.findChildren(type(widget.btn_maps)) if btn.text() == "Abrir no Maps"]) == 1
+        assert (
+            len(
+                [
+                    btn
+                    for btn in widget.findChildren(type(widget.btn_colar))
+                    if btn.text() == "Colar"
+                ]
+            )
+            == 1
+        )
+        assert (
+            len(
+                [
+                    btn
+                    for btn in widget.findChildren(type(widget.btn_maps))
+                    if btn.text() == "Abrir no Maps"
+                ]
+            )
+            == 1
+        )
 
     def test_edicao_latitude_e_longitude_via_controller(self, qtbot):
         coord = Coordenada()
@@ -195,7 +213,9 @@ class TestWidgetMensagemCoordenada:
         widget = WidgetMensagemCoordenada(coord, controller=controller, model=model)
         qtbot.addWidget(widget)
 
-        monkeypatch.setattr(DialogoConfirmarCoordenadas, "exec", lambda self: QDialog.DialogCode.Accepted)
+        monkeypatch.setattr(
+            DialogoConfirmarCoordenadas, "exec", lambda self: QDialog.DialogCode.Accepted
+        )
 
         sucesso = widget.processar_texto_colado("-19.898028, -43.521234")
         assert sucesso is True
@@ -209,7 +229,9 @@ class TestWidgetMensagemCoordenada:
         widget = WidgetMensagemCoordenada(coord)
         qtbot.addWidget(widget)
 
-        monkeypatch.setattr(DialogoConfirmarCoordenadas, "exec", lambda self: QDialog.DialogCode.Accepted)
+        monkeypatch.setattr(
+            DialogoConfirmarCoordenadas, "exec", lambda self: QDialog.DialogCode.Accepted
+        )
 
         sucesso = widget.processar_texto_colado("-19.898028, -43.521234")
         assert sucesso is True
@@ -221,7 +243,9 @@ class TestWidgetMensagemCoordenada:
         widget = WidgetMensagemCoordenada(coord)
         qtbot.addWidget(widget)
 
-        monkeypatch.setattr(DialogoConfirmarCoordenadas, "exec", lambda self: QDialog.DialogCode.Rejected)
+        monkeypatch.setattr(
+            DialogoConfirmarCoordenadas, "exec", lambda self: QDialog.DialogCode.Rejected
+        )
         assert widget.processar_texto_colado("-19.898028, -43.521234") is False
         assert widget.processar_texto_colado("texto_invalido_total") is False
 
@@ -234,7 +258,9 @@ class TestWidgetMensagemCoordenada:
         widget = WidgetMensagemCoordenada(coord, controller=controller, model=model)
         qtbot.addWidget(widget)
 
-        monkeypatch.setattr(DialogoConfirmarCoordenadas, "exec", lambda self: QDialog.DialogCode.Accepted)
+        monkeypatch.setattr(
+            DialogoConfirmarCoordenadas, "exec", lambda self: QDialog.DialogCode.Accepted
+        )
 
         app = QApplication.instance()
         app.clipboard().setText("-19.898028, -43.521234")
@@ -288,6 +314,7 @@ class TestWidgetMensagemCoordenada:
 
         urls = []
         from PySide6.QtGui import QDesktopServices
+
         monkeypatch.setattr(QDesktopServices, "openUrl", lambda url: urls.append(url.toString()))
 
         widget.abrir_no_google_maps()
@@ -301,6 +328,7 @@ class TestWidgetMensagemCoordenada:
 
         urls = []
         from PySide6.QtGui import QDesktopServices
+
         monkeypatch.setattr(QDesktopServices, "openUrl", lambda url: urls.append(url.toString()))
 
         widget.abrir_no_google_maps()

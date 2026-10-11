@@ -4,12 +4,15 @@
 import shutil
 import uuid
 from pathlib import Path
-from typing import Optional, Any
-from PySide6.QtCore import QObject, Signal, QTimer
-from PySide6.QtGui import QUndoStack, QUndoCommand
+from typing import Any
+
+from PySide6.QtCore import QObject, QTimer, Signal
+from PySide6.QtGui import QUndoCommand, QUndoStack
+
 from editor.core.registro_log import obter_logger
 
 logger = obter_logger("historico")
+
 
 class GerenciadorHistorico(QObject):
     """
@@ -17,12 +20,13 @@ class GerenciadorHistorico(QObject):
     Utiliza o QUndoStack do PySide6 sob o capô para manter o histórico unificado
     e emite sinais reativos para sincronização eficiente da UI.
     """
-    sinal_campo_alterado: Signal = Signal(object, str, object)  # id_msg, campo, novo_valor
-    sinal_item_adicionado: Signal = Signal(object, str, int)    # id_msg, campo, indice
-    sinal_item_removido: Signal = Signal(object, str, int)      # id_msg, campo, indice
-    sinal_foco_requisitado: Signal = Signal(str)                # contexto_ui
 
-    def __init__(self, parent: Optional[QObject] = None, diario: Any = None) -> None:
+    sinal_campo_alterado: Signal = Signal(object, str, object)  # id_msg, campo, novo_valor
+    sinal_item_adicionado: Signal = Signal(object, str, int)  # id_msg, campo, indice
+    sinal_item_removido: Signal = Signal(object, str, int)  # id_msg, campo, indice
+    sinal_foco_requisitado: Signal = Signal(str)  # contexto_ui
+
+    def __init__(self, parent: QObject | None = None, diario: Any = None) -> None:
         super().__init__(parent)
         self._pilha: QUndoStack = QUndoStack(self)
         self._ultimo_index: int = 0
@@ -39,7 +43,10 @@ class GerenciadorHistorico(QObject):
     def definir_gerenciador_diario(self, diario: Any) -> None:
         """Configura o GerenciadorDiario associado para persistência append-only."""
         self.flush_diario_pendente()
-        if self._diario and getattr(self._diario, "_hook_flush", None) == self.flush_diario_pendente:
+        if (
+            self._diario
+            and getattr(self._diario, "_hook_flush", None) == self.flush_diario_pendente
+        ):
             self._diario._hook_flush = None
         self._diario = diario
         if self._diario and hasattr(self._diario, "_hook_flush"):
@@ -61,6 +68,7 @@ class GerenciadorHistorico(QObject):
 
         try:
             from editor.core.telemetria import registrar_breadcrumb_comando
+
             registrar_breadcrumb_comando(comando)
         except Exception:
             pass
@@ -75,6 +83,7 @@ class GerenciadorHistorico(QObject):
                     self.flush_diario_pendente()
                     self._diario.gravar_comando_pendente(comando)
                     from editor.core.telemetria import anexar_diario_escopo
+
                     anexar_diario_escopo(self._diario)
             except Exception:
                 pass
@@ -84,6 +93,7 @@ class GerenciadorHistorico(QObject):
         if not self._diario:
             return
         from PySide6.QtCore import QCoreApplication
+
         if self.intervalo_debounce_ms > 0 and QCoreApplication.instance() is not None:
             self._timer_sincronizacao.start(self.intervalo_debounce_ms)
         else:
@@ -110,6 +120,7 @@ class GerenciadorHistorico(QObject):
         self._diario.substituir_comandos_pendentes(comandos_pendentes)
         try:
             from editor.core.telemetria import anexar_diario_escopo
+
             anexar_diario_escopo(self._diario)
         except Exception:
             pass
@@ -125,17 +136,18 @@ class GerenciadorHistorico(QObject):
     def carregar_diario_salvo(self, model: Any, diario: Any) -> int:
         """
         Popula a QUndoStack com os comandos de `diario_salvo.bin` de forma silenciosa e instantânea.
-        
+
         Como o `croqui.yaml` lido do disco já se encontra no estado consolidado final pós-salvamento,
         não realizamos mutações redundantes no modelo Protobuf. Cada comando deserializado é armado
         com `armar_carregamento_silencioso()`. Quando o Qt invoca `redo()` internamente durante o `push()`,
         a mutação é ignorada e a flag é desarmada.
-        
+
         Dessa forma, o boot é instantâneo e qualquer `undo()` (Ctrl+Z) subsequente funciona normalmente.
-        
+
         Retorna o número de comandos salvos carregados na pilha.
         """
         from editor.commands.comandos_protobuf import deserializar_comando
+
         comandos_salvos = diario.ler_diario_salvo()
         if not comandos_salvos:
             return 0
@@ -151,7 +163,7 @@ class GerenciadorHistorico(QObject):
                     if hasattr(cmd, "armar_carregamento_silencioso"):
                         cmd.armar_carregamento_silencioso()
                     else:
-                        setattr(cmd, "_ignorar_primeiro_redo", True)
+                        cmd._ignorar_primeiro_redo = True
                     self._pilha.push(cmd)
 
                     total_carregados += 1
@@ -173,6 +185,7 @@ class GerenciadorHistorico(QObject):
         Retorna o número de comandos restaurados com sucesso.
         """
         from editor.commands.comandos_protobuf import deserializar_comando
+
         comandos_dados = diario.ler_diario_pendente()
         if not comandos_dados:
             self.definir_gerenciador_diario(diario)
@@ -187,7 +200,9 @@ class GerenciadorHistorico(QObject):
                     self._pilha.push(cmd)
                     total_restaurados += 1
                 except (ValueError, AttributeError, LookupError, TypeError) as e:
-                    logger.warning("Comando corrompido ou órfão descartado do diário pendente: %s", e)
+                    logger.warning(
+                        "Comando corrompido ou órfão descartado do diário pendente: %s", e
+                    )
                     continue
                 except Exception as e:
                     logger.error("Erro inesperado ao restaurar comando do diário pendente: %s", e)
@@ -246,14 +261,14 @@ class GerenciadorHistorico(QObject):
         finally:
             self._ultimo_index = novo_index
 
-    def _despachar_sinal(self, cmd: Optional[QUndoCommand], is_undo: bool) -> None:
+    def _despachar_sinal(self, cmd: QUndoCommand | None, is_undo: bool) -> None:
         from editor.commands.comandos_protobuf import (
-            CmdAlterarPrimitivo,
             CmdAdicionarRepeated,
-            CmdRemoverRepeated,
-            CmdAlterarOneof,
-            CmdAlterarRepeatedItem,
             CmdAlterarMultiplosRepeatedItems,
+            CmdAlterarOneof,
+            CmdAlterarPrimitivo,
+            CmdAlterarRepeatedItem,
+            CmdRemoverRepeated,
             CmdRenomearEscalada,
             MensagemAlvoNaoEncontradaError,
         )
@@ -261,7 +276,7 @@ class GerenciadorHistorico(QObject):
         if not cmd:
             return
 
-        if hasattr(cmd, 'contexto_ui') and cmd.contexto_ui:
+        if hasattr(cmd, "contexto_ui") and cmd.contexto_ui:
             self.sinal_foco_requisitado.emit(cmd.contexto_ui)
 
         if cmd.childCount() > 0:
@@ -342,17 +357,22 @@ class GerenciadorHistorico(QObject):
             self.sinal_campo_alterado.emit(id(msg), cmd.oneof_nome, valor)
 
 
-
 class CmdRemoverArquivoFisico(QUndoCommand):
     """
     Comando para remoção de arquivo físico com suporte a desfazer/refazer.
     Move o arquivo para a lixeira interna temporária em vez de removê-lo em definitivo.
     """
-    def __init__(self, caminho_arquivo: Path | str, gerenciador_caminhos: Any, parent: Optional[QUndoCommand] = None) -> None:
+
+    def __init__(
+        self,
+        caminho_arquivo: Path | str,
+        gerenciador_caminhos: Any,
+        parent: QUndoCommand | None = None,
+    ) -> None:
         super().__init__(parent)
         self._caminho_arquivo: Path = Path(caminho_arquivo)
         self._gerenciador: Any = gerenciador_caminhos
-        self._caminho_lixeira: Optional[Path] = None
+        self._caminho_lixeira: Path | None = None
 
     def undo(self) -> None:
         """Restaura o arquivo da lixeira interna para o caminho original."""
@@ -367,12 +387,12 @@ class CmdRemoverArquivoFisico(QUndoCommand):
         if self._caminho_arquivo.exists():
             lixeira_dir = self._gerenciador.obter_caminho_lixeira()
             lixeira_dir.mkdir(parents=True, exist_ok=True)
-            
+
             # Gera um nome único para evitar colisões
             id_unico = uuid.uuid4().hex
             nome_arquivo_lixeira = f"{id_unico}_{self._caminho_arquivo.name}"
             self._caminho_lixeira = lixeira_dir / nome_arquivo_lixeira
-            
+
             shutil.move(str(self._caminho_arquivo), str(self._caminho_lixeira))
 
     def __del__(self) -> None:
@@ -383,4 +403,3 @@ class CmdRemoverArquivoFisico(QUndoCommand):
                 self._caminho_lixeira.unlink()
         except Exception:
             pass
-

@@ -3,12 +3,13 @@
 
 import base64
 import hashlib
+
 import pytest
 
 from editor.release_tools.gerador_instalador_bat import (
-    gerar_script_instalador_bat,
-    calcular_thumbprint_sha256,
     URL_SUCESSO_PADRAO,
+    calcular_thumbprint_sha256,
+    gerar_script_instalador_bat,
 )
 
 CERTIFICADO_CORPO_B64 = "MIIBtzCCAVygAwIBAgIQCX8s1234567890ABCDEF"
@@ -66,7 +67,7 @@ def test_gerar_script_instalador_bat_sucesso() -> None:
     assert "net session >nul 2>&1" in script
     assert "-WindowStyle Hidden" in script
     assert 'certutil -decode "%~f0"' in script
-    assert 'TrustedPeople' in script
+    assert "TrustedPeople" in script
     assert 'del "%TEMP%\\ArestaBeta.cer"' in script
     assert f'start "" "{URL_SUCESSO_PADRAO}?origem=instalador&thumbprint={thumbprint}"' in script
     assert "exit /b 0" in script

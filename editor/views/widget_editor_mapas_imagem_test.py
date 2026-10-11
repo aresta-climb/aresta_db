@@ -2,15 +2,15 @@
 # Copyright (C) 2026 Aresta Climb Contributors
 
 import io
-from pathlib import Path
-from PIL import Image
+
 import pytest
-from PySide6.QtWidgets import QFileDialog, QMessageBox
+from PIL import Image
 from PySide6.QtGui import QUndoStack
+from PySide6.QtWidgets import QFileDialog, QMessageBox
 
 from aresta_api.proto.generated import croqui_pb2
-from editor.models.croqui_model import CroquiModel
 from editor.controllers.croqui_controller import CroquiController
+from editor.models.croqui_model import CroquiModel
 from editor.views.widget_editor_mapas import WidgetEditorMapas
 
 
@@ -21,7 +21,7 @@ def croqui_com_mapa(tmp_path):
     sg = pico.setores_ou_grupos.add()
     setor = sg.setor.conteudo
     setor.nome = "Setor A"
-    
+
     mapa = setor.mapas.add()
     mapa.caminho_imagem_mapa = "imagens/mapa_setor_a.webp"
     mapa.largura_mapa = 400
@@ -52,7 +52,9 @@ class TestWidgetEditorMapasImagem:
         assert widget.btn_substituir_imagem.text() == " Substituir Imagem..."
         assert widget.btn_abrir_editor_imagens.text() == " Abrir no Editor de Imagens"
 
-    def test_substituir_imagem_mapa_com_undo_redo(self, qtbot, croqui_com_mapa, tmp_path, monkeypatch):
+    def test_substituir_imagem_mapa_com_undo_redo(
+        self, qtbot, croqui_com_mapa, tmp_path, monkeypatch
+    ):
         model, mapa, bytes_iniciais = croqui_com_mapa
         undo_stack = QUndoStack()
         controller = CroquiController(model, undo_stack)
@@ -66,7 +68,9 @@ class TestWidgetEditorMapasImagem:
         img_nova = Image.new("RGB", (500, 400), color=(200, 100, 50))
         img_nova.save(nova_img_path, format="PNG")
 
-        monkeypatch.setattr(QFileDialog, "getOpenFileName", lambda *a, **k: (str(nova_img_path), "PNG"))
+        monkeypatch.setattr(
+            QFileDialog, "getOpenFileName", lambda *a, **k: (str(nova_img_path), "PNG")
+        )
 
         # Executa substituição de imagem
         widget.substituir_imagem_mapa()
@@ -84,12 +88,15 @@ class TestWidgetEditorMapasImagem:
         undo_stack.redo()
         assert model.obter_bytes_imagem("imagens/mapa_setor_a.webp") == bytes_substituidos
 
-    def test_substituir_imagem_mapa_via_mapas_controller_com_undo_redo(self, qtbot, croqui_com_mapa, tmp_path, monkeypatch):
+    def test_substituir_imagem_mapa_via_mapas_controller_com_undo_redo(
+        self, qtbot, croqui_com_mapa, tmp_path, monkeypatch
+    ):
         from editor.controllers.mapas_controller import MapasController
+
         model, mapa, bytes_iniciais = croqui_com_mapa
         undo_stack = QUndoStack()
         mapas_ctrl = MapasController(model, undo_stack)
-        
+
         # Instancia widget passando apenas mapas_controller (sem croqui_controller direto)
         widget = WidgetEditorMapas(croqui_model=model, mapas_controller=mapas_ctrl)
         qtbot.addWidget(widget)
@@ -99,7 +106,9 @@ class TestWidgetEditorMapasImagem:
         img_nova = Image.new("RGB", (600, 400), color=(10, 200, 150))
         img_nova.save(nova_img_path, format="PNG")
 
-        monkeypatch.setattr(QFileDialog, "getOpenFileName", lambda *a, **k: (str(nova_img_path), "PNG"))
+        monkeypatch.setattr(
+            QFileDialog, "getOpenFileName", lambda *a, **k: (str(nova_img_path), "PNG")
+        )
 
         # Substitui imagem
         widget.substituir_imagem_mapa()
@@ -165,7 +174,9 @@ class TestWidgetEditorMapasImagem:
         # Erro ao processar arquivo
         avisos = []
         monkeypatch.setattr(QMessageBox, "warning", lambda parent, title, text: avisos.append(text))
-        monkeypatch.setattr(QFileDialog, "getOpenFileName", lambda *a, **k: ("inexistente.png", "PNG"))
+        monkeypatch.setattr(
+            QFileDialog, "getOpenFileName", lambda *a, **k: ("inexistente.png", "PNG")
+        )
         widget.substituir_imagem_mapa()
         assert len(avisos) == 1
 
@@ -174,6 +185,7 @@ class TestWidgetEditorMapasImagem:
 
     def test_substituir_imagem_mapa_com_heic(self, qtbot, croqui_com_mapa, tmp_path, monkeypatch):
         import pillow_heif
+
         pillow_heif.register_heif_opener()
         model, mapa, bytes_iniciais = croqui_com_mapa
         undo_stack = QUndoStack()
@@ -204,4 +216,3 @@ class TestWidgetEditorMapasImagem:
         assert bytes_substituidos != bytes_iniciais
         assert bytes_substituidos.startswith(b"RIFF")
         assert undo_stack.count() == 1
-

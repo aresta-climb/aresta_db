@@ -8,14 +8,15 @@ de identificadores imutáveis NanoID 14c em Base62 para todo o ecossistema Arest
 O uso da biblioteca externa 'nanoid' é estritamente encapsulado neste módulo.
 """
 
-from typing import Optional, Dict, Any, Tuple, List, Union
 import io
 import re
 import string
 import urllib.parse
 from pathlib import Path
-from ruamel.yaml import YAML
+from typing import Any
+
 import nanoid
+from ruamel.yaml import YAML
 
 # Alfabeto Base62 estritamente alfanumérico contínuo: [0-9a-zA-Z]
 ALFABETO_BASE62: str = string.digits + string.ascii_letters
@@ -35,7 +36,7 @@ def gerar_uid() -> str:
     return str(nanoid.generate(alphabet=ALFABETO_BASE62, size=TAMANHO_UID))
 
 
-def validar_uid(uid: Optional[str]) -> bool:
+def validar_uid(uid: str | None) -> bool:
     """Valida se o identificador possui exatamente 14 caracteres alfanuméricos Base62.
 
     Rejeita nulos, tamanhos diferentes de 14, caracteres especiais (incluindo
@@ -57,7 +58,7 @@ def formatar_url_aresta(uid: str) -> str:
     return f"{PREFIXO_URL}{uid}"
 
 
-def extrair_uid_de_url(url: str) -> Optional[str]:
+def extrair_uid_de_url(url: str) -> str | None:
     """Extrai e valida o UID a partir de uma URL curta ou link escaneado.
 
     Aceita variações com http, https, com ou sem barra final, e parâmetros de consulta.
@@ -127,7 +128,7 @@ def _obter_yaml() -> YAML:
     return y
 
 
-def _carregar_md_ruamel(caminho: Path) -> Tuple[Optional[Any], str, Optional[YAML]]:
+def _carregar_md_ruamel(caminho: Path) -> tuple[Any | None, str, YAML | None]:
     """Lê um arquivo Markdown e faz o parse do Frontmatter preservando formatação e comentários."""
     try:
         conteudo = caminho.read_text(encoding="utf-8")
@@ -160,7 +161,7 @@ def _salvar_md_ruamel(caminho: Path, dados: Any, corpo: str, y: YAML) -> None:
         caminho.write_text(f"---\n{texto_yaml}\n---\n", encoding="utf-8")
 
 
-def _extrair_nome_escalada(escalada: Dict[str, Any]) -> str:
+def _extrair_nome_escalada(escalada: dict[str, Any]) -> str:
     """Extrai o nome de uma escalada suportando modelo plano ou polimórfico."""
     if not isinstance(escalada, dict):
         return ""
@@ -182,7 +183,7 @@ def _extrair_nome_escalada(escalada: Dict[str, Any]) -> str:
     return ""
 
 
-def sanear_uids_croqui(pico_path: Union[str, Path]) -> bool:
+def sanear_uids_croqui(pico_path: str | Path) -> bool:
     """Executa o saneamento contínuo e idempotente de UIDs e referências de mapas em um croqui.
 
     Garante que todas as entidades (Croqui, Grupo, Setor, Escalada, PontoDeInteresse e Botao)
@@ -227,13 +228,13 @@ def sanear_uids_croqui(pico_path: Union[str, Path]) -> bool:
 
     # 2. Primeira passagem pelos arquivos .md: atribui UIDs a setores, grupos e escaladas,
     # e constrói o índice de resolução de nomes para referências
-    arquivos_md: List[Path] = [p for p in pico_path.glob("*.md") if p.is_file()]
-    dados_md_carregados: Dict[Path, Tuple[Any, str, YAML, bool]] = {}
+    arquivos_md: list[Path] = [p for p in pico_path.glob("*.md") if p.is_file()]
+    dados_md_carregados: dict[Path, tuple[Any, str, YAML, bool]] = {}
 
-    mapa_escaladas_com_setor: Dict[Tuple[str, str], str] = {}
-    mapa_escaladas_simples: Dict[str, str] = {}
-    mapa_setores: Dict[str, str] = {}
-    mapa_grupos: Dict[str, str] = {}
+    mapa_escaladas_com_setor: dict[tuple[str, str], str] = {}
+    mapa_escaladas_simples: dict[str, str] = {}
+    mapa_setores: dict[str, str] = {}
+    mapa_grupos: dict[str, str] = {}
 
     for md_path in arquivos_md:
         dados, corpo, inst_y = _carregar_md_ruamel(md_path)
@@ -241,8 +242,17 @@ def sanear_uids_croqui(pico_path: Union[str, Path]) -> bool:
             continue
 
         nome_lower = str(dados.get("nome", "")).lower()
-        eh_setor = md_path.name.startswith("setor") or "escaladas" in dados or nome_lower.startswith("setor")
-        eh_grupo = md_path.name.startswith("grupo") or "setores" in dados or "sub_setores" in dados or nome_lower.startswith("grupo")
+        eh_setor = (
+            md_path.name.startswith("setor")
+            or "escaladas" in dados
+            or nome_lower.startswith("setor")
+        )
+        eh_grupo = (
+            md_path.name.startswith("grupo")
+            or "setores" in dados
+            or "sub_setores" in dados
+            or nome_lower.startswith("grupo")
+        )
         eh_mapa = md_path.name.startswith("mapas") or "mapas" in dados
 
         if not (eh_setor or eh_grupo or eh_mapa):
@@ -313,7 +323,7 @@ def sanear_uids_croqui(pico_path: Union[str, Path]) -> bool:
                     continue
 
                 # 3.1 Migra pontos de interesse: label -> rotulo e atribui UIDs, posicionando uid e rotulo no início
-                poi_id_para_uid: Dict[str, str] = {}
+                poi_id_para_uid: dict[str, str] = {}
                 for poi in mapa.get("pontos_de_interesse", []):
                     if not isinstance(poi, dict):
                         continue
@@ -355,17 +365,23 @@ def sanear_uids_croqui(pico_path: Union[str, Path]) -> bool:
                     # Converte alvo_uid se ausente
                     alvo_uid = ref.get("alvo_uid")
                     if alvo_uid is None or str(alvo_uid).strip() == "":
-                        alvo_uid_encontrado: Optional[str] = None
+                        alvo_uid_encontrado: str | None = None
                         if "escalada" in ref:
                             nome_via = str(ref.get("escalada", "")).strip()
                             nome_setor = str(ref.get("setor", "")).strip() or nome_setor_atual
-                            alvo_uid_encontrado = mapa_escaladas_com_setor.get((nome_setor, nome_via)) or mapa_escaladas_simples.get(nome_via)
+                            alvo_uid_encontrado = mapa_escaladas_com_setor.get(
+                                (nome_setor, nome_via)
+                            ) or mapa_escaladas_simples.get(nome_via)
                         elif "setor" in ref:
                             nome_setor = str(ref.get("setor", "")).strip()
-                            alvo_uid_encontrado = mapa_setores.get(nome_setor) or mapa_grupos.get(nome_setor)
+                            alvo_uid_encontrado = mapa_setores.get(nome_setor) or mapa_grupos.get(
+                                nome_setor
+                            )
                         elif "grupo" in ref:
                             nome_grupo = str(ref.get("grupo", "")).strip()
-                            alvo_uid_encontrado = mapa_grupos.get(nome_grupo) or mapa_setores.get(nome_grupo)
+                            alvo_uid_encontrado = mapa_grupos.get(nome_grupo) or mapa_setores.get(
+                                nome_grupo
+                            )
 
                         if alvo_uid_encontrado:
                             alvo_uid = alvo_uid_encontrado
@@ -376,9 +392,7 @@ def sanear_uids_croqui(pico_path: Union[str, Path]) -> bool:
                     if "pontos_uids" not in ref or ref.get("pontos_uids") is None:
                         ids_locais = ref.get("ids", [])
                         if isinstance(ids_locais, list):
-                            pontos_uids = [
-                                poi_id_para_uid.get(str(pid), pid) for pid in ids_locais
-                            ]
+                            pontos_uids = [poi_id_para_uid.get(str(pid), pid) for pid in ids_locais]
                             _inserir_ou_mover_para_posicao(ref, "pontos_uids", pontos_uids, 0)
                             modificado_md = True
 
@@ -405,8 +419,12 @@ def sanear_uids_croqui(pico_path: Union[str, Path]) -> bool:
                     # Garante posicionamento canônico: alvo_uid na pos 0 e pontos_uids na pos 1
                     if "alvo_uid" in ref and "pontos_uids" in ref:
                         chaves_ref = list(ref.keys())
-                        if len(chaves_ref) >= 2 and (chaves_ref[0] != "alvo_uid" or chaves_ref[1] != "pontos_uids"):
-                            _inserir_ou_mover_para_posicao(ref, "pontos_uids", ref["pontos_uids"], 0)
+                        if len(chaves_ref) >= 2 and (
+                            chaves_ref[0] != "alvo_uid" or chaves_ref[1] != "pontos_uids"
+                        ):
+                            _inserir_ou_mover_para_posicao(
+                                ref, "pontos_uids", ref["pontos_uids"], 0
+                            )
                             _inserir_ou_mover_para_posicao(ref, "alvo_uid", ref["alvo_uid"], 0)
                             modificado_md = True
 
@@ -416,4 +434,3 @@ def sanear_uids_croqui(pico_path: Union[str, Path]) -> bool:
             houve_modificacao = True
 
     return houve_modificacao
-

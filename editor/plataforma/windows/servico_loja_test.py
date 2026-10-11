@@ -7,11 +7,12 @@ Testes unitários para o ServicoLoja em editor.plataforma.windows.servico_loja (
 
 import unittest
 from unittest.mock import MagicMock, patch
-from editor.plataforma.contrato import StatusAtualizacao, ResultadoAtualizacao
+
+from editor.plataforma.contrato import ResultadoAtualizacao, StatusAtualizacao
 from editor.plataforma.windows.servico_loja import (
     ServicoLoja,
-    obter_pacote_atual,
     obter_contexto_loja,
+    obter_pacote_atual,
 )
 
 
@@ -266,7 +267,9 @@ class TestServicoLojaWindows(unittest.TestCase):
     ) -> None:
         """Deve chamar request_download_and_install_store_package_updates_async com sucesso."""
         mock_contexto = MagicMock(spec=["request_download_and_install_store_package_updates_async"])
-        mock_contexto.request_download_and_install_store_package_updates_async.return_value = MagicMock()
+        mock_contexto.request_download_and_install_store_package_updates_async.return_value = (
+            MagicMock()
+        )
         mock_obter_contexto.return_value = mock_contexto
 
         resultado = ResultadoAtualizacao(

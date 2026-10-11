@@ -35,7 +35,7 @@ Criar a função auxiliar `obter_caminho_migracoes() -> Path` que avalia em orde
 Em `editor/EditorAresta.spec`, adicionar explicitamente:
 ```python
 datas += [
-    (str(repo_root / 'migracoes'), 'migracoes'),
+    (str(repo_root / "migracoes"), "migracoes"),
 ]
 ```
 Garante que o executável standalone possa operar 100% offline, conforme especificado originalmente em `legacy_specs/editor_atualizacoes.md`.

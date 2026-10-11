@@ -1,18 +1,17 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
-import pytest
-from unittest.mock import patch, MagicMock
-from pathlib import Path
 import sys
+from pathlib import Path
+from unittest.mock import patch
 
 sys.path.append(str(Path(__file__).resolve().parent.parent))
 
 from serving.pr_db_validator import (
-    validar_pull_request,
-    validar_cabecalhos_e_licencas,
-    validar_versoes_migracao,
     main,
+    validar_cabecalhos_e_licencas,
+    validar_pull_request,
+    validar_versoes_migracao,
 )
 
 
@@ -23,16 +22,16 @@ def test_validar_pull_request_sucesso(mock_deploy, mock_cabecalhos, tmp_path: Pa
     Testa se o validador retorna sucesso quando todas as pastas compilam corretamente e os cabeçalhos estão válidos.
     """
     mock_cabecalhos.return_value = []
-    
+
     pasta_1 = tmp_path / "pico_1"
     pasta_1.mkdir()
     pasta_2 = tmp_path / "pico_2"
     pasta_2.mkdir()
-    
+
     pastas = [str(pasta_1), str(pasta_2)]
-    
+
     erros = validar_pull_request(pastas)
-    
+
     assert len(erros) == 0
     assert mock_cabecalhos.call_count == 1
     assert mock_deploy.call_count == 1
@@ -51,11 +50,11 @@ def test_validar_pull_request_com_falha_compilacao(mock_deploy, mock_cabecalhos,
     pasta_ruim = tmp_path / "pico_ruim"
     pasta_ruim.mkdir()
     pastas = [str(pasta_ruim)]
-    
+
     mock_deploy.side_effect = RuntimeError("Erro simulado no pico_ruim")
-    
+
     erros = validar_pull_request(pastas)
-    
+
     assert len(erros) == 1
     assert "Erro simulado no pico_ruim" in erros[0]
     assert mock_deploy.call_count == 1
@@ -70,9 +69,9 @@ def test_validar_pull_request_com_falha_cabecalhos(mock_cabecalhos, tmp_path: Pa
     pasta_1 = tmp_path / "pico_1"
     pasta_1.mkdir()
     pastas = [str(pasta_1)]
-    
+
     erros = validar_pull_request(pastas)
-    
+
     assert len(erros) == 1
     assert "Erro no cabeçalho SPDX de arquivo X" in erros[0]
 
@@ -107,9 +106,9 @@ def test_validar_pull_request_com_diretorio_saida(mock_deploy, mock_cabecalhos, 
     pasta = tmp_path / "pico_1"
     pasta.mkdir()
     saida = tmp_path / "saida_custom"
-    
+
     erros = validar_pull_request([str(pasta)], diretorio_saida=str(saida))
-    
+
     assert len(erros) == 0
     assert mock_deploy.call_count == 1
     assert saida.exists()
@@ -155,7 +154,9 @@ def test_main_erro(mock_validador):
     Testa fluxo de execução CLI quando ocorrem erros de validação.
     """
     mock_validador.return_value = ["Falha na validação"]
-    with patch("sys.argv", ["pr_db_validator.py", "--pastas", "database/pico", "--saida", "/tmp/out"]):
+    with patch(
+        "sys.argv", ["pr_db_validator.py", "--pastas", "database/pico", "--saida", "/tmp/out"]
+    ):
         codigo = main()
         assert codigo == 1
         mock_validador.assert_called_once_with(["database/pico"], "/tmp/out")
@@ -180,7 +181,9 @@ def test_validar_versoes_migracao_desatualizado(tmp_path: Path):
     """
     pasta_desatualizada = tmp_path / "croqui_velho"
     pasta_desatualizada.mkdir()
-    (pasta_desatualizada / "croqui.yaml").write_text("id: velho\nultima_migracao: 0\n", encoding="utf-8")
+    (pasta_desatualizada / "croqui.yaml").write_text(
+        "id: velho\nultima_migracao: 0\n", encoding="utf-8"
+    )
 
     with patch("serving.pr_db_validator.obter_ultima_versao_migracao", return_value=5):
         erros = validar_versoes_migracao([pasta_desatualizada])
@@ -204,7 +207,9 @@ def test_validar_versoes_migracao_ignora_pasta_sem_croqui_yaml(tmp_path: Path):
 
 @patch("serving.pr_db_validator.validar_cabecalhos_e_licencas", return_value=[])
 @patch("serving.pr_db_validator.deploy")
-def test_validar_pull_request_interrompe_quando_migracao_desatualizada(mock_deploy, mock_cabecalhos, tmp_path: Path):
+def test_validar_pull_request_interrompe_quando_migracao_desatualizada(
+    mock_deploy, mock_cabecalhos, tmp_path: Path
+):
     """
     Testa que validar_pull_request falha cedo e não chama deploy se houver croqui desatualizado.
     """
@@ -257,4 +262,3 @@ def test_validar_versoes_migracao_erro_ao_ler_yaml(tmp_path: Path):
         erros = validar_versoes_migracao([pasta])
         assert len(erros) == 1
         assert "Erro ao verificar versão de migração" in erros[0]
-

@@ -3,7 +3,9 @@
 
 import pytest
 from PySide6.QtWidgets import QApplication
+
 from editor.views.dialogos.dialogo_criar_botao import DialogoCriarBotao
+
 
 @pytest.fixture(scope="session")
 def qapp():
@@ -48,7 +50,7 @@ def test_dialogo_criar_botao_validacao_duplicidade(qapp):
     """Verifica se duplicidade de texto ou de arquivo é detectada e bloqueia a criação."""
     dialogo = DialogoCriarBotao(
         textos_existentes=["Apresentação", "História"],
-        arquivos_existentes=["apresentacao.md", "historia.md"]
+        arquivos_existentes=["apresentacao.md", "historia.md"],
     )
     dialogo.show()
 
@@ -72,6 +74,7 @@ def test_dialogo_criar_botao_validacao_duplicidade(qapp):
 def test_dialogo_criar_botao_metodo_estatico_obter_dados(qapp, monkeypatch):
     """Verifica a chamada do método estático obter_dados com confirmação e rejeição."""
     from PySide6.QtWidgets import QDialog
+
     monkeypatch.setattr(QDialog, "exec", lambda self: self.setResult(QDialog.DialogCode.Accepted))
 
     texto, arquivo, ok = DialogoCriarBotao.obter_dados(texto_sugerido="Apoio")
@@ -96,4 +99,3 @@ def test_dialogo_criar_botao_texto_vazio_e_caracteres_especiais(qapp):
 
     dialogo.edit_texto.setText("!!!")
     assert dialogo.edit_arquivo.text() == "botao.md"
-

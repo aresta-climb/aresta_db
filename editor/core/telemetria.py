@@ -45,7 +45,7 @@ def limpar_caminhos_extras_sanitizacao() -> None:
 def _obter_mapeamento_sanitizacao() -> list[tuple[str, str]]:
     """Gera lista ordenada de prefixos de caminhos locais e suas respectivas substituições anônimas."""
     mapeamentos: list[tuple[str, str]] = []
-    
+
     # 1. Caminhos de repositórios locais registrados
     for caminho, substituto in _caminhos_extras_sanitizacao:
         mapeamentos.append((caminho, substituto))
@@ -53,6 +53,7 @@ def _obter_mapeamento_sanitizacao() -> list[tuple[str, str]]:
     # 2. Diretório Base do Aplicativo (EditorAresta)
     try:
         from editor.core.storage import obter_diretorio_base_app
+
         dir_base = str(obter_diretorio_base_app())
         if dir_base:
             mapeamentos.append((dir_base, "%appdata%\\EditorAresta"))
@@ -66,12 +67,12 @@ def _obter_mapeamento_sanitizacao() -> list[tuple[str, str]]:
     localappdata = os.environ.get("LOCALAPPDATA")
     if localappdata:
         mapeamentos.append((localappdata, "%localappdata%"))
-        
+
     # 3. Diretório Home / UserProfile
     home = str(Path.home())
     if home:
         mapeamentos.append((home, "%userprofile%"))
-        
+
     userprofile = os.environ.get("USERPROFILE")
     if userprofile and userprofile != home:
         mapeamentos.append((userprofile, "%userprofile%"))
@@ -98,10 +99,10 @@ def sanitizar_texto_caminhos(texto: str) -> str:
         caminho_barras_invertidas = caminho_original.replace("/", "\\")
         caminho_barras_duplas = caminho_barras_invertidas.replace("\\", "\\\\")
         caminho_barras_normais = caminho_original.replace("\\", "/")
-        
+
         substituto_barras_duplas = substituto.replace("\\", "\\\\")
         substituto_barras_normais = substituto.replace("\\", "/")
-        
+
         # Helper com tipagem explícita para evitar erro de inferência em lambda
         def _fazer_subst(val_subst: str) -> Any:
             return lambda m: val_subst
@@ -112,7 +113,7 @@ def sanitizar_texto_caminhos(texto: str) -> str:
 
         padrao_inv = re.compile(re.escape(caminho_barras_invertidas), re.IGNORECASE)
         resultado = padrao_inv.sub(_fazer_subst(substituto), resultado)
-        
+
         padrao_norm = re.compile(re.escape(caminho_barras_normais), re.IGNORECASE)
         resultado = padrao_norm.sub(_fazer_subst(substituto_barras_normais), resultado)
 
@@ -135,7 +136,6 @@ def _sanitizar_objeto_recursivo(obj: Any) -> Any:
 def sanitizar_evento_sentry(event: Any, hint: Any) -> Any:
     """Hook before_send do Sentry para sanitizar qualquer caminho local em eventos, stacktraces e breadcrumbs."""
     return _sanitizar_objeto_recursivo(event)
-
 
 
 def inicializar_telemetria(dsn: str | None = None) -> bool:
@@ -241,14 +241,31 @@ def _anexar_arquivos_diario_no_escopo() -> None:
                 except Exception:
                     pass
 
-        scope = sentry_sdk.get_current_scope() if hasattr(sentry_sdk, "get_current_scope") else (
-            getattr(getattr(sentry_sdk, "Hub", None), "current", None) and getattr(sentry_sdk.Hub.current, "scope", None)
+        scope = (
+            sentry_sdk.get_current_scope()
+            if hasattr(sentry_sdk, "get_current_scope")
+            else (
+                getattr(getattr(sentry_sdk, "Hub", None), "current", None)
+                and getattr(sentry_sdk.Hub.current, "scope", None)
+            )
         )
         if scope and hasattr(scope, "add_attachment"):
-            if hasattr(_diario_ativo, "caminho_pendente") and _diario_ativo.caminho_pendente.exists() and _diario_ativo.caminho_pendente.stat().st_size > 0:
-                scope.add_attachment(path=str(_diario_ativo.caminho_pendente), filename="diario_pendente.bin")
-            if hasattr(_diario_ativo, "caminho_salvo") and _diario_ativo.caminho_salvo.exists() and _diario_ativo.caminho_salvo.stat().st_size > 0:
-                scope.add_attachment(path=str(_diario_ativo.caminho_salvo), filename="diario_salvo.bin")
+            if (
+                hasattr(_diario_ativo, "caminho_pendente")
+                and _diario_ativo.caminho_pendente.exists()
+                and _diario_ativo.caminho_pendente.stat().st_size > 0
+            ):
+                scope.add_attachment(
+                    path=str(_diario_ativo.caminho_pendente), filename="diario_pendente.bin"
+                )
+            if (
+                hasattr(_diario_ativo, "caminho_salvo")
+                and _diario_ativo.caminho_salvo.exists()
+                and _diario_ativo.caminho_salvo.stat().st_size > 0
+            ):
+                scope.add_attachment(
+                    path=str(_diario_ativo.caminho_salvo), filename="diario_salvo.bin"
+                )
     except Exception:
         pass
 
@@ -266,7 +283,7 @@ def registrar_breadcrumb_comando(cmd: Any) -> None:
             category="historico",
             message=msg,
             level="info",
-            data={"classe": classe, "campo": campo, "caminho": caminho}
+            data={"classe": classe, "campo": campo, "caminho": caminho},
         )
     except Exception:
         pass
@@ -279,7 +296,9 @@ def configurar_tratamento_excecoes_globais() -> None:
 
     hook_original_sys = sys.excepthook
 
-    def _tratar_excecao_sys(exc_type: type[BaseException], exc_value: BaseException, exc_traceback: Any) -> None:
+    def _tratar_excecao_sys(
+        exc_type: type[BaseException], exc_value: BaseException, exc_traceback: Any
+    ) -> None:
         try:
             _anexar_arquivos_diario_no_escopo()
             sentry_sdk.capture_exception((exc_type, exc_value, exc_traceback))
@@ -424,7 +443,3 @@ def capturar_excecao(
         return event_id
     except Exception:
         return None
-
-
-
-

@@ -1,7 +1,6 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
-import pytest
 import sys
 from pathlib import Path
 
@@ -9,6 +8,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent.parent.parent))
 
 from editor.core.proto_comments import get_proto_comments
+
 
 def test_proto_comments_with_nested_blocks(tmp_path, monkeypatch):
     proto_file = tmp_path / "test.proto"
@@ -39,11 +39,11 @@ def test_proto_comments_with_nested_blocks(tmp_path, monkeypatch):
         }
     }
     """
-    proto_file.write_text(proto_content, encoding='utf-8')
-    
+    proto_file.write_text(proto_content, encoding="utf-8")
+
     # Pass the proto_file directly
     comments = get_proto_comments(proto_paths_override=[str(proto_file)])
-    
+
     assert comments.get(("Croqui", "field_a")) == "Comment field A"
     assert comments.get(("Inner", "inner_field")) == "Comment inner field"
     assert comments.get(("Croqui", "field_b")) == "Comment field B defined after inner block ends"

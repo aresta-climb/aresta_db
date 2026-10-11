@@ -6,10 +6,10 @@ from pathlib import Path
 from unittest.mock import patch
 
 from editor.core.configuracao_canal import (
-    obter_configuracao_canal,
-    ConfiguracaoCanal,
-    CANAL_PRODUCAO,
     CANAL_BETA,
+    CANAL_PRODUCAO,
+    ConfiguracaoCanal,
+    obter_configuracao_canal,
 )
 
 
@@ -101,13 +101,17 @@ def test_configuracao_canal_obter_caminho_recurso(tmp_path: Path) -> None:
 def test_configuracao_canal_obter_caminho_recurso_ambiente_pyinstaller(tmp_path: Path) -> None:
     """Garante que a resolução de recursos funcione no executável congelado com sys._MEIPASS."""
     import sys
+
     dir_meipass = tmp_path / "meipass_bundle"
     dir_recursos_beta = dir_meipass / "recursos_beta"
     dir_recursos_beta.mkdir(parents=True)
     logo_beta = dir_recursos_beta / "logo_splash.png"
     logo_beta.write_bytes(b"logo_azul_empacotada")
 
-    with patch.object(sys, "_MEIPASS", str(dir_meipass), create=True), patch.object(sys, "frozen", True, create=True):
+    with (
+        patch.object(sys, "_MEIPASS", str(dir_meipass), create=True),
+        patch.object(sys, "frozen", True, create=True),
+    ):
         config_beta = ConfiguracaoCanal(CANAL_BETA)
         caminho_resolvido = config_beta.obter_caminho_recurso("logo_splash.png")
         assert caminho_resolvido == logo_beta
@@ -116,12 +120,17 @@ def test_configuracao_canal_obter_caminho_recurso_ambiente_pyinstaller(tmp_path:
 def test_configuracao_canal_deteccao_automatica_em_pacote_pyinstaller(tmp_path: Path) -> None:
     """Garante que o canal Beta seja detectado no executável empacotado via canal.txt sem variável de ambiente."""
     import sys
+
     dir_meipass = tmp_path / "meipass_bundle"
     dir_meipass.mkdir(parents=True)
     arquivo_canal = dir_meipass / "canal.txt"
     arquivo_canal.write_text("beta", encoding="utf-8")
 
-    with patch.dict(os.environ, {}, clear=True), patch.object(sys, "_MEIPASS", str(dir_meipass), create=True), patch.object(sys, "frozen", True, create=True):
+    with (
+        patch.dict(os.environ, {}, clear=True),
+        patch.object(sys, "_MEIPASS", str(dir_meipass), create=True),
+        patch.object(sys, "frozen", True, create=True),
+    ):
         if "ARESTA_CANAL" in os.environ:
             del os.environ["ARESTA_CANAL"]
         config = obter_configuracao_canal()
@@ -133,10 +142,15 @@ def test_configuracao_canal_deteccao_automatica_em_pacote_pyinstaller(tmp_path: 
 def test_configuracao_canal_deteccao_automatica_por_pasta_recursos_beta(tmp_path: Path) -> None:
     """Garante que o canal Beta seja detectado se recursos_beta existir no pacote PyInstaller."""
     import sys
+
     dir_meipass = tmp_path / "meipass_bundle"
     (dir_meipass / "recursos_beta").mkdir(parents=True)
 
-    with patch.dict(os.environ, {}, clear=True), patch.object(sys, "_MEIPASS", str(dir_meipass), create=True), patch.object(sys, "frozen", True, create=True):
+    with (
+        patch.dict(os.environ, {}, clear=True),
+        patch.object(sys, "_MEIPASS", str(dir_meipass), create=True),
+        patch.object(sys, "frozen", True, create=True),
+    ):
         if "ARESTA_CANAL" in os.environ:
             del os.environ["ARESTA_CANAL"]
         config = obter_configuracao_canal()
@@ -174,6 +188,7 @@ def test_obter_caminho_icone_aplicacao_windows(tmp_path: Path) -> None:
     ico_beta.write_bytes(b"ico_beta")
 
     import sys
+
     with patch.object(sys, "platform", "win32"):
         # Canal Produção: encontra logo.ico em recursos
         config_prod = ConfiguracaoCanal(CANAL_PRODUCAO, diretorio_base=dir_editor)
@@ -249,10 +264,9 @@ def test_obter_caminho_icone_aplicacao_falha_modulo_plataforma(tmp_path: Path) -
     png_padrao = dir_recursos_padrao / "logo_app.png"
     png_padrao.write_bytes(b"png_padrao")
 
-    with patch("editor.plataforma.obter_nome_icone_preferencial", side_effect=RuntimeError("Falha de plataforma")):
+    with patch(
+        "editor.plataforma.obter_nome_icone_preferencial",
+        side_effect=RuntimeError("Falha de plataforma"),
+    ):
         config_prod = ConfiguracaoCanal(CANAL_PRODUCAO, diretorio_base=dir_editor)
         assert config_prod.obter_caminho_icone_aplicacao() == png_padrao
-
-
-
-

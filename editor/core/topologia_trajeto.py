@@ -14,18 +14,19 @@ Este módulo é independente de frameworks visuais e implementa a lógica pura d
 
 import math
 import re
-import copy
-from enum import Enum
+from collections.abc import Sequence
 from dataclasses import dataclass
-from typing import List, Tuple, Optional, Any, Sequence, Set, Union, Dict
+from enum import Enum
+from typing import Any
 
 from aresta_api.proto.generated import croqui_pb2
-from scripts.gerenciar_uids_lib import gerar_uid, validar_uid
 from editor.core.spline_catmull_rom import Ponto2D as Ponto2D
+from scripts.gerenciar_uids_lib import gerar_uid, validar_uid
 
 
 class TipoSnap(Enum):
     """Representa a natureza do ponto capturado pelo snap magnético."""
+
     LIVRE = "livre"
     NO = "no"
     CURVA = "curva"
@@ -34,20 +35,17 @@ class TipoSnap(Enum):
 @dataclass(frozen=True)
 class ResultadoSnap:
     """Resultado detalhado do cálculo de snap magnético."""
+
     tipo: TipoSnap
     coordenada: Ponto2D
-    id_linha: Optional[str] = None
-    indice_no: Optional[int] = None
-    indice_segmento: Optional[int] = None
-    fator_t: Optional[float] = None
-    rotulo: Optional[str] = None
+    id_linha: str | None = None
+    indice_no: int | None = None
+    indice_segmento: int | None = None
+    fator_t: float | None = None
+    rotulo: str | None = None
 
 
-def projetar_ponto_em_segmento(
-    p: Ponto2D,
-    a: Ponto2D,
-    b: Ponto2D
-) -> Tuple[Ponto2D, float, float]:
+def projetar_ponto_em_segmento(p: Ponto2D, a: Ponto2D, b: Ponto2D) -> tuple[Ponto2D, float, float]:
     """
     Projeta o ponto 'p' ortogonalmente sobre o segmento de reta 'ab'.
     Retorna uma tupla contendo:
@@ -75,16 +73,14 @@ def projetar_ponto_em_segmento(
 
 
 def detectar_snap_nos(
-    ponto: Ponto2D,
-    linhas: Sequence[Any],
-    raio_snap: float = 15.0
-) -> Optional[ResultadoSnap]:
+    ponto: Ponto2D, linhas: Sequence[Any], raio_snap: float = 15.0
+) -> ResultadoSnap | None:
     """
     Localiza o nó (vértice) mais próximo de 'ponto' entre todas as linhas informadas,
     caso a distância esteja dentro do raio de tolerância.
     """
     melhor_dist = float("inf")
-    melhor_snap: Optional[ResultadoSnap] = None
+    melhor_snap: ResultadoSnap | None = None
 
     for linha in linhas:
         if not hasattr(linha, "linha") or not linha.HasField("linha"):
@@ -101,23 +97,21 @@ def detectar_snap_nos(
                     coordenada=p_no,
                     id_linha=id_linha,
                     indice_no=idx,
-                    rotulo=str(no.rotulo) if no.rotulo else None
+                    rotulo=str(no.rotulo) if no.rotulo else None,
                 )
 
     return melhor_snap
 
 
 def detectar_snap_curva(
-    ponto: Ponto2D,
-    linhas: Sequence[Any],
-    raio_snap: float = 15.0
-) -> Optional[ResultadoSnap]:
+    ponto: Ponto2D, linhas: Sequence[Any], raio_snap: float = 15.0
+) -> ResultadoSnap | None:
     """
     Localiza a projeção mais próxima de 'ponto' sobre os segmentos contíguos das linhas,
     caso esteja dentro do raio de tolerância.
     """
     melhor_dist = float("inf")
-    melhor_snap: Optional[ResultadoSnap] = None
+    melhor_snap: ResultadoSnap | None = None
 
     for linha in linhas:
         if not hasattr(linha, "linha") or not linha.HasField("linha"):
@@ -137,17 +131,13 @@ def detectar_snap_curva(
                     coordenada=p_proj,
                     id_linha=id_linha,
                     indice_segmento=i,
-                    fator_t=t
+                    fator_t=t,
                 )
 
     return melhor_snap
 
 
-def calcular_snap(
-    ponto: Ponto2D,
-    linhas: Sequence[Any],
-    raio_snap: float = 15.0
-) -> ResultadoSnap:
+def calcular_snap(ponto: Ponto2D, linhas: Sequence[Any], raio_snap: float = 15.0) -> ResultadoSnap:
     """
     Calcula o snap magnético para uma coordenada dada:
     1. Prioriza nós (vértices existentes).
@@ -181,7 +171,12 @@ def _copiar_poi_linha_base(linha_proto: Any, novo_id: str = "") -> Any:
     return poi
 
 
-def _adicionar_no_copia(linha_dst: Any, no_src: Any, tipo_sobrescrever: Optional[Any] = None, rotulo_sobrescrever: Optional[str] = None) -> Any:
+def _adicionar_no_copia(
+    linha_dst: Any,
+    no_src: Any,
+    tipo_sobrescrever: Any | None = None,
+    rotulo_sobrescrever: str | None = None,
+) -> Any:
     """Adiciona um nó copiado para o destino suportando mensagens Protobuf ou ReadOnlyProxy."""
     no = linha_dst.linha.conteudo.nos.add()
     no.x = int(round(float(no_src.x)))
@@ -196,8 +191,8 @@ def fatiar_linha_em_no(
     indice_no: int,
     id_sub1: str,
     id_sub2: str,
-    preservar_tipo_no_corte: bool = False
-) -> Tuple[Any, Any]:
+    preservar_tipo_no_corte: bool = False,
+) -> tuple[Any, Any]:
     """
     Divide uma linha existente em duas sublinhas no nó de índice especificado.
     - Sublinha 1 conterá os nós de 0 até indice_no.
@@ -212,18 +207,24 @@ def fatiar_linha_em_no(
             f"(entre 1 e {total_nos - 2})."
         )
 
-    tipo_juncao = nos[indice_no].tipo if preservar_tipo_no_corte else croqui_pb2.NoTrajeto.TipoNo.PASSAGEM
+    tipo_juncao = (
+        nos[indice_no].tipo if preservar_tipo_no_corte else croqui_pb2.NoTrajeto.TipoNo.PASSAGEM
+    )
     rotulo_juncao = str(nos[indice_no].rotulo or "") if preservar_tipo_no_corte else ""
 
     sub1 = _copiar_poi_linha_base(linha_proto, id_sub1)
     for i in range(indice_no):
         _adicionar_no_copia(sub1, nos[i])
     # Ponto de junção em sub1
-    _adicionar_no_copia(sub1, nos[indice_no], tipo_sobrescrever=tipo_juncao, rotulo_sobrescrever=rotulo_juncao)
+    _adicionar_no_copia(
+        sub1, nos[indice_no], tipo_sobrescrever=tipo_juncao, rotulo_sobrescrever=rotulo_juncao
+    )
 
     sub2 = _copiar_poi_linha_base(linha_proto, id_sub2)
     # Ponto de junção em sub2
-    _adicionar_no_copia(sub2, nos[indice_no], tipo_sobrescrever=tipo_juncao, rotulo_sobrescrever=rotulo_juncao)
+    _adicionar_no_copia(
+        sub2, nos[indice_no], tipo_sobrescrever=tipo_juncao, rotulo_sobrescrever=rotulo_juncao
+    )
     for i in range(indice_no + 1, total_nos):
         _adicionar_no_copia(sub2, nos[i])
 
@@ -231,26 +232,22 @@ def fatiar_linha_em_no(
 
 
 def fatiar_linha_em_ponto_curva(
-    linha_proto: Any,
-    ponto_corte: Ponto2D,
-    indice_segmento: int,
-    id_sub1: str,
-    id_sub2: str
-) -> Tuple[Any, Any]:
+    linha_proto: Any, ponto_corte: Ponto2D, indice_segmento: int, id_sub1: str, id_sub2: str
+) -> tuple[Any, Any]:
     """
     Insere um novo nó de corte no segmento indicado e fatia a linha em duas partes.
     """
     linha_intermediaria = _copiar_poi_linha_base(linha_proto, "temp_intermediaria")
     nos = list(linha_proto.linha.conteudo.nos)
-    
+
     no_novo = croqui_pb2.NoTrajeto(
         x=int(round(ponto_corte.x)),
         y=int(round(ponto_corte.y)),
         tipo=croqui_pb2.NoTrajeto.TipoNo.PASSAGEM,
-        rotulo=""
+        rotulo="",
     )
     indice_insercao = indice_segmento + 1
-    
+
     for i in range(indice_insercao):
         _adicionar_no_copia(linha_intermediaria, nos[i])
     _adicionar_no_copia(linha_intermediaria, no_novo)
@@ -266,8 +263,8 @@ def fatiar_linha_triplo(
     indice_saida: int,
     id_sub1: str,
     id_sub2: str,
-    id_sub3: str
-) -> Tuple[Any, Any, Any]:
+    id_sub3: str,
+) -> tuple[Any, Any, Any]:
     """
     Divide uma linha em 3 partes contíguas para acomodar uma rota de travessia:
     - Início: 0 .. indice_entrada
@@ -283,16 +280,36 @@ def fatiar_linha_triplo(
     sub1 = _copiar_poi_linha_base(linha_proto, id_sub1)
     for i in range(indice_entrada):
         _adicionar_no_copia(sub1, nos[i])
-    _adicionar_no_copia(sub1, nos[indice_entrada], tipo_sobrescrever=croqui_pb2.NoTrajeto.TipoNo.PASSAGEM, rotulo_sobrescrever="")
+    _adicionar_no_copia(
+        sub1,
+        nos[indice_entrada],
+        tipo_sobrescrever=croqui_pb2.NoTrajeto.TipoNo.PASSAGEM,
+        rotulo_sobrescrever="",
+    )
 
     sub2 = _copiar_poi_linha_base(linha_proto, id_sub2)
-    _adicionar_no_copia(sub2, nos[indice_entrada], tipo_sobrescrever=croqui_pb2.NoTrajeto.TipoNo.PASSAGEM, rotulo_sobrescrever="")
+    _adicionar_no_copia(
+        sub2,
+        nos[indice_entrada],
+        tipo_sobrescrever=croqui_pb2.NoTrajeto.TipoNo.PASSAGEM,
+        rotulo_sobrescrever="",
+    )
     for i in range(indice_entrada + 1, indice_saida):
         _adicionar_no_copia(sub2, nos[i])
-    _adicionar_no_copia(sub2, nos[indice_saida], tipo_sobrescrever=croqui_pb2.NoTrajeto.TipoNo.PASSAGEM, rotulo_sobrescrever="")
+    _adicionar_no_copia(
+        sub2,
+        nos[indice_saida],
+        tipo_sobrescrever=croqui_pb2.NoTrajeto.TipoNo.PASSAGEM,
+        rotulo_sobrescrever="",
+    )
 
     sub3 = _copiar_poi_linha_base(linha_proto, id_sub3)
-    _adicionar_no_copia(sub3, nos[indice_saida], tipo_sobrescrever=croqui_pb2.NoTrajeto.TipoNo.PASSAGEM, rotulo_sobrescrever="")
+    _adicionar_no_copia(
+        sub3,
+        nos[indice_saida],
+        tipo_sobrescrever=croqui_pb2.NoTrajeto.TipoNo.PASSAGEM,
+        rotulo_sobrescrever="",
+    )
     for i in range(indice_saida + 1, total_nos):
         _adicionar_no_copia(sub3, nos[i])
 
@@ -300,9 +317,7 @@ def fatiar_linha_triplo(
 
 
 def atualizar_referencias_apos_fatiamento(
-    referencias: Sequence[Any],
-    id_linha_antiga: str,
-    novos_ids_ordenados: List[str]
+    referencias: Sequence[Any], id_linha_antiga: str, novos_ids_ordenados: list[str]
 ) -> None:
     """
     Substitui o id_linha_antiga pela sequência ordenada de novos_ids_ordenados
@@ -312,16 +327,16 @@ def atualizar_referencias_apos_fatiamento(
         if id_linha_antiga in ref.pontos_uids:
             lista_ids = list(ref.pontos_uids)
             idx = lista_ids.index(id_linha_antiga)
-            nova_lista = lista_ids[:idx] + novos_ids_ordenados + lista_ids[idx + 1:]
+            nova_lista = lista_ids[:idx] + novos_ids_ordenados + lista_ids[idx + 1 :]
             del ref.pontos_uids[:]
             ref.pontos_uids.extend(nova_lista)
 
 
-def formatar_rotulo_inicio(numeros: Sequence[Union[int, str]]) -> str:
+def formatar_rotulo_inicio(numeros: Sequence[int | str]) -> str:
     """
     Converte uma lista de números/strings em rótulo padrão Ouroboulder (ex: '1, 2, 3').
     """
-    numeros_int: Set[int] = set()
+    numeros_int: set[int] = set()
     for n in numeros:
         try:
             numeros_int.add(int(n))
@@ -361,7 +376,7 @@ def obter_proxima_letra_top(letras_em_uso: Sequence[str]) -> str:
     return "Z"
 
 
-def desembrulhar_setor(setor_msg: Any) -> Optional[Any]:
+def desembrulhar_setor(setor_msg: Any) -> Any | None:
     """
     Extrai seguramente a mensagem de Setor de qualquer envoltório
     (Setor, ArquivoSetor, SetorOuGrupo ou proxies ReadOnlyProxy).
@@ -370,27 +385,26 @@ def desembrulhar_setor(setor_msg: Any) -> Optional[Any]:
         return None
     obj = getattr(setor_msg, "_obj", setor_msg)
     if hasattr(obj, "setor"):
-        obj = getattr(obj, "setor")
+        obj = obj.setor
         obj = getattr(obj, "_obj", obj)
     if hasattr(obj, "conteudo"):
-        obj = getattr(obj, "conteudo")
+        obj = obj.conteudo
         obj = getattr(obj, "_obj", obj)
     return obj
 
 
-def desambiguar_topos(
-    linhas: Sequence[Any],
-    referencias: Sequence[Any]
-) -> None:
+def desambiguar_topos(linhas: Sequence[Any], referencias: Sequence[Any]) -> None:
     """
     Aplica a regra de desambiguação sob demanda para topos:
     - Rotas isoladas permanecem com nó de término tipo PASSAGEM e rótulo vazio.
     - Rotas que compartilham traçados e se bifurcam recebem letras sequenciais ('A', 'B'...).
     - Rotas que convergem no mesmo topo compartilham o mesmo rótulo de topo.
     """
-    linhas_por_id = {str(getattr(linha, "uid", "")): linha for linha in linhas if getattr(linha, "uid", "")}
+    linhas_por_id = {
+        str(getattr(linha, "uid", "")): linha for linha in linhas if getattr(linha, "uid", "")
+    }
 
-    info_rotas: List[Dict[str, Any]] = []
+    info_rotas: list[dict[str, Any]] = []
     for ref in referencias:
         if not ref.pontos_uids:
             continue
@@ -410,16 +424,18 @@ def desambiguar_topos(
         p_fim = (float(no_fim.x), float(no_fim.y))
         pts = [(float(n.x), float(n.y)) for n in nos_rota]
 
-        info_rotas.append({
-            "ref": ref,
-            "escalada": getattr(ref, "alvo_uid", ""),
-            "ids": set(ids_rota),
-            "no_inicio": no_inicio,
-            "no_fim": no_fim,
-            "p_inicio": p_inicio,
-            "p_fim": p_fim,
-            "pts": pts,
-        })
+        info_rotas.append(
+            {
+                "ref": ref,
+                "escalada": getattr(ref, "alvo_uid", ""),
+                "ids": set(ids_rota),
+                "no_inicio": no_inicio,
+                "no_fim": no_fim,
+                "p_inicio": p_inicio,
+                "p_fim": p_fim,
+                "pts": pts,
+            }
+        )
 
     if not info_rotas:
         # Se não há referências válidas, garante que qualquer linha com FIM_TOP seja normalizada
@@ -431,7 +447,7 @@ def desambiguar_topos(
                     ultimo_no.rotulo = ""
         return
 
-    def estao_conectadas(r1: Dict[str, Any], r2: Dict[str, Any]) -> bool:
+    def estao_conectadas(r1: dict[str, Any], r2: dict[str, Any]) -> bool:
         dist_fim = math.hypot(r1["p_fim"][0] - r2["p_fim"][0], r1["p_fim"][1] - r2["p_fim"][1])
         if dist_fim <= 5.0:
             return True
@@ -439,7 +455,9 @@ def desambiguar_topos(
         if bool(r1["ids"] & r2["ids"]):
             return True
 
-        dist_inicio = math.hypot(r1["p_inicio"][0] - r2["p_inicio"][0], r1["p_inicio"][1] - r2["p_inicio"][1])
+        dist_inicio = math.hypot(
+            r1["p_inicio"][0] - r2["p_inicio"][0], r1["p_inicio"][1] - r2["p_inicio"][1]
+        )
         if dist_inicio <= 5.0:
             return True
 
@@ -451,7 +469,7 @@ def desambiguar_topos(
         return False
 
     n = len(info_rotas)
-    rotas_conectadas: Set[int] = set()
+    rotas_conectadas: set[int] = set()
     for i in range(n):
         for j in range(i + 1, n):
             if estao_conectadas(info_rotas[i], info_rotas[j]):
@@ -466,7 +484,7 @@ def desambiguar_topos(
             no_fim.rotulo = ""
 
     # 2. Rotas conectadas: agrupa topos em clusters por proximidade e atribui letras
-    clusters_topo: List[List[int]] = []
+    clusters_topo: list[list[int]] = []
     for i in range(n):
         if i not in rotas_conectadas:
             continue
@@ -481,7 +499,7 @@ def desambiguar_topos(
         if not encontrou_cluster:
             clusters_topo.append([i])
 
-    letras_em_uso: List[str] = []
+    letras_em_uso: list[str] = []
     for cluster in clusters_topo:
         letra = obter_proxima_letra_top(letras_em_uso)
         letras_em_uso.append(letra)
@@ -492,10 +510,8 @@ def desambiguar_topos(
 
 
 def obter_rotulo_escalada_no_setor(
-    setor_msg: Any,
-    nome_escalada: str,
-    alvo_uid: str = ""
-) -> Optional[str]:
+    setor_msg: Any, nome_escalada: str, alvo_uid: str = ""
+) -> str | None:
     """
     Verifica se a escalada já possui traçado em outro mapa do mesmo setor e
     retorna o rótulo numérico do seu ponto inicial, mantendo a coerência.
@@ -539,15 +555,12 @@ def obter_rotulo_escalada_no_setor(
     return None
 
 
-def calcular_proximo_numero_inicio_setor(
-    setor_msg: Any,
-    mapa_ativo: Optional[Any] = None
-) -> int:
+def calcular_proximo_numero_inicio_setor(setor_msg: Any, mapa_ativo: Any | None = None) -> int:
     """
     Analisa todos os mapas do setor e o mapa ativo para encontrar o maior número
     de início em uso e retorna o próximo número inteiro sequencial disponível.
     """
-    numeros_encontrados: Set[int] = set()
+    numeros_encontrados: set[int] = set()
 
     def extrair_numeros_de_mapa(mapa: Any) -> None:
         if not mapa or not hasattr(mapa, "pontos_de_interesse"):
@@ -575,14 +588,14 @@ def calcular_proximo_numero_inicio_setor(
 def gerar_id_poi_disjunto_setor(
     setor_msg: Any,
     prefixo: str = "linha",
-    ids_reservados: Optional[Set[str]] = None,
-    mapa_ativo: Optional[Any] = None
+    ids_reservados: set[str] | None = None,
+    mapa_ativo: Any | None = None,
 ) -> str:
     """
     Gera um novo identificador único de POI (NanoID 14c) garantindo que seja estritamente
     disjunto em relação a todos os UIDs do mapa ativo, de todos os mapas do setor e aos reservados.
     """
-    ids_existentes: Set[str] = set(ids_reservados or [])
+    ids_existentes: set[str] = set(ids_reservados or [])
 
     if mapa_ativo is not None and hasattr(mapa_ativo, "pontos_de_interesse"):
         for p in mapa_ativo.pontos_de_interesse:
@@ -603,4 +616,3 @@ def gerar_id_poi_disjunto_setor(
         novo_uid = gerar_uid()
 
     return novo_uid
-

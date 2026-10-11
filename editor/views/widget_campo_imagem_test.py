@@ -2,14 +2,14 @@
 # Copyright (C) 2026 Aresta Climb Contributors
 
 import io
-from pathlib import Path
-from PIL import Image
+
 import pytest
-from PySide6.QtWidgets import QApplication, QFileDialog, QDialog
+from PIL import Image
+from PySide6.QtWidgets import QDialog, QFileDialog
 
 from aresta_api.proto.generated.croqui_pb2 import Croqui
 from editor.models.croqui_model import CroquiModel
-from editor.views.widget_campo_imagem import WidgetCampoImagem, DialogoNomeImagem
+from editor.views.widget_campo_imagem import DialogoNomeImagem, WidgetCampoImagem
 
 
 @pytest.fixture
@@ -71,7 +71,9 @@ class TestWidgetCampoImagem:
         croqui = Croqui()
         model = CroquiModel(croqui)
 
-        widget = WidgetCampoImagem(model=model, caminho_imagem="", nome_arquivo_fixo="thumbnail.webp")
+        widget = WidgetCampoImagem(
+            model=model, caminho_imagem="", nome_arquivo_fixo="thumbnail.webp"
+        )
         qtbot.addWidget(widget)
 
         with qtbot.waitSignal(widget.imagem_alterada, timeout=1000) as blocker:
@@ -104,11 +106,15 @@ class TestWidgetCampoImagem:
         arquivo_origem = tmp_path / "foto.png"
         arquivo_origem.write_bytes(imagem_valida_bytes)
 
-        widget = WidgetCampoImagem(model=model, caminho_imagem="", nome_arquivo_fixo="thumbnail.webp")
+        widget = WidgetCampoImagem(
+            model=model, caminho_imagem="", nome_arquivo_fixo="thumbnail.webp"
+        )
         qtbot.addWidget(widget)
 
         # Mock de seleção de arquivo
-        monkeypatch.setattr(QFileDialog, "getOpenFileName", lambda *args, **kwargs: (str(arquivo_origem), "Imagens"))
+        monkeypatch.setattr(
+            QFileDialog, "getOpenFileName", lambda *args, **kwargs: (str(arquivo_origem), "Imagens")
+        )
 
         with qtbot.waitSignal(widget.imagem_alterada, timeout=1000) as blocker:
             widget.selecionar_e_trocar_imagem()
@@ -117,7 +123,9 @@ class TestWidgetCampoImagem:
         assert caminho_novo == "imagens/thumbnail.webp"
         assert len(bytes_novos) > 0
 
-    def test_trocar_imagem_com_nome_personalizado(self, qtbot, tmp_path, imagem_valida_bytes, monkeypatch):
+    def test_trocar_imagem_com_nome_personalizado(
+        self, qtbot, tmp_path, imagem_valida_bytes, monkeypatch
+    ):
         croqui = Croqui()
         model = CroquiModel(croqui)
         model.definir_caminho_db(tmp_path)
@@ -128,7 +136,9 @@ class TestWidgetCampoImagem:
         widget = WidgetCampoImagem(model=model, caminho_imagem="", nome_arquivo_fixo=None)
         qtbot.addWidget(widget)
 
-        monkeypatch.setattr(QFileDialog, "getOpenFileName", lambda *args, **kwargs: (str(arquivo_origem), "Imagens"))
+        monkeypatch.setattr(
+            QFileDialog, "getOpenFileName", lambda *args, **kwargs: (str(arquivo_origem), "Imagens")
+        )
         monkeypatch.setattr(DialogoNomeImagem, "exec", lambda self: QDialog.DialogCode.Accepted)
 
         with qtbot.waitSignal(widget.imagem_alterada, timeout=1000) as blocker:
@@ -188,14 +198,19 @@ class TestWidgetCampoImagem:
         # 2. Cancela no diálogo de nome
         arquivo_origem = tmp_path / "foto.png"
         arquivo_origem.write_bytes(b"123")
-        monkeypatch.setattr(QFileDialog, "getOpenFileName", lambda *args, **kwargs: (str(arquivo_origem), "Imagens"))
+        monkeypatch.setattr(
+            QFileDialog, "getOpenFileName", lambda *args, **kwargs: (str(arquivo_origem), "Imagens")
+        )
         monkeypatch.setattr(DialogoNomeImagem, "exec", lambda self: QDialog.DialogCode.Rejected)
 
         widget.selecionar_e_trocar_imagem()
         assert widget.obter_caminho_atual() == ""
 
     def test_trocar_imagem_com_area_maxima_customizada(self, qtbot, tmp_path, monkeypatch):
-        from editor.core.processamento_imagem_campo import AREA_MAXIMA_ESCALADA, obter_metadados_imagem
+        from editor.core.processamento_imagem_campo import (
+            AREA_MAXIMA_ESCALADA,
+            obter_metadados_imagem,
+        )
 
         croqui = Croqui()
         model = CroquiModel(croqui)
@@ -205,14 +220,17 @@ class TestWidgetCampoImagem:
         img = Image.new("RGB", (2000, 2000), color=(255, 0, 0))
         img.save(arquivo_grande, format="JPEG")
 
-        widget = WidgetCampoImagem(model=model, nome_arquivo_fixo="capa.webp", area_maxima=AREA_MAXIMA_ESCALADA)
+        widget = WidgetCampoImagem(
+            model=model, nome_arquivo_fixo="capa.webp", area_maxima=AREA_MAXIMA_ESCALADA
+        )
         qtbot.addWidget(widget)
 
-        monkeypatch.setattr(QFileDialog, "getOpenFileName", lambda *args, **kwargs: (str(arquivo_grande), "Imagens"))
+        monkeypatch.setattr(
+            QFileDialog, "getOpenFileName", lambda *args, **kwargs: (str(arquivo_grande), "Imagens")
+        )
         widget.selecionar_e_trocar_imagem()
 
         bytes_resultado = model.obter_bytes_imagem("imagens/capa.webp")
         assert bytes_resultado is not None
         w, h, _, _ = obter_metadados_imagem(bytes_resultado)
         assert w * h <= AREA_MAXIMA_ESCALADA
-

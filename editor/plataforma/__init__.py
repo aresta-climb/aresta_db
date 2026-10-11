@@ -8,28 +8,28 @@ Fornece uma fachada agnóstica para serviços específicos do sistema operaciona
 
 import sys
 from pathlib import Path
-from typing import Optional
+
 from editor.plataforma.contrato import (
     AdaptadorPlataforma,
-    StatusAtualizacao,
     ResultadoAtualizacao,
+    StatusAtualizacao,
 )
 
 __all__ = [
     "AdaptadorPlataforma",
-    "StatusAtualizacao",
     "ResultadoAtualizacao",
-    "obter_adaptador_plataforma",
+    "StatusAtualizacao",
     "configurar_ambiente_plataforma",
-    "configurar_presenca_barra_de_tarefas",
-    "configurar_identidade_processo",
-    "trazer_janela_para_frente",
-    "obter_diretorio_dados_usuario",
-    "verificar_atualizacoes_disponiveis",
-    "solicitar_instalacao_atualizacao",
-    "obter_nome_icone_preferencial",
     "configurar_cofre_credenciais",
+    "configurar_identidade_processo",
+    "configurar_presenca_barra_de_tarefas",
     "normalizar_caminho_estendido",
+    "obter_adaptador_plataforma",
+    "obter_diretorio_dados_usuario",
+    "obter_nome_icone_preferencial",
+    "solicitar_instalacao_atualizacao",
+    "trazer_janela_para_frente",
+    "verificar_atualizacoes_disponiveis",
 ]
 
 
@@ -55,7 +55,7 @@ class _AdaptadorPadraoFallback:
         return ResultadoAtualizacao(status=StatusAtualizacao.NAO_APLICAVEL)
 
     def solicitar_instalacao_atualizacao(
-        self, resultado: Optional[ResultadoAtualizacao] = None
+        self, resultado: ResultadoAtualizacao | None = None
     ) -> bool:
         return False
 
@@ -151,7 +151,7 @@ def verificar_atualizacoes_disponiveis() -> ResultadoAtualizacao:
     return obter_adaptador_plataforma().verificar_atualizacoes_disponiveis()
 
 
-def solicitar_instalacao_atualizacao(resultado: Optional[ResultadoAtualizacao] = None) -> bool:
+def solicitar_instalacao_atualizacao(resultado: ResultadoAtualizacao | None = None) -> bool:
     """Dispara a instalação da atualização disponível."""
     return obter_adaptador_plataforma().solicitar_instalacao_atualizacao(resultado)
 

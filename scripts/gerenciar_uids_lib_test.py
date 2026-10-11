@@ -3,16 +3,18 @@
 
 """Testes unitários da biblioteca pura de gerenciamento de UIDs e URLs aresta.cc."""
 
-import pytest
 import string
+
+import pytest
+
 from scripts.gerenciar_uids_lib import (
     ALFABETO_BASE62,
-    TAMANHO_UID,
     DOMINIO_CURTO,
+    TAMANHO_UID,
+    extrair_uid_de_url,
+    formatar_url_aresta,
     gerar_uid,
     validar_uid,
-    formatar_url_aresta,
-    extrair_uid_de_url,
 )
 
 
@@ -94,7 +96,10 @@ def test_extrair_uid_de_url_validas() -> None:
     assert extrair_uid_de_url("http://aresta.cc/x8siJek3FiG3aB") == "x8siJek3FiG3aB"
     assert extrair_uid_de_url("https://aresta.cc/x8siJek3FiG3aB/") == "x8siJek3FiG3aB"
     assert extrair_uid_de_url("aresta.cc/x8siJek3FiG3aB") == "x8siJek3FiG3aB"
-    assert extrair_uid_de_url("https://aresta.cc/x8siJek3FiG3aB?src=qrcode#detalhes") == "x8siJek3FiG3aB"
+    assert (
+        extrair_uid_de_url("https://aresta.cc/x8siJek3FiG3aB?src=qrcode#detalhes")
+        == "x8siJek3FiG3aB"
+    )
 
 
 def test_extrair_uid_de_url_invalidas() -> None:
@@ -172,11 +177,10 @@ Texto do setor.
 
     texto_md = (pico / "setor1.md").read_text(encoding="utf-8")
     assert "uid:" in texto_md
-    assert "rotulo: '01'" in texto_md or 'rotulo: "01"' in texto_md or 'rotulo: 01' in texto_md
+    assert "rotulo: '01'" in texto_md or 'rotulo: "01"' in texto_md or "rotulo: 01" in texto_md
     assert "alvo_uid:" in texto_md
     assert "pontos_uids:" in texto_md
 
     # 3. Idempotência: rodar novamente não deve modificar o disco
     modificado_novamente = sanear_uids_croqui(pico)
     assert modificado_novamente is False
-

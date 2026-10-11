@@ -2,9 +2,10 @@
 # Copyright (C) 2026 Aresta Climb Contributors
 
 import pytest
-from PySide6.QtWidgets import QApplication, QRadioButton, QLineEdit, QPushButton
-from PySide6.QtCore import Qt
+from PySide6.QtWidgets import QApplication
+
 from editor.views.dialogos.dialogo_criar_setor_ou_grupo import DialogoCriarSetorOuGrupo
+
 
 @pytest.fixture(scope="session")
 def qapp():
@@ -41,7 +42,7 @@ def test_dialogo_criar_setor_ou_grupo_auto_proposicao_arquivo(qapp):
     dialogo.show()
 
     dialogo.edit_nome.setText("Falésia dos Olhos d'Água")
-    
+
     assert dialogo.edit_arquivo.text() == "setor_falesia_dos_olhos_dagua.md"
     assert dialogo.btn_criar.isEnabled() is True
 
@@ -117,9 +118,12 @@ def test_dialogo_criar_setor_ou_grupo_nome_vazio_e_caracteres_especiais(qapp):
 def test_dialogo_criar_setor_ou_grupo_metodo_obter_dados_estatico(qapp, monkeypatch):
     """Verifica a execução do método estático obter_dados."""
     from PySide6.QtWidgets import QDialog
+
     monkeypatch.setattr(QDialog, "exec", lambda self: self.setResult(QDialog.DialogCode.Accepted))
 
-    tipo, nome, arquivo, ok = DialogoCriarSetorOuGrupo.obter_dados(modo="ambos", nome_sugerido="Falésia")
+    tipo, nome, arquivo, ok = DialogoCriarSetorOuGrupo.obter_dados(
+        modo="ambos", nome_sugerido="Falésia"
+    )
     assert tipo == "setor"
     assert nome == "Falésia"
     assert arquivo == "setor_falesia.md"
@@ -132,8 +136,7 @@ def test_dialogo_criar_setor_ou_grupo_validacao_duplicidade(qapp):
     arquivos_existentes = ["setor_falesia_central.md", "grupo_bloco_do_lago.md"]
 
     dialogo = DialogoCriarSetorOuGrupo(
-        nomes_existentes=nomes_existentes,
-        arquivos_existentes=arquivos_existentes
+        nomes_existentes=nomes_existentes, arquivos_existentes=arquivos_existentes
     )
     dialogo.show()
 
@@ -173,6 +176,3 @@ def test_dialogo_criar_setor_ou_grupo_validacao_duplicidade_bloco(qapp):
     dialogo.edit_nome.setText("Bloco do Lago")
     assert dialogo.btn_criar.isEnabled() is False
     assert dialogo.lbl_aviso.text() == "Já existe um bloco com este nome."
-
-
-

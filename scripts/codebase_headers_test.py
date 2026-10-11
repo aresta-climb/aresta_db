@@ -1,12 +1,14 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
-import pytest
 from pathlib import Path
+
+import pytest
+
 from scripts.validador_cabecalhos import (
-    verificar_spdx_e_copyright_py,
     verificar_gpl_residual_py,
     verificar_odbl_e_copyright_database,
+    verificar_spdx_e_copyright_py,
 )
 
 
@@ -43,4 +45,3 @@ def test_todos_database_arquivos_tem_odbl_e_copyright():
 
     erros = verificar_odbl_e_copyright_database(root)
     assert not erros, "\n".join(erros)
-

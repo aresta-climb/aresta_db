@@ -8,7 +8,7 @@ de matrizes de pixels através do Pillow.
 """
 
 import io
-from typing import Tuple
+
 from PIL import Image, ImageDraw
 
 
@@ -21,7 +21,9 @@ def _abrir_imagem_segura(bytes_imagem: bytes) -> Image.Image:
         stream = io.BytesIO(bytes_imagem)
         with Image.open(stream) as img:
             if img.mode not in ("RGB", "RGBA"):
-                return img.convert("RGBA" if "transparency" in img.info or img.mode == "P" else "RGB")
+                return img.convert(
+                    "RGBA" if "transparency" in img.info or img.mode == "P" else "RGB"
+                )
             return img.copy()
     except Exception as e:
         raise ValueError(f"Bytes de imagem inválidos: {e}") from e
@@ -83,7 +85,7 @@ def rotacionar_imagem_bytes(
 
 def cortar_imagem_bytes(
     bytes_imagem: bytes,
-    retangulo: Tuple[int, int, int, int],
+    retangulo: tuple[int, int, int, int],
     qualidade: int = 90,
     sem_perdas: bool = True,
 ) -> bytes:
@@ -112,8 +114,8 @@ def cortar_imagem_bytes(
 
 def aplicar_mascara_bytes(
     bytes_imagem: bytes,
-    retangulo: Tuple[int, int, int, int],
-    cor_rgb: Tuple[int, int, int],
+    retangulo: tuple[int, int, int, int],
+    cor_rgb: tuple[int, int, int],
     qualidade: int = 90,
     sem_perdas: bool = True,
 ) -> bytes:
@@ -140,8 +142,7 @@ def aplicar_mascara_bytes(
     return _salvar_para_webp(img, qualidade, sem_perdas=sem_perdas)
 
 
-
-def obter_cor_pixel(bytes_imagem: bytes, x: int, y: int) -> Tuple[int, int, int]:
+def obter_cor_pixel(bytes_imagem: bytes, x: int, y: int) -> tuple[int, int, int]:
     """
     Retorna a cor (R, G, B) do pixel localizado na coordenada (x, y) da imagem.
     Lança ValueError se a coordenada estiver fora dos limites.

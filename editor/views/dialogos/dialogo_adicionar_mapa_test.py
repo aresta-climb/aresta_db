@@ -3,15 +3,20 @@
 
 import io
 from pathlib import Path
-from PIL import Image
+
 import pytest
-from PySide6.QtCore import Qt, QUrl, QMimeData, QPointF, QPoint
+from PIL import Image
+from PySide6.QtCore import QMimeData, QPoint, QPointF, Qt, QUrl
 from PySide6.QtGui import QDragEnterEvent, QDropEvent, QMouseEvent
-from PySide6.QtWidgets import QDialog, QDialogButtonBox, QPushButton, QLineEdit, QFileDialog, QMessageBox
+from PySide6.QtWidgets import (
+    QDialog,
+    QFileDialog,
+    QMessageBox,
+)
 
 from aresta_api.proto.generated.croqui_pb2 import Croqui
 from editor.models.croqui_model import CroquiModel
-from editor.views.dialogos.dialogo_adicionar_mapa import DialogoAdicionarMapa, AreaDropImagem
+from editor.views.dialogos.dialogo_adicionar_mapa import AreaDropImagem, DialogoAdicionarMapa
 
 
 @pytest.fixture
@@ -33,6 +38,7 @@ def imagem_bytes_png():
 @pytest.fixture
 def imagem_heic_teste(tmp_path):
     import pillow_heif
+
     pillow_heif.register_heif_opener()
     img_path = tmp_path / "mapa_foto.heic"
     img = Image.new("RGB", (320, 240), color=(120, 140, 160))
@@ -124,19 +130,19 @@ class TestDialogoAdicionarMapa:
         croqui = Croqui()
         model = CroquiModel(croqui)
         model.definir_caminho_db(tmp_path)
-        
+
         # Cria arquivo no disco diretamente
         pasta_img = tmp_path / "imagens"
         pasta_img.mkdir(parents=True, exist_ok=True)
         (pasta_img / "mapa_disco.webp").write_bytes(b"conteudo_disco")
-        
+
         # Não existe na RAM
         assert "imagens/mapa_disco.webp" not in model.obter_imagens_em_memoria()
-        
+
         dialogo = DialogoAdicionarMapa("mapa_disco.webp", db_dir=tmp_path, model=model)
         qtbot.addWidget(dialogo)
         dialogo.carregar_imagem_arquivo(str(imagem_png_teste))
-        
+
         # Deve acusar que existe na pasta imagens/ (disco), mas NÃO na memória RAM
         assert "já existe na pasta imagens/" in dialogo.rotulo_aviso.text()
         assert "memória RAM" not in dialogo.rotulo_aviso.text()
@@ -230,7 +236,9 @@ class TestDialogoAdicionarMapa:
         caminhos = []
         area.imagem_selecionada.connect(lambda p: caminhos.append(p))
 
-        monkeypatch.setattr(QFileDialog, "getOpenFileName", lambda *a, **k: (str(imagem_png_teste), "PNG"))
+        monkeypatch.setattr(
+            QFileDialog, "getOpenFileName", lambda *a, **k: (str(imagem_png_teste), "PNG")
+        )
         mouse_event = QMouseEvent(
             QMouseEvent.Type.MouseButtonPress,
             QPointF(10, 10),
@@ -247,7 +255,9 @@ class TestDialogoAdicionarMapa:
         dialogo = DialogoAdicionarMapa("teste.webp")
         qtbot.addWidget(dialogo)
 
-        monkeypatch.setattr(QFileDialog, "getOpenFileName", lambda *a, **k: (str(imagem_png_teste), "PNG"))
+        monkeypatch.setattr(
+            QFileDialog, "getOpenFileName", lambda *a, **k: (str(imagem_png_teste), "PNG")
+        )
         dialogo._abrir_seletor_arquivos()
 
         assert dialogo.bytes_processados_webp is not None
@@ -266,7 +276,9 @@ class TestDialogoAdicionarMapa:
         # Erro ao ler arquivo
         arquivo_travado = tmp_path / "travado.png"
         arquivo_travado.write_bytes(b"dummy")
-        monkeypatch.setattr(Path, "read_bytes", lambda self: (_ for _ in ()).throw(PermissionError("sem permissao")))
+        monkeypatch.setattr(
+            Path, "read_bytes", lambda self: (_ for _ in ()).throw(PermissionError("sem permissao"))
+        )
         dialogo.carregar_imagem_arquivo(str(arquivo_travado))
         assert len(avisos) == 2
 
@@ -280,7 +292,9 @@ class TestDialogoAdicionarMapa:
         assert len(avisos) == 4
         assert "selecione uma imagem" in avisos[3]
 
-    def test_validacao_conflito_disco_sem_model_e_accept_bloqueado(self, qtbot, tmp_path, imagem_png_teste):
+    def test_validacao_conflito_disco_sem_model_e_accept_bloqueado(
+        self, qtbot, tmp_path, imagem_png_teste
+    ):
         pasta_img = tmp_path / "imagens"
         pasta_img.mkdir(parents=True, exist_ok=True)
         (pasta_img / "mapa_duplicado.webp").write_bytes(b"existente")
@@ -407,6 +421,7 @@ class TestDialogoAdicionarMapa:
 
     def test_carregar_heic_sem_pillow_heif_disponivel(self, qtbot, monkeypatch, tmp_path):
         import editor.views.dialogos.dialogo_adicionar_mapa as mod_dialogo
+
         monkeypatch.setattr(mod_dialogo, "garantir_suporte_heif", lambda: False)
 
         avisos = []
@@ -419,8 +434,11 @@ class TestDialogoAdicionarMapa:
         assert len(avisos) == 1
         assert "pillow-heif" in avisos[0]
 
-    def test_carregar_imagem_usa_parametros_otimizados_webp_2_5_mp_e_metodo_6(self, qtbot, tmp_path, imagem_png_teste, monkeypatch):
+    def test_carregar_imagem_usa_parametros_otimizados_webp_2_5_mp_e_metodo_6(
+        self, qtbot, tmp_path, imagem_png_teste, monkeypatch
+    ):
         import inspect
+
         import editor.views.dialogos.dialogo_adicionar_mapa as mod_dialogo
 
         chamadas_compressao = []
@@ -447,6 +465,7 @@ class TestDialogoAdicionarMapa:
 
     def test_dialogo_escalada_banner_dica_e_perfil_1_0_mp(self, qtbot, tmp_path, monkeypatch):
         import inspect
+
         import editor.views.dialogos.dialogo_adicionar_mapa as mod_dialogo
 
         chamadas_compressao = []
@@ -466,7 +485,9 @@ class TestDialogoAdicionarMapa:
         img = Image.new("RGB", (2000, 1000), color=(100, 120, 140))
         img.save(img_path, format="PNG")
 
-        dialogo = DialogoAdicionarMapa("boulder_la_bamba_p0.webp", db_dir=tmp_path, eh_escalada=True)
+        dialogo = DialogoAdicionarMapa(
+            "boulder_la_bamba_p0.webp", db_dir=tmp_path, eh_escalada=True
+        )
         qtbot.addWidget(dialogo)
 
         assert dialogo.eh_escalada is True
@@ -482,7 +503,9 @@ class TestDialogoAdicionarMapa:
         assert chamadas_compressao[0]["method"] == 6
 
     def test_dialogo_setor_nao_exibe_banner_dica_e_usa_perfil_padrao(self, qtbot, tmp_path):
-        dialogo = DialogoAdicionarMapa("setor_fugitivos_p0.webp", db_dir=tmp_path, eh_escalada=False)
+        dialogo = DialogoAdicionarMapa(
+            "setor_fugitivos_p0.webp", db_dir=tmp_path, eh_escalada=False
+        )
         qtbot.addWidget(dialogo)
 
         assert dialogo.eh_escalada is False
@@ -533,6 +556,3 @@ class TestDialogoAdicionarMapa:
         assert ret is not None
         assert ret[2] > ret[0]
         assert ret[3] > ret[1]
-
-
-

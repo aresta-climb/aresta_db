@@ -1,52 +1,47 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
-from pathlib import Path
 import time
-from typing import Optional, Any, Callable, Dict
+from collections.abc import Callable
+from typing import Any
 
-from PySide6.QtWidgets import (
-    QWidget,
-    QVBoxLayout,
-    QLabel,
-    QProgressBar,
-    QLineEdit,
-    QPushButton,
-    QHBoxLayout,
-    QApplication,
-    QMessageBox,
-    QFrame,
-    QDialog,
-)
 from PySide6.QtCore import (
-    Qt,
-    QUrl,
-    QSize,
-    QTimer,
-    Signal,
-    QThread,
     QRegularExpression,
+    QSize,
+    Qt,
+    QThread,
+    QTimer,
+    QUrl,
+    Signal,
 )
 from PySide6.QtGui import (
     QDesktopServices,
-    QPixmap,
     QIcon,
+    QPixmap,
     QRegularExpressionValidator,
-    QMouseEvent,
+)
+from PySide6.QtWidgets import (
+    QApplication,
+    QDialog,
+    QFrame,
+    QHBoxLayout,
+    QLabel,
+    QLineEdit,
+    QMessageBox,
+    QProgressBar,
+    QPushButton,
+    QVBoxLayout,
+    QWidget,
 )
 
-from editor.core.storage import GerenciadorCaminhos
 from editor.core.cliente_auth_supabase import (
     ClienteAuthSupabase,
-    ErroAutenticacaoSupabase,
 )
 from editor.core.gerenciador_sessao import SessaoUsuario
 from editor.core.servidor_oauth_callback import ServidorCallbackOAuth
 from editor.plataforma import configurar_presenca_barra_de_tarefas
 from editor.views.dialogos.dialogo_perfil_autor import DialogoPerfilAutor
-
 from editor.views.estilo import Icones
-
 
 
 class TarefaAssincrona(QThread):
@@ -83,29 +78,31 @@ class TelaDeAbertura(QWidget):
 
     def __init__(
         self,
-        cliente_auth: Optional[ClienteAuthSupabase] = None,
-        gerenciador_sessao: Optional[Any] = None,
+        cliente_auth: ClienteAuthSupabase | None = None,
+        gerenciador_sessao: Any | None = None,
     ) -> None:
         super().__init__()
         self.cliente_auth: ClienteAuthSupabase = cliente_auth or ClienteAuthSupabase()
         if gerenciador_sessao is not None:
-            self.gerenciador_sessao: Optional[Any] = gerenciador_sessao
+            self.gerenciador_sessao: Any | None = gerenciador_sessao
         else:
             try:
                 from editor.core.gerenciador_sessao import GerenciadorSessao
+
                 self.gerenciador_sessao = GerenciadorSessao()
             except Exception:
                 self.gerenciador_sessao = None
-        self.servidor_oauth: Optional[ServidorCallbackOAuth] = None
+        self.servidor_oauth: ServidorCallbackOAuth | None = None
         self._email_atual: str = ""
         self._historico_envios_otp: list[float] = []
         self._segundos_reenvio: int = 0
         self._timer_reenvio = QTimer(self)
         self._timer_reenvio.timeout.connect(self._atualizar_contador_reenvio)
-        self._drag_pos: Optional[Any] = None
-        self._callback_atualizar: Optional[Callable[[], None]] = None
+        self._drag_pos: Any | None = None
+        self._callback_atualizar: Callable[[], None] | None = None
 
         from editor.core.configuracao_canal import obter_configuracao_canal
+
         self.config_canal = obter_configuracao_canal()
         self.setWindowTitle(self.config_canal.nome_aplicativo)
         self.setWindowFlags(Qt.WindowType.FramelessWindowHint)
@@ -116,7 +113,6 @@ class TelaDeAbertura(QWidget):
         self.setFixedSize(450, 650)
         configurar_presenca_barra_de_tarefas(int(self.winId()))
         self.init_ui()
-
 
     def init_ui(self) -> None:
         layout = QVBoxLayout()
@@ -153,9 +149,7 @@ class TelaDeAbertura(QWidget):
             QPushButton:hover { color: #dc3545; }
         """)
         self.btn_close.clicked.connect(self._ao_clicar_fechar)
-        container_layout.addWidget(
-            self.btn_close, alignment=Qt.AlignmentFlag.AlignRight
-        )
+        container_layout.addWidget(self.btn_close, alignment=Qt.AlignmentFlag.AlignRight)
 
         # Header com Logo Oficial Aresta
         header_layout = QVBoxLayout()
@@ -180,9 +174,7 @@ class TelaDeAbertura(QWidget):
 
         # Status
         self.label_status = QLabel("Iniciando...")
-        self.label_status.setStyleSheet(
-            "color: #495057; font-size: 14px; margin-bottom: 10px;"
-        )
+        self.label_status.setStyleSheet("color: #495057; font-size: 14px; margin-bottom: 10px;")
         self.label_status.setWordWrap(True)
         self.label_status.setAlignment(Qt.AlignmentFlag.AlignCenter)
         container_layout.addWidget(self.label_status)
@@ -247,9 +239,7 @@ class TelaDeAbertura(QWidget):
         )
         lbl_desc_selecao.setWordWrap(True)
         lbl_desc_selecao.setAlignment(Qt.AlignmentFlag.AlignCenter)
-        lbl_desc_selecao.setStyleSheet(
-            "color: #6c757d; font-size: 13px; margin-bottom: 5px;"
-        )
+        lbl_desc_selecao.setStyleSheet("color: #6c757d; font-size: 13px; margin-bottom: 5px;")
         layout_selecao.addWidget(lbl_desc_selecao)
 
         self.btn_escolher_email = QPushButton("  Entrar com E-mail")
@@ -288,9 +278,7 @@ class TelaDeAbertura(QWidget):
         layout_selecao.addLayout(divisor_layout)
 
         self.btn_escolher_github = QPushButton("  Entrar com GitHub")
-        self.btn_escolher_github.setIcon(
-            Icones.obter("github", cor="#ffffff", cor_ativa="#ffffff")
-        )
+        self.btn_escolher_github.setIcon(Icones.obter("github", cor="#ffffff", cor_ativa="#ffffff"))
         self.btn_escolher_github.setIconSize(QSize(18, 18))
         self.btn_escolher_github.setCursor(Qt.CursorShape.PointingHandCursor)
         self.btn_escolher_github.setStyleSheet("""
@@ -317,9 +305,7 @@ class TelaDeAbertura(QWidget):
         layout_email.setSpacing(10)
 
         lbl_instrucao_email = QLabel("Digite seu e-mail para receber um código de acesso:")
-        lbl_instrucao_email.setStyleSheet(
-            "font-weight: bold; color: #495057; font-size: 13px;"
-        )
+        lbl_instrucao_email.setStyleSheet("font-weight: bold; color: #495057; font-size: 13px;")
         layout_email.addWidget(lbl_instrucao_email)
 
         self.edit_email = QLineEdit()
@@ -392,9 +378,7 @@ class TelaDeAbertura(QWidget):
         self.edit_codigo.setMaxLength(8)
         self.edit_codigo.setAlignment(Qt.AlignmentFlag.AlignCenter)
         self.edit_codigo.setValidator(
-            QRegularExpressionValidator(
-                QRegularExpression(r"^\d{0,8}$"), self.edit_codigo
-            )
+            QRegularExpressionValidator(QRegularExpression(r"^\d{0,8}$"), self.edit_codigo)
         )
         self.edit_codigo.setStyleSheet("""
             QLineEdit {
@@ -518,7 +502,9 @@ class TelaDeAbertura(QWidget):
         self.label_update_info = QLabel()
         self.label_update_info.setWordWrap(True)
         self.label_update_info.setAlignment(Qt.AlignmentFlag.AlignCenter)
-        self.label_update_info.setStyleSheet("color: #495057; font-size: 13px; margin-bottom: 10px;")
+        self.label_update_info.setStyleSheet(
+            "color: #495057; font-size: 13px; margin-bottom: 10px;"
+        )
         self.update_layout.addWidget(self.label_update_info)
 
         self.btn_atualizar_store = QPushButton("Atualizar Agora")
@@ -533,7 +519,9 @@ class TelaDeAbertura(QWidget):
             }
             QPushButton:hover { background: #106ebe; }
         """)
-        self.update_layout.addWidget(self.btn_atualizar_store, alignment=Qt.AlignmentFlag.AlignCenter)
+        self.update_layout.addWidget(
+            self.btn_atualizar_store, alignment=Qt.AlignmentFlag.AlignCenter
+        )
 
         self.update_container.hide()
         container_layout.addWidget(self.update_container)
@@ -552,9 +540,10 @@ class TelaDeAbertura(QWidget):
         versao = resultado.versao_disponivel if resultado and resultado.versao_disponivel else ""
         texto_versao = f" (versão {versao})" if versao else ""
         self.label_update_info.setText(
-            f"Uma nova versão do Aresta Editor{texto_versao} está disponível na Microsoft Store.\n\n"
+            f"Uma nova versão do Editor Aresta{texto_versao} está disponível.\n\n"
             "Por favor, atualize o aplicativo para garantir a integridade dos dados."
         )
+
         self.label_status.hide()
         self.progress_bar.hide()
         self.auth_container.hide()
@@ -573,7 +562,7 @@ class TelaDeAbertura(QWidget):
     def exibir_barra_progresso(self, visivel: bool) -> None:
         self.progress_bar.setVisible(visivel)
 
-    def iniciar_fluxo_login(self, cofre_disponivel: Optional[bool] = None) -> None:
+    def iniciar_fluxo_login(self, cofre_disponivel: bool | None = None) -> None:
         """Inicia o fluxo exibindo a seleção de métodos dentro do card."""
         self.label_status.hide()
         self.progress_bar.hide()
@@ -581,7 +570,9 @@ class TelaDeAbertura(QWidget):
         self.voltar_para_selecao()
 
         if cofre_disponivel is None:
-            if self.gerenciador_sessao is not None and hasattr(self.gerenciador_sessao, "cofre_disponivel"):
+            if self.gerenciador_sessao is not None and hasattr(
+                self.gerenciador_sessao, "cofre_disponivel"
+            ):
                 try:
                     cofre_disponivel = bool(self.gerenciador_sessao.cofre_disponivel())
                 except Exception:
@@ -631,7 +622,9 @@ class TelaDeAbertura(QWidget):
     def _ao_sucesso_solicitar_otp(self, _resultado: Any) -> None:
         self.btn_enviar_otp.setEnabled(True)
         self.btn_enviar_otp.setText("Enviar Código de Acesso")
-        self.label_info_codigo.setText(f"Enviamos um código de acesso para:<br><b>{self._email_atual}</b>")
+        self.label_info_codigo.setText(
+            f"Enviamos um código de acesso para:<br><b>{self._email_atual}</b>"
+        )
         self.container_auth_email.hide()
         self.container_auth_codigo.show()
         self.edit_codigo.clear()
@@ -643,13 +636,14 @@ class TelaDeAbertura(QWidget):
         self.btn_enviar_otp.setText("Enviar Código de Acesso")
         self.btn_reenviar_codigo.setEnabled(True)
         self.btn_reenviar_codigo.setText("Reenviar código")
-        QMessageBox.critical(self, "Falha no Envio", f"Não foi possível enviar o código:\n{str(excecao)}")
+        QMessageBox.critical(
+            self, "Falha no Envio", f"Não foi possível enviar o código:\n{excecao!s}"
+        )
 
     def _iniciar_temporizador_reenvio(self) -> None:
         agora = time.time()
         self._historico_envios_otp = [
-            t for t in self._historico_envios_otp
-            if agora - t < self.DURACAO_JANELA_OTP_SEGUNDOS
+            t for t in self._historico_envios_otp if agora - t < self.DURACAO_JANELA_OTP_SEGUNDOS
         ]
         self._historico_envios_otp.append(agora)
 
@@ -678,7 +672,9 @@ class TelaDeAbertura(QWidget):
     def validar_otp(self) -> None:
         codigo = self.edit_codigo.text().strip()
         if len(codigo) < 6 or len(codigo) > 8:
-            QMessageBox.warning(self, "Código Inválido", "O código deve conter entre 6 e 8 dígitos.")
+            QMessageBox.warning(
+                self, "Código Inválido", "O código deve conter entre 6 e 8 dígitos."
+            )
             return
 
         self.btn_validar_codigo.setEnabled(False)
@@ -712,7 +708,11 @@ class TelaDeAbertura(QWidget):
             else:
                 return
 
-        email_user = usuario.get("email", self._email_atual) if isinstance(usuario, dict) else self._email_atual
+        email_user = (
+            usuario.get("email", self._email_atual)
+            if isinstance(usuario, dict)
+            else self._email_atual
+        )
         sessao = SessaoUsuario(
             email=email_user,
             nome_completo=nome_completo,
@@ -725,12 +725,14 @@ class TelaDeAbertura(QWidget):
     def _ao_erro_validar_otp(self, excecao: Exception) -> None:
         self.btn_validar_codigo.setEnabled(True)
         self.btn_validar_codigo.setText("Validar e Entrar")
-        QMessageBox.critical(self, "Falha na Validação", f"Código incorreto ou expirado:\n{str(excecao)}")
+        QMessageBox.critical(
+            self, "Falha na Validação", f"Código incorreto ou expirado:\n{excecao!s}"
+        )
 
     def iniciar_login_github(self) -> None:
         self.servidor_oauth = ServidorCallbackOAuth(parent=self)
         self.servidor_oauth.tokens_recebidos.connect(self._ao_receber_tokens_github)
-        porta = self.servidor_oauth.iniciar_escuta()
+        self.servidor_oauth.iniciar_escuta()
         url_callback = self.servidor_oauth.obter_url_redirecionamento()
 
         self.container_auth_selecao.hide()
@@ -825,9 +827,7 @@ class TelaDeAbertura(QWidget):
 
     def mousePressEvent(self, event: Any) -> None:
         if event.button() == Qt.MouseButton.LeftButton:
-            self._drag_pos = (
-                event.globalPosition().toPoint() - self.frameGeometry().topLeft()
-            )
+            self._drag_pos = event.globalPosition().toPoint() - self.frameGeometry().topLeft()
             event.accept()
 
     def mouseMoveEvent(self, event: Any) -> None:
@@ -840,4 +840,3 @@ class TelaDeAbertura(QWidget):
             self.servidor_oauth.encerrar()
             self.servidor_oauth = None
         super().closeEvent(event)
-

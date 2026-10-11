@@ -5,6 +5,7 @@ import json
 import urllib.error
 from pathlib import Path
 from unittest.mock import MagicMock, patch
+
 import pytest
 
 from editor.release_tools.publicador_r2_beta import (
@@ -15,7 +16,10 @@ from editor.release_tools.publicador_r2_beta import (
 
 def test_determinar_tipo_conteudo() -> None:
     """Verifica se os tipos MIME corretos são atribuídos aos artefatos do canal Beta."""
-    assert determinar_tipo_conteudo(Path("EditorArestaBeta.appinstaller")) == "application/appinstaller"
+    assert (
+        determinar_tipo_conteudo(Path("EditorArestaBeta.appinstaller"))
+        == "application/appinstaller"
+    )
     assert determinar_tipo_conteudo(Path("EditorArestaBeta.msix")) == "application/msix"
     assert determinar_tipo_conteudo(Path("InstalarCertificado.bat")) == "application/x-bat"
     assert determinar_tipo_conteudo(Path("outro.bin")) == "application/octet-stream"
@@ -52,9 +56,15 @@ def test_publicador_r2_beta_sucesso(tmp_path: Path) -> None:
         mock_urlopen.assert_called_once()
         req = mock_urlopen.call_args[0][0]
         corpo = json.loads(req.data.decode("utf-8"))
-        assert "https://serving.arestaclimb.com/editor-beta/EditorArestaBeta.appinstaller" in corpo["files"]
+        assert (
+            "https://serving.arestaclimb.com/editor-beta/EditorArestaBeta.appinstaller"
+            in corpo["files"]
+        )
         assert "https://serving.arestaclimb.com/editor-beta/EditorArestaBeta.msix" in corpo["files"]
-        assert "https://serving.arestaclimb.com/editor-beta/InstalarCertificadoEditorArestaBeta.bat" in corpo["files"]
+        assert (
+            "https://serving.arestaclimb.com/editor-beta/InstalarCertificadoEditorArestaBeta.bat"
+            in corpo["files"]
+        )
 
 
 def test_publicador_r2_beta_arquivo_inexistente(tmp_path: Path) -> None:
@@ -169,6 +179,6 @@ def test_publicador_r2_beta_inicializacao_com_account_id_legado() -> None:
 
             mock_boto.assert_called_once()
             _, kwargs = mock_boto.call_args
-            assert kwargs["endpoint_url"] == "https://minha_conta_legada_456.r2.cloudflarestorage.com"
-
-
+            assert (
+                kwargs["endpoint_url"] == "https://minha_conta_legada_456.r2.cloudflarestorage.com"
+            )

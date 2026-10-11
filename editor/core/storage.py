@@ -1,9 +1,7 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
-from PySide6.QtCore import QStandardPaths
 from pathlib import Path
-import os
 
 
 def obter_diretorio_base_app() -> Path:
@@ -19,10 +17,10 @@ class GerenciadorCaminhos:
     """
     Biblioteca para gerenciar caminhos de armazenamento local do Editor Aresta.
     """
-    
+
     def __init__(self) -> None:
         self.nome_app: str = "editor_aresta"
-        
+
     def obter_diretorio_base(self) -> Path:
         """
         Retorna o caminho base para os dados do aplicativo.
@@ -36,6 +34,7 @@ class GerenciadorCaminhos:
         e respeita sobreposições de canais ativos (ex: canal Beta).
         """
         from editor.core.configuracao_canal import obter_configuracao_canal
+
         config = obter_configuracao_canal()
         if config.eh_beta:
             nome_arquivo = Path(caminho_relativo).name
@@ -44,12 +43,13 @@ class GerenciadorCaminhos:
                 return caminho_canal
 
         import sys
-        if hasattr(sys, '_MEIPASS'):
+
+        if hasattr(sys, "_MEIPASS"):
             base_path = Path(sys._MEIPASS)
         else:
             # Como storage.py está em editor/core, voltamos um nível para chegar em editor/
             base_path = Path(__file__).resolve().parent.parent
-            
+
         return base_path / caminho_relativo
 
     def obter_caminho_base_repo(self) -> Path:
@@ -85,5 +85,3 @@ class GerenciadorCaminhos:
         self.obter_caminho_croquis_experimentais().mkdir(parents=True, exist_ok=True)
         self.obter_caminho_diarios_locais().mkdir(parents=True, exist_ok=True)
         self.obter_caminho_lixeira().mkdir(parents=True, exist_ok=True)
-
-

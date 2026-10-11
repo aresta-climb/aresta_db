@@ -7,8 +7,9 @@ Testes unitários para o adaptador Linux em editor.plataforma.linux.integracao.
 
 import os
 from pathlib import Path
-from unittest.mock import patch, MagicMock
-from editor.plataforma.contrato import StatusAtualizacao, ResultadoAtualizacao
+from unittest.mock import MagicMock, patch
+
+from editor.plataforma.contrato import StatusAtualizacao
 from editor.plataforma.linux.integracao import AdaptadorLinux
 
 
@@ -40,7 +41,9 @@ def test_adaptador_linux_identidade_processo() -> None:
         assert adaptador.configurar_identidade_processo("com.arestaclimb.Editor") is True
         mock_set.assert_called_once_with("com.arestaclimb.Editor")
 
-    with patch("PySide6.QtGui.QGuiApplication.setDesktopFileName", side_effect=RuntimeError("Erro Qt")):
+    with patch(
+        "PySide6.QtGui.QGuiApplication.setDesktopFileName", side_effect=RuntimeError("Erro Qt")
+    ):
         assert adaptador.configurar_identidade_processo("com.arestaclimb.Editor") is False
 
 
@@ -61,7 +64,9 @@ def test_adaptador_linux_trazer_janela_para_frente() -> None:
         assert adaptador.trazer_janela_para_frente(1234) is True
 
     # Cenário 3: Exceção ao tentar manipular a janela
-    with patch("PySide6.QtWidgets.QApplication.activeWindow", side_effect=RuntimeError("Erro de janela")):
+    with patch(
+        "PySide6.QtWidgets.QApplication.activeWindow", side_effect=RuntimeError("Erro de janela")
+    ):
         assert adaptador.trazer_janela_para_frente(1234) is False
 
 
@@ -81,12 +86,89 @@ def test_adaptador_linux_diretorio_dados_padrao_xdg() -> None:
             assert diretorio_padrao == Path("/home/usuario/.local/share/EditorAresta")
 
 
-def test_adaptador_linux_atualizacoes() -> None:
-    """No Linux/Flatpak, atualizações são gerenciadas pelo sistema operacional."""
+def test_adaptador_linux_verificar_atualizacoes_disponivel_opcional() -> None:
+    """Verifica detecção de nova versão opcional via version.json remoto."""
     adaptador = AdaptadorLinux()
-    res = adaptador.verificar_atualizacoes_disponiveis()
-    assert res.status == StatusAtualizacao.NAO_APLICAVEL
-    assert adaptador.solicitar_instalacao_atualizacao(res) is False
+    mock_resp = MagicMock()
+    mock_resp.status_code = 200
+    mock_resp.json.return_value = {"versao": "0.5.0", "obrigatoria": False}
+
+    with patch("editor.core.version.VERSION", "0.4.9"):
+        with patch("requests.get", return_value=mock_resp) as mock_get:
+            res = adaptador.verificar_atualizacoes_disponiveis()
+            assert res.status == StatusAtualizacao.ATUALIZACAO_DISPONIVEL
+            assert res.versao_disponivel == "0.5.0"
+            assert res.obrigatoria is False
+            mock_get.assert_called_once_with(
+                "https://serving.arestaclimb.com/flatpak/version.json", timeout=3
+            )
+
+
+def test_adaptador_linux_verificar_atualizacoes_obrigatoria() -> None:
+    """Verifica detecção de nova versão mandatória via version.json remoto."""
+    adaptador = AdaptadorLinux()
+    mock_resp = MagicMock()
+    mock_resp.status_code = 200
+    mock_resp.json.return_value = {"versao": "1.0.0", "obrigatoria": True}
+
+    with patch("editor.core.version.VERSION", "0.4.9"):
+        with patch("requests.get", return_value=mock_resp):
+            res = adaptador.verificar_atualizacoes_disponiveis()
+            assert res.status == StatusAtualizacao.ATUALIZACAO_OBRIGATORIA
+            assert res.versao_disponivel == "1.0.0"
+            assert res.obrigatoria is True
+
+
+def test_adaptador_linux_verificar_atualizacoes_mesma_versao() -> None:
+    """Quando a versão local for igual à versão remota, não há atualização."""
+    adaptador = AdaptadorLinux()
+    mock_resp = MagicMock()
+    mock_resp.status_code = 200
+    mock_resp.json.return_value = {"versao": "0.4.9", "obrigatoria": True}
+
+    with patch("editor.core.version.VERSION", "0.4.9"):
+        with patch("requests.get", return_value=mock_resp):
+            res = adaptador.verificar_atualizacoes_disponiveis()
+            assert res.status == StatusAtualizacao.SEM_ATUALIZACAO
+
+
+def test_adaptador_linux_verificar_atualizacoes_falha_de_rede() -> None:
+    """Falha de rede na consulta retorna ERRO_CHECAGEM sem lançar exceção não tratada."""
+    import requests
+
+    adaptador = AdaptadorLinux()
+    with patch("requests.get", side_effect=requests.RequestException("Timeout")):
+        res = adaptador.verificar_atualizacoes_disponiveis()
+        assert res.status == StatusAtualizacao.ERRO_CHECAGEM
+
+
+def test_adaptador_linux_verificar_atualizacoes_status_http_invalido() -> None:
+    """Resposta HTTP diferente de 200 retorna ERRO_CHECAGEM."""
+    adaptador = AdaptadorLinux()
+    mock_resp = MagicMock()
+    mock_resp.status_code = 500
+
+    with patch("requests.get", return_value=mock_resp):
+        res = adaptador.verificar_atualizacoes_disponiveis()
+        assert res.status == StatusAtualizacao.ERRO_CHECAGEM
+
+
+def test_adaptador_linux_verificar_atualizacoes_versao_vazia() -> None:
+    """JSON retornado sem campo de versão válido resulta em ERRO_CHECAGEM."""
+    adaptador = AdaptadorLinux()
+    mock_resp = MagicMock()
+    mock_resp.status_code = 200
+    mock_resp.json.return_value = {"versao": "  "}
+
+    with patch("requests.get", return_value=mock_resp):
+        res = adaptador.verificar_atualizacoes_disponiveis()
+        assert res.status == StatusAtualizacao.ERRO_CHECAGEM
+
+
+def test_adaptador_linux_solicitar_instalacao_atualizacao() -> None:
+    """No Linux, solicitar_instalacao_atualizacao retorna False por enquanto."""
+    adaptador = AdaptadorLinux()
+    assert adaptador.solicitar_instalacao_atualizacao(None) is False
 
 
 def test_adaptador_linux_obter_nome_icone_preferencial() -> None:
@@ -143,7 +225,10 @@ def test_adaptador_linux_configurar_cofre_credenciais_portal_erro_faz_fallback()
     from keyring.backends.fail import Keyring as FailKeyring
 
     adaptador = AdaptadorLinux()
-    with patch("editor.plataforma.linux.portal_keyring.PortalKeyring.is_available", side_effect=RuntimeError("Erro D-Bus")):
+    with patch(
+        "editor.plataforma.linux.portal_keyring.PortalKeyring.is_available",
+        side_effect=RuntimeError("Erro D-Bus"),
+    ):
         with patch("keyring.get_keyring", return_value=FailKeyring()):
             with patch("keyring.backends.SecretService.Keyring") as mock_secret_service:
                 with patch("keyring.set_keyring") as mock_set:
@@ -156,7 +241,9 @@ def test_adaptador_linux_configurar_cofre_credenciais_ja_valido() -> None:
     """Valida que backend válido já existente não é sobrescrito quando o portal está indisponível."""
     adaptador = AdaptadorLinux()
     backend_valido = MagicMock()
-    with patch("editor.plataforma.linux.portal_keyring.PortalKeyring.is_available", return_value=False):
+    with patch(
+        "editor.plataforma.linux.portal_keyring.PortalKeyring.is_available", return_value=False
+    ):
         with patch("keyring.get_keyring", return_value=backend_valido):
             with patch("keyring.set_keyring") as mock_set:
                 assert adaptador.configurar_cofre_credenciais() is True
@@ -173,8 +260,12 @@ def test_adaptador_linux_configurar_cofre_credenciais_trata_excecao() -> None:
 def test_adaptador_linux_configurar_cofre_credenciais_get_keyring_lanca_excecao() -> None:
     """Valida tratamento seguro caso get_keyring lance exceção após checagem de portal."""
     adaptador = AdaptadorLinux()
-    with patch("editor.plataforma.linux.portal_keyring.PortalKeyring.is_available", return_value=False):
-        with patch("keyring.get_keyring", side_effect=RuntimeError("Falha de introspecção do keyring")):
+    with patch(
+        "editor.plataforma.linux.portal_keyring.PortalKeyring.is_available", return_value=False
+    ):
+        with patch(
+            "keyring.get_keyring", side_effect=RuntimeError("Falha de introspecção do keyring")
+        ):
             with patch("keyring.set_keyring") as mock_set:
                 assert adaptador.configurar_cofre_credenciais() is False
                 mock_set.assert_not_called()
@@ -185,7 +276,9 @@ def test_adaptador_linux_configurar_cofre_credenciais_secretservice_sucesso() ->
     from keyring.backends.fail import Keyring as FailKeyring
 
     adaptador = AdaptadorLinux()
-    with patch("editor.plataforma.linux.portal_keyring.PortalKeyring.is_available", return_value=False):
+    with patch(
+        "editor.plataforma.linux.portal_keyring.PortalKeyring.is_available", return_value=False
+    ):
         with patch("keyring.get_keyring", return_value=FailKeyring()):
             with patch("keyring.set_keyring") as mock_set:
                 assert adaptador.configurar_cofre_credenciais() is True
@@ -197,9 +290,14 @@ def test_adaptador_linux_configurar_cofre_credenciais_secretservice_falha_tenta_
     from keyring.backends.fail import Keyring as FailKeyring
 
     adaptador = AdaptadorLinux()
-    with patch("editor.plataforma.linux.portal_keyring.PortalKeyring.is_available", return_value=False):
+    with patch(
+        "editor.plataforma.linux.portal_keyring.PortalKeyring.is_available", return_value=False
+    ):
         with patch("keyring.get_keyring", return_value=FailKeyring()):
-            with patch("keyring.backends.SecretService.Keyring", side_effect=Exception("SecretService ausente")):
+            with patch(
+                "keyring.backends.SecretService.Keyring",
+                side_effect=Exception("SecretService ausente"),
+            ):
                 with patch("keyring.backends.kwallet.DBusKeyring", return_value=MagicMock()):
                     with patch("keyring.set_keyring") as mock_set:
                         assert adaptador.configurar_cofre_credenciais() is True
@@ -211,10 +309,14 @@ def test_adaptador_linux_configurar_cofre_credenciais_ambos_falham() -> None:
     from keyring.backends.fail import Keyring as FailKeyring
 
     adaptador = AdaptadorLinux()
-    with patch("editor.plataforma.linux.portal_keyring.PortalKeyring.is_available", return_value=False):
+    with patch(
+        "editor.plataforma.linux.portal_keyring.PortalKeyring.is_available", return_value=False
+    ):
         with patch("keyring.get_keyring", return_value=FailKeyring()):
             with patch("keyring.backends.SecretService.Keyring", side_effect=Exception("Falha 1")):
-                with patch("keyring.backends.kwallet.DBusKeyring", side_effect=Exception("Falha 2")):
+                with patch(
+                    "keyring.backends.kwallet.DBusKeyring", side_effect=Exception("Falha 2")
+                ):
                     with patch("keyring.set_keyring") as mock_set:
                         assert adaptador.configurar_cofre_credenciais() is False
                         mock_set.assert_not_called()

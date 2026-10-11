@@ -7,16 +7,15 @@ Permite alternar de forma transparente entre o canal oficial de produção e o
 canal de testes Beta com isolamento de recursos, títulos e identificadores do SO.
 """
 
-from dataclasses import dataclass
 import os
+from dataclasses import dataclass
 from pathlib import Path
-from typing import Optional
 
 CANAL_PRODUCAO: str = "producao"
 CANAL_BETA: str = "beta"
 
 
-def obter_diretorio_base_recursos(diretorio_base: Optional[Path] = None) -> Path:
+def obter_diretorio_base_recursos(diretorio_base: Path | None = None) -> Path:
     """
     Retorna o diretório base para localização de recursos gráficos.
     Lida corretamente com o sys._MEIPASS quando o executável é congelado via PyInstaller.
@@ -24,6 +23,7 @@ def obter_diretorio_base_recursos(diretorio_base: Optional[Path] = None) -> Path
     if diretorio_base:
         return diretorio_base
     import sys
+
     if hasattr(sys, "_MEIPASS"):
         return Path(sys._MEIPASS)
     return Path(__file__).resolve().parent.parent
@@ -34,7 +34,7 @@ class ConfiguracaoCanal:
     """Representa a configuração e metadados de identidade de um canal do editor."""
 
     nome_canal: str
-    diretorio_base: Optional[Path] = None
+    diretorio_base: Path | None = None
 
     @property
     def eh_beta(self) -> bool:
@@ -62,7 +62,7 @@ class ConfiguracaoCanal:
             return "recursos_beta"
         return "recursos"
 
-    def titulo_janela(self, versao: Optional[str] = None) -> str:
+    def titulo_janela(self, versao: str | None = None) -> str:
         """
         Retorna o título formatado para janelas do editor incluindo sufixo
         de canal e versão semântica, se fornecida.
@@ -119,10 +119,9 @@ class ConfiguracaoCanal:
         return self.obter_caminho_recurso("logo_app.png")
 
 
-
 def obter_configuracao_canal(
-    nome_canal: Optional[str] = None,
-    diretorio_base: Optional[Path] = None,
+    nome_canal: str | None = None,
+    diretorio_base: Path | None = None,
 ) -> ConfiguracaoCanal:
     """
     Obtém a instância imutável de ConfiguracaoCanal correspondente.

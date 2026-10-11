@@ -4,6 +4,7 @@
 import unittest
 import xml.etree.ElementTree as ET
 from pathlib import Path
+
 from PIL import Image
 
 
@@ -51,5 +52,8 @@ class TestManifestoMsixBeta(unittest.TestCase):
         self.assertIsNotNone(identity)
         assert identity is not None
         arch = identity.attrib.get("ProcessorArchitecture", "")
-        self.assertEqual(arch.lower(), "x64", "Identity deve declarar ProcessorArchitecture='x64' para coincidir com o AppInstaller")
-
+        self.assertEqual(
+            arch.lower(),
+            "x64",
+            "Identity deve declarar ProcessorArchitecture='x64' para coincidir com o AppInstaller",
+        )

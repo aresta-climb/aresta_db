@@ -1,15 +1,15 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
-import pytest
 from aresta_api.proto.generated import beta_pb2
-from coleta_de_betas.extratores.deduplicador import normalizar_url, deduplicar_midias
+from coleta_de_betas.extratores.deduplicador import deduplicar_midias, normalizar_url
+
 
 def test_normalizar_url_instagram():
     url1 = "https://www.instagram.com/p/Cxyz123/?igsh=abc12345"
     url2 = "http://instagram.com/p/Cxyz123"
     url3 = "https://instagram.com/p/Cxyz123/"
-    
+
     norm1 = normalizar_url(url1)
     norm2 = normalizar_url(url2)
     norm3 = normalizar_url(url3)
@@ -43,7 +43,7 @@ def test_deduplicar_midias_mescla_informacoes():
     m2 = beta_pb2.MidiaBeta()
     m2.url = "https://instagram.com/p/Cxyz123"
     m2.titulo = "Vídeo do Crux - DDG"
-    m2.thumbnail_url = "" # Sem thumbnail
+    m2.thumbnail_url = ""  # Sem thumbnail
     m2.fonte = beta_pb2.FonteMidia.INSTAGRAM
     m2.match_nome_no_snippet = False
     m2.snippets.append("Trecho do DuckDuckGo")
@@ -60,7 +60,7 @@ def test_deduplicar_midias_mescla_informacoes():
     resultado = deduplicar_midias([[m1, m3], [m2]])
 
     assert len(resultado) == 2
-    
+
     # Valida item mesclado do Instagram
     instagram_item = next(m for m in resultado if "instagram.com" in m.url)
     assert instagram_item.url == "https://instagram.com/p/Cxyz123"

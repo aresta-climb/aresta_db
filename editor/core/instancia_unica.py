@@ -3,8 +3,9 @@
 
 import sys
 import time
-from typing import Optional, Callable, List
-from PySide6.QtNetwork import QLocalSocket, QLocalServer
+from collections.abc import Callable
+
+from PySide6.QtNetwork import QLocalServer, QLocalSocket
 from PySide6.QtWidgets import QApplication
 
 NOME_SERVIDOR_PADRAO = "ArestaEditorSingleInstanceServer"
@@ -30,6 +31,7 @@ def ativar_janela_existente() -> bool:
         janela.activateWindow()
         try:
             from editor.plataforma import trazer_janela_para_frente
+
             trazer_janela_para_frente(int(janela.winId()))
         except Exception:
             pass
@@ -38,8 +40,7 @@ def ativar_janela_existente() -> bool:
 
 
 def verificar_se_ja_em_execucao(
-    nome_servidor: str = NOME_SERVIDOR_PADRAO,
-    timeout_ms: int = 500
+    nome_servidor: str = NOME_SERVIDOR_PADRAO, timeout_ms: int = 500
 ) -> bool:
     """
     Verifica se já existe uma instância do Aresta Editor em execução ativa e responsiva.
@@ -67,7 +68,7 @@ def verificar_se_ja_em_execucao(
     print(
         f"Aviso: Detectada trava de instância anterior não responsiva ('{nome_servidor}'). "
         "Limpando trava órfã...",
-        file=sys.stderr
+        file=sys.stderr,
     )
     socket.abort()
     QLocalServer.removeServer(nome_servidor)
@@ -76,9 +77,9 @@ def verificar_se_ja_em_execucao(
 
 def iniciar_servidor_instancia_unica(
     nome_servidor: str = NOME_SERVIDOR_PADRAO,
-    callback_ativacao: Optional[Callable[[], None]] = None,
-    tempo_tolerancia_inicializacao_s: float = 5.0
-) -> Optional[QLocalServer]:
+    callback_ativacao: Callable[[], None] | None = None,
+    tempo_tolerancia_inicializacao_s: float = 5.0,
+) -> QLocalServer | None:
     """
     Inicia o QLocalServer para garantir instância única e responder a pings
     de novas instâncias trazendo a janela existente para frente.
@@ -94,11 +95,11 @@ def iniciar_servidor_instancia_unica(
     if not servidor.listen(nome_servidor):
         print(
             f"Aviso: Não foi possível escutar no servidor local '{nome_servidor}': {servidor.errorString()}",
-            file=sys.stderr
+            file=sys.stderr,
         )
         return None
 
-    clientes_ativos: List[QLocalSocket] = []
+    clientes_ativos: list[QLocalSocket] = []
     setattr(servidor, "_clientes_ativos", clientes_ativos)
     tempo_inicio = time.monotonic()
 
@@ -145,4 +146,3 @@ def iniciar_servidor_instancia_unica(
 
     servidor.newConnection.connect(_ao_conectar)
     return servidor
-

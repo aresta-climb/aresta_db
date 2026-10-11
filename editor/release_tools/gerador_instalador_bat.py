@@ -8,8 +8,6 @@ de assinatura de testes do Editor Aresta Beta com execução oculta e redirecion
 
 import base64
 import hashlib
-from typing import Optional
-
 
 URL_SUCESSO_PADRAO: str = "https://arestaclimb.com/editor/beta/certificado-instalado"
 MARCADOR_INICIO_PEM: str = "-----BEGIN CERTIFICATE-----"

@@ -1,48 +1,46 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
-import os
-import uuid
-import shutil
 import filecmp
-from pathlib import Path
-from enum import Enum
+import os
+import shutil
+import uuid
+from collections.abc import Callable
 from dataclasses import dataclass, field
-from typing import Optional, Callable, Dict, Any, cast
+from enum import Enum
+from pathlib import Path
+from typing import Any, cast
 
-import requests
 import pygit2
+import requests
 
-
-from editor.core.gerenciador_sessao import SessaoUsuario
 from editor.core.cliente_auth_supabase import ClienteAuthSupabase
+from editor.core.gerenciador_sessao import SessaoUsuario
 from editor.core.storage import GerenciadorCaminhos
 from editor.core.telemetria import (
     capturar_falha_submissao,
     registrar_breadcrumb_submissao,
 )
 
-
 _URL_SUPABASE_FALLBACK = "https://yzkhiaoqtxvvcyyuwmqg.supabase.co"
 _CHAVE_PUBLICA_FALLBACK = "sb_publishable_ZOrO8ix2EsWlSHEWrZr42A_JycWrAV3"
 
-_URL_SUPABASE_PADRAO = (
-    (os.getenv("ARESTA_SUPABASE_URL") or "").strip() or _URL_SUPABASE_FALLBACK
-)
+_URL_SUPABASE_PADRAO = (os.getenv("ARESTA_SUPABASE_URL") or "").strip() or _URL_SUPABASE_FALLBACK
 _CHAVE_PUBLICA_PADRAO = (
-    (os.getenv("ARESTA_SUPABASE_PUBLISHABLE_KEY") or "").strip()
-    or _CHAVE_PUBLICA_FALLBACK
-)
+    os.getenv("ARESTA_SUPABASE_PUBLISHABLE_KEY") or ""
+).strip() or _CHAVE_PUBLICA_FALLBACK
 _TEMPO_LIMITE_PR_PADRAO: int = 60
 
 
 class ErroSubmissao(Exception):
     """Exceção levantada em falhas no processo de submissão de sugestões."""
+
     pass
 
 
 class StatusSincronizacao(Enum):
     """Representa os possíveis estados do processo de sincronização remota."""
+
     ATUALIZADO = "atualizado"
     MESCLADO = "mesclado"
     CONFLITO = "conflito"
@@ -52,18 +50,20 @@ class StatusSincronizacao(Enum):
 @dataclass
 class ResultadoSincronizacao:
     """Representa o resultado da operação de sincronização remota de uma PR."""
+
     status: StatusSincronizacao
     mensagem: str = ""
     arquivos_conflito: list[str] = field(default_factory=list)
-    commit_merge: Optional[str] = None
+    commit_merge: str | None = None
 
 
 @dataclass
 class ResultadoSubmissao:
     """Representa o resultado da operação de submissão de sugestão."""
+
     sucesso: bool
-    pr_number: Optional[int] = None
-    pr_url: Optional[str] = None
+    pr_number: int | None = None
+    pr_url: str | None = None
     nome_branch: str = ""
     mensagem: str = ""
     sem_alteracoes: bool = False
@@ -79,7 +79,7 @@ def _extrair_id_croqui_da_branch(branch: str) -> str:
     """Extrai o id_croqui de uma branch com prefixo edicao-, sugestao- ou proposta-."""
     for prefixo in ("edicao-", "sugestao-", "proposta-"):
         if branch.startswith(prefixo):
-            resto = branch[len(prefixo):]
+            resto = branch[len(prefixo) :]
             partes = resto.rsplit("-", 1)
             return partes[0] if len(partes) == 2 else resto
     return branch
@@ -93,13 +93,15 @@ class ServicoSubmissao:
 
     def __init__(
         self,
-        caminho_repo_base: Optional[Path] = None,
-        url_supabase: Optional[str] = None,
-        chave_publica: Optional[str] = None,
-        cliente_auth: Optional[ClienteAuthSupabase] = None,
+        caminho_repo_base: Path | None = None,
+        url_supabase: str | None = None,
+        chave_publica: str | None = None,
+        cliente_auth: ClienteAuthSupabase | None = None,
         tempo_limite_requisicao: int = _TEMPO_LIMITE_PR_PADRAO,
     ) -> None:
-        self.caminho_repo_base: Path = caminho_repo_base or GerenciadorCaminhos().obter_caminho_base_repo()
+        self.caminho_repo_base: Path = (
+            caminho_repo_base or GerenciadorCaminhos().obter_caminho_base_repo()
+        )
         url = (url_supabase or "").strip()
         if not url.startswith("http://") and not url.startswith("https://"):
             url = _URL_SUPABASE_PADRAO
@@ -111,10 +113,7 @@ class ServicoSubmissao:
         )
         self.tempo_limite_requisicao: int = tempo_limite_requisicao
 
-
-    def sincronizar_arquivos_croqui(
-        self, origem: Path, destino_repo: Path, id_croqui: str
-    ) -> Path:
+    def sincronizar_arquivos_croqui(self, origem: Path, destino_repo: Path, id_croqui: str) -> Path:
         """
         Espelha estritamente os arquivos da pasta do croqui experimental
         para database/<id_croqui>/ no repositório base local.
@@ -162,18 +161,22 @@ class ServicoSubmissao:
         arquivos_origem = {
             f.relative_to(caminho_database_croqui).as_posix(): f
             for f in caminho_database_croqui.rglob("*")
-            if f.is_file() and not f.name.startswith(".") and not any(p.startswith(".") for p in f.relative_to(caminho_database_croqui).parts)
+            if f.is_file()
+            and not f.name.startswith(".")
+            and not any(p.startswith(".") for p in f.relative_to(caminho_database_croqui).parts)
         }
 
         # 2. Se a base não existe, todos os arquivos locais são novas adições
         if not caminho_base_croqui.is_dir():
-            return sorted(list(arquivos_origem.keys()))
+            return sorted(arquivos_origem.keys())
 
         # 3. Arquivos existentes na base oficial
         arquivos_base = {
             f.relative_to(caminho_base_croqui).as_posix(): f
             for f in caminho_base_croqui.rglob("*")
-            if f.is_file() and not f.name.startswith(".") and not any(p.startswith(".") for p in f.relative_to(caminho_base_croqui).parts)
+            if f.is_file()
+            and not f.name.startswith(".")
+            and not any(p.startswith(".") for p in f.relative_to(caminho_base_croqui).parts)
         }
 
         # 4. Compara arquivos locais com a base (adições e modificações)
@@ -200,18 +203,23 @@ class ServicoSubmissao:
         titulo: str,
         descricao: str,
         sessao: SessaoUsuario,
-    ) -> Optional[pygit2.Commit]:
+    ) -> pygit2.Commit | None:
         """
         Realiza staging dos arquivos em database/<id_croqui>/ e cria o commit assinado.
         Retorna o Commit criado ou None se não houver modificações reais na árvore.
         """
+        head_commit = cast(pygit2.Commit, repo.head.peel())
         caminho_relativo = f"database/{id_croqui}"
         index = repo.index
+
+        # 1. Isola o índice carregando a árvore limpa do commit base (HEAD)
+        index.read_tree(head_commit.tree_id)
+
+        # 2. Faz staging das adições, modificações e remoções estritamente em database/<id_croqui>
         index.add_all([caminho_relativo])
         index.write()
 
         tree_id = index.write_tree()
-        head_commit = cast(pygit2.Commit, repo.head.peel())
 
         if tree_id == head_commit.tree_id:
             return None
@@ -234,17 +242,20 @@ class ServicoSubmissao:
         return cast(pygit2.Commit, repo[commit_oid])
 
     def _obter_callbacks_push(
-        self, jwt: str, callback_progresso: Optional[Callable[[float], None]] = None
+        self, jwt: str, callback_progresso: Callable[[float], None] | None = None
     ) -> pygit2.RemoteCallbacks:
         """Configura credenciais HTTP e callback de progresso para o push."""
+
         class CallbacksProxy(pygit2.RemoteCallbacks):
-            def __init__(self, token_jwt: str, prog_cb: Optional[Callable[[float], None]]) -> None:
+            def __init__(self, token_jwt: str, prog_cb: Callable[[float], None] | None) -> None:
                 super().__init__()
                 self.token_jwt: str = token_jwt
-                self.prog_cb: Optional[Callable[[float], None]] = prog_cb
+                self.prog_cb: Callable[[float], None] | None = prog_cb
                 self._tentativas: int = 0
 
-            def credentials(self, url: str, username_from_url: str | None, allowed_types: int) -> Any:
+            def credentials(
+                self, url: str, username_from_url: str | None, allowed_types: int
+            ) -> Any:
                 if self._tentativas >= 3:
                     return None
                 self._tentativas += 1
@@ -257,18 +268,16 @@ class ServicoSubmissao:
 
         return CallbacksProxy(jwt, callback_progresso)
 
-
-
     def fazer_push_proxy(
         self,
         repo: pygit2.Repository,
         nome_branch: str,
         jwt: str,
-        callback_progresso: Optional[Callable[[float], None]] = None,
+        callback_progresso: Callable[[float], None] | None = None,
     ) -> None:
         """Configura o remote efêmero proxy e realiza o push via Git Smart HTTP."""
         url_proxy = f"{self.url_supabase}/functions/v1/git-proxy"
-        
+
         try:
             remote = repo.remotes["proxy"]
             repo.remotes.set_url("proxy", url_proxy)
@@ -312,7 +321,7 @@ class ServicoSubmissao:
         nome_branch: str,
         jwt: str,
         repo: pygit2.Repository,
-        callback_progresso: Optional[Callable[[float], None]] = None,
+        callback_progresso: Callable[[float], None] | None = None,
     ) -> None:
         """Método auxiliar encapsulado para o comando de push do Git."""
         self.fazer_push_proxy(repo, nome_branch, jwt, callback_progresso)
@@ -323,9 +332,9 @@ class ServicoSubmissao:
         branch: str,
         titulo: str,
         descricao: str,
-        token_usuario_github: Optional[str] = None,
-        tempo_limite: Optional[int] = None,
-    ) -> Dict[str, Any]:
+        token_usuario_github: str | None = None,
+        tempo_limite: int | None = None,
+    ) -> dict[str, Any]:
         """Dispara a criação/registro da Pull Request via Edge Function create-pr."""
         url_endpoint = f"{self.url_supabase}/functions/v1/create-pr"
         cabecalhos = {
@@ -345,10 +354,16 @@ class ServicoSubmissao:
         timeout_efetivo = tempo_limite if tempo_limite is not None else self.tempo_limite_requisicao
 
         try:
-            resposta = requests.post(url_endpoint, json=payload, headers=cabecalhos, timeout=timeout_efetivo)
+            resposta = requests.post(
+                url_endpoint, json=payload, headers=cabecalhos, timeout=timeout_efetivo
+            )
         except Exception as e:
             contexto = {"url_endpoint": url_endpoint, "branch": branch, "titulo": titulo}
-            categoria = "rede" if isinstance(e, (requests.ConnectionError, requests.Timeout)) else "github_api"
+            categoria = (
+                "rede"
+                if isinstance(e, (requests.ConnectionError, requests.Timeout))
+                else "github_api"
+            )
             capturar_falha_submissao(
                 erro=e,
                 id_croqui=id_croqui_extraido,
@@ -360,17 +375,30 @@ class ServicoSubmissao:
 
         if resposta.status_code != 200:
             msg = resposta.text
+            arquivos_invalidos = None
             try:
-                msg = resposta.json().get("erro", msg)
+                corpo_json = resposta.json()
+                msg = corpo_json.get("erro", msg)
+                arquivos_invalidos = corpo_json.get("arquivos_invalidos")
+                if isinstance(arquivos_invalidos, list):
+                    if len(arquivos_invalidos) > 0:
+                        itens = "\n".join(f"• {arq}" for arq in arquivos_invalidos)
+                        msg = f"{msg}\n\nArquivos fora do escopo permitidos:\n{itens}"
+                    else:
+                        msg = f"{msg}\n\n(Nenhum arquivo modificado foi detectado pelo servidor na branch)."
             except Exception:
                 pass
-            erro_http = ErroSubmissao(f"Erro ao formalizar proposta de mudança no GitHub ({resposta.status_code}):\n{msg}")
-            contexto_erro: Dict[str, Any] = {
+            erro_http = ErroSubmissao(
+                f"Erro ao formalizar proposta de mudança no GitHub ({resposta.status_code}):\n{msg}"
+            )
+            contexto_erro: dict[str, Any] = {
                 "url_endpoint": url_endpoint,
                 "branch": branch,
                 "codigo_status_http": resposta.status_code,
                 "resposta_servidor": msg,
             }
+            if arquivos_invalidos is not None:
+                contexto_erro["arquivos_invalidos"] = arquivos_invalidos
             capturar_falha_submissao(
                 erro=erro_http,
                 id_croqui=id_croqui_extraido,
@@ -384,7 +412,7 @@ class ServicoSubmissao:
             dados = resposta.json()
         except Exception as e:
             erro_json = ErroSubmissao(f"Resposta inválida do servidor ao abrir Pull Request:\n{e}")
-            contexto_json: Dict[str, Any] = {
+            contexto_json: dict[str, Any] = {
                 "url_endpoint": url_endpoint,
                 "branch": branch,
                 "resposta_texto": resposta.text,
@@ -397,8 +425,6 @@ class ServicoSubmissao:
                 contexto_extra=contexto_json,
             )
             raise erro_json
-
-
 
         pr_number = dados.get("pr_number") or dados.get("numero_pr")
         pr_url = dados.get("pr_url") or dados.get("url_pr")
@@ -437,7 +463,6 @@ class ServicoSubmissao:
             except Exception:
                 pass
 
-
         raise ErroSubmissao("Não foi possível determinar o commit base do repositório.")
 
     def submeter_sugestao(
@@ -447,8 +472,8 @@ class ServicoSubmissao:
         titulo: str,
         descricao: str,
         sessao: SessaoUsuario,
-        branch_existente: Optional[str] = None,
-        callback_progresso: Optional[Callable[[int, str], None]] = None,
+        branch_existente: str | None = None,
+        callback_progresso: Callable[[int, str], None] | None = None,
     ) -> ResultadoSubmissao:
         """
         Orquestra o fluxo fim-a-fim de submissão:
@@ -459,6 +484,7 @@ class ServicoSubmissao:
         5. Push para o Git Proxy
         6. Abertura ou confirmação de PR
         """
+
         def reportar(porcentagem: int, mensagem: str) -> None:
             registrar_breadcrumb_submissao(
                 mensagem=mensagem,
@@ -481,7 +507,9 @@ class ServicoSubmissao:
                 novos_tokens = self.cliente_auth.renovar_sessao(sessao.token_atualizacao)
                 jwt_ativo = novos_tokens["access_token"]
                 sessao.jwt_supabase = jwt_ativo
-                sessao.token_atualizacao = novos_tokens.get("refresh_token", sessao.token_atualizacao)
+                sessao.token_atualizacao = novos_tokens.get(
+                    "refresh_token", sessao.token_atualizacao
+                )
             except Exception as e:
                 capturar_falha_submissao(
                     erro=e,
@@ -498,7 +526,11 @@ class ServicoSubmissao:
         try:
             repo = pygit2.Repository(str(self.caminho_repo_base))
 
-            if branch_existente and (branch_existente.startswith("edicao-") or branch_existente.startswith("sugestao-") or branch_existente.startswith("proposta-")):
+            if branch_existente and (
+                branch_existente.startswith("edicao-")
+                or branch_existente.startswith("sugestao-")
+                or branch_existente.startswith("proposta-")
+            ):
                 nome_branch = branch_existente
                 if nome_branch in repo.branches.local:
                     branch = repo.branches.local[nome_branch]
@@ -519,7 +551,10 @@ class ServicoSubmissao:
                 id_croqui=id_croqui,
                 etapa="preparacao_branch",
                 categoria="git_local",
-                contexto_extra={"id_croqui": id_croqui, "caminho_repo": str(self.caminho_repo_base)},
+                contexto_extra={
+                    "id_croqui": id_croqui,
+                    "caminho_repo": str(self.caminho_repo_base),
+                },
             )
             raise ErroSubmissao(f"Falha ao preparar repositório e branch local:\n{e}")
 
@@ -582,8 +617,8 @@ class ServicoSubmissao:
         id_croqui: str,
         nome_branch: str,
         nome_remote: str = "origin",
-        callbacks: Optional[pygit2.RemoteCallbacks] = None,
-    ) -> tuple[bool, Optional[str]]:
+        callbacks: pygit2.RemoteCallbacks | None = None,
+    ) -> tuple[bool, str | None]:
         """
         Executa fetch da branch remota e compara com a referência local.
         Retorna (tem_atualizacoes, id_commit_remoto).
@@ -631,8 +666,8 @@ class ServicoSubmissao:
         nome_branch: str,
         caminho_database_croqui: Path,
         nome_remote: str = "origin",
-        sessao: Optional[SessaoUsuario] = None,
-        callbacks: Optional[pygit2.RemoteCallbacks] = None,
+        sessao: SessaoUsuario | None = None,
+        callbacks: pygit2.RemoteCallbacks | None = None,
     ) -> ResultadoSincronizacao:
         """
         Verifica novidades remotas na branch da PR e aplica mesclagem automática
@@ -722,7 +757,7 @@ class ServicoSubmissao:
         )
 
     def _obter_autor_assinatura(
-        self, repo: pygit2.Repository, sessao: Optional[SessaoUsuario]
+        self, repo: pygit2.Repository, sessao: SessaoUsuario | None
     ) -> pygit2.Signature:
         """Obtém a assinatura do autor a partir da sessão ativa ou da configuração local do Git."""
         if sessao and sessao.nome_completo and sessao.email:
@@ -751,7 +786,7 @@ class ServicoSubmissao:
         caminho_database_croqui: Path,
         manter_local: bool,
         nome_remote: str = "origin",
-        sessao: Optional[SessaoUsuario] = None,
+        sessao: SessaoUsuario | None = None,
     ) -> ResultadoSincronizacao:
         """
         Resolve conflito de sincronização criando commit de merge com 2 pais,
@@ -764,11 +799,7 @@ class ServicoSubmissao:
         ref_remota = repo.lookup_reference(f"refs/remotes/{nome_remote}/{nome_branch}")
         commit_remoto = ref_remota.peel(pygit2.Commit)
 
-        favor = (
-            pygit2.enums.MergeFavor.OURS
-            if manter_local
-            else pygit2.enums.MergeFavor.THEIRS
-        )
+        favor = pygit2.enums.MergeFavor.OURS if manter_local else pygit2.enums.MergeFavor.THEIRS
         idx = repo.merge_commits(commit_local, commit_remoto, favor=favor)
         tree_merge = idx.write_tree(repo)
 
@@ -796,4 +827,3 @@ class ServicoSubmissao:
             mensagem=f"Conflito resolvido ({resolucao}).",
             commit_merge=str(commit_merge_oid),
         )
-

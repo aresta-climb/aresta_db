@@ -6,11 +6,11 @@ Testes unitários para o contrato e tipos da biblioteca de plataforma.
 """
 
 from pathlib import Path
-from typing import Optional
+
 from editor.plataforma.contrato import (
     AdaptadorPlataforma,
-    StatusAtualizacao,
     ResultadoAtualizacao,
+    StatusAtualizacao,
 )
 
 
@@ -36,7 +36,7 @@ class AdaptadorFalso(AdaptadorPlataforma):
         return ResultadoAtualizacao(status=StatusAtualizacao.SEM_ATUALIZACAO)
 
     def solicitar_instalacao_atualizacao(
-        self, resultado: Optional[ResultadoAtualizacao] = None
+        self, resultado: ResultadoAtualizacao | None = None
     ) -> bool:
         return True
 

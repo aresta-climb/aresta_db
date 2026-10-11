@@ -1,9 +1,11 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
+
 import duckduckgo_search
-from typing import List
+
 from aresta_api.proto.generated import beta_pb2
+
 
 class ExtratorDuckDuckGo:
     """
@@ -27,13 +29,13 @@ class ExtratorDuckDuckGo:
         nome_escalada: str,
         nome_setor: str = "",
         nome_pico: str = "",
-        max_resultados: int = 10
-    ) -> List[beta_pb2.MidiaBeta]:
+        max_resultados: int = 10,
+    ) -> list[beta_pb2.MidiaBeta]:
         """
         Executa a busca no DuckDuckGo e formata em objetos MidiaBeta.
         """
         query = self.montar_query(nome_escalada, nome_setor, nome_pico)
-        resultados: List[beta_pb2.MidiaBeta] = []
+        resultados: list[beta_pb2.MidiaBeta] = []
         termo_lower = nome_escalada.lower().strip()
 
         try:
@@ -53,7 +55,7 @@ class ExtratorDuckDuckGo:
             midia = beta_pb2.MidiaBeta()
             midia.url = link
             midia.titulo = titulo
-            midia.thumbnail_url = "" # DuckDuckGo text search não garante thumbnail estável
+            midia.thumbnail_url = ""  # DuckDuckGo text search não garante thumbnail estável
             midia.fonte = beta_pb2.FonteMidia.INSTAGRAM
 
             texto_completo = f"{titulo} {body}".lower()

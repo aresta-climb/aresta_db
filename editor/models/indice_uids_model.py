@@ -14,14 +14,16 @@ Segue rigorosamente os Princípios I, II, III, IV e VII de AGENTS.md:
 - Sincronização com histórico (Undo/Redo)
 """
 
-from enum import IntEnum
 from dataclasses import dataclass
-from typing import Optional, Dict, List, Any
+from enum import IntEnum
+from typing import Any
+
 from PySide6.QtCore import QObject, Signal
 
 
 class TipoEntidadeUid(IntEnum):
     """Identificador numérico do tipo de entidade indexada."""
+
     GRUPO = 1
     SETOR = 2
     ESCALADA = 3
@@ -34,16 +36,17 @@ class RegistroUid:
     Registro plano de metadados de uma entidade indexada por seu UID.
     Armazena o contexto hierárquico necessário para resolução de caminhos O(1).
     """
-    uid: str                               # NanoID Base62 de 14 caracteres (Chave Primária)
-    tipo_id: int                           # 1: grupo, 2: setor, 3: escalada, 4: botao
-    grupo_uid: Optional[str] = None        # Preenchido se pertencer a um grupo
-    nome_grupo: Optional[str] = None       # Preenchido se pertencer ou for um grupo
-    setor_uid: Optional[str] = None        # Preenchido para setores e vias
-    nome_setor: Optional[str] = None       # Preenchido para setores e vias
-    nome_escalada: Optional[str] = None    # Preenchido APENAS para escaladas
-    texto_botao: Optional[str] = None      # Preenchido APENAS para botões
-    indice_enfiada: Optional[int] = None   # Preenchido se for enfiada de via de múltiplas enfiadas
-    escalada_pai_uid: Optional[str] = None # Preenchido se for enfiada, aponta para a escalada pai
+
+    uid: str  # NanoID Base62 de 14 caracteres (Chave Primária)
+    tipo_id: int  # 1: grupo, 2: setor, 3: escalada, 4: botao
+    grupo_uid: str | None = None  # Preenchido se pertencer a um grupo
+    nome_grupo: str | None = None  # Preenchido se pertencer ou for um grupo
+    setor_uid: str | None = None  # Preenchido para setores e vias
+    nome_setor: str | None = None  # Preenchido para setores e vias
+    nome_escalada: str | None = None  # Preenchido APENAS para escaladas
+    texto_botao: str | None = None  # Preenchido APENAS para botões
+    indice_enfiada: int | None = None  # Preenchido se for enfiada de via de múltiplas enfiadas
+    escalada_pai_uid: str | None = None  # Preenchido se for enfiada, aponta para a escalada pai
 
     def obter_caminho_formatado(self) -> str:
         """Retorna o rótulo hierárquico legível pronto para exibição."""
@@ -54,8 +57,16 @@ class RegistroUid:
                 return f"{self.nome_grupo} > {self.nome_setor}"
             return self.nome_setor or ""
         elif self.tipo_id == TipoEntidadeUid.ESCALADA:
-            prefixo = f"{self.nome_grupo} > {self.nome_setor}" if self.nome_grupo else (self.nome_setor or "")
-            nome = f"{self.nome_escalada} ({self.indice_enfiada}ª Enfiada)" if self.indice_enfiada else (self.nome_escalada or "")
+            prefixo = (
+                f"{self.nome_grupo} > {self.nome_setor}"
+                if self.nome_grupo
+                else (self.nome_setor or "")
+            )
+            nome = (
+                f"{self.nome_escalada} ({self.indice_enfiada}ª Enfiada)"
+                if self.indice_enfiada
+                else (self.nome_escalada or "")
+            )
             if prefixo and nome:
                 return f"{prefixo} > {nome}"
             return nome or prefixo
@@ -80,6 +91,7 @@ def _extrair_nome_escalada(msg: Any) -> str:
 def _desembrulhar(obj: Any) -> Any:
     """Desembrulha ReadOnlyProxy se o objeto estiver envolvido."""
     from editor.models.readonly_proxy import ReadOnlyProxy
+
     if isinstance(obj, ReadOnlyProxy):
         return object.__getattribute__(obj, "_obj")
     return obj
@@ -91,25 +103,26 @@ class IndiceUidsModel(QObject):
     Mantém tabela de hash O(1) de UIDs para RegistroUid e sincroniza
     com mutações de Undo/Redo do CroquiModel.
     """
+
     indice_alterado = Signal()
 
-    def __init__(self, croqui: Optional[Any] = None, parent: Optional[QObject] = None) -> None:
+    def __init__(self, croqui: Any | None = None, parent: QObject | None = None) -> None:
         super().__init__(parent)
-        self._registros: Dict[str, RegistroUid] = {}
-        self._obj_id_para_uid: Dict[int, str] = {}
+        self._registros: dict[str, RegistroUid] = {}
+        self._obj_id_para_uid: dict[int, str] = {}
         if croqui is not None:
             self.carregar_do_croqui(croqui)
 
     def __len__(self) -> int:
         return len(self._registros)
 
-    def obter(self, uid: str) -> Optional[RegistroUid]:
+    def obter(self, uid: str) -> RegistroUid | None:
         """Retorna o RegistroUid correspondente ao UID ou None se não existir."""
         if not uid:
             return None
         return self._registros.get(str(uid))
 
-    def obter_uid_por_objeto(self, obj: Any) -> Optional[str]:
+    def obter_uid_por_objeto(self, obj: Any) -> str | None:
         """Localiza o UID associado a um objeto Protobuf ou subobjeto de variante."""
         obj = _desembrulhar(obj)
         uid_val = getattr(obj, "uid", None)
@@ -117,7 +130,7 @@ class IndiceUidsModel(QObject):
             return str(uid_val)
         return self._obj_id_para_uid.get(id(obj))
 
-    def obter_caminho(self, uid: str) -> Optional[str]:
+    def obter_caminho(self, uid: str) -> str | None:
         """Retorna o caminho hierárquico legível da entidade ou None se não existir."""
         reg = self.obter(uid)
         return reg.obter_caminho_formatado() if reg is not None else None
@@ -128,7 +141,7 @@ class IndiceUidsModel(QObject):
             return False
         return str(uid) in self._registros
 
-    def listar(self, tipo_id: Optional[int] = None) -> List[RegistroUid]:
+    def listar(self, tipo_id: int | None = None) -> list[RegistroUid]:
         """Retorna lista de todos os registros indexados, opcionalmente filtrados por tipo_id."""
         if tipo_id is not None:
             return [r for r in self._registros.values() if r.tipo_id == tipo_id]
@@ -192,10 +205,14 @@ class IndiceUidsModel(QObject):
         if hasattr(grupo, "setores"):
             for s_item in grupo.setores:
                 s_item = _desembrulhar(s_item)
-                setor = s_item.conteudo if hasattr(s_item, "conteudo") and s_item.HasField("conteudo") else s_item
+                setor = (
+                    s_item.conteudo
+                    if hasattr(s_item, "conteudo") and s_item.HasField("conteudo")
+                    else s_item
+                )
                 self._indexar_setor(setor, grupo_uid=uid_g, nome_grupo=nome_g)
 
-    def _indexar_setor(self, setor: Any, grupo_uid: Optional[str], nome_grupo: Optional[str]) -> None:
+    def _indexar_setor(self, setor: Any, grupo_uid: str | None, nome_grupo: str | None) -> None:
         setor = _desembrulhar(setor)
         uid_s = getattr(setor, "uid", "")
         nome_s = str(getattr(setor, "nome", ""))
@@ -212,15 +229,21 @@ class IndiceUidsModel(QObject):
 
         if hasattr(setor, "escaladas"):
             for esc in setor.escaladas:
-                self._indexar_escalada(esc, setor_uid=uid_s, nome_setor=nome_s, grupo_uid=grupo_uid, nome_grupo=nome_grupo)
+                self._indexar_escalada(
+                    esc,
+                    setor_uid=uid_s,
+                    nome_setor=nome_s,
+                    grupo_uid=grupo_uid,
+                    nome_grupo=nome_grupo,
+                )
 
     def _indexar_escalada(
         self,
         esc: Any,
-        setor_uid: Optional[str],
-        nome_setor: Optional[str],
-        grupo_uid: Optional[str],
-        nome_grupo: Optional[str],
+        setor_uid: str | None,
+        nome_setor: str | None,
+        grupo_uid: str | None,
+        nome_grupo: str | None,
     ) -> None:
         esc = _desembrulhar(esc)
         uid_e = getattr(esc, "uid", "")
@@ -321,8 +344,8 @@ class IndiceUidsModel(QObject):
     def mover_setor(
         self,
         setor_uid: str,
-        novo_grupo_uid: Optional[str],
-        novo_nome_grupo: Optional[str],
+        novo_grupo_uid: str | None,
+        novo_nome_grupo: str | None,
     ) -> None:
         """Atualiza a associação de grupo de um setor e de todas as suas escaladas."""
         reg = self.obter(setor_uid)
@@ -342,8 +365,8 @@ class IndiceUidsModel(QObject):
         escalada_uid: str,
         novo_setor_uid: str,
         novo_nome_setor: str,
-        novo_grupo_uid: Optional[str] = None,
-        novo_nome_grupo: Optional[str] = None,
+        novo_grupo_uid: str | None = None,
+        novo_nome_grupo: str | None = None,
     ) -> None:
         """Atualiza a associação de setor e grupo de uma escalada e suas enfiadas."""
         reg = self.obter(escalada_uid)
@@ -373,24 +396,21 @@ class IndiceUidsModel(QObject):
         if reg.tipo_id == TipoEntidadeUid.GRUPO:
             # Remove o grupo e tudo que estiver vinculado a ele
             uids_remover = [
-                r.uid for r in self._registros.values()
-                if r.grupo_uid == uid or r.uid == uid
+                r.uid for r in self._registros.values() if r.grupo_uid == uid or r.uid == uid
             ]
             for u in uids_remover:
                 self._registros.pop(u, None)
         elif reg.tipo_id == TipoEntidadeUid.SETOR:
             # Remove o setor e todas as escaladas filhas
             uids_remover = [
-                r.uid for r in self._registros.values()
-                if r.setor_uid == uid or r.uid == uid
+                r.uid for r in self._registros.values() if r.setor_uid == uid or r.uid == uid
             ]
             for u in uids_remover:
                 self._registros.pop(u, None)
         elif reg.tipo_id == TipoEntidadeUid.ESCALADA:
             # Remove a via e suas enfiadas
             uids_remover = [
-                r.uid for r in self._registros.values()
-                if r.uid == uid or r.escalada_pai_uid == uid
+                r.uid for r in self._registros.values() if r.uid == uid or r.escalada_pai_uid == uid
             ]
             for u in uids_remover:
                 self._registros.pop(u, None)

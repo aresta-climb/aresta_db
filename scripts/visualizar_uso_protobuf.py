@@ -2,29 +2,32 @@
 # Copyright (C) 2026 Aresta Climb Contributors
 
 #!/usr/bin/env python3
-import sys
 import argparse
+import sys
 from pathlib import Path
+
 import graphviz
 
 # Adiciona a raiz ao sys.path para importar módulos do projeto
 sys.path.append(str(Path(__file__).resolve().parent.parent))
 
-from aresta_api.proto.generated import croqui_pb2, indice_pb2
-from scripts.visualizar_uso_protobuf_lib import DescriptorParser, BinaryPbCounter, GraphvizRenderer
-from editor.core.proto_comments import get_proto_comments
 
-from typing import Dict, Any
+from aresta_api.proto.generated import croqui_pb2, indice_pb2
+from editor.core.proto_comments import get_proto_comments
+from scripts.visualizar_uso_protobuf_lib import BinaryPbCounter, DescriptorParser, GraphvizRenderer
+
+
 def inject_instant_tooltips(svg_path: Path) -> None:
-    content = svg_path.read_text(encoding='utf-8')
-    
+    content = svg_path.read_text(encoding="utf-8")
+
     # Remove as tags de tooltip do SO já no arquivo estático para evitar "piscada" do tooltip nativo
-    content = content.replace('xlink:title=', 'data-tooltip=')
-    
+    content = content.replace("xlink:title=", "data-tooltip=")
+
     # Remove todas as tags <title> nativas do Graphviz para eliminar tooltips residuais do SO (como o nome da mensagem)
     import re
-    content = re.sub(r'<title>.*?</title>', '', content, flags=re.DOTALL)
-    
+
+    content = re.sub(r"<title>.*?</title>", "", content, flags=re.DOTALL)
+
     script = """
 <script type="text/javascript"><![CDATA[
 window.addEventListener('load', function() {
@@ -101,52 +104,58 @@ window.addEventListener('load', function() {
 ]]></script>
 </svg>
 """
-    if '</svg>' in content and 'foreignObject' not in content:
-        content = content.replace('</svg>', script)
-        svg_path.write_text(content, encoding='utf-8')
+    if "</svg>" in content and "foreignObject" not in content:
+        content = content.replace("</svg>", script)
+        svg_path.write_text(content, encoding="utf-8")
+
 
 def render_graphviz(dot_content: str, name: str, reports_dir: Path) -> None:
     dot_path = reports_dir / f"{name}.dot"
     with open(dot_path, "w", encoding="utf-8") as f:
         f.write(dot_content)
-        
+
     try:
         src = graphviz.Source(dot_content)
         # O render salva como {directory}/{filename}.svg e exclui os arquivos temporários criados pela lib (cleanup=True)
         svg_path = src.render(filename=name, directory=str(reports_dir), format="svg", cleanup=True)
-        
+
         # Injeta tooltips interativos instantâneos pós-renderização
         inject_instant_tooltips(Path(svg_path))
-        
+
         print(f"Sucesso: {svg_path} e {dot_path} criados.")
     except graphviz.ExecutableNotFound:
-        print(f"[AVISO] O binário 'dot' do Graphviz não foi encontrado no PATH.")
+        print("[AVISO] O binário 'dot' do Graphviz não foi encontrado no PATH.")
         print(f"O arquivo {dot_path} foi salvo na pasta, mas o SVG não pôde ser gerado.")
-        print(f"Instale o Graphviz no seu sistema (ex: https://graphviz.org/download/) para ver as imagens.")
+        print(
+            "Instale o Graphviz no seu sistema (ex: https://graphviz.org/download/) para ver as imagens."
+        )
+
 
 def main() -> None:
 
-    parser = argparse.ArgumentParser(description="Gera visualização em grafo do uso dos campos do Protobuf no banco atual.")
-    args = parser.parse_args()
-    
+    parser = argparse.ArgumentParser(
+        description="Gera visualização em grafo do uso dos campos do Protobuf no banco atual."
+    )
+    parser.parse_args()
+
     root_dir = Path(__file__).resolve().parent.parent
     generated_dir = root_dir / "generated"
     reports_dir = root_dir / "reports"
     reports_dir.mkdir(exist_ok=True)
-    
+
     print("Iniciando varredura das mensagens Protobuf...")
-    
+
     # Instanciando os Parsers
     desc_parser_croqui = DescriptorParser()
     croqui_messages = desc_parser_croqui.parse(croqui_pb2.Croqui.DESCRIPTOR)
-    
+
     desc_parser_indice = DescriptorParser()
     indice_messages = desc_parser_indice.parse(indice_pb2.Indice.DESCRIPTOR)
-    
+
     # Instanciando os Contadores
     croqui_counter = BinaryPbCounter()
     indice_counter = BinaryPbCounter()
-    
+
     # Processa Croquis
     print("Analisando croquis em generated/ ...")
     for croqui_folder in generated_dir.iterdir():
@@ -157,10 +166,10 @@ def main() -> None:
             with open(compilado_path, "rb") as f:
                 croqui = croqui_pb2.Croqui()
                 croqui.ParseFromString(f.read())
-                
+
                 is_pub = croqui.publicar_croqui
                 croqui_counter.process_file_message(croqui, is_pub)
-                
+
     # Processa Índice
     print("Analisando o índice global...")
     indice_path = generated_dir / "indice.binarypb"
@@ -169,28 +178,28 @@ def main() -> None:
         with open(indice_path, "rb") as f:
             indice = indice_pb2.Indice()
             indice.ParseFromString(f.read())
-            
+
             # Conta a raiz (vai descer nas filhas, mas sobrescreveremos)
             indice_counter.process_file_message(indice, is_published=True)
-            
+
             resumo_counter = BinaryPbCounter()
             for resumo in indice.croquis:
                 resumo_counter.process_file_message(resumo, is_published=True)
-                
+
             # Mescla as contagens na raiz
             for full_name, fields in resumo_counter.counts.items():
                 indice_counter.counts[full_name] = fields
             for full_name, msg_tots in resumo_counter.message_totals.items():
                 indice_counter.message_totals[full_name] = msg_tots
-                
+
             # Garante que todas as mensagens aninhadas usem o total de croquis (mesmo se contagem for 0)
             for full_name in indice_messages.keys():
                 if full_name != "aresta.Indice":
                     custom_totals_indice[full_name] = resumo_counter.total_all
-            
+
     # Geração dos Graphviz DOTs
     print("Gerando arquivos do Graphviz...")
-    
+
     # Extract comments for tooltips
     comments = get_proto_comments()
 
@@ -198,23 +207,39 @@ def main() -> None:
     croqui_renderer = GraphvizRenderer(croqui_messages, croqui_counter, comments=comments)
     croqui_dot = croqui_renderer.render()
     render_graphviz(croqui_dot, "croqui_completo", reports_dir)
-    
+
     # Render Croqui Usado
-    croqui_renderer_usado = GraphvizRenderer(croqui_messages, croqui_counter, filter_unused=True, comments=comments)
+    croqui_renderer_usado = GraphvizRenderer(
+        croqui_messages, croqui_counter, filter_unused=True, comments=comments
+    )
     croqui_dot_usado = croqui_renderer_usado.render()
     render_graphviz(croqui_dot_usado, "croqui_usado", reports_dir)
-    
+
     # Render Índice Completo
-    indice_renderer = GraphvizRenderer(indice_messages, indice_counter, single_column=True, custom_totals=custom_totals_indice, comments=comments)
+    indice_renderer = GraphvizRenderer(
+        indice_messages,
+        indice_counter,
+        single_column=True,
+        custom_totals=custom_totals_indice,
+        comments=comments,
+    )
     indice_dot = indice_renderer.render()
     render_graphviz(indice_dot, "indice_completo", reports_dir)
-    
+
     # Render Índice Usado
-    indice_renderer_usado = GraphvizRenderer(indice_messages, indice_counter, single_column=True, custom_totals=custom_totals_indice, filter_unused=True, comments=comments)
+    indice_renderer_usado = GraphvizRenderer(
+        indice_messages,
+        indice_counter,
+        single_column=True,
+        custom_totals=custom_totals_indice,
+        filter_unused=True,
+        comments=comments,
+    )
     indice_dot_usado = indice_renderer_usado.render()
     render_graphviz(indice_dot_usado, "indice_usado", reports_dir)
-    
+
     print("Concluído!")
+
 
 if __name__ == "__main__":
     main()

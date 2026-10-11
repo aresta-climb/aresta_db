@@ -1,16 +1,18 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
-import pytest
 from unittest.mock import MagicMock
+
+import pytest
+
 from aresta_api.proto.generated import croqui_pb2
 from editor.models.readonly_proxy import ReadOnlyProxy
 from editor.models.referencias_util import (
-    referencia_aponta_para_escalada,
-    obter_contexto_escalada,
     buscar_referencias_para_escalada,
     extrair_nome_escalada,
+    obter_contexto_escalada,
     obter_contexto_por_uid,
+    referencia_aponta_para_escalada,
     resolver_caminho_referencia,
 )
 
@@ -83,7 +85,9 @@ def _criar_croqui_com_arvore_completa():
     setor_norte.uid = "uid_setor_norte"
     mapa_norte = setor_norte.mapas.add(caminho_imagem_mapa="mapa_norte.webp")
     ref_cross = mapa_norte.referencias.add(alvo_uid="uid_esc1", pontos_uids=["poi_cross"])
-    ref_norte_propria = mapa_norte.referencias.add(alvo_uid="uid_boulder_norte", pontos_uids=["poi_norte"])
+    ref_norte_propria = mapa_norte.referencias.add(
+        alvo_uid="uid_boulder_norte", pontos_uids=["poi_norte"]
+    )
 
     esc_norte = setor_norte.escaladas.add()
     esc_norte.uid = "uid_boulder_norte"
@@ -306,8 +310,14 @@ def test_obter_contexto_por_uid_e_resolver_caminho_referencia():
     assert obter_contexto_por_uid(None, "uid_esc1") is None
 
     # resolver_caminho_referencia
-    assert resolver_caminho_referencia(croqui, dados["ref_pico"]) == "Grupo Alfa > Setor Sul > Fenda Infinita"
-    assert resolver_caminho_referencia(croqui, dados["ref_norte_propria"]) == "Setor Norte > Via do Norte"
+    assert (
+        resolver_caminho_referencia(croqui, dados["ref_pico"])
+        == "Grupo Alfa > Setor Sul > Fenda Infinita"
+    )
+    assert (
+        resolver_caminho_referencia(croqui, dados["ref_norte_propria"])
+        == "Setor Norte > Via do Norte"
+    )
 
     ref_invalida = croqui_pb2.Mapa.Referencia(alvo_uid="inexistente")
     assert resolver_caminho_referencia(croqui, ref_invalida) == "Referência Inválida"

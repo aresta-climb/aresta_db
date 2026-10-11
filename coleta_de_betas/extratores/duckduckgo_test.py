@@ -1,10 +1,13 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
+from unittest.mock import MagicMock, patch
+
 import pytest
-from unittest.mock import patch, MagicMock
+
 from aresta_api.proto.generated import beta_pb2
 from coleta_de_betas.extratores.duckduckgo import ExtratorDuckDuckGo
+
 
 def test_extrator_duckduckgo_monta_query():
     extrator = ExtratorDuckDuckGo()
@@ -24,20 +27,20 @@ def test_extrator_duckduckgo_busca_com_sucesso(mock_ddgs_cls):
         {
             "href": "https://www.instagram.com/p/Cxyz123/",
             "title": "Post do Instagram: Fusca Azul",
-            "body": "Mandando a via Fusca Azul no setor Geriatria em Ouro Preto."
+            "body": "Mandando a via Fusca Azul no setor Geriatria em Ouro Preto.",
         },
         {
             "href": "https://www.instagram.com/p/Cxyz789/",
             "title": "Dia de escalada",
-            "body": "Belas fotos da rocha e da paisagem."
-        }
+            "body": "Belas fotos da rocha e da paisagem.",
+        },
     ]
 
     extrator = ExtratorDuckDuckGo()
     resultados = extrator.buscar("Fusca Azul", "Geriatria", "Ouro Preto")
 
     assert len(resultados) == 2
-    
+
     item1 = resultados[0]
     assert isinstance(item1, beta_pb2.MidiaBeta)
     assert item1.url == "https://www.instagram.com/p/Cxyz123/"

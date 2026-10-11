@@ -1,13 +1,15 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
-from typing import Optional, List, Tuple, Any
+from typing import Any
+
 from aresta_api.proto.generated import croqui_pb2
 
 
 def _desembrulhar_proxy(obj: Any) -> Any:
     """Desembrulha ReadOnlyProxy se o objeto estiver envolvido."""
     from editor.models.readonly_proxy import ReadOnlyProxy
+
     if isinstance(obj, ReadOnlyProxy):
         return object.__getattribute__(obj, "_obj")
     return obj
@@ -40,7 +42,7 @@ def referencia_aponta_para_escalada(
     return bool(getattr(ref, "alvo_uid", "") == alvo_uid)
 
 
-def obter_contexto_por_uid(root_croqui: Any, uid: str) -> Optional[Tuple[str, str]]:
+def obter_contexto_por_uid(root_croqui: Any, uid: str) -> tuple[str, str] | None:
     """
     Localiza uma entidade (Grupo, Setor ou Escalada) na árvore do croqui pelo seu UID
     e retorna uma tupla (tipo_entidade, caminho_completo_formatado).
@@ -74,7 +76,10 @@ def obter_contexto_por_uid(root_croqui: Any, uid: str) -> Optional[Tuple[str, st
                             for idx_enf, enf in enumerate(sub.enfiadas, 1):
                                 if getattr(enf, "uid", "") == uid:
                                     nome_via = extrair_nome_escalada(esc)
-                                    return ("Escalada", f"{grupo.nome} > {setor.nome} > {nome_via} ({idx_enf}ª Enfiada)")
+                                    return (
+                                        "Escalada",
+                                        f"{grupo.nome} > {setor.nome} > {nome_via} ({idx_enf}ª Enfiada)",
+                                    )
 
             elif sg.HasField("setor"):
                 setor = sg.setor.conteudo if sg.setor.HasField("conteudo") else sg.setor
@@ -90,7 +95,10 @@ def obter_contexto_por_uid(root_croqui: Any, uid: str) -> Optional[Tuple[str, st
                         for idx_enf, enf in enumerate(sub.enfiadas, 1):
                             if getattr(enf, "uid", "") == uid:
                                 nome_via = extrair_nome_escalada(esc)
-                                return ("Escalada", f"{setor.nome} > {nome_via} ({idx_enf}ª Enfiada)")
+                                return (
+                                    "Escalada",
+                                    f"{setor.nome} > {nome_via} ({idx_enf}ª Enfiada)",
+                                )
 
     return None
 
@@ -127,7 +135,7 @@ def resolver_caminho_referencia(root_croqui: Any, ref: Any) -> str:
 def obter_contexto_escalada(
     root_croqui: Any,
     msg_escalada: Any,
-) -> Tuple[Optional[Any], Optional[Any], Optional[Any], str]:
+) -> tuple[Any | None, Any | None, Any | None, str]:
     """
     Localiza a escalada na árvore do croqui e retorna:
     (pico, grupo, setor, nome_escalada).
@@ -188,7 +196,7 @@ def extrair_uid_escalada(root_croqui: Any, msg_escalada: Any) -> str:
         return ""
     for pico in root.picos:
         for sg in pico.setores_ou_grupos:
-            setores: List[Any] = []
+            setores: list[Any] = []
             if sg.HasField("grupo"):
                 g = sg.grupo.conteudo if sg.grupo.HasField("conteudo") else sg.grupo
                 setores.extend(s.conteudo if s.HasField("conteudo") else s for s in g.setores)
@@ -202,7 +210,9 @@ def extrair_uid_escalada(root_croqui: Any, msg_escalada: Any) -> str:
                         return str(getattr(esc, "uid", ""))
                     if tipo == "via_multiplas_enfiadas" and sub is not None:
                         for enf in getattr(sub, "enfiadas", []):
-                            tipo_enf = enf.WhichOneof("tipo") if hasattr(enf, "WhichOneof") else None
+                            tipo_enf = (
+                                enf.WhichOneof("tipo") if hasattr(enf, "WhichOneof") else None
+                            )
                             sub_enf = getattr(enf, tipo_enf) if tipo_enf else None
                             if sub_enf is msg or enf is msg:
                                 return str(getattr(enf, "uid", ""))
@@ -212,8 +222,8 @@ def extrair_uid_escalada(root_croqui: Any, msg_escalada: Any) -> str:
 def buscar_referencias_para_escalada(
     root_croqui: Any,
     msg_escalada: Any,
-    contexto: Optional[Tuple[Any, Any, Any, str]] = None,
-) -> List[Any]:
+    contexto: tuple[Any, Any, Any, str] | None = None,
+) -> list[Any]:
     """
     Varre todos os mapas do Pico onde a escalada reside e retorna uma lista
     com todas as referências que apontam para o seu UID.
@@ -232,7 +242,7 @@ def buscar_referencias_para_escalada(
     if pico is None:
         return []
 
-    referencias_encontradas: List[Any] = []
+    referencias_encontradas: list[Any] = []
 
     def _verificar_mapa(mapa: Any) -> None:
         for ref in mapa.referencias:

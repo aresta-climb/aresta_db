@@ -5,20 +5,20 @@
 Testes unitários para a fachada pública da biblioteca editor.plataforma.
 """
 
-from unittest.mock import patch, MagicMock
 from pathlib import Path
-import pytest
+from unittest.mock import MagicMock, patch
+
 from editor.plataforma import (
-    obter_adaptador_plataforma,
-    configurar_ambiente_plataforma,
-    configurar_presenca_barra_de_tarefas,
-    configurar_identidade_processo,
-    trazer_janela_para_frente,
-    obter_diretorio_dados_usuario,
-    verificar_atualizacoes_disponiveis,
-    solicitar_instalacao_atualizacao,
-    StatusAtualizacao,
     ResultadoAtualizacao,
+    StatusAtualizacao,
+    configurar_ambiente_plataforma,
+    configurar_identidade_processo,
+    configurar_presenca_barra_de_tarefas,
+    obter_adaptador_plataforma,
+    obter_diretorio_dados_usuario,
+    solicitar_instalacao_atualizacao,
+    trazer_janela_para_frente,
+    verificar_atualizacoes_disponiveis,
 )
 
 
@@ -73,7 +73,8 @@ def test_funcoes_conveniencia_fachada() -> None:
         mock_adaptador.solicitar_instalacao_atualizacao.assert_called_once_with(res)
 
         mock_adaptador.obter_nome_icone_preferencial.return_value = "logo.png"
-        from editor.plataforma import obter_nome_icone_preferencial, configurar_cofre_credenciais
+        from editor.plataforma import configurar_cofre_credenciais, obter_nome_icone_preferencial
+
         assert obter_nome_icone_preferencial() == "logo.png"
         mock_adaptador.obter_nome_icone_preferencial.assert_called_once()
 
@@ -83,6 +84,7 @@ def test_funcoes_conveniencia_fachada() -> None:
 
         mock_adaptador.normalizar_caminho_estendido.return_value = "\\\\?\\C:\\teste"
         from editor.plataforma import normalizar_caminho_estendido
+
         assert normalizar_caminho_estendido("C:\\teste") == "\\\\?\\C:\\teste"
         mock_adaptador.normalizar_caminho_estendido.assert_called_once_with("C:\\teste")
 
@@ -90,6 +92,7 @@ def test_funcoes_conveniencia_fachada() -> None:
 def test_adaptador_padrao_fallback_completo() -> None:
     """Garante que a implementação neutra de fallback atende a todos os métodos do protocolo."""
     from editor.plataforma import _AdaptadorPadraoFallback
+
     adaptador = _AdaptadorPadraoFallback()
 
     adaptador.configurar_ambiente_plataforma()

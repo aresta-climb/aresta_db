@@ -2,8 +2,9 @@
 # Copyright (C) 2026 Aresta Climb Contributors
 
 import os
+
 import requests
-from typing import List, Optional, Union, Dict
+
 from aresta_api.proto.generated import beta_pb2
 
 
@@ -12,7 +13,7 @@ class ExtratorYouTube:
     Extrator de mídias e vídeos de betas de escalada via YouTube Data API v3.
     """
 
-    def __init__(self, chave_api: Optional[str] = None) -> None:
+    def __init__(self, chave_api: str | None = None) -> None:
         self.chave_api = chave_api or os.environ.get("YOUTUBE_API_KEY", "")
 
     def montar_query(self, nome_escalada: str, nome_setor: str = "", nome_pico: str = "") -> str:
@@ -32,21 +33,20 @@ class ExtratorYouTube:
         nome_escalada: str,
         nome_setor: str = "",
         nome_pico: str = "",
-        max_resultados: int = 10
-    ) -> List[beta_pb2.MidiaBeta]:
+        max_resultados: int = 10,
+    ) -> list[beta_pb2.MidiaBeta]:
         """
         Executa a pesquisa na API do YouTube e retorna uma lista de objetos MidiaBeta.
         """
         query = self.montar_query(nome_escalada, nome_setor, nome_pico)
         url_api = "https://www.googleapis.com/youtube/v3/search"
-        parametros: Dict[str, Union[str, int]] = {
+        parametros: dict[str, str | int] = {
             "part": "snippet",
             "type": "video",
             "q": query,
             "maxResults": max_resultados,
-            "key": self.chave_api
+            "key": self.chave_api,
         }
-
 
         try:
             resposta = requests.get(url_api, params=parametros, timeout=10)
@@ -58,7 +58,7 @@ class ExtratorYouTube:
 
         dados = resposta.json()
         itens = dados.get("items", [])
-        resultados: List[beta_pb2.MidiaBeta] = []
+        resultados: list[beta_pb2.MidiaBeta] = []
 
         termo_lower = nome_escalada.lower().strip()
 
@@ -71,7 +71,7 @@ class ExtratorYouTube:
             titulo = snippet.get("title", "")
             descricao = snippet.get("description", "")
             thumbnails = snippet.get("thumbnails", {})
-            
+
             # Prioriza resolução maior
             thumb_url = ""
             for qualidade in ["high", "medium", "default"]:

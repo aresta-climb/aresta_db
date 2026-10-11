@@ -2,14 +2,14 @@
 # Copyright (C) 2026 Aresta Climb Contributors
 
 import pytest
-from PySide6.QtCore import Qt, QPoint, QPointF
+from PySide6.QtCore import QPoint, QPointF, Qt
 from PySide6.QtGui import QWheelEvent
-from PySide6.QtWidgets import QApplication, QLineEdit, QDoubleSpinBox, QDialog
+from PySide6.QtWidgets import QApplication, QDialog, QDoubleSpinBox, QLineEdit
 
 from editor.views.widget_campo_coordenada_e7 import (
-    WidgetCampoCoordenadaE7,
-    TipoCoordenada,
     DialogoConfirmarCoordenadas,
+    TipoCoordenada,
+    WidgetCampoCoordenadaE7,
 )
 
 
@@ -178,10 +178,14 @@ class TestWidgetCampoCoordenadaE7:
             dialogo_aberto.append(dialogo)
             return QDialog.DialogCode.Accepted
 
-        monkeypatch.setattr(DialogoConfirmarCoordenadas, "exec", lambda self: mock_executar_dialogo(self))
+        monkeypatch.setattr(
+            DialogoConfirmarCoordenadas, "exec", lambda self: mock_executar_dialogo(self)
+        )
 
         callback_par_chamado = []
-        widget.ao_receber_par_coordenadas = lambda lat_e7, lon_e7: callback_par_chamado.append((lat_e7, lon_e7))
+        widget.ao_receber_par_coordenadas = lambda lat_e7, lon_e7: callback_par_chamado.append(
+            (lat_e7, lon_e7)
+        )
 
         sucesso = widget.processar_texto_colado("-19.898028, -43.521234")
         assert sucesso is True
@@ -193,10 +197,14 @@ class TestWidgetCampoCoordenadaE7:
         widget = WidgetCampoCoordenadaE7(tipo=TipoCoordenada.LONGITUDE, valor_e7=None)
         qtbot.addWidget(widget)
 
-        monkeypatch.setattr(DialogoConfirmarCoordenadas, "exec", lambda self: QDialog.DialogCode.Accepted)
+        monkeypatch.setattr(
+            DialogoConfirmarCoordenadas, "exec", lambda self: QDialog.DialogCode.Accepted
+        )
 
         callback_par_chamado = []
-        widget.ao_receber_par_coordenadas = lambda lat_e7, lon_e7: callback_par_chamado.append((lat_e7, lon_e7))
+        widget.ao_receber_par_coordenadas = lambda lat_e7, lon_e7: callback_par_chamado.append(
+            (lat_e7, lon_e7)
+        )
 
         sucesso = widget.processar_texto_colado("-19.898028, -43.521234")
         assert sucesso is True
@@ -227,7 +235,10 @@ class TestWidgetCampoCoordenadaE7:
 
         urls_abertas = []
         from PySide6.QtGui import QDesktopServices
-        monkeypatch.setattr(QDesktopServices, "openUrl", lambda url: urls_abertas.append(url.toString()))
+
+        monkeypatch.setattr(
+            QDesktopServices, "openUrl", lambda url: urls_abertas.append(url.toString())
+        )
 
         widget.abrir_no_google_maps()
         assert len(urls_abertas) == 1
@@ -240,7 +251,10 @@ class TestWidgetCampoCoordenadaE7:
 
         urls_abertas = []
         from PySide6.QtGui import QDesktopServices
-        monkeypatch.setattr(QDesktopServices, "openUrl", lambda url: urls_abertas.append(url.toString()))
+
+        monkeypatch.setattr(
+            QDesktopServices, "openUrl", lambda url: urls_abertas.append(url.toString())
+        )
 
         widget.abrir_no_google_maps()
         assert len(urls_abertas) == 1
@@ -252,7 +266,10 @@ class TestWidgetCampoCoordenadaE7:
 
         urls_abertas = []
         from PySide6.QtGui import QDesktopServices
-        monkeypatch.setattr(QDesktopServices, "openUrl", lambda url: urls_abertas.append(url.toString()))
+
+        monkeypatch.setattr(
+            QDesktopServices, "openUrl", lambda url: urls_abertas.append(url.toString())
+        )
 
         widget.abrir_no_google_maps()
         assert len(urls_abertas) == 0
@@ -261,6 +278,8 @@ class TestWidgetCampoCoordenadaE7:
         widget = WidgetCampoCoordenadaE7(tipo=TipoCoordenada.LATITUDE, valor_e7=None)
         qtbot.addWidget(widget)
 
-        monkeypatch.setattr(DialogoConfirmarCoordenadas, "exec", lambda self: QDialog.DialogCode.Rejected)
+        monkeypatch.setattr(
+            DialogoConfirmarCoordenadas, "exec", lambda self: QDialog.DialogCode.Rejected
+        )
         assert widget.processar_texto_colado("-19.898028, -43.521234") is False
         assert widget.processar_texto_colado("texto_totalmente_invalido") is False

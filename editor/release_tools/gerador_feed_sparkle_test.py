@@ -6,8 +6,9 @@ Testes unitários para o gerador de feed Sparkle (appcast.xml) e assinatura Ed25
 """
 
 import base64
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
+
 import pytest
 from cryptography.hazmat.primitives.asymmetric import ed25519
 
@@ -56,7 +57,7 @@ def test_assinar_arquivo_ed25519_chave_invalida(tmp_path: Path) -> None:
 
 def test_gerar_feed_sparkle_conteudo_valido() -> None:
     """Valida se o XML do feed contém todos os nós exigidos pelo Sparkle RSS 2.0."""
-    data_ref = datetime(2026, 10, 4, 12, 0, 0, tzinfo=timezone.utc)
+    data_ref = datetime(2026, 10, 4, 12, 0, 0, tzinfo=UTC)
     xml = gerar_feed_sparkle(
         versao="0.4.0",
         url_download="https://serving.arestaclimb.com/editor-macos/EditorAresta-0.4.0.dmg",
@@ -75,7 +76,11 @@ def test_gerar_feed_sparkle_conteudo_valido() -> None:
     assert 'sparkle:edSignature="MOCK_ED25519_SIG_BASE64"' in xml
     assert 'length="45000000"' in xml
     assert 'url="https://serving.arestaclimb.com/editor-macos/EditorAresta-0.4.0.dmg"' in xml
-    assert "Sun, 04 Oct 2026 12:00:00 +0000" in xml or "Sun, 04 Oct 2026 12:00:00 GMT" in xml or "04 Oct 2026" in xml
+    assert (
+        "Sun, 04 Oct 2026 12:00:00 +0000" in xml
+        or "Sun, 04 Oct 2026 12:00:00 GMT" in xml
+        or "04 Oct 2026" in xml
+    )
 
 
 def test_gerar_feed_sparkle_versao_invalida() -> None:
@@ -122,4 +127,3 @@ def test_gerar_feed_sparkle_sem_forcar_atualizacao() -> None:
         forcar_atualizacao=False,
     )
     assert "<sparkle:criticalUpdate />" not in xml
-

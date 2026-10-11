@@ -1,12 +1,12 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
-import unittest
-from unittest.mock import MagicMock, patch
+import ctypes
 import os
 import sys
-import ctypes
-from typing import Any
+import unittest
+from unittest.mock import MagicMock, patch
+
 import conftest
 
 if not hasattr(ctypes, "windll"):
@@ -19,18 +19,21 @@ class TestConftestTeardown(unittest.TestCase):
         Valida que o teardown do pytest encerra janelas ativas e processa eventos pendentes
         da QApplication antes da finalização do CPython, prevenindo falhas de Access Violation no Windows.
         """
-        from PySide6.QtWidgets import QApplication
         from PySide6.QtCore import QThreadPool
+        from PySide6.QtWidgets import QApplication
+
         mock_app = MagicMock(spec=QApplication)
         mock_pool = MagicMock(spec=QThreadPool)
         mock_session = MagicMock()
         mock_config = MagicMock()
         mock_session.config = mock_config
 
-        with patch.dict(os.environ, {"CI": "", "ARESTA_FAST_EXIT": ""}, clear=False), \
-             patch("PySide6.QtWidgets.QApplication.instance", return_value=mock_app), \
-             patch("PySide6.QtCore.QThreadPool.globalInstance", return_value=mock_pool), \
-             patch("shiboken6.delete") as mock_shiboken_delete:
+        with (
+            patch.dict(os.environ, {"CI": "", "ARESTA_FAST_EXIT": ""}, clear=False),
+            patch("PySide6.QtWidgets.QApplication.instance", return_value=mock_app),
+            patch("PySide6.QtCore.QThreadPool.globalInstance", return_value=mock_pool),
+            patch("shiboken6.delete") as mock_shiboken_delete,
+        ):
             conftest.pytest_sessionfinish(mock_session, 0)
             mock_app.closeAllWindows.assert_called_once()
             mock_app.processEvents.assert_called_once()
@@ -40,16 +43,19 @@ class TestConftestTeardown(unittest.TestCase):
 
     def test_pytest_sessionfinish_nao_deleta_qapplication_em_ambiente_ci(self) -> None:
         """Valida que no ambiente CI o shiboken6.delete não é chamado para evitar conflito com fast exit."""
-        from PySide6.QtWidgets import QApplication
         from PySide6.QtCore import QThreadPool
+        from PySide6.QtWidgets import QApplication
+
         mock_app = MagicMock(spec=QApplication)
         mock_pool = MagicMock(spec=QThreadPool)
         mock_session = MagicMock()
 
-        with patch.dict(os.environ, {"CI": "true", "ARESTA_FAST_EXIT": ""}, clear=False), \
-             patch("PySide6.QtWidgets.QApplication.instance", return_value=mock_app), \
-             patch("PySide6.QtCore.QThreadPool.globalInstance", return_value=mock_pool), \
-             patch("shiboken6.delete") as mock_shiboken_delete:
+        with (
+            patch.dict(os.environ, {"CI": "true", "ARESTA_FAST_EXIT": ""}, clear=False),
+            patch("PySide6.QtWidgets.QApplication.instance", return_value=mock_app),
+            patch("PySide6.QtCore.QThreadPool.globalInstance", return_value=mock_pool),
+            patch("shiboken6.delete") as mock_shiboken_delete,
+        ):
             conftest.pytest_sessionfinish(mock_session, 0)
             mock_app.closeAllWindows.assert_called_once()
             mock_app.processEvents.assert_called_once()
@@ -58,16 +64,19 @@ class TestConftestTeardown(unittest.TestCase):
 
     def test_pytest_sessionfinish_nao_deleta_qapplication_com_aresta_fast_exit(self) -> None:
         """Valida que sob a flag ARESTA_FAST_EXIT o shiboken6.delete não é chamado."""
-        from PySide6.QtWidgets import QApplication
         from PySide6.QtCore import QThreadPool
+        from PySide6.QtWidgets import QApplication
+
         mock_app = MagicMock(spec=QApplication)
         mock_pool = MagicMock(spec=QThreadPool)
         mock_session = MagicMock()
 
-        with patch.dict(os.environ, {"CI": "", "ARESTA_FAST_EXIT": "1"}, clear=False), \
-             patch("PySide6.QtWidgets.QApplication.instance", return_value=mock_app), \
-             patch("PySide6.QtCore.QThreadPool.globalInstance", return_value=mock_pool), \
-             patch("shiboken6.delete") as mock_shiboken_delete:
+        with (
+            patch.dict(os.environ, {"CI": "", "ARESTA_FAST_EXIT": "1"}, clear=False),
+            patch("PySide6.QtWidgets.QApplication.instance", return_value=mock_app),
+            patch("PySide6.QtCore.QThreadPool.globalInstance", return_value=mock_pool),
+            patch("shiboken6.delete") as mock_shiboken_delete,
+        ):
             conftest.pytest_sessionfinish(mock_session, 0)
             mock_app.closeAllWindows.assert_called_once()
             mock_app.processEvents.assert_called_once()
@@ -76,16 +85,19 @@ class TestConftestTeardown(unittest.TestCase):
 
     def test_pytest_sessionfinish_trata_excecao_no_shiboken_delete(self) -> None:
         """Valida que falha no shiboken6.delete é tratada graciosamente sem propagar exceção."""
-        from PySide6.QtWidgets import QApplication
         from PySide6.QtCore import QThreadPool
+        from PySide6.QtWidgets import QApplication
+
         mock_app = MagicMock(spec=QApplication)
         mock_pool = MagicMock(spec=QThreadPool)
         mock_session = MagicMock()
 
-        with patch.dict(os.environ, {"CI": "", "ARESTA_FAST_EXIT": ""}, clear=False), \
-             patch("PySide6.QtWidgets.QApplication.instance", return_value=mock_app), \
-             patch("PySide6.QtCore.QThreadPool.globalInstance", return_value=mock_pool), \
-             patch("shiboken6.delete", side_effect=RuntimeError("Erro no shiboken")):
+        with (
+            patch.dict(os.environ, {"CI": "", "ARESTA_FAST_EXIT": ""}, clear=False),
+            patch("PySide6.QtWidgets.QApplication.instance", return_value=mock_app),
+            patch("PySide6.QtCore.QThreadPool.globalInstance", return_value=mock_pool),
+            patch("shiboken6.delete", side_effect=RuntimeError("Erro no shiboken")),
+        ):
             conftest.pytest_sessionfinish(mock_session, 0)
             mock_app.closeAllWindows.assert_called_once()
             mock_app.processEvents.assert_called_once()
@@ -94,13 +106,17 @@ class TestConftestTeardown(unittest.TestCase):
     def test_pytest_sessionfinish_ignora_quando_sem_qapplication(self) -> None:
         """Valida que o teardown conclui sem erros quando nenhuma QApplication estiver instanciada."""
         mock_session = MagicMock()
-        with patch("PySide6.QtWidgets.QApplication.instance", return_value=None), \
-             patch("PySide6.QtCore.QThreadPool.globalInstance", return_value=None):
+        with (
+            patch("PySide6.QtWidgets.QApplication.instance", return_value=None),
+            patch("PySide6.QtCore.QThreadPool.globalInstance", return_value=None),
+        ):
             conftest.pytest_sessionfinish(mock_session, 0)
 
     def test_pytest_sessionfinish_trata_excecoes_graciosamente(self) -> None:
         """Valida que falhas inesperadas no teardown não quebram o encerramento do teste."""
-        with patch("PySide6.QtWidgets.QApplication.instance", side_effect=RuntimeError("Erro simulado")):
+        with patch(
+            "PySide6.QtWidgets.QApplication.instance", side_effect=RuntimeError("Erro simulado")
+        ):
             conftest.pytest_sessionfinish(None, 0)
 
     def test_pytest_unconfigure_executa_fast_exit_em_ambiente_ci(self) -> None:
@@ -108,12 +124,14 @@ class TestConftestTeardown(unittest.TestCase):
         mock_config = MagicMock()
         mock_config._aresta_exitstatus = 0
 
-        with patch.dict(os.environ, {"CI": "true"}), \
-             patch("faulthandler.disable") as mock_fh_disable, \
-             patch("sys.stdout.flush") as mock_stdout_flush, \
-             patch("sys.stderr.flush") as mock_stderr_flush, \
-             patch("ctypes.windll.kernel32.TerminateProcess", create=True) as mock_tp, \
-             patch("os._exit") as mock_exit:
+        with (
+            patch.dict(os.environ, {"CI": "true"}),
+            patch("faulthandler.disable") as mock_fh_disable,
+            patch("sys.stdout.flush") as mock_stdout_flush,
+            patch("sys.stderr.flush") as mock_stderr_flush,
+            patch("ctypes.windll.kernel32.TerminateProcess", create=True) as mock_tp,
+            patch("os._exit") as mock_exit,
+        ):
             conftest.pytest_unconfigure(mock_config)
             mock_fh_disable.assert_called_once()
             mock_stdout_flush.assert_called_once()
@@ -127,12 +145,14 @@ class TestConftestTeardown(unittest.TestCase):
         mock_config = MagicMock()
         mock_config._aresta_exitstatus = 1
 
-        with patch.dict(os.environ, {"ARESTA_FAST_EXIT": "1"}, clear=False), \
-             patch("faulthandler.disable"), \
-             patch("sys.stdout.flush"), \
-             patch("sys.stderr.flush"), \
-             patch("ctypes.windll.kernel32.TerminateProcess", create=True) as mock_tp, \
-             patch("os._exit") as mock_exit:
+        with (
+            patch.dict(os.environ, {"ARESTA_FAST_EXIT": "1"}, clear=False),
+            patch("faulthandler.disable"),
+            patch("sys.stdout.flush"),
+            patch("sys.stderr.flush"),
+            patch("ctypes.windll.kernel32.TerminateProcess", create=True) as mock_tp,
+            patch("os._exit") as mock_exit,
+        ):
             conftest.pytest_unconfigure(mock_config)
             if sys.platform == "win32":
                 mock_tp.assert_called_once()
@@ -141,9 +161,11 @@ class TestConftestTeardown(unittest.TestCase):
     def test_pytest_unconfigure_nao_executa_exit_fora_do_ci(self) -> None:
         """Valida que fora do CI/ARESTA_FAST_EXIT o fast-exit não é invocado."""
         mock_config = MagicMock()
-        with patch.dict(os.environ, {"CI": "", "ARESTA_FAST_EXIT": ""}, clear=False), \
-             patch("ctypes.windll.kernel32.TerminateProcess", create=True) as mock_tp, \
-             patch("os._exit") as mock_exit:
+        with (
+            patch.dict(os.environ, {"CI": "", "ARESTA_FAST_EXIT": ""}, clear=False),
+            patch("ctypes.windll.kernel32.TerminateProcess", create=True) as mock_tp,
+            patch("os._exit") as mock_exit,
+        ):
             conftest.pytest_unconfigure(mock_config)
             mock_tp.assert_not_called()
             mock_exit.assert_not_called()
@@ -156,14 +178,15 @@ class TestConftestTeardown(unittest.TestCase):
         """
         mock_config = MagicMock(spec=[])  # Não possui o atributo _aresta_exitstatus
 
-        with patch.dict(os.environ, {"CI": "true"}), \
-             patch("faulthandler.disable"), \
-             patch("sys.stdout.flush"), \
-             patch("sys.stderr.flush"), \
-             patch("ctypes.windll.kernel32.TerminateProcess", create=True) as mock_tp, \
-             patch("os._exit") as mock_exit:
+        with (
+            patch.dict(os.environ, {"CI": "true"}),
+            patch("faulthandler.disable"),
+            patch("sys.stdout.flush"),
+            patch("sys.stderr.flush"),
+            patch("ctypes.windll.kernel32.TerminateProcess", create=True) as mock_tp,
+            patch("os._exit") as mock_exit,
+        ):
             conftest.pytest_unconfigure(mock_config)
             if sys.platform == "win32":
                 mock_tp.assert_called_once()
             mock_exit.assert_called_once_with(3)
-

@@ -2,11 +2,12 @@
 # Copyright (C) 2026 Aresta Climb Contributors
 
 from pathlib import Path
+
 from scripts.validador_cabecalhos import (
-    verificar_spdx_e_copyright_py,
+    validar_todos_cabecalhos_e_licencas,
     verificar_gpl_residual_py,
     verificar_odbl_e_copyright_database,
-    validar_todos_cabecalhos_e_licencas,
+    verificar_spdx_e_copyright_py,
 )
 
 
@@ -88,7 +89,9 @@ def test_verificar_odbl_e_copyright_database_falhas(tmp_path: Path):
     db_dir.mkdir(parents=True)
 
     yaml_sem_odbl = db_dir / "croqui.yaml"
-    yaml_sem_odbl.write_text("# Copyright (C) 2026 Aresta Contributors\nchave: 1\n", encoding="utf-8")
+    yaml_sem_odbl.write_text(
+        "# Copyright (C) 2026 Aresta Contributors\nchave: 1\n", encoding="utf-8"
+    )
 
     erros = verificar_odbl_e_copyright_database(tmp_path)
     assert any("sem ODbL-1.0" in e for e in erros)

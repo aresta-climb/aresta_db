@@ -1,19 +1,18 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
-from typing import Optional
-from PySide6.QtWidgets import (
 
+from PySide6.QtCore import Qt
+from PySide6.QtWidgets import (
     QDialog,
-    QVBoxLayout,
+    QHBoxLayout,
     QLabel,
     QLineEdit,
-    QPushButton,
-    QHBoxLayout,
     QMessageBox,
+    QPushButton,
+    QVBoxLayout,
     QWidget,
 )
-from PySide6.QtCore import Qt
 
 
 class DialogoPerfilAutor(QDialog):
@@ -22,10 +21,11 @@ class DialogoPerfilAutor(QDialog):
     Permite pré-preenchimento inteligente a partir de dados do GitHub.
     """
 
-    def __init__(self, nome_sugerido: str = "", parent: Optional[QWidget] = None) -> None:
+    def __init__(self, nome_sugerido: str = "", parent: QWidget | None = None) -> None:
         super().__init__(parent)
-        from editor.core.configuracao_canal import obter_configuracao_canal
         from PySide6.QtGui import QIcon
+
+        from editor.core.configuracao_canal import obter_configuracao_canal
 
         config_canal = obter_configuracao_canal()
         caminho_logo_janela = config_canal.obter_caminho_icone_aplicacao()
@@ -36,8 +36,9 @@ class DialogoPerfilAutor(QDialog):
         self.init_ui(nome_sugerido)
 
     def init_ui(self, nome_sugerido: str) -> None:
-        from editor.core.configuracao_canal import obter_configuracao_canal
         from PySide6.QtGui import QPixmap
+
+        from editor.core.configuracao_canal import obter_configuracao_canal
 
         layout = QVBoxLayout(self)
         layout.setSpacing(12)
@@ -50,7 +51,10 @@ class DialogoPerfilAutor(QDialog):
             pixmap = QPixmap(str(caminho_logo))
             if not pixmap.isNull():
                 pixmap = pixmap.scaled(
-                    160, 60, Qt.AspectRatioMode.KeepAspectRatio, Qt.TransformationMode.SmoothTransformation
+                    160,
+                    60,
+                    Qt.AspectRatioMode.KeepAspectRatio,
+                    Qt.TransformationMode.SmoothTransformation,
                 )
                 label_logo = QLabel()
                 label_logo.setAlignment(Qt.AlignmentFlag.AlignCenter)
@@ -126,4 +130,3 @@ class DialogoPerfilAutor(QDialog):
 
     def obter_nome_completo(self) -> str:
         return self.edit_nome.text().strip()
-

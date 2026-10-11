@@ -2,11 +2,18 @@
 # Copyright (C) 2026 Aresta Climb Contributors
 
 import unittest
+
 from editor.core.geometrias_poi import GeometriaPOI
+
 
 class GeometriasPOITest(unittest.TestCase):
     def test_leitura_circulo(self):
-        dados = {"id": "01", "label": "L1", "cor": "#FF0000", "circulo": {"x": 10, "y": 20, "raio": 5}}
+        dados = {
+            "id": "01",
+            "label": "L1",
+            "cor": "#FF0000",
+            "circulo": {"x": 10, "y": 20, "raio": 5},
+        }
         geom = GeometriaPOI.from_dict(dados)
         self.assertEqual(geom.tipo, "circulo")
         self.assertEqual(geom.x, 10)
@@ -55,10 +62,10 @@ class GeometriasPOITest(unittest.TestCase):
                 "conteudo": {
                     "nos": [
                         {"x": 100, "y": 200, "tipo": "CIRCULO_IDENTIFICADOR", "rotulo": "01"},
-                        {"x": 120, "y": 100, "tipo": "TOP_PARADA"}
+                        {"x": 120, "y": 100, "tipo": "TOP_PARADA"},
                     ]
-                }
-            }
+                },
+            },
         }
         geom = GeometriaPOI.from_dict(dados)
         self.assertEqual(geom.tipo, "linha")
@@ -92,5 +99,6 @@ class GeometriasPOITest(unittest.TestCase):
         with self.assertRaises(ValueError):
             GeometriaPOI.from_dict(dados_invalidos)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     unittest.main()

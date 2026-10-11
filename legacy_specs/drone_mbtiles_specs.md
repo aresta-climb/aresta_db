@@ -47,44 +47,46 @@ import sqlite3
 import io
 from PIL import Image
 
+
 def optimize_mbtiles_to_webp(db_path, quality=80):
     print(f"Otimizando {db_path} para WebP...")
-    
+
     conn = sqlite3.connect(db_path)
     cursor = conn.cursor()
-    
+
     # Busca todos os tiles
     cursor.execute("SELECT zoom_level, tile_column, tile_row, tile_data FROM tiles")
     rows = cursor.fetchall()
-    
+
     total = len(rows)
     for i, (zoom, col, row, data) in enumerate(rows):
         # Abre o binário em memória
         img = Image.open(io.BytesIO(data))
         out_io = io.BytesIO()
-        
+
         # Salva o binário em formato WebP
-        img.save(out_io, format='WEBP', quality=quality)
+        img.save(out_io, format="WEBP", quality=quality)
         new_data = out_io.getvalue()
-        
+
         # Atualiza a linha no SQLite
         cursor.execute(
             "UPDATE tiles SET tile_data = ? WHERE zoom_level = ? AND tile_column = ? AND tile_row = ?",
-            (new_data, zoom, col, row)
+            (new_data, zoom, col, row),
         )
-        
+
         if i % 500 == 0:
             print(f"Processado {i}/{total} tiles...")
             conn.commit()
-            
+
     conn.commit()
-    
+
     # Executa o VACUUM para limpar espaços em branco deixados pelas imagens maiores e reduzir o tamanho físico do arquivo
     print("Executando VACUUM no banco de dados...")
     cursor.execute("VACUUM")
     conn.close()
-    
+
     print("Otimização concluída com sucesso!")
+
 
 # Exemplo de uso
 # optimize_mbtiles_to_webp("meu_mapa_legado.mbtiles", quality=80)

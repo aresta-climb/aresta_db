@@ -5,27 +5,26 @@ import os
 import sys
 from pathlib import Path
 from unittest.mock import MagicMock, patch
-import pytest
 
 from editor.core.telemetria import (
-    sanitizar_texto_caminhos,
-    sanitizar_evento_sentry,
-    inicializar_telemetria,
-    registrar_contexto_croqui,
     anexar_diario_escopo,
     configurar_tratamento_excecoes_globais,
+    inicializar_telemetria,
+    limpar_caminhos_extras_sanitizacao,
     registrar_caminho_repo_local,
-    limpar_caminhos_extras_sanitizacao
+    registrar_contexto_croqui,
+    sanitizar_evento_sentry,
+    sanitizar_texto_caminhos,
 )
 
 
 def test_sanitizar_texto_caminhos():
     user_dir = str(Path.home())
     appdata_dir = os.environ.get("APPDATA", user_dir)
-    
+
     texto_com_caminho = f"Erro no arquivo {appdata_dir}\\aresta\\croqui.yaml linha 42"
     sanitizado = sanitizar_texto_caminhos(texto_com_caminho)
-    
+
     assert appdata_dir not in sanitizado
     assert "%appdata%" in sanitizado or "%userprofile%" in sanitizado
 
@@ -73,26 +72,21 @@ def test_sanitizar_evento_sentry():
             "values": [
                 {
                     "value": f"Arquivo não encontrado: {user_dir}\\aresta\\arquivo.png",
-                    "stacktrace": {
-                        "frames": [
-                            {"filename": f"{user_dir}\\Devel\\aresta\\main.py"}
-                        ]
-                    }
+                    "stacktrace": {"frames": [{"filename": f"{user_dir}\\Devel\\aresta\\main.py"}]},
                 }
             ]
         },
-        "breadcrumbs": {
-            "values": [
-                {"message": f"Abrindo {user_dir}\\croqui"}
-            ]
-        }
+        "breadcrumbs": {"values": [{"message": f"Abrindo {user_dir}\\croqui"}]},
     }
-    
+
     evento_limpo = sanitizar_evento_sentry(evento, hint={})
-    
+
     assert user_dir not in evento_limpo["message"]
     assert user_dir not in evento_limpo["exception"]["values"][0]["value"]
-    assert user_dir not in evento_limpo["exception"]["values"][0]["stacktrace"]["frames"][0]["filename"]
+    assert (
+        user_dir
+        not in evento_limpo["exception"]["values"][0]["stacktrace"]["frames"][0]["filename"]
+    )
     assert user_dir not in evento_limpo["breadcrumbs"]["values"][0]["message"]
 
 
@@ -102,7 +96,7 @@ def test_inicializar_telemetria(mock_sentry):
     sucesso = inicializar_telemetria()
     assert sucesso is True
     mock_sentry.init.assert_called_once()
-    
+
     # Verifica que chamou com before_send=sanitizar_evento_sentry e auto_enabling_integrations=False
     kwargs = mock_sentry.init.call_args[1]
     assert kwargs["before_send"] == sanitizar_evento_sentry
@@ -123,6 +117,7 @@ def test_encerrar_telemetria(mock_sentry):
     mock_sentry.get_client.return_value = mock_cliente
 
     from editor.core.telemetria import encerrar_telemetria
+
     encerrar_telemetria(timeout=1.5)
 
     mock_sentry.get_client.assert_called_once()
@@ -142,9 +137,9 @@ def test_anexar_diario_escopo(mock_sentry, tmp_path):
     mock_diario.exportar_diario_anonimizado.return_value = [
         {"classe": "CmdAlterarPrimitivo", "campo": "nome"}
     ]
-    
+
     anexar_diario_escopo(mock_diario)
-    
+
     mock_sentry.set_context.assert_called_once()
     nome_contexto, dados = mock_sentry.set_context.call_args[0]
     assert nome_contexto == "historico_comandos"
@@ -154,6 +149,7 @@ def test_anexar_diario_escopo(mock_sentry, tmp_path):
 @patch("editor.core.telemetria.sentry_sdk")
 def test_anexar_arquivos_diario_no_momento_do_crash(mock_sentry, tmp_path):
     from editor.core.telemetria import _anexar_arquivos_diario_no_escopo
+
     mock_diario = MagicMock()
     p_pend = tmp_path / "diario_pendente.bin"
     p_pend.write_bytes(b"bytes_pendente")
@@ -177,6 +173,7 @@ def test_anexar_arquivos_diario_no_momento_do_crash(mock_sentry, tmp_path):
 @patch("editor.core.telemetria.sentry_sdk")
 def test_registrar_breadcrumb_comando(mock_sentry):
     from editor.core.telemetria import registrar_breadcrumb_comando
+
     mock_cmd = MagicMock()
     mock_cmd.campo_nome = "nome"
     mock_cmd.context_path = "picos.0"
@@ -198,14 +195,14 @@ def test_configurar_tratamento_excecoes_globais(mock_sentry):
     try:
         configurar_tratamento_excecoes_globais()
         assert sys.excepthook != mock_orig
-        
+
         # Simula chamada do sys.excepthook com dados de erro
         try:
             raise ValueError("Erro teste global")
-        except ValueError as e:
+        except ValueError:
             exc_info = sys.exc_info()
             sys.excepthook(*exc_info)
-            
+
         mock_sentry.capture_exception.assert_called_once()
         mock_sentry.flush.assert_called_once_with(timeout=5.0)
         mock_orig.assert_called_once()
@@ -216,11 +213,11 @@ def test_configurar_tratamento_excecoes_globais(mock_sentry):
 @patch("editor.core.telemetria.sentry_sdk")
 def test_excecao_global_anexa_diario_e_envia_ao_sentry(mock_sentry, tmp_path):
     from aresta_api.proto.generated import croqui_pb2
-    from editor.models.croqui_model import CroquiModel
-    from editor.core.historico import GerenciadorHistorico
-    from editor.core.diario import GerenciadorDiario
     from editor.controllers.croqui_controller import CroquiController
+    from editor.core.diario import GerenciadorDiario
+    from editor.core.historico import GerenciadorHistorico
     from editor.core.telemetria import configurar_tratamento_excecoes_globais
+    from editor.models.croqui_model import CroquiModel
 
     croqui_proto = croqui_pb2.Croqui(id="teste_e2e_sentry", nome="Croqui Original")
     model = CroquiModel(croqui_proto)
@@ -263,7 +260,7 @@ def test_excecao_global_anexa_diario_e_envia_ao_sentry(mock_sentry, tmp_path):
 
 @patch("editor.core.telemetria.sentry_sdk")
 def test_capturar_falha_submissao_git_proxy_fatal(mock_sentry, tmp_path):
-    from editor.core.telemetria import capturar_falha_submissao, anexar_diario_escopo
+    from editor.core.telemetria import anexar_diario_escopo, capturar_falha_submissao
 
     mock_diario = MagicMock()
     mock_diario.caminho_pendente = tmp_path / "pend.bin"
@@ -330,6 +327,7 @@ def test_capturar_falha_submissao_autenticacao_e_rede(mock_sentry):
 
 def test_capturar_falha_submissao_sem_sentry():
     import editor.core.telemetria as telemetria_mod
+
     original_sentry = telemetria_mod.sentry_sdk
     try:
         telemetria_mod.sentry_sdk = None
@@ -347,6 +345,7 @@ def test_capturar_falha_submissao_sem_sentry():
 @patch("editor.core.telemetria.sentry_sdk")
 def test_capturar_falha_submissao_resiliente_a_erros_internos(mock_sentry):
     from editor.core.telemetria import capturar_falha_submissao
+
     mock_sentry.set_tag.side_effect = RuntimeError("Falha no Sentry SDK")
 
     resultado = capturar_falha_submissao(
@@ -361,6 +360,7 @@ def test_capturar_falha_submissao_resiliente_a_erros_internos(mock_sentry):
 @patch("editor.core.telemetria.sentry_sdk")
 def test_registrar_breadcrumb_submissao(mock_sentry):
     from editor.core.telemetria import registrar_breadcrumb_submissao
+
     user_home = str(Path.home())
     dados = {"caminho": f"{user_home}/db/croqui.yaml", "porcentagem": 40}
 
@@ -380,23 +380,23 @@ def test_registrar_breadcrumb_submissao(mock_sentry):
 @patch("editor.core.telemetria.sentry_sdk")
 def test_capturar_excecao_envia_tags_e_flush(mock_sentry):
     from editor.core.telemetria import capturar_excecao
-    
+
     mock_sentry.capture_exception.return_value = "evento_crash_123"
     erro = ValueError("Erro de validação Protobuf")
-    
+
     ev_id = capturar_excecao(
         erro=erro,
         id_croqui="ouroboulder",
         etapa="tarefa_salvamento",
-        contexto_extra={"caminho": str(Path.home())}
+        contexto_extra={"caminho": str(Path.home())},
     )
-    
+
     assert ev_id == "evento_crash_123"
     mock_sentry.set_tag.assert_any_call("id_croqui", "ouroboulder")
     mock_sentry.set_tag.assert_any_call("etapa_falha", "tarefa_salvamento")
     mock_sentry.capture_exception.assert_called_once_with(erro)
     mock_sentry.flush.assert_called_once()
-    
+
     # Verifica sanitização do contexto extra
     mock_sentry.set_context.assert_called()
     nome_ctx, dados_ctx = mock_sentry.set_context.call_args[0]
@@ -406,11 +406,10 @@ def test_capturar_excecao_envia_tags_e_flush(mock_sentry):
 
 def test_capturar_excecao_sem_sentry():
     import editor.core.telemetria as telemetria_mod
+
     original_sentry = telemetria_mod.sentry_sdk
     try:
         telemetria_mod.sentry_sdk = None
         assert telemetria_mod.capturar_excecao(ValueError("teste")) is None
     finally:
         telemetria_mod.sentry_sdk = original_sentry
-
-

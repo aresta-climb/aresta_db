@@ -15,6 +15,7 @@ if str(_RAIZ_REPOSITORIO) not in sys.path:  # pragma: no cover
     sys.path.insert(0, str(_RAIZ_REPOSITORIO))
 
 import yaml
+
 from scripts.deploy_generated import deploy
 from scripts.migrador import obter_ultima_versao_migracao
 from scripts.validador_cabecalhos import validar_todos_cabecalhos_e_licencas
@@ -49,7 +50,7 @@ def validar_versoes_migracao(pastas: list[Path]) -> list[str]:
             continue
 
         try:
-            with open(caminho_yaml, "r", encoding="utf-8") as f:
+            with open(caminho_yaml, encoding="utf-8") as f:
                 dados = yaml.safe_load(f)
             if not isinstance(dados, dict):
                 continue
@@ -70,31 +71,33 @@ def validar_versoes_migracao(pastas: list[Path]) -> list[str]:
     return erros
 
 
-def validar_pull_request(pastas_modificadas: list[str], diretorio_saida: str | None = None) -> list[str]:
+def validar_pull_request(
+    pastas_modificadas: list[str], diretorio_saida: str | None = None
+) -> list[str]:
     """
     Valida um pull request:
     1. Executa a validação de conformidade de cabeçalhos e licenças.
     2. Valida se os caminhos existem.
     3. Valida se a versão de migração dos croquis está na versão mais recente.
     4. Executa a rotina de deploy em modo verificação (sem salvar artefatos definitivos).
-    
+
     Args:
         pastas_modificadas: Lista de caminhos relativos para pastas dentro de database/.
         diretorio_saida: Diretório opcional para geração transitória. Se omitido, usa diretório temporário.
-        
+
     Returns:
         Uma lista de mensagens de erro. Se estiver vazia, significa sucesso total.
     """
     erros: list[str] = []
-    
+
     # 1. Validação de cabeçalhos e licenças
     erros.extend(validar_cabecalhos_e_licencas())
     if erros:
         return erros
-    
+
     if not pastas_modificadas:
         return erros
-        
+
     db_paths: list[Path] = []
     for p in pastas_modificadas:
         caminho = Path(p)
@@ -102,7 +105,7 @@ def validar_pull_request(pastas_modificadas: list[str], diretorio_saida: str | N
             erros.append(f"Pasta não encontrada ou inválida: {p}")
         else:
             db_paths.append(caminho)
-            
+
     if erros or not db_paths:
         return erros
 
@@ -124,7 +127,7 @@ def validar_pull_request(pastas_modificadas: list[str], diretorio_saida: str | N
             )
             print(f"Sucesso: {len(db_paths)} croqui(s) validados com êxito")
         except Exception as e:
-            msg_erro = f"Falha ao validar lote de croquis: {str(e)}"
+            msg_erro = f"Falha ao validar lote de croquis: {e!s}"
             print(f"ERRO: {msg_erro}")
             erros.append(msg_erro)
 
@@ -135,20 +138,22 @@ def validar_pull_request(pastas_modificadas: list[str], diretorio_saida: str | N
     else:
         with tempfile.TemporaryDirectory() as temp_dir:
             _executar_validacao(Path(temp_dir))
-            
+
     return erros
 
 
 def main() -> int:
     import argparse
-    
+
     parser = argparse.ArgumentParser(description="Valida pastas modificadas do database/")
     parser.add_argument("--pastas", nargs="+", required=True, help="Lista de pastas modificadas")
-    parser.add_argument("--saida", default=None, help="Diretório de saída opcional para os artefatos")
-    
+    parser.add_argument(
+        "--saida", default=None, help="Diretório de saída opcional para os artefatos"
+    )
+
     args = parser.parse_args()
     erros = validar_pull_request(args.pastas, args.saida)
-    
+
     if erros:
         print(f"\nValidação concluída com {len(erros)} erro(s).")
         return 1

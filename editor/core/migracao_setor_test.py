@@ -1,10 +1,9 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
-import pytest
 from editor.core.migracao_setor import (
-    validar_movimento_permitido,
     calcular_novo_caminho_setor,
+    validar_movimento_permitido,
     verificar_colisao_nome_arquivo,
 )
 
@@ -66,39 +65,44 @@ def test_validar_movimento_permitido_nos_virtuais_e_expandos():
     assert validar_movimento_permitido("botao", "no_adicao", eh_sobre_item=True) is False
 
 
-
 def test_calcular_novo_caminho_setor_raiz_para_grupo():
     """Ao mover setor da raiz para dentro de um grupo, adiciona prefixo grupo_{slug}."""
-    novo = calcular_novo_caminho_setor("setor_savassinha.md", "Savassinha", nome_grupo_destino="Vale Oculto")
+    novo = calcular_novo_caminho_setor(
+        "setor_savassinha.md", "Savassinha", nome_grupo_destino="Vale Oculto"
+    )
     assert novo == "grupo_vale_oculto_setor_savassinha.md"
 
 
 def test_calcular_novo_caminho_setor_grupo_para_raiz():
     """Ao mover setor de dentro de um grupo para a raiz do pico, remove prefixo grupo_{slug}."""
-    novo = calcular_novo_caminho_setor("grupo_vale_oculto_setor_savassinha.md", "Savassinha", nome_grupo_destino=None)
+    novo = calcular_novo_caminho_setor(
+        "grupo_vale_oculto_setor_savassinha.md", "Savassinha", nome_grupo_destino=None
+    )
     assert novo == "setor_savassinha.md"
 
 
 def test_calcular_novo_caminho_setor_entre_grupos():
     """Ao mover setor de um grupo para outro, substitui o prefixo do grupo."""
     novo = calcular_novo_caminho_setor(
-        "grupo_vale_oculto_setor_savassinha.md",
-        "Savassinha",
-        nome_grupo_destino="Falésia Central"
+        "grupo_vale_oculto_setor_savassinha.md", "Savassinha", nome_grupo_destino="Falésia Central"
     )
     assert novo == "grupo_falesia_central_setor_savassinha.md"
 
 
 def test_calcular_novo_caminho_setor_nome_livre_sem_prefixo():
     """Garante que arquivos com nomes fora do padrão recebam prefixo consistente."""
-    novo_grupo = calcular_novo_caminho_setor("meu_setor.md", "Meu Setor", nome_grupo_destino="Vale Oculto")
+    novo_grupo = calcular_novo_caminho_setor(
+        "meu_setor.md", "Meu Setor", nome_grupo_destino="Vale Oculto"
+    )
     assert novo_grupo == "grupo_vale_oculto_setor_meu_setor.md"
 
     novo_raiz = calcular_novo_caminho_setor("meu_setor.md", "Meu Setor", nome_grupo_destino=None)
     assert novo_raiz == "setor_meu_setor.md"
 
     # Nome legível do setor já começa com "Setor"
-    novo_com_palavra_setor = calcular_novo_caminho_setor("arquivo.md", "Setor Principal", nome_grupo_destino="Vale")
+    novo_com_palavra_setor = calcular_novo_caminho_setor(
+        "arquivo.md", "Setor Principal", nome_grupo_destino="Vale"
+    )
     assert novo_com_palavra_setor == "grupo_vale_setor_principal.md"
 
 
@@ -116,7 +120,10 @@ def test_verificar_colisao_nome_arquivo():
     assert verificar_colisao_nome_arquivo("setor_c.md", existentes) is False
 
     # Ignora o próprio arquivo atual do setor
-    assert verificar_colisao_nome_arquivo("setor_a.md", existentes, caminho_atual_proprio="setor_a.md") is False
+    assert (
+        verificar_colisao_nome_arquivo("setor_a.md", existentes, caminho_atual_proprio="setor_a.md")
+        is False
+    )
 
 
 def test_validar_movimento_permitido_tipos_desconhecidos():
@@ -129,4 +136,3 @@ def test_validar_movimento_permitido_tipos_desconhecidos():
 def test_calcular_novo_caminho_setor_nome_vazio():
     """Quando o nome do setor for vazio ou sem caracteres alfanuméricos."""
     assert calcular_novo_caminho_setor("invalido", "", nome_grupo_destino=None) == "setor.md"
-

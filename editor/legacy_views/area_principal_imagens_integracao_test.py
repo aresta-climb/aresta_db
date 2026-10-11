@@ -2,17 +2,12 @@
 # Copyright (C) 2026 Aresta Climb Contributors
 
 import io
-from pathlib import Path
-from PIL import Image
-import pytest
-from PySide6.QtWidgets import QApplication
-from PySide6.QtGui import QUndoStack
 
-from aresta_api.proto.generated.croqui_pb2 import Croqui
-from editor.models.croqui_model import CroquiModel
-from editor.controllers.croqui_controller import CroquiController
-from editor.legacy_views.area_principal import JanelaPrincipal
+import pytest
+from PIL import Image
+
 from editor.core.workspace import ExperimentalWorkspace
+from editor.legacy_views.area_principal import JanelaPrincipal
 
 
 @pytest.fixture
@@ -57,7 +52,9 @@ class TestAreaPrincipalImagensIntegracao:
         assert item_atual is not None
         assert item_atual.text() == "mapa_1.webp"
 
-    def test_salvar_croqui_recarrega_imagens_e_mapas(self, qtbot, tmp_path, imagem_valida_bytes, monkeypatch):
+    def test_salvar_croqui_recarrega_imagens_e_mapas(
+        self, qtbot, tmp_path, imagem_valida_bytes, monkeypatch
+    ):
         pasta_raiz = tmp_path / "croqui_teste_salvar"
         pasta_db = pasta_raiz / "database"
         pasta_db.mkdir(parents=True)
@@ -73,25 +70,31 @@ class TestAreaPrincipalImagensIntegracao:
         area_principal.carregar_croqui()
 
         # Define imagem em memória no croqui_model
-        area_principal.croqui_model.definir_imagem_memoria("imagens/nova_foto.webp", imagem_valida_bytes)
+        area_principal.croqui_model.definir_imagem_memoria(
+            "imagens/nova_foto.webp", imagem_valida_bytes
+        )
 
         # Mock de compilação/salvamento do worker para não invocar Git nem compilador externo no teste
         recarregou_imagens = False
         recarregou_mapas = False
 
         orig_carregar_imagens = area_principal.pagina_imagens.carregar_imagens
+
         def mock_carregar_imagens(caminho):
             nonlocal recarregou_imagens
             recarregou_imagens = True
             orig_carregar_imagens(caminho)
 
         orig_carregar_mapas = area_principal.pagina_mapas.carregar_mapas
+
         def mock_carregar_mapas(model, pilha, caminho):
             nonlocal recarregou_mapas
             recarregou_mapas = True
             orig_carregar_mapas(model, pilha, caminho)
 
-        monkeypatch.setattr(area_principal.pagina_imagens, "carregar_imagens", mock_carregar_imagens)
+        monkeypatch.setattr(
+            area_principal.pagina_imagens, "carregar_imagens", mock_carregar_imagens
+        )
         monkeypatch.setattr(area_principal.pagina_mapas, "carregar_mapas", mock_carregar_mapas)
 
         # Simula resposta de sucesso do salvamento
@@ -100,8 +103,9 @@ class TestAreaPrincipalImagensIntegracao:
         assert recarregou_imagens is True
         assert recarregou_mapas is True
 
-    def test_substituir_imagem_no_editor_imagens_mantem_pagina_imagens(self, qtbot, tmp_path, monkeypatch):
-        from PySide6.QtWidgets import QFileDialog
+    def test_substituir_imagem_no_editor_imagens_mantem_pagina_imagens(
+        self, qtbot, tmp_path, monkeypatch
+    ):
 
         pasta_raiz = tmp_path / "croqui_teste_subst"
         pasta_db = pasta_raiz / "database"
@@ -133,11 +137,18 @@ class TestAreaPrincipalImagensIntegracao:
         area_principal.pagina_imagens.editor.select_image_by_name("thumbnail.webp")
 
         from PySide6.QtWidgets import QMessageBox
-        monkeypatch.setattr("editor.legacy_views.area_principal.QMessageBox.question", lambda *a, **k: QMessageBox.StandardButton.Discard)
+
+        monkeypatch.setattr(
+            "editor.legacy_views.area_principal.QMessageBox.question",
+            lambda *a, **k: QMessageBox.StandardButton.Discard,
+        )
 
         nova_img = tmp_path / "nova_foto.png"
         Image.new("RGB", (300, 300), color=(0, 255, 100)).save(nova_img, format="PNG")
-        monkeypatch.setattr("editor.legacy_views.widget_editor_imagens.QFileDialog.getOpenFileName", lambda *a, **k: (str(nova_img), "PNG"))
+        monkeypatch.setattr(
+            "editor.legacy_views.widget_editor_imagens.QFileDialog.getOpenFileName",
+            lambda *a, **k: (str(nova_img), "PNG"),
+        )
 
         area_principal.pagina_imagens.editor.substituir_imagem_selecionada()
 
@@ -264,6 +275,7 @@ class TestAreaPrincipalImagensIntegracao:
         # Imagem 100x100 preta, com uma região vermelha em [0, 0, 10, 10]
         img = Image.new("RGB", (100, 100), color=(0, 0, 0))
         from PIL import ImageDraw
+
         ImageDraw.Draw(img).rectangle([0, 0, 10, 10], fill=(255, 0, 0))
         img.save(pasta_imagens / "foto_mascara.webp", format="WEBP")
         (pasta_db / "croqui.yaml").write_text("id: teste\nnome: Teste\n", encoding="utf-8")
@@ -290,7 +302,9 @@ class TestAreaPrincipalImagensIntegracao:
         editor.aplicar_mascara_selecao(20, 20, 40, 40)
         assert pilha.count() == count_inicial + 1
 
-        bytes_mascarados = area_principal.croqui_model.obter_bytes_imagem("imagens/foto_mascara.webp")
+        bytes_mascarados = area_principal.croqui_model.obter_bytes_imagem(
+            "imagens/foto_mascara.webp"
+        )
         with Image.open(io.BytesIO(bytes_mascarados)) as img_m:
             # O ponto (25, 25) deve ter sido pintado de vermelho
             assert all(abs(a - b) <= 3 for a, b in zip(img_m.getpixel((25, 25))[:3], (255, 0, 0)))
@@ -307,6 +321,3 @@ class TestAreaPrincipalImagensIntegracao:
         with Image.open(io.BytesIO(bytes_redo)) as img_r:
             assert all(abs(a - b) <= 3 for a, b in zip(img_r.getpixel((25, 25))[:3], (255, 0, 0)))
         pilha.setClean()
-
-
-

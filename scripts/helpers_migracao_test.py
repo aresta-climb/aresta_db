@@ -1,8 +1,12 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
-from pathlib import Path
-from scripts.helpers_migracao import configurar_croqui_teste, carregar_yaml_migrado, carregar_markdown_migrado
+from scripts.helpers_migracao import (
+    carregar_markdown_migrado,
+    carregar_yaml_migrado,
+    configurar_croqui_teste,
+)
+
 
 def test_configurar_e_carregar_croqui_teste(tmp_path):
     """
@@ -20,18 +24,18 @@ def test_configurar_e_carregar_croqui_teste(tmp_path):
         Corpo do markdown aqui.
         """
     }
-    
+
     croqui_dir = configurar_croqui_teste(tmp_path, yaml_content=yaml_antigo, arquivos=arquivos)
-    
+
     # Valida se os arquivos foram criados
     assert (croqui_dir / "croqui.yaml").exists()
     assert (croqui_dir / "conteudo/info.md").exists()
-    
+
     # Testa carregar_yaml_migrado
     dados_yaml = carregar_yaml_migrado(croqui_dir)
     assert dados_yaml["id"] == "teste_helper"
     assert dados_yaml["nome"] == "Pico Helper"
-    
+
     # Testa carregar_markdown_migrado
     frontmatter, corpo = carregar_markdown_migrado(croqui_dir, "conteudo/info.md")
     assert frontmatter["secao"] == "Introdução"

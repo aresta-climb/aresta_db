@@ -8,7 +8,7 @@ Princípios II (Library-First) e IV (TDD) de AGENTS.md.
 
 import pytest
 from PySide6.QtWidgets import QApplication
-from PySide6.QtCore import Qt
+
 from aresta_api.proto.generated import croqui_pb2
 from editor.views.dialogos.dialogo_nova_rota_mapa import DialogoNovaRotaMapa
 
@@ -50,7 +50,9 @@ def test_dialogo_exibe_escaladas_mapeadas_em_cinza_e_desabilita_confirmar(qapp, 
     setor, mapa = _criar_setor_e_mapa_teste()
     dialogo = DialogoNovaRotaMapa(setor=setor, mapa=mapa)
 
-    textos_itens = [dialogo.lista_resultados.item(i).text() for i in range(dialogo.lista_resultados.count())]
+    textos_itens = [
+        dialogo.lista_resultados.item(i).text() for i in range(dialogo.lista_resultados.count())
+    ]
     assert any("Boulder Livre" in t for t in textos_itens)
     assert any("Via Esportiva Livre" in t for t in textos_itens)
     assert any("Boulder Mapeado" in t and "[já no mapa]" in t for t in textos_itens)
@@ -63,16 +65,17 @@ def test_dialogo_exibe_escaladas_mapeadas_em_cinza_e_desabilita_confirmar(qapp, 
 
     # Duplo clique em item já mapeado não deve aceitar
     aceitou = False
+
     def mock_accept():
         nonlocal aceitou
         aceitou = True
+
     monkeypatch.setattr(dialogo, "accept", mock_accept)
     dados_mapeados = dialogo.obter_dados_rota()
     dialogo._ao_entidade_ativada(dados_mapeados)
     assert aceitou is False
     dialogo._on_item_duplo_clicado(dialogo.lista_resultados.currentItem())
     assert aceitou is False
-
 
 
 def test_busca_filtra_escaladas_existentes(qapp):
@@ -94,7 +97,11 @@ def test_selecao_escalada_existente(qapp):
     dialogo = DialogoNovaRotaMapa(setor=setor, mapa=mapa)
 
     # Seleciona uma escalada existente livre (não mapeada)
-    idx_livre = next(i for i in range(dialogo.lista_resultados.count()) if "Livre" in dialogo.lista_resultados.item(i).text())
+    idx_livre = next(
+        i
+        for i in range(dialogo.lista_resultados.count())
+        if "Livre" in dialogo.lista_resultados.item(i).text()
+    )
     dialogo.lista_resultados.setCurrentRow(idx_livre)
     assert dialogo.btn_confirmar.isEnabled()
 
@@ -136,12 +143,17 @@ def test_duplo_clique_seleciona_e_aceita(qapp, monkeypatch):
     dialogo = DialogoNovaRotaMapa(setor=setor, mapa=mapa)
 
     aceitou = False
+
     def mock_accept():
         nonlocal aceitou
         aceitou = True
 
     monkeypatch.setattr(dialogo, "accept", mock_accept)
-    idx_livre = next(i for i in range(dialogo.lista_resultados.count()) if "Livre" in dialogo.lista_resultados.item(i).text())
+    idx_livre = next(
+        i
+        for i in range(dialogo.lista_resultados.count())
+        if "Livre" in dialogo.lista_resultados.item(i).text()
+    )
     dialogo.lista_resultados.setCurrentRow(idx_livre)
     dialogo._on_item_duplo_clicado(dialogo.lista_resultados.currentItem())
     assert aceitou is True
@@ -188,12 +200,17 @@ def test_ao_entidade_ativada_aceita_dialogo(qapp, monkeypatch):
     dialogo = DialogoNovaRotaMapa(setor=setor, mapa=mapa)
 
     aceitou = False
+
     def mock_accept():
         nonlocal aceitou
         aceitou = True
 
     monkeypatch.setattr(dialogo, "accept", mock_accept)
-    idx_livre = next(i for i in range(dialogo.lista_resultados.count()) if "Livre" in dialogo.lista_resultados.item(i).text())
+    idx_livre = next(
+        i
+        for i in range(dialogo.lista_resultados.count())
+        if "Livre" in dialogo.lista_resultados.item(i).text()
+    )
     dialogo.lista_resultados.setCurrentRow(idx_livre)
     dialogo._ao_entidade_ativada(dialogo.obter_dados_rota())
     assert aceitou is True
@@ -225,12 +242,15 @@ def test_dialogo_com_model_carrega_escaladas_de_grupos_e_subsetores(qapp):
     mapa = grupo.mapas.add()
 
     from editor.models.croqui_model import CroquiModel
+
     model = CroquiModel(croqui)
 
     dialogo = DialogoNovaRotaMapa(setor=None, mapa=mapa, model=model)
 
     # Ambas as vias devem estar listadas mesmo sem setor direto
-    textos = [dialogo.lista_resultados.item(i).text() for i in range(dialogo.lista_resultados.count())]
+    textos = [
+        dialogo.lista_resultados.item(i).text() for i in range(dialogo.lista_resultados.count())
+    ]
     assert any("Bacon com Linguiça" in t for t in textos)
     assert any("Bobo da Corte" in t for t in textos)
 
@@ -245,5 +265,3 @@ def test_dialogo_com_model_carrega_escaladas_de_grupos_e_subsetores(qapp):
     assert dados["setor_nome"] == "Setor Estacionamento"
     assert dados["grupo_nome"] == "Complexo Pedra Grande"
     assert dados["setor_obj"] == sub_setor
-
-

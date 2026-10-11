@@ -8,29 +8,29 @@ Princípios II (Library-First) e IV (TDD) de AGENTS.md.
 """
 
 import pytest
+
 from aresta_api.proto.generated import croqui_pb2
-from scripts.gerenciar_uids_lib import validar_uid
 from editor.core.spline_catmull_rom import Ponto2D
 from editor.core.topologia_trajeto import (
-    ResultadoSnap,
     TipoSnap,
-    detectar_snap_nos,
-    projetar_ponto_em_segmento,
-    detectar_snap_curva,
+    adicionar_numero_inicio,
+    atualizar_referencias_apos_fatiamento,
+    calcular_proximo_numero_inicio_setor,
     calcular_snap,
+    desambiguar_topos,
+    detectar_snap_curva,
+    detectar_snap_nos,
     fatiar_linha_em_no,
     fatiar_linha_em_ponto_curva,
     fatiar_linha_triplo,
-    atualizar_referencias_apos_fatiamento,
     formatar_rotulo_inicio,
-    adicionar_numero_inicio,
-    remover_numero_inicio,
-    obter_proxima_letra_top,
-    desambiguar_topos,
-    obter_rotulo_escalada_no_setor,
-    calcular_proximo_numero_inicio_setor,
     gerar_id_poi_disjunto_setor,
+    obter_proxima_letra_top,
+    obter_rotulo_escalada_no_setor,
+    projetar_ponto_em_segmento,
+    remover_numero_inicio,
 )
+from scripts.gerenciar_uids_lib import validar_uid
 
 
 def _criar_linha_pb(id_linha: str, pontos: list, rotulo_inicio: str = "", rotulo_fim: str = ""):
@@ -54,7 +54,7 @@ class TestSnapGeometrico:
     def test_projetar_ponto_em_segmento(self):
         p1 = Ponto2D(0, 0)
         p2 = Ponto2D(100, 0)
-        
+
         # Ponto perpendicular no meio
         p_proj, t, dist = projetar_ponto_em_segmento(Ponto2D(50, 20), p1, p2)
         assert p_proj.x == pytest.approx(50)
@@ -83,7 +83,7 @@ class TestSnapGeometrico:
     def test_detectar_snap_nos_encontra_no_mais_proximo(self):
         linha1 = _criar_linha_pb("linha_1", [(100, 500), (120, 350), (140, 100)], rotulo_inicio="1")
         linha2 = _criar_linha_pb("linha_2", [(300, 500), (300, 100)], rotulo_inicio="2")
-        
+
         snap = detectar_snap_nos(Ponto2D(102, 503), [linha1, linha2], raio_snap=10.0)
         assert snap is not None
         assert snap.tipo == TipoSnap.NO
@@ -139,7 +139,9 @@ class TestSnapGeometrico:
         snap_no = detectar_snap_nos(Ponto2D(100, 100), [poi_circulo], raio_snap=20.0)
         assert snap_no is None
 
-        snap_curva = detectar_snap_curva(Ponto2D(50, 50), [poi_circulo, poi_linha_1_no], raio_snap=20.0)
+        snap_curva = detectar_snap_curva(
+            Ponto2D(50, 50), [poi_circulo, poi_linha_1_no], raio_snap=20.0
+        )
         assert snap_curva is None
 
     def test_calcular_snap_sem_convergencia_retorna_livre(self):
@@ -151,10 +153,12 @@ class TestSnapGeometrico:
 
 class TestFatiamentoTrajeto:
     def test_fatiar_linha_em_no_existente(self):
-        linha = _criar_linha_pb("linha_original", [(100, 500), (120, 350), (140, 200), (150, 100)], rotulo_inicio="1")
-        
+        linha = _criar_linha_pb(
+            "linha_original", [(100, 500), (120, 350), (140, 200), (150, 100)], rotulo_inicio="1"
+        )
+
         sub1, sub2 = fatiar_linha_em_no(linha, indice_no=2, id_sub1="seg_1", id_sub2="seg_2")
-        
+
         # Sub1: nós 0..2
         nos1 = sub1.linha.conteudo.nos
         assert len(nos1) == 3
@@ -181,20 +185,24 @@ class TestFatiamentoTrajeto:
         linha = _criar_linha_pb("linha_original", [(100, 500), (120, 350), (140, 200)])
         linha.linha.conteudo.nos[1].tipo = croqui_pb2.NoTrajeto.TipoNo.PROTECAO_FIXA
         linha.linha.conteudo.nos[1].rotulo = "P1"
-        sub1, sub2 = fatiar_linha_em_no(linha, indice_no=1, id_sub1="s1", id_sub2="s2", preservar_tipo_no_corte=True)
+        sub1, sub2 = fatiar_linha_em_no(
+            linha, indice_no=1, id_sub1="s1", id_sub2="s2", preservar_tipo_no_corte=True
+        )
         assert sub1.linha.conteudo.nos[1].tipo == croqui_pb2.NoTrajeto.TipoNo.PROTECAO_FIXA
         assert sub1.linha.conteudo.nos[1].rotulo == "P1"
         assert sub2.linha.conteudo.nos[0].tipo == croqui_pb2.NoTrajeto.TipoNo.PROTECAO_FIXA
         assert sub2.linha.conteudo.nos[0].rotulo == "P1"
 
     def test_fatiar_linha_em_ponto_curva_insere_no_de_corte(self):
-        linha = _criar_linha_pb("linha_original", [(100, 500), (100, 300), (100, 100)], rotulo_inicio="1")
+        linha = _criar_linha_pb(
+            "linha_original", [(100, 500), (100, 300), (100, 100)], rotulo_inicio="1"
+        )
         ponto_corte = Ponto2D(100, 200)  # no segmento entre nó 1 e nó 2
-        
+
         sub1, sub2 = fatiar_linha_em_ponto_curva(
             linha, ponto_corte=ponto_corte, indice_segmento=1, id_sub1="seg_a", id_sub2="seg_b"
         )
-        
+
         nos1 = sub1.linha.conteudo.nos
         assert len(nos1) == 3
         assert (nos1[2].x, nos1[2].y) == (100, 200)
@@ -207,12 +215,11 @@ class TestFatiamentoTrajeto:
     def test_fatiar_linha_triplo_travessia(self):
         linha = _criar_linha_pb("linha_base", [(100, 500), (100, 400), (100, 300), (100, 100)])
         sub_inicio, sub_meio, sub_fim = fatiar_linha_triplo(
-            linha, indice_entrada=1, indice_saida=2,
-            id_sub1="ini", id_sub2="meio", id_sub3="fim"
+            linha, indice_entrada=1, indice_saida=2, id_sub1="ini", id_sub2="meio", id_sub3="fim"
         )
         assert len(sub_inicio.linha.conteudo.nos) == 2  # 0..1
-        assert len(sub_meio.linha.conteudo.nos) == 2    # 1..2
-        assert len(sub_fim.linha.conteudo.nos) == 2     # 2..3
+        assert len(sub_meio.linha.conteudo.nos) == 2  # 1..2
+        assert len(sub_fim.linha.conteudo.nos) == 2  # 2..3
         assert (sub_meio.linha.conteudo.nos[0].x, sub_meio.linha.conteudo.nos[0].y) == (100, 400)
         assert (sub_meio.linha.conteudo.nos[1].x, sub_meio.linha.conteudo.nos[1].y) == (100, 300)
 
@@ -220,31 +227,45 @@ class TestFatiamentoTrajeto:
         linha = _criar_linha_pb("linha_base", [(100, 500), (100, 400), (100, 300), (100, 200)])
         # Entrada maior que saída
         with pytest.raises(ValueError):
-            fatiar_linha_triplo(linha, indice_entrada=2, indice_saida=1, id_sub1="a", id_sub2="b", id_sub3="c")
+            fatiar_linha_triplo(
+                linha, indice_entrada=2, indice_saida=1, id_sub1="a", id_sub2="b", id_sub3="c"
+            )
         # Índices negativos
         with pytest.raises(ValueError):
-            fatiar_linha_triplo(linha, indice_entrada=-1, indice_saida=2, id_sub1="a", id_sub2="b", id_sub3="c")
+            fatiar_linha_triplo(
+                linha, indice_entrada=-1, indice_saida=2, id_sub1="a", id_sub2="b", id_sub3="c"
+            )
         # Entrada igual a saída (mesmo nó)
         with pytest.raises(ValueError):
-            fatiar_linha_triplo(linha, indice_entrada=1, indice_saida=1, id_sub1="a", id_sub2="b", id_sub3="c")
+            fatiar_linha_triplo(
+                linha, indice_entrada=1, indice_saida=1, id_sub1="a", id_sub2="b", id_sub3="c"
+            )
         # Entrada no índice 0 (não intermediário, sub1 ficaria com 1 nó)
         with pytest.raises(ValueError):
-            fatiar_linha_triplo(linha, indice_entrada=0, indice_saida=2, id_sub1="a", id_sub2="b", id_sub3="c")
+            fatiar_linha_triplo(
+                linha, indice_entrada=0, indice_saida=2, id_sub1="a", id_sub2="b", id_sub3="c"
+            )
         # Saída no último nó (não intermediário, sub3 ficaria com 1 nó)
         with pytest.raises(ValueError):
-            fatiar_linha_triplo(linha, indice_entrada=1, indice_saida=3, id_sub1="a", id_sub2="b", id_sub3="c")
+            fatiar_linha_triplo(
+                linha, indice_entrada=1, indice_saida=3, id_sub1="a", id_sub2="b", id_sub3="c"
+            )
         # Linha com menos de 4 nós
         linha_curta = _criar_linha_pb("curta", [(100, 500), (100, 400), (100, 300)])
         with pytest.raises(ValueError):
-            fatiar_linha_triplo(linha_curta, indice_entrada=1, indice_saida=2, id_sub1="a", id_sub2="b", id_sub3="c")
+            fatiar_linha_triplo(
+                linha_curta, indice_entrada=1, indice_saida=2, id_sub1="a", id_sub2="b", id_sub3="c"
+            )
 
     def test_atualizar_referencias_apos_fatiamento(self):
         mapa = croqui_pb2.Mapa()
-        ref1 = mapa.referencias.add(alvo_uid="Via 1", pontos_uids=["linha_outra", "linha_velha", "linha_fim"])
+        ref1 = mapa.referencias.add(
+            alvo_uid="Via 1", pontos_uids=["linha_outra", "linha_velha", "linha_fim"]
+        )
         ref2 = mapa.referencias.add(alvo_uid="Via 2", pontos_uids=["linha_velha"])
-        
+
         atualizar_referencias_apos_fatiamento(mapa.referencias, "linha_velha", ["seg_1", "seg_2"])
-        
+
         assert list(ref1.pontos_uids) == ["linha_outra", "seg_1", "seg_2", "linha_fim"]
         assert list(ref2.pontos_uids) == ["seg_1", "seg_2"]
 
@@ -282,17 +303,19 @@ class TestConvencaoSemanticaOuroboulder:
     def test_desambiguar_topos_com_referencias_vazias_ou_inexistentes(self):
         linha = _criar_linha_pb("linha_1", [(100, 500), (100, 100)])
         ref_vazia = croqui_pb2.Mapa.Referencia(alvo_uid="Vazia")
-        ref_inexistente = croqui_pb2.Mapa.Referencia(alvo_uid="NaoExiste", pontos_uids=["linha_fantasma"])
-        
+        ref_inexistente = croqui_pb2.Mapa.Referencia(
+            alvo_uid="NaoExiste", pontos_uids=["linha_fantasma"]
+        )
+
         # Não deve lançar exceção
         desambiguar_topos([linha], [ref_vazia, ref_inexistente])
 
     def test_desambiguar_topos_rota_isolada_sem_circulo(self):
         linha = _criar_linha_pb("linha_1", [(100, 500), (100, 100)], rotulo_inicio="1")
         ref = croqui_pb2.Mapa.Referencia(alvo_uid="Via 1", pontos_uids=["linha_1"])
-        
+
         desambiguar_topos([linha], [ref])
-        
+
         assert linha.linha.conteudo.nos[-1].tipo == croqui_pb2.NoTrajeto.TipoNo.PASSAGEM
         assert linha.linha.conteudo.nos[-1].rotulo == ""
 
@@ -410,7 +433,6 @@ class TestConvencaoSemanticaOuroboulder:
         assert linha2.linha.conteudo.nos[-1].tipo == croqui_pb2.NoTrajeto.TipoNo.FIM_TOP
 
 
-
 class TestEscopoSetor:
     def test_obter_rotulo_escalada_no_setor(self):
         setor = croqui_pb2.Setor(nome="Setor Teste")
@@ -525,7 +547,6 @@ class TestEscopoSetor:
         mapa_ativo.pontos_de_interesse.append(l_ativo)
 
         assert calcular_proximo_numero_inicio_setor(arq, mapa_ativo=mapa_ativo) == 9
-
 
     def test_fatiar_linha_preserva_cor_e_label(self):
         linha = _criar_linha_pb("l_custom", [(0, 0), (50, 50), (100, 100)])

@@ -59,6 +59,9 @@ hiddenimports = ['sentry_sdk']
 pacotes_para_coletar = ['pygit2', 'keyring', 'qtawesome']
 if sys.platform.startswith("linux"):
     pacotes_para_coletar += ['secretstorage', 'jeepney']
+elif sys.platform == "darwin":
+    hiddenimports += ['keyring.backends.macOS']
+
 
 for pacote in pacotes_para_coletar:
     try:

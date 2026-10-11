@@ -3,6 +3,7 @@
 
 import pytest
 import responses
+
 from editor.core.cliente_auth_supabase import ClienteAuthSupabase, ErroAutenticacaoSupabase
 
 
@@ -155,7 +156,7 @@ class TesteClienteAuthSupabase:
         assert usuario["user_metadata"]["full_name"] == "Nome GitHub"
 
     @pytest.mark.parametrize(
-        "msg_original,msg_esperada",
+        ("msg_original", "msg_esperada"),
         [
             (
                 "For security purposes, you can only request this after 21 seconds.",
@@ -225,7 +226,9 @@ class TesteClienteAuthSupabase:
         resultado = cliente.solicitar_codigo_otp("renatoutsch@gmail.com")
         assert resultado is True
         assert len(responses.calls) == 1
-        assert responses.calls[0].request.url == "https://yzkhiaoqtxvvcyyuwmqg.supabase.co/auth/v1/otp"
+        assert (
+            responses.calls[0].request.url == "https://yzkhiaoqtxvvcyyuwmqg.supabase.co/auth/v1/otp"
+        )
 
     def teste_obter_url_autorizacao_github(self, cliente):
         url = cliente.obter_url_autorizacao_github("http://localhost:55887/callback")

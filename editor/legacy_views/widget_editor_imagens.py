@@ -16,33 +16,52 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-import sys
-import os
 import glob
+import os
+from collections.abc import Callable
 from pathlib import Path
-from typing import Optional, Union, Tuple, List, Dict, Any, Callable
+from typing import Any
+
 from PIL import Image, ImageDraw
+from PySide6.QtCore import QPointF, QRectF, Qt
+from PySide6.QtGui import QBrush, QColor, QImage, QPen, QPixmap, QUndoCommand
 from PySide6.QtWidgets import (
-    QApplication, QMainWindow, QGraphicsView, QGraphicsScene,
-    QGraphicsRectItem, QVBoxLayout, QWidget,
-    QPushButton, QMessageBox, QLabel,
-    QSplitter, QListWidget, QListWidgetItem, QHBoxLayout,
-    QGraphicsPixmapItem, QFileDialog
+    QFileDialog,
+    QGraphicsRectItem,
+    QGraphicsScene,
+    QGraphicsView,
+    QHBoxLayout,
+    QLabel,
+    QListWidget,
+    QListWidgetItem,
+    QMessageBox,
+    QPushButton,
+    QSplitter,
+    QVBoxLayout,
+    QWidget,
 )
-from PySide6.QtCore import Qt, QRectF, QPointF
-from PySide6.QtGui import QPixmap, QPen, QColor, QFont, QBrush, QCursor, QImage, QUndoCommand
+
 
 class CmdMoverImagem(QUndoCommand):
     """
     Comando para desfazer/refazer modificações (movimento ou redimensionamento) na caixa de corte (CropBoxItem).
     """
-    def __init__(self, caminho_imagem: str, estado_antigo: Tuple[QRectF, QPointF], estado_novo: Tuple[QRectF, QPointF], widget_editor: Any, parent: Optional[Any] = None) -> None:
+
+    def __init__(
+        self,
+        caminho_imagem: str,
+        estado_antigo: tuple[QRectF, QPointF],
+        estado_novo: tuple[QRectF, QPointF],
+        widget_editor: Any,
+        parent: Any | None = None,
+    ) -> None:
         super().__init__(parent)
         self.caminho_imagem: str = caminho_imagem
-        self.estado_antigo: Tuple[QRectF, QPointF] = estado_antigo  # (rect, pos)
-        self.estado_novo: Tuple[QRectF, QPointF] = estado_novo      # (rect, pos)
+        self.estado_antigo: tuple[QRectF, QPointF] = estado_antigo  # (rect, pos)
+        self.estado_novo: tuple[QRectF, QPointF] = estado_novo  # (rect, pos)
         self.widget_editor: Any = widget_editor
         import os
+
         nome_arquivo = os.path.basename(caminho_imagem)
         self.contexto_ui: str = f"page:imagens/file:{nome_arquivo}"
 
@@ -51,7 +70,10 @@ class CmdMoverImagem(QUndoCommand):
         if state:
             state.crop_data = self.estado_antigo
             self.widget_editor.mark_modified()
-            if self.widget_editor.current_file == self.caminho_imagem and self.widget_editor.crop_item:
+            if (
+                self.widget_editor.current_file == self.caminho_imagem
+                and self.widget_editor.crop_item
+            ):
                 try:
                     rect, pos = self.estado_antigo
                     self.widget_editor.crop_item.setRect(rect)
@@ -64,13 +86,17 @@ class CmdMoverImagem(QUndoCommand):
         if state:
             state.crop_data = self.estado_novo
             self.widget_editor.mark_modified()
-            if self.widget_editor.current_file == self.caminho_imagem and self.widget_editor.crop_item:
+            if (
+                self.widget_editor.current_file == self.caminho_imagem
+                and self.widget_editor.crop_item
+            ):
                 try:
                     rect, pos = self.estado_novo
                     self.widget_editor.crop_item.setRect(rect)
                     self.widget_editor.crop_item.setPos(pos)
                 except RuntimeError:
                     self.widget_editor.refresh_ui()
+
 
 class CropBoxItem(QGraphicsRectItem):
     # Enum-like flags for handles
@@ -79,27 +105,27 @@ class CropBoxItem(QGraphicsRectItem):
     RIGHT: int = 2
     TOP: int = 4
     BOTTOM: int = 8
-    
-    HANDLE_MARGIN: int = 12 # Margem de detecção dos handles
-    MIN_SIZE: int = 20 # Tamanho mínimo do box
 
-    def __init__(self, rect: QRectF, parent: Optional[Any] = None) -> None:
+    HANDLE_MARGIN: int = 12  # Margem de detecção dos handles
+    MIN_SIZE: int = 20  # Tamanho mínimo do box
+
+    def __init__(self, rect: QRectF, parent: Any | None = None) -> None:
         super().__init__(rect, parent)
         self.setFlag(QGraphicsRectItem.GraphicsItemFlag.ItemIsMovable, True)
         self.setFlag(QGraphicsRectItem.GraphicsItemFlag.ItemIsSelectable, True)
         self.setFlag(QGraphicsRectItem.GraphicsItemFlag.ItemSendsGeometryChanges, True)
         self.setAcceptHoverEvents(True)
-        
+
         # Estilo visual da caixa de crop
-        pen = QPen(QColor(255, 50, 50)) # Vermelho
+        pen = QPen(QColor(255, 50, 50))  # Vermelho
         pen.setWidth(2)
         pen.setStyle(Qt.PenStyle.DashLine)
         self.setPen(pen)
         self.setBrush(QBrush(QColor(255, 50, 50, 40)))
-        
+
         self.active_handle: int = self.NONE
         self.is_resizing: bool = False
-        self._estado_inicial: Optional[Tuple[QRectF, QPointF]] = None
+        self._estado_inicial: tuple[QRectF, QPointF] | None = None
         self.resize_start_pos: QPointF = QPointF()
         self.resize_start_rect: QRectF = QRectF()
         self.resize_start_item_pos: QPointF = QPointF()
@@ -108,20 +134,20 @@ class CropBoxItem(QGraphicsRectItem):
         """Retorna o handle (quina ou lateral) sob a posição fornecida."""
         rect = self.rect()
         h = self.NONE
-        
+
         x, y = pos.x(), pos.y()
-        
+
         # Detecção de laterais (com margem)
         if abs(x - rect.left()) < self.HANDLE_MARGIN:
             h |= self.LEFT
         elif abs(x - rect.right()) < self.HANDLE_MARGIN:
             h |= self.RIGHT
-            
+
         if abs(y - rect.top()) < self.HANDLE_MARGIN:
             h |= self.TOP
         elif abs(y - rect.bottom()) < self.HANDLE_MARGIN:
             h |= self.BOTTOM
-            
+
         return h
 
     def set_cursor_for_handle(self, handle: int) -> None:
@@ -159,33 +185,41 @@ class CropBoxItem(QGraphicsRectItem):
             delta = event.scenePos() - self.resize_start_pos
             rect = QRectF(self.resize_start_rect)
             item_pos = QPointF(self.resize_start_item_pos)
-            
+
             # Limites da cena (imagem) para clamping
             sc = self.scene()
             if not sc:
                 return
             scene_rect = sc.sceneRect()
-            
+
             # Coordenadas absolutas atuais do box
             abs_left = item_pos.x() + rect.left()
             abs_right = item_pos.x() + rect.right()
             abs_top = item_pos.y() + rect.top()
             abs_bottom = item_pos.y() + rect.bottom()
-            
+
             if self.active_handle & self.LEFT:
-                new_abs_left = max(scene_rect.left(), min(abs_right - self.MIN_SIZE, abs_left + delta.x()))
+                new_abs_left = max(
+                    scene_rect.left(), min(abs_right - self.MIN_SIZE, abs_left + delta.x())
+                )
                 rect.setLeft(rect.left() + (new_abs_left - abs_left))
             elif self.active_handle & self.RIGHT:
-                new_abs_right = min(scene_rect.right(), max(abs_left + self.MIN_SIZE, abs_right + delta.x()))
+                new_abs_right = min(
+                    scene_rect.right(), max(abs_left + self.MIN_SIZE, abs_right + delta.x())
+                )
                 rect.setRight(rect.right() + (new_abs_right - abs_right))
-                
+
             if self.active_handle & self.TOP:
-                new_abs_top = max(scene_rect.top(), min(abs_bottom - self.MIN_SIZE, abs_top + delta.y()))
+                new_abs_top = max(
+                    scene_rect.top(), min(abs_bottom - self.MIN_SIZE, abs_top + delta.y())
+                )
                 rect.setTop(rect.top() + (new_abs_top - abs_top))
             elif self.active_handle & self.BOTTOM:
-                new_abs_bottom = min(scene_rect.bottom(), max(abs_top + self.MIN_SIZE, abs_bottom + delta.y()))
+                new_abs_bottom = min(
+                    scene_rect.bottom(), max(abs_top + self.MIN_SIZE, abs_bottom + delta.y())
+                )
                 rect.setBottom(rect.bottom() + (new_abs_bottom - abs_bottom))
-            
+
             self.setRect(rect.normalized())
             event.accept()
         else:
@@ -199,26 +233,26 @@ class CropBoxItem(QGraphicsRectItem):
             sc = self.scene()
             if sc:
                 scene_rect = sc.sceneRect()
-                
+
                 # Limites calculados
                 min_x = scene_rect.left() - rect.left()
                 max_x = scene_rect.right() - rect.right()
                 min_y = scene_rect.top() - rect.top()
                 max_y = scene_rect.bottom() - rect.bottom()
-                
+
                 new_pos.setX(max(min_x, min(max_x, new_pos.x())))
                 new_pos.setY(max(min_y, min(max_y, new_pos.y())))
             return new_pos
-            
+
         return super().itemChange(change, value)
 
     def mouseReleaseEvent(self, event: Any) -> None:
         self.is_resizing = False
         super().mouseReleaseEvent(event)
-        
+
         estado_final = (self.rect(), self.pos())
-        if getattr(self, '_estado_inicial', None) and self._estado_inicial != estado_final:
-            widget_editor: Optional[Any] = None
+        if getattr(self, "_estado_inicial", None) and self._estado_inicial != estado_final:
+            widget_editor: Any | None = None
             # Tenta encontrar o WidgetEditorImagens subindo na hierarquia de pais
             sc = self.scene()
             p = sc.views()[0].parent() if sc and sc.views() else None
@@ -227,32 +261,36 @@ class CropBoxItem(QGraphicsRectItem):
                     widget_editor = p
                     break
                 p = p.parent() if hasattr(p, "parent") and callable(p.parent) else None
-                
+
             if widget_editor and hasattr(widget_editor, "window"):
                 historico = None
                 window = widget_editor.window()
                 if window and hasattr(window, "historico"):
                     historico = getattr(window, "historico", None)
-                    
+
                 if historico and self._estado_inicial is not None:
-                    historico.executar(CmdMoverImagem(getattr(widget_editor, "current_file", ""), self._estado_inicial, estado_final, widget_editor))
+                    historico.executar(
+                        CmdMoverImagem(
+                            getattr(widget_editor, "current_file", ""),
+                            self._estado_inicial,
+                            estado_final,
+                            widget_editor,
+                        )
+                    )
                 elif hasattr(widget_editor, "mark_modified"):
                     widget_editor.mark_modified()
-
 
     def get_absolute_rect(self) -> QRectF:
         """Retorna o retângulo final em coordenadas da cena (pixels da imagem)"""
         pos_delta = self.pos()
         rect = self.rect()
         return QRectF(
-            rect.x() + pos_delta.x(),
-            rect.y() + pos_delta.y(),
-            rect.width(),
-            rect.height()
+            rect.x() + pos_delta.x(), rect.y() + pos_delta.y(), rect.width(), rect.height()
         )
 
+
 class MaskBoxItem(CropBoxItem):
-    def __init__(self, rect: QRectF, color: QColor, parent: Optional[Any] = None) -> None:
+    def __init__(self, rect: QRectF, color: QColor, parent: Any | None = None) -> None:
         super().__init__(rect, parent)
         self.fill_color: QColor = color
         # Estilo visual da máscara: cor sólida sem transparência (ou opcional)
@@ -261,7 +299,7 @@ class MaskBoxItem(CropBoxItem):
         self.setPen(pen)
         self.setBrush(QBrush(color))
 
-    def get_color_tuple(self) -> Tuple[int, int, int]:
+    def get_color_tuple(self) -> tuple[int, int, int]:
         """Retorna a cor em formato (R, G, B) para o Pillow"""
         return (self.fill_color.red(), self.fill_color.green(), self.fill_color.blue())
 
@@ -281,12 +319,13 @@ class MaskBoxItem(CropBoxItem):
         self.setPen(pen)
         super().hoverLeaveEvent(event)
 
+
 class PageState:
     def __init__(self, image: Image.Image, file_path: str) -> None:
-        self.working_image: Image.Image = image # PIL Image
+        self.working_image: Image.Image = image  # PIL Image
         self.file_path: str = file_path
-        self.mask_data: List[Tuple[QPointF, QRectF, QColor]] = [] # List of (pos, rect, color)
-        self.crop_data: Optional[Tuple[QRectF, QPointF]] = None # (rect, pos)
+        self.mask_data: list[tuple[QPointF, QRectF, QColor]] = []  # List of (pos, rect, color)
+        self.crop_data: tuple[QRectF, QPointF] | None = None  # (rect, pos)
         self.is_modified: bool = False
 
     def burn_masks(self) -> None:
@@ -299,31 +338,33 @@ class PageState:
             m_top = pos.y() + rect.top()
             m_right = pos.x() + rect.right()
             m_bottom = pos.y() + rect.bottom()
-            
+
             color_tuple = (color.red(), color.green(), color.blue())
             draw.rectangle(
-                [m_left, m_top, m_right, m_bottom],
-                fill=color_tuple, outline=color_tuple
+                [m_left, m_top, m_right, m_bottom], fill=color_tuple, outline=color_tuple
             )
         self.mask_data = []
 
+
 class ImageViewer(QGraphicsView):
-    def __init__(self, parent: Optional[QWidget] = None) -> None:
+    def __init__(self, parent: QWidget | None = None) -> None:
         super().__init__(parent)
         self.setObjectName("ImageViewer")
         self.setDragMode(QGraphicsView.DragMode.ScrollHandDrag)
         self.setTransformationAnchor(QGraphicsView.ViewportAnchor.AnchorUnderMouse)
         self.setViewportUpdateMode(QGraphicsView.ViewportUpdateMode.FullViewportUpdate)
         self.setBackgroundBrush(QBrush(QColor(45, 45, 45)))
-        self.picking_callback: Optional[Callable[[QPointF], None]] = None
-        self.selecao_callback: Optional[Callable[[QRectF], None]] = None
+        self.picking_callback: Callable[[QPointF], None] | None = None
+        self.selecao_callback: Callable[[QRectF], None] | None = None
         self._em_selecao: bool = False
-        self._ponto_inicio_selecao: Optional[QPointF] = None
-        self._item_retangulo_selecao: Optional[QGraphicsRectItem] = None
+        self._ponto_inicio_selecao: QPointF | None = None
+        self._item_retangulo_selecao: QGraphicsRectItem | None = None
         self._cor_selecao: QColor = QColor(25, 118, 210)
         self._precisa_ajustar_zoom: bool = True
 
-    def iniciar_modo_selecao(self, callback: Callable[[QRectF], None], cor_borda: QColor = QColor(25, 118, 210)) -> None:
+    def iniciar_modo_selecao(
+        self, callback: Callable[[QRectF], None], cor_borda: QColor = QColor(25, 118, 210)
+    ) -> None:
         self.selecao_callback = callback
         self.setDragMode(QGraphicsView.DragMode.NoDrag)
         self.setCursor(Qt.CursorShape.CrossCursor)
@@ -355,12 +396,21 @@ class ImageViewer(QGraphicsView):
                     self.scene().removeItem(self._item_retangulo_selecao)
                 self._item_retangulo_selecao = QGraphicsRectItem()
                 pen = QPen(self._cor_selecao, 2, Qt.PenStyle.DashLine)
-                brush = QBrush(QColor(self._cor_selecao.red(), self._cor_selecao.green(), self._cor_selecao.blue(), 40))
+                brush = QBrush(
+                    QColor(
+                        self._cor_selecao.red(),
+                        self._cor_selecao.green(),
+                        self._cor_selecao.blue(),
+                        40,
+                    )
+                )
                 self._item_retangulo_selecao.setPen(pen)
                 self._item_retangulo_selecao.setBrush(brush)
                 if self.scene():
                     self.scene().addItem(self._item_retangulo_selecao)
-                self._item_retangulo_selecao.setRect(QRectF(self._ponto_inicio_selecao, self._ponto_inicio_selecao))
+                self._item_retangulo_selecao.setRect(
+                    QRectF(self._ponto_inicio_selecao, self._ponto_inicio_selecao)
+                )
                 event.accept()
                 return
         super().mousePressEvent(event)
@@ -394,7 +444,7 @@ class ImageViewer(QGraphicsView):
 
     def keyPressEvent(self, event: Any) -> None:
         if event.key() == Qt.Key.Key_Escape:
-            p: Optional[Any] = self.parent()
+            p: Any | None = self.parent()
             while p:
                 if hasattr(p, "cancelar_selecao"):
                     p.cancelar_selecao()
@@ -407,7 +457,7 @@ class ImageViewer(QGraphicsView):
         if event.angleDelta().y() > 0:
             self.scale(1.15, 1.15)
         else:
-            self.scale(1/1.15, 1/1.15)
+            self.scale(1 / 1.15, 1 / 1.15)
 
     def ajustar_ao_visualizador(self) -> None:
         """Ajusta a cena inteira para preencher a área visível do viewport mantendo a proporção."""
@@ -432,22 +482,20 @@ class ImageViewer(QGraphicsView):
             self.ajustar_ao_visualizador()
 
 
-
-
 class WidgetEditorImagens(QWidget):
     def __init__(
         self,
-        folder_path: Optional[str] = None,
+        folder_path: str | None = None,
         modo_integrado: bool = False,
-        parent: Optional[QWidget] = None,
-        model: Optional[Any] = None,
-        controller: Optional[Any] = None,
-        croqui_model: Optional[Any] = None,
-        croqui_controller: Optional[Any] = None,
-        imagens_path: Optional[Union[str, Path]] = None,
+        parent: QWidget | None = None,
+        model: Any | None = None,
+        controller: Any | None = None,
+        croqui_model: Any | None = None,
+        croqui_controller: Any | None = None,
+        imagens_path: str | Path | None = None,
     ) -> None:
         super().__init__(parent)
-        self.folder_path: Optional[str] = folder_path
+        self.folder_path: str | None = folder_path
         if imagens_path:
             self.imagens_path: str = str(imagens_path)
         elif folder_path:
@@ -455,30 +503,30 @@ class WidgetEditorImagens(QWidget):
         else:
             self.imagens_path = "imagens"
         self.modo_integrado: bool = modo_integrado
-        self._croqui_model: Optional[Any] = None
+        self._croqui_model: Any | None = None
         self.croqui_model = croqui_model or model
-        self.croqui_controller: Optional[Any] = croqui_controller or controller
-        
-        self.current_file: Optional[str] = None
-        self.scene: Optional[QGraphicsScene] = None
-        self.crop_item: Optional[CropBoxItem] = None
-        self.mask_items: List[MaskBoxItem] = []
+        self.croqui_controller: Any | None = croqui_controller or controller
+
+        self.current_file: str | None = None
+        self.scene: QGraphicsScene | None = None
+        self.crop_item: CropBoxItem | None = None
+        self.mask_items: list[MaskBoxItem] = []
         self.modo_corte: bool = False
         self.modo_mascara: bool = False
-        self.cor_mascara_atual: Optional[Tuple[int, int, int]] = None
+        self.cor_mascara_atual: tuple[int, int, int] | None = None
         self._despachando_transformacao: bool = False
-        
-        self.states: Dict[str, PageState] = {} # Dict: file_path -> PageState
-        
+
+        self.states: dict[str, PageState] = {}  # Dict: file_path -> PageState
+
         self.setup_ui()
         self.load_images_list()
 
     @property
-    def croqui_model(self) -> Optional[Any]:
+    def croqui_model(self) -> Any | None:
         return getattr(self, "_croqui_model", None)
 
     @croqui_model.setter
-    def croqui_model(self, model: Optional[Any]) -> None:
+    def croqui_model(self, model: Any | None) -> None:
         antigo = getattr(self, "_croqui_model", None)
         if antigo is not model:
             if antigo is not None and hasattr(antigo, "imagem_alterada"):
@@ -562,20 +610,20 @@ class WidgetEditorImagens(QWidget):
         main_layout = QHBoxLayout(self)
         main_layout.setContentsMargins(0, 0, 0, 0)
         main_layout.setSpacing(0)
-        
+
         self.splitter = QSplitter(Qt.Orientation.Horizontal)
         self.splitter.setHandleWidth(1)
-        
+
         # --- Painel Esquerdo ---
         left_widget = QWidget()
         left_widget.setObjectName("painel_esquerdo")
         left_layout = QVBoxLayout(left_widget)
         left_layout.setContentsMargins(10, 10, 10, 10)
-        
+
         lbl_titulo = QLabel("Imagens do Croqui")
         lbl_titulo.setObjectName("label_titulo_sidebar")
         left_layout.addWidget(lbl_titulo)
-        
+
         self.list_widget = QListWidget()
         self.list_widget.currentRowChanged.connect(self.on_image_selected)
         left_layout.addWidget(self.list_widget)
@@ -588,22 +636,24 @@ class WidgetEditorImagens(QWidget):
         self.btn_abrir_no_editor_mapas.clicked.connect(self.abrir_no_editor_mapas)
         self.btn_abrir_no_editor_mapas.setEnabled(False)
         left_layout.addWidget(self.btn_abrir_no_editor_mapas)
-        
+
         # --- Painel Direito ---
         right_widget = QWidget()
         right_widget.setObjectName("painel_direito")
         right_layout = QVBoxLayout(right_widget)
         right_layout.setContentsMargins(15, 10, 15, 15)
-        
-        self.info_label = QLabel("Dica: Selecione Cortar ou Máscara abaixo para editar a imagem. Use a roda do mouse para zoom e arraste para navegar.")
+
+        self.info_label = QLabel(
+            "Dica: Selecione Cortar ou Máscara abaixo para editar a imagem. Use a roda do mouse para zoom e arraste para navegar."
+        )
         self.info_label.setObjectName("info_label")
         self.info_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
         right_layout.addWidget(self.info_label)
-        
+
         self.viewer = ImageViewer(self)
         self.viewer.setStyleSheet("border: 1px solid #ddd; border-radius: 4px;")
-        right_layout.addWidget(self.viewer, 1) # Stretch 1
-        
+        right_layout.addWidget(self.viewer, 1)  # Stretch 1
+
         # Controles
         # Controles
         controles_layout = QHBoxLayout()
@@ -632,16 +682,16 @@ class WidgetEditorImagens(QWidget):
         self.save_btn.setObjectName("btn_save")
         self.save_btn.clicked.connect(self.salvar_alteracoes)
         controles_layout.addWidget(self.save_btn)
-        
+
         if self.modo_integrado:
             self.save_btn.hide()
 
         right_layout.addLayout(controles_layout)
-        
+
         self.splitter.addWidget(left_widget)
         self.splitter.addWidget(right_widget)
         self.splitter.setSizes([220, 980])
-        
+
         main_layout.addWidget(self.splitter)
 
     def load_images_list(self) -> None:
@@ -651,7 +701,7 @@ class WidgetEditorImagens(QWidget):
 
         arquivos = set()
         if self.imagens_path and os.path.exists(self.imagens_path):
-            extensions = ['*.webp', '*.png', '*.jpg', '*.jpeg', '*.bmp', '*.tiff', '*.tif']
+            extensions = ["*.webp", "*.png", "*.jpg", "*.jpeg", "*.bmp", "*.tiff", "*.tif"]
             for ext in extensions:
                 arquivos.update(glob.glob(os.path.join(self.imagens_path, ext)))
 
@@ -663,7 +713,7 @@ class WidgetEditorImagens(QWidget):
                 else:
                     arquivos.add(rel)
 
-        image_files = sorted(list(arquivos))
+        image_files = sorted(arquivos)
         if not image_files:
             self.current_file = None
             self.list_widget.blockSignals(False)
@@ -676,7 +726,9 @@ class WidgetEditorImagens(QWidget):
             item = QListWidgetItem(nome)
             item.setData(Qt.ItemDataRole.UserRole, path)
             self.list_widget.addItem(item)
-            if caminho_selecionado and (path == caminho_selecionado or nome == Path(caminho_selecionado).name):
+            if caminho_selecionado and (
+                path == caminho_selecionado or nome == Path(caminho_selecionado).name
+            ):
                 linha_para_selecionar = idx
 
         self.list_widget.blockSignals(False)
@@ -718,24 +770,33 @@ class WidgetEditorImagens(QWidget):
             state = self.states[self.current_file]
             if self.crop_item:
                 state.crop_data = (self.crop_item.rect(), self.crop_item.pos())
-            
+
             state.mask_data = []
             for mask in self.mask_items:
                 state.mask_data.append((mask.pos(), mask.rect(), mask.fill_color))
 
     def load_image(self, file_path: str) -> None:
         self.save_current_state()
-        
-        rel_path = f"imagens/{Path(file_path).name}" if not str(file_path).startswith("imagens/") else file_path
+
+        rel_path = (
+            f"imagens/{Path(file_path).name}"
+            if not str(file_path).startswith("imagens/")
+            else file_path
+        )
         bytes_ram = None
         if self.croqui_model and hasattr(self.croqui_model, "obter_bytes_imagem"):
-            bytes_ram = self.croqui_model.obter_bytes_imagem(rel_path) or self.croqui_model.obter_bytes_imagem(file_path)
+            bytes_ram = self.croqui_model.obter_bytes_imagem(
+                rel_path
+            ) or self.croqui_model.obter_bytes_imagem(file_path)
 
         if bytes_ram and isinstance(bytes_ram, (bytes, bytearray, memoryview)):
             try:
                 import io
+
                 with Image.open(io.BytesIO(bytes_ram)) as img:
-                    working_image = img.convert("RGB") if img.mode not in ("RGB", "RGBA") else img.copy()
+                    working_image = (
+                        img.convert("RGB") if img.mode not in ("RGB", "RGBA") else img.copy()
+                    )
                 self.states[file_path] = PageState(working_image, file_path)
             except Exception as e:
                 QMessageBox.critical(self, "Erro", f"Falha ao carregar imagem {file_path}: {e}")
@@ -743,7 +804,9 @@ class WidgetEditorImagens(QWidget):
         elif file_path not in self.states:
             try:
                 with Image.open(file_path) as img:
-                    working_image = img.convert("RGB") if img.mode not in ("RGB", "RGBA") else img.copy()
+                    working_image = (
+                        img.convert("RGB") if img.mode not in ("RGB", "RGBA") else img.copy()
+                    )
                 self.states[file_path] = PageState(working_image, file_path)
             except Exception as e:
                 QMessageBox.critical(self, "Erro", f"Falha ao carregar imagem {file_path}: {e}")
@@ -760,53 +823,80 @@ class WidgetEditorImagens(QWidget):
         if hasattr(self, "viewer") and getattr(self.viewer, "_precisa_ajustar_zoom", True):
             self.viewer.ajustar_ao_visualizador()
 
-
     def imagem_pertence_a_mapa(self, nome_arquivo_ou_caminho: str) -> bool:
         """Verifica se a imagem especificada pertence a algum mapa no croqui_model."""
         if not self.croqui_model or not nome_arquivo_ou_caminho:
             return False
         from pathlib import Path
+
         nome_alvo = Path(nome_arquivo_ou_caminho).name
-        
-        croqui_ro = self.croqui_model.obter_croqui_readonly() if hasattr(self.croqui_model, "obter_croqui_readonly") else getattr(self.croqui_model, "croqui", None)
+
+        croqui_ro = (
+            self.croqui_model.obter_croqui_readonly()
+            if hasattr(self.croqui_model, "obter_croqui_readonly")
+            else getattr(self.croqui_model, "croqui", None)
+        )
         if not croqui_ro:
             return False
-            
+
         for pico in getattr(croqui_ro, "picos", []):
-            if hasattr(pico, "HasField") and pico.HasField('mapas_gerais'):
+            if hasattr(pico, "HasField") and pico.HasField("mapas_gerais"):
                 for mapa in pico.mapas_gerais.conteudo.mapas:
-                    if mapa.caminho_imagem_mapa and Path(mapa.caminho_imagem_mapa).name == nome_alvo:
+                    if (
+                        mapa.caminho_imagem_mapa
+                        and Path(mapa.caminho_imagem_mapa).name == nome_alvo
+                    ):
                         return True
             for sg in getattr(pico, "setores_ou_grupos", []):
-                if getattr(sg, 'setor', None) and (not hasattr(sg, "HasField") or sg.HasField('setor')):
+                if getattr(sg, "setor", None) and (
+                    not hasattr(sg, "HasField") or sg.HasField("setor")
+                ):
                     for mapa in sg.setor.conteudo.mapas:
-                        if mapa.caminho_imagem_mapa and Path(mapa.caminho_imagem_mapa).name == nome_alvo:
+                        if (
+                            mapa.caminho_imagem_mapa
+                            and Path(mapa.caminho_imagem_mapa).name == nome_alvo
+                        ):
                             return True
-                if getattr(sg, 'grupo', None) and (not hasattr(sg, "HasField") or sg.HasField('grupo')):
+                if getattr(sg, "grupo", None) and (
+                    not hasattr(sg, "HasField") or sg.HasField("grupo")
+                ):
                     for mapa in sg.grupo.conteudo.mapas:
-                        if mapa.caminho_imagem_mapa and Path(mapa.caminho_imagem_mapa).name == nome_alvo:
+                        if (
+                            mapa.caminho_imagem_mapa
+                            and Path(mapa.caminho_imagem_mapa).name == nome_alvo
+                        ):
                             return True
                     for subsetor in getattr(sg.grupo.conteudo, "setores", []):
                         for mapa in subsetor.conteudo.mapas:
-                            if mapa.caminho_imagem_mapa and Path(mapa.caminho_imagem_mapa).name == nome_alvo:
+                            if (
+                                mapa.caminho_imagem_mapa
+                                and Path(mapa.caminho_imagem_mapa).name == nome_alvo
+                            ):
                                 return True
         return False
 
     def _atualizar_estado_botao_mapa(self) -> None:
         """Atualiza o estado habilitado/desabilitado do botão de abrir no editor de mapas."""
         if hasattr(self, "btn_abrir_no_editor_mapas"):
-            pertence = self.imagem_pertence_a_mapa(self.current_file) if self.current_file else False
+            pertence = (
+                self.imagem_pertence_a_mapa(self.current_file) if self.current_file else False
+            )
             self.btn_abrir_no_editor_mapas.setEnabled(pertence)
             if pertence:
-                self.btn_abrir_no_editor_mapas.setToolTip("Abre esta imagem diretamente na aba do Editor de Mapas")
+                self.btn_abrir_no_editor_mapas.setToolTip(
+                    "Abre esta imagem diretamente na aba do Editor de Mapas"
+                )
             else:
-                self.btn_abrir_no_editor_mapas.setToolTip("Esta imagem não está vinculada a nenhum mapa no croqui")
+                self.btn_abrir_no_editor_mapas.setToolTip(
+                    "Esta imagem não está vinculada a nenhum mapa no croqui"
+                )
 
     def abrir_no_editor_mapas(self) -> None:
         """Abre e foca a imagem selecionada no Editor de Mapas."""
         if not self.current_file:
             return
         from pathlib import Path
+
         nome_arquivo = Path(self.current_file).name
         contexto_uri = f"page:mapas/file:{nome_arquivo}"
 
@@ -832,6 +922,7 @@ class WidgetEditorImagens(QWidget):
             return
 
         from editor.core.processamento_imagem_campo import comprimir_imagem_para_bytes_webp
+
         try:
             bytes_originais = Path(arquivo).read_bytes()
             bytes_webp, _, _ = comprimir_imagem_para_bytes_webp(bytes_originais, quality=90)
@@ -845,7 +936,9 @@ class WidgetEditorImagens(QWidget):
 
         if self.croqui_controller:
             self.croqui_controller.set_contexto(contexto_img)
-            self.croqui_controller.substituir_imagem(caminho_rel, bytes_webp, context_path=contexto_img)
+            self.croqui_controller.substituir_imagem(
+                caminho_rel, bytes_webp, context_path=contexto_img
+            )
         elif self.croqui_model:
             self.croqui_model.definir_imagem_memoria(caminho_rel, bytes_webp)
 
@@ -858,7 +951,7 @@ class WidgetEditorImagens(QWidget):
             return
 
         nome_alt = Path(caminho_relativo).name
-        
+
         # Só executa varredura de disco se for um arquivo novo não presente na lista
         esta_na_lista = False
         for i in range(self.list_widget.count()):
@@ -897,13 +990,13 @@ class WidgetEditorImagens(QWidget):
     def refresh_ui(self) -> None:
         if not self.current_file or self.current_file not in self.states:
             return
-            
+
         state = self.states[self.current_file]
         pixmap = self.pil_to_pixmap(state.working_image)
         self.scene = QGraphicsScene()
         self.scene.addPixmap(pixmap)
         self.scene.setSceneRect(0, 0, pixmap.width(), pixmap.height())
-        
+
         self.viewer.setScene(self.scene)
         self.viewer.ajustar_ao_visualizador()
 
@@ -921,17 +1014,27 @@ class WidgetEditorImagens(QWidget):
         self.cancelar_selecao()
         self.modo_corte = True
         self.crop_btn.setStyleSheet("background-color: #0d47a1; color: white; font-weight: bold;")
-        self.info_label.setText("MODO CORTAR: Arraste para selecionar a área de corte. Esc para cancelar.")
-        self.info_label.setStyleSheet("background-color: #1976d2; color: white; padding: 5px; font-weight: bold;")
-        self.viewer.iniciar_modo_selecao(self._ao_finalizar_selecao_corte, cor_borda=QColor(25, 118, 210))
+        self.info_label.setText(
+            "MODO CORTAR: Arraste para selecionar a área de corte. Esc para cancelar."
+        )
+        self.info_label.setStyleSheet(
+            "background-color: #1976d2; color: white; padding: 5px; font-weight: bold;"
+        )
+        self.viewer.iniciar_modo_selecao(
+            self._ao_finalizar_selecao_corte, cor_borda=QColor(25, 118, 210)
+        )
 
     def desativar_modo_corte(self) -> None:
         """Desativa o modo de corte e restaura o visualizador."""
         self.modo_corte = False
         self.crop_btn.setStyleSheet("")
         self.viewer.cancelar_modo_selecao()
-        self.info_label.setText("Dica: Use as ferramentas acima para cortar, rotacionar ou mascarar a imagem.")
-        self.info_label.setStyleSheet("background-color: #333; color: #eee; padding: 8px; border-radius: 4px; font-size: 11px;")
+        self.info_label.setText(
+            "Dica: Use as ferramentas acima para cortar, rotacionar ou mascarar a imagem."
+        )
+        self.info_label.setStyleSheet(
+            "background-color: #333; color: #eee; padding: 8px; border-radius: 4px; font-size: 11px;"
+        )
 
     def cancelar_selecao(self) -> None:
         """Cancela qualquer modo interativo ativo (corte ou máscara)."""
@@ -962,6 +1065,7 @@ class WidgetEditorImagens(QWidget):
 
         try:
             from editor.core.transformacoes_imagem import cortar_imagem_bytes
+
             bytes_cortados = cortar_imagem_bytes(bytes_atuais, (x1, y1, x2, y2))
             self._despachar_transformacao_imagem(bytes_cortados)
         except Exception as e:
@@ -983,9 +1087,15 @@ class WidgetEditorImagens(QWidget):
         self.cancelar_selecao()
         self.modo_mascara = True
         self.cor_mascara_atual = None
-        self.add_mask_btn.setStyleSheet("background-color: #0d47a1; color: white; font-weight: bold;")
-        self.info_label.setText("MODO MÁSCARA: Passo 1 - Clique na imagem para capturar a cor (conta-gotas). Esc para cancelar.")
-        self.info_label.setStyleSheet("background-color: #0078d7; color: white; padding: 5px; font-weight: bold;")
+        self.add_mask_btn.setStyleSheet(
+            "background-color: #0d47a1; color: white; font-weight: bold;"
+        )
+        self.info_label.setText(
+            "MODO MÁSCARA: Passo 1 - Clique na imagem para capturar a cor (conta-gotas). Esc para cancelar."
+        )
+        self.info_label.setStyleSheet(
+            "background-color: #0078d7; color: white; padding: 5px; font-weight: bold;"
+        )
         self.viewer.picking_callback = self._ao_clicar_conta_gotas
         self.viewer.setCursor(Qt.CursorShape.CrossCursor)
 
@@ -996,8 +1106,12 @@ class WidgetEditorImagens(QWidget):
         self.add_mask_btn.setStyleSheet("")
         self.viewer.picking_callback = None
         self.viewer.cancelar_modo_selecao()
-        self.info_label.setText("Dica: Use as ferramentas acima para cortar, rotacionar ou mascarar a imagem.")
-        self.info_label.setStyleSheet("background-color: #333; color: #eee; padding: 8px; border-radius: 4px; font-size: 11px;")
+        self.info_label.setText(
+            "Dica: Use as ferramentas acima para cortar, rotacionar ou mascarar a imagem."
+        )
+        self.info_label.setStyleSheet(
+            "background-color: #333; color: #eee; padding: 8px; border-radius: 4px; font-size: 11px;"
+        )
 
     def start_picking_color(self) -> None:
         """Método de conveniência/legado para iniciar o fluxo de máscara."""
@@ -1016,12 +1130,19 @@ class WidgetEditorImagens(QWidget):
 
         try:
             from editor.core.transformacoes_imagem import obter_cor_pixel
+
             self.cor_mascara_atual = obter_cor_pixel(bytes_atuais, x, y)
             r, g, b = self.cor_mascara_atual
             self.viewer.picking_callback = None
-            self.info_label.setText(f"MODO MÁSCARA: Passo 2 - Cor RGB({r}, {g}, {b}) capturada. Arraste um retângulo sobre a área a cobrir. Esc para cancelar.")
-            self.info_label.setStyleSheet("background-color: #2e7d32; color: white; padding: 5px; font-weight: bold;")
-            self.viewer.iniciar_modo_selecao(self._ao_finalizar_selecao_mascara, cor_borda=QColor(r, g, b))
+            self.info_label.setText(
+                f"MODO MÁSCARA: Passo 2 - Cor RGB({r}, {g}, {b}) capturada. Arraste um retângulo sobre a área a cobrir. Esc para cancelar."
+            )
+            self.info_label.setStyleSheet(
+                "background-color: #2e7d32; color: white; padding: 5px; font-weight: bold;"
+            )
+            self.viewer.iniciar_modo_selecao(
+                self._ao_finalizar_selecao_mascara, cor_borda=QColor(r, g, b)
+            )
         except Exception as e:
             QMessageBox.critical(self, "Erro", f"Erro ao capturar cor: {e}")
             self.desativar_modo_mascara()
@@ -1048,12 +1169,17 @@ class WidgetEditorImagens(QWidget):
 
         try:
             from editor.core.transformacoes_imagem import aplicar_mascara_bytes
-            bytes_mascarados = aplicar_mascara_bytes(bytes_atuais, (x1, y1, x2, y2), self.cor_mascara_atual)
+
+            bytes_mascarados = aplicar_mascara_bytes(
+                bytes_atuais, (x1, y1, x2, y2), self.cor_mascara_atual
+            )
             self._despachar_transformacao_imagem(bytes_mascarados)
             # Reativa o modo de seleção com a mesma cor para permitir múltiplas aplicações sequenciais
             if self.modo_mascara and self.cor_mascara_atual:
                 r, g, b = self.cor_mascara_atual
-                self.viewer.iniciar_modo_selecao(self._ao_finalizar_selecao_mascara, cor_borda=QColor(r, g, b))
+                self.viewer.iniciar_modo_selecao(
+                    self._ao_finalizar_selecao_mascara, cor_borda=QColor(r, g, b)
+                )
         except Exception as e:
             QMessageBox.critical(self, "Erro", f"Erro ao aplicar máscara: {e}")
             self.desativar_modo_mascara()
@@ -1062,7 +1188,7 @@ class WidgetEditorImagens(QWidget):
         """Método de compatibilidade legado."""
         self.cancelar_selecao()
 
-    def _obter_bytes_imagem_atual(self) -> Optional[bytes]:
+    def _obter_bytes_imagem_atual(self) -> bytes | None:
         """Obtém os bytes mais recentes da imagem atual em memória RAM ou do disco."""
         if not self.current_file:
             return None
@@ -1070,7 +1196,9 @@ class WidgetEditorImagens(QWidget):
         caminho_rel = f"imagens/{nome_arquivo}"
         bytes_img = None
         if self.croqui_model and hasattr(self.croqui_model, "obter_bytes_imagem"):
-            bytes_img = self.croqui_model.obter_bytes_imagem(caminho_rel) or self.croqui_model.obter_bytes_imagem(self.current_file)
+            bytes_img = self.croqui_model.obter_bytes_imagem(
+                caminho_rel
+            ) or self.croqui_model.obter_bytes_imagem(self.current_file)
         if bytes_img is None and os.path.exists(self.current_file):
             try:
                 bytes_img = Path(self.current_file).read_bytes()
@@ -1078,6 +1206,7 @@ class WidgetEditorImagens(QWidget):
                 bytes_img = None
         if bytes_img is None and self.current_file in self.states:
             import io
+
             buf = io.BytesIO()
             self.states[self.current_file].working_image.save(buf, format="WEBP", quality=90)
             bytes_img = buf.getvalue()
@@ -1095,12 +1224,15 @@ class WidgetEditorImagens(QWidget):
         try:
             if self.croqui_controller and hasattr(self.croqui_controller, "substituir_imagem"):
                 self.croqui_controller.set_contexto(contexto_img)
-                self.croqui_controller.substituir_imagem(caminho_rel, bytes_novos, context_path=contexto_img)
+                self.croqui_controller.substituir_imagem(
+                    caminho_rel, bytes_novos, context_path=contexto_img
+                )
             elif self.croqui_model and hasattr(self.croqui_model, "definir_imagem_memoria"):
                 self.croqui_model.definir_imagem_memoria(caminho_rel, bytes_novos)
             else:
                 # Modo autônomo sem modelo compartilhado
                 import io
+
                 with Image.open(io.BytesIO(bytes_novos)) as im:
                     working = im.convert("RGB") if im.mode not in ("RGB", "RGBA") else im.copy()
                 if self.current_file in self.states:
@@ -1127,11 +1259,11 @@ class WidgetEditorImagens(QWidget):
 
         try:
             from editor.core.transformacoes_imagem import rotacionar_imagem_bytes
+
             bytes_rotacionados = rotacionar_imagem_bytes(bytes_atuais, angle)
             self._despachar_transformacao_imagem(bytes_rotacionados)
         except Exception as e:
             QMessageBox.critical(self, "Erro", f"Erro ao rotacionar: {e}")
-
 
     def apply_crop(self) -> None:
         """Legado: ativa o modo de corte interativo."""
@@ -1139,7 +1271,7 @@ class WidgetEditorImagens(QWidget):
 
     def salvar_alteracoes(self, mostrar_mensagem: bool = True) -> bool:
         self.save_current_state()
-        
+
         modified_states = [s for s in self.states.values() if s.is_modified]
         if not modified_states:
             if mostrar_mensagem:
@@ -1147,9 +1279,12 @@ class WidgetEditorImagens(QWidget):
             return True
 
         if mostrar_mensagem:
-            reply = QMessageBox.question(self, "Confirmar Salvar Tudo", 
-                                       f"Deseja salvar as alterações em {len(modified_states)} imagem(ns)?",
-                                       QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No)
+            reply = QMessageBox.question(
+                self,
+                "Confirmar Salvar Tudo",
+                f"Deseja salvar as alterações em {len(modified_states)} imagem(ns)?",
+                QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No,
+            )
             if reply != QMessageBox.StandardButton.Yes:
                 return False
 
@@ -1157,22 +1292,26 @@ class WidgetEditorImagens(QWidget):
         for state in modified_states:
             try:
                 state.burn_masks()
-                ext = os.path.splitext(state.file_path)[1].lower()
-                if ext == '.webp':
+                caminho_arquivo = Path(state.file_path)
+                ext = caminho_arquivo.suffix.lower()
+                if ext == ".webp":
                     state.working_image.save(state.file_path, "WEBP", quality=90)
                 else:
                     state.working_image.save(state.file_path)
                 state.is_modified = False
                 success_count += 1
             except Exception as e:
-                QMessageBox.critical(self, "Erro", f"Erro ao salvar {os.path.basename(state.file_path)}: {e}")
-        
+                QMessageBox.critical(
+                    self, "Erro", f"Erro ao salvar {Path(state.file_path).name}: {e}"
+                )
+
         for i in range(self.list_widget.count()):
             item = self.list_widget.item(i)
             if item and item.text().startswith("* "):
                 item.setText(item.text()[2:])
-        
-        if mostrar_mensagem:
-            QMessageBox.information(self, "Sucesso", f"{success_count} imagem(ns) salva(s) com sucesso!")
-        return True
 
+        if mostrar_mensagem:
+            QMessageBox.information(
+                self, "Sucesso", f"{success_count} imagem(ns) salva(s) com sucesso!"
+            )
+        return True

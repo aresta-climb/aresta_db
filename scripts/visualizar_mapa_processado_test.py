@@ -2,12 +2,11 @@
 # Copyright (C) 2026 Aresta Climb Contributors
 
 import json
-from pathlib import Path
-from PIL import Image
-import pytest
 from unittest.mock import patch
 
-from scripts.visualizar_mapa_processado import processar_mapa, main
+from PIL import Image
+
+from scripts.visualizar_mapa_processado import main, processar_mapa
 
 
 def test_processar_mapa_fluxo_completo(tmp_path):
@@ -24,7 +23,11 @@ def test_processar_mapa_fluxo_completo(tmp_path):
         "pontos_de_interesse": [
             {"tipo": "circulo", "coordenadas": [30, 30], "propriedades": {"raio": 10}},
             {"tipo": "quadrado", "coordenadas": [60, 60], "propriedades": {"lado": 20}},
-            {"tipo": "retangulo", "coordenadas": [100, 100], "propriedades": {"comprimento": 30, "largura": 15, "angulo_graus_x100": 4500}},
+            {
+                "tipo": "retangulo",
+                "coordenadas": [100, 100],
+                "propriedades": {"comprimento": 30, "largura": 15, "angulo_graus_x100": 4500},
+            },
             {"tipo": "poligono", "coordenadas": [10, 10, 20, 10, 20, 20, 10, 20]},
             {"tipo": "invalido"},
         ],
@@ -59,7 +62,16 @@ def test_main_cli(tmp_path):
     caminho_json = tmp_path / "mapa.json"
     caminho_json.write_text(json.dumps({"pontos_de_interesse": []}), encoding="utf-8")
 
-    with patch("sys.argv", ["visualizar_mapa_processado.py", "--imagem", str(caminho_img), "--pontos_json", str(caminho_json)]):
+    with patch(
+        "sys.argv",
+        [
+            "visualizar_mapa_processado.py",
+            "--imagem",
+            str(caminho_img),
+            "--pontos_json",
+            str(caminho_json),
+        ],
+    ):
         main()
 
     assert (tmp_path / "mapa_processado.webp").exists()

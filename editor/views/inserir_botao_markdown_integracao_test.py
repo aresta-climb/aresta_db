@@ -11,13 +11,14 @@ Teste de integração ponta a ponta:
 6. Validar que o anexo desvinculado é deletado fisicamente do disco em anexos/.
 """
 
-from typing import Any
 from pathlib import Path
+from typing import Any
+
 from PySide6.QtGui import QUndoStack
 
 from aresta_api.proto.generated.croqui_pb2 import Croqui
-from editor.models.croqui_model import CroquiModel
 from editor.controllers.croqui_controller import CroquiController
+from editor.models.croqui_model import CroquiModel
 from editor.views.widget_editor_dados import WidgetEditorDados, WidgetEditorMarkdown
 from scripts.preparar_submissao_lib import limpar_arquivos_nao_utilizados
 
@@ -37,7 +38,9 @@ def test_integracao_inserir_anexo_salvar_undo_salvar_limpa_disco(qapp: Any, tmp_
 
     widget_dados = WidgetEditorDados(model, controller)
     campo_desc = croqui.DESCRIPTOR.fields_by_name["descricao"]
-    md_editor = WidgetEditorMarkdown(croqui, campo_desc, widget_dados.form_padrao, parent=widget_dados.form_padrao)
+    md_editor = WidgetEditorMarkdown(
+        croqui, campo_desc, widget_dados.form_padrao, parent=widget_dados.form_padrao
+    )
 
     conteudo_pdf = b"%PDF-1.4 Termo de Compromisso"
     caminho_relativo = "anexos/termo_compromisso.pdf"
@@ -70,7 +73,9 @@ def test_integracao_inserir_anexo_salvar_undo_salvar_limpa_disco(qapp: Any, tmp_
 
     # 3. Executa a limpeza com anexo referenciado (não deve deletar)
     limpar_arquivos_nao_utilizados(caminho_db, croqui_yaml_data)
-    assert arquivo_disco.exists(), "O anexo referenciado no Markdown NÃO pode ser excluído na limpeza"
+    assert arquivo_disco.exists(), (
+        "O anexo referenciado no Markdown NÃO pode ser excluído na limpeza"
+    )
 
     # 4. Executa Undo no histórico (remove o link do Markdown e do buffer de memória)
     assert pilha.canUndo()
@@ -86,5 +91,7 @@ def test_integracao_inserir_anexo_salvar_undo_salvar_limpa_disco(qapp: Any, tmp_
     limpar_arquivos_nao_utilizados(caminho_db, croqui_yaml_apos_undo)
 
     # 7. O arquivo físico órfão deve ter sido deletado do disco
-    assert not arquivo_disco.exists(), "O anexo órfão após Undo DEVE ser deletado fisicamente do disco"
+    assert not arquivo_disco.exists(), (
+        "O anexo órfão após Undo DEVE ser deletado fisicamente do disco"
+    )
     assert model.obter_bytes_anexo(caminho_relativo) is None

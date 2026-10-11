@@ -1,28 +1,30 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
-from typing import Any, List, Dict, Set, Optional
-import yaml
-import json
-from pathlib import Path
-import sys
 import io
+import json
+import sys
+from pathlib import Path
+from typing import Any
+
+import yaml
 
 # Força o uso de UTF-8 para stdout, especialmente importante no Windows
 # Em executáveis --windowed do PyInstaller, sys.stdout e sys.stderr podem ser None.
-if sys.stdout is not None and getattr(sys.stdout, 'encoding', None) != 'utf-8':
-    if hasattr(sys.stdout, 'buffer'):
-        sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
+if sys.stdout is not None and getattr(sys.stdout, "encoding", None) != "utf-8":
+    if hasattr(sys.stdout, "buffer"):
+        sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8")
 
-if sys.stderr is not None and getattr(sys.stderr, 'encoding', None) != 'utf-8':
-    if hasattr(sys.stderr, 'buffer'):
-        sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8')
+if sys.stderr is not None and getattr(sys.stderr, "encoding", None) != "utf-8":
+    if hasattr(sys.stderr, "buffer"):
+        sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding="utf-8")
 
-def render_dict(d: Any, indent: str = "") -> List[str]:
-    lines: List[str] = []
+
+def render_dict(d: Any, indent: str = "") -> list[str]:
+    lines: list[str] = []
     if not isinstance(d, dict):
         return lines
-        
+
     # Order prioritary keys to be printed first
     keys = list(d.keys())
     for prioritary in ["nome", "titulo", "id", "descricao"]:
@@ -50,74 +52,95 @@ def render_dict(d: Any, indent: str = "") -> List[str]:
                         lines.append(f"{indent}  - {item}")
         else:
             # Check if value is an image path
-            v_str = str(v)
-            if isinstance(v, str) and (v.endswith(".webp") or v.endswith(".png") or v.endswith(".jpg")):
+            str(v)
+            if isinstance(v, str) and (
+                v.endswith(".webp") or v.endswith(".png") or v.endswith(".jpg")
+            ):
                 lines.append(f"{indent}- **{k}**: ![{k}]({v})")
             elif isinstance(v, str) and "\n" in v:
                 lines.append(f"{indent}- **{k}**:")
                 for subline in v.split("\n"):
-                     lines.append(f"{indent}    {subline}")
+                    lines.append(f"{indent}    {subline}")
             else:
                 lines.append(f"{indent}- **{k}**: {v}")
     return lines
 
-def gerar_compilado_md(croqui_dir: Path, compilado_yaml_path: Path, output_md_path: Path) -> None:
-    with open(compilado_yaml_path, "r", encoding="utf-8") as f:
-        compilado: Dict[str, Any] = yaml.safe_load(f) or {}
-        
-    croqui_yaml_path = croqui_dir / "croqui.yaml"
-    with open(croqui_yaml_path, "r", encoding="utf-8") as f:
-        croqui: Dict[str, Any] = yaml.safe_load(f) or {}
 
-    md_lines: List[str] = []
+def gerar_compilado_md(croqui_dir: Path, compilado_yaml_path: Path, output_md_path: Path) -> None:
+    with open(compilado_yaml_path, encoding="utf-8") as f:
+        compilado: dict[str, Any] = yaml.safe_load(f) or {}
+
+    croqui_yaml_path = croqui_dir / "croqui.yaml"
+    with open(croqui_yaml_path, encoding="utf-8") as f:
+        croqui: dict[str, Any] = yaml.safe_load(f) or {}
+
+    md_lines: list[str] = []
     md_lines.append(f"# Croqui: {compilado.get('nome', 'Sem nome')}\n")
-    
+
     # Global fields (exclude secoes_textuais, picos, arquivos_externos)
-    globais = {k: v for k, v in compilado.items() if k not in ["secoes_textuais", "picos", "arquivos_externos"]}
+    globais = {
+        k: v
+        for k, v in compilado.items()
+        if k not in ["secoes_textuais", "picos", "arquivos_externos"]
+    }
     if globais:
         md_lines.append("## Informações Gerais\n")
         md_lines.extend(render_dict(globais))
         md_lines.append("\n")
 
     partes_json_path = croqui_dir / "partes.json"
-    ordem_partes: List[str] = []
+    ordem_partes: list[str] = []
     if partes_json_path.exists():
-        with open(partes_json_path, "r", encoding="utf-8") as f:
-             partes = json.load(f)
-             if isinstance(partes, dict):
-                 ordem_partes = list(partes.keys())
-             
-    blocks: Dict[str, Any] = {}
-    
+        with open(partes_json_path, encoding="utf-8") as f:
+            partes = json.load(f)
+            if isinstance(partes, dict):
+                ordem_partes = list(partes.keys())
+
+    blocks: dict[str, Any] = {}
+
     secoes_textuais = croqui.get("secoes_textuais", [])
     compilado_am = compilado.get("secoes_textuais", [])
     for i, am in enumerate(secoes_textuais):
         if isinstance(am, dict) and "caminho" in am and i < len(compilado_am):
             blocks[Path(am["caminho"]).stem] = {
                 "tipo": "arquivo_markdown",
-                "dados": compilado_am[i]
+                "dados": compilado_am[i],
             }
 
-    def coletar_blocos_recursivo(setores_ou_grupos_list: List[Any], compilado_setores_ou_grupos_list: List[Any], pico_nome: str) -> None:
+    def coletar_blocos_recursivo(
+        setores_ou_grupos_list: list[Any],
+        compilado_setores_ou_grupos_list: list[Any],
+        pico_nome: str,
+    ) -> None:
         if not isinstance(setores_ou_grupos_list, list):
             return
-        compilado_list = compilado_setores_ou_grupos_list if isinstance(compilado_setores_ou_grupos_list, list) else []
+        compilado_list = (
+            compilado_setores_ou_grupos_list
+            if isinstance(compilado_setores_ou_grupos_list, list)
+            else []
+        )
         for j, elemento in enumerate(setores_ou_grupos_list):
             if not isinstance(elemento, dict):
                 continue
 
             tipo = "setor" if "setor" in elemento else "grupo"
-            item_compilado = compilado_list[j] if j < len(compilado_list) and isinstance(compilado_list[j], dict) else {}
-            dados_compilados = item_compilado.get(tipo) if isinstance(item_compilado, dict) else None
+            item_compilado = (
+                compilado_list[j]
+                if j < len(compilado_list) and isinstance(compilado_list[j], dict)
+                else {}
+            )
+            dados_compilados = (
+                item_compilado.get(tipo) if isinstance(item_compilado, dict) else None
+            )
             dados_originais = elemento.get(tipo)
 
-            if dados_originais and isinstance(dados_originais, dict) and "caminho" in dados_originais:
+            if (
+                dados_originais
+                and isinstance(dados_originais, dict)
+                and "caminho" in dados_originais
+            ):
                 stem = Path(dados_originais["caminho"]).stem
-                blocks[stem] = {
-                    "tipo": tipo,
-                    "pico_nome": pico_nome,
-                    "dados": dados_compilados
-                }
+                blocks[stem] = {"tipo": tipo, "pico_nome": pico_nome, "dados": dados_compilados}
 
             # Se for um grupo, processa seus setores internos
             if tipo == "grupo" and dados_originais and isinstance(dados_originais, dict):
@@ -144,7 +167,6 @@ def gerar_compilado_md(croqui_dir: Path, compilado_yaml_path: Path, output_md_pa
                 )
                 coletar_blocos_recursivo(filhos_originais or [], filhos_compilados or [], pico_nome)
 
-
     picos = croqui.get("picos", [])
     if not isinstance(picos, list):
         picos = []
@@ -161,7 +183,9 @@ def gerar_compilado_md(croqui_dir: Path, compilado_yaml_path: Path, output_md_pa
         else:
             compilado_setores_ou_grupos = []
             nome_pico = pico.get("nome", f"Pico {i}")
-        coletar_blocos_recursivo(setores_ou_grupos or [], compilado_setores_ou_grupos or [], nome_pico)
+        coletar_blocos_recursivo(
+            setores_ou_grupos or [], compilado_setores_ou_grupos or [], nome_pico
+        )
 
     emisssed_blocks = set()
     for parte in ordem_partes:
@@ -251,13 +275,15 @@ def gerar_compilado_md(croqui_dir: Path, compilado_yaml_path: Path, output_md_pa
         md_lines.append("## Arquivos Externos\n")
         md_lines.extend(render_dict({"arquivos_externos": compilado["arquivos_externos"]}))
         md_lines.append("\n")
-        
+
     with open(output_md_path, "w", encoding="utf-8") as f:
-         f.write("\n".join(md_lines) + "\n")
+        f.write("\n".join(md_lines) + "\n")
     # We remove the print statement from here so that the caller can decide to print it or not.
+
 
 if __name__ == "__main__":
     import argparse
+
     parser = argparse.ArgumentParser()
     parser.add_argument("--croqui_dir", required=True)
     parser.add_argument("--compilado_yaml", required=True)

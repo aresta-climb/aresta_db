@@ -2,16 +2,16 @@
 # Copyright (C) 2026 Aresta Climb Contributors
 
 from collections import Counter
-from typing import Any, Dict, List, Optional
+from typing import Any
 
 
-def extrair_caminhos_imagens(msg: Any) -> List[str]:
+def extrair_caminhos_imagens(msg: Any) -> list[str]:
     """
     Extrai recursivamente todos os caminhos relativos de imagens presentes
     em uma mensagem Protobuf ou ReadOnlyProxy (como mapas e thumbnails).
     Retorna uma lista com os caminhos padronizados com barras normais '/'.
     """
-    caminhos: List[str] = []
+    caminhos: list[str] = []
     if msg is None:
         return caminhos
 
@@ -47,8 +47,8 @@ def extrair_caminhos_imagens(msg: Any) -> List[str]:
 def obter_imagens_orfas_ao_remover(
     croqui_raiz: Any,
     item_removido: Any,
-    imagens_em_ram: Dict[str, bytes],
-) -> Dict[str, bytes]:
+    imagens_em_ram: dict[str, bytes],
+) -> dict[str, bytes]:
     """
     Calcula quais imagens armazenadas na memória RAM se tornarão órfãs caso
     o `item_removido` seja excluído de `croqui_raiz`.
@@ -72,7 +72,7 @@ def obter_imagens_orfas_ao_remover(
     contagem_croqui = Counter(todos_caminhos_croqui)
     contagem_removidos = Counter(caminhos_removidos)
 
-    imagens_orfas: Dict[str, bytes] = {}
+    imagens_orfas: dict[str, bytes] = {}
     for caminho in caminhos_em_ram:
         # Se todas as ocorrências do caminho pertencem ao item sendo removido
         if contagem_croqui[caminho] <= contagem_removidos[caminho]:

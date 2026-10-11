@@ -1,7 +1,8 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
-from typing import Any, Optional
+from typing import Any
+
 from PySide6.QtWidgets import QApplication, QLineEdit, QTextEdit, QWidget
 
 
@@ -10,10 +11,11 @@ class AtualizadorUI:
     Controlador para salvar e restaurar o estado de foco e cursor dos inputs
     da interface de formulário de dados.
     """
+
     def __init__(self) -> None:
         self.campo_focado: Any = None
         self.msg_id_focada: Any = None
-        self.posicao_cursor: Optional[int] = None
+        self.posicao_cursor: int | None = None
 
     def salvar_estado_foco(self, formulario: QWidget) -> None:
         """Salva qual widget de input estava com o foco atualmente no formulário."""
@@ -27,7 +29,7 @@ class AtualizadorUI:
         if widget_focado and formulario.isAncestorOf(widget_focado):
             self.campo_focado = widget_focado.property("protobuf_field")
             self.msg_id_focada = widget_focado.property("protobuf_msg_id")
-            
+
             if isinstance(widget_focado, QLineEdit):
                 self.posicao_cursor = widget_focado.cursorPosition()
             elif isinstance(widget_focado, QTextEdit):
@@ -49,11 +51,11 @@ class AtualizadorUI:
             # Verifica se o widget possui as propriedades correspondentes
             field = widget.property("protobuf_field")
             msg_id = widget.property("protobuf_msg_id")
-            
+
             if field == self.campo_focado and msg_id == self.msg_id_focada:
                 # Restaura o foco
                 widget.setFocus()
-                
+
                 # Restaura o cursor
                 if self.posicao_cursor is not None:
                     if isinstance(widget, QLineEdit):
@@ -64,4 +66,3 @@ class AtualizadorUI:
                         cursor.setPosition(min(self.posicao_cursor, len(widget.toPlainText())))
                         widget.setTextCursor(cursor)
                 break
-

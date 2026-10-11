@@ -10,14 +10,13 @@ processamento (como raw_mapas).
 """
 
 from pathlib import Path
-from typing import Optional, Set, Union
 
 
 def calcular_tamanho_croqui_bytes(
-    caminho_compilado: Union[Path, str],
-    pasta_imagens: Optional[Union[Path, str]] = None,
-    pastas_excluidas: Optional[Set[str]] = None,
-    pasta_anexos: Optional[Union[Path, str]] = None,
+    caminho_compilado: Path | str,
+    pasta_imagens: Path | str | None = None,
+    pastas_excluidas: set[str] | None = None,
+    pasta_anexos: Path | str | None = None,
 ) -> int:
     """
     Calcula o tamanho total em bytes para download offline de um croqui.

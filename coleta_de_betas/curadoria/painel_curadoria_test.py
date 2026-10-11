@@ -1,10 +1,9 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
-import pytest
-from PySide6.QtWidgets import QWidget
 from aresta_api.proto.generated import beta_pb2
-from coleta_de_betas.curadoria.painel_curadoria import PainelCuradoria, ItemBetaWidget
+from coleta_de_betas.curadoria.painel_curadoria import ItemBetaWidget, PainelCuradoria
+
 
 def test_item_beta_widget_renderiza_informacoes(qtbot):
     midia = beta_pb2.MidiaBeta()

@@ -1,16 +1,18 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
-import os
-import yaml
 from pathlib import Path
-from typing import Dict, List, Any, Union
+from typing import Any
+
+import yaml
+
 from aresta_api.proto.generated import beta_pb2
 
-def _midia_beta_para_dict(midia: beta_pb2.MidiaBeta) -> Dict[str, Any]:
+
+def _midia_beta_para_dict(midia: beta_pb2.MidiaBeta) -> dict[str, Any]:
     """Converte um objeto protobuf MidiaBeta para um dicionário serializável em YAML."""
     fonte_str = "YOUTUBE" if midia.fonte == beta_pb2.FonteMidia.YOUTUBE else "INSTAGRAM"
-    d: Dict[str, Any] = {
+    d: dict[str, Any] = {
         "url": midia.url,
         "titulo": midia.titulo,
         "fonte": fonte_str,
@@ -27,14 +29,13 @@ def _midia_beta_para_dict(midia: beta_pb2.MidiaBeta) -> Dict[str, Any]:
     if midia.HasField("resultado_llm"):
         d["resultado_llm"] = {
             "llm_confidence_score": midia.resultado_llm.llm_confidence_score,
-            "llm_reasoning": midia.resultado_llm.llm_reasoning
+            "llm_reasoning": midia.resultado_llm.llm_reasoning,
         }
     return d
 
 
 def injetar_betas_no_markdown(
-    caminho_md: Union[Path, str],
-    betas_por_escalada: Dict[str, List[beta_pb2.MidiaBeta]]
+    caminho_md: Path | str, betas_por_escalada: dict[str, list[beta_pb2.MidiaBeta]]
 ) -> bool:
     """
     Lê um arquivo Markdown com frontmatter YAML, localiza as escaladas correspondentes
@@ -57,8 +58,8 @@ def injetar_betas_no_markdown(
 
     # Extrai comentários de cabeçalho (como licença SPDX)
     linhas = header_raw.splitlines()
-    comentarios: List[str] = []
-    linhas_yaml: List[str] = []
+    comentarios: list[str] = []
+    linhas_yaml: list[str] = []
     for l in linhas:
         if l.strip().startswith("#"):
             comentarios.append(l)
@@ -66,7 +67,7 @@ def injetar_betas_no_markdown(
             linhas_yaml.append(l)
 
     try:
-        frontmatter: Dict[str, Any] = yaml.safe_load("\n".join(linhas_yaml)) or {}
+        frontmatter: dict[str, Any] = yaml.safe_load("\n".join(linhas_yaml)) or {}
     except Exception:
         return False
 
@@ -76,7 +77,13 @@ def injetar_betas_no_markdown(
             for esc in frontmatter[lista_key]:
                 # Descobre o nome da escalada dentro de via_esportiva, via_movel, boulder, etc.
                 nome_esc = ""
-                for tipo_esc in ["via_esportiva", "via_movel", "boulder", "via_multiplas_enfiadas", "highline"]:
+                for tipo_esc in [
+                    "via_esportiva",
+                    "via_movel",
+                    "boulder",
+                    "via_multiplas_enfiadas",
+                    "highline",
+                ]:
                     if tipo_esc in esc and isinstance(esc[tipo_esc], dict):
                         nome_esc = esc[tipo_esc].get("nome", "")
                         break
@@ -87,7 +94,7 @@ def injetar_betas_no_markdown(
                     novos_betas = [_midia_beta_para_dict(m) for m in betas_por_escalada[nome_esc]]
                     if "betas" not in esc:
                         esc["betas"] = []
-                    
+
                     # Evita duplicar URLs já existentes
                     urls_existentes = {b.get("url") for b in esc["betas"] if isinstance(b, dict)}
                     for nb in novos_betas:
@@ -110,9 +117,9 @@ def injetar_betas_no_markdown(
 
 
 def persistir_aprovacoes(
-    caminho_croqui_db: Union[Path, str],
-    aprovados_por_escalada: Dict[str, List[beta_pb2.MidiaBeta]],
-    limpar_staging: bool = True
+    caminho_croqui_db: Path | str,
+    aprovados_por_escalada: dict[str, list[beta_pb2.MidiaBeta]],
+    limpar_staging: bool = True,
 ) -> int:
     """
     Percorre todos os arquivos .md do croqui e injeta as mídias aprovadas nas vias correspondentes.
@@ -136,4 +143,3 @@ def persistir_aprovacoes(
                 pass
 
     return total_injetado
-

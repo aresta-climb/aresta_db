@@ -1,28 +1,24 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
-from PySide6.QtCore import QThread, Signal
-from pathlib import Path
-import traceback
-import sys
-import shutil
-from datetime import datetime
 import threading
 import time
-import pygit2
+import traceback
+from pathlib import Path
+from typing import Any
 
-from editor.core.gerenciador_sessao import GerenciadorSessao, SessaoUsuario
+from PySide6.QtCore import QThread, Signal
+
 from editor.core.cliente_auth_supabase import ClienteAuthSupabase
+from editor.core.gerenciador_sessao import GerenciadorSessao, SessaoUsuario
 from editor.core.servico_submissao import (
     ServicoSubmissao,
-    ResultadoSincronizacao,
     StatusSincronizacao,
 )
-from editor.core.sync import GerenciadorSincronizacao
 from editor.core.storage import GerenciadorCaminhos
-from editor.plataforma import obter_adaptador_plataforma, AdaptadorPlataforma
-from typing import Optional, Any, Dict
-from collections.abc import Callable
+from editor.core.sync import GerenciadorSincronizacao
+from editor.plataforma import AdaptadorPlataforma, obter_adaptador_plataforma
+
 
 class TarefaInicializacao(QThread):
     """
@@ -32,12 +28,12 @@ class TarefaInicializacao(QThread):
     3. Autenticação Supabase / GitHub
     4. Git Sync (Clone ou Pull/Reset)
     """
-    
+
     progresso: Signal = Signal(int)
     mostrar_progresso: Signal = Signal(bool)
     status: Signal = Signal(str)
-    atualizacao_disponivel: Signal = Signal(object) # ResultadoAtualizacao
-    auth_requerida: Signal = Signal(str) # mantido para compatibilidade
+    atualizacao_disponivel: Signal = Signal(object)  # ResultadoAtualizacao
+    auth_requerida: Signal = Signal(str)  # mantido para compatibilidade
     solicitar_login_ui: Signal = Signal()
     auth_concluida: Signal = Signal()
     sucesso: Signal = Signal()
@@ -50,11 +46,11 @@ class TarefaInicializacao(QThread):
         self.gerenciador_sessao: GerenciadorSessao = GerenciadorSessao()
         self.cliente_auth: ClienteAuthSupabase = ClienteAuthSupabase()
         self.servico_loja: AdaptadorPlataforma = obter_adaptador_plataforma()
-        self.sessao_usuario: Optional[SessaoUsuario] = None
+        self.sessao_usuario: SessaoUsuario | None = None
         self._evento_autenticacao: threading.Event = threading.Event()
         self._login_cancelado: bool = False
 
-    def definir_sessao_concluida(self, sessao: Optional[SessaoUsuario]) -> None:
+    def definir_sessao_concluida(self, sessao: SessaoUsuario | None) -> None:
         """Desbloqueia a thread de inicialização com o resultado do diálogo de login."""
         if sessao:
             self.sessao_usuario = sessao
@@ -66,8 +62,9 @@ class TarefaInicializacao(QThread):
     def run(self) -> None:
         try:
             from editor.core.registro_log import logger
+
             logger.info("Iniciando tarefa de inicialização...")
-            
+
             # 1. Inicializar diretórios
             self.status.emit("Verificando pastas locais...")
             self.storage.inicializar_diretorios()
@@ -79,13 +76,15 @@ class TarefaInicializacao(QThread):
             time.sleep(1.5)
             cofre_ok = self.gerenciador_sessao.inicializar_cofre()
             if not cofre_ok:
-                logger.warning("Cofre de senhas não foi desbloqueado ou foi cancelado pelo usuário.")
+                logger.warning(
+                    "Cofre de senhas não foi desbloqueado ou foi cancelado pelo usuário."
+                )
 
-            # 3. Verificação de Atualização na Microsoft Store
-            self.status.emit("Verificando atualizações na Microsoft Store...")
+            # 3. Verificação de Atualização
+            self.status.emit("Verificando atualizações...")
             resultado_update = self.servico_loja.verificar_atualizacoes_disponiveis()
             if resultado_update.tem_atualizacao:
-                logger.info(f"Atualização detectada na Microsoft Store: {resultado_update.versao_disponivel}")
+                logger.info(f"Atualização detectada: {resultado_update.versao_disponivel}")
                 self.atualizacao_disponivel.emit(resultado_update)
                 return
 
@@ -103,7 +102,9 @@ class TarefaInicializacao(QThread):
                     try:
                         novos_dados = self.cliente_auth.renovar_sessao(sessao.token_atualizacao)
                         sessao.jwt_supabase = novos_dados["access_token"]
-                        sessao.token_atualizacao = novos_dados.get("refresh_token", sessao.token_atualizacao)
+                        sessao.token_atualizacao = novos_dados.get(
+                            "refresh_token", sessao.token_atualizacao
+                        )
                         self.gerenciador_sessao.salvar_sessao(sessao)
                         self.sessao_usuario = sessao
                     except Exception:
@@ -125,31 +126,37 @@ class TarefaInicializacao(QThread):
                     return
 
             self.progresso.emit(40)
-            usuario_identificado = self.sessao_usuario.nome_completo if self.sessao_usuario else "Convidado"
+            usuario_identificado = (
+                self.sessao_usuario.nome_completo if self.sessao_usuario else "Convidado"
+            )
             self.status.emit(f"Logado como: {usuario_identificado}")
 
             # 4. Sincronização Git
             self.status.emit("Sincronizando repositório base...")
             self.mostrar_progresso.emit(True)
-            
+
             sync = GerenciadorSincronizacao(self.storage.obter_caminho_base_repo())
-            
+
             caminho_repo = self.storage.obter_caminho_base_repo()
             if not caminho_repo.exists() or not any(caminho_repo.iterdir()):
                 logger.info(f"Repositório não encontrado em {caminho_repo}. Clonando...")
                 url_clone = sync.obter_url_clone()
                 logger.info(f"URL de clone obtida: {url_clone}")
-                sync.clonar(url_clone, progresso_callback=lambda p: self.progresso.emit(40 + int(p * 0.3)))
+                sync.clonar(
+                    url_clone, progresso_callback=lambda p: self.progresso.emit(40 + int(p * 0.3))
+                )
             else:
                 logger.info(f"Repositório existente em {caminho_repo}. Configurando remotes...")
                 sync.configurar_remotes()
-            
+
                 # Fetch Origin e Upstream
                 logger.info("Executando fetch de dados dos remotes...")
                 self.status.emit("Fazendo fetch de dados...")
                 try:
-                    sync.fazer_fetch(progresso_callback=lambda p: self.progresso.emit(70 + int(p * 0.15)))
-                    
+                    sync.fazer_fetch(
+                        progresso_callback=lambda p: self.progresso.emit(70 + int(p * 0.15))
+                    )
+
                     # Checkout do upstream/main
                     logger.info("Fazendo checkout do upstream/main...")
                     self.status.emit("Aplicando estado oficial mais recente...")
@@ -167,14 +174,17 @@ class TarefaInicializacao(QThread):
 
         except Exception as e:
             from editor.core.registro_log import logger
+
             logger.critical(f"Erro durante a inicialização: {e}", exc_info=True)
             self.erro.emit(str(e))
+
 
 class TarefaPublicacao(QThread):
     """
     Thread responsável por coordenar a publicação de sugestões de croquis
     via ServicoSubmissao em segundo plano, emitindo sinais de progresso para a UI.
     """
+
     sucesso: Signal = Signal(str, str, str)
     aviso: Signal = Signal(str)
     erro: Signal = Signal(str)
@@ -183,24 +193,24 @@ class TarefaPublicacao(QThread):
 
     def __init__(
         self,
-        token: Optional[str] = None,
-        storage: Optional[GerenciadorCaminhos] = None,
-        caminho_database_croqui: Optional[Path] = None,
+        token: str | None = None,
+        storage: GerenciadorCaminhos | None = None,
+        caminho_database_croqui: Path | None = None,
         id_croqui: str = "",
-        dados_pr: Optional[Dict[str, Any]] = None,
+        dados_pr: dict[str, Any] | None = None,
         modo_atualizacao: bool = False,
-        pr_branch: Optional[str] = None,
-        sessao: Optional[SessaoUsuario] = None,
-        servico_submissao: Optional[ServicoSubmissao] = None,
+        pr_branch: str | None = None,
+        sessao: SessaoUsuario | None = None,
+        servico_submissao: ServicoSubmissao | None = None,
     ) -> None:
         super().__init__()
         self.storage: GerenciadorCaminhos = storage or GerenciadorCaminhos()
-        self.caminho_database_croqui: Optional[Path] = caminho_database_croqui
+        self.caminho_database_croqui: Path | None = caminho_database_croqui
         self.id_croqui: str = id_croqui
-        self.dados_pr: Dict[str, Any] = dados_pr or {}
+        self.dados_pr: dict[str, Any] = dados_pr or {}
         self.modo_atualizacao: bool = modo_atualizacao
-        self.pr_branch: Optional[str] = pr_branch
-        
+        self.pr_branch: str | None = pr_branch
+
         if sessao is None:
             gerenciador = GerenciadorSessao()
             sessao = gerenciador.obter_sessao()
@@ -260,44 +270,54 @@ class TarefaPublicacao(QThread):
         except Exception as e:
             from editor.core.registro_log import logger
             from editor.core.telemetria import capturar_falha_submissao
-            logger.critical(f"Erro durante a publicação do croqui {self.id_croqui}: {e}", exc_info=True)
+
+            logger.critical(
+                f"Erro durante a publicação do croqui {self.id_croqui}: {e}", exc_info=True
+            )
             capturar_falha_submissao(
                 erro=e,
                 id_croqui=self.id_croqui,
                 etapa="execucao_tarefa_publicacao",
                 categoria="inesperado",
-                contexto_extra={"id_croqui": self.id_croqui, "modo_atualizacao": self.modo_atualizacao},
+                contexto_extra={
+                    "id_croqui": self.id_croqui,
+                    "modo_atualizacao": self.modo_atualizacao,
+                },
             )
             self.erro.emit(str(e))
+
 
 class TarefaDadosConexao(QThread):
     """
     Thread responsável por obter a URL canônica de prévia, IP local e gerar o QR Code de conexão.
     Evita travamentos da UI durante a abertura do diálogo.
     """
-    concluido: Signal = Signal(str, bytes, str) # url, qr_bytes, codigo_formatado
-    
+
+    concluido: Signal = Signal(str, bytes, str)  # url, qr_bytes, codigo_formatado
+
     def __init__(self, servidor: Any) -> None:
         super().__init__()
         self.servidor: Any = servidor
-        
+
     def run(self) -> None:
         try:
             # Aguarda o servidor fazer o bind da porta em background
             import time
+
             tentativas = 0
             while self.servidor.porta is None and tentativas < 100:
                 time.sleep(0.05)
                 tentativas += 1
-                
+
             if self.servidor.porta is None:
-                return # Falha ao iniciar servidor
+                return  # Falha ao iniciar servidor
 
             if hasattr(self.servidor, "solicitar_sessao_servidor"):
                 if not getattr(self.servidor, "codigo_sessao", None):
                     self.servidor.solicitar_sessao_servidor()
 
             from editor.core.codigo_sessao import formatar_codigo
+
             if hasattr(self.servidor, "obter_url_previa_canonica"):
                 url = self.servidor.obter_url_previa_canonica()
             else:
@@ -319,28 +339,32 @@ class TarefaDadosConexao(QThread):
         except Exception:
             traceback.print_exc()
 
+
 class TarefaSalvamento(QThread):
     """
     Thread responsável por salvar em background (I/O intensivo e compilação).
     """
-    sucesso: Signal = Signal(object, object, bool, int, bool) # caminho_retornado, erros, houve_renomeacao, undo_index, database_modificado
-    erro: Signal = Signal(str, str) # mensagem_erro, traceback_detalhado
+
+    sucesso: Signal = Signal(
+        object, object, bool, int, bool
+    )  # caminho_retornado, erros, houve_renomeacao, undo_index, database_modificado
+    erro: Signal = Signal(str, str)  # mensagem_erro, traceback_detalhado
 
     def __init__(
         self,
         workspace: Any,
-        storage: Optional[GerenciadorCaminhos],
+        storage: GerenciadorCaminhos | None,
         caminho_db: Path,
-        croqui_data: Dict[str, Any],
+        croqui_data: dict[str, Any],
         novo_id: str,
         id_atual: str,
         undo_index: int,
     ) -> None:
         super().__init__()
         self.workspace: Any = workspace
-        self.storage: Optional[GerenciadorCaminhos] = storage
+        self.storage: GerenciadorCaminhos | None = storage
         self.caminho_db: Path = Path(caminho_db)
-        self.croqui_data: Dict[str, Any] = croqui_data
+        self.croqui_data: dict[str, Any] = croqui_data
         self.novo_id: str = novo_id
         self.id_atual: str = id_atual
         self.undo_index: int = undo_index
@@ -348,41 +372,57 @@ class TarefaSalvamento(QThread):
     def run(self) -> None:
         try:
             import yaml
-            
+
             yaml_path = self.caminho_db / "croqui.yaml"
             with open(yaml_path, "w", encoding="utf-8") as f:
                 f.write("# SPDX-License-Identifier: ODbL-1.0\n")
                 f.write("# Copyright (C) 2026 Aresta Climb Contributors\n")
                 yaml.dump(self.croqui_data, f, allow_unicode=True, sort_keys=False)
-                
+
             houve_renomeacao = False
             if self.novo_id and self.id_atual and self.novo_id != self.id_atual:
                 houve_renomeacao = True
-                
+
             try:
-                resultado_proc = self.workspace.processar_renomeacao_e_compilacao(self.novo_id, self.id_atual, self.storage)
+                resultado_proc = self.workspace.processar_renomeacao_e_compilacao(
+                    self.novo_id, self.id_atual, self.storage
+                )
                 if len(resultado_proc) == 3:
                     caminho_retornado, erros, database_modificado = resultado_proc
                 else:
                     caminho_retornado, erros = resultado_proc
                     database_modificado = False
             except Exception as e:
-                caminho_retornado = self.caminho_db.parent if self.caminho_db.name == "database" else self.caminho_db
+                caminho_retornado = (
+                    self.caminho_db.parent
+                    if self.caminho_db.name == "database"
+                    else self.caminho_db
+                )
                 erros = [f"Erro na compilação: {e}"]
                 database_modificado = False
-            
-            self.sucesso.emit(caminho_retornado, erros, houve_renomeacao, self.undo_index, database_modificado)
+
+            self.sucesso.emit(
+                caminho_retornado, erros, houve_renomeacao, self.undo_index, database_modificado
+            )
         except BaseException as e:
             tb_str = traceback.format_exc()
             traceback.print_exc()
             from editor.core.registro_log import logger
             from editor.core.telemetria import capturar_excecao
-            logger.critical(f"Erro durante o salvamento do croqui {self.novo_id or self.id_atual}: {e}", exc_info=True)
+
+            logger.critical(
+                f"Erro durante o salvamento do croqui {self.novo_id or self.id_atual}: {e}",
+                exc_info=True,
+            )
             capturar_excecao(
                 erro=e,
                 id_croqui=self.novo_id or self.id_atual,
                 etapa="tarefa_salvamento",
-                contexto_extra={"novo_id": self.novo_id, "id_atual": self.id_atual, "caminho_db": str(self.caminho_db)},
+                contexto_extra={
+                    "novo_id": self.novo_id,
+                    "id_atual": self.id_atual,
+                    "caminho_db": str(self.caminho_db),
+                },
             )
             self.erro.emit(str(e), tb_str)
 
@@ -391,9 +431,10 @@ class TarefaSincronizacaoPR(QThread):
     """
     Thread responsável por coordenar a sincronização assíncrona com a branch remota da PR.
     """
+
     progresso: Signal = Signal(str)
-    sucesso: Signal = Signal(object) # ResultadoSincronizacao
-    conflito: Signal = Signal(object) # ResultadoSincronizacao
+    sucesso: Signal = Signal(object)  # ResultadoSincronizacao
+    conflito: Signal = Signal(object)  # ResultadoSincronizacao
     aviso: Signal = Signal(str)
     erro: Signal = Signal(str)
 
@@ -403,7 +444,7 @@ class TarefaSincronizacaoPR(QThread):
         id_croqui: str,
         nome_branch: str,
         caminho_database_croqui: Path,
-        sessao: Optional[SessaoUsuario] = None,
+        sessao: SessaoUsuario | None = None,
         nome_remote: str = "origin",
     ) -> None:
         super().__init__()
@@ -411,7 +452,7 @@ class TarefaSincronizacaoPR(QThread):
         self.id_croqui: str = id_croqui
         self.nome_branch: str = nome_branch
         self.caminho_database_croqui: Path = Path(caminho_database_croqui)
-        self.sessao: Optional[SessaoUsuario] = sessao
+        self.sessao: SessaoUsuario | None = sessao
         self.nome_remote: str = nome_remote
 
     def run(self) -> None:
@@ -432,5 +473,3 @@ class TarefaSincronizacaoPR(QThread):
                 self.sucesso.emit(resultado)
         except Exception as e:
             self.erro.emit(str(e))
-
-

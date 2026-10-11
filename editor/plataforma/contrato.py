@@ -6,10 +6,10 @@ Contrato abstrato e estruturas de dados para adaptadores de sistema operacional.
 Define a interface padronizada que toda implementação de plataforma deve cumprir.
 """
 
-from enum import Enum
 from dataclasses import dataclass, field
+from enum import Enum
 from pathlib import Path
-from typing import Optional, List, Any, Protocol, runtime_checkable
+from typing import Any, Protocol, runtime_checkable
 
 
 class StatusAtualizacao(Enum):
@@ -27,9 +27,9 @@ class ResultadoAtualizacao:
     """Resultado detalhado de uma consulta de atualização da aplicação."""
 
     status: StatusAtualizacao
-    versao_disponivel: Optional[str] = None
-    mensagem: Optional[str] = None
-    pacotes_atualizacao: List[Any] = field(default_factory=list)
+    versao_disponivel: str | None = None
+    mensagem: str | None = None
+    pacotes_atualizacao: list[Any] = field(default_factory=list)
 
     @property
     def tem_atualizacao(self) -> bool:
@@ -74,7 +74,7 @@ class AdaptadorPlataforma(Protocol):
         ...
 
     def solicitar_instalacao_atualizacao(
-        self, resultado: Optional[ResultadoAtualizacao] = None
+        self, resultado: ResultadoAtualizacao | None = None
     ) -> bool:
         """Dispara a instalação da atualização ou abre a página de download do canal."""
         ...

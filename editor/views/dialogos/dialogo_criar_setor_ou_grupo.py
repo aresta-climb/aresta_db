@@ -1,20 +1,19 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
-from typing import Optional, List, Tuple
+
 from PySide6.QtWidgets import (
+    QButtonGroup,
     QDialog,
-    QVBoxLayout,
     QHBoxLayout,
     QLabel,
     QLineEdit,
-    QRadioButton,
-    QButtonGroup,
     QPushButton,
-    QWidget
+    QRadioButton,
+    QVBoxLayout,
+    QWidget,
 )
-from PySide6.QtCore import Qt
-from editor.core.formatacao import para_snake_case
+
 from editor.core.nomes_arquivos import gerar_nome_arquivo_entidade
 
 
@@ -22,14 +21,25 @@ class DialogoCriarSetorOuGrupo(QDialog):
     """Diálogo modal (wizard) para criação de um novo Setor ou Grupo, com preenchimento
     do nome e auto-proposição reativa do nome de arquivo em snake_case com validação de duplicidade."""
 
-    def __init__(self, parent: Optional[QWidget] = None, modo: str = "ambos", nome_sugerido: str = "", nomes_existentes: Optional[List[str]] = None, arquivos_existentes: Optional[List[str]] = None) -> None:
+    def __init__(
+        self,
+        parent: QWidget | None = None,
+        modo: str = "ambos",
+        nome_sugerido: str = "",
+        nomes_existentes: list[str] | None = None,
+        arquivos_existentes: list[str] | None = None,
+    ) -> None:
         super().__init__(parent)
         self.setWindowTitle("Novo Setor ou Grupo" if modo == "ambos" else "Novo Setor")
         self.setMinimumWidth(420)
 
         self.modo: str = modo
-        self.nomes_existentes: List[str] = [n.strip().lower() for n in (nomes_existentes or []) if n]
-        self.arquivos_existentes: List[str] = [a.strip().lower() for a in (arquivos_existentes or []) if a]
+        self.nomes_existentes: list[str] = [
+            n.strip().lower() for n in (nomes_existentes or []) if n
+        ]
+        self.arquivos_existentes: list[str] = [
+            a.strip().lower() for a in (arquivos_existentes or []) if a
+        ]
         self._arquivo_editado_manualmente: bool = False
         self._atualizando_internamente: bool = False
 
@@ -40,7 +50,7 @@ class DialogoCriarSetorOuGrupo(QDialog):
         self.widget_tipo = QWidget(self)
         layout_tipo = QHBoxLayout(self.widget_tipo)
         layout_tipo.setContentsMargins(0, 0, 0, 0)
-        
+
         lbl_tipo = QLabel("Tipo:", self.widget_tipo)
         lbl_tipo.setStyleSheet("font-weight: bold;")
         layout_tipo.addWidget(lbl_tipo)
@@ -179,18 +189,25 @@ class DialogoCriarSetorOuGrupo(QDialog):
         if nome.lower() in self.nomes_existentes:
             tipo = self.obter_tipo_selecionado()
             nome_limpo = nome.strip().lower()
-            tipo_rotulo = "bloco" if tipo == "setor" and (
-                nome_limpo in ("bloco", "blocos")
-                or nome_limpo.startswith("bloco ")
-                or nome_limpo.startswith("blocos ")
-                or nome_limpo.startswith("bloco_")
-                or nome_limpo.startswith("blocos_")
-            ) else tipo
+            tipo_rotulo = (
+                "bloco"
+                if tipo == "setor"
+                and (
+                    nome_limpo in ("bloco", "blocos")
+                    or nome_limpo.startswith("bloco ")
+                    or nome_limpo.startswith("blocos ")
+                    or nome_limpo.startswith("bloco_")
+                    or nome_limpo.startswith("blocos_")
+                )
+                else tipo
+            )
             self.lbl_aviso.setText(f"Já existe um {tipo_rotulo} com este nome.")
             self.btn_criar.setEnabled(False)
             return
 
-        nome_arquivo_completo = arquivo if arquivo.endswith(".md") else f"{arquivo}.md" if arquivo else ""
+        nome_arquivo_completo = (
+            arquivo if arquivo.endswith(".md") else f"{arquivo}.md" if arquivo else ""
+        )
         if nome_arquivo_completo.lower() in self.arquivos_existentes:
             self.lbl_aviso.setText(f"Já existe um arquivo com o nome '{nome_arquivo_completo}'.")
             self.btn_criar.setEnabled(False)
@@ -199,9 +216,9 @@ class DialogoCriarSetorOuGrupo(QDialog):
         self.lbl_aviso.setText("")
         self.btn_criar.setEnabled(True)
 
-    def obter_dados_confirmados(self) -> Tuple[str, str, str, bool]:
+    def obter_dados_confirmados(self) -> tuple[str, str, str, bool]:
         """Retorna (tipo, nome, nome_arquivo, confirmado)."""
-        ok = (self.result() == QDialog.DialogCode.Accepted)
+        ok = self.result() == QDialog.DialogCode.Accepted
         tipo = self.obter_tipo_selecionado()
         nome = self.edit_nome.text().strip()
         arquivo = self.edit_arquivo.text().strip()
@@ -212,15 +229,21 @@ class DialogoCriarSetorOuGrupo(QDialog):
         return tipo, nome, arquivo, ok
 
     @classmethod
-    def obter_dados(cls, parent: Optional[QWidget] = None, modo: str = "ambos", nome_sugerido: str = "", nomes_existentes: Optional[List[str]] = None, arquivos_existentes: Optional[List[str]] = None) -> Tuple[str, str, str, bool]:
+    def obter_dados(
+        cls,
+        parent: QWidget | None = None,
+        modo: str = "ambos",
+        nome_sugerido: str = "",
+        nomes_existentes: list[str] | None = None,
+        arquivos_existentes: list[str] | None = None,
+    ) -> tuple[str, str, str, bool]:
         """Método estático de conveniência para instanciar e abrir o diálogo modal."""
         dialogo = cls(
             parent=parent,
             modo=modo,
             nome_sugerido=nome_sugerido,
             nomes_existentes=nomes_existentes,
-            arquivos_existentes=arquivos_existentes
+            arquivos_existentes=arquivos_existentes,
         )
         dialogo.exec()
         return dialogo.obter_dados_confirmados()
-

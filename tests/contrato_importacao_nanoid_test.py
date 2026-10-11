@@ -12,7 +12,7 @@ pode realizar `import nanoid` ou `from nanoid import ...`.
 
 import ast
 from pathlib import Path
-from typing import List, Tuple
+
 import pytest
 
 PASTA_RAIZ: Path = Path(__file__).resolve().parent.parent
@@ -32,7 +32,7 @@ PASTAS_IGNORADAS = {
 }
 
 
-def _verificar_importacao_nanoid_em_ast(caminho_arquivo: Path) -> List[Tuple[int, str]]:
+def _verificar_importacao_nanoid_em_ast(caminho_arquivo: Path) -> list[tuple[int, str]]:
     """Analisa um arquivo Python via AST e retorna lista de (linha, codigo_import) se importar 'nanoid'."""
     try:
         conteudo = caminho_arquivo.read_text(encoding="utf-8")
@@ -45,7 +45,7 @@ def _verificar_importacao_nanoid_em_ast(caminho_arquivo: Path) -> List[Tuple[int
         # Arquivos com erro de sintaxe são ignorados ou tratados pelo validador geral
         return []
 
-    violacoes: List[Tuple[int, str]] = []
+    violacoes: list[tuple[int, str]] = []
 
     for no in ast.walk(arvore):
         # Caso 1: import nanoid, import nanoid.xxx
@@ -65,7 +65,7 @@ def _verificar_importacao_nanoid_em_ast(caminho_arquivo: Path) -> List[Tuple[int
 
 def test_contrato_importacao_nanoid_exclusiva_em_gerenciar_uids_lib():
     """Varre todos os módulos Python do repositório e valida o isolamento da biblioteca nanoid."""
-    arquivos_python: List[Path] = []
+    arquivos_python: list[Path] = []
     for caminho in PASTA_RAIZ.rglob("*.py"):
         partes = set(caminho.parts)
         if not partes.intersection(PASTAS_IGNORADAS):
@@ -78,7 +78,7 @@ def test_contrato_importacao_nanoid_exclusiva_em_gerenciar_uids_lib():
         f"Arquivo autorizado {ARQUIVO_AUTORIZADO} não foi encontrado na varredura."
     )
 
-    violacoes_detectadas: List[str] = []
+    violacoes_detectadas: list[str] = []
 
     for arquivo in arquivos_python:
         violacoes = _verificar_importacao_nanoid_em_ast(arquivo)

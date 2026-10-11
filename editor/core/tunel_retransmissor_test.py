@@ -2,12 +2,14 @@
 # Copyright (C) 2026 Aresta Contributors
 
 import asyncio
-import json
 import base64
-import pytest
+import json
 from pathlib import Path
+from unittest.mock import MagicMock, patch
+
+import pytest
 import websockets
-from unittest.mock import patch, MagicMock
+
 from editor.core.tunel_retransmissor import ClienteTunelRetransmissor
 
 
@@ -33,44 +35,50 @@ def pasta_temporaria(tmp_path):
 
 def test_deve_registrar_sessao_e_responder_requisicoes_de_arquivo(pasta_temporaria):
     """O cliente do túnel deve conectar ao retransmissor, anunciar IP/porta e responder proxy de arquivos."""
+
     async def run():
         mensagens_recebidas = []
-        
+
         async def servidor_mock_handler(websocket):
             try:
                 async for mensagem in websocket:
                     dados = json.loads(mensagem)
                     mensagens_recebidas.append(dados)
-                    
+
                     if dados.get("tipo") == "registro":
                         # Envia confirmação e logo em seguida solicita um arquivo
-                        await websocket.send(json.dumps({
-                            "tipo": "confirmacao_registro",
-                            "status": "ok"
-                        }))
-                        await websocket.send(json.dumps({
-                            "tipo": "requisicao_proxy",
-                            "dados": {
-                                "id": "req-1",
-                                "metodo": "GET",
-                                "caminho": "/indice.binarypb",
-                                "cabecalhos": {}
-                            }
-                        }))
+                        await websocket.send(
+                            json.dumps({"tipo": "confirmacao_registro", "status": "ok"})
+                        )
+                        await websocket.send(
+                            json.dumps(
+                                {
+                                    "tipo": "requisicao_proxy",
+                                    "dados": {
+                                        "id": "req-1",
+                                        "metodo": "GET",
+                                        "caminho": "/indice.binarypb",
+                                        "cabecalhos": {},
+                                    },
+                                }
+                            )
+                        )
                         # Solicita arquivo com extensão genérica
-                        await websocket.send(json.dumps({
-                            "tipo": "requisicao_proxy",
-                            "dados": {
-                                "id": "req-custom",
-                                "metodo": "GET",
-                                "caminho": "/custom.desconhecido",
-                                "cabecalhos": {}
-                            }
-                        }))
+                        await websocket.send(
+                            json.dumps(
+                                {
+                                    "tipo": "requisicao_proxy",
+                                    "dados": {
+                                        "id": "req-custom",
+                                        "metodo": "GET",
+                                        "caminho": "/custom.desconhecido",
+                                        "cabecalhos": {},
+                                    },
+                                }
+                            )
+                        )
                         # Envia ping
-                        await websocket.send(json.dumps({
-                            "tipo": "ping"
-                        }))
+                        await websocket.send(json.dumps({"tipo": "ping"}))
             except websockets.exceptions.ConnectionClosed:
                 pass
 
@@ -87,7 +95,7 @@ def test_deve_registrar_sessao_e_responder_requisicoes_de_arquivo(pasta_temporar
             )
 
             tarefa_cliente = asyncio.create_task(cliente.executar())
-            
+
             # Aguarda a resposta do proxy e do pong chegarem ao servidor mock
             for _ in range(40):
                 if any(m.get("tipo") == "pong" for m in mensagens_recebidas):
@@ -104,13 +112,21 @@ def test_deve_registrar_sessao_e_responder_requisicoes_de_arquivo(pasta_temporar
             assert msg_registro["dados"]["urlLocal"] == "http://192.168.1.50:8421"
 
             # 2. Verifica resposta do arquivo proxy
-            msg_resposta = next(m for m in mensagens_recebidas if m.get("tipo") == "resposta_proxy" and m["dados"]["id"] == "req-1")
+            msg_resposta = next(
+                m
+                for m in mensagens_recebidas
+                if m.get("tipo") == "resposta_proxy" and m["dados"]["id"] == "req-1"
+            )
             assert msg_resposta["dados"]["status"] == 200
             corpo = base64.b64decode(msg_resposta["dados"]["corpoBase64"])
             assert corpo == b"\x08\x01\x12\x04test"
 
             # 3. Verifica resposta do arquivo com mime fallback
-            msg_custom = next(m for m in mensagens_recebidas if m.get("tipo") == "resposta_proxy" and m["dados"]["id"] == "req-custom")
+            msg_custom = next(
+                m
+                for m in mensagens_recebidas
+                if m.get("tipo") == "resposta_proxy" and m["dados"]["id"] == "req-custom"
+            )
             assert msg_custom["dados"]["status"] == 200
             assert msg_custom["dados"]["cabecalhos"]["content-type"] == "text/plain"
 
@@ -122,6 +138,7 @@ def test_deve_registrar_sessao_e_responder_requisicoes_de_arquivo(pasta_temporar
 
 def test_deve_retornar_404_para_arquivo_inexistente(pasta_temporaria):
     """O cliente do túnel deve responder 404 caso o arquivo solicitado não exista."""
+
     async def run():
         mensagens_recebidas = []
 
@@ -131,15 +148,19 @@ def test_deve_retornar_404_para_arquivo_inexistente(pasta_temporaria):
                     dados = json.loads(mensagem)
                     mensagens_recebidas.append(dados)
                     if dados.get("tipo") == "registro":
-                        await websocket.send(json.dumps({
-                            "tipo": "requisicao_proxy",
-                            "dados": {
-                                "id": "req-404",
-                                "metodo": "GET",
-                                "caminho": "/nao_existe.json",
-                                "cabecalhos": {}
-                            }
-                        }))
+                        await websocket.send(
+                            json.dumps(
+                                {
+                                    "tipo": "requisicao_proxy",
+                                    "dados": {
+                                        "id": "req-404",
+                                        "metodo": "GET",
+                                        "caminho": "/nao_existe.json",
+                                        "cabecalhos": {},
+                                    },
+                                }
+                            )
+                        )
             except websockets.exceptions.ConnectionClosed:
                 pass
 
@@ -172,6 +193,7 @@ def test_deve_retornar_404_para_arquivo_inexistente(pasta_temporaria):
 
 def test_deve_bloquear_path_traversal(pasta_temporaria):
     """O cliente do túnel deve bloquear tentativas de acessar caminhos fora da pasta compilada."""
+
     async def run():
         mensagens_recebidas = []
 
@@ -181,15 +203,19 @@ def test_deve_bloquear_path_traversal(pasta_temporaria):
                     dados = json.loads(mensagem)
                     mensagens_recebidas.append(dados)
                     if dados.get("tipo") == "registro":
-                        await websocket.send(json.dumps({
-                            "tipo": "requisicao_proxy",
-                            "dados": {
-                                "id": "req-traversal",
-                                "metodo": "GET",
-                                "caminho": "/../../../etc/passwd",
-                                "cabecalhos": {}
-                            }
-                        }))
+                        await websocket.send(
+                            json.dumps(
+                                {
+                                    "tipo": "requisicao_proxy",
+                                    "dados": {
+                                        "id": "req-traversal",
+                                        "metodo": "GET",
+                                        "caminho": "/../../../etc/passwd",
+                                        "cabecalhos": {},
+                                    },
+                                }
+                            )
+                        )
             except websockets.exceptions.ConnectionClosed:
                 pass
 
@@ -221,6 +247,7 @@ def test_deve_bloquear_path_traversal(pasta_temporaria):
 
 def test_deve_emitir_evento_de_recarregamento(pasta_temporaria):
     """O cliente do túnel deve ser capaz de emitir eventos de recarregamento (Live Reload)."""
+
     async def run():
         mensagens_recebidas = []
 
@@ -283,18 +310,20 @@ def test_deve_tratar_erro_ao_ler_arquivo_proxy(pasta_temporaria):
 
 def test_deve_solicitar_sessao_ao_servidor_com_sucesso():
     """Deve enviar POST /sessoes com JWT e retornar o dicionário de sessão."""
-    from editor.core.tunel_retransmissor import solicitar_sessao_servidor
-    from unittest.mock import MagicMock
     import urllib.request
-    from io import BytesIO
+    from unittest.mock import MagicMock
+
+    from editor.core.tunel_retransmissor import solicitar_sessao_servidor
 
     resposta_mock = MagicMock()
-    resposta_mock.read.return_value = json.dumps({
-        "codigo": "k9x2p83a",
-        "codigo_formatado": "k9x2-p83a",
-        "url_previa": "https://previa.arestaclimb.com/k9x2-p83a",
-        "ws_url": "wss://previa.arestaclimb.com/ws?sessao=k9x2p83a&token=fake_jwt",
-    }).encode("utf-8")
+    resposta_mock.read.return_value = json.dumps(
+        {
+            "codigo": "k9x2p83a",
+            "codigo_formatado": "k9x2-p83a",
+            "url_previa": "https://previa.arestaclimb.com/k9x2-p83a",
+            "ws_url": "wss://previa.arestaclimb.com/ws?sessao=k9x2p83a&token=fake_jwt",
+        }
+    ).encode("utf-8")
     resposta_mock.__enter__.return_value = resposta_mock
 
     with patch.object(urllib.request, "urlopen", return_value=resposta_mock) as mock_urlopen:
@@ -315,6 +344,7 @@ def test_deve_solicitar_sessao_ao_servidor_com_sucesso():
 def test_deve_lancar_erro_ao_solicitar_sessao_sem_jwt():
     """Deve lançar ValueError caso jwt_token esteja vazio."""
     from editor.core.tunel_retransmissor import solicitar_sessao_servidor
+
     with pytest.raises(ValueError, match="Token JWT obrigatório"):
         solicitar_sessao_servidor("https://previa.arestaclimb.com", "")
 
@@ -354,6 +384,7 @@ def test_deve_rejeitar_tentativas_de_directory_traversal(pasta_temporaria):
 
 def test_cliente_tunel_reconecta_automaticamente_apos_queda(pasta_temporaria):
     """Cliente do túnel deve restabelecer conexão automaticamente quando o servidor fecha a conexão."""
+
     async def run():
         conexoes = 0
 
@@ -397,6 +428,7 @@ def test_cliente_tunel_reconecta_automaticamente_apos_queda(pasta_temporaria):
 
 def test_cliente_tunel_envia_ping_keepalive_quando_ocioso(pasta_temporaria):
     """Cliente do túnel deve enviar ping de heartbeat quando o canal permanece ocioso."""
+
     async def run():
         pings_recebidos = 0
 
@@ -434,6 +466,7 @@ def test_cliente_tunel_envia_ping_keepalive_quando_ocioso(pasta_temporaria):
 
 def test_heartbeat_dedicado_nao_interrompe_recepcao_de_mensagens(pasta_temporaria):
     """Garante que o heartbeat assíncrono rode em background sem cancelar a escuta de mensagens ws.recv()."""
+
     async def run():
         mensagens_servidor = []
         pings_recebidos = 0
@@ -446,15 +479,19 @@ def test_heartbeat_dedicado_nao_interrompe_recepcao_de_mensagens(pasta_temporari
                 if dados.get("tipo") == "registro":
                     # Simula um intervalo de silêncio e depois envia a resposta
                     await asyncio.sleep(0.15)
-                    await websocket.send(json.dumps({
-                        "tipo": "requisicao_proxy",
-                        "dados": {
-                            "id": "req-lenta",
-                            "metodo": "GET",
-                            "caminho": "/indice.binarypb",
-                            "cabecalhos": {}
-                        }
-                    }))
+                    await websocket.send(
+                        json.dumps(
+                            {
+                                "tipo": "requisicao_proxy",
+                                "dados": {
+                                    "id": "req-lenta",
+                                    "metodo": "GET",
+                                    "caminho": "/indice.binarypb",
+                                    "cabecalhos": {},
+                                },
+                            }
+                        )
+                    )
                 elif dados.get("tipo") == "ping":
                     pings_recebidos += 1
                     await websocket.send(json.dumps({"tipo": "pong"}))
@@ -472,7 +509,10 @@ def test_heartbeat_dedicado_nao_interrompe_recepcao_de_mensagens(pasta_temporari
             tarefa = asyncio.create_task(cliente.executar(intervalo_heartbeat=0.05))
 
             for _ in range(50):
-                if any(m.get("tipo") == "resposta_proxy" and m["dados"]["id"] == "req-lenta" for m in mensagens_servidor):
+                if any(
+                    m.get("tipo") == "resposta_proxy" and m["dados"]["id"] == "req-lenta"
+                    for m in mensagens_servidor
+                ):
                     break
                 await asyncio.sleep(0.05)
 
@@ -480,7 +520,10 @@ def test_heartbeat_dedicado_nao_interrompe_recepcao_de_mensagens(pasta_temporari
             await tarefa
 
             assert pings_recebidos >= 1
-            assert any(m.get("tipo") == "resposta_proxy" and m["dados"]["id"] == "req-lenta" for m in mensagens_servidor)
+            assert any(
+                m.get("tipo") == "resposta_proxy" and m["dados"]["id"] == "req-lenta"
+                for m in mensagens_servidor
+            )
 
     asyncio.run(run())
 
@@ -547,10 +590,14 @@ def test_cliente_tunel_casos_de_borda_e_cobertura(pasta_temporaria):
             async for msg in ws:
                 dados = json.loads(msg)
                 if dados.get("tipo") == "registro":
-                    await ws.send(json.dumps({
-                        "tipo": "requisicao_proxy",
-                        "dados": {"id": "req-cb", "caminho": "/indice.binarypb"}
-                    }))
+                    await ws.send(
+                        json.dumps(
+                            {
+                                "tipo": "requisicao_proxy",
+                                "dados": {"id": "req-cb", "caminho": "/indice.binarypb"},
+                            }
+                        )
+                    )
                     # Envia json inválido para exercitar branch de erro de parse
                     await ws.send("JSON_INVALIDO_NAO_PARSEAVEL")
 
@@ -572,7 +619,6 @@ def test_cliente_tunel_casos_de_borda_e_cobertura(pasta_temporaria):
     async def run_emit_fail():
         mock_ws = MagicMock()
         mock_ws.send.side_effect = Exception("Erro socket send")
-        cliente.executar
         cliente._websocket = mock_ws
         cliente._rodando = True
         await cliente.emitir_recarregamento("setor1")
@@ -601,17 +647,21 @@ def test_cliente_tunel_casos_de_borda_e_cobertura(pasta_temporaria):
         class MockWs:
             async def send(self, data):
                 pass
+
             async def recv(self):
                 await asyncio.sleep(0.05)
                 return json.dumps({"tipo": "pong"})
+
             async def close(self, code=1000, reason=""):
                 pass
+
             async def __aenter__(self):
                 nonlocal chamadas
                 chamadas += 1
                 if chamadas == 1:
                     raise websockets.exceptions.ConnectionClosed(None, None)
                 return self
+
             async def __aexit__(self, exc_type, exc_val, exc_tb):
                 pass
 
@@ -636,6 +686,7 @@ def test_cliente_tunel_casos_de_borda_e_cobertura(pasta_temporaria):
 def test_deve_retornar_etag_sha256_em_requisicao_proxy_com_sucesso(pasta_temporaria):
     """A resposta proxy de arquivo existente deve incluir o cabeçalho etag com o hash SHA-256."""
     import hashlib
+
     cliente = ClienteTunelRetransmissor(
         codigo_sessao="etag_teste",
         pasta_compilado=pasta_temporaria,
@@ -653,6 +704,7 @@ def test_deve_retornar_etag_sha256_em_requisicao_proxy_com_sucesso(pasta_tempora
 def test_deve_retornar_304_not_modified_quando_if_none_match_corresponder(pasta_temporaria):
     """Quando o cabeçalho If-None-Match coincidir com o hash SHA-256, deve responder 304 com corpo vazio."""
     import hashlib
+
     cliente = ClienteTunelRetransmissor(
         codigo_sessao="etag_teste",
         pasta_compilado=pasta_temporaria,
@@ -697,8 +749,3 @@ def test_deve_retornar_200_quando_if_none_match_for_diferente(pasta_temporaria):
     assert resposta["corpoBase64"] != ""
     assert "etag" in resposta["cabecalhos"]
     assert resposta["cabecalhos"]["etag"] != '"hash_antigo_obsoleto"'
-
-
-
-
-

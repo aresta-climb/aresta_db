@@ -9,13 +9,14 @@ Verifica:
 3. Atualização automática do preview de renderização em tempo real.
 """
 
-from typing import Any
 from pathlib import Path
+from typing import Any
+
 from PySide6.QtGui import QUndoStack
 
 from aresta_api.proto.generated.croqui_pb2 import Croqui
-from editor.models.croqui_model import CroquiModel
 from editor.controllers.croqui_controller import CroquiController
+from editor.models.croqui_model import CroquiModel
 from editor.views.widget_editor_dados import WidgetEditorDados, WidgetEditorMarkdown
 
 
@@ -31,10 +32,14 @@ def test_inserir_tag_small_com_texto_selecionado(qapp: Any, tmp_path: Path) -> N
 
     widget_dados = WidgetEditorDados(model, controller)
     campo_desc = croqui.DESCRIPTOR.fields_by_name["descricao"]
-    md_editor = WidgetEditorMarkdown(croqui, campo_desc, widget_dados.form_padrao, parent=widget_dados.form_padrao)
+    md_editor = WidgetEditorMarkdown(
+        croqui, campo_desc, widget_dados.form_padrao, parent=widget_dados.form_padrao
+    )
 
     # Verifica se o botão btn_small existe no layout
-    assert hasattr(md_editor, "btn_small"), "O WidgetEditorMarkdown deve possuir o atributo btn_small"
+    assert hasattr(md_editor, "btn_small"), (
+        "O WidgetEditorMarkdown deve possuir o atributo btn_small"
+    )
 
     # Seleciona 'trilha principal' no editor
     texto_original = "Acesso pela trilha principal."
@@ -65,7 +70,9 @@ def test_inserir_tag_small_sem_selecao_posiciona_cursor_no_meio(qapp: Any, tmp_p
 
     widget_dados = WidgetEditorDados(model, controller)
     campo_desc = croqui.DESCRIPTOR.fields_by_name["descricao"]
-    md_editor = WidgetEditorMarkdown(croqui, campo_desc, widget_dados.form_padrao, parent=widget_dados.form_padrao)
+    md_editor = WidgetEditorMarkdown(
+        croqui, campo_desc, widget_dados.form_padrao, parent=widget_dados.form_padrao
+    )
 
     # Posiciona o cursor no final sem seleção
     cursor = md_editor.editor.textCursor()

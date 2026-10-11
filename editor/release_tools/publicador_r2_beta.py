@@ -11,8 +11,7 @@ import os
 import urllib.error
 import urllib.request
 from pathlib import Path
-from typing import Any, List, Optional
-
+from typing import Any
 
 BUCKET_PADRAO: str = "aresta-serving"
 PREFIXO_PADRAO: str = "editor-beta"
@@ -36,10 +35,10 @@ class PublicadorR2Beta:
 
     def __init__(
         self,
-        cliente_s3: Optional[Any] = None,
+        cliente_s3: Any | None = None,
         bucket: str = BUCKET_PADRAO,
-        zone_id: Optional[str] = None,
-        api_token: Optional[str] = None,
+        zone_id: str | None = None,
+        api_token: str | None = None,
         uri_base: str = URI_BASE_PADRAO,
     ) -> None:
         self.bucket = bucket
@@ -59,25 +58,19 @@ class PublicadorR2Beta:
             import boto3
             from botocore.config import Config
 
-            endpoint = (
-                os.environ.get("R2_ENDPOINT_URL")
-                or os.environ.get("CLOUDFLARE_S3_API_URL")
-            )
+            endpoint = os.environ.get("R2_ENDPOINT_URL") or os.environ.get("CLOUDFLARE_S3_API_URL")
             if not endpoint:
-                account_id = (
-                    os.environ.get("CLOUDFLARE_ACCOUNT_ID")
-                    or os.environ.get("CLOUDFLARE_ACOUNT_ID")
+                account_id = os.environ.get("CLOUDFLARE_ACCOUNT_ID") or os.environ.get(
+                    "CLOUDFLARE_ACOUNT_ID"
                 )
                 if account_id:
                     endpoint = f"https://{account_id}.r2.cloudflarestorage.com"
 
-            access_key = (
-                os.environ.get("AWS_ACCESS_KEY_ID")
-                or os.environ.get("CLOUDFLARE_S3_ACCESS_KEY_ID")
+            access_key = os.environ.get("AWS_ACCESS_KEY_ID") or os.environ.get(
+                "CLOUDFLARE_S3_ACCESS_KEY_ID"
             )
-            secret_key = (
-                os.environ.get("AWS_SECRET_ACCESS_KEY")
-                or os.environ.get("CLOUDFLARE_S3_SECRET_ACCESS_KEY")
+            secret_key = os.environ.get("AWS_SECRET_ACCESS_KEY") or os.environ.get(
+                "CLOUDFLARE_S3_SECRET_ACCESS_KEY"
             )
 
             self._cliente_s3 = boto3.client(
@@ -94,7 +87,7 @@ class PublicadorR2Beta:
         self,
         caminho_local: Path,
         chave_remota: str,
-        tipo_conteudo: Optional[str] = None,
+        tipo_conteudo: str | None = None,
     ) -> None:
         """Envia um arquivo local para o bucket R2 com o cabeçalho Content-Type correto."""
         if not caminho_local.exists():
@@ -108,7 +101,7 @@ class PublicadorR2Beta:
             ExtraArgs={"ContentType": tipo},
         )
 
-    def purgar_cache(self, urls: List[str]) -> bool:
+    def purgar_cache(self, urls: list[str]) -> bool:
         """Dispara requisição de purgação de cache para a lista de URLs na Cloudflare."""
         if not self.zone_id or not self.api_token:
             raise ValueError("Credenciais da Cloudflare ausentes (zone_id ou api_token).")
@@ -135,7 +128,7 @@ class PublicadorR2Beta:
         self,
         caminho_appinstaller: Path,
         caminho_msix: Path,
-        caminho_bat: Optional[Path] = None,
+        caminho_bat: Path | None = None,
     ) -> bool:
         """
         Executa a sequência completa de envio dos artefatos estáticos e invalidação do cache.
