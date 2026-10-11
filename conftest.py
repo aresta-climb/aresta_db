@@ -86,7 +86,9 @@ def pytest_sessionfinish(session: Any, exitstatus: int) -> None:
             pool.waitForDone(1000)
 
         if isinstance(app, QApplication) and not (
-            os.environ.get("CI") or os.environ.get("ARESTA_FAST_EXIT")
+            os.environ.get("CI")
+            or os.environ.get("ARESTA_FAST_EXIT")
+            or os.environ.get("PYTEST_XDIST_WORKER")
         ):
             try:
                 import shiboken6

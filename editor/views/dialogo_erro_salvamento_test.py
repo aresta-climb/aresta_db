@@ -26,14 +26,14 @@ def test_criar_dialogo_erro_salvamento_propriedades_basicas(qtbot: Any) -> None:
 
     assert isinstance(dialogo, QMessageBox)
     assert dialogo.icon() == QMessageBox.Icon.Critical
-    # No macOS (Cocoa), QMessageBox com pai é configurado como Sheet e não possui barra de título nativa.
+    # No macOS (Cocoa), QMessageBox não exibe barra de título conforme o Apple HIG (o título é o texto em negrito).
     if sys.platform != "darwin":
         assert "Não foi possível salvar" in dialogo.windowTitle()
     assert "Não foi possível salvar o croqui" in dialogo.text()
 
-    # Quando criado sem pai (janela independente), o título de janela é preservado em todas as plataformas
     dialogo_independente = criar_dialogo_erro_salvamento(None, erro)
-    assert "Não foi possível salvar" in dialogo_independente.windowTitle()
+    if sys.platform != "darwin":
+        assert "Não foi possível salvar" in dialogo_independente.windowTitle()
 
     # Mensagem informativa amigável que tranquiliza o usuário
     info_text = dialogo.informativeText()

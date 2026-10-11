@@ -29,7 +29,11 @@ class TestConftestTeardown(unittest.TestCase):
         mock_session.config = mock_config
 
         with (
-            patch.dict(os.environ, {"CI": "", "ARESTA_FAST_EXIT": ""}, clear=False),
+            patch.dict(
+                os.environ,
+                {"CI": "", "ARESTA_FAST_EXIT": "", "PYTEST_XDIST_WORKER": ""},
+                clear=False,
+            ),
             patch("PySide6.QtWidgets.QApplication.instance", return_value=mock_app),
             patch("PySide6.QtCore.QThreadPool.globalInstance", return_value=mock_pool),
             patch("shiboken6.delete") as mock_shiboken_delete,
@@ -73,6 +77,31 @@ class TestConftestTeardown(unittest.TestCase):
 
         with (
             patch.dict(os.environ, {"CI": "", "ARESTA_FAST_EXIT": "1"}, clear=False),
+            patch("PySide6.QtWidgets.QApplication.instance", return_value=mock_app),
+            patch("PySide6.QtCore.QThreadPool.globalInstance", return_value=mock_pool),
+            patch("shiboken6.delete") as mock_shiboken_delete,
+        ):
+            conftest.pytest_sessionfinish(mock_session, 0)
+            mock_app.closeAllWindows.assert_called_once()
+            mock_app.processEvents.assert_called_once()
+            mock_pool.waitForDone.assert_called_once_with(1000)
+            mock_shiboken_delete.assert_not_called()
+
+    def test_pytest_sessionfinish_nao_deleta_qapplication_sob_worker_xdist(self) -> None:
+        """Valida que sob workers do pytest-xdist o shiboken6.delete não é chamado para evitar crash no execnet."""
+        from PySide6.QtCore import QThreadPool
+        from PySide6.QtWidgets import QApplication
+
+        mock_app = MagicMock(spec=QApplication)
+        mock_pool = MagicMock(spec=QThreadPool)
+        mock_session = MagicMock()
+
+        with (
+            patch.dict(
+                os.environ,
+                {"CI": "", "ARESTA_FAST_EXIT": "", "PYTEST_XDIST_WORKER": "gw0"},
+                clear=False,
+            ),
             patch("PySide6.QtWidgets.QApplication.instance", return_value=mock_app),
             patch("PySide6.QtCore.QThreadPool.globalInstance", return_value=mock_pool),
             patch("shiboken6.delete") as mock_shiboken_delete,
