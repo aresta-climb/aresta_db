@@ -79,6 +79,7 @@ jobs:
           PYTHONFAULTHANDLER: "1"
           PYTHONUNBUFFERED: "1"
           CI: "true"
+          QT_QPA_PLATFORM: "offscreen"
         run: |
           uv run pytest -n 0 -v -s --durations=10
 

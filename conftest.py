@@ -7,9 +7,35 @@ import sys
 from typing import Any
 from unittest.mock import MagicMock
 
+import pytest
+
+# Garante plataforma gráfica headless (offscreen) antes de qualquer importação de PySide6 ou plugins do pytest
+if "QT_QPA_PLATFORM" not in os.environ:
+    os.environ["QT_QPA_PLATFORM"] = "offscreen"
+
 # Disponibiliza stub de ctypes.windll em plataformas não-Windows para testes unitários
 if not hasattr(ctypes, "windll"):
     setattr(ctypes, "windll", MagicMock())
+
+
+def limpar_janelas_qt_ativas() -> None:
+    """Fecha todas as janelas ativas da QApplication e processa eventos pendentes."""
+    try:
+        from PySide6.QtWidgets import QApplication
+
+        app = QApplication.instance()
+        if isinstance(app, QApplication):
+            app.closeAllWindows()
+            app.processEvents()
+    except Exception:
+        pass
+
+
+@pytest.fixture(autouse=True)
+def _limpar_janelas_qt_apos_teste() -> Any:
+    """Garante que qualquer janela do Qt aberta pelo teste seja fechada e os eventos drenados."""
+    yield
+    limpar_janelas_qt_ativas()
 
 
 def pytest_configure(config: Any) -> None:

@@ -67,8 +67,8 @@ jobs:
         run: |
           sudo apt-get update && sudo apt-get install -y flatpak flatpak-builder ostree
           sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0 || true
-          flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
-          flatpak install -y flathub org.kde.Sdk//6.11 org.kde.Platform//6.11
+          flatpak remote-add --user --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+          flatpak install --user -y flathub org.kde.Sdk//6.11 org.kde.Platform//6.11 io.qt.PySide.BaseApp//6.11
 
       - name: Gerar Manifesto de Dependências Flatpak (pypi-dependencies.json)
         run: |

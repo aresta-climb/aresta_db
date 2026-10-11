@@ -283,6 +283,31 @@ class TestWorkflowReleaseEditor(unittest.TestCase):
             "Deve haver publicação no Cloudflare R2.",
         )
 
+    def test_subactions_etapa_testes_configurada_com_offscreen_e_ci(self) -> None:
+        """Garante que a etapa de testes nos workflows do macOS e Windows define QT_QPA_PLATFORM offscreen e CI true."""
+        for conteudo, nome in [
+            (self.conteudo_macos, "build_editor_macos.yml"),
+            (self.conteudo_windows, "build_editor_windows.yml"),
+        ]:
+            job_key = "build_macos" if "macos" in nome else "build_windows"
+            passos = conteudo["jobs"][job_key]["steps"]
+            passo_testes = next((s for s in passos if "Executar Testes" in s.get("name", "")), None)
+            self.assertIsNotNone(
+                passo_testes, f"Passo 'Executar Testes' não encontrado no workflow {nome}."
+            )
+            assert passo_testes is not None
+            env_vars = passo_testes.get("env", {})
+            self.assertEqual(
+                env_vars.get("QT_QPA_PLATFORM"),
+                "offscreen",
+                f"O workflow {nome} deve definir QT_QPA_PLATFORM como 'offscreen' para evitar falhas gráficas.",
+            )
+            self.assertEqual(
+                str(env_vars.get("CI", "")).lower(),
+                "true",
+                f"O workflow {nome} deve definir CI=true.",
+            )
+
     def test_passo_download_sparkle_obtem_versao_mais_recente_dinamicamente(self) -> None:
         """Garante que o Sparkle é baixado em sua versão mais recente via gh release download sem versão fixa."""
         passos = self.conteudo_macos["jobs"]["build_macos"]["steps"]

@@ -482,16 +482,16 @@ def test_tela_abertura_banner_cofre_trancado_visivel_quando_cofre_indisponivel(q
     mock_gerenciador.cofre_disponivel.return_value = False
 
     abertura = TelaDeAbertura(gerenciador_sessao=mock_gerenciador)
-    abertura.show()
     qtbot.addWidget(abertura)
 
     abertura.iniciar_fluxo_login()
 
-    assert abertura.label_aviso_cofre.isVisible()
+    assert not abertura.label_aviso_cofre.isHidden()
     assert (
         abertura.label_aviso_cofre.text()
         == "O cofre de senhas não foi desbloqueado. Você pode fazer login normalmente, mas sua sessão só será lembrada durante esta execução do app."
     )
+    abertura.close()
 
 
 def test_tela_abertura_banner_cofre_trancado_oculto_quando_cofre_disponivel(qtbot):
@@ -500,25 +500,25 @@ def test_tela_abertura_banner_cofre_trancado_oculto_quando_cofre_disponivel(qtbo
     mock_gerenciador.cofre_disponivel.return_value = True
 
     abertura = TelaDeAbertura(gerenciador_sessao=mock_gerenciador)
-    abertura.show()
     qtbot.addWidget(abertura)
 
     abertura.iniciar_fluxo_login()
 
-    assert not abertura.label_aviso_cofre.isVisible()
+    assert abertura.label_aviso_cofre.isHidden()
+    abertura.close()
 
 
 def test_tela_abertura_banner_cofre_trancado_parametro_explicito(qtbot):
     """Valida que o parâmetro cofre_disponivel em iniciar_fluxo_login controla a visibilidade."""
     abertura = TelaDeAbertura()
-    abertura.show()
     qtbot.addWidget(abertura)
 
     abertura.iniciar_fluxo_login(cofre_disponivel=False)
-    assert abertura.label_aviso_cofre.isVisible()
+    assert not abertura.label_aviso_cofre.isHidden()
 
     abertura.iniciar_fluxo_login(cofre_disponivel=True)
-    assert not abertura.label_aviso_cofre.isVisible()
+    assert abertura.label_aviso_cofre.isHidden()
+    abertura.close()
 
 
 def test_tela_abertura_banner_cofre_trancado_quando_cofre_disponivel_lanca_excecao(qtbot):
@@ -527,22 +527,22 @@ def test_tela_abertura_banner_cofre_trancado_quando_cofre_disponivel_lanca_excec
     mock_gerenciador.cofre_disponivel.side_effect = RuntimeError("Erro de barramento")
 
     abertura = TelaDeAbertura(gerenciador_sessao=mock_gerenciador)
-    abertura.show()
     qtbot.addWidget(abertura)
 
     abertura.iniciar_fluxo_login()
-    assert abertura.label_aviso_cofre.isVisible()
+    assert not abertura.label_aviso_cofre.isHidden()
+    abertura.close()
 
 
 def test_tela_abertura_banner_cofre_quando_gerenciador_sessao_none(qtbot):
     """Valida que quando gerenciador_sessao for None, o banner permanece oculto."""
     abertura = TelaDeAbertura(gerenciador_sessao=None)
     abertura.gerenciador_sessao = None
-    abertura.show()
     qtbot.addWidget(abertura)
 
     abertura.iniciar_fluxo_login()
-    assert not abertura.label_aviso_cofre.isVisible()
+    assert abertura.label_aviso_cofre.isHidden()
+    abertura.close()
 
 
 def test_tela_abertura_init_trata_excecao_ao_instanciar_gerenciador_sessao(qtbot):
@@ -553,3 +553,339 @@ def test_tela_abertura_init_trata_excecao_ao_instanciar_gerenciador_sessao(qtbot
         abertura = TelaDeAbertura()
         qtbot.addWidget(abertura)
         assert abertura.gerenciador_sessao is None
+        abertura.close()
+
+
+def test_tarefa_assincrona_executa_e_emite_sinais(qtbot):
+    """Valida que TarefaAssincrona emite sucesso com retorno e erro quando exceção ocorre."""
+    from editor.views.tela_de_abertura import TarefaAssincrona
+
+    tarefa_ok = TarefaAssincrona(lambda x: x * 2, 21)
+    with qtbot.waitSignal(tarefa_ok.sucesso, timeout=1000) as bloqueador_ok:
+        tarefa_ok.run()
+    assert bloqueador_ok.args[0] == 42
+
+    def _falhar():
+        raise ValueError("Erro assíncrono")
+
+    tarefa_err = TarefaAssincrona(_falhar)
+    with qtbot.waitSignal(tarefa_err.erro, timeout=1000) as bloqueador_err:
+        tarefa_err.run()
+    assert isinstance(bloqueador_err.args[0], ValueError)
+
+
+def test_tela_abertura_atualizar_status_e_progresso(qtbot):
+    """Valida métodos utilitários de atualização de texto de status e barra de progresso."""
+    abertura = TelaDeAbertura()
+    qtbot.addWidget(abertura)
+
+    abertura.atualizar_status("Carregando mapa...")
+    assert abertura.label_status.text() == "Carregando mapa..."
+
+    abertura.atualizar_progresso(75)
+    assert abertura.progress_bar.value() == 75
+    abertura.close()
+
+
+def test_tela_abertura_voltar_para_selecao_encerra_servidor_oauth(qtbot):
+    """Valida que voltar_para_selecao encerra qualquer servidor oauth ativo."""
+    abertura = TelaDeAbertura()
+    qtbot.addWidget(abertura)
+
+    mock_servidor = MagicMock()
+    abertura.servidor_oauth = mock_servidor
+
+    abertura.voltar_para_selecao()
+    mock_servidor.encerrar.assert_called_once()
+    assert abertura.servidor_oauth is None
+    abertura.close()
+
+
+def test_tela_abertura_solicitar_otp_email_invalido(qtbot):
+    """Valida que e-mails vazios ou sem '@' exibem aviso e não disparam tarefa assíncrona."""
+    abertura = TelaDeAbertura()
+    qtbot.addWidget(abertura)
+
+    with patch("PySide6.QtWidgets.QMessageBox.warning") as mock_aviso:
+        abertura.edit_email.setText("emailinvalido")
+        abertura.solicitar_otp()
+        mock_aviso.assert_called_once()
+
+    with patch("PySide6.QtWidgets.QMessageBox.warning") as mock_aviso:
+        abertura.edit_email.setText("   ")
+        abertura.solicitar_otp()
+        mock_aviso.assert_called_once()
+    abertura.close()
+
+
+def test_tela_abertura_validar_otp_codigo_tamanho_invalido(qtbot):
+    """Valida que código com tamanho fora do intervalo (6 a 8 dígitos) exibe aviso."""
+    abertura = TelaDeAbertura()
+    qtbot.addWidget(abertura)
+
+    with patch("PySide6.QtWidgets.QMessageBox.warning") as mock_aviso:
+        abertura.edit_codigo.setText("123")
+        abertura.validar_otp()
+        mock_aviso.assert_called_once()
+    abertura.close()
+
+
+def test_tela_abertura_ao_erro_validar_otp(qtbot):
+    """Valida que falha na validação do OTP exibe mensagem crítica e reabilita o botão."""
+    abertura = TelaDeAbertura()
+    qtbot.addWidget(abertura)
+
+    with patch("PySide6.QtWidgets.QMessageBox.critical") as mock_critico:
+        abertura._ao_erro_validar_otp(ValueError("Código expirado"))
+        mock_critico.assert_called_once()
+        assert abertura.btn_validar_codigo.isEnabled()
+    abertura.close()
+
+
+def test_tela_abertura_validar_otp_solicita_nome_completo_quando_incompleto(qtbot, mock_cliente_auth):
+    """Valida fluxo em que OTP tem sucesso mas exige diálogo de perfil do autor."""
+    from PySide6.QtWidgets import QDialog
+
+    mock_cliente_auth.verificar_codigo_otp.return_value = {
+        "access_token": "jwt-abc",
+        "refresh_token": "refresh-abc",
+        "user": {
+            "id": "uuid-abc",
+            "email": "escalador@arestaclimb.com",
+            "user_metadata": {"nome_completo": "Renato"},
+        },
+    }
+    abertura = TelaDeAbertura(cliente_auth=mock_cliente_auth)
+    qtbot.addWidget(abertura)
+    abertura._email_atual = "escalador@arestaclimb.com"
+
+    with (
+        patch("editor.views.tela_de_abertura.DialogoPerfilAutor") as mock_dialogo_cls,
+        qtbot.waitSignal(abertura.login_concluido, timeout=2000) as bloqueador,
+    ):
+        mock_instancia = mock_dialogo_cls.return_value
+        mock_instancia.exec.return_value = QDialog.DialogCode.Accepted
+        mock_instancia.obter_nome_completo.return_value = "Renato Utsch"
+
+        abertura._ao_sucesso_validar_otp(mock_cliente_auth.verificar_codigo_otp.return_value)
+
+    sessao = bloqueador.args[0]
+    assert sessao.nome_completo == "Renato Utsch"
+    mock_cliente_auth.atualizar_nome_autor.assert_called_once_with("jwt-abc", "Renato Utsch")
+    abertura.close()
+
+
+def test_tela_abertura_validar_otp_dialogo_perfil_rejeitado_cancela(qtbot, mock_cliente_auth):
+    """Valida que se o diálogo de perfil for cancelado, a validação de OTP é abortada."""
+    from PySide6.QtWidgets import QDialog
+
+    dados = {
+        "access_token": "jwt-abc",
+        "refresh_token": "refresh-abc",
+        "user": {
+            "id": "uuid-abc",
+            "email": "escalador@arestaclimb.com",
+            "user_metadata": {"nome_completo": "ApenasNome"},
+        },
+    }
+    abertura = TelaDeAbertura(cliente_auth=mock_cliente_auth)
+    qtbot.addWidget(abertura)
+
+    with patch("editor.views.tela_de_abertura.DialogoPerfilAutor") as mock_dialogo_cls:
+        mock_instancia = mock_dialogo_cls.return_value
+        mock_instancia.exec.return_value = QDialog.DialogCode.Rejected
+        abertura._ao_sucesso_validar_otp(dados)
+
+    mock_cliente_auth.atualizar_nome_autor.assert_not_called()
+    abertura.close()
+
+
+def test_tela_abertura_validar_otp_trata_excecao_ao_atualizar_nome(qtbot, mock_cliente_auth):
+    """Valida que falha no Supabase ao persistir nome completo não aborta a sessão."""
+    from PySide6.QtWidgets import QDialog
+
+    mock_cliente_auth.atualizar_nome_autor.side_effect = RuntimeError("Erro Supabase")
+    dados = {
+        "access_token": "jwt-abc",
+        "refresh_token": "refresh-abc",
+        "user": {
+            "id": "uuid-abc",
+            "email": "escalador@arestaclimb.com",
+            "user_metadata": {"nome_completo": ""},
+        },
+    }
+    abertura = TelaDeAbertura(cliente_auth=mock_cliente_auth)
+    qtbot.addWidget(abertura)
+
+    with (
+        patch("editor.views.tela_de_abertura.DialogoPerfilAutor") as mock_dialogo_cls,
+        qtbot.waitSignal(abertura.login_concluido, timeout=2000) as bloqueador,
+    ):
+        mock_instancia = mock_dialogo_cls.return_value
+        mock_instancia.exec.return_value = QDialog.DialogCode.Accepted
+        mock_instancia.obter_nome_completo.return_value = "Renato Utsch"
+
+        abertura._ao_sucesso_validar_otp(dados)
+
+    assert bloqueador.args[0].nome_completo == "Renato Utsch"
+    abertura.close()
+
+
+def test_tela_abertura_receber_tokens_github_vazio_ou_tipo_invalido(qtbot):
+    """Valida que tokens inválidos ou vazios são ignorados em _ao_receber_tokens_github."""
+    abertura = TelaDeAbertura()
+    qtbot.addWidget(abertura)
+
+    abertura._ao_receber_tokens_github(None)
+    abertura._ao_receber_tokens_github([])
+    abertura._ao_receber_tokens_github("")
+    abertura.close()
+
+
+def test_tela_abertura_receber_tokens_github_sucesso_com_nome_completo(qtbot, mock_cliente_auth):
+    """Valida login bem-sucedido com GitHub quando o perfil já contém nome completo."""
+    mock_cliente_auth.obter_usuario_atual.return_value = {
+        "email": "github@arestaclimb.com",
+        "user_metadata": {"nome_completo": "Renato Utsch"},
+    }
+    abertura = TelaDeAbertura(cliente_auth=mock_cliente_auth)
+    qtbot.addWidget(abertura)
+
+    tokens = {
+        "access_token": "gh-jwt-123",
+        "refresh_token": "gh-refresh-123",
+        "provider_token": "gh-pat-123",
+    }
+
+    with qtbot.waitSignal(abertura.login_concluido, timeout=2000) as bloqueador:
+        abertura._ao_receber_tokens_github(tokens)
+
+    sessao = bloqueador.args[0]
+    assert sessao.email == "github@arestaclimb.com"
+    assert sessao.nome_completo == "Renato Utsch"
+    assert sessao.token_github == "gh-pat-123"
+    abertura.close()
+
+
+def test_tela_abertura_receber_tokens_github_sucesso_com_dialogo_perfil(qtbot, mock_cliente_auth):
+    """Valida login GitHub que solicita nome completo via diálogo de perfil."""
+    from PySide6.QtWidgets import QDialog
+
+    mock_cliente_auth.obter_usuario_atual.return_value = {
+        "email": "github@arestaclimb.com",
+        "user_metadata": {"full_name": "Renato"},
+    }
+    abertura = TelaDeAbertura(cliente_auth=mock_cliente_auth)
+    qtbot.addWidget(abertura)
+
+    tokens = {
+        "access_token": "gh-jwt-456",
+        "refresh_token": "gh-refresh-456",
+    }
+
+    with (
+        patch("editor.views.tela_de_abertura.DialogoPerfilAutor") as mock_dialogo_cls,
+        qtbot.waitSignal(abertura.login_concluido, timeout=2000) as bloqueador,
+    ):
+        mock_instancia = mock_dialogo_cls.return_value
+        mock_instancia.exec.return_value = QDialog.DialogCode.Accepted
+        mock_instancia.obter_nome_completo.return_value = "Renato Utsch"
+
+        abertura._ao_receber_tokens_github(tokens)
+
+    sessao = bloqueador.args[0]
+    assert sessao.nome_completo == "Renato Utsch"
+    mock_cliente_auth.atualizar_nome_autor.assert_called_once_with("gh-jwt-456", "Renato Utsch")
+    abertura.close()
+
+
+def test_tela_abertura_receber_tokens_github_trata_excecao_ao_atualizar_nome(qtbot, mock_cliente_auth):
+    """Valida que falha no Supabase ao atualizar nome do autor no GitHub é tratada graciosamente."""
+    from PySide6.QtWidgets import QDialog
+
+    mock_cliente_auth.obter_usuario_atual.return_value = {
+        "email": "github@arestaclimb.com",
+        "user_metadata": {"full_name": "Renato"},
+    }
+    mock_cliente_auth.atualizar_nome_autor.side_effect = RuntimeError("Erro Supabase")
+    abertura = TelaDeAbertura(cliente_auth=mock_cliente_auth)
+    qtbot.addWidget(abertura)
+
+    tokens = {"access_token": "gh-jwt-456"}
+
+    with (
+        patch("editor.views.tela_de_abertura.DialogoPerfilAutor") as mock_dialogo_cls,
+        qtbot.waitSignal(abertura.login_concluido, timeout=2000) as bloqueador,
+    ):
+        mock_instancia = mock_dialogo_cls.return_value
+        mock_instancia.exec.return_value = QDialog.DialogCode.Accepted
+        mock_instancia.obter_nome_completo.return_value = "Renato Utsch"
+
+        abertura._ao_receber_tokens_github(tokens)
+
+    sessao = bloqueador.args[0]
+    assert sessao.nome_completo == "Renato Utsch"
+    abertura.close()
+
+
+def test_tela_abertura_receber_tokens_github_dialogo_perfil_cancelado(qtbot, mock_cliente_auth):
+    """Valida cancelamento do login GitHub quando usuário rejeita o diálogo de perfil."""
+    from PySide6.QtWidgets import QDialog
+
+    mock_cliente_auth.obter_usuario_atual.return_value = {
+        "email": "github@arestaclimb.com",
+        "user_metadata": {},
+    }
+    abertura = TelaDeAbertura(cliente_auth=mock_cliente_auth)
+    qtbot.addWidget(abertura)
+
+    tokens = {"access_token": "gh-jwt-789"}
+
+    with patch("editor.views.tela_de_abertura.DialogoPerfilAutor") as mock_dialogo_cls:
+        mock_instancia = mock_dialogo_cls.return_value
+        mock_instancia.exec.return_value = QDialog.DialogCode.Rejected
+        abertura._ao_receber_tokens_github(tokens)
+
+    assert not abertura.container_auth_selecao.isHidden()
+    abertura.close()
+
+
+def test_tela_abertura_receber_tokens_github_trata_excecao_obter_usuario(qtbot, mock_cliente_auth):
+    """Valida que exceção ao obter usuário do Supabase no login GitHub é capturada sem crash."""
+    from PySide6.QtWidgets import QDialog
+
+    mock_cliente_auth.obter_usuario_atual.side_effect = RuntimeError("Erro Supabase")
+    abertura = TelaDeAbertura(cliente_auth=mock_cliente_auth)
+    qtbot.addWidget(abertura)
+
+    tokens = {"access_token": "gh-jwt-000"}
+
+    with (
+        patch("editor.views.tela_de_abertura.DialogoPerfilAutor") as mock_dialogo_cls,
+        qtbot.waitSignal(abertura.login_concluido, timeout=2000),
+    ):
+        mock_instancia = mock_dialogo_cls.return_value
+        mock_instancia.exec.return_value = QDialog.DialogCode.Accepted
+        mock_instancia.obter_nome_completo.return_value = "Renato Utsch"
+
+        abertura._ao_receber_tokens_github(tokens)
+    abertura.close()
+
+
+def test_tela_abertura_cancelar_login_github(qtbot):
+    """Valida que cancelar_login_github encerra servidor oauth e retorna para seleção."""
+    abertura = TelaDeAbertura()
+    qtbot.addWidget(abertura)
+
+    mock_servidor = MagicMock()
+    abertura.servidor_oauth = mock_servidor
+
+    abertura.cancelar_login_github()
+    mock_servidor.encerrar.assert_called_once()
+    assert abertura.servidor_oauth is None
+    assert not abertura.container_auth_selecao.isHidden()
+
+    # Testa também quando servidor_oauth for None
+    abertura.cancelar_login_github()
+    assert not abertura.container_auth_selecao.isHidden()
+    abertura.close()

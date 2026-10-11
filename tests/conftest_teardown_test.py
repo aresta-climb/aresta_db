@@ -190,3 +190,33 @@ class TestConftestTeardown(unittest.TestCase):
             if sys.platform == "win32":
                 mock_tp.assert_called_once()
             mock_exit.assert_called_once_with(3)
+
+    def test_limpar_janelas_qt_ativas_fecha_janelas_e_processa_eventos(self) -> None:
+        """Valida que a função fecha janelas e drena a fila de eventos do Qt."""
+        from PySide6.QtWidgets import QApplication
+
+        mock_app = MagicMock(spec=QApplication)
+        with patch("PySide6.QtWidgets.QApplication.instance", return_value=mock_app):
+            conftest.limpar_janelas_qt_ativas()
+            mock_app.closeAllWindows.assert_called_once()
+            mock_app.processEvents.assert_called_once()
+
+    def test_limpar_janelas_qt_ativas_trata_excecao(self) -> None:
+        """Valida que falha inesperada na limpeza de janelas é tratada sem propagar exceção."""
+        with patch(
+            "PySide6.QtWidgets.QApplication.instance", side_effect=RuntimeError("Falha simulada")
+        ):
+            conftest.limpar_janelas_qt_ativas()
+
+    def test_pytest_configure_define_qt_qpa_platform_offscreen(self) -> None:
+        """Valida que pytest_configure define QT_QPA_PLATFORM como offscreen se ausente."""
+        with (
+            patch.dict(os.environ, {}, clear=True),
+            patch("tests.bloqueador_rede.bloquear_acesso_externo"),
+        ):
+            mock_config = MagicMock()
+            conftest.pytest_configure(mock_config)
+            self.assertEqual(os.environ.get("QT_QPA_PLATFORM"), "offscreen")
+            self.assertEqual(os.environ.get("PADDLE_PDX_DISABLE_MODEL_SOURCE_CHECK"), "True")
+            self.assertEqual(os.environ.get("ARESTA_DESATIVAR_TELEMETRIA"), "1")
+
