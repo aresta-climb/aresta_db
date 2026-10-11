@@ -69,6 +69,10 @@ jobs:
           sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0 || true
           sudo flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
           sudo flatpak install -y flathub org.kde.Sdk//6.11 org.kde.Platform//6.11 io.qt.PySide.BaseApp//6.11
+          sudo rm -rf /run/user/$(id -u)/dconf
+          sudo mkdir -p /run/user/$(id -u)/dconf
+          sudo chown -R $(id -u):$(id -g) /run/user/$(id -u)
+          sudo chmod 700 /run/user/$(id -u)
 
       - name: Gerar Manifesto de Dependências Flatpak (pypi-dependencies.json)
         run: |
@@ -77,37 +81,28 @@ jobs:
 
       - name: Configurar Chave GPG e Bootstrap do Repositório OSTree
         env:
-          GPG_PRIVATE_KEY: ${{ secrets.ARESTA_FLATPAK_GPG_PRIVATE_KEY }}
+          GPG_PRIVATE_KEY: ${{ secrets.ARESTA_EDITOR_FLATPAK_GPG_PRIVATE_KEY }}
           PYTHONPATH: .
         run: |
           mkdir -p repo
-          if [ -n "$GPG_PRIVATE_KEY" ]; then
-            echo "$GPG_PRIVATE_KEY" | gpg --batch --import
-            GPG_KEY_ID=$(gpg --list-secret-keys --with-colons | grep '^sec' | cut -d: -f5 | head -n1)
-            echo "GPG_KEY_ID=$GPG_KEY_ID" >> $GITHUB_ENV
-            GPG_PUBLIC_B64=$(gpg --export "$GPG_KEY_ID" | base64 -w0)
-            echo "GPG_PUBLIC_B64=$GPG_PUBLIC_B64" >> $GITHUB_ENV
-            echo "Chave GPG configurada com sucesso para assinatura do repositório."
-          else
-            echo "Aviso: ARESTA_FLATPAK_GPG_PRIVATE_KEY não configurada. Repositório será gerado sem assinatura GPG."
+          if [ -z "$GPG_PRIVATE_KEY" ]; then
+            echo "Erro: A secret ARESTA_EDITOR_FLATPAK_GPG_PRIVATE_KEY não está configurada. A assinatura GPG do repositório Flatpak é estritamente obrigatória para lançamentos."
+            exit 1
           fi
 
-          # Verifica se o repositório remoto já existe no R2 sem suprimir erros com || true
-          python3 -c "
-          from editor.release_tools.publicar_flatpak_r2 import verificar_estado_repositorio_remoto
-          import subprocess
-          import sys
+          echo "$GPG_PRIVATE_KEY" | gpg --batch --import
+          GPG_KEY_ID=$(gpg --list-secret-keys --with-colons | grep '^sec' | cut -d: -f5 | head -n1)
+          if [ -z "$GPG_KEY_ID" ]; then
+            echo "Erro: Não foi possível obter o ID da chave privada GPG importada."
+            exit 1
+          fi
 
-          url_summary = 'https://serving.arestaclimb.com/flatpak/repo/summary'
-          existe = verificar_estado_repositorio_remoto(url_summary)
-          if existe:
-              print('Repositório remoto encontrado no R2. Puxando commit anterior para static deltas...')
-              subprocess.run(['ostree', '--repo=repo', 'remote', 'add', '--if-not-exists', 'aresta-remote', 'https://serving.arestaclimb.com/flatpak/repo'], check=True)
-              subprocess.run(['ostree', '--repo=repo', 'pull', '--mirror', 'aresta-remote', 'app/com.arestaclimb.Editor/x86_64/stable'], check=True)
-          else:
-              print('Primeira publicação histórica detectada. Inicializando repositório limpo...')
-              subprocess.run(['ostree', '--repo=repo', 'init', '--mode=archive-z2'], check=True)
-          "
+          echo "GPG_KEY_ID=$GPG_KEY_ID" >> $GITHUB_ENV
+          GPG_PUBLIC_B64=$(gpg --export "$GPG_KEY_ID" | base64 -w0)
+          echo "GPG_PUBLIC_B64=$GPG_PUBLIC_B64" >> $GITHUB_ENV
+          echo "Chave GPG ($GPG_KEY_ID) configurada com sucesso para assinatura do repositório."
+
+          uv run editor/release_tools/publicar_flatpak_cli.py bootstrap --repo-dir repo
 
       - name: Compilar Repositório Flatpak com Cache
         uses: flatpak/flatpak-github-actions/flatpak-builder@v6
@@ -116,14 +111,11 @@ jobs:
           cache: true
           build-bundle: false
           run-tests: false
+          gpg-sign: ${{ env.GPG_KEY_ID }}
 
       - name: Atualizar Índices do Repositório OSTree e Gerar Deltas
         run: |
-          GPG_OPTS=""
-          if [ -n "$GPG_KEY_ID" ]; then
-            GPG_OPTS="--gpg-sign=$GPG_KEY_ID"
-          fi
-          flatpak build-update-repo --generate-static-deltas $GPG_OPTS repo
+          flatpak build-update-repo --generate-static-deltas --gpg-sign="$GPG_KEY_ID" repo
 
       - name: Gerar e Publicar Source Tarball na Release do GitHub
         env:
@@ -147,38 +139,10 @@ jobs:
           GPG_PUBLIC_B64: ${{ env.GPG_PUBLIC_B64 }}
           PYTHONPATH: .
         run: |
-          python3 -c "
-          import os
-          from pathlib import Path
-          from editor.release_tools.publicar_flatpak_r2 import PublicadorFlatpakR2
-
-          publicador = PublicadorFlatpakR2()
-          print('Sincronizando repositório OSTree para o Cloudflare R2...')
-          chaves = publicador.sincronizar_diretorio_ostree(Path('repo'))
-          print(f'Upload concluído: {len(chaves)} arquivos sincronizados.')
-
-          chave_gpg = os.environ.get('GPG_PUBLIC_B64', '')
-          arquivos_meta = publicador.publicar_metadados(
-              versao='${{ inputs.versao }}',
-              chave_gpg_base64=chave_gpg,
-              diretorio_saida=Path('dist_flatpak_meta'),
-              obrigatoria=True,
-          )
-          print(f'Metadados publicados: {list(arquivos_meta.keys())}')
-
-          if publicador.zone_id and publicador.api_token:
-              urls = publicador.obter_urls_purga()
-              publicador.purgar_cache(urls)
-              print(f'Purgação de cache executada com sucesso para {len(urls)} URLs na Cloudflare.')
-          else:
-              print('Credenciais da Cloudflare ausentes para purgar cache.')
-          "
-
-      # A sincronização direta com o repositório do Flathub fica comentada enquanto o aplicativo
-      # é distribuído de forma soberana pelo repositório OSTree próprio no Cloudflare R2.
-      # - name: Sincronizar Manifesto com Repositório Flathub
-      #   run: |
-      #     echo "Sincronização com Flathub suspensa temporariamente."
+          uv run editor/release_tools/publicar_flatpak_cli.py publicar \
+            --versao "${{ inputs.versao }}" \
+            --repo-dir repo \
+            --chave-gpg-b64 "$GPG_PUBLIC_B64"
 
       - name: Disponibilizar artefatos Linux no GitHub
         uses: actions/upload-artifact@v7

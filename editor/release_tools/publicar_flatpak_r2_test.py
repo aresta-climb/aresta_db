@@ -176,8 +176,28 @@ def test_publicador_flatpak_r2_inicializacao_cliente_s3() -> None:
             assert kwargs["aws_secret_access_key"] == "fake_secret"
 
 
+def test_publicador_flatpak_r2_listar_chaves_remotas_paginacao() -> None:
+    """Verifica se listar_chaves_remotas pagina corretamente múltiplos blocos de chaves."""
+    mock_s3 = MagicMock()
+    mock_paginador = MagicMock()
+    mock_paginador.paginate.return_value = [
+        {"Contents": [{"Key": "k1"}, {"Key": "k2"}]},
+        {"Contents": [{"Key": "k3"}]},
+    ]
+    mock_s3.get_paginator.return_value = mock_paginador
+
+    publicador = PublicadorFlatpakR2(cliente_s3=mock_s3)
+    chaves = publicador.listar_chaves_remotas("flatpak/repo/objects/")
+
+    assert chaves == {"k1", "k2", "k3"}
+    mock_s3.get_paginator.assert_called_once_with("list_objects_v2")
+    mock_paginador.paginate.assert_called_once_with(
+        Bucket="aresta-serving", Prefix="flatpak/repo/objects/"
+    )
+
+
 def test_publicador_flatpak_r2_sincronizar_diretorio_ostree(tmp_path: Path) -> None:
-    """Testa sincronização incremental de arquivos do repositório local com o bucket R2."""
+    """Testa sincronização incremental e concorrente de arquivos do repositório local com o bucket R2."""
     diretorio_repo = tmp_path / "repo"
     diretorio_repo.mkdir()
 
@@ -192,24 +212,20 @@ def test_publicador_flatpak_r2_sincronizar_diretorio_ostree(tmp_path: Path) -> N
     obj_existente.write_bytes(b"dados_existentes")
 
     mock_s3 = MagicMock()
-
-    # Simula que 'existente.filez' já existe no bucket
-    def mock_head_object(Bucket: str, Key: str) -> dict[str, str]:
-        if "existente.filez" in Key:
-            return {"ContentLength": "16"}
-        from botocore.exceptions import ClientError
-
-        raise ClientError({"Error": {"Code": "404"}}, "head_object")
-
-    mock_s3.head_object.side_effect = mock_head_object
+    mock_paginador = MagicMock()
+    mock_paginador.paginate.return_value = [
+        {"Contents": [{"Key": "flatpak/repo/objects/ab/existente.filez"}]}
+    ]
+    mock_s3.get_paginator.return_value = mock_paginador
 
     publicador = PublicadorFlatpakR2(cliente_s3=mock_s3)
-    chaves_enviadas = publicador.sincronizar_diretorio_ostree(diretorio_repo)
+    chaves_enviadas = publicador.sincronizar_diretorio_ostree(diretorio_repo, max_workers=4)
 
     assert "flatpak/repo/config" in chaves_enviadas
     assert "flatpak/repo/summary" in chaves_enviadas
     assert "flatpak/repo/objects/ab/novo.filez" in chaves_enviadas
     assert "flatpak/repo/objects/ab/existente.filez" not in chaves_enviadas
+    assert mock_s3.head_object.call_count == 0
 
     # Valida que todos os uploads usam cabeçalho CacheControl uniforme
     for call in mock_s3.upload_file.call_args_list:
@@ -244,6 +260,17 @@ def test_publicador_flatpak_r2_publicar_metadados(tmp_path: Path) -> None:
         assert path.exists()
 
     assert mock_s3.upload_file.call_count == 3
+
+
+def test_publicador_flatpak_r2_publicar_metadados_sem_chave_gpg_levanta_erro(tmp_path: Path) -> None:
+    """Testa que tentar publicar metadados sem chave pública GPG levanta ValueError."""
+    publicador = PublicadorFlatpakR2(cliente_s3=MagicMock())
+    with pytest.raises(ValueError, match="chave pública GPG"):
+        publicador.publicar_metadados(
+            versao="0.5.0",
+            chave_gpg_base64="",
+            diretorio_saida=tmp_path,
+        )
 
 
 def test_publicador_flatpak_r2_purgar_cache_sucesso() -> None:

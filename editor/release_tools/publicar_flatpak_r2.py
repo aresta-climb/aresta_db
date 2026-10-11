@@ -6,6 +6,7 @@ Biblioteca para publicação do repositório Flatpak OSTree no Cloudflare R2
 e purgação seletiva de cache na CDN Cloudflare.
 """
 
+import concurrent.futures
 import json
 import os
 import urllib.error
@@ -156,21 +157,42 @@ class PublicadorFlatpakR2:
                 aws_access_key_id=access_key,
                 aws_secret_access_key=secret_key,
                 region_name="auto",
-                config=Config(signature_version="s3v4"),
+                config=Config(max_pool_connections=50, signature_version="s3v4"),
             )
         return self._cliente_s3
 
-    def sincronizar_diretorio_ostree(self, diretorio_repo: Path) -> list[str]:
+    def listar_chaves_remotas(self, prefixo: str) -> set[str]:
+        """Lista todas as chaves remotas existentes sob um prefixo no bucket S3/R2."""
+        chaves: set[str] = set()
+        try:
+            if hasattr(self.cliente_s3, "get_paginator"):
+                paginador = self.cliente_s3.get_paginator("list_objects_v2")
+                for pagina in paginador.paginate(Bucket=self.bucket, Prefix=prefixo):
+                    for obj in pagina.get("Contents", []):
+                        chaves.add(obj["Key"])
+            elif hasattr(self.cliente_s3, "list_objects_v2"):
+                resposta = self.cliente_s3.list_objects_v2(Bucket=self.bucket, Prefix=prefixo)
+                for obj in resposta.get("Contents", []):
+                    chaves.add(obj["Key"])
+        except Exception:
+            pass
+        return chaves
+
+    def sincronizar_diretorio_ostree(
+        self, diretorio_repo: Path, max_workers: int = 32
+    ) -> list[str]:
         """
-        Percorre os arquivos do repositório local e envia para o R2.
-        Para arquivos sob objects/, verifica se a chave já existe para evitar re-uploads.
-        Arquivos de índice e metadados são sempre enviados.
+        Percorre os arquivos do repositório local e envia para o R2 em paralelo.
+        Para arquivos sob objects/, pré-lista o conteúdo remoto via list_objects_v2
+        para evitar uploads redundantes e eliminar chamadas individuais a head_object.
         """
         if not diretorio_repo.exists() or not diretorio_repo.is_dir():
             raise FileNotFoundError(f"Diretório de repositório inexistente: {diretorio_repo}")
 
-        chaves_enviadas: list[str] = []
+        prefixo_objects = f"{self.prefixo}/repo/objects/"
+        chaves_existentes = self.listar_chaves_remotas(prefixo_objects)
 
+        arquivos_para_enviar: list[tuple[Path, str]] = []
         for caminho_arquivo in diretorio_repo.rglob("*"):
             if not caminho_arquivo.is_file():
                 continue
@@ -178,26 +200,31 @@ class PublicadorFlatpakR2:
             caminho_relativo = caminho_arquivo.relative_to(diretorio_repo).as_posix()
             chave_remota = f"{self.prefixo}/repo/{caminho_relativo}"
 
-            # Se for um objeto imutável de CAS, verifica se já existe
-            if caminho_relativo.startswith("objects/"):
-                try:
-                    self.cliente_s3.head_object(Bucket=self.bucket, Key=chave_remota)
-                    # Já existe no bucket, pula o upload
-                    continue
-                except Exception:
-                    pass
+            # Se for um objeto imutável de CAS que já existe no bucket, pula
+            if caminho_relativo.startswith("objects/") and chave_remota in chaves_existentes:
+                continue
 
-            tipo = determinar_tipo_conteudo_flatpak(caminho_arquivo)
+            arquivos_para_enviar.append((caminho_arquivo, chave_remota))
+
+        if not arquivos_para_enviar:
+            return []
+
+        def _enviar(par: tuple[Path, str]) -> str:
+            arq, chave = par
+            tipo = determinar_tipo_conteudo_flatpak(arq)
             self.cliente_s3.upload_file(
-                str(caminho_arquivo),
+                str(arq),
                 self.bucket,
-                chave_remota,
+                chave,
                 ExtraArgs={
                     "ContentType": tipo,
                     "CacheControl": CACHE_CONTROL_PADRAO,
                 },
             )
-            chaves_enviadas.append(chave_remota)
+            return chave
+
+        with concurrent.futures.ThreadPoolExecutor(max_workers=max_workers) as executor:
+            chaves_enviadas = list(executor.map(_enviar, arquivos_para_enviar))
 
         return chaves_enviadas
 
@@ -210,6 +237,11 @@ class PublicadorFlatpakR2:
         mensagem: str | None = None,
     ) -> dict[str, Path]:
         """Gera os metadados localmente e faz o upload para a raiz do prefixo flatpak."""
+        if not chave_gpg_base64 or not chave_gpg_base64.strip():
+            raise ValueError(
+                "A chave pública GPG (em base64) é obrigatória para gerar metadados Flatpak assinados."
+            )
+
         diretorio_saida.mkdir(parents=True, exist_ok=True)
 
         caminho_version = diretorio_saida / "version.json"

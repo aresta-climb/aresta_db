@@ -474,4 +474,66 @@ class TestWorkflowReleaseEditor(unittest.TestCase):
         self.assertIn("sudo flatpak remote-add", run_cmd)
         self.assertIn("sudo flatpak install", run_cmd)
         self.assertNotIn("--user", run_cmd)
+        self.assertIn("/run/user/$(id -u)", run_cmd)
+
+    def test_subaction_linux_exige_chave_gpg_e_falha_se_ausente(self) -> None:
+        """Garante que a subaction Linux falha com exit 1 caso a secret ARESTA_FLATPAK_GPG_PRIVATE_KEY esteja ausente."""
+        passos = self.conteudo_linux["jobs"]["build_linux"]["steps"]
+        passo_gpg = next(
+            (s for s in passos if "Configurar Chave GPG" in s.get("name", "")), None
+        )
+        self.assertIsNotNone(passo_gpg, "Passo de configuração de GPG não encontrado.")
+        assert passo_gpg is not None
+        run_cmd = passo_gpg.get("run", "")
+        self.assertIn('-z "$GPG_PRIVATE_KEY"', run_cmd)
+        self.assertIn("exit 1", run_cmd)
+        self.assertNotIn("Repositório será gerado sem assinatura GPG", run_cmd)
+
+    def test_subaction_linux_passa_gpg_sign_no_flatpak_builder_e_no_update_repo(self) -> None:
+        """Garante que flatpak-builder e flatpak build-update-repo assinam commits e índices com a chave GPG."""
+        passos = self.conteudo_linux["jobs"]["build_linux"]["steps"]
+        passo_builder = next(
+            (s for s in passos if "flatpak-github-actions/flatpak-builder" in str(s.get("uses", ""))),
+            None,
+        )
+        self.assertIsNotNone(passo_builder)
+        assert passo_builder is not None
+        self.assertEqual(
+            passo_builder.get("with", {}).get("gpg-sign"),
+            "${{ env.GPG_KEY_ID }}",
+            "flatpak-builder deve receber gpg-sign com a chave GPG.",
+        )
+
+        passo_update = next(
+            (s for s in passos if "Atualizar Índices do Repositório OSTree" in s.get("name", "")),
+            None,
+        )
+        self.assertIsNotNone(passo_update)
+        assert passo_update is not None
+        run_update = passo_update.get("run", "")
+        self.assertIn("--gpg-sign", run_update)
+        self.assertNotIn('GPG_OPTS=""', run_update)
+
+    def test_subaction_linux_utiliza_script_dedicado_para_bootstrap_e_publicacao(self) -> None:
+        """Garante que bootstrap e publicação no Linux usam o script dedicado publicar_flatpak_cli.py sem scripts inline."""
+        passos = self.conteudo_linux["jobs"]["build_linux"]["steps"]
+        passo_bootstrap = next(
+            (s for s in passos if "Configurar Chave GPG" in s.get("name", "")), None
+        )
+        self.assertIsNotNone(passo_bootstrap)
+        assert passo_bootstrap is not None
+        run_boot = passo_bootstrap.get("run", "")
+        self.assertIn("editor/release_tools/publicar_flatpak_cli.py bootstrap", run_boot)
+        self.assertNotIn("python3 -c", run_boot)
+
+        passo_publicar = next(
+            (s for s in passos if "Publicar Repositório Flatpak" in s.get("name", "")), None
+        )
+        self.assertIsNotNone(passo_publicar)
+        assert passo_publicar is not None
+        run_pub = passo_publicar.get("run", "")
+        self.assertIn("editor/release_tools/publicar_flatpak_cli.py publicar", run_pub)
+        self.assertNotIn("python3 -c", run_pub)
+
+
 
