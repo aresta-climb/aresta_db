@@ -9,6 +9,7 @@ e purgação seletiva de cache na CDN Cloudflare.
 import concurrent.futures
 import json
 import os
+import shutil
 import urllib.error
 import urllib.request
 from datetime import UTC, datetime
@@ -20,6 +21,7 @@ PREFIXO_PADRAO: str = "flatpak"
 URI_BASE_PADRAO: str = "https://serving.arestaclimb.com/flatpak"
 URL_RUNTIME_REPO_PADRAO: str = "https://dl.flathub.org/repo/flathub.flatpakrepo"
 CACHE_CONTROL_PADRAO: str = "public, max-age=31536000, immutable"
+CAMINHO_ICONE_PADRAO: Path = Path("editor/flatpak/logo_app.png")
 
 
 def determinar_tipo_conteudo_flatpak(caminho: Path) -> str:
@@ -233,6 +235,7 @@ class PublicadorFlatpakR2:
         versao: str,
         chave_gpg_base64: str,
         diretorio_saida: Path,
+        caminho_icone: Path | None = None,
         obrigatoria: bool = True,
         mensagem: str | None = None,
     ) -> dict[str, Path]:
@@ -276,11 +279,24 @@ class PublicadorFlatpakR2:
             encoding="utf-8",
         )
 
-        arquivos = {
+        arquivos: dict[str, Path] = {
             "version.json": caminho_version,
             "com.arestaclimb.Editor.flatpakref": caminho_flatpakref,
             "aresta.flatpakrepo": caminho_flatpakrepo,
         }
+
+        caminho_icone_efetivo: Path | None = None
+        if caminho_icone is not None:
+            if not caminho_icone.exists():
+                raise FileNotFoundError(f"Arquivo de ícone não encontrado: {caminho_icone}")
+            caminho_icone_efetivo = caminho_icone
+        elif CAMINHO_ICONE_PADRAO.exists():
+            caminho_icone_efetivo = CAMINHO_ICONE_PADRAO
+
+        if caminho_icone_efetivo is not None:
+            caminho_logo = diretorio_saida / "logo.png"
+            shutil.copyfile(caminho_icone_efetivo, caminho_logo)
+            arquivos["logo.png"] = caminho_logo
 
         for nome, caminho in arquivos.items():
             chave_remota = f"{self.prefixo}/{nome}"
@@ -328,4 +344,5 @@ class PublicadorFlatpakR2:
             f"{self.uri_base}/version.json",
             f"{self.uri_base}/com.arestaclimb.Editor.flatpakref",
             f"{self.uri_base}/aresta.flatpakrepo",
+            f"{self.uri_base}/logo.png",
         ]

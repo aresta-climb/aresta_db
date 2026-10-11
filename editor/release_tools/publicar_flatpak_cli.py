@@ -60,11 +60,12 @@ def executar_publicacao(
     repo_dir: Path,
     chave_gpg_base64: str,
     diretorio_meta: Path = Path("dist_flatpak_meta"),
+    caminho_icone: Path | None = Path("editor/flatpak/logo_app.png"),
     publicador: PublicadorFlatpakR2 | None = None,
 ) -> None:
     """
     Sincroniza o repositório OSTree para o R2 em paralelo, gera e publica os metadados
-    (.flatpakref, .flatpakrepo, version.json) e purga o cache na CDN da Cloudflare.
+    (.flatpakref, .flatpakrepo, version.json, logo.png) e purga o cache na CDN da Cloudflare.
     """
     if not chave_gpg_base64 or not chave_gpg_base64.strip():
         raise ValueError(
@@ -82,6 +83,7 @@ def executar_publicacao(
         versao=versao,
         chave_gpg_base64=chave_gpg_base64,
         diretorio_saida=diretorio_meta,
+        caminho_icone=caminho_icone,
         obrigatoria=True,
     )
     print(f"Metadados publicados: {list(arquivos_meta.keys())}")
@@ -92,6 +94,33 @@ def executar_publicacao(
         print(f"Purgação de cache executada com sucesso para {len(urls)} URLs na Cloudflare.")
     else:
         print("Credenciais da Cloudflare ausentes para purgar cache.")
+
+
+def gerar_bundle_flatpak(
+    repo_dir: Path,
+    caminho_saida_bundle: Path,
+    app_id: str = "com.arestaclimb.Editor",
+    branch: str = "stable",
+    chave_gpg_id: str | None = None,
+    runtime_repo: str = "https://dl.flathub.org/repo/flathub.flatpakrepo",
+) -> Path:
+    """
+    Gera o arquivo bundle autossuficiente (.flatpak) assinado a partir do repositório OSTree local.
+    """
+    caminho_saida_bundle = caminho_saida_bundle.resolve()
+    caminho_saida_bundle.parent.mkdir(parents=True, exist_ok=True)
+
+    comando = ["flatpak", "build-bundle"]
+    if chave_gpg_id:
+        comando.append(f"--gpg-sign={chave_gpg_id}")
+    if runtime_repo:
+        comando.append(f"--runtime-repo={runtime_repo}")
+    comando.extend([str(repo_dir.resolve()), str(caminho_saida_bundle), app_id, branch])
+
+    print(f"Gerando bundle Flatpak em {caminho_saida_bundle}...")
+    subprocess.run(comando, check=True)
+    print(f"Bundle Flatpak gerado com sucesso: {caminho_saida_bundle}")
+    return caminho_saida_bundle
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -153,6 +182,49 @@ def main(argv: list[str] | None = None) -> int:
         default=Path("dist_flatpak_meta"),
         help="Diretório onde os arquivos de metadados serão gerados localmente.",
     )
+    parser_pub.add_argument(
+        "--caminho-icone",
+        type=Path,
+        default=Path("editor/flatpak/logo_app.png"),
+        help="Caminho para o ícone PNG da aplicação a ser publicado como logo.png no repositório Flatpak.",
+    )
+
+    # Subcomando: empacotar
+    parser_bundle = subparsers.add_parser(
+        "empacotar", help="Gera o arquivo bundle autossuficiente (.flatpak) a partir do OSTree."
+    )
+    parser_bundle.add_argument(
+        "--repo-dir",
+        type=Path,
+        default=Path("repo"),
+        help="Caminho para o diretório do repositório OSTree local.",
+    )
+    parser_bundle.add_argument(
+        "--saida",
+        type=Path,
+        required=True,
+        help="Caminho do arquivo .flatpak de saída.",
+    )
+    parser_bundle.add_argument(
+        "--chave-gpg-id",
+        default=os.environ.get("GPG_KEY_ID"),
+        help="ID da chave GPG para assinar o bundle.",
+    )
+    parser_bundle.add_argument(
+        "--app-id",
+        default="com.arestaclimb.Editor",
+        help="ID do aplicativo Flatpak.",
+    )
+    parser_bundle.add_argument(
+        "--branch",
+        default="stable",
+        help="Branch do aplicativo.",
+    )
+    parser_bundle.add_argument(
+        "--runtime-repo",
+        default="https://dl.flathub.org/repo/flathub.flatpakrepo",
+        help="URL do repositório de runtime para download automático de dependências.",
+    )
 
     args = parser.parse_args(argv)
 
@@ -171,6 +243,18 @@ def main(argv: list[str] | None = None) -> int:
             repo_dir=args.repo_dir,
             chave_gpg_base64=args.chave_gpg_b64,
             diretorio_meta=args.diretorio_meta,
+            caminho_icone=args.caminho_icone,
+        )
+        return 0
+
+    if args.subcomando == "empacotar":
+        gerar_bundle_flatpak(
+            repo_dir=args.repo_dir,
+            caminho_saida_bundle=args.saida,
+            app_id=args.app_id,
+            branch=args.branch,
+            chave_gpg_id=args.chave_gpg_id,
+            runtime_repo=args.runtime_repo,
         )
         return 0
 

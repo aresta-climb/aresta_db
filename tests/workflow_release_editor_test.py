@@ -283,6 +283,34 @@ class TestWorkflowReleaseEditor(unittest.TestCase):
             "Deve haver publicação no Cloudflare R2.",
         )
 
+    def test_subaction_macos_utiliza_modulo_dedicado_para_configurar_certificado_apple(self) -> None:
+        """Garante que a configuração do certificado Apple no macOS utiliza a biblioteca dedicada para compatibilidade de cifras PBKDF2/Keychain."""
+        passos = self.conteudo_macos["jobs"]["build_macos"]["steps"]
+        passo_cert = next(
+            (s for s in passos if "Configurar Certificado Apple Developer ID" in s.get("name", "")),
+            None,
+        )
+        self.assertIsNotNone(passo_cert, "Passo de configuração de certificado Apple não encontrado.")
+        assert passo_cert is not None
+        run_cmd = passo_cert.get("run", "")
+        self.assertIn("editor.release_tools.configurar_certificado_macos", run_cmd)
+        self.assertNotIn("security create-keychain", run_cmd)
+        env = passo_cert.get("env", {})
+        self.assertEqual(env.get("PYTHONPATH"), ".")
+
+    def test_subaction_macos_disponibiliza_artefatos_dmg_e_outputs(self) -> None:
+        """Garante que o sub-workflow build_editor_macos expõe outputs do DMG e disponibiliza artefatos no GitHub Actions."""
+        job = self.conteudo_macos["jobs"]["build_macos"]
+        outputs = job.get("outputs", {})
+        self.assertIn("dmg_path", outputs, "O job build_macos deve expor output dmg_path.")
+        self.assertIn("dmg_nome", outputs, "O job build_macos deve expor output dmg_nome.")
+
+        passos = job.get("steps", [])
+        passos_artifact = [s for s in passos if "upload-artifact" in str(s.get("uses", ""))]
+        self.assertTrue(len(passos_artifact) >= 2, "Devem existir steps de upload-artifact para o DMG no macOS.")
+        caminhos_artefatos = "\n".join(str(s.get("with", {}).get("path", "")) for s in passos_artifact)
+        self.assertIn("*.dmg", caminhos_artefatos, "O arquivo *.dmg deve estar no path do upload-artifact.")
+
     def test_subactions_etapa_testes_configurada_com_offscreen_e_ci(self) -> None:
         """Garante que a etapa de testes nos workflows do macOS e Windows define QT_QPA_PLATFORM offscreen e CI true."""
         for conteudo, nome in [
@@ -534,6 +562,31 @@ class TestWorkflowReleaseEditor(unittest.TestCase):
         run_pub = passo_publicar.get("run", "")
         self.assertIn("editor/release_tools/publicar_flatpak_cli.py publicar", run_pub)
         self.assertNotIn("python3 -c", run_pub)
+
+    def test_subaction_linux_empacota_bundle_flatpak_e_disponibiliza_artefato_sem_incluir_na_release(self) -> None:
+        """Garante que o bundle .flatpak é gerado assinado, disponibilizado como artefato/output e não anexado à release do GitHub."""
+        passos = self.conteudo_linux["jobs"]["build_linux"]["steps"]
+        passo_bundle = next(
+            (s for s in passos if "Gerar Pacote Flatpak Bundle" in s.get("name", "")), None
+        )
+        self.assertIsNotNone(passo_bundle, "Passo de gerar bundle Flatpak não encontrado.")
+        assert passo_bundle is not None
+        run_bundle = passo_bundle.get("run", "")
+        self.assertIn("editor/release_tools/publicar_flatpak_cli.py empacotar", run_bundle)
+        self.assertIn("--chave-gpg-id", run_bundle)
+
+        # Valida que o bundle .flatpak está nos artefatos disponibilizados no GitHub Actions
+        passos_artifact = [s for s in passos if "upload-artifact" in str(s.get("uses", ""))]
+        self.assertTrue(len(passos_artifact) > 0, "Deve haver step de upload-artifact.")
+        caminhos_artefatos = "\n".join(str(s.get("with", {}).get("path", "")) for s in passos_artifact)
+        self.assertIn("*.flatpak", caminhos_artefatos, "O bundle .flatpak deve estar no path do upload-artifact.")
+
+        # Valida que o bundle .flatpak NÃO é enviado para a release oficial do GitHub
+        passo_release = next((s for s in passos if "gh release upload" in str(s.get("run", ""))), None)
+        if passo_release:
+            run_release = passo_release.get("run", "")
+            self.assertNotIn(".flatpak", run_release, "O bundle .flatpak não deve ser enviado na release do GitHub.")
+
 
 
 

@@ -18,6 +18,9 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
+    outputs:
+      flatpak_bundle_path: ${{ steps.gerar-bundle.outputs.bundle_path }}
+      flatpak_bundle_nome: ${{ steps.gerar-bundle.outputs.bundle_nome }}
     steps:
       - name: Generate Github App Token
         id: app-token
@@ -117,6 +120,18 @@ jobs:
         run: |
           flatpak build-update-repo --generate-static-deltas --gpg-sign="$GPG_KEY_ID" repo
 
+      - name: Gerar Pacote Flatpak Bundle (.flatpak)
+        id: gerar-bundle
+        run: |
+          mkdir -p dist_bundle
+          BUNDLE_PATH="dist_bundle/EditorAresta-${{ inputs.versao }}.flatpak"
+          uv run editor/release_tools/publicar_flatpak_cli.py empacotar \
+            --repo-dir repo \
+            --saida "$BUNDLE_PATH" \
+            --chave-gpg-id "$GPG_KEY_ID"
+          echo "bundle_path=$BUNDLE_PATH" >> $GITHUB_OUTPUT
+          echo "bundle_nome=EditorAresta-${{ inputs.versao }}.flatpak" >> $GITHUB_OUTPUT
+
       - name: Gerar e Publicar Source Tarball na Release do GitHub
         env:
           GH_TOKEN: ${{ steps.app-token.outputs.token }}
@@ -149,8 +164,16 @@ jobs:
         with:
           name: EditorAresta-Linux-Flatpak
           path: |
+            dist_bundle/*.flatpak
             dist_flatpak_meta/*
             editor/flatpak/*
             /tmp/pypi-dependencies.json
           retention-days: 7
+
+      - name: Disponibilizar Bundle Flatpak no GitHub Actions
+        uses: actions/upload-artifact@v7
+        with:
+          name: EditorAresta-${{ inputs.versao }}-Linux-Bundle
+          path: dist_bundle/*.flatpak
+          retention-days: 14
 

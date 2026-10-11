@@ -196,6 +196,42 @@ def test_publicador_flatpak_r2_listar_chaves_remotas_paginacao() -> None:
     )
 
 
+def test_publicador_flatpak_r2_listar_chaves_remotas_sem_paginador() -> None:
+    """Verifica fallback para list_objects_v2 direto quando get_paginator não existir."""
+    mock_s3 = MagicMock(spec=["list_objects_v2"])
+    mock_s3.list_objects_v2.return_value = {"Contents": [{"Key": "direto_1"}]}
+
+    publicador = PublicadorFlatpakR2(cliente_s3=mock_s3)
+    chaves = publicador.listar_chaves_remotas("prefixo/")
+
+    assert chaves == {"direto_1"}
+    mock_s3.list_objects_v2.assert_called_once_with(Bucket="aresta-serving", Prefix="prefixo/")
+
+
+def test_publicador_flatpak_r2_listar_chaves_remotas_falha_ignora_excecao() -> None:
+    """Quando list_objects falha com exceção, retorna conjunto vazio sem quebrar."""
+    mock_s3 = MagicMock()
+    mock_s3.get_paginator.side_effect = RuntimeError("Erro de conexão S3")
+
+    publicador = PublicadorFlatpakR2(cliente_s3=mock_s3)
+    chaves = publicador.listar_chaves_remotas("prefixo/")
+
+    assert chaves == set()
+
+
+def test_publicador_flatpak_r2_sincronizar_diretorio_sem_arquivos(tmp_path: Path) -> None:
+    """Diretório existente mas sem arquivos retorna lista vazia imediatamente."""
+    dir_vazio = tmp_path / "vazio"
+    dir_vazio.mkdir()
+
+    mock_s3 = MagicMock()
+    publicador = PublicadorFlatpakR2(cliente_s3=mock_s3)
+    resultado = publicador.sincronizar_diretorio_ostree(dir_vazio)
+
+    assert resultado == []
+    assert mock_s3.upload_file.call_count == 0
+
+
 def test_publicador_flatpak_r2_sincronizar_diretorio_ostree(tmp_path: Path) -> None:
     """Testa sincronização incremental e concorrente de arquivos do repositório local com o bucket R2."""
     diretorio_repo = tmp_path / "repo"
@@ -241,7 +277,7 @@ def test_publicador_flatpak_r2_sincronizar_diretorio_inexistente() -> None:
 
 
 def test_publicador_flatpak_r2_publicar_metadados(tmp_path: Path) -> None:
-    """Testa geração local e envio para o R2 dos metadados (version.json, .flatpakref, .flatpakrepo)."""
+    """Testa geração local e envio para o R2 dos metadados incluindo logo.png padrão."""
     mock_s3 = MagicMock()
     publicador = PublicadorFlatpakR2(cliente_s3=mock_s3)
 
@@ -255,11 +291,61 @@ def test_publicador_flatpak_r2_publicar_metadados(tmp_path: Path) -> None:
     assert "version.json" in arquivos
     assert "com.arestaclimb.Editor.flatpakref" in arquivos
     assert "aresta.flatpakrepo" in arquivos
+    assert "logo.png" in arquivos
 
     for path in arquivos.values():
         assert path.exists()
 
-    assert mock_s3.upload_file.call_count == 3
+    assert mock_s3.upload_file.call_count == 4
+    chamadas = {call[0][2]: call[1].get("ExtraArgs", {}).get("ContentType") for call in mock_s3.upload_file.call_args_list}
+    assert chamadas.get("flatpak/logo.png") == "image/png"
+
+
+def test_publicador_flatpak_r2_publicar_metadados_icone_customizado(tmp_path: Path) -> None:
+    """Testa publicação de metadados especificando caminho customizado para o ícone."""
+    mock_s3 = MagicMock()
+    publicador = PublicadorFlatpakR2(cliente_s3=mock_s3)
+    icone_custom = tmp_path / "icone_custom.png"
+    icone_custom.write_bytes(b"\x89PNG\r\n\x1a\nfake_custom_icon")
+
+    arquivos = publicador.publicar_metadados(
+        versao="0.5.0",
+        chave_gpg_base64="MOCK_GPG",
+        diretorio_saida=tmp_path / "saida",
+        caminho_icone=icone_custom,
+    )
+
+    assert "logo.png" in arquivos
+    assert (tmp_path / "saida" / "logo.png").read_bytes() == icone_custom.read_bytes()
+
+
+def test_publicador_flatpak_r2_publicar_metadados_icone_inexistente_levanta_erro(tmp_path: Path) -> None:
+    """Passar caminho de ícone inexistente levanta FileNotFoundError."""
+    publicador = PublicadorFlatpakR2(cliente_s3=MagicMock())
+    with pytest.raises(FileNotFoundError, match="Arquivo de ícone não encontrado"):
+        publicador.publicar_metadados(
+            versao="0.5.0",
+            chave_gpg_base64="MOCK_GPG",
+            diretorio_saida=tmp_path,
+            caminho_icone=tmp_path / "nao_existe.png",
+        )
+
+
+def test_publicador_flatpak_r2_publicar_metadados_sem_icone_disponivel(tmp_path: Path) -> None:
+    """Quando o ícone padrão não existe e nenhum foi fornecido, publica os 3 metadados sem falhar."""
+    mock_s3 = MagicMock()
+    publicador = PublicadorFlatpakR2(cliente_s3=mock_s3)
+
+    with patch("editor.release_tools.publicar_flatpak_r2.CAMINHO_ICONE_PADRAO", tmp_path / "icone_fantasma.png"):
+        arquivos = publicador.publicar_metadados(
+            versao="0.5.0",
+            chave_gpg_base64="MOCK_GPG",
+            diretorio_saida=tmp_path,
+            caminho_icone=None,
+        )
+
+        assert "logo.png" not in arquivos
+        assert mock_s3.upload_file.call_count == 3
 
 
 def test_publicador_flatpak_r2_publicar_metadados_sem_chave_gpg_levanta_erro(tmp_path: Path) -> None:
@@ -321,3 +407,4 @@ def test_publicador_flatpak_r2_obter_urls_purga() -> None:
     assert "https://serving.arestaclimb.com/flatpak/version.json" in urls
     assert "https://serving.arestaclimb.com/flatpak/com.arestaclimb.Editor.flatpakref" in urls
     assert "https://serving.arestaclimb.com/flatpak/aresta.flatpakrepo" in urls
+    assert "https://serving.arestaclimb.com/flatpak/logo.png" in urls

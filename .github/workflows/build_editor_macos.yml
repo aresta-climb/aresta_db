@@ -23,6 +23,9 @@ jobs:
     runs-on: macos-14
     permissions:
       contents: read
+    outputs:
+      dmg_path: ${{ steps.empacotar-dmg.outputs.dmg_path }}
+      dmg_nome: ${{ steps.empacotar-dmg.outputs.dmg_nome }}
     steps:
       - name: Generate Github App Token
         id: app-token
@@ -97,19 +100,11 @@ jobs:
 
       - name: Configurar Certificado Apple Developer ID
         env:
+          PYTHONPATH: .
           APPLE_CERT_P12: ${{ secrets.ARESTA_EDITOR_APPLE_CERTIFICATE_P12_BASE64 }}
           APPLE_CERT_PASSWORD: ${{ secrets.ARESTA_EDITOR_APPLE_CERTIFICATE_PASSWORD }}
         run: |
-          if [ -n "$APPLE_CERT_P12" ]; then
-            echo "$APPLE_CERT_P12" | base64 --decode > certificate.p12
-            security create-keychain -p actions build.keychain
-            security default-keychain -s build.keychain
-            security unlock-keychain -p actions build.keychain
-            security import certificate.p12 -k build.keychain -P "$APPLE_CERT_PASSWORD" -T /usr/bin/codesign
-            security set-key-partition-list -S apple-tool:,apple:,codesign: -s -k actions build.keychain
-          else
-            echo "Certificado Apple Developer ID não configurado, pulando etapa."
-          fi
+          python3 -m editor.release_tools.configurar_certificado_macos
 
       - name: Configurar Credenciais de Notarização Apple (App Store Connect API)
         env:
@@ -118,16 +113,18 @@ jobs:
           APPLE_API_ISSUER: ${{ secrets.ARESTA_EDITOR_APPLE_API_ISSUER }}
         run: |
           if [ -n "$APPLE_API_KEY" ]; then
-            echo "$APPLE_API_KEY" | base64 --decode > AuthKey.p8
+            python3 -c "import os, base64; open('AuthKey.p8', 'wb').write(base64.b64decode(os.environ['APPLE_API_KEY'].strip()))"
             xcrun notarytool store-credentials "notary-profile" \
               --key AuthKey.p8 \
               --key-id "$APPLE_API_KEY_ID" \
               --issuer "$APPLE_API_ISSUER"
+            rm -f AuthKey.p8
           else
             echo "Credenciais de API Apple não configuradas, pulando etapa."
           fi
 
       - name: Empacotar e Notarizar DMG
+        id: empacotar-dmg
         env:
           PYTHONPATH: .
           APPLE_CERT_P12: ${{ secrets.ARESTA_EDITOR_APPLE_CERTIFICATE_P12_BASE64 }}
@@ -155,6 +152,9 @@ jobs:
               dry_run=not tem_cert,
           )
           "
+          DMG_PATH="dist_macos/EditorAresta-${{ inputs.versao }}.dmg"
+          echo "dmg_path=$DMG_PATH" >> $GITHUB_OUTPUT
+          echo "dmg_nome=EditorAresta-${{ inputs.versao }}.dmg" >> $GITHUB_OUTPUT
 
       - name: Gerar Feed Sparkle (appcast.xml)
         env:
@@ -248,3 +248,10 @@ jobs:
             dist_macos/*.dmg
             dist_macos/appcast.xml
           retention-days: 7
+
+      - name: Disponibilizar DMG macOS no GitHub Actions
+        uses: actions/upload-artifact@v7
+        with:
+          name: EditorAresta-${{ inputs.versao }}-macOS-DMG
+          path: dist_macos/*.dmg
+          retention-days: 14
