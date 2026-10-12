@@ -140,6 +140,24 @@ def test_filtrar_datas_desnecessarios_remove_fontes_nao_utilizadas():
     assert "recursos\\logo_app.png" in destinos_restantes
 
 
+def test_filtrar_datas_desnecessarios_remove_dist_info_e_egg_info():
+    """Valida se filtrar_datas_desnecessarios remove pastas .dist-info e .egg-info para prevenir falhas de codesign no macOS."""
+    datas_mock = [
+        ("C:\\fake\\websockets-17.2.dist-info\\METADATA", "websockets-17.2.dist-info\\METADATA", "DATA"),
+        ("C:\\fake\\keyring-24.3.0.dist-info\\entry_points.txt", "keyring-24.3.0.dist-info\\entry_points.txt", "DATA"),
+        ("C:\\fake\\pkg_resources.egg-info\\PKG-INFO", "pkg_resources.egg-info\\PKG-INFO", "DATA"),
+        ("C:\\fake\\editor\\recursos\\logo_app.png", "recursos\\logo_app.png", "DATA"),
+    ]
+
+    filtrados = filtrar_datas_desnecessarios(datas_mock)
+    destinos_restantes = [d[1] for d in filtrados]
+
+    assert "websockets-17.2.dist-info\\METADATA" not in destinos_restantes
+    assert "keyring-24.3.0.dist-info\\entry_points.txt" not in destinos_restantes
+    assert "pkg_resources.egg-info\\PKG-INFO" not in destinos_restantes
+    assert "recursos\\logo_app.png" in destinos_restantes
+
+
 def test_obter_argumentos_pyinstaller_usa_arquivo_spec():
     """Valida se os argumentos para o PyInstaller apontam para o arquivo de especificação .spec."""
     args = obter_argumentos_pyinstaller()

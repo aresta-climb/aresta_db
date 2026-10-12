@@ -20,7 +20,7 @@ from editor.release_tools.publicar_flatpak_cli import (
 
 
 def test_executar_bootstrap_repositorio_remoto_existente(tmp_path: Path) -> None:
-    """Quando o repositório remoto existe, deve configurar o remoto e puxar o commit anterior."""
+    """Quando o repositório remoto existe e a pasta é nova, deve inicializar o repo, configurar o remoto e puxar o commit."""
     diretorio_repo = tmp_path / "repo"
     diretorio_repo.mkdir()
 
@@ -30,16 +30,37 @@ def test_executar_bootstrap_repositorio_remoto_existente(tmp_path: Path) -> None
     ), patch("subprocess.run") as mock_run:
         executar_bootstrap(repo_dir=diretorio_repo)
 
-        assert mock_run.call_count == 2
-        primeira_chamada = mock_run.call_args_list[0][0][0]
-        segunda_chamada = mock_run.call_args_list[1][0][0]
+        assert mock_run.call_count == 3
+        chamada_init = mock_run.call_args_list[0][0][0]
+        chamada_remote = mock_run.call_args_list[1][0][0]
+        chamada_pull = mock_run.call_args_list[2][0][0]
 
-        assert "remote" in primeira_chamada and "add" in primeira_chamada
-        assert "pull" in segunda_chamada and "--mirror" in segunda_chamada
+        assert "init" in chamada_init and "--mode=archive-z2" in chamada_init
+        assert "remote" in chamada_remote and "add" in chamada_remote and "--no-gpg-verify" in chamada_remote
+        assert "pull" in chamada_pull and "--mirror" in chamada_pull
+
+
+def test_executar_bootstrap_com_repo_ja_inicializado(tmp_path: Path) -> None:
+    """Quando repo/config já existe, não deve chamar init novamente."""
+    diretorio_repo = tmp_path / "repo"
+    diretorio_repo.mkdir()
+    (diretorio_repo / "config").write_text("[core]\n", encoding="utf-8")
+
+    with patch(
+        "editor.release_tools.publicar_flatpak_cli.verificar_estado_repositorio_remoto",
+        return_value=True,
+    ), patch("subprocess.run") as mock_run:
+        executar_bootstrap(repo_dir=diretorio_repo)
+
+        assert mock_run.call_count == 2
+        chamada_remote = mock_run.call_args_list[0][0][0]
+        chamada_pull = mock_run.call_args_list[1][0][0]
+        assert "remote" in chamada_remote
+        assert "pull" in chamada_pull
 
 
 def test_executar_bootstrap_repositorio_remoto_novo(tmp_path: Path) -> None:
-    """Quando o repositório remoto não existe (bootstrap), inicializa um repositório limpo."""
+    """Quando o repositório remoto não existe (primeira publicação), inicializa repositório limpo."""
     diretorio_repo = tmp_path / "repo"
     diretorio_repo.mkdir()
 
@@ -52,6 +73,26 @@ def test_executar_bootstrap_repositorio_remoto_novo(tmp_path: Path) -> None:
         assert mock_run.call_count == 1
         chamada = mock_run.call_args_list[0][0][0]
         assert "init" in chamada and "--mode=archive-z2" in chamada
+
+
+def test_executar_bootstrap_falha_pull_continua_graciosamente(tmp_path: Path) -> None:
+    """Se pull do commit anterior falhar (ex: ref inexistente no remoto), não quebra o bootstrap."""
+    import subprocess
+    diretorio_repo = tmp_path / "repo"
+    diretorio_repo.mkdir()
+
+    def side_effect_run(cmd, check=True):
+        if "pull" in cmd:
+            raise subprocess.CalledProcessError(1, cmd)
+        return MagicMock()
+
+    with patch(
+        "editor.release_tools.publicar_flatpak_cli.verificar_estado_repositorio_remoto",
+        return_value=True,
+    ), patch("subprocess.run", side_effect=side_effect_run) as mock_run:
+        # Não deve levantar exceção
+        executar_bootstrap(repo_dir=diretorio_repo)
+        assert mock_run.call_count == 3
 
 
 def test_executar_publicacao_sucesso(tmp_path: Path) -> None:

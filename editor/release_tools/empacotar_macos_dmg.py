@@ -10,6 +10,7 @@ e gera a imagem de disco instalável .dmg para distribuição.
 import os
 import shutil
 import subprocess
+import sys
 from pathlib import Path
 
 FEED_SPARKLE_PADRAO: str = "https://serving.arestaclimb.com/editor-macos/appcast.xml"
@@ -126,7 +127,58 @@ def criar_estrutura_bundle_macos(
     )
     (diretorio_contents / "Info.plist").write_text(conteudo_plist, encoding="utf-8")
 
+    # Sanitiza o bundle expurgando metadados pip (.dist-info, .egg-info) e caches
+    sanitizar_bundle_para_codesign(diretorio_destino_app)
+
     return diretorio_destino_app
+
+
+def sanitizar_bundle_para_codesign(
+    caminho_app: Path,
+    dry_run: bool = False,
+) -> list[Path]:
+    """
+    Remove arquivos e pastas que causam falhas no utilitário codesign da Apple.
+    No macOS, o codesign inspeciona qualquer diretório em Contents/MacOS/ cujo nome
+    contenha uma extensão com ponto (como .dist-info ou .egg-info) tratando-o como
+    um sub-bundle aninhado. Como pastas de metadados do pip não são bundles Mach-O válidos,
+    o codesign falha com: 'bundle format unrecognized, invalid, or unsuitable'.
+    Além disso, limpa arquivos .DS_Store, __pycache__ e atributos estendidos (xattr).
+    Retorna a lista de itens removidos.
+    """
+    itens_removidos: list[Path] = []
+
+    if not caminho_app.exists():
+        return itens_removidos
+
+    # 1. Varre o bundle de baixo para cima removendo diretórios e arquivos problemáticos
+    for raiz, pastas, arquivos in os.walk(caminho_app, topdown=False):
+        caminho_raiz = Path(raiz)
+
+        # Remove arquivos .DS_Store e *.pyc residuais
+        for arq in arquivos:
+            if arq == ".DS_Store" or arq.endswith(".pyc"):
+                p_arq = caminho_raiz / arq
+                itens_removidos.append(p_arq)
+                if not dry_run and p_arq.exists():
+                    p_arq.unlink(missing_ok=True)
+
+        # Remove pastas de metadados e caches
+        for pasta in pastas:
+            if pasta.endswith((".dist-info", ".egg-info")) or pasta == "__pycache__":
+                p_pasta = caminho_raiz / pasta
+                itens_removidos.append(p_pasta)
+                if not dry_run and p_pasta.exists():
+                    shutil.rmtree(p_pasta, ignore_errors=True)
+
+    # 2. Limpa atributos estendidos no macOS (quarantine, FinderInfo, etc.)
+    if not dry_run and sys.platform == "darwin":
+        try:
+            subprocess.run(["xattr", "-cr", str(caminho_app)], check=False, capture_output=True)
+        except FileNotFoundError:
+            pass
+
+    return itens_removidos
 
 
 def assinar_bundle_macos(
@@ -139,6 +191,9 @@ def assinar_bundle_macos(
     Assina todos os binários, frameworks e o bundle principal com o Developer ID.
     Retorna a lista de comandos executados.
     """
+    # Garante que o bundle esteja limpo de subcomponentes inválidos antes do codesign
+    sanitizar_bundle_para_codesign(caminho_app, dry_run=dry_run)
+
     comandos_executados: list[str] = []
 
     # Localiza arquivos binários internos (.dylib, .so)

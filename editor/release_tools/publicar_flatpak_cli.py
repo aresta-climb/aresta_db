@@ -29,30 +29,47 @@ def executar_bootstrap(
     ref_app: str = REF_APP_PADRAO,
 ) -> None:
     """
-    Verifica se o repositório remoto já existe no Cloudflare R2.
-    Se existir, configura o remoto e faz pull do commit anterior para geração de static deltas.
-    Caso contrário, inicializa um repositório limpo em modo archive-z2.
+    Inicializa o repositório OSTree local em modo archive-z2 caso ainda não exista.
+    Em seguida, verifica se o repositório remoto já existe no Cloudflare R2.
+    Se existir, configura o remoto e tenta puxar o commit anterior para geração de static deltas.
     """
     repo_dir = repo_dir.resolve()
     repo_dir.mkdir(parents=True, exist_ok=True)
 
-    existe = verificar_estado_repositorio_remoto(url_summary)
-    if existe:
-        print("Repositório remoto encontrado no R2. Puxando commit anterior para static deltas...")
-        subprocess.run(
-            ["ostree", f"--repo={repo_dir}", "remote", "add", "--if-not-exists", "aresta-remote", url_repo],
-            check=True,
-        )
-        subprocess.run(
-            ["ostree", f"--repo={repo_dir}", "pull", "--mirror", "aresta-remote", ref_app],
-            check=True,
-        )
-    else:
-        print("Primeira publicação histórica detectada. Inicializando repositório limpo...")
+    if not (repo_dir / "config").exists():
+        print(f"Inicializando repositório OSTree local em {repo_dir} (archive-z2)...")
         subprocess.run(
             ["ostree", f"--repo={repo_dir}", "init", "--mode=archive-z2"],
             check=True,
         )
+
+    existe = verificar_estado_repositorio_remoto(url_summary)
+    if existe:
+        print("Repositório remoto encontrado no R2. Configurando remoto para static deltas...")
+        subprocess.run(
+            [
+                "ostree",
+                f"--repo={repo_dir}",
+                "remote",
+                "add",
+                "--if-not-exists",
+                "--no-gpg-verify",
+                "aresta-remote",
+                url_repo,
+            ],
+            check=True,
+        )
+        try:
+            print(f"Puxando referência anterior ({ref_app}) para geração de static deltas...")
+            subprocess.run(
+                ["ostree", f"--repo={repo_dir}", "pull", "--mirror", "aresta-remote", ref_app],
+                check=True,
+            )
+            print("Commit anterior puxado com sucesso.")
+        except subprocess.CalledProcessError as e:
+            print(f"Aviso: Não foi possível puxar commit anterior do remoto ({e}). Prosseguindo com repositório limpo.")
+    else:
+        print("Primeira publicação histórica detectada. Repositório local inicializado e pronto.")
 
 
 def executar_publicacao(

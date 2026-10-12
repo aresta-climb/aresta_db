@@ -15,6 +15,7 @@ from editor.release_tools.empacotar_macos_dmg import (
     gerar_conteudo_info_plist,
     gerar_dmg_macos,
     notarizar_dmg_macos,
+    sanitizar_bundle_para_codesign,
 )
 
 
@@ -345,3 +346,110 @@ def test_assinar_bundle_macos_com_sparkle_framework(tmp_path: Path) -> None:
             dry_run=False,
         )
         assert any("Sparkle.framework" in c for c in comandos)
+
+
+def test_sanitizar_bundle_para_codesign_remove_dist_info_egg_info_e_pycache(tmp_path: Path) -> None:
+    """Valida se a sanitização do bundle expurga pastas com ponto (.dist-info, .egg-info) e arquivos residuais."""
+    app_dir = tmp_path / "EditorAresta.app"
+    macos_dir = app_dir / "Contents" / "MacOS"
+    internal_dir = macos_dir / "_internal"
+    internal_dir.mkdir(parents=True)
+
+    # Cria arquivo executável legítimo
+    (macos_dir / "EditorAresta").write_bytes(b"bin")
+
+    # Cria pastas de metadados do pip que causam erro no codesign
+    dist_info = internal_dir / "websockets-17.2.dist-info"
+    dist_info.mkdir()
+    (dist_info / "METADATA").write_text("info", encoding="utf-8")
+
+    egg_info = internal_dir / "modulo.egg-info"
+    egg_info.mkdir()
+    (egg_info / "PKG-INFO").write_text("info", encoding="utf-8")
+
+    pycache = internal_dir / "__pycache__"
+    pycache.mkdir()
+    (pycache / "cache.pyc").write_bytes(b"pyc")
+
+    ds_store = macos_dir / ".DS_Store"
+    ds_store.write_bytes(b"ds_store")
+
+    removidos = sanitizar_bundle_para_codesign(app_dir, dry_run=False)
+
+    assert not dist_info.exists()
+    assert not egg_info.exists()
+    assert not pycache.exists()
+    assert not ds_store.exists()
+    assert (macos_dir / "EditorAresta").exists()
+    assert len(removidos) >= 4
+
+
+def test_sanitizar_bundle_para_codesign_dry_run_nao_deleta_arquivos(tmp_path: Path) -> None:
+    """Valida que em modo dry_run a sanitização identifica os itens sem removê-los do disco."""
+    app_dir = tmp_path / "EditorAresta.app"
+    macos_dir = app_dir / "Contents" / "MacOS"
+    macos_dir.mkdir(parents=True)
+
+    dist_info = macos_dir / "pacote-1.0.0.dist-info"
+    dist_info.mkdir()
+    (dist_info / "METADATA").write_text("info", encoding="utf-8")
+
+    removidos = sanitizar_bundle_para_codesign(app_dir, dry_run=True)
+
+    assert dist_info.exists()
+    assert any("pacote-1.0.0.dist-info" in str(r) for r in removidos)
+
+
+def test_sanitizar_bundle_para_codesign_executa_xattr_no_darwin(tmp_path: Path) -> None:
+    """Valida chamada ao utilitário xattr -cr no macOS."""
+    app_dir = tmp_path / "EditorAresta.app"
+    app_dir.mkdir()
+
+    with patch("sys.platform", "darwin"), patch("subprocess.run") as mock_run:
+        mock_run.return_value = MagicMock(returncode=0)
+        sanitizar_bundle_para_codesign(app_dir, dry_run=False)
+        assert mock_run.call_count == 1
+        assert "xattr" in mock_run.call_args[0][0]
+
+
+def test_sanitizar_bundle_para_codesign_ignora_ausencia_xattr(tmp_path: Path) -> None:
+    """Valida tolerância graciosa caso o utilitário xattr não exista no ambiente."""
+    app_dir = tmp_path / "EditorAresta.app"
+    app_dir.mkdir()
+
+    with patch("sys.platform", "darwin"), patch("subprocess.run", side_effect=FileNotFoundError("xattr missing")):
+        removidos = sanitizar_bundle_para_codesign(app_dir, dry_run=False)
+        assert isinstance(removidos, list)
+
+
+def test_criar_estrutura_bundle_macos_sanitiza_subcomponentes_automaticamente(tmp_path: Path) -> None:
+    """Valida que criar_estrutura_bundle_macos elimina metadados .dist-info ao montar o bundle."""
+    dir_onedir = tmp_path / "onedir"
+    dir_onedir.mkdir()
+    (dir_onedir / "EditorAresta").write_bytes(b"bin")
+
+    # Simula pasta .dist-info vinda do PyInstaller onedir
+    internal_onedir = dir_onedir / "_internal"
+    internal_onedir.mkdir()
+    dist_info = internal_onedir / "websockets-17.2.dist-info"
+    dist_info.mkdir()
+    (dist_info / "METADATA").write_text("info", encoding="utf-8")
+
+    dir_app = tmp_path / "EditorAresta.app"
+
+    criar_estrutura_bundle_macos(
+        diretorio_origem_onedir=dir_onedir,
+        diretorio_destino_app=dir_app,
+        versao="0.4.0",
+    )
+
+    app_dist_info = dir_app / "Contents" / "MacOS" / "_internal" / "websockets-17.2.dist-info"
+    assert not app_dist_info.exists()
+    assert (dir_app / "Contents" / "MacOS" / "EditorAresta").exists()
+
+
+def test_sanitizar_bundle_para_codesign_caminho_inexistente_retorna_vazio(tmp_path: Path) -> None:
+    """Valida retorno de lista vazia ao sanitizar caminho inexistente."""
+    caminho_inexistente = tmp_path / "NaoExiste.app"
+    assert sanitizar_bundle_para_codesign(caminho_inexistente) == []
+
