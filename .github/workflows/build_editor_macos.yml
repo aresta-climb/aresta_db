@@ -255,3 +255,4 @@ jobs:
           name: EditorAresta-${{ inputs.versao }}-macOS-DMG
           path: dist_macos/*.dmg
           retention-days: 14
+

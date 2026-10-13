@@ -3,7 +3,7 @@
 
 import sys
 from pathlib import Path
-from unittest.mock import patch
+from unittest.mock import MagicMock, patch
 
 import pytest
 import yaml
@@ -332,3 +332,185 @@ def test_obter_caminho_repo_base_fallback_excecao(monkeypatch):
 
     monkeypatch.setattr(storage, "GerenciadorCaminhos", falha)
     assert migrador._obter_caminho_repo_base_fallback() is None
+
+
+def test_obter_ultima_versao_migracao_com_arquivos_pyc(tmp_path: Path) -> None:
+    """Valida identificação da versão máxima de migração com arquivos de bytecode .pyc."""
+    migracoes_dir = tmp_path / "migracoes"
+    migracoes_dir.mkdir()
+    (migracoes_dir / "0001_p1.pyc").write_bytes(b"pyc")
+    (migracoes_dir / "0003_p3.pyc").write_bytes(b"pyc")
+    (migracoes_dir / "0003_test.pyc").write_bytes(b"pyc")  # Deve ser ignorado
+
+    mock_path = MockedPath(migracoes_dir)
+    with patch("scripts.migrador.Path", return_value=mock_path):
+        versao = migrador.obter_ultima_versao_migracao()
+        assert versao == 3
+
+
+def test_aplicar_migracoes_com_arquivos_pyc_compilados(tmp_path: Path) -> None:
+    """Valida execução de migrações quando apenas arquivos .pyc compilados existem (cenário de produção)."""
+    import py_compile
+    import textwrap
+
+    migracoes_dir = tmp_path / "migracoes"
+    migracoes_dir.mkdir()
+
+    codigo_migracao = textwrap.dedent("""
+    import yaml
+    def migrar(caminho_croqui):
+        caminho_yaml = caminho_croqui / "croqui.yaml"
+        with open(caminho_yaml, "r", encoding="utf-8") as f:
+            dados = yaml.safe_load(f)
+        dados["executou_pyc"] = True
+        with open(caminho_yaml, "w", encoding="utf-8") as f:
+            yaml.dump(dados, f)
+    """).strip()
+
+    arq_py = migracoes_dir / "0001_teste.py"
+    arq_py.write_text(codigo_migracao, encoding="utf-8")
+    arq_pyc = migracoes_dir / "0001_teste.pyc"
+    py_compile.compile(str(arq_py), cfile=str(arq_pyc), doraise=True)
+    arq_py.unlink()  # Exclui o arquivo fonte .py
+
+    yaml_croqui = "id: croqui_teste\nultima_migracao: 0\n"
+    croqui_dir = configurar_croqui_teste(tmp_path / "croqui", yaml_content=yaml_croqui)
+
+    with patch("scripts.migrador.obter_caminho_migracoes", return_value=migracoes_dir):
+        migrador.aplicar_migracoes(croqui_dir)
+
+    with open(croqui_dir / "croqui.yaml", encoding="utf-8") as f:
+        dados = yaml.safe_load(f)
+    assert dados.get("executou_pyc") is True
+    assert dados.get("ultima_migracao") == 1
+
+
+def test_aplicar_migracoes_prioriza_py_quando_ambos_existem(tmp_path: Path) -> None:
+    """Valida que quando existem .py e .pyc para a mesma migração, não há duplicação e .py é preferido."""
+    import py_compile
+    import textwrap
+
+    migracoes_dir = tmp_path / "migracoes"
+    migracoes_dir.mkdir()
+
+    codigo_py = textwrap.dedent("""
+    import yaml
+    def migrar(caminho_croqui):
+        caminho_yaml = caminho_croqui / "croqui.yaml"
+        with open(caminho_yaml, "r", encoding="utf-8") as f:
+            dados = yaml.safe_load(f)
+        dados["origem"] = "fonte_py"
+        with open(caminho_yaml, "w", encoding="utf-8") as f:
+            yaml.dump(dados, f)
+    """).strip()
+
+    arq_py = migracoes_dir / "0001_teste.py"
+    arq_py.write_text(codigo_py, encoding="utf-8")
+    arq_pyc = migracoes_dir / "0001_teste.pyc"
+    py_compile.compile(str(arq_py), cfile=str(arq_pyc), doraise=True)
+
+    yaml_croqui = "id: croqui_teste\nultima_migracao: 0\n"
+    croqui_dir = configurar_croqui_teste(tmp_path / "croqui", yaml_content=yaml_croqui)
+
+    with patch("scripts.migrador.obter_caminho_migracoes", return_value=migracoes_dir):
+        migrador.aplicar_migracoes(croqui_dir)
+
+    with open(croqui_dir / "croqui.yaml", encoding="utf-8") as f:
+        dados = yaml.safe_load(f)
+    assert dados.get("origem") == "fonte_py"
+    assert dados.get("ultima_migracao") == 1
+
+
+def test_aplicar_migracoes_quando_yaml_nao_existe(tmp_path: Path) -> None:
+    """Valida retorno imediato quando o arquivo croqui.yaml não existe no diretório."""
+    croqui_vazio = tmp_path / "croqui_vazio"
+    croqui_vazio.mkdir()
+    migrador.aplicar_migracoes(croqui_vazio)
+
+
+def test_aplicar_migracoes_ultima_migracao_formato_string_e_invalido(tmp_path: Path) -> None:
+    """Valida conversão resiliente de ultima_migracao quando presente como string numérica ou inválida."""
+    migracoes_dir = tmp_path / "migracoes"
+    migracoes_dir.mkdir()
+    (migracoes_dir / "0001_p1.py").write_text("def migrar(c): pass", encoding="utf-8")
+
+    # Caso 1: string numérica ("1") -> não deve rodar migração 1
+    croqui_dir1 = configurar_croqui_teste(
+        tmp_path / "croqui1", yaml_content="ultima_migracao: '1'\n"
+    )
+    with patch("scripts.migrador.obter_caminho_migracoes", return_value=migracoes_dir):
+        migrador.aplicar_migracoes(croqui_dir1)
+
+    # Caso 2: string não convertível ("invalido") -> fallback para 0 e executa migração 1
+    croqui_dir2 = configurar_croqui_teste(
+        tmp_path / "croqui2", yaml_content="ultima_migracao: 'invalido'\n"
+    )
+    with patch("scripts.migrador.obter_caminho_migracoes", return_value=migracoes_dir):
+        migrador.aplicar_migracoes(croqui_dir2)
+    with open(croqui_dir2 / "croqui.yaml", encoding="utf-8") as f:
+        dados = yaml.safe_load(f)
+    assert dados.get("ultima_migracao") == 1
+
+
+def test_aplicar_migracoes_sem_migracoes_pendentes(tmp_path: Path) -> None:
+    """Valida retorno antecipado quando a versão do croqui já é superior ou igual às migrações existentes."""
+    migracoes_dir = tmp_path / "migracoes"
+    migracoes_dir.mkdir()
+    (migracoes_dir / "0001_p1.py").write_text("def migrar(c): pass", encoding="utf-8")
+
+    croqui_dir = configurar_croqui_teste(tmp_path / "croqui", yaml_content="ultima_migracao: 5\n")
+    with patch("scripts.migrador.obter_caminho_migracoes", return_value=migracoes_dir):
+        migrador.aplicar_migracoes(croqui_dir)
+
+
+def test_aplicar_migracoes_modulo_sem_loader(tmp_path: Path) -> None:
+    """Valida tratamento seguro quando importlib retorna spec sem loader."""
+    migracoes_dir = tmp_path / "migracoes"
+    migracoes_dir.mkdir()
+    (migracoes_dir / "0001_p1.py").write_text("def migrar(c): pass", encoding="utf-8")
+
+    croqui_dir = configurar_croqui_teste(tmp_path / "croqui", yaml_content="ultima_migracao: 0\n")
+
+    with (
+        patch("scripts.migrador.obter_caminho_migracoes", return_value=migracoes_dir),
+        patch("importlib.util.spec_from_file_location", return_value=None),
+    ):
+        migrador.aplicar_migracoes(croqui_dir)
+
+
+def test_aplicar_migracoes_falha_na_execucao_relanca_excecao(tmp_path: Path) -> None:
+    """Valida que exceções levantadas na função migrar() são registradas e relançadas."""
+    migracoes_dir = tmp_path / "migracoes"
+    migracoes_dir.mkdir()
+    (migracoes_dir / "0001_falha.py").write_text(
+        "def migrar(c): raise ValueError('Erro fatal')", encoding="utf-8"
+    )
+
+    croqui_dir = configurar_croqui_teste(
+        tmp_path / "croqui_falha", yaml_content="ultima_migracao: 0\n"
+    )
+
+    with patch("scripts.migrador.obter_caminho_migracoes", return_value=migracoes_dir):
+        with pytest.raises(ValueError, match="Erro fatal"):
+            migrador.aplicar_migracoes(croqui_dir)
+
+
+def test_obter_e_aplicar_migracoes_ignora_excecao_conversao_inteiro(tmp_path: Path) -> None:
+    """Valida tratamento defensivo caso a conversão para inteiro falhe em nomes compatíveis com a regex."""
+    migracoes_dir = tmp_path / "migracoes"
+    migracoes_dir.mkdir()
+    (migracoes_dir / "0001_teste.py").write_text("def migrar(c): pass", encoding="utf-8")
+
+    croqui_dir = configurar_croqui_teste(tmp_path / "croqui", yaml_content="ultima_migracao: 0\n")
+
+    mock_match = MagicMock()
+    mock_match.group.return_value = "invalido"
+    mock_regex = MagicMock()
+    mock_regex.match.return_value = mock_match
+
+    with (
+        patch("scripts.migrador.obter_caminho_migracoes", return_value=migracoes_dir),
+        patch.object(migrador, "EXPRESSAO_MIGRACAO", mock_regex),
+    ):
+        migrador.aplicar_migracoes(croqui_dir)
+        assert migrador.obter_ultima_versao_migracao() == 0

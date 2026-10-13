@@ -531,6 +531,11 @@ class TestWorkflowReleaseEditor(unittest.TestCase):
             "${{ env.GPG_KEY_ID }}",
             "flatpak-builder deve receber gpg-sign com a chave GPG.",
         )
+        self.assertEqual(
+            passo_builder.get("with", {}).get("branch"),
+            "stable",
+            "flatpak-builder deve receber branch: stable explicitamente para evitar fallback para master.",
+        )
 
         passo_update = next(
             (s for s in passos if "Atualizar Índices do Repositório OSTree" in s.get("name", "")),

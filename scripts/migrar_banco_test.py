@@ -29,6 +29,24 @@ def test_obter_lista_migracoes(tmp_path):
     assert "0002_centralizar.py" in str(migracoes[1][1])
 
 
+def test_obter_lista_migracoes_com_pyc(tmp_path):
+    import py_compile
+
+    migracoes_dir = tmp_path / "migracoes"
+    migracoes_dir.mkdir()
+
+    arq_py = migracoes_dir / "0001_initial.py"
+    arq_py.write_text("MIGRATION_ID = 1\n", encoding="utf-8")
+    arq_pyc = migracoes_dir / "0001_initial.pyc"
+    py_compile.compile(str(arq_py), cfile=str(arq_pyc), doraise=True)
+    arq_py.unlink()
+
+    migracoes = obter_lista_migracoes(migracoes_dir)
+    assert len(migracoes) == 1
+    assert migracoes[0][0] == 1
+    assert "0001_initial.pyc" in str(migracoes[0][1])
+
+
 def test_migrar_todos_os_croquis(tmp_path, capsys):
     # DADO um banco de dados com croquis e scripts de migração
     db_dir = tmp_path / "database"

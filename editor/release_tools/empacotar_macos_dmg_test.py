@@ -11,6 +11,7 @@ from unittest.mock import MagicMock, patch
 from editor.release_tools.empacotar_macos_dmg import (
     assinar_bundle_macos,
     criar_estrutura_bundle_macos,
+    eh_binario_mach_o,
     empacotar_distribuicao_macos,
     gerar_conteudo_info_plist,
     gerar_dmg_macos,
@@ -418,12 +419,17 @@ def test_sanitizar_bundle_para_codesign_ignora_ausencia_xattr(tmp_path: Path) ->
     app_dir = tmp_path / "EditorAresta.app"
     app_dir.mkdir()
 
-    with patch("sys.platform", "darwin"), patch("subprocess.run", side_effect=FileNotFoundError("xattr missing")):
+    with (
+        patch("sys.platform", "darwin"),
+        patch("subprocess.run", side_effect=FileNotFoundError("xattr missing")),
+    ):
         removidos = sanitizar_bundle_para_codesign(app_dir, dry_run=False)
         assert isinstance(removidos, list)
 
 
-def test_criar_estrutura_bundle_macos_sanitiza_subcomponentes_automaticamente(tmp_path: Path) -> None:
+def test_criar_estrutura_bundle_macos_sanitiza_subcomponentes_automaticamente(
+    tmp_path: Path,
+) -> None:
     """Valida que criar_estrutura_bundle_macos elimina metadados .dist-info ao montar o bundle."""
     dir_onedir = tmp_path / "onedir"
     dir_onedir.mkdir()
@@ -455,7 +461,9 @@ def test_sanitizar_bundle_para_codesign_caminho_inexistente_retorna_vazio(tmp_pa
     assert sanitizar_bundle_para_codesign(caminho_inexistente) == []
 
 
-def test_sanitizar_bundle_para_codesign_remove_arquivos_de_teste_e_pasta_tests(tmp_path: Path) -> None:
+def test_sanitizar_bundle_para_codesign_remove_arquivos_de_teste_e_pasta_tests(
+    tmp_path: Path,
+) -> None:
     """Valida que arquivos de teste (*_test.py, conftest.py) e pastas tests são expurgados do bundle."""
     app_dir = tmp_path / "EditorAresta.app"
     macos_dir = app_dir / "Contents" / "MacOS"
@@ -479,7 +487,8 @@ def test_sanitizar_bundle_para_codesign_remove_arquivos_de_teste_e_pasta_tests(t
 
     removidos = sanitizar_bundle_para_codesign(app_dir, dry_run=False)
 
-    assert arquivo_prod.exists()
+    assert not arquivo_prod.exists()
+    assert (migracoes_dir / "0005_migrar_uids_e_rotulos.pyc").exists()
     assert not arquivo_teste.exists()
     assert not conftest.exists()
     assert not tests_dir.exists()
@@ -487,29 +496,36 @@ def test_sanitizar_bundle_para_codesign_remove_arquivos_de_teste_e_pasta_tests(t
     assert any("conftest.py" in str(r) for r in removidos)
 
 
-def test_sanitizar_bundle_para_codesign_remove_permissao_execucao_de_arquivos_comuns(tmp_path: Path) -> None:
+def test_sanitizar_bundle_para_codesign_remove_permissao_execucao_de_arquivos_comuns(
+    tmp_path: Path,
+) -> None:
     """Valida que arquivos não-binários perdem o bit executável (+x) para prevenir erro 'code object is not signed at all'."""
     app_dir = tmp_path / "EditorAresta.app"
     macos_dir = app_dir / "Contents" / "MacOS"
     internal_dir = macos_dir / "_internal"
     internal_dir.mkdir(parents=True)
 
-    arquivo_py = internal_dir / "script.py"
-    arquivo_py.write_text("print(1)", encoding="utf-8")
+    arquivo_txt = internal_dir / "dados.txt"
+    arquivo_txt.write_text("dados", encoding="utf-8")
 
     executavel_principal = macos_dir / "EditorAresta"
     executavel_principal.write_bytes(b"binario_mach_o")
 
     # Mocka st_mode com bit executável ativo (0o755) para cobrir o branch de remoção do bit
     mock_stat = MagicMock(st_mode=0o100755)
-    with patch.object(Path, "stat", return_value=mock_stat), patch.object(Path, "chmod") as mock_chmod:
+    with (
+        patch.object(Path, "stat", return_value=mock_stat),
+        patch.object(Path, "chmod") as mock_chmod,
+    ):
         sanitizar_bundle_para_codesign(app_dir, dry_run=False)
         assert mock_chmod.call_count >= 1
 
     # Cobre também a captura defensiva de OSError no chmod
-    with patch.object(Path, "stat", return_value=mock_stat), patch.object(Path, "chmod", side_effect=OSError("Permissao negada")):
+    with (
+        patch.object(Path, "stat", return_value=mock_stat),
+        patch.object(Path, "chmod", side_effect=OSError("Permissao negada")),
+    ):
         sanitizar_bundle_para_codesign(app_dir, dry_run=False)
-
 
 
 def test_assinar_bundle_macos_assina_executavel_principal_antes_do_bundle(tmp_path: Path) -> None:
@@ -531,11 +547,130 @@ def test_assinar_bundle_macos_assina_executavel_principal_antes_do_bundle(tmp_pa
         cmd_executavel = next((c for c in comandos if c.endswith("EditorAresta")), None)
         cmd_app = next((c for c in comandos if c.endswith("EditorAresta.app")), None)
 
-        assert cmd_executavel is not None, "Executável principal Contents/MacOS/EditorAresta deve ser assinado."
+        assert cmd_executavel is not None, (
+            "Executável principal Contents/MacOS/EditorAresta deve ser assinado."
+        )
         assert cmd_app is not None, "Bundle EditorAresta.app raiz deve ser assinado."
 
         idx_executavel = comandos.index(cmd_executavel)
         idx_app = comandos.index(cmd_app)
-        assert idx_executavel < idx_app, "O executável principal deve ser assinado ANTES do bundle pai."
+        assert idx_executavel < idx_app, (
+            "O executável principal deve ser assinado ANTES do bundle pai."
+        )
 
 
+def test_eh_binario_mach_o(tmp_path: Path) -> None:
+    """Valida identificação de binários Mach-O por assinatura magic bytes de 4 bytes."""
+    arq_macho_64 = tmp_path / "bin_macho_64"
+    arq_macho_64.write_bytes(b"\xcf\xfa\xed\xfe" + b"\x00" * 20)
+
+    arq_macho_fat = tmp_path / "bin_macho_fat"
+    arq_macho_fat.write_bytes(b"\xca\xfe\xba\xbe" + b"\x00" * 20)
+
+    arq_texto = tmp_path / "script.py"
+    arq_texto.write_text("print(1)", encoding="utf-8")
+
+    arq_curto = tmp_path / "curto"
+    arq_curto.write_bytes(b"\x01\x02")
+
+    pasta = tmp_path / "subpasta"
+    pasta.mkdir()
+
+    assert eh_binario_mach_o(arq_macho_64) is True
+    assert eh_binario_mach_o(arq_macho_fat) is True
+    assert eh_binario_mach_o(arq_texto) is False
+    assert eh_binario_mach_o(arq_curto) is False
+    assert eh_binario_mach_o(pasta) is False
+    assert eh_binario_mach_o(tmp_path / "inexistente") is False
+
+
+def test_sanitizar_bundle_para_codesign_compila_scripts_py_para_pyc_e_remove_fonte(
+    tmp_path: Path,
+) -> None:
+    """Valida que scripts .py de produção em Contents/MacOS são compilados para .pyc e o fonte .py removido."""
+    app_dir = tmp_path / "EditorAresta.app"
+    migracoes_dir = app_dir / "Contents" / "MacOS" / "_internal" / "migracoes"
+    migracoes_dir.mkdir(parents=True)
+
+    script_migracao = migracoes_dir / "0003_migrar_mapas_gerais.py"
+    script_migracao.write_text("MIGRATION_ID = 3\ndef migrar(c): pass\n", encoding="utf-8")
+
+    removidos = sanitizar_bundle_para_codesign(app_dir, dry_run=False)
+
+    assert not script_migracao.exists(), "O script .py original deve ser removido após compilação"
+    arquivo_pyc = migracoes_dir / "0003_migrar_mapas_gerais.pyc"
+    assert arquivo_pyc.exists(), "O arquivo bytecode .pyc deve ter sido gerado"
+    assert arquivo_pyc.stat().st_size > 0
+    assert any("0003_migrar_mapas_gerais.py" in str(r) for r in removidos)
+
+
+def test_sanitizar_bundle_para_codesign_compilacao_py_trata_excecao(tmp_path: Path) -> None:
+    """Valida que falhas inesperadas na compilação do py_compile são tratadas defensivamente."""
+    app_dir = tmp_path / "EditorAresta.app"
+    migracoes_dir = app_dir / "Contents" / "MacOS" / "_internal" / "migracoes"
+    migracoes_dir.mkdir(parents=True)
+
+    script_migracao = migracoes_dir / "0003_migrar_mapas_gerais.py"
+    script_migracao.write_text("codigo", encoding="utf-8")
+
+    with patch("py_compile.compile", side_effect=OSError("Falha de IO")):
+        removidos = sanitizar_bundle_para_codesign(app_dir, dry_run=False)
+        assert isinstance(removidos, list)
+
+
+def test_assinar_bundle_macos_detecta_binario_macho_por_magic_bytes(tmp_path: Path) -> None:
+    """Valida que binários Mach-O sem extensão .dylib/.so dentro de _internal são assinados."""
+    app_dir = tmp_path / "EditorAresta.app"
+    internal_bin_dir = app_dir / "Contents" / "MacOS" / "_internal" / "bin"
+    internal_bin_dir.mkdir(parents=True)
+
+    bin_auxiliar = internal_bin_dir / "python_helper"
+    bin_auxiliar.write_bytes(b"\xcf\xfa\xed\xfe" + b"\x00" * 30)
+
+    executavel_principal = app_dir / "Contents" / "MacOS" / "EditorAresta"
+    executavel_principal.write_bytes(b"binario_executavel")
+
+    with patch("subprocess.run") as mock_run:
+        mock_run.return_value = MagicMock(returncode=0)
+        comandos = assinar_bundle_macos(
+            caminho_app=app_dir,
+            identidade_assinatura="Developer ID",
+            dry_run=False,
+        )
+
+        assert any("python_helper" in cmd for cmd in comandos), (
+            "Binário Mach-O auxiliar deve ser assinado"
+        )
+
+
+def test_eh_binario_mach_o_captura_oserror(tmp_path: Path) -> None:
+    """Valida que falha de IO ao ler cabeçalho retorna False."""
+    arquivo = tmp_path / "arquivo_com_erro"
+    arquivo.write_bytes(b"1234")
+
+    with patch("builtins.open", side_effect=OSError("Erro de permissao")):
+        assert eh_binario_mach_o(arquivo) is False
+
+
+def test_assinar_bundle_macos_ignora_symlinks(tmp_path: Path) -> None:
+    """Valida que links simbólicos não são adicionados na lista de binários a assinar."""
+    app_dir = tmp_path / "EditorAresta.app"
+    internal_bin_dir = app_dir / "Contents" / "MacOS" / "_internal"
+    internal_bin_dir.mkdir(parents=True)
+
+    arquivo_dylib = internal_bin_dir / "libreal.dylib"
+    arquivo_dylib.write_bytes(b"real")
+
+    symlink_dylib = internal_bin_dir / "liblink.dylib"
+    symlink_dylib.write_bytes(b"link")
+
+    def mock_is_symlink(self: Path) -> bool:
+        return self.name == "liblink.dylib"
+
+    with patch.object(Path, "is_symlink", mock_is_symlink):
+        comandos = assinar_bundle_macos(
+            caminho_app=app_dir, identidade_assinatura="Dev", dry_run=True
+        )
+
+    assert any("libreal.dylib" in c for c in comandos)
+    assert not any("liblink.dylib" in c for c in comandos)

@@ -133,21 +133,49 @@ def criar_estrutura_bundle_macos(
     return diretorio_destino_app
 
 
+ASSINATURAS_MAGIC_MACH_O: tuple[bytes, ...] = (
+    b"\xfe\xed\xfa\xce",  # Mach-O 32-bit big-endian
+    b"\xce\xfa\xed\xfe",  # Mach-O 32-bit little-endian
+    b"\xfe\xed\xfa\xcf",  # Mach-O 64-bit big-endian
+    b"\xcf\xfa\xed\xfe",  # Mach-O 64-bit little-endian (ARM64 / x86_64)
+    b"\xca\xfe\xba\xbe",  # Mach-O Universal Binary / Fat binary
+    b"\xbe\xba\xfe\xca",  # Mach-O Universal Binary inverso
+)
+
+
+def eh_binario_mach_o(caminho: Path) -> bool:
+    """
+    Verifica se um arquivo é um executável ou biblioteca Mach-O através de seus magic bytes iniciais.
+    """
+    try:
+        if not caminho.is_file() or caminho.is_symlink():
+            return False
+        with open(caminho, "rb") as f:
+            cabecalho = f.read(4)
+        return len(cabecalho) == 4 and cabecalho in ASSINATURAS_MAGIC_MACH_O
+    except OSError:
+        return False
+
+
 def sanitizar_bundle_para_codesign(
     caminho_app: Path,
     dry_run: bool = False,
 ) -> list[Path]:
     """
     Remove arquivos e pastas que causam falhas no utilitário codesign da Apple.
-    No macOS, o codesign inspeciona qualquer diretório em Contents/MacOS/ cujo nome
-    contenha uma extensão com ponto (como .dist-info ou .egg-info) tratando-o como
-    um sub-bundle aninhado. Além disso, arquivos não-binários (como scripts .py, arquivos
-    de teste ou dados) com permissão de execução POSIX (+x) são incorretamente identificados
-    como executáveis não-assinados ('code object is not signed at all').
-    Esta função remove metadados do pip, arquivos de testes residuais, caches,
-    limpa atributos estendidos (xattr) e remove permissões de execução de arquivos não-binários.
+    No macOS, o codesign inspeciona qualquer diretório em Contents/MacOS/ tratando
+    arquivos de script ou pastas com ponto como subcomponentes de código.
+    Scripts Python (.py) soltos são considerados subcomponentes de código não assinados
+    ('code object is not signed at all').
+    Esta função:
+    1. Pré-compila scripts .py de produção para bytecode .pyc e remove os fontes .py originais.
+    2. Expurga metadados pip (.dist-info, .egg-info), arquivos de testes e caches.
+    3. Remove permissões de execução POSIX (+x) de arquivos comuns de dados.
+    4. Limpa atributos estendidos (xattr -cr) no macOS.
     Retorna a lista de itens removidos ou alterados.
     """
+    import py_compile
+
     itens_removidos: list[Path] = []
 
     if not caminho_app.exists():
@@ -157,24 +185,36 @@ def sanitizar_bundle_para_codesign(
     for raiz, pastas, arquivos in os.walk(caminho_app, topdown=False):
         caminho_raiz = Path(raiz)
 
-        # Remove arquivos .DS_Store, *.pyc e testes unitários (*_test.py, test_*.py, conftest.py)
+        # Remove arquivos .DS_Store, compila scripts .py para .pyc e expurga testes
         for arq in arquivos:
             nome_baixo = arq.lower()
-            eh_lixo = arq == ".DS_Store" or arq.endswith(".pyc")
+            p_arq = caminho_raiz / arq
+
+            eh_ds_store = arq == ".DS_Store"
             eh_teste = (
-                nome_baixo.endswith("_test.py")
+                nome_baixo.endswith(("_test.py", "_test.pyc"))
                 or nome_baixo.startswith("test_")
                 or nome_baixo == "conftest.py"
             )
 
-            if eh_lixo or eh_teste:
-                p_arq = caminho_raiz / arq
+            if eh_ds_store or eh_teste:
                 itens_removidos.append(p_arq)
                 if not dry_run and p_arq.exists():
                     p_arq.unlink(missing_ok=True)
+            elif arq.endswith(".py"):
+                # Arquivo de script Python de produção (ex: migracoes/*.py):
+                # Compila para bytecode .pyc e remove o fonte .py para evitar o erro
+                # 'code object is not signed at all' no codesign da Apple
+                itens_removidos.append(p_arq)
+                if not dry_run and p_arq.exists():
+                    caminho_pyc = p_arq.with_suffix(".pyc")
+                    try:
+                        py_compile.compile(str(p_arq), cfile=str(caminho_pyc), doraise=True)
+                        p_arq.unlink(missing_ok=True)
+                    except (py_compile.PyCompileError, OSError):
+                        pass
             elif not dry_run and not arq.endswith((".dylib", ".so")):
                 # Se for arquivo comum, remove o bit executável POSIX para evitar que o macOS trate como code object
-                p_arq = caminho_raiz / arq
                 if p_arq.parent.name != "MacOS" or p_arq.name != NOME_EXECUTAVEL_PADRAO:
                     try:
                         modo_atual = p_arq.stat().st_mode
@@ -221,12 +261,21 @@ def assinar_bundle_macos(
 
     comandos_executados: list[str] = []
 
-    # 1. Localiza arquivos binários internos (.dylib, .so)
-    arquivos_para_assinar = []
+    # 1. Localiza arquivos binários internos (.dylib, .so ou binários Mach-O auxiliares)
+    arquivos_para_assinar: list[Path] = []
+    diretorio_macos = caminho_app / "Contents" / "MacOS"
     for raiz, _, arquivos in os.walk(caminho_app):
+        caminho_raiz = Path(raiz)
         for arq in arquivos:
-            if arq.endswith((".dylib", ".so")):
-                arquivos_para_assinar.append(Path(raiz) / arq)
+            p_arq = caminho_raiz / arq
+            if p_arq.is_symlink():
+                continue
+            # Assina extensões binárias ou arquivos Mach-O que não sejam o executável principal em Contents/MacOS
+            if arq.endswith((".dylib", ".so")) or (
+                eh_binario_mach_o(p_arq)
+                and (caminho_raiz != diretorio_macos or arq != NOME_EXECUTAVEL_PADRAO)
+            ):
+                arquivos_para_assinar.append(p_arq)
 
     cmd_base = [
         "codesign",
@@ -258,7 +307,14 @@ def assinar_bundle_macos(
     diretorio_macos = caminho_app / "Contents" / "MacOS"
     if diretorio_macos.exists():
         for item in sorted(diretorio_macos.iterdir()):
-            if item.is_file() and not item.suffix.lower() in (".dylib", ".so", ".plist", ".txt", ".json", ".xml"):
+            if item.is_file() and item.suffix.lower() not in (
+                ".dylib",
+                ".so",
+                ".plist",
+                ".txt",
+                ".json",
+                ".xml",
+            ):
                 cmd_bin = cmd_base.copy()
                 if caminho_entitlements and caminho_entitlements.exists():
                     cmd_bin.extend(["--entitlements", str(caminho_entitlements)])

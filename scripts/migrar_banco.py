@@ -11,11 +11,15 @@ import yaml
 
 def obter_lista_migracoes(migracoes_dir: Path) -> list[tuple[int, Path]]:
     """
-    Retorna uma lista ordenada de tuplas (MIGRATION_ID, filepath) de scripts de migração válidos.
+    Retorna uma lista ordenada de tuplas (MIGRATION_ID, filepath) de scripts de migração válidos (.py ou .pyc).
     """
-    migracoes: list[tuple[int, Path]] = []
+    migracoes_por_id: dict[int, Path] = {}
     for filename in os.listdir(migracoes_dir):
-        if filename.endswith(".py") and filename[0].isdigit():
+        if (
+            (filename.endswith(".py") or filename.endswith(".pyc"))
+            and filename[0].isdigit()
+            and not filename.endswith(("_test.py", "_test.pyc"))
+        ):
             filepath = migracoes_dir / filename
 
             # Lê o arquivo para encontrar o MIGRATION_ID sem executar (ou executando num spec)
@@ -26,12 +30,14 @@ def obter_lista_migracoes(migracoes_dir: Path) -> list[tuple[int, Path]]:
             try:
                 spec.loader.exec_module(module)
                 if hasattr(module, "MIGRATION_ID"):
-                    migracoes.append((int(module.MIGRATION_ID), filepath))
+                    mig_id = int(module.MIGRATION_ID)
+                    if mig_id not in migracoes_por_id or filepath.suffix == ".py":
+                        migracoes_por_id[mig_id] = filepath
             except Exception:
                 # Se falhar ao carregar, apenas ignora
                 continue
 
-    migracoes.sort(key=lambda x: x[0])
+    migracoes = sorted(migracoes_por_id.items(), key=lambda x: x[0])
     return migracoes
 
 

@@ -10,7 +10,7 @@ import yaml
 
 import scripts.markdown_frontmatter_lib as markdown_frontmatter_lib
 
-EXPRESSAO_MIGRACAO = re.compile(r"^(\d{4})_.*\.py$")
+EXPRESSAO_MIGRACAO = re.compile(r"^(\d{4})_.*(?:\.py|\.pyc)$")
 
 
 def _obter_caminho_padrao_migracoes() -> Path:
@@ -89,25 +89,30 @@ def aplicar_migracoes(caminho_croqui: Path) -> None:
     if sys.modules.get("scripts.finalizar_mapas") is None:
         sys.modules["scripts.finalizar_mapas"] = markdown_frontmatter_lib
 
-    # Varre a pasta de migrações em busca de scripts válidos
-    migracoes_disponiveis = []
+    # Varre a pasta de migrações em busca de scripts válidos (.py ou .pyc)
+    migracoes_por_versao: dict[int, Path] = {}
     if caminho_migracoes.exists():
-        for item in caminho_migracoes.iterdir():
-            if item.is_file() and item.suffix == ".py" and not item.name.endswith("_test.py"):
+        for item in sorted(caminho_migracoes.iterdir()):
+            if (
+                item.is_file()
+                and item.suffix in (".py", ".pyc")
+                and not item.name.endswith(("_test.py", "_test.pyc"))
+            ):
                 match = EXPRESSAO_MIGRACAO.match(item.name)
                 if match:
                     try:
                         versao_migracao = int(match.group(1))
                         if versao_migracao > ultima_migracao:
-                            migracoes_disponiveis.append((versao_migracao, item))
+                            # Prioriza arquivo fonte .py se ambos existirem (.py e .pyc)
+                            if versao_migracao not in migracoes_por_versao or item.suffix == ".py":
+                                migracoes_por_versao[versao_migracao] = item
                     except Exception:
                         continue
 
-    if not migracoes_disponiveis:
+    if not migracoes_por_versao:
         return
 
-    # Ordena numericamento para garantir a sequência exata de desenvolvimento
-    migracoes_disponiveis.sort(key=lambda x: x[0])
+    migracoes_disponiveis = sorted(migracoes_por_versao.items(), key=lambda x: x[0])
 
     # Executa cada migração pendente
     for versao, caminho_script in migracoes_disponiveis:
@@ -152,7 +157,11 @@ def obter_ultima_versao_migracao() -> int:
     max_versao = 0
     if caminho_migracoes.exists():
         for item in caminho_migracoes.iterdir():
-            if item.is_file() and item.suffix == ".py" and not item.name.endswith("_test.py"):
+            if (
+                item.is_file()
+                and item.suffix in (".py", ".pyc")
+                and not item.name.endswith(("_test.py", "_test.pyc"))
+            ):
                 match = EXPRESSAO_MIGRACAO.match(item.name)
                 if match:
                     try:

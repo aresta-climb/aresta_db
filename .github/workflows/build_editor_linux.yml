@@ -111,6 +111,7 @@ jobs:
         uses: flatpak/flatpak-github-actions/flatpak-builder@v6
         with:
           manifest-path: editor/flatpak/com.arestaclimb.Editor.yaml
+          branch: stable
           cache: true
           build-bundle: false
           run-tests: false
