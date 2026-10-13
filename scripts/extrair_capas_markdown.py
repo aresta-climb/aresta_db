@@ -25,7 +25,7 @@ from editor.core.processamento_imagem_campo import (
     QUALIDADE_WEBP_ESCALADA,
     comprimir_imagem_para_bytes_webp,
 )
-from scripts.preparar_submissao_lib import (
+from scripts.markdown_frontmatter_lib import (
     parse_md_com_frontmatter,
     salvar_md_com_frontmatter,
 )

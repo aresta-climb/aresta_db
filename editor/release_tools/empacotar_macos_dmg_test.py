@@ -262,6 +262,7 @@ def test_assinar_bundle_macos_com_dylib_e_entitlements(tmp_path: Path) -> None:
     dir_app = tmp_path / "EditorAresta.app"
     macos_dir = dir_app / "Contents" / "MacOS"
     macos_dir.mkdir(parents=True)
+    (macos_dir / "EditorAresta").write_bytes(b"bin")
     (macos_dir / "libteste.dylib").write_bytes(b"dylib")
     (macos_dir / "libextra.so").write_bytes(b"so")
 
@@ -452,4 +453,89 @@ def test_sanitizar_bundle_para_codesign_caminho_inexistente_retorna_vazio(tmp_pa
     """Valida retorno de lista vazia ao sanitizar caminho inexistente."""
     caminho_inexistente = tmp_path / "NaoExiste.app"
     assert sanitizar_bundle_para_codesign(caminho_inexistente) == []
+
+
+def test_sanitizar_bundle_para_codesign_remove_arquivos_de_teste_e_pasta_tests(tmp_path: Path) -> None:
+    """Valida que arquivos de teste (*_test.py, conftest.py) e pastas tests são expurgados do bundle."""
+    app_dir = tmp_path / "EditorAresta.app"
+    macos_dir = app_dir / "Contents" / "MacOS"
+    internal_dir = macos_dir / "_internal"
+    migracoes_dir = internal_dir / "migracoes"
+    tests_dir = internal_dir / "tests"
+    migracoes_dir.mkdir(parents=True)
+    tests_dir.mkdir(parents=True)
+
+    arquivo_prod = migracoes_dir / "0005_migrar_uids_e_rotulos.py"
+    arquivo_prod.write_text("print('migracao')", encoding="utf-8")
+
+    arquivo_teste = migracoes_dir / "0005_migrar_uids_e_rotulos_test.py"
+    arquivo_teste.write_text("def test_migracao(): pass", encoding="utf-8")
+
+    conftest = internal_dir / "conftest.py"
+    conftest.write_text("# conftest", encoding="utf-8")
+
+    teste_dummy = tests_dir / "test_modulo.py"
+    teste_dummy.write_text("def test(): pass", encoding="utf-8")
+
+    removidos = sanitizar_bundle_para_codesign(app_dir, dry_run=False)
+
+    assert arquivo_prod.exists()
+    assert not arquivo_teste.exists()
+    assert not conftest.exists()
+    assert not tests_dir.exists()
+    assert any("0005_migrar_uids_e_rotulos_test.py" in str(r) for r in removidos)
+    assert any("conftest.py" in str(r) for r in removidos)
+
+
+def test_sanitizar_bundle_para_codesign_remove_permissao_execucao_de_arquivos_comuns(tmp_path: Path) -> None:
+    """Valida que arquivos não-binários perdem o bit executável (+x) para prevenir erro 'code object is not signed at all'."""
+    app_dir = tmp_path / "EditorAresta.app"
+    macos_dir = app_dir / "Contents" / "MacOS"
+    internal_dir = macos_dir / "_internal"
+    internal_dir.mkdir(parents=True)
+
+    arquivo_py = internal_dir / "script.py"
+    arquivo_py.write_text("print(1)", encoding="utf-8")
+
+    executavel_principal = macos_dir / "EditorAresta"
+    executavel_principal.write_bytes(b"binario_mach_o")
+
+    # Mocka st_mode com bit executável ativo (0o755) para cobrir o branch de remoção do bit
+    mock_stat = MagicMock(st_mode=0o100755)
+    with patch.object(Path, "stat", return_value=mock_stat), patch.object(Path, "chmod") as mock_chmod:
+        sanitizar_bundle_para_codesign(app_dir, dry_run=False)
+        assert mock_chmod.call_count >= 1
+
+    # Cobre também a captura defensiva de OSError no chmod
+    with patch.object(Path, "stat", return_value=mock_stat), patch.object(Path, "chmod", side_effect=OSError("Permissao negada")):
+        sanitizar_bundle_para_codesign(app_dir, dry_run=False)
+
+
+
+def test_assinar_bundle_macos_assina_executavel_principal_antes_do_bundle(tmp_path: Path) -> None:
+    """Valida que o executável principal em Contents/MacOS é assinado individualmente antes do bundle raiz."""
+    app_dir = tmp_path / "EditorAresta.app"
+    macos_dir = app_dir / "Contents" / "MacOS"
+    macos_dir.mkdir(parents=True)
+    (macos_dir / "EditorAresta").write_bytes(b"binario_executavel")
+
+    with patch("subprocess.run") as mock_run:
+        mock_run.return_value = MagicMock(returncode=0)
+        comandos = assinar_bundle_macos(
+            caminho_app=app_dir,
+            identidade_assinatura="Developer ID",
+            dry_run=False,
+        )
+
+        # Deve haver comando para o executável principal e outro para o .app raiz
+        cmd_executavel = next((c for c in comandos if c.endswith("EditorAresta")), None)
+        cmd_app = next((c for c in comandos if c.endswith("EditorAresta.app")), None)
+
+        assert cmd_executavel is not None, "Executável principal Contents/MacOS/EditorAresta deve ser assinado."
+        assert cmd_app is not None, "Bundle EditorAresta.app raiz deve ser assinado."
+
+        idx_executavel = comandos.index(cmd_executavel)
+        idx_app = comandos.index(cmd_app)
+        assert idx_executavel < idx_app, "O executável principal deve ser assinado ANTES do bundle pai."
+
 

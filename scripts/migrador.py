@@ -8,6 +8,8 @@ from pathlib import Path
 
 import yaml
 
+import scripts.markdown_frontmatter_lib as markdown_frontmatter_lib
+
 EXPRESSAO_MIGRACAO = re.compile(r"^(\d{4})_.*\.py$")
 
 
@@ -82,6 +84,10 @@ def aplicar_migracoes(caminho_croqui: Path) -> None:
             ultima_migracao = 0
 
     caminho_migracoes = obter_caminho_migracoes()
+
+    # Garante compatibilidade caso alguma migração tente importar scripts.finalizar_mapas
+    if sys.modules.get("scripts.finalizar_mapas") is None:
+        sys.modules["scripts.finalizar_mapas"] = markdown_frontmatter_lib
 
     # Varre a pasta de migrações em busca de scripts válidos
     migracoes_disponiveis = []

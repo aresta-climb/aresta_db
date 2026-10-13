@@ -274,3 +274,17 @@ def test_main_cli_execucao_modulo_principal() -> None:
         runpy.run_module("editor.release_tools.publicar_flatpak_cli", run_name="__main__")
     assert exc.value.code == 0
 
+
+def test_import_modulo_sem_raiz_no_sys_path() -> None:
+    """Garante que a linha que adiciona a raiz ao sys.path é exercitada quando ausente."""
+    import importlib
+    import sys
+    from editor.release_tools.publicar_flatpak_cli import _RAIZ_REPOSITORIO
+
+    str_raiz = str(_RAIZ_REPOSITORIO)
+    novo_sys_path = [p for p in sys.path if p != str_raiz]
+    with patch.object(sys, "path", novo_sys_path):
+        import editor.release_tools.publicar_flatpak_cli as modulo_cli
+        importlib.reload(modulo_cli)
+        assert sys.path[0] == str_raiz
+

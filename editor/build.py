@@ -204,8 +204,9 @@ def filtrar_datas_desnecessarios(
 ) -> list[Any]:
     """
     Filtra a lista de arquivos de dados do PyInstaller, removendo famílias de fontes
-    do QtAwesome não utilizadas pelo tema de ícones do editor e metadados de pacotes
-    (.dist-info e .egg-info) que violam as regras de sub-bundle do codesign da Apple.
+    do QtAwesome não utilizadas pelo tema de ícones do editor, metadados de pacotes
+    (.dist-info e .egg-info) que violam as regras de sub-bundle do codesign da Apple
+    e arquivos/pastas de teste (*_test.py, test_*, conftest.py, tests/) que não pertencem ao pacote de produção.
     """
     resultado = []
     for item in datas:
@@ -215,6 +216,8 @@ def filtrar_datas_desnecessarios(
         if any(fonte in alvo for fonte in FONTES_DISPENSAVEIS):
             continue
         if ".dist-info" in alvo or ".egg-info" in alvo:
+            continue
+        if "_test.py" in alvo or "test_" in alvo or "conftest.py" in alvo or "/tests/" in alvo or "\\tests\\" in alvo:
             continue
         resultado.append(item)
     return resultado

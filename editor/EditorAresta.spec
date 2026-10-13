@@ -52,9 +52,15 @@ if eh_beta and (spec_dir / 'recursos_beta').exists():
     datas.append((str(spec_dir / 'recursos_beta'), 'recursos_beta'))
     datas.append((str(spec_dir / 'recursos_beta'), 'editor/recursos_beta'))
 if (repo_root / 'migracoes').exists():
-    datas.append((str(repo_root / 'migracoes'), 'migracoes'))
+    for arq_migracao in sorted((repo_root / 'migracoes').iterdir()):
+        if arq_migracao.is_file() and arq_migracao.suffix == '.py' and not arq_migracao.name.endswith('_test.py'):
+            datas.append((str(arq_migracao), 'migracoes'))
 binaries = []
-hiddenimports = ['sentry_sdk']
+hiddenimports = [
+    'sentry_sdk',
+    'scripts.markdown_frontmatter_lib',
+    'scripts.finalizar_mapas',
+]
 
 pacotes_para_coletar = ['pygit2', 'keyring', 'qtawesome']
 if sys.platform.startswith("linux"):

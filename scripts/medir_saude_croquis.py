@@ -11,7 +11,7 @@ import yaml
 
 # Adiciona o diretório raiz do projeto ao sys.path para importar a lib utilitária
 sys.path.append(str(Path(__file__).resolve().parent.parent))
-from scripts.preparar_submissao_lib import parse_md_com_frontmatter
+from scripts.markdown_frontmatter_lib import parse_md_com_frontmatter
 
 
 def check_partes_json(croqui_path: Path) -> bool:

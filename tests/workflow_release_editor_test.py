@@ -574,6 +574,11 @@ class TestWorkflowReleaseEditor(unittest.TestCase):
         run_bundle = passo_bundle.get("run", "")
         self.assertIn("editor/release_tools/publicar_flatpak_cli.py empacotar", run_bundle)
         self.assertIn("--chave-gpg-id", run_bundle)
+        self.assertEqual(
+            passo_bundle.get("env", {}).get("PYTHONPATH"),
+            ".",
+            "Passo de gerar bundle Flatpak deve definir PYTHONPATH: .",
+        )
 
         # Valida que o bundle .flatpak está nos artefatos disponibilizados no GitHub Actions
         passos_artifact = [s for s in passos if "upload-artifact" in str(s.get("uses", ""))]

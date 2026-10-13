@@ -7,7 +7,7 @@ from typing import Any
 
 import yaml
 
-from scripts.preparar_submissao_lib import parse_md_com_frontmatter
+from scripts.markdown_frontmatter_lib import parse_md_com_frontmatter
 
 
 def configurar_croqui_teste(

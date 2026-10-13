@@ -12,6 +12,11 @@ import subprocess
 import sys
 from pathlib import Path
 
+# Garante que a raiz do repositório esteja no sys.path mesmo se PYTHONPATH não for definido
+_RAIZ_REPOSITORIO = Path(__file__).resolve().parent.parent.parent
+if str(_RAIZ_REPOSITORIO) not in sys.path:
+    sys.path.insert(0, str(_RAIZ_REPOSITORIO))
+
 from editor.release_tools.publicar_flatpak_r2 import (
     PublicadorFlatpakR2,
     verificar_estado_repositorio_remoto,

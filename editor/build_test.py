@@ -158,6 +158,24 @@ def test_filtrar_datas_desnecessarios_remove_dist_info_e_egg_info():
     assert "recursos\\logo_app.png" in destinos_restantes
 
 
+def test_filtrar_datas_desnecessarios_remove_arquivos_e_pastas_de_teste() -> None:
+    """Valida se filtrar_datas_desnecessarios remove arquivos de teste (*_test.py) e pastas tests."""
+    datas_mock = [
+        ("C:\\fake\\migracoes\\0005_migrar_uids_e_rotulos_test.py", "migracoes\\0005_migrar_uids_e_rotulos_test.py", "DATA"),
+        ("C:\\fake\\migracoes\\0005_migrar_uids_e_rotulos.py", "migracoes\\0005_migrar_uids_e_rotulos.py", "DATA"),
+        ("C:\\fake\\tests\\conftest.py", "tests\\conftest.py", "DATA"),
+        ("C:\\fake\\tests\\test_dummy.py", "tests\\test_dummy.py", "DATA"),
+    ]
+
+    filtrados = filtrar_datas_desnecessarios(datas_mock)
+    destinos_restantes = [d[1] for d in filtrados]
+
+    assert "migracoes\\0005_migrar_uids_e_rotulos_test.py" not in destinos_restantes
+    assert "tests\\conftest.py" not in destinos_restantes
+    assert "tests\\test_dummy.py" not in destinos_restantes
+    assert "migracoes\\0005_migrar_uids_e_rotulos.py" in destinos_restantes
+
+
 def test_obter_argumentos_pyinstaller_usa_arquivo_spec():
     """Valida se os argumentos para o PyInstaller apontam para o arquivo de especificação .spec."""
     args = obter_argumentos_pyinstaller()

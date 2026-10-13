@@ -141,10 +141,12 @@ def sanitizar_bundle_para_codesign(
     Remove arquivos e pastas que causam falhas no utilitário codesign da Apple.
     No macOS, o codesign inspeciona qualquer diretório em Contents/MacOS/ cujo nome
     contenha uma extensão com ponto (como .dist-info ou .egg-info) tratando-o como
-    um sub-bundle aninhado. Como pastas de metadados do pip não são bundles Mach-O válidos,
-    o codesign falha com: 'bundle format unrecognized, invalid, or unsuitable'.
-    Além disso, limpa arquivos .DS_Store, __pycache__ e atributos estendidos (xattr).
-    Retorna a lista de itens removidos.
+    um sub-bundle aninhado. Além disso, arquivos não-binários (como scripts .py, arquivos
+    de teste ou dados) com permissão de execução POSIX (+x) são incorretamente identificados
+    como executáveis não-assinados ('code object is not signed at all').
+    Esta função remove metadados do pip, arquivos de testes residuais, caches,
+    limpa atributos estendidos (xattr) e remove permissões de execução de arquivos não-binários.
+    Retorna a lista de itens removidos ou alterados.
     """
     itens_removidos: list[Path] = []
 
@@ -155,17 +157,40 @@ def sanitizar_bundle_para_codesign(
     for raiz, pastas, arquivos in os.walk(caminho_app, topdown=False):
         caminho_raiz = Path(raiz)
 
-        # Remove arquivos .DS_Store e *.pyc residuais
+        # Remove arquivos .DS_Store, *.pyc e testes unitários (*_test.py, test_*.py, conftest.py)
         for arq in arquivos:
-            if arq == ".DS_Store" or arq.endswith(".pyc"):
+            nome_baixo = arq.lower()
+            eh_lixo = arq == ".DS_Store" or arq.endswith(".pyc")
+            eh_teste = (
+                nome_baixo.endswith("_test.py")
+                or nome_baixo.startswith("test_")
+                or nome_baixo == "conftest.py"
+            )
+
+            if eh_lixo or eh_teste:
                 p_arq = caminho_raiz / arq
                 itens_removidos.append(p_arq)
                 if not dry_run and p_arq.exists():
                     p_arq.unlink(missing_ok=True)
+            elif not dry_run and not arq.endswith((".dylib", ".so")):
+                # Se for arquivo comum, remove o bit executável POSIX para evitar que o macOS trate como code object
+                p_arq = caminho_raiz / arq
+                if p_arq.parent.name != "MacOS" or p_arq.name != NOME_EXECUTAVEL_PADRAO:
+                    try:
+                        modo_atual = p_arq.stat().st_mode
+                        if modo_atual & 0o111:
+                            p_arq.chmod(modo_atual & ~0o111)
+                    except OSError:
+                        pass
 
-        # Remove pastas de metadados e caches
+        # Remove pastas de metadados, caches e pastas de teste
         for pasta in pastas:
-            if pasta.endswith((".dist-info", ".egg-info")) or pasta == "__pycache__":
+            eh_pasta_problema = (
+                pasta.endswith((".dist-info", ".egg-info"))
+                or pasta == "__pycache__"
+                or pasta == "tests"
+            )
+            if eh_pasta_problema:
                 p_pasta = caminho_raiz / pasta
                 itens_removidos.append(p_pasta)
                 if not dry_run and p_pasta.exists():
@@ -196,7 +221,7 @@ def assinar_bundle_macos(
 
     comandos_executados: list[str] = []
 
-    # Localiza arquivos binários internos (.dylib, .so)
+    # 1. Localiza arquivos binários internos (.dylib, .so)
     arquivos_para_assinar = []
     for raiz, _, arquivos in os.walk(caminho_app):
         for arq in arquivos:
@@ -219,7 +244,7 @@ def assinar_bundle_macos(
         if not dry_run:
             subprocess.run(cmd, check=True)
 
-    # Assina frameworks em Contents/Frameworks antes do bundle principal
+    # 2. Assina frameworks em Contents/Frameworks antes do bundle principal
     diretorio_frameworks = caminho_app / "Contents" / "Frameworks"
     if diretorio_frameworks.exists():
         for item in diretorio_frameworks.iterdir():
@@ -229,7 +254,20 @@ def assinar_bundle_macos(
                 if not dry_run:
                     subprocess.run(cmd_fw, check=True)
 
-    # Assina o bundle .app raiz
+    # 3. Assina executáveis binários principais em Contents/MacOS antes do bundle
+    diretorio_macos = caminho_app / "Contents" / "MacOS"
+    if diretorio_macos.exists():
+        for item in sorted(diretorio_macos.iterdir()):
+            if item.is_file() and not item.suffix.lower() in (".dylib", ".so", ".plist", ".txt", ".json", ".xml"):
+                cmd_bin = cmd_base.copy()
+                if caminho_entitlements and caminho_entitlements.exists():
+                    cmd_bin.extend(["--entitlements", str(caminho_entitlements)])
+                cmd_bin.append(str(item))
+                comandos_executados.append(" ".join(cmd_bin))
+                if not dry_run:
+                    subprocess.run(cmd_bin, check=True)
+
+    # 4. Assina o bundle .app raiz
     cmd_app = cmd_base.copy()
     if caminho_entitlements and caminho_entitlements.exists():
         cmd_app.extend(["--entitlements", str(caminho_entitlements)])

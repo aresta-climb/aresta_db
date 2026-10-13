@@ -122,6 +122,8 @@ jobs:
 
       - name: Gerar Pacote Flatpak Bundle (.flatpak)
         id: gerar-bundle
+        env:
+          PYTHONPATH: .
         run: |
           mkdir -p dist_bundle
           BUNDLE_PATH="dist_bundle/EditorAresta-${{ inputs.versao }}.flatpak"
