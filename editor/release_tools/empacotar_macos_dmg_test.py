@@ -674,3 +674,108 @@ def test_assinar_bundle_macos_ignora_symlinks(tmp_path: Path) -> None:
 
     assert any("libreal.dylib" in c for c in comandos)
     assert not any("liblink.dylib" in c for c in comandos)
+
+
+def test_assinar_bundle_macos_assina_frameworks_aninhados_como_bundle_e_nao_binarios_internos(
+    tmp_path: Path,
+) -> None:
+    """Valida que frameworks aninhados (ex: PySide6/Qt/lib/QtGui.framework) são assinados no nível do diretório e não seus binários internos soltos."""
+    app_dir = tmp_path / "EditorAresta.app"
+    macos_dir = app_dir / "Contents" / "MacOS"
+    macos_dir.mkdir(parents=True)
+    (macos_dir / "EditorAresta").write_bytes(b"binario_executavel")
+
+    frameworks_dir = app_dir / "Contents" / "Frameworks" / "Sparkle.framework"
+    frameworks_dir.mkdir(parents=True)
+    (frameworks_dir / "Sparkle").write_bytes(b"\xcf\xfa\xed\xfe" + b"\x00" * 20)
+
+    qt_framework_dir = macos_dir / "_internal" / "PySide6" / "Qt" / "lib" / "QtGui.framework"
+    versoes_a_dir = qt_framework_dir / "Versions" / "A"
+    versoes_a_dir.mkdir(parents=True)
+    binario_qtgui = versoes_a_dir / "QtGui"
+    binario_qtgui.write_bytes(b"\xcf\xfa\xed\xfe" + b"\x00" * 20)
+
+    comandos = assinar_bundle_macos(
+        caminho_app=app_dir,
+        identidade_assinatura="Developer ID",
+        dry_run=True,
+    )
+
+    # 1. Os binários internos de QtGui.framework não devem ser assinados isoladamente
+    assert not any(str(binario_qtgui) in cmd for cmd in comandos), (
+        "Binários internos de um .framework não devem ser assinados como arquivos isolados"
+    )
+
+    # 2. O diretório QtGui.framework e Sparkle.framework devem ser assinados como frameworks
+    cmd_qtgui_fw = next((cmd for cmd in comandos if cmd.endswith(str(qt_framework_dir))), None)
+    cmd_sparkle_fw = next((cmd for cmd in comandos if cmd.endswith(str(frameworks_dir))), None)
+
+    assert cmd_qtgui_fw is not None, "QtGui.framework deve ser assinado como bundle"
+    assert cmd_sparkle_fw is not None, "Sparkle.framework deve ser assinado como bundle"
+
+    # 3. Framework mais aninhado (QtGui.framework em _internal/PySide6/Qt/lib) deve ser assinado antes do executável principal e bundle raiz
+    idx_qtgui = comandos.index(cmd_qtgui_fw)
+    cmd_app = next(cmd for cmd in comandos if cmd.endswith(str(app_dir)))
+    assert idx_qtgui < comandos.index(cmd_app)
+
+
+def test_sanitizar_bundle_para_codesign_preserva_executavel_de_binario_macho_e_arquivos_em_framework(
+    tmp_path: Path,
+) -> None:
+    """Valida que binários Mach-O e arquivos dentro de diretórios .framework não perdem a permissão de execução."""
+    app_dir = tmp_path / "EditorAresta.app"
+    macos_dir = app_dir / "Contents" / "MacOS"
+    internal_dir = macos_dir / "_internal"
+    internal_dir.mkdir(parents=True)
+
+    # Binário Mach-O sem extensão .dylib/.so
+    bin_macho = internal_dir / "executavel_auxiliar"
+    bin_macho.write_bytes(b"\xcf\xfa\xed\xfe" + b"\x00" * 20)
+
+    # Arquivo dentro de um .framework
+    framework_dir = internal_dir / "Meu.framework"
+    framework_dir.mkdir()
+    bin_fw = framework_dir / "Meu"
+    bin_fw.write_bytes(b"\xcf\xfa\xed\xfe" + b"\x00" * 20)
+
+    # Arquivo de texto comum (este sim deve perder o bit executável se tiver)
+    arquivo_txt = internal_dir / "readme.txt"
+    arquivo_txt.write_text("texto", encoding="utf-8")
+
+    chmod_chamados: list[Path] = []
+
+    def mock_chmod(self: Path, modo: int) -> None:
+        chmod_chamados.append(self)
+
+    mock_stat = MagicMock(st_mode=0o100755)
+
+    with (
+        patch.object(Path, "stat", return_value=mock_stat),
+        patch.object(Path, "chmod", mock_chmod),
+    ):
+        sanitizar_bundle_para_codesign(app_dir, dry_run=False)
+
+    # Apenas o arquivo comum de texto deve acionar chmod (não binários Mach-O nem dentro de .framework)
+    assert bin_macho not in chmod_chamados
+    assert bin_fw not in chmod_chamados
+    assert arquivo_txt in chmod_chamados
+
+
+def test_criar_estrutura_bundle_macos_preserva_symlinks(tmp_path: Path) -> None:
+    """Valida que a cópia de diretórios onedir usa symlinks=True para preservar links simbólicos de frameworks."""
+    dir_onedir = tmp_path / "EditorAresta_onedir"
+    dir_onedir.mkdir()
+    subpasta = dir_onedir / "subpasta"
+    subpasta.mkdir()
+    (subpasta / "item.txt").write_text("item", encoding="utf-8")
+    dir_saida_app = tmp_path / "EditorAresta.app"
+
+    with patch("shutil.copytree") as mock_copytree:
+        criar_estrutura_bundle_macos(
+            diretorio_origem_onedir=dir_onedir,
+            diretorio_destino_app=dir_saida_app,
+            versao="0.4.0",
+        )
+        assert mock_copytree.call_count >= 1
+        for call in mock_copytree.call_args_list:
+            assert call.kwargs.get("symlinks") is True

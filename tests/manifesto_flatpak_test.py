@@ -77,3 +77,19 @@ def test_arquivo_desktop_estrutural() -> None:
     assert any("Exec=EditorAresta" in l for l in linhas)
     assert any("Icon=com.arestaclimb.Editor" in l for l in linhas)
     assert any("Categories=" in l for l in linhas)
+
+
+def test_manifesto_flatpak_contem_precompilacao_e_limpeza_testes() -> None:
+    """Garante que o manifesto Flatpak pré-compila bytecode (.pyc) e remove arquivos de teste em produção."""
+    conteudo = ARQUIVO_MANIFESTO.read_text(encoding="utf-8")
+    dados = yaml.safe_load(conteudo)
+
+    assert dados.get("default-branch") == "stable"
+
+    modulos = dados.get("modules", [])
+    modulo_editor = next((m for m in modulos if isinstance(m, dict) and m.get("name") == "aresta-editor"), None)
+    assert modulo_editor is not None, "Módulo aresta-editor não encontrado no manifesto"
+
+    build_commands = modulo_editor.get("build-commands", [])
+    assert any("compileall" in cmd for cmd in build_commands), "Deve conter etapa de pré-compilação compileall"
+    assert any("*_test.py" in cmd and "-delete" in cmd for cmd in build_commands), "Deve conter remoção de arquivos de teste"

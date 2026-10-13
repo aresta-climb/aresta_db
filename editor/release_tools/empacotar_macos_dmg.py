@@ -100,13 +100,13 @@ def criar_estrutura_bundle_macos(
     diretorio_macos.mkdir(parents=True, exist_ok=True)
     diretorio_resources.mkdir(parents=True, exist_ok=True)
 
-    # Copia todo o conteúdo gerado pelo PyInstaller para Contents/MacOS
+    # Copia todo o conteúdo gerado pelo PyInstaller para Contents/MacOS preservando symlinks
     for item in diretorio_origem_onedir.iterdir():
         destino_item = diretorio_macos / item.name
         if item.is_dir():
-            shutil.copytree(item, destino_item)
+            shutil.copytree(item, destino_item, symlinks=True)
         else:
-            shutil.copy2(item, destino_item)
+            shutil.copy2(item, destino_item, follow_symlinks=False)
 
     # Copia o ícone .icns para Contents/Resources se fornecido
     if caminho_icone_icns and caminho_icone_icns.exists():
@@ -213,7 +213,14 @@ def sanitizar_bundle_para_codesign(
                         p_arq.unlink(missing_ok=True)
                     except (py_compile.PyCompileError, OSError):
                         pass
-            elif not dry_run and not arq.endswith((".dylib", ".so")):
+            elif (
+                not dry_run
+                and not arq.endswith((".dylib", ".so"))
+                and not eh_binario_mach_o(p_arq)
+                and not any(
+                    p.name.endswith(".framework") for p in [caminho_raiz, *caminho_raiz.parents]
+                )
+            ):
                 # Se for arquivo comum, remove o bit executável POSIX para evitar que o macOS trate como code object
                 if p_arq.parent.name != "MacOS" or p_arq.name != NOME_EXECUTAVEL_PADRAO:
                     try:
@@ -261,11 +268,26 @@ def assinar_bundle_macos(
 
     comandos_executados: list[str] = []
 
-    # 1. Localiza arquivos binários internos (.dylib, .so ou binários Mach-O auxiliares)
-    arquivos_para_assinar: list[Path] = []
+    cmd_base = [
+        "codesign",
+        "--force",
+        "--options",
+        "runtime",
+        "--timestamp",
+        "--sign",
+        identidade_assinatura,
+    ]
+
     diretorio_macos = caminho_app / "Contents" / "MacOS"
+
+    # 1. Localiza arquivos binários internos soltos (.dylib, .so ou binários Mach-O auxiliares)
+    # Binários que residem dentro de um .framework NÃO devem ser assinados como arquivos isolados,
+    # pois o codesign da Apple exige que o .framework seja assinado como um bundle único.
+    arquivos_para_assinar: list[Path] = []
     for raiz, _, arquivos in os.walk(caminho_app):
         caminho_raiz = Path(raiz)
+        if any(p.name.endswith(".framework") for p in [caminho_raiz, *caminho_raiz.parents]):
+            continue
         for arq in arquivos:
             p_arq = caminho_raiz / arq
             if p_arq.is_symlink():
@@ -277,31 +299,32 @@ def assinar_bundle_macos(
             ):
                 arquivos_para_assinar.append(p_arq)
 
-    cmd_base = [
-        "codesign",
-        "--force",
-        "--options",
-        "runtime",
-        "--timestamp",
-        "--sign",
-        identidade_assinatura,
-    ]
-
-    for binario in arquivos_para_assinar:
+    for binario in sorted(arquivos_para_assinar):
         cmd = [*cmd_base, str(binario)]
         comandos_executados.append(" ".join(cmd))
         if not dry_run:
             subprocess.run(cmd, check=True)
 
-    # 2. Assina frameworks em Contents/Frameworks antes do bundle principal
-    diretorio_frameworks = caminho_app / "Contents" / "Frameworks"
-    if diretorio_frameworks.exists():
-        for item in diretorio_frameworks.iterdir():
-            if item.suffix == ".framework" or item.is_dir():
-                cmd_fw = [*cmd_base, str(item)]
-                comandos_executados.append(" ".join(cmd_fw))
-                if not dry_run:
-                    subprocess.run(cmd_fw, check=True)
+    # 2. Localiza e assina todos os frameworks (.framework) recursivamente em ordem inside-out
+    # Localiza qualquer diretório terminado em .framework (ex: Contents/Frameworks/Sparkle.framework,
+    # Contents/MacOS/_internal/PySide6/Qt/lib/QtCore.framework, QtGui.framework, etc.).
+    # Ordena por profundidade decrescente para que frameworks aninhados mais internos sejam assinados primeiro.
+    frameworks_para_assinar: list[Path] = []
+    for raiz, pastas, _ in os.walk(caminho_app):
+        caminho_raiz = Path(raiz)
+        for pasta in pastas:
+            if pasta.endswith(".framework"):
+                p_fw = caminho_raiz / pasta
+                if not p_fw.is_symlink():
+                    frameworks_para_assinar.append(p_fw)
+
+    frameworks_para_assinar.sort(key=lambda p: (len(p.parts), str(p)), reverse=True)
+
+    for framework in frameworks_para_assinar:
+        cmd_fw = [*cmd_base, str(framework)]
+        comandos_executados.append(" ".join(cmd_fw))
+        if not dry_run:
+            subprocess.run(cmd_fw, check=True)
 
     # 3. Assina executáveis binários principais em Contents/MacOS antes do bundle
     diretorio_macos = caminho_app / "Contents" / "MacOS"

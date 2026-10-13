@@ -45,6 +45,10 @@ modules:
       - cp -r serving /app/share/aresta-editor/
       - cp uv.lock /app/share/aresta-editor/
       - echo "producao" > /app/share/aresta-editor/canal.txt
+      # Limpeza de testes unitários do pacote final
+      - find /app/share/aresta-editor -name "*_test.py" -delete
+      # Pré-compilação de bytecode Python (.pyc) para acelerar inicialização
+      - python3 -m compileall -q /app/share/aresta-editor
       # Native launcher
       - install -D -m755 editor/flatpak/EditorAresta.sh /app/bin/EditorAresta
       # Desktop integration
