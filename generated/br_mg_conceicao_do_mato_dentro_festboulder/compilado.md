@@ -194,6 +194,7 @@
         - **pontos_uids**:
           - paVhfWhT7nd8U4
         - **setor**: Setor Ônibus
+        - **grupo**: Salão de Pedras
         - **ids**:
           - paVhfWhT7nd8U4
       - **[1]**:
@@ -201,6 +202,7 @@
         - **pontos_uids**:
           - gtW4aJUXF38mOa
         - **setor**: Setor Super Herói
+        - **grupo**: Salão de Pedras
         - **ids**:
           - gtW4aJUXF38mOa
       - **[2]**:
@@ -208,6 +210,7 @@
         - **pontos_uids**:
           - ahAwTNi9FtjKRu
         - **setor**: Setor Caverninha
+        - **grupo**: Salão de Pedras
         - **ids**:
           - ahAwTNi9FtjKRu
       - **[3]**:
@@ -215,6 +218,7 @@
         - **pontos_uids**:
           - QRczPpK58M2xSx
         - **setor**: Setor Campo Escola
+        - **grupo**: Salão de Pedras
         - **ids**:
           - QRczPpK58M2xSx
       - **[4]**:
@@ -222,6 +226,7 @@
         - **pontos_uids**:
           - Mmq3dhWktQLsmg
         - **setor**: Setor Escorpião
+        - **grupo**: Salão de Pedras
         - **ids**:
           - Mmq3dhWktQLsmg
       - **[5]**:
@@ -229,6 +234,7 @@
         - **pontos_uids**:
           - b3fPMFNHIebT6n
         - **setor**: Setor Troféu
+        - **grupo**: Salão de Pedras
         - **ids**:
           - b3fPMFNHIebT6n
       - **[6]**:
@@ -236,6 +242,7 @@
         - **pontos_uids**:
           - R0YNVd7hR2cyVD
         - **setor**: Setor X-Tudo
+        - **grupo**: Salão de Pedras
         - **ids**:
           - R0YNVd7hR2cyVD
       - **[7]**:
@@ -243,6 +250,7 @@
         - **pontos_uids**:
           - KGsNZLmitDlNDX
         - **setor**: Setor Domínio Digital
+        - **grupo**: Salão de Pedras
         - **ids**:
           - KGsNZLmitDlNDX
       - **[8]**:
@@ -390,6 +398,8 @@
               - **pontos_uids**:
                 - OJ2Gkqk0aynGVT
               - **escalada**: Pirulito
+              - **setor**: Setor Ônibus
+              - **grupo**: Salão de Pedras
               - **ids**:
                 - OJ2Gkqk0aynGVT
             - **[1]**:
@@ -397,6 +407,8 @@
               - **pontos_uids**:
                 - MZrrQvcVkKsY1k
               - **escalada**: Trocador
+              - **setor**: Setor Ônibus
+              - **grupo**: Salão de Pedras
               - **ids**:
                 - MZrrQvcVkKsY1k
             - **[2]**:
@@ -404,6 +416,8 @@
               - **pontos_uids**:
                 - ilekHJIYGYT5NK
               - **escalada**: Roleta
+              - **setor**: Setor Ônibus
+              - **grupo**: Salão de Pedras
               - **ids**:
                 - ilekHJIYGYT5NK
             - **[3]**:
@@ -411,6 +425,8 @@
               - **pontos_uids**:
                 - 9p0mxNzSgPhhQr
               - **escalada**: Zebra
+              - **setor**: Setor Ônibus
+              - **grupo**: Salão de Pedras
               - **ids**:
                 - 9p0mxNzSgPhhQr
             - **[4]**:
@@ -418,6 +434,8 @@
               - **pontos_uids**:
                 - Xk0fJxYZO0lZ0U
               - **escalada**: Linguinha
+              - **setor**: Setor Ônibus
+              - **grupo**: Salão de Pedras
               - **ids**:
                 - Xk0fJxYZO0lZ0U
             - **[5]**:
@@ -425,6 +443,8 @@
               - **pontos_uids**:
                 - I1vUbH28fNNsBi
               - **escalada**: Gnomo
+              - **setor**: Setor Ônibus
+              - **grupo**: Salão de Pedras
               - **ids**:
                 - I1vUbH28fNNsBi
             - **[6]**:
@@ -432,6 +452,8 @@
               - **pontos_uids**:
                 - fUhwEkwEG0YWzQ
               - **escalada**: Variante Y
+              - **setor**: Setor Ônibus
+              - **grupo**: Salão de Pedras
               - **ids**:
                 - fUhwEkwEG0YWzQ
             - **[7]**:
@@ -439,6 +461,8 @@
               - **pontos_uids**:
                 - 2N3B9okzvbckgH
               - **escalada**: Moleza
+              - **setor**: Setor Ônibus
+              - **grupo**: Salão de Pedras
               - **ids**:
                 - 2N3B9okzvbckgH
             - **[8]**:
@@ -446,6 +470,8 @@
               - **pontos_uids**:
                 - sViL7BKpUKMqHF
               - **escalada**: Inconsolável
+              - **setor**: Setor Ônibus
+              - **grupo**: Salão de Pedras
               - **ids**:
                 - sViL7BKpUKMqHF
             - **[9]**:
@@ -453,6 +479,8 @@
               - **pontos_uids**:
                 - PGMtj9GYSVHde2
               - **escalada**: Passageiro
+              - **setor**: Setor Ônibus
+              - **grupo**: Salão de Pedras
               - **ids**:
                 - PGMtj9GYSVHde2
             - **[10]**:
@@ -460,6 +488,8 @@
               - **pontos_uids**:
                 - COs89StuB8lKRN
               - **escalada**: Fada
+              - **setor**: Setor Ônibus
+              - **grupo**: Salão de Pedras
               - **ids**:
                 - COs89StuB8lKRN
         - **[1]**:
@@ -523,6 +553,8 @@
               - **pontos_uids**:
                 - DOaVJrM4Bn2eT8
               - **escalada**: Primeiro Esquenta
+              - **setor**: Setor Ônibus
+              - **grupo**: Salão de Pedras
               - **ids**:
                 - DOaVJrM4Bn2eT8
             - **[1]**:
@@ -530,6 +562,8 @@
               - **pontos_uids**:
                 - 70BHw7Mw0uHi2i
               - **escalada**: Mimetismo
+              - **setor**: Setor Ônibus
+              - **grupo**: Salão de Pedras
               - **ids**:
                 - 70BHw7Mw0uHi2i
             - **[2]**:
@@ -537,6 +571,8 @@
               - **pontos_uids**:
                 - k1bm3HQJs24zEv
               - **escalada**: Aborda
+              - **setor**: Setor Ônibus
+              - **grupo**: Salão de Pedras
               - **ids**:
                 - k1bm3HQJs24zEv
             - **[3]**:
@@ -544,6 +580,8 @@
               - **pontos_uids**:
                 - VS9PZpaks1SdKD
               - **escalada**: Easy Line
+              - **setor**: Setor Ônibus
+              - **grupo**: Salão de Pedras
               - **ids**:
                 - VS9PZpaks1SdKD
             - **[4]**:
@@ -551,6 +589,8 @@
               - **pontos_uids**:
                 - MaqJP7ZjytmXel
               - **escalada**: Saidex
+              - **setor**: Setor Ônibus
+              - **grupo**: Salão de Pedras
               - **ids**:
                 - MaqJP7ZjytmXel
       - **escaladas**:
@@ -697,6 +737,8 @@
               - **pontos_uids**:
                 - JI406fC0wcM9q2
               - **escalada**: Super Homem
+              - **setor**: Setor Super Herói
+              - **grupo**: Salão de Pedras
               - **ids**:
                 - JI406fC0wcM9q2
             - **[1]**:
@@ -704,6 +746,8 @@
               - **pontos_uids**:
                 - y7ZZ9balCG1zLE
               - **escalada**: Super Herói Cover
+              - **setor**: Setor Super Herói
+              - **grupo**: Salão de Pedras
               - **ids**:
                 - y7ZZ9balCG1zLE
             - **[2]**:
@@ -711,6 +755,8 @@
               - **pontos_uids**:
                 - RG4RyEIf2fzh4E
               - **escalada**: Herói
+              - **setor**: Setor Super Herói
+              - **grupo**: Salão de Pedras
               - **ids**:
                 - RG4RyEIf2fzh4E
             - **[3]**:
@@ -718,6 +764,8 @@
               - **pontos_uids**:
                 - uvEJ7jz8KwgY11
               - **escalada**: Heroína
+              - **setor**: Setor Super Herói
+              - **grupo**: Salão de Pedras
               - **ids**:
                 - uvEJ7jz8KwgY11
       - **escaladas**:
@@ -814,6 +862,8 @@
               - **pontos_uids**:
                 - pF39IxcFHTGpkN
               - **escalada**: Terceira Camada
+              - **setor**: Setor Caverninha
+              - **grupo**: Salão de Pedras
               - **ids**:
                 - pF39IxcFHTGpkN
             - **[1]**:
@@ -821,6 +871,8 @@
               - **pontos_uids**:
                 - fjOlaECZ5LBIfw
               - **escalada**: Caverninha
+              - **setor**: Setor Caverninha
+              - **grupo**: Salão de Pedras
               - **ids**:
                 - fjOlaECZ5LBIfw
             - **[2]**:
@@ -828,6 +880,8 @@
               - **pontos_uids**:
                 - Q90njhbjf3qhvv
               - **escalada**: Cavernoso
+              - **setor**: Setor Caverninha
+              - **grupo**: Salão de Pedras
               - **ids**:
                 - Q90njhbjf3qhvv
             - **[3]**:
@@ -835,6 +889,8 @@
               - **pontos_uids**:
                 - jl0mD7RKylxUYB
               - **escalada**: Natural
+              - **setor**: Setor Caverninha
+              - **grupo**: Salão de Pedras
               - **ids**:
                 - jl0mD7RKylxUYB
             - **[4]**:
@@ -842,6 +898,8 @@
               - **pontos_uids**:
                 - m0gdBDOeRd89Ox
               - **escalada**: Natural SDS
+              - **setor**: Setor Caverninha
+              - **grupo**: Salão de Pedras
               - **ids**:
                 - m0gdBDOeRd89Ox
         - **[1]**:
@@ -915,6 +973,8 @@
               - **pontos_uids**:
                 - 9aDZfbo3dfJCbo
               - **escalada**: Simba
+              - **setor**: Setor Caverninha
+              - **grupo**: Salão de Pedras
               - **ids**:
                 - 9aDZfbo3dfJCbo
             - **[1]**:
@@ -922,6 +982,8 @@
               - **pontos_uids**:
                 - SE8CbHeCLpWSBv
               - **escalada**: Dragão
+              - **setor**: Setor Caverninha
+              - **grupo**: Salão de Pedras
               - **ids**:
                 - SE8CbHeCLpWSBv
             - **[2]**:
@@ -929,6 +991,8 @@
               - **pontos_uids**:
                 - ysGskp1azUDfao
               - **escalada**: Abaulados
+              - **setor**: Setor Caverninha
+              - **grupo**: Salão de Pedras
               - **ids**:
                 - ysGskp1azUDfao
             - **[3]**:
@@ -936,6 +1000,8 @@
               - **pontos_uids**:
                 - PQNVakCAY2suGz
               - **escalada**: Simba (2o)
+              - **setor**: Setor Caverninha
+              - **grupo**: Salão de Pedras
               - **ids**:
                 - PQNVakCAY2suGz
             - **[4]**:
@@ -943,6 +1009,8 @@
               - **pontos_uids**:
                 - qpRFhB6mOPDCOC
               - **escalada**: Capitão Caverna
+              - **setor**: Setor Caverninha
+              - **grupo**: Salão de Pedras
               - **ids**:
                 - qpRFhB6mOPDCOC
             - **[5]**:
@@ -950,6 +1018,8 @@
               - **pontos_uids**:
                 - vNISXvJwnadRVC
               - **escalada**: Confuso
+              - **setor**: Setor Caverninha
+              - **grupo**: Salão de Pedras
               - **ids**:
                 - vNISXvJwnadRVC
         - **[2]**:
@@ -1003,6 +1073,8 @@
               - **pontos_uids**:
                 - YCXt1v4CbuXW3g
               - **escalada**: Combinação Perfeita
+              - **setor**: Setor Caverninha
+              - **grupo**: Salão de Pedras
               - **ids**:
                 - YCXt1v4CbuXW3g
             - **[1]**:
@@ -1010,6 +1082,8 @@
               - **pontos_uids**:
                 - aGRHgGZLhcFSrR
               - **escalada**: Trinca Ferro
+              - **setor**: Setor Caverninha
+              - **grupo**: Salão de Pedras
               - **ids**:
                 - aGRHgGZLhcFSrR
             - **[2]**:
@@ -1017,6 +1091,8 @@
               - **pontos_uids**:
                 - b10jvmA92maiIk
               - **escalada**: Trinca Carangueijo
+              - **setor**: Setor Caverninha
+              - **grupo**: Salão de Pedras
               - **ids**:
                 - b10jvmA92maiIk
             - **[3]**:
@@ -1024,6 +1100,8 @@
               - **pontos_uids**:
                 - CLQMUPGmRgg9wk
               - **escalada**: Natural (V6)
+              - **setor**: Setor Caverninha
+              - **grupo**: Salão de Pedras
               - **ids**:
                 - CLQMUPGmRgg9wk
       - **escaladas**:
@@ -1185,6 +1263,8 @@
               - **pontos_uids**:
                 - rOizVpGjVY57Dc
               - **escalada**: Tré Bien
+              - **setor**: Setor Campo Escola
+              - **grupo**: Salão de Pedras
               - **ids**:
                 - rOizVpGjVY57Dc
             - **[1]**:
@@ -1192,6 +1272,8 @@
               - **pontos_uids**:
                 - tXJyv48GOHN54D
               - **escalada**: Muvuca
+              - **setor**: Setor Campo Escola
+              - **grupo**: Salão de Pedras
               - **ids**:
                 - tXJyv48GOHN54D
             - **[2]**:
@@ -1199,6 +1281,8 @@
               - **pontos_uids**:
                 - y8P9qYX9uaZzln
               - **escalada**: Ninja de Verde
+              - **setor**: Setor Campo Escola
+              - **grupo**: Salão de Pedras
               - **ids**:
                 - y8P9qYX9uaZzln
             - **[3]**:
@@ -1206,6 +1290,8 @@
               - **pontos_uids**:
                 - of7e00fNptPjA5
               - **escalada**: Ninja de Amarelo
+              - **setor**: Setor Campo Escola
+              - **grupo**: Salão de Pedras
               - **ids**:
                 - of7e00fNptPjA5
             - **[4]**:
@@ -1213,6 +1299,8 @@
               - **pontos_uids**:
                 - yteQ9DNtfd4mLD
               - **escalada**: Ninja de Rosa
+              - **setor**: Setor Campo Escola
+              - **grupo**: Salão de Pedras
               - **ids**:
                 - yteQ9DNtfd4mLD
             - **[5]**:
@@ -1220,6 +1308,8 @@
               - **pontos_uids**:
                 - nvDCRyCvsajHQ5
               - **escalada**: Casé
+              - **setor**: Setor Campo Escola
+              - **grupo**: Salão de Pedras
               - **ids**:
                 - nvDCRyCvsajHQ5
         - **[1]**:
@@ -1293,6 +1383,8 @@
               - **pontos_uids**:
                 - ow38ccXpJkXMgH
               - **escalada**: (sem nome 25)
+              - **setor**: Setor Campo Escola
+              - **grupo**: Salão de Pedras
               - **ids**:
                 - ow38ccXpJkXMgH
             - **[1]**:
@@ -1300,6 +1392,8 @@
               - **pontos_uids**:
                 - QFIB2Xzv2sIbby
               - **escalada**: (sem nome 26)
+              - **setor**: Setor Campo Escola
+              - **grupo**: Salão de Pedras
               - **ids**:
                 - QFIB2Xzv2sIbby
             - **[2]**:
@@ -1307,6 +1401,8 @@
               - **pontos_uids**:
                 - EnB7LXk3Kr5qIP
               - **escalada**: (sem nome 27)
+              - **setor**: Setor Campo Escola
+              - **grupo**: Salão de Pedras
               - **ids**:
                 - EnB7LXk3Kr5qIP
             - **[3]**:
@@ -1314,6 +1410,8 @@
               - **pontos_uids**:
                 - no5hEGavYJp8c9
               - **escalada**: (sem nome 28)
+              - **setor**: Setor Campo Escola
+              - **grupo**: Salão de Pedras
               - **ids**:
                 - no5hEGavYJp8c9
             - **[4]**:
@@ -1321,6 +1419,8 @@
               - **pontos_uids**:
                 - 7Z1U5yD73t3NxI
               - **escalada**: (sem nome 29)
+              - **setor**: Setor Campo Escola
+              - **grupo**: Salão de Pedras
               - **ids**:
                 - 7Z1U5yD73t3NxI
             - **[5]**:
@@ -1328,6 +1428,8 @@
               - **pontos_uids**:
                 - ryUcaD9FSBUtyF
               - **escalada**: Das Meninas
+              - **setor**: Setor Campo Escola
+              - **grupo**: Salão de Pedras
               - **ids**:
                 - ryUcaD9FSBUtyF
       - **escaladas**:
@@ -1464,6 +1566,8 @@
               - **pontos_uids**:
                 - W6fl3nyVSO8zYr
               - **escalada**: Super Foot Hook
+              - **setor**: Setor Escorpião
+              - **grupo**: Salão de Pedras
               - **ids**:
                 - W6fl3nyVSO8zYr
             - **[1]**:
@@ -1471,6 +1575,8 @@
               - **pontos_uids**:
                 - HzKW2zKWqcFwKo
               - **escalada**: Foot Hook
+              - **setor**: Setor Escorpião
+              - **grupo**: Salão de Pedras
               - **ids**:
                 - HzKW2zKWqcFwKo
             - **[2]**:
@@ -1478,6 +1584,8 @@
               - **pontos_uids**:
                 - Klwl5UK7aJAmj9
               - **escalada**: Escorpião
+              - **setor**: Setor Escorpião
+              - **grupo**: Salão de Pedras
               - **ids**:
                 - Klwl5UK7aJAmj9
             - **[3]**:
@@ -1485,6 +1593,8 @@
               - **pontos_uids**:
                 - PTzZTIEiSkag08
               - **escalada**: Yakisoba
+              - **setor**: Setor Escorpião
+              - **grupo**: Salão de Pedras
               - **ids**:
                 - PTzZTIEiSkag08
             - **[4]**:
@@ -1492,6 +1602,8 @@
               - **pontos_uids**:
                 - k0XSdMArLBkPrL
               - **escalada**: Uaikisoba
+              - **setor**: Setor Escorpião
+              - **grupo**: Salão de Pedras
               - **ids**:
                 - k0XSdMArLBkPrL
         - **[1]**:
@@ -1525,6 +1637,8 @@
               - **pontos_uids**:
                 - B7DWcX8hJ1aCDS
               - **escalada**: Insaciável
+              - **setor**: Setor Escorpião
+              - **grupo**: Salão de Pedras
               - **ids**:
                 - B7DWcX8hJ1aCDS
             - **[1]**:
@@ -1532,6 +1646,8 @@
               - **pontos_uids**:
                 - xGmdUNT8Z1bizL
               - **escalada**: Sicronismo
+              - **setor**: Setor Escorpião
+              - **grupo**: Salão de Pedras
               - **ids**:
                 - xGmdUNT8Z1bizL
       - **escaladas**:
@@ -1623,6 +1739,8 @@
               - **pontos_uids**:
                 - rpviF7a30p5PTK
               - **escalada**: Trofeuzinho
+              - **setor**: Setor Troféu
+              - **grupo**: Salão de Pedras
               - **ids**:
                 - rpviF7a30p5PTK
             - **[1]**:
@@ -1630,6 +1748,8 @@
               - **pontos_uids**:
                 - c70Tf6vxRTIrEJ
               - **escalada**: Troféu
+              - **setor**: Setor Troféu
+              - **grupo**: Salão de Pedras
               - **ids**:
                 - c70Tf6vxRTIrEJ
             - **[2]**:
@@ -1637,6 +1757,8 @@
               - **pontos_uids**:
                 - 5rWOYtJ1on0GzU
               - **escalada**: Dreads de Goiás
+              - **setor**: Setor Troféu
+              - **grupo**: Salão de Pedras
               - **ids**:
                 - 5rWOYtJ1on0GzU
       - **escaladas**:
@@ -1698,6 +1820,8 @@
               - **pontos_uids**:
                 - jytgCGdsk4gvOi
               - **escalada**: X-Tudo
+              - **setor**: Setor X-Tudo
+              - **grupo**: Salão de Pedras
               - **ids**:
                 - jytgCGdsk4gvOi
             - **[1]**:
@@ -1705,6 +1829,8 @@
               - **pontos_uids**:
                 - xoDPwkiuMqSmdO
               - **escalada**: Pão com Ovo
+              - **setor**: Setor X-Tudo
+              - **grupo**: Salão de Pedras
               - **ids**:
                 - xoDPwkiuMqSmdO
         - **[1]**:
@@ -1728,6 +1854,8 @@
               - **pontos_uids**:
                 - gl6THLgL3tYTVM
               - **escalada**: Nossa Senhora de Conceição
+              - **setor**: Setor X-Tudo
+              - **grupo**: Salão de Pedras
               - **ids**:
                 - gl6THLgL3tYTVM
         - **[2]**:
@@ -1751,6 +1879,8 @@
               - **pontos_uids**:
                 - 4BTPVMfQnaFL5i
               - **escalada**: Kansas
+              - **setor**: Setor X-Tudo
+              - **grupo**: Salão de Pedras
               - **ids**:
                 - 4BTPVMfQnaFL5i
       - **escaladas**:
@@ -1827,6 +1957,8 @@
               - **pontos_uids**:
                 - 3meZQQETdFR5od
               - **escalada**: Domínio Digital
+              - **setor**: Setor Domínio Digital
+              - **grupo**: Salão de Pedras
               - **ids**:
                 - 3meZQQETdFR5od
             - **[1]**:
@@ -1834,6 +1966,8 @@
               - **pontos_uids**:
                 - 5iaFjURH3DqG7X
               - **escalada**: (sem nome 30)
+              - **setor**: Setor Domínio Digital
+              - **grupo**: Salão de Pedras
               - **ids**:
                 - 5iaFjURH3DqG7X
             - **[2]**:
@@ -1841,6 +1975,8 @@
               - **pontos_uids**:
                 - j7FkXnPK7q3EJw
               - **escalada**: (sem nome 31)
+              - **setor**: Setor Domínio Digital
+              - **grupo**: Salão de Pedras
               - **ids**:
                 - j7FkXnPK7q3EJw
       - **escaladas**:
@@ -1936,6 +2072,7 @@
         - **pontos_uids**:
           - wrD6Cr355ncGoe
         - **setor**: Setor Choquito
+        - **grupo**: Colina
         - **ids**:
           - wrD6Cr355ncGoe
       - **[1]**:
@@ -1943,6 +2080,7 @@
         - **pontos_uids**:
           - DdAS8L7n5kBX87
         - **setor**: Setor Godzilla
+        - **grupo**: Colina
         - **ids**:
           - DdAS8L7n5kBX87
       - **[2]**:
@@ -1950,6 +2088,7 @@
         - **pontos_uids**:
           - 50ASdNdNKXwgwQ
         - **setor**: Setor Show Time
+        - **grupo**: Colina
         - **ids**:
           - 50ASdNdNKXwgwQ
       - **[3]**:
@@ -1957,6 +2096,7 @@
         - **pontos_uids**:
           - EJcIYcuiAg2QvU
         - **setor**: Setor Hiperespaço
+        - **grupo**: Colina
         - **ids**:
           - EJcIYcuiAg2QvU
       - **[4]**:
@@ -1964,6 +2104,7 @@
         - **pontos_uids**:
           - q8Px7ijHdLpZfB
         - **setor**: Setor Mergulho em Copo d'Água
+        - **grupo**: Colina
         - **ids**:
           - q8Px7ijHdLpZfB
 - **setores**:
@@ -2043,6 +2184,8 @@
               - **pontos_uids**:
                 - O3tRj7N346XT0r
               - **escalada**: Paradise
+              - **setor**: Setor Choquito
+              - **grupo**: Colina
               - **ids**:
                 - O3tRj7N346XT0r
             - **[1]**:
@@ -2050,6 +2193,8 @@
               - **pontos_uids**:
                 - YsJoS7c7agips5
               - **escalada**: Quebra Costela
+              - **setor**: Setor Choquito
+              - **grupo**: Colina
               - **ids**:
                 - YsJoS7c7agips5
             - **[2]**:
@@ -2057,6 +2202,8 @@
               - **pontos_uids**:
                 - vfTu6HErb1mTGK
               - **escalada**: (sem nome 1)
+              - **setor**: Setor Choquito
+              - **grupo**: Colina
               - **ids**:
                 - vfTu6HErb1mTGK
             - **[3]**:
@@ -2064,6 +2211,8 @@
               - **pontos_uids**:
                 - WyPOaT4nm5o0Gv
               - **escalada**: Choquito
+              - **setor**: Setor Choquito
+              - **grupo**: Colina
               - **ids**:
                 - WyPOaT4nm5o0Gv
             - **[4]**:
@@ -2071,6 +2220,8 @@
               - **pontos_uids**:
                 - 9CCqXLAqJXrTa4
               - **escalada**: Jungle
+              - **setor**: Setor Choquito
+              - **grupo**: Colina
               - **ids**:
                 - 9CCqXLAqJXrTa4
         - **[1]**:
@@ -2104,6 +2255,8 @@
               - **pontos_uids**:
                 - vMh3JbiMTC4luB
               - **escalada**: (sem nome 2)
+              - **setor**: Setor Choquito
+              - **grupo**: Colina
               - **ids**:
                 - vMh3JbiMTC4luB
             - **[1]**:
@@ -2111,6 +2264,8 @@
               - **pontos_uids**:
                 - SO2PoVRVqogdvr
               - **escalada**: (sem nome 3)
+              - **setor**: Setor Choquito
+              - **grupo**: Colina
               - **ids**:
                 - SO2PoVRVqogdvr
       - **escaladas**:
@@ -2201,6 +2356,8 @@
               - **pontos_uids**:
                 - WEFXQkDmjJGM10
               - **escalada**: King Kong
+              - **setor**: Setor Godzilla
+              - **grupo**: Colina
               - **ids**:
                 - WEFXQkDmjJGM10
             - **[1]**:
@@ -2208,6 +2365,8 @@
               - **pontos_uids**:
                 - s7P90LqMpEixjG
               - **escalada**: Gorilaz
+              - **setor**: Setor Godzilla
+              - **grupo**: Colina
               - **ids**:
                 - s7P90LqMpEixjG
             - **[2]**:
@@ -2215,6 +2374,8 @@
               - **pontos_uids**:
                 - 5S7JPtcibwhVMF
               - **escalada**: Chimpanzé
+              - **setor**: Setor Godzilla
+              - **grupo**: Colina
               - **ids**:
                 - 5S7JPtcibwhVMF
         - **[1]**:
@@ -2258,6 +2419,8 @@
               - **pontos_uids**:
                 - MHpcIheKTNXQke
               - **escalada**: Macaco Prego
+              - **setor**: Setor Godzilla
+              - **grupo**: Colina
               - **ids**:
                 - MHpcIheKTNXQke
             - **[1]**:
@@ -2265,6 +2428,8 @@
               - **pontos_uids**:
                 - 0T2i1c5G15OfLS
               - **escalada**: Rolamento
+              - **setor**: Setor Godzilla
+              - **grupo**: Colina
               - **ids**:
                 - 0T2i1c5G15OfLS
             - **[2]**:
@@ -2272,6 +2437,8 @@
               - **pontos_uids**:
                 - sfS4ZKtQdiP4RU
               - **escalada**: Godzilla
+              - **setor**: Setor Godzilla
+              - **grupo**: Colina
               - **ids**:
                 - sfS4ZKtQdiP4RU
         - **[2]**:
@@ -2305,6 +2472,8 @@
               - **pontos_uids**:
                 - H8CaN19MuDQP5p
               - **escalada**: Enxada
+              - **setor**: Setor Godzilla
+              - **grupo**: Colina
               - **ids**:
                 - H8CaN19MuDQP5p
             - **[1]**:
@@ -2312,6 +2481,8 @@
               - **pontos_uids**:
                 - Czn0o7zSshKTNi
               - **escalada**: Obra de Arte
+              - **setor**: Setor Godzilla
+              - **grupo**: Colina
               - **ids**:
                 - Czn0o7zSshKTNi
       - **escaladas**:
@@ -2418,6 +2589,8 @@
               - **pontos_uids**:
                 - bhM4fq18aYdKd3
               - **escalada**: ET Teimoso
+              - **setor**: Setor Show Time
+              - **grupo**: Colina
               - **ids**:
                 - bhM4fq18aYdKd3
             - **[1]**:
@@ -2425,6 +2598,8 @@
               - **pontos_uids**:
                 - oFUR9yAjsXOUJF
               - **escalada**: Show Time
+              - **setor**: Setor Show Time
+              - **grupo**: Colina
               - **ids**:
                 - oFUR9yAjsXOUJF
             - **[2]**:
@@ -2432,6 +2607,8 @@
               - **pontos_uids**:
                 - zxIrMGtnIs2oBw
               - **escalada**: Zela Time
+              - **setor**: Setor Show Time
+              - **grupo**: Colina
               - **ids**:
                 - zxIrMGtnIs2oBw
             - **[3]**:
@@ -2439,6 +2616,8 @@
               - **pontos_uids**:
                 - FOVW6vJ4vYuRj2
               - **escalada**: (sem nome 4)
+              - **setor**: Setor Show Time
+              - **grupo**: Colina
               - **ids**:
                 - FOVW6vJ4vYuRj2
         - **[1]**:
@@ -2512,6 +2691,8 @@
               - **pontos_uids**:
                 - S32hCtiHxSy1im
               - **escalada**: (sem nome 4)
+              - **setor**: Setor Show Time
+              - **grupo**: Colina
               - **ids**:
                 - S32hCtiHxSy1im
             - **[1]**:
@@ -2519,6 +2700,8 @@
               - **pontos_uids**:
                 - 5LFAfctie3moD8
               - **escalada**: (sem nome 5)
+              - **setor**: Setor Show Time
+              - **grupo**: Colina
               - **ids**:
                 - 5LFAfctie3moD8
             - **[2]**:
@@ -2526,6 +2709,8 @@
               - **pontos_uids**:
                 - JJJb94cBrCB2Fk
               - **escalada**: Meia Lua
+              - **setor**: Setor Show Time
+              - **grupo**: Colina
               - **ids**:
                 - JJJb94cBrCB2Fk
             - **[3]**:
@@ -2533,6 +2718,8 @@
               - **pontos_uids**:
                 - Ki065F0a77GbDt
               - **escalada**: (sem nome 6)
+              - **setor**: Setor Show Time
+              - **grupo**: Colina
               - **ids**:
                 - Ki065F0a77GbDt
             - **[4]**:
@@ -2540,6 +2727,8 @@
               - **pontos_uids**:
                 - LjOHSYfwzJDs9s
               - **escalada**: Zela Time
+              - **setor**: Setor Show Time
+              - **grupo**: Colina
               - **ids**:
                 - LjOHSYfwzJDs9s
             - **[5]**:
@@ -2547,6 +2736,8 @@
               - **pontos_uids**:
                 - 75St8wEmK9hr0y
               - **escalada**: Show Time
+              - **setor**: Setor Show Time
+              - **grupo**: Colina
               - **ids**:
                 - 75St8wEmK9hr0y
       - **escaladas**:
@@ -2668,6 +2859,8 @@
               - **pontos_uids**:
                 - CtOV1wG8o766YO
               - **escalada**: Solstício
+              - **setor**: Setor Hiperespaço
+              - **grupo**: Colina
               - **ids**:
                 - CtOV1wG8o766YO
             - **[1]**:
@@ -2675,6 +2868,8 @@
               - **pontos_uids**:
                 - cQkfOYNLPzie0P
               - **escalada**: Equinócio
+              - **setor**: Setor Hiperespaço
+              - **grupo**: Colina
               - **ids**:
                 - cQkfOYNLPzie0P
             - **[2]**:
@@ -2682,6 +2877,8 @@
               - **pontos_uids**:
                 - niKgH30S2C2gaU
               - **escalada**: Eclipse
+              - **setor**: Setor Hiperespaço
+              - **grupo**: Colina
               - **ids**:
                 - niKgH30S2C2gaU
             - **[3]**:
@@ -2689,6 +2886,8 @@
               - **pontos_uids**:
                 - DmUd4ppUX9YY9F
               - **escalada**: Antares
+              - **setor**: Setor Hiperespaço
+              - **grupo**: Colina
               - **ids**:
                 - DmUd4ppUX9YY9F
             - **[4]**:
@@ -2696,6 +2895,8 @@
               - **pontos_uids**:
                 - kyJ7Nv55imVypD
               - **escalada**: Don Carlitos
+              - **setor**: Setor Hiperespaço
+              - **grupo**: Colina
               - **ids**:
                 - kyJ7Nv55imVypD
             - **[5]**:
@@ -2703,6 +2904,8 @@
               - **pontos_uids**:
                 - CG6Wf3j2R4VfjV
               - **escalada**: Jardins Suspensos
+              - **setor**: Setor Hiperespaço
+              - **grupo**: Colina
               - **ids**:
                 - CG6Wf3j2R4VfjV
       - **escaladas**:
@@ -2769,6 +2972,8 @@
               - **pontos_uids**:
                 - eDyAljCFEDPGmP
               - **escalada**: Mergulho em Copo d'Água
+              - **setor**: Setor Mergulho em Copo d'Água
+              - **grupo**: Colina
               - **ids**:
                 - eDyAljCFEDPGmP
       - **escaladas**:
@@ -2824,6 +3029,7 @@
         - **pontos_uids**:
           - tHhznIudpdNmHQ
         - **setor**: Setor Mufasa
+        - **grupo**: JK
         - **ids**:
           - tHhznIudpdNmHQ
 - **setores**:
@@ -2867,6 +3073,8 @@
               - **pontos_uids**:
                 - UX6EfPItSY8cUS
               - **escalada**: Bloody Hell
+              - **setor**: Setor Mufasa
+              - **grupo**: JK
               - **ids**:
                 - UX6EfPItSY8cUS
             - **[1]**:
@@ -2874,6 +3082,8 @@
               - **pontos_uids**:
                 - rIv95Eyi8kvbYB
               - **escalada**: Mufasa
+              - **setor**: Setor Mufasa
+              - **grupo**: JK
               - **ids**:
                 - rIv95Eyi8kvbYB
       - **escaladas**:
@@ -3064,6 +3274,7 @@
         - **pontos_uids**:
           - b23vf3N41ACj3A
         - **setor**: Setor Preguiça
+        - **grupo**: Pedreira
         - **ids**:
           - b23vf3N41ACj3A
       - **[1]**:
@@ -3071,6 +3282,7 @@
         - **pontos_uids**:
           - yFSS81ITy499Qt
         - **setor**: Setor Manda Lá
+        - **grupo**: Pedreira
         - **ids**:
           - yFSS81ITy499Qt
       - **[2]**:
@@ -3078,6 +3290,7 @@
         - **pontos_uids**:
           - 52Hlv1eMxygMHM
         - **setor**: Setor Trabalhador
+        - **grupo**: Pedreira
         - **ids**:
           - 52Hlv1eMxygMHM
       - **[3]**:
@@ -3085,6 +3298,7 @@
         - **pontos_uids**:
           - PB73eL63DwVfA7
         - **setor**: Setor Sanfoneiro Maluco
+        - **grupo**: Pedreira
         - **ids**:
           - PB73eL63DwVfA7
       - **[4]**:
@@ -3092,6 +3306,7 @@
         - **pontos_uids**:
           - lmqaF1XcTVGOZM
         - **setor**: Setor Samurai
+        - **grupo**: Pedreira
         - **ids**:
           - lmqaF1XcTVGOZM
       - **[5]**:
@@ -3099,6 +3314,7 @@
         - **pontos_uids**:
           - 1HoVQDzlfoVhxM
         - **setor**: Setor Bomba Atômica
+        - **grupo**: Pedreira
         - **ids**:
           - 1HoVQDzlfoVhxM
       - **[6]**:
@@ -3106,6 +3322,7 @@
         - **pontos_uids**:
           - Mlc1tRQzIGLamn
         - **setor**: Setor Jubileu
+        - **grupo**: Pedreira
         - **ids**:
           - Mlc1tRQzIGLamn
       - **[7]**:
@@ -3113,6 +3330,7 @@
         - **pontos_uids**:
           - hmU0vFdMSLuNm6
         - **setor**: Setor Conceição
+        - **grupo**: Pedreira
         - **ids**:
           - hmU0vFdMSLuNm6
       - **[8]**:
@@ -3120,6 +3338,7 @@
         - **pontos_uids**:
           - iiV2OFzkqWFKpD
         - **setor**: Setor Bobsled
+        - **grupo**: Pedreira
         - **ids**:
           - iiV2OFzkqWFKpD
       - **[9]**:
@@ -3127,6 +3346,7 @@
         - **pontos_uids**:
           - B48bdIMXCkM6Af
         - **setor**: Setor Aresta do Cabeça
+        - **grupo**: Pedreira
         - **ids**:
           - B48bdIMXCkM6Af
       - **[10]**:
@@ -3134,6 +3354,7 @@
         - **pontos_uids**:
           - 2dktKSyJGtDNHE
         - **setor**: Setor Equinócio
+        - **grupo**: Pedreira
         - **ids**:
           - 2dktKSyJGtDNHE
       - **[11]**:
@@ -3141,6 +3362,7 @@
         - **pontos_uids**:
           - YFf16f3kWzJzF2
         - **setor**: Setor Witness
+        - **grupo**: Pedreira
         - **ids**:
           - YFf16f3kWzJzF2
       - **[12]**:
@@ -3148,6 +3370,7 @@
         - **pontos_uids**:
           - pRmlwYnHRxUS3W
         - **setor**: Setor La Fúria
+        - **grupo**: Pedreira
         - **ids**:
           - pRmlwYnHRxUS3W
       - **[13]**:
@@ -3155,6 +3378,7 @@
         - **pontos_uids**:
           - A6PxzdEFL6JoV2
         - **setor**: Setor Jah
+        - **grupo**: Pedreira
         - **ids**:
           - A6PxzdEFL6JoV2
       - **[14]**:
@@ -3162,6 +3386,7 @@
         - **pontos_uids**:
           - ug6uAJPc4cQJ3b
         - **setor**: Setor Pole Dance
+        - **grupo**: Pedreira
         - **ids**:
           - ug6uAJPc4cQJ3b
 - **setores**:
@@ -3235,6 +3460,8 @@
               - **pontos_uids**:
                 - Ezwt6JOc9wKCP3
               - **escalada**: Preguiça de Sofrer
+              - **setor**: Setor Preguiça
+              - **grupo**: Pedreira
               - **ids**:
                 - Ezwt6JOc9wKCP3
             - **[1]**:
@@ -3242,6 +3469,8 @@
               - **pontos_uids**:
                 - 7Xqlje3YhHg51B
               - **escalada**: Preguicinha
+              - **setor**: Setor Preguiça
+              - **grupo**: Pedreira
               - **ids**:
                 - 7Xqlje3YhHg51B
             - **[2]**:
@@ -3249,6 +3478,8 @@
               - **pontos_uids**:
                 - P4B28yzgKVQQWw
               - **escalada**: (sem nome 22)
+              - **setor**: Setor Preguiça
+              - **grupo**: Pedreira
               - **ids**:
                 - P4B28yzgKVQQWw
             - **[3]**:
@@ -3256,6 +3487,8 @@
               - **pontos_uids**:
                 - 8An6aAaE3GP4jM
               - **escalada**: Tá Lá
+              - **setor**: Setor Preguiça
+              - **grupo**: Pedreira
               - **ids**:
                 - 8An6aAaE3GP4jM
             - **[4]**:
@@ -3263,6 +3496,8 @@
               - **pontos_uids**:
                 - ofW4ngRySv9tt1
               - **escalada**: (sem nome 23)
+              - **setor**: Setor Preguiça
+              - **grupo**: Pedreira
               - **ids**:
                 - ofW4ngRySv9tt1
         - **[1]**:
@@ -3296,6 +3531,8 @@
               - **pontos_uids**:
                 - NRaWE90Rv4A8Sd
               - **escalada**: Salsichção
+              - **setor**: Setor Preguiça
+              - **grupo**: Pedreira
               - **ids**:
                 - NRaWE90Rv4A8Sd
             - **[1]**:
@@ -3303,6 +3540,8 @@
               - **pontos_uids**:
                 - 6XV6RM3004grlR
               - **escalada**: Era Uma Vez
+              - **setor**: Setor Preguiça
+              - **grupo**: Pedreira
               - **ids**:
                 - 6XV6RM3004grlR
         - **[2]**:
@@ -3346,6 +3585,8 @@
               - **pontos_uids**:
                 - E5WYSWahMa5Q9u
               - **escalada**: Frank
+              - **setor**: Setor Preguiça
+              - **grupo**: Pedreira
               - **ids**:
                 - E5WYSWahMa5Q9u
             - **[1]**:
@@ -3353,6 +3594,8 @@
               - **pontos_uids**:
                 - rVyrFMcB80rYSS
               - **escalada**: Stout
+              - **setor**: Setor Preguiça
+              - **grupo**: Pedreira
               - **ids**:
                 - rVyrFMcB80rYSS
             - **[2]**:
@@ -3360,6 +3603,8 @@
               - **pontos_uids**:
                 - qkq2DjIBBKqxuL
               - **escalada**: Carlos Drummond
+              - **setor**: Setor Preguiça
+              - **grupo**: Pedreira
               - **ids**:
                 - qkq2DjIBBKqxuL
       - **escaladas**:
@@ -3456,6 +3701,8 @@
               - **pontos_uids**:
                 - x1R6gfi5mvsVmZ
               - **escalada**: Amand-lá
+              - **setor**: Setor Manda Lá
+              - **grupo**: Pedreira
               - **ids**:
                 - x1R6gfi5mvsVmZ
             - **[1]**:
@@ -3463,6 +3710,8 @@
               - **pontos_uids**:
                 - XUgyQXJZQE0Oxv
               - **escalada**: Manda Lá
+              - **setor**: Setor Manda Lá
+              - **grupo**: Pedreira
               - **ids**:
                 - XUgyQXJZQE0Oxv
       - **escaladas**:
@@ -3519,6 +3768,8 @@
               - **pontos_uids**:
                 - ZhWeuDf5DFUHXZ
               - **escalada**: Hueco Fontaine
+              - **setor**: Setor Trabalhador
+              - **grupo**: Pedreira
               - **ids**:
                 - ZhWeuDf5DFUHXZ
             - **[1]**:
@@ -3526,6 +3777,8 @@
               - **pontos_uids**:
                 - PxrNJ6QQ8KoPt6
               - **escalada**: Pitt Bull
+              - **setor**: Setor Trabalhador
+              - **grupo**: Pedreira
               - **ids**:
                 - PxrNJ6QQ8KoPt6
         - **[1]**:
@@ -3569,6 +3822,8 @@
               - **pontos_uids**:
                 - cltrVd9807XCCi
               - **escalada**: Trabalhador Brasileiro
+              - **setor**: Setor Trabalhador
+              - **grupo**: Pedreira
               - **ids**:
                 - cltrVd9807XCCi
             - **[1]**:
@@ -3576,6 +3831,8 @@
               - **pontos_uids**:
                 - n0jZecOQ4HKaQg
               - **escalada**: Trabalho Árduo
+              - **setor**: Setor Trabalhador
+              - **grupo**: Pedreira
               - **ids**:
                 - n0jZecOQ4HKaQg
             - **[2]**:
@@ -3583,6 +3840,8 @@
               - **pontos_uids**:
                 - n4kzDDxMJHEMN4
               - **escalada**: Estamos Trabalhando
+              - **setor**: Setor Trabalhador
+              - **grupo**: Pedreira
               - **ids**:
                 - n4kzDDxMJHEMN4
       - **escaladas**:
@@ -3664,6 +3923,8 @@
               - **pontos_uids**:
                 - UNvpPG01W1KZ9i
               - **escalada**: Sanfoneiro Maluco
+              - **setor**: Setor Sanfoneiro Maluco
+              - **grupo**: Pedreira
               - **ids**:
                 - UNvpPG01W1KZ9i
             - **[1]**:
@@ -3671,6 +3932,8 @@
               - **pontos_uids**:
                 - sSs0qDD1zGEDic
               - **escalada**: Inacreditável
+              - **setor**: Setor Sanfoneiro Maluco
+              - **grupo**: Pedreira
               - **ids**:
                 - sSs0qDD1zGEDic
             - **[2]**:
@@ -3678,6 +3941,8 @@
               - **pontos_uids**:
                 - SrJe25DRWb3V89
               - **escalada**: Chapeleiro Maluco
+              - **setor**: Setor Sanfoneiro Maluco
+              - **grupo**: Pedreira
               - **ids**:
                 - SrJe25DRWb3V89
         - **[1]**:
@@ -3701,6 +3966,8 @@
               - **pontos_uids**:
                 - DeFIVNGJYdo8w3
               - **escalada**: Webb da Paraíba
+              - **setor**: Setor Sanfoneiro Maluco
+              - **grupo**: Pedreira
               - **ids**:
                 - DeFIVNGJYdo8w3
         - **[2]**:
@@ -3734,6 +4001,8 @@
               - **pontos_uids**:
                 - s4or0TPLv3Mt0R
               - **escalada**: Efeito Dominó
+              - **setor**: Setor Sanfoneiro Maluco
+              - **grupo**: Pedreira
               - **ids**:
                 - s4or0TPLv3Mt0R
             - **[1]**:
@@ -3741,6 +4010,8 @@
               - **pontos_uids**:
                 - U6ecenKv5C8A7U
               - **escalada**: Zuzuzela
+              - **setor**: Setor Sanfoneiro Maluco
+              - **grupo**: Pedreira
               - **ids**:
                 - U6ecenKv5C8A7U
       - **escaladas**:
@@ -3837,6 +4108,8 @@
               - **pontos_uids**:
                 - hnov2jDFTAJtzI
               - **escalada**: Purgatório
+              - **setor**: Setor Samurai
+              - **grupo**: Pedreira
               - **ids**:
                 - hnov2jDFTAJtzI
             - **[1]**:
@@ -3844,6 +4117,8 @@
               - **pontos_uids**:
                 - 6a6s3Fjdgo0cOa
               - **escalada**: Samurai
+              - **setor**: Setor Samurai
+              - **grupo**: Pedreira
               - **ids**:
                 - 6a6s3Fjdgo0cOa
             - **[2]**:
@@ -3851,6 +4126,8 @@
               - **pontos_uids**:
                 - bKjqkR3g15lFSZ
               - **escalada**: Ômega 3
+              - **setor**: Setor Samurai
+              - **grupo**: Pedreira
               - **ids**:
                 - bKjqkR3g15lFSZ
             - **[3]**:
@@ -3858,6 +4135,8 @@
               - **pontos_uids**:
                 - NWivM3W36TjWww
               - **escalada**: Purgatório do Samurai
+              - **setor**: Setor Samurai
+              - **grupo**: Pedreira
               - **ids**:
                 - NWivM3W36TjWww
         - **[1]**:
@@ -3881,6 +4160,8 @@
               - **pontos_uids**:
                 - qdB8Vy3mehmzOF
               - **escalada**: Ouro Branco
+              - **setor**: Setor Samurai
+              - **grupo**: Pedreira
               - **ids**:
                 - qdB8Vy3mehmzOF
       - **escaladas**:
@@ -4022,6 +4303,8 @@
               - **pontos_uids**:
                 - QbtjZrwqFAhV9G
               - **escalada**: Viajante
+              - **setor**: Setor Bomba Atômica
+              - **grupo**: Pedreira
               - **ids**:
                 - QbtjZrwqFAhV9G
             - **[1]**:
@@ -4029,6 +4312,8 @@
               - **pontos_uids**:
                 - OHrSTlHmtBjE4D
               - **escalada**: Viajante SDS
+              - **setor**: Setor Bomba Atômica
+              - **grupo**: Pedreira
               - **ids**:
                 - OHrSTlHmtBjE4D
             - **[2]**:
@@ -4036,6 +4321,8 @@
               - **pontos_uids**:
                 - MnwWtRaQLAWLG2
               - **escalada**: (sem nome 8)
+              - **setor**: Setor Bomba Atômica
+              - **grupo**: Pedreira
               - **ids**:
                 - MnwWtRaQLAWLG2
             - **[3]**:
@@ -4043,6 +4330,8 @@
               - **pontos_uids**:
                 - n9XjgIBu3thS27
               - **escalada**: (sem nome 9)
+              - **setor**: Setor Bomba Atômica
+              - **grupo**: Pedreira
               - **ids**:
                 - n9XjgIBu3thS27
             - **[4]**:
@@ -4050,6 +4339,8 @@
               - **pontos_uids**:
                 - tKTzpesxgCpVG9
               - **escalada**: (sem nome 10)
+              - **setor**: Setor Bomba Atômica
+              - **grupo**: Pedreira
               - **ids**:
                 - tKTzpesxgCpVG9
             - **[5]**:
@@ -4057,6 +4348,8 @@
               - **pontos_uids**:
                 - EeqGNeSieAX3iA
               - **escalada**: Champagne
+              - **setor**: Setor Bomba Atômica
+              - **grupo**: Pedreira
               - **ids**:
                 - EeqGNeSieAX3iA
             - **[6]**:
@@ -4064,6 +4357,8 @@
               - **pontos_uids**:
                 - OfIbyPZ6nLZGfw
               - **escalada**: Bonitinho
+              - **setor**: Setor Bomba Atômica
+              - **grupo**: Pedreira
               - **ids**:
                 - OfIbyPZ6nLZGfw
             - **[7]**:
@@ -4071,6 +4366,8 @@
               - **pontos_uids**:
                 - 1QXjxqEBGCXa88
               - **escalada**: Caravana
+              - **setor**: Setor Bomba Atômica
+              - **grupo**: Pedreira
               - **ids**:
                 - 1QXjxqEBGCXa88
             - **[8]**:
@@ -4078,6 +4375,8 @@
               - **pontos_uids**:
                 - PHTZeN988HuQtp
               - **escalada**: (sem nome 11)
+              - **setor**: Setor Bomba Atômica
+              - **grupo**: Pedreira
               - **ids**:
                 - PHTZeN988HuQtp
         - **[1]**:
@@ -4101,6 +4400,8 @@
               - **pontos_uids**:
                 - USWuJLztILh70l
               - **escalada**: Bomba Atômica
+              - **setor**: Setor Bomba Atômica
+              - **grupo**: Pedreira
               - **ids**:
                 - USWuJLztILh70l
         - **[2]**:
@@ -4174,6 +4475,8 @@
               - **pontos_uids**:
                 - dtzs9pXa1SmfxV
               - **escalada**: No Claro
+              - **setor**: Setor Bomba Atômica
+              - **grupo**: Pedreira
               - **ids**:
                 - dtzs9pXa1SmfxV
             - **[1]**:
@@ -4181,6 +4484,8 @@
               - **pontos_uids**:
                 - CVWnOrdHvhGh1l
               - **escalada**: No Escuro
+              - **setor**: Setor Bomba Atômica
+              - **grupo**: Pedreira
               - **ids**:
                 - CVWnOrdHvhGh1l
             - **[2]**:
@@ -4188,6 +4493,8 @@
               - **pontos_uids**:
                 - 4UkKnLah9plLgm
               - **escalada**: Falafofancho
+              - **setor**: Setor Bomba Atômica
+              - **grupo**: Pedreira
               - **ids**:
                 - 4UkKnLah9plLgm
             - **[3]**:
@@ -4195,6 +4502,8 @@
               - **pontos_uids**:
                 - 9662Ta1gcUQHyX
               - **escalada**: No Claro SDS
+              - **setor**: Setor Bomba Atômica
+              - **grupo**: Pedreira
               - **ids**:
                 - 9662Ta1gcUQHyX
             - **[4]**:
@@ -4202,6 +4511,8 @@
               - **pontos_uids**:
                 - F8mUyzJaOMa4lc
               - **escalada**: No Escuro SDS
+              - **setor**: Setor Bomba Atômica
+              - **grupo**: Pedreira
               - **ids**:
                 - F8mUyzJaOMa4lc
             - **[5]**:
@@ -4209,6 +4520,8 @@
               - **pontos_uids**:
                 - RjRWLALZTTlphh
               - **escalada**: Falafofancho SDS
+              - **setor**: Setor Bomba Atômica
+              - **grupo**: Pedreira
               - **ids**:
                 - RjRWLALZTTlphh
         - **[3]**:
@@ -4252,6 +4565,8 @@
               - **pontos_uids**:
                 - CCFkZBuXNJnPkA
               - **escalada**: (sem nome 12)
+              - **setor**: Setor Bomba Atômica
+              - **grupo**: Pedreira
               - **ids**:
                 - CCFkZBuXNJnPkA
             - **[1]**:
@@ -4259,6 +4574,8 @@
               - **pontos_uids**:
                 - xf0qPlZKAfHLqE
               - **escalada**: (sem nome 13)
+              - **setor**: Setor Bomba Atômica
+              - **grupo**: Pedreira
               - **ids**:
                 - xf0qPlZKAfHLqE
             - **[2]**:
@@ -4266,6 +4583,8 @@
               - **pontos_uids**:
                 - bb16Vg7OKh1gGm
               - **escalada**: (sem nome 14)
+              - **setor**: Setor Bomba Atômica
+              - **grupo**: Pedreira
               - **ids**:
                 - bb16Vg7OKh1gGm
       - **escaladas**:
@@ -4397,6 +4716,8 @@
               - **pontos_uids**:
                 - 1wqH4HNvRZThS5
               - **escalada**: Jubileu
+              - **setor**: Setor Jubileu
+              - **grupo**: Pedreira
               - **ids**:
                 - 1wqH4HNvRZThS5
         - **[1]**:
@@ -4420,6 +4741,8 @@
               - **pontos_uids**:
                 - kdI52e5jAcVEXJ
               - **escalada**: Eu Te Disse
+              - **setor**: Setor Jubileu
+              - **grupo**: Pedreira
               - **ids**:
                 - kdI52e5jAcVEXJ
         - **[2]**:
@@ -4453,6 +4776,8 @@
               - **pontos_uids**:
                 - EeFlcKE9acgMmB
               - **escalada**: (sem nome 18)
+              - **setor**: Setor Jubileu
+              - **grupo**: Pedreira
               - **ids**:
                 - EeFlcKE9acgMmB
             - **[1]**:
@@ -4460,6 +4785,8 @@
               - **pontos_uids**:
                 - osa15bhPk0Qus2
               - **escalada**: (sem nome 19)
+              - **setor**: Setor Jubileu
+              - **grupo**: Pedreira
               - **ids**:
                 - osa15bhPk0Qus2
       - **escaladas**:
@@ -4526,6 +4853,8 @@
               - **pontos_uids**:
                 - 9QMZY5rl57n3fs
               - **escalada**: Conceição do Mato Dentro
+              - **setor**: Setor Conceição
+              - **grupo**: Pedreira
               - **ids**:
                 - 9QMZY5rl57n3fs
             - **[1]**:
@@ -4533,6 +4862,8 @@
               - **pontos_uids**:
                 - jG0OLj6SSo5MZI
               - **escalada**: (sem nome 15)
+              - **setor**: Setor Conceição
+              - **grupo**: Pedreira
               - **ids**:
                 - jG0OLj6SSo5MZI
         - **[1]**:
@@ -4576,6 +4907,8 @@
               - **pontos_uids**:
                 - n3DFg2BZB4EnOD
               - **escalada**: Tobogã
+              - **setor**: Setor Conceição
+              - **grupo**: Pedreira
               - **ids**:
                 - n3DFg2BZB4EnOD
             - **[1]**:
@@ -4583,6 +4916,8 @@
               - **pontos_uids**:
                 - dWf8rnyDLQ0kGf
               - **escalada**: No Dab
+              - **setor**: Setor Conceição
+              - **grupo**: Pedreira
               - **ids**:
                 - dWf8rnyDLQ0kGf
             - **[2]**:
@@ -4590,6 +4925,8 @@
               - **pontos_uids**:
                 - HFjX4yJ3RbF9m0
               - **escalada**: (sem nome 16)
+              - **setor**: Setor Conceição
+              - **grupo**: Pedreira
               - **ids**:
                 - HFjX4yJ3RbF9m0
       - **escaladas**:
@@ -4681,6 +5018,8 @@
               - **pontos_uids**:
                 - OH3X96Fvv8Xn9H
               - **escalada**: Eterna Juventude
+              - **setor**: Setor Bobsled
+              - **grupo**: Pedreira
               - **ids**:
                 - OH3X96Fvv8Xn9H
             - **[1]**:
@@ -4688,6 +5027,8 @@
               - **pontos_uids**:
                 - WpjGLzao79djkR
               - **escalada**: Episódio do Dia
+              - **setor**: Setor Bobsled
+              - **grupo**: Pedreira
               - **ids**:
                 - WpjGLzao79djkR
             - **[2]**:
@@ -4695,6 +5036,8 @@
               - **pontos_uids**:
                 - 9M1SKLsm9HDDl6
               - **escalada**: Saideira
+              - **setor**: Setor Bobsled
+              - **grupo**: Pedreira
               - **ids**:
                 - 9M1SKLsm9HDDl6
             - **[3]**:
@@ -4702,6 +5045,8 @@
               - **pontos_uids**:
                 - sVSKfHfyB1f4eC
               - **escalada**: Bobsled
+              - **setor**: Setor Bobsled
+              - **grupo**: Pedreira
               - **ids**:
                 - sVSKfHfyB1f4eC
       - **escaladas**:
@@ -4758,6 +5103,8 @@
               - **pontos_uids**:
                 - IoYVWpIMkUA4ID
               - **escalada**: Aresta do Cabeça
+              - **setor**: Setor Aresta do Cabeça
+              - **grupo**: Pedreira
               - **ids**:
                 - IoYVWpIMkUA4ID
       - **escaladas**:
@@ -4819,6 +5166,8 @@
               - **pontos_uids**:
                 - 1fEu80TmSOd9C7
               - **escalada**: Campo Minado
+              - **setor**: Setor Equinócio
+              - **grupo**: Pedreira
               - **ids**:
                 - 1fEu80TmSOd9C7
             - **[1]**:
@@ -4826,6 +5175,8 @@
               - **pontos_uids**:
                 - fVenV05fRx7kp2
               - **escalada**: Kalil
+              - **setor**: Setor Equinócio
+              - **grupo**: Pedreira
               - **ids**:
                 - fVenV05fRx7kp2
             - **[2]**:
@@ -4833,6 +5184,8 @@
               - **pontos_uids**:
                 - 5gRLozgyO5ABNW
               - **escalada**: Costela de Adão
+              - **setor**: Setor Equinócio
+              - **grupo**: Pedreira
               - **ids**:
                 - 5gRLozgyO5ABNW
       - **escaladas**:
@@ -4904,6 +5257,8 @@
               - **pontos_uids**:
                 - MBCEoG835hyFmR
               - **escalada**: Mandarim
+              - **setor**: Setor Witness
+              - **grupo**: Pedreira
               - **ids**:
                 - MBCEoG835hyFmR
             - **[1]**:
@@ -4911,6 +5266,8 @@
               - **pontos_uids**:
                 - AIIMm3CAXZTE8e
               - **escalada**: Pressão Corporal
+              - **setor**: Setor Witness
+              - **grupo**: Pedreira
               - **ids**:
                 - AIIMm3CAXZTE8e
             - **[2]**:
@@ -4918,6 +5275,8 @@
               - **pontos_uids**:
                 - ZhZjywqsJeG7VG
               - **escalada**: Witness the Weakness
+              - **setor**: Setor Witness
+              - **grupo**: Pedreira
               - **ids**:
                 - ZhZjywqsJeG7VG
         - **[1]**:
@@ -4941,6 +5300,8 @@
               - **pontos_uids**:
                 - aBiUKyycnELnz2
               - **escalada**: Picasso
+              - **setor**: Setor Witness
+              - **grupo**: Pedreira
               - **ids**:
                 - aBiUKyycnELnz2
       - **escaladas**:
@@ -5128,6 +5489,8 @@
                 - zzFRCn6LffYdcp
                 - LO0oE14PqlL6Ua
               - **escalada**: La Furia
+              - **setor**: Setor La Fúria
+              - **grupo**: Pedreira
               - **ids**:
                 - zzFRCn6LffYdcp
                 - LO0oE14PqlL6Ua
@@ -5137,6 +5500,8 @@
                 - uk7wFtQdQeaEN3
                 - QxVLIlJobQ9INu
               - **escalada**: La Discordia
+              - **setor**: Setor La Fúria
+              - **grupo**: Pedreira
               - **ids**:
                 - uk7wFtQdQeaEN3
                 - QxVLIlJobQ9INu
@@ -5146,6 +5511,8 @@
                 - JnJVFxiQgQ6o2z
                 - bmuiC4S9ZZo82b
               - **escalada**: La Paloma
+              - **setor**: Setor La Fúria
+              - **grupo**: Pedreira
               - **ids**:
                 - JnJVFxiQgQ6o2z
                 - bmuiC4S9ZZo82b
@@ -5155,6 +5522,8 @@
                 - V3ieF5vDR0RRBX
                 - Aw4dtORDtjj41w
               - **escalada**: La Discrepância
+              - **setor**: Setor La Fúria
+              - **grupo**: Pedreira
               - **ids**:
                 - V3ieF5vDR0RRBX
                 - Aw4dtORDtjj41w
@@ -5164,6 +5533,8 @@
                 - WdZVOR0PBs73KL
                 - oeY23ku14lPH1Z
               - **escalada**: La Fuerza
+              - **setor**: Setor La Fúria
+              - **grupo**: Pedreira
               - **ids**:
                 - WdZVOR0PBs73KL
                 - oeY23ku14lPH1Z
@@ -5173,6 +5544,8 @@
                 - mzSvG89IPieYIM
                 - HUzQQDDuYoWijV
               - **escalada**: La Sinceridad
+              - **setor**: Setor La Fúria
+              - **grupo**: Pedreira
               - **ids**:
                 - mzSvG89IPieYIM
                 - HUzQQDDuYoWijV
@@ -5181,6 +5554,8 @@
               - **pontos_uids**:
                 - AURpwGOlJZNylN
               - **escalada**: Rei da Cápsula
+              - **setor**: Setor La Fúria
+              - **grupo**: Pedreira
               - **ids**:
                 - AURpwGOlJZNylN
             - **[7]**:
@@ -5188,6 +5563,8 @@
               - **pontos_uids**:
                 - WdcWX2RPUXPvTO
               - **escalada**: Choffer
+              - **setor**: Setor La Fúria
+              - **grupo**: Pedreira
               - **ids**:
                 - WdcWX2RPUXPvTO
         - **[1]**:
@@ -5332,6 +5709,8 @@
                 - x8TyPAP1LqalRM
                 - Z3Qv4lYzPQ7Vvc
               - **escalada**: Bem Vindo
+              - **setor**: Setor La Fúria
+              - **grupo**: Pedreira
               - **ids**:
                 - x8TyPAP1LqalRM
                 - Z3Qv4lYzPQ7Vvc
@@ -5341,6 +5720,8 @@
                 - aVSUMVhwlrUzrX
                 - vIfScFeGnTKr8c
               - **escalada**: Bem Vindo a Conceição
+              - **setor**: Setor La Fúria
+              - **grupo**: Pedreira
               - **ids**:
                 - aVSUMVhwlrUzrX
                 - vIfScFeGnTKr8c
@@ -5350,6 +5731,8 @@
                 - pTLwvPRE8qSHTC
                 - PyK3Ot9cRVXlOJ
               - **escalada**: Bem Vindo aos Clássicos
+              - **setor**: Setor La Fúria
+              - **grupo**: Pedreira
               - **ids**:
                 - pTLwvPRE8qSHTC
                 - PyK3Ot9cRVXlOJ
@@ -5358,6 +5741,8 @@
               - **pontos_uids**:
                 - ZvA71UnvH6ktOt
               - **escalada**: Né Possível
+              - **setor**: Setor La Fúria
+              - **grupo**: Pedreira
               - **ids**:
                 - ZvA71UnvH6ktOt
             - **[4]**:
@@ -5366,6 +5751,8 @@
                 - qyomUCjhHlcFiL
                 - iMenJrKZMZZbg7
               - **escalada**: Malditos
+              - **setor**: Setor La Fúria
+              - **grupo**: Pedreira
               - **ids**:
                 - qyomUCjhHlcFiL
                 - iMenJrKZMZZbg7
@@ -5375,6 +5762,8 @@
                 - 7oAjqHPwE7jefO
                 - 8e2VUOHVGb3tq9
               - **escalada**: Guardião
+              - **setor**: Setor La Fúria
+              - **grupo**: Pedreira
               - **ids**:
                 - 7oAjqHPwE7jefO
                 - 8e2VUOHVGb3tq9
@@ -5384,6 +5773,8 @@
                 - OvNzt24NvIKhly
                 - Tf03pFFvUR37oU
               - **escalada**: Deixa Rolar
+              - **setor**: Setor La Fúria
+              - **grupo**: Pedreira
               - **ids**:
                 - OvNzt24NvIKhly
                 - Tf03pFFvUR37oU
@@ -5459,6 +5850,8 @@
                 - YZhGnSbweaCVeZ
                 - husfTbWeTMBOu3
               - **escalada**: La Resistência
+              - **setor**: Setor La Fúria
+              - **grupo**: Pedreira
               - **ids**:
                 - YZhGnSbweaCVeZ
                 - husfTbWeTMBOu3
@@ -5468,6 +5861,8 @@
                 - G9KbDcl0wdTRFb
                 - venSqhcCyglkLJ
               - **escalada**: Maldito La Furia
+              - **setor**: Setor La Fúria
+              - **grupo**: Pedreira
               - **ids**:
                 - G9KbDcl0wdTRFb
                 - venSqhcCyglkLJ
@@ -5477,6 +5872,8 @@
                 - IJcosVl9af1Sas
                 - JOEsqRHkHBgkeF
               - **escalada**: (sem nome 20)
+              - **setor**: Setor La Fúria
+              - **grupo**: Pedreira
               - **ids**:
                 - IJcosVl9af1Sas
                 - JOEsqRHkHBgkeF
@@ -5501,6 +5898,8 @@
               - **pontos_uids**:
                 - cU2LXEDRRuXHW5
               - **escalada**: Travessia da Fúria
+              - **setor**: Setor La Fúria
+              - **grupo**: Pedreira
               - **ids**:
                 - cU2LXEDRRuXHW5
       - **escaladas**:
@@ -5701,6 +6100,8 @@
               - **pontos_uids**:
                 - 78QvYh9sy6JCp4
               - **escalada**: Lágrimas de Jah
+              - **setor**: Setor Jah
+              - **grupo**: Pedreira
               - **ids**:
                 - 78QvYh9sy6JCp4
             - **[1]**:
@@ -5708,6 +6109,8 @@
               - **pontos_uids**:
                 - fSixziAPVPSZHj
               - **escalada**: Em Busca de Jah
+              - **setor**: Setor Jah
+              - **grupo**: Pedreira
               - **ids**:
                 - fSixziAPVPSZHj
             - **[2]**:
@@ -5715,6 +6118,8 @@
               - **pontos_uids**:
                 - 1F411mddRTCpdD
               - **escalada**: Jah Rastafari
+              - **setor**: Setor Jah
+              - **grupo**: Pedreira
               - **ids**:
                 - 1F411mddRTCpdD
             - **[3]**:
@@ -5722,6 +6127,8 @@
               - **pontos_uids**:
                 - QURVz12KzNilFb
               - **escalada**: Ordem e Progresso
+              - **setor**: Setor Jah
+              - **grupo**: Pedreira
               - **ids**:
                 - QURVz12KzNilFb
             - **[4]**:
@@ -5729,6 +6136,8 @@
               - **pontos_uids**:
                 - 0MXvZTgfsSfhet
               - **escalada**: Ordem e Progresso SDS
+              - **setor**: Setor Jah
+              - **grupo**: Pedreira
               - **ids**:
                 - 0MXvZTgfsSfhet
             - **[5]**:
@@ -5736,6 +6145,8 @@
               - **pontos_uids**:
                 - 8xhC0ZQvuzL37K
               - **escalada**: JahJah
+              - **setor**: Setor Jah
+              - **grupo**: Pedreira
               - **ids**:
                 - 8xhC0ZQvuzL37K
             - **[6]**:
@@ -5743,6 +6154,8 @@
               - **pontos_uids**:
                 - k1gONrVXcBo0Z9
               - **escalada**: Verdinho
+              - **setor**: Setor Jah
+              - **grupo**: Pedreira
               - **ids**:
                 - k1gONrVXcBo0Z9
             - **[7]**:
@@ -5750,6 +6163,8 @@
               - **pontos_uids**:
                 - R7msq4FR9XIIYO
               - **escalada**: Skunk
+              - **setor**: Setor Jah
+              - **grupo**: Pedreira
               - **ids**:
                 - R7msq4FR9XIIYO
         - **[1]**:
@@ -5783,6 +6198,8 @@
               - **pontos_uids**:
                 - EEKqZyckfFGNv4
               - **escalada**: Mescladinho
+              - **setor**: Setor Jah
+              - **grupo**: Pedreira
               - **ids**:
                 - EEKqZyckfFGNv4
             - **[1]**:
@@ -5790,6 +6207,8 @@
               - **pontos_uids**:
                 - Rf7fluJKqa9Gd4
               - **escalada**: (sem nome 17)
+              - **setor**: Setor Jah
+              - **grupo**: Pedreira
               - **ids**:
                 - Rf7fluJKqa9Gd4
       - **escaladas**:
@@ -5946,6 +6365,8 @@
               - **pontos_uids**:
                 - nBA4U34ga2Tvr5
               - **escalada**: Fuck Beach
+              - **setor**: Setor Pole Dance
+              - **grupo**: Pedreira
               - **ids**:
                 - nBA4U34ga2Tvr5
             - **[1]**:
@@ -5953,6 +6374,8 @@
               - **pontos_uids**:
                 - Fo01MuAxigslFX
               - **escalada**: Incrível Fuck Beach
+              - **setor**: Setor Pole Dance
+              - **grupo**: Pedreira
               - **ids**:
                 - Fo01MuAxigslFX
             - **[2]**:
@@ -5960,6 +6383,8 @@
               - **pontos_uids**:
                 - 3QcyIwJNNVO7vS
               - **escalada**: Incrível Pole Dance
+              - **setor**: Setor Pole Dance
+              - **grupo**: Pedreira
               - **ids**:
                 - 3QcyIwJNNVO7vS
             - **[3]**:
@@ -5967,6 +6392,8 @@
               - **pontos_uids**:
                 - uVkZyKujFs5dwR
               - **escalada**: Incrível
+              - **setor**: Setor Pole Dance
+              - **grupo**: Pedreira
               - **ids**:
                 - uVkZyKujFs5dwR
             - **[4]**:
@@ -5974,6 +6401,8 @@
               - **pontos_uids**:
                 - tnHnjlw4ZwgwVK
               - **escalada**: Pole Dance
+              - **setor**: Setor Pole Dance
+              - **grupo**: Pedreira
               - **ids**:
                 - tnHnjlw4ZwgwVK
             - **[5]**:
@@ -5981,6 +6410,8 @@
               - **pontos_uids**:
                 - E03bxQh6UoERFF
               - **escalada**: Pole Dance SDS
+              - **setor**: Setor Pole Dance
+              - **grupo**: Pedreira
               - **ids**:
                 - E03bxQh6UoERFF
             - **[6]**:
@@ -5988,6 +6419,8 @@
               - **pontos_uids**:
                 - FKeXnsJEEZgUTb
               - **escalada**: De la Rocha
+              - **setor**: Setor Pole Dance
+              - **grupo**: Pedreira
               - **ids**:
                 - FKeXnsJEEZgUTb
             - **[7]**:
@@ -5995,6 +6428,8 @@
               - **pontos_uids**:
                 - yuuBwLtxwW4RfS
               - **escalada**: Siga-me os Bons SDS
+              - **setor**: Setor Pole Dance
+              - **grupo**: Pedreira
               - **ids**:
                 - yuuBwLtxwW4RfS
         - **[1]**:
@@ -6058,6 +6493,8 @@
               - **pontos_uids**:
                 - eZ2SElRDGed4cM
               - **escalada**: Repense
+              - **setor**: Setor Pole Dance
+              - **grupo**: Pedreira
               - **ids**:
                 - eZ2SElRDGed4cM
             - **[1]**:
@@ -6065,6 +6502,8 @@
               - **pontos_uids**:
                 - io7GzCWWI55sU5
               - **escalada**: Vamo Nessa
+              - **setor**: Setor Pole Dance
+              - **grupo**: Pedreira
               - **ids**:
                 - io7GzCWWI55sU5
             - **[2]**:
@@ -6072,6 +6511,8 @@
               - **pontos_uids**:
                 - eLHIxcXBIEsi7c
               - **escalada**: Vem que Tem
+              - **setor**: Setor Pole Dance
+              - **grupo**: Pedreira
               - **ids**:
                 - eLHIxcXBIEsi7c
             - **[3]**:
@@ -6079,6 +6520,8 @@
               - **pontos_uids**:
                 - ns0ZaPoFAL4uZt
               - **escalada**: Pense Bem
+              - **setor**: Setor Pole Dance
+              - **grupo**: Pedreira
               - **ids**:
                 - ns0ZaPoFAL4uZt
             - **[4]**:
@@ -6086,6 +6529,8 @@
               - **pontos_uids**:
                 - 7f3rPaEhApZXvg
               - **escalada**: Conclusão
+              - **setor**: Setor Pole Dance
+              - **grupo**: Pedreira
               - **ids**:
                 - 7f3rPaEhApZXvg
         - **[2]**:
@@ -6159,6 +6604,8 @@
               - **pontos_uids**:
                 - O5fhW7i8hCkR7j
               - **escalada**: Siga-me os Bons
+              - **setor**: Setor Pole Dance
+              - **grupo**: Pedreira
               - **ids**:
                 - O5fhW7i8hCkR7j
             - **[1]**:
@@ -6166,6 +6613,8 @@
               - **pontos_uids**:
                 - REUoE5kzrdMV0q
               - **escalada**: Siga-me os Bons SDS
+              - **setor**: Setor Pole Dance
+              - **grupo**: Pedreira
               - **ids**:
                 - REUoE5kzrdMV0q
             - **[2]**:
@@ -6173,6 +6622,8 @@
               - **pontos_uids**:
                 - O7vdzNYVtbn3S9
               - **escalada**: Conceicion
+              - **setor**: Setor Pole Dance
+              - **grupo**: Pedreira
               - **ids**:
                 - O7vdzNYVtbn3S9
             - **[3]**:
@@ -6180,6 +6631,8 @@
               - **pontos_uids**:
                 - K9LRq5lRgk25NH
               - **escalada**: Tô Concê
+              - **setor**: Setor Pole Dance
+              - **grupo**: Pedreira
               - **ids**:
                 - K9LRq5lRgk25NH
             - **[4]**:
@@ -6187,6 +6640,8 @@
               - **pontos_uids**:
                 - Z98P6uyvpUEcK6
               - **escalada**: Rocktrip
+              - **setor**: Setor Pole Dance
+              - **grupo**: Pedreira
               - **ids**:
                 - Z98P6uyvpUEcK6
             - **[5]**:
@@ -6194,6 +6649,8 @@
               - **pontos_uids**:
                 - hRp9bEQ3Ba6p7P
               - **escalada**: Rocklands
+              - **setor**: Setor Pole Dance
+              - **grupo**: Pedreira
               - **ids**:
                 - hRp9bEQ3Ba6p7P
       - **escaladas**:
@@ -6350,6 +6807,8 @@
               - **pontos_uids**:
                 - i7zdX38BCwa0R2
               - **escalada**: Rock It
+              - **setor**: Setor Rock and Roll
+              - **grupo**: Pedreira
               - **ids**:
                 - i7zdX38BCwa0R2
             - **[1]**:
@@ -6357,6 +6816,8 @@
               - **pontos_uids**:
                 - 2Y09bmOo4izRUP
               - **escalada**: Rock and Roll
+              - **setor**: Setor Rock and Roll
+              - **grupo**: Pedreira
               - **ids**:
                 - 2Y09bmOo4izRUP
             - **[2]**:
@@ -6364,6 +6825,8 @@
               - **pontos_uids**:
                 - cYDYl5mGFJczNp
               - **escalada**: Go Chucky Go
+              - **setor**: Setor Rock and Roll
+              - **grupo**: Pedreira
               - **ids**:
                 - cYDYl5mGFJczNp
             - **[3]**:
@@ -6371,6 +6834,8 @@
               - **pontos_uids**:
                 - aYHh7yZ3Kn8cv3
               - **escalada**: Go Johnny Go
+              - **setor**: Setor Rock and Roll
+              - **grupo**: Pedreira
               - **ids**:
                 - aYHh7yZ3Kn8cv3
       - **escaladas**:
@@ -6437,6 +6902,8 @@
               - **pontos_uids**:
                 - 9O4JQoaLCjsArN
               - **escalada**: Canelas as Ar
+              - **setor**: Bloco dos Canelas
+              - **grupo**: Pedreira
               - **ids**:
                 - 9O4JQoaLCjsArN
             - **[1]**:
@@ -6444,6 +6911,8 @@
               - **pontos_uids**:
                 - XFVk45lv9aorB5
               - **escalada**: Canelas ao Vento
+              - **setor**: Bloco dos Canelas
+              - **grupo**: Pedreira
               - **ids**:
                 - XFVk45lv9aorB5
       - **escaladas**:
@@ -6530,6 +6999,8 @@
               - **pontos_uids**:
                 - 02nusGUDAGv9mj
               - **escalada**: (sem nome 21)
+              - **setor**: Setor Mãos de Sebo
+              - **grupo**: Pedreira
               - **ids**:
                 - 02nusGUDAGv9mj
             - **[1]**:
@@ -6537,6 +7008,8 @@
               - **pontos_uids**:
                 - RBSIhjZzSV764E
               - **escalada**: Mãos de Tesoura
+              - **setor**: Setor Mãos de Sebo
+              - **grupo**: Pedreira
               - **ids**:
                 - RBSIhjZzSV764E
             - **[2]**:
@@ -6544,6 +7017,8 @@
               - **pontos_uids**:
                 - lDDOSR9BqvoUAe
               - **escalada**: Fei Long
+              - **setor**: Setor Mãos de Sebo
+              - **grupo**: Pedreira
               - **ids**:
                 - lDDOSR9BqvoUAe
             - **[3]**:
@@ -6551,6 +7026,8 @@
               - **pontos_uids**:
                 - y33H1MuJw1iVCg
               - **escalada**: Mãos de Sebo
+              - **setor**: Setor Mãos de Sebo
+              - **grupo**: Pedreira
               - **ids**:
                 - y33H1MuJw1iVCg
             - **[4]**:
@@ -6558,6 +7035,8 @@
               - **pontos_uids**:
                 - DC4HQdxHTMqzmJ
               - **escalada**: Mãozinha
+              - **setor**: Setor Mãos de Sebo
+              - **grupo**: Pedreira
               - **ids**:
                 - DC4HQdxHTMqzmJ
       - **escaladas**:

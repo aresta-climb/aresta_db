@@ -430,6 +430,7 @@
         - **pontos_uids**:
           - LiuGQJiSJCig1f
         - **escalada**: Jardineiro
+        - **setor**: Setor 1° Andar
         - **ids**:
           - LiuGQJiSJCig1f
       - **[1]**:
@@ -437,6 +438,7 @@
         - **pontos_uids**:
           - 3PVUbJVYWcEkFL
         - **escalada**: Somelier Canábico
+        - **setor**: Setor 1° Andar
         - **ids**:
           - 3PVUbJVYWcEkFL
       - **[2]**:
@@ -444,6 +446,7 @@
         - **pontos_uids**:
           - I1EKe4Q0uCIm1x
         - **escalada**: Jovens Dinâmicos
+        - **setor**: Setor 1° Andar
         - **ids**:
           - I1EKe4Q0uCIm1x
       - **[3]**:
@@ -451,6 +454,7 @@
         - **pontos_uids**:
           - 6ET9p8WE81ACHG
         - **escalada**: Anunnaki
+        - **setor**: Setor 1° Andar
         - **ids**:
           - 6ET9p8WE81ACHG
       - **[4]**:
@@ -458,6 +462,7 @@
         - **pontos_uids**:
           - CkdJGRuzsl9wLN
         - **escalada**: Peyote Sativo
+        - **setor**: Setor 1° Andar
         - **ids**:
           - CkdJGRuzsl9wLN
       - **[5]**:
@@ -465,6 +470,7 @@
         - **pontos_uids**:
           - uCw0rXV6VjBxGu
         - **escalada**: Fake News
+        - **setor**: Setor 1° Andar
         - **ids**:
           - uCw0rXV6VjBxGu
       - **[6]**:
@@ -472,6 +478,7 @@
         - **pontos_uids**:
           - 8QBf3AALlMwVEV
         - **escalada**: Bruxa
+        - **setor**: Setor 1° Andar
         - **ids**:
           - 8QBf3AALlMwVEV
       - **[7]**:
@@ -479,6 +486,7 @@
         - **pontos_uids**:
           - z4lvFQj3UHKjzz
         - **escalada**: Fundão
+        - **setor**: Setor 1° Andar
         - **ids**:
           - z4lvFQj3UHKjzz
       - **[8]**:
@@ -486,6 +494,7 @@
         - **pontos_uids**:
           - ZgqWxyc7Hfz5fA
         - **escalada**: Caminho da Luz
+        - **setor**: Setor 1° Andar
         - **ids**:
           - ZgqWxyc7Hfz5fA
       - **[9]**:
@@ -493,6 +502,7 @@
         - **pontos_uids**:
           - wnObJMuBgQ7dCq
         - **escalada**: Eu quero é ver o oco
+        - **setor**: Setor 1° Andar
         - **ids**:
           - wnObJMuBgQ7dCq
       - **[10]**:
@@ -500,6 +510,7 @@
         - **pontos_uids**:
           - cGhFeW9D4SMdIP
         - **escalada**: Mister Amaral
+        - **setor**: Setor 1° Andar
         - **ids**:
           - cGhFeW9D4SMdIP
       - **[11]**:
@@ -507,6 +518,7 @@
         - **pontos_uids**:
           - HKBpRS5cAJSkU4
         - **escalada**: Loki
+        - **setor**: Setor 1° Andar
         - **ids**:
           - HKBpRS5cAJSkU4
       - **[12]**:
@@ -514,6 +526,7 @@
         - **pontos_uids**:
           - FDPtM2BjKlHhrv
         - **escalada**: Thor
+        - **setor**: Setor 1° Andar
         - **ids**:
           - FDPtM2BjKlHhrv
       - **[13]**:
@@ -521,6 +534,7 @@
         - **pontos_uids**:
           - WM2tVshtdIm84p
         - **escalada**: A Flor da Vida
+        - **setor**: Setor 1° Andar
         - **ids**:
           - WM2tVshtdIm84p
       - **[14]**:
@@ -528,6 +542,7 @@
         - **pontos_uids**:
           - DdxqBUbAJiYDOv
         - **escalada**: Vale do Verde
+        - **setor**: Setor 1° Andar
         - **ids**:
           - DdxqBUbAJiYDOv
       - **[15]**:
@@ -535,6 +550,7 @@
         - **pontos_uids**:
           - GAT8ni0I4HIeQ6
         - **escalada**: Ragnarok
+        - **setor**: Setor 1° Andar
         - **ids**:
           - GAT8ni0I4HIeQ6
       - **[16]**:
@@ -542,6 +558,7 @@
         - **pontos_uids**:
           - uGXF0pSFyvSsZQ
         - **escalada**: Filho de Odin
+        - **setor**: Setor 1° Andar
         - **ids**:
           - uGXF0pSFyvSsZQ
       - **[17]**:
@@ -549,6 +566,7 @@
         - **pontos_uids**:
           - hjoEeN35hwTAA0
         - **escalada**: Vahala
+        - **setor**: Setor 1° Andar
         - **ids**:
           - hjoEeN35hwTAA0
       - **[18]**:
@@ -556,6 +574,7 @@
         - **pontos_uids**:
           - gQo3GRTlZawhfH
         - **escalada**: Pedra no Saco
+        - **setor**: Setor 1° Andar
         - **ids**:
           - gQo3GRTlZawhfH
       - **[19]**:
@@ -563,6 +582,7 @@
         - **pontos_uids**:
           - by7JDkdXYaqSDT
         - **escalada**: Endorfina
+        - **setor**: Setor 1° Andar
         - **ids**:
           - by7JDkdXYaqSDT
       - **[20]**:
@@ -570,6 +590,7 @@
         - **pontos_uids**:
           - COId3pTDcNl5Rm
         - **escalada**: Isaurinha
+        - **setor**: Setor 1° Andar
         - **ids**:
           - COId3pTDcNl5Rm
       - **[21]**:
@@ -577,6 +598,7 @@
         - **pontos_uids**:
           - sS7brl762s9rkN
         - **escalada**: Presentim
+        - **setor**: Setor 1° Andar
         - **ids**:
           - sS7brl762s9rkN
       - **[22]**:
@@ -584,6 +606,7 @@
         - **pontos_uids**:
           - VqAMY7eTtBa5XR
         - **escalada**: Antes tarde do que nunca
+        - **setor**: Setor 1° Andar
         - **ids**:
           - VqAMY7eTtBa5XR
       - **[23]**:
@@ -591,6 +614,7 @@
         - **pontos_uids**:
           - 1YP7Z6xY2NrGEI
         - **escalada**: Ho Ho Ho
+        - **setor**: Setor 1° Andar
         - **ids**:
           - 1YP7Z6xY2NrGEI
       - **[24]**:
@@ -916,6 +940,7 @@
         - **pontos_uids**:
           - BGCGU9h7rGHWyI
         - **escalada**: CrossFit
+        - **setor**: Setor 2° Andar
         - **ids**:
           - BGCGU9h7rGHWyI
       - **[1]**:
@@ -923,6 +948,7 @@
         - **pontos_uids**:
           - QVsIK5SG9pNvl3
         - **escalada**: Bromeliacea
+        - **setor**: Setor 2° Andar
         - **ids**:
           - QVsIK5SG9pNvl3
       - **[2]**:
@@ -930,6 +956,7 @@
         - **pontos_uids**:
           - PfyXfnh38HslcR
         - **escalada**: Amnésia
+        - **setor**: Setor 2° Andar
         - **ids**:
           - PfyXfnh38HslcR
       - **[3]**:
@@ -937,6 +964,7 @@
         - **pontos_uids**:
           - mP0LIikmzyn07C
         - **escalada**: A espera de Yam
+        - **setor**: Setor 2° Andar
         - **ids**:
           - mP0LIikmzyn07C
       - **[4]**:
@@ -944,6 +972,7 @@
         - **pontos_uids**:
           - kM1VzohMDYdLlP
         - **escalada**: Caixa Alta
+        - **setor**: Setor 2° Andar
         - **ids**:
           - kM1VzohMDYdLlP
       - **[5]**:
@@ -951,6 +980,7 @@
         - **pontos_uids**:
           - uhw4taPvR9Nemi
         - **escalada**: Sexta - Feira 13
+        - **setor**: Setor 2° Andar
         - **ids**:
           - uhw4taPvR9Nemi
       - **[6]**:
@@ -958,6 +988,7 @@
         - **pontos_uids**:
           - q3hcIykHs8bFf3
         - **escalada**: Hora do Pesadelo
+        - **setor**: Setor 2° Andar
         - **ids**:
           - q3hcIykHs8bFf3
       - **[7]**:
@@ -965,6 +996,7 @@
         - **pontos_uids**:
           - p6LAwOOB0y1GEl
         - **escalada**: O silêncio dos Inoscentes
+        - **setor**: Setor 2° Andar
         - **ids**:
           - p6LAwOOB0y1GEl
 - **escaladas**:

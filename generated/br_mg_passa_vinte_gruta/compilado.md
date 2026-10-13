@@ -352,6 +352,7 @@
         - **pontos_uids**:
           - DYqMe3Gnbh2cyS
         - **escalada**: Fake News
+        - **setor**: Setor Chegada
         - **ids**:
           - DYqMe3Gnbh2cyS
       - **[1]**:
@@ -359,6 +360,7 @@
         - **pontos_uids**:
           - H9c4Uuv7nXdvD7
         - **escalada**: Caliba
+        - **setor**: Setor Chegada
         - **ids**:
           - H9c4Uuv7nXdvD7
       - **[2]**:
@@ -366,6 +368,7 @@
         - **pontos_uids**:
           - vLObFO9rgkHY0q
         - **escalada**: Jack Sparrow
+        - **setor**: Setor Chegada
         - **ids**:
           - vLObFO9rgkHY0q
       - **[3]**:
@@ -373,6 +376,7 @@
         - **pontos_uids**:
           - 6tWgwC9YJhLqit
         - **escalada**: Monty Python
+        - **setor**: Setor Chegada
         - **ids**:
           - 6tWgwC9YJhLqit
       - **[4]**:
@@ -380,6 +384,7 @@
         - **pontos_uids**:
           - Ideo1pDL7ymDLs
         - **escalada**: Dengoso
+        - **setor**: Setor Chegada
         - **ids**:
           - Ideo1pDL7ymDLs
       - **[5]**:
@@ -387,6 +392,7 @@
         - **pontos_uids**:
           - 38RBx5eEyiR8d6
         - **escalada**: Livre Arbítrio
+        - **setor**: Setor Chegada
         - **ids**:
           - 38RBx5eEyiR8d6
       - **[6]**:
@@ -394,6 +400,7 @@
         - **pontos_uids**:
           - aEAEbwdmZysYlJ
         - **escalada**: Mad Max P1
+        - **setor**: Setor Chegada
         - **ids**:
           - aEAEbwdmZysYlJ
       - **[7]**:
@@ -402,6 +409,7 @@
           - 9yNCSHdTuDSodb
           - 9yNCSHdTuDSodb
         - **escalada**: Mad Max P2
+        - **setor**: Setor Chegada
         - **ids**:
           - 9yNCSHdTuDSodb
           - 9yNCSHdTuDSodb
@@ -410,6 +418,7 @@
         - **pontos_uids**:
           - BjV8UC2wbatO7W
         - **escalada**: Além da Cúpula do Trovão
+        - **setor**: Setor Chegada
         - **ids**:
           - BjV8UC2wbatO7W
       - **[9]**:
@@ -417,6 +426,7 @@
         - **pontos_uids**:
           - tk1uYaGhfEAHpe
         - **escalada**: Perestroika P1
+        - **setor**: Setor Chegada
         - **ids**:
           - tk1uYaGhfEAHpe
       - **[10]**:
@@ -425,6 +435,7 @@
           - UKX4QK26Jqps4V
           - UKX4QK26Jqps4V
         - **escalada**: Perestroika P2
+        - **setor**: Setor Chegada
         - **ids**:
           - UKX4QK26Jqps4V
           - UKX4QK26Jqps4V
@@ -433,6 +444,7 @@
         - **pontos_uids**:
           - 2cuCqwerHCGM2I
         - **escalada**: Guliver
+        - **setor**: Setor Chegada
         - **ids**:
           - 2cuCqwerHCGM2I
       - **[12]**:
@@ -440,6 +452,7 @@
         - **pontos_uids**:
           - z8MZSSknZqL58v
         - **escalada**: Ben Hur
+        - **setor**: Setor Chegada
         - **ids**:
           - z8MZSSknZqL58v
       - **[13]**:
@@ -447,6 +460,7 @@
         - **pontos_uids**:
           - zMwKoyXQLbSTKl
         - **escalada**: Carmina Burana P1
+        - **setor**: Setor Chegada
         - **ids**:
           - zMwKoyXQLbSTKl
       - **[14]**:
@@ -455,6 +469,7 @@
           - A4wGd8hFu2uUKt
           - A4wGd8hFu2uUKt
         - **escalada**: Carmina Burana P2
+        - **setor**: Setor Chegada
         - **ids**:
           - A4wGd8hFu2uUKt
           - A4wGd8hFu2uUKt
@@ -463,6 +478,7 @@
         - **pontos_uids**:
           - P2ddfFaRJn5yyV
         - **escalada**: 17 Quedas
+        - **setor**: Setor Chegada
         - **ids**:
           - P2ddfFaRJn5yyV
       - **[16]**:
@@ -470,6 +486,7 @@
         - **pontos_uids**:
           - 9hIUMXn4hO78pv
         - **escalada**: 8d
+        - **setor**: Setor Chegada
         - **ids**:
           - 9hIUMXn4hO78pv
       - **[17]**:
@@ -477,6 +494,7 @@
         - **pontos_uids**:
           - N8Anok5ApSewzF
         - **escalada**: Cápsula do Tempo
+        - **setor**: Setor Chegada
         - **ids**:
           - N8Anok5ApSewzF
       - **[18]**:
@@ -484,6 +502,7 @@
         - **pontos_uids**:
           - Mvr819hkGOe46I
         - **escalada**: Buraco Negro
+        - **setor**: Setor Chegada
         - **ids**:
           - Mvr819hkGOe46I
       - **[19]**:
@@ -491,6 +510,7 @@
         - **pontos_uids**:
           - Hav9EZSFOT9Koh
         - **escalada**: Macunaína
+        - **setor**: Setor Chegada
         - **ids**:
           - Hav9EZSFOT9Koh
 - **escaladas**:
@@ -828,6 +848,7 @@
         - **pontos_uids**:
           - o6PavNJXse8hVj
         - **escalada**: Ementhal
+        - **setor**: Setor Sunshine & Teto Preto
         - **ids**:
           - o6PavNJXse8hVj
       - **[1]**:
@@ -835,6 +856,7 @@
         - **pontos_uids**:
           - oamV3V5zztNcwK
         - **escalada**: Sunshine
+        - **setor**: Setor Sunshine & Teto Preto
         - **ids**:
           - oamV3V5zztNcwK
       - **[2]**:
@@ -843,6 +865,7 @@
           - 9rN2lgEBetVgUu
           - 9rN2lgEBetVgUu
         - **escalada**: Ext. Sunshine (Projeto)
+        - **setor**: Setor Sunshine & Teto Preto
         - **ids**:
           - 9rN2lgEBetVgUu
           - 9rN2lgEBetVgUu
@@ -851,6 +874,7 @@
         - **pontos_uids**:
           - s3eyMLkPiaNQiK
         - **escalada**: Luna
+        - **setor**: Setor Sunshine & Teto Preto
         - **ids**:
           - s3eyMLkPiaNQiK
       - **[4]**:
@@ -858,6 +882,7 @@
         - **pontos_uids**:
           - 82tmvVzkcbpJEP
         - **escalada**: Freddie Mercury
+        - **setor**: Setor Sunshine & Teto Preto
         - **ids**:
           - 82tmvVzkcbpJEP
       - **[5]**:
@@ -865,6 +890,7 @@
         - **pontos_uids**:
           - ZlQQD3HCWuPU0R
         - **escalada**: Ariete
+        - **setor**: Setor Sunshine & Teto Preto
         - **ids**:
           - ZlQQD3HCWuPU0R
       - **[6]**:
@@ -872,6 +898,7 @@
         - **pontos_uids**:
           - Ii9EXbUqu8txKw
         - **escalada**: Eunuco (Projeto)
+        - **setor**: Setor Sunshine & Teto Preto
         - **ids**:
           - Ii9EXbUqu8txKw
       - **[7]**:
@@ -879,6 +906,7 @@
         - **pontos_uids**:
           - HLu1g4vKD9MvDN
         - **escalada**: Pau Mandado
+        - **setor**: Setor Sunshine & Teto Preto
         - **ids**:
           - HLu1g4vKD9MvDN
       - **[8]**:
@@ -886,6 +914,7 @@
         - **pontos_uids**:
           - BIBkZ5HceM0b3V
         - **escalada**: Imperatriz
+        - **setor**: Setor Sunshine & Teto Preto
         - **ids**:
           - BIBkZ5HceM0b3V
       - **[9]**:
@@ -893,6 +922,7 @@
         - **pontos_uids**:
           - 9w2VDFcxGUFBC0
         - **escalada**: Casamento de Viúva
+        - **setor**: Setor Sunshine & Teto Preto
         - **ids**:
           - 9w2VDFcxGUFBC0
       - **[10]**:
@@ -900,6 +930,7 @@
         - **pontos_uids**:
           - 6IpwmSyM7NXSWw
         - **escalada**: Manda Chuva (Projeto)
+        - **setor**: Setor Sunshine & Teto Preto
         - **ids**:
           - 6IpwmSyM7NXSWw
       - **[11]**:
@@ -907,6 +938,7 @@
         - **pontos_uids**:
           - 1a66SSuUOASzRS
         - **escalada**: Celibato
+        - **setor**: Setor Sunshine & Teto Preto
         - **ids**:
           - 1a66SSuUOASzRS
       - **[12]**:
@@ -914,6 +946,7 @@
         - **pontos_uids**:
           - z47Cj26bAi3Tsj
         - **escalada**: Manicaca
+        - **setor**: Setor Sunshine & Teto Preto
         - **ids**:
           - z47Cj26bAi3Tsj
       - **[13]**:
@@ -921,6 +954,7 @@
         - **pontos_uids**:
           - lDsU35NStAINCc
         - **escalada**: Ghidorah
+        - **setor**: Setor Sunshine & Teto Preto
         - **ids**:
           - lDsU35NStAINCc
       - **[14]**:
@@ -928,6 +962,7 @@
         - **pontos_uids**:
           - sXC1f39hbG8frR
         - **escalada**: Hidra
+        - **setor**: Setor Sunshine & Teto Preto
         - **ids**:
           - sXC1f39hbG8frR
       - **[15]**:
@@ -935,6 +970,7 @@
         - **pontos_uids**:
           - frvR1YD8fob2zA
         - **escalada**: Medusa
+        - **setor**: Setor Sunshine & Teto Preto
         - **ids**:
           - frvR1YD8fob2zA
       - **[16]**:
@@ -942,6 +978,7 @@
         - **pontos_uids**:
           - OY8Lnl9aimjZVR
         - **escalada**: Kátia Flávia
+        - **setor**: Setor Sunshine & Teto Preto
         - **ids**:
           - OY8Lnl9aimjZVR
       - **[17]**:
@@ -950,6 +987,7 @@
           - UeuQtX6iqTR1RG
           - UeuQtX6iqTR1RG
         - **escalada**: Ext. Kátia Flávia
+        - **setor**: Setor Sunshine & Teto Preto
         - **ids**:
           - UeuQtX6iqTR1RG
           - UeuQtX6iqTR1RG
@@ -958,6 +996,7 @@
         - **pontos_uids**:
           - zuwOkLPZiyrtS0
         - **escalada**: Casamento da Imperatriz (Projeto)
+        - **setor**: Setor Sunshine & Teto Preto
         - **ids**:
           - zuwOkLPZiyrtS0
 - **escaladas**:
@@ -1271,6 +1310,7 @@
         - **pontos_uids**:
           - HqOnp0bd5u31ah
         - **escalada**: Ayrton Senna
+        - **setor**: Setor ”Positivo” Central
         - **ids**:
           - HqOnp0bd5u31ah
       - **[1]**:
@@ -1278,6 +1318,7 @@
         - **pontos_uids**:
           - B94OmDyrhvOZ0N
         - **escalada**: Fernão Dias
+        - **setor**: Setor ”Positivo” Central
         - **ids**:
           - B94OmDyrhvOZ0N
       - **[2]**:
@@ -1285,6 +1326,7 @@
         - **pontos_uids**:
           - TUp7905rAqT2b0
         - **escalada**: Via Dutra
+        - **setor**: Setor ”Positivo” Central
         - **ids**:
           - TUp7905rAqT2b0
       - **[3]**:
@@ -1292,6 +1334,7 @@
         - **pontos_uids**:
           - Px3NIywwO41Bii
         - **escalada**: Rua Teresa
+        - **setor**: Setor ”Positivo” Central
         - **ids**:
           - Px3NIywwO41Bii
       - **[4]**:
@@ -1299,6 +1342,7 @@
         - **pontos_uids**:
           - gJrktiXqkI6yiv
         - **escalada**: Chico
+        - **setor**: Setor ”Positivo” Central
         - **ids**:
           - gJrktiXqkI6yiv
       - **[5]**:
@@ -1306,6 +1350,7 @@
         - **pontos_uids**:
           - pFpgMzYMdqtvtn
         - **escalada**: Juca Birita
+        - **setor**: Setor ”Positivo” Central
         - **ids**:
           - pFpgMzYMdqtvtn
       - **[6]**:
@@ -1313,6 +1358,7 @@
         - **pontos_uids**:
           - sJRZolZXKv7RqD
         - **escalada**: Jeca Tatu
+        - **setor**: Setor ”Positivo” Central
         - **ids**:
           - sJRZolZXKv7RqD
       - **[7]**:
@@ -1320,6 +1366,7 @@
         - **pontos_uids**:
           - WUe1G7jPc1tvB8
         - **escalada**: Kira
+        - **setor**: Setor ”Positivo” Central
         - **ids**:
           - WUe1G7jPc1tvB8
       - **[8]**:
@@ -1327,6 +1374,7 @@
         - **pontos_uids**:
           - 92y8nso219wVxp
         - **escalada**: JucaTatuKira
+        - **setor**: Setor ”Positivo” Central
         - **ids**:
           - 92y8nso219wVxp
       - **[9]**:
@@ -1334,6 +1382,7 @@
         - **pontos_uids**:
           - 0beOHOVLTV7YBk
         - **escalada**: Free Willy
+        - **setor**: Setor ”Positivo” Central
         - **ids**:
           - 0beOHOVLTV7YBk
       - **[10]**:
@@ -1341,6 +1390,7 @@
         - **pontos_uids**:
           - oZMqv2aaWcxEim
         - **escalada**: Homer Simpson
+        - **setor**: Setor ”Positivo” Central
         - **ids**:
           - oZMqv2aaWcxEim
       - **[11]**:
@@ -1348,6 +1398,7 @@
         - **pontos_uids**:
           - JCyzOuoPQYalgZ
         - **escalada**: Velho do Saco
+        - **setor**: Setor ”Positivo” Central
         - **ids**:
           - JCyzOuoPQYalgZ
       - **[12]**:
@@ -1355,6 +1406,7 @@
         - **pontos_uids**:
           - nMUOdM21P80q3S
         - **escalada**: Incontinência
+        - **setor**: Setor ”Positivo” Central
         - **ids**:
           - nMUOdM21P80q3S
       - **[13]**:
@@ -1362,6 +1414,7 @@
         - **pontos_uids**:
           - QV7FaGXVQO5SaE
         - **escalada**: Vovó Mafalda
+        - **setor**: Setor ”Positivo” Central
         - **ids**:
           - QV7FaGXVQO5SaE
       - **[14]**:
@@ -1369,6 +1422,7 @@
         - **pontos_uids**:
           - 0Rwpv7a52bx3Ut
         - **escalada**: Chaminé Só para Tiozinhos
+        - **setor**: Setor ”Positivo” Central
         - **ids**:
           - 0Rwpv7a52bx3Ut
       - **[15]**:
@@ -1376,6 +1430,7 @@
         - **pontos_uids**:
           - cuUXjXU2ml8WPP
         - **escalada**: TriJeferson
+        - **setor**: Setor ”Positivo” Central
         - **ids**:
           - cuUXjXU2ml8WPP
       - **[16]**:
@@ -1383,6 +1438,7 @@
         - **pontos_uids**:
           - EQauhBg7Fc0bFW
         - **escalada**: Dunga
+        - **setor**: Setor ”Positivo” Central
         - **ids**:
           - EQauhBg7Fc0bFW
       - **[17]**:
@@ -1390,6 +1446,7 @@
         - **pontos_uids**:
           - iRZRfAdwzw72WI
         - **escalada**: Sub-Zero
+        - **setor**: Setor ”Positivo” Central
         - **ids**:
           - iRZRfAdwzw72WI
 - **escaladas**:
@@ -1907,6 +1964,7 @@
         - **pontos_uids**:
           - XVloNcOzV9YVVo
         - **escalada**: Palo Santo P1
+        - **setor**: Setor ”Negativo” Central
         - **ids**:
           - XVloNcOzV9YVVo
       - **[1]**:
@@ -1915,6 +1973,7 @@
           - EYLC8BhU9O5ZZP
           - EYLC8BhU9O5ZZP
         - **escalada**: Palo Santo P2
+        - **setor**: Setor ”Negativo” Central
         - **ids**:
           - EYLC8BhU9O5ZZP
           - EYLC8BhU9O5ZZP
@@ -1923,6 +1982,7 @@
         - **pontos_uids**:
           - 0wfStBE4Bvz5WN
         - **escalada**: Left or Right
+        - **setor**: Setor ”Negativo” Central
         - **ids**:
           - 0wfStBE4Bvz5WN
       - **[3]**:
@@ -1930,6 +1990,7 @@
         - **pontos_uids**:
           - mKQkoMfXv6IeNI
         - **escalada**: Right na Caveira
+        - **setor**: Setor ”Negativo” Central
         - **ids**:
           - mKQkoMfXv6IeNI
       - **[4]**:
@@ -1937,6 +1998,7 @@
         - **pontos_uids**:
           - Cq3VlZw2lah4tF
         - **escalada**: Piercing de Caveira
+        - **setor**: Setor ”Negativo” Central
         - **ids**:
           - Cq3VlZw2lah4tF
       - **[5]**:
@@ -1945,6 +2007,7 @@
           - XlDgJ6cnW11hcj
           - XlDgJ6cnW11hcj
         - **escalada**: Ext. Piercing
+        - **setor**: Setor ”Negativo” Central
         - **ids**:
           - XlDgJ6cnW11hcj
           - XlDgJ6cnW11hcj
@@ -1953,6 +2016,7 @@
         - **pontos_uids**:
           - BV8tlE3arUhGxA
         - **escalada**: Mythos
+        - **setor**: Setor ”Negativo” Central
         - **ids**:
           - BV8tlE3arUhGxA
       - **[7]**:
@@ -1960,6 +2024,7 @@
         - **pontos_uids**:
           - kzdAIHfjqG0nHf
         - **escalada**: Esqueleto
+        - **setor**: Setor ”Negativo” Central
         - **ids**:
           - kzdAIHfjqG0nHf
       - **[8]**:
@@ -1967,6 +2032,7 @@
         - **pontos_uids**:
           - cpIkjR8h5AoNkR
         - **escalada**: Brinco de Caveira
+        - **setor**: Setor ”Negativo” Central
         - **ids**:
           - cpIkjR8h5AoNkR
       - **[9]**:
@@ -1974,6 +2040,7 @@
         - **pontos_uids**:
           - suJhQc3oESqNuu
         - **escalada**: Bruce Lee (Projeto)
+        - **setor**: Setor ”Negativo” Central
         - **ids**:
           - suJhQc3oESqNuu
       - **[10]**:
@@ -1981,6 +2048,7 @@
         - **pontos_uids**:
           - GGcNU9r7fjTJqG
         - **escalada**: Bradock
+        - **setor**: Setor ”Negativo” Central
         - **ids**:
           - GGcNU9r7fjTJqG
       - **[11]**:
@@ -1988,6 +2056,7 @@
         - **pontos_uids**:
           - ue7MRqZoS6xVD4
         - **escalada**: Bozo
+        - **setor**: Setor ”Negativo” Central
         - **ids**:
           - ue7MRqZoS6xVD4
       - **[12]**:
@@ -1995,6 +2064,7 @@
         - **pontos_uids**:
           - bbNbJq4NQ7NkzC
         - **escalada**: Fonte da Juventude
+        - **setor**: Setor ”Negativo” Central
         - **ids**:
           - bbNbJq4NQ7NkzC
       - **[13]**:
@@ -2002,6 +2072,7 @@
         - **pontos_uids**:
           - x9AUS2B16WnTQC
         - **escalada**: Cocoon P1
+        - **setor**: Setor ”Negativo” Central
         - **ids**:
           - x9AUS2B16WnTQC
       - **[14]**:
@@ -2010,6 +2081,7 @@
           - duX5eFV9U7bf1X
           - duX5eFV9U7bf1X
         - **escalada**: Cocoon P2
+        - **setor**: Setor ”Negativo” Central
         - **ids**:
           - duX5eFV9U7bf1X
           - duX5eFV9U7bf1X
@@ -2018,6 +2090,7 @@
         - **pontos_uids**:
           - z5fKHKiFr80VK9
         - **escalada**: Coconut
+        - **setor**: Setor ”Negativo” Central
         - **ids**:
           - z5fKHKiFr80VK9
       - **[16]**:
@@ -2025,6 +2098,7 @@
         - **pontos_uids**:
           - dAztHOScSHi3XE
         - **escalada**: Apocalipse
+        - **setor**: Setor ”Negativo” Central
         - **ids**:
           - dAztHOScSHi3XE
       - **[17]**:
@@ -2032,6 +2106,7 @@
         - **pontos_uids**:
           - PZ0e11Pyrbetyb
         - **escalada**: Homem de Pedra
+        - **setor**: Setor ”Negativo” Central
         - **ids**:
           - PZ0e11Pyrbetyb
       - **[18]**:
@@ -2039,6 +2114,7 @@
         - **pontos_uids**:
           - 7RMRhhX4zgZulM
         - **escalada**: Inferno de Dante
+        - **setor**: Setor ”Negativo” Central
         - **ids**:
           - 7RMRhhX4zgZulM
       - **[19]**:
@@ -2046,6 +2122,7 @@
         - **pontos_uids**:
           - xSFJJS45bdZVKq
         - **escalada**: Golias
+        - **setor**: Setor ”Negativo” Central
         - **ids**:
           - xSFJJS45bdZVKq
       - **[20]**:
@@ -2053,6 +2130,7 @@
         - **pontos_uids**:
           - NdkzPCFEg26f77
         - **escalada**: Cova dos Leões
+        - **setor**: Setor ”Negativo” Central
         - **ids**:
           - NdkzPCFEg26f77
       - **[21]**:
@@ -2060,6 +2138,7 @@
         - **pontos_uids**:
           - HHtdZW4Ab1ceTW
         - **escalada**: Verbo Divino (Projeto)
+        - **setor**: Setor ”Negativo” Central
         - **ids**:
           - HHtdZW4Ab1ceTW
       - **[22]**:
@@ -2067,6 +2146,7 @@
         - **pontos_uids**:
           - KhrD8JHTOq6vOl
         - **escalada**: Dust in the Wind
+        - **setor**: Setor ”Negativo” Central
         - **ids**:
           - KhrD8JHTOq6vOl
       - **[23]**:
@@ -2075,6 +2155,7 @@
           - HQMhYtJkm12oT9
           - HQMhYtJkm12oT9
         - **escalada**: Ext. Dust (Projeto)
+        - **setor**: Setor ”Negativo” Central
         - **ids**:
           - HQMhYtJkm12oT9
           - HQMhYtJkm12oT9
@@ -2083,6 +2164,7 @@
         - **pontos_uids**:
           - qrX73FrkTzbJsk
         - **escalada**: Doce de Amendoim
+        - **setor**: Setor ”Negativo” Central
         - **ids**:
           - qrX73FrkTzbJsk
       - **[25]**:
@@ -2090,6 +2172,7 @@
         - **pontos_uids**:
           - QjFFft9Y9DkOf9
         - **escalada**: Gengis Khan
+        - **setor**: Setor ”Negativo” Central
         - **ids**:
           - QjFFft9Y9DkOf9
       - **[26]**:
@@ -2097,6 +2180,7 @@
         - **pontos_uids**:
           - 18HW9Jof2fQjAY
         - **escalada**: Gringos & Troianos
+        - **setor**: Setor ”Negativo” Central
         - **ids**:
           - 18HW9Jof2fQjAY
       - **[27]**:
@@ -2104,6 +2188,7 @@
         - **pontos_uids**:
           - DGbuMR0pY6u0zR
         - **escalada**: Gringos & Troianos
+        - **setor**: Setor ”Negativo” Central
         - **ids**:
           - DGbuMR0pY6u0zR
       - **[28]**:
@@ -2111,6 +2196,7 @@
         - **pontos_uids**:
           - YoAH7aO1bsvyhJ
         - **escalada**: Cavalo de Tróia
+        - **setor**: Setor ”Negativo” Central
         - **ids**:
           - YoAH7aO1bsvyhJ
       - **[29]**:
@@ -2118,6 +2204,7 @@
         - **pontos_uids**:
           - PPF5dlAMBjfSUj
         - **escalada**: Jacuzzi (Projeto)
+        - **setor**: Setor ”Negativo” Central
         - **ids**:
           - PPF5dlAMBjfSUj
       - **[30]**:
@@ -2125,6 +2212,7 @@
         - **pontos_uids**:
           - o47lITPpuqocOz
         - **escalada**: Centauro
+        - **setor**: Setor ”Negativo” Central
         - **ids**:
           - o47lITPpuqocOz
       - **[31]**:
@@ -2132,6 +2220,7 @@
         - **pontos_uids**:
           - JZaMcMkH8j2Lai
         - **escalada**: Ceci
+        - **setor**: Setor ”Negativo” Central
         - **ids**:
           - JZaMcMkH8j2Lai
 - **escaladas**:
@@ -2669,6 +2758,7 @@
         - **pontos_uids**:
           - mLsB8nOplCsDRB
         - **escalada**: Fela
+        - **setor**: Setor Arquibancada
         - **ids**:
           - mLsB8nOplCsDRB
       - **[1]**:
@@ -2677,6 +2767,7 @@
           - srfMp22KdsZy2Y
           - srfMp22KdsZy2Y
         - **escalada**: Ext. P1 Fela
+        - **setor**: Setor Arquibancada
         - **ids**:
           - srfMp22KdsZy2Y
           - srfMp22KdsZy2Y
@@ -2686,6 +2777,7 @@
           - x57PLbZanlUquZ
           - x57PLbZanlUquZ
         - **escalada**: Ext. P2 Fela
+        - **setor**: Setor Arquibancada
         - **ids**:
           - x57PLbZanlUquZ
           - x57PLbZanlUquZ
@@ -2694,6 +2786,7 @@
         - **pontos_uids**:
           - l1h4xEXVeDw19F
         - **escalada**: Arco do Triumfo
+        - **setor**: Setor Arquibancada
         - **ids**:
           - l1h4xEXVeDw19F
       - **[4]**:
@@ -2701,6 +2794,7 @@
         - **pontos_uids**:
           - gMv1vxlUyjDOca
         - **escalada**: Remédio Amargo
+        - **setor**: Setor Arquibancada
         - **ids**:
           - gMv1vxlUyjDOca
       - **[5]**:
@@ -2708,6 +2802,7 @@
         - **pontos_uids**:
           - gvFvIf07rFLFRc
         - **escalada**: Shoryuken
+        - **setor**: Setor Arquibancada
         - **ids**:
           - gvFvIf07rFLFRc
       - **[6]**:
@@ -2715,6 +2810,7 @@
         - **pontos_uids**:
           - s9TQxG4mVXOxiw
         - **escalada**: Jab
+        - **setor**: Setor Arquibancada
         - **ids**:
           - s9TQxG4mVXOxiw
       - **[7]**:
@@ -2722,6 +2818,7 @@
         - **pontos_uids**:
           - 4MFwG2IC6W6u5S
         - **escalada**: Soco Inglês
+        - **setor**: Setor Arquibancada
         - **ids**:
           - 4MFwG2IC6W6u5S
       - **[8]**:
@@ -2730,6 +2827,7 @@
           - idoSwXlB1fdgZ6
           - idoSwXlB1fdgZ6
         - **escalada**: Ext. Soco Inglês P1
+        - **setor**: Setor Arquibancada
         - **ids**:
           - idoSwXlB1fdgZ6
           - idoSwXlB1fdgZ6
@@ -2739,6 +2837,7 @@
           - HIAhDuMzm7p8IS
           - HIAhDuMzm7p8IS
         - **escalada**: Ex. Soco Inglês P2 (Projeto)
+        - **setor**: Setor Arquibancada
         - **ids**:
           - HIAhDuMzm7p8IS
           - HIAhDuMzm7p8IS
@@ -2747,6 +2846,7 @@
         - **pontos_uids**:
           - d9PPQZKgY5VGJN
         - **escalada**: Tapa na Cara
+        - **setor**: Setor Arquibancada
         - **ids**:
           - d9PPQZKgY5VGJN
       - **[11]**:
@@ -2754,6 +2854,7 @@
         - **pontos_uids**:
           - 2VjkpkXljcf03n
         - **escalada**: Tapa na Sombra
+        - **setor**: Setor Arquibancada
         - **ids**:
           - 2VjkpkXljcf03n
       - **[12]**:
@@ -2761,6 +2862,7 @@
         - **pontos_uids**:
           - j6mwcGN4Obj8P6
         - **escalada**: A Outra Face
+        - **setor**: Setor Arquibancada
         - **ids**:
           - j6mwcGN4Obj8P6
       - **[13]**:
@@ -2768,6 +2870,7 @@
         - **pontos_uids**:
           - 0FdvAdgahgEwYr
         - **escalada**: Mary Lou
+        - **setor**: Setor Arquibancada
         - **ids**:
           - 0FdvAdgahgEwYr
       - **[14]**:
@@ -2775,6 +2878,7 @@
         - **pontos_uids**:
           - iqBYNgoUndbdKP
         - **escalada**: Superman
+        - **setor**: Setor Arquibancada
         - **ids**:
           - iqBYNgoUndbdKP
       - **[15]**:
@@ -2782,6 +2886,7 @@
         - **pontos_uids**:
           - Wro8texVPMorxV
         - **escalada**: Oia u Trem
+        - **setor**: Setor Arquibancada
         - **ids**:
           - Wro8texVPMorxV
       - **[16]**:
@@ -2789,6 +2894,7 @@
         - **pontos_uids**:
           - TxGQfnfB4BD2qm
         - **escalada**: Mistério da Meia Noite
+        - **setor**: Setor Arquibancada
         - **ids**:
           - TxGQfnfB4BD2qm
       - **[17]**:
@@ -2796,6 +2902,7 @@
         - **pontos_uids**:
           - uvPPdL22mgpgqW
         - **escalada**: Entre a Sombra e a Escuridão P1
+        - **setor**: Setor Arquibancada
         - **ids**:
           - uvPPdL22mgpgqW
       - **[18]**:
@@ -2804,6 +2911,7 @@
           - 6ci1eO8KWTF9A1
           - 6ci1eO8KWTF9A1
         - **escalada**: Entre a Sombra e a Escuridão P2
+        - **setor**: Setor Arquibancada
         - **ids**:
           - 6ci1eO8KWTF9A1
           - 6ci1eO8KWTF9A1
@@ -2812,6 +2920,7 @@
         - **pontos_uids**:
           - hRxaA3LMJUx5K0
         - **escalada**: Calabouço
+        - **setor**: Setor Arquibancada
         - **ids**:
           - hRxaA3LMJUx5K0
       - **[20]**:
@@ -2819,6 +2928,7 @@
         - **pontos_uids**:
           - 0QIphhX3ZyQ1nK
         - **escalada**: Thanos (Projeto)
+        - **setor**: Setor Arquibancada
         - **ids**:
           - 0QIphhX3ZyQ1nK
       - **[21]**:
@@ -2827,6 +2937,7 @@
           - nqodqjtN6L9AdG
           - nqodqjtN6L9AdG
         - **escalada**: Ext. Arco do Triumfo (Projeto)
+        - **setor**: Setor Arquibancada
         - **ids**:
           - nqodqjtN6L9AdG
           - nqodqjtN6L9AdG
@@ -2835,6 +2946,7 @@
         - **pontos_uids**:
           - ncCAA4oHVFdxzE
         - **escalada**: Sombrinha
+        - **setor**: Setor Arquibancada
         - **ids**:
           - ncCAA4oHVFdxzE
       - **[23]**:
@@ -2842,6 +2954,7 @@
         - **pontos_uids**:
           - wbXhHndD5HmIHH
         - **escalada**: Projeto
+        - **setor**: Setor Arquibancada
         - **ids**:
           - wbXhHndD5HmIHH
       - **[24]**:
@@ -2849,6 +2962,7 @@
         - **pontos_uids**:
           - wOgJol2XFOBbWz
         - **escalada**: Alcatraz
+        - **setor**: Setor Arquibancada
         - **ids**:
           - wOgJol2XFOBbWz
       - **[25]**:
@@ -2856,6 +2970,7 @@
         - **pontos_uids**:
           - hBPLtAm3PUMqyK
         - **escalada**: Face Oculta (Projeto)
+        - **setor**: Setor Arquibancada
         - **ids**:
           - hBPLtAm3PUMqyK
 - **escaladas**:
@@ -3288,6 +3403,7 @@
         - **pontos_uids**:
           - abD69ST45Onc4b
         - **escalada**: Tow Plac Two Plow
+        - **setor**: Setor Gênesis
         - **ids**:
           - abD69ST45Onc4b
       - **[1]**:
@@ -3295,6 +3411,7 @@
         - **pontos_uids**:
           - S85ixaWgWBYbh7
         - **escalada**: Periguete
+        - **setor**: Setor Gênesis
         - **ids**:
           - S85ixaWgWBYbh7
       - **[2]**:
@@ -3302,6 +3419,7 @@
         - **pontos_uids**:
           - WeNDq0tCjtungN
         - **escalada**: The Glands
+        - **setor**: Setor Gênesis
         - **ids**:
           - WeNDq0tCjtungN
       - **[3]**:
@@ -3310,6 +3428,7 @@
           - NRcwyR85Rm7ww5
           - NRcwyR85Rm7ww5
         - **escalada**: Ext. The Glands
+        - **setor**: Setor Gênesis
         - **ids**:
           - NRcwyR85Rm7ww5
           - NRcwyR85Rm7ww5
@@ -3318,6 +3437,7 @@
         - **pontos_uids**:
           - IHhKeW64AbOYJq
         - **escalada**: Quartzolit
+        - **setor**: Setor Gênesis
         - **ids**:
           - IHhKeW64AbOYJq
       - **[5]**:
@@ -3326,6 +3446,7 @@
           - Y3e0ZVWfBCbY8S
           - Y3e0ZVWfBCbY8S
         - **escalada**: Ext. Quartzolit (Projeto)
+        - **setor**: Setor Gênesis
         - **ids**:
           - Y3e0ZVWfBCbY8S
           - Y3e0ZVWfBCbY8S
@@ -3334,6 +3455,7 @@
         - **pontos_uids**:
           - sgf9JZtZ7RvDyq
         - **escalada**: Jorginho
+        - **setor**: Setor Gênesis
         - **ids**:
           - sgf9JZtZ7RvDyq
       - **[7]**:
@@ -3341,6 +3463,7 @@
         - **pontos_uids**:
           - xP2YPo3HyE7RgI
         - **escalada**: Toca do Sadu
+        - **setor**: Setor Gênesis
         - **ids**:
           - xP2YPo3HyE7RgI
       - **[8]**:
@@ -3348,6 +3471,7 @@
         - **pontos_uids**:
           - cPrLfnE2xqDCzL
         - **escalada**: Triplo X
+        - **setor**: Setor Gênesis
         - **ids**:
           - cPrLfnE2xqDCzL
       - **[9]**:
@@ -3355,6 +3479,7 @@
         - **pontos_uids**:
           - xwqQWadIyKSCLW
         - **escalada**: Além do Horizonte
+        - **setor**: Setor Gênesis
         - **ids**:
           - xwqQWadIyKSCLW
       - **[10]**:
@@ -3362,6 +3487,7 @@
         - **pontos_uids**:
           - cZ8fLDJx8QN3iK
         - **escalada**: Salto para Infinito
+        - **setor**: Setor Gênesis
         - **ids**:
           - cZ8fLDJx8QN3iK
       - **[11]**:
@@ -3369,6 +3495,7 @@
         - **pontos_uids**:
           - zy0vMHNNMjrEh7
         - **escalada**: Êxodo
+        - **setor**: Setor Gênesis
         - **ids**:
           - zy0vMHNNMjrEh7
       - **[12]**:
@@ -3376,6 +3503,7 @@
         - **pontos_uids**:
           - 3MDo2Vv9wwJ4dt
         - **escalada**: Gênesis
+        - **setor**: Setor Gênesis
         - **ids**:
           - 3MDo2Vv9wwJ4dt
       - **[13]**:
@@ -3384,6 +3512,7 @@
           - dfR2PZgHdClS9G
           - dfR2PZgHdClS9G
         - **escalada**: Ext. Gênesis
+        - **setor**: Setor Gênesis
         - **ids**:
           - dfR2PZgHdClS9G
           - dfR2PZgHdClS9G
@@ -3392,6 +3521,7 @@
         - **pontos_uids**:
           - Jqcg5Gra2ViLVW
         - **escalada**: Cronos
+        - **setor**: Setor Gênesis
         - **ids**:
           - Jqcg5Gra2ViLVW
       - **[15]**:
@@ -3399,6 +3529,7 @@
         - **pontos_uids**:
           - f4ArbT8Qt1vsLp
         - **escalada**: Goela Seca
+        - **setor**: Setor Gênesis
         - **ids**:
           - f4ArbT8Qt1vsLp
       - **[16]**:
@@ -3406,6 +3537,7 @@
         - **pontos_uids**:
           - Z2UqScP5v7YPiz
         - **escalada**: Gogó
+        - **setor**: Setor Gênesis
         - **ids**:
           - Z2UqScP5v7YPiz
       - **[17]**:
@@ -3414,6 +3546,7 @@
           - CBjdLQGzvXBcah
           - CBjdLQGzvXBcah
         - **escalada**: Ext. Gogó
+        - **setor**: Setor Gênesis
         - **ids**:
           - CBjdLQGzvXBcah
           - CBjdLQGzvXBcah
@@ -3422,6 +3555,7 @@
         - **pontos_uids**:
           - AsprhWkvA9UMHG
         - **escalada**: 3.6 Turbo
+        - **setor**: Setor Gênesis
         - **ids**:
           - AsprhWkvA9UMHG
       - **[19]**:
@@ -3429,6 +3563,7 @@
         - **pontos_uids**:
           - ARFNbhkgMOOWTY
         - **escalada**: Brown & Brow
+        - **setor**: Setor Gênesis
         - **ids**:
           - ARFNbhkgMOOWTY
       - **[20]**:
@@ -3436,6 +3571,7 @@
         - **pontos_uids**:
           - P7lNVTQ25m7HFu
         - **escalada**: Sinairo P1
+        - **setor**: Setor Gênesis
         - **ids**:
           - P7lNVTQ25m7HFu
       - **[21]**:
@@ -3444,6 +3580,7 @@
           - kiwXIzHnIRd1XW
           - kiwXIzHnIRd1XW
         - **escalada**: Sinario P2
+        - **setor**: Setor Gênesis
         - **ids**:
           - kiwXIzHnIRd1XW
           - kiwXIzHnIRd1XW
@@ -3453,6 +3590,7 @@
           - pIO9bHRDT0YkPU
           - pIO9bHRDT0YkPU
         - **escalada**: Sinairo P3
+        - **setor**: Setor Gênesis
         - **ids**:
           - pIO9bHRDT0YkPU
           - pIO9bHRDT0YkPU
@@ -3836,6 +3974,7 @@
         - **pontos_uids**:
           - bxFcJSWZIMJeVy
         - **escalada**: Faraó
+        - **setor**: Setor Acampamento
         - **ids**:
           - bxFcJSWZIMJeVy
       - **[1]**:
@@ -3843,6 +3982,7 @@
         - **pontos_uids**:
           - j1VTVPq7ngV1p1
         - **escalada**: Esfinge
+        - **setor**: Setor Acampamento
         - **ids**:
           - j1VTVPq7ngV1p1
       - **[2]**:
@@ -3850,6 +3990,7 @@
         - **pontos_uids**:
           - Tog39o7HPbhR7i
         - **escalada**: Camel
+        - **setor**: Setor Acampamento
         - **ids**:
           - Tog39o7HPbhR7i
       - **[3]**:
@@ -3857,6 +3998,7 @@
         - **pontos_uids**:
           - M6WaRcoPoL8VQ0
         - **escalada**: Bulimia
+        - **setor**: Setor Acampamento
         - **ids**:
           - M6WaRcoPoL8VQ0
       - **[4]**:
@@ -3864,6 +4006,7 @@
         - **pontos_uids**:
           - PIPUMkdo2H6xm5
         - **escalada**: Venetica
+        - **setor**: Setor Acampamento
         - **ids**:
           - PIPUMkdo2H6xm5
       - **[5]**:
@@ -3871,6 +4014,7 @@
         - **pontos_uids**:
           - tn7IUT8fwe3jd4
         - **escalada**: Resigente
+        - **setor**: Setor Acampamento
         - **ids**:
           - tn7IUT8fwe3jd4
       - **[6]**:
@@ -3878,6 +4022,7 @@
         - **pontos_uids**:
           - HzqOAFnhEaH6QU
         - **escalada**: Bammalves
+        - **setor**: Setor Acampamento
         - **ids**:
           - HzqOAFnhEaH6QU
       - **[7]**:
@@ -3885,6 +4030,7 @@
         - **pontos_uids**:
           - ZbVTusLCZA9Vsq
         - **escalada**: Tomahawk
+        - **setor**: Setor Acampamento
         - **ids**:
           - ZbVTusLCZA9Vsq
       - **[8]**:
@@ -3892,6 +4038,7 @@
         - **pontos_uids**:
           - pfcVQJlZCxppxf
         - **escalada**: Souza Paiol
+        - **setor**: Setor Acampamento
         - **ids**:
           - pfcVQJlZCxppxf
       - **[9]**:
@@ -3899,6 +4046,7 @@
         - **pontos_uids**:
           - Fuu06QR9jjaAFV
         - **escalada**: Marlboro
+        - **setor**: Setor Acampamento
         - **ids**:
           - Fuu06QR9jjaAFV
       - **[10]**:
@@ -3906,6 +4054,7 @@
         - **pontos_uids**:
           - HE1fauI2YWsmu2
         - **escalada**: Hollywood
+        - **setor**: Setor Acampamento
         - **ids**:
           - HE1fauI2YWsmu2
       - **[11]**:
@@ -3913,6 +4062,7 @@
         - **pontos_uids**:
           - 3Ny9dDH6fVre2s
         - **escalada**: Derby Azul
+        - **setor**: Setor Acampamento
         - **ids**:
           - 3Ny9dDH6fVre2s
       - **[12]**:
@@ -3920,6 +4070,7 @@
         - **pontos_uids**:
           - u1u2q3hHaKx2OZ
         - **escalada**: Adelaide
+        - **setor**: Setor Acampamento
         - **ids**:
           - u1u2q3hHaKx2OZ
       - **[13]**:
@@ -3927,6 +4078,7 @@
         - **pontos_uids**:
           - 6fjkUqGhm2pEPT
         - **escalada**: Bulica
+        - **setor**: Setor Acampamento
         - **ids**:
           - 6fjkUqGhm2pEPT
       - **[14]**:
@@ -3934,6 +4086,7 @@
         - **pontos_uids**:
           - TiXrwHbTAIg6Ey
         - **escalada**: Stinger
+        - **setor**: Setor Acampamento
         - **ids**:
           - TiXrwHbTAIg6Ey
 - **escaladas**:

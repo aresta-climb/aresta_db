@@ -76,36 +76,42 @@ picos:
             pontos_uids:
             - IXdi9b6ANAZqas
             escalada: Sai que é vaca
+            setor: Setor Castelinho
             ids:
             - IXdi9b6ANAZqas
           - alvo_uid: IkF7tbLlAt5Zdz
             pontos_uids:
             - kl6xM7uAYzA7Da
             escalada: Favo de Mel
+            setor: Setor Castelinho
             ids:
             - kl6xM7uAYzA7Da
           - alvo_uid: uMZtAWeka4OQlJ
             pontos_uids:
             - yqIuqsvKHtOHCY
             escalada: Retorno do Marco
+            setor: Setor Castelinho
             ids:
             - yqIuqsvKHtOHCY
           - alvo_uid: gcztZvEGjZmcgV
             pontos_uids:
             - ZvQxcq7VXB3oo5
             escalada: Tomara que não chova
+            setor: Setor Castelinho
             ids:
             - ZvQxcq7VXB3oo5
           - alvo_uid: QBYl00QZT0YkrW
             pontos_uids:
             - WCop4MeMLmO1OZ
             escalada: Castelinho
+            setor: Setor Castelinho
             ids:
             - WCop4MeMLmO1OZ
           - alvo_uid: YJo7r0hFIoOXTZ
             pontos_uids:
             - tzWTPn01zEiYeE
             escalada: Projeto
+            setor: Setor Castelinho
             ids:
             - tzWTPn01zEiYeE
         escaladas:
@@ -198,12 +204,14 @@ picos:
             pontos_uids:
             - 8TWtxGbJHVaSf3
             escalada: Ajoelhou tem que Rezar
+            setor: Setor Mapa 2
             ids:
             - 8TWtxGbJHVaSf3
           - alvo_uid: VzHgiUIINvtKec
             pontos_uids:
             - xjTKAZAl2qzvRu
             escalada: O Exibicionista
+            setor: Setor Mapa 2
             ids:
             - xjTKAZAl2qzvRu
         escaladas:
@@ -476,156 +484,182 @@ picos:
             pontos_uids:
             - a84jXjlGaIfYvu
             escalada: Lua Cheia
+            setor: Setor Gruta - Mapa 3
             ids:
             - a84jXjlGaIfYvu
           - alvo_uid: JZxQkEyA4lXM9C
             pontos_uids:
             - hYDYj3defdj6iz
             escalada: Jornada nas Estrelas
+            setor: Setor Gruta - Mapa 3
             ids:
             - hYDYj3defdj6iz
           - alvo_uid: egUwOsiMnN45Tu
             pontos_uids:
             - G9obv6HGygmW39
             escalada: Egotrip
+            setor: Setor Gruta - Mapa 3
             ids:
             - G9obv6HGygmW39
           - alvo_uid: cbZ263w7zUzsEf
             pontos_uids:
             - g3Rw9n92cRMheO
             escalada: Boicote de comunicação
+            setor: Setor Gruta - Mapa 3
             ids:
             - g3Rw9n92cRMheO
           - alvo_uid: PsWevz52vrX9CP
             pontos_uids:
             - YXUlxFX4b4dt9T
             escalada: Vicio
+            setor: Setor Gruta - Mapa 3
             ids:
             - YXUlxFX4b4dt9T
           - alvo_uid: bCJDqPZpZ6a12y
             pontos_uids:
             - 0HJznidvGc2Dc8
             escalada: Conspiração Sanguessuga
+            setor: Setor Gruta - Mapa 3
             ids:
             - 0HJznidvGc2Dc8
           - alvo_uid: CyKGqcG4aTKxfn
             pontos_uids:
             - JdGRvR0UrHptAj
             escalada: Gota D’água
+            setor: Setor Gruta - Mapa 3
             ids:
             - JdGRvR0UrHptAj
           - alvo_uid: trj4G3vGOArENf
             pontos_uids:
             - iEnAxu5pPCP2uq
             escalada: Sai de Baixo
+            setor: Setor Gruta - Mapa 3
             ids:
             - iEnAxu5pPCP2uq
           - alvo_uid: IOUnxnbFfZEGs4
             pontos_uids:
             - L6nrJpbgYPskOU
             escalada: Pipeline
+            setor: Setor Gruta - Mapa 3
             ids:
             - L6nrJpbgYPskOU
           - alvo_uid: LtbPet4uTXi7Pg
             pontos_uids:
             - igWL4CK3ObDb9x
             escalada: Jurubeba
+            setor: Setor Gruta - Mapa 3
             ids:
             - igWL4CK3ObDb9x
           - alvo_uid: s6aziD9QKGJOpP
             pontos_uids:
             - yJ1uPbPJ91BGt5
             escalada: Perigo Mora ao Lado
+            setor: Setor Gruta - Mapa 3
             ids:
             - yJ1uPbPJ91BGt5
           - alvo_uid: PhAfEvHO25UiXj
             pontos_uids:
             - alEy3QpZYuqo68
             escalada: Pretexto da Traição
+            setor: Setor Gruta - Mapa 3
             ids:
             - alEy3QpZYuqo68
           - alvo_uid: 3YGXOKygemgTsz
             pontos_uids:
             - qPV8P7gZFP9zOE
             escalada: Sorriso do Lagarto
+            setor: Setor Gruta - Mapa 3
             ids:
             - qPV8P7gZFP9zOE
           - alvo_uid: 5de82BQO55DmG8
             pontos_uids:
             - WhG4Tcjw6pFH2I
             escalada: Orgasmatrom
+            setor: Setor Gruta - Mapa 3
             ids:
             - WhG4Tcjw6pFH2I
           - alvo_uid: 6qtIK6oko89RLT
             pontos_uids:
             - Z7GhMueq5Bh0B2
             escalada: Escaramuça
+            setor: Setor Gruta - Mapa 3
             ids:
             - Z7GhMueq5Bh0B2
           - alvo_uid: fTlGW2iOfrQfhh
             pontos_uids:
             - AP5c4pEkUft5Ha
             escalada: Túnel do Tempo
+            setor: Setor Gruta - Mapa 3
             ids:
             - AP5c4pEkUft5Ha
           - alvo_uid: zrPctwMqr1OhvR
             pontos_uids:
             - nO20GQLPlKGRlp
             escalada: Dédalos
+            setor: Setor Gruta - Mapa 3
             ids:
             - nO20GQLPlKGRlp
           - alvo_uid: KW35NZAOeB6cPC
             pontos_uids:
             - ilkHCRhKLKj1qT
             escalada: Bouquet de Rosas
+            setor: Setor Gruta - Mapa 3
             ids:
             - ilkHCRhKLKj1qT
           - alvo_uid: MHuDaw7hjXX15m
             pontos_uids:
             - z7gK35M0FeYIoC
             escalada: Fogo no Rabo
+            setor: Setor Gruta - Mapa 3
             ids:
             - z7gK35M0FeYIoC
           - alvo_uid: JOmpj2z9VixPwr
             pontos_uids:
             - GlPuO5cJt5exdV
             escalada: Bobeou Sobrou
+            setor: Setor Gruta - Mapa 3
             ids:
             - GlPuO5cJt5exdV
           - alvo_uid: lD3cxvUuA8Gf2i
             pontos_uids:
             - ssl4fxO4hxIlky
             escalada: Los Cubanos
+            setor: Setor Gruta - Mapa 3
             ids:
             - ssl4fxO4hxIlky
           - alvo_uid: FHwRMLcg9gfbK6
             pontos_uids:
             - ZdrpCXFkdGihXw
             escalada: Folião
+            setor: Setor Gruta - Mapa 3
             ids:
             - ZdrpCXFkdGihXw
           - alvo_uid: 0kjmgCEQvr7jqR
             pontos_uids:
             - WYGuHzuajIpHHg
             escalada: Escalador sem mãe
+            setor: Setor Gruta - Mapa 3
             ids:
             - WYGuHzuajIpHHg
           - alvo_uid: nzc62lIrSNVui8
             pontos_uids:
             - Yl5UK7yi3GfgnS
             escalada: Projeto inacabado
+            setor: Setor Gruta - Mapa 3
             ids:
             - Yl5UK7yi3GfgnS
           - alvo_uid: 0XkrqDPEYpl2vw
             pontos_uids:
             - kDYLtWk7Idc3Sr
             escalada: Sobrevibrenf´s
+            setor: Setor Gruta - Mapa 3
             ids:
             - kDYLtWk7Idc3Sr
           - alvo_uid: f8fyK7B3Fuo95O
             pontos_uids:
             - fQOs3Q3snLnG8Q
             escalada: Sobreviventes
+            setor: Setor Gruta - Mapa 3
             ids:
             - fQOs3Q3snLnG8Q
         escaladas:
@@ -1120,150 +1154,175 @@ picos:
             pontos_uids:
             - YbwIrMGf3g0rBr
             escalada: Fogo no Rabo
+            setor: Setor Gruta - Mapa 3
             ids:
             - YbwIrMGf3g0rBr
           - alvo_uid: JOmpj2z9VixPwr
             pontos_uids:
             - hbW6qWslU23clk
             escalada: Bobeou Sobrou
+            setor: Setor Gruta - Mapa 3
             ids:
             - hbW6qWslU23clk
           - alvo_uid: lD3cxvUuA8Gf2i
             pontos_uids:
             - eOxeQzw0fioIOS
             escalada: Los Cubanos
+            setor: Setor Gruta - Mapa 3
             ids:
             - eOxeQzw0fioIOS
           - alvo_uid: FHwRMLcg9gfbK6
             pontos_uids:
             - vBLxVGcDZRvJud
             escalada: Folião
+            setor: Setor Gruta - Mapa 3
             ids:
             - vBLxVGcDZRvJud
           - alvo_uid: Jn3ntinFsz4Mej
             pontos_uids:
             - kVRiPsoYtbRGRW
             escalada: Luzes
+            setor: Setor Gruta - Mapa 4 (Sala de Aula)
             ids:
             - kVRiPsoYtbRGRW
           - alvo_uid: hTFVFnVNlXtvJf
             pontos_uids:
             - WcMk6ADqlyWuEi
             escalada: Via sem informação
+            setor: Setor Gruta - Mapa 4 (Sala de Aula)
             ids:
             - WcMk6ADqlyWuEi
           - alvo_uid: 4y9VOJODOjiUwZ
             pontos_uids:
             - zAYs5SVbqCn9Vy
             escalada: Êta Sô
+            setor: Setor Gruta - Mapa 4 (Sala de Aula)
             ids:
             - zAYs5SVbqCn9Vy
           - alvo_uid: qLY9XVrCzvCVqL
             pontos_uids:
             - W2qBCpwNNJ9k8u
             escalada: Via do Tetinho
+            setor: Setor Gruta - Mapa 4 (Sala de Aula)
             ids:
             - W2qBCpwNNJ9k8u
           - alvo_uid: CwigryYDSWgxcb
             pontos_uids:
             - 8EAtC0V19Wjn54
             escalada: Ataque das Bolinhas
+            setor: Setor Gruta - Mapa 4 (Sala de Aula)
             ids:
             - 8EAtC0V19Wjn54
           - alvo_uid: RC5i9eNc3bCcBy
             pontos_uids:
             - DK8P4ULhqv5lBG
             escalada: Via do curso
+            setor: Setor Gruta - Mapa 4 (Sala de Aula)
             ids:
             - DK8P4ULhqv5lBG
           - alvo_uid: phjsdSbCT8uzmK
             pontos_uids:
             - A06uD9gFWxhcYT
             escalada: Viajandão Grampeando na Chuva
+            setor: Setor Gruta - Mapa 4 (Sala de Aula)
             ids:
             - A06uD9gFWxhcYT
           - alvo_uid: 6XVtUPIENKTN1i
             pontos_uids:
             - kTllLRySz1Isb6
             escalada: Martelo Voador
+            setor: Setor Gruta - Mapa 4 (Sala de Aula)
             ids:
             - kTllLRySz1Isb6
           - alvo_uid: wFjo0Cyi5O4lQ1
             pontos_uids:
             - 1uIvbfEaAqbb3d
             escalada: Coquetel de Maracujá
+            setor: Setor Gruta - Mapa 4 (Sala de Aula)
             ids:
             - 1uIvbfEaAqbb3d
           - alvo_uid: O24NOv7tMTcj2m
             pontos_uids:
             - yuMnis7fVuEmVl
             escalada: Ravenloft
+            setor: Setor Gruta - Mapa 4 (Sala de Aula)
             ids:
             - yuMnis7fVuEmVl
           - alvo_uid: dXlxB7P6VbEhc4
             pontos_uids:
             - Yj2yGgPtNAJck6
             escalada: Muro das Lamentações
+            setor: Setor Gruta - Mapa 4 (Sala de Aula)
             ids:
             - Yj2yGgPtNAJck6
           - alvo_uid: lfaYDI92Vpufa7
             pontos_uids:
             - qL5hm95WO6YW2A
             escalada: Equilíbrio Distante
+            setor: Setor Gruta - Mapa 4 (Sala de Aula)
             ids:
             - qL5hm95WO6YW2A
           - alvo_uid: iE2bR4i3ORITBt
             pontos_uids:
             - mIQ6BoZIFWnpzd
             escalada: Careta do Calango
+            setor: Setor Gruta - Mapa 4 (Sala de Aula)
             ids:
             - mIQ6BoZIFWnpzd
           - alvo_uid: lnwPHtyMsnk7PX
             pontos_uids:
             - Fo3bDOOX5AvnLS
             escalada: Pierrô e Colombina
+            setor: Setor Gruta - Mapa 4 (Sala de Aula)
             ids:
             - Fo3bDOOX5AvnLS
           - alvo_uid: 0kjmgCEQvr7jqR
             pontos_uids:
             - TzfHeUzGtWrhfI
             escalada: Escalador sem mãe
+            setor: Setor Gruta - Mapa 3
             ids:
             - TzfHeUzGtWrhfI
           - alvo_uid: nzc62lIrSNVui8
             pontos_uids:
             - FNnXhaNsCkS317
             escalada: Projeto inacabado
+            setor: Setor Gruta - Mapa 3
             ids:
             - FNnXhaNsCkS317
           - alvo_uid: 0XkrqDPEYpl2vw
             pontos_uids:
             - Q3wymOY56A2tvK
             escalada: Sobrevibrenf´s
+            setor: Setor Gruta - Mapa 3
             ids:
             - Q3wymOY56A2tvK
           - alvo_uid: f8fyK7B3Fuo95O
             pontos_uids:
             - 8jLM33q08m09jN
             escalada: Sobreviventes
+            setor: Setor Gruta - Mapa 3
             ids:
             - 8jLM33q08m09jN
           - alvo_uid: CHeLwtTXSiOQCo
             pontos_uids:
             - 69uCcDNsRqJK6d
             escalada: Scarface
+            setor: Setor Gruta - Mapa 4 (Sala de Aula)
             ids:
             - 69uCcDNsRqJK6d
           - alvo_uid: 6faaxq4WPUk78M
             pontos_uids:
             - Oe8hpZkQ4qjkll
             escalada: Posições Exóticas
+            setor: Setor Gruta - Mapa 4 (Sala de Aula)
             ids:
             - Oe8hpZkQ4qjkll
           - alvo_uid: HD6YyW6TnowhuN
             pontos_uids:
             - ZIFl9D0Bczeb7l
             escalada: Garotos não Choram
+            setor: Setor Gruta - Mapa 4 (Sala de Aula)
             ids:
             - ZIFl9D0Bczeb7l
           - alvo_uid: UlccfwkdM6gnf0
@@ -1515,54 +1574,63 @@ picos:
             pontos_uids:
             - mwcrIssn7Fbu7K
             escalada: Ben Moon
+            setor: Setor Mapa 5
             ids:
             - mwcrIssn7Fbu7K
           - alvo_uid: ntptButHFotLLK
             pontos_uids:
             - YUblEqH5pfshO9
             escalada: Come Quieto
+            setor: Setor Mapa 5
             ids:
             - YUblEqH5pfshO9
           - alvo_uid: LlhTp0HQEPx14C
             pontos_uids:
             - 37wN9SXE44Of5s
             escalada: O Perigo que Veio do Céu
+            setor: Setor Mapa 5
             ids:
             - 37wN9SXE44Of5s
           - alvo_uid: 0ea9JvzzJRmTMc
             pontos_uids:
             - vuYjNb3dRUZhdn
             escalada: Arranca Couro
+            setor: Setor Mapa 5
             ids:
             - vuYjNb3dRUZhdn
           - alvo_uid: Y3VMbBAjE0gzDE
             pontos_uids:
             - zNpqRoysKs59g9
             escalada: Ônibus Inglês
+            setor: Setor Mapa 5
             ids:
             - zNpqRoysKs59g9
           - alvo_uid: 8BmdmUZ3J2Ioaf
             pontos_uids:
             - Rlf1iauiC1twwi
             escalada: Gigante de Bronze
+            setor: Setor Mapa 5
             ids:
             - Rlf1iauiC1twwi
           - alvo_uid: gIzPvcOt3tcfaW
             pontos_uids:
             - peXLU6yqiBgVaf
             escalada: Karrenglass
+            setor: Setor Mapa 5
             ids:
             - peXLU6yqiBgVaf
           - alvo_uid: lieFJxvgjD0T4C
             pontos_uids:
             - 4KXPOHRpCXHQzF
             escalada: Retorno dos Anões
+            setor: Setor Mapa 5
             ids:
             - 4KXPOHRpCXHQzF
           - alvo_uid: RnZKGhZfGOypo1
             pontos_uids:
             - 7BYlpEkL6jr0Uy
             escalada: Compromisso Sexual
+            setor: Setor Mapa 5
             ids:
             - 7BYlpEkL6jr0Uy
         escaladas:
@@ -1798,84 +1866,98 @@ picos:
             pontos_uids:
             - co0L3lzfGktyam
             escalada: Psico Circus
+            setor: Setor Vale Verde (Mapa 6)
             ids:
             - co0L3lzfGktyam
           - alvo_uid: E47PBUWaztdeq5
             pontos_uids:
             - Pcws7jdnBdkFf1
             escalada: Os impossíveis
+            setor: Setor Vale Verde (Mapa 6)
             ids:
             - Pcws7jdnBdkFf1
           - alvo_uid: AlhpLzBbvxdARj
             pontos_uids:
             - 4D7AxhkAElF1mz
             escalada: Carbonáticus Calcicus
+            setor: Setor Vale Verde (Mapa 6)
             ids:
             - 4D7AxhkAElF1mz
           - alvo_uid: yz8k8QP3JY3b7D
             pontos_uids:
             - 0RePZDZwatc55x
             escalada: Para não dizer que não falei de flores
+            setor: Setor Vale Verde (Mapa 6)
             ids:
             - 0RePZDZwatc55x
           - alvo_uid: OmqF412h2OG31Q
             pontos_uids:
             - EQFl6xqRj25XKk
             escalada: As Aparências Enganam
+            setor: Setor Vale Verde (Mapa 6)
             ids:
             - EQFl6xqRj25XKk
           - alvo_uid: uN41mUNxKhQLnR
             pontos_uids:
             - JB20lEvPwjBEBN
             escalada: Eu quero é ver o oco
+            setor: Setor Vale Verde (Mapa 6)
             ids:
             - JB20lEvPwjBEBN
           - alvo_uid: XAjgOmiFU8VgRi
             pontos_uids:
             - cOiGV79bJTTXwi
             escalada: Cortando Prego
+            setor: Setor Vale Verde (Mapa 6)
             ids:
             - cOiGV79bJTTXwi
           - alvo_uid: 6HNjjzHD8ZgV5A
             pontos_uids:
             - EwJiGCEgNO1IGL
             escalada: Vive lá brenf
+            setor: Setor Vale Verde (Mapa 6)
             ids:
             - EwJiGCEgNO1IGL
           - alvo_uid: 40ZgWfXSRvNVRD
             pontos_uids:
             - IYOCbXYeGlRztu
             escalada: Rastafary Baby
+            setor: Setor Vale Verde (Mapa 6)
             ids:
             - IYOCbXYeGlRztu
           - alvo_uid: nRjQg6NF3gMoB5
             pontos_uids:
             - Zvh5xGHFKkbg94
             escalada: Varinha de Condon
+            setor: Setor Vale Verde (Mapa 6)
             ids:
             - Zvh5xGHFKkbg94
           - alvo_uid: tJ3b11CN9Dk1k8
             pontos_uids:
             - yRDVKSBrLmJfm0
             escalada: Tempestade Cerebral
+            setor: Setor Vale Verde (Mapa 6)
             ids:
             - yRDVKSBrLmJfm0
           - alvo_uid: mPhlYzOBycx1yO
             pontos_uids:
             - Yh8x0r08rqjWW6
             escalada: Chambinho
+            setor: Setor Vale Verde (Mapa 6)
             ids:
             - Yh8x0r08rqjWW6
           - alvo_uid: a601ekOt4Z8grf
             pontos_uids:
             - L3Kv1lkQnUiHIE
             escalada: Revolução dos Micos
+            setor: Setor Vale Verde (Mapa 6)
             ids:
             - L3Kv1lkQnUiHIE
           - alvo_uid: gCEazUeMzsA3dp
             pontos_uids:
             - h3386PrCzycAkF
             escalada: Al Capote
+            setor: Setor Vale Verde (Mapa 6)
             ids:
             - h3386PrCzycAkF
         escaladas:
@@ -2112,66 +2194,77 @@ picos:
             pontos_uids:
             - Kkw0WF7eShPHQ8
             escalada: Cariocas não dizem Uai
+            setor: Setor Mapa 7
             ids:
             - Kkw0WF7eShPHQ8
           - alvo_uid: qqE2Xa62AWdHkq
             pontos_uids:
             - FlNc2a4cMFVuPg
             escalada: Doutor Lund
+            setor: Setor Mapa 7
             ids:
             - FlNc2a4cMFVuPg
           - alvo_uid: CQy3SWhpDCc528
             pontos_uids:
             - 1WtCp5Xuy9POGb
             escalada: Aceitam-se Sugestões
+            setor: Setor Mapa 7
             ids:
             - 1WtCp5Xuy9POGb
           - alvo_uid: OXAvr0Rdr0rU5G
             pontos_uids:
             - V9q3se1M4hzUIm
             escalada: Rosa dos Ventos
+            setor: Setor Mapa 7
             ids:
             - V9q3se1M4hzUIm
           - alvo_uid: TAvEhL1wTI6EwM
             pontos_uids:
             - 45OBUc8wgaEmDC
             escalada: Monte Calvário
+            setor: Setor Mapa 7
             ids:
             - 45OBUc8wgaEmDC
           - alvo_uid: Mpm6oLaVnlHimt
             pontos_uids:
             - l4cY9pnkIm6cdZ
             escalada: Pó-na-beiça
+            setor: Setor Mapa 7
             ids:
             - l4cY9pnkIm6cdZ
           - alvo_uid: ZYG9ghLMTzMJVk
             pontos_uids:
             - pUVsoiEYth6L1r
             escalada: Três dentro, três fora
+            setor: Setor Mapa 7
             ids:
             - pUVsoiEYth6L1r
           - alvo_uid: G4Gdw4XvIlJXQX
             pontos_uids:
             - aygeQ7pVVesHih
             escalada: Só para eles
+            setor: Setor Mapa 7
             ids:
             - aygeQ7pVVesHih
           - alvo_uid: p77Iy4sAShvmg2
             pontos_uids:
             - dLQ9rYaZPJS2bw
             escalada: Só para elas
+            setor: Setor Mapa 7
             ids:
             - dLQ9rYaZPJS2bw
           - alvo_uid: WHJ53V0DkIbf7P
             pontos_uids:
             - KIPcwRIBu5sXru
             escalada: Prestobarba
+            setor: Setor Mapa 7
             ids:
             - KIPcwRIBu5sXru
           - alvo_uid: 46pgZmHpsgEsde
             pontos_uids:
             - erY00uih2b1m1B
             escalada: Bigode Limpo
+            setor: Setor Mapa 7
             ids:
             - erY00uih2b1m1B
         escaladas:
@@ -2545,162 +2638,189 @@ picos:
             pontos_uids:
             - FqPvQyqLrSWjjj
             escalada: Bigode de Cristo
+            setor: Setor Túnel de Pedra (Mapa 8)
             ids:
             - FqPvQyqLrSWjjj
           - alvo_uid: ZgB4gVcfZ1FoTC
             pontos_uids:
             - Ov4O25jS3cuaP8
             escalada: Bigode Sujo
+            setor: Setor Túnel de Pedra (Mapa 8)
             ids:
             - Ov4O25jS3cuaP8
           - alvo_uid: 74NzqIsXX385XP
             pontos_uids:
             - 4FxCluDk4Rtj00
             escalada: Bigode de Espinho
+            setor: Setor Túnel de Pedra (Mapa 8)
             ids:
             - 4FxCluDk4Rtj00
           - alvo_uid: GksFepQerd6kj3
             pontos_uids:
             - RRYXB42aOGnIxX
             escalada: Trombeta Acéfala
+            setor: Setor Túnel de Pedra (Mapa 8)
             ids:
             - RRYXB42aOGnIxX
           - alvo_uid: L69C6jL7Bphv5T
             pontos_uids:
             - WaTUfE5SA2tfw8
             escalada: Meio Cubanos
+            setor: Setor Túnel de Pedra (Mapa 8)
             ids:
             - WaTUfE5SA2tfw8
           - alvo_uid: PBMAKEwduou7iM
             pontos_uids:
             - kTNF5z1DbFB7OT
             escalada: Golpe Ninja
+            setor: Setor Túnel de Pedra (Mapa 8)
             ids:
             - kTNF5z1DbFB7OT
           - alvo_uid: CDDjlHX6ZPFIfg
             pontos_uids:
             - yGfWjbBH9O6G6C
             escalada: Tripla Traição
+            setor: Setor Túnel de Pedra (Mapa 8)
             ids:
             - yGfWjbBH9O6G6C
           - alvo_uid: 8b8K01Oui85IB0
             pontos_uids:
             - WDWCKnErNiKSiQ
             escalada: Noivado da Feiticeira
+            setor: Setor Túnel de Pedra (Mapa 8)
             ids:
             - WDWCKnErNiKSiQ
           - alvo_uid: 6laLGWjMZtyl5K
             pontos_uids:
             - wLT0df5guGG1CC
             escalada: Planeta dos Macacos
+            setor: Setor Túnel de Pedra (Mapa 8)
             ids:
             - wLT0df5guGG1CC
           - alvo_uid: kulsF9JNdpDYC3
             pontos_uids:
             - MwEF9ydeMOTn6a
             escalada: Rota de colisão
+            setor: Setor Túnel de Pedra (Mapa 8)
             ids:
             - MwEF9ydeMOTn6a
           - alvo_uid: yMYiuu4C1XwTsU
             pontos_uids:
             - mlFawOfgOWPo3G
             escalada: Projeto Daniel Salim
+            setor: Setor Túnel de Pedra (Mapa 8)
             ids:
             - mlFawOfgOWPo3G
           - alvo_uid: fuAERj0RgZMLR5
             pontos_uids:
             - OCK4VtAc2DnDsP
             escalada: Vale Perdido
+            setor: Setor Túnel de Pedra (Mapa 8)
             ids:
             - OCK4VtAc2DnDsP
           - alvo_uid: Edh9kZy5L2CndU
             pontos_uids:
             - gHm3OJhkalYdks
             escalada: Consolo da Surucucu
+            setor: Setor Túnel de Pedra (Mapa 8)
             ids:
             - gHm3OJhkalYdks
           - alvo_uid: 3i1j443nXNqSp1
             pontos_uids:
             - CwMStfSGesutnN
             escalada: Santos e Hereges
+            setor: Setor Túnel de Pedra (Mapa 8)
             ids:
             - CwMStfSGesutnN
           - alvo_uid: uJRx7yglftzDUo
             pontos_uids:
             - OOJRyvkJi3NfZG
             escalada: O Império Contra Ataca
+            setor: Setor Túnel de Pedra (Mapa 8)
             ids:
             - OOJRyvkJi3NfZG
           - alvo_uid: ZX3E7xP5ZmQP0s
             pontos_uids:
             - xqErmEnBxlsY7V
             escalada: Jegue Voador
+            setor: Setor Túnel de Pedra (Mapa 8)
             ids:
             - xqErmEnBxlsY7V
           - alvo_uid: 3RNMY4E3VJdcjO
             pontos_uids:
             - d2JXIHtHmANt1j
             escalada: Labirinto das Maritacas
+            setor: Setor Túnel de Pedra (Mapa 8)
             ids:
             - d2JXIHtHmANt1j
           - alvo_uid: vXnlfUKuk8bH78
             pontos_uids:
             - Ein8Cu9aEzNSjP
             escalada: Tentações de Maria Madalena
+            setor: Setor Túnel de Pedra (Mapa 8)
             ids:
             - Ein8Cu9aEzNSjP
           - alvo_uid: 1HqUU8JAEawaHB
             pontos_uids:
             - ypnf6FyerErnVr
             escalada: Sai do chão
+            setor: Setor Túnel de Pedra (Mapa 8)
             ids:
             - ypnf6FyerErnVr
           - alvo_uid: Ro3Eflgqd8pPx9
             pontos_uids:
             - YRAg2GMUGnbfcR
             escalada: Ato Imperdoável
+            setor: Setor Túnel de Pedra (Mapa 8)
             ids:
             - YRAg2GMUGnbfcR
           - alvo_uid: cQzxdvJXXi1bmC
             pontos_uids:
             - u2jYmRiNJiWfqo
             escalada: Projeto Rodrigo do Paraná
+            setor: Setor Túnel de Pedra (Mapa 8)
             ids:
             - u2jYmRiNJiWfqo
           - alvo_uid: ULAvbV9FOKor89
             pontos_uids:
             - LMPZw4fLITrUWo
             escalada: Pequena Criança
+            setor: Setor Túnel de Pedra (Mapa 8)
             ids:
             - LMPZw4fLITrUWo
           - alvo_uid: ZYG9ghLMTzMJVk
             pontos_uids:
             - hGcCpqISgO5Ez7
             escalada: Três dentro, três fora
+            setor: Setor Mapa 7
             ids:
             - hGcCpqISgO5Ez7
           - alvo_uid: G4Gdw4XvIlJXQX
             pontos_uids:
             - VenVi5yQvRC9tJ
             escalada: Só para eles
+            setor: Setor Mapa 7
             ids:
             - VenVi5yQvRC9tJ
           - alvo_uid: p77Iy4sAShvmg2
             pontos_uids:
             - 2El8JpemBA1uin
             escalada: Só para elas
+            setor: Setor Mapa 7
             ids:
             - 2El8JpemBA1uin
           - alvo_uid: WHJ53V0DkIbf7P
             pontos_uids:
             - ZDoKi59PYOnpQ5
             escalada: Prestobarba
+            setor: Setor Mapa 7
             ids:
             - ZDoKi59PYOnpQ5
           - alvo_uid: 46pgZmHpsgEsde
             pontos_uids:
             - NgVYaSiIhijBMj
             escalada: Bigode Limpo
+            setor: Setor Mapa 7
             ids:
             - NgVYaSiIhijBMj
         escaladas:
@@ -3123,114 +3243,133 @@ picos:
             pontos_uids:
             - dVjpUgxOLlCH1W
             escalada: Corvo Gigante
+            setor: Setor Savassinha (Mapa 9)
             ids:
             - dVjpUgxOLlCH1W
           - alvo_uid: HbyvMay2qZAWe8
             pontos_uids:
             - uzHQrr8ByT7za7
             escalada: Gralha Pigmeia
+            setor: Setor Savassinha (Mapa 9)
             ids:
             - uzHQrr8ByT7za7
           - alvo_uid: YtEytEnRAxkFxc
             pontos_uids:
             - 2t1kd8qmSlbBvk
             escalada: Anjo de Pedra
+            setor: Setor Savassinha (Mapa 9)
             ids:
             - 2t1kd8qmSlbBvk
           - alvo_uid: mKED1qNqrmdGHj
             pontos_uids:
             - Rpl7wyHLorKqzq
             escalada: Um Porco que Sobe
+            setor: Setor Savassinha (Mapa 9)
             ids:
             - Rpl7wyHLorKqzq
           - alvo_uid: y4NYbcV7IdM2vX
             pontos_uids:
             - pm4Dgugnw1ll9G
             escalada: Um Corpo que Cai
+            setor: Setor Savassinha (Mapa 9)
             ids:
             - pm4Dgugnw1ll9G
           - alvo_uid: WEywEUghxL4mZj
             pontos_uids:
             - QOUMJXIgOQkNqp
             escalada: Realidade da Coisa
+            setor: Setor Savassinha (Mapa 9)
             ids:
             - QOUMJXIgOQkNqp
           - alvo_uid: C883Mwi7oTTO47
             pontos_uids:
             - ZYr0Z2CMYswyhj
             escalada: Realidade Sobreposta
+            setor: Setor Savassinha (Mapa 9)
             ids:
             - ZYr0Z2CMYswyhj
           - alvo_uid: jYYHO2cKIcdbSA
             pontos_uids:
             - CZ8tMAJy7olXeL
             escalada: Talhadeira Passa
+            setor: Setor Savassinha (Mapa 9)
             ids:
             - CZ8tMAJy7olXeL
           - alvo_uid: gWN5ChcePCIBxL
             pontos_uids:
             - sDyx0O7IDKlndB
             escalada: Cova dos Leões
+            setor: Setor Savassinha (Mapa 9)
             ids:
             - sDyx0O7IDKlndB
           - alvo_uid: 9AjpygLA38EGdx
             pontos_uids:
             - WNK3MziIwfs6gK
             escalada: Mentalidade Suburbana
+            setor: Setor Savassinha (Mapa 9)
             ids:
             - WNK3MziIwfs6gK
           - alvo_uid: gHWveURBBDxMSG
             pontos_uids:
             - lQmIbNulRiIPbE
             escalada: Rato Assassino
+            setor: Setor Savassinha (Mapa 9)
             ids:
             - lQmIbNulRiIPbE
           - alvo_uid: RkACWCnC4LYvb1
             pontos_uids:
             - DKaCgDIP3QOO0w
             escalada: Masturbações de Calígula
+            setor: Setor Savassinha (Mapa 9)
             ids:
             - DKaCgDIP3QOO0w
           - alvo_uid: gEn9QjBaACWP6y
             pontos_uids:
             - HbIxLsHJPHWIOs
             escalada: Primeiro General
+            setor: Setor Savassinha (Mapa 9)
             ids:
             - HbIxLsHJPHWIOs
           - alvo_uid: vXnlfUKuk8bH78
             pontos_uids:
             - 5rePH1Xeu0vvUL
             escalada: Tentações de Maria Madalena
+            setor: Setor Túnel de Pedra (Mapa 8)
             ids:
             - 5rePH1Xeu0vvUL
           - alvo_uid: 1HqUU8JAEawaHB
             pontos_uids:
             - OakaStG3ucy0bb
             escalada: Sai do chão
+            setor: Setor Túnel de Pedra (Mapa 8)
             ids:
             - OakaStG3ucy0bb
           - alvo_uid: Ro3Eflgqd8pPx9
             pontos_uids:
             - LjZtCpbWJYU6By
             escalada: Ato Imperdoável
+            setor: Setor Túnel de Pedra (Mapa 8)
             ids:
             - LjZtCpbWJYU6By
           - alvo_uid: cQzxdvJXXi1bmC
             pontos_uids:
             - Yw4cWIL4NQYZK6
             escalada: Projeto Rodrigo do Paraná
+            setor: Setor Túnel de Pedra (Mapa 8)
             ids:
             - Yw4cWIL4NQYZK6
           - alvo_uid: ULAvbV9FOKor89
             pontos_uids:
             - QbaoL1j61sC3NE
             escalada: Pequena Criança
+            setor: Setor Túnel de Pedra (Mapa 8)
             ids:
             - QbaoL1j61sC3NE
           - alvo_uid: cREoYdqil3YrLf
             pontos_uids:
             - A8rpj2zbcQOQon
             escalada: Três Pontos
+            setor: Setor Savassinha (Mapa 9)
             ids:
             - A8rpj2zbcQOQon
         escaladas:
@@ -3434,42 +3573,49 @@ picos:
             pontos_uids:
             - W3bno5EqeLrrV4
             escalada: Spartacus
+            setor: Bloco Romano (Mapa 10)
             ids:
             - W3bno5EqeLrrV4
           - alvo_uid: oPLa4xCzRYXrVG
             pontos_uids:
             - zkLTjwtLX19nhf
             escalada: A Era dos Patrícios
+            setor: Bloco Romano (Mapa 10)
             ids:
             - zkLTjwtLX19nhf
           - alvo_uid: uSw0jQzVmg9ExX
             pontos_uids:
             - V2jZxGqcd48WAa
             escalada: Coliseu
+            setor: Bloco Romano (Mapa 10)
             ids:
             - V2jZxGqcd48WAa
           - alvo_uid: HwvzyrjBiIz5pv
             pontos_uids:
             - JJY1d3ERuhOejy
             escalada: Pobre César
+            setor: Bloco Romano (Mapa 10)
             ids:
             - JJY1d3ERuhOejy
           - alvo_uid: ptCjqUWrNwEPlI
             pontos_uids:
             - sUbXB2cbIVvgJb
             escalada: Soprano (inacabada)
+            setor: Bloco Romano (Mapa 10)
             ids:
             - sUbXB2cbIVvgJb
           - alvo_uid: Fgz8Lc1dNFdZrG
             pontos_uids:
             - XgHgIyvkl5fwkc
             escalada: Sodoma e Gomorra
+            setor: Bloco Romano (Mapa 10)
             ids:
             - XgHgIyvkl5fwkc
           - alvo_uid: sjR4IxURCOCn7w
             pontos_uids:
             - blvwnvOwK8HlNY
             escalada: Calígula
+            setor: Bloco Romano (Mapa 10)
             ids:
             - blvwnvOwK8HlNY
         escaladas:
@@ -3781,18 +3927,21 @@ picos:
           pontos_uids:
           - SfNUv092hGjsKa
           escalada: Compromisso Sexual
+          setor: Setor Mapa 5
           ids:
           - SfNUv092hGjsKa
         - alvo_uid: UxgAsYgQCFlueX
           pontos_uids:
           - ynLJwKmsTRHcZK
           escalada: Ecos do Além
+          setor: Setor Túnel de Pedra (Mapa 8)
           ids:
           - ynLJwKmsTRHcZK
         - alvo_uid: OXAvr0Rdr0rU5G
           pontos_uids:
           - TSErhv84UogfXj
           escalada: Rosa dos Ventos
+          setor: Setor Mapa 7
           ids:
           - TSErhv84UogfXj
   localizacao:

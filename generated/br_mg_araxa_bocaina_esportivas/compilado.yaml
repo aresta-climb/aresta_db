@@ -64,30 +64,35 @@ picos:
             pontos_uids:
             - xf7ye0AEXOOAhI
             escalada: Trickline
+            setor: Setor Highlines - Bocaina Park
             ids:
             - xf7ye0AEXOOAhI
           - alvo_uid: CqE03sWWsdDoWr
             pontos_uids:
             - D5tssQyDLu2Uv8
             escalada: Arquibancada
+            setor: Setor Highlines - Bocaina Park
             ids:
             - D5tssQyDLu2Uv8
           - alvo_uid: Urc67LvE0zKUUa
             pontos_uids:
             - ubSGuCsUJfGODf
             escalada: O melhor está por vir
+            setor: Setor Highlines - Bocaina Park
             ids:
             - ubSGuCsUJfGODf
           - alvo_uid: 3CTP6QwsRy0Z1w
             pontos_uids:
             - BcVF8z9GRCrIsP
             escalada: Figura Pública
+            setor: Setor Highlines - Bocaina Park
             ids:
             - BcVF8z9GRCrIsP
           - alvo_uid: QIcKYtvvcXMGdq
             pontos_uids:
             - mu6L92XvGS7QBE
             escalada: Visão além do alcance
+            setor: Setor Highlines - Bocaina Park
             ids:
             - mu6L92XvGS7QBE
         escaladas:
@@ -247,42 +252,49 @@ picos:
             pontos_uids:
             - OdHP2xjGnE6wPV
             escalada: Índios
+            setor: Setor Ensolarado
             ids:
             - OdHP2xjGnE6wPV
           - alvo_uid: qUXHJPqJaKfQZw
             pontos_uids:
             - phxam2BROIoKzL
             escalada: Virando a Esquina
+            setor: Setor Ensolarado
             ids:
             - phxam2BROIoKzL
           - alvo_uid: bxtat1Udlp39GA
             pontos_uids:
             - v1mrluCkDb3aQ7
             escalada: Feinomenal
+            setor: Setor Ensolarado
             ids:
             - v1mrluCkDb3aQ7
           - alvo_uid: eY01sFDFiq6xak
             pontos_uids:
             - XBPLekeYYCfTem
             escalada: Mirandinha fFlou
+            setor: Setor Ensolarado
             ids:
             - XBPLekeYYCfTem
           - alvo_uid: aTVauEM6xDvs5g
             pontos_uids:
             - zyiwqXC5Q40XYf
             escalada: Quatro e Vinte
+            setor: Setor Ensolarado
             ids:
             - zyiwqXC5Q40XYf
           - alvo_uid: l0jexMQ2GVX76H
             pontos_uids:
             - ExLJBNwbFvuw6b
             escalada: Yngyang
+            setor: Setor Ensolarado
             ids:
             - ExLJBNwbFvuw6b
           - alvo_uid: JYkRW0Cc8Gfqxj
             pontos_uids:
             - Y9OBNRuCmmINk6
             escalada: Sucuri
+            setor: Setor Ensolarado
             ids:
             - Y9OBNRuCmmINk6
         - caminho_imagem_mapa: imagens/setor_ensolarado_p2.webp
@@ -350,42 +362,49 @@ picos:
             pontos_uids:
             - KDEXErkVBzadtE
             escalada: Família Martins
+            setor: Setor Ensolarado
             ids:
             - KDEXErkVBzadtE
           - alvo_uid: ojXDmDH4lIyu5m
             pontos_uids:
             - BvTF6ZpkAakOFl
             escalada: Zuzuquinha Mimada
+            setor: Setor Ensolarado
             ids:
             - BvTF6ZpkAakOFl
           - alvo_uid: XouQhAkM1nLCXa
             pontos_uids:
             - LDetB3GBTxxBKV
             escalada: De volta as Origens
+            setor: Setor Ensolarado
             ids:
             - LDetB3GBTxxBKV
           - alvo_uid: maS7Rm09eKBd7I
             pontos_uids:
             - hmqSfIkyLMKoRE
             escalada: Autista do Bando
+            setor: Setor Ensolarado
             ids:
             - hmqSfIkyLMKoRE
           - alvo_uid: F59fHqfUNyR1os
             pontos_uids:
             - ENWZPOOluQrJXU
             escalada: Último Suspiro
+            setor: Setor Ensolarado
             ids:
             - ENWZPOOluQrJXU
           - alvo_uid: odqJSRMlFytS5l
             pontos_uids:
             - OIOKU6vPgVnAOl
             escalada: Mundo Mágico dos Abacates
+            setor: Setor Ensolarado
             ids:
             - OIOKU6vPgVnAOl
           - alvo_uid: QzmvuNyLhZPuSI
             pontos_uids:
             - juduvWR6Jt50o9
             escalada: Ariba Cabron
+            setor: Setor Ensolarado
             ids:
             - juduvWR6Jt50o9
         - caminho_imagem_mapa: imagens/setor_ensolarado_p3.webp
@@ -453,42 +472,49 @@ picos:
             pontos_uids:
             - 0oZel6NpfOGh5R
             escalada: Barba Negra
+            setor: Setor Ensolarado
             ids:
             - 0oZel6NpfOGh5R
           - alvo_uid: BNGBXrcRrk6pHG
             pontos_uids:
             - qNDB2s8nYdLDs5
             escalada: Capitão Gancho
+            setor: Setor Ensolarado
             ids:
             - qNDB2s8nYdLDs5
           - alvo_uid: xWTHEo97dfcpR3
             pontos_uids:
             - fVz98Nfwbn28cs
             escalada: Peter Pan do Cerrado
+            setor: Setor Ensolarado
             ids:
             - fVz98Nfwbn28cs
           - alvo_uid: Lc65yFsxm4hZD5
             pontos_uids:
             - zHjL6dmj8az4BP
             escalada: Indio Rastafari
+            setor: Setor Ensolarado
             ids:
             - zHjL6dmj8az4BP
           - alvo_uid: iX5of2hnmiKcua
             pontos_uids:
             - DT57854Vw1iOxl
             escalada: Todo Cuidado e Pouco
+            setor: Setor Ensolarado
             ids:
             - DT57854Vw1iOxl
           - alvo_uid: TiBHVpJkVJqxfx
             pontos_uids:
             - xHuCfmzEm9sfom
             escalada: Raul com Certeza
+            setor: Setor Ensolarado
             ids:
             - xHuCfmzEm9sfom
           - alvo_uid: mpcMR2qBgMORqZ
             pontos_uids:
             - AgrFFuyXMOIMiM
             escalada: Raimundo Nonato
+            setor: Setor Ensolarado
             ids:
             - AgrFFuyXMOIMiM
         - caminho_imagem_mapa: imagens/setor_ensolarado_p4.webp
@@ -524,18 +550,21 @@ picos:
             pontos_uids:
             - OYYmmEE85dnVjn
             escalada: Todo Cuidado e Pouco
+            setor: Setor Ensolarado
             ids:
             - OYYmmEE85dnVjn
           - alvo_uid: TiBHVpJkVJqxfx
             pontos_uids:
             - cZ7Lqnk8NpiLm8
             escalada: Raul com Certeza
+            setor: Setor Ensolarado
             ids:
             - cZ7Lqnk8NpiLm8
           - alvo_uid: mpcMR2qBgMORqZ
             pontos_uids:
             - aDObPIePw1bJYU
             escalada: Raimundo Nonato
+            setor: Setor Ensolarado
             ids:
             - aDObPIePw1bJYU
         escaladas:
@@ -807,18 +836,21 @@ picos:
             pontos_uids:
             - 0h2qRVRPVdKkob
             escalada: Love's in the Air
+            setor: Setor Garganta
             ids:
             - 0h2qRVRPVdKkob
           - alvo_uid: boCGOTc9cQWxO5
             pontos_uids:
             - Om1WE4l9S2hvvl
             escalada: BH em Chamas
+            setor: Setor Garganta
             ids:
             - Om1WE4l9S2hvvl
           - alvo_uid: OWmUQgXd9N23C1
             pontos_uids:
             - x3nCRY0i89PKXK
             escalada: Revolta dos Vinagres
+            setor: Setor Garganta
             ids:
             - x3nCRY0i89PKXK
         - caminho_imagem_mapa: imagens/setor_garganta_p2.webp
@@ -838,6 +870,7 @@ picos:
             pontos_uids:
             - 9y4XyyOynjpYI5
             escalada: De Pai para Filho
+            setor: Setor Garganta
             ids:
             - 9y4XyyOynjpYI5
         - caminho_imagem_mapa: imagens/setor_garganta_p3.webp
@@ -857,6 +890,7 @@ picos:
             pontos_uids:
             - DmBaJzqQnlxOlQ
             escalada: Amor de Mãe
+            setor: Setor Garganta
             ids:
             - DmBaJzqQnlxOlQ
         - caminho_imagem_mapa: imagens/setor_garganta_p4.webp
@@ -884,12 +918,14 @@ picos:
             pontos_uids:
             - 9s7ZM1DpHcJJYv
             escalada: Pagador de Promessa
+            setor: Setor Garganta
             ids:
             - 9s7ZM1DpHcJJYv
           - alvo_uid: uPHWwV2TJJh2sA
             pontos_uids:
             - MUz2E49JzHgvtt
             escalada: Grande Família
+            setor: Setor Garganta
             ids:
             - MUz2E49JzHgvtt
         - caminho_imagem_mapa: imagens/setor_garganta_p5.webp
@@ -917,12 +953,14 @@ picos:
             pontos_uids:
             - 8VdnWwoB0Q133l
             escalada: Sangue do meu Sangue
+            setor: Setor Garganta
             ids:
             - 8VdnWwoB0Q133l
           - alvo_uid: wkNjF7jNNniVZV
             pontos_uids:
             - Qq300CtAsjD06M
             escalada: Cocalcinhas
+            setor: Setor Garganta
             ids:
             - Qq300CtAsjD06M
         - caminho_imagem_mapa: imagens/setor_garganta_p6.webp
@@ -966,24 +1004,28 @@ picos:
             pontos_uids:
             - h5UDx1EvJnl51e
             escalada: Guerreiro da Bocaina
+            setor: Setor Garganta
             ids:
             - h5UDx1EvJnl51e
           - alvo_uid: XGSKaJqAncc0ZE
             pontos_uids:
             - XSPpu1ZDWYE5Q8
             escalada: Samurai Rastafari
+            setor: Setor Garganta
             ids:
             - XSPpu1ZDWYE5Q8
           - alvo_uid: gWDEtMboiOy5gM
             pontos_uids:
             - 2kMeJ5idBFnlAG
             escalada: Ceder Writhe
+            setor: Setor Garganta
             ids:
             - 2kMeJ5idBFnlAG
           - alvo_uid: 4n3hyPkgewbb5O
             pontos_uids:
             - hk7WRbg4CUR06u
             escalada: Sai pra Lá Sr. Doutor
+            setor: Setor Garganta
             ids:
             - hk7WRbg4CUR06u
         - caminho_imagem_mapa: imagens/setor_garganta_p7.webp
@@ -1051,42 +1093,49 @@ picos:
             pontos_uids:
             - 8wThMUBhTcCw74
             escalada: Guerreiro da Bocaina
+            setor: Setor Garganta
             ids:
             - 8wThMUBhTcCw74
           - alvo_uid: XGSKaJqAncc0ZE
             pontos_uids:
             - dwudz1rF50ocY9
             escalada: Samurai Rastafari
+            setor: Setor Garganta
             ids:
             - dwudz1rF50ocY9
           - alvo_uid: gWDEtMboiOy5gM
             pontos_uids:
             - VIArE0rn4FL1YN
             escalada: Ceder Writhe
+            setor: Setor Garganta
             ids:
             - VIArE0rn4FL1YN
           - alvo_uid: 4n3hyPkgewbb5O
             pontos_uids:
             - kJ5xH8PkS7cLW0
             escalada: Sai pra Lá Sr. Doutor
+            setor: Setor Garganta
             ids:
             - kJ5xH8PkS7cLW0
           - alvo_uid: R7QBXqMTy1mlvA
             pontos_uids:
             - HSVonTX0F256H3
             escalada: Maniaco Sexual
+            setor: Setor Garganta
             ids:
             - HSVonTX0F256H3
           - alvo_uid: ovOwLTfZYVMAa0
             pontos_uids:
             - qBHB84eizqvoqh
             escalada: Paraiboult
+            setor: Setor Garganta
             ids:
             - qBHB84eizqvoqh
           - alvo_uid: LnN0qOva6huNap
             pontos_uids:
             - bnTRcKGc8y5Nrq
             escalada: Mulheres ao Poder
+            setor: Setor Garganta
             ids:
             - bnTRcKGc8y5Nrq
         - caminho_imagem_mapa: imagens/setor_garganta_p8.webp
@@ -1154,42 +1203,49 @@ picos:
             pontos_uids:
             - vVYiSXHuHaKo3E
             escalada: Invasão Bacteriana
+            setor: Setor Garganta
             ids:
             - vVYiSXHuHaKo3E
           - alvo_uid: 6JDxSvwgRJJgS6
             pontos_uids:
             - IvVy73fEi0lehg
             escalada: Yes We Can
+            setor: Setor Garganta
             ids:
             - IvVy73fEi0lehg
           - alvo_uid: 4F43TIb209GCpF
             pontos_uids:
             - JbRZQzj2ev0w4P
             escalada: Galo Doido
+            setor: Setor Garganta
             ids:
             - JbRZQzj2ev0w4P
           - alvo_uid: 20JvoF1MsteE5L
             pontos_uids:
             - OgLoUO577IxOBL
             escalada: Baby Roots
+            setor: Setor Garganta
             ids:
             - OgLoUO577IxOBL
           - alvo_uid: Uc4bo91Mn6UXSd
             pontos_uids:
             - 6VjeyCS0XIoZCF
             escalada: Canelinha de Ouro
+            setor: Setor Garganta
             ids:
             - 6VjeyCS0XIoZCF
           - alvo_uid: OYRbzZvYFkg1D6
             pontos_uids:
             - aCKqxc4jGFJzGl
             escalada: Rei Leão
+            setor: Setor Garganta
             ids:
             - aCKqxc4jGFJzGl
           - alvo_uid: XoIerLay5Jsp0G
             pontos_uids:
             - AJZm6TcIqd0Ajc
             escalada: Maluco Beleza
+            setor: Setor Garganta
             ids:
             - AJZm6TcIqd0Ajc
         - caminho_imagem_mapa: imagens/setor_garganta_p9.webp
@@ -1241,30 +1297,35 @@ picos:
             pontos_uids:
             - wQHeKMHQoqYT9a
             escalada: Peter Park
+            setor: Setor Garganta
             ids:
             - wQHeKMHQoqYT9a
           - alvo_uid: lEKjUnixWx7mng
             pontos_uids:
             - iZPfwRNUXjqnIt
             escalada: Super Poderosa
+            setor: Setor Garganta
             ids:
             - iZPfwRNUXjqnIt
           - alvo_uid: aOJQWHqDDgCsXK
             pontos_uids:
             - Bdk0WViyrVHeVE
             escalada: Cinco Vira, Dez Acaba
+            setor: Setor Garganta
             ids:
             - Bdk0WViyrVHeVE
           - alvo_uid: W8v5a7FqY4ICgU
             pontos_uids:
             - DMSPDtQcQ7FV85
             escalada: Dunas
+            setor: Setor Garganta
             ids:
             - DMSPDtQcQ7FV85
           - alvo_uid: 99PUi9mUeSpPGM
             pontos_uids:
             - xmmrWTN8gCLhUU
             escalada: Poeira Cósmica
+            setor: Setor Garganta
             ids:
             - xmmrWTN8gCLhUU
         escaladas:
@@ -1607,24 +1668,28 @@ picos:
             pontos_uids:
             - QgT7EBt8FUEXVE
             escalada: Marcha lenta
+            setor: Setor Tapa na Cara
             ids:
             - QgT7EBt8FUEXVE
           - alvo_uid: bq6Ph21tIFhVNl
             pontos_uids:
             - T0glVtLEys5pdU
             escalada: Bundalelê
+            setor: Setor Tapa na Cara
             ids:
             - T0glVtLEys5pdU
           - alvo_uid: 3Y1MK9DFiABqp5
             pontos_uids:
             - wwsC4daVFJYHjD
             escalada: Tapa na Cara
+            setor: Setor Tapa na Cara
             ids:
             - wwsC4daVFJYHjD
           - alvo_uid: 77gq3V4yehvQXa
             pontos_uids:
             - rHGzNuGFbtRPp3
             escalada: Cotonete Molhado
+            setor: Setor Tapa na Cara
             ids:
             - rHGzNuGFbtRPp3
         escaladas:
@@ -1745,36 +1810,42 @@ picos:
             pontos_uids:
             - oMU5Wwu9cqkvML
             escalada: Pêro no Mucho
+            setor: Setor Terceiro Andar
             ids:
             - oMU5Wwu9cqkvML
           - alvo_uid: WKL29Y4R3HGPWE
             pontos_uids:
             - wc1cq7Wnf6KsAc
             escalada: Meia Hora
+            setor: Setor Terceiro Andar
             ids:
             - wc1cq7Wnf6KsAc
           - alvo_uid: x24Bxs1Za3Ipkh
             pontos_uids:
             - qdec7NGGUuqcLL
             escalada: Falta de Educação
+            setor: Setor Terceiro Andar
             ids:
             - qdec7NGGUuqcLL
           - alvo_uid: lMIJftJKh2tQZW
             pontos_uids:
             - G6Itp1lJNnBI47
             escalada: De Mão Beijada
+            setor: Setor Terceiro Andar
             ids:
             - G6Itp1lJNnBI47
           - alvo_uid: 8I5EZreTIOhFyd
             pontos_uids:
             - m2ALz09ZzVMsRf
             escalada: Efeito Cascata
+            setor: Setor Terceiro Andar
             ids:
             - m2ALz09ZzVMsRf
           - alvo_uid: YSdMMLY5O3o0Dh
             pontos_uids:
             - O9dQ0QtlDnX7zp
             escalada: Efeito Colateral
+            setor: Setor Terceiro Andar
             ids:
             - O9dQ0QtlDnX7zp
         - caminho_imagem_mapa: imagens/setor_terceiro_andar_p2.webp
@@ -1826,30 +1897,35 @@ picos:
             pontos_uids:
             - G0M0PbtSsy8HSa
             escalada: Efeito Cascata
+            setor: Setor Terceiro Andar
             ids:
             - G0M0PbtSsy8HSa
           - alvo_uid: YSdMMLY5O3o0Dh
             pontos_uids:
             - T4g4bC6J909S9T
             escalada: Efeito Colateral
+            setor: Setor Terceiro Andar
             ids:
             - T4g4bC6J909S9T
           - alvo_uid: iQdxWwg2mIyUcM
             pontos_uids:
             - 5BZjrR7ZOFnjIh
             escalada: Só pra Variar
+            setor: Setor Terceiro Andar
             ids:
             - 5BZjrR7ZOFnjIh
           - alvo_uid: 9g5t6d0Hq1t6eQ
             pontos_uids:
             - Ota8xOi2gq9Kaa
             escalada: Rock Supimpa
+            setor: Setor Terceiro Andar
             ids:
             - Ota8xOi2gq9Kaa
           - alvo_uid: xVWScK5FYpgqQy
             pontos_uids:
             - pZfCIskHdR0Gin
             escalada: Você Decide
+            setor: Setor Terceiro Andar
             ids:
             - pZfCIskHdR0Gin
         - caminho_imagem_mapa: imagens/setor_terceiro_andar_p3.webp
@@ -1901,30 +1977,35 @@ picos:
             pontos_uids:
             - 29tVY3b9Mgy4v4
             escalada: Grande Hotel
+            setor: Setor Terceiro Andar
             ids:
             - 29tVY3b9Mgy4v4
           - alvo_uid: ToJzvJZ4g2QF1v
             pontos_uids:
             - QghijXjvRmqKFV
             escalada: Cura Trimura
+            setor: Setor Terceiro Andar
             ids:
             - QghijXjvRmqKFV
           - alvo_uid: gw1vn1qlIUsbg7
             pontos_uids:
             - kgV2dNHXXefVTl
             escalada: Próprio Veneno
+            setor: Setor Terceiro Andar
             ids:
             - kgV2dNHXXefVTl
           - alvo_uid: eXK1iNTAqd3QtC
             pontos_uids:
             - c1Li6WEMrI4ito
             escalada: Própria Loucura
+            setor: Setor Terceiro Andar
             ids:
             - c1Li6WEMrI4ito
           - alvo_uid: hUw8t3L6g7y34K
             pontos_uids:
             - QqBq3ZguacLg81
             escalada: Honney Money
+            setor: Setor Terceiro Andar
             ids:
             - QqBq3ZguacLg81
         - caminho_imagem_mapa: imagens/setor_terceiro_andar_p4.webp
@@ -1976,30 +2057,35 @@ picos:
             pontos_uids:
             - IqSYGhdzyuj3lR
             escalada: Efeito Variado
+            setor: Setor Terceiro Andar
             ids:
             - IqSYGhdzyuj3lR
           - alvo_uid: HeP33UtMx9NyRt
             pontos_uids:
             - YFAtqkAMDBp73b
             escalada: Só paracolateral
+            setor: Setor Terceiro Andar
             ids:
             - YFAtqkAMDBp73b
           - alvo_uid: fym9kYv9Jn2PUT
             pontos_uids:
             - j16r3CdbNAkHic
             escalada: Grande Hotel
+            setor: Setor Terceiro Andar
             ids:
             - j16r3CdbNAkHic
           - alvo_uid: QHLMUlvIn5LlWi
             pontos_uids:
             - 3uaXpRvqiAPcZo
             escalada: Trimura do Hotel
+            setor: Setor Terceiro Andar
             ids:
             - 3uaXpRvqiAPcZo
           - alvo_uid: eXK1iNTAqd3QtC
             pontos_uids:
             - u9bSuW2bbIYmMu
             escalada: Própria Loucura
+            setor: Setor Terceiro Andar
             ids:
             - u9bSuW2bbIYmMu
         escaladas:
@@ -2238,30 +2324,35 @@ picos:
             pontos_uids:
             - QmCpk76e3ZhLrV
             escalada: Física Quântica
+            setor: Setor Paulistas
             ids:
             - QmCpk76e3ZhLrV
           - alvo_uid: BMDfw8KmSwFl8r
             pontos_uids:
             - SLmhBoAAdYc8xh
             escalada: Chamasamiga
+            setor: Setor Paulistas
             ids:
             - SLmhBoAAdYc8xh
           - alvo_uid: s9GDqmsPHWE4pv
             pontos_uids:
             - LJpYDXmUME5DOk
             escalada: Acupuntura
+            setor: Setor Paulistas
             ids:
             - LJpYDXmUME5DOk
           - alvo_uid: FbUwXupN4POcp6
             pontos_uids:
             - 6bMiLyVancgKzu
             escalada: Capitão Bocaina
+            setor: Setor Paulistas
             ids:
             - 6bMiLyVancgKzu
           - alvo_uid: ylgFCOdbut2wke
             pontos_uids:
             - DYFLxmXq3OA8Ro
             escalada: Miragem
+            setor: Setor Paulistas
             ids:
             - DYFLxmXq3OA8Ro
         - caminho_imagem_mapa: imagens/setor_paulistas_p2.webp
@@ -2321,36 +2412,42 @@ picos:
             pontos_uids:
             - Fiqi4PRdQnQZkB
             escalada: Cortina de Fumaça
+            setor: Setor Paulistas
             ids:
             - Fiqi4PRdQnQZkB
           - alvo_uid: IBjSFNeoeoI63h
             pontos_uids:
             - dVEg1kUMo7VSnT
             escalada: Sem Nome (Via 07)
+            setor: Setor Paulistas
             ids:
             - dVEg1kUMo7VSnT
           - alvo_uid: o9M6C6PP0H46Hp
             pontos_uids:
             - JBsqtYZZWPEV3a
             escalada: Decadentes
+            setor: Setor Paulistas
             ids:
             - JBsqtYZZWPEV3a
           - alvo_uid: 8099bJ1aHLMeNQ
             pontos_uids:
             - jkUjqewjfIbyFE
             escalada: Pelos de Aldebaran
+            setor: Setor Paulistas
             ids:
             - jkUjqewjfIbyFE
           - alvo_uid: jZimscxMxfMm12
             pontos_uids:
             - LVOimv61UZlH2t
             escalada: Pubianos
+            setor: Setor Paulistas
             ids:
             - LVOimv61UZlH2t
           - alvo_uid: suJqK4U9H2xovt
             pontos_uids:
             - xghK6WxznTRTMO
             escalada: Bocaina Roots
+            setor: Setor Paulistas
             ids:
             - xghK6WxznTRTMO
         - caminho_imagem_mapa: imagens/setor_paulistas_p3.webp
@@ -2402,30 +2499,35 @@ picos:
             pontos_uids:
             - wLG9AEMAZeRdKl
             escalada: Ejaculação Precoce
+            setor: Setor Paulistas
             ids:
             - wLG9AEMAZeRdKl
           - alvo_uid: miGbrMteuZ0Gio
             pontos_uids:
             - Xgc2wH3Tr53z4p
             escalada: Via do Laurêncio
+            setor: Setor Paulistas
             ids:
             - Xgc2wH3Tr53z4p
           - alvo_uid: j2y3uGveSBERyA
             pontos_uids:
             - kFwp5rHuXEnt0u
             escalada: International love
+            setor: Setor Paulistas
             ids:
             - kFwp5rHuXEnt0u
           - alvo_uid: kz1wcURACdWrdR
             pontos_uids:
             - MFDYeBrTikaIso
             escalada: Cinquenteira
+            setor: Setor Paulistas
             ids:
             - MFDYeBrTikaIso
           - alvo_uid: 8V5oh4Wq9fdPrf
             pontos_uids:
             - hGvj0hexsTOV8f
             escalada: Boa idéia
+            setor: Setor Paulistas
             ids:
             - hGvj0hexsTOV8f
         escaladas:
@@ -2661,30 +2763,35 @@ picos:
             pontos_uids:
             - GTvj00Y0ph9osU
             escalada: Alberto Roberto
+            setor: Setor Mezanino
             ids:
             - GTvj00Y0ph9osU
           - alvo_uid: 7HodsiNYBt6gbD
             pontos_uids:
             - OMqhzWj1QBrab8
             escalada: Chico Anísio
+            setor: Setor Mezanino
             ids:
             - OMqhzWj1QBrab8
           - alvo_uid: DYaZant0J8Gui6
             pontos_uids:
             - hLClRTJlpfc7Rc
             escalada: Onjacktallbeck
+            setor: Setor Mezanino
             ids:
             - hLClRTJlpfc7Rc
           - alvo_uid: en2ai4q3jcEO5C
             pontos_uids:
             - uKUBt2u6WgljiQ
             escalada: Princípio Ativo
+            setor: Setor Mezanino
             ids:
             - uKUBt2u6WgljiQ
           - alvo_uid: l34xxltBQfjS2P
             pontos_uids:
             - VZYLXVwApIJypM
             escalada: Suindara
+            setor: Setor Mezanino
             ids:
             - VZYLXVwApIJypM
         - caminho_imagem_mapa: imagens/setor_mezanino_p2.webp
@@ -2712,12 +2819,14 @@ picos:
             pontos_uids:
             - AoAU97R3prQlf7
             escalada: São Jorge
+            setor: Setor Mezanino
             ids:
             - AoAU97R3prQlf7
           - alvo_uid: 46aiVD6DTgbMos
             pontos_uids:
             - QjYbSF13EwdPZI
             escalada: Ramadan
+            setor: Setor Mezanino
             ids:
             - QjYbSF13EwdPZI
         - caminho_imagem_mapa: imagens/setor_mezanino_p3.webp
@@ -2769,30 +2878,35 @@ picos:
             pontos_uids:
             - GVeWle0FVGoMUC
             escalada: Sabotagem
+            setor: Setor Mezanino
             ids:
             - GVeWle0FVGoMUC
           - alvo_uid: SnZvDjTl710VE7
             pontos_uids:
             - soq6LdwtfEy9Ot
             escalada: Universo Paralelo
+            setor: Setor Mezanino
             ids:
             - soq6LdwtfEy9Ot
           - alvo_uid: YE9VE4VBKg6i0W
             pontos_uids:
             - kE6RTfFzSK958q
             escalada: Egocentrismo
+            setor: Setor Mezanino
             ids:
             - kE6RTfFzSK958q
           - alvo_uid: tRsCMe1V3E1XHr
             pontos_uids:
             - jUdoUYCASvNzMc
             escalada: Farinha do Mesmo Saco
+            setor: Setor Mezanino
             ids:
             - jUdoUYCASvNzMc
           - alvo_uid: r5w7kVq2wE2U0E
             pontos_uids:
             - 8ZEvdP9NmDyg4f
             escalada: Bafo de Onça
+            setor: Setor Mezanino
             ids:
             - 8ZEvdP9NmDyg4f
         - caminho_imagem_mapa: imagens/setor_mezanino_p4.webp
@@ -2844,30 +2958,35 @@ picos:
             pontos_uids:
             - Pqrg7anDY1mGbe
             escalada: 12 anos
+            setor: Setor Mezanino
             ids:
             - Pqrg7anDY1mGbe
           - alvo_uid: 9jZyOcLQ1a08sR
             pontos_uids:
             - siVE4gSeA3JC24
             escalada: Mais Água no Feijão
+            setor: Setor Mezanino
             ids:
             - siVE4gSeA3JC24
           - alvo_uid: 7AyYXMLc3o6BEi
             pontos_uids:
             - D7QKJDZpXueX7d
             escalada: Puberdade
+            setor: Setor Mezanino
             ids:
             - D7QKJDZpXueX7d
           - alvo_uid: hduwjwGjedu4vQ
             pontos_uids:
             - D3dWZQ7qjfwx6l
             escalada: Eldorado
+            setor: Setor Mezanino
             ids:
             - D3dWZQ7qjfwx6l
           - alvo_uid: NzL6RJuK2dbT0x
             pontos_uids:
             - rGGcxXm39CnRRy
             escalada: Mais uma Prova de Amor
+            setor: Setor Mezanino
             ids:
             - rGGcxXm39CnRRy
         - caminho_imagem_mapa: imagens/setor_mezanino_p5.webp
@@ -2903,18 +3022,21 @@ picos:
             pontos_uids:
             - 56sHbocurTc3qM
             escalada: Sabotagem do Universo
+            setor: Setor Mezanino
             ids:
             - 56sHbocurTc3qM
           - alvo_uid: hPdohjQToeibRU
             pontos_uids:
             - 8kr8gGDdtU6g3p
             escalada: Universo Sabotada
+            setor: Setor Mezanino
             ids:
             - 8kr8gGDdtU6g3p
           - alvo_uid: UClQOb9FcAtOCz
             pontos_uids:
             - 0oyObWuOWQ1NGK
             escalada: Ego Paralelo
+            setor: Setor Mezanino
             ids:
             - 0oyObWuOWQ1NGK
         escaladas:
@@ -3138,6 +3260,7 @@ picos:
             pontos_uids:
             - 3Lyfms77DTU25h
             escalada: Caroço de Manga
+            setor: Setor Shana Crazy
             ids:
             - 3Lyfms77DTU25h
         - caminho_imagem_mapa: imagens/setor_shana_crazy_p2.webp
@@ -3181,24 +3304,28 @@ picos:
             pontos_uids:
             - l00ZSL8CowRe11
             escalada: Caminho das pedras
+            setor: Setor Shana Crazy
             ids:
             - l00ZSL8CowRe11
           - alvo_uid: r4dQbVfK4VI33g
             pontos_uids:
             - cqrWwBV63APeld
             escalada: Caminho das águas
+            setor: Setor Shana Crazy
             ids:
             - cqrWwBV63APeld
           - alvo_uid: qD6Ceolo44X2w1
             pontos_uids:
             - 2Fg27UblG0q6t2
             escalada: Shana Crazy
+            setor: Setor Shana Crazy
             ids:
             - 2Fg27UblG0q6t2
           - alvo_uid: gmKH48WBR5Tiyq
             pontos_uids:
             - UuMnef3ScwBU5q
             escalada: Na racha
+            setor: Setor Shana Crazy
             ids:
             - UuMnef3ScwBU5q
         - caminho_imagem_mapa: imagens/setor_shana_crazy_p3.webp
@@ -3242,24 +3369,28 @@ picos:
             pontos_uids:
             - bJRwtmAaAdgtU2
             escalada: Lei Rounet
+            setor: Setor Shana Crazy
             ids:
             - bJRwtmAaAdgtU2
           - alvo_uid: LmL2tFAel8o9PW
             pontos_uids:
             - cWxETo0bviRwtv
             escalada: Maria da Penha
+            setor: Setor Shana Crazy
             ids:
             - cWxETo0bviRwtv
           - alvo_uid: UYkX8oPcGqjomJ
             pontos_uids:
             - 68rOrJDeHrNPcM
             escalada: Para-raio de Maluco
+            setor: Setor Shana Crazy
             ids:
             - 68rOrJDeHrNPcM
           - alvo_uid: ZwJBVHE0z1YKaG
             pontos_uids:
             - DaRVTccRUKC0kS
             escalada: Sandálias da Humildade
+            setor: Setor Shana Crazy
             ids:
             - DaRVTccRUKC0kS
         escaladas:
@@ -3441,48 +3572,56 @@ picos:
             pontos_uids:
             - lYkbXINI3M14TB
             escalada: ET de Varginha
+            setor: Setor Tsunami
             ids:
             - lYkbXINI3M14TB
           - alvo_uid: FhbdAulroX3sOx
             pontos_uids:
             - YcYhv6YVK4LPRG
             escalada: Jardim das Arestas
+            setor: Setor Tsunami
             ids:
             - YcYhv6YVK4LPRG
           - alvo_uid: XlzbaVqz31HzAI
             pontos_uids:
             - YnA2uiL5jEroBp
             escalada: Sunshine
+            setor: Setor Tsunami
             ids:
             - YnA2uiL5jEroBp
           - alvo_uid: squlv4JbPpvISd
             pontos_uids:
             - B1UU2CPU5zAAhE
             escalada: Sexta-feira 13
+            setor: Setor Tsunami
             ids:
             - B1UU2CPU5zAAhE
           - alvo_uid: Ie5UVGcmGjmRIv
             pontos_uids:
             - M8VcpfdKpUeSa2
             escalada: Vida Louca
+            setor: Setor Tsunami
             ids:
             - M8VcpfdKpUeSa2
           - alvo_uid: nEJapi2vtrLQji
             pontos_uids:
             - pFUAV3JrAEtnlQ
             escalada: Miranda Mirandinha
+            setor: Setor Tsunami
             ids:
             - pFUAV3JrAEtnlQ
           - alvo_uid: ghZWpbhT1X7HYg
             pontos_uids:
             - emrEyULDP85MIr
             escalada: Foi sem Querer
+            setor: Setor Tsunami
             ids:
             - emrEyULDP85MIr
           - alvo_uid: FgNUfl6XtN7E9x
             pontos_uids:
             - DZqmdaStIME3ny
             escalada: Cabeleira
+            setor: Setor Tsunami
             ids:
             - DZqmdaStIME3ny
         - caminho_imagem_mapa: imagens/setor_tsunami_p2.webp
@@ -3558,48 +3697,56 @@ picos:
             pontos_uids:
             - CyQ79dfMenOufn
             escalada: Muy Hermosa
+            setor: Setor Tsunami
             ids:
             - CyQ79dfMenOufn
           - alvo_uid: doRXQ5JnPNvY9S
             pontos_uids:
             - HN3eiUTMCVD5Oy
             escalada: Medicina Chilena
+            setor: Setor Tsunami
             ids:
             - HN3eiUTMCVD5Oy
           - alvo_uid: kyO4GY6naAQ13J
             pontos_uids:
             - KiRAkLRYYODPEo
             escalada: As Aparências Enganam
+            setor: Setor Tsunami
             ids:
             - KiRAkLRYYODPEo
           - alvo_uid: DSmjmboNbSJJQt
             pontos_uids:
             - uwlWKp8phsqkb5
             escalada: Raios e Trovões
+            setor: Setor Tsunami
             ids:
             - uwlWKp8phsqkb5
           - alvo_uid: RLrXPn1DBcTeec
             pontos_uids:
             - 54dAZhAsgqm5tL
             escalada: Quem vê Cara não vê Graduação
+            setor: Setor Tsunami
             ids:
             - 54dAZhAsgqm5tL
           - alvo_uid: awnOgWojth5XtQ
             pontos_uids:
             - TXr5chtQICieKg
             escalada: Sete Chaves
+            setor: Setor Tsunami
             ids:
             - TXr5chtQICieKg
           - alvo_uid: P5ZW8my4itY6wF
             pontos_uids:
             - Fzqd64oQe0TXO2
             escalada: Buena Onda
+            setor: Setor Tsunami
             ids:
             - Fzqd64oQe0TXO2
           - alvo_uid: RTfkifSaI26xyl
             pontos_uids:
             - gmlZ1pUF6PQPfN
             escalada: Muchas Gracias
+            setor: Setor Tsunami
             ids:
             - gmlZ1pUF6PQPfN
         - caminho_imagem_mapa: imagens/setor_tsunami_p3.webp
@@ -3675,48 +3822,56 @@ picos:
             pontos_uids:
             - mztaNYC4v4wyuV
             escalada: Marola
+            setor: Setor Tsunami
             ids:
             - mztaNYC4v4wyuV
           - alvo_uid: pKqodFmgdgpNbT
             pontos_uids:
             - eVE2J2t1pO6NNG
             escalada: Filha de Todos
+            setor: Setor Tsunami
             ids:
             - eVE2J2t1pO6NNG
           - alvo_uid: toPSJZjNhi90L3
             pontos_uids:
             - Y31iw3YALVBsPP
             escalada: Neblina Baixa
+            setor: Setor Tsunami
             ids:
             - Y31iw3YALVBsPP
           - alvo_uid: 7UIHzha8XXLNns
             pontos_uids:
             - 6RphrBHxhLYOOe
             escalada: Círculo de Fogo
+            setor: Setor Tsunami
             ids:
             - 6RphrBHxhLYOOe
           - alvo_uid: nkycpqeiTdGciT
             pontos_uids:
             - lMSZbQB5AsRkeS
             escalada: Fissura de Cristal
+            setor: Setor Tsunami
             ids:
             - lMSZbQB5AsRkeS
           - alvo_uid: Kh56Kgs45O6V0N
             pontos_uids:
             - 2H3WSsernK1OZg
             escalada: Mandruva Assassino
+            setor: Setor Tsunami
             ids:
             - 2H3WSsernK1OZg
           - alvo_uid: dKLdImwy9OcnDx
             pontos_uids:
             - nuyyh8rMrPpjtL
             escalada: Namoro Antigo
+            setor: Setor Tsunami
             ids:
             - nuyyh8rMrPpjtL
           - alvo_uid: 3lXAFmsAZ4D3Xg
             pontos_uids:
             - nowAvzKSjB15xC
             escalada: Chora Nenêm
+            setor: Setor Tsunami
             ids:
             - nowAvzKSjB15xC
         escaladas:
@@ -4045,36 +4200,42 @@ picos:
             pontos_uids:
             - AHeyOArgvGM8P9
             escalada: Pulando a cerca
+            setor: Setor Udão
             ids:
             - AHeyOArgvGM8P9
           - alvo_uid: E7dGmVTn0GA73f
             pontos_uids:
             - DnzcoRdhU1hFcr
             escalada: Cerca Elétrica
+            setor: Setor Udão
             ids:
             - DnzcoRdhU1hFcr
           - alvo_uid: A2DJJlGzRxTnH9
             pontos_uids:
             - dnEVA0bIfq3FBi
             escalada: Clube da Esquina
+            setor: Setor Udão
             ids:
             - dnEVA0bIfq3FBi
           - alvo_uid: BD8xtor1M8TTfy
             pontos_uids:
             - nlVYVc9EODbL6M
             escalada: Chuva de Meteoros
+            setor: Setor Udão
             ids:
             - nlVYVc9EODbL6M
           - alvo_uid: COJFiz7EbK2YQc
             pontos_uids:
             - 3mPEvyaas7dWHx
             escalada: Pit Bitoca
+            setor: Setor Udão
             ids:
             - 3mPEvyaas7dWHx
           - alvo_uid: R4wt2wZYZIhOcv
             pontos_uids:
             - 4INVlIPpmgU0qV
             escalada: Jovem Ganso
+            setor: Setor Udão
             ids:
             - 4INVlIPpmgU0qV
         - caminho_imagem_mapa: imagens/setor_udao_p2.webp
@@ -4142,42 +4303,49 @@ picos:
             pontos_uids:
             - AG9ezkMldrsn60
             escalada: Filho de Vó
+            setor: Setor Udão
             ids:
             - AG9ezkMldrsn60
           - alvo_uid: puImKmmFRbKT9L
             pontos_uids:
             - i5lZR5PSYwfwE8
             escalada: Chuva de Verão
+            setor: Setor Udão
             ids:
             - i5lZR5PSYwfwE8
           - alvo_uid: FRNqGKfCDTM51k
             pontos_uids:
             - UeYdT2rFbWeIO2
             escalada: Pole Dance
+            setor: Setor Udão
             ids:
             - UeYdT2rFbWeIO2
           - alvo_uid: ltLnaMRsm9MAoL
             pontos_uids:
             - v2Wp4Z7p5EzuAj
             escalada: Brusqueta do Cerrado
+            setor: Setor Udão
             ids:
             - v2Wp4Z7p5EzuAj
           - alvo_uid: uSCoBfaUxcl0c9
             pontos_uids:
             - gzGHt5BlEYXU4l
             escalada: Rota Aérea
+            setor: Setor Udão
             ids:
             - gzGHt5BlEYXU4l
           - alvo_uid: zIVJzPjPBZIJZF
             pontos_uids:
             - LGS8CPiTaAOzDL
             escalada: Loucura Alheia
+            setor: Setor Udão
             ids:
             - LGS8CPiTaAOzDL
           - alvo_uid: lfDrIvS2jG18ep
             pontos_uids:
             - z7JuoTTUWsL2F6
             escalada: Mistério de Ramadã
+            setor: Setor Udão
             ids:
             - z7JuoTTUWsL2F6
         escaladas:
@@ -4388,36 +4556,42 @@ picos:
             pontos_uids:
             - jsnhRlqh8PYw4C
             escalada: Jaratataca
+            setor: Setor Tereza
             ids:
             - jsnhRlqh8PYw4C
           - alvo_uid: kzMCrmf8x464pr
             pontos_uids:
             - Q9scflgF5tKf7Q
             escalada: Grito da Aranha
+            setor: Setor Tereza
             ids:
             - Q9scflgF5tKf7Q
           - alvo_uid: p0tguxulhRW0Fl
             pontos_uids:
             - ZNBxU5Np5v3rBX
             escalada: Melhor Opção
+            setor: Setor Tereza
             ids:
             - ZNBxU5Np5v3rBX
           - alvo_uid: W6y5fFECWC6ItX
             pontos_uids:
             - xts4vHnP8tqmht
             escalada: Rapa do Tacho
+            setor: Setor Tereza
             ids:
             - xts4vHnP8tqmht
           - alvo_uid: zOAjGMBAH0R4DB
             pontos_uids:
             - eWwQT4zVzTXSrT
             escalada: Carrapato não tem Pai
+            setor: Setor Tereza
             ids:
             - eWwQT4zVzTXSrT
           - alvo_uid: itw9iTSwUlj6of
             pontos_uids:
             - 8Xvl9JGHXDkANZ
             escalada: Barriga Verde
+            setor: Setor Tereza
             ids:
             - 8Xvl9JGHXDkANZ
         - caminho_imagem_mapa: imagens/setor_tereza_p2.webp
@@ -4437,6 +4611,7 @@ picos:
             pontos_uids:
             - ciUqgfQcb73IcX
             escalada: Barriga Verde
+            setor: Setor Tereza
             ids:
             - ciUqgfQcb73IcX
         escaladas:
@@ -4566,30 +4741,35 @@ picos:
             pontos_uids:
             - w8LEhOvZahBt0d
             escalada: Carapuça
+            setor: Setor Bem-vindo
             ids:
             - w8LEhOvZahBt0d
           - alvo_uid: 4RV25nAblvsxNc
             pontos_uids:
             - 0JChhWNO08tVzr
             escalada: Sainhaca
+            setor: Setor Bem-vindo
             ids:
             - 0JChhWNO08tVzr
           - alvo_uid: 0u3XfCe434ygyF
             pontos_uids:
             - HnWMGgZrbhzWVB
             escalada: Excalibur
+            setor: Setor Bem-vindo
             ids:
             - HnWMGgZrbhzWVB
           - alvo_uid: d8zcCmQlPLAq2d
             pontos_uids:
             - Hahak9R6aj1v5b
             escalada: Só as Cachorras
+            setor: Setor Bem-vindo
             ids:
             - Hahak9R6aj1v5b
           - alvo_uid: gHo6ISNGA0L2uy
             pontos_uids:
             - X8b1Z8K6CzoucU
             escalada: Lendárias 11 Vacas
+            setor: Setor Bem-vindo
             ids:
             - X8b1Z8K6CzoucU
         - caminho_imagem_mapa: imagens/setor_bem_vindo_p2.webp
@@ -4633,24 +4813,28 @@ picos:
             pontos_uids:
             - MguiTufKeNXtSC
             escalada: Chapeleta Voadora
+            setor: Setor Bem-vindo
             ids:
             - MguiTufKeNXtSC
           - alvo_uid: WxfcNaYUIJNFIi
             pontos_uids:
             - OjmllxTaIIA9IT
             escalada: Pau Podre
+            setor: Setor Bem-vindo
             ids:
             - OjmllxTaIIA9IT
           - alvo_uid: QCdRLBOdHIwEQy
             pontos_uids:
             - ELHAzDpnHM1fRE
             escalada: Bonsai Cearense
+            setor: Setor Bem-vindo
             ids:
             - ELHAzDpnHM1fRE
           - alvo_uid: aki6i9SEmWdTZu
             pontos_uids:
             - nf5cdU4DiBadLg
             escalada: Macaco Velho
+            setor: Setor Bem-vindo
             ids:
             - nf5cdU4DiBadLg
         - caminho_imagem_mapa: imagens/setor_bem_vindo_p3.webp
@@ -4710,36 +4894,42 @@ picos:
             pontos_uids:
             - 9ZcilwtFHEfyeq
             escalada: Sargento Pincel
+            setor: Setor Bem-vindo
             ids:
             - 9ZcilwtFHEfyeq
           - alvo_uid: VYCMUjhjNBl37U
             pontos_uids:
             - Q2200nGa3tnkwD
             escalada: Proparoxítona
+            setor: Setor Bem-vindo
             ids:
             - Q2200nGa3tnkwD
           - alvo_uid: mGe6vvjUrDtBf8
             pontos_uids:
             - 69ymiLK8grHszV
             escalada: Volte Sempre
+            setor: Setor Bem-vindo
             ids:
             - 69ymiLK8grHszV
           - alvo_uid: 2hRWc6tRZlk1Kq
             pontos_uids:
             - d3hTGiP94VR0V8
             escalada: Espírito de Equipe
+            setor: Setor Bem-vindo
             ids:
             - d3hTGiP94VR0V8
           - alvo_uid: QCdRLBOdHIwEQy
             pontos_uids:
             - QKJmWTjZqfd9ot
             escalada: Bonsai Cearense
+            setor: Setor Bem-vindo
             ids:
             - QKJmWTjZqfd9ot
           - alvo_uid: aki6i9SEmWdTZu
             pontos_uids:
             - SEU4YTGVyE6oi7
             escalada: Macaco Velho
+            setor: Setor Bem-vindo
             ids:
             - SEU4YTGVyE6oi7
         - caminho_imagem_mapa: imagens/setor_bem_vindo_p4.webp
@@ -4799,36 +4989,42 @@ picos:
             pontos_uids:
             - R30WB7YYFrXWYx
             escalada: Bem-vindo
+            setor: Setor Bem-vindo
             ids:
             - R30WB7YYFrXWYx
           - alvo_uid: mrEz9Od4K964EJ
             pontos_uids:
             - LNWoXCrSSTpEnB
             escalada: Ganja no País das Maravilhas
+            setor: Setor Bem-vindo
             ids:
             - LNWoXCrSSTpEnB
           - alvo_uid: G5cAnXMY4Y6FWJ
             pontos_uids:
             - GYfId5JUPhKZNy
             escalada: Ritual Satânico
+            setor: Setor Bem-vindo
             ids:
             - GYfId5JUPhKZNy
           - alvo_uid: 1Y9muZA1EsqoxU
             pontos_uids:
             - IDEya5KaOPrYoL
             escalada: Sweet Home Alabama
+            setor: Setor Bem-vindo
             ids:
             - IDEya5KaOPrYoL
           - alvo_uid: yk6GBOSHZFSWiD
             pontos_uids:
             - tcWBwvJRc9nIre
             escalada: Show de Calouros
+            setor: Setor Bem-vindo
             ids:
             - tcWBwvJRc9nIre
           - alvo_uid: F7D9fVSvVzF8LF
             pontos_uids:
             - YNkkHnugBo71S2
             escalada: Permissão Concebida
+            setor: Setor Tetos
             ids:
             - YNkkHnugBo71S2
         escaladas:
@@ -5104,48 +5300,56 @@ picos:
             pontos_uids:
             - VVmeYDqpqUrzMC
             escalada: Permissão Concebida
+            setor: Setor Tetos
             ids:
             - VVmeYDqpqUrzMC
           - alvo_uid: TGxnEnnJtAimRH
             pontos_uids:
             - klTvqOpElXFtgd
             escalada: Bocaina Aventura
+            setor: Setor Tetos
             ids:
             - klTvqOpElXFtgd
           - alvo_uid: Ie9UWepqQRMx6o
             pontos_uids:
             - aCgwCXtfdEbGQT
             escalada: O Vento Levou
+            setor: Setor Tetos
             ids:
             - aCgwCXtfdEbGQT
           - alvo_uid: hKx4cwMfhTYeb6
             pontos_uids:
             - Ev61OAHQxfQ3KJ
             escalada: Titan
+            setor: Setor Tetos
             ids:
             - Ev61OAHQxfQ3KJ
           - alvo_uid: SszjnbPwrsf4eq
             pontos_uids:
             - iH5LFhDzwiIzV1
             escalada: Mirian
+            setor: Setor Tetos
             ids:
             - iH5LFhDzwiIzV1
           - alvo_uid: 0lcn0eDNV8CEwv
             pontos_uids:
             - yZmZDY7gw9ttxJ
             escalada: Hipnose
+            setor: Setor Tetos
             ids:
             - yZmZDY7gw9ttxJ
           - alvo_uid: w85Oym63vWA2qF
             pontos_uids:
             - 8lIT9GjjTrKPdh
             escalada: Resta Um
+            setor: Setor Tetos
             ids:
             - 8lIT9GjjTrKPdh
           - alvo_uid: wmBgyAkH8bCedi
             pontos_uids:
             - Pa68eSDpzyjJfi
             escalada: Medo de quê Aresta
+            setor: Setor Tetos
             ids:
             - Pa68eSDpzyjJfi
         - caminho_imagem_mapa: imagens/setor_tetos_p2.webp
@@ -5221,48 +5425,56 @@ picos:
             pontos_uids:
             - Z6NhxYvDiEoqUP
             escalada: Zumbi da Bocaina
+            setor: Setor Tetos
             ids:
             - Z6NhxYvDiEoqUP
           - alvo_uid: Y0YqvSUbQarcyO
             pontos_uids:
             - 7LXkoKbvttlkeP
             escalada: Curta e Grossa
+            setor: Setor Tetos
             ids:
             - 7LXkoKbvttlkeP
           - alvo_uid: pE81kT7cLImtOA
             pontos_uids:
             - m9IUzqvFgPqfBG
             escalada: Menos Curta e Mais Grossa
+            setor: Setor Tetos
             ids:
             - m9IUzqvFgPqfBG
           - alvo_uid: fWW466uDuqrrBy
             pontos_uids:
             - hINRwGKdOLvPCz
             escalada: El Corazon
+            setor: Setor Tetos
             ids:
             - hINRwGKdOLvPCz
           - alvo_uid: J7bXywRiu0PAXt
             pontos_uids:
             - hD0GfEH3ZOcve2
             escalada: Sombra e Água Fresca
+            setor: Setor Tetos
             ids:
             - hD0GfEH3ZOcve2
           - alvo_uid: hF0nLRzYrLtFnG
             pontos_uids:
             - UcJkDe1qScRH9k
             escalada: Vitamina C
+            setor: Setor Tetos
             ids:
             - UcJkDe1qScRH9k
           - alvo_uid: x8blgb1mpYRvI2
             pontos_uids:
             - 8uZhSl99JsXxW1
             escalada: Mão de Vaca
+            setor: Setor Tetos
             ids:
             - 8uZhSl99JsXxW1
           - alvo_uid: apiiCMS0Y3LfGH
             pontos_uids:
             - TBReM08vDSQoNC
             escalada: Pressão Psicológica
+            setor: Setor Tetos
             ids:
             - TBReM08vDSQoNC
         - caminho_imagem_mapa: imagens/setor_tetos_p3.webp
@@ -5306,24 +5518,28 @@ picos:
             pontos_uids:
             - xGj9tV6IsE76OZ
             escalada: Natural Climb
+            setor: Setor Tetos
             ids:
             - xGj9tV6IsE76OZ
           - alvo_uid: vdWGVzFsYDwaQH
             pontos_uids:
             - h0BP1Iv3C8nojt
             escalada: Chape
+            setor: Setor Tetos
             ids:
             - h0BP1Iv3C8nojt
           - alvo_uid: 9BvYuLQwFnoDY4
             pontos_uids:
             - 5P2vYzXR2JTyC5
             escalada: Comando Delta
+            setor: Setor Tetos
             ids:
             - 5P2vYzXR2JTyC5
           - alvo_uid: 5tfG8RnUv0Kbby
             pontos_uids:
             - 57zwLNC4NB1QgE
             escalada: Rachando os Bico
+            setor: Setor Tetos
             ids:
             - 57zwLNC4NB1QgE
         - caminho_imagem_mapa: imagens/setor_tetos_p4.webp
@@ -5399,48 +5615,56 @@ picos:
             pontos_uids:
             - XweVblYrpqTYtU
             escalada: Mato Seco
+            setor: Setor Tetos
             ids:
             - XweVblYrpqTYtU
           - alvo_uid: jLN8OHcYm3uybN
             pontos_uids:
             - aiUzgymVH79URH
             escalada: De um jeito ou de Outro
+            setor: Setor Tetos
             ids:
             - aiUzgymVH79URH
           - alvo_uid: IDsRjzE5Shsn0i
             pontos_uids:
             - rLOiwo9onNuREd
             escalada: Arapuá
+            setor: Setor Tetos
             ids:
             - rLOiwo9onNuREd
           - alvo_uid: a8qjjWEmbXbw1g
             pontos_uids:
             - BZdr830a6PWwSC
             escalada: Carcará Uru
+            setor: Setor Tetos
             ids:
             - BZdr830a6PWwSC
           - alvo_uid: TCHHRRwnSo0yWJ
             pontos_uids:
             - Pm9tbpsxXhTxBy
             escalada: Rapadura
+            setor: Setor Tetos
             ids:
             - Pm9tbpsxXhTxBy
           - alvo_uid: QoHpF2tNA5YI8Y
             pontos_uids:
             - 1QHYZAEvriEn06
             escalada: Zé Bunitim
+            setor: Setor Tetos
             ids:
             - 1QHYZAEvriEn06
           - alvo_uid: BrMHU0dJXjsBV8
             pontos_uids:
             - nW2u62ZMKkWEgh
             escalada: Vai ser Fei
+            setor: Setor Tetos
             ids:
             - nW2u62ZMKkWEgh
           - alvo_uid: naXlgfjpGm7qed
             pontos_uids:
             - owKBZE3xVZYpir
             escalada: Estrela Solitária
+            setor: Setor Tetos
             ids:
             - owKBZE3xVZYpir
         - caminho_imagem_mapa: imagens/setor_tetos_p5.webp
@@ -5516,48 +5740,56 @@ picos:
             pontos_uids:
             - akOsodANt89xcy
             escalada: Vergateza
+            setor: Setor Tetos
             ids:
             - akOsodANt89xcy
           - alvo_uid: wl0W2dMTksTump
             pontos_uids:
             - mTDNcu4v9nLF71
             escalada: Chico Curandeiro
+            setor: Setor Tetos
             ids:
             - mTDNcu4v9nLF71
           - alvo_uid: h9FgimQVw16Llh
             pontos_uids:
             - wz3w3L8BZbA8Ps
             escalada: Reforma Trabalhista
+            setor: Setor Tetos
             ids:
             - wz3w3L8BZbA8Ps
           - alvo_uid: kDDmL8pKIyDiFz
             pontos_uids:
             - DWuZZuNmE9lhMm
             escalada: Arborigenas
+            setor: Setor Tetos
             ids:
             - DWuZZuNmE9lhMm
           - alvo_uid: jJvROrAbIcYEQo
             pontos_uids:
             - ALCNfLwr14TJgb
             escalada: Faz sua Parte
+            setor: Setor Tetos
             ids:
             - ALCNfLwr14TJgb
           - alvo_uid: BmdokcT3buzsCG
             pontos_uids:
             - ba6Q0RjorgFJP7
             escalada: Delirando
+            setor: Setor Tetos
             ids:
             - ba6Q0RjorgFJP7
           - alvo_uid: gi517SFLPmugWw
             pontos_uids:
             - vmCeTpXHJkG5YU
             escalada: Saraiva
+            setor: Setor Tetos
             ids:
             - vmCeTpXHJkG5YU
           - alvo_uid: yBXaNEaTkhudiE
             pontos_uids:
             - TZopm3wqMLsNCq
             escalada: Rolando Lero
+            setor: Setor Tetos
             ids:
             - TZopm3wqMLsNCq
         - caminho_imagem_mapa: imagens/setor_tetos_p6.webp
@@ -5609,30 +5841,35 @@ picos:
             pontos_uids:
             - dDQ5kKPVTlQ5Cs
             escalada: Jardinagem
+            setor: Setor Tetos
             ids:
             - dDQ5kKPVTlQ5Cs
           - alvo_uid: 0FvddY5SgNJfXh
             pontos_uids:
             - 8gwxepUxMglsmu
             escalada: Soldados do Sol
+            setor: Setor Tetos
             ids:
             - 8gwxepUxMglsmu
           - alvo_uid: CCpYiQTAYU4JzL
             pontos_uids:
             - w81UJxCpYoklGL
             escalada: Metamorfose Ambulante
+            setor: Setor Tetos
             ids:
             - w81UJxCpYoklGL
           - alvo_uid: YPShBCxz1NnuoC
             pontos_uids:
             - 7D7qfyXe6GKMjw
             escalada: Baby Rasta
+            setor: Setor Tetos
             ids:
             - 7D7qfyXe6GKMjw
           - alvo_uid: 3mRLgxBhK9EuPn
             pontos_uids:
             - MddszylTmeQ098
             escalada: Cara ou Crachá
+            setor: Setor Tetos
             ids:
             - MddszylTmeQ098
         escaladas:
@@ -6120,42 +6357,49 @@ picos:
             pontos_uids:
             - iwYgC4aJ56Q7n1
             escalada: Torrecitas
+            setor: Setor Segundo Andar
             ids:
             - iwYgC4aJ56Q7n1
           - alvo_uid: xI6Dxi97YE6T42
             pontos_uids:
             - Qku4cX6BPewmqD
             escalada: Mula Preta
+            setor: Setor Segundo Andar
             ids:
             - Qku4cX6BPewmqD
           - alvo_uid: o4OeEdY6X5CVjh
             pontos_uids:
             - 9DGG4VeBXV43cN
             escalada: Homem de Ferro
+            setor: Setor Segundo Andar
             ids:
             - 9DGG4VeBXV43cN
           - alvo_uid: 9423ThOhc9l9vS
             pontos_uids:
             - crXh3CmLA53Vfz
             escalada: Paraíba Francês
+            setor: Setor Segundo Andar
             ids:
             - crXh3CmLA53Vfz
           - alvo_uid: V3JKzBPn5qrsU1
             pontos_uids:
             - CJ3JdTiqiZt33R
             escalada: Quaresmeira
+            setor: Setor Segundo Andar
             ids:
             - CJ3JdTiqiZt33R
           - alvo_uid: 2rXZcykXGEykwa
             pontos_uids:
             - 1ewpRMv6Ryj1PP
             escalada: 007 em... O Ataque das Andorinhas
+            setor: Setor Segundo Andar
             ids:
             - 1ewpRMv6Ryj1PP
           - alvo_uid: gCMJaS1Z31fRAI
             pontos_uids:
             - k2ndXucmZJ8mLM
             escalada: Jogo Limpo
+            setor: Setor Segundo Andar
             ids:
             - k2ndXucmZJ8mLM
         - caminho_imagem_mapa: imagens/setor_segundo_andar_p2.webp
@@ -6199,24 +6443,28 @@ picos:
             pontos_uids:
             - o1GWF7gBXJN9iZ
             escalada: Rock Balboa
+            setor: Setor Segundo Andar
             ids:
             - o1GWF7gBXJN9iZ
           - alvo_uid: uKNP3Aq2gNs3UH
             pontos_uids:
             - HRrlEogkFlP1Kb
             escalada: Xodó da Bocaina
+            setor: Setor Segundo Andar
             ids:
             - HRrlEogkFlP1Kb
           - alvo_uid: ioecqiNedWEyKt
             pontos_uids:
             - ez4EG55dLdavku
             escalada: James Bond
+            setor: Setor Segundo Andar
             ids:
             - ez4EG55dLdavku
           - alvo_uid: 4apeMqQwWizOIG
             pontos_uids:
             - 9xvISV21bpDV01
             escalada: Apolo o Doutrinador
+            setor: Setor Segundo Andar
             ids:
             - 9xvISV21bpDV01
         escaladas:
@@ -6416,42 +6664,49 @@ picos:
             pontos_uids:
             - 0z6BsJvzvwywYg
             escalada: Uphill
+            setor: Setor Pirados de Rocha
             ids:
             - 0z6BsJvzvwywYg
           - alvo_uid: C9z6Zdg0MKWEP9
             pontos_uids:
             - qKbJYXmdKGlZo0
             escalada: Dilma Roussef
+            setor: Setor Pirados de Rocha
             ids:
             - qKbJYXmdKGlZo0
           - alvo_uid: 9qd69EYIr3CBS7
             pontos_uids:
             - FDgUxqzrKvcWFU
             escalada: Renan Calheiros
+            setor: Setor Pirados de Rocha
             ids:
             - FDgUxqzrKvcWFU
           - alvo_uid: TMAvHYH9SVzd4R
             pontos_uids:
             - oG1YAXAb7MQQUh
             escalada: Sérgio Moro
+            setor: Setor Pirados de Rocha
             ids:
             - oG1YAXAb7MQQUh
           - alvo_uid: 0I7CQWxLRR6vCH
             pontos_uids:
             - lH443PEkiSko3A
             escalada: Pirados de Rocha
+            setor: Setor Pirados de Rocha
             ids:
             - lH443PEkiSko3A
           - alvo_uid: l8mSXWUBQUp1Zu
             pontos_uids:
             - rGJfhdjaqJK8pw
             escalada: Qualidade de Vida
+            setor: Setor Pirados de Rocha
             ids:
             - rGJfhdjaqJK8pw
           - alvo_uid: bHpIqkdCEtildr
             pontos_uids:
             - OuAdkCsVHrBpIz
             escalada: Lava Jato
+            setor: Setor Pirados de Rocha
             ids:
             - OuAdkCsVHrBpIz
         escaladas:

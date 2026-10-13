@@ -157,6 +157,7 @@
         - **pontos_uids**:
           - H2iHJQSnLaHixf
         - **escalada**: Sonho de Infância
+        - **setor**: Setor Quintal
         - **ids**:
           - H2iHJQSnLaHixf
       - **[1]**:
@@ -164,6 +165,7 @@
         - **pontos_uids**:
           - td6JUXvHGecOjK
         - **escalada**: Presente Grego
+        - **setor**: Setor Quintal
         - **ids**:
           - td6JUXvHGecOjK
       - **[2]**:
@@ -171,6 +173,7 @@
         - **pontos_uids**:
           - omIkNDYsTszqHe
         - **escalada**: Tatu do Céu
+        - **setor**: Setor Quintal
         - **ids**:
           - omIkNDYsTszqHe
       - **[3]**:
@@ -178,6 +181,7 @@
         - **pontos_uids**:
           - m2AVUkG70WltwK
         - **escalada**: Base de apoio
+        - **setor**: Setor Quintal
         - **ids**:
           - m2AVUkG70WltwK
       - **[4]**:
@@ -185,6 +189,7 @@
         - **pontos_uids**:
           - 6QKxO444dmoeCp
         - **escalada**: De Pai pra Filho
+        - **setor**: Setor Quintal
         - **ids**:
           - 6QKxO444dmoeCp
       - **[5]**:
@@ -192,6 +197,7 @@
         - **pontos_uids**:
           - Bv6yMOohCS7s9E
         - **escalada**: Pior dia da minha vida
+        - **setor**: Setor Quintal
         - **ids**:
           - Bv6yMOohCS7s9E
       - **[6]**:
@@ -199,6 +205,7 @@
         - **pontos_uids**:
           - zzNrNJ61SccQER
         - **escalada**: Cortina de Fumaça
+        - **setor**: Setor Quintal
         - **ids**:
           - zzNrNJ61SccQER
       - **[7]**:
@@ -206,6 +213,7 @@
         - **pontos_uids**:
           - 2WIbrP9ZkMsurk
         - **escalada**: Faxineiro Fiel
+        - **setor**: Setor Quintal
         - **ids**:
           - 2WIbrP9ZkMsurk
       - **[8]**:
@@ -213,6 +221,7 @@
         - **pontos_uids**:
           - RuwSPdBDkuTa57
         - **escalada**: Arrependimento
+        - **setor**: Setor Quintal
         - **ids**:
           - RuwSPdBDkuTa57
       - **[9]**:
@@ -220,6 +229,7 @@
         - **pontos_uids**:
           - EpCFrsw3qFMOhz
         - **escalada**: Aperta Bola
+        - **setor**: Setor Quintal
         - **ids**:
           - EpCFrsw3qFMOhz
       - **[10]**:
@@ -227,6 +237,7 @@
         - **pontos_uids**:
           - 9prac2dCILwyn4
         - **escalada**: Surpresa
+        - **setor**: Setor Quintal
         - **ids**:
           - 9prac2dCILwyn4
 - **escaladas**:

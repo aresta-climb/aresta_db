@@ -177,6 +177,7 @@
         - **pontos_uids**:
           - 5q0AedNUEeV1GJ
         - **escalada**: Butantana
+        - **setor**: Setor Covide (ala aderência)
         - **ids**:
           - 5q0AedNUEeV1GJ
       - **[1]**:
@@ -184,6 +185,7 @@
         - **pontos_uids**:
           - KOwCY6cMM0IH99
         - **escalada**: Convite 19
+        - **setor**: Setor Covide (ala aderência)
         - **ids**:
           - KOwCY6cMM0IH99
       - **[2]**:
@@ -191,6 +193,7 @@
         - **pontos_uids**:
           - 7pN6DVwdYe8dGL
         - **escalada**: Astracênica
+        - **setor**: Setor Covide (ala aderência)
         - **ids**:
           - 7pN6DVwdYe8dGL
 - **escaladas**:
@@ -392,6 +395,7 @@
         - **pontos_uids**:
           - Z8cUeKRnCJXDJY
         - **escalada**: Coronavaco
+        - **setor**: Setor Covide (ala esquerda)
         - **ids**:
           - Z8cUeKRnCJXDJY
       - **[1]**:
@@ -399,6 +403,7 @@
         - **pontos_uids**:
           - uakLllXDBVS2qa
         - **escalada**: Exclusão social
+        - **setor**: Setor Covide (ala esquerda)
         - **ids**:
           - uakLllXDBVS2qa
       - **[2]**:
@@ -406,6 +411,7 @@
         - **pontos_uids**:
           - u5cMYTTgqUADPK
         - **escalada**: Exputinick
+        - **setor**: Setor Covide (ala esquerda)
         - **ids**:
           - u5cMYTTgqUADPK
       - **[3]**:
@@ -413,6 +419,7 @@
         - **pontos_uids**:
           - Czyi8HERIOYHD6
         - **escalada**: Y de Covide
+        - **setor**: Setor Covide (ala esquerda)
         - **ids**:
           - Czyi8HERIOYHD6
       - **[4]**:
@@ -420,6 +427,7 @@
         - **pontos_uids**:
           - fbOUxltOhsLGTl
         - **escalada**: Vitiligovide
+        - **setor**: Setor Covide (ala esquerda)
         - **ids**:
           - fbOUxltOhsLGTl
       - **[5]**:
@@ -427,6 +435,7 @@
         - **pontos_uids**:
           - x22tIrWvBEmzut
         - **escalada**: Fayserchover
+        - **setor**: Setor Covide (ala esquerda)
         - **ids**:
           - x22tIrWvBEmzut
       - **[6]**:
@@ -434,6 +443,7 @@
         - **pontos_uids**:
           - qPpdyyeRywi1B3
         - **escalada**: Covid com C maiúsculo
+        - **setor**: Setor Covide (ala esquerda)
         - **ids**:
           - qPpdyyeRywi1B3
       - **[7]**:
@@ -441,6 +451,7 @@
         - **pontos_uids**:
           - m3lcXi1Ro2NnpB
         - **escalada**: Ômicronibus
+        - **setor**: Setor Covide (ala esquerda)
         - **ids**:
           - m3lcXi1Ro2NnpB
       - **[8]**:
@@ -448,6 +459,7 @@
         - **pontos_uids**:
           - dwZvbHJdgZqOWH
         - **escalada**: Ômicron ondas
+        - **setor**: Setor Covide (ala esquerda)
         - **ids**:
           - dwZvbHJdgZqOWH
       - **[9]**:
@@ -455,6 +467,7 @@
         - **pontos_uids**:
           - OLMu1e2akUT46Z
         - **escalada**: Aracnocovid
+        - **setor**: Setor Covide (ala esquerda)
         - **ids**:
           - OLMu1e2akUT46Z
 - **escaladas**:
@@ -847,6 +860,7 @@
         - **pontos_uids**:
           - kDbpBcb35XUyTm
         - **escalada**: Cepadedos
+        - **setor**: Setor Covide (ala central e direita)
         - **ids**:
           - kDbpBcb35XUyTm
       - **[1]**:
@@ -854,6 +868,7 @@
         - **pontos_uids**:
           - i5HVfzCZFwnT7H
         - **escalada**: Cepalangos
+        - **setor**: Setor Covide (ala central e direita)
         - **ids**:
           - i5HVfzCZFwnT7H
       - **[2]**:
@@ -861,6 +876,7 @@
         - **pontos_uids**:
           - Ye7H0aTKrXNmp1
         - **escalada**: Cepacol
+        - **setor**: Setor Covide (ala central e direita)
         - **ids**:
           - Ye7H0aTKrXNmp1
       - **[3]**:
@@ -868,6 +884,7 @@
         - **pontos_uids**:
           - BtOV3htU9YI64Q
         - **escalada**: Deltazin
+        - **setor**: Setor Covide (ala central e direita)
         - **ids**:
           - BtOV3htU9YI64Q
       - **[4]**:
@@ -875,6 +892,7 @@
         - **pontos_uids**:
           - NiLoRq4Oa6qDso
         - **escalada**: Ignorância do Deltacron
+        - **setor**: Setor Covide (ala central e direita)
         - **ids**:
           - NiLoRq4Oa6qDso
       - **[5]**:
@@ -882,6 +900,7 @@
         - **pontos_uids**:
           - Up0vEx1DoJr7fR
         - **escalada**: Covidenhoca
+        - **setor**: Setor Covide (ala central e direita)
         - **ids**:
           - Up0vEx1DoJr7fR
       - **[6]**:
@@ -889,6 +908,7 @@
         - **pontos_uids**:
           - R5ThNGazanrRGU
         - **escalada**: B1B2
+        - **setor**: Setor Covide (ala central e direita)
         - **ids**:
           - R5ThNGazanrRGU
       - **[7]**:
@@ -896,6 +916,7 @@
         - **pontos_uids**:
           - 5D97bmKsNttJXR
         - **escalada**: Oxforte
+        - **setor**: Setor Covide (ala central e direita)
         - **ids**:
           - 5D97bmKsNttJXR
       - **[8]**:
@@ -903,6 +924,7 @@
         - **pontos_uids**:
           - CAQMwEWch7OrFy
         - **escalada**: Arco do delta
+        - **setor**: Setor Covide (ala central e direita)
         - **ids**:
           - CAQMwEWch7OrFy
       - **[9]**:
@@ -910,6 +932,7 @@
         - **pontos_uids**:
           - FrA0UcVil8KttF
         - **escalada**: Sequela virótica
+        - **setor**: Setor Covide (ala central e direita)
         - **ids**:
           - FrA0UcVil8KttF
       - **[10]**:
@@ -917,6 +940,7 @@
         - **pontos_uids**:
           - CKT1Ggx6t4y3VI
         - **escalada**: Carga viral
+        - **setor**: Setor Covide (ala central e direita)
         - **ids**:
           - CKT1Ggx6t4y3VI
       - **[11]**:
@@ -924,6 +948,7 @@
         - **pontos_uids**:
           - 7bDY5NmGif4KOy
         - **escalada**: Sou T.I.
+        - **setor**: Setor Covide (ala central e direita)
         - **ids**:
           - 7bDY5NmGif4KOy
       - **[12]**:
@@ -931,6 +956,7 @@
         - **pontos_uids**:
           - Po13CwMKqTLo35
         - **escalada**: Antígeno
+        - **setor**: Setor Covide (ala central e direita)
         - **ids**:
           - Po13CwMKqTLo35
 - **escaladas**:

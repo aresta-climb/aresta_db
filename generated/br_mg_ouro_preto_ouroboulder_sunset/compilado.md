@@ -259,6 +259,7 @@
         - **pontos_uids**:
           - iEOTJY7v5TaLXx
         - **setor**: Bloco Aleijadinho
+        - **grupo**: Sunset
         - **ids**:
           - iEOTJY7v5TaLXx
       - **[1]**:
@@ -266,6 +267,7 @@
         - **pontos_uids**:
           - mtFNeX5ImnsqX5
         - **setor**: Bloco Capitão Jack
+        - **grupo**: Sunset
         - **ids**:
           - mtFNeX5ImnsqX5
       - **[2]**:
@@ -273,6 +275,7 @@
         - **pontos_uids**:
           - cDZTeCrzxcErS6
         - **setor**: Bloco Jahngada
+        - **grupo**: Sunset
         - **ids**:
           - cDZTeCrzxcErS6
       - **[3]**:
@@ -280,6 +283,7 @@
         - **pontos_uids**:
           - MRXQpJtofQGGDD
         - **setor**: Bloco Planetário
+        - **grupo**: Sunset
         - **ids**:
           - MRXQpJtofQGGDD
       - **[4]**:
@@ -287,6 +291,7 @@
         - **pontos_uids**:
           - CgWESKR6t2XYc1
         - **setor**: Bloco Free Solo
+        - **grupo**: Sunset
         - **ids**:
           - CgWESKR6t2XYc1
       - **[5]**:
@@ -294,6 +299,7 @@
         - **pontos_uids**:
           - O2PwAnGVQ7xqJy
         - **setor**: Bloco Carrapicho
+        - **grupo**: Sunset
         - **ids**:
           - O2PwAnGVQ7xqJy
       - **[6]**:
@@ -301,6 +307,7 @@
         - **pontos_uids**:
           - cKe0q7xwUWzZuq
         - **setor**: Bloco Sunset
+        - **grupo**: Sunset
         - **ids**:
           - cKe0q7xwUWzZuq
       - **[7]**:
@@ -308,6 +315,7 @@
         - **pontos_uids**:
           - FCZWeLPC0vA91e
         - **setor**: Bloco Camaroa
+        - **grupo**: Sunset
         - **ids**:
           - FCZWeLPC0vA91e
 - **setores**:
@@ -344,6 +352,8 @@
               - **pontos_uids**:
                 - BepwayUIkwvQgw
               - **escalada**: Aleijadinho
+              - **setor**: Bloco Aleijadinho
+              - **grupo**: Sunset
               - **ids**:
                 - BepwayUIkwvQgw
       - **precomputados**:
@@ -411,6 +421,8 @@
                 - 9zBgTGalp61NWO
                 - BMqKeFxbgsxDrR
               - **escalada**: Sunshine
+              - **setor**: Bloco Capitão Jack
+              - **grupo**: Sunset
               - **ids**:
                 - 9zBgTGalp61NWO
                 - BMqKeFxbgsxDrR
@@ -471,6 +483,8 @@
                 - THvR6FkgIcMxJz
                 - BQuEV7gKbWT3yU
               - **escalada**: Amnesia
+              - **setor**: Bloco Capitão Jack
+              - **grupo**: Sunset
               - **ids**:
                 - THvR6FkgIcMxJz
                 - BQuEV7gKbWT3yU
@@ -480,6 +494,8 @@
                 - uhA69wc4u9QWzp
                 - kfdlNDWbgbqSvn
               - **escalada**: Capitão Jack
+              - **setor**: Bloco Capitão Jack
+              - **grupo**: Sunset
               - **ids**:
                 - uhA69wc4u9QWzp
                 - kfdlNDWbgbqSvn
@@ -489,6 +505,8 @@
                 - 8yWZVDkH0adIXC
                 - BQuEV7gKbWT3yU
               - **escalada**: Purple Rase
+              - **setor**: Bloco Capitão Jack
+              - **grupo**: Sunset
               - **ids**:
                 - 8yWZVDkH0adIXC
                 - BQuEV7gKbWT3yU
@@ -582,6 +600,8 @@
                 - QN04uXCFxHdBaF
                 - jcgscx35vflRYl
               - **escalada**: Jahngada
+              - **setor**: Bloco Jahngada
+              - **grupo**: Sunset
               - **ids**:
                 - QN04uXCFxHdBaF
                 - jcgscx35vflRYl
@@ -591,6 +611,8 @@
                 - dT6nG5TTFQY3fk
                 - jcgscx35vflRYl
               - **escalada**: Jahngada SDS
+              - **setor**: Bloco Jahngada
+              - **grupo**: Sunset
               - **ids**:
                 - dT6nG5TTFQY3fk
                 - jcgscx35vflRYl
@@ -600,6 +622,8 @@
                 - O4ULaZgMYUYK2H
                 - EwncURUcLaWZIz
               - **escalada**: Guaicuí
+              - **setor**: Bloco Jahngada
+              - **grupo**: Sunset
               - **ids**:
                 - O4ULaZgMYUYK2H
                 - EwncURUcLaWZIz
@@ -633,6 +657,8 @@
                 - v1kffiw28KKZDA
                 - uenysVUibsZ6he
               - **escalada**: Camundongo
+              - **setor**: Bloco Jahngada
+              - **grupo**: Sunset
               - **ids**:
                 - v1kffiw28KKZDA
                 - uenysVUibsZ6he
@@ -709,6 +735,8 @@
                 - KOqtBFIO4n372p
                 - y4ucFSkOg1cove
               - **escalada**: Planetário
+              - **setor**: Bloco Planetário
+              - **grupo**: Sunset
               - **ids**:
                 - KOqtBFIO4n372p
                 - y4ucFSkOg1cove
@@ -778,6 +806,8 @@
                 - PDCZ2azVdamApL
                 - IpIpAQLLUX8ACB
               - **escalada**: Náufrago
+              - **setor**: Bloco Planetário
+              - **grupo**: Sunset
               - **ids**:
                 - PDCZ2azVdamApL
                 - IpIpAQLLUX8ACB
@@ -787,6 +817,8 @@
                 - SsadBRferzHqoo
                 - 95pV12jykprucg
               - **escalada**: Golfinho
+              - **setor**: Bloco Planetário
+              - **grupo**: Sunset
               - **ids**:
                 - SsadBRferzHqoo
                 - 95pV12jykprucg
@@ -796,6 +828,8 @@
                 - iVZcXLeU4F23AL
                 - MtrgRvCRP7oSkw
               - **escalada**: Clarete
+              - **setor**: Bloco Planetário
+              - **grupo**: Sunset
               - **ids**:
                 - iVZcXLeU4F23AL
                 - MtrgRvCRP7oSkw
@@ -838,6 +872,8 @@
                 - xe8rGeTEqeOzNz
                 - 3FUDgbW8pu3cPC
               - **escalada**: Odisséia na Babilônia
+              - **setor**: Bloco Planetário
+              - **grupo**: Sunset
               - **ids**:
                 - xe8rGeTEqeOzNz
                 - 3FUDgbW8pu3cPC
@@ -847,6 +883,8 @@
                 - xe8rGeTEqeOzNz
                 - TcKj8RRsR58cmk
               - **escalada**: Canais da Babilônia
+              - **setor**: Bloco Planetário
+              - **grupo**: Sunset
               - **ids**:
                 - xe8rGeTEqeOzNz
                 - TcKj8RRsR58cmk
@@ -940,6 +978,8 @@
                 - ekNX8LgSqtXQOO
                 - tvf9U4OeraSIqE
               - **escalada**: Fomiagem
+              - **setor**: Bloco Free Solo
+              - **grupo**: Sunset
               - **ids**:
                 - ekNX8LgSqtXQOO
                 - tvf9U4OeraSIqE
@@ -949,6 +989,8 @@
                 - mjzpwVBL7KcDPO
                 - zK3EBk5Od0f72e
               - **escalada**: Projeto
+              - **setor**: Bloco Free Solo
+              - **grupo**: Sunset
               - **ids**:
                 - mjzpwVBL7KcDPO
                 - zK3EBk5Od0f72e
@@ -999,6 +1041,8 @@
               - **pontos_uids**:
                 - E1NVEWLoAmokHV
               - **escalada**: Free Solo
+              - **setor**: Bloco Free Solo
+              - **grupo**: Sunset
               - **ids**:
                 - E1NVEWLoAmokHV
             - **[1]**:
@@ -1006,6 +1050,8 @@
               - **pontos_uids**:
                 - fZvY3GzXmNwaXu
               - **escalada**: Tartaruga
+              - **setor**: Bloco Free Solo
+              - **grupo**: Sunset
               - **ids**:
                 - fZvY3GzXmNwaXu
             - **[2]**:
@@ -1013,6 +1059,8 @@
               - **pontos_uids**:
                 - 0maguSKGOpbhyN
               - **escalada**: Mobilete
+              - **setor**: Bloco Free Solo
+              - **grupo**: Sunset
               - **ids**:
                 - 0maguSKGOpbhyN
             - **[3]**:
@@ -1020,6 +1068,8 @@
               - **pontos_uids**:
                 - wrQHbOl8h8h1Gs
               - **escalada**: Walkmachine
+              - **setor**: Bloco Free Solo
+              - **grupo**: Sunset
               - **ids**:
                 - wrQHbOl8h8h1Gs
       - **precomputados**:
@@ -1086,6 +1136,8 @@
               - **pontos_uids**:
                 - iqURLjxf3ToeKN
               - **escalada**: Carrapato
+              - **setor**: Bloco Carrapicho
+              - **grupo**: Sunset
               - **ids**:
                 - iqURLjxf3ToeKN
             - **[1]**:
@@ -1093,6 +1145,8 @@
               - **pontos_uids**:
                 - mWtyKK9qKNOjZB
               - **escalada**: Carrapicho
+              - **setor**: Bloco Carrapicho
+              - **grupo**: Sunset
               - **ids**:
                 - mWtyKK9qKNOjZB
         - **[1]**:
@@ -1133,6 +1187,8 @@
               - **pontos_uids**:
                 - 7KS2cy7iL8JJhm
               - **escalada**: Oratório
+              - **setor**: Bloco Carrapicho
+              - **grupo**: Sunset
               - **ids**:
                 - 7KS2cy7iL8JJhm
             - **[1]**:
@@ -1140,6 +1196,8 @@
               - **pontos_uids**:
                 - zN0PuLRpVV9foz
               - **escalada**: Pistol
+              - **setor**: Bloco Carrapicho
+              - **grupo**: Sunset
               - **ids**:
                 - zN0PuLRpVV9foz
             - **[2]**:
@@ -1147,6 +1205,8 @@
               - **pontos_uids**:
                 - sUAgvK1NQUZxg9
               - **escalada**: Dart Vader
+              - **setor**: Bloco Carrapicho
+              - **grupo**: Sunset
               - **ids**:
                 - sUAgvK1NQUZxg9
       - **precomputados**:
@@ -1224,6 +1284,8 @@
               - **pontos_uids**:
                 - dfnrvEE9nK1bG4
               - **escalada**: Sucrilhos
+              - **setor**: Bloco Sunset
+              - **grupo**: Sunset
               - **ids**:
                 - dfnrvEE9nK1bG4
             - **[1]**:
@@ -1231,6 +1293,8 @@
               - **pontos_uids**:
                 - s66gmROJRbrof7
               - **escalada**: Faxineiro do Universo
+              - **setor**: Bloco Sunset
+              - **grupo**: Sunset
               - **ids**:
                 - s66gmROJRbrof7
             - **[2]**:
@@ -1238,6 +1302,8 @@
               - **pontos_uids**:
                 - cibPAkZbM3lhvi
               - **escalada**: Sujeirinha
+              - **setor**: Bloco Sunset
+              - **grupo**: Sunset
               - **ids**:
                 - cibPAkZbM3lhvi
         - **[1]**:
@@ -1260,6 +1326,8 @@
               - **pontos_uids**:
                 - GSHWSrlZq7SIN6
               - **escalada**: Arestinha Vibration
+              - **setor**: Bloco Sunset
+              - **grupo**: Sunset
               - **ids**:
                 - GSHWSrlZq7SIN6
         - **[2]**:
@@ -1282,6 +1350,8 @@
               - **pontos_uids**:
                 - l4RLkaslCoVuyS
               - **escalada**: Projeto Sunset
+              - **setor**: Bloco Sunset
+              - **grupo**: Sunset
               - **ids**:
                 - l4RLkaslCoVuyS
       - **precomputados**:
@@ -1371,6 +1441,8 @@
               - **pontos_uids**:
                 - V6J2JJOLaI812R
               - **escalada**: Fissura
+              - **setor**: Bloco Camaroa
+              - **grupo**: Sunset
               - **ids**:
                 - V6J2JJOLaI812R
             - **[1]**:
@@ -1378,6 +1450,8 @@
               - **pontos_uids**:
                 - 6o8msTDADzMBC8
               - **escalada**: Pure
+              - **setor**: Bloco Camaroa
+              - **grupo**: Sunset
               - **ids**:
                 - 6o8msTDADzMBC8
             - **[2]**:
@@ -1385,6 +1459,8 @@
               - **pontos_uids**:
                 - 9kIrzI6zIFd1dO
               - **escalada**: Lpita
+              - **setor**: Bloco Camaroa
+              - **grupo**: Sunset
               - **ids**:
                 - 9kIrzI6zIFd1dO
             - **[3]**:
@@ -1392,6 +1468,8 @@
               - **pontos_uids**:
                 - MtX6i55W63JJcr
               - **escalada**: Nave
+              - **setor**: Bloco Camaroa
+              - **grupo**: Sunset
               - **ids**:
                 - MtX6i55W63JJcr
         - **[1]**:
@@ -1414,6 +1492,8 @@
               - **pontos_uids**:
                 - RXU7I5LtWkNP1C
               - **escalada**: Camaroa
+              - **setor**: Bloco Camaroa
+              - **grupo**: Sunset
               - **ids**:
                 - RXU7I5LtWkNP1C
       - **precomputados**:

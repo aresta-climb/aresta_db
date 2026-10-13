@@ -95,6 +95,7 @@
         - **pontos_uids**:
           - xf7ye0AEXOOAhI
         - **escalada**: Trickline
+        - **setor**: Setor Highlines - Bocaina Park
         - **ids**:
           - xf7ye0AEXOOAhI
       - **[1]**:
@@ -102,6 +103,7 @@
         - **pontos_uids**:
           - D5tssQyDLu2Uv8
         - **escalada**: Arquibancada
+        - **setor**: Setor Highlines - Bocaina Park
         - **ids**:
           - D5tssQyDLu2Uv8
       - **[2]**:
@@ -109,6 +111,7 @@
         - **pontos_uids**:
           - ubSGuCsUJfGODf
         - **escalada**: O melhor está por vir
+        - **setor**: Setor Highlines - Bocaina Park
         - **ids**:
           - ubSGuCsUJfGODf
       - **[3]**:
@@ -116,6 +119,7 @@
         - **pontos_uids**:
           - BcVF8z9GRCrIsP
         - **escalada**: Figura Pública
+        - **setor**: Setor Highlines - Bocaina Park
         - **ids**:
           - BcVF8z9GRCrIsP
       - **[4]**:
@@ -123,6 +127,7 @@
         - **pontos_uids**:
           - mu6L92XvGS7QBE
         - **escalada**: Visão além do alcance
+        - **setor**: Setor Highlines - Bocaina Park
         - **ids**:
           - mu6L92XvGS7QBE
 - **escaladas**:
@@ -286,6 +291,7 @@
         - **pontos_uids**:
           - OdHP2xjGnE6wPV
         - **escalada**: Índios
+        - **setor**: Setor Ensolarado
         - **ids**:
           - OdHP2xjGnE6wPV
       - **[1]**:
@@ -293,6 +299,7 @@
         - **pontos_uids**:
           - phxam2BROIoKzL
         - **escalada**: Virando a Esquina
+        - **setor**: Setor Ensolarado
         - **ids**:
           - phxam2BROIoKzL
       - **[2]**:
@@ -300,6 +307,7 @@
         - **pontos_uids**:
           - v1mrluCkDb3aQ7
         - **escalada**: Feinomenal
+        - **setor**: Setor Ensolarado
         - **ids**:
           - v1mrluCkDb3aQ7
       - **[3]**:
@@ -307,6 +315,7 @@
         - **pontos_uids**:
           - XBPLekeYYCfTem
         - **escalada**: Mirandinha fFlou
+        - **setor**: Setor Ensolarado
         - **ids**:
           - XBPLekeYYCfTem
       - **[4]**:
@@ -314,6 +323,7 @@
         - **pontos_uids**:
           - zyiwqXC5Q40XYf
         - **escalada**: Quatro e Vinte
+        - **setor**: Setor Ensolarado
         - **ids**:
           - zyiwqXC5Q40XYf
       - **[5]**:
@@ -321,6 +331,7 @@
         - **pontos_uids**:
           - ExLJBNwbFvuw6b
         - **escalada**: Yngyang
+        - **setor**: Setor Ensolarado
         - **ids**:
           - ExLJBNwbFvuw6b
       - **[6]**:
@@ -328,6 +339,7 @@
         - **pontos_uids**:
           - Y9OBNRuCmmINk6
         - **escalada**: Sucuri
+        - **setor**: Setor Ensolarado
         - **ids**:
           - Y9OBNRuCmmINk6
   - **[1]**:
@@ -404,6 +416,7 @@
         - **pontos_uids**:
           - KDEXErkVBzadtE
         - **escalada**: Família Martins
+        - **setor**: Setor Ensolarado
         - **ids**:
           - KDEXErkVBzadtE
       - **[1]**:
@@ -411,6 +424,7 @@
         - **pontos_uids**:
           - BvTF6ZpkAakOFl
         - **escalada**: Zuzuquinha Mimada
+        - **setor**: Setor Ensolarado
         - **ids**:
           - BvTF6ZpkAakOFl
       - **[2]**:
@@ -418,6 +432,7 @@
         - **pontos_uids**:
           - LDetB3GBTxxBKV
         - **escalada**: De volta as Origens
+        - **setor**: Setor Ensolarado
         - **ids**:
           - LDetB3GBTxxBKV
       - **[3]**:
@@ -425,6 +440,7 @@
         - **pontos_uids**:
           - hmqSfIkyLMKoRE
         - **escalada**: Autista do Bando
+        - **setor**: Setor Ensolarado
         - **ids**:
           - hmqSfIkyLMKoRE
       - **[4]**:
@@ -432,6 +448,7 @@
         - **pontos_uids**:
           - ENWZPOOluQrJXU
         - **escalada**: Último Suspiro
+        - **setor**: Setor Ensolarado
         - **ids**:
           - ENWZPOOluQrJXU
       - **[5]**:
@@ -439,6 +456,7 @@
         - **pontos_uids**:
           - OIOKU6vPgVnAOl
         - **escalada**: Mundo Mágico dos Abacates
+        - **setor**: Setor Ensolarado
         - **ids**:
           - OIOKU6vPgVnAOl
       - **[6]**:
@@ -446,6 +464,7 @@
         - **pontos_uids**:
           - juduvWR6Jt50o9
         - **escalada**: Ariba Cabron
+        - **setor**: Setor Ensolarado
         - **ids**:
           - juduvWR6Jt50o9
   - **[2]**:
@@ -522,6 +541,7 @@
         - **pontos_uids**:
           - 0oZel6NpfOGh5R
         - **escalada**: Barba Negra
+        - **setor**: Setor Ensolarado
         - **ids**:
           - 0oZel6NpfOGh5R
       - **[1]**:
@@ -529,6 +549,7 @@
         - **pontos_uids**:
           - qNDB2s8nYdLDs5
         - **escalada**: Capitão Gancho
+        - **setor**: Setor Ensolarado
         - **ids**:
           - qNDB2s8nYdLDs5
       - **[2]**:
@@ -536,6 +557,7 @@
         - **pontos_uids**:
           - fVz98Nfwbn28cs
         - **escalada**: Peter Pan do Cerrado
+        - **setor**: Setor Ensolarado
         - **ids**:
           - fVz98Nfwbn28cs
       - **[3]**:
@@ -543,6 +565,7 @@
         - **pontos_uids**:
           - zHjL6dmj8az4BP
         - **escalada**: Indio Rastafari
+        - **setor**: Setor Ensolarado
         - **ids**:
           - zHjL6dmj8az4BP
       - **[4]**:
@@ -550,6 +573,7 @@
         - **pontos_uids**:
           - DT57854Vw1iOxl
         - **escalada**: Todo Cuidado e Pouco
+        - **setor**: Setor Ensolarado
         - **ids**:
           - DT57854Vw1iOxl
       - **[5]**:
@@ -557,6 +581,7 @@
         - **pontos_uids**:
           - xHuCfmzEm9sfom
         - **escalada**: Raul com Certeza
+        - **setor**: Setor Ensolarado
         - **ids**:
           - xHuCfmzEm9sfom
       - **[6]**:
@@ -564,6 +589,7 @@
         - **pontos_uids**:
           - AgrFFuyXMOIMiM
         - **escalada**: Raimundo Nonato
+        - **setor**: Setor Ensolarado
         - **ids**:
           - AgrFFuyXMOIMiM
   - **[3]**:
@@ -604,6 +630,7 @@
         - **pontos_uids**:
           - OYYmmEE85dnVjn
         - **escalada**: Todo Cuidado e Pouco
+        - **setor**: Setor Ensolarado
         - **ids**:
           - OYYmmEE85dnVjn
       - **[1]**:
@@ -611,6 +638,7 @@
         - **pontos_uids**:
           - cZ7Lqnk8NpiLm8
         - **escalada**: Raul com Certeza
+        - **setor**: Setor Ensolarado
         - **ids**:
           - cZ7Lqnk8NpiLm8
       - **[2]**:
@@ -618,6 +646,7 @@
         - **pontos_uids**:
           - aDObPIePw1bJYU
         - **escalada**: Raimundo Nonato
+        - **setor**: Setor Ensolarado
         - **ids**:
           - aDObPIePw1bJYU
 - **escaladas**:
@@ -919,6 +948,7 @@
         - **pontos_uids**:
           - 0h2qRVRPVdKkob
         - **escalada**: Love's in the Air
+        - **setor**: Setor Garganta
         - **ids**:
           - 0h2qRVRPVdKkob
       - **[1]**:
@@ -926,6 +956,7 @@
         - **pontos_uids**:
           - Om1WE4l9S2hvvl
         - **escalada**: BH em Chamas
+        - **setor**: Setor Garganta
         - **ids**:
           - Om1WE4l9S2hvvl
       - **[2]**:
@@ -933,6 +964,7 @@
         - **pontos_uids**:
           - x3nCRY0i89PKXK
         - **escalada**: Revolta dos Vinagres
+        - **setor**: Setor Garganta
         - **ids**:
           - x3nCRY0i89PKXK
   - **[1]**:
@@ -955,6 +987,7 @@
         - **pontos_uids**:
           - 9y4XyyOynjpYI5
         - **escalada**: De Pai para Filho
+        - **setor**: Setor Garganta
         - **ids**:
           - 9y4XyyOynjpYI5
   - **[2]**:
@@ -977,6 +1010,7 @@
         - **pontos_uids**:
           - DmBaJzqQnlxOlQ
         - **escalada**: Amor de Mãe
+        - **setor**: Setor Garganta
         - **ids**:
           - DmBaJzqQnlxOlQ
   - **[3]**:
@@ -1008,6 +1042,7 @@
         - **pontos_uids**:
           - 9s7ZM1DpHcJJYv
         - **escalada**: Pagador de Promessa
+        - **setor**: Setor Garganta
         - **ids**:
           - 9s7ZM1DpHcJJYv
       - **[1]**:
@@ -1015,6 +1050,7 @@
         - **pontos_uids**:
           - MUz2E49JzHgvtt
         - **escalada**: Grande Família
+        - **setor**: Setor Garganta
         - **ids**:
           - MUz2E49JzHgvtt
   - **[4]**:
@@ -1046,6 +1082,7 @@
         - **pontos_uids**:
           - 8VdnWwoB0Q133l
         - **escalada**: Sangue do meu Sangue
+        - **setor**: Setor Garganta
         - **ids**:
           - 8VdnWwoB0Q133l
       - **[1]**:
@@ -1053,6 +1090,7 @@
         - **pontos_uids**:
           - Qq300CtAsjD06M
         - **escalada**: Cocalcinhas
+        - **setor**: Setor Garganta
         - **ids**:
           - Qq300CtAsjD06M
   - **[5]**:
@@ -1102,6 +1140,7 @@
         - **pontos_uids**:
           - h5UDx1EvJnl51e
         - **escalada**: Guerreiro da Bocaina
+        - **setor**: Setor Garganta
         - **ids**:
           - h5UDx1EvJnl51e
       - **[1]**:
@@ -1109,6 +1148,7 @@
         - **pontos_uids**:
           - XSPpu1ZDWYE5Q8
         - **escalada**: Samurai Rastafari
+        - **setor**: Setor Garganta
         - **ids**:
           - XSPpu1ZDWYE5Q8
       - **[2]**:
@@ -1116,6 +1156,7 @@
         - **pontos_uids**:
           - 2kMeJ5idBFnlAG
         - **escalada**: Ceder Writhe
+        - **setor**: Setor Garganta
         - **ids**:
           - 2kMeJ5idBFnlAG
       - **[3]**:
@@ -1123,6 +1164,7 @@
         - **pontos_uids**:
           - hk7WRbg4CUR06u
         - **escalada**: Sai pra Lá Sr. Doutor
+        - **setor**: Setor Garganta
         - **ids**:
           - hk7WRbg4CUR06u
   - **[6]**:
@@ -1199,6 +1241,7 @@
         - **pontos_uids**:
           - 8wThMUBhTcCw74
         - **escalada**: Guerreiro da Bocaina
+        - **setor**: Setor Garganta
         - **ids**:
           - 8wThMUBhTcCw74
       - **[1]**:
@@ -1206,6 +1249,7 @@
         - **pontos_uids**:
           - dwudz1rF50ocY9
         - **escalada**: Samurai Rastafari
+        - **setor**: Setor Garganta
         - **ids**:
           - dwudz1rF50ocY9
       - **[2]**:
@@ -1213,6 +1257,7 @@
         - **pontos_uids**:
           - VIArE0rn4FL1YN
         - **escalada**: Ceder Writhe
+        - **setor**: Setor Garganta
         - **ids**:
           - VIArE0rn4FL1YN
       - **[3]**:
@@ -1220,6 +1265,7 @@
         - **pontos_uids**:
           - kJ5xH8PkS7cLW0
         - **escalada**: Sai pra Lá Sr. Doutor
+        - **setor**: Setor Garganta
         - **ids**:
           - kJ5xH8PkS7cLW0
       - **[4]**:
@@ -1227,6 +1273,7 @@
         - **pontos_uids**:
           - HSVonTX0F256H3
         - **escalada**: Maniaco Sexual
+        - **setor**: Setor Garganta
         - **ids**:
           - HSVonTX0F256H3
       - **[5]**:
@@ -1234,6 +1281,7 @@
         - **pontos_uids**:
           - qBHB84eizqvoqh
         - **escalada**: Paraiboult
+        - **setor**: Setor Garganta
         - **ids**:
           - qBHB84eizqvoqh
       - **[6]**:
@@ -1241,6 +1289,7 @@
         - **pontos_uids**:
           - bnTRcKGc8y5Nrq
         - **escalada**: Mulheres ao Poder
+        - **setor**: Setor Garganta
         - **ids**:
           - bnTRcKGc8y5Nrq
   - **[7]**:
@@ -1317,6 +1366,7 @@
         - **pontos_uids**:
           - vVYiSXHuHaKo3E
         - **escalada**: Invasão Bacteriana
+        - **setor**: Setor Garganta
         - **ids**:
           - vVYiSXHuHaKo3E
       - **[1]**:
@@ -1324,6 +1374,7 @@
         - **pontos_uids**:
           - IvVy73fEi0lehg
         - **escalada**: Yes We Can
+        - **setor**: Setor Garganta
         - **ids**:
           - IvVy73fEi0lehg
       - **[2]**:
@@ -1331,6 +1382,7 @@
         - **pontos_uids**:
           - JbRZQzj2ev0w4P
         - **escalada**: Galo Doido
+        - **setor**: Setor Garganta
         - **ids**:
           - JbRZQzj2ev0w4P
       - **[3]**:
@@ -1338,6 +1390,7 @@
         - **pontos_uids**:
           - OgLoUO577IxOBL
         - **escalada**: Baby Roots
+        - **setor**: Setor Garganta
         - **ids**:
           - OgLoUO577IxOBL
       - **[4]**:
@@ -1345,6 +1398,7 @@
         - **pontos_uids**:
           - 6VjeyCS0XIoZCF
         - **escalada**: Canelinha de Ouro
+        - **setor**: Setor Garganta
         - **ids**:
           - 6VjeyCS0XIoZCF
       - **[5]**:
@@ -1352,6 +1406,7 @@
         - **pontos_uids**:
           - aCKqxc4jGFJzGl
         - **escalada**: Rei Leão
+        - **setor**: Setor Garganta
         - **ids**:
           - aCKqxc4jGFJzGl
       - **[6]**:
@@ -1359,6 +1414,7 @@
         - **pontos_uids**:
           - AJZm6TcIqd0Ajc
         - **escalada**: Maluco Beleza
+        - **setor**: Setor Garganta
         - **ids**:
           - AJZm6TcIqd0Ajc
   - **[8]**:
@@ -1417,6 +1473,7 @@
         - **pontos_uids**:
           - wQHeKMHQoqYT9a
         - **escalada**: Peter Park
+        - **setor**: Setor Garganta
         - **ids**:
           - wQHeKMHQoqYT9a
       - **[1]**:
@@ -1424,6 +1481,7 @@
         - **pontos_uids**:
           - iZPfwRNUXjqnIt
         - **escalada**: Super Poderosa
+        - **setor**: Setor Garganta
         - **ids**:
           - iZPfwRNUXjqnIt
       - **[2]**:
@@ -1431,6 +1489,7 @@
         - **pontos_uids**:
           - Bdk0WViyrVHeVE
         - **escalada**: Cinco Vira, Dez Acaba
+        - **setor**: Setor Garganta
         - **ids**:
           - Bdk0WViyrVHeVE
       - **[3]**:
@@ -1438,6 +1497,7 @@
         - **pontos_uids**:
           - DMSPDtQcQ7FV85
         - **escalada**: Dunas
+        - **setor**: Setor Garganta
         - **ids**:
           - DMSPDtQcQ7FV85
       - **[4]**:
@@ -1445,6 +1505,7 @@
         - **pontos_uids**:
           - xmmrWTN8gCLhUU
         - **escalada**: Poeira Cósmica
+        - **setor**: Setor Garganta
         - **ids**:
           - xmmrWTN8gCLhUU
 - **escaladas**:
@@ -1825,6 +1886,7 @@
         - **pontos_uids**:
           - QgT7EBt8FUEXVE
         - **escalada**: Marcha lenta
+        - **setor**: Setor Tapa na Cara
         - **ids**:
           - QgT7EBt8FUEXVE
       - **[1]**:
@@ -1832,6 +1894,7 @@
         - **pontos_uids**:
           - T0glVtLEys5pdU
         - **escalada**: Bundalelê
+        - **setor**: Setor Tapa na Cara
         - **ids**:
           - T0glVtLEys5pdU
       - **[2]**:
@@ -1839,6 +1902,7 @@
         - **pontos_uids**:
           - wwsC4daVFJYHjD
         - **escalada**: Tapa na Cara
+        - **setor**: Setor Tapa na Cara
         - **ids**:
           - wwsC4daVFJYHjD
       - **[3]**:
@@ -1846,6 +1910,7 @@
         - **pontos_uids**:
           - rHGzNuGFbtRPp3
         - **escalada**: Cotonete Molhado
+        - **setor**: Setor Tapa na Cara
         - **ids**:
           - rHGzNuGFbtRPp3
 - **escaladas**:
@@ -1982,6 +2047,7 @@
         - **pontos_uids**:
           - oMU5Wwu9cqkvML
         - **escalada**: Pêro no Mucho
+        - **setor**: Setor Terceiro Andar
         - **ids**:
           - oMU5Wwu9cqkvML
       - **[1]**:
@@ -1989,6 +2055,7 @@
         - **pontos_uids**:
           - wc1cq7Wnf6KsAc
         - **escalada**: Meia Hora
+        - **setor**: Setor Terceiro Andar
         - **ids**:
           - wc1cq7Wnf6KsAc
       - **[2]**:
@@ -1996,6 +2063,7 @@
         - **pontos_uids**:
           - qdec7NGGUuqcLL
         - **escalada**: Falta de Educação
+        - **setor**: Setor Terceiro Andar
         - **ids**:
           - qdec7NGGUuqcLL
       - **[3]**:
@@ -2003,6 +2071,7 @@
         - **pontos_uids**:
           - G6Itp1lJNnBI47
         - **escalada**: De Mão Beijada
+        - **setor**: Setor Terceiro Andar
         - **ids**:
           - G6Itp1lJNnBI47
       - **[4]**:
@@ -2010,6 +2079,7 @@
         - **pontos_uids**:
           - m2ALz09ZzVMsRf
         - **escalada**: Efeito Cascata
+        - **setor**: Setor Terceiro Andar
         - **ids**:
           - m2ALz09ZzVMsRf
       - **[5]**:
@@ -2017,6 +2087,7 @@
         - **pontos_uids**:
           - O9dQ0QtlDnX7zp
         - **escalada**: Efeito Colateral
+        - **setor**: Setor Terceiro Andar
         - **ids**:
           - O9dQ0QtlDnX7zp
   - **[1]**:
@@ -2075,6 +2146,7 @@
         - **pontos_uids**:
           - G0M0PbtSsy8HSa
         - **escalada**: Efeito Cascata
+        - **setor**: Setor Terceiro Andar
         - **ids**:
           - G0M0PbtSsy8HSa
       - **[1]**:
@@ -2082,6 +2154,7 @@
         - **pontos_uids**:
           - T4g4bC6J909S9T
         - **escalada**: Efeito Colateral
+        - **setor**: Setor Terceiro Andar
         - **ids**:
           - T4g4bC6J909S9T
       - **[2]**:
@@ -2089,6 +2162,7 @@
         - **pontos_uids**:
           - 5BZjrR7ZOFnjIh
         - **escalada**: Só pra Variar
+        - **setor**: Setor Terceiro Andar
         - **ids**:
           - 5BZjrR7ZOFnjIh
       - **[3]**:
@@ -2096,6 +2170,7 @@
         - **pontos_uids**:
           - Ota8xOi2gq9Kaa
         - **escalada**: Rock Supimpa
+        - **setor**: Setor Terceiro Andar
         - **ids**:
           - Ota8xOi2gq9Kaa
       - **[4]**:
@@ -2103,6 +2178,7 @@
         - **pontos_uids**:
           - pZfCIskHdR0Gin
         - **escalada**: Você Decide
+        - **setor**: Setor Terceiro Andar
         - **ids**:
           - pZfCIskHdR0Gin
   - **[2]**:
@@ -2161,6 +2237,7 @@
         - **pontos_uids**:
           - 29tVY3b9Mgy4v4
         - **escalada**: Grande Hotel
+        - **setor**: Setor Terceiro Andar
         - **ids**:
           - 29tVY3b9Mgy4v4
       - **[1]**:
@@ -2168,6 +2245,7 @@
         - **pontos_uids**:
           - QghijXjvRmqKFV
         - **escalada**: Cura Trimura
+        - **setor**: Setor Terceiro Andar
         - **ids**:
           - QghijXjvRmqKFV
       - **[2]**:
@@ -2175,6 +2253,7 @@
         - **pontos_uids**:
           - kgV2dNHXXefVTl
         - **escalada**: Próprio Veneno
+        - **setor**: Setor Terceiro Andar
         - **ids**:
           - kgV2dNHXXefVTl
       - **[3]**:
@@ -2182,6 +2261,7 @@
         - **pontos_uids**:
           - c1Li6WEMrI4ito
         - **escalada**: Própria Loucura
+        - **setor**: Setor Terceiro Andar
         - **ids**:
           - c1Li6WEMrI4ito
       - **[4]**:
@@ -2189,6 +2269,7 @@
         - **pontos_uids**:
           - QqBq3ZguacLg81
         - **escalada**: Honney Money
+        - **setor**: Setor Terceiro Andar
         - **ids**:
           - QqBq3ZguacLg81
   - **[3]**:
@@ -2247,6 +2328,7 @@
         - **pontos_uids**:
           - IqSYGhdzyuj3lR
         - **escalada**: Efeito Variado
+        - **setor**: Setor Terceiro Andar
         - **ids**:
           - IqSYGhdzyuj3lR
       - **[1]**:
@@ -2254,6 +2336,7 @@
         - **pontos_uids**:
           - YFAtqkAMDBp73b
         - **escalada**: Só paracolateral
+        - **setor**: Setor Terceiro Andar
         - **ids**:
           - YFAtqkAMDBp73b
       - **[2]**:
@@ -2261,6 +2344,7 @@
         - **pontos_uids**:
           - j16r3CdbNAkHic
         - **escalada**: Grande Hotel
+        - **setor**: Setor Terceiro Andar
         - **ids**:
           - j16r3CdbNAkHic
       - **[3]**:
@@ -2268,6 +2352,7 @@
         - **pontos_uids**:
           - 3uaXpRvqiAPcZo
         - **escalada**: Trimura do Hotel
+        - **setor**: Setor Terceiro Andar
         - **ids**:
           - 3uaXpRvqiAPcZo
       - **[4]**:
@@ -2275,6 +2360,7 @@
         - **pontos_uids**:
           - u9bSuW2bbIYmMu
         - **escalada**: Própria Loucura
+        - **setor**: Setor Terceiro Andar
         - **ids**:
           - u9bSuW2bbIYmMu
 - **escaladas**:
@@ -2539,6 +2625,7 @@
         - **pontos_uids**:
           - QmCpk76e3ZhLrV
         - **escalada**: Física Quântica
+        - **setor**: Setor Paulistas
         - **ids**:
           - QmCpk76e3ZhLrV
       - **[1]**:
@@ -2546,6 +2633,7 @@
         - **pontos_uids**:
           - SLmhBoAAdYc8xh
         - **escalada**: Chamasamiga
+        - **setor**: Setor Paulistas
         - **ids**:
           - SLmhBoAAdYc8xh
       - **[2]**:
@@ -2553,6 +2641,7 @@
         - **pontos_uids**:
           - LJpYDXmUME5DOk
         - **escalada**: Acupuntura
+        - **setor**: Setor Paulistas
         - **ids**:
           - LJpYDXmUME5DOk
       - **[3]**:
@@ -2560,6 +2649,7 @@
         - **pontos_uids**:
           - 6bMiLyVancgKzu
         - **escalada**: Capitão Bocaina
+        - **setor**: Setor Paulistas
         - **ids**:
           - 6bMiLyVancgKzu
       - **[4]**:
@@ -2567,6 +2657,7 @@
         - **pontos_uids**:
           - DYFLxmXq3OA8Ro
         - **escalada**: Miragem
+        - **setor**: Setor Paulistas
         - **ids**:
           - DYFLxmXq3OA8Ro
   - **[1]**:
@@ -2634,6 +2725,7 @@
         - **pontos_uids**:
           - Fiqi4PRdQnQZkB
         - **escalada**: Cortina de Fumaça
+        - **setor**: Setor Paulistas
         - **ids**:
           - Fiqi4PRdQnQZkB
       - **[1]**:
@@ -2641,6 +2733,7 @@
         - **pontos_uids**:
           - dVEg1kUMo7VSnT
         - **escalada**: Sem Nome (Via 07)
+        - **setor**: Setor Paulistas
         - **ids**:
           - dVEg1kUMo7VSnT
       - **[2]**:
@@ -2648,6 +2741,7 @@
         - **pontos_uids**:
           - JBsqtYZZWPEV3a
         - **escalada**: Decadentes
+        - **setor**: Setor Paulistas
         - **ids**:
           - JBsqtYZZWPEV3a
       - **[3]**:
@@ -2655,6 +2749,7 @@
         - **pontos_uids**:
           - jkUjqewjfIbyFE
         - **escalada**: Pelos de Aldebaran
+        - **setor**: Setor Paulistas
         - **ids**:
           - jkUjqewjfIbyFE
       - **[4]**:
@@ -2662,6 +2757,7 @@
         - **pontos_uids**:
           - LVOimv61UZlH2t
         - **escalada**: Pubianos
+        - **setor**: Setor Paulistas
         - **ids**:
           - LVOimv61UZlH2t
       - **[5]**:
@@ -2669,6 +2765,7 @@
         - **pontos_uids**:
           - xghK6WxznTRTMO
         - **escalada**: Bocaina Roots
+        - **setor**: Setor Paulistas
         - **ids**:
           - xghK6WxznTRTMO
   - **[2]**:
@@ -2727,6 +2824,7 @@
         - **pontos_uids**:
           - wLG9AEMAZeRdKl
         - **escalada**: Ejaculação Precoce
+        - **setor**: Setor Paulistas
         - **ids**:
           - wLG9AEMAZeRdKl
       - **[1]**:
@@ -2734,6 +2832,7 @@
         - **pontos_uids**:
           - Xgc2wH3Tr53z4p
         - **escalada**: Via do Laurêncio
+        - **setor**: Setor Paulistas
         - **ids**:
           - Xgc2wH3Tr53z4p
       - **[2]**:
@@ -2741,6 +2840,7 @@
         - **pontos_uids**:
           - kFwp5rHuXEnt0u
         - **escalada**: International love
+        - **setor**: Setor Paulistas
         - **ids**:
           - kFwp5rHuXEnt0u
       - **[3]**:
@@ -2748,6 +2848,7 @@
         - **pontos_uids**:
           - MFDYeBrTikaIso
         - **escalada**: Cinquenteira
+        - **setor**: Setor Paulistas
         - **ids**:
           - MFDYeBrTikaIso
       - **[4]**:
@@ -2755,6 +2856,7 @@
         - **pontos_uids**:
           - hGvj0hexsTOV8f
         - **escalada**: Boa idéia
+        - **setor**: Setor Paulistas
         - **ids**:
           - hGvj0hexsTOV8f
 - **escaladas**:
@@ -3017,6 +3119,7 @@
         - **pontos_uids**:
           - GTvj00Y0ph9osU
         - **escalada**: Alberto Roberto
+        - **setor**: Setor Mezanino
         - **ids**:
           - GTvj00Y0ph9osU
       - **[1]**:
@@ -3024,6 +3127,7 @@
         - **pontos_uids**:
           - OMqhzWj1QBrab8
         - **escalada**: Chico Anísio
+        - **setor**: Setor Mezanino
         - **ids**:
           - OMqhzWj1QBrab8
       - **[2]**:
@@ -3031,6 +3135,7 @@
         - **pontos_uids**:
           - hLClRTJlpfc7Rc
         - **escalada**: Onjacktallbeck
+        - **setor**: Setor Mezanino
         - **ids**:
           - hLClRTJlpfc7Rc
       - **[3]**:
@@ -3038,6 +3143,7 @@
         - **pontos_uids**:
           - uKUBt2u6WgljiQ
         - **escalada**: Princípio Ativo
+        - **setor**: Setor Mezanino
         - **ids**:
           - uKUBt2u6WgljiQ
       - **[4]**:
@@ -3045,6 +3151,7 @@
         - **pontos_uids**:
           - VZYLXVwApIJypM
         - **escalada**: Suindara
+        - **setor**: Setor Mezanino
         - **ids**:
           - VZYLXVwApIJypM
   - **[1]**:
@@ -3076,6 +3183,7 @@
         - **pontos_uids**:
           - AoAU97R3prQlf7
         - **escalada**: São Jorge
+        - **setor**: Setor Mezanino
         - **ids**:
           - AoAU97R3prQlf7
       - **[1]**:
@@ -3083,6 +3191,7 @@
         - **pontos_uids**:
           - QjYbSF13EwdPZI
         - **escalada**: Ramadan
+        - **setor**: Setor Mezanino
         - **ids**:
           - QjYbSF13EwdPZI
   - **[2]**:
@@ -3141,6 +3250,7 @@
         - **pontos_uids**:
           - GVeWle0FVGoMUC
         - **escalada**: Sabotagem
+        - **setor**: Setor Mezanino
         - **ids**:
           - GVeWle0FVGoMUC
       - **[1]**:
@@ -3148,6 +3258,7 @@
         - **pontos_uids**:
           - soq6LdwtfEy9Ot
         - **escalada**: Universo Paralelo
+        - **setor**: Setor Mezanino
         - **ids**:
           - soq6LdwtfEy9Ot
       - **[2]**:
@@ -3155,6 +3266,7 @@
         - **pontos_uids**:
           - kE6RTfFzSK958q
         - **escalada**: Egocentrismo
+        - **setor**: Setor Mezanino
         - **ids**:
           - kE6RTfFzSK958q
       - **[3]**:
@@ -3162,6 +3274,7 @@
         - **pontos_uids**:
           - jUdoUYCASvNzMc
         - **escalada**: Farinha do Mesmo Saco
+        - **setor**: Setor Mezanino
         - **ids**:
           - jUdoUYCASvNzMc
       - **[4]**:
@@ -3169,6 +3282,7 @@
         - **pontos_uids**:
           - 8ZEvdP9NmDyg4f
         - **escalada**: Bafo de Onça
+        - **setor**: Setor Mezanino
         - **ids**:
           - 8ZEvdP9NmDyg4f
   - **[3]**:
@@ -3227,6 +3341,7 @@
         - **pontos_uids**:
           - Pqrg7anDY1mGbe
         - **escalada**: 12 anos
+        - **setor**: Setor Mezanino
         - **ids**:
           - Pqrg7anDY1mGbe
       - **[1]**:
@@ -3234,6 +3349,7 @@
         - **pontos_uids**:
           - siVE4gSeA3JC24
         - **escalada**: Mais Água no Feijão
+        - **setor**: Setor Mezanino
         - **ids**:
           - siVE4gSeA3JC24
       - **[2]**:
@@ -3241,6 +3357,7 @@
         - **pontos_uids**:
           - D7QKJDZpXueX7d
         - **escalada**: Puberdade
+        - **setor**: Setor Mezanino
         - **ids**:
           - D7QKJDZpXueX7d
       - **[3]**:
@@ -3248,6 +3365,7 @@
         - **pontos_uids**:
           - D3dWZQ7qjfwx6l
         - **escalada**: Eldorado
+        - **setor**: Setor Mezanino
         - **ids**:
           - D3dWZQ7qjfwx6l
       - **[4]**:
@@ -3255,6 +3373,7 @@
         - **pontos_uids**:
           - rGGcxXm39CnRRy
         - **escalada**: Mais uma Prova de Amor
+        - **setor**: Setor Mezanino
         - **ids**:
           - rGGcxXm39CnRRy
   - **[4]**:
@@ -3295,6 +3414,7 @@
         - **pontos_uids**:
           - 56sHbocurTc3qM
         - **escalada**: Sabotagem do Universo
+        - **setor**: Setor Mezanino
         - **ids**:
           - 56sHbocurTc3qM
       - **[1]**:
@@ -3302,6 +3422,7 @@
         - **pontos_uids**:
           - 8kr8gGDdtU6g3p
         - **escalada**: Universo Sabotada
+        - **setor**: Setor Mezanino
         - **ids**:
           - 8kr8gGDdtU6g3p
       - **[2]**:
@@ -3309,6 +3430,7 @@
         - **pontos_uids**:
           - 0oyObWuOWQ1NGK
         - **escalada**: Ego Paralelo
+        - **setor**: Setor Mezanino
         - **ids**:
           - 0oyObWuOWQ1NGK
 - **escaladas**:
@@ -3558,6 +3680,7 @@
         - **pontos_uids**:
           - 3Lyfms77DTU25h
         - **escalada**: Caroço de Manga
+        - **setor**: Setor Shana Crazy
         - **ids**:
           - 3Lyfms77DTU25h
   - **[1]**:
@@ -3607,6 +3730,7 @@
         - **pontos_uids**:
           - l00ZSL8CowRe11
         - **escalada**: Caminho das pedras
+        - **setor**: Setor Shana Crazy
         - **ids**:
           - l00ZSL8CowRe11
       - **[1]**:
@@ -3614,6 +3738,7 @@
         - **pontos_uids**:
           - cqrWwBV63APeld
         - **escalada**: Caminho das águas
+        - **setor**: Setor Shana Crazy
         - **ids**:
           - cqrWwBV63APeld
       - **[2]**:
@@ -3621,6 +3746,7 @@
         - **pontos_uids**:
           - 2Fg27UblG0q6t2
         - **escalada**: Shana Crazy
+        - **setor**: Setor Shana Crazy
         - **ids**:
           - 2Fg27UblG0q6t2
       - **[3]**:
@@ -3628,6 +3754,7 @@
         - **pontos_uids**:
           - UuMnef3ScwBU5q
         - **escalada**: Na racha
+        - **setor**: Setor Shana Crazy
         - **ids**:
           - UuMnef3ScwBU5q
   - **[2]**:
@@ -3677,6 +3804,7 @@
         - **pontos_uids**:
           - bJRwtmAaAdgtU2
         - **escalada**: Lei Rounet
+        - **setor**: Setor Shana Crazy
         - **ids**:
           - bJRwtmAaAdgtU2
       - **[1]**:
@@ -3684,6 +3812,7 @@
         - **pontos_uids**:
           - cWxETo0bviRwtv
         - **escalada**: Maria da Penha
+        - **setor**: Setor Shana Crazy
         - **ids**:
           - cWxETo0bviRwtv
       - **[2]**:
@@ -3691,6 +3820,7 @@
         - **pontos_uids**:
           - 68rOrJDeHrNPcM
         - **escalada**: Para-raio de Maluco
+        - **setor**: Setor Shana Crazy
         - **ids**:
           - 68rOrJDeHrNPcM
       - **[3]**:
@@ -3698,6 +3828,7 @@
         - **pontos_uids**:
           - DaRVTccRUKC0kS
         - **escalada**: Sandálias da Humildade
+        - **setor**: Setor Shana Crazy
         - **ids**:
           - DaRVTccRUKC0kS
 - **escaladas**:
@@ -3902,6 +4033,7 @@
         - **pontos_uids**:
           - lYkbXINI3M14TB
         - **escalada**: ET de Varginha
+        - **setor**: Setor Tsunami
         - **ids**:
           - lYkbXINI3M14TB
       - **[1]**:
@@ -3909,6 +4041,7 @@
         - **pontos_uids**:
           - YcYhv6YVK4LPRG
         - **escalada**: Jardim das Arestas
+        - **setor**: Setor Tsunami
         - **ids**:
           - YcYhv6YVK4LPRG
       - **[2]**:
@@ -3916,6 +4049,7 @@
         - **pontos_uids**:
           - YnA2uiL5jEroBp
         - **escalada**: Sunshine
+        - **setor**: Setor Tsunami
         - **ids**:
           - YnA2uiL5jEroBp
       - **[3]**:
@@ -3923,6 +4057,7 @@
         - **pontos_uids**:
           - B1UU2CPU5zAAhE
         - **escalada**: Sexta-feira 13
+        - **setor**: Setor Tsunami
         - **ids**:
           - B1UU2CPU5zAAhE
       - **[4]**:
@@ -3930,6 +4065,7 @@
         - **pontos_uids**:
           - M8VcpfdKpUeSa2
         - **escalada**: Vida Louca
+        - **setor**: Setor Tsunami
         - **ids**:
           - M8VcpfdKpUeSa2
       - **[5]**:
@@ -3937,6 +4073,7 @@
         - **pontos_uids**:
           - pFUAV3JrAEtnlQ
         - **escalada**: Miranda Mirandinha
+        - **setor**: Setor Tsunami
         - **ids**:
           - pFUAV3JrAEtnlQ
       - **[6]**:
@@ -3944,6 +4081,7 @@
         - **pontos_uids**:
           - emrEyULDP85MIr
         - **escalada**: Foi sem Querer
+        - **setor**: Setor Tsunami
         - **ids**:
           - emrEyULDP85MIr
       - **[7]**:
@@ -3951,6 +4089,7 @@
         - **pontos_uids**:
           - DZqmdaStIME3ny
         - **escalada**: Cabeleira
+        - **setor**: Setor Tsunami
         - **ids**:
           - DZqmdaStIME3ny
   - **[1]**:
@@ -4036,6 +4175,7 @@
         - **pontos_uids**:
           - CyQ79dfMenOufn
         - **escalada**: Muy Hermosa
+        - **setor**: Setor Tsunami
         - **ids**:
           - CyQ79dfMenOufn
       - **[1]**:
@@ -4043,6 +4183,7 @@
         - **pontos_uids**:
           - HN3eiUTMCVD5Oy
         - **escalada**: Medicina Chilena
+        - **setor**: Setor Tsunami
         - **ids**:
           - HN3eiUTMCVD5Oy
       - **[2]**:
@@ -4050,6 +4191,7 @@
         - **pontos_uids**:
           - KiRAkLRYYODPEo
         - **escalada**: As Aparências Enganam
+        - **setor**: Setor Tsunami
         - **ids**:
           - KiRAkLRYYODPEo
       - **[3]**:
@@ -4057,6 +4199,7 @@
         - **pontos_uids**:
           - uwlWKp8phsqkb5
         - **escalada**: Raios e Trovões
+        - **setor**: Setor Tsunami
         - **ids**:
           - uwlWKp8phsqkb5
       - **[4]**:
@@ -4064,6 +4207,7 @@
         - **pontos_uids**:
           - 54dAZhAsgqm5tL
         - **escalada**: Quem vê Cara não vê Graduação
+        - **setor**: Setor Tsunami
         - **ids**:
           - 54dAZhAsgqm5tL
       - **[5]**:
@@ -4071,6 +4215,7 @@
         - **pontos_uids**:
           - TXr5chtQICieKg
         - **escalada**: Sete Chaves
+        - **setor**: Setor Tsunami
         - **ids**:
           - TXr5chtQICieKg
       - **[6]**:
@@ -4078,6 +4223,7 @@
         - **pontos_uids**:
           - Fzqd64oQe0TXO2
         - **escalada**: Buena Onda
+        - **setor**: Setor Tsunami
         - **ids**:
           - Fzqd64oQe0TXO2
       - **[7]**:
@@ -4085,6 +4231,7 @@
         - **pontos_uids**:
           - gmlZ1pUF6PQPfN
         - **escalada**: Muchas Gracias
+        - **setor**: Setor Tsunami
         - **ids**:
           - gmlZ1pUF6PQPfN
   - **[2]**:
@@ -4170,6 +4317,7 @@
         - **pontos_uids**:
           - mztaNYC4v4wyuV
         - **escalada**: Marola
+        - **setor**: Setor Tsunami
         - **ids**:
           - mztaNYC4v4wyuV
       - **[1]**:
@@ -4177,6 +4325,7 @@
         - **pontos_uids**:
           - eVE2J2t1pO6NNG
         - **escalada**: Filha de Todos
+        - **setor**: Setor Tsunami
         - **ids**:
           - eVE2J2t1pO6NNG
       - **[2]**:
@@ -4184,6 +4333,7 @@
         - **pontos_uids**:
           - Y31iw3YALVBsPP
         - **escalada**: Neblina Baixa
+        - **setor**: Setor Tsunami
         - **ids**:
           - Y31iw3YALVBsPP
       - **[3]**:
@@ -4191,6 +4341,7 @@
         - **pontos_uids**:
           - 6RphrBHxhLYOOe
         - **escalada**: Círculo de Fogo
+        - **setor**: Setor Tsunami
         - **ids**:
           - 6RphrBHxhLYOOe
       - **[4]**:
@@ -4198,6 +4349,7 @@
         - **pontos_uids**:
           - lMSZbQB5AsRkeS
         - **escalada**: Fissura de Cristal
+        - **setor**: Setor Tsunami
         - **ids**:
           - lMSZbQB5AsRkeS
       - **[5]**:
@@ -4205,6 +4357,7 @@
         - **pontos_uids**:
           - 2H3WSsernK1OZg
         - **escalada**: Mandruva Assassino
+        - **setor**: Setor Tsunami
         - **ids**:
           - 2H3WSsernK1OZg
       - **[6]**:
@@ -4212,6 +4365,7 @@
         - **pontos_uids**:
           - nuyyh8rMrPpjtL
         - **escalada**: Namoro Antigo
+        - **setor**: Setor Tsunami
         - **ids**:
           - nuyyh8rMrPpjtL
       - **[7]**:
@@ -4219,6 +4373,7 @@
         - **pontos_uids**:
           - nowAvzKSjB15xC
         - **escalada**: Chora Nenêm
+        - **setor**: Setor Tsunami
         - **ids**:
           - nowAvzKSjB15xC
 - **escaladas**:
@@ -4583,6 +4738,7 @@
         - **pontos_uids**:
           - AHeyOArgvGM8P9
         - **escalada**: Pulando a cerca
+        - **setor**: Setor Udão
         - **ids**:
           - AHeyOArgvGM8P9
       - **[1]**:
@@ -4590,6 +4746,7 @@
         - **pontos_uids**:
           - DnzcoRdhU1hFcr
         - **escalada**: Cerca Elétrica
+        - **setor**: Setor Udão
         - **ids**:
           - DnzcoRdhU1hFcr
       - **[2]**:
@@ -4597,6 +4754,7 @@
         - **pontos_uids**:
           - dnEVA0bIfq3FBi
         - **escalada**: Clube da Esquina
+        - **setor**: Setor Udão
         - **ids**:
           - dnEVA0bIfq3FBi
       - **[3]**:
@@ -4604,6 +4762,7 @@
         - **pontos_uids**:
           - nlVYVc9EODbL6M
         - **escalada**: Chuva de Meteoros
+        - **setor**: Setor Udão
         - **ids**:
           - nlVYVc9EODbL6M
       - **[4]**:
@@ -4611,6 +4770,7 @@
         - **pontos_uids**:
           - 3mPEvyaas7dWHx
         - **escalada**: Pit Bitoca
+        - **setor**: Setor Udão
         - **ids**:
           - 3mPEvyaas7dWHx
       - **[5]**:
@@ -4618,6 +4778,7 @@
         - **pontos_uids**:
           - 4INVlIPpmgU0qV
         - **escalada**: Jovem Ganso
+        - **setor**: Setor Udão
         - **ids**:
           - 4INVlIPpmgU0qV
   - **[1]**:
@@ -4694,6 +4855,7 @@
         - **pontos_uids**:
           - AG9ezkMldrsn60
         - **escalada**: Filho de Vó
+        - **setor**: Setor Udão
         - **ids**:
           - AG9ezkMldrsn60
       - **[1]**:
@@ -4701,6 +4863,7 @@
         - **pontos_uids**:
           - i5lZR5PSYwfwE8
         - **escalada**: Chuva de Verão
+        - **setor**: Setor Udão
         - **ids**:
           - i5lZR5PSYwfwE8
       - **[2]**:
@@ -4708,6 +4871,7 @@
         - **pontos_uids**:
           - UeYdT2rFbWeIO2
         - **escalada**: Pole Dance
+        - **setor**: Setor Udão
         - **ids**:
           - UeYdT2rFbWeIO2
       - **[3]**:
@@ -4715,6 +4879,7 @@
         - **pontos_uids**:
           - v2Wp4Z7p5EzuAj
         - **escalada**: Brusqueta do Cerrado
+        - **setor**: Setor Udão
         - **ids**:
           - v2Wp4Z7p5EzuAj
       - **[4]**:
@@ -4722,6 +4887,7 @@
         - **pontos_uids**:
           - gzGHt5BlEYXU4l
         - **escalada**: Rota Aérea
+        - **setor**: Setor Udão
         - **ids**:
           - gzGHt5BlEYXU4l
       - **[5]**:
@@ -4729,6 +4895,7 @@
         - **pontos_uids**:
           - LGS8CPiTaAOzDL
         - **escalada**: Loucura Alheia
+        - **setor**: Setor Udão
         - **ids**:
           - LGS8CPiTaAOzDL
       - **[6]**:
@@ -4736,6 +4903,7 @@
         - **pontos_uids**:
           - z7JuoTTUWsL2F6
         - **escalada**: Mistério de Ramadã
+        - **setor**: Setor Udão
         - **ids**:
           - z7JuoTTUWsL2F6
 - **escaladas**:
@@ -4971,6 +5139,7 @@
         - **pontos_uids**:
           - jsnhRlqh8PYw4C
         - **escalada**: Jaratataca
+        - **setor**: Setor Tereza
         - **ids**:
           - jsnhRlqh8PYw4C
       - **[1]**:
@@ -4978,6 +5147,7 @@
         - **pontos_uids**:
           - Q9scflgF5tKf7Q
         - **escalada**: Grito da Aranha
+        - **setor**: Setor Tereza
         - **ids**:
           - Q9scflgF5tKf7Q
       - **[2]**:
@@ -4985,6 +5155,7 @@
         - **pontos_uids**:
           - ZNBxU5Np5v3rBX
         - **escalada**: Melhor Opção
+        - **setor**: Setor Tereza
         - **ids**:
           - ZNBxU5Np5v3rBX
       - **[3]**:
@@ -4992,6 +5163,7 @@
         - **pontos_uids**:
           - xts4vHnP8tqmht
         - **escalada**: Rapa do Tacho
+        - **setor**: Setor Tereza
         - **ids**:
           - xts4vHnP8tqmht
       - **[4]**:
@@ -4999,6 +5171,7 @@
         - **pontos_uids**:
           - eWwQT4zVzTXSrT
         - **escalada**: Carrapato não tem Pai
+        - **setor**: Setor Tereza
         - **ids**:
           - eWwQT4zVzTXSrT
       - **[5]**:
@@ -5006,6 +5179,7 @@
         - **pontos_uids**:
           - 8Xvl9JGHXDkANZ
         - **escalada**: Barriga Verde
+        - **setor**: Setor Tereza
         - **ids**:
           - 8Xvl9JGHXDkANZ
   - **[1]**:
@@ -5028,6 +5202,7 @@
         - **pontos_uids**:
           - ciUqgfQcb73IcX
         - **escalada**: Barriga Verde
+        - **setor**: Setor Tereza
         - **ids**:
           - ciUqgfQcb73IcX
 - **escaladas**:
@@ -5174,6 +5349,7 @@
         - **pontos_uids**:
           - w8LEhOvZahBt0d
         - **escalada**: Carapuça
+        - **setor**: Setor Bem-vindo
         - **ids**:
           - w8LEhOvZahBt0d
       - **[1]**:
@@ -5181,6 +5357,7 @@
         - **pontos_uids**:
           - 0JChhWNO08tVzr
         - **escalada**: Sainhaca
+        - **setor**: Setor Bem-vindo
         - **ids**:
           - 0JChhWNO08tVzr
       - **[2]**:
@@ -5188,6 +5365,7 @@
         - **pontos_uids**:
           - HnWMGgZrbhzWVB
         - **escalada**: Excalibur
+        - **setor**: Setor Bem-vindo
         - **ids**:
           - HnWMGgZrbhzWVB
       - **[3]**:
@@ -5195,6 +5373,7 @@
         - **pontos_uids**:
           - Hahak9R6aj1v5b
         - **escalada**: Só as Cachorras
+        - **setor**: Setor Bem-vindo
         - **ids**:
           - Hahak9R6aj1v5b
       - **[4]**:
@@ -5202,6 +5381,7 @@
         - **pontos_uids**:
           - X8b1Z8K6CzoucU
         - **escalada**: Lendárias 11 Vacas
+        - **setor**: Setor Bem-vindo
         - **ids**:
           - X8b1Z8K6CzoucU
   - **[1]**:
@@ -5251,6 +5431,7 @@
         - **pontos_uids**:
           - MguiTufKeNXtSC
         - **escalada**: Chapeleta Voadora
+        - **setor**: Setor Bem-vindo
         - **ids**:
           - MguiTufKeNXtSC
       - **[1]**:
@@ -5258,6 +5439,7 @@
         - **pontos_uids**:
           - OjmllxTaIIA9IT
         - **escalada**: Pau Podre
+        - **setor**: Setor Bem-vindo
         - **ids**:
           - OjmllxTaIIA9IT
       - **[2]**:
@@ -5265,6 +5447,7 @@
         - **pontos_uids**:
           - ELHAzDpnHM1fRE
         - **escalada**: Bonsai Cearense
+        - **setor**: Setor Bem-vindo
         - **ids**:
           - ELHAzDpnHM1fRE
       - **[3]**:
@@ -5272,6 +5455,7 @@
         - **pontos_uids**:
           - nf5cdU4DiBadLg
         - **escalada**: Macaco Velho
+        - **setor**: Setor Bem-vindo
         - **ids**:
           - nf5cdU4DiBadLg
   - **[2]**:
@@ -5339,6 +5523,7 @@
         - **pontos_uids**:
           - 9ZcilwtFHEfyeq
         - **escalada**: Sargento Pincel
+        - **setor**: Setor Bem-vindo
         - **ids**:
           - 9ZcilwtFHEfyeq
       - **[1]**:
@@ -5346,6 +5531,7 @@
         - **pontos_uids**:
           - Q2200nGa3tnkwD
         - **escalada**: Proparoxítona
+        - **setor**: Setor Bem-vindo
         - **ids**:
           - Q2200nGa3tnkwD
       - **[2]**:
@@ -5353,6 +5539,7 @@
         - **pontos_uids**:
           - 69ymiLK8grHszV
         - **escalada**: Volte Sempre
+        - **setor**: Setor Bem-vindo
         - **ids**:
           - 69ymiLK8grHszV
       - **[3]**:
@@ -5360,6 +5547,7 @@
         - **pontos_uids**:
           - d3hTGiP94VR0V8
         - **escalada**: Espírito de Equipe
+        - **setor**: Setor Bem-vindo
         - **ids**:
           - d3hTGiP94VR0V8
       - **[4]**:
@@ -5367,6 +5555,7 @@
         - **pontos_uids**:
           - QKJmWTjZqfd9ot
         - **escalada**: Bonsai Cearense
+        - **setor**: Setor Bem-vindo
         - **ids**:
           - QKJmWTjZqfd9ot
       - **[5]**:
@@ -5374,6 +5563,7 @@
         - **pontos_uids**:
           - SEU4YTGVyE6oi7
         - **escalada**: Macaco Velho
+        - **setor**: Setor Bem-vindo
         - **ids**:
           - SEU4YTGVyE6oi7
   - **[3]**:
@@ -5441,6 +5631,7 @@
         - **pontos_uids**:
           - R30WB7YYFrXWYx
         - **escalada**: Bem-vindo
+        - **setor**: Setor Bem-vindo
         - **ids**:
           - R30WB7YYFrXWYx
       - **[1]**:
@@ -5448,6 +5639,7 @@
         - **pontos_uids**:
           - LNWoXCrSSTpEnB
         - **escalada**: Ganja no País das Maravilhas
+        - **setor**: Setor Bem-vindo
         - **ids**:
           - LNWoXCrSSTpEnB
       - **[2]**:
@@ -5455,6 +5647,7 @@
         - **pontos_uids**:
           - GYfId5JUPhKZNy
         - **escalada**: Ritual Satânico
+        - **setor**: Setor Bem-vindo
         - **ids**:
           - GYfId5JUPhKZNy
       - **[3]**:
@@ -5462,6 +5655,7 @@
         - **pontos_uids**:
           - IDEya5KaOPrYoL
         - **escalada**: Sweet Home Alabama
+        - **setor**: Setor Bem-vindo
         - **ids**:
           - IDEya5KaOPrYoL
       - **[4]**:
@@ -5469,6 +5663,7 @@
         - **pontos_uids**:
           - tcWBwvJRc9nIre
         - **escalada**: Show de Calouros
+        - **setor**: Setor Bem-vindo
         - **ids**:
           - tcWBwvJRc9nIre
       - **[5]**:
@@ -5476,6 +5671,7 @@
         - **pontos_uids**:
           - YNkkHnugBo71S2
         - **escalada**: Permissão Concebida
+        - **setor**: Setor Tetos
         - **ids**:
           - YNkkHnugBo71S2
 - **escaladas**:
@@ -5783,6 +5979,7 @@
         - **pontos_uids**:
           - VVmeYDqpqUrzMC
         - **escalada**: Permissão Concebida
+        - **setor**: Setor Tetos
         - **ids**:
           - VVmeYDqpqUrzMC
       - **[1]**:
@@ -5790,6 +5987,7 @@
         - **pontos_uids**:
           - klTvqOpElXFtgd
         - **escalada**: Bocaina Aventura
+        - **setor**: Setor Tetos
         - **ids**:
           - klTvqOpElXFtgd
       - **[2]**:
@@ -5797,6 +5995,7 @@
         - **pontos_uids**:
           - aCgwCXtfdEbGQT
         - **escalada**: O Vento Levou
+        - **setor**: Setor Tetos
         - **ids**:
           - aCgwCXtfdEbGQT
       - **[3]**:
@@ -5804,6 +6003,7 @@
         - **pontos_uids**:
           - Ev61OAHQxfQ3KJ
         - **escalada**: Titan
+        - **setor**: Setor Tetos
         - **ids**:
           - Ev61OAHQxfQ3KJ
       - **[4]**:
@@ -5811,6 +6011,7 @@
         - **pontos_uids**:
           - iH5LFhDzwiIzV1
         - **escalada**: Mirian
+        - **setor**: Setor Tetos
         - **ids**:
           - iH5LFhDzwiIzV1
       - **[5]**:
@@ -5818,6 +6019,7 @@
         - **pontos_uids**:
           - yZmZDY7gw9ttxJ
         - **escalada**: Hipnose
+        - **setor**: Setor Tetos
         - **ids**:
           - yZmZDY7gw9ttxJ
       - **[6]**:
@@ -5825,6 +6027,7 @@
         - **pontos_uids**:
           - 8lIT9GjjTrKPdh
         - **escalada**: Resta Um
+        - **setor**: Setor Tetos
         - **ids**:
           - 8lIT9GjjTrKPdh
       - **[7]**:
@@ -5832,6 +6035,7 @@
         - **pontos_uids**:
           - Pa68eSDpzyjJfi
         - **escalada**: Medo de quê Aresta
+        - **setor**: Setor Tetos
         - **ids**:
           - Pa68eSDpzyjJfi
   - **[1]**:
@@ -5917,6 +6121,7 @@
         - **pontos_uids**:
           - Z6NhxYvDiEoqUP
         - **escalada**: Zumbi da Bocaina
+        - **setor**: Setor Tetos
         - **ids**:
           - Z6NhxYvDiEoqUP
       - **[1]**:
@@ -5924,6 +6129,7 @@
         - **pontos_uids**:
           - 7LXkoKbvttlkeP
         - **escalada**: Curta e Grossa
+        - **setor**: Setor Tetos
         - **ids**:
           - 7LXkoKbvttlkeP
       - **[2]**:
@@ -5931,6 +6137,7 @@
         - **pontos_uids**:
           - m9IUzqvFgPqfBG
         - **escalada**: Menos Curta e Mais Grossa
+        - **setor**: Setor Tetos
         - **ids**:
           - m9IUzqvFgPqfBG
       - **[3]**:
@@ -5938,6 +6145,7 @@
         - **pontos_uids**:
           - hINRwGKdOLvPCz
         - **escalada**: El Corazon
+        - **setor**: Setor Tetos
         - **ids**:
           - hINRwGKdOLvPCz
       - **[4]**:
@@ -5945,6 +6153,7 @@
         - **pontos_uids**:
           - hD0GfEH3ZOcve2
         - **escalada**: Sombra e Água Fresca
+        - **setor**: Setor Tetos
         - **ids**:
           - hD0GfEH3ZOcve2
       - **[5]**:
@@ -5952,6 +6161,7 @@
         - **pontos_uids**:
           - UcJkDe1qScRH9k
         - **escalada**: Vitamina C
+        - **setor**: Setor Tetos
         - **ids**:
           - UcJkDe1qScRH9k
       - **[6]**:
@@ -5959,6 +6169,7 @@
         - **pontos_uids**:
           - 8uZhSl99JsXxW1
         - **escalada**: Mão de Vaca
+        - **setor**: Setor Tetos
         - **ids**:
           - 8uZhSl99JsXxW1
       - **[7]**:
@@ -5966,6 +6177,7 @@
         - **pontos_uids**:
           - TBReM08vDSQoNC
         - **escalada**: Pressão Psicológica
+        - **setor**: Setor Tetos
         - **ids**:
           - TBReM08vDSQoNC
   - **[2]**:
@@ -6015,6 +6227,7 @@
         - **pontos_uids**:
           - xGj9tV6IsE76OZ
         - **escalada**: Natural Climb
+        - **setor**: Setor Tetos
         - **ids**:
           - xGj9tV6IsE76OZ
       - **[1]**:
@@ -6022,6 +6235,7 @@
         - **pontos_uids**:
           - h0BP1Iv3C8nojt
         - **escalada**: Chape
+        - **setor**: Setor Tetos
         - **ids**:
           - h0BP1Iv3C8nojt
       - **[2]**:
@@ -6029,6 +6243,7 @@
         - **pontos_uids**:
           - 5P2vYzXR2JTyC5
         - **escalada**: Comando Delta
+        - **setor**: Setor Tetos
         - **ids**:
           - 5P2vYzXR2JTyC5
       - **[3]**:
@@ -6036,6 +6251,7 @@
         - **pontos_uids**:
           - 57zwLNC4NB1QgE
         - **escalada**: Rachando os Bico
+        - **setor**: Setor Tetos
         - **ids**:
           - 57zwLNC4NB1QgE
   - **[3]**:
@@ -6121,6 +6337,7 @@
         - **pontos_uids**:
           - XweVblYrpqTYtU
         - **escalada**: Mato Seco
+        - **setor**: Setor Tetos
         - **ids**:
           - XweVblYrpqTYtU
       - **[1]**:
@@ -6128,6 +6345,7 @@
         - **pontos_uids**:
           - aiUzgymVH79URH
         - **escalada**: De um jeito ou de Outro
+        - **setor**: Setor Tetos
         - **ids**:
           - aiUzgymVH79URH
       - **[2]**:
@@ -6135,6 +6353,7 @@
         - **pontos_uids**:
           - rLOiwo9onNuREd
         - **escalada**: Arapuá
+        - **setor**: Setor Tetos
         - **ids**:
           - rLOiwo9onNuREd
       - **[3]**:
@@ -6142,6 +6361,7 @@
         - **pontos_uids**:
           - BZdr830a6PWwSC
         - **escalada**: Carcará Uru
+        - **setor**: Setor Tetos
         - **ids**:
           - BZdr830a6PWwSC
       - **[4]**:
@@ -6149,6 +6369,7 @@
         - **pontos_uids**:
           - Pm9tbpsxXhTxBy
         - **escalada**: Rapadura
+        - **setor**: Setor Tetos
         - **ids**:
           - Pm9tbpsxXhTxBy
       - **[5]**:
@@ -6156,6 +6377,7 @@
         - **pontos_uids**:
           - 1QHYZAEvriEn06
         - **escalada**: Zé Bunitim
+        - **setor**: Setor Tetos
         - **ids**:
           - 1QHYZAEvriEn06
       - **[6]**:
@@ -6163,6 +6385,7 @@
         - **pontos_uids**:
           - nW2u62ZMKkWEgh
         - **escalada**: Vai ser Fei
+        - **setor**: Setor Tetos
         - **ids**:
           - nW2u62ZMKkWEgh
       - **[7]**:
@@ -6170,6 +6393,7 @@
         - **pontos_uids**:
           - owKBZE3xVZYpir
         - **escalada**: Estrela Solitária
+        - **setor**: Setor Tetos
         - **ids**:
           - owKBZE3xVZYpir
   - **[4]**:
@@ -6255,6 +6479,7 @@
         - **pontos_uids**:
           - akOsodANt89xcy
         - **escalada**: Vergateza
+        - **setor**: Setor Tetos
         - **ids**:
           - akOsodANt89xcy
       - **[1]**:
@@ -6262,6 +6487,7 @@
         - **pontos_uids**:
           - mTDNcu4v9nLF71
         - **escalada**: Chico Curandeiro
+        - **setor**: Setor Tetos
         - **ids**:
           - mTDNcu4v9nLF71
       - **[2]**:
@@ -6269,6 +6495,7 @@
         - **pontos_uids**:
           - wz3w3L8BZbA8Ps
         - **escalada**: Reforma Trabalhista
+        - **setor**: Setor Tetos
         - **ids**:
           - wz3w3L8BZbA8Ps
       - **[3]**:
@@ -6276,6 +6503,7 @@
         - **pontos_uids**:
           - DWuZZuNmE9lhMm
         - **escalada**: Arborigenas
+        - **setor**: Setor Tetos
         - **ids**:
           - DWuZZuNmE9lhMm
       - **[4]**:
@@ -6283,6 +6511,7 @@
         - **pontos_uids**:
           - ALCNfLwr14TJgb
         - **escalada**: Faz sua Parte
+        - **setor**: Setor Tetos
         - **ids**:
           - ALCNfLwr14TJgb
       - **[5]**:
@@ -6290,6 +6519,7 @@
         - **pontos_uids**:
           - ba6Q0RjorgFJP7
         - **escalada**: Delirando
+        - **setor**: Setor Tetos
         - **ids**:
           - ba6Q0RjorgFJP7
       - **[6]**:
@@ -6297,6 +6527,7 @@
         - **pontos_uids**:
           - vmCeTpXHJkG5YU
         - **escalada**: Saraiva
+        - **setor**: Setor Tetos
         - **ids**:
           - vmCeTpXHJkG5YU
       - **[7]**:
@@ -6304,6 +6535,7 @@
         - **pontos_uids**:
           - TZopm3wqMLsNCq
         - **escalada**: Rolando Lero
+        - **setor**: Setor Tetos
         - **ids**:
           - TZopm3wqMLsNCq
   - **[5]**:
@@ -6362,6 +6594,7 @@
         - **pontos_uids**:
           - dDQ5kKPVTlQ5Cs
         - **escalada**: Jardinagem
+        - **setor**: Setor Tetos
         - **ids**:
           - dDQ5kKPVTlQ5Cs
       - **[1]**:
@@ -6369,6 +6602,7 @@
         - **pontos_uids**:
           - 8gwxepUxMglsmu
         - **escalada**: Soldados do Sol
+        - **setor**: Setor Tetos
         - **ids**:
           - 8gwxepUxMglsmu
       - **[2]**:
@@ -6376,6 +6610,7 @@
         - **pontos_uids**:
           - w81UJxCpYoklGL
         - **escalada**: Metamorfose Ambulante
+        - **setor**: Setor Tetos
         - **ids**:
           - w81UJxCpYoklGL
       - **[3]**:
@@ -6383,6 +6618,7 @@
         - **pontos_uids**:
           - 7D7qfyXe6GKMjw
         - **escalada**: Baby Rasta
+        - **setor**: Setor Tetos
         - **ids**:
           - 7D7qfyXe6GKMjw
       - **[4]**:
@@ -6390,6 +6626,7 @@
         - **pontos_uids**:
           - MddszylTmeQ098
         - **escalada**: Cara ou Crachá
+        - **setor**: Setor Tetos
         - **ids**:
           - MddszylTmeQ098
 - **escaladas**:
@@ -6931,6 +7168,7 @@
         - **pontos_uids**:
           - iwYgC4aJ56Q7n1
         - **escalada**: Torrecitas
+        - **setor**: Setor Segundo Andar
         - **ids**:
           - iwYgC4aJ56Q7n1
       - **[1]**:
@@ -6938,6 +7176,7 @@
         - **pontos_uids**:
           - Qku4cX6BPewmqD
         - **escalada**: Mula Preta
+        - **setor**: Setor Segundo Andar
         - **ids**:
           - Qku4cX6BPewmqD
       - **[2]**:
@@ -6945,6 +7184,7 @@
         - **pontos_uids**:
           - 9DGG4VeBXV43cN
         - **escalada**: Homem de Ferro
+        - **setor**: Setor Segundo Andar
         - **ids**:
           - 9DGG4VeBXV43cN
       - **[3]**:
@@ -6952,6 +7192,7 @@
         - **pontos_uids**:
           - crXh3CmLA53Vfz
         - **escalada**: Paraíba Francês
+        - **setor**: Setor Segundo Andar
         - **ids**:
           - crXh3CmLA53Vfz
       - **[4]**:
@@ -6959,6 +7200,7 @@
         - **pontos_uids**:
           - CJ3JdTiqiZt33R
         - **escalada**: Quaresmeira
+        - **setor**: Setor Segundo Andar
         - **ids**:
           - CJ3JdTiqiZt33R
       - **[5]**:
@@ -6966,6 +7208,7 @@
         - **pontos_uids**:
           - 1ewpRMv6Ryj1PP
         - **escalada**: 007 em... O Ataque das Andorinhas
+        - **setor**: Setor Segundo Andar
         - **ids**:
           - 1ewpRMv6Ryj1PP
       - **[6]**:
@@ -6973,6 +7216,7 @@
         - **pontos_uids**:
           - k2ndXucmZJ8mLM
         - **escalada**: Jogo Limpo
+        - **setor**: Setor Segundo Andar
         - **ids**:
           - k2ndXucmZJ8mLM
   - **[1]**:
@@ -7022,6 +7266,7 @@
         - **pontos_uids**:
           - o1GWF7gBXJN9iZ
         - **escalada**: Rock Balboa
+        - **setor**: Setor Segundo Andar
         - **ids**:
           - o1GWF7gBXJN9iZ
       - **[1]**:
@@ -7029,6 +7274,7 @@
         - **pontos_uids**:
           - HRrlEogkFlP1Kb
         - **escalada**: Xodó da Bocaina
+        - **setor**: Setor Segundo Andar
         - **ids**:
           - HRrlEogkFlP1Kb
       - **[2]**:
@@ -7036,6 +7282,7 @@
         - **pontos_uids**:
           - ez4EG55dLdavku
         - **escalada**: James Bond
+        - **setor**: Setor Segundo Andar
         - **ids**:
           - ez4EG55dLdavku
       - **[3]**:
@@ -7043,6 +7290,7 @@
         - **pontos_uids**:
           - 9xvISV21bpDV01
         - **escalada**: Apolo o Doutrinador
+        - **setor**: Setor Segundo Andar
         - **ids**:
           - 9xvISV21bpDV01
 - **escaladas**:
@@ -7266,6 +7514,7 @@
         - **pontos_uids**:
           - 0z6BsJvzvwywYg
         - **escalada**: Uphill
+        - **setor**: Setor Pirados de Rocha
         - **ids**:
           - 0z6BsJvzvwywYg
       - **[1]**:
@@ -7273,6 +7522,7 @@
         - **pontos_uids**:
           - qKbJYXmdKGlZo0
         - **escalada**: Dilma Roussef
+        - **setor**: Setor Pirados de Rocha
         - **ids**:
           - qKbJYXmdKGlZo0
       - **[2]**:
@@ -7280,6 +7530,7 @@
         - **pontos_uids**:
           - FDgUxqzrKvcWFU
         - **escalada**: Renan Calheiros
+        - **setor**: Setor Pirados de Rocha
         - **ids**:
           - FDgUxqzrKvcWFU
       - **[3]**:
@@ -7287,6 +7538,7 @@
         - **pontos_uids**:
           - oG1YAXAb7MQQUh
         - **escalada**: Sérgio Moro
+        - **setor**: Setor Pirados de Rocha
         - **ids**:
           - oG1YAXAb7MQQUh
       - **[4]**:
@@ -7294,6 +7546,7 @@
         - **pontos_uids**:
           - lH443PEkiSko3A
         - **escalada**: Pirados de Rocha
+        - **setor**: Setor Pirados de Rocha
         - **ids**:
           - lH443PEkiSko3A
       - **[5]**:
@@ -7301,6 +7554,7 @@
         - **pontos_uids**:
           - rGJfhdjaqJK8pw
         - **escalada**: Qualidade de Vida
+        - **setor**: Setor Pirados de Rocha
         - **ids**:
           - rGJfhdjaqJK8pw
       - **[6]**:
@@ -7308,6 +7562,7 @@
         - **pontos_uids**:
           - OuAdkCsVHrBpIz
         - **escalada**: Lava Jato
+        - **setor**: Setor Pirados de Rocha
         - **ids**:
           - OuAdkCsVHrBpIz
 - **escaladas**:

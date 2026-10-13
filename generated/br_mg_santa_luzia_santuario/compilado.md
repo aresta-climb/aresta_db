@@ -297,6 +297,7 @@
         - **pontos_uids**:
           - 5caHtx0USsLuXE
         - **escalada**: POLLY SHELBY
+        - **setor**: Setor Clube da Luta
         - **ids**:
           - 5caHtx0USsLuXE
       - **[1]**:
@@ -304,6 +305,7 @@
         - **pontos_uids**:
           - 4nUqameJuWByjY
         - **escalada**: BLACK DOG
+        - **setor**: Setor Clube da Luta
         - **ids**:
           - 4nUqameJuWByjY
       - **[2]**:
@@ -311,6 +313,7 @@
         - **pontos_uids**:
           - PKEIU5xrTViV4u
         - **escalada**: INCONSCIENTE COLETIVO
+        - **setor**: Setor Clube da Luta
         - **ids**:
           - PKEIU5xrTViV4u
       - **[3]**:
@@ -318,6 +321,7 @@
         - **pontos_uids**:
           - cPyEV9xJfCLzJw
         - **escalada**: DISCÍPULOS DE BIBIU
+        - **setor**: Setor Clube da Luta
         - **ids**:
           - cPyEV9xJfCLzJw
       - **[4]**:
@@ -325,6 +329,7 @@
         - **pontos_uids**:
           - CQZGHvjK7GAMfl
         - **escalada**: EL NINHO
+        - **setor**: Setor Clube da Luta
         - **ids**:
           - CQZGHvjK7GAMfl
       - **[5]**:
@@ -332,6 +337,7 @@
         - **pontos_uids**:
           - ani0Cd2ScdUS8V
         - **escalada**: O PECADOR
+        - **setor**: Setor Clube da Luta
         - **ids**:
           - ani0Cd2ScdUS8V
       - **[6]**:
@@ -339,6 +345,7 @@
         - **pontos_uids**:
           - L3qZxGtZ7JzM3s
         - **escalada**: PROMESSA É DÍVIDA
+        - **setor**: Setor Clube da Luta
         - **ids**:
           - L3qZxGtZ7JzM3s
       - **[7]**:
@@ -346,6 +353,7 @@
         - **pontos_uids**:
           - l93L7Sv9Apadb7
         - **escalada**: RINS DE PEDRA
+        - **setor**: Setor Clube da Luta
         - **ids**:
           - l93L7Sv9Apadb7
       - **[8]**:
@@ -353,6 +361,7 @@
         - **pontos_uids**:
           - Yy7MQ04t4c3XQs
         - **escalada**: PAGADOR DE PROMESSA
+        - **setor**: Setor Clube da Luta
         - **ids**:
           - Yy7MQ04t4c3XQs
       - **[9]**:
@@ -360,6 +369,7 @@
         - **pontos_uids**:
           - ifCnkD1PChI33A
         - **escalada**: BIBI CORAGEM
+        - **setor**: Setor Clube da Luta
         - **ids**:
           - ifCnkD1PChI33A
       - **[10]**:
@@ -367,6 +377,7 @@
         - **pontos_uids**:
           - JwJPu1EwKEa0hO
         - **escalada**: DE MALANDRO A GRANFINO
+        - **setor**: Setor Clube da Luta
         - **ids**:
           - JwJPu1EwKEa0hO
       - **[11]**:
@@ -374,6 +385,7 @@
         - **pontos_uids**:
           - NbbZyv9WjxV93Z
         - **escalada**: CLUBE DA LUTA
+        - **setor**: Setor Clube da Luta
         - **ids**:
           - NbbZyv9WjxV93Z
       - **[12]**:
@@ -381,6 +393,7 @@
         - **pontos_uids**:
           - BqqNDnhekUq1U6
         - **escalada**: ROLO COMPRESSOR
+        - **setor**: Setor Clube da Luta
         - **ids**:
           - BqqNDnhekUq1U6
       - **[13]**:
@@ -388,6 +401,7 @@
         - **pontos_uids**:
           - NbsNYPGnO8ZRPE
         - **escalada**: O ESPECIALISTA
+        - **setor**: Setor Clube da Luta
         - **ids**:
           - NbsNYPGnO8ZRPE
       - **[14]**:
@@ -395,6 +409,7 @@
         - **pontos_uids**:
           - OQrtyMk8eSK1yC
         - **escalada**: O GUARDA COSTA
+        - **setor**: Setor Clube da Luta
         - **ids**:
           - OQrtyMk8eSK1yC
       - **[15]**:
@@ -402,6 +417,7 @@
         - **pontos_uids**:
           - TaqT90SZbGbfKW
         - **escalada**: MARIA MADALENA
+        - **setor**: Setor Clube da Luta
         - **ids**:
           - TaqT90SZbGbfKW
 - **escaladas**:
@@ -723,6 +739,7 @@
         - **pontos_uids**:
           - vrcQ90eof9EtSc
         - **escalada**: MEU AMIGO CHARLIE BROWN
+        - **setor**: Setor Santa Línea
         - **ids**:
           - vrcQ90eof9EtSc
       - **[1]**:
@@ -730,6 +747,7 @@
         - **pontos_uids**:
           - WtH5HsSIQgw06V
         - **escalada**: PAI NOSSO
+        - **setor**: Setor Santa Línea
         - **ids**:
           - WtH5HsSIQgw06V
       - **[2]**:
@@ -737,6 +755,7 @@
         - **pontos_uids**:
           - nILRi2lvCZmrtA
         - **escalada**: NEM TUDO É PERFEITO
+        - **setor**: Setor Santa Línea
         - **ids**:
           - nILRi2lvCZmrtA
       - **[3]**:
@@ -744,6 +763,7 @@
         - **pontos_uids**:
           - xpAfZfcazK0zWJ
         - **escalada**: DIAS DE LUTA DIAS DE GLÓRIA
+        - **setor**: Setor Santa Línea
         - **ids**:
           - xpAfZfcazK0zWJ
       - **[4]**:
@@ -751,6 +771,7 @@
         - **pontos_uids**:
           - 3IqclpeWGzDThz
         - **escalada**: MADE IN BRAZIL
+        - **setor**: Setor Santa Línea
         - **ids**:
           - 3IqclpeWGzDThz
       - **[5]**:
@@ -758,6 +779,7 @@
         - **pontos_uids**:
           - Nim96g3pfu0s0H
         - **escalada**: SANTA KLAUSS
+        - **setor**: Setor Santa Línea
         - **ids**:
           - Nim96g3pfu0s0H
       - **[6]**:
@@ -765,6 +787,7 @@
         - **pontos_uids**:
           - vPodBhUazuZ1JY
         - **escalada**: ÓPANGARE
+        - **setor**: Setor Santa Línea
         - **ids**:
           - vPodBhUazuZ1JY
       - **[7]**:
@@ -772,6 +795,7 @@
         - **pontos_uids**:
           - bqQdwuWfyUFfhL
         - **escalada**: BERBARIDADE MÁXIMA
+        - **setor**: Setor Santa Línea
         - **ids**:
           - bqQdwuWfyUFfhL
       - **[8]**:
@@ -779,6 +803,7 @@
         - **pontos_uids**:
           - Wh4fXApVg9yroD
         - **escalada**: SANTA INQUISIÇÃO
+        - **setor**: Setor Santa Línea
         - **ids**:
           - Wh4fXApVg9yroD
       - **[9]**:
@@ -786,6 +811,7 @@
         - **pontos_uids**:
           - Y44U6NvZwtaVbo
         - **escalada**: TIRANOS DE PLANTÃO
+        - **setor**: Setor Santa Línea
         - **ids**:
           - Y44U6NvZwtaVbo
       - **[10]**:
@@ -793,6 +819,7 @@
         - **pontos_uids**:
           - 2waStHT26o1Da8
         - **escalada**: SANTO GRAU
+        - **setor**: Setor Santa Línea
         - **ids**:
           - 2waStHT26o1Da8
       - **[11]**:
@@ -800,6 +827,7 @@
         - **pontos_uids**:
           - 3DSj5VEX5uNiDn
         - **escalada**: SANTA LINEA
+        - **setor**: Setor Santa Línea
         - **ids**:
           - 3DSj5VEX5uNiDn
       - **[12]**:
@@ -807,6 +835,7 @@
         - **pontos_uids**:
           - UDsuo7IAZJac4N
         - **escalada**: SÓ OS LOUCOS SABEM
+        - **setor**: Setor Santa Línea
         - **ids**:
           - UDsuo7IAZJac4N
       - **[13]**:
@@ -814,6 +843,7 @@
         - **pontos_uids**:
           - ypfDXTpXZqKNHz
         - **escalada**: CHÁ NA CARTOLINA
+        - **setor**: Setor Santa Línea
         - **ids**:
           - ypfDXTpXZqKNHz
       - **[14]**:
@@ -821,6 +851,7 @@
         - **pontos_uids**:
           - AELagKNfLaO509
         - **escalada**: AVE MARIA
+        - **setor**: Setor Santa Línea
         - **ids**:
           - AELagKNfLaO509
 - **escaladas**:
@@ -1208,6 +1239,7 @@
         - **pontos_uids**:
           - nm6TBbxUZ8KgMh
         - **escalada**: O PODER DO ROCAMBOLE
+        - **setor**: Setor Democracia
         - **ids**:
           - nm6TBbxUZ8KgMh
       - **[1]**:
@@ -1215,6 +1247,7 @@
         - **pontos_uids**:
           - pXsGhgMUUUnsxn
         - **escalada**: TETO DE VIDRO
+        - **setor**: Setor Democracia
         - **ids**:
           - pXsGhgMUUUnsxn
       - **[2]**:
@@ -1222,6 +1255,7 @@
         - **pontos_uids**:
           - lQ8KDCxKokAwwe
         - **escalada**: PECADO CAPITAL
+        - **setor**: Setor Democracia
         - **ids**:
           - lQ8KDCxKokAwwe
       - **[3]**:
@@ -1229,6 +1263,7 @@
         - **pontos_uids**:
           - yUzpfjRHkL3nLg
         - **escalada**: GÊNESIS
+        - **setor**: Setor Democracia
         - **ids**:
           - yUzpfjRHkL3nLg
       - **[4]**:
@@ -1236,6 +1271,7 @@
         - **pontos_uids**:
           - l4CvcKRjeynHc4
         - **escalada**: VIA INACABADA 1
+        - **setor**: Setor Democracia
         - **ids**:
           - l4CvcKRjeynHc4
       - **[5]**:
@@ -1243,6 +1279,7 @@
         - **pontos_uids**:
           - 2t2iBzu9fIKqDw
         - **escalada**: RIBEIRÃO DA MATA
+        - **setor**: Setor Democracia
         - **ids**:
           - 2t2iBzu9fIKqDw
       - **[6]**:
@@ -1250,6 +1287,7 @@
         - **pontos_uids**:
           - KvnyQJzAUvfFwb
         - **escalada**: SEU JOÃOZITO
+        - **setor**: Setor Democracia
         - **ids**:
           - KvnyQJzAUvfFwb
       - **[7]**:
@@ -1257,6 +1295,7 @@
         - **pontos_uids**:
           - gwCcj000hmEUyh
         - **escalada**: BUFFALO BILL
+        - **setor**: Setor Democracia
         - **ids**:
           - gwCcj000hmEUyh
       - **[8]**:
@@ -1264,6 +1303,7 @@
         - **pontos_uids**:
           - 6SrUY3w7ulJgwn
         - **escalada**: HANIBALL
+        - **setor**: Setor Democracia
         - **ids**:
           - 6SrUY3w7ulJgwn
       - **[9]**:
@@ -1271,6 +1311,7 @@
         - **pontos_uids**:
           - 2m5FIZkLxoM0Pz
         - **escalada**: DEMOCRACIA
+        - **setor**: Setor Democracia
         - **ids**:
           - 2m5FIZkLxoM0Pz
       - **[10]**:
@@ -1278,6 +1319,7 @@
         - **pontos_uids**:
           - zXALRypeurB5ZM
         - **escalada**: DIA DE REIS
+        - **setor**: Setor Democracia
         - **ids**:
           - zXALRypeurB5ZM
       - **[11]**:
@@ -1285,6 +1327,7 @@
         - **pontos_uids**:
           - reMellebzTv9BZ
         - **escalada**: JOANA D'ARC
+        - **setor**: Setor Democracia
         - **ids**:
           - reMellebzTv9BZ
       - **[12]**:
@@ -1292,6 +1335,7 @@
         - **pontos_uids**:
           - jSdHeIsNr6KE7V
         - **escalada**: ARTE SACRA
+        - **setor**: Setor Democracia
         - **ids**:
           - jSdHeIsNr6KE7V
       - **[13]**:
@@ -1299,6 +1343,7 @@
         - **pontos_uids**:
           - YHQIELl2lCHaqQ
         - **escalada**: SANTA FÉ
+        - **setor**: Setor Democracia
         - **ids**:
           - YHQIELl2lCHaqQ
       - **[14]**:
@@ -1306,6 +1351,7 @@
         - **pontos_uids**:
           - 5Cd1JMTs505tWg
         - **escalada**: VIA INACABADA 2
+        - **setor**: Setor Democracia
         - **ids**:
           - 5Cd1JMTs505tWg
 - **escaladas**:

@@ -1179,33 +1179,35 @@ def preencher_compatibilidade_legada_em_memoria(croqui_data: dict[str, Any]) -> 
     2. Campo legado label em pontos de interesse a partir de rotulo (e vice-versa).
     3. alvo_uid e pontos_uids em referências caso venham de fontes legadas com escalada/setor/grupo/ids.
     """
-    catalogo_uids: dict[str, tuple[str, str, str | None]] = {}
+    catalogo_uids: dict[str, tuple[str, str, str | None, str | None]] = {}
     catalogo_escaladas_nome: dict[tuple[str, str], str] = {}
     catalogo_escaladas_simples: dict[str, str] = {}
     catalogo_setores_nome: dict[str, str] = {}
     catalogo_grupos_nome: dict[str, str] = {}
 
-    def _catalogar_escaladas(escaladas: list[Any], setor_nome: str) -> None:
+    def _catalogar_escaladas(
+        escaladas: list[Any], setor_nome: str, grupo_nome: str | None
+    ) -> None:
         for esc in escaladas:
             if not isinstance(esc, dict):
                 continue
             esc_uid = esc.get("uid", "")
             nome_esc = _extrair_nome_escalada(esc)
             if esc_uid:
-                catalogo_uids[esc_uid] = ("escalada", nome_esc, setor_nome)
+                catalogo_uids[esc_uid] = ("escalada", nome_esc, setor_nome, grupo_nome)
             if nome_esc:
                 if setor_nome:
                     catalogo_escaladas_nome[(setor_nome, nome_esc)] = esc_uid
                 catalogo_escaladas_simples[nome_esc] = esc_uid
 
-    def _catalogar_setor(setor_conteudo: dict[str, Any]) -> None:
+    def _catalogar_setor(setor_conteudo: dict[str, Any], grupo_nome: str | None) -> None:
         setor_uid = setor_conteudo.get("uid", "")
         setor_nome = setor_conteudo.get("nome", "")
         if setor_uid:
-            catalogo_uids[setor_uid] = ("setor", setor_nome, None)
+            catalogo_uids[setor_uid] = ("setor", setor_nome, None, grupo_nome)
         if setor_nome and setor_uid:
             catalogo_setores_nome[setor_nome] = setor_uid
-        _catalogar_escaladas(setor_conteudo.get("escaladas", []), setor_nome)
+        _catalogar_escaladas(setor_conteudo.get("escaladas", []), setor_nome, grupo_nome)
 
     for pico in croqui_data.get("picos", []):
         for sg in pico.get("setores_ou_grupos", []):
@@ -1216,15 +1218,15 @@ def preencher_compatibilidade_legada_em_memoria(croqui_data: dict[str, Any]) -> 
                 grupo_uid = grupo_conteudo.get("uid", "")
                 grupo_nome = grupo_conteudo.get("nome", "")
                 if grupo_uid:
-                    catalogo_uids[grupo_uid] = ("grupo", grupo_nome, None)
+                    catalogo_uids[grupo_uid] = ("grupo", grupo_nome, None, None)
                 if grupo_nome and grupo_uid:
                     catalogo_grupos_nome[grupo_nome] = grupo_uid
                 for s in grupo_conteudo.get("setores", []):
                     setor_conteudo = s.get("conteudo") or s
-                    _catalogar_setor(setor_conteudo)
+                    _catalogar_setor(setor_conteudo, grupo_nome)
             elif "setor" in sg:
                 setor_conteudo = sg["setor"].get("conteudo") or sg["setor"]
-                _catalogar_setor(setor_conteudo)
+                _catalogar_setor(setor_conteudo, None)
 
     def _processar_mapas(obj: Any) -> None:
         if isinstance(obj, list):
@@ -1264,16 +1266,28 @@ def preencher_compatibilidade_legada_em_memoria(croqui_data: dict[str, Any]) -> 
                             continue
                         alvo_uid = ref.get("alvo_uid")
                         if alvo_uid and alvo_uid in catalogo_uids:
-                            tipo_ent, nome_ent, _ = catalogo_uids[alvo_uid]
-                            if tipo_ent == "escalada" and "escalada" not in ref:
-                                ref["escalada"] = nome_ent
-                            elif tipo_ent == "setor" and "setor" not in ref:
-                                ref["setor"] = nome_ent
-                            elif tipo_ent == "grupo" and "grupo" not in ref:
-                                ref["grupo"] = nome_ent
+                            tipo_ent, nome_ent, setor_ent, grupo_ent = catalogo_uids[alvo_uid]
+                            if tipo_ent == "escalada":
+                                if "escalada" not in ref:
+                                    ref["escalada"] = nome_ent
+                                if "setor" not in ref and setor_ent:
+                                    ref["setor"] = setor_ent
+                                if "grupo" not in ref and grupo_ent:
+                                    ref["grupo"] = grupo_ent
+                            elif tipo_ent == "setor":
+                                if "setor" not in ref:
+                                    ref["setor"] = nome_ent
+                                if "grupo" not in ref and grupo_ent:
+                                    ref["grupo"] = grupo_ent
+                            elif tipo_ent == "grupo":
+                                if "grupo" not in ref:
+                                    ref["grupo"] = nome_ent
                         elif not alvo_uid:
                             if "escalada" in ref:
-                                ref["alvo_uid"] = catalogo_escaladas_simples.get(
+                                setor_ref = ref.get("setor", "")
+                                ref["alvo_uid"] = catalogo_escaladas_nome.get(
+                                    (setor_ref, ref["escalada"]), ""
+                                ) or catalogo_escaladas_simples.get(
                                     ref["escalada"], ""
                                 )
                             elif "setor" in ref:

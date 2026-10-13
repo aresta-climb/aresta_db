@@ -200,6 +200,7 @@
         - **pontos_uids**:
           - bJb7xVraRyvZyx
         - **setor**: Setor Frigideira
+        - **grupo**: Frigideira
         - **ids**:
           - bJb7xVraRyvZyx
 - **setores**:
@@ -265,6 +266,8 @@
               - **pontos_uids**:
                 - LWaAcJwJdysZkL
               - **escalada**: Fendinha
+              - **setor**: Setor Frigideira
+              - **grupo**: Frigideira
               - **ids**:
                 - LWaAcJwJdysZkL
             - **[1]**:
@@ -272,6 +275,8 @@
               - **pontos_uids**:
                 - HZ2Ai0822hLioK
               - **escalada**: Frigideira
+              - **setor**: Setor Frigideira
+              - **grupo**: Frigideira
               - **ids**:
                 - HZ2Ai0822hLioK
             - **[2]**:
@@ -279,6 +284,8 @@
               - **pontos_uids**:
                 - zhx6e4b8hqgoLk
               - **escalada**: Teflon
+              - **setor**: Setor Frigideira
+              - **grupo**: Frigideira
               - **ids**:
                 - zhx6e4b8hqgoLk
             - **[3]**:
@@ -286,6 +293,8 @@
               - **pontos_uids**:
                 - ozo7pJ2jXMskCk
               - **escalada**: Por do sol
+              - **setor**: Setor Frigideira
+              - **grupo**: Frigideira
               - **ids**:
                 - ozo7pJ2jXMskCk
             - **[4]**:
@@ -293,6 +302,8 @@
               - **pontos_uids**:
                 - JKuLpJLLaTEL0Y
               - **escalada**: Passageiros
+              - **setor**: Setor Frigideira
+              - **grupo**: Frigideira
               - **ids**:
                 - JKuLpJLLaTEL0Y
       - **escaladas**:
@@ -368,6 +379,8 @@
               - **pontos_uids**:
                 - cXrbUyStnz6mPb
               - **escalada**: Barba Ruiva SDS
+              - **setor**: Setor Barba Ruiva
+              - **grupo**: Frigideira
               - **ids**:
                 - cXrbUyStnz6mPb
             - **[1]**:
@@ -375,6 +388,8 @@
               - **pontos_uids**:
                 - DZ4CApDj9zo9bV
               - **escalada**: Barba Ruiva
+              - **setor**: Setor Barba Ruiva
+              - **grupo**: Frigideira
               - **ids**:
                 - DZ4CApDj9zo9bV
             - **[2]**:
@@ -382,6 +397,8 @@
               - **pontos_uids**:
                 - lcaCvH4Eh5zSsS
               - **escalada**: Barba Aresta
+              - **setor**: Setor Barba Ruiva
+              - **grupo**: Frigideira
               - **ids**:
                 - lcaCvH4Eh5zSsS
         - **[1]**:
@@ -431,6 +448,8 @@
               - **pontos_uids**:
                 - 1lPfn9SUaXlVGg
               - **escalada**: Vira Folha
+              - **setor**: Setor Barba Ruiva
+              - **grupo**: Frigideira
               - **ids**:
                 - 1lPfn9SUaXlVGg
             - **[1]**:
@@ -438,6 +457,8 @@
               - **pontos_uids**:
                 - 6lb1yo9kdmWOAh
               - **escalada**: Indecisão
+              - **setor**: Setor Barba Ruiva
+              - **grupo**: Frigideira
               - **ids**:
                 - 6lb1yo9kdmWOAh
             - **[2]**:
@@ -445,6 +466,8 @@
               - **pontos_uids**:
                 - LJQhK9oGgHVCpJ
               - **escalada**: Revolução Feminina
+              - **setor**: Setor Barba Ruiva
+              - **grupo**: Frigideira
               - **ids**:
                 - LJQhK9oGgHVCpJ
             - **[3]**:
@@ -452,6 +475,8 @@
               - **pontos_uids**:
                 - LHokKOgwiy90ON
               - **escalada**: Direitos Iguais
+              - **setor**: Setor Barba Ruiva
+              - **grupo**: Frigideira
               - **ids**:
                 - LHokKOgwiy90ON
       - **escaladas**:
@@ -555,6 +580,8 @@
               - **pontos_uids**:
                 - X6xcftbyNN9PRk
               - **escalada**: Escondendo Leite
+              - **setor**: Setor Escondendo Leite
+              - **grupo**: Frigideira
               - **ids**:
                 - X6xcftbyNN9PRk
             - **[1]**:
@@ -562,6 +589,8 @@
               - **pontos_uids**:
                 - iYBabGzCPGjPDB
               - **escalada**: Principiante
+              - **setor**: Setor Escondendo Leite
+              - **grupo**: Frigideira
               - **ids**:
                 - iYBabGzCPGjPDB
             - **[2]**:
@@ -569,6 +598,8 @@
               - **pontos_uids**:
                 - h4enafcdBNwA4h
               - **escalada**: Tá o Néctar
+              - **setor**: Setor Escondendo Leite
+              - **grupo**: Frigideira
               - **ids**:
                 - h4enafcdBNwA4h
             - **[3]**:
@@ -576,6 +607,8 @@
               - **pontos_uids**:
                 - 2EMBbCNnLNtDSH
               - **escalada**: Leite Condensado
+              - **setor**: Setor Escondendo Leite
+              - **grupo**: Frigideira
               - **ids**:
                 - 2EMBbCNnLNtDSH
             - **[4]**:
@@ -583,6 +616,8 @@
               - **pontos_uids**:
                 - pCZRFe8KTC9ZI3
               - **escalada**: Leite Ninho
+              - **setor**: Setor Escondendo Leite
+              - **grupo**: Frigideira
               - **ids**:
                 - pCZRFe8KTC9ZI3
       - **escaladas**:
@@ -640,6 +675,8 @@
               - **pontos_uids**:
                 - giMcFIJN7voj9J
               - **escalada**: Rosquinha da Sogra
+              - **setor**: Setor Rosquinha da Sogra
+              - **grupo**: Frigideira
               - **ids**:
                 - giMcFIJN7voj9J
       - **escaladas**:
@@ -686,6 +723,8 @@
               - **pontos_uids**:
                 - efZPanVjt4l7dl
               - **escalada**: Casa da Sogra
+              - **setor**: Setor Casa da Sogra
+              - **grupo**: Frigideira
               - **ids**:
                 - efZPanVjt4l7dl
             - **[1]**:
@@ -693,6 +732,8 @@
               - **pontos_uids**:
                 - C9jmVGazQd1gX4
               - **escalada**: Energia
+              - **setor**: Setor Casa da Sogra
+              - **grupo**: Frigideira
               - **ids**:
                 - C9jmVGazQd1gX4
       - **escaladas**:
@@ -735,6 +776,8 @@
               - **pontos_uids**:
                 - wtNmOGwwmeROYc
               - **escalada**: O Dedo
+              - **setor**: Setor O Dedo
+              - **grupo**: Frigideira
               - **ids**:
                 - wtNmOGwwmeROYc
       - **escaladas**:
@@ -819,6 +862,8 @@
               - **pontos_uids**:
                 - d9xKgaIhYYcFNM
               - **escalada**: O Profeta
+              - **setor**: Setor O Profeta
+              - **grupo**: Reza
               - **ids**:
                 - d9xKgaIhYYcFNM
             - **[1]**:
@@ -826,6 +871,8 @@
               - **pontos_uids**:
                 - 4o1g6JRVdtPlas
               - **escalada**: Êxodos
+              - **setor**: Setor O Profeta
+              - **grupo**: Reza
               - **ids**:
                 - 4o1g6JRVdtPlas
             - **[2]**:
@@ -833,6 +880,8 @@
               - **pontos_uids**:
                 - EwGHLyKQKNOqmD
               - **escalada**: Maomé
+              - **setor**: Setor O Profeta
+              - **grupo**: Reza
               - **ids**:
                 - EwGHLyKQKNOqmD
       - **escaladas**:
@@ -926,6 +975,8 @@
               - **pontos_uids**:
                 - 3Fec0nII1QMcHC
               - **escalada**: Rezando pra São Longuinho
+              - **setor**: Setor Reza
+              - **grupo**: Reza
               - **ids**:
                 - 3Fec0nII1QMcHC
             - **[1]**:
@@ -933,6 +984,8 @@
               - **pontos_uids**:
                 - P8UbIqr28Pwcvu
               - **escalada**: Reza Forte
+              - **setor**: Setor Reza
+              - **grupo**: Reza
               - **ids**:
                 - P8UbIqr28Pwcvu
             - **[2]**:
@@ -940,6 +993,8 @@
               - **pontos_uids**:
                 - Y5Kwg2PZ3Nwv8o
               - **escalada**: Reza Braba
+              - **setor**: Setor Reza
+              - **grupo**: Reza
               - **ids**:
                 - Y5Kwg2PZ3Nwv8o
             - **[3]**:
@@ -947,6 +1002,8 @@
               - **pontos_uids**:
                 - KkOG6H7BHylSwO
               - **escalada**: Padre Nosso
+              - **setor**: Setor Reza
+              - **grupo**: Reza
               - **ids**:
                 - KkOG6H7BHylSwO
             - **[4]**:
@@ -954,6 +1011,8 @@
               - **pontos_uids**:
                 - KelirNRIglgX1p
               - **escalada**: Reza Fria
+              - **setor**: Setor Reza
+              - **grupo**: Reza
               - **ids**:
                 - KelirNRIglgX1p
             - **[5]**:
@@ -961,6 +1020,8 @@
               - **pontos_uids**:
                 - 1gPOGG2kLtp0vb
               - **escalada**: Ave Maria
+              - **setor**: Setor Reza
+              - **grupo**: Reza
               - **ids**:
                 - 1gPOGG2kLtp0vb
       - **escaladas**:
@@ -1023,6 +1084,8 @@
               - **pontos_uids**:
                 - 6NwW8ASp3TmHax
               - **escalada**: Compressão
+              - **setor**: Setor Locomotiva
+              - **grupo**: Reza
               - **ids**:
                 - 6NwW8ASp3TmHax
         - **[1]**:
@@ -1072,6 +1135,8 @@
               - **pontos_uids**:
                 - q2g5hisJkefa4U
               - **escalada**: Locomotiva
+              - **setor**: Setor Locomotiva
+              - **grupo**: Reza
               - **ids**:
                 - q2g5hisJkefa4U
             - **[1]**:
@@ -1079,6 +1144,8 @@
               - **pontos_uids**:
                 - hlyTHLiUolVec4
               - **escalada**: Buraco
+              - **setor**: Setor Locomotiva
+              - **grupo**: Reza
               - **ids**:
                 - hlyTHLiUolVec4
             - **[2]**:
@@ -1086,6 +1153,8 @@
               - **pontos_uids**:
                 - AgB315uKlKnRjt
               - **escalada**: Projeto (Locomotiva)
+              - **setor**: Setor Locomotiva
+              - **grupo**: Reza
               - **ids**:
                 - AgB315uKlKnRjt
             - **[3]**:
@@ -1093,6 +1162,8 @@
               - **pontos_uids**:
                 - xUvhYpDTSORHG0
               - **escalada**: Desayuno
+              - **setor**: Setor Locomotiva
+              - **grupo**: Reza
               - **ids**:
                 - xUvhYpDTSORHG0
       - **escaladas**:
@@ -1167,6 +1238,8 @@
               - **pontos_uids**:
                 - eKzUwx2pfdsD2e
               - **escalada**: Batman Também Fuma
+              - **setor**: Setor Batcaverna
+              - **grupo**: Reza
               - **ids**:
                 - eKzUwx2pfdsD2e
             - **[1]**:
@@ -1174,6 +1247,8 @@
               - **pontos_uids**:
                 - qTXm2W1cpeceRX
               - **escalada**: Mulher Gato
+              - **setor**: Setor Batcaverna
+              - **grupo**: Reza
               - **ids**:
                 - qTXm2W1cpeceRX
             - **[2]**:
@@ -1181,6 +1256,8 @@
               - **pontos_uids**:
                 - hwBoMLg22PhEtW
               - **escalada**: Robin Larica
+              - **setor**: Setor Batcaverna
+              - **grupo**: Reza
               - **ids**:
                 - hwBoMLg22PhEtW
       - **escaladas**:
@@ -1246,6 +1323,8 @@
               - **pontos_uids**:
                 - 6Qbotfl9SKgABd
               - **escalada**: Apoio Resende
+              - **setor**: Setor Apoio Resende
+              - **grupo**: Reza
               - **ids**:
                 - 6Qbotfl9SKgABd
             - **[1]**:
@@ -1253,6 +1332,8 @@
               - **pontos_uids**:
                 - XdvJggNiQKYqTJ
               - **escalada**: Ranca Couro
+              - **setor**: Setor Apoio Resende
+              - **grupo**: Reza
               - **ids**:
                 - XdvJggNiQKYqTJ
             - **[2]**:
@@ -1260,6 +1341,8 @@
               - **pontos_uids**:
                 - wUhteHAWEX7lrH
               - **escalada**: Sagarana
+              - **setor**: Setor Apoio Resende
+              - **grupo**: Reza
               - **ids**:
                 - wUhteHAWEX7lrH
       - **escaladas**:
@@ -1344,6 +1427,8 @@
               - **pontos_uids**:
                 - BgTPPZT2isX7PY
               - **escalada**: Miranda
+              - **setor**: Setor Busão
+              - **grupo**: Reza
               - **ids**:
                 - BgTPPZT2isX7PY
             - **[1]**:
@@ -1351,6 +1436,8 @@
               - **pontos_uids**:
                 - tJNBswc4lpw6mn
               - **escalada**: Projeto 2
+              - **setor**: Setor Busão
+              - **grupo**: Reza
               - **ids**:
                 - tJNBswc4lpw6mn
             - **[2]**:
@@ -1358,6 +1445,8 @@
               - **pontos_uids**:
                 - PaSpuk4CWymXGh
               - **escalada**: Projeto 3
+              - **setor**: Setor Busão
+              - **grupo**: Reza
               - **ids**:
                 - PaSpuk4CWymXGh
             - **[3]**:
@@ -1365,6 +1454,8 @@
               - **pontos_uids**:
                 - Kmsg5lfvRakSMM
               - **escalada**: 8 de Março
+              - **setor**: Setor Busão
+              - **grupo**: Reza
               - **ids**:
                 - Kmsg5lfvRakSMM
             - **[4]**:
@@ -1372,6 +1463,8 @@
               - **pontos_uids**:
                 - Ul5hPtamjpt8CM
               - **escalada**: 21 de Abril
+              - **setor**: Setor Busão
+              - **grupo**: Reza
               - **ids**:
                 - Ul5hPtamjpt8CM
         - **[1]**:
@@ -1403,6 +1496,8 @@
               - **pontos_uids**:
                 - w78uHYy4NeLIwM
               - **escalada**: Clichê
+              - **setor**: Setor Busão
+              - **grupo**: Reza
               - **ids**:
                 - w78uHYy4NeLIwM
             - **[1]**:
@@ -1410,6 +1505,8 @@
               - **pontos_uids**:
                 - LANc22vlEgKD9S
               - **escalada**: Plágio
+              - **setor**: Setor Busão
+              - **grupo**: Reza
               - **ids**:
                 - LANc22vlEgKD9S
         - **[2]**:
@@ -1432,6 +1529,8 @@
               - **pontos_uids**:
                 - jGDLTVLCKcFCju
               - **escalada**: Mancha Cinza
+              - **setor**: Setor Busão
+              - **grupo**: Reza
               - **ids**:
                 - jGDLTVLCKcFCju
       - **escaladas**:
@@ -1513,6 +1612,8 @@
               - **pontos_uids**:
                 - YL1EH6IZkalKgy
               - **escalada**: Siriema
+              - **setor**: Setor Almadém
+              - **grupo**: Reza
               - **ids**:
                 - YL1EH6IZkalKgy
             - **[1]**:
@@ -1520,6 +1621,8 @@
               - **pontos_uids**:
                 - QtUObTzYRUbRsH
               - **escalada**: Mil Grau
+              - **setor**: Setor Almadém
+              - **grupo**: Reza
               - **ids**:
                 - QtUObTzYRUbRsH
         - **[1]**:
@@ -1542,6 +1645,8 @@
               - **pontos_uids**:
                 - 9gjxCgCorZr9Xj
               - **escalada**: Almadém
+              - **setor**: Setor Almadém
+              - **grupo**: Reza
               - **ids**:
                 - 9gjxCgCorZr9Xj
       - **escaladas**:
@@ -1589,6 +1694,8 @@
               - **pontos_uids**:
                 - RKFCPjyawfD90w
               - **escalada**: Lek Pression
+              - **setor**: Setor Lek Pression
+              - **grupo**: Reza
               - **ids**:
                 - RKFCPjyawfD90w
       - **escaladas**:
@@ -1664,6 +1771,8 @@
               - **pontos_uids**:
                 - baUpEiXssh7BfE
               - **escalada**: Matsuzaki
+              - **setor**: Setor Matsuzaki
+              - **grupo**: Laranjinha
               - **ids**:
                 - baUpEiXssh7BfE
             - **[1]**:
@@ -1671,6 +1780,8 @@
               - **pontos_uids**:
                 - zXPVVpSgnqlSmg
               - **escalada**: Agente Laranja
+              - **setor**: Setor Matsuzaki
+              - **grupo**: Laranjinha
               - **ids**:
                 - zXPVVpSgnqlSmg
       - **escaladas**:
@@ -1722,6 +1833,8 @@
               - **pontos_uids**:
                 - rNrwuqybgwmbci
               - **escalada**: Embutidos Não
+              - **setor**: Setor Embutidos
+              - **grupo**: Laranjinha
               - **ids**:
                 - rNrwuqybgwmbci
             - **[1]**:
@@ -1729,6 +1842,8 @@
               - **pontos_uids**:
                 - 3WFlT9LBUvD2gS
               - **escalada**: Costelinha
+              - **setor**: Setor Embutidos
+              - **grupo**: Laranjinha
               - **ids**:
                 - 3WFlT9LBUvD2gS
       - **escaladas**:
@@ -1771,6 +1886,8 @@
               - **pontos_uids**:
                 - OfbnDgsJO7ivu2
               - **escalada**: Boca de Tubarão
+              - **setor**: Setor Boca de Tubarão
+              - **grupo**: Laranjinha
               - **ids**:
                 - OfbnDgsJO7ivu2
       - **escaladas**:
@@ -1826,6 +1943,8 @@
               - **pontos_uids**:
                 - 3iBj3gXGhohtjZ
               - **escalada**: Laranjinha
+              - **setor**: Setor Laranjinha
+              - **grupo**: Laranjinha
               - **ids**:
                 - 3iBj3gXGhohtjZ
             - **[1]**:
@@ -1833,6 +1952,8 @@
               - **pontos_uids**:
                 - frX0BtX9GL5JXj
               - **escalada**: Sabotagem Feminina
+              - **setor**: Setor Laranjinha
+              - **grupo**: Laranjinha
               - **ids**:
                 - frX0BtX9GL5JXj
             - **[2]**:
@@ -1840,6 +1961,8 @@
               - **pontos_uids**:
                 - Dcayl5ZsIYnxjU
               - **escalada**: Laranja Preta
+              - **setor**: Setor Laranjinha
+              - **grupo**: Laranjinha
               - **ids**:
                 - Dcayl5ZsIYnxjU
         - **[1]**:
@@ -1880,6 +2003,8 @@
               - **pontos_uids**:
                 - 1HU0XQ3kdEXG4P
               - **escalada**: Laranja Lima
+              - **setor**: Setor Laranjinha
+              - **grupo**: Laranjinha
               - **ids**:
                 - 1HU0XQ3kdEXG4P
             - **[1]**:
@@ -1887,6 +2012,8 @@
               - **pontos_uids**:
                 - CKtW3ZSeZgFzGq
               - **escalada**: Limão Capeta
+              - **setor**: Setor Laranjinha
+              - **grupo**: Laranjinha
               - **ids**:
                 - CKtW3ZSeZgFzGq
             - **[2]**:
@@ -1894,6 +2021,8 @@
               - **pontos_uids**:
                 - r5myCKPIVfZRjb
               - **escalada**: Quincan
+              - **setor**: Setor Laranjinha
+              - **grupo**: Laranjinha
               - **ids**:
                 - r5myCKPIVfZRjb
       - **escaladas**:
@@ -1975,6 +2104,8 @@
               - **pontos_uids**:
                 - iQCn8OUPdkDNqH
               - **escalada**: Unha de Gato SDS
+              - **setor**: Setor Unha de Gato
+              - **grupo**: Laranjinha
               - **ids**:
                 - iQCn8OUPdkDNqH
             - **[1]**:
@@ -1982,6 +2113,8 @@
               - **pontos_uids**:
                 - uoWHOn0VRFLDjA
               - **escalada**: Unha de Gato
+              - **setor**: Setor Unha de Gato
+              - **grupo**: Laranjinha
               - **ids**:
                 - uoWHOn0VRFLDjA
             - **[2]**:
@@ -1989,6 +2122,8 @@
               - **pontos_uids**:
                 - jWhaBSpFehzvV3
               - **escalada**: Roçadeira
+              - **setor**: Setor Unha de Gato
+              - **grupo**: Laranjinha
               - **ids**:
                 - jWhaBSpFehzvV3
         - **[1]**:
@@ -2020,6 +2155,8 @@
               - **pontos_uids**:
                 - PtFxWDIe9yZwPC
               - **escalada**: Voilà
+              - **setor**: Setor Unha de Gato
+              - **grupo**: Laranjinha
               - **ids**:
                 - PtFxWDIe9yZwPC
             - **[1]**:
@@ -2027,6 +2164,8 @@
               - **pontos_uids**:
                 - 8Ha8HZlwDLGzz7
               - **escalada**: Saída Pela Direita
+              - **setor**: Setor Unha de Gato
+              - **grupo**: Laranjinha
               - **ids**:
                 - 8Ha8HZlwDLGzz7
       - **escaladas**:
@@ -2141,6 +2280,8 @@
               - **pontos_uids**:
                 - e32vanOpvwMWbP
               - **escalada**: Ditadura
+              - **setor**: Setor Ditadura
+              - **grupo**: Ditadura
               - **ids**:
                 - e32vanOpvwMWbP
             - **[1]**:
@@ -2148,6 +2289,8 @@
               - **pontos_uids**:
                 - nqBEu6wmbXfK7T
               - **escalada**: Democracia
+              - **setor**: Setor Ditadura
+              - **grupo**: Ditadura
               - **ids**:
                 - nqBEu6wmbXfK7T
             - **[2]**:
@@ -2155,6 +2298,8 @@
               - **pontos_uids**:
                 - x2Tx1RHKtSHFDY
               - **escalada**: Repressão
+              - **setor**: Setor Ditadura
+              - **grupo**: Ditadura
               - **ids**:
                 - x2Tx1RHKtSHFDY
             - **[3]**:
@@ -2162,6 +2307,8 @@
               - **pontos_uids**:
                 - VX0UMCDoseMSW0
               - **escalada**: Via Rupestre
+              - **setor**: Setor Ditadura
+              - **grupo**: Ditadura
               - **ids**:
                 - VX0UMCDoseMSW0
       - **escaladas**:
@@ -2233,6 +2380,8 @@
               - **pontos_uids**:
                 - u6xSvrnGIwWmek
               - **escalada**: Cachorro Louco
+              - **setor**: Setor Cabeça de Cachorro
+              - **grupo**: Ditadura
               - **ids**:
                 - u6xSvrnGIwWmek
             - **[1]**:
@@ -2240,6 +2389,8 @@
               - **pontos_uids**:
                 - me2ybVX2OVDlF3
               - **escalada**: T-Rex
+              - **setor**: Setor Cabeça de Cachorro
+              - **grupo**: Ditadura
               - **ids**:
                 - me2ybVX2OVDlF3
             - **[2]**:
@@ -2247,6 +2398,8 @@
               - **pontos_uids**:
                 - ZSqybiie5kR5xU
               - **escalada**: Rex
+              - **setor**: Setor Cabeça de Cachorro
+              - **grupo**: Ditadura
               - **ids**:
                 - ZSqybiie5kR5xU
       - **escaladas**:
@@ -2294,6 +2447,8 @@
               - **pontos_uids**:
                 - 1F5z4TrU9VnXvc
               - **escalada**: Catatau
+              - **setor**: Setor Catatau
+              - **grupo**: Ditadura
               - **ids**:
                 - 1F5z4TrU9VnXvc
       - **escaladas**:
@@ -2349,6 +2504,8 @@
               - **pontos_uids**:
                 - bUInCDR1whPUvz
               - **escalada**: Espião
+              - **setor**: Setor Espiga
+              - **grupo**: Ditadura
               - **ids**:
                 - bUInCDR1whPUvz
             - **[1]**:
@@ -2356,6 +2513,8 @@
               - **pontos_uids**:
                 - rnIauQpdr2WeqG
               - **escalada**: Espiga
+              - **setor**: Setor Espiga
+              - **grupo**: Ditadura
               - **ids**:
                 - rnIauQpdr2WeqG
             - **[2]**:
@@ -2363,6 +2522,8 @@
               - **pontos_uids**:
                 - mfAyTDj0GUHedC
               - **escalada**: Sabugo
+              - **setor**: Setor Espiga
+              - **grupo**: Ditadura
               - **ids**:
                 - mfAyTDj0GUHedC
       - **escaladas**:
@@ -2419,6 +2580,8 @@
               - **pontos_uids**:
                 - CLUecAHi8CThD2
               - **escalada**: Aero Dinâmico
+              - **setor**: Setor Aero Dinâmico
+              - **grupo**: Ditadura
               - **ids**:
                 - CLUecAHi8CThD2
             - **[1]**:
@@ -2426,6 +2589,8 @@
               - **pontos_uids**:
                 - vFFK2M6i1sMm1M
               - **escalada**: Projeto (Aero Dinâmico)
+              - **setor**: Setor Aero Dinâmico
+              - **grupo**: Ditadura
               - **ids**:
                 - vFFK2M6i1sMm1M
       - **escaladas**:
@@ -2467,6 +2632,8 @@
               - **pontos_uids**:
                 - iKWXn6szYw7c7g
               - **escalada**: Coroinha
+              - **setor**: Setor Coroinha
+              - **grupo**: Ditadura
               - **ids**:
                 - iKWXn6szYw7c7g
       - **escaladas**:
@@ -2522,6 +2689,8 @@
               - **pontos_uids**:
                 - kgLOVHVAm4VHXD
               - **escalada**: Iguana
+              - **setor**: Setor Iguana
+              - **grupo**: Ditadura
               - **ids**:
                 - kgLOVHVAm4VHXD
             - **[1]**:
@@ -2529,6 +2698,8 @@
               - **pontos_uids**:
                 - ceHG2NJiORChEa
               - **escalada**: Calango
+              - **setor**: Setor Iguana
+              - **grupo**: Ditadura
               - **ids**:
                 - ceHG2NJiORChEa
             - **[2]**:
@@ -2536,6 +2707,8 @@
               - **pontos_uids**:
                 - naptkY9qMIZYQT
               - **escalada**: Camaleão
+              - **setor**: Setor Iguana
+              - **grupo**: Ditadura
               - **ids**:
                 - naptkY9qMIZYQT
       - **escaladas**:
@@ -2583,6 +2756,8 @@
               - **pontos_uids**:
                 - F5p66LwPCoLGrZ
               - **escalada**: Faixa Preta
+              - **setor**: Setor Faixa Preta
+              - **grupo**: Ditadura
               - **ids**:
                 - F5p66LwPCoLGrZ
         - **[1]**:
@@ -2614,6 +2789,8 @@
               - **pontos_uids**:
                 - I8hW7pOVRPuvp9
               - **escalada**: Aresta Dinâmica
+              - **setor**: Setor Faixa Preta
+              - **grupo**: Ditadura
               - **ids**:
                 - I8hW7pOVRPuvp9
             - **[1]**:
@@ -2621,6 +2798,8 @@
               - **pontos_uids**:
                 - 4vwRVG4KXO4S2b
               - **escalada**: Projeto (Faixa Preta)
+              - **setor**: Setor Faixa Preta
+              - **grupo**: Ditadura
               - **ids**:
                 - 4vwRVG4KXO4S2b
       - **escaladas**:
@@ -2751,6 +2930,8 @@
               - **pontos_uids**:
                 - qwlJ5kQ1OwejeN
               - **escalada**: Liberdade de Expressão
+              - **setor**: Setor Mulher de Bigode
+              - **grupo**: Mulher de Bigode
               - **ids**:
                 - qwlJ5kQ1OwejeN
             - **[1]**:
@@ -2758,6 +2939,8 @@
               - **pontos_uids**:
                 - oyoPSpTAUlKYFT
               - **escalada**: Planta de Shiva
+              - **setor**: Setor Mulher de Bigode
+              - **grupo**: Mulher de Bigode
               - **ids**:
                 - oyoPSpTAUlKYFT
             - **[2]**:
@@ -2765,6 +2948,8 @@
               - **pontos_uids**:
                 - JV36xTjAAGsCEX
               - **escalada**: Planta de Shiva SDS
+              - **setor**: Setor Mulher de Bigode
+              - **grupo**: Mulher de Bigode
               - **ids**:
                 - JV36xTjAAGsCEX
             - **[3]**:
@@ -2772,6 +2957,8 @@
               - **pontos_uids**:
                 - ex2Uxa4fZllV4H
               - **escalada**: Planta Rara
+              - **setor**: Setor Mulher de Bigode
+              - **grupo**: Mulher de Bigode
               - **ids**:
                 - ex2Uxa4fZllV4H
             - **[4]**:
@@ -2779,6 +2966,8 @@
               - **pontos_uids**:
                 - OKJ8vcL1nJ76us
               - **escalada**: Tendinite
+              - **setor**: Setor Mulher de Bigode
+              - **grupo**: Mulher de Bigode
               - **ids**:
                 - OKJ8vcL1nJ76us
             - **[5]**:
@@ -2786,6 +2975,8 @@
               - **pontos_uids**:
                 - oVCDuK6K1qKzY6
               - **escalada**: Burning
+              - **setor**: Setor Mulher de Bigode
+              - **grupo**: Mulher de Bigode
               - **ids**:
                 - oVCDuK6K1qKzY6
             - **[6]**:
@@ -2793,6 +2984,8 @@
               - **pontos_uids**:
                 - FA4rKyKOetQBYN
               - **escalada**: Albatroz
+              - **setor**: Setor Mulher de Bigode
+              - **grupo**: Mulher de Bigode
               - **ids**:
                 - FA4rKyKOetQBYN
         - **[1]**:
@@ -2833,6 +3026,8 @@
               - **pontos_uids**:
                 - KRxYMV6lJgwJOA
               - **escalada**: Mulher de Bigode
+              - **setor**: Setor Mulher de Bigode
+              - **grupo**: Mulher de Bigode
               - **ids**:
                 - KRxYMV6lJgwJOA
             - **[1]**:
@@ -2840,6 +3035,8 @@
               - **pontos_uids**:
                 - UCkechkwvtJYWn
               - **escalada**: Homem de Saia
+              - **setor**: Setor Mulher de Bigode
+              - **grupo**: Mulher de Bigode
               - **ids**:
                 - UCkechkwvtJYWn
             - **[2]**:
@@ -2847,6 +3044,8 @@
               - **pontos_uids**:
                 - WstyEX8V1BU1HM
               - **escalada**: Mais Facinha
+              - **setor**: Setor Mulher de Bigode
+              - **grupo**: Mulher de Bigode
               - **ids**:
                 - WstyEX8V1BU1HM
         - **[2]**:
@@ -2878,6 +3077,8 @@
               - **pontos_uids**:
                 - ccfsoSVx8XI9um
               - **escalada**: Reino Animal
+              - **setor**: Setor Mulher de Bigode
+              - **grupo**: Mulher de Bigode
               - **ids**:
                 - ccfsoSVx8XI9um
             - **[1]**:
@@ -2885,6 +3086,8 @@
               - **pontos_uids**:
                 - Rqfc8dqosMikI6
               - **escalada**: Blue Cheese
+              - **setor**: Setor Mulher de Bigode
+              - **grupo**: Mulher de Bigode
               - **ids**:
                 - Rqfc8dqosMikI6
       - **escaladas**:
@@ -3013,6 +3216,8 @@
               - **pontos_uids**:
                 - YQsTqb0lyKDtOk
               - **escalada**: Siricutico
+              - **setor**: Setor Ziriguidum
+              - **grupo**: Mulher de Bigode
               - **ids**:
                 - YQsTqb0lyKDtOk
             - **[1]**:
@@ -3020,6 +3225,8 @@
               - **pontos_uids**:
                 - eJtWR8oqytD6R4
               - **escalada**: Ziriguidum
+              - **setor**: Setor Ziriguidum
+              - **grupo**: Mulher de Bigode
               - **ids**:
                 - eJtWR8oqytD6R4
             - **[2]**:
@@ -3027,6 +3234,8 @@
               - **pontos_uids**:
                 - AhO7IsDApYPG4G
               - **escalada**: Esticadinha
+              - **setor**: Setor Ziriguidum
+              - **grupo**: Mulher de Bigode
               - **ids**:
                 - AhO7IsDApYPG4G
             - **[3]**:
@@ -3034,6 +3243,8 @@
               - **pontos_uids**:
                 - bpwVkgwK22ACwc
               - **escalada**: Esquisitinha
+              - **setor**: Setor Ziriguidum
+              - **grupo**: Mulher de Bigode
               - **ids**:
                 - bpwVkgwK22ACwc
             - **[4]**:
@@ -3041,6 +3252,8 @@
               - **pontos_uids**:
                 - r6WDZNzFaYtAiR
               - **escalada**: Rapunzel
+              - **setor**: Setor Ziriguidum
+              - **grupo**: Mulher de Bigode
               - **ids**:
                 - r6WDZNzFaYtAiR
         - **[1]**:
@@ -3081,6 +3294,8 @@
               - **pontos_uids**:
                 - gWVaDETQ9TKqQl
               - **escalada**: Esticadinha
+              - **setor**: Setor Ziriguidum
+              - **grupo**: Mulher de Bigode
               - **ids**:
                 - gWVaDETQ9TKqQl
             - **[1]**:
@@ -3088,6 +3303,8 @@
               - **pontos_uids**:
                 - sRmh2jv9jIzVMC
               - **escalada**: Esquisitinha
+              - **setor**: Setor Ziriguidum
+              - **grupo**: Mulher de Bigode
               - **ids**:
                 - sRmh2jv9jIzVMC
             - **[2]**:
@@ -3095,6 +3312,8 @@
               - **pontos_uids**:
                 - RNSZjKwD5Almvb
               - **escalada**: Rapunzel
+              - **setor**: Setor Ziriguidum
+              - **grupo**: Mulher de Bigode
               - **ids**:
                 - RNSZjKwD5Almvb
       - **escaladas**:
@@ -3170,6 +3389,8 @@
               - **pontos_uids**:
                 - pu9Yey6ykGQkWu
               - **escalada**: Baioneta
+              - **setor**: Setor Eco
+              - **grupo**: Mulher de Bigode
               - **ids**:
                 - pu9Yey6ykGQkWu
             - **[1]**:
@@ -3177,6 +3398,8 @@
               - **pontos_uids**:
                 - WPqiS6Jj0Slrsg
               - **escalada**: Eco
+              - **setor**: Setor Eco
+              - **grupo**: Mulher de Bigode
               - **ids**:
                 - WPqiS6Jj0Slrsg
             - **[2]**:
@@ -3184,6 +3407,8 @@
               - **pontos_uids**:
                 - JXh2fmXfHPEUoU
               - **escalada**: Escotilha
+              - **setor**: Setor Eco
+              - **grupo**: Mulher de Bigode
               - **ids**:
                 - JXh2fmXfHPEUoU
       - **escaladas**:
@@ -3249,6 +3474,8 @@
               - **pontos_uids**:
                 - th3GmMB18XrsCd
               - **escalada**: Meretríssimo SDS
+              - **setor**: Setor Meretríssimo
+              - **grupo**: Mulher de Bigode
               - **ids**:
                 - th3GmMB18XrsCd
             - **[1]**:
@@ -3256,6 +3483,8 @@
               - **pontos_uids**:
                 - j1smOmpkCtlch1
               - **escalada**: Meretríssimo
+              - **setor**: Setor Meretríssimo
+              - **grupo**: Mulher de Bigode
               - **ids**:
                 - j1smOmpkCtlch1
             - **[2]**:
@@ -3263,6 +3492,8 @@
               - **pontos_uids**:
                 - 6mSrLAL5jmfwe8
               - **escalada**: Toco Preto
+              - **setor**: Setor Meretríssimo
+              - **grupo**: Mulher de Bigode
               - **ids**:
                 - 6mSrLAL5jmfwe8
       - **escaladas**:
@@ -3301,6 +3532,8 @@
               - **pontos_uids**:
                 - dxpJln3fC55fhU
               - **escalada**: Diabinha
+              - **setor**: Setor Diabinha
+              - **grupo**: Mulher de Bigode
               - **ids**:
                 - dxpJln3fC55fhU
           - **pontos_de_interesse**:
@@ -3357,6 +3590,8 @@
               - **pontos_uids**:
                 - C4pXBQ4IbfuWyI
               - **escalada**: Beiçudo
+              - **setor**: Setor Beiço
+              - **grupo**: Mulher de Bigode
               - **ids**:
                 - C4pXBQ4IbfuWyI
             - **[1]**:
@@ -3364,6 +3599,8 @@
               - **pontos_uids**:
                 - sEkwDpjChG7WDn
               - **escalada**: Beiçola
+              - **setor**: Setor Beiço
+              - **grupo**: Mulher de Bigode
               - **ids**:
                 - sEkwDpjChG7WDn
         - **[1]**:
@@ -3413,6 +3650,8 @@
               - **pontos_uids**:
                 - UWc1Xt3Fi7V0hy
               - **escalada**: Boulder dos Buracos
+              - **setor**: Setor Beiço
+              - **grupo**: Mulher de Bigode
               - **ids**:
                 - UWc1Xt3Fi7V0hy
             - **[1]**:
@@ -3420,6 +3659,8 @@
               - **pontos_uids**:
                 - tUL6Ezw1Dqc511
               - **escalada**: Zé Colméia
+              - **setor**: Setor Beiço
+              - **grupo**: Mulher de Bigode
               - **ids**:
                 - tUL6Ezw1Dqc511
             - **[2]**:
@@ -3427,6 +3668,8 @@
               - **pontos_uids**:
                 - KEBm1xNL6dksFT
               - **escalada**: Charlie
+              - **setor**: Setor Beiço
+              - **grupo**: Mulher de Bigode
               - **ids**:
                 - KEBm1xNL6dksFT
             - **[3]**:
@@ -3434,6 +3677,8 @@
               - **pontos_uids**:
                 - YhxI9sjMfFjqes
               - **escalada**: Bravo
+              - **setor**: Setor Beiço
+              - **grupo**: Mulher de Bigode
               - **ids**:
                 - YhxI9sjMfFjqes
       - **escaladas**:
@@ -3496,6 +3741,8 @@
               - **pontos_uids**:
                 - xYVVgkGF8cV8MA
               - **escalada**: Fingerboard
+              - **setor**: Setor Fingerboard
+              - **grupo**: Mulher de Bigode
               - **ids**:
                 - xYVVgkGF8cV8MA
       - **escaladas**:
@@ -3542,6 +3789,8 @@
               - **pontos_uids**:
                 - h9RJVgXydPFxc4
               - **escalada**: Carga Pesada SDS
+              - **setor**: Setor Carga Pesada
+              - **grupo**: Mulher de Bigode
               - **ids**:
                 - h9RJVgXydPFxc4
             - **[1]**:
@@ -3549,6 +3798,8 @@
               - **pontos_uids**:
                 - WmsVyLtK2yNie0
               - **escalada**: Carga Pesada
+              - **setor**: Setor Carga Pesada
+              - **grupo**: Mulher de Bigode
               - **ids**:
                 - WmsVyLtK2yNie0
       - **escaladas**:
@@ -3592,6 +3843,8 @@
               - **pontos_uids**:
                 - zqtJljem1Fmm3d
               - **escalada**: Viúva Negra
+              - **setor**: Setor Viúva Negra
+              - **grupo**: Mulher de Bigode
               - **ids**:
                 - zqtJljem1Fmm3d
       - **escaladas**:
@@ -3629,6 +3882,8 @@
               - **pontos_uids**:
                 - lqrx8KkR7WUYxh
               - **escalada**: Ota Aranha
+              - **setor**: Setor Ota Aranha
+              - **grupo**: Mulher de Bigode
               - **ids**:
                 - lqrx8KkR7WUYxh
       - **escaladas**:
@@ -3684,6 +3939,8 @@
               - **pontos_uids**:
                 - RREQwWPsxzumzb
               - **escalada**: Módulo
+              - **setor**: Setor Módulo
+              - **grupo**: Mulher de Bigode
               - **ids**:
                 - RREQwWPsxzumzb
             - **[1]**:
@@ -3691,6 +3948,8 @@
               - **pontos_uids**:
                 - C43QdEh24x2NnE
               - **escalada**: Dilúvio
+              - **setor**: Setor Módulo
+              - **grupo**: Mulher de Bigode
               - **ids**:
                 - C43QdEh24x2NnE
             - **[2]**:
@@ -3698,6 +3957,8 @@
               - **pontos_uids**:
                 - nHQNQmsT9tZJQL
               - **escalada**: Tempestade
+              - **setor**: Setor Módulo
+              - **grupo**: Mulher de Bigode
               - **ids**:
                 - nHQNQmsT9tZJQL
       - **escaladas**:

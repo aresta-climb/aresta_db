@@ -516,6 +516,7 @@
         - **pontos_uids**:
           - ptykxW7a7qg7XB
         - **escalada**: Mão de martelo
+        - **setor**: Setor G1
         - **ids**:
           - ptykxW7a7qg7XB
       - **[1]**:
@@ -523,6 +524,7 @@
         - **pontos_uids**:
           - RFEInGUBytnDeJ
         - **escalada**: Calibre 44
+        - **setor**: Setor G1
         - **ids**:
           - RFEInGUBytnDeJ
       - **[2]**:
@@ -530,6 +532,7 @@
         - **pontos_uids**:
           - GVYZaSqUqYMVRP
         - **escalada**: Antro dos mosquitos
+        - **setor**: Setor G1
         - **ids**:
           - GVYZaSqUqYMVRP
       - **[3]**:
@@ -537,6 +540,7 @@
         - **pontos_uids**:
           - X7Kli74r586piS
         - **escalada**: Poder do silêncio
+        - **setor**: Setor G1
         - **ids**:
           - X7Kli74r586piS
       - **[4]**:
@@ -544,6 +548,7 @@
         - **pontos_uids**:
           - hb1SmYJbgpROte
         - **escalada**: Não contavam com minha astucia
+        - **setor**: Setor G1
         - **ids**:
           - hb1SmYJbgpROte
       - **[5]**:
@@ -551,6 +556,7 @@
         - **pontos_uids**:
           - u7tkti4nkLASRN
         - **escalada**: Terra do nunca
+        - **setor**: Setor G1
         - **ids**:
           - u7tkti4nkLASRN
       - **[6]**:
@@ -558,6 +564,7 @@
         - **pontos_uids**:
           - 6iCACRtJczbBle
         - **escalada**: Voz apocalíptica
+        - **setor**: Setor G1
         - **ids**:
           - 6iCACRtJczbBle
       - **[7]**:
@@ -565,6 +572,7 @@
         - **pontos_uids**:
           - 1p216I6L7WsfXk
         - **escalada**: Vivendo no crux da larica
+        - **setor**: Setor G1
         - **ids**:
           - 1p216I6L7WsfXk
       - **[8]**:
@@ -572,6 +580,7 @@
         - **pontos_uids**:
           - bW7WbSqBrTKvv8
         - **escalada**: Capitão caverna
+        - **setor**: Setor G1
         - **ids**:
           - bW7WbSqBrTKvv8
       - **[9]**:
@@ -579,6 +588,7 @@
         - **pontos_uids**:
           - JYVKRaYOaxLEDp
         - **escalada**: Sai do chão
+        - **setor**: Setor G1
         - **ids**:
           - JYVKRaYOaxLEDp
       - **[10]**:
@@ -586,6 +596,7 @@
         - **pontos_uids**:
           - 0ZJ9KagIP3J9R7
         - **escalada**: Os pica pedra
+        - **setor**: Setor G1
         - **ids**:
           - 0ZJ9KagIP3J9R7
       - **[11]**:
@@ -593,6 +604,7 @@
         - **pontos_uids**:
           - qIXawlHb62HYSh
         - **escalada**: O resgate dos barbarás no meio do corredor polonês
+        - **setor**: Setor G1
         - **ids**:
           - qIXawlHb62HYSh
       - **[12]**:
@@ -600,6 +612,7 @@
         - **pontos_uids**:
           - BtXwhI1YbFtuv9
         - **escalada**: ?
+        - **setor**: Setor G1
         - **ids**:
           - BtXwhI1YbFtuv9
       - **[13]**:
@@ -607,6 +620,7 @@
         - **pontos_uids**:
           - nHVXxBbUU6IRKo
         - **escalada**: ?
+        - **setor**: Setor G1
         - **ids**:
           - nHVXxBbUU6IRKo
 - **escaladas**:
@@ -950,6 +964,7 @@
         - **pontos_uids**:
           - QmIdPfjbs80Gw3
         - **escalada**: Pé da Gameleira
+        - **setor**: Setor G2
         - **ids**:
           - QmIdPfjbs80Gw3
       - **[1]**:
@@ -957,6 +972,7 @@
         - **pontos_uids**:
           - niU8HKFFGU2Jd0
         - **escalada**: Sangue bão
+        - **setor**: Setor G2
         - **ids**:
           - niU8HKFFGU2Jd0
       - **[2]**:
@@ -964,6 +980,7 @@
         - **pontos_uids**:
           - fn9nzknaqT7vLU
         - **escalada**: Sedativa
+        - **setor**: Setor G2
         - **ids**:
           - fn9nzknaqT7vLU
       - **[3]**:
@@ -971,6 +988,7 @@
         - **pontos_uids**:
           - XZwd7cNMcWYXt7
         - **escalada**: Pressão da abelha (variante)
+        - **setor**: Setor G2
         - **ids**:
           - XZwd7cNMcWYXt7
       - **[4]**:
@@ -978,6 +996,7 @@
         - **pontos_uids**:
           - Bo3sfhkHBnn0uG
         - **escalada**: Prezinho
+        - **setor**: Setor G2
         - **ids**:
           - Bo3sfhkHBnn0uG
       - **[5]**:
@@ -985,6 +1004,7 @@
         - **pontos_uids**:
           - klKJDaUTtxRAK2
         - **escalada**: Super canaleta
+        - **setor**: Setor G2
         - **ids**:
           - klKJDaUTtxRAK2
       - **[6]**:
@@ -992,6 +1012,7 @@
         - **pontos_uids**:
           - SmQDRc1qTG0m6j
         - **escalada**: Cactos talidomida
+        - **setor**: Setor G2
         - **ids**:
           - SmQDRc1qTG0m6j
       - **[7]**:
@@ -999,6 +1020,7 @@
         - **pontos_uids**:
           - ppdabD6q7qUqUi
         - **escalada**: Logo sai
+        - **setor**: Setor G2
         - **ids**:
           - ppdabD6q7qUqUi
       - **[8]**:
@@ -1006,6 +1028,7 @@
         - **pontos_uids**:
           - F1aJtvPTCNAP4G
         - **escalada**: Cariocas
+        - **setor**: Setor G2
         - **ids**:
           - F1aJtvPTCNAP4G
       - **[9]**:
@@ -1013,6 +1036,7 @@
         - **pontos_uids**:
           - 4EW6c7G9TqeqTJ
         - **escalada**: Tapa na aranha
+        - **setor**: Setor G2
         - **ids**:
           - 4EW6c7G9TqeqTJ
       - **[10]**:
@@ -1020,6 +1044,7 @@
         - **pontos_uids**:
           - y8CDoFya2D8FcH
         - **escalada**: Titãs atônitos
+        - **setor**: Setor G2
         - **ids**:
           - y8CDoFya2D8FcH
       - **[11]**:
@@ -1027,6 +1052,7 @@
         - **pontos_uids**:
           - JJSFntgO9G11u6
         - **escalada**: Enganaram o cabo
+        - **setor**: Setor G2
         - **ids**:
           - JJSFntgO9G11u6
       - **[12]**:
@@ -1034,6 +1060,7 @@
         - **pontos_uids**:
           - eFuwQbP4EKX1U1
         - **escalada**: Urtigas
+        - **setor**: Setor G2
         - **ids**:
           - eFuwQbP4EKX1U1
       - **[13]**:
@@ -1041,6 +1068,7 @@
         - **pontos_uids**:
           - cKQKzxfwWeBQUw
         - **escalada**: Atretas do climb (mapa do Brasil)
+        - **setor**: Setor G2
         - **ids**:
           - cKQKzxfwWeBQUw
       - **[14]**:
@@ -1048,6 +1076,7 @@
         - **pontos_uids**:
           - XNFf2WsehBu90T
         - **escalada**: Ossos do orifício
+        - **setor**: Setor G2
         - **ids**:
           - XNFf2WsehBu90T
       - **[15]**:
@@ -1055,6 +1084,7 @@
         - **pontos_uids**:
           - sG0WdUKWENdUZ2
         - **escalada**: Baião de dois
+        - **setor**: Setor G2
         - **ids**:
           - sG0WdUKWENdUZ2
       - **[16]**:
@@ -1062,6 +1092,7 @@
         - **pontos_uids**:
           - osYPsTWEb6K1NR
         - **escalada**: Entre linhas
+        - **setor**: Setor G2
         - **ids**:
           - osYPsTWEb6K1NR
       - **[17]**:
@@ -1069,6 +1100,7 @@
         - **pontos_uids**:
           - NohN364QNufezn
         - **escalada**: SOS mandacaru
+        - **setor**: Setor G2
         - **ids**:
           - NohN364QNufezn
       - **[18]**:
@@ -1076,6 +1108,7 @@
         - **pontos_uids**:
           - OQOpSlkXZHS3bo
         - **escalada**: Socorro vem de baixo
+        - **setor**: Setor G2
         - **ids**:
           - OQOpSlkXZHS3bo
       - **[19]**:
@@ -1083,6 +1116,7 @@
         - **pontos_uids**:
           - OufBWNYmKzr7uW
         - **escalada**: Mato queimado
+        - **setor**: Setor G2
         - **ids**:
           - OufBWNYmKzr7uW
       - **[20]**:
@@ -1090,6 +1124,7 @@
         - **pontos_uids**:
           - yhbp8mIxDZDwbA
         - **escalada**: De Mariah
+        - **setor**: Setor G2
         - **ids**:
           - yhbp8mIxDZDwbA
 - **escaladas**:
@@ -1735,6 +1770,7 @@
         - **pontos_uids**:
           - 6AngR9VUXYkLUx
         - **escalada**: Quem manda aqui sou Eu "Eterosapiens"
+        - **setor**: Setor G3
         - **ids**:
           - 6AngR9VUXYkLUx
       - **[1]**:
@@ -1742,6 +1778,7 @@
         - **pontos_uids**:
           - vJN7Lu62t0B4EF
         - **escalada**: Poder paralelos
+        - **setor**: Setor G3
         - **ids**:
           - vJN7Lu62t0B4EF
       - **[2]**:
@@ -1749,6 +1786,7 @@
         - **pontos_uids**:
           - B4WQ9i4bVAp1bC
         - **escalada**: Pra você
+        - **setor**: Setor G3
         - **ids**:
           - B4WQ9i4bVAp1bC
       - **[3]**:
@@ -1756,6 +1794,7 @@
         - **pontos_uids**:
           - 0XlAFLS5LcwrxY
         - **escalada**: 100 limites
+        - **setor**: Setor G3
         - **ids**:
           - 0XlAFLS5LcwrxY
       - **[4]**:
@@ -1763,6 +1802,7 @@
         - **pontos_uids**:
           - PqodMvKGk6LkEZ
         - **escalada**: Mentira não faz
+        - **setor**: Setor G3
         - **ids**:
           - PqodMvKGk6LkEZ
       - **[5]**:
@@ -1770,6 +1810,7 @@
         - **pontos_uids**:
           - dh9wqqQCmppGFp
         - **escalada**: Elvira a rainha das trevas
+        - **setor**: Setor G3
         - **ids**:
           - dh9wqqQCmppGFp
       - **[6]**:
@@ -1777,6 +1818,7 @@
         - **pontos_uids**:
           - uhdaQB6PCW5ZKd
         - **escalada**: Pescoço de peixe
+        - **setor**: Setor G3
         - **ids**:
           - uhdaQB6PCW5ZKd
       - **[7]**:
@@ -1784,6 +1826,7 @@
         - **pontos_uids**:
           - Jp4cebHIGLqJQ9
         - **escalada**: Lá fora chove, aqui dentro só pinga
+        - **setor**: Setor G3
         - **ids**:
           - Jp4cebHIGLqJQ9
       - **[8]**:
@@ -1791,6 +1834,7 @@
         - **pontos_uids**:
           - 8JIrvUbKMJPr0o
         - **escalada**: Climb in the rain
+        - **setor**: Setor G3
         - **ids**:
           - 8JIrvUbKMJPr0o
       - **[9]**:
@@ -1798,6 +1842,7 @@
         - **pontos_uids**:
           - WUqzMehsjx6uEZ
         - **escalada**: Invasão de privacidade
+        - **setor**: Setor G3
         - **ids**:
           - WUqzMehsjx6uEZ
       - **[10]**:
@@ -1805,6 +1850,7 @@
         - **pontos_uids**:
           - t37WizPLDXn3v2
         - **escalada**: El paseo
+        - **setor**: Setor G3
         - **ids**:
           - t37WizPLDXn3v2
       - **[11]**:
@@ -1812,6 +1858,7 @@
         - **pontos_uids**:
           - evShYwPR2ozz3F
         - **escalada**: Dinamicuzão
+        - **setor**: Setor G3
         - **ids**:
           - evShYwPR2ozz3F
       - **[12]**:
@@ -1819,6 +1866,7 @@
         - **pontos_uids**:
           - O2CMfKUrMBHLnD
         - **escalada**: Catapulta
+        - **setor**: Setor G3
         - **ids**:
           - O2CMfKUrMBHLnD
       - **[13]**:
@@ -1826,6 +1874,7 @@
         - **pontos_uids**:
           - fAofVJomgC6Jri
         - **escalada**: Rodilar
+        - **setor**: Setor G3
         - **ids**:
           - fAofVJomgC6Jri
       - **[14]**:
@@ -1833,6 +1882,7 @@
         - **pontos_uids**:
           - vNlWx6j7q8cQIv
         - **escalada**: Fósseis do velho mundo
+        - **setor**: Setor G3
         - **ids**:
           - vNlWx6j7q8cQIv
       - **[15]**:
@@ -1840,6 +1890,7 @@
         - **pontos_uids**:
           - IGd26RWxn26k6O
         - **escalada**: Querendo velho mundo
+        - **setor**: Setor G3
         - **ids**:
           - IGd26RWxn26k6O
       - **[16]**:
@@ -1847,6 +1898,7 @@
         - **pontos_uids**:
           - 5ROs2IfsBDcItT
         - **escalada**: Sem querer querendo
+        - **setor**: Setor G3
         - **ids**:
           - 5ROs2IfsBDcItT
       - **[17]**:
@@ -1854,6 +1906,7 @@
         - **pontos_uids**:
           - vtUGJfqXbXnpNU
         - **escalada**: Segunda sem lei
+        - **setor**: Setor G3
         - **ids**:
           - vtUGJfqXbXnpNU
       - **[18]**:
@@ -1861,6 +1914,7 @@
         - **pontos_uids**:
           - QyqYpXuHZ1lY1o
         - **escalada**: Quinta desordeira
+        - **setor**: Setor G3
         - **ids**:
           - QyqYpXuHZ1lY1o
       - **[19]**:
@@ -1868,6 +1922,7 @@
         - **pontos_uids**:
           - ehgeFvx16JkxOo
         - **escalada**: Decapitados
+        - **setor**: Setor G3
         - **ids**:
           - ehgeFvx16JkxOo
       - **[20]**:
@@ -1875,6 +1930,7 @@
         - **pontos_uids**:
           - 78c5y2KRdqisXe
         - **escalada**: Já tá lá
+        - **setor**: Setor G3
         - **ids**:
           - 78c5y2KRdqisXe
       - **[21]**:
@@ -1882,6 +1938,7 @@
         - **pontos_uids**:
           - mzsuNyAneBkv3F
         - **escalada**: Tente outra vez
+        - **setor**: Setor G3
         - **ids**:
           - mzsuNyAneBkv3F
       - **[22]**:
@@ -1889,6 +1946,7 @@
         - **pontos_uids**:
           - 6ftfCW2idzFWrc
         - **escalada**: A troca
+        - **setor**: Setor G3
         - **ids**:
           - 6ftfCW2idzFWrc
       - **[23]**:
@@ -1896,6 +1954,7 @@
         - **pontos_uids**:
           - lrJrCDpgaJsVFu
         - **escalada**: No mato com os cachorros
+        - **setor**: Setor G3
         - **ids**:
           - lrJrCDpgaJsVFu
       - **[24]**:
@@ -1903,6 +1962,7 @@
         - **pontos_uids**:
           - eLFYB4uYP2G6kX
         - **escalada**: Secuzinho
+        - **setor**: Setor G3
         - **ids**:
           - eLFYB4uYP2G6kX
       - **[25]**:
@@ -1910,6 +1970,7 @@
         - **pontos_uids**:
           - WzdmLp1qmF0mHg
         - **escalada**: Sublime obsessão
+        - **setor**: Setor G3
         - **ids**:
           - WzdmLp1qmF0mHg
       - **[26]**:
@@ -1917,6 +1978,7 @@
         - **pontos_uids**:
           - g7H93BolFVwtHo
         - **escalada**: Não guenta senta
+        - **setor**: Setor G3
         - **ids**:
           - g7H93BolFVwtHo
       - **[27]**:
@@ -1924,6 +1986,7 @@
         - **pontos_uids**:
           - j6VtForjbcvmDU
         - **escalada**: Despertar da curriola
+        - **setor**: Setor G3
         - **ids**:
           - j6VtForjbcvmDU
       - **[28]**:
@@ -1931,6 +1994,7 @@
         - **pontos_uids**:
           - rxdJC09j0C1r9E
         - **escalada**: Variante
+        - **setor**: Setor G3
         - **ids**:
           - rxdJC09j0C1r9E
       - **[29]**:
@@ -1938,6 +2002,7 @@
         - **pontos_uids**:
           - bhD549s0ezfREs
         - **escalada**: Um dia depois de amanhã
+        - **setor**: Setor G3
         - **ids**:
           - bhD549s0ezfREs
       - **[30]**:
@@ -1945,6 +2010,7 @@
         - **pontos_uids**:
           - nQbRlg6mnEXoZL
         - **escalada**: Prakaramba
+        - **setor**: Setor G3
         - **ids**:
           - nQbRlg6mnEXoZL
       - **[31]**:
@@ -1952,6 +2018,7 @@
         - **pontos_uids**:
           - H7QI5X3hGDHGJz
         - **escalada**: Estilo junkie
+        - **setor**: Setor G3
         - **ids**:
           - H7QI5X3hGDHGJz
       - **[32]**:
@@ -1959,6 +2026,7 @@
         - **pontos_uids**:
           - S0w9pd3ygFZTGb
         - **escalada**: Escalão Hilário
+        - **setor**: Setor G3
         - **ids**:
           - S0w9pd3ygFZTGb
       - **[33]**:
@@ -1966,6 +2034,7 @@
         - **pontos_uids**:
           - C6is4p5FVWkIA8
         - **escalada**: Missão impossível
+        - **setor**: Setor G3
         - **ids**:
           - C6is4p5FVWkIA8
       - **[34]**:
@@ -1973,6 +2042,7 @@
         - **pontos_uids**:
           - hMDB4QMV0XKfBz
         - **escalada**: Bode negro
+        - **setor**: Setor G3
         - **ids**:
           - hMDB4QMV0XKfBz
       - **[35]**:
@@ -1980,6 +2050,7 @@
         - **pontos_uids**:
           - FAVkvA1rHkIba8
         - **escalada**: V da via
+        - **setor**: Setor G3
         - **ids**:
           - FAVkvA1rHkIba8
       - **[36]**:
@@ -1987,6 +2058,7 @@
         - **pontos_uids**:
           - LWpDGtz4qazvpg
         - **escalada**: Até que enfim
+        - **setor**: Setor G3
         - **ids**:
           - LWpDGtz4qazvpg
       - **[37]**:
@@ -1994,6 +2066,7 @@
         - **pontos_uids**:
           - PmpQM2NKQ6Xrc6
         - **escalada**: Noiados do maguina
+        - **setor**: Setor G3
         - **ids**:
           - PmpQM2NKQ6Xrc6
       - **[38]**:
@@ -2001,6 +2074,7 @@
         - **pontos_uids**:
           - 3l3CwX0h18qJBm
         - **escalada**: Da Cuca Lelé (variante)
+        - **setor**: Setor G3
         - **ids**:
           - 3l3CwX0h18qJBm
       - **[39]**:
@@ -2008,6 +2082,7 @@
         - **pontos_uids**:
           - vSsRIr3ZfQ4U65
         - **escalada**: Deus dos quatro anos
+        - **setor**: Setor G3
         - **ids**:
           - vSsRIr3ZfQ4U65
       - **[40]**:
@@ -2015,6 +2090,7 @@
         - **pontos_uids**:
           - dE9KFbJWJqeOMh
         - **escalada**: Gaibous in the laibous
+        - **setor**: Setor G3
         - **ids**:
           - dE9KFbJWJqeOMh
       - **[41]**:
@@ -2022,6 +2098,7 @@
         - **pontos_uids**:
           - 69AOa1swYqQk7R
         - **escalada**: Power katronca
+        - **setor**: Setor G3
         - **ids**:
           - 69AOa1swYqQk7R
       - **[42]**:
@@ -2029,6 +2106,7 @@
         - **pontos_uids**:
           - XCag8d52J1B5Fj
         - **escalada**: Muito punk
+        - **setor**: Setor G3
         - **ids**:
           - XCag8d52J1B5Fj
       - **[43]**:
@@ -2036,6 +2114,7 @@
         - **pontos_uids**:
           - QZgsd1iCWd1kPw
         - **escalada**: Demolição
+        - **setor**: Setor G3
         - **ids**:
           - QZgsd1iCWd1kPw
       - **[44]**:
@@ -2043,6 +2122,7 @@
         - **pontos_uids**:
           - 3Ad0FgyZ7ZBz7x
         - **escalada**: Big Wall do Salim
+        - **setor**: Setor G3
         - **ids**:
           - 3Ad0FgyZ7ZBz7x
       - **[45]**:
@@ -2050,6 +2130,7 @@
         - **pontos_uids**:
           - VgKF7wCRln5I8r
         - **escalada**: Patati Patata
+        - **setor**: Setor G3
         - **ids**:
           - VgKF7wCRln5I8r
       - **[46]**:
@@ -2057,6 +2138,7 @@
         - **pontos_uids**:
           - fAofVJomgC6Jri
         - **escalada**: Dinamicuzão em Rodlá
+        - **setor**: Setor G3
         - **ids**:
           - fAofVJomgC6Jri
       - **[47]**:
@@ -2064,6 +2146,7 @@
         - **pontos_uids**:
           - O2CMfKUrMBHLnD
         - **escalada**: Dinamicuzão em catapulta
+        - **setor**: Setor G3
         - **ids**:
           - O2CMfKUrMBHLnD
       - **[48]**:
@@ -2071,6 +2154,7 @@
         - **pontos_uids**:
           - evShYwPR2ozz3F
         - **escalada**: Dinamicuzão em El paseo
+        - **setor**: Setor G3
         - **ids**:
           - evShYwPR2ozz3F
       - **[49]**:
@@ -2078,6 +2162,7 @@
         - **pontos_uids**:
           - t37WizPLDXn3v2
         - **escalada**: El paseo em Dinamicuzão
+        - **setor**: Setor G3
         - **ids**:
           - t37WizPLDXn3v2
 - **escaladas**:

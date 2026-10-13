@@ -213,6 +213,7 @@
         - **pontos_uids**:
           - 1
         - **escalada**: Xeque Mate
+        - **setor**: Setor Bigorna ou Lapa da Zumba
         - **ids**:
           - 1
       - **[1]**:
@@ -220,6 +221,7 @@
         - **pontos_uids**:
           - 2
         - **escalada**: Caminho das Formigas
+        - **setor**: Setor Bigorna ou Lapa da Zumba
         - **ids**:
           - 2
       - **[2]**:
@@ -227,6 +229,7 @@
         - **pontos_uids**:
           - 3
         - **escalada**: Camelos Hidrofóbicos
+        - **setor**: Setor Bigorna ou Lapa da Zumba
         - **ids**:
           - 3
       - **[3]**:
@@ -234,6 +237,7 @@
         - **pontos_uids**:
           - 4
         - **escalada**: Urtigas Assassinas
+        - **setor**: Setor Bigorna ou Lapa da Zumba
         - **ids**:
           - 4
       - **[4]**:
@@ -241,6 +245,7 @@
         - **pontos_uids**:
           - 5
         - **escalada**: Só as Cachorras
+        - **setor**: Setor Bigorna ou Lapa da Zumba
         - **ids**:
           - 5
       - **[5]**:
@@ -248,6 +253,7 @@
         - **pontos_uids**:
           - 6
         - **escalada**: Lança Chamas
+        - **setor**: Setor Bigorna ou Lapa da Zumba
         - **ids**:
           - 6
       - **[6]**:
@@ -255,6 +261,7 @@
         - **pontos_uids**:
           - 7
         - **escalada**: Ataque das Cachorras
+        - **setor**: Setor Bigorna ou Lapa da Zumba
         - **ids**:
           - 7
       - **[7]**:
@@ -262,6 +269,7 @@
         - **pontos_uids**:
           - 8
         - **escalada**: Wilham Thor
+        - **setor**: Setor Bigorna ou Lapa da Zumba
         - **ids**:
           - 8
       - **[8]**:
@@ -269,6 +277,7 @@
         - **pontos_uids**:
           - 9
         - **escalada**: Linha do Tempo
+        - **setor**: Setor Bigorna ou Lapa da Zumba
         - **ids**:
           - 9
       - **[9]**:
@@ -276,6 +285,7 @@
         - **pontos_uids**:
           - 10
         - **escalada**: Ilusão de Ótica
+        - **setor**: Setor Bigorna ou Lapa da Zumba
         - **ids**:
           - 10
       - **[10]**:
@@ -283,6 +293,7 @@
         - **pontos_uids**:
           - 11
         - **escalada**: Fendazinha
+        - **setor**: Setor Bigorna ou Lapa da Zumba
         - **ids**:
           - 11
       - **[11]**:
@@ -290,6 +301,7 @@
         - **pontos_uids**:
           - 12
         - **escalada**: Complicada e Perfeitinha
+        - **setor**: Setor Bigorna ou Lapa da Zumba
         - **ids**:
           - 12
       - **[12]**:
@@ -297,6 +309,7 @@
         - **pontos_uids**:
           - 13
         - **escalada**: Cabana do Pai Tomaz
+        - **setor**: Setor Bigorna ou Lapa da Zumba
         - **ids**:
           - 13
       - **[13]**:
@@ -304,6 +317,7 @@
         - **pontos_uids**:
           - 14
         - **escalada**: Davi e Golias
+        - **setor**: Setor Bigorna ou Lapa da Zumba
         - **ids**:
           - 14
       - **[14]**:
@@ -311,6 +325,7 @@
         - **pontos_uids**:
           - 15
         - **escalada**: De Olho no Buraco
+        - **setor**: Setor Bigorna ou Lapa da Zumba
         - **ids**:
           - 15
       - **[15]**:
@@ -318,6 +333,7 @@
         - **pontos_uids**:
           - 16
         - **escalada**: Meu Casamento é um Perrengue
+        - **setor**: Setor Bigorna ou Lapa da Zumba
         - **ids**:
           - 16
       - **[16]**:
@@ -325,6 +341,7 @@
         - **pontos_uids**:
           - 17
         - **escalada**: Canaleta Mãe Diná
+        - **setor**: Setor Bigorna ou Lapa da Zumba
         - **ids**:
           - 17
       - **[17]**:
@@ -332,6 +349,7 @@
         - **pontos_uids**:
           - 18
         - **escalada**: Só o Zói
+        - **setor**: Setor Bigorna ou Lapa da Zumba
         - **ids**:
           - 18
       - **[18]**:
@@ -339,6 +357,7 @@
         - **pontos_uids**:
           - 19
         - **escalada**: O Susto
+        - **setor**: Setor Bigorna ou Lapa da Zumba
         - **ids**:
           - 19
       - **[19]**:
@@ -346,6 +365,7 @@
         - **pontos_uids**:
           - 20
         - **escalada**: Tortuosa Sempre
+        - **setor**: Setor Bigorna ou Lapa da Zumba
         - **ids**:
           - 20
       - **[20]**:
@@ -353,6 +373,7 @@
         - **pontos_uids**:
           - 21
         - **escalada**: Tensão do Cliff
+        - **setor**: Setor Bigorna ou Lapa da Zumba
         - **ids**:
           - 21
       - **[21]**:
@@ -360,6 +381,7 @@
         - **pontos_uids**:
           - 22
         - **escalada**: Tira o Pé Daí
+        - **setor**: Setor Bigorna ou Lapa da Zumba
         - **ids**:
           - 22
       - **[22]**:
@@ -367,6 +389,7 @@
         - **pontos_uids**:
           - 23
         - **escalada**: A Procura de Pai Mei
+        - **setor**: Setor Bigorna ou Lapa da Zumba
         - **ids**:
           - 23
       - **[23]**:
@@ -374,6 +397,7 @@
         - **pontos_uids**:
           - 24
         - **escalada**: Encontro com Pai Mei
+        - **setor**: Setor Bigorna ou Lapa da Zumba
         - **ids**:
           - 24
       - **[24]**:
@@ -381,6 +405,7 @@
         - **pontos_uids**:
           - 25
         - **escalada**: Movimentos Fluidos
+        - **setor**: Setor Bigorna ou Lapa da Zumba
         - **ids**:
           - 25
       - **[25]**:
@@ -388,6 +413,7 @@
         - **pontos_uids**:
           - 26
         - **escalada**: Lechimeiafobia
+        - **setor**: Setor Bigorna ou Lapa da Zumba
         - **ids**:
           - 26
       - **[26]**:
@@ -395,6 +421,7 @@
         - **pontos_uids**:
           - 27
         - **escalada**: Taxidermia Hipofágica
+        - **setor**: Setor Bigorna ou Lapa da Zumba
         - **ids**:
           - 27
       - **[27]**:
@@ -402,6 +429,7 @@
         - **pontos_uids**:
           - 28
         - **escalada**: Amarra a Gaia
+        - **setor**: Setor Bigorna ou Lapa da Zumba
         - **ids**:
           - 28
       - **[28]**:
@@ -409,6 +437,7 @@
         - **pontos_uids**:
           - 29
         - **escalada**: Disova Bernéstica
+        - **setor**: Setor Bigorna ou Lapa da Zumba
         - **ids**:
           - 29
       - **[29]**:
@@ -416,6 +445,7 @@
         - **pontos_uids**:
           - 30
         - **escalada**: Diga não ao Braz
+        - **setor**: Setor Bigorna ou Lapa da Zumba
         - **ids**:
           - 30
       - **[30]**:
@@ -423,6 +453,7 @@
         - **pontos_uids**:
           - 31
         - **escalada**: 21 Tec Tec
+        - **setor**: Setor Bigorna ou Lapa da Zumba
         - **ids**:
           - 31
       - **[31]**:
@@ -430,6 +461,7 @@
         - **pontos_uids**:
           - 32
         - **escalada**: Kill Bill
+        - **setor**: Setor Bigorna ou Lapa da Zumba
         - **ids**:
           - 32
       - **[32]**:
@@ -437,6 +469,7 @@
         - **pontos_uids**:
           - 33
         - **escalada**: É Assim que se Faz
+        - **setor**: Setor Bigorna ou Lapa da Zumba
         - **ids**:
           - 33
       - **[33]**:
@@ -444,6 +477,7 @@
         - **pontos_uids**:
           - 34
         - **escalada**: Despedida de um Amigo
+        - **setor**: Setor Bigorna ou Lapa da Zumba
         - **ids**:
           - 34
       - **[34]**:
@@ -451,6 +485,7 @@
         - **pontos_uids**:
           - 35
         - **escalada**: Tricam é o Cara
+        - **setor**: Setor Bigorna ou Lapa da Zumba
         - **ids**:
           - 35
       - **[35]**:
@@ -458,6 +493,7 @@
         - **pontos_uids**:
           - 36
         - **escalada**: Não Puxa Não
+        - **setor**: Setor Bigorna ou Lapa da Zumba
         - **ids**:
           - 36
       - **[36]**:
@@ -465,6 +501,7 @@
         - **pontos_uids**:
           - 37
         - **escalada**: HellBoy
+        - **setor**: Setor Bigorna ou Lapa da Zumba
         - **ids**:
           - 37
     - **largura_mapa**: 1676

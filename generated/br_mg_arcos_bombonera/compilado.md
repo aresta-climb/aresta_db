@@ -165,6 +165,7 @@
         - **pontos_uids**:
           - poyG2VlVSQfq8m
         - **escalada**: Água Bolhas
+        - **setor**: Setor Esquerda
         - **ids**:
           - poyG2VlVSQfq8m
       - **[1]**:
@@ -172,6 +173,7 @@
         - **pontos_uids**:
           - BycwtmIT62Yuun
         - **escalada**: Concretino
+        - **setor**: Setor Esquerda
         - **ids**:
           - BycwtmIT62Yuun
       - **[2]**:
@@ -179,6 +181,7 @@
         - **pontos_uids**:
           - WCmaAp4uvyzDRD
         - **escalada**: Gado impresso (com abelha)
+        - **setor**: Setor Esquerda
         - **ids**:
           - WCmaAp4uvyzDRD
       - **[3]**:
@@ -186,6 +189,7 @@
         - **pontos_uids**:
           - FmXSRlQJUMYAUA
         - **escalada**: (via inacabada 4)
+        - **setor**: Setor Esquerda
         - **ids**:
           - FmXSRlQJUMYAUA
       - **[4]**:
@@ -193,6 +197,7 @@
         - **pontos_uids**:
           - kGQFRXZbNKGsC3
         - **escalada**: Jaratataca
+        - **setor**: Setor Esquerda
         - **ids**:
           - kGQFRXZbNKGsC3
       - **[5]**:
@@ -200,6 +205,7 @@
         - **pontos_uids**:
           - xDY3ag2CnO7ZTp
         - **escalada**: (sem nome 3)
+        - **setor**: Setor Esquerda
         - **ids**:
           - xDY3ag2CnO7ZTp
       - **[6]**:
@@ -207,6 +213,7 @@
         - **pontos_uids**:
           - 3uYeEp3lGBTb0T
         - **escalada**: (via inacabada 5)
+        - **setor**: Setor Esquerda
         - **ids**:
           - 3uYeEp3lGBTb0T
       - **[7]**:
@@ -214,6 +221,7 @@
         - **pontos_uids**:
           - 11oEOtMCFBHyXm
         - **escalada**: Teoria dos jogos
+        - **setor**: Setor Esquerda
         - **ids**:
           - 11oEOtMCFBHyXm
   - **[1]**:
@@ -236,6 +244,7 @@
         - **pontos_uids**:
           - 7xAt6fxiTcyoxH
         - **escalada**: Água Bolhas
+        - **setor**: Setor Esquerda
         - **ids**:
           - 7xAt6fxiTcyoxH
   - **[2]**:
@@ -267,6 +276,7 @@
         - **pontos_uids**:
           - QRiSHe8lp41YMF
         - **escalada**: Concretino
+        - **setor**: Setor Esquerda
         - **ids**:
           - QRiSHe8lp41YMF
       - **[1]**:
@@ -274,6 +284,7 @@
         - **pontos_uids**:
           - jHmefJHDqjaPSL
         - **escalada**: Gado impresso (com abelha)
+        - **setor**: Setor Esquerda
         - **ids**:
           - jHmefJHDqjaPSL
   - **[3]**:
@@ -332,6 +343,7 @@
         - **pontos_uids**:
           - 7GqyfYG6X04Ste
         - **escalada**: (via inacabada 4)
+        - **setor**: Setor Esquerda
         - **ids**:
           - 7GqyfYG6X04Ste
       - **[1]**:
@@ -339,6 +351,7 @@
         - **pontos_uids**:
           - iat1Z1jqJGsaSz
         - **escalada**: Jaratataca
+        - **setor**: Setor Esquerda
         - **ids**:
           - iat1Z1jqJGsaSz
       - **[2]**:
@@ -346,6 +359,7 @@
         - **pontos_uids**:
           - QcGKyz1ikla9a8
         - **escalada**: (sem nome 3)
+        - **setor**: Setor Esquerda
         - **ids**:
           - QcGKyz1ikla9a8
       - **[3]**:
@@ -353,6 +367,7 @@
         - **pontos_uids**:
           - Tu9qrWf4A3unPG
         - **escalada**: (via inacabada 5)
+        - **setor**: Setor Esquerda
         - **ids**:
           - Tu9qrWf4A3unPG
       - **[4]**:
@@ -360,6 +375,7 @@
         - **pontos_uids**:
           - HSXgBAARGlARTG
         - **escalada**: Teoria dos jogos
+        - **setor**: Setor Esquerda
         - **ids**:
           - HSXgBAARGlARTG
 - **escaladas**:
@@ -552,6 +568,7 @@
         - **pontos_uids**:
           - rrHrPb5dRzfD8s
         - **escalada**: Lá Cancha
+        - **setor**: Setor Bombonera
         - **ids**:
           - rrHrPb5dRzfD8s
       - **[1]**:
@@ -559,6 +576,7 @@
         - **pontos_uids**:
           - AZBsQv1UlFHUTa
         - **escalada**: La Mano de Dios
+        - **setor**: Setor Bombonera
         - **ids**:
           - AZBsQv1UlFHUTa
       - **[2]**:
@@ -566,6 +584,7 @@
         - **pontos_uids**:
           - qYGNX67R0kEcNk
         - **escalada**: Projeto (sem nome 1)
+        - **setor**: Setor Bombonera
         - **ids**:
           - qYGNX67R0kEcNk
       - **[3]**:
@@ -573,6 +592,7 @@
         - **pontos_uids**:
           - 3hXaANPLClInTg
         - **escalada**: Projeto (sem nome 2)
+        - **setor**: Setor Bombonera
         - **ids**:
           - 3hXaANPLClInTg
       - **[4]**:
@@ -580,6 +600,7 @@
         - **pontos_uids**:
           - egNL8knYiZoxnh
         - **escalada**: Barra Brava
+        - **setor**: Setor Bombonera
         - **ids**:
           - egNL8knYiZoxnh
       - **[5]**:
@@ -587,6 +608,7 @@
         - **pontos_uids**:
           - NytubYldx8n2fh
         - **escalada**: Lá Bombonera
+        - **setor**: Setor Bombonera
         - **ids**:
           - NytubYldx8n2fh
       - **[6]**:
@@ -594,6 +616,7 @@
         - **pontos_uids**:
           - 71A3N9VJd0eS7C
         - **escalada**: Diego Armando Maradona
+        - **setor**: Setor Bombonera
         - **ids**:
           - 71A3N9VJd0eS7C
       - **[7]**:
@@ -601,6 +624,7 @@
         - **pontos_uids**:
           - b9rhCnqh8NFLNI
         - **escalada**: River Plate (principal)
+        - **setor**: Setor Bombonera
         - **ids**:
           - b9rhCnqh8NFLNI
       - **[8]**:
@@ -608,6 +632,7 @@
         - **pontos_uids**:
           - b9rhCnqh8NFLNI
         - **escalada**: Boca Junior (variante)
+        - **setor**: Setor Bombonera
         - **ids**:
           - b9rhCnqh8NFLNI
       - **[9]**:
@@ -615,6 +640,7 @@
         - **pontos_uids**:
           - SvZyr0uK31VfJU
         - **escalada**: (via inacabada 3) Superclassicos
+        - **setor**: Setor Bombonera
         - **ids**:
           - SvZyr0uK31VfJU
       - **[10]**:
@@ -622,6 +648,7 @@
         - **pontos_uids**:
           - 4QYmWZLYIfZPkW
         - **escalada**: San Lourenzo
+        - **setor**: Setor Bombonera
         - **ids**:
           - 4QYmWZLYIfZPkW
       - **[11]**:
@@ -629,6 +656,7 @@
         - **pontos_uids**:
           - aaYNefUUdD16O0
         - **escalada**: La Marca
+        - **setor**: Setor Bombonera
         - **ids**:
           - aaYNefUUdD16O0
 - **escaladas**:
@@ -834,6 +862,7 @@
         - **pontos_uids**:
           - l5PDF3f7iQbVWM
         - **escalada**: La Cucaracha
+        - **setor**: Setor Bosque
         - **ids**:
           - l5PDF3f7iQbVWM
       - **[1]**:
@@ -841,6 +870,7 @@
         - **pontos_uids**:
           - j2UGyzK8vRFo20
         - **escalada**: (via inacabada 1) Bem Vindo ao Bosque
+        - **setor**: Setor Bosque
         - **ids**:
           - j2UGyzK8vRFo20
       - **[2]**:
@@ -848,6 +878,7 @@
         - **pontos_uids**:
           - DSjcwyE4sCTBer
         - **escalada**: (via inacabada 2)
+        - **setor**: Setor Bosque
         - **ids**:
           - DSjcwyE4sCTBer
       - **[3]**:
@@ -855,6 +886,7 @@
         - **pontos_uids**:
           - dTe5YLEnmNeKqY
         - **escalada**: Malandro é Malandro
+        - **setor**: Setor Bosque
         - **ids**:
           - dTe5YLEnmNeKqY
       - **[4]**:
@@ -862,6 +894,7 @@
         - **pontos_uids**:
           - tUFYg3IGsekz91
         - **escalada**: Mané é Mané
+        - **setor**: Setor Bosque
         - **ids**:
           - tUFYg3IGsekz91
       - **[5]**:
@@ -869,6 +902,7 @@
         - **pontos_uids**:
           - s17F65vNMUwtoH
         - **escalada**: Segunda Divisão
+        - **setor**: Setor Bosque
         - **ids**:
           - s17F65vNMUwtoH
       - **[6]**:
@@ -876,6 +910,7 @@
         - **pontos_uids**:
           - iKD5DEJ2Ni0PS1
         - **escalada**: Diedrinho
+        - **setor**: Setor Bosque
         - **ids**:
           - iKD5DEJ2Ni0PS1
       - **[7]**:
@@ -883,6 +918,7 @@
         - **pontos_uids**:
           - fJKpSb9DackcvK
         - **escalada**: Dona Leci
+        - **setor**: Setor Bosque
         - **ids**:
           - fJKpSb9DackcvK
       - **[8]**:
@@ -890,6 +926,7 @@
         - **pontos_uids**:
           - JhQ4oiXSzjNFUe
         - **escalada**: Caminito
+        - **setor**: Setor Bosque
         - **ids**:
           - JhQ4oiXSzjNFUe
   - **[1]**:
@@ -921,6 +958,7 @@
         - **pontos_uids**:
           - KOurLs9Z7td77c
         - **escalada**: La Cucaracha
+        - **setor**: Setor Bosque
         - **ids**:
           - KOurLs9Z7td77c
       - **[1]**:
@@ -928,6 +966,7 @@
         - **pontos_uids**:
           - 3zoYjt8XpMVn3N
         - **escalada**: (via inacabada 1) Bem Vindo ao Bosque
+        - **setor**: Setor Bosque
         - **ids**:
           - 3zoYjt8XpMVn3N
   - **[2]**:
@@ -968,6 +1007,7 @@
         - **pontos_uids**:
           - 24jiD0bDirvE6I
         - **escalada**: (via inacabada 2)
+        - **setor**: Setor Bosque
         - **ids**:
           - 24jiD0bDirvE6I
       - **[1]**:
@@ -975,6 +1015,7 @@
         - **pontos_uids**:
           - 9e4lSeZppolehK
         - **escalada**: Malandro é Malandro
+        - **setor**: Setor Bosque
         - **ids**:
           - 9e4lSeZppolehK
       - **[2]**:
@@ -982,6 +1023,7 @@
         - **pontos_uids**:
           - zKULXxKXUhSpgz
         - **escalada**: Mané é Mané
+        - **setor**: Setor Bosque
         - **ids**:
           - zKULXxKXUhSpgz
   - **[3]**:
@@ -1031,6 +1073,7 @@
         - **pontos_uids**:
           - g8XLQwyIZGl3QV
         - **escalada**: Segunda Divisão
+        - **setor**: Setor Bosque
         - **ids**:
           - g8XLQwyIZGl3QV
       - **[1]**:
@@ -1038,6 +1081,7 @@
         - **pontos_uids**:
           - XgKG2bAiSlFI11
         - **escalada**: Diedrinho
+        - **setor**: Setor Bosque
         - **ids**:
           - XgKG2bAiSlFI11
       - **[2]**:
@@ -1045,6 +1089,7 @@
         - **pontos_uids**:
           - Q8aMnHqTftIEpk
         - **escalada**: Dona Leci
+        - **setor**: Setor Bosque
         - **ids**:
           - Q8aMnHqTftIEpk
       - **[3]**:
@@ -1052,6 +1097,7 @@
         - **pontos_uids**:
           - XZS6ItI6D1rzfJ
         - **escalada**: Caminito
+        - **setor**: Setor Bosque
         - **ids**:
           - XZS6ItI6D1rzfJ
 - **escaladas**:

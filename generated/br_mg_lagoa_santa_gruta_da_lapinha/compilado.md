@@ -159,6 +159,7 @@
         - **pontos_uids**:
           - IXdi9b6ANAZqas
         - **escalada**: Sai que é vaca
+        - **setor**: Setor Castelinho
         - **ids**:
           - IXdi9b6ANAZqas
       - **[1]**:
@@ -166,6 +167,7 @@
         - **pontos_uids**:
           - kl6xM7uAYzA7Da
         - **escalada**: Favo de Mel
+        - **setor**: Setor Castelinho
         - **ids**:
           - kl6xM7uAYzA7Da
       - **[2]**:
@@ -173,6 +175,7 @@
         - **pontos_uids**:
           - yqIuqsvKHtOHCY
         - **escalada**: Retorno do Marco
+        - **setor**: Setor Castelinho
         - **ids**:
           - yqIuqsvKHtOHCY
       - **[3]**:
@@ -180,6 +183,7 @@
         - **pontos_uids**:
           - ZvQxcq7VXB3oo5
         - **escalada**: Tomara que não chova
+        - **setor**: Setor Castelinho
         - **ids**:
           - ZvQxcq7VXB3oo5
       - **[4]**:
@@ -187,6 +191,7 @@
         - **pontos_uids**:
           - WCop4MeMLmO1OZ
         - **escalada**: Castelinho
+        - **setor**: Setor Castelinho
         - **ids**:
           - WCop4MeMLmO1OZ
       - **[5]**:
@@ -194,6 +199,7 @@
         - **pontos_uids**:
           - tzWTPn01zEiYeE
         - **escalada**: Projeto
+        - **setor**: Setor Castelinho
         - **ids**:
           - tzWTPn01zEiYeE
 - **escaladas**:
@@ -299,6 +305,7 @@
         - **pontos_uids**:
           - 8TWtxGbJHVaSf3
         - **escalada**: Ajoelhou tem que Rezar
+        - **setor**: Setor Mapa 2
         - **ids**:
           - 8TWtxGbJHVaSf3
       - **[1]**:
@@ -306,6 +313,7 @@
         - **pontos_uids**:
           - xjTKAZAl2qzvRu
         - **escalada**: O Exibicionista
+        - **setor**: Setor Mapa 2
         - **ids**:
           - xjTKAZAl2qzvRu
 - **escaladas**:
@@ -610,6 +618,7 @@
         - **pontos_uids**:
           - a84jXjlGaIfYvu
         - **escalada**: Lua Cheia
+        - **setor**: Setor Gruta - Mapa 3
         - **ids**:
           - a84jXjlGaIfYvu
       - **[1]**:
@@ -617,6 +626,7 @@
         - **pontos_uids**:
           - hYDYj3defdj6iz
         - **escalada**: Jornada nas Estrelas
+        - **setor**: Setor Gruta - Mapa 3
         - **ids**:
           - hYDYj3defdj6iz
       - **[2]**:
@@ -624,6 +634,7 @@
         - **pontos_uids**:
           - G9obv6HGygmW39
         - **escalada**: Egotrip
+        - **setor**: Setor Gruta - Mapa 3
         - **ids**:
           - G9obv6HGygmW39
       - **[3]**:
@@ -631,6 +642,7 @@
         - **pontos_uids**:
           - g3Rw9n92cRMheO
         - **escalada**: Boicote de comunicação
+        - **setor**: Setor Gruta - Mapa 3
         - **ids**:
           - g3Rw9n92cRMheO
       - **[4]**:
@@ -638,6 +650,7 @@
         - **pontos_uids**:
           - YXUlxFX4b4dt9T
         - **escalada**: Vicio
+        - **setor**: Setor Gruta - Mapa 3
         - **ids**:
           - YXUlxFX4b4dt9T
       - **[5]**:
@@ -645,6 +658,7 @@
         - **pontos_uids**:
           - 0HJznidvGc2Dc8
         - **escalada**: Conspiração Sanguessuga
+        - **setor**: Setor Gruta - Mapa 3
         - **ids**:
           - 0HJznidvGc2Dc8
       - **[6]**:
@@ -652,6 +666,7 @@
         - **pontos_uids**:
           - JdGRvR0UrHptAj
         - **escalada**: Gota D’água
+        - **setor**: Setor Gruta - Mapa 3
         - **ids**:
           - JdGRvR0UrHptAj
       - **[7]**:
@@ -659,6 +674,7 @@
         - **pontos_uids**:
           - iEnAxu5pPCP2uq
         - **escalada**: Sai de Baixo
+        - **setor**: Setor Gruta - Mapa 3
         - **ids**:
           - iEnAxu5pPCP2uq
       - **[8]**:
@@ -666,6 +682,7 @@
         - **pontos_uids**:
           - L6nrJpbgYPskOU
         - **escalada**: Pipeline
+        - **setor**: Setor Gruta - Mapa 3
         - **ids**:
           - L6nrJpbgYPskOU
       - **[9]**:
@@ -673,6 +690,7 @@
         - **pontos_uids**:
           - igWL4CK3ObDb9x
         - **escalada**: Jurubeba
+        - **setor**: Setor Gruta - Mapa 3
         - **ids**:
           - igWL4CK3ObDb9x
       - **[10]**:
@@ -680,6 +698,7 @@
         - **pontos_uids**:
           - yJ1uPbPJ91BGt5
         - **escalada**: Perigo Mora ao Lado
+        - **setor**: Setor Gruta - Mapa 3
         - **ids**:
           - yJ1uPbPJ91BGt5
       - **[11]**:
@@ -687,6 +706,7 @@
         - **pontos_uids**:
           - alEy3QpZYuqo68
         - **escalada**: Pretexto da Traição
+        - **setor**: Setor Gruta - Mapa 3
         - **ids**:
           - alEy3QpZYuqo68
       - **[12]**:
@@ -694,6 +714,7 @@
         - **pontos_uids**:
           - qPV8P7gZFP9zOE
         - **escalada**: Sorriso do Lagarto
+        - **setor**: Setor Gruta - Mapa 3
         - **ids**:
           - qPV8P7gZFP9zOE
       - **[13]**:
@@ -701,6 +722,7 @@
         - **pontos_uids**:
           - WhG4Tcjw6pFH2I
         - **escalada**: Orgasmatrom
+        - **setor**: Setor Gruta - Mapa 3
         - **ids**:
           - WhG4Tcjw6pFH2I
       - **[14]**:
@@ -708,6 +730,7 @@
         - **pontos_uids**:
           - Z7GhMueq5Bh0B2
         - **escalada**: Escaramuça
+        - **setor**: Setor Gruta - Mapa 3
         - **ids**:
           - Z7GhMueq5Bh0B2
       - **[15]**:
@@ -715,6 +738,7 @@
         - **pontos_uids**:
           - AP5c4pEkUft5Ha
         - **escalada**: Túnel do Tempo
+        - **setor**: Setor Gruta - Mapa 3
         - **ids**:
           - AP5c4pEkUft5Ha
       - **[16]**:
@@ -722,6 +746,7 @@
         - **pontos_uids**:
           - nO20GQLPlKGRlp
         - **escalada**: Dédalos
+        - **setor**: Setor Gruta - Mapa 3
         - **ids**:
           - nO20GQLPlKGRlp
       - **[17]**:
@@ -729,6 +754,7 @@
         - **pontos_uids**:
           - ilkHCRhKLKj1qT
         - **escalada**: Bouquet de Rosas
+        - **setor**: Setor Gruta - Mapa 3
         - **ids**:
           - ilkHCRhKLKj1qT
       - **[18]**:
@@ -736,6 +762,7 @@
         - **pontos_uids**:
           - z7gK35M0FeYIoC
         - **escalada**: Fogo no Rabo
+        - **setor**: Setor Gruta - Mapa 3
         - **ids**:
           - z7gK35M0FeYIoC
       - **[19]**:
@@ -743,6 +770,7 @@
         - **pontos_uids**:
           - GlPuO5cJt5exdV
         - **escalada**: Bobeou Sobrou
+        - **setor**: Setor Gruta - Mapa 3
         - **ids**:
           - GlPuO5cJt5exdV
       - **[20]**:
@@ -750,6 +778,7 @@
         - **pontos_uids**:
           - ssl4fxO4hxIlky
         - **escalada**: Los Cubanos
+        - **setor**: Setor Gruta - Mapa 3
         - **ids**:
           - ssl4fxO4hxIlky
       - **[21]**:
@@ -757,6 +786,7 @@
         - **pontos_uids**:
           - ZdrpCXFkdGihXw
         - **escalada**: Folião
+        - **setor**: Setor Gruta - Mapa 3
         - **ids**:
           - ZdrpCXFkdGihXw
       - **[22]**:
@@ -764,6 +794,7 @@
         - **pontos_uids**:
           - WYGuHzuajIpHHg
         - **escalada**: Escalador sem mãe
+        - **setor**: Setor Gruta - Mapa 3
         - **ids**:
           - WYGuHzuajIpHHg
       - **[23]**:
@@ -771,6 +802,7 @@
         - **pontos_uids**:
           - Yl5UK7yi3GfgnS
         - **escalada**: Projeto inacabado
+        - **setor**: Setor Gruta - Mapa 3
         - **ids**:
           - Yl5UK7yi3GfgnS
       - **[24]**:
@@ -778,6 +810,7 @@
         - **pontos_uids**:
           - kDYLtWk7Idc3Sr
         - **escalada**: Sobrevibrenf´s
+        - **setor**: Setor Gruta - Mapa 3
         - **ids**:
           - kDYLtWk7Idc3Sr
       - **[25]**:
@@ -785,6 +818,7 @@
         - **pontos_uids**:
           - fQOs3Q3snLnG8Q
         - **escalada**: Sobreviventes
+        - **setor**: Setor Gruta - Mapa 3
         - **ids**:
           - fQOs3Q3snLnG8Q
 - **escaladas**:
@@ -1330,6 +1364,7 @@
         - **pontos_uids**:
           - YbwIrMGf3g0rBr
         - **escalada**: Fogo no Rabo
+        - **setor**: Setor Gruta - Mapa 3
         - **ids**:
           - YbwIrMGf3g0rBr
       - **[1]**:
@@ -1337,6 +1372,7 @@
         - **pontos_uids**:
           - hbW6qWslU23clk
         - **escalada**: Bobeou Sobrou
+        - **setor**: Setor Gruta - Mapa 3
         - **ids**:
           - hbW6qWslU23clk
       - **[2]**:
@@ -1344,6 +1380,7 @@
         - **pontos_uids**:
           - eOxeQzw0fioIOS
         - **escalada**: Los Cubanos
+        - **setor**: Setor Gruta - Mapa 3
         - **ids**:
           - eOxeQzw0fioIOS
       - **[3]**:
@@ -1351,6 +1388,7 @@
         - **pontos_uids**:
           - vBLxVGcDZRvJud
         - **escalada**: Folião
+        - **setor**: Setor Gruta - Mapa 3
         - **ids**:
           - vBLxVGcDZRvJud
       - **[4]**:
@@ -1358,6 +1396,7 @@
         - **pontos_uids**:
           - kVRiPsoYtbRGRW
         - **escalada**: Luzes
+        - **setor**: Setor Gruta - Mapa 4 (Sala de Aula)
         - **ids**:
           - kVRiPsoYtbRGRW
       - **[5]**:
@@ -1365,6 +1404,7 @@
         - **pontos_uids**:
           - WcMk6ADqlyWuEi
         - **escalada**: Via sem informação
+        - **setor**: Setor Gruta - Mapa 4 (Sala de Aula)
         - **ids**:
           - WcMk6ADqlyWuEi
       - **[6]**:
@@ -1372,6 +1412,7 @@
         - **pontos_uids**:
           - zAYs5SVbqCn9Vy
         - **escalada**: Êta Sô
+        - **setor**: Setor Gruta - Mapa 4 (Sala de Aula)
         - **ids**:
           - zAYs5SVbqCn9Vy
       - **[7]**:
@@ -1379,6 +1420,7 @@
         - **pontos_uids**:
           - W2qBCpwNNJ9k8u
         - **escalada**: Via do Tetinho
+        - **setor**: Setor Gruta - Mapa 4 (Sala de Aula)
         - **ids**:
           - W2qBCpwNNJ9k8u
       - **[8]**:
@@ -1386,6 +1428,7 @@
         - **pontos_uids**:
           - 8EAtC0V19Wjn54
         - **escalada**: Ataque das Bolinhas
+        - **setor**: Setor Gruta - Mapa 4 (Sala de Aula)
         - **ids**:
           - 8EAtC0V19Wjn54
       - **[9]**:
@@ -1393,6 +1436,7 @@
         - **pontos_uids**:
           - DK8P4ULhqv5lBG
         - **escalada**: Via do curso
+        - **setor**: Setor Gruta - Mapa 4 (Sala de Aula)
         - **ids**:
           - DK8P4ULhqv5lBG
       - **[10]**:
@@ -1400,6 +1444,7 @@
         - **pontos_uids**:
           - A06uD9gFWxhcYT
         - **escalada**: Viajandão Grampeando na Chuva
+        - **setor**: Setor Gruta - Mapa 4 (Sala de Aula)
         - **ids**:
           - A06uD9gFWxhcYT
       - **[11]**:
@@ -1407,6 +1452,7 @@
         - **pontos_uids**:
           - kTllLRySz1Isb6
         - **escalada**: Martelo Voador
+        - **setor**: Setor Gruta - Mapa 4 (Sala de Aula)
         - **ids**:
           - kTllLRySz1Isb6
       - **[12]**:
@@ -1414,6 +1460,7 @@
         - **pontos_uids**:
           - 1uIvbfEaAqbb3d
         - **escalada**: Coquetel de Maracujá
+        - **setor**: Setor Gruta - Mapa 4 (Sala de Aula)
         - **ids**:
           - 1uIvbfEaAqbb3d
       - **[13]**:
@@ -1421,6 +1468,7 @@
         - **pontos_uids**:
           - yuMnis7fVuEmVl
         - **escalada**: Ravenloft
+        - **setor**: Setor Gruta - Mapa 4 (Sala de Aula)
         - **ids**:
           - yuMnis7fVuEmVl
       - **[14]**:
@@ -1428,6 +1476,7 @@
         - **pontos_uids**:
           - Yj2yGgPtNAJck6
         - **escalada**: Muro das Lamentações
+        - **setor**: Setor Gruta - Mapa 4 (Sala de Aula)
         - **ids**:
           - Yj2yGgPtNAJck6
       - **[15]**:
@@ -1435,6 +1484,7 @@
         - **pontos_uids**:
           - qL5hm95WO6YW2A
         - **escalada**: Equilíbrio Distante
+        - **setor**: Setor Gruta - Mapa 4 (Sala de Aula)
         - **ids**:
           - qL5hm95WO6YW2A
       - **[16]**:
@@ -1442,6 +1492,7 @@
         - **pontos_uids**:
           - mIQ6BoZIFWnpzd
         - **escalada**: Careta do Calango
+        - **setor**: Setor Gruta - Mapa 4 (Sala de Aula)
         - **ids**:
           - mIQ6BoZIFWnpzd
       - **[17]**:
@@ -1449,6 +1500,7 @@
         - **pontos_uids**:
           - Fo3bDOOX5AvnLS
         - **escalada**: Pierrô e Colombina
+        - **setor**: Setor Gruta - Mapa 4 (Sala de Aula)
         - **ids**:
           - Fo3bDOOX5AvnLS
       - **[18]**:
@@ -1456,6 +1508,7 @@
         - **pontos_uids**:
           - TzfHeUzGtWrhfI
         - **escalada**: Escalador sem mãe
+        - **setor**: Setor Gruta - Mapa 3
         - **ids**:
           - TzfHeUzGtWrhfI
       - **[19]**:
@@ -1463,6 +1516,7 @@
         - **pontos_uids**:
           - FNnXhaNsCkS317
         - **escalada**: Projeto inacabado
+        - **setor**: Setor Gruta - Mapa 3
         - **ids**:
           - FNnXhaNsCkS317
       - **[20]**:
@@ -1470,6 +1524,7 @@
         - **pontos_uids**:
           - Q3wymOY56A2tvK
         - **escalada**: Sobrevibrenf´s
+        - **setor**: Setor Gruta - Mapa 3
         - **ids**:
           - Q3wymOY56A2tvK
       - **[21]**:
@@ -1477,6 +1532,7 @@
         - **pontos_uids**:
           - 8jLM33q08m09jN
         - **escalada**: Sobreviventes
+        - **setor**: Setor Gruta - Mapa 3
         - **ids**:
           - 8jLM33q08m09jN
       - **[22]**:
@@ -1484,6 +1540,7 @@
         - **pontos_uids**:
           - 69uCcDNsRqJK6d
         - **escalada**: Scarface
+        - **setor**: Setor Gruta - Mapa 4 (Sala de Aula)
         - **ids**:
           - 69uCcDNsRqJK6d
       - **[23]**:
@@ -1491,6 +1548,7 @@
         - **pontos_uids**:
           - Oe8hpZkQ4qjkll
         - **escalada**: Posições Exóticas
+        - **setor**: Setor Gruta - Mapa 4 (Sala de Aula)
         - **ids**:
           - Oe8hpZkQ4qjkll
       - **[24]**:
@@ -1498,6 +1556,7 @@
         - **pontos_uids**:
           - ZIFl9D0Bczeb7l
         - **escalada**: Garotos não Choram
+        - **setor**: Setor Gruta - Mapa 4 (Sala de Aula)
         - **ids**:
           - ZIFl9D0Bczeb7l
       - **[25]**:
@@ -1783,6 +1842,7 @@
         - **pontos_uids**:
           - mwcrIssn7Fbu7K
         - **escalada**: Ben Moon
+        - **setor**: Setor Mapa 5
         - **ids**:
           - mwcrIssn7Fbu7K
       - **[1]**:
@@ -1790,6 +1850,7 @@
         - **pontos_uids**:
           - YUblEqH5pfshO9
         - **escalada**: Come Quieto
+        - **setor**: Setor Mapa 5
         - **ids**:
           - YUblEqH5pfshO9
       - **[2]**:
@@ -1797,6 +1858,7 @@
         - **pontos_uids**:
           - 37wN9SXE44Of5s
         - **escalada**: O Perigo que Veio do Céu
+        - **setor**: Setor Mapa 5
         - **ids**:
           - 37wN9SXE44Of5s
       - **[3]**:
@@ -1804,6 +1866,7 @@
         - **pontos_uids**:
           - vuYjNb3dRUZhdn
         - **escalada**: Arranca Couro
+        - **setor**: Setor Mapa 5
         - **ids**:
           - vuYjNb3dRUZhdn
       - **[4]**:
@@ -1811,6 +1874,7 @@
         - **pontos_uids**:
           - zNpqRoysKs59g9
         - **escalada**: Ônibus Inglês
+        - **setor**: Setor Mapa 5
         - **ids**:
           - zNpqRoysKs59g9
       - **[5]**:
@@ -1818,6 +1882,7 @@
         - **pontos_uids**:
           - Rlf1iauiC1twwi
         - **escalada**: Gigante de Bronze
+        - **setor**: Setor Mapa 5
         - **ids**:
           - Rlf1iauiC1twwi
       - **[6]**:
@@ -1825,6 +1890,7 @@
         - **pontos_uids**:
           - peXLU6yqiBgVaf
         - **escalada**: Karrenglass
+        - **setor**: Setor Mapa 5
         - **ids**:
           - peXLU6yqiBgVaf
       - **[7]**:
@@ -1832,6 +1898,7 @@
         - **pontos_uids**:
           - 4KXPOHRpCXHQzF
         - **escalada**: Retorno dos Anões
+        - **setor**: Setor Mapa 5
         - **ids**:
           - 4KXPOHRpCXHQzF
       - **[8]**:
@@ -1839,6 +1906,7 @@
         - **pontos_uids**:
           - 7BYlpEkL6jr0Uy
         - **escalada**: Compromisso Sexual
+        - **setor**: Setor Mapa 5
         - **ids**:
           - 7BYlpEkL6jr0Uy
 - **escaladas**:
@@ -2103,6 +2171,7 @@
         - **pontos_uids**:
           - co0L3lzfGktyam
         - **escalada**: Psico Circus
+        - **setor**: Setor Vale Verde (Mapa 6)
         - **ids**:
           - co0L3lzfGktyam
       - **[1]**:
@@ -2110,6 +2179,7 @@
         - **pontos_uids**:
           - Pcws7jdnBdkFf1
         - **escalada**: Os impossíveis
+        - **setor**: Setor Vale Verde (Mapa 6)
         - **ids**:
           - Pcws7jdnBdkFf1
       - **[2]**:
@@ -2117,6 +2187,7 @@
         - **pontos_uids**:
           - 4D7AxhkAElF1mz
         - **escalada**: Carbonáticus Calcicus
+        - **setor**: Setor Vale Verde (Mapa 6)
         - **ids**:
           - 4D7AxhkAElF1mz
       - **[3]**:
@@ -2124,6 +2195,7 @@
         - **pontos_uids**:
           - 0RePZDZwatc55x
         - **escalada**: Para não dizer que não falei de flores
+        - **setor**: Setor Vale Verde (Mapa 6)
         - **ids**:
           - 0RePZDZwatc55x
       - **[4]**:
@@ -2131,6 +2203,7 @@
         - **pontos_uids**:
           - EQFl6xqRj25XKk
         - **escalada**: As Aparências Enganam
+        - **setor**: Setor Vale Verde (Mapa 6)
         - **ids**:
           - EQFl6xqRj25XKk
       - **[5]**:
@@ -2138,6 +2211,7 @@
         - **pontos_uids**:
           - JB20lEvPwjBEBN
         - **escalada**: Eu quero é ver o oco
+        - **setor**: Setor Vale Verde (Mapa 6)
         - **ids**:
           - JB20lEvPwjBEBN
       - **[6]**:
@@ -2145,6 +2219,7 @@
         - **pontos_uids**:
           - cOiGV79bJTTXwi
         - **escalada**: Cortando Prego
+        - **setor**: Setor Vale Verde (Mapa 6)
         - **ids**:
           - cOiGV79bJTTXwi
       - **[7]**:
@@ -2152,6 +2227,7 @@
         - **pontos_uids**:
           - EwJiGCEgNO1IGL
         - **escalada**: Vive lá brenf
+        - **setor**: Setor Vale Verde (Mapa 6)
         - **ids**:
           - EwJiGCEgNO1IGL
       - **[8]**:
@@ -2159,6 +2235,7 @@
         - **pontos_uids**:
           - IYOCbXYeGlRztu
         - **escalada**: Rastafary Baby
+        - **setor**: Setor Vale Verde (Mapa 6)
         - **ids**:
           - IYOCbXYeGlRztu
       - **[9]**:
@@ -2166,6 +2243,7 @@
         - **pontos_uids**:
           - Zvh5xGHFKkbg94
         - **escalada**: Varinha de Condon
+        - **setor**: Setor Vale Verde (Mapa 6)
         - **ids**:
           - Zvh5xGHFKkbg94
       - **[10]**:
@@ -2173,6 +2251,7 @@
         - **pontos_uids**:
           - yRDVKSBrLmJfm0
         - **escalada**: Tempestade Cerebral
+        - **setor**: Setor Vale Verde (Mapa 6)
         - **ids**:
           - yRDVKSBrLmJfm0
       - **[11]**:
@@ -2180,6 +2259,7 @@
         - **pontos_uids**:
           - Yh8x0r08rqjWW6
         - **escalada**: Chambinho
+        - **setor**: Setor Vale Verde (Mapa 6)
         - **ids**:
           - Yh8x0r08rqjWW6
       - **[12]**:
@@ -2187,6 +2267,7 @@
         - **pontos_uids**:
           - L3Kv1lkQnUiHIE
         - **escalada**: Revolução dos Micos
+        - **setor**: Setor Vale Verde (Mapa 6)
         - **ids**:
           - L3Kv1lkQnUiHIE
       - **[13]**:
@@ -2194,6 +2275,7 @@
         - **pontos_uids**:
           - h3386PrCzycAkF
         - **escalada**: Al Capote
+        - **setor**: Setor Vale Verde (Mapa 6)
         - **ids**:
           - h3386PrCzycAkF
 - **escaladas**:
@@ -2459,6 +2541,7 @@
         - **pontos_uids**:
           - Kkw0WF7eShPHQ8
         - **escalada**: Cariocas não dizem Uai
+        - **setor**: Setor Mapa 7
         - **ids**:
           - Kkw0WF7eShPHQ8
       - **[1]**:
@@ -2466,6 +2549,7 @@
         - **pontos_uids**:
           - FlNc2a4cMFVuPg
         - **escalada**: Doutor Lund
+        - **setor**: Setor Mapa 7
         - **ids**:
           - FlNc2a4cMFVuPg
       - **[2]**:
@@ -2473,6 +2557,7 @@
         - **pontos_uids**:
           - 1WtCp5Xuy9POGb
         - **escalada**: Aceitam-se Sugestões
+        - **setor**: Setor Mapa 7
         - **ids**:
           - 1WtCp5Xuy9POGb
       - **[3]**:
@@ -2480,6 +2565,7 @@
         - **pontos_uids**:
           - V9q3se1M4hzUIm
         - **escalada**: Rosa dos Ventos
+        - **setor**: Setor Mapa 7
         - **ids**:
           - V9q3se1M4hzUIm
       - **[4]**:
@@ -2487,6 +2573,7 @@
         - **pontos_uids**:
           - 45OBUc8wgaEmDC
         - **escalada**: Monte Calvário
+        - **setor**: Setor Mapa 7
         - **ids**:
           - 45OBUc8wgaEmDC
       - **[5]**:
@@ -2494,6 +2581,7 @@
         - **pontos_uids**:
           - l4cY9pnkIm6cdZ
         - **escalada**: Pó-na-beiça
+        - **setor**: Setor Mapa 7
         - **ids**:
           - l4cY9pnkIm6cdZ
       - **[6]**:
@@ -2501,6 +2589,7 @@
         - **pontos_uids**:
           - pUVsoiEYth6L1r
         - **escalada**: Três dentro, três fora
+        - **setor**: Setor Mapa 7
         - **ids**:
           - pUVsoiEYth6L1r
       - **[7]**:
@@ -2508,6 +2597,7 @@
         - **pontos_uids**:
           - aygeQ7pVVesHih
         - **escalada**: Só para eles
+        - **setor**: Setor Mapa 7
         - **ids**:
           - aygeQ7pVVesHih
       - **[8]**:
@@ -2515,6 +2605,7 @@
         - **pontos_uids**:
           - dLQ9rYaZPJS2bw
         - **escalada**: Só para elas
+        - **setor**: Setor Mapa 7
         - **ids**:
           - dLQ9rYaZPJS2bw
       - **[9]**:
@@ -2522,6 +2613,7 @@
         - **pontos_uids**:
           - KIPcwRIBu5sXru
         - **escalada**: Prestobarba
+        - **setor**: Setor Mapa 7
         - **ids**:
           - KIPcwRIBu5sXru
       - **[10]**:
@@ -2529,6 +2621,7 @@
         - **pontos_uids**:
           - erY00uih2b1m1B
         - **escalada**: Bigode Limpo
+        - **setor**: Setor Mapa 7
         - **ids**:
           - erY00uih2b1m1B
 - **escaladas**:
@@ -2945,6 +3038,7 @@
         - **pontos_uids**:
           - FqPvQyqLrSWjjj
         - **escalada**: Bigode de Cristo
+        - **setor**: Setor Túnel de Pedra (Mapa 8)
         - **ids**:
           - FqPvQyqLrSWjjj
       - **[1]**:
@@ -2952,6 +3046,7 @@
         - **pontos_uids**:
           - Ov4O25jS3cuaP8
         - **escalada**: Bigode Sujo
+        - **setor**: Setor Túnel de Pedra (Mapa 8)
         - **ids**:
           - Ov4O25jS3cuaP8
       - **[2]**:
@@ -2959,6 +3054,7 @@
         - **pontos_uids**:
           - 4FxCluDk4Rtj00
         - **escalada**: Bigode de Espinho
+        - **setor**: Setor Túnel de Pedra (Mapa 8)
         - **ids**:
           - 4FxCluDk4Rtj00
       - **[3]**:
@@ -2966,6 +3062,7 @@
         - **pontos_uids**:
           - RRYXB42aOGnIxX
         - **escalada**: Trombeta Acéfala
+        - **setor**: Setor Túnel de Pedra (Mapa 8)
         - **ids**:
           - RRYXB42aOGnIxX
       - **[4]**:
@@ -2973,6 +3070,7 @@
         - **pontos_uids**:
           - WaTUfE5SA2tfw8
         - **escalada**: Meio Cubanos
+        - **setor**: Setor Túnel de Pedra (Mapa 8)
         - **ids**:
           - WaTUfE5SA2tfw8
       - **[5]**:
@@ -2980,6 +3078,7 @@
         - **pontos_uids**:
           - kTNF5z1DbFB7OT
         - **escalada**: Golpe Ninja
+        - **setor**: Setor Túnel de Pedra (Mapa 8)
         - **ids**:
           - kTNF5z1DbFB7OT
       - **[6]**:
@@ -2987,6 +3086,7 @@
         - **pontos_uids**:
           - yGfWjbBH9O6G6C
         - **escalada**: Tripla Traição
+        - **setor**: Setor Túnel de Pedra (Mapa 8)
         - **ids**:
           - yGfWjbBH9O6G6C
       - **[7]**:
@@ -2994,6 +3094,7 @@
         - **pontos_uids**:
           - WDWCKnErNiKSiQ
         - **escalada**: Noivado da Feiticeira
+        - **setor**: Setor Túnel de Pedra (Mapa 8)
         - **ids**:
           - WDWCKnErNiKSiQ
       - **[8]**:
@@ -3001,6 +3102,7 @@
         - **pontos_uids**:
           - wLT0df5guGG1CC
         - **escalada**: Planeta dos Macacos
+        - **setor**: Setor Túnel de Pedra (Mapa 8)
         - **ids**:
           - wLT0df5guGG1CC
       - **[9]**:
@@ -3008,6 +3110,7 @@
         - **pontos_uids**:
           - MwEF9ydeMOTn6a
         - **escalada**: Rota de colisão
+        - **setor**: Setor Túnel de Pedra (Mapa 8)
         - **ids**:
           - MwEF9ydeMOTn6a
       - **[10]**:
@@ -3015,6 +3118,7 @@
         - **pontos_uids**:
           - mlFawOfgOWPo3G
         - **escalada**: Projeto Daniel Salim
+        - **setor**: Setor Túnel de Pedra (Mapa 8)
         - **ids**:
           - mlFawOfgOWPo3G
       - **[11]**:
@@ -3022,6 +3126,7 @@
         - **pontos_uids**:
           - OCK4VtAc2DnDsP
         - **escalada**: Vale Perdido
+        - **setor**: Setor Túnel de Pedra (Mapa 8)
         - **ids**:
           - OCK4VtAc2DnDsP
       - **[12]**:
@@ -3029,6 +3134,7 @@
         - **pontos_uids**:
           - gHm3OJhkalYdks
         - **escalada**: Consolo da Surucucu
+        - **setor**: Setor Túnel de Pedra (Mapa 8)
         - **ids**:
           - gHm3OJhkalYdks
       - **[13]**:
@@ -3036,6 +3142,7 @@
         - **pontos_uids**:
           - CwMStfSGesutnN
         - **escalada**: Santos e Hereges
+        - **setor**: Setor Túnel de Pedra (Mapa 8)
         - **ids**:
           - CwMStfSGesutnN
       - **[14]**:
@@ -3043,6 +3150,7 @@
         - **pontos_uids**:
           - OOJRyvkJi3NfZG
         - **escalada**: O Império Contra Ataca
+        - **setor**: Setor Túnel de Pedra (Mapa 8)
         - **ids**:
           - OOJRyvkJi3NfZG
       - **[15]**:
@@ -3050,6 +3158,7 @@
         - **pontos_uids**:
           - xqErmEnBxlsY7V
         - **escalada**: Jegue Voador
+        - **setor**: Setor Túnel de Pedra (Mapa 8)
         - **ids**:
           - xqErmEnBxlsY7V
       - **[16]**:
@@ -3057,6 +3166,7 @@
         - **pontos_uids**:
           - d2JXIHtHmANt1j
         - **escalada**: Labirinto das Maritacas
+        - **setor**: Setor Túnel de Pedra (Mapa 8)
         - **ids**:
           - d2JXIHtHmANt1j
       - **[17]**:
@@ -3064,6 +3174,7 @@
         - **pontos_uids**:
           - Ein8Cu9aEzNSjP
         - **escalada**: Tentações de Maria Madalena
+        - **setor**: Setor Túnel de Pedra (Mapa 8)
         - **ids**:
           - Ein8Cu9aEzNSjP
       - **[18]**:
@@ -3071,6 +3182,7 @@
         - **pontos_uids**:
           - ypnf6FyerErnVr
         - **escalada**: Sai do chão
+        - **setor**: Setor Túnel de Pedra (Mapa 8)
         - **ids**:
           - ypnf6FyerErnVr
       - **[19]**:
@@ -3078,6 +3190,7 @@
         - **pontos_uids**:
           - YRAg2GMUGnbfcR
         - **escalada**: Ato Imperdoável
+        - **setor**: Setor Túnel de Pedra (Mapa 8)
         - **ids**:
           - YRAg2GMUGnbfcR
       - **[20]**:
@@ -3085,6 +3198,7 @@
         - **pontos_uids**:
           - u2jYmRiNJiWfqo
         - **escalada**: Projeto Rodrigo do Paraná
+        - **setor**: Setor Túnel de Pedra (Mapa 8)
         - **ids**:
           - u2jYmRiNJiWfqo
       - **[21]**:
@@ -3092,6 +3206,7 @@
         - **pontos_uids**:
           - LMPZw4fLITrUWo
         - **escalada**: Pequena Criança
+        - **setor**: Setor Túnel de Pedra (Mapa 8)
         - **ids**:
           - LMPZw4fLITrUWo
       - **[22]**:
@@ -3099,6 +3214,7 @@
         - **pontos_uids**:
           - hGcCpqISgO5Ez7
         - **escalada**: Três dentro, três fora
+        - **setor**: Setor Mapa 7
         - **ids**:
           - hGcCpqISgO5Ez7
       - **[23]**:
@@ -3106,6 +3222,7 @@
         - **pontos_uids**:
           - VenVi5yQvRC9tJ
         - **escalada**: Só para eles
+        - **setor**: Setor Mapa 7
         - **ids**:
           - VenVi5yQvRC9tJ
       - **[24]**:
@@ -3113,6 +3230,7 @@
         - **pontos_uids**:
           - 2El8JpemBA1uin
         - **escalada**: Só para elas
+        - **setor**: Setor Mapa 7
         - **ids**:
           - 2El8JpemBA1uin
       - **[25]**:
@@ -3120,6 +3238,7 @@
         - **pontos_uids**:
           - ZDoKi59PYOnpQ5
         - **escalada**: Prestobarba
+        - **setor**: Setor Mapa 7
         - **ids**:
           - ZDoKi59PYOnpQ5
       - **[26]**:
@@ -3127,6 +3246,7 @@
         - **pontos_uids**:
           - NgVYaSiIhijBMj
         - **escalada**: Bigode Limpo
+        - **setor**: Setor Mapa 7
         - **ids**:
           - NgVYaSiIhijBMj
 - **escaladas**:
@@ -3593,6 +3713,7 @@
         - **pontos_uids**:
           - dVjpUgxOLlCH1W
         - **escalada**: Corvo Gigante
+        - **setor**: Setor Savassinha (Mapa 9)
         - **ids**:
           - dVjpUgxOLlCH1W
       - **[1]**:
@@ -3600,6 +3721,7 @@
         - **pontos_uids**:
           - uzHQrr8ByT7za7
         - **escalada**: Gralha Pigmeia
+        - **setor**: Setor Savassinha (Mapa 9)
         - **ids**:
           - uzHQrr8ByT7za7
       - **[2]**:
@@ -3607,6 +3729,7 @@
         - **pontos_uids**:
           - 2t1kd8qmSlbBvk
         - **escalada**: Anjo de Pedra
+        - **setor**: Setor Savassinha (Mapa 9)
         - **ids**:
           - 2t1kd8qmSlbBvk
       - **[3]**:
@@ -3614,6 +3737,7 @@
         - **pontos_uids**:
           - Rpl7wyHLorKqzq
         - **escalada**: Um Porco que Sobe
+        - **setor**: Setor Savassinha (Mapa 9)
         - **ids**:
           - Rpl7wyHLorKqzq
       - **[4]**:
@@ -3621,6 +3745,7 @@
         - **pontos_uids**:
           - pm4Dgugnw1ll9G
         - **escalada**: Um Corpo que Cai
+        - **setor**: Setor Savassinha (Mapa 9)
         - **ids**:
           - pm4Dgugnw1ll9G
       - **[5]**:
@@ -3628,6 +3753,7 @@
         - **pontos_uids**:
           - QOUMJXIgOQkNqp
         - **escalada**: Realidade da Coisa
+        - **setor**: Setor Savassinha (Mapa 9)
         - **ids**:
           - QOUMJXIgOQkNqp
       - **[6]**:
@@ -3635,6 +3761,7 @@
         - **pontos_uids**:
           - ZYr0Z2CMYswyhj
         - **escalada**: Realidade Sobreposta
+        - **setor**: Setor Savassinha (Mapa 9)
         - **ids**:
           - ZYr0Z2CMYswyhj
       - **[7]**:
@@ -3642,6 +3769,7 @@
         - **pontos_uids**:
           - CZ8tMAJy7olXeL
         - **escalada**: Talhadeira Passa
+        - **setor**: Setor Savassinha (Mapa 9)
         - **ids**:
           - CZ8tMAJy7olXeL
       - **[8]**:
@@ -3649,6 +3777,7 @@
         - **pontos_uids**:
           - sDyx0O7IDKlndB
         - **escalada**: Cova dos Leões
+        - **setor**: Setor Savassinha (Mapa 9)
         - **ids**:
           - sDyx0O7IDKlndB
       - **[9]**:
@@ -3656,6 +3785,7 @@
         - **pontos_uids**:
           - WNK3MziIwfs6gK
         - **escalada**: Mentalidade Suburbana
+        - **setor**: Setor Savassinha (Mapa 9)
         - **ids**:
           - WNK3MziIwfs6gK
       - **[10]**:
@@ -3663,6 +3793,7 @@
         - **pontos_uids**:
           - lQmIbNulRiIPbE
         - **escalada**: Rato Assassino
+        - **setor**: Setor Savassinha (Mapa 9)
         - **ids**:
           - lQmIbNulRiIPbE
       - **[11]**:
@@ -3670,6 +3801,7 @@
         - **pontos_uids**:
           - DKaCgDIP3QOO0w
         - **escalada**: Masturbações de Calígula
+        - **setor**: Setor Savassinha (Mapa 9)
         - **ids**:
           - DKaCgDIP3QOO0w
       - **[12]**:
@@ -3677,6 +3809,7 @@
         - **pontos_uids**:
           - HbIxLsHJPHWIOs
         - **escalada**: Primeiro General
+        - **setor**: Setor Savassinha (Mapa 9)
         - **ids**:
           - HbIxLsHJPHWIOs
       - **[13]**:
@@ -3684,6 +3817,7 @@
         - **pontos_uids**:
           - 5rePH1Xeu0vvUL
         - **escalada**: Tentações de Maria Madalena
+        - **setor**: Setor Túnel de Pedra (Mapa 8)
         - **ids**:
           - 5rePH1Xeu0vvUL
       - **[14]**:
@@ -3691,6 +3825,7 @@
         - **pontos_uids**:
           - OakaStG3ucy0bb
         - **escalada**: Sai do chão
+        - **setor**: Setor Túnel de Pedra (Mapa 8)
         - **ids**:
           - OakaStG3ucy0bb
       - **[15]**:
@@ -3698,6 +3833,7 @@
         - **pontos_uids**:
           - LjZtCpbWJYU6By
         - **escalada**: Ato Imperdoável
+        - **setor**: Setor Túnel de Pedra (Mapa 8)
         - **ids**:
           - LjZtCpbWJYU6By
       - **[16]**:
@@ -3705,6 +3841,7 @@
         - **pontos_uids**:
           - Yw4cWIL4NQYZK6
         - **escalada**: Projeto Rodrigo do Paraná
+        - **setor**: Setor Túnel de Pedra (Mapa 8)
         - **ids**:
           - Yw4cWIL4NQYZK6
       - **[17]**:
@@ -3712,6 +3849,7 @@
         - **pontos_uids**:
           - QbaoL1j61sC3NE
         - **escalada**: Pequena Criança
+        - **setor**: Setor Túnel de Pedra (Mapa 8)
         - **ids**:
           - QbaoL1j61sC3NE
       - **[18]**:
@@ -3719,6 +3857,7 @@
         - **pontos_uids**:
           - A8rpj2zbcQOQon
         - **escalada**: Três Pontos
+        - **setor**: Setor Savassinha (Mapa 9)
         - **ids**:
           - A8rpj2zbcQOQon
 - **escaladas**:
@@ -3949,6 +4088,7 @@
         - **pontos_uids**:
           - W3bno5EqeLrrV4
         - **escalada**: Spartacus
+        - **setor**: Bloco Romano (Mapa 10)
         - **ids**:
           - W3bno5EqeLrrV4
       - **[1]**:
@@ -3956,6 +4096,7 @@
         - **pontos_uids**:
           - zkLTjwtLX19nhf
         - **escalada**: A Era dos Patrícios
+        - **setor**: Bloco Romano (Mapa 10)
         - **ids**:
           - zkLTjwtLX19nhf
       - **[2]**:
@@ -3963,6 +4104,7 @@
         - **pontos_uids**:
           - V2jZxGqcd48WAa
         - **escalada**: Coliseu
+        - **setor**: Bloco Romano (Mapa 10)
         - **ids**:
           - V2jZxGqcd48WAa
       - **[3]**:
@@ -3970,6 +4112,7 @@
         - **pontos_uids**:
           - JJY1d3ERuhOejy
         - **escalada**: Pobre César
+        - **setor**: Bloco Romano (Mapa 10)
         - **ids**:
           - JJY1d3ERuhOejy
       - **[4]**:
@@ -3977,6 +4120,7 @@
         - **pontos_uids**:
           - sUbXB2cbIVvgJb
         - **escalada**: Soprano (inacabada)
+        - **setor**: Bloco Romano (Mapa 10)
         - **ids**:
           - sUbXB2cbIVvgJb
       - **[5]**:
@@ -3984,6 +4128,7 @@
         - **pontos_uids**:
           - XgHgIyvkl5fwkc
         - **escalada**: Sodoma e Gomorra
+        - **setor**: Bloco Romano (Mapa 10)
         - **ids**:
           - XgHgIyvkl5fwkc
       - **[6]**:
@@ -3991,6 +4136,7 @@
         - **pontos_uids**:
           - blvwnvOwK8HlNY
         - **escalada**: Calígula
+        - **setor**: Bloco Romano (Mapa 10)
         - **ids**:
           - blvwnvOwK8HlNY
 - **escaladas**:

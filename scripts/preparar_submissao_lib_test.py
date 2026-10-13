@@ -3197,6 +3197,8 @@ Descrição do setor
     assert list(ref.pontos_uids) == [poi_uid]
     # Retrocompatibilidade com campos legados
     assert getattr(ref, "escalada") == "Fissura de Teste"
+    assert getattr(ref, "setor") == "Setor Central"
+    assert getattr(ref, "grupo") == ""
     assert list(getattr(ref, "ids")) == ["1"]
 
 
@@ -3264,7 +3266,148 @@ Descrição do setor
     assert list(ref.pontos_uids) == [poi_uid]
     # Preenchimento em memória para retrocompatibilidade
     assert getattr(ref, "escalada") == "Via dos Sonhos"
+    assert getattr(ref, "setor") == "Setor Puro NanoID"
+    assert getattr(ref, "grupo") == ""
     assert list(getattr(ref, "ids")) == [poi_uid]
+
+
+def test_compilar_croqui_retrocompatibilidade_cross_sector_e_grupo(tmp_path: Path):
+    """Garante que referências cross-sector e em mapas de grupo preenchem setor e grupo para binários legados."""
+    import yaml
+    from PIL import Image
+
+    from aresta_api.proto.generated import croqui_pb2
+    from scripts.gerenciar_uids_lib import gerar_uid
+    from scripts.preparar_submissao_lib import compilar_croqui
+
+    croqui_uid = gerar_uid()
+    grupo_uid = gerar_uid()
+    setor1_uid = gerar_uid()
+    setor2_uid = gerar_uid()
+    esc1_uid = gerar_uid()
+    esc2_uid = gerar_uid()
+    poi1_uid = gerar_uid()
+    poi2_uid = gerar_uid()
+    poi_grupo_uid = gerar_uid()
+
+    (tmp_path / "imagens").mkdir(exist_ok=True)
+    Image.new("RGB", (100, 100), color="red").save(tmp_path / "imagens" / "mapa1.webp", "WEBP")
+    Image.new("RGB", (100, 100), color="green").save(tmp_path / "imagens" / "mapa2.webp", "WEBP")
+    Image.new("RGB", (100, 100), color="blue").save(tmp_path / "imagens" / "mapa_grupo.webp", "WEBP")
+
+    # Setor 1 tem um mapa com referência cross-sector para esc2_uid (que pertence ao Setor 2)
+    md_setor1 = f"""---
+uid: {setor1_uid}
+nome: Setor Alfa
+mapas:
+  - caminho_imagem_mapa: imagens/mapa1.webp
+    pontos_de_interesse:
+      - uid: {poi1_uid}
+        rotulo: "01"
+        circulo:
+          x: 10
+          y: 20
+          raio: 5
+    referencias:
+      - alvo_uid: {esc2_uid}
+        pontos_uids:
+          - {poi1_uid}
+escaladas:
+  - uid: {esc1_uid}
+    via_esportiva:
+      nome: Via de Alfa
+---
+"""
+    (tmp_path / "setor1.md").write_text(md_setor1, encoding="utf-8")
+
+    # Setor 2 contém a Via de Beta
+    md_setor2 = f"""---
+uid: {setor2_uid}
+nome: Setor Beta
+mapas:
+  - caminho_imagem_mapa: imagens/mapa2.webp
+    pontos_de_interesse:
+      - uid: {poi2_uid}
+        rotulo: "02"
+        circulo:
+          x: 15
+          y: 25
+          raio: 5
+    referencias:
+      - alvo_uid: {esc2_uid}
+        pontos_uids:
+          - {poi2_uid}
+escaladas:
+  - uid: {esc2_uid}
+    via_esportiva:
+      nome: Via de Beta
+---
+"""
+    (tmp_path / "setor2.md").write_text(md_setor2, encoding="utf-8")
+
+    # Grupo contendo Setor 1 e Setor 2, com um mapa de grupo apontando para esc1_uid
+    md_grupo = f"""---
+uid: {grupo_uid}
+nome: Grupo Montanha
+mapas:
+  - caminho_imagem_mapa: imagens/mapa_grupo.webp
+    pontos_de_interesse:
+      - uid: {poi_grupo_uid}
+        rotulo: "G1"
+        circulo:
+          x: 50
+          y: 50
+          raio: 10
+    referencias:
+      - alvo_uid: {esc1_uid}
+        pontos_uids:
+          - {poi_grupo_uid}
+setores:
+  - caminho: setor1.md
+  - caminho: setor2.md
+---
+"""
+    (tmp_path / "grupo.md").write_text(md_grupo, encoding="utf-8")
+
+    croqui_yaml = {
+        "id": "croqui_cross_sector",
+        "uid": croqui_uid,
+        "nome": "Croqui Cross Sector",
+        "ultima_migracao": 5,
+        "picos": [
+            {
+                "nome": "Pico Cross",
+                "setores_ou_grupos": [{"grupo": {"caminho": "grupo.md"}}],
+            }
+        ],
+    }
+    with open(tmp_path / "croqui.yaml", "w", encoding="utf-8") as f:
+        yaml.dump(croqui_yaml, f)
+
+    destino_yaml = tmp_path / "compilado.yaml"
+    destino_pb = tmp_path / "compilado.binarypb"
+
+    compilar_croqui(tmp_path, destino_yaml, destino_pb)
+
+    croqui_proto = croqui_pb2.Croqui()
+    croqui_proto.ParseFromString(destino_pb.read_bytes())
+
+    grupo_conteudo = croqui_proto.picos[0].setores_ou_grupos[0].grupo.conteudo
+
+    # 1. Mapa de Grupo apontando para Via de Alfa (Setor Alfa no Grupo Montanha)
+    ref_grupo = grupo_conteudo.mapas[0].referencias[0]
+    assert ref_grupo.alvo_uid == esc1_uid
+    assert getattr(ref_grupo, "escalada") == "Via de Alfa"
+    assert getattr(ref_grupo, "setor") == "Setor Alfa"
+    assert getattr(ref_grupo, "grupo") == "Grupo Montanha"
+
+    # 2. Mapa do Setor 1 com referência cross-sector apontando para Via de Beta (Setor Beta no Grupo Montanha)
+    setor1_conteudo = grupo_conteudo.setores[0].conteudo
+    ref_cross = setor1_conteudo.mapas[0].referencias[0]
+    assert ref_cross.alvo_uid == esc2_uid
+    assert getattr(ref_cross, "escalada") == "Via de Beta"
+    assert getattr(ref_cross, "setor") == "Setor Beta"
+    assert getattr(ref_cross, "grupo") == "Grupo Montanha"
 
 
 def test_corrigir_database_saneia_uids_em_novo_croqui(tmp_path: Path):

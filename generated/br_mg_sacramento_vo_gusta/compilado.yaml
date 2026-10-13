@@ -119,66 +119,77 @@ picos:
             pontos_uids:
             - H2iHJQSnLaHixf
             escalada: Sonho de Infância
+            setor: Setor Quintal
             ids:
             - H2iHJQSnLaHixf
           - alvo_uid: O2p52qoDGzmtXu
             pontos_uids:
             - td6JUXvHGecOjK
             escalada: Presente Grego
+            setor: Setor Quintal
             ids:
             - td6JUXvHGecOjK
           - alvo_uid: 3j0kqZy2OpvYQa
             pontos_uids:
             - omIkNDYsTszqHe
             escalada: Tatu do Céu
+            setor: Setor Quintal
             ids:
             - omIkNDYsTszqHe
           - alvo_uid: 5hRMleRWoxJptB
             pontos_uids:
             - m2AVUkG70WltwK
             escalada: Base de apoio
+            setor: Setor Quintal
             ids:
             - m2AVUkG70WltwK
           - alvo_uid: Zz4xQnNHigrhYD
             pontos_uids:
             - 6QKxO444dmoeCp
             escalada: De Pai pra Filho
+            setor: Setor Quintal
             ids:
             - 6QKxO444dmoeCp
           - alvo_uid: MZqT37zyumKA75
             pontos_uids:
             - Bv6yMOohCS7s9E
             escalada: Pior dia da minha vida
+            setor: Setor Quintal
             ids:
             - Bv6yMOohCS7s9E
           - alvo_uid: NhQmO9ORnQqrCj
             pontos_uids:
             - zzNrNJ61SccQER
             escalada: Cortina de Fumaça
+            setor: Setor Quintal
             ids:
             - zzNrNJ61SccQER
           - alvo_uid: jeH1KfjAIg94kN
             pontos_uids:
             - 2WIbrP9ZkMsurk
             escalada: Faxineiro Fiel
+            setor: Setor Quintal
             ids:
             - 2WIbrP9ZkMsurk
           - alvo_uid: pDuI7i7KwcXJ0v
             pontos_uids:
             - RuwSPdBDkuTa57
             escalada: Arrependimento
+            setor: Setor Quintal
             ids:
             - RuwSPdBDkuTa57
           - alvo_uid: 1O6T5LIIbqwEL0
             pontos_uids:
             - EpCFrsw3qFMOhz
             escalada: Aperta Bola
+            setor: Setor Quintal
             ids:
             - EpCFrsw3qFMOhz
           - alvo_uid: VunVtr5AEChdwB
             pontos_uids:
             - 9prac2dCILwyn4
             escalada: Surpresa
+            setor: Setor Quintal
             ids:
             - 9prac2dCILwyn4
         escaladas:

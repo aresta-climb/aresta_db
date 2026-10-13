@@ -150,6 +150,7 @@
         - **pontos_uids**:
           - xzAkKYZz1gJg6n
         - **escalada**: Dia da Maldade
+        - **setor**: Setor Cemitério dos Ossos
         - **ids**:
           - xzAkKYZz1gJg6n
 - **escaladas**:
@@ -381,6 +382,7 @@
         - **pontos_uids**:
           - vztYiT1f9bu605
         - **escalada**: 300 de Arcos
+        - **setor**: Setor Aristóteles
         - **ids**:
           - vztYiT1f9bu605
       - **[1]**:
@@ -388,6 +390,7 @@
         - **pontos_uids**:
           - mfUG9BMtjfj2bx
         - **escalada**: Efeito Dominó
+        - **setor**: Setor Aristóteles
         - **ids**:
           - mfUG9BMtjfj2bx
       - **[2]**:
@@ -395,6 +398,7 @@
         - **pontos_uids**:
           - Ycj2MkKGvvCsAV
         - **escalada**: Odisséia
+        - **setor**: Setor Aristóteles
         - **ids**:
           - Ycj2MkKGvvCsAV
       - **[3]**:
@@ -402,6 +406,7 @@
         - **pontos_uids**:
           - E07n1xnfKgbQn9
         - **escalada**: Nesse Ritmo Nosso, Não
+        - **setor**: Setor Aristóteles
         - **ids**:
           - E07n1xnfKgbQn9
       - **[4]**:
@@ -409,6 +414,7 @@
         - **pontos_uids**:
           - Qb7NBU0ko0vvmg
         - **escalada**: Danificada
+        - **setor**: Setor Aristóteles
         - **ids**:
           - Qb7NBU0ko0vvmg
       - **[5]**:
@@ -416,6 +422,7 @@
         - **pontos_uids**:
           - 93I255gjqCeadW
         - **escalada**: Promessa é Dívida
+        - **setor**: Setor Aristóteles
         - **ids**:
           - 93I255gjqCeadW
       - **[6]**:
@@ -423,6 +430,7 @@
         - **pontos_uids**:
           - HuNd0I4B22iBPw
         - **escalada**: Falsas Promessas
+        - **setor**: Setor Aristóteles
         - **ids**:
           - HuNd0I4B22iBPw
       - **[7]**:
@@ -430,6 +438,7 @@
         - **pontos_uids**:
           - EjCEuoNa2YnLDu
         - **escalada**: O Pagador de Promessa
+        - **setor**: Setor Aristóteles
         - **ids**:
           - EjCEuoNa2YnLDu
       - **[8]**:
@@ -437,6 +446,7 @@
         - **pontos_uids**:
           - ntRcD0v1VuJr5M
         - **escalada**: Incrível!
+        - **setor**: Setor Aristóteles
         - **ids**:
           - ntRcD0v1VuJr5M
       - **[9]**:
@@ -444,6 +454,7 @@
         - **pontos_uids**:
           - qAS7j1Q9bNoP0U
         - **escalada**: Espeleopemba
+        - **setor**: Setor Aristóteles
         - **ids**:
           - qAS7j1Q9bNoP0U
       - **[10]**:
@@ -451,6 +462,7 @@
         - **pontos_uids**:
           - 8lxyjYrGguQIOs
         - **escalada**: sem nome
+        - **setor**: Setor Aristóteles
         - **ids**:
           - 8lxyjYrGguQIOs
       - **[11]**:
@@ -458,6 +470,7 @@
         - **pontos_uids**:
           - wAuvlgFU0EobFt
         - **escalada**: sem nome
+        - **setor**: Setor Aristóteles
         - **ids**:
           - wAuvlgFU0EobFt
       - **[12]**:
@@ -465,6 +478,7 @@
         - **pontos_uids**:
           - fPmjt3B6oAL2Sg
         - **escalada**: via inacabada
+        - **setor**: Setor Aristóteles
         - **ids**:
           - fPmjt3B6oAL2Sg
 - **escaladas**:
@@ -703,6 +717,7 @@
         - **pontos_uids**:
           - xJ7MAl2SIioU4j
         - **escalada**: Questa Aresta
+        - **setor**: Setor Corredor Polonês
         - **ids**:
           - xJ7MAl2SIioU4j
       - **[1]**:
@@ -710,6 +725,7 @@
         - **pontos_uids**:
           - PTJFbgfEQBXzQ9
         - **escalada**: Bonitinha Mais Ordinária
+        - **setor**: Setor Corredor Polonês
         - **ids**:
           - PTJFbgfEQBXzQ9
       - **[2]**:
@@ -717,6 +733,7 @@
         - **pontos_uids**:
           - apGfTa7shGnEOi
         - **escalada**: Aperta Que Fica
+        - **setor**: Setor Corredor Polonês
         - **ids**:
           - apGfTa7shGnEOi
       - **[3]**:
@@ -724,6 +741,7 @@
         - **pontos_uids**:
           - UPwAIcOCTpx2bq
         - **escalada**: Tem Gente que Tenta o Cão
+        - **setor**: Setor Corredor Polonês
         - **ids**:
           - UPwAIcOCTpx2bq
       - **[4]**:
@@ -731,6 +749,7 @@
         - **pontos_uids**:
           - slQC69Xc5VDcmZ
         - **escalada**: Rolling Stones
+        - **setor**: Setor Corredor Polonês
         - **ids**:
           - slQC69Xc5VDcmZ
 - **escaladas**:
@@ -934,6 +953,7 @@
         - **pontos_uids**:
           - nOCGwLwLA4Dlzw
         - **escalada**: Dois Dedos pra Cima
+        - **setor**: Setor Barceloneta
         - **ids**:
           - nOCGwLwLA4Dlzw
       - **[1]**:
@@ -941,6 +961,7 @@
         - **pontos_uids**:
           - yVQ5Od3PAKs57d
         - **escalada**: Bela, Recatada e do Climb
+        - **setor**: Setor Barceloneta
         - **ids**:
           - yVQ5Od3PAKs57d
       - **[2]**:
@@ -948,6 +969,7 @@
         - **pontos_uids**:
           - 8MRsM0fD0AgZZE
         - **escalada**: Manteiga de Sucuri
+        - **setor**: Setor Barceloneta
         - **ids**:
           - 8MRsM0fD0AgZZE
       - **[3]**:
@@ -955,6 +977,7 @@
         - **pontos_uids**:
           - H7k9D8txuBYAUy
         - **escalada**: Nova Era
+        - **setor**: Setor Barceloneta
         - **ids**:
           - H7k9D8txuBYAUy
       - **[4]**:
@@ -962,6 +985,7 @@
         - **pontos_uids**:
           - JPRCaHJOwALhnD
         - **escalada**: Novo Mundo
+        - **setor**: Setor Barceloneta
         - **ids**:
           - JPRCaHJOwALhnD
       - **[5]**:
@@ -969,6 +993,7 @@
         - **pontos_uids**:
           - HHJFmg9WfBZSQ3
         - **escalada**: Chora Chorrera
+        - **setor**: Setor Barceloneta
         - **ids**:
           - HHJFmg9WfBZSQ3
       - **[6]**:
@@ -976,6 +1001,7 @@
         - **pontos_uids**:
           - COv7XCYwR0ceWk
         - **escalada**: Inocência de Um Purista
+        - **setor**: Setor Barceloneta
         - **ids**:
           - COv7XCYwR0ceWk
       - **[7]**:
@@ -983,6 +1009,7 @@
         - **pontos_uids**:
           - uKxPglajD9KCdS
         - **escalada**: Maldita Dependência
+        - **setor**: Setor Barceloneta
         - **ids**:
           - uKxPglajD9KCdS
 - **escaladas**:

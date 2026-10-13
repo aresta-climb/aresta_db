@@ -104,48 +104,56 @@ picos:
             pontos_uids:
             - iEOTJY7v5TaLXx
             setor: Bloco Aleijadinho
+            grupo: Sunset
             ids:
             - iEOTJY7v5TaLXx
           - alvo_uid: WbGHKuEY0c29Qu
             pontos_uids:
             - mtFNeX5ImnsqX5
             setor: Bloco Capitão Jack
+            grupo: Sunset
             ids:
             - mtFNeX5ImnsqX5
           - alvo_uid: n9RzqdO3IwqBxO
             pontos_uids:
             - cDZTeCrzxcErS6
             setor: Bloco Jahngada
+            grupo: Sunset
             ids:
             - cDZTeCrzxcErS6
           - alvo_uid: saaNQTQBg9DF7a
             pontos_uids:
             - MRXQpJtofQGGDD
             setor: Bloco Planetário
+            grupo: Sunset
             ids:
             - MRXQpJtofQGGDD
           - alvo_uid: hvbt8d3J7iRNJ4
             pontos_uids:
             - CgWESKR6t2XYc1
             setor: Bloco Free Solo
+            grupo: Sunset
             ids:
             - CgWESKR6t2XYc1
           - alvo_uid: jsAkOxynMs1Q1y
             pontos_uids:
             - O2PwAnGVQ7xqJy
             setor: Bloco Carrapicho
+            grupo: Sunset
             ids:
             - O2PwAnGVQ7xqJy
           - alvo_uid: Kvnf8ufa5QUEaC
             pontos_uids:
             - cKe0q7xwUWzZuq
             setor: Bloco Sunset
+            grupo: Sunset
             ids:
             - cKe0q7xwUWzZuq
           - alvo_uid: rsyrhOCEGQJFIs
             pontos_uids:
             - FCZWeLPC0vA91e
             setor: Bloco Camaroa
+            grupo: Sunset
             ids:
             - FCZWeLPC0vA91e
         setores:
@@ -176,6 +184,8 @@ picos:
                 pontos_uids:
                 - BepwayUIkwvQgw
                 escalada: Aleijadinho
+                setor: Bloco Aleijadinho
+                grupo: Sunset
                 ids:
                 - BepwayUIkwvQgw
             descricao: ''
@@ -235,6 +245,8 @@ picos:
                 - 9zBgTGalp61NWO
                 - BMqKeFxbgsxDrR
                 escalada: Sunshine
+                setor: Bloco Capitão Jack
+                grupo: Sunset
                 ids:
                 - 9zBgTGalp61NWO
                 - BMqKeFxbgsxDrR
@@ -288,6 +300,8 @@ picos:
                 - THvR6FkgIcMxJz
                 - BQuEV7gKbWT3yU
                 escalada: Amnesia
+                setor: Bloco Capitão Jack
+                grupo: Sunset
                 ids:
                 - THvR6FkgIcMxJz
                 - BQuEV7gKbWT3yU
@@ -296,6 +310,8 @@ picos:
                 - uhA69wc4u9QWzp
                 - kfdlNDWbgbqSvn
                 escalada: Capitão Jack
+                setor: Bloco Capitão Jack
+                grupo: Sunset
                 ids:
                 - uhA69wc4u9QWzp
                 - kfdlNDWbgbqSvn
@@ -304,6 +320,8 @@ picos:
                 - 8yWZVDkH0adIXC
                 - BQuEV7gKbWT3yU
                 escalada: Purple Rase
+                setor: Bloco Capitão Jack
+                grupo: Sunset
                 ids:
                 - 8yWZVDkH0adIXC
                 - BQuEV7gKbWT3yU
@@ -385,6 +403,8 @@ picos:
                 - QN04uXCFxHdBaF
                 - jcgscx35vflRYl
                 escalada: Jahngada
+                setor: Bloco Jahngada
+                grupo: Sunset
                 ids:
                 - QN04uXCFxHdBaF
                 - jcgscx35vflRYl
@@ -393,6 +413,8 @@ picos:
                 - dT6nG5TTFQY3fk
                 - jcgscx35vflRYl
                 escalada: Jahngada SDS
+                setor: Bloco Jahngada
+                grupo: Sunset
                 ids:
                 - dT6nG5TTFQY3fk
                 - jcgscx35vflRYl
@@ -401,6 +423,8 @@ picos:
                 - O4ULaZgMYUYK2H
                 - EwncURUcLaWZIz
                 escalada: Guaicuí
+                setor: Bloco Jahngada
+                grupo: Sunset
                 ids:
                 - O4ULaZgMYUYK2H
                 - EwncURUcLaWZIz
@@ -430,6 +454,8 @@ picos:
                 - v1kffiw28KKZDA
                 - uenysVUibsZ6he
                 escalada: Camundongo
+                setor: Bloco Jahngada
+                grupo: Sunset
                 ids:
                 - v1kffiw28KKZDA
                 - uenysVUibsZ6he
@@ -495,6 +521,8 @@ picos:
                 - KOqtBFIO4n372p
                 - y4ucFSkOg1cove
                 escalada: Planetário
+                setor: Bloco Planetário
+                grupo: Sunset
                 ids:
                 - KOqtBFIO4n372p
                 - y4ucFSkOg1cove
@@ -556,6 +584,8 @@ picos:
                 - PDCZ2azVdamApL
                 - IpIpAQLLUX8ACB
                 escalada: Náufrago
+                setor: Bloco Planetário
+                grupo: Sunset
                 ids:
                 - PDCZ2azVdamApL
                 - IpIpAQLLUX8ACB
@@ -564,6 +594,8 @@ picos:
                 - SsadBRferzHqoo
                 - 95pV12jykprucg
                 escalada: Golfinho
+                setor: Bloco Planetário
+                grupo: Sunset
                 ids:
                 - SsadBRferzHqoo
                 - 95pV12jykprucg
@@ -572,6 +604,8 @@ picos:
                 - iVZcXLeU4F23AL
                 - MtrgRvCRP7oSkw
                 escalada: Clarete
+                setor: Bloco Planetário
+                grupo: Sunset
                 ids:
                 - iVZcXLeU4F23AL
                 - MtrgRvCRP7oSkw
@@ -609,6 +643,8 @@ picos:
                 - xe8rGeTEqeOzNz
                 - 3FUDgbW8pu3cPC
                 escalada: Odisséia na Babilônia
+                setor: Bloco Planetário
+                grupo: Sunset
                 ids:
                 - xe8rGeTEqeOzNz
                 - 3FUDgbW8pu3cPC
@@ -617,6 +653,8 @@ picos:
                 - xe8rGeTEqeOzNz
                 - TcKj8RRsR58cmk
                 escalada: Canais da Babilônia
+                setor: Bloco Planetário
+                grupo: Sunset
                 ids:
                 - xe8rGeTEqeOzNz
                 - TcKj8RRsR58cmk
@@ -697,6 +735,8 @@ picos:
                 - ekNX8LgSqtXQOO
                 - tvf9U4OeraSIqE
                 escalada: Fomiagem
+                setor: Bloco Free Solo
+                grupo: Sunset
                 ids:
                 - ekNX8LgSqtXQOO
                 - tvf9U4OeraSIqE
@@ -705,6 +745,8 @@ picos:
                 - mjzpwVBL7KcDPO
                 - zK3EBk5Od0f72e
                 escalada: Projeto
+                setor: Bloco Free Solo
+                grupo: Sunset
                 ids:
                 - mjzpwVBL7KcDPO
                 - zK3EBk5Od0f72e
@@ -749,24 +791,32 @@ picos:
                 pontos_uids:
                 - E1NVEWLoAmokHV
                 escalada: Free Solo
+                setor: Bloco Free Solo
+                grupo: Sunset
                 ids:
                 - E1NVEWLoAmokHV
               - alvo_uid: FgU9rkbPSl70LL
                 pontos_uids:
                 - fZvY3GzXmNwaXu
                 escalada: Tartaruga
+                setor: Bloco Free Solo
+                grupo: Sunset
                 ids:
                 - fZvY3GzXmNwaXu
               - alvo_uid: rzxtfME7nU2goW
                 pontos_uids:
                 - 0maguSKGOpbhyN
                 escalada: Mobilete
+                setor: Bloco Free Solo
+                grupo: Sunset
                 ids:
                 - 0maguSKGOpbhyN
               - alvo_uid: Wybze4GIPVfugE
                 pontos_uids:
                 - wrQHbOl8h8h1Gs
                 escalada: Walkmachine
+                setor: Bloco Free Solo
+                grupo: Sunset
                 ids:
                 - wrQHbOl8h8h1Gs
             descricao: ''
@@ -823,12 +873,16 @@ picos:
                 pontos_uids:
                 - iqURLjxf3ToeKN
                 escalada: Carrapato
+                setor: Bloco Carrapicho
+                grupo: Sunset
                 ids:
                 - iqURLjxf3ToeKN
               - alvo_uid: mg4HItbc9NLNOZ
                 pontos_uids:
                 - mWtyKK9qKNOjZB
                 escalada: Carrapicho
+                setor: Bloco Carrapicho
+                grupo: Sunset
                 ids:
                 - mWtyKK9qKNOjZB
             - caminho_imagem_mapa: imagens/grupo_sunset_setor_carrapicho_p1.webp
@@ -864,18 +918,24 @@ picos:
                 pontos_uids:
                 - 7KS2cy7iL8JJhm
                 escalada: Oratório
+                setor: Bloco Carrapicho
+                grupo: Sunset
                 ids:
                 - 7KS2cy7iL8JJhm
               - alvo_uid: 5twZm2EkJubxMM
                 pontos_uids:
                 - zN0PuLRpVV9foz
                 escalada: Pistol
+                setor: Bloco Carrapicho
+                grupo: Sunset
                 ids:
                 - zN0PuLRpVV9foz
               - alvo_uid: tXhx0XaxaPmKhr
                 pontos_uids:
                 - sUAgvK1NQUZxg9
                 escalada: Dart Vader
+                setor: Bloco Carrapicho
+                grupo: Sunset
                 ids:
                 - sUAgvK1NQUZxg9
             descricao: ''
@@ -942,18 +1002,24 @@ picos:
                 pontos_uids:
                 - dfnrvEE9nK1bG4
                 escalada: Sucrilhos
+                setor: Bloco Sunset
+                grupo: Sunset
                 ids:
                 - dfnrvEE9nK1bG4
               - alvo_uid: 83JWrElU1YdAe6
                 pontos_uids:
                 - s66gmROJRbrof7
                 escalada: Faxineiro do Universo
+                setor: Bloco Sunset
+                grupo: Sunset
                 ids:
                 - s66gmROJRbrof7
               - alvo_uid: xpUGKp9VR90ZQk
                 pontos_uids:
                 - cibPAkZbM3lhvi
                 escalada: Sujeirinha
+                setor: Bloco Sunset
+                grupo: Sunset
                 ids:
                 - cibPAkZbM3lhvi
             - caminho_imagem_mapa: imagens/grupo_sunset_setor_sunset_p1.webp
@@ -973,6 +1039,8 @@ picos:
                 pontos_uids:
                 - GSHWSrlZq7SIN6
                 escalada: Arestinha Vibration
+                setor: Bloco Sunset
+                grupo: Sunset
                 ids:
                 - GSHWSrlZq7SIN6
             - caminho_imagem_mapa: imagens/grupo_sunset_setor_sunset_p2.webp
@@ -992,6 +1060,8 @@ picos:
                 pontos_uids:
                 - l4RLkaslCoVuyS
                 escalada: Projeto Sunset
+                setor: Bloco Sunset
+                grupo: Sunset
                 ids:
                 - l4RLkaslCoVuyS
             descricao: ''
@@ -1069,24 +1139,32 @@ picos:
                 pontos_uids:
                 - V6J2JJOLaI812R
                 escalada: Fissura
+                setor: Bloco Camaroa
+                grupo: Sunset
                 ids:
                 - V6J2JJOLaI812R
               - alvo_uid: IUZVhkD7BGnGMe
                 pontos_uids:
                 - 6o8msTDADzMBC8
                 escalada: Pure
+                setor: Bloco Camaroa
+                grupo: Sunset
                 ids:
                 - 6o8msTDADzMBC8
               - alvo_uid: 9IGADLX3hshhPA
                 pontos_uids:
                 - 9kIrzI6zIFd1dO
                 escalada: Lpita
+                setor: Bloco Camaroa
+                grupo: Sunset
                 ids:
                 - 9kIrzI6zIFd1dO
               - alvo_uid: XF6QJOxiGiZOoK
                 pontos_uids:
                 - MtX6i55W63JJcr
                 escalada: Nave
+                setor: Bloco Camaroa
+                grupo: Sunset
                 ids:
                 - MtX6i55W63JJcr
             - caminho_imagem_mapa: imagens/grupo_sunset_setor_camaroa_p1.webp
@@ -1106,6 +1184,8 @@ picos:
                 pontos_uids:
                 - RXU7I5LtWkNP1C
                 escalada: Camaroa
+                setor: Bloco Camaroa
+                grupo: Sunset
                 ids:
                 - RXU7I5LtWkNP1C
             descricao: ''

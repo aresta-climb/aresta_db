@@ -149,78 +149,91 @@ picos:
             pontos_uids:
             - IJMhQ4m8JwLwHH
             escalada: Mico Leão Noiado
+            setor: Setor de Cima
             ids:
             - IJMhQ4m8JwLwHH
           - alvo_uid: Bjyi5AKI0geIui
             pontos_uids:
             - RxRAyZPIZWtksW
             escalada: Maridos Alforriados
+            setor: Setor de Cima
             ids:
             - RxRAyZPIZWtksW
           - alvo_uid: k0yx2k8Wb289fJ
             pontos_uids:
             - 0SvZxvTFZk1hJ6
             escalada: Sábado de Aleluia
+            setor: Setor de Cima
             ids:
             - 0SvZxvTFZk1hJ6
           - alvo_uid: xJWvgepcSPK1Bz
             pontos_uids:
             - zKvZqEgGW6DKK0
             escalada: Sem Nome
+            setor: Setor de Cima
             ids:
             - zKvZqEgGW6DKK0
           - alvo_uid: 8J2ZqvlBs1QyJ3
             pontos_uids:
             - 9zyFHS8eQ1MsbF
             escalada: Mancha Amarela
+            setor: Setor de Cima
             ids:
             - 9zyFHS8eQ1MsbF
           - alvo_uid: EfHNaaiaxw0H2N
             pontos_uids:
             - bc04IFsT2VMYuY
             escalada: Mancha Preta
+            setor: Setor de Cima
             ids:
             - bc04IFsT2VMYuY
           - alvo_uid: BVHKs7vmO8UpmB
             pontos_uids:
             - imtAY5VCzp8QKY
             escalada: DNA Zica Preta
+            setor: Setor de Cima
             ids:
             - imtAY5VCzp8QKY
           - alvo_uid: hTW7CziwIF7md1
             pontos_uids:
             - 6IJbrIuZtdL5US
             escalada: Desvio de Conduta
+            setor: Setor de Cima
             ids:
             - 6IJbrIuZtdL5US
           - alvo_uid: Xdwx3KHcf2RWB7
             pontos_uids:
             - CXpFsXAV1o04ll
             escalada: O Desgrama
+            setor: Setor de Cima
             ids:
             - CXpFsXAV1o04ll
           - alvo_uid: XR1RGtWLXV3YBi
             pontos_uids:
             - oHepiwluJ01bOE
             escalada: Bin Laden
+            setor: Setor de Cima
             ids:
             - oHepiwluJ01bOE
           - alvo_uid: 5KMrvl69iIIMFx
             pontos_uids:
             - kbw581929y15Ij
             escalada: Dia após Dia
+            setor: Setor de Cima
             ids:
             - kbw581929y15Ij
           - alvo_uid: 5WCOPJl5kMxcSN
             pontos_uids:
             - IjjGZsiETiCrl4
             escalada: Quarta-Feira Cinzas
+            setor: Setor de Cima
             ids:
             - IjjGZsiETiCrl4
           - alvo_uid: imlr4LWVozft3Z
             pontos_uids:
             - yMjbxCocgS4rxT
             escalada: Independence Day
+            setor: Setor de Cima
             ids:
             - yMjbxCocgS4rxT
         escaladas:
@@ -377,54 +390,63 @@ picos:
             pontos_uids:
             - lu5blKjzx4LjgR
             escalada: Extremo Norte
+            setor: Setor de Baixo
             ids:
             - lu5blKjzx4LjgR
           - alvo_uid: 5Jc8v3vlBU5cg5
             pontos_uids:
             - 5u9VFjd1M6ck56
             escalada: Rapa do Tacho
+            setor: Setor de Baixo
             ids:
             - 5u9VFjd1M6ck56
           - alvo_uid: hFfWbymslvScCk
             pontos_uids:
             - BOy7KNF5xiKC8l
             escalada: Lindona 'Tindoida'
+            setor: Setor de Baixo
             ids:
             - BOy7KNF5xiKC8l
           - alvo_uid: JKLqKoqlbCWfRl
             pontos_uids:
             - 7uKy6PfP6njoN5
             escalada: Pandora
+            setor: Setor de Baixo
             ids:
             - 7uKy6PfP6njoN5
           - alvo_uid: JHs5YhKWNa064A
             pontos_uids:
             - mHVz2kW4ck0TXY
             escalada: A Espera de um Milagre
+            setor: Setor de Baixo
             ids:
             - mHVz2kW4ck0TXY
           - alvo_uid: g2c3KtctntaXBi
             pontos_uids:
             - nN1nDuO24KVuIN
             escalada: Insanidade Mental
+            setor: Setor de Baixo
             ids:
             - nN1nDuO24KVuIN
           - alvo_uid: E3WUZpNQ9vGhjX
             pontos_uids:
             - b3rF4I0Xy28YnD
             escalada: Sem Bússola
+            setor: Setor de Baixo
             ids:
             - b3rF4I0Xy28YnD
           - alvo_uid: nh9GHphkuu5jcw
             pontos_uids:
             - 8otYhVoIP6QtW1
             escalada: Casal 20
+            setor: Setor de Baixo
             ids:
             - 8otYhVoIP6QtW1
           - alvo_uid: 6zKjei5YkBQqbp
             pontos_uids:
             - AthHeCrIwNzYnr
             escalada: Maldita Obsessão
+            setor: Setor de Baixo
             ids:
             - AthHeCrIwNzYnr
         escaladas:

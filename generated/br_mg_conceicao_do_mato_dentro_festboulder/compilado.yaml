@@ -112,48 +112,56 @@ picos:
             pontos_uids:
             - paVhfWhT7nd8U4
             setor: Setor Ônibus
+            grupo: Salão de Pedras
             ids:
             - paVhfWhT7nd8U4
           - alvo_uid: PNkGaUuHzJplDd
             pontos_uids:
             - gtW4aJUXF38mOa
             setor: Setor Super Herói
+            grupo: Salão de Pedras
             ids:
             - gtW4aJUXF38mOa
           - alvo_uid: bAAZiu44azeNKI
             pontos_uids:
             - ahAwTNi9FtjKRu
             setor: Setor Caverninha
+            grupo: Salão de Pedras
             ids:
             - ahAwTNi9FtjKRu
           - alvo_uid: 9izKJaq4CxSHRG
             pontos_uids:
             - QRczPpK58M2xSx
             setor: Setor Campo Escola
+            grupo: Salão de Pedras
             ids:
             - QRczPpK58M2xSx
           - alvo_uid: VBkLZLZHoBsl6y
             pontos_uids:
             - Mmq3dhWktQLsmg
             setor: Setor Escorpião
+            grupo: Salão de Pedras
             ids:
             - Mmq3dhWktQLsmg
           - alvo_uid: oPnH4R0z6pGdpP
             pontos_uids:
             - b3fPMFNHIebT6n
             setor: Setor Troféu
+            grupo: Salão de Pedras
             ids:
             - b3fPMFNHIebT6n
           - alvo_uid: oLx7PAaXis7B0M
             pontos_uids:
             - R0YNVd7hR2cyVD
             setor: Setor X-Tudo
+            grupo: Salão de Pedras
             ids:
             - R0YNVd7hR2cyVD
           - alvo_uid: sYADkPTjRnYElG
             pontos_uids:
             - KGsNZLmitDlNDX
             setor: Setor Domínio Digital
+            grupo: Salão de Pedras
             ids:
             - KGsNZLmitDlNDX
           - alvo_uid: YkAop73CsSuZ6U
@@ -281,66 +289,88 @@ picos:
                 pontos_uids:
                 - OJ2Gkqk0aynGVT
                 escalada: Pirulito
+                setor: Setor Ônibus
+                grupo: Salão de Pedras
                 ids:
                 - OJ2Gkqk0aynGVT
               - alvo_uid: hgrTSI69mgY14p
                 pontos_uids:
                 - MZrrQvcVkKsY1k
                 escalada: Trocador
+                setor: Setor Ônibus
+                grupo: Salão de Pedras
                 ids:
                 - MZrrQvcVkKsY1k
               - alvo_uid: 34WARZT74wkQuc
                 pontos_uids:
                 - ilekHJIYGYT5NK
                 escalada: Roleta
+                setor: Setor Ônibus
+                grupo: Salão de Pedras
                 ids:
                 - ilekHJIYGYT5NK
               - alvo_uid: vSMvGheV4q5Yiz
                 pontos_uids:
                 - 9p0mxNzSgPhhQr
                 escalada: Zebra
+                setor: Setor Ônibus
+                grupo: Salão de Pedras
                 ids:
                 - 9p0mxNzSgPhhQr
               - alvo_uid: LzKABjlQVQKyCa
                 pontos_uids:
                 - Xk0fJxYZO0lZ0U
                 escalada: Linguinha
+                setor: Setor Ônibus
+                grupo: Salão de Pedras
                 ids:
                 - Xk0fJxYZO0lZ0U
               - alvo_uid: LAjdfyHlIdZiuJ
                 pontos_uids:
                 - I1vUbH28fNNsBi
                 escalada: Gnomo
+                setor: Setor Ônibus
+                grupo: Salão de Pedras
                 ids:
                 - I1vUbH28fNNsBi
               - alvo_uid: 2RF2rNvHTgfFVJ
                 pontos_uids:
                 - fUhwEkwEG0YWzQ
                 escalada: Variante Y
+                setor: Setor Ônibus
+                grupo: Salão de Pedras
                 ids:
                 - fUhwEkwEG0YWzQ
               - alvo_uid: e9uQGKYTwsDAz2
                 pontos_uids:
                 - 2N3B9okzvbckgH
                 escalada: Moleza
+                setor: Setor Ônibus
+                grupo: Salão de Pedras
                 ids:
                 - 2N3B9okzvbckgH
               - alvo_uid: O9nrKUrZo4xbut
                 pontos_uids:
                 - sViL7BKpUKMqHF
                 escalada: Inconsolável
+                setor: Setor Ônibus
+                grupo: Salão de Pedras
                 ids:
                 - sViL7BKpUKMqHF
               - alvo_uid: meCbwNobNG8aTT
                 pontos_uids:
                 - PGMtj9GYSVHde2
                 escalada: Passageiro
+                setor: Setor Ônibus
+                grupo: Salão de Pedras
                 ids:
                 - PGMtj9GYSVHde2
               - alvo_uid: vUoOdWrT9pOJIh
                 pontos_uids:
                 - COs89StuB8lKRN
                 escalada: Fada
+                setor: Setor Ônibus
+                grupo: Salão de Pedras
                 ids:
                 - COs89StuB8lKRN
             - caminho_imagem_mapa: imagens/grupo_salao_de_pedras_setor_onibus_p1.webp
@@ -397,30 +427,40 @@ picos:
                 pontos_uids:
                 - DOaVJrM4Bn2eT8
                 escalada: Primeiro Esquenta
+                setor: Setor Ônibus
+                grupo: Salão de Pedras
                 ids:
                 - DOaVJrM4Bn2eT8
               - alvo_uid: bt0qGEEKpB2BTu
                 pontos_uids:
                 - 70BHw7Mw0uHi2i
                 escalada: Mimetismo
+                setor: Setor Ônibus
+                grupo: Salão de Pedras
                 ids:
                 - 70BHw7Mw0uHi2i
               - alvo_uid: tyA1VoilXbFYdT
                 pontos_uids:
                 - k1bm3HQJs24zEv
                 escalada: Aborda
+                setor: Setor Ônibus
+                grupo: Salão de Pedras
                 ids:
                 - k1bm3HQJs24zEv
               - alvo_uid: CMbWEUuwZDbbMJ
                 pontos_uids:
                 - VS9PZpaks1SdKD
                 escalada: Easy Line
+                setor: Setor Ônibus
+                grupo: Salão de Pedras
                 ids:
                 - VS9PZpaks1SdKD
               - alvo_uid: 6DnQrBC73d1sYU
                 pontos_uids:
                 - MaqJP7ZjytmXel
                 escalada: Saidex
+                setor: Setor Ônibus
+                grupo: Salão de Pedras
                 ids:
                 - MaqJP7ZjytmXel
             escaladas:
@@ -544,24 +584,32 @@ picos:
                 pontos_uids:
                 - JI406fC0wcM9q2
                 escalada: Super Homem
+                setor: Setor Super Herói
+                grupo: Salão de Pedras
                 ids:
                 - JI406fC0wcM9q2
               - alvo_uid: 2wnz93Zx8M3XGr
                 pontos_uids:
                 - y7ZZ9balCG1zLE
                 escalada: Super Herói Cover
+                setor: Setor Super Herói
+                grupo: Salão de Pedras
                 ids:
                 - y7ZZ9balCG1zLE
               - alvo_uid: piYkbTXDlh9YDm
                 pontos_uids:
                 - RG4RyEIf2fzh4E
                 escalada: Herói
+                setor: Setor Super Herói
+                grupo: Salão de Pedras
                 ids:
                 - RG4RyEIf2fzh4E
               - alvo_uid: NgAqK5JUuiVbfm
                 pontos_uids:
                 - uvEJ7jz8KwgY11
                 escalada: Heroína
+                setor: Setor Super Herói
+                grupo: Salão de Pedras
                 ids:
                 - uvEJ7jz8KwgY11
             escaladas:
@@ -646,30 +694,40 @@ picos:
                 pontos_uids:
                 - pF39IxcFHTGpkN
                 escalada: Terceira Camada
+                setor: Setor Caverninha
+                grupo: Salão de Pedras
                 ids:
                 - pF39IxcFHTGpkN
               - alvo_uid: 1Np4DknQFwIl4j
                 pontos_uids:
                 - fjOlaECZ5LBIfw
                 escalada: Caverninha
+                setor: Setor Caverninha
+                grupo: Salão de Pedras
                 ids:
                 - fjOlaECZ5LBIfw
               - alvo_uid: so8pB0wMtUAfHi
                 pontos_uids:
                 - Q90njhbjf3qhvv
                 escalada: Cavernoso
+                setor: Setor Caverninha
+                grupo: Salão de Pedras
                 ids:
                 - Q90njhbjf3qhvv
               - alvo_uid: Tm0rR2tkD5SAqs
                 pontos_uids:
                 - jl0mD7RKylxUYB
                 escalada: Natural
+                setor: Setor Caverninha
+                grupo: Salão de Pedras
                 ids:
                 - jl0mD7RKylxUYB
               - alvo_uid: R08ZauiGqeLqW1
                 pontos_uids:
                 - m0gdBDOeRd89Ox
                 escalada: Natural SDS
+                setor: Setor Caverninha
+                grupo: Salão de Pedras
                 ids:
                 - m0gdBDOeRd89Ox
             - caminho_imagem_mapa: imagens/grupo_salao_de_pedras_setor_caverninha_p1.webp
@@ -735,36 +793,48 @@ picos:
                 pontos_uids:
                 - 9aDZfbo3dfJCbo
                 escalada: Simba
+                setor: Setor Caverninha
+                grupo: Salão de Pedras
                 ids:
                 - 9aDZfbo3dfJCbo
               - alvo_uid: LcnJUDU0A8cw1i
                 pontos_uids:
                 - SE8CbHeCLpWSBv
                 escalada: Dragão
+                setor: Setor Caverninha
+                grupo: Salão de Pedras
                 ids:
                 - SE8CbHeCLpWSBv
               - alvo_uid: tmHX9c9KqkMXZg
                 pontos_uids:
                 - ysGskp1azUDfao
                 escalada: Abaulados
+                setor: Setor Caverninha
+                grupo: Salão de Pedras
                 ids:
                 - ysGskp1azUDfao
               - alvo_uid: zCviMgwQrcc6DM
                 pontos_uids:
                 - PQNVakCAY2suGz
                 escalada: Simba (2o)
+                setor: Setor Caverninha
+                grupo: Salão de Pedras
                 ids:
                 - PQNVakCAY2suGz
               - alvo_uid: VX64H0zlEyNrpQ
                 pontos_uids:
                 - qpRFhB6mOPDCOC
                 escalada: Capitão Caverna
+                setor: Setor Caverninha
+                grupo: Salão de Pedras
                 ids:
                 - qpRFhB6mOPDCOC
               - alvo_uid: w5czhnbtn5j66H
                 pontos_uids:
                 - vNISXvJwnadRVC
                 escalada: Confuso
+                setor: Setor Caverninha
+                grupo: Salão de Pedras
                 ids:
                 - vNISXvJwnadRVC
             - caminho_imagem_mapa: imagens/grupo_salao_de_pedras_setor_caverninha_p2.webp
@@ -812,24 +882,32 @@ picos:
                 pontos_uids:
                 - YCXt1v4CbuXW3g
                 escalada: Combinação Perfeita
+                setor: Setor Caverninha
+                grupo: Salão de Pedras
                 ids:
                 - YCXt1v4CbuXW3g
               - alvo_uid: XcncezH38s5P3Y
                 pontos_uids:
                 - aGRHgGZLhcFSrR
                 escalada: Trinca Ferro
+                setor: Setor Caverninha
+                grupo: Salão de Pedras
                 ids:
                 - aGRHgGZLhcFSrR
               - alvo_uid: 1uqkKSjBhu2dXa
                 pontos_uids:
                 - b10jvmA92maiIk
                 escalada: Trinca Carangueijo
+                setor: Setor Caverninha
+                grupo: Salão de Pedras
                 ids:
                 - b10jvmA92maiIk
               - alvo_uid: w5STyttGj8ONgt
                 pontos_uids:
                 - CLQMUPGmRgg9wk
                 escalada: Natural (V6)
+                setor: Setor Caverninha
+                grupo: Salão de Pedras
                 ids:
                 - CLQMUPGmRgg9wk
             escaladas:
@@ -967,36 +1045,48 @@ picos:
                 pontos_uids:
                 - rOizVpGjVY57Dc
                 escalada: Tré Bien
+                setor: Setor Campo Escola
+                grupo: Salão de Pedras
                 ids:
                 - rOizVpGjVY57Dc
               - alvo_uid: K46a1bmGUgjExS
                 pontos_uids:
                 - tXJyv48GOHN54D
                 escalada: Muvuca
+                setor: Setor Campo Escola
+                grupo: Salão de Pedras
                 ids:
                 - tXJyv48GOHN54D
               - alvo_uid: 1njiQItker8sc9
                 pontos_uids:
                 - y8P9qYX9uaZzln
                 escalada: Ninja de Verde
+                setor: Setor Campo Escola
+                grupo: Salão de Pedras
                 ids:
                 - y8P9qYX9uaZzln
               - alvo_uid: AowRHIGzd1U4lV
                 pontos_uids:
                 - of7e00fNptPjA5
                 escalada: Ninja de Amarelo
+                setor: Setor Campo Escola
+                grupo: Salão de Pedras
                 ids:
                 - of7e00fNptPjA5
               - alvo_uid: e3v7FwYwnYNoXz
                 pontos_uids:
                 - yteQ9DNtfd4mLD
                 escalada: Ninja de Rosa
+                setor: Setor Campo Escola
+                grupo: Salão de Pedras
                 ids:
                 - yteQ9DNtfd4mLD
               - alvo_uid: XU2TUs5togbQx1
                 pontos_uids:
                 - nvDCRyCvsajHQ5
                 escalada: Casé
+                setor: Setor Campo Escola
+                grupo: Salão de Pedras
                 ids:
                 - nvDCRyCvsajHQ5
             - caminho_imagem_mapa: imagens/grupo_salao_de_pedras_setor_campo_escola_p1.webp
@@ -1062,36 +1152,48 @@ picos:
                 pontos_uids:
                 - ow38ccXpJkXMgH
                 escalada: (sem nome 25)
+                setor: Setor Campo Escola
+                grupo: Salão de Pedras
                 ids:
                 - ow38ccXpJkXMgH
               - alvo_uid: 82vRwc1isGbGnu
                 pontos_uids:
                 - QFIB2Xzv2sIbby
                 escalada: (sem nome 26)
+                setor: Setor Campo Escola
+                grupo: Salão de Pedras
                 ids:
                 - QFIB2Xzv2sIbby
               - alvo_uid: 1toeKS5kWBih69
                 pontos_uids:
                 - EnB7LXk3Kr5qIP
                 escalada: (sem nome 27)
+                setor: Setor Campo Escola
+                grupo: Salão de Pedras
                 ids:
                 - EnB7LXk3Kr5qIP
               - alvo_uid: JQkqeS2NvyrbCc
                 pontos_uids:
                 - no5hEGavYJp8c9
                 escalada: (sem nome 28)
+                setor: Setor Campo Escola
+                grupo: Salão de Pedras
                 ids:
                 - no5hEGavYJp8c9
               - alvo_uid: QrWLeAk3qnUHSU
                 pontos_uids:
                 - 7Z1U5yD73t3NxI
                 escalada: (sem nome 29)
+                setor: Setor Campo Escola
+                grupo: Salão de Pedras
                 ids:
                 - 7Z1U5yD73t3NxI
               - alvo_uid: olxgL8RMoByqsx
                 pontos_uids:
                 - ryUcaD9FSBUtyF
                 escalada: Das Meninas
+                setor: Setor Campo Escola
+                grupo: Salão de Pedras
                 ids:
                 - ryUcaD9FSBUtyF
             escaladas:
@@ -1208,30 +1310,40 @@ picos:
                 pontos_uids:
                 - W6fl3nyVSO8zYr
                 escalada: Super Foot Hook
+                setor: Setor Escorpião
+                grupo: Salão de Pedras
                 ids:
                 - W6fl3nyVSO8zYr
               - alvo_uid: 1jbENVRoVKc4co
                 pontos_uids:
                 - HzKW2zKWqcFwKo
                 escalada: Foot Hook
+                setor: Setor Escorpião
+                grupo: Salão de Pedras
                 ids:
                 - HzKW2zKWqcFwKo
               - alvo_uid: J6rQGte9XAbHMJ
                 pontos_uids:
                 - Klwl5UK7aJAmj9
                 escalada: Escorpião
+                setor: Setor Escorpião
+                grupo: Salão de Pedras
                 ids:
                 - Klwl5UK7aJAmj9
               - alvo_uid: VOoWhjUc5lHfj6
                 pontos_uids:
                 - PTzZTIEiSkag08
                 escalada: Yakisoba
+                setor: Setor Escorpião
+                grupo: Salão de Pedras
                 ids:
                 - PTzZTIEiSkag08
               - alvo_uid: J7H9AIhNoOvBdb
                 pontos_uids:
                 - k0XSdMArLBkPrL
                 escalada: Uaikisoba
+                setor: Setor Escorpião
+                grupo: Salão de Pedras
                 ids:
                 - k0XSdMArLBkPrL
             - caminho_imagem_mapa: imagens/grupo_salao_de_pedras_setor_escorpiao_p1.webp
@@ -1261,12 +1373,16 @@ picos:
                 pontos_uids:
                 - B7DWcX8hJ1aCDS
                 escalada: Insaciável
+                setor: Setor Escorpião
+                grupo: Salão de Pedras
                 ids:
                 - B7DWcX8hJ1aCDS
               - alvo_uid: W5Zpft4lgp2Atw
                 pontos_uids:
                 - xGmdUNT8Z1bizL
                 escalada: Sicronismo
+                setor: Setor Escorpião
+                grupo: Salão de Pedras
                 ids:
                 - xGmdUNT8Z1bizL
             escaladas:
@@ -1345,18 +1461,24 @@ picos:
                 pontos_uids:
                 - rpviF7a30p5PTK
                 escalada: Trofeuzinho
+                setor: Setor Troféu
+                grupo: Salão de Pedras
                 ids:
                 - rpviF7a30p5PTK
               - alvo_uid: WhCXR2mpkS6a7x
                 pontos_uids:
                 - c70Tf6vxRTIrEJ
                 escalada: Troféu
+                setor: Setor Troféu
+                grupo: Salão de Pedras
                 ids:
                 - c70Tf6vxRTIrEJ
               - alvo_uid: uPqgqUInvZ69fY
                 pontos_uids:
                 - 5rWOYtJ1on0GzU
                 escalada: Dreads de Goiás
+                setor: Setor Troféu
+                grupo: Salão de Pedras
                 ids:
                 - 5rWOYtJ1on0GzU
             escaladas:
@@ -1410,12 +1532,16 @@ picos:
                 pontos_uids:
                 - jytgCGdsk4gvOi
                 escalada: X-Tudo
+                setor: Setor X-Tudo
+                grupo: Salão de Pedras
                 ids:
                 - jytgCGdsk4gvOi
               - alvo_uid: e9aaes5ooNAtR8
                 pontos_uids:
                 - xoDPwkiuMqSmdO
                 escalada: Pão com Ovo
+                setor: Setor X-Tudo
+                grupo: Salão de Pedras
                 ids:
                 - xoDPwkiuMqSmdO
             - caminho_imagem_mapa: imagens/grupo_salao_de_pedras_setor_x_tudo_p1.webp
@@ -1436,6 +1562,8 @@ picos:
                 pontos_uids:
                 - gl6THLgL3tYTVM
                 escalada: Nossa Senhora de Conceição
+                setor: Setor X-Tudo
+                grupo: Salão de Pedras
                 ids:
                 - gl6THLgL3tYTVM
             - caminho_imagem_mapa: imagens/grupo_salao_de_pedras_setor_x_tudo_p2.webp
@@ -1456,6 +1584,8 @@ picos:
                 pontos_uids:
                 - 4BTPVMfQnaFL5i
                 escalada: Kansas
+                setor: Setor X-Tudo
+                grupo: Salão de Pedras
                 ids:
                 - 4BTPVMfQnaFL5i
             escaladas:
@@ -1522,18 +1652,24 @@ picos:
                 pontos_uids:
                 - 3meZQQETdFR5od
                 escalada: Domínio Digital
+                setor: Setor Domínio Digital
+                grupo: Salão de Pedras
                 ids:
                 - 3meZQQETdFR5od
               - alvo_uid: RXDm6CxY1I1KSq
                 pontos_uids:
                 - 5iaFjURH3DqG7X
                 escalada: (sem nome 30)
+                setor: Setor Domínio Digital
+                grupo: Salão de Pedras
                 ids:
                 - 5iaFjURH3DqG7X
               - alvo_uid: M4u3wwqFhAKnIT
                 pontos_uids:
                 - j7FkXnPK7q3EJw
                 escalada: (sem nome 31)
+                setor: Setor Domínio Digital
+                grupo: Salão de Pedras
                 ids:
                 - j7FkXnPK7q3EJw
             escaladas:
@@ -1620,30 +1756,35 @@ picos:
             pontos_uids:
             - wrD6Cr355ncGoe
             setor: Setor Choquito
+            grupo: Colina
             ids:
             - wrD6Cr355ncGoe
           - alvo_uid: YE6JcMIe648G54
             pontos_uids:
             - DdAS8L7n5kBX87
             setor: Setor Godzilla
+            grupo: Colina
             ids:
             - DdAS8L7n5kBX87
           - alvo_uid: QPq69lj2cQaMam
             pontos_uids:
             - 50ASdNdNKXwgwQ
             setor: Setor Show Time
+            grupo: Colina
             ids:
             - 50ASdNdNKXwgwQ
           - alvo_uid: 5jTRMDJCeaLvnz
             pontos_uids:
             - EJcIYcuiAg2QvU
             setor: Setor Hiperespaço
+            grupo: Colina
             ids:
             - EJcIYcuiAg2QvU
           - alvo_uid: NyRs6pI4NoexjO
             pontos_uids:
             - q8Px7ijHdLpZfB
             setor: Setor Mergulho em Copo d'Água
+            grupo: Colina
             ids:
             - q8Px7ijHdLpZfB
         setores:
@@ -1705,30 +1846,40 @@ picos:
                 pontos_uids:
                 - O3tRj7N346XT0r
                 escalada: Paradise
+                setor: Setor Choquito
+                grupo: Colina
                 ids:
                 - O3tRj7N346XT0r
               - alvo_uid: tzXfYEDAtdhIZC
                 pontos_uids:
                 - YsJoS7c7agips5
                 escalada: Quebra Costela
+                setor: Setor Choquito
+                grupo: Colina
                 ids:
                 - YsJoS7c7agips5
               - alvo_uid: IGyhI51GnKge62
                 pontos_uids:
                 - vfTu6HErb1mTGK
                 escalada: (sem nome 1)
+                setor: Setor Choquito
+                grupo: Colina
                 ids:
                 - vfTu6HErb1mTGK
               - alvo_uid: ukFDfrDji5ZVC0
                 pontos_uids:
                 - WyPOaT4nm5o0Gv
                 escalada: Choquito
+                setor: Setor Choquito
+                grupo: Colina
                 ids:
                 - WyPOaT4nm5o0Gv
               - alvo_uid: wMtD5C4eYpHIXo
                 pontos_uids:
                 - 9CCqXLAqJXrTa4
                 escalada: Jungle
+                setor: Setor Choquito
+                grupo: Colina
                 ids:
                 - 9CCqXLAqJXrTa4
             - caminho_imagem_mapa: imagens/grupo_colina_setor_choquito_p1.webp
@@ -1758,12 +1909,16 @@ picos:
                 pontos_uids:
                 - vMh3JbiMTC4luB
                 escalada: (sem nome 2)
+                setor: Setor Choquito
+                grupo: Colina
                 ids:
                 - vMh3JbiMTC4luB
               - alvo_uid: tEthBjxltdhzSs
                 pontos_uids:
                 - SO2PoVRVqogdvr
                 escalada: (sem nome 3)
+                setor: Setor Choquito
+                grupo: Colina
                 ids:
                 - SO2PoVRVqogdvr
             escaladas:
@@ -1847,18 +2002,24 @@ picos:
                 pontos_uids:
                 - WEFXQkDmjJGM10
                 escalada: King Kong
+                setor: Setor Godzilla
+                grupo: Colina
                 ids:
                 - WEFXQkDmjJGM10
               - alvo_uid: yfQoHEpQWaOScy
                 pontos_uids:
                 - s7P90LqMpEixjG
                 escalada: Gorilaz
+                setor: Setor Godzilla
+                grupo: Colina
                 ids:
                 - s7P90LqMpEixjG
               - alvo_uid: ICaABUZ9JdHLhH
                 pontos_uids:
                 - 5S7JPtcibwhVMF
                 escalada: Chimpanzé
+                setor: Setor Godzilla
+                grupo: Colina
                 ids:
                 - 5S7JPtcibwhVMF
             - caminho_imagem_mapa: imagens/grupo_colina_setor_godzilla_p1.webp
@@ -1897,18 +2058,24 @@ picos:
                 pontos_uids:
                 - MHpcIheKTNXQke
                 escalada: Macaco Prego
+                setor: Setor Godzilla
+                grupo: Colina
                 ids:
                 - MHpcIheKTNXQke
               - alvo_uid: ERu7NbE9Tvj1CX
                 pontos_uids:
                 - 0T2i1c5G15OfLS
                 escalada: Rolamento
+                setor: Setor Godzilla
+                grupo: Colina
                 ids:
                 - 0T2i1c5G15OfLS
               - alvo_uid: yU0UoSrED5JmNt
                 pontos_uids:
                 - sfS4ZKtQdiP4RU
                 escalada: Godzilla
+                setor: Setor Godzilla
+                grupo: Colina
                 ids:
                 - sfS4ZKtQdiP4RU
             - caminho_imagem_mapa: imagens/grupo_colina_setor_godzilla_p2.webp
@@ -1938,12 +2105,16 @@ picos:
                 pontos_uids:
                 - H8CaN19MuDQP5p
                 escalada: Enxada
+                setor: Setor Godzilla
+                grupo: Colina
                 ids:
                 - H8CaN19MuDQP5p
               - alvo_uid: QTHHmnYdwy3pY2
                 pontos_uids:
                 - Czn0o7zSshKTNi
                 escalada: Obra de Arte
+                setor: Setor Godzilla
+                grupo: Colina
                 ids:
                 - Czn0o7zSshKTNi
             escaladas:
@@ -2035,24 +2206,32 @@ picos:
                 pontos_uids:
                 - bhM4fq18aYdKd3
                 escalada: ET Teimoso
+                setor: Setor Show Time
+                grupo: Colina
                 ids:
                 - bhM4fq18aYdKd3
               - alvo_uid: GoNMZvdc2V5UWZ
                 pontos_uids:
                 - oFUR9yAjsXOUJF
                 escalada: Show Time
+                setor: Setor Show Time
+                grupo: Colina
                 ids:
                 - oFUR9yAjsXOUJF
               - alvo_uid: 98wWWrOFE3WykX
                 pontos_uids:
                 - zxIrMGtnIs2oBw
                 escalada: Zela Time
+                setor: Setor Show Time
+                grupo: Colina
                 ids:
                 - zxIrMGtnIs2oBw
               - alvo_uid: uOsPRChK5xum0k
                 pontos_uids:
                 - FOVW6vJ4vYuRj2
                 escalada: (sem nome 4)
+                setor: Setor Show Time
+                grupo: Colina
                 ids:
                 - FOVW6vJ4vYuRj2
             - caminho_imagem_mapa: imagens/grupo_colina_setor_show_time_p1.webp
@@ -2118,36 +2297,48 @@ picos:
                 pontos_uids:
                 - S32hCtiHxSy1im
                 escalada: (sem nome 4)
+                setor: Setor Show Time
+                grupo: Colina
                 ids:
                 - S32hCtiHxSy1im
               - alvo_uid: ITjF6IUmFsJfyN
                 pontos_uids:
                 - 5LFAfctie3moD8
                 escalada: (sem nome 5)
+                setor: Setor Show Time
+                grupo: Colina
                 ids:
                 - 5LFAfctie3moD8
               - alvo_uid: RU44lq4DV3bvid
                 pontos_uids:
                 - JJJb94cBrCB2Fk
                 escalada: Meia Lua
+                setor: Setor Show Time
+                grupo: Colina
                 ids:
                 - JJJb94cBrCB2Fk
               - alvo_uid: 72o8TovFlDzu7K
                 pontos_uids:
                 - Ki065F0a77GbDt
                 escalada: (sem nome 6)
+                setor: Setor Show Time
+                grupo: Colina
                 ids:
                 - Ki065F0a77GbDt
               - alvo_uid: 98wWWrOFE3WykX
                 pontos_uids:
                 - LjOHSYfwzJDs9s
                 escalada: Zela Time
+                setor: Setor Show Time
+                grupo: Colina
                 ids:
                 - LjOHSYfwzJDs9s
               - alvo_uid: GoNMZvdc2V5UWZ
                 pontos_uids:
                 - 75St8wEmK9hr0y
                 escalada: Show Time
+                setor: Setor Show Time
+                grupo: Colina
                 ids:
                 - 75St8wEmK9hr0y
             escaladas:
@@ -2253,36 +2444,48 @@ picos:
                 pontos_uids:
                 - CtOV1wG8o766YO
                 escalada: Solstício
+                setor: Setor Hiperespaço
+                grupo: Colina
                 ids:
                 - CtOV1wG8o766YO
               - alvo_uid: ezB4ozYwdjmdos
                 pontos_uids:
                 - cQkfOYNLPzie0P
                 escalada: Equinócio
+                setor: Setor Hiperespaço
+                grupo: Colina
                 ids:
                 - cQkfOYNLPzie0P
               - alvo_uid: fBHjlhrwF2gT3m
                 pontos_uids:
                 - niKgH30S2C2gaU
                 escalada: Eclipse
+                setor: Setor Hiperespaço
+                grupo: Colina
                 ids:
                 - niKgH30S2C2gaU
               - alvo_uid: fNrywKN9Vo1CQj
                 pontos_uids:
                 - DmUd4ppUX9YY9F
                 escalada: Antares
+                setor: Setor Hiperespaço
+                grupo: Colina
                 ids:
                 - DmUd4ppUX9YY9F
               - alvo_uid: z1cH25l13lqYMi
                 pontos_uids:
                 - kyJ7Nv55imVypD
                 escalada: Don Carlitos
+                setor: Setor Hiperespaço
+                grupo: Colina
                 ids:
                 - kyJ7Nv55imVypD
               - alvo_uid: 3G3gpajoRm4SFf
                 pontos_uids:
                 - CG6Wf3j2R4VfjV
                 escalada: Jardins Suspensos
+                setor: Setor Hiperespaço
+                grupo: Colina
                 ids:
                 - CG6Wf3j2R4VfjV
             escaladas:
@@ -2339,6 +2542,8 @@ picos:
                 pontos_uids:
                 - eDyAljCFEDPGmP
                 escalada: Mergulho em Copo d'Água
+                setor: Setor Mergulho em Copo d'Água
+                grupo: Colina
                 ids:
                 - eDyAljCFEDPGmP
             escaladas:
@@ -2390,6 +2595,7 @@ picos:
             pontos_uids:
             - tHhznIudpdNmHQ
             setor: Setor Mufasa
+            grupo: JK
             ids:
             - tHhznIudpdNmHQ
         setores:
@@ -2424,12 +2630,16 @@ picos:
                 pontos_uids:
                 - UX6EfPItSY8cUS
                 escalada: Bloody Hell
+                setor: Setor Mufasa
+                grupo: JK
                 ids:
                 - UX6EfPItSY8cUS
               - alvo_uid: P1ioTGfottYzAu
                 pontos_uids:
                 - rIv95Eyi8kvbYB
                 escalada: Mufasa
+                setor: Setor Mufasa
+                grupo: JK
                 ids:
                 - rIv95Eyi8kvbYB
             escaladas:
@@ -2602,90 +2812,105 @@ picos:
             pontos_uids:
             - b23vf3N41ACj3A
             setor: Setor Preguiça
+            grupo: Pedreira
             ids:
             - b23vf3N41ACj3A
           - alvo_uid: 0J02htQ9ijlNku
             pontos_uids:
             - yFSS81ITy499Qt
             setor: Setor Manda Lá
+            grupo: Pedreira
             ids:
             - yFSS81ITy499Qt
           - alvo_uid: iwFDrJbwDBIZci
             pontos_uids:
             - 52Hlv1eMxygMHM
             setor: Setor Trabalhador
+            grupo: Pedreira
             ids:
             - 52Hlv1eMxygMHM
           - alvo_uid: 9i4ulhHe8Wt2fG
             pontos_uids:
             - PB73eL63DwVfA7
             setor: Setor Sanfoneiro Maluco
+            grupo: Pedreira
             ids:
             - PB73eL63DwVfA7
           - alvo_uid: X2Ug9CixcMKYd8
             pontos_uids:
             - lmqaF1XcTVGOZM
             setor: Setor Samurai
+            grupo: Pedreira
             ids:
             - lmqaF1XcTVGOZM
           - alvo_uid: pjU0CL4hDO7jOa
             pontos_uids:
             - 1HoVQDzlfoVhxM
             setor: Setor Bomba Atômica
+            grupo: Pedreira
             ids:
             - 1HoVQDzlfoVhxM
           - alvo_uid: ZIkSfGNugqHMnX
             pontos_uids:
             - Mlc1tRQzIGLamn
             setor: Setor Jubileu
+            grupo: Pedreira
             ids:
             - Mlc1tRQzIGLamn
           - alvo_uid: 1UnylXLq321R7V
             pontos_uids:
             - hmU0vFdMSLuNm6
             setor: Setor Conceição
+            grupo: Pedreira
             ids:
             - hmU0vFdMSLuNm6
           - alvo_uid: 19m6huz3tACiyA
             pontos_uids:
             - iiV2OFzkqWFKpD
             setor: Setor Bobsled
+            grupo: Pedreira
             ids:
             - iiV2OFzkqWFKpD
           - alvo_uid: iZJd5BxEiCNhso
             pontos_uids:
             - B48bdIMXCkM6Af
             setor: Setor Aresta do Cabeça
+            grupo: Pedreira
             ids:
             - B48bdIMXCkM6Af
           - alvo_uid: FbDfAbWOrmCBZp
             pontos_uids:
             - 2dktKSyJGtDNHE
             setor: Setor Equinócio
+            grupo: Pedreira
             ids:
             - 2dktKSyJGtDNHE
           - alvo_uid: MwfeN0k5sY83kY
             pontos_uids:
             - YFf16f3kWzJzF2
             setor: Setor Witness
+            grupo: Pedreira
             ids:
             - YFf16f3kWzJzF2
           - alvo_uid: gUuLVreg1RgUm6
             pontos_uids:
             - pRmlwYnHRxUS3W
             setor: Setor La Fúria
+            grupo: Pedreira
             ids:
             - pRmlwYnHRxUS3W
           - alvo_uid: QqN6oqb5Sf8vGq
             pontos_uids:
             - A6PxzdEFL6JoV2
             setor: Setor Jah
+            grupo: Pedreira
             ids:
             - A6PxzdEFL6JoV2
           - alvo_uid: G5dk8AEaYgSzDy
             pontos_uids:
             - ug6uAJPc4cQJ3b
             setor: Setor Pole Dance
+            grupo: Pedreira
             ids:
             - ug6uAJPc4cQJ3b
         setores:
@@ -2747,30 +2972,40 @@ picos:
                 pontos_uids:
                 - Ezwt6JOc9wKCP3
                 escalada: Preguiça de Sofrer
+                setor: Setor Preguiça
+                grupo: Pedreira
                 ids:
                 - Ezwt6JOc9wKCP3
               - alvo_uid: QoSim9MOfscMvZ
                 pontos_uids:
                 - 7Xqlje3YhHg51B
                 escalada: Preguicinha
+                setor: Setor Preguiça
+                grupo: Pedreira
                 ids:
                 - 7Xqlje3YhHg51B
               - alvo_uid: 4FUQ4AvvGAMe7D
                 pontos_uids:
                 - P4B28yzgKVQQWw
                 escalada: (sem nome 22)
+                setor: Setor Preguiça
+                grupo: Pedreira
                 ids:
                 - P4B28yzgKVQQWw
               - alvo_uid: PO4TjGQSvQTLuV
                 pontos_uids:
                 - 8An6aAaE3GP4jM
                 escalada: Tá Lá
+                setor: Setor Preguiça
+                grupo: Pedreira
                 ids:
                 - 8An6aAaE3GP4jM
               - alvo_uid: CJ4nR44XlpK4dx
                 pontos_uids:
                 - ofW4ngRySv9tt1
                 escalada: (sem nome 23)
+                setor: Setor Preguiça
+                grupo: Pedreira
                 ids:
                 - ofW4ngRySv9tt1
             - caminho_imagem_mapa: imagens/grupo_pedreira_setor_preguica_p1.webp
@@ -2800,12 +3035,16 @@ picos:
                 pontos_uids:
                 - NRaWE90Rv4A8Sd
                 escalada: Salsichção
+                setor: Setor Preguiça
+                grupo: Pedreira
                 ids:
                 - NRaWE90Rv4A8Sd
               - alvo_uid: iN149XJWBILEot
                 pontos_uids:
                 - 6XV6RM3004grlR
                 escalada: Era Uma Vez
+                setor: Setor Preguiça
+                grupo: Pedreira
                 ids:
                 - 6XV6RM3004grlR
             - caminho_imagem_mapa: imagens/grupo_pedreira_setor_preguica_p2.webp
@@ -2844,18 +3083,24 @@ picos:
                 pontos_uids:
                 - E5WYSWahMa5Q9u
                 escalada: Frank
+                setor: Setor Preguiça
+                grupo: Pedreira
                 ids:
                 - E5WYSWahMa5Q9u
               - alvo_uid: fRpsLqaWjUMcmg
                 pontos_uids:
                 - rVyrFMcB80rYSS
                 escalada: Stout
+                setor: Setor Preguiça
+                grupo: Pedreira
                 ids:
                 - rVyrFMcB80rYSS
               - alvo_uid: BsPUQPcunNWSv5
                 pontos_uids:
                 - qkq2DjIBBKqxuL
                 escalada: Carlos Drummond
+                setor: Setor Preguiça
+                grupo: Pedreira
                 ids:
                 - qkq2DjIBBKqxuL
             escaladas:
@@ -2937,12 +3182,16 @@ picos:
                 pontos_uids:
                 - x1R6gfi5mvsVmZ
                 escalada: Amand-lá
+                setor: Setor Manda Lá
+                grupo: Pedreira
                 ids:
                 - x1R6gfi5mvsVmZ
               - alvo_uid: JPEAXtGb2zd1P4
                 pontos_uids:
                 - XUgyQXJZQE0Oxv
                 escalada: Manda Lá
+                setor: Setor Manda Lá
+                grupo: Pedreira
                 ids:
                 - XUgyQXJZQE0Oxv
             escaladas:
@@ -2992,12 +3241,16 @@ picos:
                 pontos_uids:
                 - ZhWeuDf5DFUHXZ
                 escalada: Hueco Fontaine
+                setor: Setor Trabalhador
+                grupo: Pedreira
                 ids:
                 - ZhWeuDf5DFUHXZ
               - alvo_uid: wxyzvEsDAtVNI6
                 pontos_uids:
                 - PxrNJ6QQ8KoPt6
                 escalada: Pitt Bull
+                setor: Setor Trabalhador
+                grupo: Pedreira
                 ids:
                 - PxrNJ6QQ8KoPt6
             - caminho_imagem_mapa: imagens/grupo_pedreira_setor_trabalhador_p1.webp
@@ -3036,18 +3289,24 @@ picos:
                 pontos_uids:
                 - cltrVd9807XCCi
                 escalada: Trabalhador Brasileiro
+                setor: Setor Trabalhador
+                grupo: Pedreira
                 ids:
                 - cltrVd9807XCCi
               - alvo_uid: lXJMG6KeZSz2K3
                 pontos_uids:
                 - n0jZecOQ4HKaQg
                 escalada: Trabalho Árduo
+                setor: Setor Trabalhador
+                grupo: Pedreira
                 ids:
                 - n0jZecOQ4HKaQg
               - alvo_uid: HZUDWG7GPf2SxW
                 pontos_uids:
                 - n4kzDDxMJHEMN4
                 escalada: Estamos Trabalhando
+                setor: Setor Trabalhador
+                grupo: Pedreira
                 ids:
                 - n4kzDDxMJHEMN4
             escaladas:
@@ -3118,18 +3377,24 @@ picos:
                 pontos_uids:
                 - UNvpPG01W1KZ9i
                 escalada: Sanfoneiro Maluco
+                setor: Setor Sanfoneiro Maluco
+                grupo: Pedreira
                 ids:
                 - UNvpPG01W1KZ9i
               - alvo_uid: auSWBM6Q0L9Blg
                 pontos_uids:
                 - sSs0qDD1zGEDic
                 escalada: Inacreditável
+                setor: Setor Sanfoneiro Maluco
+                grupo: Pedreira
                 ids:
                 - sSs0qDD1zGEDic
               - alvo_uid: omODlwnlayNL83
                 pontos_uids:
                 - SrJe25DRWb3V89
                 escalada: Chapeleiro Maluco
+                setor: Setor Sanfoneiro Maluco
+                grupo: Pedreira
                 ids:
                 - SrJe25DRWb3V89
             - caminho_imagem_mapa: imagens/grupo_pedreira_setor_sanfoneiro_maluco_p1.webp
@@ -3150,6 +3415,8 @@ picos:
                 pontos_uids:
                 - DeFIVNGJYdo8w3
                 escalada: Webb da Paraíba
+                setor: Setor Sanfoneiro Maluco
+                grupo: Pedreira
                 ids:
                 - DeFIVNGJYdo8w3
             - caminho_imagem_mapa: imagens/grupo_pedreira_setor_sanfoneiro_maluco_p2.webp
@@ -3179,12 +3446,16 @@ picos:
                 pontos_uids:
                 - s4or0TPLv3Mt0R
                 escalada: Efeito Dominó
+                setor: Setor Sanfoneiro Maluco
+                grupo: Pedreira
                 ids:
                 - s4or0TPLv3Mt0R
               - alvo_uid: 6jvaZqybxAQjkS
                 pontos_uids:
                 - U6ecenKv5C8A7U
                 escalada: Zuzuzela
+                setor: Setor Sanfoneiro Maluco
+                grupo: Pedreira
                 ids:
                 - U6ecenKv5C8A7U
             escaladas:
@@ -3268,24 +3539,32 @@ picos:
                 pontos_uids:
                 - hnov2jDFTAJtzI
                 escalada: Purgatório
+                setor: Setor Samurai
+                grupo: Pedreira
                 ids:
                 - hnov2jDFTAJtzI
               - alvo_uid: HKPmkjFIL3JaDf
                 pontos_uids:
                 - 6a6s3Fjdgo0cOa
                 escalada: Samurai
+                setor: Setor Samurai
+                grupo: Pedreira
                 ids:
                 - 6a6s3Fjdgo0cOa
               - alvo_uid: PQu3egrGNPnZ8Y
                 pontos_uids:
                 - bKjqkR3g15lFSZ
                 escalada: Ômega 3
+                setor: Setor Samurai
+                grupo: Pedreira
                 ids:
                 - bKjqkR3g15lFSZ
               - alvo_uid: piZs8IfFcv1s41
                 pontos_uids:
                 - NWivM3W36TjWww
                 escalada: Purgatório do Samurai
+                setor: Setor Samurai
+                grupo: Pedreira
                 ids:
                 - NWivM3W36TjWww
             - caminho_imagem_mapa: imagens/grupo_pedreira_setor_samurai_p1.webp
@@ -3306,6 +3585,8 @@ picos:
                 pontos_uids:
                 - qdB8Vy3mehmzOF
                 escalada: Ouro Branco
+                setor: Setor Samurai
+                grupo: Pedreira
                 ids:
                 - qdB8Vy3mehmzOF
             escaladas:
@@ -3430,54 +3711,72 @@ picos:
                 pontos_uids:
                 - QbtjZrwqFAhV9G
                 escalada: Viajante
+                setor: Setor Bomba Atômica
+                grupo: Pedreira
                 ids:
                 - QbtjZrwqFAhV9G
               - alvo_uid: hWt2Gg1D7oMziV
                 pontos_uids:
                 - OHrSTlHmtBjE4D
                 escalada: Viajante SDS
+                setor: Setor Bomba Atômica
+                grupo: Pedreira
                 ids:
                 - OHrSTlHmtBjE4D
               - alvo_uid: ICf4GgPEtPqCgN
                 pontos_uids:
                 - MnwWtRaQLAWLG2
                 escalada: (sem nome 8)
+                setor: Setor Bomba Atômica
+                grupo: Pedreira
                 ids:
                 - MnwWtRaQLAWLG2
               - alvo_uid: K5DKbA3iVJA0uS
                 pontos_uids:
                 - n9XjgIBu3thS27
                 escalada: (sem nome 9)
+                setor: Setor Bomba Atômica
+                grupo: Pedreira
                 ids:
                 - n9XjgIBu3thS27
               - alvo_uid: YFP6tbMx1y5fTn
                 pontos_uids:
                 - tKTzpesxgCpVG9
                 escalada: (sem nome 10)
+                setor: Setor Bomba Atômica
+                grupo: Pedreira
                 ids:
                 - tKTzpesxgCpVG9
               - alvo_uid: Duv947Qymxs3lt
                 pontos_uids:
                 - EeqGNeSieAX3iA
                 escalada: Champagne
+                setor: Setor Bomba Atômica
+                grupo: Pedreira
                 ids:
                 - EeqGNeSieAX3iA
               - alvo_uid: z7bbU2F29q02Ng
                 pontos_uids:
                 - OfIbyPZ6nLZGfw
                 escalada: Bonitinho
+                setor: Setor Bomba Atômica
+                grupo: Pedreira
                 ids:
                 - OfIbyPZ6nLZGfw
               - alvo_uid: vtadyW2ly3ZO0h
                 pontos_uids:
                 - 1QXjxqEBGCXa88
                 escalada: Caravana
+                setor: Setor Bomba Atômica
+                grupo: Pedreira
                 ids:
                 - 1QXjxqEBGCXa88
               - alvo_uid: 5oU241sJn4L28d
                 pontos_uids:
                 - PHTZeN988HuQtp
                 escalada: (sem nome 11)
+                setor: Setor Bomba Atômica
+                grupo: Pedreira
                 ids:
                 - PHTZeN988HuQtp
             - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bomba_atomica_p1.webp
@@ -3498,6 +3797,8 @@ picos:
                 pontos_uids:
                 - USWuJLztILh70l
                 escalada: Bomba Atômica
+                setor: Setor Bomba Atômica
+                grupo: Pedreira
                 ids:
                 - USWuJLztILh70l
             - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bomba_atomica_p2.webp
@@ -3563,36 +3864,48 @@ picos:
                 pontos_uids:
                 - dtzs9pXa1SmfxV
                 escalada: No Claro
+                setor: Setor Bomba Atômica
+                grupo: Pedreira
                 ids:
                 - dtzs9pXa1SmfxV
               - alvo_uid: HhdDt7mOkftwUp
                 pontos_uids:
                 - CVWnOrdHvhGh1l
                 escalada: No Escuro
+                setor: Setor Bomba Atômica
+                grupo: Pedreira
                 ids:
                 - CVWnOrdHvhGh1l
               - alvo_uid: bewfeEJ734k2yv
                 pontos_uids:
                 - 4UkKnLah9plLgm
                 escalada: Falafofancho
+                setor: Setor Bomba Atômica
+                grupo: Pedreira
                 ids:
                 - 4UkKnLah9plLgm
               - alvo_uid: QTIajeTwTfOAAo
                 pontos_uids:
                 - 9662Ta1gcUQHyX
                 escalada: No Claro SDS
+                setor: Setor Bomba Atômica
+                grupo: Pedreira
                 ids:
                 - 9662Ta1gcUQHyX
               - alvo_uid: HFhqENACpNXX6r
                 pontos_uids:
                 - F8mUyzJaOMa4lc
                 escalada: No Escuro SDS
+                setor: Setor Bomba Atômica
+                grupo: Pedreira
                 ids:
                 - F8mUyzJaOMa4lc
               - alvo_uid: RgbQcCFn26I0zy
                 pontos_uids:
                 - RjRWLALZTTlphh
                 escalada: Falafofancho SDS
+                setor: Setor Bomba Atômica
+                grupo: Pedreira
                 ids:
                 - RjRWLALZTTlphh
             - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bomba_atomica_p3.webp
@@ -3631,18 +3944,24 @@ picos:
                 pontos_uids:
                 - CCFkZBuXNJnPkA
                 escalada: (sem nome 12)
+                setor: Setor Bomba Atômica
+                grupo: Pedreira
                 ids:
                 - CCFkZBuXNJnPkA
               - alvo_uid: CbvOv7uBrwHif1
                 pontos_uids:
                 - xf0qPlZKAfHLqE
                 escalada: (sem nome 13)
+                setor: Setor Bomba Atômica
+                grupo: Pedreira
                 ids:
                 - xf0qPlZKAfHLqE
               - alvo_uid: ZsFO7Eo2yalkeA
                 pontos_uids:
                 - bb16Vg7OKh1gGm
                 escalada: (sem nome 14)
+                setor: Setor Bomba Atômica
+                grupo: Pedreira
                 ids:
                 - bb16Vg7OKh1gGm
             escaladas:
@@ -3751,6 +4070,8 @@ picos:
                 pontos_uids:
                 - 1wqH4HNvRZThS5
                 escalada: Jubileu
+                setor: Setor Jubileu
+                grupo: Pedreira
                 ids:
                 - 1wqH4HNvRZThS5
             - caminho_imagem_mapa: imagens/grupo_pedreira_setor_jubileu_p1.webp
@@ -3771,6 +4092,8 @@ picos:
                 pontos_uids:
                 - kdI52e5jAcVEXJ
                 escalada: Eu Te Disse
+                setor: Setor Jubileu
+                grupo: Pedreira
                 ids:
                 - kdI52e5jAcVEXJ
             - caminho_imagem_mapa: imagens/grupo_pedreira_setor_jubileu_p2.webp
@@ -3800,12 +4123,16 @@ picos:
                 pontos_uids:
                 - EeFlcKE9acgMmB
                 escalada: (sem nome 18)
+                setor: Setor Jubileu
+                grupo: Pedreira
                 ids:
                 - EeFlcKE9acgMmB
               - alvo_uid: YEBDSGf0y3VpHZ
                 pontos_uids:
                 - osa15bhPk0Qus2
                 escalada: (sem nome 19)
+                setor: Setor Jubileu
+                grupo: Pedreira
                 ids:
                 - osa15bhPk0Qus2
             escaladas:
@@ -3863,12 +4190,16 @@ picos:
                 pontos_uids:
                 - 9QMZY5rl57n3fs
                 escalada: Conceição do Mato Dentro
+                setor: Setor Conceição
+                grupo: Pedreira
                 ids:
                 - 9QMZY5rl57n3fs
               - alvo_uid: 5WIgZpOiONguNI
                 pontos_uids:
                 - jG0OLj6SSo5MZI
                 escalada: (sem nome 15)
+                setor: Setor Conceição
+                grupo: Pedreira
                 ids:
                 - jG0OLj6SSo5MZI
             - caminho_imagem_mapa: imagens/grupo_pedreira_setor_conceicao_p1.webp
@@ -3907,18 +4238,24 @@ picos:
                 pontos_uids:
                 - n3DFg2BZB4EnOD
                 escalada: Tobogã
+                setor: Setor Conceição
+                grupo: Pedreira
                 ids:
                 - n3DFg2BZB4EnOD
               - alvo_uid: 471XsZoZI1DD3l
                 pontos_uids:
                 - dWf8rnyDLQ0kGf
                 escalada: No Dab
+                setor: Setor Conceição
+                grupo: Pedreira
                 ids:
                 - dWf8rnyDLQ0kGf
               - alvo_uid: eNxgeJQGPnsZY3
                 pontos_uids:
                 - HFjX4yJ3RbF9m0
                 escalada: (sem nome 16)
+                setor: Setor Conceição
+                grupo: Pedreira
                 ids:
                 - HFjX4yJ3RbF9m0
             escaladas:
@@ -3998,24 +4335,32 @@ picos:
                 pontos_uids:
                 - OH3X96Fvv8Xn9H
                 escalada: Eterna Juventude
+                setor: Setor Bobsled
+                grupo: Pedreira
                 ids:
                 - OH3X96Fvv8Xn9H
               - alvo_uid: 1Pg8EKwJfUdtby
                 pontos_uids:
                 - WpjGLzao79djkR
                 escalada: Episódio do Dia
+                setor: Setor Bobsled
+                grupo: Pedreira
                 ids:
                 - WpjGLzao79djkR
               - alvo_uid: 0zr5qMNCNBhlmK
                 pontos_uids:
                 - 9M1SKLsm9HDDl6
                 escalada: Saideira
+                setor: Setor Bobsled
+                grupo: Pedreira
                 ids:
                 - 9M1SKLsm9HDDl6
               - alvo_uid: 1KuvdbglgsDWHe
                 pontos_uids:
                 - sVSKfHfyB1f4eC
                 escalada: Bobsled
+                setor: Setor Bobsled
+                grupo: Pedreira
                 ids:
                 - sVSKfHfyB1f4eC
             escaladas:
@@ -4064,6 +4409,8 @@ picos:
                 pontos_uids:
                 - IoYVWpIMkUA4ID
                 escalada: Aresta do Cabeça
+                setor: Setor Aresta do Cabeça
+                grupo: Pedreira
                 ids:
                 - IoYVWpIMkUA4ID
             escaladas:
@@ -4118,18 +4465,24 @@ picos:
                 pontos_uids:
                 - 1fEu80TmSOd9C7
                 escalada: Campo Minado
+                setor: Setor Equinócio
+                grupo: Pedreira
                 ids:
                 - 1fEu80TmSOd9C7
               - alvo_uid: R0gT7kVRSyqBou
                 pontos_uids:
                 - fVenV05fRx7kp2
                 escalada: Kalil
+                setor: Setor Equinócio
+                grupo: Pedreira
                 ids:
                 - fVenV05fRx7kp2
               - alvo_uid: Iy012rMgdhHA1P
                 pontos_uids:
                 - 5gRLozgyO5ABNW
                 escalada: Costela de Adão
+                setor: Setor Equinócio
+                grupo: Pedreira
                 ids:
                 - 5gRLozgyO5ABNW
             escaladas:
@@ -4192,18 +4545,24 @@ picos:
                 pontos_uids:
                 - MBCEoG835hyFmR
                 escalada: Mandarim
+                setor: Setor Witness
+                grupo: Pedreira
                 ids:
                 - MBCEoG835hyFmR
               - alvo_uid: OwiUIfvsTYIvNm
                 pontos_uids:
                 - AIIMm3CAXZTE8e
                 escalada: Pressão Corporal
+                setor: Setor Witness
+                grupo: Pedreira
                 ids:
                 - AIIMm3CAXZTE8e
               - alvo_uid: MyAwZeKbAzvw5W
                 pontos_uids:
                 - ZhZjywqsJeG7VG
                 escalada: Witness the Weakness
+                setor: Setor Witness
+                grupo: Pedreira
                 ids:
                 - ZhZjywqsJeG7VG
             - caminho_imagem_mapa: imagens/grupo_pedreira_setor_witness_p1.webp
@@ -4224,6 +4583,8 @@ picos:
                 pontos_uids:
                 - aBiUKyycnELnz2
                 escalada: Picasso
+                setor: Setor Witness
+                grupo: Pedreira
                 ids:
                 - aBiUKyycnELnz2
             escaladas:
@@ -4390,6 +4751,8 @@ picos:
                 - zzFRCn6LffYdcp
                 - LO0oE14PqlL6Ua
                 escalada: La Furia
+                setor: Setor La Fúria
+                grupo: Pedreira
                 ids:
                 - zzFRCn6LffYdcp
                 - LO0oE14PqlL6Ua
@@ -4398,6 +4761,8 @@ picos:
                 - uk7wFtQdQeaEN3
                 - QxVLIlJobQ9INu
                 escalada: La Discordia
+                setor: Setor La Fúria
+                grupo: Pedreira
                 ids:
                 - uk7wFtQdQeaEN3
                 - QxVLIlJobQ9INu
@@ -4406,6 +4771,8 @@ picos:
                 - JnJVFxiQgQ6o2z
                 - bmuiC4S9ZZo82b
                 escalada: La Paloma
+                setor: Setor La Fúria
+                grupo: Pedreira
                 ids:
                 - JnJVFxiQgQ6o2z
                 - bmuiC4S9ZZo82b
@@ -4414,6 +4781,8 @@ picos:
                 - V3ieF5vDR0RRBX
                 - Aw4dtORDtjj41w
                 escalada: La Discrepância
+                setor: Setor La Fúria
+                grupo: Pedreira
                 ids:
                 - V3ieF5vDR0RRBX
                 - Aw4dtORDtjj41w
@@ -4422,6 +4791,8 @@ picos:
                 - WdZVOR0PBs73KL
                 - oeY23ku14lPH1Z
                 escalada: La Fuerza
+                setor: Setor La Fúria
+                grupo: Pedreira
                 ids:
                 - WdZVOR0PBs73KL
                 - oeY23ku14lPH1Z
@@ -4430,6 +4801,8 @@ picos:
                 - mzSvG89IPieYIM
                 - HUzQQDDuYoWijV
                 escalada: La Sinceridad
+                setor: Setor La Fúria
+                grupo: Pedreira
                 ids:
                 - mzSvG89IPieYIM
                 - HUzQQDDuYoWijV
@@ -4437,12 +4810,16 @@ picos:
                 pontos_uids:
                 - AURpwGOlJZNylN
                 escalada: Rei da Cápsula
+                setor: Setor La Fúria
+                grupo: Pedreira
                 ids:
                 - AURpwGOlJZNylN
               - alvo_uid: JjrHpTytGBCTce
                 pontos_uids:
                 - WdcWX2RPUXPvTO
                 escalada: Choffer
+                setor: Setor La Fúria
+                grupo: Pedreira
                 ids:
                 - WdcWX2RPUXPvTO
             - caminho_imagem_mapa: imagens/grupo_pedreira_setor_la_furia_p1.webp
@@ -4572,6 +4949,8 @@ picos:
                 - x8TyPAP1LqalRM
                 - Z3Qv4lYzPQ7Vvc
                 escalada: Bem Vindo
+                setor: Setor La Fúria
+                grupo: Pedreira
                 ids:
                 - x8TyPAP1LqalRM
                 - Z3Qv4lYzPQ7Vvc
@@ -4580,6 +4959,8 @@ picos:
                 - aVSUMVhwlrUzrX
                 - vIfScFeGnTKr8c
                 escalada: Bem Vindo a Conceição
+                setor: Setor La Fúria
+                grupo: Pedreira
                 ids:
                 - aVSUMVhwlrUzrX
                 - vIfScFeGnTKr8c
@@ -4588,6 +4969,8 @@ picos:
                 - pTLwvPRE8qSHTC
                 - PyK3Ot9cRVXlOJ
                 escalada: Bem Vindo aos Clássicos
+                setor: Setor La Fúria
+                grupo: Pedreira
                 ids:
                 - pTLwvPRE8qSHTC
                 - PyK3Ot9cRVXlOJ
@@ -4595,6 +4978,8 @@ picos:
                 pontos_uids:
                 - ZvA71UnvH6ktOt
                 escalada: Né Possível
+                setor: Setor La Fúria
+                grupo: Pedreira
                 ids:
                 - ZvA71UnvH6ktOt
               - alvo_uid: BaARcOGuchHfbr
@@ -4602,6 +4987,8 @@ picos:
                 - qyomUCjhHlcFiL
                 - iMenJrKZMZZbg7
                 escalada: Malditos
+                setor: Setor La Fúria
+                grupo: Pedreira
                 ids:
                 - qyomUCjhHlcFiL
                 - iMenJrKZMZZbg7
@@ -4610,6 +4997,8 @@ picos:
                 - 7oAjqHPwE7jefO
                 - 8e2VUOHVGb3tq9
                 escalada: Guardião
+                setor: Setor La Fúria
+                grupo: Pedreira
                 ids:
                 - 7oAjqHPwE7jefO
                 - 8e2VUOHVGb3tq9
@@ -4618,6 +5007,8 @@ picos:
                 - OvNzt24NvIKhly
                 - Tf03pFFvUR37oU
                 escalada: Deixa Rolar
+                setor: Setor La Fúria
+                grupo: Pedreira
                 ids:
                 - OvNzt24NvIKhly
                 - Tf03pFFvUR37oU
@@ -4685,6 +5076,8 @@ picos:
                 - YZhGnSbweaCVeZ
                 - husfTbWeTMBOu3
                 escalada: La Resistência
+                setor: Setor La Fúria
+                grupo: Pedreira
                 ids:
                 - YZhGnSbweaCVeZ
                 - husfTbWeTMBOu3
@@ -4693,6 +5086,8 @@ picos:
                 - G9KbDcl0wdTRFb
                 - venSqhcCyglkLJ
                 escalada: Maldito La Furia
+                setor: Setor La Fúria
+                grupo: Pedreira
                 ids:
                 - G9KbDcl0wdTRFb
                 - venSqhcCyglkLJ
@@ -4701,6 +5096,8 @@ picos:
                 - IJcosVl9af1Sas
                 - JOEsqRHkHBgkeF
                 escalada: (sem nome 20)
+                setor: Setor La Fúria
+                grupo: Pedreira
                 ids:
                 - IJcosVl9af1Sas
                 - JOEsqRHkHBgkeF
@@ -4722,6 +5119,8 @@ picos:
                 pontos_uids:
                 - cU2LXEDRRuXHW5
                 escalada: Travessia da Fúria
+                setor: Setor La Fúria
+                grupo: Pedreira
                 ids:
                 - cU2LXEDRRuXHW5
             escaladas:
@@ -4892,48 +5291,64 @@ picos:
                 pontos_uids:
                 - 78QvYh9sy6JCp4
                 escalada: Lágrimas de Jah
+                setor: Setor Jah
+                grupo: Pedreira
                 ids:
                 - 78QvYh9sy6JCp4
               - alvo_uid: y8V5k3IX9Zj30c
                 pontos_uids:
                 - fSixziAPVPSZHj
                 escalada: Em Busca de Jah
+                setor: Setor Jah
+                grupo: Pedreira
                 ids:
                 - fSixziAPVPSZHj
               - alvo_uid: bcUDuLCjPvQHSh
                 pontos_uids:
                 - 1F411mddRTCpdD
                 escalada: Jah Rastafari
+                setor: Setor Jah
+                grupo: Pedreira
                 ids:
                 - 1F411mddRTCpdD
               - alvo_uid: DKFB7LbBxo7nS5
                 pontos_uids:
                 - QURVz12KzNilFb
                 escalada: Ordem e Progresso
+                setor: Setor Jah
+                grupo: Pedreira
                 ids:
                 - QURVz12KzNilFb
               - alvo_uid: ou4Oek7s4miFZx
                 pontos_uids:
                 - 0MXvZTgfsSfhet
                 escalada: Ordem e Progresso SDS
+                setor: Setor Jah
+                grupo: Pedreira
                 ids:
                 - 0MXvZTgfsSfhet
               - alvo_uid: 1vON9qkJED0He4
                 pontos_uids:
                 - 8xhC0ZQvuzL37K
                 escalada: JahJah
+                setor: Setor Jah
+                grupo: Pedreira
                 ids:
                 - 8xhC0ZQvuzL37K
               - alvo_uid: ct1utrtrgPnsCA
                 pontos_uids:
                 - k1gONrVXcBo0Z9
                 escalada: Verdinho
+                setor: Setor Jah
+                grupo: Pedreira
                 ids:
                 - k1gONrVXcBo0Z9
               - alvo_uid: 4RVCT8xdz6kKtj
                 pontos_uids:
                 - R7msq4FR9XIIYO
                 escalada: Skunk
+                setor: Setor Jah
+                grupo: Pedreira
                 ids:
                 - R7msq4FR9XIIYO
             - caminho_imagem_mapa: imagens/grupo_pedreira_setor_jah_p1.webp
@@ -4963,12 +5378,16 @@ picos:
                 pontos_uids:
                 - EEKqZyckfFGNv4
                 escalada: Mescladinho
+                setor: Setor Jah
+                grupo: Pedreira
                 ids:
                 - EEKqZyckfFGNv4
               - alvo_uid: XUJnaV4A7ODegg
                 pontos_uids:
                 - Rf7fluJKqa9Gd4
                 escalada: (sem nome 17)
+                setor: Setor Jah
+                grupo: Pedreira
                 ids:
                 - Rf7fluJKqa9Gd4
             escaladas:
@@ -5104,48 +5523,64 @@ picos:
                 pontos_uids:
                 - nBA4U34ga2Tvr5
                 escalada: Fuck Beach
+                setor: Setor Pole Dance
+                grupo: Pedreira
                 ids:
                 - nBA4U34ga2Tvr5
               - alvo_uid: Vk1mzRajkxe97E
                 pontos_uids:
                 - Fo01MuAxigslFX
                 escalada: Incrível Fuck Beach
+                setor: Setor Pole Dance
+                grupo: Pedreira
                 ids:
                 - Fo01MuAxigslFX
               - alvo_uid: W9megp46yAmPcv
                 pontos_uids:
                 - 3QcyIwJNNVO7vS
                 escalada: Incrível Pole Dance
+                setor: Setor Pole Dance
+                grupo: Pedreira
                 ids:
                 - 3QcyIwJNNVO7vS
               - alvo_uid: eJclGBikB0QOwz
                 pontos_uids:
                 - uVkZyKujFs5dwR
                 escalada: Incrível
+                setor: Setor Pole Dance
+                grupo: Pedreira
                 ids:
                 - uVkZyKujFs5dwR
               - alvo_uid: KgzMKM2OBW9Kyb
                 pontos_uids:
                 - tnHnjlw4ZwgwVK
                 escalada: Pole Dance
+                setor: Setor Pole Dance
+                grupo: Pedreira
                 ids:
                 - tnHnjlw4ZwgwVK
               - alvo_uid: jTiv48QcpBiTbT
                 pontos_uids:
                 - E03bxQh6UoERFF
                 escalada: Pole Dance SDS
+                setor: Setor Pole Dance
+                grupo: Pedreira
                 ids:
                 - E03bxQh6UoERFF
               - alvo_uid: oATDOun3WBHT6k
                 pontos_uids:
                 - FKeXnsJEEZgUTb
                 escalada: De la Rocha
+                setor: Setor Pole Dance
+                grupo: Pedreira
                 ids:
                 - FKeXnsJEEZgUTb
               - alvo_uid: porLZRctOPjt4c
                 pontos_uids:
                 - yuuBwLtxwW4RfS
                 escalada: Siga-me os Bons SDS
+                setor: Setor Pole Dance
+                grupo: Pedreira
                 ids:
                 - yuuBwLtxwW4RfS
             - caminho_imagem_mapa: imagens/grupo_pedreira_setor_pole_dance_p1.webp
@@ -5202,30 +5637,40 @@ picos:
                 pontos_uids:
                 - eZ2SElRDGed4cM
                 escalada: Repense
+                setor: Setor Pole Dance
+                grupo: Pedreira
                 ids:
                 - eZ2SElRDGed4cM
               - alvo_uid: hMB7cTlGJkmczs
                 pontos_uids:
                 - io7GzCWWI55sU5
                 escalada: Vamo Nessa
+                setor: Setor Pole Dance
+                grupo: Pedreira
                 ids:
                 - io7GzCWWI55sU5
               - alvo_uid: kkcsY6FbhHikS7
                 pontos_uids:
                 - eLHIxcXBIEsi7c
                 escalada: Vem que Tem
+                setor: Setor Pole Dance
+                grupo: Pedreira
                 ids:
                 - eLHIxcXBIEsi7c
               - alvo_uid: 8lnhbbYgHbYmZ8
                 pontos_uids:
                 - ns0ZaPoFAL4uZt
                 escalada: Pense Bem
+                setor: Setor Pole Dance
+                grupo: Pedreira
                 ids:
                 - ns0ZaPoFAL4uZt
               - alvo_uid: sXmiu6wyhvWV7x
                 pontos_uids:
                 - 7f3rPaEhApZXvg
                 escalada: Conclusão
+                setor: Setor Pole Dance
+                grupo: Pedreira
                 ids:
                 - 7f3rPaEhApZXvg
             - caminho_imagem_mapa: imagens/grupo_pedreira_setor_pole_dance_p2.webp
@@ -5291,36 +5736,48 @@ picos:
                 pontos_uids:
                 - O5fhW7i8hCkR7j
                 escalada: Siga-me os Bons
+                setor: Setor Pole Dance
+                grupo: Pedreira
                 ids:
                 - O5fhW7i8hCkR7j
               - alvo_uid: porLZRctOPjt4c
                 pontos_uids:
                 - REUoE5kzrdMV0q
                 escalada: Siga-me os Bons SDS
+                setor: Setor Pole Dance
+                grupo: Pedreira
                 ids:
                 - REUoE5kzrdMV0q
               - alvo_uid: 6rNdIFTqMYpJs6
                 pontos_uids:
                 - O7vdzNYVtbn3S9
                 escalada: Conceicion
+                setor: Setor Pole Dance
+                grupo: Pedreira
                 ids:
                 - O7vdzNYVtbn3S9
               - alvo_uid: oxtazdfxCGHDiW
                 pontos_uids:
                 - K9LRq5lRgk25NH
                 escalada: Tô Concê
+                setor: Setor Pole Dance
+                grupo: Pedreira
                 ids:
                 - K9LRq5lRgk25NH
               - alvo_uid: KhxMKLP1vIHgRj
                 pontos_uids:
                 - Z98P6uyvpUEcK6
                 escalada: Rocktrip
+                setor: Setor Pole Dance
+                grupo: Pedreira
                 ids:
                 - Z98P6uyvpUEcK6
               - alvo_uid: aspYcr6JHjTx2T
                 pontos_uids:
                 - hRp9bEQ3Ba6p7P
                 escalada: Rocklands
+                setor: Setor Pole Dance
+                grupo: Pedreira
                 ids:
                 - hRp9bEQ3Ba6p7P
             escaladas:
@@ -5452,24 +5909,32 @@ picos:
                 pontos_uids:
                 - i7zdX38BCwa0R2
                 escalada: Rock It
+                setor: Setor Rock and Roll
+                grupo: Pedreira
                 ids:
                 - i7zdX38BCwa0R2
               - alvo_uid: NRFieWvqPghPXl
                 pontos_uids:
                 - 2Y09bmOo4izRUP
                 escalada: Rock and Roll
+                setor: Setor Rock and Roll
+                grupo: Pedreira
                 ids:
                 - 2Y09bmOo4izRUP
               - alvo_uid: VZnXeluwv9x3Ys
                 pontos_uids:
                 - cYDYl5mGFJczNp
                 escalada: Go Chucky Go
+                setor: Setor Rock and Roll
+                grupo: Pedreira
                 ids:
                 - cYDYl5mGFJczNp
               - alvo_uid: MLra3NEpnP9SqB
                 pontos_uids:
                 - aYHh7yZ3Kn8cv3
                 escalada: Go Johnny Go
+                setor: Setor Rock and Roll
+                grupo: Pedreira
                 ids:
                 - aYHh7yZ3Kn8cv3
             escaladas:
@@ -5527,12 +5992,16 @@ picos:
                 pontos_uids:
                 - 9O4JQoaLCjsArN
                 escalada: Canelas as Ar
+                setor: Bloco dos Canelas
+                grupo: Pedreira
                 ids:
                 - 9O4JQoaLCjsArN
               - alvo_uid: Rk3SlwzoXhJt5y
                 pontos_uids:
                 - XFVk45lv9aorB5
                 escalada: Canelas ao Vento
+                setor: Bloco dos Canelas
+                grupo: Pedreira
                 ids:
                 - XFVk45lv9aorB5
             escaladas:
@@ -5609,30 +6078,40 @@ picos:
                 pontos_uids:
                 - 02nusGUDAGv9mj
                 escalada: (sem nome 21)
+                setor: Setor Mãos de Sebo
+                grupo: Pedreira
                 ids:
                 - 02nusGUDAGv9mj
               - alvo_uid: YlacXvVIpGthgE
                 pontos_uids:
                 - RBSIhjZzSV764E
                 escalada: Mãos de Tesoura
+                setor: Setor Mãos de Sebo
+                grupo: Pedreira
                 ids:
                 - RBSIhjZzSV764E
               - alvo_uid: C3j7d3dWLGpghr
                 pontos_uids:
                 - lDDOSR9BqvoUAe
                 escalada: Fei Long
+                setor: Setor Mãos de Sebo
+                grupo: Pedreira
                 ids:
                 - lDDOSR9BqvoUAe
               - alvo_uid: FNrxuCo4zO4VWX
                 pontos_uids:
                 - y33H1MuJw1iVCg
                 escalada: Mãos de Sebo
+                setor: Setor Mãos de Sebo
+                grupo: Pedreira
                 ids:
                 - y33H1MuJw1iVCg
               - alvo_uid: P88zyEi41D5kBD
                 pontos_uids:
                 - DC4HQdxHTMqzmJ
                 escalada: Mãozinha
+                setor: Setor Mãos de Sebo
+                grupo: Pedreira
                 ids:
                 - DC4HQdxHTMqzmJ
             escaladas:

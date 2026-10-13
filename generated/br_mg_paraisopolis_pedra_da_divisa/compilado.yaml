@@ -191,6 +191,7 @@ picos:
             - XqPUCMqPKraZZ3
             - Tu4jPqPdm73xzJ
             escalada: Fenômeno
+            setor: Setor Cangaço
             ids:
             - XqPUCMqPKraZZ3
             - Tu4jPqPdm73xzJ
@@ -199,6 +200,7 @@ picos:
             - 1daR2AMi0llxXM
             - Tu4jPqPdm73xzJ
             escalada: Maradona
+            setor: Setor Cangaço
             ids:
             - 1daR2AMi0llxXM
             - Tu4jPqPdm73xzJ
@@ -207,6 +209,7 @@ picos:
             - nELtPBrn6kRTHV
             - 2EUf0rxVoCVbtx
             escalada: Primogênito
+            setor: Setor Cangaço
             ids:
             - nELtPBrn6kRTHV
             - 2EUf0rxVoCVbtx
@@ -214,12 +217,14 @@ picos:
             pontos_uids:
             - jHw0iCp1aYwAXc
             escalada: Mil e um nomes de bebês
+            setor: Setor Cangaço
             ids:
             - jHw0iCp1aYwAXc
           - alvo_uid: sH5AYDzVkgUSER
             pontos_uids:
             - EDhQmmQqs2MiAm
             escalada: Diadorim
+            setor: Setor Cangaço
             ids:
             - EDhQmmQqs2MiAm
           - alvo_uid: 1DedxYA9RFSHtY
@@ -227,6 +232,7 @@ picos:
             - Aj429rBLa0cJQP
             - tSgJ8flfigkDw9
             escalada: Sem reservas, por favor
+            setor: Setor Cangaço
             ids:
             - Aj429rBLa0cJQP
             - tSgJ8flfigkDw9
@@ -235,6 +241,7 @@ picos:
             - skV2Y8ldKhXNcz
             - tSgJ8flfigkDw9
             escalada: Antônio Conselheiro
+            setor: Setor Cangaço
             ids:
             - skV2Y8ldKhXNcz
             - tSgJ8flfigkDw9
@@ -243,6 +250,7 @@ picos:
             - ENBdArbuDIXyM4
             - Mv59tD0AVmowSW
             escalada: Lampião
+            setor: Setor Cangaço
             ids:
             - ENBdArbuDIXyM4
             - Mv59tD0AVmowSW
@@ -251,6 +259,7 @@ picos:
             - nXPB7hOES5UUVg
             - Mv59tD0AVmowSW
             escalada: Maria Bonita
+            setor: Setor Cangaço
             ids:
             - nXPB7hOES5UUVg
             - Mv59tD0AVmowSW
@@ -259,6 +268,7 @@ picos:
             - ODroUrANMC33Xs
             - EQlmsuGnBuW2Ai
             escalada: Corisco
+            setor: Setor Cangaço
             ids:
             - ODroUrANMC33Xs
             - EQlmsuGnBuW2Ai
@@ -266,18 +276,21 @@ picos:
             pontos_uids:
             - avecH1ySNo6RxX
             escalada: Volta Seca
+            setor: Setor Cangaço
             ids:
             - avecH1ySNo6RxX
           - alvo_uid: AHCs2iAyt6U21h
             pontos_uids:
             - GdOtJtEtk8KK8m
             escalada: Ameaça
+            setor: Setor Cangaço
             ids:
             - GdOtJtEtk8KK8m
           - alvo_uid: dT8caYlBKkWJNy
             pontos_uids:
             - kZ6uVGJ5mwgoXT
             escalada: Zé Sereno
+            setor: Setor Cangaço
             ids:
             - kZ6uVGJ5mwgoXT
           - alvo_uid: k5H0BvsrjybAhQ
@@ -502,24 +515,28 @@ picos:
             pontos_uids:
             - Xw6DFgNepva4vw
             escalada: Boa noite Cinderela
+            setor: Setor Ditados
             ids:
             - Xw6DFgNepva4vw
           - alvo_uid: uOM7tqXzdshiX4
             pontos_uids:
             - shqoSegu4UVEME
             escalada: Quem dorme com criança...
+            setor: Setor Ditados
             ids:
             - shqoSegu4UVEME
           - alvo_uid: vjPnElrZ74QxXs
             pontos_uids:
             - u7V3ho0dMhq7Io
             escalada: Quem planta vento...
+            setor: Setor Ditados
             ids:
             - u7V3ho0dMhq7Io
           - alvo_uid: LqQigOvaj2JdCv
             pontos_uids:
             - 58XnUSVLka50uN
             escalada: A vida é dura...
+            setor: Setor Ditados
             ids:
             - 58XnUSVLka50uN
           - alvo_uid: PbXatL9L0c89RQ
@@ -527,6 +544,7 @@ picos:
             - eFNSO7nvXybKbR
             - M38jUek9iQOWZ0
             escalada: Mais vale um na mão...
+            setor: Setor Ditados
             ids:
             - eFNSO7nvXybKbR
             - M38jUek9iQOWZ0
@@ -535,6 +553,7 @@ picos:
             - WVWWsQp9rACdtH
             - M38jUek9iQOWZ0
             escalada: Por fora bela viola...
+            setor: Setor Ditados
             ids:
             - WVWWsQp9rACdtH
             - M38jUek9iQOWZ0
@@ -542,12 +561,14 @@ picos:
             pontos_uids:
             - yZl47hRVSuWLC0
             escalada: Em terra de rei...
+            setor: Setor Ditados
             ids:
             - yZl47hRVSuWLC0
           - alvo_uid: YkLrv3vrBgkULh
             pontos_uids:
             - lsCm2mSNtJ8nBg
             escalada: Red
+            setor: Setor Ditados
             ids:
             - lsCm2mSNtJ8nBg
           - alvo_uid: cPqYtwbejGtFTg
@@ -787,72 +808,84 @@ picos:
             pontos_uids:
             - FLvvo8cVb8e14A
             escalada: Em terra de rei...
+            setor: Setor Cervejas
             ids:
             - FLvvo8cVb8e14A
           - alvo_uid: 7L0Jfaao2W4lOk
             pontos_uids:
             - y3B097OshmQTtl
             escalada: Red
+            setor: Setor Cervejas
             ids:
             - y3B097OshmQTtl
           - alvo_uid: oKD013lw2OPtYD
             pontos_uids:
             - A8dCxls17QcSXJ
             escalada: Quadrupel
+            setor: Setor Cervejas
             ids:
             - A8dCxls17QcSXJ
           - alvo_uid: kLzM8odvwDHf2G
             pontos_uids:
             - pE20dgyct4YC3Z
             escalada: Pilsen
+            setor: Setor Cervejas
             ids:
             - pE20dgyct4YC3Z
           - alvo_uid: JEtywaTYqDd6Lw
             pontos_uids:
             - RuHqsyXxr4kt4e
             escalada: Black
+            setor: Setor Cervejas
             ids:
             - RuHqsyXxr4kt4e
           - alvo_uid: XyvVd04zUKmbAU
             pontos_uids:
             - FXDJB1IfKC7K8M
             escalada: Pale
+            setor: Setor Cervejas
             ids:
             - FXDJB1IfKC7K8M
           - alvo_uid: I7iKM1xoknKbAI
             pontos_uids:
             - zfqXaEAEFf0LSn
             escalada: Witbier
+            setor: Setor Cervejas
             ids:
             - zfqXaEAEFf0LSn
           - alvo_uid: dX3g0Bf00qNy8W
             pontos_uids:
             - KXkabbVAhKiRLR
             escalada: Blonde
+            setor: Setor Cervejas
             ids:
             - KXkabbVAhKiRLR
           - alvo_uid: cwXHooq9svBlk7
             pontos_uids:
             - LvBamxFlQUNZTF
             escalada: Dubbel
+            setor: Setor Cervejas
             ids:
             - LvBamxFlQUNZTF
           - alvo_uid: Sy4nOS5JbRIcgm
             pontos_uids:
             - Tv8E5ELUjlLr7d
             escalada: Primeiro gole
+            setor: Setor Cervejas
             ids:
             - Tv8E5ELUjlLr7d
           - alvo_uid: C2lXtemyoE9kvH
             pontos_uids:
             - EDiBby9xwsDO8D
             escalada: Saidera
+            setor: Setor Cervejas
             ids:
             - EDiBby9xwsDO8D
           - alvo_uid: l883VIu61FoTCm
             pontos_uids:
             - VZhrnK5IO3pJSK
             escalada: Porter
+            setor: Setor Cervejas
             ids:
             - VZhrnK5IO3pJSK
           - alvo_uid: H0TZIejRCDUDge
@@ -860,6 +893,7 @@ picos:
             - eyAN1ij4RQoH29
             - VZhrnK5IO3pJSK
             escalada: Bavariante
+            setor: Setor Cervejas
             ids:
             - eyAN1ij4RQoH29
             - VZhrnK5IO3pJSK
@@ -868,6 +902,7 @@ picos:
             - GvyEqdeOD6L6Fr
             - VZhrnK5IO3pJSK
             escalada: Old Ale
+            setor: Setor Cervejas
             ids:
             - GvyEqdeOD6L6Fr
             - VZhrnK5IO3pJSK
@@ -1069,18 +1104,21 @@ picos:
             pontos_uids:
             - Nu8UeBEtTPmERx
             escalada: C'est la vie
+            setor: Setor Questão de Tempo
             ids:
             - Nu8UeBEtTPmERx
           - alvo_uid: rQYRTNi9pP5GsN
             pontos_uids:
             - Q6KMwkax3XBt9h
             escalada: Eu prefiro uma cerveja
+            setor: Setor Questão de Tempo
             ids:
             - Q6KMwkax3XBt9h
           - alvo_uid: msuH8Zq9OE6Xn2
             pontos_uids:
             - WV8ulB58SjKza6
             escalada: Hospício jamais
+            setor: Setor Questão de Tempo
             ids:
             - WV8ulB58SjKza6
           - alvo_uid: rzoXn31VJ2d0qk
@@ -1209,30 +1247,35 @@ picos:
             pontos_uids:
             - jt2RQVu961GyRx
             escalada: Ócios do hospício
+            setor: Setor Hospício
             ids:
             - jt2RQVu961GyRx
           - alvo_uid: DCcePTd55Z3E9X
             pontos_uids:
             - Nquey2VeKM3Kma
             escalada: Psicanálise
+            setor: Setor Hospício
             ids:
             - Nquey2VeKM3Kma
           - alvo_uid: s8QblpSotM8IFY
             pontos_uids:
             - 8BxFniroCP8kfX
             escalada: Clínica de recuperação
+            setor: Setor Hospício
             ids:
             - 8BxFniroCP8kfX
           - alvo_uid: 77HKBeTpMUcWCp
             pontos_uids:
             - qVr0TzUuiFtMYV
             escalada: Eletrochoque
+            setor: Setor Hospício
             ids:
             - qVr0TzUuiFtMYV
           - alvo_uid: V7gPOZefxhQnze
             pontos_uids:
             - M9jcxYBpQPBhZP
             escalada: Camisa de força
+            setor: Setor Hospício
             ids:
             - M9jcxYBpQPBhZP
           - alvo_uid: rzoXn31VJ2d0qk

@@ -247,6 +247,7 @@
         - **pontos_uids**:
           - 10clin9jif893l
         - **escalada**: Pescador de Planta
+        - **setor**: Setor Parede Principal
         - **ids**:
           - 10clin9jif893l
       - **[1]**:
@@ -254,6 +255,7 @@
         - **pontos_uids**:
           - d0rvG3VzcWKOk4
         - **escalada**: Maria Doida
+        - **setor**: Setor Parede Principal
         - **ids**:
           - d0rvG3VzcWKOk4
       - **[2]**:
@@ -261,6 +263,7 @@
         - **pontos_uids**:
           - A0emUB9iCAe1Dq
         - **escalada**: Chuva de Bromélias
+        - **setor**: Setor Parede Principal
         - **ids**:
           - A0emUB9iCAe1Dq
       - **[3]**:
@@ -268,6 +271,7 @@
         - **pontos_uids**:
           - VgFGvFFCnYKhXD
         - **escalada**: Visitante Oculto
+        - **setor**: Setor Parede Principal
         - **ids**:
           - VgFGvFFCnYKhXD
       - **[4]**:
@@ -275,6 +279,7 @@
         - **pontos_uids**:
           - xLJAQipkvSsHmY
         - **escalada**: Bestial Devastation
+        - **setor**: Setor Parede Principal
         - **ids**:
           - xLJAQipkvSsHmY
       - **[5]**:
@@ -282,6 +287,7 @@
         - **pontos_uids**:
           - 5fKw2LyGONG1aR
         - **escalada**: Velho Chico
+        - **setor**: Setor Parede Principal
         - **ids**:
           - 5fKw2LyGONG1aR
       - **[6]**:
@@ -289,6 +295,7 @@
         - **pontos_uids**:
           - 8j45SSHSsow3Yn
         - **escalada**: Dom Quixote
+        - **setor**: Setor Parede Principal
         - **ids**:
           - 8j45SSHSsow3Yn
       - **[7]**:
@@ -296,6 +303,7 @@
         - **pontos_uids**:
           - iZh2vF3GmOEj2j
         - **escalada**: Cordadinha
+        - **setor**: Setor Parede Principal
         - **ids**:
           - iZh2vF3GmOEj2j
       - **[8]**:
@@ -303,6 +311,7 @@
         - **pontos_uids**:
           - Qwos9iSMPiF3lp
         - **escalada**: Calazar Certo
+        - **setor**: Setor Parede Principal
         - **ids**:
           - Qwos9iSMPiF3lp
       - **[9]**:
@@ -310,6 +319,7 @@
         - **pontos_uids**:
           - YQH6hG6YMHkwvU
         - **escalada**: Cabeça de Rato
+        - **setor**: Setor Parede Principal
         - **ids**:
           - YQH6hG6YMHkwvU
       - **[10]**:
@@ -317,6 +327,7 @@
         - **pontos_uids**:
           - cgSmgXHsVErMDr
         - **escalada**: Pelas Mãos do Senhor
+        - **setor**: Setor Parede Principal
         - **ids**:
           - cgSmgXHsVErMDr
       - **[11]**:
@@ -324,6 +335,7 @@
         - **pontos_uids**:
           - fOQzBaZSLIA17S
         - **escalada**: Uma Lágrima que Cai
+        - **setor**: Setor Parede Principal
         - **ids**:
           - fOQzBaZSLIA17S
       - **[12]**:
@@ -565,6 +577,7 @@
         - **pontos_uids**:
           - LvgorzTVOOfTtj
         - **escalada**: Velho Chico
+        - **setor**: Setor da Pracinha
         - **ids**:
           - LvgorzTVOOfTtj
       - **[1]**:
@@ -572,6 +585,7 @@
         - **pontos_uids**:
           - BDxOEsUEaundK9
         - **escalada**: Dom Quixote
+        - **setor**: Setor da Pracinha
         - **ids**:
           - BDxOEsUEaundK9
       - **[2]**:
@@ -579,6 +593,7 @@
         - **pontos_uids**:
           - ylwjswAGdnLTzu
         - **escalada**: Cordadinha
+        - **setor**: Setor da Pracinha
         - **ids**:
           - ylwjswAGdnLTzu
       - **[3]**:
@@ -586,6 +601,7 @@
         - **pontos_uids**:
           - mViaSKUP9R8DYA
         - **escalada**: Pelas Mãos do Senhor
+        - **setor**: Setor da Pracinha
         - **ids**:
           - mViaSKUP9R8DYA
       - **[4]**:
@@ -593,6 +609,7 @@
         - **pontos_uids**:
           - dRpOz7iSDxj1na
         - **escalada**: Uma Lágrima que Cai
+        - **setor**: Setor da Pracinha
         - **ids**:
           - dRpOz7iSDxj1na
       - **[5]**:
@@ -737,6 +754,7 @@
         - **pontos_uids**:
           - oYhfhMQr5TK5Kw
         - **escalada**: Pescador de Planta
+        - **setor**: Setor do Platô
         - **ids**:
           - oYhfhMQr5TK5Kw
       - **[1]**:
@@ -744,6 +762,7 @@
         - **pontos_uids**:
           - 2qaU1E0ultIgcv
         - **escalada**: Maria Doida
+        - **setor**: Setor do Platô
         - **ids**:
           - 2qaU1E0ultIgcv
       - **[2]**:
@@ -751,6 +770,7 @@
         - **pontos_uids**:
           - wsL5LuI4hqDyTQ
         - **escalada**: Chuva de Bromélias
+        - **setor**: Setor do Platô
         - **ids**:
           - wsL5LuI4hqDyTQ
       - **[3]**:
@@ -758,6 +778,7 @@
         - **pontos_uids**:
           - ly6vXFi9dkzF64
         - **escalada**: Visitante Oculto
+        - **setor**: Setor do Platô
         - **ids**:
           - ly6vXFi9dkzF64
       - **[4]**:
@@ -765,6 +786,7 @@
         - **pontos_uids**:
           - gfEr40EmgcWNtD
         - **escalada**: Bestial Devastation
+        - **setor**: Setor do Platô
         - **ids**:
           - gfEr40EmgcWNtD
 - **escaladas**:
@@ -853,6 +875,7 @@
         - **pontos_uids**:
           - A9rbkHObHSWqkM
         - **escalada**: Calazar Certo
+        - **setor**: Setor da Claraboia
         - **ids**:
           - A9rbkHObHSWqkM
       - **[1]**:
@@ -860,6 +883,7 @@
         - **pontos_uids**:
           - yyV1hjISNFjKuU
         - **escalada**: Cabeça de Rato
+        - **setor**: Setor da Claraboia
         - **ids**:
           - yyV1hjISNFjKuU
       - **[2]**:
@@ -1009,6 +1033,7 @@
         - **pontos_uids**:
           - LP8rHJrvsiX5OL
         - **escalada**: Sol da Manhã
+        - **setor**: Setor do Sertão
         - **ids**:
           - LP8rHJrvsiX5OL
       - **[1]**:
@@ -1016,6 +1041,7 @@
         - **pontos_uids**:
           - 7GvoSnb2dQgI4m
         - **escalada**: Filha do Sol
+        - **setor**: Setor do Sertão
         - **ids**:
           - 7GvoSnb2dQgI4m
       - **[2]**:
@@ -1023,6 +1049,7 @@
         - **pontos_uids**:
           - LAD2fhll04qI6L
         - **escalada**: Nuvens de Agosto
+        - **setor**: Setor do Sertão
         - **ids**:
           - LAD2fhll04qI6L
       - **[3]**:
@@ -1030,6 +1057,7 @@
         - **pontos_uids**:
           - VpIeyjvVjL0E5S
         - **escalada**: A Laka
+        - **setor**: Setor do Sertão
         - **ids**:
           - VpIeyjvVjL0E5S
       - **[4]**:
@@ -1037,6 +1065,7 @@
         - **pontos_uids**:
           - rNM97l1nDVrtkd
         - **escalada**: Dazão e o pé de Feijão
+        - **setor**: Setor do Sertão
         - **ids**:
           - rNM97l1nDVrtkd
       - **[5]**:
@@ -1044,6 +1073,7 @@
         - **pontos_uids**:
           - sClRGNuY67phWk
         - **escalada**: Explosão de Sabores
+        - **setor**: Setor do Sertão
         - **ids**:
           - sClRGNuY67phWk
       - **[6]**:
@@ -1051,6 +1081,7 @@
         - **pontos_uids**:
           - kOB06goF4EcqIC
         - **escalada**: Insolação
+        - **setor**: Setor do Sertão
         - **ids**:
           - kOB06goF4EcqIC
       - **[7]**:
@@ -1263,6 +1294,7 @@
         - **pontos_uids**:
           - p3z9XXX8tjG7Ny
         - **escalada**: Vezúvio
+        - **setor**: Setor do Mocó
         - **ids**:
           - p3z9XXX8tjG7Ny
       - **[1]**:
@@ -1270,6 +1302,7 @@
         - **pontos_uids**:
           - hdwzYW4AhlB2JK
         - **escalada**: Meia Pegada
+        - **setor**: Setor do Mocó
         - **ids**:
           - hdwzYW4AhlB2JK
       - **[2]**:
@@ -1277,6 +1310,7 @@
         - **pontos_uids**:
           - kyfBkK2gcXAL5M
         - **escalada**: Rasta Man
+        - **setor**: Setor do Mocó
         - **ids**:
           - kyfBkK2gcXAL5M
       - **[3]**:
@@ -1284,6 +1318,7 @@
         - **pontos_uids**:
           - n5uXH9OzDKn5J8
         - **escalada**: Malandragem da um Tempo
+        - **setor**: Setor do Mocó
         - **ids**:
           - n5uXH9OzDKn5J8
       - **[4]**:
@@ -1291,6 +1326,7 @@
         - **pontos_uids**:
           - HaUc5bWsQcwnqB
         - **escalada**: Complexo Bipolar
+        - **setor**: Setor do Mocó
         - **ids**:
           - HaUc5bWsQcwnqB
       - **[5]**:
@@ -1298,6 +1334,7 @@
         - **pontos_uids**:
           - qtBWNlRPhn6c2p
         - **escalada**: Aresta que me Resta
+        - **setor**: Setor do Mocó
         - **ids**:
           - qtBWNlRPhn6c2p
       - **[6]**:
@@ -1305,6 +1342,7 @@
         - **pontos_uids**:
           - IGiCs8bc4RXwW0
         - **escalada**: Barbarvore
+        - **setor**: Setor do Mocó
         - **ids**:
           - IGiCs8bc4RXwW0
       - **[7]**:
@@ -1312,6 +1350,7 @@
         - **pontos_uids**:
           - xYfr41gFUhIniR
         - **escalada**: Suposta Exposição
+        - **setor**: Setor do Mocó
         - **ids**:
           - xYfr41gFUhIniR
       - **[8]**:
@@ -1319,6 +1358,7 @@
         - **pontos_uids**:
           - wiurXwPGebzjj5
         - **escalada**: Bicho Morto
+        - **setor**: Setor do Mocó
         - **ids**:
           - wiurXwPGebzjj5
       - **[9]**:
@@ -1492,6 +1532,7 @@
         - **pontos_uids**:
           - fdbKT8kJ8D3QzY
         - **escalada**: Gamon
+        - **setor**: Setor do Abrigo
         - **ids**:
           - fdbKT8kJ8D3QzY
       - **[1]**:
@@ -1499,6 +1540,7 @@
         - **pontos_uids**:
           - 4OlCb1TrNLOly1
         - **escalada**: Estrela no Coco
+        - **setor**: Setor do Abrigo
         - **ids**:
           - 4OlCb1TrNLOly1
       - **[2]**:
@@ -1506,6 +1548,7 @@
         - **pontos_uids**:
           - Rhc24ZKWB4vYpo
         - **escalada**: Fendinha
+        - **setor**: Setor do Abrigo
         - **ids**:
           - Rhc24ZKWB4vYpo
       - **[3]**:
@@ -1513,6 +1556,7 @@
         - **pontos_uids**:
           - j7r0KlYlHKnfJ6
         - **escalada**: Guariba
+        - **setor**: Setor do Abrigo
         - **ids**:
           - j7r0KlYlHKnfJ6
       - **[4]**:
@@ -1520,6 +1564,7 @@
         - **pontos_uids**:
           - e207SEaPl0grQX
         - **escalada**: Tardia
+        - **setor**: Setor do Abrigo
         - **ids**:
           - e207SEaPl0grQX
       - **[5]**:

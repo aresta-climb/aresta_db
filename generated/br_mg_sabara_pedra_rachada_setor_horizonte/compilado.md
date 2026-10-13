@@ -130,6 +130,7 @@
         - **pontos_uids**:
           - zVvMl8ozaPEYPJ
         - **escalada**: Cambeva
+        - **setor**: Setor Floresta de pedra
         - **ids**:
           - zVvMl8ozaPEYPJ
       - **[1]**:
@@ -137,6 +138,7 @@
         - **pontos_uids**:
           - kWUf2t6tPTWqIv
         - **escalada**: Vellozia
+        - **setor**: Setor Floresta de pedra
         - **ids**:
           - kWUf2t6tPTWqIv
       - **[2]**:
@@ -144,6 +146,7 @@
         - **pontos_uids**:
           - CfmKcrIBk3qtBF
         - **escalada**: Flor do Cerrado
+        - **setor**: Setor Floresta de pedra
         - **ids**:
           - CfmKcrIBk3qtBF
       - **[3]**:
@@ -151,6 +154,7 @@
         - **pontos_uids**:
           - HZdu7cmTIvq9lW
         - **escalada**: Sempre-viva
+        - **setor**: Setor Floresta de pedra
         - **ids**:
           - HZdu7cmTIvq9lW
       - **[4]**:
@@ -158,6 +162,7 @@
         - **pontos_uids**:
           - VoQaoapALt8PHD
         - **escalada**: Calliandra
+        - **setor**: Setor Floresta de pedra
         - **ids**:
           - VoQaoapALt8PHD
 - **escaladas**:
@@ -296,6 +301,8 @@
               - **pontos_uids**:
                 - WGoYX4aJ1JkDqD
               - **escalada**: Sem querer
+              - **setor**: Setor Conjunto Pôr do sol - Bloco A
+              - **grupo**: Conjunto pôr-do-sol
               - **ids**:
                 - WGoYX4aJ1JkDqD
             - **[1]**:
@@ -303,6 +310,8 @@
               - **pontos_uids**:
                 - 6P0m4PcHs5TK0l
               - **escalada**: Horizonte
+              - **setor**: Setor Conjunto Pôr do sol - Bloco A
+              - **grupo**: Conjunto pôr-do-sol
               - **ids**:
                 - 6P0m4PcHs5TK0l
             - **[2]**:
@@ -310,6 +319,8 @@
               - **pontos_uids**:
                 - CSCtlLTBaEKJpp
               - **escalada**: Fenda comunista
+              - **setor**: Setor Conjunto Pôr do sol - Bloco A
+              - **grupo**: Conjunto pôr-do-sol
               - **ids**:
                 - CSCtlLTBaEKJpp
         - **[1]**:
@@ -350,6 +361,8 @@
               - **pontos_uids**:
                 - vOSfcIVCkTCR6Y
               - **escalada**: Pôr-do-sol
+              - **setor**: Setor Conjunto Pôr do sol - Bloco A
+              - **grupo**: Conjunto pôr-do-sol
               - **ids**:
                 - vOSfcIVCkTCR6Y
             - **[1]**:
@@ -357,6 +370,8 @@
               - **pontos_uids**:
                 - AsetR61halhDPH
               - **escalada**: Bipa aérea
+              - **setor**: Setor Conjunto Pôr do sol - Bloco A
+              - **grupo**: Conjunto pôr-do-sol
               - **ids**:
                 - AsetR61halhDPH
             - **[2]**:
@@ -364,6 +379,8 @@
               - **pontos_uids**:
                 - ibEmRk55BB2tZ5
               - **escalada**: Base aérea
+              - **setor**: Setor Conjunto Pôr do sol - Bloco A
+              - **grupo**: Conjunto pôr-do-sol
               - **ids**:
                 - ibEmRk55BB2tZ5
       - **escaladas**:
@@ -441,6 +458,8 @@
               - **pontos_uids**:
                 - W3tDfRnTdBWzCF
               - **escalada**: Essa moça
+              - **setor**: Setor Conjunto Pôr do sol - Bloco B
+              - **grupo**: Conjunto pôr-do-sol
               - **ids**:
                 - W3tDfRnTdBWzCF
             - **[1]**:
@@ -448,6 +467,8 @@
               - **pontos_uids**:
                 - 28laVGhIyDrb8F
               - **escalada**: Goodsensation
+              - **setor**: Setor Conjunto Pôr do sol - Bloco B
+              - **grupo**: Conjunto pôr-do-sol
               - **ids**:
                 - 28laVGhIyDrb8F
         - **[1]**:
@@ -488,6 +509,8 @@
               - **pontos_uids**:
                 - 9q6Lfl3fnMvNgE
               - **escalada**: Ponto alto
+              - **setor**: Setor Conjunto Pôr do sol - Bloco B
+              - **grupo**: Conjunto pôr-do-sol
               - **ids**:
                 - 9q6Lfl3fnMvNgE
             - **[1]**:
@@ -495,6 +518,8 @@
               - **pontos_uids**:
                 - 9q6Lfl3fnMvNgE
               - **escalada**: Ponto alto sds
+              - **setor**: Setor Conjunto Pôr do sol - Bloco B
+              - **grupo**: Conjunto pôr-do-sol
               - **ids**:
                 - 9q6Lfl3fnMvNgE
             - **[2]**:
@@ -502,6 +527,8 @@
               - **pontos_uids**:
                 - lgYRi17uzCCTOH
               - **escalada**: Estrelado
+              - **setor**: Setor Conjunto Pôr do sol - Bloco B
+              - **grupo**: Conjunto pôr-do-sol
               - **ids**:
                 - lgYRi17uzCCTOH
             - **[3]**:
@@ -509,6 +536,8 @@
               - **pontos_uids**:
                 - lgYRi17uzCCTOH
               - **escalada**: Estrelado sds
+              - **setor**: Setor Conjunto Pôr do sol - Bloco B
+              - **grupo**: Conjunto pôr-do-sol
               - **ids**:
                 - lgYRi17uzCCTOH
             - **[4]**:
@@ -516,6 +545,8 @@
               - **pontos_uids**:
                 - pgR8Z9kwud9NMF
               - **escalada**: Gostosinho
+              - **setor**: Setor Conjunto Pôr do sol - Bloco B
+              - **grupo**: Conjunto pôr-do-sol
               - **ids**:
                 - pgR8Z9kwud9NMF
       - **escaladas**:
@@ -599,6 +630,8 @@
               - **pontos_uids**:
                 - rxIV89wlWKXiTw
               - **escalada**: Hematoma
+              - **setor**: Setor Conjunto Pôr do sol - Bloco C
+              - **grupo**: Conjunto pôr-do-sol
               - **ids**:
                 - rxIV89wlWKXiTw
             - **[1]**:
@@ -606,6 +639,8 @@
               - **pontos_uids**:
                 - JDyi8o4xgkknnF
               - **escalada**: Pedra de toque
+              - **setor**: Setor Conjunto Pôr do sol - Bloco C
+              - **grupo**: Conjunto pôr-do-sol
               - **ids**:
                 - JDyi8o4xgkknnF
       - **escaladas**:
@@ -678,6 +713,7 @@
         - **pontos_uids**:
           - xsm2Y1tvbutSHs
         - **escalada**: Cubo Mágico
+        - **setor**: Setor Brinquedos
         - **ids**:
           - xsm2Y1tvbutSHs
       - **[1]**:
@@ -685,6 +721,7 @@
         - **pontos_uids**:
           - 11qflNbUiIyQtq
         - **escalada**: Jenga
+        - **setor**: Setor Brinquedos
         - **ids**:
           - 11qflNbUiIyQtq
   - **[1]**:
@@ -725,6 +762,7 @@
         - **pontos_uids**:
           - BxZmPhRsmsmwxA
         - **escalada**: Cara a Cara
+        - **setor**: Setor Brinquedos
         - **ids**:
           - BxZmPhRsmsmwxA
       - **[1]**:
@@ -732,6 +770,7 @@
         - **pontos_uids**:
           - 9NOmPpJa3vtU29
         - **escalada**: Resta um
+        - **setor**: Setor Brinquedos
         - **ids**:
           - 9NOmPpJa3vtU29
       - **[2]**:
@@ -739,6 +778,7 @@
         - **pontos_uids**:
           - bylOKXqVRbD25r
         - **escalada**: Pega Palito
+        - **setor**: Setor Brinquedos
         - **ids**:
           - bylOKXqVRbD25r
   - **[2]**:
@@ -770,6 +810,7 @@
         - **pontos_uids**:
           - 0C7DQ8kghPVidc
         - **escalada**: Aresta da Sombra
+        - **setor**: Setor Brinquedos
         - **ids**:
           - 0C7DQ8kghPVidc
       - **[1]**:
@@ -777,6 +818,7 @@
         - **pontos_uids**:
           - pOH2AUYIhRvryI
         - **escalada**: Penumbra
+        - **setor**: Setor Brinquedos
         - **ids**:
           - pOH2AUYIhRvryI
   - **[3]**:
@@ -799,6 +841,7 @@
         - **pontos_uids**:
           - DUUPL7jeZlfNQH
         - **escalada**: Aresta do sol
+        - **setor**: Setor Brinquedos
         - **ids**:
           - DUUPL7jeZlfNQH
 - **escaladas**:
@@ -910,6 +953,7 @@
         - **pontos_uids**:
           - MbeptWsO7BsTUJ
         - **escalada**: Juruva
+        - **setor**: Setor Beija Flor
         - **ids**:
           - MbeptWsO7BsTUJ
       - **[1]**:
@@ -917,6 +961,7 @@
         - **pontos_uids**:
           - MbeptWsO7BsTUJ
         - **escalada**: Bem-te-vi
+        - **setor**: Setor Beija Flor
         - **ids**:
           - MbeptWsO7BsTUJ
       - **[2]**:
@@ -924,6 +969,7 @@
         - **pontos_uids**:
           - oJVdw8PZoKC1p8
         - **escalada**: Sabiá
+        - **setor**: Setor Beija Flor
         - **ids**:
           - oJVdw8PZoKC1p8
       - **[3]**:
@@ -931,6 +977,7 @@
         - **pontos_uids**:
           - i5eiUpJDcLOs1c
         - **escalada**: Carcará
+        - **setor**: Setor Beija Flor
         - **ids**:
           - i5eiUpJDcLOs1c
       - **[4]**:
@@ -938,6 +985,7 @@
         - **pontos_uids**:
           - 4xj0bLKFEZls6u
         - **escalada**: Trinca-Ferro
+        - **setor**: Setor Beija Flor
         - **ids**:
           - 4xj0bLKFEZls6u
   - **[1]**:
@@ -969,6 +1017,7 @@
         - **pontos_uids**:
           - Ads722TvlCS4t8
         - **escalada**: Beija-Flor
+        - **setor**: Setor Beija Flor
         - **ids**:
           - Ads722TvlCS4t8
       - **[1]**:
@@ -976,6 +1025,7 @@
         - **pontos_uids**:
           - KILUpYXs6CVJ15
         - **escalada**: Bacurau
+        - **setor**: Setor Beija Flor
         - **ids**:
           - KILUpYXs6CVJ15
 - **escaladas**:
@@ -1081,6 +1131,7 @@
         - **pontos_uids**:
           - AHl2qwhhhkWz1H
         - **escalada**: Viuvinha
+        - **setor**: Setor Bacurau
         - **ids**:
           - AHl2qwhhhkWz1H
       - **[1]**:
@@ -1088,6 +1139,7 @@
         - **pontos_uids**:
           - DdqctLMW2orjh4
         - **escalada**: Eu sou Jaó
+        - **setor**: Setor Bacurau
         - **ids**:
           - DdqctLMW2orjh4
       - **[2]**:
@@ -1095,6 +1147,7 @@
         - **pontos_uids**:
           - SZ871qlkSpDOFD
         - **escalada**: Ritual
+        - **setor**: Setor Bacurau
         - **ids**:
           - SZ871qlkSpDOFD
       - **[3]**:
@@ -1102,6 +1155,7 @@
         - **pontos_uids**:
           - PCaeb5NM8ZbtQE
         - **escalada**: Improviso
+        - **setor**: Setor Bacurau
         - **ids**:
           - PCaeb5NM8ZbtQE
   - **[1]**:
@@ -1124,6 +1178,7 @@
         - **pontos_uids**:
           - 7gZbq7gn3zEQz3
         - **escalada**: Buraqueira
+        - **setor**: Setor Bacurau
         - **ids**:
           - 7gZbq7gn3zEQz3
   - **[2]**:
@@ -1146,6 +1201,7 @@
         - **pontos_uids**:
           - j6mCjVwZUc3hYC
         - **escalada**: Mini Nave
+        - **setor**: Setor Bacurau
         - **ids**:
           - j6mCjVwZUc3hYC
 - **escaladas**:
@@ -1236,6 +1292,7 @@
         - **pontos_uids**:
           - 9C5iyYO3zvJMuz
         - **escalada**: Mansa Musa
+        - **setor**: Setor Moctezuma
         - **ids**:
           - 9C5iyYO3zvJMuz
       - **[1]**:
@@ -1243,6 +1300,7 @@
         - **pontos_uids**:
           - 9C5iyYO3zvJMuz
         - **escalada**: Musamansa
+        - **setor**: Setor Moctezuma
         - **ids**:
           - 9C5iyYO3zvJMuz
       - **[2]**:
@@ -1250,6 +1308,7 @@
         - **pontos_uids**:
           - gZYfSLlW0meDiv
         - **escalada**: Martelo de Pedra
+        - **setor**: Setor Moctezuma
         - **ids**:
           - gZYfSLlW0meDiv
       - **[3]**:
@@ -1257,6 +1316,7 @@
         - **pontos_uids**:
           - HpRF0bDxvR4x6g
         - **escalada**: Moctezuma
+        - **setor**: Setor Moctezuma
         - **ids**:
           - HpRF0bDxvR4x6g
   - **[1]**:
@@ -1288,6 +1348,7 @@
         - **pontos_uids**:
           - gsjmB3ehSIB7xA
         - **escalada**: Medeia
+        - **setor**: Setor Moctezuma
         - **ids**:
           - gsjmB3ehSIB7xA
       - **[1]**:
@@ -1295,6 +1356,7 @@
         - **pontos_uids**:
           - 2lRKf1d75qJ86u
         - **escalada**: Maria Bonita
+        - **setor**: Setor Moctezuma
         - **ids**:
           - 2lRKf1d75qJ86u
   - **[2]**:
@@ -1317,6 +1379,7 @@
         - **pontos_uids**:
           - p7EWYPyoDdABXM
         - **escalada**: Herança de Ferro
+        - **setor**: Setor Moctezuma
         - **ids**:
           - p7EWYPyoDdABXM
 - **escaladas**:
@@ -1395,6 +1458,7 @@
         - **pontos_uids**:
           - d8C7lne3ihCPxp
         - **escalada**: Moléstia
+        - **setor**: Setor Moléstia
         - **ids**:
           - d8C7lne3ihCPxp
   - **[1]**:
@@ -1426,6 +1490,7 @@
         - **pontos_uids**:
           - dEYDMUFaXWSPp3
         - **escalada**: Jabuticaba
+        - **setor**: Setor Moléstia
         - **ids**:
           - dEYDMUFaXWSPp3
       - **[1]**:
@@ -1433,6 +1498,7 @@
         - **pontos_uids**:
           - N5hvPqMEBLujlm
         - **escalada**: Caqui
+        - **setor**: Setor Moléstia
         - **ids**:
           - N5hvPqMEBLujlm
 - **escaladas**:
@@ -1496,6 +1562,7 @@
         - **pontos_uids**:
           - vmueAi6IsFlXH5
         - **escalada**: Farol
+        - **setor**: Outros Blocos
         - **ids**:
           - vmueAi6IsFlXH5
       - **[1]**:
@@ -1503,6 +1570,7 @@
         - **pontos_uids**:
           - xXcIsXPjzWYDKd
         - **escalada**: Mirante
+        - **setor**: Outros Blocos
         - **ids**:
           - xXcIsXPjzWYDKd
   - **[1]**:
@@ -1534,6 +1602,7 @@
         - **pontos_uids**:
           - N0IS3KbGX1MAJK
         - **escalada**: Queda do Gigante
+        - **setor**: Outros Blocos
         - **ids**:
           - N0IS3KbGX1MAJK
       - **[1]**:
@@ -1541,6 +1610,7 @@
         - **pontos_uids**:
           - mzIpYrHtoazflR
         - **escalada**: Não me toque
+        - **setor**: Outros Blocos
         - **ids**:
           - mzIpYrHtoazflR
   - **[2]**:
@@ -1576,6 +1646,7 @@
         - **pontos_uids**:
           - yjlhLOpKtHVddO
         - **escalada**: Anemia
+        - **setor**: Outros Blocos
         - **ids**:
           - yjlhLOpKtHVddO
       - **[1]**:
@@ -1583,6 +1654,7 @@
         - **pontos_uids**:
           - iBYpr11mbN231y
         - **escalada**: Biotônico
+        - **setor**: Outros Blocos
         - **ids**:
           - iBYpr11mbN231y
   - **[4]**:
@@ -1614,6 +1686,7 @@
         - **pontos_uids**:
           - qZp3rI040nJmEK
         - **escalada**: Diagnóstico
+        - **setor**: Outros Blocos
         - **ids**:
           - qZp3rI040nJmEK
       - **[1]**:
@@ -1621,6 +1694,7 @@
         - **pontos_uids**:
           - NsqsDVhqU2nsdA
         - **escalada**: Vertigem
+        - **setor**: Outros Blocos
         - **ids**:
           - NsqsDVhqU2nsdA
 - **escaladas**:

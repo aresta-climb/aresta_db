@@ -95,54 +95,63 @@ picos:
             pontos_uids:
             - s1r3kZAliEpkAT
             escalada: Aresta do Apicultor
+            setor: Setor Pedra do Arco
             ids:
             - s1r3kZAliEpkAT
           - alvo_uid: 2s26SZMYbOI0fQ
             pontos_uids:
             - Mqj2EClYZ4ujtk
             escalada: Se Segura Malandro
+            setor: Setor Pedra do Arco
             ids:
             - Mqj2EClYZ4ujtk
           - alvo_uid: MDblrI3ejId0jF
             pontos_uids:
             - magnWwwQCNU7fF
             escalada: Filosofia Lusitana
+            setor: Setor Pedra do Arco
             ids:
             - magnWwwQCNU7fF
           - alvo_uid: fvyztQVeT6vS4k
             pontos_uids:
             - BeXkX3odFKdQz3
             escalada: Titanomaquia
+            setor: Setor Pedra do Arco
             ids:
             - BeXkX3odFKdQz3
           - alvo_uid: eYAgd9R8FqvcUs
             pontos_uids:
             - sdiL6ScDymSd01
             escalada: Sika Loca
+            setor: Setor Pedra do Arco
             ids:
             - sdiL6ScDymSd01
           - alvo_uid: DyRbkcQa5clvgn
             pontos_uids:
             - egxjGifeS1x7kR
             escalada: Caba Não Mundão
+            setor: Setor Pedra do Arco
             ids:
             - egxjGifeS1x7kR
           - alvo_uid: ObKrAHaISV84Z4
             pontos_uids:
             - XXp8u1XQbh5ODl
             escalada: Marreta Porreta
+            setor: Setor Pedra do Arco
             ids:
             - XXp8u1XQbh5ODl
           - alvo_uid: aB43zLdALJYMeU
             pontos_uids:
             - fBtl87Gp8aN5T5
             escalada: Cabron da Peste
+            setor: Setor Pedra do Arco
             ids:
             - fBtl87Gp8aN5T5
           - alvo_uid: vZbJVBdzjPd6Cs
             pontos_uids:
             - S9Ds7ARE1uQlMQ
             escalada: Paralaxologística
+            setor: Setor Pedra do Arco
             ids:
             - S9Ds7ARE1uQlMQ
         escaladas:
@@ -326,48 +335,56 @@ picos:
             pontos_uids:
             - SL5beigFdmMPpa
             escalada: Vivi Fernandes
+            setor: Setor Campo Escola
             ids:
             - SL5beigFdmMPpa
           - alvo_uid: rApTGpneJUxHKh
             pontos_uids:
             - 8N0TMzWLsd6kWp
             escalada: Kid Bengala
+            setor: Setor Campo Escola
             ids:
             - 8N0TMzWLsd6kWp
           - alvo_uid: tARmWmeUlv9QaW
             pontos_uids:
             - B1B9rVRVjLCiVx
             escalada: Lolla
+            setor: Setor Campo Escola
             ids:
             - B1B9rVRVjLCiVx
           - alvo_uid: bZknDsQconM5dD
             pontos_uids:
             - ebZtAni3NdfAGN
             escalada: Emanuelle
+            setor: Setor Campo Escola
             ids:
             - ebZtAni3NdfAGN
           - alvo_uid: eZhakU1rJiCqbC
             pontos_uids:
             - Yu1y8joy7B6YUk
             escalada: Bruna Surfistinha
+            setor: Setor Campo Escola
             ids:
             - Yu1y8joy7B6YUk
           - alvo_uid: hv5CLql5boxvHS
             pontos_uids:
             - DN3nDZ1UuI8UTg
             escalada: Hilda Furacão
+            setor: Setor Campo Escola
             ids:
             - DN3nDZ1UuI8UTg
           - alvo_uid: Xs9g67SPKCz8Of
             pontos_uids:
             - exWnLXdm6YeHMm
             escalada: Cicciolina
+            setor: Setor Campo Escola
             ids:
             - exWnLXdm6YeHMm
           - alvo_uid: KGdCAnb0BbRV1C
             pontos_uids:
             - klXGpHy9c2z2VH
             escalada: Bordel
+            setor: Setor Campo Escola
             ids:
             - klXGpHy9c2z2VH
         escaladas:
@@ -530,42 +547,49 @@ picos:
             pontos_uids:
             - OAqwOD0xxV1vPu
             escalada: Temer Jamais
+            setor: Setor Tchau Querida
             ids:
             - OAqwOD0xxV1vPu
           - alvo_uid: xW0Mkv77JFWs9p
             pontos_uids:
             - MuwmgaCCQZRwWx
             escalada: Escalar sem Temer
+            setor: Setor Tchau Querida
             ids:
             - MuwmgaCCQZRwWx
           - alvo_uid: J1pGNoThE1bwfk
             pontos_uids:
             - K5QKDGoccW19NA
             escalada: Tchau Querida
+            setor: Setor Tchau Querida
             ids:
             - K5QKDGoccW19NA
           - alvo_uid: CRBMqp1Q6DVjAx
             pontos_uids:
             - cdfIXsByranGf7
             escalada: República do Pó Royal
+            setor: Setor Tchau Querida
             ids:
             - cdfIXsByranGf7
           - alvo_uid: R8rkbqPrKLHDxA
             pontos_uids:
             - AjkqTGkt4Ch8hA
             escalada: República das Bananas
+            setor: Setor Tchau Querida
             ids:
             - AjkqTGkt4Ch8hA
           - alvo_uid: aW9uZrzgmc7ttE
             pontos_uids:
             - RfbWzFwbo770MS
             escalada: República do Café com Leite
+            setor: Setor Tchau Querida
             ids:
             - RfbWzFwbo770MS
           - alvo_uid: VjT3UV27gMKhc0
             pontos_uids:
             - teBEMz2j8ndVhN
             escalada: Lava Jato
+            setor: Setor Tchau Querida
             ids:
             - teBEMz2j8ndVhN
         escaladas:
@@ -792,96 +816,112 @@ picos:
             pontos_uids:
             - Kw2r26BhWKm3HW
             escalada: Vaca Virgem
+            setor: Setor Pedra Branca
             ids:
             - Kw2r26BhWKm3HW
           - alvo_uid: iov2bA83sPMsij
             pontos_uids:
             - S94l8t3Kowypzj
             escalada: Route 162
+            setor: Setor Pedra Branca
             ids:
             - S94l8t3Kowypzj
           - alvo_uid: LhFUxPxLieUX2g
             pontos_uids:
             - UQA4cM8WDOTV6g
             escalada: Dia de Protesto
+            setor: Setor Pedra Branca
             ids:
             - UQA4cM8WDOTV6g
           - alvo_uid: PkPBem3YrKiswl
             pontos_uids:
             - rrXCVCX315PvDh
             escalada: Atestado de Cadena
+            setor: Setor Pedra Branca
             ids:
             - rrXCVCX315PvDh
           - alvo_uid: GSLSwkP3r8Nv5e
             pontos_uids:
             - 167oZQUL97DvEX
             escalada: Janela do Universo
+            setor: Setor Pedra Branca
             ids:
             - 167oZQUL97DvEX
           - alvo_uid: yUMkkSy5pUXvun
             pontos_uids:
             - J2HhYo5NDZ6t4Q
             escalada: Musgonoszói
+            setor: Setor Pedra Branca
             ids:
             - J2HhYo5NDZ6t4Q
           - alvo_uid: HNPFjPzBUYf7Xy
             pontos_uids:
             - Ziwxy16uv4OHif
             escalada: Fala meu Justo
+            setor: Setor Pedra Branca
             ids:
             - Ziwxy16uv4OHif
           - alvo_uid: vbb51jADyW5oVP
             pontos_uids:
             - 6TOSSMM6oJLdCA
             escalada: Regletes Ocultos
+            setor: Setor Pedra Branca
             ids:
             - 6TOSSMM6oJLdCA
           - alvo_uid: na69PGh4fGdXcu
             pontos_uids:
             - 244HBnuym2IWDk
             escalada: Batata com Sal
+            setor: Setor Pedra Branca
             ids:
             - 244HBnuym2IWDk
           - alvo_uid: 2KqcKn1JWXZDp3
             pontos_uids:
             - EcPEuN3CknJ9Ga
             escalada: Argentina
+            setor: Setor Pedra Branca
             ids:
             - EcPEuN3CknJ9Ga
           - alvo_uid: 5SbiIbYHODL7kP
             pontos_uids:
             - UoEPxqRveqDfjl
             escalada: Alemanha
+            setor: Setor Pedra Branca
             ids:
             - UoEPxqRveqDfjl
           - alvo_uid: DWWb2P32J9uKJM
             pontos_uids:
             - arqatt4PQTrUTw
             escalada: Melodrama
+            setor: Setor Pedra Branca
             ids:
             - arqatt4PQTrUTw
           - alvo_uid: 1lZVDxj1BfgQ5y
             pontos_uids:
             - TfkQQLiEb8mFpE
             escalada: Sapiência
+            setor: Setor Pedra Branca
             ids:
             - TfkQQLiEb8mFpE
           - alvo_uid: c0Rn16b1e6hv8B
             pontos_uids:
             - Ydiim87OstKvuh
             escalada: Lagartixa de Pedra
+            setor: Setor Pedra Branca
             ids:
             - Ydiim87OstKvuh
           - alvo_uid: 5uT1gvvyYGLqm9
             pontos_uids:
             - Ni8v7sYqnxZo1m
             escalada: Meu Amigo Friend
+            setor: Setor Pedra Branca
             ids:
             - Ni8v7sYqnxZo1m
           - alvo_uid: TX15wb9KDkB0R7
             pontos_uids:
             - uVC6RLcQ3zqjlW
             escalada: Meu Amigo Broca
+            setor: Setor Pedra Branca
             ids:
             - uVC6RLcQ3zqjlW
         escaladas:

@@ -389,6 +389,7 @@
         - **pontos_uids**:
           - 9Td3ZxJ26rlJqM
         - **setor**: Setor Vale dos Ossos
+        - **grupo**: Setores
         - **ids**:
           - 9Td3ZxJ26rlJqM
 - **setores**:
@@ -921,6 +922,8 @@
               - **pontos_uids**:
                 - neAhOQq1GzdtiB
               - **escalada**: OSSO EM PÓ
+              - **setor**: Setor Vale dos Ossos
+              - **grupo**: Setores
               - **ids**:
                 - neAhOQq1GzdtiB
             - **[1]**:
@@ -928,6 +931,8 @@
               - **pontos_uids**:
                 - 9Q9QLY5PHzrF9n
               - **escalada**: OSSOS DO OFÍCIO
+              - **setor**: Setor Vale dos Ossos
+              - **grupo**: Setores
               - **ids**:
                 - 9Q9QLY5PHzrF9n
             - **[2]**:
@@ -935,6 +940,8 @@
               - **pontos_uids**:
                 - enaLArnJWawZZz
               - **escalada**: KD O OSSO
+              - **setor**: Setor Vale dos Ossos
+              - **grupo**: Setores
               - **ids**:
                 - enaLArnJWawZZz
             - **[3]**:
@@ -942,6 +949,8 @@
               - **pontos_uids**:
                 - qY0MYFL0eumTMK
               - **escalada**: CANTEIRO DE OSSOS
+              - **setor**: Setor Vale dos Ossos
+              - **grupo**: Setores
               - **ids**:
                 - qY0MYFL0eumTMK
             - **[4]**:
@@ -949,6 +958,8 @@
               - **pontos_uids**:
                 - v0BbHt18MWept2
               - **escalada**: SANTUÁRIO DOS OSSOS
+              - **setor**: Setor Vale dos Ossos
+              - **grupo**: Setores
               - **ids**:
                 - v0BbHt18MWept2
             - **[5]**:
@@ -956,6 +967,8 @@
               - **pontos_uids**:
                 - ZMQupuuoecmUrN
               - **escalada**: QUEBRA OSSOS
+              - **setor**: Setor Vale dos Ossos
+              - **grupo**: Setores
               - **ids**:
                 - ZMQupuuoecmUrN
             - **[6]**:
@@ -963,6 +976,8 @@
               - **pontos_uids**:
                 - 8WNlzQWEc61vPm
               - **escalada**: SOZINHO É OSSO
+              - **setor**: Setor Vale dos Ossos
+              - **grupo**: Setores
               - **ids**:
                 - 8WNlzQWEc61vPm
             - **[7]**:
@@ -970,6 +985,8 @@
               - **pontos_uids**:
                 - dOh1TE4Biq1ZY7
               - **escalada**: CUTELO DE OSSOS
+              - **setor**: Setor Vale dos Ossos
+              - **grupo**: Setores
               - **ids**:
                 - dOh1TE4Biq1ZY7
             - **[8]**:
@@ -977,6 +994,8 @@
               - **pontos_uids**:
                 - fjSleROf283ZCe
               - **escalada**: MARIMB. QUE ME OSSOS
+              - **setor**: Setor Vale dos Ossos
+              - **grupo**: Setores
               - **ids**:
                 - fjSleROf283ZCe
             - **[9]**:
@@ -984,6 +1003,8 @@
               - **pontos_uids**:
                 - vT7mUV6E8LewAv
               - **escalada**: GUERRA DE OSSOS
+              - **setor**: Setor Vale dos Ossos
+              - **grupo**: Setores
               - **ids**:
                 - vT7mUV6E8LewAv
       - **precomputados**:

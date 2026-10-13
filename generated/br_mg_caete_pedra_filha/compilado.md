@@ -174,6 +174,7 @@
         - **pontos_uids**:
           - IJMhQ4m8JwLwHH
         - **escalada**: Mico Leão Noiado
+        - **setor**: Setor de Cima
         - **ids**:
           - IJMhQ4m8JwLwHH
       - **[1]**:
@@ -181,6 +182,7 @@
         - **pontos_uids**:
           - RxRAyZPIZWtksW
         - **escalada**: Maridos Alforriados
+        - **setor**: Setor de Cima
         - **ids**:
           - RxRAyZPIZWtksW
       - **[2]**:
@@ -188,6 +190,7 @@
         - **pontos_uids**:
           - 0SvZxvTFZk1hJ6
         - **escalada**: Sábado de Aleluia
+        - **setor**: Setor de Cima
         - **ids**:
           - 0SvZxvTFZk1hJ6
       - **[3]**:
@@ -195,6 +198,7 @@
         - **pontos_uids**:
           - zKvZqEgGW6DKK0
         - **escalada**: Sem Nome
+        - **setor**: Setor de Cima
         - **ids**:
           - zKvZqEgGW6DKK0
       - **[4]**:
@@ -202,6 +206,7 @@
         - **pontos_uids**:
           - 9zyFHS8eQ1MsbF
         - **escalada**: Mancha Amarela
+        - **setor**: Setor de Cima
         - **ids**:
           - 9zyFHS8eQ1MsbF
       - **[5]**:
@@ -209,6 +214,7 @@
         - **pontos_uids**:
           - bc04IFsT2VMYuY
         - **escalada**: Mancha Preta
+        - **setor**: Setor de Cima
         - **ids**:
           - bc04IFsT2VMYuY
       - **[6]**:
@@ -216,6 +222,7 @@
         - **pontos_uids**:
           - imtAY5VCzp8QKY
         - **escalada**: DNA Zica Preta
+        - **setor**: Setor de Cima
         - **ids**:
           - imtAY5VCzp8QKY
       - **[7]**:
@@ -223,6 +230,7 @@
         - **pontos_uids**:
           - 6IJbrIuZtdL5US
         - **escalada**: Desvio de Conduta
+        - **setor**: Setor de Cima
         - **ids**:
           - 6IJbrIuZtdL5US
       - **[8]**:
@@ -230,6 +238,7 @@
         - **pontos_uids**:
           - CXpFsXAV1o04ll
         - **escalada**: O Desgrama
+        - **setor**: Setor de Cima
         - **ids**:
           - CXpFsXAV1o04ll
       - **[9]**:
@@ -237,6 +246,7 @@
         - **pontos_uids**:
           - oHepiwluJ01bOE
         - **escalada**: Bin Laden
+        - **setor**: Setor de Cima
         - **ids**:
           - oHepiwluJ01bOE
       - **[10]**:
@@ -244,6 +254,7 @@
         - **pontos_uids**:
           - kbw581929y15Ij
         - **escalada**: Dia após Dia
+        - **setor**: Setor de Cima
         - **ids**:
           - kbw581929y15Ij
       - **[11]**:
@@ -251,6 +262,7 @@
         - **pontos_uids**:
           - IjjGZsiETiCrl4
         - **escalada**: Quarta-Feira Cinzas
+        - **setor**: Setor de Cima
         - **ids**:
           - IjjGZsiETiCrl4
       - **[12]**:
@@ -258,6 +270,7 @@
         - **pontos_uids**:
           - yMjbxCocgS4rxT
         - **escalada**: Independence Day
+        - **setor**: Setor de Cima
         - **ids**:
           - yMjbxCocgS4rxT
 - **escaladas**:
@@ -440,6 +453,7 @@
         - **pontos_uids**:
           - lu5blKjzx4LjgR
         - **escalada**: Extremo Norte
+        - **setor**: Setor de Baixo
         - **ids**:
           - lu5blKjzx4LjgR
       - **[1]**:
@@ -447,6 +461,7 @@
         - **pontos_uids**:
           - 5u9VFjd1M6ck56
         - **escalada**: Rapa do Tacho
+        - **setor**: Setor de Baixo
         - **ids**:
           - 5u9VFjd1M6ck56
       - **[2]**:
@@ -454,6 +469,7 @@
         - **pontos_uids**:
           - BOy7KNF5xiKC8l
         - **escalada**: Lindona 'Tindoida'
+        - **setor**: Setor de Baixo
         - **ids**:
           - BOy7KNF5xiKC8l
       - **[3]**:
@@ -461,6 +477,7 @@
         - **pontos_uids**:
           - 7uKy6PfP6njoN5
         - **escalada**: Pandora
+        - **setor**: Setor de Baixo
         - **ids**:
           - 7uKy6PfP6njoN5
       - **[4]**:
@@ -468,6 +485,7 @@
         - **pontos_uids**:
           - mHVz2kW4ck0TXY
         - **escalada**: A Espera de um Milagre
+        - **setor**: Setor de Baixo
         - **ids**:
           - mHVz2kW4ck0TXY
       - **[5]**:
@@ -475,6 +493,7 @@
         - **pontos_uids**:
           - nN1nDuO24KVuIN
         - **escalada**: Insanidade Mental
+        - **setor**: Setor de Baixo
         - **ids**:
           - nN1nDuO24KVuIN
       - **[6]**:
@@ -482,6 +501,7 @@
         - **pontos_uids**:
           - b3rF4I0Xy28YnD
         - **escalada**: Sem Bússola
+        - **setor**: Setor de Baixo
         - **ids**:
           - b3rF4I0Xy28YnD
       - **[7]**:
@@ -489,6 +509,7 @@
         - **pontos_uids**:
           - 8otYhVoIP6QtW1
         - **escalada**: Casal 20
+        - **setor**: Setor de Baixo
         - **ids**:
           - 8otYhVoIP6QtW1
       - **[8]**:
@@ -496,6 +517,7 @@
         - **pontos_uids**:
           - AthHeCrIwNzYnr
         - **escalada**: Maldita Obsessão
+        - **setor**: Setor de Baixo
         - **ids**:
           - AthHeCrIwNzYnr
 - **escaladas**:

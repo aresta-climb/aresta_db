@@ -73,6 +73,8 @@
                 - 8nSOTSWWDi03eK
                 - kzXWZRz4gD01ND
               - **escalada**: Diamante de Sangue
+              - **setor**: Setor Diamante de Sangue
+              - **grupo**: Região 1
               - **ids**:
                 - 8nSOTSWWDi03eK
                 - kzXWZRz4gD01ND
@@ -162,6 +164,8 @@
                 - lZ7CbNHvJCeYii
                 - vdjl7xadYWmrcL
               - **escalada**: Menos Porco Mais Aranha
+              - **setor**: Setor Chiqueirinho
+              - **grupo**: Região 1
               - **ids**:
                 - lZ7CbNHvJCeYii
                 - vdjl7xadYWmrcL
@@ -171,6 +175,8 @@
                 - WHqed13XSe4EfB
                 - m2ziU9UZl258zi
               - **escalada**: Javaporco
+              - **setor**: Setor Chiqueirinho
+              - **grupo**: Região 1
               - **ids**:
                 - WHqed13XSe4EfB
                 - m2ziU9UZl258zi
@@ -180,6 +186,8 @@
                 - nQ4MSVe11jFsRI
                 - Lp3HsVyY36hRbi
               - **escalada**: Chiqueirinho
+              - **setor**: Setor Chiqueirinho
+              - **grupo**: Região 1
               - **ids**:
                 - nQ4MSVe11jFsRI
                 - Lp3HsVyY36hRbi
@@ -267,6 +275,8 @@
                 - TjxwwpXZdDQTnp
                 - lp3jtG17LpNSzv
               - **escalada**: Menos Porco Mais Aranha
+              - **setor**: Setor Chiqueirinho
+              - **grupo**: Região 1
               - **ids**:
                 - TjxwwpXZdDQTnp
                 - lp3jtG17LpNSzv
@@ -276,6 +286,8 @@
                 - kP8FZYb1bfpeZy
                 - TbWSwnYINsPDzH
               - **escalada**: Javaporco
+              - **setor**: Setor Chiqueirinho
+              - **grupo**: Região 1
               - **ids**:
                 - kP8FZYb1bfpeZy
                 - TbWSwnYINsPDzH
@@ -285,6 +297,8 @@
                 - CS1ZaXIanubG8L
                 - HSgJVCGhUFLFHd
               - **escalada**: Pocilga
+              - **setor**: Setor Chiqueirinho
+              - **grupo**: Região 1
               - **ids**:
                 - CS1ZaXIanubG8L
                 - HSgJVCGhUFLFHd
@@ -294,6 +308,8 @@
                 - GGY74xQjhW4lmY
                 - OPgcOGpDLWCL7Q
               - **escalada**: Porco Aranha
+              - **setor**: Setor Chiqueirinho
+              - **grupo**: Região 1
               - **ids**:
                 - GGY74xQjhW4lmY
                 - OPgcOGpDLWCL7Q
@@ -380,6 +396,8 @@
                 - RKUuRDhpONwNVc
                 - plrkfNzkdGj3pt
               - **escalada**: Boulder do Kbeca
+              - **setor**: Bloco do Kbeca
+              - **grupo**: Região 1
               - **ids**:
                 - RKUuRDhpONwNVc
                 - plrkfNzkdGj3pt
@@ -389,6 +407,8 @@
                 - unJgRc6gWjla8c
                 - dmtAugV6VXu243
               - **escalada**: Projeto
+              - **setor**: Bloco do Kbeca
+              - **grupo**: Região 1
               - **ids**:
                 - unJgRc6gWjla8c
                 - dmtAugV6VXu243
@@ -442,6 +462,8 @@
                 - v6Of2eVLy7M9hf
                 - Q9XUyvYn5PYQOo
               - **escalada**: Flor do Cerrado
+              - **setor**: Setor Flor do Cerrado
+              - **grupo**: Região 1
               - **ids**:
                 - v6Of2eVLy7M9hf
                 - Q9XUyvYn5PYQOo
@@ -508,6 +530,8 @@
                 - FDl9gduzf8WGtX
                 - 0cZcrtAhbQy8Fc
               - **escalada**: Desenfreado
+              - **setor**: Setor Joelho Sem Freio
+              - **grupo**: Região 1
               - **ids**:
                 - FDl9gduzf8WGtX
                 - 0cZcrtAhbQy8Fc
@@ -517,6 +541,8 @@
                 - Kl2RkbjjDAPsGv
                 - RpHRuY3u912YYe
               - **escalada**: Joelho Sem Freio
+              - **setor**: Setor Joelho Sem Freio
+              - **grupo**: Região 1
               - **ids**:
                 - Kl2RkbjjDAPsGv
                 - RpHRuY3u912YYe
@@ -711,6 +737,8 @@
                 - wnjJEkDVgeCqTD
                 - OA29cxlU9x057K
               - **escalada**: Consciência
+              - **setor**: Setor Panela do Diabo
+              - **grupo**: Região 2
               - **ids**:
                 - wnjJEkDVgeCqTD
                 - OA29cxlU9x057K
@@ -720,6 +748,8 @@
                 - HUYYy5OaHnXsIJ
                 - ROaetcQ2HERj0m
               - **escalada**: Groove
+              - **setor**: Setor Panela do Diabo
+              - **grupo**: Região 2
               - **ids**:
                 - HUYYy5OaHnXsIJ
                 - ROaetcQ2HERj0m
@@ -729,6 +759,8 @@
                 - E1DiSeOmaHt4dE
                 - iqyfjsqn0B0wTI
               - **escalada**: Caldeirão
+              - **setor**: Setor Panela do Diabo
+              - **grupo**: Região 2
               - **ids**:
                 - E1DiSeOmaHt4dE
                 - iqyfjsqn0B0wTI
@@ -738,6 +770,8 @@
                 - Gk8phVNO6SHaW9
                 - HaZlvvBUpXfQ3t
               - **escalada**: Panela do Diabo
+              - **setor**: Setor Panela do Diabo
+              - **grupo**: Região 2
               - **ids**:
                 - Gk8phVNO6SHaW9
                 - HaZlvvBUpXfQ3t
@@ -747,6 +781,8 @@
                 - LDnhSNWsQXITCO
                 - JuWIduXO3PQgD2
               - **escalada**: Consciência para ter Coragem
+              - **setor**: Setor Panela do Diabo
+              - **grupo**: Região 2
               - **ids**:
                 - LDnhSNWsQXITCO
                 - JuWIduXO3PQgD2
@@ -756,6 +792,8 @@
                 - qXf5sGO039CgNW
                 - HF6mGM5mQAhikm
               - **escalada**: Caldeirão do Groove
+              - **setor**: Setor Panela do Diabo
+              - **grupo**: Região 2
               - **ids**:
                 - qXf5sGO039CgNW
                 - HF6mGM5mQAhikm
@@ -765,6 +803,8 @@
                 - nCFyUPEQH74Fi3
                 - k2edwZ0frmAdqW
               - **escalada**: Coragem
+              - **setor**: Setor Panela do Diabo
+              - **grupo**: Região 2
               - **ids**:
                 - nCFyUPEQH74Fi3
                 - k2edwZ0frmAdqW
@@ -902,6 +942,8 @@
                 - 8WJZ2izduMc604
                 - 7ySGKvyXygosae
               - **escalada**: Colher de Pedra
+              - **setor**: Setor Faca de Pedra
+              - **grupo**: Região 2
               - **ids**:
                 - 8WJZ2izduMc604
                 - 7ySGKvyXygosae
@@ -911,6 +953,8 @@
                 - JYSiPpLmKlWoBo
                 - I4artlULAedVw8
               - **escalada**: Colher de Pau
+              - **setor**: Setor Faca de Pedra
+              - **grupo**: Região 2
               - **ids**:
                 - JYSiPpLmKlWoBo
                 - I4artlULAedVw8
@@ -920,6 +964,8 @@
                 - vti0Bk98ZHJoRA
                 - WHXE5ylBh3vYRH
               - **escalada**: Chaira de Pedra
+              - **setor**: Setor Faca de Pedra
+              - **grupo**: Região 2
               - **ids**:
                 - vti0Bk98ZHJoRA
                 - WHXE5ylBh3vYRH
@@ -929,6 +975,8 @@
                 - bMLq2ElLDpxR2q
                 - P1uyoQWlaSJYV4
               - **escalada**: Faca de Pedra
+              - **setor**: Setor Faca de Pedra
+              - **grupo**: Região 2
               - **ids**:
                 - bMLq2ElLDpxR2q
                 - P1uyoQWlaSJYV4
@@ -992,6 +1040,8 @@
                 - w2bIQo5ne7iD0Q
                 - 3q3A8a6AivIEg5
               - **escalada**: Serra do Groove
+              - **setor**: Setor Serra do Groove
+              - **grupo**: Região 2
               - **ids**:
                 - w2bIQo5ne7iD0Q
                 - 3q3A8a6AivIEg5
@@ -1079,6 +1129,8 @@
                 - at7KfXw39RqgWs
                 - kxH3a5qF9jqLLM
               - **escalada**: Monobloco
+              - **setor**: Setor Primavera nos Dentes
+              - **grupo**: Região 2
               - **ids**:
                 - at7KfXw39RqgWs
                 - kxH3a5qF9jqLLM
@@ -1088,6 +1140,8 @@
                 - OF2f8XGXZhSZhf
                 - 82RnsDo3Cdp1bX
               - **escalada**: Canela Queimada
+              - **setor**: Setor Primavera nos Dentes
+              - **grupo**: Região 2
               - **ids**:
                 - OF2f8XGXZhSZhf
                 - 82RnsDo3Cdp1bX
@@ -1097,6 +1151,8 @@
                 - QGv9QIztbUTbjb
                 - jiljDWvBVj8cvH
               - **escalada**: Canela de Ema
+              - **setor**: Setor Primavera nos Dentes
+              - **grupo**: Região 2
               - **ids**:
                 - QGv9QIztbUTbjb
                 - jiljDWvBVj8cvH
@@ -1184,6 +1240,8 @@
                 - yxBcM0qh38nXnk
                 - l5cikSSCJKflq7
               - **escalada**: Primavera nos Dentes
+              - **setor**: Setor Primavera nos Dentes
+              - **grupo**: Região 2
               - **ids**:
                 - yxBcM0qh38nXnk
                 - l5cikSSCJKflq7
@@ -1193,6 +1251,8 @@
                 - Rwuon1QA2kGMVv
                 - VC5zOoWVxh9EhI
               - **escalada**: Suave Coisa Nenhuma
+              - **setor**: Setor Primavera nos Dentes
+              - **grupo**: Região 2
               - **ids**:
                 - Rwuon1QA2kGMVv
                 - VC5zOoWVxh9EhI
@@ -1202,6 +1262,8 @@
                 - Ay9fDGmRymVe7y
                 - HvPC4X2XvNyCea
               - **escalada**: Primavera Latina
+              - **setor**: Setor Primavera nos Dentes
+              - **grupo**: Região 2
               - **ids**:
                 - Ay9fDGmRymVe7y
                 - HvPC4X2XvNyCea
@@ -1210,6 +1272,8 @@
               - **pontos_uids**:
                 - XQ5A43fmhojXsa
               - **escalada**: Sangue Latino
+              - **setor**: Setor Primavera nos Dentes
+              - **grupo**: Região 2
               - **ids**:
                 - XQ5A43fmhojXsa
             - **[4]**:
@@ -1217,6 +1281,8 @@
               - **pontos_uids**:
                 - 7c55IrV7HwzjaC
               - **escalada**: Joelho de Porco
+              - **setor**: Setor Primavera nos Dentes
+              - **grupo**: Região 2
               - **ids**:
                 - 7c55IrV7HwzjaC
         - **[2]**:
@@ -1267,6 +1333,8 @@
                 - bhVJqtOqKYVEhI
                 - 9BOha1q7gr6a9H
               - **escalada**: Sangue Latino
+              - **setor**: Setor Primavera nos Dentes
+              - **grupo**: Região 2
               - **ids**:
                 - bhVJqtOqKYVEhI
                 - 9BOha1q7gr6a9H
@@ -1276,6 +1344,8 @@
                 - 6K5JejzNDts5dM
                 - TtHlKaoXWkd6l9
               - **escalada**: Joelho de Porco
+              - **setor**: Setor Primavera nos Dentes
+              - **grupo**: Região 2
               - **ids**:
                 - 6K5JejzNDts5dM
                 - TtHlKaoXWkd6l9
@@ -1385,6 +1455,8 @@
                 - 7fqdxiZOSHSkfr
                 - kgmPREHasCsBoR
               - **escalada**: Fina Flor
+              - **setor**: Setor Flor da Montanha
+              - **grupo**: Região 2
               - **ids**:
                 - 7fqdxiZOSHSkfr
                 - kgmPREHasCsBoR
@@ -1394,6 +1466,8 @@
                 - wqHmJRnhxGKpj3
                 - D5rqIZY607W6xh
               - **escalada**: Flor da Montanha
+              - **setor**: Setor Flor da Montanha
+              - **grupo**: Região 2
               - **ids**:
                 - wqHmJRnhxGKpj3
                 - D5rqIZY607W6xh
@@ -1483,6 +1557,8 @@
                 - Qf19RpekoY4ceb
                 - eUTeAIB0t6g691
               - **escalada**: Velho Chico
+              - **setor**: Setor Velho Chico
+              - **grupo**: Região 2
               - **ids**:
                 - Qf19RpekoY4ceb
                 - eUTeAIB0t6g691
@@ -1492,6 +1568,8 @@
                 - QBiA7EAWzenl2D
                 - AWRPlw9TPi1MV1
               - **escalada**: Minduim
+              - **setor**: Setor Velho Chico
+              - **grupo**: Região 2
               - **ids**:
                 - QBiA7EAWzenl2D
                 - AWRPlw9TPi1MV1
@@ -1501,6 +1579,8 @@
                 - 4ld2wQHIUSwIw2
                 - qXTdvrZgs0aWXz
               - **escalada**: Frango D'Água
+              - **setor**: Setor Velho Chico
+              - **grupo**: Região 2
               - **ids**:
                 - 4ld2wQHIUSwIw2
                 - qXTdvrZgs0aWXz
@@ -1590,6 +1670,8 @@
                 - YYzTKrL5JUqjaG
                 - uH4A9vbSBNanf1
               - **escalada**: Cenas Fortes
+              - **setor**: Setor Cenas Fortes
+              - **grupo**: Região 3
               - **ids**:
                 - YYzTKrL5JUqjaG
                 - uH4A9vbSBNanf1
@@ -1599,6 +1681,8 @@
                 - kjaCbnnKQnS7kg
                 - Cviogu7k6YP9RM
               - **escalada**: Tela Quente
+              - **setor**: Setor Cenas Fortes
+              - **grupo**: Região 3
               - **ids**:
                 - kjaCbnnKQnS7kg
                 - Cviogu7k6YP9RM
@@ -1835,6 +1919,8 @@
                 - CCo4OgfoU3vmWR
                 - Akca1HdYlbCkZl
               - **escalada**: Super Cine
+              - **setor**: Setor Sessão da Tarde
+              - **grupo**: Região 3
               - **ids**:
                 - CCo4OgfoU3vmWR
                 - Akca1HdYlbCkZl
@@ -1844,6 +1930,8 @@
                 - VHp04OzYtVx9nX
                 - Uqx1p73YNGNkLM
               - **escalada**: Extra
+              - **setor**: Setor Sessão da Tarde
+              - **grupo**: Região 3
               - **ids**:
                 - VHp04OzYtVx9nX
                 - Uqx1p73YNGNkLM
@@ -1853,6 +1941,8 @@
                 - RU0hSFJk6C0zC3
                 - Q4csKZNJ0hFVtD
               - **escalada**: Manchete
+              - **setor**: Setor Sessão da Tarde
+              - **grupo**: Região 3
               - **ids**:
                 - RU0hSFJk6C0zC3
                 - Q4csKZNJ0hFVtD
@@ -1862,6 +1952,8 @@
                 - wvLWWdIm3lNOnJ
                 - 2Z3S5sDqcGiW7Q
               - **escalada**: Fantástico Mundo dos Diamantes
+              - **setor**: Setor Sessão da Tarde
+              - **grupo**: Região 3
               - **ids**:
                 - wvLWWdIm3lNOnJ
                 - 2Z3S5sDqcGiW7Q
@@ -1871,6 +1963,8 @@
                 - RLlPWwNNicoQvF
                 - gYCj4uI5pW2Hgk
               - **escalada**: Super Sinistro
+              - **setor**: Setor Sessão da Tarde
+              - **grupo**: Região 3
               - **ids**:
                 - RLlPWwNNicoQvF
                 - gYCj4uI5pW2Hgk
@@ -1880,6 +1974,8 @@
                 - NZwxZhrZeRB8jc
                 - RTNCgtacFGnFtM
               - **escalada**: Fantástico
+              - **setor**: Setor Sessão da Tarde
+              - **grupo**: Região 3
               - **ids**:
                 - NZwxZhrZeRB8jc
                 - RTNCgtacFGnFtM
@@ -1889,6 +1985,8 @@
                 - Kk9ZNF0HPkdGFX
                 - culiwzu3QNN4pH
               - **escalada**: Espetacular
+              - **setor**: Setor Sessão da Tarde
+              - **grupo**: Região 3
               - **ids**:
                 - Kk9ZNF0HPkdGFX
                 - culiwzu3QNN4pH
@@ -1898,6 +1996,8 @@
                 - KJrZgv0mJTRRg0
                 - lfUh9U2PlSO39s
               - **escalada**: Esporte Espetacular
+              - **setor**: Setor Sessão da Tarde
+              - **grupo**: Região 3
               - **ids**:
                 - KJrZgv0mJTRRg0
                 - lfUh9U2PlSO39s
@@ -1907,6 +2007,8 @@
                 - uEapXa5ct3DXmG
                 - gEyv7D8VZejF3Z
               - **escalada**: Globo Curral
+              - **setor**: Setor Sessão da Tarde
+              - **grupo**: Região 3
               - **ids**:
                 - uEapXa5ct3DXmG
                 - gEyv7D8VZejF3Z
@@ -1916,6 +2018,8 @@
                 - P4fOotfScSWjOh
                 - uCAeRYmTr5ZZvL
               - **escalada**: Manual
+              - **setor**: Setor Sessão da Tarde
+              - **grupo**: Região 3
               - **ids**:
                 - P4fOotfScSWjOh
                 - uCAeRYmTr5ZZvL
@@ -1925,6 +2029,8 @@
                 - HZuo0rxGlGCT8B
                 - XdKpeVtB6U5YxZ
               - **escalada**: Altas Horas
+              - **setor**: Setor Sessão da Tarde
+              - **grupo**: Região 3
               - **ids**:
                 - HZuo0rxGlGCT8B
                 - XdKpeVtB6U5YxZ
@@ -2138,6 +2244,8 @@
                 - yXMJRnQWQpxIUc
                 - fqauTgXfjBNlzt
               - **escalada**: Sessão da Tarde
+              - **setor**: Setor Sessão da Tarde
+              - **grupo**: Região 3
               - **ids**:
                 - yXMJRnQWQpxIUc
                 - fqauTgXfjBNlzt
@@ -2147,6 +2255,8 @@
                 - 1rnDQg1nVuDKu0
                 - sa9sjaN9xtOuIH
               - **escalada**: Vale a Pena Ver de Novo
+              - **setor**: Setor Sessão da Tarde
+              - **grupo**: Região 3
               - **ids**:
                 - 1rnDQg1nVuDKu0
                 - sa9sjaN9xtOuIH
@@ -2156,6 +2266,8 @@
                 - M8duzFhwCbKuVK
                 - RnkPtRcEGCtRPR
               - **escalada**: Vale a Pena Vir de Baixo
+              - **setor**: Setor Sessão da Tarde
+              - **grupo**: Região 3
               - **ids**:
                 - M8duzFhwCbKuVK
                 - RnkPtRcEGCtRPR
@@ -2165,6 +2277,8 @@
                 - uXV5XAgHpiT7Kr
                 - 1NnE9VV5Hm3iuo
               - **escalada**: Chá da Tarde
+              - **setor**: Setor Sessão da Tarde
+              - **grupo**: Região 3
               - **ids**:
                 - uXV5XAgHpiT7Kr
                 - 1NnE9VV5Hm3iuo
@@ -2174,6 +2288,8 @@
                 - KGwVFyPhSPrFBZ
                 - mnXGvpVVSxiD1C
               - **escalada**: Analógico
+              - **setor**: Setor Sessão da Tarde
+              - **grupo**: Região 3
               - **ids**:
                 - KGwVFyPhSPrFBZ
                 - mnXGvpVVSxiD1C
@@ -2183,6 +2299,8 @@
                 - zud2pDc8F8hRbE
                 - KP1FSRU3KtMGeS
               - **escalada**: Digital
+              - **setor**: Setor Sessão da Tarde
+              - **grupo**: Região 3
               - **ids**:
                 - zud2pDc8F8hRbE
                 - KP1FSRU3KtMGeS
@@ -2192,6 +2310,8 @@
                 - 2iH1RKsC5t6RcP
                 - 4uHwlKzmMU9Ems
               - **escalada**: Manual
+              - **setor**: Setor Sessão da Tarde
+              - **grupo**: Região 3
               - **ids**:
                 - 2iH1RKsC5t6RcP
                 - 4uHwlKzmMU9Ems
@@ -2201,6 +2321,8 @@
                 - jSwg4YtfkZRL0F
                 - gP5oLEExIkfheV
               - **escalada**: Altas Horas
+              - **setor**: Setor Sessão da Tarde
+              - **grupo**: Região 3
               - **ids**:
                 - jSwg4YtfkZRL0F
                 - gP5oLEExIkfheV
@@ -2210,6 +2332,8 @@
                 - DzueAxgmcLkbPl
                 - ttX6jjwtNhGACG
               - **escalada**: Globo Curral
+              - **setor**: Setor Sessão da Tarde
+              - **grupo**: Região 3
               - **ids**:
                 - DzueAxgmcLkbPl
                 - ttX6jjwtNhGACG
@@ -2219,6 +2343,8 @@
                 - L0UOFvbJw81fzu
                 - Si1R9VQWGy6wIq
               - **escalada**: Esporte Espetacular
+              - **setor**: Setor Sessão da Tarde
+              - **grupo**: Região 3
               - **ids**:
                 - L0UOFvbJw81fzu
                 - Si1R9VQWGy6wIq
@@ -2228,6 +2354,8 @@
                 - dUlNsjALyMGbkR
                 - dVMWNueO2p4tm5
               - **escalada**: Espetacular
+              - **setor**: Setor Sessão da Tarde
+              - **grupo**: Região 3
               - **ids**:
                 - dUlNsjALyMGbkR
                 - dVMWNueO2p4tm5
@@ -2381,6 +2509,8 @@
                 - HbJKfIbnZw0ypO
                 - pbTdQPqzYIFYRp
               - **escalada**: Calça Nova
+              - **setor**: Setor Que Raio de Reglete
+              - **grupo**: Região 3
               - **ids**:
                 - HbJKfIbnZw0ypO
                 - pbTdQPqzYIFYRp
@@ -2390,6 +2520,8 @@
                 - CqsnabI1AgjAX0
                 - KYyvlUUgxXRMBE
               - **escalada**: Que Raio de Reglete
+              - **setor**: Setor Que Raio de Reglete
+              - **grupo**: Região 3
               - **ids**:
                 - CqsnabI1AgjAX0
                 - KYyvlUUgxXRMBE
@@ -2461,6 +2593,8 @@
                 - aTxzRj0I7AyF3o
                 - l2Ioa7iPBtcpzn
               - **escalada**: Iceberg
+              - **setor**: Setor Iceberg
+              - **grupo**: Região 3
               - **ids**:
                 - aTxzRj0I7AyF3o
                 - l2Ioa7iPBtcpzn
@@ -2470,6 +2604,8 @@
                 - 0tAFnSPXnQS08g
                 - nlvU6pDEosgXXv
               - **escalada**: Frigobar
+              - **setor**: Setor Iceberg
+              - **grupo**: Região 3
               - **ids**:
                 - 0tAFnSPXnQS08g
                 - nlvU6pDEosgXXv
@@ -2543,6 +2679,8 @@
                 - 3HEFVpk8SyHFzl
                 - WXH9d1HRxrk4hz
               - **escalada**: Silicato
+              - **setor**: Setor Silicose
+              - **grupo**: Região 3
               - **ids**:
                 - 3HEFVpk8SyHFzl
                 - WXH9d1HRxrk4hz
@@ -2552,6 +2690,8 @@
                 - 0ei8UjG7OnCiH0
                 - 8eSdYUQzq7cWWt
               - **escalada**: Silicose
+              - **setor**: Setor Silicose
+              - **grupo**: Região 3
               - **ids**:
                 - 0ei8UjG7OnCiH0
                 - 8eSdYUQzq7cWWt
@@ -2657,6 +2797,8 @@
                 - MOtPR1yrBK5bJ3
                 - 5fhyYVebBpOzrE
               - **escalada**: Navio Pirata
+              - **setor**: Setor Navio Pirata
+              - **grupo**: Região 4
               - **ids**:
                 - MOtPR1yrBK5bJ3
                 - 5fhyYVebBpOzrE
@@ -2666,6 +2808,8 @@
                 - UWXUQ6AEeow7wF
                 - USiYEGAtnD7j4V
               - **escalada**: Invasão do Navio Pirata
+              - **setor**: Setor Navio Pirata
+              - **grupo**: Região 4
               - **ids**:
                 - UWXUQ6AEeow7wF
                 - USiYEGAtnD7j4V
@@ -2675,6 +2819,8 @@
                 - ggmN9DRFXgqBw8
                 - su3SWcwm21EDFt
               - **escalada**: Capitão Gancho
+              - **setor**: Setor Navio Pirata
+              - **grupo**: Região 4
               - **ids**:
                 - ggmN9DRFXgqBw8
                 - su3SWcwm21EDFt
@@ -2762,6 +2908,8 @@
                 - rodJMDToY2B45f
                 - kCH6HvlSXTeB1j
               - **escalada**: Serra a Vista
+              - **setor**: Setor Navio Pirata
+              - **grupo**: Região 4
               - **ids**:
                 - rodJMDToY2B45f
                 - kCH6HvlSXTeB1j
@@ -2771,6 +2919,8 @@
                 - 5YNfIyEnxmV0u5
                 - Lgp6Bs7lpiluka
               - **escalada**: Tapa Olho
+              - **setor**: Setor Navio Pirata
+              - **grupo**: Região 4
               - **ids**:
                 - 5YNfIyEnxmV0u5
                 - Lgp6Bs7lpiluka
@@ -2780,6 +2930,8 @@
                 - ZOGUfTD8CED01f
                 - WbiUPCEfOuUneC
               - **escalada**: A Estibordo
+              - **setor**: Setor Navio Pirata
+              - **grupo**: Região 4
               - **ids**:
                 - ZOGUfTD8CED01f
                 - WbiUPCEfOuUneC
@@ -2789,6 +2941,8 @@
                 - VyJU2shyIzdTHQ
                 - o3jzUFrU6bSiUd
               - **escalada**: Proa
+              - **setor**: Setor Navio Pirata
+              - **grupo**: Região 4
               - **ids**:
                 - VyJU2shyIzdTHQ
                 - o3jzUFrU6bSiUd
@@ -2840,6 +2994,8 @@
                 - vbzeRpXjtvrnsZ
                 - 1xaRyOGXoRKRa5
               - **escalada**: Papagaio de Pirata
+              - **setor**: Setor Navio Pirata
+              - **grupo**: Região 4
               - **ids**:
                 - vbzeRpXjtvrnsZ
                 - 1xaRyOGXoRKRa5
@@ -2849,6 +3005,8 @@
                 - iKvfh7BHTMKRUS
                 - f25l1XnjsK9Re0
               - **escalada**: Desce a Serra
+              - **setor**: Setor Navio Pirata
+              - **grupo**: Região 4
               - **ids**:
                 - iKvfh7BHTMKRUS
                 - f25l1XnjsK9Re0
@@ -2973,6 +3131,8 @@
                 - apNSMIgishCvMq
                 - 5gQj5KhOYHaSBF
               - **escalada**: Pfizer
+              - **setor**: Setor Pfizer
+              - **grupo**: Região 4
               - **ids**:
                 - apNSMIgishCvMq
                 - 5gQj5KhOYHaSBF
@@ -2982,6 +3142,8 @@
                 - CsABZulQmaQRpe
                 - l4ykhFIaWNX54F
               - **escalada**: Barriga Branca
+              - **setor**: Setor Pfizer
+              - **grupo**: Região 4
               - **ids**:
                 - CsABZulQmaQRpe
                 - l4ykhFIaWNX54F
@@ -2991,6 +3153,8 @@
                 - QSWAmHvy0qHThf
                 - dmYu0AMgtk1BAx
               - **escalada**: Rosa
+              - **setor**: Setor Pfizer
+              - **grupo**: Região 4
               - **ids**:
                 - QSWAmHvy0qHThf
                 - dmYu0AMgtk1BAx
@@ -3121,6 +3285,8 @@
                 - 7GB7sxRMoo6296
                 - IIPPq7axJlZGcK
               - **escalada**: Pedra na Canela
+              - **setor**: Setor Pedra na Canela
+              - **grupo**: Região 4
               - **ids**:
                 - 7GB7sxRMoo6296
                 - IIPPq7axJlZGcK
@@ -3130,6 +3296,8 @@
                 - cLU6nOsC5K7jQt
                 - w9JlkWo6gmhile
               - **escalada**: Sobe a Serra
+              - **setor**: Setor Pedra na Canela
+              - **grupo**: Região 4
               - **ids**:
                 - cLU6nOsC5K7jQt
                 - w9JlkWo6gmhile
@@ -3139,6 +3307,8 @@
                 - ucshAPjqiuwza4
                 - iTUstOCKe4dXpP
               - **escalada**: Pedra na Canela Ext
+              - **setor**: Setor Pedra na Canela
+              - **grupo**: Região 4
               - **ids**:
                 - ucshAPjqiuwza4
                 - iTUstOCKe4dXpP
@@ -3148,6 +3318,8 @@
                 - aZYXQgUgNNWrGq
                 - nz8IjTQUrSe2gj
               - **escalada**: Sobe a Serra Ext
+              - **setor**: Setor Pedra na Canela
+              - **grupo**: Região 4
               - **ids**:
                 - aZYXQgUgNNWrGq
                 - nz8IjTQUrSe2gj
@@ -3157,6 +3329,8 @@
                 - Gia1TCQHxIpvIe
                 - OqNaNMAsEYfd56
               - **escalada**: Ofurô
+              - **setor**: Setor Pedra na Canela
+              - **grupo**: Região 4
               - **ids**:
                 - Gia1TCQHxIpvIe
                 - OqNaNMAsEYfd56
@@ -3261,6 +3435,8 @@
                 - vhp72vIYVpVvZc
                 - JdpV5y6tSph8rA
               - **escalada**: Maozeiro
+              - **setor**: Setor Piseiro
+              - **grupo**: Região 4
               - **ids**:
                 - vhp72vIYVpVvZc
                 - JdpV5y6tSph8rA
@@ -3270,6 +3446,8 @@
                 - xoHMHkCuLJFSLX
                 - 2jox6l5PEgUHPF
               - **escalada**: Piseiro
+              - **setor**: Setor Piseiro
+              - **grupo**: Região 4
               - **ids**:
                 - xoHMHkCuLJFSLX
                 - 2jox6l5PEgUHPF
@@ -3279,6 +3457,8 @@
                 - h5Xxh1ZaqekkOR
                 - zJAcH5bbmKuJBa
               - **escalada**: Expresso 22
+              - **setor**: Setor Piseiro
+              - **grupo**: Região 4
               - **ids**:
                 - h5Xxh1ZaqekkOR
                 - zJAcH5bbmKuJBa
@@ -3391,6 +3571,8 @@
                 - uGfyAL8x9W7YMy
                 - 8GpiOq6bttOpAO
               - **escalada**: Parteira
+              - **setor**: Setor Raizeiro
+              - **grupo**: Região 4
               - **ids**:
                 - uGfyAL8x9W7YMy
                 - 8GpiOq6bttOpAO
@@ -3400,6 +3582,8 @@
                 - piBL3JatwKAjAa
                 - GbM4gArhNiRBct
               - **escalada**: Curandeira
+              - **setor**: Setor Raizeiro
+              - **grupo**: Região 4
               - **ids**:
                 - piBL3JatwKAjAa
                 - GbM4gArhNiRBct
@@ -3409,6 +3593,8 @@
                 - 9Df0RHkYiY0g6p
                 - EnhjZ7XHnTa0zi
               - **escalada**: Raizeiro
+              - **setor**: Setor Raizeiro
+              - **grupo**: Região 4
               - **ids**:
                 - 9Df0RHkYiY0g6p
                 - EnhjZ7XHnTa0zi
@@ -3418,6 +3604,8 @@
                 - y1w0Hib7yrWOYN
                 - GeIthj8OfY1YfY
               - **escalada**: Garrafada
+              - **setor**: Setor Raizeiro
+              - **grupo**: Região 4
               - **ids**:
                 - y1w0Hib7yrWOYN
                 - GeIthj8OfY1YfY
@@ -3535,6 +3723,8 @@
                 - gKzGP2jdd9cZaC
                 - ybdwiQ4BJx9Pfw
               - **escalada**: Tijuco Preto
+              - **setor**: Setor Tijuco Preto
+              - **grupo**: Região 4
               - **ids**:
                 - gKzGP2jdd9cZaC
                 - ybdwiQ4BJx9Pfw
@@ -3544,6 +3734,8 @@
                 - IYmsKivphX8pnM
                 - s77DGXL0GoMvec
               - **escalada**: Pé na Lapeira
+              - **setor**: Setor Tijuco Preto
+              - **grupo**: Região 4
               - **ids**:
                 - IYmsKivphX8pnM
                 - s77DGXL0GoMvec
@@ -3553,6 +3745,8 @@
                 - tiCuRqTZs1YhFs
                 - PvcBDpmNzl5j97
               - **escalada**: Sol a Fora
+              - **setor**: Setor Tijuco Preto
+              - **grupo**: Região 4
               - **ids**:
                 - tiCuRqTZs1YhFs
                 - PvcBDpmNzl5j97
@@ -3562,6 +3756,8 @@
                 - CKBfPZeVv8LtZD
                 - 420IrvUnKWyDA6
               - **escalada**: Toque no Curralinho
+              - **setor**: Setor Tijuco Preto
+              - **grupo**: Região 4
               - **ids**:
                 - CKBfPZeVv8LtZD
                 - 420IrvUnKWyDA6

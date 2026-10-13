@@ -99,54 +99,63 @@ picos:
             pontos_uids:
             - l5PDF3f7iQbVWM
             escalada: La Cucaracha
+            setor: Setor Bosque
             ids:
             - l5PDF3f7iQbVWM
           - alvo_uid: s3yFmIBmxwQTZH
             pontos_uids:
             - j2UGyzK8vRFo20
             escalada: (via inacabada 1) Bem Vindo ao Bosque
+            setor: Setor Bosque
             ids:
             - j2UGyzK8vRFo20
           - alvo_uid: HMfUeRq4be4xa1
             pontos_uids:
             - DSjcwyE4sCTBer
             escalada: (via inacabada 2)
+            setor: Setor Bosque
             ids:
             - DSjcwyE4sCTBer
           - alvo_uid: Ln4IOlN0c8xnVj
             pontos_uids:
             - dTe5YLEnmNeKqY
             escalada: Malandro é Malandro
+            setor: Setor Bosque
             ids:
             - dTe5YLEnmNeKqY
           - alvo_uid: A3p6qXvV4FwilA
             pontos_uids:
             - tUFYg3IGsekz91
             escalada: Mané é Mané
+            setor: Setor Bosque
             ids:
             - tUFYg3IGsekz91
           - alvo_uid: nhsaBxopfWrZst
             pontos_uids:
             - s17F65vNMUwtoH
             escalada: Segunda Divisão
+            setor: Setor Bosque
             ids:
             - s17F65vNMUwtoH
           - alvo_uid: XZGptTD7mgsbOc
             pontos_uids:
             - iKD5DEJ2Ni0PS1
             escalada: Diedrinho
+            setor: Setor Bosque
             ids:
             - iKD5DEJ2Ni0PS1
           - alvo_uid: 0yXVSmz1EOOIeO
             pontos_uids:
             - fJKpSb9DackcvK
             escalada: Dona Leci
+            setor: Setor Bosque
             ids:
             - fJKpSb9DackcvK
           - alvo_uid: OXVGxNW9Yhn7Q3
             pontos_uids:
             - JhQ4oiXSzjNFUe
             escalada: Caminito
+            setor: Setor Bosque
             ids:
             - JhQ4oiXSzjNFUe
         - caminho_imagem_mapa: imagens/setor_bosque_p1_i0.webp
@@ -174,12 +183,14 @@ picos:
             pontos_uids:
             - KOurLs9Z7td77c
             escalada: La Cucaracha
+            setor: Setor Bosque
             ids:
             - KOurLs9Z7td77c
           - alvo_uid: s3yFmIBmxwQTZH
             pontos_uids:
             - 3zoYjt8XpMVn3N
             escalada: (via inacabada 1) Bem Vindo ao Bosque
+            setor: Setor Bosque
             ids:
             - 3zoYjt8XpMVn3N
         - caminho_imagem_mapa: imagens/setor_bosque_p1_i1.webp
@@ -215,18 +226,21 @@ picos:
             pontos_uids:
             - 24jiD0bDirvE6I
             escalada: (via inacabada 2)
+            setor: Setor Bosque
             ids:
             - 24jiD0bDirvE6I
           - alvo_uid: Ln4IOlN0c8xnVj
             pontos_uids:
             - 9e4lSeZppolehK
             escalada: Malandro é Malandro
+            setor: Setor Bosque
             ids:
             - 9e4lSeZppolehK
           - alvo_uid: A3p6qXvV4FwilA
             pontos_uids:
             - zKULXxKXUhSpgz
             escalada: Mané é Mané
+            setor: Setor Bosque
             ids:
             - zKULXxKXUhSpgz
         - caminho_imagem_mapa: imagens/setor_bosque_p2_i0.webp
@@ -270,24 +284,28 @@ picos:
             pontos_uids:
             - g8XLQwyIZGl3QV
             escalada: Segunda Divisão
+            setor: Setor Bosque
             ids:
             - g8XLQwyIZGl3QV
           - alvo_uid: XZGptTD7mgsbOc
             pontos_uids:
             - XgKG2bAiSlFI11
             escalada: Diedrinho
+            setor: Setor Bosque
             ids:
             - XgKG2bAiSlFI11
           - alvo_uid: 0yXVSmz1EOOIeO
             pontos_uids:
             - Q8aMnHqTftIEpk
             escalada: Dona Leci
+            setor: Setor Bosque
             ids:
             - Q8aMnHqTftIEpk
           - alvo_uid: OXVGxNW9Yhn7Q3
             pontos_uids:
             - XZS6ItI6D1rzfJ
             escalada: Caminito
+            setor: Setor Bosque
             ids:
             - XZS6ItI6D1rzfJ
         escaladas:
@@ -461,72 +479,84 @@ picos:
             pontos_uids:
             - rrHrPb5dRzfD8s
             escalada: Lá Cancha
+            setor: Setor Bombonera
             ids:
             - rrHrPb5dRzfD8s
           - alvo_uid: wMFAO7CdjeYw7e
             pontos_uids:
             - AZBsQv1UlFHUTa
             escalada: La Mano de Dios
+            setor: Setor Bombonera
             ids:
             - AZBsQv1UlFHUTa
           - alvo_uid: 8JVfNOQ2gW9Jcy
             pontos_uids:
             - qYGNX67R0kEcNk
             escalada: Projeto (sem nome 1)
+            setor: Setor Bombonera
             ids:
             - qYGNX67R0kEcNk
           - alvo_uid: DVsshBdFmIcrsW
             pontos_uids:
             - 3hXaANPLClInTg
             escalada: Projeto (sem nome 2)
+            setor: Setor Bombonera
             ids:
             - 3hXaANPLClInTg
           - alvo_uid: U8JPeflFSWXrZZ
             pontos_uids:
             - egNL8knYiZoxnh
             escalada: Barra Brava
+            setor: Setor Bombonera
             ids:
             - egNL8knYiZoxnh
           - alvo_uid: r5jWWEC9DOZ8Vx
             pontos_uids:
             - NytubYldx8n2fh
             escalada: Lá Bombonera
+            setor: Setor Bombonera
             ids:
             - NytubYldx8n2fh
           - alvo_uid: OSpickpZ1nLhIC
             pontos_uids:
             - 71A3N9VJd0eS7C
             escalada: Diego Armando Maradona
+            setor: Setor Bombonera
             ids:
             - 71A3N9VJd0eS7C
           - alvo_uid: m4LvODmbmQX51z
             pontos_uids:
             - b9rhCnqh8NFLNI
             escalada: River Plate (principal)
+            setor: Setor Bombonera
             ids:
             - b9rhCnqh8NFLNI
           - alvo_uid: On2qI9r8TxxD4D
             pontos_uids:
             - b9rhCnqh8NFLNI
             escalada: Boca Junior (variante)
+            setor: Setor Bombonera
             ids:
             - b9rhCnqh8NFLNI
           - alvo_uid: 2g85yvxRTmrvil
             pontos_uids:
             - SvZyr0uK31VfJU
             escalada: (via inacabada 3) Superclassicos
+            setor: Setor Bombonera
             ids:
             - SvZyr0uK31VfJU
           - alvo_uid: iH7SPwQn4gXy5R
             pontos_uids:
             - 4QYmWZLYIfZPkW
             escalada: San Lourenzo
+            setor: Setor Bombonera
             ids:
             - 4QYmWZLYIfZPkW
           - alvo_uid: OABLScx7zfHBNl
             pontos_uids:
             - aaYNefUUdD16O0
             escalada: La Marca
+            setor: Setor Bombonera
             ids:
             - aaYNefUUdD16O0
         escaladas:
@@ -697,48 +727,56 @@ picos:
             pontos_uids:
             - poyG2VlVSQfq8m
             escalada: Água Bolhas
+            setor: Setor Esquerda
             ids:
             - poyG2VlVSQfq8m
           - alvo_uid: uYPH3FmeLbLkCy
             pontos_uids:
             - BycwtmIT62Yuun
             escalada: Concretino
+            setor: Setor Esquerda
             ids:
             - BycwtmIT62Yuun
           - alvo_uid: oP5m9O4s2mdydX
             pontos_uids:
             - WCmaAp4uvyzDRD
             escalada: Gado impresso (com abelha)
+            setor: Setor Esquerda
             ids:
             - WCmaAp4uvyzDRD
           - alvo_uid: l4DcSerZGm75gW
             pontos_uids:
             - FmXSRlQJUMYAUA
             escalada: (via inacabada 4)
+            setor: Setor Esquerda
             ids:
             - FmXSRlQJUMYAUA
           - alvo_uid: gniP749eAIb2xI
             pontos_uids:
             - kGQFRXZbNKGsC3
             escalada: Jaratataca
+            setor: Setor Esquerda
             ids:
             - kGQFRXZbNKGsC3
           - alvo_uid: i4259rGnQO105e
             pontos_uids:
             - xDY3ag2CnO7ZTp
             escalada: (sem nome 3)
+            setor: Setor Esquerda
             ids:
             - xDY3ag2CnO7ZTp
           - alvo_uid: GiGaL1kxqewirM
             pontos_uids:
             - 3uYeEp3lGBTb0T
             escalada: (via inacabada 5)
+            setor: Setor Esquerda
             ids:
             - 3uYeEp3lGBTb0T
           - alvo_uid: a51GcVXkGuUWPV
             pontos_uids:
             - 11oEOtMCFBHyXm
             escalada: Teoria dos jogos
+            setor: Setor Esquerda
             ids:
             - 11oEOtMCFBHyXm
         - caminho_imagem_mapa: imagens/setor_esquerda_p1_i0.webp
@@ -758,6 +796,7 @@ picos:
             pontos_uids:
             - 7xAt6fxiTcyoxH
             escalada: Água Bolhas
+            setor: Setor Esquerda
             ids:
             - 7xAt6fxiTcyoxH
         - caminho_imagem_mapa: imagens/setor_esquerda_p1_i1.webp
@@ -785,12 +824,14 @@ picos:
             pontos_uids:
             - QRiSHe8lp41YMF
             escalada: Concretino
+            setor: Setor Esquerda
             ids:
             - QRiSHe8lp41YMF
           - alvo_uid: oP5m9O4s2mdydX
             pontos_uids:
             - jHmefJHDqjaPSL
             escalada: Gado impresso (com abelha)
+            setor: Setor Esquerda
             ids:
             - jHmefJHDqjaPSL
         - caminho_imagem_mapa: imagens/setor_esquerda_p2_i0.webp
@@ -842,30 +883,35 @@ picos:
             pontos_uids:
             - 7GqyfYG6X04Ste
             escalada: (via inacabada 4)
+            setor: Setor Esquerda
             ids:
             - 7GqyfYG6X04Ste
           - alvo_uid: gniP749eAIb2xI
             pontos_uids:
             - iat1Z1jqJGsaSz
             escalada: Jaratataca
+            setor: Setor Esquerda
             ids:
             - iat1Z1jqJGsaSz
           - alvo_uid: i4259rGnQO105e
             pontos_uids:
             - QcGKyz1ikla9a8
             escalada: (sem nome 3)
+            setor: Setor Esquerda
             ids:
             - QcGKyz1ikla9a8
           - alvo_uid: GiGaL1kxqewirM
             pontos_uids:
             - Tu9qrWf4A3unPG
             escalada: (via inacabada 5)
+            setor: Setor Esquerda
             ids:
             - Tu9qrWf4A3unPG
           - alvo_uid: a51GcVXkGuUWPV
             pontos_uids:
             - HSXgBAARGlARTG
             escalada: Teoria dos jogos
+            setor: Setor Esquerda
             ids:
             - HSXgBAARGlARTG
         escaladas:

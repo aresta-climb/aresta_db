@@ -99,8 +99,6 @@ mapas:
   - alvo_uid: SKcluPfsLiwJ1N
     pontos_uids:
     - Zy7MFaAO7Mb0t6
-  - pontos_uids:
-    - LoABpx5uAWe9i5
 - caminho_imagem_mapa: imagens/setor_falesias_do_lenheiro_p2_i3.webp
   largura_mapa: 481
   altura_mapa: 641

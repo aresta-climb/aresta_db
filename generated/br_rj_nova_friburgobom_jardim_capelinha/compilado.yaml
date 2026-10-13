@@ -540,36 +540,42 @@ picos:
             pontos_uids:
             - HKcTTfSfCuBwAD
             escalada: Misericórdia
+            setor: Setor principal
             ids:
             - HKcTTfSfCuBwAD
           - alvo_uid: EGBbnsf5w525IM
             pontos_uids:
             - Haj68bmHLqo9sE
             escalada: Excomungado
+            setor: Setor principal
             ids:
             - Haj68bmHLqo9sE
           - alvo_uid: o1EX8168cyvAmv
             pontos_uids:
             - uDg1BD2NjpOCNh
             escalada: Crisma
+            setor: Setor principal
             ids:
             - uDg1BD2NjpOCNh
           - alvo_uid: MOxqASBLS8QHbK
             pontos_uids:
             - PH0TqGX93p27do
             escalada: Primeira Comunhão
+            setor: Setor principal
             ids:
             - PH0TqGX93p27do
           - alvo_uid: hdecePrG3R8YaC
             pontos_uids:
             - hzVQ3SKhonh9ZI
             escalada: Tribunal da inquisição
+            setor: Setor principal
             ids:
             - hzVQ3SKhonh9ZI
           - alvo_uid: FnHzOhpeTEn2sT
             pontos_uids:
             - uqj1txFAToioS9
             escalada: Proj
+            setor: Setor principal
             ids:
             - uqj1txFAToioS9
           - alvo_uid: GRVzMUDrcZ39wf
@@ -577,6 +583,7 @@ picos:
             - Haj68bmHLqo9sE
             - rVhvWUkENcaLp8
             escalada: Extensão Piedade
+            setor: Setor principal
             ids:
             - Haj68bmHLqo9sE
             - rVhvWUkENcaLp8
@@ -585,6 +592,7 @@ picos:
             - HKuNUmArh9pqBR
             - Haj68bmHLqo9sE
             escalada: Extensão Penitência
+            setor: Setor principal
             ids:
             - HKuNUmArh9pqBR
             - Haj68bmHLqo9sE
@@ -592,6 +600,7 @@ picos:
             pontos_uids:
             - vSvd4vNFxHDE8D
             escalada: Chama Jesus
+            setor: Setor principal
             ids:
             - vSvd4vNFxHDE8D
           - alvo_uid: wodKaOmLPIbirQ
@@ -599,6 +608,7 @@ picos:
             - X54GH7M5dUNPTF
             - 1WRkXw11vm5M4a
             escalada: Variante Santo do Pau Oco
+            setor: Setor principal
             ids:
             - X54GH7M5dUNPTF
             - 1WRkXw11vm5M4a
@@ -608,6 +618,7 @@ picos:
             - X54GH7M5dUNPTF
             - 1WRkXw11vm5M4a
             escalada: Variante Santo do Pau Oco (extensão)
+            setor: Setor principal
             ids:
             - 5SVp53Mya7NpUL
             - X54GH7M5dUNPTF
@@ -617,6 +628,7 @@ picos:
             - k4NGrnNmipXysx
             - X54GH7M5dUNPTF
             escalada: Projeto Aresta
+            setor: Setor principal
             ids:
             - k4NGrnNmipXysx
             - X54GH7M5dUNPTF
@@ -624,6 +636,7 @@ picos:
             pontos_uids:
             - GAoMOukSPLmz4L
             escalada: Missionárias do Além
+            setor: Setor principal
             ids:
             - GAoMOukSPLmz4L
           - alvo_uid: B6jTijHVv9N5CR
@@ -631,6 +644,7 @@ picos:
             - JsEzcfIYcwbNJB
             - PXOqVuGcWNuXKk
             escalada: Água Benta
+            setor: Setor principal
             ids:
             - JsEzcfIYcwbNJB
             - PXOqVuGcWNuXKk
@@ -639,6 +653,7 @@ picos:
             - 3Ft0gIajOpwd6G
             - JsEzcfIYcwbNJB
             escalada: Variante Água Ardente
+            setor: Setor principal
             ids:
             - 3Ft0gIajOpwd6G
             - JsEzcfIYcwbNJB
@@ -1026,18 +1041,21 @@ picos:
             pontos_uids:
             - B45PhzG03QuJXF
             escalada: Excomungado
+            setor: Setor principal
             ids:
             - B45PhzG03QuJXF
           - alvo_uid: cHn90YpbxXqQRF
             pontos_uids:
             - XlnITQxCQgLjDv
             escalada: Chama Jesus
+            setor: Setor principal
             ids:
             - XlnITQxCQgLjDv
           - alvo_uid: ORxLpEqaVr3jtN
             pontos_uids:
             - G6mRccML2Z73nu
             escalada: Missionárias do Além
+            setor: Setor principal
             ids:
             - G6mRccML2Z73nu
           - alvo_uid: wodKaOmLPIbirQ
@@ -1045,6 +1063,7 @@ picos:
             - kzcqTarOsXPxzo
             - UQHpleJDF5CDwC
             escalada: Variante Santo do Pau Oco
+            setor: Setor principal
             ids:
             - kzcqTarOsXPxzo
             - UQHpleJDF5CDwC
@@ -1054,6 +1073,7 @@ picos:
             - kzcqTarOsXPxzo
             - UQHpleJDF5CDwC
             escalada: Variante Santo do Pau Oco (extensão)
+            setor: Setor principal
             ids:
             - NX6DKHm096RWBd
             - kzcqTarOsXPxzo
@@ -1063,6 +1083,7 @@ picos:
             - wWLCQvWCblD9dh
             - kzcqTarOsXPxzo
             escalada: Projeto Aresta
+            setor: Setor principal
             ids:
             - wWLCQvWCblD9dh
             - kzcqTarOsXPxzo
@@ -1070,12 +1091,14 @@ picos:
             pontos_uids:
             - 4Q8xvk1w6CLgo3
             escalada: Extensão Penitência
+            setor: Setor principal
             ids:
             - 4Q8xvk1w6CLgo3
           - alvo_uid: GRVzMUDrcZ39wf
             pontos_uids:
             - mb9U43cT2tDl9a
             escalada: Extensão Piedade
+            setor: Setor principal
             ids:
             - mb9U43cT2tDl9a
           - alvo_uid: B6jTijHVv9N5CR
@@ -1083,6 +1106,7 @@ picos:
             - plxP2gxYJeqgU7
             - KLljRokkU6g4fO
             escalada: Água Benta
+            setor: Setor principal
             ids:
             - plxP2gxYJeqgU7
             - KLljRokkU6g4fO
@@ -1090,6 +1114,7 @@ picos:
             pontos_uids:
             - 850d9gyea4InJj
             escalada: Misericórdia
+            setor: Setor principal
             ids:
             - 850d9gyea4InJj
           - alvo_uid: hEAxAy5uZ9BnoK
@@ -1097,6 +1122,7 @@ picos:
             - HVxNzRp5mAUbbp
             - plxP2gxYJeqgU7
             escalada: Variante Água Ardente
+            setor: Setor principal
             ids:
             - HVxNzRp5mAUbbp
             - plxP2gxYJeqgU7
@@ -1348,42 +1374,49 @@ picos:
             pontos_uids:
             - NiIsHRRPKiYuzj
             escalada: Água Benta
+            setor: Setor principal
             ids:
             - NiIsHRRPKiYuzj
           - alvo_uid: cR9vug3lhKEZ1s
             pontos_uids:
             - T3u9i5FeZQBJ4F
             escalada: Misericórdia
+            setor: Setor principal
             ids:
             - T3u9i5FeZQBJ4F
           - alvo_uid: EGBbnsf5w525IM
             pontos_uids:
             - xd5CMVY4Y4VO9D
             escalada: Excomungado
+            setor: Setor principal
             ids:
             - xd5CMVY4Y4VO9D
           - alvo_uid: o1EX8168cyvAmv
             pontos_uids:
             - 5w7VrWdqJXmPjz
             escalada: Crisma
+            setor: Setor principal
             ids:
             - 5w7VrWdqJXmPjz
           - alvo_uid: MOxqASBLS8QHbK
             pontos_uids:
             - RxNpEP6K79R4H4
             escalada: Primeira Comunhão
+            setor: Setor principal
             ids:
             - RxNpEP6K79R4H4
           - alvo_uid: hdecePrG3R8YaC
             pontos_uids:
             - ncR8xmuvwRxMm6
             escalada: Tribunal da inquisição
+            setor: Setor principal
             ids:
             - ncR8xmuvwRxMm6
           - alvo_uid: FnHzOhpeTEn2sT
             pontos_uids:
             - 8R1VaFw2Slbge6
             escalada: Proj
+            setor: Setor principal
             ids:
             - 8R1VaFw2Slbge6
         - caminho_imagem_mapa: imagens/setor_capela_interna_p1.webp
@@ -1625,42 +1658,49 @@ picos:
             pontos_uids:
             - kP03Bpe6KoiD9b
             escalada: Água Benta
+            setor: Setor principal
             ids:
             - kP03Bpe6KoiD9b
           - alvo_uid: cR9vug3lhKEZ1s
             pontos_uids:
             - 80JRNB4qw0K3aR
             escalada: Misericórdia
+            setor: Setor principal
             ids:
             - 80JRNB4qw0K3aR
           - alvo_uid: EGBbnsf5w525IM
             pontos_uids:
             - NECWHfHXmMLoyq
             escalada: Excomungado
+            setor: Setor principal
             ids:
             - NECWHfHXmMLoyq
           - alvo_uid: o1EX8168cyvAmv
             pontos_uids:
             - HtzmNCKPNc4Vzc
             escalada: Crisma
+            setor: Setor principal
             ids:
             - HtzmNCKPNc4Vzc
           - alvo_uid: MOxqASBLS8QHbK
             pontos_uids:
             - VkgAULn9wfezPW
             escalada: Primeira Comunhão
+            setor: Setor principal
             ids:
             - VkgAULn9wfezPW
           - alvo_uid: hdecePrG3R8YaC
             pontos_uids:
             - zEd2TPMuHBRPzV
             escalada: Tribunal da inquisição
+            setor: Setor principal
             ids:
             - zEd2TPMuHBRPzV
           - alvo_uid: FnHzOhpeTEn2sT
             pontos_uids:
             - JhsoqmZMDlGfra
             escalada: Proj
+            setor: Setor principal
             ids:
             - JhsoqmZMDlGfra
         escaladas:

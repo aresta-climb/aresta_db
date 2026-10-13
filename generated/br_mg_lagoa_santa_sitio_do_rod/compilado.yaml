@@ -139,84 +139,98 @@ picos:
             pontos_uids:
             - ptykxW7a7qg7XB
             escalada: Mão de martelo
+            setor: Setor G1
             ids:
             - ptykxW7a7qg7XB
           - alvo_uid: FjMCRvAXU0U6oZ
             pontos_uids:
             - RFEInGUBytnDeJ
             escalada: Calibre 44
+            setor: Setor G1
             ids:
             - RFEInGUBytnDeJ
           - alvo_uid: AAWIwSYiPEJ1wI
             pontos_uids:
             - GVYZaSqUqYMVRP
             escalada: Antro dos mosquitos
+            setor: Setor G1
             ids:
             - GVYZaSqUqYMVRP
           - alvo_uid: s6VUrdB017oKsO
             pontos_uids:
             - X7Kli74r586piS
             escalada: Poder do silêncio
+            setor: Setor G1
             ids:
             - X7Kli74r586piS
           - alvo_uid: Stl18z42g4jTzV
             pontos_uids:
             - hb1SmYJbgpROte
             escalada: Não contavam com minha astucia
+            setor: Setor G1
             ids:
             - hb1SmYJbgpROte
           - alvo_uid: pKMhsAzTkKgith
             pontos_uids:
             - u7tkti4nkLASRN
             escalada: Terra do nunca
+            setor: Setor G1
             ids:
             - u7tkti4nkLASRN
           - alvo_uid: 7fT9qRaUP4zohz
             pontos_uids:
             - 6iCACRtJczbBle
             escalada: Voz apocalíptica
+            setor: Setor G1
             ids:
             - 6iCACRtJczbBle
           - alvo_uid: RPrekvCkw957V7
             pontos_uids:
             - 1p216I6L7WsfXk
             escalada: Vivendo no crux da larica
+            setor: Setor G1
             ids:
             - 1p216I6L7WsfXk
           - alvo_uid: f96bqEmXGp4ICK
             pontos_uids:
             - bW7WbSqBrTKvv8
             escalada: Capitão caverna
+            setor: Setor G1
             ids:
             - bW7WbSqBrTKvv8
           - alvo_uid: FCv3yDH8sLbk7K
             pontos_uids:
             - JYVKRaYOaxLEDp
             escalada: Sai do chão
+            setor: Setor G1
             ids:
             - JYVKRaYOaxLEDp
           - alvo_uid: Abt28MEhC51Byp
             pontos_uids:
             - 0ZJ9KagIP3J9R7
             escalada: Os pica pedra
+            setor: Setor G1
             ids:
             - 0ZJ9KagIP3J9R7
           - alvo_uid: vGhIO5NFcVnq8G
             pontos_uids:
             - qIXawlHb62HYSh
             escalada: O resgate dos barbarás no meio do corredor polonês
+            setor: Setor G1
             ids:
             - qIXawlHb62HYSh
           - alvo_uid: ABd6krn0uFe433
             pontos_uids:
             - BtXwhI1YbFtuv9
             escalada: '?'
+            setor: Setor G1
             ids:
             - BtXwhI1YbFtuv9
           - alvo_uid: ABd6krn0uFe433
             pontos_uids:
             - nHVXxBbUU6IRKo
             escalada: '?'
+            setor: Setor G1
             ids:
             - nHVXxBbUU6IRKo
         escaladas:
@@ -523,126 +537,147 @@ picos:
             pontos_uids:
             - QmIdPfjbs80Gw3
             escalada: Pé da Gameleira
+            setor: Setor G2
             ids:
             - QmIdPfjbs80Gw3
           - alvo_uid: DDulHh7vXareS0
             pontos_uids:
             - niU8HKFFGU2Jd0
             escalada: Sangue bão
+            setor: Setor G2
             ids:
             - niU8HKFFGU2Jd0
           - alvo_uid: sVthQOrPafxnRM
             pontos_uids:
             - fn9nzknaqT7vLU
             escalada: Sedativa
+            setor: Setor G2
             ids:
             - fn9nzknaqT7vLU
           - alvo_uid: ioDz0EILNSXgu1
             pontos_uids:
             - XZwd7cNMcWYXt7
             escalada: Pressão da abelha (variante)
+            setor: Setor G2
             ids:
             - XZwd7cNMcWYXt7
           - alvo_uid: KLsuh8RZ3FUONx
             pontos_uids:
             - Bo3sfhkHBnn0uG
             escalada: Prezinho
+            setor: Setor G2
             ids:
             - Bo3sfhkHBnn0uG
           - alvo_uid: OqcTCdARZIIrVo
             pontos_uids:
             - klKJDaUTtxRAK2
             escalada: Super canaleta
+            setor: Setor G2
             ids:
             - klKJDaUTtxRAK2
           - alvo_uid: 49EHkJKF4z5uZY
             pontos_uids:
             - SmQDRc1qTG0m6j
             escalada: Cactos talidomida
+            setor: Setor G2
             ids:
             - SmQDRc1qTG0m6j
           - alvo_uid: qhv0kKI6eiFiFs
             pontos_uids:
             - ppdabD6q7qUqUi
             escalada: Logo sai
+            setor: Setor G2
             ids:
             - ppdabD6q7qUqUi
           - alvo_uid: anxdB46ZVIXlQM
             pontos_uids:
             - F1aJtvPTCNAP4G
             escalada: Cariocas
+            setor: Setor G2
             ids:
             - F1aJtvPTCNAP4G
           - alvo_uid: wz3fi67AzYyAXK
             pontos_uids:
             - 4EW6c7G9TqeqTJ
             escalada: Tapa na aranha
+            setor: Setor G2
             ids:
             - 4EW6c7G9TqeqTJ
           - alvo_uid: wuIOHvNQg40cXT
             pontos_uids:
             - y8CDoFya2D8FcH
             escalada: Titãs atônitos
+            setor: Setor G2
             ids:
             - y8CDoFya2D8FcH
           - alvo_uid: kQYoMdRcHTt86X
             pontos_uids:
             - JJSFntgO9G11u6
             escalada: Enganaram o cabo
+            setor: Setor G2
             ids:
             - JJSFntgO9G11u6
           - alvo_uid: KlKw3sXIXE8qll
             pontos_uids:
             - eFuwQbP4EKX1U1
             escalada: Urtigas
+            setor: Setor G2
             ids:
             - eFuwQbP4EKX1U1
           - alvo_uid: sYAcnxiMbBA7RT
             pontos_uids:
             - cKQKzxfwWeBQUw
             escalada: Atretas do climb (mapa do Brasil)
+            setor: Setor G2
             ids:
             - cKQKzxfwWeBQUw
           - alvo_uid: DpDFCaGAYmeIm5
             pontos_uids:
             - XNFf2WsehBu90T
             escalada: Ossos do orifício
+            setor: Setor G2
             ids:
             - XNFf2WsehBu90T
           - alvo_uid: O6CLvjL2vx3MiH
             pontos_uids:
             - sG0WdUKWENdUZ2
             escalada: Baião de dois
+            setor: Setor G2
             ids:
             - sG0WdUKWENdUZ2
           - alvo_uid: Nl7xKy2GD1O6p6
             pontos_uids:
             - osYPsTWEb6K1NR
             escalada: Entre linhas
+            setor: Setor G2
             ids:
             - osYPsTWEb6K1NR
           - alvo_uid: cUBWjKVDKP0SWw
             pontos_uids:
             - NohN364QNufezn
             escalada: SOS mandacaru
+            setor: Setor G2
             ids:
             - NohN364QNufezn
           - alvo_uid: KHljwh9Bno85vs
             pontos_uids:
             - OQOpSlkXZHS3bo
             escalada: Socorro vem de baixo
+            setor: Setor G2
             ids:
             - OQOpSlkXZHS3bo
           - alvo_uid: I5yOBuXwMObxQL
             pontos_uids:
             - OufBWNYmKzr7uW
             escalada: Mato queimado
+            setor: Setor G2
             ids:
             - OufBWNYmKzr7uW
           - alvo_uid: N6hvfKwGBDHbG3
             pontos_uids:
             - yhbp8mIxDZDwbA
             escalada: De Mariah
+            setor: Setor G2
             ids:
             - yhbp8mIxDZDwbA
         escaladas:
@@ -1215,300 +1250,350 @@ picos:
             pontos_uids:
             - 6AngR9VUXYkLUx
             escalada: Quem manda aqui sou Eu "Eterosapiens"
+            setor: Setor G3
             ids:
             - 6AngR9VUXYkLUx
           - alvo_uid: jcTf8bMTQSzdRI
             pontos_uids:
             - vJN7Lu62t0B4EF
             escalada: Poder paralelos
+            setor: Setor G3
             ids:
             - vJN7Lu62t0B4EF
           - alvo_uid: oPR3AQpEM2qAtk
             pontos_uids:
             - B4WQ9i4bVAp1bC
             escalada: Pra você
+            setor: Setor G3
             ids:
             - B4WQ9i4bVAp1bC
           - alvo_uid: 8nz9fG1i2lvlHl
             pontos_uids:
             - 0XlAFLS5LcwrxY
             escalada: 100 limites
+            setor: Setor G3
             ids:
             - 0XlAFLS5LcwrxY
           - alvo_uid: pb0AZAzfCwQL0S
             pontos_uids:
             - PqodMvKGk6LkEZ
             escalada: Mentira não faz
+            setor: Setor G3
             ids:
             - PqodMvKGk6LkEZ
           - alvo_uid: hlYDTl2RiGslzC
             pontos_uids:
             - dh9wqqQCmppGFp
             escalada: Elvira a rainha das trevas
+            setor: Setor G3
             ids:
             - dh9wqqQCmppGFp
           - alvo_uid: a9sOswMwnTVNXu
             pontos_uids:
             - uhdaQB6PCW5ZKd
             escalada: Pescoço de peixe
+            setor: Setor G3
             ids:
             - uhdaQB6PCW5ZKd
           - alvo_uid: TASmZRqlj39ndT
             pontos_uids:
             - Jp4cebHIGLqJQ9
             escalada: Lá fora chove, aqui dentro só pinga
+            setor: Setor G3
             ids:
             - Jp4cebHIGLqJQ9
           - alvo_uid: kQiXMWkmVpgdrB
             pontos_uids:
             - 8JIrvUbKMJPr0o
             escalada: Climb in the rain
+            setor: Setor G3
             ids:
             - 8JIrvUbKMJPr0o
           - alvo_uid: riZGNVTlHJpLyg
             pontos_uids:
             - WUqzMehsjx6uEZ
             escalada: Invasão de privacidade
+            setor: Setor G3
             ids:
             - WUqzMehsjx6uEZ
           - alvo_uid: 4UVLL2SGgFmJ0A
             pontos_uids:
             - t37WizPLDXn3v2
             escalada: El paseo
+            setor: Setor G3
             ids:
             - t37WizPLDXn3v2
           - alvo_uid: VHpfhs8NHBGw1v
             pontos_uids:
             - evShYwPR2ozz3F
             escalada: Dinamicuzão
+            setor: Setor G3
             ids:
             - evShYwPR2ozz3F
           - alvo_uid: TwXskHCUe8KvMm
             pontos_uids:
             - O2CMfKUrMBHLnD
             escalada: Catapulta
+            setor: Setor G3
             ids:
             - O2CMfKUrMBHLnD
           - alvo_uid: mvch2fD1K5KCmf
             pontos_uids:
             - fAofVJomgC6Jri
             escalada: Rodilar
+            setor: Setor G3
             ids:
             - fAofVJomgC6Jri
           - alvo_uid: zDk3xEIjB9snXQ
             pontos_uids:
             - vNlWx6j7q8cQIv
             escalada: Fósseis do velho mundo
+            setor: Setor G3
             ids:
             - vNlWx6j7q8cQIv
           - alvo_uid: gpZmZWq400vUe2
             pontos_uids:
             - IGd26RWxn26k6O
             escalada: Querendo velho mundo
+            setor: Setor G3
             ids:
             - IGd26RWxn26k6O
           - alvo_uid: 3jAC5cfhd35TRz
             pontos_uids:
             - 5ROs2IfsBDcItT
             escalada: Sem querer querendo
+            setor: Setor G3
             ids:
             - 5ROs2IfsBDcItT
           - alvo_uid: Y24nN8xmfRIdyk
             pontos_uids:
             - vtUGJfqXbXnpNU
             escalada: Segunda sem lei
+            setor: Setor G3
             ids:
             - vtUGJfqXbXnpNU
           - alvo_uid: Ul4jHQNWsBbTOS
             pontos_uids:
             - QyqYpXuHZ1lY1o
             escalada: Quinta desordeira
+            setor: Setor G3
             ids:
             - QyqYpXuHZ1lY1o
           - alvo_uid: ZfLVIc0yOQIlox
             pontos_uids:
             - ehgeFvx16JkxOo
             escalada: Decapitados
+            setor: Setor G3
             ids:
             - ehgeFvx16JkxOo
           - alvo_uid: wXaHsI7pxZ2nsF
             pontos_uids:
             - 78c5y2KRdqisXe
             escalada: Já tá lá
+            setor: Setor G3
             ids:
             - 78c5y2KRdqisXe
           - alvo_uid: hIsCTCc8nlGpG6
             pontos_uids:
             - mzsuNyAneBkv3F
             escalada: Tente outra vez
+            setor: Setor G3
             ids:
             - mzsuNyAneBkv3F
           - alvo_uid: UNirvrxDGNXKaF
             pontos_uids:
             - 6ftfCW2idzFWrc
             escalada: A troca
+            setor: Setor G3
             ids:
             - 6ftfCW2idzFWrc
           - alvo_uid: aWoDk4WJmMfOGQ
             pontos_uids:
             - lrJrCDpgaJsVFu
             escalada: No mato com os cachorros
+            setor: Setor G3
             ids:
             - lrJrCDpgaJsVFu
           - alvo_uid: mXLdsMtoJaNGgM
             pontos_uids:
             - eLFYB4uYP2G6kX
             escalada: Secuzinho
+            setor: Setor G3
             ids:
             - eLFYB4uYP2G6kX
           - alvo_uid: QfxHLbP8enlmjP
             pontos_uids:
             - WzdmLp1qmF0mHg
             escalada: Sublime obsessão
+            setor: Setor G3
             ids:
             - WzdmLp1qmF0mHg
           - alvo_uid: Y7ogpbrEfN5SDZ
             pontos_uids:
             - g7H93BolFVwtHo
             escalada: Não guenta senta
+            setor: Setor G3
             ids:
             - g7H93BolFVwtHo
           - alvo_uid: Jrk4GhgmwbHxph
             pontos_uids:
             - j6VtForjbcvmDU
             escalada: Despertar da curriola
+            setor: Setor G3
             ids:
             - j6VtForjbcvmDU
           - alvo_uid: igt0m7ZsV6rRh3
             pontos_uids:
             - rxdJC09j0C1r9E
             escalada: Variante
+            setor: Setor G3
             ids:
             - rxdJC09j0C1r9E
           - alvo_uid: phZGZQ88jJIPU3
             pontos_uids:
             - bhD549s0ezfREs
             escalada: Um dia depois de amanhã
+            setor: Setor G3
             ids:
             - bhD549s0ezfREs
           - alvo_uid: m28nBrsBUK99aP
             pontos_uids:
             - nQbRlg6mnEXoZL
             escalada: Prakaramba
+            setor: Setor G3
             ids:
             - nQbRlg6mnEXoZL
           - alvo_uid: 7gTRexxZCkE7NV
             pontos_uids:
             - H7QI5X3hGDHGJz
             escalada: Estilo junkie
+            setor: Setor G3
             ids:
             - H7QI5X3hGDHGJz
           - alvo_uid: rJMPyYaNb5xKlc
             pontos_uids:
             - S0w9pd3ygFZTGb
             escalada: Escalão Hilário
+            setor: Setor G3
             ids:
             - S0w9pd3ygFZTGb
           - alvo_uid: nP301ZzemueFY4
             pontos_uids:
             - C6is4p5FVWkIA8
             escalada: Missão impossível
+            setor: Setor G3
             ids:
             - C6is4p5FVWkIA8
           - alvo_uid: IFcwEEy1ZZuKS3
             pontos_uids:
             - hMDB4QMV0XKfBz
             escalada: Bode negro
+            setor: Setor G3
             ids:
             - hMDB4QMV0XKfBz
           - alvo_uid: tUnoeSk1oPFe02
             pontos_uids:
             - FAVkvA1rHkIba8
             escalada: V da via
+            setor: Setor G3
             ids:
             - FAVkvA1rHkIba8
           - alvo_uid: IEAibl84wLzVJB
             pontos_uids:
             - LWpDGtz4qazvpg
             escalada: Até que enfim
+            setor: Setor G3
             ids:
             - LWpDGtz4qazvpg
           - alvo_uid: aaO9oUr9Rro5Zh
             pontos_uids:
             - PmpQM2NKQ6Xrc6
             escalada: Noiados do maguina
+            setor: Setor G3
             ids:
             - PmpQM2NKQ6Xrc6
           - alvo_uid: EEpet2HVBn69jA
             pontos_uids:
             - 3l3CwX0h18qJBm
             escalada: Da Cuca Lelé (variante)
+            setor: Setor G3
             ids:
             - 3l3CwX0h18qJBm
           - alvo_uid: TaZQFKayl8mAeP
             pontos_uids:
             - vSsRIr3ZfQ4U65
             escalada: Deus dos quatro anos
+            setor: Setor G3
             ids:
             - vSsRIr3ZfQ4U65
           - alvo_uid: HllGw2msTGMj1N
             pontos_uids:
             - dE9KFbJWJqeOMh
             escalada: Gaibous in the laibous
+            setor: Setor G3
             ids:
             - dE9KFbJWJqeOMh
           - alvo_uid: lRkli5XRyIMCGk
             pontos_uids:
             - 69AOa1swYqQk7R
             escalada: Power katronca
+            setor: Setor G3
             ids:
             - 69AOa1swYqQk7R
           - alvo_uid: TlRQFwUmzTUKk4
             pontos_uids:
             - XCag8d52J1B5Fj
             escalada: Muito punk
+            setor: Setor G3
             ids:
             - XCag8d52J1B5Fj
           - alvo_uid: KihNxnY9ICSBIi
             pontos_uids:
             - QZgsd1iCWd1kPw
             escalada: Demolição
+            setor: Setor G3
             ids:
             - QZgsd1iCWd1kPw
           - alvo_uid: mEOGgFtzxODOuN
             pontos_uids:
             - 3Ad0FgyZ7ZBz7x
             escalada: Big Wall do Salim
+            setor: Setor G3
             ids:
             - 3Ad0FgyZ7ZBz7x
           - alvo_uid: VPpf4y493PsUF3
             pontos_uids:
             - VgKF7wCRln5I8r
             escalada: Patati Patata
+            setor: Setor G3
             ids:
             - VgKF7wCRln5I8r
           - alvo_uid: V7jBsQsEgKctEy
             pontos_uids:
             - fAofVJomgC6Jri
             escalada: Dinamicuzão em Rodlá
+            setor: Setor G3
             ids:
             - fAofVJomgC6Jri
           - alvo_uid: H3QghtOqkjRIfh
             pontos_uids:
             - O2CMfKUrMBHLnD
             escalada: Dinamicuzão em catapulta
+            setor: Setor G3
             ids:
             - O2CMfKUrMBHLnD
           - alvo_uid: G2a7URYoDebtVu
             pontos_uids:
             - evShYwPR2ozz3F
             escalada: Dinamicuzão em El paseo
+            setor: Setor G3
             ids:
             - evShYwPR2ozz3F
           - alvo_uid: Dpr13udQb9RUxa
             pontos_uids:
             - t37WizPLDXn3v2
             escalada: El paseo em Dinamicuzão
+            setor: Setor G3
             ids:
             - t37WizPLDXn3v2
         escaladas:

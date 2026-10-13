@@ -341,6 +341,7 @@
         - **pontos_uids**:
           - xoelL0qsX5lvQ1
         - **escalada**: Parede Preta
+        - **setor**: Croqui 01 da Pedra Branca
         - **ids**:
           - xoelL0qsX5lvQ1
       - **[1]**:
@@ -348,6 +349,7 @@
         - **pontos_uids**:
           - S9ulPKQHMtZexV
         - **escalada**: Leão da Montanha
+        - **setor**: Croqui 01 da Pedra Branca
         - **ids**:
           - S9ulPKQHMtZexV
       - **[2]**:
@@ -355,6 +357,7 @@
         - **pontos_uids**:
           - 1a3dQAOIyY0zSD
         - **escalada**: Face Norte
+        - **setor**: Croqui 01 da Pedra Branca
         - **ids**:
           - 1a3dQAOIyY0zSD
       - **[3]**:
@@ -362,6 +365,7 @@
         - **pontos_uids**:
           - Non1VFvneGG1tc
         - **escalada**: Criaturas da Noite
+        - **setor**: Croqui 01 da Pedra Branca
         - **ids**:
           - Non1VFvneGG1tc
       - **[4]**:
@@ -369,6 +373,7 @@
         - **pontos_uids**:
           - v6DRuRsdubauXm
         - **escalada**: Tendência Suicida
+        - **setor**: Croqui 01 da Pedra Branca
         - **ids**:
           - v6DRuRsdubauXm
       - **[5]**:
@@ -376,6 +381,7 @@
         - **pontos_uids**:
           - fFTvG4Y5GrNdk2
         - **escalada**: Thor
+        - **setor**: Croqui 01 da Pedra Branca
         - **ids**:
           - fFTvG4Y5GrNdk2
       - **[6]**:
@@ -383,6 +389,7 @@
         - **pontos_uids**:
           - iYF3Rb9xYPogbA
         - **escalada**: Todinha pra Mim
+        - **setor**: Croqui 01 da Pedra Branca
         - **ids**:
           - iYF3Rb9xYPogbA
       - **[7]**:
@@ -390,6 +397,7 @@
         - **pontos_uids**:
           - Y43j7YvTkGaYOQ
         - **escalada**: Sombra do Gigante
+        - **setor**: Croqui 01 da Pedra Branca
         - **ids**:
           - Y43j7YvTkGaYOQ
       - **[8]**:
@@ -397,6 +405,7 @@
         - **pontos_uids**:
           - WE6PYnvPPqV7YS
         - **escalada**: Firinha Rinda
+        - **setor**: Croqui 01 da Pedra Branca
         - **ids**:
           - WE6PYnvPPqV7YS
       - **[9]**:
@@ -404,6 +413,7 @@
         - **pontos_uids**:
           - bxnxrQvXUEfey7
         - **escalada**: Piolhos Entorpecidos
+        - **setor**: Croqui 01 da Pedra Branca
         - **ids**:
           - bxnxrQvXUEfey7
       - **[10]**:
@@ -411,6 +421,7 @@
         - **pontos_uids**:
           - TqQ7j0awfKOQe7
         - **escalada**: Monstros
+        - **setor**: Croqui 01 da Pedra Branca
         - **ids**:
           - TqQ7j0awfKOQe7
       - **[11]**:
@@ -418,6 +429,7 @@
         - **pontos_uids**:
           - nuG9LB9Agaq6G3
         - **escalada**: Princesa Escalafabeltica
+        - **setor**: Croqui 01 da Pedra Branca
         - **ids**:
           - nuG9LB9Agaq6G3
       - **[12]**:
@@ -425,6 +437,7 @@
         - **pontos_uids**:
           - 07Bk4BneOy2EVB
         - **escalada**: Restos de Woodstock
+        - **setor**: Croqui 01 da Pedra Branca
         - **ids**:
           - 07Bk4BneOy2EVB
       - **[13]**:
@@ -432,6 +445,7 @@
         - **pontos_uids**:
           - QIF0uJoBiCXFar
         - **escalada**: ??
+        - **setor**: Croqui 01 da Pedra Branca
         - **ids**:
           - QIF0uJoBiCXFar
       - **[14]**:
@@ -439,6 +453,7 @@
         - **pontos_uids**:
           - ViWy1gHEOfiPR1
         - **escalada**: Via da Coruja
+        - **setor**: Croqui 01 da Pedra Branca
         - **ids**:
           - ViWy1gHEOfiPR1
       - **[15]**:
@@ -446,6 +461,7 @@
         - **pontos_uids**:
           - ukxbibKTTRV3Hz
         - **escalada**: Dona Onça
+        - **setor**: Croqui 01 da Pedra Branca
         - **ids**:
           - ukxbibKTTRV3Hz
       - **[16]**:
@@ -453,6 +469,7 @@
         - **pontos_uids**:
           - 12IGBn5WHXGOsJ
         - **escalada**: Solidão das Idéias
+        - **setor**: Croqui 01 da Pedra Branca
         - **ids**:
           - 12IGBn5WHXGOsJ
       - **[17]**:
@@ -460,6 +477,7 @@
         - **pontos_uids**:
           - gYrS8JSxYycrNG
         - **escalada**: A Espera dos Urubus
+        - **setor**: Croqui 01 da Pedra Branca
         - **ids**:
           - gYrS8JSxYycrNG
       - **[18]**:
@@ -467,6 +485,7 @@
         - **pontos_uids**:
           - RV1xvZSTYRzkVM
         - **escalada**: Gaviões
+        - **setor**: Croqui 01 da Pedra Branca
         - **ids**:
           - RV1xvZSTYRzkVM
       - **[19]**:
@@ -474,6 +493,7 @@
         - **pontos_uids**:
           - FUiTvXFHM3e905
         - **escalada**: Azimut Vertical
+        - **setor**: Croqui 01 da Pedra Branca
         - **ids**:
           - FUiTvXFHM3e905
       - **[20]**:
@@ -481,6 +501,7 @@
         - **pontos_uids**:
           - NRnGgmxLfM99K7
         - **escalada**: Zique Zira da Raca Rouca
+        - **setor**: Croqui 01 da Pedra Branca
         - **ids**:
           - NRnGgmxLfM99K7
       - **[21]**:
@@ -488,6 +509,7 @@
         - **pontos_uids**:
           - IDP1dsWrYiZFHs
         - **escalada**: Mistérios da Fé
+        - **setor**: Croqui 01 da Pedra Branca
         - **ids**:
           - IDP1dsWrYiZFHs
       - **[22]**:
@@ -495,6 +517,7 @@
         - **pontos_uids**:
           - CRmbnKH8QCO7Zc
         - **escalada**: Nem Karaca Caia
+        - **setor**: Croqui 01 da Pedra Branca
         - **ids**:
           - CRmbnKH8QCO7Zc
       - **[23]**:
@@ -502,6 +525,7 @@
         - **pontos_uids**:
           - 11oZlL6GJO1jb9
         - **escalada**: Variante Culpa do Elninho
+        - **setor**: Croqui 01 da Pedra Branca
         - **ids**:
           - 11oZlL6GJO1jb9
       - **[24]**:
@@ -509,6 +533,7 @@
         - **pontos_uids**:
           - AWgSDlEJUMDlVt
         - **escalada**: Variante do Mergulho
+        - **setor**: Croqui 01 da Pedra Branca
         - **ids**:
           - AWgSDlEJUMDlVt
       - **[25]**:
@@ -516,6 +541,7 @@
         - **pontos_uids**:
           - 5b6g1Wma74LHoT
         - **escalada**: Variante por Aqui
+        - **setor**: Croqui 01 da Pedra Branca
         - **ids**:
           - 5b6g1Wma74LHoT
       - **[26]**:
@@ -523,6 +549,7 @@
         - **pontos_uids**:
           - 3ORGCLSTfMoDjO
         - **escalada**: Variante do Judas
+        - **setor**: Croqui 01 da Pedra Branca
         - **ids**:
           - 3ORGCLSTfMoDjO
 - **escaladas**:
@@ -827,6 +854,7 @@
         - **pontos_uids**:
           - fx8W0n0PcDgd1t
         - **escalada**: Festival dos Lagartos
+        - **setor**: Croqui 02 da Pedra Branca
         - **ids**:
           - fx8W0n0PcDgd1t
       - **[1]**:
@@ -834,6 +862,7 @@
         - **pontos_uids**:
           - NPLv8kV0OgTM3i
         - **escalada**: Melhor Impossível
+        - **setor**: Croqui 02 da Pedra Branca
         - **ids**:
           - NPLv8kV0OgTM3i
       - **[2]**:
@@ -841,6 +870,7 @@
         - **pontos_uids**:
           - Gvaxu7p71BHW4I
         - **escalada**: Lombra Etílica
+        - **setor**: Croqui 02 da Pedra Branca
         - **ids**:
           - Gvaxu7p71BHW4I
       - **[3]**:
@@ -848,6 +878,7 @@
         - **pontos_uids**:
           - YZv97lLdfarPGp
         - **escalada**: Paredão SLU
+        - **setor**: Croqui 02 da Pedra Branca
         - **ids**:
           - YZv97lLdfarPGp
       - **[4]**:
@@ -855,6 +886,7 @@
         - **pontos_uids**:
           - OYdXgXjX18iGeJ
         - **escalada**: Libertas
+        - **setor**: Croqui 02 da Pedra Branca
         - **ids**:
           - OYdXgXjX18iGeJ
       - **[5]**:
@@ -862,6 +894,7 @@
         - **pontos_uids**:
           - J2WxmpWWKxcF8G
         - **escalada**: Micos
+        - **setor**: Croqui 02 da Pedra Branca
         - **ids**:
           - J2WxmpWWKxcF8G
       - **[6]**:
@@ -869,6 +902,7 @@
         - **pontos_uids**:
           - 3AD2NhABmLv92z
         - **escalada**: Via da Perereca
+        - **setor**: Croqui 02 da Pedra Branca
         - **ids**:
           - 3AD2NhABmLv92z
       - **[7]**:
@@ -876,6 +910,7 @@
         - **pontos_uids**:
           - G1BBJYZpnyoggF
         - **escalada**: Abominável Morcego Amestrado
+        - **setor**: Croqui 02 da Pedra Branca
         - **ids**:
           - G1BBJYZpnyoggF
       - **[8]**:
@@ -883,6 +918,7 @@
         - **pontos_uids**:
           - v1uDV3U4l0bQD0
         - **escalada**: Os Quatro Macacos
+        - **setor**: Croqui 02 da Pedra Branca
         - **ids**:
           - v1uDV3U4l0bQD0
       - **[9]**:
@@ -890,6 +926,7 @@
         - **pontos_uids**:
           - r9XseGKZxeH9ck
         - **escalada**: Produção Independente
+        - **setor**: Croqui 02 da Pedra Branca
         - **ids**:
           - r9XseGKZxeH9ck
       - **[10]**:
@@ -897,6 +934,7 @@
         - **pontos_uids**:
           - ILvn7ANoslivNo
         - **escalada**: Parede Preta
+        - **setor**: Croqui 02 da Pedra Branca
         - **ids**:
           - ILvn7ANoslivNo
       - **[11]**:
@@ -904,6 +942,7 @@
         - **pontos_uids**:
           - xvgDYzOGTkZsgo
         - **escalada**: Barbarela
+        - **setor**: Croqui 02 da Pedra Branca
         - **ids**:
           - xvgDYzOGTkZsgo
       - **[12]**:
@@ -911,6 +950,7 @@
         - **pontos_uids**:
           - 8vrBaXkhgc1MBj
         - **escalada**: Ciganos Molhados
+        - **setor**: Croqui 02 da Pedra Branca
         - **ids**:
           - 8vrBaXkhgc1MBj
 - **escaladas**:

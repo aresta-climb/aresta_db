@@ -540,6 +540,7 @@
         - **pontos_uids**:
           - HKcTTfSfCuBwAD
         - **escalada**: Misericórdia
+        - **setor**: Setor principal
         - **ids**:
           - HKcTTfSfCuBwAD
       - **[1]**:
@@ -547,6 +548,7 @@
         - **pontos_uids**:
           - Haj68bmHLqo9sE
         - **escalada**: Excomungado
+        - **setor**: Setor principal
         - **ids**:
           - Haj68bmHLqo9sE
       - **[2]**:
@@ -554,6 +556,7 @@
         - **pontos_uids**:
           - uDg1BD2NjpOCNh
         - **escalada**: Crisma
+        - **setor**: Setor principal
         - **ids**:
           - uDg1BD2NjpOCNh
       - **[3]**:
@@ -561,6 +564,7 @@
         - **pontos_uids**:
           - PH0TqGX93p27do
         - **escalada**: Primeira Comunhão
+        - **setor**: Setor principal
         - **ids**:
           - PH0TqGX93p27do
       - **[4]**:
@@ -568,6 +572,7 @@
         - **pontos_uids**:
           - hzVQ3SKhonh9ZI
         - **escalada**: Tribunal da inquisição
+        - **setor**: Setor principal
         - **ids**:
           - hzVQ3SKhonh9ZI
       - **[5]**:
@@ -575,6 +580,7 @@
         - **pontos_uids**:
           - uqj1txFAToioS9
         - **escalada**: Proj
+        - **setor**: Setor principal
         - **ids**:
           - uqj1txFAToioS9
       - **[6]**:
@@ -583,6 +589,7 @@
           - Haj68bmHLqo9sE
           - rVhvWUkENcaLp8
         - **escalada**: Extensão Piedade
+        - **setor**: Setor principal
         - **ids**:
           - Haj68bmHLqo9sE
           - rVhvWUkENcaLp8
@@ -592,6 +599,7 @@
           - HKuNUmArh9pqBR
           - Haj68bmHLqo9sE
         - **escalada**: Extensão Penitência
+        - **setor**: Setor principal
         - **ids**:
           - HKuNUmArh9pqBR
           - Haj68bmHLqo9sE
@@ -600,6 +608,7 @@
         - **pontos_uids**:
           - vSvd4vNFxHDE8D
         - **escalada**: Chama Jesus
+        - **setor**: Setor principal
         - **ids**:
           - vSvd4vNFxHDE8D
       - **[9]**:
@@ -608,6 +617,7 @@
           - X54GH7M5dUNPTF
           - 1WRkXw11vm5M4a
         - **escalada**: Variante Santo do Pau Oco
+        - **setor**: Setor principal
         - **ids**:
           - X54GH7M5dUNPTF
           - 1WRkXw11vm5M4a
@@ -618,6 +628,7 @@
           - X54GH7M5dUNPTF
           - 1WRkXw11vm5M4a
         - **escalada**: Variante Santo do Pau Oco (extensão)
+        - **setor**: Setor principal
         - **ids**:
           - 5SVp53Mya7NpUL
           - X54GH7M5dUNPTF
@@ -628,6 +639,7 @@
           - k4NGrnNmipXysx
           - X54GH7M5dUNPTF
         - **escalada**: Projeto Aresta
+        - **setor**: Setor principal
         - **ids**:
           - k4NGrnNmipXysx
           - X54GH7M5dUNPTF
@@ -636,6 +648,7 @@
         - **pontos_uids**:
           - GAoMOukSPLmz4L
         - **escalada**: Missionárias do Além
+        - **setor**: Setor principal
         - **ids**:
           - GAoMOukSPLmz4L
       - **[13]**:
@@ -644,6 +657,7 @@
           - JsEzcfIYcwbNJB
           - PXOqVuGcWNuXKk
         - **escalada**: Água Benta
+        - **setor**: Setor principal
         - **ids**:
           - JsEzcfIYcwbNJB
           - PXOqVuGcWNuXKk
@@ -653,6 +667,7 @@
           - 3Ft0gIajOpwd6G
           - JsEzcfIYcwbNJB
         - **escalada**: Variante Água Ardente
+        - **setor**: Setor principal
         - **ids**:
           - 3Ft0gIajOpwd6G
           - JsEzcfIYcwbNJB
@@ -1018,6 +1033,7 @@
         - **pontos_uids**:
           - B45PhzG03QuJXF
         - **escalada**: Excomungado
+        - **setor**: Setor principal
         - **ids**:
           - B45PhzG03QuJXF
       - **[1]**:
@@ -1025,6 +1041,7 @@
         - **pontos_uids**:
           - XlnITQxCQgLjDv
         - **escalada**: Chama Jesus
+        - **setor**: Setor principal
         - **ids**:
           - XlnITQxCQgLjDv
       - **[2]**:
@@ -1032,6 +1049,7 @@
         - **pontos_uids**:
           - G6mRccML2Z73nu
         - **escalada**: Missionárias do Além
+        - **setor**: Setor principal
         - **ids**:
           - G6mRccML2Z73nu
       - **[3]**:
@@ -1040,6 +1058,7 @@
           - kzcqTarOsXPxzo
           - UQHpleJDF5CDwC
         - **escalada**: Variante Santo do Pau Oco
+        - **setor**: Setor principal
         - **ids**:
           - kzcqTarOsXPxzo
           - UQHpleJDF5CDwC
@@ -1050,6 +1069,7 @@
           - kzcqTarOsXPxzo
           - UQHpleJDF5CDwC
         - **escalada**: Variante Santo do Pau Oco (extensão)
+        - **setor**: Setor principal
         - **ids**:
           - NX6DKHm096RWBd
           - kzcqTarOsXPxzo
@@ -1060,6 +1080,7 @@
           - wWLCQvWCblD9dh
           - kzcqTarOsXPxzo
         - **escalada**: Projeto Aresta
+        - **setor**: Setor principal
         - **ids**:
           - wWLCQvWCblD9dh
           - kzcqTarOsXPxzo
@@ -1068,6 +1089,7 @@
         - **pontos_uids**:
           - 4Q8xvk1w6CLgo3
         - **escalada**: Extensão Penitência
+        - **setor**: Setor principal
         - **ids**:
           - 4Q8xvk1w6CLgo3
       - **[7]**:
@@ -1075,6 +1097,7 @@
         - **pontos_uids**:
           - mb9U43cT2tDl9a
         - **escalada**: Extensão Piedade
+        - **setor**: Setor principal
         - **ids**:
           - mb9U43cT2tDl9a
       - **[8]**:
@@ -1083,6 +1106,7 @@
           - plxP2gxYJeqgU7
           - KLljRokkU6g4fO
         - **escalada**: Água Benta
+        - **setor**: Setor principal
         - **ids**:
           - plxP2gxYJeqgU7
           - KLljRokkU6g4fO
@@ -1091,6 +1115,7 @@
         - **pontos_uids**:
           - 850d9gyea4InJj
         - **escalada**: Misericórdia
+        - **setor**: Setor principal
         - **ids**:
           - 850d9gyea4InJj
       - **[10]**:
@@ -1099,6 +1124,7 @@
           - HVxNzRp5mAUbbp
           - plxP2gxYJeqgU7
         - **escalada**: Variante Água Ardente
+        - **setor**: Setor principal
         - **ids**:
           - HVxNzRp5mAUbbp
           - plxP2gxYJeqgU7
@@ -1316,6 +1342,7 @@
         - **pontos_uids**:
           - NiIsHRRPKiYuzj
         - **escalada**: Água Benta
+        - **setor**: Setor principal
         - **ids**:
           - NiIsHRRPKiYuzj
       - **[1]**:
@@ -1323,6 +1350,7 @@
         - **pontos_uids**:
           - T3u9i5FeZQBJ4F
         - **escalada**: Misericórdia
+        - **setor**: Setor principal
         - **ids**:
           - T3u9i5FeZQBJ4F
       - **[2]**:
@@ -1330,6 +1358,7 @@
         - **pontos_uids**:
           - xd5CMVY4Y4VO9D
         - **escalada**: Excomungado
+        - **setor**: Setor principal
         - **ids**:
           - xd5CMVY4Y4VO9D
       - **[3]**:
@@ -1337,6 +1366,7 @@
         - **pontos_uids**:
           - 5w7VrWdqJXmPjz
         - **escalada**: Crisma
+        - **setor**: Setor principal
         - **ids**:
           - 5w7VrWdqJXmPjz
       - **[4]**:
@@ -1344,6 +1374,7 @@
         - **pontos_uids**:
           - RxNpEP6K79R4H4
         - **escalada**: Primeira Comunhão
+        - **setor**: Setor principal
         - **ids**:
           - RxNpEP6K79R4H4
       - **[5]**:
@@ -1351,6 +1382,7 @@
         - **pontos_uids**:
           - ncR8xmuvwRxMm6
         - **escalada**: Tribunal da inquisição
+        - **setor**: Setor principal
         - **ids**:
           - ncR8xmuvwRxMm6
       - **[6]**:
@@ -1358,6 +1390,7 @@
         - **pontos_uids**:
           - 8R1VaFw2Slbge6
         - **escalada**: Proj
+        - **setor**: Setor principal
         - **ids**:
           - 8R1VaFw2Slbge6
   - **[3]**:
@@ -1574,6 +1607,7 @@
         - **pontos_uids**:
           - kP03Bpe6KoiD9b
         - **escalada**: Água Benta
+        - **setor**: Setor principal
         - **ids**:
           - kP03Bpe6KoiD9b
       - **[1]**:
@@ -1581,6 +1615,7 @@
         - **pontos_uids**:
           - 80JRNB4qw0K3aR
         - **escalada**: Misericórdia
+        - **setor**: Setor principal
         - **ids**:
           - 80JRNB4qw0K3aR
       - **[2]**:
@@ -1588,6 +1623,7 @@
         - **pontos_uids**:
           - NECWHfHXmMLoyq
         - **escalada**: Excomungado
+        - **setor**: Setor principal
         - **ids**:
           - NECWHfHXmMLoyq
       - **[3]**:
@@ -1595,6 +1631,7 @@
         - **pontos_uids**:
           - HtzmNCKPNc4Vzc
         - **escalada**: Crisma
+        - **setor**: Setor principal
         - **ids**:
           - HtzmNCKPNc4Vzc
       - **[4]**:
@@ -1602,6 +1639,7 @@
         - **pontos_uids**:
           - VkgAULn9wfezPW
         - **escalada**: Primeira Comunhão
+        - **setor**: Setor principal
         - **ids**:
           - VkgAULn9wfezPW
       - **[5]**:
@@ -1609,6 +1647,7 @@
         - **pontos_uids**:
           - zEd2TPMuHBRPzV
         - **escalada**: Tribunal da inquisição
+        - **setor**: Setor principal
         - **ids**:
           - zEd2TPMuHBRPzV
       - **[6]**:
@@ -1616,6 +1655,7 @@
         - **pontos_uids**:
           - JhsoqmZMDlGfra
         - **escalada**: Proj
+        - **setor**: Setor principal
         - **ids**:
           - JhsoqmZMDlGfra
 - **escaladas**:

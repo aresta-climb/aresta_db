@@ -534,6 +534,8 @@
               - **pontos_uids**:
                 - 1
               - **escalada**: Esquenta o prato
+              - **setor**: Bloco A - Traverse ao Tito
+              - **grupo**: Estacionamento
               - **ids**:
                 - 1
             - **[1]**:
@@ -541,6 +543,8 @@
               - **pontos_uids**:
                 - 2
               - **escalada**: Traverse ao Tito
+              - **setor**: Bloco A - Traverse ao Tito
+              - **grupo**: Estacionamento
               - **ids**:
                 - 2
             - **[2]**:
@@ -548,6 +552,8 @@
               - **pontos_uids**:
                 - 3
               - **escalada**: Chupa karma
+              - **setor**: Bloco A - Traverse ao Tito
+              - **grupo**: Estacionamento
               - **ids**:
                 - 3
             - **[3]**:
@@ -555,6 +561,8 @@
               - **pontos_uids**:
                 - 4
               - **escalada**: Taco o fogo
+              - **setor**: Bloco A - Traverse ao Tito
+              - **grupo**: Estacionamento
               - **ids**:
                 - 4
             - **[4]**:
@@ -562,6 +570,8 @@
               - **pontos_uids**:
                 - 5
               - **escalada**: Pum
+              - **setor**: Bloco A - Traverse ao Tito
+              - **grupo**: Estacionamento
               - **ids**:
                 - 5
       - **escaladas**:
@@ -617,6 +627,8 @@
               - **pontos_uids**:
                 - 6
               - **escalada**: La olla
+              - **setor**: Bloco B - Positive Vibrations
+              - **grupo**: Estacionamento
               - **ids**:
                 - 6
             - **[1]**:
@@ -624,6 +636,8 @@
               - **pontos_uids**:
                 - 7
               - **escalada**: Mayday
+              - **setor**: Bloco B - Positive Vibrations
+              - **grupo**: Estacionamento
               - **ids**:
                 - 7
             - **[2]**:
@@ -631,6 +645,8 @@
               - **pontos_uids**:
                 - 8
               - **escalada**: Positive vibrations
+              - **setor**: Bloco B - Positive Vibrations
+              - **grupo**: Estacionamento
               - **ids**:
                 - 8
             - **[3]**:
@@ -638,6 +654,8 @@
               - **pontos_uids**:
                 - 9
               - **escalada**: Macadâmia
+              - **setor**: Bloco B - Positive Vibrations
+              - **grupo**: Estacionamento
               - **ids**:
                 - 9
             - **[4]**:
@@ -645,6 +663,8 @@
               - **pontos_uids**:
                 - 10
               - **escalada**: King Kong
+              - **setor**: Bloco B - Positive Vibrations
+              - **grupo**: Estacionamento
               - **ids**:
                 - 10
         - **[1]**:
@@ -657,6 +677,8 @@
               - **pontos_uids**:
                 - 10
               - **escalada**: King Kong
+              - **setor**: Bloco B - Positive Vibrations
+              - **grupo**: Estacionamento
               - **ids**:
                 - 10
             - **[1]**:
@@ -664,6 +686,8 @@
               - **pontos_uids**:
                 - 11
               - **escalada**: FormiguinhaZ
+              - **setor**: Bloco B - Positive Vibrations
+              - **grupo**: Estacionamento
               - **ids**:
                 - 11
             - **[2]**:
@@ -671,6 +695,8 @@
               - **pontos_uids**:
                 - 12
               - **escalada**: Buttstache
+              - **setor**: Bloco B - Positive Vibrations
+              - **grupo**: Estacionamento
               - **ids**:
                 - 12
       - **escaladas**:
@@ -737,6 +763,8 @@
               - **pontos_uids**:
                 - 12
               - **escalada**: Barba ruiva
+              - **setor**: Bloco C - Davy Jones
+              - **grupo**: Estacionamento
               - **ids**:
                 - 12
             - **[1]**:
@@ -744,6 +772,8 @@
               - **pontos_uids**:
                 - 13
               - **escalada**: Davy Jones
+              - **setor**: Bloco C - Davy Jones
+              - **grupo**: Estacionamento
               - **ids**:
                 - 13
             - **[2]**:
@@ -751,6 +781,8 @@
               - **pontos_uids**:
                 - 14
               - **escalada**: Fenda do Biquíni
+              - **setor**: Bloco C - Davy Jones
+              - **grupo**: Estacionamento
               - **ids**:
                 - 14
             - **[3]**:
@@ -758,6 +790,8 @@
               - **pontos_uids**:
                 - 15
               - **escalada**: Motim
+              - **setor**: Bloco C - Davy Jones
+              - **grupo**: Estacionamento
               - **ids**:
                 - 15
       - **escaladas**:
@@ -807,6 +841,8 @@
               - **pontos_uids**:
                 - 16
               - **escalada**: Aresta
+              - **setor**: Bloco D - Bloco 0
+              - **grupo**: Estacionamento
               - **ids**:
                 - 16
             - **[1]**:
@@ -814,6 +850,8 @@
               - **pontos_uids**:
                 - 17
               - **escalada**: Tangente (Bloco 0)
+              - **setor**: Bloco D - Bloco 0
+              - **grupo**: Estacionamento
               - **ids**:
                 - 17
             - **[2]**:
@@ -821,6 +859,8 @@
               - **pontos_uids**:
                 - 19
               - **escalada**: Transferência
+              - **setor**: Bloco D - Bloco 0
+              - **grupo**: Estacionamento
               - **ids**:
                 - 19
         - **[1]**:
@@ -833,6 +873,8 @@
               - **pontos_uids**:
                 - 18
               - **escalada**: Transição
+              - **setor**: Bloco D - Bloco 0
+              - **grupo**: Estacionamento
               - **ids**:
                 - 18
             - **[1]**:
@@ -840,6 +882,8 @@
               - **pontos_uids**:
                 - 19
               - **escalada**: Transferência
+              - **setor**: Bloco D - Bloco 0
+              - **grupo**: Estacionamento
               - **ids**:
                 - 19
             - **[2]**:
@@ -847,6 +891,8 @@
               - **pontos_uids**:
                 - 20
               - **escalada**: Verticale
+              - **setor**: Bloco D - Bloco 0
+              - **grupo**: Estacionamento
               - **ids**:
                 - 20
             - **[3]**:
@@ -854,6 +900,8 @@
               - **pontos_uids**:
                 - 21
               - **escalada**: Obina
+              - **setor**: Bloco D - Bloco 0
+              - **grupo**: Estacionamento
               - **ids**:
                 - 21
             - **[4]**:
@@ -861,6 +909,8 @@
               - **pontos_uids**:
                 - 22
               - **escalada**: Medalha
+              - **setor**: Bloco D - Bloco 0
+              - **grupo**: Estacionamento
               - **ids**:
                 - 22
             - **[5]**:
@@ -868,6 +918,8 @@
               - **pontos_uids**:
                 - 22
               - **escalada**: Medalhão
+              - **setor**: Bloco D - Bloco 0
+              - **grupo**: Estacionamento
               - **ids**:
                 - 22
       - **escaladas**:
@@ -958,6 +1010,8 @@
               - **pontos_uids**:
                 - 24
               - **escalada**: Psicotrópicos
+              - **setor**: Bloco E - Psicotrópicos
+              - **grupo**: Estacionamento
               - **ids**:
                 - 24
             - **[1]**:
@@ -965,6 +1019,8 @@
               - **pontos_uids**:
                 - 25
               - **escalada**: Histeria
+              - **setor**: Bloco E - Psicotrópicos
+              - **grupo**: Estacionamento
               - **ids**:
                 - 25
             - **[2]**:
@@ -972,6 +1028,8 @@
               - **pontos_uids**:
                 - 26
               - **escalada**: Café com leite
+              - **setor**: Bloco E - Psicotrópicos
+              - **grupo**: Estacionamento
               - **ids**:
                 - 26
       - **escaladas**:
@@ -1077,6 +1135,8 @@
               - **pontos_uids**:
                 - 1
               - **escalada**: Borboleta
+              - **setor**: Bloco A - Libélula
+              - **grupo**: Entrada
               - **ids**:
                 - 1
             - **[1]**:
@@ -1084,6 +1144,8 @@
               - **pontos_uids**:
                 - 2
               - **escalada**: Libélula
+              - **setor**: Bloco A - Libélula
+              - **grupo**: Entrada
               - **ids**:
                 - 2
             - **[2]**:
@@ -1091,6 +1153,8 @@
               - **pontos_uids**:
                 - 3
               - **escalada**: Larva
+              - **setor**: Bloco A - Libélula
+              - **grupo**: Entrada
               - **ids**:
                 - 3
       - **escaladas**:
@@ -1132,6 +1196,8 @@
               - **pontos_uids**:
                 - 4
               - **escalada**: No stress the blitz
+              - **setor**: Bloco B - Bloco 1
+              - **grupo**: Entrada
               - **ids**:
                 - 4
             - **[1]**:
@@ -1139,6 +1205,8 @@
               - **pontos_uids**:
                 - 5
               - **escalada**: No stress the boulder
+              - **setor**: Bloco B - Bloco 1
+              - **grupo**: Entrada
               - **ids**:
                 - 5
             - **[2]**:
@@ -1146,6 +1214,8 @@
               - **pontos_uids**:
                 - 6
               - **escalada**: Don’t worry
+              - **setor**: Bloco B - Bloco 1
+              - **grupo**: Entrada
               - **ids**:
                 - 6
             - **[3]**:
@@ -1153,6 +1223,8 @@
               - **pontos_uids**:
                 - 7
               - **escalada**: Caxo de banana
+              - **setor**: Bloco B - Bloco 1
+              - **grupo**: Entrada
               - **ids**:
                 - 7
             - **[4]**:
@@ -1160,6 +1232,8 @@
               - **pontos_uids**:
                 - 8
               - **escalada**: Easy
+              - **setor**: Bloco B - Bloco 1
+              - **grupo**: Entrada
               - **ids**:
                 - 8
             - **[5]**:
@@ -1167,6 +1241,8 @@
               - **pontos_uids**:
                 - 9
               - **escalada**: Banana Terra
+              - **setor**: Bloco B - Bloco 1
+              - **grupo**: Entrada
               - **ids**:
                 - 9
             - **[6]**:
@@ -1174,6 +1250,8 @@
               - **pontos_uids**:
                 - 10
               - **escalada**: Check point
+              - **setor**: Bloco B - Bloco 1
+              - **grupo**: Entrada
               - **ids**:
                 - 10
             - **[7]**:
@@ -1181,6 +1259,8 @@
               - **pontos_uids**:
                 - 11
               - **escalada**: Aresta in
+              - **setor**: Bloco B - Bloco 1
+              - **grupo**: Entrada
               - **ids**:
                 - 11
         - **[1]**:
@@ -1193,6 +1273,8 @@
               - **pontos_uids**:
                 - 11
               - **escalada**: Aresta in
+              - **setor**: Bloco B - Bloco 1
+              - **grupo**: Entrada
               - **ids**:
                 - 11
             - **[1]**:
@@ -1200,6 +1282,8 @@
               - **pontos_uids**:
                 - 12
               - **escalada**: Referência perigosa
+              - **setor**: Bloco B - Bloco 1
+              - **grupo**: Entrada
               - **ids**:
                 - 12
             - **[2]**:
@@ -1207,6 +1291,8 @@
               - **pontos_uids**:
                 - 13
               - **escalada**: Pipe line
+              - **setor**: Bloco B - Bloco 1
+              - **grupo**: Entrada
               - **ids**:
                 - 13
             - **[3]**:
@@ -1214,6 +1300,8 @@
               - **pontos_uids**:
                 - 14
               - **escalada**: Paulista irado
+              - **setor**: Bloco B - Bloco 1
+              - **grupo**: Entrada
               - **ids**:
                 - 14
             - **[4]**:
@@ -1221,6 +1309,8 @@
               - **pontos_uids**:
                 - 15
               - **escalada**: Marrentin carioca
+              - **setor**: Bloco B - Bloco 1
+              - **grupo**: Entrada
               - **ids**:
                 - 15
             - **[5]**:
@@ -1228,6 +1318,8 @@
               - **pontos_uids**:
                 - 16
               - **escalada**: Chato
+              - **setor**: Bloco B - Bloco 1
+              - **grupo**: Entrada
               - **ids**:
                 - 16
             - **[6]**:
@@ -1235,6 +1327,8 @@
               - **pontos_uids**:
                 - 17
               - **escalada**: Mantenha o respeito
+              - **setor**: Bloco B - Bloco 1
+              - **grupo**: Entrada
               - **ids**:
                 - 17
         - **[2]**:
@@ -1247,6 +1341,8 @@
               - **pontos_uids**:
                 - 18
               - **escalada**: Mineral
+              - **setor**: Bloco B - Bloco 1
+              - **grupo**: Entrada
               - **ids**:
                 - 18
             - **[1]**:
@@ -1254,6 +1350,8 @@
               - **pontos_uids**:
                 - 19
               - **escalada**: Desvio
+              - **setor**: Bloco B - Bloco 1
+              - **grupo**: Entrada
               - **ids**:
                 - 19
             - **[2]**:
@@ -1261,6 +1359,8 @@
               - **pontos_uids**:
                 - 20
               - **escalada**: Rei do pão
+              - **setor**: Bloco B - Bloco 1
+              - **grupo**: Entrada
               - **ids**:
                 - 20
         - **[3]**:
@@ -1273,6 +1373,8 @@
               - **pontos_uids**:
                 - 21
               - **escalada**: Equilibrista
+              - **setor**: Bloco B - Bloco 1
+              - **grupo**: Entrada
               - **ids**:
                 - 21
             - **[1]**:
@@ -1280,6 +1382,8 @@
               - **pontos_uids**:
                 - 22
               - **escalada**: Parmalat
+              - **setor**: Bloco B - Bloco 1
+              - **grupo**: Entrada
               - **ids**:
                 - 22
             - **[2]**:
@@ -1287,6 +1391,8 @@
               - **pontos_uids**:
                 - 23
               - **escalada**: Bh x Brasília
+              - **setor**: Bloco B - Bloco 1
+              - **grupo**: Entrada
               - **ids**:
                 - 23
       - **escaladas**:
@@ -1444,6 +1550,8 @@
               - **pontos_uids**:
                 - 24
               - **escalada**: Gaston as avessas
+              - **setor**: Bloco C - Bloco 2
+              - **grupo**: Entrada
               - **ids**:
                 - 24
             - **[1]**:
@@ -1451,6 +1559,8 @@
               - **pontos_uids**:
                 - 25
               - **escalada**: Calango hidráulico
+              - **setor**: Bloco C - Bloco 2
+              - **grupo**: Entrada
               - **ids**:
                 - 25
             - **[2]**:
@@ -1458,6 +1568,8 @@
               - **pontos_uids**:
                 - 26
               - **escalada**: Ergot
+              - **setor**: Bloco C - Bloco 2
+              - **grupo**: Entrada
               - **ids**:
                 - 26
             - **[3]**:
@@ -1465,6 +1577,8 @@
               - **pontos_uids**:
                 - 27
               - **escalada**: Ergot SDS
+              - **setor**: Bloco C - Bloco 2
+              - **grupo**: Entrada
               - **ids**:
                 - 27
             - **[4]**:
@@ -1472,6 +1586,8 @@
               - **pontos_uids**:
                 - 26
               - **escalada**: Trip eterna
+              - **setor**: Bloco C - Bloco 2
+              - **grupo**: Entrada
               - **ids**:
                 - 26
             - **[5]**:
@@ -1479,6 +1595,8 @@
               - **pontos_uids**:
                 - 27
               - **escalada**: Projeto 1
+              - **setor**: Bloco C - Bloco 2
+              - **grupo**: Entrada
               - **ids**:
                 - 27
             - **[6]**:
@@ -1486,6 +1604,8 @@
               - **pontos_uids**:
                 - 30
               - **escalada**: Projeto Sabará
+              - **setor**: Bloco C - Bloco 2
+              - **grupo**: Entrada
               - **ids**:
                 - 30
             - **[7]**:
@@ -1493,6 +1613,8 @@
               - **pontos_uids**:
                 - 31
               - **escalada**: Crocância do sabor
+              - **setor**: Bloco C - Bloco 2
+              - **grupo**: Entrada
               - **ids**:
                 - 31
             - **[8]**:
@@ -1500,6 +1622,8 @@
               - **pontos_uids**:
                 - 30
               - **escalada**: Projeto 2
+              - **setor**: Bloco C - Bloco 2
+              - **grupo**: Entrada
               - **ids**:
                 - 30
             - **[9]**:
@@ -1507,6 +1631,8 @@
               - **pontos_uids**:
                 - 33
               - **escalada**: Energético
+              - **setor**: Bloco C - Bloco 2
+              - **grupo**: Entrada
               - **ids**:
                 - 33
             - **[10]**:
@@ -1514,6 +1640,8 @@
               - **pontos_uids**:
                 - 33
               - **escalada**: Estimulante
+              - **setor**: Bloco C - Bloco 2
+              - **grupo**: Entrada
               - **ids**:
                 - 33
             - **[11]**:
@@ -1521,6 +1649,8 @@
               - **pontos_uids**:
                 - 35
               - **escalada**: Projeto Taurina
+              - **setor**: Bloco C - Bloco 2
+              - **grupo**: Entrada
               - **ids**:
                 - 35
             - **[12]**:
@@ -1528,6 +1658,8 @@
               - **pontos_uids**:
                 - 36
               - **escalada**: Rala frek lek
+              - **setor**: Bloco C - Bloco 2
+              - **grupo**: Entrada
               - **ids**:
                 - 36
             - **[13]**:
@@ -1535,6 +1667,8 @@
               - **pontos_uids**:
                 - 36
               - **escalada**: Rala frek lek SDS
+              - **setor**: Bloco C - Bloco 2
+              - **grupo**: Entrada
               - **ids**:
                 - 36
             - **[14]**:
@@ -1542,6 +1676,8 @@
               - **pontos_uids**:
                 - 38
               - **escalada**: Viviane Espíndola
+              - **setor**: Bloco C - Bloco 2
+              - **grupo**: Entrada
               - **ids**:
                 - 38
         - **[1]**:
@@ -1554,6 +1690,8 @@
               - **pontos_uids**:
                 - 39
               - **escalada**: Escala e desescala
+              - **setor**: Bloco C - Bloco 2
+              - **grupo**: Entrada
               - **ids**:
                 - 39
             - **[1]**:
@@ -1561,6 +1699,8 @@
               - **pontos_uids**:
                 - 40
               - **escalada**: Sobe e desce
+              - **setor**: Bloco C - Bloco 2
+              - **grupo**: Entrada
               - **ids**:
                 - 40
             - **[2]**:
@@ -1568,6 +1708,8 @@
               - **pontos_uids**:
                 - 41
               - **escalada**: Incrível
+              - **setor**: Bloco C - Bloco 2
+              - **grupo**: Entrada
               - **ids**:
                 - 41
             - **[3]**:
@@ -1575,6 +1717,8 @@
               - **pontos_uids**:
                 - 42
               - **escalada**: Ziglyn
+              - **setor**: Bloco C - Bloco 2
+              - **grupo**: Entrada
               - **ids**:
                 - 42
             - **[4]**:
@@ -1582,6 +1726,8 @@
               - **pontos_uids**:
                 - 43
               - **escalada**: Sai de reto
+              - **setor**: Bloco C - Bloco 2
+              - **grupo**: Entrada
               - **ids**:
                 - 43
             - **[5]**:
@@ -1589,6 +1735,8 @@
               - **pontos_uids**:
                 - 44
               - **escalada**: Adrena da cadena
+              - **setor**: Bloco C - Bloco 2
+              - **grupo**: Entrada
               - **ids**:
                 - 44
             - **[6]**:
@@ -1596,6 +1744,8 @@
               - **pontos_uids**:
                 - 45
               - **escalada**: Cadena sem adrena
+              - **setor**: Bloco C - Bloco 2
+              - **grupo**: Entrada
               - **ids**:
                 - 45
             - **[7]**:
@@ -1603,6 +1753,8 @@
               - **pontos_uids**:
                 - 46
               - **escalada**: Cadê minha força?
+              - **setor**: Bloco C - Bloco 2
+              - **grupo**: Entrada
               - **ids**:
                 - 46
         - **[2]**:
@@ -1615,6 +1767,8 @@
               - **pontos_uids**:
                 - 44
               - **escalada**: Adrena da cadena
+              - **setor**: Bloco C - Bloco 2
+              - **grupo**: Entrada
               - **ids**:
                 - 44
             - **[1]**:
@@ -1622,6 +1776,8 @@
               - **pontos_uids**:
                 - 45
               - **escalada**: Cadena sem adrena
+              - **setor**: Bloco C - Bloco 2
+              - **grupo**: Entrada
               - **ids**:
                 - 45
             - **[2]**:
@@ -1629,6 +1785,8 @@
               - **pontos_uids**:
                 - 46
               - **escalada**: Cadê minha força?
+              - **setor**: Bloco C - Bloco 2
+              - **grupo**: Entrada
               - **ids**:
                 - 46
             - **[3]**:
@@ -1636,6 +1794,8 @@
               - **pontos_uids**:
                 - 47
               - **escalada**: Ou vai ou racha
+              - **setor**: Bloco C - Bloco 2
+              - **grupo**: Entrada
               - **ids**:
                 - 47
             - **[4]**:
@@ -1643,6 +1803,8 @@
               - **pontos_uids**:
                 - 48
               - **escalada**: Seg atenciosa
+              - **setor**: Bloco C - Bloco 2
+              - **grupo**: Entrada
               - **ids**:
                 - 48
       - **escaladas**:
@@ -1855,6 +2017,8 @@
               - **pontos_uids**:
                 - 49
               - **escalada**: Chupa lombriga
+              - **setor**: Bloco D - Chupa Lombriga
+              - **grupo**: Entrada
               - **ids**:
                 - 49
             - **[1]**:
@@ -1862,6 +2026,8 @@
               - **pontos_uids**:
                 - 50
               - **escalada**: Ventos alísios
+              - **setor**: Bloco D - Chupa Lombriga
+              - **grupo**: Entrada
               - **ids**:
                 - 50
             - **[2]**:
@@ -1869,6 +2035,8 @@
               - **pontos_uids**:
                 - 51
               - **escalada**: Esqueceram de mim
+              - **setor**: Bloco D - Chupa Lombriga
+              - **grupo**: Entrada
               - **ids**:
                 - 51
       - **escaladas**:
@@ -1909,6 +2077,8 @@
               - **pontos_uids**:
                 - 52
               - **escalada**: Orgulho preto
+              - **setor**: Bloco E - Abraço do Calango
+              - **grupo**: Entrada
               - **ids**:
                 - 52
             - **[1]**:
@@ -1916,6 +2086,8 @@
               - **pontos_uids**:
                 - 53
               - **escalada**: Abraço do calango
+              - **setor**: Bloco E - Abraço do Calango
+              - **grupo**: Entrada
               - **ids**:
                 - 53
             - **[2]**:
@@ -1923,6 +2095,8 @@
               - **pontos_uids**:
                 - 54
               - **escalada**: Projeto 3
+              - **setor**: Bloco E - Abraço do Calango
+              - **grupo**: Entrada
               - **ids**:
                 - 54
       - **escaladas**:
@@ -1964,6 +2138,8 @@
               - **pontos_uids**:
                 - 55
               - **escalada**: Virada do sol
+              - **setor**: Bloco F - Nave
+              - **grupo**: Entrada
               - **ids**:
                 - 55
             - **[1]**:
@@ -1971,6 +2147,8 @@
               - **pontos_uids**:
                 - 56
               - **escalada**: Nave
+              - **setor**: Bloco F - Nave
+              - **grupo**: Entrada
               - **ids**:
                 - 56
       - **escaladas**:
@@ -2050,6 +2228,8 @@
         - **pontos_uids**:
           - 5
         - **escalada**: Rala-bucho
+        - **setor**: Bloco C - Rala-Bucho
+        - **grupo**: Sono do Calango
         - **ids**:
           - 5
       - **[1]**:
@@ -2057,6 +2237,8 @@
         - **pontos_uids**:
           - 6
         - **escalada**: Rala-queixo
+        - **setor**: Bloco C - Rala-Bucho
+        - **grupo**: Sono do Calango
         - **ids**:
           - 6
       - **[2]**:
@@ -2064,6 +2246,8 @@
         - **pontos_uids**:
           - 7
         - **escalada**: Varejeira
+        - **setor**: Bloco D - Varejeira
+        - **grupo**: Sono do Calango
         - **ids**:
           - 7
       - **[3]**:
@@ -2071,6 +2255,8 @@
         - **pontos_uids**:
           - 8
         - **escalada**: Tótem
+        - **setor**: Bloco E - Tótem
+        - **grupo**: Sono do Calango
         - **ids**:
           - 8
       - **[4]**:
@@ -2078,6 +2264,8 @@
         - **pontos_uids**:
           - 9
         - **escalada**: Quina
+        - **setor**: Bloco F - Pinça
+        - **grupo**: Sono do Calango
         - **ids**:
           - 9
       - **[5]**:
@@ -2085,6 +2273,8 @@
         - **pontos_uids**:
           - 10
         - **escalada**: Pinça
+        - **setor**: Bloco F - Pinça
+        - **grupo**: Sono do Calango
         - **ids**:
           - 10
   - **[1]**:
@@ -2097,6 +2287,8 @@
         - **pontos_uids**:
           - 6
         - **escalada**: Rala-queixo
+        - **setor**: Bloco C - Rala-Bucho
+        - **grupo**: Sono do Calango
         - **ids**:
           - 6
       - **[1]**:
@@ -2104,6 +2296,8 @@
         - **pontos_uids**:
           - 7
         - **escalada**: Varejeira
+        - **setor**: Bloco D - Varejeira
+        - **grupo**: Sono do Calango
         - **ids**:
           - 7
       - **[2]**:
@@ -2111,6 +2305,8 @@
         - **pontos_uids**:
           - 8
         - **escalada**: Tótem
+        - **setor**: Bloco E - Tótem
+        - **grupo**: Sono do Calango
         - **ids**:
           - 8
       - **[3]**:
@@ -2118,6 +2314,8 @@
         - **pontos_uids**:
           - 9
         - **escalada**: Quina
+        - **setor**: Bloco F - Pinça
+        - **grupo**: Sono do Calango
         - **ids**:
           - 9
       - **[4]**:
@@ -2125,6 +2323,8 @@
         - **pontos_uids**:
           - 10
         - **escalada**: Pinça
+        - **setor**: Bloco F - Pinça
+        - **grupo**: Sono do Calango
         - **ids**:
           - 10
       - **[5]**:
@@ -2132,6 +2332,8 @@
         - **pontos_uids**:
           - 11
         - **escalada**: Pataca
+        - **setor**: Bloco F - Pinça
+        - **grupo**: Sono do Calango
         - **ids**:
           - 11
 - **setores**:
@@ -2151,6 +2353,8 @@
               - **pontos_uids**:
                 - 1
               - **escalada**: High vibe
+              - **setor**: Bloco A - High Vibe
+              - **grupo**: Sono do Calango
               - **ids**:
                 - 1
             - **[1]**:
@@ -2158,6 +2362,8 @@
               - **pontos_uids**:
                 - 2
               - **escalada**: Mamãe mandou
+              - **setor**: Bloco A - High Vibe
+              - **grupo**: Sono do Calango
               - **ids**:
                 - 2
       - **escaladas**:
@@ -2194,6 +2400,8 @@
               - **pontos_uids**:
                 - 3
               - **escalada**: Batentes
+              - **setor**: Bloco B - Batentes
+              - **grupo**: Sono do Calango
               - **ids**:
                 - 3
             - **[1]**:
@@ -2201,6 +2409,8 @@
               - **pontos_uids**:
                 - 4
               - **escalada**: Quem procura acha
+              - **setor**: Bloco B - Batentes
+              - **grupo**: Sono do Calango
               - **ids**:
                 - 4
       - **escaladas**:
@@ -2316,6 +2526,8 @@
               - **pontos_uids**:
                 - 12
               - **escalada**: Vendo a vó pela greta
+              - **setor**: Bloco G - Das Vias
+              - **grupo**: Sono do Calango
               - **ids**:
                 - 12
             - **[1]**:
@@ -2323,6 +2535,8 @@
               - **pontos_uids**:
                 - 13
               - **escalada**: Abraço do jacaré
+              - **setor**: Bloco G - Das Vias
+              - **grupo**: Sono do Calango
               - **ids**:
                 - 13
             - **[2]**:
@@ -2330,6 +2544,8 @@
               - **pontos_uids**:
                 - 14
               - **escalada**: Papagaio preto
+              - **setor**: Bloco G - Das Vias
+              - **grupo**: Sono do Calango
               - **ids**:
                 - 14
             - **[3]**:
@@ -2337,6 +2553,8 @@
               - **pontos_uids**:
                 - 15
               - **escalada**: Maritaca
+              - **setor**: Bloco G - Das Vias
+              - **grupo**: Sono do Calango
               - **ids**:
                 - 15
             - **[4]**:
@@ -2344,6 +2562,8 @@
               - **pontos_uids**:
                 - 16
               - **escalada**: Apêndice
+              - **setor**: Bloco G - Das Vias
+              - **grupo**: Sono do Calango
               - **ids**:
                 - 16
       - **escaladas**:
@@ -2399,6 +2619,8 @@
               - **pontos_uids**:
                 - 17
               - **escalada**: Loteria
+              - **setor**: Bloco H - Sono do Calango
+              - **grupo**: Sono do Calango
               - **ids**:
                 - 17
             - **[1]**:
@@ -2406,6 +2628,8 @@
               - **pontos_uids**:
                 - 18
               - **escalada**: Módulo
+              - **setor**: Bloco H - Sono do Calango
+              - **grupo**: Sono do Calango
               - **ids**:
                 - 18
             - **[2]**:
@@ -2413,6 +2637,8 @@
               - **pontos_uids**:
                 - 18
               - **escalada**: Módulo SDS
+              - **setor**: Bloco H - Sono do Calango
+              - **grupo**: Sono do Calango
               - **ids**:
                 - 18
             - **[3]**:
@@ -2420,6 +2646,8 @@
               - **pontos_uids**:
                 - 20
               - **escalada**: Bromélia
+              - **setor**: Bloco H - Sono do Calango
+              - **grupo**: Sono do Calango
               - **ids**:
                 - 20
             - **[4]**:
@@ -2427,6 +2655,8 @@
               - **pontos_uids**:
                 - 21
               - **escalada**: Maré na virada
+              - **setor**: Bloco H - Sono do Calango
+              - **grupo**: Sono do Calango
               - **ids**:
                 - 21
         - **[1]**:
@@ -2439,6 +2669,8 @@
               - **pontos_uids**:
                 - 22
               - **escalada**: Orquídea
+              - **setor**: Bloco H - Sono do Calango
+              - **grupo**: Sono do Calango
               - **ids**:
                 - 22
             - **[1]**:
@@ -2446,6 +2678,8 @@
               - **pontos_uids**:
                 - 23
               - **escalada**: Enverga bambu
+              - **setor**: Bloco H - Sono do Calango
+              - **grupo**: Sono do Calango
               - **ids**:
                 - 23
             - **[2]**:
@@ -2453,6 +2687,8 @@
               - **pontos_uids**:
                 - 24
               - **escalada**: Sono do calango
+              - **setor**: Bloco H - Sono do Calango
+              - **grupo**: Sono do Calango
               - **ids**:
                 - 24
             - **[3]**:
@@ -2460,6 +2696,8 @@
               - **pontos_uids**:
                 - 25
               - **escalada**: Sono do calango SDS
+              - **setor**: Bloco H - Sono do Calango
+              - **grupo**: Sono do Calango
               - **ids**:
                 - 25
         - **[2]**:
@@ -2472,6 +2710,8 @@
               - **pontos_uids**:
                 - 24
               - **escalada**: Sono do calango
+              - **setor**: Bloco H - Sono do Calango
+              - **grupo**: Sono do Calango
               - **ids**:
                 - 24
             - **[1]**:
@@ -2479,6 +2719,8 @@
               - **pontos_uids**:
                 - 25
               - **escalada**: Sono do calango SDS
+              - **setor**: Bloco H - Sono do Calango
+              - **grupo**: Sono do Calango
               - **ids**:
                 - 25
             - **[2]**:
@@ -2486,6 +2728,8 @@
               - **pontos_uids**:
                 - 26
               - **escalada**: Sonâmbulo
+              - **setor**: Bloco H - Sono do Calango
+              - **grupo**: Sono do Calango
               - **ids**:
                 - 26
             - **[3]**:
@@ -2493,6 +2737,8 @@
               - **pontos_uids**:
                 - 27
               - **escalada**: Calango sonâmbulo
+              - **setor**: Bloco H - Sono do Calango
+              - **grupo**: Sono do Calango
               - **ids**:
                 - 27
             - **[4]**:
@@ -2500,6 +2746,8 @@
               - **pontos_uids**:
                 - 28
               - **escalada**: Chaparam os bago
+              - **setor**: Bloco H - Sono do Calango
+              - **grupo**: Sono do Calango
               - **ids**:
                 - 28
             - **[5]**:
@@ -2507,6 +2755,8 @@
               - **pontos_uids**:
                 - 29
               - **escalada**: Invertida faca
+              - **setor**: Bloco H - Sono do Calango
+              - **grupo**: Sono do Calango
               - **ids**:
                 - 29
             - **[6]**:
@@ -2514,6 +2764,8 @@
               - **pontos_uids**:
                 - 30
               - **escalada**: Core
+              - **setor**: Bloco H - Sono do Calango
+              - **grupo**: Sono do Calango
               - **ids**:
                 - 30
             - **[7]**:
@@ -2521,6 +2773,8 @@
               - **pontos_uids**:
                 - 31
               - **escalada**: Mondo
+              - **setor**: Bloco H - Sono do Calango
+              - **grupo**: Sono do Calango
               - **ids**:
                 - 31
             - **[8]**:
@@ -2528,6 +2782,8 @@
               - **pontos_uids**:
                 - 32
               - **escalada**: Adrena
+              - **setor**: Bloco H - Sono do Calango
+              - **grupo**: Sono do Calango
               - **ids**:
                 - 32
       - **escaladas**:
@@ -2765,6 +3021,8 @@
         - **pontos_uids**:
           - 36
         - **escalada**: Rei Leão
+        - **setor**: Bloco G - Rei Leão
+        - **grupo**: Deslize
         - **ids**:
           - 36
       - **[1]**:
@@ -2772,6 +3030,8 @@
         - **pontos_uids**:
           - 37
         - **escalada**: Projeto Grifon
+        - **setor**: Bloco G - Rei Leão
+        - **grupo**: Deslize
         - **ids**:
           - 37
       - **[2]**:
@@ -2779,6 +3039,8 @@
         - **pontos_uids**:
           - 42
         - **escalada**: Musgo centenário
+        - **setor**: Bloco H - Musgo Centenário
+        - **grupo**: Deslize
         - **ids**:
           - 42
 - **setores**:
@@ -2798,6 +3060,8 @@
               - **pontos_uids**:
                 - 1
               - **escalada**: Rala peito
+              - **setor**: Bloco A - Lua Cheia
+              - **grupo**: Deslize
               - **ids**:
                 - 1
             - **[1]**:
@@ -2805,6 +3069,8 @@
               - **pontos_uids**:
                 - 2
               - **escalada**: Rala peito SDS
+              - **setor**: Bloco A - Lua Cheia
+              - **grupo**: Deslize
               - **ids**:
                 - 2
             - **[2]**:
@@ -2812,6 +3078,8 @@
               - **pontos_uids**:
                 - 3
               - **escalada**: Regletes batentes
+              - **setor**: Bloco A - Lua Cheia
+              - **grupo**: Deslize
               - **ids**:
                 - 3
             - **[3]**:
@@ -2819,6 +3087,8 @@
               - **pontos_uids**:
                 - 4
               - **escalada**: Rebordose
+              - **setor**: Bloco A - Lua Cheia
+              - **grupo**: Deslize
               - **ids**:
                 - 4
             - **[4]**:
@@ -2826,6 +3096,8 @@
               - **pontos_uids**:
                 - 5
               - **escalada**: Sabará não para
+              - **setor**: Bloco A - Lua Cheia
+              - **grupo**: Deslize
               - **ids**:
                 - 5
             - **[5]**:
@@ -2833,6 +3105,8 @@
               - **pontos_uids**:
                 - 6
               - **escalada**: Lua cheia
+              - **setor**: Bloco A - Lua Cheia
+              - **grupo**: Deslize
               - **ids**:
                 - 6
             - **[6]**:
@@ -2840,6 +3114,8 @@
               - **pontos_uids**:
                 - 7
               - **escalada**: Carne moída
+              - **setor**: Bloco A - Lua Cheia
+              - **grupo**: Deslize
               - **ids**:
                 - 7
             - **[7]**:
@@ -2847,6 +3123,8 @@
               - **pontos_uids**:
                 - 8
               - **escalada**: Toca da cobra
+              - **setor**: Bloco A - Lua Cheia
+              - **grupo**: Deslize
               - **ids**:
                 - 8
             - **[8]**:
@@ -2854,6 +3132,8 @@
               - **pontos_uids**:
                 - 9
               - **escalada**: Lua nova
+              - **setor**: Bloco A - Lua Cheia
+              - **grupo**: Deslize
               - **ids**:
                 - 9
             - **[9]**:
@@ -2861,6 +3141,8 @@
               - **pontos_uids**:
                 - 10
               - **escalada**: Quarentinha
+              - **setor**: Bloco A - Lua Cheia
+              - **grupo**: Deslize
               - **ids**:
                 - 10
       - **escaladas**:
@@ -2956,6 +3238,8 @@
               - **pontos_uids**:
                 - 11
               - **escalada**: Deslize
+              - **setor**: Bloco B - Deslize
+              - **grupo**: Deslize
               - **ids**:
                 - 11
             - **[1]**:
@@ -2963,6 +3247,8 @@
               - **pontos_uids**:
                 - 12
               - **escalada**: Desnível
+              - **setor**: Bloco B - Deslize
+              - **grupo**: Deslize
               - **ids**:
                 - 12
             - **[2]**:
@@ -2970,6 +3256,8 @@
               - **pontos_uids**:
                 - 11
               - **escalada**: Deslizamento
+              - **setor**: Bloco B - Deslize
+              - **grupo**: Deslize
               - **ids**:
                 - 11
             - **[3]**:
@@ -2977,6 +3265,8 @@
               - **pontos_uids**:
                 - 12
               - **escalada**: Desnivelado
+              - **setor**: Bloco B - Deslize
+              - **grupo**: Deslize
               - **ids**:
                 - 12
       - **escaladas**:
@@ -3031,6 +3321,8 @@
               - **pontos_uids**:
                 - 19
               - **escalada**: Quem diria
+              - **setor**: Bloco C - Pequenino
+              - **grupo**: Deslize
               - **ids**:
                 - 19
             - **[1]**:
@@ -3038,6 +3330,8 @@
               - **pontos_uids**:
                 - 15
               - **escalada**: Terceira entrada
+              - **setor**: Bloco C - Pequenino
+              - **grupo**: Deslize
               - **ids**:
                 - 15
             - **[2]**:
@@ -3045,6 +3339,8 @@
               - **pontos_uids**:
                 - 16
               - **escalada**: Última passagem
+              - **setor**: Bloco C - Pequenino
+              - **grupo**: Deslize
               - **ids**:
                 - 16
             - **[3]**:
@@ -3053,6 +3349,8 @@
                 - 13
                 - 17
               - **escalada**: Primeira saída
+              - **setor**: Bloco C - Pequenino
+              - **grupo**: Deslize
               - **ids**:
                 - 13
                 - 17
@@ -3120,6 +3418,8 @@
               - **pontos_uids**:
                 - 20
               - **escalada**: Viagem
+              - **setor**: Bloco D - Bagagem
+              - **grupo**: Deslize
               - **ids**:
                 - 20
             - **[1]**:
@@ -3127,6 +3427,8 @@
               - **pontos_uids**:
                 - 21
               - **escalada**: Bagagem
+              - **setor**: Bloco D - Bagagem
+              - **grupo**: Deslize
               - **ids**:
                 - 21
             - **[2]**:
@@ -3134,6 +3436,8 @@
               - **pontos_uids**:
                 - 22
               - **escalada**: Mala educacion
+              - **setor**: Bloco D - Bagagem
+              - **grupo**: Deslize
               - **ids**:
                 - 22
             - **[3]**:
@@ -3141,6 +3445,8 @@
               - **pontos_uids**:
                 - 22
               - **escalada**: Enigma
+              - **setor**: Bloco D - Bagagem
+              - **grupo**: Deslize
               - **ids**:
                 - 22
       - **escaladas**:
@@ -3193,6 +3499,8 @@
               - **pontos_uids**:
                 - 24
               - **escalada**: Pedrita
+              - **setor**: Bloco E - Hey Fred
+              - **grupo**: Deslize
               - **ids**:
                 - 24
             - **[1]**:
@@ -3200,6 +3508,8 @@
               - **pontos_uids**:
                 - 25
               - **escalada**: Barney
+              - **setor**: Bloco E - Hey Fred
+              - **grupo**: Deslize
               - **ids**:
                 - 25
             - **[2]**:
@@ -3207,6 +3517,8 @@
               - **pontos_uids**:
                 - 26
               - **escalada**: Hey Fred
+              - **setor**: Bloco E - Hey Fred
+              - **grupo**: Deslize
               - **ids**:
                 - 26
             - **[3]**:
@@ -3214,6 +3526,8 @@
               - **pontos_uids**:
                 - 26
               - **escalada**: Hey Fred SDS
+              - **setor**: Bloco E - Hey Fred
+              - **grupo**: Deslize
               - **ids**:
                 - 26
         - **[1]**:
@@ -3226,6 +3540,8 @@
               - **pontos_uids**:
                 - 26
               - **escalada**: Hey Fred
+              - **setor**: Bloco E - Hey Fred
+              - **grupo**: Deslize
               - **ids**:
                 - 26
             - **[1]**:
@@ -3233,6 +3549,8 @@
               - **pontos_uids**:
                 - 28
               - **escalada**: Era
+              - **setor**: Bloco E - Hey Fred
+              - **grupo**: Deslize
               - **ids**:
                 - 28
             - **[2]**:
@@ -3240,6 +3558,8 @@
               - **pontos_uids**:
                 - 29
               - **escalada**: Yabadabadoo
+              - **setor**: Bloco E - Hey Fred
+              - **grupo**: Deslize
               - **ids**:
                 - 29
             - **[3]**:
@@ -3247,6 +3567,8 @@
               - **pontos_uids**:
                 - 30
               - **escalada**: Nova era
+              - **setor**: Bloco E - Hey Fred
+              - **grupo**: Deslize
               - **ids**:
                 - 30
             - **[4]**:
@@ -3255,6 +3577,8 @@
                 - 29
                 - 30
               - **escalada**: Era o que faltava
+              - **setor**: Bloco E - Hey Fred
+              - **grupo**: Deslize
               - **ids**:
                 - 29
                 - 30
@@ -3263,6 +3587,8 @@
               - **pontos_uids**:
                 - 24
               - **escalada**: Pedrita
+              - **setor**: Bloco E - Hey Fred
+              - **grupo**: Deslize
               - **ids**:
                 - 24
       - **escaladas**:
@@ -3357,6 +3683,8 @@
               - **pontos_uids**:
                 - 33
               - **escalada**: Invertida
+              - **setor**: Bloco F - Bom Boulder
+              - **grupo**: Deslize
               - **ids**:
                 - 33
             - **[1]**:
@@ -3364,6 +3692,8 @@
               - **pontos_uids**:
                 - 34
               - **escalada**: Bom boulder
+              - **setor**: Bloco F - Bom Boulder
+              - **grupo**: Deslize
               - **ids**:
                 - 34
             - **[2]**:
@@ -3371,6 +3701,8 @@
               - **pontos_uids**:
                 - 35
               - **escalada**: Armadilha
+              - **setor**: Bloco F - Bom Boulder
+              - **grupo**: Deslize
               - **ids**:
                 - 35
       - **escaladas**:
@@ -3437,6 +3769,8 @@
               - **pontos_uids**:
                 - 38
               - **escalada**: Portal da dimensão
+              - **setor**: Bloco H - Musgo Centenário
+              - **grupo**: Deslize
               - **ids**:
                 - 38
             - **[1]**:
@@ -3444,6 +3778,8 @@
               - **pontos_uids**:
                 - 39
               - **escalada**: Esmagador
+              - **setor**: Bloco H - Musgo Centenário
+              - **grupo**: Deslize
               - **ids**:
                 - 39
             - **[2]**:
@@ -3451,6 +3787,8 @@
               - **pontos_uids**:
                 - 40
               - **escalada**: Projeto Os Incríveis
+              - **setor**: Bloco H - Musgo Centenário
+              - **grupo**: Deslize
               - **ids**:
                 - 40
             - **[3]**:
@@ -3458,6 +3796,8 @@
               - **pontos_uids**:
                 - 41
               - **escalada**: Caverna do Dragão
+              - **setor**: Bloco H - Musgo Centenário
+              - **grupo**: Deslize
               - **ids**:
                 - 41
       - **escaladas**:
@@ -3526,6 +3866,8 @@
               - **pontos_uids**:
                 - 44
               - **escalada**: Nala
+              - **setor**: Bloco I - Zafar
+              - **grupo**: Deslize
               - **ids**:
                 - 44
             - **[1]**:
@@ -3533,6 +3875,8 @@
               - **pontos_uids**:
                 - 45
               - **escalada**: Timão
+              - **setor**: Bloco I - Zafar
+              - **grupo**: Deslize
               - **ids**:
                 - 45
             - **[2]**:
@@ -3540,6 +3884,8 @@
               - **pontos_uids**:
                 - 46
               - **escalada**: Pumba
+              - **setor**: Bloco I - Zafar
+              - **grupo**: Deslize
               - **ids**:
                 - 46
             - **[3]**:
@@ -3547,6 +3893,8 @@
               - **pontos_uids**:
                 - 47
               - **escalada**: Zafar
+              - **setor**: Bloco I - Zafar
+              - **grupo**: Deslize
               - **ids**:
                 - 47
             - **[4]**:
@@ -3554,6 +3902,8 @@
               - **pontos_uids**:
                 - 48
               - **escalada**: Caverna
+              - **setor**: Bloco I - Zafar
+              - **grupo**: Deslize
               - **ids**:
                 - 48
       - **escaladas**:
@@ -3666,6 +4016,8 @@
               - **pontos_uids**:
                 - 1
               - **escalada**: Siga-me
+              - **setor**: Bloco A - Abraço
+              - **grupo**: Yin Yang
               - **ids**:
                 - 1
             - **[1]**:
@@ -3673,6 +4025,8 @@
               - **pontos_uids**:
                 - 2
               - **escalada**: Abraço
+              - **setor**: Bloco A - Abraço
+              - **grupo**: Yin Yang
               - **ids**:
                 - 2
             - **[2]**:
@@ -3680,6 +4034,8 @@
               - **pontos_uids**:
                 - 3
               - **escalada**: Jah Vibes
+              - **setor**: Bloco A - Abraço
+              - **grupo**: Yin Yang
               - **ids**:
                 - 3
             - **[3]**:
@@ -3687,6 +4043,8 @@
               - **pontos_uids**:
                 - 4
               - **escalada**: Dreadlock
+              - **setor**: Bloco A - Abraço
+              - **grupo**: Yin Yang
               - **ids**:
                 - 4
             - **[4]**:
@@ -3694,6 +4052,8 @@
               - **pontos_uids**:
                 - 5
               - **escalada**: Rasta
+              - **setor**: Bloco A - Abraço
+              - **grupo**: Yin Yang
               - **ids**:
                 - 5
       - **escaladas**:
@@ -3750,6 +4110,8 @@
               - **pontos_uids**:
                 - 6
               - **escalada**: Velocípede
+              - **setor**: Bloco B - Bicicletinha 2000
+              - **grupo**: Yin Yang
               - **ids**:
                 - 6
             - **[1]**:
@@ -3757,6 +4119,8 @@
               - **pontos_uids**:
                 - 7
               - **escalada**: Bicicletinha 2000
+              - **setor**: Bloco B - Bicicletinha 2000
+              - **grupo**: Yin Yang
               - **ids**:
                 - 7
             - **[2]**:
@@ -3764,6 +4128,8 @@
               - **pontos_uids**:
                 - 8
               - **escalada**: Shark Attack
+              - **setor**: Bloco B - Bicicletinha 2000
+              - **grupo**: Yin Yang
               - **ids**:
                 - 8
       - **escaladas**:
@@ -3809,6 +4175,8 @@
               - **pontos_uids**:
                 - 9
               - **escalada**: Louva a Deus
+              - **setor**: Bloco C - Travezinha
+              - **grupo**: Yin Yang
               - **ids**:
                 - 9
             - **[1]**:
@@ -3816,6 +4184,8 @@
               - **pontos_uids**:
                 - 10
               - **escalada**: Travezinha
+              - **setor**: Bloco C - Travezinha
+              - **grupo**: Yin Yang
               - **ids**:
                 - 10
             - **[2]**:
@@ -3823,6 +4193,8 @@
               - **pontos_uids**:
                 - 11
               - **escalada**: São Carlos
+              - **setor**: Bloco C - Travezinha
+              - **grupo**: Yin Yang
               - **ids**:
                 - 11
       - **escaladas**:
@@ -3865,6 +4237,8 @@
               - **pontos_uids**:
                 - 12
               - **escalada**: Vale Tudo
+              - **setor**: Bloco D - 12 de Outubro
+              - **grupo**: Yin Yang
               - **ids**:
                 - 12
             - **[1]**:
@@ -3872,6 +4246,8 @@
               - **pontos_uids**:
                 - 13
               - **escalada**: 12 de Outubro
+              - **setor**: Bloco D - 12 de Outubro
+              - **grupo**: Yin Yang
               - **ids**:
                 - 13
       - **escaladas**:
@@ -3906,6 +4282,8 @@
               - **pontos_uids**:
                 - 14
               - **escalada**: Yang
+              - **setor**: Bloco E - Yin Yang
+              - **grupo**: Yin Yang
               - **ids**:
                 - 14
             - **[1]**:
@@ -3913,6 +4291,8 @@
               - **pontos_uids**:
                 - 15
               - **escalada**: Yin Yang
+              - **setor**: Bloco E - Yin Yang
+              - **grupo**: Yin Yang
               - **ids**:
                 - 15
       - **escaladas**:
@@ -3962,6 +4342,8 @@
               - **pontos_uids**:
                 - 17
               - **escalada**: Congelador
+              - **setor**: Bloco F - Geladeira
+              - **grupo**: Yin Yang
               - **ids**:
                 - 17
             - **[1]**:
@@ -3969,6 +4351,8 @@
               - **pontos_uids**:
                 - 18
               - **escalada**: Geladeira
+              - **setor**: Bloco F - Geladeira
+              - **grupo**: Yin Yang
               - **ids**:
                 - 18
             - **[2]**:
@@ -3976,6 +4360,8 @@
               - **pontos_uids**:
                 - 19
               - **escalada**: Fenda Cega
+              - **setor**: Bloco F - Geladeira
+              - **grupo**: Yin Yang
               - **ids**:
                 - 19
             - **[3]**:
@@ -3983,6 +4369,8 @@
               - **pontos_uids**:
                 - 20
               - **escalada**: Diagonal (Geladeira)
+              - **setor**: Bloco F - Geladeira
+              - **grupo**: Yin Yang
               - **ids**:
                 - 20
             - **[4]**:
@@ -3990,6 +4378,8 @@
               - **pontos_uids**:
                 - 21
               - **escalada**: Avesso
+              - **setor**: Bloco F - Geladeira
+              - **grupo**: Yin Yang
               - **ids**:
                 - 21
       - **escaladas**:
@@ -4109,6 +4499,8 @@
         - **pontos_uids**:
           - 16
         - **escalada**: Rock it
+        - **setor**: Bloco D - Rolling Stones
+        - **grupo**: Rolling Stones
         - **ids**:
           - 16
       - **[1]**:
@@ -4116,6 +4508,8 @@
         - **pontos_uids**:
           - 17
         - **escalada**: Esquerdinha
+        - **setor**: Bloco D - Rolling Stones
+        - **grupo**: Rolling Stones
         - **ids**:
           - 17
       - **[2]**:
@@ -4123,6 +4517,8 @@
         - **pontos_uids**:
           - 18
         - **escalada**: Cuidado aí
+        - **setor**: Bloco D - Rolling Stones
+        - **grupo**: Rolling Stones
         - **ids**:
           - 18
       - **[3]**:
@@ -4130,6 +4526,8 @@
         - **pontos_uids**:
           - 19
         - **escalada**: Invasorzinho
+        - **setor**: Bloco D - Rolling Stones
+        - **grupo**: Rolling Stones
         - **ids**:
           - 19
       - **[4]**:
@@ -4138,6 +4536,8 @@
           - 19
           - 28
         - **escalada**: Bob Marley
+        - **setor**: Bloco D - Rolling Stones
+        - **grupo**: Rolling Stones
         - **ids**:
           - 19
           - 28
@@ -4146,6 +4546,8 @@
         - **pontos_uids**:
           - 21
         - **escalada**: Já Elvis
+        - **setor**: Bloco D - Rolling Stones
+        - **grupo**: Rolling Stones
         - **ids**:
           - 21
       - **[6]**:
@@ -4153,6 +4555,8 @@
         - **pontos_uids**:
           - 22
         - **escalada**: Projeto 6
+        - **setor**: Bloco D - Rolling Stones
+        - **grupo**: Rolling Stones
         - **ids**:
           - 22
       - **[7]**:
@@ -4160,6 +4564,8 @@
         - **pontos_uids**:
           - 23
         - **escalada**: Janis Joplin
+        - **setor**: Bloco D - Rolling Stones
+        - **grupo**: Rolling Stones
         - **ids**:
           - 23
       - **[8]**:
@@ -4167,6 +4573,8 @@
         - **pontos_uids**:
           - 24
         - **escalada**: Rolling Stones
+        - **setor**: Bloco D - Rolling Stones
+        - **grupo**: Rolling Stones
         - **ids**:
           - 24
       - **[9]**:
@@ -4174,6 +4582,8 @@
         - **pontos_uids**:
           - 24
         - **escalada**: Jimi Hendrix
+        - **setor**: Bloco D - Rolling Stones
+        - **grupo**: Rolling Stones
         - **ids**:
           - 24
       - **[10]**:
@@ -4181,6 +4591,8 @@
         - **pontos_uids**:
           - 26
         - **escalada**: Amanhã vai ser outro dia
+        - **setor**: Bloco D - Rolling Stones
+        - **grupo**: Rolling Stones
         - **ids**:
           - 26
       - **[11]**:
@@ -4188,6 +4600,8 @@
         - **pontos_uids**:
           - 26
         - **escalada**: Woodstock
+        - **setor**: Bloco D - Rolling Stones
+        - **grupo**: Rolling Stones
         - **ids**:
           - 26
       - **[12]**:
@@ -4195,6 +4609,8 @@
         - **pontos_uids**:
           - 28
         - **escalada**: The Doors
+        - **setor**: Bloco D - Rolling Stones
+        - **grupo**: Rolling Stones
         - **ids**:
           - 28
       - **[13]**:
@@ -4202,6 +4618,8 @@
         - **pontos_uids**:
           - 28
         - **escalada**: Open the doors
+        - **setor**: Bloco D - Rolling Stones
+        - **grupo**: Rolling Stones
         - **ids**:
           - 28
       - **[14]**:
@@ -4209,6 +4627,8 @@
         - **pontos_uids**:
           - 30
         - **escalada**: Travessa
+        - **setor**: Bloco D - Rolling Stones
+        - **grupo**: Rolling Stones
         - **ids**:
           - 30
       - **[15]**:
@@ -4216,6 +4636,8 @@
         - **pontos_uids**:
           - 31
         - **escalada**: Eject
+        - **setor**: Bloco E - Eject
+        - **grupo**: Rolling Stones
         - **ids**:
           - 31
   - **[1]**:
@@ -4228,6 +4650,8 @@
         - **pontos_uids**:
           - 75
         - **escalada**: Neutrons
+        - **setor**: Bloco I - Prótons
+        - **grupo**: Rolling Stones
         - **ids**:
           - 75
       - **[1]**:
@@ -4235,6 +4659,8 @@
         - **pontos_uids**:
           - 76
         - **escalada**: Prótons
+        - **setor**: Bloco I - Prótons
+        - **grupo**: Rolling Stones
         - **ids**:
           - 76
       - **[2]**:
@@ -4242,6 +4668,8 @@
         - **pontos_uids**:
           - 77
         - **escalada**: Elétrons
+        - **setor**: Bloco I - Prótons
+        - **grupo**: Rolling Stones
         - **ids**:
           - 77
       - **[3]**:
@@ -4249,6 +4677,8 @@
         - **pontos_uids**:
           - 78
         - **escalada**: Aranha albina
+        - **setor**: Bloco J - Aranha Albina
+        - **grupo**: Rolling Stones
         - **ids**:
           - 78
 - **setores**:
@@ -4268,6 +4698,8 @@
               - **pontos_uids**:
                 - 1
               - **escalada**: Coral
+              - **setor**: Bloco A - Gastón a la Mesón
+              - **grupo**: Rolling Stones
               - **ids**:
                 - 1
             - **[1]**:
@@ -4275,6 +4707,8 @@
               - **pontos_uids**:
                 - 2
               - **escalada**: Surpreendente
+              - **setor**: Bloco A - Gastón a la Mesón
+              - **grupo**: Rolling Stones
               - **ids**:
                 - 2
             - **[2]**:
@@ -4282,6 +4716,8 @@
               - **pontos_uids**:
                 - 3
               - **escalada**: Frito
+              - **setor**: Bloco A - Gastón a la Mesón
+              - **grupo**: Rolling Stones
               - **ids**:
                 - 3
             - **[3]**:
@@ -4289,6 +4725,8 @@
               - **pontos_uids**:
                 - 4
               - **escalada**: Fritei
+              - **setor**: Bloco A - Gastón a la Mesón
+              - **grupo**: Rolling Stones
               - **ids**:
                 - 4
         - **[1]**:
@@ -4301,6 +4739,8 @@
               - **pontos_uids**:
                 - 5
               - **escalada**: Vem de baixo
+              - **setor**: Bloco A - Gastón a la Mesón
+              - **grupo**: Rolling Stones
               - **ids**:
                 - 5
             - **[1]**:
@@ -4308,6 +4748,8 @@
               - **pontos_uids**:
                 - 6
               - **escalada**: Quina da mesa
+              - **setor**: Bloco A - Gastón a la Mesón
+              - **grupo**: Rolling Stones
               - **ids**:
                 - 6
             - **[2]**:
@@ -4315,6 +4757,8 @@
               - **pontos_uids**:
                 - 7
               - **escalada**: Gaston à la meson
+              - **setor**: Bloco A - Gastón a la Mesón
+              - **grupo**: Rolling Stones
               - **ids**:
                 - 7
             - **[3]**:
@@ -4322,6 +4766,8 @@
               - **pontos_uids**:
                 - 7
               - **escalada**: Gaston à la meson FDS
+              - **setor**: Bloco A - Gastón a la Mesón
+              - **grupo**: Rolling Stones
               - **ids**:
                 - 7
       - **escaladas**:
@@ -4403,6 +4849,8 @@
               - **pontos_uids**:
                 - 9
               - **escalada**: A onda
+              - **setor**: Bloco B - Casulo
+              - **grupo**: Rolling Stones
               - **ids**:
                 - 9
             - **[1]**:
@@ -4410,6 +4858,8 @@
               - **pontos_uids**:
                 - 10
               - **escalada**: Estaca
+              - **setor**: Bloco B - Casulo
+              - **grupo**: Rolling Stones
               - **ids**:
                 - 10
             - **[2]**:
@@ -4417,6 +4867,8 @@
               - **pontos_uids**:
                 - 11
               - **escalada**: Mariposa
+              - **setor**: Bloco B - Casulo
+              - **grupo**: Rolling Stones
               - **ids**:
                 - 11
             - **[3]**:
@@ -4424,6 +4876,8 @@
               - **pontos_uids**:
                 - 12
               - **escalada**: Casulo
+              - **setor**: Bloco B - Casulo
+              - **grupo**: Rolling Stones
               - **ids**:
                 - 12
       - **escaladas**:
@@ -4470,6 +4924,8 @@
               - **pontos_uids**:
                 - 13
               - **escalada**: Banzai
+              - **setor**: Bloco C - Marrento
+              - **grupo**: Rolling Stones
               - **ids**:
                 - 13
             - **[1]**:
@@ -4477,6 +4933,8 @@
               - **pontos_uids**:
                 - 14
               - **escalada**: Marrento
+              - **setor**: Bloco C - Marrento
+              - **grupo**: Rolling Stones
               - **ids**:
                 - 14
             - **[2]**:
@@ -4484,6 +4942,8 @@
               - **pontos_uids**:
                 - 15
               - **escalada**: Carioquinha
+              - **setor**: Bloco C - Marrento
+              - **grupo**: Rolling Stones
               - **ids**:
                 - 15
             - **[3]**:
@@ -4491,6 +4951,8 @@
               - **pontos_uids**:
                 - 16
               - **escalada**: Baiano
+              - **setor**: Bloco C - Marrento
+              - **grupo**: Rolling Stones
               - **ids**:
                 - 16
       - **escaladas**:
@@ -4679,6 +5141,8 @@
               - **pontos_uids**:
                 - 32
               - **escalada**: Cachoeira alta
+              - **setor**: Bloco F - Universo Paralello
+              - **grupo**: Rolling Stones
               - **ids**:
                 - 32
             - **[1]**:
@@ -4686,6 +5150,8 @@
               - **pontos_uids**:
                 - 33
               - **escalada**: Hard core
+              - **setor**: Bloco F - Universo Paralello
+              - **grupo**: Rolling Stones
               - **ids**:
                 - 33
             - **[2]**:
@@ -4694,6 +5160,8 @@
                 - 33
                 - 36
               - **escalada**: Tribe
+              - **setor**: Bloco F - Universo Paralello
+              - **grupo**: Rolling Stones
               - **ids**:
                 - 33
                 - 36
@@ -4703,6 +5171,8 @@
                 - 33
                 - 38
               - **escalada**: Calangute
+              - **setor**: Bloco F - Universo Paralello
+              - **grupo**: Rolling Stones
               - **ids**:
                 - 33
                 - 38
@@ -4711,6 +5181,8 @@
               - **pontos_uids**:
                 - 36
               - **escalada**: Universo Paralello
+              - **setor**: Bloco F - Universo Paralello
+              - **grupo**: Rolling Stones
               - **ids**:
                 - 36
             - **[5]**:
@@ -4718,6 +5190,8 @@
               - **pontos_uids**:
                 - 36
               - **escalada**: Trancedance
+              - **setor**: Bloco F - Universo Paralello
+              - **grupo**: Rolling Stones
               - **ids**:
                 - 36
             - **[6]**:
@@ -4725,6 +5199,8 @@
               - **pontos_uids**:
                 - 38
               - **escalada**: Rave
+              - **setor**: Bloco F - Universo Paralello
+              - **grupo**: Rolling Stones
               - **ids**:
                 - 38
             - **[7]**:
@@ -4733,6 +5209,8 @@
                 - 36
                 - 38
               - **escalada**: Fora do tempo
+              - **setor**: Bloco F - Universo Paralello
+              - **grupo**: Rolling Stones
               - **ids**:
                 - 36
                 - 38
@@ -4742,6 +5220,8 @@
                 - 36
                 - 33
               - **escalada**: Samsara
+              - **setor**: Bloco F - Universo Paralello
+              - **grupo**: Rolling Stones
               - **ids**:
                 - 36
                 - 33
@@ -4846,6 +5326,8 @@
               - **pontos_uids**:
                 - 41
               - **escalada**: Cara nova
+              - **setor**: Bloco G - Pantaloneta
+              - **grupo**: Rolling Stones
               - **ids**:
                 - 41
             - **[1]**:
@@ -4853,6 +5335,8 @@
               - **pontos_uids**:
                 - 42
               - **escalada**: Buraco louco
+              - **setor**: Bloco G - Pantaloneta
+              - **grupo**: Rolling Stones
               - **ids**:
                 - 42
             - **[2]**:
@@ -4860,6 +5344,8 @@
               - **pontos_uids**:
                 - 43
               - **escalada**: Morena
+              - **setor**: Bloco G - Pantaloneta
+              - **grupo**: Rolling Stones
               - **ids**:
                 - 43
             - **[3]**:
@@ -4867,6 +5353,8 @@
               - **pontos_uids**:
                 - 44
               - **escalada**: Hard crimp
+              - **setor**: Bloco G - Pantaloneta
+              - **grupo**: Rolling Stones
               - **ids**:
                 - 44
             - **[4]**:
@@ -4874,6 +5362,8 @@
               - **pontos_uids**:
                 - 45
               - **escalada**: Tapete mágico
+              - **setor**: Bloco G - Pantaloneta
+              - **grupo**: Rolling Stones
               - **ids**:
                 - 45
             - **[5]**:
@@ -4881,6 +5371,8 @@
               - **pontos_uids**:
                 - 46
               - **escalada**: Jasmim
+              - **setor**: Bloco G - Pantaloneta
+              - **grupo**: Rolling Stones
               - **ids**:
                 - 46
             - **[6]**:
@@ -4888,6 +5380,8 @@
               - **pontos_uids**:
                 - 47
               - **escalada**: Pantaloneta
+              - **setor**: Bloco G - Pantaloneta
+              - **grupo**: Rolling Stones
               - **ids**:
                 - 47
             - **[7]**:
@@ -4895,6 +5389,8 @@
               - **pontos_uids**:
                 - 48
               - **escalada**: Pantalones
+              - **setor**: Bloco G - Pantaloneta
+              - **grupo**: Rolling Stones
               - **ids**:
                 - 48
             - **[8]**:
@@ -4902,6 +5398,8 @@
               - **pontos_uids**:
                 - 49
               - **escalada**: Teto da aranha
+              - **setor**: Bloco G - Pantaloneta
+              - **grupo**: Rolling Stones
               - **ids**:
                 - 49
             - **[9]**:
@@ -4909,6 +5407,8 @@
               - **pontos_uids**:
                 - 50
               - **escalada**: Aranha cabeluda
+              - **setor**: Bloco G - Pantaloneta
+              - **grupo**: Rolling Stones
               - **ids**:
                 - 50
             - **[10]**:
@@ -4916,6 +5416,8 @@
               - **pontos_uids**:
                 - 51
               - **escalada**: Cabelo louco
+              - **setor**: Bloco G - Pantaloneta
+              - **grupo**: Rolling Stones
               - **ids**:
                 - 51
             - **[11]**:
@@ -4923,6 +5425,8 @@
               - **pontos_uids**:
                 - 52
               - **escalada**: Abismo
+              - **setor**: Bloco G - Pantaloneta
+              - **grupo**: Rolling Stones
               - **ids**:
                 - 52
             - **[12]**:
@@ -4930,6 +5434,8 @@
               - **pontos_uids**:
                 - 53
               - **escalada**: Buraco negro
+              - **setor**: Bloco G - Pantaloneta
+              - **grupo**: Rolling Stones
               - **ids**:
                 - 53
             - **[13]**:
@@ -4937,6 +5443,8 @@
               - **pontos_uids**:
                 - 54
               - **escalada**: Cotonete
+              - **setor**: Bloco G - Pantaloneta
+              - **grupo**: Rolling Stones
               - **ids**:
                 - 54
             - **[14]**:
@@ -4944,6 +5452,8 @@
               - **pontos_uids**:
                 - 55
               - **escalada**: Buraquinho
+              - **setor**: Bloco G - Pantaloneta
+              - **grupo**: Rolling Stones
               - **ids**:
                 - 55
             - **[15]**:
@@ -4951,6 +5461,8 @@
               - **pontos_uids**:
                 - 56
               - **escalada**: Caranguejeira
+              - **setor**: Bloco G - Pantaloneta
+              - **grupo**: Rolling Stones
               - **ids**:
                 - 56
         - **[1]**:
@@ -4963,6 +5475,8 @@
               - **pontos_uids**:
                 - 49
               - **escalada**: Teto da aranha
+              - **setor**: Bloco G - Pantaloneta
+              - **grupo**: Rolling Stones
               - **ids**:
                 - 49
             - **[1]**:
@@ -4970,6 +5484,8 @@
               - **pontos_uids**:
                 - 51
               - **escalada**: Cabelo louco
+              - **setor**: Bloco G - Pantaloneta
+              - **grupo**: Rolling Stones
               - **ids**:
                 - 51
             - **[2]**:
@@ -4977,6 +5493,8 @@
               - **pontos_uids**:
                 - 54
               - **escalada**: Cotonete
+              - **setor**: Bloco G - Pantaloneta
+              - **grupo**: Rolling Stones
               - **ids**:
                 - 54
             - **[3]**:
@@ -4984,6 +5502,8 @@
               - **pontos_uids**:
                 - 55
               - **escalada**: Buraquinho
+              - **setor**: Bloco G - Pantaloneta
+              - **grupo**: Rolling Stones
               - **ids**:
                 - 55
             - **[4]**:
@@ -4991,6 +5511,8 @@
               - **pontos_uids**:
                 - 56
               - **escalada**: Caranguejeira
+              - **setor**: Bloco G - Pantaloneta
+              - **grupo**: Rolling Stones
               - **ids**:
                 - 56
             - **[5]**:
@@ -4998,6 +5520,8 @@
               - **pontos_uids**:
                 - 57
               - **escalada**: Armadeira
+              - **setor**: Bloco G - Pantaloneta
+              - **grupo**: Rolling Stones
               - **ids**:
                 - 57
             - **[6]**:
@@ -5005,6 +5529,8 @@
               - **pontos_uids**:
                 - 58
               - **escalada**: Quero mais
+              - **setor**: Bloco G - Pantaloneta
+              - **grupo**: Rolling Stones
               - **ids**:
                 - 58
             - **[7]**:
@@ -5012,6 +5538,8 @@
               - **pontos_uids**:
                 - 59
               - **escalada**: Proteste já
+              - **setor**: Bloco G - Pantaloneta
+              - **grupo**: Rolling Stones
               - **ids**:
                 - 59
             - **[8]**:
@@ -5019,6 +5547,8 @@
               - **pontos_uids**:
                 - 60
               - **escalada**: Manifestante
+              - **setor**: Bloco G - Pantaloneta
+              - **grupo**: Rolling Stones
               - **ids**:
                 - 60
             - **[9]**:
@@ -5026,6 +5556,8 @@
               - **pontos_uids**:
                 - 61
               - **escalada**: Aladim
+              - **setor**: Bloco G - Pantaloneta
+              - **grupo**: Rolling Stones
               - **ids**:
                 - 61
             - **[10]**:
@@ -5033,6 +5565,8 @@
               - **pontos_uids**:
                 - 62
               - **escalada**: Projeto 7
+              - **setor**: Bloco G - Pantaloneta
+              - **grupo**: Rolling Stones
               - **ids**:
                 - 62
             - **[11]**:
@@ -5040,6 +5574,8 @@
               - **pontos_uids**:
                 - 63
               - **escalada**: Projeto 8
+              - **setor**: Bloco G - Pantaloneta
+              - **grupo**: Rolling Stones
               - **ids**:
                 - 63
             - **[12]**:
@@ -5047,6 +5583,8 @@
               - **pontos_uids**:
                 - 64
               - **escalada**: Vaqueros
+              - **setor**: Bloco G - Pantaloneta
+              - **grupo**: Rolling Stones
               - **ids**:
                 - 64
             - **[13]**:
@@ -5054,6 +5592,8 @@
               - **pontos_uids**:
                 - 65
               - **escalada**: Esporte fino
+              - **setor**: Bloco G - Pantaloneta
+              - **grupo**: Rolling Stones
               - **ids**:
                 - 65
             - **[14]**:
@@ -5061,6 +5601,8 @@
               - **pontos_uids**:
                 - 66
               - **escalada**: Passeio completo
+              - **setor**: Bloco G - Pantaloneta
+              - **grupo**: Rolling Stones
               - **ids**:
                 - 66
             - **[15]**:
@@ -5068,6 +5610,8 @@
               - **pontos_uids**:
                 - 67
               - **escalada**: Aracnofobia
+              - **setor**: Bloco G - Pantaloneta
+              - **grupo**: Rolling Stones
               - **ids**:
                 - 67
             - **[16]**:
@@ -5075,6 +5619,8 @@
               - **pontos_uids**:
                 - 68
               - **escalada**: Teia de aranha
+              - **setor**: Bloco G - Pantaloneta
+              - **grupo**: Rolling Stones
               - **ids**:
                 - 68
             - **[17]**:
@@ -5082,6 +5628,8 @@
               - **pontos_uids**:
                 - 69
               - **escalada**: Rolo compressor
+              - **setor**: Bloco G - Pantaloneta
+              - **grupo**: Rolling Stones
               - **ids**:
                 - 69
             - **[18]**:
@@ -5089,6 +5637,8 @@
               - **pontos_uids**:
                 - 70
               - **escalada**: Comprimido
+              - **setor**: Bloco G - Pantaloneta
+              - **grupo**: Rolling Stones
               - **ids**:
                 - 70
             - **[19]**:
@@ -5096,6 +5646,8 @@
               - **pontos_uids**:
                 - 71
               - **escalada**: Prensa
+              - **setor**: Bloco G - Pantaloneta
+              - **grupo**: Rolling Stones
               - **ids**:
                 - 71
             - **[20]**:
@@ -5103,6 +5655,8 @@
               - **pontos_uids**:
                 - 72
               - **escalada**: Compressão
+              - **setor**: Bloco G - Pantaloneta
+              - **grupo**: Rolling Stones
               - **ids**:
                 - 72
       - **escaladas**:
@@ -5497,6 +6051,8 @@
               - **pontos_uids**:
                 - 1
               - **escalada**: Tala
+              - **setor**: Bloco A - Gangrena
+              - **grupo**: Pena de Ganso
               - **ids**:
                 - 1
             - **[1]**:
@@ -5504,6 +6060,8 @@
               - **pontos_uids**:
                 - 2
               - **escalada**: Banho de sangue
+              - **setor**: Bloco A - Gangrena
+              - **grupo**: Pena de Ganso
               - **ids**:
                 - 2
             - **[2]**:
@@ -5511,6 +6069,8 @@
               - **pontos_uids**:
                 - 3
               - **escalada**: Aderência
+              - **setor**: Bloco A - Gangrena
+              - **grupo**: Pena de Ganso
               - **ids**:
                 - 3
             - **[3]**:
@@ -5518,6 +6078,8 @@
               - **pontos_uids**:
                 - 4
               - **escalada**: Textura
+              - **setor**: Bloco A - Gangrena
+              - **grupo**: Pena de Ganso
               - **ids**:
                 - 4
             - **[4]**:
@@ -5525,6 +6087,8 @@
               - **pontos_uids**:
                 - 5
               - **escalada**: Gangrena
+              - **setor**: Bloco A - Gangrena
+              - **grupo**: Pena de Ganso
               - **ids**:
                 - 5
             - **[5]**:
@@ -5532,6 +6096,8 @@
               - **pontos_uids**:
                 - 6
               - **escalada**: Quelóide
+              - **setor**: Bloco A - Gangrena
+              - **grupo**: Pena de Ganso
               - **ids**:
                 - 6
             - **[6]**:
@@ -5540,6 +6106,8 @@
                 - 5
                 - 2
               - **escalada**: Sanguinário
+              - **setor**: Bloco A - Gangrena
+              - **grupo**: Pena de Ganso
               - **ids**:
                 - 5
                 - 2
@@ -5548,6 +6116,8 @@
               - **pontos_uids**:
                 - 8
               - **escalada**: Cicatriz
+              - **setor**: Bloco A - Gangrena
+              - **grupo**: Pena de Ganso
               - **ids**:
                 - 8
         - **[1]**:
@@ -5560,6 +6130,8 @@
               - **pontos_uids**:
                 - 8
               - **escalada**: Cicatriz
+              - **setor**: Bloco A - Gangrena
+              - **grupo**: Pena de Ganso
               - **ids**:
                 - 8
             - **[1]**:
@@ -5567,6 +6139,8 @@
               - **pontos_uids**:
                 - 9
               - **escalada**: Diagramando
+              - **setor**: Bloco A - Gangrena
+              - **grupo**: Pena de Ganso
               - **ids**:
                 - 9
             - **[2]**:
@@ -5574,6 +6148,8 @@
               - **pontos_uids**:
                 - 10
               - **escalada**: InDesign
+              - **setor**: Bloco A - Gangrena
+              - **grupo**: Pena de Ganso
               - **ids**:
                 - 10
       - **escaladas**:
@@ -5662,6 +6238,8 @@
               - **pontos_uids**:
                 - 11
               - **escalada**: Exilado
+              - **setor**: Bloco B - Exilado
+              - **grupo**: Pena de Ganso
               - **ids**:
                 - 11
             - **[1]**:
@@ -5669,6 +6247,8 @@
               - **pontos_uids**:
                 - 12
               - **escalada**: A busca
+              - **setor**: Bloco B - Exilado
+              - **grupo**: Pena de Ganso
               - **ids**:
                 - 12
       - **escaladas**:
@@ -5703,6 +6283,8 @@
               - **pontos_uids**:
                 - 13
               - **escalada**: Despenado
+              - **setor**: Bloco C - Pena de Ganso
+              - **grupo**: Pena de Ganso
               - **ids**:
                 - 13
             - **[1]**:
@@ -5710,6 +6292,8 @@
               - **pontos_uids**:
                 - 14
               - **escalada**: Penadinho
+              - **setor**: Bloco C - Pena de Ganso
+              - **grupo**: Pena de Ganso
               - **ids**:
                 - 14
             - **[2]**:
@@ -5717,6 +6301,8 @@
               - **pontos_uids**:
                 - 15
               - **escalada**: Pena de ganso
+              - **setor**: Bloco C - Pena de Ganso
+              - **grupo**: Pena de Ganso
               - **ids**:
                 - 15
             - **[3]**:
@@ -5724,6 +6310,8 @@
               - **pontos_uids**:
                 - 16
               - **escalada**: Jamaica abaixo de zero
+              - **setor**: Bloco C - Pena de Ganso
+              - **grupo**: Pena de Ganso
               - **ids**:
                 - 16
             - **[4]**:
@@ -5731,6 +6319,8 @@
               - **pontos_uids**:
                 - 16
               - **escalada**: Jamaica abaixo de zero SDS
+              - **setor**: Bloco C - Pena de Ganso
+              - **grupo**: Pena de Ganso
               - **ids**:
                 - 16
             - **[5]**:
@@ -5738,6 +6328,8 @@
               - **pontos_uids**:
                 - 18
               - **escalada**: Projeto 9
+              - **setor**: Bloco C - Pena de Ganso
+              - **grupo**: Pena de Ganso
               - **ids**:
                 - 18
         - **[1]**:
@@ -5750,6 +6342,8 @@
               - **pontos_uids**:
                 - 15
               - **escalada**: Pena de ganso
+              - **setor**: Bloco C - Pena de Ganso
+              - **grupo**: Pena de Ganso
               - **ids**:
                 - 15
             - **[1]**:
@@ -5757,6 +6351,8 @@
               - **pontos_uids**:
                 - 16
               - **escalada**: Jamaica abaixo de zero
+              - **setor**: Bloco C - Pena de Ganso
+              - **grupo**: Pena de Ganso
               - **ids**:
                 - 16
             - **[2]**:
@@ -5764,6 +6360,8 @@
               - **pontos_uids**:
                 - 16
               - **escalada**: Jamaica abaixo de zero SDS
+              - **setor**: Bloco C - Pena de Ganso
+              - **grupo**: Pena de Ganso
               - **ids**:
                 - 16
             - **[3]**:
@@ -5771,6 +6369,8 @@
               - **pontos_uids**:
                 - 18
               - **escalada**: Projeto 9
+              - **setor**: Bloco C - Pena de Ganso
+              - **grupo**: Pena de Ganso
               - **ids**:
                 - 18
             - **[4]**:
@@ -5778,6 +6378,8 @@
               - **pontos_uids**:
                 - 19
               - **escalada**: Lacrimogênio
+              - **setor**: Bloco C - Pena de Ganso
+              - **grupo**: Pena de Ganso
               - **ids**:
                 - 19
             - **[5]**:
@@ -5785,6 +6387,8 @@
               - **pontos_uids**:
                 - 20
               - **escalada**: Gás lacrimogênio
+              - **setor**: Bloco C - Pena de Ganso
+              - **grupo**: Pena de Ganso
               - **ids**:
                 - 20
       - **escaladas**:
@@ -5871,6 +6475,8 @@
               - **pontos_uids**:
                 - 21
               - **escalada**: Escondido
+              - **setor**: Bloco D - Escondido
+              - **grupo**: Pena de Ganso
               - **ids**:
                 - 21
       - **escaladas**:
@@ -5899,6 +6505,8 @@
               - **pontos_uids**:
                 - 22
               - **escalada**: Preguiça
+              - **setor**: Bloco E - Caramujo
+              - **grupo**: Pena de Ganso
               - **ids**:
                 - 22
             - **[1]**:
@@ -5906,6 +6514,8 @@
               - **pontos_uids**:
                 - 23
               - **escalada**: Lesma
+              - **setor**: Bloco E - Caramujo
+              - **grupo**: Pena de Ganso
               - **ids**:
                 - 23
             - **[2]**:
@@ -5913,6 +6523,8 @@
               - **pontos_uids**:
                 - 24
               - **escalada**: Caramujo
+              - **setor**: Bloco E - Caramujo
+              - **grupo**: Pena de Ganso
               - **ids**:
                 - 24
             - **[3]**:
@@ -5920,6 +6532,8 @@
               - **pontos_uids**:
                 - 25
               - **escalada**: Tartaruga
+              - **setor**: Bloco E - Caramujo
+              - **grupo**: Pena de Ganso
               - **ids**:
                 - 25
       - **escaladas**:
@@ -6039,6 +6653,8 @@
         - **pontos_uids**:
           - 1
         - **escalada**: Boliche
+        - **setor**: Bloco A - Boliche
+        - **grupo**: Tosco
         - **ids**:
           - 1
       - **[1]**:
@@ -6046,6 +6662,8 @@
         - **pontos_uids**:
           - 2
         - **escalada**: Projeto 10
+        - **setor**: Bloco A - Boliche
+        - **grupo**: Tosco
         - **ids**:
           - 2
       - **[2]**:
@@ -6053,6 +6671,8 @@
         - **pontos_uids**:
           - 3
         - **escalada**: Strike
+        - **setor**: Bloco A - Boliche
+        - **grupo**: Tosco
         - **ids**:
           - 3
       - **[3]**:
@@ -6060,6 +6680,8 @@
         - **pontos_uids**:
           - 4
         - **escalada**: Amarelão
+        - **setor**: Bloco B - Amarelão
+        - **grupo**: Tosco
         - **ids**:
           - 4
       - **[4]**:
@@ -6067,6 +6689,8 @@
         - **pontos_uids**:
           - 5
         - **escalada**: Amarelinha
+        - **setor**: Bloco B - Amarelão
+        - **grupo**: Tosco
         - **ids**:
           - 5
   - **[1]**:
@@ -6079,6 +6703,8 @@
         - **pontos_uids**:
           - 14
         - **escalada**: Viradinha nacional
+        - **setor**: Bloco E - Viradinha Nacional
+        - **grupo**: Tosco
         - **ids**:
           - 14
       - **[1]**:
@@ -6086,6 +6712,8 @@
         - **pontos_uids**:
           - 15
         - **escalada**: Frita pé
+        - **setor**: Bloco F - Frita Pé
+        - **grupo**: Tosco
         - **ids**:
           - 15
       - **[2]**:
@@ -6093,6 +6721,8 @@
         - **pontos_uids**:
           - 16
         - **escalada**: Tô legal
+        - **setor**: Bloco F - Frita Pé
+        - **grupo**: Tosco
         - **ids**:
           - 16
   - **[2]**:
@@ -6105,6 +6735,8 @@
         - **pontos_uids**:
           - 17
         - **escalada**: Os malaco
+        - **setor**: Bloco G - Rolezinho
+        - **grupo**: Tosco
         - **ids**:
           - 17
       - **[1]**:
@@ -6112,6 +6744,8 @@
         - **pontos_uids**:
           - 18
         - **escalada**: Rolezinho
+        - **setor**: Bloco G - Rolezinho
+        - **grupo**: Tosco
         - **ids**:
           - 18
       - **[2]**:
@@ -6119,6 +6753,8 @@
         - **pontos_uids**:
           - 19
         - **escalada**: Cor do bicho
+        - **setor**: Bloco H - Cor do Bicho
+        - **grupo**: Tosco
         - **ids**:
           - 19
       - **[3]**:
@@ -6126,6 +6762,8 @@
         - **pontos_uids**:
           - 20
         - **escalada**: Colorau
+        - **setor**: Bloco H - Cor do Bicho
+        - **grupo**: Tosco
         - **ids**:
           - 20
 - **setores**:
@@ -6194,6 +6832,8 @@
               - **pontos_uids**:
                 - 6
               - **escalada**: V clássico
+              - **setor**: Bloco C - Aresta Visual
+              - **grupo**: Tosco
               - **ids**:
                 - 6
             - **[1]**:
@@ -6201,6 +6841,8 @@
               - **pontos_uids**:
                 - 7
               - **escalada**: O tempo e o vento
+              - **setor**: Bloco C - Aresta Visual
+              - **grupo**: Tosco
               - **ids**:
                 - 7
             - **[2]**:
@@ -6208,6 +6850,8 @@
               - **pontos_uids**:
                 - 8
               - **escalada**: Projeto 11
+              - **setor**: Bloco C - Aresta Visual
+              - **grupo**: Tosco
               - **ids**:
                 - 8
             - **[3]**:
@@ -6215,6 +6859,8 @@
               - **pontos_uids**:
                 - 9
               - **escalada**: Aresta visual
+              - **setor**: Bloco C - Aresta Visual
+              - **grupo**: Tosco
               - **ids**:
                 - 9
             - **[4]**:
@@ -6222,6 +6868,8 @@
               - **pontos_uids**:
                 - 10
               - **escalada**: Aresta visual SDS
+              - **setor**: Bloco C - Aresta Visual
+              - **grupo**: Tosco
               - **ids**:
                 - 10
             - **[5]**:
@@ -6229,6 +6877,8 @@
               - **pontos_uids**:
                 - 11
               - **escalada**: Projeto 12
+              - **setor**: Bloco C - Aresta Visual
+              - **grupo**: Tosco
               - **ids**:
                 - 11
       - **escaladas**:
@@ -6401,6 +7051,8 @@
               - **pontos_uids**:
                 - 21
               - **escalada**: McDonald’s
+              - **setor**: Bloco I - Tosco
+              - **grupo**: Tosco
               - **ids**:
                 - 21
             - **[1]**:
@@ -6408,6 +7060,8 @@
               - **pontos_uids**:
                 - 22
               - **escalada**: Tosco
+              - **setor**: Bloco I - Tosco
+              - **grupo**: Tosco
               - **ids**:
                 - 22
             - **[2]**:
@@ -6416,6 +7070,8 @@
                 - 22
                 - 24
               - **escalada**: Tosqueira
+              - **setor**: Bloco I - Tosco
+              - **grupo**: Tosco
               - **ids**:
                 - 22
                 - 24
@@ -6424,6 +7080,8 @@
               - **pontos_uids**:
                 - 24
               - **escalada**: Senta no porco
+              - **setor**: Bloco I - Tosco
+              - **grupo**: Tosco
               - **ids**:
                 - 24
             - **[4]**:
@@ -6431,6 +7089,8 @@
               - **pontos_uids**:
                 - 25
               - **escalada**: Mr. Rocha Pura
+              - **setor**: Bloco I - Tosco
+              - **grupo**: Tosco
               - **ids**:
                 - 25
       - **escaladas**:
@@ -6491,6 +7151,8 @@
               - **pontos_uids**:
                 - 26
               - **escalada**: As legítimas
+              - **setor**: Bloco J - Tô Partindo
+              - **grupo**: Tosco
               - **ids**:
                 - 26
             - **[1]**:
@@ -6498,6 +7160,8 @@
               - **pontos_uids**:
                 - 27
               - **escalada**: Tô partindo
+              - **setor**: Bloco J - Tô Partindo
+              - **grupo**: Tosco
               - **ids**:
                 - 27
             - **[2]**:
@@ -6505,6 +7169,8 @@
               - **pontos_uids**:
                 - 28
               - **escalada**: Já parti
+              - **setor**: Bloco J - Tô Partindo
+              - **grupo**: Tosco
               - **ids**:
                 - 28
       - **escaladas**:
@@ -6545,6 +7211,8 @@
               - **pontos_uids**:
                 - 29
               - **escalada**: Oval
+              - **setor**: Bloco K - Oval
+              - **grupo**: Tosco
               - **ids**:
                 - 29
             - **[1]**:
@@ -6552,6 +7220,8 @@
               - **pontos_uids**:
                 - 29
               - **escalada**: Oval SDS
+              - **setor**: Bloco K - Oval
+              - **grupo**: Tosco
               - **ids**:
                 - 29
             - **[2]**:
@@ -6559,6 +7229,8 @@
               - **pontos_uids**:
                 - 31
               - **escalada**: Teimoso
+              - **setor**: Bloco K - Oval
+              - **grupo**: Tosco
               - **ids**:
                 - 31
             - **[3]**:
@@ -6566,6 +7238,8 @@
               - **pontos_uids**:
                 - 32
               - **escalada**: Descompassado
+              - **setor**: Bloco K - Oval
+              - **grupo**: Tosco
               - **ids**:
                 - 32
             - **[4]**:
@@ -6573,6 +7247,8 @@
               - **pontos_uids**:
                 - 32
               - **escalada**: Descompassado SDS
+              - **setor**: Bloco K - Oval
+              - **grupo**: Tosco
               - **ids**:
                 - 32
             - **[5]**:
@@ -6580,6 +7256,8 @@
               - **pontos_uids**:
                 - 34
               - **escalada**: Compasso
+              - **setor**: Bloco K - Oval
+              - **grupo**: Tosco
               - **ids**:
                 - 34
       - **escaladas**:
@@ -6646,6 +7324,8 @@
               - **pontos_uids**:
                 - 35
               - **escalada**: Série continua
+              - **setor**: Bloco L - Motricidade
+              - **grupo**: Tosco
               - **ids**:
                 - 35
             - **[1]**:
@@ -6653,6 +7333,8 @@
               - **pontos_uids**:
                 - 36
               - **escalada**: Potencial de ação
+              - **setor**: Bloco L - Motricidade
+              - **grupo**: Tosco
               - **ids**:
                 - 36
             - **[2]**:
@@ -6660,6 +7342,8 @@
               - **pontos_uids**:
                 - 36
               - **escalada**: Impulso elétrico
+              - **setor**: Bloco L - Motricidade
+              - **grupo**: Tosco
               - **ids**:
                 - 36
             - **[3]**:
@@ -6667,6 +7351,8 @@
               - **pontos_uids**:
                 - 36
               - **escalada**: Motricidade fina
+              - **setor**: Bloco L - Motricidade
+              - **grupo**: Tosco
               - **ids**:
                 - 36
             - **[4]**:
@@ -6674,6 +7360,8 @@
               - **pontos_uids**:
                 - 36
               - **escalada**: Tam tam
+              - **setor**: Bloco L - Motricidade
+              - **grupo**: Tosco
               - **ids**:
                 - 36
             - **[5]**:
@@ -6681,6 +7369,8 @@
               - **pontos_uids**:
                 - 36
               - **escalada**: Tio Cabeça
+              - **setor**: Bloco L - Motricidade
+              - **grupo**: Tosco
               - **ids**:
                 - 36
             - **[6]**:
@@ -6688,6 +7378,8 @@
               - **pontos_uids**:
                 - 41
               - **escalada**: Jornada
+              - **setor**: Bloco L - Motricidade
+              - **grupo**: Tosco
               - **ids**:
                 - 41
             - **[7]**:
@@ -6695,6 +7387,8 @@
               - **pontos_uids**:
                 - 42
               - **escalada**: Motricidade curta
+              - **setor**: Bloco L - Motricidade
+              - **grupo**: Tosco
               - **ids**:
                 - 42
             - **[8]**:
@@ -6702,6 +7396,8 @@
               - **pontos_uids**:
                 - 43
               - **escalada**: Primavera
+              - **setor**: Bloco L - Motricidade
+              - **grupo**: Tosco
               - **ids**:
                 - 43
             - **[9]**:
@@ -6709,6 +7405,8 @@
               - **pontos_uids**:
                 - 44
               - **escalada**: Irmandade
+              - **setor**: Bloco L - Motricidade
+              - **grupo**: Tosco
               - **ids**:
                 - 44
       - **escaladas**:
@@ -6809,6 +7507,8 @@
               - **pontos_uids**:
                 - 45
               - **escalada**: Night climb
+              - **setor**: Bloco M - Night Climb
+              - **grupo**: Tosco
               - **ids**:
                 - 45
             - **[1]**:
@@ -6816,6 +7516,8 @@
               - **pontos_uids**:
                 - 46
               - **escalada**: Night climb SDS
+              - **setor**: Bloco M - Night Climb
+              - **grupo**: Tosco
               - **ids**:
                 - 46
             - **[2]**:
@@ -6823,6 +7525,8 @@
               - **pontos_uids**:
                 - 47
               - **escalada**: Tramontina
+              - **setor**: Bloco M - Night Climb
+              - **grupo**: Tosco
               - **ids**:
                 - 47
       - **escaladas**:
@@ -6865,6 +7569,8 @@
               - **pontos_uids**:
                 - 48
               - **escalada**: Piolho de pedra
+              - **setor**: Bloco N - Piolho de Cobra
+              - **grupo**: Tosco
               - **ids**:
                 - 48
             - **[1]**:
@@ -6872,6 +7578,8 @@
               - **pontos_uids**:
                 - 49
               - **escalada**: Grilo falante
+              - **setor**: Bloco N - Piolho de Cobra
+              - **grupo**: Tosco
               - **ids**:
                 - 49
             - **[2]**:
@@ -6879,6 +7587,8 @@
               - **pontos_uids**:
                 - 50
               - **escalada**: Piolho de cobra
+              - **setor**: Bloco N - Piolho de Cobra
+              - **grupo**: Tosco
               - **ids**:
                 - 50
       - **escaladas**:
@@ -6920,6 +7630,8 @@
               - **pontos_uids**:
                 - 51
               - **escalada**: Nulo
+              - **setor**: Bloco O - Democrático
+              - **grupo**: Tosco
               - **ids**:
                 - 51
             - **[1]**:
@@ -6927,6 +7639,8 @@
               - **pontos_uids**:
                 - 52
               - **escalada**: Viva
+              - **setor**: Bloco O - Democrático
+              - **grupo**: Tosco
               - **ids**:
                 - 52
             - **[2]**:
@@ -6934,6 +7648,8 @@
               - **pontos_uids**:
                 - 53
               - **escalada**: Democrático
+              - **setor**: Bloco O - Democrático
+              - **grupo**: Tosco
               - **ids**:
                 - 53
             - **[3]**:
@@ -6941,6 +7657,8 @@
               - **pontos_uids**:
                 - 54
               - **escalada**: Espacial
+              - **setor**: Bloco O - Democrático
+              - **grupo**: Tosco
               - **ids**:
                 - 54
       - **escaladas**:
@@ -6989,6 +7707,8 @@
               - **pontos_uids**:
                 - 55
               - **escalada**: Oxidante
+              - **setor**: Bloco P - Ferrugem
+              - **grupo**: Tosco
               - **ids**:
                 - 55
             - **[1]**:
@@ -6996,6 +7716,8 @@
               - **pontos_uids**:
                 - 56
               - **escalada**: Ferrugem
+              - **setor**: Bloco P - Ferrugem
+              - **grupo**: Tosco
               - **ids**:
                 - 56
             - **[2]**:
@@ -7003,6 +7725,8 @@
               - **pontos_uids**:
                 - 57
               - **escalada**: Corrosivo
+              - **setor**: Bloco P - Ferrugem
+              - **grupo**: Tosco
               - **ids**:
                 - 57
             - **[3]**:
@@ -7010,6 +7734,8 @@
               - **pontos_uids**:
                 - 58
               - **escalada**: Antitetânica
+              - **setor**: Bloco P - Ferrugem
+              - **grupo**: Tosco
               - **ids**:
                 - 58
       - **escaladas**:
@@ -7108,6 +7834,8 @@
               - **pontos_uids**:
                 - 1
               - **escalada**: Cachorro de Tróia
+              - **setor**: Bloco A - Cavalo de Tróia
+              - **grupo**: Canaleta
               - **ids**:
                 - 1
             - **[1]**:
@@ -7115,6 +7843,8 @@
               - **pontos_uids**:
                 - 2
               - **escalada**: Tróia
+              - **setor**: Bloco A - Cavalo de Tróia
+              - **grupo**: Canaleta
               - **ids**:
                 - 2
             - **[2]**:
@@ -7122,6 +7852,8 @@
               - **pontos_uids**:
                 - 3
               - **escalada**: Projeto Cavalo de Tróia
+              - **setor**: Bloco A - Cavalo de Tróia
+              - **grupo**: Canaleta
               - **ids**:
                 - 3
       - **escaladas**:
@@ -7163,6 +7895,8 @@
               - **pontos_uids**:
                 - 4
               - **escalada**: Destino oposto
+              - **setor**: Bloco B - Destinos
+              - **grupo**: Canaleta
               - **ids**:
                 - 4
             - **[1]**:
@@ -7170,6 +7904,8 @@
               - **pontos_uids**:
                 - 5
               - **escalada**: Destino certo
+              - **setor**: Bloco B - Destinos
+              - **grupo**: Canaleta
               - **ids**:
                 - 5
             - **[2]**:
@@ -7177,6 +7913,8 @@
               - **pontos_uids**:
                 - 6
               - **escalada**: Projeto Destino Incerto
+              - **setor**: Bloco B - Destinos
+              - **grupo**: Canaleta
               - **ids**:
                 - 6
             - **[3]**:
@@ -7184,6 +7922,8 @@
               - **pontos_uids**:
                 - 7
               - **escalada**: Quanta loucura
+              - **setor**: Bloco B - Destinos
+              - **grupo**: Canaleta
               - **ids**:
                 - 7
       - **escaladas**:
@@ -7231,6 +7971,8 @@
               - **pontos_uids**:
                 - 8
               - **escalada**: Forest Gump
+              - **setor**: Bloco C - Forrest Gump
+              - **grupo**: Canaleta
               - **ids**:
                 - 8
       - **escaladas**:
@@ -7260,6 +8002,8 @@
               - **pontos_uids**:
                 - 9
               - **escalada**: Fábulas
+              - **setor**: Bloco D - Fábulas
+              - **grupo**: Canaleta
               - **ids**:
                 - 9
       - **escaladas**:
@@ -7291,6 +8035,8 @@
               - **pontos_uids**:
                 - 10
               - **escalada**: Sequência ilógica
+              - **setor**: Bloco E - Logística
+              - **grupo**: Canaleta
               - **ids**:
                 - 10
             - **[1]**:
@@ -7298,6 +8044,8 @@
               - **pontos_uids**:
                 - 11
               - **escalada**: Logística de crashs
+              - **setor**: Bloco E - Logística
+              - **grupo**: Canaleta
               - **ids**:
                 - 11
             - **[2]**:
@@ -7305,6 +8053,8 @@
               - **pontos_uids**:
                 - 12
               - **escalada**: Logística
+              - **setor**: Bloco E - Logística
+              - **grupo**: Canaleta
               - **ids**:
                 - 12
       - **escaladas**:
@@ -7347,6 +8097,8 @@
               - **pontos_uids**:
                 - 13
               - **escalada**: Xanim
+              - **setor**: Bloco F - Puma
+              - **grupo**: Canaleta
               - **ids**:
                 - 13
             - **[1]**:
@@ -7354,6 +8106,8 @@
               - **pontos_uids**:
                 - 15
               - **escalada**: Jaguatirica
+              - **setor**: Bloco F - Puma
+              - **grupo**: Canaleta
               - **ids**:
                 - 15
             - **[2]**:
@@ -7361,6 +8115,8 @@
               - **pontos_uids**:
                 - 15
               - **escalada**: Puma
+              - **setor**: Bloco F - Puma
+              - **grupo**: Canaleta
               - **ids**:
                 - 15
       - **escaladas**:
@@ -7410,6 +8166,8 @@
               - **pontos_uids**:
                 - 16
               - **escalada**: Gatuno
+              - **setor**: Bloco G - Esparrachado
+              - **grupo**: Canaleta
               - **ids**:
                 - 16
             - **[1]**:
@@ -7417,6 +8175,8 @@
               - **pontos_uids**:
                 - 17
               - **escalada**: Esparrachado
+              - **setor**: Bloco G - Esparrachado
+              - **grupo**: Canaleta
               - **ids**:
                 - 17
             - **[2]**:
@@ -7424,6 +8184,8 @@
               - **pontos_uids**:
                 - 18
               - **escalada**: Pantera negra
+              - **setor**: Bloco G - Esparrachado
+              - **grupo**: Canaleta
               - **ids**:
                 - 18
             - **[3]**:
@@ -7431,6 +8193,8 @@
               - **pontos_uids**:
                 - 19
               - **escalada**: Toca da onça
+              - **setor**: Bloco G - Esparrachado
+              - **grupo**: Canaleta
               - **ids**:
                 - 19
             - **[4]**:
@@ -7439,6 +8203,8 @@
                 - 18
                 - 19
               - **escalada**: Pantera
+              - **setor**: Bloco G - Esparrachado
+              - **grupo**: Canaleta
               - **ids**:
                 - 18
                 - 19
@@ -7447,6 +8213,8 @@
               - **pontos_uids**:
                 - 21
               - **escalada**: Holograma
+              - **setor**: Bloco G - Esparrachado
+              - **grupo**: Canaleta
               - **ids**:
                 - 21
             - **[6]**:
@@ -7454,6 +8222,8 @@
               - **pontos_uids**:
                 - 22
               - **escalada**: Projeto 13
+              - **setor**: Bloco G - Esparrachado
+              - **grupo**: Canaleta
               - **ids**:
                 - 22
       - **escaladas**:
@@ -7538,6 +8308,8 @@
               - **pontos_uids**:
                 - 24
               - **escalada**: Beto Carneiro
+              - **setor**: Bloco H - Beto Carneiro
+              - **grupo**: Canaleta
               - **ids**:
                 - 24
             - **[1]**:
@@ -7545,6 +8317,8 @@
               - **pontos_uids**:
                 - 25
               - **escalada**: Projeto 15
+              - **setor**: Bloco H - Beto Carneiro
+              - **grupo**: Canaleta
               - **ids**:
                 - 25
             - **[2]**:
@@ -7552,6 +8326,8 @@
               - **pontos_uids**:
                 - 26
               - **escalada**: Bozó
+              - **setor**: Bloco H - Beto Carneiro
+              - **grupo**: Canaleta
               - **ids**:
                 - 26
             - **[3]**:
@@ -7559,6 +8335,8 @@
               - **pontos_uids**:
                 - 27
               - **escalada**: Tim Tones
+              - **setor**: Bloco H - Beto Carneiro
+              - **grupo**: Canaleta
               - **ids**:
                 - 27
       - **escaladas**:
@@ -7710,6 +8488,8 @@
         - **pontos_uids**:
           - 38
         - **escalada**: Hindu
+        - **setor**: Bloco E - Hindu
+        - **grupo**: Tubarão
         - **ids**:
           - 38
       - **[1]**:
@@ -7717,6 +8497,8 @@
         - **pontos_uids**:
           - 39
         - **escalada**: Ganesh
+        - **setor**: Bloco F - Ganesh
+        - **grupo**: Tubarão
         - **ids**:
           - 39
 - **setores**:
@@ -7736,6 +8518,8 @@
               - **pontos_uids**:
                 - 1
               - **escalada**: Marte
+              - **setor**: Bloco A - Fogos de Vênus
+              - **grupo**: Tubarão
               - **ids**:
                 - 1
             - **[1]**:
@@ -7743,6 +8527,8 @@
               - **pontos_uids**:
                 - 2
               - **escalada**: Vênus
+              - **setor**: Bloco A - Fogos de Vênus
+              - **grupo**: Tubarão
               - **ids**:
                 - 2
             - **[2]**:
@@ -7750,6 +8536,8 @@
               - **pontos_uids**:
                 - 3
               - **escalada**: Fogos de Vênus
+              - **setor**: Bloco A - Fogos de Vênus
+              - **grupo**: Tubarão
               - **ids**:
                 - 3
             - **[3]**:
@@ -7757,6 +8545,8 @@
               - **pontos_uids**:
                 - 4
               - **escalada**: Pôr da Lua
+              - **setor**: Bloco A - Fogos de Vênus
+              - **grupo**: Tubarão
               - **ids**:
                 - 4
             - **[4]**:
@@ -7764,6 +8554,8 @@
               - **pontos_uids**:
                 - 5
               - **escalada**: Pôr de Vênus
+              - **setor**: Bloco A - Fogos de Vênus
+              - **grupo**: Tubarão
               - **ids**:
                 - 5
       - **escaladas**:
@@ -7820,6 +8612,8 @@
               - **pontos_uids**:
                 - 6
               - **escalada**: Abrigo de ferro
+              - **setor**: Bloco B - Abrigo de Ferro
+              - **grupo**: Tubarão
               - **ids**:
                 - 6
             - **[1]**:
@@ -7827,6 +8621,8 @@
               - **pontos_uids**:
                 - 6
               - **escalada**: Medalha de lata
+              - **setor**: Bloco B - Abrigo de Ferro
+              - **grupo**: Tubarão
               - **ids**:
                 - 6
             - **[2]**:
@@ -7834,6 +8630,8 @@
               - **pontos_uids**:
                 - 8
               - **escalada**: Projeto 17
+              - **setor**: Bloco B - Abrigo de Ferro
+              - **grupo**: Tubarão
               - **ids**:
                 - 8
             - **[3]**:
@@ -7841,6 +8639,8 @@
               - **pontos_uids**:
                 - 9
               - **escalada**: Projeto 18
+              - **setor**: Bloco B - Abrigo de Ferro
+              - **grupo**: Tubarão
               - **ids**:
                 - 9
             - **[4]**:
@@ -7848,6 +8648,8 @@
               - **pontos_uids**:
                 - 10
               - **escalada**: Projeto 19
+              - **setor**: Bloco B - Abrigo de Ferro
+              - **grupo**: Tubarão
               - **ids**:
                 - 10
       - **escaladas**:
@@ -7904,6 +8706,8 @@
               - **pontos_uids**:
                 - 11
               - **escalada**: Meteoro
+              - **setor**: Bloco C - Meteoro
+              - **grupo**: Tubarão
               - **ids**:
                 - 11
             - **[1]**:
@@ -7911,6 +8715,8 @@
               - **pontos_uids**:
                 - 12
               - **escalada**: Cometa
+              - **setor**: Bloco C - Meteoro
+              - **grupo**: Tubarão
               - **ids**:
                 - 12
       - **escaladas**:
@@ -7949,6 +8755,8 @@
               - **pontos_uids**:
                 - 15
               - **escalada**: Tubarão Branco
+              - **setor**: Bloco D - Tubarão
+              - **grupo**: Tubarão
               - **ids**:
                 - 15
             - **[1]**:
@@ -7956,6 +8764,8 @@
               - **pontos_uids**:
                 - 14
               - **escalada**: Cação
+              - **setor**: Bloco D - Tubarão
+              - **grupo**: Tubarão
               - **ids**:
                 - 14
             - **[2]**:
@@ -7963,6 +8773,8 @@
               - **pontos_uids**:
                 - 15
               - **escalada**: Tubarão
+              - **setor**: Bloco D - Tubarão
+              - **grupo**: Tubarão
               - **ids**:
                 - 15
             - **[3]**:
@@ -7970,6 +8782,8 @@
               - **pontos_uids**:
                 - 16
               - **escalada**: Brahma
+              - **setor**: Bloco D - Tubarão
+              - **grupo**: Tubarão
               - **ids**:
                 - 16
             - **[4]**:
@@ -7977,6 +8791,8 @@
               - **pontos_uids**:
                 - 17
               - **escalada**: Hanuman
+              - **setor**: Bloco D - Tubarão
+              - **grupo**: Tubarão
               - **ids**:
                 - 17
             - **[5]**:
@@ -7984,6 +8800,8 @@
               - **pontos_uids**:
                 - 18
               - **escalada**: Jurubeba
+              - **setor**: Bloco D - Tubarão
+              - **grupo**: Tubarão
               - **ids**:
                 - 18
             - **[6]**:
@@ -7991,6 +8809,8 @@
               - **pontos_uids**:
                 - 18
               - **escalada**: Backer
+              - **setor**: Bloco D - Tubarão
+              - **grupo**: Tubarão
               - **ids**:
                 - 18
             - **[7]**:
@@ -7998,6 +8818,8 @@
               - **pontos_uids**:
                 - 17
               - **escalada**: Original
+              - **setor**: Bloco D - Tubarão
+              - **grupo**: Tubarão
               - **ids**:
                 - 17
             - **[8]**:
@@ -8005,6 +8827,8 @@
               - **pontos_uids**:
                 - 18
               - **escalada**: Chivas
+              - **setor**: Bloco D - Tubarão
+              - **grupo**: Tubarão
               - **ids**:
                 - 18
             - **[9]**:
@@ -8012,6 +8836,8 @@
               - **pontos_uids**:
                 - 17
               - **escalada**: Black Label
+              - **setor**: Bloco D - Tubarão
+              - **grupo**: Tubarão
               - **ids**:
                 - 17
             - **[10]**:
@@ -8019,6 +8845,8 @@
               - **pontos_uids**:
                 - 18
               - **escalada**: Chivas SDS
+              - **setor**: Bloco D - Tubarão
+              - **grupo**: Tubarão
               - **ids**:
                 - 18
             - **[11]**:
@@ -8026,6 +8854,8 @@
               - **pontos_uids**:
                 - 17
               - **escalada**: Royal Salute
+              - **setor**: Bloco D - Tubarão
+              - **grupo**: Tubarão
               - **ids**:
                 - 17
             - **[12]**:
@@ -8033,6 +8863,8 @@
               - **pontos_uids**:
                 - 18
               - **escalada**: Escolha certa
+              - **setor**: Bloco D - Tubarão
+              - **grupo**: Tubarão
               - **ids**:
                 - 18
             - **[13]**:
@@ -8040,6 +8872,8 @@
               - **pontos_uids**:
                 - 17
               - **escalada**: Múltipla escolha
+              - **setor**: Bloco D - Tubarão
+              - **grupo**: Tubarão
               - **ids**:
                 - 17
             - **[14]**:
@@ -8047,6 +8881,8 @@
               - **pontos_uids**:
                 - 27
               - **escalada**: Halls
+              - **setor**: Bloco D - Tubarão
+              - **grupo**: Tubarão
               - **ids**:
                 - 27
             - **[15]**:
@@ -8054,6 +8890,8 @@
               - **pontos_uids**:
                 - 17
               - **escalada**: In the halls
+              - **setor**: Bloco D - Tubarão
+              - **grupo**: Tubarão
               - **ids**:
                 - 17
             - **[16]**:
@@ -8061,6 +8899,8 @@
               - **pontos_uids**:
                 - 29
               - **escalada**: Green Label
+              - **setor**: Bloco D - Tubarão
+              - **grupo**: Tubarão
               - **ids**:
                 - 29
             - **[17]**:
@@ -8068,6 +8908,8 @@
               - **pontos_uids**:
                 - 18
               - **escalada**: Serra Malte
+              - **setor**: Bloco D - Tubarão
+              - **grupo**: Tubarão
               - **ids**:
                 - 18
             - **[18]**:
@@ -8075,6 +8917,8 @@
               - **pontos_uids**:
                 - 17
               - **escalada**: Áustria
+              - **setor**: Bloco D - Tubarão
+              - **grupo**: Tubarão
               - **ids**:
                 - 17
             - **[19]**:
@@ -8082,6 +8926,8 @@
               - **pontos_uids**:
                 - 18
               - **escalada**: Corona
+              - **setor**: Bloco D - Tubarão
+              - **grupo**: Tubarão
               - **ids**:
                 - 18
             - **[20]**:
@@ -8089,6 +8935,8 @@
               - **pontos_uids**:
                 - 17
               - **escalada**: Saideira
+              - **setor**: Bloco D - Tubarão
+              - **grupo**: Tubarão
               - **ids**:
                 - 17
             - **[21]**:
@@ -8096,6 +8944,8 @@
               - **pontos_uids**:
                 - 18
               - **escalada**: Muniz
+              - **setor**: Bloco D - Tubarão
+              - **grupo**: Tubarão
               - **ids**:
                 - 18
             - **[22]**:
@@ -8103,6 +8953,8 @@
               - **pontos_uids**:
                 - 17
               - **escalada**: Passagem
+              - **setor**: Bloco D - Tubarão
+              - **grupo**: Tubarão
               - **ids**:
                 - 17
             - **[23]**:
@@ -8110,6 +8962,8 @@
               - **pontos_uids**:
                 - 18
               - **escalada**: Espírito Guerreiro
+              - **setor**: Bloco D - Tubarão
+              - **grupo**: Tubarão
               - **ids**:
                 - 18
             - **[24]**:
@@ -8117,6 +8971,8 @@
               - **pontos_uids**:
                 - 17
               - **escalada**: Voa colibri
+              - **setor**: Bloco D - Tubarão
+              - **grupo**: Tubarão
               - **ids**:
                 - 17
       - **escaladas**:
@@ -8378,6 +9234,8 @@
               - **pontos_uids**:
                 - 40
               - **escalada**: Misto quente
+              - **setor**: Bloco G - Croissant
+              - **grupo**: Tubarão
               - **ids**:
                 - 40
             - **[1]**:
@@ -8385,6 +9243,8 @@
               - **pontos_uids**:
                 - 41
               - **escalada**: Croissant
+              - **setor**: Bloco G - Croissant
+              - **grupo**: Tubarão
               - **ids**:
                 - 41
       - **escaladas**:
@@ -8420,6 +9280,8 @@
                 - 42
                 - 43
               - **escalada**: Túnel do vento
+              - **setor**: Bloco H - Túnel do Vento
+              - **grupo**: Tubarão
               - **ids**:
                 - 42
                 - 43
@@ -8429,6 +9291,8 @@
                 - 42
                 - 43
               - **escalada**: Diagonal (Túnel do Vento)
+              - **setor**: Bloco H - Túnel do Vento
+              - **grupo**: Tubarão
               - **ids**:
                 - 42
                 - 43
@@ -8504,6 +9368,8 @@
         - **pontos_uids**:
           - 2
         - **escalada**: Daqui a 20 anos
+        - **setor**: Bloco B - Daqui a 20 Anos
+        - **grupo**: Daqui a 20 Anos
         - **ids**:
           - 2
       - **[1]**:
@@ -8511,6 +9377,8 @@
         - **pontos_uids**:
           - 4
         - **escalada**: Surpresa
+        - **setor**: Bloco D - Surpresa
+        - **grupo**: Daqui a 20 Anos
         - **ids**:
           - 4
 - **setores**:
@@ -8530,6 +9398,8 @@
               - **pontos_uids**:
                 - 1
               - **escalada**: Análise crítica
+              - **setor**: Bloco A - Análise Crítica
+              - **grupo**: Daqui a 20 Anos
               - **ids**:
                 - 1
       - **escaladas**:
@@ -8578,6 +9448,8 @@
               - **pontos_uids**:
                 - 3
               - **escalada**: Amanita
+              - **setor**: Bloco C - Amanita
+              - **grupo**: Daqui a 20 Anos
               - **ids**:
                 - 3
       - **escaladas**:
@@ -8623,6 +9495,8 @@
               - **pontos_uids**:
                 - 5
               - **escalada**: Escorregador
+              - **setor**: Bloco E - Escorregador
+              - **grupo**: Daqui a 20 Anos
               - **ids**:
                 - 5
             - **[1]**:
@@ -8630,6 +9504,8 @@
               - **pontos_uids**:
                 - 6
               - **escalada**: Controler
+              - **setor**: Bloco E - Escorregador
+              - **grupo**: Daqui a 20 Anos
               - **ids**:
                 - 6
       - **escaladas**:
@@ -8707,6 +9583,8 @@
         - **pontos_uids**:
           - 27
         - **escalada**: Sabirila
+        - **setor**: Bloco I - Siriema
+        - **grupo**: Cume
         - **ids**:
           - 27
       - **[1]**:
@@ -8714,6 +9592,8 @@
         - **pontos_uids**:
           - 28
         - **escalada**: Seriema
+        - **setor**: Bloco I - Siriema
+        - **grupo**: Cume
         - **ids**:
           - 28
       - **[2]**:
@@ -8721,6 +9601,8 @@
         - **pontos_uids**:
           - 29
         - **escalada**: Canelinha
+        - **setor**: Bloco I - Siriema
+        - **grupo**: Cume
         - **ids**:
           - 29
       - **[3]**:
@@ -8728,6 +9610,8 @@
         - **pontos_uids**:
           - 30
         - **escalada**: Cerrado
+        - **setor**: Bloco J - Cerrado
+        - **grupo**: Cume
         - **ids**:
           - 30
       - **[4]**:
@@ -8735,6 +9619,8 @@
         - **pontos_uids**:
           - 31
         - **escalada**: Canga
+        - **setor**: Bloco J - Cerrado
+        - **grupo**: Cume
         - **ids**:
           - 31
 - **setores**:
@@ -8754,6 +9640,8 @@
               - **pontos_uids**:
                 - 1
               - **escalada**: Ulísses
+              - **setor**: Bloco A - Ulísses
+              - **grupo**: Cume
               - **ids**:
                 - 1
             - **[1]**:
@@ -8761,6 +9649,8 @@
               - **pontos_uids**:
                 - 2
               - **escalada**: 1-5-1
+              - **setor**: Bloco A - Ulísses
+              - **grupo**: Cume
               - **ids**:
                 - 2
       - **escaladas**:
@@ -8797,6 +9687,8 @@
               - **pontos_uids**:
                 - 3
               - **escalada**: Tangente (Mosquitos)
+              - **setor**: Bloco B - Mosquitos
+              - **grupo**: Cume
               - **ids**:
                 - 3
             - **[1]**:
@@ -8804,6 +9696,8 @@
               - **pontos_uids**:
                 - 4
               - **escalada**: Mosquitos
+              - **setor**: Bloco B - Mosquitos
+              - **grupo**: Cume
               - **ids**:
                 - 4
       - **escaladas**:
@@ -8839,6 +9733,8 @@
               - **pontos_uids**:
                 - 5
               - **escalada**: Espanhol
+              - **setor**: Bloco C - Blood América
+              - **grupo**: Cume
               - **ids**:
                 - 5
             - **[1]**:
@@ -8846,6 +9742,8 @@
               - **pontos_uids**:
                 - 6
               - **escalada**: Fenda Paraguai
+              - **setor**: Bloco C - Blood América
+              - **grupo**: Cume
               - **ids**:
                 - 6
             - **[2]**:
@@ -8853,6 +9751,8 @@
               - **pontos_uids**:
                 - 7
               - **escalada**: Blood Mexican
+              - **setor**: Bloco C - Blood América
+              - **grupo**: Cume
               - **ids**:
                 - 7
             - **[3]**:
@@ -8860,6 +9760,8 @@
               - **pontos_uids**:
                 - 8
               - **escalada**: Blood América
+              - **setor**: Bloco C - Blood América
+              - **grupo**: Cume
               - **ids**:
                 - 8
       - **escaladas**:
@@ -8916,6 +9818,8 @@
               - **pontos_uids**:
                 - 9
               - **escalada**: Só o cume interessa
+              - **setor**: Bloco D - The Summit
+              - **grupo**: Cume
               - **ids**:
                 - 9
             - **[1]**:
@@ -8923,6 +9827,8 @@
               - **pontos_uids**:
                 - 10
               - **escalada**: Bote nadador
+              - **setor**: Bloco D - The Summit
+              - **grupo**: Cume
               - **ids**:
                 - 10
             - **[2]**:
@@ -8930,6 +9836,8 @@
               - **pontos_uids**:
                 - 11
               - **escalada**: The summit
+              - **setor**: Bloco D - The Summit
+              - **grupo**: Cume
               - **ids**:
                 - 11
       - **escaladas**:
@@ -8979,6 +9887,8 @@
               - **pontos_uids**:
                 - 12
               - **escalada**: Mistral
+              - **setor**: Bloco E - Testarossa
+              - **grupo**: Cume
               - **ids**:
                 - 12
             - **[1]**:
@@ -8987,6 +9897,8 @@
                 - 15
                 - 12
               - **escalada**: Mistral SDS
+              - **setor**: Bloco E - Testarossa
+              - **grupo**: Cume
               - **ids**:
                 - 15
                 - 12
@@ -8995,6 +9907,8 @@
               - **pontos_uids**:
                 - 14
               - **escalada**: Testarossa
+              - **setor**: Bloco E - Testarossa
+              - **grupo**: Cume
               - **ids**:
                 - 14
             - **[3]**:
@@ -9002,6 +9916,8 @@
               - **pontos_uids**:
                 - 15
               - **escalada**: Testarossa SDS
+              - **setor**: Bloco E - Testarossa
+              - **grupo**: Cume
               - **ids**:
                 - 15
             - **[4]**:
@@ -9009,6 +9925,8 @@
               - **pontos_uids**:
                 - 16
               - **escalada**: Talismã
+              - **setor**: Bloco E - Testarossa
+              - **grupo**: Cume
               - **ids**:
                 - 16
             - **[5]**:
@@ -9017,6 +9935,8 @@
                 - 15
                 - 16
               - **escalada**: Talismã SDS
+              - **setor**: Bloco E - Testarossa
+              - **grupo**: Cume
               - **ids**:
                 - 15
                 - 16
@@ -9026,6 +9946,8 @@
                 - 12
                 - 16
               - **escalada**: Venon
+              - **setor**: Bloco E - Testarossa
+              - **grupo**: Cume
               - **ids**:
                 - 12
                 - 16
@@ -9116,6 +10038,8 @@
               - **pontos_uids**:
                 - 19
               - **escalada**: Sai do teto
+              - **setor**: Bloco F - Sai do Teto
+              - **grupo**: Cume
               - **ids**:
                 - 19
       - **escaladas**:
@@ -9145,6 +10069,8 @@
               - **pontos_uids**:
                 - 20
               - **escalada**: Última onda
+              - **setor**: Bloco G - Laranja Mecânica
+              - **grupo**: Cume
               - **ids**:
                 - 20
             - **[1]**:
@@ -9152,6 +10078,8 @@
               - **pontos_uids**:
                 - 21
               - **escalada**: Laranja mecânica
+              - **setor**: Bloco G - Laranja Mecânica
+              - **grupo**: Cume
               - **ids**:
                 - 21
             - **[2]**:
@@ -9159,6 +10087,8 @@
               - **pontos_uids**:
                 - 22
               - **escalada**: Só no suco
+              - **setor**: Bloco G - Laranja Mecânica
+              - **grupo**: Cume
               - **ids**:
                 - 22
       - **escaladas**:
@@ -9207,6 +10137,8 @@
               - **pontos_uids**:
                 - 23
               - **escalada**: Pedala Robinho
+              - **setor**: Bloco H - Ronaldo
+              - **grupo**: Cume
               - **ids**:
                 - 23
             - **[1]**:
@@ -9214,6 +10146,8 @@
               - **pontos_uids**:
                 - 24
               - **escalada**: Ronaldo
+              - **setor**: Bloco H - Ronaldo
+              - **grupo**: Cume
               - **ids**:
                 - 24
             - **[2]**:
@@ -9221,6 +10155,8 @@
               - **pontos_uids**:
                 - 25
               - **escalada**: Fenômeno
+              - **setor**: Bloco H - Ronaldo
+              - **grupo**: Cume
               - **ids**:
                 - 25
             - **[3]**:
@@ -9228,6 +10164,8 @@
               - **pontos_uids**:
                 - 26
               - **escalada**: Fenômeno SDS
+              - **setor**: Bloco H - Ronaldo
+              - **grupo**: Cume
               - **ids**:
                 - 26
       - **escaladas**:
@@ -9326,6 +10264,8 @@
               - **pontos_uids**:
                 - 32
               - **escalada**: Difícil de entender
+              - **setor**: Bloco K - Plutão
+              - **grupo**: Cume
               - **ids**:
                 - 32
             - **[1]**:
@@ -9333,6 +10273,8 @@
               - **pontos_uids**:
                 - 33
               - **escalada**: Plutão
+              - **setor**: Bloco K - Plutão
+              - **grupo**: Cume
               - **ids**:
                 - 33
       - **escaladas**:

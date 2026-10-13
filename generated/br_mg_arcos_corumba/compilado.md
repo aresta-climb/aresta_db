@@ -320,6 +320,7 @@
         - **pontos_uids**:
           - LNb9sKUuRg8uTT
         - **escalada**: Ditadura do Barulho
+        - **setor**: Setor Pataxós
         - **ids**:
           - LNb9sKUuRg8uTT
       - **[1]**:
@@ -327,6 +328,7 @@
         - **pontos_uids**:
           - VHC1JPCXvqiCwr
         - **escalada**: Nó 88
+        - **setor**: Setor Pataxós
         - **ids**:
           - VHC1JPCXvqiCwr
       - **[2]**:
@@ -334,6 +336,7 @@
         - **pontos_uids**:
           - OpU8AosIW9ayjh
         - **escalada**: Mulher Mais Bonita do Mundo
+        - **setor**: Setor Pataxós
         - **ids**:
           - OpU8AosIW9ayjh
       - **[3]**:
@@ -341,6 +344,7 @@
         - **pontos_uids**:
           - VIgIWsC50FJNai
         - **escalada**: Jogo Rápido
+        - **setor**: Setor Pataxós
         - **ids**:
           - VIgIWsC50FJNai
       - **[4]**:
@@ -348,6 +352,7 @@
         - **pontos_uids**:
           - gMTEKLfQzhDabT
         - **escalada**: Baile da Betinha
+        - **setor**: Setor Pataxós
         - **ids**:
           - gMTEKLfQzhDabT
       - **[5]**:
@@ -355,6 +360,7 @@
         - **pontos_uids**:
           - UnrpCRinRBh7oj
         - **escalada**: Chove + Não Molha
+        - **setor**: Setor Pataxós
         - **ids**:
           - UnrpCRinRBh7oj
       - **[6]**:
@@ -362,6 +368,7 @@
         - **pontos_uids**:
           - JCcbPuQqeFZxMD
         - **escalada**: Paisnkentá
+        - **setor**: Setor Pataxós
         - **ids**:
           - JCcbPuQqeFZxMD
       - **[7]**:
@@ -369,6 +376,7 @@
         - **pontos_uids**:
           - YlGwiUyrcQOaT8
         - **escalada**: Alá Magnólia
+        - **setor**: Setor Pataxós
         - **ids**:
           - YlGwiUyrcQOaT8
       - **[8]**:
@@ -376,6 +384,7 @@
         - **pontos_uids**:
           - hgRUowuxEIXvQu
         - **escalada**: F.A. Foi Dela
+        - **setor**: Setor Pataxós
         - **ids**:
           - hgRUowuxEIXvQu
       - **[9]**:
@@ -383,6 +392,7 @@
         - **pontos_uids**:
           - eDZaYvMTSnBhmZ
         - **escalada**: Ilusão do 'eu'
+        - **setor**: Setor Pataxós
         - **ids**:
           - eDZaYvMTSnBhmZ
       - **[10]**:
@@ -390,6 +400,7 @@
         - **pontos_uids**:
           - Rt6aTE2mAkC2Oi
         - **escalada**: (via inacabada)
+        - **setor**: Setor Pataxós
         - **ids**:
           - Rt6aTE2mAkC2Oi
       - **[11]**:
@@ -397,6 +408,7 @@
         - **pontos_uids**:
           - mn1Rk6JisznUgt
         - **escalada**: Alienação Social
+        - **setor**: Setor Pataxós
         - **ids**:
           - mn1Rk6JisznUgt
       - **[12]**:
@@ -404,6 +416,7 @@
         - **pontos_uids**:
           - 45ESf9jWv74VMH
         - **escalada**: Siurana
+        - **setor**: Setor Pataxós
         - **ids**:
           - 45ESf9jWv74VMH
       - **[13]**:
@@ -411,6 +424,7 @@
         - **pontos_uids**:
           - rOillPn1BEp6aR
         - **escalada**: Bond, Vagabond
+        - **setor**: Setor Pataxós
         - **ids**:
           - rOillPn1BEp6aR
       - **[14]**:
@@ -418,6 +432,7 @@
         - **pontos_uids**:
           - S6hCLFpqFArmUB
         - **escalada**: Bond, Maribond
+        - **setor**: Setor Pataxós
         - **ids**:
           - S6hCLFpqFArmUB
       - **[15]**:
@@ -425,6 +440,7 @@
         - **pontos_uids**:
           - gyX0uRs0dVQNGe
         - **escalada**: Charuto no Beiço
+        - **setor**: Setor Pataxós
         - **ids**:
           - gyX0uRs0dVQNGe
       - **[16]**:
@@ -432,6 +448,7 @@
         - **pontos_uids**:
           - vyu4EGBuiQBpaq
         - **escalada**: Chama o Bombeiro
+        - **setor**: Setor Pataxós
         - **ids**:
           - vyu4EGBuiQBpaq
       - **[17]**:
@@ -439,6 +456,7 @@
         - **pontos_uids**:
           - Yeohcm6TiXdIdu
         - **escalada**: Inter Escalar
+        - **setor**: Setor Pataxós
         - **ids**:
           - Yeohcm6TiXdIdu
       - **[18]**:
@@ -446,6 +464,7 @@
         - **pontos_uids**:
           - hzCFy6EXcWvvNH
         - **escalada**: (via inacabada) Capitão Fantástico
+        - **setor**: Setor Pataxós
         - **ids**:
           - hzCFy6EXcWvvNH
       - **[19]**:
@@ -453,6 +472,7 @@
         - **pontos_uids**:
           - p5uYwhYOyEbl3C
         - **escalada**: Aracnofobia
+        - **setor**: Setor Pataxós
         - **ids**:
           - p5uYwhYOyEbl3C
       - **[20]**:
@@ -460,6 +480,7 @@
         - **pontos_uids**:
           - qclmWQmcsO4bnL
         - **escalada**: Mão de Alface
+        - **setor**: Setor Pataxós
         - **ids**:
           - qclmWQmcsO4bnL
       - **[21]**:
@@ -467,6 +488,7 @@
         - **pontos_uids**:
           - f0jTDGNwa4H6M8
         - **escalada**: (via inacabada)
+        - **setor**: Setor Pataxós
         - **ids**:
           - f0jTDGNwa4H6M8
 - **escaladas**:
@@ -697,6 +719,7 @@
         - **pontos_uids**:
           - 8YXCD71zENcm1y
         - **escalada**: (via inacabada)
+        - **setor**: Setor Cataguás
         - **ids**:
           - 8YXCD71zENcm1y
       - **[1]**:
@@ -704,6 +727,7 @@
         - **pontos_uids**:
           - vONjLddZo1mifE
         - **escalada**: Dos Pombos
+        - **setor**: Setor Cataguás
         - **ids**:
           - vONjLddZo1mifE
 - **escaladas**:
@@ -784,6 +808,7 @@
         - **pontos_uids**:
           - NcrhgAdVHpL7V2
         - **escalada**: Curumim
+        - **setor**: Setor Xavante
         - **ids**:
           - NcrhgAdVHpL7V2
       - **[1]**:
@@ -791,6 +816,7 @@
         - **pontos_uids**:
           - mrtduOlFh3i2qV
         - **escalada**: Terra à Vista
+        - **setor**: Setor Xavante
         - **ids**:
           - mrtduOlFh3i2qV
       - **[2]**:
@@ -798,6 +824,7 @@
         - **pontos_uids**:
           - jmJnojNCKhRmoB
         - **escalada**: (projeto)
+        - **setor**: Setor Xavante
         - **ids**:
           - jmJnojNCKhRmoB
       - **[3]**:
@@ -805,6 +832,7 @@
         - **pontos_uids**:
           - vmumFRsbAc1vMw
         - **escalada**: (sem nome)
+        - **setor**: Setor Xavante
         - **ids**:
           - vmumFRsbAc1vMw
   - **[1]**:
@@ -836,6 +864,7 @@
         - **pontos_uids**:
           - KTSxol5XoR7sa4
         - **escalada**: Especiaria
+        - **setor**: Setor Xavante
         - **ids**:
           - KTSxol5XoR7sa4
       - **[1]**:
@@ -843,6 +872,7 @@
         - **pontos_uids**:
           - jCcmwNWqmR4Xda
         - **escalada**: Tupi Or Not Tupi
+        - **setor**: Setor Xavante
         - **ids**:
           - jCcmwNWqmR4Xda
 - **escaladas**:
@@ -1130,6 +1160,7 @@
         - **pontos_uids**:
           - aZ2Fj6Vb2I8XLF
         - **escalada**: Saidera
+        - **setor**: Setor Yanomami
         - **ids**:
           - aZ2Fj6Vb2I8XLF
       - **[1]**:
@@ -1137,6 +1168,7 @@
         - **pontos_uids**:
           - u3Ucp77yH4JmUw
         - **escalada**: Impaciência Tem Limite
+        - **setor**: Setor Yanomami
         - **ids**:
           - u3Ucp77yH4JmUw
       - **[2]**:
@@ -1144,6 +1176,7 @@
         - **pontos_uids**:
           - Ee3XBY5FLjXIzE
         - **escalada**: Gongolô
+        - **setor**: Setor Yanomami
         - **ids**:
           - Ee3XBY5FLjXIzE
       - **[3]**:
@@ -1151,6 +1184,7 @@
         - **pontos_uids**:
           - E3vYBX29RgJ6Ay
         - **escalada**: Seg Sativa
+        - **setor**: Setor Yanomami
         - **ids**:
           - E3vYBX29RgJ6Ay
       - **[4]**:
@@ -1158,6 +1192,7 @@
         - **pontos_uids**:
           - LJf14lfo3Kz8sc
         - **escalada**: Gaiapiá
+        - **setor**: Setor Yanomami
         - **ids**:
           - LJf14lfo3Kz8sc
       - **[5]**:
@@ -1165,6 +1200,7 @@
         - **pontos_uids**:
           - EJGEoupwA6R6cL
         - **escalada**: Telefone Sem Fio
+        - **setor**: Setor Yanomami
         - **ids**:
           - EJGEoupwA6R6cL
       - **[6]**:
@@ -1172,6 +1208,7 @@
         - **pontos_uids**:
           - O71rCtpRg9GUEW
         - **escalada**: Trabalhador Solo
+        - **setor**: Setor Yanomami
         - **ids**:
           - O71rCtpRg9GUEW
       - **[7]**:
@@ -1179,6 +1216,7 @@
         - **pontos_uids**:
           - d9IkY4uwUrHhQq
         - **escalada**: Quem avisa amigo é
+        - **setor**: Setor Yanomami
         - **ids**:
           - d9IkY4uwUrHhQq
       - **[8]**:
@@ -1186,6 +1224,7 @@
         - **pontos_uids**:
           - rSTxFNHC6lwsYY
         - **escalada**: Inimigo do Fim
+        - **setor**: Setor Yanomami
         - **ids**:
           - rSTxFNHC6lwsYY
       - **[9]**:
@@ -1193,6 +1232,7 @@
         - **pontos_uids**:
           - zOFZK5OMvp6HKt
         - **escalada**: Hipotenusa (variante)
+        - **setor**: Setor Yanomami
         - **ids**:
           - zOFZK5OMvp6HKt
       - **[10]**:
@@ -1200,6 +1240,7 @@
         - **pontos_uids**:
           - v2El62CQbOe3Zj
         - **escalada**: Força Yanomami (principal)
+        - **setor**: Setor Yanomami
         - **ids**:
           - v2El62CQbOe3Zj
       - **[11]**:
@@ -1207,6 +1248,7 @@
         - **pontos_uids**:
           - GzQ9jlEoM5mVWB
         - **escalada**: Pluriverso Paralelo
+        - **setor**: Setor Yanomami
         - **ids**:
           - GzQ9jlEoM5mVWB
       - **[12]**:
@@ -1214,6 +1256,7 @@
         - **pontos_uids**:
           - UAzlcnmEzTQ9sR
         - **escalada**: Tiro ao Alvo
+        - **setor**: Setor Yanomami
         - **ids**:
           - UAzlcnmEzTQ9sR
       - **[13]**:
@@ -1221,6 +1264,7 @@
         - **pontos_uids**:
           - tugZhuUId8ErqF
         - **escalada**: Visita Ilustre
+        - **setor**: Setor Yanomami
         - **ids**:
           - tugZhuUId8ErqF
       - **[14]**:
@@ -1228,6 +1272,7 @@
         - **pontos_uids**:
           - ryf0ttMoCegs3Z
         - **escalada**: Hand Pan (variante)
+        - **setor**: Setor Yanomami
         - **ids**:
           - ryf0ttMoCegs3Z
       - **[15]**:
@@ -1235,6 +1280,7 @@
         - **pontos_uids**:
           - Jacz5Cn1CCKc0m
         - **escalada**: Labirinto (variante)
+        - **setor**: Setor Yanomami
         - **ids**:
           - Jacz5Cn1CCKc0m
       - **[16]**:
@@ -1242,6 +1288,7 @@
         - **pontos_uids**:
           - yrIjt0SyfdOAiI
         - **escalada**: Charada (variante)
+        - **setor**: Setor Yanomami
         - **ids**:
           - yrIjt0SyfdOAiI
       - **[17]**:
@@ -1249,6 +1296,7 @@
         - **pontos_uids**:
           - 0SEa2yokGi9O77
         - **escalada**: Vingador (variante)
+        - **setor**: Setor Yanomami
         - **ids**:
           - 0SEa2yokGi9O77
       - **[18]**:
@@ -1256,6 +1304,7 @@
         - **pontos_uids**:
           - B7Nit52m56sSQY
         - **escalada**: Trilogia (principal)
+        - **setor**: Setor Yanomami
         - **ids**:
           - B7Nit52m56sSQY
       - **[19]**:
@@ -1263,6 +1312,7 @@
         - **pontos_uids**:
           - hm9zJqEnrsudtX
         - **escalada**: Paga pra Ver
+        - **setor**: Setor Yanomami
         - **ids**:
           - hm9zJqEnrsudtX
       - **[20]**:
@@ -1270,6 +1320,7 @@
         - **pontos_uids**:
           - p1hGhHJ55ax4Bw
         - **escalada**: Divida Ativa
+        - **setor**: Setor Yanomami
         - **ids**:
           - p1hGhHJ55ax4Bw
 - **escaladas**:

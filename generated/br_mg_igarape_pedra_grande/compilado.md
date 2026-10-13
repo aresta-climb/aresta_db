@@ -371,6 +371,7 @@
         - **pontos_uids**:
           - qlXn6FUKL7METH
         - **escalada**: Florestinha
+        - **setor**: Setor Família I
         - **ids**:
           - qlXn6FUKL7METH
       - **[1]**:
@@ -378,6 +379,7 @@
         - **pontos_uids**:
           - o2K5QjirIxNwwK
         - **escalada**: Ação Total
+        - **setor**: Setor Família I
         - **ids**:
           - o2K5QjirIxNwwK
       - **[2]**:
@@ -385,6 +387,7 @@
         - **pontos_uids**:
           - yz2AQIQG6ehbBv
         - **escalada**: Escravos da Pedra
+        - **setor**: Setor Família I
         - **ids**:
           - yz2AQIQG6ehbBv
       - **[3]**:
@@ -392,6 +395,7 @@
         - **pontos_uids**:
           - kcJbFThHUX5Bn2
         - **escalada**: Esquerdinha Caviar
+        - **setor**: Setor Família I
         - **ids**:
           - kcJbFThHUX5Bn2
       - **[4]**:
@@ -399,6 +403,7 @@
         - **pontos_uids**:
           - 0CerCMNwS5f2ed
         - **escalada**: Mônica
+        - **setor**: Setor Família I
         - **ids**:
           - 0CerCMNwS5f2ed
       - **[5]**:
@@ -406,6 +411,7 @@
         - **pontos_uids**:
           - DNdDtH7tKvhkUH
         - **escalada**: Queijo Suíço
+        - **setor**: Setor Família I
         - **ids**:
           - DNdDtH7tKvhkUH
       - **[6]**:
@@ -413,6 +419,7 @@
         - **pontos_uids**:
           - dLDPZenBZsHYVc
         - **escalada**: Aranha Gato
+        - **setor**: Setor Família I
         - **ids**:
           - dLDPZenBZsHYVc
       - **[7]**:
@@ -420,6 +427,7 @@
         - **pontos_uids**:
           - mknuFc1BB80CDd
         - **escalada**: Totalflex
+        - **setor**: Setor Família I
         - **ids**:
           - mknuFc1BB80CDd
       - **[8]**:
@@ -427,6 +435,7 @@
         - **pontos_uids**:
           - OBnTLDJJvr0D8f
         - **escalada**: Haja Broca
+        - **setor**: Setor Família I
         - **ids**:
           - OBnTLDJJvr0D8f
       - **[9]**:
@@ -434,6 +443,7 @@
         - **pontos_uids**:
           - ac9b06xwq95HML
         - **escalada**: Juliana
+        - **setor**: Setor Família I
         - **ids**:
           - ac9b06xwq95HML
       - **[10]**:
@@ -441,6 +451,7 @@
         - **pontos_uids**:
           - E4cmZiMlB03FuM
         - **escalada**: Lisebra
+        - **setor**: Setor Família I
         - **ids**:
           - E4cmZiMlB03FuM
       - **[11]**:
@@ -448,6 +459,7 @@
         - **pontos_uids**:
           - zkdM1zdskgPkVO
         - **escalada**: Croque Monsieur
+        - **setor**: Setor Família I
         - **ids**:
           - zkdM1zdskgPkVO
       - **[12]**:
@@ -455,6 +467,7 @@
         - **pontos_uids**:
           - Dbd16PihzEk3aM
         - **escalada**: Playground
+        - **setor**: Setor Família I
         - **ids**:
           - Dbd16PihzEk3aM
       - **[13]**:
@@ -462,6 +475,7 @@
         - **pontos_uids**:
           - m1cHE7LKd5teZF
         - **escalada**: Depressão Pós Reforma
+        - **setor**: Setor Família I
         - **ids**:
           - m1cHE7LKd5teZF
       - **[14]**:
@@ -469,6 +483,7 @@
         - **pontos_uids**:
           - HodDVHPtqeELsn
         - **escalada**: Chuvasca
+        - **setor**: Setor Família I
         - **ids**:
           - HodDVHPtqeELsn
       - **[15]**:
@@ -476,6 +491,7 @@
         - **pontos_uids**:
           - tozyDLtdRIKngk
         - **escalada**: Pau Oco
+        - **setor**: Setor Família I
         - **ids**:
           - tozyDLtdRIKngk
       - **[16]**:
@@ -483,6 +499,7 @@
         - **pontos_uids**:
           - H5hJTC0A8qXnA9
         - **escalada**: Franzinha
+        - **setor**: Setor Família I
         - **ids**:
           - H5hJTC0A8qXnA9
       - **[17]**:
@@ -490,6 +507,7 @@
         - **pontos_uids**:
           - 6VfeYwe88YdjGO
         - **escalada**: Chapas Onorixicas
+        - **setor**: Setor Família I
         - **ids**:
           - 6VfeYwe88YdjGO
       - **[18]**:
@@ -497,6 +515,7 @@
         - **pontos_uids**:
           - m5bWWBFMK7z2L4
         - **escalada**: Tora Flex
+        - **setor**: Setor Família I
         - **ids**:
           - m5bWWBFMK7z2L4
   - **[1]**:
@@ -681,6 +700,7 @@
         - **pontos_uids**:
           - ejYBUskluteW5A
         - **escalada**: Florestinha
+        - **setor**: Setor Família I
         - **ids**:
           - ejYBUskluteW5A
       - **[1]**:
@@ -688,6 +708,7 @@
         - **pontos_uids**:
           - Dwa5jRMxNSbOtj
         - **escalada**: Ação Total
+        - **setor**: Setor Família I
         - **ids**:
           - Dwa5jRMxNSbOtj
       - **[2]**:
@@ -695,6 +716,7 @@
         - **pontos_uids**:
           - o5pAHGiVi1N8yW
         - **escalada**: Escravos da Pedra
+        - **setor**: Setor Família I
         - **ids**:
           - o5pAHGiVi1N8yW
       - **[3]**:
@@ -702,6 +724,7 @@
         - **pontos_uids**:
           - e1UwaKn8XDaiTt
         - **escalada**: Esquerdinha Caviar
+        - **setor**: Setor Família I
         - **ids**:
           - e1UwaKn8XDaiTt
       - **[4]**:
@@ -709,6 +732,7 @@
         - **pontos_uids**:
           - APU5ghbENEu31q
         - **escalada**: Mônica
+        - **setor**: Setor Família I
         - **ids**:
           - APU5ghbENEu31q
       - **[5]**:
@@ -716,6 +740,7 @@
         - **pontos_uids**:
           - 4EK3SYCcRpHWqT
         - **escalada**: Queijo Suíço
+        - **setor**: Setor Família I
         - **ids**:
           - 4EK3SYCcRpHWqT
       - **[6]**:
@@ -723,6 +748,7 @@
         - **pontos_uids**:
           - 7cLnLDXpgAzOid
         - **escalada**: Aranha Gato
+        - **setor**: Setor Família I
         - **ids**:
           - 7cLnLDXpgAzOid
       - **[7]**:
@@ -730,6 +756,7 @@
         - **pontos_uids**:
           - ynaXcUbxwHB9Mg
         - **escalada**: Totalflex
+        - **setor**: Setor Família I
         - **ids**:
           - ynaXcUbxwHB9Mg
       - **[8]**:
@@ -737,6 +764,7 @@
         - **pontos_uids**:
           - KQyiBdcw2mqzO5
         - **escalada**: Haja Broca
+        - **setor**: Setor Família I
         - **ids**:
           - KQyiBdcw2mqzO5
       - **[9]**:
@@ -744,6 +772,7 @@
         - **pontos_uids**:
           - Ud8ho50Tuv9nMA
         - **escalada**: Juliana
+        - **setor**: Setor Família I
         - **ids**:
           - Ud8ho50Tuv9nMA
       - **[10]**:
@@ -751,6 +780,7 @@
         - **pontos_uids**:
           - P01p9Cal7LnRam
         - **escalada**: Lisebra
+        - **setor**: Setor Família I
         - **ids**:
           - P01p9Cal7LnRam
       - **[11]**:
@@ -758,6 +788,7 @@
         - **pontos_uids**:
           - 2pRZiwtRv1fLFg
         - **escalada**: Croque Monsieur
+        - **setor**: Setor Família I
         - **ids**:
           - 2pRZiwtRv1fLFg
       - **[12]**:
@@ -765,6 +796,7 @@
         - **pontos_uids**:
           - uF6aHByLscOpdd
         - **escalada**: Playground
+        - **setor**: Setor Família I
         - **ids**:
           - uF6aHByLscOpdd
       - **[13]**:
@@ -772,6 +804,7 @@
         - **pontos_uids**:
           - EP4rcx2InNNQzK
         - **escalada**: Depressão Pós Reforma
+        - **setor**: Setor Família I
         - **ids**:
           - EP4rcx2InNNQzK
       - **[14]**:
@@ -779,6 +812,7 @@
         - **pontos_uids**:
           - tVsR50LUA2ZDrC
         - **escalada**: Chuvasca
+        - **setor**: Setor Família I
         - **ids**:
           - tVsR50LUA2ZDrC
       - **[15]**:
@@ -786,6 +820,7 @@
         - **pontos_uids**:
           - s6Zs89BCKrp0CI
         - **escalada**: Pau Oco
+        - **setor**: Setor Família I
         - **ids**:
           - s6Zs89BCKrp0CI
       - **[16]**:
@@ -793,6 +828,7 @@
         - **pontos_uids**:
           - Kidqg1yeT9ur0h
         - **escalada**: Franzinha
+        - **setor**: Setor Família I
         - **ids**:
           - Kidqg1yeT9ur0h
       - **[17]**:
@@ -800,6 +836,7 @@
         - **pontos_uids**:
           - QRr7USrPyHUd5Z
         - **escalada**: Chapas Onorixicas
+        - **setor**: Setor Família I
         - **ids**:
           - QRr7USrPyHUd5Z
       - **[18]**:
@@ -807,6 +844,7 @@
         - **pontos_uids**:
           - OSw3Yut8UJNQTV
         - **escalada**: Tora Flex
+        - **setor**: Setor Família I
         - **ids**:
           - OSw3Yut8UJNQTV
 - **escaladas**:
@@ -1166,6 +1204,7 @@
         - **pontos_uids**:
           - wQ4UdyjQnD4D1t
         - **escalada**: Filhos da Revolução
+        - **setor**: Setor Família II
         - **ids**:
           - wQ4UdyjQnD4D1t
       - **[1]**:
@@ -1173,6 +1212,7 @@
         - **pontos_uids**:
           - HkNiaV48SWEzjf
         - **escalada**: Pedra Vermelha
+        - **setor**: Setor Família II
         - **ids**:
           - HkNiaV48SWEzjf
       - **[2]**:
@@ -1180,6 +1220,7 @@
         - **pontos_uids**:
           - PsDi20MGgjYmob
         - **escalada**: Projeto 1
+        - **setor**: Setor Família II
         - **ids**:
           - PsDi20MGgjYmob
       - **[3]**:
@@ -1187,6 +1228,7 @@
         - **pontos_uids**:
           - j8Sy1uzEKRX5yc
         - **escalada**: Projeto 2
+        - **setor**: Setor Família II
         - **ids**:
           - j8Sy1uzEKRX5yc
       - **[4]**:
@@ -1194,6 +1236,7 @@
         - **pontos_uids**:
           - tzUyUN8HgmkIxz
         - **escalada**: Via inacabada 1
+        - **setor**: Setor Família II
         - **ids**:
           - tzUyUN8HgmkIxz
       - **[5]**:
@@ -1201,6 +1244,7 @@
         - **pontos_uids**:
           - ecLJl29N0Qzuvy
         - **escalada**: Trinca Ferro
+        - **setor**: Setor Família II
         - **ids**:
           - ecLJl29N0Qzuvy
       - **[6]**:
@@ -1208,6 +1252,7 @@
         - **pontos_uids**:
           - BfFM9UvLBpOGLB
         - **escalada**: Marimbondes me Mordam
+        - **setor**: Setor Família II
         - **ids**:
           - BfFM9UvLBpOGLB
       - **[7]**:
@@ -1215,6 +1260,7 @@
         - **pontos_uids**:
           - OTbT7e7Is6sKDC
         - **escalada**: Pula Um
+        - **setor**: Setor Família II
         - **ids**:
           - OTbT7e7Is6sKDC
       - **[8]**:
@@ -1222,6 +1268,7 @@
         - **pontos_uids**:
           - 7PTuZiJ0mVR9DJ
         - **escalada**: Cerro Azul
+        - **setor**: Setor Família II
         - **ids**:
           - 7PTuZiJ0mVR9DJ
       - **[9]**:
@@ -1229,6 +1276,7 @@
         - **pontos_uids**:
           - 2B9XZZgE4mXMHK
         - **escalada**: Sumchine
+        - **setor**: Setor Família II
         - **ids**:
           - 2B9XZZgE4mXMHK
       - **[10]**:
@@ -1236,6 +1284,7 @@
         - **pontos_uids**:
           - G5WL3H7fVvauXp
         - **escalada**: Cater Pillar
+        - **setor**: Setor Família II
         - **ids**:
           - G5WL3H7fVvauXp
   - **[1]**:
@@ -1348,6 +1397,7 @@
         - **pontos_uids**:
           - nsknW6k04Ykjj6
         - **escalada**: Filhos da Revolução
+        - **setor**: Setor Família II
         - **ids**:
           - nsknW6k04Ykjj6
       - **[1]**:
@@ -1355,6 +1405,7 @@
         - **pontos_uids**:
           - OKGoVn4nBjUwaO
         - **escalada**: Pedra Vermelha
+        - **setor**: Setor Família II
         - **ids**:
           - OKGoVn4nBjUwaO
       - **[2]**:
@@ -1362,6 +1413,7 @@
         - **pontos_uids**:
           - apMoQAvLWvmz3M
         - **escalada**: Projeto 1
+        - **setor**: Setor Família II
         - **ids**:
           - apMoQAvLWvmz3M
       - **[3]**:
@@ -1369,6 +1421,7 @@
         - **pontos_uids**:
           - 2N3fmtKJoM6Vs3
         - **escalada**: Projeto 2
+        - **setor**: Setor Família II
         - **ids**:
           - 2N3fmtKJoM6Vs3
       - **[4]**:
@@ -1376,6 +1429,7 @@
         - **pontos_uids**:
           - EkKbJ7sYl8rzkj
         - **escalada**: Via inacabada 1
+        - **setor**: Setor Família II
         - **ids**:
           - EkKbJ7sYl8rzkj
       - **[5]**:
@@ -1383,6 +1437,7 @@
         - **pontos_uids**:
           - cBCcIa6kuqCpZq
         - **escalada**: Trinca Ferro
+        - **setor**: Setor Família II
         - **ids**:
           - cBCcIa6kuqCpZq
       - **[6]**:
@@ -1390,6 +1445,7 @@
         - **pontos_uids**:
           - xO6RFxufhGq6rQ
         - **escalada**: Marimbondes me Mordam
+        - **setor**: Setor Família II
         - **ids**:
           - xO6RFxufhGq6rQ
       - **[7]**:
@@ -1397,6 +1453,7 @@
         - **pontos_uids**:
           - FJh39bFVJ8QJ4M
         - **escalada**: Pula Um
+        - **setor**: Setor Família II
         - **ids**:
           - FJh39bFVJ8QJ4M
       - **[8]**:
@@ -1404,6 +1461,7 @@
         - **pontos_uids**:
           - khhmOwQZQuZeDx
         - **escalada**: Cerro Azul
+        - **setor**: Setor Família II
         - **ids**:
           - khhmOwQZQuZeDx
       - **[9]**:
@@ -1411,6 +1469,7 @@
         - **pontos_uids**:
           - MvlxD3hdq8hJn7
         - **escalada**: Sumchine
+        - **setor**: Setor Família II
         - **ids**:
           - MvlxD3hdq8hJn7
       - **[10]**:
@@ -1418,6 +1477,7 @@
         - **pontos_uids**:
           - 2W8ncFY2D3lOAt
         - **escalada**: Cater Pillar
+        - **setor**: Setor Família II
         - **ids**:
           - 2W8ncFY2D3lOAt
 - **escaladas**:
@@ -1598,6 +1658,7 @@
         - **pontos_uids**:
           - AerH38FdL0Sn2T
         - **escalada**: Eu Também Vou
+        - **setor**: Setor Micos
         - **ids**:
           - AerH38FdL0Sn2T
       - **[1]**:
@@ -1605,6 +1666,7 @@
         - **pontos_uids**:
           - KZ0Ef4D4YsdGoY
         - **escalada**: Lambe Lambe
+        - **setor**: Setor Micos
         - **ids**:
           - KZ0Ef4D4YsdGoY
   - **[1]**:
@@ -1681,6 +1743,7 @@
         - **pontos_uids**:
           - d6vOugTD64B6Oj
         - **escalada**: Eu Também Vou
+        - **setor**: Setor Micos
         - **ids**:
           - d6vOugTD64B6Oj
       - **[1]**:
@@ -1688,6 +1751,7 @@
         - **pontos_uids**:
           - YwnKnh6Vl5Pmar
         - **escalada**: Lambe Lambe
+        - **setor**: Setor Micos
         - **ids**:
           - YwnKnh6Vl5Pmar
       - **[2]**:
@@ -1695,6 +1759,7 @@
         - **pontos_uids**:
           - FCI2BShJEIP9eS
         - **escalada**: TNT
+        - **setor**: Setor Micos
         - **ids**:
           - FCI2BShJEIP9eS
       - **[3]**:
@@ -1702,6 +1767,7 @@
         - **pontos_uids**:
           - ngQ9yFbFEKHE7j
         - **escalada**: For My Brother
+        - **setor**: Setor Micos
         - **ids**:
           - ngQ9yFbFEKHE7j
       - **[4]**:
@@ -1709,6 +1775,7 @@
         - **pontos_uids**:
           - dKMqRTaDiSiptS
         - **escalada**: Diamante Negro
+        - **setor**: Setor Micos
         - **ids**:
           - dKMqRTaDiSiptS
       - **[5]**:
@@ -1716,6 +1783,7 @@
         - **pontos_uids**:
           - WhVNfbav4zur71
         - **escalada**: Chapa Quente
+        - **setor**: Setor Micos
         - **ids**:
           - WhVNfbav4zur71
       - **[6]**:
@@ -1723,6 +1791,7 @@
         - **pontos_uids**:
           - 58UDKEdWFIl3Qx
         - **escalada**: Via inacabada 2
+        - **setor**: Setor Micos
         - **ids**:
           - 58UDKEdWFIl3Qx
   - **[2]**:
@@ -1781,6 +1850,7 @@
         - **pontos_uids**:
           - beRQP7zASHZYc9
         - **escalada**: TNT
+        - **setor**: Setor Micos
         - **ids**:
           - beRQP7zASHZYc9
       - **[1]**:
@@ -1788,6 +1858,7 @@
         - **pontos_uids**:
           - zOMjIP6ZMLSd3x
         - **escalada**: For My Brother
+        - **setor**: Setor Micos
         - **ids**:
           - zOMjIP6ZMLSd3x
       - **[2]**:
@@ -1795,6 +1866,7 @@
         - **pontos_uids**:
           - SEckjU4BA2oYue
         - **escalada**: Diamante Negro
+        - **setor**: Setor Micos
         - **ids**:
           - SEckjU4BA2oYue
       - **[3]**:
@@ -1802,6 +1874,7 @@
         - **pontos_uids**:
           - QmIH1pc6RGobZd
         - **escalada**: Chapa Quente
+        - **setor**: Setor Micos
         - **ids**:
           - QmIH1pc6RGobZd
       - **[4]**:
@@ -1809,6 +1882,7 @@
         - **pontos_uids**:
           - Ax2AP0QoyCS1yt
         - **escalada**: Via inacabada 2
+        - **setor**: Setor Micos
         - **ids**:
           - Ax2AP0QoyCS1yt
 - **escaladas**:
@@ -1963,6 +2037,7 @@
         - **pontos_uids**:
           - 56Lspd7LBQ2E1O
         - **escalada**: Takeyeasy
+        - **setor**: Setor Totem
         - **ids**:
           - 56Lspd7LBQ2E1O
       - **[1]**:
@@ -1970,6 +2045,7 @@
         - **pontos_uids**:
           - nn8ryaXpOPShk6
         - **escalada**: Pâncepis
+        - **setor**: Setor Totem
         - **ids**:
           - nn8ryaXpOPShk6
       - **[2]**:
@@ -1977,6 +2053,7 @@
         - **pontos_uids**:
           - lzEL4v4y1F4RAk
         - **escalada**: Totem
+        - **setor**: Setor Totem
         - **ids**:
           - lzEL4v4y1F4RAk
       - **[3]**:
@@ -1984,6 +2061,7 @@
         - **pontos_uids**:
           - vqrMtWNlacSfco
         - **escalada**: 69
+        - **setor**: Setor Totem
         - **ids**:
           - vqrMtWNlacSfco
   - **[1]**:
@@ -2033,6 +2111,7 @@
         - **pontos_uids**:
           - f2Vlst8RiQPZmp
         - **escalada**: Takeyeasy
+        - **setor**: Setor Totem
         - **ids**:
           - f2Vlst8RiQPZmp
       - **[1]**:
@@ -2040,6 +2119,7 @@
         - **pontos_uids**:
           - s3lkBW6RUqo3Hk
         - **escalada**: Pâncepis
+        - **setor**: Setor Totem
         - **ids**:
           - s3lkBW6RUqo3Hk
       - **[2]**:
@@ -2047,6 +2127,7 @@
         - **pontos_uids**:
           - 4IfzW5nVpMy5Rk
         - **escalada**: Totem
+        - **setor**: Setor Totem
         - **ids**:
           - 4IfzW5nVpMy5Rk
       - **[3]**:
@@ -2054,6 +2135,7 @@
         - **pontos_uids**:
           - iMZtQSR54twKix
         - **escalada**: 69
+        - **setor**: Setor Totem
         - **ids**:
           - iMZtQSR54twKix
 - **escaladas**:
@@ -2333,6 +2415,7 @@
         - **pontos_uids**:
           - bs3SCfR6OMHFw1
         - **escalada**: Beatrix
+        - **setor**: Setor Igarameca
         - **ids**:
           - bs3SCfR6OMHFw1
       - **[1]**:
@@ -2340,6 +2423,7 @@
         - **pontos_uids**:
           - 7Iv4DkBH6qB87w
         - **escalada**: Na Boca da Gruta Tem Dente
+        - **setor**: Setor Igarameca
         - **ids**:
           - 7Iv4DkBH6qB87w
       - **[2]**:
@@ -2347,6 +2431,7 @@
         - **pontos_uids**:
           - 8WFrCK5v8BFOpZ
         - **escalada**: Sunday Bloody Sunday
+        - **setor**: Setor Igarameca
         - **ids**:
           - 8WFrCK5v8BFOpZ
       - **[3]**:
@@ -2354,6 +2439,7 @@
         - **pontos_uids**:
           - 1ZcqYKFAKWov9Y
         - **escalada**: People Let's Stop The War
+        - **setor**: Setor Igarameca
         - **ids**:
           - 1ZcqYKFAKWov9Y
       - **[4]**:
@@ -2361,6 +2447,7 @@
         - **pontos_uids**:
           - Ml4sb9e9UzxSSr
         - **escalada**: Apolo 13
+        - **setor**: Setor Igarameca
         - **ids**:
           - Ml4sb9e9UzxSSr
       - **[5]**:
@@ -2368,6 +2455,7 @@
         - **pontos_uids**:
           - Eug8KBl35uMl0H
         - **escalada**: Liga Extraordinária
+        - **setor**: Setor Igarameca
         - **ids**:
           - Eug8KBl35uMl0H
       - **[6]**:
@@ -2375,6 +2463,7 @@
         - **pontos_uids**:
           - 8oi1Ldq067ZTZc
         - **escalada**: Poneis Malditos
+        - **setor**: Setor Igarameca
         - **ids**:
           - 8oi1Ldq067ZTZc
       - **[7]**:
@@ -2382,6 +2471,7 @@
         - **pontos_uids**:
           - imZa7LK7TMBdjL
         - **escalada**: U.F.O
+        - **setor**: Setor Igarameca
         - **ids**:
           - imZa7LK7TMBdjL
       - **[8]**:
@@ -2389,6 +2479,7 @@
         - **pontos_uids**:
           - FMdNiatzbMt1QG
         - **escalada**: 127 Horas
+        - **setor**: Setor Igarameca
         - **ids**:
           - FMdNiatzbMt1QG
       - **[9]**:
@@ -2396,6 +2487,7 @@
         - **pontos_uids**:
           - i3eBiG9o359nm6
         - **escalada**: Lero Lero é Mato
+        - **setor**: Setor Igarameca
         - **ids**:
           - i3eBiG9o359nm6
       - **[10]**:
@@ -2403,6 +2495,7 @@
         - **pontos_uids**:
           - T7jg7Wli3whpku
         - **escalada**: Renegados de Igarapé
+        - **setor**: Setor Igarameca
         - **ids**:
           - T7jg7Wli3whpku
       - **[11]**:
@@ -2410,6 +2503,7 @@
         - **pontos_uids**:
           - OgkqTq1CUtiFW1
         - **escalada**: Coisa Linda
+        - **setor**: Setor Igarameca
         - **ids**:
           - OgkqTq1CUtiFW1
       - **[12]**:
@@ -2417,6 +2511,7 @@
         - **pontos_uids**:
           - JUQIzwRuO0kofR
         - **escalada**: Doce Veneno
+        - **setor**: Setor Igarameca
         - **ids**:
           - JUQIzwRuO0kofR
       - **[13]**:
@@ -2424,6 +2519,7 @@
         - **pontos_uids**:
           - J7zLToXG1RfgFD
         - **escalada**: Alguém Tem Que Ceder
+        - **setor**: Setor Igarameca
         - **ids**:
           - J7zLToXG1RfgFD
       - **[14]**:
@@ -2431,6 +2527,7 @@
         - **pontos_uids**:
           - XHwwbe1fL0kgz7
         - **escalada**: Napa
+        - **setor**: Setor Igarameca
         - **ids**:
           - XHwwbe1fL0kgz7
       - **[15]**:
@@ -2438,6 +2535,7 @@
         - **pontos_uids**:
           - ZHL4EWZCO4jxtG
         - **escalada**: Alpes Suínos*
+        - **setor**: Setor Igarameca
         - **ids**:
           - ZHL4EWZCO4jxtG
       - **[16]**:
@@ -2445,6 +2543,7 @@
         - **pontos_uids**:
           - 3Wf9AtaYCDEXPd
         - **escalada**: Viagem ao Centro da Terra
+        - **setor**: Setor Igarameca
         - **ids**:
           - 3Wf9AtaYCDEXPd
       - **[17]**:
@@ -2452,6 +2551,7 @@
         - **pontos_uids**:
           - 09BQTAEDf7a3pY
         - **escalada**: Rolitos
+        - **setor**: Setor Igarameca
         - **ids**:
           - 09BQTAEDf7a3pY
       - **[18]**:
@@ -2459,6 +2559,7 @@
         - **pontos_uids**:
           - ot1QFUtM9Ftwzm
         - **escalada**: Balança Mas Não Cai
+        - **setor**: Setor Igarameca
         - **ids**:
           - ot1QFUtM9Ftwzm
       - **[19]**:
@@ -2466,6 +2567,7 @@
         - **pontos_uids**:
           - UUVOHe44fNoBt9
         - **escalada**: I Like This
+        - **setor**: Setor Igarameca
         - **ids**:
           - UUVOHe44fNoBt9
       - **[20]**:
@@ -2473,6 +2575,7 @@
         - **pontos_uids**:
           - uwyHPEidm2qWvo
         - **escalada**: Igarameca
+        - **setor**: Setor Igarameca
         - **ids**:
           - uwyHPEidm2qWvo
   - **[1]**:
@@ -2666,6 +2769,7 @@
         - **pontos_uids**:
           - 2OadTAgvrjK843
         - **escalada**: Beatrix
+        - **setor**: Setor Igarameca
         - **ids**:
           - 2OadTAgvrjK843
       - **[1]**:
@@ -2673,6 +2777,7 @@
         - **pontos_uids**:
           - gFi7sTsv1gm7ZB
         - **escalada**: Na Boca da Gruta Tem Dente
+        - **setor**: Setor Igarameca
         - **ids**:
           - gFi7sTsv1gm7ZB
       - **[2]**:
@@ -2680,6 +2785,7 @@
         - **pontos_uids**:
           - WOlrWzsaZhmOvx
         - **escalada**: Sunday Bloody Sunday
+        - **setor**: Setor Igarameca
         - **ids**:
           - WOlrWzsaZhmOvx
       - **[3]**:
@@ -2687,6 +2793,7 @@
         - **pontos_uids**:
           - ywsLvawSp5eV3T
         - **escalada**: People Let's Stop The War
+        - **setor**: Setor Igarameca
         - **ids**:
           - ywsLvawSp5eV3T
       - **[4]**:
@@ -2694,6 +2801,7 @@
         - **pontos_uids**:
           - 3LnQXgTnM68SAo
         - **escalada**: Apolo 13
+        - **setor**: Setor Igarameca
         - **ids**:
           - 3LnQXgTnM68SAo
       - **[5]**:
@@ -2701,6 +2809,7 @@
         - **pontos_uids**:
           - jDroLUDU2U5jlC
         - **escalada**: Liga Extraordinária
+        - **setor**: Setor Igarameca
         - **ids**:
           - jDroLUDU2U5jlC
       - **[6]**:
@@ -2708,6 +2817,7 @@
         - **pontos_uids**:
           - Moy27xMRgx6nZX
         - **escalada**: Poneis Malditos
+        - **setor**: Setor Igarameca
         - **ids**:
           - Moy27xMRgx6nZX
       - **[7]**:
@@ -2715,6 +2825,7 @@
         - **pontos_uids**:
           - K2gyCfDlRSztqS
         - **escalada**: U.F.O
+        - **setor**: Setor Igarameca
         - **ids**:
           - K2gyCfDlRSztqS
       - **[8]**:
@@ -2722,6 +2833,7 @@
         - **pontos_uids**:
           - JJZ141BTFnIs6t
         - **escalada**: 127 Horas
+        - **setor**: Setor Igarameca
         - **ids**:
           - JJZ141BTFnIs6t
       - **[9]**:
@@ -2729,6 +2841,7 @@
         - **pontos_uids**:
           - 09OPBYCyTrVtOy
         - **escalada**: Lero Lero é Mato
+        - **setor**: Setor Igarameca
         - **ids**:
           - 09OPBYCyTrVtOy
       - **[10]**:
@@ -2736,6 +2849,7 @@
         - **pontos_uids**:
           - zmN1O4yaocMx2v
         - **escalada**: Renegados de Igarapé
+        - **setor**: Setor Igarameca
         - **ids**:
           - zmN1O4yaocMx2v
       - **[11]**:
@@ -2743,6 +2857,7 @@
         - **pontos_uids**:
           - kqR0BajgQg3b8B
         - **escalada**: Coisa Linda
+        - **setor**: Setor Igarameca
         - **ids**:
           - kqR0BajgQg3b8B
       - **[12]**:
@@ -2750,6 +2865,7 @@
         - **pontos_uids**:
           - DBcErid9fxVHj7
         - **escalada**: Doce Veneno
+        - **setor**: Setor Igarameca
         - **ids**:
           - DBcErid9fxVHj7
       - **[13]**:
@@ -2757,6 +2873,7 @@
         - **pontos_uids**:
           - ZgKLgPSYpwpueR
         - **escalada**: Alguém Tem Que Ceder
+        - **setor**: Setor Igarameca
         - **ids**:
           - ZgKLgPSYpwpueR
       - **[14]**:
@@ -2764,6 +2881,7 @@
         - **pontos_uids**:
           - QGRBmOxfs6Mkx0
         - **escalada**: Napa
+        - **setor**: Setor Igarameca
         - **ids**:
           - QGRBmOxfs6Mkx0
       - **[15]**:
@@ -2771,6 +2889,7 @@
         - **pontos_uids**:
           - CKcQ3eY2xqoAbv
         - **escalada**: Alpes Suínos*
+        - **setor**: Setor Igarameca
         - **ids**:
           - CKcQ3eY2xqoAbv
       - **[16]**:
@@ -2778,6 +2897,7 @@
         - **pontos_uids**:
           - QjdDzXTgUzP9qt
         - **escalada**: Viagem ao Centro da Terra
+        - **setor**: Setor Igarameca
         - **ids**:
           - QjdDzXTgUzP9qt
       - **[17]**:
@@ -2785,6 +2905,7 @@
         - **pontos_uids**:
           - X2LvKrgUH20ZzD
         - **escalada**: Rolitos
+        - **setor**: Setor Igarameca
         - **ids**:
           - X2LvKrgUH20ZzD
       - **[18]**:
@@ -2792,6 +2913,7 @@
         - **pontos_uids**:
           - EJgyBKNBUAbErg
         - **escalada**: I Like This
+        - **setor**: Setor Igarameca
         - **ids**:
           - EJgyBKNBUAbErg
       - **[19]**:
@@ -2799,6 +2921,7 @@
         - **pontos_uids**:
           - DTtETvJqpoKXYI
         - **escalada**: Igarameca
+        - **setor**: Setor Igarameca
         - **ids**:
           - DTtETvJqpoKXYI
   - **[2]**:
@@ -2848,6 +2971,7 @@
         - **pontos_uids**:
           - wOGVh7WNKpJXDk
         - **escalada**: Beatrix
+        - **setor**: Setor Igarameca
         - **ids**:
           - wOGVh7WNKpJXDk
       - **[1]**:
@@ -2855,6 +2979,7 @@
         - **pontos_uids**:
           - qdMD1fVV6sEcDL
         - **escalada**: Na Boca da Gruta Tem Dente
+        - **setor**: Setor Igarameca
         - **ids**:
           - qdMD1fVV6sEcDL
       - **[2]**:
@@ -2862,6 +2987,7 @@
         - **pontos_uids**:
           - 4E0sbpTom54PqV
         - **escalada**: Sunday Bloody Sunday
+        - **setor**: Setor Igarameca
         - **ids**:
           - 4E0sbpTom54PqV
       - **[3]**:
@@ -2869,6 +2995,7 @@
         - **pontos_uids**:
           - dUmQnFazoQm2jV
         - **escalada**: People Let's Stop The War
+        - **setor**: Setor Igarameca
         - **ids**:
           - dUmQnFazoQm2jV
 - **escaladas**:
@@ -3260,6 +3387,7 @@
         - **pontos_uids**:
           - Xhsz1Wtp4s2ULs
         - **escalada**: Conflito sensual
+        - **setor**: Setor Pracinha
         - **ids**:
           - Xhsz1Wtp4s2ULs
       - **[1]**:
@@ -3267,6 +3395,7 @@
         - **pontos_uids**:
           - yUMuADA01pyFbP
         - **escalada**: Duracell
+        - **setor**: Setor Pracinha
         - **ids**:
           - yUMuADA01pyFbP
       - **[2]**:
@@ -3274,6 +3403,7 @@
         - **pontos_uids**:
           - nYGYGhVBIkjy28
         - **escalada**: Djavú
+        - **setor**: Setor Pracinha
         - **ids**:
           - nYGYGhVBIkjy28
       - **[3]**:
@@ -3281,6 +3411,7 @@
         - **pontos_uids**:
           - Rj6RP5lDxZ9kUk
         - **escalada**: Muita coisa envolvida
+        - **setor**: Setor Pracinha
         - **ids**:
           - Rj6RP5lDxZ9kUk
       - **[4]**:
@@ -3288,6 +3419,7 @@
         - **pontos_uids**:
           - w9xngGToGrJqf6
         - **escalada**: Netfrix
+        - **setor**: Setor Pracinha
         - **ids**:
           - w9xngGToGrJqf6
       - **[5]**:
@@ -3295,6 +3427,7 @@
         - **pontos_uids**:
           - AsDs9blGiwVd8m
         - **escalada**: Pouca prática
+        - **setor**: Setor Pracinha
         - **ids**:
           - AsDs9blGiwVd8m
       - **[6]**:
@@ -3302,6 +3435,7 @@
         - **pontos_uids**:
           - XKqdU1C14Y0Whc
         - **escalada**: Vainafé
+        - **setor**: Setor Pracinha
         - **ids**:
           - XKqdU1C14Y0Whc
       - **[7]**:
@@ -3309,6 +3443,7 @@
         - **pontos_uids**:
           - g8wsUkaZ9tjAov
         - **escalada**: People crazy
+        - **setor**: Setor Pracinha
         - **ids**:
           - g8wsUkaZ9tjAov
       - **[8]**:
@@ -3316,6 +3451,7 @@
         - **pontos_uids**:
           - mQJf4urE1dSo1Y
         - **escalada**: Aresta Daniel
+        - **setor**: Setor Trad
         - **ids**:
           - mQJf4urE1dSo1Y
   - **[1]**:
@@ -3365,6 +3501,7 @@
         - **pontos_uids**:
           - B0p8hl3AvHe0d5
         - **escalada**: Conflito sensual
+        - **setor**: Setor Pracinha
         - **ids**:
           - B0p8hl3AvHe0d5
       - **[1]**:
@@ -3372,6 +3509,7 @@
         - **pontos_uids**:
           - o5bq4YT33Vr7oL
         - **escalada**: Duracell
+        - **setor**: Setor Pracinha
         - **ids**:
           - o5bq4YT33Vr7oL
       - **[2]**:
@@ -3379,6 +3517,7 @@
         - **pontos_uids**:
           - TkVjLe0nZcJ1EG
         - **escalada**: Djavú
+        - **setor**: Setor Pracinha
         - **ids**:
           - TkVjLe0nZcJ1EG
       - **[3]**:
@@ -3386,6 +3525,7 @@
         - **pontos_uids**:
           - XX2L0p85lzkV9C
         - **escalada**: Muita coisa envolvida
+        - **setor**: Setor Pracinha
         - **ids**:
           - XX2L0p85lzkV9C
   - **[2]**:
@@ -3453,6 +3593,7 @@
         - **pontos_uids**:
           - GAiRdvunkolu2J
         - **escalada**: Netfrix
+        - **setor**: Setor Pracinha
         - **ids**:
           - GAiRdvunkolu2J
       - **[1]**:
@@ -3460,6 +3601,7 @@
         - **pontos_uids**:
           - Cge74BY2zSTbVJ
         - **escalada**: Pouca prática
+        - **setor**: Setor Pracinha
         - **ids**:
           - Cge74BY2zSTbVJ
       - **[2]**:
@@ -3467,6 +3609,7 @@
         - **pontos_uids**:
           - OvKgHwrmIil4MQ
         - **escalada**: Vainafé
+        - **setor**: Setor Pracinha
         - **ids**:
           - OvKgHwrmIil4MQ
       - **[3]**:
@@ -3474,6 +3617,7 @@
         - **pontos_uids**:
           - nSSYVwEOAFIRya
         - **escalada**: People crazy
+        - **setor**: Setor Pracinha
         - **ids**:
           - nSSYVwEOAFIRya
       - **[4]**:
@@ -3482,6 +3626,7 @@
           - FWfLgjyAhy69Rh
           - vZhcHQiXnW3LXc
         - **escalada**: Aresta Daniel
+        - **setor**: Setor Trad
         - **ids**:
           - FWfLgjyAhy69Rh
           - vZhcHQiXnW3LXc
@@ -3698,6 +3843,7 @@
         - **pontos_uids**:
           - QXDLFztcin6tw1
         - **escalada**: A Quina
+        - **setor**: Setor Trad
         - **ids**:
           - QXDLFztcin6tw1
       - **[1]**:
@@ -3705,6 +3851,7 @@
         - **pontos_uids**:
           - uXQs6ERJ9FTChT
         - **escalada**: Pachamama
+        - **setor**: Setor Trad
         - **ids**:
           - uXQs6ERJ9FTChT
       - **[2]**:
@@ -3712,6 +3859,7 @@
         - **pontos_uids**:
           - ixtWjc7eu4G649
         - **escalada**: Baba Yaga
+        - **setor**: Setor dos Tetos
         - **ids**:
           - ixtWjc7eu4G649
       - **[3]**:
@@ -3719,6 +3867,7 @@
         - **pontos_uids**:
           - KydQu2zET9QhOX
         - **escalada**: Soy Loco Por Ti América
+        - **setor**: Setor dos Tetos
         - **ids**:
           - KydQu2zET9QhOX
       - **[4]**:
@@ -3726,6 +3875,7 @@
         - **pontos_uids**:
           - LSsiz9ZDLo7K73
         - **escalada**: Afrodite
+        - **setor**: Setor dos Tetos
         - **ids**:
           - LSsiz9ZDLo7K73
       - **[5]**:
@@ -3733,6 +3883,7 @@
         - **pontos_uids**:
           - VRlRiEZrLRbPk6
         - **escalada**: Ponto de Equilíbrio
+        - **setor**: Setor dos Tetos
         - **ids**:
           - VRlRiEZrLRbPk6
       - **[6]**:
@@ -3740,6 +3891,7 @@
         - **pontos_uids**:
           - sXwXvg2Qc8uuNk
         - **escalada**: Deu Nois
+        - **setor**: Setor dos Tetos
         - **ids**:
           - sXwXvg2Qc8uuNk
       - **[7]**:
@@ -3747,6 +3899,7 @@
         - **pontos_uids**:
           - 4xqiWVLDRLMeoZ
         - **escalada**: Aresta Daniel
+        - **setor**: Setor Trad
         - **ids**:
           - 4xqiWVLDRLMeoZ
       - **[8]**:
@@ -3754,6 +3907,7 @@
         - **pontos_uids**:
           - PNeJh70DqfH5Hu
         - **escalada**: Lilith
+        - **setor**: Setor dos Tetos
         - **ids**:
           - PNeJh70DqfH5Hu
       - **[9]**:
@@ -3761,6 +3915,7 @@
         - **pontos_uids**:
           - GFCrmTiI3qRbV6
         - **escalada**: Deu Brasil
+        - **setor**: Setor dos Tetos
         - **ids**:
           - GFCrmTiI3qRbV6
 - **escaladas**:
@@ -4251,6 +4406,7 @@
         - **pontos_uids**:
           - Bz1aVrdrsZEr6z
         - **escalada**: Aresta Daniel
+        - **setor**: Setor Trad
         - **ids**:
           - Bz1aVrdrsZEr6z
       - **[1]**:
@@ -4258,6 +4414,7 @@
         - **pontos_uids**:
           - 4F2cpOjkJHNtW5
         - **escalada**: Barriga Verde
+        - **setor**: Setor Trad
         - **ids**:
           - 4F2cpOjkJHNtW5
       - **[2]**:
@@ -4265,6 +4422,7 @@
         - **pontos_uids**:
           - 9NontZmdSc7wIz
         - **escalada**: Sem nome 1
+        - **setor**: Setor Trad
         - **ids**:
           - 9NontZmdSc7wIz
       - **[3]**:
@@ -4272,6 +4430,7 @@
         - **pontos_uids**:
           - pK4rYNfDfVD4WG
         - **escalada**: Sem nome 2
+        - **setor**: Setor Trad
         - **ids**:
           - pK4rYNfDfVD4WG
       - **[4]**:
@@ -4279,6 +4438,7 @@
         - **pontos_uids**:
           - 0s59blOISy7jkJ
         - **escalada**: Tosco Climb
+        - **setor**: Setor Trad
         - **ids**:
           - 0s59blOISy7jkJ
       - **[5]**:
@@ -4286,6 +4446,7 @@
         - **pontos_uids**:
           - wnqVy1nU7Hv30v
         - **escalada**: Curió Não Se Cria
+        - **setor**: Setor Trad
         - **ids**:
           - wnqVy1nU7Hv30v
       - **[6]**:
@@ -4293,6 +4454,7 @@
         - **pontos_uids**:
           - qWQLMjeZotg8qd
         - **escalada**: A Quina
+        - **setor**: Setor Trad
         - **ids**:
           - qWQLMjeZotg8qd
       - **[7]**:
@@ -4300,6 +4462,7 @@
         - **pontos_uids**:
           - uDPDBfEJD5pGih
         - **escalada**: Sem nome 3
+        - **setor**: Setor Trad
         - **ids**:
           - uDPDBfEJD5pGih
       - **[8]**:
@@ -4307,6 +4470,7 @@
         - **pontos_uids**:
           - 82F2jTmBiGkWgp
         - **escalada**: Igarapé Cascão
+        - **setor**: Setor Trad
         - **ids**:
           - 82F2jTmBiGkWgp
       - **[9]**:
@@ -4314,6 +4478,7 @@
         - **pontos_uids**:
           - 4U3XJkuhQJzJVk
         - **escalada**: Outra saída da Igarapé Cascão
+        - **setor**: Setor Trad
         - **ids**:
           - 4U3XJkuhQJzJVk
       - **[10]**:
@@ -4321,6 +4486,7 @@
         - **pontos_uids**:
           - rfIbPxwvjByzyF
         - **escalada**: Pachamama
+        - **setor**: Setor Trad
         - **ids**:
           - rfIbPxwvjByzyF
       - **[11]**:
@@ -4328,6 +4494,7 @@
         - **pontos_uids**:
           - NqmUX4Qzw8UWNK
         - **escalada**: Sem nome 4
+        - **setor**: Setor Trad
         - **ids**:
           - NqmUX4Qzw8UWNK
       - **[12]**:
@@ -4335,6 +4502,7 @@
         - **pontos_uids**:
           - 81EjpfLcQlnDK3
         - **escalada**: Absoluta Inconsequência
+        - **setor**: Setor Trad
         - **ids**:
           - 81EjpfLcQlnDK3
       - **[13]**:
@@ -4342,6 +4510,7 @@
         - **pontos_uids**:
           - wLQBmqGgaihdHy
         - **escalada**: Inconsequência Moderada
+        - **setor**: Setor Trad
         - **ids**:
           - wLQBmqGgaihdHy
       - **[14]**:
@@ -4349,6 +4518,7 @@
         - **pontos_uids**:
           - qdDQxPSP0ewUuM
         - **escalada**: Mentiras Sinceras
+        - **setor**: Setor Trad
         - **ids**:
           - qdDQxPSP0ewUuM
       - **[15]**:
@@ -4356,6 +4526,7 @@
         - **pontos_uids**:
           - qo8FXb752Yvepo
         - **escalada**: Sem nome 5
+        - **setor**: Setor Trad
         - **ids**:
           - qo8FXb752Yvepo
       - **[16]**:
@@ -4363,6 +4534,7 @@
         - **pontos_uids**:
           - wCgmWeIBgwhiZx
         - **escalada**: Sem nome 6
+        - **setor**: Setor Trad
         - **ids**:
           - wCgmWeIBgwhiZx
       - **[17]**:
@@ -4370,6 +4542,7 @@
         - **pontos_uids**:
           - PgvQorRgXEMSV5
         - **escalada**: Sem nome 7
+        - **setor**: Setor Trad
         - **ids**:
           - PgvQorRgXEMSV5
       - **[18]**:
@@ -4377,6 +4550,7 @@
         - **pontos_uids**:
           - IBrMdBTVkBUnbX
         - **escalada**: Bituca
+        - **setor**: Setor Trad
         - **ids**:
           - IBrMdBTVkBUnbX
       - **[19]**:
@@ -4384,6 +4558,7 @@
         - **pontos_uids**:
           - ctl8mSQl5rEKjz
         - **escalada**: Sem nome 8
+        - **setor**: Setor Trad
         - **ids**:
           - ctl8mSQl5rEKjz
       - **[20]**:
@@ -4391,6 +4566,7 @@
         - **pontos_uids**:
           - CiC4AlK9jAz1E1
         - **escalada**: Sem nome 9
+        - **setor**: Setor Trad
         - **ids**:
           - CiC4AlK9jAz1E1
       - **[21]**:
@@ -4398,6 +4574,7 @@
         - **pontos_uids**:
           - YmwMcV09GTOZrD
         - **escalada**: Último Dente
+        - **setor**: Setor Trad
         - **ids**:
           - YmwMcV09GTOZrD
       - **[22]**:
@@ -4405,6 +4582,7 @@
         - **pontos_uids**:
           - absBrsztlqf9Ac
         - **escalada**: Sem nome 10
+        - **setor**: Setor Trad
         - **ids**:
           - absBrsztlqf9Ac
       - **[23]**:
@@ -4412,6 +4590,7 @@
         - **pontos_uids**:
           - ltOn3VI0eIV98c
         - **escalada**: Inanição
+        - **setor**: Setor Trad
         - **ids**:
           - ltOn3VI0eIV98c
       - **[24]**:
@@ -4419,6 +4598,7 @@
         - **pontos_uids**:
           - 9LYo75MzeKZJRZ
         - **escalada**: Lembranças da Vovó
+        - **setor**: Setor Trad
         - **ids**:
           - 9LYo75MzeKZJRZ
       - **[25]**:
@@ -4426,6 +4606,7 @@
         - **pontos_uids**:
           - rClv484uQDXQFm
         - **escalada**: Sem nome 11
+        - **setor**: Setor Trad
         - **ids**:
           - rClv484uQDXQFm
       - **[26]**:
@@ -4433,6 +4614,7 @@
         - **pontos_uids**:
           - YLACwBnZBkgFdm
         - **escalada**: Sem nome 12
+        - **setor**: Setor Trad
         - **ids**:
           - YLACwBnZBkgFdm
       - **[27]**:
@@ -4440,6 +4622,7 @@
         - **pontos_uids**:
           - N7fN7YJ6ifrwDe
         - **escalada**: Sem nome 13
+        - **setor**: Setor Trad
         - **ids**:
           - N7fN7YJ6ifrwDe
       - **[28]**:
@@ -4447,6 +4630,7 @@
         - **pontos_uids**:
           - sAW420qjj2pJ1l
         - **escalada**: Sem nome 14
+        - **setor**: Setor Trad
         - **ids**:
           - sAW420qjj2pJ1l
       - **[29]**:
@@ -4454,6 +4638,7 @@
         - **pontos_uids**:
           - tYVEgzI7qWcGYg
         - **escalada**: Netflix
+        - **setor**: Setor Trad
         - **ids**:
           - tYVEgzI7qWcGYg
       - **[30]**:
@@ -4461,6 +4646,7 @@
         - **pontos_uids**:
           - Q3VFJiQRNy3uuv
         - **escalada**: Sem nome 15
+        - **setor**: Setor Trad
         - **ids**:
           - Q3VFJiQRNy3uuv
       - **[31]**:
@@ -4468,6 +4654,7 @@
         - **pontos_uids**:
           - 9EX1sSKxHuoeZt
         - **escalada**: Que Nem Mendigo
+        - **setor**: Setor Trad
         - **ids**:
           - 9EX1sSKxHuoeZt
       - **[32]**:
@@ -4475,6 +4662,7 @@
         - **pontos_uids**:
           - hFAEicgfEwcDIw
         - **escalada**: Wally Caolho
+        - **setor**: Setor Trad
         - **ids**:
           - hFAEicgfEwcDIw
       - **[33]**:
@@ -4482,6 +4670,7 @@
         - **pontos_uids**:
           - v9Cqs4dusCQIcf
         - **escalada**: Me Leve ao Cume
+        - **setor**: Setor Trad
         - **ids**:
           - v9Cqs4dusCQIcf
       - **[34]**:
@@ -4489,6 +4678,7 @@
         - **pontos_uids**:
           - iLM37GBpLxf7Yf
         - **escalada**: Sem nome 16
+        - **setor**: Setor Trad
         - **ids**:
           - iLM37GBpLxf7Yf
       - **[35]**:
@@ -4496,6 +4686,7 @@
         - **pontos_uids**:
           - UoyESJoyl2hJsz
         - **escalada**: Vale Tudo
+        - **setor**: Setor Trad
         - **ids**:
           - UoyESJoyl2hJsz
       - **[36]**:
@@ -4503,6 +4694,7 @@
         - **pontos_uids**:
           - 21Y6TcY8TkOlhC
         - **escalada**: Sem nome 17
+        - **setor**: Setor Trad
         - **ids**:
           - 21Y6TcY8TkOlhC
       - **[37]**:
@@ -4510,6 +4702,7 @@
         - **pontos_uids**:
           - M2SfNCILjk46Kg
         - **escalada**: Mulher do Fim do Mundo
+        - **setor**: Setor Trad
         - **ids**:
           - M2SfNCILjk46Kg
       - **[38]**:
@@ -4517,6 +4710,7 @@
         - **pontos_uids**:
           - IJHhc6fb1XYD6K
         - **escalada**: Crayzy
+        - **setor**: Setor Trad
         - **ids**:
           - IJHhc6fb1XYD6K
       - **[39]**:
@@ -4524,6 +4718,7 @@
         - **pontos_uids**:
           - FsqNbMoWXP7NUD
         - **escalada**: Formigão Iannotta
+        - **setor**: Setor Trad
         - **ids**:
           - FsqNbMoWXP7NUD
       - **[40]**:
@@ -4531,6 +4726,7 @@
         - **pontos_uids**:
           - JB75yuXtHNnG3p
         - **escalada**: Palestra Botânica
+        - **setor**: Setor Trad
         - **ids**:
           - JB75yuXtHNnG3p
 - **escaladas**:
@@ -4957,6 +5153,8 @@
               - **pontos_uids**:
                 - gqZzpAlWcDpqnw
               - **escalada**: Bacon com Linguiça
+              - **setor**: Estacionamento - Esportivas
+              - **grupo**: Setor Estacionamento
               - **ids**:
                 - gqZzpAlWcDpqnw
             - **[1]**:
@@ -4964,6 +5162,8 @@
               - **pontos_uids**:
                 - UJvvcOUffSyc5O
               - **escalada**: Quatchú
+              - **setor**: Estacionamento - Esportivas
+              - **grupo**: Setor Estacionamento
               - **ids**:
                 - UJvvcOUffSyc5O
             - **[2]**:
@@ -4971,6 +5171,8 @@
               - **pontos_uids**:
                 - 1nwE8ZBQFTVwbu
               - **escalada**: Xoquito
+              - **setor**: Estacionamento - Esportivas
+              - **grupo**: Setor Estacionamento
               - **ids**:
                 - 1nwE8ZBQFTVwbu
             - **[3]**:
@@ -4978,6 +5180,8 @@
               - **pontos_uids**:
                 - 6CsxjMVDNWLvmF
               - **escalada**: Slow Motion
+              - **setor**: Estacionamento - Esportivas
+              - **grupo**: Setor Estacionamento
               - **ids**:
                 - 6CsxjMVDNWLvmF
             - **[4]**:
@@ -4985,6 +5189,8 @@
               - **pontos_uids**:
                 - 9RaQoPJNVuWYlv
               - **escalada**: Berbaridade Máxima
+              - **setor**: Estacionamento - Esportivas
+              - **grupo**: Setor Estacionamento
               - **ids**:
                 - 9RaQoPJNVuWYlv
             - **[5]**:
@@ -4992,6 +5198,8 @@
               - **pontos_uids**:
                 - 7HQfAUrXFcisN2
               - **escalada**: Cirque du Soleil
+              - **setor**: Estacionamento - Esportivas
+              - **grupo**: Setor Estacionamento
               - **ids**:
                 - 7HQfAUrXFcisN2
             - **[6]**:
@@ -4999,6 +5207,8 @@
               - **pontos_uids**:
                 - 3RzWrlTq9BOxI3
               - **escalada**: Route Setter
+              - **setor**: Estacionamento - Esportivas
+              - **grupo**: Setor Estacionamento
               - **ids**:
                 - 3RzWrlTq9BOxI3
             - **[7]**:
@@ -5006,6 +5216,8 @@
               - **pontos_uids**:
                 - YAZiYat2DlsVLU
               - **escalada**: Fúria de Titãs
+              - **setor**: Estacionamento - Esportivas
+              - **grupo**: Setor Estacionamento
               - **ids**:
                 - YAZiYat2DlsVLU
             - **[8]**:
@@ -5013,6 +5225,8 @@
               - **pontos_uids**:
                 - WJim9kSnegxcUM
               - **escalada**: Prima Donna
+              - **setor**: Estacionamento - Esportivas
+              - **grupo**: Setor Estacionamento
               - **ids**:
                 - WJim9kSnegxcUM
             - **[9]**:
@@ -5020,6 +5234,8 @@
               - **pontos_uids**:
                 - UG3G73VSH9Y8t7
               - **escalada**: Dama de Ferro
+              - **setor**: Estacionamento - Esportivas
+              - **grupo**: Setor Estacionamento
               - **ids**:
                 - UG3G73VSH9Y8t7
             - **[10]**:
@@ -5027,6 +5243,8 @@
               - **pontos_uids**:
                 - WPQtEVTT4862Ig
               - **escalada**: Primeira de Todas
+              - **setor**: Estacionamento - Esportivas
+              - **grupo**: Setor Estacionamento
               - **ids**:
                 - WPQtEVTT4862Ig
             - **[11]**:
@@ -5034,6 +5252,8 @@
               - **pontos_uids**:
                 - WMrxDw8byqJF44
               - **escalada**: Brinco de Odalisca
+              - **setor**: Estacionamento - Esportivas
+              - **grupo**: Setor Estacionamento
               - **ids**:
                 - WMrxDw8byqJF44
             - **[12]**:
@@ -5041,6 +5261,8 @@
               - **pontos_uids**:
                 - 13vkXOg8Hhimo8
               - **escalada**: 10%
+              - **setor**: Estacionamento - Esportivas
+              - **grupo**: Setor Estacionamento
               - **ids**:
                 - 13vkXOg8Hhimo8
             - **[13]**:
@@ -5048,6 +5270,8 @@
               - **pontos_uids**:
                 - OQU7FBYJHlxY3b
               - **escalada**: Quebra Tudo
+              - **setor**: Estacionamento - Esportivas
+              - **grupo**: Setor Estacionamento
               - **ids**:
                 - OQU7FBYJHlxY3b
             - **[14]**:
@@ -5055,6 +5279,8 @@
               - **pontos_uids**:
                 - Sj3poHldXM1kBA
               - **escalada**: Acorrentado
+              - **setor**: Estacionamento - Esportivas
+              - **grupo**: Setor Estacionamento
               - **ids**:
                 - Sj3poHldXM1kBA
             - **[15]**:
@@ -5062,6 +5288,8 @@
               - **pontos_uids**:
                 - uBntOlGwCBNlMR
               - **escalada**: Fidefenda
+              - **setor**: Estacionamento - Esportivas
+              - **grupo**: Setor Estacionamento
               - **ids**:
                 - uBntOlGwCBNlMR
             - **[16]**:
@@ -5069,6 +5297,8 @@
               - **pontos_uids**:
                 - lmQ5HSsmuAAMT4
               - **escalada**: Cochyna Blue
+              - **setor**: Estacionamento - Esportivas
+              - **grupo**: Setor Estacionamento
               - **ids**:
                 - lmQ5HSsmuAAMT4
             - **[17]**:
@@ -5076,6 +5306,8 @@
               - **pontos_uids**:
                 - lB3dIwg2CLaFMS
               - **escalada**: Teto Preto
+              - **setor**: Estacionamento - Esportivas
+              - **grupo**: Setor Estacionamento
               - **ids**:
                 - lB3dIwg2CLaFMS
             - **[18]**:
@@ -5083,6 +5315,8 @@
               - **pontos_uids**:
                 - 1E9kN0aLlSPuYy
               - **escalada**: 101 Dalmatas
+              - **setor**: Estacionamento - Esportivas
+              - **grupo**: Setor Estacionamento
               - **ids**:
                 - 1E9kN0aLlSPuYy
         - **[1]**:
@@ -5267,6 +5501,8 @@
               - **pontos_uids**:
                 - qOOsqb6VB9YPVo
               - **escalada**: Bacon com Linguiça
+              - **setor**: Estacionamento - Esportivas
+              - **grupo**: Setor Estacionamento
               - **ids**:
                 - qOOsqb6VB9YPVo
             - **[1]**:
@@ -5274,6 +5510,8 @@
               - **pontos_uids**:
                 - 7wZMeEUihWJyKj
               - **escalada**: Quatchú
+              - **setor**: Estacionamento - Esportivas
+              - **grupo**: Setor Estacionamento
               - **ids**:
                 - 7wZMeEUihWJyKj
             - **[2]**:
@@ -5281,6 +5519,8 @@
               - **pontos_uids**:
                 - yKPRjByuvZAADK
               - **escalada**: Xoquito
+              - **setor**: Estacionamento - Esportivas
+              - **grupo**: Setor Estacionamento
               - **ids**:
                 - yKPRjByuvZAADK
             - **[3]**:
@@ -5288,6 +5528,8 @@
               - **pontos_uids**:
                 - OEjQyz7DVHdCvl
               - **escalada**: Slow Motion
+              - **setor**: Estacionamento - Esportivas
+              - **grupo**: Setor Estacionamento
               - **ids**:
                 - OEjQyz7DVHdCvl
             - **[4]**:
@@ -5295,6 +5537,8 @@
               - **pontos_uids**:
                 - jU6IhYTaz9HSYN
               - **escalada**: Berbaridade Máxima
+              - **setor**: Estacionamento - Esportivas
+              - **grupo**: Setor Estacionamento
               - **ids**:
                 - jU6IhYTaz9HSYN
             - **[5]**:
@@ -5302,6 +5546,8 @@
               - **pontos_uids**:
                 - bMQ3kd7ptbSOKC
               - **escalada**: Cirque du Soleil
+              - **setor**: Estacionamento - Esportivas
+              - **grupo**: Setor Estacionamento
               - **ids**:
                 - bMQ3kd7ptbSOKC
             - **[6]**:
@@ -5309,6 +5555,8 @@
               - **pontos_uids**:
                 - jcz6DQ5tDMrzLk
               - **escalada**: Route Setter
+              - **setor**: Estacionamento - Esportivas
+              - **grupo**: Setor Estacionamento
               - **ids**:
                 - jcz6DQ5tDMrzLk
             - **[7]**:
@@ -5316,6 +5564,8 @@
               - **pontos_uids**:
                 - UcOZ88YLladJpN
               - **escalada**: Fúria de Titãs
+              - **setor**: Estacionamento - Esportivas
+              - **grupo**: Setor Estacionamento
               - **ids**:
                 - UcOZ88YLladJpN
             - **[8]**:
@@ -5323,6 +5573,8 @@
               - **pontos_uids**:
                 - fK6nH6d0QUFmlx
               - **escalada**: Prima Donna
+              - **setor**: Estacionamento - Esportivas
+              - **grupo**: Setor Estacionamento
               - **ids**:
                 - fK6nH6d0QUFmlx
             - **[9]**:
@@ -5330,6 +5582,8 @@
               - **pontos_uids**:
                 - pq5OcwhTIWgNaS
               - **escalada**: Dama de Ferro
+              - **setor**: Estacionamento - Esportivas
+              - **grupo**: Setor Estacionamento
               - **ids**:
                 - pq5OcwhTIWgNaS
             - **[10]**:
@@ -5337,6 +5591,8 @@
               - **pontos_uids**:
                 - R7HxClQ8VPvZFS
               - **escalada**: Primeira de Todas
+              - **setor**: Estacionamento - Esportivas
+              - **grupo**: Setor Estacionamento
               - **ids**:
                 - R7HxClQ8VPvZFS
             - **[11]**:
@@ -5344,6 +5600,8 @@
               - **pontos_uids**:
                 - pcy04Q9g9rk4xR
               - **escalada**: Brinco de Odalisca
+              - **setor**: Estacionamento - Esportivas
+              - **grupo**: Setor Estacionamento
               - **ids**:
                 - pcy04Q9g9rk4xR
             - **[12]**:
@@ -5351,6 +5609,8 @@
               - **pontos_uids**:
                 - jp513vCbGzwtTd
               - **escalada**: 10%
+              - **setor**: Estacionamento - Esportivas
+              - **grupo**: Setor Estacionamento
               - **ids**:
                 - jp513vCbGzwtTd
             - **[13]**:
@@ -5358,6 +5618,8 @@
               - **pontos_uids**:
                 - 46eqULlOCvT6D5
               - **escalada**: Quebra Tudo
+              - **setor**: Estacionamento - Esportivas
+              - **grupo**: Setor Estacionamento
               - **ids**:
                 - 46eqULlOCvT6D5
             - **[14]**:
@@ -5365,6 +5627,8 @@
               - **pontos_uids**:
                 - 0wEF0XnFS9ERUt
               - **escalada**: Acorrentado
+              - **setor**: Estacionamento - Esportivas
+              - **grupo**: Setor Estacionamento
               - **ids**:
                 - 0wEF0XnFS9ERUt
             - **[15]**:
@@ -5372,6 +5636,8 @@
               - **pontos_uids**:
                 - jubPKv97I4hY0r
               - **escalada**: Fidefenda
+              - **setor**: Estacionamento - Esportivas
+              - **grupo**: Setor Estacionamento
               - **ids**:
                 - jubPKv97I4hY0r
             - **[16]**:
@@ -5379,6 +5645,8 @@
               - **pontos_uids**:
                 - xGtMm2uQzyH8bW
               - **escalada**: Cochyna Blue
+              - **setor**: Estacionamento - Esportivas
+              - **grupo**: Setor Estacionamento
               - **ids**:
                 - xGtMm2uQzyH8bW
             - **[17]**:
@@ -5386,6 +5654,8 @@
               - **pontos_uids**:
                 - 5pQUowxSiO0u71
               - **escalada**: Teto Preto
+              - **setor**: Estacionamento - Esportivas
+              - **grupo**: Setor Estacionamento
               - **ids**:
                 - 5pQUowxSiO0u71
             - **[18]**:
@@ -5393,6 +5663,8 @@
               - **pontos_uids**:
                 - tm0n9STQuvFdut
               - **escalada**: 101 Dalmatas
+              - **setor**: Estacionamento - Esportivas
+              - **grupo**: Setor Estacionamento
               - **ids**:
                 - tm0n9STQuvFdut
       - **escaladas**:
@@ -5694,6 +5966,8 @@
               - **pontos_uids**:
                 - c5jKPTaPO5TQmO
               - **escalada**: Raio
+              - **setor**: Estacionamento - Boulders
+              - **grupo**: Setor Estacionamento
               - **ids**:
                 - c5jKPTaPO5TQmO
         - **[1]**:
@@ -5731,6 +6005,8 @@
               - **pontos_uids**:
                 - D8roTsgyrTkubQ
               - **escalada**: Dama de ferro (boulder)
+              - **setor**: Estacionamento - Boulders
+              - **grupo**: Setor Estacionamento
               - **ids**:
                 - D8roTsgyrTkubQ
       - **precomputados**:
@@ -5897,6 +6173,8 @@
                 - KqPjEVpsxVqrkJ
                 - Hwpweh0VHvvO8H
               - **escalada**: Pega negativo
+              - **setor**: Estacionamento - Bloco Pega negativo
+              - **grupo**: Setor Estacionamento
               - **ids**:
                 - KqPjEVpsxVqrkJ
                 - Hwpweh0VHvvO8H
@@ -5906,6 +6184,8 @@
                 - KqPjEVpsxVqrkJ
                 - bcjWAfP34ZV42J
               - **escalada**: Serrado
+              - **setor**: Estacionamento - Bloco Pega negativo
+              - **grupo**: Setor Estacionamento
               - **ids**:
                 - KqPjEVpsxVqrkJ
                 - bcjWAfP34ZV42J
@@ -5914,6 +6194,8 @@
               - **pontos_uids**:
                 - oWWr3YB0LJByaH
               - **escalada**: Coruja
+              - **setor**: Estacionamento - Bloco Pega negativo
+              - **grupo**: Setor Estacionamento
               - **ids**:
                 - oWWr3YB0LJByaH
             - **[3]**:
@@ -5921,6 +6203,8 @@
               - **pontos_uids**:
                 - sxdlHr9M6WoZNQ
               - **escalada**: Projeto 3
+              - **setor**: Estacionamento - Bloco Pega negativo
+              - **grupo**: Setor Estacionamento
               - **ids**:
                 - sxdlHr9M6WoZNQ
       - **precomputados**:
@@ -6069,6 +6353,8 @@
                 - QmahXN7YGx5qnn
                 - 1QRa2eTvzsq8M5
               - **escalada**: Solaris
+              - **setor**: Estacionamento - Bloco Solaris
+              - **grupo**: Setor Estacionamento
               - **ids**:
                 - QmahXN7YGx5qnn
                 - 1QRa2eTvzsq8M5
@@ -6079,6 +6365,8 @@
                 - 1gfxPrZK4NbB4K
                 - 1QRa2eTvzsq8M5
               - **escalada**: Pump
+              - **setor**: Estacionamento - Bloco Solaris
+              - **grupo**: Setor Estacionamento
               - **ids**:
                 - 4qwbkzxFtp77YL
                 - 1gfxPrZK4NbB4K
@@ -6089,6 +6377,8 @@
                 - 4qwbkzxFtp77YL
                 - I6Q9kgngRiO1YX
               - **escalada**: Lítio
+              - **setor**: Estacionamento - Bloco Solaris
+              - **grupo**: Setor Estacionamento
               - **ids**:
                 - 4qwbkzxFtp77YL
                 - I6Q9kgngRiO1YX
@@ -6149,6 +6439,8 @@
               - **pontos_uids**:
                 - 6F8xEKAjDezlkF
               - **escalada**: Tório
+              - **setor**: Estacionamento - Bloco Solaris
+              - **grupo**: Setor Estacionamento
               - **ids**:
                 - 6F8xEKAjDezlkF
             - **[1]**:
@@ -6156,6 +6448,8 @@
               - **pontos_uids**:
                 - 5z0xDzAl5rd8JW
               - **escalada**: Irídio
+              - **setor**: Estacionamento - Bloco Solaris
+              - **grupo**: Setor Estacionamento
               - **ids**:
                 - 5z0xDzAl5rd8JW
       - **precomputados**:
@@ -6287,6 +6581,8 @@
                 - LRibEzdYZH0Iot
                 - uyFTqk25UWAbgM
               - **escalada**: Dengoso
+              - **setor**: Estacionamento - Bloco Dengoso
+              - **grupo**: Setor Estacionamento
               - **ids**:
                 - U9sK5P09Prqoch
                 - LRibEzdYZH0Iot
@@ -6297,6 +6593,8 @@
                 - U9sK5P09Prqoch
                 - mRwEsWs51g076b
               - **escalada**: Fênix
+              - **setor**: Estacionamento - Bloco Dengoso
+              - **grupo**: Setor Estacionamento
               - **ids**:
                 - U9sK5P09Prqoch
                 - mRwEsWs51g076b
@@ -6306,6 +6604,8 @@
                 - pfDg5P1AonAAi9
                 - uyFTqk25UWAbgM
               - **escalada**: V5 do Bull
+              - **setor**: Estacionamento - Bloco Dengoso
+              - **grupo**: Setor Estacionamento
               - **ids**:
                 - pfDg5P1AonAAi9
                 - uyFTqk25UWAbgM
@@ -6426,6 +6726,8 @@
                 - sjVcuFmrsATb6E
                 - mxtFc6aXmNZM62
               - **escalada**: V5 do Bull
+              - **setor**: Estacionamento - Bloco Dengoso
+              - **grupo**: Setor Estacionamento
               - **ids**:
                 - sjVcuFmrsATb6E
                 - mxtFc6aXmNZM62
@@ -6436,6 +6738,8 @@
                 - RjXJpiC3GesNMr
                 - mxtFc6aXmNZM62
               - **escalada**: Dengoso
+              - **setor**: Estacionamento - Bloco Dengoso
+              - **grupo**: Setor Estacionamento
               - **ids**:
                 - oACEazp9fJuY7y
                 - RjXJpiC3GesNMr
@@ -6446,6 +6750,8 @@
                 - oACEazp9fJuY7y
                 - MLPLzokXjMmRMG
               - **escalada**: Fênix
+              - **setor**: Estacionamento - Bloco Dengoso
+              - **grupo**: Setor Estacionamento
               - **ids**:
                 - oACEazp9fJuY7y
                 - MLPLzokXjMmRMG
@@ -6615,6 +6921,8 @@
               - **pontos_uids**:
                 - JasR2A0QHoDT13
               - **escalada**: Só o pó
+              - **setor**: Estacionamento - Bloco Dengoso
+              - **grupo**: Setor Estacionamento
               - **ids**:
                 - JasR2A0QHoDT13
             - **[1]**:
@@ -6622,6 +6930,8 @@
               - **pontos_uids**:
                 - 3PYTnEbgnp4ZPb
               - **escalada**: Só poeira
+              - **setor**: Estacionamento - Bloco Dengoso
+              - **grupo**: Setor Estacionamento
               - **ids**:
                 - 3PYTnEbgnp4ZPb
             - **[2]**:
@@ -6629,6 +6939,8 @@
               - **pontos_uids**:
                 - FgQM0hUvaAHlhx
               - **escalada**: Poeirando
+              - **setor**: Estacionamento - Bloco Dengoso
+              - **grupo**: Setor Estacionamento
               - **ids**:
                 - FgQM0hUvaAHlhx
             - **[3]**:
@@ -6636,6 +6948,8 @@
               - **pontos_uids**:
                 - HWMVxMmL9vu4Rb
               - **escalada**: Barla Pé
+              - **setor**: Estacionamento - Bloco Dengoso
+              - **grupo**: Setor Estacionamento
               - **ids**:
                 - HWMVxMmL9vu4Rb
             - **[4]**:
@@ -6643,6 +6957,8 @@
               - **pontos_uids**:
                 - 3nbowXWnLqVbnb
               - **escalada**: Saara
+              - **setor**: Estacionamento - Bloco Dengoso
+              - **grupo**: Setor Estacionamento
               - **ids**:
                 - 3nbowXWnLqVbnb
         - **[3]**:
@@ -6773,6 +7089,8 @@
                 - emNdipEI4O45NQ
                 - C5naCsBOw3oCcf
               - **escalada**: Sem nome 21
+              - **setor**: Estacionamento - Bloco Dengoso
+              - **grupo**: Setor Estacionamento
               - **ids**:
                 - tJ7FfEoJdlIf6V
                 - QMPGG3MYfcmGwp
@@ -6786,6 +7104,8 @@
                 - tJ7FfEoJdlIf6V
                 - dmDcYG804HYCiM
               - **escalada**: Só poeirinha
+              - **setor**: Estacionamento - Bloco Dengoso
+              - **grupo**: Setor Estacionamento
               - **ids**:
                 - emNdipEI4O45NQ
                 - C5naCsBOw3oCcf
@@ -6796,6 +7116,8 @@
               - **pontos_uids**:
                 - L6BdT85blb9sKI
               - **escalada**: Sem nome 23
+              - **setor**: Estacionamento - Bloco Dengoso
+              - **grupo**: Setor Estacionamento
               - **ids**:
                 - L6BdT85blb9sKI
         - **[4]**:
@@ -6857,6 +7179,8 @@
               - **pontos_uids**:
                 - cN98a82t2JCMQP
               - **escalada**: Auto seg
+              - **setor**: Estacionamento - Bloco Dengoso
+              - **grupo**: Setor Estacionamento
               - **ids**:
                 - cN98a82t2JCMQP
             - **[1]**:
@@ -6864,6 +7188,8 @@
               - **pontos_uids**:
                 - Qck4hKYZBivTQo
               - **escalada**: Arla
+              - **setor**: Estacionamento - Bloco Dengoso
+              - **grupo**: Setor Estacionamento
               - **ids**:
                 - Qck4hKYZBivTQo
       - **escaladas**:
@@ -7067,6 +7393,8 @@
               - **pontos_uids**:
                 - TCqSo3l4scy9Cr
               - **escalada**: Virada Brasil
+              - **setor**: Estacionamento - Bloco Virada Brasil
+              - **grupo**: Setor Estacionamento
               - **ids**:
                 - TCqSo3l4scy9Cr
             - **[1]**:
@@ -7075,6 +7403,8 @@
                 - dq3Z8gzMAG78T6
                 - enl6MWJpNyBsAG
               - **escalada**: Tio peruca
+              - **setor**: Estacionamento - Bloco Virada Brasil
+              - **grupo**: Setor Estacionamento
               - **ids**:
                 - dq3Z8gzMAG78T6
                 - enl6MWJpNyBsAG
@@ -7084,6 +7414,8 @@
                 - d7TPFX7nth7n3n
                 - enl6MWJpNyBsAG
               - **escalada**: Sem nome 24
+              - **setor**: Estacionamento - Bloco Virada Brasil
+              - **grupo**: Setor Estacionamento
               - **ids**:
                 - d7TPFX7nth7n3n
                 - enl6MWJpNyBsAG
@@ -7296,6 +7628,8 @@
                 - 3lLONxHYDVabzD
                 - 8kvZVJW2QzC2n3
               - **escalada**: Atari
+              - **setor**: Estacionamento - Bloco Mega drive
+              - **grupo**: Setor Estacionamento
               - **ids**:
                 - 3U1xMV1hDr2FtN
                 - 3lLONxHYDVabzD
@@ -7307,6 +7641,8 @@
                 - ULYhKCswkt7tOz
                 - nZw977PekLEm59
               - **escalada**: Projeto Igarapé
+              - **setor**: Estacionamento - Bloco Mega drive
+              - **grupo**: Setor Estacionamento
               - **ids**:
                 - 3U1xMV1hDr2FtN
                 - ULYhKCswkt7tOz
@@ -7319,6 +7655,8 @@
                 - 6A5nPuW5RHYy6h
                 - Iqacn5BbIeHWk9
               - **escalada**: Master System
+              - **setor**: Estacionamento - Bloco Mega drive
+              - **grupo**: Setor Estacionamento
               - **ids**:
                 - Q8apI2RjUAnula
                 - nZw977PekLEm59
@@ -7331,6 +7669,8 @@
                 - 3lLONxHYDVabzD
                 - 7nFSCoZsYda0nZ
               - **escalada**: Mega drive
+              - **setor**: Estacionamento - Bloco Mega drive
+              - **grupo**: Setor Estacionamento
               - **ids**:
                 - 3U1xMV1hDr2FtN
                 - 3lLONxHYDVabzD
@@ -7413,6 +7753,8 @@
               - **pontos_uids**:
                 - Ak8gIju2Ss3zzz
               - **escalada**: Sem Nome 25
+              - **setor**: Estacionamento - Bloco Mega drive
+              - **grupo**: Setor Estacionamento
               - **ids**:
                 - Ak8gIju2Ss3zzz
             - **[1]**:
@@ -7422,6 +7764,8 @@
                 - ttaawpem2ChoyF
                 - FPyqUxmgtaGlod
               - **escalada**: Master System
+              - **setor**: Estacionamento - Bloco Mega drive
+              - **grupo**: Setor Estacionamento
               - **ids**:
                 - o1JJil8lMGPbIY
                 - ttaawpem2ChoyF
@@ -7765,6 +8109,7 @@
           - IpevDPdsnVHfkx
           - kp1FBa7XztavAz
         - **escalada**: Polydance
+        - **setor**: Bloco Fugitivos I
         - **ids**:
           - Dj12Nq8fQktwyt
           - IpevDPdsnVHfkx
@@ -7776,6 +8121,7 @@
           - Jfeu3ieoYdblPv
           - c6VFijpXyPqMOR
         - **escalada**: Bigdance
+        - **setor**: Bloco Fugitivos I
         - **ids**:
           - Dj12Nq8fQktwyt
           - Jfeu3ieoYdblPv
@@ -7788,6 +8134,7 @@
           - 2S8qvQRGUah2OE
           - 3rqfVJ0dJgmYpW
         - **escalada**: Boulder do Bola
+        - **setor**: Bloco Fugitivos I
         - **ids**:
           - 889TBw74ifLuxF
           - IpevDPdsnVHfkx
@@ -7799,6 +8146,7 @@
           - THBRLUul62myxD
           - 3rqfVJ0dJgmYpW
         - **escalada**: Trolls
+        - **setor**: Bloco Fugitivos I
         - **ids**:
           - THBRLUul62myxD
           - 3rqfVJ0dJgmYpW
@@ -7808,6 +8156,7 @@
           - 889TBw74ifLuxF
           - kp1FBa7XztavAz
         - **escalada**: Calcinha Larga
+        - **setor**: Bloco Fugitivos I
         - **ids**:
           - 889TBw74ifLuxF
           - kp1FBa7XztavAz
@@ -7816,6 +8165,7 @@
         - **pontos_uids**:
           - 29CR0yWUubJgsh
         - **escalada**: Tanga Frouxa
+        - **setor**: Bloco Fugitivos I
         - **ids**:
           - 29CR0yWUubJgsh
       - **[6]**:
@@ -7824,6 +8174,7 @@
           - eyMQLEIXumeXrC
           - Jfeu3ieoYdblPv
         - **escalada**: Barriga de Aluguel
+        - **setor**: Bloco Fugitivos I
         - **ids**:
           - eyMQLEIXumeXrC
           - Jfeu3ieoYdblPv
@@ -8130,6 +8481,7 @@
         - **pontos_uids**:
           - Qg3SyAyd6Yylso
         - **escalada**: Primeiro de todos
+        - **setor**: Bloco Fugitivos I
         - **ids**:
           - Qg3SyAyd6Yylso
       - **[1]**:
@@ -8137,6 +8489,7 @@
         - **pontos_uids**:
           - r1RWbYxbGxNh4q
         - **escalada**: Sem nome 18
+        - **setor**: Bloco Fugitivos I
         - **ids**:
           - r1RWbYxbGxNh4q
       - **[2]**:
@@ -8147,6 +8500,7 @@
           - 87JwkW3LS5NWd2
           - UUTTGa1l6VaHjj
         - **escalada**: Calcinha Larga
+        - **setor**: Bloco Fugitivos I
         - **ids**:
           - cxHVpp0pV2HDdc
           - d0kTCKro3sfCw0
@@ -8161,6 +8515,7 @@
           - OTcUfRsFOnjDk0
           - UqW5Vdic5cdh5s
         - **escalada**: Boulder do Bola
+        - **setor**: Bloco Fugitivos I
         - **ids**:
           - cxHVpp0pV2HDdc
           - Cm7tY17wrZK3Wp
@@ -8173,6 +8528,7 @@
           - 6AXDXEHiYZDc39
           - UqW5Vdic5cdh5s
         - **escalada**: Trolls
+        - **setor**: Bloco Fugitivos I
         - **ids**:
           - 6AXDXEHiYZDc39
           - UqW5Vdic5cdh5s
@@ -8185,6 +8541,7 @@
           - 87JwkW3LS5NWd2
           - UUTTGa1l6VaHjj
         - **escalada**: Polydance
+        - **setor**: Bloco Fugitivos I
         - **ids**:
           - ZnUSwyudUfVn2U
           - o2IkqfXURRXDw3
@@ -8200,6 +8557,7 @@
           - O4g3rMMzncA2s1
           - 87JwkW3LS5NWd2
         - **escalada**: Bigdance
+        - **setor**: Bloco Fugitivos I
         - **ids**:
           - ZnUSwyudUfVn2U
           - o2IkqfXURRXDw3
@@ -8248,6 +8606,7 @@
         - **pontos_uids**:
           - TDHfBQNHVuOQU5
         - **escalada**: Barriga de Aluguel
+        - **setor**: Bloco Fugitivos I
         - **ids**:
           - TDHfBQNHVuOQU5
   - **[3]**:
@@ -8307,6 +8666,7 @@
         - **pontos_uids**:
           - GP83pY4VtyA1QX
         - **escalada**: Bananinha
+        - **setor**: Bloco Fugitivos I
         - **ids**:
           - GP83pY4VtyA1QX
       - **[1]**:
@@ -8314,6 +8674,7 @@
         - **pontos_uids**:
           - r6ErvxZMGWC1bX
         - **escalada**: Cactos kid
+        - **setor**: Bloco Fugitivos I
         - **ids**:
           - r6ErvxZMGWC1bX
   - **[4]**:
@@ -8351,6 +8712,7 @@
         - **pontos_uids**:
           - BYw7OkD4pwJDY0
         - **escalada**: Quem vai primeiro
+        - **setor**: Bloco Fugitivos I
         - **ids**:
           - BYw7OkD4pwJDY0
 - **precomputados**:
@@ -8455,6 +8817,7 @@
         - **pontos_uids**:
           - 26iFohS5VSQkiP
         - **escalada**: Viva o climb
+        - **setor**: Bloco Viva o Climb
         - **ids**:
           - 26iFohS5VSQkiP
   - **[1]**:
@@ -8622,6 +8985,7 @@
         - **pontos_uids**:
           - UvGNl07TSBGzV1
         - **escalada**: Pérola negra
+        - **setor**: Bloco Viva o Climb
         - **ids**:
           - UvGNl07TSBGzV1
       - **[1]**:
@@ -8630,6 +8994,7 @@
           - ZCYntgQ6VMC1FS
           - UvGNl07TSBGzV1
         - **escalada**: Pérola negra SDS
+        - **setor**: Bloco Viva o Climb
         - **ids**:
           - ZCYntgQ6VMC1FS
           - UvGNl07TSBGzV1
@@ -8638,6 +9003,7 @@
         - **pontos_uids**:
           - Lwogd7HmsT36NC
         - **escalada**: Sem nome 19
+        - **setor**: Bloco Viva o Climb
         - **ids**:
           - Lwogd7HmsT36NC
       - **[3]**:
@@ -8646,6 +9012,7 @@
           - CsBsRmPha9utR8
           - SxNPSahI02iZag
         - **escalada**: Malandro não para
+        - **setor**: Bloco Viva o Climb
         - **ids**:
           - CsBsRmPha9utR8
           - SxNPSahI02iZag
@@ -8655,6 +9022,7 @@
           - CsBsRmPha9utR8
           - aLiU7BOMR2xyly
         - **escalada**: Malandragem
+        - **setor**: Bloco Viva o Climb
         - **ids**:
           - CsBsRmPha9utR8
           - aLiU7BOMR2xyly
@@ -8693,6 +9061,7 @@
         - **pontos_uids**:
           - wlS4znO71NbnJU
         - **escalada**: Mad max
+        - **setor**: Bloco Viva o Climb
         - **ids**:
           - wlS4znO71NbnJU
   - **[3]**:
@@ -8752,6 +9121,7 @@
           - AhwnZFJqgSfXtQ
           - 4asD6mDT2oKDy1
         - **escalada**: Abraca
+        - **setor**: Bloco Viva o Climb
         - **ids**:
           - mElKIE2yRagjoF
           - AhwnZFJqgSfXtQ
@@ -8791,6 +9161,7 @@
         - **pontos_uids**:
           - dyxaEUtJO3gkFp
         - **escalada**: Pica fumo
+        - **setor**: Bloco Viva o Climb
         - **ids**:
           - dyxaEUtJO3gkFp
 - **precomputados**:
@@ -9293,6 +9664,7 @@
           - ymzZz1cPWO9C7s
           - tiShTDYIgu9k0A
         - **escalada**: Olha a Jaca
+        - **setor**: Bloco Fugitivos II
         - **ids**:
           - ihoIqsysq4uYJd
           - ymzZz1cPWO9C7s
@@ -9304,6 +9676,7 @@
           - vtUAS6DvoJEf0x
           - ITwa1RryXsUEwD
         - **escalada**: Olha o Rider
+        - **setor**: Bloco Fugitivos II
         - **ids**:
           - ihoIqsysq4uYJd
           - vtUAS6DvoJEf0x
@@ -9316,6 +9689,7 @@
           - VwZXDPxczxcu3b
           - ITwa1RryXsUEwD
         - **escalada**: Low Rider
+        - **setor**: Bloco Fugitivos II
         - **ids**:
           - umRf96kV1lxQHD
           - 9Rfa8YgUGe4Mt8
@@ -9328,6 +9702,7 @@
           - Te7HQwNDEfG81J
           - oiJNBR0gaOIOTu
         - **escalada**: Easy Rider
+        - **setor**: Bloco Fugitivos II
         - **ids**:
           - umRf96kV1lxQHD
           - Te7HQwNDEfG81J
@@ -9342,6 +9717,7 @@
           - VwZXDPxczxcu3b
           - ITwa1RryXsUEwD
         - **escalada**: Big Rider
+        - **setor**: Bloco Fugitivos II
         - **ids**:
           - qdC43Gvz0L0P0G
           - Cs5pbHTNWRtoXm
@@ -9358,6 +9734,7 @@
           - LlDQFuYH5B74CX
           - oiJNBR0gaOIOTu
         - **escalada**: Fugitivos
+        - **setor**: Bloco Fugitivos II
         - **ids**:
           - qdC43Gvz0L0P0G
           - Cs5pbHTNWRtoXm
@@ -9372,6 +9749,7 @@
           - 4JpovgbGvXcRSy
           - N8eV2qZTa52bb3
         - **escalada**: Igarapedra
+        - **setor**: Bloco Fugitivos II
         - **ids**:
           - qdC43Gvz0L0P0G
           - Cs5pbHTNWRtoXm
@@ -9384,6 +9762,7 @@
           - vYBkJi6sUeryqP
           - N8eV2qZTa52bb3
         - **escalada**: Trombose
+        - **setor**: Bloco Fugitivos II
         - **ids**:
           - qdC43Gvz0L0P0G
           - vYBkJi6sUeryqP
@@ -9396,6 +9775,7 @@
           - SDXdXU9ZyL8mGT
           - GdABU1fWF6h7H7
         - **escalada**: Corrida do Ouro
+        - **setor**: Bloco Fugitivos II
         - **ids**:
           - ihoIqsysq4uYJd
           - ymzZz1cPWO9C7s
@@ -9407,6 +9787,7 @@
           - aldE8nfEzfEwES
           - GdABU1fWF6h7H7
         - **escalada**: Audácia
+        - **setor**: Bloco Fugitivos II
         - **ids**:
           - aldE8nfEzfEwES
           - GdABU1fWF6h7H7
@@ -9527,6 +9908,7 @@
           - BlYabbjunYAlwJ
           - 1I2bSGk2aU2aIj
         - **escalada**: Tandrilax
+        - **setor**: Bloco Fugitivos II
         - **ids**:
           - BlYabbjunYAlwJ
           - 1I2bSGk2aU2aIj
@@ -9536,6 +9918,7 @@
           - 8mgH7klWCHeynf
           - p9cK1ZztG5P96S
         - **escalada**: Curandeiros
+        - **setor**: Bloco Fugitivos II
         - **ids**:
           - 8mgH7klWCHeynf
           - p9cK1ZztG5P96S
@@ -9546,6 +9929,7 @@
           - 8mgH7klWCHeynf
           - 1I2bSGk2aU2aIj
         - **escalada**: Sem nome 20
+        - **setor**: Bloco Fugitivos II
         - **ids**:
           - SxhynjM7dmmrkO
           - 8mgH7klWCHeynf
@@ -9779,6 +10163,7 @@
         - **pontos_uids**:
           - K9ehICREvSL3cg
         - **escalada**: Sobe e desce
+        - **setor**: Setor Tramontina
         - **ids**:
           - K9ehICREvSL3cg
       - **[1]**:
@@ -9786,6 +10171,7 @@
         - **pontos_uids**:
           - ro0Hl5fiBBIIRb
         - **escalada**: Questionamentos
+        - **setor**: Setor Tramontina
         - **ids**:
           - ro0Hl5fiBBIIRb
       - **[2]**:
@@ -9793,6 +10179,7 @@
         - **pontos_uids**:
           - hViAQGmev4O97T
         - **escalada**: Não vai descalço
+        - **setor**: Setor Tramontina
         - **ids**:
           - hViAQGmev4O97T
       - **[3]**:
@@ -9802,6 +10189,7 @@
           - O98g57fVPORYXE
           - yxQI8yhj2Rm44J
         - **escalada**: Linhas paralelas
+        - **setor**: Setor Tramontina
         - **ids**:
           - qBSK7cjr4w6akU
           - O98g57fVPORYXE
@@ -9811,6 +10199,7 @@
         - **pontos_uids**:
           - AieY8mTSHCWNZ5
         - **escalada**: Só vejo almas
+        - **setor**: Setor Tramontina
         - **ids**:
           - AieY8mTSHCWNZ5
   - **[1]**:
@@ -9894,6 +10283,7 @@
           - vHjGEFoPBzi5y7
           - aWQoFSsr4ZAzi9
         - **escalada**: Linhas paralelas
+        - **setor**: Setor Tramontina
         - **ids**:
           - W1kKMX98Onkp9P
           - vHjGEFoPBzi5y7
@@ -9903,6 +10293,7 @@
         - **pontos_uids**:
           - 4BsMYWmatRVbXz
         - **escalada**: Só vejo almas
+        - **setor**: Setor Tramontina
         - **ids**:
           - 4BsMYWmatRVbXz
   - **[2]**:
@@ -9940,6 +10331,7 @@
         - **pontos_uids**:
           - MfhaEzPjkVfcUS
         - **escalada**: Sobe e desce
+        - **setor**: Setor Tramontina
         - **ids**:
           - MfhaEzPjkVfcUS
 - **precomputados**:
@@ -10273,6 +10665,7 @@
           - xgcJQ7IfL2MsEo
           - Rz6FEtYQ3eIWZv
         - **escalada**: Escalda pé
+        - **setor**: Bloco Democracia
         - **ids**:
           - xgcJQ7IfL2MsEo
           - Rz6FEtYQ3eIWZv
@@ -10281,6 +10674,7 @@
         - **pontos_uids**:
           - yrBoCO3F14z3ea
         - **escalada**: Sai sentado
+        - **setor**: Bloco Democracia
         - **ids**:
           - yrBoCO3F14z3ea
       - **[2]**:
@@ -10290,6 +10684,7 @@
           - juE1R9MVCEtmxr
           - FoAMrUf6AwBUCB
         - **escalada**: Titi terremoto
+        - **setor**: Bloco Democracia
         - **ids**:
           - xgcJQ7IfL2MsEo
           - juE1R9MVCEtmxr
@@ -10302,6 +10697,7 @@
           - Sq5Lrg1w93d0JW
           - KJn5rHYYg43lmm
         - **escalada**: Faixa preta
+        - **setor**: Bloco Democracia
         - **ids**:
           - jyFvAsGlGqFMM5
           - FoAMrUf6AwBUCB
@@ -10312,6 +10708,7 @@
         - **pontos_uids**:
           - a4k5Nb9INw1YLO
         - **escalada**: Portátil
+        - **setor**: Bloco Democracia
         - **ids**:
           - a4k5Nb9INw1YLO
   - **[1]**:
@@ -10430,6 +10827,7 @@
           - N4Wu08VRRMLamh
           - Kz0YuBGAhccOB5
         - **escalada**: Democracia
+        - **setor**: Bloco Democracia
         - **ids**:
           - HUwTLvTBBGjsnz
           - N4Wu08VRRMLamh
@@ -10441,6 +10839,7 @@
           - N4Wu08VRRMLamh
           - Kz0YuBGAhccOB5
         - **escalada**: 127 horas (boulder)
+        - **setor**: Bloco Democracia
         - **ids**:
           - 4xFsLZKWl4AdtM
           - N4Wu08VRRMLamh
@@ -10451,6 +10850,7 @@
           - d1hYpyX2npuSmv
           - Kz0YuBGAhccOB5
         - **escalada**: Perda de memória recente
+        - **setor**: Bloco Democracia
         - **ids**:
           - d1hYpyX2npuSmv
           - Kz0YuBGAhccOB5
@@ -10494,6 +10894,7 @@
         - **pontos_uids**:
           - jnQoVwmwnQ2H0k
         - **escalada**: Utopia
+        - **setor**: Bloco Democracia
         - **ids**:
           - jnQoVwmwnQ2H0k
   - **[3]**:
@@ -10609,6 +11010,7 @@
           - n27STFDby4rocC
           - n1ql6PZ4p49sVz
         - **escalada**: Dejavu
+        - **setor**: Bloco Democracia
         - **ids**:
           - n27STFDby4rocC
           - n1ql6PZ4p49sVz
@@ -10619,6 +11021,7 @@
           - pzCZCit4gVZvId
           - n1ql6PZ4p49sVz
         - **escalada**: Maquiavel
+        - **setor**: Bloco Democracia
         - **ids**:
           - GkGoOZC3WJhbAL
           - pzCZCit4gVZvId
@@ -10630,6 +11033,7 @@
           - pzCZCit4gVZvId
           - n1ql6PZ4p49sVz
         - **escalada**: Distopia
+        - **setor**: Bloco Democracia
         - **ids**:
           - DkBnfCPwRA9ZPY
           - pzCZCit4gVZvId
@@ -10769,6 +11173,7 @@
           - SHCOhsdHYBae5A
           - 6TPsswIRL43wbg
         - **escalada**: Dejavu SDS
+        - **setor**: Bloco Democracia
         - **ids**:
           - SHCOhsdHYBae5A
           - 6TPsswIRL43wbg
@@ -10778,6 +11183,7 @@
           - SHCOhsdHYBae5A
           - GA9j8Ik294SeTh
         - **escalada**: Sem nome 26
+        - **setor**: Bloco Democracia
         - **ids**:
           - SHCOhsdHYBae5A
           - GA9j8Ik294SeTh
@@ -10786,6 +11192,7 @@
         - **pontos_uids**:
           - q3xH3oo4YeOuGX
         - **escalada**: Vai mas não cai
+        - **setor**: Bloco Democracia
         - **ids**:
           - q3xH3oo4YeOuGX
       - **[3]**:
@@ -10793,6 +11200,7 @@
         - **pontos_uids**:
           - 9DLFJCbuMQKSI2
         - **escalada**: Direita que me resta
+        - **setor**: Bloco Democracia
         - **ids**:
           - 9DLFJCbuMQKSI2
   - **[5]**:
@@ -10974,6 +11382,7 @@
         - **pontos_uids**:
           - h02BCusv8ZjmXc
         - **escalada**: Pequeno desafio
+        - **setor**: Bloco Democracia
         - **ids**:
           - h02BCusv8ZjmXc
       - **[1]**:
@@ -10981,6 +11390,7 @@
         - **pontos_uids**:
           - A2BbCF9f9xQgU8
         - **escalada**: Engana bobo
+        - **setor**: Bloco Democracia
         - **ids**:
           - A2BbCF9f9xQgU8
       - **[2]**:
@@ -10988,6 +11398,7 @@
         - **pontos_uids**:
           - 2rLr793Ak1FDdh
         - **escalada**: Sem nome 30
+        - **setor**: Bloco Democracia
         - **ids**:
           - 2rLr793Ak1FDdh
       - **[3]**:
@@ -10995,6 +11406,7 @@
         - **pontos_uids**:
           - xcdwg1f9RHrPlV
         - **escalada**: Sem nome 29
+        - **setor**: Bloco Democracia
         - **ids**:
           - xcdwg1f9RHrPlV
       - **[4]**:
@@ -11002,6 +11414,7 @@
         - **pontos_uids**:
           - zQ0GQzbQWKTXAM
         - **escalada**: Sem nome 27
+        - **setor**: Bloco Democracia
         - **ids**:
           - zQ0GQzbQWKTXAM
       - **[5]**:
@@ -11009,6 +11422,7 @@
         - **pontos_uids**:
           - Xzyhq0GSNfF517
         - **escalada**: Porco espinho
+        - **setor**: Bloco Democracia
         - **ids**:
           - Xzyhq0GSNfF517
       - **[6]**:
@@ -11016,6 +11430,7 @@
         - **pontos_uids**:
           - jxMv2oQ52G1U3o
         - **escalada**: Passa um
+        - **setor**: Bloco Democracia
         - **ids**:
           - jxMv2oQ52G1U3o
   - **[6]**:
@@ -11077,6 +11492,7 @@
         - **pontos_uids**:
           - FgUzqh9xM3pM1t
         - **escalada**: Pequeno desafio
+        - **setor**: Bloco Democracia
         - **ids**:
           - FgUzqh9xM3pM1t
       - **[1]**:
@@ -11084,6 +11500,7 @@
         - **pontos_uids**:
           - CDYYbmZlLuSROd
         - **escalada**: Porco espinho
+        - **setor**: Bloco Democracia
         - **ids**:
           - CDYYbmZlLuSROd
 - **precomputados**:
@@ -11265,6 +11682,8 @@
               - **pontos_uids**:
                 - g2qJ1wEmGyf3cG
               - **escalada**: Jetinho Brasileiro
+              - **setor**: Setor Sherpa - Boulders
+              - **grupo**: Setor Sherpa
               - **ids**:
                 - g2qJ1wEmGyf3cG
             - **[1]**:
@@ -11272,6 +11691,8 @@
               - **pontos_uids**:
                 - ik3qO5ASjPb4xa
               - **escalada**: Fenda do Bikini
+              - **setor**: Setor Sherpa - Boulders
+              - **grupo**: Setor Sherpa
               - **ids**:
                 - ik3qO5ASjPb4xa
             - **[2]**:
@@ -11279,6 +11700,8 @@
               - **pontos_uids**:
                 - WQEZogAPCVZCVe
               - **escalada**: Força G
+              - **setor**: Setor Sherpa - Boulders
+              - **grupo**: Setor Sherpa
               - **ids**:
                 - WQEZogAPCVZCVe
             - **[3]**:
@@ -11286,6 +11709,8 @@
               - **pontos_uids**:
                 - lprOfHt44C6VGf
               - **escalada**: Francês
+              - **setor**: Setor Sherpa - Boulders
+              - **grupo**: Setor Sherpa
               - **ids**:
                 - lprOfHt44C6VGf
         - **[1]**:
@@ -11387,6 +11812,8 @@
                 - cBoyDvIZHtIX4l
                 - 0NNFRTfCbUwUuN
               - **escalada**: Força G
+              - **setor**: Setor Sherpa - Boulders
+              - **grupo**: Setor Sherpa
               - **ids**:
                 - aOdPqWNRnf2uqz
                 - cBoyDvIZHtIX4l
@@ -11397,6 +11824,8 @@
                 - cBoyDvIZHtIX4l
                 - LNwf2jrszO1ytd
               - **escalada**: Francês
+              - **setor**: Setor Sherpa - Boulders
+              - **grupo**: Setor Sherpa
               - **ids**:
                 - cBoyDvIZHtIX4l
                 - LNwf2jrszO1ytd
@@ -11469,6 +11898,8 @@
               - **pontos_uids**:
                 - OfgDeurgL8xjXZ
               - **escalada**: Glorioso
+              - **setor**: Setor Sherpa - Boulders
+              - **grupo**: Setor Sherpa
               - **ids**:
                 - OfgDeurgL8xjXZ
             - **[1]**:
@@ -11476,6 +11907,8 @@
               - **pontos_uids**:
                 - pnqFRZh57P4cXM
               - **escalada**: Itália
+              - **setor**: Setor Sherpa - Boulders
+              - **grupo**: Setor Sherpa
               - **ids**:
                 - pnqFRZh57P4cXM
         - **[3]**:
@@ -11518,6 +11951,8 @@
               - **pontos_uids**:
                 - gIdTXNgfyNjlSe
               - **escalada**: Garganta
+              - **setor**: Setor Sherpa - Boulders
+              - **grupo**: Setor Sherpa
               - **ids**:
                 - gIdTXNgfyNjlSe
         - **[4]**:
@@ -11622,6 +12057,8 @@
               - **pontos_uids**:
                 - 0pCL0UqpGYto5v
               - **escalada**: Guela
+              - **setor**: Setor Sherpa - Boulders
+              - **grupo**: Setor Sherpa
               - **ids**:
                 - 0pCL0UqpGYto5v
             - **[1]**:
@@ -11629,6 +12066,8 @@
               - **pontos_uids**:
                 - On9tYHVMCsuFKE
               - **escalada**: Nectar
+              - **setor**: Setor Sherpa - Boulders
+              - **grupo**: Setor Sherpa
               - **ids**:
                 - On9tYHVMCsuFKE
             - **[2]**:
@@ -11636,6 +12075,8 @@
               - **pontos_uids**:
                 - DN7m1qc736k5mX
               - **escalada**: Garganta
+              - **setor**: Setor Sherpa - Boulders
+              - **grupo**: Setor Sherpa
               - **ids**:
                 - DN7m1qc736k5mX
         - **[5]**:
@@ -11678,6 +12119,8 @@
               - **pontos_uids**:
                 - jQ9GhuTtWSfP6I
               - **escalada**: Nectar
+              - **setor**: Setor Sherpa - Boulders
+              - **grupo**: Setor Sherpa
               - **ids**:
                 - jQ9GhuTtWSfP6I
       - **precomputados**:

@@ -597,6 +597,7 @@
         - **pontos_uids**:
           - XO8SvAeEAxW08W
         - **setor**: Bloco: Bob
+        - **grupo**: Pedreira
         - **ids**:
           - XO8SvAeEAxW08W
       - **[1]**:
@@ -604,6 +605,7 @@
         - **pontos_uids**:
           - qzrysJlkloj8yq
         - **setor**: Bloco: Red Bull
+        - **grupo**: Pedreira
         - **ids**:
           - qzrysJlkloj8yq
       - **[2]**:
@@ -611,6 +613,7 @@
         - **pontos_uids**:
           - ASPAif99kT41D7
         - **setor**: Bloco: Mata-Mata
+        - **grupo**: Pedreira
         - **ids**:
           - ASPAif99kT41D7
       - **[3]**:
@@ -618,6 +621,7 @@
         - **pontos_uids**:
           - SrodlxFzWycRNv
         - **setor**: Bloco: Travessia
+        - **grupo**: Pedreira
         - **ids**:
           - SrodlxFzWycRNv
       - **[4]**:
@@ -625,6 +629,7 @@
         - **pontos_uids**:
           - XnPaUDgbHTSQQF
         - **setor**: Bloco: Jah
+        - **grupo**: Pedreira
         - **ids**:
           - XnPaUDgbHTSQQF
       - **[5]**:
@@ -632,6 +637,7 @@
         - **pontos_uids**:
           - cdCfyg0KAxxftc
         - **setor**: Bloco: Sauna
+        - **grupo**: Pedreira
         - **ids**:
           - cdCfyg0KAxxftc
       - **[6]**:
@@ -639,6 +645,7 @@
         - **pontos_uids**:
           - GFxUo38yhltsmc
         - **setor**: Bloco: João de Barro
+        - **grupo**: Pedreira
         - **ids**:
           - GFxUo38yhltsmc
       - **[7]**:
@@ -646,6 +653,7 @@
         - **pontos_uids**:
           - KhjenZwe3YBpgr
         - **setor**: Bloco: Fiat Lux
+        - **grupo**: Pedreira
         - **ids**:
           - KhjenZwe3YBpgr
       - **[8]**:
@@ -653,6 +661,8 @@
         - **pontos_uids**:
           - Bq5Lr10QlDSA5k
         - **escalada**: Ianque
+        - **setor**: Bloco: Entretidos
+        - **grupo**: Pedreira
         - **ids**:
           - Bq5Lr10QlDSA5k
       - **[9]**:
@@ -660,6 +670,7 @@
         - **pontos_uids**:
           - QVFyH0SZUQ77YE
         - **setor**: Bloco: Entretidos
+        - **grupo**: Pedreira
         - **ids**:
           - QVFyH0SZUQ77YE
       - **[10]**:
@@ -667,6 +678,7 @@
         - **pontos_uids**:
           - f8UgIIIcVqVib0
         - **setor**: Bloco: Lagartixa
+        - **grupo**: Pedreira
         - **ids**:
           - f8UgIIIcVqVib0
       - **[11]**:
@@ -674,6 +686,7 @@
         - **pontos_uids**:
           - EQbXCGN5bYQ6bn
         - **setor**: Bloco: Tô de Boa
+        - **grupo**: Pedreira
         - **ids**:
           - EQbXCGN5bYQ6bn
       - **[12]**:
@@ -681,6 +694,7 @@
         - **pontos_uids**:
           - HD5kaVfzPRMrB8
         - **setor**: Bloco: Teto de Vidro
+        - **grupo**: Pedreira
         - **ids**:
           - HD5kaVfzPRMrB8
       - **[13]**:
@@ -688,6 +702,7 @@
         - **pontos_uids**:
           - Aiisv2McTHGSqf
         - **setor**: Bloco: Pedra Queimada
+        - **grupo**: Pedreira
         - **ids**:
           - Aiisv2McTHGSqf
       - **[14]**:
@@ -695,6 +710,7 @@
         - **pontos_uids**:
           - 2i0xDOIO7pZzqj
         - **setor**: Bloco: Nave-Mãe
+        - **grupo**: Pedreira
         - **ids**:
           - 2i0xDOIO7pZzqj
       - **[15]**:
@@ -702,6 +718,7 @@
         - **pontos_uids**:
           - 3Ij9wUnFgCMUkJ
         - **setor**: Bloco: Abaulados
+        - **grupo**: Pedreira
         - **ids**:
           - 3Ij9wUnFgCMUkJ
       - **[16]**:
@@ -709,6 +726,7 @@
         - **pontos_uids**:
           - CykDFU0u6jPNXC
         - **setor**: Bloco: Longevidade
+        - **grupo**: Pedreira
         - **ids**:
           - CykDFU0u6jPNXC
       - **[17]**:
@@ -716,6 +734,7 @@
         - **pontos_uids**:
           - ggTYALSjRHHHij
         - **setor**: Bloco: Hora da Janta
+        - **grupo**: Pedreira
         - **ids**:
           - ggTYALSjRHHHij
       - **[18]**:
@@ -723,6 +742,7 @@
         - **pontos_uids**:
           - DzEov7sE2h2NWI
         - **setor**: Bloco: Chicletes
+        - **grupo**: Pedreira
         - **ids**:
           - DzEov7sE2h2NWI
       - **[19]**:
@@ -730,6 +750,7 @@
         - **pontos_uids**:
           - bpx1wMBqM0euDV
         - **setor**: Bloco: Mezanino
+        - **grupo**: Pedreira
         - **ids**:
           - bpx1wMBqM0euDV
       - **[20]**:
@@ -737,6 +758,7 @@
         - **pontos_uids**:
           - pH0ehrMFSAfdbF
         - **setor**: Bloco: Meia-Parede
+        - **grupo**: Pedreira
         - **ids**:
           - pH0ehrMFSAfdbF
       - **[21]**:
@@ -744,6 +766,7 @@
         - **pontos_uids**:
           - QuwRzmTfTdNPZW
         - **setor**: Bloco: Sonar
+        - **grupo**: Pedreira
         - **ids**:
           - QuwRzmTfTdNPZW
       - **[22]**:
@@ -751,6 +774,7 @@
         - **pontos_uids**:
           - KooxkWLfoqTxSS
         - **setor**: Bloco: Deep Inside
+        - **grupo**: Pedreira
         - **ids**:
           - KooxkWLfoqTxSS
       - **[23]**:
@@ -758,6 +782,7 @@
         - **pontos_uids**:
           - NQaPXQ61gC8Cb4
         - **setor**: Bloco: Complexo
+        - **grupo**: Pedreira
         - **ids**:
           - NQaPXQ61gC8Cb4
       - **[24]**:
@@ -765,6 +790,7 @@
         - **pontos_uids**:
           - l0vFmrbWwZVIYC
         - **setor**: Bloco: Conhaque
+        - **grupo**: Pedreira
         - **ids**:
           - l0vFmrbWwZVIYC
       - **[25]**:
@@ -772,6 +798,7 @@
         - **pontos_uids**:
           - hWIpAs5jBT7kNW
         - **setor**: Bloco: Eléctron
+        - **grupo**: Pedreira
         - **ids**:
           - hWIpAs5jBT7kNW
       - **[26]**:
@@ -779,6 +806,7 @@
         - **pontos_uids**:
           - JKLft2MFxn2i9l
         - **setor**: Bloco: Nat Geo
+        - **grupo**: Pedreira
         - **ids**:
           - JKLft2MFxn2i9l
 - **setores**:
@@ -808,6 +836,8 @@
               - **pontos_uids**:
                 - 7yKSXhIJKleGY7
               - **escalada**: Abaulados
+              - **setor**: Bloco: Abaulados
+              - **grupo**: Pedreira
               - **ids**:
                 - 7yKSXhIJKleGY7
         - **[1]**:
@@ -830,6 +860,8 @@
               - **pontos_uids**:
                 - C7Q8VjXc2Caa8E
               - **escalada**: 004
+              - **setor**: Bloco: Abaulados
+              - **grupo**: Pedreira
               - **ids**:
                 - C7Q8VjXc2Caa8E
         - **[2]**:
@@ -880,6 +912,8 @@
                 - ddlNSY06N6jNIS
                 - bTA8ynqQsrg5at
               - **escalada**: Jardim Secreto
+              - **setor**: Bloco: Abaulados
+              - **grupo**: Pedreira
               - **ids**:
                 - ddlNSY06N6jNIS
                 - bTA8ynqQsrg5at
@@ -889,6 +923,8 @@
                 - ddlNSY06N6jNIS
                 - H29xrwWNREg1xJ
               - **escalada**: Papo Reto
+              - **setor**: Bloco: Abaulados
+              - **grupo**: Pedreira
               - **ids**:
                 - ddlNSY06N6jNIS
                 - H29xrwWNREg1xJ
@@ -898,6 +934,8 @@
                 - t736gSfk9bYGPp
                 - H29xrwWNREg1xJ
               - **escalada**: Papo Reto sds
+              - **setor**: Bloco: Abaulados
+              - **grupo**: Pedreira
               - **ids**:
                 - t736gSfk9bYGPp
                 - H29xrwWNREg1xJ
@@ -947,6 +985,8 @@
                 - P0ZmPcXgjCNANg
                 - EqY5XCn7i5Cw5B
               - **escalada**: Cadena
+              - **setor**: Bloco: Altinho
+              - **grupo**: Pedreira
               - **ids**:
                 - 1A
                 - P0ZmPcXgjCNANg
@@ -958,6 +998,8 @@
                 - P0ZmPcXgjCNANg
                 - 22ARKWqbNX43y6
               - **escalada**: Atento
+              - **setor**: Bloco: Altinho
+              - **grupo**: Pedreira
               - **ids**:
                 - 1B
                 - P0ZmPcXgjCNANg
@@ -967,6 +1009,8 @@
               - **pontos_uids**:
                 - I7qbpuL4Gb0Sxl
               - **escalada**: Altinho
+              - **setor**: Bloco: Altinho
+              - **grupo**: Pedreira
               - **ids**:
                 - I7qbpuL4Gb0Sxl
           - **largura_mapa**: 2364
@@ -1081,6 +1125,8 @@
                 - BzzXlLNCKwF859
                 - 1rjINUF0YaoVd5
               - **escalada**: Albino
+              - **setor**: Bloco: Bob
+              - **grupo**: Pedreira
               - **ids**:
                 - BzzXlLNCKwF859
                 - 1rjINUF0YaoVd5
@@ -1090,6 +1136,8 @@
                 - BzzXlLNCKwF859
                 - E219VDHLgez46k
               - **escalada**: Encardido
+              - **setor**: Bloco: Bob
+              - **grupo**: Pedreira
               - **ids**:
                 - BzzXlLNCKwF859
                 - E219VDHLgez46k
@@ -1098,6 +1146,8 @@
               - **pontos_uids**:
                 - spJsInMa4yrMJW
               - **escalada**: Bob
+              - **setor**: Bloco: Bob
+              - **grupo**: Pedreira
               - **ids**:
                 - spJsInMa4yrMJW
         - **[1]**:
@@ -1166,6 +1216,8 @@
                 - VL1p55xIvbscMc
                 - Fr4iwl5FtgHNp4
               - **escalada**: Albino
+              - **setor**: Bloco: Bob
+              - **grupo**: Pedreira
               - **ids**:
                 - VL1p55xIvbscMc
                 - Fr4iwl5FtgHNp4
@@ -1175,6 +1227,8 @@
                 - VL1p55xIvbscMc
                 - 4CwQ6m5e5iIUdr
               - **escalada**: Encardido
+              - **setor**: Bloco: Bob
+              - **grupo**: Pedreira
               - **ids**:
                 - VL1p55xIvbscMc
                 - 4CwQ6m5e5iIUdr
@@ -1184,6 +1238,8 @@
                 - xdN4h0WInqNDKL
                 - zY0u5X3vn2z9No
               - **escalada**: Reto
+              - **setor**: Bloco: Bob
+              - **grupo**: Pedreira
               - **ids**:
                 - xdN4h0WInqNDKL
                 - zY0u5X3vn2z9No
@@ -1193,6 +1249,8 @@
                 - xdN4h0WInqNDKL
                 - GtitNSc17dq5ta
               - **escalada**: Dor nas Costas
+              - **setor**: Bloco: Bob
+              - **grupo**: Pedreira
               - **ids**:
                 - xdN4h0WInqNDKL
                 - GtitNSc17dq5ta
@@ -1269,6 +1327,8 @@
               - **pontos_uids**:
                 - lsaAoE2BPiMHVI
               - **escalada**: Trident
+              - **setor**: Bloco: Chicletes
+              - **grupo**: Pedreira
               - **ids**:
                 - lsaAoE2BPiMHVI
             - **[1]**:
@@ -1276,6 +1336,8 @@
               - **pontos_uids**:
                 - ybp2bzg7qHMri7
               - **escalada**: Big-Big
+              - **setor**: Bloco: Chicletes
+              - **grupo**: Pedreira
               - **ids**:
                 - ybp2bzg7qHMri7
             - **[2]**:
@@ -1283,6 +1345,8 @@
               - **pontos_uids**:
                 - 8riABqsXcA1jQ9
               - **escalada**: Babaloo
+              - **setor**: Bloco: Chicletes
+              - **grupo**: Pedreira
               - **ids**:
                 - 8riABqsXcA1jQ9
         - **[1]**:
@@ -1324,6 +1388,8 @@
                 - cU300KQnP6LF7m
                 - 56P2fhQnQqsnXF
               - **escalada**: Babaloo
+              - **setor**: Bloco: Chicletes
+              - **grupo**: Pedreira
               - **ids**:
                 - cU300KQnP6LF7m
                 - 56P2fhQnQqsnXF
@@ -1333,6 +1399,8 @@
                 - cU300KQnP6LF7m
                 - saRcFFdltSi3av
               - **escalada**: Chicletes
+              - **setor**: Bloco: Chicletes
+              - **grupo**: Pedreira
               - **ids**:
                 - cU300KQnP6LF7m
                 - saRcFFdltSi3av
@@ -1422,6 +1490,8 @@
               - **pontos_uids**:
                 - Ps71RyTRxAmZ38
               - **escalada**: Talhadeira
+              - **setor**: Bloco: Complexo
+              - **grupo**: Pedreira
               - **ids**:
                 - Ps71RyTRxAmZ38
             - **[1]**:
@@ -1430,6 +1500,8 @@
                 - 2MJl8jlqWJpkW4
                 - NO0J16L3sXk3Gh
               - **escalada**: Complexo
+              - **setor**: Bloco: Complexo
+              - **grupo**: Pedreira
               - **ids**:
                 - 2MJl8jlqWJpkW4
                 - NO0J16L3sXk3Gh
@@ -1439,6 +1511,8 @@
                 - 2MJl8jlqWJpkW4
                 - mePZKI5IABgaMv
               - **escalada**: Ajoelhou, Tem que Rezar
+              - **setor**: Bloco: Complexo
+              - **grupo**: Pedreira
               - **ids**:
                 - 2MJl8jlqWJpkW4
                 - mePZKI5IABgaMv
@@ -1448,6 +1522,8 @@
                 - MpccQVQGdSgnPp
                 - mePZKI5IABgaMv
               - **escalada**: Descomplicado
+              - **setor**: Bloco: Complexo
+              - **grupo**: Pedreira
               - **ids**:
                 - MpccQVQGdSgnPp
                 - mePZKI5IABgaMv
@@ -1490,6 +1566,8 @@
                 - c5CPMYyJiNhbsv
                 - z3ui6AGdvFm9aF
               - **escalada**: Talhadeira
+              - **setor**: Bloco: Complexo
+              - **grupo**: Pedreira
               - **ids**:
                 - c5CPMYyJiNhbsv
                 - z3ui6AGdvFm9aF
@@ -1499,6 +1577,8 @@
                 - c5CPMYyJiNhbsv
                 - rW0atQAPZiCPh9
               - **escalada**: Sofá
+              - **setor**: Bloco: Complexo
+              - **grupo**: Pedreira
               - **ids**:
                 - c5CPMYyJiNhbsv
                 - rW0atQAPZiCPh9
@@ -1549,6 +1629,8 @@
               - **pontos_uids**:
                 - EW07d9e4QqFxjv
               - **escalada**: Porosíssimo
+              - **setor**: Bloco: Complexo
+              - **grupo**: Pedreira
               - **ids**:
                 - EW07d9e4QqFxjv
             - **[1]**:
@@ -1556,6 +1638,8 @@
               - **pontos_uids**:
                 - BLKPoAjWzcYYLl
               - **escalada**: Poroso
+              - **setor**: Bloco: Complexo
+              - **grupo**: Pedreira
               - **ids**:
                 - BLKPoAjWzcYYLl
             - **[2]**:
@@ -1563,6 +1647,8 @@
               - **pontos_uids**:
                 - fNAMZjQfYW8Rqq
               - **escalada**: Não Poroso
+              - **setor**: Bloco: Complexo
+              - **grupo**: Pedreira
               - **ids**:
                 - fNAMZjQfYW8Rqq
             - **[3]**:
@@ -1570,6 +1656,8 @@
               - **pontos_uids**:
                 - lOUy7ugwcuayul
               - **escalada**: Triangular
+              - **setor**: Bloco: Complexo
+              - **grupo**: Pedreira
               - **ids**:
                 - lOUy7ugwcuayul
         - **[3]**:
@@ -1610,6 +1698,8 @@
               - **pontos_uids**:
                 - RVL2rP8fNCFY8G
               - **escalada**: Boulder de Raiz
+              - **setor**: Bloco: Complexo
+              - **grupo**: Pedreira
               - **ids**:
                 - RVL2rP8fNCFY8G
             - **[1]**:
@@ -1617,6 +1707,8 @@
               - **pontos_uids**:
                 - xMoiAvRec1dbB2
               - **escalada**: Travessia Ouro Preto-Bocaina
+              - **setor**: Bloco: Complexo
+              - **grupo**: Pedreira
               - **ids**:
                 - xMoiAvRec1dbB2
             - **[2]**:
@@ -1624,6 +1716,8 @@
               - **pontos_uids**:
                 - 6BRwWdWFaHGFip
               - **escalada**: Perereca
+              - **setor**: Bloco: Complexo
+              - **grupo**: Pedreira
               - **ids**:
                 - 6BRwWdWFaHGFip
         - **[4]**:
@@ -1646,6 +1740,8 @@
               - **pontos_uids**:
                 - NKIMuZNcLRFNVq
               - **escalada**: Respira
+              - **setor**: Bloco: Complexo
+              - **grupo**: Pedreira
               - **ids**:
                 - NKIMuZNcLRFNVq
       - **escaladas**:
@@ -1733,6 +1829,8 @@
                 - dtvlcLkBkkBNXH
                 - 5UP87O9KaPtywf
               - **escalada**: 005
+              - **setor**: Bloco: Conhaque
+              - **grupo**: Pedreira
               - **ids**:
                 - WSXhPPwtZZpahQ
                 - dtvlcLkBkkBNXH
@@ -1744,6 +1842,8 @@
                 - dtvlcLkBkkBNXH
                 - KuyyG6pLbtsA8L
               - **escalada**: 006
+              - **setor**: Bloco: Conhaque
+              - **grupo**: Pedreira
               - **ids**:
                 - WSXhPPwtZZpahQ
                 - dtvlcLkBkkBNXH
@@ -1755,6 +1855,8 @@
                 - mBd2oN5QIsgy7a
                 - q1sgMxHASTAgN1
               - **escalada**: 007
+              - **setor**: Bloco: Conhaque
+              - **grupo**: Pedreira
               - **ids**:
                 - WSXhPPwtZZpahQ
                 - mBd2oN5QIsgy7a
@@ -1766,6 +1868,8 @@
                 - C
                 - vh1idVQI2G0aFz
               - **escalada**: 008
+              - **setor**: Bloco: Conhaque
+              - **grupo**: Pedreira
               - **ids**:
                 - WSXhPPwtZZpahQ
                 - C
@@ -1900,6 +2004,8 @@
                 - 8w05ggfu2nRKhf
                 - qZYSix5AmxBxOb
               - **escalada**: Aderência
+              - **setor**: Bloco: Conhaque
+              - **grupo**: Pedreira
               - **ids**:
                 - 8w05ggfu2nRKhf
                 - qZYSix5AmxBxOb
@@ -1909,6 +2015,8 @@
                 - nVZRFRajZw40M2
                 - qZYSix5AmxBxOb
               - **escalada**: Dreher
+              - **setor**: Bloco: Conhaque
+              - **grupo**: Pedreira
               - **ids**:
                 - nVZRFRajZw40M2
                 - qZYSix5AmxBxOb
@@ -1918,6 +2026,8 @@
                 - 2eyX4k5oh3fqnS
                 - qZYSix5AmxBxOb
               - **escalada**: Yoga
+              - **setor**: Bloco: Conhaque
+              - **grupo**: Pedreira
               - **ids**:
                 - 2eyX4k5oh3fqnS
                 - qZYSix5AmxBxOb
@@ -1927,6 +2037,8 @@
                 - 2eyX4k5oh3fqnS
                 - s82JehqMylqQ2B
               - **escalada**: Conhaque
+              - **setor**: Bloco: Conhaque
+              - **grupo**: Pedreira
               - **ids**:
                 - 2eyX4k5oh3fqnS
                 - s82JehqMylqQ2B
@@ -1935,6 +2047,8 @@
               - **pontos_uids**:
                 - hAiQJFGRKqshy5
               - **escalada**: Conhaque Presidente
+              - **setor**: Bloco: Conhaque
+              - **grupo**: Pedreira
               - **ids**:
                 - hAiQJFGRKqshy5
           - **largura_mapa**: 2364
@@ -2080,6 +2194,8 @@
                 - WLqis7lSTY0xcv
                 - VcDDmlKQwcLzE9
               - **escalada**: Buda
+              - **setor**: Bloco: Deep Inside
+              - **grupo**: Pedreira
               - **ids**:
                 - WLqis7lSTY0xcv
                 - VcDDmlKQwcLzE9
@@ -2089,6 +2205,8 @@
                 - WLqis7lSTY0xcv
                 - kBED2F82l4nKW7
               - **escalada**: Arestides
+              - **setor**: Bloco: Deep Inside
+              - **grupo**: Pedreira
               - **ids**:
                 - WLqis7lSTY0xcv
                 - kBED2F82l4nKW7
@@ -2098,6 +2216,8 @@
                 - WLqis7lSTY0xcv
                 - LcjnrI4eSKKuSK
               - **escalada**: Arestides ext
+              - **setor**: Bloco: Deep Inside
+              - **grupo**: Pedreira
               - **ids**:
                 - WLqis7lSTY0xcv
                 - LcjnrI4eSKKuSK
@@ -2108,6 +2228,8 @@
                 - ymP3chPBGB0aOS
                 - kBED2F82l4nKW7
               - **escalada**: Nataraja
+              - **setor**: Bloco: Deep Inside
+              - **grupo**: Pedreira
               - **ids**:
                 - jcF8uYqZKoCOij
                 - ymP3chPBGB0aOS
@@ -2119,6 +2241,8 @@
                 - 9qeAPt0Desc97z
                 - kBED2F82l4nKW7
               - **escalada**: Sidarta
+              - **setor**: Bloco: Deep Inside
+              - **grupo**: Pedreira
               - **ids**:
                 - jcF8uYqZKoCOij
                 - 9qeAPt0Desc97z
@@ -2130,6 +2254,8 @@
                 - 9qeAPt0Desc97z
                 - kBED2F82l4nKW7
               - **escalada**: Sidarta sds
+              - **setor**: Bloco: Deep Inside
+              - **grupo**: Pedreira
               - **ids**:
                 - wDvNsPJCeOAgeI
                 - 9qeAPt0Desc97z
@@ -2263,6 +2389,8 @@
                 - 53Mq12gooErVwi
                 - jOBeXQSeQw4hVO
               - **escalada**: Arestides
+              - **setor**: Bloco: Deep Inside
+              - **grupo**: Pedreira
               - **ids**:
                 - 53Mq12gooErVwi
                 - jOBeXQSeQw4hVO
@@ -2272,6 +2400,8 @@
                 - QwkpCOXjTZ8hHT
                 - b2XBke5sUtmtcp
               - **escalada**: Canindé
+              - **setor**: Bloco: Deep Inside
+              - **grupo**: Pedreira
               - **ids**:
                 - QwkpCOXjTZ8hHT
                 - b2XBke5sUtmtcp
@@ -2281,6 +2411,8 @@
                 - 5P6KcY4BSM5dQh
                 - b2XBke5sUtmtcp
               - **escalada**: Canindé de Cima
+              - **setor**: Bloco: Deep Inside
+              - **grupo**: Pedreira
               - **ids**:
                 - 5P6KcY4BSM5dQh
                 - b2XBke5sUtmtcp
@@ -2290,6 +2422,8 @@
                 - ZKVjICEphNar4W
                 - jOBeXQSeQw4hVO
               - **escalada**: Cara de Boi
+              - **setor**: Bloco: Deep Inside
+              - **grupo**: Pedreira
               - **ids**:
                 - ZKVjICEphNar4W
                 - jOBeXQSeQw4hVO
@@ -2299,6 +2433,8 @@
                 - ZKVjICEphNar4W
                 - b2XBke5sUtmtcp
               - **escalada**: Cara de Vaca
+              - **setor**: Bloco: Deep Inside
+              - **grupo**: Pedreira
               - **ids**:
                 - ZKVjICEphNar4W
                 - b2XBke5sUtmtcp
@@ -2308,6 +2444,8 @@
                 - JeeqWM3Obcn5kg
                 - ToSzRWBaYguTDG
               - **escalada**: Promoção
+              - **setor**: Bloco: Deep Inside
+              - **grupo**: Pedreira
               - **ids**:
                 - JeeqWM3Obcn5kg
                 - ToSzRWBaYguTDG
@@ -2318,6 +2456,8 @@
                 - xlFMErTXpk64pH
                 - VQD3nVXmEOLVl2
               - **escalada**: Invertides
+              - **setor**: Bloco: Deep Inside
+              - **grupo**: Pedreira
               - **ids**:
                 - JeeqWM3Obcn5kg
                 - xlFMErTXpk64pH
@@ -2329,6 +2469,8 @@
                 - VQD3nVXmEOLVl2
                 - ToSzRWBaYguTDG
               - **escalada**: Arestides ext
+              - **setor**: Bloco: Deep Inside
+              - **grupo**: Pedreira
               - **ids**:
                 - 53Mq12gooErVwi
                 - VQD3nVXmEOLVl2
@@ -2340,6 +2482,8 @@
                 - VQD3nVXmEOLVl2
                 - xlFMErTXpk64pH
               - **escalada**: Nataraja
+              - **setor**: Bloco: Deep Inside
+              - **grupo**: Pedreira
               - **ids**:
                 - 1ovcHLcB9Urd36
                 - VQD3nVXmEOLVl2
@@ -2351,6 +2495,8 @@
                 - EB2OtdIX6KJXOy
                 - jOBeXQSeQw4hVO
               - **escalada**: Sidarta
+              - **setor**: Bloco: Deep Inside
+              - **grupo**: Pedreira
               - **ids**:
                 - 1ovcHLcB9Urd36
                 - EB2OtdIX6KJXOy
@@ -2362,6 +2508,8 @@
                 - EB2OtdIX6KJXOy
                 - jOBeXQSeQw4hVO
               - **escalada**: Sidarta sds
+              - **setor**: Bloco: Deep Inside
+              - **grupo**: Pedreira
               - **ids**:
                 - PYPjgx756DQYV4
                 - EB2OtdIX6KJXOy
@@ -2373,6 +2521,8 @@
                 - VQD3nVXmEOLVl2
                 - xlFMErTXpk64pH
               - **escalada**: Deep Inside ext
+              - **setor**: Bloco: Deep Inside
+              - **grupo**: Pedreira
               - **ids**:
                 - QwkpCOXjTZ8hHT
                 - VQD3nVXmEOLVl2
@@ -2384,6 +2534,8 @@
                 - EB2OtdIX6KJXOy
                 - jOBeXQSeQw4hVO
               - **escalada**: Deep Inside
+              - **setor**: Bloco: Deep Inside
+              - **grupo**: Pedreira
               - **ids**:
                 - QwkpCOXjTZ8hHT
                 - EB2OtdIX6KJXOy
@@ -2454,6 +2606,8 @@
                 - ywZCNUzjAMbf2w
                 - bIkZCFC5LMZntc
               - **escalada**: Promocinha
+              - **setor**: Bloco: Deep Inside
+              - **grupo**: Pedreira
               - **ids**:
                 - ywZCNUzjAMbf2w
                 - bIkZCFC5LMZntc
@@ -2463,6 +2617,8 @@
                 - ZvrZDSAMHSJzXn
                 - A64hDEoZ1pBcmA
               - **escalada**: Bolinho de Chuva
+              - **setor**: Bloco: Deep Inside
+              - **grupo**: Pedreira
               - **ids**:
                 - ZvrZDSAMHSJzXn
                 - A64hDEoZ1pBcmA
@@ -2472,6 +2628,8 @@
                 - NZ3TrxAlCw2ujq
                 - 7RPpe7NX7XTVQ7
               - **escalada**: Promoção
+              - **setor**: Bloco: Deep Inside
+              - **grupo**: Pedreira
               - **ids**:
                 - NZ3TrxAlCw2ujq
                 - 7RPpe7NX7XTVQ7
@@ -2573,6 +2731,8 @@
               - **pontos_uids**:
                 - JEcg0TlzYLS6hQ
               - **escalada**: Quark
+              - **setor**: Bloco: Eléctron
+              - **grupo**: Pedreira
               - **ids**:
                 - JEcg0TlzYLS6hQ
           - **largura_mapa**: 2364
@@ -2653,6 +2813,8 @@
                 - Cvr0kSgNPU2kfX
                 - vbdrUE35K5FP0o
               - **escalada**: Neutron (1B)
+              - **setor**: Bloco: Eléctron
+              - **grupo**: Pedreira
               - **ids**:
                 - Cvr0kSgNPU2kfX
                 - vbdrUE35K5FP0o
@@ -2662,6 +2824,8 @@
                 - LO0KouBM7Ir89b
                 - vbdrUE35K5FP0o
               - **escalada**: Elétron
+              - **setor**: Bloco: Eléctron
+              - **grupo**: Pedreira
               - **ids**:
                 - LO0KouBM7Ir89b
                 - vbdrUE35K5FP0o
@@ -2671,6 +2835,8 @@
                 - breHek3NBflexP
                 - nVpdEssQmbvbpT
               - **escalada**: Via Láctea
+              - **setor**: Bloco: Eléctron
+              - **grupo**: Pedreira
               - **ids**:
                 - breHek3NBflexP
                 - nVpdEssQmbvbpT
@@ -2680,6 +2846,8 @@
                 - breHek3NBflexP
                 - vbdrUE35K5FP0o
               - **escalada**: Neutron (3B)
+              - **setor**: Bloco: Eléctron
+              - **grupo**: Pedreira
               - **ids**:
                 - breHek3NBflexP
                 - vbdrUE35K5FP0o
@@ -2689,6 +2857,8 @@
                 - breHek3NBflexP
                 - uJph7WvwOoScA5
               - **escalada**: Positron
+              - **setor**: Bloco: Eléctron
+              - **grupo**: Pedreira
               - **ids**:
                 - breHek3NBflexP
                 - uJph7WvwOoScA5
@@ -2761,6 +2931,8 @@
               - **pontos_uids**:
                 - 39lUJlHU7sR3wa
               - **escalada**: Ianque
+              - **setor**: Bloco: Entretidos
+              - **grupo**: Pedreira
               - **ids**:
                 - 39lUJlHU7sR3wa
             - **[1]**:
@@ -2768,6 +2940,8 @@
               - **pontos_uids**:
                 - PLuHqrmtd03XdR
               - **escalada**: Apache
+              - **setor**: Bloco: Entretidos
+              - **grupo**: Pedreira
               - **ids**:
                 - PLuHqrmtd03XdR
         - **[1]**:
@@ -2817,6 +2991,8 @@
               - **pontos_uids**:
                 - ACPjpKarku7aHC
               - **escalada**: Garoto Andrada
+              - **setor**: Bloco: Entretidos
+              - **grupo**: Pedreira
               - **ids**:
                 - ACPjpKarku7aHC
             - **[1]**:
@@ -2824,6 +3000,8 @@
               - **pontos_uids**:
                 - Nltu8rDBw5Kcqa
               - **escalada**: Embalados pelo Vovô
+              - **setor**: Bloco: Entretidos
+              - **grupo**: Pedreira
               - **ids**:
                 - Nltu8rDBw5Kcqa
             - **[2]**:
@@ -2831,6 +3009,8 @@
               - **pontos_uids**:
                 - m7OcsDLQklwypG
               - **escalada**: Pressão no Vovô
+              - **setor**: Bloco: Entretidos
+              - **grupo**: Pedreira
               - **ids**:
                 - m7OcsDLQklwypG
             - **[3]**:
@@ -2838,6 +3018,8 @@
               - **pontos_uids**:
                 - iOjpKIWu3x1TUX
               - **escalada**: Pressão dos Barbosa
+              - **setor**: Bloco: Entretidos
+              - **grupo**: Pedreira
               - **ids**:
                 - iOjpKIWu3x1TUX
         - **[2]**:
@@ -2878,6 +3060,8 @@
               - **pontos_uids**:
                 - I2rNmRFCFaXfDK
               - **escalada**: Helicoidal
+              - **setor**: Bloco: Entretidos
+              - **grupo**: Pedreira
               - **ids**:
                 - I2rNmRFCFaXfDK
             - **[1]**:
@@ -2885,6 +3069,8 @@
               - **pontos_uids**:
                 - zJ3sCmLDl7XTU4
               - **escalada**: Em Busca do Equilíbrio
+              - **setor**: Bloco: Entretidos
+              - **grupo**: Pedreira
               - **ids**:
                 - zJ3sCmLDl7XTU4
             - **[2]**:
@@ -2892,6 +3078,8 @@
               - **pontos_uids**:
                 - PkkAORmT1upJ2g
               - **escalada**: Em Busca do Equilíbrio sds
+              - **setor**: Bloco: Entretidos
+              - **grupo**: Pedreira
               - **ids**:
                 - PkkAORmT1upJ2g
         - **[3]**:
@@ -2923,6 +3111,8 @@
               - **pontos_uids**:
                 - 6pD8Lc3FeIsVz3
               - **escalada**: Brígida
+              - **setor**: Bloco: Entretidos
+              - **grupo**: Pedreira
               - **ids**:
                 - 6pD8Lc3FeIsVz3
             - **[1]**:
@@ -2930,6 +3120,8 @@
               - **pontos_uids**:
                 - ntkCvicPvDVCTm
               - **escalada**: Carranca
+              - **setor**: Bloco: Entretidos
+              - **grupo**: Pedreira
               - **ids**:
                 - ntkCvicPvDVCTm
       - **escaladas**:
@@ -3028,6 +3220,8 @@
               - **pontos_uids**:
                 - ZtlztjFHUSR0I6
               - **escalada**: Fiat Lux
+              - **setor**: Bloco: Fiat Lux
+              - **grupo**: Pedreira
               - **ids**:
                 - ZtlztjFHUSR0I6
             - **[1]**:
@@ -3035,6 +3229,8 @@
               - **pontos_uids**:
                 - 8iaYwxrPe6gFfZ
               - **escalada**: Frita Crux
+              - **setor**: Bloco: Fiat Lux
+              - **grupo**: Pedreira
               - **ids**:
                 - 8iaYwxrPe6gFfZ
       - **escaladas**:
@@ -3177,6 +3373,8 @@
               - **pontos_uids**:
                 - YLTfGQI7Qkqb4M
               - **escalada**: Aranha
+              - **setor**: Bloco: Hora da Janta
+              - **grupo**: Pedreira
               - **ids**:
                 - YLTfGQI7Qkqb4M
             - **[1]**:
@@ -3185,6 +3383,8 @@
                 - rJ6Zfp3CRbr3yU
                 - ydlXB5oCxATwQi
               - **escalada**: Desafio do Superman
+              - **setor**: Bloco: Hora da Janta
+              - **grupo**: Pedreira
               - **ids**:
                 - rJ6Zfp3CRbr3yU
                 - ydlXB5oCxATwQi
@@ -3194,6 +3394,8 @@
                 - rJ6Zfp3CRbr3yU
                 - 0lNRqPUxsGEhW6
               - **escalada**: Hora da Janta
+              - **setor**: Bloco: Hora da Janta
+              - **grupo**: Pedreira
               - **ids**:
                 - rJ6Zfp3CRbr3yU
                 - 0lNRqPUxsGEhW6
@@ -3203,6 +3405,8 @@
                 - lzB8EfV1b2OrDn
                 - s1Zi11DFPVQlNq
               - **escalada**: Voo do Superman
+              - **setor**: Bloco: Hora da Janta
+              - **grupo**: Pedreira
               - **ids**:
                 - lzB8EfV1b2OrDn
                 - s1Zi11DFPVQlNq
@@ -3212,6 +3416,8 @@
                 - JZMao3vRHQRQkJ
                 - jfRYS2Kwk4vNj2
               - **escalada**: Conha Conha
+              - **setor**: Bloco: Hora da Janta
+              - **grupo**: Pedreira
               - **ids**:
                 - JZMao3vRHQRQkJ
                 - jfRYS2Kwk4vNj2
@@ -3221,6 +3427,8 @@
                 - JZMao3vRHQRQkJ
                 - KzfA2400IY8UbN
               - **escalada**: Maconhaque
+              - **setor**: Bloco: Hora da Janta
+              - **grupo**: Pedreira
               - **ids**:
                 - JZMao3vRHQRQkJ
                 - KzfA2400IY8UbN
@@ -3229,6 +3437,8 @@
               - **pontos_uids**:
                 - zgeF9PoXW5vl0F
               - **escalada**: Tapa na Pantera
+              - **setor**: Bloco: Hora da Janta
+              - **grupo**: Pedreira
               - **ids**:
                 - zgeF9PoXW5vl0F
             - **[7]**:
@@ -3238,6 +3448,8 @@
                 - s1Zi11DFPVQlNq
                 - 4pzNYYvQdMo7Fo
               - **escalada**: Larica
+              - **setor**: Bloco: Hora da Janta
+              - **grupo**: Pedreira
               - **ids**:
                 - rJ6Zfp3CRbr3yU
                 - s1Zi11DFPVQlNq
@@ -3249,6 +3461,8 @@
                 - OlQvBaO28LXWXz
                 - s1Zi11DFPVQlNq
               - **escalada**: Sobremesa
+              - **setor**: Bloco: Hora da Janta
+              - **grupo**: Pedreira
               - **ids**:
                 - rJ6Zfp3CRbr3yU
                 - OlQvBaO28LXWXz
@@ -3356,6 +3570,8 @@
                 - bdaDWJtpL5dZql
                 - l5unQSdbtoFCxY
               - **escalada**: De Jah
+              - **setor**: Bloco: Jah
+              - **grupo**: Pedreira
               - **ids**:
                 - bdaDWJtpL5dZql
                 - l5unQSdbtoFCxY
@@ -3365,6 +3581,8 @@
                 - bdaDWJtpL5dZql
                 - sUoGw8vse74wnU
               - **escalada**: Jah
+              - **setor**: Bloco: Jah
+              - **grupo**: Pedreira
               - **ids**:
                 - bdaDWJtpL5dZql
                 - sUoGw8vse74wnU
@@ -3374,6 +3592,8 @@
                 - mJBXh2RnVwYTLd
                 - sUoGw8vse74wnU
               - **escalada**: Invertido
+              - **setor**: Bloco: Jah
+              - **grupo**: Pedreira
               - **ids**:
                 - mJBXh2RnVwYTLd
                 - sUoGw8vse74wnU
@@ -3441,6 +3661,8 @@
                 - lrSj6rAgjtyzyi
                 - tWo2Kyb1dgzQhR
               - **escalada**: Porra Nenhuma
+              - **setor**: Bloco: João de Barro
+              - **grupo**: Pedreira
               - **ids**:
                 - lrSj6rAgjtyzyi
                 - tWo2Kyb1dgzQhR
@@ -3450,6 +3672,8 @@
                 - lrSj6rAgjtyzyi
                 - dfmAYZEaoSOrUq
               - **escalada**: Ringue
+              - **setor**: Bloco: João de Barro
+              - **grupo**: Pedreira
               - **ids**:
                 - lrSj6rAgjtyzyi
                 - dfmAYZEaoSOrUq
@@ -3510,6 +3734,8 @@
                 - QlviXaanU9YpHg
                 - XZShii47pzhark
               - **escalada**: Arco Magmático
+              - **setor**: Bloco: João de Barro
+              - **grupo**: Pedreira
               - **ids**:
                 - QlviXaanU9YpHg
                 - XZShii47pzhark
@@ -3519,6 +3745,8 @@
                 - QlviXaanU9YpHg
                 - mUD9Cdnf8ZlRSU
               - **escalada**: Du Mussula
+              - **setor**: Bloco: João de Barro
+              - **grupo**: Pedreira
               - **ids**:
                 - QlviXaanU9YpHg
                 - mUD9Cdnf8ZlRSU
@@ -3528,6 +3756,8 @@
                 - 0pZGt5nTYH3AqX
                 - rJoIGrtmJ7b5mo
               - **escalada**: No Montê
+              - **setor**: Bloco: João de Barro
+              - **grupo**: Pedreira
               - **ids**:
                 - 0pZGt5nTYH3AqX
                 - rJoIGrtmJ7b5mo
@@ -3579,6 +3809,8 @@
                 - UVFd3gPhPLV9Il
                 - SMiRAVxNehVUqg
               - **escalada**: Bola 7
+              - **setor**: Bloco: João de Barro
+              - **grupo**: Pedreira
               - **ids**:
                 - UVFd3gPhPLV9Il
                 - SMiRAVxNehVUqg
@@ -3588,6 +3820,8 @@
                 - HmncabzPnN3ixA
                 - SMiRAVxNehVUqg
               - **escalada**: Morcegão
+              - **setor**: Bloco: João de Barro
+              - **grupo**: Pedreira
               - **ids**:
                 - HmncabzPnN3ixA
                 - SMiRAVxNehVUqg
@@ -3597,6 +3831,8 @@
                 - HmncabzPnN3ixA
                 - hb4HpEK99HPDZ4
               - **escalada**: João de Barro
+              - **setor**: Bloco: João de Barro
+              - **grupo**: Pedreira
               - **ids**:
                 - HmncabzPnN3ixA
                 - hb4HpEK99HPDZ4
@@ -3739,6 +3975,8 @@
               - **pontos_uids**:
                 - OIMjbTNweN3uvw
               - **escalada**: Last Samurai
+              - **setor**: Bloco: Lagartixa
+              - **grupo**: Pedreira
               - **ids**:
                 - OIMjbTNweN3uvw
             - **[1]**:
@@ -3746,6 +3984,8 @@
               - **pontos_uids**:
                 - YNAwwk5oXXREpi
               - **escalada**: Samurai
+              - **setor**: Bloco: Lagartixa
+              - **grupo**: Pedreira
               - **ids**:
                 - YNAwwk5oXXREpi
             - **[2]**:
@@ -3754,6 +3994,8 @@
                 - atMYutwGA62ZEk
                 - anFygudYQKyYfX
               - **escalada**: Doce de Leite
+              - **setor**: Bloco: Lagartixa
+              - **grupo**: Pedreira
               - **ids**:
                 - atMYutwGA62ZEk
                 - anFygudYQKyYfX
@@ -3763,6 +4005,8 @@
                 - uXLPIBpaVQ49KP
                 - RYL4qldNXegC2S
               - **escalada**: Panamá
+              - **setor**: Bloco: Lagartixa
+              - **grupo**: Pedreira
               - **ids**:
                 - uXLPIBpaVQ49KP
                 - RYL4qldNXegC2S
@@ -3772,6 +4016,8 @@
                 - uXLPIBpaVQ49KP
                 - anFygudYQKyYfX
               - **escalada**: Doce de Leite sds
+              - **setor**: Bloco: Lagartixa
+              - **grupo**: Pedreira
               - **ids**:
                 - uXLPIBpaVQ49KP
                 - anFygudYQKyYfX
@@ -3781,6 +4027,8 @@
                 - se2ARSBtYmUtkx
                 - anFygudYQKyYfX
               - **escalada**: Rocambole
+              - **setor**: Bloco: Lagartixa
+              - **grupo**: Pedreira
               - **ids**:
                 - se2ARSBtYmUtkx
                 - anFygudYQKyYfX
@@ -3790,6 +4038,8 @@
                 - NPk6NKAknsYzQg
                 - anFygudYQKyYfX
               - **escalada**: Falha Humana
+              - **setor**: Bloco: Lagartixa
+              - **grupo**: Pedreira
               - **ids**:
                 - NPk6NKAknsYzQg
                 - anFygudYQKyYfX
@@ -3886,6 +4136,8 @@
                 - UYFQdCGvLa9zvA
                 - vtRG1Z7S6YjF6O
               - **escalada**: Doce de Leite
+              - **setor**: Bloco: Lagartixa
+              - **grupo**: Pedreira
               - **ids**:
                 - UYFQdCGvLa9zvA
                 - vtRG1Z7S6YjF6O
@@ -3895,6 +4147,8 @@
                 - FpdWxlpqvy9xq8
                 - T3ZXXyUW5BxbE7
               - **escalada**: Panamá
+              - **setor**: Bloco: Lagartixa
+              - **grupo**: Pedreira
               - **ids**:
                 - FpdWxlpqvy9xq8
                 - T3ZXXyUW5BxbE7
@@ -3904,6 +4158,8 @@
                 - FpdWxlpqvy9xq8
                 - vtRG1Z7S6YjF6O
               - **escalada**: Doce de Leite sds
+              - **setor**: Bloco: Lagartixa
+              - **grupo**: Pedreira
               - **ids**:
                 - FpdWxlpqvy9xq8
                 - vtRG1Z7S6YjF6O
@@ -3913,6 +4169,8 @@
                 - m8tvlQw6RQRMov
                 - vtRG1Z7S6YjF6O
               - **escalada**: Rocambole
+              - **setor**: Bloco: Lagartixa
+              - **grupo**: Pedreira
               - **ids**:
                 - m8tvlQw6RQRMov
                 - vtRG1Z7S6YjF6O
@@ -3922,6 +4180,8 @@
                 - UwA1rUF1WUmGaw
                 - vtRG1Z7S6YjF6O
               - **escalada**: Falha Humana
+              - **setor**: Bloco: Lagartixa
+              - **grupo**: Pedreira
               - **ids**:
                 - UwA1rUF1WUmGaw
                 - vtRG1Z7S6YjF6O
@@ -3931,6 +4191,8 @@
                 - FpdWxlpqvy9xq8
                 - jvkc7NY6gDYO4D
               - **escalada**: Teiú
+              - **setor**: Bloco: Lagartixa
+              - **grupo**: Pedreira
               - **ids**:
                 - FpdWxlpqvy9xq8
                 - jvkc7NY6gDYO4D
@@ -3940,6 +4202,8 @@
                 - UwA1rUF1WUmGaw
                 - jvkc7NY6gDYO4D
               - **escalada**: Rabo de Lagartixa
+              - **setor**: Bloco: Lagartixa
+              - **grupo**: Pedreira
               - **ids**:
                 - UwA1rUF1WUmGaw
                 - jvkc7NY6gDYO4D
@@ -3949,6 +4213,8 @@
                 - wp9oikLNacNp4S
                 - vtRG1Z7S6YjF6O
               - **escalada**: Camaleão
+              - **setor**: Bloco: Lagartixa
+              - **grupo**: Pedreira
               - **ids**:
                 - wp9oikLNacNp4S
                 - vtRG1Z7S6YjF6O
@@ -3958,6 +4224,8 @@
                 - wp9oikLNacNp4S
                 - jvkc7NY6gDYO4D
               - **escalada**: Lagartixa
+              - **setor**: Bloco: Lagartixa
+              - **grupo**: Pedreira
               - **ids**:
                 - wp9oikLNacNp4S
                 - jvkc7NY6gDYO4D
@@ -3967,6 +4235,8 @@
                 - UQta5sI32mShCb
                 - vtRG1Z7S6YjF6O
               - **escalada**: Rabo de Camaleão
+              - **setor**: Bloco: Lagartixa
+              - **grupo**: Pedreira
               - **ids**:
                 - UQta5sI32mShCb
                 - vtRG1Z7S6YjF6O
@@ -3976,6 +4246,8 @@
                 - UQta5sI32mShCb
                 - jvkc7NY6gDYO4D
               - **escalada**: Lagartixa sem Rabo
+              - **setor**: Bloco: Lagartixa
+              - **grupo**: Pedreira
               - **ids**:
                 - UQta5sI32mShCb
                 - jvkc7NY6gDYO4D
@@ -4090,6 +4362,8 @@
                 - OhNIazyq74dUWM
                 - VsKWEMg0lZ2NYg
               - **escalada**: Guerreiro
+              - **setor**: Bloco: Lagartixa
+              - **grupo**: Pedreira
               - **ids**:
                 - OhNIazyq74dUWM
                 - VsKWEMg0lZ2NYg
@@ -4099,6 +4373,8 @@
                 - PLiYVorL6MlSC2
                 - VsKWEMg0lZ2NYg
               - **escalada**: Major
+              - **setor**: Bloco: Lagartixa
+              - **grupo**: Pedreira
               - **ids**:
                 - PLiYVorL6MlSC2
                 - VsKWEMg0lZ2NYg
@@ -4108,6 +4384,8 @@
                 - PLiYVorL6MlSC2
                 - xtiNQSSkWNTXbC
               - **escalada**: Geoterapia
+              - **setor**: Bloco: Lagartixa
+              - **grupo**: Pedreira
               - **ids**:
                 - PLiYVorL6MlSC2
                 - xtiNQSSkWNTXbC
@@ -4117,6 +4395,8 @@
                 - oECZXcIqBxan60
                 - 2httylkaaIN5Qr
               - **escalada**: Nativo
+              - **setor**: Bloco: Lagartixa
+              - **grupo**: Pedreira
               - **ids**:
                 - oECZXcIqBxan60
                 - 2httylkaaIN5Qr
@@ -4126,6 +4406,8 @@
                 - icdNm6GYVUWhAz
                 - VsKWEMg0lZ2NYg
               - **escalada**: Protesto
+              - **setor**: Bloco: Lagartixa
+              - **grupo**: Pedreira
               - **ids**:
                 - icdNm6GYVUWhAz
                 - VsKWEMg0lZ2NYg
@@ -4135,6 +4417,8 @@
                 - icdNm6GYVUWhAz
                 - xtiNQSSkWNTXbC
               - **escalada**: Cadena Imaginária
+              - **setor**: Bloco: Lagartixa
+              - **grupo**: Pedreira
               - **ids**:
                 - icdNm6GYVUWhAz
                 - xtiNQSSkWNTXbC
@@ -4144,6 +4428,8 @@
                 - WfKTekrpKQCxvy
                 - VsKWEMg0lZ2NYg
               - **escalada**: Golpe Militar
+              - **setor**: Bloco: Lagartixa
+              - **grupo**: Pedreira
               - **ids**:
                 - WfKTekrpKQCxvy
                 - VsKWEMg0lZ2NYg
@@ -4153,6 +4439,8 @@
                 - WfKTekrpKQCxvy
                 - 2httylkaaIN5Qr
               - **escalada**: Aurora Explosion
+              - **setor**: Bloco: Lagartixa
+              - **grupo**: Pedreira
               - **ids**:
                 - WfKTekrpKQCxvy
                 - 2httylkaaIN5Qr
@@ -4162,6 +4450,8 @@
                 - WfKTekrpKQCxvy
                 - xtiNQSSkWNTXbC
               - **escalada**: Escravos da Pedra
+              - **setor**: Bloco: Lagartixa
+              - **grupo**: Pedreira
               - **ids**:
                 - WfKTekrpKQCxvy
                 - xtiNQSSkWNTXbC
@@ -4171,6 +4461,8 @@
                 - ujBI1bgZoOQWhW
                 - VsKWEMg0lZ2NYg
               - **escalada**: Ditadvor
+              - **setor**: Bloco: Lagartixa
+              - **grupo**: Pedreira
               - **ids**:
                 - ujBI1bgZoOQWhW
                 - VsKWEMg0lZ2NYg
@@ -4180,6 +4472,8 @@
                 - ujBI1bgZoOQWhW
                 - xtiNQSSkWNTXbC
               - **escalada**: Lobo Mau
+              - **setor**: Bloco: Lagartixa
+              - **grupo**: Pedreira
               - **ids**:
                 - ujBI1bgZoOQWhW
                 - xtiNQSSkWNTXbC
@@ -4189,6 +4483,8 @@
                 - r9QOUkHDtJL2B9
                 - VsKWEMg0lZ2NYg
               - **escalada**: Coronel
+              - **setor**: Bloco: Lagartixa
+              - **grupo**: Pedreira
               - **ids**:
                 - r9QOUkHDtJL2B9
                 - VsKWEMg0lZ2NYg
@@ -4198,6 +4494,8 @@
                 - r9QOUkHDtJL2B9
                 - axlblItPxsIDJn
               - **escalada**: Chapeuzinho Vermelho
+              - **setor**: Bloco: Lagartixa
+              - **grupo**: Pedreira
               - **ids**:
                 - r9QOUkHDtJL2B9
                 - axlblItPxsIDJn
@@ -4434,6 +4732,8 @@
                 - 8ENnDIgQ7AgUGt
                 - gLsI2FXL4ox1OT
               - **escalada**: Areia nos Olhos
+              - **setor**: Bloco: Longevidade
+              - **grupo**: Pedreira
               - **ids**:
                 - 8ENnDIgQ7AgUGt
                 - gLsI2FXL4ox1OT
@@ -4443,6 +4743,8 @@
                 - QnjxUtHvoZeQzL
                 - gLsI2FXL4ox1OT
               - **escalada**: Areia nos Olhos ext
+              - **setor**: Bloco: Longevidade
+              - **grupo**: Pedreira
               - **ids**:
                 - QnjxUtHvoZeQzL
                 - gLsI2FXL4ox1OT
@@ -4453,6 +4755,8 @@
                 - nQFB3uR40wwnV7
                 - fNEd2QZ1GerD5Y
               - **escalada**: Fala Você
+              - **setor**: Bloco: Longevidade
+              - **grupo**: Pedreira
               - **ids**:
                 - ikn20aN6z8f4T7
                 - nQFB3uR40wwnV7
@@ -4464,6 +4768,8 @@
                 - zxkWwG5R32lL6G
                 - QuDFkr1JOWjknj
               - **escalada**: De Olho na Vida
+              - **setor**: Bloco: Longevidade
+              - **grupo**: Pedreira
               - **ids**:
                 - ikn20aN6z8f4T7
                 - zxkWwG5R32lL6G
@@ -4474,6 +4780,8 @@
                 - r4jlYamVBMQ4fS
                 - gLsI2FXL4ox1OT
               - **escalada**: A Vaca e o Frango
+              - **setor**: Bloco: Longevidade
+              - **grupo**: Pedreira
               - **ids**:
                 - r4jlYamVBMQ4fS
                 - gLsI2FXL4ox1OT
@@ -4561,6 +4869,8 @@
                 - j7a49QhVtl6kxM
                 - R1k2i0PzCMF0D9
               - **escalada**: Fala Vida
+              - **setor**: Bloco: Longevidade
+              - **grupo**: Pedreira
               - **ids**:
                 - j7a49QhVtl6kxM
                 - R1k2i0PzCMF0D9
@@ -4570,6 +4880,8 @@
                 - j7a49QhVtl6kxM
                 - Ko9Ob97e5kNLNO
               - **escalada**: Vida Curta
+              - **setor**: Bloco: Longevidade
+              - **grupo**: Pedreira
               - **ids**:
                 - j7a49QhVtl6kxM
                 - Ko9Ob97e5kNLNO
@@ -4579,6 +4891,8 @@
                 - j7a49QhVtl6kxM
                 - ECTws2AHXskFiM
               - **escalada**: Sem Vida
+              - **setor**: Bloco: Longevidade
+              - **grupo**: Pedreira
               - **ids**:
                 - j7a49QhVtl6kxM
                 - ECTws2AHXskFiM
@@ -4588,6 +4902,8 @@
                 - i5QH4qodH1AUva
                 - ECTws2AHXskFiM
               - **escalada**: Arenito
+              - **setor**: Bloco: Longevidade
+              - **grupo**: Pedreira
               - **ids**:
                 - i5QH4qodH1AUva
                 - ECTws2AHXskFiM
@@ -4597,6 +4913,8 @@
                 - wdWUISkD23k41f
                 - R1k2i0PzCMF0D9
               - **escalada**: Vida Longa
+              - **setor**: Bloco: Longevidade
+              - **grupo**: Pedreira
               - **ids**:
                 - wdWUISkD23k41f
                 - R1k2i0PzCMF0D9
@@ -4606,6 +4924,8 @@
                 - wdWUISkD23k41f
                 - ECTws2AHXskFiM
               - **escalada**: Longevidade
+              - **setor**: Bloco: Longevidade
+              - **grupo**: Pedreira
               - **ids**:
                 - wdWUISkD23k41f
                 - ECTws2AHXskFiM
@@ -4615,6 +4935,8 @@
                 - wdWUISkD23k41f
                 - jEhhfNuuguJtw7
               - **escalada**: Guerreiro Jedi
+              - **setor**: Bloco: Longevidade
+              - **grupo**: Pedreira
               - **ids**:
                 - wdWUISkD23k41f
                 - jEhhfNuuguJtw7
@@ -4624,6 +4946,8 @@
                 - xkbKQVsI6kmefV
                 - jEhhfNuuguJtw7
               - **escalada**: Jedi
+              - **setor**: Bloco: Longevidade
+              - **grupo**: Pedreira
               - **ids**:
                 - xkbKQVsI6kmefV
                 - jEhhfNuuguJtw7
@@ -4759,6 +5083,8 @@
                 - kPwwB0YPUoW31g
                 - H6ayc5y5tajDSz
               - **escalada**: Mata-Mata
+              - **setor**: Bloco: Mata-Mata
+              - **grupo**: Pedreira
               - **ids**:
                 - kPwwB0YPUoW31g
                 - H6ayc5y5tajDSz
@@ -4769,6 +5095,8 @@
                 - H6ayc5y5tajDSz
                 - vextmRrq2sNZmJ
               - **escalada**: Mata-Mata ext
+              - **setor**: Bloco: Mata-Mata
+              - **grupo**: Pedreira
               - **ids**:
                 - wF7SzgTCRi1ZyW
                 - H6ayc5y5tajDSz
@@ -4780,6 +5108,8 @@
                 - H6ayc5y5tajDSz
                 - v13dwIyP7OmGQM
               - **escalada**: 001
+              - **setor**: Bloco: Mata-Mata
+              - **grupo**: Pedreira
               - **ids**:
                 - wF7SzgTCRi1ZyW
                 - H6ayc5y5tajDSz
@@ -4822,6 +5152,8 @@
               - **pontos_uids**:
                 - vz6MVtsaWmxwLZ
               - **escalada**: Sem as Mãos
+              - **setor**: Bloco: Mata-Mata
+              - **grupo**: Pedreira
               - **ids**:
                 - vz6MVtsaWmxwLZ
             - **[1]**:
@@ -4829,6 +5161,8 @@
               - **pontos_uids**:
                 - JsF6TgprLm0KYw
               - **escalada**: Ética
+              - **setor**: Bloco: Mata-Mata
+              - **grupo**: Pedreira
               - **ids**:
                 - JsF6TgprLm0KYw
             - **[2]**:
@@ -4836,6 +5170,8 @@
               - **pontos_uids**:
                 - qX5FKKydUcdiz6
               - **escalada**: Risada
+              - **setor**: Bloco: Mata-Mata
+              - **grupo**: Pedreira
               - **ids**:
                 - qX5FKKydUcdiz6
         - **[2]**:
@@ -4867,6 +5203,8 @@
               - **pontos_uids**:
                 - jpFJgvicZcxjrP
               - **escalada**: Batentes
+              - **setor**: Bloco: Mata-Mata
+              - **grupo**: Pedreira
               - **ids**:
                 - jpFJgvicZcxjrP
             - **[1]**:
@@ -4874,6 +5212,8 @@
               - **pontos_uids**:
                 - xIyXtbaHz7Qutb
               - **escalada**: Regletes
+              - **setor**: Bloco: Mata-Mata
+              - **grupo**: Pedreira
               - **ids**:
                 - xIyXtbaHz7Qutb
         - **[3]**:
@@ -4905,6 +5245,8 @@
               - **pontos_uids**:
                 - DR3WqWHX6SNeiM
               - **escalada**: Cocal é Gueto
+              - **setor**: Bloco: Mata-Mata
+              - **grupo**: Pedreira
               - **ids**:
                 - DR3WqWHX6SNeiM
             - **[1]**:
@@ -4912,6 +5254,8 @@
               - **pontos_uids**:
                 - rQXbrg9IbfeITD
               - **escalada**: 002
+              - **setor**: Bloco: Mata-Mata
+              - **grupo**: Pedreira
               - **ids**:
                 - rQXbrg9IbfeITD
       - **escaladas**:
@@ -4994,6 +5338,8 @@
               - **pontos_uids**:
                 - zXvZkOsbEZkciI
               - **escalada**: Tatuagens do Ofício
+              - **setor**: Bloco: Meia-Parede
+              - **grupo**: Pedreira
               - **ids**:
                 - zXvZkOsbEZkciI
         - **[1]**:
@@ -5035,6 +5381,8 @@
                 - Q5XKQ3Nu1r6B4a
                 - zJNVBIRs7bQvEW
               - **escalada**: Rastaman
+              - **setor**: Bloco: Meia-Parede
+              - **grupo**: Pedreira
               - **ids**:
                 - Q5XKQ3Nu1r6B4a
                 - zJNVBIRs7bQvEW
@@ -5044,6 +5392,8 @@
                 - ZRNXOylYxhhnEq
                 - zJNVBIRs7bQvEW
               - **escalada**: Meia Parede
+              - **setor**: Bloco: Meia-Parede
+              - **grupo**: Pedreira
               - **ids**:
                 - ZRNXOylYxhhnEq
                 - zJNVBIRs7bQvEW
@@ -5086,6 +5436,8 @@
                 - fYMK2FjzsSDInT
                 - a5HN7dPmQIv57B
               - **escalada**: Aresta do Lenine
+              - **setor**: Bloco: Meia-Parede
+              - **grupo**: Pedreira
               - **ids**:
                 - fYMK2FjzsSDInT
                 - a5HN7dPmQIv57B
@@ -5095,6 +5447,8 @@
                 - fYMK2FjzsSDInT
                 - 8muJAOtyk0xBso
               - **escalada**: Slab
+              - **setor**: Bloco: Meia-Parede
+              - **grupo**: Pedreira
               - **ids**:
                 - fYMK2FjzsSDInT
                 - 8muJAOtyk0xBso
@@ -5127,6 +5481,8 @@
               - **pontos_uids**:
                 - lytFrwcizQoxDS
               - **escalada**: Jardim de Orquídeas
+              - **setor**: Bloco: Meia-Parede
+              - **grupo**: Pedreira
               - **ids**:
                 - lytFrwcizQoxDS
             - **[1]**:
@@ -5134,6 +5490,8 @@
               - **pontos_uids**:
                 - GOPBsUhShupFPw
               - **escalada**: Jardim Suspenso
+              - **setor**: Bloco: Meia-Parede
+              - **grupo**: Pedreira
               - **ids**:
                 - GOPBsUhShupFPw
       - **escaladas**:
@@ -5210,6 +5568,8 @@
               - **pontos_uids**:
                 - 8ISQbz4mTbKZ9f
               - **escalada**: Mezanino
+              - **setor**: Bloco: Mezanino
+              - **grupo**: Pedreira
               - **ids**:
                 - 8ISQbz4mTbKZ9f
             - **[1]**:
@@ -5217,6 +5577,8 @@
               - **pontos_uids**:
                 - CqdOd3Qfv7Mgvj
               - **escalada**: Mesa
+              - **setor**: Bloco: Mezanino
+              - **grupo**: Pedreira
               - **ids**:
                 - CqdOd3Qfv7Mgvj
         - **[1]**:
@@ -5239,6 +5601,8 @@
               - **pontos_uids**:
                 - BzWZgjIJkQ783a
               - **escalada**: Mesa
+              - **setor**: Bloco: Mezanino
+              - **grupo**: Pedreira
               - **ids**:
                 - BzWZgjIJkQ783a
       - **escaladas**:
@@ -5270,6 +5634,8 @@
               - **pontos_uids**:
                 - MWyPdhR9M1tTRz
               - **escalada**: Nat Geo
+              - **setor**: Bloco: Nat Geo
+              - **grupo**: Pedreira
               - **ids**:
                 - MWyPdhR9M1tTRz
             - **[1]**:
@@ -5277,6 +5643,8 @@
               - **pontos_uids**:
                 - rliKualNmyIrvH
               - **escalada**: Discovery Kids
+              - **setor**: Bloco: Nat Geo
+              - **grupo**: Pedreira
               - **ids**:
                 - rliKualNmyIrvH
           - **largura_mapa**: 2364
@@ -5467,6 +5835,8 @@
                 - vCckg7HrzHWiVj
                 - xw2WrNccpZp0ZP
               - **escalada**: Monte Mor
+              - **setor**: Bloco: Nave-Mãe
+              - **grupo**: Pedreira
               - **ids**:
                 - vCckg7HrzHWiVj
                 - xw2WrNccpZp0ZP
@@ -5476,6 +5846,8 @@
                 - vCckg7HrzHWiVj
                 - M2UBmFajwkeEa2
               - **escalada**: Irmãos Coragem
+              - **setor**: Bloco: Nave-Mãe
+              - **grupo**: Pedreira
               - **ids**:
                 - vCckg7HrzHWiVj
                 - M2UBmFajwkeEa2
@@ -5485,6 +5857,8 @@
                 - sMBmPocdXVL7EF
                 - M2UBmFajwkeEa2
               - **escalada**: Irmãos na Vibe
+              - **setor**: Bloco: Nave-Mãe
+              - **grupo**: Pedreira
               - **ids**:
                 - sMBmPocdXVL7EF
                 - M2UBmFajwkeEa2
@@ -5494,6 +5868,8 @@
                 - qFW3jmTfYqoait
                 - NRCwUGTDPI4I45
               - **escalada**: Ora-Por-Todos
+              - **setor**: Bloco: Nave-Mãe
+              - **grupo**: Pedreira
               - **ids**:
                 - qFW3jmTfYqoait
                 - NRCwUGTDPI4I45
@@ -5503,6 +5879,8 @@
                 - xmKASdg6MNs1Pl
                 - NRCwUGTDPI4I45
               - **escalada**: Orai-Por-Noix
+              - **setor**: Bloco: Nave-Mãe
+              - **grupo**: Pedreira
               - **ids**:
                 - xmKASdg6MNs1Pl
                 - NRCwUGTDPI4I45
@@ -5512,6 +5890,8 @@
                 - xmKASdg6MNs1Pl
                 - fymC3Y7GvEu64M
               - **escalada**: Ora-Pra-Jah
+              - **setor**: Bloco: Nave-Mãe
+              - **grupo**: Pedreira
               - **ids**:
                 - xmKASdg6MNs1Pl
                 - fymC3Y7GvEu64M
@@ -5521,6 +5901,8 @@
                 - xmKASdg6MNs1Pl
                 - zwtvLfGHdpL9hK
               - **escalada**: Ouroboulder
+              - **setor**: Bloco: Nave-Mãe
+              - **grupo**: Pedreira
               - **ids**:
                 - xmKASdg6MNs1Pl
                 - zwtvLfGHdpL9hK
@@ -5530,6 +5912,8 @@
                 - 25NDTLC9zJIwF4
                 - fymC3Y7GvEu64M
               - **escalada**: Ora-Pro-Nóbis
+              - **setor**: Bloco: Nave-Mãe
+              - **grupo**: Pedreira
               - **ids**:
                 - 25NDTLC9zJIwF4
                 - fymC3Y7GvEu64M
@@ -5539,6 +5923,8 @@
                 - 25NDTLC9zJIwF4
                 - zwtvLfGHdpL9hK
               - **escalada**: Ora-Pros-Crash
+              - **setor**: Bloco: Nave-Mãe
+              - **grupo**: Pedreira
               - **ids**:
                 - 25NDTLC9zJIwF4
                 - zwtvLfGHdpL9hK
@@ -5548,6 +5934,8 @@
                 - rsBdetu5BnYj9x
                 - zwtvLfGHdpL9hK
               - **escalada**: Oratório
+              - **setor**: Bloco: Nave-Mãe
+              - **grupo**: Pedreira
               - **ids**:
                 - rsBdetu5BnYj9x
                 - zwtvLfGHdpL9hK
@@ -5557,6 +5945,8 @@
                 - ZkX53td8f3ORSy
                 - zwtvLfGHdpL9hK
               - **escalada**: Quebra Galho
+              - **setor**: Bloco: Nave-Mãe
+              - **grupo**: Pedreira
               - **ids**:
                 - ZkX53td8f3ORSy
                 - zwtvLfGHdpL9hK
@@ -5566,6 +5956,8 @@
                 - 1j4xqwWadpNys6
                 - Qw4t5HIjhSOeaF
               - **escalada**: Libertadores
+              - **setor**: Bloco: Nave-Mãe
+              - **grupo**: Pedreira
               - **ids**:
                 - 1j4xqwWadpNys6
                 - Qw4t5HIjhSOeaF
@@ -5575,6 +5967,8 @@
                 - WEtbTvtycmFP7N
                 - Qw4t5HIjhSOeaF
               - **escalada**: Eu Acredito
+              - **setor**: Bloco: Nave-Mãe
+              - **grupo**: Pedreira
               - **ids**:
                 - WEtbTvtycmFP7N
                 - Qw4t5HIjhSOeaF
@@ -5690,6 +6084,8 @@
                 - gvG3ixgVMxrjO4
                 - 4k7BFASp7bnFMc
               - **escalada**: Ora-Por-Todos
+              - **setor**: Bloco: Nave-Mãe
+              - **grupo**: Pedreira
               - **ids**:
                 - XZwFSxlPVi0vNs
                 - gvG3ixgVMxrjO4
@@ -5701,6 +6097,8 @@
                 - gvG3ixgVMxrjO4
                 - EP7kIXeDvzcLu3
               - **escalada**: Orai-Por-Noix
+              - **setor**: Bloco: Nave-Mãe
+              - **grupo**: Pedreira
               - **ids**:
                 - XZwFSxlPVi0vNs
                 - gvG3ixgVMxrjO4
@@ -5711,6 +6109,8 @@
                 - XZwFSxlPVi0vNs
                 - WiKk0Phg2tkuDq
               - **escalada**: Ora-Pra-Jah
+              - **setor**: Bloco: Nave-Mãe
+              - **grupo**: Pedreira
               - **ids**:
                 - XZwFSxlPVi0vNs
                 - WiKk0Phg2tkuDq
@@ -5720,6 +6120,8 @@
                 - XZwFSxlPVi0vNs
                 - DB9bDOvLdYq2hY
               - **escalada**: Ouroboulder
+              - **setor**: Bloco: Nave-Mãe
+              - **grupo**: Pedreira
               - **ids**:
                 - XZwFSxlPVi0vNs
                 - DB9bDOvLdYq2hY
@@ -5729,6 +6131,8 @@
                 - FWGP7Agj4MeoJ3
                 - WiKk0Phg2tkuDq
               - **escalada**: Ora-Pro-Nóbis
+              - **setor**: Bloco: Nave-Mãe
+              - **grupo**: Pedreira
               - **ids**:
                 - FWGP7Agj4MeoJ3
                 - WiKk0Phg2tkuDq
@@ -5738,6 +6142,8 @@
                 - FWGP7Agj4MeoJ3
                 - DB9bDOvLdYq2hY
               - **escalada**: Ora-Pros-Crash
+              - **setor**: Bloco: Nave-Mãe
+              - **grupo**: Pedreira
               - **ids**:
                 - FWGP7Agj4MeoJ3
                 - DB9bDOvLdYq2hY
@@ -5747,6 +6153,8 @@
                 - vmlD5gDcQlBqBb
                 - DB9bDOvLdYq2hY
               - **escalada**: Oratório
+              - **setor**: Bloco: Nave-Mãe
+              - **grupo**: Pedreira
               - **ids**:
                 - vmlD5gDcQlBqBb
                 - DB9bDOvLdYq2hY
@@ -5756,6 +6164,8 @@
                 - TzmdsQE1sUmlep
                 - DB9bDOvLdYq2hY
               - **escalada**: Quebra Galho
+              - **setor**: Bloco: Nave-Mãe
+              - **grupo**: Pedreira
               - **ids**:
                 - TzmdsQE1sUmlep
                 - DB9bDOvLdYq2hY
@@ -5765,6 +6175,8 @@
                 - FWGP7Agj4MeoJ3
                 - FUhmF0YsJHMCJf
               - **escalada**: Libertadores
+              - **setor**: Bloco: Nave-Mãe
+              - **grupo**: Pedreira
               - **ids**:
                 - FWGP7Agj4MeoJ3
                 - FUhmF0YsJHMCJf
@@ -5774,6 +6186,8 @@
                 - X7KWESevYJGD79
                 - FUhmF0YsJHMCJf
               - **escalada**: Eu Acredito
+              - **setor**: Bloco: Nave-Mãe
+              - **grupo**: Pedreira
               - **ids**:
                 - X7KWESevYJGD79
                 - FUhmF0YsJHMCJf
@@ -5851,6 +6265,8 @@
               - **pontos_uids**:
                 - uwcvDogJf5sqyO
               - **escalada**: Umbriacone
+              - **setor**: Bloco: Nave-Mãe
+              - **grupo**: Pedreira
               - **ids**:
                 - uwcvDogJf5sqyO
             - **[1]**:
@@ -5859,6 +6275,8 @@
                 - sEPgNXchWVUMUM
                 - 0fl4BCzCbiAl3p
               - **escalada**: Mortal Kombat
+              - **setor**: Bloco: Nave-Mãe
+              - **grupo**: Pedreira
               - **ids**:
                 - sEPgNXchWVUMUM
                 - 0fl4BCzCbiAl3p
@@ -5868,6 +6286,8 @@
                 - sEPgNXchWVUMUM
                 - Y9ZEr9Tk9z1xPy
               - **escalada**: Sub-Zero
+              - **setor**: Bloco: Nave-Mãe
+              - **grupo**: Pedreira
               - **ids**:
                 - sEPgNXchWVUMUM
                 - Y9ZEr9Tk9z1xPy
@@ -5877,6 +6297,8 @@
                 - BmXibCqGGnl02j
                 - wt7aIijsTpstP3
               - **escalada**: Raiden
+              - **setor**: Bloco: Nave-Mãe
+              - **grupo**: Pedreira
               - **ids**:
                 - BmXibCqGGnl02j
                 - wt7aIijsTpstP3
@@ -5886,6 +6308,8 @@
                 - BmXibCqGGnl02j
                 - ee9iX9Dvy5u5kT
               - **escalada**: Carcomendo
+              - **setor**: Bloco: Nave-Mãe
+              - **grupo**: Pedreira
               - **ids**:
                 - BmXibCqGGnl02j
                 - ee9iX9Dvy5u5kT
@@ -5955,6 +6379,8 @@
                 - C5XgoSQ4SjRhSJ
                 - 3ubPXYDk1YDhOo
               - **escalada**: Mortal Kombat
+              - **setor**: Bloco: Nave-Mãe
+              - **grupo**: Pedreira
               - **ids**:
                 - C5XgoSQ4SjRhSJ
                 - 3ubPXYDk1YDhOo
@@ -5964,6 +6390,8 @@
                 - C5XgoSQ4SjRhSJ
                 - vvA8LdxrXwrMLO
               - **escalada**: Sub-Zero
+              - **setor**: Bloco: Nave-Mãe
+              - **grupo**: Pedreira
               - **ids**:
                 - C5XgoSQ4SjRhSJ
                 - vvA8LdxrXwrMLO
@@ -5973,6 +6401,8 @@
                 - J5AjOsOKIXa5lV
                 - TVbPqHOxkN0pY4
               - **escalada**: Raiden
+              - **setor**: Bloco: Nave-Mãe
+              - **grupo**: Pedreira
               - **ids**:
                 - J5AjOsOKIXa5lV
                 - TVbPqHOxkN0pY4
@@ -5982,6 +6412,8 @@
                 - J5AjOsOKIXa5lV
                 - k5wArRPNW1ZWD9
               - **escalada**: Carcomendo
+              - **setor**: Bloco: Nave-Mãe
+              - **grupo**: Pedreira
               - **ids**:
                 - J5AjOsOKIXa5lV
                 - k5wArRPNW1ZWD9
@@ -6005,6 +6437,8 @@
               - **pontos_uids**:
                 - Xsi5RDrcJ46IQv
               - **escalada**: 003
+              - **setor**: Bloco: Nave-Mãe
+              - **grupo**: Pedreira
               - **ids**:
                 - Xsi5RDrcJ46IQv
         - **[5]**:
@@ -6083,6 +6517,8 @@
                 - aH38cbYIMhibw7
                 - jEOzZMCoLiWH5C
               - **escalada**: Pico do Baiano
+              - **setor**: Bloco: Nave-Mãe
+              - **grupo**: Pedreira
               - **ids**:
                 - 2PPELBJ2dzMx90
                 - aH38cbYIMhibw7
@@ -6094,6 +6530,8 @@
                 - QO7d8Kg4pwrpWA
                 - jEOzZMCoLiWH5C
               - **escalada**: De Inverno
+              - **setor**: Bloco: Nave-Mãe
+              - **grupo**: Pedreira
               - **ids**:
                 - aH38cbYIMhibw7
                 - QO7d8Kg4pwrpWA
@@ -6105,6 +6543,8 @@
                 - jEOzZMCoLiWH5C
                 - drTHnfSDL3TiUE
               - **escalada**: De Verão
+              - **setor**: Bloco: Nave-Mãe
+              - **grupo**: Pedreira
               - **ids**:
                 - aH38cbYIMhibw7
                 - jEOzZMCoLiWH5C
@@ -6116,6 +6556,8 @@
                 - mTetANUTRrUzU1
                 - QO7d8Kg4pwrpWA
               - **escalada**: Maverick
+              - **setor**: Bloco: Nave-Mãe
+              - **grupo**: Pedreira
               - **ids**:
                 - aH38cbYIMhibw7
                 - mTetANUTRrUzU1
@@ -6126,6 +6568,8 @@
                 - 7TR0ApHxx9bWOS
                 - QO7d8Kg4pwrpWA
               - **escalada**: Vem Verão
+              - **setor**: Bloco: Nave-Mãe
+              - **grupo**: Pedreira
               - **ids**:
                 - 7TR0ApHxx9bWOS
                 - QO7d8Kg4pwrpWA
@@ -6159,6 +6603,8 @@
                 - JQ4ZtSqlFKDmmo
                 - Qx5KiftdufZy8x
               - **escalada**: Passível
+              - **setor**: Bloco: Nave-Mãe
+              - **grupo**: Pedreira
               - **ids**:
                 - JQ4ZtSqlFKDmmo
                 - Qx5KiftdufZy8x
@@ -6354,6 +6800,8 @@
               - **pontos_uids**:
                 - VXcVDy8quHipHs
               - **escalada**: México
+              - **setor**: Bloco: Pedra Queimada
+              - **grupo**: Pedreira
               - **ids**:
                 - VXcVDy8quHipHs
             - **[1]**:
@@ -6362,6 +6810,8 @@
                 - nXtkg4Z4FwLpUU
                 - EJvD8fxrfVOqi0
               - **escalada**: Dinamite
+              - **setor**: Bloco: Pedra Queimada
+              - **grupo**: Pedreira
               - **ids**:
                 - nXtkg4Z4FwLpUU
                 - EJvD8fxrfVOqi0
@@ -6371,6 +6821,8 @@
                 - nXtkg4Z4FwLpUU
                 - QGUW0ci1xi4mUQ
               - **escalada**: Pedra Queimada
+              - **setor**: Bloco: Pedra Queimada
+              - **grupo**: Pedreira
               - **ids**:
                 - nXtkg4Z4FwLpUU
                 - QGUW0ci1xi4mUQ
@@ -6380,6 +6832,8 @@
                 - PCh1E0YaaDTNuq
                 - EJvD8fxrfVOqi0
               - **escalada**: Dinamite sds
+              - **setor**: Bloco: Pedra Queimada
+              - **grupo**: Pedreira
               - **ids**:
                 - PCh1E0YaaDTNuq
                 - EJvD8fxrfVOqi0
@@ -6389,6 +6843,8 @@
                 - PCh1E0YaaDTNuq
                 - QGUW0ci1xi4mUQ
               - **escalada**: Pedra Queimada sds
+              - **setor**: Bloco: Pedra Queimada
+              - **grupo**: Pedreira
               - **ids**:
                 - PCh1E0YaaDTNuq
                 - QGUW0ci1xi4mUQ
@@ -6494,6 +6950,8 @@
                 - N1k3NSvwTcc1T5
                 - Qe8IpRyVyV1YtM
               - **escalada**: Flying Horse
+              - **setor**: Bloco: Red Bull
+              - **grupo**: Pedreira
               - **ids**:
                 - bcdgefmsxMsJLJ
                 - N1k3NSvwTcc1T5
@@ -6505,6 +6963,8 @@
                 - N1k3NSvwTcc1T5
                 - I5jZ7XmeQWzkby
               - **escalada**: Pingado
+              - **setor**: Bloco: Red Bull
+              - **grupo**: Pedreira
               - **ids**:
                 - bcdgefmsxMsJLJ
                 - N1k3NSvwTcc1T5
@@ -6515,6 +6975,8 @@
                 - bcdgefmsxMsJLJ
                 - fsLrX4NXQs90cE
               - **escalada**: Expresso
+              - **setor**: Bloco: Red Bull
+              - **grupo**: Pedreira
               - **ids**:
                 - bcdgefmsxMsJLJ
                 - fsLrX4NXQs90cE
@@ -6525,6 +6987,8 @@
                 - N1k3NSvwTcc1T5
                 - Qe8IpRyVyV1YtM
               - **escalada**: Macchiato
+              - **setor**: Bloco: Red Bull
+              - **grupo**: Pedreira
               - **ids**:
                 - xBjLKqD5XYZwfS
                 - N1k3NSvwTcc1T5
@@ -6536,6 +7000,8 @@
                 - N1k3NSvwTcc1T5
                 - I5jZ7XmeQWzkby
               - **escalada**: Red Bull
+              - **setor**: Bloco: Red Bull
+              - **grupo**: Pedreira
               - **ids**:
                 - xBjLKqD5XYZwfS
                 - N1k3NSvwTcc1T5
@@ -6546,6 +7012,8 @@
                 - xBjLKqD5XYZwfS
                 - fsLrX4NXQs90cE
               - **escalada**: Mad Dog
+              - **setor**: Bloco: Red Bull
+              - **grupo**: Pedreira
               - **ids**:
                 - xBjLKqD5XYZwfS
                 - fsLrX4NXQs90cE
@@ -6655,6 +7123,8 @@
                 - uPFv6wCBhddzGe
                 - yAFSlml0SapFjm
               - **escalada**: Sauna Seca
+              - **setor**: Bloco: Sauna
+              - **grupo**: Pedreira
               - **ids**:
                 - uPFv6wCBhddzGe
                 - yAFSlml0SapFjm
@@ -6664,6 +7134,8 @@
                 - 9JIY9OCcLh422g
                 - dkEsYaookEbWC6
               - **escalada**: Sauna Úmida
+              - **setor**: Bloco: Sauna
+              - **grupo**: Pedreira
               - **ids**:
                 - 9JIY9OCcLh422g
                 - dkEsYaookEbWC6
@@ -6673,6 +7145,8 @@
                 - A0WwaYH8S4uROW
                 - yAFSlml0SapFjm
               - **escalada**: Sauna Mista
+              - **setor**: Bloco: Sauna
+              - **grupo**: Pedreira
               - **ids**:
                 - A0WwaYH8S4uROW
                 - yAFSlml0SapFjm
@@ -6682,6 +7156,8 @@
                 - A0WwaYH8S4uROW
                 - PE0I4U8nsuji9D
               - **escalada**: Sauna a Vapor
+              - **setor**: Bloco: Sauna
+              - **grupo**: Pedreira
               - **ids**:
                 - A0WwaYH8S4uROW
                 - PE0I4U8nsuji9D
@@ -6764,6 +7240,8 @@
                 - KrnzDowj5O23d1
                 - iZ5SjheABHJXHV
               - **escalada**: Braúna
+              - **setor**: Bloco: Sonar
+              - **grupo**: Pedreira
               - **ids**:
                 - KrnzDowj5O23d1
                 - iZ5SjheABHJXHV
@@ -6773,6 +7251,8 @@
                 - KrnzDowj5O23d1
                 - Zuuoo9f6HMtSFX
               - **escalada**: Sonar
+              - **setor**: Bloco: Sonar
+              - **grupo**: Pedreira
               - **ids**:
                 - KrnzDowj5O23d1
                 - Zuuoo9f6HMtSFX
@@ -6782,6 +7262,8 @@
                 - KrnzDowj5O23d1
                 - cvIzIbrCQSTvoN
               - **escalada**: Periscópio
+              - **setor**: Bloco: Sonar
+              - **grupo**: Pedreira
               - **ids**:
                 - KrnzDowj5O23d1
                 - cvIzIbrCQSTvoN
@@ -6886,6 +7368,8 @@
                 - EdDNqxEUV1mWAx
                 - 7YWkZbtDg7AXL1
               - **escalada**: Buena Onda
+              - **setor**: Bloco: Teto de Vidro
+              - **grupo**: Pedreira
               - **ids**:
                 - EdDNqxEUV1mWAx
                 - 7YWkZbtDg7AXL1
@@ -6896,6 +7380,8 @@
                 - L0Ix6cDuk5GMDW
                 - kLJmjHHjhbAkYp
               - **escalada**: Teto de Vidro
+              - **setor**: Bloco: Teto de Vidro
+              - **grupo**: Pedreira
               - **ids**:
                 - EdDNqxEUV1mWAx
                 - L0Ix6cDuk5GMDW
@@ -6907,6 +7393,8 @@
                 - L0Ix6cDuk5GMDW
                 - 57DikQUBmtQiR8
               - **escalada**: Gringo de Vidro
+              - **setor**: Bloco: Teto de Vidro
+              - **grupo**: Pedreira
               - **ids**:
                 - EdDNqxEUV1mWAx
                 - L0Ix6cDuk5GMDW
@@ -6917,6 +7405,8 @@
                 - DGcBpiNNT86tTj
                 - L0Ix6cDuk5GMDW
               - **escalada**: Teto Quebrado
+              - **setor**: Bloco: Teto de Vidro
+              - **grupo**: Pedreira
               - **ids**:
                 - DGcBpiNNT86tTj
                 - L0Ix6cDuk5GMDW
@@ -6926,6 +7416,8 @@
                 - BqYMnbfOEWx4xH
                 - 7YWkZbtDg7AXL1
               - **escalada**: Gringo
+              - **setor**: Bloco: Teto de Vidro
+              - **grupo**: Pedreira
               - **ids**:
                 - BqYMnbfOEWx4xH
                 - 7YWkZbtDg7AXL1
@@ -6995,6 +7487,8 @@
                 - YbuBQANXt6t1xo
                 - XDkg7Y8rXthgIR
               - **escalada**: Teto de Vidro
+              - **setor**: Bloco: Teto de Vidro
+              - **grupo**: Pedreira
               - **ids**:
                 - YbuBQANXt6t1xo
                 - XDkg7Y8rXthgIR
@@ -7004,6 +7498,8 @@
                 - Ak7uUO9lodIKgB
                 - XDkg7Y8rXthgIR
               - **escalada**: Teto Quebrado
+              - **setor**: Bloco: Teto de Vidro
+              - **grupo**: Pedreira
               - **ids**:
                 - Ak7uUO9lodIKgB
                 - XDkg7Y8rXthgIR
@@ -7013,6 +7509,8 @@
                 - kkIbXSksmoHa9q
                 - XDkg7Y8rXthgIR
               - **escalada**: Manobra
+              - **setor**: Bloco: Teto de Vidro
+              - **grupo**: Pedreira
               - **ids**:
                 - kkIbXSksmoHa9q
                 - XDkg7Y8rXthgIR
@@ -7022,6 +7520,8 @@
                 - DoYqsbeKw5gO5G
                 - XDkg7Y8rXthgIR
               - **escalada**: Casquinha
+              - **setor**: Bloco: Teto de Vidro
+              - **grupo**: Pedreira
               - **ids**:
                 - DoYqsbeKw5gO5G
                 - XDkg7Y8rXthgIR
@@ -7031,6 +7531,8 @@
                 - DoYqsbeKw5gO5G
                 - v846xLxySV3lHd
               - **escalada**: Wafer
+              - **setor**: Bloco: Teto de Vidro
+              - **grupo**: Pedreira
               - **ids**:
                 - DoYqsbeKw5gO5G
                 - v846xLxySV3lHd
@@ -7115,6 +7617,8 @@
               - **pontos_uids**:
                 - XtzwcYAWA5Avfe
               - **escalada**: NBA
+              - **setor**: Bloco: Tô de Boa
+              - **grupo**: Pedreira
               - **ids**:
                 - XtzwcYAWA5Avfe
             - **[1]**:
@@ -7122,6 +7626,8 @@
               - **pontos_uids**:
                 - HemjSh6cKeuicJ
               - **escalada**: Pedra Única
+              - **setor**: Bloco: Tô de Boa
+              - **grupo**: Pedreira
               - **ids**:
                 - HemjSh6cKeuicJ
         - **[1]**:
@@ -7208,6 +7714,8 @@
                 - YdbiBefPaPg7hX
                 - VoN7W1OuMWsJpv
               - **escalada**: Tô na Esquiva
+              - **setor**: Bloco: Tô de Boa
+              - **grupo**: Pedreira
               - **ids**:
                 - YdbiBefPaPg7hX
                 - VoN7W1OuMWsJpv
@@ -7217,6 +7725,8 @@
                 - YdbiBefPaPg7hX
                 - Py4n8Lxh2JCCQ4
               - **escalada**: Tô Legal
+              - **setor**: Bloco: Tô de Boa
+              - **grupo**: Pedreira
               - **ids**:
                 - YdbiBefPaPg7hX
                 - Py4n8Lxh2JCCQ4
@@ -7226,6 +7736,8 @@
                 - UQi4ziTKpkWOgq
                 - 2q2yQ4nvWb0XYy
               - **escalada**: Tô Calmo
+              - **setor**: Bloco: Tô de Boa
+              - **grupo**: Pedreira
               - **ids**:
                 - UQi4ziTKpkWOgq
                 - 2q2yQ4nvWb0XYy
@@ -7235,6 +7747,8 @@
                 - UQi4ziTKpkWOgq
                 - fpj8H6ZJ3EnGMo
               - **escalada**: Tô de Boa
+              - **setor**: Bloco: Tô de Boa
+              - **grupo**: Pedreira
               - **ids**:
                 - UQi4ziTKpkWOgq
                 - fpj8H6ZJ3EnGMo
@@ -7244,6 +7758,8 @@
                 - UQi4ziTKpkWOgq
                 - 0WhRYWdQTsmZrM
               - **escalada**: Jaguatirica
+              - **setor**: Bloco: Tô de Boa
+              - **grupo**: Pedreira
               - **ids**:
                 - UQi4ziTKpkWOgq
                 - 0WhRYWdQTsmZrM
@@ -7252,6 +7768,8 @@
               - **pontos_uids**:
                 - JAF7vjKLydXQRs
               - **escalada**: Tô Suave
+              - **setor**: Bloco: Tô de Boa
+              - **grupo**: Pedreira
               - **ids**:
                 - JAF7vjKLydXQRs
       - **escaladas**:
@@ -7398,6 +7916,8 @@
                 - YWN5IkMSkeZsRW
                 - Mar7pxdQjxCPw3
               - **escalada**: Travessia ext
+              - **setor**: Bloco: Travessia
+              - **grupo**: Pedreira
               - **ids**:
                 - YWN5IkMSkeZsRW
                 - Mar7pxdQjxCPw3
@@ -7407,6 +7927,8 @@
                 - c2b86M5bD7vIRW
                 - Mar7pxdQjxCPw3
               - **escalada**: Travessia
+              - **setor**: Bloco: Travessia
+              - **grupo**: Pedreira
               - **ids**:
                 - c2b86M5bD7vIRW
                 - Mar7pxdQjxCPw3
@@ -7416,6 +7938,8 @@
                 - i0FCFCwDw12wTu
                 - quzUQmVSrlpYTL
               - **escalada**: Enjambrado
+              - **setor**: Bloco: Travessia
+              - **grupo**: Pedreira
               - **ids**:
                 - i0FCFCwDw12wTu
                 - quzUQmVSrlpYTL
@@ -7425,6 +7949,8 @@
                 - Hap2vmeTY5JDty
                 - Ab23FMRcQRSW7S
               - **escalada**: Face Vertical
+              - **setor**: Bloco: Travessia
+              - **grupo**: Pedreira
               - **ids**:
                 - Hap2vmeTY5JDty
                 - Ab23FMRcQRSW7S
@@ -7434,6 +7960,8 @@
                 - rIAIQwYt9x20Fs
                 - Mar7pxdQjxCPw3
               - **escalada**: Será
+              - **setor**: Bloco: Travessia
+              - **grupo**: Pedreira
               - **ids**:
                 - rIAIQwYt9x20Fs
                 - Mar7pxdQjxCPw3
@@ -7442,6 +7970,8 @@
               - **pontos_uids**:
                 - Vt1yHUmzeJB0SS
               - **escalada**: Bem-vindo ao Climb
+              - **setor**: Bloco: Travessia
+              - **grupo**: Pedreira
               - **ids**:
                 - Vt1yHUmzeJB0SS
         - **[1]**:
@@ -7546,6 +8076,8 @@
                 - Xb43krrjLpIWXu
                 - 19NNef4ApP3pAr
               - **escalada**: Travessia ext
+              - **setor**: Bloco: Travessia
+              - **grupo**: Pedreira
               - **ids**:
                 - Xb43krrjLpIWXu
                 - 19NNef4ApP3pAr
@@ -7555,6 +8087,8 @@
                 - 8Wxo4WfVrbv9bR
                 - 19NNef4ApP3pAr
               - **escalada**: Travessia
+              - **setor**: Bloco: Travessia
+              - **grupo**: Pedreira
               - **ids**:
                 - 8Wxo4WfVrbv9bR
                 - 19NNef4ApP3pAr
@@ -7564,6 +8098,8 @@
                 - 26KFrG2WK6mhnB
                 - rbSgbyRSovMZ90
               - **escalada**: Enjambrado
+              - **setor**: Bloco: Travessia
+              - **grupo**: Pedreira
               - **ids**:
                 - 26KFrG2WK6mhnB
                 - rbSgbyRSovMZ90
@@ -7573,6 +8109,8 @@
                 - 4U3sJtXR0ji5Yd
                 - T74sQDVVsrPo4Q
               - **escalada**: Face Vertical
+              - **setor**: Bloco: Travessia
+              - **grupo**: Pedreira
               - **ids**:
                 - 4U3sJtXR0ji5Yd
                 - T74sQDVVsrPo4Q
@@ -7582,6 +8120,8 @@
                 - KeOQCuNTtmt0N3
                 - 19NNef4ApP3pAr
               - **escalada**: Será
+              - **setor**: Bloco: Travessia
+              - **grupo**: Pedreira
               - **ids**:
                 - KeOQCuNTtmt0N3
                 - 19NNef4ApP3pAr
@@ -7591,6 +8131,8 @@
                 - 8Wxo4WfVrbv9bR
                 - zFrBtO72do1TPZ
               - **escalada**: Monodedo
+              - **setor**: Bloco: Travessia
+              - **grupo**: Pedreira
               - **ids**:
                 - 8Wxo4WfVrbv9bR
                 - zFrBtO72do1TPZ
@@ -7600,6 +8142,8 @@
                 - 8Wxo4WfVrbv9bR
                 - x79n5Rn9dstTjr
               - **escalada**: Movimentos Eróticos
+              - **setor**: Bloco: Travessia
+              - **grupo**: Pedreira
               - **ids**:
                 - 8Wxo4WfVrbv9bR
                 - x79n5Rn9dstTjr
@@ -7673,6 +8217,8 @@
               - **pontos_uids**:
                 - n1m5SO9etQaAtv
               - **escalada**: Véia Doida
+              - **setor**: Bloco: Véia Doida
+              - **grupo**: Pedreira
               - **ids**:
                 - n1m5SO9etQaAtv
       - **escaladas**:
@@ -7698,6 +8244,8 @@
               - **pontos_uids**:
                 - OKIXHvtiTpHt1c
               - **escalada**: 009
+              - **setor**: Bloco: Vitamina Jungle
+              - **grupo**: Pedreira
               - **ids**:
                 - OKIXHvtiTpHt1c
             - **[1]**:
@@ -7705,6 +8253,8 @@
               - **pontos_uids**:
                 - FPJNN7pKQhHt1v
               - **escalada**: Vitamina Jungle
+              - **setor**: Bloco: Vitamina Jungle
+              - **grupo**: Pedreira
               - **ids**:
                 - FPJNN7pKQhHt1v
             - **[2]**:
@@ -7712,6 +8262,8 @@
               - **pontos_uids**:
                 - zoTD2iLwuJoivh
               - **escalada**: 010
+              - **setor**: Bloco: Vitamina Jungle
+              - **grupo**: Pedreira
               - **ids**:
                 - zoTD2iLwuJoivh
           - **largura_mapa**: 2364
@@ -7873,6 +8425,7 @@
         - **pontos_uids**:
           - FG7fb95O5nYBb5
         - **setor**: Bloco: Mont Blanc
+        - **grupo**: Mont Blanc
         - **ids**:
           - FG7fb95O5nYBb5
       - **[1]**:
@@ -7880,6 +8433,7 @@
         - **pontos_uids**:
           - 8ge4pkya9aSD5a
         - **setor**: Bloco: O Pequeno
+        - **grupo**: Mont Blanc
         - **ids**:
           - 8ge4pkya9aSD5a
       - **[2]**:
@@ -7887,6 +8441,7 @@
         - **pontos_uids**:
           - OL4IGr0iVF18CY
         - **setor**: Bloco: Salão dos Ossos
+        - **grupo**: Mont Blanc
         - **ids**:
           - OL4IGr0iVF18CY
       - **[3]**:
@@ -7894,6 +8449,7 @@
         - **pontos_uids**:
           - vALageLc2YwT4M
         - **setor**: Bloco: Parada Obrigatória
+        - **grupo**: Mont Blanc
         - **ids**:
           - vALageLc2YwT4M
       - **[4]**:
@@ -7901,6 +8457,7 @@
         - **pontos_uids**:
           - 580sgjs024ezil
         - **setor**: Bloco: Cabocla da Mata
+        - **grupo**: Mont Blanc
         - **ids**:
           - 580sgjs024ezil
       - **[5]**:
@@ -7908,6 +8465,7 @@
         - **pontos_uids**:
           - AJncL6IJbXqbdS
         - **setor**: Bloco: Silêncio da Mutuca
+        - **grupo**: Mont Blanc
         - **ids**:
           - AJncL6IJbXqbdS
       - **[6]**:
@@ -7916,6 +8474,7 @@
           - coHhza0VmZJ1Sp
           - OjVPhDEP26CQrW
         - **setor**: Bloco: Espreguiçadeira
+        - **grupo**: Mont Blanc
         - **ids**:
           - coHhza0VmZJ1Sp
           - OjVPhDEP26CQrW
@@ -8028,6 +8587,8 @@
                 - YPcp0YPv580Whc
                 - MgI961ArsmoseJ
               - **escalada**: Pico da Neblina ext
+              - **setor**: Bloco: Mont Blanc
+              - **grupo**: Mont Blanc
               - **ids**:
                 - YPcp0YPv580Whc
                 - MgI961ArsmoseJ
@@ -8037,6 +8598,8 @@
                 - YPcp0YPv580Whc
                 - RkCuLA5gHiIHEb
               - **escalada**: Inquilinismo Frenético ext
+              - **setor**: Bloco: Mont Blanc
+              - **grupo**: Mont Blanc
               - **ids**:
                 - YPcp0YPv580Whc
                 - RkCuLA5gHiIHEb
@@ -8046,6 +8609,8 @@
                 - 6AWseOSLUkgPK8
                 - MgI961ArsmoseJ
               - **escalada**: Pico da Neblina
+              - **setor**: Bloco: Mont Blanc
+              - **grupo**: Mont Blanc
               - **ids**:
                 - 6AWseOSLUkgPK8
                 - MgI961ArsmoseJ
@@ -8055,6 +8620,8 @@
                 - 6AWseOSLUkgPK8
                 - RkCuLA5gHiIHEb
               - **escalada**: Inquilinismo Frenético
+              - **setor**: Bloco: Mont Blanc
+              - **grupo**: Mont Blanc
               - **ids**:
                 - 6AWseOSLUkgPK8
                 - RkCuLA5gHiIHEb
@@ -8064,6 +8631,8 @@
                 - TSalA4rxoxE3vj
                 - NSJEWm5l152LeX
               - **escalada**: Bife do Mário
+              - **setor**: Bloco: Mont Blanc
+              - **grupo**: Mont Blanc
               - **ids**:
                 - TSalA4rxoxE3vj
                 - NSJEWm5l152LeX
@@ -8073,6 +8642,8 @@
                 - PVIdxUlmaO4qKj
                 - RkCuLA5gHiIHEb
               - **escalada**: Painel
+              - **setor**: Bloco: Mont Blanc
+              - **grupo**: Mont Blanc
               - **ids**:
                 - PVIdxUlmaO4qKj
                 - RkCuLA5gHiIHEb
@@ -8082,6 +8653,8 @@
                 - 6JvgIjni2IrcpY
                 - RkCuLA5gHiIHEb
               - **escalada**: Mont Blanc
+              - **setor**: Bloco: Mont Blanc
+              - **grupo**: Mont Blanc
               - **ids**:
                 - 6JvgIjni2IrcpY
                 - RkCuLA5gHiIHEb
@@ -8091,6 +8664,8 @@
                 - mcykqIBH26Ck8Q
                 - RkCuLA5gHiIHEb
               - **escalada**: Mont Blanc do Oeste
+              - **setor**: Bloco: Mont Blanc
+              - **grupo**: Mont Blanc
               - **ids**:
                 - mcykqIBH26Ck8Q
                 - RkCuLA5gHiIHEb
@@ -8099,6 +8674,8 @@
               - **pontos_uids**:
                 - mmifEVOuE1eovt
               - **escalada**: Deja Ir
+              - **setor**: Bloco: Mont Blanc
+              - **grupo**: Mont Blanc
               - **ids**:
                 - mmifEVOuE1eovt
         - **[1]**:
@@ -8121,6 +8698,8 @@
               - **pontos_uids**:
                 - hwjFloVQJNPvzA
               - **escalada**: Colibri
+              - **setor**: Bloco: Mont Blanc
+              - **grupo**: Mont Blanc
               - **ids**:
                 - hwjFloVQJNPvzA
         - **[2]**:
@@ -8143,6 +8722,8 @@
               - **pontos_uids**:
                 - o9kifzUkZpAbpV
               - **escalada**: 011
+              - **setor**: Bloco: Mont Blanc
+              - **grupo**: Mont Blanc
               - **ids**:
                 - o9kifzUkZpAbpV
         - **[3]**:
@@ -8202,6 +8783,8 @@
                 - QItOyfVn5aBd7w
                 - IjQowFLvchErDe
               - **escalada**: Raízes do Brasil
+              - **setor**: Bloco: Mont Blanc
+              - **grupo**: Mont Blanc
               - **ids**:
                 - QItOyfVn5aBd7w
                 - IjQowFLvchErDe
@@ -8211,6 +8794,8 @@
                 - NpREQQ1xHmvTTK
                 - IjQowFLvchErDe
               - **escalada**: Raízes do Cerrado
+              - **setor**: Bloco: Mont Blanc
+              - **grupo**: Mont Blanc
               - **ids**:
                 - NpREQQ1xHmvTTK
                 - IjQowFLvchErDe
@@ -8220,6 +8805,8 @@
                 - iHulBl47wvUsPt
                 - PrJLXRnuMdWN81
               - **escalada**: Super Bonder
+              - **setor**: Bloco: Mont Blanc
+              - **grupo**: Mont Blanc
               - **ids**:
                 - iHulBl47wvUsPt
                 - PrJLXRnuMdWN81
@@ -8229,6 +8816,8 @@
                 - NpREQQ1xHmvTTK
                 - PrJLXRnuMdWN81
               - **escalada**: Tec Bond
+              - **setor**: Bloco: Mont Blanc
+              - **grupo**: Mont Blanc
               - **ids**:
                 - NpREQQ1xHmvTTK
                 - PrJLXRnuMdWN81
@@ -8375,6 +8964,8 @@
                 - Yv9QyDEhXlVIw2
                 - 8FivKRD2b2uyR9
               - **escalada**: Parada Obrigatória
+              - **setor**: Bloco: Parada Obrigatória
+              - **grupo**: Mont Blanc
               - **ids**:
                 - Yv9QyDEhXlVIw2
                 - 8FivKRD2b2uyR9
@@ -8384,6 +8975,8 @@
                 - Yv9QyDEhXlVIw2
                 - fmgUnNB9iLw6sp
               - **escalada**: Rio Doce
+              - **setor**: Bloco: Parada Obrigatória
+              - **grupo**: Mont Blanc
               - **ids**:
                 - Yv9QyDEhXlVIw2
                 - fmgUnNB9iLw6sp
@@ -8393,6 +8986,8 @@
                 - Yv9QyDEhXlVIw2
                 - LIHRJtfgQRPJER
               - **escalada**: Rio das Velhas
+              - **setor**: Bloco: Parada Obrigatória
+              - **grupo**: Mont Blanc
               - **ids**:
                 - Yv9QyDEhXlVIw2
                 - LIHRJtfgQRPJER
@@ -8402,6 +8997,8 @@
                 - Gl7F6RahQnCRwL
                 - LIHRJtfgQRPJER
               - **escalada**: Igarapé
+              - **setor**: Bloco: Parada Obrigatória
+              - **grupo**: Mont Blanc
               - **ids**:
                 - Gl7F6RahQnCRwL
                 - LIHRJtfgQRPJER
@@ -8443,6 +9040,8 @@
               - **pontos_uids**:
                 - pQmgDQVRc5lTIi
               - **escalada**: Frasco
+              - **setor**: Bloco: Parada Obrigatória
+              - **grupo**: Mont Blanc
               - **ids**:
                 - pQmgDQVRc5lTIi
             - **[1]**:
@@ -8450,6 +9049,8 @@
               - **pontos_uids**:
                 - zV4qD2JlV2XjVt
               - **escalada**: Frisco
+              - **setor**: Bloco: Parada Obrigatória
+              - **grupo**: Mont Blanc
               - **ids**:
                 - zV4qD2JlV2XjVt
             - **[2]**:
@@ -8457,6 +9058,8 @@
               - **pontos_uids**:
                 - bvoxRdNNUAyNG5
               - **escalada**: Fulano
+              - **setor**: Bloco: Parada Obrigatória
+              - **grupo**: Mont Blanc
               - **ids**:
                 - bvoxRdNNUAyNG5
       - **escaladas**:
@@ -8588,6 +9191,8 @@
                 - iy1FEogziPepyS
                 - YyFlc2QYp36NXy
               - **escalada**: Dolinha
+              - **setor**: Bloco: Salão dos Ossos
+              - **grupo**: Mont Blanc
               - **ids**:
                 - iy1FEogziPepyS
                 - YyFlc2QYp36NXy
@@ -8597,6 +9202,8 @@
                 - embankF29SyGbK
                 - c594kRFZ2Z2Ifb
               - **escalada**: 012
+              - **setor**: Bloco: Salão dos Ossos
+              - **grupo**: Mont Blanc
               - **ids**:
                 - embankF29SyGbK
                 - c594kRFZ2Z2Ifb
@@ -8606,6 +9213,8 @@
                 - NXvzcxkuj4puZq
                 - c594kRFZ2Z2Ifb
               - **escalada**: 013
+              - **setor**: Bloco: Salão dos Ossos
+              - **grupo**: Mont Blanc
               - **ids**:
                 - NXvzcxkuj4puZq
                 - c594kRFZ2Z2Ifb
@@ -8615,6 +9224,8 @@
                 - NXvzcxkuj4puZq
                 - YyFlc2QYp36NXy
               - **escalada**: Salão dos Ossos
+              - **setor**: Bloco: Salão dos Ossos
+              - **grupo**: Mont Blanc
               - **ids**:
                 - NXvzcxkuj4puZq
                 - YyFlc2QYp36NXy
@@ -8624,6 +9235,8 @@
                 - 8SLRBV9uUW6imY
                 - YyFlc2QYp36NXy
               - **escalada**: Osso
+              - **setor**: Bloco: Salão dos Ossos
+              - **grupo**: Mont Blanc
               - **ids**:
                 - 8SLRBV9uUW6imY
                 - YyFlc2QYp36NXy
@@ -8633,6 +9246,8 @@
                 - bs2JHxB6lPRPIW
                 - YyFlc2QYp36NXy
               - **escalada**: Osso Duro de Roer
+              - **setor**: Bloco: Salão dos Ossos
+              - **grupo**: Mont Blanc
               - **ids**:
                 - bs2JHxB6lPRPIW
                 - YyFlc2QYp36NXy
@@ -8642,6 +9257,8 @@
                 - bs2JHxB6lPRPIW
                 - r6KBHc6qeU9eth
               - **escalada**: Tutano
+              - **setor**: Bloco: Salão dos Ossos
+              - **grupo**: Mont Blanc
               - **ids**:
                 - bs2JHxB6lPRPIW
                 - r6KBHc6qeU9eth
@@ -8738,6 +9355,8 @@
                 - cGh2akFNlCQQlG
                 - fvY2ZpJM2UwKQ5
               - **escalada**: Toe de Ouro
+              - **setor**: Bloco: O Pequeno
+              - **grupo**: Mont Blanc
               - **ids**:
                 - cGh2akFNlCQQlG
                 - fvY2ZpJM2UwKQ5
@@ -8747,6 +9366,8 @@
                 - cGh2akFNlCQQlG
                 - 5G5znfvdHlcHev
               - **escalada**: Toebogã
+              - **setor**: Bloco: O Pequeno
+              - **grupo**: Mont Blanc
               - **ids**:
                 - cGh2akFNlCQQlG
                 - 5G5znfvdHlcHev
@@ -8756,6 +9377,8 @@
                 - MkDRSzdvQ5toKx
                 - 5G5znfvdHlcHev
               - **escalada**: Tobocrash
+              - **setor**: Bloco: O Pequeno
+              - **grupo**: Mont Blanc
               - **ids**:
                 - MkDRSzdvQ5toKx
                 - 5G5znfvdHlcHev
@@ -8788,6 +9411,8 @@
               - **pontos_uids**:
                 - tY1nTcL3ZIeNPj
               - **escalada**: Jardim de Inverno
+              - **setor**: Bloco: O Pequeno
+              - **grupo**: Mont Blanc
               - **ids**:
                 - tY1nTcL3ZIeNPj
             - **[1]**:
@@ -8795,6 +9420,8 @@
               - **pontos_uids**:
                 - HuwkDIFVQorXoB
               - **escalada**: O Pequeno
+              - **setor**: Bloco: O Pequeno
+              - **grupo**: Mont Blanc
               - **ids**:
                 - HuwkDIFVQorXoB
       - **escaladas**:
@@ -8880,6 +9507,8 @@
                 - mQdcLk7qlWjp2d
                 - Lte8XncHgaNmFd
               - **escalada**: Cabocla da Mata
+              - **setor**: Bloco: Cabocla da Mata
+              - **grupo**: Mont Blanc
               - **ids**:
                 - mQdcLk7qlWjp2d
                 - Lte8XncHgaNmFd
@@ -8889,6 +9518,8 @@
                 - WEqk1aIQXSbAkW
                 - TSoH4i8gPYTm6v
               - **escalada**: Caboclo das Sete Encruzilhadas
+              - **setor**: Bloco: Cabocla da Mata
+              - **grupo**: Mont Blanc
               - **ids**:
                 - WEqk1aIQXSbAkW
                 - TSoH4i8gPYTm6v
@@ -8960,6 +9591,8 @@
                 - MvSHoJbv6C9xyh
                 - Ne63tQjsWUb2c5
               - **escalada**: Transição
+              - **setor**: Bloco: Silêncio da Mutuca
+              - **grupo**: Mont Blanc
               - **ids**:
                 - MvSHoJbv6C9xyh
                 - Ne63tQjsWUb2c5
@@ -8969,6 +9602,8 @@
                 - MvSHoJbv6C9xyh
                 - TeZY5RBos2Wetp
               - **escalada**: Silêncio da Mutuca
+              - **setor**: Bloco: Silêncio da Mutuca
+              - **grupo**: Mont Blanc
               - **ids**:
                 - MvSHoJbv6C9xyh
                 - TeZY5RBos2Wetp
@@ -8977,6 +9612,8 @@
               - **pontos_uids**:
                 - Gi7yVR5bMxWjYz
               - **escalada**: Íngreme
+              - **setor**: Bloco: Silêncio da Mutuca
+              - **grupo**: Mont Blanc
               - **ids**:
                 - Gi7yVR5bMxWjYz
       - **escaladas**:
@@ -9051,6 +9688,8 @@
               - **pontos_uids**:
                 - AL4p6NTF4jYqgi
               - **escalada**: Heavy Metal
+              - **setor**: Bloco: Espreguiçadeira
+              - **grupo**: Mont Blanc
               - **ids**:
                 - AL4p6NTF4jYqgi
             - **[1]**:
@@ -9059,6 +9698,8 @@
                 - PQEVM9a5Rtz4PU
                 - rcAJzlsLeMsdXf
               - **escalada**: Rock n Roll
+              - **setor**: Bloco: Espreguiçadeira
+              - **grupo**: Mont Blanc
               - **ids**:
                 - PQEVM9a5Rtz4PU
                 - rcAJzlsLeMsdXf
@@ -9068,6 +9709,8 @@
                 - PQEVM9a5Rtz4PU
                 - ZQigMQVlnrV0CG
               - **escalada**: Hard Core
+              - **setor**: Bloco: Espreguiçadeira
+              - **grupo**: Mont Blanc
               - **ids**:
                 - PQEVM9a5Rtz4PU
                 - ZQigMQVlnrV0CG
@@ -9180,6 +9823,7 @@
         - **pontos_uids**:
           - Tftzc71XEppuC7
         - **setor**: Bloco: Bonsai
+        - **grupo**: Bonsai
         - **ids**:
           - Tftzc71XEppuC7
       - **[1]**:
@@ -9187,6 +9831,7 @@
         - **pontos_uids**:
           - kpoEkNgtz0DRpJ
         - **setor**: Bloco: Crocância
+        - **grupo**: Bonsai
         - **ids**:
           - kpoEkNgtz0DRpJ
       - **[2]**:
@@ -9194,6 +9839,7 @@
         - **pontos_uids**:
           - 1Xrb7MJpEQYNBs
         - **setor**: Bloco: Mantra
+        - **grupo**: Bonsai
         - **ids**:
           - 1Xrb7MJpEQYNBs
       - **[3]**:
@@ -9201,6 +9847,7 @@
         - **pontos_uids**:
           - 9Bednxz56U3UQp
         - **setor**: Bloco: Dali Goiabada
+        - **grupo**: Bonsai
         - **ids**:
           - 9Bednxz56U3UQp
       - **[4]**:
@@ -9208,6 +9855,7 @@
         - **pontos_uids**:
           - XbWxQ39tPOYta3
         - **setor**: Bloco: Seg-Samambaia
+        - **grupo**: Bonsai
         - **ids**:
           - XbWxQ39tPOYta3
       - **[5]**:
@@ -9215,6 +9863,7 @@
         - **pontos_uids**:
           - iykOwP7yoplP9B
         - **setor**: Bloco: Pedra
+        - **grupo**: Bonsai
         - **ids**:
           - iykOwP7yoplP9B
 - **setores**:
@@ -9281,6 +9930,8 @@
                 - eYmwLmRNLpxFIW
                 - Sh0MdJuJbf04RK
               - **escalada**: Possível
+              - **setor**: Bloco: Bonsai
+              - **grupo**: Bonsai
               - **ids**:
                 - eYmwLmRNLpxFIW
                 - Sh0MdJuJbf04RK
@@ -9290,6 +9941,8 @@
                 - eYmwLmRNLpxFIW
                 - VFwLSz5o8UBNYB
               - **escalada**: Bonsai
+              - **setor**: Bloco: Bonsai
+              - **grupo**: Bonsai
               - **ids**:
                 - eYmwLmRNLpxFIW
                 - VFwLSz5o8UBNYB
@@ -9299,6 +9952,8 @@
                 - eYmwLmRNLpxFIW
                 - OtNZqk58rCH23s
               - **escalada**: Bonsai do Cerrado
+              - **setor**: Bloco: Bonsai
+              - **grupo**: Bonsai
               - **ids**:
                 - eYmwLmRNLpxFIW
                 - OtNZqk58rCH23s
@@ -9308,6 +9963,8 @@
                 - UCxFNcOISIcCsI
                 - OtNZqk58rCH23s
               - **escalada**: Mancada
+              - **setor**: Bloco: Bonsai
+              - **grupo**: Bonsai
               - **ids**:
                 - UCxFNcOISIcCsI
                 - OtNZqk58rCH23s
@@ -9361,6 +10018,8 @@
               - **pontos_uids**:
                 - 5V4CGtuGeI17Dp
               - **escalada**: Beija-Flor
+              - **setor**: Bloco: Crocância
+              - **grupo**: Bonsai
               - **ids**:
                 - 5V4CGtuGeI17Dp
         - **[1]**:
@@ -9383,6 +10042,8 @@
               - **pontos_uids**:
                 - skhIwVhk35YLWm
               - **escalada**: Tarântula
+              - **setor**: Bloco: Crocância
+              - **grupo**: Bonsai
               - **ids**:
                 - skhIwVhk35YLWm
         - **[2]**:
@@ -9442,6 +10103,8 @@
                 - XHHGcCyIy6q9Zj
                 - DyHx4RqjGYGAqz
               - **escalada**: Porém
+              - **setor**: Bloco: Crocância
+              - **grupo**: Bonsai
               - **ids**:
                 - XHHGcCyIy6q9Zj
                 - DyHx4RqjGYGAqz
@@ -9451,6 +10114,8 @@
                 - XHHGcCyIy6q9Zj
                 - ikfr7CYqGetXgD
               - **escalada**: Xaxado
+              - **setor**: Bloco: Crocância
+              - **grupo**: Bonsai
               - **ids**:
                 - XHHGcCyIy6q9Zj
                 - ikfr7CYqGetXgD
@@ -9460,6 +10125,8 @@
                 - 6UyGI7SsYplQiE
                 - DyHx4RqjGYGAqz
               - **escalada**: Crocância do Além
+              - **setor**: Bloco: Crocância
+              - **grupo**: Bonsai
               - **ids**:
                 - 6UyGI7SsYplQiE
                 - DyHx4RqjGYGAqz
@@ -9469,6 +10136,8 @@
                 - VkIzm4jA49p7PR
                 - ikfr7CYqGetXgD
               - **escalada**: Rouba Monte
+              - **setor**: Bloco: Crocância
+              - **grupo**: Bonsai
               - **ids**:
                 - VkIzm4jA49p7PR
                 - ikfr7CYqGetXgD
@@ -9537,6 +10206,8 @@
               - **pontos_uids**:
                 - MvuR0YL1GkW4vS
               - **escalada**: Lodo
+              - **setor**: Bloco: Crocância
+              - **grupo**: Bonsai
               - **ids**:
                 - MvuR0YL1GkW4vS
             - **[1]**:
@@ -9545,6 +10216,8 @@
                 - wxte9kCW3QjnTo
                 - moSXTONeTttaDi
               - **escalada**: Crocância
+              - **setor**: Bloco: Crocância
+              - **grupo**: Bonsai
               - **ids**:
                 - wxte9kCW3QjnTo
                 - moSXTONeTttaDi
@@ -9554,6 +10227,8 @@
                 - wxte9kCW3QjnTo
                 - 9mHT4IGAaNu9P2
               - **escalada**: Crocância Rouba Monte
+              - **setor**: Bloco: Crocância
+              - **grupo**: Bonsai
               - **ids**:
                 - wxte9kCW3QjnTo
                 - 9mHT4IGAaNu9P2
@@ -9563,6 +10238,8 @@
                 - xTlsrNV6Kxyj7L
                 - moSXTONeTttaDi
               - **escalada**: Crocância sds
+              - **setor**: Bloco: Crocância
+              - **grupo**: Bonsai
               - **ids**:
                 - xTlsrNV6Kxyj7L
                 - moSXTONeTttaDi
@@ -9572,6 +10249,8 @@
                 - xTlsrNV6Kxyj7L
                 - 9mHT4IGAaNu9P2
               - **escalada**: Crocância Rouba Monte sds
+              - **setor**: Bloco: Crocância
+              - **grupo**: Bonsai
               - **ids**:
                 - xTlsrNV6Kxyj7L
                 - 9mHT4IGAaNu9P2
@@ -9581,6 +10260,8 @@
                 - EfagVwc1dZPULv
                 - 9mHT4IGAaNu9P2
               - **escalada**: Rouba Monte
+              - **setor**: Bloco: Crocância
+              - **grupo**: Bonsai
               - **ids**:
                 - EfagVwc1dZPULv
                 - 9mHT4IGAaNu9P2
@@ -9687,6 +10368,8 @@
               - **pontos_uids**:
                 - swivpWDUiF2hUv
               - **escalada**: Briga de Galo
+              - **setor**: Bloco: Mantra
+              - **grupo**: Bonsai
               - **ids**:
                 - swivpWDUiF2hUv
             - **[1]**:
@@ -9694,6 +10377,8 @@
               - **pontos_uids**:
                 - 6HzIbrqrhUKjK7
               - **escalada**: Oráculo
+              - **setor**: Bloco: Mantra
+              - **grupo**: Bonsai
               - **ids**:
                 - 6HzIbrqrhUKjK7
             - **[2]**:
@@ -9701,6 +10386,8 @@
               - **pontos_uids**:
                 - sOEFH2OXl4CpnE
               - **escalada**: 014
+              - **setor**: Bloco: Mantra
+              - **grupo**: Bonsai
               - **ids**:
                 - sOEFH2OXl4CpnE
         - **[1]**:
@@ -9768,6 +10455,8 @@
               - **pontos_uids**:
                 - MTqnvw9GP0vc4k
               - **escalada**: Afrodisíaco
+              - **setor**: Bloco: Mantra
+              - **grupo**: Bonsai
               - **ids**:
                 - MTqnvw9GP0vc4k
             - **[1]**:
@@ -9776,6 +10465,8 @@
                 - Nwid5rKY8lJ3Z4
                 - oYwWnXIqDL8bcX
               - **escalada**: Lava Pés
+              - **setor**: Bloco: Mantra
+              - **grupo**: Bonsai
               - **ids**:
                 - Nwid5rKY8lJ3Z4
                 - oYwWnXIqDL8bcX
@@ -9785,6 +10476,8 @@
                 - Nwid5rKY8lJ3Z4
                 - R617rmY3DBebRB
               - **escalada**: Mantra
+              - **setor**: Bloco: Mantra
+              - **grupo**: Bonsai
               - **ids**:
                 - Nwid5rKY8lJ3Z4
                 - R617rmY3DBebRB
@@ -9794,6 +10487,8 @@
                 - Nwid5rKY8lJ3Z4
                 - 4UrdhduRFIkabx
               - **escalada**: Samadhi
+              - **setor**: Bloco: Mantra
+              - **grupo**: Bonsai
               - **ids**:
                 - Nwid5rKY8lJ3Z4
                 - 4UrdhduRFIkabx
@@ -9803,6 +10498,8 @@
                 - 4Q7RJGV3mTAoyv
                 - 4UrdhduRFIkabx
               - **escalada**: Tantra
+              - **setor**: Bloco: Mantra
+              - **grupo**: Bonsai
               - **ids**:
                 - 4Q7RJGV3mTAoyv
                 - 4UrdhduRFIkabx
@@ -9835,6 +10532,8 @@
               - **pontos_uids**:
                 - Hd8ZYqXFVBySqn
               - **escalada**: Psicótico
+              - **setor**: Bloco: Mantra
+              - **grupo**: Bonsai
               - **ids**:
                 - Hd8ZYqXFVBySqn
             - **[1]**:
@@ -9842,6 +10541,8 @@
               - **pontos_uids**:
                 - mPTWTqHwHYo3JX
               - **escalada**: Popeye
+              - **setor**: Bloco: Mantra
+              - **grupo**: Bonsai
               - **ids**:
                 - mPTWTqHwHYo3JX
       - **escaladas**:
@@ -9924,6 +10625,8 @@
               - **pontos_uids**:
                 - BA24VNJ0VmjBfv
               - **escalada**: Dali Goiabada
+              - **setor**: Bloco: Dali Goiabada
+              - **grupo**: Bonsai
               - **ids**:
                 - BA24VNJ0VmjBfv
       - **escaladas**:
@@ -9998,6 +10701,8 @@
                 - eQpc6VdG3XOvjl
                 - c8uBBzY6TrT4cp
               - **escalada**: Seg da Árvore
+              - **setor**: Bloco: Seg-Samambaia
+              - **grupo**: Bonsai
               - **ids**:
                 - eQpc6VdG3XOvjl
                 - c8uBBzY6TrT4cp
@@ -10007,6 +10712,8 @@
                 - faJjyMn6lUXKC5
                 - c8uBBzY6TrT4cp
               - **escalada**: Seg-Samambaia
+              - **setor**: Bloco: Seg-Samambaia
+              - **grupo**: Bonsai
               - **ids**:
                 - faJjyMn6lUXKC5
                 - c8uBBzY6TrT4cp
@@ -10016,6 +10723,8 @@
                 - oGrDWnYBXuaYa6
                 - c8uBBzY6TrT4cp
               - **escalada**: Seg dos Inferno
+              - **setor**: Bloco: Seg-Samambaia
+              - **grupo**: Bonsai
               - **ids**:
                 - oGrDWnYBXuaYa6
                 - c8uBBzY6TrT4cp
@@ -10025,6 +10734,8 @@
                 - LbZZscRzpKlkma
                 - c8uBBzY6TrT4cp
               - **escalada**: Toca Toca
+              - **setor**: Bloco: Seg-Samambaia
+              - **grupo**: Bonsai
               - **ids**:
                 - LbZZscRzpKlkma
                 - c8uBBzY6TrT4cp
@@ -10115,6 +10826,8 @@
                 - iT2pftH9RJqP2v
                 - XsJiogzBuYvaYm
               - **escalada**: Billy The Kid
+              - **setor**: Bloco: Pedra
+              - **grupo**: Bonsai
               - **ids**:
                 - iT2pftH9RJqP2v
                 - XsJiogzBuYvaYm
@@ -10124,6 +10837,8 @@
                 - iT2pftH9RJqP2v
                 - KeOcPkJyh6wVDk
               - **escalada**: Durango Kid
+              - **setor**: Bloco: Pedra
+              - **grupo**: Bonsai
               - **ids**:
                 - iT2pftH9RJqP2v
                 - KeOcPkJyh6wVDk
@@ -10133,6 +10848,8 @@
                 - iT2pftH9RJqP2v
                 - am7kDpFZNKlVwN
               - **escalada**: Pedra
+              - **setor**: Bloco: Pedra
+              - **grupo**: Bonsai
               - **ids**:
                 - iT2pftH9RJqP2v
                 - am7kDpFZNKlVwN
@@ -10141,6 +10858,8 @@
               - **pontos_uids**:
                 - x97Dv8i4d7CeMn
               - **escalada**: Semiárido
+              - **setor**: Bloco: Pedra
+              - **grupo**: Bonsai
               - **ids**:
                 - x97Dv8i4d7CeMn
       - **escaladas**:
@@ -10199,6 +10918,8 @@
               - **pontos_uids**:
                 - LziTsR3J4eKcpb
               - **escalada**: Prodígio
+              - **setor**: Prodígio
+              - **grupo**: Bonsai
               - **ids**:
                 - LziTsR3J4eKcpb
       - **precomputados**:

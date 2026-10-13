@@ -354,6 +354,8 @@
               - **pontos_uids**:
                 - 2bZDgc2M7eZx9U
               - **escalada**: En Passant
+              - **setor**: Rota Interna
+              - **grupo**: Três Pontões (CEMONTA)
               - **ids**:
                 - 2bZDgc2M7eZx9U
             - **[1]**:
@@ -361,6 +363,8 @@
               - **pontos_uids**:
                 - 07TnudY43iCIDx
               - **escalada**: Mamangava
+              - **setor**: Rota Interna
+              - **grupo**: Três Pontões (CEMONTA)
               - **ids**:
                 - 07TnudY43iCIDx
             - **[2]**:
@@ -368,6 +372,8 @@
               - **pontos_uids**:
                 - TN77ipGhZySVMR
               - **escalada**: Rio Minas
+              - **setor**: Rota Interna
+              - **grupo**: Três Pontões (CEMONTA)
               - **ids**:
                 - TN77ipGhZySVMR
             - **[3]**:
@@ -375,6 +381,8 @@
               - **pontos_uids**:
                 - HrA2wwAY9rDH9y
               - **escalada**: Minas Rio
+              - **setor**: Rota Interna
+              - **grupo**: Três Pontões (CEMONTA)
               - **ids**:
                 - HrA2wwAY9rDH9y
             - **[4]**:
@@ -382,6 +390,8 @@
               - **pontos_uids**:
                 - gYM7M9v7HyCmmN
               - **escalada**: Chaminé do Brevê
+              - **setor**: Rota Interna
+              - **grupo**: Três Pontões (CEMONTA)
               - **ids**:
                 - gYM7M9v7HyCmmN
             - **[5]**:
@@ -389,6 +399,8 @@
               - **pontos_uids**:
                 - YjRUYVtmBEVcTd
               - **escalada**: Quimera
+              - **setor**: Rota Interna
+              - **grupo**: Três Pontões (CEMONTA)
               - **ids**:
                 - YjRUYVtmBEVcTd
             - **[6]**:
@@ -396,6 +408,8 @@
               - **pontos_uids**:
                 - t5HODHpFx11Hry
               - **escalada**: Entre o Céu e o Inferno
+              - **setor**: Rota Interna
+              - **grupo**: Três Pontões (CEMONTA)
               - **ids**:
                 - t5HODHpFx11Hry
             - **[7]**:
@@ -403,6 +417,8 @@
               - **pontos_uids**:
                 - nVbvpgYuITMdmZ
               - **escalada**: Fissura Peter Pan
+              - **setor**: Rota Interna
+              - **grupo**: Três Pontões (CEMONTA)
               - **ids**:
                 - nVbvpgYuITMdmZ
             - **[8]**:
@@ -410,6 +426,8 @@
               - **pontos_uids**:
                 - M7kRNELOGcGOO3
               - **escalada**: Sombra (Rota Interna)
+              - **setor**: Rota Interna
+              - **grupo**: Três Pontões (CEMONTA)
               - **ids**:
                 - M7kRNELOGcGOO3
             - **[9]**:
@@ -417,6 +435,8 @@
               - **pontos_uids**:
                 - 0v1zNs7IMoZgui
               - **escalada**: Água Fresca
+              - **setor**: Rota Interna
+              - **grupo**: Três Pontões (CEMONTA)
               - **ids**:
                 - 0v1zNs7IMoZgui
       - **escaladas**:
@@ -644,6 +664,8 @@
               - **pontos_uids**:
                 - XdzJtWQMlOSuds
               - **escalada**: Consolo
+              - **setor**: Pontão Menor - Face Leste (Área da Esquina da Alegria)
+              - **grupo**: Três Pontões (CEMONTA)
               - **ids**:
                 - XdzJtWQMlOSuds
             - **[1]**:
@@ -651,6 +673,8 @@
               - **pontos_uids**:
                 - AiMk0Gs2gbO6gP
               - **escalada**: Porto Seguro
+              - **setor**: Pontão Menor - Face Leste (Área da Esquina da Alegria)
+              - **grupo**: Três Pontões (CEMONTA)
               - **ids**:
                 - AiMk0Gs2gbO6gP
             - **[2]**:
@@ -658,6 +682,8 @@
               - **pontos_uids**:
                 - daeJ3v1ykxDcH5
               - **escalada**: Rota das Âncoras
+              - **setor**: Pontão Menor - Face Leste (Área da Esquina da Alegria)
+              - **grupo**: Três Pontões (CEMONTA)
               - **ids**:
                 - daeJ3v1ykxDcH5
             - **[3]**:
@@ -665,6 +691,8 @@
               - **pontos_uids**:
                 - Ym147IYIO78UeB
               - **escalada**: O Retorno das Abelhas
+              - **setor**: Pontão Menor - Face Leste (Área da Esquina da Alegria)
+              - **grupo**: Três Pontões (CEMONTA)
               - **ids**:
                 - Ym147IYIO78UeB
             - **[4]**:
@@ -672,6 +700,8 @@
               - **pontos_uids**:
                 - gvsayeTP8b6NNA
               - **escalada**: Chaminé dos Militares
+              - **setor**: Pontão Menor - Face Leste (Área da Esquina da Alegria)
+              - **grupo**: Três Pontões (CEMONTA)
               - **ids**:
                 - gvsayeTP8b6NNA
             - **[5]**:
@@ -679,6 +709,8 @@
               - **pontos_uids**:
                 - yC8SZ7voXMi0eK
               - **escalada**: Os Iluminados
+              - **setor**: Pontão Menor - Face Leste (Área da Esquina da Alegria)
+              - **grupo**: Três Pontões (CEMONTA)
               - **ids**:
                 - yC8SZ7voXMi0eK
             - **[6]**:
@@ -686,6 +718,8 @@
               - **pontos_uids**:
                 - 2ODca2sbfLSEPC
               - **escalada**: Alta Tensão
+              - **setor**: Pontão Menor - Face Leste (Área da Esquina da Alegria)
+              - **grupo**: Três Pontões (CEMONTA)
               - **ids**:
                 - 2ODca2sbfLSEPC
             - **[7]**:
@@ -693,6 +727,8 @@
               - **pontos_uids**:
                 - ElCi1nttS8qGIQ
               - **escalada**: Esquina da Alegria
+              - **setor**: Pontão Menor - Face Leste (Área da Esquina da Alegria)
+              - **grupo**: Três Pontões (CEMONTA)
               - **ids**:
                 - ElCi1nttS8qGIQ
             - **[8]**:
@@ -700,6 +736,8 @@
               - **pontos_uids**:
                 - XS0T32jXw9o4Iz
               - **escalada**: Briga de Espadas
+              - **setor**: Pontão Menor - Face Leste (Área da Esquina da Alegria)
+              - **grupo**: Três Pontões (CEMONTA)
               - **ids**:
                 - XS0T32jXw9o4Iz
             - **[9]**:
@@ -707,6 +745,7 @@
               - **pontos_uids**:
                 - 8sX00WlmRRlPwL
               - **setor**: Rota Interna
+              - **grupo**: Três Pontões (CEMONTA)
               - **ids**:
                 - 8sX00WlmRRlPwL
             - **[10]**:
@@ -714,6 +753,8 @@
               - **pontos_uids**:
                 - e3ZlL4tkE9wdsg
               - **escalada**: Tempos de Guerra
+              - **setor**: Pontão Menor - Face Norte (Área da Guerra e Paz)
+              - **grupo**: Três Pontões (CEMONTA)
               - **ids**:
                 - e3ZlL4tkE9wdsg
       - **escaladas**:
@@ -944,6 +985,8 @@
               - **pontos_uids**:
                 - h5dGvxNWyNmm4j
               - **escalada**: Esquina da Alegria
+              - **setor**: Pontão Menor - Face Leste (Área da Esquina da Alegria)
+              - **grupo**: Três Pontões (CEMONTA)
               - **ids**:
                 - h5dGvxNWyNmm4j
             - **[1]**:
@@ -951,6 +994,8 @@
               - **pontos_uids**:
                 - QacNrFge82hPiB
               - **escalada**: Rosa de Hiroshima
+              - **setor**: Pontão Menor - Face Norte (Área da Guerra e Paz)
+              - **grupo**: Três Pontões (CEMONTA)
               - **ids**:
                 - QacNrFge82hPiB
             - **[2]**:
@@ -958,6 +1003,8 @@
               - **pontos_uids**:
                 - 3JPfUvjJm2Xxpn
               - **escalada**: Feitiço Irreversível
+              - **setor**: Pontão Menor - Face Norte (Área da Guerra e Paz)
+              - **grupo**: Três Pontões (CEMONTA)
               - **ids**:
                 - 3JPfUvjJm2Xxpn
             - **[3]**:
@@ -965,6 +1012,8 @@
               - **pontos_uids**:
                 - sI1ez3bbVDJkwc
               - **escalada**: Dois Bruxos e Uma Feiticeira
+              - **setor**: Pontão Menor - Face Norte (Área da Guerra e Paz)
+              - **grupo**: Três Pontões (CEMONTA)
               - **ids**:
                 - sI1ez3bbVDJkwc
             - **[4]**:
@@ -972,6 +1021,8 @@
               - **pontos_uids**:
                 - iqYVc3ftAfvaie
               - **escalada**: Spartacus
+              - **setor**: Pontão Menor - Face Norte (Área da Guerra e Paz)
+              - **grupo**: Três Pontões (CEMONTA)
               - **ids**:
                 - iqYVc3ftAfvaie
             - **[5]**:
@@ -979,6 +1030,8 @@
               - **pontos_uids**:
                 - MmdoBGnX75jSBo
               - **escalada**: Rubycon
+              - **setor**: Pontão Menor - Face Norte (Área da Guerra e Paz)
+              - **grupo**: Três Pontões (CEMONTA)
               - **ids**:
                 - MmdoBGnX75jSBo
             - **[6]**:
@@ -986,6 +1039,8 @@
               - **pontos_uids**:
                 - S86NzyTrTF1yWK
               - **escalada**: Variante da Rubycon
+              - **setor**: Pontão Menor - Face Norte (Área da Guerra e Paz)
+              - **grupo**: Três Pontões (CEMONTA)
               - **ids**:
                 - S86NzyTrTF1yWK
             - **[7]**:
@@ -993,6 +1048,8 @@
               - **pontos_uids**:
                 - gzhO2kTbVDi9Wu
               - **escalada**: Variante Teto da Guerra e Paz
+              - **setor**: Pontão Menor - Face Norte (Área da Guerra e Paz)
+              - **grupo**: Três Pontões (CEMONTA)
               - **ids**:
                 - gzhO2kTbVDi9Wu
             - **[8]**:
@@ -1000,6 +1057,8 @@
               - **pontos_uids**:
                 - edydkAH4qjToWk
               - **escalada**: Guerra e Paz
+              - **setor**: Pontão Menor - Face Norte (Área da Guerra e Paz)
+              - **grupo**: Três Pontões (CEMONTA)
               - **ids**:
                 - edydkAH4qjToWk
             - **[9]**:
@@ -1007,6 +1066,8 @@
               - **pontos_uids**:
                 - iMgab9rr2GDXtU
               - **escalada**: Tempos de Paz
+              - **setor**: Pontão Menor - Face Norte (Área da Guerra e Paz)
+              - **grupo**: Três Pontões (CEMONTA)
               - **ids**:
                 - iMgab9rr2GDXtU
             - **[10]**:
@@ -1014,6 +1075,8 @@
               - **pontos_uids**:
                 - ZiK0Z4TMEPbU3C
               - **escalada**: Tempos de Guerra
+              - **setor**: Pontão Menor - Face Norte (Área da Guerra e Paz)
+              - **grupo**: Três Pontões (CEMONTA)
               - **ids**:
                 - ZiK0Z4TMEPbU3C
             - **[11]**:
@@ -1021,6 +1084,8 @@
               - **pontos_uids**:
                 - 8nQ94pUiwkmybO
               - **escalada**: Rei Leônidas
+              - **setor**: Pontão Menor - Face Norte (Área da Guerra e Paz)
+              - **grupo**: Três Pontões (CEMONTA)
               - **ids**:
                 - 8nQ94pUiwkmybO
       - **escaladas**:
@@ -1271,6 +1336,8 @@
               - **pontos_uids**:
                 - RkYFWFuYyxkdFv
               - **escalada**: Sublime Inconsequência
+              - **setor**: Pontão Menor – Face Oeste (Cantinho - Dança Macabra)
+              - **grupo**: Três Pontões (CEMONTA)
               - **ids**:
                 - RkYFWFuYyxkdFv
             - **[1]**:
@@ -1278,6 +1345,8 @@
               - **pontos_uids**:
                 - N4rshwV0IUYAso
               - **escalada**: Chaminé do Lenheiro
+              - **setor**: Pontão Menor – Face Oeste (Cantinho - Dança Macabra)
+              - **grupo**: Três Pontões (CEMONTA)
               - **ids**:
                 - N4rshwV0IUYAso
             - **[2]**:
@@ -1285,6 +1354,8 @@
               - **pontos_uids**:
                 - eoWm0CKR73XfwA
               - **escalada**: Velho Gafanhoto
+              - **setor**: Pontão Menor – Face Oeste (Cantinho - Dança Macabra)
+              - **grupo**: Três Pontões (CEMONTA)
               - **ids**:
                 - eoWm0CKR73XfwA
             - **[3]**:
@@ -1292,6 +1363,8 @@
               - **pontos_uids**:
                 - cIaeV2r5Z98yBS
               - **escalada**: Jovem Gafanhoto
+              - **setor**: Pontão Menor – Face Oeste (Cantinho - Dança Macabra)
+              - **grupo**: Três Pontões (CEMONTA)
               - **ids**:
                 - cIaeV2r5Z98yBS
             - **[4]**:
@@ -1299,6 +1372,8 @@
               - **pontos_uids**:
                 - itgWwA7RRnoaA9
               - **escalada**: Pitelzinho Apimentado
+              - **setor**: Pontão Menor – Face Oeste (Cantinho - Dança Macabra)
+              - **grupo**: Três Pontões (CEMONTA)
               - **ids**:
                 - itgWwA7RRnoaA9
             - **[5]**:
@@ -1306,6 +1381,8 @@
               - **pontos_uids**:
                 - ZBEf0EOWyuAvzH
               - **escalada**: Dança Macabra
+              - **setor**: Pontão Menor – Face Oeste (Cantinho - Dança Macabra)
+              - **grupo**: Três Pontões (CEMONTA)
               - **ids**:
                 - ZBEf0EOWyuAvzH
             - **[6]**:
@@ -1313,6 +1390,8 @@
               - **pontos_uids**:
                 - EHTxzH5A3WH5qe
               - **escalada**: No Limite
+              - **setor**: Pontão Menor – Face Oeste (Cantinho - Dança Macabra)
+              - **grupo**: Três Pontões (CEMONTA)
               - **ids**:
                 - EHTxzH5A3WH5qe
             - **[7]**:
@@ -1320,6 +1399,8 @@
               - **pontos_uids**:
                 - EqIa8tLZykrXBN
               - **escalada**: Sangue Frio
+              - **setor**: Pontão Menor – Face Oeste (Cantinho - Dança Macabra)
+              - **grupo**: Três Pontões (CEMONTA)
               - **ids**:
                 - EqIa8tLZykrXBN
             - **[8]**:
@@ -1327,6 +1408,8 @@
               - **pontos_uids**:
                 - wjMMbxUss3LLjr
               - **escalada**: Sonho de Valsa
+              - **setor**: Pontão Menor – Face Oeste (Cantinho - Dança Macabra)
+              - **grupo**: Três Pontões (CEMONTA)
               - **ids**:
                 - wjMMbxUss3LLjr
             - **[9]**:
@@ -1334,6 +1417,8 @@
               - **pontos_uids**:
                 - 47V9S05m3kk1kX
               - **escalada**: Barbatana
+              - **setor**: Pontão Menor – Face Oeste (Cantinho - Dança Macabra)
+              - **grupo**: Três Pontões (CEMONTA)
               - **ids**:
                 - 47V9S05m3kk1kX
             - **[10]**:
@@ -1341,6 +1426,8 @@
               - **pontos_uids**:
                 - 3q7jI1r7jxCyPH
               - **escalada**: Roubadas
+              - **setor**: Pontão Menor – Face Oeste (Cantinho - Dança Macabra)
+              - **grupo**: Três Pontões (CEMONTA)
               - **ids**:
                 - 3q7jI1r7jxCyPH
       - **escaladas**:
@@ -1649,6 +1736,8 @@
               - **pontos_uids**:
                 - YlCT9fJsM84y36
               - **escalada**: Vai Amanhecer
+              - **setor**: Pontão Médio
+              - **grupo**: Três Pontões (CEMONTA)
               - **ids**:
                 - YlCT9fJsM84y36
             - **[1]**:
@@ -1656,6 +1745,8 @@
               - **pontos_uids**:
                 - traxtRSaqe1rNJ
               - **escalada**: Indignação
+              - **setor**: Pontão Médio
+              - **grupo**: Três Pontões (CEMONTA)
               - **ids**:
                 - traxtRSaqe1rNJ
             - **[2]**:
@@ -1663,6 +1754,8 @@
               - **pontos_uids**:
                 - nHegFgLzUwx48r
               - **escalada**: Nova Era
+              - **setor**: Pontão Médio
+              - **grupo**: Três Pontões (CEMONTA)
               - **ids**:
                 - nHegFgLzUwx48r
             - **[3]**:
@@ -1670,6 +1763,8 @@
               - **pontos_uids**:
                 - XEtvtEklPmHeOZ
               - **escalada**: Fissura Limites Invisíveis
+              - **setor**: Pontão Médio
+              - **grupo**: Três Pontões (CEMONTA)
               - **ids**:
                 - XEtvtEklPmHeOZ
             - **[4]**:
@@ -1677,6 +1772,8 @@
               - **pontos_uids**:
                 - huGyyQK8hhoRSB
               - **escalada**: Esalianos
+              - **setor**: Pontão Médio
+              - **grupo**: Três Pontões (CEMONTA)
               - **ids**:
                 - huGyyQK8hhoRSB
             - **[5]**:
@@ -1684,6 +1781,8 @@
               - **pontos_uids**:
                 - c23c1EcOTdiSyv
               - **escalada**: Lua de Mel
+              - **setor**: Pontão Médio
+              - **grupo**: Três Pontões (CEMONTA)
               - **ids**:
                 - c23c1EcOTdiSyv
             - **[6]**:
@@ -1691,6 +1790,8 @@
               - **pontos_uids**:
                 - 6b3VoR1g8UMdvw
               - **escalada**: Livre Para Voar
+              - **setor**: Pontão Médio
+              - **grupo**: Três Pontões (CEMONTA)
               - **ids**:
                 - 6b3VoR1g8UMdvw
             - **[7]**:
@@ -1698,6 +1799,8 @@
               - **pontos_uids**:
                 - ZtVbvq3fjdywvb
               - **escalada**: Olhos de Águia
+              - **setor**: Pontão Médio
+              - **grupo**: Três Pontões (CEMONTA)
               - **ids**:
                 - ZtVbvq3fjdywvb
             - **[8]**:
@@ -1705,6 +1808,8 @@
               - **pontos_uids**:
                 - RVd9k0mgRxMlPt
               - **escalada**: Sinfonia Fantástica
+              - **setor**: Pontão Médio
+              - **grupo**: Três Pontões (CEMONTA)
               - **ids**:
                 - RVd9k0mgRxMlPt
             - **[9]**:
@@ -1713,6 +1818,8 @@
                 - WnZq3IAtJB17PB
                 - kAVYqrNnLYpFd2
               - **escalada**: Vr. O Fantasma da Ópera
+              - **setor**: Pontão Médio
+              - **grupo**: Três Pontões (CEMONTA)
               - **ids**:
                 - WnZq3IAtJB17PB
                 - kAVYqrNnLYpFd2
@@ -1721,6 +1828,8 @@
               - **pontos_uids**:
                 - ucBrm7CoGnWfiM
               - **escalada**: Ópera Selvagem
+              - **setor**: Pontão Médio
+              - **grupo**: Três Pontões (CEMONTA)
               - **ids**:
                 - ucBrm7CoGnWfiM
             - **[11]**:
@@ -1729,6 +1838,8 @@
                 - ZPAG347fgIFSpH
                 - P0qTk6BfWHKI9y
               - **escalada**: Pânico na Colméia
+              - **setor**: Pontão Médio
+              - **grupo**: Três Pontões (CEMONTA)
               - **ids**:
                 - ZPAG347fgIFSpH
                 - P0qTk6BfWHKI9y
@@ -1737,6 +1848,7 @@
               - **pontos_uids**:
                 - vunZd3HhNLzmdB
               - **setor**: Pontão Menor – Face Oeste (Cantinho - Dança Macabra)
+              - **grupo**: Três Pontões (CEMONTA)
               - **ids**:
                 - vunZd3HhNLzmdB
         - **[1]**:
@@ -1777,6 +1889,8 @@
               - **pontos_uids**:
                 - ScZUaFUTpoUJcz
               - **escalada**: Sinfonia Fantástica
+              - **setor**: Pontão Médio
+              - **grupo**: Três Pontões (CEMONTA)
               - **ids**:
                 - ScZUaFUTpoUJcz
             - **[1]**:
@@ -1784,6 +1898,8 @@
               - **pontos_uids**:
                 - 1HWmJhW9mNsHpF
               - **escalada**: Vr. O Fantasma da Ópera
+              - **setor**: Pontão Médio
+              - **grupo**: Três Pontões (CEMONTA)
               - **ids**:
                 - 1HWmJhW9mNsHpF
             - **[2]**:
@@ -1791,6 +1907,8 @@
               - **pontos_uids**:
                 - i1EYaLm4Odr0OO
               - **escalada**: Ópera Selvagem
+              - **setor**: Pontão Médio
+              - **grupo**: Três Pontões (CEMONTA)
               - **ids**:
                 - i1EYaLm4Odr0OO
       - **escaladas**:
@@ -2161,6 +2279,8 @@
               - **pontos_uids**:
                 - 4c34NNx2b0Uutc
               - **escalada**: Energia do Diedro Mineral
+              - **setor**: Pontão Maior
+              - **grupo**: Três Pontões (CEMONTA)
               - **ids**:
                 - 4c34NNx2b0Uutc
             - **[1]**:
@@ -2168,6 +2288,8 @@
               - **pontos_uids**:
                 - QzUzcsmledAXhb
               - **escalada**: Entre Dois Mundos
+              - **setor**: Pontão Maior
+              - **grupo**: Três Pontões (CEMONTA)
               - **ids**:
                 - QzUzcsmledAXhb
             - **[2]**:
@@ -2175,6 +2297,8 @@
               - **pontos_uids**:
                 - HoMWTNVOBIkgfl
               - **escalada**: A Profecia
+              - **setor**: Pontão Maior
+              - **grupo**: Três Pontões (CEMONTA)
               - **ids**:
                 - HoMWTNVOBIkgfl
             - **[3]**:
@@ -2182,6 +2306,8 @@
               - **pontos_uids**:
                 - HoMWTNVOBIkgfl
               - **escalada**: A Profecia P1
+              - **setor**: Pontão Maior
+              - **grupo**: Três Pontões (CEMONTA)
               - **ids**:
                 - HoMWTNVOBIkgfl
             - **[4]**:
@@ -2189,6 +2315,8 @@
               - **pontos_uids**:
                 - nlLPV5xMtVoXwl
               - **escalada**: O Grande Encontro
+              - **setor**: Pontão Maior
+              - **grupo**: Três Pontões (CEMONTA)
               - **ids**:
                 - nlLPV5xMtVoXwl
             - **[5]**:
@@ -2196,6 +2324,8 @@
               - **pontos_uids**:
                 - UyPaCS67iiEhJ1
               - **escalada**: Variante Hardside
+              - **setor**: Pontão Maior
+              - **grupo**: Três Pontões (CEMONTA)
               - **ids**:
                 - UyPaCS67iiEhJ1
             - **[6]**:
@@ -2203,6 +2333,8 @@
               - **pontos_uids**:
                 - 9FFRISq5XLElgr
               - **escalada**: Variante da Lúcifer
+              - **setor**: Pontão Maior
+              - **grupo**: Três Pontões (CEMONTA)
               - **ids**:
                 - 9FFRISq5XLElgr
             - **[7]**:
@@ -2210,6 +2342,8 @@
               - **pontos_uids**:
                 - kYdYZlG3WjZlgY
               - **escalada**: Obra da Desistência
+              - **setor**: Pontão Maior
+              - **grupo**: Três Pontões (CEMONTA)
               - **ids**:
                 - kYdYZlG3WjZlgY
             - **[8]**:
@@ -2217,6 +2351,8 @@
               - **pontos_uids**:
                 - cidjgE6wJEDSd6
               - **escalada**: Macacos Ansiosos
+              - **setor**: Pontão Maior
+              - **grupo**: Três Pontões (CEMONTA)
               - **ids**:
                 - cidjgE6wJEDSd6
             - **[9]**:
@@ -2224,6 +2360,8 @@
               - **pontos_uids**:
                 - cidjgE6wJEDSd6
               - **escalada**: Macacos P1
+              - **setor**: Pontão Maior
+              - **grupo**: Três Pontões (CEMONTA)
               - **ids**:
                 - cidjgE6wJEDSd6
             - **[10]**:
@@ -2231,6 +2369,8 @@
               - **pontos_uids**:
                 - mfVhBtYybh4NQN
               - **escalada**: Visão Além do Alcance
+              - **setor**: Pontão Maior
+              - **grupo**: Três Pontões (CEMONTA)
               - **ids**:
                 - mfVhBtYybh4NQN
             - **[11]**:
@@ -2238,6 +2378,8 @@
               - **pontos_uids**:
                 - mfVhBtYybh4NQN
               - **escalada**: Início da Visão
+              - **setor**: Pontão Maior
+              - **grupo**: Três Pontões (CEMONTA)
               - **ids**:
                 - mfVhBtYybh4NQN
             - **[12]**:
@@ -2245,6 +2387,8 @@
               - **pontos_uids**:
                 - s7wjUFgBSVIYSF
               - **escalada**: Lúcifer
+              - **setor**: Pontão Maior
+              - **grupo**: Três Pontões (CEMONTA)
               - **ids**:
                 - s7wjUFgBSVIYSF
             - **[13]**:
@@ -2252,6 +2396,8 @@
               - **pontos_uids**:
                 - u5zvsUGYh7gKmc
               - **escalada**: Humildade e Disciplina
+              - **setor**: Pontão Maior
+              - **grupo**: Três Pontões (CEMONTA)
               - **ids**:
                 - u5zvsUGYh7gKmc
             - **[14]**:
@@ -2259,6 +2405,8 @@
               - **pontos_uids**:
                 - u5zvsUGYh7gKmc
               - **escalada**: Humilde Disciplina
+              - **setor**: Pontão Maior
+              - **grupo**: Três Pontões (CEMONTA)
               - **ids**:
                 - u5zvsUGYh7gKmc
             - **[15]**:
@@ -2266,6 +2414,8 @@
               - **pontos_uids**:
                 - egnE9TLwfKuKWb
               - **escalada**: Rivotril
+              - **setor**: Pontão Maior
+              - **grupo**: Três Pontões (CEMONTA)
               - **ids**:
                 - egnE9TLwfKuKWb
             - **[16]**:
@@ -2273,6 +2423,8 @@
               - **pontos_uids**:
                 - 6rf2yLOBphe8Nk
               - **escalada**: King Line
+              - **setor**: Pontão Maior
+              - **grupo**: Três Pontões (CEMONTA)
               - **ids**:
                 - 6rf2yLOBphe8Nk
             - **[17]**:
@@ -2280,6 +2432,8 @@
               - **pontos_uids**:
                 - yDA50GNyCnUpDk
               - **escalada**: Revolução da Espécie
+              - **setor**: Pontão Maior
+              - **grupo**: Três Pontões (CEMONTA)
               - **ids**:
                 - yDA50GNyCnUpDk
             - **[18]**:
@@ -2287,6 +2441,8 @@
               - **pontos_uids**:
                 - Le6HzPZPQgD6w8
               - **escalada**: O Ego é Seu Inimigo
+              - **setor**: Pontão Maior
+              - **grupo**: Três Pontões (CEMONTA)
               - **ids**:
                 - Le6HzPZPQgD6w8
             - **[19]**:
@@ -2294,6 +2450,8 @@
               - **pontos_uids**:
                 - YhxliMaYRSYFKD
               - **escalada**: Boca Loca
+              - **setor**: Pontão Maior
+              - **grupo**: Três Pontões (CEMONTA)
               - **ids**:
                 - YhxliMaYRSYFKD
             - **[20]**:
@@ -2301,6 +2459,8 @@
               - **pontos_uids**:
                 - mXWeFZzCzfgXci
               - **escalada**: Inimigo Mora ao Lado
+              - **setor**: Pontão Maior
+              - **grupo**: Três Pontões (CEMONTA)
               - **ids**:
                 - mXWeFZzCzfgXci
             - **[21]**:
@@ -2308,6 +2468,8 @@
               - **pontos_uids**:
                 - UfV85q3SGWHONj
               - **escalada**: O Mirador
+              - **setor**: Pontão Maior
+              - **grupo**: Três Pontões (CEMONTA)
               - **ids**:
                 - UfV85q3SGWHONj
             - **[22]**:
@@ -2315,6 +2477,8 @@
               - **pontos_uids**:
                 - oG2958Ztu3M690
               - **escalada**: Tinoco’s Friends
+              - **setor**: Pontão Maior
+              - **grupo**: Três Pontões (CEMONTA)
               - **ids**:
                 - oG2958Ztu3M690
             - **[23]**:
@@ -2322,6 +2486,8 @@
               - **pontos_uids**:
                 - FsaMCCmMItwNhK
               - **escalada**: Diedro dos Militares
+              - **setor**: Pontão Maior
+              - **grupo**: Três Pontões (CEMONTA)
               - **ids**:
                 - FsaMCCmMItwNhK
             - **[24]**:
@@ -2329,6 +2495,8 @@
               - **pontos_uids**:
                 - bgY5F7kvZu9pR5
               - **escalada**: Faleon
+              - **setor**: Pontão Maior
+              - **grupo**: Três Pontões (CEMONTA)
               - **ids**:
                 - bgY5F7kvZu9pR5
       - **escaladas**:
@@ -2663,6 +2831,8 @@
               - **pontos_uids**:
                 - I6LQdONoKqvqAo
               - **escalada**: Vale das Sombras
+              - **setor**: Setor Vale das Sombras
+              - **grupo**: Três Pontões (CEMONTA)
               - **ids**:
                 - I6LQdONoKqvqAo
             - **[1]**:
@@ -2670,6 +2840,8 @@
               - **pontos_uids**:
                 - KBsNPLrBCI1OKJ
               - **escalada**: A Emboscada
+              - **setor**: Setor Vale das Sombras
+              - **grupo**: Três Pontões (CEMONTA)
               - **ids**:
                 - KBsNPLrBCI1OKJ
             - **[2]**:
@@ -2677,6 +2849,8 @@
               - **pontos_uids**:
                 - KnKZzMJ8eTfznx
               - **escalada**: Dia D
+              - **setor**: Setor Vale das Sombras
+              - **grupo**: Três Pontões (CEMONTA)
               - **ids**:
                 - KnKZzMJ8eTfznx
           - **pontos_de_interesse**:
@@ -2793,6 +2967,7 @@
         - **pontos_uids**:
           - MTUgdmlZ58M0tx
         - **escalada**: Confessionário
+        - **setor**: Setor Ave Maria
         - **ids**:
           - MTUgdmlZ58M0tx
       - **[1]**:
@@ -2800,6 +2975,7 @@
         - **pontos_uids**:
           - SM9ZCPnYYngety
         - **escalada**: Pelo Amor de Deus
+        - **setor**: Setor Ave Maria
         - **ids**:
           - SM9ZCPnYYngety
       - **[2]**:
@@ -2807,6 +2983,7 @@
         - **pontos_uids**:
           - LxlivWbOvNTtqT
         - **escalada**: Livre Arbítrio
+        - **setor**: Setor Ave Maria
         - **ids**:
           - LxlivWbOvNTtqT
       - **[3]**:
@@ -2815,6 +2992,7 @@
           - pGOt5FZavQU8Xb
           - 2Pvl5GCmhW45Np
         - **escalada**: Purgatório
+        - **setor**: Setor Ave Maria
         - **ids**:
           - pGOt5FZavQU8Xb
           - 2Pvl5GCmhW45Np
@@ -2824,6 +3002,7 @@
           - 1GCOaZHG4HduJD
           - PMDHVykmnYxmP2
         - **escalada**: O Pão que o Diabo Amassou
+        - **setor**: Setor Ave Maria
         - **ids**:
           - 1GCOaZHG4HduJD
           - PMDHVykmnYxmP2
@@ -2833,6 +3012,7 @@
           - MfZAC80nqKEdnL
           - biEBj8XiJcMcd1
         - **escalada**: Calvário
+        - **setor**: Setor Ave Maria
         - **ids**:
           - MfZAC80nqKEdnL
           - biEBj8XiJcMcd1
@@ -2842,6 +3022,7 @@
           - n162rGG4IcVUGD
           - eprPq8cXVPic9U
         - **escalada**: Estigma
+        - **setor**: Setor Ave Maria
         - **ids**:
           - n162rGG4IcVUGD
           - eprPq8cXVPic9U
@@ -2851,6 +3032,7 @@
           - hN5n0EiJ6AJtG6
           - eGrSEiMxlMNFIF
         - **escalada**: Cheia de Graça
+        - **setor**: Setor Ave Maria
         - **ids**:
           - hN5n0EiJ6AJtG6
           - eGrSEiMxlMNFIF
@@ -2860,6 +3042,7 @@
           - 0Z02EWy6isDBvB
           - 67AvwYEt1cpUUw
         - **escalada**: Apocalipse
+        - **setor**: Setor Ave Maria
         - **ids**:
           - 0Z02EWy6isDBvB
           - 67AvwYEt1cpUUw
@@ -2869,6 +3052,7 @@
           - 3a9LCuk5h8fkQv
           - ujjkgQPnrupB3z
         - **escalada**: Ave Maria
+        - **setor**: Setor Ave Maria
         - **ids**:
           - 3a9LCuk5h8fkQv
           - ujjkgQPnrupB3z
@@ -2878,6 +3062,7 @@
           - x7Dnki5UP01wSm
           - tqJ6OSoWVL24Vk
         - **escalada**: Ajoelhou Tem Que Rezar
+        - **setor**: Setor Ave Maria
         - **ids**:
           - x7Dnki5UP01wSm
           - tqJ6OSoWVL24Vk
@@ -2887,6 +3072,7 @@
           - EUxQk1wUlcYx3P
           - HuXu6hdF62PIwY
         - **escalada**: Oratório
+        - **setor**: Setor Ave Maria
         - **ids**:
           - EUxQk1wUlcYx3P
           - HuXu6hdF62PIwY
@@ -2896,6 +3082,7 @@
           - LxMn09BZnDecAw
           - qXj8SQ7E4BK1UI
         - **escalada**: Água Benta
+        - **setor**: Setor Ave Maria
         - **ids**:
           - LxMn09BZnDecAw
           - qXj8SQ7E4BK1UI
@@ -2904,6 +3091,7 @@
         - **pontos_uids**:
           - FbV3lMS12DorBI
         - **escalada**: Primeira Comunhão
+        - **setor**: Setor Ave Maria
         - **ids**:
           - FbV3lMS12DorBI
       - **[14]**:
@@ -2911,6 +3099,7 @@
         - **pontos_uids**:
           - 0yfoWc0emPt5MA
         - **escalada**: ?
+        - **setor**: Setor Ave Maria
         - **ids**:
           - 0yfoWc0emPt5MA
     - **pontos_de_interesse**:
@@ -3159,6 +3348,7 @@
         - **pontos_uids**:
           - CJJdlAXzCN5IlT
         - **escalada**: Procissão das Almas
+        - **setor**: Setor Ave Maria
         - **ids**:
           - CJJdlAXzCN5IlT
     - **pontos_de_interesse**:
@@ -3181,6 +3371,7 @@
         - **pontos_uids**:
           - 32xbPsrHudsVEs
         - **escalada**: Bombonier da Sacristia
+        - **setor**: Setor Ave Maria
         - **ids**:
           - 32xbPsrHudsVEs
     - **pontos_de_interesse**:
@@ -3203,6 +3394,7 @@
         - **pontos_uids**:
           - RqCuF5gmqTdDeT
         - **escalada**: Anjos e Demônios
+        - **setor**: Setor Ave Maria
         - **ids**:
           - RqCuF5gmqTdDeT
       - **[1]**:
@@ -3210,6 +3402,7 @@
         - **pontos_uids**:
           - r3IgdgpCZwTAvN
         - **escalada**: Parabolts em Fúria
+        - **setor**: Setor Ave Maria
         - **ids**:
           - r3IgdgpCZwTAvN
       - **[2]**:
@@ -3217,6 +3410,7 @@
         - **pontos_uids**:
           - pzQewSyVP1NZgH
         - **escalada**: Contra-grip e resfriado
+        - **setor**: Setor Ave Maria
         - **ids**:
           - pzQewSyVP1NZgH
     - **pontos_de_interesse**:
@@ -3586,6 +3780,7 @@
         - **pontos_uids**:
           - kpWJmEbT1Yy9Ta
         - **escalada**: Ácido Clorídrico
+        - **setor**: Setor Ácidos
         - **ids**:
           - kpWJmEbT1Yy9Ta
       - **[1]**:
@@ -3593,6 +3788,7 @@
         - **pontos_uids**:
           - WXXZQv1WmcfW9p
         - **escalada**: Ácido Sulfúrico
+        - **setor**: Setor Ácidos
         - **ids**:
           - WXXZQv1WmcfW9p
       - **[2]**:
@@ -3600,6 +3796,7 @@
         - **pontos_uids**:
           - 3klMDctp1ErLJF
         - **escalada**: Ácido Lático
+        - **setor**: Setor Ácidos
         - **ids**:
           - 3klMDctp1ErLJF
       - **[3]**:
@@ -3607,6 +3804,7 @@
         - **pontos_uids**:
           - p7Frj8Ujs2zJOg
         - **escalada**: Olho Clínico
+        - **setor**: Setor Ácidos
         - **ids**:
           - p7Frj8Ujs2zJOg
       - **[4]**:
@@ -3614,6 +3812,7 @@
         - **pontos_uids**:
           - NKcaCA2700uVZb
         - **escalada**: Nitroglicerina
+        - **setor**: Setor Ácidos
         - **ids**:
           - NKcaCA2700uVZb
       - **[5]**:
@@ -3621,6 +3820,7 @@
         - **pontos_uids**:
           - gh5BUSzrMaX0Lu
         - **escalada**: Carga Explosiva
+        - **setor**: Setor Ácidos
         - **ids**:
           - gh5BUSzrMaX0Lu
       - **[6]**:
@@ -3628,6 +3828,7 @@
         - **pontos_uids**:
           - s1PjJfsUS6NnC9
         - **escalada**: Menina dos Olhos
+        - **setor**: Setor Ácidos
         - **ids**:
           - s1PjJfsUS6NnC9
       - **[7]**:
@@ -3635,6 +3836,7 @@
         - **pontos_uids**:
           - R2s8z4cQcqXmGO
         - **escalada**: Capitão Nascimento
+        - **setor**: Setor Ácidos
         - **ids**:
           - R2s8z4cQcqXmGO
       - **[8]**:
@@ -3642,6 +3844,7 @@
         - **pontos_uids**:
           - fO9lTvhpzdtcJy
         - **escalada**: Isolamento Social
+        - **setor**: Setor Ácidos
         - **ids**:
           - fO9lTvhpzdtcJy
       - **[9]**:
@@ -3802,6 +4005,7 @@
         - **pontos_uids**:
           - sG76wxhFjDU9Dt
         - **escalada**: Fissura Santíssima Trindade
+        - **setor**: Bloco dos Dois Dedos
         - **ids**:
           - sG76wxhFjDU9Dt
       - **[1]**:
@@ -3809,6 +4013,7 @@
         - **pontos_uids**:
           - lOgPvMlZWstwiv
         - **escalada**: Boca Murcha
+        - **setor**: Bloco dos Dois Dedos
         - **ids**:
           - lOgPvMlZWstwiv
       - **[2]**:
@@ -3816,6 +4021,7 @@
         - **pontos_uids**:
           - 9e48mLoxs2bw6K
         - **escalada**: Sorte de Principiante
+        - **setor**: Bloco dos Dois Dedos
         - **ids**:
           - 9e48mLoxs2bw6K
       - **[3]**:
@@ -3823,6 +4029,7 @@
         - **pontos_uids**:
           - rtBpMJOk7GYRTV
         - **escalada**: Pescador de Ilusões
+        - **setor**: Bloco dos Dois Dedos
         - **ids**:
           - rtBpMJOk7GYRTV
       - **[4]**:
@@ -3830,6 +4037,7 @@
         - **pontos_uids**:
           - 4DhqZVJ8WjcTld
         - **escalada**: Malvado Favorito
+        - **setor**: Bloco dos Dois Dedos
         - **ids**:
           - 4DhqZVJ8WjcTld
       - **[5]**:
@@ -3837,6 +4045,7 @@
         - **pontos_uids**:
           - K2aIufaMjSudjW
         - **escalada**: A Primeira e Gente Nunca Esquece
+        - **setor**: Bloco dos Dois Dedos
         - **ids**:
           - K2aIufaMjSudjW
       - **[6]**:
@@ -3844,6 +4053,7 @@
         - **pontos_uids**:
           - 7vRDuMQeKYQqS5
         - **escalada**: Fissura dos Dois Dedos
+        - **setor**: Bloco dos Dois Dedos
         - **ids**:
           - 7vRDuMQeKYQqS5
       - **[7]**:
@@ -3851,6 +4061,7 @@
         - **pontos_uids**:
           - yMYT0GYfYseO4S
         - **escalada**: O Retorno
+        - **setor**: Bloco dos Dois Dedos
         - **ids**:
           - yMYT0GYfYseO4S
       - **[8]**:
@@ -3858,6 +4069,7 @@
         - **pontos_uids**:
           - 0K0nHqrKOqO8R3
         - **escalada**: Sinergia
+        - **setor**: Bloco dos Dois Dedos
         - **ids**:
           - 0K0nHqrKOqO8R3
       - **[9]**:
@@ -3865,6 +4077,7 @@
         - **pontos_uids**:
           - 9TW0JPAfUSi07I
         - **escalada**: Chapeleta
+        - **setor**: Bloco dos Dois Dedos
         - **ids**:
           - 9TW0JPAfUSi07I
       - **[10]**:
@@ -3872,6 +4085,7 @@
         - **pontos_uids**:
           - 0CqbpJMiiYRHYm
         - **escalada**: Elo Perdido
+        - **setor**: Bloco dos Dois Dedos
         - **ids**:
           - 0CqbpJMiiYRHYm
       - **[11]**:
@@ -3879,6 +4093,7 @@
         - **pontos_uids**:
           - k0ewtYjPE0UWNw
         - **escalada**: Investida Invertida
+        - **setor**: Bloco dos Dois Dedos
         - **ids**:
           - k0ewtYjPE0UWNw
       - **[12]**:
@@ -3886,6 +4101,7 @@
         - **pontos_uids**:
           - E84PtkFcadOsoM
         - **escalada**: Domingão com Viagra
+        - **setor**: Bloco dos Dois Dedos
         - **ids**:
           - E84PtkFcadOsoM
       - **[13]**:
@@ -3893,6 +4109,7 @@
         - **pontos_uids**:
           - yqO2pKvC5rYiCh
         - **escalada**: Portal do Delírio
+        - **setor**: Bloco dos Dois Dedos
         - **ids**:
           - yqO2pKvC5rYiCh
       - **[14]**:
@@ -3900,6 +4117,7 @@
         - **pontos_uids**:
           - 11rLFGJOtGEl2C
         - **escalada**: Outra Dimensão
+        - **setor**: Bloco dos Dois Dedos
         - **ids**:
           - 11rLFGJOtGEl2C
       - **[15]**:
@@ -3907,6 +4125,7 @@
         - **pontos_uids**:
           - 8B6m58sgZGphzO
         - **escalada**: Variante Teto do Portal
+        - **setor**: Bloco dos Dois Dedos
         - **ids**:
           - 8B6m58sgZGphzO
       - **[16]**:
@@ -3914,6 +4133,7 @@
         - **pontos_uids**:
           - X2utE1cyLvQvmg
         - **escalada**: Mano de Quartzito
+        - **setor**: Bloco dos Dois Dedos
         - **ids**:
           - X2utE1cyLvQvmg
       - **[17]**:
@@ -3921,6 +4141,7 @@
         - **pontos_uids**:
           - D6cUekqSg3q2TR
         - **escalada**: Garimpeiros
+        - **setor**: Bloco dos Dois Dedos
         - **ids**:
           - D6cUekqSg3q2TR
       - **[18]**:
@@ -3928,6 +4149,7 @@
         - **pontos_uids**:
           - KhGkoJIXym2QSQ
         - **escalada**: Um Minuto de Silêncio
+        - **setor**: Bloco dos Dois Dedos
         - **ids**:
           - KhGkoJIXym2QSQ
       - **[19]**:
@@ -3935,6 +4157,7 @@
         - **pontos_uids**:
           - Vnne2qUpAkJWB9
         - **escalada**: Mina de Cristal
+        - **setor**: Bloco dos Dois Dedos
         - **ids**:
           - Vnne2qUpAkJWB9
       - **[20]**:
@@ -3942,6 +4165,7 @@
         - **pontos_uids**:
           - xgUprfAu1MF9AQ
         - **escalada**: Erva do Diabo
+        - **setor**: Bloco dos Dois Dedos
         - **ids**:
           - xgUprfAu1MF9AQ
       - **[21]**:
@@ -3949,6 +4173,7 @@
         - **pontos_uids**:
           - L9upM6ctEvBUoT
         - **escalada**: Olhos de Lince
+        - **setor**: Bloco dos Dois Dedos
         - **ids**:
           - L9upM6ctEvBUoT
       - **[22]**:
@@ -3956,6 +4181,7 @@
         - **pontos_uids**:
           - bwOPubk9dyVbEo
         - **escalada**: Da Toca Pra Cima
+        - **setor**: Bloco dos Dois Dedos
         - **ids**:
           - bwOPubk9dyVbEo
       - **[23]**:
@@ -3963,6 +4189,7 @@
         - **pontos_uids**:
           - yh7MlphPeIclXw
         - **escalada**: Magnésio de Cheirar
+        - **setor**: Bloco dos Dois Dedos
         - **ids**:
           - yh7MlphPeIclXw
       - **[24]**:
@@ -3970,6 +4197,7 @@
         - **pontos_uids**:
           - tfgGc0GQVtvz4C
         - **escalada**: Fissura do Desejo
+        - **setor**: Bloco dos Dois Dedos
         - **ids**:
           - tfgGc0GQVtvz4C
       - **[25]**:
@@ -3977,6 +4205,7 @@
         - **pontos_uids**:
           - s7Vw3ZQDF4Yuou
         - **escalada**: Reconciliação (Variante)
+        - **setor**: Bloco dos Dois Dedos
         - **ids**:
           - s7Vw3ZQDF4Yuou
       - **[26]**:
@@ -3984,6 +4213,7 @@
         - **pontos_uids**:
           - kqO5s4Hfq0GO1b
         - **escalada**: Jurassic Park
+        - **setor**: Bloco dos Dois Dedos
         - **ids**:
           - kqO5s4Hfq0GO1b
       - **[27]**:
@@ -3991,6 +4221,7 @@
         - **pontos_uids**:
           - IzhVdAT2DgdZ87
         - **escalada**: Diedro do Professor
+        - **setor**: Bloco dos Dois Dedos
         - **ids**:
           - IzhVdAT2DgdZ87
       - **[28]**:
@@ -3998,6 +4229,7 @@
         - **pontos_uids**:
           - h9qiD0dNwwruHW
         - **escalada**: Vacinados
+        - **setor**: Bloco dos Dois Dedos
         - **ids**:
           - h9qiD0dNwwruHW
       - **[29]**:
@@ -4005,6 +4237,7 @@
         - **pontos_uids**:
           - WXE41PHmOf9IZe
         - **escalada**: Finalmente
+        - **setor**: Bloco dos Dois Dedos
         - **ids**:
           - WXE41PHmOf9IZe
       - **[30]**:
@@ -4012,6 +4245,7 @@
         - **pontos_uids**:
           - njB1oDs7EyViX2
         - **escalada**: Idade da Pedra
+        - **setor**: Bloco dos Dois Dedos
         - **ids**:
           - njB1oDs7EyViX2
       - **[31]**:
@@ -4019,6 +4253,7 @@
         - **pontos_uids**:
           - 0lPhjoxxHhlTOb
         - **escalada**: Os Nômades
+        - **setor**: Bloco dos Dois Dedos
         - **ids**:
           - 0lPhjoxxHhlTOb
       - **[32]**:
@@ -4026,6 +4261,7 @@
         - **pontos_uids**:
           - sp61s0iavoDdK6
         - **escalada**: Projetistas
+        - **setor**: Bloco dos Dois Dedos
         - **ids**:
           - sp61s0iavoDdK6
       - **[33]**:
@@ -4033,6 +4269,7 @@
         - **pontos_uids**:
           - ibn3iYEYaRsp1H
         - **escalada**: Esperança
+        - **setor**: Bloco dos Dois Dedos
         - **ids**:
           - ibn3iYEYaRsp1H
       - **[34]**:
@@ -4040,6 +4277,7 @@
         - **pontos_uids**:
           - mGRhqQQ66aGDrw
         - **escalada**: Pedra Lascada
+        - **setor**: Bloco dos Dois Dedos
         - **ids**:
           - mGRhqQQ66aGDrw
       - **[35]**:
@@ -4047,6 +4285,7 @@
         - **pontos_uids**:
           - AohEY2a7amamwg
         - **escalada**: Chaminé Estiagem
+        - **setor**: Bloco dos Dois Dedos
         - **ids**:
           - AohEY2a7amamwg
       - **[36]**:
@@ -4054,6 +4293,7 @@
         - **pontos_uids**:
           - 2RnBSVV90348y1
         - **escalada**: Temporal
+        - **setor**: Bloco dos Dois Dedos
         - **ids**:
           - 2RnBSVV90348y1
       - **[37]**:
@@ -4061,6 +4301,7 @@
         - **pontos_uids**:
           - 9RMK8aACjy4m2g
         - **escalada**: Golias
+        - **setor**: Bloco dos Dois Dedos
         - **ids**:
           - 9RMK8aACjy4m2g
       - **[38]**:
@@ -4068,6 +4309,7 @@
         - **pontos_uids**:
           - h6Y0eWKJnVx56E
         - **escalada**: Esqueceram de Mim
+        - **setor**: Bloco dos Dois Dedos
         - **ids**:
           - h6Y0eWKJnVx56E
       - **[39]**:
@@ -4075,6 +4317,7 @@
         - **pontos_uids**:
           - v3KYyaVcMeo958
         - **escalada**: Suco de Laranja
+        - **setor**: Bloco dos Dois Dedos
         - **ids**:
           - v3KYyaVcMeo958
     - **pontos_de_interesse**:
@@ -4448,6 +4691,7 @@
         - **pontos_uids**:
           - vXcrSFqGhYn77b
         - **escalada**: Magnésio de Cheirar
+        - **setor**: Bloco dos Dois Dedos
         - **ids**:
           - vXcrSFqGhYn77b
       - **[1]**:
@@ -4455,6 +4699,7 @@
         - **pontos_uids**:
           - tFiCldteeu1y0f
         - **escalada**: Fissura do Desejo
+        - **setor**: Bloco dos Dois Dedos
         - **ids**:
           - tFiCldteeu1y0f
       - **[2]**:
@@ -4462,6 +4707,7 @@
         - **pontos_uids**:
           - gHQsvHIbNX4mkO
         - **escalada**: Reconciliação (Variante)
+        - **setor**: Bloco dos Dois Dedos
         - **ids**:
           - gHQsvHIbNX4mkO
       - **[3]**:
@@ -4469,6 +4715,7 @@
         - **pontos_uids**:
           - cDG3zC6qCGzJ2L
         - **escalada**: Jurassic Park
+        - **setor**: Bloco dos Dois Dedos
         - **ids**:
           - cDG3zC6qCGzJ2L
     - **pontos_de_interesse**:
@@ -5070,6 +5317,7 @@
         - **pontos_uids**:
           - Dgf7egLkxnYk45
         - **escalada**: Mágico de Oz
+        - **setor**: Setor Toca do Coelho
         - **ids**:
           - Dgf7egLkxnYk45
       - **[1]**:
@@ -5077,6 +5325,7 @@
         - **pontos_uids**:
           - NncthTjxgxNBbB
         - **escalada**: Espantalho
+        - **setor**: Setor Toca do Coelho
         - **ids**:
           - NncthTjxgxNBbB
       - **[2]**:
@@ -5084,6 +5333,7 @@
         - **pontos_uids**:
           - uwpxcIb0UerpWE
         - **escalada**: Pindorama
+        - **setor**: Setor Toca do Coelho
         - **ids**:
           - uwpxcIb0UerpWE
       - **[3]**:
@@ -5091,6 +5341,7 @@
         - **pontos_uids**:
           - iXXA6ZqagisJGm
         - **escalada**: Tupã
+        - **setor**: Setor Toca do Coelho
         - **ids**:
           - iXXA6ZqagisJGm
       - **[4]**:
@@ -5098,6 +5349,7 @@
         - **pontos_uids**:
           - HYCv4shTkGqFLb
         - **escalada**: Leão Covarde
+        - **setor**: Setor Toca do Coelho
         - **ids**:
           - HYCv4shTkGqFLb
       - **[5]**:
@@ -5105,6 +5357,7 @@
         - **pontos_uids**:
           - namNH9xE1I6rHK
         - **escalada**: Chapeleiro Maluco
+        - **setor**: Setor Toca do Coelho
         - **ids**:
           - namNH9xE1I6rHK
       - **[6]**:
@@ -5112,6 +5365,7 @@
         - **pontos_uids**:
           - byl7ItqrsRyezb
         - **escalada**: Rainha de Copas
+        - **setor**: Setor Toca do Coelho
         - **ids**:
           - byl7ItqrsRyezb
       - **[7]**:
@@ -5119,6 +5373,7 @@
         - **pontos_uids**:
           - tP9iRMkMioMNb2
         - **escalada**: A Brisa da Lagarta
+        - **setor**: Setor Toca do Coelho
         - **ids**:
           - tP9iRMkMioMNb2
       - **[8]**:
@@ -5126,6 +5381,7 @@
         - **pontos_uids**:
           - zj8xTYPFoxs9bR
         - **escalada**: Tanto Faz
+        - **setor**: Setor Toca do Coelho
         - **ids**:
           - zj8xTYPFoxs9bR
 - **escaladas**:
@@ -5264,6 +5520,7 @@
         - **pontos_uids**:
           - 08ZRVSm37R38vr
         - **escalada**: Portão das Armas
+        - **setor**: Setor Teatro de Operações
         - **ids**:
           - 08ZRVSm37R38vr
       - **[1]**:
@@ -5271,6 +5528,7 @@
         - **pontos_uids**:
           - dm2RWkVA815egz
         - **escalada**: Flanco Esquerdo
+        - **setor**: Setor Teatro de Operações
         - **ids**:
           - dm2RWkVA815egz
       - **[2]**:
@@ -5278,6 +5536,7 @@
         - **pontos_uids**:
           - s4xtAsI9H4VpLB
         - **escalada**: Campo Minado
+        - **setor**: Setor Teatro de Operações
         - **ids**:
           - s4xtAsI9H4VpLB
       - **[3]**:
@@ -5285,6 +5544,7 @@
         - **pontos_uids**:
           - Xh2BmKjgbCialc
         - **escalada**: Grau de Sigilo
+        - **setor**: Setor Teatro de Operações
         - **ids**:
           - Xh2BmKjgbCialc
       - **[4]**:
@@ -5292,6 +5552,7 @@
         - **pontos_uids**:
           - IbnrA0xGzcSc8E
         - **escalada**: Ponto Crítico
+        - **setor**: Setor Teatro de Operações
         - **ids**:
           - IbnrA0xGzcSc8E
       - **[5]**:
@@ -5299,6 +5560,7 @@
         - **pontos_uids**:
           - 8PvvnFoJWpuFNz
         - **escalada**: Carro de Combate
+        - **setor**: Setor Teatro de Operações
         - **ids**:
           - 8PvvnFoJWpuFNz
       - **[6]**:
@@ -5306,6 +5568,7 @@
         - **pontos_uids**:
           - I1m0I8JngiMIef
         - **escalada**: Cortina de Fumaça
+        - **setor**: Setor Teatro de Operações
         - **ids**:
           - I1m0I8JngiMIef
       - **[7]**:
@@ -5313,6 +5576,7 @@
         - **pontos_uids**:
           - qL9RUXVxUrqXf1
         - **escalada**: Dano Colateral
+        - **setor**: Setor Teatro de Operações
         - **ids**:
           - qL9RUXVxUrqXf1
       - **[8]**:
@@ -5320,6 +5584,7 @@
         - **pontos_uids**:
           - A7DJxXYUIErCRK
         - **escalada**: Demonstração de Força
+        - **setor**: Setor Teatro de Operações
         - **ids**:
           - A7DJxXYUIErCRK
       - **[9]**:
@@ -5327,6 +5592,7 @@
         - **pontos_uids**:
           - VyhpiH4K1YYI8I
         - **escalada**: Ação de Choque
+        - **setor**: Setor Teatro de Operações
         - **ids**:
           - VyhpiH4K1YYI8I
       - **[10]**:
@@ -5334,6 +5600,7 @@
         - **pontos_uids**:
           - JNYEZnvd0TnVRF
         - **escalada**: Esclarecedores
+        - **setor**: Setor Teatro de Operações
         - **ids**:
           - JNYEZnvd0TnVRF
       - **[11]**:
@@ -5341,6 +5608,7 @@
         - **pontos_uids**:
           - clqJqO3Js87i66
         - **escalada**: Navio de Guerra
+        - **setor**: Setor Teatro de Operações
         - **ids**:
           - clqJqO3Js87i66
       - **[12]**:
@@ -5348,6 +5616,7 @@
         - **pontos_uids**:
           - 1aFKG1encZrWTS
         - **escalada**: Assalto Anfíbio
+        - **setor**: Setor Teatro de Operações
         - **ids**:
           - 1aFKG1encZrWTS
       - **[13]**:
@@ -5355,6 +5624,7 @@
         - **pontos_uids**:
           - OilGvdeNRTGW5u
         - **escalada**: Operações Psicológicas
+        - **setor**: Setor Teatro de Operações
         - **ids**:
           - OilGvdeNRTGW5u
       - **[14]**:
@@ -5362,6 +5632,7 @@
         - **pontos_uids**:
           - pkdrHzKVQmwFK3
         - **escalada**: Ato de Serviço
+        - **setor**: Setor Teatro de Operações
         - **ids**:
           - pkdrHzKVQmwFK3
       - **[15]**:
@@ -5369,6 +5640,7 @@
         - **pontos_uids**:
           - aF9dOJWSKwjK5y
         - **escalada**: Conflito Armado
+        - **setor**: Setor Teatro de Operações
         - **ids**:
           - aF9dOJWSKwjK5y
       - **[16]**:
@@ -5376,6 +5648,7 @@
         - **pontos_uids**:
           - iEAEXfpg2zuPZU
         - **escalada**: Forças Especiais
+        - **setor**: Setor Teatro de Operações
         - **ids**:
           - iEAEXfpg2zuPZU
       - **[17]**:
@@ -5383,6 +5656,7 @@
         - **pontos_uids**:
           - ZnIicnpGbRsRdi
         - **escalada**: Faixa de Infiltração
+        - **setor**: Setor Teatro de Operações
         - **ids**:
           - ZnIicnpGbRsRdi
       - **[18]**:
@@ -5390,6 +5664,7 @@
         - **pontos_uids**:
           - rnkckN0Rut2nOr
         - **escalada**: Atirador de Elite
+        - **setor**: Setor Teatro de Operações
         - **ids**:
           - rnkckN0Rut2nOr
       - **[19]**:
@@ -5397,6 +5672,7 @@
         - **pontos_uids**:
           - ny0IHfq3isIlrR
         - **escalada**: Sentinela da Hora
+        - **setor**: Setor Teatro de Operações
         - **ids**:
           - ny0IHfq3isIlrR
       - **[20]**:
@@ -5404,6 +5680,7 @@
         - **pontos_uids**:
           - dAaK2xOFBZT0C6
         - **escalada**: Operação Continuada
+        - **setor**: Setor Teatro de Operações
         - **ids**:
           - dAaK2xOFBZT0C6
       - **[21]**:
@@ -5411,6 +5688,7 @@
         - **pontos_uids**:
           - aYrYtq0s4DA6Wo
         - **escalada**: Observador Avançado
+        - **setor**: Setor Teatro de Operações
         - **ids**:
           - aYrYtq0s4DA6Wo
       - **[22]**:
@@ -5418,6 +5696,7 @@
         - **pontos_uids**:
           - pDSuNBh3FVtNHs
         - **escalada**: Técnicas Especiais
+        - **setor**: Setor Teatro de Operações
         - **ids**:
           - pDSuNBh3FVtNHs
       - **[23]**:
@@ -5425,6 +5704,7 @@
         - **pontos_uids**:
           - VoRQ6qnQBXQqkb
         - **escalada**: Prisioneiro de Guerra
+        - **setor**: Setor Teatro de Operações
         - **ids**:
           - VoRQ6qnQBXQqkb
       - **[24]**:
@@ -5432,6 +5712,7 @@
         - **pontos_uids**:
           - XI766rGyUBLXg4
         - **escalada**: Estudo de Situação
+        - **setor**: Setor Teatro de Operações
         - **ids**:
           - XI766rGyUBLXg4
       - **[25]**:
@@ -5439,6 +5720,7 @@
         - **pontos_uids**:
           - uCKyO221nxXXsu
         - **escalada**: Torre de Controle
+        - **setor**: Setor Teatro de Operações
         - **ids**:
           - uCKyO221nxXXsu
       - **[26]**:
@@ -5446,6 +5728,7 @@
         - **pontos_uids**:
           - 0DM0wUmAEiFkVQ
         - **escalada**: Garantia da Lei e da Ordem
+        - **setor**: Setor Teatro de Operações
         - **ids**:
           - 0DM0wUmAEiFkVQ
       - **[27]**:
@@ -5453,6 +5736,7 @@
         - **pontos_uids**:
           - tWXgcBw9gib0wA
         - **escalada**: Estímulo Estressor
+        - **setor**: Setor Teatro de Operações
         - **ids**:
           - tWXgcBw9gib0wA
       - **[28]**:
@@ -5460,6 +5744,7 @@
         - **pontos_uids**:
           - zxqpCEhOLadorI
         - **escalada**: Controle de Distúrbio
+        - **setor**: Setor Teatro de Operações
         - **ids**:
           - zxqpCEhOLadorI
       - **[29]**:
@@ -5467,6 +5752,7 @@
         - **pontos_uids**:
           - OWXgO2vxpMqKDU
         - **escalada**: Interrogatório
+        - **setor**: Setor Teatro de Operações
         - **ids**:
           - OWXgO2vxpMqKDU
       - **[30]**:
@@ -5474,6 +5760,7 @@
         - **pontos_uids**:
           - 3id3BLXz7rhrtZ
         - **escalada**: Cabeça de Ponte
+        - **setor**: Setor Teatro de Operações
         - **ids**:
           - 3id3BLXz7rhrtZ
       - **[31]**:
@@ -5481,6 +5768,7 @@
         - **pontos_uids**:
           - GJFCxnBFuvlK0V
         - **escalada**: Meios de Fortuna
+        - **setor**: Setor Teatro de Operações
         - **ids**:
           - GJFCxnBFuvlK0V
       - **[32]**:
@@ -5488,6 +5776,7 @@
         - **pontos_uids**:
           - 5ybo7ZURmTuIWe
         - **escalada**: Zona de Conforto
+        - **setor**: Setor Teatro de Operações
         - **ids**:
           - 5ybo7ZURmTuIWe
       - **[33]**:
@@ -5495,6 +5784,7 @@
         - **pontos_uids**:
           - hE4wtgRGwKxCMr
         - **escalada**: Zona de Controle
+        - **setor**: Setor Teatro de Operações
         - **ids**:
           - hE4wtgRGwKxCMr
       - **[34]**:
@@ -5502,6 +5792,7 @@
         - **pontos_uids**:
           - SJqC9gisd3scR1
         - **escalada**: Zona de Perigo
+        - **setor**: Setor Teatro de Operações
         - **ids**:
           - SJqC9gisd3scR1
       - **[35]**:
@@ -5509,6 +5800,7 @@
         - **pontos_uids**:
           - k68c2R0jEKfC6U
         - **escalada**: Flanco Direito
+        - **setor**: Setor Teatro de Operações
         - **ids**:
           - k68c2R0jEKfC6U
     - **pontos_de_interesse**:
@@ -6242,6 +6534,7 @@
         - **pontos_uids**:
           - lGqt4czx60vdW8
         - **escalada**: Via do Tetinho
+        - **setor**: Grutinha
         - **ids**:
           - lGqt4czx60vdW8
       - **[1]**:
@@ -6249,6 +6542,7 @@
         - **pontos_uids**:
           - 5WZShhoBgjavwo
         - **escalada**: Imagina Eu
+        - **setor**: Grutinha
         - **ids**:
           - 5WZShhoBgjavwo
   - **[1]**:
@@ -6271,6 +6565,7 @@
         - **pontos_uids**:
           - hn1CiyUdQZAhIz
         - **escalada**: Diedro Oculto
+        - **setor**: Grutinha
         - **ids**:
           - hn1CiyUdQZAhIz
 - **escaladas**:
@@ -6365,6 +6660,7 @@
         - **pontos_uids**:
           - OZLae7rMJhZdtc
         - **escalada**: Esqueleto do Tempo
+        - **setor**: Falésias do Lenheiro
         - **ids**:
           - OZLae7rMJhZdtc
       - **[1]**:
@@ -6372,6 +6668,7 @@
         - **pontos_uids**:
           - UuTo7EFAt6ghVT
         - **escalada**: Parou Mofô
+        - **setor**: Falésias do Lenheiro
         - **ids**:
           - UuTo7EFAt6ghVT
       - **[2]**:
@@ -6379,6 +6676,7 @@
         - **pontos_uids**:
           - 1TGXi0REwkXaHx
         - **escalada**: Via Normal da Agulhinha Pequeno Polegar
+        - **setor**: Falésias do Lenheiro
         - **ids**:
           - 1TGXi0REwkXaHx
   - **[1]**:
@@ -6419,6 +6717,7 @@
         - **pontos_uids**:
           - XvRbSOJ9rhxVXs
         - **escalada**: Miosótis
+        - **setor**: Falésias do Lenheiro
         - **ids**:
           - XvRbSOJ9rhxVXs
       - **[1]**:
@@ -6426,6 +6725,7 @@
         - **pontos_uids**:
           - dsXJ6I9tzLTavr
         - **escalada**: Chá das Cinco
+        - **setor**: Falésias do Lenheiro
         - **ids**:
           - dsXJ6I9tzLTavr
       - **[2]**:
@@ -6433,6 +6733,7 @@
         - **pontos_uids**:
           - qEiGWgMnTq3cZ2
         - **escalada**: Dança dos Vampiros
+        - **setor**: Falésias do Lenheiro
         - **ids**:
           - qEiGWgMnTq3cZ2
   - **[2]**:
@@ -6474,6 +6775,7 @@
         - **pontos_uids**:
           - KIhqdyYeNuaKRt
         - **escalada**: Deixa a Fenda Me Levar
+        - **setor**: Falésias do Lenheiro
         - **ids**:
           - KIhqdyYeNuaKRt
       - **[1]**:
@@ -6481,13 +6783,9 @@
         - **pontos_uids**:
           - Zy7MFaAO7Mb0t6
         - **escalada**: Brassavola
+        - **setor**: Falésias do Lenheiro
         - **ids**:
           - Zy7MFaAO7Mb0t6
-      - **[2]**:
-        - **pontos_uids**:
-          - LoABpx5uAWe9i5
-        - **ids**:
-          - LoABpx5uAWe9i5
   - **[3]**:
     - **caminho_imagem_mapa**: ![caminho_imagem_mapa](imagens/setor_falesias_do_lenheiro_p2_i3.webp)
     - **largura_mapa**: 481
@@ -6517,6 +6815,7 @@
         - **pontos_uids**:
           - qi2FBjh3yhsyaZ
         - **escalada**: Feliz Aniversário
+        - **setor**: Falésias do Lenheiro
         - **ids**:
           - qi2FBjh3yhsyaZ
       - **[1]**:
@@ -6524,6 +6823,7 @@
         - **pontos_uids**:
           - IQVSsLgxap0H39
         - **escalada**: Juízo Final
+        - **setor**: Falésias do Lenheiro
         - **ids**:
           - IQVSsLgxap0H39
   - **[4]**:
@@ -6556,6 +6856,7 @@
         - **pontos_uids**:
           - AjB27owjvHmA8B
         - **escalada**: Por Favor Me Esqueça
+        - **setor**: Falésias do Lenheiro
         - **ids**:
           - AjB27owjvHmA8B
       - **[1]**:
@@ -6921,6 +7222,7 @@
         - **pontos_uids**:
           - cJXqsePelJineq
         - **escalada**: Ripa Um
+        - **setor**: Pedra Negra
         - **ids**:
           - cJXqsePelJineq
       - **[1]**:
@@ -6928,6 +7230,7 @@
         - **pontos_uids**:
           - OBpfF67cgX2JTq
         - **escalada**: Ossos do Ofício
+        - **setor**: Pedra Negra
         - **ids**:
           - OBpfF67cgX2JTq
       - **[2]**:
@@ -6935,6 +7238,7 @@
         - **pontos_uids**:
           - N8en2z3BifpWh6
         - **escalada**: Lei do Retorno
+        - **setor**: Pedra Negra
         - **ids**:
           - N8en2z3BifpWh6
       - **[3]**:
@@ -6942,6 +7246,7 @@
         - **pontos_uids**:
           - rJJIZnQ3twJ8e3
         - **escalada**: Realidade Paralela
+        - **setor**: Pedra Negra
         - **ids**:
           - rJJIZnQ3twJ8e3
       - **[4]**:
@@ -6949,6 +7254,7 @@
         - **pontos_uids**:
           - qun60mEaUal39R
         - **escalada**: Quando a Cabeça Falha
+        - **setor**: Pedra Negra
         - **ids**:
           - qun60mEaUal39R
       - **[5]**:
@@ -6956,6 +7262,7 @@
         - **pontos_uids**:
           - KND1HGbIiAn9sq
         - **escalada**: Calangos Molhados
+        - **setor**: Pedra Negra
         - **ids**:
           - KND1HGbIiAn9sq
       - **[6]**:
@@ -6963,6 +7270,7 @@
         - **pontos_uids**:
           - pCrB8igZaiYgk9
         - **escalada**: Calango Camuflado
+        - **setor**: Pedra Negra
         - **ids**:
           - pCrB8igZaiYgk9
       - **[7]**:
@@ -6970,6 +7278,7 @@
         - **pontos_uids**:
           - OKIzLBTIHtn66r
         - **escalada**: Fio de Cabelo
+        - **setor**: Pedra Negra
         - **ids**:
           - OKIzLBTIHtn66r
       - **[8]**:
@@ -6977,6 +7286,7 @@
         - **pontos_uids**:
           - EUlB44ai5JvEq6
         - **escalada**: Docinho do Tio Nem
+        - **setor**: Pedra Negra
         - **ids**:
           - EUlB44ai5JvEq6
       - **[9]**:
@@ -6984,6 +7294,7 @@
         - **pontos_uids**:
           - AC5ToYRtHk8Q3Y
         - **escalada**: Heróis da Persistência
+        - **setor**: Pedra Negra
         - **ids**:
           - AC5ToYRtHk8Q3Y
       - **[10]**:
@@ -6991,6 +7302,7 @@
         - **pontos_uids**:
           - 3tbKZyPjcWORNc
         - **escalada**: Matrix
+        - **setor**: Pedra Negra
         - **ids**:
           - 3tbKZyPjcWORNc
       - **[11]**:
@@ -6998,6 +7310,7 @@
         - **pontos_uids**:
           - Q2gZ8i7jMDOWAc
         - **escalada**: A Senha
+        - **setor**: Pedra Negra
         - **ids**:
           - Q2gZ8i7jMDOWAc
       - **[12]**:
@@ -7005,6 +7318,7 @@
         - **pontos_uids**:
           - 2AvcX0SZE5CMiB
         - **escalada**: Atividade Paranormal
+        - **setor**: Pedra Negra
         - **ids**:
           - 2AvcX0SZE5CMiB
       - **[13]**:
@@ -7012,6 +7326,7 @@
         - **pontos_uids**:
           - HVgG25KpuAISFH
         - **escalada**: Berbaridade
+        - **setor**: Pedra Negra
         - **ids**:
           - HVgG25KpuAISFH
       - **[14]**:
@@ -7019,6 +7334,7 @@
         - **pontos_uids**:
           - 8YGT9Igkwb5RWT
         - **escalada**: Lontra Radical
+        - **setor**: Pedra Negra
         - **ids**:
           - 8YGT9Igkwb5RWT
       - **[15]**:
@@ -7026,6 +7342,7 @@
         - **pontos_uids**:
           - OzeDmQgAsA4PY1
         - **escalada**: Diamante Negro
+        - **setor**: Pedra Negra
         - **ids**:
           - OzeDmQgAsA4PY1
       - **[16]**:
@@ -7033,6 +7350,7 @@
         - **pontos_uids**:
           - YxzH8dai8bykuz
         - **escalada**: Proteção da Flora
+        - **setor**: Pedra Negra
         - **ids**:
           - YxzH8dai8bykuz
       - **[17]**:
@@ -7040,6 +7358,7 @@
         - **pontos_uids**:
           - j9Vogzq5dcYkZ4
         - **escalada**: JL Projeto
+        - **setor**: Pedra Negra
         - **ids**:
           - j9Vogzq5dcYkZ4
       - **[18]**:
@@ -7047,6 +7366,7 @@
         - **pontos_uids**:
           - 5l1zmHhhEdtPi8
         - **escalada**: Seja O Que Deus Quiser
+        - **setor**: Pedra Negra
         - **ids**:
           - 5l1zmHhhEdtPi8
       - **[19]**:
@@ -7054,6 +7374,7 @@
         - **pontos_uids**:
           - 8ac2SwDo8dxGXK
         - **escalada**: Viabilizoou
+        - **setor**: Pedra Negra
         - **ids**:
           - 8ac2SwDo8dxGXK
       - **[20]**:
@@ -7061,6 +7382,7 @@
         - **pontos_uids**:
           - TVKMSVG87sBI8F
         - **escalada**: Professor Pardal
+        - **setor**: Pedra Negra
         - **ids**:
           - TVKMSVG87sBI8F
       - **[21]**:
@@ -7068,6 +7390,7 @@
         - **pontos_uids**:
           - l4tn8mY90LWW1C
         - **escalada**: Pretinha
+        - **setor**: Pedra Negra
         - **ids**:
           - l4tn8mY90LWW1C
 - **escaladas**:
@@ -7403,6 +7726,7 @@
         - **pontos_uids**:
           - dPLTUKvWgIiFXx
         - **escalada**: Quinto dos Infernos
+        - **setor**: Setor Cruz Credo
         - **ids**:
           - dPLTUKvWgIiFXx
       - **[1]**:
@@ -7410,6 +7734,7 @@
         - **pontos_uids**:
           - UV8TBkixhq5SOj
         - **escalada**: Deus me Livre
+        - **setor**: Setor Cruz Credo
         - **ids**:
           - UV8TBkixhq5SOj
       - **[2]**:
@@ -7417,6 +7742,7 @@
         - **pontos_uids**:
           - vkDSubU57xFaKz
         - **escalada**: Cruz Credo
+        - **setor**: Setor Cruz Credo
         - **ids**:
           - vkDSubU57xFaKz
   - **[1]**:
@@ -7457,6 +7783,7 @@
         - **pontos_uids**:
           - C2HpsicSCCMZON
         - **escalada**: Jesus Humilha o Satanás
+        - **setor**: Setor Cruz Credo
         - **ids**:
           - C2HpsicSCCMZON
       - **[1]**:
@@ -7464,6 +7791,7 @@
         - **pontos_uids**:
           - rq4sNRSNeAXS0J
         - **escalada**: Praga Divina
+        - **setor**: Setor Cruz Credo
         - **ids**:
           - rq4sNRSNeAXS0J
       - **[2]**:
@@ -7471,6 +7799,7 @@
         - **pontos_uids**:
           - g91ivVwOnpKQMK
         - **escalada**: Variante Pedra na Cruz
+        - **setor**: Setor Cruz Credo
         - **ids**:
           - g91ivVwOnpKQMK
 - **escaladas**:
@@ -7618,6 +7947,7 @@
         - **pontos_uids**:
           - 2ClqAzEUkVSrpU
         - **escalada**: Os Hereges
+        - **setor**: Setor Rapadura
         - **ids**:
           - 2ClqAzEUkVSrpU
       - **[1]**:
@@ -7625,6 +7955,7 @@
         - **pontos_uids**:
           - NRNg0uBCGm3MW3
         - **escalada**: Doce de Leite
+        - **setor**: Setor Rapadura
         - **ids**:
           - NRNg0uBCGm3MW3
       - **[2]**:
@@ -7632,6 +7963,7 @@
         - **pontos_uids**:
           - R76oN84EVc9Jjr
         - **escalada**: Ainda Bem Que o André Não Viu
+        - **setor**: Setor Rapadura
         - **ids**:
           - R76oN84EVc9Jjr
       - **[3]**:
@@ -7639,6 +7971,7 @@
         - **pontos_uids**:
           - dQX9pYJ0Qyd8wB
         - **escalada**: O Doce da Rapadura
+        - **setor**: Setor Rapadura
         - **ids**:
           - dQX9pYJ0Qyd8wB
 - **escaladas**:
@@ -7718,6 +8051,7 @@
         - **pontos_uids**:
           - EE5Ve2zdRn2egC
         - **escalada**: Via 01
+        - **setor**: Pedra do Livro
         - **ids**:
           - EE5Ve2zdRn2egC
       - **[1]**:
@@ -7725,6 +8059,7 @@
         - **pontos_uids**:
           - 8TrxsCKxStr2AV
         - **escalada**: Via 02
+        - **setor**: Pedra do Livro
         - **ids**:
           - 8TrxsCKxStr2AV
 - **escaladas**:
@@ -7783,6 +8118,7 @@
         - **pontos_uids**:
           - 6V5iGxgXMo3iTh
         - **escalada**: Hábito Noturno
+        - **setor**: Pedra da Boina
         - **ids**:
           - 6V5iGxgXMo3iTh
   - **[1]**:
@@ -7832,6 +8168,7 @@
         - **pontos_uids**:
           - WCF7oQKJKZYVSd
         - **escalada**: Mestre Xifu
+        - **setor**: Pedra da Boina
         - **ids**:
           - WCF7oQKJKZYVSd
       - **[1]**:
@@ -7839,6 +8176,7 @@
         - **pontos_uids**:
           - edRyI6WI8GHdQM
         - **escalada**: Boina Cinza
+        - **setor**: Pedra da Boina
         - **ids**:
           - edRyI6WI8GHdQM
       - **[2]**:
@@ -7846,6 +8184,7 @@
         - **pontos_uids**:
           - d0VrJi3R73IO4j
         - **escalada**: Gorro Cinza
+        - **setor**: Pedra da Boina
         - **ids**:
           - d0VrJi3R73IO4j
       - **[3]**:
@@ -7853,6 +8192,7 @@
         - **pontos_uids**:
           - HxS4Uyuv6iUgHu
         - **escalada**: Recruta Zero
+        - **setor**: Pedra da Boina
         - **ids**:
           - HxS4Uyuv6iUgHu
 - **escaladas**:
@@ -8007,6 +8347,8 @@
               - **pontos_uids**:
                 - km8h9iwaFsJcn7
               - **escalada**: Vermelha
+              - **setor**: Setor de Cima
+              - **grupo**: Rio das Mortes
               - **ids**:
                 - km8h9iwaFsJcn7
             - **[1]**:
@@ -8014,6 +8356,8 @@
               - **pontos_uids**:
                 - 7xFXf46voZYXBF
               - **escalada**: No Pelo
+              - **setor**: Setor de Cima
+              - **grupo**: Rio das Mortes
               - **ids**:
                 - 7xFXf46voZYXBF
             - **[2]**:
@@ -8021,6 +8365,8 @@
               - **pontos_uids**:
                 - 8IhvlmwER8coOU
               - **escalada**: Quarteto Fantástico
+              - **setor**: Setor de Cima
+              - **grupo**: Rio das Mortes
               - **ids**:
                 - 8IhvlmwER8coOU
             - **[3]**:
@@ -8028,6 +8374,8 @@
               - **pontos_uids**:
                 - UELxUsmnIAaL1K
               - **escalada**: Calcâneo
+              - **setor**: Setor de Cima
+              - **grupo**: Rio das Mortes
               - **ids**:
                 - UELxUsmnIAaL1K
             - **[4]**:
@@ -8035,6 +8383,8 @@
               - **pontos_uids**:
                 - gdWyL4D07mvJPP
               - **escalada**: Tudo Virgem
+              - **setor**: Setor de Cima
+              - **grupo**: Rio das Mortes
               - **ids**:
                 - gdWyL4D07mvJPP
       - **escaladas**:
@@ -8146,6 +8496,8 @@
               - **pontos_uids**:
                 - W3Ef0RxxaS4zSP
               - **escalada**: Thundercats
+              - **setor**: Setor Thundercats
+              - **grupo**: Rio das Mortes
               - **ids**:
                 - W3Ef0RxxaS4zSP
             - **[1]**:
@@ -8153,6 +8505,8 @@
               - **pontos_uids**:
                 - JWkqEHGth6Gu8w
               - **escalada**: Cracuda
+              - **setor**: Setor Thundercats
+              - **grupo**: Rio das Mortes
               - **ids**:
                 - JWkqEHGth6Gu8w
       - **escaladas**:
@@ -8240,6 +8594,8 @@
               - **pontos_uids**:
                 - LvowXw8izrvE9c
               - **escalada**: Quatro e Vinte
+              - **setor**: Setor Salão
+              - **grupo**: Rio das Mortes
               - **ids**:
                 - LvowXw8izrvE9c
             - **[1]**:
@@ -8247,6 +8603,8 @@
               - **pontos_uids**:
                 - Lbk5NVlPDYHZbF
               - **escalada**: Chaminé Africana
+              - **setor**: Setor Salão
+              - **grupo**: Rio das Mortes
               - **ids**:
                 - Lbk5NVlPDYHZbF
             - **[2]**:
@@ -8254,6 +8612,8 @@
               - **pontos_uids**:
                 - HEOtFojXk2qZTm
               - **escalada**: Dança do Salão
+              - **setor**: Setor Salão
+              - **grupo**: Rio das Mortes
               - **ids**:
                 - HEOtFojXk2qZTm
             - **[3]**:
@@ -8261,6 +8621,8 @@
               - **pontos_uids**:
                 - Efnzkxc1C2V0KR
               - **escalada**: Risca da Lista
+              - **setor**: Setor Salão
+              - **grupo**: Rio das Mortes
               - **ids**:
                 - Efnzkxc1C2V0KR
       - **escaladas**:
@@ -8439,6 +8801,8 @@
               - **pontos_uids**:
                 - 9SNjVkOwEOSdjN
               - **escalada**: Curta e Grossa
+              - **setor**: Setor Salão
+              - **grupo**: Rio das Mortes
               - **ids**:
                 - 9SNjVkOwEOSdjN
             - **[1]**:
@@ -8446,6 +8810,8 @@
               - **pontos_uids**:
                 - 5MqT6jwD32WW3X
               - **escalada**: Quatro e Vinte
+              - **setor**: Setor Salão
+              - **grupo**: Rio das Mortes
               - **ids**:
                 - 5MqT6jwD32WW3X
             - **[2]**:
@@ -8453,6 +8819,8 @@
               - **pontos_uids**:
                 - XMvGesDJHq1QXc
               - **escalada**: Liberdade Vigiada
+              - **setor**: Setor Namata
+              - **grupo**: Rio das Mortes
               - **ids**:
                 - XMvGesDJHq1QXc
             - **[3]**:
@@ -8460,6 +8828,8 @@
               - **pontos_uids**:
                 - wbVltwK9doU0uL
               - **escalada**: Própolis
+              - **setor**: Setor Namata
+              - **grupo**: Rio das Mortes
               - **ids**:
                 - wbVltwK9doU0uL
             - **[4]**:
@@ -8467,6 +8837,8 @@
               - **pontos_uids**:
                 - hOBp05Od6aVGEm
               - **escalada**: Pão de Mel
+              - **setor**: Setor Namata
+              - **grupo**: Rio das Mortes
               - **ids**:
                 - hOBp05Od6aVGEm
             - **[5]**:
@@ -8474,6 +8846,8 @@
               - **pontos_uids**:
                 - Xl99IwQclE6o4I
               - **escalada**: Sombra
+              - **setor**: Setor Namata
+              - **grupo**: Rio das Mortes
               - **ids**:
                 - Xl99IwQclE6o4I
             - **[6]**:
@@ -8481,6 +8855,8 @@
               - **pontos_uids**:
                 - RAwwTNLJDSBFaH
               - **escalada**: Corona Vírus
+              - **setor**: Setor Namata
+              - **grupo**: Rio das Mortes
               - **ids**:
                 - RAwwTNLJDSBFaH
             - **[7]**:
@@ -8488,6 +8864,8 @@
               - **pontos_uids**:
                 - 3BzCLlstcVVpP0
               - **escalada**: Quarentena
+              - **setor**: Setor Namata
+              - **grupo**: Rio das Mortes
               - **ids**:
                 - 3BzCLlstcVVpP0
             - **[8]**:
@@ -8495,6 +8873,8 @@
               - **pontos_uids**:
                 - npP3BH4QUiT4mb
               - **escalada**: Terra à Vista
+              - **setor**: Setor Namata
+              - **grupo**: Rio das Mortes
               - **ids**:
                 - npP3BH4QUiT4mb
             - **[9]**:
@@ -8502,6 +8882,8 @@
               - **pontos_uids**:
                 - QADfPUrxFK4Rwj
               - **escalada**: Jardineiro
+              - **setor**: Setor Namata
+              - **grupo**: Rio das Mortes
               - **ids**:
                 - QADfPUrxFK4Rwj
         - **[1]**:
@@ -8551,6 +8933,8 @@
               - **pontos_uids**:
                 - Cx38jGzWPXjxRB
               - **escalada**: Sombra
+              - **setor**: Setor Namata
+              - **grupo**: Rio das Mortes
               - **ids**:
                 - Cx38jGzWPXjxRB
             - **[1]**:
@@ -8558,6 +8942,8 @@
               - **pontos_uids**:
                 - jebfW2kRJpC2IP
               - **escalada**: Corona Vírus
+              - **setor**: Setor Namata
+              - **grupo**: Rio das Mortes
               - **ids**:
                 - jebfW2kRJpC2IP
             - **[2]**:
@@ -8565,6 +8951,8 @@
               - **pontos_uids**:
                 - M5MioKxteBNZQs
               - **escalada**: Quarentena
+              - **setor**: Setor Namata
+              - **grupo**: Rio das Mortes
               - **ids**:
                 - M5MioKxteBNZQs
             - **[3]**:
@@ -8572,6 +8960,8 @@
               - **pontos_uids**:
                 - y1jMLQXTxLa8TQ
               - **escalada**: Terra à Vista
+              - **setor**: Setor Namata
+              - **grupo**: Rio das Mortes
               - **ids**:
                 - y1jMLQXTxLa8TQ
       - **escaladas**:
@@ -8757,6 +9147,8 @@
               - **pontos_uids**:
                 - WEoIvw3EAeKoYF
               - **escalada**: Trio Canabis
+              - **setor**: Setor Caburu Debaixo
+              - **grupo**: Caburu
               - **ids**:
                 - WEoIvw3EAeKoYF
             - **[1]**:
@@ -8764,6 +9156,8 @@
               - **pontos_uids**:
                 - hXC7JaYh6JZx4w
               - **escalada**: Quem Tem Ovos Tem Medo
+              - **setor**: Setor Caburu Debaixo
+              - **grupo**: Caburu
               - **ids**:
                 - hXC7JaYh6JZx4w
             - **[2]**:
@@ -8771,6 +9165,8 @@
               - **pontos_uids**:
                 - ICuuq9VupSvQNs
               - **escalada**: Bela da Tarde
+              - **setor**: Setor Caburu Debaixo
+              - **grupo**: Caburu
               - **ids**:
                 - ICuuq9VupSvQNs
             - **[3]**:
@@ -8778,6 +9174,8 @@
               - **pontos_uids**:
                 - DP9gr9SXQBydCr
               - **escalada**: Ironia do Destino
+              - **setor**: Setor Caburu Debaixo
+              - **grupo**: Caburu
               - **ids**:
                 - DP9gr9SXQBydCr
             - **[4]**:
@@ -8785,6 +9183,8 @@
               - **pontos_uids**:
                 - DiDsvd06NeLzZP
               - **escalada**: Diedrim
+              - **setor**: Setor Caburu Debaixo
+              - **grupo**: Caburu
               - **ids**:
                 - DiDsvd06NeLzZP
             - **[5]**:
@@ -8792,6 +9192,8 @@
               - **pontos_uids**:
                 - CU9INbWY27TKoH
               - **escalada**: Indecisão
+              - **setor**: Setor Caburu Debaixo
+              - **grupo**: Caburu
               - **ids**:
                 - CU9INbWY27TKoH
             - **[6]**:
@@ -8799,6 +9201,8 @@
               - **pontos_uids**:
                 - B8cTrhCkdbcvwf
               - **escalada**: A Ajuda Vem de Cima
+              - **setor**: Setor Caburu Debaixo
+              - **grupo**: Caburu
               - **ids**:
                 - B8cTrhCkdbcvwf
             - **[7]**:
@@ -8806,6 +9210,8 @@
               - **pontos_uids**:
                 - LZcYBbM1mA6Ypd
               - **escalada**: Rolling Stones
+              - **setor**: Setor Caburu Debaixo
+              - **grupo**: Caburu
               - **ids**:
                 - LZcYBbM1mA6Ypd
             - **[8]**:
@@ -8813,6 +9219,8 @@
               - **pontos_uids**:
                 - Oa5SARfuoPCfZh
               - **escalada**: Via do Felipin
+              - **setor**: Setor Caburu Debaixo
+              - **grupo**: Caburu
               - **ids**:
                 - Oa5SARfuoPCfZh
           - **pontos_de_interesse**:
@@ -8907,6 +9315,8 @@
               - **pontos_uids**:
                 - 9uoyWORBTG71Ry
               - **escalada**: Amigo Oculto
+              - **setor**: Setor Caburu Debaixo
+              - **grupo**: Caburu
               - **ids**:
                 - 9uoyWORBTG71Ry
             - **[1]**:
@@ -8914,6 +9324,8 @@
               - **pontos_uids**:
                 - b4R7dM79TcifOI
               - **escalada**: Verdinho Cabuloso
+              - **setor**: Setor Caburu Debaixo
+              - **grupo**: Caburu
               - **ids**:
                 - b4R7dM79TcifOI
             - **[2]**:
@@ -8921,6 +9333,8 @@
               - **pontos_uids**:
                 - SAlkGyvd66O7Qh
               - **escalada**: Maluco Beleza
+              - **setor**: Setor Caburu Debaixo
+              - **grupo**: Caburu
               - **ids**:
                 - SAlkGyvd66O7Qh
             - **[3]**:
@@ -8928,6 +9342,8 @@
               - **pontos_uids**:
                 - QyN2k1wPXSdMBg
               - **escalada**: Solimões
+              - **setor**: Setor Caburu Debaixo
+              - **grupo**: Caburu
               - **ids**:
                 - QyN2k1wPXSdMBg
             - **[4]**:
@@ -8935,6 +9351,8 @@
               - **pontos_uids**:
                 - k8tY7LfQe673ce
               - **escalada**: Rio Negro
+              - **setor**: Setor Caburu Debaixo
+              - **grupo**: Caburu
               - **ids**:
                 - k8tY7LfQe673ce
             - **[5]**:
@@ -8942,6 +9360,8 @@
               - **pontos_uids**:
                 - hnqKHc19NZz6zu
               - **escalada**: Eliseu Frechou
+              - **setor**: Setor Caburu Debaixo
+              - **grupo**: Caburu
               - **ids**:
                 - hnqKHc19NZz6zu
             - **[6]**:
@@ -8949,6 +9369,8 @@
               - **pontos_uids**:
                 - ALDQMnw8MN21PW
               - **escalada**: Patacas Me Mordam
+              - **setor**: Setor Caburu Debaixo
+              - **grupo**: Caburu
               - **ids**:
                 - ALDQMnw8MN21PW
           - **pontos_de_interesse**:
@@ -9025,6 +9447,8 @@
               - **pontos_uids**:
                 - MCO7Id2ofTfSUq
               - **escalada**: Trio Canabis
+              - **setor**: Setor Caburu Debaixo
+              - **grupo**: Caburu
               - **ids**:
                 - MCO7Id2ofTfSUq
             - **[1]**:
@@ -9032,6 +9456,8 @@
               - **pontos_uids**:
                 - S2nweYdvHZZrZZ
               - **escalada**: Quem Tem Ovos Tem Medo
+              - **setor**: Setor Caburu Debaixo
+              - **grupo**: Caburu
               - **ids**:
                 - S2nweYdvHZZrZZ
             - **[2]**:
@@ -9039,6 +9465,8 @@
               - **pontos_uids**:
                 - uVYExpz6Ty7TBT
               - **escalada**: Bela da Tarde
+              - **setor**: Setor Caburu Debaixo
+              - **grupo**: Caburu
               - **ids**:
                 - uVYExpz6Ty7TBT
             - **[3]**:
@@ -9046,6 +9474,8 @@
               - **pontos_uids**:
                 - GzFq3zAXsOgrmK
               - **escalada**: Ironia do Destino
+              - **setor**: Setor Caburu Debaixo
+              - **grupo**: Caburu
               - **ids**:
                 - GzFq3zAXsOgrmK
             - **[4]**:
@@ -9053,6 +9483,8 @@
               - **pontos_uids**:
                 - LXRlVAPX3vmL1e
               - **escalada**: Amigo Oculto
+              - **setor**: Setor Caburu Debaixo
+              - **grupo**: Caburu
               - **ids**:
                 - LXRlVAPX3vmL1e
             - **[5]**:
@@ -9060,6 +9492,8 @@
               - **pontos_uids**:
                 - il0HFrrcZRqUKV
               - **escalada**: Verdinho Cabuloso
+              - **setor**: Setor Caburu Debaixo
+              - **grupo**: Caburu
               - **ids**:
                 - il0HFrrcZRqUKV
             - **[6]**:
@@ -9067,6 +9501,8 @@
               - **pontos_uids**:
                 - C0MoDur2pK3ZdD
               - **escalada**: Maluco Beleza
+              - **setor**: Setor Caburu Debaixo
+              - **grupo**: Caburu
               - **ids**:
                 - C0MoDur2pK3ZdD
             - **[7]**:
@@ -9074,6 +9510,8 @@
               - **pontos_uids**:
                 - 9a36bVUhQAeqxE
               - **escalada**: Solimões
+              - **setor**: Setor Caburu Debaixo
+              - **grupo**: Caburu
               - **ids**:
                 - 9a36bVUhQAeqxE
             - **[8]**:
@@ -9081,6 +9519,8 @@
               - **pontos_uids**:
                 - NZmIuVaSIWSuxP
               - **escalada**: Rio Negro
+              - **setor**: Setor Caburu Debaixo
+              - **grupo**: Caburu
               - **ids**:
                 - NZmIuVaSIWSuxP
             - **[9]**:
@@ -9088,6 +9528,8 @@
               - **pontos_uids**:
                 - Yud85p2XNLLJME
               - **escalada**: Eliseu Frechou
+              - **setor**: Setor Caburu Debaixo
+              - **grupo**: Caburu
               - **ids**:
                 - Yud85p2XNLLJME
             - **[10]**:
@@ -9095,6 +9537,8 @@
               - **pontos_uids**:
                 - mWebq5TATSQBP5
               - **escalada**: Patacas Me Mordam
+              - **setor**: Setor Caburu Debaixo
+              - **grupo**: Caburu
               - **ids**:
                 - mWebq5TATSQBP5
             - **[11]**:
@@ -9102,6 +9546,8 @@
               - **pontos_uids**:
                 - N0taLp60pPsYLP
               - **escalada**: Diedrim
+              - **setor**: Setor Caburu Debaixo
+              - **grupo**: Caburu
               - **ids**:
                 - N0taLp60pPsYLP
             - **[12]**:
@@ -9109,6 +9555,8 @@
               - **pontos_uids**:
                 - o4t7urGxZM62Jc
               - **escalada**: Indecisão
+              - **setor**: Setor Caburu Debaixo
+              - **grupo**: Caburu
               - **ids**:
                 - o4t7urGxZM62Jc
             - **[13]**:
@@ -9116,6 +9564,8 @@
               - **pontos_uids**:
                 - v1EBSjQhZtoud4
               - **escalada**: A Ajuda Vem de Cima
+              - **setor**: Setor Caburu Debaixo
+              - **grupo**: Caburu
               - **ids**:
                 - v1EBSjQhZtoud4
             - **[14]**:
@@ -9123,6 +9573,8 @@
               - **pontos_uids**:
                 - U5L0aWdzQWXPlF
               - **escalada**: Rolling Stones
+              - **setor**: Setor Caburu Debaixo
+              - **grupo**: Caburu
               - **ids**:
                 - U5L0aWdzQWXPlF
             - **[15]**:
@@ -9130,6 +9582,8 @@
               - **pontos_uids**:
                 - gLgy19Z4RnBcOr
               - **escalada**: Via do Felipin
+              - **setor**: Setor Caburu Debaixo
+              - **grupo**: Caburu
               - **ids**:
                 - gLgy19Z4RnBcOr
           - **pontos_de_interesse**:
@@ -9498,6 +9952,8 @@
               - **pontos_uids**:
                 - 2UdosLnfl7MEVi
               - **escalada**: Ao Grande Mestre
+              - **setor**: Setor Campina do Caburu
+              - **grupo**: Caburu
               - **ids**:
                 - 2UdosLnfl7MEVi
             - **[1]**:
@@ -9505,6 +9961,8 @@
               - **pontos_uids**:
                 - l83bxf2qyzL0bk
               - **escalada**: Step
+              - **setor**: Setor Campina do Caburu
+              - **grupo**: Caburu
               - **ids**:
                 - l83bxf2qyzL0bk
             - **[2]**:
@@ -9512,6 +9970,8 @@
               - **pontos_uids**:
                 - 52HHuXAe39JuDb
               - **escalada**: Tudo é Vaidade
+              - **setor**: Setor Campina do Caburu
+              - **grupo**: Caburu
               - **ids**:
                 - 52HHuXAe39JuDb
             - **[3]**:
@@ -9519,6 +9979,8 @@
               - **pontos_uids**:
                 - bLt9dVoaQ0Wx0Y
               - **escalada**: Zoação Física
+              - **setor**: Setor Campina do Caburu
+              - **grupo**: Caburu
               - **ids**:
                 - bLt9dVoaQ0Wx0Y
             - **[4]**:
@@ -9526,6 +9988,8 @@
               - **pontos_uids**:
                 - Ww57ufxpcvVH7n
               - **escalada**: Bongô
+              - **setor**: Setor Campina do Caburu
+              - **grupo**: Caburu
               - **ids**:
                 - Ww57ufxpcvVH7n
             - **[5]**:
@@ -9533,6 +9997,8 @@
               - **pontos_uids**:
                 - 7B5DoDkygjmVQg
               - **escalada**: Pai e Filho
+              - **setor**: Setor Campina do Caburu
+              - **grupo**: Caburu
               - **ids**:
                 - 7B5DoDkygjmVQg
             - **[6]**:
@@ -9540,6 +10006,8 @@
               - **pontos_uids**:
                 - EO1aPjyS9kb8ev
               - **escalada**: Podre dos Poderes
+              - **setor**: Setor Campina do Caburu
+              - **grupo**: Caburu
               - **ids**:
                 - EO1aPjyS9kb8ev
             - **[7]**:
@@ -9547,6 +10015,8 @@
               - **pontos_uids**:
                 - b43jkhLYnwRPGY
               - **escalada**: Pisando em Ovos
+              - **setor**: Setor Campina do Caburu
+              - **grupo**: Caburu
               - **ids**:
                 - b43jkhLYnwRPGY
             - **[8]**:
@@ -9554,6 +10024,8 @@
               - **pontos_uids**:
                 - rrC1dnRmMzg45b
               - **escalada**: Até o Fim dos Dias
+              - **setor**: Setor Campina do Caburu
+              - **grupo**: Caburu
               - **ids**:
                 - rrC1dnRmMzg45b
             - **[9]**:
@@ -9561,6 +10033,8 @@
               - **pontos_uids**:
                 - MU10fo2euj6Hlm
               - **escalada**: Insolação
+              - **setor**: Setor Campina do Caburu
+              - **grupo**: Caburu
               - **ids**:
                 - MU10fo2euj6Hlm
             - **[10]**:
@@ -9568,6 +10042,8 @@
               - **pontos_uids**:
                 - hvbCkjIZlJMNbo
               - **escalada**: Só pra Elas
+              - **setor**: Setor Campina do Caburu
+              - **grupo**: Caburu
               - **ids**:
                 - hvbCkjIZlJMNbo
             - **[11]**:
@@ -9575,6 +10051,8 @@
               - **pontos_uids**:
                 - 2Z0YWOGvOOiDj0
               - **escalada**: Empregando Meios
+              - **setor**: Setor Campina do Caburu
+              - **grupo**: Caburu
               - **ids**:
                 - 2Z0YWOGvOOiDj0
             - **[12]**:
@@ -9582,6 +10060,8 @@
               - **pontos_uids**:
                 - Xkitgw5Hq3fcIp
               - **escalada**: Tubarão martelo
+              - **setor**: Setor Campina do Caburu
+              - **grupo**: Caburu
               - **ids**:
                 - Xkitgw5Hq3fcIp
             - **[13]**:
@@ -9589,6 +10069,8 @@
               - **pontos_uids**:
                 - WmHVLUGHbjEvDe
               - **escalada**: No Sossego
+              - **setor**: Setor Campina do Caburu
+              - **grupo**: Caburu
               - **ids**:
                 - WmHVLUGHbjEvDe
             - **[14]**:
@@ -9596,6 +10078,8 @@
               - **pontos_uids**:
                 - rJbRZLKYos9jbj
               - **escalada**: Catira
+              - **setor**: Setor Campina do Caburu
+              - **grupo**: Caburu
               - **ids**:
                 - rJbRZLKYos9jbj
           - **pontos_de_interesse**:
@@ -9744,6 +10228,8 @@
               - **pontos_uids**:
                 - T5PF1YZp9Ho0pk
               - **escalada**: Sem Pai nem Mãe
+              - **setor**: Setor Campina do Caburu
+              - **grupo**: Caburu
               - **ids**:
                 - T5PF1YZp9Ho0pk
             - **[1]**:
@@ -9751,6 +10237,8 @@
               - **pontos_uids**:
                 - 8DHvZM7pFQEdQj
               - **escalada**: Queixo Duro
+              - **setor**: Setor Campina do Caburu
+              - **grupo**: Caburu
               - **ids**:
                 - 8DHvZM7pFQEdQj
             - **[2]**:
@@ -9758,6 +10246,8 @@
               - **pontos_uids**:
                 - OWHd0LObEennAG
               - **escalada**: 30 Segundos
+              - **setor**: Setor Campina do Caburu
+              - **grupo**: Caburu
               - **ids**:
                 - OWHd0LObEennAG
             - **[3]**:
@@ -9765,6 +10255,8 @@
               - **pontos_uids**:
                 - NbIlIED99tb30a
               - **escalada**: Perdido no Tempo
+              - **setor**: Setor Campina do Caburu
+              - **grupo**: Caburu
               - **ids**:
                 - NbIlIED99tb30a
             - **[4]**:
@@ -9772,6 +10264,8 @@
               - **pontos_uids**:
                 - leYjAz4IKjFURX
               - **escalada**: Paçoquinha
+              - **setor**: Setor Campina do Caburu
+              - **grupo**: Caburu
               - **ids**:
                 - leYjAz4IKjFURX
           - **pontos_de_interesse**:
@@ -10088,6 +10582,8 @@
               - **pontos_uids**:
                 - 1wuQagdyFLxGA3
               - **escalada**: Marco Zero
+              - **setor**: Cachoeira Pedra do Índio (Marco Zero)
+              - **grupo**: Serra de São José
               - **ids**:
                 - 1wuQagdyFLxGA3
             - **[1]**:
@@ -10095,6 +10591,8 @@
               - **pontos_uids**:
                 - nyJbu5wRGG3y83
               - **escalada**: Quininício
+              - **setor**: Cachoeira Pedra do Índio (Marco Zero)
+              - **grupo**: Serra de São José
               - **ids**:
                 - nyJbu5wRGG3y83
             - **[2]**:
@@ -10102,6 +10600,8 @@
               - **pontos_uids**:
                 - kj924F07dVQmEu
               - **escalada**: Cacique
+              - **setor**: Cachoeira Pedra do Índio (Marco Zero)
+              - **grupo**: Serra de São José
               - **ids**:
                 - kj924F07dVQmEu
             - **[3]**:
@@ -10109,6 +10609,8 @@
               - **pontos_uids**:
                 - E91oFqxXFbBLv7
               - **escalada**: Chapa Quente
+              - **setor**: Cachoeira Pedra do Índio (Marco Zero)
+              - **grupo**: Serra de São José
               - **ids**:
                 - E91oFqxXFbBLv7
         - **[1]**:
@@ -10132,6 +10634,8 @@
               - **pontos_uids**:
                 - TSWgjyaMXguZSv
               - **escalada**: Casika
+              - **setor**: Cachoeira Pedra do Índio (Marco Zero)
+              - **grupo**: Serra de São José
               - **ids**:
                 - TSWgjyaMXguZSv
             - **[1]**:
@@ -10139,6 +10643,8 @@
               - **pontos_uids**:
                 - TSWgjyaMXguZSv
               - **escalada**: Casikinha
+              - **setor**: Cachoeira Pedra do Índio (Marco Zero)
+              - **grupo**: Serra de São José
               - **ids**:
                 - TSWgjyaMXguZSv
       - **escaladas**:

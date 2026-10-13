@@ -148,6 +148,7 @@
         - **pontos_uids**:
           - 3okZzVngtkY85n
         - **escalada**: Beijo Grego
+        - **setor**: Setor Vale Gaules
         - **ids**:
           - 3okZzVngtkY85n
       - **[1]**:
@@ -155,6 +156,7 @@
         - **pontos_uids**:
           - pcoowIx00Czbif
         - **escalada**: A surpresa do Cesar
+        - **setor**: Setor Vale Gaules
         - **ids**:
           - pcoowIx00Czbif
       - **[2]**:
@@ -162,6 +164,7 @@
         - **pontos_uids**:
           - rHfqXsL9Njw1ca
         - **escalada**: O sítio dos deuses
+        - **setor**: Setor Vale Gaules
         - **ids**:
           - rHfqXsL9Njw1ca
       - **[3]**:
@@ -169,6 +172,7 @@
         - **pontos_uids**:
           - V0nRpHhwK9mdSc
         - **escalada**: Todos caminhos levam a Roma
+        - **setor**: Setor Vale Gaules
         - **ids**:
           - V0nRpHhwK9mdSc
       - **[4]**:
@@ -176,6 +180,7 @@
         - **pontos_uids**:
           - ecmvyKastDRTQ8
         - **escalada**: Love Actually
+        - **setor**: Setor Vale Gaules
         - **ids**:
           - ecmvyKastDRTQ8
       - **[5]**:
@@ -183,6 +188,7 @@
         - **pontos_uids**:
           - AuTkBjcPw4enU1
         - **escalada**: Mama Gás
+        - **setor**: Setor Vale Gaules
         - **ids**:
           - AuTkBjcPw4enU1
       - **[6]**:
@@ -190,6 +196,7 @@
         - **pontos_uids**:
           - mCTLo35tUbwnDq
         - **escalada**: Java Lee
+        - **setor**: Setor Vale Gaules
         - **ids**:
           - mCTLo35tUbwnDq
       - **[7]**:
@@ -197,6 +204,7 @@
         - **pontos_uids**:
           - RE0NyvyZmBu2yc
         - **escalada**: Java Porco
+        - **setor**: Setor Vale Gaules
         - **ids**:
           - RE0NyvyZmBu2yc
       - **[8]**:
@@ -204,6 +212,7 @@
         - **pontos_uids**:
           - UUWc5c7jAxRl7F
         - **escalada**: Absolut com limão
+        - **setor**: Setor Vale Gaules
         - **ids**:
           - UUWc5c7jAxRl7F
       - **[9]**:
@@ -211,6 +220,7 @@
         - **pontos_uids**:
           - pjdGXRG05dDq7k
         - **escalada**: Ribit
+        - **setor**: Setor Vale Gaules
         - **ids**:
           - pjdGXRG05dDq7k
       - **[10]**:
@@ -218,6 +228,7 @@
         - **pontos_uids**:
           - tqCmLfNxjeVMxY
         - **escalada**: Xanax
+        - **setor**: Setor Vale Gaules
         - **ids**:
           - tqCmLfNxjeVMxY
 - **escaladas**:
@@ -486,6 +497,8 @@
         - **pontos_uids**:
           - tidyYQI45l4M4C
         - **escalada**: Cuidado Ketely
+        - **setor**: Setor Forno da Onça
+        - **grupo**: Setores Parede do Ladrão e Forno da Onça
         - **ids**:
           - tidyYQI45l4M4C
       - **[1]**:
@@ -493,6 +506,8 @@
         - **pontos_uids**:
           - NZUnotfGBMGf7b
         - **escalada**: You will survive
+        - **setor**: Setor Forno da Onça
+        - **grupo**: Setores Parede do Ladrão e Forno da Onça
         - **ids**:
           - NZUnotfGBMGf7b
       - **[2]**:
@@ -500,6 +515,8 @@
         - **pontos_uids**:
           - zIQURQpzSFH74x
         - **escalada**: Cara ou Coroa
+        - **setor**: Setor Forno da Onça
+        - **grupo**: Setores Parede do Ladrão e Forno da Onça
         - **ids**:
           - zIQURQpzSFH74x
       - **[3]**:
@@ -507,6 +524,8 @@
         - **pontos_uids**:
           - JfMdZmlBlP4Q4A
         - **escalada**: French CanCan
+        - **setor**: Setor Forno da Onça
+        - **grupo**: Setores Parede do Ladrão e Forno da Onça
         - **ids**:
           - JfMdZmlBlP4Q4A
       - **[4]**:
@@ -514,6 +533,8 @@
         - **pontos_uids**:
           - sCaTF1IUacIrw5
         - **escalada**: On the road again
+        - **setor**: Setor Forno da Onça
+        - **grupo**: Setores Parede do Ladrão e Forno da Onça
         - **ids**:
           - sCaTF1IUacIrw5
       - **[5]**:
@@ -521,6 +542,8 @@
         - **pontos_uids**:
           - ZVBZ4goQqPyALm
         - **escalada**: Incrível mas verdadeiro
+        - **setor**: Setor Forno da Onça
+        - **grupo**: Setores Parede do Ladrão e Forno da Onça
         - **ids**:
           - ZVBZ4goQqPyALm
       - **[6]**:
@@ -528,6 +551,8 @@
         - **pontos_uids**:
           - tW0IJUIvoYNNA5
         - **escalada**: Bouder com leite
+        - **setor**: Setor Parede do Ladrão
+        - **grupo**: Setores Parede do Ladrão e Forno da Onça
         - **ids**:
           - tW0IJUIvoYNNA5
       - **[7]**:
@@ -535,6 +560,8 @@
         - **pontos_uids**:
           - KUcgfiTFiiASGS
         - **escalada**: Chipie chipie
+        - **setor**: Setor Parede do Ladrão
+        - **grupo**: Setores Parede do Ladrão e Forno da Onça
         - **ids**:
           - KUcgfiTFiiASGS
       - **[8]**:
@@ -542,6 +569,8 @@
         - **pontos_uids**:
           - znE8p6bhqC1S4h
         - **escalada**: Bambi
+        - **setor**: Setor Parede do Ladrão
+        - **grupo**: Setores Parede do Ladrão e Forno da Onça
         - **ids**:
           - znE8p6bhqC1S4h
       - **[9]**:
@@ -549,6 +578,8 @@
         - **pontos_uids**:
           - MrexSxflKI708E
         - **escalada**: Ana Thor
+        - **setor**: Setor Parede do Ladrão
+        - **grupo**: Setores Parede do Ladrão e Forno da Onça
         - **ids**:
           - MrexSxflKI708E
       - **[10]**:
@@ -556,6 +587,8 @@
         - **pontos_uids**:
           - bij9PzJuilmoNk
         - **escalada**: Au bout des doigts
+        - **setor**: Setor Parede do Ladrão
+        - **grupo**: Setores Parede do Ladrão e Forno da Onça
         - **ids**:
           - bij9PzJuilmoNk
       - **[11]**:
@@ -563,6 +596,8 @@
         - **pontos_uids**:
           - zc3T3uICTsELQQ
         - **escalada**: Boom Boom
+        - **setor**: Setor Parede do Ladrão
+        - **grupo**: Setores Parede do Ladrão e Forno da Onça
         - **ids**:
           - zc3T3uICTsELQQ
       - **[12]**:
@@ -570,6 +605,8 @@
         - **pontos_uids**:
           - E3QLsYCV0XvvDn
         - **escalada**: Petit Pichou
+        - **setor**: Setor Parede do Ladrão
+        - **grupo**: Setores Parede do Ladrão e Forno da Onça
         - **ids**:
           - E3QLsYCV0XvvDn
 - **setores**:
@@ -992,6 +1029,8 @@
         - **pontos_uids**:
           - Q2MrikGdwTRjiw
         - **escalada**: Capitã Minhoca
+        - **setor**: Setor Caverna do Bin Laden
+        - **grupo**: Setor Caverna, Mirante e Ground Control
         - **ids**:
           - Q2MrikGdwTRjiw
       - **[1]**:
@@ -999,6 +1038,8 @@
         - **pontos_uids**:
           - U1vNmtBWQ7vZCN
         - **escalada**: He Man
+        - **setor**: Setor Caverna do Bin Laden
+        - **grupo**: Setor Caverna, Mirante e Ground Control
         - **ids**:
           - U1vNmtBWQ7vZCN
       - **[2]**:
@@ -1006,6 +1047,8 @@
         - **pontos_uids**:
           - 6YzF0YM8l1dJta
         - **escalada**: Esqueleto
+        - **setor**: Setor Caverna do Bin Laden
+        - **grupo**: Setor Caverna, Mirante e Ground Control
         - **ids**:
           - 6YzF0YM8l1dJta
       - **[3]**:
@@ -1013,6 +1056,8 @@
         - **pontos_uids**:
           - QaIhIbNJeDZpTO
         - **escalada**: Allahu Akbar
+        - **setor**: Setor Caverna do Bin Laden
+        - **grupo**: Setor Caverna, Mirante e Ground Control
         - **ids**:
           - QaIhIbNJeDZpTO
       - **[4]**:
@@ -1020,6 +1065,8 @@
         - **pontos_uids**:
           - SNW7IHSQIMpw4H
         - **escalada**: Saída à Francesa
+        - **setor**: Setor Caverna do Bin Laden
+        - **grupo**: Setor Caverna, Mirante e Ground Control
         - **ids**:
           - SNW7IHSQIMpw4H
       - **[5]**:
@@ -1027,6 +1074,8 @@
         - **pontos_uids**:
           - hmOjtTDaNcdsQc
         - **escalada**: Paris em Chamas
+        - **setor**: Setor Caverna do Bin Laden
+        - **grupo**: Setor Caverna, Mirante e Ground Control
         - **ids**:
           - hmOjtTDaNcdsQc
       - **[6]**:
@@ -1034,6 +1083,8 @@
         - **pontos_uids**:
           - FF4spboC3cQawl
         - **escalada**: Urubu tá com raiva do boi
+        - **setor**: Setor Mirante da Cruz
+        - **grupo**: Setor Caverna, Mirante e Ground Control
         - **ids**:
           - FF4spboC3cQawl
       - **[7]**:
@@ -1041,6 +1092,8 @@
         - **pontos_uids**:
           - amw7E3BnbbnoA1
         - **escalada**: Maria Teresa
+        - **setor**: Setor Mirante da Cruz
+        - **grupo**: Setor Caverna, Mirante e Ground Control
         - **ids**:
           - amw7E3BnbbnoA1
       - **[8]**:
@@ -1048,6 +1101,8 @@
         - **pontos_uids**:
           - 0kO7u6STXMm3Wy
         - **escalada**: Uma gota de milagre
+        - **setor**: Setor Mirante da Cruz
+        - **grupo**: Setor Caverna, Mirante e Ground Control
         - **ids**:
           - 0kO7u6STXMm3Wy
       - **[9]**:
@@ -1055,6 +1110,8 @@
         - **pontos_uids**:
           - eRstBJ3pYVuXv1
         - **escalada**: Quem não chora não mama
+        - **setor**: Setor Mirante da Cruz
+        - **grupo**: Setor Caverna, Mirante e Ground Control
         - **ids**:
           - eRstBJ3pYVuXv1
       - **[10]**:
@@ -1062,6 +1119,8 @@
         - **pontos_uids**:
           - dXphfAP6F1bU9H
         - **escalada**: Chapolin
+        - **setor**: Setor Mirante da Cruz
+        - **grupo**: Setor Caverna, Mirante e Ground Control
         - **ids**:
           - dXphfAP6F1bU9H
       - **[11]**:
@@ -1069,6 +1128,8 @@
         - **pontos_uids**:
           - epWrDLZnxNuKa1
         - **escalada**: Desvio na pista
+        - **setor**: Setor Mirante da Cruz
+        - **grupo**: Setor Caverna, Mirante e Ground Control
         - **ids**:
           - epWrDLZnxNuKa1
       - **[12]**:
@@ -1076,6 +1137,8 @@
         - **pontos_uids**:
           - 8MOjQ3syVUZHTM
         - **escalada**: Essa via não é minha
+        - **setor**: Setor Ground Control
+        - **grupo**: Setor Caverna, Mirante e Ground Control
         - **ids**:
           - 8MOjQ3syVUZHTM
       - **[13]**:
@@ -1083,6 +1146,8 @@
         - **pontos_uids**:
           - mYxk3dpc4YZyjY
         - **escalada**: Vento da Patagônia
+        - **setor**: Setor Ground Control
+        - **grupo**: Setor Caverna, Mirante e Ground Control
         - **ids**:
           - mYxk3dpc4YZyjY
       - **[14]**:
@@ -1090,6 +1155,8 @@
         - **pontos_uids**:
           - 5zCjqG5xxuPp8T
         - **escalada**: Mr Bean
+        - **setor**: Setor Ground Control
+        - **grupo**: Setor Caverna, Mirante e Ground Control
         - **ids**:
           - 5zCjqG5xxuPp8T
       - **[15]**:
@@ -1097,6 +1164,8 @@
         - **pontos_uids**:
           - jNuKW70ZB9HF2W
         - **escalada**: Lagarto de aniversário
+        - **setor**: Setor Ground Control
+        - **grupo**: Setor Caverna, Mirante e Ground Control
         - **ids**:
           - jNuKW70ZB9HF2W
       - **[16]**:
@@ -1104,6 +1173,8 @@
         - **pontos_uids**:
           - MAaFMP13lhdRa7
         - **escalada**: Cavuca tatu
+        - **setor**: Setor Ground Control
+        - **grupo**: Setor Caverna, Mirante e Ground Control
         - **ids**:
           - MAaFMP13lhdRa7
       - **[17]**:
@@ -1111,6 +1182,8 @@
         - **pontos_uids**:
           - ZEU7TuDyKMTMF3
         - **escalada**: Zé colmeia e Dona Flor
+        - **setor**: Setor Ground Control
+        - **grupo**: Setor Caverna, Mirante e Ground Control
         - **ids**:
           - ZEU7TuDyKMTMF3
       - **[18]**:
@@ -1118,6 +1191,8 @@
         - **pontos_uids**:
           - 5VnE7CQEIMGgN0
         - **escalada**: Tirolês
+        - **setor**: Setor Ground Control
+        - **grupo**: Setor Caverna, Mirante e Ground Control
         - **ids**:
           - 5VnE7CQEIMGgN0
       - **[19]**:
@@ -1125,6 +1200,8 @@
         - **pontos_uids**:
           - 8e8bEdxfleFpkZ
         - **escalada**: 10 c
+        - **setor**: Setor Ground Control
+        - **grupo**: Setor Caverna, Mirante e Ground Control
         - **ids**:
           - 8e8bEdxfleFpkZ
       - **[20]**:
@@ -1132,6 +1209,8 @@
         - **pontos_uids**:
           - tY22RWz2rpW76q
         - **escalada**: Sabor Baunilha
+        - **setor**: Setor Ground Control
+        - **grupo**: Setor Caverna, Mirante e Ground Control
         - **ids**:
           - tY22RWz2rpW76q
       - **[21]**:
@@ -1139,6 +1218,8 @@
         - **pontos_uids**:
           - KLOfU403U9xFaJ
         - **escalada**: O charme da Trad
+        - **setor**: Setor Ground Control
+        - **grupo**: Setor Caverna, Mirante e Ground Control
         - **ids**:
           - KLOfU403U9xFaJ
       - **[22]**:
@@ -1146,6 +1227,8 @@
         - **pontos_uids**:
           - AjVzBpB7GXX3U4
         - **escalada**: Café Ole
+        - **setor**: Setor Ground Control
+        - **grupo**: Setor Caverna, Mirante e Ground Control
         - **ids**:
           - AjVzBpB7GXX3U4
       - **[23]**:
@@ -1153,6 +1236,8 @@
         - **pontos_uids**:
           - MslaLZvaFDuhD9
         - **escalada**: Tio Tonton
+        - **setor**: Setor Ground Control
+        - **grupo**: Setor Caverna, Mirante e Ground Control
         - **ids**:
           - MslaLZvaFDuhD9
 - **setores**:
@@ -1634,6 +1719,8 @@
         - **pontos_uids**:
           - 0JWb3oTHfaUtmQ
         - **escalada**: La Speza
+        - **setor**: Setor Terra do Nunca
+        - **grupo**: Setor Curto e Grosso, Malibu e Terra do Nunca
         - **ids**:
           - 0JWb3oTHfaUtmQ
       - **[1]**:
@@ -1641,6 +1728,8 @@
         - **pontos_uids**:
           - q4GSjBI58kIW30
         - **escalada**: Gekke Greda
+        - **setor**: Setor Curto e Grosso
+        - **grupo**: Setor Curto e Grosso, Malibu e Terra do Nunca
         - **ids**:
           - q4GSjBI58kIW30
       - **[2]**:
@@ -1648,6 +1737,8 @@
         - **pontos_uids**:
           - ydC7zIuz9SErQg
         - **escalada**: O Breizh
+        - **setor**: Setor Curto e Grosso
+        - **grupo**: Setor Curto e Grosso, Malibu e Terra do Nunca
         - **ids**:
           - ydC7zIuz9SErQg
       - **[3]**:
@@ -1655,6 +1746,8 @@
         - **pontos_uids**:
           - 1Bj76ajRO4eoFF
         - **escalada**: Dedo no C* e Gritaria
+        - **setor**: Setor Curto e Grosso
+        - **grupo**: Setor Curto e Grosso, Malibu e Terra do Nunca
         - **ids**:
           - 1Bj76ajRO4eoFF
       - **[4]**:
@@ -1662,6 +1755,8 @@
         - **pontos_uids**:
           - zcObHou4vD95jn
         - **escalada**: Tea Time
+        - **setor**: Setor Curto e Grosso
+        - **grupo**: Setor Curto e Grosso, Malibu e Terra do Nunca
         - **ids**:
           - zcObHou4vD95jn
       - **[5]**:
@@ -1669,6 +1764,8 @@
         - **pontos_uids**:
           - G4tq1RUvtiHgt1
         - **escalada**: Mimi Zokko
+        - **setor**: Setor Malibu
+        - **grupo**: Setor Curto e Grosso, Malibu e Terra do Nunca
         - **ids**:
           - G4tq1RUvtiHgt1
       - **[6]**:
@@ -1676,6 +1773,8 @@
         - **pontos_uids**:
           - sNQ8WIx4JBasno
         - **escalada**: Mariposa
+        - **setor**: Setor Malibu
+        - **grupo**: Setor Curto e Grosso, Malibu e Terra do Nunca
         - **ids**:
           - sNQ8WIx4JBasno
 - **setores**:

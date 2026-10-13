@@ -97,18 +97,21 @@ picos:
             pontos_uids:
             - 5q0AedNUEeV1GJ
             escalada: Butantana
+            setor: Setor Covide (ala aderência)
             ids:
             - 5q0AedNUEeV1GJ
           - alvo_uid: MmKZYOJSYCjO7g
             pontos_uids:
             - KOwCY6cMM0IH99
             escalada: Convite 19
+            setor: Setor Covide (ala aderência)
             ids:
             - KOwCY6cMM0IH99
           - alvo_uid: zE7myiPldtvlKi
             pontos_uids:
             - 7pN6DVwdYe8dGL
             escalada: Astracênica
+            setor: Setor Covide (ala aderência)
             ids:
             - 7pN6DVwdYe8dGL
         escaladas:
@@ -276,60 +279,70 @@ picos:
             pontos_uids:
             - Z8cUeKRnCJXDJY
             escalada: Coronavaco
+            setor: Setor Covide (ala esquerda)
             ids:
             - Z8cUeKRnCJXDJY
           - alvo_uid: MnILT3c0qTgDqb
             pontos_uids:
             - uakLllXDBVS2qa
             escalada: Exclusão social
+            setor: Setor Covide (ala esquerda)
             ids:
             - uakLllXDBVS2qa
           - alvo_uid: AtuWGN7mpbOfye
             pontos_uids:
             - u5cMYTTgqUADPK
             escalada: Exputinick
+            setor: Setor Covide (ala esquerda)
             ids:
             - u5cMYTTgqUADPK
           - alvo_uid: 91AMT03TYHK0Y9
             pontos_uids:
             - Czyi8HERIOYHD6
             escalada: Y de Covide
+            setor: Setor Covide (ala esquerda)
             ids:
             - Czyi8HERIOYHD6
           - alvo_uid: B7FzJ1PHuMEy4S
             pontos_uids:
             - fbOUxltOhsLGTl
             escalada: Vitiligovide
+            setor: Setor Covide (ala esquerda)
             ids:
             - fbOUxltOhsLGTl
           - alvo_uid: 1dhPraNFUq8viA
             pontos_uids:
             - x22tIrWvBEmzut
             escalada: Fayserchover
+            setor: Setor Covide (ala esquerda)
             ids:
             - x22tIrWvBEmzut
           - alvo_uid: iGjIBfmFpnnHTA
             pontos_uids:
             - qPpdyyeRywi1B3
             escalada: Covid com C maiúsculo
+            setor: Setor Covide (ala esquerda)
             ids:
             - qPpdyyeRywi1B3
           - alvo_uid: fZhZb8aXNKf6C0
             pontos_uids:
             - m3lcXi1Ro2NnpB
             escalada: Ômicronibus
+            setor: Setor Covide (ala esquerda)
             ids:
             - m3lcXi1Ro2NnpB
           - alvo_uid: GUb1n2EBklftzl
             pontos_uids:
             - dwZvbHJdgZqOWH
             escalada: Ômicron ondas
+            setor: Setor Covide (ala esquerda)
             ids:
             - dwZvbHJdgZqOWH
           - alvo_uid: 8wHmWAFw0v3Dc7
             pontos_uids:
             - OLMu1e2akUT46Z
             escalada: Aracnocovid
+            setor: Setor Covide (ala esquerda)
             ids:
             - OLMu1e2akUT46Z
         escaladas:
@@ -675,78 +688,91 @@ picos:
             pontos_uids:
             - kDbpBcb35XUyTm
             escalada: Cepadedos
+            setor: Setor Covide (ala central e direita)
             ids:
             - kDbpBcb35XUyTm
           - alvo_uid: vaJhlFed8TUyAw
             pontos_uids:
             - i5HVfzCZFwnT7H
             escalada: Cepalangos
+            setor: Setor Covide (ala central e direita)
             ids:
             - i5HVfzCZFwnT7H
           - alvo_uid: E7OPzgL63pG512
             pontos_uids:
             - Ye7H0aTKrXNmp1
             escalada: Cepacol
+            setor: Setor Covide (ala central e direita)
             ids:
             - Ye7H0aTKrXNmp1
           - alvo_uid: hNPRfDitG1UTj0
             pontos_uids:
             - BtOV3htU9YI64Q
             escalada: Deltazin
+            setor: Setor Covide (ala central e direita)
             ids:
             - BtOV3htU9YI64Q
           - alvo_uid: di95uVia0Iwhqh
             pontos_uids:
             - NiLoRq4Oa6qDso
             escalada: Ignorância do Deltacron
+            setor: Setor Covide (ala central e direita)
             ids:
             - NiLoRq4Oa6qDso
           - alvo_uid: exaLkZFUN0Lsd8
             pontos_uids:
             - Up0vEx1DoJr7fR
             escalada: Covidenhoca
+            setor: Setor Covide (ala central e direita)
             ids:
             - Up0vEx1DoJr7fR
           - alvo_uid: HLfsMtPSZOeInR
             pontos_uids:
             - R5ThNGazanrRGU
             escalada: B1B2
+            setor: Setor Covide (ala central e direita)
             ids:
             - R5ThNGazanrRGU
           - alvo_uid: F2CxOUwmyooHLV
             pontos_uids:
             - 5D97bmKsNttJXR
             escalada: Oxforte
+            setor: Setor Covide (ala central e direita)
             ids:
             - 5D97bmKsNttJXR
           - alvo_uid: 7IJ57Hzf0hDyWZ
             pontos_uids:
             - CAQMwEWch7OrFy
             escalada: Arco do delta
+            setor: Setor Covide (ala central e direita)
             ids:
             - CAQMwEWch7OrFy
           - alvo_uid: KPp695ud4QtKZc
             pontos_uids:
             - FrA0UcVil8KttF
             escalada: Sequela virótica
+            setor: Setor Covide (ala central e direita)
             ids:
             - FrA0UcVil8KttF
           - alvo_uid: Uh5mq46IClk0f3
             pontos_uids:
             - CKT1Ggx6t4y3VI
             escalada: Carga viral
+            setor: Setor Covide (ala central e direita)
             ids:
             - CKT1Ggx6t4y3VI
           - alvo_uid: RZ0TO1rrIaNvey
             pontos_uids:
             - 7bDY5NmGif4KOy
             escalada: Sou T.I.
+            setor: Setor Covide (ala central e direita)
             ids:
             - 7bDY5NmGif4KOy
           - alvo_uid: b7rAolDIaWVZkg
             pontos_uids:
             - Po13CwMKqTLo35
             escalada: Antígeno
+            setor: Setor Covide (ala central e direita)
             ids:
             - Po13CwMKqTLo35
         escaladas:

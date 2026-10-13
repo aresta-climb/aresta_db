@@ -204,132 +204,154 @@ picos:
             pontos_uids:
             - LNb9sKUuRg8uTT
             escalada: Ditadura do Barulho
+            setor: Setor Pataxós
             ids:
             - LNb9sKUuRg8uTT
           - alvo_uid: ugkqg8AbhSQTfH
             pontos_uids:
             - VHC1JPCXvqiCwr
             escalada: Nó 88
+            setor: Setor Pataxós
             ids:
             - VHC1JPCXvqiCwr
           - alvo_uid: FShzkcYQNnZPCn
             pontos_uids:
             - OpU8AosIW9ayjh
             escalada: Mulher Mais Bonita do Mundo
+            setor: Setor Pataxós
             ids:
             - OpU8AosIW9ayjh
           - alvo_uid: DdMmFVTLXo08S1
             pontos_uids:
             - VIgIWsC50FJNai
             escalada: Jogo Rápido
+            setor: Setor Pataxós
             ids:
             - VIgIWsC50FJNai
           - alvo_uid: X1kJ5hMr5Fpu0q
             pontos_uids:
             - gMTEKLfQzhDabT
             escalada: Baile da Betinha
+            setor: Setor Pataxós
             ids:
             - gMTEKLfQzhDabT
           - alvo_uid: amBcdYUfvfWjVU
             pontos_uids:
             - UnrpCRinRBh7oj
             escalada: Chove + Não Molha
+            setor: Setor Pataxós
             ids:
             - UnrpCRinRBh7oj
           - alvo_uid: oJFSoB58nOkxCK
             pontos_uids:
             - JCcbPuQqeFZxMD
             escalada: Paisnkentá
+            setor: Setor Pataxós
             ids:
             - JCcbPuQqeFZxMD
           - alvo_uid: OqQ7UK8617FO5p
             pontos_uids:
             - YlGwiUyrcQOaT8
             escalada: Alá Magnólia
+            setor: Setor Pataxós
             ids:
             - YlGwiUyrcQOaT8
           - alvo_uid: LrGHREzXJ6GSj0
             pontos_uids:
             - hgRUowuxEIXvQu
             escalada: F.A. Foi Dela
+            setor: Setor Pataxós
             ids:
             - hgRUowuxEIXvQu
           - alvo_uid: qG7czp3qmqLiAj
             pontos_uids:
             - eDZaYvMTSnBhmZ
             escalada: Ilusão do 'eu'
+            setor: Setor Pataxós
             ids:
             - eDZaYvMTSnBhmZ
           - alvo_uid: BomUHx70b3tiiB
             pontos_uids:
             - Rt6aTE2mAkC2Oi
             escalada: (via inacabada)
+            setor: Setor Pataxós
             ids:
             - Rt6aTE2mAkC2Oi
           - alvo_uid: wcM6n0BnHPbL7W
             pontos_uids:
             - mn1Rk6JisznUgt
             escalada: Alienação Social
+            setor: Setor Pataxós
             ids:
             - mn1Rk6JisznUgt
           - alvo_uid: VBdML72q0Pql9q
             pontos_uids:
             - 45ESf9jWv74VMH
             escalada: Siurana
+            setor: Setor Pataxós
             ids:
             - 45ESf9jWv74VMH
           - alvo_uid: wwJAA8Iv9uyNp8
             pontos_uids:
             - rOillPn1BEp6aR
             escalada: Bond, Vagabond
+            setor: Setor Pataxós
             ids:
             - rOillPn1BEp6aR
           - alvo_uid: 8Rrr9khUm2HM2p
             pontos_uids:
             - S6hCLFpqFArmUB
             escalada: Bond, Maribond
+            setor: Setor Pataxós
             ids:
             - S6hCLFpqFArmUB
           - alvo_uid: g1GUwzKkguiLaK
             pontos_uids:
             - gyX0uRs0dVQNGe
             escalada: Charuto no Beiço
+            setor: Setor Pataxós
             ids:
             - gyX0uRs0dVQNGe
           - alvo_uid: WbVUA80Lv8pn7x
             pontos_uids:
             - vyu4EGBuiQBpaq
             escalada: Chama o Bombeiro
+            setor: Setor Pataxós
             ids:
             - vyu4EGBuiQBpaq
           - alvo_uid: BHRebb9DlH7Fgd
             pontos_uids:
             - Yeohcm6TiXdIdu
             escalada: Inter Escalar
+            setor: Setor Pataxós
             ids:
             - Yeohcm6TiXdIdu
           - alvo_uid: fbAOZx0oauDaee
             pontos_uids:
             - hzCFy6EXcWvvNH
             escalada: (via inacabada) Capitão Fantástico
+            setor: Setor Pataxós
             ids:
             - hzCFy6EXcWvvNH
           - alvo_uid: P0VjGrFoCYbKzV
             pontos_uids:
             - p5uYwhYOyEbl3C
             escalada: Aracnofobia
+            setor: Setor Pataxós
             ids:
             - p5uYwhYOyEbl3C
           - alvo_uid: KY3cFhUgJbwcTs
             pontos_uids:
             - qclmWQmcsO4bnL
             escalada: Mão de Alface
+            setor: Setor Pataxós
             ids:
             - qclmWQmcsO4bnL
           - alvo_uid: BomUHx70b3tiiB
             pontos_uids:
             - f0jTDGNwa4H6M8
             escalada: (via inacabada)
+            setor: Setor Pataxós
             ids:
             - f0jTDGNwa4H6M8
         escaladas:
@@ -525,12 +547,14 @@ picos:
             pontos_uids:
             - 8YXCD71zENcm1y
             escalada: (via inacabada)
+            setor: Setor Cataguás
             ids:
             - 8YXCD71zENcm1y
           - alvo_uid: o6lDcwqp37sSU9
             pontos_uids:
             - vONjLddZo1mifE
             escalada: Dos Pombos
+            setor: Setor Cataguás
             ids:
             - vONjLddZo1mifE
         escaladas:
@@ -602,24 +626,28 @@ picos:
             pontos_uids:
             - NcrhgAdVHpL7V2
             escalada: Curumim
+            setor: Setor Xavante
             ids:
             - NcrhgAdVHpL7V2
           - alvo_uid: wd8ATscGxrhD91
             pontos_uids:
             - mrtduOlFh3i2qV
             escalada: Terra à Vista
+            setor: Setor Xavante
             ids:
             - mrtduOlFh3i2qV
           - alvo_uid: H4SwbadCl0qD5B
             pontos_uids:
             - jmJnojNCKhRmoB
             escalada: (projeto)
+            setor: Setor Xavante
             ids:
             - jmJnojNCKhRmoB
           - alvo_uid: I9MEHiGeAnxGh3
             pontos_uids:
             - vmumFRsbAc1vMw
             escalada: (sem nome)
+            setor: Setor Xavante
             ids:
             - vmumFRsbAc1vMw
         - caminho_imagem_mapa: imagens/setor_xavante_p0_i1.webp
@@ -647,12 +675,14 @@ picos:
             pontos_uids:
             - KTSxol5XoR7sa4
             escalada: Especiaria
+            setor: Setor Xavante
             ids:
             - KTSxol5XoR7sa4
           - alvo_uid: 028yiAokkxtL25
             pontos_uids:
             - jCcmwNWqmR4Xda
             escalada: Tupi Or Not Tupi
+            setor: Setor Xavante
             ids:
             - jCcmwNWqmR4Xda
         escaladas:
@@ -907,126 +937,147 @@ picos:
             pontos_uids:
             - aZ2Fj6Vb2I8XLF
             escalada: Saidera
+            setor: Setor Yanomami
             ids:
             - aZ2Fj6Vb2I8XLF
           - alvo_uid: CkOe9twBlpZ9Hw
             pontos_uids:
             - u3Ucp77yH4JmUw
             escalada: Impaciência Tem Limite
+            setor: Setor Yanomami
             ids:
             - u3Ucp77yH4JmUw
           - alvo_uid: wGjVNzAoTmPAMG
             pontos_uids:
             - Ee3XBY5FLjXIzE
             escalada: Gongolô
+            setor: Setor Yanomami
             ids:
             - Ee3XBY5FLjXIzE
           - alvo_uid: xNosFDuLkEw8c7
             pontos_uids:
             - E3vYBX29RgJ6Ay
             escalada: Seg Sativa
+            setor: Setor Yanomami
             ids:
             - E3vYBX29RgJ6Ay
           - alvo_uid: 013FTDDu5a9H09
             pontos_uids:
             - LJf14lfo3Kz8sc
             escalada: Gaiapiá
+            setor: Setor Yanomami
             ids:
             - LJf14lfo3Kz8sc
           - alvo_uid: 8NYeP9TXoeR6HW
             pontos_uids:
             - EJGEoupwA6R6cL
             escalada: Telefone Sem Fio
+            setor: Setor Yanomami
             ids:
             - EJGEoupwA6R6cL
           - alvo_uid: 8Y8OtJjygmtXY4
             pontos_uids:
             - O71rCtpRg9GUEW
             escalada: Trabalhador Solo
+            setor: Setor Yanomami
             ids:
             - O71rCtpRg9GUEW
           - alvo_uid: ZsK4cTvE68TSQW
             pontos_uids:
             - d9IkY4uwUrHhQq
             escalada: Quem avisa amigo é
+            setor: Setor Yanomami
             ids:
             - d9IkY4uwUrHhQq
           - alvo_uid: PW2VEbk1y0oAOA
             pontos_uids:
             - rSTxFNHC6lwsYY
             escalada: Inimigo do Fim
+            setor: Setor Yanomami
             ids:
             - rSTxFNHC6lwsYY
           - alvo_uid: ncmE7utoSSAjvk
             pontos_uids:
             - zOFZK5OMvp6HKt
             escalada: Hipotenusa (variante)
+            setor: Setor Yanomami
             ids:
             - zOFZK5OMvp6HKt
           - alvo_uid: rWHgVGYqeRZCxN
             pontos_uids:
             - v2El62CQbOe3Zj
             escalada: Força Yanomami (principal)
+            setor: Setor Yanomami
             ids:
             - v2El62CQbOe3Zj
           - alvo_uid: KWTcF2bV6tvutP
             pontos_uids:
             - GzQ9jlEoM5mVWB
             escalada: Pluriverso Paralelo
+            setor: Setor Yanomami
             ids:
             - GzQ9jlEoM5mVWB
           - alvo_uid: XzXwzxIJwZOyR0
             pontos_uids:
             - UAzlcnmEzTQ9sR
             escalada: Tiro ao Alvo
+            setor: Setor Yanomami
             ids:
             - UAzlcnmEzTQ9sR
           - alvo_uid: y4iN2YYncGT1ef
             pontos_uids:
             - tugZhuUId8ErqF
             escalada: Visita Ilustre
+            setor: Setor Yanomami
             ids:
             - tugZhuUId8ErqF
           - alvo_uid: kGqAztBAtwD45x
             pontos_uids:
             - ryf0ttMoCegs3Z
             escalada: Hand Pan (variante)
+            setor: Setor Yanomami
             ids:
             - ryf0ttMoCegs3Z
           - alvo_uid: t3CuzOMS1de9SP
             pontos_uids:
             - Jacz5Cn1CCKc0m
             escalada: Labirinto (variante)
+            setor: Setor Yanomami
             ids:
             - Jacz5Cn1CCKc0m
           - alvo_uid: P9nDcrTUaBqQQ5
             pontos_uids:
             - yrIjt0SyfdOAiI
             escalada: Charada (variante)
+            setor: Setor Yanomami
             ids:
             - yrIjt0SyfdOAiI
           - alvo_uid: CqiFz0B1GaxJaP
             pontos_uids:
             - 0SEa2yokGi9O77
             escalada: Vingador (variante)
+            setor: Setor Yanomami
             ids:
             - 0SEa2yokGi9O77
           - alvo_uid: aduuBFYYx1ncwM
             pontos_uids:
             - B7Nit52m56sSQY
             escalada: Trilogia (principal)
+            setor: Setor Yanomami
             ids:
             - B7Nit52m56sSQY
           - alvo_uid: kwE5M5BKPiaL1T
             pontos_uids:
             - hm9zJqEnrsudtX
             escalada: Paga pra Ver
+            setor: Setor Yanomami
             ids:
             - hm9zJqEnrsudtX
           - alvo_uid: egMWuqqlJaQFd7
             pontos_uids:
             - p1hGhHJ55ax4Bw
             escalada: Divida Ativa
+            setor: Setor Yanomami
             ids:
             - p1hGhHJ55ax4Bw
         escaladas:

@@ -146,6 +146,7 @@ picos:
             pontos_uids:
             - 9Td3ZxJ26rlJqM
             setor: Setor Vale dos Ossos
+            grupo: Setores
             ids:
             - 9Td3ZxJ26rlJqM
         setores:
@@ -626,60 +627,80 @@ picos:
                 pontos_uids:
                 - neAhOQq1GzdtiB
                 escalada: OSSO EM PÓ
+                setor: Setor Vale dos Ossos
+                grupo: Setores
                 ids:
                 - neAhOQq1GzdtiB
               - alvo_uid: pI7euhDVGKKVgp
                 pontos_uids:
                 - 9Q9QLY5PHzrF9n
                 escalada: OSSOS DO OFÍCIO
+                setor: Setor Vale dos Ossos
+                grupo: Setores
                 ids:
                 - 9Q9QLY5PHzrF9n
               - alvo_uid: jygeHw3zluCbtt
                 pontos_uids:
                 - enaLArnJWawZZz
                 escalada: KD O OSSO
+                setor: Setor Vale dos Ossos
+                grupo: Setores
                 ids:
                 - enaLArnJWawZZz
               - alvo_uid: uKA71SZOkiNW7L
                 pontos_uids:
                 - qY0MYFL0eumTMK
                 escalada: CANTEIRO DE OSSOS
+                setor: Setor Vale dos Ossos
+                grupo: Setores
                 ids:
                 - qY0MYFL0eumTMK
               - alvo_uid: aFvfcxKoDJEPbu
                 pontos_uids:
                 - v0BbHt18MWept2
                 escalada: SANTUÁRIO DOS OSSOS
+                setor: Setor Vale dos Ossos
+                grupo: Setores
                 ids:
                 - v0BbHt18MWept2
               - alvo_uid: iCscmWf1RmRGF4
                 pontos_uids:
                 - ZMQupuuoecmUrN
                 escalada: QUEBRA OSSOS
+                setor: Setor Vale dos Ossos
+                grupo: Setores
                 ids:
                 - ZMQupuuoecmUrN
               - alvo_uid: mQZvFrd8NRmOdF
                 pontos_uids:
                 - 8WNlzQWEc61vPm
                 escalada: SOZINHO É OSSO
+                setor: Setor Vale dos Ossos
+                grupo: Setores
                 ids:
                 - 8WNlzQWEc61vPm
               - alvo_uid: I49C4KIdZzOR2c
                 pontos_uids:
                 - dOh1TE4Biq1ZY7
                 escalada: CUTELO DE OSSOS
+                setor: Setor Vale dos Ossos
+                grupo: Setores
                 ids:
                 - dOh1TE4Biq1ZY7
               - alvo_uid: kInh77zzwMzZ1F
                 pontos_uids:
                 - fjSleROf283ZCe
                 escalada: MARIMB. QUE ME OSSOS
+                setor: Setor Vale dos Ossos
+                grupo: Setores
                 ids:
                 - fjSleROf283ZCe
               - alvo_uid: 2xIhkZclnRHItz
                 pontos_uids:
                 - vT7mUV6E8LewAv
                 escalada: GUERRA DE OSSOS
+                setor: Setor Vale dos Ossos
+                grupo: Setores
                 ids:
                 - vT7mUV6E8LewAv
             descricao: |-

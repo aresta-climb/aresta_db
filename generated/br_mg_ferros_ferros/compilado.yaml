@@ -26,6 +26,7 @@ picos:
             pontos_uids:
             - wybZHx1zpWJpxh
             escalada: Pé na Chapa
+            setor: Setor Cachoeira
             ids:
             - wybZHx1zpWJpxh
           - alvo_uid: e1HwVxMeue9Vtm
@@ -33,6 +34,7 @@ picos:
             - fDfykPnCezFnNQ
             - olQf9DI5paOBQb
             escalada: Desenferrujando
+            setor: Setor Cachoeira
             ids:
             - fDfykPnCezFnNQ
             - olQf9DI5paOBQb
@@ -41,6 +43,7 @@ picos:
             - YeHwoPGRiOaT1J
             - B4RXXcqvHMiEJa
             escalada: Ferrugem
+            setor: Setor Cachoeira
             ids:
             - YeHwoPGRiOaT1J
             - B4RXXcqvHMiEJa
@@ -49,6 +52,7 @@ picos:
             - CXCHdB6ZFi9gLx
             - B4RXXcqvHMiEJa
             escalada: A Ferro Quente
+            setor: Setor Cachoeira
             ids:
             - CXCHdB6ZFi9gLx
             - B4RXXcqvHMiEJa
@@ -109,12 +113,14 @@ picos:
             pontos_uids:
             - 3zzyCGUWbDMX21
             escalada: Pé na Chapa
+            setor: Setor Cachoeira
             ids:
             - 3zzyCGUWbDMX21
           - alvo_uid: e1HwVxMeue9Vtm
             pontos_uids:
             - vENb3h4E8V3mBc
             escalada: Desenferrujando
+            setor: Setor Cachoeira
             ids:
             - vENb3h4E8V3mBc
           pontos_de_interesse:
@@ -142,12 +148,14 @@ picos:
             pontos_uids:
             - 7RdFv6jARPJ1Ys
             escalada: Ferrugem
+            setor: Setor Cachoeira
             ids:
             - 7RdFv6jARPJ1Ys
           - alvo_uid: jA0qwfNckiQGVc
             pontos_uids:
             - 7Ca4D31T3Cocp2
             escalada: A Ferro Quente
+            setor: Setor Cachoeira
             ids:
             - 7Ca4D31T3Cocp2
           pontos_de_interesse:
@@ -256,24 +264,32 @@ picos:
                 pontos_uids:
                 - fUIm60MnMZV7ic
                 escalada: Solamente
+                setor: Setor Extrema Esquerda
+                grupo: Parede das Aderências
                 ids:
                 - fUIm60MnMZV7ic
               - alvo_uid: MC5QTN1yACnZiF
                 pontos_uids:
                 - A6pYn12lDeQmbm
                 escalada: Nesse Mato Tem Cachorro
+                setor: Setor Extrema Esquerda
+                grupo: Parede das Aderências
                 ids:
                 - A6pYn12lDeQmbm
               - alvo_uid: ukq3RXW85UCX93
                 pontos_uids:
                 - A6pYn12lDeQmbm
                 escalada: Vr. Cachorro Louco
+                setor: Setor Extrema Esquerda
+                grupo: Parede das Aderências
                 ids:
                 - A6pYn12lDeQmbm
               - alvo_uid: kVWUUsOKsyV3bN
                 pontos_uids:
                 - eSQN892CbENGez
                 escalada: Libera Liberou
+                setor: Setor Extrema Esquerda
+                grupo: Parede das Aderências
                 ids:
                 - eSQN892CbENGez
               largura_mapa: 1607
@@ -309,6 +325,8 @@ picos:
                 pontos_uids:
                 - yaikNvdOOibkDP
                 escalada: Solamente
+                setor: Setor Extrema Esquerda
+                grupo: Parede das Aderências
                 ids:
                 - yaikNvdOOibkDP
               - alvo_uid: MC5QTN1yACnZiF
@@ -316,6 +334,8 @@ picos:
                 - thxu8vUqiU6MC8
                 - r7IlihsYlixOjN
                 escalada: Nesse Mato Tem Cachorro
+                setor: Setor Extrema Esquerda
+                grupo: Parede das Aderências
                 ids:
                 - thxu8vUqiU6MC8
                 - r7IlihsYlixOjN
@@ -324,6 +344,8 @@ picos:
                 - thxu8vUqiU6MC8
                 - QpffSZWj6rlZAl
                 escalada: Vr. Cachorro Louco
+                setor: Setor Extrema Esquerda
+                grupo: Parede das Aderências
                 ids:
                 - thxu8vUqiU6MC8
                 - QpffSZWj6rlZAl
@@ -331,12 +353,16 @@ picos:
                 pontos_uids:
                 - v5Uzl674I55uxY
                 escalada: Libera Liberou
+                setor: Setor Extrema Esquerda
+                grupo: Parede das Aderências
                 ids:
                 - v5Uzl674I55uxY
               - alvo_uid: U3t6ITS1Q0A1rh
                 pontos_uids:
                 - ExmFEcrHEWv0Om
                 escalada: Dez Mil e Uma Noites
+                setor: Setor Extrema Esquerda
+                grupo: Parede das Aderências
                 ids:
                 - ExmFEcrHEWv0Om
               largura_mapa: 2041
@@ -397,6 +423,8 @@ picos:
                 pontos_uids:
                 - Rf3j1KQCsvKVKx
                 escalada: Solamente
+                setor: Setor Extrema Esquerda
+                grupo: Parede das Aderências
                 ids:
                 - Rf3j1KQCsvKVKx
               - alvo_uid: MC5QTN1yACnZiF
@@ -405,6 +433,8 @@ picos:
                 - VZYFu3qvMqdwD8
                 - PREINJnSnsztpU
                 escalada: Nesse Mato Tem Cachorro
+                setor: Setor Extrema Esquerda
+                grupo: Parede das Aderências
                 ids:
                 - kkjKzEFbrzMDlT
                 - VZYFu3qvMqdwD8
@@ -415,6 +445,8 @@ picos:
                 - VZYFu3qvMqdwD8
                 - u278p4vZ4wjS8w
                 escalada: Vr. Cachorro Louco
+                setor: Setor Extrema Esquerda
+                grupo: Parede das Aderências
                 ids:
                 - kkjKzEFbrzMDlT
                 - VZYFu3qvMqdwD8
@@ -424,6 +456,8 @@ picos:
                 - y5ilCysbDfWY8n
                 - FAa3E8Jqu1YtSl
                 escalada: Libera Liberou
+                setor: Setor Extrema Esquerda
+                grupo: Parede das Aderências
                 ids:
                 - y5ilCysbDfWY8n
                 - FAa3E8Jqu1YtSl
@@ -432,6 +466,8 @@ picos:
                 - Nln1Eqee2f3ILS
                 - 8AmzcZTZpxpTYE
                 escalada: Dez Mil e Uma Noites
+                setor: Setor Extrema Esquerda
+                grupo: Parede das Aderências
                 ids:
                 - Nln1Eqee2f3ILS
                 - 8AmzcZTZpxpTYE
@@ -627,84 +663,112 @@ picos:
                 pontos_uids:
                 - FRXWe44uDgPrEU
                 escalada: Cordada 171
+                setor: Setor Esquerda
+                grupo: Parede das Aderências
                 ids:
                 - FRXWe44uDgPrEU
               - alvo_uid: syMm9HdckIoPMR
                 pontos_uids:
                 - FRXWe44uDgPrEU
                 escalada: Inês é Morta
+                setor: Setor Esquerda
+                grupo: Parede das Aderências
                 ids:
                 - FRXWe44uDgPrEU
               - alvo_uid: BMS3wqQ0kWHk78
                 pontos_uids:
                 - FRXWe44uDgPrEU
                 escalada: Sempre Viva
+                setor: Setor Esquerda
+                grupo: Parede das Aderências
                 ids:
                 - FRXWe44uDgPrEU
               - alvo_uid: jyOjeBWP26lIao
                 pontos_uids:
                 - HcGiPFmzkfOHHL
                 escalada: Fissurim
+                setor: Setor Esquerda
+                grupo: Parede das Aderências
                 ids:
                 - HcGiPFmzkfOHHL
               - alvo_uid: ULTyZgOtMxNFom
                 pontos_uids:
                 - HcGiPFmzkfOHHL
                 escalada: Zé Marta
+                setor: Setor Esquerda
+                grupo: Parede das Aderências
                 ids:
                 - HcGiPFmzkfOHHL
               - alvo_uid: NvnbmTWxZwAeaC
                 pontos_uids:
                 - HcGiPFmzkfOHHL
                 escalada: Bolinha
+                setor: Setor Esquerda
+                grupo: Parede das Aderências
                 ids:
                 - HcGiPFmzkfOHHL
               - alvo_uid: aGn3kLxDWXmL7l
                 pontos_uids:
                 - HcGiPFmzkfOHHL
                 escalada: Testa de Ferro
+                setor: Setor Esquerda
+                grupo: Parede das Aderências
                 ids:
                 - HcGiPFmzkfOHHL
               - alvo_uid: Q0gA9cLX0i5EvP
                 pontos_uids:
                 - HcGiPFmzkfOHHL
                 escalada: Ferro na Boneca
+                setor: Setor Esquerda
+                grupo: Parede das Aderências
                 ids:
                 - HcGiPFmzkfOHHL
               - alvo_uid: KareRpi4XssXAb
                 pontos_uids:
                 - HcGiPFmzkfOHHL
                 escalada: Maria Diz Graça
+                setor: Setor Esquerda
+                grupo: Parede das Aderências
                 ids:
                 - HcGiPFmzkfOHHL
               - alvo_uid: dGowTTpgXqxB0G
                 pontos_uids:
                 - HcGiPFmzkfOHHL
                 escalada: Zé Mangueira
+                setor: Setor Esquerda
+                grupo: Parede das Aderências
                 ids:
                 - HcGiPFmzkfOHHL
               - alvo_uid: yLiR02mEPVqHkY
                 pontos_uids:
                 - HcGiPFmzkfOHHL
                 escalada: Sherlock Holmes
+                setor: Setor Esquerda
+                grupo: Parede das Aderências
                 ids:
                 - HcGiPFmzkfOHHL
               - alvo_uid: zAer5lfKHjLRrt
                 pontos_uids:
                 - CIvUeulzkgRmVR
                 escalada: Professor Moriarty
+                setor: Setor Esquerda
+                grupo: Parede das Aderências
                 ids:
                 - CIvUeulzkgRmVR
               - alvo_uid: 54QYbrLKmkogRb
                 pontos_uids:
                 - CIvUeulzkgRmVR
                 escalada: Que Qui Ocê Foi Fazê Nu Mato?
+                setor: Setor Esquerda
+                grupo: Parede das Aderências
                 ids:
                 - CIvUeulzkgRmVR
               - alvo_uid: KZRNauwDZ1oZM8
                 pontos_uids:
                 - CIvUeulzkgRmVR
                 escalada: O Psicopata de Ferros
+                setor: Setor Esquerda
+                grupo: Parede das Aderências
                 ids:
                 - CIvUeulzkgRmVR
               - alvo_uid: Lh2c78thHdoOQf
@@ -712,6 +776,8 @@ picos:
                 - CIvUeulzkgRmVR
                 - Su8H6GLSvjtjPo
                 escalada: Vr. Caçadora de Micuim
+                setor: Setor Esquerda
+                grupo: Parede das Aderências
                 ids:
                 - CIvUeulzkgRmVR
                 - Su8H6GLSvjtjPo
@@ -719,24 +785,32 @@ picos:
                 pontos_uids:
                 - Su8H6GLSvjtjPo
                 escalada: Frio na Barriga
+                setor: Setor Esquerda
+                grupo: Parede das Aderências
                 ids:
                 - Su8H6GLSvjtjPo
               - alvo_uid: 4n1dwoOH75Lr9B
                 pontos_uids:
                 - Su8H6GLSvjtjPo
                 escalada: Pescoço de Minhoca
+                setor: Setor Esquerda
+                grupo: Parede das Aderências
                 ids:
                 - Su8H6GLSvjtjPo
               - alvo_uid: FfXctqsX9cyPNm
                 pontos_uids:
                 - zGhr3oLczUPzqN
                 escalada: Grampos de Ferros
+                setor: Setor Esquerda
+                grupo: Parede das Aderências
                 ids:
                 - zGhr3oLczUPzqN
               - alvo_uid: 23GOgjFLTcBrv1
                 pontos_uids:
                 - zGhr3oLczUPzqN
                 escalada: Prateado
+                setor: Setor Esquerda
+                grupo: Parede das Aderências
                 ids:
                 - zGhr3oLczUPzqN
               pontos_de_interesse:
@@ -788,78 +862,104 @@ picos:
                 pontos_uids:
                 - LHvkkeNWrINNJR
                 escalada: Cordada 171
+                setor: Setor Esquerda
+                grupo: Parede das Aderências
                 ids:
                 - LHvkkeNWrINNJR
               - alvo_uid: syMm9HdckIoPMR
                 pontos_uids:
                 - Eqb4fEwnB5tQu9
                 escalada: Inês é Morta
+                setor: Setor Esquerda
+                grupo: Parede das Aderências
                 ids:
                 - Eqb4fEwnB5tQu9
               - alvo_uid: BMS3wqQ0kWHk78
                 pontos_uids:
                 - SSEaynHeYJBSBn
                 escalada: Sempre Viva
+                setor: Setor Esquerda
+                grupo: Parede das Aderências
                 ids:
                 - SSEaynHeYJBSBn
               - alvo_uid: jyOjeBWP26lIao
                 pontos_uids:
                 - mtQwjMQSTk95oE
                 escalada: Fissurim
+                setor: Setor Esquerda
+                grupo: Parede das Aderências
                 ids:
                 - mtQwjMQSTk95oE
               - alvo_uid: ULTyZgOtMxNFom
                 pontos_uids:
                 - QF2Fobbc5HQJHg
                 escalada: Zé Marta
+                setor: Setor Esquerda
+                grupo: Parede das Aderências
                 ids:
                 - QF2Fobbc5HQJHg
               - alvo_uid: NvnbmTWxZwAeaC
                 pontos_uids:
                 - B09ceRYDYxMhtP
                 escalada: Bolinha
+                setor: Setor Esquerda
+                grupo: Parede das Aderências
                 ids:
                 - B09ceRYDYxMhtP
               - alvo_uid: aGn3kLxDWXmL7l
                 pontos_uids:
                 - viZ3r8IMAfUBxo
                 escalada: Testa de Ferro
+                setor: Setor Esquerda
+                grupo: Parede das Aderências
                 ids:
                 - viZ3r8IMAfUBxo
               - alvo_uid: Q0gA9cLX0i5EvP
                 pontos_uids:
                 - VkQaxlXoYibadr
                 escalada: Ferro na Boneca
+                setor: Setor Esquerda
+                grupo: Parede das Aderências
                 ids:
                 - VkQaxlXoYibadr
               - alvo_uid: KareRpi4XssXAb
                 pontos_uids:
                 - RBNIiBsc6uiCpZ
                 escalada: Maria Diz Graça
+                setor: Setor Esquerda
+                grupo: Parede das Aderências
                 ids:
                 - RBNIiBsc6uiCpZ
               - alvo_uid: dGowTTpgXqxB0G
                 pontos_uids:
                 - Bdt2ojUbrw8Upd
                 escalada: Zé Mangueira
+                setor: Setor Esquerda
+                grupo: Parede das Aderências
                 ids:
                 - Bdt2ojUbrw8Upd
               - alvo_uid: yLiR02mEPVqHkY
                 pontos_uids:
                 - FtC1gvmZvywuRE
                 escalada: Sherlock Holmes
+                setor: Setor Esquerda
+                grupo: Parede das Aderências
                 ids:
                 - FtC1gvmZvywuRE
               - alvo_uid: zAer5lfKHjLRrt
                 pontos_uids:
                 - 5nppHrLrXPi35b
                 escalada: Professor Moriarty
+                setor: Setor Esquerda
+                grupo: Parede das Aderências
                 ids:
                 - 5nppHrLrXPi35b
               - alvo_uid: 54QYbrLKmkogRb
                 pontos_uids:
                 - P8BowOheubLsHx
                 escalada: Que Qui Ocê Foi Fazê Nu Mato?
+                setor: Setor Esquerda
+                grupo: Parede das Aderências
                 ids:
                 - P8BowOheubLsHx
               pontos_de_interesse:
@@ -977,6 +1077,8 @@ picos:
                 - E7CzEKrIBQhHRo
                 - xAZXuVMxdNNhRQ
                 escalada: Que Qui Ocê Foi Fazê Nu Mato?
+                setor: Setor Esquerda
+                grupo: Parede das Aderências
                 ids:
                 - E7CzEKrIBQhHRo
                 - xAZXuVMxdNNhRQ
@@ -986,6 +1088,8 @@ picos:
                 - IFeQAauIOYC9bw
                 - 2jEqLoc2EiBcX0
                 escalada: O Psicopata de Ferros
+                setor: Setor Esquerda
+                grupo: Parede das Aderências
                 ids:
                 - sqCFs3ViqesHgQ
                 - IFeQAauIOYC9bw
@@ -996,6 +1100,8 @@ picos:
                 - qSD4bkNKmphePO
                 - 2jEqLoc2EiBcX0
                 escalada: Vr. Caçadora de Micuim
+                setor: Setor Esquerda
+                grupo: Parede das Aderências
                 ids:
                 - sqCFs3ViqesHgQ
                 - qSD4bkNKmphePO
@@ -1005,6 +1111,8 @@ picos:
                 - TcjVCFAP1Oqzml
                 - 2jEqLoc2EiBcX0
                 escalada: Frio na Barriga
+                setor: Setor Esquerda
+                grupo: Parede das Aderências
                 ids:
                 - TcjVCFAP1Oqzml
                 - 2jEqLoc2EiBcX0
@@ -1012,24 +1120,32 @@ picos:
                 pontos_uids:
                 - cwKa9SvfDHbb84
                 escalada: Pescoço de Minhoca
+                setor: Setor Esquerda
+                grupo: Parede das Aderências
                 ids:
                 - cwKa9SvfDHbb84
               - alvo_uid: FfXctqsX9cyPNm
                 pontos_uids:
                 - JY4TyzBZhdIVGk
                 escalada: Grampos de Ferros
+                setor: Setor Esquerda
+                grupo: Parede das Aderências
                 ids:
                 - JY4TyzBZhdIVGk
               - alvo_uid: 23GOgjFLTcBrv1
                 pontos_uids:
                 - bM8zlEhULdhD2G
                 escalada: Prateado
+                setor: Setor Esquerda
+                grupo: Parede das Aderências
                 ids:
                 - bM8zlEhULdhD2G
               - alvo_uid: zAer5lfKHjLRrt
                 pontos_uids:
                 - 8Exxc2OBtOTVyP
                 escalada: Professor Moriarty
+                setor: Setor Esquerda
+                grupo: Parede das Aderências
                 ids:
                 - 8Exxc2OBtOTVyP
               pontos_de_interesse:
@@ -1340,6 +1456,8 @@ picos:
                 - OYiaQmp3nIjv6i
                 - WSp4mqPB5UKdHw
                 escalada: Professor Moriarty
+                setor: Setor Esquerda
+                grupo: Parede das Aderências
                 ids:
                 - OYiaQmp3nIjv6i
                 - WSp4mqPB5UKdHw
@@ -1350,6 +1468,8 @@ picos:
                 - ULo0QFGhoWbVWr
                 - DL27zgV3EsAaIt
                 escalada: Que Qui Ocê Foi Fazê Nu Mato?
+                setor: Setor Esquerda
+                grupo: Parede das Aderências
                 ids:
                 - Rk2CXyLjeRMYBQ
                 - hZUphK8SXtdC08
@@ -1362,6 +1482,8 @@ picos:
                 - 02kcipIXqEvbIv
                 - 17oZg1SQPsSHOK
                 escalada: O Psicopata de Ferros
+                setor: Setor Esquerda
+                grupo: Parede das Aderências
                 ids:
                 - KKRRlP5KABfxTM
                 - SELzETdojxt5zg
@@ -1374,6 +1496,8 @@ picos:
                 - FS7RbMaMDzEdG1
                 - 17oZg1SQPsSHOK
                 escalada: Vr. Caçadora de Micuim
+                setor: Setor Esquerda
+                grupo: Parede das Aderências
                 ids:
                 - 02kcipIXqEvbIv
                 - KKRRlP5KABfxTM
@@ -1385,6 +1509,8 @@ picos:
                 - 02kcipIXqEvbIv
                 - 17oZg1SQPsSHOK
                 escalada: Frio na Barriga
+                setor: Setor Esquerda
+                grupo: Parede das Aderências
                 ids:
                 - anMtzBqmQpnaQB
                 - 02kcipIXqEvbIv
@@ -1396,6 +1522,8 @@ picos:
                 - 459Ihi85cBP7Ld
                 - NGbRPCY1OH3GVM
                 escalada: Pescoço de Minhoca
+                setor: Setor Esquerda
+                grupo: Parede das Aderências
                 ids:
                 - oPZz9xFsspOxYM
                 - OZckFWak6YbkUa
@@ -1407,6 +1535,8 @@ picos:
                 - sGXBFeH4cVXXNf
                 - SNf1ov65lDYKpd
                 escalada: Grampos de Ferros
+                setor: Setor Esquerda
+                grupo: Parede das Aderências
                 ids:
                 - 2jqNfK3CJlVtSF
                 - sGXBFeH4cVXXNf
@@ -1418,6 +1548,8 @@ picos:
                 - jgob6NJjP4qXQ7
                 - tQs1g2l8JwFnqI
                 escalada: Prateado
+                setor: Setor Esquerda
+                grupo: Parede das Aderências
                 ids:
                 - m6nJ9TB2gui4WM
                 - EwgSzhyCX1GzhZ
@@ -1827,132 +1959,170 @@ picos:
                 pontos_uids:
                 - HRfdiFKUw8SA4o
                 setor: Setor Extrema Esquerda
+                grupo: Parede das Aderências
                 ids:
                 - HRfdiFKUw8SA4o
               - alvo_uid: avRkW8fzw3OF22
                 pontos_uids:
                 - oSTYxOPemGa3hY
                 setor: Setor Esquerda
+                grupo: Parede das Aderências
                 ids:
                 - oSTYxOPemGa3hY
               - alvo_uid: rKxz4SSg8tyORQ
                 pontos_uids:
                 - QX9X1VWhHyiu0k
                 setor: Setor Clássicas Curtas
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - QX9X1VWhHyiu0k
               - alvo_uid: E0ZwbLrlRUznG0
                 pontos_uids:
                 - 1hXym8xnpmF6Cg
                 setor: Setor de Cima
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - 1hXym8xnpmF6Cg
               - alvo_uid: nJgmAcSxMTe2Xy
                 pontos_uids:
                 - mzd3Hsy0mOAx7X
                 setor: Setor Central
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - mzd3Hsy0mOAx7X
               - alvo_uid: Kluqo9Qj90DcG6
                 pontos_uids:
                 - 899M8pIIKGUdYO
                 escalada: Vr. Esquibunda
+                setor: Face Central
+                grupo: Parede das Aderências
                 ids:
                 - 899M8pIIKGUdYO
               - alvo_uid: csAOpWzD3bsuiz
                 pontos_uids:
                 - 899M8pIIKGUdYO
                 escalada: Pr. Aerolitos
+                setor: Face Central
+                grupo: Parede das Aderências
                 ids:
                 - 899M8pIIKGUdYO
               - alvo_uid: ybGBKOoZNgJCpG
                 pontos_uids:
                 - 899M8pIIKGUdYO
                 escalada: Facão Foi-se
+                setor: Face Central
+                grupo: Parede das Aderências
                 ids:
                 - 899M8pIIKGUdYO
               - alvo_uid: hbR1sZ7v7RoYJp
                 pontos_uids:
                 - 899M8pIIKGUdYO
                 escalada: Antes Só do Que Mal Acompanhado
+                setor: Face Central
+                grupo: Parede das Aderências
                 ids:
                 - 899M8pIIKGUdYO
               - alvo_uid: amCMhA1NdrgmEY
                 pontos_uids:
                 - 899M8pIIKGUdYO
                 escalada: Hematita
+                setor: Face Central
+                grupo: Parede das Aderências
                 ids:
                 - 899M8pIIKGUdYO
               - alvo_uid: GpY3uMFI4VpQxp
                 pontos_uids:
                 - 899M8pIIKGUdYO
                 escalada: Pavão Misterioso
+                setor: Face Central
+                grupo: Parede das Aderências
                 ids:
                 - 899M8pIIKGUdYO
               - alvo_uid: Ef7s9vjHhbTh7d
                 pontos_uids:
                 - uSsgngvNH9ANJz
                 escalada: Elementar, Meu Caro Watson!
+                setor: Face Central
+                grupo: Parede das Aderências
                 ids:
                 - uSsgngvNH9ANJz
               - alvo_uid: ozdIvXqV39O4hQ
                 pontos_uids:
                 - 1LsvcRVHrRFTI5
                 escalada: Balzac
+                setor: Face Central
+                grupo: Parede das Aderências
                 ids:
                 - 1LsvcRVHrRFTI5
               - alvo_uid: FuC48kY6wrQaIy
                 pontos_uids:
                 - 1LsvcRVHrRFTI5
                 escalada: Dez Fora
+                setor: Face Central
+                grupo: Parede das Aderências
                 ids:
                 - 1LsvcRVHrRFTI5
               - alvo_uid: Wy4AZC0YXu6GAs
                 pontos_uids:
                 - 1LsvcRVHrRFTI5
                 escalada: Cordeiro de Deus
+                setor: Face Central
+                grupo: Parede das Aderências
                 ids:
                 - 1LsvcRVHrRFTI5
               - alvo_uid: uKEKgStDTNazju
                 pontos_uids:
                 - 1LsvcRVHrRFTI5
                 escalada: Cinquentona de Ferros
+                setor: Face Central
+                grupo: Parede das Aderências
                 ids:
                 - 1LsvcRVHrRFTI5
               - alvo_uid: 3I50paZMH7yne8
                 pontos_uids:
                 - z387zDwfysAF0J
                 escalada: Coração Valente
+                setor: Face Central
+                grupo: Parede das Aderências
                 ids:
                 - z387zDwfysAF0J
               - alvo_uid: aNLsrhZbdKaVwZ
                 pontos_uids:
                 - z387zDwfysAF0J
                 escalada: Expo CERJ!
+                setor: Face Central
+                grupo: Parede das Aderências
                 ids:
                 - z387zDwfysAF0J
               - alvo_uid: 9aBkEGGdm0Uwj1
                 pontos_uids:
                 - z387zDwfysAF0J
                 escalada: Social Club
+                setor: Face Central
+                grupo: Parede das Aderências
                 ids:
                 - z387zDwfysAF0J
               - alvo_uid: 4IbUftnrAJSYBT
                 pontos_uids:
                 - z387zDwfysAF0J
                 escalada: Pr. Tonico Magalhães
+                setor: Face Central
+                grupo: Parede das Aderências
                 ids:
                 - z387zDwfysAF0J
               - alvo_uid: rWMLkzsMZiRO3H
                 pontos_uids:
                 - z387zDwfysAF0J
                 escalada: E o Rio Levou
+                setor: Face Central
+                grupo: Parede das Aderências
                 ids:
                 - z387zDwfysAF0J
               - alvo_uid: g0ASFec0ovBc9J
                 pontos_uids:
                 - ZqKbS4kzj4n5PF
                 setor: Setor Parede Principal – Direita
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - ZqKbS4kzj4n5PF
             - caminho_imagem_mapa: imagens/grupo_aderencias_setor_face_central_p2_i0.webp
@@ -1963,108 +2133,143 @@ picos:
                 pontos_uids:
                 - cysy7IIjTYexea
                 escalada: Vr. Esquibunda
+                setor: Face Central
+                grupo: Parede das Aderências
                 ids:
                 - cysy7IIjTYexea
               - alvo_uid: csAOpWzD3bsuiz
                 pontos_uids:
                 - Ctdf75zYM7DrAw
                 escalada: Pr. Aerolitos
+                setor: Face Central
+                grupo: Parede das Aderências
                 ids:
                 - Ctdf75zYM7DrAw
               - alvo_uid: ybGBKOoZNgJCpG
                 pontos_uids:
                 - HcnWx1WHfg6Ky8
                 escalada: Facão Foi-se
+                setor: Face Central
+                grupo: Parede das Aderências
                 ids:
                 - HcnWx1WHfg6Ky8
               - alvo_uid: hbR1sZ7v7RoYJp
                 pontos_uids:
                 - NLCiLXZgvAYP7V
                 escalada: Antes Só do Que Mal Acompanhado
+                setor: Face Central
+                grupo: Parede das Aderências
                 ids:
                 - NLCiLXZgvAYP7V
               - alvo_uid: amCMhA1NdrgmEY
                 pontos_uids:
                 - hCe8CrhpJy0Cgp
                 escalada: Hematita
+                setor: Face Central
+                grupo: Parede das Aderências
                 ids:
                 - hCe8CrhpJy0Cgp
               - alvo_uid: GpY3uMFI4VpQxp
                 pontos_uids:
                 - d8rK6wTOkFtPgs
                 escalada: Pavão Misterioso
+                setor: Face Central
+                grupo: Parede das Aderências
                 ids:
                 - d8rK6wTOkFtPgs
               - alvo_uid: Ef7s9vjHhbTh7d
                 pontos_uids:
                 - wdNWbrZIB2YoMd
                 escalada: Elementar, Meu Caro Watson!
+                setor: Face Central
+                grupo: Parede das Aderências
                 ids:
                 - wdNWbrZIB2YoMd
               - alvo_uid: ozdIvXqV39O4hQ
                 pontos_uids:
                 - kttnhsiKxHZ9fQ
                 escalada: Balzac
+                setor: Face Central
+                grupo: Parede das Aderências
                 ids:
                 - kttnhsiKxHZ9fQ
               - alvo_uid: FuC48kY6wrQaIy
                 pontos_uids:
                 - 23KQzFCRwpxVSv
                 escalada: Dez Fora
+                setor: Face Central
+                grupo: Parede das Aderências
                 ids:
                 - 23KQzFCRwpxVSv
               - alvo_uid: Wy4AZC0YXu6GAs
                 pontos_uids:
                 - YX1Be4v7TOri2W
                 escalada: Cordeiro de Deus
+                setor: Face Central
+                grupo: Parede das Aderências
                 ids:
                 - YX1Be4v7TOri2W
               - alvo_uid: uKEKgStDTNazju
                 pontos_uids:
                 - RNgW5IudcKZUKK
                 escalada: Cinquentona de Ferros
+                setor: Face Central
+                grupo: Parede das Aderências
                 ids:
                 - RNgW5IudcKZUKK
               - alvo_uid: 3I50paZMH7yne8
                 pontos_uids:
                 - QktWmB6vX9Zf10
                 escalada: Coração Valente
+                setor: Face Central
+                grupo: Parede das Aderências
                 ids:
                 - QktWmB6vX9Zf10
               - alvo_uid: aNLsrhZbdKaVwZ
                 pontos_uids:
                 - rPBZ6ToCMyjmUf
                 escalada: Expo CERJ!
+                setor: Face Central
+                grupo: Parede das Aderências
                 ids:
                 - rPBZ6ToCMyjmUf
               - alvo_uid: 9aBkEGGdm0Uwj1
                 pontos_uids:
                 - IIu8QZu90q6EK9
                 escalada: Social Club
+                setor: Face Central
+                grupo: Parede das Aderências
                 ids:
                 - IIu8QZu90q6EK9
               - alvo_uid: 4IbUftnrAJSYBT
                 pontos_uids:
                 - yvzxui8Bwjrr0F
                 escalada: Pr. Tonico Magalhães
+                setor: Face Central
+                grupo: Parede das Aderências
                 ids:
                 - yvzxui8Bwjrr0F
               - alvo_uid: rWMLkzsMZiRO3H
                 pontos_uids:
                 - wKOW6iHQILqWXR
                 escalada: E o Rio Levou
+                setor: Face Central
+                grupo: Parede das Aderências
                 ids:
                 - wKOW6iHQILqWXR
               - alvo_uid: E0ZwbLrlRUznG0
                 pontos_uids:
                 - hok7oYtzOVWndx
                 setor: Setor de Cima
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - hok7oYtzOVWndx
               - alvo_uid: 23GOgjFLTcBrv1
                 pontos_uids:
                 - AFpMURfSewQPDk
                 escalada: Prateado
+                setor: Setor Esquerda
+                grupo: Parede das Aderências
                 ids:
                 - AFpMURfSewQPDk
               pontos_de_interesse:
@@ -2260,6 +2465,8 @@ picos:
                 - k9XNw9nXC60BsB
                 - DcLRTVFhq9FeTj
                 escalada: Vr. Esquibunda
+                setor: Face Central
+                grupo: Parede das Aderências
                 ids:
                 - iTSlxe2uO4Ohov
                 - k9XNw9nXC60BsB
@@ -2270,6 +2477,8 @@ picos:
                 - k9XNw9nXC60BsB
                 - DcLRTVFhq9FeTj
                 escalada: Pr. Aerolitos
+                setor: Face Central
+                grupo: Parede das Aderências
                 ids:
                 - TDPz8XXSpfJory
                 - k9XNw9nXC60BsB
@@ -2358,6 +2567,8 @@ picos:
                 - KH4paxgxGmpie8
                 - uknwIdwDl51QI2
                 escalada: Coração Valente
+                setor: Face Central
+                grupo: Parede das Aderências
                 ids:
                 - Av05KTX02UuDQu
                 - iLzNm0N4ooJhbe
@@ -2370,6 +2581,8 @@ picos:
                 - 1NtRDHBxZF63Xn
                 - u2rgednmvNiAvI
                 escalada: Expo CERJ!
+                setor: Face Central
+                grupo: Parede das Aderências
                 ids:
                 - nXuv7OChp6uBa4
                 - fYliloJNVqCal9
@@ -2466,6 +2679,8 @@ picos:
                 - Y7HNSpEx4qtpmt
                 - 8yfbWQnwo1h22O
                 escalada: Social Club
+                setor: Face Central
+                grupo: Parede das Aderências
                 ids:
                 - Y7HNSpEx4qtpmt
                 - 8yfbWQnwo1h22O
@@ -2476,6 +2691,8 @@ picos:
                 - IXfpgNOh092Lsa
                 - 8yfbWQnwo1h22O
                 escalada: Pr. Tonico Magalhães
+                setor: Face Central
+                grupo: Parede das Aderências
                 ids:
                 - sdI7KL2vXaGjx4
                 - mQmFA9c3DICY03
@@ -2488,6 +2705,8 @@ picos:
                 - Nf3tqFCFHBMWKQ
                 - m6CPIf2glyzOLV
                 escalada: E o Rio Levou
+                setor: Face Central
+                grupo: Parede das Aderências
                 ids:
                 - m6NwP1X97gkmvZ
                 - VyEqEJ1v7ZtMMX
@@ -2797,42 +3016,52 @@ picos:
                 pontos_uids:
                 - h3eewZOEjXCBZA
                 escalada: Buena Vista
+                setor: Setor de Cima
+                grupo: Parede das Aderências
                 ids:
                 - h3eewZOEjXCBZA
               - alvo_uid: rg3BWvUObM4m0B
                 pontos_uids:
                 - TCQzBD2v7nXgvJ
                 escalada: São Lourenço
+                setor: Setor de Cima
+                grupo: Parede das Aderências
                 ids:
                 - TCQzBD2v7nXgvJ
               - alvo_uid: QD0PgLPU3Tnj2j
                 pontos_uids:
                 - TkCmX3tyYoWHEC
                 escalada: Carnaferros
+                setor: Setor de Cima
+                grupo: Parede das Aderências
                 ids:
                 - TkCmX3tyYoWHEC
               - alvo_uid: rGOlhPmCuaVWav
                 pontos_uids:
                 - f2peRAdIfgpQLZ
                 setor: Face Central
+                grupo: Parede das Aderências
                 ids:
                 - f2peRAdIfgpQLZ
               - alvo_uid: avRkW8fzw3OF22
                 pontos_uids:
                 - 78M7PevSBpfjiD
                 setor: Setor Esquerda
+                grupo: Parede das Aderências
                 ids:
                 - 78M7PevSBpfjiD
               - alvo_uid: g0ASFec0ovBc9J
                 pontos_uids:
                 - 8gD4hNa0IGrIJY
                 setor: Setor Parede Principal – Direita
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - 8gD4hNa0IGrIJY
               - alvo_uid: nJgmAcSxMTe2Xy
                 pontos_uids:
                 - TVpqttZmg2JLTQ
                 setor: Setor Central
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - TVpqttZmg2JLTQ
               pontos_de_interesse:
@@ -2904,24 +3133,32 @@ picos:
                 pontos_uids:
                 - ZQdk7DdJyxz94t
                 escalada: Buena Vista
+                setor: Setor de Cima
+                grupo: Parede das Aderências
                 ids:
                 - ZQdk7DdJyxz94t
               - alvo_uid: rg3BWvUObM4m0B
                 pontos_uids:
                 - MTRSMmhIRksdPf
                 escalada: São Lourenço
+                setor: Setor de Cima
+                grupo: Parede das Aderências
                 ids:
                 - MTRSMmhIRksdPf
               - alvo_uid: QD0PgLPU3Tnj2j
                 pontos_uids:
                 - ZveVCINqXrvZVr
                 escalada: Carnaferros
+                setor: Setor de Cima
+                grupo: Parede das Aderências
                 ids:
                 - ZveVCINqXrvZVr
               - alvo_uid: rWMLkzsMZiRO3H
                 pontos_uids:
                 - hVEGqSCkH8ra5X
                 escalada: E o Rio Levou
+                setor: Face Central
+                grupo: Parede das Aderências
                 ids:
                 - hVEGqSCkH8ra5X
               pontos_de_interesse:
@@ -3051,30 +3288,39 @@ picos:
                 pontos_uids:
                 - fBSh7qqvAga2UG
                 escalada: Bolo de Cenoura
+                setor: Setor Extrema Direita
+                grupo: Parede das Aderências
                 ids:
                 - fBSh7qqvAga2UG
               - alvo_uid: PatXOUxy4UT3Cv
                 pontos_uids:
                 - U2MnDxEfl0lDgu
                 escalada: 51, Uma Boa Ideia
+                setor: Setor Extrema Direita
+                grupo: Parede das Aderências
                 ids:
                 - U2MnDxEfl0lDgu
               - alvo_uid: LBIEfNwhK7tjIU
                 pontos_uids:
                 - wEP4WNm4iUNJ3I
                 escalada: Mais Chuva Que Sol
+                setor: Setor Extrema Direita
+                grupo: Parede das Aderências
                 ids:
                 - wEP4WNm4iUNJ3I
               - alvo_uid: UoXB13cUPwjXci
                 pontos_uids:
                 - wEP4WNm4iUNJ3I
                 escalada: Só a Cabecinha
+                setor: Setor Extrema Direita
+                grupo: Parede das Aderências
                 ids:
                 - wEP4WNm4iUNJ3I
               - alvo_uid: nJgmAcSxMTe2Xy
                 pontos_uids:
                 - fdQAC0CNh8GRqh
                 setor: Setor Central
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - fdQAC0CNh8GRqh
               - alvo_uid: 0swIknUTarrNZN
@@ -3082,6 +3328,7 @@ picos:
                 - y6dhQVo4bxU8gv
                 - gDaSAeN4kVJKmr
                 setor: Setor Clássicas Longas
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - y6dhQVo4bxU8gv
                 - gDaSAeN4kVJKmr
@@ -3145,24 +3392,32 @@ picos:
                 pontos_uids:
                 - c5DbY71QlU3vzs
                 escalada: Bolo de Cenoura
+                setor: Setor Extrema Direita
+                grupo: Parede das Aderências
                 ids:
                 - c5DbY71QlU3vzs
               - alvo_uid: PatXOUxy4UT3Cv
                 pontos_uids:
                 - rMqaBLiGjDvwh4
                 escalada: 51, Uma Boa Ideia
+                setor: Setor Extrema Direita
+                grupo: Parede das Aderências
                 ids:
                 - rMqaBLiGjDvwh4
               - alvo_uid: LBIEfNwhK7tjIU
                 pontos_uids:
                 - MG7Y6CzPl1RBfg
                 escalada: Mais Chuva Que Sol
+                setor: Setor Extrema Direita
+                grupo: Parede das Aderências
                 ids:
                 - MG7Y6CzPl1RBfg
               - alvo_uid: UoXB13cUPwjXci
                 pontos_uids:
                 - hW3nCi3bbnByYG
                 escalada: Só a Cabecinha
+                setor: Setor Extrema Direita
+                grupo: Parede das Aderências
                 ids:
                 - hW3nCi3bbnByYG
               largura_mapa: 2043
@@ -3336,120 +3591,159 @@ picos:
                 pontos_uids:
                 - S8U8czODCDed99
                 setor: Setor Extrema Esquerda
+                grupo: Parede das Aderências
                 ids:
                 - S8U8czODCDed99
               - alvo_uid: 2CKnFR9GnX0RVk
                 pontos_uids:
                 - E9n2HG3zu2IagC
                 escalada: Deu Tilt
+                setor: Setor Clássicas Curtas
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - E9n2HG3zu2IagC
               - alvo_uid: PBqIWUa3s7CbW1
                 pontos_uids:
                 - E9n2HG3zu2IagC
                 escalada: Ferroada
+                setor: Setor Clássicas Curtas
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - E9n2HG3zu2IagC
               - alvo_uid: oOHg0sGfjZa8qL
                 pontos_uids:
                 - E9n2HG3zu2IagC
                 escalada: Scarface
+                setor: Setor Clássicas Curtas
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - E9n2HG3zu2IagC
               - alvo_uid: kmjy7dMR7EM87p
                 pontos_uids:
                 - E9n2HG3zu2IagC
                 escalada: Se Meu Fusca Falasse
+                setor: Setor Clássicas Curtas
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - E9n2HG3zu2IagC
               - alvo_uid: P0dH1zFOhsNWKI
                 pontos_uids:
                 - E9n2HG3zu2IagC
                 escalada: Couro de Lobisomem
+                setor: Setor Clássicas Curtas
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - E9n2HG3zu2IagC
               - alvo_uid: u9Za0cGFtd4buF
                 pontos_uids:
                 - E9n2HG3zu2IagC
                 escalada: Enferrujados
+                setor: Setor Clássicas Curtas
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - E9n2HG3zu2IagC
               - alvo_uid: Ck0BH6ArfYc4Mi
                 pontos_uids:
                 - E9n2HG3zu2IagC
                 escalada: Rastro de Cobra
+                setor: Setor Clássicas Curtas
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - E9n2HG3zu2IagC
               - alvo_uid: GzzOvXVhZnnCJj
                 pontos_uids:
                 - E9n2HG3zu2IagC
                 escalada: Entrando no Ferro
+                setor: Setor Clássicas Curtas
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - E9n2HG3zu2IagC
               - alvo_uid: vrXUR5016GuvUn
                 pontos_uids:
                 - UKgfefT8UX0JNh
                 escalada: Cambal a Quatro
+                setor: Setor Clássicas Curtas
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - UKgfefT8UX0JNh
               - alvo_uid: 3H2P63eUJtSmda
                 pontos_uids:
                 - UKgfefT8UX0JNh
                 escalada: El Bigodón
+                setor: Setor Clássicas Curtas
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - UKgfefT8UX0JNh
               - alvo_uid: heSEhw8bk6CUMi
                 pontos_uids:
                 - UKgfefT8UX0JNh
                 escalada: Testa de Aço
+                setor: Setor Clássicas Curtas
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - UKgfefT8UX0JNh
               - alvo_uid: BBtRCBwAzyQLg5
                 pontos_uids:
                 - UKgfefT8UX0JNh
                 escalada: Me Ferrei
+                setor: Setor Clássicas Curtas
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - UKgfefT8UX0JNh
               - alvo_uid: y77FqGi7nfe7tx
                 pontos_uids:
                 - UKgfefT8UX0JNh
                 escalada: Amor Profano
+                setor: Setor Clássicas Curtas
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - UKgfefT8UX0JNh
               - alvo_uid: lHhszDUlwi5Y7i
                 pontos_uids:
                 - Avi0MzvGRBCd6a
                 escalada: Ferrolho
+                setor: Setor Clássicas Curtas
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - Avi0MzvGRBCd6a
               - alvo_uid: hWD9UQJTfeeLtJ
                 pontos_uids:
                 - Avi0MzvGRBCd6a
                 escalada: Ferradura
+                setor: Setor Clássicas Curtas
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - Avi0MzvGRBCd6a
               - alvo_uid: ukPpMbgAIGda42
                 pontos_uids:
                 - eKifQ10jUYEtSi
                 escalada: A Medalha de Lúcia
+                setor: Setor Clássicas Curtas
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - eKifQ10jUYEtSi
               - alvo_uid: Lt9slg01AcQrYh
                 pontos_uids:
                 - eKifQ10jUYEtSi
                 escalada: Águas de Março
+                setor: Setor Clássicas Curtas
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - eKifQ10jUYEtSi
               - alvo_uid: XbeZZSZvbb3PGN
                 pontos_uids:
                 - eKifQ10jUYEtSi
                 escalada: Vou Dançar o Xaxaxá
+                setor: Setor Clássicas Curtas
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - eKifQ10jUYEtSi
               - alvo_uid: Ia7EcXmdlpe2iI
                 pontos_uids:
                 - eKifQ10jUYEtSi
                 escalada: Casas da Banha
+                setor: Setor Clássicas Curtas
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - eKifQ10jUYEtSi
               pontos_de_interesse:
@@ -3511,114 +3805,152 @@ picos:
                 pontos_uids:
                 - GQnIW94j2rrtcp
                 escalada: A Medalha de Lúcia
+                setor: Setor Clássicas Curtas
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - GQnIW94j2rrtcp
               - alvo_uid: Lt9slg01AcQrYh
                 pontos_uids:
                 - 0xMmDYCxGVoYoo
                 escalada: Águas de Março
+                setor: Setor Clássicas Curtas
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - 0xMmDYCxGVoYoo
               - alvo_uid: XbeZZSZvbb3PGN
                 pontos_uids:
                 - 7cowcqSW0nMD7T
                 escalada: Vou Dançar o Xaxaxá
+                setor: Setor Clássicas Curtas
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - 7cowcqSW0nMD7T
               - alvo_uid: Ia7EcXmdlpe2iI
                 pontos_uids:
                 - gRegEzD3lkl5Me
                 escalada: Casas da Banha
+                setor: Setor Clássicas Curtas
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - gRegEzD3lkl5Me
               - alvo_uid: hWD9UQJTfeeLtJ
                 pontos_uids:
                 - MWSFm5mvj9RDGk
                 escalada: Ferradura
+                setor: Setor Clássicas Curtas
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - MWSFm5mvj9RDGk
               - alvo_uid: lHhszDUlwi5Y7i
                 pontos_uids:
                 - hXMQBJACP1EvAL
                 escalada: Ferrolho
+                setor: Setor Clássicas Curtas
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - hXMQBJACP1EvAL
               - alvo_uid: vrXUR5016GuvUn
                 pontos_uids:
                 - hToqo60B1NkflS
                 escalada: Cambal a Quatro
+                setor: Setor Clássicas Curtas
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - hToqo60B1NkflS
               - alvo_uid: 3H2P63eUJtSmda
                 pontos_uids:
                 - puUWeyK91RnFEI
                 escalada: El Bigodón
+                setor: Setor Clássicas Curtas
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - puUWeyK91RnFEI
               - alvo_uid: heSEhw8bk6CUMi
                 pontos_uids:
                 - BphH3VqFa9g2Yx
                 escalada: Testa de Aço
+                setor: Setor Clássicas Curtas
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - BphH3VqFa9g2Yx
               - alvo_uid: BBtRCBwAzyQLg5
                 pontos_uids:
                 - Z6KbGXW7jUdXzN
                 escalada: Me Ferrei
+                setor: Setor Clássicas Curtas
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - Z6KbGXW7jUdXzN
               - alvo_uid: y77FqGi7nfe7tx
                 pontos_uids:
                 - TQWiot4Tucgzw2
                 escalada: Amor Profano
+                setor: Setor Clássicas Curtas
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - TQWiot4Tucgzw2
               - alvo_uid: 2CKnFR9GnX0RVk
                 pontos_uids:
                 - 2cqwyIY7hs7y3S
                 escalada: Deu Tilt
+                setor: Setor Clássicas Curtas
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - 2cqwyIY7hs7y3S
               - alvo_uid: PBqIWUa3s7CbW1
                 pontos_uids:
                 - naV6GkqhyZOpru
                 escalada: Ferroada
+                setor: Setor Clássicas Curtas
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - naV6GkqhyZOpru
               - alvo_uid: oOHg0sGfjZa8qL
                 pontos_uids:
                 - phloToIRDUZpIw
                 escalada: Scarface
+                setor: Setor Clássicas Curtas
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - phloToIRDUZpIw
               - alvo_uid: kmjy7dMR7EM87p
                 pontos_uids:
                 - uMGBV7cseji2Ls
                 escalada: Se Meu Fusca Falasse
+                setor: Setor Clássicas Curtas
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - uMGBV7cseji2Ls
               - alvo_uid: P0dH1zFOhsNWKI
                 pontos_uids:
                 - JtofS84ut0KGpL
                 escalada: Couro de Lobisomem
+                setor: Setor Clássicas Curtas
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - JtofS84ut0KGpL
               - alvo_uid: u9Za0cGFtd4buF
                 pontos_uids:
                 - wtvYfviHusUIiH
                 escalada: Enferrujados
+                setor: Setor Clássicas Curtas
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - wtvYfviHusUIiH
               - alvo_uid: Ck0BH6ArfYc4Mi
                 pontos_uids:
                 - Hf6SmebhAVVl3C
                 escalada: Rastro de Cobra
+                setor: Setor Clássicas Curtas
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - Hf6SmebhAVVl3C
               - alvo_uid: GzzOvXVhZnnCJj
                 pontos_uids:
                 - T4BulKEF65UlwH
                 escalada: Entrando no Ferro
+                setor: Setor Clássicas Curtas
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - T4BulKEF65UlwH
               pontos_de_interesse:
@@ -3783,6 +4115,8 @@ picos:
                 - jmIdpVKjEj9umD
                 - lwvgP0fbxtzcPA
                 escalada: A Medalha de Lúcia
+                setor: Setor Clássicas Curtas
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - jmIdpVKjEj9umD
                 - lwvgP0fbxtzcPA
@@ -3792,6 +4126,8 @@ picos:
                 - YXQjZm0LyLJBUB
                 - MVnIAGasum737W
                 escalada: Águas de Março
+                setor: Setor Clássicas Curtas
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - VmMcMoHhEGE69F
                 - YXQjZm0LyLJBUB
@@ -3801,6 +4137,8 @@ picos:
                 - qXBKbnbupblZzW
                 - tIlp2U8p34POOY
                 escalada: Vou Dançar o Xaxaxá
+                setor: Setor Clássicas Curtas
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - qXBKbnbupblZzW
                 - tIlp2U8p34POOY
@@ -3809,6 +4147,8 @@ picos:
                 - TV9OEkxNpiKJ5i
                 - sNsVWhcf4ieRAy
                 escalada: Casas da Banha
+                setor: Setor Clássicas Curtas
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - TV9OEkxNpiKJ5i
                 - sNsVWhcf4ieRAy
@@ -4182,108 +4522,141 @@ picos:
                 pontos_uids:
                 - 53iO2skjXRdCxb
                 escalada: Cutícula
+                setor: Setor Parede Principal – Direita
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - 53iO2skjXRdCxb
               - alvo_uid: QxAbpnm7atdfcm
                 pontos_uids:
                 - 53iO2skjXRdCxb
                 escalada: Pelinha
+                setor: Setor Parede Principal – Direita
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - 53iO2skjXRdCxb
               - alvo_uid: dv58WrzcTNBVTB
                 pontos_uids:
                 - phTKTsauxVo0II
                 escalada: Rapidinha no Escurinho
+                setor: Setor Parede Principal – Direita
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - phTKTsauxVo0II
               - alvo_uid: 3RkCzXVVt7h3yt
                 pontos_uids:
                 - phTKTsauxVo0II
                 escalada: Pelanca
+                setor: Setor Parede Principal – Direita
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - phTKTsauxVo0II
               - alvo_uid: YEuAYl4yn7OAZ0
                 pontos_uids:
                 - phTKTsauxVo0II
                 escalada: Flor da Pele
+                setor: Setor Parede Principal – Direita
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - phTKTsauxVo0II
               - alvo_uid: t0JEI9iAcdGP1l
                 pontos_uids:
                 - phTKTsauxVo0II
                 escalada: Alma Nova
+                setor: Setor Parede Principal – Direita
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - phTKTsauxVo0II
               - alvo_uid: IbMIeaZ7w1iKVi
                 pontos_uids:
                 - phTKTsauxVo0II
                 escalada: Pele Vermelha
+                setor: Setor Parede Principal – Direita
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - phTKTsauxVo0II
               - alvo_uid: K05yKYTFzBgHr2
                 pontos_uids:
                 - EovdCTmbfTRDzU
                 escalada: Amor, Meu Grande Amor
+                setor: Setor Parede Principal – Direita
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - EovdCTmbfTRDzU
               - alvo_uid: qDFuqX1AiaHpM8
                 pontos_uids:
                 - EovdCTmbfTRDzU
                 escalada: Tá Bão
+                setor: Setor Parede Principal – Direita
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - EovdCTmbfTRDzU
               - alvo_uid: LrGnP0Nhyp9YX1
                 pontos_uids:
                 - uLLz7bnICCrfLg
                 escalada: O Burro e o Capacete
+                setor: Setor Parede Principal – Direita
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - uLLz7bnICCrfLg
               - alvo_uid: WhvSwHQ6b9oeO2
                 pontos_uids:
                 - aFcRADC66njgzW
                 escalada: Valeu Papito
+                setor: Setor Parede Principal – Direita
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - aFcRADC66njgzW
               - alvo_uid: os0n0Km0vjVzkm
                 pontos_uids:
                 - aFcRADC66njgzW
                 escalada: Pente Frio
+                setor: Setor Parede Principal – Direita
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - aFcRADC66njgzW
               - alvo_uid: rI8Obcal0VokZO
                 pontos_uids:
                 - aFcRADC66njgzW
                 escalada: El Barrigón
+                setor: Setor Parede Principal – Direita
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - aFcRADC66njgzW
               - alvo_uid: TGdmA6h3cxpBCT
                 pontos_uids:
                 - aFcRADC66njgzW
                 escalada: Lobos do Caraça
+                setor: Setor Parede Principal – Direita
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - aFcRADC66njgzW
               - alvo_uid: 29LV4nwRx1EFcY
                 pontos_uids:
                 - uLLz7bnICCrfLg
                 escalada: O Tempo e o Vento
+                setor: Setor Parede Principal – Direita
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - uLLz7bnICCrfLg
               - alvo_uid: FO3KvzGBfKKpB4
                 pontos_uids:
                 - aEX41RMOZp7Nm1
                 setor: Setor Extrema Esquerda
+                grupo: Parede das Aderências
                 ids:
                 - aEX41RMOZp7Nm1
               - alvo_uid: avRkW8fzw3OF22
                 pontos_uids:
                 - YWDAPGI8CtZog8
                 setor: Setor Esquerda
+                grupo: Parede das Aderências
                 ids:
                 - YWDAPGI8CtZog8
               - alvo_uid: avRkW8fzw3OF22
                 pontos_uids:
                 - cOhZKmGz4OyJQM
                 setor: Setor Esquerda
+                grupo: Parede das Aderências
                 ids:
                 - cOhZKmGz4OyJQM
               - alvo_uid: lTi8TIXxTU6KF0
@@ -4296,18 +4669,21 @@ picos:
                 pontos_uids:
                 - hGSGm2oYu7WOHW
                 setor: Setor Clássicas Curtas
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - hGSGm2oYu7WOHW
               - alvo_uid: rGOlhPmCuaVWav
                 pontos_uids:
                 - aEVckg9Z2GFZDN
                 setor: Face Central
+                grupo: Parede das Aderências
                 ids:
                 - aEVckg9Z2GFZDN
               - alvo_uid: nJgmAcSxMTe2Xy
                 pontos_uids:
                 - lyJbdya5uA8ARs
                 setor: Setor Central
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - lyJbdya5uA8ARs
               pontos_de_interesse:
@@ -4422,96 +4798,128 @@ picos:
                 pontos_uids:
                 - ynozLoQqG5c9sN
                 escalada: Valeu Papito
+                setor: Setor Parede Principal – Direita
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - ynozLoQqG5c9sN
               - alvo_uid: os0n0Km0vjVzkm
                 pontos_uids:
                 - AGM7TjNTaLL3qY
                 escalada: Pente Frio
+                setor: Setor Parede Principal – Direita
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - AGM7TjNTaLL3qY
               - alvo_uid: rI8Obcal0VokZO
                 pontos_uids:
                 - 1bbyBwOVssiVjc
                 escalada: El Barrigón
+                setor: Setor Parede Principal – Direita
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - 1bbyBwOVssiVjc
               - alvo_uid: TGdmA6h3cxpBCT
                 pontos_uids:
                 - HafAiw8ArUPh1O
                 escalada: Lobos do Caraça
+                setor: Setor Parede Principal – Direita
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - HafAiw8ArUPh1O
               - alvo_uid: 29LV4nwRx1EFcY
                 pontos_uids:
                 - FRHLdWomtFrJaU
                 escalada: O Tempo e o Vento
+                setor: Setor Parede Principal – Direita
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - FRHLdWomtFrJaU
               - alvo_uid: LrGnP0Nhyp9YX1
                 pontos_uids:
                 - 12HZTy3Si7Ao0P
                 escalada: O Burro e o Capacete
+                setor: Setor Parede Principal – Direita
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - 12HZTy3Si7Ao0P
               - alvo_uid: qDFuqX1AiaHpM8
                 pontos_uids:
                 - GbRaQsstOFXZna
                 escalada: Tá Bão
+                setor: Setor Parede Principal – Direita
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - GbRaQsstOFXZna
               - alvo_uid: K05yKYTFzBgHr2
                 pontos_uids:
                 - bK6Ms13oKbw8ak
                 escalada: Amor, Meu Grande Amor
+                setor: Setor Parede Principal – Direita
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - bK6Ms13oKbw8ak
               - alvo_uid: dv58WrzcTNBVTB
                 pontos_uids:
                 - UsgFXvw8CI9h1v
                 escalada: Rapidinha no Escurinho
+                setor: Setor Parede Principal – Direita
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - UsgFXvw8CI9h1v
               - alvo_uid: 3RkCzXVVt7h3yt
                 pontos_uids:
                 - AjRXlqSZiOiIcK
                 escalada: Pelanca
+                setor: Setor Parede Principal – Direita
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - AjRXlqSZiOiIcK
               - alvo_uid: YEuAYl4yn7OAZ0
                 pontos_uids:
                 - uXoUZqYi9EzYrc
                 escalada: Flor da Pele
+                setor: Setor Parede Principal – Direita
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - uXoUZqYi9EzYrc
               - alvo_uid: t0JEI9iAcdGP1l
                 pontos_uids:
                 - Uv64qY0glTyZ7V
                 escalada: Alma Nova
+                setor: Setor Parede Principal – Direita
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - Uv64qY0glTyZ7V
               - alvo_uid: IbMIeaZ7w1iKVi
                 pontos_uids:
                 - wMmnCBAmoOOVZe
                 escalada: Pele Vermelha
+                setor: Setor Parede Principal – Direita
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - wMmnCBAmoOOVZe
               - alvo_uid: QxAbpnm7atdfcm
                 pontos_uids:
                 - SHC6eTt7M2O9D7
                 escalada: Pelinha
+                setor: Setor Parede Principal – Direita
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - SHC6eTt7M2O9D7
               - alvo_uid: Z3YMtD43WuhcKt
                 pontos_uids:
                 - mqzDY8z2fsRFRA
                 escalada: Cutícula
+                setor: Setor Parede Principal – Direita
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - mqzDY8z2fsRFRA
               - alvo_uid: Aqvhry9pjfJsJw
                 pontos_uids:
                 - TqF2oSvJQspEfz
                 escalada: Jeca Tatu
+                setor: Setor Central
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - TqF2oSvJQspEfz
               pontos_de_interesse:
@@ -4652,48 +5060,64 @@ picos:
                 pontos_uids:
                 - THynMAVU507GFL
                 escalada: Tá Bão
+                setor: Setor Parede Principal – Direita
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - THynMAVU507GFL
               - alvo_uid: K05yKYTFzBgHr2
                 pontos_uids:
                 - kRzi6VUYeRJVqV
                 escalada: Amor, Meu Grande Amor
+                setor: Setor Parede Principal – Direita
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - kRzi6VUYeRJVqV
               - alvo_uid: dv58WrzcTNBVTB
                 pontos_uids:
                 - vf8vCdCL2n5F2m
                 escalada: Rapidinha no Escurinho
+                setor: Setor Parede Principal – Direita
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - vf8vCdCL2n5F2m
               - alvo_uid: 3RkCzXVVt7h3yt
                 pontos_uids:
                 - 8R3NIvipA6AoWR
                 escalada: Pelanca
+                setor: Setor Parede Principal – Direita
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - 8R3NIvipA6AoWR
               - alvo_uid: IbMIeaZ7w1iKVi
                 pontos_uids:
                 - VnURQw0XIs14k5
                 escalada: Pele Vermelha
+                setor: Setor Parede Principal – Direita
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - VnURQw0XIs14k5
               - alvo_uid: YEuAYl4yn7OAZ0
                 pontos_uids:
                 - 5tA9iXX37LA8i7
                 escalada: Flor da Pele
+                setor: Setor Parede Principal – Direita
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - 5tA9iXX37LA8i7
               - alvo_uid: QxAbpnm7atdfcm
                 pontos_uids:
                 - jIJmvsIiElJH9p
                 escalada: Pelinha
+                setor: Setor Parede Principal – Direita
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - jIJmvsIiElJH9p
               - alvo_uid: Z3YMtD43WuhcKt
                 pontos_uids:
                 - DKy6yEPRcRsggs
                 escalada: Cutícula
+                setor: Setor Parede Principal – Direita
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - DKy6yEPRcRsggs
               pontos_de_interesse:
@@ -5048,132 +5472,172 @@ picos:
                 pontos_uids:
                 - HWBghZTY3yKdfp
                 escalada: Jeca Tatu
+                setor: Setor Central
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - HWBghZTY3yKdfp
               - alvo_uid: KjagFJ12xAjL7y
                 pontos_uids:
                 - YEluKp6ARRkPpJ
                 escalada: A Decadência da Bufa
+                setor: Setor Central
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - YEluKp6ARRkPpJ
               - alvo_uid: HVIBIlLPDu82FN
                 pontos_uids:
                 - Hhg26XUVoNTGL6
                 escalada: Iron Men
+                setor: Setor Central
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - Hhg26XUVoNTGL6
               - alvo_uid: 0zm9vw74S090Qb
                 pontos_uids:
                 - XEdj4hS8C4ECyT
                 escalada: Pum Medonho
+                setor: Setor Central
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - XEdj4hS8C4ECyT
               - alvo_uid: tl0YE1HHijDc5f
                 pontos_uids:
                 - OUmIPWBT3u5vqb
                 escalada: Ferro Velho
+                setor: Setor Central
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - OUmIPWBT3u5vqb
               - alvo_uid: avRkW8fzw3OF22
                 pontos_uids:
                 - a8W4tNycBxA3hP
                 setor: Setor Esquerda
+                grupo: Parede das Aderências
                 ids:
                 - a8W4tNycBxA3hP
               - alvo_uid: rGOlhPmCuaVWav
                 pontos_uids:
                 - ZqsoiTZ9D4qfWt
                 setor: Face Central
+                grupo: Parede das Aderências
                 ids:
                 - ZqsoiTZ9D4qfWt
               - alvo_uid: E0ZwbLrlRUznG0
                 pontos_uids:
                 - Ypxgy0EQNCM3uT
                 setor: Setor de Cima
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - Ypxgy0EQNCM3uT
               - alvo_uid: g0ASFec0ovBc9J
                 pontos_uids:
                 - V2Zk8k8vv5bHvH
                 setor: Setor Parede Principal – Direita
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - V2Zk8k8vv5bHvH
               - alvo_uid: 0on14wnJabheri
                 pontos_uids:
                 - Hhg26XUVoNTGL6
                 escalada: Chuva Ácida
+                setor: Setor Central
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - Hhg26XUVoNTGL6
               - alvo_uid: 4wSO4KLI3b8c1D
                 pontos_uids:
                 - Hhg26XUVoNTGL6
                 escalada: A Ferro e Fogo
+                setor: Setor Central
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - Hhg26XUVoNTGL6
               - alvo_uid: UQvP1LioTvp83J
                 pontos_uids:
                 - Hhg26XUVoNTGL6
                 escalada: Cordão do Bola Preta
+                setor: Setor Central
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - Hhg26XUVoNTGL6
               - alvo_uid: 5cUKFKWrcHuaoA
                 pontos_uids:
                 - XEdj4hS8C4ECyT
                 escalada: Hilda Furacão
+                setor: Setor Central
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - XEdj4hS8C4ECyT
               - alvo_uid: oJgVXI1kQAJQ4V
                 pontos_uids:
                 - XEdj4hS8C4ECyT
                 escalada: Eu Sei o Que Vocês Fizeram no Blackout Passado
+                setor: Setor Central
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - XEdj4hS8C4ECyT
               - alvo_uid: 0jcnw04M5QsGqJ
                 pontos_uids:
                 - XEdj4hS8C4ECyT
                 escalada: CDF
+                setor: Setor Central
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - XEdj4hS8C4ECyT
               - alvo_uid: J2n3pSVvme8VQe
                 pontos_uids:
                 - XEdj4hS8C4ECyT
                 escalada: Pé de Pano
+                setor: Setor Central
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - XEdj4hS8C4ECyT
               - alvo_uid: cpkdZ1zPnyBPvH
                 pontos_uids:
                 - XEdj4hS8C4ECyT
                 escalada: Pr. Chapado
+                setor: Setor Central
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - XEdj4hS8C4ECyT
               - alvo_uid: OMn5RoUmsVxGMx
                 pontos_uids:
                 - XEdj4hS8C4ECyT
                 escalada: Dona Flor e Suas Duas Marretas
+                setor: Setor Central
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - XEdj4hS8C4ECyT
               - alvo_uid: JiNuS1HncRy9hd
                 pontos_uids:
                 - OUmIPWBT3u5vqb
                 escalada: Tromba D’Água
+                setor: Setor Central
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - OUmIPWBT3u5vqb
               - alvo_uid: lWOsQxs7jU5YLt
                 pontos_uids:
                 - OUmIPWBT3u5vqb
                 escalada: Rolam as Pedras
+                setor: Setor Central
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - OUmIPWBT3u5vqb
               - alvo_uid: HH5AI65l0e31Kq
                 pontos_uids:
                 - OUmIPWBT3u5vqb
                 escalada: Marcado a Ferro
+                setor: Setor Central
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - OUmIPWBT3u5vqb
               - alvo_uid: RhsrAWstcYoX5K
                 pontos_uids:
                 - OUmIPWBT3u5vqb
                 escalada: Ferro no Judas
+                setor: Setor Central
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - OUmIPWBT3u5vqb
               pontos_de_interesse:
@@ -5265,126 +5729,167 @@ picos:
                 pontos_uids:
                 - QpADhHwaei4g90
                 escalada: Ferro no Judas
+                setor: Setor Central
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - QpADhHwaei4g90
               - alvo_uid: HH5AI65l0e31Kq
                 pontos_uids:
                 - ILZFOhh4G1849U
                 escalada: Marcado a Ferro
+                setor: Setor Central
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - ILZFOhh4G1849U
               - alvo_uid: lWOsQxs7jU5YLt
                 pontos_uids:
                 - TrqtKg9nZwviaF
                 escalada: Rolam as Pedras
+                setor: Setor Central
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - TrqtKg9nZwviaF
               - alvo_uid: JiNuS1HncRy9hd
                 pontos_uids:
                 - X1pt0z3TvlvORz
                 escalada: Tromba D’Água
+                setor: Setor Central
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - X1pt0z3TvlvORz
               - alvo_uid: tl0YE1HHijDc5f
                 pontos_uids:
                 - e92LnG4QNsfyjC
                 escalada: Ferro Velho
+                setor: Setor Central
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - e92LnG4QNsfyjC
               - alvo_uid: 0zm9vw74S090Qb
                 pontos_uids:
                 - gScsa2vzE7cByO
                 escalada: Pum Medonho
+                setor: Setor Central
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - gScsa2vzE7cByO
               - alvo_uid: OMn5RoUmsVxGMx
                 pontos_uids:
                 - egd3ISxzNfyWPl
                 escalada: Dona Flor e Suas Duas Marretas
+                setor: Setor Central
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - egd3ISxzNfyWPl
               - alvo_uid: cpkdZ1zPnyBPvH
                 pontos_uids:
                 - kq9UpfRHxrt8iG
                 escalada: Pr. Chapado
+                setor: Setor Central
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - kq9UpfRHxrt8iG
               - alvo_uid: J2n3pSVvme8VQe
                 pontos_uids:
                 - 0HZuCUnuwqqXuF
                 escalada: Pé de Pano
+                setor: Setor Central
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - 0HZuCUnuwqqXuF
               - alvo_uid: 0jcnw04M5QsGqJ
                 pontos_uids:
                 - hNa7VN2nrXxpZR
                 escalada: CDF
+                setor: Setor Central
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - hNa7VN2nrXxpZR
               - alvo_uid: oJgVXI1kQAJQ4V
                 pontos_uids:
                 - r0yQ2790DVg6i6
                 escalada: Eu Sei o Que Vocês Fizeram no Blackout Passado
+                setor: Setor Central
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - r0yQ2790DVg6i6
               - alvo_uid: 5cUKFKWrcHuaoA
                 pontos_uids:
                 - MrrclY0i5LoQIQ
                 escalada: Hilda Furacão
+                setor: Setor Central
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - MrrclY0i5LoQIQ
               - alvo_uid: HVIBIlLPDu82FN
                 pontos_uids:
                 - 4A8irW8QXVuIog
                 escalada: Iron Men
+                setor: Setor Central
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - 4A8irW8QXVuIog
               - alvo_uid: UQvP1LioTvp83J
                 pontos_uids:
                 - CXqAS8z4JQtAhh
                 escalada: Cordão do Bola Preta
+                setor: Setor Central
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - CXqAS8z4JQtAhh
               - alvo_uid: 4wSO4KLI3b8c1D
                 pontos_uids:
                 - gZlvqoQENfuCJg
                 escalada: A Ferro e Fogo
+                setor: Setor Central
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - gZlvqoQENfuCJg
               - alvo_uid: 0on14wnJabheri
                 pontos_uids:
                 - JFLlkVQnaL4P9Z
                 escalada: Chuva Ácida
+                setor: Setor Central
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - JFLlkVQnaL4P9Z
               - alvo_uid: KjagFJ12xAjL7y
                 pontos_uids:
                 - xfdY3da0yrf9dw
                 escalada: A Decadência da Bufa
+                setor: Setor Central
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - xfdY3da0yrf9dw
               - alvo_uid: Aqvhry9pjfJsJw
                 pontos_uids:
                 - HKi6FsTraoGRrP
                 escalada: Jeca Tatu
+                setor: Setor Central
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - HKi6FsTraoGRrP
               - alvo_uid: E0ZwbLrlRUznG0
                 pontos_uids:
                 - lD8BA4rMZtOVrL
                 setor: Setor de Cima
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - lD8BA4rMZtOVrL
               - alvo_uid: N55UoPSK5yscyM
                 pontos_uids:
                 - NhPf7wNt6hjUh3
                 escalada: Noite de São João
+                setor: Setor de Cima
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - NhPf7wNt6hjUh3
               - alvo_uid: WhvSwHQ6b9oeO2
                 pontos_uids:
                 - miAkeGOQcwgxcJ
                 escalada: Valeu Papito
+                setor: Setor Parede Principal – Direita
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - miAkeGOQcwgxcJ
               pontos_de_interesse:
@@ -5650,6 +6155,8 @@ picos:
                 - QDvqKoYCnjQjrh
                 - ErAG96TNWx4tIJ
                 escalada: Tromba D’Água
+                setor: Setor Central
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - TSIWJNn3qYux37
                 - 32tdWFUWmBpuGE
@@ -5663,6 +6170,8 @@ picos:
                 - 8DghnMr5Qyyk7x
                 - 5hNDBCpB2IXKvd
                 escalada: Ferro Velho
+                setor: Setor Central
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - 2TZwebkpgS7DZH
                 - GJVs8lKVLWcBUN
@@ -5824,6 +6333,8 @@ picos:
                 - 0358Ae6xWhm1wD
                 - jDFCIiY8EB5KeE
                 escalada: Cordão do Bola Preta
+                setor: Setor Central
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - CIfBGneKpX4sDS
                 - INv9UWnFyi04J5
@@ -5835,6 +6346,8 @@ picos:
                 - Mfah2ZjiOe6U4V
                 - fXzijmacuDIXCp
                 escalada: A Ferro e Fogo
+                setor: Setor Central
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - Mfah2ZjiOe6U4V
                 - fXzijmacuDIXCp
@@ -5843,6 +6356,8 @@ picos:
                 - V7K3yWs6eMxgO8
                 - 2WFn98TqvjiKLe
                 escalada: Chuva Ácida
+                setor: Setor Central
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - V7K3yWs6eMxgO8
                 - 2WFn98TqvjiKLe
@@ -5853,6 +6368,8 @@ picos:
                 - 6KzZR3uzmDd3xJ
                 - 15HNaSP6SqGrun
                 escalada: A Decadência da Bufa
+                setor: Setor Central
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - wvzqL4wr3XlFUa
                 - h7IwK5W4PvbXRo
@@ -5865,6 +6382,8 @@ picos:
                 - 86aGAlLi8EsHlo
                 - GZNtJMXy7PPhJS
                 escalada: Jeca Tatu
+                setor: Setor Central
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - YQooVv8dwnYSAY
                 - GElNJko9wheJoF
@@ -6277,24 +6796,30 @@ picos:
                 pontos_uids:
                 - FC4KMKwMInqZCU
                 escalada: Noite de São João
+                setor: Setor de Cima
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - FC4KMKwMInqZCU
               - alvo_uid: A85zzdlHkxR4KZ
                 pontos_uids:
                 - shp5bk9wAk3NGk
                 escalada: Um Momento no Tempo
+                setor: Setor de Cima
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - shp5bk9wAk3NGk
               - alvo_uid: nJgmAcSxMTe2Xy
                 pontos_uids:
                 - Mskk0UiTXTj0wT
                 setor: Setor Central
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - Mskk0UiTXTj0wT
               - alvo_uid: 0swIknUTarrNZN
                 pontos_uids:
                 - jr9EjzpW6AvKFk
                 setor: Setor Clássicas Longas
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - jr9EjzpW6AvKFk
               pontos_de_interesse:
@@ -6342,36 +6867,46 @@ picos:
                 pontos_uids:
                 - LxIFAscKVZV01P
                 escalada: Um Momento no Tempo
+                setor: Setor de Cima
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - LxIFAscKVZV01P
               - alvo_uid: N55UoPSK5yscyM
                 pontos_uids:
                 - 8VoG6X525pntxE
                 escalada: Noite de São João
+                setor: Setor de Cima
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - 8VoG6X525pntxE
               - alvo_uid: nJgmAcSxMTe2Xy
                 pontos_uids:
                 - uCpy6z8NF8bNal
                 setor: Setor Central
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - uCpy6z8NF8bNal
               - alvo_uid: 0swIknUTarrNZN
                 pontos_uids:
                 - XH25rlEJKrkooj
                 setor: Setor Clássicas Longas
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - XH25rlEJKrkooj
               - alvo_uid: ppRjvPjQbmhQLX
                 pontos_uids:
                 - ZfJTTEQafkPoav
                 escalada: À Francesa
+                setor: Setor Clássicas Longas
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - ZfJTTEQafkPoav
               - alvo_uid: RhsrAWstcYoX5K
                 pontos_uids:
                 - k7fYr0a91HRlJd
                 escalada: Ferro no Judas
+                setor: Setor Central
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - k7fYr0a91HRlJd
               pontos_de_interesse:
@@ -6534,144 +7069,190 @@ picos:
                 pontos_uids:
                 - bGttwYGvawhytZ
                 escalada: Eu Não Sou de Ferro
+                setor: Setor Clássicas Longas
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - bGttwYGvawhytZ
               - alvo_uid: AJSTo7xkzcHxVh
                 pontos_uids:
                 - bGttwYGvawhytZ
                 escalada: Rio de Mão Dupla
+                setor: Setor Clássicas Longas
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - bGttwYGvawhytZ
               - alvo_uid: ppRjvPjQbmhQLX
                 pontos_uids:
                 - bGttwYGvawhytZ
                 escalada: À Francesa
+                setor: Setor Clássicas Longas
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - bGttwYGvawhytZ
               - alvo_uid: QRzLPeTtQG5uod
                 pontos_uids:
                 - ju2k5aWDVsTIiE
                 escalada: Jardim do Éden
+                setor: Setor Clássicas Longas
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - ju2k5aWDVsTIiE
               - alvo_uid: 1MRTqHhEwibZe5
                 pontos_uids:
                 - ju2k5aWDVsTIiE
                 escalada: A Dois Passos do Paraíso
+                setor: Setor Clássicas Longas
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - ju2k5aWDVsTIiE
               - alvo_uid: zcxxdwF36C6b2o
                 pontos_uids:
                 - ju2k5aWDVsTIiE
                 escalada: Conquista do Paraíso
+                setor: Setor Clássicas Longas
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - ju2k5aWDVsTIiE
               - alvo_uid: 6TFkeXcKqIVXD3
                 pontos_uids:
                 - ju2k5aWDVsTIiE
                 escalada: Purgatório
+                setor: Setor Clássicas Longas
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - ju2k5aWDVsTIiE
               - alvo_uid: G1GEUfkb6aFhvG
                 pontos_uids:
                 - ju2k5aWDVsTIiE
                 escalada: Arco de Ferros
+                setor: Setor Clássicas Longas
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - ju2k5aWDVsTIiE
               - alvo_uid: AmnkWTziTCLtlx
                 pontos_uids:
                 - ju2k5aWDVsTIiE
                 escalada: Quem com Ferro Fere
+                setor: Setor Clássicas Longas
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - ju2k5aWDVsTIiE
               - alvo_uid: bU7X6rEsf8DV8G
                 pontos_uids:
                 - ju2k5aWDVsTIiE
                 escalada: Tanto Bate Até Que Fura
+                setor: Setor Clássicas Longas
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - ju2k5aWDVsTIiE
               - alvo_uid: 3qiVVJ4gH98lkU
                 pontos_uids:
                 - ju2k5aWDVsTIiE
                 escalada: Trem de Ferro
+                setor: Setor Clássicas Longas
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - ju2k5aWDVsTIiE
               - alvo_uid: 3rFARDsvpejB1k
                 pontos_uids:
                 - ju2k5aWDVsTIiE
                 escalada: Up Ester
+                setor: Setor Clássicas Longas
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - ju2k5aWDVsTIiE
               - alvo_uid: OdHzDK0d85nJch
                 pontos_uids:
                 - ju2k5aWDVsTIiE
                 escalada: Até Que a Vida Nos Separe
+                setor: Setor Clássicas Longas
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - ju2k5aWDVsTIiE
               - alvo_uid: QGE2HjkgbIBB11
                 pontos_uids:
                 - ju2k5aWDVsTIiE
                 escalada: Vr. Pilhado
+                setor: Setor Clássicas Longas
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - ju2k5aWDVsTIiE
               - alvo_uid: qwJkNaUAKwp36y
                 pontos_uids:
                 - ju2k5aWDVsTIiE
                 escalada: Pr. CEM
+                setor: Setor Clássicas Longas
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - ju2k5aWDVsTIiE
               - alvo_uid: LQO55ySramygmt
                 pontos_uids:
                 - ju2k5aWDVsTIiE
                 escalada: Vr. SEM
+                setor: Setor Clássicas Longas
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - ju2k5aWDVsTIiE
               - alvo_uid: Yk0v37xjPddpkt
                 pontos_uids:
                 - mtyy0LPuNnWl8f
                 escalada: Ih, Ferrou!
+                setor: Setor Clássicas Longas
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - mtyy0LPuNnWl8f
               - alvo_uid: 4NlA92f95JiGYq
                 pontos_uids:
                 - olicjdnYP8V23W
                 escalada: O Retorno de Jedi
+                setor: Setor Clássicas Longas
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - olicjdnYP8V23W
               - alvo_uid: 3RMqt5ApX2IY8X
                 pontos_uids:
                 - olicjdnYP8V23W
                 escalada: O Nome da Rosa
+                setor: Setor Clássicas Longas
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - olicjdnYP8V23W
               - alvo_uid: RSE77cm8A5ibY5
                 pontos_uids:
                 - olicjdnYP8V23W
                 escalada: Quarto 304
+                setor: Setor Clássicas Longas
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - olicjdnYP8V23W
               - alvo_uid: nJgmAcSxMTe2Xy
                 pontos_uids:
                 - Vqt7hXzzeXmd6S
                 setor: Setor Central
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - Vqt7hXzzeXmd6S
               - alvo_uid: sMtcp04stg3wSX
                 pontos_uids:
                 - yMnrBOpRSQ0Iko
                 setor: Setor Extrema Direita
+                grupo: Parede das Aderências
                 ids:
                 - yMnrBOpRSQ0Iko
               - alvo_uid: aWWidUPbYI6GzD
                 pontos_uids:
                 - bGttwYGvawhytZ
                 escalada: Grand Finale
+                setor: Setor Clássicas Longas
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - bGttwYGvawhytZ
               - alvo_uid: uW5HmBfxqXNcx6
                 pontos_uids:
                 - ju2k5aWDVsTIiE
                 escalada: Pr. Conrado Ferro
+                setor: Setor Clássicas Longas
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - ju2k5aWDVsTIiE
               pontos_de_interesse:
@@ -6735,66 +7316,88 @@ picos:
                 pontos_uids:
                 - kWobNcqiF42t4D
                 escalada: Quarto 304
+                setor: Setor Clássicas Longas
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - kWobNcqiF42t4D
               - alvo_uid: 3RMqt5ApX2IY8X
                 pontos_uids:
                 - SrCxhZObQ8YpKc
                 escalada: O Nome da Rosa
+                setor: Setor Clássicas Longas
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - SrCxhZObQ8YpKc
               - alvo_uid: 4NlA92f95JiGYq
                 pontos_uids:
                 - dB8erTnLDoIfj0
                 escalada: O Retorno de Jedi
+                setor: Setor Clássicas Longas
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - dB8erTnLDoIfj0
               - alvo_uid: Yk0v37xjPddpkt
                 pontos_uids:
                 - yIfeMDFcF3d1xU
                 escalada: Ih, Ferrou!
+                setor: Setor Clássicas Longas
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - yIfeMDFcF3d1xU
               - alvo_uid: QRzLPeTtQG5uod
                 pontos_uids:
                 - gcxQIZoHddkDua
                 escalada: Jardim do Éden
+                setor: Setor Clássicas Longas
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - gcxQIZoHddkDua
               - alvo_uid: 1MRTqHhEwibZe5
                 pontos_uids:
                 - hXBgx8rxDfAuzi
                 escalada: A Dois Passos do Paraíso
+                setor: Setor Clássicas Longas
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - hXBgx8rxDfAuzi
               - alvo_uid: zcxxdwF36C6b2o
                 pontos_uids:
                 - to3OABIDZnYXgV
                 escalada: Conquista do Paraíso
+                setor: Setor Clássicas Longas
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - to3OABIDZnYXgV
               - alvo_uid: 6TFkeXcKqIVXD3
                 pontos_uids:
                 - yfZo4zbh0LC5Bz
                 escalada: Purgatório
+                setor: Setor Clássicas Longas
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - yfZo4zbh0LC5Bz
               - alvo_uid: G1GEUfkb6aFhvG
                 pontos_uids:
                 - GZ41NLWVNc3JlY
                 escalada: Arco de Ferros
+                setor: Setor Clássicas Longas
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - GZ41NLWVNc3JlY
               - alvo_uid: uW5HmBfxqXNcx6
                 pontos_uids:
                 - RIb4OKAtdVRE89
                 escalada: Pr. Conrado Ferro
+                setor: Setor Clássicas Longas
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - RIb4OKAtdVRE89
               - alvo_uid: AmnkWTziTCLtlx
                 pontos_uids:
                 - JdJDbiL6okn3vV
                 escalada: Quem com Ferro Fere
+                setor: Setor Clássicas Longas
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - JdJDbiL6okn3vV
               - alvo_uid: bU7X6rEsf8DV8G
@@ -6802,6 +7405,8 @@ picos:
                 - JdJDbiL6okn3vV
                 - 5L2p3C5el9zg5T
                 escalada: Tanto Bate Até Que Fura
+                setor: Setor Clássicas Longas
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - JdJDbiL6okn3vV
                 - 5L2p3C5el9zg5T
@@ -6809,30 +7414,40 @@ picos:
                 pontos_uids:
                 - 173IxY9G5UwPTe
                 escalada: Trem de Ferro
+                setor: Setor Clássicas Longas
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - 173IxY9G5UwPTe
               - alvo_uid: 3rFARDsvpejB1k
                 pontos_uids:
                 - L8jX93Tp5MVoBT
                 escalada: Up Ester
+                setor: Setor Clássicas Longas
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - L8jX93Tp5MVoBT
               - alvo_uid: OdHzDK0d85nJch
                 pontos_uids:
                 - hws4jVHjOPOYYX
                 escalada: Até Que a Vida Nos Separe
+                setor: Setor Clássicas Longas
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - hws4jVHjOPOYYX
               - alvo_uid: QGE2HjkgbIBB11
                 pontos_uids:
                 - XN2qte4rb6TMb4
                 escalada: Vr. Pilhado
+                setor: Setor Clássicas Longas
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - XN2qte4rb6TMb4
               - alvo_uid: qwJkNaUAKwp36y
                 pontos_uids:
                 - VGTqiO1hvNs8ic
                 escalada: Pr. CEM
+                setor: Setor Clássicas Longas
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - VGTqiO1hvNs8ic
               - alvo_uid: LQO55ySramygmt
@@ -6840,6 +7455,8 @@ picos:
                 - VGTqiO1hvNs8ic
                 - DJDibhoScE40h7
                 escalada: Vr. SEM
+                setor: Setor Clássicas Longas
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - VGTqiO1hvNs8ic
                 - DJDibhoScE40h7
@@ -6847,18 +7464,24 @@ picos:
                 pontos_uids:
                 - NtilXTEX5MabO4
                 escalada: Eu Não Sou de Ferro
+                setor: Setor Clássicas Longas
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - NtilXTEX5MabO4
               - alvo_uid: AJSTo7xkzcHxVh
                 pontos_uids:
                 - sZA03N16Ah91l1
                 escalada: Rio de Mão Dupla
+                setor: Setor Clássicas Longas
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - sZA03N16Ah91l1
               - alvo_uid: ppRjvPjQbmhQLX
                 pontos_uids:
                 - v2LvrGR7OFGW19
                 escalada: À Francesa
+                setor: Setor Clássicas Longas
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - v2LvrGR7OFGW19
               - alvo_uid: aWWidUPbYI6GzD
@@ -6866,6 +7489,8 @@ picos:
                 - v2LvrGR7OFGW19
                 - D5TiLDry5gtAyw
                 escalada: Grand Finale
+                setor: Setor Clássicas Longas
+                grupo: Parede Principal (Paredes de Aço)
                 ids:
                 - v2LvrGR7OFGW19
                 - D5TiLDry5gtAyw
@@ -7555,18 +8180,21 @@ picos:
             pontos_uids:
             - Ue3n3cEvedV0wo
             escalada: Diedro da Rabada
+            setor: Setor Vias Esportivas
             ids:
             - Ue3n3cEvedV0wo
           - alvo_uid: QpCApMk6YB1mCe
             pontos_uids:
             - Fxbqzb4xUXowYq
             escalada: Mestre Sala
+            setor: Setor Vias Esportivas
             ids:
             - Fxbqzb4xUXowYq
           - alvo_uid: 54cMsqpd3jzHJC
             pontos_uids:
             - FLaQ1Ed2DF4dv8
             escalada: Porta-Bandeira
+            setor: Setor Vias Esportivas
             ids:
             - FLaQ1Ed2DF4dv8
           - alvo_uid: tVQ6kl7g3qiWzg
@@ -7576,6 +8204,7 @@ picos:
             - qTASrSxbs7K1Ss
             - wfvZSRCNf6XlAW
             escalada: Gangorra
+            setor: Setor Vias Esportivas
             ids:
             - N56lf61W8Hs81T
             - VQLQfG9Zt2pFU8
@@ -7585,12 +8214,14 @@ picos:
             pontos_uids:
             - uSSxUVzlV1mzwL
             escalada: Jabá com Jerimum
+            setor: Setor Vias Esportivas
             ids:
             - uSSxUVzlV1mzwL
           - alvo_uid: 5bdPEB7wT2sS6w
             pontos_uids:
             - S2wae0uhggE9yD
             escalada: Bruxa Albano
+            setor: Setor Vias Esportivas
             ids:
             - S2wae0uhggE9yD
           - alvo_uid: UE6IfxO3DuOBKB
@@ -7599,6 +8230,7 @@ picos:
             - mDSxgMqTgOZUfX
             - SiISR6xtmhqcw8
             escalada: Vomitão em Ferros
+            setor: Setor Vias Esportivas
             ids:
             - N56lf61W8Hs81T
             - mDSxgMqTgOZUfX
@@ -7609,6 +8241,7 @@ picos:
             - N56lf61W8Hs81T
             - VQLQfG9Zt2pFU8
             escalada: Iron Slow
+            setor: Setor Vias Esportivas
             ids:
             - SiISR6xtmhqcw8
             - N56lf61W8Hs81T
@@ -7713,6 +8346,7 @@ picos:
             pontos_uids:
             - v6gyDqoxfI7Jet
             escalada: Bicho de Pé
+            setor: Setor Vias Esportivas
             ids:
             - v6gyDqoxfI7Jet
           - alvo_uid: IjPpTBTWvPJPcC
@@ -7720,6 +8354,7 @@ picos:
             - IwPdhsHD54xYfX
             - ckvNw8iDmSz5Uq
             escalada: Os Três Mosqueteiros
+            setor: Setor Vias Esportivas
             ids:
             - IwPdhsHD54xYfX
             - ckvNw8iDmSz5Uq
@@ -7727,6 +8362,7 @@ picos:
             pontos_uids:
             - rL80VuGlbiql3W
             escalada: Nó de Porco
+            setor: Setor Vias Esportivas
             ids:
             - rL80VuGlbiql3W
           - alvo_uid: 2a924zx095JbMS
@@ -7734,6 +8370,7 @@ picos:
             - Qg3LqGPNP0qD32
             - ckvNw8iDmSz5Uq
             escalada: Ícaro
+            setor: Setor Vias Esportivas
             ids:
             - Qg3LqGPNP0qD32
             - ckvNw8iDmSz5Uq
@@ -7743,6 +8380,7 @@ picos:
             - XKLCZYN1FnC8nl
             - 9ap9IkwJQP7r0m
             escalada: Champinha
+            setor: Setor Vias Esportivas
             ids:
             - K25l8DqL6eeKds
             - XKLCZYN1FnC8nl
@@ -7752,6 +8390,7 @@ picos:
             - K25l8DqL6eeKds
             - 956NBIVhVnGE2A
             escalada: Falcatrua
+            setor: Setor Vias Esportivas
             ids:
             - K25l8DqL6eeKds
             - 956NBIVhVnGE2A
@@ -8059,24 +8698,28 @@ picos:
             pontos_uids:
             - MrlVO733Q2bkHA
             escalada: Caipora
+            setor: Setor Parede dos Solos
             ids:
             - MrlVO733Q2bkHA
           - alvo_uid: S1yD3xTLEKuM1U
             pontos_uids:
             - sCAczNVDJ4RgEz
             escalada: Iaci
+            setor: Setor Parede dos Solos
             ids:
             - sCAczNVDJ4RgEz
           - alvo_uid: 1xoZHUAY4ESzXr
             pontos_uids:
             - CVH3TQQ56xwXgc
             escalada: Boitatá
+            setor: Setor Parede dos Solos
             ids:
             - CVH3TQQ56xwXgc
           - alvo_uid: mybRNsRauSk9jr
             pontos_uids:
             - H35HMSohwCJ6Og
             escalada: Maracujá
+            setor: Setor Parede dos Solos
             ids:
             - H35HMSohwCJ6Og
         escaladas:
@@ -8145,36 +8788,48 @@ picos:
                 pontos_uids:
                 - YBeFEwKYzfk4Ye
                 escalada: Fissura Lapada na Rachada
+                setor: Face das Esportivas
+                grupo: Pedra do Neri
                 ids:
                 - YBeFEwKYzfk4Ye
               - alvo_uid: wS3X9tphp19KxX
                 pontos_uids:
                 - b5E0CwAbWLM2qX
                 escalada: Fissura Sopa de Pedra
+                setor: Face das Esportivas
+                grupo: Pedra do Neri
                 ids:
                 - b5E0CwAbWLM2qX
               - alvo_uid: RNSq6XYNdaMDiv
                 pontos_uids:
                 - VDojPlTsw21e7x
                 escalada: Até o Osso
+                setor: Face das Esportivas
+                grupo: Pedra do Neri
                 ids:
                 - VDojPlTsw21e7x
               - alvo_uid: oW6naaQvbbjQhH
                 pontos_uids:
                 - FIW8X6HdtiCqOL
                 escalada: Diedro Caboclo D'Água
+                setor: Face das Esportivas
+                grupo: Pedra do Neri
                 ids:
                 - FIW8X6HdtiCqOL
               - alvo_uid: jt5LdLeOzZgwem
                 pontos_uids:
                 - 4Jz2WJF2mfngOb
                 escalada: Balangandã
+                setor: Face das Esportivas
+                grupo: Pedra do Neri
                 ids:
                 - 4Jz2WJF2mfngOb
               - alvo_uid: 0S56NGBaCMVH7P
                 pontos_uids:
                 - JeCvLOcpGTq9LF
                 escalada: Pé de Chinelo
+                setor: Face das Esportivas
+                grupo: Pedra do Neri
                 ids:
                 - JeCvLOcpGTq9LF
               pontos_de_interesse:
@@ -8322,30 +8977,40 @@ picos:
                 pontos_uids:
                 - QLLu6bQJGXj7y8
                 escalada: Queima de Arquivo
+                setor: Face das Aderências
+                grupo: Pedra do Neri
                 ids:
                 - QLLu6bQJGXj7y8
               - alvo_uid: zoYdCgVWsyJhLi
                 pontos_uids:
                 - 7CAiJdPTzYy36Y
                 escalada: Aquidaban
+                setor: Face das Aderências
+                grupo: Pedra do Neri
                 ids:
                 - 7CAiJdPTzYy36Y
               - alvo_uid: nIFVLh6BUFAiTc
                 pontos_uids:
                 - nyui5vOsFJ9ZU8
                 escalada: Tempestade
+                setor: Face das Aderências
+                grupo: Pedra do Neri
                 ids:
                 - nyui5vOsFJ9ZU8
               - alvo_uid: Nf1cmFitUUniyx
                 pontos_uids:
                 - Q7EypUgJMegE0x
                 escalada: Chuva de Verão
+                setor: Face das Aderências
+                grupo: Pedra do Neri
                 ids:
                 - Q7EypUgJMegE0x
               - alvo_uid: Ck9Bi00x1ihKlV
                 pontos_uids:
                 - VGve0qnBCTlJtW
                 escalada: Brumas de Inverno
+                setor: Face das Aderências
+                grupo: Pedra do Neri
                 ids:
                 - VGve0qnBCTlJtW
               pontos_de_interesse:
@@ -8483,6 +9148,7 @@ picos:
             pontos_uids:
             - QHjba1ls0enV7t
             escalada: Pr. Pellé 70
+            setor: Setor Parede da CENIBRA
             ids:
             - QHjba1ls0enV7t
           largura_mapa: 961
@@ -8525,6 +9191,7 @@ picos:
             pontos_uids:
             - CGS0FrAZT9abWx
             escalada: Dama de Ferros
+            setor: Setor Parede da Água Limpa
             ids:
             - CGS0FrAZT9abWx
           largura_mapa: 2008
@@ -8624,12 +9291,14 @@ picos:
             pontos_uids:
             - xuBhGx6vMWSp9V
             escalada: Amazonita
+            setor: Outras Vias
             ids:
             - xuBhGx6vMWSp9V
           - alvo_uid: ZzR9dPUTllMIoU
             pontos_uids:
             - TtQo1rrqeA8FZ7
             escalada: Fissura Cachoeira Quente
+            setor: Outras Vias
             ids:
             - TtQo1rrqeA8FZ7
           pontos_de_interesse:
@@ -8915,60 +9584,70 @@ picos:
           pontos_uids:
           - SrrfY5W7a4SoMG
           setor: Setor Extrema Esquerda
+          grupo: Parede das Aderências
           ids:
           - SrrfY5W7a4SoMG
         - alvo_uid: avRkW8fzw3OF22
           pontos_uids:
           - 96K2LWJvUM8ahL
           setor: Setor Esquerda
+          grupo: Parede das Aderências
           ids:
           - 96K2LWJvUM8ahL
         - alvo_uid: rGOlhPmCuaVWav
           pontos_uids:
           - L5MRwyAihzOooF
           setor: Face Central
+          grupo: Parede das Aderências
           ids:
           - L5MRwyAihzOooF
         - alvo_uid: E0ZwbLrlRUznG0
           pontos_uids:
           - DArNh02VY607hf
           setor: Setor de Cima
+          grupo: Parede Principal (Paredes de Aço)
           ids:
           - DArNh02VY607hf
         - alvo_uid: sMtcp04stg3wSX
           pontos_uids:
           - UdlLE2XE09JMRM
           setor: Setor Extrema Direita
+          grupo: Parede das Aderências
           ids:
           - UdlLE2XE09JMRM
         - alvo_uid: rKxz4SSg8tyORQ
           pontos_uids:
           - xl84lyMXyjjRHh
           setor: Setor Clássicas Curtas
+          grupo: Parede Principal (Paredes de Aço)
           ids:
           - xl84lyMXyjjRHh
         - alvo_uid: g0ASFec0ovBc9J
           pontos_uids:
           - mYRqccO8ZICq0M
           setor: Setor Parede Principal – Direita
+          grupo: Parede Principal (Paredes de Aço)
           ids:
           - mYRqccO8ZICq0M
         - alvo_uid: nJgmAcSxMTe2Xy
           pontos_uids:
           - ulUBw7hgpcjzkC
           setor: Setor Central
+          grupo: Parede Principal (Paredes de Aço)
           ids:
           - ulUBw7hgpcjzkC
         - alvo_uid: E0ZwbLrlRUznG0
           pontos_uids:
           - YkjYBeVPiQwPZ8
           setor: Setor de Cima
+          grupo: Parede Principal (Paredes de Aço)
           ids:
           - YkjYBeVPiQwPZ8
         - alvo_uid: 0swIknUTarrNZN
           pontos_uids:
           - sHqOpoe2XbzAZI
           setor: Setor Clássicas Longas
+          grupo: Parede Principal (Paredes de Aço)
           ids:
           - sHqOpoe2XbzAZI
         - alvo_uid: yN4hgcwkUvCqJC

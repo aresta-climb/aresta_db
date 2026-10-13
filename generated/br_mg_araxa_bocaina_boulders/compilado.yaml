@@ -63,42 +63,49 @@ picos:
             pontos_uids:
             - rKMJJmrWUVHXgy
             escalada: Café com Leite
+            setor: Setor Pressão Enrustida
             ids:
             - rKMJJmrWUVHXgy
           - alvo_uid: IwY9w2QhEZzvh9
             pontos_uids:
             - fkdH2eilteODT5
             escalada: Maltodextrina
+            setor: Setor Pressão Enrustida
             ids:
             - fkdH2eilteODT5
           - alvo_uid: by58o53yonMjhI
             pontos_uids:
             - Yfle4mbz4R3d7n
             escalada: Maltodextrina SDS
+            setor: Setor Pressão Enrustida
             ids:
             - Yfle4mbz4R3d7n
           - alvo_uid: x3ZGinJzvhJ6jZ
             pontos_uids:
             - 2lFJawiGO8EIkd
             escalada: Pinga Preta
+            setor: Setor Pressão Enrustida
             ids:
             - 2lFJawiGO8EIkd
           - alvo_uid: wlNV7GJit7OnuN
             pontos_uids:
             - nLNFaB2Z6kczhc
             escalada: Pressão Enrustida
+            setor: Setor Pressão Enrustida
             ids:
             - nLNFaB2Z6kczhc
           - alvo_uid: eRcNyzQkVgSLH2
             pontos_uids:
             - 2lFJawiGO8EIkd
             escalada: Não Contava com Minha Astúcia
+            setor: Setor Pressão Enrustida
             ids:
             - 2lFJawiGO8EIkd
           - alvo_uid: Xww11j8447XPSm
             pontos_uids:
             - nLNFaB2Z6kczhc
             escalada: Rapé
+            setor: Setor Pressão Enrustida
             ids:
             - nLNFaB2Z6kczhc
         escaladas:
@@ -166,6 +173,7 @@ picos:
             pontos_uids:
             - XVaT7pyPSHbPjq
             escalada: Mingau
+            setor: Setor Caverninha
             ids:
             - XVaT7pyPSHbPjq
         - caminho_imagem_mapa: imagens/setor_caverninha_p1.webp
@@ -225,36 +233,42 @@ picos:
             pontos_uids:
             - ZgSf5R8XflLxsB
             escalada: Pretinho Irlandês
+            setor: Setor Caverninha
             ids:
             - ZgSf5R8XflLxsB
           - alvo_uid: sfuUfKtINgLQAG
             pontos_uids:
             - 4EUs1hDTtLchRw
             escalada: Ratos e Raízes
+            setor: Setor Caverninha
             ids:
             - 4EUs1hDTtLchRw
           - alvo_uid: 8515Gc96pebpim
             pontos_uids:
             - fAzFUmZvFInF25
             escalada: Tripa Eterna
+            setor: Setor Caverninha
             ids:
             - fAzFUmZvFInF25
           - alvo_uid: pFT4K0gXcVlXqx
             pontos_uids:
             - r5NArP60WjlwJW
             escalada: Trip Eterna
+            setor: Setor Caverninha
             ids:
             - r5NArP60WjlwJW
           - alvo_uid: VqmaFZ1yRS22vT
             pontos_uids:
             - 3BdhVKpRqMdR08
             escalada: Mecanismo
+            setor: Setor Caverninha
             ids:
             - 3BdhVKpRqMdR08
           - alvo_uid: TjFAiTenlAVwZH
             pontos_uids:
             - EFIoOUsLAsP1U1
             escalada: Pedrada
+            setor: Setor Caverninha
             ids:
             - EFIoOUsLAsP1U1
         - caminho_imagem_mapa: imagens/setor_caverninha_p2.webp
@@ -298,24 +312,28 @@ picos:
             pontos_uids:
             - xVOPZ1JtXAUZYq
             escalada: Aedes Egipse
+            setor: Setor Caverninha
             ids:
             - xVOPZ1JtXAUZYq
           - alvo_uid: V70c8EexH7sQPh
             pontos_uids:
             - 7ixoFHbszCPhz8
             escalada: V9 do Rafinha
+            setor: Setor Caverninha
             ids:
             - 7ixoFHbszCPhz8
           - alvo_uid: gzZh0ZCP9laU76
             pontos_uids:
             - DK0YxXwJl7DdLp
             escalada: Os Trabalhos Não Param
+            setor: Setor Caverninha
             ids:
             - DK0YxXwJl7DdLp
           - alvo_uid: G3zhgcl1o5S4XO
             pontos_uids:
             - oD7erE67hsArH2
             escalada: Trabalho em Equipe
+            setor: Setor Caverninha
             ids:
             - oD7erE67hsArH2
         escaladas:
@@ -444,30 +462,35 @@ picos:
             pontos_uids:
             - IRlJm5BkGXJMFY
             escalada: Fumaça Sagrada
+            setor: Setor Exquadrilha
             ids:
             - IRlJm5BkGXJMFY
           - alvo_uid: IiN1qRHwQtfZVL
             pontos_uids:
             - E0BXGPVvU6ZICJ
             escalada: Exquadrilha da Fumaça
+            setor: Setor Exquadrilha
             ids:
             - E0BXGPVvU6ZICJ
           - alvo_uid: yVtsgImLqEpT3L
             pontos_uids:
             - D82ZhbuM3ZbE6n
             escalada: Quadrilha da Fumaça
+            setor: Setor Exquadrilha
             ids:
             - D82ZhbuM3ZbE6n
           - alvo_uid: uZFuQjlORYOybS
             pontos_uids:
             - cVm4TyFRgSVoIG
             escalada: Planet Hemp
+            setor: Setor Exquadrilha
             ids:
             - cVm4TyFRgSVoIG
           - alvo_uid: uOVZG4RDG9ESRh
             pontos_uids:
             - OP6wCIqiilPKqE
             escalada: Cypress Hill
+            setor: Setor Exquadrilha
             ids:
             - OP6wCIqiilPKqE
         escaladas:
@@ -566,18 +589,21 @@ picos:
             pontos_uids:
             - mJFW3aUybhnK2C
             escalada: Sucrilhos no Prato
+            setor: Setor Canil
             ids:
             - mJFW3aUybhnK2C
           - alvo_uid: QfQqepKuxSJctO
             pontos_uids:
             - eITS1eBerhq2LR
             escalada: Titan
+            setor: Setor Canil
             ids:
             - eITS1eBerhq2LR
           - alvo_uid: Y3BeD4xfjXO9RJ
             pontos_uids:
             - Lf7S9mhmTRvqXu
             escalada: Loboulder
+            setor: Setor Canil
             ids:
             - Lf7S9mhmTRvqXu
           - alvo_uid: BOIeQZAXjE3hh3
@@ -585,6 +611,7 @@ picos:
             - mJFW3aUybhnK2C
             - Y4ugeCjjra3IiH
             escalada: Lobão
+            setor: Setor Canil
             ids:
             - mJFW3aUybhnK2C
             - Y4ugeCjjra3IiH
@@ -593,6 +620,7 @@ picos:
             - mJFW3aUybhnK2C
             - 5IsLXHzfCKl5f3
             escalada: Tião Macalé
+            setor: Setor Canil
             ids:
             - mJFW3aUybhnK2C
             - 5IsLXHzfCKl5f3
@@ -601,6 +629,7 @@ picos:
             - Lf7S9mhmTRvqXu
             - VmxOI8diLzDhIL
             escalada: Savana
+            setor: Setor Canil
             ids:
             - Lf7S9mhmTRvqXu
             - VmxOI8diLzDhIL
@@ -693,24 +722,28 @@ picos:
             pontos_uids:
             - iglmoq77n7lfET
             escalada: Strike
+            setor: Bloco do Guerreiro
             ids:
             - iglmoq77n7lfET
           - alvo_uid: RTN0rNb2gB7IHF
             pontos_uids:
             - ysorxHlnDk8ilJ
             escalada: Chove e Não Molha
+            setor: Bloco do Guerreiro
             ids:
             - ysorxHlnDk8ilJ
           - alvo_uid: oBDvmaSNCEMWU2
             pontos_uids:
             - xhHdMPWz8YqyM2
             escalada: Palhaço Pirulito
+            setor: Bloco do Guerreiro
             ids:
             - xhHdMPWz8YqyM2
           - alvo_uid: 5ycigquFoRkj5h
             pontos_uids:
             - MXsak3aovU0t9g
             escalada: Marreteiro
+            setor: Bloco do Guerreiro
             ids:
             - MXsak3aovU0t9g
         - caminho_imagem_mapa: imagens/setor_bloco_do_guerreiro_p1.webp
@@ -746,18 +779,21 @@ picos:
             pontos_uids:
             - bChhIBYHkOqe81
             escalada: Guerreiro da Bocaina
+            setor: Bloco do Guerreiro
             ids:
             - bChhIBYHkOqe81
           - alvo_uid: ts4kATktgPOmh1
             pontos_uids:
             - Ds1zNd4r0BOE3N
             escalada: High Line
+            setor: Bloco do Guerreiro
             ids:
             - Ds1zNd4r0BOE3N
           - alvo_uid: O66zZHjt63eW4R
             pontos_uids:
             - UmqIT9j592jMAA
             escalada: Colchão de Mola
+            setor: Bloco do Guerreiro
             ids:
             - UmqIT9j592jMAA
         escaladas:
@@ -827,6 +863,7 @@ picos:
             pontos_uids:
             - Ss1XKgxRfIr8Iw
             escalada: Sexto Sentido
+            setor: Bloco do Cabelin
             ids:
             - Ss1XKgxRfIr8Iw
         - caminho_imagem_mapa: imagens/setor_bloco_do_cabelin_p1.webp
@@ -886,36 +923,42 @@ picos:
             pontos_uids:
             - tJV8Lm602Y2i39
             escalada: Sexto Sentido
+            setor: Bloco do Cabelin
             ids:
             - tJV8Lm602Y2i39
           - alvo_uid: RRwb7eFUdX7AXb
             pontos_uids:
             - o51qO4D4BIowb8
             escalada: Dread Lock
+            setor: Bloco do Cabelin
             ids:
             - o51qO4D4BIowb8
           - alvo_uid: HLaAx8pUzCP1HW
             pontos_uids:
             - 8UJKw35wtnjjsk
             escalada: Cabeludo
+            setor: Bloco do Cabelin
             ids:
             - 8UJKw35wtnjjsk
           - alvo_uid: TJILQg2IZpx8hu
             pontos_uids:
             - oU2GvGXJDwWXlA
             escalada: Jacinto Barriguinha
+            setor: Bloco do Cabelin
             ids:
             - oU2GvGXJDwWXlA
           - alvo_uid: 0ZG7GOwDmItMMC
             pontos_uids:
             - oJiZ373URE7Cm1
             escalada: Compressor
+            setor: Bloco do Cabelin
             ids:
             - oJiZ373URE7Cm1
           - alvo_uid: SSurNg0H2HrJVd
             pontos_uids:
             - VQQJCLPjepyqD4
             escalada: Cabelinho
+            setor: Bloco do Cabelin
             ids:
             - VQQJCLPjepyqD4
         - caminho_imagem_mapa: imagens/setor_bloco_do_cabelin_p2.webp
@@ -983,42 +1026,49 @@ picos:
             pontos_uids:
             - ykeTJbVDZmSG1R
             escalada: Mágico de Oz
+            setor: Bloco do Cabelin
             ids:
             - ykeTJbVDZmSG1R
           - alvo_uid: qgrWA0Q4i3kqjy
             pontos_uids:
             - ZxYyz9gxp00rbV
             escalada: Mágico de Oz SDS
+            setor: Bloco do Cabelin
             ids:
             - ZxYyz9gxp00rbV
           - alvo_uid: T2lual8WiIOiry
             pontos_uids:
             - fO2h52R9rxdKIQ
             escalada: Mr. Gordura
+            setor: Bloco do Cabelin
             ids:
             - fO2h52R9rxdKIQ
           - alvo_uid: 2xjIUndpQYgyn3
             pontos_uids:
             - XTT9NWQ0NBMmQa
             escalada: País das Maravilhas
+            setor: Bloco do Cabelin
             ids:
             - XTT9NWQ0NBMmQa
           - alvo_uid: 4UGPBAPaXeN7Fu
             pontos_uids:
             - 0kgoTcOvsfEIFK
             escalada: Capim Louco
+            setor: Bloco do Cabelin
             ids:
             - 0kgoTcOvsfEIFK
           - alvo_uid: oihqByvJ1urkov
             pontos_uids:
             - KHeLNLki0mHXvJ
             escalada: Capim Gordura
+            setor: Bloco do Cabelin
             ids:
             - KHeLNLki0mHXvJ
           - alvo_uid: sw6UzSFuVdbAPL
             pontos_uids:
             - N16PIBipldb61s
             escalada: Roleta Russa
+            setor: Bloco do Cabelin
             ids:
             - N16PIBipldb61s
         escaladas:
@@ -1136,12 +1186,14 @@ picos:
             pontos_uids:
             - PhBZE7VtDSqD8U
             escalada: Canarim
+            setor: Setor Consciência Limpa
             ids:
             - PhBZE7VtDSqD8U
           - alvo_uid: 29ZNcyB4GZmTNv
             pontos_uids:
             - FbFo4WMgq93FUL
             escalada: Sabiá
+            setor: Setor Consciência Limpa
             ids:
             - FbFo4WMgq93FUL
         - caminho_imagem_mapa: imagens/setor_consciencia_limpa_p1.webp
@@ -1177,18 +1229,21 @@ picos:
             pontos_uids:
             - 78hbcPC3JxJUSF
             escalada: Consciência Limpa
+            setor: Setor Consciência Limpa
             ids:
             - 78hbcPC3JxJUSF
           - alvo_uid: fRmptXErasQlWb
             pontos_uids:
             - SbotqR4jUIiUBh
             escalada: Consciência
+            setor: Setor Consciência Limpa
             ids:
             - SbotqR4jUIiUBh
           - alvo_uid: OfkdNUdYCH06Je
             pontos_uids:
             - bDXgtLmh3E6LLL
             escalada: Mulheres Poderosas
+            setor: Setor Consciência Limpa
             ids:
             - bDXgtLmh3E6LLL
         escaladas:
@@ -1288,6 +1343,7 @@ picos:
             - FhtFb58a7CDhsN
             - '3'
             escalada: Jamaica Abaixo de Zero
+            setor: Setor Haiti
             ids:
             - FhtFb58a7CDhsN
             - '3'
@@ -1295,18 +1351,21 @@ picos:
             pontos_uids:
             - GyCci4avj0ijDU
             escalada: Taiti
+            setor: Setor Haiti
             ids:
             - GyCci4avj0ijDU
           - alvo_uid: ykABlKVEdX4WnL
             pontos_uids:
             - uIrklHuN1gOLFp
             escalada: Haiti
+            setor: Setor Haiti
             ids:
             - uIrklHuN1gOLFp
           - alvo_uid: rZvDU2nJVOIFQX
             pontos_uids:
             - a82fd2IbumPZSB
             escalada: Nem Lá, Nem Cá
+            setor: Setor Haiti
             ids:
             - a82fd2IbumPZSB
           - alvo_uid: whjMmhNnbP413h
@@ -1314,6 +1373,7 @@ picos:
             - FhtFb58a7CDhsN
             - 3ohbSe7X3MrtxA
             escalada: Jamaica
+            setor: Setor Haiti
             ids:
             - FhtFb58a7CDhsN
             - 3ohbSe7X3MrtxA
@@ -1403,24 +1463,28 @@ picos:
             pontos_uids:
             - Ov15ZNOC8paRFS
             escalada: Fala Comigo
+            setor: Setor Achados e Perdidos
             ids:
             - Ov15ZNOC8paRFS
           - alvo_uid: Svg4YvJNez9SA3
             pontos_uids:
             - jsuTMbKsoAro5q
             escalada: Tendinite No More
+            setor: Setor Achados e Perdidos
             ids:
             - jsuTMbKsoAro5q
           - alvo_uid: WRQQlvWvCjpt2F
             pontos_uids:
             - ItoM2tBPnzTHYV
             escalada: Atitude no Trecho
+            setor: Setor Achados e Perdidos
             ids:
             - ItoM2tBPnzTHYV
           - alvo_uid: KZZyZqWtJhhWkP
             pontos_uids:
             - Cfqap3oLYMVGtt
             escalada: Achados e Perdidos
+            setor: Setor Achados e Perdidos
             ids:
             - Cfqap3oLYMVGtt
         escaladas:
@@ -1490,18 +1554,21 @@ picos:
             pontos_uids:
             - xH9PTlH2K9PaGA
             escalada: Açaí Bocaina
+            setor: Bloco do Rock Bocaina
             ids:
             - xH9PTlH2K9PaGA
           - alvo_uid: aAcYxTKwQP83PQ
             pontos_uids:
             - DFUHpcIj1YGZi9
             escalada: Rock Bocaina
+            setor: Bloco do Rock Bocaina
             ids:
             - DFUHpcIj1YGZi9
           - alvo_uid: i73Feh4FJLDh9q
             pontos_uids:
             - 0VAwiGnZoMnA7B
             escalada: Dedão de Aquiles
+            setor: Bloco do Rock Bocaina
             ids:
             - 0VAwiGnZoMnA7B
         escaladas:
@@ -1628,48 +1695,56 @@ picos:
             pontos_uids:
             - mvHJiGGC0TT6wj
             escalada: Esquina do Gueto
+            setor: Bloco 45º
             ids:
             - mvHJiGGC0TT6wj
           - alvo_uid: A5CATmQ4mbzcON
             pontos_uids:
             - MaKXkzxTpKAONV
             escalada: Bem-Vindo
+            setor: Bloco 45º
             ids:
             - MaKXkzxTpKAONV
           - alvo_uid: jEKmEQkJzKkbof
             pontos_uids:
             - 2srhDFdc437Aud
             escalada: Siri Cascudo
+            setor: Bloco 45º
             ids:
             - 2srhDFdc437Aud
           - alvo_uid: RgVlqgXPTuKESi
             pontos_uids:
             - 02gLzrf1qOvv04
             escalada: Índios
+            setor: Bloco 45º
             ids:
             - 02gLzrf1qOvv04
           - alvo_uid: zgPCV5sX3RT5mv
             pontos_uids:
             - DKlTPWQzGFDaAn
             escalada: Índios SDS
+            setor: Bloco 45º
             ids:
             - DKlTPWQzGFDaAn
           - alvo_uid: kCkw4BwSQ66JQY
             pontos_uids:
             - 1lPKuoVwNNy6XE
             escalada: Família Bocaina
+            setor: Bloco 45º
             ids:
             - 1lPKuoVwNNy6XE
           - alvo_uid: hGMouLYyRGoSf8
             pontos_uids:
             - Q84HXACSSluDIv
             escalada: Sananga
+            setor: Bloco 45º
             ids:
             - Q84HXACSSluDIv
           - alvo_uid: mTlIhLNDau9a7w
             pontos_uids:
             - 4okay9Mgep0XTd
             escalada: Espírito San
+            setor: Bloco 45º
             ids:
             - 4okay9Mgep0XTd
         - caminho_imagem_mapa: imagens/setor_bloco_45_p1.webp
@@ -1745,48 +1820,56 @@ picos:
             pontos_uids:
             - yTJ6hZxe7sh2Q9
             escalada: Tiro ao Alvo
+            setor: Bloco 45º
             ids:
             - yTJ6hZxe7sh2Q9
           - alvo_uid: e5osFqSTv1yRnl
             pontos_uids:
             - BwCUNu7Y1Sekg3
             escalada: Tiro ao Alvo SDS
+            setor: Bloco 45º
             ids:
             - BwCUNu7Y1Sekg3
           - alvo_uid: SFtPEGjCitlzP3
             pontos_uids:
             - YSiSC36Y2pwRMa
             escalada: Mão na Massa
+            setor: Bloco 45º
             ids:
             - YSiSC36Y2pwRMa
           - alvo_uid: 2ORMfj30jI9Ore
             pontos_uids:
             - UmXtCyKAdHUHJS
             escalada: Mão na Massa SDS
+            setor: Bloco 45º
             ids:
             - UmXtCyKAdHUHJS
           - alvo_uid: 2cKX9mHLW4grYR
             pontos_uids:
             - YrbrDb9p8hPVqs
             escalada: Bicho de Pé
+            setor: Bloco 45º
             ids:
             - YrbrDb9p8hPVqs
           - alvo_uid: bSbc4MZmq3iZ0S
             pontos_uids:
             - no6uX0zqpcGt2S
             escalada: Bicho de Pé SDS
+            setor: Bloco 45º
             ids:
             - no6uX0zqpcGt2S
           - alvo_uid: vN7FOp4blYdvKc
             pontos_uids:
             - tOWDdbPMmnwS4i
             escalada: Curto e Gross
+            setor: Bloco 45º
             ids:
             - tOWDdbPMmnwS4i
           - alvo_uid: 117Soh4aoEHw6l
             pontos_uids:
             - G6FAlAqwWpH5lQ
             escalada: Carvoeiro
+            setor: Bloco 45º
             ids:
             - G6FAlAqwWpH5lQ
         - caminho_imagem_mapa: imagens/setor_bloco_45_p2.webp
@@ -1878,60 +1961,70 @@ picos:
             pontos_uids:
             - GRltwvsxlkGCNN
             escalada: Tiro ao Alvo
+            setor: Bloco 45º
             ids:
             - GRltwvsxlkGCNN
           - alvo_uid: e5osFqSTv1yRnl
             pontos_uids:
             - YOMHgNryHpqEmt
             escalada: Tiro ao Alvo SDS
+            setor: Bloco 45º
             ids:
             - YOMHgNryHpqEmt
           - alvo_uid: SFtPEGjCitlzP3
             pontos_uids:
             - cRnKxhDlh8Dpda
             escalada: Mão na Massa
+            setor: Bloco 45º
             ids:
             - cRnKxhDlh8Dpda
           - alvo_uid: 2ORMfj30jI9Ore
             pontos_uids:
             - Ri77RYIprayDJU
             escalada: Mão na Massa SDS
+            setor: Bloco 45º
             ids:
             - Ri77RYIprayDJU
           - alvo_uid: 2cKX9mHLW4grYR
             pontos_uids:
             - dByo13RcijrdnK
             escalada: Bicho de Pé
+            setor: Bloco 45º
             ids:
             - dByo13RcijrdnK
           - alvo_uid: bSbc4MZmq3iZ0S
             pontos_uids:
             - YOAaqn7ekKwgoh
             escalada: Bicho de Pé SDS
+            setor: Bloco 45º
             ids:
             - YOAaqn7ekKwgoh
           - alvo_uid: vN7FOp4blYdvKc
             pontos_uids:
             - qRXu6SzB2MuNzu
             escalada: Curto e Gross
+            setor: Bloco 45º
             ids:
             - qRXu6SzB2MuNzu
           - alvo_uid: 117Soh4aoEHw6l
             pontos_uids:
             - Yxi3URgekTxOlF
             escalada: Carvoeiro
+            setor: Bloco 45º
             ids:
             - Yxi3URgekTxOlF
           - alvo_uid: ZLg4DW5jK5sKLO
             pontos_uids:
             - 6OsqoKgTmvtSxl
             escalada: Kadron
+            setor: Bloco 45º
             ids:
             - 6OsqoKgTmvtSxl
           - alvo_uid: iTuKSE2ptAEKMC
             pontos_uids:
             - KAegtkFDEyeUGI
             escalada: Saída pela Culatra
+            setor: Bloco 45º
             ids:
             - KAegtkFDEyeUGI
         escaladas:
@@ -2141,42 +2234,49 @@ picos:
             pontos_uids:
             - glCtcnJevvaSZN
             escalada: Agricultor
+            setor: Setor Essência
             ids:
             - glCtcnJevvaSZN
           - alvo_uid: m5Ae6ekD6Aja44
             pontos_uids:
             - MQRHQWmgmDwC9M
             escalada: Garimpeiro
+            setor: Setor Essência
             ids:
             - MQRHQWmgmDwC9M
           - alvo_uid: BoslIdr2KQEgqb
             pontos_uids:
             - lYw2RkYinavgTv
             escalada: A Regra é Clara
+            setor: Setor Essência
             ids:
             - lYw2RkYinavgTv
           - alvo_uid: miVPNcX7iuFApo
             pontos_uids:
             - IWoypEQIlAfWRc
             escalada: Essência
+            setor: Setor Essência
             ids:
             - IWoypEQIlAfWRc
           - alvo_uid: FCSwjipzAwHXBG
             pontos_uids:
             - KLrj3jqTsxgVkw
             escalada: Indecência
+            setor: Setor Essência
             ids:
             - KLrj3jqTsxgVkw
           - alvo_uid: DVFMiuNy0vgHGi
             pontos_uids:
             - jKfIC6lPVN7XjA
             escalada: Regra do Jogo
+            setor: Setor Essência
             ids:
             - jKfIC6lPVN7XjA
           - alvo_uid: FtYAbgHRT22SRW
             pontos_uids:
             - 6i5eONlq7l9Yu4
             escalada: Carta de Euforia
+            setor: Setor Essência
             ids:
             - 6i5eONlq7l9Yu4
         - caminho_imagem_mapa: imagens/setor_essencia_p1.webp
@@ -2196,6 +2296,7 @@ picos:
             pontos_uids:
             - T4wv12UtaUJD3l
             escalada: Jardim de Infância
+            setor: Setor Essência
             ids:
             - T4wv12UtaUJD3l
         escaladas:

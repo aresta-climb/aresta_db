@@ -238,6 +238,7 @@
         - **pontos_uids**:
           - wybZHx1zpWJpxh
         - **escalada**: Pé na Chapa
+        - **setor**: Setor Cachoeira
         - **ids**:
           - wybZHx1zpWJpxh
       - **[1]**:
@@ -246,6 +247,7 @@
           - fDfykPnCezFnNQ
           - olQf9DI5paOBQb
         - **escalada**: Desenferrujando
+        - **setor**: Setor Cachoeira
         - **ids**:
           - fDfykPnCezFnNQ
           - olQf9DI5paOBQb
@@ -255,6 +257,7 @@
           - YeHwoPGRiOaT1J
           - B4RXXcqvHMiEJa
         - **escalada**: Ferrugem
+        - **setor**: Setor Cachoeira
         - **ids**:
           - YeHwoPGRiOaT1J
           - B4RXXcqvHMiEJa
@@ -264,6 +267,7 @@
           - CXCHdB6ZFi9gLx
           - B4RXXcqvHMiEJa
         - **escalada**: A Ferro Quente
+        - **setor**: Setor Cachoeira
         - **ids**:
           - CXCHdB6ZFi9gLx
           - B4RXXcqvHMiEJa
@@ -332,6 +336,7 @@
         - **pontos_uids**:
           - 3zzyCGUWbDMX21
         - **escalada**: Pé na Chapa
+        - **setor**: Setor Cachoeira
         - **ids**:
           - 3zzyCGUWbDMX21
       - **[1]**:
@@ -339,6 +344,7 @@
         - **pontos_uids**:
           - vENb3h4E8V3mBc
         - **escalada**: Desenferrujando
+        - **setor**: Setor Cachoeira
         - **ids**:
           - vENb3h4E8V3mBc
     - **pontos_de_interesse**:
@@ -370,6 +376,7 @@
         - **pontos_uids**:
           - 7RdFv6jARPJ1Ys
         - **escalada**: Ferrugem
+        - **setor**: Setor Cachoeira
         - **ids**:
           - 7RdFv6jARPJ1Ys
       - **[1]**:
@@ -377,6 +384,7 @@
         - **pontos_uids**:
           - 7Ca4D31T3Cocp2
         - **escalada**: A Ferro Quente
+        - **setor**: Setor Cachoeira
         - **ids**:
           - 7Ca4D31T3Cocp2
     - **pontos_de_interesse**:
@@ -504,6 +512,8 @@
               - **pontos_uids**:
                 - fUIm60MnMZV7ic
               - **escalada**: Solamente
+              - **setor**: Setor Extrema Esquerda
+              - **grupo**: Parede das Aderências
               - **ids**:
                 - fUIm60MnMZV7ic
             - **[1]**:
@@ -511,6 +521,8 @@
               - **pontos_uids**:
                 - A6pYn12lDeQmbm
               - **escalada**: Nesse Mato Tem Cachorro
+              - **setor**: Setor Extrema Esquerda
+              - **grupo**: Parede das Aderências
               - **ids**:
                 - A6pYn12lDeQmbm
             - **[2]**:
@@ -518,6 +530,8 @@
               - **pontos_uids**:
                 - A6pYn12lDeQmbm
               - **escalada**: Vr. Cachorro Louco
+              - **setor**: Setor Extrema Esquerda
+              - **grupo**: Parede das Aderências
               - **ids**:
                 - A6pYn12lDeQmbm
             - **[3]**:
@@ -525,6 +539,8 @@
               - **pontos_uids**:
                 - eSQN892CbENGez
               - **escalada**: Libera Liberou
+              - **setor**: Setor Extrema Esquerda
+              - **grupo**: Parede das Aderências
               - **ids**:
                 - eSQN892CbENGez
           - **largura_mapa**: 1607
@@ -565,6 +581,8 @@
               - **pontos_uids**:
                 - yaikNvdOOibkDP
               - **escalada**: Solamente
+              - **setor**: Setor Extrema Esquerda
+              - **grupo**: Parede das Aderências
               - **ids**:
                 - yaikNvdOOibkDP
             - **[1]**:
@@ -573,6 +591,8 @@
                 - thxu8vUqiU6MC8
                 - r7IlihsYlixOjN
               - **escalada**: Nesse Mato Tem Cachorro
+              - **setor**: Setor Extrema Esquerda
+              - **grupo**: Parede das Aderências
               - **ids**:
                 - thxu8vUqiU6MC8
                 - r7IlihsYlixOjN
@@ -582,6 +602,8 @@
                 - thxu8vUqiU6MC8
                 - QpffSZWj6rlZAl
               - **escalada**: Vr. Cachorro Louco
+              - **setor**: Setor Extrema Esquerda
+              - **grupo**: Parede das Aderências
               - **ids**:
                 - thxu8vUqiU6MC8
                 - QpffSZWj6rlZAl
@@ -590,6 +612,8 @@
               - **pontos_uids**:
                 - v5Uzl674I55uxY
               - **escalada**: Libera Liberou
+              - **setor**: Setor Extrema Esquerda
+              - **grupo**: Parede das Aderências
               - **ids**:
                 - v5Uzl674I55uxY
             - **[4]**:
@@ -597,6 +621,8 @@
               - **pontos_uids**:
                 - ExmFEcrHEWv0Om
               - **escalada**: Dez Mil e Uma Noites
+              - **setor**: Setor Extrema Esquerda
+              - **grupo**: Parede das Aderências
               - **ids**:
                 - ExmFEcrHEWv0Om
           - **largura_mapa**: 2041
@@ -665,6 +691,8 @@
               - **pontos_uids**:
                 - Rf3j1KQCsvKVKx
               - **escalada**: Solamente
+              - **setor**: Setor Extrema Esquerda
+              - **grupo**: Parede das Aderências
               - **ids**:
                 - Rf3j1KQCsvKVKx
             - **[1]**:
@@ -674,6 +702,8 @@
                 - VZYFu3qvMqdwD8
                 - PREINJnSnsztpU
               - **escalada**: Nesse Mato Tem Cachorro
+              - **setor**: Setor Extrema Esquerda
+              - **grupo**: Parede das Aderências
               - **ids**:
                 - kkjKzEFbrzMDlT
                 - VZYFu3qvMqdwD8
@@ -685,6 +715,8 @@
                 - VZYFu3qvMqdwD8
                 - u278p4vZ4wjS8w
               - **escalada**: Vr. Cachorro Louco
+              - **setor**: Setor Extrema Esquerda
+              - **grupo**: Parede das Aderências
               - **ids**:
                 - kkjKzEFbrzMDlT
                 - VZYFu3qvMqdwD8
@@ -695,6 +727,8 @@
                 - y5ilCysbDfWY8n
                 - FAa3E8Jqu1YtSl
               - **escalada**: Libera Liberou
+              - **setor**: Setor Extrema Esquerda
+              - **grupo**: Parede das Aderências
               - **ids**:
                 - y5ilCysbDfWY8n
                 - FAa3E8Jqu1YtSl
@@ -704,6 +738,8 @@
                 - Nln1Eqee2f3ILS
                 - 8AmzcZTZpxpTYE
               - **escalada**: Dez Mil e Uma Noites
+              - **setor**: Setor Extrema Esquerda
+              - **grupo**: Parede das Aderências
               - **ids**:
                 - Nln1Eqee2f3ILS
                 - 8AmzcZTZpxpTYE
@@ -913,6 +949,8 @@
               - **pontos_uids**:
                 - FRXWe44uDgPrEU
               - **escalada**: Cordada 171
+              - **setor**: Setor Esquerda
+              - **grupo**: Parede das Aderências
               - **ids**:
                 - FRXWe44uDgPrEU
             - **[1]**:
@@ -920,6 +958,8 @@
               - **pontos_uids**:
                 - FRXWe44uDgPrEU
               - **escalada**: Inês é Morta
+              - **setor**: Setor Esquerda
+              - **grupo**: Parede das Aderências
               - **ids**:
                 - FRXWe44uDgPrEU
             - **[2]**:
@@ -927,6 +967,8 @@
               - **pontos_uids**:
                 - FRXWe44uDgPrEU
               - **escalada**: Sempre Viva
+              - **setor**: Setor Esquerda
+              - **grupo**: Parede das Aderências
               - **ids**:
                 - FRXWe44uDgPrEU
             - **[3]**:
@@ -934,6 +976,8 @@
               - **pontos_uids**:
                 - HcGiPFmzkfOHHL
               - **escalada**: Fissurim
+              - **setor**: Setor Esquerda
+              - **grupo**: Parede das Aderências
               - **ids**:
                 - HcGiPFmzkfOHHL
             - **[4]**:
@@ -941,6 +985,8 @@
               - **pontos_uids**:
                 - HcGiPFmzkfOHHL
               - **escalada**: Zé Marta
+              - **setor**: Setor Esquerda
+              - **grupo**: Parede das Aderências
               - **ids**:
                 - HcGiPFmzkfOHHL
             - **[5]**:
@@ -948,6 +994,8 @@
               - **pontos_uids**:
                 - HcGiPFmzkfOHHL
               - **escalada**: Bolinha
+              - **setor**: Setor Esquerda
+              - **grupo**: Parede das Aderências
               - **ids**:
                 - HcGiPFmzkfOHHL
             - **[6]**:
@@ -955,6 +1003,8 @@
               - **pontos_uids**:
                 - HcGiPFmzkfOHHL
               - **escalada**: Testa de Ferro
+              - **setor**: Setor Esquerda
+              - **grupo**: Parede das Aderências
               - **ids**:
                 - HcGiPFmzkfOHHL
             - **[7]**:
@@ -962,6 +1012,8 @@
               - **pontos_uids**:
                 - HcGiPFmzkfOHHL
               - **escalada**: Ferro na Boneca
+              - **setor**: Setor Esquerda
+              - **grupo**: Parede das Aderências
               - **ids**:
                 - HcGiPFmzkfOHHL
             - **[8]**:
@@ -969,6 +1021,8 @@
               - **pontos_uids**:
                 - HcGiPFmzkfOHHL
               - **escalada**: Maria Diz Graça
+              - **setor**: Setor Esquerda
+              - **grupo**: Parede das Aderências
               - **ids**:
                 - HcGiPFmzkfOHHL
             - **[9]**:
@@ -976,6 +1030,8 @@
               - **pontos_uids**:
                 - HcGiPFmzkfOHHL
               - **escalada**: Zé Mangueira
+              - **setor**: Setor Esquerda
+              - **grupo**: Parede das Aderências
               - **ids**:
                 - HcGiPFmzkfOHHL
             - **[10]**:
@@ -983,6 +1039,8 @@
               - **pontos_uids**:
                 - HcGiPFmzkfOHHL
               - **escalada**: Sherlock Holmes
+              - **setor**: Setor Esquerda
+              - **grupo**: Parede das Aderências
               - **ids**:
                 - HcGiPFmzkfOHHL
             - **[11]**:
@@ -990,6 +1048,8 @@
               - **pontos_uids**:
                 - CIvUeulzkgRmVR
               - **escalada**: Professor Moriarty
+              - **setor**: Setor Esquerda
+              - **grupo**: Parede das Aderências
               - **ids**:
                 - CIvUeulzkgRmVR
             - **[12]**:
@@ -997,6 +1057,8 @@
               - **pontos_uids**:
                 - CIvUeulzkgRmVR
               - **escalada**: Que Qui Ocê Foi Fazê Nu Mato?
+              - **setor**: Setor Esquerda
+              - **grupo**: Parede das Aderências
               - **ids**:
                 - CIvUeulzkgRmVR
             - **[13]**:
@@ -1004,6 +1066,8 @@
               - **pontos_uids**:
                 - CIvUeulzkgRmVR
               - **escalada**: O Psicopata de Ferros
+              - **setor**: Setor Esquerda
+              - **grupo**: Parede das Aderências
               - **ids**:
                 - CIvUeulzkgRmVR
             - **[14]**:
@@ -1012,6 +1076,8 @@
                 - CIvUeulzkgRmVR
                 - Su8H6GLSvjtjPo
               - **escalada**: Vr. Caçadora de Micuim
+              - **setor**: Setor Esquerda
+              - **grupo**: Parede das Aderências
               - **ids**:
                 - CIvUeulzkgRmVR
                 - Su8H6GLSvjtjPo
@@ -1020,6 +1086,8 @@
               - **pontos_uids**:
                 - Su8H6GLSvjtjPo
               - **escalada**: Frio na Barriga
+              - **setor**: Setor Esquerda
+              - **grupo**: Parede das Aderências
               - **ids**:
                 - Su8H6GLSvjtjPo
             - **[16]**:
@@ -1027,6 +1095,8 @@
               - **pontos_uids**:
                 - Su8H6GLSvjtjPo
               - **escalada**: Pescoço de Minhoca
+              - **setor**: Setor Esquerda
+              - **grupo**: Parede das Aderências
               - **ids**:
                 - Su8H6GLSvjtjPo
             - **[17]**:
@@ -1034,6 +1104,8 @@
               - **pontos_uids**:
                 - zGhr3oLczUPzqN
               - **escalada**: Grampos de Ferros
+              - **setor**: Setor Esquerda
+              - **grupo**: Parede das Aderências
               - **ids**:
                 - zGhr3oLczUPzqN
             - **[18]**:
@@ -1041,6 +1113,8 @@
               - **pontos_uids**:
                 - zGhr3oLczUPzqN
               - **escalada**: Prateado
+              - **setor**: Setor Esquerda
+              - **grupo**: Parede das Aderências
               - **ids**:
                 - zGhr3oLczUPzqN
           - **pontos_de_interesse**:
@@ -1099,6 +1173,8 @@
               - **pontos_uids**:
                 - LHvkkeNWrINNJR
               - **escalada**: Cordada 171
+              - **setor**: Setor Esquerda
+              - **grupo**: Parede das Aderências
               - **ids**:
                 - LHvkkeNWrINNJR
             - **[1]**:
@@ -1106,6 +1182,8 @@
               - **pontos_uids**:
                 - Eqb4fEwnB5tQu9
               - **escalada**: Inês é Morta
+              - **setor**: Setor Esquerda
+              - **grupo**: Parede das Aderências
               - **ids**:
                 - Eqb4fEwnB5tQu9
             - **[2]**:
@@ -1113,6 +1191,8 @@
               - **pontos_uids**:
                 - SSEaynHeYJBSBn
               - **escalada**: Sempre Viva
+              - **setor**: Setor Esquerda
+              - **grupo**: Parede das Aderências
               - **ids**:
                 - SSEaynHeYJBSBn
             - **[3]**:
@@ -1120,6 +1200,8 @@
               - **pontos_uids**:
                 - mtQwjMQSTk95oE
               - **escalada**: Fissurim
+              - **setor**: Setor Esquerda
+              - **grupo**: Parede das Aderências
               - **ids**:
                 - mtQwjMQSTk95oE
             - **[4]**:
@@ -1127,6 +1209,8 @@
               - **pontos_uids**:
                 - QF2Fobbc5HQJHg
               - **escalada**: Zé Marta
+              - **setor**: Setor Esquerda
+              - **grupo**: Parede das Aderências
               - **ids**:
                 - QF2Fobbc5HQJHg
             - **[5]**:
@@ -1134,6 +1218,8 @@
               - **pontos_uids**:
                 - B09ceRYDYxMhtP
               - **escalada**: Bolinha
+              - **setor**: Setor Esquerda
+              - **grupo**: Parede das Aderências
               - **ids**:
                 - B09ceRYDYxMhtP
             - **[6]**:
@@ -1141,6 +1227,8 @@
               - **pontos_uids**:
                 - viZ3r8IMAfUBxo
               - **escalada**: Testa de Ferro
+              - **setor**: Setor Esquerda
+              - **grupo**: Parede das Aderências
               - **ids**:
                 - viZ3r8IMAfUBxo
             - **[7]**:
@@ -1148,6 +1236,8 @@
               - **pontos_uids**:
                 - VkQaxlXoYibadr
               - **escalada**: Ferro na Boneca
+              - **setor**: Setor Esquerda
+              - **grupo**: Parede das Aderências
               - **ids**:
                 - VkQaxlXoYibadr
             - **[8]**:
@@ -1155,6 +1245,8 @@
               - **pontos_uids**:
                 - RBNIiBsc6uiCpZ
               - **escalada**: Maria Diz Graça
+              - **setor**: Setor Esquerda
+              - **grupo**: Parede das Aderências
               - **ids**:
                 - RBNIiBsc6uiCpZ
             - **[9]**:
@@ -1162,6 +1254,8 @@
               - **pontos_uids**:
                 - Bdt2ojUbrw8Upd
               - **escalada**: Zé Mangueira
+              - **setor**: Setor Esquerda
+              - **grupo**: Parede das Aderências
               - **ids**:
                 - Bdt2ojUbrw8Upd
             - **[10]**:
@@ -1169,6 +1263,8 @@
               - **pontos_uids**:
                 - FtC1gvmZvywuRE
               - **escalada**: Sherlock Holmes
+              - **setor**: Setor Esquerda
+              - **grupo**: Parede das Aderências
               - **ids**:
                 - FtC1gvmZvywuRE
             - **[11]**:
@@ -1176,6 +1272,8 @@
               - **pontos_uids**:
                 - 5nppHrLrXPi35b
               - **escalada**: Professor Moriarty
+              - **setor**: Setor Esquerda
+              - **grupo**: Parede das Aderências
               - **ids**:
                 - 5nppHrLrXPi35b
             - **[12]**:
@@ -1183,6 +1281,8 @@
               - **pontos_uids**:
                 - P8BowOheubLsHx
               - **escalada**: Que Qui Ocê Foi Fazê Nu Mato?
+              - **setor**: Setor Esquerda
+              - **grupo**: Parede das Aderências
               - **ids**:
                 - P8BowOheubLsHx
           - **pontos_de_interesse**:
@@ -1315,6 +1415,8 @@
                 - E7CzEKrIBQhHRo
                 - xAZXuVMxdNNhRQ
               - **escalada**: Que Qui Ocê Foi Fazê Nu Mato?
+              - **setor**: Setor Esquerda
+              - **grupo**: Parede das Aderências
               - **ids**:
                 - E7CzEKrIBQhHRo
                 - xAZXuVMxdNNhRQ
@@ -1325,6 +1427,8 @@
                 - IFeQAauIOYC9bw
                 - 2jEqLoc2EiBcX0
               - **escalada**: O Psicopata de Ferros
+              - **setor**: Setor Esquerda
+              - **grupo**: Parede das Aderências
               - **ids**:
                 - sqCFs3ViqesHgQ
                 - IFeQAauIOYC9bw
@@ -1336,6 +1440,8 @@
                 - qSD4bkNKmphePO
                 - 2jEqLoc2EiBcX0
               - **escalada**: Vr. Caçadora de Micuim
+              - **setor**: Setor Esquerda
+              - **grupo**: Parede das Aderências
               - **ids**:
                 - sqCFs3ViqesHgQ
                 - qSD4bkNKmphePO
@@ -1346,6 +1452,8 @@
                 - TcjVCFAP1Oqzml
                 - 2jEqLoc2EiBcX0
               - **escalada**: Frio na Barriga
+              - **setor**: Setor Esquerda
+              - **grupo**: Parede das Aderências
               - **ids**:
                 - TcjVCFAP1Oqzml
                 - 2jEqLoc2EiBcX0
@@ -1354,6 +1462,8 @@
               - **pontos_uids**:
                 - cwKa9SvfDHbb84
               - **escalada**: Pescoço de Minhoca
+              - **setor**: Setor Esquerda
+              - **grupo**: Parede das Aderências
               - **ids**:
                 - cwKa9SvfDHbb84
             - **[5]**:
@@ -1361,6 +1471,8 @@
               - **pontos_uids**:
                 - JY4TyzBZhdIVGk
               - **escalada**: Grampos de Ferros
+              - **setor**: Setor Esquerda
+              - **grupo**: Parede das Aderências
               - **ids**:
                 - JY4TyzBZhdIVGk
             - **[6]**:
@@ -1368,6 +1480,8 @@
               - **pontos_uids**:
                 - bM8zlEhULdhD2G
               - **escalada**: Prateado
+              - **setor**: Setor Esquerda
+              - **grupo**: Parede das Aderências
               - **ids**:
                 - bM8zlEhULdhD2G
             - **[7]**:
@@ -1375,6 +1489,8 @@
               - **pontos_uids**:
                 - 8Exxc2OBtOTVyP
               - **escalada**: Professor Moriarty
+              - **setor**: Setor Esquerda
+              - **grupo**: Parede das Aderências
               - **ids**:
                 - 8Exxc2OBtOTVyP
           - **pontos_de_interesse**:
@@ -1721,6 +1837,8 @@
                 - OYiaQmp3nIjv6i
                 - WSp4mqPB5UKdHw
               - **escalada**: Professor Moriarty
+              - **setor**: Setor Esquerda
+              - **grupo**: Parede das Aderências
               - **ids**:
                 - OYiaQmp3nIjv6i
                 - WSp4mqPB5UKdHw
@@ -1732,6 +1850,8 @@
                 - ULo0QFGhoWbVWr
                 - DL27zgV3EsAaIt
               - **escalada**: Que Qui Ocê Foi Fazê Nu Mato?
+              - **setor**: Setor Esquerda
+              - **grupo**: Parede das Aderências
               - **ids**:
                 - Rk2CXyLjeRMYBQ
                 - hZUphK8SXtdC08
@@ -1745,6 +1865,8 @@
                 - 02kcipIXqEvbIv
                 - 17oZg1SQPsSHOK
               - **escalada**: O Psicopata de Ferros
+              - **setor**: Setor Esquerda
+              - **grupo**: Parede das Aderências
               - **ids**:
                 - KKRRlP5KABfxTM
                 - SELzETdojxt5zg
@@ -1758,6 +1880,8 @@
                 - FS7RbMaMDzEdG1
                 - 17oZg1SQPsSHOK
               - **escalada**: Vr. Caçadora de Micuim
+              - **setor**: Setor Esquerda
+              - **grupo**: Parede das Aderências
               - **ids**:
                 - 02kcipIXqEvbIv
                 - KKRRlP5KABfxTM
@@ -1770,6 +1894,8 @@
                 - 02kcipIXqEvbIv
                 - 17oZg1SQPsSHOK
               - **escalada**: Frio na Barriga
+              - **setor**: Setor Esquerda
+              - **grupo**: Parede das Aderências
               - **ids**:
                 - anMtzBqmQpnaQB
                 - 02kcipIXqEvbIv
@@ -1782,6 +1908,8 @@
                 - 459Ihi85cBP7Ld
                 - NGbRPCY1OH3GVM
               - **escalada**: Pescoço de Minhoca
+              - **setor**: Setor Esquerda
+              - **grupo**: Parede das Aderências
               - **ids**:
                 - oPZz9xFsspOxYM
                 - OZckFWak6YbkUa
@@ -1794,6 +1922,8 @@
                 - sGXBFeH4cVXXNf
                 - SNf1ov65lDYKpd
               - **escalada**: Grampos de Ferros
+              - **setor**: Setor Esquerda
+              - **grupo**: Parede das Aderências
               - **ids**:
                 - 2jqNfK3CJlVtSF
                 - sGXBFeH4cVXXNf
@@ -1806,6 +1936,8 @@
                 - jgob6NJjP4qXQ7
                 - tQs1g2l8JwFnqI
               - **escalada**: Prateado
+              - **setor**: Setor Esquerda
+              - **grupo**: Parede das Aderências
               - **ids**:
                 - m6nJ9TB2gui4WM
                 - EwgSzhyCX1GzhZ
@@ -2247,6 +2379,7 @@
               - **pontos_uids**:
                 - HRfdiFKUw8SA4o
               - **setor**: Setor Extrema Esquerda
+              - **grupo**: Parede das Aderências
               - **ids**:
                 - HRfdiFKUw8SA4o
             - **[1]**:
@@ -2254,6 +2387,7 @@
               - **pontos_uids**:
                 - oSTYxOPemGa3hY
               - **setor**: Setor Esquerda
+              - **grupo**: Parede das Aderências
               - **ids**:
                 - oSTYxOPemGa3hY
             - **[2]**:
@@ -2261,6 +2395,7 @@
               - **pontos_uids**:
                 - QX9X1VWhHyiu0k
               - **setor**: Setor Clássicas Curtas
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - QX9X1VWhHyiu0k
             - **[3]**:
@@ -2268,6 +2403,7 @@
               - **pontos_uids**:
                 - 1hXym8xnpmF6Cg
               - **setor**: Setor de Cima
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - 1hXym8xnpmF6Cg
             - **[4]**:
@@ -2275,6 +2411,7 @@
               - **pontos_uids**:
                 - mzd3Hsy0mOAx7X
               - **setor**: Setor Central
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - mzd3Hsy0mOAx7X
             - **[5]**:
@@ -2282,6 +2419,8 @@
               - **pontos_uids**:
                 - 899M8pIIKGUdYO
               - **escalada**: Vr. Esquibunda
+              - **setor**: Face Central
+              - **grupo**: Parede das Aderências
               - **ids**:
                 - 899M8pIIKGUdYO
             - **[6]**:
@@ -2289,6 +2428,8 @@
               - **pontos_uids**:
                 - 899M8pIIKGUdYO
               - **escalada**: Pr. Aerolitos
+              - **setor**: Face Central
+              - **grupo**: Parede das Aderências
               - **ids**:
                 - 899M8pIIKGUdYO
             - **[7]**:
@@ -2296,6 +2437,8 @@
               - **pontos_uids**:
                 - 899M8pIIKGUdYO
               - **escalada**: Facão Foi-se
+              - **setor**: Face Central
+              - **grupo**: Parede das Aderências
               - **ids**:
                 - 899M8pIIKGUdYO
             - **[8]**:
@@ -2303,6 +2446,8 @@
               - **pontos_uids**:
                 - 899M8pIIKGUdYO
               - **escalada**: Antes Só do Que Mal Acompanhado
+              - **setor**: Face Central
+              - **grupo**: Parede das Aderências
               - **ids**:
                 - 899M8pIIKGUdYO
             - **[9]**:
@@ -2310,6 +2455,8 @@
               - **pontos_uids**:
                 - 899M8pIIKGUdYO
               - **escalada**: Hematita
+              - **setor**: Face Central
+              - **grupo**: Parede das Aderências
               - **ids**:
                 - 899M8pIIKGUdYO
             - **[10]**:
@@ -2317,6 +2464,8 @@
               - **pontos_uids**:
                 - 899M8pIIKGUdYO
               - **escalada**: Pavão Misterioso
+              - **setor**: Face Central
+              - **grupo**: Parede das Aderências
               - **ids**:
                 - 899M8pIIKGUdYO
             - **[11]**:
@@ -2324,6 +2473,8 @@
               - **pontos_uids**:
                 - uSsgngvNH9ANJz
               - **escalada**: Elementar, Meu Caro Watson!
+              - **setor**: Face Central
+              - **grupo**: Parede das Aderências
               - **ids**:
                 - uSsgngvNH9ANJz
             - **[12]**:
@@ -2331,6 +2482,8 @@
               - **pontos_uids**:
                 - 1LsvcRVHrRFTI5
               - **escalada**: Balzac
+              - **setor**: Face Central
+              - **grupo**: Parede das Aderências
               - **ids**:
                 - 1LsvcRVHrRFTI5
             - **[13]**:
@@ -2338,6 +2491,8 @@
               - **pontos_uids**:
                 - 1LsvcRVHrRFTI5
               - **escalada**: Dez Fora
+              - **setor**: Face Central
+              - **grupo**: Parede das Aderências
               - **ids**:
                 - 1LsvcRVHrRFTI5
             - **[14]**:
@@ -2345,6 +2500,8 @@
               - **pontos_uids**:
                 - 1LsvcRVHrRFTI5
               - **escalada**: Cordeiro de Deus
+              - **setor**: Face Central
+              - **grupo**: Parede das Aderências
               - **ids**:
                 - 1LsvcRVHrRFTI5
             - **[15]**:
@@ -2352,6 +2509,8 @@
               - **pontos_uids**:
                 - 1LsvcRVHrRFTI5
               - **escalada**: Cinquentona de Ferros
+              - **setor**: Face Central
+              - **grupo**: Parede das Aderências
               - **ids**:
                 - 1LsvcRVHrRFTI5
             - **[16]**:
@@ -2359,6 +2518,8 @@
               - **pontos_uids**:
                 - z387zDwfysAF0J
               - **escalada**: Coração Valente
+              - **setor**: Face Central
+              - **grupo**: Parede das Aderências
               - **ids**:
                 - z387zDwfysAF0J
             - **[17]**:
@@ -2366,6 +2527,8 @@
               - **pontos_uids**:
                 - z387zDwfysAF0J
               - **escalada**: Expo CERJ!
+              - **setor**: Face Central
+              - **grupo**: Parede das Aderências
               - **ids**:
                 - z387zDwfysAF0J
             - **[18]**:
@@ -2373,6 +2536,8 @@
               - **pontos_uids**:
                 - z387zDwfysAF0J
               - **escalada**: Social Club
+              - **setor**: Face Central
+              - **grupo**: Parede das Aderências
               - **ids**:
                 - z387zDwfysAF0J
             - **[19]**:
@@ -2380,6 +2545,8 @@
               - **pontos_uids**:
                 - z387zDwfysAF0J
               - **escalada**: Pr. Tonico Magalhães
+              - **setor**: Face Central
+              - **grupo**: Parede das Aderências
               - **ids**:
                 - z387zDwfysAF0J
             - **[20]**:
@@ -2387,6 +2554,8 @@
               - **pontos_uids**:
                 - z387zDwfysAF0J
               - **escalada**: E o Rio Levou
+              - **setor**: Face Central
+              - **grupo**: Parede das Aderências
               - **ids**:
                 - z387zDwfysAF0J
             - **[21]**:
@@ -2394,6 +2563,7 @@
               - **pontos_uids**:
                 - ZqKbS4kzj4n5PF
               - **setor**: Setor Parede Principal – Direita
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - ZqKbS4kzj4n5PF
         - **[1]**:
@@ -2406,6 +2576,8 @@
               - **pontos_uids**:
                 - cysy7IIjTYexea
               - **escalada**: Vr. Esquibunda
+              - **setor**: Face Central
+              - **grupo**: Parede das Aderências
               - **ids**:
                 - cysy7IIjTYexea
             - **[1]**:
@@ -2413,6 +2585,8 @@
               - **pontos_uids**:
                 - Ctdf75zYM7DrAw
               - **escalada**: Pr. Aerolitos
+              - **setor**: Face Central
+              - **grupo**: Parede das Aderências
               - **ids**:
                 - Ctdf75zYM7DrAw
             - **[2]**:
@@ -2420,6 +2594,8 @@
               - **pontos_uids**:
                 - HcnWx1WHfg6Ky8
               - **escalada**: Facão Foi-se
+              - **setor**: Face Central
+              - **grupo**: Parede das Aderências
               - **ids**:
                 - HcnWx1WHfg6Ky8
             - **[3]**:
@@ -2427,6 +2603,8 @@
               - **pontos_uids**:
                 - NLCiLXZgvAYP7V
               - **escalada**: Antes Só do Que Mal Acompanhado
+              - **setor**: Face Central
+              - **grupo**: Parede das Aderências
               - **ids**:
                 - NLCiLXZgvAYP7V
             - **[4]**:
@@ -2434,6 +2612,8 @@
               - **pontos_uids**:
                 - hCe8CrhpJy0Cgp
               - **escalada**: Hematita
+              - **setor**: Face Central
+              - **grupo**: Parede das Aderências
               - **ids**:
                 - hCe8CrhpJy0Cgp
             - **[5]**:
@@ -2441,6 +2621,8 @@
               - **pontos_uids**:
                 - d8rK6wTOkFtPgs
               - **escalada**: Pavão Misterioso
+              - **setor**: Face Central
+              - **grupo**: Parede das Aderências
               - **ids**:
                 - d8rK6wTOkFtPgs
             - **[6]**:
@@ -2448,6 +2630,8 @@
               - **pontos_uids**:
                 - wdNWbrZIB2YoMd
               - **escalada**: Elementar, Meu Caro Watson!
+              - **setor**: Face Central
+              - **grupo**: Parede das Aderências
               - **ids**:
                 - wdNWbrZIB2YoMd
             - **[7]**:
@@ -2455,6 +2639,8 @@
               - **pontos_uids**:
                 - kttnhsiKxHZ9fQ
               - **escalada**: Balzac
+              - **setor**: Face Central
+              - **grupo**: Parede das Aderências
               - **ids**:
                 - kttnhsiKxHZ9fQ
             - **[8]**:
@@ -2462,6 +2648,8 @@
               - **pontos_uids**:
                 - 23KQzFCRwpxVSv
               - **escalada**: Dez Fora
+              - **setor**: Face Central
+              - **grupo**: Parede das Aderências
               - **ids**:
                 - 23KQzFCRwpxVSv
             - **[9]**:
@@ -2469,6 +2657,8 @@
               - **pontos_uids**:
                 - YX1Be4v7TOri2W
               - **escalada**: Cordeiro de Deus
+              - **setor**: Face Central
+              - **grupo**: Parede das Aderências
               - **ids**:
                 - YX1Be4v7TOri2W
             - **[10]**:
@@ -2476,6 +2666,8 @@
               - **pontos_uids**:
                 - RNgW5IudcKZUKK
               - **escalada**: Cinquentona de Ferros
+              - **setor**: Face Central
+              - **grupo**: Parede das Aderências
               - **ids**:
                 - RNgW5IudcKZUKK
             - **[11]**:
@@ -2483,6 +2675,8 @@
               - **pontos_uids**:
                 - QktWmB6vX9Zf10
               - **escalada**: Coração Valente
+              - **setor**: Face Central
+              - **grupo**: Parede das Aderências
               - **ids**:
                 - QktWmB6vX9Zf10
             - **[12]**:
@@ -2490,6 +2684,8 @@
               - **pontos_uids**:
                 - rPBZ6ToCMyjmUf
               - **escalada**: Expo CERJ!
+              - **setor**: Face Central
+              - **grupo**: Parede das Aderências
               - **ids**:
                 - rPBZ6ToCMyjmUf
             - **[13]**:
@@ -2497,6 +2693,8 @@
               - **pontos_uids**:
                 - IIu8QZu90q6EK9
               - **escalada**: Social Club
+              - **setor**: Face Central
+              - **grupo**: Parede das Aderências
               - **ids**:
                 - IIu8QZu90q6EK9
             - **[14]**:
@@ -2504,6 +2702,8 @@
               - **pontos_uids**:
                 - yvzxui8Bwjrr0F
               - **escalada**: Pr. Tonico Magalhães
+              - **setor**: Face Central
+              - **grupo**: Parede das Aderências
               - **ids**:
                 - yvzxui8Bwjrr0F
             - **[15]**:
@@ -2511,6 +2711,8 @@
               - **pontos_uids**:
                 - wKOW6iHQILqWXR
               - **escalada**: E o Rio Levou
+              - **setor**: Face Central
+              - **grupo**: Parede das Aderências
               - **ids**:
                 - wKOW6iHQILqWXR
             - **[16]**:
@@ -2518,6 +2720,7 @@
               - **pontos_uids**:
                 - hok7oYtzOVWndx
               - **setor**: Setor de Cima
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - hok7oYtzOVWndx
             - **[17]**:
@@ -2525,6 +2728,8 @@
               - **pontos_uids**:
                 - AFpMURfSewQPDk
               - **escalada**: Prateado
+              - **setor**: Setor Esquerda
+              - **grupo**: Parede das Aderências
               - **ids**:
                 - AFpMURfSewQPDk
           - **pontos_de_interesse**:
@@ -2744,6 +2949,8 @@
                 - k9XNw9nXC60BsB
                 - DcLRTVFhq9FeTj
               - **escalada**: Vr. Esquibunda
+              - **setor**: Face Central
+              - **grupo**: Parede das Aderências
               - **ids**:
                 - iTSlxe2uO4Ohov
                 - k9XNw9nXC60BsB
@@ -2755,6 +2962,8 @@
                 - k9XNw9nXC60BsB
                 - DcLRTVFhq9FeTj
               - **escalada**: Pr. Aerolitos
+              - **setor**: Face Central
+              - **grupo**: Parede das Aderências
               - **ids**:
                 - TDPz8XXSpfJory
                 - k9XNw9nXC60BsB
@@ -2853,6 +3062,8 @@
                 - KH4paxgxGmpie8
                 - uknwIdwDl51QI2
               - **escalada**: Coração Valente
+              - **setor**: Face Central
+              - **grupo**: Parede das Aderências
               - **ids**:
                 - Av05KTX02UuDQu
                 - iLzNm0N4ooJhbe
@@ -2866,6 +3077,8 @@
                 - 1NtRDHBxZF63Xn
                 - u2rgednmvNiAvI
               - **escalada**: Expo CERJ!
+              - **setor**: Face Central
+              - **grupo**: Parede das Aderências
               - **ids**:
                 - nXuv7OChp6uBa4
                 - fYliloJNVqCal9
@@ -2973,6 +3186,8 @@
                 - Y7HNSpEx4qtpmt
                 - 8yfbWQnwo1h22O
               - **escalada**: Social Club
+              - **setor**: Face Central
+              - **grupo**: Parede das Aderências
               - **ids**:
                 - Y7HNSpEx4qtpmt
                 - 8yfbWQnwo1h22O
@@ -2984,6 +3199,8 @@
                 - IXfpgNOh092Lsa
                 - 8yfbWQnwo1h22O
               - **escalada**: Pr. Tonico Magalhães
+              - **setor**: Face Central
+              - **grupo**: Parede das Aderências
               - **ids**:
                 - sdI7KL2vXaGjx4
                 - mQmFA9c3DICY03
@@ -2997,6 +3214,8 @@
                 - Nf3tqFCFHBMWKQ
                 - m6CPIf2glyzOLV
               - **escalada**: E o Rio Levou
+              - **setor**: Face Central
+              - **grupo**: Parede das Aderências
               - **ids**:
                 - m6NwP1X97gkmvZ
                 - VyEqEJ1v7ZtMMX
@@ -3279,6 +3498,8 @@
               - **pontos_uids**:
                 - h3eewZOEjXCBZA
               - **escalada**: Buena Vista
+              - **setor**: Setor de Cima
+              - **grupo**: Parede das Aderências
               - **ids**:
                 - h3eewZOEjXCBZA
             - **[1]**:
@@ -3286,6 +3507,8 @@
               - **pontos_uids**:
                 - TCQzBD2v7nXgvJ
               - **escalada**: São Lourenço
+              - **setor**: Setor de Cima
+              - **grupo**: Parede das Aderências
               - **ids**:
                 - TCQzBD2v7nXgvJ
             - **[2]**:
@@ -3293,6 +3516,8 @@
               - **pontos_uids**:
                 - TkCmX3tyYoWHEC
               - **escalada**: Carnaferros
+              - **setor**: Setor de Cima
+              - **grupo**: Parede das Aderências
               - **ids**:
                 - TkCmX3tyYoWHEC
             - **[3]**:
@@ -3300,6 +3525,7 @@
               - **pontos_uids**:
                 - f2peRAdIfgpQLZ
               - **setor**: Face Central
+              - **grupo**: Parede das Aderências
               - **ids**:
                 - f2peRAdIfgpQLZ
             - **[4]**:
@@ -3307,6 +3533,7 @@
               - **pontos_uids**:
                 - 78M7PevSBpfjiD
               - **setor**: Setor Esquerda
+              - **grupo**: Parede das Aderências
               - **ids**:
                 - 78M7PevSBpfjiD
             - **[5]**:
@@ -3314,6 +3541,7 @@
               - **pontos_uids**:
                 - 8gD4hNa0IGrIJY
               - **setor**: Setor Parede Principal – Direita
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - 8gD4hNa0IGrIJY
             - **[6]**:
@@ -3321,6 +3549,7 @@
               - **pontos_uids**:
                 - TVpqttZmg2JLTQ
               - **setor**: Setor Central
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - TVpqttZmg2JLTQ
           - **pontos_de_interesse**:
@@ -3401,6 +3630,8 @@
               - **pontos_uids**:
                 - ZQdk7DdJyxz94t
               - **escalada**: Buena Vista
+              - **setor**: Setor de Cima
+              - **grupo**: Parede das Aderências
               - **ids**:
                 - ZQdk7DdJyxz94t
             - **[1]**:
@@ -3408,6 +3639,8 @@
               - **pontos_uids**:
                 - MTRSMmhIRksdPf
               - **escalada**: São Lourenço
+              - **setor**: Setor de Cima
+              - **grupo**: Parede das Aderências
               - **ids**:
                 - MTRSMmhIRksdPf
             - **[2]**:
@@ -3415,6 +3648,8 @@
               - **pontos_uids**:
                 - ZveVCINqXrvZVr
               - **escalada**: Carnaferros
+              - **setor**: Setor de Cima
+              - **grupo**: Parede das Aderências
               - **ids**:
                 - ZveVCINqXrvZVr
             - **[3]**:
@@ -3422,6 +3657,8 @@
               - **pontos_uids**:
                 - hVEGqSCkH8ra5X
               - **escalada**: E o Rio Levou
+              - **setor**: Face Central
+              - **grupo**: Parede das Aderências
               - **ids**:
                 - hVEGqSCkH8ra5X
           - **pontos_de_interesse**:
@@ -3548,6 +3785,8 @@
               - **pontos_uids**:
                 - fBSh7qqvAga2UG
               - **escalada**: Bolo de Cenoura
+              - **setor**: Setor Extrema Direita
+              - **grupo**: Parede das Aderências
               - **ids**:
                 - fBSh7qqvAga2UG
             - **[1]**:
@@ -3555,6 +3794,8 @@
               - **pontos_uids**:
                 - U2MnDxEfl0lDgu
               - **escalada**: 51, Uma Boa Ideia
+              - **setor**: Setor Extrema Direita
+              - **grupo**: Parede das Aderências
               - **ids**:
                 - U2MnDxEfl0lDgu
             - **[2]**:
@@ -3562,6 +3803,8 @@
               - **pontos_uids**:
                 - wEP4WNm4iUNJ3I
               - **escalada**: Mais Chuva Que Sol
+              - **setor**: Setor Extrema Direita
+              - **grupo**: Parede das Aderências
               - **ids**:
                 - wEP4WNm4iUNJ3I
             - **[3]**:
@@ -3569,6 +3812,8 @@
               - **pontos_uids**:
                 - wEP4WNm4iUNJ3I
               - **escalada**: Só a Cabecinha
+              - **setor**: Setor Extrema Direita
+              - **grupo**: Parede das Aderências
               - **ids**:
                 - wEP4WNm4iUNJ3I
             - **[4]**:
@@ -3576,6 +3821,7 @@
               - **pontos_uids**:
                 - fdQAC0CNh8GRqh
               - **setor**: Setor Central
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - fdQAC0CNh8GRqh
             - **[5]**:
@@ -3584,6 +3830,7 @@
                 - y6dhQVo4bxU8gv
                 - gDaSAeN4kVJKmr
               - **setor**: Setor Clássicas Longas
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - y6dhQVo4bxU8gv
                 - gDaSAeN4kVJKmr
@@ -3655,6 +3902,8 @@
               - **pontos_uids**:
                 - c5DbY71QlU3vzs
               - **escalada**: Bolo de Cenoura
+              - **setor**: Setor Extrema Direita
+              - **grupo**: Parede das Aderências
               - **ids**:
                 - c5DbY71QlU3vzs
             - **[1]**:
@@ -3662,6 +3911,8 @@
               - **pontos_uids**:
                 - rMqaBLiGjDvwh4
               - **escalada**: 51, Uma Boa Ideia
+              - **setor**: Setor Extrema Direita
+              - **grupo**: Parede das Aderências
               - **ids**:
                 - rMqaBLiGjDvwh4
             - **[2]**:
@@ -3669,6 +3920,8 @@
               - **pontos_uids**:
                 - MG7Y6CzPl1RBfg
               - **escalada**: Mais Chuva Que Sol
+              - **setor**: Setor Extrema Direita
+              - **grupo**: Parede das Aderências
               - **ids**:
                 - MG7Y6CzPl1RBfg
             - **[3]**:
@@ -3676,6 +3929,8 @@
               - **pontos_uids**:
                 - hW3nCi3bbnByYG
               - **escalada**: Só a Cabecinha
+              - **setor**: Setor Extrema Direita
+              - **grupo**: Parede das Aderências
               - **ids**:
                 - hW3nCi3bbnByYG
           - **largura_mapa**: 2043
@@ -3870,6 +4125,7 @@
               - **pontos_uids**:
                 - S8U8czODCDed99
               - **setor**: Setor Extrema Esquerda
+              - **grupo**: Parede das Aderências
               - **ids**:
                 - S8U8czODCDed99
             - **[2]**:
@@ -3877,6 +4133,8 @@
               - **pontos_uids**:
                 - E9n2HG3zu2IagC
               - **escalada**: Deu Tilt
+              - **setor**: Setor Clássicas Curtas
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - E9n2HG3zu2IagC
             - **[3]**:
@@ -3884,6 +4142,8 @@
               - **pontos_uids**:
                 - E9n2HG3zu2IagC
               - **escalada**: Ferroada
+              - **setor**: Setor Clássicas Curtas
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - E9n2HG3zu2IagC
             - **[4]**:
@@ -3891,6 +4151,8 @@
               - **pontos_uids**:
                 - E9n2HG3zu2IagC
               - **escalada**: Scarface
+              - **setor**: Setor Clássicas Curtas
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - E9n2HG3zu2IagC
             - **[5]**:
@@ -3898,6 +4160,8 @@
               - **pontos_uids**:
                 - E9n2HG3zu2IagC
               - **escalada**: Se Meu Fusca Falasse
+              - **setor**: Setor Clássicas Curtas
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - E9n2HG3zu2IagC
             - **[6]**:
@@ -3905,6 +4169,8 @@
               - **pontos_uids**:
                 - E9n2HG3zu2IagC
               - **escalada**: Couro de Lobisomem
+              - **setor**: Setor Clássicas Curtas
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - E9n2HG3zu2IagC
             - **[7]**:
@@ -3912,6 +4178,8 @@
               - **pontos_uids**:
                 - E9n2HG3zu2IagC
               - **escalada**: Enferrujados
+              - **setor**: Setor Clássicas Curtas
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - E9n2HG3zu2IagC
             - **[8]**:
@@ -3919,6 +4187,8 @@
               - **pontos_uids**:
                 - E9n2HG3zu2IagC
               - **escalada**: Rastro de Cobra
+              - **setor**: Setor Clássicas Curtas
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - E9n2HG3zu2IagC
             - **[9]**:
@@ -3926,6 +4196,8 @@
               - **pontos_uids**:
                 - E9n2HG3zu2IagC
               - **escalada**: Entrando no Ferro
+              - **setor**: Setor Clássicas Curtas
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - E9n2HG3zu2IagC
             - **[10]**:
@@ -3933,6 +4205,8 @@
               - **pontos_uids**:
                 - UKgfefT8UX0JNh
               - **escalada**: Cambal a Quatro
+              - **setor**: Setor Clássicas Curtas
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - UKgfefT8UX0JNh
             - **[11]**:
@@ -3940,6 +4214,8 @@
               - **pontos_uids**:
                 - UKgfefT8UX0JNh
               - **escalada**: El Bigodón
+              - **setor**: Setor Clássicas Curtas
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - UKgfefT8UX0JNh
             - **[12]**:
@@ -3947,6 +4223,8 @@
               - **pontos_uids**:
                 - UKgfefT8UX0JNh
               - **escalada**: Testa de Aço
+              - **setor**: Setor Clássicas Curtas
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - UKgfefT8UX0JNh
             - **[13]**:
@@ -3954,6 +4232,8 @@
               - **pontos_uids**:
                 - UKgfefT8UX0JNh
               - **escalada**: Me Ferrei
+              - **setor**: Setor Clássicas Curtas
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - UKgfefT8UX0JNh
             - **[14]**:
@@ -3961,6 +4241,8 @@
               - **pontos_uids**:
                 - UKgfefT8UX0JNh
               - **escalada**: Amor Profano
+              - **setor**: Setor Clássicas Curtas
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - UKgfefT8UX0JNh
             - **[15]**:
@@ -3968,6 +4250,8 @@
               - **pontos_uids**:
                 - Avi0MzvGRBCd6a
               - **escalada**: Ferrolho
+              - **setor**: Setor Clássicas Curtas
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - Avi0MzvGRBCd6a
             - **[16]**:
@@ -3975,6 +4259,8 @@
               - **pontos_uids**:
                 - Avi0MzvGRBCd6a
               - **escalada**: Ferradura
+              - **setor**: Setor Clássicas Curtas
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - Avi0MzvGRBCd6a
             - **[17]**:
@@ -3982,6 +4268,8 @@
               - **pontos_uids**:
                 - eKifQ10jUYEtSi
               - **escalada**: A Medalha de Lúcia
+              - **setor**: Setor Clássicas Curtas
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - eKifQ10jUYEtSi
             - **[18]**:
@@ -3989,6 +4277,8 @@
               - **pontos_uids**:
                 - eKifQ10jUYEtSi
               - **escalada**: Águas de Março
+              - **setor**: Setor Clássicas Curtas
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - eKifQ10jUYEtSi
             - **[19]**:
@@ -3996,6 +4286,8 @@
               - **pontos_uids**:
                 - eKifQ10jUYEtSi
               - **escalada**: Vou Dançar o Xaxaxá
+              - **setor**: Setor Clássicas Curtas
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - eKifQ10jUYEtSi
             - **[20]**:
@@ -4003,6 +4295,8 @@
               - **pontos_uids**:
                 - eKifQ10jUYEtSi
               - **escalada**: Casas da Banha
+              - **setor**: Setor Clássicas Curtas
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - eKifQ10jUYEtSi
           - **pontos_de_interesse**:
@@ -4072,6 +4366,8 @@
               - **pontos_uids**:
                 - GQnIW94j2rrtcp
               - **escalada**: A Medalha de Lúcia
+              - **setor**: Setor Clássicas Curtas
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - GQnIW94j2rrtcp
             - **[1]**:
@@ -4079,6 +4375,8 @@
               - **pontos_uids**:
                 - 0xMmDYCxGVoYoo
               - **escalada**: Águas de Março
+              - **setor**: Setor Clássicas Curtas
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - 0xMmDYCxGVoYoo
             - **[2]**:
@@ -4086,6 +4384,8 @@
               - **pontos_uids**:
                 - 7cowcqSW0nMD7T
               - **escalada**: Vou Dançar o Xaxaxá
+              - **setor**: Setor Clássicas Curtas
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - 7cowcqSW0nMD7T
             - **[3]**:
@@ -4093,6 +4393,8 @@
               - **pontos_uids**:
                 - gRegEzD3lkl5Me
               - **escalada**: Casas da Banha
+              - **setor**: Setor Clássicas Curtas
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - gRegEzD3lkl5Me
             - **[4]**:
@@ -4100,6 +4402,8 @@
               - **pontos_uids**:
                 - MWSFm5mvj9RDGk
               - **escalada**: Ferradura
+              - **setor**: Setor Clássicas Curtas
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - MWSFm5mvj9RDGk
             - **[5]**:
@@ -4107,6 +4411,8 @@
               - **pontos_uids**:
                 - hXMQBJACP1EvAL
               - **escalada**: Ferrolho
+              - **setor**: Setor Clássicas Curtas
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - hXMQBJACP1EvAL
             - **[6]**:
@@ -4114,6 +4420,8 @@
               - **pontos_uids**:
                 - hToqo60B1NkflS
               - **escalada**: Cambal a Quatro
+              - **setor**: Setor Clássicas Curtas
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - hToqo60B1NkflS
             - **[7]**:
@@ -4121,6 +4429,8 @@
               - **pontos_uids**:
                 - puUWeyK91RnFEI
               - **escalada**: El Bigodón
+              - **setor**: Setor Clássicas Curtas
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - puUWeyK91RnFEI
             - **[8]**:
@@ -4128,6 +4438,8 @@
               - **pontos_uids**:
                 - BphH3VqFa9g2Yx
               - **escalada**: Testa de Aço
+              - **setor**: Setor Clássicas Curtas
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - BphH3VqFa9g2Yx
             - **[9]**:
@@ -4135,6 +4447,8 @@
               - **pontos_uids**:
                 - Z6KbGXW7jUdXzN
               - **escalada**: Me Ferrei
+              - **setor**: Setor Clássicas Curtas
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - Z6KbGXW7jUdXzN
             - **[10]**:
@@ -4142,6 +4456,8 @@
               - **pontos_uids**:
                 - TQWiot4Tucgzw2
               - **escalada**: Amor Profano
+              - **setor**: Setor Clássicas Curtas
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - TQWiot4Tucgzw2
             - **[11]**:
@@ -4149,6 +4465,8 @@
               - **pontos_uids**:
                 - 2cqwyIY7hs7y3S
               - **escalada**: Deu Tilt
+              - **setor**: Setor Clássicas Curtas
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - 2cqwyIY7hs7y3S
             - **[12]**:
@@ -4156,6 +4474,8 @@
               - **pontos_uids**:
                 - naV6GkqhyZOpru
               - **escalada**: Ferroada
+              - **setor**: Setor Clássicas Curtas
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - naV6GkqhyZOpru
             - **[13]**:
@@ -4163,6 +4483,8 @@
               - **pontos_uids**:
                 - phloToIRDUZpIw
               - **escalada**: Scarface
+              - **setor**: Setor Clássicas Curtas
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - phloToIRDUZpIw
             - **[14]**:
@@ -4170,6 +4492,8 @@
               - **pontos_uids**:
                 - uMGBV7cseji2Ls
               - **escalada**: Se Meu Fusca Falasse
+              - **setor**: Setor Clássicas Curtas
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - uMGBV7cseji2Ls
             - **[15]**:
@@ -4177,6 +4501,8 @@
               - **pontos_uids**:
                 - JtofS84ut0KGpL
               - **escalada**: Couro de Lobisomem
+              - **setor**: Setor Clássicas Curtas
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - JtofS84ut0KGpL
             - **[16]**:
@@ -4184,6 +4510,8 @@
               - **pontos_uids**:
                 - wtvYfviHusUIiH
               - **escalada**: Enferrujados
+              - **setor**: Setor Clássicas Curtas
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - wtvYfviHusUIiH
             - **[17]**:
@@ -4191,6 +4519,8 @@
               - **pontos_uids**:
                 - Hf6SmebhAVVl3C
               - **escalada**: Rastro de Cobra
+              - **setor**: Setor Clássicas Curtas
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - Hf6SmebhAVVl3C
             - **[18]**:
@@ -4198,6 +4528,8 @@
               - **pontos_uids**:
                 - T4BulKEF65UlwH
               - **escalada**: Entrando no Ferro
+              - **setor**: Setor Clássicas Curtas
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - T4BulKEF65UlwH
           - **pontos_de_interesse**:
@@ -4383,6 +4715,8 @@
                 - jmIdpVKjEj9umD
                 - lwvgP0fbxtzcPA
               - **escalada**: A Medalha de Lúcia
+              - **setor**: Setor Clássicas Curtas
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - jmIdpVKjEj9umD
                 - lwvgP0fbxtzcPA
@@ -4393,6 +4727,8 @@
                 - YXQjZm0LyLJBUB
                 - MVnIAGasum737W
               - **escalada**: Águas de Março
+              - **setor**: Setor Clássicas Curtas
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - VmMcMoHhEGE69F
                 - YXQjZm0LyLJBUB
@@ -4403,6 +4739,8 @@
                 - qXBKbnbupblZzW
                 - tIlp2U8p34POOY
               - **escalada**: Vou Dançar o Xaxaxá
+              - **setor**: Setor Clássicas Curtas
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - qXBKbnbupblZzW
                 - tIlp2U8p34POOY
@@ -4412,6 +4750,8 @@
                 - TV9OEkxNpiKJ5i
                 - sNsVWhcf4ieRAy
               - **escalada**: Casas da Banha
+              - **setor**: Setor Clássicas Curtas
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - TV9OEkxNpiKJ5i
                 - sNsVWhcf4ieRAy
@@ -4811,6 +5151,8 @@
               - **pontos_uids**:
                 - 53iO2skjXRdCxb
               - **escalada**: Cutícula
+              - **setor**: Setor Parede Principal – Direita
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - 53iO2skjXRdCxb
             - **[1]**:
@@ -4818,6 +5160,8 @@
               - **pontos_uids**:
                 - 53iO2skjXRdCxb
               - **escalada**: Pelinha
+              - **setor**: Setor Parede Principal – Direita
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - 53iO2skjXRdCxb
             - **[2]**:
@@ -4825,6 +5169,8 @@
               - **pontos_uids**:
                 - phTKTsauxVo0II
               - **escalada**: Rapidinha no Escurinho
+              - **setor**: Setor Parede Principal – Direita
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - phTKTsauxVo0II
             - **[3]**:
@@ -4832,6 +5178,8 @@
               - **pontos_uids**:
                 - phTKTsauxVo0II
               - **escalada**: Pelanca
+              - **setor**: Setor Parede Principal – Direita
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - phTKTsauxVo0II
             - **[4]**:
@@ -4839,6 +5187,8 @@
               - **pontos_uids**:
                 - phTKTsauxVo0II
               - **escalada**: Flor da Pele
+              - **setor**: Setor Parede Principal – Direita
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - phTKTsauxVo0II
             - **[5]**:
@@ -4846,6 +5196,8 @@
               - **pontos_uids**:
                 - phTKTsauxVo0II
               - **escalada**: Alma Nova
+              - **setor**: Setor Parede Principal – Direita
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - phTKTsauxVo0II
             - **[6]**:
@@ -4853,6 +5205,8 @@
               - **pontos_uids**:
                 - phTKTsauxVo0II
               - **escalada**: Pele Vermelha
+              - **setor**: Setor Parede Principal – Direita
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - phTKTsauxVo0II
             - **[7]**:
@@ -4860,6 +5214,8 @@
               - **pontos_uids**:
                 - EovdCTmbfTRDzU
               - **escalada**: Amor, Meu Grande Amor
+              - **setor**: Setor Parede Principal – Direita
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - EovdCTmbfTRDzU
             - **[8]**:
@@ -4867,6 +5223,8 @@
               - **pontos_uids**:
                 - EovdCTmbfTRDzU
               - **escalada**: Tá Bão
+              - **setor**: Setor Parede Principal – Direita
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - EovdCTmbfTRDzU
             - **[9]**:
@@ -4874,6 +5232,8 @@
               - **pontos_uids**:
                 - uLLz7bnICCrfLg
               - **escalada**: O Burro e o Capacete
+              - **setor**: Setor Parede Principal – Direita
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - uLLz7bnICCrfLg
             - **[10]**:
@@ -4881,6 +5241,8 @@
               - **pontos_uids**:
                 - aFcRADC66njgzW
               - **escalada**: Valeu Papito
+              - **setor**: Setor Parede Principal – Direita
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - aFcRADC66njgzW
             - **[11]**:
@@ -4888,6 +5250,8 @@
               - **pontos_uids**:
                 - aFcRADC66njgzW
               - **escalada**: Pente Frio
+              - **setor**: Setor Parede Principal – Direita
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - aFcRADC66njgzW
             - **[12]**:
@@ -4895,6 +5259,8 @@
               - **pontos_uids**:
                 - aFcRADC66njgzW
               - **escalada**: El Barrigón
+              - **setor**: Setor Parede Principal – Direita
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - aFcRADC66njgzW
             - **[13]**:
@@ -4902,6 +5268,8 @@
               - **pontos_uids**:
                 - aFcRADC66njgzW
               - **escalada**: Lobos do Caraça
+              - **setor**: Setor Parede Principal – Direita
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - aFcRADC66njgzW
             - **[14]**:
@@ -4909,6 +5277,8 @@
               - **pontos_uids**:
                 - uLLz7bnICCrfLg
               - **escalada**: O Tempo e o Vento
+              - **setor**: Setor Parede Principal – Direita
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - uLLz7bnICCrfLg
             - **[15]**:
@@ -4916,6 +5286,7 @@
               - **pontos_uids**:
                 - aEX41RMOZp7Nm1
               - **setor**: Setor Extrema Esquerda
+              - **grupo**: Parede das Aderências
               - **ids**:
                 - aEX41RMOZp7Nm1
             - **[16]**:
@@ -4923,6 +5294,7 @@
               - **pontos_uids**:
                 - YWDAPGI8CtZog8
               - **setor**: Setor Esquerda
+              - **grupo**: Parede das Aderências
               - **ids**:
                 - YWDAPGI8CtZog8
             - **[17]**:
@@ -4930,6 +5302,7 @@
               - **pontos_uids**:
                 - cOhZKmGz4OyJQM
               - **setor**: Setor Esquerda
+              - **grupo**: Parede das Aderências
               - **ids**:
                 - cOhZKmGz4OyJQM
             - **[18]**:
@@ -4944,6 +5317,7 @@
               - **pontos_uids**:
                 - hGSGm2oYu7WOHW
               - **setor**: Setor Clássicas Curtas
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - hGSGm2oYu7WOHW
             - **[20]**:
@@ -4951,6 +5325,7 @@
               - **pontos_uids**:
                 - aEVckg9Z2GFZDN
               - **setor**: Face Central
+              - **grupo**: Parede das Aderências
               - **ids**:
                 - aEVckg9Z2GFZDN
             - **[21]**:
@@ -4958,6 +5333,7 @@
               - **pontos_uids**:
                 - lyJbdya5uA8ARs
               - **setor**: Setor Central
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - lyJbdya5uA8ARs
           - **pontos_de_interesse**:
@@ -5086,6 +5462,8 @@
               - **pontos_uids**:
                 - ynozLoQqG5c9sN
               - **escalada**: Valeu Papito
+              - **setor**: Setor Parede Principal – Direita
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - ynozLoQqG5c9sN
             - **[1]**:
@@ -5093,6 +5471,8 @@
               - **pontos_uids**:
                 - AGM7TjNTaLL3qY
               - **escalada**: Pente Frio
+              - **setor**: Setor Parede Principal – Direita
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - AGM7TjNTaLL3qY
             - **[2]**:
@@ -5100,6 +5480,8 @@
               - **pontos_uids**:
                 - 1bbyBwOVssiVjc
               - **escalada**: El Barrigón
+              - **setor**: Setor Parede Principal – Direita
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - 1bbyBwOVssiVjc
             - **[3]**:
@@ -5107,6 +5489,8 @@
               - **pontos_uids**:
                 - HafAiw8ArUPh1O
               - **escalada**: Lobos do Caraça
+              - **setor**: Setor Parede Principal – Direita
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - HafAiw8ArUPh1O
             - **[4]**:
@@ -5114,6 +5498,8 @@
               - **pontos_uids**:
                 - FRHLdWomtFrJaU
               - **escalada**: O Tempo e o Vento
+              - **setor**: Setor Parede Principal – Direita
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - FRHLdWomtFrJaU
             - **[5]**:
@@ -5121,6 +5507,8 @@
               - **pontos_uids**:
                 - 12HZTy3Si7Ao0P
               - **escalada**: O Burro e o Capacete
+              - **setor**: Setor Parede Principal – Direita
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - 12HZTy3Si7Ao0P
             - **[6]**:
@@ -5128,6 +5516,8 @@
               - **pontos_uids**:
                 - GbRaQsstOFXZna
               - **escalada**: Tá Bão
+              - **setor**: Setor Parede Principal – Direita
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - GbRaQsstOFXZna
             - **[7]**:
@@ -5135,6 +5525,8 @@
               - **pontos_uids**:
                 - bK6Ms13oKbw8ak
               - **escalada**: Amor, Meu Grande Amor
+              - **setor**: Setor Parede Principal – Direita
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - bK6Ms13oKbw8ak
             - **[8]**:
@@ -5142,6 +5534,8 @@
               - **pontos_uids**:
                 - UsgFXvw8CI9h1v
               - **escalada**: Rapidinha no Escurinho
+              - **setor**: Setor Parede Principal – Direita
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - UsgFXvw8CI9h1v
             - **[9]**:
@@ -5149,6 +5543,8 @@
               - **pontos_uids**:
                 - AjRXlqSZiOiIcK
               - **escalada**: Pelanca
+              - **setor**: Setor Parede Principal – Direita
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - AjRXlqSZiOiIcK
             - **[10]**:
@@ -5156,6 +5552,8 @@
               - **pontos_uids**:
                 - uXoUZqYi9EzYrc
               - **escalada**: Flor da Pele
+              - **setor**: Setor Parede Principal – Direita
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - uXoUZqYi9EzYrc
             - **[11]**:
@@ -5163,6 +5561,8 @@
               - **pontos_uids**:
                 - Uv64qY0glTyZ7V
               - **escalada**: Alma Nova
+              - **setor**: Setor Parede Principal – Direita
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - Uv64qY0glTyZ7V
             - **[12]**:
@@ -5170,6 +5570,8 @@
               - **pontos_uids**:
                 - wMmnCBAmoOOVZe
               - **escalada**: Pele Vermelha
+              - **setor**: Setor Parede Principal – Direita
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - wMmnCBAmoOOVZe
             - **[13]**:
@@ -5177,6 +5579,8 @@
               - **pontos_uids**:
                 - SHC6eTt7M2O9D7
               - **escalada**: Pelinha
+              - **setor**: Setor Parede Principal – Direita
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - SHC6eTt7M2O9D7
             - **[14]**:
@@ -5184,6 +5588,8 @@
               - **pontos_uids**:
                 - mqzDY8z2fsRFRA
               - **escalada**: Cutícula
+              - **setor**: Setor Parede Principal – Direita
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - mqzDY8z2fsRFRA
             - **[15]**:
@@ -5191,6 +5597,8 @@
               - **pontos_uids**:
                 - TqF2oSvJQspEfz
               - **escalada**: Jeca Tatu
+              - **setor**: Setor Central
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - TqF2oSvJQspEfz
           - **pontos_de_interesse**:
@@ -5349,6 +5757,8 @@
               - **pontos_uids**:
                 - THynMAVU507GFL
               - **escalada**: Tá Bão
+              - **setor**: Setor Parede Principal – Direita
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - THynMAVU507GFL
             - **[1]**:
@@ -5356,6 +5766,8 @@
               - **pontos_uids**:
                 - kRzi6VUYeRJVqV
               - **escalada**: Amor, Meu Grande Amor
+              - **setor**: Setor Parede Principal – Direita
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - kRzi6VUYeRJVqV
             - **[2]**:
@@ -5363,6 +5775,8 @@
               - **pontos_uids**:
                 - vf8vCdCL2n5F2m
               - **escalada**: Rapidinha no Escurinho
+              - **setor**: Setor Parede Principal – Direita
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - vf8vCdCL2n5F2m
             - **[3]**:
@@ -5370,6 +5784,8 @@
               - **pontos_uids**:
                 - 8R3NIvipA6AoWR
               - **escalada**: Pelanca
+              - **setor**: Setor Parede Principal – Direita
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - 8R3NIvipA6AoWR
             - **[4]**:
@@ -5377,6 +5793,8 @@
               - **pontos_uids**:
                 - VnURQw0XIs14k5
               - **escalada**: Pele Vermelha
+              - **setor**: Setor Parede Principal – Direita
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - VnURQw0XIs14k5
             - **[5]**:
@@ -5384,6 +5802,8 @@
               - **pontos_uids**:
                 - 5tA9iXX37LA8i7
               - **escalada**: Flor da Pele
+              - **setor**: Setor Parede Principal – Direita
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - 5tA9iXX37LA8i7
             - **[6]**:
@@ -5391,6 +5811,8 @@
               - **pontos_uids**:
                 - jIJmvsIiElJH9p
               - **escalada**: Pelinha
+              - **setor**: Setor Parede Principal – Direita
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - jIJmvsIiElJH9p
             - **[7]**:
@@ -5398,6 +5820,8 @@
               - **pontos_uids**:
                 - DKy6yEPRcRsggs
               - **escalada**: Cutícula
+              - **setor**: Setor Parede Principal – Direita
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - DKy6yEPRcRsggs
           - **pontos_de_interesse**:
@@ -5765,6 +6189,8 @@
               - **pontos_uids**:
                 - HWBghZTY3yKdfp
               - **escalada**: Jeca Tatu
+              - **setor**: Setor Central
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - HWBghZTY3yKdfp
             - **[1]**:
@@ -5772,6 +6198,8 @@
               - **pontos_uids**:
                 - YEluKp6ARRkPpJ
               - **escalada**: A Decadência da Bufa
+              - **setor**: Setor Central
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - YEluKp6ARRkPpJ
             - **[2]**:
@@ -5779,6 +6207,8 @@
               - **pontos_uids**:
                 - Hhg26XUVoNTGL6
               - **escalada**: Iron Men
+              - **setor**: Setor Central
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - Hhg26XUVoNTGL6
             - **[3]**:
@@ -5786,6 +6216,8 @@
               - **pontos_uids**:
                 - XEdj4hS8C4ECyT
               - **escalada**: Pum Medonho
+              - **setor**: Setor Central
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - XEdj4hS8C4ECyT
             - **[4]**:
@@ -5793,6 +6225,8 @@
               - **pontos_uids**:
                 - OUmIPWBT3u5vqb
               - **escalada**: Ferro Velho
+              - **setor**: Setor Central
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - OUmIPWBT3u5vqb
             - **[5]**:
@@ -5800,6 +6234,7 @@
               - **pontos_uids**:
                 - a8W4tNycBxA3hP
               - **setor**: Setor Esquerda
+              - **grupo**: Parede das Aderências
               - **ids**:
                 - a8W4tNycBxA3hP
             - **[6]**:
@@ -5807,6 +6242,7 @@
               - **pontos_uids**:
                 - ZqsoiTZ9D4qfWt
               - **setor**: Face Central
+              - **grupo**: Parede das Aderências
               - **ids**:
                 - ZqsoiTZ9D4qfWt
             - **[7]**:
@@ -5814,6 +6250,7 @@
               - **pontos_uids**:
                 - Ypxgy0EQNCM3uT
               - **setor**: Setor de Cima
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - Ypxgy0EQNCM3uT
             - **[8]**:
@@ -5821,6 +6258,7 @@
               - **pontos_uids**:
                 - V2Zk8k8vv5bHvH
               - **setor**: Setor Parede Principal – Direita
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - V2Zk8k8vv5bHvH
             - **[9]**:
@@ -5828,6 +6266,8 @@
               - **pontos_uids**:
                 - Hhg26XUVoNTGL6
               - **escalada**: Chuva Ácida
+              - **setor**: Setor Central
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - Hhg26XUVoNTGL6
             - **[10]**:
@@ -5835,6 +6275,8 @@
               - **pontos_uids**:
                 - Hhg26XUVoNTGL6
               - **escalada**: A Ferro e Fogo
+              - **setor**: Setor Central
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - Hhg26XUVoNTGL6
             - **[11]**:
@@ -5842,6 +6284,8 @@
               - **pontos_uids**:
                 - Hhg26XUVoNTGL6
               - **escalada**: Cordão do Bola Preta
+              - **setor**: Setor Central
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - Hhg26XUVoNTGL6
             - **[12]**:
@@ -5849,6 +6293,8 @@
               - **pontos_uids**:
                 - XEdj4hS8C4ECyT
               - **escalada**: Hilda Furacão
+              - **setor**: Setor Central
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - XEdj4hS8C4ECyT
             - **[13]**:
@@ -5856,6 +6302,8 @@
               - **pontos_uids**:
                 - XEdj4hS8C4ECyT
               - **escalada**: Eu Sei o Que Vocês Fizeram no Blackout Passado
+              - **setor**: Setor Central
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - XEdj4hS8C4ECyT
             - **[14]**:
@@ -5863,6 +6311,8 @@
               - **pontos_uids**:
                 - XEdj4hS8C4ECyT
               - **escalada**: CDF
+              - **setor**: Setor Central
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - XEdj4hS8C4ECyT
             - **[15]**:
@@ -5870,6 +6320,8 @@
               - **pontos_uids**:
                 - XEdj4hS8C4ECyT
               - **escalada**: Pé de Pano
+              - **setor**: Setor Central
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - XEdj4hS8C4ECyT
             - **[16]**:
@@ -5877,6 +6329,8 @@
               - **pontos_uids**:
                 - XEdj4hS8C4ECyT
               - **escalada**: Pr. Chapado
+              - **setor**: Setor Central
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - XEdj4hS8C4ECyT
             - **[17]**:
@@ -5884,6 +6338,8 @@
               - **pontos_uids**:
                 - XEdj4hS8C4ECyT
               - **escalada**: Dona Flor e Suas Duas Marretas
+              - **setor**: Setor Central
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - XEdj4hS8C4ECyT
             - **[18]**:
@@ -5891,6 +6347,8 @@
               - **pontos_uids**:
                 - OUmIPWBT3u5vqb
               - **escalada**: Tromba D’Água
+              - **setor**: Setor Central
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - OUmIPWBT3u5vqb
             - **[19]**:
@@ -5898,6 +6356,8 @@
               - **pontos_uids**:
                 - OUmIPWBT3u5vqb
               - **escalada**: Rolam as Pedras
+              - **setor**: Setor Central
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - OUmIPWBT3u5vqb
             - **[20]**:
@@ -5905,6 +6365,8 @@
               - **pontos_uids**:
                 - OUmIPWBT3u5vqb
               - **escalada**: Marcado a Ferro
+              - **setor**: Setor Central
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - OUmIPWBT3u5vqb
             - **[21]**:
@@ -5912,6 +6374,8 @@
               - **pontos_uids**:
                 - OUmIPWBT3u5vqb
               - **escalada**: Ferro no Judas
+              - **setor**: Setor Central
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - OUmIPWBT3u5vqb
           - **pontos_de_interesse**:
@@ -6014,6 +6478,8 @@
               - **pontos_uids**:
                 - QpADhHwaei4g90
               - **escalada**: Ferro no Judas
+              - **setor**: Setor Central
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - QpADhHwaei4g90
             - **[1]**:
@@ -6021,6 +6487,8 @@
               - **pontos_uids**:
                 - ILZFOhh4G1849U
               - **escalada**: Marcado a Ferro
+              - **setor**: Setor Central
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - ILZFOhh4G1849U
             - **[2]**:
@@ -6028,6 +6496,8 @@
               - **pontos_uids**:
                 - TrqtKg9nZwviaF
               - **escalada**: Rolam as Pedras
+              - **setor**: Setor Central
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - TrqtKg9nZwviaF
             - **[3]**:
@@ -6035,6 +6505,8 @@
               - **pontos_uids**:
                 - X1pt0z3TvlvORz
               - **escalada**: Tromba D’Água
+              - **setor**: Setor Central
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - X1pt0z3TvlvORz
             - **[4]**:
@@ -6042,6 +6514,8 @@
               - **pontos_uids**:
                 - e92LnG4QNsfyjC
               - **escalada**: Ferro Velho
+              - **setor**: Setor Central
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - e92LnG4QNsfyjC
             - **[5]**:
@@ -6049,6 +6523,8 @@
               - **pontos_uids**:
                 - gScsa2vzE7cByO
               - **escalada**: Pum Medonho
+              - **setor**: Setor Central
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - gScsa2vzE7cByO
             - **[6]**:
@@ -6056,6 +6532,8 @@
               - **pontos_uids**:
                 - egd3ISxzNfyWPl
               - **escalada**: Dona Flor e Suas Duas Marretas
+              - **setor**: Setor Central
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - egd3ISxzNfyWPl
             - **[7]**:
@@ -6063,6 +6541,8 @@
               - **pontos_uids**:
                 - kq9UpfRHxrt8iG
               - **escalada**: Pr. Chapado
+              - **setor**: Setor Central
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - kq9UpfRHxrt8iG
             - **[8]**:
@@ -6070,6 +6550,8 @@
               - **pontos_uids**:
                 - 0HZuCUnuwqqXuF
               - **escalada**: Pé de Pano
+              - **setor**: Setor Central
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - 0HZuCUnuwqqXuF
             - **[9]**:
@@ -6077,6 +6559,8 @@
               - **pontos_uids**:
                 - hNa7VN2nrXxpZR
               - **escalada**: CDF
+              - **setor**: Setor Central
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - hNa7VN2nrXxpZR
             - **[10]**:
@@ -6084,6 +6568,8 @@
               - **pontos_uids**:
                 - r0yQ2790DVg6i6
               - **escalada**: Eu Sei o Que Vocês Fizeram no Blackout Passado
+              - **setor**: Setor Central
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - r0yQ2790DVg6i6
             - **[11]**:
@@ -6091,6 +6577,8 @@
               - **pontos_uids**:
                 - MrrclY0i5LoQIQ
               - **escalada**: Hilda Furacão
+              - **setor**: Setor Central
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - MrrclY0i5LoQIQ
             - **[12]**:
@@ -6098,6 +6586,8 @@
               - **pontos_uids**:
                 - 4A8irW8QXVuIog
               - **escalada**: Iron Men
+              - **setor**: Setor Central
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - 4A8irW8QXVuIog
             - **[13]**:
@@ -6105,6 +6595,8 @@
               - **pontos_uids**:
                 - CXqAS8z4JQtAhh
               - **escalada**: Cordão do Bola Preta
+              - **setor**: Setor Central
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - CXqAS8z4JQtAhh
             - **[14]**:
@@ -6112,6 +6604,8 @@
               - **pontos_uids**:
                 - gZlvqoQENfuCJg
               - **escalada**: A Ferro e Fogo
+              - **setor**: Setor Central
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - gZlvqoQENfuCJg
             - **[15]**:
@@ -6119,6 +6613,8 @@
               - **pontos_uids**:
                 - JFLlkVQnaL4P9Z
               - **escalada**: Chuva Ácida
+              - **setor**: Setor Central
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - JFLlkVQnaL4P9Z
             - **[16]**:
@@ -6126,6 +6622,8 @@
               - **pontos_uids**:
                 - xfdY3da0yrf9dw
               - **escalada**: A Decadência da Bufa
+              - **setor**: Setor Central
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - xfdY3da0yrf9dw
             - **[17]**:
@@ -6133,6 +6631,8 @@
               - **pontos_uids**:
                 - HKi6FsTraoGRrP
               - **escalada**: Jeca Tatu
+              - **setor**: Setor Central
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - HKi6FsTraoGRrP
             - **[18]**:
@@ -6140,6 +6640,7 @@
               - **pontos_uids**:
                 - lD8BA4rMZtOVrL
               - **setor**: Setor de Cima
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - lD8BA4rMZtOVrL
             - **[19]**:
@@ -6147,6 +6648,8 @@
               - **pontos_uids**:
                 - NhPf7wNt6hjUh3
               - **escalada**: Noite de São João
+              - **setor**: Setor de Cima
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - NhPf7wNt6hjUh3
             - **[20]**:
@@ -6154,6 +6657,8 @@
               - **pontos_uids**:
                 - miAkeGOQcwgxcJ
               - **escalada**: Valeu Papito
+              - **setor**: Setor Parede Principal – Direita
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - miAkeGOQcwgxcJ
           - **pontos_de_interesse**:
@@ -6451,6 +6956,8 @@
                 - QDvqKoYCnjQjrh
                 - ErAG96TNWx4tIJ
               - **escalada**: Tromba D’Água
+              - **setor**: Setor Central
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - TSIWJNn3qYux37
                 - 32tdWFUWmBpuGE
@@ -6465,6 +6972,8 @@
                 - 8DghnMr5Qyyk7x
                 - 5hNDBCpB2IXKvd
               - **escalada**: Ferro Velho
+              - **setor**: Setor Central
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - 2TZwebkpgS7DZH
                 - GJVs8lKVLWcBUN
@@ -6645,6 +7154,8 @@
                 - 0358Ae6xWhm1wD
                 - jDFCIiY8EB5KeE
               - **escalada**: Cordão do Bola Preta
+              - **setor**: Setor Central
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - CIfBGneKpX4sDS
                 - INv9UWnFyi04J5
@@ -6657,6 +7168,8 @@
                 - Mfah2ZjiOe6U4V
                 - fXzijmacuDIXCp
               - **escalada**: A Ferro e Fogo
+              - **setor**: Setor Central
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - Mfah2ZjiOe6U4V
                 - fXzijmacuDIXCp
@@ -6666,6 +7179,8 @@
                 - V7K3yWs6eMxgO8
                 - 2WFn98TqvjiKLe
               - **escalada**: Chuva Ácida
+              - **setor**: Setor Central
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - V7K3yWs6eMxgO8
                 - 2WFn98TqvjiKLe
@@ -6677,6 +7192,8 @@
                 - 6KzZR3uzmDd3xJ
                 - 15HNaSP6SqGrun
               - **escalada**: A Decadência da Bufa
+              - **setor**: Setor Central
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - wvzqL4wr3XlFUa
                 - h7IwK5W4PvbXRo
@@ -6690,6 +7207,8 @@
                 - 86aGAlLi8EsHlo
                 - GZNtJMXy7PPhJS
               - **escalada**: Jeca Tatu
+              - **setor**: Setor Central
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - YQooVv8dwnYSAY
                 - GElNJko9wheJoF
@@ -7036,6 +7555,8 @@
               - **pontos_uids**:
                 - FC4KMKwMInqZCU
               - **escalada**: Noite de São João
+              - **setor**: Setor de Cima
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - FC4KMKwMInqZCU
             - **[1]**:
@@ -7043,6 +7564,8 @@
               - **pontos_uids**:
                 - shp5bk9wAk3NGk
               - **escalada**: Um Momento no Tempo
+              - **setor**: Setor de Cima
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - shp5bk9wAk3NGk
             - **[2]**:
@@ -7050,6 +7573,7 @@
               - **pontos_uids**:
                 - Mskk0UiTXTj0wT
               - **setor**: Setor Central
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - Mskk0UiTXTj0wT
             - **[3]**:
@@ -7057,6 +7581,7 @@
               - **pontos_uids**:
                 - jr9EjzpW6AvKFk
               - **setor**: Setor Clássicas Longas
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - jr9EjzpW6AvKFk
           - **pontos_de_interesse**:
@@ -7110,6 +7635,8 @@
               - **pontos_uids**:
                 - LxIFAscKVZV01P
               - **escalada**: Um Momento no Tempo
+              - **setor**: Setor de Cima
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - LxIFAscKVZV01P
             - **[1]**:
@@ -7117,6 +7644,8 @@
               - **pontos_uids**:
                 - 8VoG6X525pntxE
               - **escalada**: Noite de São João
+              - **setor**: Setor de Cima
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - 8VoG6X525pntxE
             - **[2]**:
@@ -7124,6 +7653,7 @@
               - **pontos_uids**:
                 - uCpy6z8NF8bNal
               - **setor**: Setor Central
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - uCpy6z8NF8bNal
             - **[3]**:
@@ -7131,6 +7661,7 @@
               - **pontos_uids**:
                 - XH25rlEJKrkooj
               - **setor**: Setor Clássicas Longas
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - XH25rlEJKrkooj
             - **[4]**:
@@ -7138,6 +7669,8 @@
               - **pontos_uids**:
                 - ZfJTTEQafkPoav
               - **escalada**: À Francesa
+              - **setor**: Setor Clássicas Longas
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - ZfJTTEQafkPoav
             - **[5]**:
@@ -7145,6 +7678,8 @@
               - **pontos_uids**:
                 - k7fYr0a91HRlJd
               - **escalada**: Ferro no Judas
+              - **setor**: Setor Central
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - k7fYr0a91HRlJd
           - **pontos_de_interesse**:
@@ -7325,6 +7860,8 @@
               - **pontos_uids**:
                 - bGttwYGvawhytZ
               - **escalada**: Eu Não Sou de Ferro
+              - **setor**: Setor Clássicas Longas
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - bGttwYGvawhytZ
             - **[1]**:
@@ -7332,6 +7869,8 @@
               - **pontos_uids**:
                 - bGttwYGvawhytZ
               - **escalada**: Rio de Mão Dupla
+              - **setor**: Setor Clássicas Longas
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - bGttwYGvawhytZ
             - **[2]**:
@@ -7339,6 +7878,8 @@
               - **pontos_uids**:
                 - bGttwYGvawhytZ
               - **escalada**: À Francesa
+              - **setor**: Setor Clássicas Longas
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - bGttwYGvawhytZ
             - **[3]**:
@@ -7346,6 +7887,8 @@
               - **pontos_uids**:
                 - ju2k5aWDVsTIiE
               - **escalada**: Jardim do Éden
+              - **setor**: Setor Clássicas Longas
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - ju2k5aWDVsTIiE
             - **[4]**:
@@ -7353,6 +7896,8 @@
               - **pontos_uids**:
                 - ju2k5aWDVsTIiE
               - **escalada**: A Dois Passos do Paraíso
+              - **setor**: Setor Clássicas Longas
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - ju2k5aWDVsTIiE
             - **[5]**:
@@ -7360,6 +7905,8 @@
               - **pontos_uids**:
                 - ju2k5aWDVsTIiE
               - **escalada**: Conquista do Paraíso
+              - **setor**: Setor Clássicas Longas
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - ju2k5aWDVsTIiE
             - **[6]**:
@@ -7367,6 +7914,8 @@
               - **pontos_uids**:
                 - ju2k5aWDVsTIiE
               - **escalada**: Purgatório
+              - **setor**: Setor Clássicas Longas
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - ju2k5aWDVsTIiE
             - **[7]**:
@@ -7374,6 +7923,8 @@
               - **pontos_uids**:
                 - ju2k5aWDVsTIiE
               - **escalada**: Arco de Ferros
+              - **setor**: Setor Clássicas Longas
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - ju2k5aWDVsTIiE
             - **[8]**:
@@ -7381,6 +7932,8 @@
               - **pontos_uids**:
                 - ju2k5aWDVsTIiE
               - **escalada**: Quem com Ferro Fere
+              - **setor**: Setor Clássicas Longas
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - ju2k5aWDVsTIiE
             - **[9]**:
@@ -7388,6 +7941,8 @@
               - **pontos_uids**:
                 - ju2k5aWDVsTIiE
               - **escalada**: Tanto Bate Até Que Fura
+              - **setor**: Setor Clássicas Longas
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - ju2k5aWDVsTIiE
             - **[10]**:
@@ -7395,6 +7950,8 @@
               - **pontos_uids**:
                 - ju2k5aWDVsTIiE
               - **escalada**: Trem de Ferro
+              - **setor**: Setor Clássicas Longas
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - ju2k5aWDVsTIiE
             - **[11]**:
@@ -7402,6 +7959,8 @@
               - **pontos_uids**:
                 - ju2k5aWDVsTIiE
               - **escalada**: Up Ester
+              - **setor**: Setor Clássicas Longas
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - ju2k5aWDVsTIiE
             - **[12]**:
@@ -7409,6 +7968,8 @@
               - **pontos_uids**:
                 - ju2k5aWDVsTIiE
               - **escalada**: Até Que a Vida Nos Separe
+              - **setor**: Setor Clássicas Longas
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - ju2k5aWDVsTIiE
             - **[13]**:
@@ -7416,6 +7977,8 @@
               - **pontos_uids**:
                 - ju2k5aWDVsTIiE
               - **escalada**: Vr. Pilhado
+              - **setor**: Setor Clássicas Longas
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - ju2k5aWDVsTIiE
             - **[14]**:
@@ -7423,6 +7986,8 @@
               - **pontos_uids**:
                 - ju2k5aWDVsTIiE
               - **escalada**: Pr. CEM
+              - **setor**: Setor Clássicas Longas
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - ju2k5aWDVsTIiE
             - **[15]**:
@@ -7430,6 +7995,8 @@
               - **pontos_uids**:
                 - ju2k5aWDVsTIiE
               - **escalada**: Vr. SEM
+              - **setor**: Setor Clássicas Longas
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - ju2k5aWDVsTIiE
             - **[16]**:
@@ -7437,6 +8004,8 @@
               - **pontos_uids**:
                 - mtyy0LPuNnWl8f
               - **escalada**: Ih, Ferrou!
+              - **setor**: Setor Clássicas Longas
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - mtyy0LPuNnWl8f
             - **[17]**:
@@ -7444,6 +8013,8 @@
               - **pontos_uids**:
                 - olicjdnYP8V23W
               - **escalada**: O Retorno de Jedi
+              - **setor**: Setor Clássicas Longas
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - olicjdnYP8V23W
             - **[18]**:
@@ -7451,6 +8022,8 @@
               - **pontos_uids**:
                 - olicjdnYP8V23W
               - **escalada**: O Nome da Rosa
+              - **setor**: Setor Clássicas Longas
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - olicjdnYP8V23W
             - **[19]**:
@@ -7458,6 +8031,8 @@
               - **pontos_uids**:
                 - olicjdnYP8V23W
               - **escalada**: Quarto 304
+              - **setor**: Setor Clássicas Longas
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - olicjdnYP8V23W
             - **[20]**:
@@ -7465,6 +8040,7 @@
               - **pontos_uids**:
                 - Vqt7hXzzeXmd6S
               - **setor**: Setor Central
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - Vqt7hXzzeXmd6S
             - **[21]**:
@@ -7472,6 +8048,7 @@
               - **pontos_uids**:
                 - yMnrBOpRSQ0Iko
               - **setor**: Setor Extrema Direita
+              - **grupo**: Parede das Aderências
               - **ids**:
                 - yMnrBOpRSQ0Iko
             - **[22]**:
@@ -7479,6 +8056,8 @@
               - **pontos_uids**:
                 - bGttwYGvawhytZ
               - **escalada**: Grand Finale
+              - **setor**: Setor Clássicas Longas
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - bGttwYGvawhytZ
             - **[23]**:
@@ -7486,6 +8065,8 @@
               - **pontos_uids**:
                 - ju2k5aWDVsTIiE
               - **escalada**: Pr. Conrado Ferro
+              - **setor**: Setor Clássicas Longas
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - ju2k5aWDVsTIiE
           - **pontos_de_interesse**:
@@ -7557,6 +8138,8 @@
               - **pontos_uids**:
                 - kWobNcqiF42t4D
               - **escalada**: Quarto 304
+              - **setor**: Setor Clássicas Longas
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - kWobNcqiF42t4D
             - **[1]**:
@@ -7564,6 +8147,8 @@
               - **pontos_uids**:
                 - SrCxhZObQ8YpKc
               - **escalada**: O Nome da Rosa
+              - **setor**: Setor Clássicas Longas
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - SrCxhZObQ8YpKc
             - **[2]**:
@@ -7571,6 +8156,8 @@
               - **pontos_uids**:
                 - dB8erTnLDoIfj0
               - **escalada**: O Retorno de Jedi
+              - **setor**: Setor Clássicas Longas
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - dB8erTnLDoIfj0
             - **[3]**:
@@ -7578,6 +8165,8 @@
               - **pontos_uids**:
                 - yIfeMDFcF3d1xU
               - **escalada**: Ih, Ferrou!
+              - **setor**: Setor Clássicas Longas
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - yIfeMDFcF3d1xU
             - **[4]**:
@@ -7585,6 +8174,8 @@
               - **pontos_uids**:
                 - gcxQIZoHddkDua
               - **escalada**: Jardim do Éden
+              - **setor**: Setor Clássicas Longas
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - gcxQIZoHddkDua
             - **[5]**:
@@ -7592,6 +8183,8 @@
               - **pontos_uids**:
                 - hXBgx8rxDfAuzi
               - **escalada**: A Dois Passos do Paraíso
+              - **setor**: Setor Clássicas Longas
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - hXBgx8rxDfAuzi
             - **[6]**:
@@ -7599,6 +8192,8 @@
               - **pontos_uids**:
                 - to3OABIDZnYXgV
               - **escalada**: Conquista do Paraíso
+              - **setor**: Setor Clássicas Longas
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - to3OABIDZnYXgV
             - **[7]**:
@@ -7606,6 +8201,8 @@
               - **pontos_uids**:
                 - yfZo4zbh0LC5Bz
               - **escalada**: Purgatório
+              - **setor**: Setor Clássicas Longas
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - yfZo4zbh0LC5Bz
             - **[8]**:
@@ -7613,6 +8210,8 @@
               - **pontos_uids**:
                 - GZ41NLWVNc3JlY
               - **escalada**: Arco de Ferros
+              - **setor**: Setor Clássicas Longas
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - GZ41NLWVNc3JlY
             - **[9]**:
@@ -7620,6 +8219,8 @@
               - **pontos_uids**:
                 - RIb4OKAtdVRE89
               - **escalada**: Pr. Conrado Ferro
+              - **setor**: Setor Clássicas Longas
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - RIb4OKAtdVRE89
             - **[10]**:
@@ -7627,6 +8228,8 @@
               - **pontos_uids**:
                 - JdJDbiL6okn3vV
               - **escalada**: Quem com Ferro Fere
+              - **setor**: Setor Clássicas Longas
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - JdJDbiL6okn3vV
             - **[11]**:
@@ -7635,6 +8238,8 @@
                 - JdJDbiL6okn3vV
                 - 5L2p3C5el9zg5T
               - **escalada**: Tanto Bate Até Que Fura
+              - **setor**: Setor Clássicas Longas
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - JdJDbiL6okn3vV
                 - 5L2p3C5el9zg5T
@@ -7643,6 +8248,8 @@
               - **pontos_uids**:
                 - 173IxY9G5UwPTe
               - **escalada**: Trem de Ferro
+              - **setor**: Setor Clássicas Longas
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - 173IxY9G5UwPTe
             - **[13]**:
@@ -7650,6 +8257,8 @@
               - **pontos_uids**:
                 - L8jX93Tp5MVoBT
               - **escalada**: Up Ester
+              - **setor**: Setor Clássicas Longas
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - L8jX93Tp5MVoBT
             - **[14]**:
@@ -7657,6 +8266,8 @@
               - **pontos_uids**:
                 - hws4jVHjOPOYYX
               - **escalada**: Até Que a Vida Nos Separe
+              - **setor**: Setor Clássicas Longas
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - hws4jVHjOPOYYX
             - **[15]**:
@@ -7664,6 +8275,8 @@
               - **pontos_uids**:
                 - XN2qte4rb6TMb4
               - **escalada**: Vr. Pilhado
+              - **setor**: Setor Clássicas Longas
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - XN2qte4rb6TMb4
             - **[16]**:
@@ -7671,6 +8284,8 @@
               - **pontos_uids**:
                 - VGTqiO1hvNs8ic
               - **escalada**: Pr. CEM
+              - **setor**: Setor Clássicas Longas
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - VGTqiO1hvNs8ic
             - **[17]**:
@@ -7679,6 +8294,8 @@
                 - VGTqiO1hvNs8ic
                 - DJDibhoScE40h7
               - **escalada**: Vr. SEM
+              - **setor**: Setor Clássicas Longas
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - VGTqiO1hvNs8ic
                 - DJDibhoScE40h7
@@ -7687,6 +8304,8 @@
               - **pontos_uids**:
                 - NtilXTEX5MabO4
               - **escalada**: Eu Não Sou de Ferro
+              - **setor**: Setor Clássicas Longas
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - NtilXTEX5MabO4
             - **[19]**:
@@ -7694,6 +8313,8 @@
               - **pontos_uids**:
                 - sZA03N16Ah91l1
               - **escalada**: Rio de Mão Dupla
+              - **setor**: Setor Clássicas Longas
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - sZA03N16Ah91l1
             - **[20]**:
@@ -7701,6 +8322,8 @@
               - **pontos_uids**:
                 - v2LvrGR7OFGW19
               - **escalada**: À Francesa
+              - **setor**: Setor Clássicas Longas
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - v2LvrGR7OFGW19
             - **[21]**:
@@ -7709,6 +8332,8 @@
                 - v2LvrGR7OFGW19
                 - D5TiLDry5gtAyw
               - **escalada**: Grand Finale
+              - **setor**: Setor Clássicas Longas
+              - **grupo**: Parede Principal (Paredes de Aço)
               - **ids**:
                 - v2LvrGR7OFGW19
                 - D5TiLDry5gtAyw
@@ -8352,6 +8977,7 @@
         - **pontos_uids**:
           - Ue3n3cEvedV0wo
         - **escalada**: Diedro da Rabada
+        - **setor**: Setor Vias Esportivas
         - **ids**:
           - Ue3n3cEvedV0wo
       - **[1]**:
@@ -8359,6 +8985,7 @@
         - **pontos_uids**:
           - Fxbqzb4xUXowYq
         - **escalada**: Mestre Sala
+        - **setor**: Setor Vias Esportivas
         - **ids**:
           - Fxbqzb4xUXowYq
       - **[2]**:
@@ -8366,6 +8993,7 @@
         - **pontos_uids**:
           - FLaQ1Ed2DF4dv8
         - **escalada**: Porta-Bandeira
+        - **setor**: Setor Vias Esportivas
         - **ids**:
           - FLaQ1Ed2DF4dv8
       - **[3]**:
@@ -8376,6 +9004,7 @@
           - qTASrSxbs7K1Ss
           - wfvZSRCNf6XlAW
         - **escalada**: Gangorra
+        - **setor**: Setor Vias Esportivas
         - **ids**:
           - N56lf61W8Hs81T
           - VQLQfG9Zt2pFU8
@@ -8386,6 +9015,7 @@
         - **pontos_uids**:
           - uSSxUVzlV1mzwL
         - **escalada**: Jabá com Jerimum
+        - **setor**: Setor Vias Esportivas
         - **ids**:
           - uSSxUVzlV1mzwL
       - **[5]**:
@@ -8393,6 +9023,7 @@
         - **pontos_uids**:
           - S2wae0uhggE9yD
         - **escalada**: Bruxa Albano
+        - **setor**: Setor Vias Esportivas
         - **ids**:
           - S2wae0uhggE9yD
       - **[6]**:
@@ -8402,6 +9033,7 @@
           - mDSxgMqTgOZUfX
           - SiISR6xtmhqcw8
         - **escalada**: Vomitão em Ferros
+        - **setor**: Setor Vias Esportivas
         - **ids**:
           - N56lf61W8Hs81T
           - mDSxgMqTgOZUfX
@@ -8413,6 +9045,7 @@
           - N56lf61W8Hs81T
           - VQLQfG9Zt2pFU8
         - **escalada**: Iron Slow
+        - **setor**: Setor Vias Esportivas
         - **ids**:
           - SiISR6xtmhqcw8
           - N56lf61W8Hs81T
@@ -8530,6 +9163,7 @@
         - **pontos_uids**:
           - v6gyDqoxfI7Jet
         - **escalada**: Bicho de Pé
+        - **setor**: Setor Vias Esportivas
         - **ids**:
           - v6gyDqoxfI7Jet
       - **[1]**:
@@ -8538,6 +9172,7 @@
           - IwPdhsHD54xYfX
           - ckvNw8iDmSz5Uq
         - **escalada**: Os Três Mosqueteiros
+        - **setor**: Setor Vias Esportivas
         - **ids**:
           - IwPdhsHD54xYfX
           - ckvNw8iDmSz5Uq
@@ -8546,6 +9181,7 @@
         - **pontos_uids**:
           - rL80VuGlbiql3W
         - **escalada**: Nó de Porco
+        - **setor**: Setor Vias Esportivas
         - **ids**:
           - rL80VuGlbiql3W
       - **[3]**:
@@ -8554,6 +9190,7 @@
           - Qg3LqGPNP0qD32
           - ckvNw8iDmSz5Uq
         - **escalada**: Ícaro
+        - **setor**: Setor Vias Esportivas
         - **ids**:
           - Qg3LqGPNP0qD32
           - ckvNw8iDmSz5Uq
@@ -8564,6 +9201,7 @@
           - XKLCZYN1FnC8nl
           - 9ap9IkwJQP7r0m
         - **escalada**: Champinha
+        - **setor**: Setor Vias Esportivas
         - **ids**:
           - K25l8DqL6eeKds
           - XKLCZYN1FnC8nl
@@ -8574,6 +9212,7 @@
           - K25l8DqL6eeKds
           - 956NBIVhVnGE2A
         - **escalada**: Falcatrua
+        - **setor**: Setor Vias Esportivas
         - **ids**:
           - K25l8DqL6eeKds
           - 956NBIVhVnGE2A
@@ -8900,6 +9539,7 @@
         - **pontos_uids**:
           - MrlVO733Q2bkHA
         - **escalada**: Caipora
+        - **setor**: Setor Parede dos Solos
         - **ids**:
           - MrlVO733Q2bkHA
       - **[1]**:
@@ -8907,6 +9547,7 @@
         - **pontos_uids**:
           - sCAczNVDJ4RgEz
         - **escalada**: Iaci
+        - **setor**: Setor Parede dos Solos
         - **ids**:
           - sCAczNVDJ4RgEz
       - **[2]**:
@@ -8914,6 +9555,7 @@
         - **pontos_uids**:
           - CVH3TQQ56xwXgc
         - **escalada**: Boitatá
+        - **setor**: Setor Parede dos Solos
         - **ids**:
           - CVH3TQQ56xwXgc
       - **[3]**:
@@ -8921,6 +9563,7 @@
         - **pontos_uids**:
           - H35HMSohwCJ6Og
         - **escalada**: Maracujá
+        - **setor**: Setor Parede dos Solos
         - **ids**:
           - H35HMSohwCJ6Og
 - **escaladas**:
@@ -9007,6 +9650,8 @@
               - **pontos_uids**:
                 - YBeFEwKYzfk4Ye
               - **escalada**: Fissura Lapada na Rachada
+              - **setor**: Face das Esportivas
+              - **grupo**: Pedra do Neri
               - **ids**:
                 - YBeFEwKYzfk4Ye
             - **[1]**:
@@ -9014,6 +9659,8 @@
               - **pontos_uids**:
                 - b5E0CwAbWLM2qX
               - **escalada**: Fissura Sopa de Pedra
+              - **setor**: Face das Esportivas
+              - **grupo**: Pedra do Neri
               - **ids**:
                 - b5E0CwAbWLM2qX
             - **[2]**:
@@ -9021,6 +9668,8 @@
               - **pontos_uids**:
                 - VDojPlTsw21e7x
               - **escalada**: Até o Osso
+              - **setor**: Face das Esportivas
+              - **grupo**: Pedra do Neri
               - **ids**:
                 - VDojPlTsw21e7x
             - **[3]**:
@@ -9028,6 +9677,8 @@
               - **pontos_uids**:
                 - FIW8X6HdtiCqOL
               - **escalada**: Diedro Caboclo D'Água
+              - **setor**: Face das Esportivas
+              - **grupo**: Pedra do Neri
               - **ids**:
                 - FIW8X6HdtiCqOL
             - **[4]**:
@@ -9035,6 +9686,8 @@
               - **pontos_uids**:
                 - 4Jz2WJF2mfngOb
               - **escalada**: Balangandã
+              - **setor**: Face das Esportivas
+              - **grupo**: Pedra do Neri
               - **ids**:
                 - 4Jz2WJF2mfngOb
             - **[5]**:
@@ -9042,6 +9695,8 @@
               - **pontos_uids**:
                 - JeCvLOcpGTq9LF
               - **escalada**: Pé de Chinelo
+              - **setor**: Face das Esportivas
+              - **grupo**: Pedra do Neri
               - **ids**:
                 - JeCvLOcpGTq9LF
           - **pontos_de_interesse**:
@@ -9202,6 +9857,8 @@
               - **pontos_uids**:
                 - QLLu6bQJGXj7y8
               - **escalada**: Queima de Arquivo
+              - **setor**: Face das Aderências
+              - **grupo**: Pedra do Neri
               - **ids**:
                 - QLLu6bQJGXj7y8
             - **[1]**:
@@ -9209,6 +9866,8 @@
               - **pontos_uids**:
                 - 7CAiJdPTzYy36Y
               - **escalada**: Aquidaban
+              - **setor**: Face das Aderências
+              - **grupo**: Pedra do Neri
               - **ids**:
                 - 7CAiJdPTzYy36Y
             - **[2]**:
@@ -9216,6 +9875,8 @@
               - **pontos_uids**:
                 - nyui5vOsFJ9ZU8
               - **escalada**: Tempestade
+              - **setor**: Face das Aderências
+              - **grupo**: Pedra do Neri
               - **ids**:
                 - nyui5vOsFJ9ZU8
             - **[3]**:
@@ -9223,6 +9884,8 @@
               - **pontos_uids**:
                 - Q7EypUgJMegE0x
               - **escalada**: Chuva de Verão
+              - **setor**: Face das Aderências
+              - **grupo**: Pedra do Neri
               - **ids**:
                 - Q7EypUgJMegE0x
             - **[4]**:
@@ -9230,6 +9893,8 @@
               - **pontos_uids**:
                 - VGve0qnBCTlJtW
               - **escalada**: Brumas de Inverno
+              - **setor**: Face das Aderências
+              - **grupo**: Pedra do Neri
               - **ids**:
                 - VGve0qnBCTlJtW
           - **pontos_de_interesse**:
@@ -9368,6 +10033,7 @@
         - **pontos_uids**:
           - QHjba1ls0enV7t
         - **escalada**: Pr. Pellé 70
+        - **setor**: Setor Parede da CENIBRA
         - **ids**:
           - QHjba1ls0enV7t
     - **largura_mapa**: 961
@@ -9417,6 +10083,7 @@
         - **pontos_uids**:
           - CGS0FrAZT9abWx
         - **escalada**: Dama de Ferros
+        - **setor**: Setor Parede da Água Limpa
         - **ids**:
           - CGS0FrAZT9abWx
     - **largura_mapa**: 2008
@@ -9519,6 +10186,7 @@
         - **pontos_uids**:
           - xuBhGx6vMWSp9V
         - **escalada**: Amazonita
+        - **setor**: Outras Vias
         - **ids**:
           - xuBhGx6vMWSp9V
       - **[1]**:
@@ -9526,6 +10194,7 @@
         - **pontos_uids**:
           - TtQo1rrqeA8FZ7
         - **escalada**: Fissura Cachoeira Quente
+        - **setor**: Outras Vias
         - **ids**:
           - TtQo1rrqeA8FZ7
     - **pontos_de_interesse**:

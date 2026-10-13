@@ -123,6 +123,7 @@
         - **pontos_uids**:
           - s1r3kZAliEpkAT
         - **escalada**: Aresta do Apicultor
+        - **setor**: Setor Pedra do Arco
         - **ids**:
           - s1r3kZAliEpkAT
       - **[1]**:
@@ -130,6 +131,7 @@
         - **pontos_uids**:
           - Mqj2EClYZ4ujtk
         - **escalada**: Se Segura Malandro
+        - **setor**: Setor Pedra do Arco
         - **ids**:
           - Mqj2EClYZ4ujtk
       - **[2]**:
@@ -137,6 +139,7 @@
         - **pontos_uids**:
           - magnWwwQCNU7fF
         - **escalada**: Filosofia Lusitana
+        - **setor**: Setor Pedra do Arco
         - **ids**:
           - magnWwwQCNU7fF
       - **[3]**:
@@ -144,6 +147,7 @@
         - **pontos_uids**:
           - BeXkX3odFKdQz3
         - **escalada**: Titanomaquia
+        - **setor**: Setor Pedra do Arco
         - **ids**:
           - BeXkX3odFKdQz3
       - **[4]**:
@@ -151,6 +155,7 @@
         - **pontos_uids**:
           - sdiL6ScDymSd01
         - **escalada**: Sika Loca
+        - **setor**: Setor Pedra do Arco
         - **ids**:
           - sdiL6ScDymSd01
       - **[5]**:
@@ -158,6 +163,7 @@
         - **pontos_uids**:
           - egxjGifeS1x7kR
         - **escalada**: Caba Não Mundão
+        - **setor**: Setor Pedra do Arco
         - **ids**:
           - egxjGifeS1x7kR
       - **[6]**:
@@ -165,6 +171,7 @@
         - **pontos_uids**:
           - XXp8u1XQbh5ODl
         - **escalada**: Marreta Porreta
+        - **setor**: Setor Pedra do Arco
         - **ids**:
           - XXp8u1XQbh5ODl
       - **[7]**:
@@ -172,6 +179,7 @@
         - **pontos_uids**:
           - fBtl87Gp8aN5T5
         - **escalada**: Cabron da Peste
+        - **setor**: Setor Pedra do Arco
         - **ids**:
           - fBtl87Gp8aN5T5
       - **[8]**:
@@ -179,6 +187,7 @@
         - **pontos_uids**:
           - S9Ds7ARE1uQlMQ
         - **escalada**: Paralaxologística
+        - **setor**: Setor Pedra do Arco
         - **ids**:
           - S9Ds7ARE1uQlMQ
 - **escaladas**:
@@ -385,6 +394,7 @@
         - **pontos_uids**:
           - SL5beigFdmMPpa
         - **escalada**: Vivi Fernandes
+        - **setor**: Setor Campo Escola
         - **ids**:
           - SL5beigFdmMPpa
       - **[1]**:
@@ -392,6 +402,7 @@
         - **pontos_uids**:
           - 8N0TMzWLsd6kWp
         - **escalada**: Kid Bengala
+        - **setor**: Setor Campo Escola
         - **ids**:
           - 8N0TMzWLsd6kWp
       - **[2]**:
@@ -399,6 +410,7 @@
         - **pontos_uids**:
           - B1B9rVRVjLCiVx
         - **escalada**: Lolla
+        - **setor**: Setor Campo Escola
         - **ids**:
           - B1B9rVRVjLCiVx
       - **[3]**:
@@ -406,6 +418,7 @@
         - **pontos_uids**:
           - ebZtAni3NdfAGN
         - **escalada**: Emanuelle
+        - **setor**: Setor Campo Escola
         - **ids**:
           - ebZtAni3NdfAGN
       - **[4]**:
@@ -413,6 +426,7 @@
         - **pontos_uids**:
           - Yu1y8joy7B6YUk
         - **escalada**: Bruna Surfistinha
+        - **setor**: Setor Campo Escola
         - **ids**:
           - Yu1y8joy7B6YUk
       - **[5]**:
@@ -420,6 +434,7 @@
         - **pontos_uids**:
           - DN3nDZ1UuI8UTg
         - **escalada**: Hilda Furacão
+        - **setor**: Setor Campo Escola
         - **ids**:
           - DN3nDZ1UuI8UTg
       - **[6]**:
@@ -427,6 +442,7 @@
         - **pontos_uids**:
           - exWnLXdm6YeHMm
         - **escalada**: Cicciolina
+        - **setor**: Setor Campo Escola
         - **ids**:
           - exWnLXdm6YeHMm
       - **[7]**:
@@ -434,6 +450,7 @@
         - **pontos_uids**:
           - klXGpHy9c2z2VH
         - **escalada**: Bordel
+        - **setor**: Setor Campo Escola
         - **ids**:
           - klXGpHy9c2z2VH
 - **escaladas**:
@@ -617,6 +634,7 @@
         - **pontos_uids**:
           - OAqwOD0xxV1vPu
         - **escalada**: Temer Jamais
+        - **setor**: Setor Tchau Querida
         - **ids**:
           - OAqwOD0xxV1vPu
       - **[1]**:
@@ -624,6 +642,7 @@
         - **pontos_uids**:
           - MuwmgaCCQZRwWx
         - **escalada**: Escalar sem Temer
+        - **setor**: Setor Tchau Querida
         - **ids**:
           - MuwmgaCCQZRwWx
       - **[2]**:
@@ -631,6 +650,7 @@
         - **pontos_uids**:
           - K5QKDGoccW19NA
         - **escalada**: Tchau Querida
+        - **setor**: Setor Tchau Querida
         - **ids**:
           - K5QKDGoccW19NA
       - **[3]**:
@@ -638,6 +658,7 @@
         - **pontos_uids**:
           - cdfIXsByranGf7
         - **escalada**: República do Pó Royal
+        - **setor**: Setor Tchau Querida
         - **ids**:
           - cdfIXsByranGf7
       - **[4]**:
@@ -645,6 +666,7 @@
         - **pontos_uids**:
           - AjkqTGkt4Ch8hA
         - **escalada**: República das Bananas
+        - **setor**: Setor Tchau Querida
         - **ids**:
           - AjkqTGkt4Ch8hA
       - **[5]**:
@@ -652,6 +674,7 @@
         - **pontos_uids**:
           - RfbWzFwbo770MS
         - **escalada**: República do Café com Leite
+        - **setor**: Setor Tchau Querida
         - **ids**:
           - RfbWzFwbo770MS
       - **[6]**:
@@ -659,6 +682,7 @@
         - **pontos_uids**:
           - teBEMz2j8ndVhN
         - **escalada**: Lava Jato
+        - **setor**: Setor Tchau Querida
         - **ids**:
           - teBEMz2j8ndVhN
 - **escaladas**:
@@ -914,6 +938,7 @@
         - **pontos_uids**:
           - Kw2r26BhWKm3HW
         - **escalada**: Vaca Virgem
+        - **setor**: Setor Pedra Branca
         - **ids**:
           - Kw2r26BhWKm3HW
       - **[1]**:
@@ -921,6 +946,7 @@
         - **pontos_uids**:
           - S94l8t3Kowypzj
         - **escalada**: Route 162
+        - **setor**: Setor Pedra Branca
         - **ids**:
           - S94l8t3Kowypzj
       - **[2]**:
@@ -928,6 +954,7 @@
         - **pontos_uids**:
           - UQA4cM8WDOTV6g
         - **escalada**: Dia de Protesto
+        - **setor**: Setor Pedra Branca
         - **ids**:
           - UQA4cM8WDOTV6g
       - **[3]**:
@@ -935,6 +962,7 @@
         - **pontos_uids**:
           - rrXCVCX315PvDh
         - **escalada**: Atestado de Cadena
+        - **setor**: Setor Pedra Branca
         - **ids**:
           - rrXCVCX315PvDh
       - **[4]**:
@@ -942,6 +970,7 @@
         - **pontos_uids**:
           - 167oZQUL97DvEX
         - **escalada**: Janela do Universo
+        - **setor**: Setor Pedra Branca
         - **ids**:
           - 167oZQUL97DvEX
       - **[5]**:
@@ -949,6 +978,7 @@
         - **pontos_uids**:
           - J2HhYo5NDZ6t4Q
         - **escalada**: Musgonoszói
+        - **setor**: Setor Pedra Branca
         - **ids**:
           - J2HhYo5NDZ6t4Q
       - **[6]**:
@@ -956,6 +986,7 @@
         - **pontos_uids**:
           - Ziwxy16uv4OHif
         - **escalada**: Fala meu Justo
+        - **setor**: Setor Pedra Branca
         - **ids**:
           - Ziwxy16uv4OHif
       - **[7]**:
@@ -963,6 +994,7 @@
         - **pontos_uids**:
           - 6TOSSMM6oJLdCA
         - **escalada**: Regletes Ocultos
+        - **setor**: Setor Pedra Branca
         - **ids**:
           - 6TOSSMM6oJLdCA
       - **[8]**:
@@ -970,6 +1002,7 @@
         - **pontos_uids**:
           - 244HBnuym2IWDk
         - **escalada**: Batata com Sal
+        - **setor**: Setor Pedra Branca
         - **ids**:
           - 244HBnuym2IWDk
       - **[9]**:
@@ -977,6 +1010,7 @@
         - **pontos_uids**:
           - EcPEuN3CknJ9Ga
         - **escalada**: Argentina
+        - **setor**: Setor Pedra Branca
         - **ids**:
           - EcPEuN3CknJ9Ga
       - **[10]**:
@@ -984,6 +1018,7 @@
         - **pontos_uids**:
           - UoEPxqRveqDfjl
         - **escalada**: Alemanha
+        - **setor**: Setor Pedra Branca
         - **ids**:
           - UoEPxqRveqDfjl
       - **[11]**:
@@ -991,6 +1026,7 @@
         - **pontos_uids**:
           - arqatt4PQTrUTw
         - **escalada**: Melodrama
+        - **setor**: Setor Pedra Branca
         - **ids**:
           - arqatt4PQTrUTw
       - **[12]**:
@@ -998,6 +1034,7 @@
         - **pontos_uids**:
           - TfkQQLiEb8mFpE
         - **escalada**: Sapiência
+        - **setor**: Setor Pedra Branca
         - **ids**:
           - TfkQQLiEb8mFpE
       - **[13]**:
@@ -1005,6 +1042,7 @@
         - **pontos_uids**:
           - Ydiim87OstKvuh
         - **escalada**: Lagartixa de Pedra
+        - **setor**: Setor Pedra Branca
         - **ids**:
           - Ydiim87OstKvuh
       - **[14]**:
@@ -1012,6 +1050,7 @@
         - **pontos_uids**:
           - Ni8v7sYqnxZo1m
         - **escalada**: Meu Amigo Friend
+        - **setor**: Setor Pedra Branca
         - **ids**:
           - Ni8v7sYqnxZo1m
       - **[15]**:
@@ -1019,6 +1058,7 @@
         - **pontos_uids**:
           - uVC6RLcQ3zqjlW
         - **escalada**: Meu Amigo Broca
+        - **setor**: Setor Pedra Branca
         - **ids**:
           - uVC6RLcQ3zqjlW
 - **escaladas**:

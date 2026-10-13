@@ -359,6 +359,7 @@
           - XqPUCMqPKraZZ3
           - Tu4jPqPdm73xzJ
         - **escalada**: Fenômeno
+        - **setor**: Setor Cangaço
         - **ids**:
           - XqPUCMqPKraZZ3
           - Tu4jPqPdm73xzJ
@@ -368,6 +369,7 @@
           - 1daR2AMi0llxXM
           - Tu4jPqPdm73xzJ
         - **escalada**: Maradona
+        - **setor**: Setor Cangaço
         - **ids**:
           - 1daR2AMi0llxXM
           - Tu4jPqPdm73xzJ
@@ -377,6 +379,7 @@
           - nELtPBrn6kRTHV
           - 2EUf0rxVoCVbtx
         - **escalada**: Primogênito
+        - **setor**: Setor Cangaço
         - **ids**:
           - nELtPBrn6kRTHV
           - 2EUf0rxVoCVbtx
@@ -385,6 +388,7 @@
         - **pontos_uids**:
           - jHw0iCp1aYwAXc
         - **escalada**: Mil e um nomes de bebês
+        - **setor**: Setor Cangaço
         - **ids**:
           - jHw0iCp1aYwAXc
       - **[4]**:
@@ -392,6 +396,7 @@
         - **pontos_uids**:
           - EDhQmmQqs2MiAm
         - **escalada**: Diadorim
+        - **setor**: Setor Cangaço
         - **ids**:
           - EDhQmmQqs2MiAm
       - **[5]**:
@@ -400,6 +405,7 @@
           - Aj429rBLa0cJQP
           - tSgJ8flfigkDw9
         - **escalada**: Sem reservas, por favor
+        - **setor**: Setor Cangaço
         - **ids**:
           - Aj429rBLa0cJQP
           - tSgJ8flfigkDw9
@@ -409,6 +415,7 @@
           - skV2Y8ldKhXNcz
           - tSgJ8flfigkDw9
         - **escalada**: Antônio Conselheiro
+        - **setor**: Setor Cangaço
         - **ids**:
           - skV2Y8ldKhXNcz
           - tSgJ8flfigkDw9
@@ -418,6 +425,7 @@
           - ENBdArbuDIXyM4
           - Mv59tD0AVmowSW
         - **escalada**: Lampião
+        - **setor**: Setor Cangaço
         - **ids**:
           - ENBdArbuDIXyM4
           - Mv59tD0AVmowSW
@@ -427,6 +435,7 @@
           - nXPB7hOES5UUVg
           - Mv59tD0AVmowSW
         - **escalada**: Maria Bonita
+        - **setor**: Setor Cangaço
         - **ids**:
           - nXPB7hOES5UUVg
           - Mv59tD0AVmowSW
@@ -436,6 +445,7 @@
           - ODroUrANMC33Xs
           - EQlmsuGnBuW2Ai
         - **escalada**: Corisco
+        - **setor**: Setor Cangaço
         - **ids**:
           - ODroUrANMC33Xs
           - EQlmsuGnBuW2Ai
@@ -444,6 +454,7 @@
         - **pontos_uids**:
           - avecH1ySNo6RxX
         - **escalada**: Volta Seca
+        - **setor**: Setor Cangaço
         - **ids**:
           - avecH1ySNo6RxX
       - **[11]**:
@@ -451,6 +462,7 @@
         - **pontos_uids**:
           - GdOtJtEtk8KK8m
         - **escalada**: Ameaça
+        - **setor**: Setor Cangaço
         - **ids**:
           - GdOtJtEtk8KK8m
       - **[12]**:
@@ -458,6 +470,7 @@
         - **pontos_uids**:
           - kZ6uVGJ5mwgoXT
         - **escalada**: Zé Sereno
+        - **setor**: Setor Cangaço
         - **ids**:
           - kZ6uVGJ5mwgoXT
       - **[13]**:
@@ -713,6 +726,7 @@
         - **pontos_uids**:
           - Xw6DFgNepva4vw
         - **escalada**: Boa noite Cinderela
+        - **setor**: Setor Ditados
         - **ids**:
           - Xw6DFgNepva4vw
       - **[1]**:
@@ -720,6 +734,7 @@
         - **pontos_uids**:
           - shqoSegu4UVEME
         - **escalada**: Quem dorme com criança...
+        - **setor**: Setor Ditados
         - **ids**:
           - shqoSegu4UVEME
       - **[2]**:
@@ -727,6 +742,7 @@
         - **pontos_uids**:
           - u7V3ho0dMhq7Io
         - **escalada**: Quem planta vento...
+        - **setor**: Setor Ditados
         - **ids**:
           - u7V3ho0dMhq7Io
       - **[3]**:
@@ -734,6 +750,7 @@
         - **pontos_uids**:
           - 58XnUSVLka50uN
         - **escalada**: A vida é dura...
+        - **setor**: Setor Ditados
         - **ids**:
           - 58XnUSVLka50uN
       - **[4]**:
@@ -742,6 +759,7 @@
           - eFNSO7nvXybKbR
           - M38jUek9iQOWZ0
         - **escalada**: Mais vale um na mão...
+        - **setor**: Setor Ditados
         - **ids**:
           - eFNSO7nvXybKbR
           - M38jUek9iQOWZ0
@@ -751,6 +769,7 @@
           - WVWWsQp9rACdtH
           - M38jUek9iQOWZ0
         - **escalada**: Por fora bela viola...
+        - **setor**: Setor Ditados
         - **ids**:
           - WVWWsQp9rACdtH
           - M38jUek9iQOWZ0
@@ -759,6 +778,7 @@
         - **pontos_uids**:
           - yZl47hRVSuWLC0
         - **escalada**: Em terra de rei...
+        - **setor**: Setor Ditados
         - **ids**:
           - yZl47hRVSuWLC0
       - **[7]**:
@@ -766,6 +786,7 @@
         - **pontos_uids**:
           - lsCm2mSNtJ8nBg
         - **escalada**: Red
+        - **setor**: Setor Ditados
         - **ids**:
           - lsCm2mSNtJ8nBg
       - **[8]**:
@@ -1031,6 +1052,7 @@
         - **pontos_uids**:
           - FLvvo8cVb8e14A
         - **escalada**: Em terra de rei...
+        - **setor**: Setor Cervejas
         - **ids**:
           - FLvvo8cVb8e14A
       - **[1]**:
@@ -1038,6 +1060,7 @@
         - **pontos_uids**:
           - y3B097OshmQTtl
         - **escalada**: Red
+        - **setor**: Setor Cervejas
         - **ids**:
           - y3B097OshmQTtl
       - **[2]**:
@@ -1045,6 +1068,7 @@
         - **pontos_uids**:
           - A8dCxls17QcSXJ
         - **escalada**: Quadrupel
+        - **setor**: Setor Cervejas
         - **ids**:
           - A8dCxls17QcSXJ
       - **[3]**:
@@ -1052,6 +1076,7 @@
         - **pontos_uids**:
           - pE20dgyct4YC3Z
         - **escalada**: Pilsen
+        - **setor**: Setor Cervejas
         - **ids**:
           - pE20dgyct4YC3Z
       - **[4]**:
@@ -1059,6 +1084,7 @@
         - **pontos_uids**:
           - RuHqsyXxr4kt4e
         - **escalada**: Black
+        - **setor**: Setor Cervejas
         - **ids**:
           - RuHqsyXxr4kt4e
       - **[5]**:
@@ -1066,6 +1092,7 @@
         - **pontos_uids**:
           - FXDJB1IfKC7K8M
         - **escalada**: Pale
+        - **setor**: Setor Cervejas
         - **ids**:
           - FXDJB1IfKC7K8M
       - **[6]**:
@@ -1073,6 +1100,7 @@
         - **pontos_uids**:
           - zfqXaEAEFf0LSn
         - **escalada**: Witbier
+        - **setor**: Setor Cervejas
         - **ids**:
           - zfqXaEAEFf0LSn
       - **[7]**:
@@ -1080,6 +1108,7 @@
         - **pontos_uids**:
           - KXkabbVAhKiRLR
         - **escalada**: Blonde
+        - **setor**: Setor Cervejas
         - **ids**:
           - KXkabbVAhKiRLR
       - **[8]**:
@@ -1087,6 +1116,7 @@
         - **pontos_uids**:
           - LvBamxFlQUNZTF
         - **escalada**: Dubbel
+        - **setor**: Setor Cervejas
         - **ids**:
           - LvBamxFlQUNZTF
       - **[9]**:
@@ -1094,6 +1124,7 @@
         - **pontos_uids**:
           - Tv8E5ELUjlLr7d
         - **escalada**: Primeiro gole
+        - **setor**: Setor Cervejas
         - **ids**:
           - Tv8E5ELUjlLr7d
       - **[10]**:
@@ -1101,6 +1132,7 @@
         - **pontos_uids**:
           - EDiBby9xwsDO8D
         - **escalada**: Saidera
+        - **setor**: Setor Cervejas
         - **ids**:
           - EDiBby9xwsDO8D
       - **[11]**:
@@ -1108,6 +1140,7 @@
         - **pontos_uids**:
           - VZhrnK5IO3pJSK
         - **escalada**: Porter
+        - **setor**: Setor Cervejas
         - **ids**:
           - VZhrnK5IO3pJSK
       - **[12]**:
@@ -1116,6 +1149,7 @@
           - eyAN1ij4RQoH29
           - VZhrnK5IO3pJSK
         - **escalada**: Bavariante
+        - **setor**: Setor Cervejas
         - **ids**:
           - eyAN1ij4RQoH29
           - VZhrnK5IO3pJSK
@@ -1125,6 +1159,7 @@
           - GvyEqdeOD6L6Fr
           - VZhrnK5IO3pJSK
         - **escalada**: Old Ale
+        - **setor**: Setor Cervejas
         - **ids**:
           - GvyEqdeOD6L6Fr
           - VZhrnK5IO3pJSK
@@ -1358,6 +1393,7 @@
         - **pontos_uids**:
           - Nu8UeBEtTPmERx
         - **escalada**: C'est la vie
+        - **setor**: Setor Questão de Tempo
         - **ids**:
           - Nu8UeBEtTPmERx
       - **[1]**:
@@ -1365,6 +1401,7 @@
         - **pontos_uids**:
           - Q6KMwkax3XBt9h
         - **escalada**: Eu prefiro uma cerveja
+        - **setor**: Setor Questão de Tempo
         - **ids**:
           - Q6KMwkax3XBt9h
       - **[2]**:
@@ -1372,6 +1409,7 @@
         - **pontos_uids**:
           - WV8ulB58SjKza6
         - **escalada**: Hospício jamais
+        - **setor**: Setor Questão de Tempo
         - **ids**:
           - WV8ulB58SjKza6
       - **[3]**:
@@ -1513,6 +1551,7 @@
         - **pontos_uids**:
           - jt2RQVu961GyRx
         - **escalada**: Ócios do hospício
+        - **setor**: Setor Hospício
         - **ids**:
           - jt2RQVu961GyRx
       - **[1]**:
@@ -1520,6 +1559,7 @@
         - **pontos_uids**:
           - Nquey2VeKM3Kma
         - **escalada**: Psicanálise
+        - **setor**: Setor Hospício
         - **ids**:
           - Nquey2VeKM3Kma
       - **[2]**:
@@ -1527,6 +1567,7 @@
         - **pontos_uids**:
           - 8BxFniroCP8kfX
         - **escalada**: Clínica de recuperação
+        - **setor**: Setor Hospício
         - **ids**:
           - 8BxFniroCP8kfX
       - **[3]**:
@@ -1534,6 +1575,7 @@
         - **pontos_uids**:
           - qVr0TzUuiFtMYV
         - **escalada**: Eletrochoque
+        - **setor**: Setor Hospício
         - **ids**:
           - qVr0TzUuiFtMYV
       - **[4]**:
@@ -1541,6 +1583,7 @@
         - **pontos_uids**:
           - M9jcxYBpQPBhZP
         - **escalada**: Camisa de força
+        - **setor**: Setor Hospício
         - **ids**:
           - M9jcxYBpQPBhZP
       - **[5]**:

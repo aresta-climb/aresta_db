@@ -55,6 +55,7 @@
         - **pontos_uids**:
           - BY4qmREQujvgPB
         - **escalada**: Paranauê
+        - **setor**: Setor Rock Master
         - **ids**:
           - BY4qmREQujvgPB
       - **[1]**:
@@ -62,6 +63,7 @@
         - **pontos_uids**:
           - EsdM6DXPBuRHe0
         - **escalada**: Terráqueos
+        - **setor**: Setor Rock Master
         - **ids**:
           - EsdM6DXPBuRHe0
       - **[2]**:
@@ -69,6 +71,7 @@
         - **pontos_uids**:
           - i5VvKatBRm7Xq3
         - **escalada**: Lunáticos
+        - **setor**: Setor Rock Master
         - **ids**:
           - i5VvKatBRm7Xq3
       - **[3]**:
@@ -76,6 +79,7 @@
         - **pontos_uids**:
           - Mdjv2ImA0YheV7
         - **escalada**: Salsalito
+        - **setor**: Setor Rock Master
         - **ids**:
           - Mdjv2ImA0YheV7
       - **[4]**:
@@ -83,6 +87,7 @@
         - **pontos_uids**:
           - YVelyWyFWDisHB
         - **escalada**: Pôr do sol
+        - **setor**: Setor Rock Master
         - **ids**:
           - YVelyWyFWDisHB
       - **[5]**:
@@ -90,6 +95,7 @@
         - **pontos_uids**:
           - OwK9pI9pb9UTop
         - **escalada**: Roots Setter
+        - **setor**: Setor Rock Master
         - **ids**:
           - OwK9pI9pb9UTop
       - **[6]**:
@@ -97,6 +103,7 @@
         - **pontos_uids**:
           - A40PVrpjhoCktH
         - **escalada**: 2 em 1
+        - **setor**: Setor Rock Master
         - **ids**:
           - A40PVrpjhoCktH
       - **[7]**:
@@ -104,6 +111,7 @@
         - **pontos_uids**:
           - 55shR4BHDMOZIk
         - **escalada**: Lado Negro
+        - **setor**: Setor Rock Master
         - **ids**:
           - 55shR4BHDMOZIk
       - **[8]**:
@@ -111,6 +119,7 @@
         - **pontos_uids**:
           - GGOi5dor06J523
         - **escalada**: Magia Negra
+        - **setor**: Setor Rock Master
         - **ids**:
           - GGOi5dor06J523
       - **[9]**:
@@ -118,6 +127,7 @@
         - **pontos_uids**:
           - xQpBMXsEGb0soC
         - **escalada**: Magia Branca
+        - **setor**: Setor Rock Master
         - **ids**:
           - xQpBMXsEGb0soC
       - **[10]**:
@@ -125,6 +135,7 @@
         - **pontos_uids**:
           - ZkYs7Yml9L3Wze
         - **escalada**: Branquiara
+        - **setor**: Setor Rock Master
         - **ids**:
           - ZkYs7Yml9L3Wze
       - **[11]**:
@@ -132,6 +143,7 @@
         - **pontos_uids**:
           - x3PynDlj1R7b2z
         - **escalada**: Piedra Parada
+        - **setor**: Setor Rock Master
         - **ids**:
           - x3PynDlj1R7b2z
       - **[12]**:
@@ -139,6 +151,7 @@
         - **pontos_uids**:
           - NRMojm496EwFVh
         - **escalada**: Mate Leão
+        - **setor**: Setor Rock Master
         - **ids**:
           - NRMojm496EwFVh
       - **[13]**:
@@ -146,6 +159,7 @@
         - **pontos_uids**:
           - evTULrnmMstcne
         - **escalada**: Elvis Preza
+        - **setor**: Setor Rock Master
         - **ids**:
           - evTULrnmMstcne
       - **[14]**:
@@ -153,6 +167,7 @@
         - **pontos_uids**:
           - HkqKDIfBgjpRTJ
         - **escalada**: 4 no más
+        - **setor**: Setor Rock Master
         - **ids**:
           - HkqKDIfBgjpRTJ
       - **[15]**:
@@ -160,6 +175,7 @@
         - **pontos_uids**:
           - zCePwRCLu6pmlx
         - **escalada**: Quero bis
+        - **setor**: Setor Rock Master
         - **ids**:
           - zCePwRCLu6pmlx
       - **[16]**:
@@ -167,6 +183,7 @@
         - **pontos_uids**:
           - E8Z2N8QWG97eop
         - **escalada**: Agente Laranja
+        - **setor**: Setor Rock Master
         - **ids**:
           - E8Z2N8QWG97eop
       - **[17]**:
@@ -174,6 +191,7 @@
         - **pontos_uids**:
           - 8XY1hNp15k9SUV
         - **escalada**: Agente Branco
+        - **setor**: Setor Rock Master
         - **ids**:
           - 8XY1hNp15k9SUV
       - **[18]**:
@@ -181,6 +199,7 @@
         - **pontos_uids**:
           - 6HHm49HaUreMjf
         - **escalada**: Ouro Branco
+        - **setor**: Setor Rock Master
         - **ids**:
           - 6HHm49HaUreMjf
       - **[19]**:
@@ -188,6 +207,7 @@
         - **pontos_uids**:
           - vHybRUfjiuNK9y
         - **escalada**: Fuga de Ouro
+        - **setor**: Setor Rock Master
         - **ids**:
           - vHybRUfjiuNK9y
       - **[20]**:
@@ -195,6 +215,7 @@
         - **pontos_uids**:
           - pUQMrGfRR8VCJP
         - **escalada**: Black Power
+        - **setor**: Setor Rock Master
         - **ids**:
           - pUQMrGfRR8VCJP
       - **[21]**:
@@ -202,6 +223,7 @@
         - **pontos_uids**:
           - ic6vW9r7JJEQNv
         - **escalada**: Faixa Branca
+        - **setor**: Setor Rock Master
         - **ids**:
           - ic6vW9r7JJEQNv
       - **[22]**:
@@ -209,6 +231,7 @@
         - **pontos_uids**:
           - 0dgLbhTn4iO7F2
         - **escalada**: Fuga do Diedro
+        - **setor**: Setor Rock Master
         - **ids**:
           - 0dgLbhTn4iO7F2
       - **[23]**:
@@ -216,6 +239,7 @@
         - **pontos_uids**:
           - H3qAfbtRcg8fWI
         - **escalada**: Rock Junior
+        - **setor**: Setor Rock Master
         - **ids**:
           - H3qAfbtRcg8fWI
       - **[24]**:
@@ -223,6 +247,7 @@
         - **pontos_uids**:
           - aGQ0P5u49ouEvk
         - **escalada**: 1 em 100
+        - **setor**: Setor Rock Master
         - **ids**:
           - aGQ0P5u49ouEvk
       - **[25]**:
@@ -230,6 +255,7 @@
         - **pontos_uids**:
           - 9IsuxTBLTc4lzm
         - **escalada**: El Anciano
+        - **setor**: Setor Rock Master
         - **ids**:
           - 9IsuxTBLTc4lzm
       - **[26]**:
@@ -237,6 +263,7 @@
         - **pontos_uids**:
           - Y7zxiI9Hm7QWKJ
         - **escalada**: Agonia
+        - **setor**: Setor Rock Master
         - **ids**:
           - Y7zxiI9Hm7QWKJ
       - **[27]**:
@@ -244,6 +271,7 @@
         - **pontos_uids**:
           - KimDHsK4NkGSpM
         - **escalada**: Anjo Negro
+        - **setor**: Setor Rock Master
         - **ids**:
           - KimDHsK4NkGSpM
       - **[28]**:
@@ -251,6 +279,7 @@
         - **pontos_uids**:
           - AnrNpCwwrvyiEv
         - **escalada**: Shark Attack
+        - **setor**: Setor Rock Master
         - **ids**:
           - AnrNpCwwrvyiEv
       - **[29]**:
@@ -258,6 +287,7 @@
         - **pontos_uids**:
           - Cy5fVxmlFH17HG
         - **escalada**: Abismado
+        - **setor**: Setor Rock Master
         - **ids**:
           - Cy5fVxmlFH17HG
       - **[30]**:
@@ -265,6 +295,7 @@
         - **pontos_uids**:
           - GgFaBAWWyUXf1O
         - **escalada**: Operação Iberê
+        - **setor**: Setor Rock Master
         - **ids**:
           - GgFaBAWWyUXf1O
       - **[31]**:
@@ -272,6 +303,7 @@
         - **pontos_uids**:
           - obll35MMY8mCiW
         - **escalada**: Carijós
+        - **setor**: Setor Rock Master
         - **ids**:
           - obll35MMY8mCiW
       - **[32]**:
@@ -279,6 +311,7 @@
         - **pontos_uids**:
           - wXRx0uJixoRcMV
         - **escalada**: Guaicurus
+        - **setor**: Setor Rock Master
         - **ids**:
           - wXRx0uJixoRcMV
       - **[33]**:
@@ -286,6 +319,7 @@
         - **pontos_uids**:
           - 6edko2qUugZOaW
         - **escalada**: Oiapoque
+        - **setor**: Setor Rock Master
         - **ids**:
           - 6edko2qUugZOaW
       - **[34]**:
@@ -293,6 +327,7 @@
         - **pontos_uids**:
           - 3dqe5gmYWGsQGL
         - **escalada**: Teresa Cristina
+        - **setor**: Setor Rock Master
         - **ids**:
           - 3dqe5gmYWGsQGL
     - **largura_mapa**: 1722

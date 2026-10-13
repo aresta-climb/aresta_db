@@ -37,30 +37,40 @@ picos:
                 pontos_uids:
                 - '1'
                 escalada: Esquenta o prato
+                setor: Bloco A - Traverse ao Tito
+                grupo: Estacionamento
                 ids:
                 - '1'
               - alvo_uid: y8pNozqXqupfuc
                 pontos_uids:
                 - '2'
                 escalada: Traverse ao Tito
+                setor: Bloco A - Traverse ao Tito
+                grupo: Estacionamento
                 ids:
                 - '2'
               - alvo_uid: m5KSKHA1BNAond
                 pontos_uids:
                 - '3'
                 escalada: Chupa karma
+                setor: Bloco A - Traverse ao Tito
+                grupo: Estacionamento
                 ids:
                 - '3'
               - alvo_uid: TX3Ddbo6JEPhEk
                 pontos_uids:
                 - '4'
                 escalada: Taco o fogo
+                setor: Bloco A - Traverse ao Tito
+                grupo: Estacionamento
                 ids:
                 - '4'
               - alvo_uid: PADAVh9eSfibg7
                 pontos_uids:
                 - '5'
                 escalada: Pum
+                setor: Bloco A - Traverse ao Tito
+                grupo: Estacionamento
                 ids:
                 - '5'
             escaladas:
@@ -116,30 +126,40 @@ picos:
                 pontos_uids:
                 - '6'
                 escalada: La olla
+                setor: Bloco B - Positive Vibrations
+                grupo: Estacionamento
                 ids:
                 - '6'
               - alvo_uid: ykTyyYnc0JA4kk
                 pontos_uids:
                 - '7'
                 escalada: Mayday
+                setor: Bloco B - Positive Vibrations
+                grupo: Estacionamento
                 ids:
                 - '7'
               - alvo_uid: CVzdlBxD4MdgAm
                 pontos_uids:
                 - '8'
                 escalada: Positive vibrations
+                setor: Bloco B - Positive Vibrations
+                grupo: Estacionamento
                 ids:
                 - '8'
               - alvo_uid: FewpvWQrjZc4Ad
                 pontos_uids:
                 - '9'
                 escalada: Macadâmia
+                setor: Bloco B - Positive Vibrations
+                grupo: Estacionamento
                 ids:
                 - '9'
               - alvo_uid: BP8271Cj0nFz3A
                 pontos_uids:
                 - '10'
                 escalada: King Kong
+                setor: Bloco B - Positive Vibrations
+                grupo: Estacionamento
                 ids:
                 - '10'
             - caminho_imagem_mapa: imagens/setor_estacionamento_p3_i1.webp
@@ -150,18 +170,24 @@ picos:
                 pontos_uids:
                 - '10'
                 escalada: King Kong
+                setor: Bloco B - Positive Vibrations
+                grupo: Estacionamento
                 ids:
                 - '10'
               - alvo_uid: LfN0apLd7Jv8m3
                 pontos_uids:
                 - '11'
                 escalada: FormiguinhaZ
+                setor: Bloco B - Positive Vibrations
+                grupo: Estacionamento
                 ids:
                 - '11'
               - alvo_uid: bdc87LGB3hHIQb
                 pontos_uids:
                 - '12'
                 escalada: Buttstache
+                setor: Bloco B - Positive Vibrations
+                grupo: Estacionamento
                 ids:
                 - '12'
             escaladas:
@@ -223,24 +249,32 @@ picos:
                 pontos_uids:
                 - '12'
                 escalada: Barba ruiva
+                setor: Bloco C - Davy Jones
+                grupo: Estacionamento
                 ids:
                 - '12'
               - alvo_uid: NLIfUSMgfjga9V
                 pontos_uids:
                 - '13'
                 escalada: Davy Jones
+                setor: Bloco C - Davy Jones
+                grupo: Estacionamento
                 ids:
                 - '13'
               - alvo_uid: SUbGEXfGneLyml
                 pontos_uids:
                 - '14'
                 escalada: Fenda do Biquíni
+                setor: Bloco C - Davy Jones
+                grupo: Estacionamento
                 ids:
                 - '14'
               - alvo_uid: peoSaKCrDorXT8
                 pontos_uids:
                 - '15'
                 escalada: Motim
+                setor: Bloco C - Davy Jones
+                grupo: Estacionamento
                 ids:
                 - '15'
             escaladas:
@@ -287,18 +321,24 @@ picos:
                 pontos_uids:
                 - '16'
                 escalada: Aresta
+                setor: Bloco D - Bloco 0
+                grupo: Estacionamento
                 ids:
                 - '16'
               - alvo_uid: UNaKoik5viSfes
                 pontos_uids:
                 - '17'
                 escalada: Tangente (Bloco 0)
+                setor: Bloco D - Bloco 0
+                grupo: Estacionamento
                 ids:
                 - '17'
               - alvo_uid: Dw36KnzXWquwqj
                 pontos_uids:
                 - '19'
                 escalada: Transferência
+                setor: Bloco D - Bloco 0
+                grupo: Estacionamento
                 ids:
                 - '19'
             - caminho_imagem_mapa: imagens/setor_estacionamento_p6_i1.webp
@@ -309,36 +349,48 @@ picos:
                 pontos_uids:
                 - '18'
                 escalada: Transição
+                setor: Bloco D - Bloco 0
+                grupo: Estacionamento
                 ids:
                 - '18'
               - alvo_uid: Dw36KnzXWquwqj
                 pontos_uids:
                 - '19'
                 escalada: Transferência
+                setor: Bloco D - Bloco 0
+                grupo: Estacionamento
                 ids:
                 - '19'
               - alvo_uid: HXvr2ET4YJmMqi
                 pontos_uids:
                 - '20'
                 escalada: Verticale
+                setor: Bloco D - Bloco 0
+                grupo: Estacionamento
                 ids:
                 - '20'
               - alvo_uid: n0oAaiAr9TODeg
                 pontos_uids:
                 - '21'
                 escalada: Obina
+                setor: Bloco D - Bloco 0
+                grupo: Estacionamento
                 ids:
                 - '21'
               - alvo_uid: l0BtBWhuHMpgoU
                 pontos_uids:
                 - '22'
                 escalada: Medalha
+                setor: Bloco D - Bloco 0
+                grupo: Estacionamento
                 ids:
                 - '22'
               - alvo_uid: pYn9qgamHOWUOh
                 pontos_uids:
                 - '22'
                 escalada: Medalhão
+                setor: Bloco D - Bloco 0
+                grupo: Estacionamento
                 ids:
                 - '22'
             escaladas:
@@ -426,18 +478,24 @@ picos:
                 pontos_uids:
                 - '24'
                 escalada: Psicotrópicos
+                setor: Bloco E - Psicotrópicos
+                grupo: Estacionamento
                 ids:
                 - '24'
               - alvo_uid: 1frVvi6MxsXj6T
                 pontos_uids:
                 - '25'
                 escalada: Histeria
+                setor: Bloco E - Psicotrópicos
+                grupo: Estacionamento
                 ids:
                 - '25'
               - alvo_uid: zKnf8ryE2LbO7H
                 pontos_uids:
                 - '26'
                 escalada: Café com leite
+                setor: Bloco E - Psicotrópicos
+                grupo: Estacionamento
                 ids:
                 - '26'
             escaladas:
@@ -508,18 +566,24 @@ picos:
                 pontos_uids:
                 - '1'
                 escalada: Borboleta
+                setor: Bloco A - Libélula
+                grupo: Entrada
                 ids:
                 - '1'
               - alvo_uid: kzBZEahT1FKpZW
                 pontos_uids:
                 - '2'
                 escalada: Libélula
+                setor: Bloco A - Libélula
+                grupo: Entrada
                 ids:
                 - '2'
               - alvo_uid: cMuc6sILg49MgP
                 pontos_uids:
                 - '3'
                 escalada: Larva
+                setor: Bloco A - Libélula
+                grupo: Entrada
                 ids:
                 - '3'
             escaladas:
@@ -559,48 +623,64 @@ picos:
                 pontos_uids:
                 - '4'
                 escalada: No stress the blitz
+                setor: Bloco B - Bloco 1
+                grupo: Entrada
                 ids:
                 - '4'
               - alvo_uid: TSnYtLmrCOVEfP
                 pontos_uids:
                 - '5'
                 escalada: No stress the boulder
+                setor: Bloco B - Bloco 1
+                grupo: Entrada
                 ids:
                 - '5'
               - alvo_uid: oCcydj1LyWLKpw
                 pontos_uids:
                 - '6'
                 escalada: Don’t worry
+                setor: Bloco B - Bloco 1
+                grupo: Entrada
                 ids:
                 - '6'
               - alvo_uid: ZMIUoYT2JIw0S9
                 pontos_uids:
                 - '7'
                 escalada: Caxo de banana
+                setor: Bloco B - Bloco 1
+                grupo: Entrada
                 ids:
                 - '7'
               - alvo_uid: OWGK4eMqelppYW
                 pontos_uids:
                 - '8'
                 escalada: Easy
+                setor: Bloco B - Bloco 1
+                grupo: Entrada
                 ids:
                 - '8'
               - alvo_uid: xLTmHxR0v6yqxr
                 pontos_uids:
                 - '9'
                 escalada: Banana Terra
+                setor: Bloco B - Bloco 1
+                grupo: Entrada
                 ids:
                 - '9'
               - alvo_uid: IDYV6OzQGw4Uyr
                 pontos_uids:
                 - '10'
                 escalada: Check point
+                setor: Bloco B - Bloco 1
+                grupo: Entrada
                 ids:
                 - '10'
               - alvo_uid: HIVQjhcDLdwMLF
                 pontos_uids:
                 - '11'
                 escalada: Aresta in
+                setor: Bloco B - Bloco 1
+                grupo: Entrada
                 ids:
                 - '11'
             - caminho_imagem_mapa: imagens/setor_entrada_p4_i1.webp
@@ -611,42 +691,56 @@ picos:
                 pontos_uids:
                 - '11'
                 escalada: Aresta in
+                setor: Bloco B - Bloco 1
+                grupo: Entrada
                 ids:
                 - '11'
               - alvo_uid: 2CeN9A6XELWMYA
                 pontos_uids:
                 - '12'
                 escalada: Referência perigosa
+                setor: Bloco B - Bloco 1
+                grupo: Entrada
                 ids:
                 - '12'
               - alvo_uid: JRLTaJtkYUh7Ld
                 pontos_uids:
                 - '13'
                 escalada: Pipe line
+                setor: Bloco B - Bloco 1
+                grupo: Entrada
                 ids:
                 - '13'
               - alvo_uid: sV2KwpHieKKL57
                 pontos_uids:
                 - '14'
                 escalada: Paulista irado
+                setor: Bloco B - Bloco 1
+                grupo: Entrada
                 ids:
                 - '14'
               - alvo_uid: w6pNrcX8OKpUO7
                 pontos_uids:
                 - '15'
                 escalada: Marrentin carioca
+                setor: Bloco B - Bloco 1
+                grupo: Entrada
                 ids:
                 - '15'
               - alvo_uid: s4f7XudTyJSRQM
                 pontos_uids:
                 - '16'
                 escalada: Chato
+                setor: Bloco B - Bloco 1
+                grupo: Entrada
                 ids:
                 - '16'
               - alvo_uid: IUlTRTQX9r4zvI
                 pontos_uids:
                 - '17'
                 escalada: Mantenha o respeito
+                setor: Bloco B - Bloco 1
+                grupo: Entrada
                 ids:
                 - '17'
             - caminho_imagem_mapa: imagens/setor_entrada_p5_i0.webp
@@ -657,18 +751,24 @@ picos:
                 pontos_uids:
                 - '18'
                 escalada: Mineral
+                setor: Bloco B - Bloco 1
+                grupo: Entrada
                 ids:
                 - '18'
               - alvo_uid: aLOFMjQNHOaxAn
                 pontos_uids:
                 - '19'
                 escalada: Desvio
+                setor: Bloco B - Bloco 1
+                grupo: Entrada
                 ids:
                 - '19'
               - alvo_uid: Izs1WOCqZDzli2
                 pontos_uids:
                 - '20'
                 escalada: Rei do pão
+                setor: Bloco B - Bloco 1
+                grupo: Entrada
                 ids:
                 - '20'
             - caminho_imagem_mapa: imagens/setor_entrada_p5_i1.webp
@@ -679,18 +779,24 @@ picos:
                 pontos_uids:
                 - '21'
                 escalada: Equilibrista
+                setor: Bloco B - Bloco 1
+                grupo: Entrada
                 ids:
                 - '21'
               - alvo_uid: GeNm2SgfPJzhrI
                 pontos_uids:
                 - '22'
                 escalada: Parmalat
+                setor: Bloco B - Bloco 1
+                grupo: Entrada
                 ids:
                 - '22'
               - alvo_uid: vF8RZ3qWHTpOZg
                 pontos_uids:
                 - '23'
                 escalada: Bh x Brasília
+                setor: Bloco B - Bloco 1
+                grupo: Entrada
                 ids:
                 - '23'
             escaladas:
@@ -847,90 +953,120 @@ picos:
                 pontos_uids:
                 - '24'
                 escalada: Gaston as avessas
+                setor: Bloco C - Bloco 2
+                grupo: Entrada
                 ids:
                 - '24'
               - alvo_uid: uFP6AiK9oJPbp0
                 pontos_uids:
                 - '25'
                 escalada: Calango hidráulico
+                setor: Bloco C - Bloco 2
+                grupo: Entrada
                 ids:
                 - '25'
               - alvo_uid: YLBfA61HjdTbCT
                 pontos_uids:
                 - '26'
                 escalada: Ergot
+                setor: Bloco C - Bloco 2
+                grupo: Entrada
                 ids:
                 - '26'
               - alvo_uid: 53YkCd34DD4iML
                 pontos_uids:
                 - '27'
                 escalada: Ergot SDS
+                setor: Bloco C - Bloco 2
+                grupo: Entrada
                 ids:
                 - '27'
               - alvo_uid: xr2FQXXiSTj2Iz
                 pontos_uids:
                 - '26'
                 escalada: Trip eterna
+                setor: Bloco C - Bloco 2
+                grupo: Entrada
                 ids:
                 - '26'
               - alvo_uid: 5MytYt24HJg3PT
                 pontos_uids:
                 - '27'
                 escalada: Projeto 1
+                setor: Bloco C - Bloco 2
+                grupo: Entrada
                 ids:
                 - '27'
               - alvo_uid: MshAGTQ7R8wQpE
                 pontos_uids:
                 - '30'
                 escalada: Projeto Sabará
+                setor: Bloco C - Bloco 2
+                grupo: Entrada
                 ids:
                 - '30'
               - alvo_uid: C7rsQvdwzouahQ
                 pontos_uids:
                 - '31'
                 escalada: Crocância do sabor
+                setor: Bloco C - Bloco 2
+                grupo: Entrada
                 ids:
                 - '31'
               - alvo_uid: NoWEDfPUdq4MWQ
                 pontos_uids:
                 - '30'
                 escalada: Projeto 2
+                setor: Bloco C - Bloco 2
+                grupo: Entrada
                 ids:
                 - '30'
               - alvo_uid: Fkq9Y5QlyzRZCb
                 pontos_uids:
                 - '33'
                 escalada: Energético
+                setor: Bloco C - Bloco 2
+                grupo: Entrada
                 ids:
                 - '33'
               - alvo_uid: k7WAdPJsT5WzlQ
                 pontos_uids:
                 - '33'
                 escalada: Estimulante
+                setor: Bloco C - Bloco 2
+                grupo: Entrada
                 ids:
                 - '33'
               - alvo_uid: YoXKvlBtqyVEV9
                 pontos_uids:
                 - '35'
                 escalada: Projeto Taurina
+                setor: Bloco C - Bloco 2
+                grupo: Entrada
                 ids:
                 - '35'
               - alvo_uid: VVW7BKdL5q2Gbm
                 pontos_uids:
                 - '36'
                 escalada: Rala frek lek
+                setor: Bloco C - Bloco 2
+                grupo: Entrada
                 ids:
                 - '36'
               - alvo_uid: xYyG7JKqzRj6Gt
                 pontos_uids:
                 - '36'
                 escalada: Rala frek lek SDS
+                setor: Bloco C - Bloco 2
+                grupo: Entrada
                 ids:
                 - '36'
               - alvo_uid: yRvJzGiffHQFAr
                 pontos_uids:
                 - '38'
                 escalada: Viviane Espíndola
+                setor: Bloco C - Bloco 2
+                grupo: Entrada
                 ids:
                 - '38'
             - caminho_imagem_mapa: imagens/setor_entrada_p9_i1.webp
@@ -941,48 +1077,64 @@ picos:
                 pontos_uids:
                 - '39'
                 escalada: Escala e desescala
+                setor: Bloco C - Bloco 2
+                grupo: Entrada
                 ids:
                 - '39'
               - alvo_uid: qaUP5qpVGiRyTi
                 pontos_uids:
                 - '40'
                 escalada: Sobe e desce
+                setor: Bloco C - Bloco 2
+                grupo: Entrada
                 ids:
                 - '40'
               - alvo_uid: mFR1T5Vy4nRihH
                 pontos_uids:
                 - '41'
                 escalada: Incrível
+                setor: Bloco C - Bloco 2
+                grupo: Entrada
                 ids:
                 - '41'
               - alvo_uid: Bgwtet02MZqHOB
                 pontos_uids:
                 - '42'
                 escalada: Ziglyn
+                setor: Bloco C - Bloco 2
+                grupo: Entrada
                 ids:
                 - '42'
               - alvo_uid: QhcWEshmVYNEW3
                 pontos_uids:
                 - '43'
                 escalada: Sai de reto
+                setor: Bloco C - Bloco 2
+                grupo: Entrada
                 ids:
                 - '43'
               - alvo_uid: m8xOBpL7xav5yq
                 pontos_uids:
                 - '44'
                 escalada: Adrena da cadena
+                setor: Bloco C - Bloco 2
+                grupo: Entrada
                 ids:
                 - '44'
               - alvo_uid: JtTmY764yiyQ3l
                 pontos_uids:
                 - '45'
                 escalada: Cadena sem adrena
+                setor: Bloco C - Bloco 2
+                grupo: Entrada
                 ids:
                 - '45'
               - alvo_uid: NpAbMpmVlT0cN5
                 pontos_uids:
                 - '46'
                 escalada: Cadê minha força?
+                setor: Bloco C - Bloco 2
+                grupo: Entrada
                 ids:
                 - '46'
             - caminho_imagem_mapa: imagens/setor_entrada_p9_i2.webp
@@ -993,30 +1145,40 @@ picos:
                 pontos_uids:
                 - '44'
                 escalada: Adrena da cadena
+                setor: Bloco C - Bloco 2
+                grupo: Entrada
                 ids:
                 - '44'
               - alvo_uid: JtTmY764yiyQ3l
                 pontos_uids:
                 - '45'
                 escalada: Cadena sem adrena
+                setor: Bloco C - Bloco 2
+                grupo: Entrada
                 ids:
                 - '45'
               - alvo_uid: NpAbMpmVlT0cN5
                 pontos_uids:
                 - '46'
                 escalada: Cadê minha força?
+                setor: Bloco C - Bloco 2
+                grupo: Entrada
                 ids:
                 - '46'
               - alvo_uid: Qz6KQHcVQr5b7a
                 pontos_uids:
                 - '47'
                 escalada: Ou vai ou racha
+                setor: Bloco C - Bloco 2
+                grupo: Entrada
                 ids:
                 - '47'
               - alvo_uid: pGCz7pTq0xq4ZR
                 pontos_uids:
                 - '48'
                 escalada: Seg atenciosa
+                setor: Bloco C - Bloco 2
+                grupo: Entrada
                 ids:
                 - '48'
             escaladas:
@@ -1230,18 +1392,24 @@ picos:
                 pontos_uids:
                 - '49'
                 escalada: Chupa lombriga
+                setor: Bloco D - Chupa Lombriga
+                grupo: Entrada
                 ids:
                 - '49'
               - alvo_uid: 9ffWr2RL0ktUZu
                 pontos_uids:
                 - '50'
                 escalada: Ventos alísios
+                setor: Bloco D - Chupa Lombriga
+                grupo: Entrada
                 ids:
                 - '50'
               - alvo_uid: Tvi0bcOVq2hmxn
                 pontos_uids:
                 - '51'
                 escalada: Esqueceram de mim
+                setor: Bloco D - Chupa Lombriga
+                grupo: Entrada
                 ids:
                 - '51'
             escaladas:
@@ -1277,18 +1445,24 @@ picos:
                 pontos_uids:
                 - '52'
                 escalada: Orgulho preto
+                setor: Bloco E - Abraço do Calango
+                grupo: Entrada
                 ids:
                 - '52'
               - alvo_uid: BfjKTAdMsGGuDd
                 pontos_uids:
                 - '53'
                 escalada: Abraço do calango
+                setor: Bloco E - Abraço do Calango
+                grupo: Entrada
                 ids:
                 - '53'
               - alvo_uid: V1pPmqvwoIVKtO
                 pontos_uids:
                 - '54'
                 escalada: Projeto 3
+                setor: Bloco E - Abraço do Calango
+                grupo: Entrada
                 ids:
                 - '54'
             escaladas:
@@ -1327,12 +1501,16 @@ picos:
                 pontos_uids:
                 - '55'
                 escalada: Virada do sol
+                setor: Bloco F - Nave
+                grupo: Entrada
                 ids:
                 - '55'
               - alvo_uid: pzEIJUulJ484co
                 pontos_uids:
                 - '56'
                 escalada: Nave
+                setor: Bloco F - Nave
+                grupo: Entrada
                 ids:
                 - '56'
             escaladas:
@@ -1404,36 +1582,48 @@ picos:
             pontos_uids:
             - '5'
             escalada: Rala-bucho
+            setor: Bloco C - Rala-Bucho
+            grupo: Sono do Calango
             ids:
             - '5'
           - alvo_uid: QtvkgIux4n3rHl
             pontos_uids:
             - '6'
             escalada: Rala-queixo
+            setor: Bloco C - Rala-Bucho
+            grupo: Sono do Calango
             ids:
             - '6'
           - alvo_uid: jD3BcCcMbAgcPr
             pontos_uids:
             - '7'
             escalada: Varejeira
+            setor: Bloco D - Varejeira
+            grupo: Sono do Calango
             ids:
             - '7'
           - alvo_uid: QxbNvHVWQzc5Sf
             pontos_uids:
             - '8'
             escalada: Tótem
+            setor: Bloco E - Tótem
+            grupo: Sono do Calango
             ids:
             - '8'
           - alvo_uid: DniDxlnGQELR7s
             pontos_uids:
             - '9'
             escalada: Quina
+            setor: Bloco F - Pinça
+            grupo: Sono do Calango
             ids:
             - '9'
           - alvo_uid: Ah2NDaAIZH7eew
             pontos_uids:
             - '10'
             escalada: Pinça
+            setor: Bloco F - Pinça
+            grupo: Sono do Calango
             ids:
             - '10'
         - caminho_imagem_mapa: imagens/setor_sono_do_calango_p3_i1.webp
@@ -1444,36 +1634,48 @@ picos:
             pontos_uids:
             - '6'
             escalada: Rala-queixo
+            setor: Bloco C - Rala-Bucho
+            grupo: Sono do Calango
             ids:
             - '6'
           - alvo_uid: jD3BcCcMbAgcPr
             pontos_uids:
             - '7'
             escalada: Varejeira
+            setor: Bloco D - Varejeira
+            grupo: Sono do Calango
             ids:
             - '7'
           - alvo_uid: QxbNvHVWQzc5Sf
             pontos_uids:
             - '8'
             escalada: Tótem
+            setor: Bloco E - Tótem
+            grupo: Sono do Calango
             ids:
             - '8'
           - alvo_uid: DniDxlnGQELR7s
             pontos_uids:
             - '9'
             escalada: Quina
+            setor: Bloco F - Pinça
+            grupo: Sono do Calango
             ids:
             - '9'
           - alvo_uid: Ah2NDaAIZH7eew
             pontos_uids:
             - '10'
             escalada: Pinça
+            setor: Bloco F - Pinça
+            grupo: Sono do Calango
             ids:
             - '10'
           - alvo_uid: KLKKPiTa1E1nJ6
             pontos_uids:
             - '11'
             escalada: Pataca
+            setor: Bloco F - Pinça
+            grupo: Sono do Calango
             ids:
             - '11'
         setores:
@@ -1489,12 +1691,16 @@ picos:
                 pontos_uids:
                 - '1'
                 escalada: High vibe
+                setor: Bloco A - High Vibe
+                grupo: Sono do Calango
                 ids:
                 - '1'
               - alvo_uid: GUFEBsbKmsMJqK
                 pontos_uids:
                 - '2'
                 escalada: Mamãe mandou
+                setor: Bloco A - High Vibe
+                grupo: Sono do Calango
                 ids:
                 - '2'
             escaladas:
@@ -1528,12 +1734,16 @@ picos:
                 pontos_uids:
                 - '3'
                 escalada: Batentes
+                setor: Bloco B - Batentes
+                grupo: Sono do Calango
                 ids:
                 - '3'
               - alvo_uid: jqM0mKITqM8HWS
                 pontos_uids:
                 - '4'
                 escalada: Quem procura acha
+                setor: Bloco B - Batentes
+                grupo: Sono do Calango
                 ids:
                 - '4'
             escaladas:
@@ -1639,30 +1849,40 @@ picos:
                 pontos_uids:
                 - '12'
                 escalada: Vendo a vó pela greta
+                setor: Bloco G - Das Vias
+                grupo: Sono do Calango
                 ids:
                 - '12'
               - alvo_uid: 5R8i9Bx1v64IKU
                 pontos_uids:
                 - '13'
                 escalada: Abraço do jacaré
+                setor: Bloco G - Das Vias
+                grupo: Sono do Calango
                 ids:
                 - '13'
               - alvo_uid: dIEvz3JGNyTgpY
                 pontos_uids:
                 - '14'
                 escalada: Papagaio preto
+                setor: Bloco G - Das Vias
+                grupo: Sono do Calango
                 ids:
                 - '14'
               - alvo_uid: 0pTamJhrWcfRNl
                 pontos_uids:
                 - '15'
                 escalada: Maritaca
+                setor: Bloco G - Das Vias
+                grupo: Sono do Calango
                 ids:
                 - '15'
               - alvo_uid: QoDk81uV5SAqYX
                 pontos_uids:
                 - '16'
                 escalada: Apêndice
+                setor: Bloco G - Das Vias
+                grupo: Sono do Calango
                 ids:
                 - '16'
             escaladas:
@@ -1715,30 +1935,40 @@ picos:
                 pontos_uids:
                 - '17'
                 escalada: Loteria
+                setor: Bloco H - Sono do Calango
+                grupo: Sono do Calango
                 ids:
                 - '17'
               - alvo_uid: tzf2d1BeT5vvB2
                 pontos_uids:
                 - '18'
                 escalada: Módulo
+                setor: Bloco H - Sono do Calango
+                grupo: Sono do Calango
                 ids:
                 - '18'
               - alvo_uid: qbMma91ipsZUmL
                 pontos_uids:
                 - '18'
                 escalada: Módulo SDS
+                setor: Bloco H - Sono do Calango
+                grupo: Sono do Calango
                 ids:
                 - '18'
               - alvo_uid: HIqi6sMB0lnpau
                 pontos_uids:
                 - '20'
                 escalada: Bromélia
+                setor: Bloco H - Sono do Calango
+                grupo: Sono do Calango
                 ids:
                 - '20'
               - alvo_uid: isQ4yjkNnX6l2N
                 pontos_uids:
                 - '21'
                 escalada: Maré na virada
+                setor: Bloco H - Sono do Calango
+                grupo: Sono do Calango
                 ids:
                 - '21'
             - caminho_imagem_mapa: imagens/setor_sono_do_calango_p6_i1.webp
@@ -1749,24 +1979,32 @@ picos:
                 pontos_uids:
                 - '22'
                 escalada: Orquídea
+                setor: Bloco H - Sono do Calango
+                grupo: Sono do Calango
                 ids:
                 - '22'
               - alvo_uid: pOPzkaXSaMBhLe
                 pontos_uids:
                 - '23'
                 escalada: Enverga bambu
+                setor: Bloco H - Sono do Calango
+                grupo: Sono do Calango
                 ids:
                 - '23'
               - alvo_uid: OBENXxsTAsUrzQ
                 pontos_uids:
                 - '24'
                 escalada: Sono do calango
+                setor: Bloco H - Sono do Calango
+                grupo: Sono do Calango
                 ids:
                 - '24'
               - alvo_uid: g9a7GtIM61K3Z9
                 pontos_uids:
                 - '25'
                 escalada: Sono do calango SDS
+                setor: Bloco H - Sono do Calango
+                grupo: Sono do Calango
                 ids:
                 - '25'
             - caminho_imagem_mapa: imagens/setor_sono_do_calango_p7_i0.webp
@@ -1777,54 +2015,72 @@ picos:
                 pontos_uids:
                 - '24'
                 escalada: Sono do calango
+                setor: Bloco H - Sono do Calango
+                grupo: Sono do Calango
                 ids:
                 - '24'
               - alvo_uid: g9a7GtIM61K3Z9
                 pontos_uids:
                 - '25'
                 escalada: Sono do calango SDS
+                setor: Bloco H - Sono do Calango
+                grupo: Sono do Calango
                 ids:
                 - '25'
               - alvo_uid: v2GePxaARzQw4x
                 pontos_uids:
                 - '26'
                 escalada: Sonâmbulo
+                setor: Bloco H - Sono do Calango
+                grupo: Sono do Calango
                 ids:
                 - '26'
               - alvo_uid: TpgQ1yKAE8Uglp
                 pontos_uids:
                 - '27'
                 escalada: Calango sonâmbulo
+                setor: Bloco H - Sono do Calango
+                grupo: Sono do Calango
                 ids:
                 - '27'
               - alvo_uid: dcoFPafy1H950d
                 pontos_uids:
                 - '28'
                 escalada: Chaparam os bago
+                setor: Bloco H - Sono do Calango
+                grupo: Sono do Calango
                 ids:
                 - '28'
               - alvo_uid: YcO6xQwYTXLdna
                 pontos_uids:
                 - '29'
                 escalada: Invertida faca
+                setor: Bloco H - Sono do Calango
+                grupo: Sono do Calango
                 ids:
                 - '29'
               - alvo_uid: NMICfVFZDcBIST
                 pontos_uids:
                 - '30'
                 escalada: Core
+                setor: Bloco H - Sono do Calango
+                grupo: Sono do Calango
                 ids:
                 - '30'
               - alvo_uid: SbI5OJBIGVr4U0
                 pontos_uids:
                 - '31'
                 escalada: Mondo
+                setor: Bloco H - Sono do Calango
+                grupo: Sono do Calango
                 ids:
                 - '31'
               - alvo_uid: 1gg4udYDRBv26Q
                 pontos_uids:
                 - '32'
                 escalada: Adrena
+                setor: Bloco H - Sono do Calango
+                grupo: Sono do Calango
                 ids:
                 - '32'
             escaladas:
@@ -2023,18 +2279,24 @@ picos:
             pontos_uids:
             - '36'
             escalada: Rei Leão
+            setor: Bloco G - Rei Leão
+            grupo: Deslize
             ids:
             - '36'
           - alvo_uid: wZJ977AVAc4ADg
             pontos_uids:
             - '37'
             escalada: Projeto Grifon
+            setor: Bloco G - Rei Leão
+            grupo: Deslize
             ids:
             - '37'
           - alvo_uid: icm1VwJD6wEswr
             pontos_uids:
             - '42'
             escalada: Musgo centenário
+            setor: Bloco H - Musgo Centenário
+            grupo: Deslize
             ids:
             - '42'
         setores:
@@ -2050,60 +2312,80 @@ picos:
                 pontos_uids:
                 - '1'
                 escalada: Rala peito
+                setor: Bloco A - Lua Cheia
+                grupo: Deslize
                 ids:
                 - '1'
               - alvo_uid: WSx72zTeldQqw3
                 pontos_uids:
                 - '2'
                 escalada: Rala peito SDS
+                setor: Bloco A - Lua Cheia
+                grupo: Deslize
                 ids:
                 - '2'
               - alvo_uid: 2DnZFhkDbQZsAB
                 pontos_uids:
                 - '3'
                 escalada: Regletes batentes
+                setor: Bloco A - Lua Cheia
+                grupo: Deslize
                 ids:
                 - '3'
               - alvo_uid: YHqLJ4IGhaUhlG
                 pontos_uids:
                 - '4'
                 escalada: Rebordose
+                setor: Bloco A - Lua Cheia
+                grupo: Deslize
                 ids:
                 - '4'
               - alvo_uid: V3B59fYmv7suwR
                 pontos_uids:
                 - '5'
                 escalada: Sabará não para
+                setor: Bloco A - Lua Cheia
+                grupo: Deslize
                 ids:
                 - '5'
               - alvo_uid: 8MaKxN6zSVXdhb
                 pontos_uids:
                 - '6'
                 escalada: Lua cheia
+                setor: Bloco A - Lua Cheia
+                grupo: Deslize
                 ids:
                 - '6'
               - alvo_uid: PGhG1Hh5vofzaw
                 pontos_uids:
                 - '7'
                 escalada: Carne moída
+                setor: Bloco A - Lua Cheia
+                grupo: Deslize
                 ids:
                 - '7'
               - alvo_uid: I70i6DK6O0dg4w
                 pontos_uids:
                 - '8'
                 escalada: Toca da cobra
+                setor: Bloco A - Lua Cheia
+                grupo: Deslize
                 ids:
                 - '8'
               - alvo_uid: 4NVfNeAQxPcoVu
                 pontos_uids:
                 - '9'
                 escalada: Lua nova
+                setor: Bloco A - Lua Cheia
+                grupo: Deslize
                 ids:
                 - '9'
               - alvo_uid: sdhkyi0zRxcLed
                 pontos_uids:
                 - '10'
                 escalada: Quarentinha
+                setor: Bloco A - Lua Cheia
+                grupo: Deslize
                 ids:
                 - '10'
             escaladas:
@@ -2201,24 +2483,32 @@ picos:
                 pontos_uids:
                 - '11'
                 escalada: Deslize
+                setor: Bloco B - Deslize
+                grupo: Deslize
                 ids:
                 - '11'
               - alvo_uid: OF78evauZ6gbbR
                 pontos_uids:
                 - '12'
                 escalada: Desnível
+                setor: Bloco B - Deslize
+                grupo: Deslize
                 ids:
                 - '12'
               - alvo_uid: FSsBOjtFVeHF0F
                 pontos_uids:
                 - '11'
                 escalada: Deslizamento
+                setor: Bloco B - Deslize
+                grupo: Deslize
                 ids:
                 - '11'
               - alvo_uid: hGlsbbD7sD8woU
                 pontos_uids:
                 - '12'
                 escalada: Desnivelado
+                setor: Bloco B - Deslize
+                grupo: Deslize
                 ids:
                 - '12'
             escaladas:
@@ -2270,18 +2560,24 @@ picos:
                 pontos_uids:
                 - '19'
                 escalada: Quem diria
+                setor: Bloco C - Pequenino
+                grupo: Deslize
                 ids:
                 - '19'
               - alvo_uid: in2Xla2JBPQcTY
                 pontos_uids:
                 - '15'
                 escalada: Terceira entrada
+                setor: Bloco C - Pequenino
+                grupo: Deslize
                 ids:
                 - '15'
               - alvo_uid: VzC1nqfFtnmvvh
                 pontos_uids:
                 - '16'
                 escalada: Última passagem
+                setor: Bloco C - Pequenino
+                grupo: Deslize
                 ids:
                 - '16'
               - alvo_uid: C0qDsR8dsf3PrL
@@ -2289,6 +2585,8 @@ picos:
                 - '13'
                 - '17'
                 escalada: Primeira saída
+                setor: Bloco C - Pequenino
+                grupo: Deslize
                 ids:
                 - '13'
                 - '17'
@@ -2359,24 +2657,32 @@ picos:
                 pontos_uids:
                 - '20'
                 escalada: Viagem
+                setor: Bloco D - Bagagem
+                grupo: Deslize
                 ids:
                 - '20'
               - alvo_uid: 9MqzvBnRLd1z62
                 pontos_uids:
                 - '21'
                 escalada: Bagagem
+                setor: Bloco D - Bagagem
+                grupo: Deslize
                 ids:
                 - '21'
               - alvo_uid: p1HSEXAv0ionNk
                 pontos_uids:
                 - '22'
                 escalada: Mala educacion
+                setor: Bloco D - Bagagem
+                grupo: Deslize
                 ids:
                 - '22'
               - alvo_uid: ixm51lDIZJCC9X
                 pontos_uids:
                 - '22'
                 escalada: Enigma
+                setor: Bloco D - Bagagem
+                grupo: Deslize
                 ids:
                 - '22'
             escaladas:
@@ -2426,24 +2732,32 @@ picos:
                 pontos_uids:
                 - '24'
                 escalada: Pedrita
+                setor: Bloco E - Hey Fred
+                grupo: Deslize
                 ids:
                 - '24'
               - alvo_uid: Z0Tjpo9capRG8H
                 pontos_uids:
                 - '25'
                 escalada: Barney
+                setor: Bloco E - Hey Fred
+                grupo: Deslize
                 ids:
                 - '25'
               - alvo_uid: x9i9s722cax0Ch
                 pontos_uids:
                 - '26'
                 escalada: Hey Fred
+                setor: Bloco E - Hey Fred
+                grupo: Deslize
                 ids:
                 - '26'
               - alvo_uid: Jwwko7zS545r3n
                 pontos_uids:
                 - '26'
                 escalada: Hey Fred SDS
+                setor: Bloco E - Hey Fred
+                grupo: Deslize
                 ids:
                 - '26'
             - caminho_imagem_mapa: imagens/setor_deslize_p6_i1.webp
@@ -2454,24 +2768,32 @@ picos:
                 pontos_uids:
                 - '26'
                 escalada: Hey Fred
+                setor: Bloco E - Hey Fred
+                grupo: Deslize
                 ids:
                 - '26'
               - alvo_uid: EGxrC1H2pmKoCM
                 pontos_uids:
                 - '28'
                 escalada: Era
+                setor: Bloco E - Hey Fred
+                grupo: Deslize
                 ids:
                 - '28'
               - alvo_uid: BCVxcTX9z1VzGe
                 pontos_uids:
                 - '29'
                 escalada: Yabadabadoo
+                setor: Bloco E - Hey Fred
+                grupo: Deslize
                 ids:
                 - '29'
               - alvo_uid: yIoJRHFvKRQIh2
                 pontos_uids:
                 - '30'
                 escalada: Nova era
+                setor: Bloco E - Hey Fred
+                grupo: Deslize
                 ids:
                 - '30'
               - alvo_uid: qWfML9BEmH1wSF
@@ -2479,6 +2801,8 @@ picos:
                 - '29'
                 - '30'
                 escalada: Era o que faltava
+                setor: Bloco E - Hey Fred
+                grupo: Deslize
                 ids:
                 - '29'
                 - '30'
@@ -2486,6 +2810,8 @@ picos:
                 pontos_uids:
                 - '24'
                 escalada: Pedrita
+                setor: Bloco E - Hey Fred
+                grupo: Deslize
                 ids:
                 - '24'
             escaladas:
@@ -2580,18 +2906,24 @@ picos:
                 pontos_uids:
                 - '33'
                 escalada: Invertida
+                setor: Bloco F - Bom Boulder
+                grupo: Deslize
                 ids:
                 - '33'
               - alvo_uid: 3qtQ9afzSbSqab
                 pontos_uids:
                 - '34'
                 escalada: Bom boulder
+                setor: Bloco F - Bom Boulder
+                grupo: Deslize
                 ids:
                 - '34'
               - alvo_uid: eYiSv4K262Sl6a
                 pontos_uids:
                 - '35'
                 escalada: Armadilha
+                setor: Bloco F - Bom Boulder
+                grupo: Deslize
                 ids:
                 - '35'
             escaladas:
@@ -2655,24 +2987,32 @@ picos:
                 pontos_uids:
                 - '38'
                 escalada: Portal da dimensão
+                setor: Bloco H - Musgo Centenário
+                grupo: Deslize
                 ids:
                 - '38'
               - alvo_uid: Ekscdusp1EYAL9
                 pontos_uids:
                 - '39'
                 escalada: Esmagador
+                setor: Bloco H - Musgo Centenário
+                grupo: Deslize
                 ids:
                 - '39'
               - alvo_uid: eQRQ3IocvUcUaw
                 pontos_uids:
                 - '40'
                 escalada: Projeto Os Incríveis
+                setor: Bloco H - Musgo Centenário
+                grupo: Deslize
                 ids:
                 - '40'
               - alvo_uid: 96PYZQX2LH0oiF
                 pontos_uids:
                 - '41'
                 escalada: Caverna do Dragão
+                setor: Bloco H - Musgo Centenário
+                grupo: Deslize
                 ids:
                 - '41'
             escaladas:
@@ -2740,30 +3080,40 @@ picos:
                 pontos_uids:
                 - '44'
                 escalada: Nala
+                setor: Bloco I - Zafar
+                grupo: Deslize
                 ids:
                 - '44'
               - alvo_uid: RY8KInGbssq9bu
                 pontos_uids:
                 - '45'
                 escalada: Timão
+                setor: Bloco I - Zafar
+                grupo: Deslize
                 ids:
                 - '45'
               - alvo_uid: qcDWRtEs50DkL8
                 pontos_uids:
                 - '46'
                 escalada: Pumba
+                setor: Bloco I - Zafar
+                grupo: Deslize
                 ids:
                 - '46'
               - alvo_uid: bzZdAESnwCC0gI
                 pontos_uids:
                 - '47'
                 escalada: Zafar
+                setor: Bloco I - Zafar
+                grupo: Deslize
                 ids:
                 - '47'
               - alvo_uid: mr3y8M9CmEN5Mm
                 pontos_uids:
                 - '48'
                 escalada: Caverna
+                setor: Bloco I - Zafar
+                grupo: Deslize
                 ids:
                 - '48'
             escaladas:
@@ -2867,30 +3217,40 @@ picos:
                 pontos_uids:
                 - '1'
                 escalada: Siga-me
+                setor: Bloco A - Abraço
+                grupo: Yin Yang
                 ids:
                 - '1'
               - alvo_uid: 2IdZw4r8vtXsfQ
                 pontos_uids:
                 - '2'
                 escalada: Abraço
+                setor: Bloco A - Abraço
+                grupo: Yin Yang
                 ids:
                 - '2'
               - alvo_uid: cGmOgbbvXX2PPA
                 pontos_uids:
                 - '3'
                 escalada: Jah Vibes
+                setor: Bloco A - Abraço
+                grupo: Yin Yang
                 ids:
                 - '3'
               - alvo_uid: Mwpx7ARnrgPMzB
                 pontos_uids:
                 - '4'
                 escalada: Dreadlock
+                setor: Bloco A - Abraço
+                grupo: Yin Yang
                 ids:
                 - '4'
               - alvo_uid: rfBHek5ZFDLvgM
                 pontos_uids:
                 - '5'
                 escalada: Rasta
+                setor: Bloco A - Abraço
+                grupo: Yin Yang
                 ids:
                 - '5'
             escaladas:
@@ -2945,18 +3305,24 @@ picos:
                 pontos_uids:
                 - '6'
                 escalada: Velocípede
+                setor: Bloco B - Bicicletinha 2000
+                grupo: Yin Yang
                 ids:
                 - '6'
               - alvo_uid: uLcbrhyvMrCjNU
                 pontos_uids:
                 - '7'
                 escalada: Bicicletinha 2000
+                setor: Bloco B - Bicicletinha 2000
+                grupo: Yin Yang
                 ids:
                 - '7'
               - alvo_uid: xGCF7hV9FgP7AY
                 pontos_uids:
                 - '8'
                 escalada: Shark Attack
+                setor: Bloco B - Bicicletinha 2000
+                grupo: Yin Yang
                 ids:
                 - '8'
             escaladas:
@@ -3004,18 +3370,24 @@ picos:
                 pontos_uids:
                 - '9'
                 escalada: Louva a Deus
+                setor: Bloco C - Travezinha
+                grupo: Yin Yang
                 ids:
                 - '9'
               - alvo_uid: Phd1JSH90lSOqo
                 pontos_uids:
                 - '10'
                 escalada: Travezinha
+                setor: Bloco C - Travezinha
+                grupo: Yin Yang
                 ids:
                 - '10'
               - alvo_uid: jCjUZlPcILFfVj
                 pontos_uids:
                 - '11'
                 escalada: São Carlos
+                setor: Bloco C - Travezinha
+                grupo: Yin Yang
                 ids:
                 - '11'
             escaladas:
@@ -3055,12 +3427,16 @@ picos:
                 pontos_uids:
                 - '12'
                 escalada: Vale Tudo
+                setor: Bloco D - 12 de Outubro
+                grupo: Yin Yang
                 ids:
                 - '12'
               - alvo_uid: mO3oa0oNDd0937
                 pontos_uids:
                 - '13'
                 escalada: 12 de Outubro
+                setor: Bloco D - 12 de Outubro
+                grupo: Yin Yang
                 ids:
                 - '13'
             escaladas:
@@ -3092,12 +3468,16 @@ picos:
                 pontos_uids:
                 - '14'
                 escalada: Yang
+                setor: Bloco E - Yin Yang
+                grupo: Yin Yang
                 ids:
                 - '14'
               - alvo_uid: XzG7Q9yIRsXCuK
                 pontos_uids:
                 - '15'
                 escalada: Yin Yang
+                setor: Bloco E - Yin Yang
+                grupo: Yin Yang
                 ids:
                 - '15'
             escaladas:
@@ -3149,30 +3529,40 @@ picos:
                 pontos_uids:
                 - '17'
                 escalada: Congelador
+                setor: Bloco F - Geladeira
+                grupo: Yin Yang
                 ids:
                 - '17'
               - alvo_uid: yg43IPyhVNA5kU
                 pontos_uids:
                 - '18'
                 escalada: Geladeira
+                setor: Bloco F - Geladeira
+                grupo: Yin Yang
                 ids:
                 - '18'
               - alvo_uid: 6qmeJYKY3v1V1w
                 pontos_uids:
                 - '19'
                 escalada: Fenda Cega
+                setor: Bloco F - Geladeira
+                grupo: Yin Yang
                 ids:
                 - '19'
               - alvo_uid: xgOg32KmOIqnRt
                 pontos_uids:
                 - '20'
                 escalada: Diagonal (Geladeira)
+                setor: Bloco F - Geladeira
+                grupo: Yin Yang
                 ids:
                 - '20'
               - alvo_uid: Zx8yus4jhgQVQW
                 pontos_uids:
                 - '21'
                 escalada: Avesso
+                setor: Bloco F - Geladeira
+                grupo: Yin Yang
                 ids:
                 - '21'
             escaladas:
@@ -3276,24 +3666,32 @@ picos:
             pontos_uids:
             - '16'
             escalada: Rock it
+            setor: Bloco D - Rolling Stones
+            grupo: Rolling Stones
             ids:
             - '16'
           - alvo_uid: Q1orsULzJtpaaG
             pontos_uids:
             - '17'
             escalada: Esquerdinha
+            setor: Bloco D - Rolling Stones
+            grupo: Rolling Stones
             ids:
             - '17'
           - alvo_uid: dt0bRRLOzoCVqq
             pontos_uids:
             - '18'
             escalada: Cuidado aí
+            setor: Bloco D - Rolling Stones
+            grupo: Rolling Stones
             ids:
             - '18'
           - alvo_uid: bwdW2nKMsWbV93
             pontos_uids:
             - '19'
             escalada: Invasorzinho
+            setor: Bloco D - Rolling Stones
+            grupo: Rolling Stones
             ids:
             - '19'
           - alvo_uid: sxdZPRBR1hC0Ix
@@ -3301,6 +3699,8 @@ picos:
             - '19'
             - '28'
             escalada: Bob Marley
+            setor: Bloco D - Rolling Stones
+            grupo: Rolling Stones
             ids:
             - '19'
             - '28'
@@ -3308,66 +3708,88 @@ picos:
             pontos_uids:
             - '21'
             escalada: Já Elvis
+            setor: Bloco D - Rolling Stones
+            grupo: Rolling Stones
             ids:
             - '21'
           - alvo_uid: fo4FyMaBs28otf
             pontos_uids:
             - '22'
             escalada: Projeto 6
+            setor: Bloco D - Rolling Stones
+            grupo: Rolling Stones
             ids:
             - '22'
           - alvo_uid: M1qdIBNIbIiw1W
             pontos_uids:
             - '23'
             escalada: Janis Joplin
+            setor: Bloco D - Rolling Stones
+            grupo: Rolling Stones
             ids:
             - '23'
           - alvo_uid: iJbbNkITKQzfOv
             pontos_uids:
             - '24'
             escalada: Rolling Stones
+            setor: Bloco D - Rolling Stones
+            grupo: Rolling Stones
             ids:
             - '24'
           - alvo_uid: i5fVKy19DDkaZ3
             pontos_uids:
             - '24'
             escalada: Jimi Hendrix
+            setor: Bloco D - Rolling Stones
+            grupo: Rolling Stones
             ids:
             - '24'
           - alvo_uid: u29cekP2By8WEh
             pontos_uids:
             - '26'
             escalada: Amanhã vai ser outro dia
+            setor: Bloco D - Rolling Stones
+            grupo: Rolling Stones
             ids:
             - '26'
           - alvo_uid: tGJjFXF4luW3Sl
             pontos_uids:
             - '26'
             escalada: Woodstock
+            setor: Bloco D - Rolling Stones
+            grupo: Rolling Stones
             ids:
             - '26'
           - alvo_uid: xzPGqtj32XmbeH
             pontos_uids:
             - '28'
             escalada: The Doors
+            setor: Bloco D - Rolling Stones
+            grupo: Rolling Stones
             ids:
             - '28'
           - alvo_uid: X4zxdGrUVfR1JS
             pontos_uids:
             - '28'
             escalada: Open the doors
+            setor: Bloco D - Rolling Stones
+            grupo: Rolling Stones
             ids:
             - '28'
           - alvo_uid: ITFvZkPPyuvRV8
             pontos_uids:
             - '30'
             escalada: Travessa
+            setor: Bloco D - Rolling Stones
+            grupo: Rolling Stones
             ids:
             - '30'
           - alvo_uid: Evr23e9jPoNFgu
             pontos_uids:
             - '31'
             escalada: Eject
+            setor: Bloco E - Eject
+            grupo: Rolling Stones
             ids:
             - '31'
         - caminho_imagem_mapa: imagens/setor_rolling_stones_p13.webp
@@ -3378,24 +3800,32 @@ picos:
             pontos_uids:
             - '75'
             escalada: Neutrons
+            setor: Bloco I - Prótons
+            grupo: Rolling Stones
             ids:
             - '75'
           - alvo_uid: FSAMhsj9HgfrHi
             pontos_uids:
             - '76'
             escalada: Prótons
+            setor: Bloco I - Prótons
+            grupo: Rolling Stones
             ids:
             - '76'
           - alvo_uid: KNudy0y8E1v8vp
             pontos_uids:
             - '77'
             escalada: Elétrons
+            setor: Bloco I - Prótons
+            grupo: Rolling Stones
             ids:
             - '77'
           - alvo_uid: 6eXK3NTyCuFt0o
             pontos_uids:
             - '78'
             escalada: Aranha albina
+            setor: Bloco J - Aranha Albina
+            grupo: Rolling Stones
             ids:
             - '78'
         setores:
@@ -3411,24 +3841,32 @@ picos:
                 pontos_uids:
                 - '1'
                 escalada: Coral
+                setor: Bloco A - Gastón a la Mesón
+                grupo: Rolling Stones
                 ids:
                 - '1'
               - alvo_uid: L4LyF7mhoD8Us8
                 pontos_uids:
                 - '2'
                 escalada: Surpreendente
+                setor: Bloco A - Gastón a la Mesón
+                grupo: Rolling Stones
                 ids:
                 - '2'
               - alvo_uid: zAe6hLpGjg8vOW
                 pontos_uids:
                 - '3'
                 escalada: Frito
+                setor: Bloco A - Gastón a la Mesón
+                grupo: Rolling Stones
                 ids:
                 - '3'
               - alvo_uid: 0swtYbPEnXHPkF
                 pontos_uids:
                 - '4'
                 escalada: Fritei
+                setor: Bloco A - Gastón a la Mesón
+                grupo: Rolling Stones
                 ids:
                 - '4'
             - caminho_imagem_mapa: imagens/setor_rolling_stones_p2_i2.webp
@@ -3439,24 +3877,32 @@ picos:
                 pontos_uids:
                 - '5'
                 escalada: Vem de baixo
+                setor: Bloco A - Gastón a la Mesón
+                grupo: Rolling Stones
                 ids:
                 - '5'
               - alvo_uid: Ftob4NunF8Vtbw
                 pontos_uids:
                 - '6'
                 escalada: Quina da mesa
+                setor: Bloco A - Gastón a la Mesón
+                grupo: Rolling Stones
                 ids:
                 - '6'
               - alvo_uid: 57BLtHxGgd97eO
                 pontos_uids:
                 - '7'
                 escalada: Gaston à la meson
+                setor: Bloco A - Gastón a la Mesón
+                grupo: Rolling Stones
                 ids:
                 - '7'
               - alvo_uid: tRyDwsk7WLKaYt
                 pontos_uids:
                 - '7'
                 escalada: Gaston à la meson FDS
+                setor: Bloco A - Gastón a la Mesón
+                grupo: Rolling Stones
                 ids:
                 - '7'
             escaladas:
@@ -3537,24 +3983,32 @@ picos:
                 pontos_uids:
                 - '9'
                 escalada: A onda
+                setor: Bloco B - Casulo
+                grupo: Rolling Stones
                 ids:
                 - '9'
               - alvo_uid: w8139ceg1G99bI
                 pontos_uids:
                 - '10'
                 escalada: Estaca
+                setor: Bloco B - Casulo
+                grupo: Rolling Stones
                 ids:
                 - '10'
               - alvo_uid: 2k6k5gQ3wL4WVz
                 pontos_uids:
                 - '11'
                 escalada: Mariposa
+                setor: Bloco B - Casulo
+                grupo: Rolling Stones
                 ids:
                 - '11'
               - alvo_uid: bsCDm9Z1I9vI5s
                 pontos_uids:
                 - '12'
                 escalada: Casulo
+                setor: Bloco B - Casulo
+                grupo: Rolling Stones
                 ids:
                 - '12'
             escaladas:
@@ -3597,24 +4051,32 @@ picos:
                 pontos_uids:
                 - '13'
                 escalada: Banzai
+                setor: Bloco C - Marrento
+                grupo: Rolling Stones
                 ids:
                 - '13'
               - alvo_uid: nsF3x2WBZncYhf
                 pontos_uids:
                 - '14'
                 escalada: Marrento
+                setor: Bloco C - Marrento
+                grupo: Rolling Stones
                 ids:
                 - '14'
               - alvo_uid: fypT4uNFpgpg2e
                 pontos_uids:
                 - '15'
                 escalada: Carioquinha
+                setor: Bloco C - Marrento
+                grupo: Rolling Stones
                 ids:
                 - '15'
               - alvo_uid: q1B1CcWGgGZD7y
                 pontos_uids:
                 - '16'
                 escalada: Baiano
+                setor: Bloco C - Marrento
+                grupo: Rolling Stones
                 ids:
                 - '16'
             escaladas:
@@ -3808,12 +4270,16 @@ picos:
                 pontos_uids:
                 - '32'
                 escalada: Cachoeira alta
+                setor: Bloco F - Universo Paralello
+                grupo: Rolling Stones
                 ids:
                 - '32'
               - alvo_uid: MTVBsmMtwBW4QZ
                 pontos_uids:
                 - '33'
                 escalada: Hard core
+                setor: Bloco F - Universo Paralello
+                grupo: Rolling Stones
                 ids:
                 - '33'
               - alvo_uid: Obd6pqhIAzWLyd
@@ -3821,6 +4287,8 @@ picos:
                 - '33'
                 - '36'
                 escalada: Tribe
+                setor: Bloco F - Universo Paralello
+                grupo: Rolling Stones
                 ids:
                 - '33'
                 - '36'
@@ -3829,6 +4297,8 @@ picos:
                 - '33'
                 - '38'
                 escalada: Calangute
+                setor: Bloco F - Universo Paralello
+                grupo: Rolling Stones
                 ids:
                 - '33'
                 - '38'
@@ -3836,18 +4306,24 @@ picos:
                 pontos_uids:
                 - '36'
                 escalada: Universo Paralello
+                setor: Bloco F - Universo Paralello
+                grupo: Rolling Stones
                 ids:
                 - '36'
               - alvo_uid: 9jEmdQ0ATspj9T
                 pontos_uids:
                 - '36'
                 escalada: Trancedance
+                setor: Bloco F - Universo Paralello
+                grupo: Rolling Stones
                 ids:
                 - '36'
               - alvo_uid: AD4lN8jFPTDL28
                 pontos_uids:
                 - '38'
                 escalada: Rave
+                setor: Bloco F - Universo Paralello
+                grupo: Rolling Stones
                 ids:
                 - '38'
               - alvo_uid: D7czwgySOlLrYS
@@ -3855,6 +4331,8 @@ picos:
                 - '36'
                 - '38'
                 escalada: Fora do tempo
+                setor: Bloco F - Universo Paralello
+                grupo: Rolling Stones
                 ids:
                 - '36'
                 - '38'
@@ -3863,6 +4341,8 @@ picos:
                 - '36'
                 - '33'
                 escalada: Samsara
+                setor: Bloco F - Universo Paralello
+                grupo: Rolling Stones
                 ids:
                 - '36'
                 - '33'
@@ -3963,96 +4443,128 @@ picos:
                 pontos_uids:
                 - '41'
                 escalada: Cara nova
+                setor: Bloco G - Pantaloneta
+                grupo: Rolling Stones
                 ids:
                 - '41'
               - alvo_uid: t3IZuF38yZU4TF
                 pontos_uids:
                 - '42'
                 escalada: Buraco louco
+                setor: Bloco G - Pantaloneta
+                grupo: Rolling Stones
                 ids:
                 - '42'
               - alvo_uid: XTF6sn3i4N4fQw
                 pontos_uids:
                 - '43'
                 escalada: Morena
+                setor: Bloco G - Pantaloneta
+                grupo: Rolling Stones
                 ids:
                 - '43'
               - alvo_uid: 5MzXHe2apxaIWf
                 pontos_uids:
                 - '44'
                 escalada: Hard crimp
+                setor: Bloco G - Pantaloneta
+                grupo: Rolling Stones
                 ids:
                 - '44'
               - alvo_uid: FT6ejI1pLAUfOb
                 pontos_uids:
                 - '45'
                 escalada: Tapete mágico
+                setor: Bloco G - Pantaloneta
+                grupo: Rolling Stones
                 ids:
                 - '45'
               - alvo_uid: NgTMsoyRNvqGXg
                 pontos_uids:
                 - '46'
                 escalada: Jasmim
+                setor: Bloco G - Pantaloneta
+                grupo: Rolling Stones
                 ids:
                 - '46'
               - alvo_uid: vYvQn0umxFCDSL
                 pontos_uids:
                 - '47'
                 escalada: Pantaloneta
+                setor: Bloco G - Pantaloneta
+                grupo: Rolling Stones
                 ids:
                 - '47'
               - alvo_uid: KK5gfZqMUBrw4U
                 pontos_uids:
                 - '48'
                 escalada: Pantalones
+                setor: Bloco G - Pantaloneta
+                grupo: Rolling Stones
                 ids:
                 - '48'
               - alvo_uid: QDSQi7JR7CJnYc
                 pontos_uids:
                 - '49'
                 escalada: Teto da aranha
+                setor: Bloco G - Pantaloneta
+                grupo: Rolling Stones
                 ids:
                 - '49'
               - alvo_uid: mRG7JjKQXHkjVz
                 pontos_uids:
                 - '50'
                 escalada: Aranha cabeluda
+                setor: Bloco G - Pantaloneta
+                grupo: Rolling Stones
                 ids:
                 - '50'
               - alvo_uid: oYfnw194M0Ql5A
                 pontos_uids:
                 - '51'
                 escalada: Cabelo louco
+                setor: Bloco G - Pantaloneta
+                grupo: Rolling Stones
                 ids:
                 - '51'
               - alvo_uid: LwleA4cuNVIWle
                 pontos_uids:
                 - '52'
                 escalada: Abismo
+                setor: Bloco G - Pantaloneta
+                grupo: Rolling Stones
                 ids:
                 - '52'
               - alvo_uid: S1Va6cJrHkz1rt
                 pontos_uids:
                 - '53'
                 escalada: Buraco negro
+                setor: Bloco G - Pantaloneta
+                grupo: Rolling Stones
                 ids:
                 - '53'
               - alvo_uid: 2jTceieERkmygP
                 pontos_uids:
                 - '54'
                 escalada: Cotonete
+                setor: Bloco G - Pantaloneta
+                grupo: Rolling Stones
                 ids:
                 - '54'
               - alvo_uid: SUleoDocJP55Ke
                 pontos_uids:
                 - '55'
                 escalada: Buraquinho
+                setor: Bloco G - Pantaloneta
+                grupo: Rolling Stones
                 ids:
                 - '55'
               - alvo_uid: tjK6SZyPJR89bd
                 pontos_uids:
                 - '56'
                 escalada: Caranguejeira
+                setor: Bloco G - Pantaloneta
+                grupo: Rolling Stones
                 ids:
                 - '56'
             - caminho_imagem_mapa: imagens/setor_rolling_stones_p11_i0.webp
@@ -4063,126 +4575,168 @@ picos:
                 pontos_uids:
                 - '49'
                 escalada: Teto da aranha
+                setor: Bloco G - Pantaloneta
+                grupo: Rolling Stones
                 ids:
                 - '49'
               - alvo_uid: oYfnw194M0Ql5A
                 pontos_uids:
                 - '51'
                 escalada: Cabelo louco
+                setor: Bloco G - Pantaloneta
+                grupo: Rolling Stones
                 ids:
                 - '51'
               - alvo_uid: 2jTceieERkmygP
                 pontos_uids:
                 - '54'
                 escalada: Cotonete
+                setor: Bloco G - Pantaloneta
+                grupo: Rolling Stones
                 ids:
                 - '54'
               - alvo_uid: SUleoDocJP55Ke
                 pontos_uids:
                 - '55'
                 escalada: Buraquinho
+                setor: Bloco G - Pantaloneta
+                grupo: Rolling Stones
                 ids:
                 - '55'
               - alvo_uid: tjK6SZyPJR89bd
                 pontos_uids:
                 - '56'
                 escalada: Caranguejeira
+                setor: Bloco G - Pantaloneta
+                grupo: Rolling Stones
                 ids:
                 - '56'
               - alvo_uid: h7tmttaNLSEBWI
                 pontos_uids:
                 - '57'
                 escalada: Armadeira
+                setor: Bloco G - Pantaloneta
+                grupo: Rolling Stones
                 ids:
                 - '57'
               - alvo_uid: zI8ITYwJz3yhVk
                 pontos_uids:
                 - '58'
                 escalada: Quero mais
+                setor: Bloco G - Pantaloneta
+                grupo: Rolling Stones
                 ids:
                 - '58'
               - alvo_uid: d8JEuHZrBYbgZZ
                 pontos_uids:
                 - '59'
                 escalada: Proteste já
+                setor: Bloco G - Pantaloneta
+                grupo: Rolling Stones
                 ids:
                 - '59'
               - alvo_uid: vjOagg8UIkG2r0
                 pontos_uids:
                 - '60'
                 escalada: Manifestante
+                setor: Bloco G - Pantaloneta
+                grupo: Rolling Stones
                 ids:
                 - '60'
               - alvo_uid: PoTG0PW17r2tR5
                 pontos_uids:
                 - '61'
                 escalada: Aladim
+                setor: Bloco G - Pantaloneta
+                grupo: Rolling Stones
                 ids:
                 - '61'
               - alvo_uid: njmE5ITmXutiN8
                 pontos_uids:
                 - '62'
                 escalada: Projeto 7
+                setor: Bloco G - Pantaloneta
+                grupo: Rolling Stones
                 ids:
                 - '62'
               - alvo_uid: HQqhkz2cCwF9ik
                 pontos_uids:
                 - '63'
                 escalada: Projeto 8
+                setor: Bloco G - Pantaloneta
+                grupo: Rolling Stones
                 ids:
                 - '63'
               - alvo_uid: CTAYXLiNKJSb4B
                 pontos_uids:
                 - '64'
                 escalada: Vaqueros
+                setor: Bloco G - Pantaloneta
+                grupo: Rolling Stones
                 ids:
                 - '64'
               - alvo_uid: VB6mjwsDdcCIEa
                 pontos_uids:
                 - '65'
                 escalada: Esporte fino
+                setor: Bloco G - Pantaloneta
+                grupo: Rolling Stones
                 ids:
                 - '65'
               - alvo_uid: ltVfeHriXX54zw
                 pontos_uids:
                 - '66'
                 escalada: Passeio completo
+                setor: Bloco G - Pantaloneta
+                grupo: Rolling Stones
                 ids:
                 - '66'
               - alvo_uid: WIkiUzxzR2uNrq
                 pontos_uids:
                 - '67'
                 escalada: Aracnofobia
+                setor: Bloco G - Pantaloneta
+                grupo: Rolling Stones
                 ids:
                 - '67'
               - alvo_uid: KpooB7pWbjKhVg
                 pontos_uids:
                 - '68'
                 escalada: Teia de aranha
+                setor: Bloco G - Pantaloneta
+                grupo: Rolling Stones
                 ids:
                 - '68'
               - alvo_uid: k6pjyNoZouY2rf
                 pontos_uids:
                 - '69'
                 escalada: Rolo compressor
+                setor: Bloco G - Pantaloneta
+                grupo: Rolling Stones
                 ids:
                 - '69'
               - alvo_uid: HcdXAO985EuQ3i
                 pontos_uids:
                 - '70'
                 escalada: Comprimido
+                setor: Bloco G - Pantaloneta
+                grupo: Rolling Stones
                 ids:
                 - '70'
               - alvo_uid: Eppjf4w5Y4Y1Fd
                 pontos_uids:
                 - '71'
                 escalada: Prensa
+                setor: Bloco G - Pantaloneta
+                grupo: Rolling Stones
                 ids:
                 - '71'
               - alvo_uid: vxzTlMaSXvvYhb
                 pontos_uids:
                 - '72'
                 escalada: Compressão
+                setor: Bloco G - Pantaloneta
+                grupo: Rolling Stones
                 ids:
                 - '72'
             escaladas:
@@ -4583,36 +5137,48 @@ picos:
                 pontos_uids:
                 - '1'
                 escalada: Tala
+                setor: Bloco A - Gangrena
+                grupo: Pena de Ganso
                 ids:
                 - '1'
               - alvo_uid: 3xWjC2f7El0fj4
                 pontos_uids:
                 - '2'
                 escalada: Banho de sangue
+                setor: Bloco A - Gangrena
+                grupo: Pena de Ganso
                 ids:
                 - '2'
               - alvo_uid: YFtzhNrc3J72pe
                 pontos_uids:
                 - '3'
                 escalada: Aderência
+                setor: Bloco A - Gangrena
+                grupo: Pena de Ganso
                 ids:
                 - '3'
               - alvo_uid: myxuj5Jn4Zoihl
                 pontos_uids:
                 - '4'
                 escalada: Textura
+                setor: Bloco A - Gangrena
+                grupo: Pena de Ganso
                 ids:
                 - '4'
               - alvo_uid: dBGZABlDDZ2Tfm
                 pontos_uids:
                 - '5'
                 escalada: Gangrena
+                setor: Bloco A - Gangrena
+                grupo: Pena de Ganso
                 ids:
                 - '5'
               - alvo_uid: WdLdWdUZvLnAym
                 pontos_uids:
                 - '6'
                 escalada: Quelóide
+                setor: Bloco A - Gangrena
+                grupo: Pena de Ganso
                 ids:
                 - '6'
               - alvo_uid: IawWgdBSGS18lt
@@ -4620,6 +5186,8 @@ picos:
                 - '5'
                 - '2'
                 escalada: Sanguinário
+                setor: Bloco A - Gangrena
+                grupo: Pena de Ganso
                 ids:
                 - '5'
                 - '2'
@@ -4627,6 +5195,8 @@ picos:
                 pontos_uids:
                 - '8'
                 escalada: Cicatriz
+                setor: Bloco A - Gangrena
+                grupo: Pena de Ganso
                 ids:
                 - '8'
             - caminho_imagem_mapa: imagens/setor_pena_de_ganso_p2_i1.webp
@@ -4637,18 +5207,24 @@ picos:
                 pontos_uids:
                 - '8'
                 escalada: Cicatriz
+                setor: Bloco A - Gangrena
+                grupo: Pena de Ganso
                 ids:
                 - '8'
               - alvo_uid: YyykDapSvsSFDN
                 pontos_uids:
                 - '9'
                 escalada: Diagramando
+                setor: Bloco A - Gangrena
+                grupo: Pena de Ganso
                 ids:
                 - '9'
               - alvo_uid: EJ8D361Lo0HAr9
                 pontos_uids:
                 - '10'
                 escalada: InDesign
+                setor: Bloco A - Gangrena
+                grupo: Pena de Ganso
                 ids:
                 - '10'
             escaladas:
@@ -4736,12 +5312,16 @@ picos:
                 pontos_uids:
                 - '11'
                 escalada: Exilado
+                setor: Bloco B - Exilado
+                grupo: Pena de Ganso
                 ids:
                 - '11'
               - alvo_uid: 730eOGnmOQ5CEk
                 pontos_uids:
                 - '12'
                 escalada: A busca
+                setor: Bloco B - Exilado
+                grupo: Pena de Ganso
                 ids:
                 - '12'
             escaladas:
@@ -4773,36 +5353,48 @@ picos:
                 pontos_uids:
                 - '13'
                 escalada: Despenado
+                setor: Bloco C - Pena de Ganso
+                grupo: Pena de Ganso
                 ids:
                 - '13'
               - alvo_uid: wg8ZaQ3d0k2RAZ
                 pontos_uids:
                 - '14'
                 escalada: Penadinho
+                setor: Bloco C - Pena de Ganso
+                grupo: Pena de Ganso
                 ids:
                 - '14'
               - alvo_uid: 6X8YqheiJZQphD
                 pontos_uids:
                 - '15'
                 escalada: Pena de ganso
+                setor: Bloco C - Pena de Ganso
+                grupo: Pena de Ganso
                 ids:
                 - '15'
               - alvo_uid: Z0idqej51Ndfjk
                 pontos_uids:
                 - '16'
                 escalada: Jamaica abaixo de zero
+                setor: Bloco C - Pena de Ganso
+                grupo: Pena de Ganso
                 ids:
                 - '16'
               - alvo_uid: S6Lk3QIeQ9Bu03
                 pontos_uids:
                 - '16'
                 escalada: Jamaica abaixo de zero SDS
+                setor: Bloco C - Pena de Ganso
+                grupo: Pena de Ganso
                 ids:
                 - '16'
               - alvo_uid: doFPS2VLzy61Sg
                 pontos_uids:
                 - '18'
                 escalada: Projeto 9
+                setor: Bloco C - Pena de Ganso
+                grupo: Pena de Ganso
                 ids:
                 - '18'
             - caminho_imagem_mapa: imagens/setor_pena_de_ganso_p4_i1.webp
@@ -4813,36 +5405,48 @@ picos:
                 pontos_uids:
                 - '15'
                 escalada: Pena de ganso
+                setor: Bloco C - Pena de Ganso
+                grupo: Pena de Ganso
                 ids:
                 - '15'
               - alvo_uid: Z0idqej51Ndfjk
                 pontos_uids:
                 - '16'
                 escalada: Jamaica abaixo de zero
+                setor: Bloco C - Pena de Ganso
+                grupo: Pena de Ganso
                 ids:
                 - '16'
               - alvo_uid: S6Lk3QIeQ9Bu03
                 pontos_uids:
                 - '16'
                 escalada: Jamaica abaixo de zero SDS
+                setor: Bloco C - Pena de Ganso
+                grupo: Pena de Ganso
                 ids:
                 - '16'
               - alvo_uid: doFPS2VLzy61Sg
                 pontos_uids:
                 - '18'
                 escalada: Projeto 9
+                setor: Bloco C - Pena de Ganso
+                grupo: Pena de Ganso
                 ids:
                 - '18'
               - alvo_uid: yS7dYPaceOeAoF
                 pontos_uids:
                 - '19'
                 escalada: Lacrimogênio
+                setor: Bloco C - Pena de Ganso
+                grupo: Pena de Ganso
                 ids:
                 - '19'
               - alvo_uid: F0aytRBsK2K3MP
                 pontos_uids:
                 - '20'
                 escalada: Gás lacrimogênio
+                setor: Bloco C - Pena de Ganso
+                grupo: Pena de Ganso
                 ids:
                 - '20'
             escaladas:
@@ -4927,6 +5531,8 @@ picos:
                 pontos_uids:
                 - '21'
                 escalada: Escondido
+                setor: Bloco D - Escondido
+                grupo: Pena de Ganso
                 ids:
                 - '21'
             escaladas:
@@ -4954,24 +5560,32 @@ picos:
                 pontos_uids:
                 - '22'
                 escalada: Preguiça
+                setor: Bloco E - Caramujo
+                grupo: Pena de Ganso
                 ids:
                 - '22'
               - alvo_uid: wsdvBGnYM34l4W
                 pontos_uids:
                 - '23'
                 escalada: Lesma
+                setor: Bloco E - Caramujo
+                grupo: Pena de Ganso
                 ids:
                 - '23'
               - alvo_uid: ghflHg2drbmDYj
                 pontos_uids:
                 - '24'
                 escalada: Caramujo
+                setor: Bloco E - Caramujo
+                grupo: Pena de Ganso
                 ids:
                 - '24'
               - alvo_uid: DlxdhqTloXaDXt
                 pontos_uids:
                 - '25'
                 escalada: Tartaruga
+                setor: Bloco E - Caramujo
+                grupo: Pena de Ganso
                 ids:
                 - '25'
             escaladas:
@@ -5047,30 +5661,40 @@ picos:
             pontos_uids:
             - '1'
             escalada: Boliche
+            setor: Bloco A - Boliche
+            grupo: Tosco
             ids:
             - '1'
           - alvo_uid: cVyqOSGghaA5Rh
             pontos_uids:
             - '2'
             escalada: Projeto 10
+            setor: Bloco A - Boliche
+            grupo: Tosco
             ids:
             - '2'
           - alvo_uid: oqgqj8KsgyyVbf
             pontos_uids:
             - '3'
             escalada: Strike
+            setor: Bloco A - Boliche
+            grupo: Tosco
             ids:
             - '3'
           - alvo_uid: kZYUwpDIYjOTdd
             pontos_uids:
             - '4'
             escalada: Amarelão
+            setor: Bloco B - Amarelão
+            grupo: Tosco
             ids:
             - '4'
           - alvo_uid: aesG73VkIAQPEb
             pontos_uids:
             - '5'
             escalada: Amarelinha
+            setor: Bloco B - Amarelão
+            grupo: Tosco
             ids:
             - '5'
         - caminho_imagem_mapa: imagens/setor_tosco_p4_i3.webp
@@ -5081,18 +5705,24 @@ picos:
             pontos_uids:
             - '14'
             escalada: Viradinha nacional
+            setor: Bloco E - Viradinha Nacional
+            grupo: Tosco
             ids:
             - '14'
           - alvo_uid: 9n8GMoJqxIGEZg
             pontos_uids:
             - '15'
             escalada: Frita pé
+            setor: Bloco F - Frita Pé
+            grupo: Tosco
             ids:
             - '15'
           - alvo_uid: ifkPVO6Ogjt8Qn
             pontos_uids:
             - '16'
             escalada: Tô legal
+            setor: Bloco F - Frita Pé
+            grupo: Tosco
             ids:
             - '16'
         - caminho_imagem_mapa: imagens/setor_tosco_p4_i4.webp
@@ -5103,24 +5733,32 @@ picos:
             pontos_uids:
             - '17'
             escalada: Os malaco
+            setor: Bloco G - Rolezinho
+            grupo: Tosco
             ids:
             - '17'
           - alvo_uid: QufF7tXMeGSBZH
             pontos_uids:
             - '18'
             escalada: Rolezinho
+            setor: Bloco G - Rolezinho
+            grupo: Tosco
             ids:
             - '18'
           - alvo_uid: TpH0gDFHVVIHB6
             pontos_uids:
             - '19'
             escalada: Cor do bicho
+            setor: Bloco H - Cor do Bicho
+            grupo: Tosco
             ids:
             - '19'
           - alvo_uid: 4bIt8vF8RWlffk
             pontos_uids:
             - '20'
             escalada: Colorau
+            setor: Bloco H - Cor do Bicho
+            grupo: Tosco
             ids:
             - '20'
         setores:
@@ -5182,36 +5820,48 @@ picos:
                 pontos_uids:
                 - '6'
                 escalada: V clássico
+                setor: Bloco C - Aresta Visual
+                grupo: Tosco
                 ids:
                 - '6'
               - alvo_uid: tgsjTugwgyR4wq
                 pontos_uids:
                 - '7'
                 escalada: O tempo e o vento
+                setor: Bloco C - Aresta Visual
+                grupo: Tosco
                 ids:
                 - '7'
               - alvo_uid: dokQ7NFkEg7qlt
                 pontos_uids:
                 - '8'
                 escalada: Projeto 11
+                setor: Bloco C - Aresta Visual
+                grupo: Tosco
                 ids:
                 - '8'
               - alvo_uid: yCJ0ncJjnim0OQ
                 pontos_uids:
                 - '9'
                 escalada: Aresta visual
+                setor: Bloco C - Aresta Visual
+                grupo: Tosco
                 ids:
                 - '9'
               - alvo_uid: o5VAuvJWTiwCwG
                 pontos_uids:
                 - '10'
                 escalada: Aresta visual SDS
+                setor: Bloco C - Aresta Visual
+                grupo: Tosco
                 ids:
                 - '10'
               - alvo_uid: 6svGlmUj5nRvlf
                 pontos_uids:
                 - '11'
                 escalada: Projeto 12
+                setor: Bloco C - Aresta Visual
+                grupo: Tosco
                 ids:
                 - '11'
             escaladas:
@@ -5382,12 +6032,16 @@ picos:
                 pontos_uids:
                 - '21'
                 escalada: McDonald’s
+                setor: Bloco I - Tosco
+                grupo: Tosco
                 ids:
                 - '21'
               - alvo_uid: zv45eMrvxygInB
                 pontos_uids:
                 - '22'
                 escalada: Tosco
+                setor: Bloco I - Tosco
+                grupo: Tosco
                 ids:
                 - '22'
               - alvo_uid: 93aq7fDD37gcTV
@@ -5395,6 +6049,8 @@ picos:
                 - '22'
                 - '24'
                 escalada: Tosqueira
+                setor: Bloco I - Tosco
+                grupo: Tosco
                 ids:
                 - '22'
                 - '24'
@@ -5402,12 +6058,16 @@ picos:
                 pontos_uids:
                 - '24'
                 escalada: Senta no porco
+                setor: Bloco I - Tosco
+                grupo: Tosco
                 ids:
                 - '24'
               - alvo_uid: CkNAAVw6gVMhkT
                 pontos_uids:
                 - '25'
                 escalada: Mr. Rocha Pura
+                setor: Bloco I - Tosco
+                grupo: Tosco
                 ids:
                 - '25'
             escaladas:
@@ -5467,18 +6127,24 @@ picos:
                 pontos_uids:
                 - '26'
                 escalada: As legítimas
+                setor: Bloco J - Tô Partindo
+                grupo: Tosco
                 ids:
                 - '26'
               - alvo_uid: HoeZ5KIKVOZSxP
                 pontos_uids:
                 - '27'
                 escalada: Tô partindo
+                setor: Bloco J - Tô Partindo
+                grupo: Tosco
                 ids:
                 - '27'
               - alvo_uid: SlktdfDXrYvsg6
                 pontos_uids:
                 - '28'
                 escalada: Já parti
+                setor: Bloco J - Tô Partindo
+                grupo: Tosco
                 ids:
                 - '28'
             escaladas:
@@ -5515,36 +6181,48 @@ picos:
                 pontos_uids:
                 - '29'
                 escalada: Oval
+                setor: Bloco K - Oval
+                grupo: Tosco
                 ids:
                 - '29'
               - alvo_uid: qFehUUpPqzUToA
                 pontos_uids:
                 - '29'
                 escalada: Oval SDS
+                setor: Bloco K - Oval
+                grupo: Tosco
                 ids:
                 - '29'
               - alvo_uid: nACBX89aEy56A5
                 pontos_uids:
                 - '31'
                 escalada: Teimoso
+                setor: Bloco K - Oval
+                grupo: Tosco
                 ids:
                 - '31'
               - alvo_uid: fGvk5Qo1xiYSY1
                 pontos_uids:
                 - '32'
                 escalada: Descompassado
+                setor: Bloco K - Oval
+                grupo: Tosco
                 ids:
                 - '32'
               - alvo_uid: FNxwoqAOpB3x6d
                 pontos_uids:
                 - '32'
                 escalada: Descompassado SDS
+                setor: Bloco K - Oval
+                grupo: Tosco
                 ids:
                 - '32'
               - alvo_uid: 33rtFWCa2LXyjQ
                 pontos_uids:
                 - '34'
                 escalada: Compasso
+                setor: Bloco K - Oval
+                grupo: Tosco
                 ids:
                 - '34'
             escaladas:
@@ -5608,60 +6286,80 @@ picos:
                 pontos_uids:
                 - '35'
                 escalada: Série continua
+                setor: Bloco L - Motricidade
+                grupo: Tosco
                 ids:
                 - '35'
               - alvo_uid: ePBGBYtv3KTNUK
                 pontos_uids:
                 - '36'
                 escalada: Potencial de ação
+                setor: Bloco L - Motricidade
+                grupo: Tosco
                 ids:
                 - '36'
               - alvo_uid: 8m05ndYY7TW9t9
                 pontos_uids:
                 - '36'
                 escalada: Impulso elétrico
+                setor: Bloco L - Motricidade
+                grupo: Tosco
                 ids:
                 - '36'
               - alvo_uid: eHXYEBq38sq147
                 pontos_uids:
                 - '36'
                 escalada: Motricidade fina
+                setor: Bloco L - Motricidade
+                grupo: Tosco
                 ids:
                 - '36'
               - alvo_uid: U7fmbcmGEG1p4h
                 pontos_uids:
                 - '36'
                 escalada: Tam tam
+                setor: Bloco L - Motricidade
+                grupo: Tosco
                 ids:
                 - '36'
               - alvo_uid: baIMu0tteb1Oba
                 pontos_uids:
                 - '36'
                 escalada: Tio Cabeça
+                setor: Bloco L - Motricidade
+                grupo: Tosco
                 ids:
                 - '36'
               - alvo_uid: x1LXbRsFidPzfi
                 pontos_uids:
                 - '41'
                 escalada: Jornada
+                setor: Bloco L - Motricidade
+                grupo: Tosco
                 ids:
                 - '41'
               - alvo_uid: PArsjJQRd0HXdT
                 pontos_uids:
                 - '42'
                 escalada: Motricidade curta
+                setor: Bloco L - Motricidade
+                grupo: Tosco
                 ids:
                 - '42'
               - alvo_uid: eWq2nTr3YugGFH
                 pontos_uids:
                 - '43'
                 escalada: Primavera
+                setor: Bloco L - Motricidade
+                grupo: Tosco
                 ids:
                 - '43'
               - alvo_uid: ky1HtFKgCKvjhM
                 pontos_uids:
                 - '44'
                 escalada: Irmandade
+                setor: Bloco L - Motricidade
+                grupo: Tosco
                 ids:
                 - '44'
             escaladas:
@@ -5764,18 +6462,24 @@ picos:
                 pontos_uids:
                 - '45'
                 escalada: Night climb
+                setor: Bloco M - Night Climb
+                grupo: Tosco
                 ids:
                 - '45'
               - alvo_uid: U1Ctm2yFtfXFOs
                 pontos_uids:
                 - '46'
                 escalada: Night climb SDS
+                setor: Bloco M - Night Climb
+                grupo: Tosco
                 ids:
                 - '46'
               - alvo_uid: lrnM8jDDAlTeqv
                 pontos_uids:
                 - '47'
                 escalada: Tramontina
+                setor: Bloco M - Night Climb
+                grupo: Tosco
                 ids:
                 - '47'
             escaladas:
@@ -5815,18 +6519,24 @@ picos:
                 pontos_uids:
                 - '48'
                 escalada: Piolho de pedra
+                setor: Bloco N - Piolho de Cobra
+                grupo: Tosco
                 ids:
                 - '48'
               - alvo_uid: KihrJAepLiaXAD
                 pontos_uids:
                 - '49'
                 escalada: Grilo falante
+                setor: Bloco N - Piolho de Cobra
+                grupo: Tosco
                 ids:
                 - '49'
               - alvo_uid: aMVAmD70TYbLfO
                 pontos_uids:
                 - '50'
                 escalada: Piolho de cobra
+                setor: Bloco N - Piolho de Cobra
+                grupo: Tosco
                 ids:
                 - '50'
             escaladas:
@@ -5868,24 +6578,32 @@ picos:
                 pontos_uids:
                 - '51'
                 escalada: Nulo
+                setor: Bloco O - Democrático
+                grupo: Tosco
                 ids:
                 - '51'
               - alvo_uid: TQ4TF1epx1LdYe
                 pontos_uids:
                 - '52'
                 escalada: Viva
+                setor: Bloco O - Democrático
+                grupo: Tosco
                 ids:
                 - '52'
               - alvo_uid: i83pEet4R8EVhA
                 pontos_uids:
                 - '53'
                 escalada: Democrático
+                setor: Bloco O - Democrático
+                grupo: Tosco
                 ids:
                 - '53'
               - alvo_uid: 0wYRB7AqIHxWaT
                 pontos_uids:
                 - '54'
                 escalada: Espacial
+                setor: Bloco O - Democrático
+                grupo: Tosco
                 ids:
                 - '54'
             escaladas:
@@ -5930,24 +6648,32 @@ picos:
                 pontos_uids:
                 - '55'
                 escalada: Oxidante
+                setor: Bloco P - Ferrugem
+                grupo: Tosco
                 ids:
                 - '55'
               - alvo_uid: HrXGzd2iEudZxO
                 pontos_uids:
                 - '56'
                 escalada: Ferrugem
+                setor: Bloco P - Ferrugem
+                grupo: Tosco
                 ids:
                 - '56'
               - alvo_uid: 4wMQMv20gcd1fM
                 pontos_uids:
                 - '57'
                 escalada: Corrosivo
+                setor: Bloco P - Ferrugem
+                grupo: Tosco
                 ids:
                 - '57'
               - alvo_uid: ORK6wT1dXx0p99
                 pontos_uids:
                 - '58'
                 escalada: Antitetânica
+                setor: Bloco P - Ferrugem
+                grupo: Tosco
                 ids:
                 - '58'
             escaladas:
@@ -6044,18 +6770,24 @@ picos:
                 pontos_uids:
                 - '1'
                 escalada: Cachorro de Tróia
+                setor: Bloco A - Cavalo de Tróia
+                grupo: Canaleta
                 ids:
                 - '1'
               - alvo_uid: ypKVS0x7xDsXy2
                 pontos_uids:
                 - '2'
                 escalada: Tróia
+                setor: Bloco A - Cavalo de Tróia
+                grupo: Canaleta
                 ids:
                 - '2'
               - alvo_uid: gu69FPgUp6JRBw
                 pontos_uids:
                 - '3'
                 escalada: Projeto Cavalo de Tróia
+                setor: Bloco A - Cavalo de Tróia
+                grupo: Canaleta
                 ids:
                 - '3'
             escaladas:
@@ -6097,24 +6829,32 @@ picos:
                 pontos_uids:
                 - '4'
                 escalada: Destino oposto
+                setor: Bloco B - Destinos
+                grupo: Canaleta
                 ids:
                 - '4'
               - alvo_uid: 7iYOiusovqp3vT
                 pontos_uids:
                 - '5'
                 escalada: Destino certo
+                setor: Bloco B - Destinos
+                grupo: Canaleta
                 ids:
                 - '5'
               - alvo_uid: isbiK0AJiugz4Q
                 pontos_uids:
                 - '6'
                 escalada: Projeto Destino Incerto
+                setor: Bloco B - Destinos
+                grupo: Canaleta
                 ids:
                 - '6'
               - alvo_uid: ox58e5UmPF2xTL
                 pontos_uids:
                 - '7'
                 escalada: Quanta loucura
+                setor: Bloco B - Destinos
+                grupo: Canaleta
                 ids:
                 - '7'
             escaladas:
@@ -6160,6 +6900,8 @@ picos:
                 pontos_uids:
                 - '8'
                 escalada: Forest Gump
+                setor: Bloco C - Forrest Gump
+                grupo: Canaleta
                 ids:
                 - '8'
             escaladas:
@@ -6187,6 +6929,8 @@ picos:
                 pontos_uids:
                 - '9'
                 escalada: Fábulas
+                setor: Bloco D - Fábulas
+                grupo: Canaleta
                 ids:
                 - '9'
             escaladas:
@@ -6216,18 +6960,24 @@ picos:
                 pontos_uids:
                 - '10'
                 escalada: Sequência ilógica
+                setor: Bloco E - Logística
+                grupo: Canaleta
                 ids:
                 - '10'
               - alvo_uid: n2lQJAYPpovSwh
                 pontos_uids:
                 - '11'
                 escalada: Logística de crashs
+                setor: Bloco E - Logística
+                grupo: Canaleta
                 ids:
                 - '11'
               - alvo_uid: fHJXICckDJ2ZbX
                 pontos_uids:
                 - '12'
                 escalada: Logística
+                setor: Bloco E - Logística
+                grupo: Canaleta
                 ids:
                 - '12'
             escaladas:
@@ -6267,18 +7017,24 @@ picos:
                 pontos_uids:
                 - '13'
                 escalada: Xanim
+                setor: Bloco F - Puma
+                grupo: Canaleta
                 ids:
                 - '13'
               - alvo_uid: eU9tsPm8nTSb3a
                 pontos_uids:
                 - '15'
                 escalada: Jaguatirica
+                setor: Bloco F - Puma
+                grupo: Canaleta
                 ids:
                 - '15'
               - alvo_uid: wBnIJo84rbqj0a
                 pontos_uids:
                 - '15'
                 escalada: Puma
+                setor: Bloco F - Puma
+                grupo: Canaleta
                 ids:
                 - '15'
             escaladas:
@@ -6330,24 +7086,32 @@ picos:
                 pontos_uids:
                 - '16'
                 escalada: Gatuno
+                setor: Bloco G - Esparrachado
+                grupo: Canaleta
                 ids:
                 - '16'
               - alvo_uid: X6b33peQ0ZjdbO
                 pontos_uids:
                 - '17'
                 escalada: Esparrachado
+                setor: Bloco G - Esparrachado
+                grupo: Canaleta
                 ids:
                 - '17'
               - alvo_uid: JNLfl70F6Xs2LW
                 pontos_uids:
                 - '18'
                 escalada: Pantera negra
+                setor: Bloco G - Esparrachado
+                grupo: Canaleta
                 ids:
                 - '18'
               - alvo_uid: 1aPJXsPj3aHUgn
                 pontos_uids:
                 - '19'
                 escalada: Toca da onça
+                setor: Bloco G - Esparrachado
+                grupo: Canaleta
                 ids:
                 - '19'
               - alvo_uid: F7EFuRhEvJ4KDH
@@ -6355,6 +7119,8 @@ picos:
                 - '18'
                 - '19'
                 escalada: Pantera
+                setor: Bloco G - Esparrachado
+                grupo: Canaleta
                 ids:
                 - '18'
                 - '19'
@@ -6362,12 +7128,16 @@ picos:
                 pontos_uids:
                 - '21'
                 escalada: Holograma
+                setor: Bloco G - Esparrachado
+                grupo: Canaleta
                 ids:
                 - '21'
               - alvo_uid: 7KgDGIOEOlxZSp
                 pontos_uids:
                 - '22'
                 escalada: Projeto 13
+                setor: Bloco G - Esparrachado
+                grupo: Canaleta
                 ids:
                 - '22'
             escaladas:
@@ -6450,24 +7220,32 @@ picos:
                 pontos_uids:
                 - '24'
                 escalada: Beto Carneiro
+                setor: Bloco H - Beto Carneiro
+                grupo: Canaleta
                 ids:
                 - '24'
               - alvo_uid: zFJlmP2a7RXP8d
                 pontos_uids:
                 - '25'
                 escalada: Projeto 15
+                setor: Bloco H - Beto Carneiro
+                grupo: Canaleta
                 ids:
                 - '25'
               - alvo_uid: Ku8WADvDQom434
                 pontos_uids:
                 - '26'
                 escalada: Bozó
+                setor: Bloco H - Beto Carneiro
+                grupo: Canaleta
                 ids:
                 - '26'
               - alvo_uid: 6wPU9NOrZNskNu
                 pontos_uids:
                 - '27'
                 escalada: Tim Tones
+                setor: Bloco H - Beto Carneiro
+                grupo: Canaleta
                 ids:
                 - '27'
             escaladas:
@@ -6605,12 +7383,16 @@ picos:
             pontos_uids:
             - '38'
             escalada: Hindu
+            setor: Bloco E - Hindu
+            grupo: Tubarão
             ids:
             - '38'
           - alvo_uid: bUiuIXOJiCIFRX
             pontos_uids:
             - '39'
             escalada: Ganesh
+            setor: Bloco F - Ganesh
+            grupo: Tubarão
             ids:
             - '39'
         setores:
@@ -6626,30 +7408,40 @@ picos:
                 pontos_uids:
                 - '1'
                 escalada: Marte
+                setor: Bloco A - Fogos de Vênus
+                grupo: Tubarão
                 ids:
                 - '1'
               - alvo_uid: 9PoqYTII76vLNp
                 pontos_uids:
                 - '2'
                 escalada: Vênus
+                setor: Bloco A - Fogos de Vênus
+                grupo: Tubarão
                 ids:
                 - '2'
               - alvo_uid: Q1deUXKrjXTsTL
                 pontos_uids:
                 - '3'
                 escalada: Fogos de Vênus
+                setor: Bloco A - Fogos de Vênus
+                grupo: Tubarão
                 ids:
                 - '3'
               - alvo_uid: PwG74tbbKINaNV
                 pontos_uids:
                 - '4'
                 escalada: Pôr da Lua
+                setor: Bloco A - Fogos de Vênus
+                grupo: Tubarão
                 ids:
                 - '4'
               - alvo_uid: C36eTL7FHNd1P3
                 pontos_uids:
                 - '5'
                 escalada: Pôr de Vênus
+                setor: Bloco A - Fogos de Vênus
+                grupo: Tubarão
                 ids:
                 - '5'
             escaladas:
@@ -6701,30 +7493,40 @@ picos:
                 pontos_uids:
                 - '6'
                 escalada: Abrigo de ferro
+                setor: Bloco B - Abrigo de Ferro
+                grupo: Tubarão
                 ids:
                 - '6'
               - alvo_uid: LaUKqUV22UDGz7
                 pontos_uids:
                 - '6'
                 escalada: Medalha de lata
+                setor: Bloco B - Abrigo de Ferro
+                grupo: Tubarão
                 ids:
                 - '6'
               - alvo_uid: kdBfmBP950TvI6
                 pontos_uids:
                 - '8'
                 escalada: Projeto 17
+                setor: Bloco B - Abrigo de Ferro
+                grupo: Tubarão
                 ids:
                 - '8'
               - alvo_uid: 1hVECMyQagZqnw
                 pontos_uids:
                 - '9'
                 escalada: Projeto 18
+                setor: Bloco B - Abrigo de Ferro
+                grupo: Tubarão
                 ids:
                 - '9'
               - alvo_uid: 7QGLeUwcc4yKvl
                 pontos_uids:
                 - '10'
                 escalada: Projeto 19
+                setor: Bloco B - Abrigo de Ferro
+                grupo: Tubarão
                 ids:
                 - '10'
             escaladas:
@@ -6783,12 +7585,16 @@ picos:
                 pontos_uids:
                 - '11'
                 escalada: Meteoro
+                setor: Bloco C - Meteoro
+                grupo: Tubarão
                 ids:
                 - '11'
               - alvo_uid: ONCcxisRpIdROU
                 pontos_uids:
                 - '12'
                 escalada: Cometa
+                setor: Bloco C - Meteoro
+                grupo: Tubarão
                 ids:
                 - '12'
             escaladas:
@@ -6825,150 +7631,200 @@ picos:
                 pontos_uids:
                 - '15'
                 escalada: Tubarão Branco
+                setor: Bloco D - Tubarão
+                grupo: Tubarão
                 ids:
                 - '15'
               - alvo_uid: 1jwFY1XXUN7OXw
                 pontos_uids:
                 - '14'
                 escalada: Cação
+                setor: Bloco D - Tubarão
+                grupo: Tubarão
                 ids:
                 - '14'
               - alvo_uid: ScD4eUMQ0Wi9we
                 pontos_uids:
                 - '15'
                 escalada: Tubarão
+                setor: Bloco D - Tubarão
+                grupo: Tubarão
                 ids:
                 - '15'
               - alvo_uid: VJumZMb8mBo4sw
                 pontos_uids:
                 - '16'
                 escalada: Brahma
+                setor: Bloco D - Tubarão
+                grupo: Tubarão
                 ids:
                 - '16'
               - alvo_uid: 48KOWK1c5AwcFp
                 pontos_uids:
                 - '17'
                 escalada: Hanuman
+                setor: Bloco D - Tubarão
+                grupo: Tubarão
                 ids:
                 - '17'
               - alvo_uid: dKEvDsXqLowp0l
                 pontos_uids:
                 - '18'
                 escalada: Jurubeba
+                setor: Bloco D - Tubarão
+                grupo: Tubarão
                 ids:
                 - '18'
               - alvo_uid: eSvYxD5g7Zygz1
                 pontos_uids:
                 - '18'
                 escalada: Backer
+                setor: Bloco D - Tubarão
+                grupo: Tubarão
                 ids:
                 - '18'
               - alvo_uid: 4KMNyZQ3KwQ7y4
                 pontos_uids:
                 - '17'
                 escalada: Original
+                setor: Bloco D - Tubarão
+                grupo: Tubarão
                 ids:
                 - '17'
               - alvo_uid: 0teJtmFXKKZqVb
                 pontos_uids:
                 - '18'
                 escalada: Chivas
+                setor: Bloco D - Tubarão
+                grupo: Tubarão
                 ids:
                 - '18'
               - alvo_uid: N2Z9OsdN9jWE3g
                 pontos_uids:
                 - '17'
                 escalada: Black Label
+                setor: Bloco D - Tubarão
+                grupo: Tubarão
                 ids:
                 - '17'
               - alvo_uid: dkz6QV6rAbEsil
                 pontos_uids:
                 - '18'
                 escalada: Chivas SDS
+                setor: Bloco D - Tubarão
+                grupo: Tubarão
                 ids:
                 - '18'
               - alvo_uid: KfKqedalsOiExz
                 pontos_uids:
                 - '17'
                 escalada: Royal Salute
+                setor: Bloco D - Tubarão
+                grupo: Tubarão
                 ids:
                 - '17'
               - alvo_uid: szLrJ03hLBMTXy
                 pontos_uids:
                 - '18'
                 escalada: Escolha certa
+                setor: Bloco D - Tubarão
+                grupo: Tubarão
                 ids:
                 - '18'
               - alvo_uid: QOo3Dtpl0oDzxV
                 pontos_uids:
                 - '17'
                 escalada: Múltipla escolha
+                setor: Bloco D - Tubarão
+                grupo: Tubarão
                 ids:
                 - '17'
               - alvo_uid: 7xoWKKDQZuRAac
                 pontos_uids:
                 - '27'
                 escalada: Halls
+                setor: Bloco D - Tubarão
+                grupo: Tubarão
                 ids:
                 - '27'
               - alvo_uid: 08KyixA9OS8fmp
                 pontos_uids:
                 - '17'
                 escalada: In the halls
+                setor: Bloco D - Tubarão
+                grupo: Tubarão
                 ids:
                 - '17'
               - alvo_uid: RxjVDmWyiJIoq8
                 pontos_uids:
                 - '29'
                 escalada: Green Label
+                setor: Bloco D - Tubarão
+                grupo: Tubarão
                 ids:
                 - '29'
               - alvo_uid: AdHh9oCr7wVff4
                 pontos_uids:
                 - '18'
                 escalada: Serra Malte
+                setor: Bloco D - Tubarão
+                grupo: Tubarão
                 ids:
                 - '18'
               - alvo_uid: rdgXwLYq9J77Sr
                 pontos_uids:
                 - '17'
                 escalada: Áustria
+                setor: Bloco D - Tubarão
+                grupo: Tubarão
                 ids:
                 - '17'
               - alvo_uid: 5GAd3ssJil1PQC
                 pontos_uids:
                 - '18'
                 escalada: Corona
+                setor: Bloco D - Tubarão
+                grupo: Tubarão
                 ids:
                 - '18'
               - alvo_uid: nDW5ChYkfFHJMg
                 pontos_uids:
                 - '17'
                 escalada: Saideira
+                setor: Bloco D - Tubarão
+                grupo: Tubarão
                 ids:
                 - '17'
               - alvo_uid: JCNZFn8GC3CtIf
                 pontos_uids:
                 - '18'
                 escalada: Muniz
+                setor: Bloco D - Tubarão
+                grupo: Tubarão
                 ids:
                 - '18'
               - alvo_uid: NjEDuoVrQFQfOD
                 pontos_uids:
                 - '17'
                 escalada: Passagem
+                setor: Bloco D - Tubarão
+                grupo: Tubarão
                 ids:
                 - '17'
               - alvo_uid: xfbvokA5f8mH61
                 pontos_uids:
                 - '18'
                 escalada: Espírito Guerreiro
+                setor: Bloco D - Tubarão
+                grupo: Tubarão
                 ids:
                 - '18'
               - alvo_uid: eSukaQ0A9lFtSh
                 pontos_uids:
                 - '17'
                 escalada: Voa colibri
+                setor: Bloco D - Tubarão
+                grupo: Tubarão
                 ids:
                 - '17'
             escaladas:
@@ -7233,12 +8089,16 @@ picos:
                 pontos_uids:
                 - '40'
                 escalada: Misto quente
+                setor: Bloco G - Croissant
+                grupo: Tubarão
                 ids:
                 - '40'
               - alvo_uid: KVKL7lCRmXlB6j
                 pontos_uids:
                 - '41'
                 escalada: Croissant
+                setor: Bloco G - Croissant
+                grupo: Tubarão
                 ids:
                 - '41'
             escaladas:
@@ -7270,6 +8130,8 @@ picos:
                 - '42'
                 - '43'
                 escalada: Túnel do vento
+                setor: Bloco H - Túnel do Vento
+                grupo: Tubarão
                 ids:
                 - '42'
                 - '43'
@@ -7278,6 +8140,8 @@ picos:
                 - '42'
                 - '43'
                 escalada: Diagonal (Túnel do Vento)
+                setor: Bloco H - Túnel do Vento
+                grupo: Tubarão
                 ids:
                 - '42'
                 - '43'
@@ -7349,12 +8213,16 @@ picos:
             pontos_uids:
             - '2'
             escalada: Daqui a 20 anos
+            setor: Bloco B - Daqui a 20 Anos
+            grupo: Daqui a 20 Anos
             ids:
             - '2'
           - alvo_uid: PGYw60JTsOBSHJ
             pontos_uids:
             - '4'
             escalada: Surpresa
+            setor: Bloco D - Surpresa
+            grupo: Daqui a 20 Anos
             ids:
             - '4'
         setores:
@@ -7370,6 +8238,8 @@ picos:
                 pontos_uids:
                 - '1'
                 escalada: Análise crítica
+                setor: Bloco A - Análise Crítica
+                grupo: Daqui a 20 Anos
                 ids:
                 - '1'
             escaladas:
@@ -7416,6 +8286,8 @@ picos:
                 pontos_uids:
                 - '3'
                 escalada: Amanita
+                setor: Bloco C - Amanita
+                grupo: Daqui a 20 Anos
                 ids:
                 - '3'
             escaladas:
@@ -7457,12 +8329,16 @@ picos:
                 pontos_uids:
                 - '5'
                 escalada: Escorregador
+                setor: Bloco E - Escorregador
+                grupo: Daqui a 20 Anos
                 ids:
                 - '5'
               - alvo_uid: 6nUufzuXoydp1C
                 pontos_uids:
                 - '6'
                 escalada: Controler
+                setor: Bloco E - Escorregador
+                grupo: Daqui a 20 Anos
                 ids:
                 - '6'
             escaladas:
@@ -7520,30 +8396,40 @@ picos:
             pontos_uids:
             - '27'
             escalada: Sabirila
+            setor: Bloco I - Siriema
+            grupo: Cume
             ids:
             - '27'
           - alvo_uid: 4Jm9GyO72EzNjD
             pontos_uids:
             - '28'
             escalada: Seriema
+            setor: Bloco I - Siriema
+            grupo: Cume
             ids:
             - '28'
           - alvo_uid: wPZ2kDIVbOvXJr
             pontos_uids:
             - '29'
             escalada: Canelinha
+            setor: Bloco I - Siriema
+            grupo: Cume
             ids:
             - '29'
           - alvo_uid: vFO52j09RcWfMT
             pontos_uids:
             - '30'
             escalada: Cerrado
+            setor: Bloco J - Cerrado
+            grupo: Cume
             ids:
             - '30'
           - alvo_uid: nKJb8UpDlIxoSL
             pontos_uids:
             - '31'
             escalada: Canga
+            setor: Bloco J - Cerrado
+            grupo: Cume
             ids:
             - '31'
         setores:
@@ -7559,12 +8445,16 @@ picos:
                 pontos_uids:
                 - '1'
                 escalada: Ulísses
+                setor: Bloco A - Ulísses
+                grupo: Cume
                 ids:
                 - '1'
               - alvo_uid: g7fI2sJJGDouuy
                 pontos_uids:
                 - '2'
                 escalada: 1-5-1
+                setor: Bloco A - Ulísses
+                grupo: Cume
                 ids:
                 - '2'
             escaladas:
@@ -7598,12 +8488,16 @@ picos:
                 pontos_uids:
                 - '3'
                 escalada: Tangente (Mosquitos)
+                setor: Bloco B - Mosquitos
+                grupo: Cume
                 ids:
                 - '3'
               - alvo_uid: vRSD9c4FX1Cj6x
                 pontos_uids:
                 - '4'
                 escalada: Mosquitos
+                setor: Bloco B - Mosquitos
+                grupo: Cume
                 ids:
                 - '4'
             escaladas:
@@ -7636,24 +8530,32 @@ picos:
                 pontos_uids:
                 - '5'
                 escalada: Espanhol
+                setor: Bloco C - Blood América
+                grupo: Cume
                 ids:
                 - '5'
               - alvo_uid: 7Bs4f4TdK0s2KL
                 pontos_uids:
                 - '6'
                 escalada: Fenda Paraguai
+                setor: Bloco C - Blood América
+                grupo: Cume
                 ids:
                 - '6'
               - alvo_uid: PmDhuuc3DT7ZIr
                 pontos_uids:
                 - '7'
                 escalada: Blood Mexican
+                setor: Bloco C - Blood América
+                grupo: Cume
                 ids:
                 - '7'
               - alvo_uid: UEi7pcw177wVzK
                 pontos_uids:
                 - '8'
                 escalada: Blood América
+                setor: Bloco C - Blood América
+                grupo: Cume
                 ids:
                 - '8'
             escaladas:
@@ -7708,18 +8610,24 @@ picos:
                 pontos_uids:
                 - '9'
                 escalada: Só o cume interessa
+                setor: Bloco D - The Summit
+                grupo: Cume
                 ids:
                 - '9'
               - alvo_uid: RxxyJqJ74Z2CsG
                 pontos_uids:
                 - '10'
                 escalada: Bote nadador
+                setor: Bloco D - The Summit
+                grupo: Cume
                 ids:
                 - '10'
               - alvo_uid: NCmxsU3eq9oOS1
                 pontos_uids:
                 - '11'
                 escalada: The summit
+                setor: Bloco D - The Summit
+                grupo: Cume
                 ids:
                 - '11'
             escaladas:
@@ -7765,6 +8673,8 @@ picos:
                 pontos_uids:
                 - '12'
                 escalada: Mistral
+                setor: Bloco E - Testarossa
+                grupo: Cume
                 ids:
                 - '12'
               - alvo_uid: zcmz0bsZspDWJT
@@ -7772,6 +8682,8 @@ picos:
                 - '15'
                 - '12'
                 escalada: Mistral SDS
+                setor: Bloco E - Testarossa
+                grupo: Cume
                 ids:
                 - '15'
                 - '12'
@@ -7779,18 +8691,24 @@ picos:
                 pontos_uids:
                 - '14'
                 escalada: Testarossa
+                setor: Bloco E - Testarossa
+                grupo: Cume
                 ids:
                 - '14'
               - alvo_uid: lhMvXrCQSCVEY0
                 pontos_uids:
                 - '15'
                 escalada: Testarossa SDS
+                setor: Bloco E - Testarossa
+                grupo: Cume
                 ids:
                 - '15'
               - alvo_uid: qBvZz7GdYnhVKe
                 pontos_uids:
                 - '16'
                 escalada: Talismã
+                setor: Bloco E - Testarossa
+                grupo: Cume
                 ids:
                 - '16'
               - alvo_uid: X6kOHldh31Qr2T
@@ -7798,6 +8716,8 @@ picos:
                 - '15'
                 - '16'
                 escalada: Talismã SDS
+                setor: Bloco E - Testarossa
+                grupo: Cume
                 ids:
                 - '15'
                 - '16'
@@ -7806,6 +8726,8 @@ picos:
                 - '12'
                 - '16'
                 escalada: Venon
+                setor: Bloco E - Testarossa
+                grupo: Cume
                 ids:
                 - '12'
                 - '16'
@@ -7894,6 +8816,8 @@ picos:
                 pontos_uids:
                 - '19'
                 escalada: Sai do teto
+                setor: Bloco F - Sai do Teto
+                grupo: Cume
                 ids:
                 - '19'
             escaladas:
@@ -7921,18 +8845,24 @@ picos:
                 pontos_uids:
                 - '20'
                 escalada: Última onda
+                setor: Bloco G - Laranja Mecânica
+                grupo: Cume
                 ids:
                 - '20'
               - alvo_uid: tvaWjboex3AXb1
                 pontos_uids:
                 - '21'
                 escalada: Laranja mecânica
+                setor: Bloco G - Laranja Mecânica
+                grupo: Cume
                 ids:
                 - '21'
               - alvo_uid: nIymZQz8SYLnRY
                 pontos_uids:
                 - '22'
                 escalada: Só no suco
+                setor: Bloco G - Laranja Mecânica
+                grupo: Cume
                 ids:
                 - '22'
             escaladas:
@@ -7977,24 +8907,32 @@ picos:
                 pontos_uids:
                 - '23'
                 escalada: Pedala Robinho
+                setor: Bloco H - Ronaldo
+                grupo: Cume
                 ids:
                 - '23'
               - alvo_uid: AVN7ZmhT32HxCF
                 pontos_uids:
                 - '24'
                 escalada: Ronaldo
+                setor: Bloco H - Ronaldo
+                grupo: Cume
                 ids:
                 - '24'
               - alvo_uid: A0HOuWIrepSzu2
                 pontos_uids:
                 - '25'
                 escalada: Fenômeno
+                setor: Bloco H - Ronaldo
+                grupo: Cume
                 ids:
                 - '25'
               - alvo_uid: FIPX6HBx70tt77
                 pontos_uids:
                 - '26'
                 escalada: Fenômeno SDS
+                setor: Bloco H - Ronaldo
+                grupo: Cume
                 ids:
                 - '26'
             escaladas:
@@ -8087,12 +9025,16 @@ picos:
                 pontos_uids:
                 - '32'
                 escalada: Difícil de entender
+                setor: Bloco K - Plutão
+                grupo: Cume
                 ids:
                 - '32'
               - alvo_uid: Uv5PLfRmJe9vvB
                 pontos_uids:
                 - '33'
                 escalada: Plutão
+                setor: Bloco K - Plutão
+                grupo: Cume
                 ids:
                 - '33'
             escaladas:
