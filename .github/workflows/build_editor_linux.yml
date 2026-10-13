@@ -171,12 +171,5 @@ jobs:
             dist_flatpak_meta/*
             editor/flatpak/*
             /tmp/pypi-dependencies.json
-          retention-days: 7
-
-      - name: Disponibilizar Bundle Flatpak no GitHub Actions
-        uses: actions/upload-artifact@v7
-        with:
-          name: EditorAresta-${{ inputs.versao }}-Linux-Bundle
-          path: dist_bundle/*.flatpak
           retention-days: 14
 
