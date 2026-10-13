@@ -2270,6 +2270,6 @@ arquivos:
 - caminho_relativo: indice.yaml
   checksum_sha256: 27d35da33d4b84906ffe2ac5ad8af7419deb367f4f593c87ad50bf3f1d358117
 - caminho_relativo: catalogo.db
-  checksum_sha256: b7eb9aab013de4a6d4ea61a2610617bc8184aae708eeda7fbdcf28af7349988f
+  checksum_sha256: 96bcfc7497dfe9db3c443c1591e6ecae9729a1666a0c4af0fe2a93ab43061ba6
 - caminho_relativo: catalogo.db.gz
-  checksum_sha256: 248491d2a6ad65969db30bf4f43c24c93a66a7bc8abf5777f336312338e119da
+  checksum_sha256: 5992d47c85bd2a2837ef8f2da39038c31b48f8223a27b26fcbc5ae828e06a9e7

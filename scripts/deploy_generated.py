@@ -1136,6 +1136,8 @@ def deploy(
         verbose=verbose,
     )
 
+    alvos_catalogo = [c[0] for c in compilados_novos] if target_paths else None
+    passo_e_gerar_catalogo_sqlite(alvos=alvos_catalogo, verbose=verbose)
     passo_d_gerar_manifesto_serving(indice, verbose=verbose)
 
     print(f"\nTotal compilados: {len(compilados_novos)} de {len(a_compilar)}")
@@ -1200,7 +1202,7 @@ def passo_d_gerar_manifesto_serving(indice: indice_pb2.Indice, verbose: bool = F
                 add_file(f"{base}/{debug_file}", calcular_sha256(p))
 
     # 4. Calcula para os arquivos globais
-    for global_file in ["indice.binarypb", "indice.yaml"]:
+    for global_file in ["indice.binarypb", "indice.yaml", "catalogo.db", "catalogo.db.gz"]:
         p = GENERATED_DIR / global_file
         if p.exists():
             add_file(global_file, calcular_sha256(p))
@@ -1212,6 +1214,29 @@ def passo_d_gerar_manifesto_serving(indice: indice_pb2.Indice, verbose: bool = F
 
     if verbose:
         print(f"Manifesto salvo com {len(manifesto.arquivos)} arquivos.")
+
+
+def passo_e_gerar_catalogo_sqlite(alvos: list[str] | None = None, verbose: bool = False) -> Path:
+    """
+    Passo E: Gera ou atualiza incrementalmente o catálogo SQLite (catalogo.db)
+    e sua versão compactada (catalogo.db.gz).
+    """
+    from scripts.gerar_catalogo_sqlite_lib import (
+        compactar_catalogo_gzip,
+        gerar_catalogo_completo,
+    )
+
+    if verbose:
+        print("\n=== Passo E: Gerando catálogo SQLite (catalogo.db) ===")
+
+    caminho_db = GENERATED_DIR / "catalogo.db"
+    gerar_catalogo_completo(GENERATED_DIR, caminho_db, alvos=alvos)
+    caminho_gz = compactar_catalogo_gzip(caminho_db)
+
+    if verbose:
+        print(f"Catálogo SQLite gerado em {caminho_db} e {caminho_gz}")
+
+    return caminho_db
 
 
 def atualizar_saude_croquis() -> None:

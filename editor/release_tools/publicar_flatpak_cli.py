@@ -72,7 +72,9 @@ def executar_bootstrap(
             )
             print("Commit anterior puxado com sucesso.")
         except subprocess.CalledProcessError as e:
-            print(f"Aviso: Não foi possível puxar commit anterior do remoto ({e}). Prosseguindo com repositório limpo.")
+            print(
+                f"Aviso: Não foi possível puxar commit anterior do remoto ({e}). Prosseguindo com repositório limpo."
+            )
     else:
         print("Primeira publicação histórica detectada. Repositório local inicializado e pronto.")
 

@@ -50,6 +50,8 @@ from editor.core.processamento_imagem_campo import (
 from scripts.gerenciar_uids_lib import validar_uid
 from scripts.markdown_frontmatter_lib import (
     parse_md_com_frontmatter as parse_md_com_frontmatter,
+)
+from scripts.markdown_frontmatter_lib import (
     salvar_md_com_frontmatter as salvar_md_com_frontmatter,
 )
 

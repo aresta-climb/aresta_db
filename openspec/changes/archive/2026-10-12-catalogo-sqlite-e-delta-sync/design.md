@@ -15,6 +15,7 @@ Ver detalhes de motivação em [proposal.md](file:///c:/Renato/Devel/aresta-clim
 - Suportar compilação total e compilação parcial/incremental (`--target`), substituindo apenas os registros dos croquis alterados sem descartar os demais.
 - Desenvolver utilitário de diff SQL (`scripts/gerar_deltas_catalogo.py`) que compara duas versões do catálogo usando comandos nativos `EXCEPT` do SQLite e gera o payload para a tabela `deltas_catalogo` no Cloudflare D1.
 - Projetar o contrato do Cloudflare Worker para renderização de Landing Page ultra-leve com OpenGraph e Twitter Cards sem dependência de Protobuf.
+- Estabelecer mecanismo de recuperação de desastres e purge global do catálogo via Firebase Remote Config com proteção de linha de base (baseline) no build para novas instalações.
 
 **Non-Goals:**
 - Não haverá visualizador completo de croquis ou mapas na web; links `aresta.cc/<uid>` abrem o aplicativo móvel ou direcionam para as lojas de aplicativos.
@@ -66,7 +67,7 @@ CREATE INDEX idx_catalogo_aresta_nome ON catalogo_aresta(nome COLLATE NOCASE);
 - **Alternativas consideradas:**
   - *Diffing em Python:* mais propenso a inconsistências e consome mais memória ao carregar milhares de registros.
 
-### 4. Estrutura de Deltas no Cloudflare D1 e Endpoint `/sync`
+### 4. Estrutura de Deltas no Cloudflare D1 e Retenção Contínua
 - **Decisão:** Tabela no D1:
   ```sql
   CREATE TABLE deltas_catalogo (
@@ -76,17 +77,31 @@ CREATE INDEX idx_catalogo_aresta_nome ON catalogo_aresta(nome COLLATE NOCASE);
       deletes_json TEXT NOT NULL
   );
   ```
-- **Rationale:** O app Flutter envia `GET /sync?desde=118`. O Worker consulta `SELECT id, upserts_json, deletes_json FROM deltas_catalogo WHERE id > 118 ORDER BY id ASC`, faz o squash (se um item foi alterado várias vezes, envia só a versão final) e retorna:
-  ```json
-  {
-      "versao_atual": 120,
-      "upserts": [...],
-      "deletes": [...]
+- **Retenção e Desempenho:**
+  - O Cloudflare D1 não possui limite artificial no número de deltas mantidos. Consultas `WHERE id > :desde ORDER BY id ASC` usam a chave primária indexada (B-Tree), respondendo em 2 a 5ms mesmo com milhares de registros.
+  - **Delta Squash (Agregação no Edge):** O Worker consulta todos os deltas do intervalo requisitado e consolida as entidades por chave primária (`uid`). Se uma via foi alterada múltiplas vezes ao longo de 50 versões, o Worker envia apenas o estado final mais recente (1 único `upsert`).
+  - O app Flutter aplica os `upserts` e `deletes` condensados dentro de uma única transação SQLite local e avança seu ponteiro de versão local para a `versao_atual`.
+
+### 5. Mecanismo de Purge Global de Emergência (Firebase Remote Config)
+- **Decisão:** Implementar um "Kill Switch" de recuperação de emergência para casos em que o catálogo local de um cliente fique corrompido ou inconsistente.
+- **Configuração Remota:**
+  - Chave no Firebase Remote Config: `catalogo_purge_timestamp` (inteiro Unix timestamp).
+  - No build do app (`aresta_app`): embutida constante `timestampBuildCatalogo` representando o momento da geração dos assets do release.
+- **Lógica de Execução no App:**
+  ```dart
+  final int ultimoExecutado = prefs.getInt('ultimo_purge_catalogo') ?? timestampBuildCatalogo;
+  final int purgeRemoto = remoteConfig.getInt('catalogo_purge_timestamp');
+
+  if (purgeRemoto > ultimoExecutado) {
+    await executarPurgeERebuildCatalogo(); // Deleta catalogo.db local e baixa catalogo.db.gz limpo
+    await prefs.setInt('ultimo_purge_catalogo', purgeRemoto);
   }
   ```
-  O app aplica as mudanças dentro de uma transação SQLite local e salva `versao_atual = 120`.
+- **Garantias Operacionais:**
+  1. *Primeira Instalação:* O app desempacota o `catalogo.db` dos assets pré-embarcados. Como qualquer purge emitido no passado é menor ou igual ao `timestampBuildCatalogo`, purges históricos são ignorados e nenhum download é disparado.
+  2. *Disparo em Emergência:* Ao alterar o timestamp no Firebase Console para o momento presente, o valor supera o `ultimoExecutado` de todos os aplicativos ativos no mundo, forçando o descarte e o download limpo do `catalogo.db.gz` na próxima abertura.
 
-### 5. Landing Page Social na Borda (`aresta.cc/<uid>`)
+### 6. Landing Page Social na Borda (`aresta.cc/<uid>`)
 - **Decisão:** Cloudflare Worker renderiza HTML de ~3 KB contendo tags `<meta property="og:title" ...>`, `<meta property="og:description" ...>`, script de redirecionamento `aresta://v/<uid>` e botões de download nas lojas.
 - **Cache CDN:** Cabeçalho `Cache-Control: public, max-age=86400, stale-while-revalidate=604800`.
 - **Rationale:** Garante que o Worker execute a query no D1 apenas na primeira requisição; acessos subsequentes de compartilhamento em redes sociais são atendidos pelo cache de borda em ~15ms.
@@ -94,7 +109,7 @@ CREATE INDEX idx_catalogo_aresta_nome ON catalogo_aresta(nome COLLATE NOCASE);
 ## Risks / Trade-offs
 
 - **[Deploy parcial com alvos incompletos]** → Mitigação: Em deploys parciais (`--target`), o script carrega o `catalogo.db` pré-existente da pasta `generated/`, remove apenas os croquis correspondentes (`DELETE WHERE croqui_uid IN (...)`) e insere os novos dados compilados. Caso o banco não exista, ele é criado do zero com os alvos fornecidos.
-- **[Conflito de schema ou versões antigas do app]** → Mitigação: O schema é fixo e minimalista. Se um app estiver desatualizado há muito tempo (>100 versões de delta), o Worker pode instruí-lo a baixar diretamente o arquivo integral `catalogo.db.gz`.
+- **[Tamanho de delta acumulado muito grande]** → Mitigação: Caso a soma de deltas de um intervalo longo seja superior ao tamanho do banco compactado (~250 KB), o Worker pode opcionalmente sinalizar para o cliente efetuar o download direto de `catalogo.db.gz`, economizando banda.
 
 ## Migration Plan
 

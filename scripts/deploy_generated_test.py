@@ -224,6 +224,136 @@ class DeployGeneratedTest(unittest.TestCase):
             self.assertTrue(manifesto_yaml.is_file())
             self.assertNotIn(b"\r\n", manifesto_yaml.read_bytes())
 
+    def test_passo_e_gerar_catalogo_sqlite(self):
+        import tempfile
+
+        from aresta_api.proto.generated import croqui_pb2
+
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            deploy_generated.GENERATED_DIR = Path(tmp_dir)
+            croqui_dir = Path(tmp_dir) / "br_mg_bh_teste"
+            croqui_dir.mkdir()
+
+            croqui = croqui_pb2.Croqui()
+            croqui.uid = "croqui_teste_1"
+            croqui.id = "br_mg_bh_teste"
+            croqui.nome = "Pico Teste"
+            (croqui_dir / "compilado.binarypb").write_bytes(croqui.SerializeToString())
+
+            caminho_db = deploy_generated.passo_e_gerar_catalogo_sqlite(verbose=True)
+            self.assertTrue(caminho_db.is_file())
+            self.assertTrue((Path(tmp_dir) / "catalogo.db.gz").is_file())
+
+    def test_passo_d_inclui_catalogo_db_e_gz(self):
+        import tempfile
+
+        import yaml
+
+        from aresta_api.proto.generated import indice_pb2
+
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            deploy_generated.GENERATED_DIR = Path(tmp_dir)
+            (Path(tmp_dir) / "catalogo.db").write_bytes(b"sqlite_fake_content")
+            (Path(tmp_dir) / "catalogo.db.gz").write_bytes(b"gzip_fake_content")
+
+            indice = indice_pb2.Indice()
+            deploy_generated.passo_d_gerar_manifesto_serving(indice)
+
+            manifesto_yaml = Path(tmp_dir) / "arquivos_serving.yaml"
+            dados = yaml.safe_load(manifesto_yaml.read_text(encoding="utf-8"))
+            caminhos = [arq["caminho_relativo"] for arq in dados.get("arquivos", [])]
+
+            self.assertIn("catalogo.db", caminhos)
+            self.assertIn("catalogo.db.gz", caminhos)
+
+    def test_deploy_gera_catalogo_sqlite_e_manifesto_integrado(self):
+        import sqlite3
+        import tempfile
+        from unittest.mock import patch
+
+        import yaml
+
+        from aresta_api.proto.generated import croqui_pb2
+
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            out_dir = Path(tmp_dir) / "out"
+            croqui = croqui_pb2.Croqui()
+            croqui.uid = "croquiReal1234"
+            croqui.id = "br_mg_bh_real"
+            croqui.nome = "Pico Real"
+            pico = croqui.picos.add()
+            setor = pico.setores_ou_grupos.add().setor.conteudo
+            setor.nome = "Setor Real"
+            via = setor.escaladas.add()
+            via.uid = "viaReal1234567"
+            via.via_esportiva.nome = "Via Real"
+            via.via_esportiva.dificuldade = croqui_pb2.GrauVia.BR_7A
+
+            croqui_dir = Path(tmp_dir) / "database" / "br_mg_bh_real"
+            croqui_dir.mkdir(parents=True)
+            (croqui_dir / "croqui.yaml").write_text(
+                "id: br_mg_bh_real\nuid: croquiReal1234\nnome: Pico Real\npublicar_croqui: true\nultima_migracao: 5\n",
+                encoding="utf-8",
+            )
+            croqui_data = {
+                "id": "br_mg_bh_real",
+                "uid": "croquiReal1234",
+                "nome": "Pico Real",
+                "publicar_croqui": True,
+                "ultima_migracao": 5,
+            }
+
+            def mock_compilar(
+                croqui_dir, destino_yaml=None, destino_binarypb=None, dados_extras=None
+            ):
+                if destino_binarypb:
+                    Path(destino_binarypb).write_bytes(croqui.SerializeToString())
+                return croqui_data
+
+            with patch(
+                "scripts.deploy_generated.encontrar_croquis",
+                return_value=[(croqui_dir, croqui_data)],
+            ):
+                with patch("scripts.deploy_generated.carregar_dados_anteriores", return_value={}):
+                    with patch("scripts.deploy_generated.DATABASE_DIR", Path(tmp_dir) / "database"):
+                        with patch(
+                            "scripts.deploy_generated.processar_thumbnail", return_value=False
+                        ):
+                            with patch(
+                                "scripts.deploy_generated.compilar_croqui",
+                                side_effect=mock_compilar,
+                            ):
+                                deploy_generated.deploy(
+                                    out_dir,
+                                    is_producao=True,
+                                    gerar_arquivos_de_debug=False,
+                                    verbose=False,
+                                )
+
+            # Verifica catalogo.db
+            db_path = out_dir / "catalogo.db"
+            gz_path = out_dir / "catalogo.db.gz"
+            self.assertTrue(db_path.is_file())
+            self.assertTrue(gz_path.is_file())
+
+            con = sqlite3.connect(db_path)
+            cur = con.cursor()
+            cur.execute("SELECT nome FROM catalogo_croquis WHERE croqui_uid = 'croquiReal1234'")
+            self.assertEqual(cur.fetchone()[0], "Pico Real")
+            cur.execute("SELECT nome, grau FROM catalogo_aresta WHERE uid = 'viaReal1234567'")
+            linha_via = cur.fetchone()
+            self.assertEqual(linha_via[0], "Via Real")
+            self.assertEqual(linha_via[1], "7a")
+            con.close()
+
+            # Verifica arquivos_serving.yaml
+            manifesto = yaml.safe_load(
+                (out_dir / "arquivos_serving.yaml").read_text(encoding="utf-8")
+            )
+            caminhos = [arq["caminho_relativo"] for arq in manifesto.get("arquivos", [])]
+            self.assertIn("catalogo.db", caminhos)
+            self.assertIn("catalogo.db.gz", caminhos)
+
     def test_precompilacao_linhas_mapas(self):
         from scripts.preparar_submissao_lib import precompilar_linhas_mapas_recursivo
 

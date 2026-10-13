@@ -6,6 +6,7 @@ Testes unitários para a ferramenta de empacotamento, assinatura e notarização
 """
 
 from pathlib import Path
+from typing import Any
 from unittest.mock import MagicMock, patch
 
 from editor.release_tools.empacotar_macos_dmg import (
@@ -16,6 +17,7 @@ from editor.release_tools.empacotar_macos_dmg import (
     gerar_conteudo_info_plist,
     gerar_dmg_macos,
     notarizar_dmg_macos,
+    precompilar_scripts_para_bytecode,
     sanitizar_bundle_para_codesign,
 )
 
@@ -467,6 +469,7 @@ def test_sanitizar_bundle_para_codesign_remove_arquivos_de_teste_e_pasta_tests(
     """Valida que arquivos de teste (*_test.py, conftest.py) e pastas tests são expurgados do bundle."""
     app_dir = tmp_path / "EditorAresta.app"
     macos_dir = app_dir / "Contents" / "MacOS"
+    resources_dir = app_dir / "Contents" / "Resources"
     internal_dir = macos_dir / "_internal"
     migracoes_dir = internal_dir / "migracoes"
     tests_dir = internal_dir / "tests"
@@ -487,8 +490,10 @@ def test_sanitizar_bundle_para_codesign_remove_arquivos_de_teste_e_pasta_tests(
 
     removidos = sanitizar_bundle_para_codesign(app_dir, dry_run=False)
 
-    assert not arquivo_prod.exists()
-    assert (migracoes_dir / "0005_migrar_uids_e_rotulos.pyc").exists()
+    # A pasta migracoes deve ser movida para Contents/Resources/migracoes com seus arquivos .py de produção
+    assert not migracoes_dir.exists()
+    assert (resources_dir / "migracoes" / "0005_migrar_uids_e_rotulos.py").exists()
+    assert not (resources_dir / "migracoes" / "0005_migrar_uids_e_rotulos_test.py").exists()
     assert not arquivo_teste.exists()
     assert not conftest.exists()
     assert not tests_dir.exists()
@@ -511,10 +516,17 @@ def test_sanitizar_bundle_para_codesign_remove_permissao_execucao_de_arquivos_co
     executavel_principal = macos_dir / "EditorAresta"
     executavel_principal.write_bytes(b"binario_mach_o")
 
-    # Mocka st_mode com bit executável ativo (0o755) para cobrir o branch de remoção do bit
+    # Mocka st_mode com bit executável ativo (0o755) em arquivos comuns para cobrir o branch de remoção do bit
+    stat_real = Path.stat
     mock_stat = MagicMock(st_mode=0o100755)
+
+    def mock_stat_fn(self: Path, *args: Any, **kwargs: Any) -> Any:
+        if self.name == "dados.txt":
+            return mock_stat
+        return stat_real(self, *args, **kwargs)
+
     with (
-        patch.object(Path, "stat", return_value=mock_stat),
+        patch.object(Path, "stat", mock_stat_fn),
         patch.object(Path, "chmod") as mock_chmod,
     ):
         sanitizar_bundle_para_codesign(app_dir, dry_run=False)
@@ -522,7 +534,7 @@ def test_sanitizar_bundle_para_codesign_remove_permissao_execucao_de_arquivos_co
 
     # Cobre também a captura defensiva de OSError no chmod
     with (
-        patch.object(Path, "stat", return_value=mock_stat),
+        patch.object(Path, "stat", mock_stat_fn),
         patch.object(Path, "chmod", side_effect=OSError("Permissao negada")),
     ):
         sanitizar_bundle_para_codesign(app_dir, dry_run=False)
@@ -584,36 +596,134 @@ def test_eh_binario_mach_o(tmp_path: Path) -> None:
     assert eh_binario_mach_o(tmp_path / "inexistente") is False
 
 
-def test_sanitizar_bundle_para_codesign_compila_scripts_py_para_pyc_e_remove_fonte(
+def test_sanitizar_bundle_para_codesign_move_migracoes_e_preserva_fontes_py(
     tmp_path: Path,
 ) -> None:
-    """Valida que scripts .py de produção em Contents/MacOS são compilados para .pyc e o fonte .py removido."""
+    """Valida que a pasta migracoes é movida de Contents/MacOS/_internal para Contents/Resources preservando os arquivos .py."""
     app_dir = tmp_path / "EditorAresta.app"
-    migracoes_dir = app_dir / "Contents" / "MacOS" / "_internal" / "migracoes"
-    migracoes_dir.mkdir(parents=True)
+    migracoes_macos = app_dir / "Contents" / "MacOS" / "_internal" / "migracoes"
+    migracoes_macos.mkdir(parents=True)
 
-    script_migracao = migracoes_dir / "0003_migrar_mapas_gerais.py"
+    script_migracao = migracoes_macos / "0003_migrar_mapas_gerais.py"
     script_migracao.write_text("MIGRATION_ID = 3\ndef migrar(c): pass\n", encoding="utf-8")
 
     removidos = sanitizar_bundle_para_codesign(app_dir, dry_run=False)
 
-    assert not script_migracao.exists(), "O script .py original deve ser removido após compilação"
-    arquivo_pyc = migracoes_dir / "0003_migrar_mapas_gerais.pyc"
-    assert arquivo_pyc.exists(), "O arquivo bytecode .pyc deve ter sido gerado"
-    assert arquivo_pyc.stat().st_size > 0
-    assert any("0003_migrar_mapas_gerais.py" in str(r) for r in removidos)
+    assert not migracoes_macos.exists(), "migracoes não pode ficar em Contents/MacOS/_internal"
+    destino_resources = (
+        app_dir / "Contents" / "Resources" / "migracoes" / "0003_migrar_mapas_gerais.py"
+    )
+    destino_resources_pyc = (
+        app_dir / "Contents" / "Resources" / "migracoes" / "0003_migrar_mapas_gerais.pyc"
+    )
+    assert destino_resources.exists(), (
+        "O script .py original deve ser preservado em Contents/Resources/migracoes"
+    )
+    assert destino_resources_pyc.exists(), (
+        "O bytecode .pyc deve ser gerado e preservado ao lado do fonte .py"
+    )
+    assert "MIGRATION_ID = 3" in destino_resources.read_text(encoding="utf-8")
+    assert any("migracoes" in str(r) for r in removidos)
 
 
-def test_sanitizar_bundle_para_codesign_compilacao_py_trata_excecao(tmp_path: Path) -> None:
-    """Valida que falhas inesperadas na compilação do py_compile são tratadas defensivamente."""
+def test_precompilar_scripts_para_bytecode_sucesso(tmp_path: Path) -> None:
+    """Valida que scripts .py são compilados para .pyc preservando os fontes e ignorando testes."""
+    pasta = tmp_path / "scripts"
+    pasta.mkdir()
+
+    script_prod = pasta / "0001_migracao.py"
+    script_prod.write_text("def migrar(): pass\n", encoding="utf-8")
+
+    script_teste = pasta / "0001_migracao_test.py"
+    script_teste.write_text("def test_migrar(): pass\n", encoding="utf-8")
+
+    compilados = precompilar_scripts_para_bytecode(pasta)
+
+    assert (pasta / "0001_migracao.py").exists()
+    assert (pasta / "0001_migracao.pyc").exists()
+    assert not (pasta / "0001_migracao_test.pyc").exists()
+    assert (pasta / "0001_migracao.pyc") in compilados
+
+
+def test_precompilar_scripts_para_bytecode_diretorio_inexistente(tmp_path: Path) -> None:
+    """Valida retorno de lista vazia para diretório inexistente."""
+    pasta_inexistente = tmp_path / "inexistente"
+    assert precompilar_scripts_para_bytecode(pasta_inexistente) == []
+
+
+def test_precompilar_scripts_para_bytecode_trata_erros(tmp_path: Path) -> None:
+    """Valida tratamento resiliente para PyCompileError ou OSError."""
+    import py_compile
+
+    pasta = tmp_path / "scripts"
+    pasta.mkdir()
+    script = pasta / "erro.py"
+    script.write_text("codigo", encoding="utf-8")
+
+    with patch(
+        "py_compile.compile",
+        side_effect=py_compile.PyCompileError(SyntaxError, SyntaxError("Erro"), "erro.py"),
+    ):
+        assert precompilar_scripts_para_bytecode(pasta) == []
+
+    with patch("py_compile.compile", side_effect=OSError("Permissao negada")):
+        assert precompilar_scripts_para_bytecode(pasta) == []
+
+
+def test_sanitizar_bundle_para_codesign_remove_scripts_soltos_em_contents_macos(
+    tmp_path: Path,
+) -> None:
+    """Valida que scripts .py e .pyc residuais soltos em Contents/MacOS são removidos para não quebrar o codesign."""
     app_dir = tmp_path / "EditorAresta.app"
-    migracoes_dir = app_dir / "Contents" / "MacOS" / "_internal" / "migracoes"
-    migracoes_dir.mkdir(parents=True)
+    macos_dir = app_dir / "Contents" / "MacOS"
+    macos_dir.mkdir(parents=True)
 
-    script_migracao = migracoes_dir / "0003_migrar_mapas_gerais.py"
-    script_migracao.write_text("codigo", encoding="utf-8")
+    script_solto = macos_dir / "script_residual.py"
+    script_solto.write_text("print(1)", encoding="utf-8")
+    pyc_solto = macos_dir / "bytecode_residual.pyc"
+    pyc_solto.write_bytes(b"pyc")
 
-    with patch("py_compile.compile", side_effect=OSError("Falha de IO")):
+    removidos = sanitizar_bundle_para_codesign(app_dir, dry_run=False)
+
+    assert not script_solto.exists()
+    assert not pyc_solto.exists()
+    assert any("script_residual.py" in str(r) for r in removidos)
+    assert any("bytecode_residual.pyc" in str(r) for r in removidos)
+
+
+def test_criar_estrutura_bundle_macos_move_migracoes_para_contents_resources(
+    tmp_path: Path,
+) -> None:
+    """Valida que criar_estrutura_bundle_macos posiciona a pasta migracoes em Contents/Resources."""
+    dir_onedir = tmp_path / "EditorAresta_onedir"
+    dir_onedir.mkdir()
+    (dir_onedir / "EditorAresta").write_bytes(b"binario")
+    migracoes_onedir = dir_onedir / "_internal" / "migracoes"
+    migracoes_onedir.mkdir(parents=True)
+    (migracoes_onedir / "0001_migrar.py").write_text("print('m')", encoding="utf-8")
+
+    dir_app = tmp_path / "EditorAresta.app"
+
+    criar_estrutura_bundle_macos(
+        diretorio_origem_onedir=dir_onedir,
+        diretorio_destino_app=dir_app,
+        versao="0.4.0",
+    )
+
+    assert not (dir_app / "Contents" / "MacOS" / "_internal" / "migracoes").exists()
+    assert (dir_app / "Contents" / "Resources" / "migracoes" / "0001_migrar.py").exists()
+    assert (dir_app / "Contents" / "Resources" / "migracoes" / "0001_migrar.pyc").exists()
+
+
+def test_sanitizar_bundle_para_codesign_movimentacao_migracoes_trata_oserror(
+    tmp_path: Path,
+) -> None:
+    """Valida tratamento defensivo de falha de IO ao mover a pasta migracoes."""
+    app_dir = tmp_path / "EditorAresta.app"
+    migracoes_macos = app_dir / "Contents" / "MacOS" / "_internal" / "migracoes"
+    migracoes_macos.mkdir(parents=True)
+
+    with patch("shutil.move", side_effect=OSError("Falha de IO")):
         removidos = sanitizar_bundle_para_codesign(app_dir, dry_run=False)
         assert isinstance(removidos, list)
 
@@ -747,10 +857,16 @@ def test_sanitizar_bundle_para_codesign_preserva_executavel_de_binario_macho_e_a
     def mock_chmod(self: Path, modo: int) -> None:
         chmod_chamados.append(self)
 
+    stat_real = Path.stat
     mock_stat = MagicMock(st_mode=0o100755)
 
+    def mock_stat_fn(self: Path, *args: Any, **kwargs: Any) -> Any:
+        if self.name in ("readme.txt", "executavel_auxiliar", "Meu"):
+            return mock_stat
+        return stat_real(self, *args, **kwargs)
+
     with (
-        patch.object(Path, "stat", return_value=mock_stat),
+        patch.object(Path, "stat", mock_stat_fn),
         patch.object(Path, "chmod", mock_chmod),
     ):
         sanitizar_bundle_para_codesign(app_dir, dry_run=False)

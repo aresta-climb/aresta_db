@@ -11,7 +11,7 @@ import subprocess
 import tempfile
 import unittest
 from pathlib import Path
-from unittest.mock import MagicMock, call, patch
+from unittest.mock import MagicMock, patch
 
 from editor.release_tools.configurar_certificado_macos import (
     configurar_keychain_e_certificado_macos,
@@ -90,7 +90,9 @@ class TestConfigurarCertificadoMacOS(unittest.TestCase):
             # 3ª chamada (exportar sem -legacy): ok
             mock_run.side_effect = [
                 MagicMock(returncode=0),
-                subprocess.CalledProcessError(1, ["openssl", "-legacy"], stderr=b"unknown option -legacy"),
+                subprocess.CalledProcessError(
+                    1, ["openssl", "-legacy"], stderr=b"unknown option -legacy"
+                ),
                 MagicMock(returncode=0),
             ]
 
@@ -135,13 +137,21 @@ class TestConfigurarCertificadoMacOS(unittest.TestCase):
             chamadas_comandos = [call_args[0][0] for call_args in mock_run.call_args_list]
 
             # 1. create-keychain
-            self.assertTrue(any(c[:2] == ["security", "create-keychain"] for c in chamadas_comandos))
+            self.assertTrue(
+                any(c[:2] == ["security", "create-keychain"] for c in chamadas_comandos)
+            )
             # 2. default-keychain
-            self.assertTrue(any(c[:2] == ["security", "default-keychain"] for c in chamadas_comandos))
+            self.assertTrue(
+                any(c[:2] == ["security", "default-keychain"] for c in chamadas_comandos)
+            )
             # 3. unlock-keychain
-            self.assertTrue(any(c[:2] == ["security", "unlock-keychain"] for c in chamadas_comandos))
+            self.assertTrue(
+                any(c[:2] == ["security", "unlock-keychain"] for c in chamadas_comandos)
+            )
             # 4. set-keychain-settings
-            self.assertTrue(any(c[:2] == ["security", "set-keychain-settings"] for c in chamadas_comandos))
+            self.assertTrue(
+                any(c[:2] == ["security", "set-keychain-settings"] for c in chamadas_comandos)
+            )
             # 5. import
             import_cmd = next(c for c in chamadas_comandos if c[:2] == ["security", "import"])
             self.assertIn("-k", import_cmd)
@@ -152,7 +162,9 @@ class TestConfigurarCertificadoMacOS(unittest.TestCase):
             self.assertIn("-T", import_cmd)
             self.assertIn("/usr/bin/codesign", import_cmd)
             # 6. set-key-partition-list
-            part_cmd = next(c for c in chamadas_comandos if c[:2] == ["security", "set-key-partition-list"])
+            part_cmd = next(
+                c for c in chamadas_comandos if c[:2] == ["security", "set-key-partition-list"]
+            )
             self.assertIn("apple-tool:,apple:,codesign:", part_cmd)
 
     def test_configurar_keychain_e_certificado_macos_pula_se_sem_certificado(self) -> None:
@@ -166,17 +178,21 @@ class TestConfigurarCertificadoMacOS(unittest.TestCase):
         conteudo_b64 = base64.b64encode(b"MOCK_P12_CONTENT").decode("ascii")
 
         with (
-            patch.dict(os.environ, {"APPLE_CERT_P12": conteudo_b64, "APPLE_CERT_PASSWORD": "secret-pass"}),
-            patch("editor.release_tools.configurar_certificado_macos.converter_pkcs12_para_formato_compativel_macos") as mock_converter,
-            patch("editor.release_tools.configurar_certificado_macos.importar_certificado_na_keychain") as mock_importar,
+            patch.dict(
+                os.environ, {"APPLE_CERT_P12": conteudo_b64, "APPLE_CERT_PASSWORD": "secret-pass"}
+            ),
+            patch(
+                "editor.release_tools.configurar_certificado_macos.converter_pkcs12_para_formato_compativel_macos"
+            ) as mock_converter,
+            patch(
+                "editor.release_tools.configurar_certificado_macos.importar_certificado_na_keychain"
+            ) as mock_importar,
         ):
-            mock_converter.side_effect = (
-                lambda caminho_p12, senha, destino=None: destino or caminho_p12
+            mock_converter.side_effect = lambda caminho_p12, senha, destino=None: (
+                destino or caminho_p12
             )
 
-            sucesso = configurar_keychain_e_certificado_macos(
-                diretorio_trabalho=self.pasta_temp
-            )
+            sucesso = configurar_keychain_e_certificado_macos(diretorio_trabalho=self.pasta_temp)
 
             self.assertTrue(sucesso)
             mock_converter.assert_called_once()
@@ -184,13 +200,19 @@ class TestConfigurarCertificadoMacOS(unittest.TestCase):
 
     def test_main_executa_e_retorna_zero_quando_configurado(self) -> None:
         """Valida ponto de entrada de linha de comando main()."""
-        with patch("editor.release_tools.configurar_certificado_macos.configurar_keychain_e_certificado_macos", return_value=True):
+        with patch(
+            "editor.release_tools.configurar_certificado_macos.configurar_keychain_e_certificado_macos",
+            return_value=True,
+        ):
             codigo = main()
             self.assertEqual(codigo, 0)
 
     def test_main_retorna_zero_mesmo_quando_pulado(self) -> None:
         """Valida que main() retorna zero para não quebrar o pipeline se o certificado não for provido."""
-        with patch("editor.release_tools.configurar_certificado_macos.configurar_keychain_e_certificado_macos", return_value=False):
+        with patch(
+            "editor.release_tools.configurar_certificado_macos.configurar_keychain_e_certificado_macos",
+            return_value=False,
+        ):
             codigo = main()
             self.assertEqual(codigo, 0)
 
@@ -243,5 +265,7 @@ class TestConfigurarCertificadoMacOS(unittest.TestCase):
             patch.dict(os.environ, {"APPLE_CERT_P12": ""}),
             patch("sys.exit") as mock_exit,
         ):
-            runpy.run_module("editor.release_tools.configurar_certificado_macos", run_name="__main__")
+            runpy.run_module(
+                "editor.release_tools.configurar_certificado_macos", run_name="__main__"
+            )
             mock_exit.assert_called_once_with(0)

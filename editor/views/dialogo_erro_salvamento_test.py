@@ -2,7 +2,6 @@
 # Copyright (C) 2026 Aresta Climb Contributors
 
 import sys
-
 from typing import Any
 
 from PySide6.QtCore import Qt

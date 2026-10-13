@@ -276,6 +276,37 @@ def test_obter_caminho_migracoes_sys_frozen_meipass(tmp_path, monkeypatch):
     assert caminho == meipass_migracoes
 
 
+def test_obter_caminho_migracoes_sys_frozen_macos_resources(tmp_path, monkeypatch):
+    """Testa que quando congelado no macOS, busca prioritariamente em Contents/Resources/migracoes."""
+    app_contents = tmp_path / "EditorAresta.app" / "Contents"
+    macos_dir = app_contents / "MacOS"
+    resources_dir = app_contents / "Resources"
+    macos_dir.mkdir(parents=True)
+    resources_dir.mkdir(parents=True)
+    resources_migracoes = resources_dir / "migracoes"
+    resources_migracoes.mkdir()
+
+    falso_executavel = macos_dir / "EditorAresta"
+    falso_executavel.write_bytes(b"bin")
+
+    monkeypatch.setattr(sys, "frozen", True, raising=False)
+    monkeypatch.setattr(sys, "platform", "darwin")
+    monkeypatch.setattr(sys, "executable", str(falso_executavel))
+
+    caminho = migrador.obter_caminho_migracoes()
+    assert caminho == resources_migracoes
+
+
+def test_obter_caminho_migracoes_sys_frozen_macos_trata_excecao(monkeypatch):
+    """Testa tratamento de exceção ao acessar caminho no macOS quando congelado."""
+    monkeypatch.setattr(sys, "frozen", True, raising=False)
+    monkeypatch.setattr(sys, "platform", "darwin")
+    monkeypatch.setattr(sys, "executable", None)
+
+    caminho = migrador.obter_caminho_migracoes()
+    assert caminho.name == "migracoes"
+
+
 def test_obter_caminho_migracoes_fallback_repo_base(tmp_path, monkeypatch):
     """Testa fallback para GerenciadorCaminhos().obter_caminho_base_repo() quando padrao nao existe."""
     repo_migracoes = tmp_path / "repo_base" / "migracoes"

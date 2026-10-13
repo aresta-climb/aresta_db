@@ -1,10 +1,10 @@
-# Spec Delta
+# catalogo-sqlite-delta-sync Specification
 
 ## Purpose
 
 Fornece a geração e sincronização contínua de um banco SQLite compacto contendo os metadados de croquis e escaladas, viabilizando busca textual offline instantânea no aplicativo e resolução eficiente de links curtos e QR Codes na borda com OpenGraph.
 
-## ADDED Requirements
+## Requirements
 
 ### Requirement: Estrutura e geração do catálogo SQLite
 O pipeline de compilação SHALL gerar um banco de dados SQLite denominado `catalogo.db` contendo as tabelas `catalogo_croquis` e `catalogo_aresta`, indexadas para consultas rápidas por identificador e termos textuais.
@@ -60,3 +60,14 @@ A estrutura dos dados nas tabelas `catalogo_aresta` e `catalogo_croquis` SHALL p
 #### Scenario: Consulta de metadados para croqui ou pico
 - **WHEN** um link curto `https://aresta.cc/<croqui_uid>` de um croqui é acessado
 - **THEN** uma consulta direta na tabela `catalogo_croquis` retorna o nome do pico, cidade e estado em uma única operação.
+
+### Requirement: Recuperação de emergência e purge remoto do catálogo
+O sistema SHALL prever um mecanismo de purge global via configuração remota (Firebase Remote Config) que permite forçar o descarte do banco local e o download limpo do `catalogo.db.gz` em todos os clientes móveis.
+
+#### Scenario: Purge remoto acionado por emergência
+- **WHEN** o valor de purge remoto for maior que o timestamp do último purge executado e maior que o timestamp do build do aplicativo
+- **THEN** o cliente descarta o `catalogo.db` local e efetua o download limpo do pacote `catalogo.db.gz` completo a partir do CDN.
+
+#### Scenario: Primeira instalação do aplicativo com preload
+- **WHEN** o aplicativo é instalado pela primeira vez trazendo o catálogo pré-embarcado como asset
+- **THEN** purges emitidos remotamente antes do momento de compilação do pacote são ignorados e nenhum download é executado.

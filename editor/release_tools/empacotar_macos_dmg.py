@@ -108,6 +108,16 @@ def criar_estrutura_bundle_macos(
         else:
             shutil.copy2(item, destino_item, follow_symlinks=False)
 
+    # Move a pasta 'migracoes' para Contents/Resources/migracoes
+    # para que resida na pasta oficial de recursos do macOS (Contents/Resources)
+    # e não na pasta reservada a binários de código (Contents/MacOS).
+    migracoes_em_macos = diretorio_macos / "_internal" / "migracoes"
+    migracoes_em_resources = diretorio_resources / "migracoes"
+    if migracoes_em_macos.exists():
+        shutil.rmtree(migracoes_em_resources, ignore_errors=True)
+        shutil.move(str(migracoes_em_macos), str(migracoes_em_resources))
+        precompilar_scripts_para_bytecode(migracoes_em_resources)
+
     # Copia o ícone .icns para Contents/Resources se fornecido
     if caminho_icone_icns and caminho_icone_icns.exists():
         shutil.copy2(caminho_icone_icns, diretorio_resources / "logo.icns")
@@ -157,6 +167,31 @@ def eh_binario_mach_o(caminho: Path) -> bool:
         return False
 
 
+def precompilar_scripts_para_bytecode(diretorio: Path) -> list[Path]:
+    """
+    Pré-compila scripts Python (.py) de um diretório para bytecode (.pyc),
+    mantendo os arquivos fontes originais intactos.
+    Ignora arquivos de teste (*_test.py).
+    Retorna a lista dos arquivos .pyc gerados com sucesso.
+    """
+    import py_compile
+
+    arquivos_pyc: list[Path] = []
+    if not diretorio.is_dir():
+        return arquivos_pyc
+
+    for arq_py in sorted(diretorio.glob("*.py")):
+        if not arq_py.name.endswith("_test.py"):
+            caminho_pyc = arq_py.with_suffix(".pyc")
+            try:
+                py_compile.compile(str(arq_py), cfile=str(caminho_pyc), doraise=True)
+                arquivos_pyc.append(caminho_pyc)
+            except (py_compile.PyCompileError, OSError):
+                pass
+
+    return arquivos_pyc
+
+
 def sanitizar_bundle_para_codesign(
     caminho_app: Path,
     dry_run: bool = False,
@@ -165,27 +200,46 @@ def sanitizar_bundle_para_codesign(
     Remove arquivos e pastas que causam falhas no utilitário codesign da Apple.
     No macOS, o codesign inspeciona qualquer diretório em Contents/MacOS/ tratando
     arquivos de script ou pastas com ponto como subcomponentes de código.
-    Scripts Python (.py) soltos são considerados subcomponentes de código não assinados
-    ('code object is not signed at all').
     Esta função:
-    1. Pré-compila scripts .py de produção para bytecode .pyc e remove os fontes .py originais.
+    1. Garante que a pasta 'migracoes' resida em Contents/Resources/ e não em Contents/MacOS/.
     2. Expurga metadados pip (.dist-info, .egg-info), arquivos de testes e caches.
-    3. Remove permissões de execução POSIX (+x) de arquivos comuns de dados.
-    4. Limpa atributos estendidos (xattr -cr) no macOS.
+    3. Remove scripts Python (.py, .pyc) soltos residuais em Contents/MacOS/.
+    4. Remove permissões de execução POSIX (+x) de arquivos comuns de dados.
+    5. Limpa atributos estendidos (xattr -cr) no macOS.
     Retorna a lista de itens removidos ou alterados.
     """
-    import py_compile
-
     itens_removidos: list[Path] = []
 
     if not caminho_app.exists():
         return itens_removidos
 
+    diretorio_macos = caminho_app / "Contents" / "MacOS"
+    diretorio_resources = caminho_app / "Contents" / "Resources"
+
+    # Se a pasta 'migracoes' estiver dentro de Contents/MacOS, move para Contents/Resources/
+    migracoes_macos = diretorio_macos / "_internal" / "migracoes"
+    try:
+        if migracoes_macos.is_dir():
+            migracoes_resources = diretorio_resources / "migracoes"
+            itens_removidos.append(migracoes_macos)
+            if not dry_run:
+                shutil.rmtree(migracoes_resources, ignore_errors=True)
+                diretorio_resources.mkdir(parents=True, exist_ok=True)
+                shutil.move(str(migracoes_macos), str(migracoes_resources))
+    except OSError:
+        pass
+
+    if not dry_run and diretorio_resources.is_dir():
+        migracoes_resources = diretorio_resources / "migracoes"
+        if migracoes_resources.is_dir():
+            precompilar_scripts_para_bytecode(migracoes_resources)
+
     # 1. Varre o bundle de baixo para cima removendo diretórios e arquivos problemáticos
     for raiz, pastas, arquivos in os.walk(caminho_app, topdown=False):
         caminho_raiz = Path(raiz)
+        esta_em_macos = caminho_raiz == diretorio_macos or diretorio_macos in caminho_raiz.parents
 
-        # Remove arquivos .DS_Store, compila scripts .py para .pyc e expurga testes
+        # Remove arquivos .DS_Store, expurga testes e scripts residuais em Contents/MacOS
         for arq in arquivos:
             nome_baixo = arq.lower()
             p_arq = caminho_raiz / arq
@@ -201,18 +255,13 @@ def sanitizar_bundle_para_codesign(
                 itens_removidos.append(p_arq)
                 if not dry_run and p_arq.exists():
                     p_arq.unlink(missing_ok=True)
-            elif arq.endswith(".py"):
-                # Arquivo de script Python de produção (ex: migracoes/*.py):
-                # Compila para bytecode .pyc e remove o fonte .py para evitar o erro
-                # 'code object is not signed at all' no codesign da Apple
+            elif esta_em_macos and (arq.endswith(".py") or arq.endswith(".pyc")):
+                # Nenhum script Python solto (.py ou .pyc) pode residir em Contents/MacOS/,
+                # pois o codesign da Apple trata qualquer arquivo em Contents/MacOS/ como
+                # um code object que requer assinatura Mach-O válida.
                 itens_removidos.append(p_arq)
                 if not dry_run and p_arq.exists():
-                    caminho_pyc = p_arq.with_suffix(".pyc")
-                    try:
-                        py_compile.compile(str(p_arq), cfile=str(caminho_pyc), doraise=True)
-                        p_arq.unlink(missing_ok=True)
-                    except (py_compile.PyCompileError, OSError):
-                        pass
+                    p_arq.unlink(missing_ok=True)
             elif (
                 not dry_run
                 and not arq.endswith((".dylib", ".so"))

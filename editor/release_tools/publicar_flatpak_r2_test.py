@@ -297,7 +297,10 @@ def test_publicador_flatpak_r2_publicar_metadados(tmp_path: Path) -> None:
         assert path.exists()
 
     assert mock_s3.upload_file.call_count == 4
-    chamadas = {call[0][2]: call[1].get("ExtraArgs", {}).get("ContentType") for call in mock_s3.upload_file.call_args_list}
+    chamadas = {
+        call[0][2]: call[1].get("ExtraArgs", {}).get("ContentType")
+        for call in mock_s3.upload_file.call_args_list
+    }
     assert chamadas.get("flatpak/logo.png") == "image/png"
 
 
@@ -319,7 +322,9 @@ def test_publicador_flatpak_r2_publicar_metadados_icone_customizado(tmp_path: Pa
     assert (tmp_path / "saida" / "logo.png").read_bytes() == icone_custom.read_bytes()
 
 
-def test_publicador_flatpak_r2_publicar_metadados_icone_inexistente_levanta_erro(tmp_path: Path) -> None:
+def test_publicador_flatpak_r2_publicar_metadados_icone_inexistente_levanta_erro(
+    tmp_path: Path,
+) -> None:
     """Passar caminho de ícone inexistente levanta FileNotFoundError."""
     publicador = PublicadorFlatpakR2(cliente_s3=MagicMock())
     with pytest.raises(FileNotFoundError, match="Arquivo de ícone não encontrado"):
@@ -336,7 +341,10 @@ def test_publicador_flatpak_r2_publicar_metadados_sem_icone_disponivel(tmp_path:
     mock_s3 = MagicMock()
     publicador = PublicadorFlatpakR2(cliente_s3=mock_s3)
 
-    with patch("editor.release_tools.publicar_flatpak_r2.CAMINHO_ICONE_PADRAO", tmp_path / "icone_fantasma.png"):
+    with patch(
+        "editor.release_tools.publicar_flatpak_r2.CAMINHO_ICONE_PADRAO",
+        tmp_path / "icone_fantasma.png",
+    ):
         arquivos = publicador.publicar_metadados(
             versao="0.5.0",
             chave_gpg_base64="MOCK_GPG",
@@ -348,7 +356,9 @@ def test_publicador_flatpak_r2_publicar_metadados_sem_icone_disponivel(tmp_path:
         assert mock_s3.upload_file.call_count == 3
 
 
-def test_publicador_flatpak_r2_publicar_metadados_sem_chave_gpg_levanta_erro(tmp_path: Path) -> None:
+def test_publicador_flatpak_r2_publicar_metadados_sem_chave_gpg_levanta_erro(
+    tmp_path: Path,
+) -> None:
     """Testa que tentar publicar metadados sem chave pública GPG levanta ValueError."""
     publicador = PublicadorFlatpakR2(cliente_s3=MagicMock())
     with pytest.raises(ValueError, match="chave pública GPG"):

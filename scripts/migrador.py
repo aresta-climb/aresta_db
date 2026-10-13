@@ -38,11 +38,22 @@ def obter_caminho_migracoes() -> Path:
     Retorna o caminho do diretório de migrações de forma resiliente para
     desenvolvimento, aplicativo congelado (PyInstaller) ou fallback de repositório.
     """
-    # 1. Se executando congelado com PyInstaller (_MEIPASS)
-    if getattr(sys, "frozen", False) and hasattr(sys, "_MEIPASS"):
-        meipass_migracoes = Path(sys._MEIPASS) / "migracoes"
-        if meipass_migracoes.is_dir():
-            return meipass_migracoes
+    # 1. Se executando congelado com PyInstaller
+    if getattr(sys, "frozen", False):
+        # No macOS (.app bundle): Contents/Resources/migracoes
+        if sys.platform == "darwin":
+            try:
+                caminho_resources = Path(sys.executable).parent.parent / "Resources" / "migracoes"
+                if caminho_resources.is_dir():
+                    return caminho_resources
+            except Exception:
+                pass
+
+        # Fallback padrão PyInstaller (_MEIPASS)
+        if hasattr(sys, "_MEIPASS"):
+            meipass_migracoes = Path(sys._MEIPASS) / "migracoes"
+            if meipass_migracoes.is_dir():
+                return meipass_migracoes
 
     # 2. Caminho padrão local do repositório
     caminho_padrao = _obter_caminho_padrao_migracoes()

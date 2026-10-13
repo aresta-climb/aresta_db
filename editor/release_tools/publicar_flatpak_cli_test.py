@@ -24,10 +24,13 @@ def test_executar_bootstrap_repositorio_remoto_existente(tmp_path: Path) -> None
     diretorio_repo = tmp_path / "repo"
     diretorio_repo.mkdir()
 
-    with patch(
-        "editor.release_tools.publicar_flatpak_cli.verificar_estado_repositorio_remoto",
-        return_value=True,
-    ), patch("subprocess.run") as mock_run:
+    with (
+        patch(
+            "editor.release_tools.publicar_flatpak_cli.verificar_estado_repositorio_remoto",
+            return_value=True,
+        ),
+        patch("subprocess.run") as mock_run,
+    ):
         executar_bootstrap(repo_dir=diretorio_repo)
 
         assert mock_run.call_count == 3
@@ -36,7 +39,11 @@ def test_executar_bootstrap_repositorio_remoto_existente(tmp_path: Path) -> None
         chamada_pull = mock_run.call_args_list[2][0][0]
 
         assert "init" in chamada_init and "--mode=archive-z2" in chamada_init
-        assert "remote" in chamada_remote and "add" in chamada_remote and "--no-gpg-verify" in chamada_remote
+        assert (
+            "remote" in chamada_remote
+            and "add" in chamada_remote
+            and "--no-gpg-verify" in chamada_remote
+        )
         assert "pull" in chamada_pull and "--mirror" in chamada_pull
 
 
@@ -46,10 +53,13 @@ def test_executar_bootstrap_com_repo_ja_inicializado(tmp_path: Path) -> None:
     diretorio_repo.mkdir()
     (diretorio_repo / "config").write_text("[core]\n", encoding="utf-8")
 
-    with patch(
-        "editor.release_tools.publicar_flatpak_cli.verificar_estado_repositorio_remoto",
-        return_value=True,
-    ), patch("subprocess.run") as mock_run:
+    with (
+        patch(
+            "editor.release_tools.publicar_flatpak_cli.verificar_estado_repositorio_remoto",
+            return_value=True,
+        ),
+        patch("subprocess.run") as mock_run,
+    ):
         executar_bootstrap(repo_dir=diretorio_repo)
 
         assert mock_run.call_count == 2
@@ -64,10 +74,13 @@ def test_executar_bootstrap_repositorio_remoto_novo(tmp_path: Path) -> None:
     diretorio_repo = tmp_path / "repo"
     diretorio_repo.mkdir()
 
-    with patch(
-        "editor.release_tools.publicar_flatpak_cli.verificar_estado_repositorio_remoto",
-        return_value=False,
-    ), patch("subprocess.run") as mock_run:
+    with (
+        patch(
+            "editor.release_tools.publicar_flatpak_cli.verificar_estado_repositorio_remoto",
+            return_value=False,
+        ),
+        patch("subprocess.run") as mock_run,
+    ):
         executar_bootstrap(repo_dir=diretorio_repo)
 
         assert mock_run.call_count == 1
@@ -78,6 +91,7 @@ def test_executar_bootstrap_repositorio_remoto_novo(tmp_path: Path) -> None:
 def test_executar_bootstrap_falha_pull_continua_graciosamente(tmp_path: Path) -> None:
     """Se pull do commit anterior falhar (ex: ref inexistente no remoto), não quebra o bootstrap."""
     import subprocess
+
     diretorio_repo = tmp_path / "repo"
     diretorio_repo.mkdir()
 
@@ -86,10 +100,13 @@ def test_executar_bootstrap_falha_pull_continua_graciosamente(tmp_path: Path) ->
             raise subprocess.CalledProcessError(1, cmd)
         return MagicMock()
 
-    with patch(
-        "editor.release_tools.publicar_flatpak_cli.verificar_estado_repositorio_remoto",
-        return_value=True,
-    ), patch("subprocess.run", side_effect=side_effect_run) as mock_run:
+    with (
+        patch(
+            "editor.release_tools.publicar_flatpak_cli.verificar_estado_repositorio_remoto",
+            return_value=True,
+        ),
+        patch("subprocess.run", side_effect=side_effect_run) as mock_run,
+    ):
         # Não deve levantar exceção
         executar_bootstrap(repo_dir=diretorio_repo)
         assert mock_run.call_count == 3
@@ -105,8 +122,12 @@ def test_executar_publicacao_sucesso(tmp_path: Path) -> None:
     mock_publicador.zone_id = "fake_zone"
     mock_publicador.api_token = "fake_token"
     mock_publicador.sincronizar_diretorio_ostree.return_value = ["flatpak/repo/summary"]
-    mock_publicador.publicar_metadados.return_value = {"version.json": diretorio_meta / "version.json"}
-    mock_publicador.obter_urls_purga.return_value = ["https://serving.arestaclimb.com/flatpak/version.json"]
+    mock_publicador.publicar_metadados.return_value = {
+        "version.json": diretorio_meta / "version.json"
+    }
+    mock_publicador.obter_urls_purga.return_value = [
+        "https://serving.arestaclimb.com/flatpak/version.json"
+    ]
 
     executar_publicacao(
         versao="0.5.0",
@@ -181,12 +202,17 @@ def test_main_cli_publicar(tmp_path: Path) -> None:
     diretorio_repo.mkdir()
 
     with patch("editor.release_tools.publicar_flatpak_cli.executar_publicacao") as mock_pub:
-        codigo = main([
-            "publicar",
-            "--versao", "0.5.0",
-            "--repo-dir", str(diretorio_repo),
-            "--chave-gpg-b64", "MOCK_GPG",
-        ])
+        codigo = main(
+            [
+                "publicar",
+                "--versao",
+                "0.5.0",
+                "--repo-dir",
+                str(diretorio_repo),
+                "--chave-gpg-b64",
+                "MOCK_GPG",
+            ]
+        )
         assert codigo == 0
         mock_pub.assert_called_once()
 
@@ -199,13 +225,19 @@ def test_main_cli_publicar_com_icone_customizado(tmp_path: Path) -> None:
     icone.write_bytes(b"png")
 
     with patch("editor.release_tools.publicar_flatpak_cli.executar_publicacao") as mock_pub:
-        codigo = main([
-            "publicar",
-            "--versao", "0.5.0",
-            "--repo-dir", str(diretorio_repo),
-            "--chave-gpg-b64", "MOCK_GPG",
-            "--caminho-icone", str(icone),
-        ])
+        codigo = main(
+            [
+                "publicar",
+                "--versao",
+                "0.5.0",
+                "--repo-dir",
+                str(diretorio_repo),
+                "--chave-gpg-b64",
+                "MOCK_GPG",
+                "--caminho-icone",
+                str(icone),
+            ]
+        )
         assert codigo == 0
         mock_pub.assert_called_once_with(
             versao="0.5.0",
@@ -256,12 +288,17 @@ def test_main_cli_empacotar(tmp_path: Path) -> None:
     saida_bundle = tmp_path / "EditorAresta.flatpak"
 
     with patch("editor.release_tools.publicar_flatpak_cli.gerar_bundle_flatpak") as mock_gerar:
-        codigo = main([
-            "empacotar",
-            "--repo-dir", str(diretorio_repo),
-            "--saida", str(saida_bundle),
-            "--chave-gpg-id", "CHAVE123",
-        ])
+        codigo = main(
+            [
+                "empacotar",
+                "--repo-dir",
+                str(diretorio_repo),
+                "--saida",
+                str(saida_bundle),
+                "--chave-gpg-id",
+                "CHAVE123",
+            ]
+        )
         assert codigo == 0
         mock_gerar.assert_called_once()
 
@@ -279,12 +316,13 @@ def test_import_modulo_sem_raiz_no_sys_path() -> None:
     """Garante que a linha que adiciona a raiz ao sys.path é exercitada quando ausente."""
     import importlib
     import sys
+
     from editor.release_tools.publicar_flatpak_cli import _RAIZ_REPOSITORIO
 
     str_raiz = str(_RAIZ_REPOSITORIO)
     novo_sys_path = [p for p in sys.path if p != str_raiz]
     with patch.object(sys, "path", novo_sys_path):
         import editor.release_tools.publicar_flatpak_cli as modulo_cli
+
         importlib.reload(modulo_cli)
         assert sys.path[0] == str_raiz
-

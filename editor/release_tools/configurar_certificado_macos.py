@@ -193,8 +193,16 @@ def configurar_keychain_e_certificado_macos(
     Orquestra a configuração completa da Keychain do macOS a partir das variáveis de ambiente
     ou parâmetros fornecidos, garantindo sanitização e compatibilidade de cifras criptográficas.
     """
-    p12_b64 = conteudo_p12_base64 if conteudo_p12_base64 is not None else os.environ.get("APPLE_CERT_P12", "")
-    senha_cert = senha_certificado if senha_certificado is not None else os.environ.get("APPLE_CERT_PASSWORD", "")
+    p12_b64 = (
+        conteudo_p12_base64
+        if conteudo_p12_base64 is not None
+        else os.environ.get("APPLE_CERT_P12", "")
+    )
+    senha_cert = (
+        senha_certificado
+        if senha_certificado is not None
+        else os.environ.get("APPLE_CERT_PASSWORD", "")
+    )
 
     if not p12_b64 or not p12_b64.strip():
         print("ℹ️ Certificado Apple Developer ID não configurado, pulando etapa.")
