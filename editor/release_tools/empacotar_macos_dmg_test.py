@@ -691,6 +691,34 @@ def test_sanitizar_bundle_para_codesign_remove_scripts_soltos_em_contents_macos(
     assert any("bytecode_residual.pyc" in str(r) for r in removidos)
 
 
+def test_sanitizar_bundle_para_codesign_remove_arquivos_ico_e_artefatos_windows(
+    tmp_path: Path,
+) -> None:
+    """Valida que arquivos .ico, .exe, .bat e .cmd do ecossistema Windows são removidos do bundle macOS."""
+    app_dir = tmp_path / "EditorAresta.app"
+    internal_dir = app_dir / "Contents" / "MacOS" / "_internal"
+    recursos_dir = internal_dir / "recursos"
+    recursos_dir.mkdir(parents=True)
+
+    ico_raiz = internal_dir / "logo.ico"
+    ico_raiz.write_bytes(b"\x00\x00\x01\x00")
+    ico_recursos = recursos_dir / "logo.ico"
+    ico_recursos.write_bytes(b"\x00\x00\x01\x00")
+    bat_arquivo = internal_dir / "script.bat"
+    bat_arquivo.write_text("@echo off", encoding="utf-8")
+    png_recursos = recursos_dir / "logo_app.png"
+    png_recursos.write_bytes(b"\x89PNG")
+
+    removidos = sanitizar_bundle_para_codesign(app_dir, dry_run=False)
+
+    assert not ico_raiz.exists()
+    assert not ico_recursos.exists()
+    assert not bat_arquivo.exists()
+    assert png_recursos.exists()
+    assert any("logo.ico" in str(r) for r in removidos)
+    assert any("script.bat" in str(r) for r in removidos)
+
+
 def test_criar_estrutura_bundle_macos_move_migracoes_para_contents_resources(
     tmp_path: Path,
 ) -> None:

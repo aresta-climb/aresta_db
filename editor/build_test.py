@@ -143,8 +143,16 @@ def test_filtrar_datas_desnecessarios_remove_fontes_nao_utilizadas():
 def test_filtrar_datas_desnecessarios_remove_dist_info_e_egg_info():
     """Valida se filtrar_datas_desnecessarios remove pastas .dist-info e .egg-info para prevenir falhas de codesign no macOS."""
     datas_mock = [
-        ("C:\\fake\\websockets-17.2.dist-info\\METADATA", "websockets-17.2.dist-info\\METADATA", "DATA"),
-        ("C:\\fake\\keyring-24.3.0.dist-info\\entry_points.txt", "keyring-24.3.0.dist-info\\entry_points.txt", "DATA"),
+        (
+            "C:\\fake\\websockets-17.2.dist-info\\METADATA",
+            "websockets-17.2.dist-info\\METADATA",
+            "DATA",
+        ),
+        (
+            "C:\\fake\\keyring-24.3.0.dist-info\\entry_points.txt",
+            "keyring-24.3.0.dist-info\\entry_points.txt",
+            "DATA",
+        ),
         ("C:\\fake\\pkg_resources.egg-info\\PKG-INFO", "pkg_resources.egg-info\\PKG-INFO", "DATA"),
         ("C:\\fake\\editor\\recursos\\logo_app.png", "recursos\\logo_app.png", "DATA"),
     ]
@@ -161,8 +169,16 @@ def test_filtrar_datas_desnecessarios_remove_dist_info_e_egg_info():
 def test_filtrar_datas_desnecessarios_remove_arquivos_e_pastas_de_teste() -> None:
     """Valida se filtrar_datas_desnecessarios remove arquivos de teste (*_test.py) e pastas tests."""
     datas_mock = [
-        ("C:\\fake\\migracoes\\0005_migrar_uids_e_rotulos_test.py", "migracoes\\0005_migrar_uids_e_rotulos_test.py", "DATA"),
-        ("C:\\fake\\migracoes\\0005_migrar_uids_e_rotulos.py", "migracoes\\0005_migrar_uids_e_rotulos.py", "DATA"),
+        (
+            "C:\\fake\\migracoes\\0005_migrar_uids_e_rotulos_test.py",
+            "migracoes\\0005_migrar_uids_e_rotulos_test.py",
+            "DATA",
+        ),
+        (
+            "C:\\fake\\migracoes\\0005_migrar_uids_e_rotulos.py",
+            "migracoes\\0005_migrar_uids_e_rotulos.py",
+            "DATA",
+        ),
         ("C:\\fake\\tests\\conftest.py", "tests\\conftest.py", "DATA"),
         ("C:\\fake\\tests\\test_dummy.py", "tests\\test_dummy.py", "DATA"),
     ]
@@ -174,6 +190,29 @@ def test_filtrar_datas_desnecessarios_remove_arquivos_e_pastas_de_teste() -> Non
     assert "tests\\conftest.py" not in destinos_restantes
     assert "tests\\test_dummy.py" not in destinos_restantes
     assert "migracoes\\0005_migrar_uids_e_rotulos.py" in destinos_restantes
+
+
+def test_filtrar_datas_desnecessarios_remove_ico_no_macos() -> None:
+    """Valida se filtrar_datas_desnecessarios remove arquivos .ico na plataforma darwin."""
+    datas_mock = [
+        ("C:\\fake\\editor\\logo.ico", "editor\\logo.ico", "DATA"),
+        ("C:\\fake\\editor\\recursos\\logo.ico", "recursos\\logo.ico", "DATA"),
+        ("C:\\fake\\editor\\recursos\\logo_app.png", "recursos\\logo_app.png", "DATA"),
+    ]
+
+    with patch("sys.platform", "darwin"):
+        filtrados_darwin = filtrar_datas_desnecessarios(datas_mock)
+        destinos_darwin = [d[1] for d in filtrados_darwin]
+        assert "editor\\logo.ico" not in destinos_darwin
+        assert "recursos\\logo.ico" not in destinos_darwin
+        assert "recursos\\logo_app.png" in destinos_darwin
+
+    with patch("sys.platform", "win32"):
+        filtrados_win = filtrar_datas_desnecessarios(datas_mock)
+        destinos_win = [d[1] for d in filtrados_win]
+        assert "editor\\logo.ico" in destinos_win
+        assert "recursos\\logo.ico" in destinos_win
+        assert "recursos\\logo_app.png" in destinos_win
 
 
 def test_obter_argumentos_pyinstaller_usa_arquivo_spec():

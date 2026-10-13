@@ -42,10 +42,10 @@ datas = [
     (str(caminho_canal), '.'),
     (str(caminho_canal), 'editor'),
 ]
-if (spec_dir / 'logo.ico').exists():
+if sys.platform.startswith("win") and (spec_dir / 'logo.ico').exists():
     datas.append((str(spec_dir / 'logo.ico'), '.'))
     datas.append((str(spec_dir / 'logo.ico'), 'editor'))
-if (spec_dir / 'logo.icns').exists():
+elif sys.platform == "darwin" and (spec_dir / 'logo.icns').exists():
     datas.append((str(spec_dir / 'logo.icns'), '.'))
     datas.append((str(spec_dir / 'logo.icns'), 'editor'))
 if eh_beta and (spec_dir / 'recursos_beta').exists():

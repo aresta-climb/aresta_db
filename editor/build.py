@@ -217,7 +217,15 @@ def filtrar_datas_desnecessarios(
             continue
         if ".dist-info" in alvo or ".egg-info" in alvo:
             continue
-        if "_test.py" in alvo or "test_" in alvo or "conftest.py" in alvo or "/tests/" in alvo or "\\tests\\" in alvo:
+        if (
+            "_test.py" in alvo
+            or "test_" in alvo
+            or "conftest.py" in alvo
+            or "/tests/" in alvo
+            or "\\tests\\" in alvo
+        ):
+            continue
+        if sys.platform == "darwin" and alvo.endswith(".ico"):
             continue
         resultado.append(item)
     return resultado

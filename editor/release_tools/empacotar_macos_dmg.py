@@ -250,8 +250,9 @@ def sanitizar_bundle_para_codesign(
                 or nome_baixo.startswith("test_")
                 or nome_baixo == "conftest.py"
             )
+            eh_artefato_windows = nome_baixo.endswith((".ico", ".exe", ".bat", ".cmd"))
 
-            if eh_ds_store or eh_teste:
+            if eh_ds_store or eh_teste or eh_artefato_windows:
                 itens_removidos.append(p_arq)
                 if not dry_run and p_arq.exists():
                     p_arq.unlink(missing_ok=True)
