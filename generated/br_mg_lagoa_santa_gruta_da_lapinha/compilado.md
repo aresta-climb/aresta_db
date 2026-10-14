@@ -1969,6 +1969,7 @@
   - **[5]**:
     - **uid**: 8BmdmUZ3J2Ioaf
     - **via_esportiva**:
+      - **descricao**: INTERDITADA: ninho de aves no meio da via (2026/10/13). Está na 5a chapa da Karrenglass, em um local extremamente próximo à Gigante de Bronze.
       - **nome**: Gigante de Bronze
       - **dificuldade**: BR_6
       - **conquistadores**:
@@ -1978,6 +1979,7 @@
   - **[6]**:
     - **uid**: gIzPvcOt3tcfaW
     - **via_esportiva**:
+      - **descricao**: INTERDITADA: ninho de aves na 5a chapa (2026/10/13).
       - **nome**: Karrenglass
       - **dificuldade**: BR_5SUP
       - **conquistadores**:
@@ -2654,7 +2656,7 @@
       - **descricao**: **INTERDITADA:** Grande quantidade de chapas de spit antigas; chumbador da 1ª proteção com rosca excessivamente exposta para fora; via muito suja.
       - **nome**: Aceitam-se Sugestões
       - **dificuldade**: BR_7C
-      - **quantidade_protecoes_intermediarias**: 6
+      - **quantidade_protecoes_intermediarias**: 7
       - **quantidade_protecoes_parada**: 2
       - **conquistadores**:
         - Juan Kempen

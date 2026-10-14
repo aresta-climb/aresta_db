@@ -38,6 +38,7 @@ def test_icones_obter_usa_qtawesome_com_cores_corretas():
             color=Icones.COR_NORMAL,
             color_active=Icones.COR_DESTAQUE,
             color_selected=Icones.COR_DESTAQUE,
+            color_disabled=Icones.COR_DESABILITADO,
         )
 
 
@@ -53,6 +54,7 @@ def test_icones_obter_aceita_cor_customizada():
             color=cor_custom,
             color_active=Icones.COR_DESTAQUE,
             color_selected=Icones.COR_DESTAQUE,
+            color_disabled=Icones.COR_DESABILITADO,
         )
 
 
@@ -81,6 +83,7 @@ def test_icones_obter_lixeira_usa_cores_apropriadas():
             color=Icones.COR_ERRO,
             color_active=Icones.COR_ERRO,
             color_selected=Icones.COR_ERRO,
+            color_disabled=Icones.COR_DESABILITADO,
         )
 
 
@@ -162,6 +165,71 @@ def test_configurar_tema_claro_aplicacao_define_color_scheme_light(qtbot):
     assert app.palette().color(QPalette.ColorRole.Base).name().lower() == "#ffffff"
     assert app.palette().color(QPalette.ColorRole.Text).name().lower() in ("#000000", "#212529")
     assert app.palette().color(QPalette.ColorRole.Window).name() != "#d4d0c8"
+
+    # O grupo Disabled NÃO deve usar a cor escura de texto ativo (#212529), mas sim a cor desabilitada
+    cor_esperada_disabled = Icones.COR_DESABILITADO.lower()
+    assert (
+        app.palette()
+        .color(QPalette.ColorGroup.Disabled, QPalette.ColorRole.Text)
+        .name()
+        .lower()
+        == cor_esperada_disabled
+    )
+    assert (
+        app.palette()
+        .color(QPalette.ColorGroup.Disabled, QPalette.ColorRole.WindowText)
+        .name()
+        .lower()
+        == cor_esperada_disabled
+    )
+    assert (
+        app.palette()
+        .color(QPalette.ColorGroup.Disabled, QPalette.ColorRole.ButtonText)
+        .name()
+        .lower()
+        == cor_esperada_disabled
+    )
+
+
+def test_icones_publicar_e_sincronizar_renderizam_greyed_out_quando_desabilitados(qtbot):
+    """Garante que os ícones de proposta de mudança e sincronização remota ficam greyed out no modo Disabled."""
+    from PySide6.QtCore import QSize
+    from PySide6.QtWidgets import QApplication
+
+    from editor.views.estilo import configurar_tema_claro_aplicacao
+
+    app = QApplication.instance()
+    configurar_tema_claro_aplicacao(app)
+
+    for nome_icone in ("publicar", "sincronizar"):
+        icone = Icones.obter(nome_icone)
+        img_normal = icone.pixmap(QSize(24, 24), QIcon.Mode.Normal).toImage()
+        img_disabled = icone.pixmap(QSize(24, 24), QIcon.Mode.Disabled).toImage()
+
+        # Coleta os pixels opacos (onde o glifo foi desenhado)
+        pixels_normal = [
+            img_normal.pixelColor(x, y)
+            for x in range(img_normal.width())
+            for y in range(img_normal.height())
+            if img_normal.pixelColor(x, y).alpha() > 128
+        ]
+        pixels_disabled = [
+            img_disabled.pixelColor(x, y)
+            for x in range(img_disabled.width())
+            for y in range(img_disabled.height())
+            if img_disabled.pixelColor(x, y).alpha() > 128
+        ]
+
+        assert pixels_normal, f"Ícone {nome_icone} normal deveria ter pixels visíveis"
+        assert pixels_disabled, f"Ícone {nome_icone} disabled deveria ter pixels visíveis"
+
+        media_luminancia_normal = sum(c.lightness() for c in pixels_normal) / len(pixels_normal)
+        media_luminancia_disabled = sum(c.lightness() for c in pixels_disabled) / len(
+            pixels_disabled
+        )
+
+        # O ícone desabilitado deve ser visivelmente mais claro (greyed out) que o ícone normal
+        assert media_luminancia_disabled > media_luminancia_normal + 40
 
 
 def test_configurar_tema_claro_aplicacao_estiliza_campos_entrada(qtbot):

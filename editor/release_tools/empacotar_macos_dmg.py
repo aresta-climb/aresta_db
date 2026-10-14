@@ -7,7 +7,9 @@ Monta a estrutura de bundle EditorAresta.app a partir do diretório onedir do Py
 e gera a imagem de disco instalável .dmg para distribuição.
 """
 
+import json
 import os
+import re
 import shutil
 import subprocess
 import sys
@@ -17,6 +19,20 @@ FEED_SPARKLE_PADRAO: str = "https://serving.arestaclimb.com/editor-macos/appcast
 IDENTIFICADOR_BUNDLE_PADRAO: str = "com.arestaclimb.Editor"
 NOME_EXECUTAVEL_PADRAO: str = "EditorAresta"
 CHAVE_PUBLICA_SPARKLE_PADRAO: str = "BZ+UB+PvZmLAVAKiAoUtFUrrJSBECPFIc2dzvvlVruY="
+
+ENTITLEMENTS_PADRAO_MACOS: str = """<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>com.apple.security.cs.allow-jit</key>
+    <true/>
+    <key>com.apple.security.cs.allow-unsigned-executable-memory</key>
+    <true/>
+    <key>com.apple.security.cs.disable-library-validation</key>
+    <true/>
+</dict>
+</plist>
+"""
 
 
 def gerar_conteudo_info_plist(
@@ -468,6 +484,14 @@ def assinar_bundle_macos(
             subprocess.run(cmd_fw, check=True)
 
     # 3. Assina executáveis binários principais em Contents/MacOS antes do bundle
+    caminho_entitlements_efetivo = caminho_entitlements
+    if caminho_entitlements_efetivo is None or not caminho_entitlements_efetivo.exists():
+        arquivo_entitlements_padrao = caminho_app / "Contents" / "Resources" / "entitlements.plist"
+        if not dry_run:
+            arquivo_entitlements_padrao.parent.mkdir(parents=True, exist_ok=True)
+            arquivo_entitlements_padrao.write_text(ENTITLEMENTS_PADRAO_MACOS, encoding="utf-8")
+        caminho_entitlements_efetivo = arquivo_entitlements_padrao
+
     diretorio_macos = caminho_app / "Contents" / "MacOS"
     if diretorio_macos.exists():
         for item in sorted(diretorio_macos.iterdir()):
@@ -480,8 +504,10 @@ def assinar_bundle_macos(
                 ".xml",
             ):
                 cmd_bin = cmd_base.copy()
-                if caminho_entitlements and caminho_entitlements.exists():
-                    cmd_bin.extend(["--entitlements", str(caminho_entitlements)])
+                if caminho_entitlements_efetivo and (
+                    dry_run or caminho_entitlements_efetivo.exists()
+                ):
+                    cmd_bin.extend(["--entitlements", str(caminho_entitlements_efetivo)])
                 cmd_bin.append(str(item))
                 comandos_executados.append(" ".join(cmd_bin))
                 if not dry_run:
@@ -489,8 +515,8 @@ def assinar_bundle_macos(
 
     # 4. Assina o bundle .app raiz
     cmd_app = cmd_base.copy()
-    if caminho_entitlements and caminho_entitlements.exists():
-        cmd_app.extend(["--entitlements", str(caminho_entitlements)])
+    if caminho_entitlements_efetivo and (dry_run or caminho_entitlements_efetivo.exists()):
+        cmd_app.extend(["--entitlements", str(caminho_entitlements_efetivo)])
     cmd_app.append(str(caminho_app))
 
     comandos_executados.append(" ".join(cmd_app))
@@ -533,6 +559,29 @@ def gerar_dmg_macos(
     return comandos
 
 
+def assinar_dmg_macos(
+    caminho_dmg: Path,
+    identidade_assinatura: str,
+    dry_run: bool = False,
+) -> list[str]:
+    """
+    Assina a imagem de disco DMG com o Developer ID Application e timestamp seguro.
+    Obrigatório pela Apple antes da notarização e stapling.
+    """
+    cmd = [
+        "codesign",
+        "--force",
+        "--timestamp",
+        "--sign",
+        identidade_assinatura,
+        str(caminho_dmg),
+    ]
+    comandos = [" ".join(cmd)]
+    if not dry_run:
+        subprocess.run(cmd, check=True)
+    return comandos
+
+
 def notarizar_dmg_macos(
     caminho_dmg: Path,
     apple_id: str | None = None,
@@ -543,14 +592,25 @@ def notarizar_dmg_macos(
 ) -> list[str]:
     """
     Submete a imagem DMG para notarização Apple e grampeia o ticket (staple).
+    Caso a submissão seja rejeitada ou não aprovada pela Apple, busca e imprime o log detalhado
+    do notarytool no terminal para depuração imediata.
     """
     comandos: list[str] = []
 
-    cmd_notary = ["xcrun", "notarytool", "submit", str(caminho_dmg), "--wait"]
+    cmd_notary = [
+        "xcrun",
+        "notarytool",
+        "submit",
+        str(caminho_dmg),
+        "--wait",
+        "--output-format",
+        "json",
+    ]
+    args_auth: list[str] = []
     if profile:
-        cmd_notary.extend(["--keychain-profile", profile])
+        args_auth.extend(["--keychain-profile", profile])
     elif apple_id and app_password and team_id:
-        cmd_notary.extend(
+        args_auth.extend(
             [
                 "--apple-id",
                 apple_id,
@@ -560,10 +620,51 @@ def notarizar_dmg_macos(
                 team_id,
             ]
         )
+    cmd_notary.extend(args_auth)
 
     comandos.append(" ".join(cmd_notary))
     if not dry_run:
-        subprocess.run(cmd_notary, check=True)
+        res = subprocess.run(cmd_notary, capture_output=True, text=True, check=False)
+        stdout = res.stdout.strip()
+        stderr = res.stderr.strip()
+
+        submissao_id: str | None = None
+        status: str = "Unknown"
+
+        try:
+            dados = json.loads(stdout)
+            submissao_id = dados.get("id")
+            status = dados.get("status", "Unknown")
+        except json.JSONDecodeError:
+            print(
+                f"[AVISO NOTARIZAÇÃO] Resposta do notarytool não foi JSON puro:\n{stdout}\n{stderr}"
+            )
+            match_id = re.search(r"id:\s*([a-f0-9\-]+)", stdout, re.IGNORECASE)
+            if match_id:
+                submissao_id = match_id.group(1)
+            if "status: Accepted" in stdout:
+                status = "Accepted"
+            elif "status: Invalid" in stdout:
+                status = "Invalid"
+
+        if status != "Accepted":
+            print(f"[ERRO NOTARIZAÇÃO APPLE] Status da submissão: {status} (ID: {submissao_id})")
+            if submissao_id:
+                cmd_log = ["xcrun", "notarytool", "log", submissao_id, *args_auth]
+                print(
+                    f"[LOG NOTARIZAÇÃO APPLE] Obtendo relatório detalhado da Apple: {' '.join(cmd_log)}"
+                )
+                res_log = subprocess.run(cmd_log, capture_output=True, text=True, check=False)
+                print("[RELATÓRIO DE AUDITORIA APPLE]:")
+                print(res_log.stdout)
+                if res_log.stderr:
+                    print(res_log.stderr)
+            raise RuntimeError(
+                f"A notarização Apple da imagem DMG falhou com status '{status}' (ID: {submissao_id}). "
+                "Consulte o relatório de auditoria detalhado acima."
+            )
+
+        print(f"[OK NOTARIZAÇÃO APPLE] Submissão {submissao_id} aceita com sucesso pela Apple.")
 
     cmd_staple = ["xcrun", "stapler", "staple", str(caminho_dmg)]
     comandos.append(" ".join(cmd_staple))
@@ -618,7 +719,15 @@ def empacotar_distribuicao_macos(
         dry_run=dry_run,
     )
 
-    # 4. Notarização Apple (se solicitada)
+    # 4. Assinatura do arquivo DMG com Developer ID
+    if identidade_assinatura:
+        assinar_dmg_macos(
+            caminho_dmg=caminho_dmg,
+            identidade_assinatura=identidade_assinatura,
+            dry_run=dry_run,
+        )
+
+    # 5. Notarização Apple (se solicitada)
     if notarizar:
         notarizar_dmg_macos(
             caminho_dmg=caminho_dmg,

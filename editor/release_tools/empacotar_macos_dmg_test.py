@@ -11,7 +11,9 @@ from typing import Any
 from unittest.mock import MagicMock, patch
 
 from editor.release_tools.empacotar_macos_dmg import (
+    ENTITLEMENTS_PADRAO_MACOS,
     assinar_bundle_macos,
+    assinar_dmg_macos,
     criar_estrutura_bundle_macos,
     eh_binario_mach_o,
     empacotar_distribuicao_macos,
@@ -203,12 +205,18 @@ def test_notarizar_dmg_macos_dry_run(tmp_path: Path) -> None:
 
 
 def test_notarizar_dmg_macos_execucao_real(tmp_path: Path) -> None:
-    """Valida a execução de subprocess.run na notarização."""
+    """Valida a execução de subprocess.run na notarização com sucesso."""
     dmg = tmp_path / "EditorAresta.dmg"
     dmg.write_bytes(b"dmg")
 
-    with patch("subprocess.run") as mock_run:
-        mock_run.return_value = MagicMock(returncode=0)
+    res_submit = MagicMock(
+        returncode=0,
+        stdout='{"id": "sub-123", "status": "Accepted", "message": "Processing complete"}',
+        stderr="",
+    )
+    res_staple = MagicMock(returncode=0, stdout="", stderr="")
+
+    with patch("subprocess.run", side_effect=[res_submit, res_staple]) as mock_run:
         comandos = notarizar_dmg_macos(
             caminho_dmg=dmg,
             profile="AC_PROFILE",
@@ -1057,3 +1065,126 @@ def test_inspecionar_itens_inesperados_macos_detecta_arquivos_e_pastas_indevidos
     assert "models.bin" in saida
     assert "logo.ico" in saida
     assert "Total de 3 itens inesperados" in saida
+
+
+def test_assinar_dmg_macos_dry_run_e_execucao(tmp_path: Path) -> None:
+    """Valida o comando de assinatura codesign aplicado diretamente ao arquivo .dmg."""
+    dmg = tmp_path / "EditorAresta.dmg"
+    dmg.write_bytes(b"dmg")
+
+    # Em dry-run
+    comandos_dry = assinar_dmg_macos(dmg, "Developer ID Application: Aresta", dry_run=True)
+    assert len(comandos_dry) == 1
+    assert "codesign --force --timestamp --sign" in comandos_dry[0]
+    assert str(dmg) in comandos_dry[0]
+
+    # Em execução real
+    with patch("subprocess.run") as mock_run:
+        mock_run.return_value = MagicMock(returncode=0)
+        comandos_real = assinar_dmg_macos(dmg, "Developer ID Application: Aresta", dry_run=False)
+        assert len(comandos_real) == 1
+        mock_run.assert_called_once()
+
+
+def test_entitlements_padrao_macos() -> None:
+    """Valida a presença de entitlements necessários para Hardened Runtime do PySide6/CPython."""
+    assert "<key>com.apple.security.cs.allow-jit</key>" in ENTITLEMENTS_PADRAO_MACOS
+    assert (
+        "<key>com.apple.security.cs.allow-unsigned-executable-memory</key>"
+        in ENTITLEMENTS_PADRAO_MACOS
+    )
+    assert (
+        "<key>com.apple.security.cs.disable-library-validation</key>" in ENTITLEMENTS_PADRAO_MACOS
+    )
+
+
+def test_notarizar_dmg_macos_status_invalid_busca_log_e_lanca_erro(
+    tmp_path: Path, capsys: Any
+) -> None:
+    """Valida que quando a Apple retorna Invalid, o log de auditoria é consultado e um erro é lançado."""
+    dmg = tmp_path / "EditorAresta.dmg"
+    dmg.write_bytes(b"dmg")
+
+    res_submit = MagicMock(
+        returncode=0,
+        stdout='{"id": "70a48d46-b66b", "status": "Invalid", "message": "Processing complete"}',
+        stderr="",
+    )
+    res_log = MagicMock(
+        returncode=0,
+        stdout='{"issues": [{"message": "The binary is not signed with a valid Developer ID certificate"}]}',
+        stderr="",
+    )
+
+    import pytest
+
+    with patch("subprocess.run", side_effect=[res_submit, res_log]) as mock_run:
+        with pytest.raises(
+            RuntimeError,
+            match="A notarização Apple da imagem DMG falhou com status 'Invalid'",
+        ):
+            notarizar_dmg_macos(
+                caminho_dmg=dmg,
+                profile="MEU_PERFIL",
+                dry_run=False,
+            )
+
+        assert mock_run.call_count == 2
+        cmd_log = mock_run.call_args_list[1][0][0]
+        assert "notarytool" in cmd_log
+        assert "log" in cmd_log
+        assert "70a48d46-b66b" in cmd_log
+
+        saida = capsys.readouterr().out
+        assert "RELATÓRIO DE AUDITORIA APPLE" in saida
+        assert "The binary is not signed with a valid Developer ID certificate" in saida
+
+
+def test_notarizar_dmg_macos_saida_texto_invalido_busca_log_e_lanca_erro(
+    tmp_path: Path,
+) -> None:
+    """Valida tratamento quando a saída do notarytool não é JSON puro mas contém status Invalid e id."""
+    dmg = tmp_path / "EditorAresta.dmg"
+    dmg.write_bytes(b"dmg")
+
+    texto_saida = "Submission ID received\n  id: 1111-2222\nstatus: Invalid"
+    res_submit = MagicMock(
+        returncode=0,
+        stdout=texto_saida,
+        stderr="",
+    )
+    res_log = MagicMock(
+        returncode=0,
+        stdout="Erro no DMG",
+        stderr="Detalhes no stderr",
+    )
+
+    import pytest
+
+    with patch("subprocess.run", side_effect=[res_submit, res_log]):
+        with pytest.raises(RuntimeError, match="A notarização Apple da imagem DMG falhou"):
+            notarizar_dmg_macos(
+                caminho_dmg=dmg,
+                apple_id="a@b.com",
+                app_password="pwd",
+                team_id="T1",
+                dry_run=False,
+            )
+
+
+def test_notarizar_dmg_macos_saida_texto_accepted(tmp_path: Path) -> None:
+    """Valida fluxo de sucesso quando a saída do notarytool não é JSON puro mas contém status: Accepted."""
+    dmg = tmp_path / "EditorAresta.dmg"
+    dmg.write_bytes(b"dmg")
+
+    texto_saida = "Submission ID received\n  id: 1111-2222\nstatus: Accepted"
+    res_submit = MagicMock(returncode=0, stdout=texto_saida, stderr="")
+    res_staple = MagicMock(returncode=0, stdout="", stderr="")
+
+    with patch("subprocess.run", side_effect=[res_submit, res_staple]) as mock_run:
+        notarizar_dmg_macos(
+            caminho_dmg=dmg,
+            profile="MEU_PERFIL",
+            dry_run=False,
+        )
+        assert mock_run.call_count == 2

@@ -15,6 +15,7 @@ class Icones:
     COR_SUCESSO: str = "#28a745"
     COR_ERRO: str = "#dc3545"
     COR_MUTED: str = "#777777"
+    COR_DESABILITADO: str = "#adb5bd"
 
     # Mapeamento de ações para identificadores do QtAwesome (FontAwesome 5 Solid/Brands)
     MAPA: dict[str, str] = {
@@ -161,6 +162,7 @@ class Icones:
             color=cor_final,
             color_active=cor_ativa_final,
             color_selected=cor_ativa_final,
+            color_disabled=cls.COR_DESABILITADO,
         )
         return res if isinstance(res, QIcon) else QIcon(res)
 
@@ -233,6 +235,10 @@ def configurar_tema_claro_aplicacao(app: Any | None = None) -> None:
         pal.setColor(QPalette.ColorRole.ToolTipText, QColor("#212529"))
         pal.setColor(QPalette.ColorRole.Highlight, QColor("#2b579a"))
         pal.setColor(QPalette.ColorRole.HighlightedText, QColor("#ffffff"))
+        cor_desabilitado = QColor(Icones.COR_DESABILITADO)
+        pal.setColor(QPalette.ColorGroup.Disabled, QPalette.ColorRole.WindowText, cor_desabilitado)
+        pal.setColor(QPalette.ColorGroup.Disabled, QPalette.ColorRole.Text, cor_desabilitado)
+        pal.setColor(QPalette.ColorGroup.Disabled, QPalette.ColorRole.ButtonText, cor_desabilitado)
         instancia.setPalette(pal)
     except Exception:
         pass
