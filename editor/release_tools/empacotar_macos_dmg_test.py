@@ -5,6 +5,7 @@
 Testes unitários para a ferramenta de empacotamento, assinatura e notarização macOS (DMG).
 """
 
+import sys
 from pathlib import Path
 from typing import Any
 from unittest.mock import MagicMock, patch
@@ -16,6 +17,7 @@ from editor.release_tools.empacotar_macos_dmg import (
     empacotar_distribuicao_macos,
     gerar_conteudo_info_plist,
     gerar_dmg_macos,
+    inspecionar_itens_inesperados_macos,
     notarizar_dmg_macos,
     precompilar_scripts_para_bytecode,
     sanitizar_bundle_para_codesign,
@@ -714,7 +716,7 @@ def test_sanitizar_bundle_para_codesign_remove_arquivos_ico_e_artefatos_windows(
     assert not ico_raiz.exists()
     assert not ico_recursos.exists()
     assert not bat_arquivo.exists()
-    assert png_recursos.exists()
+    assert (app_dir / "Contents" / "Resources" / "_internal" / "recursos" / "logo_app.png").exists()
     assert any("logo.ico" in str(r) for r in removidos)
     assert any("script.bat" in str(r) for r in removidos)
 
@@ -902,7 +904,7 @@ def test_sanitizar_bundle_para_codesign_preserva_executavel_de_binario_macho_e_a
     # Apenas o arquivo comum de texto deve acionar chmod (não binários Mach-O nem dentro de .framework)
     assert bin_macho not in chmod_chamados
     assert bin_fw not in chmod_chamados
-    assert arquivo_txt in chmod_chamados
+    assert any(p.name == "readme.txt" for p in chmod_chamados)
 
 
 def test_criar_estrutura_bundle_macos_preserva_symlinks(tmp_path: Path) -> None:
@@ -923,3 +925,135 @@ def test_criar_estrutura_bundle_macos_preserva_symlinks(tmp_path: Path) -> None:
         assert mock_copytree.call_count >= 1
         for call in mock_copytree.call_args_list:
             assert call.kwargs.get("symlinks") is True
+
+
+def test_criar_estrutura_bundle_macos_trata_oserror_ao_criar_symlink(
+    tmp_path: Path,
+) -> None:
+    """Valida que falha em symlink_to não impede a criação do bundle."""
+    dir_origem = tmp_path / "origem_onedir"
+    (dir_origem / "_internal").mkdir(parents=True)
+    (dir_origem / "_internal" / "lib.so").write_bytes(b"so")
+    dir_destino = tmp_path / "EditorAresta.app"
+
+    with patch.object(Path, "symlink_to", side_effect=OSError("Symlink proibido")):
+        criar_estrutura_bundle_macos(
+            diretorio_origem_onedir=dir_origem,
+            diretorio_destino_app=dir_destino,
+            versao="0.4.0",
+        )
+    assert (dir_destino / "Contents" / "Resources" / "_internal" / "lib.so").exists()
+
+
+def test_sanitizar_bundle_para_codesign_limpa_internal_resources_se_ja_existente(
+    tmp_path: Path,
+) -> None:
+    """Valida limpeza de Contents/Resources/_internal existente ao mover a pasta física de Contents/MacOS."""
+    app_dir = tmp_path / "EditorAresta.app"
+    macos_internal = app_dir / "Contents" / "MacOS" / "_internal"
+    macos_internal.mkdir(parents=True)
+    (macos_internal / "novo.txt").write_text("novo", encoding="utf-8")
+
+    resources_internal = app_dir / "Contents" / "Resources" / "_internal"
+    resources_internal.mkdir(parents=True)
+    (resources_internal / "antigo.txt").write_text("antigo", encoding="utf-8")
+
+    sanitizar_bundle_para_codesign(app_dir, dry_run=False)
+
+    assert (app_dir / "Contents" / "Resources" / "_internal" / "novo.txt").exists()
+    assert not (app_dir / "Contents" / "Resources" / "_internal" / "antigo.txt").exists()
+
+
+def test_sanitizar_bundle_para_codesign_trata_oserror_ao_criar_symlink(
+    tmp_path: Path,
+) -> None:
+    """Valida tratamento seguro de OSError ao criar symlink em sanitizar_bundle_para_codesign."""
+    app_dir = tmp_path / "EditorAresta.app"
+    macos_internal = app_dir / "Contents" / "MacOS" / "_internal"
+    macos_internal.mkdir(parents=True)
+    (macos_internal / "lib.so").write_bytes(b"so")
+
+    with patch.object(Path, "symlink_to", side_effect=OSError("Symlink negado")):
+        sanitizar_bundle_para_codesign(app_dir, dry_run=False)
+
+    assert (app_dir / "Contents" / "Resources" / "_internal" / "lib.so").exists()
+
+
+def test_sanitizar_bundle_para_codesign_remove_migracoes_internal_se_resources_migracoes_ja_existe(
+    tmp_path: Path,
+) -> None:
+    """Valida remoção de migracoes em _internal quando Contents/Resources/migracoes já existir."""
+    app_dir = tmp_path / "EditorAresta.app"
+    internal_migracoes = app_dir / "Contents" / "Resources" / "_internal" / "migracoes"
+    internal_migracoes.mkdir(parents=True)
+    (internal_migracoes / "migracao.py").write_text("pass", encoding="utf-8")
+
+    resources_migracoes = app_dir / "Contents" / "Resources" / "migracoes"
+    resources_migracoes.mkdir(parents=True)
+    (resources_migracoes / "original.py").write_text("pass", encoding="utf-8")
+
+    sanitizar_bundle_para_codesign(app_dir, dry_run=False)
+
+    assert not internal_migracoes.exists()
+    assert (resources_migracoes / "original.py").exists()
+
+
+def test_inspecionar_itens_inesperados_macos_diretorio_inexistente(
+    tmp_path: Path,
+) -> None:
+    """Valida retorno vazio caso Contents/MacOS não exista."""
+    app_dir = tmp_path / "EditorAresta.app"
+    assert inspecionar_itens_inesperados_macos(app_dir) == []
+
+
+def test_inspecionar_itens_inesperados_macos_bundle_valido(tmp_path: Path, capsys: Any) -> None:
+    """Valida retorno vazio quando Contents/MacOS contém apenas o executável principal e symlink _internal."""
+    app_dir = tmp_path / "EditorAresta.app"
+    macos_dir = app_dir / "Contents" / "MacOS"
+    macos_dir.mkdir(parents=True)
+    (macos_dir / "EditorAresta").write_bytes(b"binario")
+
+    resources_dir = app_dir / "Contents" / "Resources" / "_internal"
+    resources_dir.mkdir(parents=True)
+    (macos_dir / "_internal").symlink_to(
+        str(resources_dir.resolve())
+        if sys.platform.startswith("win")
+        else "../Resources/_internal",
+        target_is_directory=True,
+    )
+
+    inesperados = inspecionar_itens_inesperados_macos(app_dir)
+    assert inesperados == []
+
+    saida = capsys.readouterr().out
+    assert "EditorAresta" in saida
+    assert "symlink" in saida
+    assert "Nenhum arquivo ou pasta física inesperada" in saida
+
+
+def test_inspecionar_itens_inesperados_macos_detecta_arquivos_e_pastas_indevidos(
+    tmp_path: Path, capsys: Any
+) -> None:
+    """Valida detecção e impressão detalhada de arquivos e pastas físicas indesejadas em Contents/MacOS."""
+    app_dir = tmp_path / "EditorAresta.app"
+    macos_dir = app_dir / "Contents" / "MacOS"
+    internal_dir = macos_dir / "_internal"
+    internal_dir.mkdir(parents=True)
+    (macos_dir / "EditorAresta").write_bytes(b"binario")
+    arquivo_intruso = internal_dir / "models.bin"
+    arquivo_intruso.write_bytes(b"dados")
+    script_intruso = macos_dir / "logo.ico"
+    script_intruso.write_bytes(b"icone")
+
+    inesperados = inspecionar_itens_inesperados_macos(app_dir)
+
+    assert internal_dir in inesperados
+    assert arquivo_intruso in inesperados
+    assert script_intruso in inesperados
+
+    saida = capsys.readouterr().out
+    assert "ARQUIVO INESPERADO" in saida
+    assert "PASTA INESPERADA" in saida
+    assert "models.bin" in saida
+    assert "logo.ico" in saida
+    assert "Total de 3 itens inesperados" in saida

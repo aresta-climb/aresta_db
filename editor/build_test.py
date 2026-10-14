@@ -939,3 +939,54 @@ def test_spec_inclui_keyring_macos_no_darwin():
     """Valida se o EditorAresta.spec inclui keyring.backends.macOS quando executado no darwin."""
     conteudo_spec = ARQUIVO_SPEC.read_text(encoding="utf-8")
     assert "keyring.backends.macOS" in conteudo_spec
+
+
+def test_import_build_sem_pyinstaller_trata_import_error():
+    """Valida o bloco try/except no início de editor.build quando PyInstaller não está instalado."""
+    import builtins
+    import importlib
+
+    import editor.build
+
+    orig_import = builtins.__import__
+
+    def fake_import(name, *args, **kwargs):
+        if "PyInstaller" in name:
+            raise ImportError(f"No module named '{name}'")
+        return orig_import(name, *args, **kwargs)
+
+    with patch("builtins.__import__", side_effect=fake_import):
+        importlib.reload(editor.build)
+
+    # Restaura o módulo para o estado padrão
+    importlib.reload(editor.build)
+
+
+def test_executar_build_carrega_pyinstaller_sob_demanda():
+    """Valida que executar_build importa PyInstaller caso sys.modules não o contenha previamente."""
+    from editor.build import executar_build
+
+    mock_run = MagicMock()
+    fake_mod_main = MagicMock(run=mock_run)
+    fake_pkg = MagicMock()
+    fake_pkg.__main__ = fake_mod_main
+
+    with patch("sys.platform", "win32"):
+        with patch("pathlib.Path.exists", return_value=True):
+            with patch.dict(sys.modules):
+                sys.modules.pop("PyInstaller.__main__", None)
+                sys.modules.pop("PyInstaller", None)
+                import builtins
+
+                orig_import = builtins.__import__
+
+                def fake_import(name, *args, **kwargs):
+                    if name == "PyInstaller.__main__":
+                        return fake_pkg
+                    if name == "PyInstaller":
+                        return fake_pkg
+                    return orig_import(name, *args, **kwargs)
+
+                with patch("builtins.__import__", side_effect=fake_import):
+                    executar_build()
+                    mock_run.assert_called_once()

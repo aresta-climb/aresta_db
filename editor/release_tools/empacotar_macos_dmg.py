@@ -100,22 +100,37 @@ def criar_estrutura_bundle_macos(
     diretorio_macos.mkdir(parents=True, exist_ok=True)
     diretorio_resources.mkdir(parents=True, exist_ok=True)
 
-    # Copia todo o conteúdo gerado pelo PyInstaller para Contents/MacOS preservando symlinks
+    # Copia todo o conteúdo gerado pelo PyInstaller preservando symlinks.
+    # A pasta '_internal' contém dados, recursos e bibliotecas e deve residir em Contents/Resources/_internal
+    # com um link simbólico relativo em Contents/MacOS/_internal, garantindo conformidade com as regras do
+    # codesign da Apple (Contents/MacOS deve conter apenas o executável principal e symlinks).
     for item in diretorio_origem_onedir.iterdir():
-        destino_item = diretorio_macos / item.name
-        if item.is_dir():
-            shutil.copytree(item, destino_item, symlinks=True)
-        else:
-            shutil.copy2(item, destino_item, follow_symlinks=False)
+        if item.name == "_internal":
+            destino_internal = diretorio_resources / "_internal"
+            shutil.copytree(item, destino_internal, symlinks=True)
 
-    # Move a pasta 'migracoes' para Contents/Resources/migracoes
-    # para que resida na pasta oficial de recursos do macOS (Contents/Resources)
-    # e não na pasta reservada a binários de código (Contents/MacOS).
-    migracoes_em_macos = diretorio_macos / "_internal" / "migracoes"
+            symlink_macos = diretorio_macos / "_internal"
+            try:
+                alvo_symlink = (
+                    str(destino_internal.resolve()) if os.name == "nt" else "../Resources/_internal"
+                )
+                symlink_macos.symlink_to(alvo_symlink, target_is_directory=True)
+            except OSError:
+                pass
+        else:
+            destino_item = diretorio_macos / item.name
+            if item.is_dir():
+                shutil.copytree(item, destino_item, symlinks=True)
+            else:
+                shutil.copy2(item, destino_item, follow_symlinks=False)
+
+    # Garante que a pasta 'migracoes' resida exclusivamente em Contents/Resources/migracoes
+    migracoes_em_internal = diretorio_resources / "_internal" / "migracoes"
     migracoes_em_resources = diretorio_resources / "migracoes"
-    if migracoes_em_macos.exists():
-        shutil.rmtree(migracoes_em_resources, ignore_errors=True)
-        shutil.move(str(migracoes_em_macos), str(migracoes_em_resources))
+    if migracoes_em_internal.exists():
+        shutil.move(str(migracoes_em_internal), str(migracoes_em_resources))
+
+    if migracoes_em_resources.is_dir():
         precompilar_scripts_para_bytecode(migracoes_em_resources)
 
     # Copia o ícone .icns para Contents/Resources se fornecido
@@ -216,28 +231,50 @@ def sanitizar_bundle_para_codesign(
     diretorio_macos = caminho_app / "Contents" / "MacOS"
     diretorio_resources = caminho_app / "Contents" / "Resources"
 
-    # Se a pasta 'migracoes' estiver dentro de Contents/MacOS, move para Contents/Resources/
-    migracoes_macos = diretorio_macos / "_internal" / "migracoes"
+    # Se a pasta '_internal' em Contents/MacOS for uma pasta física (não symlink),
+    # move para Contents/Resources/_internal e cria o symlink relativo.
+    internal_macos = diretorio_macos / "_internal"
+    internal_resources = diretorio_resources / "_internal"
     try:
-        if migracoes_macos.is_dir():
-            migracoes_resources = diretorio_resources / "migracoes"
-            itens_removidos.append(migracoes_macos)
+        if internal_macos.is_dir() and not internal_macos.is_symlink():
+            itens_removidos.append(internal_macos)
+            if (internal_macos / "migracoes").is_dir():
+                itens_removidos.append(internal_macos / "migracoes")
             if not dry_run:
-                shutil.rmtree(migracoes_resources, ignore_errors=True)
+                if internal_resources.exists():
+                    shutil.rmtree(internal_resources, ignore_errors=True)
                 diretorio_resources.mkdir(parents=True, exist_ok=True)
-                shutil.move(str(migracoes_macos), str(migracoes_resources))
+                shutil.move(str(internal_macos), str(internal_resources))
+                try:
+                    alvo_symlink = (
+                        str(internal_resources.resolve())
+                        if os.name == "nt"
+                        else "../Resources/_internal"
+                    )
+                    internal_macos.symlink_to(alvo_symlink, target_is_directory=True)
+                except OSError:
+                    pass
     except OSError:
         pass
 
     if not dry_run and diretorio_resources.is_dir():
         migracoes_resources = diretorio_resources / "migracoes"
+        migracoes_em_internal = internal_resources / "migracoes"
+        if migracoes_em_internal.is_dir():
+            if not migracoes_resources.is_dir():
+                shutil.move(str(migracoes_em_internal), str(migracoes_resources))
+            else:
+                shutil.rmtree(migracoes_em_internal, ignore_errors=True)
         if migracoes_resources.is_dir():
             precompilar_scripts_para_bytecode(migracoes_resources)
 
     # 1. Varre o bundle de baixo para cima removendo diretórios e arquivos problemáticos
     for raiz, pastas, arquivos in os.walk(caminho_app, topdown=False):
         caminho_raiz = Path(raiz)
-        esta_em_macos = caminho_raiz == diretorio_macos or diretorio_macos in caminho_raiz.parents
+        esta_em_macos = caminho_raiz == diretorio_macos or (
+            diretorio_macos in caminho_raiz.parents
+            and not any(p.is_symlink() for p in [caminho_raiz, *caminho_raiz.parents])
+        )
 
         # Remove arquivos .DS_Store, expurga testes e scripts residuais em Contents/MacOS
         for arq in arquivos:
@@ -303,6 +340,57 @@ def sanitizar_bundle_para_codesign(
     return itens_removidos
 
 
+def inspecionar_itens_inesperados_macos(caminho_app: Path) -> list[Path]:
+    """
+    Inspeciona o diretório Contents/MacOS à procura de arquivos e diretórios físicos
+    inesperados que possam violar as regras de codesign do macOS, imprimindo informações de depuração.
+    Retorna a lista de itens inesperados encontrados.
+    """
+    diretorio_macos = caminho_app / "Contents" / "MacOS"
+    if not diretorio_macos.exists():
+        return []
+
+    itens_inesperados: list[Path] = []
+    print(f"[DEBUG macOS] Inspecionando estrutura de {diretorio_macos}:")
+
+    # Verifica symlink _internal
+    symlink_internal = diretorio_macos / "_internal"
+    if symlink_internal.is_symlink():
+        alvo = symlink_internal.readlink()
+        print(f"  [DEBUG macOS - OK] _internal -> {alvo} (symlink)")
+
+    for raiz, pastas, arquivos in os.walk(diretorio_macos, followlinks=False):
+        caminho_raiz = Path(raiz)
+
+        for pasta in pastas:
+            p_pasta = caminho_raiz / pasta
+            if not p_pasta.is_symlink():
+                itens_inesperados.append(p_pasta)
+                print(f"  [DEBUG macOS - PASTA INESPERADA] {p_pasta.relative_to(diretorio_macos)}")
+
+        for arquivo in arquivos:
+            p_arquivo = caminho_raiz / arquivo
+            if caminho_raiz == diretorio_macos and arquivo == NOME_EXECUTAVEL_PADRAO:
+                print(f"  [DEBUG macOS - OK] {arquivo} (executável principal)")
+            else:
+                itens_inesperados.append(p_arquivo)
+                tamanho = p_arquivo.stat().st_size if p_arquivo.exists() else 0
+                print(
+                    f"  [DEBUG macOS - ARQUIVO INESPERADO] {p_arquivo.relative_to(diretorio_macos)} ({tamanho} bytes)"
+                )
+
+    if not itens_inesperados:
+        print(
+            "[DEBUG macOS] Nenhum arquivo ou pasta física inesperada encontrada em Contents/MacOS."
+        )
+    else:
+        print(
+            f"[DEBUG macOS] Total de {len(itens_inesperados)} itens inesperados em Contents/MacOS!"
+        )
+
+    return itens_inesperados
+
+
 def assinar_bundle_macos(
     caminho_app: Path,
     identidade_assinatura: str,
@@ -315,6 +403,9 @@ def assinar_bundle_macos(
     """
     # Garante que o bundle esteja limpo de subcomponentes inválidos antes do codesign
     sanitizar_bundle_para_codesign(caminho_app, dry_run=dry_run)
+
+    # Imprime no log todos os arquivos na árvore de Contents/MacOS para depuração detalhada
+    inspecionar_itens_inesperados_macos(caminho_app)
 
     comandos_executados: list[str] = []
 
