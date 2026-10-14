@@ -51,11 +51,12 @@ editor = [
     "sentry-sdk>=2.68.1",
 ]
 
-# Ferramentas de empacotamento e deploy do Editor no Flatpak Linux
-editor_deploy_flatpak = [
+# Ferramentas de empacotamento, distribuição e deploy do Editor
+editor_deploy = [
     { include-group = "editor" },
-    "flatpak-pip-generator",
-    "pip",
+    "flatpak-pip-generator; sys_platform == 'linux'",
+    "pip; sys_platform == 'linux'",
+    "boto3; sys_platform == 'darwin'",
 ]
 
 # Extração pesada de PDFS, IA e OCR
@@ -92,7 +93,7 @@ dev = [
 
 [tool.uv]
 package = false
-default-groups = ["deploy", "validador", "editor", "pdf", "dev"]
+default-groups = ["deploy", "validador", "editor", "editor_deploy", "pdf", "dev"]
 
 [tool.mypy]
 python_version = "3.13"

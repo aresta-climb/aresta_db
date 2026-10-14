@@ -81,9 +81,9 @@ jobs:
         run: |
           uv run pytest -n 0 -v -s --durations=10
 
-      - name: Isolar Dependências do Editor
+      - name: Isolar Dependências do Editor e Deploy
         run: |
-          uv sync --frozen --only-group editor
+          uv sync --frozen --only-group editor_deploy
 
       - name: Baixar Sparkle Framework Oficial (Última Versão)
         env:
@@ -196,49 +196,10 @@ jobs:
           CLOUDFLARE_S3_API_URL: ${{ secrets.CLOUDFLARE_S3_API_URL }}
           CLOUDFLARE_ZONE_ID: ${{ secrets.CLOUDFLARE_ZONE_ID }}
           CLOUDFLARE_CACHE_PURGE_API_TOKEN: ${{ secrets.CLOUDFLARE_CACHE_PURGE_API_TOKEN }}
-          PYTHONPATH: .
         run: |
-          python3 -c "
-          import boto3
-          import os
-          from pathlib import Path
-          import requests
-
-          endpoint = os.environ.get('CLOUDFLARE_S3_API_URL')
-          ak = os.environ.get('AWS_ACCESS_KEY_ID')
-          sk = os.environ.get('AWS_SECRET_ACCESS_KEY')
-          if endpoint and ak and sk:
-              s3 = boto3.client(
-                  's3',
-                  endpoint_url=endpoint,
-                  aws_access_key_id=ak,
-                  aws_secret_access_key=sk,
-                  region_name='auto',
-              )
-              bucket = 'aresta-serving'
-              versao = '${{ inputs.versao }}'
-              dmg_path = Path(f'dist_macos/EditorAresta-{versao}.dmg')
-              appcast_path = Path('dist_macos/appcast.xml')
-
-              if dmg_path.exists():
-                  s3.upload_file(str(dmg_path), bucket, f'editor-macos/EditorAresta-{versao}.dmg', ExtraArgs={'ContentType': 'application/octet-stream'})
-                  s3.upload_file(str(dmg_path), bucket, 'editor-macos/EditorAresta-latest.dmg', ExtraArgs={'ContentType': 'application/octet-stream'})
-              if appcast_path.exists():
-                  s3.upload_file(str(appcast_path), bucket, 'editor-macos/appcast.xml', ExtraArgs={'ContentType': 'application/xml', 'CacheControl': 'max-age=60'})
-
-              zone_id = os.environ.get('CLOUDFLARE_ZONE_ID')
-              token = os.environ.get('CLOUDFLARE_CACHE_PURGE_API_TOKEN')
-              if zone_id and token:
-                  requests.post(
-                      f'https://api.cloudflare.com/client/v4/zones/{zone_id}/purge_cache',
-                      headers={'Authorization': f'Bearer {token}', 'Content-Type': 'application/json'},
-                      json={'files': [
-                          f'https://serving.arestaclimb.com/editor-macos/EditorAresta-{versao}.dmg',
-                          'https://serving.arestaclimb.com/editor-macos/EditorAresta-latest.dmg',
-                          'https://serving.arestaclimb.com/editor-macos/appcast.xml',
-                      ]},
-                  )
-          "
+          uv run python3 editor/release_tools/publicar_macos_cli.py \
+            --versao "${{ inputs.versao }}" \
+            --diretorio-dist dist_macos
 
       - name: Disponibilizar artefatos macOS no GitHub
         uses: actions/upload-artifact@v7

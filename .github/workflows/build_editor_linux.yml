@@ -64,7 +64,7 @@ jobs:
 
       - name: Sincronizar Dependências de Deploy do Editor
         run: |
-          uv sync --frozen --only-group editor_deploy_flatpak
+          uv sync --frozen --only-group editor_deploy
 
       - name: Instalar Flatpak e Ferramentas de Build
         run: |
