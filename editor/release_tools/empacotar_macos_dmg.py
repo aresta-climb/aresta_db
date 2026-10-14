@@ -407,6 +407,89 @@ def inspecionar_itens_inesperados_macos(caminho_app: Path) -> list[Path]:
     return itens_inesperados
 
 
+def assinar_subcomponentes_de_framework(
+    caminho_framework: Path,
+    cmd_base: list[str],
+    dry_run: bool = False,
+) -> list[str]:
+    """
+    Assina subcomponentes internos de um .framework (XPCServices .xpc, aplicativos
+    auxiliares .app e executáveis Mach-O como Autoupdate) em ordem inside-out antes
+    de assinar o framework pai.
+    """
+    comandos_executados: list[str] = []
+    itens_ja_assinados: set[Path] = set()
+
+    # 1. Localiza e assina sub-bundles .xpc (ex: XPCServices/Downloader.xpc)
+    pastas_xpc = sorted(
+        [p for p in caminho_framework.rglob("*.xpc") if p.is_dir() and not p.is_symlink()],
+        key=lambda p: (len(p.parts), str(p)),
+        reverse=True,
+    )
+    for xpc in pastas_xpc:
+        macos_xpc = xpc / "Contents" / "MacOS"
+        if macos_xpc.is_dir():
+            for item in sorted(macos_xpc.iterdir()):
+                if item.is_file() and not item.is_symlink():
+                    cmd = [*cmd_base, str(item)]
+                    comandos_executados.append(" ".join(cmd))
+                    itens_ja_assinados.add(item)
+                    if not dry_run:
+                        subprocess.run(cmd, check=True)
+        cmd_bundle_xpc = [*cmd_base, str(xpc)]
+        comandos_executados.append(" ".join(cmd_bundle_xpc))
+        itens_ja_assinados.add(xpc)
+        if not dry_run:
+            subprocess.run(cmd_bundle_xpc, check=True)
+
+    # 2. Localiza e assina sub-bundles .app auxiliares (ex: Updater.app)
+    pastas_app = sorted(
+        [p for p in caminho_framework.rglob("*.app") if p.is_dir() and not p.is_symlink()],
+        key=lambda p: (len(p.parts), str(p)),
+        reverse=True,
+    )
+    for app_aux in pastas_app:
+        macos_app = app_aux / "Contents" / "MacOS"
+        if macos_app.is_dir():
+            for item in sorted(macos_app.iterdir()):
+                if item.is_file() and not item.is_symlink():
+                    cmd = [*cmd_base, str(item)]
+                    comandos_executados.append(" ".join(cmd))
+                    itens_ja_assinados.add(item)
+                    if not dry_run:
+                        subprocess.run(cmd, check=True)
+        cmd_bundle_app = [*cmd_base, str(app_aux)]
+        comandos_executados.append(" ".join(cmd_bundle_app))
+        itens_ja_assinados.add(app_aux)
+        if not dry_run:
+            subprocess.run(cmd_bundle_app, check=True)
+
+    # 3. Localiza outros binários Mach-O auxiliares soltos (ex: Autoupdate)
+    for raiz, _, arquivos in os.walk(caminho_framework):
+        caminho_raiz = Path(raiz)
+        for arq in sorted(arquivos):
+            p_arq = caminho_raiz / arq
+            if p_arq.is_symlink() or p_arq in itens_ja_assinados:
+                continue
+            # Ignora se já estiver dentro de um .xpc ou .app já assinado dentro do framework
+            relativo_framework = caminho_raiz.relative_to(caminho_framework)
+            if any(
+                p.suffix in (".xpc", ".app") for p in [caminho_raiz, *relativo_framework.parents]
+            ):
+                continue
+            # Ignora a biblioteca compartilhada principal do framework (ex: Sparkle.framework/Versions/B/Sparkle)
+            if p_arq.name == caminho_framework.stem:
+                continue
+            if eh_binario_mach_o(p_arq):
+                cmd = [*cmd_base, str(p_arq)]
+                comandos_executados.append(" ".join(cmd))
+                itens_ja_assinados.add(p_arq)
+                if not dry_run:
+                    subprocess.run(cmd, check=True)
+
+    return comandos_executados
+
+
 def assinar_bundle_macos(
     caminho_app: Path,
     identidade_assinatura: str,
@@ -478,6 +561,13 @@ def assinar_bundle_macos(
     frameworks_para_assinar.sort(key=lambda p: (len(p.parts), str(p)), reverse=True)
 
     for framework in frameworks_para_assinar:
+        comandos_executados.extend(
+            assinar_subcomponentes_de_framework(
+                caminho_framework=framework,
+                cmd_base=cmd_base,
+                dry_run=dry_run,
+            )
+        )
         cmd_fw = [*cmd_base, str(framework)]
         comandos_executados.append(" ".join(cmd_fw))
         if not dry_run:

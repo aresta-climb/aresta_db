@@ -1,0 +1,82 @@
+# Spec Delta
+
+## MODIFIED Requirements
+
+### Requirement: Estrutura e geração do catálogo SQLite
+O pipeline de compilação SHALL gerar um banco de dados SQLite denominado `catalogo.db` contendo as tabelas `catalogo_croquis`, `catalogo_aresta` e `catalogo_meta`, indexadas para consultas rápidas e versionadas por um hash lógico determinístico (`versao_catalogo`) que também é registrado na mensagem `Indice` (`indice.binarypb`).
+
+#### Scenario: Geração bem-sucedida a partir de croquis compilados
+- **WHEN** o pipeline de compilação processa a lista de croquis do banco de dados
+- **THEN** o arquivo `catalogo.db` é gerado contendo todos os croquis e escaladas catalogadas com seus respectivos identificadores estáveis (UIDs) e a `versao_catalogo` gravada em `catalogo_meta` e no `indice.binarypb`.
+
+#### Scenario: Indexação de busca e chaves primárias
+- **WHEN** as tabelas do catálogo são criadas
+- **THEN** a tabela `catalogo_croquis` possui chave primária em `croqui_uid`, a tabela `catalogo_aresta` possui chave primária em `uid` e índice em `croqui_uid`, e `catalogo_meta` possui chave primária em `chave`.
+
+#### Scenario: Determinismo do hash lógico da versão
+- **WHEN** o catálogo contém exatamente os mesmos registros de croquis e vias em duas execuções distintas (seja compilação integral ou incremental)
+- **THEN** o hash `versao_catalogo` calculado sobre as linhas ordenadas é estritamente idêntico.
+
+
+### Requirement: Extração de deltas SQL versionados para o Cloudflare D1
+O sistema SHALL disponibilizar utilitário para calcular as diferenças entre duas versões do catálogo SQLite gerando comandos de inserção, atualização e remoção (`upserts` e `deletes`) serializáveis em JSON acompanhados do `versao_hash` de destino para alimentação da tabela `deltas_catalogo` no D1.
+
+#### Scenario: Cálculo de deltas entre versões
+- **WHEN** o script de deltas compara uma versão anterior do `catalogo.db` com uma nova versão
+- **THEN** as vias e croquis novos ou modificados são identificados como upserts e os removidos são identificados como deletes.
+
+#### Scenario: Formato compatível com o endpoint de sincronização
+- **WHEN** o changeset de deltas é gerado
+- **THEN** a saída estruturada inclui o `versao_hash` da versão nova e permite a inserção direta na tabela `deltas_catalogo` do Cloudflare D1.
+
+### Requirement: Recuperação de emergência e purge remoto do catálogo
+O sistema SHALL prever um mecanismo de purge global via configuração remota (Firebase Remote Config) que permite forçar o descarte do banco local e o download limpo do `catalogo.db` em todos os clientes móveis.
+
+#### Scenario: Purge remoto acionado por emergência
+- **WHEN** o valor de purge remoto for maior que o timestamp do último purge executado e maior que o timestamp do build do aplicativo
+- **THEN** o cliente descarta o `catalogo.db` local e efetua o download limpo do `catalogo.db` completo a partir do CDN.
+
+#### Scenario: Primeira instalação do aplicativo com preload
+- **WHEN** o aplicativo é instalado pela primeira vez trazendo o catálogo pré-embarcado como asset
+- **THEN** purges emitidos remotamente antes do momento de compilação do pacote são ignorados e nenhum download é executado.
+
+## ADDED Requirements
+
+### Requirement: Sincronização transacional com Cloudflare D1 durante o deploy
+O script de deploy de serving (`serving/update_serving.py`) SHALL sincronizar automaticamente o estado do catálogo e registrar o delta no Cloudflare D1 via API REST antes de atualizar o arquivo `catalogo.db` no Cloudflare R2.
+
+#### Scenario: Deploy incremental com alterações no catálogo
+- **WHEN** o `update_serving.py` detecta mudanças no catálogo em relação ao estado publicado
+- **THEN** o script baixa o `catalogo.db` anterior do R2, calcula os deltas, aplica os upserts e deletes em `catalogo_croquis` e `catalogo_aresta` no D1, insere o registro na tabela `deltas_catalogo` com o `versao_hash` e somente após o sucesso atualiza o R2 e purga o cache da CDN.
+
+#### Scenario: Bootstrap inicial ou banco D1 vazio
+- **WHEN** a tabela `deltas_catalogo` do Cloudflare D1 está vazia ou seu último `versao_hash` não corresponde ao `catalogo.db` anterior do R2
+- **THEN** o sincronizador realiza o bootstrap completo das tabelas `catalogo_croquis` e `catalogo_aresta` no D1 a partir do `generated/catalogo.db` local e registra a versão inicial em `deltas_catalogo`.
+
+#### Scenario: Falha na sincronização com o D1 preserva o R2
+- **WHEN** a comunicação ou execução SQL na API REST do Cloudflare D1 falha durante o deploy
+- **THEN** o script interrompe a execução antes de substituir o `catalogo.db` e o `arquivos_serving.yaml` no R2, garantindo que a próxima execução possa recalcular o diff sem perda de dados.
+
+### Requirement: Endpoint de sincronização de deltas na borda com cache imutável
+O Cloudflare Worker em `catalogo.arestaclimb.com` SHALL expor a rota `GET /sync?versao_local=<hash_local>&versao_destino=<hash_destino>` retornando o delta condensado (Delta Squash) com cabeçalhos de cache imutável para retenção integral na CDN da Cloudflare.
+
+#### Scenario: Sincronização entre versões válidas com Delta Squash
+- **WHEN** uma requisição `GET /sync?versao_local=A&versao_destino=B` é recebida e ambas as versões existem na tabela `deltas_catalogo` com `id(A) < id(B)`
+- **THEN** o Worker condensa todos os deltas intermediários por chave primária em ordem cronológica e retorna HTTP 200 com `acao: "apply_delta"`, `upserts`, `deletes` e `Cache-Control: public, max-age=31536000, s-maxage=31536000, immutable`.
+
+#### Scenario: Fallback para download integral quando versão local é desconhecida
+- **WHEN** uma requisição `GET /sync?versao_local=X&versao_destino=B` informa uma `versao_local` inexistente no D1 ou posterior à `versao_destino`
+- **THEN** o Worker retorna HTTP 200 com `acao: "full_download"` e `Cache-Control: no-store`.
+
+### Requirement: Integração do catálogo descomprimido no manifesto de serving
+O pipeline SHALL manter apenas o artefato descomprimido `catalogo.db` na pasta `generated/` e registrá-lo com seu hash SHA-256 no manifesto `arquivos_serving.yaml`, delegando a compressão de transferência HTTP para a borda da CDN Cloudflare.
+
+#### Scenario: Registro exclusivo do catálogo descomprimido no manifesto
+- **WHEN** o manifesto `arquivos_serving.yaml` é construído no Passo D
+- **THEN** a entrada `catalogo.db` é incluída com seu respectivo hash SHA-256 e nenhum arquivo `catalogo.db.gz` local é produzido.
+
+## REMOVED Requirements
+
+### Requirement: Compressão e integração no manifesto de serving
+**Reason**: A compressão gzip local tornava o `deploy_generated.py` mais lento e era redundante tanto com a compressão nativa dos pacotes APK/IPA quanto com a compressão na borda da Cloudflare CDN.
+**Migration**: Utilizar diretamente o arquivo descomprimido `catalogo.db` registrado em `arquivos_serving.yaml` e habilitar compressão automática na CDN Cloudflare.

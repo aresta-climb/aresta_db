@@ -14,6 +14,7 @@ from editor.release_tools.empacotar_macos_dmg import (
     ENTITLEMENTS_PADRAO_MACOS,
     assinar_bundle_macos,
     assinar_dmg_macos,
+    assinar_subcomponentes_de_framework,
     criar_estrutura_bundle_macos,
     eh_binario_mach_o,
     empacotar_distribuicao_macos,
@@ -1188,3 +1189,123 @@ def test_notarizar_dmg_macos_saida_texto_accepted(tmp_path: Path) -> None:
             dry_run=False,
         )
         assert mock_run.call_count == 2
+
+
+def test_assinar_bundle_macos_assina_subcomponentes_do_sparkle_inside_out(
+    tmp_path: Path,
+) -> None:
+    """Valida assinatura recursiva de sub-bundles e executáveis do Sparkle.framework (inside-out)."""
+    app_dir = tmp_path / "EditorAresta.app"
+    macos_dir = app_dir / "Contents" / "MacOS"
+    macos_dir.mkdir(parents=True)
+    (macos_dir / "EditorAresta").write_bytes(b"\xcf\xfa\xed\xfe" + b"\x00" * 20)
+
+    sparkle_dir = app_dir / "Contents" / "Frameworks" / "Sparkle.framework"
+    versoes_b = sparkle_dir / "Versions" / "B"
+    versoes_b.mkdir(parents=True)
+
+    # Binário principal da dylib
+    (versoes_b / "Sparkle").write_bytes(b"\xcf\xfa\xed\xfe" + b"\x00" * 20)
+
+    # Executável auxiliar Autoupdate
+    autoupdate = versoes_b / "Autoupdate"
+    autoupdate.write_bytes(b"\xcf\xfa\xed\xfe" + b"\x00" * 20)
+
+    # Sub-bundle Updater.app
+    updater_macos = versoes_b / "Updater.app" / "Contents" / "MacOS"
+    updater_macos.mkdir(parents=True)
+    updater_bin = updater_macos / "Updater"
+    updater_bin.write_bytes(b"\xcf\xfa\xed\xfe" + b"\x00" * 20)
+
+    # Sub-bundle Downloader.xpc
+    downloader_macos = versoes_b / "XPCServices" / "Downloader.xpc" / "Contents" / "MacOS"
+    downloader_macos.mkdir(parents=True)
+    downloader_bin = downloader_macos / "Downloader"
+    downloader_bin.write_bytes(b"\xcf\xfa\xed\xfe" + b"\x00" * 20)
+
+    # Sub-bundle Installer.xpc
+    installer_macos = versoes_b / "XPCServices" / "Installer.xpc" / "Contents" / "MacOS"
+    installer_macos.mkdir(parents=True)
+    installer_bin = installer_macos / "Installer"
+    installer_bin.write_bytes(b"\xcf\xfa\xed\xfe" + b"\x00" * 20)
+
+    comandos = assinar_bundle_macos(
+        caminho_app=app_dir,
+        identidade_assinatura="Developer ID Application: Aresta",
+        dry_run=True,
+    )
+
+    # 1. Todos os 4 componentes reportados pela Apple devem ter sido assinados
+    cmd_downloader_bin = next((c for c in comandos if c.endswith(str(downloader_bin))), None)
+    cmd_downloader_bundle = next(
+        (c for c in comandos if c.endswith(str(downloader_macos.parent.parent))),
+        None,
+    )
+    cmd_installer_bin = next((c for c in comandos if c.endswith(str(installer_bin))), None)
+    cmd_installer_bundle = next(
+        (c for c in comandos if c.endswith(str(installer_macos.parent.parent))),
+        None,
+    )
+    cmd_updater_bin = next((c for c in comandos if c.endswith(str(updater_bin))), None)
+    cmd_updater_bundle = next(
+        (c for c in comandos if c.endswith(str(updater_macos.parent.parent))),
+        None,
+    )
+    cmd_autoupdate = next((c for c in comandos if c.endswith(str(autoupdate))), None)
+    cmd_sparkle_fw = next((c for c in comandos if c.endswith(str(sparkle_dir))), None)
+
+    assert cmd_downloader_bin is not None
+    assert cmd_downloader_bundle is not None
+    assert cmd_installer_bin is not None
+    assert cmd_installer_bundle is not None
+    assert cmd_updater_bin is not None
+    assert cmd_updater_bundle is not None
+    assert cmd_autoupdate is not None
+    assert cmd_sparkle_fw is not None
+
+    # 2. Ordem inside-out: subcomponentes devem ser assinados ANTES de Sparkle.framework
+    idx_sparkle = comandos.index(cmd_sparkle_fw)
+    assert comandos.index(cmd_downloader_bin) < idx_sparkle
+    assert comandos.index(cmd_downloader_bundle) < idx_sparkle
+    assert comandos.index(cmd_installer_bin) < idx_sparkle
+    assert comandos.index(cmd_installer_bundle) < idx_sparkle
+    assert comandos.index(cmd_updater_bin) < idx_sparkle
+    assert comandos.index(cmd_updater_bundle) < idx_sparkle
+    assert comandos.index(cmd_autoupdate) < idx_sparkle
+
+
+def test_assinar_subcomponentes_de_framework_execucao_real(
+    tmp_path: Path,
+) -> None:
+    """Valida execução real (subprocess.run) de assinar_subcomponentes_de_framework com ignorar subpastas xpc/app."""
+    sparkle_dir = tmp_path / "Sparkle.framework"
+    versoes_b = sparkle_dir / "Versions" / "B"
+    versoes_b.mkdir(parents=True)
+
+    # Autoupdate
+    autoupdate = versoes_b / "Autoupdate"
+    autoupdate.write_bytes(b"\xcf\xfa\xed\xfe" + b"\x00" * 20)
+
+    # Sub-bundle Updater.app com arquivo de recurso interno
+    updater_macos = versoes_b / "Updater.app" / "Contents" / "MacOS"
+    updater_macos.mkdir(parents=True)
+    (updater_macos / "Updater").write_bytes(b"\xcf\xfa\xed\xfe" + b"\x00" * 20)
+    (updater_macos.parent / "Resources").mkdir()
+    (updater_macos.parent / "Resources" / "script.bin").write_bytes(
+        b"\xcf\xfa\xed\xfe" + b"\x00" * 20
+    )
+
+    # Sub-bundle Downloader.xpc
+    downloader_macos = versoes_b / "XPCServices" / "Downloader.xpc" / "Contents" / "MacOS"
+    downloader_macos.mkdir(parents=True)
+    (downloader_macos / "Downloader").write_bytes(b"\xcf\xfa\xed\xfe" + b"\x00" * 20)
+
+    with patch("subprocess.run") as mock_run:
+        mock_run.return_value = MagicMock(returncode=0)
+        comandos = assinar_subcomponentes_de_framework(
+            caminho_framework=sparkle_dir,
+            cmd_base=["codesign", "--sign", "DevID"],
+            dry_run=False,
+        )
+        assert mock_run.call_count >= 5
+        assert len(comandos) >= 5
