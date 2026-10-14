@@ -2,6 +2,7 @@
 # Copyright (C) 2026 Aresta Climb Contributors
 
 import argparse
+import datetime
 import re
 import sys
 from pathlib import Path
@@ -138,13 +139,70 @@ def bump_version_lockfile(
     )
 
 
-def sincronizar_versoes(nova_versao: str, raiz: str | Path | None = None) -> list[Path]:
-    """Atualiza e sincroniza a versão em editor/core/version.py, pyproject.toml e uv.lock."""
+def bump_version_metainfo(
+    caminho_metainfo: str | Path,
+    nova_versao: str,
+    data: str | None = None,
+    descricao_release: str | None = None,
+) -> bool:
+    """
+    Atualiza o arquivo metainfo AppStream (.metainfo.xml) com a nova versão de release.
+    Versões de pré-lançamento ou desenvolvimento (contendo sufixo '-dev') são ignoradas,
+    pois o AppStream aceita apenas releases estáveis para usuários finais.
+    Retorna True se o arquivo foi modificado, False caso contrário.
+    """
+    validar_semver(nova_versao)
+    if "-dev" in nova_versao:
+        return False
+
+    caminho = Path(caminho_metainfo)
+    if not caminho.exists():
+        return False
+
+    conteudo = caminho.read_text(encoding="utf-8")
+
+    # Se a versão já estiver listada em releases, não duplica
+    if f'version="{nova_versao}"' in conteudo:
+        return False
+
+    data_lancamento = data or datetime.date.today().isoformat()
+    texto_desc = (
+        descricao_release or "Atualizações de estabilidade e melhorias de empacotamento."
+    )
+
+    bloco_nova_release = (
+        f'    <release version="{nova_versao}" date="{data_lancamento}">\n'
+        f"      <description>\n"
+        f"        <p>{texto_desc}</p>\n"
+        f"      </description>\n"
+        f"    </release>\n"
+    )
+
+    # Injeta no topo do bloco <releases>
+    padrao_releases = re.compile(r"(\s*<releases>\s*\n)", re.MULTILINE)
+    if padrao_releases.search(conteudo):
+        novo_conteudo = padrao_releases.sub(rf"\1{bloco_nova_release}", conteudo, count=1)
+    else:
+        bloco_completo = f"  <releases>\n{bloco_nova_release}  </releases>\n"
+        novo_conteudo = conteudo.replace("</component>", f"{bloco_completo}</component>")
+
+    caminho.write_text(novo_conteudo, encoding="utf-8")
+    print(f"Versão {nova_versao} injetada no metainfo AppStream: {caminho}")
+    return True
+
+
+def sincronizar_versoes(
+    nova_versao: str,
+    raiz: str | Path | None = None,
+    descricao_release: str | None = None,
+) -> list[Path]:
+    """Atualiza e sincroniza a versão em editor/core/version.py, pyproject.toml, uv.lock e metainfo.xml."""
     validar_semver(nova_versao)
     dir_raiz = Path(raiz) if raiz else Path(__file__).resolve().parent.parent.parent
     caminho_version_py = dir_raiz / "editor" / "core" / "version.py"
     caminho_pyproject = dir_raiz / "pyproject.toml"
     caminho_uv_lock = dir_raiz / "uv.lock"
+    caminho_metainfo = dir_raiz / "editor" / "flatpak" / "com.arestaclimb.Editor.metainfo.xml"
 
     atualizados: list[Path] = []
     if caminho_version_py.exists():
@@ -159,49 +217,83 @@ def sincronizar_versoes(nova_versao: str, raiz: str | Path | None = None) -> lis
         bump_version_lockfile(caminho_uv_lock, nova_versao)
         atualizados.append(caminho_uv_lock)
 
+    if caminho_metainfo.exists():
+        if bump_version_metainfo(
+            caminho_metainfo, nova_versao, descricao_release=descricao_release
+        ):
+            atualizados.append(caminho_metainfo)
+
     return atualizados
 
 
 def main(argumentos: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(
-        description="Atualiza e sincroniza a versão do Editor Aresta (version.py, pyproject.toml e uv.lock)."
+        description="Atualiza e sincroniza a versão do Editor Aresta (version.py, pyproject.toml, uv.lock e metainfo.xml)."
     )
     parser.add_argument("argumentos", nargs="+", help="[caminho_arquivo] <nova_versao>")
+    parser.add_argument(
+        "--descricao",
+        "-d",
+        help="Descrição das mudanças da versão para o metainfo.xml",
+        default=None,
+    )
 
     args = parser.parse_args(argumentos)
 
     try:
         if len(args.argumentos) == 1:
             nova_versao = args.argumentos[0]
-            sincronizar_versoes(nova_versao)
+            if args.descricao:
+                sincronizar_versoes(nova_versao, descricao_release=args.descricao)
+            else:
+                sincronizar_versoes(nova_versao)
         elif len(args.argumentos) == 2:
             arquivo_alvo = Path(args.argumentos[0])
             nova_versao = args.argumentos[1]
             bump_version_file(arquivo_alvo, nova_versao)
 
             # Auto-sincronização de arquivos conhecidos do repositório
-            dir_raiz = Path(__file__).resolve().parent.parent.parent
-            if arquivo_alvo.resolve() == (dir_raiz / "editor" / "core" / "version.py").resolve():
-                caminho_toml = dir_raiz / "pyproject.toml"
+            if arquivo_alvo.name == "version.py":
+                dir_raiz = arquivo_alvo.resolve().parent.parent.parent
+            elif arquivo_alvo.name in ("pyproject.toml", "uv.lock"):
+                dir_raiz = arquivo_alvo.resolve().parent
+            else:
+                dir_raiz = Path(__file__).resolve().parent.parent.parent
+
+            caminho_metainfo = (
+                dir_raiz / "editor" / "flatpak" / "com.arestaclimb.Editor.metainfo.xml"
+            )
+            caminho_toml = dir_raiz / "pyproject.toml"
+            caminho_lock = dir_raiz / "uv.lock"
+            caminho_py = dir_raiz / "editor" / "core" / "version.py"
+
+            if arquivo_alvo.resolve() == caminho_py.resolve():
                 if caminho_toml.exists():
                     bump_version_file(caminho_toml, nova_versao)
-                caminho_lock = dir_raiz / "uv.lock"
                 if caminho_lock.exists():
                     bump_version_lockfile(caminho_lock, nova_versao)
-            elif arquivo_alvo.resolve() == (dir_raiz / "pyproject.toml").resolve():
-                caminho_py = dir_raiz / "editor" / "core" / "version.py"
+                if caminho_metainfo.exists():
+                    bump_version_metainfo(
+                        caminho_metainfo, nova_versao, descricao_release=args.descricao
+                    )
+            elif arquivo_alvo.resolve() == caminho_toml.resolve():
                 if caminho_py.exists():
                     bump_version_file(caminho_py, nova_versao)
-                caminho_lock = dir_raiz / "uv.lock"
                 if caminho_lock.exists():
                     bump_version_lockfile(caminho_lock, nova_versao)
-            elif arquivo_alvo.resolve() == (dir_raiz / "uv.lock").resolve():
-                caminho_py = dir_raiz / "editor" / "core" / "version.py"
+                if caminho_metainfo.exists():
+                    bump_version_metainfo(
+                        caminho_metainfo, nova_versao, descricao_release=args.descricao
+                    )
+            elif arquivo_alvo.resolve() == caminho_lock.resolve():
                 if caminho_py.exists():
                     bump_version_file(caminho_py, nova_versao)
-                caminho_toml = dir_raiz / "pyproject.toml"
                 if caminho_toml.exists():
                     bump_version_file(caminho_toml, nova_versao)
+                if caminho_metainfo.exists():
+                    bump_version_metainfo(
+                        caminho_metainfo, nova_versao, descricao_release=args.descricao
+                    )
         else:
             parser.print_help()
             return 1

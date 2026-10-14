@@ -60,6 +60,16 @@ def test_metainfo_appstream_estrutural() -> None:
     licenca_projeto = raiz.find("project_license")
     assert licenca_projeto is not None and licenca_projeto.text == "MPL-2.0"
 
+    desenvolvedor = raiz.find("developer")
+    assert desenvolvedor is not None, "Elemento <developer> obrigatório ausente no metainfo AppStream"
+    assert desenvolvedor.get("id") == "com.arestaclimb", "ID do desenvolvedor deve ser com.arestaclimb"
+    nome_dev = desenvolvedor.find("name")
+    assert nome_dev is not None and nome_dev.text == "Aresta Climb", "Nome do desenvolvedor deve ser 'Aresta Climb'"
+
+    resumo = raiz.find("summary")
+    assert resumo is not None and resumo.text, "Elemento <summary> ausente ou vazio"
+    assert not resumo.text.strip().endswith("."), "O resumo (<summary>) não deve terminar com ponto final segundo AppStream"
+
     categorias = raiz.find("categories")
     assert categorias is not None
     lista_categorias = [c.text for c in categorias.findall("category")]

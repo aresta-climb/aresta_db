@@ -679,6 +679,8 @@ def test_gerar_manifesto_dependencias_flatpak_sucesso(tmp_path):
             res.stdout = export_mock_stdout
             return res
         if "flatpak_pip_generator" in cmd:
+            assert "--group" in cmd
+            assert cmd[cmd.index("--group") + 1] == "editor_deploy"
             # Verifica se os pacotes dispensáveis foram removidos do arquivo de requirements temporário
             req_arg = [arg for arg in cmd if arg.startswith("--requirements-file=")][0]
             req_path = Path(req_arg.split("=", 1)[1])

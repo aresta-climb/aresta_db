@@ -3,6 +3,7 @@
 
 import os
 import tempfile
+from pathlib import Path
 
 import pytest
 
@@ -10,6 +11,7 @@ from editor.release_tools.bump_version import (
     SemVerError,
     bump_version_file,
     bump_version_lockfile,
+    bump_version_metainfo,
     main,
     sincronizar_versoes,
 )
@@ -265,3 +267,132 @@ def test_main_cli_argumentos_invalidos_ou_excecao(capsys):
     assert codigo_erro_semver == 1
     saida = capsys.readouterr().err
     assert "Erro:" in saida
+
+
+def test_bump_version_metainfo_sucesso(tmp_path: Path) -> None:
+    arquivo_xml = tmp_path / "com.arestaclimb.Editor.metainfo.xml"
+    conteudo_inicial = (
+        '<?xml version="1.0" encoding="UTF-8"?>\n'
+        '<component type="desktop-application">\n'
+        "  <id>com.arestaclimb.Editor</id>\n"
+        "  <name>Editor Aresta</name>\n"
+        "  <releases>\n"
+        '    <release version="0.4.4" date="2026-10-09">\n'
+        "      <description><p>Versão anterior</p></description>\n"
+        "    </release>\n"
+        "  </releases>\n"
+        "</component>\n"
+    )
+    arquivo_xml.write_text(conteudo_inicial, encoding="utf-8")
+
+    bump_version_metainfo(arquivo_xml, "0.5.15", data="2026-10-15")
+
+    conteudo_final = arquivo_xml.read_text(encoding="utf-8")
+    assert 'version="0.5.15"' in conteudo_final
+    assert 'date="2026-10-15"' in conteudo_final
+    # Garante que a versão nova está no topo de releases
+    idx_nova = conteudo_final.find('version="0.5.15"')
+    idx_antiga = conteudo_final.find('version="0.4.4"')
+    assert idx_nova < idx_antiga
+
+
+def test_bump_version_metainfo_ignora_versao_dev(tmp_path: Path) -> None:
+    arquivo_xml = tmp_path / "com.arestaclimb.Editor.metainfo.xml"
+    conteudo_inicial = (
+        '<?xml version="1.0" encoding="UTF-8"?>\n'
+        '<component type="desktop-application">\n'
+        "  <id>com.arestaclimb.Editor</id>\n"
+        "  <releases>\n"
+        '    <release version="0.5.14" date="2026-10-14" />\n'
+        "  </releases>\n"
+        "</component>\n"
+    )
+    arquivo_xml.write_text(conteudo_inicial, encoding="utf-8")
+
+    bump_version_metainfo(arquivo_xml, "0.5.15-dev")
+
+    # Não deve adicionar versão -dev
+    conteudo_final = arquivo_xml.read_text(encoding="utf-8")
+    assert "0.5.15-dev" not in conteudo_final
+    assert "0.5.14" in conteudo_final
+
+
+def test_sincronizar_versoes_com_metainfo(tmp_path: Path) -> None:
+    pasta_core = tmp_path / "editor" / "core"
+    pasta_core.mkdir(parents=True)
+    arquivo_version_py = pasta_core / "version.py"
+    arquivo_pyproject = tmp_path / "pyproject.toml"
+    arquivo_uv_lock = tmp_path / "uv.lock"
+
+    pasta_flatpak = tmp_path / "editor" / "flatpak"
+    pasta_flatpak.mkdir(parents=True)
+    arquivo_metainfo = pasta_flatpak / "com.arestaclimb.Editor.metainfo.xml"
+
+    arquivo_version_py.write_text('VERSION = "1.0.0"\n', encoding="utf-8")
+    arquivo_pyproject.write_text(
+        '[project]\nname = "aresta-db"\nversion = "1.0.0"\n', encoding="utf-8"
+    )
+    arquivo_uv_lock.write_text(
+        '[[package]]\nname = "aresta-db"\nversion = "1.0.0"\n', encoding="utf-8"
+    )
+    arquivo_metainfo.write_text(
+        '<component><releases><release version="1.0.0" date="2026-10-01"/></releases></component>\n',
+        encoding="utf-8",
+    )
+
+    atualizados = sincronizar_versoes("1.1.0", raiz=tmp_path)
+    assert len(atualizados) == 4
+    assert arquivo_metainfo in atualizados
+    assert 'version="1.1.0"' in arquivo_metainfo.read_text(encoding="utf-8")
+
+
+def test_bump_version_metainfo_com_descricao_personalizada(tmp_path: Path) -> None:
+    arquivo_xml = tmp_path / "com.arestaclimb.Editor.metainfo.xml"
+    conteudo_inicial = (
+        '<?xml version="1.0" encoding="UTF-8"?>\n'
+        '<component type="desktop-application">\n'
+        "  <releases>\n"
+        '    <release version="0.4.4" date="2026-10-09">\n'
+        "      <description><p>Versão anterior</p></description>\n"
+        "    </release>\n"
+        "  </releases>\n"
+        "</component>\n"
+    )
+    arquivo_xml.write_text(conteudo_inicial, encoding="utf-8")
+
+    bump_version_metainfo(
+        arquivo_xml,
+        "0.5.15",
+        data="2026-10-15",
+        descricao_release="Novas funcionalidades e correção de bugs na diagramação.",
+    )
+
+    conteudo_final = arquivo_xml.read_text(encoding="utf-8")
+    assert "<p>Novas funcionalidades e correção de bugs na diagramação.</p>" in conteudo_final
+
+
+def test_main_cli_com_flag_descricao(tmp_path: Path) -> None:
+    pasta_core = tmp_path / "editor" / "core"
+    pasta_core.mkdir(parents=True)
+    arquivo_version = pasta_core / "version.py"
+    arquivo_version.write_text('VERSION = "1.0.0"\n', encoding="utf-8")
+
+    pasta_flatpak = tmp_path / "editor" / "flatpak"
+    pasta_flatpak.mkdir(parents=True)
+    arquivo_metainfo = pasta_flatpak / "com.arestaclimb.Editor.metainfo.xml"
+    arquivo_metainfo.write_text(
+        '<component><releases><release version="1.0.0" date="2026-10-01"/></releases></component>\n',
+        encoding="utf-8",
+    )
+
+    codigo = main(
+        [
+            str(arquivo_version),
+            "1.2.0",
+            "--descricao",
+            "Melhorias no traçado de vias.",
+        ]
+    )
+    assert codigo == 0
+    assert 'VERSION = "1.2.0"' in arquivo_version.read_text(encoding="utf-8")
+    assert "<p>Melhorias no traçado de vias.</p>" in arquivo_metainfo.read_text(encoding="utf-8")
