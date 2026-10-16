@@ -67,7 +67,18 @@ def executar_bootstrap(
         try:
             print(f"Puxando referência anterior ({ref_app}) para geração de static deltas...")
             subprocess.run(
-                ["ostree", f"--repo={repo_dir}", "pull", "--mirror", "aresta-remote", ref_app],
+                [
+                    "ostree",
+                    f"--repo={repo_dir}",
+                    "pull",
+                    "--mirror",
+                    "--depth=1",
+                    "--http-trusted",
+                    "--disable-fsync",
+                    "--max-outstanding-fetcher-requests=32",
+                    "aresta-remote",
+                    ref_app,
+                ],
                 check=True,
             )
             print("Commit anterior puxado com sucesso.")

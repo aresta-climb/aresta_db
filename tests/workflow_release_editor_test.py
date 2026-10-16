@@ -263,29 +263,32 @@ class TestWorkflowReleaseEditor(unittest.TestCase):
             self.assertIn("uses", job, f"O sub-job {sub_job_name} deve usar workflow reutilizável.")
 
     def test_subaction_macos_configurada_em_macos_14(self) -> None:
-        """Garante que o sub-workflow build_editor_macos roda em macos-14 com PyInstaller, Sparkle e DMG."""
-        job = self.conteudo_macos["jobs"]["build_macos"]
-        self.assertEqual(job.get("runs-on"), "macos-14")
-        nomes_passos = [p.get("name", "") for p in job.get("steps", [])]
+        """Garante que o sub-workflow build_editor_macos compila com PyInstaller, Sparkle e DMG e publica no R2."""
+        job_compilar = self.conteudo_macos["jobs"]["compilar_macos"]
+        nomes_compilar = [p.get("name", "") for p in job_compilar.get("steps", [])]
         self.assertTrue(
-            any("PyInstaller" in n for n in nomes_passos),
+            any("PyInstaller" in n for n in nomes_compilar),
             "Deve haver compilação PyInstaller no macOS.",
         )
         self.assertTrue(
-            any("Sparkle" in n for n in nomes_passos),
+            any("Sparkle" in n for n in nomes_compilar),
             "Deve haver download ou configuração do Sparkle.",
         )
         self.assertTrue(
-            any("DMG" in n for n in nomes_passos), "Deve haver empacotamento DMG no macOS."
+            any("DMG" in n for n in nomes_compilar), "Deve haver empacotamento DMG no macOS."
         )
+
+        job_publicar = self.conteudo_macos["jobs"]["publicar_macos"]
+        self.assertEqual(job_publicar.get("runs-on"), "macos-14")
+        nomes_publicar = [p.get("name", "") for p in job_publicar.get("steps", [])]
         self.assertTrue(
-            any("Cloudflare R2" in n for n in nomes_passos),
+            any("Cloudflare R2" in n for n in nomes_publicar),
             "Deve haver publicação no Cloudflare R2.",
         )
 
     def test_subaction_macos_utiliza_modulo_dedicado_para_configurar_certificado_apple(self) -> None:
         """Garante que a configuração do certificado Apple no macOS utiliza a biblioteca dedicada para compatibilidade de cifras PBKDF2/Keychain."""
-        passos = self.conteudo_macos["jobs"]["build_macos"]["steps"]
+        passos = self.conteudo_macos["jobs"]["compilar_macos"]["steps"]
         passo_cert = next(
             (s for s in passos if "Configurar Certificado Apple Developer ID" in s.get("name", "")),
             None,
@@ -299,16 +302,21 @@ class TestWorkflowReleaseEditor(unittest.TestCase):
         self.assertEqual(env.get("PYTHONPATH"), ".")
 
     def test_subaction_macos_disponibiliza_artefatos_dmg_e_outputs(self) -> None:
-        """Garante que o sub-workflow build_editor_macos expõe outputs do DMG e disponibiliza artefatos no GitHub Actions."""
-        job = self.conteudo_macos["jobs"]["build_macos"]
-        outputs = job.get("outputs", {})
-        self.assertIn("dmg_path", outputs, "O job build_macos deve expor output dmg_path.")
-        self.assertIn("dmg_nome", outputs, "O job build_macos deve expor output dmg_nome.")
-
-        passos = job.get("steps", [])
-        passos_artifact = [s for s in passos if "upload-artifact" in str(s.get("uses", ""))]
-        self.assertTrue(len(passos_artifact) >= 2, "Devem existir steps de upload-artifact para o DMG no macOS.")
-        caminhos_artefatos = "\n".join(str(s.get("with", {}).get("path", "")) for s in passos_artifact)
+        """Garante que o sub-workflow build_editor_macos disponibiliza artefatos DMG e appcast.xml no GitHub Actions."""
+        passos_compilar = self.conteudo_macos["jobs"]["compilar_macos"].get("steps", [])
+        passos_publicar = self.conteudo_macos["jobs"]["publicar_macos"].get("steps", [])
+        passos_artifact = [
+            s
+            for s in (passos_compilar + passos_publicar)
+            if "upload-artifact" in str(s.get("uses", ""))
+        ]
+        self.assertTrue(
+            len(passos_artifact) >= 2,
+            "Devem existir steps de upload-artifact para o DMG no macOS.",
+        )
+        caminhos_artefatos = "\n".join(
+            str(s.get("with", {}).get("path", "")) for s in passos_artifact
+        )
         self.assertIn("*.dmg", caminhos_artefatos, "O arquivo *.dmg deve estar no path do upload-artifact.")
 
     def test_subactions_etapa_testes_configurada_com_offscreen_e_ci(self) -> None:
@@ -317,7 +325,7 @@ class TestWorkflowReleaseEditor(unittest.TestCase):
             (self.conteudo_macos, "build_editor_macos.yml"),
             (self.conteudo_windows, "build_editor_windows.yml"),
         ]:
-            job_key = "build_macos" if "macos" in nome else "build_windows"
+            job_key = "compilar_macos" if "macos" in nome else "build_windows"
             passos = conteudo["jobs"][job_key]["steps"]
             passo_testes = next((s for s in passos if "Executar Testes" in s.get("name", "")), None)
             self.assertIsNotNone(
@@ -338,7 +346,7 @@ class TestWorkflowReleaseEditor(unittest.TestCase):
 
     def test_passo_download_sparkle_obtem_versao_mais_recente_dinamicamente(self) -> None:
         """Garante que o Sparkle é baixado em sua versão mais recente via gh release download sem versão fixa."""
-        passos = self.conteudo_macos["jobs"]["build_macos"]["steps"]
+        passos = self.conteudo_macos["jobs"]["compilar_macos"]["steps"]
         passo_sparkle = next((s for s in passos if "Sparkle" in s.get("name", "")), None)
         self.assertIsNotNone(passo_sparkle, "Passo de download do Sparkle não encontrado.")
         assert passo_sparkle is not None
@@ -397,31 +405,22 @@ class TestWorkflowReleaseEditor(unittest.TestCase):
             "O parâmetro 'build-bundle' deve estar desabilitado para publicação direta via OSTree.",
         )
 
-    def test_orquestrador_cria_github_release_oficial(self) -> None:
-        """Garante que o orquestrador cria a GitHub Release oficial com gh release create."""
+    def test_orquestrador_marca_tag_sem_criar_github_release(self) -> None:
+        """Garante que o orquestrador cria e faz push da tag Git, mas não cria GitHub Releases nem gera source tarball."""
         passos = self.conteudo_yaml["jobs"]["prepare_release"]["steps"]
-        passo_release = next(
-            (s for s in passos if "Criar GitHub Release" in s.get("name", "")), None
-        )
-        self.assertIsNotNone(
-            passo_release, "Passo 'Criar GitHub Release Oficial' não encontrado no orquestrador."
-        )
-        assert passo_release is not None
-        run_cmd = passo_release.get("run", "")
-        self.assertIn("gh release create", run_cmd)
+        comandos_run = "\n".join(str(s.get("run", "")) for s in passos)
+        self.assertIn("git tag editor-v${{ steps.versao.outputs.versao }}", comandos_run)
+        self.assertIn("git push origin editor-v${{ steps.versao.outputs.versao }}", comandos_run)
+        self.assertNotIn("gh release create", comandos_run)
+        self.assertNotIn("gh release upload", comandos_run)
+        self.assertNotIn("source-tarball", comandos_run)
 
-    def test_subaction_linux_gera_e_publica_source_tarball(self) -> None:
-        """Garante que o build Linux gera e publica o source tarball na GitHub Release."""
+    def test_subaction_linux_nao_publica_github_release_nem_source_tarball(self) -> None:
+        """Garante que o build Linux não gera source tarball nem faz upload para GitHub Release."""
         passos = self.conteudo_linux["jobs"]["build_linux"]["steps"]
-        passo_tarball = next((s for s in passos if "Source Tarball" in s.get("name", "")), None)
-        self.assertIsNotNone(
-            passo_tarball,
-            "Passo 'Gerar e Publicar Source Tarball' não encontrado no workflow Linux.",
-        )
-        assert passo_tarball is not None
-        run_cmd = passo_tarball.get("run", "")
-        self.assertIn("editor/build.py source-tarball", run_cmd)
-        self.assertIn("gh release upload", run_cmd)
+        comandos_run = "\n".join(str(s.get("run", "")) for s in passos)
+        self.assertNotIn("gh release upload", comandos_run)
+        self.assertNotIn("source-tarball", comandos_run)
 
     def test_passo_calcular_versao_exporta_versao_e_tag_name(self) -> None:
         """Garante que o passo 'Calcular Versão de Release' grava versao e tag_name no $GITHUB_OUTPUT."""
@@ -433,32 +432,10 @@ class TestWorkflowReleaseEditor(unittest.TestCase):
         self.assertIn('echo "versao=$RELEASE_VER" >> $GITHUB_OUTPUT', run_script)
         self.assertIn('echo "tag_name=editor-v$RELEASE_VER" >> $GITHUB_OUTPUT', run_script)
 
-    def test_prepare_release_gera_e_anexa_source_tarball(self) -> None:
-        """Garante que o orquestrador prepare_release gera o source tarball e o anexa na criação da release oficial."""
-        passos = self.conteudo_yaml["jobs"]["prepare_release"]["steps"]
-        passo_tarball = next((s for s in passos if "Source Tarball" in s.get("name", "")), None)
-        self.assertIsNotNone(
-            passo_tarball, "Passo de gerar source tarball deve existir em prepare_release."
-        )
-        assert passo_tarball is not None
-        run_tarball = passo_tarball.get("run", "")
-        self.assertIn("editor/build.py source-tarball", run_tarball)
-        self.assertIn("--versao", run_tarball)
-
-        passo_release = next(
-            (s for s in passos if "Criar GitHub Release" in s.get("name", "")), None
-        )
-        self.assertIsNotNone(passo_release)
-        assert passo_release is not None
-        run_release = passo_release.get("run", "")
-        self.assertIn("gh release create", run_release)
-        self.assertIn("source.tar.gz", run_release)
-
-    def test_subactions_possuem_permissao_contents_read_e_especifica_versao_tarball(self) -> None:
+    def test_subactions_possuem_permissao_contents_read(self) -> None:
         """
         Garante que os sub-workflows reutilizáveis possuem permissão restrita 'contents: read'
-        para compatibilidade com a invocação pelo orquestrador (autenticando escritas via app-token),
-        e que o build_linux passa --versao para source-tarball.
+        para compatibilidade com a invocação pelo orquestrador (autenticando escritas via app-token).
         """
         job_linux = self.conteudo_linux["jobs"]["build_linux"]
         self.assertEqual(job_linux.get("permissions", {}).get("contents"), "read")
@@ -466,15 +443,11 @@ class TestWorkflowReleaseEditor(unittest.TestCase):
         job_windows = self.conteudo_windows["jobs"]["build_windows"]
         self.assertEqual(job_windows.get("permissions", {}).get("contents"), "read")
 
-        job_macos = self.conteudo_macos["jobs"]["build_macos"]
-        self.assertEqual(job_macos.get("permissions", {}).get("contents"), "read")
+        job_compilar_macos = self.conteudo_macos["jobs"]["compilar_macos"]
+        self.assertEqual(job_compilar_macos.get("permissions", {}).get("contents"), "read")
 
-        passos = job_linux["steps"]
-        passo_tarball = next((s for s in passos if "Source Tarball" in s.get("name", "")), None)
-        self.assertIsNotNone(passo_tarball)
-        assert passo_tarball is not None
-        run_cmd = passo_tarball.get("run", "")
-        self.assertIn("--versao", run_cmd)
+        job_publicar_macos = self.conteudo_macos["jobs"]["publicar_macos"]
+        self.assertEqual(job_publicar_macos.get("permissions", {}).get("contents"), "read")
 
     def test_subactions_usam_inputs_versao_em_vez_de_steps_versao(self) -> None:
         """

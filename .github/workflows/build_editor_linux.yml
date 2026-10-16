@@ -82,6 +82,14 @@ jobs:
           uv run editor/build.py flatpak-deps --output editor/flatpak/pypi-dependencies.json
           cp editor/flatpak/pypi-dependencies.json /tmp/pypi-dependencies.json
 
+      - name: Cache do Repositório OSTree
+        uses: actions/cache@v6
+        with:
+          path: repo
+          key: flatpak-ostree-repo-${{ inputs.versao }}
+          restore-keys: |
+            flatpak-ostree-repo-
+
       - name: Configurar Chave GPG e Bootstrap do Repositório OSTree
         env:
           GPG_PRIVATE_KEY: ${{ secrets.ARESTA_EDITOR_FLATPAK_GPG_PRIVATE_KEY }}
@@ -119,7 +127,7 @@ jobs:
 
       - name: Atualizar Índices do Repositório OSTree e Gerar Deltas
         run: |
-          flatpak build-update-repo --generate-static-deltas --gpg-sign="$GPG_KEY_ID" repo
+          flatpak build-update-repo --generate-static-deltas --prune --prune-depth=1 --gpg-sign="$GPG_KEY_ID" repo
 
       - name: Gerar Pacote Flatpak Bundle (.flatpak)
         id: gerar-bundle
@@ -134,18 +142,6 @@ jobs:
             --chave-gpg-id "$GPG_KEY_ID"
           echo "bundle_path=$BUNDLE_PATH" >> $GITHUB_OUTPUT
           echo "bundle_nome=EditorAresta-${{ inputs.versao }}.flatpak" >> $GITHUB_OUTPUT
-
-      - name: Gerar e Publicar Source Tarball na Release do GitHub
-        env:
-          GH_TOKEN: ${{ steps.app-token.outputs.token }}
-        run: |
-          mkdir -p /tmp/dist-src
-          uv run editor/build.py source-tarball --versao ${{ inputs.versao }} --output-dir /tmp/dist-src
-          TARBALL_NOME="EditorAresta-${{ inputs.versao }}-source.tar.gz"
-          TARBALL_PATH="/tmp/dist-src/$TARBALL_NOME"
-          
-          # Anexa o tarball enxuto aos assets da Release oficial do GitHub
-          gh release upload "editor-v${{ inputs.versao }}" "$TARBALL_PATH" --clobber || true
 
       - name: Publicar Repositório Flatpak no Cloudflare R2 e Purgar Cache
         env:

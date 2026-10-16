@@ -45,6 +45,10 @@ def test_executar_bootstrap_repositorio_remoto_existente(tmp_path: Path) -> None
             and "--no-gpg-verify" in chamada_remote
         )
         assert "pull" in chamada_pull and "--mirror" in chamada_pull
+        assert "--depth=1" in chamada_pull
+        assert "--http-trusted" in chamada_pull
+        assert "--disable-fsync" in chamada_pull
+        assert "--max-outstanding-fetcher-requests=32" in chamada_pull
 
 
 def test_executar_bootstrap_com_repo_ja_inicializado(tmp_path: Path) -> None:
@@ -95,7 +99,7 @@ def test_executar_bootstrap_falha_pull_continua_graciosamente(tmp_path: Path) ->
     diretorio_repo = tmp_path / "repo"
     diretorio_repo.mkdir()
 
-    def side_effect_run(cmd, check=True):
+    def side_effect_run(cmd: list[str], check: bool = True) -> MagicMock:
         if "pull" in cmd:
             raise subprocess.CalledProcessError(1, cmd)
         return MagicMock()

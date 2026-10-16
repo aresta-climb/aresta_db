@@ -19,7 +19,7 @@ on:
         type: string
         default: ''
       descricao_mudancas:
-        description: 'Descrição das mudanças desta versão (release notes para GitHub e AppStream)'
+        description: 'Descrição das mudanças desta versão (notas de lançamento para o AppStream)'
         required: true
         type: string
       deploy_windows:
@@ -139,11 +139,6 @@ jobs:
         run: |
           xvfb-run -a uv run pytest -n 0 -v -s --durations=10
 
-      - name: Gerar Source Tarball Oficial do Editor
-        run: |
-          mkdir -p /tmp/dist-src
-          uv run editor/build.py source-tarball --versao ${{ steps.versao.outputs.versao }} --output-dir /tmp/dist-src
-
       - name: Calcular próxima versão -dev
         id: next_dev
         shell: bash
@@ -165,19 +160,6 @@ jobs:
         run: |
           git push origin main
           git push origin editor-v${{ steps.versao.outputs.versao }}
-
-      - name: Criar GitHub Release Oficial
-        env:
-          GH_TOKEN: ${{ steps.app-token.outputs.token }}
-          MUDANCAS: ${{ github.event.inputs.descricao_mudancas }}
-        run: |
-          TARBALL_PATH="/tmp/dist-src/EditorAresta-${{ steps.versao.outputs.versao }}-source.tar.gz"
-          NOTAS=$(printf "Lançamento oficial do Editor Aresta v%s.\n\nIncluído nesta versão:\n%s" "${{ steps.versao.outputs.versao }}" "$MUDANCAS")
-          gh release create editor-v${{ steps.versao.outputs.versao }} \
-            "$TARBALL_PATH" \
-            --title "Editor Aresta v${{ steps.versao.outputs.versao }}" \
-            --notes "$NOTAS" \
-            --verify-tag || gh release upload "editor-v${{ steps.versao.outputs.versao }}" "$TARBALL_PATH" --clobber
 
 
   build_windows:
