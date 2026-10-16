@@ -38,6 +38,11 @@
   </categories>
   
   <releases>
+    <release version="0.5.18" date="2026-10-16">
+      <description>
+        <p>Corrigir release do MacOS</p>
+      </description>
+    </release>
     <release version="0.5.17" date="2026-10-16">
       <description>
         <p>Melhorias no empacotamento de release</p>
