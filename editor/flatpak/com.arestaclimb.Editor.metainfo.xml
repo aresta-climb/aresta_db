@@ -38,6 +38,11 @@
   </categories>
   
   <releases>
+    <release version="0.5.16" date="2026-10-14">
+      <description>
+        <p>Melhorias no deploy do linux.</p>
+      </description>
+    </release>
     <release version="0.5.14" date="2026-10-14">
       <description>
         <p>Atualizações de estabilidade, empacotamento com bytecode otimizado e correções de metadados.</p>
