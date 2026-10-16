@@ -40,6 +40,8 @@ def test_publicar_macos_cli_argumentos_padrao(tmp_path: Path) -> None:
             versao="0.5.13",
             caminho_dmg=dmg,
             caminho_appcast=appcast,
+            caminho_dmg_arm64=dist_dir / "EditorAresta-0.5.13-arm64.dmg",
+            caminho_dmg_intel=dist_dir / "EditorAresta-0.5.13-intel.dmg",
         )
 
 
@@ -70,6 +72,41 @@ def test_publicar_macos_cli_caminhos_explicitados(tmp_path: Path) -> None:
             versao="0.5.13",
             caminho_dmg=dmg,
             caminho_appcast=appcast,
+            caminho_dmg_arm64=Path("dist_macos/EditorAresta-0.5.13-arm64.dmg"),
+            caminho_dmg_intel=Path("dist_macos/EditorAresta-0.5.13-intel.dmg"),
+        )
+
+
+def test_publicar_macos_cli_arm64_e_intel_explicitados(tmp_path: Path) -> None:
+    """Valida execução com opções explícitas --dmg-arm64 e --dmg-intel."""
+    dmg_arm = tmp_path / "meu_arm.dmg"
+    dmg_intel = tmp_path / "meu_intel.dmg"
+    appcast = tmp_path / "appcast.xml"
+
+    with patch("editor.release_tools.publicar_macos_cli.PublicadorR2MacOS") as mock_pub_cls:
+        instancia = MagicMock()
+        mock_pub_cls.return_value = instancia
+
+        codigo = main(
+            [
+                "--versao",
+                "0.5.13",
+                "--dmg-arm64",
+                str(dmg_arm),
+                "--dmg-intel",
+                str(dmg_intel),
+                "--appcast",
+                str(appcast),
+            ]
+        )
+
+        assert codigo == 0
+        instancia.publicar_e_purgar.assert_called_once_with(
+            versao="0.5.13",
+            caminho_dmg=Path("dist_macos/EditorAresta-0.5.13.dmg"),
+            caminho_appcast=appcast,
+            caminho_dmg_arm64=dmg_arm,
+            caminho_dmg_intel=dmg_intel,
         )
 
 

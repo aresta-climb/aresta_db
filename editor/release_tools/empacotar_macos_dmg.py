@@ -768,6 +768,7 @@ def empacotar_distribuicao_macos(
     diretorio_onedir: Path,
     diretorio_saida: Path,
     versao: str,
+    sufixo_arquitetura: str | None = None,
     identidade_assinatura: str | None = None,
     notarizar: bool = False,
     apple_id: str | None = None,
@@ -780,6 +781,8 @@ def empacotar_distribuicao_macos(
 ) -> Path:
     """
     Fluxo orquestrado para gerar o bundle .app, assinar, gerar o DMG e opcionalmente notarizar.
+    Se informado `sufixo_arquitetura` (ex: 'arm64' ou 'intel'), o DMG é nomeado como
+    'EditorAresta-{versao}-{sufixo_arquitetura}.dmg'.
     """
     diretorio_saida.mkdir(parents=True, exist_ok=True)
     caminho_app = diretorio_saida / "EditorAresta.app"
@@ -802,7 +805,12 @@ def empacotar_distribuicao_macos(
         )
 
     # 3. Geração do DMG
-    caminho_dmg = diretorio_saida / f"EditorAresta-{versao}.dmg"
+    nome_dmg = (
+        f"EditorAresta-{versao}-{sufixo_arquitetura}.dmg"
+        if sufixo_arquitetura
+        else f"EditorAresta-{versao}.dmg"
+    )
+    caminho_dmg = diretorio_saida / nome_dmg
     gerar_dmg_macos(
         caminho_app=caminho_app,
         caminho_saida_dmg=caminho_dmg,

@@ -13,8 +13,10 @@ import pytest
 from cryptography.hazmat.primitives.asymmetric import ed25519
 
 from editor.release_tools.gerador_feed_sparkle import (
+    ItemFeedSparkle,
     assinar_arquivo_ed25519,
     gerar_feed_sparkle,
+    gerar_feed_sparkle_multi_arquitetura,
     salvar_feed_sparkle,
 )
 
@@ -127,3 +129,55 @@ def test_gerar_feed_sparkle_sem_forcar_atualizacao() -> None:
         forcar_atualizacao=False,
     )
     assert "<sparkle:criticalUpdate />" not in xml
+
+
+def test_gerar_feed_sparkle_com_arquitetura() -> None:
+    """Valida que a tag sparkle:hardwareRequirements é inserida quando especificada arquitetura."""
+    xml = gerar_feed_sparkle(
+        versao="1.0.0",
+        url_download="https://exemplo.com/app-arm64.dmg",
+        tamanho_bytes=500,
+        assinatura_ed25519="sig_arm",
+        arquitetura="arm64",
+    )
+    assert "<sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>" in xml
+
+
+def test_gerar_feed_sparkle_multi_arquitetura() -> None:
+    """Valida geração de feed RSS com múltiplos itens para Apple Silicon e Intel."""
+    data_ref = datetime(2026, 10, 15, 12, 0, 0, tzinfo=UTC)
+    itens = [
+        ItemFeedSparkle(
+            versao="0.5.15",
+            url_download="https://serving.arestaclimb.com/editor-macos/EditorAresta-0.5.15-arm64.dmg",
+            tamanho_bytes=80000000,
+            assinatura_ed25519="SIG_ARM64",
+            arquitetura="arm64",
+            titulo="Versão 0.5.15 (Apple Silicon)",
+        ),
+        ItemFeedSparkle(
+            versao="0.5.15",
+            url_download="https://serving.arestaclimb.com/editor-macos/EditorAresta-0.5.15-intel.dmg",
+            tamanho_bytes=85000000,
+            assinatura_ed25519="SIG_INTEL",
+            arquitetura="x86_64",
+            titulo="Versão 0.5.15 (Intel)",
+        ),
+    ]
+
+    xml = gerar_feed_sparkle_multi_arquitetura(itens, data_publicacao=data_ref)
+
+    assert "<title>Versão 0.5.15 (Apple Silicon)</title>" in xml
+    assert "<title>Versão 0.5.15 (Intel)</title>" in xml
+    assert "<sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>" in xml
+    assert "<sparkle:hardwareRequirements>x86_64</sparkle:hardwareRequirements>" in xml
+    assert 'url="https://serving.arestaclimb.com/editor-macos/EditorAresta-0.5.15-arm64.dmg"' in xml
+    assert 'url="https://serving.arestaclimb.com/editor-macos/EditorAresta-0.5.15-intel.dmg"' in xml
+    assert 'sparkle:edSignature="SIG_ARM64"' in xml
+    assert 'sparkle:edSignature="SIG_INTEL"' in xml
+
+
+def test_gerar_feed_sparkle_multi_arquitetura_vazio() -> None:
+    """Garante que tentar gerar feed sem itens levanta ValueError."""
+    with pytest.raises(ValueError, match="Pelo menos um item deve ser fornecido"):
+        gerar_feed_sparkle_multi_arquitetura([])

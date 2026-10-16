@@ -33,7 +33,17 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument(
         "--dmg",
         required=False,
-        help="Caminho explícito para o arquivo .dmg (opcional).",
+        help="Caminho explícito para o arquivo .dmg legado (opcional).",
+    )
+    parser.add_argument(
+        "--dmg-arm64",
+        required=False,
+        help="Caminho explícito para o arquivo .dmg ARM64 (opcional).",
+    )
+    parser.add_argument(
+        "--dmg-intel",
+        required=False,
+        help="Caminho explícito para o arquivo .dmg Intel (opcional).",
     )
     parser.add_argument(
         "--appcast",
@@ -45,6 +55,16 @@ def main(argv: list[str] | None = None) -> int:
 
     diretorio_dist = Path(args.diretorio_dist)
     caminho_dmg = Path(args.dmg) if args.dmg else diretorio_dist / f"EditorAresta-{args.versao}.dmg"
+    caminho_dmg_arm64 = (
+        Path(args.dmg_arm64)
+        if args.dmg_arm64
+        else diretorio_dist / f"EditorAresta-{args.versao}-arm64.dmg"
+    )
+    caminho_dmg_intel = (
+        Path(args.dmg_intel)
+        if args.dmg_intel
+        else diretorio_dist / f"EditorAresta-{args.versao}-intel.dmg"
+    )
     caminho_appcast = Path(args.appcast) if args.appcast else diretorio_dist / "appcast.xml"
 
     print(f"Publicando canal macOS para a versão {args.versao}...")
@@ -53,6 +73,8 @@ def main(argv: list[str] | None = None) -> int:
         versao=args.versao,
         caminho_dmg=caminho_dmg,
         caminho_appcast=caminho_appcast,
+        caminho_dmg_arm64=caminho_dmg_arm64,
+        caminho_dmg_intel=caminho_dmg_intel,
     )
     print("Publicação do canal macOS concluída com sucesso!")
     return 0

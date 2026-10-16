@@ -107,6 +107,60 @@ def test_publicar_artefatos_sucesso(tmp_path: Path) -> None:
     assert mock_s3.upload_file.call_count == 3
 
 
+def test_publicar_artefatos_multi_arquitetura_sucesso(tmp_path: Path) -> None:
+    """Valida upload de DMGs separados para ARM64 e Intel, além de latest e appcast."""
+    dmg_arm = tmp_path / "EditorAresta-0.5.13-arm64.dmg"
+    dmg_arm.write_bytes(b"ARM_DMG")
+    dmg_intel = tmp_path / "EditorAresta-0.5.13-intel.dmg"
+    dmg_intel.write_bytes(b"INTEL_DMG")
+    dmg_legado = tmp_path / "EditorAresta-0.5.13.dmg"
+    dmg_legado.write_bytes(b"LEGACY_DMG")
+    appcast = tmp_path / "appcast.xml"
+    appcast.write_text("<xml/>", encoding="utf-8")
+
+    mock_s3 = MagicMock()
+    pub = PublicadorR2MacOS(cliente_s3=mock_s3)
+
+    chaves = pub.publicar_artefatos(
+        versao="0.5.13",
+        caminho_dmg=dmg_legado,
+        caminho_dmg_arm64=dmg_arm,
+        caminho_dmg_intel=dmg_intel,
+        caminho_appcast=appcast,
+    )
+
+    # 3 do ARM64 (versao, arm64-latest, latest) + 2 do Intel (versao, intel-latest) + 1 legado versionado + 1 appcast = 7
+    assert len(chaves) == 7
+    assert "editor-macos/EditorAresta-0.5.13-arm64.dmg" in chaves
+    assert "editor-macos/EditorAresta-arm64-latest.dmg" in chaves
+    assert "editor-macos/EditorAresta-latest.dmg" in chaves
+    assert "editor-macos/EditorAresta-0.5.13-intel.dmg" in chaves
+    assert "editor-macos/EditorAresta-intel-latest.dmg" in chaves
+    assert "editor-macos/EditorAresta-0.5.13.dmg" in chaves
+    assert "editor-macos/appcast.xml" in chaves
+
+    assert mock_s3.upload_file.call_count == 7
+
+
+def test_publicar_artefatos_apenas_intel(tmp_path: Path) -> None:
+    """Valida upload quando apenas artefato Intel é informado."""
+    dmg_intel = tmp_path / "EditorAresta-0.5.13-intel.dmg"
+    dmg_intel.write_bytes(b"INTEL_DMG")
+
+    mock_s3 = MagicMock()
+    pub = PublicadorR2MacOS(cliente_s3=mock_s3)
+
+    chaves = pub.publicar_artefatos(
+        versao="0.5.13",
+        caminho_dmg_intel=dmg_intel,
+    )
+
+    assert len(chaves) == 2
+    assert "editor-macos/EditorAresta-0.5.13-intel.dmg" in chaves
+    assert "editor-macos/EditorAresta-intel-latest.dmg" in chaves
+    assert mock_s3.upload_file.call_count == 2
+
+
 def test_publicar_artefatos_arquivos_inexistentes(tmp_path: Path) -> None:
     """Valida que arquivos inexistentes são ignorados sem erro."""
     mock_s3 = MagicMock()
@@ -116,6 +170,8 @@ def test_publicar_artefatos_arquivos_inexistentes(tmp_path: Path) -> None:
         versao="0.5.13",
         caminho_dmg=tmp_path / "inexistente.dmg",
         caminho_appcast=tmp_path / "inexistente.xml",
+        caminho_dmg_arm64=tmp_path / "inexistente_arm.dmg",
+        caminho_dmg_intel=tmp_path / "inexistente_intel.dmg",
     )
 
     assert chaves == []
@@ -123,7 +179,7 @@ def test_publicar_artefatos_arquivos_inexistentes(tmp_path: Path) -> None:
 
 
 def test_purga_cache_cloudflare_sucesso() -> None:
-    """Valida envio da requisição de purgação de cache para o Cloudflare."""
+    """Valida envio da requisição de purgação de cache para o Cloudflare com todas as URLs do canal."""
     mock_resp = MagicMock()
     mock_resp.status_code = 200
 
@@ -140,8 +196,20 @@ def test_purga_cache_cloudflare_sucesso() -> None:
         assert "zones/zona_abc/purge_cache" in chamada[0][0]
         assert chamada[1]["headers"]["Authorization"] == "Bearer token_xyz"
         arquivos = chamada[1]["json"]["files"]
-        assert "https://serving.arestaclimb.com/editor-macos/EditorAresta-0.5.13.dmg" in arquivos
+        assert (
+            "https://serving.arestaclimb.com/editor-macos/EditorAresta-0.5.13-arm64.dmg" in arquivos
+        )
+        assert (
+            "https://serving.arestaclimb.com/editor-macos/EditorAresta-arm64-latest.dmg" in arquivos
+        )
         assert "https://serving.arestaclimb.com/editor-macos/EditorAresta-latest.dmg" in arquivos
+        assert (
+            "https://serving.arestaclimb.com/editor-macos/EditorAresta-0.5.13-intel.dmg" in arquivos
+        )
+        assert (
+            "https://serving.arestaclimb.com/editor-macos/EditorAresta-intel-latest.dmg" in arquivos
+        )
+        assert "https://serving.arestaclimb.com/editor-macos/EditorAresta-0.5.13.dmg" in arquivos
         assert "https://serving.arestaclimb.com/editor-macos/appcast.xml" in arquivos
 
 
@@ -195,3 +263,34 @@ def test_publicar_e_purgar_fluxo_completo(tmp_path: Path) -> None:
         )
         assert sucesso is True
         assert mock_s3.upload_file.call_count == 3
+
+
+def test_publicar_e_purgar_multi_arquitetura_fluxo_completo(tmp_path: Path) -> None:
+    """Valida fluxo orquestrado de upload multi-arquitetura e purgação de CDN."""
+    dmg_arm = tmp_path / "EditorAresta-0.5.13-arm64.dmg"
+    dmg_arm.write_bytes(b"ARM_DMG")
+    dmg_intel = tmp_path / "EditorAresta-0.5.13-intel.dmg"
+    dmg_intel.write_bytes(b"INTEL_DMG")
+    appcast = tmp_path / "appcast.xml"
+    appcast.write_text("<xml/>", encoding="utf-8")
+
+    mock_s3 = MagicMock()
+    mock_resp = MagicMock()
+    mock_resp.status_code = 200
+
+    pub = PublicadorR2MacOS(
+        cliente_s3=mock_s3,
+        zone_id="zona",
+        api_token="tok",
+    )
+
+    with patch("requests.post", return_value=mock_resp):
+        sucesso = pub.publicar_e_purgar(
+            versao="0.5.13",
+            caminho_dmg_arm64=dmg_arm,
+            caminho_dmg_intel=dmg_intel,
+            caminho_appcast=appcast,
+        )
+        assert sucesso is True
+        # 3 ARM64 (versao, arm64-latest, latest) + 2 Intel (versao, intel-latest) + 1 appcast = 6
+        assert mock_s3.upload_file.call_count == 6

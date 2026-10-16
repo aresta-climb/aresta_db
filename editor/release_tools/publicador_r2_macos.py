@@ -73,16 +73,70 @@ class PublicadorR2MacOS:
     def publicar_artefatos(
         self,
         versao: str,
-        caminho_dmg: Path,
-        caminho_appcast: Path,
+        caminho_dmg: Path | None = None,
+        caminho_appcast: Path | None = None,
+        caminho_dmg_arm64: Path | None = None,
+        caminho_dmg_intel: Path | None = None,
     ) -> list[str]:
         """
-        Envia o DMG versionado, DMG latest e o feed appcast.xml para o bucket Cloudflare R2.
+        Envia os DMGs (ARM64, Intel e/ou legado) e o feed appcast.xml para o bucket Cloudflare R2.
         Retorna a lista de chaves publicadas.
         """
         chaves_publicadas: list[str] = []
 
-        if caminho_dmg.exists():
+        if caminho_dmg_arm64 and caminho_dmg_arm64.exists():
+            chave_arm64 = f"{self.prefixo}/EditorAresta-{versao}-arm64.dmg"
+            print(f"Enviando {caminho_dmg_arm64} -> s3://{self.bucket}/{chave_arm64}")
+            self.cliente_s3.upload_file(
+                str(caminho_dmg_arm64),
+                self.bucket,
+                chave_arm64,
+                ExtraArgs={"ContentType": "application/octet-stream"},
+            )
+            chaves_publicadas.append(chave_arm64)
+
+            chave_arm64_latest = f"{self.prefixo}/EditorAresta-arm64-latest.dmg"
+            print(f"Enviando {caminho_dmg_arm64} -> s3://{self.bucket}/{chave_arm64_latest}")
+            self.cliente_s3.upload_file(
+                str(caminho_dmg_arm64),
+                self.bucket,
+                chave_arm64_latest,
+                ExtraArgs={"ContentType": "application/octet-stream"},
+            )
+            chaves_publicadas.append(chave_arm64_latest)
+
+            chave_latest = f"{self.prefixo}/EditorAresta-latest.dmg"
+            print(f"Enviando {caminho_dmg_arm64} -> s3://{self.bucket}/{chave_latest}")
+            self.cliente_s3.upload_file(
+                str(caminho_dmg_arm64),
+                self.bucket,
+                chave_latest,
+                ExtraArgs={"ContentType": "application/octet-stream"},
+            )
+            chaves_publicadas.append(chave_latest)
+
+        if caminho_dmg_intel and caminho_dmg_intel.exists():
+            chave_intel = f"{self.prefixo}/EditorAresta-{versao}-intel.dmg"
+            print(f"Enviando {caminho_dmg_intel} -> s3://{self.bucket}/{chave_intel}")
+            self.cliente_s3.upload_file(
+                str(caminho_dmg_intel),
+                self.bucket,
+                chave_intel,
+                ExtraArgs={"ContentType": "application/octet-stream"},
+            )
+            chaves_publicadas.append(chave_intel)
+
+            chave_intel_latest = f"{self.prefixo}/EditorAresta-intel-latest.dmg"
+            print(f"Enviando {caminho_dmg_intel} -> s3://{self.bucket}/{chave_intel_latest}")
+            self.cliente_s3.upload_file(
+                str(caminho_dmg_intel),
+                self.bucket,
+                chave_intel_latest,
+                ExtraArgs={"ContentType": "application/octet-stream"},
+            )
+            chaves_publicadas.append(chave_intel_latest)
+
+        if caminho_dmg and caminho_dmg.exists():
             chave_versao = f"{self.prefixo}/EditorAresta-{versao}.dmg"
             print(f"Enviando {caminho_dmg} -> s3://{self.bucket}/{chave_versao}")
             self.cliente_s3.upload_file(
@@ -93,17 +147,18 @@ class PublicadorR2MacOS:
             )
             chaves_publicadas.append(chave_versao)
 
-            chave_latest = f"{self.prefixo}/EditorAresta-latest.dmg"
-            print(f"Enviando {caminho_dmg} -> s3://{self.bucket}/{chave_latest}")
-            self.cliente_s3.upload_file(
-                str(caminho_dmg),
-                self.bucket,
-                chave_latest,
-                ExtraArgs={"ContentType": "application/octet-stream"},
-            )
-            chaves_publicadas.append(chave_latest)
+            if not (caminho_dmg_arm64 and caminho_dmg_arm64.exists()):
+                chave_latest = f"{self.prefixo}/EditorAresta-latest.dmg"
+                print(f"Enviando {caminho_dmg} -> s3://{self.bucket}/{chave_latest}")
+                self.cliente_s3.upload_file(
+                    str(caminho_dmg),
+                    self.bucket,
+                    chave_latest,
+                    ExtraArgs={"ContentType": "application/octet-stream"},
+                )
+                chaves_publicadas.append(chave_latest)
 
-        if caminho_appcast.exists():
+        if caminho_appcast and caminho_appcast.exists():
             chave_appcast = f"{self.prefixo}/appcast.xml"
             print(f"Enviando {caminho_appcast} -> s3://{self.bucket}/{chave_appcast}")
             self.cliente_s3.upload_file(
@@ -128,8 +183,12 @@ class PublicadorR2MacOS:
             return False
 
         urls = [
-            f"{self.uri_base}/EditorAresta-{versao}.dmg",
+            f"{self.uri_base}/EditorAresta-{versao}-arm64.dmg",
+            f"{self.uri_base}/EditorAresta-arm64-latest.dmg",
             f"{self.uri_base}/EditorAresta-latest.dmg",
+            f"{self.uri_base}/EditorAresta-{versao}-intel.dmg",
+            f"{self.uri_base}/EditorAresta-intel-latest.dmg",
+            f"{self.uri_base}/EditorAresta-{versao}.dmg",
             f"{self.uri_base}/appcast.xml",
         ]
 
@@ -158,8 +217,10 @@ class PublicadorR2MacOS:
     def publicar_e_purgar(
         self,
         versao: str,
-        caminho_dmg: Path,
-        caminho_appcast: Path,
+        caminho_dmg: Path | None = None,
+        caminho_appcast: Path | None = None,
+        caminho_dmg_arm64: Path | None = None,
+        caminho_dmg_intel: Path | None = None,
     ) -> bool:
         """
         Executa o fluxo completo de upload para R2 e subsequente purgação de cache na CDN.
@@ -168,6 +229,8 @@ class PublicadorR2MacOS:
             versao=versao,
             caminho_dmg=caminho_dmg,
             caminho_appcast=caminho_appcast,
+            caminho_dmg_arm64=caminho_dmg_arm64,
+            caminho_dmg_intel=caminho_dmg_intel,
         )
         self.purga_cache_cloudflare(versao=versao)
         return True

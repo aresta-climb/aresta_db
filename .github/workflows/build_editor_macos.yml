@@ -1,4 +1,4 @@
-name: Build Editor macOS (ARM64)
+name: Build Editor macOS (Apple Silicon e Intel)
 
 on:
   workflow_call:
@@ -18,14 +18,23 @@ on:
         default: true
 
 jobs:
-  build_macos:
-    name: Compilar e Lançar macOS (ARM64)
-    runs-on: macos-14
+  compilar_macos:
+    name: Compilar macOS (${{ matrix.nome }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: macos-14
+            arch: arm64
+            sufixo: arm64
+            nome: Apple Silicon (ARM64)
+          - os: macos-13
+            arch: x86_64
+            sufixo: intel
+            nome: Intel (x86_64)
     permissions:
       contents: read
-    outputs:
-      dmg_path: ${{ steps.empacotar-dmg.outputs.dmg_path }}
-      dmg_nome: ${{ steps.empacotar-dmg.outputs.dmg_nome }}
     steps:
       - name: Generate Github App Token
         id: app-token
@@ -57,7 +66,6 @@ jobs:
             pyproject.toml
             uv.lock
             .python-version
-
 
       - name: Setup uv e Python
         uses: astral-sh/setup-uv@v10.0.1
@@ -92,7 +100,7 @@ jobs:
           gh release download --repo sparkle-project/Sparkle --pattern "Sparkle-*.tar.xz" --dir .
           tar -xf Sparkle-*.tar.xz Sparkle.framework
 
-      - name: Build PyInstaller no macOS (ARM64)
+      - name: Build PyInstaller no macOS (${{ matrix.nome }})
         run: |
           uv run editor/build.py dist
         env:
@@ -123,8 +131,7 @@ jobs:
             echo "Credenciais de API Apple não configuradas, pulando etapa."
           fi
 
-      - name: Empacotar e Notarizar DMG
-        id: empacotar-dmg
+      - name: Empacotar e Notarizar DMG (${{ matrix.nome }})
         env:
           PYTHONPATH: .
           APPLE_CERT_P12: ${{ secrets.ARESTA_EDITOR_APPLE_CERTIFICATE_P12_BASE64 }}
@@ -145,6 +152,7 @@ jobs:
               diretorio_onedir=Path('editor/dist/EditorAresta'),
               diretorio_saida=Path('dist_macos'),
               versao='${{ inputs.versao }}',
+              sufixo_arquitetura='${{ matrix.sufixo }}',
               identidade_assinatura=identidade,
               notarizar=bool(profile),
               profile=profile,
@@ -152,11 +160,62 @@ jobs:
               dry_run=not tem_cert,
           )
           "
-          DMG_PATH="dist_macos/EditorAresta-${{ inputs.versao }}.dmg"
-          echo "dmg_path=$DMG_PATH" >> $GITHUB_OUTPUT
-          echo "dmg_nome=EditorAresta-${{ inputs.versao }}.dmg" >> $GITHUB_OUTPUT
 
-      - name: Gerar Feed Sparkle (appcast.xml)
+      - name: Disponibilizar DMG no GitHub Actions
+        uses: actions/upload-artifact@v7
+        with:
+          name: editor-macos-dmg-${{ matrix.sufixo }}
+          path: dist_macos/*.dmg
+          retention-days: 7
+
+  publicar_macos:
+    name: Consolidar Feed e Publicar macOS (Apple Silicon e Intel)
+    needs: compilar_macos
+    runs-on: macos-14
+    permissions:
+      contents: read
+    steps:
+      - name: Generate Github App Token
+        id: app-token
+        uses: actions/create-github-app-token@v3
+        with:
+          client-id: ${{ secrets.BOT_APP_ID }}
+          private-key: ${{ secrets.BOT_PRIVATE_KEY }}
+          owner: ${{ github.repository_owner }}
+
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ inputs.tag_name }}
+          token: ${{ steps.app-token.outputs.token }}
+          fetch-depth: 1
+          sparse-checkout: |
+            .
+            editor
+            pyproject.toml
+            uv.lock
+            .python-version
+
+      - name: Setup uv e Python
+        uses: astral-sh/setup-uv@v10.0.1
+        with:
+          version: "latest"
+          python-version: "3.13"
+          enable-cache: true
+          cache-dependency-glob: uv.lock
+
+      - name: Instalar Dependências de Deploy
+        run: |
+          uv sync --frozen --only-group editor_deploy
+
+      - name: Baixar Artefatos DMG de Ambas as Arquiteturas
+        uses: actions/download-artifact@v7
+        with:
+          pattern: editor-macos-dmg-*
+          path: dist_macos
+          merge-multiple: true
+
+      - name: Gerar Feed Sparkle Unificado Multi-Arquitetura (appcast.xml)
         env:
           PYTHONPATH: .
           SPARKLE_ED25519_PRIVATE_KEY: ${{ secrets.ARESTA_EDITOR_SPARKLE_PRIVATE_KEY }}
@@ -164,29 +223,68 @@ jobs:
         run: |
           python3 -c "
           from pathlib import Path
-          from editor.release_tools.gerador_feed_sparkle import assinar_arquivo_ed25519, gerar_feed_sparkle, salvar_feed_sparkle
+          from editor.release_tools.gerador_feed_sparkle import (
+              ItemFeedSparkle,
+              assinar_arquivo_ed25519,
+              gerar_feed_sparkle_multi_arquitetura,
+              salvar_feed_sparkle,
+          )
           import os
 
-          caminho_dmg = Path('dist_macos/EditorAresta-${{ inputs.versao }}.dmg')
-          chave_privada = os.environ.get('SPARKLE_ED25519_PRIVATE_KEY', '')
+          chave_privada = os.environ.get('SPARKLE_ED25519_PRIVATE_KEY', '').strip()
           forcar = str(os.environ.get('FORCAR_ATUALIZACAO', 'true')).lower() != 'false'
+          versao = '${{ inputs.versao }}'
 
-          if chave_privada and caminho_dmg.exists():
-              sig = assinar_arquivo_ed25519(caminho_dmg, chave_privada)
-          else:
-              sig = 'MOCK_SIGNATURE_DRY_RUN'
+          itens: list[ItemFeedSparkle] = []
 
-          tam = caminho_dmg.stat().st_size if caminho_dmg.exists() else 0
-          url = 'https://serving.arestaclimb.com/editor-macos/EditorAresta-${{ inputs.versao }}.dmg'
+          # 1. Item Apple Silicon (ARM64)
+          dmg_arm64 = Path(f'dist_macos/EditorAresta-{versao}-arm64.dmg')
+          if dmg_arm64.exists():
+              sig_arm64 = (
+                  assinar_arquivo_ed25519(dmg_arm64, chave_privada)
+                  if chave_privada
+                  else 'MOCK_SIGNATURE_DRY_RUN'
+              )
+              tam_arm64 = dmg_arm64.stat().st_size
+              url_arm64 = f'https://serving.arestaclimb.com/editor-macos/EditorAresta-{versao}-arm64.dmg'
+              itens.append(
+                  ItemFeedSparkle(
+                      versao=versao,
+                      url_download=url_arm64,
+                      tamanho_bytes=tam_arm64,
+                      assinatura_ed25519=sig_arm64,
+                      requisito_hardware='arm64',
+                      forcar_atualizacao=forcar,
+                  )
+              )
 
-          xml = gerar_feed_sparkle(
-              versao='${{ inputs.versao }}',
-              url_download=url,
-              tamanho_bytes=tam,
-              assinatura_ed25519=sig,
-              forcar_atualizacao=forcar,
-          )
+          # 2. Item Intel (x86_64)
+          dmg_intel = Path(f'dist_macos/EditorAresta-{versao}-intel.dmg')
+          if dmg_intel.exists():
+              sig_intel = (
+                  assinar_arquivo_ed25519(dmg_intel, chave_privada)
+                  if chave_privada
+                  else 'MOCK_SIGNATURE_DRY_RUN'
+              )
+              tam_intel = dmg_intel.stat().st_size
+              url_intel = f'https://serving.arestaclimb.com/editor-macos/EditorAresta-{versao}-intel.dmg'
+              itens.append(
+                  ItemFeedSparkle(
+                      versao=versao,
+                      url_download=url_intel,
+                      tamanho_bytes=tam_intel,
+                      assinatura_ed25519=sig_intel,
+                      requisito_hardware='x86_64',
+                      forcar_atualizacao=forcar,
+                  )
+              )
+
+          if not itens:
+              raise RuntimeError('Nenhum arquivo DMG encontrado em dist_macos para compor o feed Sparkle!')
+
+          xml = gerar_feed_sparkle_multi_arquitetura(itens)
           salvar_feed_sparkle(xml, Path('dist_macos/appcast.xml'))
+          print(f'[OK] Feed Sparkle multi-arquitetura gerado com {len(itens)} itens.')
           "
 
       - name: Publicar Canal macOS no Cloudflare R2 e Purgar Cache
@@ -216,4 +314,3 @@ jobs:
           name: EditorAresta-${{ inputs.versao }}-macOS-DMG
           path: dist_macos/*.dmg
           retention-days: 14
-

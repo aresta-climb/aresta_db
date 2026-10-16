@@ -248,6 +248,44 @@ def test_empacotar_distribuicao_macos_fluxo_completo(tmp_path: Path) -> None:
     assert dmg_gerado == pasta_saida / "EditorAresta-0.4.0.dmg"
 
 
+def test_empacotar_distribuicao_macos_com_sufixo_arm64(tmp_path: Path) -> None:
+    """Valida o nome do DMG gerado quando sufixo_arquitetura é arm64."""
+    dir_onedir = tmp_path / "onedir"
+    dir_onedir.mkdir()
+    (dir_onedir / "EditorAresta").write_bytes(b"bin")
+
+    pasta_saida = tmp_path / "dist_macos_arm64"
+
+    dmg_gerado = empacotar_distribuicao_macos(
+        diretorio_onedir=dir_onedir,
+        diretorio_saida=pasta_saida,
+        versao="0.4.0",
+        sufixo_arquitetura="arm64",
+        dry_run=True,
+    )
+
+    assert dmg_gerado == pasta_saida / "EditorAresta-0.4.0-arm64.dmg"
+
+
+def test_empacotar_distribuicao_macos_com_sufixo_intel(tmp_path: Path) -> None:
+    """Valida o nome do DMG gerado quando sufixo_arquitetura é intel."""
+    dir_onedir = tmp_path / "onedir"
+    dir_onedir.mkdir()
+    (dir_onedir / "EditorAresta").write_bytes(b"bin")
+
+    pasta_saida = tmp_path / "dist_macos_intel"
+
+    dmg_gerado = empacotar_distribuicao_macos(
+        diretorio_onedir=dir_onedir,
+        diretorio_saida=pasta_saida,
+        versao="0.4.0",
+        sufixo_arquitetura="intel",
+        dry_run=True,
+    )
+
+    assert dmg_gerado == pasta_saida / "EditorAresta-0.4.0-intel.dmg"
+
+
 def test_criar_estrutura_bundle_macos_sobrescreve_destino_e_copia_subpastas(tmp_path: Path) -> None:
     """Valida que diretório .app pré-existente é limpo e subpastas são copiadas."""
     dir_onedir = tmp_path / "onedir"
