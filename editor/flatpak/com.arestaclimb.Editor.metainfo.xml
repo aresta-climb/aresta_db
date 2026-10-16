@@ -38,6 +38,11 @@
   </categories>
   
   <releases>
+    <release version="0.5.17" date="2026-10-16">
+      <description>
+        <p>Melhorias no empacotamento de release</p>
+      </description>
+    </release>
     <release version="0.5.16" date="2026-10-14">
       <description>
         <p>Melhorias no deploy do linux.</p>
