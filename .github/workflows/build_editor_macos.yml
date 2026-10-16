@@ -161,12 +161,12 @@ jobs:
           )
           "
 
-      - name: Disponibilizar DMG no GitHub Actions
+      - name: Disponibilizar DMG temporário para publicação
         uses: actions/upload-artifact@v7
         with:
           name: editor-macos-dmg-${{ matrix.sufixo }}
           path: dist_macos/*.dmg
-          retention-days: 7
+          retention-days: 1
 
   publicar_macos:
     name: Consolidar Feed e Publicar macOS (Apple Silicon e Intel)
@@ -236,18 +236,11 @@ jobs:
             --versao "${{ inputs.versao }}" \
             --diretorio-dist dist_macos
 
-      - name: Disponibilizar artefatos macOS no GitHub
-        uses: actions/upload-artifact@v7
-        with:
-          name: EditorAresta-macOS-DMG
-          path: |
-            dist_macos/*.dmg
-            dist_macos/appcast.xml
-          retention-days: 7
-
-      - name: Disponibilizar DMG macOS no GitHub Actions
+      - name: Disponibilizar artefatos macOS consolidados no GitHub
         uses: actions/upload-artifact@v7
         with:
           name: EditorAresta-${{ inputs.versao }}-macOS-DMG
-          path: dist_macos/*.dmg
+          path: |
+            dist_macos/*.dmg
+            dist_macos/appcast.xml
           retention-days: 14
