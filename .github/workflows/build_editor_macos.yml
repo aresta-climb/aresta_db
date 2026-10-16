@@ -209,7 +209,7 @@ jobs:
           uv sync --frozen --only-group editor_deploy
 
       - name: Baixar Artefatos DMG de Ambas as Arquiteturas
-        uses: actions/download-artifact@v7
+        uses: actions/download-artifact@v8
         with:
           pattern: editor-macos-dmg-*
           path: dist_macos
@@ -217,75 +217,12 @@ jobs:
 
       - name: Gerar Feed Sparkle Unificado Multi-Arquitetura (appcast.xml)
         env:
-          PYTHONPATH: .
           SPARKLE_ED25519_PRIVATE_KEY: ${{ secrets.ARESTA_EDITOR_SPARKLE_PRIVATE_KEY }}
           FORCAR_ATUALIZACAO: ${{ inputs.forcar_atualizacao }}
         run: |
-          python3 -c "
-          from pathlib import Path
-          from editor.release_tools.gerador_feed_sparkle import (
-              ItemFeedSparkle,
-              assinar_arquivo_ed25519,
-              gerar_feed_sparkle_multi_arquitetura,
-              salvar_feed_sparkle,
-          )
-          import os
-
-          chave_privada = os.environ.get('SPARKLE_ED25519_PRIVATE_KEY', '').strip()
-          forcar = str(os.environ.get('FORCAR_ATUALIZACAO', 'true')).lower() != 'false'
-          versao = '${{ inputs.versao }}'
-
-          itens: list[ItemFeedSparkle] = []
-
-          # 1. Item Apple Silicon (ARM64)
-          dmg_arm64 = Path(f'dist_macos/EditorAresta-{versao}-arm64.dmg')
-          if dmg_arm64.exists():
-              sig_arm64 = (
-                  assinar_arquivo_ed25519(dmg_arm64, chave_privada)
-                  if chave_privada
-                  else 'MOCK_SIGNATURE_DRY_RUN'
-              )
-              tam_arm64 = dmg_arm64.stat().st_size
-              url_arm64 = f'https://serving.arestaclimb.com/editor-macos/EditorAresta-{versao}-arm64.dmg'
-              itens.append(
-                  ItemFeedSparkle(
-                      versao=versao,
-                      url_download=url_arm64,
-                      tamanho_bytes=tam_arm64,
-                      assinatura_ed25519=sig_arm64,
-                      requisito_hardware='arm64',
-                      forcar_atualizacao=forcar,
-                  )
-              )
-
-          # 2. Item Intel (x86_64)
-          dmg_intel = Path(f'dist_macos/EditorAresta-{versao}-intel.dmg')
-          if dmg_intel.exists():
-              sig_intel = (
-                  assinar_arquivo_ed25519(dmg_intel, chave_privada)
-                  if chave_privada
-                  else 'MOCK_SIGNATURE_DRY_RUN'
-              )
-              tam_intel = dmg_intel.stat().st_size
-              url_intel = f'https://serving.arestaclimb.com/editor-macos/EditorAresta-{versao}-intel.dmg'
-              itens.append(
-                  ItemFeedSparkle(
-                      versao=versao,
-                      url_download=url_intel,
-                      tamanho_bytes=tam_intel,
-                      assinatura_ed25519=sig_intel,
-                      requisito_hardware='x86_64',
-                      forcar_atualizacao=forcar,
-                  )
-              )
-
-          if not itens:
-              raise RuntimeError('Nenhum arquivo DMG encontrado em dist_macos para compor o feed Sparkle!')
-
-          xml = gerar_feed_sparkle_multi_arquitetura(itens)
-          salvar_feed_sparkle(xml, Path('dist_macos/appcast.xml'))
-          print(f'[OK] Feed Sparkle multi-arquitetura gerado com {len(itens)} itens.')
-          "
+          uv run python3 editor/release_tools/gerar_feed_sparkle_cli.py \
+            --versao "${{ inputs.versao }}" \
+            --diretorio-dist dist_macos
 
       - name: Publicar Canal macOS no Cloudflare R2 e Purgar Cache
         env:
