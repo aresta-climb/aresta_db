@@ -262,9 +262,10 @@ class TestWorkflowReleaseEditor(unittest.TestCase):
             )
             self.assertIn("uses", job, f"O sub-job {sub_job_name} deve usar workflow reutilizável.")
 
-    def test_subaction_macos_configurada_em_macos_14(self) -> None:
-        """Garante que o sub-workflow build_editor_macos compila com PyInstaller, Sparkle e DMG e publica no R2."""
+    def test_subaction_macos_configurada_em_macos_latest(self) -> None:
+        """Garante que o sub-workflow build_editor_macos compila com PyInstaller, Sparkle e DMG e publica no R2 usando macos-latest."""
         job_compilar = self.conteudo_macos["jobs"]["compilar_macos"]
+        self.assertEqual(job_compilar.get("runs-on"), "macos-latest")
         nomes_compilar = [p.get("name", "") for p in job_compilar.get("steps", [])]
         self.assertTrue(
             any("PyInstaller" in n for n in nomes_compilar),
@@ -278,8 +279,19 @@ class TestWorkflowReleaseEditor(unittest.TestCase):
             any("DMG" in n for n in nomes_compilar), "Deve haver empacotamento DMG no macOS."
         )
 
+        # Validação do setup-uv com python-arch
+        passo_setup_uv = next(
+            (s for s in job_compilar.get("steps", []) if "setup-uv" in str(s.get("uses", ""))),
+            None,
+        )
+        self.assertIsNotNone(passo_setup_uv, "Deve existir o passo de setup-uv no macOS.")
+        assert passo_setup_uv is not None
+        self.assertEqual(passo_setup_uv.get("uses"), "astral-sh/setup-uv@v10.3.0")
+        with_uv = passo_setup_uv.get("with", {})
+        self.assertEqual(with_uv.get("python-arch"), "${{ matrix.arch }}")
+
         job_publicar = self.conteudo_macos["jobs"]["publicar_macos"]
-        self.assertEqual(job_publicar.get("runs-on"), "macos-14")
+        self.assertEqual(job_publicar.get("runs-on"), "macos-latest")
         nomes_publicar = [p.get("name", "") for p in job_publicar.get("steps", [])]
         self.assertTrue(
             any("Cloudflare R2" in n for n in nomes_publicar),
