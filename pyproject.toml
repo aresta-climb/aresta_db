@@ -34,7 +34,10 @@ editor = [
     "pyside6-essentials",
     "pygit2",
     "requests",
-    "cryptography",
+    # cryptography>=49 descontinuou wheels pré-compilados para macOS Intel (x86_64).
+    # Mantemos <=48.0.1 (universal2) exclusivamente para macOS Intel, e a versão mais recente para os demais.
+    "cryptography<=48.0.1; sys_platform == 'darwin' and platform_machine == 'x86_64'",
+    "cryptography>=50.0.0; sys_platform != 'darwin' or platform_machine != 'x86_64'",
     "keyring",
     "secretstorage; sys_platform == 'linux'",
     "jeepney; sys_platform == 'linux'",
