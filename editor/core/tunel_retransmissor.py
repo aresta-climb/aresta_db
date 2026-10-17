@@ -18,8 +18,18 @@ from typing import Any, cast
 import websockets
 from websockets.exceptions import ConnectionClosed
 
-URL_RETRANSMISSOR_PADRAO = "wss://previa.arestaclimb.com/ws"
-URL_HTTP_PREVIA_PADRAO = "https://previa.arestaclimb.com"
+from aresta_api.openapi.generated.python.previa import (
+    ROTA_CONECTAR_WEBSOCKET_PREVIA,
+    ROTA_CRIAR_SESSAO_PREVIA,
+    RequisicaoCriarSessaoPrevia,
+)
+from aresta_api.openapi.generated.python.previa import (
+    URL_SERVIDOR_PADRAO as URL_HTTP_PREVIA_PADRAO,
+)
+
+URL_RETRANSMISSOR_PADRAO = (
+    f"{URL_HTTP_PREVIA_PADRAO.replace('https://', 'wss://')}{ROTA_CONECTAR_WEBSOCKET_PREVIA}"
+)
 
 
 def solicitar_sessao_servidor(
@@ -36,8 +46,8 @@ def solicitar_sessao_servidor(
     if not jwt_token:
         raise ValueError("Token JWT obrigatório para autenticar no Cloudflare Worker.")
 
-    url = f"{url_base.rstrip('/')}/sessoes"
-    payload_dict: dict[str, Any] = {}
+    url = f"{url_base.rstrip('/')}{ROTA_CRIAR_SESSAO_PREVIA}"
+    payload_dict: RequisicaoCriarSessaoPrevia = {}
     if ip_local:
         payload_dict["ipLocal"] = ip_local
     if porta_local:

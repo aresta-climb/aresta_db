@@ -10,11 +10,10 @@ dependencies = []
 
 # Pipeline de compilação/deploy de croquis
 deploy = [
+    "aresta-api",
     "pillow",
     "pyyaml",
     "protobuf",
-    "grpcio-tools",
-    "mypy-protobuf",
     "nanoid>=2.0.0",
 ]
 
@@ -77,6 +76,7 @@ pdf = [
 # Suíte de testes e ferramentas de desenvolvimento
 dev = [
     "pytest",
+    "pytest-cov",
     "pytest-xdist",
     "pytest-testmon",
     "pytest-mock",
@@ -97,6 +97,9 @@ dev = [
 [tool.uv]
 package = false
 default-groups = ["deploy", "validador", "editor", "editor_deploy", "pdf", "dev"]
+
+[tool.uv.sources]
+aresta-api = { path = "./aresta_api" }
 
 [tool.mypy]
 python_version = "3.13"
@@ -129,6 +132,8 @@ ignore_missing_imports = true
 module = [
     "grpc_tools",
     "grpc_tools.*",
+    "openapi_spec_validator",
+    "openapi_spec_validator.*",
     "qtawesome",
     "qtawesome.*",
     "winrt.*",

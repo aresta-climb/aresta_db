@@ -172,7 +172,19 @@ def test_inicializar_schema_d1_criacao_e_migracao_legado() -> None:
         "grupo_uid",
     ]
 
-    # 2. Simula schema legado no D1 (tabela catalogo_aresta antiga e registros em deltas_catalogo)
+    # 2. Simula schema legado no D1 (catalogo_croquis com uf, catalogo_aresta antiga e registros em deltas_catalogo)
+    fake.executar_query("DROP TABLE catalogo_croquis")
+    fake.executar_query(
+        """
+        CREATE TABLE catalogo_croquis (
+            croqui_uid TEXT PRIMARY KEY,
+            id_slug TEXT NOT NULL,
+            nome TEXT NOT NULL,
+            cidade TEXT,
+            uf TEXT
+        );
+        """
+    )
     fake.executar_query("DROP TABLE catalogo_aresta")
     fake.executar_query(
         """
@@ -193,8 +205,13 @@ def test_inicializar_schema_d1_criacao_e_migracao_legado() -> None:
     )
     assert len(fake.executar_query("SELECT * FROM deltas_catalogo")) == 1
 
-    # Ao rodar inicializar_schema_d1 novamente, detecta ausência de escalada_tipo e migra
+    # Ao rodar inicializar_schema_d1 novamente, detecta ausência de estado / escalada_tipo e migra
     inicializar_schema_d1(fake)
+
+    info_croquis_migrada = fake.executar_query("PRAGMA table_info(catalogo_croquis)")
+    colunas_croquis_migradas = [linha["name"] for linha in info_croquis_migrada]
+    assert "estado" in colunas_croquis_migradas
+    assert "uf" not in colunas_croquis_migradas
 
     info_migrada = fake.executar_query("PRAGMA table_info(catalogo_aresta)")
     colunas_migradas = [linha["name"] for linha in info_migrada]
@@ -228,7 +245,7 @@ def test_aplicar_upserts_e_deletes_d1_em_lotes() -> None:
                     "id_slug": f"slug_{i}",
                     "nome": f"Pico {i}",
                     "cidade": "BH",
-                    "uf": "MG",
+                    "estado": "MG",
                 }
                 for i in range(16)
             ],
@@ -272,7 +289,7 @@ def test_sincronizar_catalogo_d1_ja_atualizado(tmp_path: Path) -> None:
                     "id_slug": "br_mg_bh_1",
                     "nome": "Pico 1",
                     "cidade": "BH",
-                    "uf": "MG",
+                    "estado": "MG",
                 },
                 [],
             )
@@ -302,7 +319,7 @@ def test_sincronizar_catalogo_d1_bootstrap_quando_d1_vazio(tmp_path: Path) -> No
                     "id_slug": "br_mg_bh_1",
                     "nome": "Pico 1",
                     "cidade": "BH",
-                    "uf": "MG",
+                    "estado": "MG",
                 },
                 [
                     {
@@ -341,7 +358,7 @@ def test_sincronizar_catalogo_d1_delta_incremental(tmp_path: Path) -> None:
         "id_slug": "br_mg_bh_1",
         "nome": "Pico 1",
         "cidade": "BH",
-        "uf": "MG",
+        "estado": "MG",
     }
     setor = {
         "uid": "s1",
@@ -408,7 +425,7 @@ def test_sincronizar_catalogo_d1_renomear_setor_gera_um_upsert(tmp_path: Path) -
         "id_slug": "br_mg_bh_1",
         "nome": "Pico 1",
         "cidade": "BH",
-        "uf": "MG",
+        "estado": "MG",
     }
     setor_ant = {
         "uid": "s1",
@@ -468,7 +485,7 @@ def test_sincronizar_catalogo_d1_cliente_padrao_ambiente(
                     "id_slug": "br_mg_bh_1",
                     "nome": "Pico 1",
                     "cidade": "BH",
-                    "uf": "MG",
+                    "estado": "MG",
                 },
                 [],
             )
@@ -481,6 +498,7 @@ def test_sincronizar_catalogo_d1_cliente_padrao_ambiente(
     monkeypatch.setenv("CLOUDFLARE_D1_BASE_URL", servidor_http_d1)
 
     _ManipuladorHttpD1ParaTestes.respostas = [
+        (200, {"success": True, "result": [{"results": [{"name": "croqui_uid"}, {"name": "estado"}]}]}),
         (200, {"success": True, "result": [{"results": [{"name": "uid"}, {"name": "escalada_tipo"}]}]}),
         (200, {"success": True, "result": []}),
         (200, {"success": True, "result": []}),

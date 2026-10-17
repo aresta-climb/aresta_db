@@ -14,6 +14,14 @@ from typing import Any, cast
 import pygit2
 import requests
 
+from aresta_api.openapi.generated.python.colaboracao import (
+    ROTA_CRIAR_PULL_REQUEST,
+    ROTA_GIT_PROXY_BASE,
+    RequisicaoCriarPullRequest,
+)
+from aresta_api.openapi.generated.python.colaboracao import (
+    URL_SERVIDOR_PADRAO as _URL_SUPABASE_FALLBACK,
+)
 from editor.core.cliente_auth_supabase import ClienteAuthSupabase
 from editor.core.gerenciador_sessao import SessaoUsuario
 from editor.core.storage import GerenciadorCaminhos
@@ -22,7 +30,6 @@ from editor.core.telemetria import (
     registrar_breadcrumb_submissao,
 )
 
-_URL_SUPABASE_FALLBACK = "https://yzkhiaoqtxvvcyyuwmqg.supabase.co"
 _CHAVE_PUBLICA_FALLBACK = "sb_publishable_ZOrO8ix2EsWlSHEWrZr42A_JycWrAV3"
 
 _URL_SUPABASE_PADRAO = (os.getenv("ARESTA_SUPABASE_URL") or "").strip() or _URL_SUPABASE_FALLBACK
@@ -293,7 +300,7 @@ class ServicoSubmissao:
         callback_progresso: Callable[[float], None] | None = None,
     ) -> None:
         """Configura o remote efêmero proxy e realiza o push via Git Smart HTTP."""
-        url_proxy = f"{self.url_supabase}/functions/v1/git-proxy"
+        url_proxy = f"{self.url_supabase}{ROTA_GIT_PROXY_BASE}"
 
         try:
             remote = repo.remotes["proxy"]
@@ -353,13 +360,13 @@ class ServicoSubmissao:
         tempo_limite: int | None = None,
     ) -> dict[str, Any]:
         """Dispara a criação/registro da Pull Request via Edge Function create-pr."""
-        url_endpoint = f"{self.url_supabase}/functions/v1/create-pr"
+        url_endpoint = f"{self.url_supabase}{ROTA_CRIAR_PULL_REQUEST}"
         cabecalhos = {
             "Authorization": f"Bearer {jwt}",
             "apikey": self.chave_publica,
             "Content-Type": "application/json",
         }
-        payload = {
+        payload: RequisicaoCriarPullRequest = {
             "branch": branch,
             "title": titulo,
             "description": descricao,

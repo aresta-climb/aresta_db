@@ -54,8 +54,10 @@ Enquanto o canal 1 já é governado por `aresta_api/proto/*.proto`, os canais 2 
 
 ## Migration Plan
 
-1. Configurar `pyproject.toml` e `uv.lock` em `aresta_api` e remover `requirements.txt`.
-2. Desenvolver sob TDD (`Red-Green-Refactor`) as bibliotecas em `aresta_api/src/` (`gerador_sql.py`, `gerador_openapi.py`, `validador_paridade.py`) com 100% de cobertura.
+1. Configurar `pyproject.toml` e `uv.lock` em `aresta_db/aresta_api` e remover `requirements.txt`.
+2. Desenvolver sob TDD (`Red-Green-Refactor`) as bibliotecas em `aresta_db/aresta_api/src/` (`gerador_sql.py`, `gerador_openapi.py`, `validador_paridade.py`) com 100% de cobertura.
 3. Escrever `sql/catalogo.sql`, `sql/catalogo_d1.sql` e `openapi/{catalogo,previa,colaboracao,feedback}.yaml`.
-4. Atualizar `aresta_api/build.py` e gerar `sql/generated/` e `openapi/generated/`.
-5. Integrar os contratos gerados em `aresta_db` e `aresta_backend`, validando que todas as suítes de testes e linters passam sem regressões.
+4. Atualizar `aresta_db/aresta_api/build.py` e gerar `sql/generated/` e `openapi/generated/`.
+5. Integrar os contratos gerados em `aresta_db`, validando que toda a suíte de testes (`pytest`) e linters (`ruff`, `mypy --strict`) passam sem regressões.
+6. **Checkpoint de Sincronização de Submódulo**: Pausar para commit/push do `aresta_api` e adição/pull do submódulo `aresta_api` em `../aresta_backend` (e `aresta_app`).
+7. Integrar os contratos gerados em `../aresta_backend`, validando que todas as 4 suítes `deno test` passam sem regressões.

@@ -20,6 +20,17 @@ import urllib.request
 from pathlib import Path
 from typing import Any
 
+from aresta_api.sql.generated.python.catalogo_d1_sql import (
+    DDL_INDICE_IDX_DELTAS_VERSAO_HASH,
+    DDL_TABELA_DELTAS_CATALOGO,
+)
+from aresta_api.sql.generated.python.catalogo_sql import (
+    DDL_INDICE_IDX_CATALOGO_ARESTA_CROQUI,
+    DDL_INDICE_IDX_CATALOGO_ARESTA_NOME,
+    DDL_INDICE_IDX_CATALOGO_ARESTA_TIPO,
+    DDL_TABELA_CATALOGO_ARESTA,
+    DDL_TABELA_CATALOGO_CROQUIS,
+)
 from scripts.gerar_catalogo_sqlite_lib import obter_versao_catalogo
 from scripts.gerar_deltas_catalogo import calcular_deltas_catalogo, gerar_payload_d1
 
@@ -107,6 +118,13 @@ class ClienteCloudflareD1:
 
 def inicializar_schema_d1(cliente: ClienteCloudflareD1) -> None:
     """Garante que as tabelas e índices do catálogo e de deltas existam no Cloudflare D1."""
+    # Detecta se catalogo_croquis já existe com formato legado (sem a coluna estado)
+    info_croquis = cliente.executar_query("PRAGMA table_info(catalogo_croquis)")
+    colunas_croquis = [linha["name"] for linha in info_croquis if "name" in linha]
+    if colunas_croquis and "estado" not in colunas_croquis:
+        cliente.executar_query("DROP TABLE catalogo_croquis")
+        cliente.executar_query("DELETE FROM deltas_catalogo")
+
     # Detecta se catalogo_aresta já existe com formato legado (sem a coluna escalada_tipo)
     info_tabela = cliente.executar_query("PRAGMA table_info(catalogo_aresta)")
     colunas = [linha["name"] for linha in info_tabela if "name" in linha]
@@ -114,66 +132,13 @@ def inicializar_schema_d1(cliente: ClienteCloudflareD1) -> None:
         cliente.executar_query("DROP TABLE catalogo_aresta")
         cliente.executar_query("DELETE FROM deltas_catalogo")
 
-    cliente.executar_query(
-        """
-        CREATE TABLE IF NOT EXISTS catalogo_croquis (
-            croqui_uid TEXT PRIMARY KEY,
-            id_slug TEXT NOT NULL,
-            nome TEXT NOT NULL,
-            cidade TEXT,
-            uf TEXT
-        );
-        """
-    )
-    cliente.executar_query(
-        """
-        CREATE TABLE IF NOT EXISTS catalogo_aresta (
-            uid TEXT PRIMARY KEY,
-            tipo TEXT NOT NULL,
-            croqui_uid TEXT NOT NULL,
-            nome TEXT NOT NULL,
-            escalada_grau TEXT,
-            escalada_tipo TEXT,
-            setor_uid TEXT,
-            grupo_uid TEXT
-        );
-        """
-    )
-    cliente.executar_query(
-        """
-        CREATE TABLE IF NOT EXISTS deltas_catalogo (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            versao_hash TEXT NOT NULL UNIQUE,
-            criado_em TEXT NOT NULL,
-            upserts_json TEXT NOT NULL,
-            deletes_json TEXT NOT NULL
-        );
-        """
-    )
-    cliente.executar_query(
-        """
-        CREATE INDEX IF NOT EXISTS idx_catalogo_aresta_croqui
-        ON catalogo_aresta(croqui_uid);
-        """
-    )
-    cliente.executar_query(
-        """
-        CREATE INDEX IF NOT EXISTS idx_catalogo_aresta_nome
-        ON catalogo_aresta(nome COLLATE NOCASE);
-        """
-    )
-    cliente.executar_query(
-        """
-        CREATE INDEX IF NOT EXISTS idx_catalogo_aresta_tipo
-        ON catalogo_aresta(tipo);
-        """
-    )
-    cliente.executar_query(
-        """
-        CREATE INDEX IF NOT EXISTS idx_deltas_versao_hash
-        ON deltas_catalogo(versao_hash);
-        """
-    )
+    cliente.executar_query(DDL_TABELA_CATALOGO_CROQUIS)
+    cliente.executar_query(DDL_TABELA_CATALOGO_ARESTA)
+    cliente.executar_query(DDL_TABELA_DELTAS_CATALOGO)
+    cliente.executar_query(DDL_INDICE_IDX_CATALOGO_ARESTA_CROQUI)
+    cliente.executar_query(DDL_INDICE_IDX_CATALOGO_ARESTA_NOME)
+    cliente.executar_query(DDL_INDICE_IDX_CATALOGO_ARESTA_TIPO)
+    cliente.executar_query(DDL_INDICE_IDX_DELTAS_VERSAO_HASH)
 
 
 def obter_ultima_versao_d1(cliente: ClienteCloudflareD1) -> str | None:
@@ -225,11 +190,11 @@ def aplicar_upserts_e_deletes_d1(
                     c["id_slug"],
                     c["nome"],
                     c.get("cidade", ""),
-                    c.get("uf", ""),
+                    c.get("estado", ""),
                 ]
             )
         cliente.executar_query(
-            f"INSERT OR REPLACE INTO catalogo_croquis (croqui_uid, id_slug, nome, cidade, uf) VALUES {marcadores}",
+            f"INSERT OR REPLACE INTO catalogo_croquis (croqui_uid, id_slug, nome, cidade, estado) VALUES {marcadores}",
             parametros,
         )
 

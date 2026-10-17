@@ -35,7 +35,7 @@ def test_calcular_deltas_sem_banco_anterior(tmp_path: Path) -> None:
         "id_slug": "br_mg_bh_1",
         "nome": "Pico 1",
         "cidade": "BH",
-        "uf": "MG",
+        "estado": "MG",
         "atualizado_em": 100,
     }
     registros = [
@@ -72,7 +72,7 @@ def test_calcular_deltas_sem_modificacoes(tmp_path: Path) -> None:
         "id_slug": "br_mg_bh_1",
         "nome": "Pico 1",
         "cidade": "BH",
-        "uf": "MG",
+        "estado": "MG",
         "atualizado_em": 100,
     }
     registros = [
@@ -107,7 +107,7 @@ def test_calcular_deltas_alteracao_e_remocao(tmp_path: Path) -> None:
         "id_slug": "br_mg_bh_1",
         "nome": "Pico 1",
         "cidade": "BH",
-        "uf": "MG",
+        "estado": "MG",
         "atualizado_em": 100,
     }
     registros_ant = [
@@ -189,7 +189,7 @@ def test_renomear_setor_gera_apenas_um_upsert_sem_afetar_escaladas(tmp_path: Pat
         "id_slug": "br_mg_bh_1",
         "nome": "Pico 1",
         "cidade": "BH",
-        "uf": "MG",
+        "estado": "MG",
         "atualizado_em": 100,
     }
     setor_ant = {

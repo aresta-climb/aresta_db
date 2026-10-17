@@ -132,7 +132,19 @@ def test_migracao_automatica_schema_legado(tmp_path: Path) -> None:
     conexao = sqlite3.connect(caminho_db)
     cursor = conexao.cursor()
 
-    # Cria tabela com schema legado (sem escalada_tipo e com setor_nome)
+    # Cria tabelas com schema legado (catalogo_croquis com uf e catalogo_aresta sem escalada_tipo)
+    cursor.execute(
+        """
+        CREATE TABLE catalogo_croquis (
+            croqui_uid TEXT PRIMARY KEY,
+            id_slug TEXT NOT NULL,
+            nome TEXT NOT NULL,
+            cidade TEXT,
+            uf TEXT,
+            atualizado_em INTEGER NOT NULL DEFAULT 0
+        );
+        """
+    )
     cursor.execute(
         """
         CREATE TABLE catalogo_aresta (
@@ -146,6 +158,7 @@ def test_migracao_automatica_schema_legado(tmp_path: Path) -> None:
         );
         """
     )
+    cursor.execute("INSERT INTO catalogo_croquis VALUES ('c1', 'slug', 'Pico', 'BH', 'MG', 0)")
     cursor.execute("INSERT INTO catalogo_aresta VALUES ('v1', 'c1', 'Via', '6a', 'esp', 'S1', 's1')")
     conexao.commit()
     conexao.close()
@@ -153,6 +166,11 @@ def test_migracao_automatica_schema_legado(tmp_path: Path) -> None:
     # Chama inicializar_banco_catalogo para disparar migração automática
     conexao_migrada = inicializar_banco_catalogo(caminho_db)
     cursor_migrado = conexao_migrada.cursor()
+    cursor_migrado.execute("PRAGMA table_info(catalogo_croquis)")
+    colunas_croquis_migradas = [linha[1] for linha in cursor_migrado.fetchall()]
+    assert "estado" in colunas_croquis_migradas
+    assert "uf" not in colunas_croquis_migradas
+
     cursor_migrado.execute("PRAGMA table_info(catalogo_aresta)")
     colunas_migradas = [linha[1] for linha in cursor_migrado.fetchall()]
 
@@ -226,7 +244,7 @@ def test_extrair_dados_croqui_para_catalogo() -> None:
     assert dados_croqui["id_slug"] == "br_mg_ferros_pico_dos_ferros"
     assert dados_croqui["nome"] == "Pico dos Ferros"
     assert dados_croqui["cidade"] == "Ferros"
-    assert dados_croqui["uf"] == "MG"
+    assert dados_croqui["estado"] == "MG"
     assert isinstance(dados_croqui["atualizado_em"], int)
 
     # 1 botao + 1 grupo + 2 setores + 5 escaladas = 9 registros
@@ -339,7 +357,7 @@ def test_consulta_aresta_cc_via_left_join(tmp_path: Path) -> None:
             s.nome AS setor_nome,
             g.nome AS grupo_nome,
             c.nome AS pico_nome,
-            c.uf AS estado
+            c.estado AS estado
         FROM catalogo_aresta e
         LEFT JOIN catalogo_aresta s ON s.uid = e.setor_uid
         LEFT JOIN catalogo_aresta g ON g.uid = e.grupo_uid
@@ -350,14 +368,14 @@ def test_consulta_aresta_cc_via_left_join(tmp_path: Path) -> None:
     )
     linha = cursor.fetchone()
     assert linha is not None
-    escalada_nome, grau, tipo, setor, grupo, pico, uf = linha
+    escalada_nome, grau, tipo, setor, grupo, pico, estado = linha
     assert escalada_nome == "Furacão"
     assert grau == "8a"
     assert tipo == "multienfiada"
     assert setor == "Boulders da Entrada"
     assert grupo == "Setor dos Boulders"
     assert pico == "Pico dos Ferros"
-    assert uf == "MG"
+    assert estado == "MG"
 
     conexao.close()
 
@@ -384,7 +402,7 @@ def test_calcular_e_obter_versao_catalogo_determinismo(tmp_path: Path) -> None:
             "id_slug": "temp",
             "nome": "Temp",
             "cidade": "",
-            "uf": "",
+            "estado": "",
             "atualizado_em": 1,
         },
         [],

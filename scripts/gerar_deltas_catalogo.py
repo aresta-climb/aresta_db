@@ -19,6 +19,10 @@ import sys
 from pathlib import Path
 from typing import Any
 
+from aresta_api.openapi.generated.python.catalogo import (
+    DeletesSyncCatalogo,
+    UpsertsSyncCatalogo,
+)
 from scripts.gerar_catalogo_sqlite_lib import obter_versao_catalogo
 
 
@@ -53,7 +57,7 @@ def calcular_deltas_catalogo(
         # Se não há banco anterior, todos os registros do novo são upserts
         if caminho_anterior is None or not Path(caminho_anterior).exists():
             cur.execute(
-                "SELECT croqui_uid, id_slug, nome, cidade, uf FROM catalogo_croquis ORDER BY croqui_uid"
+                "SELECT croqui_uid, id_slug, nome, cidade, estado FROM catalogo_croquis ORDER BY croqui_uid"
             )
             resultado["croquis"]["upserts"] = [dict(row) for row in cur.fetchall()]
 
@@ -72,9 +76,9 @@ def calcular_deltas_catalogo(
         # 1. Croquis: Upserts (novos ou modificados)
         cur.execute(
             """
-            SELECT croqui_uid, id_slug, nome, cidade, uf FROM catalogo_croquis
+            SELECT croqui_uid, id_slug, nome, cidade, estado FROM catalogo_croquis
             EXCEPT
-            SELECT croqui_uid, id_slug, nome, cidade, uf FROM anterior.catalogo_croquis
+            SELECT croqui_uid, id_slug, nome, cidade, estado FROM anterior.catalogo_croquis
             ORDER BY croqui_uid
             """
         )
@@ -129,11 +133,11 @@ def gerar_payload_d1(deltas: dict[str, Any]) -> tuple[str, str]:
     lista_entidades_upsert = deltas.get("entidades", {}).get("upserts", [])
     lista_entidades_delete = deltas.get("entidades", {}).get("deletes", [])
 
-    upserts = {
+    upserts: UpsertsSyncCatalogo = {
         "croquis": deltas["croquis"]["upserts"],
         "entidades": lista_entidades_upsert,
     }
-    deletes = {
+    deletes: DeletesSyncCatalogo = {
         "croquis": deltas["croquis"]["deletes"],
         "entidades": lista_entidades_delete,
     }

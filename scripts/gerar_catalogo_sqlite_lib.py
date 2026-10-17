@@ -20,6 +20,12 @@ import time
 from pathlib import Path
 from typing import Any
 
+from aresta_api.sql.generated.python.catalogo_sql import (
+    COMANDOS_DDL,
+    LinhaCatalogoAresta,
+    LinhaCatalogoCroquis,
+)
+
 try:
     from aresta_api.proto.generated import croqui_pb2
 except ImportError:  # pragma: no cover
@@ -37,69 +43,20 @@ def inicializar_banco_catalogo(caminho_banco: Path | str) -> sqlite3.Connection:
     conexao = sqlite3.connect(str(caminho))
     cursor = conexao.cursor()
 
+    # Detecta se a tabela catalogo_croquis existe com schema legado (sem a coluna estado)
+    cursor.execute("PRAGMA table_info(catalogo_croquis)")
+    colunas_croquis = [linha[1] for linha in cursor.fetchall()]
+    if colunas_croquis and "estado" not in colunas_croquis:
+        cursor.execute("DROP TABLE catalogo_croquis")
+
     # Detecta se a tabela catalogo_aresta existe com schema legado (sem a coluna escalada_tipo)
     cursor.execute("PRAGMA table_info(catalogo_aresta)")
     colunas_existentes = [linha[1] for linha in cursor.fetchall()]
     if colunas_existentes and "escalada_tipo" not in colunas_existentes:
         cursor.execute("DROP TABLE catalogo_aresta")
 
-    cursor.execute(
-        """
-        CREATE TABLE IF NOT EXISTS catalogo_croquis (
-            croqui_uid TEXT PRIMARY KEY,
-            id_slug TEXT NOT NULL,
-            nome TEXT NOT NULL,
-            cidade TEXT,
-            uf TEXT,
-            atualizado_em INTEGER NOT NULL DEFAULT 0
-        );
-        """
-    )
-
-    cursor.execute(
-        """
-        CREATE TABLE IF NOT EXISTS catalogo_aresta (
-            uid TEXT PRIMARY KEY,
-            tipo TEXT NOT NULL,
-            croqui_uid TEXT NOT NULL,
-            nome TEXT NOT NULL,
-            escalada_grau TEXT,
-            escalada_tipo TEXT,
-            setor_uid TEXT,
-            grupo_uid TEXT
-        );
-        """
-    )
-
-    cursor.execute(
-        """
-        CREATE TABLE IF NOT EXISTS catalogo_meta (
-            chave TEXT PRIMARY KEY,
-            valor TEXT NOT NULL
-        );
-        """
-    )
-
-    cursor.execute(
-        """
-        CREATE INDEX IF NOT EXISTS idx_catalogo_aresta_croqui
-        ON catalogo_aresta(croqui_uid);
-        """
-    )
-
-    cursor.execute(
-        """
-        CREATE INDEX IF NOT EXISTS idx_catalogo_aresta_nome
-        ON catalogo_aresta(nome COLLATE NOCASE);
-        """
-    )
-
-    cursor.execute(
-        """
-        CREATE INDEX IF NOT EXISTS idx_catalogo_aresta_tipo
-        ON catalogo_aresta(tipo);
-        """
-    )
+    for comando_ddl in COMANDOS_DDL:
+        cursor.execute(comando_ddl)
 
     conexao.commit()
     return conexao
@@ -107,13 +64,13 @@ def inicializar_banco_catalogo(caminho_banco: Path | str) -> sqlite3.Connection:
 
 def extrair_localidade_do_slug(id_slug: str) -> tuple[str, str]:
     """
-    Extrai cidade e UF a partir do padrão de slug do Aresta (ex: br_mg_araxa_bocaina -> ('Araxa', 'MG')).
+    Extrai cidade e estado a partir do padrão de slug do Aresta (ex: br_mg_araxa_bocaina -> ('Araxa', 'MG')).
     """
     partes = id_slug.split("_")
     if len(partes) >= 3 and len(partes[0]) == 2 and len(partes[1]) == 2:
-        uf = partes[1].upper()
+        estado = partes[1].upper()
         cidade = partes[2].replace("-", " ").title()
-        return cidade, uf
+        return cidade, estado
     return "", ""
 
 
@@ -198,19 +155,19 @@ def extrair_dados_croqui_para_catalogo(
     id_slug = getattr(croqui, "id", "").strip() or id_fallback
     croqui_uid = getattr(croqui, "uid", "").strip() or id_slug
     nome = getattr(croqui, "nome", "").strip() or id_slug
-    cidade, uf = extrair_localidade_do_slug(id_slug)
+    cidade, estado = extrair_localidade_do_slug(id_slug)
     atualizado_em = int(time.time())
 
-    dados_croqui = {
+    dados_croqui: LinhaCatalogoCroquis = {
         "croqui_uid": croqui_uid,
         "id_slug": id_slug,
         "nome": nome,
         "cidade": cidade,
-        "uf": uf,
+        "estado": estado,
         "atualizado_em": atualizado_em,
     }
 
-    registros: list[dict[str, Any]] = []
+    registros: list[LinhaCatalogoAresta] = []
 
     # 1. Extração de Botões do croqui
     for botao in getattr(croqui, "botoes", []):
@@ -309,7 +266,7 @@ def extrair_dados_croqui_para_catalogo(
             elif setor_grupo.HasField("setor"):
                 _processar_setor(setor_grupo.setor, grupo_uid=None)
 
-    return dados_croqui, registros
+    return dict(dados_croqui), [dict(r) for r in registros]
 
 
 def remover_croqui_do_catalogo(conexao: sqlite3.Connection, croqui_uid: str) -> None:
@@ -335,7 +292,7 @@ def inserir_croqui_no_catalogo(
     cursor.execute(
         """
         INSERT OR REPLACE INTO catalogo_croquis (
-            croqui_uid, id_slug, nome, cidade, uf, atualizado_em
+            croqui_uid, id_slug, nome, cidade, estado, atualizado_em
         ) VALUES (?, ?, ?, ?, ?, ?)
         """,
         (
@@ -343,7 +300,7 @@ def inserir_croqui_no_catalogo(
             dados_croqui["id_slug"],
             dados_croqui["nome"],
             dados_croqui.get("cidade", ""),
-            dados_croqui.get("uf", ""),
+            dados_croqui.get("estado", ""),
             dados_croqui["atualizado_em"],
         ),
     )
@@ -378,7 +335,7 @@ def calcular_versao_catalogo(conexao: sqlite3.Connection) -> str:
     hasher = hashlib.sha256()
 
     for linha in cursor.execute(
-        "SELECT croqui_uid, id_slug, nome, cidade, uf FROM catalogo_croquis ORDER BY croqui_uid"
+        "SELECT croqui_uid, id_slug, nome, cidade, estado FROM catalogo_croquis ORDER BY croqui_uid"
     ):
         hasher.update(repr(linha).encode("utf-8"))
 
