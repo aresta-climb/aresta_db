@@ -53,15 +53,16 @@ CREATE TABLE catalogo_croquis (
     atualizado_em INTEGER NOT NULL -- Timestamp Unix
 );
 
--- Tabela de vias/escaladas
+-- Tabela de entidades endereçáveis por UID (escaladas, setores, grupos e botões)
 CREATE TABLE catalogo_aresta (
-    uid TEXT PRIMARY KEY,          -- NanoID de 14 caracteres Base62 da via
-    croqui_uid TEXT NOT NULL,      -- Chave lógica para catalogo_croquis
-    nome TEXT NOT NULL,            -- ex: 'Pé na Chapa'
-    grau TEXT,                     -- ex: '7a', '6sup', 'V5'
-    tipo TEXT,                     -- ex: 'esportiva', 'tradicional', 'boulder'
-    setor_nome TEXT,               -- ex: 'Cachoeira'
-    setor_uid TEXT                 -- NanoID do setor
+    uid TEXT PRIMARY KEY,        -- NanoID de 14 caracteres Base62 da entidade
+    tipo TEXT NOT NULL,          -- 'escalada', 'setor', 'grupo' ou 'botao'
+    croqui_uid TEXT NOT NULL,    -- Chave lógica para catalogo_croquis
+    nome TEXT NOT NULL,          -- Nome da escalada, setor, grupo ou texto do botão
+    escalada_grau TEXT,          -- Grau da via (ex: '7a', 'V5', preenchido se tipo = 'escalada')
+    escalada_tipo TEXT,          -- 'esportiva', 'tradicional', 'boulder', 'multienfiada', 'highline'
+    setor_uid TEXT,              -- NanoID do setor (preenchido se tipo = 'escalada')
+    grupo_uid TEXT               -- NanoID do grupo (preenchido em 'setor' e 'escalada' quando houver)
 );
 
 -- Tabela de metadados e versão lógica
@@ -73,6 +74,27 @@ CREATE TABLE catalogo_meta (
 -- Índices otimizados
 CREATE INDEX idx_catalogo_aresta_croqui ON catalogo_aresta(croqui_uid);
 CREATE INDEX idx_catalogo_aresta_nome ON catalogo_aresta(nome COLLATE NOCASE);
+CREATE INDEX idx_catalogo_aresta_tipo ON catalogo_aresta(tipo);
+```
+
+### Exemplo de Consulta para Metadados e Links Curtos (`aresta.cc/<uid>`)
+Com a normalização por UID, o nome do setor e do grupo não são duplicados em cada linha de escalada. A resolução de todos os metadados textuais ocorre em $O(1)$ por chave primária via `LEFT JOIN`:
+
+```sql
+SELECT 
+    e.nome AS escalada_nome,
+    e.escalada_grau,
+    e.escalada_tipo,
+    s.nome AS setor_nome,
+    g.nome AS grupo_nome,
+    c.nome AS pico_nome,
+    c.uf AS estado
+FROM catalogo_aresta e
+LEFT JOIN catalogo_aresta s ON s.uid = e.setor_uid
+LEFT JOIN catalogo_aresta g ON g.uid = e.grupo_uid
+LEFT JOIN catalogo_croquis c ON c.croqui_uid = e.croqui_uid
+WHERE e.uid = ? AND e.tipo = 'escalada';
+
 ```
 
 ### Por que Hash Lógico Determinístico em vez de SHA-256 do arquivo `.db` ou Inteiro Sequencial?
@@ -128,11 +150,11 @@ Código-fonte localizado em `../aresta_backend/cloudflare/catalogo/`.
        "total_deltas": 2,
        "upserts": {
          "croquis": [...],
-         "vias": [...]
+         "entidades": [...]
        },
        "deletes": {
          "croquis": [],
-         "vias": ["viaAntiga1234"]
+         "entidades": ["entidadeAntiga1234"]
        }
      }
      ```

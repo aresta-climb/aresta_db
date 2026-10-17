@@ -21,7 +21,7 @@ RAIZ_REPO = Path(__file__).resolve().parent.parent
 if str(RAIZ_REPO) not in sys.path:  # pragma: no cover
     sys.path.insert(0, str(RAIZ_REPO))
 
-from serving.sincronizar_d1_lib import sincronizar_catalogo_d1  # noqa: E402
+from serving.sincronizar_d1_lib import sincronizar_catalogo_d1
 
 
 def _migracao_afeta_serving(arquivo: Any) -> bool:
@@ -160,14 +160,14 @@ class Deployer:
 
         chave_remota = f"{self.db_version}/catalogo.db"
         with tempfile.TemporaryDirectory() as pasta_temp:
-            caminho_anterior: Path | None = Path(pasta_temp) / "catalogo_anterior.db"
+            caminho_temp = Path(pasta_temp) / "catalogo_anterior.db"
+            caminho_anterior: Path | None = None
             try:
                 resp = self.s3.get_object(Bucket=self.bucket, Key=chave_remota)
-                caminho_anterior.write_bytes(resp["Body"].read())
+                caminho_temp.write_bytes(resp["Body"].read())
+                caminho_anterior = caminho_temp
             except ClientError as erro:
-                if erro.response["Error"]["Code"] == "NoSuchKey":
-                    caminho_anterior = None
-                else:
+                if erro.response["Error"]["Code"] != "NoSuchKey":
                     raise erro
 
             sincronizar_catalogo_d1(

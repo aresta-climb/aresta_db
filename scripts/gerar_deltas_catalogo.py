@@ -27,14 +27,14 @@ def calcular_deltas_catalogo(
     caminho_novo: Path | str,
 ) -> dict[str, Any]:
     """
-    Compara o banco SQLite novo com o banco anterior e calcula os deltas de croquis e vias.
+    Compara o banco SQLite novo com o banco anterior e calcula os deltas de croquis e entidades.
 
     Retorna:
         dict: Estrutura contendo:
             {
                 "versao_hash": str,
                 "croquis": {"upserts": [...], "deletes": [...]},
-                "vias": {"upserts": [...], "deletes": [...]}
+                "entidades": {"upserts": [...], "deletes": [...]},
             }
     """
     novo_path = Path(caminho_novo)
@@ -46,7 +46,7 @@ def calcular_deltas_catalogo(
     resultado: dict[str, Any] = {
         "versao_hash": versao_hash,
         "croquis": {"upserts": [], "deletes": []},
-        "vias": {"upserts": [], "deletes": []},
+        "entidades": {"upserts": [], "deletes": []},
     }
 
     try:
@@ -58,9 +58,10 @@ def calcular_deltas_catalogo(
             resultado["croquis"]["upserts"] = [dict(row) for row in cur.fetchall()]
 
             cur.execute(
-                "SELECT uid, croqui_uid, nome, grau, tipo, setor_nome, setor_uid FROM catalogo_aresta ORDER BY uid"
+                "SELECT uid, tipo, croqui_uid, nome, escalada_grau, escalada_tipo, setor_uid, grupo_uid "
+                "FROM catalogo_aresta ORDER BY uid"
             )
-            resultado["vias"]["upserts"] = [dict(row) for row in cur.fetchall()]
+            resultado["entidades"]["upserts"] = [dict(row) for row in cur.fetchall()]
 
             return resultado
 
@@ -90,18 +91,18 @@ def calcular_deltas_catalogo(
         )
         resultado["croquis"]["deletes"] = [row["croqui_uid"] for row in cur.fetchall()]
 
-        # 3. Vias: Upserts (novas ou modificadas)
+        # 3. Entidades Aresta: Upserts (novas ou modificadas)
         cur.execute(
             """
-            SELECT uid, croqui_uid, nome, grau, tipo, setor_nome, setor_uid FROM catalogo_aresta
+            SELECT uid, tipo, croqui_uid, nome, escalada_grau, escalada_tipo, setor_uid, grupo_uid FROM catalogo_aresta
             EXCEPT
-            SELECT uid, croqui_uid, nome, grau, tipo, setor_nome, setor_uid FROM anterior.catalogo_aresta
+            SELECT uid, tipo, croqui_uid, nome, escalada_grau, escalada_tipo, setor_uid, grupo_uid FROM anterior.catalogo_aresta
             ORDER BY uid
             """
         )
-        resultado["vias"]["upserts"] = [dict(row) for row in cur.fetchall()]
+        resultado["entidades"]["upserts"] = [dict(row) for row in cur.fetchall()]
 
-        # 4. Vias: Deletes (presentes no anterior mas não no novo)
+        # 4. Entidades Aresta: Deletes (presentes no anterior mas não no novo)
         cur.execute(
             """
             SELECT uid FROM anterior.catalogo_aresta
@@ -110,7 +111,7 @@ def calcular_deltas_catalogo(
             ORDER BY uid
             """
         )
-        resultado["vias"]["deletes"] = [row["uid"] for row in cur.fetchall()]
+        resultado["entidades"]["deletes"] = [row["uid"] for row in cur.fetchall()]
 
     finally:
         con_novo.close()
@@ -125,13 +126,16 @@ def gerar_payload_d1(deltas: dict[str, Any]) -> tuple[str, str]:
     Retorna:
         tuple[str, str]: (upserts_json, deletes_json)
     """
+    lista_entidades_upsert = deltas.get("entidades", {}).get("upserts", [])
+    lista_entidades_delete = deltas.get("entidades", {}).get("deletes", [])
+
     upserts = {
         "croquis": deltas["croquis"]["upserts"],
-        "vias": deltas["vias"]["upserts"],
+        "entidades": lista_entidades_upsert,
     }
     deletes = {
         "croquis": deltas["croquis"]["deletes"],
-        "vias": deltas["vias"]["deletes"],
+        "entidades": lista_entidades_delete,
     }
     return json.dumps(upserts, ensure_ascii=False), json.dumps(deletes, ensure_ascii=False)
 
@@ -185,12 +189,12 @@ def main() -> int:
 
     qtd_croquis_upsert = len(deltas["croquis"]["upserts"])
     qtd_croquis_delete = len(deltas["croquis"]["deletes"])
-    qtd_vias_upsert = len(deltas["vias"]["upserts"])
-    qtd_vias_delete = len(deltas["vias"]["deletes"])
+    qtd_entidades_upsert = len(deltas["entidades"]["upserts"])
+    qtd_entidades_delete = len(deltas["entidades"]["deletes"])
 
     print("Deltas calculados:")
-    print(f"  Croquis : {qtd_croquis_upsert} upserts, {qtd_croquis_delete} deletes")
-    print(f"  Vias    : {qtd_vias_upsert} upserts, {qtd_vias_delete} deletes")
+    print(f"  Croquis   : {qtd_croquis_upsert} upserts, {qtd_croquis_delete} deletes")
+    print(f"  Entidades : {qtd_entidades_upsert} upserts, {qtd_entidades_delete} deletes")
 
     if args.saida:
         args.saida.parent.mkdir(parents=True, exist_ok=True)

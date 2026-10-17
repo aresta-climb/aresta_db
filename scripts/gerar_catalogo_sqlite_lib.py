@@ -5,10 +5,10 @@
 Biblioteca para geração e sincronização do catálogo SQLite (catalogo.db).
 
 Responsável por:
-- Criar a estrutura e índices das tabelas catalogo_croquis e catalogo_aresta.
-- Extrair metadados de croquis e escaladas a partir de arquivos Protobuf compilados.
+- Criar a estrutura e índices das tabelas catalogo_croquis, catalogo_aresta e catalogo_meta.
+- Detectar e migrar automaticamente o schema de catalogo_aresta para a versão normalizada por UID.
+- Extrair metadados de croquis, botões, grupos, setores e escaladas a partir de arquivos Protobuf compilados.
 - Inserir, atualizar ou remover croquis de forma atômica no banco de dados.
-- Compactar o catálogo gerado em formato gzip (catalogo.db.gz).
 - Suportar tanto compilação completa quanto deploy parcial incremental.
 """
 
@@ -29,13 +29,19 @@ except ImportError:  # pragma: no cover
 def inicializar_banco_catalogo(caminho_banco: Path | str) -> sqlite3.Connection:
     """
     Inicializa a conexão com o banco SQLite do catálogo e garante que a estrutura
-    das tabelas e índices necessários existam.
+    das tabelas e índices necessários existam, migrando automaticamente schemas legados.
     """
     caminho = Path(caminho_banco)
     caminho.parent.mkdir(parents=True, exist_ok=True)
 
     conexao = sqlite3.connect(str(caminho))
     cursor = conexao.cursor()
+
+    # Detecta se a tabela catalogo_aresta existe com schema legado (sem a coluna escalada_tipo)
+    cursor.execute("PRAGMA table_info(catalogo_aresta)")
+    colunas_existentes = [linha[1] for linha in cursor.fetchall()]
+    if colunas_existentes and "escalada_tipo" not in colunas_existentes:
+        cursor.execute("DROP TABLE catalogo_aresta")
 
     cursor.execute(
         """
@@ -54,12 +60,13 @@ def inicializar_banco_catalogo(caminho_banco: Path | str) -> sqlite3.Connection:
         """
         CREATE TABLE IF NOT EXISTS catalogo_aresta (
             uid TEXT PRIMARY KEY,
+            tipo TEXT NOT NULL,
             croqui_uid TEXT NOT NULL,
             nome TEXT NOT NULL,
-            grau TEXT,
-            tipo TEXT,
-            setor_nome TEXT,
-            setor_uid TEXT
+            escalada_grau TEXT,
+            escalada_tipo TEXT,
+            setor_uid TEXT,
+            grupo_uid TEXT
         );
         """
     )
@@ -84,6 +91,13 @@ def inicializar_banco_catalogo(caminho_banco: Path | str) -> sqlite3.Connection:
         """
         CREATE INDEX IF NOT EXISTS idx_catalogo_aresta_nome
         ON catalogo_aresta(nome COLLATE NOCASE);
+        """
+    )
+
+    cursor.execute(
+        """
+        CREATE INDEX IF NOT EXISTS idx_catalogo_aresta_tipo
+        ON catalogo_aresta(tipo);
         """
     )
 
@@ -115,7 +129,7 @@ def formatar_tipo_escalada(escalada: croqui_pb2.Escalada) -> str:
         "via_esportiva": "esportiva",
         "via_movel": "tradicional",
         "boulder": "boulder",
-        "via_multiplas_enfiadas": "multiplas_enfiadas",
+        "via_multiplas_enfiadas": "multienfiada",
         "highline": "highline",
     }
     return mapeamento.get(qual_tipo, qual_tipo)
@@ -134,32 +148,32 @@ def formatar_grau_escalada(escalada: croqui_pb2.Escalada) -> str:
     if qual_tipo in ("via_esportiva", "via_movel") and hasattr(dados_via, "dificuldade"):
         grau_val = dados_via.dificuldade
         if isinstance(grau_val, int) and grau_val in croqui_pb2.GrauVia.GrauVia.values():
-            nome = croqui_pb2.GrauVia.GrauVia.Name(grau_val)
+            nome = str(croqui_pb2.GrauVia.GrauVia.Name(grau_val))
             if nome.startswith("BR_"):
                 nome = nome[3:]
-            return nome.replace("_BARRA_", "/").lower()
+            return str(nome.replace("_BARRA_", "/").lower())
 
     elif qual_tipo == "boulder" and hasattr(dados_via, "dificuldade"):
         grau_val = dados_via.dificuldade
         if isinstance(grau_val, int) and grau_val in croqui_pb2.GrauBoulder.GrauBoulder.values():
-            nome = croqui_pb2.GrauBoulder.GrauBoulder.Name(grau_val)
-            return nome.replace("_BARRA_", "/")
+            nome = str(croqui_pb2.GrauBoulder.GrauBoulder.Name(grau_val))
+            return str(nome.replace("_BARRA_", "/"))
 
     elif qual_tipo == "via_multiplas_enfiadas":
         if getattr(dados_via, "dificuldade_maxima", 0):
             grau_val = dados_via.dificuldade_maxima
             if isinstance(grau_val, int) and grau_val in croqui_pb2.GrauVia.GrauVia.values():
-                nome = croqui_pb2.GrauVia.GrauVia.Name(grau_val)
+                nome = str(croqui_pb2.GrauVia.GrauVia.Name(grau_val))
                 if nome.startswith("BR_"):
                     nome = nome[3:]
-                return nome.replace("_BARRA_", "/").lower()
+                return str(nome.replace("_BARRA_", "/").lower())
         elif getattr(dados_via, "dificuldade_media", 0):
             grau_val = dados_via.dificuldade_media
             if isinstance(grau_val, int) and grau_val in croqui_pb2.GrauVia.GrauVia.values():
-                nome = croqui_pb2.GrauVia.GrauVia.Name(grau_val)
+                nome = str(croqui_pb2.GrauVia.GrauVia.Name(grau_val))
                 if nome.startswith("BR_"):
                     nome = nome[3:]
-                return nome.replace("_BARRA_", "/").lower()
+                return str(nome.replace("_BARRA_", "/").lower())
 
     elif qual_tipo == "highline":
         distancia = getattr(dados_via, "distancia", 0)
@@ -174,11 +188,12 @@ def extrair_dados_croqui_para_catalogo(
     id_fallback: str = "",
 ) -> tuple[dict[str, Any], list[dict[str, Any]]]:
     """
-    Extrai as informações resumidas do croqui e a lista de vias para o catálogo.
+    Extrai as informações resumidas do croqui e todos os registros normalizados
+    endereçáveis por UID (botões, grupos, setores e escaladas) para catalogo_aresta.
 
     Retorna:
         tuple[dict[str, Any], list[dict[str, Any]]]:
-            (dados_croqui, lista_de_vias)
+            (dados_croqui, registros_aresta)
     """
     id_slug = getattr(croqui, "id", "").strip() or id_fallback
     croqui_uid = getattr(croqui, "uid", "").strip() or id_slug
@@ -195,50 +210,106 @@ def extrair_dados_croqui_para_catalogo(
         "atualizado_em": atualizado_em,
     }
 
-    vias: list[dict[str, Any]] = []
+    registros: list[dict[str, Any]] = []
 
-    for pico in croqui.picos:
+    # 1. Extração de Botões do croqui
+    for botao in getattr(croqui, "botoes", []):
+        b_uid = getattr(botao, "uid", "").strip()
+        if not b_uid:
+            continue
+        registros.append(
+            {
+                "uid": b_uid,
+                "tipo": "botao",
+                "croqui_uid": croqui_uid,
+                "nome": getattr(botao, "texto", "").strip(),
+                "escalada_grau": None,
+                "escalada_tipo": None,
+                "setor_uid": None,
+                "grupo_uid": None,
+            }
+        )
+
+    def _processar_setor(setor_arq: Any, grupo_uid: str | None) -> None:
+        if not setor_arq.HasField("conteudo"):
+            return
+        setor_conteudo = setor_arq.conteudo
+        s_uid = getattr(setor_conteudo, "uid", "").strip() or getattr(setor_arq, "uid", "").strip()
+        s_nome = getattr(setor_conteudo, "nome", "").strip()
+
+        if s_uid:
+            registros.append(
+                {
+                    "uid": s_uid,
+                    "tipo": "setor",
+                    "croqui_uid": croqui_uid,
+                    "nome": s_nome,
+                    "escalada_grau": None,
+                    "escalada_tipo": None,
+                    "setor_uid": None,
+                    "grupo_uid": grupo_uid,
+                }
+            )
+
+        for esc in setor_conteudo.escaladas:
+            tipo_via = esc.WhichOneof("tipo")
+            if not tipo_via:
+                continue
+
+            dados_via = getattr(esc, tipo_via)
+            nome_via = getattr(dados_via, "nome", "").strip()
+            uid_via = getattr(esc, "uid", "").strip()
+            if not uid_via:
+                continue
+
+            grau_via = formatar_grau_escalada(esc)
+            tipo_amigavel = formatar_tipo_escalada(esc)
+
+            registros.append(
+                {
+                    "uid": uid_via,
+                    "tipo": "escalada",
+                    "croqui_uid": croqui_uid,
+                    "nome": nome_via,
+                    "escalada_grau": grau_via,
+                    "escalada_tipo": tipo_amigavel,
+                    "setor_uid": s_uid or None,
+                    "grupo_uid": grupo_uid,
+                }
+            )
+
+    # 2. Extração de Grupos, Setores e Escaladas por Pico
+    for pico in getattr(croqui, "picos", []):
         for setor_grupo in pico.setores_ou_grupos:
-            setores = []
-            if setor_grupo.HasField("setor"):
-                setores.append(setor_grupo.setor)
-            elif setor_grupo.HasField("grupo") and setor_grupo.grupo.HasField("conteudo"):
-                setores.extend(setor_grupo.grupo.conteudo.setores)
-
-            for setor_arq in setores:
-                if not setor_arq.HasField("conteudo"):
-                    continue
-                setor_conteudo = setor_arq.conteudo
-                setor_uid = (
-                    getattr(setor_conteudo, "uid", "").strip()
-                    or getattr(setor_arq, "uid", "").strip()
+            if setor_grupo.HasField("grupo") and setor_grupo.grupo.HasField("conteudo"):
+                grupo_conteudo = setor_grupo.grupo.conteudo
+                g_uid = (
+                    getattr(grupo_conteudo, "uid", "").strip()
+                    or getattr(setor_grupo.grupo, "uid", "").strip()
                 )
-                setor_nome = getattr(setor_conteudo, "nome", "").strip()
+                g_nome = getattr(grupo_conteudo, "nome", "").strip()
 
-                for esc in setor_conteudo.escaladas:
-                    tipo_via = esc.WhichOneof("tipo")
-                    if not tipo_via:
-                        continue
-
-                    dados_via = getattr(esc, tipo_via)
-                    nome_via = getattr(dados_via, "nome", "").strip()
-                    uid_via = getattr(esc, "uid", "").strip()
-                    grau_via = formatar_grau_escalada(esc)
-                    tipo_amigavel = formatar_tipo_escalada(esc)
-
-                    vias.append(
+                if g_uid:
+                    registros.append(
                         {
-                            "uid": uid_via,
+                            "uid": g_uid,
+                            "tipo": "grupo",
                             "croqui_uid": croqui_uid,
-                            "nome": nome_via,
-                            "grau": grau_via,
-                            "tipo": tipo_amigavel,
-                            "setor_nome": setor_nome,
-                            "setor_uid": setor_uid,
+                            "nome": g_nome,
+                            "escalada_grau": None,
+                            "escalada_tipo": None,
+                            "setor_uid": None,
+                            "grupo_uid": None,
                         }
                     )
 
-    return dados_croqui, vias
+                for setor_arq in grupo_conteudo.setores:
+                    _processar_setor(setor_arq, grupo_uid=g_uid or None)
+
+            elif setor_grupo.HasField("setor"):
+                _processar_setor(setor_grupo.setor, grupo_uid=None)
+
+    return dados_croqui, registros
 
 
 def remover_croqui_do_catalogo(conexao: sqlite3.Connection, croqui_uid: str) -> None:
@@ -254,10 +325,10 @@ def remover_croqui_do_catalogo(conexao: sqlite3.Connection, croqui_uid: str) -> 
 def inserir_croqui_no_catalogo(
     conexao: sqlite3.Connection,
     dados_croqui: dict[str, Any],
-    vias: list[dict[str, Any]],
+    registros_aresta: list[dict[str, Any]],
 ) -> None:
     """
-    Insere ou substitui os metadados do croqui e suas respectivas vias no banco SQLite.
+    Insere ou substitui os metadados do croqui e suas entidades de catalogo_aresta no banco SQLite.
     """
     cursor = conexao.cursor()
 
@@ -277,21 +348,22 @@ def inserir_croqui_no_catalogo(
         ),
     )
 
-    for via in vias:
+    for reg in registros_aresta:
         cursor.execute(
             """
             INSERT OR REPLACE INTO catalogo_aresta (
-                uid, croqui_uid, nome, grau, tipo, setor_nome, setor_uid
-            ) VALUES (?, ?, ?, ?, ?, ?, ?)
+                uid, tipo, croqui_uid, nome, escalada_grau, escalada_tipo, setor_uid, grupo_uid
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?)
             """,
             (
-                via["uid"],
-                via["croqui_uid"],
-                via["nome"],
-                via.get("grau", ""),
-                via.get("tipo", ""),
-                via.get("setor_nome", ""),
-                via.get("setor_uid", ""),
+                reg["uid"],
+                reg["tipo"],
+                reg["croqui_uid"],
+                reg["nome"],
+                reg.get("escalada_grau"),
+                reg.get("escalada_tipo"),
+                reg.get("setor_uid"),
+                reg.get("grupo_uid"),
             ),
         )
     conexao.commit()
@@ -311,7 +383,8 @@ def calcular_versao_catalogo(conexao: sqlite3.Connection) -> str:
         hasher.update(repr(linha).encode("utf-8"))
 
     for linha in cursor.execute(
-        "SELECT uid, croqui_uid, nome, grau, tipo, setor_nome, setor_uid FROM catalogo_aresta ORDER BY uid"
+        "SELECT uid, tipo, croqui_uid, nome, escalada_grau, escalada_tipo, setor_uid, grupo_uid "
+        "FROM catalogo_aresta ORDER BY uid"
     ):
         hasher.update(repr(linha).encode("utf-8"))
 
@@ -386,13 +459,13 @@ def gerar_catalogo_completo(
                 croqui = croqui_pb2.Croqui()
                 croqui.ParseFromString(arquivo_pb.read_bytes())
 
-                dados_croqui, vias = extrair_dados_croqui_para_catalogo(
+                dados_croqui, registros_aresta = extrair_dados_croqui_para_catalogo(
                     croqui, id_fallback=pasta.name
                 )
 
                 # Se estamos atualizando, remove a versão anterior deste croqui
                 remover_croqui_do_catalogo(conexao, dados_croqui["croqui_uid"])
-                inserir_croqui_no_catalogo(conexao, dados_croqui, vias)
+                inserir_croqui_no_catalogo(conexao, dados_croqui, registros_aresta)
 
             calcular_versao_catalogo(conexao)
 
@@ -400,4 +473,3 @@ def gerar_catalogo_completo(
         conexao.close()
 
     return caminho_db
-

@@ -349,14 +349,17 @@ class DeployGeneratedTest(unittest.TestCase):
             self.assertEqual(idx_yaml.get("versao_catalogo"), versao_esperada)
 
             con = sqlite3.connect(db_path)
-            cur = con.cursor()
-            cur.execute("SELECT nome FROM catalogo_croquis WHERE croqui_uid = 'croquiReal1234'")
-            self.assertEqual(cur.fetchone()[0], "Pico Real")
-            cur.execute("SELECT nome, grau FROM catalogo_aresta WHERE uid = 'viaReal1234567'")
-            linha_via = cur.fetchone()
-            self.assertEqual(linha_via[0], "Via Real")
-            self.assertEqual(linha_via[1], "7a")
-            con.close()
+            try:
+                cur = con.cursor()
+                cur.execute("SELECT nome FROM catalogo_croquis WHERE croqui_uid = 'croquiReal1234'")
+                self.assertEqual(cur.fetchone()[0], "Pico Real")
+                cur.execute("SELECT nome, escalada_grau, tipo FROM catalogo_aresta WHERE uid = 'viaReal1234567'")
+                linha_via = cur.fetchone()
+                self.assertEqual(linha_via[0], "Via Real")
+                self.assertEqual(linha_via[1], "7a")
+                self.assertEqual(linha_via[2], "escalada")
+            finally:
+                con.close()
 
             # Verifica arquivos_serving.yaml
             manifesto = yaml.safe_load(

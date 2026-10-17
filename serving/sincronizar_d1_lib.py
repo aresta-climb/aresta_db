@@ -6,7 +6,7 @@ Biblioteca para sincronização transacional do catálogo SQLite com o Cloudflar
 
 Responsável por:
 - Comunicar-se com a API REST do Cloudflare D1 via urllib.request.
-- Garantir a criação do schema (catalogo_croquis, catalogo_aresta, deltas_catalogo).
+- Garantir a criação e migração automática do schema (catalogo_croquis, catalogo_aresta, deltas_catalogo).
 - Executar bootstrap completo em lotes seguros quando o banco D1 estiver vazio ou dessincronizado.
 - Calcular e aplicar deltas incrementais (upserts e deletes) e registrar a versão em deltas_catalogo.
 """
@@ -25,16 +25,23 @@ from scripts.gerar_deltas_catalogo import calcular_deltas_catalogo, gerar_payloa
 
 TAMANHO_LOTE_DELETE = 50
 TAMANHO_LOTE_UPSERT_CROQUIS = 15
-TAMANHO_LOTE_UPSERT_VIAS = 12
+TAMANHO_LOTE_UPSERT_ENTIDADES = 10
 
 
 class ClienteCloudflareD1:
     """Cliente REST para execução de queries SQL parametrizadas no Cloudflare D1."""
 
-    def __init__(self, account_id: str, database_id: str, api_token: str) -> None:
+    def __init__(
+        self,
+        account_id: str,
+        database_id: str,
+        api_token: str,
+        base_url: str = "https://api.cloudflare.com/client/v4",
+    ) -> None:
         self.account_id = account_id
         self.database_id = database_id
         self.api_token = api_token
+        self.base_url = base_url.rstrip("/")
 
     @classmethod
     def a_partir_do_ambiente(cls) -> ClienteCloudflareD1:
@@ -42,6 +49,10 @@ class ClienteCloudflareD1:
         account_id = os.environ.get("CLOUDFLARE_ACCOUNT_ID", "").strip()
         database_id = os.environ.get("CLOUDFLARE_CATALOGO_D1_DATABASE_ID", "").strip()
         api_token = os.environ.get("CLOUDFLARE_CATALOGO_D1_API_TOKEN", "").strip()
+        base_url = (
+            os.environ.get("CLOUDFLARE_D1_BASE_URL", "").strip()
+            or "https://api.cloudflare.com/client/v4"
+        )
 
         if not account_id or not database_id or not api_token:
             raise ValueError(
@@ -49,14 +60,19 @@ class ClienteCloudflareD1:
                 "(CLOUDFLARE_ACCOUNT_ID, CLOUDFLARE_CATALOGO_D1_DATABASE_ID ou "
                 "CLOUDFLARE_CATALOGO_D1_API_TOKEN)."
             )
-        return cls(account_id=account_id, database_id=database_id, api_token=api_token)
+        return cls(
+            account_id=account_id,
+            database_id=database_id,
+            api_token=api_token,
+            base_url=base_url,
+        )
 
     def executar_query(
         self, sql: str, params: list[Any] | None = None
     ) -> list[dict[str, Any]]:
         """Executa uma instrução SQL parametrizada no Cloudflare D1 via API REST."""
         url = (
-            f"https://api.cloudflare.com/client/v4/accounts/{self.account_id}"
+            f"{self.base_url}/accounts/{self.account_id}"
             f"/d1/database/{self.database_id}/query"
         )
         corpo = json.dumps({"sql": sql, "params": params or []}).encode("utf-8")
@@ -91,6 +107,13 @@ class ClienteCloudflareD1:
 
 def inicializar_schema_d1(cliente: ClienteCloudflareD1) -> None:
     """Garante que as tabelas e índices do catálogo e de deltas existam no Cloudflare D1."""
+    # Detecta se catalogo_aresta já existe com formato legado (sem a coluna escalada_tipo)
+    info_tabela = cliente.executar_query("PRAGMA table_info(catalogo_aresta)")
+    colunas = [linha["name"] for linha in info_tabela if "name" in linha]
+    if colunas and "escalada_tipo" not in colunas:
+        cliente.executar_query("DROP TABLE catalogo_aresta")
+        cliente.executar_query("DELETE FROM deltas_catalogo")
+
     cliente.executar_query(
         """
         CREATE TABLE IF NOT EXISTS catalogo_croquis (
@@ -106,12 +129,13 @@ def inicializar_schema_d1(cliente: ClienteCloudflareD1) -> None:
         """
         CREATE TABLE IF NOT EXISTS catalogo_aresta (
             uid TEXT PRIMARY KEY,
+            tipo TEXT NOT NULL,
             croqui_uid TEXT NOT NULL,
             nome TEXT NOT NULL,
-            grau TEXT,
-            tipo TEXT,
-            setor_nome TEXT,
-            setor_uid TEXT
+            escalada_grau TEXT,
+            escalada_tipo TEXT,
+            setor_uid TEXT,
+            grupo_uid TEXT
         );
         """
     )
@@ -124,6 +148,24 @@ def inicializar_schema_d1(cliente: ClienteCloudflareD1) -> None:
             upserts_json TEXT NOT NULL,
             deletes_json TEXT NOT NULL
         );
+        """
+    )
+    cliente.executar_query(
+        """
+        CREATE INDEX IF NOT EXISTS idx_catalogo_aresta_croqui
+        ON catalogo_aresta(croqui_uid);
+        """
+    )
+    cliente.executar_query(
+        """
+        CREATE INDEX IF NOT EXISTS idx_catalogo_aresta_nome
+        ON catalogo_aresta(nome COLLATE NOCASE);
+        """
+    )
+    cliente.executar_query(
+        """
+        CREATE INDEX IF NOT EXISTS idx_catalogo_aresta_tipo
+        ON catalogo_aresta(tipo);
         """
     )
     cliente.executar_query(
@@ -151,9 +193,11 @@ def aplicar_upserts_e_deletes_d1(
     Aplica as deleções e inserções/atualizações nas tabelas espelho do D1 em lotes
     compatíveis com o limite de bind parameters da API D1.
     """
-    vias_deletes: list[str] = deltas["vias"]["deletes"]
-    for i in range(0, len(vias_deletes), TAMANHO_LOTE_DELETE):
-        lote = vias_deletes[i : i + TAMANHO_LOTE_DELETE]
+    entidades_deletes: list[str] = deltas.get("entidades", {}).get(
+        "deletes", []
+    )
+    for i in range(0, len(entidades_deletes), TAMANHO_LOTE_DELETE):
+        lote = entidades_deletes[i : i + TAMANHO_LOTE_DELETE]
         marcadores = ", ".join("?" for _ in lote)
         cliente.executar_query(
             f"DELETE FROM catalogo_aresta WHERE uid IN ({marcadores})",
@@ -189,28 +233,31 @@ def aplicar_upserts_e_deletes_d1(
             parametros,
         )
 
-    vias_upserts: list[dict[str, Any]] = deltas["vias"]["upserts"]
-    for i in range(0, len(vias_upserts), TAMANHO_LOTE_UPSERT_VIAS):
-        lote_vias = vias_upserts[i : i + TAMANHO_LOTE_UPSERT_VIAS]
-        marcadores = ", ".join("(?, ?, ?, ?, ?, ?, ?)" for _ in lote_vias)
-        parametros_vias: list[Any] = []
-        for v in lote_vias:
-            parametros_vias.extend(
+    entidades_upserts: list[dict[str, Any]] = deltas.get("entidades", {}).get(
+        "upserts", []
+    )
+    for i in range(0, len(entidades_upserts), TAMANHO_LOTE_UPSERT_ENTIDADES):
+        lote_entidades = entidades_upserts[i : i + TAMANHO_LOTE_UPSERT_ENTIDADES]
+        marcadores = ", ".join("(?, ?, ?, ?, ?, ?, ?, ?)" for _ in lote_entidades)
+        parametros_entidades: list[Any] = []
+        for e in lote_entidades:
+            parametros_entidades.extend(
                 [
-                    v["uid"],
-                    v["croqui_uid"],
-                    v["nome"],
-                    v.get("grau", ""),
-                    v.get("tipo", ""),
-                    v.get("setor_nome", ""),
-                    v.get("setor_uid", ""),
+                    e["uid"],
+                    e["tipo"],
+                    e["croqui_uid"],
+                    e["nome"],
+                    e.get("escalada_grau"),
+                    e.get("escalada_tipo"),
+                    e.get("setor_uid"),
+                    e.get("grupo_uid"),
                 ]
             )
         cliente.executar_query(
             "INSERT OR REPLACE INTO catalogo_aresta "
-            "(uid, croqui_uid, nome, grau, tipo, setor_nome, setor_uid) "
+            "(uid, tipo, croqui_uid, nome, escalada_grau, escalada_tipo, setor_uid, grupo_uid) "
             f"VALUES {marcadores}",
-            parametros_vias,
+            parametros_entidades,
         )
 
 
@@ -264,7 +311,7 @@ def sincronizar_catalogo_d1(
         deltas_completos = calcular_deltas_catalogo(None, novo_path)
         aplicar_upserts_e_deletes_d1(cliente, deltas_completos)
 
-        vazio_json = json.dumps({"croquis": [], "vias": []}, ensure_ascii=False)
+        vazio_json = json.dumps({"croquis": [], "entidades": []}, ensure_ascii=False)
         cliente.executar_query(
             "INSERT INTO deltas_catalogo (versao_hash, criado_em, upserts_json, deletes_json) "
             "VALUES (?, datetime('now'), ?, ?)",

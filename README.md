@@ -44,6 +44,27 @@ Se você é um programador, engenheiro de dados ou quer ajudar a converter PDFs 
 
 👉 **[Leia o Guia do Desenvolvedor](./GUIA_DO_DESENVOLVEDOR.md)** para instruções de como rodar nosso motor, configurar o ambiente Python e usar o nosso Editor Visual de Croquis.
 
+### 🗄️ Catálogo SQLite e Borda (`catalogo.db`)
+O ecossistema disponibiliza um catálogo relacional SQLite (`catalogo.db`) normalizado por UID na tabela `catalogo_aresta` (`escalada`, `setor`, `grupo` e `botao`). A resolução textual completa ocorre sem duplicação de strings via `LEFT JOIN`:
+
+```sql
+SELECT 
+    e.nome AS escalada_nome,
+    e.escalada_grau,
+    e.escalada_tipo,
+    s.nome AS setor_nome,
+    g.nome AS grupo_nome,
+    c.nome AS pico_nome,
+    c.uf AS estado
+FROM catalogo_aresta e
+LEFT JOIN catalogo_aresta s ON s.uid = e.setor_uid
+LEFT JOIN catalogo_aresta g ON g.uid = e.grupo_uid
+LEFT JOIN catalogo_croquis c ON c.croqui_uid = e.croqui_uid
+WHERE e.uid = ? AND e.tipo = 'escalada';
+```
+
+👉 **[Leia a Documentação Completa do Catálogo e Delta Sync](./docs/catalogo_sqlite_e_delta_sync.md)** para detalhes sobre o hash determinístico (`versao_catalogo`), sincronização transacional com o Cloudflare D1 e o gateway `catalogo.arestaclimb.com/sync`.
+
 ---
 
 ## ⚖️ Licenciamento e Política de Direitos Autorais

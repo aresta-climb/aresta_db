@@ -5,12 +5,11 @@
 
 from __future__ import annotations
 
-import io
+import http.server
 import json
-import urllib.error
+import threading
 from pathlib import Path
 from typing import Any
-from unittest.mock import MagicMock, patch
 
 import pytest
 
@@ -19,6 +18,7 @@ from scripts.gerar_catalogo_sqlite_lib import (
     inicializar_banco_catalogo,
     inserir_croqui_no_catalogo,
 )
+from serving.cliente_cloudflare_d1_fake import ClienteCloudflareD1Fake
 from serving.sincronizar_d1_lib import (
     ClienteCloudflareD1,
     aplicar_upserts_e_deletes_d1,
@@ -30,14 +30,14 @@ from serving.sincronizar_d1_lib import (
 
 def _criar_catalogo_teste(
     caminho: Path,
-    croquis_com_vias: list[tuple[dict[str, Any], list[dict[str, Any]]]],
+    croquis_com_registros: list[tuple[dict[str, Any], list[dict[str, Any]]]],
 ) -> str:
     conexao = inicializar_banco_catalogo(caminho)
     with conexao:
-        for croqui, vias in croquis_com_vias:
+        for croqui, registros in croquis_com_registros:
             dados_croqui = dict(croqui)
             dados_croqui.setdefault("atualizado_em", 100)
-            inserir_croqui_no_catalogo(conexao, dados_croqui, vias)
+            inserir_croqui_no_catalogo(conexao, dados_croqui, registros)
         versao = calcular_versao_catalogo(conexao)
     conexao.close()
     return versao
@@ -65,93 +65,161 @@ def test_cliente_d1_a_partir_do_ambiente_sem_credenciais(
         ClienteCloudflareD1.a_partir_do_ambiente()
 
 
-def test_cliente_d1_executar_query_sucesso() -> None:
-    cliente = ClienteCloudflareD1("acc-1", "db-1", "tok-1")
-    resposta_falsa = {
-        "success": True,
-        "result": [{"results": [{"versao_hash": "abcd1234abcd1234"}]}],
-    }
+class _ManipuladorHttpD1ParaTestes(http.server.BaseHTTPRequestHandler):
+    """Servidor HTTP em memória para testar chamadas REST reais de ClienteCloudflareD1."""
 
-    with patch("urllib.request.urlopen") as mock_urlopen:
-        mock_resp = MagicMock()
-        mock_resp.read.return_value = json.dumps(resposta_falsa).encode("utf-8")
-        mock_urlopen.return_value.__enter__.return_value = mock_resp
+    respostas: list[tuple[int, dict[str, Any]]] = []
+    requisicoes_recebidas: list[tuple[str, dict[str, str], bytes]] = []
 
-        linhas = cliente.executar_query("SELECT versao_hash FROM deltas_catalogo", ["p1"])
-        assert linhas == [{"versao_hash": "abcd1234abcd1234"}]
+    def do_POST(self) -> None:
+        tamanho = int(self.headers.get("Content-Length", 0))
+        corpo = self.rfile.read(tamanho)
+        headers_dict = dict(self.headers.items())
+        _ManipuladorHttpD1ParaTestes.requisicoes_recebidas.append((self.path, headers_dict, corpo))
 
-        req = mock_urlopen.call_args[0][0]
-        assert (
-            req.full_url
-            == "https://api.cloudflare.com/client/v4/accounts/acc-1/d1/database/db-1/query"
-        )
-        assert req.headers["Authorization"] == "Bearer tok-1"
-        corpo = json.loads(req.data.decode("utf-8"))
-        assert corpo == {
-            "sql": "SELECT versao_hash FROM deltas_catalogo",
-            "params": ["p1"],
-        }
+        if _ManipuladorHttpD1ParaTestes.respostas:
+            codigo, payload = _ManipuladorHttpD1ParaTestes.respostas.pop(0)
+        else:
+            codigo, payload = 200, {"success": True, "result": []}
+
+        self.send_response(codigo)
+        self.send_header("Content-Type", "application/json")
+        self.end_headers()
+        self.wfile.write(json.dumps(payload).encode("utf-8"))
+
+    def log_message(self, *args: Any) -> None:
+        pass
 
 
-def test_cliente_d1_executar_query_resultado_vazio() -> None:
-    cliente = ClienteCloudflareD1("acc-1", "db-1", "tok-1")
-    resposta_falsa = {"success": True, "result": []}
+@pytest.fixture
+def servidor_http_d1():
+    _ManipuladorHttpD1ParaTestes.respostas = []
+    _ManipuladorHttpD1ParaTestes.requisicoes_recebidas = []
+    servidor = http.server.HTTPServer(("127.0.0.1", 0), _ManipuladorHttpD1ParaTestes)
+    thread = threading.Thread(target=servidor.serve_forever)
+    thread.daemon = True
+    thread.start()
 
-    with patch("urllib.request.urlopen") as mock_urlopen:
-        mock_resp = MagicMock()
-        mock_resp.read.return_value = json.dumps(resposta_falsa).encode("utf-8")
-        mock_urlopen.return_value.__enter__.return_value = mock_resp
+    porta = servidor.server_address[1]
+    yield f"http://127.0.0.1:{porta}"
 
-        assert cliente.executar_query("DELETE FROM catalogo_croquis") == []
-
-
-def test_cliente_d1_executar_query_erro_api() -> None:
-    cliente = ClienteCloudflareD1("acc-1", "db-1", "tok-1")
-    resposta_falsa = {
-        "success": False,
-        "errors": [{"message": "syntax error near SELECT"}],
-    }
-
-    with patch("urllib.request.urlopen") as mock_urlopen:
-        mock_resp = MagicMock()
-        mock_resp.read.return_value = json.dumps(resposta_falsa).encode("utf-8")
-        mock_urlopen.return_value.__enter__.return_value = mock_resp
-
-        with pytest.raises(RuntimeError, match="Falha na query do Cloudflare D1"):
-            cliente.executar_query("SELECT *")
+    servidor.shutdown()
+    servidor.server_close()
 
 
-def test_cliente_d1_executar_query_erro_http() -> None:
-    cliente = ClienteCloudflareD1("acc-1", "db-1", "tok-1")
+def test_cliente_d1_executar_query_sucesso(servidor_http_d1: str) -> None:
+    _ManipuladorHttpD1ParaTestes.respostas = [
+        (200, {"success": True, "result": [{"results": [{"versao_hash": "abcd1234abcd1234"}]}]})
+    ]
 
-    with patch("urllib.request.urlopen") as mock_urlopen:
-        erro_http = urllib.error.HTTPError(
-            url="https://api.cloudflare.com",
-            code=401,
-            msg="Unauthorized",
-            hdrs=None,  # type: ignore[arg-type]
-            fp=io.BytesIO(b'{"errors":[{"message":"Invalid token"}]}'),
-        )
-        mock_urlopen.side_effect = erro_http
+    cliente = ClienteCloudflareD1(
+        account_id="acc-1",
+        database_id="db-1",
+        api_token="tok-1",
+        base_url=servidor_http_d1,
+    )
+    linhas = cliente.executar_query("SELECT versao_hash FROM deltas_catalogo", ["p1"])
+    assert linhas == [{"versao_hash": "abcd1234abcd1234"}]
 
-        with pytest.raises(RuntimeError, match="Erro HTTP 401 no Cloudflare D1"):
-            cliente.executar_query("SELECT 1")
+    caminho, headers, corpo = _ManipuladorHttpD1ParaTestes.requisicoes_recebidas[0]
+    assert caminho == "/accounts/acc-1/d1/database/db-1/query"
+    assert headers["Authorization"] == "Bearer tok-1"
+    dados = json.loads(corpo.decode("utf-8"))
+    assert dados["sql"] == "SELECT versao_hash FROM deltas_catalogo"
+    assert dados["params"] == ["p1"]
 
 
-def test_inicializar_schema_e_obter_ultima_versao() -> None:
-    cliente = MagicMock(spec=ClienteCloudflareD1)
-    inicializar_schema_d1(cliente)
-    assert cliente.executar_query.call_count == 4
+def test_cliente_d1_executar_query_resultado_vazio(servidor_http_d1: str) -> None:
+    _ManipuladorHttpD1ParaTestes.respostas = [(200, {"success": True, "result": []})]
+    cliente = ClienteCloudflareD1("acc-1", "db-1", "tok-1", base_url=servidor_http_d1)
+    assert cliente.executar_query("DELETE FROM catalogo_croquis") == []
 
-    cliente.executar_query.return_value = []
-    assert obter_ultima_versao_d1(cliente) is None
 
-    cliente.executar_query.return_value = [{"versao_hash": "1122334455667788"}]
-    assert obter_ultima_versao_d1(cliente) == "1122334455667788"
+def test_cliente_d1_executar_query_erro_api(servidor_http_d1: str) -> None:
+    _ManipuladorHttpD1ParaTestes.respostas = [
+        (200, {"success": False, "errors": [{"message": "syntax error near SELECT"}]})
+    ]
+    cliente = ClienteCloudflareD1("acc-1", "db-1", "tok-1", base_url=servidor_http_d1)
+    with pytest.raises(RuntimeError, match="Falha na query do Cloudflare D1"):
+        cliente.executar_query("SELECT *")
+
+
+def test_cliente_d1_executar_query_erro_http(servidor_http_d1: str) -> None:
+    _ManipuladorHttpD1ParaTestes.respostas = [
+        (401, {"errors": [{"message": "Invalid token"}]})
+    ]
+    cliente = ClienteCloudflareD1("acc-1", "db-1", "tok-1", base_url=servidor_http_d1)
+    with pytest.raises(RuntimeError, match="Erro HTTP 401 no Cloudflare D1"):
+        cliente.executar_query("SELECT 1")
+
+
+def test_inicializar_schema_d1_criacao_e_migracao_legado() -> None:
+    fake = ClienteCloudflareD1Fake()
+
+    # 1. Primeira inicialização: cria tabelas e índices
+    inicializar_schema_d1(fake)
+
+    info_tabela = fake.executar_query("PRAGMA table_info(catalogo_aresta)")
+    colunas = [linha["name"] for linha in info_tabela]
+    assert colunas == [
+        "uid",
+        "tipo",
+        "croqui_uid",
+        "nome",
+        "escalada_grau",
+        "escalada_tipo",
+        "setor_uid",
+        "grupo_uid",
+    ]
+
+    # 2. Simula schema legado no D1 (tabela catalogo_aresta antiga e registros em deltas_catalogo)
+    fake.executar_query("DROP TABLE catalogo_aresta")
+    fake.executar_query(
+        """
+        CREATE TABLE catalogo_aresta (
+            uid TEXT PRIMARY KEY,
+            croqui_uid TEXT NOT NULL,
+            nome TEXT NOT NULL,
+            grau TEXT,
+            tipo TEXT,
+            setor_nome TEXT,
+            setor_uid TEXT
+        );
+        """
+    )
+    fake.executar_query(
+        "INSERT INTO deltas_catalogo (versao_hash, criado_em, upserts_json, deletes_json) "
+        "VALUES ('versao_antiga', datetime('now'), '{}', '{}')"
+    )
+    assert len(fake.executar_query("SELECT * FROM deltas_catalogo")) == 1
+
+    # Ao rodar inicializar_schema_d1 novamente, detecta ausência de escalada_tipo e migra
+    inicializar_schema_d1(fake)
+
+    info_migrada = fake.executar_query("PRAGMA table_info(catalogo_aresta)")
+    colunas_migradas = [linha["name"] for linha in info_migrada]
+    assert "escalada_tipo" in colunas_migradas
+    assert "setor_nome" not in colunas_migradas
+    # Deltas antigos foram limpos para forçar bootstrap limpo
+    assert len(fake.executar_query("SELECT * FROM deltas_catalogo")) == 0
+
+
+def test_obter_ultima_versao_d1() -> None:
+    fake = ClienteCloudflareD1Fake()
+    inicializar_schema_d1(fake)
+    assert obter_ultima_versao_d1(fake) is None
+
+    fake.executar_query(
+        "INSERT INTO deltas_catalogo (versao_hash, criado_em, upserts_json, deletes_json) "
+        "VALUES ('versao1234567890', datetime('now'), '{}', '{}')"
+    )
+    assert obter_ultima_versao_d1(fake) == "versao1234567890"
 
 
 def test_aplicar_upserts_e_deletes_d1_em_lotes() -> None:
-    cliente = MagicMock(spec=ClienteCloudflareD1)
+    fake = ClienteCloudflareD1Fake()
+    inicializar_schema_d1(fake)
+
     deltas = {
         "croquis": {
             "upserts": [
@@ -166,16 +234,17 @@ def test_aplicar_upserts_e_deletes_d1_em_lotes() -> None:
             ],
             "deletes": ["c_del_1", "c_del_2"],
         },
-        "vias": {
+        "entidades": {
             "upserts": [
                 {
                     "uid": f"v{i}",
+                    "tipo": "escalada",
                     "croqui_uid": "c0",
                     "nome": f"Via {i}",
-                    "grau": "6sup",
-                    "tipo": "esportiva",
-                    "setor_nome": "Setor",
+                    "escalada_grau": "6sup",
+                    "escalada_tipo": "esportiva",
                     "setor_uid": "s1",
+                    "grupo_uid": None,
                 }
                 for i in range(13)
             ],
@@ -183,10 +252,13 @@ def test_aplicar_upserts_e_deletes_d1_em_lotes() -> None:
         },
     }
 
-    aplicar_upserts_e_deletes_d1(cliente, deltas)
+    aplicar_upserts_e_deletes_d1(fake, deltas)
 
-    # 1 lote delete vias + 1 lote delete croquis + 2 lotes upsert croquis (15+1) + 2 lotes upsert vias (12+1) = 6 queries
-    assert cliente.executar_query.call_count == 6
+    linhas_croquis = fake.executar_query("SELECT COUNT(*) AS total FROM catalogo_croquis")
+    assert linhas_croquis[0]["total"] == 16
+
+    linhas_aresta = fake.executar_query("SELECT COUNT(*) AS total FROM catalogo_aresta")
+    assert linhas_aresta[0]["total"] == 13
 
 
 def test_sincronizar_catalogo_d1_ja_atualizado(tmp_path: Path) -> None:
@@ -207,18 +279,16 @@ def test_sincronizar_catalogo_d1_ja_atualizado(tmp_path: Path) -> None:
         ],
     )
 
-    cliente = MagicMock(spec=ClienteCloudflareD1)
-    cliente.executar_query.side_effect = [
-        [],  # CREATE TABLE catalogo_croquis
-        [],  # CREATE TABLE catalogo_aresta
-        [],  # CREATE TABLE deltas_catalogo
-        [],  # CREATE INDEX idx_deltas_versao_hash
-        [{"versao_hash": versao}],  # SELECT versao_hash
-    ]
+    fake = ClienteCloudflareD1Fake()
+    inicializar_schema_d1(fake)
+    fake.executar_query(
+        "INSERT INTO deltas_catalogo (versao_hash, criado_em, upserts_json, deletes_json) "
+        "VALUES (?, datetime('now'), '{}', '{}')",
+        [versao],
+    )
 
-    status = sincronizar_catalogo_d1(caminho_novo, None, cliente=cliente)
+    status = sincronizar_catalogo_d1(caminho_novo, None, cliente=fake)
     assert status == "atualizado"
-    assert cliente.executar_query.call_count == 5
 
 
 def test_sincronizar_catalogo_d1_bootstrap_quando_d1_vazio(tmp_path: Path) -> None:
@@ -237,34 +307,32 @@ def test_sincronizar_catalogo_d1_bootstrap_quando_d1_vazio(tmp_path: Path) -> No
                 [
                     {
                         "uid": "v1",
+                        "tipo": "escalada",
                         "croqui_uid": "c1",
                         "nome": "Via 1",
-                        "grau": "6sup",
-                        "tipo": "esportiva",
-                        "setor_nome": "S1",
+                        "escalada_grau": "6sup",
+                        "escalada_tipo": "esportiva",
                         "setor_uid": "s1",
+                        "grupo_uid": None,
                     }
                 ],
             )
         ],
     )
 
-    cliente = MagicMock(spec=ClienteCloudflareD1)
-    cliente.executar_query.return_value = []
+    fake = ClienteCloudflareD1Fake()
 
-    status = sincronizar_catalogo_d1(caminho_novo, None, cliente=cliente)
+    status = sincronizar_catalogo_d1(caminho_novo, None, cliente=fake)
     assert status == "bootstrap"
 
-    # Verifica que inseriu o registro inicial em deltas_catalogo com a versao_nova
-    ultima_chamada = cliente.executar_query.call_args_list[-1]
-    sql_final, params_finais = ultima_chamada[0]
-    assert "INSERT INTO deltas_catalogo" in sql_final
-    assert params_finais[0] == versao_nova
+    assert obter_ultima_versao_d1(fake) == versao_nova
+    linhas_aresta = fake.executar_query("SELECT uid, tipo, nome FROM catalogo_aresta")
+    assert len(linhas_aresta) == 1
+    assert linhas_aresta[0]["uid"] == "v1"
+    assert linhas_aresta[0]["tipo"] == "escalada"
 
 
-def test_sincronizar_catalogo_d1_delta_incremental(
-    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
-) -> None:
+def test_sincronizar_catalogo_d1_delta_incremental(tmp_path: Path) -> None:
     caminho_ant = tmp_path / "ant.db"
     caminho_novo = tmp_path / "novo.db"
 
@@ -275,56 +343,155 @@ def test_sincronizar_catalogo_d1_delta_incremental(
         "cidade": "BH",
         "uf": "MG",
     }
+    setor = {
+        "uid": "s1",
+        "tipo": "setor",
+        "croqui_uid": "c1",
+        "nome": "Setor 1",
+        "escalada_grau": None,
+        "escalada_tipo": None,
+        "setor_uid": None,
+        "grupo_uid": None,
+    }
     via_1 = {
         "uid": "v1",
+        "tipo": "escalada",
         "croqui_uid": "c1",
         "nome": "Via 1",
-        "grau": "6sup",
-        "tipo": "esportiva",
-        "setor_nome": "S1",
+        "escalada_grau": "6sup",
+        "escalada_tipo": "esportiva",
         "setor_uid": "s1",
+        "grupo_uid": None,
     }
     via_2 = {
         "uid": "v2",
+        "tipo": "escalada",
         "croqui_uid": "c1",
         "nome": "Via 2",
-        "grau": "7a",
-        "tipo": "esportiva",
-        "setor_nome": "S1",
+        "escalada_grau": "7a",
+        "escalada_tipo": "esportiva",
         "setor_uid": "s1",
+        "grupo_uid": None,
     }
 
-    versao_ant = _criar_catalogo_teste(caminho_ant, [(croqui_base, [via_1])])
-    versao_nova = _criar_catalogo_teste(caminho_novo, [(croqui_base, [via_1, via_2])])
+    versao_ant = _criar_catalogo_teste(caminho_ant, [(croqui_base, [setor, via_1])])
+    versao_nova = _criar_catalogo_teste(caminho_novo, [(croqui_base, [setor, via_1, via_2])])
 
-    cliente = MagicMock(spec=ClienteCloudflareD1)
-    cliente.executar_query.side_effect = [
-        [],  # CREATE TABLE catalogo_croquis
-        [],  # CREATE TABLE catalogo_aresta
-        [],  # CREATE TABLE deltas_catalogo
-        [],  # CREATE INDEX idx_deltas_versao_hash
-        [{"versao_hash": versao_ant}],  # SELECT versao_hash (bate com o R2 anterior!)
-        [],  # INSERT OR REPLACE INTO catalogo_aresta (via_2)
-        [],  # INSERT INTO deltas_catalogo
-    ]
+    fake = ClienteCloudflareD1Fake()
+    # Roda bootstrap na versão anterior
+    sincronizar_catalogo_d1(caminho_catalogo_novo=caminho_ant, cliente=fake)
+    assert obter_ultima_versao_d1(fake) == versao_ant
 
-    monkeypatch.setattr(
-        ClienteCloudflareD1,
-        "a_partir_do_ambiente",
-        classmethod(lambda cls: cliente),
+    # Aplica delta incremental para a nova versão
+    status = sincronizar_catalogo_d1(
+        caminho_catalogo_novo=caminho_novo,
+        caminho_catalogo_anterior_r2=caminho_ant,
+        cliente=fake,
     )
+    assert status == "delta"
+    assert obter_ultima_versao_d1(fake) == versao_nova
+
+    # Verifica o delta salvo
+    ultimo_delta = fake.executar_query("SELECT upserts_json FROM deltas_catalogo ORDER BY id DESC LIMIT 1")
+    upserts = json.loads(ultimo_delta[0]["upserts_json"])
+    assert len(upserts["entidades"]) == 1
+    assert upserts["entidades"][0]["uid"] == "v2"
+    assert upserts["entidades"][0]["tipo"] == "escalada"
+
+
+def test_sincronizar_catalogo_d1_renomear_setor_gera_um_upsert(tmp_path: Path) -> None:
+    caminho_ant = tmp_path / "ant.db"
+    caminho_novo = tmp_path / "novo.db"
+
+    croqui_base = {
+        "croqui_uid": "c1",
+        "id_slug": "br_mg_bh_1",
+        "nome": "Pico 1",
+        "cidade": "BH",
+        "uf": "MG",
+    }
+    setor_ant = {
+        "uid": "s1",
+        "tipo": "setor",
+        "croqui_uid": "c1",
+        "nome": "Setor Antigo",
+        "escalada_grau": None,
+        "escalada_tipo": None,
+        "setor_uid": None,
+        "grupo_uid": None,
+    }
+    via_1 = {
+        "uid": "v1",
+        "tipo": "escalada",
+        "croqui_uid": "c1",
+        "nome": "Via 1",
+        "escalada_grau": "6sup",
+        "escalada_tipo": "esportiva",
+        "setor_uid": "s1",
+        "grupo_uid": None,
+    }
+
+    _criar_catalogo_teste(caminho_ant, [(croqui_base, [setor_ant, via_1])])
+
+    setor_novo = dict(setor_ant)
+    setor_novo["nome"] = "Setor Renomeado"
+    _criar_catalogo_teste(caminho_novo, [(croqui_base, [setor_novo, via_1])])
+
+    fake = ClienteCloudflareD1Fake()
+    sincronizar_catalogo_d1(caminho_catalogo_novo=caminho_ant, cliente=fake)
 
     status = sincronizar_catalogo_d1(
         caminho_catalogo_novo=caminho_novo,
         caminho_catalogo_anterior_r2=caminho_ant,
-        cliente=None,
+        cliente=fake,
     )
     assert status == "delta"
 
-    ultima_chamada = cliente.executar_query.call_args_list[-1]
-    sql_final, params_finais = ultima_chamada[0]
-    assert "INSERT INTO deltas_catalogo" in sql_final
-    assert params_finais[0] == versao_nova
-    upserts_salvos = json.loads(params_finais[1])
-    assert len(upserts_salvos["vias"]) == 1
-    assert upserts_salvos["vias"][0]["uid"] == "v2"
+    ultimo_delta = fake.executar_query("SELECT upserts_json FROM deltas_catalogo ORDER BY id DESC LIMIT 1")
+    upserts = json.loads(ultimo_delta[0]["upserts_json"])
+    assert len(upserts["entidades"]) == 1
+    assert upserts["entidades"][0]["uid"] == "s1"
+    assert upserts["entidades"][0]["tipo"] == "setor"
+    assert upserts["entidades"][0]["nome"] == "Setor Renomeado"
+
+
+def test_sincronizar_catalogo_d1_cliente_padrao_ambiente(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch, servidor_http_d1: str
+) -> None:
+    caminho_novo = tmp_path / "novo.db"
+    versao = _criar_catalogo_teste(
+        caminho_novo,
+        [
+            (
+                {
+                    "croqui_uid": "c1",
+                    "id_slug": "br_mg_bh_1",
+                    "nome": "Pico 1",
+                    "cidade": "BH",
+                    "uf": "MG",
+                },
+                [],
+            )
+        ],
+    )
+
+    monkeypatch.setenv("CLOUDFLARE_ACCOUNT_ID", "acc-env")
+    monkeypatch.setenv("CLOUDFLARE_CATALOGO_D1_DATABASE_ID", "db-env")
+    monkeypatch.setenv("CLOUDFLARE_CATALOGO_D1_API_TOKEN", "tok-env")
+    monkeypatch.setenv("CLOUDFLARE_D1_BASE_URL", servidor_http_d1)
+
+    _ManipuladorHttpD1ParaTestes.respostas = [
+        (200, {"success": True, "result": [{"results": [{"name": "uid"}, {"name": "escalada_tipo"}]}]}),
+        (200, {"success": True, "result": []}),
+        (200, {"success": True, "result": []}),
+        (200, {"success": True, "result": []}),
+        (200, {"success": True, "result": []}),
+        (200, {"success": True, "result": []}),
+        (200, {"success": True, "result": []}),
+        (200, {"success": True, "result": []}),
+        (200, {"success": True, "result": [{"results": [{"versao_hash": versao}]}]}),
+    ]
+
+    status = sincronizar_catalogo_d1(caminho_novo, None, cliente=None)
+    assert status == "atualizado"
+
