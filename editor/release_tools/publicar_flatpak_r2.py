@@ -29,8 +29,12 @@ def determinar_tipo_conteudo_flatpak(caminho: Path) -> str:
     nome = caminho.name.lower()
     if nome.endswith(".json"):
         return "application/json"
-    if nome.endswith(".flatpakref") or nome.endswith(".flatpakrepo"):
-        return "text/plain; charset=utf-8"
+    if nome.endswith(".flatpakref"):
+        return "application/vnd.flatpak.ref"
+    if nome.endswith(".flatpakrepo"):
+        return "application/vnd.flatpak.repo"
+    if nome.endswith(".flatpak"):
+        return "application/vnd.flatpak"
     if nome.endswith(".png"):
         return "image/png"
     return "application/octet-stream"
@@ -301,14 +305,17 @@ class PublicadorFlatpakR2:
         for nome, caminho in arquivos.items():
             chave_remota = f"{self.prefixo}/{nome}"
             tipo = determinar_tipo_conteudo_flatpak(caminho)
+            extra_args: dict[str, str] = {
+                "ContentType": tipo,
+                "CacheControl": CACHE_CONTROL_PADRAO,
+            }
+            if nome.endswith((".flatpakref", ".flatpakrepo")):
+                extra_args["ContentDisposition"] = f'attachment; filename="{nome}"'
             self.cliente_s3.upload_file(
                 str(caminho),
                 self.bucket,
                 chave_remota,
-                ExtraArgs={
-                    "ContentType": tipo,
-                    "CacheControl": CACHE_CONTROL_PADRAO,
-                },
+                ExtraArgs=extra_args,
             )
 
         return arquivos

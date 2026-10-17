@@ -140,10 +140,15 @@ def test_determinar_tipo_conteudo_flatpak() -> None:
     assert determinar_tipo_conteudo_flatpak(Path("version.json")) == "application/json"
     assert (
         determinar_tipo_conteudo_flatpak(Path("com.arestaclimb.Editor.flatpakref"))
-        == "text/plain; charset=utf-8"
+        == "application/vnd.flatpak.ref"
     )
     assert (
-        determinar_tipo_conteudo_flatpak(Path("aresta.flatpakrepo")) == "text/plain; charset=utf-8"
+        determinar_tipo_conteudo_flatpak(Path("aresta.flatpakrepo"))
+        == "application/vnd.flatpak.repo"
+    )
+    assert (
+        determinar_tipo_conteudo_flatpak(Path("EditorAresta-0.5.0.flatpak"))
+        == "application/vnd.flatpak"
     )
     assert determinar_tipo_conteudo_flatpak(Path("logo.png")) == "image/png"
     assert determinar_tipo_conteudo_flatpak(Path("summary")) == "application/octet-stream"
@@ -297,11 +302,27 @@ def test_publicador_flatpak_r2_publicar_metadados(tmp_path: Path) -> None:
         assert path.exists()
 
     assert mock_s3.upload_file.call_count == 4
-    chamadas = {
-        call[0][2]: call[1].get("ExtraArgs", {}).get("ContentType")
+    extra_por_chave = {
+        call[0][2]: call[1].get("ExtraArgs", {})
         for call in mock_s3.upload_file.call_args_list
     }
-    assert chamadas.get("flatpak/logo.png") == "image/png"
+    assert extra_por_chave["flatpak/logo.png"].get("ContentType") == "image/png"
+    assert (
+        extra_por_chave["flatpak/com.arestaclimb.Editor.flatpakref"].get("ContentType")
+        == "application/vnd.flatpak.ref"
+    )
+    assert (
+        extra_por_chave["flatpak/com.arestaclimb.Editor.flatpakref"].get("ContentDisposition")
+        == 'attachment; filename="com.arestaclimb.Editor.flatpakref"'
+    )
+    assert (
+        extra_por_chave["flatpak/aresta.flatpakrepo"].get("ContentType")
+        == "application/vnd.flatpak.repo"
+    )
+    assert (
+        extra_por_chave["flatpak/aresta.flatpakrepo"].get("ContentDisposition")
+        == 'attachment; filename="aresta.flatpakrepo"'
+    )
 
 
 def test_publicador_flatpak_r2_publicar_metadados_icone_customizado(tmp_path: Path) -> None:
