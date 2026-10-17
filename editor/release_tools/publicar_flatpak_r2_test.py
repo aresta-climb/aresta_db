@@ -102,6 +102,7 @@ def test_gerar_conteudo_flatpakref() -> None:
         titulo="Editor Aresta",
         url_repo="https://serving.arestaclimb.com/flatpak/repo",
         chave_gpg_base64="MOCK_GPG_BASE64",
+        url_icone="https://serving.arestaclimb.com/flatpak/logo.png",
     )
     parser = configparser.ConfigParser()
     parser.read_string(conteudo)
@@ -110,7 +111,12 @@ def test_gerar_conteudo_flatpakref() -> None:
     assert parser.get("Flatpak Ref", "Branch") == "stable"
     assert parser.get("Flatpak Ref", "Title") == "Editor Aresta"
     assert parser.get("Flatpak Ref", "Url") == "https://serving.arestaclimb.com/flatpak/repo"
+    assert parser.get("Flatpak Ref", "SuggestRemoteName") == "aresta"
     assert parser.get("Flatpak Ref", "IsRuntime") == "false"
+    assert parser.get("Flatpak Ref", "Icon") == "https://serving.arestaclimb.com/flatpak/logo.png"
+    assert parser.get("Flatpak Ref", "Homepage") == "https://arestaclimb.com"
+    assert parser.get("Flatpak Ref", "Comment") != ""
+    assert parser.get("Flatpak Ref", "Description") != ""
     assert parser.get("Flatpak Ref", "GPGKey") == "MOCK_GPG_BASE64"
     assert "flathub" in parser.get("Flatpak Ref", "RuntimeRepo")
 

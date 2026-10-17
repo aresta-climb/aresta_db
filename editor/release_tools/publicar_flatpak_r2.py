@@ -83,6 +83,11 @@ def gerar_conteudo_flatpakref(
     url_repo: str,
     chave_gpg_base64: str,
     runtime_repo: str = URL_RUNTIME_REPO_PADRAO,
+    nome_remoto_sugerido: str = "aresta",
+    comentario: str = "Editor visual de guias de escalada para a plataforma Aresta",
+    descricao: str = "Crie, edite e submeta guias e croquis de escalada para o banco de dados colaborativo Aresta.",
+    url_icone: str = f"{URI_BASE_PADRAO}/logo.png",
+    homepage: str = "https://arestaclimb.com",
 ) -> str:
     """Gera o conteúdo textual no formato padrão INI de um arquivo .flatpakref."""
     return (
@@ -91,7 +96,12 @@ def gerar_conteudo_flatpakref(
         f"Branch={branch}\n"
         f"Title={titulo}\n"
         f"Url={url_repo}\n"
+        f"SuggestRemoteName={nome_remoto_sugerido}\n"
         "IsRuntime=false\n"
+        f"Comment={comentario}\n"
+        f"Description={descricao}\n"
+        f"Icon={url_icone}\n"
+        f"Homepage={homepage}\n"
         f"GPGKey={chave_gpg_base64}\n"
         f"RuntimeRepo={runtime_repo}\n"
     )
@@ -265,6 +275,7 @@ class PublicadorFlatpakR2:
                 titulo="Editor Aresta",
                 url_repo=f"{self.uri_base}/repo",
                 chave_gpg_base64=chave_gpg_base64,
+                url_icone=f"{self.uri_base}/logo.png",
             ),
             encoding="utf-8",
         )
