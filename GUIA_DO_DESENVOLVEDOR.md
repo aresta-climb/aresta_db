@@ -4,7 +4,7 @@ Bem-vindo ao manual técnico do ecossistema Aresta. Se você é um desenvolvedor
 
 ## ⚠️ Princípios de Desenvolvimento Obrigatórios
 
-Todos os desenvolvedores e agentes autônomos (Google Antigravity, OPSX) trabalhando neste repositório **DEVEM** ler e seguir rigorosamente as regras definidas em [PRINCIPIOS.md](PRINCIPIOS.md).
+Todos os desenvolvedores e agentes autônomos (Google Antigravity, OPSX) trabalhando neste repositório **DEVEM** ler e seguir rigorosamente as regras definidas em [AGENTS.md](AGENTS.md).
 
 Isso garante a coesão, simplicidade e testabilidade de todo o código gerado.
 
