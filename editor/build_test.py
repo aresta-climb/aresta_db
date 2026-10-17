@@ -706,7 +706,7 @@ def test_gerar_manifesto_dependencias_flatpak_sucesso(tmp_path):
         assert destino.exists()
 
 
-def test_flatpak_manifest_e_constantes_otimizadas():
+def test_flatpak_manifest_e_constantes_otimizadas() -> None:
     """Valida se as constantes de otimização de tamanho e o manifesto com.arestaclimb.Editor.yaml contêm os ajustes."""
     from editor.build import (
         ARQUIVO_MANIFESTO_FLATPAK,
@@ -743,6 +743,18 @@ def test_flatpak_manifest_e_constantes_otimizadas():
     assert "--talk-name=org.freedesktop.secrets" not in manifesto_texto
     assert "--talk-name=org.kde.kwalletd5" not in manifesto_texto
     assert "--talk-name=org.kde.kwalletd" not in manifesto_texto
+    # Poda de binários pesados de build-time do BaseApp (LLVM/Clang/Shiboken generator) e módulos/fontes dispensáveis
+    assert "/lib/libLLVM*" in manifesto_texto
+    assert "/lib/libclang*" in manifesto_texto
+    assert "shiboken6_generator*" in manifesto_texto
+    assert "Qt3D*" in manifesto_texto
+    assert "QtQuick*" in manifesto_texto
+    assert "QtQml*" in manifesto_texto
+    assert "QtCharts*" in manifesto_texto
+    assert "QtGraphs*" in manifesto_texto
+    assert "QtMultimedia*" in manifesto_texto
+    assert "materialdesignicons" in manifesto_texto
+    assert "sed -i '/pip uninstall -y packaging/d' /app/cleanup-BaseApp.sh" in manifesto_texto
 
 
 def test_metainfo_xml_valido_e_bem_formado():

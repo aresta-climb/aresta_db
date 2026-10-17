@@ -25,8 +25,67 @@ cleanup:
   - /share/man
   - "*.la"
   - "*.a"
+  # Compiladores LLVM/Clang e gerador C++ Shiboken herdados do io.qt.PySide.BaseApp (usados apenas em build-time)
+  - /lib/libLLVM*
+  - /lib/libclang*
+  - /lib/libpyside6qml*
+  - /bin/shiboken6*
+  - /lib/python*/site-packages/shiboken6_generator*
+  # Ferramentas de desenvolvimento, cabeçalhos e stubs do PySide6 desnecessários em runtime
+  - /lib/python*/site-packages/PySide6/include
+  - /lib/python*/site-packages/PySide6/glue
+  - /lib/python*/site-packages/PySide6/typesystems
+  - /lib/python*/site-packages/PySide6/*.pyi
+  - /lib/python*/site-packages/PySide6/lupdate
+  - /lib/python*/site-packages/PySide6/lrelease
+  - /lib/python*/site-packages/PySide6/qmllint
+  - /lib/python*/site-packages/PySide6/qmlformat
+  - /lib/python*/site-packages/PySide6/qmlimportscanner
+  - /lib/python*/site-packages/PySide6/qmltyperegistrar
+  - /lib/python*/site-packages/PySide6/Assistant
+  - /lib/python*/site-packages/PySide6/Designer
+  - /lib/python*/site-packages/PySide6/Linguist
+  # Submódulos do PySide6 não utilizados pelo Editor (mantemos QtCore, QtGui, QtWidgets, QtNetwork, QtSvg, QtSvgWidgets, QtDBus, QtPrintSupport, QtOpenGL*)
+  - /lib/python*/site-packages/PySide6/Qt3D*
+  - /lib/python*/site-packages/PySide6/QtQuick*
+  - /lib/python*/site-packages/PySide6/QtQml*
+  - /lib/python*/site-packages/PySide6/QtPdf*
+  - /lib/python*/site-packages/PySide6/QtCharts*
+  - /lib/python*/site-packages/PySide6/QtGraphs*
+  - /lib/python*/site-packages/PySide6/QtDataVisualization*
+  - /lib/python*/site-packages/PySide6/QtMultimedia*
+  - /lib/python*/site-packages/PySide6/QtSpatialAudio*
+  - /lib/python*/site-packages/PySide6/QtDesigner*
+  - /lib/python*/site-packages/PySide6/QtHelp*
+  - /lib/python*/site-packages/PySide6/QtLocation*
+  - /lib/python*/site-packages/PySide6/QtPositioning*
+  - /lib/python*/site-packages/PySide6/QtSensors*
+  - /lib/python*/site-packages/PySide6/QtSerialPort*
+  - /lib/python*/site-packages/PySide6/QtSerialBus*
+  - /lib/python*/site-packages/PySide6/QtScxml*
+  - /lib/python*/site-packages/PySide6/QtStateMachine*
+  - /lib/python*/site-packages/PySide6/QtTextToSpeech*
+  - /lib/python*/site-packages/PySide6/QtUiTools*
+  - /lib/python*/site-packages/PySide6/QtWebChannel*
+  - /lib/python*/site-packages/PySide6/QtWebSockets*
+  - /lib/python*/site-packages/PySide6/QtHttpServer*
+  - /lib/python*/site-packages/PySide6/QtRemoteObjects*
+  - /lib/python*/site-packages/PySide6/QtBluetooth*
+  - /lib/python*/site-packages/PySide6/QtNfc*
+  - /lib/python*/site-packages/PySide6/QtTest*
+  - /lib/python*/site-packages/PySide6/QtSql*
+  - /lib/python*/site-packages/PySide6/QtXml*
+  - /lib/python*/site-packages/PySide6/QtNetworkAuth*
+  # Fontes de ícones do QtAwesome não utilizadas pelo tema do Editor (mantemos apenas FontAwesome)
+  - /lib/python*/site-packages/qtawesome/fonts/*materialdesignicons*
+  - /lib/python*/site-packages/qtawesome/fonts/*phosphor*
+  - /lib/python*/site-packages/qtawesome/fonts/*remixicon*
+  - /lib/python*/site-packages/qtawesome/fonts/*codicon*
+  - /lib/python*/site-packages/qtawesome/fonts/*elusiveicons*
 
 cleanup-commands:
+  # Preserva o pacote 'packaging' (usado pelo Editor e QtPy) que o cleanup-BaseApp.sh desinstalaria por engano
+  - sed -i '/pip uninstall -y packaging/d' /app/cleanup-BaseApp.sh
   - /app/cleanup-BaseApp.sh
 
 modules:
