@@ -401,6 +401,37 @@ def generate_report_table(report_data: list[dict[str, Any]]) -> str:
     return "\n".join(lines)
 
 
+def salvar_relatorio_saude_se_modificado(
+    caminho_saida: Path,
+    tabela_markdown: str,
+    agora: datetime | None = None,
+) -> bool:
+    """
+    Salva o relatório STATUS_CROQUIS.md em LF apenas se a tabela gerada diferir
+    da tabela já existente no arquivo, evitando alterações espúrias de timestamp.
+    """
+    tabela_lf = tabela_markdown.replace("\r\n", "\n").strip()
+
+    if caminho_saida.exists():
+        bytes_atuais = caminho_saida.read_bytes()
+        texto_atual = bytes_atuais.decode("utf-8", errors="ignore").replace("\r\n", "\n")
+        idx_tabela = texto_atual.find("\n| ")
+        if idx_tabela != -1:
+            tabela_atual = texto_atual[idx_tabela + 1 :].strip()
+            if tabela_atual == tabela_lf and b"\r\n" not in bytes_atuais:
+                return False
+
+    instante = agora or datetime.now()
+    conteudo_novo = (
+        "# Estado de Saúde dos Croquis\n\n"
+        f"Relatório gerado em: {instante.strftime('%d/%m/%Y %H:%M:%S')}\n\n"
+        f"{tabela_lf}"
+    )
+    with open(caminho_saida, "w", encoding="utf-8", newline="\n") as f:
+        f.write(conteudo_novo)
+    return True
+
+
 def main() -> None:
 
     parser = argparse.ArgumentParser(description="Mede a saúde dos croquis na base de dados.")
@@ -463,13 +494,12 @@ def main() -> None:
     # Define o caminho de saída relativo à raiz do projeto
     output_path = root_path / args.output
 
-    with open(output_path, "w", encoding="utf-8") as f:
-        f.write("# Estado de Saúde dos Croquis\n\n")
-        f.write(f"Relatório gerado em: {datetime.now().strftime('%d/%m/%Y %H:%M:%S')}\n\n")
-        f.write(markdown_output)
-
-    print(f"Relatório gerado com sucesso em: {output_path}")
+    if salvar_relatorio_saude_se_modificado(output_path, markdown_output):
+        print(f"Relatório gerado com sucesso em: {output_path}")
+    else:
+        print(f"Relatório sem alterações em: {output_path}")
 
 
 if __name__ == "__main__":
     main()
+

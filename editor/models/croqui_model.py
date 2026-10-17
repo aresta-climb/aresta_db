@@ -520,7 +520,11 @@ class CroquiModel(QObject):
             ArquivoSetor,
             Croqui,
         )
-        from editor.core.serializacao_util import sanitizar_dicionario_sem_extensoes
+        from editor.core.serializacao_util import (
+            configurar_yaml_representer,
+            escrever_texto_se_modificado,
+            sanitizar_dicionario_sem_extensoes,
+        )
 
         caminho_db_path = Path(caminho_db)
         if self._imagens_em_memoria:
@@ -670,27 +674,19 @@ class CroquiModel(QObject):
                     esc.clear()
                     esc.update(novo_esc)
 
-            with open(caminho_arquivo, "w", encoding="utf-8", newline="\n") as f:
-                f.write("---\n")
-                f.write("# SPDX-License-Identifier: ODbL-1.0\n")
-                f.write("# Copyright (C) 2026 Aresta Climb Contributors\n")
-
-                # Garante que strings compostas apenas por dígitos sejam entre aspas
-                # (evita que parser YAML confunda com números inteiros no futuro, ex: id '09' -> 09)
-                def _str_representer(dumper: Any, data: Any) -> Any:
-                    style = None
-                    if data.isdigit() or (data.startswith("-") and data[1:].isdigit()):
-                        style = "'"
-                    return dumper.represent_scalar("tag:yaml.org,2002:str", data, style=style)
-
-                yaml.add_representer(str, _str_representer)
-
-                yaml_str = yaml.dump(dados, allow_unicode=True, sort_keys=False)
-                yaml_str = yaml_str.replace("\r\n", "\n")
-                f.write(yaml_str)
-                f.write("---\n")
-                if descricao is not None:
-                    f.write(descricao)
+            configurar_yaml_representer()
+            yaml_str = yaml.dump(dados, allow_unicode=True, sort_keys=False)
+            yaml_str = yaml_str.replace("\r\n", "\n")
+            partes = [
+                "---\n",
+                "# SPDX-License-Identifier: ODbL-1.0\n",
+                "# Copyright (C) 2026 Aresta Climb Contributors\n",
+                yaml_str,
+                "---\n",
+            ]
+            if descricao is not None:
+                partes.append(descricao)
+            escrever_texto_se_modificado(caminho_arquivo, "".join(partes))
 
         def _garantir_uids_setor(conteudo_setor: Any, ref_setor: Any) -> dict[str, str]:
             if not validar_uid(conteudo_setor.uid):
@@ -942,10 +938,7 @@ class CroquiModel(QObject):
                     else:
                         conteudo_final = conteudo_normalizado
 
-                    with open(
-                        caminho_db_path / novo_caminho, "w", encoding="utf-8", newline="\n"
-                    ) as f:
-                        f.write(conteudo_final)
+                    escrever_texto_se_modificado(caminho_db_path / novo_caminho, conteudo_final)
                     md.caminho = novo_caminho
                     md.ClearField("conteudo")
                     md.ClearExtension(ArquivoMarkdown.ext_metadados_arquivo)

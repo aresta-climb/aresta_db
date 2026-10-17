@@ -83,6 +83,7 @@ def test_gerar_compilado_md(tmp_path, capsys):
 
     # Validate output
     assert output_md.exists()
+    assert b"\r\n" not in output_md.read_bytes()
     content = output_md.read_text(encoding="utf-8")
 
     # Check top level

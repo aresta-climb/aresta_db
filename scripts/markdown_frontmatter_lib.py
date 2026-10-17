@@ -55,12 +55,20 @@ def salvar_md_com_frontmatter(
     Inclui automaticamente os identificadores de licença ODbL-1.0 e copyright
     da comunidade no topo do cabeçalho YAML.
     """
-    with open(md_path, "w", encoding="utf-8") as f:
-        if frontmatter:
-            bloco_yaml = yaml.dump(frontmatter, allow_unicode=True, sort_keys=False)
-            f.write(
-                "---\n"
-                "# SPDX-License-Identifier: ODbL-1.0\n"
-                "# Copyright (C) 2026 Aresta Climb Contributors\n" + bloco_yaml + "---\n\n"
-            )
-        f.write(corpo)
+    from editor.core.serializacao_util import (
+        configurar_yaml_representer,
+        escrever_texto_se_modificado,
+    )
+
+    configurar_yaml_representer()
+    partes: list[str] = []
+    if frontmatter:
+        bloco_yaml = yaml.dump(frontmatter, allow_unicode=True, sort_keys=False)
+        partes.append(
+            "---\n"
+            "# SPDX-License-Identifier: ODbL-1.0\n"
+            "# Copyright (C) 2026 Aresta Climb Contributors\n" + bloco_yaml + "---\n\n"
+        )
+    partes.append(corpo)
+    escrever_texto_se_modificado(md_path, "".join(partes))
+

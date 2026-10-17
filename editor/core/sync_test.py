@@ -218,6 +218,7 @@ class TestGerenciadorSincronizacao(unittest.TestCase):
 
         mock_pygit2.init_repository.assert_called_once_with(str(self.caminho_fake), False)
         self.assertTrue(mock_repo.config.get("core.longpaths"))
+        self.assertIs(mock_repo.config.get("core.autocrlf"), False)
         mock_repo.remotes.create.assert_called_once_with(
             "origin", "https://github.com/aresta-climb/aresta_db.git"
         )
@@ -260,6 +261,7 @@ class TestGerenciadorSincronizacao(unittest.TestCase):
     def test_fazer_checkout_main_upstream_cria_branch(self, mock_pygit2):
         """Testa criação da branch local main se ela não existir ao fazer checkout."""
         mock_repo = MagicMock()
+        mock_repo.config = {}
         mock_pygit2.Repository.return_value = mock_repo
 
         mock_remote_branch = MagicMock()
@@ -274,6 +276,7 @@ class TestGerenciadorSincronizacao(unittest.TestCase):
 
         self.gerenciador.fazer_checkout_main_upstream()
 
+        self.assertIs(mock_repo.config.get("core.autocrlf"), False)
         mock_local_branches.create.assert_called_once()
         mock_repo.checkout.assert_called_once_with(
             mock_local_branch, strategy=mock_pygit2.GIT_CHECKOUT_FORCE

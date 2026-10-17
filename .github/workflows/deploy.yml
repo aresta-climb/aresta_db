@@ -1,4 +1,4 @@
-name: Deploy para Cloudflare R2
+name: Deploy para Cloudflare R2 e D1
 
 on:
   push:
@@ -24,7 +24,11 @@ jobs:
           submodules: false
           sparse-checkout: |
             serving/update_serving.py
+            serving/sincronizar_d1_lib.py
+            scripts/gerar_catalogo_sqlite_lib.py
+            scripts/gerar_deltas_catalogo.py
             generated/arquivos_serving.yaml
+            generated/catalogo.db
             migracoes
 
       - name: Executar Update Serving
@@ -37,3 +41,6 @@ jobs:
           R2_BUCKET: aresta-serving
           CLOUDFLARE_ZONE_ID: ${{ secrets.CLOUDFLARE_ZONE_ID }}
           CLOUDFLARE_CACHE_PURGE_API_TOKEN: ${{ secrets.CLOUDFLARE_CACHE_PURGE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_CATALOGO_D1_DATABASE_ID: ${{ secrets.CLOUDFLARE_CATALOGO_D1_DATABASE_ID }}
+          CLOUDFLARE_CATALOGO_D1_API_TOKEN: ${{ secrets.CLOUDFLARE_CATALOGO_D1_API_TOKEN }}

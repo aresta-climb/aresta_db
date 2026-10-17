@@ -1,7 +1,7 @@
 # editor-sincronizacao-git Specification
 
 ## Purpose
-TBD - created by archiving change tela-de-abertura. Update Purpose after archive.
+Especificação dos mecanismos de clonagem, sincronização e resiliência do repositório base Git via biblioteca embarcada `pygit2` no Aresta Editor.
 ## Requirements
 ### Requirement: Sincronização Inteligente do Repositório Base
 A aplicação MUST garantir que o repositório `aresta-climb/aresta_db` local esteja sincronizado.
@@ -21,7 +21,7 @@ A aplicação MUST garantir que o repositório `aresta-climb/aresta_db` local es
 - **THEN** a `TelaDeAbertura` MUST exibir o progresso em tempo real na barra de progresso estilizada
 
 ### Requirement: Uso de Biblioteca Git Embarcada
-A aplicação MUST realizar operações Git utilizando `pygit2` para evitar dependência do binário `git` no sistema operacional. Adicionalmente, as operações de clonagem MUST configurar a biblioteca para habilitar nativamente caminhos longos antes do checkout.
+A aplicação MUST realizar operações Git utilizando `pygit2` para evitar dependência do binário `git` no sistema operacional. Adicionalmente, as operações de inicialização, clonagem e sincronização MUST configurar o repositório para habilitar nativamente caminhos longos (`core.longpaths = True`) e desabilitar a conversão automática de quebras de linha (`core.autocrlf = False`) antes do checkout.
 
 #### Scenario: Execução em Máquina Limpa
 - **WHEN** o usuário não possuir o binário Git instalado
@@ -31,6 +31,10 @@ A aplicação MUST realizar operações Git utilizando `pygit2` para evitar depe
 - **WHEN** a aplicação iniciar a clonagem do repositório base
 - **THEN** o sistema MUST inicializar o repositório manualmente e injetar a configuração `core.longpaths = True`
 - **THEN** o sistema MUST realizar o `fetch` e `checkout` somente após a configuração ter sido aplicada
+
+#### Scenario: Proteção contra Conversão CRLF no Clone e Checkout
+- **WHEN** a aplicação iniciar a clonagem, sincronização (`fazer_checkout_main_upstream`) do repositório base ou a inicialização de um repositório de croqui experimental
+- **THEN** o sistema MUST configurar explicitamente `core.autocrlf = False` na configuração local do repositório antes do `checkout`, garantindo que os arquivos na árvore de trabalho utilizem `LF`
 
 ### Requirement: Resiliência e Degradação Graciosa na Sincronização Remota
 A aplicação MUST tratar falhas de rede, timeouts de conexão e erros de transporte durante a sincronização remota sem interromper a execução quando o repositório local já existir no disco.

@@ -1,6 +1,6 @@
-# Arquitetura: Catálogo SQLite, Delta Sync e Resolução de Links Sociais (aresta.cc)
+# Arquitetura: Catálogo SQLite, Delta Sync e Sincronização com Cloudflare D1
 
-Este documento descreve a arquitetura do catálogo relacional SQLite (`catalogo.db`), seu pipeline de geração automatizada no repositório `aresta_db`, a sincronização incremental via Cloudflare D1 e o funcionamento dos links curtos e QR Codes (`https://aresta.cc/<uid>`).
+Este documento descreve a arquitetura do catálogo relacional SQLite (`catalogo.db`), seu pipeline de geração automatizada no repositório `aresta_db`, o versionamento por hash lógico determinístico (`versao_catalogo`) e a sincronização incremental via Cloudflare D1 e Cloudflare CDN (`catalogo.arestaclimb.com`).
 
 ---
 
@@ -9,37 +9,41 @@ Este documento descreve a arquitetura do catálogo relacional SQLite (`catalogo.
 O ecossistema Aresta utiliza uma divisão clara de responsabilidades para dados offline e na borda:
 
 ```
-[ aresta_db ]
+[ aresta_db (deploy_generated.py) ]
    │
    ├─► Compilação dos Croquis Protobuf (compilado.binarypb)
-   ├─► Geração do Catálogo SQLite (catalogo.db & catalogo.db.gz)
-   └─► Diff SQL de Deltas (gerar_deltas_catalogo.py)
+   ├─► Geração do Catálogo SQLite descomprimido (generated/catalogo.db)
+   └─► Hash Lógico Determinístico (versao_catalogo em catalogo_meta e indice.binarypb)
             │
             ▼
-   [ Cloudflare D1 ]
+[ Deploy CI/CD (serving/update_serving.py) ]
+   │
+   ├─► 1. Baixa catalogo.db anterior do R2 e calcula diff SQL (gerar_deltas_catalogo.py)
+   ├─► 2. Aplica upserts/deletes e grava delta em deltas_catalogo no Cloudflare D1 (API REST)
+   └─► 3. Só após sucesso no D1, faz upload para o R2 e purga cache da CDN
+            │
+            ▼
+   [ Cloudflare D1 + Worker (catalogo.arestaclimb.com) ]
       ├─ catalogo_croquis
       ├─ catalogo_aresta
-      └─ deltas_catalogo (id AUTOINCREMENT, upserts_json, deletes_json)
+      └─ deltas_catalogo (id AUTOINCREMENT, versao_hash UNIQUE, upserts_json, deletes_json)
             │
-            ├──► Endpoint GET /sync?desde=X  ──► [ aresta_app (Flutter) ]
-            │                                     Busca textual instantânea offline
-            │
-            └──► Endpoint GET /:uid          ──► [ Redes Sociais & Navegador ]
-                 Landing Page com OpenGraph        WhatsApp, Telegram, Twitter, etc.
+            └──► GET /sync?versao_local=A&versao_destino=B ──► [ aresta_app (Flutter) ]
+                 (Cacheado na borda da CDN com immutable)       Busca textual instantânea offline
 ```
 
-1. **`catalogo.db`**: Banco SQLite compacto contendo metadados de croquis e escaladas, focado em busca textual ultrarrápida no app e resolução instantânea de entidades.
-2. **`indice.binarypb`**: Mantém as informações geográficas completas, caixas delimitadoras de mapas, polígonos e dados ricos para a navegação geoespacial.
-3. **`aresta.cc/<uid>`**: Worker Cloudflare no domínio de links curtos que atende tanto requisições de sincronização de dados quanto visualização de prévias sociais sem exigir parsing de Protobuf no edge.
+1. **`catalogo.db`**: Banco SQLite descomprimido contendo metadados de croquis e escaladas, focado em busca textual ultrarrápida no app. Não geramos `catalogo.db.gz` localmente para manter o `deploy_generated.py` instantâneo; a compressão de rede é realizada automaticamente na borda pela CDN da Cloudflare e nativamente pelos pacotes APK/IPA.
+2. **`indice.binarypb`**: Mantém as informações geográficas completas e expõe o campo `versao_catalogo` (campo `3` da mensagem `Indice`), permitindo que o aplicativo descubra imediatamente se seu `catalogo.db` local precisa de sincronização.
+3. **`catalogo.arestaclimb.com/sync`**: Worker Cloudflare conectado ao banco D1 que condensa deltas entre quaisquer duas versões (`versao_local` e `versao_destino`) e delega o cache de respostas para a CDN da Cloudflare (Cache Rule), evitando invocações repetidas do Worker.
 
 ---
 
-## 2. Esquema do Banco SQLite (`catalogo.db`)
+## 2. Esquema do Banco SQLite (`catalogo.db`) e Hash Lógico (`versao_catalogo`)
 
-O banco é projetado para máxima compacidade e consultas indexadas:
+O banco local `generated/catalogo.db` possui três tabelas:
 
 ```sql
--- Tabela de croquis/picos (~50 a 100 linhas hoje, < 5 KB total)
+-- Tabela de croquis/picos
 CREATE TABLE catalogo_croquis (
     croqui_uid TEXT PRIMARY KEY,   -- NanoID de 14 caracteres Base62
     id_slug TEXT NOT NULL,         -- ex: 'br_mg_ferros_pico_dos_ferros'
@@ -49,7 +53,7 @@ CREATE TABLE catalogo_croquis (
     atualizado_em INTEGER NOT NULL -- Timestamp Unix
 );
 
--- Tabela de vias/escaladas (~5.000 a 20.000 linhas, ~250 KB comprimido)
+-- Tabela de vias/escaladas
 CREATE TABLE catalogo_aresta (
     uid TEXT PRIMARY KEY,          -- NanoID de 14 caracteres Base62 da via
     croqui_uid TEXT NOT NULL,      -- Chave lógica para catalogo_croquis
@@ -60,170 +64,94 @@ CREATE TABLE catalogo_aresta (
     setor_uid TEXT                 -- NanoID do setor
 );
 
+-- Tabela de metadados e versão lógica
+CREATE TABLE catalogo_meta (
+    chave TEXT PRIMARY KEY,        -- ex: 'versao_catalogo'
+    valor TEXT NOT NULL            -- Hash SHA-256 curto (16 chars hex)
+);
+
 -- Índices otimizados
 CREATE INDEX idx_catalogo_aresta_croqui ON catalogo_aresta(croqui_uid);
 CREATE INDEX idx_catalogo_aresta_nome ON catalogo_aresta(nome COLLATE NOCASE);
 ```
 
----
-
-## 3. Pipeline de Geração e Deploy (`deploy_generated.py`)
-
-A geração do catálogo ocorre no **Passo E** do script de deploy (`scripts/deploy_generated.py`), antes da criação do manifesto final:
-
-1. **Compilação dos Croquis (Passo A)**: Produz os arquivos `compilado.binarypb`.
-2. **Cálculo de Checksums e Índice (Passos B e C)**: Gera `indice.binarypb` e `indice.yaml`.
-3. **Geração do Catálogo SQLite (Passo E)**:
-   - Invoca `scripts.gerar_catalogo_sqlite_lib.gerar_catalogo_completo`.
-   - Lê os arquivos `compilado.binarypb` e preenche `catalogo_croquis` e `catalogo_aresta`.
-   - Gera a versão compactada `generated/catalogo.db.gz`.
-   - **Deploy Parcial**: Caso alvos específicos sejam passados via `--target`, substitui atomicamente apenas os registros dos croquis modificados (`DELETE WHERE croqui_uid = ?` seguido de `INSERT`), preservando os demais.
-4. **Manifesto de Serving (Passo D)**:
-   - Adiciona `catalogo.db` e `catalogo.db.gz` com seus respectivos hashes SHA-256 em `generated/arquivos_serving.yaml`.
+### Por que Hash Lógico Determinístico em vez de SHA-256 do arquivo `.db` ou Inteiro Sequencial?
+- **Sem conflitos de Git**: Números sequenciais (`1, 2, 3...`) no repositório causariam conflitos constantes de merge entre branches.
+- **Determinismo absoluto**: O arquivo binário `.db` do SQLite muda seu SHA-256 físico devido a páginas livres, ordem de inserção ou `atualizado_em`. Por isso, `calcular_versao_catalogo()` calcula um SHA-256 de 16 caracteres hexadecimais exclusivamente sobre as tuplas ordenadas de `catalogo_croquis` (`ORDER BY croqui_uid`, sem `atualizado_em`) e `catalogo_aresta` (`ORDER BY uid`), levando menos de 15ms e garantindo que o mesmo conteúdo lógico produza sempre o mesmo hash.
 
 ---
 
-## 4. Extração de Deltas para o Cloudflare D1 (`gerar_deltas_catalogo.py`)
+## 3. Pipeline de Geração (`deploy_generated.py`) e Serving (`update_serving.py`)
 
-No pipeline de CI/CD, antes de publicar uma nova versão:
+### 3.1. Compilação Local (`scripts/deploy_generated.py`)
+1. **Passo A**: Compila os croquis para `compilado.binarypb`.
+2. **Passo E**: Atualiza `generated/catalogo.db`, calcula `versao_catalogo` e persiste na tabela `catalogo_meta`.
+3. **Passo C**: Grava `indice.binarypb` e `indice.yaml` incluindo `versao_catalogo`.
+4. **Passo D**: Registra `catalogo.db` e seu checksum SHA-256 em `generated/arquivos_serving.yaml`.
 
-```bash
-python scripts/gerar_deltas_catalogo.py \
-  --anterior versao_anterior/catalogo.db \
-  --novo generated/catalogo.db \
-  --saida deltas.json \
-  --sql inserir_delta.sql
-```
+### 3.2. Deploy Transacional D1 + R2 (`serving/update_serving.py`)
+Executado no GitHub Actions (`.github/workflows/deploy.yml`) utilizando os secrets:
+- `CLOUDFLARE_ACCOUNT_ID`
+- `CLOUDFLARE_CATALOGO_D1_DATABASE_ID`
+- `CLOUDFLARE_CATALOGO_D1_API_TOKEN`
 
-O script utiliza operações de conjunto nativas do SQLite conectando ambos os bancos via `ATTACH DATABASE`:
-
-- **Upserts**: `SELECT ... FROM novo EXCEPT SELECT ... FROM anterior;`
-- **Deletes**: `SELECT ... FROM anterior EXCEPT SELECT ... FROM novo;`
-
-O comando SQL resultante insere o changeset diretamente na tabela `deltas_catalogo` do Cloudflare D1:
-
-```sql
-INSERT INTO deltas_catalogo (criado_em, upserts_json, deletes_json)
-VALUES (datetime('now'), '{"croquis": [...], "vias": [...]}', '{"croquis": [...], "deletes": [...]}');
-```
+Ordem estrita de execução:
+1. Consulta o último `versao_hash` na tabela `deltas_catalogo` do D1. Se já for igual ao `versao_catalogo` do `generated/catalogo.db`, pula a etapa do D1.
+2. Antes de enviar os novos arquivos ao R2, baixa o `catalogo.db` anterior publicado no R2 para um diretório temporário.
+3. Se o banco D1 estiver vazio ou seu último `versao_hash` não corresponder ao `catalogo.db` anterior do R2, executa o **bootstrap completo** em lotes parametrizados. Caso contrário, calcula o diff via `scripts/gerar_deltas_catalogo.py` (`EXCEPT`), aplica os `upserts` e `deletes` no D1 e insere a nova linha em `deltas_catalogo`.
+4. **Somente após o sucesso no D1**, envia os arquivos atualizados (`catalogo.db`, `indice.binarypb`, `arquivos_serving.yaml`, etc.) para o R2 e purga o cache da CDN.
 
 ---
 
-## 5. Contrato do Cloudflare Worker (`aresta.cc`)
+## 4. Contrato do Cloudflare Worker (`catalogo.arestaclimb.com`)
 
-### 5.1. Endpoint de Sincronização (`GET /sync?desde=X`)
+Código-fonte localizado em `../aresta_backend/cloudflare/catalogo/`.
 
-Utilizado pelo aplicativo móvel para se manter atualizado:
-
-- **Requisição**: `GET https://api.aresta.cc/sync?desde=118`
-- **Operação no Edge**:
-  1. Consulta no D1:
-     ```sql
-     SELECT id, upserts_json, deletes_json
-     FROM deltas_catalogo
-     WHERE id > ?
-     ORDER BY id ASC;
+### 4.1. Endpoint `GET /sync`
+- **URL**: `https://catalogo.arestaclimb.com/sync?versao_local=<hash_local>&versao_destino=<hash_destino>`
+- **Comportamento**:
+  1. Se `versao_local == versao_destino`: retorna imediatamente `acao: "apply_delta"` vazio com cache imutável.
+  2. Busca os IDs numéricos (`id_local` e `id_destino`) na tabela `deltas_catalogo` correspondentes aos hashes informados.
+  3. Se algum hash não existir no D1 ou `id_local > id_destino`: retorna fallback:
+     ```json
+     {
+       "acao": "full_download",
+       "versao_atual": "8f5027d0f987d808"
+     }
      ```
-  2. **Delta Squash**: O Worker condensa as alterações por chave primária (`uid` / `croqui_uid`). Se uma via foi alterada múltiplas vezes ao longo de 50 versões, apenas o estado final mais recente é transmitido.
-- **Resposta**:
-  ```json
-  {
-    "versao_atual": 120,
-    "total_deltas": 2,
-    "upserts": {
-      "croquis": [...],
-      "vias": [...]
-    },
-    "deletes": {
-      "croquis": [],
-      "vias": ["viaAntiga1234"]
-    }
-  }
-  ```
-- **Aplicação no Cliente**: O aplicativo móvel executa os `deletes` e `upserts` dentro de uma única transação SQLite local e avança seu ponteiro de versão local para 120.
+     com cabeçalho `Cache-Control: no-store`.
+  4. Caso `id_local < id_destino`: busca todos os registros com `id > id_local AND id <= id_destino ORDER BY id ASC`, realiza o **Delta Squash** em memória por chave primária (`croqui_uid` e `uid`) e retorna:
+     ```json
+     {
+       "acao": "apply_delta",
+       "versao_atual": "8f5027d0f987d808",
+       "total_deltas": 2,
+       "upserts": {
+         "croquis": [...],
+         "vias": [...]
+       },
+       "deletes": {
+         "croquis": [],
+         "vias": ["viaAntiga1234"]
+       }
+     }
+     ```
+     com cabeçalho `Cache-Control: public, max-age=31536000, s-maxage=31536000, immutable`.
+
+### 4.2. Cache na Borda da CDN (Sem Consumo de Quota do Worker)
+O Worker **não** utiliza `caches.default` internamente. O cache é feito inteiramente pela camada de CDN da Cloudflare antes do Worker ser invocado, através de uma **Cache Rule** configurada na zona `arestaclimb.com`:
+- **Filtro**: `Hostname equals catalogo.arestaclimb.com` e `URI Path starts with /sync`
+- **Cache Eligibility**: `Eligible for cache`
+- **Edge TTL**: `Use cache-control header if present, bypass cache if not`
+
+Assim, a primeira requisição para um par `(versao_local, versao_destino)` executa o Worker e armazena o resultado na CDN por 1 ano (`immutable`), e todas as requisições subsequentes de outros usuários para o mesmo par são respondidas diretamente pela CDN sem invocar o Worker nem o D1.
 
 ---
 
-### 5.2. Resolução de Links Sociais e QR Codes (`GET /:uid`)
+## 5. Mecanismo de Purge Global de Emergência (Kill Switch)
 
-Ao compartilhar uma via ou setor nas redes sociais (WhatsApp, Instagram, Twitter, iMessage, etc.):
+Para garantir recuperação instantânea caso uma inconsistência de dados ocorra nos clientes móveis, adotamos um mecanismo acionado via **Firebase Remote Config** (`catalogo_purge_timestamp`):
 
-- **Consulta no D1**:
-  ```sql
-  SELECT 
-      v.nome AS via_nome, v.grau, v.tipo, v.setor_nome,
-      c.nome AS croqui_nome, c.cidade, c.uf, c.id_slug
-  FROM catalogo_aresta v
-  LEFT JOIN catalogo_croquis c ON v.croqui_uid = c.croqui_uid
-  WHERE v.uid = ?;
-  ```
-- **HTML Retornado (~3 KB)**:
-  ```html
-  <!DOCTYPE html>
-  <html lang="pt-BR">
-  <head>
-    <meta charset="utf-8">
-    <title>Pé na Chapa (7a) - Pico dos Ferros | Aresta</title>
-    <meta property="og:title" content="Pé na Chapa (7a) • Pico dos Ferros">
-    <meta property="og:description" content="Setor Cachoeira, Ferros - MG. Acesse fotos, betas e mapas no app Aresta.">
-    <meta property="og:image" content="https://cdn.aresta.cc/thumbnails/br_mg_ferros.webp">
-    <meta name="twitter:card" content="summary_large_image">
-    <script>
-      // Universal Link / App Link para abrir direto no aplicativo
-      window.location.href = "aresta://v/viaReal1234567";
-    </script>
-  </head>
-  <body>
-    <div class="card">
-      <h1>Pé na Chapa <span>7a</span></h1>
-      <p>Setor Cachoeira • Pico dos Ferros, MG</p>
-      <a href="https://play.google.com/store/apps/details?id=cc.aresta" class="btn">Baixar na Google Play</a>
-      <a href="https://apps.apple.com/app/aresta/id000000000" class="btn">Baixar na App Store</a>
-    </div>
-  </body>
-  </html>
-  ```
-- **Cache CDN**: Cabeçalho `Cache-Control: public, max-age=86400, stale-while-revalidate=604800`. O Worker roda uma única vez por via; as consultas subsequentes são entregues pela CDN em ~15ms.
-
----
-
-## 6. Mecanismo de Purge Global de Emergência (Kill Switch)
-
-Para garantir recuperação instantânea caso uma inconsistência de dados ou corrupção de banco ocorra nos clientes móveis, adotamos um mecanismo acionado via **Firebase Remote Config**:
-
-### 6.1. Linha de Base no Build (`timestampBuildCatalogo`)
-
-Cada build do aplicativo móvel (`aresta_app`) embute em código uma constante com o timestamp do momento de empacotamento:
-
-```dart
-const int timestampBuildCatalogo = 1728650000;
-```
-
-### 6.2. Fluxo na Primeira Instalação (Zero Consumo de Rede)
-
-1. O app desempacota o `catalogo.db` dos assets locais para a pasta de dados.
-2. Inicializa a preferência:
-   ```dart
-   local.ultimo_purge_executado = max(timestampBuildCatalogo, firebase.catalogo_purge_timestamp);
-   ```
-3. Qualquer purge configurado no Firebase no passado (antes da compilação do release) é **automaticamente ignorado**, garantindo que o usuário recém-instalado não gaste dados móveis à toa.
-
-### 6.3. Disparo de Emergência
-
-Caso seja necessário forçar a reinicialização de todos os aplicativos ativos:
-
-1. O mantenedor altera a variável `catalogo_purge_timestamp` no Firebase Console para o timestamp atual (ex: `1728700000`).
-2. Na próxima abertura do app:
-   ```dart
-   final int ultimoExecutado = prefs.getInt('ultimo_purge_catalogo') ?? timestampBuildCatalogo;
-   final int purgeRemoto = remoteConfig.getInt('catalogo_purge_timestamp');
-
-   if (purgeRemoto > ultimoExecutado) {
-     // Descarta o SQLite local e zera o ponteiro de versão
-     await descartarCatalogoLocal();
-     // Efetua download limpo do catalogo.db.gz integral do CDN
-     await baixarEDescompactarCatalogoGzip();
-     // Salva a nova marca d'água
-     await prefs.setInt('ultimo_purge_catalogo', purgeRemoto);
-   }
-   ```
+1. Cada build do aplicativo móvel (`aresta_app`) embute a constante `timestampBuildCatalogo`.
+2. Na primeira instalação, `ultimo_purge_catalogo = max(timestampBuildCatalogo, firebase.catalogo_purge_timestamp)`, evitando downloads redundantes.
+3. Se `catalogo_purge_timestamp` no Firebase for atualizado para um valor superior ao `ultimo_purge_catalogo` salvo no aparelho, o cliente descarta o `catalogo.db` local e baixa o `catalogo.db` completo diretamente de `https://serving.arestaclimb.com/<versao_serving>/catalogo.db`.

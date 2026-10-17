@@ -3,13 +3,12 @@
 
 """Testes unitários para scripts/gerar_catalogo_sqlite_lib.py."""
 
-import gzip
 import sqlite3
 from pathlib import Path
 
 from aresta_api.proto.generated import croqui_pb2
 from scripts.gerar_catalogo_sqlite_lib import (
-    compactar_catalogo_gzip,
+    calcular_versao_catalogo,
     extrair_dados_croqui_para_catalogo,
     extrair_localidade_do_slug,
     formatar_grau_escalada,
@@ -17,6 +16,7 @@ from scripts.gerar_catalogo_sqlite_lib import (
     gerar_catalogo_completo,
     inicializar_banco_catalogo,
     inserir_croqui_no_catalogo,
+    obter_versao_catalogo,
     remover_croqui_do_catalogo,
 )
 
@@ -91,6 +91,7 @@ def test_inicializar_banco_catalogo(tmp_path: Path) -> None:
     }
     assert "catalogo_croquis" in tabelas
     assert "catalogo_aresta" in tabelas
+    assert "catalogo_meta" in tabelas
 
     # Verifica os índices
     indices = {
@@ -226,18 +227,57 @@ def test_inserir_e_remover_croqui_no_catalogo(tmp_path: Path) -> None:
     conexao.close()
 
 
-def test_compactar_catalogo_gzip(tmp_path: Path) -> None:
-    caminho_db = tmp_path / "catalogo.db"
-    conexao = inicializar_banco_catalogo(caminho_db)
-    conexao.close()
+def test_calcular_e_obter_versao_catalogo_determinismo(tmp_path: Path) -> None:
+    db1 = tmp_path / "db1.db"
+    db2 = tmp_path / "db2.db"
 
-    caminho_gz = compactar_catalogo_gzip(caminho_db)
-    assert caminho_gz.exists()
-    assert caminho_gz.name == "catalogo.db.gz"
+    con1 = inicializar_banco_catalogo(db1)
+    con2 = inicializar_banco_catalogo(db2)
 
-    with gzip.open(caminho_gz, "rb") as f:
-        conteudo = f.read()
-    assert len(conteudo) > 0
+    croqui = _criar_croqui_exemplo()
+    dados1, vias1 = extrair_dados_croqui_para_catalogo(croqui)
+    dados1["atualizado_em"] = 1000
+    dados2, vias2 = extrair_dados_croqui_para_catalogo(croqui)
+    dados2["atualizado_em"] = 9999  # Timestamp diferente não deve alterar o hash lógico
+
+    inserir_croqui_no_catalogo(con1, dados1, vias1)
+    # Em db2, insere um croqui extra, remove-o e depois insere o mesmo croqui de db1
+    inserir_croqui_no_catalogo(
+        con2,
+        {
+            "croqui_uid": "temp_uid",
+            "id_slug": "temp",
+            "nome": "Temp",
+            "cidade": "",
+            "uf": "",
+            "atualizado_em": 1,
+        },
+        [],
+    )
+    remover_croqui_do_catalogo(con2, "temp_uid")
+    inserir_croqui_no_catalogo(con2, dados2, vias2)
+
+    v1 = calcular_versao_catalogo(con1)
+    v2 = calcular_versao_catalogo(con2)
+
+    assert len(v1) == 16
+    assert v1 == v2
+
+    con1.close()
+    con2.close()
+
+    # Banco com versao_catalogo já gravada em catalogo_meta lê diretamente
+    assert obter_versao_catalogo(db1) == v1
+
+    # Banco ainda sem versao_catalogo gravada em catalogo_meta calcula automaticamente
+    db3 = tmp_path / "db3_sem_meta.db"
+    con3 = inicializar_banco_catalogo(db3)
+    inserir_croqui_no_catalogo(con3, dados1, vias1)
+    con3.close()
+    assert obter_versao_catalogo(db3) == v1
+
+    # Caminho inexistente retorna string vazia
+    assert obter_versao_catalogo(tmp_path / "inexistente.db") == ""
 
 
 def test_gerar_catalogo_completo(tmp_path: Path) -> None:
@@ -273,6 +313,8 @@ def test_gerar_catalogo_completo(tmp_path: Path) -> None:
     # 1. Geração total
     res_db = gerar_catalogo_completo(pasta_gerados, caminho_db)
     assert res_db.exists()
+    versao_inicial = obter_versao_catalogo(caminho_db)
+    assert len(versao_inicial) == 16
 
     conexao = sqlite3.connect(caminho_db)
     cursor = conexao.cursor()
@@ -280,6 +322,8 @@ def test_gerar_catalogo_completo(tmp_path: Path) -> None:
     assert cursor.fetchone()[0] == 2
     cursor.execute("SELECT COUNT(*) FROM catalogo_aresta")
     assert cursor.fetchone()[0] == 10
+    cursor.execute("SELECT valor FROM catalogo_meta WHERE chave = 'versao_catalogo'")
+    assert cursor.fetchone()[0] == versao_inicial
     conexao.close()
 
     # 2. Deploy seletivo (apenas croqui-1 atualizado)
@@ -287,6 +331,9 @@ def test_gerar_catalogo_completo(tmp_path: Path) -> None:
     (croqui1_dir / "compilado.binarypb").write_bytes(croqui1.SerializeToString())
 
     gerar_catalogo_completo(pasta_gerados, caminho_db, alvos=["br_mg_ferros_croqui1"])
+    versao_atualizada = obter_versao_catalogo(caminho_db)
+    assert len(versao_atualizada) == 16
+    assert versao_atualizada != versao_inicial
 
     conexao = sqlite3.connect(caminho_db)
     cursor = conexao.cursor()
@@ -297,19 +344,10 @@ def test_gerar_catalogo_completo(tmp_path: Path) -> None:
     assert cursor.fetchone()[0] == 1
     conexao.close()
 
-    # 3. Alvo que não possui compilado.binarypb
+    # 3. Alvo que não possui compilado.binarypb mantém a mesma versão
     gerar_catalogo_completo(pasta_gerados, caminho_db, alvos=["alvo_fantasma"])
+    assert obter_versao_catalogo(caminho_db) == versao_atualizada
 
-
-def test_compactar_catalogo_gzip_caminho_customizado(tmp_path: Path) -> None:
-    caminho_db = tmp_path / "catalogo.db"
-    conexao = inicializar_banco_catalogo(caminho_db)
-    conexao.close()
-
-    caminho_custom = tmp_path / "customizado.db.gz"
-    res = compactar_catalogo_gzip(caminho_db, caminho_custom)
-    assert res == caminho_custom
-    assert caminho_custom.exists()
 
 
 def test_extrair_dados_setores_e_escaladas_incompletos() -> None:

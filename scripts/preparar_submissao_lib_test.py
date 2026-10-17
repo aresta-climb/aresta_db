@@ -3581,3 +3581,59 @@ Descrição do setor parcial
     assert refs[0].get("pontos_uids") == [uid_poi1]
     assert refs[1].get("alvo_uid") == nova_esc_uid
     assert refs[1].get("pontos_uids") == [novo_poi_uid]
+
+
+def test_compilar_croqui_e_garantir_comentarios_licenca_escrevem_lf_e_preservam_representer(
+    tmp_path: Path,
+):
+    """Garante que compilar_croqui e garantir_comentarios_licenca escrevem exclusivamente LF e preservam '|-'."""
+    import yaml
+
+    from scripts.preparar_submissao_lib import compilar_croqui, garantir_comentarios_licenca
+
+    # Simula interferência externa no representer global antes de compilar
+    yaml.add_representer(
+        str, lambda dumper, data: dumper.represent_scalar("tag:yaml.org,2002:str", data)
+    )
+
+    pico_dir = tmp_path / "pico_lf"
+    pico_dir.mkdir()
+    setor_md = pico_dir / "setor_1.md"
+    setor_md.write_text(
+        "---\n"
+        "nome: Setor LF\n"
+        "escaladas:\n"
+        "  - via_esportiva:\n"
+        "      nome: Via Multilinha\n"
+        "      descricao: |-\n"
+        "        Linha 1\n\n"
+        "        Linha 2\n"
+        "---\n"
+        "Corpo do setor.\n",
+        encoding="utf-8",
+    )
+
+    croqui_yaml = pico_dir / "croqui.yaml"
+    croqui_yaml.write_bytes(
+        b"id: '08'\r\n"
+        b"nome: Croqui LF\r\n"
+        b"picos:\r\n"
+        b"  - nome: Pico LF\r\n"
+        b"    setores_ou_grupos:\r\n"
+        b"      - setor:\r\n"
+        b"          caminho: setor_1.md\r\n"
+    )
+
+    garantir_comentarios_licenca(croqui_yaml)
+    assert b"\r\n" not in croqui_yaml.read_bytes()
+
+    destino_yaml = tmp_path / "compilado.yaml"
+    destino_binarypb = tmp_path / "compilado.binarypb"
+    compilar_croqui(pico_dir, destino_yaml, destino_binarypb)
+
+    bytes_compilado = destino_yaml.read_bytes()
+    assert b"\r\n" not in bytes_compilado
+    texto_compilado = bytes_compilado.decode("utf-8")
+    assert "id: '08'" in texto_compilado
+    assert "descricao: |-\n" in texto_compilado
+

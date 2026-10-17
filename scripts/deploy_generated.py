@@ -955,10 +955,25 @@ def passo_c_gerar_indice(
             }
         indice_list.append(item_yaml)
 
+    # Preenche versao_catalogo se catalogo.db já estiver disponível
+    caminho_catalogo_db = GENERATED_DIR / "catalogo.db"
+    if caminho_catalogo_db.exists():
+        from scripts.gerar_catalogo_sqlite_lib import obter_versao_catalogo
+
+        versao_cat = obter_versao_catalogo(caminho_catalogo_db)
+        if versao_cat:
+            indice.versao_catalogo = versao_cat
+
     # indice.yaml — escrito antes do .binarypb para debug
+    from editor.core.serializacao_util import configurar_yaml_representer
+
+    configurar_yaml_representer()
     indice_yaml_path = GENERATED_DIR / "indice.yaml"
     with open(indice_yaml_path, "w", encoding="utf-8", newline="\n") as f:
-        yaml_content = {"croquis": indice_list}
+        yaml_content: dict[str, Any] = {}
+        if indice.versao_catalogo:
+            yaml_content["versao_catalogo"] = indice.versao_catalogo
+        yaml_content["croquis"] = indice_list
         yaml_str = yaml.dump(
             yaml_content,
             allow_unicode=True,
@@ -1127,6 +1142,8 @@ def deploy(
             raise RuntimeError(f"Nenhum croqui válido encontrado no alvo: {target_paths}")
 
     checksums = passo_b_calcular_checksums(compilados_finais_para_checksum, verbose=verbose)
+    alvos_catalogo = [c[0] for c in compilados_novos] if target_paths else None
+    passo_e_gerar_catalogo_sqlite(alvos=alvos_catalogo, verbose=verbose)
     indice = passo_c_gerar_indice(
         compilados_finais_para_checksum,
         checksums,
@@ -1135,9 +1152,6 @@ def deploy(
         is_producao=is_producao,
         verbose=verbose,
     )
-
-    alvos_catalogo = [c[0] for c in compilados_novos] if target_paths else None
-    passo_e_gerar_catalogo_sqlite(alvos=alvos_catalogo, verbose=verbose)
     passo_d_gerar_manifesto_serving(indice, verbose=verbose)
 
     print(f"\nTotal compilados: {len(compilados_novos)} de {len(a_compilar)}")
@@ -1202,7 +1216,7 @@ def passo_d_gerar_manifesto_serving(indice: indice_pb2.Indice, verbose: bool = F
                 add_file(f"{base}/{debug_file}", calcular_sha256(p))
 
     # 4. Calcula para os arquivos globais
-    for global_file in ["indice.binarypb", "indice.yaml", "catalogo.db", "catalogo.db.gz"]:
+    for global_file in ["indice.binarypb", "indice.yaml", "catalogo.db"]:
         p = GENERATED_DIR / global_file
         if p.exists():
             add_file(global_file, calcular_sha256(p))
@@ -1218,23 +1232,18 @@ def passo_d_gerar_manifesto_serving(indice: indice_pb2.Indice, verbose: bool = F
 
 def passo_e_gerar_catalogo_sqlite(alvos: list[str] | None = None, verbose: bool = False) -> Path:
     """
-    Passo E: Gera ou atualiza incrementalmente o catálogo SQLite (catalogo.db)
-    e sua versão compactada (catalogo.db.gz).
+    Passo E: Gera ou atualiza incrementalmente o catálogo SQLite descomprimido (catalogo.db).
     """
-    from scripts.gerar_catalogo_sqlite_lib import (
-        compactar_catalogo_gzip,
-        gerar_catalogo_completo,
-    )
+    from scripts.gerar_catalogo_sqlite_lib import gerar_catalogo_completo
 
     if verbose:
         print("\n=== Passo E: Gerando catálogo SQLite (catalogo.db) ===")
 
     caminho_db = GENERATED_DIR / "catalogo.db"
     gerar_catalogo_completo(GENERATED_DIR, caminho_db, alvos=alvos)
-    caminho_gz = compactar_catalogo_gzip(caminho_db)
 
     if verbose:
-        print(f"Catálogo SQLite gerado em {caminho_db} e {caminho_gz}")
+        print(f"Catálogo SQLite gerado em {caminho_db}")
 
     return caminho_db
 

@@ -379,3 +379,11 @@ def test_criar_novo_croqui_com_mock_ultima_versao(gerenciador, storage_temp):
         dados = yaml.safe_load(f)
 
     assert dados.get("ultima_migracao") == 42
+
+
+def test_criar_estrutura_croqui_configura_core_autocrlf_false(gerenciador, storage_temp):
+    """Garante que o repositório Git local do croqui experimental desativa core.autocrlf."""
+    caminho_exp = gerenciador._criar_estrutura_croqui("br_mg_autocrlf", "Usuario")
+    config_texto = (caminho_exp / ".git" / "config").read_text(encoding="utf-8").lower()
+    assert "autocrlf = false" in config_texto
+

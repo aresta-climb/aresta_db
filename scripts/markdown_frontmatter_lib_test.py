@@ -125,3 +125,29 @@ def test_salvar_md_com_frontmatter_aceita_caminho_string(tmp_path: Path) -> None
     fm_lido, corpo_lido = parse_md_com_frontmatter(arquivo)
     assert fm_lido == {"ok": True}
     assert corpo_lido == "Texto"
+
+
+def test_salvar_md_com_frontmatter_escreve_lf_preserva_mtime_e_usa_bloco_literal(
+    tmp_path: Path,
+) -> None:
+    """Garante que salvar_md_com_frontmatter grava em LF, usa '|-' em multilinhas e preserva mtime quando igual."""
+    import os
+
+    arquivo = tmp_path / "salvo_lf.md"
+    frontmatter = {"id": "09", "descricao": "Linha 1\n\nLinha 2"}
+    corpo = "Corpo linha 1\r\nCorpo linha 2"
+
+    salvar_md_com_frontmatter(arquivo, frontmatter, corpo)
+
+    raw_bytes = arquivo.read_bytes()
+    assert b"\r\n" not in raw_bytes
+    texto = raw_bytes.decode("utf-8")
+    assert "id: '09'" in texto
+    assert "descricao: |-\n  Linha 1\n\n  Linha 2" in texto
+
+    mtime_antigo = 1_600_000_000
+    os.utime(arquivo, (mtime_antigo, mtime_antigo))
+
+    salvar_md_com_frontmatter(arquivo, frontmatter, "Corpo linha 1\nCorpo linha 2")
+    assert int(arquivo.stat().st_mtime) == mtime_antigo
+

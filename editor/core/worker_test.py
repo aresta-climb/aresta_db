@@ -731,7 +731,7 @@ class TestWorker(unittest.TestCase):
         mock_capturar_excecao.assert_called_once()
 
     def test_tarefa_salvamento_grava_croqui_yaml_com_spdx_e_copyright(self):
-        """Valida que TarefaSalvamento salva o arquivo croqui.yaml já com os cabeçalhos SPDX e Copyright."""
+        """Valida que TarefaSalvamento salva croqui.yaml em LF com SPDX, Copyright e bloco literal multilinha."""
         import shutil
         import tempfile
 
@@ -749,9 +749,13 @@ class TestWorker(unittest.TestCase):
                 workspace=mock_ws,
                 storage=None,
                 caminho_db=caminho_db,
-                croqui_data={"id": "teste", "nome": "Croqui Teste"},
-                novo_id="teste",
-                id_atual="teste",
+                croqui_data={
+                    "id": "08",
+                    "nome": "Croqui Teste",
+                    "descricao": "Linha 1\n\nLinha 2",
+                },
+                novo_id="08",
+                id_atual="08",
                 undo_index=1,
             )
             tarefa.sucesso = MagicMock()
@@ -761,11 +765,15 @@ class TestWorker(unittest.TestCase):
 
             yaml_salvo = caminho_db / "croqui.yaml"
             assert yaml_salvo.exists()
-            linhas = yaml_salvo.read_text(encoding="utf-8").splitlines()
+            raw_bytes = yaml_salvo.read_bytes()
+            assert b"\r\n" not in raw_bytes
+            conteudo = raw_bytes.decode("utf-8")
+            linhas = conteudo.splitlines()
             assert len(linhas) >= 2
             assert linhas[0].strip() == "# SPDX-License-Identifier: ODbL-1.0"
             assert linhas[1].strip() == "# Copyright (C) 2026 Aresta Climb Contributors"
-            assert "id: teste" in yaml_salvo.read_text(encoding="utf-8")
+            assert "id: '08'" in conteudo
+            assert "descricao: |-\n  Linha 1\n\n  Linha 2" in conteudo
         finally:
             shutil.rmtree(tmp_dir, ignore_errors=True)
 

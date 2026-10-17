@@ -85,6 +85,23 @@ def _extrair_id_croqui_da_branch(branch: str) -> str:
     return branch
 
 
+_EXTENSOES_TEXTO_NORMALIZAVEL = {".md", ".yaml", ".yml", ".json"}
+
+
+def _arquivos_iguais(arq_a: Path, arq_b: Path) -> bool:
+    """Compara dois arquivos, ignorando diferenças puras de CRLF vs LF em arquivos de texto."""
+    if filecmp.cmp(arq_a, arq_b, shallow=False):
+        return True
+    if arq_a.suffix.lower() in _EXTENSOES_TEXTO_NORMALIZAVEL:
+        try:
+            texto_a = arq_a.read_bytes().decode("utf-8").replace("\r\n", "\n")
+            texto_b = arq_b.read_bytes().decode("utf-8").replace("\r\n", "\n")
+            return texto_a == texto_b
+        except UnicodeDecodeError:
+            return False
+    return False
+
+
 class ServicoSubmissao:
     """
     Biblioteca pura para empacotamento, commit assinado com pygit2,
@@ -132,7 +149,7 @@ class ServicoSubmissao:
             if item.is_dir():
                 self._espelhar_diretorio(item, destino_item)
             else:
-                if not destino_item.exists() or not filecmp.cmp(item, destino_item, shallow=False):
+                if not destino_item.exists() or not _arquivos_iguais(item, destino_item):
                     shutil.copy2(item, destino_item)
 
         # 2. Remove arquivos/diretórios no destino que não existem mais na origem
@@ -185,7 +202,7 @@ class ServicoSubmissao:
                 modificados.append(rel_path)
             else:
                 arquivo_base = arquivos_base[rel_path]
-                if not filecmp.cmp(arquivo_origem, arquivo_base, shallow=False):
+                if not _arquivos_iguais(arquivo_origem, arquivo_base):
                     modificados.append(rel_path)
 
         # 5. Detecta arquivos removidos

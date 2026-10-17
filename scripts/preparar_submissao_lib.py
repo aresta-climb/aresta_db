@@ -1,38 +1,17 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
+import json
 import os
 import re
 import shutil
 import sys
 import time
+from collections import Counter
+from pathlib import Path
 from typing import Any
 
 import yaml
-
-
-# ===========================================================================
-# PYAML CONFIGURATION
-# ===========================================================================
-# O PyYAML 1.1 interpreta '08' e '09' como strings automaticamente porque não são octais válidos.
-# Porém, ao fazer o dump, ele decide remover as aspas por achar que são strings seguras.
-# Para manter a formatação visual (e compatibilidade com YAML 1.2), forçamos as aspas
-# em qualquer string que seja composta puramente de dígitos.
-def _str_representer(dumper: Any, data: str) -> Any:
-    if "\n" in data:
-        return dumper.represent_scalar("tag:yaml.org,2002:str", data, style="|")
-    if data.isdigit():
-        return dumper.represent_scalar("tag:yaml.org,2002:str", data, style="'")
-    return dumper.represent_scalar("tag:yaml.org,2002:str", data)
-
-
-yaml.add_representer(str, _str_representer)
-yaml.add_representer(str, _str_representer, Dumper=yaml.SafeDumper)
-
-import json
-from collections import Counter
-from pathlib import Path
-
 from google.protobuf import json_format
 from PIL import Image
 
@@ -47,6 +26,16 @@ from editor.core.processamento_imagem_campo import (
     QUALIDADE_WEBP_PADRAO,
     comprimir_imagem_para_bytes_webp,
 )
+from editor.core.serializacao_util import (
+    configurar_yaml_representer,
+    representar_string_yaml,
+)
+
+# ===========================================================================
+# PYAML CONFIGURATION
+# ===========================================================================
+_str_representer = representar_string_yaml
+configurar_yaml_representer()
 from scripts.gerenciar_uids_lib import validar_uid
 from scripts.markdown_frontmatter_lib import (
     parse_md_com_frontmatter as parse_md_com_frontmatter,
@@ -369,7 +358,8 @@ def processar_croqui_yaml(
         modificado_yaml = True
 
     if modificado_yaml:
-        with open(croqui_yaml_path, "w", encoding="utf-8") as f:
+        configurar_yaml_representer()
+        with open(croqui_yaml_path, "w", encoding="utf-8", newline="\n") as f:
             yaml.dump(croqui_data, f, allow_unicode=True, sort_keys=False)
 
 
@@ -922,7 +912,8 @@ def corrigir_database(pico_path: Path) -> bool:
             corrigir_setores_ou_grupos_recursivo(pico["setores_ou_grupos"], pico_path)
 
     if yaml_modificado:
-        with open(croqui_yaml_path, "w", encoding="utf-8") as f:
+        configurar_yaml_representer()
+        with open(croqui_yaml_path, "w", encoding="utf-8", newline="\n") as f:
             yaml.dump(croqui_data, f, allow_unicode=True, sort_keys=False)
 
     # 4. Limpeza de imagens órfãs
@@ -1916,7 +1907,8 @@ def compilar_croqui(
 
     # 5. Salva compilado.yaml
     if destino_yaml:
-        with open(destino_yaml, "w", encoding="utf-8") as f:
+        configurar_yaml_representer()
+        with open(destino_yaml, "w", encoding="utf-8", newline="\n") as f:
             yaml.dump(croqui_data, f, allow_unicode=True, sort_keys=False)
 
     # 6. Salva compilado.binarypb
@@ -2016,7 +2008,7 @@ def garantir_comentarios_licenca(file_path: Path) -> None:
     ultimo_erro: Exception | None = None
     for tentativa in range(1, 4):
         try:
-            with open(file_path, "w", encoding="utf-8") as f:
+            with open(file_path, "w", encoding="utf-8", newline="\n") as f:
                 f.writelines(linhas_limpas)
             sucesso_escrita = True
             break

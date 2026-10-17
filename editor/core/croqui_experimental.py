@@ -68,6 +68,9 @@ class GerenciadorCroquiExperimental:
 
         dict_meta = MessageToDict(meta, preserving_proto_field_name=True)
 
+        from editor.core.serializacao_util import configurar_yaml_representer
+
+        configurar_yaml_representer()
         yaml_path = caminho_raiz / "croqui_experimental.yaml"
         with open(yaml_path, "w", encoding="utf-8", newline="\n") as f:
             yaml_str = yaml.dump(dict_meta, allow_unicode=True, sort_keys=False)
@@ -76,6 +79,7 @@ class GerenciadorCroquiExperimental:
         # Inicializar repositório Git local
         # O repositório será criado na raiz do croqui experimental
         repo = pygit2.init_repository(str(caminho_raiz), False)
+        repo.config["core.autocrlf"] = False
 
         # Criar um commit inicial vazio ou com os arquivos base para o git existir?
         # Apenas criar os arquivos de metadados e commitar

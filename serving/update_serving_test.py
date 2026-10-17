@@ -9,27 +9,40 @@ from unittest.mock import MagicMock, patch
 
 import boto3
 import pytest
+from botocore.exceptions import ClientError
 from moto import mock_aws
 
-# Como estamos fazendo TDD, importaremos a classe principal
-# que será implementada em update_serving.py
-from update_serving import CloudflarePurger, Deployer, get_db_version, load_arquivos_serving
+from serving.update_serving import (
+    CloudflarePurger,
+    Deployer,
+    _migracao_afeta_serving,
+    get_db_version,
+    load_arquivos_serving,
+)
 
 
-def test_get_db_version(tmp_path):
+def test_migracao_afeta_serving_casos_borda(tmp_path: Path) -> None:
+    # Objeto sem read_text
+    assert _migracao_afeta_serving(object()) is True
+
+    # Arquivo com erro de sintaxe Python
+    arq_invalido = tmp_path / "invalido.py"
+    arq_invalido.write_text("def quebrado(:\n", encoding="utf-8")
+    assert _migracao_afeta_serving(arq_invalido) is True
+
+
+def test_get_db_version(tmp_path: Path) -> None:
     if "DB_VERSION" in os.environ:
         del os.environ["DB_VERSION"]
 
-    with patch("update_serving.Path") as mock_path, patch("subprocess.run") as mock_run:
-        # Simula o caminho base_dir.exists()
+    with patch("serving.update_serving.Path") as mock_path:
         mock_base = (
             mock_path.return_value.resolve.return_value.parent.parent.__truediv__.return_value
         )
         mock_base.exists.return_value = True
 
-        # Simula a iteração glob
         class MockFile:
-            def __init__(self, name):
+            def __init__(self, name: str) -> None:
                 self.name = name
 
         mock_base.glob.return_value = [
@@ -53,24 +66,29 @@ def test_get_db_version_ignora_migracao_database_only(tmp_path: Path) -> None:
         "# Migração normal\nAFETA_VERSAO_SERVING = True\n", encoding="utf-8"
     )
 
-    # Migração 5 database-only (não afeta serving)
+    # Migração 5 database-only com type annotation (não afeta serving)
     (migracoes_dir / "0005_migrar_uids_e_rotulos.py").write_text(
         "# Migração restrita ao banco de dados interno\nAFETA_VERSAO_SERVING: bool = False\n",
+        encoding="utf-8",
+    )
+
+    # Migração 6 database-only com atribuição simples (não afeta serving)
+    (migracoes_dir / "0006_outra_migracao_interna.py").write_text(
+        "AFETA_VERSAO_SERVING = False\n",
         encoding="utf-8",
     )
 
     # Teste de migração (ignorado por convenção _test.py)
     (migracoes_dir / "0005_migrar_uids_e_rotulos_test.py").write_text("", encoding="utf-8")
 
-    with patch("update_serving.Path") as mock_path:
+    with patch("serving.update_serving.Path") as mock_path:
         mock_path.return_value.resolve.return_value.parent.parent.__truediv__.return_value = (
             migracoes_dir
         )
-        # Deve retornar v4 porque a migração 5 é database-only
         assert get_db_version() == "v4"
 
 
-def criar_manifesto(arquivos_dict: dict) -> str:
+def criar_manifesto(arquivos_dict: dict[str, str]) -> str:
     lines = ["arquivos:"]
     for k, v in arquivos_dict.items():
         lines.append(f"- caminho_relativo: {k}")
@@ -78,7 +96,7 @@ def criar_manifesto(arquivos_dict: dict) -> str:
     return "\n".join(lines)
 
 
-def test_load_arquivos_serving():
+def test_load_arquivos_serving() -> None:
     data = criar_manifesto({"a.txt": "hashA", "b.png": "hashB"})
     parsed = load_arquivos_serving(data)
     assert parsed["arquivos"][0]["caminho_relativo"] == "a.txt"
@@ -88,7 +106,7 @@ def test_load_arquivos_serving():
 
 
 @pytest.fixture
-def aws_credentials():
+def aws_credentials() -> None:
     os.environ["AWS_ACCESS_KEY_ID"] = "testing"
     os.environ["AWS_SECRET_ACCESS_KEY"] = "testing"
     os.environ["AWS_SECURITY_TOKEN"] = "testing"
@@ -100,7 +118,7 @@ def aws_credentials():
 
 
 @pytest.fixture
-def mock_s3(aws_credentials):
+def mock_s3(aws_credentials: None):
     with mock_aws():
         s3 = boto3.client("s3", region_name="us-east-1")
         s3.create_bucket(Bucket="aresta")
@@ -108,17 +126,29 @@ def mock_s3(aws_credentials):
 
 
 @pytest.fixture
-def deployer(tmp_path, aws_credentials, mock_s3):
+def deployer(tmp_path: Path, aws_credentials: None, mock_s3) -> Deployer:
     gen_dir = tmp_path / "generated"
     gen_dir.mkdir()
 
-    with patch("update_serving.get_db_version", return_value="v1"):
+    with patch("serving.update_serving.get_db_version", return_value="v1"):
         d = Deployer(generated_dir=gen_dir)
         d.s3 = mock_s3
         return d
 
 
-def test_cloudflare_purger_success():
+def test_deployer_init_with_endpoint(
+    tmp_path: Path, aws_credentials: None, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    monkeypatch.setenv("R2_ENDPOINT_URL", "https://fake-r2.cloudflarestorage.com")
+    with (
+        patch("serving.update_serving.get_db_version", return_value="v1"),
+        patch("serving.update_serving.boto3.client") as mock_boto,
+    ):
+        Deployer(generated_dir=tmp_path)
+        assert mock_boto.call_args[1]["endpoint_url"] == "https://fake-r2.cloudflarestorage.com"
+
+
+def test_cloudflare_purger_success() -> None:
     purger = CloudflarePurger()
     os.environ["CLOUDFLARE_ZONE_ID"] = "fake-zone"
     os.environ["CLOUDFLARE_CACHE_PURGE_API_TOKEN"] = "fake-token"
@@ -141,11 +171,12 @@ def test_cloudflare_purger_success():
                 "https://serving.arestaclimb.com/v1/indice.binarypb",
                 "https://serving.arestaclimb.com/v1/indice.yaml",
                 "https://serving.arestaclimb.com/v1/arquivos_serving.yaml",
+                "https://serving.arestaclimb.com/v1/catalogo.db",
             ]
         }
 
 
-def test_cloudflare_purger_missing_credentials():
+def test_cloudflare_purger_missing_credentials() -> None:
     purger = CloudflarePurger()
     if "CLOUDFLARE_ZONE_ID" in os.environ:
         del os.environ["CLOUDFLARE_ZONE_ID"]
@@ -156,50 +187,76 @@ def test_cloudflare_purger_missing_credentials():
         purger.purge_manifests("v1")
 
 
-def test_cloudflare_purger_http_error():
+def test_cloudflare_purger_http_error() -> None:
     purger = CloudflarePurger()
     os.environ["CLOUDFLARE_ZONE_ID"] = "fake-zone"
     os.environ["CLOUDFLARE_CACHE_PURGE_API_TOKEN"] = "fake-token"
 
     with patch("urllib.request.urlopen") as mock_urlopen:
-        mock_urlopen.side_effect = urllib.error.HTTPError("url", 403, "Forbidden", {}, None)
+        mock_urlopen.side_effect = urllib.error.HTTPError("url", 403, "Forbidden", {}, None)  # type: ignore[arg-type]
         with pytest.raises(urllib.error.HTTPError):
             purger.purge_manifests("v1")
 
 
-def test_full_deploy_fallback(deployer, tmp_path, mock_s3):
-    local_arquivos = {"indice.binarypb": "hash1", "pico/compilado.binarypb": "hash2"}
+def test_get_remote_manifest_other_client_error(deployer: Deployer) -> None:
+    deployer.s3 = MagicMock()
+    deployer.s3.get_object.side_effect = ClientError(
+        {"Error": {"Code": "AccessDenied", "Message": "Denied"}}, "GetObject"
+    )
+    with pytest.raises(ClientError):
+        deployer._get_remote_manifest()
 
-    # Prepara manifesto local
+
+def test_get_local_manifest_not_found(deployer: Deployer) -> None:
+    with pytest.raises(FileNotFoundError, match="Manifesto local não encontrado"):
+        deployer._get_local_manifest()
+
+
+def test_full_deploy_fallback(deployer: Deployer, tmp_path: Path, mock_s3) -> None:
+    local_arquivos = {
+        "indice.binarypb": "hash1",
+        "catalogo.db": "hash_cat",
+        "pico/compilado.binarypb": "hash2",
+    }
+
     manifest_bytes = criar_manifesto(local_arquivos).encode("utf-8")
     (deployer.generated_dir / "arquivos_serving.yaml").write_bytes(manifest_bytes)
 
-    # Prepara arquivos locais físicos
     (deployer.generated_dir / "indice.binarypb").write_bytes(b"content1")
+    (deployer.generated_dir / "catalogo.db").write_bytes(b"sqlite-new")
     (deployer.generated_dir / "pico").mkdir()
     (deployer.generated_dir / "pico/compilado.binarypb").write_bytes(b"content2")
 
-    with patch("subprocess.run") as mock_run:
-        with patch.object(deployer.purger, "purge_manifests"):
-            deployer.execute()
+    with (
+        patch("subprocess.run") as mock_run,
+        patch("serving.update_serving.sincronizar_catalogo_d1") as mock_sync_d1,
+        patch.object(deployer.purger, "purge_manifests"),
+    ):
+        deployer.execute()
 
-            # Checa se o fallback checkout foi chamado
-            mock_run.assert_any_call(
-                ["git", "checkout", "HEAD", "--ignore-skip-worktree-bits", "--", "generated/"],
-                check=True,
-            )
+        mock_run.assert_any_call(
+            ["git", "checkout", "HEAD", "--ignore-skip-worktree-bits", "--", "generated/"],
+            check=True,
+        )
+        mock_sync_d1.assert_called_once_with(
+            caminho_catalogo_novo=deployer.generated_dir / "catalogo.db",
+            caminho_catalogo_anterior_r2=None,
+        )
 
-            # Valida S3
-            objs = mock_s3.list_objects_v2(Bucket="aresta").get("Contents", [])
-            keys = {o["Key"] for o in objs}
-            assert "v1/arquivos_serving.yaml" in keys
-            assert "v1/indice.binarypb" in keys
-            assert "v1/pico/compilado.binarypb" in keys
+        objs = mock_s3.list_objects_v2(Bucket="aresta").get("Contents", [])
+        keys = {o["Key"] for o in objs}
+        assert "v1/arquivos_serving.yaml" in keys
+        assert "v1/indice.binarypb" in keys
+        assert "v1/catalogo.db" in keys
+        assert "v1/pico/compilado.binarypb" in keys
 
 
-def test_delta_deploy(deployer, tmp_path, mock_s3):
+def test_delta_deploy_sincroniza_d1_antes_do_upload_r2(
+    deployer: Deployer, tmp_path: Path, mock_s3
+) -> None:
     remoto_arquivos = {
         "indice.binarypb": "hash_old",
+        "catalogo.db": "hash_cat_old",
         "mantido.png": "hash_same",
         "deletado.txt": "hash_del",
     }
@@ -208,130 +265,186 @@ def test_delta_deploy(deployer, tmp_path, mock_s3):
         Key="v1/arquivos_serving.yaml",
         Body=criar_manifesto(remoto_arquivos).encode("utf-8"),
     )
+    mock_s3.put_object(
+        Bucket="aresta",
+        Key="v1/catalogo.db",
+        Body=b"sqlite-old-from-r2",
+    )
 
     local_arquivos = {
-        "indice.binarypb": "hash_new",  # Modificado
-        "mantido.png": "hash_same",  # Inalterado
-        "novo_pico/compilado.binarypb": "hash_add",  # Adicionado
+        "indice.binarypb": "hash_new",
+        "catalogo.db": "hash_cat_new",
+        "mantido.png": "hash_same",
+        "novo_pico/compilado.binarypb": "hash_add",
     }
     manifest_bytes = criar_manifesto(local_arquivos).encode("utf-8")
     (deployer.generated_dir / "arquivos_serving.yaml").write_bytes(manifest_bytes)
 
     (deployer.generated_dir / "indice.binarypb").write_bytes(b"new1")
+    (deployer.generated_dir / "catalogo.db").write_bytes(b"sqlite-new-local")
     (deployer.generated_dir / "novo_pico").mkdir()
     (deployer.generated_dir / "novo_pico/compilado.binarypb").write_bytes(b"new2")
 
-    with patch("subprocess.run") as mock_run:
-        with patch.object(deployer.purger, "purge_manifests"):
+    bytes_anterior_recebido: list[bytes] = []
+
+    def _verificar_sync_d1(
+        caminho_catalogo_novo: Path, caminho_catalogo_anterior_r2: Path | None
+    ) -> str:
+        assert caminho_catalogo_anterior_r2 is not None
+        bytes_anterior_recebido.append(caminho_catalogo_anterior_r2.read_bytes())
+        # Garante que no momento do sync D1 o R2 ainda contém o catalogo.db antigo!
+        obj_atual_r2 = mock_s3.get_object(Bucket="aresta", Key="v1/catalogo.db")
+        assert obj_atual_r2["Body"].read() == b"sqlite-old-from-r2"
+        return "delta"
+
+    with (
+        patch("subprocess.run") as mock_run,
+        patch(
+            "serving.update_serving.sincronizar_catalogo_d1",
+            side_effect=_verificar_sync_d1,
+        ) as mock_sync_d1,
+        patch.object(deployer.purger, "purge_manifests"),
+    ):
+        deployer.execute()
+
+        assert mock_sync_d1.call_count == 1
+        assert bytes_anterior_recebido == [b"sqlite-old-from-r2"]
+
+        mock_run.assert_any_call(
+            [
+                "git",
+                "checkout",
+                "HEAD",
+                "--ignore-skip-worktree-bits",
+                "--",
+                "generated/arquivos_serving.yaml",
+                "generated/catalogo.db",
+                "generated/indice.binarypb",
+                "generated/novo_pico/compilado.binarypb",
+            ],
+            check=True,
+        )
+
+        # Após o sync D1, o R2 foi atualizado com o novo catalogo.db
+        obj_final_r2 = mock_s3.get_object(Bucket="aresta", Key="v1/catalogo.db")
+        assert obj_final_r2["Body"].read() == b"sqlite-new-local"
+
+
+def test_delta_deploy_falha_d1_aborta_antes_de_alterar_r2(
+    deployer: Deployer, mock_s3
+) -> None:
+    remoto_arquivos = {"indice.binarypb": "hash_old", "catalogo.db": "hash_cat_old"}
+    mock_s3.put_object(
+        Bucket="aresta",
+        Key="v1/arquivos_serving.yaml",
+        Body=criar_manifesto(remoto_arquivos).encode("utf-8"),
+    )
+    mock_s3.put_object(
+        Bucket="aresta",
+        Key="v1/catalogo.db",
+        Body=b"sqlite-old-from-r2",
+    )
+
+    local_arquivos = {"indice.binarypb": "hash_new", "catalogo.db": "hash_cat_new"}
+    (deployer.generated_dir / "arquivos_serving.yaml").write_bytes(
+        criar_manifesto(local_arquivos).encode("utf-8")
+    )
+    (deployer.generated_dir / "indice.binarypb").write_bytes(b"new1")
+    (deployer.generated_dir / "catalogo.db").write_bytes(b"sqlite-new-local")
+
+    with (
+        patch("subprocess.run"),
+        patch(
+            "serving.update_serving.sincronizar_catalogo_d1",
+            side_effect=RuntimeError("Falha no D1"),
+        ),
+    ):
+        with pytest.raises(RuntimeError, match="Falha no D1"):
             deployer.execute()
 
-            mock_run.assert_any_call(
-                [
-                    "git",
-                    "checkout",
-                    "HEAD",
-                    "--ignore-skip-worktree-bits",
-                    "--",
-                    "generated/arquivos_serving.yaml",
-                    "generated/indice.binarypb",
-                    "generated/novo_pico/compilado.binarypb",
-                ],
-                check=True,
-            )
-
-            objs = mock_s3.list_objects_v2(Bucket="aresta").get("Contents", [])
-            keys = {o["Key"] for o in objs}
-            assert "v1/indice.binarypb" in keys
-            assert "v1/novo_pico/compilado.binarypb" in keys
-            assert "v1/arquivos_serving.yaml" in keys
-            assert "v1/deletado.txt" not in keys
+    # R2 permanece intacto com o catalogo.db antigo
+    obj_r2 = mock_s3.get_object(Bucket="aresta", Key="v1/catalogo.db")
+    assert obj_r2["Body"].read() == b"sqlite-old-from-r2"
 
 
-def test_delta_deploy_no_changes(deployer, capsys, mock_s3):
+def test_sincronizar_catalogo_d1_erro_s3_inesperado(deployer: Deployer) -> None:
+    (deployer.generated_dir / "catalogo.db").write_bytes(b"sqlite-local")
+    deployer.s3 = MagicMock()
+    deployer.s3.get_object.side_effect = ClientError(
+        {"Error": {"Code": "InternalError", "Message": "S3 error"}}, "GetObject"
+    )
+    with pytest.raises(ClientError):
+        deployer._sincronizar_catalogo_d1()
+
+
+def test_delta_deploy_no_changes(deployer: Deployer, capsys, mock_s3) -> None:
     arquivos = {"indice.binarypb": "same", "compilado.binarypb": "same"}
     data = criar_manifesto(arquivos).encode("utf-8")
     mock_s3.put_object(Bucket="aresta", Key="v1/arquivos_serving.yaml", Body=data)
     (deployer.generated_dir / "arquivos_serving.yaml").write_bytes(data)
 
-    with patch("subprocess.run") as mock_run:
+    with patch("subprocess.run"):
         deployer.execute()
 
     out, _ = capsys.readouterr()
     assert "Nenhum arquivo modificado. Deploy pulado." in out
 
 
-def test_delta_deploy_with_indice_in_modified(deployer, mock_s3):
-    remoto = {"indice.binarypb": "old"}
+def test_delta_deploy_with_compilado_only(deployer: Deployer, mock_s3) -> None:
+    remoto = {"indice.binarypb": "same", "catalogo.db": "same", "compilado.binarypb": "old"}
     mock_s3.put_object(
         Bucket="aresta",
         Key="v1/arquivos_serving.yaml",
         Body=criar_manifesto(remoto).encode("utf-8"),
     )
 
-    local = {"indice.binarypb": "new"}
-    (deployer.generated_dir / "arquivos_serving.yaml").write_text(
-        criar_manifesto(local), encoding="utf-8"
-    )
-    (deployer.generated_dir / "indice.binarypb").write_bytes(b"content")
-
-    with patch("subprocess.run") as mock_run:
-        with patch.object(deployer.purger, "purge_manifests"):
-            deployer.execute()
-            mock_run.assert_any_call(
-                [
-                    "git",
-                    "checkout",
-                    "HEAD",
-                    "--ignore-skip-worktree-bits",
-                    "--",
-                    "generated/arquivos_serving.yaml",
-                    "generated/indice.binarypb",
-                ],
-                check=True,
-            )
-
-
-def test_delta_deploy_with_compilado_only(deployer, mock_s3):
-    remoto = {"indice.binarypb": "same", "compilado.binarypb": "old"}
-    mock_s3.put_object(
-        Bucket="aresta",
-        Key="v1/arquivos_serving.yaml",
-        Body=criar_manifesto(remoto).encode("utf-8"),
-    )
-
-    local = {"indice.binarypb": "same", "compilado.binarypb": "new"}
+    local = {"indice.binarypb": "same", "catalogo.db": "same", "compilado.binarypb": "new"}
     (deployer.generated_dir / "arquivos_serving.yaml").write_text(
         criar_manifesto(local), encoding="utf-8"
     )
     (deployer.generated_dir / "compilado.binarypb").write_bytes(b"content")
 
-    with patch("subprocess.run") as mock_run:
-        with patch.object(deployer.purger, "purge_manifests"):
-            deployer.execute()
-            mock_run.assert_any_call(
-                [
-                    "git",
-                    "checkout",
-                    "HEAD",
-                    "--ignore-skip-worktree-bits",
-                    "--",
-                    "generated/arquivos_serving.yaml",
-                    "generated/compilado.binarypb",
-                    "generated/indice.binarypb",
-                ],
-                check=True,
-            )
+    with (
+        patch("subprocess.run") as mock_run,
+        patch.object(deployer.purger, "purge_manifests"),
+    ):
+        deployer.execute()
+        mock_run.assert_any_call(
+            [
+                "git",
+                "checkout",
+                "HEAD",
+                "--ignore-skip-worktree-bits",
+                "--",
+                "generated/arquivos_serving.yaml",
+                "generated/catalogo.db",
+                "generated/compilado.binarypb",
+                "generated/indice.binarypb",
+            ],
+            check=True,
+        )
 
 
-def test_upload_file_content_types(deployer, mock_s3):
-    (deployer.generated_dir / "doc.pdf").write_bytes(b"%PDF-1.4 fake")
-    (deployer.generated_dir / "imagem.webp").write_bytes(b"fake webp")
+def test_upload_file_content_types_e_operacoes_vazias(
+    deployer: Deployer, mock_s3
+) -> None:
+    arquivos_teste = {
+        "doc.pdf": "application/pdf",
+        "imagem.webp": "image/webp",
+        "foto.jpg": "image/jpeg",
+        "icone.png": "image/png",
+        "texto.md": "text/markdown; charset=utf-8",
+        "config.yaml": "text/yaml; charset=utf-8",
+        "binario.bin": "application/octet-stream",
+    }
+    for nome in arquivos_teste:
+        (deployer.generated_dir / nome).write_bytes(b"dados")
+        deployer._upload_file(nome)
 
-    deployer._upload_file("doc.pdf")
-    deployer._upload_file("imagem.webp")
+    for nome, content_type in arquivos_teste.items():
+        obj = mock_s3.get_object(Bucket="aresta", Key=f"v1/{nome}")
+        assert obj["ContentType"] == content_type
 
-    obj_pdf = mock_s3.get_object(Bucket="aresta", Key="v1/doc.pdf")
-    assert obj_pdf["ContentType"] == "application/pdf"
-
-    obj_webp = mock_s3.get_object(Bucket="aresta", Key="v1/imagem.webp")
-    assert obj_webp["ContentType"] == "image/webp"
+    # Listas vazias não devem falhar
+    deployer._upload_files_parallel([])
+    deployer._delete_files_bulk([])

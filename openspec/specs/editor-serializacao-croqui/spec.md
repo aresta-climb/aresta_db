@@ -1,33 +1,39 @@
 # editor-serializacao-croqui Specification
 
 ## Purpose
-
-Define o contrato de persistência atômica e serialização limpa de croquis no disco pelo Editor Desktop, garantindo total isolamento de metadados temporários de edição e impedindo o vazamento de extensões de shadow state para o banco de dados fonte.
+Especificação das regras de serialização determinística de arquivos YAML e Markdown de croquis, padronização de quebras de linha em LF e escrita condicional no disco entre o editor e o pipeline de compilação.
 
 ## Requirements
 
-### Requirement: Isolamento Estrito de Shadow State na Serialização
-O sistema SHALL garantir que todas as extensões e metadados de shadow state de edição em memória (`ext_metadados_arquivo`) sejam expurgados incondicionalmente antes de gravar o arquivo `croqui.yaml` ou qualquer arquivo Markdown (`.md`) no disco, mesmo quando os elementos contiverem apenas caminho relativo ou não possuírem conteúdo inline expandido.
+### Requirement: Unificação do Representer YAML entre Editor e Compilador
+O sistema SHALL utilizar uma única função canônica de representação de strings no PyYAML (`representar_string_yaml`) registrada tanto no `yaml.Dumper` quanto no `yaml.SafeDumper`, garantindo formatação idêntica entre o salvamento do editor (`CroquiModel`, `TarefaSalvamento`, `GerenciadorCroquiExperimental`) e o pipeline de compilação (`preparar_submissao_lib`, `markdown_frontmatter_lib`, `deploy_generated`).
 
-#### Scenario: Serialização de croqui com mapas gerais contendo metadados de arquivo
-- **WHEN** um croqui possuir `mapas_gerais` referenciado por caminho e com extensão de metadados de arquivo associada
-- **THEN** a serialização para o disco SHALL gravar o arquivo `croqui.yaml` contendo apenas os campos canônicos, sem qualquer chave de extensão `ext_metadados_arquivo`
+#### Scenario: Serialização de strings multilinhas em bloco literal
+- **WHEN** um campo textual (como `descricao` ou `conteudo`) contiver quebras de linha (`\n`) durante a serialização no editor ou no compilador
+- **THEN** o serializador YAML SHALL representá-lo utilizando o estilo de bloco literal (`|` / `|-`), sem convertê-lo para string entre aspas simples (`'...'`)
 
-#### Scenario: Serialização de croqui com setores ou grupos contendo apenas caminho
-- **WHEN** um setor ou grupo possuir a extensão `ext_metadados_arquivo` configurada mas estiver associado a um caminho de arquivo sem conteúdo inline carregado
-- **THEN** a serialização para o disco SHALL desassociar a extensão e gravar `croqui.yaml` sem chaves de extensão de shadow state
+#### Scenario: Serialização de strings numéricas com aspas simples
+- **WHEN** uma string for composta exclusivamente por dígitos (positivos como `'08'`, `'1994'` ou negativos como `'-1'`)
+- **THEN** o serializador YAML SHALL representá-la entre aspas simples (`'`), preservando o tipo string em parsers YAML
 
-#### Scenario: Validação pós-deploy sem extensões vazadas
-- **WHEN** qualquer croqui serializado pelo editor for submetido à rotina de compilação e deploy
-- **THEN** a validação `validar_sem_extensoes_vazadas` SHALL aprovar o diretório do croqui sem encontrar nenhuma ocorrência de `ext_metadados` em arquivos `.yaml` ou `.md`
+#### Scenario: Não interferência no estado global do PyYAML após salvamento no editor
+- **WHEN** `CroquiModel.extrair_arquivos_e_serializar` for executado antes de `deploy()` no mesmo processo Python
+- **THEN** o representer ativo no `yaml.Dumper` SHALL continuar formatando strings multilinhas com `|` em `compilado.yaml` e `indice.yaml`
 
-### Requirement: Sanitização Recursiva de Dicionários Exportados
-O sistema SHALL sanitizar recursivamente toda a estrutura de dicionários resultante de conversões Protobuf antes de gravar arquivos estruturados no disco (`croqui.yaml` e frontmatters de arquivos Markdown), removendo sumariamente qualquer chave que contenha `ext_metadados` ou corresponda a qualificadores de extensão com colchetes.
+### Requirement: Escrita Textual Condicional e Padronizada em LF
+O sistema SHALL gravar arquivos textuais estruturados (`.yaml` e `.md`) sempre com quebras de linha `LF` (`\n`) e SHALL abster-se de sobrescrever o arquivo no disco quando o novo conteúdo normalizado em `LF` for idêntico ao conteúdo já existente no disco (também normalizado em `LF`).
 
-#### Scenario: Remoção de chaves de extensão no dicionário do croqui
-- **WHEN** a mensagem `Croqui` for convertida em dicionário Python para gravação do `croqui.yaml`
-- **THEN** o dicionário final resultante SHALL ser desprovido de quaisquer chaves iniciadas por `[` ou contendo `ext_metadados` em todos os níveis de profundidade
+#### Scenario: Salvamento de croqui com setores não modificados
+- **WHEN** o usuário editar apenas um setor de um croqui e acionar o salvamento no editor
+- **THEN** os arquivos `.md` dos demais setores, grupos, mapas gerais e botões cujo conteúdo lógico não mudou SHALL permanecer intocados no disco (preservando seu `mtime` original)
 
-#### Scenario: Preservação de dados válidos durante a sanitização
-- **WHEN** a sanitização recursiva for executada sobre a estrutura do croqui
-- **THEN** todos os campos e atributos canônicos (como `id`, `uid`, `nome`, `picos`, `setores_ou_grupos`, `botoes` e caminhos) SHALL ser integralmente preservados sem mutações indevidas
+#### Scenario: Padronização estrita de LF em todos os pontos de escrita
+- **WHEN** `croqui.yaml`, arquivos `.md` com frontmatter, `compilado.yaml`, `indice.yaml` ou `STATUS_CROQUIS.md` forem gravados em qualquer sistema operacional (incluindo Windows)
+- **THEN** os bytes gravados no disco SHALL conter exclusivamente `\n` (`LF`) como separador de linhas, sem ocorrências de `\r\n` (`CRLF`)
+
+### Requirement: Atualização Condicional do Relatório de Saúde dos Croquis
+O script `scripts/medir_saude_croquis.py` SHALL comparar a tabela Markdown gerada com a tabela presente no arquivo `STATUS_CROQUIS.md` existente e SHALL regravar o arquivo (atualizando o cabeçalho `Relatório gerado em:`) somente quando houver alteração real no conteúdo da tabela.
+
+#### Scenario: Execução de medição de saúde sem mudanças nos indicadores
+- **WHEN** `medir_saude_croquis.py` for executado e a tabela de status resultante for idêntica à tabela já presente em `STATUS_CROQUIS.md`
+- **THEN** o arquivo `STATUS_CROQUIS.md` SHALL permanecer inalterado no disco, mantendo a data/hora anterior de geração

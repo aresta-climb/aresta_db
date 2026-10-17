@@ -171,10 +171,12 @@ def test_calcular_deltas_alteracao_e_remocao(tmp_path: Path) -> None:
 
     # Vias: v2 em deletes
     assert deltas["vias"]["deletes"] == ["v2"]
+    assert len(deltas["versao_hash"]) == 16
 
 
 def test_gerar_payload_d1_e_sql() -> None:
     deltas = {
+        "versao_hash": "def9a51c1b66df98",
         "croquis": {
             "upserts": [{"croqui_uid": "c1", "nome": "Pico"}],
             "deletes": ["c0"],
@@ -196,6 +198,8 @@ def test_gerar_payload_d1_e_sql() -> None:
 
     sql = gerar_sql_insercao_delta_d1(deltas)
     assert "INSERT INTO deltas_catalogo" in sql
+    assert "versao_hash" in sql
+    assert "def9a51c1b66df98" in sql
     assert "upserts_json" in sql
     assert "deletes_json" in sql
 

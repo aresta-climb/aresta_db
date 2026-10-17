@@ -276,7 +276,7 @@ def gerar_compilado_md(croqui_dir: Path, compilado_yaml_path: Path, output_md_pa
         md_lines.extend(render_dict({"arquivos_externos": compilado["arquivos_externos"]}))
         md_lines.append("\n")
 
-    with open(output_md_path, "w", encoding="utf-8") as f:
+    with open(output_md_path, "w", encoding="utf-8", newline="\n") as f:
         f.write("\n".join(md_lines) + "\n")
     # We remove the print statement from here so that the caller can decide to print it or not.
 

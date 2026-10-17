@@ -5,6 +5,8 @@ import ast
 import json
 import os
 import subprocess
+import sys
+import tempfile
 import urllib.error
 import urllib.request
 from concurrent.futures import ThreadPoolExecutor
@@ -14,6 +16,12 @@ from typing import Any
 import boto3
 from botocore.config import Config
 from botocore.exceptions import ClientError
+
+RAIZ_REPO = Path(__file__).resolve().parent.parent
+if str(RAIZ_REPO) not in sys.path:  # pragma: no cover
+    sys.path.insert(0, str(RAIZ_REPO))
+
+from serving.sincronizar_d1_lib import sincronizar_catalogo_d1  # noqa: E402
 
 
 def _migracao_afeta_serving(arquivo: Any) -> bool:
@@ -93,6 +101,7 @@ class CloudflarePurger:
                     f"https://serving.arestaclimb.com/{db_version}/indice.binarypb",
                     f"https://serving.arestaclimb.com/{db_version}/indice.yaml",
                     f"https://serving.arestaclimb.com/{db_version}/arquivos_serving.yaml",
+                    f"https://serving.arestaclimb.com/{db_version}/catalogo.db",
                 ]
             }
         ).encode("utf-8")
@@ -144,6 +153,28 @@ class Deployer:
             raise FileNotFoundError(f"Manifesto local não encontrado: {path}")
         return load_arquivos_serving(path.read_text(encoding="utf-8"))
 
+    def _sincronizar_catalogo_d1(self) -> None:
+        caminho_local = self.generated_dir / "catalogo.db"
+        if not caminho_local.exists():
+            return
+
+        chave_remota = f"{self.db_version}/catalogo.db"
+        with tempfile.TemporaryDirectory() as pasta_temp:
+            caminho_anterior: Path | None = Path(pasta_temp) / "catalogo_anterior.db"
+            try:
+                resp = self.s3.get_object(Bucket=self.bucket, Key=chave_remota)
+                caminho_anterior.write_bytes(resp["Body"].read())
+            except ClientError as erro:
+                if erro.response["Error"]["Code"] == "NoSuchKey":
+                    caminho_anterior = None
+                else:
+                    raise erro
+
+            sincronizar_catalogo_d1(
+                caminho_catalogo_novo=caminho_local,
+                caminho_catalogo_anterior_r2=caminho_anterior,
+            )
+
     def _upload_file(self, rel_path: str) -> None:
         local_path = self.generated_dir / rel_path
         remote_key = f"{self.db_version}/{rel_path}"
@@ -183,7 +214,6 @@ class Deployer:
             self.s3.delete_objects(Bucket=self.bucket, Delete={"Objects": chunk})
 
     def execute(self) -> None:
-
         print(f"Iniciando deploy para banco de dados {self.db_version}")
 
         remote_manifest = self._get_remote_manifest()
@@ -197,6 +227,8 @@ class Deployer:
                 ["git", "checkout", "HEAD", "--ignore-skip-worktree-bits", "--", "generated/"],
                 check=True,
             )
+
+            self._sincronizar_catalogo_d1()
 
             paths = [item["caminho_relativo"] for item in local_manifest.get("arquivos", [])]
             if "arquivos_serving.yaml" not in paths:
@@ -243,6 +275,8 @@ class Deployer:
             checkout_paths = [f"generated/{p}" for p in to_upload]
             if "generated/indice.binarypb" not in checkout_paths:
                 checkout_paths.append("generated/indice.binarypb")
+            if "catalogo.db" in local_map and "generated/catalogo.db" not in checkout_paths:
+                checkout_paths.append("generated/catalogo.db")
             checkout_paths.sort()
 
             print(f"Baixando {len(checkout_paths)} blobs pontuais via git checkout...")
@@ -251,6 +285,8 @@ class Deployer:
                 check=True,
             )
 
+            self._sincronizar_catalogo_d1()
+
             self._upload_files_parallel(to_upload)
             self._delete_files_bulk(sorted(deleted))
 
@@ -258,6 +294,6 @@ class Deployer:
         self.purger.purge_manifests(self.db_version)
 
 
-if __name__ == "__main__":
+if __name__ == "__main__":  # pragma: no cover
     d = Deployer()
     d.execute()

@@ -242,9 +242,9 @@ class DeployGeneratedTest(unittest.TestCase):
 
             caminho_db = deploy_generated.passo_e_gerar_catalogo_sqlite(verbose=True)
             self.assertTrue(caminho_db.is_file())
-            self.assertTrue((Path(tmp_dir) / "catalogo.db.gz").is_file())
+            self.assertFalse((Path(tmp_dir) / "catalogo.db.gz").exists())
 
-    def test_passo_d_inclui_catalogo_db_e_gz(self):
+    def test_passo_d_inclui_apenas_catalogo_db(self):
         import tempfile
 
         import yaml
@@ -264,7 +264,7 @@ class DeployGeneratedTest(unittest.TestCase):
             caminhos = [arq["caminho_relativo"] for arq in dados.get("arquivos", [])]
 
             self.assertIn("catalogo.db", caminhos)
-            self.assertIn("catalogo.db.gz", caminhos)
+            self.assertNotIn("catalogo.db.gz", caminhos)
 
     def test_deploy_gera_catalogo_sqlite_e_manifesto_integrado(self):
         import sqlite3
@@ -273,7 +273,8 @@ class DeployGeneratedTest(unittest.TestCase):
 
         import yaml
 
-        from aresta_api.proto.generated import croqui_pb2
+        from aresta_api.proto.generated import croqui_pb2, indice_pb2
+        from scripts.gerar_catalogo_sqlite_lib import obter_versao_catalogo
 
         with tempfile.TemporaryDirectory() as tmp_dir:
             out_dir = Path(tmp_dir) / "out"
@@ -334,7 +335,18 @@ class DeployGeneratedTest(unittest.TestCase):
             db_path = out_dir / "catalogo.db"
             gz_path = out_dir / "catalogo.db.gz"
             self.assertTrue(db_path.is_file())
-            self.assertTrue(gz_path.is_file())
+            self.assertFalse(gz_path.exists())
+
+            versao_esperada = obter_versao_catalogo(db_path)
+            self.assertEqual(len(versao_esperada), 16)
+
+            # Verifica versao_catalogo em indice.binarypb e indice.yaml
+            idx_pb = indice_pb2.Indice()
+            idx_pb.ParseFromString((out_dir / "indice.binarypb").read_bytes())
+            self.assertEqual(idx_pb.versao_catalogo, versao_esperada)
+
+            idx_yaml = yaml.safe_load((out_dir / "indice.yaml").read_text(encoding="utf-8"))
+            self.assertEqual(idx_yaml.get("versao_catalogo"), versao_esperada)
 
             con = sqlite3.connect(db_path)
             cur = con.cursor()
@@ -352,7 +364,7 @@ class DeployGeneratedTest(unittest.TestCase):
             )
             caminhos = [arq["caminho_relativo"] for arq in manifesto.get("arquivos", [])]
             self.assertIn("catalogo.db", caminhos)
-            self.assertIn("catalogo.db.gz", caminhos)
+            self.assertNotIn("catalogo.db.gz", caminhos)
 
     def test_precompilacao_linhas_mapas(self):
         from scripts.preparar_submissao_lib import precompilar_linhas_mapas_recursivo

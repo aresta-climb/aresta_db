@@ -1647,3 +1647,92 @@ def test_croqui_model_carregar_arquivos_externos_limpa_extensoes_em_erro_ou_cont
     assert not sg1.setor.HasExtension(ArquivoSetor.ext_metadados_arquivo)
     assert not sg2.grupo.HasExtension(ArquivoGrupo.ext_metadados_arquivo)
     assert not btn.destino.secao_textual.HasExtension(ArquivoMarkdown.ext_metadados_arquivo)
+
+
+def test_croqui_model_extrair_arquivos_preserva_mtime_nao_modificados_e_usa_bloco_literal_multilinha(
+    tmp_path, qapp
+):
+    """Garante que extrair_arquivos_e_serializar não reescreve arquivos .md inalterados e usa '|-' em multilinhas."""
+    import os
+
+    from aresta_api.proto.generated.croqui_pb2 import Croqui
+
+    caminho_db = tmp_path / "croqui_mtime"
+    caminho_db.mkdir()
+
+    conteudo_setor_1 = (
+        "---\n"
+        "# SPDX-License-Identifier: ODbL-1.0\n"
+        "# Copyright (C) 2026 Aresta Climb Contributors\n"
+        "uid: set11234567890\n"
+        "nome: Setor Intacto\n"
+        "escaladas:\n"
+        "- uid: esc11234567890\n"
+        "  via_esportiva:\n"
+        "    nome: Via Intacta\n"
+        "---\n"
+        "Descrição intacta."
+    )
+    arq_setor_1 = caminho_db / "setor_1.md"
+    arq_setor_1.write_bytes(conteudo_setor_1.encode("utf-8"))
+
+    conteudo_setor_2 = (
+        "---\n"
+        "# SPDX-License-Identifier: ODbL-1.0\n"
+        "# Copyright (C) 2026 Aresta Climb Contributors\n"
+        "uid: set21234567890\n"
+        "nome: Setor Editado\n"
+        "escaladas:\n"
+        "- uid: esc21234567890\n"
+        "  via_esportiva:\n"
+        "    nome: Via Editada\n"
+        "    descricao: |-\n"
+        "      Linha 1\n\n"
+        "      Linha 2\n"
+        "---\n"
+        "Corpo do setor 2."
+    )
+    arq_setor_2 = caminho_db / "setor_2.md"
+    arq_setor_2.write_bytes(conteudo_setor_2.encode("utf-8"))
+
+    conteudo_secao = (
+        "---\n"
+        "# SPDX-License-Identifier: ODbL-1.0\n"
+        "# Copyright (C) 2026 Aresta Climb Contributors\n"
+        "titulo: Sobre\n"
+        "---\n"
+        "Texto sobre o croqui."
+    )
+    arq_secao = caminho_db / "secao_sobre.md"
+    arq_secao.write_bytes(conteudo_secao.encode("utf-8"))
+
+    croqui = Croqui(uid="croq_1234567890", nome="Croqui Teste")
+    pico = croqui.picos.add(nome="Pico Principal")
+    sg1 = pico.setores_ou_grupos.add()
+    sg1.setor.caminho = "setor_1.md"
+    sg2 = pico.setores_ou_grupos.add()
+    sg2.setor.caminho = "setor_2.md"
+    btn = croqui.botoes.add(uid="bota_1234567890", texto="Sobre")
+    btn.destino.secao_textual.caminho = "secao_sobre.md"
+
+    model = CroquiModel(croqui)
+    model.carregar_arquivos_externos(caminho_db)
+
+    mtime_antigo = 1_600_000_000
+    os.utime(arq_setor_1, (mtime_antigo, mtime_antigo))
+    os.utime(arq_secao, (mtime_antigo, mtime_antigo))
+
+    # Edita apenas a descrição da via no setor 2
+    via_editada = pico.setores_ou_grupos[1].setor.conteudo.escaladas[0].via_esportiva
+    via_editada.descricao = "Linha A\n\nLinha B"
+
+    model.extrair_arquivos_e_serializar(caminho_db)
+
+    assert int(arq_setor_1.stat().st_mtime) == mtime_antigo
+    assert int(arq_secao.stat().st_mtime) == mtime_antigo
+
+    bytes_setor_2 = arq_setor_2.read_bytes()
+    assert b"\r\n" not in bytes_setor_2
+    texto_setor_2 = bytes_setor_2.decode("utf-8")
+    assert "descricao: |-\n      Linha A\n\n      Linha B" in texto_setor_2
+

@@ -373,8 +373,11 @@ class TarefaSalvamento(QThread):
         try:
             import yaml
 
+            from editor.core.serializacao_util import configurar_yaml_representer
+
+            configurar_yaml_representer()
             yaml_path = self.caminho_db / "croqui.yaml"
-            with open(yaml_path, "w", encoding="utf-8") as f:
+            with open(yaml_path, "w", encoding="utf-8", newline="\n") as f:
                 f.write("# SPDX-License-Identifier: ODbL-1.0\n")
                 f.write("# Copyright (C) 2026 Aresta Climb Contributors\n")
                 yaml.dump(self.croqui_data, f, allow_unicode=True, sort_keys=False)

@@ -14,14 +14,16 @@ Responsável por:
 
 from __future__ import annotations
 
-import gzip
-import shutil
+import hashlib
 import sqlite3
 import time
 from pathlib import Path
 from typing import Any
 
-from aresta_api.proto.generated import croqui_pb2
+try:
+    from aresta_api.proto.generated import croqui_pb2
+except ImportError:  # pragma: no cover
+    croqui_pb2 = None  # type: ignore[assignment]
 
 
 def inicializar_banco_catalogo(caminho_banco: Path | str) -> sqlite3.Connection:
@@ -43,7 +45,7 @@ def inicializar_banco_catalogo(caminho_banco: Path | str) -> sqlite3.Connection:
             nome TEXT NOT NULL,
             cidade TEXT,
             uf TEXT,
-            atualizado_em INTEGER NOT NULL
+            atualizado_em INTEGER NOT NULL DEFAULT 0
         );
         """
     )
@@ -58,6 +60,15 @@ def inicializar_banco_catalogo(caminho_banco: Path | str) -> sqlite3.Connection:
             tipo TEXT,
             setor_nome TEXT,
             setor_uid TEXT
+        );
+        """
+    )
+
+    cursor.execute(
+        """
+        CREATE TABLE IF NOT EXISTS catalogo_meta (
+            chave TEXT PRIMARY KEY,
+            valor TEXT NOT NULL
         );
         """
     )
@@ -286,23 +297,52 @@ def inserir_croqui_no_catalogo(
     conexao.commit()
 
 
-def compactar_catalogo_gzip(caminho_db: Path | str, caminho_gz: Path | str | None = None) -> Path:
+def calcular_versao_catalogo(conexao: sqlite3.Connection) -> str:
     """
-    Compacta o arquivo catalogo.db gerando catalogo.db.gz.
+    Calcula o hash lógico determinístico (SHA-256 curto de 16 caracteres) sobre o
+    conteúdo ordenado de catalogo_croquis e catalogo_aresta e o persiste em catalogo_meta.
     """
-    caminho_origem = Path(caminho_db)
-    if caminho_gz is None:
-        caminho_destino = caminho_origem.with_suffix(".db.gz")
-    else:
-        caminho_destino = Path(caminho_gz)
+    cursor = conexao.cursor()
+    hasher = hashlib.sha256()
 
-    with (
-        open(caminho_origem, "rb") as f_in,
-        gzip.open(caminho_destino, "wb", compresslevel=9) as f_out,
+    for linha in cursor.execute(
+        "SELECT croqui_uid, id_slug, nome, cidade, uf FROM catalogo_croquis ORDER BY croqui_uid"
     ):
-        shutil.copyfileobj(f_in, f_out)
+        hasher.update(repr(linha).encode("utf-8"))
 
-    return caminho_destino
+    for linha in cursor.execute(
+        "SELECT uid, croqui_uid, nome, grau, tipo, setor_nome, setor_uid FROM catalogo_aresta ORDER BY uid"
+    ):
+        hasher.update(repr(linha).encode("utf-8"))
+
+    versao_hash = hasher.hexdigest()[:16]
+    cursor.execute(
+        "INSERT OR REPLACE INTO catalogo_meta (chave, valor) VALUES ('versao_catalogo', ?)",
+        (versao_hash,),
+    )
+    conexao.commit()
+    return versao_hash
+
+
+def obter_versao_catalogo(caminho_db: Path | str) -> str:
+    """
+    Lê a versao_catalogo persistida em catalogo_meta ou calcula-a caso ainda não exista.
+    Retorna string vazia se o arquivo de banco não existir.
+    """
+    caminho = Path(caminho_db)
+    if not caminho.exists():
+        return ""
+
+    conexao = inicializar_banco_catalogo(caminho)
+    try:
+        cursor = conexao.cursor()
+        cursor.execute("SELECT valor FROM catalogo_meta WHERE chave = 'versao_catalogo'")
+        linha = cursor.fetchone()
+        if linha and linha[0]:
+            return str(linha[0])
+        return calcular_versao_catalogo(conexao)
+    finally:
+        conexao.close()
 
 
 def gerar_catalogo_completo(
@@ -354,7 +394,10 @@ def gerar_catalogo_completo(
                 remover_croqui_do_catalogo(conexao, dados_croqui["croqui_uid"])
                 inserir_croqui_no_catalogo(conexao, dados_croqui, vias)
 
+            calcular_versao_catalogo(conexao)
+
     finally:
         conexao.close()
 
     return caminho_db
+

@@ -1713,3 +1713,37 @@ class TesteSincronizacaoPRServico:
             autor = servico._obter_autor_assinatura(repo, None)
             assert autor.name == "Aresta Editor"
             assert autor.email == "editor@aresta.local"
+
+    def teste_obter_arquivos_modificados_e_espelhar_ignoram_diferenca_crlf_lf(self, tmp_path):
+        """Garante que diferenças puras de CRLF vs LF em arquivos de texto são ignoradas na submissão."""
+        import os
+
+        repo_base = tmp_path / "repo_base"
+        base_croqui = repo_base / "database" / "bau"
+        base_croqui.mkdir(parents=True)
+
+        arq_base_intacto = base_croqui / "setor_1.md"
+        arq_base_intacto.write_bytes(b"---\r\nnome: Setor 1\r\n---\r\nCorpo igual\r\n")
+        (base_croqui / "setor_2.md").write_bytes(b"---\r\nnome: Setor 2\r\n---\r\nCorpo antigo\r\n")
+        (base_croqui / "invalido.md").write_bytes(b"\xff\xfe\x00")
+        (base_croqui / "foto.webp").write_bytes(b"WEBP_BYTES")
+        (base_croqui / "foto_mod.webp").write_bytes(b"WEBP_ANTIGO")
+
+        origem = tmp_path / "origem_experimental"
+        origem.mkdir(parents=True)
+        (origem / "setor_1.md").write_bytes(b"---\nnome: Setor 1\n---\nCorpo igual\n")
+        (origem / "setor_2.md").write_bytes(b"---\nnome: Setor 2\n---\nCorpo novo\n")
+        (origem / "invalido.md").write_bytes(b"\xff\xfe\x01")
+        (origem / "foto.webp").write_bytes(b"WEBP_BYTES")
+        (origem / "foto_mod.webp").write_bytes(b"WEBP_NOVO")
+
+        servico = ServicoSubmissao(caminho_repo_base=repo_base)
+        modificados = servico.obter_arquivos_modificados(origem, "bau")
+        assert modificados == ["foto_mod.webp", "invalido.md", "setor_2.md"]
+
+        mtime_antigo = 1_600_000_000
+        os.utime(arq_base_intacto, (mtime_antigo, mtime_antigo))
+        servico.sincronizar_arquivos_croqui(origem, repo_base, "bau")
+        assert int(arq_base_intacto.stat().st_mtime) == mtime_antigo
+        assert (base_croqui / "setor_2.md").read_bytes() == b"---\nnome: Setor 2\n---\nCorpo novo\n"
+

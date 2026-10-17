@@ -75,8 +75,9 @@ class GerenciadorSincronizacao:
         # 1. Inicializa o repositório
         repo = pygit2.init_repository(str(self.caminho_repo), False)
 
-        # 2. Configura suporte a MAX_PATH no Windows
+        # 2. Configura suporte a MAX_PATH no Windows e preserva LF estrito
         repo.config["core.longpaths"] = True
+        repo.config["core.autocrlf"] = False
 
         # 3. Configura remote e faz fetch (clone raso para agilizar)
         remote = repo.remotes.create("origin", url_repositorio)
@@ -163,6 +164,7 @@ class GerenciadorSincronizacao:
         Faz checkout da branch main do upstream ou origin de forma limpa.
         """
         repo = pygit2.Repository(str(self.caminho_repo))
+        repo.config["core.autocrlf"] = False
         branch_upstream = repo.branches.remote.get("upstream/main") or repo.branches.remote.get(
             "origin/main"
         )

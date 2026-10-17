@@ -217,6 +217,50 @@ picos:
 
                 self.assertEqual(medir_saude_croquis.check_betas_pendentes(Path("test")), "⚠️ (3)")
 
+    def test_salvar_relatorio_saude_se_modificado_preserva_timestamp_e_escreve_lf(self):
+        import shutil
+        import tempfile
+        from datetime import datetime
+
+        tmp_dir = Path(tempfile.mkdtemp())
+        try:
+            arq = tmp_dir / "STATUS_CROQUIS.md"
+            tabela_1 = "| Croqui | Publicado |\n| --- | --- |\n| croqui_a | ✅ |"
+            t1 = datetime(2026, 1, 1, 10, 0, 0)
+            t2 = datetime(2026, 1, 2, 15, 30, 0)
+
+            # 1. Criação inicial em LF
+            modificado = medir_saude_croquis.salvar_relatorio_saude_se_modificado(
+                arq, tabela_1, agora=t1
+            )
+            self.assertTrue(modificado)
+            raw_bytes = arq.read_bytes()
+            self.assertNotIn(b"\r\n", raw_bytes)
+            self.assertIn("Relatório gerado em: 01/01/2026 10:00:00", raw_bytes.decode("utf-8"))
+
+            # 2. Mesma tabela não deve atualizar o timestamp nem reescrever o arquivo
+            mtime_antigo = 1_600_000_000
+            os.utime(arq, (mtime_antigo, mtime_antigo))
+            modificado_2 = medir_saude_croquis.salvar_relatorio_saude_se_modificado(
+                arq, tabela_1, agora=t2
+            )
+            self.assertFalse(modificado_2)
+            self.assertEqual(int(arq.stat().st_mtime), mtime_antigo)
+            self.assertIn("Relatório gerado em: 01/01/2026 10:00:00", arq.read_text("utf-8"))
+
+            # 3. Tabela diferente atualiza o timestamp e mantém LF
+            tabela_2 = "| Croqui | Publicado |\n| --- | --- |\n| croqui_a | ❌ |"
+            modificado_3 = medir_saude_croquis.salvar_relatorio_saude_se_modificado(
+                arq, tabela_2, agora=t2
+            )
+            self.assertTrue(modificado_3)
+            raw_bytes_3 = arq.read_bytes()
+            self.assertNotIn(b"\r\n", raw_bytes_3)
+            self.assertIn("Relatório gerado em: 02/01/2026 15:30:00", raw_bytes_3.decode("utf-8"))
+        finally:
+            shutil.rmtree(tmp_dir, ignore_errors=True)
+
 
 if __name__ == "__main__":
     unittest.main()
+

@@ -19,6 +19,8 @@ import sys
 from pathlib import Path
 from typing import Any
 
+from scripts.gerar_catalogo_sqlite_lib import obter_versao_catalogo
+
 
 def calcular_deltas_catalogo(
     caminho_anterior: Path | str | None,
@@ -30,16 +32,19 @@ def calcular_deltas_catalogo(
     Retorna:
         dict: Estrutura contendo:
             {
+                "versao_hash": str,
                 "croquis": {"upserts": [...], "deletes": [...]},
                 "vias": {"upserts": [...], "deletes": [...]}
             }
     """
     novo_path = Path(caminho_novo)
+    versao_hash = obter_versao_catalogo(novo_path)
     con_novo = sqlite3.connect(str(novo_path))
     con_novo.row_factory = sqlite3.Row
     cur = con_novo.cursor()
 
     resultado: dict[str, Any] = {
+        "versao_hash": versao_hash,
         "croquis": {"upserts": [], "deletes": []},
         "vias": {"upserts": [], "deletes": []},
     }
@@ -135,10 +140,11 @@ def gerar_sql_insercao_delta_d1(deltas: dict[str, Any]) -> str:
     """
     Gera o comando SQL parametrizável para inserir o delta na tabela deltas_catalogo no D1.
     """
+    versao_hash = deltas.get("versao_hash", "")
     upserts_json, deletes_json = gerar_payload_d1(deltas)
     sql = (
-        "INSERT INTO deltas_catalogo (criado_em, upserts_json, deletes_json)\n"
-        f"VALUES (datetime('now'), '{upserts_json}', '{deletes_json}');"
+        "INSERT INTO deltas_catalogo (versao_hash, criado_em, upserts_json, deletes_json)\n"
+        f"VALUES ('{versao_hash}', datetime('now'), '{upserts_json}', '{deletes_json}');"
     )
     return sql
 
