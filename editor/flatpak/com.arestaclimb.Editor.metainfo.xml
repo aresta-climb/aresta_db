@@ -38,6 +38,11 @@
   </categories>
   
   <releases>
+    <release version="0.5.20" date="2026-10-17">
+      <description>
+        <p>Corrigir abertura flatpak automática</p>
+      </description>
+    </release>
     <release version="0.5.19" date="2026-10-16">
       <description>
         <p>Corrigir compilação intel macos</p>
