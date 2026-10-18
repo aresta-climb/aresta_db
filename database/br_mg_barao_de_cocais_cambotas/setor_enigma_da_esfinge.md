@@ -5,6 +5,8 @@ uid: zPWCMfQPRNCLun
 nome: Setor Enigma da Esfinge
 mapas:
 - caminho_imagem_mapa: imagens/setor_enigma_da_esfinge_p0.webp
+  largura_mapa: 2048
+  altura_mapa: 1448
 escaladas:
 - uid: aBKOZtK8dH4QH0
   via_multiplas_enfiadas:

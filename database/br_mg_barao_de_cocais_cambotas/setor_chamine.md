@@ -5,6 +5,8 @@ uid: 150z6viZ5YGa1C
 nome: Setor Chaminé
 mapas:
 - caminho_imagem_mapa: imagens/setor_chamine_p0_i0.webp
+  largura_mapa: 1768
+  altura_mapa: 605
 escaladas:
 - uid: QJvvterDa5npXb
   via_esportiva:

@@ -1354,6 +1354,8 @@ picos:
             nome: 'Bloco: Conhaque'
             mapas:
             - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_conhaque_p0_i0.webp
+              largura_mapa: 2364
+              altura_mapa: 1773
               referencias:
               - alvo_uid: pHUCfb3vJ9LflT
                 pontos_uids:
@@ -1460,9 +1462,9 @@ picos:
                   raio: 20
                 id: mBd2oN5QIsgy7a
                 label: B
+            - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_conhaque_p1_i0.webp
               largura_mapa: 2364
               altura_mapa: 1773
-            - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_conhaque_p1_i0.webp
               pontos_de_interesse:
               - uid: 8w05ggfu2nRKhf
                 rotulo: '1'
@@ -1561,8 +1563,6 @@ picos:
                 grupo: Pedreira
                 ids:
                 - hAiQJFGRKqshy5
-              largura_mapa: 2364
-              altura_mapa: 1773
             escaladas:
             - uid: pHUCfb3vJ9LflT
               boulder:

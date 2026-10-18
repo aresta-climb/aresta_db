@@ -51,6 +51,8 @@ mapas:
     pontos_uids:
     - mzIpYrHtoazflR
 - caminho_imagem_mapa: imagens/setor_outros_blocos_p2_i0.webp
+  largura_mapa: 1126
+  altura_mapa: 1628
 - caminho_imagem_mapa: imagens/setor_outros_blocos_p3_i0.webp
   largura_mapa: 720
   altura_mapa: 798

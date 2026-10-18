@@ -6,6 +6,8 @@ mapas:
   largura_mapa: 1228
   altura_mapa: 867
 - caminho_imagem_mapa: imagens/mapas_gerais_p1_i0.webp
+  largura_mapa: 1223
+  altura_mapa: 1251
   pontos_de_interesse:
   - uid: FSlLx4zYRHvn25
     rotulo: '2'
@@ -45,3 +47,4 @@ mapas:
     pontos_uids:
     - Bx5QJWxXYpuJJ8
 ---
+

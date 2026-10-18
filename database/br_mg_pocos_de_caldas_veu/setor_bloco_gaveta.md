@@ -1,11 +1,12 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
-
 uid: QJKBJBPwoRjQxS
 nome: Bloco Gaveta
 mapas:
 - caminho_imagem_mapa: imagens/setor_bloco_gaveta_p0_i0.webp
+  largura_mapa: 794
+  altura_mapa: 1123
 escaladas:
 - uid: LUWgBzi8lVOqWo
   boulder:
@@ -28,3 +29,4 @@ escaladas:
     nome: Da gaveta ao Tumulto
     dificuldade: V6
 ---
+

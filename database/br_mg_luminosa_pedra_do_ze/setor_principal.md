@@ -6,6 +6,8 @@ caminho_imagem_capa: imagens/setor_principal_p0_i0_2.webp
 nome: Setor Principal
 mapas:
 - caminho_imagem_mapa: imagens/setor_principal_p0_i0.webp
+  largura_mapa: 1652
+  altura_mapa: 1060
 escaladas:
 - uid: tVlWggyUBoxP39
   via_movel:

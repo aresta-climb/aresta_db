@@ -5,7 +5,11 @@ uid: G0xqU7jw49Gc2R
 nome: Setor Vieiras
 mapas:
 - caminho_imagem_mapa: imagens/setor_vieiras_p0_i0.webp
+  largura_mapa: 2048
+  altura_mapa: 1489
 - caminho_imagem_mapa: imagens/setor_vieiras_p1_i0.webp
+  largura_mapa: 2048
+  altura_mapa: 1793
 escaladas:
 - uid: gFUMT0A461d1Jh
   via_movel:

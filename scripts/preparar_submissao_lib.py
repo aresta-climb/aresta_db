@@ -1359,8 +1359,19 @@ def atualizar_dimensoes_mapas(
                         with Image.open(caminho_abs) as img:
                             w, h = img.size
                             if obj.get("largura_mapa") != w or obj.get("altura_mapa") != h:
-                                obj["largura_mapa"] = w
-                                obj["altura_mapa"] = h
+                                if "largura_mapa" in obj and "altura_mapa" in obj:
+                                    obj["largura_mapa"] = w
+                                    obj["altura_mapa"] = h
+                                else:
+                                    caminho_val = obj.pop("caminho_imagem_mapa")
+                                    obj.pop("largura_mapa", None)
+                                    obj.pop("altura_mapa", None)
+                                    resto = list(obj.items())
+                                    obj.clear()
+                                    obj["caminho_imagem_mapa"] = caminho_val
+                                    obj["largura_mapa"] = w
+                                    obj["altura_mapa"] = h
+                                    obj.update(resto)
                                 modificado = True
                     except Exception as e:
                         print(
@@ -1389,7 +1400,7 @@ def sincronizar_dimensoes_mapas_database(
 ) -> bool:
     """
     Atualiza no disco e no cache em memória as dimensões (largura_mapa/altura_mapa)
-    de mapas que já declaravam esses campos mas cuja imagem foi modificada.
+    de mapas sem dimensões preenchidas ou cuja imagem foi modificada.
     """
     modificado = False
     for chave_md, (fm_md, corpo_md) in list(cache_md.items()):
@@ -1397,7 +1408,6 @@ def sincronizar_dimensoes_mapas_database(
             fm_md,
             pico_path,
             imagens_inalteradas=imagens_inalteradas,
-            apenas_existentes=True,
         ):
             _salvar_md_com_cache(
                 pico_path / chave_md,
@@ -1413,7 +1423,6 @@ def sincronizar_dimensoes_mapas_database(
         croqui_data,
         pico_path,
         imagens_inalteradas=imagens_inalteradas,
-        apenas_existentes=True,
     ):
         croqui_yaml_path = pico_path / "croqui.yaml"
         if persistir_no_disco and croqui_yaml_path.exists():

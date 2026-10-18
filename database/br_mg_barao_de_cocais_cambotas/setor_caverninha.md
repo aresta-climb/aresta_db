@@ -6,6 +6,8 @@ caminho_imagem_capa: imagens/setor_caverninha_p0_i1.webp
 nome: Setor Caverninha
 mapas:
 - caminho_imagem_mapa: imagens/setor_caverninha_p0_i0.webp
+  largura_mapa: 1768
+  altura_mapa: 605
 escaladas:
 - uid: HuJKJ3PukIFfsN
   via_movel:

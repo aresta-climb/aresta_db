@@ -1,11 +1,12 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
-
 uid: JeZcIGyc0FVpq9
 nome: Bloco Ditinho
 mapas:
 - caminho_imagem_mapa: imagens/setor_bloco_ditinho_p0_i0.webp
+  largura_mapa: 794
+  altura_mapa: 1123
 escaladas:
 - uid: rjoaURKzqCgFUQ
   boulder:
@@ -36,3 +37,4 @@ escaladas:
     nome: 11 de Maio Direct
     dificuldade: V4
 ---
+

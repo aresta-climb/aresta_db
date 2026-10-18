@@ -1,11 +1,12 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
-
 uid: UdEjq4igKqTTsV
 nome: Setor 3 - ZUCULIN
 mapas:
 - caminho_imagem_mapa: imagens/setor_3_p0_i0.webp
+  largura_mapa: 1820
+  altura_mapa: 727
 escaladas:
 - uid: veFpFAeWzoK9Uu
   via_esportiva:
@@ -29,3 +30,4 @@ escaladas:
     nome: Pérola Negra
     dificuldade: PROJETO
 ---
+

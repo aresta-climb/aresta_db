@@ -1,11 +1,12 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
-
 uid: JqY0W1wGxzihQ4
 nome: Setor da Frente
 mapas:
 - caminho_imagem_mapa: imagens/setor_da_frente_p0_i0.webp
+  largura_mapa: 2048
+  altura_mapa: 1122
 escaladas:
 - uid: tp2kyzC4JmcKoe
   via_esportiva:
@@ -41,3 +42,4 @@ escaladas:
     nome: Cascavel
     dificuldade: BR_7B
 ---
+

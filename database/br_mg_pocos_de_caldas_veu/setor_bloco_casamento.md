@@ -1,12 +1,15 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
-
 uid: TpVfELgyMAj5fC
 nome: Bloco Casamento
 mapas:
 - caminho_imagem_mapa: imagens/setor_bloco_casamento_p0_i0.webp
+  largura_mapa: 794
+  altura_mapa: 1123
 - caminho_imagem_mapa: imagens/setor_bloco_casamento_p1_i0.webp
+  largura_mapa: 794
+  altura_mapa: 1123
 escaladas:
 - uid: CrDCwua227QAEd
   boulder:
@@ -57,3 +60,4 @@ escaladas:
     nome: Dia dos namorados
     dificuldade: V1
 ---
+

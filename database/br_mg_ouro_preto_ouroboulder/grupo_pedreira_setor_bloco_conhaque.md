@@ -5,6 +5,8 @@ uid: R0RK7LEXxz5JfS
 nome: 'Bloco: Conhaque'
 mapas:
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_conhaque_p0_i0.webp
+  largura_mapa: 2364
+  altura_mapa: 1773
   referencias:
   - alvo_uid: pHUCfb3vJ9LflT
     pontos_uids:
@@ -70,6 +72,8 @@ mapas:
       y: 308
       raio: 20
 - caminho_imagem_mapa: imagens/grupo_pedreira_setor_bloco_conhaque_p1_i0.webp
+  largura_mapa: 2364
+  altura_mapa: 1773
   pontos_de_interesse:
   - uid: 8w05ggfu2nRKhf
     rotulo: '1'
@@ -167,3 +171,4 @@ escaladas:
     nome: Conhaque Presidente
     dificuldade: V6
 ---
+

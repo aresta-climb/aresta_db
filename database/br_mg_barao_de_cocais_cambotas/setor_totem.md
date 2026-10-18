@@ -6,6 +6,8 @@ caminho_imagem_capa: imagens/setor_totem_p0.webp
 nome: Setor Totem
 mapas:
 - caminho_imagem_mapa: imagens/setor_totem_p1.webp
+  largura_mapa: 2048
+  altura_mapa: 1448
 escaladas:
 - uid: sG1a7RlV0nBFSb
   via_esportiva:

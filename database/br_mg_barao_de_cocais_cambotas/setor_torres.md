@@ -5,6 +5,8 @@ uid: HVeZ40s3BhupP1
 nome: Setor Torres
 mapas:
 - caminho_imagem_mapa: imagens/setor_torres_p2.webp
+  largura_mapa: 2048
+  altura_mapa: 1448
 escaladas:
 - uid: JfC7vWkEEp97jj
   via_multiplas_enfiadas:

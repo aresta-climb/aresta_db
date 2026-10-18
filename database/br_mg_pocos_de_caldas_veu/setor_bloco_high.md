@@ -1,11 +1,12 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
-
 uid: EQr0yNCW02acgt
 nome: Bloco High
 mapas:
 - caminho_imagem_mapa: imagens/setor_bloco_high_p0_i0.webp
+  largura_mapa: 794
+  altura_mapa: 1123
 escaladas:
 - uid: zUjxJVnK9XBPFp
   boulder:
@@ -28,3 +29,4 @@ escaladas:
     nome: HighBolinha
     dificuldade: V2_BARRA_V3
 ---
+

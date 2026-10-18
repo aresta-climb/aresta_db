@@ -6,7 +6,11 @@ caminho_imagem_capa: imagens/setor_a_pedreira_p1_i1.webp
 nome: Setor A Pedreira
 mapas:
 - caminho_imagem_mapa: imagens/setor_a_pedreira_p1_i2.webp
+  largura_mapa: 910
+  altura_mapa: 388
 - caminho_imagem_mapa: imagens/setor_a_pedreira_p2_i1.webp
+  largura_mapa: 960
+  altura_mapa: 720
 escaladas:
 - uid: lIeU9XOaj9Hiaq
   via_esportiva:

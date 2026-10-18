@@ -5,8 +5,14 @@ uid: 31DCaF1ZL4cPjb
 nome: Setor Felinas
 mapas:
 - caminho_imagem_mapa: imagens/setor_felinas_p0_i7.webp
+  largura_mapa: 487
+  altura_mapa: 958
 - caminho_imagem_mapa: imagens/setor_felinas_p0_i8.webp
+  largura_mapa: 1448
+  altura_mapa: 2048
 - caminho_imagem_mapa: imagens/setor_felinas_p0_i28.webp
+  largura_mapa: 981
+  altura_mapa: 673
 escaladas:
 - uid: KrqmBjegLoPqB1
   via_multiplas_enfiadas:

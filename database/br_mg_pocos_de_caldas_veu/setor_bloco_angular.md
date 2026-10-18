@@ -1,11 +1,12 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
-
 uid: cs4L6atNsPeasV
 nome: Bloco Angular
 mapas:
 - caminho_imagem_mapa: imagens/setor_bloco_angular_p0_i0.webp
+  largura_mapa: 794
+  altura_mapa: 1123
 escaladas:
 - uid: Hv7wN0o3RZ1hzk
   boulder:
@@ -41,3 +42,4 @@ escaladas:
     nome: Estrangular
     dificuldade: V3_BARRA_V4
 ---
+

@@ -1,11 +1,12 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
-
 uid: 8X36q6hBkc4VW8
 nome: Setor Fenda
 mapas:
 - caminho_imagem_mapa: imagens/setor_fenda_p0_i0.webp
+  largura_mapa: 2048
+  altura_mapa: 797
 escaladas:
 - uid: tawkB1EQARbdDn
   via_esportiva:
@@ -20,3 +21,4 @@ escaladas:
     nome: Produto da Parceria
     dificuldade: PROJETO
 ---
+

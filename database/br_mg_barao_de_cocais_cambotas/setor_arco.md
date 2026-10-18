@@ -5,6 +5,8 @@ uid: LPvWMOig17W7x6
 nome: Setor Arco
 mapas:
 - caminho_imagem_mapa: imagens/setor_arco_p2.webp
+  largura_mapa: 2048
+  altura_mapa: 1448
 escaladas:
 - uid: 1X1ArvZT9eYcN6
   via_multiplas_enfiadas:

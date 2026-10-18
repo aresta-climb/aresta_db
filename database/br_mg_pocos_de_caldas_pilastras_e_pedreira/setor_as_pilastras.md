@@ -6,6 +6,8 @@ caminho_imagem_capa: imagens/setor_as_pilastras_p0_i1.webp
 nome: Setor As Pilastras
 mapas:
 - caminho_imagem_mapa: imagens/setor_as_pilastras_p1_i1.webp
+  largura_mapa: 1032
+  altura_mapa: 581
 escaladas:
 - uid: q35nUhWTDbJX3a
   via_esportiva:

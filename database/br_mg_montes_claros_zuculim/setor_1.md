@@ -1,11 +1,12 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
-
 uid: eYRbBaO7VB5d0v
 nome: Setor 1 - ZUCULIN
 mapas:
 - caminho_imagem_mapa: imagens/setor_1_p0_i0.webp
+  largura_mapa: 1744
+  altura_mapa: 1155
 escaladas:
 - uid: 62i7Z8y45xRnvf
   via_esportiva:
@@ -32,3 +33,4 @@ escaladas:
     nome: Mamba Negra
     dificuldade: BR_8A
 ---
+

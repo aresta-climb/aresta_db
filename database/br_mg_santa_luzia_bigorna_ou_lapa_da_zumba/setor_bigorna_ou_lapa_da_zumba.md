@@ -154,6 +154,8 @@ escaladas:
     dificuldade: BR_6_BARRA_6SUP
 mapas:
 - caminho_imagem_mapa: imagens/setor_bigorna_ou_lapa_da_zumba_p0_i0.webp
+  largura_mapa: 1676
+  altura_mapa: 1446
   referencias:
   - alvo_uid: njU3YfjpN9Bn16
     pontos_uids:

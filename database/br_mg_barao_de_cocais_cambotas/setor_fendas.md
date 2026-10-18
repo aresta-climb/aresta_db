@@ -5,6 +5,8 @@ uid: VoZcuSQ0d3Phq9
 nome: Setor Fendas
 mapas:
 - caminho_imagem_mapa: imagens/setor_fendas_p0_i0.webp
+  largura_mapa: 1768
+  altura_mapa: 605
 escaladas:
 - uid: tl2CPmdD1uTutl
   via_multiplas_enfiadas:

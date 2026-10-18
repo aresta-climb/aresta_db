@@ -3394,6 +3394,81 @@ def test_atualizar_dimensoes_mapas_vinculado_a_imagens_inalteradas_e_modificadas
     assert cache_md["setor.md"][0]["mapas"][0]["altura_mapa"] == 32
 
 
+def test_sincronizar_dimensoes_mapas_database_propaga_largura_e_altura_ausentes_logo_apos_caminho_imagem(
+    tmp_path: Path,
+) -> None:
+    """
+    Garante que sincronizar_dimensoes_mapas_database preenche largura_mapa e altura_mapa
+    nos arquivos .md originais quando esses campos estavam ausentes (mesmo com a imagem em
+    imagens_inalteradas) e posiciona largura_mapa/altura_mapa imediatamente após caminho_imagem_mapa.
+    """
+    from scripts.preparar_submissao_lib import sincronizar_dimensoes_mapas_database
+
+    pasta_img = tmp_path / "imagens"
+    pasta_img.mkdir()
+    Image.new("RGB", (369, 276), color="red").save(pasta_img / "mapa_setor.webp", "WEBP")
+
+    setor_md_path = tmp_path / "setor_sem_dim.md"
+    setor_md_path.write_text(
+        "---\n"
+        "uid: k6xxkL2askccdr\n"
+        "nome: Setor Sem Dim\n"
+        "mapas:\n"
+        "- caminho_imagem_mapa: imagens/mapa_setor.webp\n"
+        "  pontos_de_interesse:\n"
+        "  - uid: 8TWtxGbJHVaSf3\n"
+        "    rotulo: '01'\n"
+        "  referencias: []\n"
+        "---\n"
+        "Corpo do setor.\n",
+        encoding="utf-8",
+    )
+    cache_md: dict = {
+        "setor_sem_dim.md": (
+            {
+                "uid": "k6xxkL2askccdr",
+                "nome": "Setor Sem Dim",
+                "mapas": [
+                    {
+                        "caminho_imagem_mapa": "imagens/mapa_setor.webp",
+                        "pontos_de_interesse": [{"uid": "8TWtxGbJHVaSf3", "rotulo": "01"}],
+                        "referencias": [],
+                    }
+                ],
+            },
+            "Corpo do setor.",
+        )
+    }
+    croqui_data = {"id": "croqui_sem_dim", "picos": []}
+
+    modificou = sincronizar_dimensoes_mapas_database(
+        tmp_path,
+        croqui_data,
+        cache_md,
+        imagens_inalteradas={"imagens/mapa_setor.webp"},
+        persistir_no_disco=True,
+    )
+
+    assert modificou is True
+    mapa_em_cache = cache_md["setor_sem_dim.md"][0]["mapas"][0]
+    assert list(mapa_em_cache.keys()) == [
+        "caminho_imagem_mapa",
+        "largura_mapa",
+        "altura_mapa",
+        "pontos_de_interesse",
+        "referencias",
+    ]
+    assert mapa_em_cache["largura_mapa"] == 369
+    assert mapa_em_cache["altura_mapa"] == 276
+
+    texto_salvo = setor_md_path.read_text(encoding="utf-8")
+    pos_caminho = texto_salvo.index("caminho_imagem_mapa: imagens/mapa_setor.webp")
+    pos_largura = texto_salvo.index("largura_mapa: 369")
+    pos_altura = texto_salvo.index("altura_mapa: 276")
+    pos_pois = texto_salvo.index("pontos_de_interesse:")
+    assert pos_caminho < pos_largura < pos_altura < pos_pois
+
+
 def test_corrigir_database_e_compilar_croqui_reutilizam_dados_em_memoria_sem_reler_disco(
     tmp_path: Path,
 ):

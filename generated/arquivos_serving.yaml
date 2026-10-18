@@ -604,7 +604,7 @@ arquivos:
 - caminho_relativo: br_mg_diamantina_diamaboulder/imagens/mapas_gerais_p1_i0.webp
   checksum_sha256: 6ad872db4b9d5e03999754c13b1b357bcde74c3bfe208c8bb9c2e29d22d682f7
 - caminho_relativo: br_mg_diamantina_diamaboulder/compilado.yaml
-  checksum_sha256: d701e1b832a15a3caa778eace8e328b003fc45e9fe8a64d1e3302955b0938897
+  checksum_sha256: 187ca30978ffe2de9668248276cb122b86299afc7888244d3159cb5872285965
 - caminho_relativo: br_mg_ferros_ferros/compilado.binarypb
   checksum_sha256: 39b410153bae433a3b01840a69d6db389b9865427e9055cc5144aa61bc50a74e
 - caminho_relativo: thumbnails/br_mg_ferros_ferros.webp
@@ -1350,7 +1350,7 @@ arquivos:
 - caminho_relativo: br_mg_ouro_preto_ouroboulder/imagens/sobre_ouro_preto_p1_i1.webp
   checksum_sha256: db70f068ad17cac698cf815163b5a909c7284c3f2bd3c5998fbbe28d9db29082
 - caminho_relativo: br_mg_ouro_preto_ouroboulder/compilado.yaml
-  checksum_sha256: 434e4d84dbcaa79c75394ab8ded36a5cd87c13f806ee6e22feb8b4bb52442979
+  checksum_sha256: 9bd0f3a4e2109b475582f90d1a3cf16651957d11067dc1d8b45754e283989b36
 - caminho_relativo: br_mg_ouro_preto_ouroboulder_sunset/compilado.binarypb
   checksum_sha256: af2ca98e93b8c62dc1e42a25b4ccdb82a46c2d70e0dcd22bc944a75f5cd13308
 - caminho_relativo: thumbnails/br_mg_ouro_preto_ouroboulder_sunset.webp
@@ -2208,4 +2208,4 @@ arquivos:
 - caminho_relativo: indice.yaml
   checksum_sha256: d5e784ed14ca814ee5775787698a395c468101e85a78de4c02304e2eda87c4c1
 - caminho_relativo: catalogo.db
-  checksum_sha256: 630ec0a3dbd9688ca999fd2b1cbb01b907a0301143a36a0711c270ba5c0fd380
+  checksum_sha256: f6e1228b34175dece3593eaf994f0f7ff24b3ddb4de073d0295e1a3f390d067d

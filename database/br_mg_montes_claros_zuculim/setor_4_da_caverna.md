@@ -1,11 +1,12 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
-
 uid: m7KIHP0rQHkttZ
 nome: Setor 4 - Setor da Caverna
 mapas:
 - caminho_imagem_mapa: imagens/setor_4_da_caverna_p0_i0.webp
+  largura_mapa: 1652
+  altura_mapa: 1044
 escaladas:
 - uid: OCTtVAxrCAYHOv
   via_esportiva:
@@ -36,3 +37,4 @@ escaladas:
     nome: Epinefrina 05
     dificuldade: PROJETO
 ---
+

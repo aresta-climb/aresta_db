@@ -1,11 +1,12 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
-
 uid: ort0OsLJp5CRs6
 nome: Bloco da Pressão
 mapas:
 - caminho_imagem_mapa: imagens/setor_bloco_da_pressao_p0_i0.webp
+  largura_mapa: 794
+  altura_mapa: 1123
 escaladas:
 - uid: rAyckQC9zp8F4f
   boulder:
@@ -39,3 +40,4 @@ escaladas:
     nome: Pressão alta
     dificuldade: V4
 ---
+

@@ -6,6 +6,8 @@ caminho_imagem_capa: imagens/setor_polegar_p0.webp
 nome: Setor Polegar
 mapas:
 - caminho_imagem_mapa: imagens/setor_polegar_p1.webp
+  largura_mapa: 2048
+  altura_mapa: 1448
 escaladas:
 - uid: JiJOjfrASe6fX5
   via_multiplas_enfiadas:

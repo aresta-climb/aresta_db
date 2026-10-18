@@ -5,6 +5,8 @@ uid: IgnhOcrKCV3Y1z
 nome: Setor Jardim da Fantasia
 mapas:
 - caminho_imagem_mapa: imagens/setor_jardim_da_fantasia_p0.webp
+  largura_mapa: 2048
+  altura_mapa: 1448
 escaladas:
 - uid: fYstxxQqp95Vg3
   via_multiplas_enfiadas:

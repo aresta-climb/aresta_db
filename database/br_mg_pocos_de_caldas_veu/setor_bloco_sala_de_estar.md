@@ -1,11 +1,12 @@
 ---
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
-
 uid: oQEwzCqN8kAVEx
 nome: Bloco Sala de Estar
 mapas:
 - caminho_imagem_mapa: imagens/setor_bloco_sala_de_estar_p0_i0.webp
+  largura_mapa: 794
+  altura_mapa: 562
 escaladas:
 - uid: 201ox3HOOQkwin
   boulder:
@@ -16,3 +17,4 @@ escaladas:
     nome: Chá das cinco
     dificuldade: V1
 ---
+

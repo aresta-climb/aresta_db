@@ -5,8 +5,14 @@ uid: FbReUotUDqxCUZ
 nome: Setor O Vale
 mapas:
 - caminho_imagem_mapa: imagens/setor_o_vale_p0_i2.webp
+  largura_mapa: 1032
+  altura_mapa: 581
 - caminho_imagem_mapa: imagens/setor_o_vale_p1_i1.webp
+  largura_mapa: 478
+  altura_mapa: 886
 - caminho_imagem_mapa: imagens/setor_o_vale_p2_i1.webp
+  largura_mapa: 556
+  altura_mapa: 946
 escaladas:
 - uid: S1OwQArHKMbnMr
   via_esportiva:

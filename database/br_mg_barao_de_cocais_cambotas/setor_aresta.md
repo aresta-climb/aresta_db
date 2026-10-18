@@ -6,6 +6,8 @@ caminho_imagem_capa: imagens/setor_aresta_p3.webp
 nome: Setor Aresta
 mapas:
 - caminho_imagem_mapa: imagens/setor_aresta_p2.webp
+  largura_mapa: 2048
+  altura_mapa: 1448
 escaladas:
 - uid: RlBzSJCt7pVYnW
   via_esportiva:
