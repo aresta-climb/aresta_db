@@ -4,6 +4,8 @@
 """Testes unitários da biblioteca pura de gerenciamento de UIDs e URLs aresta.cc."""
 
 import string
+from pathlib import Path
+from typing import Any
 
 import pytest
 
@@ -69,7 +71,7 @@ def test_validar_uid_casos_invalidos() -> None:
     assert validar_uid("x8siJek3FiG3aã") is False
 
     # Tipo não-string
-    assert validar_uid(None) is False  # type: ignore[arg-type]
+    assert validar_uid(None) is False
     assert validar_uid(12345678901234) is False  # type: ignore[arg-type]
 
 
@@ -129,7 +131,7 @@ def test_extrair_uid_de_url_invalidas() -> None:
     assert extrair_uid_de_url("http://[") is None
 
 
-def test_sanear_uids_croqui_completo(tmp_path) -> None:
+def test_sanear_uids_croqui_completo(tmp_path: Path) -> None:
     """Testa sanear_uids_croqui gerando UIDs para entidades e resolvendo referências."""
     from scripts.gerenciar_uids_lib import sanear_uids_croqui
 
@@ -186,7 +188,7 @@ Texto do setor.
     assert modificado_novamente is False
 
 
-def test_sanear_uids_croqui_com_cache_em_memoria(tmp_path) -> None:
+def test_sanear_uids_croqui_com_cache_em_memoria(tmp_path: Path) -> None:
     """Garante que sanear_uids_croqui atualiza estruturas em memória in-place e persiste alterações."""
     from scripts.gerenciar_uids_lib import sanear_uids_croqui
 
@@ -195,8 +197,8 @@ def test_sanear_uids_croqui_com_cache_em_memoria(tmp_path) -> None:
     (pico / "croqui.yaml").write_text("id: br_mg_mem\nnome: Mem\n", encoding="utf-8")
     (pico / "setor1.md").write_text("---\nnome: Setor Mem\n---\nCorpo\n", encoding="utf-8")
 
-    dados_croqui_mem = {"id": "br_mg_mem", "nome": "Mem"}
-    cache_md_mem = {
+    dados_croqui_mem: dict[str, Any] = {"id": "br_mg_mem", "nome": "Mem"}
+    cache_md_mem: dict[str, tuple[dict[str, Any] | None, str]] = {
         "setor1.md": (
             {
                 "nome": "Setor Mem",
@@ -218,4 +220,39 @@ def test_sanear_uids_croqui_com_cache_em_memoria(tmp_path) -> None:
     assert validar_uid(dados_croqui_mem.get("uid")) is True
     fm_setor, _ = cache_md_mem["setor1.md"]
     assert fm_setor is not None
-    assert validar_uid(fm_setor.get("uid")) is True
+    assert validar_uid(str(fm_setor.get("uid"))) is True
+
+
+def test_sanear_uids_croqui_preenche_cidade_e_estado_nos_picos(tmp_path: Path) -> None:
+    """Garante que sanear_uids_croqui faz backfill de cidade e estado a partir do slug quando ausentes."""
+    from editor.core.serializacao_util import carregar_yaml
+    from scripts.gerenciar_uids_lib import sanear_uids_croqui
+
+    pico_dir = tmp_path / "br_mg_pedro_leopoldo_gruta_do_bau"
+    pico_dir.mkdir(parents=True)
+    (pico_dir / "croqui.yaml").write_text(
+        """uid: Zazz5il9mKvyUZ
+id: br_mg_pedro_leopoldo_gruta_do_bau
+nome: Gruta do Baú
+picos:
+  - nome: Gruta do Baú
+  - nome: Segundo Pico Com Cidade
+    cidade: Matozinhos
+    estado: MG
+""",
+        encoding="utf-8",
+    )
+
+    modificado = sanear_uids_croqui(pico_dir)
+    assert modificado is True
+
+    dados = carregar_yaml((pico_dir / "croqui.yaml").read_text(encoding="utf-8"))
+    assert dados["picos"][0]["cidade"] == "Pedro Leopoldo"
+    assert dados["picos"][0]["estado"] == "MG"
+    assert dados["picos"][1]["cidade"] == "Matozinhos"
+    assert dados["picos"][1]["estado"] == "MG"
+
+    # Idempotente na segunda execução
+    assert sanear_uids_croqui(pico_dir) is False
+
+

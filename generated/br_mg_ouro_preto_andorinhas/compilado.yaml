@@ -1266,6 +1266,8 @@ picos:
   localizacao:
     latitude: -203703540
     longitude: -434619586
+  cidade: Ouro Preto
+  estado: MG
   precomputados:
     total_escaladas: 44
     total_setores: 4

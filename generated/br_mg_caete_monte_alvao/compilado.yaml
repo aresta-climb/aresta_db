@@ -1875,6 +1875,7 @@ picos:
   localizacao:
     latitude: -199102878
     longitude: -435758238
+  cidade: Caeté
   precomputados:
     total_escaladas: 55
     total_setores: 9

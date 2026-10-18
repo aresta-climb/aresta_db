@@ -1852,6 +1852,7 @@ picos:
     longitude: -424249510
   url_google_maps: https://maps.app.goo.gl/ehxMtrACYudb1sxY7?g_st=aw
   url_filiacao_associacao: https://www.instagram.com/friburgo_climb?stkn=OHFmZnN4c2h5cmlt
+  cidade: Nova Friburgo / Bom Jardim
   precomputados:
     total_escaladas: 15
     total_setores: 1

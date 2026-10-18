@@ -1497,6 +1497,8 @@ picos:
             largura: 24
           id: 8d28UchGXPyRF9
           label: da Foice
+  cidade: Paraisópolis
+  estado: MG
   precomputados:
     total_escaladas: 43
     total_setores: 5

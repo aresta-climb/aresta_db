@@ -20,6 +20,7 @@ picos:
   localizacao:
     latitude: -198897720
     longitude: -436539390
+  cidade: Caeté
 botoes:
 - uid: zI805XHO4ZG1hR
   texto: Capa

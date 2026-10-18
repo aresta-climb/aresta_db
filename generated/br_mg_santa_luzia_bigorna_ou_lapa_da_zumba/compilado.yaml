@@ -428,6 +428,8 @@ picos:
         precomputados:
           total_escaladas: 37
           total_esportivas: 32
+  cidade: Santa Luzia
+  estado: MG
   precomputados:
     total_escaladas: 37
     total_setores: 1

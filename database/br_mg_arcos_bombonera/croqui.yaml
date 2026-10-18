@@ -3,7 +3,7 @@
 uid: Cj7ql1orkaqEyg
 id: br_mg_arcos_bombonera
 nome: Arcos - Bombonera
-descricao: Afloramento de calcário situado em Pains, no estado de Minas Gerais, com 
+descricao: Afloramento de calcário situado em Pains, no estado de Minas Gerais, com
   diversos setores de escalada esportiva.
 creditos:
 - Alexsandro Martins
@@ -26,6 +26,7 @@ picos:
   localizacao:
     latitude: -203962230
     longitude: -456497250
+  cidade: Arcos
 botoes:
 - uid: N98fj8cENR6UWj
   texto: Capa

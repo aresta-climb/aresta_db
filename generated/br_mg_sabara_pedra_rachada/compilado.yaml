@@ -9083,6 +9083,8 @@ picos:
           total_escaladas: 33
           total_boulders: 33
   url_google_maps: https://maps.app.goo.gl/pACGjAF6N4hhSymdA
+  cidade: Sabará
+  estado: MG
   precomputados:
     total_escaladas: 463
     total_setores: 98

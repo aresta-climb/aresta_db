@@ -41,6 +41,8 @@ picos:
     latitude: -197151450
     longitude: -467975110
   url_google_maps: https://maps.app.goo.gl/ph75hb2UY3xD4Y7CA
+  cidade: Araxá
+  estado: MG
 botoes:
 - uid: jipETxRq7lw3JK
   texto: Capa

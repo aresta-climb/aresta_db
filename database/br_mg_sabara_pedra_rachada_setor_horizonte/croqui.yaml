@@ -27,6 +27,8 @@ picos:
   localizacao:
     latitude: -198396970
     longitude: -437722740
+  cidade: Sabará
+  estado: MG
 caminho_thumbnail: imagens/capa_p0_i1.webp
 revisado_manualmente: true
 revisado_bounding_circle: true

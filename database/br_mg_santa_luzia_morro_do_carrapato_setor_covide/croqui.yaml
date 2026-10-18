@@ -22,6 +22,7 @@ picos:
       caminho: setor_covide_ala_esquerda.md
   - setor:
       caminho: setor_covide_ala_central_e_direita.md
+  cidade: Santa Luzia
 botoes:
 - uid: PGkLMz5OaOmuCl
   texto: Capa

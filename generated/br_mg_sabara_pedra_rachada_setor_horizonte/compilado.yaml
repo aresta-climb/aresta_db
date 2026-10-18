@@ -1570,6 +1570,8 @@ picos:
   localizacao:
     latitude: -198396970
     longitude: -437722740
+  cidade: Sabará
+  estado: MG
   precomputados:
     total_escaladas: 61
     total_setores: 10

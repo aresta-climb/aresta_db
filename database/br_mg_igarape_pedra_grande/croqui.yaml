@@ -3,7 +3,7 @@
 uid: nxZd44LfKUlR1H
 id: br_mg_igarape_pedra_grande
 nome: Igarameca - Complexo Pedra Grande
-descricao: Este croqui documenta e divulga a prática da escalada no Complexo da Pedra 
+descricao: Este croqui documenta e divulga a prática da escalada no Complexo da Pedra
   Grande em Igarapé/MG, reunindo informações sobre diversos setores e vias.
 creditos:
 - Equipe Igarameca
@@ -50,6 +50,7 @@ picos:
   localizacao:
     latitude: -201176660
     longitude: -443593480
+  cidade: Igarapé
 botoes:
 - uid: axpnQInJsigqZt
   texto: Capa

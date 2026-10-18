@@ -18,6 +18,8 @@ picos:
   localizacao:
     latitude: -203600960
     longitude: -435035650
+  cidade: Ouro Preto
+  estado: MG
 botoes:
 - uid: hknS4iyr6zfaaA
   texto: Capa

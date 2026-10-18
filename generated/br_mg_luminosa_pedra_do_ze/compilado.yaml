@@ -287,6 +287,8 @@ picos:
       - caminho_imagem_mapa: imagens/mapas_gerais_p0_i7.webp
         largura_mapa: 741
         altura_mapa: 470
+  cidade: Luminosa
+  estado: MG
   precomputados:
     total_escaladas: 25
     total_setores: 1

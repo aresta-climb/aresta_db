@@ -49,6 +49,8 @@ picos:
   localizacao:
     latitude: -202953470
     longitude: -456009710
+  cidade: Arcos
+  estado: MG
 botoes:
 - uid: ixGD9ckgbAlhYz
   texto: Capa

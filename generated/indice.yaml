@@ -1,4 +1,4 @@
-versao_catalogo: 70c7ddb0cf371148
+versao_catalogo: 68ad37136083fdb3
 croquis:
 - id: br_mg_araxa_bocaina_boulders
   croqui_uid: oyCb72FtUENKNi
@@ -6,15 +6,15 @@ croquis:
   descricao: O Bocaina Park é um parque particular de esportes, lazer e bem estar
     localizado a 30 km do de Araxá aos pés da serra da Bocaina.
   caminho_relativo: br_mg_araxa_bocaina_boulders/compilado.binarypb
-  checksum_sha256_croqui: ef622f5b09a8cc191e73184c2003290b92e421774c316774d6594285786b82f9
+  checksum_sha256_croqui: 73658728e19dd2741a5135aee4a0e0e9b5664d48cbaff2cf534d22a28c5f6dba
   checksum_sha256_thumbnail: 470aeac79c6fb93c1f0521b4bb5893477c221bf3a09f9b1a0131abf9f324e461
-  timestamp_update: '2026-10-13T02:21:13Z'
+  timestamp_update: '2026-10-18T22:25:22Z'
   precomputados:
     total_escaladas: 101
     total_setores: 12
     total_grupos: 0
     total_boulders: 101
-    tamanho_download_bytes: 6166854
+    tamanho_download_bytes: 6166866
   localizacao:
     latitude: -197151450
     longitude: -467975110
@@ -25,16 +25,16 @@ croquis:
     de escalada esportiva da região. \nEste croqui cobre as 220 vias do parque, distribuídas
     em diversos setores com graduações que vão do 4º ao 10º grau.\n"
   caminho_relativo: br_mg_araxa_bocaina_esportivas/compilado.binarypb
-  checksum_sha256_croqui: 902c94a1ac98cd519b15d32b9a88f5faec36997647e35d47eea0c8441194ac66
+  checksum_sha256_croqui: c9fbc02a274bc3cd86e5765a270f932f06dbee11fe8995542878b09b4024b45e
   checksum_sha256_thumbnail: f07945364407d969d520d40ad78d646d07e0dba72a51f85285903b356efdd8ef
-  timestamp_update: '2026-10-13T02:21:13Z'
+  timestamp_update: '2026-10-18T22:25:22Z'
   precomputados:
     total_escaladas: 240
     total_setores: 15
     total_grupos: 0
     total_esportivas: 235
     total_highlines: 5
-    tamanho_download_bytes: 22830552
+    tamanho_download_bytes: 22830564
   localizacao:
     latitude: -197151110
     longitude: -467977210
@@ -44,15 +44,15 @@ croquis:
   descricao: Afloramento de calcário situado em Pains, no estado de Minas Gerais,
     com diversos setores de escalada esportiva.
   caminho_relativo: br_mg_arcos_bombonera/compilado.binarypb
-  checksum_sha256_croqui: 7755f619ab174b30f5e15681780528f18c579196636e31ce47eae9064a226236
+  checksum_sha256_croqui: d3c20d8c6e1cdb1b4b227f128faff48b3d1e8367902c58465475c6c468f486ce
   checksum_sha256_thumbnail: a7d62c5c5f8654d611b3560f86f35ccf7443d9f70ea0cff8add685cd3bc914e2
-  timestamp_update: '2026-10-13T02:21:13Z'
+  timestamp_update: '2026-10-18T22:25:22Z'
   precomputados:
     total_escaladas: 29
     total_setores: 3
     total_grupos: 0
     total_esportivas: 29
-    tamanho_download_bytes: 4305475
+    tamanho_download_bytes: 4305482
   localizacao:
     latitude: -203962230
     longitude: -456497250
@@ -62,15 +62,15 @@ croquis:
   descricao: Afloramento de calcário situado entre Arcos e Pains em Minas Gerais,
     com diversos setores de escalada esportiva.
   caminho_relativo: br_mg_arcos_corumba/compilado.binarypb
-  checksum_sha256_croqui: 0a7591f95b2fbc85bdf73921eeb82279a48c9f4b19208f37b599fa2c8b27c773
+  checksum_sha256_croqui: 6d18fed3f6e5e0c17a288c1587117743082cf9803941e9a4d881301ae8495f2d
   checksum_sha256_thumbnail: 9e23a1e5fba3d47bd4b7840fc10b22664b461c5feb72d56bd966277f1a8a53ea
-  timestamp_update: '2026-10-13T02:21:13Z'
+  timestamp_update: '2026-10-18T22:25:22Z'
   precomputados:
     total_escaladas: 53
     total_setores: 4
     total_grupos: 0
     total_esportivas: 51
-    tamanho_download_bytes: 3070453
+    tamanho_download_bytes: 3070460
   localizacao:
     latitude: -203283130
     longitude: -456115750
@@ -80,15 +80,15 @@ croquis:
   descricao: Um belo afloramento de calcário localizado entre Arcos e Pains, com vias
     que variam do 5º ao 9º grau.
   caminho_relativo: br_mg_arcos_novo_mundo/compilado.binarypb
-  checksum_sha256_croqui: 475c85b96d3745e808c815be05e934b554d2e47f8fc24e00671d747dbd7fc246
+  checksum_sha256_croqui: 5e329a516baefce6bf08538a9d44ec5606e7c097a45e67f0f57f8b469d28f4a1
   checksum_sha256_thumbnail: 0f598698530f9bbda980757e782ca7c2e0daff379ab69a7740fa765830111fc9
-  timestamp_update: '2026-10-13T02:21:13Z'
+  timestamp_update: '2026-10-18T22:25:22Z'
   precomputados:
     total_escaladas: 29
     total_setores: 4
     total_grupos: 0
     total_esportivas: 27
-    tamanho_download_bytes: 881058
+    tamanho_download_bytes: 881065
   localizacao:
     latitude: -203449420
     longitude: -455770310
@@ -97,15 +97,15 @@ croquis:
   nome: Afloramento Rastro
   descricao: Croqui do Afloramento Rastro em Arcos, Minas Gerais.
   caminho_relativo: br_mg_arcos_rastro/compilado.binarypb
-  checksum_sha256_croqui: 559fc306c22431f4745658bb21946d4eeb99dda2b4114dcd6aa70af949ae8f76
+  checksum_sha256_croqui: b06b1d0ed5a6468d8c50c221dc178c425d7624cc72a77adc192c68b074e6ec71
   checksum_sha256_thumbnail: cd2a88b34c86579c7cf631e5773abb272835706f5b45e49bb0f1e362bca7ce39
-  timestamp_update: '2026-10-13T02:21:13Z'
+  timestamp_update: '2026-10-18T22:25:22Z'
   precomputados:
     total_escaladas: 247
     total_setores: 17
     total_grupos: 0
     total_esportivas: 242
-    tamanho_download_bytes: 2126477
+    tamanho_download_bytes: 2126488
   localizacao:
     latitude: -202953470
     longitude: -456009710
@@ -115,31 +115,31 @@ croquis:
   descricao: |
     A **Pedreira Dr. Gravatá**, em Betim/MG, reúne **mais de 50 vias de escalada esportiva**, linhas de rapel e setores em desenvolvimento. O pico é conduzido por **Marcio Macena e Samuel Lucas**. Este registro organiza acesso, setores, vias, autoria e história de uma paisagem ligada às antigas pedreiras, à ferrovia e à Usina Hidrelétrica Dr. Gravatá, inaugurada em 1914. Um croqui para escalar hoje e preservar conhecimento para quem vier depois.
   caminho_relativo: br_mg_betim_pedreira_dr_gravata/compilado.binarypb
-  checksum_sha256_croqui: a2bd4fc1cf2aff4e6364f1250a82522b11f882f814ee8d50c6fcb0aafb1f3685
+  checksum_sha256_croqui: c1e24ad732c2231cd442650c7ab8bbf73d49c4e6a4afc3f5159e0512b6939204
   checksum_sha256_thumbnail: 4e80464b26764e6d96408614ce015d40358956c95eedf4fa73e906bfcb258ebe
-  timestamp_update: '2026-10-13T02:24:04Z'
+  timestamp_update: '2026-10-18T22:25:22Z'
   precomputados:
     total_escaladas: 31
     total_setores: 2
     total_grupos: 1
     total_esportivas: 31
-    tamanho_download_bytes: 3850837
+    tamanho_download_bytes: 3850844
 - id: br_mg_caete_monte_alvao
   croqui_uid: hyRUkm1gfZRwSw
   nome: Monte Alvão - Caeté
   descricao: |
     O Alto Monte Alvão, localizado em Caeté, MG, é uma das áreas de escalada mais tradicionais e belas da região, oferecendo vias de diversos estilos e dificuldades em quartzito de alta qualidade.
   caminho_relativo: br_mg_caete_monte_alvao/compilado.binarypb
-  checksum_sha256_croqui: 20a834c2baa24d735f285456482e6b843cf0d9b6a54cbb8ddc202d6d05d3ef61
+  checksum_sha256_croqui: a97170eaf57fcf669fc6426f7866f97d6ac3ce4118219cffdd44085b222a6b3b
   checksum_sha256_thumbnail: 03f79ad397717faec98f8288a15d55635b103c61f9b2be5cf92a56b1d804df95
-  timestamp_update: '2026-10-13T02:21:13Z'
+  timestamp_update: '2026-10-18T22:25:22Z'
   precomputados:
     total_escaladas: 55
     total_setores: 9
     total_grupos: 3
     total_esportivas: 44
     total_multiplas_enfiadas: 7
-    tamanho_download_bytes: 363974
+    tamanho_download_bytes: 363982
   localizacao:
     latitude: -199102878
     longitude: -435758238
@@ -148,15 +148,15 @@ croquis:
   nome: Pedra Branca
   descricao: ''
   caminho_relativo: br_mg_caete_pedra_branca/compilado.binarypb
-  checksum_sha256_croqui: 7661532bb533872b0f5310bf60326d9a77d5eea85a775d16bed32037ef716009
+  checksum_sha256_croqui: fc0845b51e47f3d4392059971b4ec4ff6442f8f1a8c0b6170cf19081317c6f2f
   checksum_sha256_thumbnail: 5595e0ed31526cb50b44acf14574b4c203e4435e10dbd102f3006ab744f71145
-  timestamp_update: '2026-10-13T02:21:13Z'
+  timestamp_update: '2026-10-18T22:25:22Z'
   precomputados:
     total_escaladas: 40
     total_setores: 2
     total_grupos: 0
     total_esportivas: 40
-    tamanho_download_bytes: 222581
+    tamanho_download_bytes: 222589
   localizacao:
     latitude: -198897720
     longitude: -436539390
@@ -166,15 +166,15 @@ croquis:
   descricao: Croqui da Pedra Filha, localizada em Caeté, MG. Oferece vias esportivas
     técnicas em dois setores principais.
   caminho_relativo: br_mg_caete_pedra_filha/compilado.binarypb
-  checksum_sha256_croqui: cb022b212e55ec62f276f9247d85ed25b7cb0c0b90db9806492140e3b9e05d93
+  checksum_sha256_croqui: 7f4940b8f7f2bec6f94dbd845c29a40f5b481d26bea921fe293dd444f1c55fa5
   checksum_sha256_thumbnail: 86ebad5aaf4e224f8ae16f15622cd24e33922939de8c4909b5ab598c8444a8f2
-  timestamp_update: '2026-10-13T02:21:13Z'
+  timestamp_update: '2026-10-18T22:25:22Z'
   precomputados:
     total_escaladas: 22
     total_setores: 2
     total_grupos: 0
     total_esportivas: 22
-    tamanho_download_bytes: 77150
+    tamanho_download_bytes: 77162
   localizacao:
     latitude: -198960870
     longitude: -436547850
@@ -185,15 +185,15 @@ croquis:
     Gerais. Localizado na Serra do Espinhaço, reconhecido como um dos melhores lugares
     para a prática de boulder no Brasil.
   caminho_relativo: br_mg_conceicao_do_mato_dentro_festboulder/compilado.binarypb
-  checksum_sha256_croqui: 02b20327fe881d78261c1333358abba66459505739f1c25935d2661627d8cac5
+  checksum_sha256_croqui: ad7509ea891e1d17168580c41898e4a9a9ccbbffbc76e650f9bf4cc48436e1c1
   checksum_sha256_thumbnail: 2286cc0d32c56c598adff448e1a883d58691a861959b5c59e1ad39c0434e4c19
-  timestamp_update: '2026-10-13T02:24:04Z'
+  timestamp_update: '2026-10-18T22:25:22Z'
   precomputados:
     total_escaladas: 221
     total_setores: 32
     total_grupos: 4
     total_boulders: 221
-    tamanho_download_bytes: 8023609
+    tamanho_download_bytes: 8023641
   localizacao:
     latitude: -190464720
     longitude: -434401570
@@ -203,15 +203,15 @@ croquis:
   descricao: O Cerrado Groove é um setor de boulder localizado em Diamantina, MG,
     com blocos de quartzito de alta qualidade.
   caminho_relativo: br_mg_diamantina_diamaboulder/compilado.binarypb
-  checksum_sha256_croqui: e067c4204624f12f614741d4ade154c5a60a7eac8768bd1e6618c884423429a4
+  checksum_sha256_croqui: 4b0c7168d5327157ecb7bc9973083a4e9ce8f9ca9efce3739caf2a956d57d3f2
   checksum_sha256_thumbnail: e4949482a525177c4c86644c29d5d3d840c617994b759fe639817c383053bddb
-  timestamp_update: '2026-10-13T02:21:13Z'
+  timestamp_update: '2026-10-18T22:25:22Z'
   precomputados:
     total_escaladas: 89
     total_setores: 22
     total_grupos: 4
     total_boulders: 89
-    tamanho_download_bytes: 15908383
+    tamanho_download_bytes: 15908399
   localizacao:
     latitude: -182821730
     longitude: -435199450
@@ -222,16 +222,16 @@ croquis:
     escalada tradicional, esportiva e de aderência como a Parede Principal, Parede
     das Aderências, Pedra do Neri e outras.
   caminho_relativo: br_mg_ferros_ferros/compilado.binarypb
-  checksum_sha256_croqui: 39b410153bae433a3b01840a69d6db389b9865427e9055cc5144aa61bc50a74e
+  checksum_sha256_croqui: b2b3853af1f0489d6fd3ed157477d38a1aae4a26538965f6b1743a630a57b54f
   checksum_sha256_thumbnail: 84902a86389e5ffd380d2584588e2ddcb820bb3b96b90fb6d8cc7ae3feabbb48
-  timestamp_update: '2026-10-13T02:24:04Z'
+  timestamp_update: '2026-10-18T22:25:22Z'
   precomputados:
     total_escaladas: 160
     total_setores: 18
     total_grupos: 3
     total_esportivas: 71
     total_multiplas_enfiadas: 72
-    tamanho_download_bytes: 14862078
+    tamanho_download_bytes: 14862086
   localizacao:
     latitude: -192905010
     longitude: -429844990
@@ -241,9 +241,9 @@ croquis:
   descricao: Este croqui documenta e divulga a prática da escalada no Complexo da
     Pedra Grande em Igarapé/MG, reunindo informações sobre diversos setores e vias.
   caminho_relativo: br_mg_igarape_pedra_grande/compilado.binarypb
-  checksum_sha256_croqui: ec9a75f043dfc0649f66bcd21d009bf6f0795676806335b0d062df5a625667e6
+  checksum_sha256_croqui: 615bc66c3d15fa7b287628f1d40d2d12e4b5b46fcd5a1af727aa20aea1a0f325
   checksum_sha256_thumbnail: d490580138c1b7f24c772f2d6672e895406739da51bd1880ecabb49cd28b7409
-  timestamp_update: '2026-10-13T02:21:13Z'
+  timestamp_update: '2026-10-18T22:25:22Z'
   precomputados:
     total_escaladas: 240
     total_setores: 21
@@ -251,7 +251,7 @@ croquis:
     total_esportivas: 95
     total_boulders: 103
     total_multiplas_enfiadas: 1
-    tamanho_download_bytes: 52793069
+    tamanho_download_bytes: 52793079
   localizacao:
     latitude: -201176660
     longitude: -443593480
@@ -260,15 +260,15 @@ croquis:
   nome: Salão Encantado
   descricao: Croqui do Salão Encantado em Januária, MG.
   caminho_relativo: br_mg_januaria_salao_encantado/compilado.binarypb
-  checksum_sha256_croqui: a838b284a414a5680fd796487980e173ea23e44ed1fc3f2c94c0c83ecc58bd95
+  checksum_sha256_croqui: 32868120f698b7c2cd282fb43d9a5fb9e3daad2f504b1c05658db5d0d88156ee
   checksum_sha256_thumbnail: 7d240fdac4920b32a566c3b13e7e95a4b953405d284d9e9b43930e2f0fa1a71c
-  timestamp_update: '2026-10-13T02:21:13Z'
+  timestamp_update: '2026-10-18T22:25:22Z'
   precomputados:
     total_escaladas: 45
     total_setores: 7
     total_grupos: 0
     total_esportivas: 45
-    tamanho_download_bytes: 2706825
+    tamanho_download_bytes: 2706840
   localizacao:
     latitude: -154711340
     longitude: -444448810
@@ -277,15 +277,15 @@ croquis:
   nome: Gruta da Lapinha
   descricao: Guia de escalada da Gruta da Lapinha em Lagoa Santa, MG.
   caminho_relativo: br_mg_lagoa_santa_gruta_da_lapinha/compilado.binarypb
-  checksum_sha256_croqui: a53ba65da38a674c4a29434435ff5f5390a986f20fed6510aee547b5f32f93f2
+  checksum_sha256_croqui: e00388e706b557ba881d5531d534b4d484e51250aa0695905f21c22e4afd1f83
   checksum_sha256_thumbnail: 76c57c2b9159772355858ad8f40ba79a8584dfdda215379031adc9afff1f1416
-  timestamp_update: '2026-10-18T19:53:04Z'
+  timestamp_update: '2026-10-18T22:25:22Z'
   precomputados:
     total_escaladas: 129
     total_setores: 10
     total_grupos: 0
     total_esportivas: 106
-    tamanho_download_bytes: 512567
+    tamanho_download_bytes: 512584
   localizacao:
     latitude: -195622616
     longitude: -439595684
@@ -296,15 +296,15 @@ croquis:
     Lagoa Santa, MG.  Com cerca de 70 vias, oferece opções para iniciantes e veteranos,
     com acesso fácil e rápido.
   caminho_relativo: br_mg_lagoa_santa_sitio_do_rod/compilado.binarypb
-  checksum_sha256_croqui: 795378f47028a4a8d59cd4add1734de381e9afc6d46d9f3de9e300938b7572a9
+  checksum_sha256_croqui: 14eee706ae5f2c6eb505e1c94afbc3aea244fa3b41f79fdb2eb46b86c68d574c
   checksum_sha256_thumbnail: 65ab5d85f5fb6a078f77306984a141ff013581a8494997c5f77f783c997d4451
-  timestamp_update: '2026-10-13T02:21:13Z'
+  timestamp_update: '2026-10-18T22:25:22Z'
   precomputados:
     total_escaladas: 85
     total_setores: 3
     total_grupos: 0
     total_esportivas: 74
-    tamanho_download_bytes: 3761418
+    tamanho_download_bytes: 3761435
   localizacao:
     latitude: -195686709
     longitude: -439561783
@@ -313,15 +313,15 @@ croquis:
   nome: Parque Natural Municipal das Andorinhas
   descricao: ''
   caminho_relativo: br_mg_ouro_preto_andorinhas/compilado.binarypb
-  checksum_sha256_croqui: e79261ba8748f3f73d29699e0c9faa22f25f5e07ffed2f9aef5a778a06158c76
+  checksum_sha256_croqui: 419f017c12b45f1f7cb86a9c928a4ed670b4718ae23a99dcb57ce8a2c33ae7b0
   checksum_sha256_thumbnail: f6fd316f2dd6ae610fac6ee9137a0b4c2ab388860175d167b03b7bae36efbac0
-  timestamp_update: '2026-10-13T02:21:13Z'
+  timestamp_update: '2026-10-18T22:25:22Z'
   precomputados:
     total_escaladas: 44
     total_setores: 4
     total_grupos: 0
     total_esportivas: 36
-    tamanho_download_bytes: 2870067
+    tamanho_download_bytes: 2870083
   localizacao:
     latitude: -203703540
     longitude: -434619586
@@ -330,15 +330,15 @@ croquis:
   nome: Ouroboulder
   descricao: ''
   caminho_relativo: br_mg_ouro_preto_ouroboulder/compilado.binarypb
-  checksum_sha256_croqui: b57063665ad65f654ad2547db1c2ac6804f6b5cfbeeed79b750bdd1fc8f495d4
+  checksum_sha256_croqui: 5fba7acf8d8a24ddb6812ce1995a0fa823f66ab0a90593d5ce1bd20230c62431
   checksum_sha256_thumbnail: 5b0b8c71c7b5ef828d33cb18ce7d7e0f04668f27b9cee4458c05e2ee772ac4c9
-  timestamp_update: '2026-10-13T02:24:04Z'
+  timestamp_update: '2026-10-18T22:25:22Z'
   precomputados:
     total_escaladas: 302
     total_setores: 43
     total_grupos: 3
     total_boulders: 302
-    tamanho_download_bytes: 78301844
+    tamanho_download_bytes: 78301856
   localizacao:
     latitude: -203677334
     longitude: -435075136
@@ -347,15 +347,15 @@ croquis:
   nome: OuroBoulder Sunset
   descricao: ''
   caminho_relativo: br_mg_ouro_preto_ouroboulder_sunset/compilado.binarypb
-  checksum_sha256_croqui: af2ca98e93b8c62dc1e42a25b4ccdb82a46c2d70e0dcd22bc944a75f5cd13308
+  checksum_sha256_croqui: 9ee2f90b8fe628c42c292ce0f7adef7ed41a2c0e6324d116a31cfd5d19d9ccee
   checksum_sha256_thumbnail: 6e6baa3651753e1c62ba612181a8b62509dbe7ea04e07fe12b33b560f0d45c96
-  timestamp_update: '2026-10-13T02:24:04Z'
+  timestamp_update: '2026-10-18T22:25:22Z'
   precomputados:
     total_escaladas: 36
     total_setores: 8
     total_grupos: 1
     total_boulders: 36
-    tamanho_download_bytes: 2703875
+    tamanho_download_bytes: 2703891
   localizacao:
     latitude: -203600960
     longitude: -435035650
@@ -366,15 +366,15 @@ croquis:
     Guia de escalada da face mineira da Pedra da Divisa, em Paraisópolis, MG.
     Contém vias esportivas e móveis em diversos setores como Cangaço, Ditados, Cervejas, Questão de Tempo e Hospício.
   caminho_relativo: br_mg_paraisopolis_pedra_da_divisa/compilado.binarypb
-  checksum_sha256_croqui: f0ba2c87916b6820bb9e0b344e2fc817b22333e3f961bda2cf509d3f34fcfaca
+  checksum_sha256_croqui: 63b1c74bf62b25dea9cd28f4b18fded12ced2d113a21eafbb79eb41d8330f58a
   checksum_sha256_thumbnail: be6561976a3ef2c0f957fc3c72cdb7f0572b912d2d1e74ed1aa23fa1a8d0ebbd
-  timestamp_update: '2026-10-13T02:21:13Z'
+  timestamp_update: '2026-10-18T22:25:22Z'
   precomputados:
     total_escaladas: 43
     total_setores: 5
     total_grupos: 0
     total_esportivas: 29
-    tamanho_download_bytes: 3545500
+    tamanho_download_bytes: 3545519
 - id: br_mg_pedro_leopoldo_gruta_do_bau
   croqui_uid: Zazz5il9mKvyUZ
   nome: Gruta do Baú
@@ -382,16 +382,16 @@ croquis:
     um dos principais picos de escalada em calcário de Minas Gerais, com centenas
     de vias de diversos graus.
   caminho_relativo: br_mg_pedro_leopoldo_gruta_do_bau/compilado.binarypb
-  checksum_sha256_croqui: 71df13d6ea642e02d0d881a88cdf3a771324caff14c58d68dd0da32602104cdd
+  checksum_sha256_croqui: 9fe02f549d8fa7cd3f096453d125f239be5e6dd9594fc2f891c60beb3c899c2e
   checksum_sha256_thumbnail: dd7a58f4b98506504be378b79117fe97b45fcd5fc927d31680d4c20a54b59052
-  timestamp_update: '2026-10-13T02:21:13Z'
+  timestamp_update: '2026-10-18T22:25:22Z'
   precomputados:
     total_escaladas: 339
     total_setores: 13
     total_grupos: 0
     total_esportivas: 292
     total_multiplas_enfiadas: 2
-    tamanho_download_bytes: 2979011
+    tamanho_download_bytes: 2979027
   localizacao:
     latitude: -195534530
     longitude: -439898860
@@ -400,15 +400,15 @@ croquis:
   nome: Sabará - Pedra Rachada - Setor Horizonte
   descricao: ''
   caminho_relativo: br_mg_sabara_pedra_rachada_setor_horizonte/compilado.binarypb
-  checksum_sha256_croqui: 301a08a27964ff1c177cd3571bd9ede4cfa75fb0ec361f3c6d20dbbdca617af1
+  checksum_sha256_croqui: e71337cf55f8a47350aa8689f3b0c043f2f1b3ae008e8b8ddc194a2a9451728b
   checksum_sha256_thumbnail: aa6f7fb7f45880dafaba9758e1926aacf072a9b77fec3dda5d336b1404ce2ba9
-  timestamp_update: '2026-10-13T02:21:13Z'
+  timestamp_update: '2026-10-18T22:25:22Z'
   precomputados:
     total_escaladas: 61
     total_setores: 10
     total_grupos: 1
     total_boulders: 61
-    tamanho_download_bytes: 11712373
+    tamanho_download_bytes: 11712386
   localizacao:
     latitude: -198396970
     longitude: -437722740
@@ -417,15 +417,15 @@ croquis:
   nome: Pico da Vó Gusta
   descricao: Pico da Vó Gusta em Sacramento, MG. Próximo a Rifaina.
   caminho_relativo: br_mg_sacramento_vo_gusta/compilado.binarypb
-  checksum_sha256_croqui: 81bd9b4f78bb13d5db4ca30dc5ef4548e5c5f991e624e6371d764a09f2a26149
+  checksum_sha256_croqui: 2f2dfa897eef7f8aba93ea545db57c62aa726183848f01537a9cb41e57d9fab7
   checksum_sha256_thumbnail: 83839077a1e4d6e4fd3c794ca5d5c9db433e6e933db95d3cc185f8b24e99c539
-  timestamp_update: '2026-10-13T02:21:13Z'
+  timestamp_update: '2026-10-18T22:25:22Z'
   precomputados:
     total_escaladas: 11
     total_setores: 1
     total_grupos: 0
     total_esportivas: 11
-    tamanho_download_bytes: 2155354
+    tamanho_download_bytes: 2155366
   localizacao:
     latitude: -199973890
     longitude: -473989720
@@ -434,15 +434,15 @@ croquis:
   nome: Morro do Carrapato - Setor Covide
   descricao: ''
   caminho_relativo: br_mg_santa_luzia_morro_do_carrapato_setor_covide/compilado.binarypb
-  checksum_sha256_croqui: b002fd3096b6a26e6f6095f964e399722a9cce81b26a79ae95d6a638ef89f173
+  checksum_sha256_croqui: 04820ec2fd81c8b8f8e4a0b7e6e109b3c3ec788be30058db49b3cfeadef8b46f
   checksum_sha256_thumbnail: 0c93f073dc2a415f562f1f237494c4b1f939f50bd050323fc9e073bc69a1d8f1
-  timestamp_update: '2026-10-13T02:21:13Z'
+  timestamp_update: '2026-10-18T22:25:22Z'
   precomputados:
     total_escaladas: 31
     total_setores: 3
     total_grupos: 0
     total_esportivas: 31
-    tamanho_download_bytes: 12915997
+    tamanho_download_bytes: 12916010
   localizacao:
     latitude: -197584200
     longitude: -438851100
@@ -451,16 +451,16 @@ croquis:
   nome: Santuário de Santa Luzia
   descricao: ''
   caminho_relativo: br_mg_santa_luzia_santuario/compilado.binarypb
-  checksum_sha256_croqui: e69456ef3031bbf2a237daa3920f489a2e84152f48a5143b5cfeeba33d93fb4f
+  checksum_sha256_croqui: 392db8185b4255d00666625fb6267be1d85e192c3643deab6ecaf409ef505c00
   checksum_sha256_thumbnail: cd072d8437c4155c6b8fcebbaaaa568e742daa5ed12c64a6c63ccbdfc1b9a951
-  timestamp_update: '2026-10-13T02:21:13Z'
+  timestamp_update: '2026-10-18T22:25:22Z'
   precomputados:
     total_escaladas: 46
     total_setores: 3
     total_grupos: 0
     total_esportivas: 21
     total_multiplas_enfiadas: 25
-    tamanho_download_bytes: 2274207
+    tamanho_download_bytes: 2274220
   localizacao:
     latitude: -197022921
     longitude: -438754158
@@ -470,15 +470,15 @@ croquis:
   descricao: O Setor Rock Master, localizado na Serra do Cipó (Santana do Riacho -
     MG), é um clássico setor de escalada esportiva com vias de 5b a 10b.
   caminho_relativo: br_mg_santana_do_riacho_serra_do_cipo_rock_master/compilado.binarypb
-  checksum_sha256_croqui: 6d69051fc6eafca72a3d3955786f879be2f06867bd67158439c035919c4c6cd9
+  checksum_sha256_croqui: 03c31f448fb871a7e76f15b7a738b8aef85ddcb6e23480e5baa1c21c9225868c
   checksum_sha256_thumbnail: 4b48ba5cddb5e36d05bf933205a865c923dea6c9df28926e97ebdae19da210de
-  timestamp_update: '2026-10-13T02:21:13Z'
+  timestamp_update: '2026-10-18T22:25:22Z'
   precomputados:
     total_escaladas: 35
     total_setores: 1
     total_grupos: 0
     total_esportivas: 35
-    tamanho_download_bytes: 496801
+    tamanho_download_bytes: 496820
   localizacao:
     latitude: -193155830
     longitude: -436135000
@@ -488,15 +488,15 @@ croquis:
   descricao: Guia de escalada da Serra do Lenheiro em São João Del Rei - MG (5ª Edição,
     2025).
   caminho_relativo: br_mg_sao_joao_del_rei_serra_do_lenheiro/compilado.binarypb
-  checksum_sha256_croqui: 2bf7862ffb632992a096cc03b8425b279dd741c8d6d570b5af2b703b34aedf42
+  checksum_sha256_croqui: 0f94bfbbc5f71fc97e5402e0f30dfed9652c141a8e6e3df3c24fdab9c72af928
   checksum_sha256_thumbnail: 6b567bf0f04a055be1ddde56cc1f36e7fe4b908fd8fdbab98564099e3bc429ab
-  timestamp_update: '2026-10-13T02:24:04Z'
+  timestamp_update: '2026-10-18T22:25:22Z'
   precomputados:
     total_escaladas: 310
     total_setores: 26
     total_grupos: 4
     total_esportivas: 207
-    tamanho_download_bytes: 15153185
+    tamanho_download_bytes: 15153205
   localizacao:
     latitude: -211406830
     longitude: -442847810
@@ -506,15 +506,15 @@ croquis:
   descricao: Guia de escalada em boulder do setor Ave Maria, na Serra do Lenheiro
     em São João del Rei - MG (1ª Edição, 2017).
   caminho_relativo: br_mg_sao_joao_del_rei_serra_do_lenheiro_boulders_ave_maria_2017/compilado.binarypb
-  checksum_sha256_croqui: b4e529efd8f2261f2ada599d8ff8f1df66020b8248f13c75bc458003076db89a
+  checksum_sha256_croqui: 5f391360df6daa815257be61a9de6b8ef88bc93be3814674660446a0e4461380
   checksum_sha256_thumbnail: 8bea9a58c1af2476bf89e447d5fb1b46ea51e0f6e3cd31a90b6b0c420a683752
-  timestamp_update: '2026-10-13T02:24:04Z'
+  timestamp_update: '2026-10-18T22:25:22Z'
   precomputados:
     total_escaladas: 127
     total_setores: 38
     total_grupos: 5
     total_boulders: 127
-    tamanho_download_bytes: 7904192
+    tamanho_download_bytes: 7904212
   localizacao:
     latitude: -211406830
     longitude: -442847810
@@ -523,15 +523,15 @@ croquis:
   nome: Sinuosa
   descricao: ''
   caminho_relativo: br_mg_sete_lagoas_sinuosa/compilado.binarypb
-  checksum_sha256_croqui: 9843ccf4bdae4f58942f9d54724c9f89c996b6f5f14d45d5d81ea521dfd90048
+  checksum_sha256_croqui: 1f1c52ba4ef9d2018246906e986fadbe510dbab3a483368b14969a4599ef026c
   checksum_sha256_thumbnail: 2bc1ee7c1538698d4dfbd8014b198048449e9541e08c05ee71469c1354d72bed
-  timestamp_update: '2026-10-13T02:24:04Z'
+  timestamp_update: '2026-10-18T22:25:22Z'
   precomputados:
     total_escaladas: 141
     total_setores: 15
     total_grupos: 1
     total_esportivas: 135
-    tamanho_download_bytes: 18237465
+    tamanho_download_bytes: 18237478
   localizacao:
     latitude: -194618320
     longitude: -442793680
@@ -541,15 +541,15 @@ croquis:
   descricao: Setor Capelinha localizado entre os municipios de Nova Friburgo e Bom
     Jardim /RJ
   caminho_relativo: br_rj_nova_friburgobom_jardim_capelinha/compilado.binarypb
-  checksum_sha256_croqui: 9a6dd6d82033682d58134e2db8f8929bf47efe4c5643fd72cc2a80a02e324c83
+  checksum_sha256_croqui: ec01964268a38e7d57959bebcf641e8b8ddd0bde8632d786f3cb97c585e6f430
   checksum_sha256_thumbnail: e188f6665ef5d9916e72701bdfd1677c2cf22f480d626f8d6ac7d9d1fbff1230
-  timestamp_update: '2026-10-13T02:21:13Z'
+  timestamp_update: '2026-10-18T22:25:22Z'
   precomputados:
     total_escaladas: 15
     total_setores: 1
     total_grupos: 0
     total_esportivas: 15
-    tamanho_download_bytes: 9930114
+    tamanho_download_bytes: 9930142
   localizacao:
     latitude: -222285860
     longitude: -424249510

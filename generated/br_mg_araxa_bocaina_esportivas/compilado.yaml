@@ -7010,6 +7010,8 @@ picos:
     latitude: -197151110
     longitude: -467977210
   url_google_maps: https://maps.app.goo.gl/ph75hb2UY3xD4Y7CA
+  cidade: Araxá
+  estado: MG
   precomputados:
     total_escaladas: 240
     total_setores: 15

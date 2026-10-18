@@ -35,6 +35,8 @@ picos:
   localizacao:
     latitude: -195622616
     longitude: -439595684
+  cidade: Lagoa Santa
+  estado: MG
 botoes:
 - uid: bd8N6s3AVnvUzT
   texto: Capa

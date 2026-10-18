@@ -712,6 +712,7 @@ picos:
     latitude: -193155830
     longitude: -436135000
   url_google_maps: https://maps.app.goo.gl/cxF1NYUhuZw7AWQr9
+  cidade: Santana do Riacho
   precomputados:
     total_escaladas: 35
     total_setores: 1

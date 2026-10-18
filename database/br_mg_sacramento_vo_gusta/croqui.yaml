@@ -1,6 +1,5 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
-
 uid: Jtg5MoeUOy5z93
 id: br_mg_sacramento_vo_gusta
 nome: Pico da Vó Gusta
@@ -23,6 +22,7 @@ picos:
       caminho: setor_quintal.md
   mapas_gerais:
     caminho: mapas_gerais.md
+  cidade: Sacramento
 botoes:
 - uid: ZVDkuWLhO7Il6d
   texto: Capa

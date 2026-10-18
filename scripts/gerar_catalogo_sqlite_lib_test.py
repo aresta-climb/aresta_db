@@ -24,6 +24,7 @@ from scripts.gerar_catalogo_sqlite_lib import (
 def _criar_croqui_exemplo() -> croqui_pb2.Croqui:
     """Cria um Croqui protobuf de exemplo com botões, grupos, setores e vias para testes."""
     croqui = croqui_pb2.Croqui()
+    croqui.publicar_croqui = True
     croqui.uid = "croqui12345678"
     croqui.id = "br_mg_ferros_pico_dos_ferros"
     croqui.nome = "Pico dos Ferros"
@@ -226,9 +227,51 @@ def test_migracao_automatica_remove_coluna_atualizado_em_preservando_dados(tmp_p
 
 
 def test_extrair_localidade_do_slug() -> None:
-    assert extrair_localidade_do_slug("br_mg_araxa_bocaina") == ("Araxa", "MG")
+    assert extrair_localidade_do_slug("br_mg_araxa_bocaina") == ("Araxá", "MG")
+    assert extrair_localidade_do_slug("br_mg_pedro_leopoldo_gruta_do_bau") == (
+        "Pedro Leopoldo",
+        "MG",
+    )
+    assert extrair_localidade_do_slug("br_mg_sao_joao_del_rei_serra_do_lenheiro") == (
+        "São João del-Rei",
+        "MG",
+    )
+    assert extrair_localidade_do_slug("br_mg_santana_do_paraiso") == (
+        "Santana do Paraíso",
+        "MG",
+    )
     assert extrair_localidade_do_slug("br_rj_rio-de-janeiro_urca") == ("Rio De Janeiro", "RJ")
     assert extrair_localidade_do_slug("slug_invalido") == ("", "")
+
+
+def test_extrair_dados_croqui_prioriza_cidade_e_estado_do_pico() -> None:
+    croqui = croqui_pb2.Croqui()
+    croqui.uid = "croqui_custom_1"
+    croqui.id = "br_mg_pedro_leopoldo_gruta_do_bau"
+    croqui.nome = "Gruta do Baú"
+    pico = croqui.picos.add()
+    pico.nome = "Gruta do Baú"
+    pico.cidade = "Pedro Leopoldo"
+    pico.estado = "MG"
+
+    dados_croqui, _ = extrair_dados_croqui_para_catalogo(croqui)
+    assert dados_croqui["cidade"] == "Pedro Leopoldo"
+    assert dados_croqui["estado"] == "MG"
+
+    # Quando o slug não tem UF mas o pico tem estado preenchido
+    croqui_sem_slug_uf = croqui_pb2.Croqui()
+    croqui_sem_slug_uf.uid = "croqui_custom_2"
+    croqui_sem_slug_uf.id = "croqui_personalizado"
+    croqui_sem_slug_uf.nome = "Pico Personalizado"
+    pico2 = croqui_sem_slug_uf.picos.add()
+    pico2.nome = "Pico Personalizado"
+    pico2.cidade = "Belo Horizonte"
+    pico2.estado = "Minas Gerais"
+
+    dados_croqui_2, _ = extrair_dados_croqui_para_catalogo(croqui_sem_slug_uf)
+    assert dados_croqui_2["cidade"] == "Belo Horizonte"
+    assert dados_croqui_2["estado"] == "Minas Gerais"
+
 
 
 def test_formatar_tipo_escalada() -> None:
@@ -640,11 +683,13 @@ def test_gerar_catalogo_completo_remove_orfaos_por_id_slug_e_sincroniza_ids_perm
     c2_dir.mkdir(parents=True)
 
     c1 = croqui_pb2.Croqui(uid="uid_c1_antigo", id="br_mg_ferros_c1", nome="Croqui 1")
+    c1.publicar_croqui = True
     b1 = c1.botoes.add()
     b1.uid = "botao_c1_antigo"
     b1.texto = "Botão Antigo"
 
     c2 = croqui_pb2.Croqui(uid="uid_c2", id="br_mg_araxa_c2", nome="Croqui 2")
+    c2.publicar_croqui = True
     b2 = c2.botoes.add()
     b2.uid = "botao_c2"
     b2.texto = "Botão C2"
@@ -657,6 +702,7 @@ def test_gerar_catalogo_completo_remove_orfaos_por_id_slug_e_sincroniza_ids_perm
 
     # 1. Croqui 1 muda de croqui_uid mantendo o mesmo id_slug (br_mg_ferros_c1)
     c1_novo = croqui_pb2.Croqui(uid="uid_c1_novo", id="br_mg_ferros_c1", nome="Croqui 1")
+    c1_novo.publicar_croqui = True
     b1_novo = c1_novo.botoes.add()
     b1_novo.uid = "botao_c1_novo"
     b1_novo.texto = "Botão Novo"
@@ -724,7 +770,9 @@ def test_gerar_catalogo_completo_remove_croqui_orfao_em_compilacao_total(
     c2_dir.mkdir(parents=True)
 
     c1 = croqui_pb2.Croqui(uid="uid_c1", id="br_mg_ferros_c1", nome="Croqui 1")
+    c1.publicar_croqui = True
     c2 = croqui_pb2.Croqui(uid="uid_c2", id="br_mg_araxa_c2", nome="Croqui 2")
+    c2.publicar_croqui = True
     b2 = c2.botoes.add()
     b2.uid = "uid_botao_c2"
     b2.texto = "Botão C2"
@@ -771,6 +819,7 @@ def test_gerar_catalogo_completo_exporta_tres_csvs_ordenados_e_preserva_quando_i
     (c1_dir / "compilado.binarypb").write_bytes(c1.SerializeToString())
 
     c2 = croqui_pb2.Croqui(uid="croqui_a", id="br_mg_araxa_c2", nome="Croqui Araxá")
+    c2.publicar_croqui = True
     b2 = c2.botoes.add()
     b2.uid = "z_botao_c2"
     b2.texto = "Botão C2"
@@ -834,6 +883,70 @@ def test_gerar_catalogo_completo_exporta_tres_csvs_ordenados_e_preserva_quando_i
     csv_meta.unlink()
     gerar_catalogo_completo(pasta_gerados, caminho_db, alvos=["br_mg_ferros_c1"])
     assert csv_meta.is_file()
+
+
+def test_gerar_catalogo_completo_ignora_e_remove_croquis_rascunho_nao_publicados(
+    tmp_path: Path,
+) -> None:
+    import contextlib
+
+    pasta_gerados = tmp_path / "generated"
+    pub_dir = pasta_gerados / "br_mg_ferros_publicado"
+    rascunho_dir = pasta_gerados / "br_mg_ferros_rascunho"
+    pub_dir.mkdir(parents=True)
+    rascunho_dir.mkdir(parents=True)
+
+    croqui_pub = _criar_croqui_exemplo()
+    croqui_pub.uid = "uid_pub_1234567"
+    croqui_pub.id = "br_mg_ferros_publicado"
+    croqui_pub.publicar_croqui = True
+    (pub_dir / "compilado.binarypb").write_bytes(croqui_pub.SerializeToString())
+
+    croqui_rascunho = _criar_croqui_exemplo()
+    croqui_rascunho.uid = "uid_rasc_123456"
+    croqui_rascunho.id = "br_mg_ferros_rascunho"
+    croqui_rascunho.publicar_croqui = False
+    (rascunho_dir / "compilado.binarypb").write_bytes(croqui_rascunho.SerializeToString())
+
+    caminho_db = pasta_gerados / "catalogo.db"
+
+    # 1. Geração padrão: apenas publicados entram
+    gerar_catalogo_completo(pasta_gerados, caminho_db)
+
+    with contextlib.closing(sqlite3.connect(caminho_db)) as con:
+        croquis = [r[0] for r in con.execute("SELECT croqui_uid FROM catalogo_croquis").fetchall()]
+        assert croquis == ["uid_pub_1234567"]
+        uids_aresta = [r[0] for r in con.execute("SELECT uid FROM catalogo_aresta").fetchall()]
+        assert "uid_rasc_123456" not in uids_aresta
+
+    # 2. Deploy parcial mirando explicitamente no rascunho com o banco já existente: não insere e se não existia não altera
+    versao_antes = obter_versao_catalogo(caminho_db)
+    gerar_catalogo_completo(
+        pasta_gerados, caminho_db, alvos=["br_mg_ferros_rascunho"], apenas_publicados=True
+    )
+    assert obter_versao_catalogo(caminho_db) == versao_antes
+
+    # 3. Despublicação: croqui antes publicado agora tem publicar_croqui = False
+    croqui_pub.publicar_croqui = False
+    (pub_dir / "compilado.binarypb").write_bytes(croqui_pub.SerializeToString())
+
+    # Deploy parcial do croqui agora despublicado deve removê-lo
+    gerar_catalogo_completo(
+        pasta_gerados, caminho_db, alvos=["br_mg_ferros_publicado"], apenas_publicados=True
+    )
+
+    with contextlib.closing(sqlite3.connect(caminho_db)) as con:
+        croquis_restantes = con.execute("SELECT COUNT(*) FROM catalogo_croquis").fetchone()[0]
+        assert croquis_restantes == 0
+        arestas_restantes = con.execute("SELECT COUNT(*) FROM catalogo_aresta").fetchone()[0]
+        assert arestas_restantes == 0
+
+    # 4. Quando apenas_publicados = False, inclui rascunhos normalmente
+    gerar_catalogo_completo(pasta_gerados, caminho_db, apenas_publicados=False)
+    with contextlib.closing(sqlite3.connect(caminho_db)) as con:
+        total = con.execute("SELECT COUNT(*) FROM catalogo_croquis").fetchone()[0]
+        assert total == 2
+
 
 
 

@@ -343,6 +343,7 @@ picos:
         precomputados:
           total_escaladas: 6
           total_esportivas: 5
+  cidade: Extrema
   precomputados:
     total_escaladas: 18
     total_setores: 3

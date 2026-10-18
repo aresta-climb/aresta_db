@@ -1,6 +1,5 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
-
 uid: wm4fz1NgPkbZEM
 id: br_mg_pocos_de_caldas_pilastras_e_pedreira
 nome: Pilastras + Pedreira
@@ -14,6 +13,8 @@ picos:
       caminho: setor_as_pilastras.md
   - setor:
       caminho: setor_a_pedreira.md
+  cidade: Poços de Caldas
+  estado: MG
 caminho_thumbnail: imagens/capa_p0_i1.webp
 botoes:
 - uid: aOp66ZCk1cqH94

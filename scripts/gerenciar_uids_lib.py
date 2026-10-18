@@ -189,6 +189,22 @@ def sanear_uids_croqui(
                     _inserir_ou_mover_para_posicao(botao, "uid", botao_uid, 0)
                     modificado_yaml = True
 
+        from scripts.gerar_catalogo_sqlite_lib import extrair_localidade_do_slug
+
+        id_slug = str(dados_croqui.get("id") or pico_path.name).strip()
+        cidade_slug, estado_slug = extrair_localidade_do_slug(id_slug)
+        if cidade_slug or estado_slug:
+            for pico in dados_croqui.get("picos", []):
+                if isinstance(pico, dict):
+                    cidade_atual = str(pico.get("cidade") or "").strip()
+                    if not cidade_atual and cidade_slug:
+                        pico["cidade"] = cidade_slug
+                        modificado_yaml = True
+                    estado_atual = str(pico.get("estado") or "").strip()
+                    if not estado_atual and estado_slug:
+                        pico["estado"] = estado_slug
+                        modificado_yaml = True
+
         if modificado_yaml:
             if persistir_no_disco:
                 if caminho_yaml.exists() and escrever_texto_se_modificado(

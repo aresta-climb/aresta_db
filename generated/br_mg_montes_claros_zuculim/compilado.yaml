@@ -175,6 +175,8 @@ picos:
       - caminho_imagem_mapa: imagens/mapas_gerais_p1_i0.webp
         largura_mapa: 1455
         altura_mapa: 1164
+  cidade: Montes Claros
+  estado: MG
   precomputados:
     total_escaladas: 27
     total_setores: 4

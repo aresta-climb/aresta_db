@@ -3,7 +3,7 @@
 uid: J7aXhhOuKqgLtF
 id: br_mg_caete_pedra_filha
 nome: Pedra Filha (Pedrinha)
-descricao: Croqui da Pedra Filha, localizada em Caeté, MG. Oferece vias esportivas 
+descricao: Croqui da Pedra Filha, localizada em Caeté, MG. Oferece vias esportivas
   técnicas em dois setores principais.
 caminho_thumbnail: imagens/setor_de_cima_p0.webp
 revisado_manualmente: true
@@ -18,6 +18,8 @@ picos:
   localizacao:
     latitude: -198960870
     longitude: -436547850
+  cidade: Caeté
+  estado: MG
 ultima_migracao: 5
 publicar_croqui: true
 revisado_bounding_circle: true

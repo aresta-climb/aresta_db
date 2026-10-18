@@ -1,6 +1,5 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
-
 uid: 6d55ble314H5Q1
 id: br_mg_ouro_preto_ouroboulder
 nome: Ouroboulder
@@ -12,8 +11,7 @@ picos:
   localizacao:
     latitude: -203677334
     longitude: -435075136
-  url_google_maps: 
-    https://www.google.com/maps/d/u/0/edit?mid=1S2eJ09mMtWbyWYJ3ng4zF6-eVkWxbyE&usp=sharing
+  url_google_maps: https://www.google.com/maps/d/u/0/edit?mid=1S2eJ09mMtWbyWYJ3ng4zF6-eVkWxbyE&usp=sharing
   setores_ou_grupos:
   - grupo:
       caminho: grupo_pedreira.md
@@ -23,6 +21,7 @@ picos:
       caminho: grupo_bonsai.md
   mapas_gerais:
     caminho: mapas_gerais.md
+  cidade: Ouro Preto
 botoes:
 - uid: iffvcFsDiafgLT
   texto: Capa

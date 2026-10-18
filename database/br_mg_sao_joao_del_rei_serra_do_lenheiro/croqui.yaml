@@ -3,7 +3,7 @@
 uid: uOsWZu0uqFRB4r
 id: br_mg_sao_joao_del_rei_serra_do_lenheiro
 nome: Serra do Lenheiro - São João Del Rei
-descricao: Guia de escalada da Serra do Lenheiro em São João Del Rei - MG (5ª Edição, 
+descricao: Guia de escalada da Serra do Lenheiro em São João Del Rei - MG (5ª Edição,
   2025).
 caminho_thumbnail: imagens/capa_p0_i2.webp
 ultima_migracao: 5
@@ -49,6 +49,7 @@ picos:
     latitude: -211406830
     longitude: -442847810
   url_google_maps: https://maps.app.goo.gl/an6b45Wq8bGkwSFy6
+  cidade: São João del-Rei
 botoes:
 - uid: 8gvL63K937ZAL2
   texto: Capa

@@ -34,6 +34,8 @@ picos:
     latitude: -154711340
     longitude: -444448810
   url_google_maps: https://maps.app.goo.gl/FjzfV9Hur82qwP2b8
+  cidade: Januária
+  estado: MG
 botoes:
 - uid: lunWvP28wQh9dx
   texto: Capa

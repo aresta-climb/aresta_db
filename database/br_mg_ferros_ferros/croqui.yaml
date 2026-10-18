@@ -39,6 +39,7 @@ picos:
     latitude: -192905010
     longitude: -429844990
   url_google_maps: https://maps.app.goo.gl/hGmJWp5oT1wnXpsG7
+  cidade: Ferros
 botoes:
 - uid: rgFDDgvz6fIzQY
   texto: Capa

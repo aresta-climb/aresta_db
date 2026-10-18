@@ -3983,6 +3983,7 @@ picos:
   localizacao:
     latitude: -194618320
     longitude: -442793680
+  cidade: Sete Lagoas
   precomputados:
     total_escaladas: 141
     total_setores: 15

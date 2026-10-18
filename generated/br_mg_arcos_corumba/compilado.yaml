@@ -1305,6 +1305,7 @@ picos:
   localizacao:
     latitude: -203283130
     longitude: -456115750
+  cidade: Arcos
   precomputados:
     total_escaladas: 53
     total_setores: 4

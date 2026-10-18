@@ -3,7 +3,7 @@
 uid: Gph57WNcpiWnzD
 id: br_mg_sabara_pedra_rachada
 nome: Pedra Rachada Bouldering
-descricao: Guia de escalada em boulder da Pedra Rachada, localizada em Sabará, Minas 
+descricao: Guia de escalada em boulder da Pedra Rachada, localizada em Sabará, Minas
   Gerais.
 creditos:
 - Luca Portilho
@@ -42,6 +42,8 @@ picos:
   - grupo:
       caminho: grupo_cume.md
   url_google_maps: https://maps.app.goo.gl/pACGjAF6N4hhSymdA
+  cidade: Sabará
+  estado: MG
 botoes:
 - uid: N71euFJj064jPq
   texto: Capa

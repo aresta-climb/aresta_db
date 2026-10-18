@@ -6243,6 +6243,8 @@ picos:
   localizacao:
     latitude: -190464720
     longitude: -434401570
+  cidade: Conceição do Mato Dentro
+  estado: MG
   precomputados:
     total_escaladas: 221
     total_setores: 32

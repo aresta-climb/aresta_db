@@ -7027,6 +7027,8 @@ picos:
   localizacao:
     latitude: -202953470
     longitude: -456009710
+  cidade: Arcos
+  estado: MG
   precomputados:
     total_escaladas: 247
     total_setores: 17

@@ -83,13 +83,46 @@ def inicializar_banco_catalogo(caminho_banco: Path | str) -> sqlite3.Connection:
     return conexao
 
 
+_PREFIXOS_CIDADES_CONHECIDOS: tuple[tuple[str, str], ...] = (
+    ("conceicao_do_mato_dentro", "Conceição do Mato Dentro"),
+    ("nova_friburgobom_jardim", "Nova Friburgo / Bom Jardim"),
+    ("sao_thome_das_letras", "São Thomé das Letras"),
+    ("santana_do_paraiso", "Santana do Paraíso"),
+    ("santana_do_riacho", "Santana do Riacho"),
+    ("sao_joao_del_rei", "São João del-Rei"),
+    ("barao_de_cocais", "Barão de Cocais"),
+    ("pocos_de_caldas", "Poços de Caldas"),
+    ("pedro_leopoldo", "Pedro Leopoldo"),
+    ("ipatinga_ipaba", "Ipatinga / Ipaba"),
+    ("montes_claros", "Montes Claros"),
+    ("paraisopolis", "Paraisópolis"),
+    ("lagoa_santa", "Lagoa Santa"),
+    ("milho_verde", "Milho Verde"),
+    ("passa_vinte", "Passa Vinte"),
+    ("santa_luzia", "Santa Luzia"),
+    ("sete_lagoas", "Sete Lagoas"),
+    ("ouro_preto", "Ouro Preto"),
+    ("januaria", "Januária"),
+    ("igarape", "Igarapé"),
+    ("sabara", "Sabará"),
+    ("araxa", "Araxá"),
+    ("caete", "Caeté"),
+    ("unai", "Unaí"),
+)
+
+
 def extrair_localidade_do_slug(id_slug: str) -> tuple[str, str]:
     """
-    Extrai cidade e estado a partir do padrão de slug do Aresta (ex: br_mg_araxa_bocaina -> ('Araxa', 'MG')).
+    Extrai cidade e estado a partir do padrão de slug do Aresta
+    (ex: br_mg_pedro_leopoldo_gruta_do_bau -> ('Pedro Leopoldo', 'MG')).
     """
     partes = id_slug.split("_")
     if len(partes) >= 3 and len(partes[0]) == 2 and len(partes[1]) == 2:
         estado = partes[1].upper()
+        restante = "_".join(partes[2:]).lower()
+        for prefixo, nome_cidade in _PREFIXOS_CIDADES_CONHECIDOS:
+            if restante == prefixo or restante.startswith(f"{prefixo}_"):
+                return nome_cidade, estado
         cidade = partes[2].replace("-", " ").title()
         return cidade, estado
     return "", ""
@@ -176,7 +209,18 @@ def extrair_dados_croqui_para_catalogo(
     id_slug = getattr(croqui, "id", "").strip() or id_fallback
     croqui_uid = getattr(croqui, "uid", "").strip() or id_slug
     nome = getattr(croqui, "nome", "").strip() or id_slug
-    cidade, estado = extrair_localidade_do_slug(id_slug)
+    cidade_slug, estado_slug = extrair_localidade_do_slug(id_slug)
+
+    primeiro_pico = croqui.picos[0] if len(getattr(croqui, "picos", ())) > 0 else None
+    cidade_pico = getattr(primeiro_pico, "cidade", "").strip() if primeiro_pico is not None else ""
+    estado_pico = getattr(primeiro_pico, "estado", "").strip() if primeiro_pico is not None else ""
+
+    cidade = cidade_pico or cidade_slug
+    estado = (
+        estado_pico.upper()
+        if len(estado_pico) == 2
+        else (estado_slug or estado_pico)
+    )
 
     dados_croqui: LinhaCatalogoCroquis = {
         "croqui_uid": croqui_uid,
@@ -464,10 +508,12 @@ def gerar_catalogo_completo(
     caminho_saida_db: Path | str,
     alvos: list[str] | None = None,
     ids_permitidos: set[str] | list[str] | None = None,
+    apenas_publicados: bool = True,
 ) -> Path:
     """
     Gera ou atualiza incrementalmente o catálogo SQLite a partir dos compilado.binarypb,
-    garantindo paridade 1:1 com os croquis permitidos no índice ativo.
+    garantindo paridade 1:1 com os croquis permitidos no índice ativo e ignorando
+    ou removendo croquis marcados como rascunho (publicar_croqui == False).
 
     Args:
         diretorio_gerados: Diretório onde os croquis compilados estão salvos (ex: generated/).
@@ -476,6 +522,8 @@ def gerar_catalogo_completo(
         ids_permitidos: Conjunto/lista opcional de id_slugs que compõem o indice.binarypb.
             Quando informado, garante que todos os ids_permitidos estejam catalogados e
             expurga quaisquer croquis cujo id_slug não pertença a ids_permitidos.
+        apenas_publicados: Se True (padrão), ignora e remove do catálogo croquis que
+            possuam publicar_croqui == False no protobuf.
 
     Returns:
         Path: Caminho do banco gerado.
@@ -529,6 +577,19 @@ def gerar_catalogo_completo(
             )
             croqui_uid = dados_croqui["croqui_uid"]
             id_slug = dados_croqui["id_slug"]
+
+            if apenas_publicados and not croqui.publicar_croqui:
+                estava_no_banco = bool(
+                    conexao.execute(
+                        "SELECT 1 FROM catalogo_croquis WHERE croqui_uid = ? OR id_slug = ?",
+                        (croqui_uid, id_slug),
+                    ).fetchone()
+                )
+                if estava_no_banco:
+                    remover_croqui_do_catalogo(conexao, croqui_uid, id_slug=id_slug)
+                    houve_alteracao = True
+                continue
+
             uids_processados.add(croqui_uid)
 
             uids_mesmo_slug = {

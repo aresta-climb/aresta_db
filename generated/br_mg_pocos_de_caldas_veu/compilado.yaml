@@ -295,6 +295,7 @@ picos:
         precomputados:
           total_escaladas: 2
           total_boulders: 2
+  cidade: Poços de Caldas
   precomputados:
     total_escaladas: 46
     total_setores: 7

@@ -3,8 +3,8 @@
 uid: AIgxBVTTkHODSK
 id: br_mg_sao_joao_del_rei_serra_do_lenheiro_boulders_ave_maria_2017
 nome: Boulders da Ave Maria - Serra do Lenheiro
-descricao: Guia de escalada em boulder do setor Ave Maria, na Serra do Lenheiro em São 
-  João del Rei - MG (1ª Edição, 2017).
+descricao: Guia de escalada em boulder do setor Ave Maria, na Serra do Lenheiro em
+  São João del Rei - MG (1ª Edição, 2017).
 creditos:
 - Flora Kesselring Zugaib
 - Klauss Castanheira
@@ -32,6 +32,7 @@ picos:
       caminho: grupo_mulher_de_bigode.md
   mapas_gerais:
     caminho: mapas_gerais.md
+  cidade: São João del-Rei
 botoes:
 - uid: U7HtTUr1omr1JC
   texto: Capa

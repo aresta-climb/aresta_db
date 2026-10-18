@@ -10134,6 +10134,7 @@ picos:
     latitude: -211406830
     longitude: -442847810
   url_google_maps: https://maps.app.goo.gl/an6b45Wq8bGkwSFy6
+  cidade: São João del-Rei
   precomputados:
     total_escaladas: 310
     total_setores: 26

@@ -176,6 +176,8 @@ picos:
         precomputados:
           total_escaladas: 5
           total_esportivas: 5
+  cidade: Poços de Caldas
+  estado: MG
   precomputados:
     total_escaladas: 27
     total_setores: 3

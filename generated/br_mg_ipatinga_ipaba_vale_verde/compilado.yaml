@@ -867,6 +867,8 @@ picos:
           setor: Setor 1° Andar
           ids:
           - UYMvnRvWKApLSV
+  cidade: Ipatinga / Ipaba
+  estado: MG
   precomputados:
     total_escaladas: 32
     total_setores: 2

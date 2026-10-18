@@ -1230,6 +1230,7 @@ picos:
   localizacao:
     latitude: -197022921
     longitude: -438754158
+  cidade: Santa Luzia
   precomputados:
     total_escaladas: 46
     total_setores: 3

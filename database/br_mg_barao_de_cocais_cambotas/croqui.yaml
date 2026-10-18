@@ -1,12 +1,11 @@
 # SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
-
 uid: JYMtnrbfS1HJEI
 id: br_mg_barao_de_cocais_cambotas
 nome: Cambotas
-descricao: O complexo de escalada de Cambotas, localizado em Barão de Cocais, MG, é um dos
-  mais tradicionais e desafiadores do estado, oferecendo vias de alta qualidade em 
-  quartzito.
+descricao: O complexo de escalada de Cambotas, localizado em Barão de Cocais, MG,
+  é um dos mais tradicionais e desafiadores do estado, oferecendo vias de alta qualidade
+  em quartzito.
 caminho_thumbnail: imagens/capa_p0.webp
 status_desenho_extraivel: NAO_TEM_DESENHO
 picos:
@@ -40,6 +39,7 @@ picos:
       caminho: setor_jardim_da_fantasia.md
   mapas_gerais:
     caminho: mapas_gerais.md
+  cidade: Barão de Cocais
 botoes:
 - uid: 2jeJKqJkP8YH0f
   texto: Capa

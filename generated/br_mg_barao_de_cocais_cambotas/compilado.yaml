@@ -674,6 +674,7 @@ picos:
       - caminho_imagem_mapa: imagens/mapas_gerais_p0_i0.webp
         largura_mapa: 1768
         altura_mapa: 605
+  cidade: Barão de Cocais
   precomputados:
     total_escaladas: 45
     total_setores: 11

@@ -11460,6 +11460,7 @@ picos:
   localizacao:
     latitude: -201176660
     longitude: -443593480
+  cidade: Igarapé
   precomputados:
     total_escaladas: 240
     total_setores: 21

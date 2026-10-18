@@ -51,6 +51,7 @@ picos:
   localizacao:
     latitude: -194618320
     longitude: -442793680
+  cidade: Sete Lagoas
 botoes:
 - uid: lgmqCXFyiCB9CF
   texto: Capa
