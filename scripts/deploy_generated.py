@@ -1465,7 +1465,20 @@ def deploy(
 
     checksums = passo_b_calcular_checksums(compilados_finais_para_checksum, verbose=verbose)
     alvos_catalogo = [c[0] for c in compilados_novos] if target_paths else None
-    passo_e_gerar_catalogo_sqlite(alvos=alvos_catalogo, verbose=verbose)
+    ids_indice = {
+        c[0]
+        for c in compilados_finais_para_checksum
+        if (not is_producao or c[1].get("publicar_croqui", False))
+    } | {
+        r.id
+        for r in preservados_metadados
+        if not any(c[0] == r.id for c in compilados_finais_para_checksum)
+    }
+    passo_e_gerar_catalogo_sqlite(
+        alvos=alvos_catalogo,
+        ids_permitidos=ids_indice,
+        verbose=verbose,
+    )
     indice = passo_c_gerar_indice(
         compilados_finais_para_checksum,
         checksums,
@@ -1588,7 +1601,11 @@ def passo_d_gerar_manifesto_serving(
         print(f"Manifesto salvo com {len(manifesto.arquivos)} arquivos.")
 
 
-def passo_e_gerar_catalogo_sqlite(alvos: list[str] | None = None, verbose: bool = False) -> Path:
+def passo_e_gerar_catalogo_sqlite(
+    alvos: list[str] | None = None,
+    ids_permitidos: set[str] | list[str] | None = None,
+    verbose: bool = False,
+) -> Path:
     """
     Passo E: Gera ou atualiza incrementalmente o catálogo SQLite descomprimido (catalogo.db).
     """
@@ -1598,7 +1615,12 @@ def passo_e_gerar_catalogo_sqlite(alvos: list[str] | None = None, verbose: bool 
         print("\n=== Passo E: Gerando catálogo SQLite (catalogo.db) ===")
 
     caminho_db = GENERATED_DIR / "catalogo.db"
-    gerar_catalogo_completo(GENERATED_DIR, caminho_db, alvos=alvos)
+    gerar_catalogo_completo(
+        GENERATED_DIR,
+        caminho_db,
+        alvos=alvos,
+        ids_permitidos=ids_permitidos,
+    )
 
     if verbose:
         print(f"Catálogo SQLite gerado em {caminho_db}")

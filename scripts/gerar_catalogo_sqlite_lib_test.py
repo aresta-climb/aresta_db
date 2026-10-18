@@ -110,6 +110,17 @@ def test_inicializar_banco_catalogo(tmp_path: Path) -> None:
     assert "idx_catalogo_aresta_nome" in indices
     assert "idx_catalogo_aresta_tipo" in indices
 
+    # Verifica as colunas da tabela catalogo_croquis (sem atualizado_em)
+    cursor.execute("PRAGMA table_info(catalogo_croquis)")
+    colunas_croquis = [linha[1] for linha in cursor.fetchall()]
+    assert colunas_croquis == [
+        "croqui_uid",
+        "id_slug",
+        "nome",
+        "cidade",
+        "estado",
+    ]
+
     # Verifica as colunas da tabela catalogo_aresta
     cursor.execute("PRAGMA table_info(catalogo_aresta)")
     colunas = [linha[1] for linha in cursor.fetchall()]
@@ -172,6 +183,7 @@ def test_migracao_automatica_schema_legado(tmp_path: Path) -> None:
     colunas_croquis_migradas = [linha[1] for linha in cursor_migrado.fetchall()]
     assert "estado" in colunas_croquis_migradas
     assert "uf" not in colunas_croquis_migradas
+    assert "atualizado_em" not in colunas_croquis_migradas
 
     cursor_migrado.execute("PRAGMA table_info(catalogo_aresta)")
     colunas_migradas = [linha[1] for linha in cursor_migrado.fetchall()]
@@ -179,6 +191,38 @@ def test_migracao_automatica_schema_legado(tmp_path: Path) -> None:
     assert "escalada_tipo" in colunas_migradas
     assert "setor_nome" not in colunas_migradas
     conexao_migrada.close()
+
+
+def test_migracao_automatica_remove_coluna_atualizado_em_preservando_dados(tmp_path: Path) -> None:
+    caminho_db = tmp_path / "catalogo_com_atualizado_em.db"
+    conexao = sqlite3.connect(caminho_db)
+    conexao.execute(
+        """
+        CREATE TABLE catalogo_croquis (
+            croqui_uid TEXT PRIMARY KEY,
+            id_slug TEXT NOT NULL,
+            nome TEXT NOT NULL,
+            cidade TEXT,
+            estado TEXT,
+            atualizado_em INTEGER NOT NULL DEFAULT 0
+        );
+        """
+    )
+    conexao.execute("INSERT INTO catalogo_croquis VALUES ('c1', 'slug1', 'Pico 1', 'BH', 'MG', 99)")
+    conexao.commit()
+    conexao.close()
+
+    conexao_migrada = inicializar_banco_catalogo(caminho_db)
+    try:
+        colunas = [
+            linha[1]
+            for linha in conexao_migrada.execute("PRAGMA table_info(catalogo_croquis)").fetchall()
+        ]
+        assert colunas == ["croqui_uid", "id_slug", "nome", "cidade", "estado"]
+        linha = conexao_migrada.execute("SELECT * FROM catalogo_croquis").fetchone()
+        assert linha == ("c1", "slug1", "Pico 1", "BH", "MG")
+    finally:
+        conexao_migrada.close()
 
 
 def test_extrair_localidade_do_slug() -> None:
@@ -242,12 +286,13 @@ def test_extrair_dados_croqui_para_catalogo() -> None:
         croqui, "br_mg_ferros_pico_dos_ferros"
     )
 
-    assert dados_croqui["croqui_uid"] == "croqui12345678"
-    assert dados_croqui["id_slug"] == "br_mg_ferros_pico_dos_ferros"
-    assert dados_croqui["nome"] == "Pico dos Ferros"
-    assert dados_croqui["cidade"] == "Ferros"
-    assert dados_croqui["estado"] == "MG"
-    assert isinstance(dados_croqui["atualizado_em"], int)
+    assert dados_croqui == {
+        "croqui_uid": "croqui12345678",
+        "id_slug": "br_mg_ferros_pico_dos_ferros",
+        "nome": "Pico dos Ferros",
+        "cidade": "Ferros",
+        "estado": "MG",
+    }
 
     # 1 botao + 1 grupo + 2 setores + 5 escaladas = 9 registros
     assert len(registros_aresta) == 9
@@ -391,9 +436,7 @@ def test_calcular_e_obter_versao_catalogo_determinismo(tmp_path: Path) -> None:
 
     croqui = _criar_croqui_exemplo()
     dados1, registros1 = extrair_dados_croqui_para_catalogo(croqui)
-    dados1["atualizado_em"] = 1000
     dados2, registros2 = extrair_dados_croqui_para_catalogo(croqui)
-    dados2["atualizado_em"] = 9999  # Timestamp diferente não deve alterar o hash lógico
 
     inserir_croqui_no_catalogo(con1, dados1, registros1)
     # Em db2, insere um croqui extra, remove-o e depois insere o mesmo croqui de db1
@@ -405,7 +448,6 @@ def test_calcular_e_obter_versao_catalogo_determinismo(tmp_path: Path) -> None:
             "nome": "Temp",
             "cidade": "",
             "estado": "",
-            "atualizado_em": 1,
         },
         [],
     )
@@ -548,3 +590,250 @@ def test_formatar_grau_highline_zero() -> None:
     esc = croqui_pb2.Escalada()
     esc.highline.distancia = 0
     assert formatar_grau_escalada(esc) == ""
+
+
+def test_gerar_catalogo_completo_nao_modifica_banco_quando_dados_logicos_inalterados(
+    tmp_path: Path,
+) -> None:
+    pasta_gerados = tmp_path / "generated"
+    croqui_dir = pasta_gerados / "br_mg_ferros_croqui1"
+    croqui_dir.mkdir(parents=True)
+
+    croqui = _criar_croqui_exemplo()
+    croqui.uid = "croqui11111111"
+    croqui.id = "br_mg_ferros_croqui1"
+    (croqui_dir / "compilado.binarypb").write_bytes(croqui.SerializeToString())
+
+    caminho_db = pasta_gerados / "catalogo.db"
+    gerar_catalogo_completo(pasta_gerados, caminho_db)
+
+    bytes_antes = caminho_db.read_bytes()
+
+    # Altera apenas a descrição do croqui (que não faz parte do catálogo SQLite)
+    croqui.descricao = "Descrição atualizada que não afeta o catálogo"
+    (croqui_dir / "compilado.binarypb").write_bytes(croqui.SerializeToString())
+
+    gerar_catalogo_completo(pasta_gerados, caminho_db, alvos=["br_mg_ferros_croqui1"])
+
+    assert caminho_db.read_bytes() == bytes_antes
+
+    # Altera apenas uma escalada em catalogo_aresta (mantendo catalogo_croquis igual) -> deve atualizar
+    croqui.picos[0].setores_ou_grupos[0].setor.conteudo.escaladas[0].via_esportiva.nome = (
+        "Pé na Chapa Renovada"
+    )
+    (croqui_dir / "compilado.binarypb").write_bytes(croqui.SerializeToString())
+    gerar_catalogo_completo(pasta_gerados, caminho_db, alvos=["br_mg_ferros_croqui1"])
+    assert "Pé na Chapa Renovada" in (pasta_gerados / "catalogo_aresta.csv").read_text(
+        encoding="utf-8"
+    )
+
+
+def test_gerar_catalogo_completo_remove_orfaos_por_id_slug_e_sincroniza_ids_permitidos(
+    tmp_path: Path,
+) -> None:
+    import contextlib
+
+    pasta_gerados = tmp_path / "generated"
+    c1_dir = pasta_gerados / "br_mg_ferros_c1"
+    c2_dir = pasta_gerados / "br_mg_araxa_c2"
+    c1_dir.mkdir(parents=True)
+    c2_dir.mkdir(parents=True)
+
+    c1 = croqui_pb2.Croqui(uid="uid_c1_antigo", id="br_mg_ferros_c1", nome="Croqui 1")
+    b1 = c1.botoes.add()
+    b1.uid = "botao_c1_antigo"
+    b1.texto = "Botão Antigo"
+
+    c2 = croqui_pb2.Croqui(uid="uid_c2", id="br_mg_araxa_c2", nome="Croqui 2")
+    b2 = c2.botoes.add()
+    b2.uid = "botao_c2"
+    b2.texto = "Botão C2"
+
+    (c1_dir / "compilado.binarypb").write_bytes(c1.SerializeToString())
+    (c2_dir / "compilado.binarypb").write_bytes(c2.SerializeToString())
+
+    caminho_db = pasta_gerados / "catalogo.db"
+    gerar_catalogo_completo(pasta_gerados, caminho_db)
+
+    # 1. Croqui 1 muda de croqui_uid mantendo o mesmo id_slug (br_mg_ferros_c1)
+    c1_novo = croqui_pb2.Croqui(uid="uid_c1_novo", id="br_mg_ferros_c1", nome="Croqui 1")
+    b1_novo = c1_novo.botoes.add()
+    b1_novo.uid = "botao_c1_novo"
+    b1_novo.texto = "Botão Novo"
+    (c1_dir / "compilado.binarypb").write_bytes(c1_novo.SerializeToString())
+
+    # Insere também uma entidade órfã avulsa sem pai em catalogo_croquis
+    with contextlib.closing(sqlite3.connect(caminho_db)) as con:
+        con.execute(
+            "INSERT INTO catalogo_aresta (uid, tipo, croqui_uid, nome) "
+            "VALUES ('entidade_orfa', 'botao', 'croqui_inexistente', 'Órfã')"
+        )
+        con.commit()
+
+    # Executa deploy parcial restringindo ids_permitidos apenas a br_mg_ferros_c1 (como no modo experimental)
+    gerar_catalogo_completo(
+        pasta_gerados,
+        caminho_db,
+        alvos=["br_mg_ferros_c1"],
+        ids_permitidos={"br_mg_ferros_c1"},
+    )
+
+    with contextlib.closing(sqlite3.connect(caminho_db)) as con:
+        croquis = con.execute("SELECT croqui_uid, id_slug FROM catalogo_croquis").fetchall()
+        entidades = [r[0] for r in con.execute("SELECT uid FROM catalogo_aresta").fetchall()]
+
+    # Deve conter exclusivamente uid_c1_novo e botao_c1_novo (sem uid_c1_antigo, sem uid_c2 e sem entidade_orfa)
+    assert croquis == [("uid_c1_novo", "br_mg_ferros_c1")]
+    assert entidades == ["botao_c1_novo"]
+
+    # 2. Se ids_permitidos passar a incluir novamente br_mg_araxa_c2, deve recompilar o croqui ausente do banco
+    gerar_catalogo_completo(
+        pasta_gerados,
+        caminho_db,
+        alvos=["br_mg_ferros_c1"],
+        ids_permitidos={"br_mg_ferros_c1", "br_mg_araxa_c2"},
+    )
+    with contextlib.closing(sqlite3.connect(caminho_db)) as con:
+        slugs = {r[0] for r in con.execute("SELECT id_slug FROM catalogo_croquis").fetchall()}
+    assert slugs == {"br_mg_ferros_c1", "br_mg_araxa_c2"}
+
+    # 3. Se alvos=None e ids_permitidos={"br_mg_araxa_c2"}, filtra apenas o permitido na compilação total
+    gerar_catalogo_completo(
+        pasta_gerados,
+        caminho_db,
+        alvos=None,
+        ids_permitidos={"br_mg_araxa_c2"},
+    )
+    with contextlib.closing(sqlite3.connect(caminho_db)) as con:
+        slugs_finais = {
+            r[0] for r in con.execute("SELECT id_slug FROM catalogo_croquis").fetchall()
+        }
+    assert slugs_finais == {"br_mg_araxa_c2"}
+
+
+def test_gerar_catalogo_completo_remove_croqui_orfao_em_compilacao_total(
+    tmp_path: Path,
+) -> None:
+    import contextlib
+    import shutil
+
+    pasta_gerados = tmp_path / "generated"
+    c1_dir = pasta_gerados / "br_mg_ferros_c1"
+    c2_dir = pasta_gerados / "br_mg_araxa_c2"
+    c1_dir.mkdir(parents=True)
+    c2_dir.mkdir(parents=True)
+
+    c1 = croqui_pb2.Croqui(uid="uid_c1", id="br_mg_ferros_c1", nome="Croqui 1")
+    c2 = croqui_pb2.Croqui(uid="uid_c2", id="br_mg_araxa_c2", nome="Croqui 2")
+    b2 = c2.botoes.add()
+    b2.uid = "uid_botao_c2"
+    b2.texto = "Botão C2"
+
+    (c1_dir / "compilado.binarypb").write_bytes(c1.SerializeToString())
+    (c2_dir / "compilado.binarypb").write_bytes(c2.SerializeToString())
+
+    caminho_db = pasta_gerados / "catalogo.db"
+    gerar_catalogo_completo(pasta_gerados, caminho_db)
+    versao_com_dois = obter_versao_catalogo(caminho_db)
+
+    # Remove a pasta compilada de c2 e roda compilação total (alvos=None)
+    shutil.rmtree(c2_dir)
+    gerar_catalogo_completo(pasta_gerados, caminho_db, alvos=None)
+
+    versao_sem_c2 = obter_versao_catalogo(caminho_db)
+    assert versao_sem_c2 != versao_com_dois
+
+    with contextlib.closing(sqlite3.connect(caminho_db)) as con:
+        uids_croquis = [
+            r[0] for r in con.execute("SELECT croqui_uid FROM catalogo_croquis").fetchall()
+        ]
+        uids_aresta = [r[0] for r in con.execute("SELECT uid FROM catalogo_aresta").fetchall()]
+
+    assert uids_croquis == ["uid_c1"]
+    assert "uid_botao_c2" not in uids_aresta
+
+
+def test_gerar_catalogo_completo_exporta_tres_csvs_ordenados_e_preserva_quando_inalterado(
+    tmp_path: Path,
+) -> None:
+    import csv
+    import os
+
+    pasta_gerados = tmp_path / "generated"
+    c1_dir = pasta_gerados / "br_mg_ferros_c1"
+    c2_dir = pasta_gerados / "br_mg_araxa_c2"
+    c1_dir.mkdir(parents=True)
+    c2_dir.mkdir(parents=True)
+
+    c1 = _criar_croqui_exemplo()
+    c1.uid = "croqui_z"
+    c1.id = "br_mg_ferros_c1"
+    (c1_dir / "compilado.binarypb").write_bytes(c1.SerializeToString())
+
+    c2 = croqui_pb2.Croqui(uid="croqui_a", id="br_mg_araxa_c2", nome="Croqui Araxá")
+    b2 = c2.botoes.add()
+    b2.uid = "z_botao_c2"
+    b2.texto = "Botão C2"
+    (c2_dir / "compilado.binarypb").write_bytes(c2.SerializeToString())
+
+    caminho_db = pasta_gerados / "catalogo.db"
+    gerar_catalogo_completo(pasta_gerados, caminho_db)
+
+    csv_croquis = pasta_gerados / "catalogo_croquis.csv"
+    csv_aresta = pasta_gerados / "catalogo_aresta.csv"
+    csv_meta = pasta_gerados / "catalogo_meta.csv"
+
+    assert csv_croquis.is_file()
+    assert csv_aresta.is_file()
+    assert csv_meta.is_file()
+
+    # 1. Verifica catalogo_croquis.csv (sem atualizado_em, ordenado por id_slug, croqui_uid)
+    linhas_croquis = list(csv.reader(csv_croquis.read_text(encoding="utf-8").splitlines()))
+    assert linhas_croquis[0] == ["croqui_uid", "id_slug", "nome", "cidade", "estado"]
+    assert [linha[1] for linha in linhas_croquis[1:]] == [
+        "br_mg_araxa_c2",
+        "br_mg_ferros_c1",
+    ]
+
+    # 2. Verifica catalogo_aresta.csv (ordenado por croqui_uid, uid -> bloco contíguo por croqui)
+    linhas_aresta = list(csv.reader(csv_aresta.read_text(encoding="utf-8").splitlines()))
+    assert linhas_aresta[0] == [
+        "uid",
+        "tipo",
+        "croqui_uid",
+        "nome",
+        "escalada_grau",
+        "escalada_tipo",
+        "setor_uid",
+        "grupo_uid",
+    ]
+    # Primeira linha de dados deve ser de croqui_a (mesmo seu uid sendo 'z_botao_c2'),
+    # seguida de todas as 9 linhas de croqui_z ordenadas por uid
+    assert linhas_aresta[1] == ["z_botao_c2", "botao", "croqui_a", "Botão C2", "", "", "", ""]
+    uids_croqui_z = [linha[0] for linha in linhas_aresta[2:]]
+    assert len(uids_croqui_z) == 9
+    assert uids_croqui_z == sorted(uids_croqui_z)
+
+    # 3. Verifica catalogo_meta.csv
+    linhas_meta = list(csv.reader(csv_meta.read_text(encoding="utf-8").splitlines()))
+    assert linhas_meta == [
+        ["chave", "valor"],
+        ["versao_catalogo", obter_versao_catalogo(caminho_db)],
+    ]
+
+    # 4. Short-circuit: se nada mudou e os 3 CSVs existem, não reescreve no disco
+    mtime_antigo = 1_600_000_000_000_000_000
+    for arq in (csv_croquis, csv_aresta, csv_meta):
+        os.utime(arq, ns=(mtime_antigo, mtime_antigo))
+
+    gerar_catalogo_completo(pasta_gerados, caminho_db, alvos=["br_mg_ferros_c1"])
+    for arq in (csv_croquis, csv_aresta, csv_meta):
+        assert arq.stat().st_mtime_ns == mtime_antigo
+
+    # 5. Se um dos arquivos CSV for apagado, deve recriá-lo mesmo sem mudança no SQLite
+    csv_meta.unlink()
+    gerar_catalogo_completo(pasta_gerados, caminho_db, alvos=["br_mg_ferros_c1"])
+    assert csv_meta.is_file()
+
+
+

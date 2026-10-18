@@ -49,8 +49,7 @@ CREATE TABLE catalogo_croquis (
     id_slug TEXT NOT NULL,         -- ex: 'br_mg_ferros_pico_dos_ferros'
     nome TEXT NOT NULL,            -- ex: 'Pico dos Ferros'
     cidade TEXT,                   -- ex: 'Ferros'
-    uf TEXT,                       -- ex: 'MG'
-    atualizado_em INTEGER NOT NULL -- Timestamp Unix
+    estado TEXT                    -- ex: 'MG'
 );
 
 -- Tabela de entidades endereçáveis por UID (escaladas, setores, grupos e botões)
@@ -99,7 +98,7 @@ WHERE e.uid = ? AND e.tipo = 'escalada';
 
 ### Por que Hash Lógico Determinístico em vez de SHA-256 do arquivo `.db` ou Inteiro Sequencial?
 - **Sem conflitos de Git**: Números sequenciais (`1, 2, 3...`) no repositório causariam conflitos constantes de merge entre branches.
-- **Determinismo absoluto**: O arquivo binário `.db` do SQLite muda seu SHA-256 físico devido a páginas livres, ordem de inserção ou `atualizado_em`. Por isso, `calcular_versao_catalogo()` calcula um SHA-256 de 16 caracteres hexadecimais exclusivamente sobre as tuplas ordenadas de `catalogo_croquis` (`ORDER BY croqui_uid`, sem `atualizado_em`) e `catalogo_aresta` (`ORDER BY uid`), levando menos de 15ms e garantindo que o mesmo conteúdo lógico produza sempre o mesmo hash.
+- **Determinismo absoluto e preservação de bytes**: O schema não inclui timestamps voláteis e mantém paridade 1:1 com os croquis listados em `indice.binarypb` (expurgando registros órfãos). `calcular_versao_catalogo()` calcula um SHA-256 de 16 caracteres hexadecimais exclusivamente sobre as tuplas ordenadas de `catalogo_croquis` (`ORDER BY croqui_uid`) e `catalogo_aresta` (`ORDER BY uid`), levando menos de 15ms e garantindo que o mesmo conteúdo lógico produza sempre o mesmo hash e preserve os bytes de `catalogo.db` quando não há alterações catalogadas.
 
 ---
 

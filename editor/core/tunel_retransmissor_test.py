@@ -761,3 +761,35 @@ def test_deve_servir_catalogo_db_com_mime_octet_stream(pasta_temporaria):
     resposta = cliente._ler_arquivo_proxy("req-db", "catalogo.db")
     assert resposta["status"] == 200
     assert resposta["cabecalhos"]["content-type"] == "application/octet-stream"
+
+
+def test_deve_reescrever_rota_compacta_e_sanitizar_query_string(pasta_temporaria):
+    """Deve resolver <id>/<resto> para <resto> quando a pasta foi compactada e ignorar query strings (?v=...)."""
+    (pasta_temporaria / "compilado.binarypb").write_bytes(b"croqui_compactado_bytes")
+    pasta_imagens = pasta_temporaria / "imagens"
+    pasta_imagens.mkdir(exist_ok=True)
+    (pasta_imagens / "setor1.webp").write_bytes(b"webp_compactado")
+    (pasta_temporaria / "catalogo.db").write_bytes(b"SQLite format 3\x00catalogo")
+
+    cliente = ClienteTunelRetransmissor(
+        codigo_sessao="compacto_teste",
+        pasta_compilado=pasta_temporaria,
+    )
+
+    # 1. Rota compacta para compilado.binarypb
+    res_pb = cliente._ler_arquivo_proxy("req-pb", "br_mg_ferros_pico/compilado.binarypb")
+    assert res_pb["status"] == 200
+    assert base64.b64decode(res_pb["corpoBase64"]) == b"croqui_compactado_bytes"
+
+    # 2. Rota compacta para subpasta imagens/ com query string de cache-busting
+    res_img = cliente._ler_arquivo_proxy(
+        "req-img", "br_mg_ferros_pico/imagens/setor1.webp?v=1760000000"
+    )
+    assert res_img["status"] == 200
+    assert base64.b64decode(res_img["corpoBase64"]) == b"webp_compactado"
+
+    # 3. Rota direta na raiz com query string (?v=...)
+    res_cat = cliente._ler_arquivo_proxy("req-cat", "catalogo.db?v=abc123")
+    assert res_cat["status"] == 200
+    assert base64.b64decode(res_cat["corpoBase64"]) == b"SQLite format 3\x00catalogo"
+

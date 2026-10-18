@@ -142,3 +142,74 @@ def test_acao_salvar_deve_possuir_atalho_ctrl_s_registrado_na_janela(qtbot, jane
 
     # A ação deve estar registrada na janela principal para funcionar globalmente
     assert janela.acao_salvar in janela.actions()
+
+
+def test_deve_salvar_croqui_antes_de_conectar_celular_quando_houver_modificacoes_pendentes(
+    qtbot, janela, tmp_path
+):
+    pasta_comp = tmp_path / "compilado"
+    pasta_comp.mkdir()
+    (pasta_comp / "indice.binarypb").write_bytes(b"pb")
+    (pasta_comp / "catalogo.db").write_bytes(b"db")
+    janela.workspace.obter_pasta_servidor_celular.return_value = pasta_comp
+    janela.croqui_data = {"id": "br_mg_ferros"}
+
+    with (
+        patch.object(janela.historico.obter_pilha(), "isClean", return_value=False),
+        patch.object(janela, "salvar_croqui") as mock_salvar,
+        patch(
+            "editor.legacy_views.area_principal.DialogoConexaoCelular", side_effect=DialogoFake
+        ) as MockDialogo,
+    ):
+        janela.acao_celular.trigger()
+        mock_salvar.assert_called_once_with(
+            callback_sucesso=janela._abrir_dialogo_conexao_celular
+        )
+        MockDialogo.assert_not_called()
+
+
+def test_deve_salvar_croqui_antes_de_conectar_celular_quando_catalogo_db_ausente(
+    qtbot, janela, tmp_path
+):
+    pasta_comp = tmp_path / "compilado"
+    pasta_comp.mkdir()
+    (pasta_comp / "indice.binarypb").write_bytes(b"pb")
+    # catalogo.db ausente
+    janela.workspace.obter_pasta_servidor_celular.return_value = pasta_comp
+    janela.croqui_data = {"id": "br_mg_ferros"}
+
+    with (
+        patch.object(janela.historico.obter_pilha(), "isClean", return_value=True),
+        patch.object(janela, "salvar_croqui") as mock_salvar,
+        patch(
+            "editor.legacy_views.area_principal.DialogoConexaoCelular", side_effect=DialogoFake
+        ) as MockDialogo,
+    ):
+        janela.acao_celular.trigger()
+        mock_salvar.assert_called_once_with(
+            callback_sucesso=janela._abrir_dialogo_conexao_celular
+        )
+        MockDialogo.assert_not_called()
+
+
+def test_deve_abrir_dialogo_direto_quando_limpo_e_artefatos_presentes(qtbot, janela, tmp_path):
+    pasta_comp = tmp_path / "compilado"
+    pasta_comp.mkdir()
+    (pasta_comp / "indice.binarypb").write_bytes(b"pb")
+    (pasta_comp / "catalogo.db").write_bytes(b"db")
+    janela.workspace.obter_pasta_servidor_celular.return_value = pasta_comp
+    janela.croqui_data = {"id": "br_mg_ferros"}
+
+    with (
+        patch("editor.legacy_views.area_principal.ServidorCelular", side_effect=ServidorFake),
+        patch("editor.legacy_views.area_principal.MonitorInatividade", side_effect=MonitorFake),
+        patch(
+            "editor.legacy_views.area_principal.DialogoConexaoCelular", side_effect=DialogoFake
+        ) as MockDialogo,
+        patch.object(janela.historico.obter_pilha(), "isClean", return_value=True),
+        patch.object(janela, "salvar_croqui") as mock_salvar,
+    ):
+        janela.acao_celular.trigger()
+        mock_salvar.assert_not_called()
+        MockDialogo.assert_called_once()
+

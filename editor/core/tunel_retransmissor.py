@@ -285,8 +285,8 @@ class ClienteTunelRetransmissor:
         try:
             pasta_base = self.pasta_compilado.resolve()
 
-            # Sanitiza caracteres nulos e rejeita imediatamente tentativas de caminho absoluto (segurança contra path traversal)
-            caminho_str = str(caminho_relativo).replace("\x00", "").strip()
+            # Sanitiza caracteres nulos, query strings e rejeita tentativas de caminho absoluto (segurança contra path traversal)
+            caminho_str = str(caminho_relativo).replace("\x00", "").split("?", 1)[0].strip()
             if not caminho_str:
                 return {
                     "id": req_id,
@@ -329,6 +329,20 @@ class ClienteTunelRetransmissor:
                         ).encode()
                     ).decode(),
                 }
+
+            if not caminho_alvo.is_file():
+                partes = caminho_str.replace("\\", "/").split("/", 1)
+                if len(partes) == 2:
+                    subpasta, resto = partes
+                    caminho_sub = (pasta_base / subpasta).resolve()
+                    caminho_direto = (pasta_base / resto).resolve()
+                    if (
+                        caminho_sub.is_relative_to(pasta_base)
+                        and caminho_direto.is_relative_to(pasta_base)
+                        and not caminho_sub.exists()
+                        and caminho_direto.is_file()
+                    ):
+                        caminho_alvo = caminho_direto
 
             if not caminho_alvo.is_file():
                 return {

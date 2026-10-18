@@ -1477,9 +1477,26 @@ class JanelaPrincipal(QMainWindow):
         self.dlg_espera.show()
 
     def _exibir_conexao_celular(self) -> None:
-        """Inicia o servidor e exibe o diálogo de conexão com o celular."""
+        """Salva/compila se necessário e inicia o servidor para conexão com o celular."""
         if not self.workspace:
             QMessageBox.warning(self, "Aviso", "Abra um croqui antes de conectar ao celular.")
+            return
+
+        pasta_compilado = self.workspace.obter_pasta_servidor_celular()
+        precisa_salvar = (
+            not self.historico.obter_pilha().isClean()
+            or not (pasta_compilado / "indice.binarypb").is_file()
+            or not (pasta_compilado / "catalogo.db").is_file()
+        )
+        if precisa_salvar and self.croqui_data:
+            self.salvar_croqui(callback_sucesso=self._abrir_dialogo_conexao_celular)
+            return
+
+        self._abrir_dialogo_conexao_celular()
+
+    def _abrir_dialogo_conexao_celular(self) -> None:
+        """Inicia o servidor e exibe o diálogo de conexão com o celular."""
+        if not self.workspace:
             return
 
         # Inicia o servidor se não estiver rodando
