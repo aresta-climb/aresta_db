@@ -58,6 +58,7 @@ if (repo_root / 'migracoes').exists():
 binaries = []
 hiddenimports = [
     'sentry_sdk',
+    'yaml._yaml',
     'scripts.markdown_frontmatter_lib',
     'scripts.finalizar_mapas',
 ]

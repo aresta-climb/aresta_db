@@ -109,7 +109,8 @@ escaladas:
     - André Ilha
     - Lúcia Duarte
     data_abertura: '1986-05-02'
-    descricao: Esta via, assim como as quatro seguintes, se encontra em um salão na parte inicial da Rota Interna.
+    descricao: Esta via, assim como as quatro seguintes, se encontra em um salão na
+      parte inicial da Rota Interna.
 - uid: 5EvLNNtJdE69tG
   via_movel:
     nome: Mamangava
@@ -126,8 +127,9 @@ escaladas:
     conquistadores:
     - Dalton Chiarelli
     - José Ronaldo "Pelé"
-    descricao: Uma bela fissura de dedos em seu início, passando a alguns entalamentos de mão, escalada exigente, sua 
-      conquista original foi por chaminé, assim o grau fica mais acessível.
+    descricao: Uma bela fissura de dedos em seu início, passando a alguns entalamentos
+      de mão, escalada exigente, sua conquista original foi por chaminé, assim o grau
+      fica mais acessível.
 - uid: G7PgF69vA1coHD
   via_movel:
     nome: Minas Rio
@@ -144,8 +146,9 @@ escaladas:
     - João Felipin
     - Ladson
     data_abertura: '2002'
-    descricao: Uma escalada de chaminé bem clássica, totalmente protegida em um fissura que se afina em alguns momentos 
-      e outros ficam larga. Termina ao final do cabo de aço.
+    descricao: Uma escalada de chaminé bem clássica, totalmente protegida em um fissura
+      que se afina em alguns momentos e outros ficam larga. Termina ao final do cabo
+      de aço.
 - uid: 4q1PVnaeGBr1sa
   via_movel:
     nome: Quimera
@@ -155,8 +158,9 @@ escaladas:
     - Jonatas Lima
     - Carlos Pádua
     data_abertura: '2015'
-    descricao: Esta via se encontra após o cabo de aço. Uma saída delicada em três chapas passando uma belíssima fenda, 
-      que quando ganha altura vai aumentando a abertura, finaliza em uma parada móvel.
+    descricao: Esta via se encontra após o cabo de aço. Uma saída delicada em três
+      chapas passando uma belíssima fenda, que quando ganha altura vai aumentando
+      a abertura, finaliza em uma parada móvel.
 - uid: DB4U55VgfZR5Im
   via_movel:
     nome: Entre o Céu e o Inferno

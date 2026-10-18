@@ -14,8 +14,7 @@ _RAIZ_REPOSITORIO = Path(__file__).resolve().parent.parent
 if str(_RAIZ_REPOSITORIO) not in sys.path:  # pragma: no cover
     sys.path.insert(0, str(_RAIZ_REPOSITORIO))
 
-import yaml
-
+from editor.core.serializacao_util import carregar_yaml
 from scripts.deploy_generated import deploy
 from scripts.migrador import obter_ultima_versao_migracao
 from scripts.validador_cabecalhos import validar_todos_cabecalhos_e_licencas
@@ -51,7 +50,7 @@ def validar_versoes_migracao(pastas: list[Path]) -> list[str]:
 
         try:
             with open(caminho_yaml, encoding="utf-8") as f:
-                dados = yaml.safe_load(f)
+                dados = carregar_yaml(f)
             if not isinstance(dados, dict):
                 continue
             versao_croqui = dados.get("ultima_migracao", 0)

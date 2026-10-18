@@ -132,7 +132,8 @@ escaladas:
     - Michel Rodrigues
     - Douglas Marques
     data_abertura: '2021-10-09'
-    descricao: Via em um belo sistema de fendas. Começa um pouco mais técnica e depois segue por boas agarras.
+    descricao: Via em um belo sistema de fendas. Começa um pouco mais técnica e depois
+      segue por boas agarras.
 - uid: j1WimvhcUUp2HC
   via_movel:
     nome: Rota das Âncoras
@@ -142,8 +143,9 @@ escaladas:
     conquistadores:
     - Escaladores Militares
     data_abertura: '1984-07-26'
-    descricao: Esta é a melhor opção para se chegar ao cume do Pontão Menor, para montar top-rope nas vias deste setor, 
-      pois além de curta e de baixa graduação, possui duas proteções fixas intermediando a linha.
+    descricao: Esta é a melhor opção para se chegar ao cume do Pontão Menor, para
+      montar top-rope nas vias deste setor, pois além de curta e de baixa graduação,
+      possui duas proteções fixas intermediando a linha.
 - uid: 1CWrv3dUdqlm4Q
   via_movel:
     nome: O Retorno das Abelhas
@@ -154,8 +156,9 @@ escaladas:
     - André Ilha
     - Lúcia Duarte
     data_abertura: '1984'
-    descricao: Ótima via que tem seu crux e beleza logo na saída. Em sua metade cruza com a via anterior e segue para a 
-      esquerda com boas agarras até o cume. Boa proteção em friends pequenos e médios e nuts.
+    descricao: Ótima via que tem seu crux e beleza logo na saída. Em sua metade cruza
+      com a via anterior e segue para a esquerda com boas agarras até o cume. Boa
+      proteção em friends pequenos e médios e nuts.
 - uid: J0Uz1hbcLo7T2m
   via_movel:
     nome: Chaminé dos Militares
@@ -171,8 +174,9 @@ escaladas:
     - Jonatas Lima
     - Pablo Veloso
     data_abertura: '2021-09-02'
-    descricao: Aresta de visual incrível, inicia em regletes potentes e pés altos, passando a agarras escondidas. Entre 
-      a segunda e terceira chapa é o crux com lances delicados e potentes.
+    descricao: Aresta de visual incrível, inicia em regletes potentes e pés altos,
+      passando a agarras escondidas. Entre a segunda e terceira chapa é o crux com
+      lances delicados e potentes.
 - uid: EDq6ou05loNIcu
   via_movel:
     nome: Alta Tensão
@@ -183,8 +187,9 @@ escaladas:
     - André Ilha
     - Lúcia Duarte
     data_abertura: '1984-07-22'
-    descricao: Via muito bonita, porém exposta e de difícil proteção em seu início onde se encontra o crux, conferindo 
-      ao guia uma boa dose de alta tensão! Depois é desfrutar de uma boa fenda e agarras grandes.
+    descricao: Via muito bonita, porém exposta e de difícil proteção em seu início
+      onde se encontra o crux, conferindo ao guia uma boa dose de alta tensão! Depois
+      é desfrutar de uma boa fenda e agarras grandes.
 - uid: H1eyqF1sFbTcry
   via_esportiva:
     nome: Esquina da Alegria
@@ -192,8 +197,8 @@ escaladas:
     extensao: 30
     conquistadores:
     - Escaladores Militares
-    descricao: Via que intercala grampos e pittons fixos. Após a virada da aresta, vai por uma horizontal até uma 
-      chaminé ao fundo, por onde segue até o cume.
+    descricao: Via que intercala grampos e pittons fixos. Após a virada da aresta,
+      vai por uma horizontal até uma chaminé ao fundo, por onde segue até o cume.
 - uid: nHUi37zFgAR4vt
   via_movel:
     nome: Briga de Espadas
@@ -202,8 +207,9 @@ escaladas:
     conquistadores:
     - Rodrigo Ferreira
     - Carlos Henrique
-    descricao: Via exposta. Sua saída não é complicada, mas a primeira proteção é alta em uma fenda onde fica o crux. 
-      Logo deve-se passar para uma outra fenda mais à esquerda e segue por ela até o cume.
+    descricao: Via exposta. Sua saída não é complicada, mas a primeira proteção é
+      alta em uma fenda onde fica o crux. Logo deve-se passar para uma outra fenda
+      mais à esquerda e segue por ela até o cume.
 ---
 
 Esta face fica na parte de trás do Pontão da esquerda de quem olha da estrada, ou seja, não pode ser vista da entrada do Cemonta.

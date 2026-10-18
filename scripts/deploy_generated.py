@@ -41,29 +41,190 @@ if sys.stderr is not None and getattr(sys.stderr, "encoding", None) != "utf-8":
         sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding="utf-8")
 
 import argparse
+import contextlib
+import copy
 import datetime
 import hashlib
 import re
 import shutil
 from collections import defaultdict
+from collections.abc import Iterator, Sequence
+from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any
 
-import yaml
 from PIL import Image, ImageDraw, ImageEnhance, ImageFilter
 
 sys.path.append(str(Path(__file__).resolve().parent.parent))
-from aresta_api.proto.generated import indice_pb2
+from aresta_api.proto.generated import croqui_pb2, indice_pb2, serving_pb2
+from editor.core.serializacao_util import (
+    carregar_yaml,
+    escrever_texto_se_modificado,
+    serializar_yaml,
+)
 from editor.plataforma import normalizar_caminho_estendido
 from scripts.calcular_tamanho_croqui_lib import calcular_tamanho_croqui_bytes
-from scripts.gerar_compilado_md import gerar_compilado_md
-from scripts.preparar_submissao_lib import compilar_croqui, corrigir_database
+from scripts.preparar_submissao_lib import (
+    CacheMd,
+    compilar_croqui,
+    corrigir_database,
+    sincronizar_dimensoes_mapas_database,
+)
 
 ROOT_DIR = Path(__file__).resolve().parent.parent
 DATABASE_DIR = ROOT_DIR / "database"
 
 # Pode ser substituído via --output-dir na linha de comando
 GENERATED_DIR: Path  # definido em deploy()
+_ULTIMOS_DADOS_MEMORIA_SAUDE: dict[str, tuple[dict[str, Any], CacheMd]] = {}
+_CACHE_SNAPSHOT_DISCO: dict[Path, tuple[int, int, Any, str | None]] = {}
+
+
+def _estruturas_identicas_com_ordem(a: Any, b: Any) -> bool:
+    """Compara dois objetos recursivamente exigindo a mesma ordem de chaves em dicionários."""
+    if type(a) is not type(b):
+        return False
+    if isinstance(a, dict):
+        return len(a) == len(b) and all(
+            k1 == k2 and _estruturas_identicas_com_ordem(v1, v2)
+            for (k1, v1), (k2, v2) in zip(a.items(), b.items())
+        )
+    if isinstance(a, list):
+        return len(a) == len(b) and all(
+            _estruturas_identicas_com_ordem(x, y) for x, y in zip(a, b)
+        )
+    return bool(a == b)
+
+
+def registrar_snapshot_disco_arquivo(
+    caminho: Path,
+    dados: Any,
+    corpo_bruto: str | None = None,
+) -> None:
+    """Registra no cache em memória o snapshot estrutural associado ao stat() atual do arquivo."""
+    caminho_res = Path(caminho).resolve()
+    if caminho_res.is_file():
+        st = caminho_res.stat()
+        _CACHE_SNAPSHOT_DISCO[caminho_res] = (
+            st.st_mtime_ns,
+            st.st_size,
+            copy.deepcopy(dados),
+            corpo_bruto,
+        )
+
+
+def _arquivo_inalterado_no_snapshot(
+    caminho: Path,
+    dados: Any,
+    corpo_bruto: str | None = None,
+) -> bool:
+    """Verifica se o arquivo no disco e os dados em memória permanecem idênticos ao último snapshot."""
+    caminho_res = Path(caminho).resolve()
+    entrada = _CACHE_SNAPSHOT_DISCO.get(caminho_res)
+    if entrada is None or not caminho_res.is_file():
+        return False
+    mtime_ns, tamanho, dados_cache, corpo_cache = entrada
+    st = caminho_res.stat()
+    return (
+        st.st_mtime_ns == mtime_ns
+        and st.st_size == tamanho
+        and corpo_bruto == corpo_cache
+        and _estruturas_identicas_com_ordem(dados, dados_cache)
+    )
+
+
+@dataclass
+class ContextoMemoriaDeploy:
+    """Mantém os dados do croqui e seus arquivos Markdown em RAM para evitar releituras e escritas intermediárias."""
+
+    croqui_data: dict[str, Any]
+    cache_md: CacheMd = field(default_factory=dict)
+    corpos_brutos_md: dict[str, str] = field(default_factory=dict)
+    persistido_no_disco: bool = False
+
+
+_CONTEXTOS_MEMORIA_DEPLOY: dict[Path, ContextoMemoriaDeploy] = {}
+
+
+def obter_contexto_memoria_deploy(caminho: Path) -> ContextoMemoriaDeploy | None:
+    """Retorna o contexto em memória registrado para `caminho` (resolvido), ou None."""
+    return _CONTEXTOS_MEMORIA_DEPLOY.get(Path(caminho).resolve())
+
+
+def persistir_contexto_memoria_no_disco(
+    croqui_dir: Path,
+    contexto: ContextoMemoriaDeploy,
+) -> None:
+    """
+    Grava `croqui.yaml` e todos os `.md` do `contexto` em `croqui_dir` uma única vez,
+    preservando as quebras de linha exatas do corpo quando não houve mutação e pulando
+    a serialização YAML de arquivos cujo snapshot estrutural permanece inalterado.
+    """
+    from scripts.markdown_frontmatter_lib import parse_texto_md_com_frontmatter
+
+    croqui_dir_path = Path(croqui_dir)
+    caminho_yaml = croqui_dir_path / "croqui.yaml"
+    if not _arquivo_inalterado_no_snapshot(caminho_yaml, contexto.croqui_data, None):
+        escrever_texto_se_modificado(
+            caminho_yaml,
+            serializar_yaml(contexto.croqui_data, incluir_cabecalho_spdx=True),
+        )
+        registrar_snapshot_disco_arquivo(caminho_yaml, contexto.croqui_data, None)
+
+    for chave_rel, (fm, corpo) in contexto.cache_md.items():
+        caminho_md = croqui_dir_path / chave_rel
+        bruto = contexto.corpos_brutos_md.get(chave_rel)
+        if fm is not None:
+            eh_bruto_preservado = bruto is not None and bruto.strip() == corpo.strip()
+            corpo_snapshot = bruto if eh_bruto_preservado else corpo
+            if not _arquivo_inalterado_no_snapshot(caminho_md, fm, corpo_snapshot):
+                bloco_yaml = serializar_yaml(fm, incluir_cabecalho_spdx=True).replace("\r\n", "\n")
+                if eh_bruto_preservado:
+                    texto_md = f"---\n{bloco_yaml}---\n{bruto}"
+                else:
+                    texto_md = f"---\n{bloco_yaml}---\n\n{corpo}" if fm else corpo
+                escrever_texto_se_modificado(caminho_md, texto_md)
+                registrar_snapshot_disco_arquivo(caminho_md, fm, corpo_snapshot)
+        else:
+            if (
+                bruto is not None
+                and parse_texto_md_com_frontmatter(
+                    bruto, caminho_origem=caminho_md, lancar_erro_yaml=False
+                )[1]
+                == corpo.strip()
+            ):
+                texto_md = bruto
+            else:
+                texto_md = corpo
+            escrever_texto_se_modificado(caminho_md, texto_md)
+
+    contexto.persistido_no_disco = True
+
+
+@contextlib.contextmanager
+def usar_contexto_memoria_deploy(
+    caminhos: Sequence[Path],
+    croqui_data: dict[str, Any],
+    cache_md: CacheMd | None = None,
+    corpos_brutos_md: dict[str, str] | None = None,
+) -> Iterator[ContextoMemoriaDeploy]:
+    """
+    Registra temporariamente o estado em memória de um croqui para que `deploy()`
+    processe correções, sincronização e compilação diretamente da RAM sem reler do disco.
+    """
+    ctx = ContextoMemoriaDeploy(
+        croqui_data=croqui_data,
+        cache_md=cache_md if cache_md is not None else {},
+        corpos_brutos_md=corpos_brutos_md if corpos_brutos_md is not None else {},
+    )
+    chaves = [Path(c).resolve() for c in caminhos]
+    for ch in chaves:
+        _CONTEXTOS_MEMORIA_DEPLOY[ch] = ctx
+    try:
+        yield ctx
+    finally:
+        for ch in chaves:
+            _CONTEXTOS_MEMORIA_DEPLOY.pop(ch, None)
 
 
 # Subdiretórios dentro de imagens/ que são artefatos de processamento e
@@ -98,12 +259,9 @@ def force_rmtree(path: Path) -> None:
 
 
 def calcular_sha256(caminho: Path) -> str:
-    """SHA-256 de um arquivo, lido em chunks de 4096 bytes."""
-    h = hashlib.sha256()
+    """SHA-256 de um arquivo utilizando hashlib.file_digest."""
     with open(caminho, "rb") as f:
-        while chunk := f.read(4096):
-            h.update(chunk)
-    return h.hexdigest()
+        return hashlib.file_digest(f, "sha256").hexdigest()
 
 
 def processar_thumbnail(
@@ -113,7 +271,8 @@ def processar_thumbnail(
     force_thumbnails: bool = False,
 ) -> bool:
     """
-    Converte a imagem apontada em caminho_thumbnail para generated/thumbnails/<id>.webp.
+    Converte a imagem apontada em caminho_thumbnail para generated/thumbnails/<id>.webp
+    sincronizando o timestamp de modificação (st_mtime_ns) com a imagem de origem.
     """
     caminho_thumb_original = croqui_data.get("caminho_thumbnail")
     if not caminho_thumb_original:
@@ -127,15 +286,14 @@ def processar_thumbnail(
     dest_path = generated_dir / DEST_REL
     src_path = croqui_dir / caminho_thumb_original
 
-    # Se a thumbnail já existe no destino e não estamos forçando, pulamos.
-    if not force_thumbnails and dest_path.exists():
-        # Idealmente verificaríamos se o src mudou, mas por agora simplificamos.
-        return False
-
     if not src_path.exists():
         raise FileNotFoundError(
             f"Thumbnail original não encontrada em {src_path}. Verifique o campo 'caminho_thumbnail' no croqui.yaml."
         )
+
+    if not force_thumbnails and dest_path.exists():
+        if dest_path.stat().st_mtime_ns == src_path.stat().st_mtime_ns:
+            return False
 
     print(
         f"  Gerando thumbnail: {caminho_thumb_original} -> {dest_path.relative_to(GENERATED_DIR)} (600x600, WebP)"
@@ -198,6 +356,7 @@ def processar_thumbnail(
             # Salvar
             img.save(dest_path, "WEBP", quality=80)
 
+        shutil.copystat(src_path, dest_path)
         return True
     except Exception as e:
         print(f"  Erro ao processar thumbnail {src_path}: {e}")
@@ -223,18 +382,20 @@ def carregar_dados_anteriores(caminho_pb: Path) -> dict[str, indice_pb2.ResumoCr
         return {}
 
 
-def encontrar_croquis() -> list[tuple[Path, dict[str, Any]]]:
+def encontrar_croquis(
+    database_dir: Path | None = None,
+) -> list[tuple[Path, dict[str, Any]]]:
     """Retorna [(croqui_dir, croqui_data)] para todos os croquis válidos em database/."""
-    if not DATABASE_DIR.exists():
+    db_dir = database_dir or DATABASE_DIR
+    if not db_dir.exists():
         return []
 
     resultado: list[tuple[Path, dict[str, Any]]] = []
-    for d in sorted(DATABASE_DIR.iterdir()):
+    for d in sorted(db_dir.iterdir()):
         yaml_path = d / "croqui.yaml"
         if not d.is_dir() or not yaml_path.exists():
             continue
-        with open(yaml_path, encoding="utf-8") as f:
-            croqui_data = yaml.safe_load(f)
+        croqui_data = carregar_yaml(yaml_path.read_text(encoding="utf-8"))
         if not isinstance(croqui_data, dict):
             continue
         croqui_id = croqui_data.get("id")
@@ -252,8 +413,7 @@ def carregar_um_croqui(caminho: Path) -> dict[str, Any] | None:
     if not caminho.is_dir() or not yaml_path.exists():
         return None
     try:
-        with open(yaml_path, encoding="utf-8") as f:
-            croqui_data = yaml.safe_load(f)
+        croqui_data = carregar_yaml(yaml_path.read_text(encoding="utf-8"))
         if not isinstance(croqui_data, dict) or not croqui_data.get("id"):
             return None
         return croqui_data
@@ -261,13 +421,41 @@ def carregar_um_croqui(caminho: Path) -> dict[str, Any] | None:
         return None
 
 
-def validar_sem_extensoes_vazadas(pico_dir: Path) -> None:
+def _contem_chave_recursivo(obj: Any, chave_proibida: str) -> bool:
+    if isinstance(obj, dict):
+        if chave_proibida in obj:
+            return True
+        return any(_contem_chave_recursivo(v, chave_proibida) for v in obj.values())
+    if isinstance(obj, list):
+        return any(_contem_chave_recursivo(item, chave_proibida) for item in obj)
+    return False
+
+
+def validar_sem_extensoes_vazadas(
+    pico_dir: Path,
+    *,
+    dados_croqui_memoria: dict[str, Any] | None = None,
+    cache_md_memoria: CacheMd | None = None,
+) -> None:
     """
-    Verifica se o YAML ou qualquer Markdown referenciado contem vestígios do
-    Shadow State (extensoes de caminho original/novo) que deveriam existir
-    apenas em memoria durante a edicao na UI.
+    Verifica se o YAML ou qualquer Markdown referenciado contém vestígios do
+    Shadow State (extensões de caminho original/novo) que deveriam existir
+    apenas em memória durante a edição na UI.
     """
     extensoes_vazadas = ["ext_metadados"]
+    if dados_croqui_memoria is not None and cache_md_memoria is not None:
+        for ext in extensoes_vazadas:
+            if _contem_chave_recursivo(dados_croqui_memoria, ext):
+                raise ValueError(
+                    f"Extensão de Shadow State '{ext}' vazada detectada no arquivo {pico_dir / 'croqui.yaml'}"
+                )
+            for rel_path, (fm, corpo) in cache_md_memoria.items():
+                if _contem_chave_recursivo(fm, ext) or ext in corpo:
+                    raise ValueError(
+                        f"Extensão de Shadow State '{ext}' vazada detectada no arquivo {pico_dir / rel_path}"
+                    )
+        return
+
     for f in pico_dir.rglob("*"):
         if f.is_file() and f.suffix in [".yaml", ".md"]:
             try:
@@ -525,7 +713,7 @@ def verificar_titulos_em_descricao_setor_grupo(
 
 
 # ---------------------------------------------------------------------------
-# Imagens: symlink ou cópia
+# Imagens e Anexos: cópia e sincronização incremental
 # ---------------------------------------------------------------------------
 
 
@@ -604,6 +792,144 @@ def calcular_anexos_externos(anexos_src: Path) -> list[dict[str, str]]:
     return arquivos
 
 
+def carregar_hashes_externos_anteriores(dest_pb: Path) -> dict[str, str]:
+    """Lê o compilado.binarypb anterior e retorna o mapa {caminho: checksum_sha256}."""
+    if not dest_pb.is_file():
+        return {}
+    try:
+        croqui_anterior = croqui_pb2.Croqui()
+        croqui_anterior.ParseFromString(dest_pb.read_bytes())
+        return {
+            ext.caminho: ext.checksum_sha256
+            for ext in croqui_anterior.arquivos_externos
+            if ext.caminho and ext.checksum_sha256
+        }
+    except Exception:
+        return {}
+
+
+def _sincronizar_arquivo_individual(
+    src_file: Path,
+    dest_file: Path,
+    caminho_rel: str,
+    hashes_anteriores: dict[str, str],
+    force: bool,
+    *,
+    arquivos_inalterados_out: set[str] | None = None,
+) -> str:
+    """
+    Sincroniza um arquivo individual usando comparação de stat() (st_mtime_ns, st_size)
+    e fallback de SHA-256, preservando metadados com shutil.copy2.
+    Registra `caminho_rel` em `arquivos_inalterados_out` quando nenhuma cópia de conteúdo foi necessária.
+    """
+    dest_file.parent.mkdir(parents=True, exist_ok=True)
+    hash_anterior = hashes_anteriores.get(caminho_rel)
+
+    if not force and dest_file.is_file() and hash_anterior:
+        st_src = src_file.stat()
+        st_dest = dest_file.stat()
+        if st_src.st_mtime_ns == st_dest.st_mtime_ns and st_src.st_size == st_dest.st_size:
+            if arquivos_inalterados_out is not None:
+                arquivos_inalterados_out.add(caminho_rel)
+            return hash_anterior
+
+        checksum = calcular_sha256(src_file)
+        if checksum != hash_anterior:
+            shutil.copy2(
+                normalizar_caminho_estendido(src_file),
+                normalizar_caminho_estendido(dest_file),
+            )
+        else:
+            shutil.copystat(
+                normalizar_caminho_estendido(src_file),
+                normalizar_caminho_estendido(dest_file),
+            )
+            if arquivos_inalterados_out is not None:
+                arquivos_inalterados_out.add(caminho_rel)
+        return checksum
+
+    shutil.copy2(
+        normalizar_caminho_estendido(src_file),
+        normalizar_caminho_estendido(dest_file),
+    )
+    return calcular_sha256(src_file)
+
+
+def sincronizar_imagens_exportaveis(
+    src_imagens: Path,
+    dest_imagens: Path,
+    hashes_anteriores: dict[str, str],
+    force: bool = False,
+    *,
+    imagens_inalteradas_out: set[str] | None = None,
+) -> list[dict[str, str]]:
+    """Sincroniza incrementalmente as imagens exportáveis e remove arquivos órfãos."""
+    if not src_imagens.exists():
+        if dest_imagens.exists():
+            force_rmtree(dest_imagens)
+        return []
+
+    dest_imagens.mkdir(parents=True, exist_ok=True)
+    imgs_src = listar_imagens_exportaveis(src_imagens)
+    nomes_validos = {img.name for img in imgs_src}
+
+    for item_dest in list(dest_imagens.iterdir()):
+        if item_dest.is_dir():
+            force_rmtree(item_dest)
+        elif item_dest.name not in nomes_validos:
+            item_dest.unlink(missing_ok=True)
+
+    arquivos_externos: list[dict[str, str]] = []
+    for img_src in imgs_src:
+        caminho_rel = f"imagens/{img_src.name}"
+        img_dest = dest_imagens / img_src.name
+        checksum = _sincronizar_arquivo_individual(
+            img_src,
+            img_dest,
+            caminho_rel,
+            hashes_anteriores,
+            force,
+            arquivos_inalterados_out=imagens_inalteradas_out,
+        )
+        arquivos_externos.append({"caminho": caminho_rel, "checksum_sha256": checksum})
+
+    return arquivos_externos
+
+
+def sincronizar_anexos_exportaveis(
+    src_anexos: Path,
+    dest_anexos: Path,
+    hashes_anteriores: dict[str, str],
+    force: bool = False,
+) -> list[dict[str, str]]:
+    """Sincroniza incrementalmente os anexos exportáveis e remove arquivos órfãos."""
+    if not src_anexos.exists():
+        if dest_anexos.exists():
+            force_rmtree(dest_anexos)
+        return []
+
+    dest_anexos.mkdir(parents=True, exist_ok=True)
+    arqs_src = listar_anexos_exportaveis(src_anexos)
+    rels_validos = {arq.relative_to(src_anexos).as_posix() for arq in arqs_src}
+
+    for item_dest in listar_anexos_exportaveis(dest_anexos):
+        rel_dest = item_dest.relative_to(dest_anexos).as_posix()
+        if rel_dest not in rels_validos:
+            item_dest.unlink(missing_ok=True)
+
+    arquivos_externos: list[dict[str, str]] = []
+    for arq_src in arqs_src:
+        rel = arq_src.relative_to(src_anexos).as_posix()
+        caminho_rel = f"anexos/{rel}"
+        arq_dest = dest_anexos / rel
+        checksum = _sincronizar_arquivo_individual(
+            arq_src, arq_dest, caminho_rel, hashes_anteriores, force
+        )
+        arquivos_externos.append({"caminho": caminho_rel, "checksum_sha256": checksum})
+
+    return arquivos_externos
+
+
 # ---------------------------------------------------------------------------
 # Pipeline principal
 # ---------------------------------------------------------------------------
@@ -619,11 +945,14 @@ def preparar_generated(limpar: bool = True) -> None:
 def passo_a_compilar_croquis(
     a_compilar: list[tuple[Path, dict[str, Any]]],
     force_thumbnails: bool = False,
-    gerar_arquivos_de_debug: bool = True,
+    gerar_arquivos_de_debug: bool = False,
     verbose: bool = False,
+    *,
+    force: bool = False,
 ) -> tuple[list[tuple[str, dict[str, Any], Path]], list[str], list[Exception], bool]:
     """
-    Passo A: Corrige cada croqui e compila para .binarypb (e .yaml/.md se gerar_arquivos_de_debug=True).
+    Passo A: Corrige cada croqui em memória, sincroniza imagens/anexos incrementalmente
+    e compila para .binarypb sem reler arquivos do disco.
     Retorna (compilados, erros, excecoes, database_modificado).
     """
     print("\n=== Passo A: Compilando croquis ===")
@@ -637,25 +966,36 @@ def passo_a_compilar_croquis(
         croqui_id = croqui_data["id"]
         print(f"\n[{croqui_id}] ({i}/{total})")
         dest_dir = GENERATED_DIR / croqui_id
-
-        # Se estivermos em um deploy parcial, a pasta pode já existir.
-        # Precisamos limpá-la para garantir uma compilação fresca (especialmente para imagens).
-        if dest_dir.exists():
-            force_rmtree(dest_dir)
         dest_dir.mkdir(parents=True, exist_ok=True)
 
         dest_pb = dest_dir / "compilado.binarypb"
-        dest_yaml = dest_dir / "compilado.yaml" if gerar_arquivos_de_debug else None
+        hashes_anteriores = {} if force else carregar_hashes_externos_anteriores(dest_pb)
 
-        # --- Fase 1: Correção do Database (Migração de Imagens e Thumbnails) ---
+        (dest_dir / "compilado.yaml").unlink(missing_ok=True)
+        (dest_dir / "compilado.md").unlink(missing_ok=True)
+
+        ctx_memoria = obter_contexto_memoria_deploy(croqui_dir)
+        em_modo_ram = ctx_memoria is not None
+        cache_md: CacheMd = ctx_memoria.cache_md if ctx_memoria is not None else {}
+
+        # --- Fase 1: Correção do Database em Memória (Migração de Imagens e Thumbnails) ---
         try:
-            if corrigir_database(croqui_dir):
+            if corrigir_database(
+                croqui_dir,
+                dados_croqui_memoria=croqui_data,
+                cache_md_memoria=cache_md,
+                persistir_no_disco=not em_modo_ram,
+            ):
                 database_modificado = True
-            # Gera a thumbnail na pasta generated/thumbnails/
             processar_thumbnail(
-                croqui_dir, GENERATED_DIR, croqui_data, force_thumbnails=force_thumbnails
+                croqui_dir,
+                GENERATED_DIR,
+                croqui_data,
+                force_thumbnails=(force or force_thumbnails),
             )
         except Exception as e:
+            if ctx_memoria is not None and not ctx_memoria.persistido_no_disco:
+                persistir_contexto_memoria_no_disco(croqui_dir, ctx_memoria)
             import traceback
 
             print(traceback.format_exc())
@@ -665,71 +1005,82 @@ def passo_a_compilar_croquis(
             excecoes.append(e)
             continue
 
-        # --- Fase 2: Imagens e Anexos ---
+        # --- Fase 2: Sincronização Incremental de Imagens e Anexos ---
         src_imagens = croqui_dir / "imagens"
         dest_imagens = dest_dir / "imagens"
-        arquivos_externos = []
-
-        if src_imagens.exists():
-            copiar_imagens(src_imagens, dest_imagens)
-            arquivos_externos.extend(calcular_arquivos_externos(src_imagens))
+        imagens_inalteradas: set[str] = set()
+        arquivos_externos = sincronizar_imagens_exportaveis(
+            src_imagens,
+            dest_imagens,
+            hashes_anteriores,
+            force=force,
+            imagens_inalteradas_out=imagens_inalteradas,
+        )
+        if arquivos_externos:
             print(f"  {len(arquivos_externos)} imagem(ns) indexada(s) em arquivos_externos")
         else:
             print("  Sem pasta imagens/")
 
+        if sincronizar_dimensoes_mapas_database(
+            croqui_dir,
+            croqui_data,
+            cache_md,
+            imagens_inalteradas=imagens_inalteradas,
+            persistir_no_disco=not em_modo_ram,
+        ):
+            database_modificado = True
+
+        if ctx_memoria is not None and not ctx_memoria.persistido_no_disco:
+            persistir_contexto_memoria_no_disco(croqui_dir, ctx_memoria)
+
         src_anexos = croqui_dir / "anexos"
         dest_anexos = dest_dir / "anexos"
-        if src_anexos.exists():
-            copiar_anexos(src_anexos, dest_anexos)
-            anexos_externos = calcular_anexos_externos(src_anexos)
+        anexos_externos = sincronizar_anexos_exportaveis(
+            src_anexos, dest_anexos, hashes_anteriores, force=force
+        )
+        if anexos_externos:
             arquivos_externos.extend(anexos_externos)
             print(f"  {len(anexos_externos)} anexo(s) indexado(s) em arquivos_externos")
 
-        # --- Fase 3: Compilação ---
+        # --- Fase 3: Compilação em Memória ---
         try:
-            validar_sem_extensoes_vazadas(croqui_dir)
-            croqui_data = compilar_croqui(
+            validar_sem_extensoes_vazadas(
                 croqui_dir,
-                destino_yaml=dest_yaml,
+                dados_croqui_memoria=croqui_data,
+                cache_md_memoria=cache_md,
+            )
+            croqui_compilado = compilar_croqui(
+                croqui_dir,
+                destino_yaml=None,
                 destino_binarypb=dest_pb,
                 dados_extras={"arquivos_externos": arquivos_externos}
                 if arquivos_externos
                 else None,
+                dados_croqui_memoria=croqui_data,
+                cache_md_memoria=cache_md,
+                imagens_inalteradas=imagens_inalteradas,
             )
 
-            if dest_yaml and dest_yaml.exists():
-                import yaml
+            def _check_integer_ids(obj: Any) -> None:
+                if isinstance(obj, dict):
+                    if "pontos_de_interesse" in obj:
+                        for ponto in obj.get("pontos_de_interesse", []):
+                            if "id" in ponto and type(ponto["id"]) is int:
+                                print(
+                                    f"\nAviso: O ID de mapa '{ponto['id']}' no croqui '{croqui_id}' foi parseado como INTEIRO. Recomenda-se adicionar aspas simples no ID (ex: '{ponto['id']}')."
+                                )
+                    for v in obj.values():
+                        _check_integer_ids(v)
+                elif isinstance(obj, list):
+                    for item in obj:
+                        _check_integer_ids(item)
 
-                with open(dest_yaml, encoding="utf-8") as f:
-                    compiled_data = yaml.safe_load(f)
-
-                def _check_integer_ids(obj: Any) -> None:
-                    if isinstance(obj, dict):
-                        if "pontos_de_interesse" in obj:
-                            for ponto in obj.get("pontos_de_interesse", []):
-                                if "id" in ponto and type(ponto["id"]) is int:
-                                    print(
-                                        f"\nAviso: O ID de mapa '{ponto['id']}' no croqui '{croqui_id}' foi parseado como INTEIRO. Recomenda-se adicionar aspas simples no ID (ex: '{ponto['id']}')."
-                                    )
-                        for v in obj.values():
-                            _check_integer_ids(v)
-                    elif isinstance(obj, list):
-                        for item in obj:
-                            _check_integer_ids(item)
-
-                _check_integer_ids(compiled_data)
-                verificar_nomes_duplicados_de_escalada(croqui_id, compiled_data)
-                verificar_escaladas_sem_mapa(croqui_id, compiled_data)
-                verificar_imagens_inexistentes(croqui_dir, croqui_id, compiled_data)
-                verificar_mapas_duplicados(croqui_id, compiled_data)
-                verificar_titulos_em_descricao_setor_grupo(croqui_id, compiled_data)
-
-            # Gerar também o compilado.md (opcional)
-            if gerar_arquivos_de_debug and dest_yaml:
-                dest_md = dest_dir / "compilado.md"
-                gerar_compilado_md(croqui_dir, dest_yaml, dest_md)
-                if verbose:
-                    print("  [compilado.md] gerado com sucesso!")
+            _check_integer_ids(croqui_compilado)
+            verificar_nomes_duplicados_de_escalada(croqui_id, croqui_compilado)
+            verificar_escaladas_sem_mapa(croqui_id, croqui_compilado)
+            verificar_imagens_inexistentes(croqui_dir, croqui_id, croqui_compilado)
+            verificar_mapas_duplicados(croqui_id, croqui_compilado)
+            verificar_titulos_em_descricao_setor_grupo(croqui_id, croqui_compilado)
         except Exception as e:
             import traceback
 
@@ -744,7 +1095,8 @@ def passo_a_compilar_croquis(
             print("  Erro: compilado.binarypb não foi gerado.")
             continue
 
-        compilados.append((croqui_id, croqui_data, dest_pb))
+        _ULTIMOS_DADOS_MEMORIA_SAUDE[croqui_dir.name] = (croqui_data, cache_md)
+        compilados.append((croqui_id, croqui_compilado, dest_pb))
 
     return compilados, erros, excecoes, database_modificado
 
@@ -893,14 +1245,12 @@ def passo_c_gerar_indice(
 
     # Depois adicionamos os preservados
     for resumo_preservado in preservados:
-        # Evita duplicatas caso algum preservado tenha o mesmo ID de um compilado (não deveria ocorrer se a lógica no deploy estiver certa)
         if any(c[0] == resumo_preservado.id for c in compilados):
             continue
 
         resumo = indice.croquis.add()
         resumo.CopyFrom(resumo_preservado)
 
-        # Se veio de um deploy anterior sem tamanho_download_bytes computado, calcula retroativamente
         if resumo.precomputados.tamanho_download_bytes == 0 and resumo.caminho_relativo:
             caminho_pb = GENERATED_DIR / resumo.caminho_relativo
             pasta_img = caminho_pb.parent / "imagens"
@@ -965,21 +1315,15 @@ def passo_c_gerar_indice(
             indice.versao_catalogo = versao_cat
 
     # indice.yaml — escrito antes do .binarypb para debug
-    from editor.core.serializacao_util import configurar_yaml_representer
-
-    configurar_yaml_representer()
     indice_yaml_path = GENERATED_DIR / "indice.yaml"
-    with open(indice_yaml_path, "w", encoding="utf-8", newline="\n") as f:
-        yaml_content: dict[str, Any] = {}
-        if indice.versao_catalogo:
-            yaml_content["versao_catalogo"] = indice.versao_catalogo
-        yaml_content["croquis"] = indice_list
-        yaml_str = yaml.dump(
-            yaml_content,
-            allow_unicode=True,
-            sort_keys=False,
-        )
-        f.write(yaml_str.replace("\r\n", "\n"))
+    yaml_content: dict[str, Any] = {}
+    if indice.versao_catalogo:
+        yaml_content["versao_catalogo"] = indice.versao_catalogo
+    yaml_content["croquis"] = indice_list
+    escrever_texto_se_modificado(
+        indice_yaml_path,
+        serializar_yaml(yaml_content, incluir_cabecalho_spdx=False),
+    )
     if verbose:
         print(f"  indice.yaml escrito ({indice_yaml_path})")
 
@@ -996,93 +1340,79 @@ def passo_c_gerar_indice(
     return indice
 
 
-from collections.abc import Sequence
-from typing import Any
-
-
 def deploy(
     output_dir: Path,
     target_paths: Sequence[str | Path] | None = None,
     force_thumbnails: bool = False,
-    gerar_arquivos_de_debug: bool = True,
+    gerar_arquivos_de_debug: bool = False,
     is_producao: bool = True,
     verbose: bool = False,
     sair_ao_falhar: bool = False,
+    *,
+    force: bool = False,
+    database_dir: Path | None = None,
 ) -> bool:
-
     global GENERATED_DIR
     GENERATED_DIR = output_dir.resolve()
+    db_dir = (database_dir or DATABASE_DIR).resolve()
 
     print(f"Diretorio de saida : {GENERATED_DIR}")
     if target_paths:
         print(f"Alvos específicos  : {target_paths}")
-
-    print(f"Arquivos de debug (.md/.yaml) : {'Sim' if gerar_arquivos_de_debug else 'Não'}")
     print()
 
-    # 1. Encontrar todos os croquis na database/
-    todos_croquis = encontrar_croquis()
-
-    # 2. Filtrar o que será compilado e o que será preservado
     a_compilar: list[tuple[Path, dict[str, Any]]] = []
     a_preservar: list[tuple[Path, dict[str, Any]]] = []
 
     if target_paths:
-        target_abs_list: list[Path] = []
+        # Carrega estritamente os croquis alvo sem varrer database/ inteiro
+        vistos: set[Path] = set()
         for t in target_paths:
             t_path = Path(t)
             t_abs = t_path.resolve()
             if not t_abs.exists() and not t_path.is_absolute():
-                t_abs = (ROOT_DIR / "database" / t).resolve()
-            target_abs_list.append(t_abs)
-
-        for d, data in todos_croquis:
-            d_res = d.resolve()
-            if d_res in target_abs_list:
-                a_compilar.append((d, data))
-                target_abs_list.remove(d_res)
-            else:
-                a_preservar.append((d, data))
-
-        # Sobraram alvos que não estão no database oficial, tentar carregar como externos
-        for t_abs in target_abs_list:
-            croqui_externo_data = carregar_um_croqui(t_abs)
-            if croqui_externo_data is not None:
-                print(f"  Alvo externo identificado: {croqui_externo_data['id']}")
-                a_compilar.append((t_abs, croqui_externo_data))
+                candidato_db = (db_dir / t).resolve()
+                if candidato_db.exists():
+                    t_abs = candidato_db
+            if t_abs in vistos:
+                continue
+            vistos.add(t_abs)
+            ctx_memoria = obter_contexto_memoria_deploy(t_abs)
+            if (
+                ctx_memoria is not None
+                and isinstance(ctx_memoria.croqui_data, dict)
+                and ctx_memoria.croqui_data.get("id")
+            ):
+                a_compilar.append((t_abs, ctx_memoria.croqui_data))
+                continue
+            croqui_alvo_data = carregar_um_croqui(t_abs)
+            if croqui_alvo_data is not None:
+                a_compilar.append((t_abs, croqui_alvo_data))
             else:
                 raise RuntimeError(
                     f"Alvo '{t_abs}' não encontrado ou não é um croqui válido (falta croqui.yaml com 'id')."
                 )
-
     else:
+        todos_croquis = encontrar_croquis(database_dir=db_dir)
         if not todos_croquis:
             print("Nenhum croqui encontrado em database/. Nada a fazer.")
             return False
         a_compilar = todos_croquis
 
-    # 3. Carregar dados do índice anterior antes de (opcionalmente) limpar a pasta
+    # Carregar dados do índice anterior antes de (opcionalmente) limpar a pasta
     dados_anteriores = carregar_dados_anteriores(GENERATED_DIR / "indice.binarypb")
 
-    # 4. Preparar pasta gerada (limpa tudo se não houver alvo específico)
-    preparar_generated(limpar=(not target_paths))
+    # Preparar pasta gerada (limpa tudo apenas se não houver alvo específico e force=True)
+    preparar_generated(limpar=(not target_paths and force))
 
-    # 5. Compilar os selecionados
-    resultado_passo_a = passo_a_compilar_croquis(
+    # Compilar os selecionados
+    compilados_novos, erros, excecoes, database_modificado = passo_a_compilar_croquis(
         a_compilar,
         force_thumbnails=force_thumbnails,
         gerar_arquivos_de_debug=gerar_arquivos_de_debug,
         verbose=verbose,
+        force=force,
     )
-    if len(resultado_passo_a) == 4:
-        compilados_novos, erros, excecoes, database_modificado = resultado_passo_a
-    elif len(resultado_passo_a) == 3:
-        compilados_novos, erros, excecoes = resultado_passo_a
-        database_modificado = False
-    else:
-        compilados_novos, erros = resultado_passo_a
-        excecoes = []
-        database_modificado = False
 
     if erros:
         print("\n" + "!" * 60)
@@ -1090,18 +1420,15 @@ def deploy(
         for msg in erros:
             print(f"\n{msg}")
         print("\n" + "!" * 60 + "\n")
-        # Não damos exit aqui para permitir que o índice seja gerado com os croquis que deram certo
 
-    # 6. Identificar o que preservar do índice anterior (caso seja deploy seletivo)
+    # Identificar o que preservar do índice anterior (caso seja deploy seletivo)
     compilados_preservados: list[tuple[str, dict[str, Any], Path]] = []
     preservados_metadados: list[indice_pb2.ResumoCroqui] = []
 
     if target_paths:
-        # Em deploy seletivo, preservamos tudo que já estava no índice e não é o alvo novo
         ids_novos = {c[0] for c in compilados_novos}
         for croqui_id, resumo in dados_anteriores.items():
             if croqui_id not in ids_novos:
-                # Verifica se os arquivos ainda existem na pasta de saída
                 dest_pb = GENERATED_DIR / croqui_id / "compilado.binarypb"
                 if dest_pb.exists():
                     preservados_metadados.append(resumo)
@@ -1110,24 +1437,18 @@ def deploy(
                         f"  Aviso: croqui '{croqui_id}' estava no indice anterior mas arquivos sumiram de {GENERATED_DIR}. Removendo do indice."
                     )
     else:
-        # No deploy total, o comportamento anterior era preservar o que já estava em generated
-        # se viesse do database. Como limpar=True por padrão, isso geralmente é vazio.
         for _d, data in a_preservar:
             croqui_id = str(data["id"])
             dest_pb = GENERATED_DIR / croqui_id / "compilado.binarypb"
             if dest_pb.exists():
                 compilados_preservados.append((croqui_id, data, dest_pb))
 
-    # 7. Checksums e Índice
-    # Calculamos checksums apenas para o que foi compilado ou preservado via arquivo (não via metadado direto)
     compilados_finais_para_checksum = compilados_novos + compilados_preservados
 
     if not compilados_finais_para_checksum and not preservados_metadados:
         print("Aviso: Nenhum croqui encontrado para compilar ou preservar.")
         if erros:
             if sair_ao_falhar:
-                import sys
-
                 sys.exit(1)
             else:
                 msg_erro = f"Ocorreram {len(erros)} erros durante o deploy:\n" + "\n".join(erros)
@@ -1135,7 +1456,6 @@ def deploy(
                     raise RuntimeError(msg_erro) from excecoes[0]
                 else:
                     raise RuntimeError(msg_erro)
-        # Se for deploy total, talvez seja erro. Se for específico, avisamos.
         if not target_paths:
             return False
         else:
@@ -1152,15 +1472,18 @@ def deploy(
         is_producao=is_producao,
         verbose=verbose,
     )
-    passo_d_gerar_manifesto_serving(indice, verbose=verbose)
+    passo_d_gerar_manifesto_serving(
+        indice,
+        verbose=verbose,
+        compilados_novos=compilados_novos,
+        alvos=set(alvos_catalogo) if alvos_catalogo is not None else None,
+    )
 
     print(f"\nTotal compilados: {len(compilados_novos)} de {len(a_compilar)}")
     if erros:
         print(f"Total erros: {len(erros)}")
         print(f"Ocorreram {len(erros)} erros durante o deploy. Veja os logs acima.")
         if sair_ao_falhar:
-            import sys
-
             sys.exit(1)
         else:
             raise RuntimeError(
@@ -1170,18 +1493,43 @@ def deploy(
     return database_modificado
 
 
-def passo_d_gerar_manifesto_serving(indice: indice_pb2.Indice, verbose: bool = False) -> None:
+def passo_d_gerar_manifesto_serving(
+    indice: indice_pb2.Indice,
+    verbose: bool = False,
+    *,
+    compilados_novos: list[tuple[str, dict[str, Any], Path]] | None = None,
+    alvos: set[str] | None = None,
+) -> None:
     """
-    Passo D: Gera um manifesto YAML (arquivos_serving.yaml) com a lista completa de todos os
-    arquivos a serem cacheados pelo CDN e servidos, junto com seus checksums.
+    Passo D: Gera ou atualiza incrementalmente o manifesto YAML (arquivos_serving.yaml)
+    com a lista completa de todos os arquivos a serem cacheados pelo CDN e servidos.
     """
-    import yaml
     from google.protobuf.json_format import MessageToDict
-
-    from aresta_api.proto.generated import croqui_pb2, serving_pb2
 
     if verbose:
         print("\n=== Passo D: Gerando arquivos_serving.yaml ===")
+
+    caminho_manifesto = GENERATED_DIR / "arquivos_serving.yaml"
+    entradas_anteriores_por_croqui: dict[str, list[tuple[str, str]]] = defaultdict(list)
+    if alvos is not None and caminho_manifesto.is_file():
+        try:
+            dados_ant = carregar_yaml(caminho_manifesto.read_text(encoding="utf-8")) or {}
+            for item in dados_ant.get("arquivos", []):
+                if isinstance(item, dict):
+                    rel = str(item.get("caminho_relativo", ""))
+                    chk = str(item.get("checksum_sha256", ""))
+                    if "/" in rel and not rel.startswith("thumbnails/"):
+                        cid = rel.split("/", 1)[0]
+                        entradas_anteriores_por_croqui[cid].append((rel, chk))
+        except Exception:
+            entradas_anteriores_por_croqui.clear()
+
+    mapa_novos_memoria: dict[str, list[dict[str, str]]] = {}
+    if compilados_novos:
+        for cid, cdata, _ in compilados_novos:
+            exts = cdata.get("arquivos_externos")
+            if isinstance(exts, list):
+                mapa_novos_memoria[cid] = exts
 
     manifesto = serving_pb2.ArquivosServing()
     adicionados: set[str] = set()
@@ -1201,30 +1549,32 @@ def passo_d_gerar_manifesto_serving(indice: indice_pb2.Indice, verbose: bool = F
         if croqui.checksum_sha256_thumbnail:
             add_file(f"thumbnails/{base}.webp", croqui.checksum_sha256_thumbnail)
 
-        # 2. Lê o compilado para pegar arquivos_externos
-        compilado_path = GENERATED_DIR / base / "compilado.binarypb"
-        if compilado_path.exists():
-            c = croqui_pb2.Croqui()
-            c.ParseFromString(compilado_path.read_bytes())
-            for ext in c.arquivos_externos:
-                add_file(f"{base}/{ext.caminho}", ext.checksum_sha256)
+        if base in mapa_novos_memoria:
+            for ext_dict in mapa_novos_memoria[base]:
+                add_file(f"{base}/{ext_dict['caminho']}", ext_dict["checksum_sha256"])
+        elif alvos is not None and base not in alvos and base in entradas_anteriores_por_croqui:
+            for rel_ant, chk_ant in entradas_anteriores_por_croqui[base]:
+                if rel_ant != f"{base}/compilado.binarypb":
+                    add_file(rel_ant, chk_ant)
+        else:
+            compilado_path = GENERATED_DIR / base / "compilado.binarypb"
+            if compilado_path.exists():
+                c = croqui_pb2.Croqui()
+                c.ParseFromString(compilado_path.read_bytes())
+                for ext in c.arquivos_externos:
+                    add_file(f"{base}/{ext.caminho}", ext.checksum_sha256)
 
-        # 3. Calcula para os arquivos de debug gerados, se existirem
-        for debug_file in ["compilado.yaml", "compilado.md"]:
-            p = GENERATED_DIR / base / debug_file
-            if p.exists():
-                add_file(f"{base}/{debug_file}", calcular_sha256(p))
-
-    # 4. Calcula para os arquivos globais
+    # 2. Calcula para os arquivos globais
     for global_file in ["indice.binarypb", "indice.yaml", "catalogo.db"]:
         p = GENERATED_DIR / global_file
         if p.exists():
             add_file(global_file, calcular_sha256(p))
 
     dados = MessageToDict(manifesto, preserving_proto_field_name=True)
-    manifest_yaml = yaml.dump(dados, sort_keys=False, allow_unicode=True).replace("\r\n", "\n")
-    with open(GENERATED_DIR / "arquivos_serving.yaml", "w", encoding="utf-8", newline="\n") as f:
-        f.write(manifest_yaml)
+    escrever_texto_se_modificado(
+        caminho_manifesto,
+        serializar_yaml(dados, incluir_cabecalho_spdx=False),
+    )
 
     if verbose:
         print(f"Manifesto salvo com {len(manifesto.arquivos)} arquivos.")
@@ -1248,16 +1598,29 @@ def passo_e_gerar_catalogo_sqlite(alvos: list[str] | None = None, verbose: bool 
     return caminho_db
 
 
-def atualizar_saude_croquis() -> None:
-    """Chama o script de saúde dos croquis para atualizar o STATUS_CROQUIS.md."""
+def atualizar_saude_croquis(
+    alvos: Sequence[str | Path] | None = None,
+    *,
+    base_path: Path | None = None,
+    output_path: Path | None = None,
+    dados_em_memoria: dict[str, tuple[dict[str, Any], CacheMd]] | None = None,
+) -> bool:
+    """Atualiza o STATUS_CROQUIS.md em memória sem invocar subprocesso."""
     print("\n=== Atualizando saúde dos croquis (STATUS_CROQUIS.md) ===")
-    import subprocess
+    from scripts.medir_saude_croquis import atualizar_relatorio_saude_croquis
 
-    script_path = ROOT_DIR / "scripts" / "medir_saude_croquis.py"
     try:
-        subprocess.run([sys.executable, str(script_path)], check=True)
+        return atualizar_relatorio_saude_croquis(
+            base_path=base_path or DATABASE_DIR,
+            output_path=output_path or (ROOT_DIR / "STATUS_CROQUIS.md"),
+            alvos=alvos,
+            dados_em_memoria=dados_em_memoria
+            if dados_em_memoria is not None
+            else _ULTIMOS_DADOS_MEMORIA_SAUDE,
+        )
     except Exception as e:
         print(f"Erro ao atualizar saúde dos croquis: {e}")
+        return False
 
 
 def create_parser() -> argparse.ArgumentParser:
@@ -1284,6 +1647,12 @@ def create_parser() -> argparse.ArgumentParser:
         help="Diretorio de saida (padrao: generated/)",
     )
     parser.add_argument(
+        "--force",
+        "-f",
+        action="store_true",
+        help="Força recálculo integral de SHA-256, recópia de imagens/anexos e regeneração de thumbnails.",
+    )
+    parser.add_argument(
         "--force-thumbnails",
         action="store_true",
         help="Força a re-geração de todas as thumbnails.",
@@ -1299,12 +1668,6 @@ def create_parser() -> argparse.ArgumentParser:
         action=argparse.BooleanOptionalAction,
         default=True,
         help="Atualiza o arquivo STATUS_CROQUIS.md ao final (padrao: True).",
-    )
-    parser.add_argument(
-        "--arquivos-de-debug",
-        action=argparse.BooleanOptionalAction,
-        default=True,
-        help="Gera arquivos auxiliares .yaml e .md para debug (padrao: True).",
     )
     parser.add_argument(
         "--verbose",
@@ -1326,15 +1689,15 @@ if __name__ == "__main__":
         deploy(
             output_dir,
             target_paths=target_paths,
-            force_thumbnails=args.force_thumbnails,
-            gerar_arquivos_de_debug=args.arquivos_de_debug,
+            force_thumbnails=(args.force or args.force_thumbnails),
             is_producao=args.producao,
             verbose=args.verbose,
             sair_ao_falhar=True,
+            force=args.force,
         )
     except RuntimeError as e:
         print(f"\\nDeploy interrompido: {e}")
         sys.exit(1)
 
     if args.status:
-        atualizar_saude_croquis()
+        atualizar_saude_croquis(alvos=target_paths)

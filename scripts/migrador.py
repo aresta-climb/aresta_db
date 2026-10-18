@@ -4,11 +4,15 @@
 import importlib.util
 import re
 import sys
+from collections.abc import Callable
 from pathlib import Path
 
-import yaml
-
 import scripts.markdown_frontmatter_lib as markdown_frontmatter_lib
+from editor.core.serializacao_util import (
+    carregar_yaml,
+    escrever_texto_se_modificado,
+    serializar_yaml,
+)
 
 EXPRESSAO_MIGRACAO = re.compile(r"^(\d{4})_.*(?:\.py|\.pyc)$")
 
@@ -18,12 +22,17 @@ def _obter_caminho_padrao_migracoes() -> Path:
     return Path(__file__).resolve().parent.parent / "migracoes"
 
 
-def _obter_caminho_repo_base_fallback() -> Path | None:
+def _obter_caminho_repo_base_fallback(
+    provedor_repo_base: Callable[[], Path | None] | None = None,
+) -> Path | None:
     """Tenta obter o diretório migracoes a partir do repositório base local sincronizado."""
     try:
-        from editor.core.storage import GerenciadorCaminhos
+        if provedor_repo_base is not None:
+            caminho_base = provedor_repo_base()
+        else:
+            from editor.core.storage import GerenciadorCaminhos
 
-        caminho_base = GerenciadorCaminhos().obter_caminho_base_repo()
+            caminho_base = GerenciadorCaminhos().obter_caminho_base_repo()
         if caminho_base:
             candidato = caminho_base / "migracoes"
             if candidato.is_dir():
@@ -33,7 +42,11 @@ def _obter_caminho_repo_base_fallback() -> Path | None:
     return None
 
 
-def obter_caminho_migracoes() -> Path:
+def obter_caminho_migracoes(
+    *,
+    caminho_padrao: Path | None = None,
+    provedor_repo_base: Callable[[], Path | None] | None = None,
+) -> Path:
     """
     Retorna o caminho do diretório de migrações de forma resiliente para
     desenvolvimento, aplicativo congelado (PyInstaller) ou fallback de repositório.
@@ -56,34 +69,35 @@ def obter_caminho_migracoes() -> Path:
                 return meipass_migracoes
 
     # 2. Caminho padrão local do repositório
-    caminho_padrao = _obter_caminho_padrao_migracoes()
-    if caminho_padrao.is_dir():
-        return caminho_padrao
+    padrao = caminho_padrao if caminho_padrao is not None else _obter_caminho_padrao_migracoes()
+    if padrao.is_dir():
+        return padrao
 
     # 3. Fallback para repositório base sincronizado localmente
-    try:
-        caminho_repo = _obter_caminho_repo_base_fallback()
-        if caminho_repo is not None:
-            return caminho_repo
-    except Exception:
-        pass
+    caminho_repo = _obter_caminho_repo_base_fallback(provedor_repo_base=provedor_repo_base)
+    if caminho_repo is not None:
+        return caminho_repo
 
     # 4. Fallback final se nada existir
-    return caminho_padrao
+    return padrao
 
 
-def aplicar_migracoes(caminho_croqui: Path) -> None:
+def aplicar_migracoes(
+    caminho_croqui: Path,
+    *,
+    diretorio_migracoes: Path | None = None,
+) -> bool:
     """
     Identifica, ordena e executa de forma sequencial todas as migrações
     pendentes no diretório de croqui especificado.
+    Retorna True se ao menos uma migração foi executada, False caso contrário.
     """
     caminho_yaml = caminho_croqui / "croqui.yaml"
     if not caminho_yaml.exists():
-        return
+        return False
 
     # Lê o croqui.yaml como dicionário genérico para evitar quebras de schema do proto
-    with open(caminho_yaml, encoding="utf-8") as f:
-        dados_croqui = yaml.safe_load(f) or {}
+    dados_croqui = carregar_yaml(caminho_yaml.read_text(encoding="utf-8")) or {}
 
     # Obtém a última migração executada (inteiro, padrão é 0 se não existir)
     ultima_migracao = dados_croqui.get("ultima_migracao", 0)
@@ -94,7 +108,9 @@ def aplicar_migracoes(caminho_croqui: Path) -> None:
         except Exception:
             ultima_migracao = 0
 
-    caminho_migracoes = obter_caminho_migracoes()
+    caminho_migracoes = (
+        diretorio_migracoes if diretorio_migracoes is not None else obter_caminho_migracoes()
+    )
 
     # Garante compatibilidade caso alguma migração tente importar scripts.finalizar_mapas
     if sys.modules.get("scripts.finalizar_mapas") is None:
@@ -111,17 +127,14 @@ def aplicar_migracoes(caminho_croqui: Path) -> None:
             ):
                 match = EXPRESSAO_MIGRACAO.match(item.name)
                 if match:
-                    try:
-                        versao_migracao = int(match.group(1))
-                        if versao_migracao > ultima_migracao:
-                            # Prioriza arquivo fonte .py se ambos existirem (.py e .pyc)
-                            if versao_migracao not in migracoes_por_versao or item.suffix == ".py":
-                                migracoes_por_versao[versao_migracao] = item
-                    except Exception:
-                        continue
+                    versao_migracao = int(match.group(1))
+                    if versao_migracao > ultima_migracao:
+                        # Prioriza arquivo fonte .py se ambos existirem (.py e .pyc)
+                        if versao_migracao not in migracoes_por_versao or item.suffix == ".py":
+                            migracoes_por_versao[versao_migracao] = item
 
     if not migracoes_por_versao:
-        return
+        return False
 
     migracoes_disponiveis = sorted(migracoes_por_versao.items(), key=lambda x: x[0])
 
@@ -132,8 +145,7 @@ def aplicar_migracoes(caminho_croqui: Path) -> None:
         try:
             # Carrega dinamicamente o módulo Python da migração
             spec = importlib.util.spec_from_file_location("migracao_modulo", str(caminho_script))
-            if not spec or not spec.loader:
-                continue
+            assert spec and spec.loader
             modulo = importlib.util.module_from_spec(spec)
             spec.loader.exec_module(modulo)
 
@@ -142,29 +154,31 @@ def aplicar_migracoes(caminho_croqui: Path) -> None:
                 modulo.migrar(caminho_croqui)
 
             # Atualiza o arquivo local no disco com a nova versão
-            import ruamel.yaml
-
-            ryaml = ruamel.yaml.YAML()
-            ryaml.preserve_quotes = True
-            ryaml.width = 90
-
-            with open(caminho_yaml, encoding="utf-8") as f:
-                dados_croqui = ryaml.load(f) or {}
+            dados_croqui = carregar_yaml(caminho_yaml.read_text(encoding="utf-8")) or {}
             dados_croqui["ultima_migracao"] = versao
 
-            with open(caminho_yaml, "w", encoding="utf-8") as f:
-                ryaml.dump(dados_croqui, f)
+            escrever_texto_se_modificado(
+                caminho_yaml,
+                serializar_yaml(dados_croqui, incluir_cabecalho_spdx=True),
+            )
 
         except Exception as e:
             print(f"Erro ao aplicar migração {caminho_script.name}: {e}")
             raise
 
+    return True
 
-def obter_ultima_versao_migracao() -> int:
+
+def obter_ultima_versao_migracao(
+    *,
+    diretorio_migracoes: Path | None = None,
+) -> int:
     """
     Retorna o número da versão mais alta de migração disponível na pasta migracoes.
     """
-    caminho_migracoes = obter_caminho_migracoes()
+    caminho_migracoes = (
+        diretorio_migracoes if diretorio_migracoes is not None else obter_caminho_migracoes()
+    )
     max_versao = 0
     if caminho_migracoes.exists():
         for item in caminho_migracoes.iterdir():
@@ -175,10 +189,7 @@ def obter_ultima_versao_migracao() -> int:
             ):
                 match = EXPRESSAO_MIGRACAO.match(item.name)
                 if match:
-                    try:
-                        versao_migracao = int(match.group(1))
-                        if versao_migracao > max_versao:
-                            max_versao = versao_migracao
-                    except Exception:
-                        continue
+                    versao_migracao = int(match.group(1))
+                    if versao_migracao > max_versao:
+                        max_versao = versao_migracao
     return max_versao

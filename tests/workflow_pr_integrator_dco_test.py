@@ -9,7 +9,7 @@ e do workflow do integrador de Pull Requests (.github/workflows/pr-integrator.ym
 import unittest
 from pathlib import Path
 
-import yaml
+from editor.core.serializacao_util import carregar_yaml
 
 
 class TestWorkflowPrIntegratorDco(unittest.TestCase):
@@ -27,7 +27,7 @@ class TestWorkflowPrIntegratorDco(unittest.TestCase):
         )
 
         with open(self.caminho_dco, encoding="utf-8") as f:
-            conteudo = yaml.safe_load(f)
+            conteudo = carregar_yaml(f)
 
         self.assertIsInstance(
             conteudo, dict, "O conteúdo de .github/dco.yml deve ser um dicionário YAML."
@@ -52,7 +52,7 @@ class TestWorkflowPrIntegratorDco(unittest.TestCase):
         )
 
         with open(self.caminho_workflow, encoding="utf-8") as f:
-            conteudo_workflow = yaml.safe_load(f)
+            conteudo_workflow = carregar_yaml(f)
 
         passos = conteudo_workflow["jobs"]["integrate"]["steps"]
         nomes_passos = [p.get("name", "") for p in passos]
@@ -119,7 +119,7 @@ class TestWorkflowPrIntegratorDco(unittest.TestCase):
         )
 
         with open(self.caminho_workflow, encoding="utf-8") as f:
-            conteudo_workflow = yaml.safe_load(f)
+            conteudo_workflow = carregar_yaml(f)
 
         passos = conteudo_workflow["jobs"]["integrate"]["steps"]
         nomes_passos = [p.get("name", "") for p in passos]
@@ -198,7 +198,7 @@ class TestWorkflowPrIntegratorDco(unittest.TestCase):
         )
 
         with open(self.caminho_workflow, encoding="utf-8") as f:
-            conteudo_workflow = yaml.safe_load(f)
+            conteudo_workflow = carregar_yaml(f)
 
         passos = conteudo_workflow["jobs"]["integrate"]["steps"]
         passo_commit = next((p for p in passos if "Commitar" in p.get("name", "")), None)

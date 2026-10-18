@@ -57,7 +57,9 @@ def test_parse_md_com_frontmatter_yaml_invalido_lanca_value_error(tmp_path: Path
         parse_md_com_frontmatter(arquivo, lancar_erro_yaml=True)
 
 
-def test_parse_md_com_frontmatter_yaml_invalido_retorna_dicionario_vazio_por_padrao(tmp_path: Path) -> None:
+def test_parse_md_com_frontmatter_yaml_invalido_retorna_dicionario_vazio_por_padrao(
+    tmp_path: Path,
+) -> None:
     """Garante que erro de sintaxe YAML retorne dicionário vazio por padrão."""
     arquivo = tmp_path / "invalido_padrao.md"
     conteudo = "---\n[sintaxe: invalida: :\n---\nCorpo"
@@ -137,7 +139,8 @@ def test_salvar_md_com_frontmatter_escreve_lf_preserva_mtime_e_usa_bloco_literal
     frontmatter = {"id": "09", "descricao": "Linha 1\n\nLinha 2"}
     corpo = "Corpo linha 1\r\nCorpo linha 2"
 
-    salvar_md_com_frontmatter(arquivo, frontmatter, corpo)
+    gravou_inicial = salvar_md_com_frontmatter(arquivo, frontmatter, corpo)
+    assert gravou_inicial is True
 
     raw_bytes = arquivo.read_bytes()
     assert b"\r\n" not in raw_bytes
@@ -148,6 +151,8 @@ def test_salvar_md_com_frontmatter_escreve_lf_preserva_mtime_e_usa_bloco_literal
     mtime_antigo = 1_600_000_000
     os.utime(arquivo, (mtime_antigo, mtime_antigo))
 
-    salvar_md_com_frontmatter(arquivo, frontmatter, "Corpo linha 1\nCorpo linha 2")
+    gravou_novamente = salvar_md_com_frontmatter(
+        arquivo, frontmatter, "Corpo linha 1\nCorpo linha 2"
+    )
+    assert gravou_novamente is False
     assert int(arquivo.stat().st_mtime) == mtime_antigo
-

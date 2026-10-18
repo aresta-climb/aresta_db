@@ -5,7 +5,6 @@ from collections.abc import Callable
 from pathlib import Path
 from typing import Any
 
-import yaml
 from PySide6.QtCore import QCoreApplication, QSize, Qt, Signal
 from PySide6.QtGui import QAction, QCloseEvent, QFont, QIcon, QKeySequence
 from PySide6.QtWidgets import (
@@ -28,6 +27,7 @@ from PySide6.QtWidgets import (
 
 from editor.controllers.compilacao_controller import CompilacaoController
 from editor.controllers.croqui_controller import CroquiController
+from editor.core.serializacao_util import carregar_yaml
 from editor.legacy_views.widget_editor_imagens import WidgetEditorImagens
 from editor.models.compilacao_log import CompilacaoLog
 from editor.models.croqui_model import CroquiModel
@@ -940,7 +940,7 @@ class JanelaPrincipal(QMainWindow):
         yaml_path = caminho_db / "croqui.yaml"
         if yaml_path.exists():
             with open(yaml_path, encoding="utf-8") as f:
-                self.croqui_data = yaml.safe_load(f)
+                self.croqui_data = carregar_yaml(f.read())
 
                 from google.protobuf.json_format import ParseDict
 
@@ -949,9 +949,12 @@ class JanelaPrincipal(QMainWindow):
                 croqui_msg = ParseDict(self.croqui_data, Croqui(), ignore_unknown_fields=True)
                 import json
 
+                from scripts.deploy_generated import registrar_snapshot_disco_arquivo
+
                 croqui_msg.Extensions[
                     Croqui.ext_metadados_arquivo
                 ].dados_json_originais = json.dumps(self.croqui_data, ensure_ascii=False)
+                registrar_snapshot_disco_arquivo(yaml_path, self.croqui_data, None)
 
                 self.croqui_model = CroquiModel(croqui_msg)
                 self.croqui_model.definir_caminho_db(caminho_db)
@@ -1027,12 +1030,19 @@ class JanelaPrincipal(QMainWindow):
         caminho_db = self.workspace.obter_caminho_database()
 
         try:
+            cache_md_memoria: dict[str, tuple[dict[str, Any] | None, str]] = {}
+            corpos_brutos_md: dict[str, str] = {}
             if (
                 hasattr(self.pagina_dados, "editor_dados")
                 and self.pagina_dados.editor_dados
                 and self.croqui_model
             ):
-                self.croqui_data = self.croqui_model.extrair_arquivos_e_serializar(caminho_db)
+                self.croqui_data = self.croqui_model.extrair_arquivos_e_serializar(
+                    caminho_db,
+                    cache_md_out=cache_md_memoria,
+                    corpos_brutos_md_out=corpos_brutos_md,
+                    persistir_no_disco=False,
+                )
 
             if self.pagina_mapas.editor and hasattr(
                 self.pagina_mapas.editor, "salvar_todas_mudancas"
@@ -1060,6 +1070,8 @@ class JanelaPrincipal(QMainWindow):
                 novo_id,
                 id_atual,
                 undo_index,
+                cache_md=copy.deepcopy(cache_md_memoria),
+                corpos_brutos_md=dict(corpos_brutos_md),
             )
             self._worker_salvar.sucesso.connect(self._on_salvar_sucesso)
             self._worker_salvar.erro.connect(self._on_salvar_erro)
@@ -1077,8 +1089,8 @@ class JanelaPrincipal(QMainWindow):
                 )
                 self.label_status_salvamento.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
-            self.label_status_salvamento.move(self.width() - 150, 20)
             self.label_status_salvamento.resize(120, 30)
+            self._posicionar_label_salvamento()
             self.label_status_salvamento.show()
             self.label_status_salvamento.raise_()
 
@@ -1106,10 +1118,8 @@ class JanelaPrincipal(QMainWindow):
         # 2. Atualiza croqui_data a partir do croqui.yaml no disco
         yaml_path = caminho_db / "croqui.yaml"
         if yaml_path.exists():
-            import yaml
-
             with open(yaml_path, encoding="utf-8") as f:
-                self.croqui_data = yaml.safe_load(f)
+                self.croqui_data = carregar_yaml(f.read())
 
         # 3. Recarrega arquivos externos (mds com imagens atualizadas, etc.)
         if self.croqui_model is not None:
@@ -1534,6 +1544,19 @@ class JanelaPrincipal(QMainWindow):
 
         self.dialogo_celular = None
         self.acao_celular.setIcon(Icones.obter_celular(conectado=False))
+
+    def _posicionar_label_salvamento(self) -> None:
+        """Posiciona o indicador 'Salvando...' no canto inferior direito com margem de 20px."""
+        if self.label_status_salvamento:
+            margem = 20
+            x = self.width() - self.label_status_salvamento.width() - margem
+            y = self.height() - self.label_status_salvamento.height() - margem
+            self.label_status_salvamento.move(x, y)
+
+    def resizeEvent(self, event: Any) -> None:
+        super().resizeEvent(event)
+        if self.label_status_salvamento and not self.label_status_salvamento.isHidden():
+            self._posicionar_label_salvamento()
 
     def exibir_notificacao(self, mensagem: str) -> None:
         """Exibe uma notificação temporária no canto inferior direito."""

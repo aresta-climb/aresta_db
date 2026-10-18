@@ -14,8 +14,6 @@ Garante que o editor, ao salvar croquis novos ou editados:
 
 from pathlib import Path
 
-import yaml
-
 from aresta_api.proto.generated.croqui_pb2 import (
     ArquivoGrupo,
     ArquivoMapas,
@@ -23,6 +21,7 @@ from aresta_api.proto.generated.croqui_pb2 import (
     ArquivoSetor,
     Croqui,
 )
+from editor.core.serializacao_util import serializar_yaml
 from editor.models.croqui_model import CroquiModel
 from scripts.deploy_generated import validar_sem_extensoes_vazadas
 from scripts.gerenciar_uids_lib import gerar_uid, validar_uid
@@ -247,7 +246,7 @@ def test_contrato_editor_serializacao_sem_vazamento_extensoes_shadow_state(qapp,
 
     arquivo_yaml = pasta_destino / "croqui.yaml"
     with open(arquivo_yaml, "w", encoding="utf-8") as f:
-        yaml.safe_dump(dados_yaml, f, allow_unicode=True, sort_keys=False)
+        serializar_yaml(dados_yaml, f, sort_keys=False)
 
     # Nenhuma extensão de shadow state pode vazar no croqui.yaml ou arquivos secundários
     validar_sem_extensoes_vazadas(pasta_destino)

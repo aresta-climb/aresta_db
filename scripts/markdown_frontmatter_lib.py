@@ -11,6 +11,37 @@ from typing import Any
 
 import yaml
 
+from editor.core.serializacao_util import (
+    carregar_yaml,
+    escrever_texto_se_modificado,
+    serializar_yaml,
+)
+
+
+def parse_texto_md_com_frontmatter(
+    conteudo: str,
+    caminho_origem: str | Path = "<memoria>",
+    lancar_erro_yaml: bool = False,
+) -> tuple[dict[str, Any] | None, str]:
+    """
+    Separa o YAML Frontmatter do conteúdo textual a partir de uma string já carregada em memória.
+    """
+    match = re.match(r"^---\s*\r?\n(?:(.*?)\r?\n)?---\s*(?:\r?\n(.*))?$", conteudo, re.DOTALL)
+    if match:
+        bloco_frontmatter = match.group(1)
+        if bloco_frontmatter and bloco_frontmatter.strip():
+            try:
+                frontmatter: dict[str, Any] | None = carregar_yaml(bloco_frontmatter)
+            except yaml.YAMLError as e:
+                if lancar_erro_yaml:
+                    raise ValueError(f"Erro de YAML no frontmatter de {caminho_origem}:\n{e}")
+                frontmatter = {}
+        else:
+            frontmatter = None
+        corpo = (match.group(2) or "").strip()
+        return frontmatter, corpo
+    return None, conteudo.strip()
+
 
 def parse_md_com_frontmatter(
     caminho_arquivo: str | Path,
@@ -29,46 +60,26 @@ def parse_md_com_frontmatter(
     except Exception as e:
         raise RuntimeError(f"Erro ao ler arquivo: {caminho_arquivo}. Erro: {e}")
 
-    match = re.match(r"^---\s*\r?\n(?:(.*?)\r?\n)?---\s*(?:\r?\n(.*))?$", conteudo, re.DOTALL)
-    if match:
-        bloco_frontmatter = match.group(1)
-        if bloco_frontmatter and bloco_frontmatter.strip():
-            try:
-                frontmatter: dict[str, Any] | None = yaml.safe_load(bloco_frontmatter)
-            except yaml.YAMLError as e:
-                if lancar_erro_yaml:
-                    raise ValueError(f"Erro de YAML no frontmatter de {caminho_arquivo}:\n{e}")
-                frontmatter = {}
-        else:
-            frontmatter = None
-        corpo = (match.group(2) or "").strip()
-        return frontmatter, corpo
-    return None, conteudo.strip()
+    return parse_texto_md_com_frontmatter(
+        conteudo,
+        caminho_origem=caminho_arquivo,
+        lancar_erro_yaml=lancar_erro_yaml,
+    )
 
 
 def salvar_md_com_frontmatter(
     md_path: str | Path, frontmatter: dict[str, Any] | None, corpo: str
-) -> None:
+) -> bool:
     """
     Salva o YAML Frontmatter e o corpo de volta no arquivo markdown especificado.
 
     Inclui automaticamente os identificadores de licença ODbL-1.0 e copyright
-    da comunidade no topo do cabeçalho YAML.
+    da comunidade no topo do cabeçalho YAML. Retorna True se o arquivo foi
+    efetivamente gravado/modificado no disco, False se já estava idêntico.
     """
-    from editor.core.serializacao_util import (
-        configurar_yaml_representer,
-        escrever_texto_se_modificado,
-    )
-
-    configurar_yaml_representer()
     partes: list[str] = []
     if frontmatter:
-        bloco_yaml = yaml.dump(frontmatter, allow_unicode=True, sort_keys=False)
-        partes.append(
-            "---\n"
-            "# SPDX-License-Identifier: ODbL-1.0\n"
-            "# Copyright (C) 2026 Aresta Climb Contributors\n" + bloco_yaml + "---\n\n"
-        )
+        bloco_yaml = serializar_yaml(frontmatter, incluir_cabecalho_spdx=True)
+        partes.append(f"---\n{bloco_yaml}---\n\n")
     partes.append(corpo)
-    escrever_texto_se_modificado(md_path, "".join(partes))
-
+    return escrever_texto_se_modificado(md_path, "".join(partes))

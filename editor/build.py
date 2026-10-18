@@ -361,8 +361,6 @@ PACOTES_PREFERIR_WHEELS = (
     "pillow-heif",
     "pydantic-core",
     "pyyaml",
-    "ruamel-yaml",
-    "ruamel.yaml.clib",
     "protobuf",
     "websockets",
 )

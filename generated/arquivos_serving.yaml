@@ -1050,7 +1050,7 @@ arquivos:
 - caminho_relativo: br_mg_januaria_salao_encantado/compilado.md
   checksum_sha256: 0bf1606b5ad64ab1b4df73bd65f1a6fb099b2b6e80d87a047637d5cda1c32a21
 - caminho_relativo: br_mg_lagoa_santa_gruta_da_lapinha/compilado.binarypb
-  checksum_sha256: a53ba65da38a674c4a29434435ff5f5390a986f20fed6510aee547b5f32f93f2
+  checksum_sha256: 1bfd0bd831c9aec08aa66a72693ff2a66084473e4a79360ab01af731815b633e
 - caminho_relativo: thumbnails/br_mg_lagoa_santa_gruta_da_lapinha.webp
   checksum_sha256: 76c57c2b9159772355858ad8f40ba79a8584dfdda215379031adc9afff1f1416
 - caminho_relativo: br_mg_lagoa_santa_gruta_da_lapinha/imagens/capa_p0_i0.webp
@@ -1085,10 +1085,6 @@ arquivos:
   checksum_sha256: dae4e2f505b7bbe2ffaef21956a5551a432332d105d5018452e14fa5cd453747
 - caminho_relativo: br_mg_lagoa_santa_gruta_da_lapinha/imagens/setor_mapa_9_p0_i0.webp
   checksum_sha256: e9f415800c4e7311d2d7da6fbd76eafafba99ec58c1c3453a7131eaee20d5cae
-- caminho_relativo: br_mg_lagoa_santa_gruta_da_lapinha/compilado.yaml
-  checksum_sha256: 1e36f4bcdd5a41d001da2a11aa33ebe28638879b7ce77fdd42d0995b0342d95e
-- caminho_relativo: br_mg_lagoa_santa_gruta_da_lapinha/compilado.md
-  checksum_sha256: c9085a8428137d01ad907559eb7baf531aa7389e2423cd81ad640cbebf4ac3f1
 - caminho_relativo: br_mg_lagoa_santa_sitio_do_rod/compilado.binarypb
   checksum_sha256: 795378f47028a4a8d59cd4add1734de381e9afc6d46d9f3de9e300938b7572a9
 - caminho_relativo: thumbnails/br_mg_lagoa_santa_sitio_do_rod.webp
@@ -2266,8 +2262,8 @@ arquivos:
 - caminho_relativo: br_rj_nova_friburgobom_jardim_capelinha/compilado.md
   checksum_sha256: 9c2c7773d46a16ada1d052eb7209dcbe123aa5e55e6e95282a887ad8fba97812
 - caminho_relativo: indice.binarypb
-  checksum_sha256: db2ee7d0db2b0733a32c8cc7c7716bcccbfca23d2e4d1dc0cbcfa3f283ee5ec0
+  checksum_sha256: b48dbf7614f628e6aae99a2520f63f5b14b710f572b94e75c31277bcdc606f5f
 - caminho_relativo: indice.yaml
-  checksum_sha256: 8362298111c09c11d47cc45cbd0a469725aa793a488bd0f46e425268483a21a7
+  checksum_sha256: 5dd468f101fcd622776441e5ac42802ece650519cb0c6f186bbb1664c50dc7d2
 - caminho_relativo: catalogo.db
-  checksum_sha256: 3c0cbec2decd72621987efb14281203696a09f18125fb41e68902aac84fa34e7
+  checksum_sha256: 294cc226cf00c029f4ff6e8a2ef9b481993ea9f61978f013100038cb9b763f2e

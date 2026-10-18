@@ -20,7 +20,7 @@ from collections.abc import Iterator
 from editor.core.croqui_experimental import GerenciadorCroquiExperimental
 from editor.core.diario import GerenciadorDiario
 from editor.core.storage import GerenciadorCaminhos
-from scripts.deploy_generated import deploy
+from scripts.deploy_generated import atualizar_saude_croquis, deploy
 
 
 @contextlib.contextmanager
@@ -142,11 +142,8 @@ class LocalRepoWorkspace:
         # Registra caminho raiz do repo para sanitização de privacidade (<aresta_db>)
         from editor.core.telemetria import registrar_caminho_repo_local
 
-        try:
-            raiz_repo = self.caminho_raiz.parent.parent
-            registrar_caminho_repo_local(raiz_repo)
-        except Exception:
-            pass
+        raiz_repo = self.caminho_raiz.parent.parent
+        registrar_caminho_repo_local(raiz_repo)
         gerenciador_caminhos = storage or GerenciadorCaminhos()
         pasta_diario = gerenciador_caminhos.obter_caminho_diarios_locais() / self.caminho_raiz.name
         self.diario: GerenciadorDiario | None = GerenciadorDiario(
@@ -154,18 +151,17 @@ class LocalRepoWorkspace:
         )
 
     def obter_commit_base_sha(self) -> str:
-        try:
-            res = subprocess.run(
-                ["git", "rev-parse", "HEAD"],
-                cwd=str(self.caminho_raiz),
-                capture_output=True,
-                text=True,
-                timeout=2,
-            )
-            if res.returncode == 0:
-                return res.stdout.strip()
-        except Exception:
-            pass
+        if not self.caminho_raiz.is_dir():
+            return ""
+        res = subprocess.run(
+            ["git", "rev-parse", "HEAD"],
+            cwd=str(self.caminho_raiz),
+            capture_output=True,
+            text=True,
+            timeout=2,
+        )
+        if res.returncode == 0:
+            return res.stdout.strip()
         return ""
 
     def obter_caminho_database(self) -> Path:
@@ -204,13 +200,19 @@ class LocalRepoWorkspace:
             novo_caminho_compilado = caminho_compilado_atual.parent / novo_id
 
             try:
+                raiz_repo_git = str(caminho.parent.parent)
                 # Renomeia database/<id>
-                subprocess.run(["git", "mv", str(caminho), str(novo_caminho_db)], check=True)
+                subprocess.run(
+                    ["git", "mv", str(caminho), str(novo_caminho_db)],
+                    cwd=raiz_repo_git,
+                    check=True,
+                )
 
                 # Renomeia generated/<id> se existir
                 if caminho_compilado_atual.is_dir():
                     subprocess.run(
                         ["git", "mv", str(caminho_compilado_atual), str(novo_caminho_compilado)],
+                        cwd=raiz_repo_git,
                         check=True,
                     )
 
@@ -237,8 +239,7 @@ class LocalRepoWorkspace:
                     deploy(
                         output_dir=caminho_compilado,
                         target_paths=[caminho_base],
-                        force_thumbnails=True,
-                        gerar_arquivos_de_debug=True,
+                        force_thumbnails=False,
                         is_producao=False,
                         sair_ao_falhar=False,
                     )
@@ -246,13 +247,13 @@ class LocalRepoWorkspace:
             except Exception as e:
                 print(f"Erro ao compilar croqui: {e}")
 
-            # Atualiza a saúde dos croquis
-            script_saude = self.caminho_raiz.parent.parent / "scripts" / "medir_saude_croquis.py"
-            if script_saude.exists():
-                try:
-                    subprocess.run([sys.executable, str(script_saude)], check=False)
-                except Exception as e:
-                    print(f"Erro ao medir saúde dos croquis: {e}")
+            # Atualiza a saúde dos croquis em memória sem invocar subprocesso
+            raiz_repo = self.caminho_raiz.parent.parent
+            atualizar_saude_croquis(
+                alvos=[caminho_base],
+                base_path=raiz_repo / "database",
+                output_path=raiz_repo / "STATUS_CROQUIS.md",
+            )
 
         mensagens = _filtrar_mensagens(out.getvalue())
         if self.diario:

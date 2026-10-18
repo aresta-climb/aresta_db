@@ -1,17 +1,16 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
+import copy
 import json
 import os
 import re
 import shutil
 import sys
-import time
 from collections import Counter
 from pathlib import Path
 from typing import Any
 
-import yaml
 from google.protobuf import json_format
 from PIL import Image
 
@@ -27,8 +26,11 @@ from editor.core.processamento_imagem_campo import (
     comprimir_imagem_para_bytes_webp,
 )
 from editor.core.serializacao_util import (
+    carregar_yaml,
     configurar_yaml_representer,
+    escrever_texto_se_modificado,
     representar_string_yaml,
+    serializar_yaml,
 )
 
 # ===========================================================================
@@ -41,8 +43,50 @@ from scripts.markdown_frontmatter_lib import (
     parse_md_com_frontmatter as parse_md_com_frontmatter,
 )
 from scripts.markdown_frontmatter_lib import (
+    parse_texto_md_com_frontmatter,
+)
+from scripts.markdown_frontmatter_lib import (
     salvar_md_com_frontmatter as salvar_md_com_frontmatter,
 )
+
+CacheMd = dict[str, tuple[dict[str, Any] | None, str]]
+
+
+def _chave_cache_md(md_path: Path, pico_path: Path) -> str:
+    """Retorna a chave normalizada relativa ao diretório do croqui para o cache em memória."""
+    return md_path.relative_to(pico_path).as_posix()
+
+
+def _ler_md_com_cache(
+    md_path: Path,
+    pico_path: Path,
+    cache_md: CacheMd | None = None,
+) -> tuple[dict[str, Any] | None, str]:
+    """Lê um arquivo Markdown reutilizando o cache em memória quando disponível."""
+    if cache_md is None:
+        return parse_md_com_frontmatter(md_path)
+    chave = _chave_cache_md(md_path, pico_path)
+    if chave not in cache_md:
+        cache_md[chave] = parse_md_com_frontmatter(md_path)
+    return cache_md[chave]
+
+
+def _salvar_md_com_cache(
+    md_path: Path,
+    pico_path: Path,
+    frontmatter: dict[str, Any] | None,
+    corpo: str,
+    cache_md: CacheMd | None = None,
+    *,
+    persistir_no_disco: bool = True,
+) -> bool:
+    """Atualiza o cache em memória e persiste o arquivo Markdown no disco se modificado."""
+    if cache_md is not None:
+        chave = _chave_cache_md(md_path, pico_path)
+        cache_md[chave] = (frontmatter, corpo)
+    if not persistir_no_disco:
+        return True
+    return salvar_md_com_frontmatter(md_path, frontmatter, corpo)
 
 
 def processar_caminho_imagem(
@@ -242,14 +286,20 @@ def mover_descricao_para_corpo(
     return frontmatter, corpo, modificado
 
 
-def desduplicar_referencias_no_md(md_path: Path, pico_path: Path) -> None:
+def desduplicar_referencias_no_md(
+    md_path: Path,
+    pico_path: Path,
+    *,
+    cache_md: CacheMd | None = None,
+    persistir_no_disco: bool = True,
+) -> bool:
     """
     Checa se o mesmo arquivo .md possui a mesma imagem referenciada em mais de um local.
     Caso isso aconteça, duplica a imagem física e atualiza o Markdown para que possam ser editadas individualmente.
     """
-    frontmatter, corpo = parse_md_com_frontmatter(md_path)
+    frontmatter, corpo = _ler_md_com_cache(md_path, pico_path, cache_md)
     if frontmatter is None and not corpo:
-        return
+        return False
 
     modificado = False
     contagem: Counter[str] = Counter()
@@ -268,8 +318,6 @@ def desduplicar_referencias_no_md(md_path: Path, pico_path: Path) -> None:
         suffix = contagem[caminho_rel]
         novo_caminho = f"{base}_{suffix}{ext}"
 
-        # Garante que o novo nome não colida com um arquivo já existente (caso o suffix já tenha sido usado)
-        # Embora improvável se rodarmos sempre do zero, é bom ser robusto.
         while (pico_path / novo_caminho).exists():
             suffix += 1
             novo_caminho = f"{base}_{suffix}{ext}"
@@ -282,7 +330,6 @@ def desduplicar_referencias_no_md(md_path: Path, pico_path: Path) -> None:
         if src.exists():
             shutil.copy2(src, dest)
             modificado = True
-            # Incrementamos a contagem do novo caminho para evitar usá-lo como base de desduplicação
             contagem[novo_caminho] += 1
             return novo_caminho
         return caminho_rel
@@ -291,14 +338,10 @@ def desduplicar_referencias_no_md(md_path: Path, pico_path: Path) -> None:
     def percorrer_frontmatter(obj: Any, ignorar: bool = False) -> None:
         nonlocal modificado
         if isinstance(obj, list):
-            for i in range(len(obj)):
-                if isinstance(obj[i], (dict, list)):
-                    percorrer_frontmatter(obj[i], ignorar=ignorar)
-                elif isinstance(obj[i], str) and obj[i].startswith("imagens/"):
-                    # Não costuma ter string pura com imagens/ na lista, mas por garantia
-                    pass
+            for item in obj:
+                if isinstance(item, (dict, list)):
+                    percorrer_frontmatter(item, ignorar=ignorar)
         elif isinstance(obj, dict):
-            # Recorre em todos os campos, mas ignora escaladas/vias para desduplicação
             for k, v in obj.items():
                 ignorar_filho = ignorar or k in ("escaladas", "vias")
                 if not ignorar and k in ("caminho_imagem_mapa", "caminho_imagem_capa"):
@@ -320,14 +363,21 @@ def desduplicar_referencias_no_md(md_path: Path, pico_path: Path) -> None:
         novo_path = processar_caminho(path)
         return f"![{alt}]({novo_path})"
 
-    # Usamos re.sub com uma função para processar cada match individualmente
     novo_corpo = re.sub(r"!\[(.*?)\]\((imagens/.*?\.webp)\)", substituidor_corpo, corpo)
     if novo_corpo != corpo:
         corpo = novo_corpo
         modificado = True
 
     if modificado:
-        salvar_md_com_frontmatter(md_path, frontmatter, corpo)
+        _salvar_md_com_cache(
+            md_path,
+            pico_path,
+            frontmatter,
+            corpo,
+            cache_md,
+            persistir_no_disco=persistir_no_disco,
+        )
+    return modificado
 
 
 # ===========================================================================
@@ -336,8 +386,12 @@ def desduplicar_referencias_no_md(md_path: Path, pico_path: Path) -> None:
 
 
 def processar_croqui_yaml(
-    croqui_data: dict[str, Any], pico_path: Path, croqui_yaml_path: Path
-) -> None:
+    croqui_data: dict[str, Any],
+    pico_path: Path,
+    croqui_yaml_path: Path,
+    *,
+    persistir_no_disco: bool = True,
+) -> bool:
     """Processa campos do croqui.yaml e salva no arquivo original se houver mudanças."""
     modificado_yaml = False
     if "caminho_thumbnail" in croqui_data:
@@ -357,18 +411,27 @@ def processar_croqui_yaml(
         croqui_data["ultima_migracao"] = versao_maxima
         modificado_yaml = True
 
-    if modificado_yaml:
-        configurar_yaml_representer()
-        with open(croqui_yaml_path, "w", encoding="utf-8", newline="\n") as f:
-            yaml.dump(croqui_data, f, allow_unicode=True, sort_keys=False)
+    if modificado_yaml and persistir_no_disco:
+        escrever_texto_se_modificado(
+            croqui_yaml_path,
+            serializar_yaml(croqui_data, incluir_cabecalho_spdx=True),
+        )
+    return modificado_yaml
 
 
-def corrigir_setores_ou_grupos_recursivo(setores_ou_grupos_raw: list[Any], pico_path: Path) -> None:
+def corrigir_setores_ou_grupos_recursivo(
+    setores_ou_grupos_raw: list[Any],
+    pico_path: Path,
+    *,
+    cache_md: CacheMd | None = None,
+    persistir_no_disco: bool = True,
+    arquivos_modificados_out: set[Path] | None = None,
+) -> bool:
     """Percorre setores ou grupos corrigindo imagens nos arquivos MD e frontmatter."""
+    houve_modificacao = False
     for e_ref in setores_ou_grupos_raw:
         if not e_ref:
             continue
-        # Resolve o objeto interno baseado no oneof (setor ou grupo)
         tipo = "setor" if "setor" in e_ref else "grupo"
         obj_ref = e_ref.get(tipo)
 
@@ -377,7 +440,7 @@ def corrigir_setores_ou_grupos_recursivo(setores_ou_grupos_raw: list[Any], pico_
 
         if "caminho" in obj_ref:
             md_path = pico_path / obj_ref["caminho"]
-            frontmatter, corpo = parse_md_com_frontmatter(md_path)
+            frontmatter, corpo = _ler_md_com_cache(md_path, pico_path, cache_md)
 
             if frontmatter is None:
                 frontmatter = {}
@@ -398,7 +461,6 @@ def corrigir_setores_ou_grupos_recursivo(setores_ou_grupos_raw: list[Any], pico_
                     if isinstance(mapa, dict) and "caminho_imagem_mapa" in mapa:
                         img_original = mapa["caminho_imagem_mapa"]
 
-                        # Tenta integrar metadados antes de mudar o caminho
                         if integrar_metadados_mapa(mapa, pico_path):
                             modificado = True
 
@@ -440,36 +502,88 @@ def corrigir_setores_ou_grupos_recursivo(setores_ou_grupos_raw: list[Any], pico_
                 modificado = True
 
             if modificado:
-                salvar_md_com_frontmatter(md_path, frontmatter, novo_corpo)
+                if (
+                    _salvar_md_com_cache(
+                        md_path,
+                        pico_path,
+                        frontmatter,
+                        novo_corpo,
+                        cache_md,
+                        persistir_no_disco=persistir_no_disco,
+                    )
+                    or novo_corpo != corpo
+                ):
+                    houve_modificacao = True
+                if arquivos_modificados_out is not None:
+                    arquivos_modificados_out.add(md_path)
+            elif cache_md is not None:
+                cache_md[_chave_cache_md(md_path, pico_path)] = (frontmatter, novo_corpo)
 
-            # 2.2 Desduplica referências no arquivo MD (mesma imagem usada mais de uma vez no mesmo arquivo)
-            desduplicar_referencias_no_md(md_path, pico_path)
+            # 2.3 Desduplica referências no arquivo MD
+            if desduplicar_referencias_no_md(
+                md_path,
+                pico_path,
+                cache_md=cache_md,
+                persistir_no_disco=persistir_no_disco,
+            ):
+                houve_modificacao = True
+                if arquivos_modificados_out is not None:
+                    arquivos_modificados_out.add(md_path)
 
-            # 3. Recursão para sub-setores (agora 'setores' sob um Grupo ou o legado 'sub_setores')
-            # Grupos no MD podem ter o campo 'setores' ou o antigo 'sub_setores'
+            # 3. Recursão para sub-setores
             filhos = frontmatter.get("setores") or frontmatter.get("sub_setores")
 
             if filhos:
-                # Recursivamente corrige, mas note que filhos são sempre ArquivoSetor (não SetorOuGrupo)
-                # Então precisamos de uma função auxiliar ou adaptar esta.
-                # Como Grupos só contêm setores, podemos embrulhar para reuso ou simplificar.
-                corrigir_arquivo_setor_recursivo(filhos, pico_path)
+                if corrigir_arquivo_setor_recursivo(
+                    filhos,
+                    pico_path,
+                    cache_md=cache_md,
+                    persistir_no_disco=persistir_no_disco,
+                    arquivos_modificados_out=arquivos_modificados_out,
+                ):
+                    houve_modificacao = True
         else:
-            # Caso estruturado diretamente no YAML
             conteudo = obj_ref.get("conteudo") or {}
             filhos = conteudo.get("setores") or conteudo.get("sub_setores")
             if filhos:
-                corrigir_arquivo_setor_recursivo(filhos, pico_path)
+                if corrigir_arquivo_setor_recursivo(
+                    filhos,
+                    pico_path,
+                    cache_md=cache_md,
+                    persistir_no_disco=persistir_no_disco,
+                    arquivos_modificados_out=arquivos_modificados_out,
+                ):
+                    houve_modificacao = True
+    return houve_modificacao
 
 
-def corrigir_arquivo_setor_recursivo(setores_raw: list[Any], pico_path: Path) -> None:
+def corrigir_arquivo_setor_recursivo(
+    setores_raw: list[Any],
+    pico_path: Path,
+    *,
+    cache_md: CacheMd | None = None,
+    persistir_no_disco: bool = True,
+    arquivos_modificados_out: set[Path] | None = None,
+) -> bool:
     """Auxiliar para corrigir uma lista de ArquivoSetor (usado dentro de Grupos)."""
-    # Embrulha cada ArquivoSetor como um SetorOuGrupo fake para reusar a lógica
     fake_setores_ou_grupos = [{"setor": s} for s in setores_raw]
-    corrigir_setores_ou_grupos_recursivo(fake_setores_ou_grupos, pico_path)
+    return corrigir_setores_ou_grupos_recursivo(
+        fake_setores_ou_grupos,
+        pico_path,
+        cache_md=cache_md,
+        persistir_no_disco=persistir_no_disco,
+        arquivos_modificados_out=arquivos_modificados_out,
+    )
 
 
-def corrigir_mapas_gerais(mapas_gerais_raw: dict[str, Any], pico_path: Path) -> bool:
+def corrigir_mapas_gerais(
+    mapas_gerais_raw: dict[str, Any],
+    pico_path: Path,
+    *,
+    cache_md: CacheMd | None = None,
+    persistir_no_disco: bool = True,
+    arquivos_modificados_out: set[Path] | None = None,
+) -> bool:
     """
     Percorre mapas gerais corrigindo imagens (migrando de raw_pdf_contents),
     integrando metadados e convertendo coordenadas.
@@ -482,28 +596,26 @@ def corrigir_mapas_gerais(mapas_gerais_raw: dict[str, Any], pico_path: Path) -> 
 
     if "caminho" in mapas_gerais_raw and isinstance(mapas_gerais_raw["caminho"], str):
         md_path = pico_path / mapas_gerais_raw["caminho"]
-        if md_path.exists():
-            frontmatter, corpo = parse_md_com_frontmatter(md_path)
+        if (
+            cache_md is not None and _chave_cache_md(md_path, pico_path) in cache_md
+        ) or md_path.exists():
+            frontmatter, corpo = _ler_md_com_cache(md_path, pico_path, cache_md)
             if frontmatter is None:
                 frontmatter = {}
 
-            # 1. Move descricao para o corpo (se existir)
             frontmatter_atualizado, corpo, modificado_desc = mover_descricao_para_corpo(
                 frontmatter, corpo
             )
             frontmatter = frontmatter_atualizado or {}
 
-            # 2. Corrige imagens no corpo do MD se houver
             novo_corpo = coletar_e_atualizar_imagens(corpo, pico_path)
             modificado = (corpo != novo_corpo) or modificado_desc
 
-            # 3. Corrige imagens dos mapas no frontmatter
             if "mapas" in frontmatter and isinstance(frontmatter["mapas"], list):
                 for mapa in frontmatter["mapas"]:
                     if isinstance(mapa, dict) and "caminho_imagem_mapa" in mapa:
                         img_original = mapa["caminho_imagem_mapa"]
 
-                        # Tenta integrar metadados antes de mudar o caminho
                         if integrar_metadados_mapa(mapa, pico_path):
                             modificado = True
 
@@ -512,18 +624,36 @@ def corrigir_mapas_gerais(mapas_gerais_raw: dict[str, Any], pico_path: Path) -> 
                             mapa["caminho_imagem_mapa"] = novo_caminho_img
                             modificado = True
 
-            # 4. Converte coordenadas para E7 no frontmatter
             if converter_coordenadas_e7_recursivo(frontmatter):
                 modificado = True
 
             if modificado:
-                salvar_md_com_frontmatter(md_path, frontmatter, novo_corpo)
+                if (
+                    _salvar_md_com_cache(
+                        md_path,
+                        pico_path,
+                        frontmatter,
+                        novo_corpo,
+                        cache_md,
+                        persistir_no_disco=persistir_no_disco,
+                    )
+                    or novo_corpo != corpo
+                ):
+                    if arquivos_modificados_out is not None:
+                        arquivos_modificados_out.add(md_path)
+            elif cache_md is not None:
+                cache_md[_chave_cache_md(md_path, pico_path)] = (frontmatter, novo_corpo)
 
-            # 5. Desduplica referências no arquivo MD
-            desduplicar_referencias_no_md(md_path, pico_path)
+            if desduplicar_referencias_no_md(
+                md_path,
+                pico_path,
+                cache_md=cache_md,
+                persistir_no_disco=persistir_no_disco,
+            ):
+                if arquivos_modificados_out is not None:
+                    arquivos_modificados_out.add(md_path)
 
     else:
-        # Caso estruturado diretamente inline no YAML
         conteudo = (
             mapas_gerais_raw.get("conteudo") if "conteudo" in mapas_gerais_raw else mapas_gerais_raw
         )
@@ -548,7 +678,12 @@ def corrigir_mapas_gerais(mapas_gerais_raw: dict[str, Any], pico_path: Path) -> 
     return modificado_yaml
 
 
-def coletar_referencias_arquivos(pico_path: Path, croqui_data: dict[str, Any]) -> set[str]:
+def coletar_referencias_arquivos(
+    pico_path: Path,
+    croqui_data: dict[str, Any],
+    *,
+    cache_md: CacheMd | None = None,
+) -> set[str]:
     """Coleta referências a arquivos (imagens, anexos e md) existentes no croqui."""
     referencias: set[str] = set()
     md_visitados: set[str] = set()
@@ -589,8 +724,10 @@ def coletar_referencias_arquivos(pico_path: Path, croqui_data: dict[str, Any]) -
         md_visitados.add(caminho_norm)
         referencias.add(caminho_norm)
         md_path = pico_path / caminho_norm
-        if md_path.exists():
-            frontmatter, corpo = parse_md_com_frontmatter(md_path)
+        if (
+            cache_md is not None and _chave_cache_md(md_path, pico_path) in cache_md
+        ) or md_path.exists():
+            frontmatter, corpo = _ler_md_com_cache(md_path, pico_path, cache_md)
             extrair_links_markdown(corpo)
             if frontmatter:
                 varrer_objeto(frontmatter)
@@ -623,7 +760,6 @@ def coletar_referencias_arquivos(pico_path: Path, croqui_data: dict[str, Any]) -
 
     varrer_objeto(croqui_data)
 
-    # Filtra e normaliza: apenas referências que apontam para imagens/, anexos/ ou .md
     return {
         ref.replace("\\", "/").strip()
         for ref in referencias
@@ -636,19 +772,22 @@ def coletar_referencias_arquivos(pico_path: Path, croqui_data: dict[str, Any]) -
     }
 
 
-def limpar_arquivos_nao_utilizados(pico_path: Path, croqui_data: dict[str, Any]) -> None:
+def limpar_arquivos_nao_utilizados(
+    pico_path: Path,
+    croqui_data: dict[str, Any],
+    *,
+    cache_md: CacheMd | None = None,
+) -> bool:
     """Deleta arquivos (imagens, anexos e markdowns) que não possuem referências nos metadados."""
     pasta_imagens = pico_path / "imagens"
     pasta_anexos = pico_path / "anexos"
 
-    referencias = coletar_referencias_arquivos(pico_path, croqui_data)
+    referencias = coletar_referencias_arquivos(pico_path, croqui_data, cache_md=cache_md)
 
-    # Arquivos físicos na pasta imagens/ (ignora subdiretórios)
     arquivos_fisicos: set[str] = set()
     if pasta_imagens.exists():
         arquivos_fisicos.update(f"imagens/{f.name}" for f in pasta_imagens.iterdir() if f.is_file())
 
-    # Arquivos físicos na pasta anexos/ (suporta arquivos diretos e subdiretórios)
     if pasta_anexos.exists():
         arquivos_fisicos.update(
             f"anexos/{f.relative_to(pasta_anexos).as_posix()}"
@@ -656,13 +795,13 @@ def limpar_arquivos_nao_utilizados(pico_path: Path, croqui_data: dict[str, Any])
             if f.is_file()
         )
 
-    # Arquivos físicos markdown na raiz e subdiretórios rasos
-    # Aqui procuramos .md dentro da pasta do pico. Não fazemos rglob para evitar apagar coisas fora.
-    arquivos_fisicos.update(
-        f.name for f in pico_path.iterdir() if f.is_file() and f.suffix == ".md"
-    )
+    if pico_path.exists():
+        arquivos_fisicos.update(
+            f.name for f in pico_path.iterdir() if f.is_file() and f.suffix == ".md"
+        )
 
     nao_utilizados = arquivos_fisicos - referencias
+    removeu_algum = False
 
     if nao_utilizados:
         print(f"  Fazendo limpeza de {len(nao_utilizados)} arquivo(s) órfão(s)...")
@@ -671,36 +810,20 @@ def limpar_arquivos_nao_utilizados(pico_path: Path, croqui_data: dict[str, Any])
             if f_abs.exists():
                 print(f"    - Deletando: {f_rel}")
                 f_abs.unlink()
+                removeu_algum = True
+            if cache_md is not None:
+                cache_md.pop(f_rel, None)
 
-        # Se subdiretórios ou a pasta anexos ficarem vazios, remove diretórios vazios
         if pasta_anexos.exists():
             for subpasta in sorted(
                 pasta_anexos.glob("**/*"), key=lambda p: len(p.parts), reverse=True
             ):
                 if subpasta.is_dir() and not any(subpasta.iterdir()):
-                    try:
-                        subpasta.rmdir()
-                    except OSError:
-                        pass
+                    subpasta.rmdir()
             if not any(pasta_anexos.iterdir()):
-                try:
-                    pasta_anexos.rmdir()
-                except OSError:
-                    pass
+                pasta_anexos.rmdir()
 
-
-def _obter_snapshot_arquivos_croqui(pico_path: Path) -> dict[str, tuple[int, int]]:
-    """Captura o estado dos arquivos do croqui (caminho_relativo -> (tamanho, mtime_ns))."""
-    snapshot = {}
-    if pico_path.exists():
-        for arq in pico_path.rglob("*"):
-            if arq.is_file():
-                try:
-                    st = arq.stat()
-                    snapshot[arq.relative_to(pico_path).as_posix()] = (st.st_size, st.st_mtime_ns)
-                except OSError:
-                    pass
-    return snapshot
+    return removeu_algum
 
 
 def _extrair_nome_escalada(escalada: dict[str, Any]) -> str:
@@ -728,7 +851,12 @@ def _extrair_nome_escalada(escalada: dict[str, Any]) -> str:
     return ""
 
 
-def auditar_uids_database(pico_path: Path, croqui_data: dict[str, Any]) -> None:
+def auditar_uids_database(
+    pico_path: Path,
+    croqui_data: dict[str, Any],
+    *,
+    cache_md: CacheMd | None = None,
+) -> None:
     """
     Audita e valida que todas as entidades do banco de dados (Croqui, Picos/Grupos/Setores,
     Escaladas e Pontos de Interesse) possuem UIDs válidos de 14 caracteres Base62.
@@ -782,8 +910,10 @@ def auditar_uids_database(pico_path: Path, croqui_data: dict[str, Any]) -> None:
             if "caminho" in obj_ref and isinstance(obj_ref["caminho"], str):
                 md_path = pico_path / obj_ref["caminho"]
                 origem = md_path.name
-                if md_path.exists():
-                    fm, _ = parse_md_com_frontmatter(md_path)
+                if (
+                    cache_md is not None and _chave_cache_md(md_path, pico_path) in cache_md
+                ) or md_path.exists():
+                    fm, _ = _ler_md_com_cache(md_path, pico_path, cache_md)
                     dados = fm or {}
             elif "conteudo" in obj_ref:
                 dados = obj_ref["conteudo"]
@@ -834,43 +964,140 @@ def auditar_uids_database(pico_path: Path, croqui_data: dict[str, Any]) -> None:
             _auditar_entidade(obj, tipo)
 
 
-def sanear_uids_database(pico_path: Path) -> None:
-    """Executa o saneamento contínuo e idempotente de UIDs e referências de mapas.
-
-    Garante que todas as entidades (Croqui, Grupo, Setor, Escalada, PontoDeInteresse e Botao)
-    possuam NanoIDs 14c Base62 válidos, que labels legados sejam convertidos para rotulo,
-    e que referências semânticas textuais (escalada/setor/grupo) sejam convertidas para alvo_uid/pontos_uids,
-    preservando integralmente os UIDs pré-existentes.
-    """
+def sanear_uids_database(
+    pico_path: Path,
+    *,
+    dados_croqui_memoria: dict[str, Any] | None = None,
+    cache_md_memoria: CacheMd | None = None,
+    persistir_no_disco: bool = True,
+) -> bool:
+    """Executa o saneamento contínuo e idempotente de UIDs e referências de mapas."""
     from scripts.gerenciar_uids_lib import sanear_uids_croqui
 
-    sanear_uids_croqui(pico_path)
+    return sanear_uids_croqui(
+        pico_path,
+        dados_croqui_memoria=dados_croqui_memoria,
+        cache_md_memoria=cache_md_memoria,
+        persistir_no_disco=persistir_no_disco,
+    )
 
 
-def corrigir_database(pico_path: Path) -> bool:
+def _tem_cabecalho_spdx_valido(texto: str, sufixo: str) -> bool:
+    """Verifica em memória se o texto já possui as linhas de cabeçalho SPDX e Copyright válidas."""
+    if "\r\n" in texto:
+        return False
+    linhas = texto.splitlines()
+    comentario_spdx = "# SPDX-License-Identifier: ODbL-1.0"
+    comentario_copy = "# Copyright (C) 2026 Aresta Climb Contributors"
+    if sufixo == ".yaml":
+        return (
+            len(linhas) >= 2
+            and linhas[0].strip() == comentario_spdx
+            and linhas[1].strip() == comentario_copy
+        )
+    if sufixo == ".md":
+        if not linhas or linhas[0].strip() != "---":
+            return True
+        return (
+            len(linhas) >= 3
+            and linhas[1].strip() == comentario_spdx
+            and linhas[2].strip() == comentario_copy
+        )
+    return True
+
+
+def corrigir_database(
+    pico_path: Path,
+    *,
+    dados_croqui_memoria: dict[str, Any] | None = None,
+    cache_md_memoria: CacheMd | None = None,
+    persistir_no_disco: bool = True,
+) -> bool:
     """
     Função principal que coordena o processamento do database para garantir
     que imagens em raw_pdf_contents sejam migradas e os caminhos corrigidos.
     Retorna True se qualquer arquivo do database foi criado, modificado, movido ou excluído.
     """
     pico_path = Path(pico_path)
-    snapshot_antes = _obter_snapshot_arquivos_croqui(pico_path)
-
-    # Executa o motor de migrações no início da rotina de correção
-    from scripts.migrador import aplicar_migracoes
-
-    aplicar_migracoes(pico_path)
-
-    # Saneamento contínuo e idempotente de UIDs e referências para novos rascunhos e entidades
-    sanear_uids_database(pico_path)
-
     croqui_yaml_path = pico_path / "croqui.yaml"
-    with open(croqui_yaml_path, encoding="utf-8") as f:
-        croqui_data = yaml.safe_load(f)
+    houve_modificacao = False
+
+    from scripts.migrador import aplicar_migracoes, obter_ultima_versao_migracao
+
+    versao_maxima = obter_ultima_versao_migracao()
+    arquivos_sem_spdx: set[Path] = set()
+
+    # 0. Usa croqui_data já em memória ou carrega croqui.yaml uma única vez
+    if dados_croqui_memoria is not None and len(dados_croqui_memoria) > 0:
+        croqui_data = dados_croqui_memoria
+        if persistir_no_disco and croqui_yaml_path.exists():
+            texto_yaml = croqui_yaml_path.read_text(encoding="utf-8")
+            if not _tem_cabecalho_spdx_valido(texto_yaml, ".yaml"):
+                arquivos_sem_spdx.add(croqui_yaml_path)
+    else:
+        texto_yaml = croqui_yaml_path.read_text(encoding="utf-8")
+        if not _tem_cabecalho_spdx_valido(texto_yaml, ".yaml"):
+            arquivos_sem_spdx.add(croqui_yaml_path)
+        lido_yaml = carregar_yaml(texto_yaml) or {}
+        if dados_croqui_memoria is not None:
+            dados_croqui_memoria.clear()
+            dados_croqui_memoria.update(lido_yaml)
+            croqui_data = dados_croqui_memoria
+        else:
+            croqui_data = lido_yaml
+
+    ultima_migracao_atual = croqui_data.get("ultima_migracao", 0)
+    if not isinstance(ultima_migracao_atual, int) or ultima_migracao_atual < versao_maxima:
+        if not persistir_no_disco and croqui_yaml_path.parent.exists():
+            escrever_texto_se_modificado(
+                croqui_yaml_path,
+                serializar_yaml(croqui_data, incluir_cabecalho_spdx=True),
+            )
+        if aplicar_migracoes(pico_path):
+            houve_modificacao = True
+        if croqui_yaml_path.exists():
+            texto_yaml = croqui_yaml_path.read_text(encoding="utf-8")
+            if _tem_cabecalho_spdx_valido(texto_yaml, ".yaml"):
+                arquivos_sem_spdx.discard(croqui_yaml_path)
+            else:
+                arquivos_sem_spdx.add(croqui_yaml_path)
+            lido_pos_migracao = carregar_yaml(texto_yaml) or {}
+            croqui_data.clear()
+            croqui_data.update(lido_pos_migracao)
+
+    cache_md: CacheMd = cache_md_memoria if cache_md_memoria is not None else {}
+    if (persistir_no_disco or not cache_md) and pico_path.exists():
+        for md_file in sorted(p for p in pico_path.glob("*.md") if p.is_file()):
+            chave = _chave_cache_md(md_file, pico_path)
+            if chave not in cache_md:
+                texto_md = md_file.read_text(encoding="utf-8")
+                if not _tem_cabecalho_spdx_valido(texto_md, ".md"):
+                    arquivos_sem_spdx.add(md_file)
+                cache_md[chave] = parse_texto_md_com_frontmatter(
+                    texto_md,
+                    caminho_origem=md_file,
+                    lancar_erro_yaml=True,
+                )
+
+    # Saneamento contínuo e idempotente de UIDs e referências operando em memória
+    if sanear_uids_database(
+        pico_path,
+        dados_croqui_memoria=croqui_data,
+        cache_md_memoria=cache_md,
+        persistir_no_disco=persistir_no_disco,
+    ):
+        houve_modificacao = True
 
     # 1. Corrige thumbnail no croqui.yaml
     try:
-        processar_croqui_yaml(croqui_data, pico_path, croqui_yaml_path)
+        if processar_croqui_yaml(
+            croqui_data,
+            pico_path,
+            croqui_yaml_path,
+            persistir_no_disco=persistir_no_disco,
+        ):
+            houve_modificacao = True
+            arquivos_sem_spdx.discard(croqui_yaml_path)
     except Exception as e:
         raise RuntimeError(f"Erro ao processar thumbnail em {croqui_yaml_path}: {e}")
 
@@ -881,15 +1108,13 @@ def corrigir_database(pico_path: Path) -> bool:
             secao = destino.get("secao_textual", {})
             if isinstance(secao, dict) and "caminho" in secao:
                 md_path = pico_path / secao["caminho"]
-                if md_path.exists():
-                    frontmatter, corpo = parse_md_com_frontmatter(md_path)
+                if _chave_cache_md(md_path, pico_path) in cache_md or md_path.exists():
+                    frontmatter, corpo = _ler_md_com_cache(md_path, pico_path, cache_md)
 
-                    # 1. Move descricao para o corpo (se existir)
                     frontmatter, corpo, modificado_desc = mover_descricao_para_corpo(
                         frontmatter, corpo
                     )
 
-                    # 2. Corrige imagens no corpo do MD
                     novo_corpo = coletar_e_atualizar_imagens(corpo, pico_path)
                     modificado = (corpo != novo_corpo) or modificado_desc
 
@@ -897,38 +1122,81 @@ def corrigir_database(pico_path: Path) -> bool:
                         modificado = True
 
                     if modificado:
-                        salvar_md_com_frontmatter(md_path, frontmatter, novo_corpo)
+                        if (
+                            _salvar_md_com_cache(
+                                md_path,
+                                pico_path,
+                                frontmatter,
+                                novo_corpo,
+                                cache_md,
+                                persistir_no_disco=persistir_no_disco,
+                            )
+                            or novo_corpo != corpo
+                        ):
+                            houve_modificacao = True
+                        arquivos_sem_spdx.discard(md_path)
+                    else:
+                        cache_md[_chave_cache_md(md_path, pico_path)] = (frontmatter, novo_corpo)
 
-                    # 2.1 Desduplica referências
-                    desduplicar_referencias_no_md(md_path, pico_path)
+                    if desduplicar_referencias_no_md(
+                        md_path,
+                        pico_path,
+                        cache_md=cache_md,
+                        persistir_no_disco=persistir_no_disco,
+                    ):
+                        houve_modificacao = True
+                        arquivos_sem_spdx.discard(md_path)
 
     # 3. Corrige imagens nos setores ou grupos de cada pico e mapas gerais
     yaml_modificado = False
+    arquivos_md_modificados: set[Path] = set()
     for pico in croqui_data.get("picos", []):
         if "mapas_gerais" in pico:
-            if corrigir_mapas_gerais(pico["mapas_gerais"], pico_path):
+            if corrigir_mapas_gerais(
+                pico["mapas_gerais"],
+                pico_path,
+                cache_md=cache_md,
+                persistir_no_disco=persistir_no_disco,
+                arquivos_modificados_out=arquivos_md_modificados,
+            ):
                 yaml_modificado = True
         if "setores_ou_grupos" in pico:
-            corrigir_setores_ou_grupos_recursivo(pico["setores_ou_grupos"], pico_path)
+            if corrigir_setores_ou_grupos_recursivo(
+                pico["setores_ou_grupos"],
+                pico_path,
+                cache_md=cache_md,
+                persistir_no_disco=persistir_no_disco,
+                arquivos_modificados_out=arquivos_md_modificados,
+            ):
+                houve_modificacao = True
+
+    if arquivos_md_modificados:
+        houve_modificacao = True
+        arquivos_sem_spdx.difference_update(arquivos_md_modificados)
 
     if yaml_modificado:
-        configurar_yaml_representer()
-        with open(croqui_yaml_path, "w", encoding="utf-8", newline="\n") as f:
-            yaml.dump(croqui_data, f, allow_unicode=True, sort_keys=False)
+        if not persistir_no_disco or escrever_texto_se_modificado(
+            croqui_yaml_path,
+            serializar_yaml(croqui_data, incluir_cabecalho_spdx=True),
+        ):
+            houve_modificacao = True
+        arquivos_sem_spdx.discard(croqui_yaml_path)
 
     # 4. Limpeza de imagens órfãs
-    limpar_arquivos_nao_utilizados(pico_path, croqui_data)
+    if limpar_arquivos_nao_utilizados(pico_path, croqui_data, cache_md=cache_md):
+        houve_modificacao = True
 
-    # 5. Garante comentário SPDX e Copyright em todos os arquivos
-    for file_path in pico_path.rglob("*"):
-        if file_path.is_file() and file_path.suffix in [".yaml", ".md"]:
-            garantir_comentarios_licenca(file_path)
+    # 5. Garante comentário SPDX e Copyright nos arquivos que ainda não o possuam
+    if persistir_no_disco:
+        for file_path in sorted(arquivos_sem_spdx):
+            if file_path.exists():
+                if garantir_comentarios_licenca(file_path):
+                    houve_modificacao = True
 
     # 6. Audita e valida integridade de UIDs em todas as entidades
-    auditar_uids_database(pico_path, croqui_data)
+    auditar_uids_database(pico_path, croqui_data, cache_md=cache_md)
 
-    snapshot_depois = _obter_snapshot_arquivos_croqui(pico_path)
-    return snapshot_antes != snapshot_depois
+    return houve_modificacao
 
 
 # ===========================================================================
@@ -937,7 +1205,11 @@ def corrigir_database(pico_path: Path) -> bool:
 
 
 def expandir_arquivo_generico(
-    obj_ref: dict[str, Any], pico_path: Path, tipo_esperado: str | None = None
+    obj_ref: dict[str, Any],
+    pico_path: Path,
+    tipo_esperado: str | None = None,
+    *,
+    cache_md: CacheMd | None = None,
 ) -> tuple[str, dict[str, Any]]:
     """
     Expande um objeto que pode ser Setor ou Grupo.
@@ -946,9 +1218,8 @@ def expandir_arquivo_generico(
     """
     if "caminho" in obj_ref:
         md_path = pico_path / obj_ref["caminho"]
-        frontmatter, corpo = parse_md_com_frontmatter(md_path)
-        if not frontmatter:
-            frontmatter = {}
+        frontmatter_lido, corpo = _ler_md_com_cache(md_path, pico_path, cache_md)
+        frontmatter = copy.deepcopy(frontmatter_lido) if frontmatter_lido else {}
 
         if tipo_esperado == "grupo":
             eh_grupo = True
@@ -958,25 +1229,21 @@ def expandir_arquivo_generico(
             eh_grupo = ("setores" in frontmatter) or ("sub_setores" in frontmatter)
 
         if eh_grupo:
-            # É um Grupo
-            # Grupos só podem ter setores filhos (ArquivoSetor)
-            # Filtra eventuais nulos na lista de filhos
             filhos = frontmatter.get("setores") or frontmatter.get("sub_setores") or []
             setores_expandidos = []
             for s in filhos:
                 if not s:
                     continue
-                # Se s é string, converte para dict com caminho
                 s_ref = {"caminho": s} if isinstance(s, str) else s
                 _, dados = expandir_arquivo_generico(
                     s_ref if "caminho" in s_ref else {"conteudo": s_ref.get("conteudo")},
                     pico_path,
                     tipo_esperado="setor",
+                    cache_md=cache_md,
                 )
                 setores_expandidos.append(dados)
 
             frontmatter["setores"] = setores_expandidos
-            # Limpa legados
             if "sub_setores" in frontmatter:
                 del frontmatter["sub_setores"]
 
@@ -984,12 +1251,10 @@ def expandir_arquivo_generico(
             grupo_obj["descricao"] = aplicar_tabela_nas_imagens(corpo)
             return "grupo", {"conteudo": grupo_obj}
         else:
-            # É um Setor
             setor_obj = frontmatter.copy()
             setor_obj["descricao"] = aplicar_tabela_nas_imagens(corpo)
             return "setor", {"conteudo": setor_obj}
     else:
-        # Caso estruturado diretamente no YAML
         conteudo = obj_ref.get("conteudo") or {}
         if tipo_esperado == "grupo":
             eh_grupo = True
@@ -999,7 +1264,6 @@ def expandir_arquivo_generico(
             eh_grupo = ("setores" in conteudo) or ("sub_setores" in conteudo)
 
         if eh_grupo:
-            # É um Grupo
             filhos = conteudo.get("setores") or conteudo.get("sub_setores") or []
             setores_expandidos = []
             for s in filhos:
@@ -1010,6 +1274,7 @@ def expandir_arquivo_generico(
                     s_ref if "caminho" in s_ref else {"conteudo": s_ref.get("conteudo")},
                     pico_path,
                     tipo_esperado="setor",
+                    cache_md=cache_md,
                 )
                 setores_expandidos.append(dados)
 
@@ -1018,53 +1283,147 @@ def expandir_arquivo_generico(
                 del conteudo["sub_setores"]
             return "grupo", obj_ref
         else:
-            # É um Setor
             return "setor", obj_ref
 
 
 def expandir_setores_ou_grupos_recursivo(
-    setores_ou_grupos_raw: list[Any], pico_path: Path
+    setores_ou_grupos_raw: list[Any],
+    pico_path: Path,
+    *,
+    cache_md: CacheMd | None = None,
 ) -> list[dict[str, Any]]:
     """Expande o conteúdo de arquivos MD em objetos estruturados (Setor ou Grupo)."""
     processados: list[dict[str, Any]] = []
     for e_ref in setores_ou_grupos_raw:
-        # Tenta identificar se é setor ou grupo no input do YAML
         tipo_in = "setor" if "setor" in e_ref else "grupo"
         obj_ref = e_ref.get(tipo_in)
         if not obj_ref:
             continue
 
-        tipo_out, dados = expandir_arquivo_generico(obj_ref, pico_path, tipo_esperado=tipo_in)
+        tipo_out, dados = expandir_arquivo_generico(
+            obj_ref, pico_path, tipo_esperado=tipo_in, cache_md=cache_md
+        )
         processados.append({tipo_out: dados})
 
     return processados
 
 
-def atualizar_dimensoes_mapas(obj: Any, pico_path: Path) -> None:
+def atualizar_dimensoes_mapas(
+    obj: Any,
+    pico_path: Path,
+    *,
+    imagens_inalteradas: set[str] | None = None,
+    apenas_existentes: bool = False,
+) -> bool:
     """
     Recursivamente percorre o objeto (dict ou list) em busca de 'caminho_imagem_mapa'.
-    Se encontrar, tenta abrir a imagem para preencher 'largura_mapa' e 'altura_mapa'.
+    Se a imagem não estiver confirmada como inalterada (em `imagens_inalteradas`) ou se
+    'largura_mapa'/'altura_mapa' não estiverem preenchidos como inteiros positivos,
+    abre a imagem para preencher ou atualizar suas dimensões.
+    Quando `apenas_existentes=True`, atualiza apenas mapas que já possuíam os campos
+    `largura_mapa` ou `altura_mapa` declarados mas com valores divergentes da imagem real.
+    Retorna True se algum valor foi modificado.
     """
+    modificado = False
     if isinstance(obj, list):
         for item in obj:
-            atualizar_dimensoes_mapas(item, pico_path)
+            if atualizar_dimensoes_mapas(
+                item,
+                pico_path,
+                imagens_inalteradas=imagens_inalteradas,
+                apenas_existentes=apenas_existentes,
+            ):
+                modificado = True
     elif isinstance(obj, dict):
-        if "caminho_imagem_mapa" in obj:
-            caminho_rel = obj["caminho_imagem_mapa"]
-            # A imagem pode estar referenciada relativa à raiz do pico ou já estar em imagens/
-            caminho_abs = pico_path / caminho_rel
-            if caminho_abs.exists():
-                try:
-                    with Image.open(caminho_abs) as img:
-                        w, h = img.size
-                        obj["largura_mapa"] = w
-                        obj["altura_mapa"] = h
-                except Exception as e:
-                    print(f"Aviso: Não foi possível obter dimensões da imagem {caminho_rel}: {e}")
+        if "caminho_imagem_mapa" in obj and isinstance(obj["caminho_imagem_mapa"], str):
+            caminho_rel = obj["caminho_imagem_mapa"].replace("\\", "/").strip()
+            largura_atual = obj.get("largura_mapa")
+            altura_atual = obj.get("altura_mapa")
+            tem_campos = "largura_mapa" in obj or "altura_mapa" in obj
+            dimensoes_validas = (
+                isinstance(largura_atual, int)
+                and not isinstance(largura_atual, bool)
+                and largura_atual > 0
+                and isinstance(altura_atual, int)
+                and not isinstance(altura_atual, bool)
+                and altura_atual > 0
+            )
+            imagem_inalterada = (
+                imagens_inalteradas is not None and caminho_rel in imagens_inalteradas
+            )
+            deve_verificar = not (dimensoes_validas and imagem_inalterada)
+            if deve_verificar and (not apenas_existentes or tem_campos):
+                caminho_abs = pico_path / caminho_rel
+                if caminho_abs.exists():
+                    try:
+                        with Image.open(caminho_abs) as img:
+                            w, h = img.size
+                            if obj.get("largura_mapa") != w or obj.get("altura_mapa") != h:
+                                obj["largura_mapa"] = w
+                                obj["altura_mapa"] = h
+                                modificado = True
+                    except Exception as e:
+                        print(
+                            f"Aviso: Não foi possível obter dimensões da imagem {caminho_rel}: {e}"
+                        )
 
-        # Continua a recursão em todos os campos
         for value in obj.values():
-            atualizar_dimensoes_mapas(value, pico_path)
+            if isinstance(value, (dict, list)):
+                if atualizar_dimensoes_mapas(
+                    value,
+                    pico_path,
+                    imagens_inalteradas=imagens_inalteradas,
+                    apenas_existentes=apenas_existentes,
+                ):
+                    modificado = True
+    return modificado
+
+
+def sincronizar_dimensoes_mapas_database(
+    pico_path: Path,
+    croqui_data: dict[str, Any],
+    cache_md: CacheMd,
+    *,
+    imagens_inalteradas: set[str] | None = None,
+    persistir_no_disco: bool = True,
+) -> bool:
+    """
+    Atualiza no disco e no cache em memória as dimensões (largura_mapa/altura_mapa)
+    de mapas que já declaravam esses campos mas cuja imagem foi modificada.
+    """
+    modificado = False
+    for chave_md, (fm_md, corpo_md) in list(cache_md.items()):
+        if fm_md and atualizar_dimensoes_mapas(
+            fm_md,
+            pico_path,
+            imagens_inalteradas=imagens_inalteradas,
+            apenas_existentes=True,
+        ):
+            _salvar_md_com_cache(
+                pico_path / chave_md,
+                pico_path,
+                fm_md,
+                corpo_md,
+                cache_md,
+                persistir_no_disco=persistir_no_disco,
+            )
+            modificado = True
+
+    if atualizar_dimensoes_mapas(
+        croqui_data,
+        pico_path,
+        imagens_inalteradas=imagens_inalteradas,
+        apenas_existentes=True,
+    ):
+        croqui_yaml_path = pico_path / "croqui.yaml"
+        if persistir_no_disco and croqui_yaml_path.exists():
+            escrever_texto_se_modificado(
+                croqui_yaml_path,
+                serializar_yaml(croqui_data, incluir_cabecalho_spdx=True),
+            )
+        modificado = True
+
+    return modificado
 
 
 def validar_pontos_de_interesse_recursivo(obj: Any, path: str = "") -> None:
@@ -1178,9 +1537,7 @@ def preencher_compatibilidade_legada_em_memoria(croqui_data: dict[str, Any]) -> 
     catalogo_setores_nome: dict[str, str] = {}
     catalogo_grupos_nome: dict[str, str] = {}
 
-    def _catalogar_escaladas(
-        escaladas: list[Any], setor_nome: str, grupo_nome: str | None
-    ) -> None:
+    def _catalogar_escaladas(escaladas: list[Any], setor_nome: str, grupo_nome: str | None) -> None:
         for esc in escaladas:
             if not isinstance(esc, dict):
                 continue
@@ -1280,9 +1637,7 @@ def preencher_compatibilidade_legada_em_memoria(croqui_data: dict[str, Any]) -> 
                                 setor_ref = ref.get("setor", "")
                                 ref["alvo_uid"] = catalogo_escaladas_nome.get(
                                     (setor_ref, ref["escalada"]), ""
-                                ) or catalogo_escaladas_simples.get(
-                                    ref["escalada"], ""
-                                )
+                                ) or catalogo_escaladas_simples.get(ref["escalada"], "")
                             elif "setor" in ref:
                                 ref["alvo_uid"] = catalogo_setores_nome.get(ref["setor"], "")
                             elif "grupo" in ref:
@@ -1819,11 +2174,17 @@ def compilar_croqui(
     destino_yaml: Path | None,
     destino_binarypb: Path,
     dados_extras: dict[str, Any] | None = None,
+    *,
+    dados_croqui_memoria: dict[str, Any] | None = None,
+    cache_md_memoria: CacheMd | None = None,
+    imagens_inalteradas: set[str] | None = None,
 ) -> dict[str, Any]:
-    """Carrega os dados corrigidos, expande conteúdos e gera os arquivos .yaml e .binarypb de deploy."""
-    croqui_yaml_path = pico_path / "croqui.yaml"
-    with open(croqui_yaml_path, encoding="utf-8") as f:
-        croqui_data: dict[str, Any] = yaml.safe_load(f)
+    """Carrega os dados corrigidos (ou reutiliza o estado em memória), expande conteúdos e gera o arquivo .binarypb de deploy."""
+    if dados_croqui_memoria is not None:
+        croqui_data: dict[str, Any] = copy.deepcopy(dados_croqui_memoria)
+    else:
+        croqui_yaml_path = pico_path / "croqui.yaml"
+        croqui_data = carregar_yaml(croqui_yaml_path.read_text(encoding="utf-8"))
 
     # 1. Expande arquivos markdown globais contidos em botoes
     botoes_processados: list[dict[str, Any]] = []
@@ -1835,7 +2196,7 @@ def compilar_croqui(
                 secao = destino["secao_textual"]
                 if isinstance(secao, dict) and "caminho" in secao:
                     md_path = pico_path / secao["caminho"]
-                    _, corpo = parse_md_com_frontmatter(md_path)
+                    _, corpo = _ler_md_com_cache(md_path, pico_path, cache_md_memoria)
 
                     novo_botao = {
                         "uid": b_uid,
@@ -1857,7 +2218,7 @@ def compilar_croqui(
     for pico in croqui_data.get("picos", []):
         if "setores_ou_grupos" in pico:
             pico["setores_ou_grupos"] = expandir_setores_ou_grupos_recursivo(
-                pico["setores_ou_grupos"], pico_path
+                pico["setores_ou_grupos"], pico_path, cache_md=cache_md_memoria
             )
 
     # 2.5. Expande mapas gerais de cada pico
@@ -1866,17 +2227,24 @@ def compilar_croqui(
             mg = pico["mapas_gerais"]
             if isinstance(mg, dict) and "caminho" in mg:
                 md_path = pico_path / mg["caminho"]
-                if md_path.exists():
-                    frontmatter, _ = parse_md_com_frontmatter(md_path)
+                if (
+                    cache_md_memoria is not None
+                    and _chave_cache_md(md_path, pico_path) in cache_md_memoria
+                ) or md_path.exists():
+                    frontmatter, _ = _ler_md_com_cache(md_path, pico_path, cache_md_memoria)
                     if frontmatter and "mapas" in frontmatter:
-                        mg["conteudo"] = {"mapas": frontmatter["mapas"]}
+                        mg["conteudo"] = {"mapas": copy.deepcopy(frontmatter["mapas"])}
                         del mg["caminho"]
 
     # 2.6 Preenche em memória campos legados para retrocompatibilidade
     preencher_compatibilidade_legada_em_memoria(croqui_data)
 
     # 3. Atualiza dimensões de mapas automaticamente
-    atualizar_dimensoes_mapas(croqui_data, pico_path)
+    atualizar_dimensoes_mapas(
+        croqui_data,
+        pico_path,
+        imagens_inalteradas=imagens_inalteradas,
+    )
 
     # 3.1 Valida pontos de interesse conforme novas regras
     validar_pontos_de_interesse_recursivo(croqui_data, pico_path.name)
@@ -1900,67 +2268,55 @@ def compilar_croqui(
     if dados_extras:
         croqui_data.update(dados_extras)
 
-    # 4. Garante diretórios de saída
-    if destino_yaml:
-        destino_yaml.parent.mkdir(parents=True, exist_ok=True)
+    # 5. Garante diretório de saída e salva compilado.binarypb
     destino_binarypb.parent.mkdir(parents=True, exist_ok=True)
 
-    # 5. Salva compilado.yaml
-    if destino_yaml:
-        configurar_yaml_representer()
-        with open(destino_yaml, "w", encoding="utf-8", newline="\n") as f:
-            yaml.dump(croqui_data, f, allow_unicode=True, sort_keys=False)
-
-    # 6. Salva compilado.binarypb
     croqui_msg = croqui_pb2.Croqui()
     try:
         json_format.ParseDict(croqui_data, croqui_msg, ignore_unknown_fields=False)
     except Exception as e:
-        # Tenta extrair uma mensagem mais amigável do erro de validação
         err_msg = str(e)
         if "Failed to parse" in err_msg or "has no field named" in err_msg:
-            # Erros de tipo ou campos inexistentes
             raise ValueError(
                 f"Erro de validação Protobuf em {pico_path.name}/croqui.yaml: {err_msg}"
             )
         raise ValueError(f"Erro de estrutura em {pico_path.name}/croqui.yaml: {err_msg}")
 
-    try:
-        with open(destino_binarypb, "wb") as f:
-            f.write(croqui_msg.SerializeToString())
-    except Exception as e:
-        print(f"Erro ao salvar binarypb para {pico_path.name}: {e}")
-        raise
+    with open(destino_binarypb, "wb") as f:
+        f.write(croqui_msg.SerializeToString())
 
     return croqui_data
 
 
-def garantir_comentarios_licenca(file_path: Path) -> None:
+def garantir_comentarios_licenca(file_path: Path) -> bool:
     """
     Garante que as duas linhas de comentário de licença ODbL e Copyright
     estejam presentes e corretas no topo do arquivo (YAML) ou no frontmatter (MD).
+    Retorna True se o arquivo foi modificado no disco, False caso contrário.
     """
     try:
         with open(file_path, encoding="utf-8") as f:
             linhas = f.readlines()
     except Exception as e:
         print(f"Erro ao ler {file_path} para injetar SPDX: {e}")
-        return
+        return False
 
     if not linhas:
-        return
+        return False
 
     comentario_spdx = "# SPDX-License-Identifier: ODbL-1.0"
     comentario_copy = "# Copyright (C) 2026 Aresta Climb Contributors"
 
-    # 1. Checa se o arquivo já está perfeitamente correto para evitar writes desnecessários
     if file_path.suffix == ".yaml" and len(linhas) >= 2:
         if linhas[0].strip() == comentario_spdx and linhas[1].strip() == comentario_copy:
-            return
+            return False
     elif file_path.suffix == ".md" and len(linhas) >= 3:
-        if linhas[0].strip() == "---":
-            if linhas[1].strip() == comentario_spdx and linhas[2].strip() == comentario_copy:
-                return
+        if (
+            linhas[0].strip() == "---"
+            and linhas[1].strip() == comentario_spdx
+            and linhas[2].strip() == comentario_copy
+        ):
+            return False
 
     linhas_limpas = []
 
@@ -1990,7 +2346,7 @@ def garantir_comentarios_licenca(file_path: Path) -> None:
                             continue
             linhas_limpas.append(linha)
     else:
-        return
+        return False
 
     comentarios = (
         "# SPDX-License-Identifier: ODbL-1.0\n# Copyright (C) 2026 Aresta Climb Contributors\n"
@@ -2002,23 +2358,9 @@ def garantir_comentarios_licenca(file_path: Path) -> None:
         if linhas_limpas[0].strip() == "---":
             linhas_limpas.insert(1, comentarios)
         else:
-            return
+            return False
 
-    sucesso_escrita = False
-    ultimo_erro: Exception | None = None
-    for tentativa in range(1, 4):
-        try:
-            with open(file_path, "w", encoding="utf-8", newline="\n") as f:
-                f.writelines(linhas_limpas)
-            sucesso_escrita = True
-            break
-        except OSError as e:
-            ultimo_erro = e
-            if tentativa < 3:
-                time.sleep(0.05 * tentativa)
-        except Exception as e:
-            ultimo_erro = e
-            break
-
-    if not sucesso_escrita:
-        print(f"Erro ao escrever {file_path} para injetar SPDX: {ultimo_erro}")
+    return escrever_texto_se_modificado(
+        file_path,
+        "".join(linhas_limpas),
+    )

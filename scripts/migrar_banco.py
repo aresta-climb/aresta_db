@@ -6,7 +6,7 @@ import os
 import sys
 from pathlib import Path
 
-import yaml
+from editor.core.serializacao_util import carregar_yaml
 
 
 def obter_lista_migracoes(migracoes_dir: Path) -> list[tuple[int, Path]]:
@@ -62,7 +62,7 @@ def migrar_todos_os_croquis(db_dir: Path, migracoes_dir: Path) -> None:
             croquis_encontrados += 1
 
             with open(croqui_yaml_path, encoding="utf-8") as f:
-                croqui_data = yaml.safe_load(f)
+                croqui_data = carregar_yaml(f)
 
             if not croqui_data:
                 continue

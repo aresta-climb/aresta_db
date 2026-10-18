@@ -16,8 +16,8 @@ from pathlib import Path
 from typing import Any
 
 import pytest
-import yaml
 
+from editor.core.serializacao_util import carregar_yaml
 from scripts.gerenciar_uids_lib import validar_uid
 from scripts.preparar_submissao_lib import parse_md_com_frontmatter
 
@@ -59,7 +59,7 @@ def test_contrato_database_todas_entidades_possuem_uid_14c_base62():
     for pasta_croqui in pastas_croqui:
         croqui_yaml_path = pasta_croqui / "croqui.yaml"
         with open(croqui_yaml_path, encoding="utf-8") as f:
-            croqui_data = yaml.safe_load(f) or {}
+            croqui_data = carregar_yaml(f) or {}
 
         # 1. Valida UID do Croqui raiz e sua posição como primeira chave
         croqui_uid = croqui_data.get("uid")
@@ -299,7 +299,7 @@ def test_contrato_compilado_retrocompatibilidade_preenche_id_e_ids():
     for pasta in pastas_compilados:
         yaml_comp = pasta / "compilado.yaml"
         with open(yaml_comp, encoding="utf-8") as f:
-            dados = yaml.safe_load(f) or {}
+            dados = carregar_yaml(f) or {}
         _validar_mapas_compilados(dados, pasta.name)
         for b in dados.get("botoes", []):
             if isinstance(b, dict):

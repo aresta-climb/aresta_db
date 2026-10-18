@@ -67,8 +67,9 @@ escaladas:
     conquistadores:
     - Jonatas Lima
     - Maurício dos Santos
-    descricao: Foi a primeira via conquistada no setor, um estilo parecido com do setor da Ave Maria, impressiona pela 
-      beleza e proporciona fotos lindas. Conquistada em data desconhecida.
+    descricao: Foi a primeira via conquistada no setor, um estilo parecido com do
+      setor da Ave Maria, impressiona pela beleza e proporciona fotos lindas. Conquistada
+      em data desconhecida.
 - uid: wlZ6ml53pLVTg2
   via_esportiva:
     nome: Mestre Xifu
@@ -85,7 +86,8 @@ escaladas:
     - Jonatas Lima
     - Michel Rodrigues
     data_abertura: '2018'
-    descricao: Sua saída bem negativa com agarras afiadas dá o grau da via, depois segue vertical com agarras menores.
+    descricao: Sua saída bem negativa com agarras afiadas dá o grau da via, depois
+      segue vertical com agarras menores.
 - uid: alYrB5snvEyngh
   via_esportiva:
     nome: Gorro Cinza

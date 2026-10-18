@@ -56,8 +56,9 @@ escaladas:
     nome: Imagina Eu
     dificuldade: BR_7C
     extensao: 15
-    descricao: Também entra no time das primeiras vias esportivas do lenheiro. Curta e explosiva, com passadas pelo 
-      teto, torna essa via uma clássica, encontra-se em um local muito agradável e exótico. Opção para dias de chuva.
+    descricao: Também entra no time das primeiras vias esportivas do lenheiro. Curta
+      e explosiva, com passadas pelo teto, torna essa via uma clássica, encontra-se
+      em um local muito agradável e exótico. Opção para dias de chuva.
 - uid: 96RuVgqG9iSfiD
   via_movel:
     nome: Diedro Oculto
@@ -67,7 +68,8 @@ escaladas:
     - Pedro Bugim
     - Liane Leobons
     data_abertura: '2008'
-    descricao: Via curta e de baixa graduação, sendo indicada para aqueles que estejam começando a escalar em móvel.
+    descricao: Via curta e de baixa graduação, sendo indicada para aqueles que estejam
+      começando a escalar em móvel.
 ---
 
 # Grutinha

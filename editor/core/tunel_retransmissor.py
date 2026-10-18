@@ -363,7 +363,7 @@ class ClienteTunelRetransmissor:
 
             tipo_mime, _ = mimetypes.guess_type(str(caminho_alvo))
             if not tipo_mime:
-                if caminho_alvo.suffix in (".binarypb", ".bin"):
+                if caminho_alvo.suffix in (".binarypb", ".bin", ".db", ".sqlite", ".sqlite3"):
                     tipo_mime = "application/octet-stream"
                 else:
                     tipo_mime = "text/plain"

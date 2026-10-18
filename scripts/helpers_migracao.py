@@ -5,8 +5,7 @@ import textwrap
 from pathlib import Path
 from typing import Any
 
-import yaml
-
+from editor.core.serializacao_util import carregar_yaml
 from scripts.markdown_frontmatter_lib import parse_md_com_frontmatter
 
 
@@ -41,7 +40,7 @@ def carregar_yaml_migrado(croqui_dir: Path) -> dict[str, Any]:
     """
     caminho_yaml = croqui_dir / "croqui.yaml"
     with open(caminho_yaml, encoding="utf-8") as f:
-        return yaml.safe_load(f) or {}
+        return carregar_yaml(f) or {}
 
 
 def carregar_markdown_migrado(

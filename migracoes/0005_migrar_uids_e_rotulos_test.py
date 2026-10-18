@@ -5,13 +5,15 @@
 
 import importlib.util
 from pathlib import Path
+
 import pytest
-from scripts.helpers_migracao import (
-    configurar_croqui_teste,
-    carregar_yaml_migrado,
-    carregar_markdown_migrado,
-)
+
 from scripts.gerenciar_uids_lib import validar_uid
+from scripts.helpers_migracao import (
+    carregar_markdown_migrado,
+    carregar_yaml_migrado,
+    configurar_croqui_teste,
+)
 
 caminho_script = Path(__file__).parent / "0005_migrar_uids_e_rotulos.py"
 spec = importlib.util.spec_from_file_location("migracao_0005", str(caminho_script))
@@ -104,17 +106,25 @@ Texto descritivo do setor.
     dados_croqui = carregar_yaml_migrado(croqui_dir)
     assert "uid" in dados_croqui
     assert validar_uid(dados_croqui["uid"]) is True
-    assert list(dados_croqui.keys())[0] == "uid", "O campo 'uid' deve ser o primeiro campo no croqui.yaml"
-    assert list(dados_croqui.keys())[1] == "id", "O campo 'id' deve vir logo após o 'uid' no croqui.yaml"
+    assert list(dados_croqui.keys())[0] == "uid", (
+        "O campo 'uid' deve ser o primeiro campo no croqui.yaml"
+    )
+    assert list(dados_croqui.keys())[1] == "id", (
+        "O campo 'id' deve vir logo após o 'uid' no croqui.yaml"
+    )
     texto_croqui = (croqui_dir / "croqui.yaml").read_text(encoding="utf-8")
-    assert texto_croqui.index("uid:") < texto_croqui.index("id:"), "uid deve preceder id no arquivo croqui.yaml"
+    assert texto_croqui.index("uid:") < texto_croqui.index("id:"), (
+        "uid deve preceder id no arquivo croqui.yaml"
+    )
     croqui_uid_original = dados_croqui["uid"]
 
     assert len(dados_croqui.get("botoes", [])) == 1
     botao_migrado = dados_croqui["botoes"][0]
     assert "uid" in botao_migrado
     assert validar_uid(botao_migrado["uid"]) is True
-    assert list(botao_migrado.keys())[0] == "uid", "O campo 'uid' deve ser o primeiro campo no botão"
+    assert list(botao_migrado.keys())[0] == "uid", (
+        "O campo 'uid' deve ser o primeiro campo no botão"
+    )
     botao_uid_original = botao_migrado["uid"]
 
     # 1.1 Valida que arquivo auxiliar capa.md não possui uid nem id no frontmatter
@@ -129,7 +139,9 @@ Texto descritivo do setor.
     assert fm is not None
     assert "uid" in fm
     assert validar_uid(fm["uid"]) is True
-    assert list(fm.keys())[0] == "uid", "O campo 'uid' deve ser o primeiro campo no frontmatter do setor"
+    assert list(fm.keys())[0] == "uid", (
+        "O campo 'uid' deve ser o primeiro campo no frontmatter do setor"
+    )
 
     # 3. Valida escaladas
     escaladas = fm.get("escaladas", [])
@@ -180,11 +192,19 @@ Texto descritivo do setor.
 
     assert ref.get("alvo_uid") == via1_uid
     assert ref.get("pontos_uids") == [poi1_uid, poi2_uid]
-    assert list(ref.keys())[0] == "alvo_uid", "O campo 'alvo_uid' deve ser o primeiro campo na referência"
-    assert list(ref.keys())[1] == "pontos_uids", "O campo 'pontos_uids' deve ser o segundo campo na referência"
+    assert list(ref.keys())[0] == "alvo_uid", (
+        "O campo 'alvo_uid' deve ser o primeiro campo na referência"
+    )
+    assert list(ref.keys())[1] == "pontos_uids", (
+        "O campo 'pontos_uids' deve ser o segundo campo na referência"
+    )
     assert "ids" not in ref, "Campo legado 'ids' deve ser removido da referência no Markdown"
-    assert "indice_mapa_alvo" not in ref, "Campo legado 'indice_mapa_alvo' deve ser removido da referência"
-    assert "escalada" not in ref, "Campo legado 'escalada' deve ser removido da referência no Markdown"
+    assert "indice_mapa_alvo" not in ref, (
+        "Campo legado 'indice_mapa_alvo' deve ser removido da referência"
+    )
+    assert "escalada" not in ref, (
+        "Campo legado 'escalada' deve ser removido da referência no Markdown"
+    )
     assert "setor" not in ref
     assert "grupo" not in ref
 
@@ -291,7 +311,9 @@ setores: []
     assert "id" not in fm_grupo["mapas"][0]["pontos_de_interesse"][0]
 
 
-def test_migracao_croqui_yaml_corrompido_e_falha_de_leitura(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
+def test_migracao_croqui_yaml_corrompido_e_falha_de_leitura(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
     """Testa tratamento defensivo quando croqui.yaml está corrompido ou arquivo não pode ser lido."""
     croqui_dir = tmp_path / "croqui_quebrado"
     croqui_dir.mkdir()
@@ -314,62 +336,3 @@ def test_migracao_croqui_yaml_corrompido_e_falha_de_leitura(tmp_path: Path, monk
 
     # Não deve lançar exceção
     migracao_0005.migrar(croqui_dir)
-
-
-def test_extrair_nome_escalada() -> None:
-    """Testa a extração polimórfica de nomes de escaladas."""
-    fn = migracao_0005._extrair_nome_escalada
-    assert fn(None) == ""
-    assert fn("invalido") == ""
-    assert fn({"nome": "Via Plana"}) == "Via Plana"
-    assert fn({"via_esportiva": {"nome": "Via Esp"}}) == "Via Esp"
-    assert fn({"via_movel": {"nome": "Via Mov"}}) == "Via Mov"
-    assert fn({"via_tradicional": {"nome": "Via Trad"}}) == "Via Trad"
-    assert fn({"boulder": {"nome": "Meu Bloco"}}) == "Meu Bloco"
-    assert fn({"via_psicobloc": {"nome": "Psico"}}) == "Psico"
-    assert fn({"via_artificial": {"nome": "Artif"}}) == "Artif"
-    assert fn({"highline": {"nome": "Fita Alta"}}) == "Fita Alta"
-    assert fn({"via_multiplas_enfiadas": {"nome": "Big Wall"}}) == "Big Wall"
-    assert fn({"via_esportiva": "invalido"}) == ""
-    assert fn({"outra_coisa": 123}) == ""
-
-
-def test_inserir_ou_mover_para_posicao() -> None:
-    """Testa inserção e reposicionamento com CommentedMap e dict padrão."""
-    fn = migracao_0005._inserir_ou_mover_para_posicao
-    from ruamel.yaml.comments import CommentedMap
-
-    # 1. CommentedMap: chave existente
-    cmap = CommentedMap([("a", 1), ("b", 2), ("c", 3)])
-    fn(cmap, "c", pos=0)
-    assert list(cmap.keys()) == ["c", "a", "b"]
-    assert cmap["c"] == 3
-
-    # 2. CommentedMap: chave inexistente com valor
-    fn(cmap, "z", valor=99, pos=0)
-    assert list(cmap.keys()) == ["z", "c", "a", "b"]
-    assert cmap["z"] == 99
-
-    # 3. dict comum: chave existente
-    d = {"x": 10, "y": 20, "z": 30}
-    fn(d, "z", pos=0)
-    assert list(d.keys()) == ["z", "x", "y"]
-    assert d["z"] == 30
-
-    # 4. dict comum: chave inexistente com valor
-    fn(d, "w", valor=40, pos=0)
-    assert list(d.keys()) == ["w", "z", "x", "y"]
-    assert d["w"] == 40
-
-    # 5. dict comum: chave inexistente sem valor (nenhuma mutação)
-    d_clone = dict(d)
-    fn(d, "inexistente", valor=None, pos=0)
-    assert d == d_clone
-
-    # 6. CommentedMap: chave inexistente sem valor (nenhuma mutação)
-    cmap_clone = list(cmap.keys())
-    fn(cmap, "inexistente", valor=None, pos=0)
-    assert list(cmap.keys()) == cmap_clone
-
-
-

@@ -41,7 +41,7 @@ Sempre verifique o sistema de arquivos antes de começar para deduzir de qual fa
 
 - Se a pasta do croqui (baseada no nome sugerido) não existir em `database/`, comece na **Fase 1**.
 - Se a pasta existe e possui um arquivo `partes.json`, mas existem arquivos `.pdf` na pasta `raw_pdf_contents` sem os respectivos arquivos `.md` gerados na raiz da pasta do croqui, vá para a **Fase 2**.
-- Se os arquivos `.md` de cada parte existem e o `compilado.md` já foi gerado, avance para a verificação/extração de mapas na **Fase 3**.
+- Se os arquivos `.md` de cada parte existem e o `compilado.binarypb` já foi gerado, avance para a verificação/extração de mapas na **Fase 3**.
 
 ---
 

@@ -42,7 +42,6 @@ editor = [
     "jeepney; sys_platform == 'linux'",
     "qtawesome",
     "qrcode",
-    "ruamel.yaml",
     "fastapi",
     "uvicorn",
     "httpx",
@@ -97,6 +96,8 @@ dev = [
 [tool.uv]
 package = false
 default-groups = ["deploy", "validador", "editor", "editor_deploy", "pdf", "dev"]
+no-build-package = ["pyyaml"]
+
 
 [tool.uv.sources]
 aresta-api = { path = "./aresta_api" }

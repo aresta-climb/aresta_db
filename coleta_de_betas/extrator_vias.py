@@ -7,10 +7,9 @@ from collections.abc import Sequence
 from pathlib import Path
 from typing import Any
 
-import yaml
-
 from aresta_api.proto.generated import beta_pb2
 from coleta_de_betas.io_yaml import salvar_vias_extraidas_yaml
+from editor.core.serializacao_util import carregar_yaml
 
 
 def _ler_frontmatter_md(caminho_md: Path) -> dict[str, Any]:
@@ -23,7 +22,7 @@ def _ler_frontmatter_md(caminho_md: Path) -> dict[str, Any]:
     partes = texto.split("---")
     if len(partes) >= 3:
         try:
-            return yaml.safe_load(partes[1]) or {}
+            return carregar_yaml(partes[1]) or {}
         except Exception:
             return {}
     return {}
@@ -39,8 +38,7 @@ def extrair_vias_de_croqui(caminho_croqui_dir: Path | str) -> beta_pb2.ViasExtra
 
     dados_croqui: dict[str, Any] = {}
     if arquivo_croqui_yaml.exists():
-        with open(arquivo_croqui_yaml, encoding="utf-8") as f:
-            dados_croqui = yaml.safe_load(f) or {}
+        dados_croqui = carregar_yaml(arquivo_croqui_yaml.read_text(encoding="utf-8")) or {}
 
     vias_croqui = beta_pb2.ViasExtraidasCroqui()
     vias_croqui.id_croqui = diretorio.name

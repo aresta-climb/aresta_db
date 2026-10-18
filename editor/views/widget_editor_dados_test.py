@@ -2002,10 +2002,10 @@ def test_formulario_exibe_e_edita_nome_de_arquivo_mapas_gerais(qapp):
 def test_fluxo_integracao_carregamento_e_salvamento_yaml_campos_vazios(tmp_path, qapp):
     """Garante que campos vazios não aparecem no YAML salvo e campos preenchidos aparecem,
     sem presença de botões Adicionar/Remover nos cards de campos."""
-    import yaml
     from PySide6.QtWidgets import QPushButton
 
     from aresta_api.proto.generated.croqui_pb2 import Croqui, Setor
+    from editor.core.serializacao_util import carregar_yaml
     from editor.views.tree_view_adapter import ProtobufNode
 
     croqui = Croqui()
@@ -2041,7 +2041,7 @@ def test_fluxo_integracao_carregamento_e_salvamento_yaml_campos_vazios(tmp_path,
     # Extrai o frontmatter YAML
     partes = conteudo_md.split("---")
     assert len(partes) >= 3
-    dados_yaml = yaml.safe_load(partes[1])
+    dados_yaml = carregar_yaml(partes[1])
 
     assert dados_yaml["nome"] == "Setor Completo"
     assert dados_yaml["amigavel_a_criancas"] is True

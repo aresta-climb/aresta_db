@@ -3,7 +3,8 @@
 
 import importlib.util
 from pathlib import Path
-from scripts.helpers_migracao import configurar_croqui_teste, carregar_yaml_migrado
+
+from scripts.helpers_migracao import carregar_yaml_migrado, configurar_croqui_teste
 
 # Carrega a migração dinamicamente devido à restrição de nomes começando com números em imports Python
 caminho_migracao = Path(__file__).resolve().parent / "0001_migrar_secoes_para_botoes.py"
@@ -24,18 +25,18 @@ def test_migracao_secoes_textuais_para_botoes(tmp_path):
       - titulo: Acesso
         caminho: acesso.md
     """
-    
+
     croqui_dir = configurar_croqui_teste(tmp_path, yaml_content=yaml_antigo)
-    
+
     # QUANDO executamos a migração
     migrar(croqui_dir)
-    
+
     # ENTÃO as chaves antigas devem ter sido removidas e a chave "botoes" estruturada corretamente
     yaml_novo = carregar_yaml_migrado(croqui_dir)
     assert "secoes_textuais" not in yaml_novo
     assert "arquivos_markdown" not in yaml_novo
     assert "botoes" in yaml_novo
-    
+
     botoes = yaml_novo["botoes"]
     assert len(botoes) == 2
     assert botoes[0]["texto"] == "Capa Principal"
@@ -53,17 +54,17 @@ def test_migracao_arquivos_markdown_antiquados_para_botoes(tmp_path):
       - titulo: Sobre
         caminho: sobre.md
     """
-    
+
     croqui_dir = configurar_croqui_teste(tmp_path, yaml_content=yaml_antiquado)
-    
+
     # QUANDO executamos a migração
     migrar(croqui_dir)
-    
+
     # ENTÃO as chaves antigas devem ter sido removidas e a chave "botoes" estruturada corretamente
     yaml_novo = carregar_yaml_migrado(croqui_dir)
     assert "arquivos_markdown" not in yaml_novo
     assert "botoes" in yaml_novo
-    
+
     botoes = yaml_novo["botoes"]
     assert len(botoes) == 1
     assert botoes[0]["texto"] == "Sobre"
@@ -82,12 +83,12 @@ def test_migracao_no_op_se_ja_migrado(tmp_path):
           secao_textual:
             caminho: sobre.md
     """
-    
+
     croqui_dir = configurar_croqui_teste(tmp_path, yaml_content=yaml_migrado)
-    
+
     # QUANDO executamos a migração
     migrar(croqui_dir)
-    
+
     # ENTÃO nada deve mudar no yaml do croqui
     yaml_novo = carregar_yaml_migrado(croqui_dir)
     assert yaml_novo["ultima_migracao"] == 1
@@ -106,18 +107,16 @@ def test_migracao_no_op_se_campos_antigos_nao_existem_sem_ultima_migracao(tmp_pa
           secao_textual:
             caminho: ajuda.md
     """
-    
+
     croqui_dir = configurar_croqui_teste(tmp_path, yaml_content=yaml_sem_campos)
-    
+
     # Capturamos o conteúdo bruto do arquivo
     yaml_path = croqui_dir / "croqui.yaml"
     conteudo_antes = yaml_path.read_text(encoding="utf-8")
-    
+
     # QUANDO executamos a migração
     migrar(croqui_dir)
-    
+
     # ENTÃO o arquivo não deve ser modificado (o conteúdo bruto deve ser idêntico)
     conteudo_depois = yaml_path.read_text(encoding="utf-8")
     assert conteudo_antes == conteudo_depois
-
-

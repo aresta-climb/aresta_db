@@ -582,10 +582,9 @@ def test_croqui_model_mover_repeated(qapp):
 
 
 def test_croqui_model_salva_setores_dentro_de_grupo(tmp_path):
-    import yaml
-
     from aresta_api.proto.generated import croqui_pb2
     from aresta_api.proto.generated.croqui_pb2 import Croqui
+    from editor.core.serializacao_util import carregar_yaml
     from editor.models.croqui_model import CroquiModel
 
     db_path = tmp_path / "database"
@@ -632,7 +631,7 @@ def test_croqui_model_salva_setores_dentro_de_grupo(tmp_path):
     with open(caminho_grupo, encoding="utf-8") as f:
         content = f.read()
         parts = content.split("---")
-        yaml_grupo = yaml.safe_load(parts[1])
+        yaml_grupo = carregar_yaml(parts[1])
 
         # O grupo não deve ter o 'conteudo' do setor, apenas o 'caminho'
         assert "setores" in yaml_grupo
@@ -844,10 +843,9 @@ def test_croqui_model_carrega_e_salva_arquivos_externos_shadow_state(tmp_path):
 
 
 def test_croqui_model_salva_setores_dentro_de_grupo(tmp_path):
-    import yaml
-
     from aresta_api.proto.generated import croqui_pb2
     from aresta_api.proto.generated.croqui_pb2 import Croqui
+    from editor.core.serializacao_util import carregar_yaml
     from editor.models.croqui_model import CroquiModel
 
     db_path = tmp_path / "database"
@@ -894,7 +892,7 @@ def test_croqui_model_salva_setores_dentro_de_grupo(tmp_path):
     with open(caminho_grupo, encoding="utf-8") as f:
         content = f.read()
         parts = content.split("---")
-        yaml_grupo = yaml.safe_load(parts[1])
+        yaml_grupo = carregar_yaml(parts[1])
 
         # O grupo não deve ter o 'conteudo' do setor, apenas o 'caminho'
         assert "setores" in yaml_grupo
@@ -908,7 +906,7 @@ def test_croqui_model_salva_setores_dentro_de_grupo(tmp_path):
     with open(caminho_setor, encoding="utf-8") as f:
         content = f.read()
         parts = content.split("---")
-        yaml_setor = yaml.safe_load(parts[1])
+        yaml_setor = carregar_yaml(parts[1])
 
         assert yaml_setor["nome"] == "Setor Interno"
         assert "ext_metadados_arquivo" not in yaml_setor
@@ -955,10 +953,10 @@ def test_croqui_model_preserva_ordem_dos_campos(tmp_path):
     model.extrair_arquivos_e_serializar(db_path)
 
     texto_salvo = caminho_setor.read_text(encoding="utf-8")
-    import yaml
+    from editor.core.serializacao_util import carregar_yaml
 
     parts = texto_salvo.split("---", 2)
-    frontmatter = yaml.safe_load(parts[1])
+    frontmatter = carregar_yaml(parts[1])
 
     chaves = list(frontmatter.keys())
     # UID obrigatório no topo, e os originais mantém a ordem. O novo campo vai pro fim.
@@ -996,10 +994,10 @@ def test_croqui_model_nao_vaza_extensoes_no_croqui_raiz(tmp_path):
     assert "ext_metadados_arquivo" not in resultado
     assert "[aresta.MetadadosArquivoNoEditor]" not in resultado
 
-    import yaml
+    from editor.core.serializacao_util import serializar_yaml
 
     # Simula o dump que ocorreria no deploy
-    yaml_dump = yaml.dump(resultado)
+    yaml_dump = serializar_yaml(resultado)
     assert "ext_metadados" not in yaml_dump
 
 
@@ -1081,10 +1079,10 @@ def test_croqui_model_preserva_ordem_grupo(tmp_path):
 
     model.extrair_arquivos_e_serializar(db_path)
 
-    import yaml
+    from editor.core.serializacao_util import carregar_yaml
 
     texto_salvo = caminho_grupo.read_text(encoding="utf-8")
-    frontmatter = yaml.safe_load(texto_salvo.split("---", 2)[1])
+    frontmatter = carregar_yaml(texto_salvo.split("---", 2)[1])
 
     chaves_grupo = list(frontmatter.keys())
     assert chaves_grupo[0] == "uid"
@@ -1166,10 +1164,9 @@ def test_croqui_model_carrega_arquivo_mapas(tmp_path):
 
 
 def test_croqui_model_extrai_arquivo_mapas(tmp_path):
-    import yaml
-
     from aresta_api.proto.generated import croqui_pb2
     from aresta_api.proto.generated.croqui_pb2 import Croqui
+    from editor.core.serializacao_util import carregar_yaml
     from editor.models.croqui_model import CroquiModel
 
     db_path = tmp_path / "database"
@@ -1197,7 +1194,7 @@ def test_croqui_model_extrai_arquivo_mapas(tmp_path):
     assert caminho_mapas.exists()
 
     with open(caminho_mapas, encoding="utf-8") as f:
-        dados = yaml.safe_load(f.read().split("---")[1])
+        dados = carregar_yaml(f.read().split("---")[1])
         assert len(dados["mapas"]) == 1
         assert dados["mapas"][0]["caminho_imagem_mapa"] == "mapa_salvo.webp"
 
@@ -1735,4 +1732,46 @@ def test_croqui_model_extrair_arquivos_preserva_mtime_nao_modificados_e_usa_bloc
     assert b"\r\n" not in bytes_setor_2
     texto_setor_2 = bytes_setor_2.decode("utf-8")
     assert "descricao: |-\n      Linha A\n\n      Linha B" in texto_setor_2
+
+
+def test_croqui_model_extrair_arquivos_em_memoria_sem_persistir_no_disco(tmp_path, qapp):
+    """Garante que extrair_arquivos_e_serializar com persistir_no_disco=False popula caches em RAM sem gravar .md no disco."""
+    from aresta_api.proto.generated.croqui_pb2 import Croqui
+
+    caminho_db = tmp_path / "croqui_ram"
+    caminho_db.mkdir()
+
+    croqui = Croqui(uid="croq_1234567890", nome="Croqui RAM")
+    pico = croqui.picos.add(nome="Pico RAM")
+    sg = pico.setores_ou_grupos.add()
+    sg.setor.conteudo.uid = "set11234567890"
+    sg.setor.conteudo.nome = "Setor RAM"
+    sg.setor.conteudo.descricao = "Corpo do setor em RAM\n"
+
+    btn = croqui.botoes.add(uid="bota_1234567890", texto="Sobre")
+    btn.destino.secao_textual.conteudo = "Texto da seção em RAM\n"
+
+    model = CroquiModel(croqui)
+    cache_md = {}
+    corpos_brutos = {}
+
+    dados = model.extrair_arquivos_e_serializar(
+        caminho_db,
+        cache_md_out=cache_md,
+        corpos_brutos_md_out=corpos_brutos,
+        persistir_no_disco=False,
+    )
+
+    assert dados["nome"] == "Croqui RAM"
+    assert not (caminho_db / "setor_setor_ram.md").exists()
+    assert not (caminho_db / "secao_sobre.md").exists()
+    assert "setor_setor_ram.md" in cache_md
+    fm_setor, corpo_setor = cache_md["setor_setor_ram.md"]
+    assert fm_setor is not None
+    assert fm_setor["nome"] == "Setor RAM"
+    assert corpo_setor == "Corpo do setor em RAM"
+    assert corpos_brutos["setor_setor_ram.md"] == "Corpo do setor em RAM\n"
+    assert "secao_sobre.md" in cache_md
+    assert cache_md["secao_sobre.md"] == (None, "Texto da seção em RAM")
+    assert corpos_brutos["secao_sobre.md"] == "Texto da seção em RAM\n"
 

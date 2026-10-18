@@ -30,9 +30,7 @@ class ClienteCloudflareD1Fake(ClienteCloudflareD1):
         self.historico_queries: list[tuple[str, list[Any]]] = []
         self.simular_erro = simular_erro
 
-    def executar_query(
-        self, sql: str, params: list[Any] | None = None
-    ) -> list[dict[str, Any]]:
+    def executar_query(self, sql: str, params: list[Any] | None = None) -> list[dict[str, Any]]:
         """Executa a instrução SQL no banco SQLite em memória simulando o D1."""
         if self.simular_erro is not None:
             raise self.simular_erro

@@ -3,9 +3,8 @@
 
 from pathlib import Path
 
-import yaml
-
 from coleta_de_betas.extrator_vias import executar_cli_extrair_vias, extrair_vias_de_croqui
+from editor.core.serializacao_util import serializar_yaml
 
 
 def criar_croqui_de_teste(diretorio: Path) -> Path:
@@ -67,7 +66,7 @@ Descrição da falésia.
         ],
     }
     with open(croqui_yaml, "w", encoding="utf-8") as f:
-        yaml.dump(dados_croqui, f)
+        serializar_yaml(dados_croqui, f)
 
     return pico_dir
 

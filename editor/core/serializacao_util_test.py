@@ -5,15 +5,20 @@
 Testes unitários para utilitários de sanitização de serialização de croquis.
 """
 
+import ast
+import os
+import tomllib
 from pathlib import Path
-from unittest.mock import patch
-
-import yaml
 
 from editor.core.serializacao_util import (
+    CABECALHO_SPDX_YAML,
+    DUMPER_YAML,
+    LOADER_YAML,
+    carregar_yaml,
     configurar_yaml_representer,
     escrever_texto_se_modificado,
     sanitizar_dicionario_sem_extensoes,
+    serializar_yaml,
 )
 
 
@@ -110,14 +115,12 @@ def test_representar_string_yaml_e_configurar_representer():
         "descricao": "Linha 1\n\nLinha 2",
     }
 
-    saida_dumper = yaml.dump(dados, allow_unicode=True, sort_keys=False)
-    saida_safe = yaml.safe_dump(dados, allow_unicode=True, sort_keys=False)
+    saida = serializar_yaml(dados, incluir_cabecalho_spdx=False)
 
-    for saida in (saida_dumper, saida_safe):
-        assert "id_positivo: '08'" in saida
-        assert "id_negativo: '-12'" in saida
-        assert "texto_simples: Setor Principal" in saida
-        assert "descricao: |-\n  Linha 1\n\n  Linha 2" in saida
+    assert "id_positivo: '08'" in saida
+    assert "id_negativo: '-12'" in saida
+    assert "texto_simples: Setor Principal" in saida
+    assert "descricao: |-\n  Linha 1\n\n  Linha 2" in saida
 
 
 def test_escrever_texto_se_modificado_cria_e_preserva_quando_igual(tmp_path: Path):
@@ -129,15 +132,18 @@ def test_escrever_texto_se_modificado_cria_e_preserva_quando_igual(tmp_path: Pat
     assert modificado is True
     assert arq.read_bytes() == b"linha 1\nlinha 2\n"
 
-    # 2. Mesmo conteúdo (em LF ou CRLF) não deve reescrever o arquivo
-    with patch("builtins.open", wraps=open) as mock_open:
-        assert escrever_texto_se_modificado(arq, "linha 1\nlinha 2\n") is False
-        assert escrever_texto_se_modificado(arq, "linha 1\r\nlinha 2\r\n") is False
-        mock_open.assert_not_called()
+    # 2. Mesmo conteúdo (em LF ou CRLF) não deve reescrever o arquivo (preservando mtime)
+    mtime_antigo = 1_600_000_000
+    os.utime(arq, (mtime_antigo, mtime_antigo))
+    assert escrever_texto_se_modificado(arq, "linha 1\nlinha 2\n") is False
+    assert escrever_texto_se_modificado(arq, "linha 1\r\nlinha 2\r\n") is False
+    assert int(arq.stat().st_mtime) == mtime_antigo
 
     # 3. Se o arquivo no disco tiver CRLF legado mas o mesmo conteúdo lógico:
     arq.write_bytes(b"linha 1\r\nlinha 2\r\n")
-    assert escrever_texto_se_modificado(arq, "linha 1\nlinha 2\n", forcar_lf_no_disco=False) is False
+    assert (
+        escrever_texto_se_modificado(arq, "linha 1\nlinha 2\n", forcar_lf_no_disco=False) is False
+    )
     assert arq.read_bytes() == b"linha 1\r\nlinha 2\r\n"
 
     # 4. Com forcar_lf_no_disco=True, regrava se o disco estiver em CRLF:
@@ -154,3 +160,100 @@ def test_escrever_texto_se_modificado_cria_e_preserva_quando_igual(tmp_path: Pat
     assert escrever_texto_se_modificado(arq, "novo texto\n") is True
     assert arq.read_bytes() == b"novo texto\n"
 
+
+def test_carregar_e_serializar_yaml_com_cabecalho_spdx():
+    """Garante round-trip determinístico com CSafeLoader/CSafeDumper e injeção opcional de SPDX."""
+    dados = {
+        "uid": "x8siJek3FiG3aB",
+        "nome": "Serra do Cipó",
+        "rotulo": "01",
+        "negativo": "-5",
+        "descricao": "Primeira linha\nSegunda linha",
+    }
+
+    texto_sem_spdx = serializar_yaml(dados, incluir_cabecalho_spdx=False)
+    assert not texto_sem_spdx.startswith("# SPDX-License-Identifier:")
+    assert "rotulo: '01'" in texto_sem_spdx
+    assert "negativo: '-5'" in texto_sem_spdx
+    assert "descricao: |-\n  Primeira linha\n  Segunda linha" in texto_sem_spdx
+    assert "Serra do Cipó" in texto_sem_spdx
+
+    texto_com_spdx = serializar_yaml(dados, incluir_cabecalho_spdx=True)
+    assert texto_com_spdx.startswith(CABECALHO_SPDX_YAML)
+    assert texto_com_spdx == CABECALHO_SPDX_YAML + texto_sem_spdx
+
+    # Carregamento via carregar_yaml deve ignorar comentários de cabeçalho e reconstruir os dados
+    reconstruido = carregar_yaml(texto_com_spdx)
+    assert reconstruido == dados
+
+    import io
+
+    buf = io.StringIO()
+    retornado = serializar_yaml(dados, buf, incluir_cabecalho_spdx=True)
+    assert buf.getvalue() == retornado
+    buf.seek(0)
+    assert carregar_yaml(buf) == dados
+
+
+def test_libyaml_csafeloader_e_csafedumper_obrigatorios_e_configurados_no_pyproject():
+    """Garante que CSafeLoader e CSafeDumper (LibYAML em C) estão ativos e protegidos contra build sem LibYAML."""
+    assert LOADER_YAML.__name__ == "CSafeLoader"
+    assert DUMPER_YAML.__name__ == "CSafeDumper"
+
+    raiz_repo = Path(__file__).resolve().parent.parent.parent
+    pyproject_path = raiz_repo / "pyproject.toml"
+    dados_toml = tomllib.loads(pyproject_path.read_text(encoding="utf-8"))
+    no_build = dados_toml.get("tool", {}).get("uv", {}).get("no-build-package", [])
+    assert "pyyaml" in [p.lower() for p in no_build], (
+        "pyproject.toml deve conter 'pyyaml' em [tool.uv].no-build-package para garantir instalação de wheel com LibYAML."
+    )
+
+    spec_path = raiz_repo / "editor" / "EditorAresta.spec"
+    assert "yaml._yaml" in spec_path.read_text(encoding="utf-8"), (
+        "EditorAresta.spec deve incluir 'yaml._yaml' em hiddenimports."
+    )
+
+
+def test_arquitetura_proibe_import_yaml_fora_dos_modulos_autorizados():
+    """
+    Garante arquiteturalmente que nenhum arquivo Python do repositório (exceto
+    editor/core/serializacao_util.py e scripts/markdown_frontmatter_lib.py) importe
+    diretamente 'yaml' ou 'ruamel'.
+    """
+    raiz_repo = Path(__file__).resolve().parent.parent.parent
+    arquivos_autorizados = {
+        "editor/core/serializacao_util.py",
+        "scripts/markdown_frontmatter_lib.py",
+    }
+    pastas_monitoradas = ("editor", "scripts", "serving", "coleta_de_betas", "migracoes", "tests")
+
+    violacoes: list[str] = []
+    for nome_pasta in pastas_monitoradas:
+        pasta = raiz_repo / nome_pasta
+        if not pasta.exists():
+            continue
+        for caminho_py in sorted(pasta.rglob("*.py")):
+            if any(p in ("build", "dist", "__pycache__") for p in caminho_py.parts):
+                continue
+            rel = caminho_py.relative_to(raiz_repo).as_posix()
+            if rel in arquivos_autorizados:
+                continue
+            arvore = ast.parse(caminho_py.read_text(encoding="utf-8"), filename=rel)
+            for no in ast.walk(arvore):
+                if isinstance(no, ast.Import):
+                    for alias in no.names:
+                        if alias.name in ("yaml", "ruamel") or alias.name.startswith(
+                            ("yaml.", "ruamel.")
+                        ):
+                            violacoes.append(f"{rel}:{no.lineno} (import {alias.name})")
+                elif isinstance(no, ast.ImportFrom) and no.module:
+                    if no.module in ("yaml", "ruamel") or no.module.startswith(
+                        ("yaml.", "ruamel.")
+                    ):
+                        violacoes.append(f"{rel}:{no.lineno} (from {no.module} import ...)")
+
+    assert not violacoes, (
+        "Importação direta de 'yaml' ou 'ruamel' é proibida fora de "
+        f"{sorted(arquivos_autorizados)}. Use carregar_yaml / serializar_yaml de "
+        "editor.core.serializacao_util.\nViolações encontradas:\n  - " + "\n  - ".join(violacoes)
+    )

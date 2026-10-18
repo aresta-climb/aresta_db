@@ -8,7 +8,6 @@ from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
 
-import yaml
 from PySide6.QtCore import QSize, Qt, Signal
 from PySide6.QtWidgets import (
     QApplication,
@@ -31,6 +30,7 @@ from PySide6.QtWidgets import (
 
 from editor.core.croqui_experimental import GerenciadorCroquiExperimental
 from editor.core.formatacao import para_snake_case
+from editor.core.serializacao_util import carregar_yaml
 from editor.legacy_views.dialogo_busca_croqui import DialogoBuscaCroqui
 
 
@@ -595,12 +595,11 @@ class TelaDeCarregamento(QDialog):
                 croqui_yaml_path = pasta / "database" / "croqui.yaml"
                 if croqui_yaml_path.is_file():
                     try:
-                        with open(croqui_yaml_path, encoding="utf-8") as f:
-                            c_yml = yaml.safe_load(f)
-                            if c_yml and "nome" in c_yml:
-                                dados_historico["nome"] = c_yml["nome"]
-                            if c_yml and "id" in c_yml:
-                                dados_historico["id_logico"] = c_yml["id"]
+                        c_yml = carregar_yaml(croqui_yaml_path.read_text(encoding="utf-8"))
+                        if c_yml and "nome" in c_yml:
+                            dados_historico["nome"] = c_yml["nome"]
+                        if c_yml and "id" in c_yml:
+                            dados_historico["id_logico"] = c_yml["id"]
                     except Exception:
                         pass
 
@@ -608,35 +607,30 @@ class TelaDeCarregamento(QDialog):
                 yaml_path = pasta / "croqui_experimental.yaml"
                 if yaml_path.is_file():
                     try:
-                        with open(yaml_path, encoding="utf-8") as f:
-                            yml = yaml.safe_load(f)
-                            if yml:
-                                if "resumo_edicao" in yml:
-                                    dados_historico["resumo"] = yml["resumo_edicao"]
+                        yml = carregar_yaml(yaml_path.read_text(encoding="utf-8"))
+                        if yml:
+                            if "resumo_edicao" in yml:
+                                dados_historico["resumo"] = yml["resumo_edicao"]
 
-                                if "data_criacao" in yml:
-                                    try:
-                                        dt_criacao = datetime.fromisoformat(
-                                            yml["data_criacao"].replace("Z", "+00:00")
-                                        ).astimezone()
-                                        dados_historico["criacao"] = dt_criacao.strftime(
-                                            "%d/%m %H:%M"
-                                        )
-                                    except Exception:
-                                        pass
+                            if "data_criacao" in yml:
+                                try:
+                                    dt_criacao = datetime.fromisoformat(
+                                        yml["data_criacao"].replace("Z", "+00:00")
+                                    ).astimezone()
+                                    dados_historico["criacao"] = dt_criacao.strftime("%d/%m %H:%M")
+                                except Exception:
+                                    pass
 
-                                if "ultima_edicao" in yml:
-                                    try:
-                                        dt = datetime.fromisoformat(
-                                            yml["ultima_edicao"].replace("Z", "+00:00")
-                                        )
-                                        dados_historico["dt_edicao_raw"] = dt
-                                        dt_local = dt.astimezone()
-                                        dados_historico["edicao"] = dt_local.strftime(
-                                            "%d/%m/%Y %H:%M"
-                                        )
-                                    except Exception:
-                                        dados_historico["edicao"] = yml["ultima_edicao"]
+                            if "ultima_edicao" in yml:
+                                try:
+                                    dt = datetime.fromisoformat(
+                                        yml["ultima_edicao"].replace("Z", "+00:00")
+                                    )
+                                    dados_historico["dt_edicao_raw"] = dt
+                                    dt_local = dt.astimezone()
+                                    dados_historico["edicao"] = dt_local.strftime("%d/%m/%Y %H:%M")
+                                except Exception:
+                                    dados_historico["edicao"] = yml["ultima_edicao"]
                     except Exception:
                         pass
 

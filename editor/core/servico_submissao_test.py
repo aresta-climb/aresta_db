@@ -1746,4 +1746,3 @@ class TesteSincronizacaoPRServico:
         servico.sincronizar_arquivos_croqui(origem, repo_base, "bau")
         assert int(arq_base_intacto.stat().st_mtime) == mtime_antigo
         assert (base_croqui / "setor_2.md").read_bytes() == b"---\nnome: Setor 2\n---\nCorpo novo\n"
-

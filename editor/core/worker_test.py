@@ -777,6 +777,63 @@ class TestWorker(unittest.TestCase):
         finally:
             shutil.rmtree(tmp_dir, ignore_errors=True)
 
+    def test_tarefa_salvamento_propaga_cache_md_e_corpos_brutos_para_deploy_em_ram(self):
+        """Valida que TarefaSalvamento registra o contexto em RAM para o deploy e persiste markdowns e croqui.yaml."""
+        import shutil
+        import tempfile
+
+        from editor.core.worker import TarefaSalvamento
+        from scripts.deploy_generated import obter_contexto_memoria_deploy
+
+        tmp_dir = Path(tempfile.mkdtemp())
+        try:
+            caminho_db = tmp_dir / "old_id"
+            caminho_db.mkdir()
+            caminho_renomeado = tmp_dir / "new_id"
+
+            contextos_observados = []
+
+            class WorkspaceFake:
+                def processar_renomeacao_e_compilacao(self, novo_id, id_atual, storage):
+                    ctx_antigo = obter_contexto_memoria_deploy(caminho_db)
+                    ctx_novo = obter_contexto_memoria_deploy(caminho_renomeado)
+                    contextos_observados.append((ctx_antigo, ctx_novo))
+                    shutil.move(str(caminho_db), str(caminho_renomeado))
+                    return (caminho_renomeado, [], False)
+
+            tarefa = TarefaSalvamento(
+                workspace=WorkspaceFake(),
+                storage=None,
+                caminho_db=caminho_db,
+                croqui_data={"id": "new_id", "nome": "Croqui Novo"},
+                novo_id="new_id",
+                id_atual="old_id",
+                undo_index=2,
+                cache_md={"setor_a.md": ({"uid": "setr1234567890", "nome": "Setor A"}, "Corpo A")},
+                corpos_brutos_md={"setor_a.md": "Corpo A\n"},
+            )
+            tarefa.sucesso = MagicMock()
+            tarefa.erro = MagicMock()
+
+            tarefa.run()
+
+            assert len(contextos_observados) == 1
+            ctx_antigo, ctx_novo = contextos_observados[0]
+            assert ctx_antigo is not None
+            assert ctx_antigo is ctx_novo
+            assert (caminho_renomeado / "croqui.yaml").is_file()
+            assert (caminho_renomeado / "setor_a.md").is_file()
+            assert (
+                (caminho_renomeado / "setor_a.md")
+                .read_text(encoding="utf-8")
+                .endswith("---\nCorpo A\n")
+            )
+            tarefa.sucesso.emit.assert_called_once_with(
+                caminho_renomeado, [], True, 2, False
+            )
+        finally:
+            shutil.rmtree(tmp_dir, ignore_errors=True)
+
     def test_tarefa_sincronizacao_pr_sucesso(self):
         """Testa que TarefaSincronizacaoPR emite sucesso ao mesclar alterações remotas."""
         from editor.core.servico_submissao import ResultadoSincronizacao, StatusSincronizacao

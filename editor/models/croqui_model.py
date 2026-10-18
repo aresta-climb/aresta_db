@@ -51,10 +51,21 @@ class CroquiModel(QObject):
         self.__croqui_proxy: Any = ReadOnlyProxy(self.__croqui)
         self._imagens_em_memoria: dict[str, bytes] = {}
         self._anexos_em_memoria: dict[str, bytes] = {}
+        self._cache_json_original: dict[str, dict[str, Any]] = {}
         self._caminho_db_atual: Any = None
         from editor.models.indice_uids_model import IndiceUidsModel
 
         self._indice_uids: Any = IndiceUidsModel(self.__croqui, parent=self)
+
+    def _obter_dict_json_original(self, json_str: str) -> dict[str, Any]:
+        d_original = self._cache_json_original.get(json_str)
+        if d_original is None:
+            import json
+
+            carregado = json.loads(json_str)
+            d_original = carregado if isinstance(carregado, dict) else {}
+            self._cache_json_original[json_str] = d_original
+        return d_original
 
     @property
     def indice_uids(self) -> Any:
@@ -307,8 +318,9 @@ class CroquiModel(QObject):
             return
 
         self._caminho_db_atual = caminho_db
-        import yaml
         from google.protobuf import json_format
+
+        from editor.core.serializacao_util import carregar_yaml
 
         croqui_msg = self.__croqui
 
@@ -331,24 +343,29 @@ class CroquiModel(QObject):
                         body_str = body_str[1:]
 
                     try:
-                        dados = yaml.safe_load(frontmatter_str) or {}
+                        dados = carregar_yaml(frontmatter_str) or {}
                     except Exception:
                         dados = {}
                     # Configura a extensão se não existir e salva os metadados
                     if not message_ref.HasExtension(ext_descriptor):
                         message_ref.Extensions[ext_descriptor].caminho_original = ""
 
+                    import copy
                     import json
 
-                    message_ref.Extensions[ext_descriptor].dados_json_originais = json.dumps(
-                        dados, ensure_ascii=False
-                    )
+                    from scripts.deploy_generated import registrar_snapshot_disco_arquivo
+
+                    json_str = json.dumps(dados, ensure_ascii=False)
+                    message_ref.Extensions[ext_descriptor].dados_json_originais = json_str
+                    if isinstance(dados, dict):
+                        self._cache_json_original[json_str] = copy.deepcopy(dados)
+                        registrar_snapshot_disco_arquivo(caminho_arquivo, dados, body_str)
 
                     if body_str:
                         dados["descricao"] = body_str
                     return dados if isinstance(dados, dict) else {}
             try:
-                carregado = yaml.safe_load(content) or {}
+                carregado = carregar_yaml(content) or {}
                 return carregado if isinstance(carregado, dict) else {}
             except Exception:
                 return {}
@@ -507,10 +524,16 @@ class CroquiModel(QObject):
         if hasattr(self, "_indice_uids") and self._indice_uids is not None:
             self._indice_uids.carregar_do_croqui(self.__croqui)
 
-    def extrair_arquivos_e_serializar(self, caminho_db: Any) -> dict[str, Any]:
+    def extrair_arquivos_e_serializar(
+        self,
+        caminho_db: Any,
+        *,
+        cache_md_out: dict[str, tuple[dict[str, Any] | None, str]] | None = None,
+        corpos_brutos_md_out: dict[str, str] | None = None,
+        persistir_no_disco: bool = True,
+    ) -> dict[str, Any]:
         from pathlib import Path
 
-        import yaml
         from google.protobuf.json_format import MessageToDict
 
         from aresta_api.proto.generated.croqui_pb2 import (
@@ -521,9 +544,9 @@ class CroquiModel(QObject):
             Croqui,
         )
         from editor.core.serializacao_util import (
-            configurar_yaml_representer,
             escrever_texto_se_modificado,
             sanitizar_dicionario_sem_extensoes,
+            serializar_yaml,
         )
 
         caminho_db_path = Path(caminho_db)
@@ -652,10 +675,8 @@ class CroquiModel(QObject):
                 descricao = str(descricao).replace("\r\n", "\n")
 
             if json_original:
-                import json
-
                 try:
-                    d_original = json.loads(json_original)
+                    d_original = self._obter_dict_json_original(json_original)
                     dados = _reordenar_recursivamente(dados, d_original)
                 except Exception as e:
                     print(f"Aviso: falha ao decodificar JSON original: {e}")
@@ -674,13 +695,17 @@ class CroquiModel(QObject):
                     esc.clear()
                     esc.update(novo_esc)
 
-            configurar_yaml_representer()
-            yaml_str = yaml.dump(dados, allow_unicode=True, sort_keys=False)
-            yaml_str = yaml_str.replace("\r\n", "\n")
+            chave_rel = Path(caminho_arquivo).relative_to(caminho_db_path).as_posix()
+            if cache_md_out is not None:
+                cache_md_out[chave_rel] = (dados, (descricao or "").strip())
+            if corpos_brutos_md_out is not None:
+                corpos_brutos_md_out[chave_rel] = descricao or ""
+            if not persistir_no_disco:
+                return
+
+            yaml_str = serializar_yaml(dados, incluir_cabecalho_spdx=True).replace("\r\n", "\n")
             partes = [
                 "---\n",
-                "# SPDX-License-Identifier: ODbL-1.0\n",
-                "# Copyright (C) 2026 Aresta Climb Contributors\n",
                 yaml_str,
                 "---\n",
             ]
@@ -938,7 +963,24 @@ class CroquiModel(QObject):
                     else:
                         conteudo_final = conteudo_normalizado
 
-                    escrever_texto_se_modificado(caminho_db_path / novo_caminho, conteudo_final)
+                    caminho_md_destino = caminho_db_path / novo_caminho
+                    if cache_md_out is not None or corpos_brutos_md_out is not None:
+                        from scripts.markdown_frontmatter_lib import parse_texto_md_com_frontmatter
+
+                        chave_rel = caminho_md_destino.relative_to(caminho_db_path).as_posix()
+                        fm_secao, corpo_secao = parse_texto_md_com_frontmatter(
+                            conteudo_final,
+                            caminho_origem=caminho_md_destino,
+                            lancar_erro_yaml=False,
+                        )
+                        if cache_md_out is not None:
+                            cache_md_out[chave_rel] = (fm_secao, corpo_secao)
+                        if corpos_brutos_md_out is not None:
+                            corpos_brutos_md_out[chave_rel] = (
+                                conteudo_normalizado if fm_secao is not None else conteudo_final
+                            )
+                    if persistir_no_disco:
+                        escrever_texto_se_modificado(caminho_md_destino, conteudo_final)
                     md.caminho = novo_caminho
                     md.ClearField("conteudo")
                     md.ClearExtension(ArquivoMarkdown.ext_metadados_arquivo)
@@ -957,10 +999,8 @@ class CroquiModel(QObject):
         resultado = MessageToDict(croqui_msg_copy, preserving_proto_field_name=True)
 
         if ext and ext.dados_json_originais:
-            import json
-
             try:
-                d_original = json.loads(ext.dados_json_originais)
+                d_original = self._obter_dict_json_original(ext.dados_json_originais)
                 resultado = _reordenar_recursivamente(resultado, d_original)
             except Exception as e:
                 print(f"Aviso: falha ao decodificar JSON original do root: {e}")

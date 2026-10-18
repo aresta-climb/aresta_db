@@ -2,13 +2,12 @@
 # Copyright (C) 2026 Aresta Climb Contributors
 
 import os
-from unittest.mock import patch
 
 import pygit2
 import pytest
-import yaml
 
 from editor.core.croqui_experimental import GerenciadorCroquiExperimental
+from editor.core.serializacao_util import carregar_yaml
 from editor.core.storage import GerenciadorCaminhos
 
 
@@ -32,9 +31,8 @@ def test_criar_novo_croqui_experimental(gerenciador, storage_temp):
     estado = "MG"
     nome_usuario = "Renato"
 
-    # QUANDO criar o croqui experimental (mockando deploy para ser rápido)
-    with patch("editor.core.croqui_experimental.deploy"):
-        caminho_croqui = gerenciador.criar_novo_croqui(id_croqui, pico, estado, nome_usuario)
+    # QUANDO criar o croqui experimental
+    caminho_croqui = gerenciador.criar_novo_croqui(id_croqui, pico, estado, nome_usuario)
 
     # ENTÃO a pasta raiz deve existir dentro de croquis_experimentais
     assert caminho_croqui.parent == storage_temp.obter_caminho_croquis_experimentais()
@@ -47,17 +45,14 @@ def test_criar_novo_croqui_experimental(gerenciador, storage_temp):
     # E o database/croqui.yaml deve estar preenchido corretamente
     croqui_yaml = caminho_croqui / "database" / "croqui.yaml"
     assert croqui_yaml.is_file()
-    with open(croqui_yaml, encoding="utf-8") as f:
-        dados = yaml.safe_load(f)
+    dados = carregar_yaml(croqui_yaml.read_text(encoding="utf-8"))
     assert dados["id"] == id_croqui
     assert dados["nome"] == pico
     assert dados["picos"][0]["nome"] == pico
     assert dados["picos"][0]["estado"] == estado
 
-    # E deve ser um repositório git local válido
-    assert (caminho_croqui / ".git").is_dir()
-    repo = pygit2.Repository(str(caminho_croqui))
-    assert not repo.is_bare
+    # E não deve criar repositório git local redundante na pasta do croqui experimental
+    assert not (caminho_croqui / ".git").exists()
 
     # E os arquivos YAML devem estar com quebras de linha estritamente em LF (\n)
     assert b"\r\n" not in croqui_yaml.read_bytes()
@@ -69,8 +64,7 @@ def test_abrir_croqui(gerenciador, storage_temp):
     gerenciador.abrir_croqui(caminho_croqui, "B")
 
     yaml_path = caminho_croqui / "croqui_experimental.yaml"
-    with open(yaml_path, encoding="utf-8") as f:
-        dados = yaml.safe_load(f)
+    dados = carregar_yaml(yaml_path.read_text(encoding="utf-8"))
     assert "A" in dados["autores"]
     assert "B" in dados["autores"]
 
@@ -102,59 +96,60 @@ def test_excluir_croqui_com_arquivos_somente_leitura(gerenciador, tmp_path):
 
 
 def test_compilar_croqui_sucesso(gerenciador, storage_temp):
-    """Verifica se a compilação gera os arquivos corretamente e cria um commit."""
+    """Verifica se a compilação gera os arquivos corretamente sem criar repositório git local."""
     # DADO um croqui com arquivos válidos
     caminho_croqui = gerenciador._criar_estrutura_croqui("br_mg_compilar", "User")
-    (caminho_croqui / "database" / "croqui.yaml").write_text("id: br_mg_compilar\nnome: Teste")
+    (caminho_croqui / "database" / "croqui.yaml").write_text(
+        "id: br_mg_compilar\nnome: Teste\nultima_migracao: 5\npicos:\n  - nome: Teste\n    estado: MG\n",
+        encoding="utf-8",
+    )
 
-    # QUANDO compilar (mockando o deploy para determinismo)
-    with patch("editor.core.croqui_experimental.deploy") as mock_deploy:
-        gerenciador.compilar_croqui(caminho_croqui)
+    # QUANDO compilar
+    gerenciador.compilar_croqui(caminho_croqui)
 
-        # Verifica se o deploy foi chamado com as flags corretas
-        mock_deploy.assert_called_once()
-        kwargs = mock_deploy.call_args.kwargs
-        assert kwargs["force_thumbnails"] is True
-        assert kwargs["gerar_arquivos_de_debug"] is True
-
-    # E deve haver um commit de compilação
-    repo = pygit2.Repository(str(caminho_raiz := caminho_croqui))
-    last_commit = repo.revparse_single("HEAD")
-    assert "Compila" in last_commit.message
+    # ENTÃO o binário compilado deve existir e arquivos de debug não devem ser gerados
+    assert (caminho_croqui / "compilado" / "compilado.binarypb").is_file()
+    assert not (caminho_croqui / "compilado" / "compilado.yaml").exists()
+    assert not (caminho_croqui / "compilado" / "compilado.md").exists()
+    assert not (caminho_croqui / ".git").exists()
 
 
 def test_compilar_croqui_compacta_saida_diretamente_em_compilado(gerenciador, storage_temp):
     """Garante que compilar_croqui move os arquivos compilados para a raiz de compilado/ sem subpasta redundante."""
+    from PIL import Image
+
     caminho_croqui = gerenciador._criar_estrutura_croqui("br_mg_compacto", "User")
-    (caminho_croqui / "database" / "croqui.yaml").write_text("id: br_mg_compacto\nnome: Compacto")
+    pasta_db = caminho_croqui / "database"
+    (pasta_db / "imagens").mkdir(parents=True, exist_ok=True)
+    Image.new("RGB", (20, 20), color="blue").save(pasta_db / "imagens" / "foto.webp", "WEBP")
+    (pasta_db / "croqui.yaml").write_text(
+        "id: br_mg_compacto\nnome: Compacto\nultima_migracao: 5\n"
+        "caminho_thumbnail: imagens/foto.webp\n"
+        "picos:\n  - nome: Compacto\n    estado: MG\n",
+        encoding="utf-8",
+    )
 
-    def mock_deploy_efeito(**kwargs):
-        out_dir = kwargs["output_dir"]
-        subpasta = out_dir / "br_mg_compacto"
-        subpasta.mkdir(parents=True, exist_ok=True)
-        (subpasta / "compilado.binarypb").write_bytes(b"binario")
-        (subpasta / "compilado.yaml").write_text("id: br_mg_compacto")
-        (subpasta / "imagens").mkdir()
-        (subpasta / "imagens" / "foto.webp").write_bytes(b"imagem")
-        return True
-
-    with patch("editor.core.croqui_experimental.deploy", side_effect=mock_deploy_efeito):
-        modificado = gerenciador.compilar_croqui(caminho_croqui)
-        assert modificado is True
+    gerenciador.compilar_croqui(caminho_croqui)
 
     compilado_dir = caminho_croqui / "compilado"
     assert (compilado_dir / "compilado.binarypb").is_file()
-    assert (compilado_dir / "compilado.yaml").is_file()
-    assert (compilado_dir / "imagens" / "foto.webp").is_file()
+    assert not (compilado_dir / "compilado.yaml").exists()
+    foto_compilada = compilado_dir / "imagens" / "foto.webp"
+    assert foto_compilada.is_file()
     assert not (compilado_dir / "br_mg_compacto").exists()
 
-    # Recompilação para cobrir a substituição quando o destino já existe (arquivo e diretório)
-    with patch("editor.core.croqui_experimental.deploy", side_effect=mock_deploy_efeito):
-        modificado2 = gerenciador.compilar_croqui(caminho_croqui)
-        assert modificado2 is True
+    # Substitui conteúdo mantendo mesmo tamanho e mtime_ns da origem para provar que a
+    # recompilação incremental aciona o fast-path de stat() sem recopiar a imagem do zero
+    st_src = (pasta_db / "imagens" / "foto.webp").stat()
+    conteudo_sentinela = b"X" * st_src.st_size
+    foto_compilada.write_bytes(conteudo_sentinela)
+    os.utime(foto_compilada, ns=(st_src.st_mtime_ns, st_src.st_mtime_ns))
+
+    gerenciador.compilar_croqui(caminho_croqui)
 
     assert (compilado_dir / "compilado.binarypb").is_file()
-    assert (compilado_dir / "imagens" / "foto.webp").is_file()
+    assert foto_compilada.is_file()
+    assert foto_compilada.read_bytes() == conteudo_sentinela
     assert not (compilado_dir / "br_mg_compacto").exists()
 
 
@@ -179,38 +174,33 @@ def test_criar_croqui_a_partir_de_oficial_sucesso(gerenciador, storage_temp):
     caminho_oficial.mkdir(parents=True)
 
     # Criar alguns arquivos oficiais
-    (caminho_oficial / "croqui.yaml").write_text("id: br_mg_itambe\nnome: Pico do Itambé")
+    (caminho_oficial / "croqui.yaml").write_text(
+        "id: br_mg_itambe\nnome: Pico do Itambé\nultima_migracao: 5\n"
+        "picos:\n  - nome: Pico do Itambé\n    estado: MG\n",
+        encoding="utf-8",
+    )
     setor_dir = caminho_oficial / "setor_a"
     setor_dir.mkdir()
-    (setor_dir / "setor.yaml").write_text("nome: Setor A")
+    (setor_dir / "setor.yaml").write_text("nome: Setor A", encoding="utf-8")
 
     # QUANDO criar o experimental a partir desse oficial
-    with patch("editor.core.croqui_experimental.deploy") as mock_deploy:
-        caminho_exp = gerenciador.criar_croqui_a_partir_de_oficial(
-            id_oficial, "Renato", "Cópia oficial"
-        )
+    caminho_exp = gerenciador.criar_croqui_a_partir_de_oficial(
+        id_oficial, "Renato", "Cópia oficial"
+    )
 
-        # ENTÃO a compilação deve ter sido chamada
-        mock_deploy.assert_called_once()
-
-    # E os arquivos devem ter sido copiados para a pasta database
+    # ENTÃO os arquivos devem ter sido copiados para a pasta database e compilados
     assert (caminho_exp / "database" / "croqui.yaml").is_file()
     assert (caminho_exp / "database" / "setor_a" / "setor.yaml").is_file()
+    assert (caminho_exp / "compilado" / "compilado.binarypb").is_file()
 
     # E os metadados experimentais devem estar corretos
     yaml_meta = caminho_exp / "croqui_experimental.yaml"
-    with open(yaml_meta, encoding="utf-8") as f:
-        dados_meta = yaml.safe_load(f)
+    dados_meta = carregar_yaml(yaml_meta.read_text(encoding="utf-8"))
     assert "Renato" in dados_meta["autores"]
     assert dados_meta["resumo_edicao"] == "Cópia oficial"
 
-    # E deve haver um histórico git com três commits (inicial + compilação + importação)
-    repo = pygit2.Repository(str(caminho_exp))
-    commits = list(repo.walk(repo.head.target, pygit2.GIT_SORT_TOPOLOGICAL))
-    assert len(commits) == 3
-    assert "Importação" in commits[0].message
-    assert "Compilação" in commits[1].message
-    assert "Commit inicial" in commits[2].message
+    # E não deve criar repositório git local redundante na pasta do croqui experimental
+    assert not (caminho_exp / ".git").exists()
 
 
 def test_criar_croqui_a_partir_de_oficial_cleanup_em_falha(gerenciador, storage_temp):
@@ -232,12 +222,10 @@ def test_id_original_salvo_ao_criar_e_importar(gerenciador, storage_temp):
     """Verifica se o id_original é salvo no yaml ao criar novo ou importar de oficial."""
     # Teste 1: Criar novo
     id_novo = "br_sp_novo_teste"
-    with patch("editor.core.croqui_experimental.deploy"):
-        caminho_novo = gerenciador.criar_novo_croqui(id_novo, "Pico Novo", "SP", "User")
+    caminho_novo = gerenciador.criar_novo_croqui(id_novo, "Pico Novo", "SP", "User")
 
     yaml_novo = caminho_novo / "croqui_experimental.yaml"
-    with open(yaml_novo, encoding="utf-8") as f:
-        dados_novo = yaml.safe_load(f)
+    dados_novo = carregar_yaml(yaml_novo.read_text(encoding="utf-8"))
     assert dados_novo.get("id_original") == id_novo
 
     # Teste 2: Criar a partir de oficial
@@ -245,14 +233,16 @@ def test_id_original_salvo_ao_criar_e_importar(gerenciador, storage_temp):
     caminho_repo = storage_temp.obter_caminho_base_repo()
     caminho_oficial = caminho_repo / "database" / id_oficial
     caminho_oficial.mkdir(parents=True)
-    (caminho_oficial / "croqui.yaml").write_text(f"id: {id_oficial}\nnome: Pico Oficial")
+    (caminho_oficial / "croqui.yaml").write_text(
+        f"id: {id_oficial}\nnome: Pico Oficial\nultima_migracao: 5\n"
+        "picos:\n  - nome: Pico Oficial\n    estado: SP\n",
+        encoding="utf-8",
+    )
 
-    with patch("editor.core.croqui_experimental.deploy"):
-        caminho_exp = gerenciador.criar_croqui_a_partir_de_oficial(id_oficial, "User")
+    caminho_exp = gerenciador.criar_croqui_a_partir_de_oficial(id_oficial, "User")
 
     yaml_exp = caminho_exp / "croqui_experimental.yaml"
-    with open(yaml_exp, encoding="utf-8") as f:
-        dados_exp = yaml.safe_load(f)
+    dados_exp = carregar_yaml(yaml_exp.read_text(encoding="utf-8"))
     assert dados_exp.get("id_original") == id_oficial
 
 
@@ -326,7 +316,9 @@ def test_criar_croqui_a_partir_de_oficial_com_commit_base_sha(gerenciador, stora
     pasta_oficial = caminho_repo / "database" / id_oficial
     pasta_oficial.mkdir(parents=True)
     (pasta_oficial / "croqui.yaml").write_text(
-        "id: br_mg_oficial\nnome: Oficial\n", encoding="utf-8"
+        "id: br_mg_oficial\nnome: Oficial\nultima_migracao: 5\n"
+        "picos:\n  - nome: Oficial\n    estado: MG\n",
+        encoding="utf-8",
     )
 
     # Cria um commit no repositório base
@@ -337,14 +329,10 @@ def test_criar_croqui_a_partir_de_oficial_com_commit_base_sha(gerenciador, stora
     commit_oid = repo.create_commit("HEAD", autor, autor, "Commit base de teste", tree, [])
     commit_sha = str(commit_oid)
 
-    with patch("editor.core.croqui_experimental.deploy"):
-        caminho_exp = gerenciador.criar_croqui_a_partir_de_oficial(
-            id_oficial, "Renato", "Edicao teste"
-        )
+    caminho_exp = gerenciador.criar_croqui_a_partir_de_oficial(id_oficial, "Renato", "Edicao teste")
 
     yaml_path = caminho_exp / "croqui_experimental.yaml"
-    with open(yaml_path, encoding="utf-8") as f:
-        dados = yaml.safe_load(f)
+    dados = carregar_yaml(yaml_path.read_text(encoding="utf-8"))
 
     assert dados.get("commit_base_sha") == commit_sha
 
@@ -356,34 +344,66 @@ def test_criar_novo_croqui_grava_ultima_migracao_versao_maxima(gerenciador, stor
     versao_esperada = obter_ultima_versao_migracao()
     assert versao_esperada >= 5
 
-    with patch("editor.core.croqui_experimental.deploy"):
-        caminho_exp = gerenciador.criar_novo_croqui(
-            "br_mg_migracao", "Pico Migrado", "MG", "Usuario"
-        )
+    caminho_exp = gerenciador.criar_novo_croqui("br_mg_migracao", "Pico Migrado", "MG", "Usuario")
 
     croqui_yaml = caminho_exp / "database" / "croqui.yaml"
-    with open(croqui_yaml, encoding="utf-8") as f:
-        dados = yaml.safe_load(f)
+    dados = carregar_yaml(croqui_yaml.read_text(encoding="utf-8"))
 
     assert dados.get("ultima_migracao") == versao_esperada
 
 
-def test_criar_novo_croqui_com_mock_ultima_versao(gerenciador, storage_temp):
-    """Garante que criar_novo_croqui consome dinamicamente o valor de obter_ultima_versao_migracao."""
-    with patch("editor.core.croqui_experimental.obter_ultima_versao_migracao", return_value=42):
-        with patch("editor.core.croqui_experimental.deploy"):
-            caminho_exp = gerenciador.criar_novo_croqui("br_mg_mock", "Pico Mock", "MG", "Usuario")
+def test_compilar_croqui_remove_pasta_git_legada_se_existir(gerenciador, storage_temp):
+    """Garante que compilar_croqui limpa eventual pasta .git legada existente no croqui experimental."""
+    import stat
 
-    croqui_yaml = caminho_exp / "database" / "croqui.yaml"
-    with open(croqui_yaml, encoding="utf-8") as f:
-        dados = yaml.safe_load(f)
+    caminho_exp = gerenciador._criar_estrutura_croqui("br_mg_legado_git", "Usuario")
+    (caminho_exp / "database" / "croqui.yaml").write_text(
+        "id: br_mg_legado_git\nnome: Legado Git\nultima_migracao: 5\n"
+        "picos:\n  - nome: Legado Git\n    estado: MG\n",
+        encoding="utf-8",
+    )
+    pasta_git_legada = caminho_exp / ".git" / "objects"
+    pasta_git_legada.mkdir(parents=True)
+    obj_readonly = pasta_git_legada / "pack_legado"
+    obj_readonly.write_text("objeto git legado", encoding="utf-8")
+    os.chmod(obj_readonly, os.stat(obj_readonly).st_mode & ~stat.S_IWRITE)
 
-    assert dados.get("ultima_migracao") == 42
+    gerenciador.compilar_croqui(caminho_exp)
+
+    assert not (caminho_exp / ".git").exists()
+    assert (caminho_exp / "compilado" / "compilado.binarypb").is_file()
 
 
-def test_criar_estrutura_croqui_configura_core_autocrlf_false(gerenciador, storage_temp):
-    """Garante que o repositório Git local do croqui experimental desativa core.autocrlf."""
-    caminho_exp = gerenciador._criar_estrutura_croqui("br_mg_autocrlf", "Usuario")
-    config_texto = (caminho_exp / ".git" / "config").read_text(encoding="utf-8").lower()
-    assert "autocrlf = false" in config_texto
+def test_casos_borda_log_dialog_abrir_sem_yaml_e_compilar_sem_git(gerenciador, storage_temp):
+    logs: list[str] = []
 
+    class DialogoLogSimples:
+        def adicionar_log(self, msg: str) -> None:
+            logs.append(msg)
+
+    # Garante que caminho_repo existente mas sem repositório git válido não quebra _obter_commit_base_sha
+    caminho_repo = storage_temp.obter_caminho_base_repo()
+    caminho_repo.mkdir(parents=True, exist_ok=True)
+
+    caminho_exp = gerenciador.criar_novo_croqui(
+        "br_mg_log", "Pico Log", "MG", "Usuario", log_dialog=DialogoLogSimples()
+    )
+    assert any("Inicializando compilação" in m for m in logs)
+    assert not (caminho_exp / ".git").exists()
+
+    # abrir_croqui em pasta sem croqui_experimental.yaml não falha
+    pasta_vazia = storage_temp.obter_caminho_croquis_experimentais() / "sem_meta"
+    pasta_vazia.mkdir(parents=True)
+    gerenciador.abrir_croqui(pasta_vazia, "Usuario")
+
+    # compilar_croqui em pasta arbitrária sem .git compila sem criar .git
+    pasta_sem_git = storage_temp.obter_caminho_croquis_experimentais() / "sem_git"
+    (pasta_sem_git / "database").mkdir(parents=True)
+    (pasta_sem_git / "database" / "croqui.yaml").write_text(
+        "id: br_mg_sem_git\nnome: Sem Git\nultima_migracao: 5\n"
+        "picos:\n  - nome: Sem Git\n    estado: MG\n",
+        encoding="utf-8",
+    )
+    gerenciador.compilar_croqui(pasta_sem_git)
+    assert not (pasta_sem_git / ".git").exists()
+    assert (pasta_sem_git / "compilado" / "compilado.binarypb").is_file()

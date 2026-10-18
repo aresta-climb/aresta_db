@@ -187,9 +187,10 @@ escaladas:
     - Jonatas Lima
     - Andréa Carvalho
     data_abertura: 2020-03
-    descricao: Essa via é única deste setor que possui uma grande variedade de regletes. Passadas delicadas e técnicas 
-      em sua primeira parte até chegar a um platô, de onde se tem um grande visual. A segunda parte é a melhor, com uma 
-      saída de boulder e passadas precisas ditam o ritmo do jogo e dão o grau da via. Levar 10 costuras.
+    descricao: Essa via é única deste setor que possui uma grande variedade de regletes.
+      Passadas delicadas e técnicas em sua primeira parte até chegar a um platô, de
+      onde se tem um grande visual. A segunda parte é a melhor, com uma saída de boulder
+      e passadas precisas ditam o ritmo do jogo e dão o grau da via. Levar 10 costuras.
 - uid: jaxYPnpEY00Sqg
   via_esportiva:
     nome: Indignação
@@ -199,7 +200,8 @@ escaladas:
     - Pedro Naves
     - Douglas Marques
     data_abertura: '2023-09-29'
-    descricao: Via sem cadena até a data de publicação desta edição. Saída ao lado esquerdo de uma fenda larga.
+    descricao: Via sem cadena até a data de publicação desta edição. Saída ao lado
+      esquerdo de uma fenda larga.
 - uid: DLvifcgkrNyj9K
   via_esportiva:
     nome: Nova Era
@@ -213,9 +215,9 @@ escaladas:
     - Jonatas Lima
     - Andréa Carvalho
     data_abertura: 2020-03
-    descricao: Possui uma saída de boulder não tão óbvia, a escalada à vista pode dar uma impressão de maior 
-      dificuldade, regletes e agarras com passadas técnicas em sua parte final fazem dela uma clássica. 9 chapas e mais 
-      o top.
+    descricao: Possui uma saída de boulder não tão óbvia, a escalada à vista pode
+      dar uma impressão de maior dificuldade, regletes e agarras com passadas técnicas
+      em sua parte final fazem dela uma clássica. 9 chapas e mais o top.
 - uid: 3pf3CyqobgCAXB
   via_movel:
     nome: Fissura Limites Invisíveis
@@ -225,7 +227,8 @@ escaladas:
     - André Ilha
     - Tonico Magalhães
     data_abertura: '1984-04-26'
-    descricao: Uma fenda larga em diagonal para a esquerda até um grande platô, onde segue pela esquerda da aresta.
+    descricao: Uma fenda larga em diagonal para a esquerda até um grande platô, onde
+      segue pela esquerda da aresta.
 - uid: M4pNHpXwIMQ5pz
   via_esportiva:
     nome: Esalianos
@@ -237,11 +240,12 @@ escaladas:
     - Leonardo Caiafa
     - Poeira
     data_abertura: '1996'
-    descricao: Outra clássica, considerada a primeira via no estilo esportivo do Cemonta. Passadas em horizontal, lances
-      delicados em equilíbrio e alguns esticões tornam esta via muito técnica e respeitada. Levar 12 costuras. Na mesma 
-      base sai outra via diagonal, a Olhos de Águia, logo abaixo da Esalianos, cuidado pra não confundi-las. Com corda 
-      de 70m é possível rapelar pela via e com corda de 60 melhor fazer cume e descer pela via Nova Era ou descer à pé 
-      pela parte de trás do pontão.
+    descricao: Outra clássica, considerada a primeira via no estilo esportivo do Cemonta.
+      Passadas em horizontal, lances delicados em equilíbrio e alguns esticões tornam
+      esta via muito técnica e respeitada. Levar 12 costuras. Na mesma base sai outra
+      via diagonal, a Olhos de Águia, logo abaixo da Esalianos, cuidado pra não confundi-las.
+      Com corda de 70m é possível rapelar pela via e com corda de 60 melhor fazer
+      cume e descer pela via Nova Era ou descer à pé pela parte de trás do pontão.
 - uid: apAT5uQH8Ih7t7
   via_movel:
     nome: Lua de Mel
@@ -253,9 +257,10 @@ escaladas:
     - Eliseu Frechou
     - Beth Frechou
     data_abertura: '2002'
-    descricao: Linda via. Compartilha saída com Esalianos, com duas primeiras chapeletas em comum e sai para a esquerda,
-      onde possui só mais uma chapa e depois segue por proteções móveis até o final. Sai por uma sequência de agarras, 
-      depois passa por um sistema de fendas de proteção mais complicada até chegar numa fenda maior.
+    descricao: Linda via. Compartilha saída com Esalianos, com duas primeiras chapeletas
+      em comum e sai para a esquerda, onde possui só mais uma chapa e depois segue
+      por proteções móveis até o final. Sai por uma sequência de agarras, depois passa
+      por um sistema de fendas de proteção mais complicada até chegar numa fenda maior.
 - uid: D7Jfekfp3lcxvO
   via_esportiva:
     nome: Livre Para Voar
@@ -265,9 +270,10 @@ escaladas:
     - Jonatas Lima
     - Mauricio dos Santos
     data_abertura: '2009'
-    descricao: Está via é a mais exigente deste setor, com a saída compartilhada da Esalianos até a terceira chapa onde 
-      se toca totalmente reto, logo já se encontra o crux, movimentos precisos e explosivos e depois vai pegando na 
-      resistência, chapas espaçadas ditam a regra do jogo, característica que originou o nome.
+    descricao: Está via é a mais exigente deste setor, com a saída compartilhada da
+      Esalianos até a terceira chapa onde se toca totalmente reto, logo já se encontra
+      o crux, movimentos precisos e explosivos e depois vai pegando na resistência,
+      chapas espaçadas ditam a regra do jogo, característica que originou o nome.
 - uid: ukW9GsuDoHfvxv
   via_esportiva:
     nome: Olhos de Águia
@@ -280,11 +286,13 @@ escaladas:
     - Pedro Naves
     - Heider Ribeiro (Tio Nem)
     data_abertura: '2024-02-13'
-    descricao: Linda via que corta todo o Pontão Médio. Saída em diagonal logo abaixo da Esalianos em lances de 
-      equilíbrio e depois segue reto até o platô, bom para um descanso. Logo vem um crux mais vertical e segue pela 
-      aresta direita deste Pontão. Termina junto com a via Esalianos. São 12 chapas e mais parada dupla, de onde pode-se
-      descer de baldinho ou rapelar com corda de 70m. Com corda de 60 melhor fazer cume e descer pela via Nova Era ou 
-      descer à pé pela parte de trás do pontão.
+    descricao: Linda via que corta todo o Pontão Médio. Saída em diagonal logo abaixo
+      da Esalianos em lances de equilíbrio e depois segue reto até o platô, bom para
+      um descanso. Logo vem um crux mais vertical e segue pela aresta direita deste
+      Pontão. Termina junto com a via Esalianos. São 12 chapas e mais parada dupla,
+      de onde pode-se descer de baldinho ou rapelar com corda de 70m. Com corda de
+      60 melhor fazer cume e descer pela via Nova Era ou descer à pé pela parte de
+      trás do pontão.
 - uid: sEnEGzxrCSlyI9
   via_movel:
     nome: Sinfonia Fantástica
@@ -294,9 +302,10 @@ escaladas:
     - André Ilha
     - Flávio Wasniewski
     data_abertura: '1997-04-21'
-    descricao: Via que se inicia no grande platô da Opera Selvagem e pode ser acessado por um trepa pedras à esquerda. 
-      Após um início vertical, segue por uma fenda horizontal pra esquerda que depois faz um contorno e segue em 
-      diagonal pra direita até a aresta da Opera Selvagem.
+    descricao: Via que se inicia no grande platô da Opera Selvagem e pode ser acessado
+      por um trepa pedras à esquerda. Após um início vertical, segue por uma fenda
+      horizontal pra esquerda que depois faz um contorno e segue em diagonal pra direita
+      até a aresta da Opera Selvagem.
 - uid: 2YEgxW3oDkNBuR
   via_movel:
     nome: Vr. O Fantasma da Ópera
@@ -306,9 +315,9 @@ escaladas:
     - André Ilha
     - Juliano Magalhães
     data_abertura: '2004-03-20'
-    descricao: Mesma saída da via anterior, porém segue reto até o teto onde pega a fenda horizontal pra direita e vai 
-      até a grande fenda que divide os Pontões, por onde segue até a aresta do Pontão Médio encontrando com a via à 
-      seguir.
+    descricao: Mesma saída da via anterior, porém segue reto até o teto onde pega
+      a fenda horizontal pra direita e vai até a grande fenda que divide os Pontões,
+      por onde segue até a aresta do Pontão Médio encontrando com a via à seguir.
 - uid: 70vNa1coN6FKBZ
   via_movel:
     nome: Ópera Selvagem
@@ -320,8 +329,9 @@ escaladas:
     - André Ilha
     - Lúcia Duarte
     data_abertura: '1984-07-25'
-    descricao: Clássica pela beleza e facilidade, sua beleza encontra-se na metade onde passa por tetos alaranjados de 
-      agarras enormes, onde o som dos morcegos fazem entender o nome da via. 1 jogo de camalot até o
+    descricao: Clássica pela beleza e facilidade, sua beleza encontra-se na metade
+      onde passa por tetos alaranjados de agarras enormes, onde o som dos morcegos
+      fazem entender o nome da via. 1 jogo de camalot até o
 - uid: oZLOe0dY4S37bb
   via_movel:
     nome: Pânico na Colméia
@@ -331,8 +341,9 @@ escaladas:
     - Tonico Magalhães
     - André Ilha
     data_abertura: '1984-04-27'
-    descricao: Inicia em um bonito diedro em diagonal para a esquerda, chegando à larga chaminé que corta praticamente 
-      toda a parede verticalmente. Porém tem sido evitada devido à uma grande colmeia de abelhas em seu início.
+    descricao: Inicia em um bonito diedro em diagonal para a esquerda, chegando à
+      larga chaminé que corta praticamente toda a parede verticalmente. Porém tem
+      sido evitada devido à uma grande colmeia de abelhas em seu início.
 ---
 
 # Pontão Médio

@@ -749,3 +749,15 @@ def test_deve_retornar_200_quando_if_none_match_for_diferente(pasta_temporaria):
     assert resposta["corpoBase64"] != ""
     assert "etag" in resposta["cabecalhos"]
     assert resposta["cabecalhos"]["etag"] != '"hash_antigo_obsoleto"'
+
+
+def test_deve_servir_catalogo_db_com_mime_octet_stream(pasta_temporaria):
+    """Arquivos SQLite como catalogo.db devem ser servidos com content-type application/octet-stream."""
+    (pasta_temporaria / "catalogo.db").write_bytes(b"SQLite format 3\x00dados")
+    cliente = ClienteTunelRetransmissor(
+        codigo_sessao="db_teste",
+        pasta_compilado=pasta_temporaria,
+    )
+    resposta = cliente._ler_arquivo_proxy("req-db", "catalogo.db")
+    assert resposta["status"] == 200
+    assert resposta["cabecalhos"]["content-type"] == "application/octet-stream"

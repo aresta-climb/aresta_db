@@ -3,7 +3,7 @@
 
 from pathlib import Path
 
-import yaml
+from editor.core.serializacao_util import carregar_yaml, serializar_yaml
 
 ROOT_DIR = Path(__file__).resolve().parent.parent
 DATABASE_DIR = ROOT_DIR / "database"
@@ -27,7 +27,7 @@ def migrar_publicar_croqui() -> None:
 
         with open(croqui_yaml_path, encoding="utf-8") as f:
             try:
-                dados = yaml.safe_load(f)
+                dados = carregar_yaml(f)
             except Exception as e:
                 print(f"Erro lendo {croqui_yaml_path}: {e}")
                 continue
@@ -50,7 +50,7 @@ def migrar_publicar_croqui() -> None:
                 continue
 
             with open(croqui_yaml_path, "w", encoding="utf-8") as f:
-                yaml.dump(dados, f, allow_unicode=True, sort_keys=False)
+                serializar_yaml(dados, f, sort_keys=False)
 
 
 if __name__ == "__main__":

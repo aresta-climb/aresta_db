@@ -121,10 +121,11 @@ escaladas:
     - Antônio Paulo Faria
     - Ronaldo Franzen "Nativo"
     data_abertura: '1987'
-    descricao: Inicia em uma linda fissura de dedos, levemente positiva e bem lisa, exige uma boa experiencia nesse tipo
-      de escalada. Essa primeira parte termina em um grampo, pois a conquista original de 1987 foi só até ali. Apenas em
-      1995, a via ganhou seu “upgrade”, indo até o topo. Nesta segunda parte, após contornar o teto pela esquerda, a via
-      segue por um diedro com fenda mais larga até o cume.
+    descricao: Inicia em uma linda fissura de dedos, levemente positiva e bem lisa,
+      exige uma boa experiencia nesse tipo de escalada. Essa primeira parte termina
+      em um grampo, pois a conquista original de 1987 foi só até ali. Apenas em 1995,
+      a via ganhou seu “upgrade”, indo até o topo. Nesta segunda parte, após contornar
+      o teto pela esquerda, a via segue por um diedro com fenda mais larga até o cume.
 - uid: KspwsKtd3rF7vo
   via_movel:
     nome: Chaminé do Lenheiro
@@ -134,8 +135,9 @@ escaladas:
     - André Ilha
     - Tonico Magalhães
     data_abertura: '1984-04-26'
-    descricao: Chaminé de baixa graduação, que inicia média e torna-se larga no final. Em sua metade, há um bloco de 
-      pedra entalado e ao final deve-se passar por dentro de um buraco.
+    descricao: Chaminé de baixa graduação, que inicia média e torna-se larga no final.
+      Em sua metade, há um bloco de pedra entalado e ao final deve-se passar por dentro
+      de um buraco.
 - uid: L2dyjqHSKTTCmp
   via_esportiva:
     nome: Velho Gafanhoto
@@ -145,7 +147,8 @@ escaladas:
     - Jonatas Lima
     - Lucas Hostalácio
     data_abertura: 2024-04
-    descricao: Via com uma saída bem técnica e negativo no final ainda sem cadena até a data desta edição.
+    descricao: Via com uma saída bem técnica e negativo no final ainda sem cadena
+      até a data desta edição.
 - uid: 2j1mBGzo4CSUxq
   via_esportiva:
     nome: Jovem Gafanhoto
@@ -155,9 +158,10 @@ escaladas:
     - Jonatas Lima
     - Lucas Hostalácio
     data_abertura: 2024-04
-    descricao: Via longa com movimentação bem variada. Saída vertical, depois faz um contorno pra esquerda onde 
-      compartilha um grampo com suas duas vizinhas, seguido do crux em uma barriga delicada, logo após pega pra direita 
-      novamente em um rampado de equilíbrio até atingir o negativo final com ótimas agarras.
+    descricao: Via longa com movimentação bem variada. Saída vertical, depois faz
+      um contorno pra esquerda onde compartilha um grampo com suas duas vizinhas,
+      seguido do crux em uma barriga delicada, logo após pega pra direita novamente
+      em um rampado de equilíbrio até atingir o negativo final com ótimas agarras.
 - uid: KKz4CPZGmoocVO
   via_movel:
     nome: Pitelzinho Apimentado
@@ -169,8 +173,9 @@ escaladas:
     conquistadores:
     - Flávio Daflon
     - Cintia Daflon
-    descricao: Possui seu trecho mais fácil no meio, mas as proteções são escassas, tornando a exposição alta. Possui um
-      grampo para aliviar a tensão, ainda no início. 1 jogo de nuts, friends médios e pequenos.
+    descricao: Possui seu trecho mais fácil no meio, mas as proteções são escassas,
+      tornando a exposição alta. Possui um grampo para aliviar a tensão, ainda no
+      início. 1 jogo de nuts, friends médios e pequenos.
 - uid: paDq1IqUro5t2s
   via_movel:
     nome: Dança Macabra
@@ -199,9 +204,10 @@ escaladas:
     - Mariana Fiche
     - Jefferson Lara
     data_abertura: '2023-03-12'
-    descricao: Via que começa na mesma face à direita da Dança Macabra e no meio vira pro outro lado da aresta onde 
-      segue até o final. Diferente do padrão local, seu estilo positivo de equilíbrio com poucas agarras exige bom 
-      trabalho de pés, lembrando vias de parede. 9+2
+    descricao: Via que começa na mesma face à direita da Dança Macabra e no meio vira
+      pro outro lado da aresta onde segue até o final. Diferente do padrão local,
+      seu estilo positivo de equilíbrio com poucas agarras exige bom trabalho de pés,
+      lembrando vias de parede. 9+2
 - uid: HiyHr9TmE8ncwe
   via_esportiva:
     nome: Sangue Frio
@@ -213,7 +219,8 @@ escaladas:
     - Pedro Naves
     - Gabriel Defelippe (Ripa)
     data_abertura: '2023-03-19'
-    descricao: Saída utiliza um grampo amarelo para atingir o platô, depois passa para a face à esquerda. 9+2 chapas.
+    descricao: Saída utiliza um grampo amarelo para atingir o platô, depois passa
+      para a face à esquerda. 9+2 chapas.
 - uid: v2LFpfev1WqKZ3
   via_movel:
     nome: Sonho de Valsa
@@ -223,8 +230,8 @@ escaladas:
     conquistadores:
     - André Ilha
     data_abertura: '1984-04-27'
-    descricao: Conquistada em solo. Inicia em agarras, até alcançar a fissura que leva ao topo. Friends médios e 
-      grandes.
+    descricao: Conquistada em solo. Inicia em agarras, até alcançar a fissura que
+      leva ao topo. Friends médios e grandes.
 - uid: 4gYD3G9I4kE4CX
   via_esportiva:
     nome: Barbatana
@@ -234,8 +241,9 @@ escaladas:
     - Pedro Naves
     - Lucas Agostini
     data_abertura: '2024-04-13'
-    descricao: Via esportiva mais fácil do Cemonta, ótima para iniciantes tanto de top-rope quanto para aprender a 
-      guiar. Variante da via à seguir, se separam no platô, esta segue por uma aresta ao fundo e termina no mesmo top.
+    descricao: Via esportiva mais fácil do Cemonta, ótima para iniciantes tanto de
+      top-rope quanto para aprender a guiar. Variante da via à seguir, se separam
+      no platô, esta segue por uma aresta ao fundo e termina no mesmo top.
 - uid: C9xzsW8pEoIGV8
   via_esportiva:
     nome: Roubadas
@@ -248,9 +256,10 @@ escaladas:
     - Guilherme Otoni
     - Bruno Bastos
     data_abertura: '2023-08-12'
-    descricao: Via que compartilha a mesma saída das três anteriores, porém no platô vai pra face da direita, terminando
-      na torre de rocha ao fundo. Possui movimentação variada, alterna partes de negativo com lances de equilíbrio. Seu 
-      crux favorece quem é mais alto, por isso os baixos tendem a achar um pouco mais difícil. 8+2.
+    descricao: Via que compartilha a mesma saída das três anteriores, porém no platô
+      vai pra face da direita, terminando na torre de rocha ao fundo. Possui movimentação
+      variada, alterna partes de negativo com lances de equilíbrio. Seu crux favorece
+      quem é mais alto, por isso os baixos tendem a achar um pouco mais difícil. 8+2.
 ---
 
 Esta face fica um pouco escondida, pois a trilha principal não passa por sua base. Seguindo as orientações da trilha principal citada anteriormente, deve-se ficar atento para pegar uma trilha à direita alguns metros antes da via Tempos de Guerra. Esta trilha sobe por alguns blocos de pedra e logo estará na base das vias. A trilha também dá acesso à uma das entradas da Rota Interna e para a base das primeiras vias do Pontão Médio. Sombra pela manhã.

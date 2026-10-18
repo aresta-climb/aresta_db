@@ -218,9 +218,10 @@ escaladas:
     dificuldade: BR_7C
     dificuldade_artificial: A1
     protecoes_moveis: Stoppers pequenos, friends e pitons
-    descricao: Via conquistada em artificial e em solitário, sem relatos de repetição da mesma totalmente em livre. 
-      Inicia saindo do platô da “Ópera Selvagem” (Pontão Médio) e percorre um diedro até passar pelo pequeno teto. Linha
-      natural e perfeita para stoppers pequenos, friends e pittons.
+    descricao: Via conquistada em artificial e em solitário, sem relatos de repetição
+      da mesma totalmente em livre. Inicia saindo do platô da “Ópera Selvagem” (Pontão
+      Médio) e percorre um diedro até passar pelo pequeno teto. Linha natural e perfeita
+      para stoppers pequenos, friends e pittons.
 - uid: SduZxDFiarMMAZ
   via_movel:
     nome: Entre Dois Mundos
@@ -231,9 +232,11 @@ escaladas:
     - Jonatas Lima
     - Carlos Pádua
     data_abertura: '2015'
-    descricao: Esta linha é linda e exigente. Compartilha as seis chapas iniciais da via A Profecia e passa para uma 
-      fenda linda em diagonal para a esquerda. Quando se acessa o platô é que começam os problemas, passadas por uma 
-      micro fissura e lances de agarras, até dominar um teto e continuar pelo negativo até a parte positiva.
+    descricao: Esta linha é linda e exigente. Compartilha as seis chapas iniciais
+      da via A Profecia e passa para uma fenda linda em diagonal para a esquerda.
+      Quando se acessa o platô é que começam os problemas, passadas por uma micro
+      fissura e lances de agarras, até dominar um teto e continuar pelo negativo até
+      a parte positiva.
 - uid: KHFPKEAXsjuF97
   via_esportiva:
     nome: A Profecia
@@ -245,9 +248,10 @@ escaladas:
     - Jonatas Lima
     - Heider Ribeiro (Tio Nem)
     data_abertura: '2013'
-    descricao: Esta é uma das vias esportivas mais clássicas do Cemonta. Lances de regletes, passando por micro 
-      fissuras, abaulados e batentes, é esteticamente linda e explosiva. Levar 17 costuras, algumas longas. Rapel com 
-      corda de 60 parar no meio, de 70 um rapel só.
+    descricao: Esta é uma das vias esportivas mais clássicas do Cemonta. Lances de
+      regletes, passando por micro fissuras, abaulados e batentes, é esteticamente
+      linda e explosiva. Levar 17 costuras, algumas longas. Rapel com corda de 60
+      parar no meio, de 70 um rapel só.
 - uid: eVtrkhD7Qkk8xL
   via_esportiva:
     nome: A Profecia P1
@@ -258,9 +262,10 @@ escaladas:
     - Jonatas Lima
     - Heider Ribeiro (Tio Nem)
     data_abertura: '2013'
-    descricao: A Profecia foi conquistada como uma escalada única até onde é a segunda parada, mas foi necessário bater 
-      uma parada de rapel no meio para viabilizar o rapel com corda de 60m. Porém, pra quem procura uma escalada um 
-      pouco mais fácil, indo até a P1 já é clássica! Levar 11 costuras.
+    descricao: A Profecia foi conquistada como uma escalada única até onde é a segunda
+      parada, mas foi necessário bater uma parada de rapel no meio para viabilizar
+      o rapel com corda de 60m. Porém, pra quem procura uma escalada um pouco mais
+      fácil, indo até a P1 já é clássica! Levar 11 costuras.
 - uid: 9Hdc375xKOPmwv
   via_movel:
     nome: O Grande Encontro
@@ -273,32 +278,37 @@ escaladas:
     - Fernando Leal
     - Eliseu Frechou
     data_abertura: '2004'
-    descricao: Uma linda via exigente, sua primeira metade é mais exposta, após passar por uma fissura fina chega num 
-      grande e lindo diedro mais tranquilo, após lances em leve negativo onde é protegido por duas chapas entra-se na 
-      parte final e crux, numa fenda fina e depois lances dinâmicos em abaulados. Friends do .3 ao 1 com peças repetidas
-      e 1 jogo de nuts.
+    descricao: Uma linda via exigente, sua primeira metade é mais exposta, após passar
+      por uma fissura fina chega num grande e lindo diedro mais tranquilo, após lances
+      em leve negativo onde é protegido por duas chapas entra-se na parte final e
+      crux, numa fenda fina e depois lances dinâmicos em abaulados. Friends do .3
+      ao 1 com peças repetidas e 1 jogo de nuts.
 - uid: V92DmOle0TI2PJ
   via_movel:
     nome: Variante Hardside
     dificuldade: BR_7B
-    descricao: Variante que liga a via “O Grande Encontro” à via “Lúcifer”. Linha delicada e com proteções escassas.
+    descricao: Variante que liga a via “O Grande Encontro” à via “Lúcifer”. Linha
+      delicada e com proteções escassas.
 - uid: 2qfl4BJKLsWxfn
   via_movel:
     nome: Variante da Lúcifer
     destaque: true
     dificuldade: BR_6
     extensao: 50
-    protecoes_moveis: 1 jogo de friends e 1 de nuts (peças repetidas se feita em uma enfiada)
+    protecoes_moveis: 1 jogo de friends e 1 de nuts (peças repetidas se feita em uma
+      enfiada)
     conquistadores:
     - Luiz Cláudio
     - Rodrigo Ferreira
     - Leonardo Rodrigues
     - João Felippin
-    descricao: Via clássica e mais repetida do que a via original devido à sua beleza. Sua saída, bem no ponto de 
-      chegada da trilha, segue por um sistema de fendas até o pequeno teto onde cruza com a via original. Logo após o 
-      crux, que pode ser protegido no grampo de inox da via original, seguir pela direita no belíssimo diedro. Ao final 
-      do diedro, após cruzar de novo com a linha original, segue reto na bela fenda levemente negativa. Pode fazer em 
-      uma enfiada com costuras longas e peças repetidas ou em duas com 1 jogo de friends e 1 de nuts.
+    descricao: Via clássica e mais repetida do que a via original devido à sua beleza.
+      Sua saída, bem no ponto de chegada da trilha, segue por um sistema de fendas
+      até o pequeno teto onde cruza com a via original. Logo após o crux, que pode
+      ser protegido no grampo de inox da via original, seguir pela direita no belíssimo
+      diedro. Ao final do diedro, após cruzar de novo com a linha original, segue
+      reto na bela fenda levemente negativa. Pode fazer em uma enfiada com costuras
+      longas e peças repetidas ou em duas com 1 jogo de friends e 1 de nuts.
 - uid: 76tbx90jDi2jbz
   via_movel:
     nome: Obra da Desistência
@@ -310,8 +320,9 @@ escaladas:
     - Márcio Douglas
     - Carlos Pádua
     data_abertura: 2021-06
-    descricao: Uma via que corta este pontão no meio, uma via que impressiona pela beleza de sua escalada e da rocha. 
-      Início em chapeletas. Sugere-se um jogo de friends até BD#4 e um de nuts. Rapel possível com corda de 70m.
+    descricao: Uma via que corta este pontão no meio, uma via que impressiona pela
+      beleza de sua escalada e da rocha. Início em chapeletas. Sugere-se um jogo de
+      friends até BD#4 e um de nuts. Rapel possível com corda de 70m.
 - uid: FI5BWj0YPOultg
   via_esportiva:
     nome: Macacos Ansiosos
@@ -338,8 +349,9 @@ escaladas:
     - Fabio Rufino
     - Márcio Douglas
     data_abertura: 2021-01
-    descricao: Primeira parte da via Macacos Ansiosos, até o platô. Uma ótima opção pra quem procura uma via na casa dos
-      sétimos. A bela rocha laranja com movimentação complexa, fazem desta uma via muito interessante!
+    descricao: Primeira parte da via Macacos Ansiosos, até o platô. Uma ótima opção
+      pra quem procura uma via na casa dos sétimos. A bela rocha laranja com movimentação
+      complexa, fazem desta uma via muito interessante!
 - uid: JodSSrBvrsI5O5
   via_esportiva:
     nome: Visão Além do Alcance
@@ -363,24 +375,28 @@ escaladas:
     - Jonatas Lima
     - Márcio Douglas
     data_abertura: '2022'
-    descricao: Início da via Visão Além do Alcance emendando na parada do platô da via Macacos Ansiosos. Única opção 
-      deste pontão pra quem busca uma via esportiva mais fácil.
+    descricao: Início da via Visão Além do Alcance emendando na parada do platô da
+      via Macacos Ansiosos. Única opção deste pontão pra quem busca uma via esportiva
+      mais fácil.
 - uid: AuFLvxfTOFcXMU
   via_movel:
     nome: Lúcifer
     destaque: true
     dificuldade: BR_6
     extensao: 60
-    protecoes_moveis: 1 jogo de friends e 1 de nuts (possui alguns pitons e grampos velhos)
+    protecoes_moveis: 1 jogo de friends e 1 de nuts (possui alguns pitons e grampos
+      velhos)
     conquistadores:
     - André Ilha
     - Leonardo Rodrigues
     - Waldemar Pugliese
     data_abertura: '1997-09-28'
-    descricao: Uma das vias mais famosas deste setor. Sua saída fica bem ao lado esquerdo da grade de proteção das 
-      pinturas rupestres, porém encontra-se um pouco suja devido ao fato de ser pouco frequentada, já que sua variante 
-      tem sido mais usada em função de sua beleza. Possui alguns pitons e grampos velhos e pode ser repetida com 1 jogo 
-      de friends e 1 de nuts. Após o crux no grampo de inox sua linha segue pela esquerda.
+    descricao: Uma das vias mais famosas deste setor. Sua saída fica bem ao lado esquerdo
+      da grade de proteção das pinturas rupestres, porém encontra-se um pouco suja
+      devido ao fato de ser pouco frequentada, já que sua variante tem sido mais usada
+      em função de sua beleza. Possui alguns pitons e grampos velhos e pode ser repetida
+      com 1 jogo de friends e 1 de nuts. Após o crux no grampo de inox sua linha segue
+      pela esquerda.
 - uid: pYvWVy3VjzEhM5
   via_esportiva:
     nome: Humildade e Disciplina
@@ -390,8 +406,8 @@ escaladas:
     - Jonatas Lima
     - Márcio Douglas
     data_abertura: 2024-01
-    descricao: Sua saída fica bem encostada na grade das pinturas rupestres e acima se junta na via Visão Além do 
-      Alcance.
+    descricao: Sua saída fica bem encostada na grade das pinturas rupestres e acima
+      se junta na via Visão Além do Alcance.
 - uid: LwYctNpsv2IVT1
   via_esportiva:
     nome: Humilde Disciplina
@@ -415,9 +431,9 @@ escaladas:
     - Carlos Henrique
     - Gelson Feliciano
     - Rodrigo Ferreira
-    descricao: Linha conquistada inteiramente em artificial, cortando o grande teto à direita da “Chá de Cadeira” e 
-      juntando nesta, na metade da parede. Ótimas colocações dos móveis e boa via para quem quer treinar artificial 
-      móvel.
+    descricao: Linha conquistada inteiramente em artificial, cortando o grande teto
+      à direita da “Chá de Cadeira” e juntando nesta, na metade da parede. Ótimas
+      colocações dos móveis e boa via para quem quer treinar artificial móvel.
 - uid: wNdEwMOA7GgIen
   via_esportiva:
     nome: King Line
@@ -468,7 +484,8 @@ escaladas:
     - Jonatas Lima
     - Márcio Douglas
     data_abertura: 2023-10
-    descricao: Início em um grande buraco na rocha onde encontra-se o crux, depois junta com a via Inimigo Mora ao Lado.
+    descricao: Início em um grande buraco na rocha onde encontra-se o crux, depois
+      junta com a via Inimigo Mora ao Lado.
 - uid: FREEWysu6vLXxM
   via_esportiva:
     nome: Inimigo Mora ao Lado
@@ -478,8 +495,8 @@ escaladas:
     - Jonatas Lima
     - Márcio Douglas
     data_abertura: '2023-10-12'
-    descricao: Via com estilos variados, primeira metade em uma fenda negativa e depois passa para positivo de 
-      equilíbrio e termina no Top da via O Mirador.
+    descricao: Via com estilos variados, primeira metade em uma fenda negativa e depois
+      passa para positivo de equilíbrio e termina no Top da via O Mirador.
 - uid: ADVt3Vz9J5jRQH
   via_esportiva:
     nome: O Mirador
@@ -492,8 +509,9 @@ escaladas:
     - Jonatas Lima
     - Félix
     data_abertura: '2015'
-    descricao: Linha iniciada e abandonada pelo André Ilha, sendo continuada posteriormente. Uma diagonal pra esquerda 
-      toda positivo de equilíbrio com lances muito delicados. Sua base fica acima das vias anteriores.
+    descricao: Linha iniciada e abandonada pelo André Ilha, sendo continuada posteriormente.
+      Uma diagonal pra esquerda toda positivo de equilíbrio com lances muito delicados.
+      Sua base fica acima das vias anteriores.
 - uid: wWEcVw0QiNjgyw
   via_movel:
     nome: Tinoco’s Friends
@@ -503,8 +521,9 @@ escaladas:
     - Gustavo Piancastelli
     - Cristiano
     data_abertura: '2001'
-    descricao: Sua linha impressiona pela beleza, mostra sua grandeza a partir da abertura do diedro. Via exigente que 
-      até hoje não foi encadenada toda em livre, a fenda fica boa parte do ano suja de terra por escorrer muita água.
+    descricao: Sua linha impressiona pela beleza, mostra sua grandeza a partir da
+      abertura do diedro. Via exigente que até hoje não foi encadenada toda em livre,
+      a fenda fica boa parte do ano suja de terra por escorrer muita água.
 - uid: Uhe8uICg6YSr2Z
   via_movel:
     nome: Diedro dos Militares
@@ -513,8 +532,9 @@ escaladas:
     protecoes_moveis: Boas colocações pra móvel (alguns grampos velhos)
     conquistadores:
     - Escaladores Militares
-    descricao: Sai num diedro com boas colocações pra móvel (boa pra praticar) e alguns grampos velhos e desnecessários 
-      (é possível fazer toda em móvel). Feita em duas enfiadas com parada mista após contornar a aresta.
+    descricao: Sai num diedro com boas colocações pra móvel (boa pra praticar) e alguns
+      grampos velhos e desnecessários (é possível fazer toda em móvel). Feita em duas
+      enfiadas com parada mista após contornar a aresta.
 - uid: 1B9siVIKYvU1gR
   via_movel:
     nome: Faleon

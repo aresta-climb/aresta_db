@@ -1,12 +1,11 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
+import os
 import sys
 from pathlib import Path
-from unittest.mock import MagicMock, patch
 
 import pytest
-import yaml
 
 from aresta_api.proto.generated import croqui_pb2
 
@@ -16,6 +15,7 @@ if str(ROOT_PATH) not in sys.path:
 
 from PIL import Image
 
+from editor.core.serializacao_util import carregar_yaml, serializar_yaml
 from scripts.gerenciar_uids_lib import gerar_uid, validar_uid
 from scripts.preparar_submissao_lib import (
     compilar_croqui,
@@ -661,37 +661,46 @@ def test_validar_referencias_mapa_sem_label_ou_circulo_identificador():
     assert not any("Via Linha Compilada" in e for e in erros)
 
 
-@patch("scripts.preparar_submissao_lib.Path")
-@patch("scripts.preparar_submissao_lib.yaml.safe_load")
-@patch("scripts.preparar_submissao_lib.croqui_pb2.Croqui")
-@patch("scripts.preparar_submissao_lib.json_format.ParseDict")
-@patch("scripts.preparar_submissao_lib.parse_md_com_frontmatter")
-@patch("scripts.preparar_submissao_lib.expandir_setores_ou_grupos_recursivo")
-@patch("scripts.preparar_submissao_lib.validar_referencias_mapa")
-def test_compilar_croqui_emite_avisos_em_vez_de_erro(
-    mock_validar, mock_expand, mock_parse, mock_json, mock_proto, mock_yaml, mock_path, capsys
-):
-    """Verifica se compilar_croqui emite avisos no stdout mas NÃO lança exceção em caso de IDs inválidos."""
-    # Setup mocks
-    mock_validar.return_value = ["Erro de ID 1", "Erro de ID 2"]
-    mock_path.return_value.exists.return_value = True
-    # Precisamos que o Path do arquivo croqui.yaml e do destino existam para o mock
-    # compilar_croqui faz: if not pico_path.exists():
+def test_compilar_croqui_emite_avisos_em_vez_de_erro(tmp_path: Path, capsys):
+    """Verifica se compilar_croqui emite avisos no stdout mas NÃO lança exceção em caso de referências de mapa inconsistentes."""
+    pico_dir = tmp_path / "croqui_aviso"
+    pico_dir.mkdir()
 
-    mock_yaml.return_value = {"id": "test"}
-    mock_expand.return_value = {"id": "test"}
+    setor_md = pico_dir / "setor_1.md"
+    setor_md.write_text(
+        "---\n"
+        "uid: '1234567890abc1'\n"
+        "nome: Setor Aviso\n"
+        "mapas:\n"
+        "  - caminho_imagem_mapa: imagens/mapa.webp\n"
+        "    largura_mapa: 100\n"
+        "    altura_mapa: 100\n"
+        "    referencias:\n"
+        "      - escalada: Via Inexistente\n"
+        "        ids:\n"
+        "          - p1\n"
+        "---\n",
+        encoding="utf-8",
+    )
 
-    with patch("builtins.open", MagicMock()):
-        # Chama compilar_croqui. Não deve subir ValueError.
-        compilar_croqui(Path("dummy"), Path("dummy_dest"), Path("dummy_bin"))
+    croqui_yaml = pico_dir / "croqui.yaml"
+    croqui_yaml.write_text(
+        "id: test_aviso\n"
+        "uid: '1234567890abcd'\n"
+        "nome: Teste Aviso\n"
+        "picos:\n"
+        "  - nome: Pico 1\n"
+        "    setores_ou_grupos:\n"
+        "      - setor:\n"
+        "          caminho: setor_1.md\n",
+        encoding="utf-8",
+    )
 
-    # Captura stdout
+    compilar_croqui(pico_dir, None, tmp_path / "compilado.binarypb")
+
     captured = capsys.readouterr()
-
-    # Verifica se a mensagem de aviso está presente
     assert "AVISO: Inconsistência nas referências de mapa:" in captured.out
-    assert "Erro de ID 1" in captured.out
-    assert "Erro de ID 2" in captured.out
+    assert "Via Inexistente" in captured.out
 
 
 def test_validar_referencias_mapa_ignora_se_nao_houver_referencias_em_lugar_nenhum():
@@ -723,8 +732,9 @@ def test_validar_referencias_mapa_ignora_se_nao_houver_referencias_em_lugar_nenh
 from scripts.helpers_migracao import configurar_croqui_teste
 
 
-@patch("scripts.migrador.aplicar_migracoes")
-def test_corrigir_database_chama_aplicar_migracoes(mock_aplicar, tmp_path):
+def test_corrigir_database_chama_aplicar_migracoes(tmp_path):
+    from scripts.migrador import obter_ultima_versao_migracao
+
     yaml_content = """
     id: test_corrigir
     uid: '1234567890abcd'
@@ -732,15 +742,13 @@ def test_corrigir_database_chama_aplicar_migracoes(mock_aplicar, tmp_path):
     """
     croqui_dir = configurar_croqui_teste(tmp_path, yaml_content=yaml_content)
 
-    # Executa corrigir_database
     corrigir_database(croqui_dir)
 
-    # Garante que aplicar_migracoes foi chamado
-    mock_aplicar.assert_called_once_with(croqui_dir)
+    dados = carregar_yaml((croqui_dir / "croqui.yaml").read_text(encoding="utf-8"))
+    assert dados.get("ultima_migracao") == obter_ultima_versao_migracao()
 
 
-@patch("scripts.migrador.aplicar_migracoes")
-def test_corrigir_database_retorna_false_quando_nada_modificado(mock_aplicar, tmp_path):
+def test_corrigir_database_retorna_false_quando_nada_modificado(tmp_path):
     from scripts.migrador import obter_ultima_versao_migracao
 
     versao_atual = obter_ultima_versao_migracao()
@@ -758,13 +766,16 @@ ultima_migracao: {versao_atual}
     assert modificou is False
 
 
-@patch("scripts.migrador.aplicar_migracoes")
-def test_corrigir_database_retorna_true_quando_limpa_orfaos(mock_aplicar, tmp_path):
-    yaml_content = """# SPDX-License-Identifier: ODbL-1.0
+def test_corrigir_database_retorna_true_quando_limpa_orfaos(tmp_path):
+    from scripts.migrador import obter_ultima_versao_migracao
+
+    versao_atual = obter_ultima_versao_migracao()
+    yaml_content = f"""# SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 id: test_com_modificacao
 uid: '1234567890abcd'
 nome: Teste Com Modificacao
+ultima_migracao: {versao_atual}
 """
     croqui_dir = configurar_croqui_teste(tmp_path, yaml_content=yaml_content)
     pasta_img = croqui_dir / "imagens"
@@ -777,6 +788,9 @@ nome: Teste Com Modificacao
 
 def test_corrigir_database_atualiza_ultima_migracao_quando_zerada_ou_ausente(tmp_path):
     """Garante que corrigir_database define ultima_migracao como versao maxima se for menor ou ausente."""
+    from scripts.migrador import obter_ultima_versao_migracao
+
+    versao_maxima = obter_ultima_versao_migracao()
     yaml_content = """# SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 id: test_migracao_desatualizada
@@ -787,32 +801,31 @@ ultima_migracao: 0
     croqui_dir = configurar_croqui_teste(tmp_path, yaml_content=yaml_content)
     (croqui_dir / "imagens").mkdir(exist_ok=True)
 
-    with patch("scripts.migrador.aplicar_migracoes"):
-        with patch("scripts.migrador.obter_ultima_versao_migracao", return_value=5):
-            modificou = corrigir_database(croqui_dir)
-            assert modificou is True
+    modificou = corrigir_database(croqui_dir)
+    assert modificou is True
 
-            with open(croqui_dir / "croqui.yaml", encoding="utf-8") as f:
-                dados = yaml.safe_load(f)
-            assert dados.get("ultima_migracao") == 5
+    with open(croqui_dir / "croqui.yaml", encoding="utf-8") as f:
+        dados = carregar_yaml(f)
+    assert dados.get("ultima_migracao") == versao_maxima
 
 
 def test_corrigir_database_preserva_ultima_migracao_quando_ja_atualizada(tmp_path):
     """Garante que se ultima_migracao ja estiver na versao maxima, nao marca modificacao por isso."""
-    yaml_content = """# SPDX-License-Identifier: ODbL-1.0
+    from scripts.migrador import obter_ultima_versao_migracao
+
+    versao_maxima = obter_ultima_versao_migracao()
+    yaml_content = f"""# SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 id: test_migracao_atualizada
 uid: '1234567890abcd'
 nome: Teste Migracao
-ultima_migracao: 5
+ultima_migracao: {versao_maxima}
 """
     croqui_dir = configurar_croqui_teste(tmp_path, yaml_content=yaml_content)
     (croqui_dir / "imagens").mkdir(exist_ok=True)
 
-    with patch("scripts.migrador.aplicar_migracoes"):
-        with patch("scripts.migrador.obter_ultima_versao_migracao", return_value=5):
-            modificou = corrigir_database(croqui_dir)
-            assert modificou is False
+    modificou = corrigir_database(croqui_dir)
+    assert modificou is False
 
 
 from scripts.preparar_submissao_lib import limpar_arquivos_nao_utilizados
@@ -971,7 +984,6 @@ def test_limpar_arquivos_nao_utilizados_remove_pasta_anexos_quando_vazia(tmp_pat
 
 
 def test_compilar_croqui_faz_inline_de_mapas_gerais(tmp_path):
-    import yaml
 
     from scripts.preparar_submissao_lib import compilar_croqui
 
@@ -989,18 +1001,17 @@ def test_compilar_croqui_faz_inline_de_mapas_gerais(tmp_path):
     croqui_yaml = pico_path / "croqui.yaml"
     croqui_data_in = {"picos": [{"nome": "Fake", "mapas_gerais": {"caminho": "mapas_gerais.md"}}]}
     with open(croqui_yaml, "w", encoding="utf-8") as f:
-        yaml.dump(croqui_data_in, f)
+        serializar_yaml(croqui_data_in, f)
 
     # 4. Destinos
     dest_yaml = tmp_path / "compilado.yaml"
     dest_binarypb = tmp_path / "compilado.binarypb"
 
     # 5. Roda compilar_croqui
-    compilar_croqui(pico_path, dest_yaml, dest_binarypb)
+    compilado = compilar_croqui(pico_path, dest_yaml, dest_binarypb)
 
-    # 6. Verifica o yaml compilado
-    with open(dest_yaml, encoding="utf-8") as f:
-        compilado = yaml.safe_load(f)
+    assert not dest_yaml.exists()
+    assert dest_binarypb.exists()
 
     pico = compilado["picos"][0]
     mapas_gerais = pico["mapas_gerais"]
@@ -1009,14 +1020,10 @@ def test_compilar_croqui_faz_inline_de_mapas_gerais(tmp_path):
 
 
 def test_yaml_dump_preserva_aspas_em_strings_numericas():
-    import yaml
 
-    # "08" é comumente interpretado erroneamente por não ser um octal válido (octais só vão até 7).
-    # O PyYAML por padrão remove as aspas de '08', o que quebra a consistência no yaml gerado.
     dados = {"id": "08", "label": "09", "normal": "texto", "octal_valido": "07"}
-    yaml_gerado = yaml.dump(dados, sort_keys=False)
+    yaml_gerado = serializar_yaml(dados, sort_keys=False)
 
-    # As aspas simples ou duplas devem existir no YAML dump
     assert "'08'" in yaml_gerado or '"08"' in yaml_gerado, (
         f"YAML não preservou aspas em '08':\n{yaml_gerado}"
     )
@@ -1083,7 +1090,6 @@ def test_md_sem_frontmatter(tmp_path):
 
 def test_yaml_corrige_spdx_errado_ou_incompleto(tmp_path):
     p = tmp_path / "croqui_corrige.yaml"
-    # YAML com licença errada e sem copyright, além de um comentário normal
     p.write_text(
         "# Meu comentário\n# SPDX-License-Identifier: CC-BY\nid: corrige\n", encoding="utf-8"
     )
@@ -1098,7 +1104,6 @@ def test_yaml_corrige_spdx_errado_ou_incompleto(tmp_path):
 
 def test_md_corrige_spdx_errado_ou_incompleto(tmp_path):
     p = tmp_path / "pico_corrige.md"
-    # MD com licença errada e copyright errado no frontmatter
     conteudo = "---\n# copyright do ze\n# SPDX-License-Identifier: Outra-Coisa\n# spdx-license-identifier: duplicado\nnome: Pico\n---\nCorpo\n"
     p.write_text(conteudo, encoding="utf-8")
     garantir_comentarios_licenca(p)
@@ -1111,97 +1116,10 @@ def test_md_corrige_spdx_errado_ou_incompleto(tmp_path):
     assert "copyright do ze" not in "".join(linhas).lower()
 
 
-def test_garantir_comentarios_licenca_retentativa_sucesso_apos_bloqueio_errno_22(tmp_path):
-    p = tmp_path / "setor_bloqueado.md"
-    p.write_text("---\nnome: Bloqueado\n---\nCorpo\n", encoding="utf-8")
-
-    tentativas = 0
-    real_open = open
-
-    def mock_open(file, mode="r", *args, **kwargs):
-        nonlocal tentativas
-        if str(file) == str(p) and "w" in mode:
-            tentativas += 1
-            if tentativas < 3:
-                raise OSError(22, "Invalid argument", str(p))
-        return real_open(file, mode, *args, **kwargs)
-
-    with patch("builtins.open", side_effect=mock_open):
-        with patch("time.sleep") as mock_sleep:
-            garantir_comentarios_licenca(p)
-            assert mock_sleep.call_count >= 2
-
-    linhas = p.read_text(encoding="utf-8").splitlines()
-    assert linhas[0].strip() == "---"
-    assert linhas[1].strip() == "# SPDX-License-Identifier: ODbL-1.0"
-    assert linhas[2].strip() == "# Copyright (C) 2026 Aresta Climb Contributors"
-
-
-def test_garantir_comentarios_licenca_retentativa_sucesso_apos_bloqueio_errno_13(tmp_path):
-    p = tmp_path / "setor_permission.md"
-    p.write_text("---\nnome: Permission\n---\nCorpo\n", encoding="utf-8")
-
-    tentativas = 0
-    real_open = open
-
-    def mock_open(file, mode="r", *args, **kwargs):
-        nonlocal tentativas
-        if str(file) == str(p) and "w" in mode:
-            tentativas += 1
-            if tentativas < 2:
-                raise PermissionError(13, "Permission denied", str(p))
-        return real_open(file, mode, *args, **kwargs)
-
-    with patch("builtins.open", side_effect=mock_open):
-        with patch("time.sleep") as mock_sleep:
-            garantir_comentarios_licenca(p)
-            assert mock_sleep.call_count >= 1
-
-    linhas = p.read_text(encoding="utf-8").splitlines()
-    assert linhas[0].strip() == "---"
-    assert linhas[1].strip() == "# SPDX-License-Identifier: ODbL-1.0"
-    assert linhas[2].strip() == "# Copyright (C) 2026 Aresta Climb Contributors"
-
-
-def test_limpar_arquivos_nao_utilizados_deleta_imagens_e_mds(tmp_path):
-    # Setup de arquivos falsos no tmp_path
-    pasta_img = tmp_path / "imagens"
-    pasta_img.mkdir()
-
-    img_usada = pasta_img / "usada.jpg"
-    img_usada.write_text("dummy")
-    img_orfam = pasta_img / "orfam.png"
-    img_orfam.write_text("dummy")
-
-    md_usado = tmp_path / "usado.md"
-    md_usado.write_text("dummy")
-    md_orfao = tmp_path / "orfao.md"
-    md_orfao.write_text("dummy")
-
-    ignorado = tmp_path / "nao_deleta.txt"
-    ignorado.write_text("dummy")
-
-    croqui_data = {
-        "botoes": [{"destino": {"secao_textual": {"caminho": "usado.md"}}}],
-        "caminho_thumbnail": "imagens/usada.jpg",
-        "picos": [],
-    }
-
-    limpar_arquivos_nao_utilizados(tmp_path, croqui_data)
-
-    assert img_usada.exists(), "Imagem usada não deve ser deletada"
-    assert md_usado.exists(), "MD usado não deve ser deletado"
-    assert ignorado.exists(), "Arquivos com extensões ignoradas não devem ser deletados"
-    assert not img_orfam.exists(), "Imagem órfã deve ser deletada"
-    assert not md_orfao.exists(), "MD órfão deve ser deletado"
-
-
 def test_limpar_arquivos_preserva_mapas_gerais(tmp_path):
-    # Setup de arquivos falsos no tmp_path
     mapa_geral_md = tmp_path / "mapas_gerais.md"
     mapa_geral_md.write_text("dummy")
 
-    # Adiciona mapas_gerais na lista de picos
     croqui_data = {"picos": [{"mapas_gerais": {"caminho": "mapas_gerais.md"}}]}
 
     limpar_arquivos_nao_utilizados(tmp_path, croqui_data)
@@ -1249,12 +1167,7 @@ def test_limpar_arquivos_preserva_imagens_em_descricoes_markdown(tmp_path):
                 "descricao": "Detalhes do pico: ![Pico](imagens/pico_desc.webp)",
                 "setores_ou_grupos": [
                     {"setor": {"caminho": "setor.md"}},
-                    {
-                        "setor": {
-                            # Referência duplicada para testar md_visitados
-                            "caminho": "setor.md"
-                        }
-                    },
+                    {"setor": {"caminho": "setor.md"}},
                     {
                         "setor": {
                             "nome": "Setor 1",
@@ -1300,144 +1213,6 @@ def test_limpar_arquivos_preserva_imagens_em_descricoes_markdown(tmp_path):
     assert img_md.exists(), "Imagem dentro do corpo do .md não deve ser deletada"
     assert img_fm.exists(), "Imagem dentro do frontmatter do .md não deve ser deletada"
     assert not img_orfa.exists(), "Imagem órfã real deve ser deletada"
-
-
-def test_compilar_croqui_faz_inline_de_mapas_gerais(tmp_path):
-    import yaml
-
-    from scripts.preparar_submissao_lib import compilar_croqui
-
-    # 1. Cria a estrutura do pico fake
-    pico_path = tmp_path / "br_mg_fake"
-    pico_path.mkdir()
-
-    # 2. Cria mapas_gerais.md
-    mapas_md = pico_path / "mapas_gerais.md"
-    mapas_md.write_text(
-        "---\nmapas:\n  - caminho_imagem_mapa: img1.jpg\n---\nCorpo vazio\n", encoding="utf-8"
-    )
-
-    # 3. Cria croqui.yaml
-    croqui_yaml = pico_path / "croqui.yaml"
-    croqui_data_in = {"picos": [{"nome": "Fake", "mapas_gerais": {"caminho": "mapas_gerais.md"}}]}
-    with open(croqui_yaml, "w", encoding="utf-8") as f:
-        yaml.dump(croqui_data_in, f)
-
-    # 4. Destinos
-    dest_yaml = tmp_path / "compilado.yaml"
-    dest_binarypb = tmp_path / "compilado.binarypb"
-
-    # 5. Roda compilar_croqui
-    compilar_croqui(pico_path, dest_yaml, dest_binarypb)
-
-    # 6. Verifica o yaml compilado
-    with open(dest_yaml, encoding="utf-8") as f:
-        compilado = yaml.safe_load(f)
-
-    pico = compilado["picos"][0]
-    mapas_gerais = pico["mapas_gerais"]
-    assert "mapas" in mapas_gerais["conteudo"]
-    assert mapas_gerais["conteudo"]["mapas"][0]["caminho_imagem_mapa"] == "img1.jpg"
-
-
-def test_yaml_dump_preserva_aspas_em_strings_numericas():
-    import yaml
-
-    # "08" é comumente interpretado erroneamente por não ser um octal válido (octais só vão até 7).
-    # O PyYAML por padrão remove as aspas de '08', o que quebra a consistência no yaml gerado.
-    dados = {"id": "08", "label": "09", "normal": "texto", "octal_valido": "07"}
-    yaml_gerado = yaml.dump(dados, sort_keys=False)
-
-    # As aspas simples ou duplas devem existir no YAML dump
-    assert "'08'" in yaml_gerado or '"08"' in yaml_gerado, (
-        f"YAML não preservou aspas em '08':\n{yaml_gerado}"
-    )
-    assert "'09'" in yaml_gerado or '"09"' in yaml_gerado, (
-        f"YAML não preservou aspas em '09':\n{yaml_gerado}"
-    )
-
-
-def test_yaml_sem_spdx(tmp_path):
-    p = tmp_path / "croqui_sem_spdx.yaml"
-    p.write_text("id: teste\nnome: Sem SPDX\n", encoding="utf-8")
-    garantir_comentarios_licenca(p)
-    with open(p, encoding="utf-8") as f:
-        linhas = f.readlines()
-    assert linhas[0].strip() == "# SPDX-License-Identifier: ODbL-1.0"
-    assert linhas[1].strip() == "# Copyright (C) 2026 Aresta Climb Contributors"
-    assert "id: teste" in "".join(linhas)
-
-
-def test_yaml_com_spdx(tmp_path):
-    p = tmp_path / "croqui_com_spdx.yaml"
-    p.write_text(
-        "# SPDX-License-Identifier: ODbL-1.0\nid: teste2\nnome: Com SPDX\n", encoding="utf-8"
-    )
-    garantir_comentarios_licenca(p)
-    with open(p, encoding="utf-8") as f:
-        texto = f.read()
-    assert texto.count("SPDX-License-Identifier") == 1
-
-
-def test_md_sem_spdx(tmp_path):
-    p = tmp_path / "pico_sem_spdx.md"
-    p.write_text("---\nnome: Pico\n---\n\nTexto\n", encoding="utf-8")
-    garantir_comentarios_licenca(p)
-    with open(p, encoding="utf-8") as f:
-        linhas = f.readlines()
-    assert linhas[0].strip() == "---"
-    assert linhas[1].strip() == "# SPDX-License-Identifier: ODbL-1.0"
-    assert linhas[2].strip() == "# Copyright (C) 2026 Aresta Climb Contributors"
-
-
-def test_md_com_spdx(tmp_path):
-    p = tmp_path / "pico_com_spdx.md"
-    p.write_text(
-        "---\n# SPDX-License-Identifier: ODbL-1.0\nnome: Pico 2\n---\n\nTexto\n", encoding="utf-8"
-    )
-    garantir_comentarios_licenca(p)
-    with open(p, encoding="utf-8") as f:
-        texto = f.read()
-    assert texto.count("SPDX-License-Identifier") == 1
-
-
-def test_md_sem_frontmatter(tmp_path):
-    p = tmp_path / "pico_sem_frontmatter.md"
-    p.write_text("# Titulo\n\nTexto\n", encoding="utf-8")
-    garantir_comentarios_licenca(p)
-    with open(p, encoding="utf-8") as f:
-        texto = f.read()
-    assert "SPDX-License-Identifier" not in texto
-
-
-def test_yaml_corrige_spdx_errado_ou_incompleto(tmp_path):
-    p = tmp_path / "croqui_corrige.yaml"
-    # YAML com licença errada e sem copyright, além de um comentário normal
-    p.write_text(
-        "# Meu comentário\n# SPDX-License-Identifier: CC-BY\nid: corrige\n", encoding="utf-8"
-    )
-    garantir_comentarios_licenca(p)
-    with open(p, encoding="utf-8") as f:
-        linhas = f.readlines()
-    assert linhas[0].strip() == "# SPDX-License-Identifier: ODbL-1.0"
-    assert linhas[1].strip() == "# Copyright (C) 2026 Aresta Climb Contributors"
-    assert linhas[2].strip() == "# Meu comentário"
-    assert "id: corrige" in "".join(linhas)
-
-
-def test_md_corrige_spdx_errado_ou_incompleto(tmp_path):
-    p = tmp_path / "pico_corrige.md"
-    # MD com licença errada e copyright errado no frontmatter
-    conteudo = "---\n# copyright do ze\n# SPDX-License-Identifier: Outra-Coisa\n# spdx-license-identifier: duplicado\nnome: Pico\n---\nCorpo\n"
-    p.write_text(conteudo, encoding="utf-8")
-    garantir_comentarios_licenca(p)
-    with open(p, encoding="utf-8") as f:
-        linhas = f.readlines()
-    assert linhas[0].strip() == "---"
-    assert linhas[1].strip() == "# SPDX-License-Identifier: ODbL-1.0"
-    assert linhas[2].strip() == "# Copyright (C) 2026 Aresta Climb Contributors"
-    assert linhas[3].strip() == "nome: Pico"
-    assert "copyright do ze" not in "".join(linhas).lower()
 
 
 from scripts.preparar_submissao_lib import (
@@ -1627,7 +1402,6 @@ def test_compilar_croqui_com_betas(tmp_path):
     """
     Testa se o compilador de croqui serializa corretamente o bloco betas de uma escalada.
     """
-    import yaml
 
     from aresta_api.proto.generated import beta_pb2, croqui_pb2
     from scripts.preparar_submissao_lib import compilar_croqui
@@ -1668,7 +1442,7 @@ Descrição do setor de teste.
         ],
     }
     with open(croqui_yaml, "w", encoding="utf-8") as f:
-        yaml.dump(croqui_data, f)
+        serializar_yaml(croqui_data, f)
 
     destino_yaml = tmp_path / "compilado.yaml"
     destino_binarypb = tmp_path / "compilado.binarypb"
@@ -2047,110 +1821,7 @@ def test_salvar_md_com_frontmatter_grava_comentarios_spdx_e_copyright(tmp_path):
     assert "Descricao do setor de teste" in arquivo_md.read_text(encoding="utf-8")
 
 
-def test_garantir_comentarios_licenca_retentativa_sucesso_apos_bloqueio_errno_22(tmp_path):
-    import builtins
-
-    from scripts.preparar_submissao_lib import garantir_comentarios_licenca
-
-    arquivo_md = tmp_path / "setor_bloqueado.md"
-    arquivo_md.write_text("---\nnome: Setor\n---\nCorpo\n", encoding="utf-8")
-
-    real_open = builtins.open
-    tentativas = 0
-
-    def open_com_falha_transitoria(*args, **kwargs):
-        nonlocal tentativas
-        if str(args[0]) == str(arquivo_md) and (
-            (len(args) > 1 and "w" in args[1]) or kwargs.get("mode") == "w"
-        ):
-            tentativas += 1
-            if tentativas == 1:
-                raise OSError(22, "Invalid argument")
-        return real_open(*args, **kwargs)
-
-    with (
-        patch("builtins.open", side_effect=open_com_falha_transitoria),
-        patch("time.sleep") as mock_sleep,
-    ):
-        garantir_comentarios_licenca(arquivo_md)
-
-    assert tentativas == 2
-    mock_sleep.assert_called_once()
-    linhas = arquivo_md.read_text(encoding="utf-8").splitlines()
-    assert linhas[1].strip() == "# SPDX-License-Identifier: ODbL-1.0"
-    assert linhas[2].strip() == "# Copyright (C) 2026 Aresta Climb Contributors"
-
-
-def test_garantir_comentarios_licenca_retentativa_sucesso_apos_bloqueio_errno_13(tmp_path):
-    import builtins
-
-    from scripts.preparar_submissao_lib import garantir_comentarios_licenca
-
-    arquivo_md = tmp_path / "setor_permissao.md"
-    arquivo_md.write_text("---\nnome: Setor 13\n---\nCorpo\n", encoding="utf-8")
-
-    real_open = builtins.open
-    tentativas = 0
-
-    def open_com_falha_transitoria(*args, **kwargs):
-        nonlocal tentativas
-        if str(args[0]) == str(arquivo_md) and (
-            (len(args) > 1 and "w" in args[1]) or kwargs.get("mode") == "w"
-        ):
-            tentativas += 1
-            if tentativas == 1:
-                raise OSError(13, "Permission denied")
-        return real_open(*args, **kwargs)
-
-    with (
-        patch("builtins.open", side_effect=open_com_falha_transitoria),
-        patch("time.sleep") as mock_sleep,
-    ):
-        garantir_comentarios_licenca(arquivo_md)
-
-    assert tentativas == 2
-    mock_sleep.assert_called_once()
-    linhas = arquivo_md.read_text(encoding="utf-8").splitlines()
-    assert linhas[1].strip() == "# SPDX-License-Identifier: ODbL-1.0"
-    assert linhas[2].strip() == "# Copyright (C) 2026 Aresta Climb Contributors"
-
-
-def test_garantir_comentarios_licenca_falha_apos_maximo_tentativas(tmp_path, capsys):
-    import builtins
-
-    from scripts.preparar_submissao_lib import garantir_comentarios_licenca
-
-    arquivo_md = tmp_path / "setor_persistente.md"
-    arquivo_md.write_text("---\nnome: Falha\n---\nCorpo\n", encoding="utf-8")
-
-    real_open = builtins.open
-    tentativas = 0
-
-    def open_com_falha_continua(*args, **kwargs):
-        nonlocal tentativas
-        if str(args[0]) == str(arquivo_md) and (
-            (len(args) > 1 and "w" in args[1]) or kwargs.get("mode") == "w"
-        ):
-            tentativas += 1
-            raise OSError(22, "Invalid argument persistente")
-        return real_open(*args, **kwargs)
-
-    with (
-        patch("builtins.open", side_effect=open_com_falha_continua),
-        patch("time.sleep") as mock_sleep,
-    ):
-        garantir_comentarios_licenca(arquivo_md)
-
-    assert tentativas == 3
-    assert mock_sleep.call_count == 2
-    captured = capsys.readouterr()
-    assert "Erro ao escrever" in captured.out
-    assert "Invalid argument persistente" in captured.out
-
-
 def test_garantir_comentarios_licenca_yaml_ja_correto_nao_reescreve(tmp_path):
-    import builtins
-
     from scripts.preparar_submissao_lib import garantir_comentarios_licenca
 
     arquivo_yaml = tmp_path / "correto.yaml"
@@ -2160,25 +1831,14 @@ def test_garantir_comentarios_licenca_yaml_ja_correto_nao_reescreve(tmp_path):
         "versao: 1\n",
         encoding="utf-8",
     )
+    os.utime(arquivo_yaml, ns=(1_000_000_000, 1_000_000_000))
 
-    chamadas_escrita = 0
-    real_open = builtins.open
+    garantir_comentarios_licenca(arquivo_yaml)
 
-    def interceptar_open(*args, **kwargs):
-        nonlocal chamadas_escrita
-        if (len(args) > 1 and "w" in args[1]) or kwargs.get("mode") == "w":
-            chamadas_escrita += 1
-        return real_open(*args, **kwargs)
-
-    with patch("builtins.open", side_effect=interceptar_open):
-        garantir_comentarios_licenca(arquivo_yaml)
-
-    assert chamadas_escrita == 0
+    assert arquivo_yaml.stat().st_mtime_ns == 1_000_000_000
 
 
 def test_garantir_comentarios_licenca_md_ja_correto_nao_reescreve(tmp_path):
-    import builtins
-
     from scripts.preparar_submissao_lib import garantir_comentarios_licenca
 
     arquivo_md = tmp_path / "correto.md"
@@ -2191,20 +1851,11 @@ def test_garantir_comentarios_licenca_md_ja_correto_nao_reescreve(tmp_path):
         "Descricao\n",
         encoding="utf-8",
     )
+    os.utime(arquivo_md, ns=(1_000_000_000, 1_000_000_000))
 
-    chamadas_escrita = 0
-    real_open = builtins.open
+    garantir_comentarios_licenca(arquivo_md)
 
-    def interceptar_open(*args, **kwargs):
-        nonlocal chamadas_escrita
-        if (len(args) > 1 and "w" in args[1]) or kwargs.get("mode") == "w":
-            chamadas_escrita += 1
-        return real_open(*args, **kwargs)
-
-    with patch("builtins.open", side_effect=interceptar_open):
-        garantir_comentarios_licenca(arquivo_md)
-
-    assert chamadas_escrita == 0
+    assert arquivo_md.stat().st_mtime_ns == 1_000_000_000
 
 
 def test_garantir_comentarios_licenca_yaml_injeta_se_ausente(tmp_path):
@@ -2259,35 +1910,6 @@ def test_garantir_comentarios_licenca_md_sem_frontmatter(tmp_path):
 
     garantir_comentarios_licenca(arquivo_md)
     assert arquivo_md.read_text(encoding="utf-8") == "# Apenas Markdown sem Frontmatter\n"
-
-
-def test_garantir_comentarios_licenca_excecao_generica_na_escrita(tmp_path, capsys):
-    import builtins
-
-    from scripts.preparar_submissao_lib import garantir_comentarios_licenca
-
-    arquivo_md = tmp_path / "erro_generico.md"
-    arquivo_md.write_text("---\nnome: Erro\n---\n", encoding="utf-8")
-
-    real_open = builtins.open
-    tentativas = 0
-
-    def open_com_erro_generico(*args, **kwargs):
-        nonlocal tentativas
-        if str(args[0]) == str(arquivo_md) and (
-            (len(args) > 1 and "w" in args[1]) or kwargs.get("mode") == "w"
-        ):
-            tentativas += 1
-            raise RuntimeError("Falha inesperada não-OSError")
-        return real_open(*args, **kwargs)
-
-    with patch("builtins.open", side_effect=open_com_erro_generico):
-        garantir_comentarios_licenca(arquivo_md)
-
-    assert tentativas == 1
-    captured = capsys.readouterr()
-    assert "Erro ao escrever" in captured.out
-    assert "Falha inesperada não-OSError" in captured.out
 
 
 def test_garantir_comentarios_licenca_substitui_comentarios_antigos_yaml(tmp_path):
@@ -2476,7 +2098,6 @@ def test_compilar_croqui_com_mapas_gerais_e_mapas_de_escaladas(tmp_path):
     com sucesso um croqui contendo mapas gerais (no pico), mapas de setor e
     mapas específicos dentro de escaladas individuais com pontos de interesse.
     """
-    import yaml
 
     from aresta_api.proto.generated import croqui_pb2
     from scripts.preparar_submissao_lib import compilar_croqui
@@ -2555,14 +2176,14 @@ def test_compilar_croqui_com_mapas_gerais_e_mapas_de_escaladas(tmp_path):
         ],
     }
     with open(croqui_yaml, "w", encoding="utf-8") as f:
-        yaml.dump(croqui_data, f)
+        serializar_yaml(croqui_data, f)
 
     destino_yaml = tmp_path / "compilado.yaml"
     destino_binarypb = tmp_path / "compilado.binarypb"
 
     compilar_croqui(pico_dir, destino_yaml, destino_binarypb)
 
-    assert destino_yaml.exists()
+    assert not destino_yaml.exists()
     assert destino_binarypb.exists()
 
     # Validação no modelo Protobuf
@@ -2600,7 +2221,6 @@ def test_corrigir_database_migra_mapas_gerais_de_raw_pdf_contents(tmp_path):
     raw_pdf_contents/imagens/mapas_gerais/p0_i3.webp para imagens/mapas_gerais_p0_i3.webp,
     atualizando o arquivo mapas_gerais.md e preservando-o contra a limpeza de órfãos.
     """
-    import yaml
     from PIL import Image
 
     from scripts.preparar_submissao_lib import corrigir_database, parse_md_com_frontmatter
@@ -2641,7 +2261,7 @@ def test_corrigir_database_migra_mapas_gerais_de_raw_pdf_contents(tmp_path):
         "picos": [{"nome": "Serra Teste", "mapas_gerais": {"caminho": "mapas_gerais.md"}}],
     }
     with open(croqui_yaml, "w", encoding="utf-8") as f:
-        yaml.dump(croqui_data, f)
+        serializar_yaml(croqui_data, f)
 
     # Executa corrigir_database
     corrigir_database(tmp_path)
@@ -2662,7 +2282,6 @@ def test_corrigir_database_migra_mapas_gerais_inline_no_yaml(tmp_path):
     Testa se corrigir_database processa mapas gerais estruturados inline no croqui.yaml,
     movendo imagens de raw_pdf_contents e salvando o croqui.yaml com o caminho corrigido.
     """
-    import yaml
     from PIL import Image
 
     from scripts.preparar_submissao_lib import corrigir_database
@@ -2695,7 +2314,7 @@ def test_corrigir_database_migra_mapas_gerais_inline_no_yaml(tmp_path):
         ],
     }
     with open(croqui_yaml, "w", encoding="utf-8") as f:
-        yaml.dump(croqui_data, f)
+        serializar_yaml(croqui_data, f)
 
     corrigir_database(tmp_path)
 
@@ -2703,7 +2322,7 @@ def test_corrigir_database_migra_mapas_gerais_inline_no_yaml(tmp_path):
     assert img_esperada.exists()
 
     with open(croqui_yaml, encoding="utf-8") as f:
-        dados_atualizados = yaml.safe_load(f)
+        dados_atualizados = carregar_yaml(f)
 
     pico = dados_atualizados["picos"][0]
     assert (
@@ -2897,7 +2516,6 @@ def test_validar_referencias_mapa_aviso_mapa_duplicado():
 
 
 def test_corrigir_database_audita_uids_sucesso(tmp_path: Path):
-    import yaml
 
     from scripts.gerenciar_uids_lib import gerar_uid
     from scripts.preparar_submissao_lib import corrigir_database
@@ -2951,14 +2569,13 @@ Descrição do setor
     }
     (tmp_path / "capa.md").write_text("# Capa", encoding="utf-8")
     with open(tmp_path / "croqui.yaml", "w", encoding="utf-8") as f:
-        yaml.dump(croqui_yaml, f)
+        serializar_yaml(croqui_yaml, f)
 
     # Não deve lançar erro
     corrigir_database(tmp_path)
 
 
 def test_corrigir_database_botao_com_uid_invalido_lanca_erro(tmp_path: Path):
-    import yaml
 
     from scripts.gerenciar_uids_lib import gerar_uid
     from scripts.preparar_submissao_lib import corrigir_database
@@ -2978,7 +2595,7 @@ def test_corrigir_database_botao_com_uid_invalido_lanca_erro(tmp_path: Path):
         "picos": [],
     }
     with open(tmp_path / "croqui.yaml", "w", encoding="utf-8") as f:
-        yaml.dump(croqui_yaml, f)
+        serializar_yaml(croqui_yaml, f)
 
     with pytest.raises(
         ValueError, match="Botão 'Avisos' no croqui .* possui UID ausente ou inválido"
@@ -2987,7 +2604,6 @@ def test_corrigir_database_botao_com_uid_invalido_lanca_erro(tmp_path: Path):
 
 
 def test_corrigir_database_croqui_com_uid_invalido_lanca_erro(tmp_path: Path):
-    import yaml
 
     from scripts.preparar_submissao_lib import corrigir_database
 
@@ -2999,14 +2615,13 @@ def test_corrigir_database_croqui_com_uid_invalido_lanca_erro(tmp_path: Path):
         "picos": [],
     }
     with open(tmp_path / "croqui.yaml", "w", encoding="utf-8") as f:
-        yaml.dump(croqui_yaml, f)
+        serializar_yaml(croqui_yaml, f)
 
     with pytest.raises(ValueError, match="UID ausente ou inválido"):
         corrigir_database(tmp_path)
 
 
 def test_corrigir_database_setor_com_uid_invalido_lanca_erro(tmp_path: Path):
-    import yaml
 
     from scripts.gerenciar_uids_lib import gerar_uid
     from scripts.preparar_submissao_lib import corrigir_database
@@ -3027,14 +2642,13 @@ Desc
         "picos": [{"nome": "Pico 1", "setores_ou_grupos": [{"setor": {"caminho": "setor.md"}}]}],
     }
     with open(tmp_path / "croqui.yaml", "w", encoding="utf-8") as f:
-        yaml.dump(croqui_yaml, f)
+        serializar_yaml(croqui_yaml, f)
 
     with pytest.raises(ValueError, match="UID ausente ou inválido"):
         corrigir_database(tmp_path)
 
 
 def test_corrigir_database_escalada_com_uid_invalido_lanca_erro(tmp_path: Path):
-    import yaml
 
     from scripts.gerenciar_uids_lib import gerar_uid
     from scripts.preparar_submissao_lib import corrigir_database
@@ -3059,14 +2673,13 @@ Desc
         "picos": [{"nome": "Pico 1", "setores_ou_grupos": [{"setor": {"caminho": "setor.md"}}]}],
     }
     with open(tmp_path / "croqui.yaml", "w", encoding="utf-8") as f:
-        yaml.dump(croqui_yaml, f)
+        serializar_yaml(croqui_yaml, f)
 
     with pytest.raises(ValueError, match="UID ausente ou inválido"):
         corrigir_database(tmp_path)
 
 
 def test_corrigir_database_poi_com_uid_invalido_lanca_erro(tmp_path: Path):
-    import yaml
 
     from scripts.gerenciar_uids_lib import gerar_uid
     from scripts.preparar_submissao_lib import corrigir_database
@@ -3099,14 +2712,13 @@ Desc
         "picos": [{"nome": "Pico 1", "setores_ou_grupos": [{"setor": {"caminho": "setor.md"}}]}],
     }
     with open(tmp_path / "croqui.yaml", "w", encoding="utf-8") as f:
-        yaml.dump(croqui_yaml, f)
+        serializar_yaml(croqui_yaml, f)
 
     with pytest.raises(ValueError, match="UID ausente ou inválido"):
         corrigir_database(tmp_path)
 
 
 def test_compilar_croqui_injeta_uids_e_preenche_retrocompatibilidade(tmp_path: Path):
-    import yaml
     from PIL import Image
 
     from aresta_api.proto.generated import croqui_pb2
@@ -3166,7 +2778,7 @@ Descrição do setor
         "picos": [{"nome": "Pico 1", "setores_ou_grupos": [{"setor": {"caminho": "setor.md"}}]}],
     }
     with open(tmp_path / "croqui.yaml", "w", encoding="utf-8") as f:
-        yaml.dump(croqui_yaml, f)
+        serializar_yaml(croqui_yaml, f)
 
     destino_yaml = tmp_path / "compilado.yaml"
     destino_pb = tmp_path / "compilado.binarypb"
@@ -3243,7 +2855,7 @@ Descrição do setor
         "picos": [{"nome": "Pico 1", "setores_ou_grupos": [{"setor": {"caminho": "setor.md"}}]}],
     }
     with open(tmp_path / "croqui.yaml", "w", encoding="utf-8") as f:
-        yaml.dump(croqui_yaml, f)
+        serializar_yaml(croqui_yaml, f)
 
     destino_yaml = tmp_path / "compilado.yaml"
     destino_pb = tmp_path / "compilado.binarypb"
@@ -3273,7 +2885,6 @@ Descrição do setor
 
 def test_compilar_croqui_retrocompatibilidade_cross_sector_e_grupo(tmp_path: Path):
     """Garante que referências cross-sector e em mapas de grupo preenchem setor e grupo para binários legados."""
-    import yaml
     from PIL import Image
 
     from aresta_api.proto.generated import croqui_pb2
@@ -3293,7 +2904,9 @@ def test_compilar_croqui_retrocompatibilidade_cross_sector_e_grupo(tmp_path: Pat
     (tmp_path / "imagens").mkdir(exist_ok=True)
     Image.new("RGB", (100, 100), color="red").save(tmp_path / "imagens" / "mapa1.webp", "WEBP")
     Image.new("RGB", (100, 100), color="green").save(tmp_path / "imagens" / "mapa2.webp", "WEBP")
-    Image.new("RGB", (100, 100), color="blue").save(tmp_path / "imagens" / "mapa_grupo.webp", "WEBP")
+    Image.new("RGB", (100, 100), color="blue").save(
+        tmp_path / "imagens" / "mapa_grupo.webp", "WEBP"
+    )
 
     # Setor 1 tem um mapa com referência cross-sector para esc2_uid (que pertence ao Setor 2)
     md_setor1 = f"""---
@@ -3382,7 +2995,7 @@ setores:
         ],
     }
     with open(tmp_path / "croqui.yaml", "w", encoding="utf-8") as f:
-        yaml.dump(croqui_yaml, f)
+        serializar_yaml(croqui_yaml, f)
 
     destino_yaml = tmp_path / "compilado.yaml"
     destino_pb = tmp_path / "compilado.binarypb"
@@ -3451,14 +3064,14 @@ Descrição do setor rascunho
         ],
     }
     with open(tmp_path / "croqui.yaml", "w", encoding="utf-8") as f:
-        yaml.dump(croqui_yaml, f)
+        serializar_yaml(croqui_yaml, f)
 
     modificado = corrigir_database(tmp_path)
     assert modificado is True
 
     # Verifica se croqui.yaml ganhou UID
     with open(tmp_path / "croqui.yaml", encoding="utf-8") as f:
-        croqui_atualizado = yaml.safe_load(f)
+        croqui_atualizado = carregar_yaml(f)
     assert validar_uid(croqui_atualizado.get("uid"))
 
     # Verifica se setor_rascunho.md ganhou UIDs e converteu referências
@@ -3546,13 +3159,13 @@ Descrição do setor parcial
         ],
     }
     with open(tmp_path / "croqui.yaml", "w", encoding="utf-8") as f:
-        yaml.dump(croqui_yaml, f)
+        serializar_yaml(croqui_yaml, f)
 
     corrigir_database(tmp_path)
 
     # Verifica se UID do croqui se manteve
     with open(tmp_path / "croqui.yaml", encoding="utf-8") as f:
-        croqui_pos = yaml.safe_load(f)
+        croqui_pos = carregar_yaml(f)
     assert croqui_pos.get("uid") == uid_croqui
 
     # Verifica preservação e novas adições no markdown
@@ -3583,18 +3196,11 @@ Descrição do setor parcial
     assert refs[1].get("pontos_uids") == [novo_poi_uid]
 
 
-def test_compilar_croqui_e_garantir_comentarios_licenca_escrevem_lf_e_preservam_representer(
+def test_compilar_croqui_e_garantir_comentarios_licenca_escrevem_lf_e_nao_geram_compilado_yaml(
     tmp_path: Path,
 ):
-    """Garante que compilar_croqui e garantir_comentarios_licenca escrevem exclusivamente LF e preservam '|-'."""
-    import yaml
-
+    """Garante que garantir_comentarios_licenca escreve exclusivamente LF e compilar_croqui não gera compilado.yaml."""
     from scripts.preparar_submissao_lib import compilar_croqui, garantir_comentarios_licenca
-
-    # Simula interferência externa no representer global antes de compilar
-    yaml.add_representer(
-        str, lambda dumper, data: dumper.represent_scalar("tag:yaml.org,2002:str", data)
-    )
 
     pico_dir = tmp_path / "pico_lf"
     pico_dir.mkdir()
@@ -3629,11 +3235,352 @@ def test_compilar_croqui_e_garantir_comentarios_licenca_escrevem_lf_e_preservam_
 
     destino_yaml = tmp_path / "compilado.yaml"
     destino_binarypb = tmp_path / "compilado.binarypb"
-    compilar_croqui(pico_dir, destino_yaml, destino_binarypb)
+    compilado = compilar_croqui(pico_dir, destino_yaml, destino_binarypb)
 
-    bytes_compilado = destino_yaml.read_bytes()
-    assert b"\r\n" not in bytes_compilado
-    texto_compilado = bytes_compilado.decode("utf-8")
-    assert "id: '08'" in texto_compilado
-    assert "descricao: |-\n" in texto_compilado
+    assert not destino_yaml.exists()
+    assert destino_binarypb.exists()
+    assert compilado["id"] == "08"
+
+
+def test_atualizar_dimensoes_mapas_vinculado_a_imagens_inalteradas_e_modificadas(
+    tmp_path: Path,
+):
+    """
+    Garante que atualizar_dimensoes_mapas:
+    1. Pula Image.open quando a imagem está em imagens_inalteradas e largura/altura já são inteiros positivos.
+    2. Abre a imagem e atualiza largura_mapa/altura_mapa quando a imagem NÃO está em imagens_inalteradas
+       (foi modificada/copiada ou imagens_inalteradas=None), mesmo que largura/altura já fossem positivos.
+    3. Com apenas_existentes=True, atualiza apenas mapas que já possuíam largura_mapa/altura_mapa declarados.
+    """
+    from scripts.preparar_submissao_lib import atualizar_dimensoes_mapas
+
+    pasta_img = tmp_path / "imagens"
+    pasta_img.mkdir()
+    # A imagem física no disco tem 64x32, mas os metadados declaram 1920x1080
+    Image.new("RGB", (64, 32), color="blue").save(pasta_img / "mapa_com_dim.webp", "WEBP")
+    Image.new("RGB", (120, 80), color="green").save(pasta_img / "mapa_sem_dim.webp", "WEBP")
+
+    dados = {
+        "mapas": [
+            {
+                "caminho_imagem_mapa": "imagens/mapa_com_dim.webp",
+                "largura_mapa": 1920,
+                "altura_mapa": 1080,
+            },
+            {
+                "caminho_imagem_mapa": "imagens/mapa_sem_dim.webp",
+            },
+            {
+                "caminho_imagem_mapa": "imagens/mapa_sem_dim.webp",
+                "largura_mapa": 0,
+                "altura_mapa": 0,
+            },
+        ]
+    }
+
+    # Caso 1: mapa_com_dim.webp está em imagens_inalteradas -> preserva 1920x1080 sem reabrir
+    modificou_inalterada = atualizar_dimensoes_mapas(
+        dados,
+        tmp_path,
+        imagens_inalteradas={"imagens/mapa_com_dim.webp", "imagens/mapa_sem_dim.webp"},
+    )
+    assert modificou_inalterada is True
+    assert dados["mapas"][0]["largura_mapa"] == 1920
+    assert dados["mapas"][0]["altura_mapa"] == 1080
+    # Mapas sem dimensões ou com 0 abrem a imagem mesmo estando em imagens_inalteradas
+    assert dados["mapas"][1]["largura_mapa"] == 120
+    assert dados["mapas"][1]["altura_mapa"] == 80
+    assert dados["mapas"][2]["largura_mapa"] == 120
+    assert dados["mapas"][2]["altura_mapa"] == 80
+
+    # Caso 2: Com apenas_existentes=True e imagem modificada (fora de imagens_inalteradas)
+    dados_apenas_existentes = {
+        "mapas": [
+            {
+                "caminho_imagem_mapa": "imagens/mapa_com_dim.webp",
+                "largura_mapa": 1920,
+                "altura_mapa": 1080,
+            },
+            {
+                "caminho_imagem_mapa": "imagens/mapa_sem_dim.webp",
+            },
+        ]
+    }
+    modificou_existentes = atualizar_dimensoes_mapas(
+        dados_apenas_existentes,
+        tmp_path,
+        imagens_inalteradas=set(),
+        apenas_existentes=True,
+    )
+    assert modificou_existentes is True
+    assert dados_apenas_existentes["mapas"][0]["largura_mapa"] == 64
+    assert dados_apenas_existentes["mapas"][0]["altura_mapa"] == 32
+    assert "largura_mapa" not in dados_apenas_existentes["mapas"][1]
+
+    # Caso 3: mapa_com_dim.webp NÃO está em imagens_inalteradas (foi modificada) -> atualiza para 64x32
+    modificou_modificada = atualizar_dimensoes_mapas(
+        dados,
+        tmp_path,
+        imagens_inalteradas=set(),
+    )
+    assert modificou_modificada is True
+    assert dados["mapas"][0]["largura_mapa"] == 64
+    assert dados["mapas"][0]["altura_mapa"] == 32
+
+    # Caso 4: Segunda chamada com dimensões já iguais às da imagem no disco -> retorna False
+    assert atualizar_dimensoes_mapas(dados, tmp_path, imagens_inalteradas=set()) is False
+
+    # Caso 5: sincronizar_dimensoes_mapas_database atualiza croqui.yaml e .md quando imagem foi modificada
+    from scripts.preparar_submissao_lib import sincronizar_dimensoes_mapas_database
+
+    croqui_yaml_path = tmp_path / "croqui.yaml"
+    croqui_data_inline = {
+        "id": "teste",
+        "picos": [
+            {
+                "nome": "Pico",
+                "mapas": [
+                    {
+                        "caminho_imagem_mapa": "imagens/mapa_com_dim.webp",
+                        "largura_mapa": 999,
+                        "altura_mapa": 888,
+                    }
+                ],
+            }
+        ],
+    }
+    croqui_yaml_path.write_text(
+        serializar_yaml(croqui_data_inline, incluir_cabecalho_spdx=True),
+        encoding="utf-8",
+    )
+    setor_md_path = tmp_path / "setor.md"
+    setor_md_path.write_text(
+        "---\nnome: S\nmapas:\n  - caminho_imagem_mapa: imagens/mapa_com_dim.webp\n    largura_mapa: 555\n    altura_mapa: 444\n---\nCorpo\n",
+        encoding="utf-8",
+    )
+    cache_md = {
+        "setor.md": (
+            {
+                "nome": "S",
+                "mapas": [
+                    {
+                        "caminho_imagem_mapa": "imagens/mapa_com_dim.webp",
+                        "largura_mapa": 555,
+                        "altura_mapa": 444,
+                    }
+                ],
+            },
+            "Corpo\n",
+        )
+    }
+    assert (
+        sincronizar_dimensoes_mapas_database(
+            tmp_path,
+            croqui_data_inline,
+            cache_md,
+            imagens_inalteradas=set(),
+        )
+        is True
+    )
+    assert croqui_data_inline["picos"][0]["mapas"][0]["largura_mapa"] == 64
+    assert croqui_data_inline["picos"][0]["mapas"][0]["altura_mapa"] == 32
+    assert cache_md["setor.md"][0]["mapas"][0]["largura_mapa"] == 64
+    assert cache_md["setor.md"][0]["mapas"][0]["altura_mapa"] == 32
+
+
+def test_corrigir_database_e_compilar_croqui_reutilizam_dados_em_memoria_sem_reler_disco(
+    tmp_path: Path,
+):
+    """
+    Garante que corrigir_database popula os caches em memória sem tocar arquivos já saneados,
+    e compilar_croqui reutiliza esses dados em memória sem precisar reler croqui.yaml ou *.md do disco.
+    """
+    from scripts.migrador import obter_ultima_versao_migracao
+
+    versao_maxima = obter_ultima_versao_migracao()
+    croqui_uid = gerar_uid()
+    setor_uid = gerar_uid()
+    esc_uid = gerar_uid()
+    poi_uid = gerar_uid()
+    botao_uid = gerar_uid()
+
+    pico_dir = tmp_path / "croqui_memoria"
+    pico_dir.mkdir()
+    (pico_dir / "imagens").mkdir()
+
+    capa_md = pico_dir / "capa.md"
+    capa_md.write_text("Texto da capa em memória.\n", encoding="utf-8")
+
+    setor_md = pico_dir / "setor_1.md"
+    setor_md.write_text(
+        f"---\n"
+        f"# SPDX-License-Identifier: ODbL-1.0\n"
+        f"# Copyright (C) 2026 Aresta Climb Contributors\n"
+        f"uid: {setor_uid}\n"
+        f"nome: Setor Memória\n"
+        f"mapas:\n"
+        f"  - caminho_imagem_mapa: imagens/mapa.webp\n"
+        f"    largura_mapa: 500\n"
+        f"    altura_mapa: 400\n"
+        f"    pontos_de_interesse:\n"
+        f"      - uid: {poi_uid}\n"
+        f"        rotulo: '01'\n"
+        f"        circulo:\n"
+        f"          x: 10\n"
+        f"          y: 20\n"
+        f"          raio: 5\n"
+        f"    referencias:\n"
+        f"      - alvo_uid: {esc_uid}\n"
+        f"        pontos_uids:\n"
+        f"          - {poi_uid}\n"
+        f"escaladas:\n"
+        f"  - uid: {esc_uid}\n"
+        f"    via_esportiva:\n"
+        f"      nome: Via Rápida\n"
+        f"---\n"
+        f"Descrição do setor em memória.\n",
+        encoding="utf-8",
+    )
+
+    croqui_yaml = pico_dir / "croqui.yaml"
+    croqui_yaml.write_text(
+        f"# SPDX-License-Identifier: ODbL-1.0\n"
+        f"# Copyright (C) 2026 Aresta Climb Contributors\n"
+        f"uid: {croqui_uid}\n"
+        f"id: croqui_memoria\n"
+        f"nome: Croqui Memória\n"
+        f"ultima_migracao: {versao_maxima}\n"
+        f"botoes:\n"
+        f"  - uid: {botao_uid}\n"
+        f"    texto: Capa\n"
+        f"    destino:\n"
+        f"      secao_textual:\n"
+        f"        caminho: capa.md\n"
+        f"picos:\n"
+        f"  - nome: Pico Principal\n"
+        f"    setores_ou_grupos:\n"
+        f"      - setor:\n"
+        f"          caminho: setor_1.md\n",
+        encoding="utf-8",
+    )
+
+    os.utime(croqui_yaml, ns=(1_000_000_000, 1_000_000_000))
+    os.utime(setor_md, ns=(1_000_000_000, 1_000_000_000))
+    os.utime(capa_md, ns=(1_000_000_000, 1_000_000_000))
+
+    dados_memoria: dict = {}
+    cache_md: dict = {}
+
+    modificou = corrigir_database(
+        pico_dir,
+        dados_croqui_memoria=dados_memoria,
+        cache_md_memoria=cache_md,
+    )
+
+    assert modificou is False
+    assert croqui_yaml.stat().st_mtime_ns == 1_000_000_000
+    assert setor_md.stat().st_mtime_ns == 1_000_000_000
+    assert capa_md.stat().st_mtime_ns == 1_000_000_000
+    assert dados_memoria["id"] == "croqui_memoria"
+    assert "setor_1.md" in cache_md
+    assert "capa.md" in cache_md
+
+    # Remove os arquivos do disco para comprovar que compilar_croqui usa exclusivamente o estado em memória
+    croqui_yaml.unlink()
+    setor_md.unlink()
+    capa_md.unlink()
+
+    destino_pb = tmp_path / "compilado.binarypb"
+    compilado = compilar_croqui(
+        pico_dir,
+        None,
+        destino_pb,
+        dados_croqui_memoria=dados_memoria,
+        cache_md_memoria=cache_md,
+    )
+
+    assert destino_pb.exists()
+    assert compilado["nome"] == "Croqui Memória"
+    setor_comp = compilado["picos"][0]["setores_ou_grupos"][0]["setor"]["conteudo"]
+    assert setor_comp["nome"] == "Setor Memória"
+    assert setor_comp["mapas"][0]["largura_mapa"] == 500
+    assert setor_comp["mapas"][0]["altura_mapa"] == 400
+
+
+def test_corrigir_database_sem_snapshot_rglob_e_modo_em_memoria(tmp_path: Path) -> None:
+    """
+    Garante que:
+    1. _obter_snapshot_arquivos_croqui foi removido de scripts.preparar_submissao_lib.
+    2. limpar_arquivos_nao_utilizados, garantir_comentarios_licenca e corrigir_setores_ou_grupos_recursivo
+       retornam bool indicando se houve modificação.
+    3. corrigir_database com persistir_no_disco=False atualiza croqui_data e cache_md em RAM sem gravar no disco.
+    """
+    import scripts.preparar_submissao_lib as prep_lib
+    from scripts.migrador import obter_ultima_versao_migracao
+
+    assert not hasattr(prep_lib, "_obter_snapshot_arquivos_croqui")
+
+    versao_maxima = obter_ultima_versao_migracao()
+    pico_dir = tmp_path / "croqui_sem_rglob"
+    pico_dir.mkdir()
+    (pico_dir / "imagens").mkdir()
+
+    # 1. Testa garantir_comentarios_licenca retornando True na primeira vez e False na segunda
+    arq_yaml_spdx = tmp_path / "teste_spdx.yaml"
+    arq_yaml_spdx.write_text("id: teste\n", encoding="utf-8")
+    assert prep_lib.garantir_comentarios_licenca(arq_yaml_spdx) is True
+    assert prep_lib.garantir_comentarios_licenca(arq_yaml_spdx) is False
+
+    # 2. Testa limpar_arquivos_nao_utilizados retornando False quando limpo e True quando remove órfão
+    assert prep_lib.limpar_arquivos_nao_utilizados(pico_dir, {"picos": []}) is False
+    (pico_dir / "orfao_temp.md").write_text("orfao", encoding="utf-8")
+    assert prep_lib.limpar_arquivos_nao_utilizados(pico_dir, {"picos": []}) is True
+
+    # 3. Testa corrigir_database em modo persistir_no_disco=False (opera 100% em RAM sem criar croqui.yaml ou setor.md no disco)
+    croqui_data_ram = {
+        "id": "croqui_ram",
+        "uid": gerar_uid(),
+        "nome": "Croqui RAM",
+        "ultima_migracao": versao_maxima,
+        "picos": [
+            {
+                "nome": "Pico RAM",
+                "localizacao": {"latitude": -22.5, "longitude": -45.5},
+                "setores_ou_grupos": [{"setor": {"caminho": "setor_1.md"}}],
+            }
+        ],
+    }
+    cache_md_ram: dict = {
+        "setor_1.md": (
+            {
+                "uid": gerar_uid(),
+                "nome": "Setor RAM",
+                "localizacao": {"latitude": -22.5, "longitude": -45.5},
+            },
+            "Corpo em RAM",
+        )
+    }
+
+    modificou = corrigir_database(
+        pico_dir,
+        dados_croqui_memoria=croqui_data_ram,
+        cache_md_memoria=cache_md_ram,
+        persistir_no_disco=False,
+    )
+    assert modificou is True
+    # Coordenadas convertidas para E7 em RAM:
+    assert croqui_data_ram["picos"][0]["localizacao"]["latitude"] == -225000000
+    assert cache_md_ram["setor_1.md"][0]["localizacao"]["latitude"] == -225000000
+    # Nenhum arquivo .yaml ou .md foi escrito no disco ainda:
+    assert not (pico_dir / "croqui.yaml").exists()
+    assert not (pico_dir / "setor_1.md").exists()
+
+    # Segunda execução em RAM com dados já saneados -> retorna False
+    modificou_segunda = corrigir_database(
+        pico_dir,
+        dados_croqui_memoria=croqui_data_ram,
+        cache_md_memoria=cache_md_ram,
+        persistir_no_disco=False,
+    )
+    assert modificou_segunda is False
 

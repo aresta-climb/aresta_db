@@ -52,6 +52,8 @@ def test_deve_iniciar_servidor_http_e_servir_arquivos(tmp_path):
     pasta_compilado.mkdir()
     arquivo_teste = pasta_compilado / "index.json"
     arquivo_teste.write_text('{"status": "ok"}', encoding="utf-8")
+    arquivo_db = pasta_compilado / "catalogo.db"
+    arquivo_db.write_bytes(b"SQLite format 3\x00dados")
 
     servidor = ServidorCelular(pasta_compilado)
     servidor.iniciar()
@@ -62,6 +64,11 @@ def test_deve_iniciar_servidor_http_e_servir_arquivos(tmp_path):
 
     assert resposta.status_code == 200
     assert resposta.json() == {"status": "ok"}
+
+    resposta_db = requests.get(f"http://127.0.0.1:{servidor.porta}/catalogo.db")
+    assert resposta_db.status_code == 200
+    assert resposta_db.content == b"SQLite format 3\x00dados"
+    assert "application/octet-stream" in resposta_db.headers.get("content-type", "")
 
     servidor.parar()
     if servidor._thread_servidor and servidor._thread_servidor.is_alive():

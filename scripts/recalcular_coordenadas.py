@@ -1,178 +1,155 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
-import io
+"""Utilitário para recalcular proporcionalmente coordenadas de POIs após redimensionamento de mapas."""
+
 import json
 from pathlib import Path
 from typing import Any
 
 from PIL import Image
-from ruamel.yaml import YAML
 
-yaml = YAML()
-yaml.preserve_quotes = True
+from scripts.markdown_frontmatter_lib import (
+    parse_md_com_frontmatter,
+    salvar_md_com_frontmatter,
+)
 
 
-def scale_value(val: int | float | None, scale: float) -> int | None:
-    if val is None:
+def escalar_valor(valor: int | float | None, escala: float) -> int | None:
+    """Aplica fator de escala e arredonda para inteiro."""
+    if valor is None:
         return None
-    return int(round(val * scale))
+    return int(round(valor * escala))
 
 
-def process_poi(poi: dict[str, Any], scale_x: float, scale_y: float) -> None:
-    # Scale points depending on the structure
+def processar_poi(poi: dict[str, Any], escala_x: float, escala_y: float) -> None:
+    """Redimensiona coordenadas geométricas de um ponto de interesse."""
     if "circular" in poi:
-        poi["circular"]["x"] = scale_value(poi["circular"]["x"], scale_x)
-        poi["circular"]["y"] = scale_value(poi["circular"]["y"], scale_y)
+        poi["circular"]["x"] = escalar_valor(poi["circular"]["x"], escala_x)
+        poi["circular"]["y"] = escalar_valor(poi["circular"]["y"], escala_y)
         if "raio" in poi["circular"]:
-            poi["circular"]["raio"] = scale_value(
-                poi["circular"]["raio"], (scale_x + scale_y) / 2.0
+            poi["circular"]["raio"] = escalar_valor(
+                poi["circular"]["raio"], (escala_x + escala_y) / 2.0
             )
 
     if "circulo" in poi:
-        poi["circulo"]["x"] = scale_value(poi["circulo"]["x"], scale_x)
-        poi["circulo"]["y"] = scale_value(poi["circulo"]["y"], scale_y)
+        poi["circulo"]["x"] = escalar_valor(poi["circulo"]["x"], escala_x)
+        poi["circulo"]["y"] = escalar_valor(poi["circulo"]["y"], escala_y)
         if "raio" in poi["circulo"]:
-            poi["circulo"]["raio"] = scale_value(poi["circulo"]["raio"], (scale_x + scale_y) / 2.0)
+            poi["circulo"]["raio"] = escalar_valor(
+                poi["circulo"]["raio"], (escala_x + escala_y) / 2.0
+            )
 
     if "retangulo" in poi:
-        poi["retangulo"]["x"] = scale_value(poi["retangulo"]["x"], scale_x)
-        poi["retangulo"]["y"] = scale_value(poi["retangulo"]["y"], scale_y)
+        poi["retangulo"]["x"] = escalar_valor(poi["retangulo"]["x"], escala_x)
+        poi["retangulo"]["y"] = escalar_valor(poi["retangulo"]["y"], escala_y)
         if "largura" in poi["retangulo"]:
-            poi["retangulo"]["largura"] = scale_value(poi["retangulo"]["largura"], scale_x)
+            poi["retangulo"]["largura"] = escalar_valor(poi["retangulo"]["largura"], escala_x)
         if "altura" in poi["retangulo"]:
-            poi["retangulo"]["altura"] = scale_value(poi["retangulo"]["altura"], scale_y)
+            poi["retangulo"]["altura"] = escalar_valor(poi["retangulo"]["altura"], escala_y)
 
-    if "linha" in poi:
-        if "pontos" in poi["linha"]:
-            for pt in poi["linha"]["pontos"]:
-                pt["x"] = scale_value(pt["x"], scale_x)
-                pt["y"] = scale_value(pt["y"], scale_y)
+    if "linha" in poi and "pontos" in poi["linha"]:
+        for pt in poi["linha"]["pontos"]:
+            pt["x"] = escalar_valor(pt["x"], escala_x)
+            pt["y"] = escalar_valor(pt["y"], escala_y)
 
-    if "poligono" in poi:
-        if "pontos" in poi["poligono"]:
-            for pt in poi["poligono"]["pontos"]:
-                pt["x"] = scale_value(pt["x"], scale_x)
-                pt["y"] = scale_value(pt["y"], scale_y)
+    if "poligono" in poi and "pontos" in poi["poligono"]:
+        for pt in poi["poligono"]["pontos"]:
+            pt["x"] = escalar_valor(pt["x"], escala_x)
+            pt["y"] = escalar_valor(pt["y"], escala_y)
 
 
-def main() -> None:
-
-    db_path = Path("database/br_mg_ouro_preto_ouroboulder")
-    imagens_dir = db_path / "imagens"
+def recalcular_coordenadas(
+    caminho_croqui: Path = Path("database/br_mg_ouro_preto_ouroboulder"),
+) -> tuple[int, int]:
+    """Recalcula coordenadas em JSONs de raw_mapas e arquivos Markdown do croqui informado."""
+    imagens_dir = caminho_croqui / "imagens"
     raw_mapas_dir = imagens_dir / "raw_mapas"
 
-    # Pre-cache image sizes
-    image_sizes = {}
+    tamanhos_imagens: dict[str, tuple[int, int]] = {}
     for img_path in imagens_dir.glob("*.webp"):
         with Image.open(img_path) as img:
-            image_sizes[img_path.name] = (img.width, img.height)
+            tamanhos_imagens[img_path.name] = (img.width, img.height)
 
     # Passo 1: Atualizar JSONs em raw_mapas
-    print("Atualizando arquivos JSON em raw_mapas...")
     json_modificados = 0
     for json_path in raw_mapas_dir.glob("*.json"):
         if ".ocr_result" in json_path.name:
             continue
 
         with open(json_path, encoding="utf-8") as f:
-            data = json.load(f)
+            dados_json = json.load(f)
 
-        caminho_imagem = data.get("caminho_imagem_mapa", "")
+        caminho_imagem = dados_json.get("caminho_imagem_mapa", "")
         if not caminho_imagem:
             continue
-        img_name = caminho_imagem.split("/")[-1]
+        nome_img = caminho_imagem.split("/")[-1]
 
-        if img_name not in image_sizes:
+        if nome_img not in tamanhos_imagens:
             continue
 
-        new_w, new_h = image_sizes[img_name]
+        nova_largura, nova_altura = tamanhos_imagens[nome_img]
+        largura_antiga = dados_json.get("dimensoes_imagem", {}).get("largura", 0)
+        altura_antiga = dados_json.get("dimensoes_imagem", {}).get("altura", 0)
 
-        old_w = data.get("dimensoes_imagem", {}).get("largura", 0)
-        old_h = data.get("dimensoes_imagem", {}).get("altura", 0)
-
-        if old_w == 0 or old_h == 0:
+        if largura_antiga == 0 or altura_antiga == 0:
             continue
 
-        # Só redimensiona se houver diferença de mais de 2px
-        if abs(old_w - new_w) <= 2 and abs(old_h - new_h) <= 2:
+        if abs(largura_antiga - nova_largura) <= 2 and abs(altura_antiga - nova_altura) <= 2:
             continue
 
-        scale_x = new_w / old_w
-        scale_y = new_h / old_h
+        escala_x = nova_largura / largura_antiga
+        escala_y = nova_altura / altura_antiga
 
-        for poi in data.get("pontos_de_interesse", []):
-            process_poi(poi, scale_x, scale_y)
+        for poi in dados_json.get("pontos_de_interesse", []):
+            processar_poi(poi, escala_x, escala_y)
 
-        data["dimensoes_imagem"]["largura"] = new_w
-        data["dimensoes_imagem"]["altura"] = new_h
+        dados_json["dimensoes_imagem"]["largura"] = nova_largura
+        dados_json["dimensoes_imagem"]["altura"] = nova_altura
 
         with open(json_path, "w", encoding="utf-8") as f:
-            json.dump(data, f, indent=2, ensure_ascii=False)
+            json.dump(dados_json, f, indent=2, ensure_ascii=False)
         json_modificados += 1
 
-    print(f"{json_modificados} arquivos JSON modificados.")
-
     # Passo 2: Atualizar os Markdowns
-    print("Atualizando arquivos Markdown (.md)...")
     md_modificados = 0
-    for md_file in db_path.glob("*.md"):
-        with open(md_file, encoding="utf-8") as f:
-            content = f.read()
-
-        if not content.startswith("---"):
-            continue
-        parts = content.split("---", 2)
-        if len(parts) < 3:
+    for md_file in caminho_croqui.glob("*.md"):
+        dados_fm, corpo = parse_md_com_frontmatter(md_file)
+        if not dados_fm or "mapas" not in dados_fm:
             continue
 
-        frontmatter_str = parts[1]
-        data = yaml.load(frontmatter_str)
-
-        if not data or "mapas" not in data:
-            continue
-
-        changed = False
-        for mapa in data["mapas"]:
+        modificado = False
+        for mapa in dados_fm["mapas"]:
             caminho_imagem = mapa.get("caminho_imagem_mapa", "")
             if not caminho_imagem:
                 continue
 
-            img_name = caminho_imagem.split("/")[-1]
-            if img_name not in image_sizes:
+            nome_img = caminho_imagem.split("/")[-1]
+            if nome_img not in tamanhos_imagens:
                 continue
 
-            new_w, new_h = image_sizes[img_name]
-            old_w = mapa.get("largura_mapa", 0)
-            old_h = mapa.get("altura_mapa", 0)
+            nova_largura, nova_altura = tamanhos_imagens[nome_img]
+            largura_antiga = mapa.get("largura_mapa", 0)
+            altura_antiga = mapa.get("altura_mapa", 0)
 
-            if old_w == 0 or old_h == 0:
+            if largura_antiga == 0 or altura_antiga == 0:
                 continue
-            if abs(old_w - new_w) <= 2 and abs(old_h - new_h) <= 2:
+            if abs(largura_antiga - nova_largura) <= 2 and abs(altura_antiga - nova_altura) <= 2:
                 continue
 
-            scale_x = new_w / old_w
-            scale_y = new_h / old_h
+            escala_x = nova_largura / largura_antiga
+            escala_y = nova_altura / altura_antiga
 
-            mapa["largura_mapa"] = new_w
-            mapa["altura_mapa"] = new_h
+            mapa["largura_mapa"] = nova_largura
+            mapa["altura_mapa"] = nova_altura
 
             for poi in mapa.get("pontos_de_interesse", []):
-                process_poi(poi, scale_x, scale_y)
+                processar_poi(poi, escala_x, escala_y)
 
-            changed = True
+            modificado = True
 
-        if changed:
-            buf = io.StringIO()
-            yaml.dump(data, buf)
-            new_frontmatter = buf.getvalue()
-            new_content = f"---{new_frontmatter}---{parts[2]}"
-            with open(md_file, "w", encoding="utf-8") as f:
-                f.write(new_content)
+        if modificado:
+            salvar_md_com_frontmatter(md_file, dados_fm, corpo)
             md_modificados += 1
 
-    print(f"{md_modificados} arquivos Markdown modificados.")
-
-
-if __name__ == "__main__":
-    main()
+    return json_modificados, md_modificados

@@ -78,8 +78,9 @@ escaladas:
     - Lucas Agostini
     - Pedro Naves
     data_abertura: '2024-11-03'
-    descricao: Primeira via do setor e também a mais fácil. Um crux de equilíbrio na saída que dificulta um pouco pra 
-      quem é mais baixo e depois segue bem fácil até o final. Essa e sua vizinha ficam com sombra de tarde.
+    descricao: Primeira via do setor e também a mais fácil. Um crux de equilíbrio
+      na saída que dificulta um pouco pra quem é mais baixo e depois segue bem fácil
+      até o final. Essa e sua vizinha ficam com sombra de tarde.
 - uid: ROHoriE69QoCxr
   via_esportiva:
     nome: Quininício
@@ -89,8 +90,9 @@ escaladas:
     - Pedro Naves
     - Mariana Fiche
     data_abertura: '2024-11-23'
-    descricao: Via com crux "Aqui no início", por isso o seu nome. É um lance delicado que dificulta muito quem é baixo.
-      Ainda possui mais um lance interessante logo acima e depois é escalada tranquila até o final.
+    descricao: Via com crux "Aqui no início", por isso o seu nome. É um lance delicado
+      que dificulta muito quem é baixo. Ainda possui mais um lance interessante logo
+      acima e depois é escalada tranquila até o final.
 - uid: xNzlyAJbg0RIUW
   via_esportiva:
     nome: Cacique
@@ -103,10 +105,11 @@ escaladas:
     - Pedro Naves
     - Lucas Agostini
     data_abertura: '2024-11-23'
-    descricao: Via clássica! Uma linha bem exótica, alterna lances positivos e negativos que cruzam os imponentes bicos 
-      de pedra com um final aéreo que dá uma apimentada. Seguindo o padrão local, é outra que favorece quem é mais alto,
-      principalmente na saída onde chega a subir um grau pra quem é baixo. Ela possui a vantagem de ficar na sombra o 
-      dia todo. São 5+2 chapas.
+    descricao: Via clássica! Uma linha bem exótica, alterna lances positivos e negativos
+      que cruzam os imponentes bicos de pedra com um final aéreo que dá uma apimentada.
+      Seguindo o padrão local, é outra que favorece quem é mais alto, principalmente
+      na saída onde chega a subir um grau pra quem é baixo. Ela possui a vantagem
+      de ficar na sombra o dia todo. São 5+2 chapas.
 - uid: GScsIH6VXa2wNB
   via_esportiva:
     nome: Chapa Quente
@@ -127,9 +130,10 @@ escaladas:
     - Pedro Naves
     - Lucas Agostini
     data_abertura: '2024-11-30'
-    descricao: Via ainda sem cadena. Saída com crux bem concentrado e duro usando uma agarra colada com Sika, por isso 
-      seu nome. A parte após o platô possui um lance de boulder onde possivelmente é o crux. Fica na sombra pela manhã e
-      sol de tarde no verão.
+    descricao: Via ainda sem cadena. Saída com crux bem concentrado e duro usando
+      uma agarra colada com Sika, por isso seu nome. A parte após o platô possui um
+      lance de boulder onde possivelmente é o crux. Fica na sombra pela manhã e sol
+      de tarde no verão.
 - uid: hXBOv38NHafdlX
   via_esportiva:
     nome: Casikinha
@@ -139,8 +143,9 @@ escaladas:
     - Pedro Naves
     - Lucas Agostini
     data_abertura: '2024-11-30'
-    descricao: Início da via Casika, terminando no platô e descendo por caminhada. Para desmontar é possível subir pelo 
-      lado direito até o top da Casika e montar rapel de cima.
+    descricao: Início da via Casika, terminando no platô e descendo por caminhada.
+      Para desmontar é possível subir pelo lado direito até o top da Casika e montar
+      rapel de cima.
 ---
 
 # Cachoeira Pedra do Índio (Marco Zero)

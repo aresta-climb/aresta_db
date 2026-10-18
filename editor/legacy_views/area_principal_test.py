@@ -203,28 +203,27 @@ def test_janela_principal_nao_gera_avisos_de_fonte_qt(qtbot, criar_janela):
 from editor.core.croqui_experimental import GerenciadorCroquiExperimental
 
 
-def test_salvar_croqui_exibe_notificacao(qtbot, criar_janela):
-    # Mock do Gerenciador para não salvar arquivos reais
+def test_salvar_croqui_exibe_notificacao(qtbot, tmp_path, criar_janela):
+    db_path = tmp_path / "temp_croqui"
+    db_path.mkdir()
     with (
         patch.object(GerenciadorCroquiExperimental, "compilar_croqui"),
         patch("editor.legacy_views.area_principal.QMessageBox.information") as mock_info,
     ):
         mock_workspace = MagicMock()
-        mock_workspace.obter_caminho_database.return_value = Path("temp_croqui")
+        mock_workspace.obter_caminho_database.return_value = db_path
         mock_workspace.caminho_raiz.name = "temp_croqui"
-        mock_workspace.processar_renomeacao_e_compilacao.return_value = (Path("temp_croqui"), [])
+        mock_workspace.processar_renomeacao_e_compilacao.return_value = (db_path, [])
         janela = criar_janela(workspace=mock_workspace)
         janela.croqui_data = {"id": "teste"}  # Simula croqui carregado
         janela.croqui_model = MagicMock()
+        janela.croqui_model.extrair_arquivos_e_serializar.return_value = {"id": "teste"}
 
         janela.pagina_dados = MagicMock()
         janela.pagina_mapas = MagicMock()
         janela.pagina_imagens = MagicMock()
 
-        # Mock do open para não tentar escrever no disco
         with (
-            patch("builtins.open", MagicMock()),
-            patch("editor.legacy_views.area_principal.yaml.dump"),
             patch("editor.legacy_views.area_principal.QMessageBox.critical") as mock_crit,
             patch.object(janela, "exibir_notificacao") as mock_notif,
         ):
@@ -289,13 +288,23 @@ def test_salvar_croqui_assincrono_nao_trava_ui(qtbot, tmp_path, criar_janela):
 
             mock_workspace.processar_renomeacao_e_compilacao.side_effect = mock_salvar_lento
 
+            janela.resize(800, 600)
             janela.show()
             janela.salvar_croqui()
 
             assert (
                 hasattr(janela, "label_status_salvamento")
+                and janela.label_status_salvamento is not None
                 and not janela.label_status_salvamento.isHidden()
             ), "Aviso de salvamento não está visível na UI"
+
+            lbl = janela.label_status_salvamento
+            assert lbl.x() == janela.width() - lbl.width() - 20
+            assert lbl.y() == janela.height() - lbl.height() - 20
+
+            janela.resize(1000, 750)
+            assert lbl.x() == janela.width() - lbl.width() - 20
+            assert lbl.y() == janela.height() - lbl.height() - 20
 
             if hasattr(janela, "salvamento_finalizado"):
                 with qtbot.waitSignal(janela.salvamento_finalizado, timeout=1000):
@@ -319,6 +328,7 @@ def test_salvar_croqui_sem_modificacao_database_nao_recarrega(qtbot, tmp_path, c
     janela = criar_janela(workspace=mock_workspace)
     janela.croqui_data = {"id": "teste"}
     janela.croqui_model = MagicMock()
+    janela.croqui_model.extrair_arquivos_e_serializar.return_value = {"id": "teste"}
     janela.pagina_dados = MagicMock()
     janela.pagina_mapas = MagicMock()
     janela.pagina_imagens = MagicMock()
@@ -326,8 +336,6 @@ def test_salvar_croqui_sem_modificacao_database_nao_recarrega(qtbot, tmp_path, c
     with (
         patch.object(janela, "_recarregar_dados_apos_salvamento") as mock_recarregar,
         patch.object(janela, "exibir_notificacao"),
-        patch("builtins.open", MagicMock()),
-        patch("editor.legacy_views.area_principal.yaml.dump"),
     ):
         with qtbot.waitSignal(janela.salvamento_finalizado, timeout=2000):
             janela.salvar_croqui()
@@ -347,6 +355,7 @@ def test_salvar_croqui_com_modificacao_database_chama_recarregar(qtbot, tmp_path
     janela = criar_janela(workspace=mock_workspace)
     janela.croqui_data = {"id": "teste"}
     janela.croqui_model = MagicMock()
+    janela.croqui_model.extrair_arquivos_e_serializar.return_value = {"id": "teste"}
     janela.pagina_dados = MagicMock()
     janela.pagina_mapas = MagicMock()
     janela.pagina_imagens = MagicMock()
@@ -354,8 +363,6 @@ def test_salvar_croqui_com_modificacao_database_chama_recarregar(qtbot, tmp_path
     with (
         patch.object(janela, "_recarregar_dados_apos_salvamento") as mock_recarregar,
         patch.object(janela, "exibir_notificacao"),
-        patch("builtins.open", MagicMock()),
-        patch("editor.legacy_views.area_principal.yaml.dump"),
     ):
         with qtbot.waitSignal(janela.salvamento_finalizado, timeout=2000):
             janela.salvar_croqui()
@@ -424,13 +431,15 @@ def test_atalhos_teclado_desfazer_refazer(janela_principal):
     )
 
 
-def test_salvar_croqui_remove_foco_do_widget_ativo(qtbot, criar_janela):
+def test_salvar_croqui_remove_foco_do_widget_ativo(qtbot, tmp_path, criar_janela):
     from PySide6.QtWidgets import QApplication, QLineEdit
 
+    db_path = tmp_path / "temp_croqui_db"
+    db_path.mkdir()
     with patch.object(GerenciadorCroquiExperimental, "compilar_croqui"):
         mock_workspace = MagicMock()
-        mock_workspace.obter_caminho_database.return_value = Path("temp_croqui_db")
-        mock_workspace.processar_renomeacao_e_compilacao.return_value = (Path("temp_croqui_db"), [])
+        mock_workspace.obter_caminho_database.return_value = db_path
+        mock_workspace.processar_renomeacao_e_compilacao.return_value = (db_path, [])
         janela = criar_janela(auth=MagicMock(), workspace=mock_workspace)
         janela.croqui_data = {"id": "teste"}
 
@@ -439,8 +448,6 @@ def test_salvar_croqui_remove_foco_do_widget_ativo(qtbot, criar_janela):
         with (
             patch.object(QApplication, "focusWidget", return_value=edit),
             patch.object(edit, "clearFocus") as mock_clear,
-            patch("builtins.open", MagicMock()),
-            patch("editor.legacy_views.area_principal.yaml.dump"),
             patch("editor.legacy_views.area_principal.QMessageBox.critical") as mock_crit,
             patch.object(janela.pagina_imagens.editor, "salvar_alteracoes"),
         ):
@@ -493,11 +500,7 @@ def test_salvar_croqui_renomeia_pasta_se_id_alterado(qtbot, tmp_path, criar_jane
         janela.pagina_imagens.carregar_imagens = MagicMock()
         janela.croqui_model.carregar_arquivos_externos = MagicMock()
 
-        with (
-            patch("builtins.open", MagicMock()),
-            patch("editor.legacy_views.area_principal.yaml.dump"),
-            patch("editor.legacy_views.area_principal.QMessageBox.critical") as mock_crit,
-        ):
+        with patch("editor.legacy_views.area_principal.QMessageBox.critical") as mock_crit:
             # Executar a ação alvo
             from PySide6.QtCore import QEventLoop, QTimer
 
@@ -556,14 +559,15 @@ def test_pagina_mapas_recebe_model_e_controller(qtbot):
         pagina.editor.configurar_lista_mapas.assert_called_once()
 
 
-def test_salvar_croqui_repassa_erros_ao_controller(qtbot, criar_janela):
-    from pathlib import Path
+def test_salvar_croqui_repassa_erros_ao_controller(qtbot, tmp_path, criar_janela):
     from unittest.mock import MagicMock, patch
 
+    db_path = tmp_path / "temp_croqui_db"
+    db_path.mkdir()
     mock_workspace = MagicMock()
-    mock_workspace.obter_caminho_database.return_value = Path("temp_croqui_db")
+    mock_workspace.obter_caminho_database.return_value = db_path
     mock_workspace.processar_renomeacao_e_compilacao.return_value = (
-        Path("temp_croqui"),
+        db_path,
         ["Erro no mapa"],
     )
 
@@ -571,13 +575,12 @@ def test_salvar_croqui_repassa_erros_ao_controller(qtbot, criar_janela):
 
     janela.croqui_data = {"id": "teste"}
     janela.croqui_model = MagicMock()
+    janela.croqui_model.extrair_arquivos_e_serializar.return_value = {"id": "teste"}
     janela.pagina_dados = MagicMock()
     janela.pagina_mapas = MagicMock()
     janela.pagina_imagens = MagicMock()
 
     with (
-        patch("builtins.open", MagicMock()),
-        patch("editor.legacy_views.area_principal.yaml.dump"),
         patch.object(janela, "exibir_notificacao") as mock_notif,
         patch.object(janela.compilacao_controller, "processar_resultado") as mock_processar,
     ):

@@ -5,7 +5,7 @@ import json
 import re
 from pathlib import Path
 
-import yaml
+from editor.core.serializacao_util import carregar_yaml
 
 
 def gerar_mapping_completo() -> None:
@@ -81,7 +81,7 @@ def gerar_mapping_completo() -> None:
         if len(parts) < 3:
             continue
         try:
-            frontmatter = yaml.safe_load(parts[1]) or {}
+            frontmatter = carregar_yaml(parts[1]) or {}
         except Exception:
             continue
 

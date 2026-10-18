@@ -4,10 +4,10 @@
 from datetime import datetime
 from unittest.mock import MagicMock, patch
 
-import yaml
 from PySide6.QtCore import Qt
 from PySide6.QtWidgets import QDialog, QLabel, QMessageBox, QPushButton
 
+from editor.core.serializacao_util import serializar_yaml
 from editor.legacy_views.tela_de_carregamento import DialogoNovoCroqui, TelaDeCarregamento
 
 
@@ -143,7 +143,7 @@ def test_tela_de_carregamento_exibe_data_edicao(qtbot, tmp_path):
         "resumo_edicao": "Teste de resumo",
     }
     with open(pasta_croqui / "croqui_experimental.yaml", "w", encoding="utf-8") as f:
-        yaml.dump(yaml_content, f)
+        serializar_yaml(yaml_content, f)
 
     mock_storage = MagicMock()
     mock_storage.obter_caminho_croquis_experimentais.return_value = croquis_dir
@@ -211,12 +211,12 @@ def test_tela_de_carregamento_verifica_exaustividade_dos_dados(qtbot, tmp_path):
 
     # 1. database/croqui.yaml com o nome real e ID lógico
     with open(pasta_croqui / "database" / "croqui.yaml", "w", encoding="utf-8") as f:
-        yaml.dump({"nome": "Pedra do Popeye", "id": "br_mg_bh_popeye_logico"}, f)
+        serializar_yaml({"nome": "Pedra do Popeye", "id": "br_mg_bh_popeye_logico"}, f)
 
     # 2. croqui_experimental.yaml com resumo e data fixa
     data_iso = "2026-05-01T14:30:00Z"  # UTC
     with open(pasta_croqui / "croqui_experimental.yaml", "w", encoding="utf-8") as f:
-        yaml.dump({"resumo_edicao": "Limpeza da base", "ultima_edicao": data_iso}, f)
+        serializar_yaml({"resumo_edicao": "Limpeza da base", "ultima_edicao": data_iso}, f)
 
     mock_storage = MagicMock()
     mock_storage.obter_caminho_croquis_experimentais.return_value = croquis_dir
@@ -259,7 +259,7 @@ def test_tela_de_carregamento_ordenacao_historico(qtbot, tmp_path):
         pasta = croquis_dir / f"20260501_br_mg_{ids[i]}"
         pasta.mkdir()
         with open(pasta / "croqui_experimental.yaml", "w", encoding="utf-8") as f:
-            yaml.dump({"ultima_edicao": data}, f)
+            serializar_yaml({"ultima_edicao": data}, f)
 
     mock_storage = MagicMock()
     mock_storage.obter_caminho_croquis_experimentais.return_value = croquis_dir

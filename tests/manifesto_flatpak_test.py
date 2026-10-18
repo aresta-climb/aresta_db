@@ -9,7 +9,7 @@ Valida o app-id com.arestaclimb.Editor, declaração de permissões de sandbox e
 import xml.etree.ElementTree as ET
 from pathlib import Path
 
-import yaml
+from editor.core.serializacao_util import carregar_yaml
 
 PASTA_RAIZ = Path(__file__).resolve().parent.parent
 PASTA_FLATPAK = PASTA_RAIZ / "editor" / "flatpak"
@@ -23,7 +23,7 @@ def test_manifesto_flatpak_estrutural() -> None:
     assert ARQUIVO_MANIFESTO.exists(), f"Manifesto Flatpak não encontrado em {ARQUIVO_MANIFESTO}"
 
     conteudo = ARQUIVO_MANIFESTO.read_text(encoding="utf-8")
-    dados = yaml.safe_load(conteudo)
+    dados = carregar_yaml(conteudo)
     assert isinstance(dados, dict)
 
     assert dados.get("app-id") == "com.arestaclimb.Editor"
@@ -61,14 +61,22 @@ def test_metainfo_appstream_estrutural() -> None:
     assert licenca_projeto is not None and licenca_projeto.text == "MPL-2.0"
 
     desenvolvedor = raiz.find("developer")
-    assert desenvolvedor is not None, "Elemento <developer> obrigatório ausente no metainfo AppStream"
-    assert desenvolvedor.get("id") == "com.arestaclimb", "ID do desenvolvedor deve ser com.arestaclimb"
+    assert desenvolvedor is not None, (
+        "Elemento <developer> obrigatório ausente no metainfo AppStream"
+    )
+    assert desenvolvedor.get("id") == "com.arestaclimb", (
+        "ID do desenvolvedor deve ser com.arestaclimb"
+    )
     nome_dev = desenvolvedor.find("name")
-    assert nome_dev is not None and nome_dev.text == "Aresta Climb", "Nome do desenvolvedor deve ser 'Aresta Climb'"
+    assert nome_dev is not None and nome_dev.text == "Aresta Climb", (
+        "Nome do desenvolvedor deve ser 'Aresta Climb'"
+    )
 
     resumo = raiz.find("summary")
     assert resumo is not None and resumo.text, "Elemento <summary> ausente ou vazio"
-    assert not resumo.text.strip().endswith("."), "O resumo (<summary>) não deve terminar com ponto final segundo AppStream"
+    assert not resumo.text.strip().endswith("."), (
+        "O resumo (<summary>) não deve terminar com ponto final segundo AppStream"
+    )
 
     categorias = raiz.find("categories")
     assert categorias is not None
@@ -92,14 +100,20 @@ def test_arquivo_desktop_estrutural() -> None:
 def test_manifesto_flatpak_contem_precompilacao_e_limpeza_testes() -> None:
     """Garante que o manifesto Flatpak pré-compila bytecode (.pyc) e remove arquivos de teste em produção."""
     conteudo = ARQUIVO_MANIFESTO.read_text(encoding="utf-8")
-    dados = yaml.safe_load(conteudo)
+    dados = carregar_yaml(conteudo)
 
     assert dados.get("default-branch") == "stable"
 
     modulos = dados.get("modules", [])
-    modulo_editor = next((m for m in modulos if isinstance(m, dict) and m.get("name") == "aresta-editor"), None)
+    modulo_editor = next(
+        (m for m in modulos if isinstance(m, dict) and m.get("name") == "aresta-editor"), None
+    )
     assert modulo_editor is not None, "Módulo aresta-editor não encontrado no manifesto"
 
     build_commands = modulo_editor.get("build-commands", [])
-    assert any("compileall" in cmd for cmd in build_commands), "Deve conter etapa de pré-compilação compileall"
-    assert any("*_test.py" in cmd and "-delete" in cmd for cmd in build_commands), "Deve conter remoção de arquivos de teste"
+    assert any("compileall" in cmd for cmd in build_commands), (
+        "Deve conter etapa de pré-compilação compileall"
+    )
+    assert any("*_test.py" in cmd and "-delete" in cmd for cmd in build_commands), (
+        "Deve conter remoção de arquivos de teste"
+    )

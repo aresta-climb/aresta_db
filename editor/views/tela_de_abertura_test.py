@@ -642,7 +642,9 @@ def test_tela_abertura_ao_erro_validar_otp(qtbot):
     abertura.close()
 
 
-def test_tela_abertura_validar_otp_solicita_nome_completo_quando_incompleto(qtbot, mock_cliente_auth):
+def test_tela_abertura_validar_otp_solicita_nome_completo_quando_incompleto(
+    qtbot, mock_cliente_auth
+):
     """Valida fluxo em que OTP tem sucesso mas exige diálogo de perfil do autor."""
     from PySide6.QtWidgets import QDialog
 
@@ -799,7 +801,9 @@ def test_tela_abertura_receber_tokens_github_sucesso_com_dialogo_perfil(qtbot, m
     abertura.close()
 
 
-def test_tela_abertura_receber_tokens_github_trata_excecao_ao_atualizar_nome(qtbot, mock_cliente_auth):
+def test_tela_abertura_receber_tokens_github_trata_excecao_ao_atualizar_nome(
+    qtbot, mock_cliente_auth
+):
     """Valida que falha no Supabase ao atualizar nome do autor no GitHub é tratada graciosamente."""
     from PySide6.QtWidgets import QDialog
 

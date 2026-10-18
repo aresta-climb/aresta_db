@@ -2,9 +2,9 @@
 # Copyright (C) 2026 Aresta Climb Contributors
 
 import pytest
-import yaml
 from PySide6.QtCore import Qt
 
+from editor.core.serializacao_util import serializar_yaml
 from editor.legacy_views.dialogo_busca_croqui import DialogoBuscaCroqui
 
 
@@ -26,12 +26,12 @@ def test_deve_listar_croquis_do_database(qtbot, mock_storage, tmp_path):
     croqui1_dir = database_dir / "br_mg_araxa_bocaina"
     croqui1_dir.mkdir()
     with open(croqui1_dir / "croqui.yaml", "w", encoding="utf-8") as f:
-        yaml.dump({"nome": "Serra da Bocaina"}, f)
+        serializar_yaml({"nome": "Serra da Bocaina"}, f)
 
     croqui2_dir = database_dir / "br_mg_arcos_corumba"
     croqui2_dir.mkdir()
     with open(croqui2_dir / "croqui.yaml", "w", encoding="utf-8") as f:
-        yaml.dump({"nome": "Corumbá"}, f)
+        serializar_yaml({"nome": "Corumbá"}, f)
 
     # Pasta sem croqui.yaml (deve usar o id)
     croqui3_dir = database_dir / "br_mg_sem_yaml"
@@ -54,12 +54,12 @@ def test_deve_filtrar_croquis_por_texto(qtbot, mock_storage, tmp_path):
     croqui1 = database_dir / "bocaina"
     croqui1.mkdir()
     with open(croqui1 / "croqui.yaml", "w", encoding="utf-8") as f:
-        yaml.dump({"nome": "Bocaina"}, f)
+        serializar_yaml({"nome": "Bocaina"}, f)
 
     croqui2 = database_dir / "corumba"
     croqui2.mkdir()
     with open(croqui2 / "croqui.yaml", "w", encoding="utf-8") as f:
-        yaml.dump({"nome": "Corumba"}, f)
+        serializar_yaml({"nome": "Corumba"}, f)
 
     dialogo = DialogoBuscaCroqui(mock_storage)
     qtbot.addWidget(dialogo)
@@ -87,7 +87,7 @@ def test_deve_selecionar_croqui_e_retornar_id(qtbot, mock_storage, tmp_path):
     croqui1 = database_dir / "teste_id"
     croqui1.mkdir()
     with open(croqui1 / "croqui.yaml", "w", encoding="utf-8") as f:
-        yaml.dump({"nome": "Nome de Teste"}, f)
+        serializar_yaml({"nome": "Nome de Teste"}, f)
 
     dialogo = DialogoBuscaCroqui(mock_storage)
     qtbot.addWidget(dialogo)

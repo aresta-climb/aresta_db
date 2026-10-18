@@ -158,7 +158,8 @@ escaladas:
     - Antônio Gilmar (Tonhão)
     - João Vagli
     data_abertura: '2025-03-15'
-    descricao: Saída levemente negativa e depois pega uma diagonal pra direita, são 7 chapas e mais o top.
+    descricao: Saída levemente negativa e depois pega uma diagonal pra direita, são
+      7 chapas e mais o top.
 - uid: 0kjSBjdMG9SUSp
   via_esportiva:
     nome: Parou Mofô
@@ -170,7 +171,8 @@ escaladas:
     - Antônio Gilmar (Tonhão)
     - João Vagli
     data_abertura: '2025-03-15'
-    descricao: Via reta que termina na mesma parada da via anterior, são 4 chapas e mais o top.
+    descricao: Via reta que termina na mesma parada da via anterior, são 4 chapas
+      e mais o top.
 - uid: pzJ5XanlSgD79q
   via_movel:
     nome: Via Normal da Agulhinha Pequeno Polegar
@@ -180,9 +182,10 @@ escaladas:
     - Tonico Magalhães
     - André Ilha
     data_abertura: '1984-04-28'
-    descricao: Pequena via localizada ao final da falésia do Bloco dos Dois Dedos à direita. À partir da via Suco de 
-      Laranja acompanhar a rocha pra direita até o final. Saindo da estrada, subir alguns metros após os Dois Dedos e 
-      subir um rampado de pedras e mato à esquerda.
+    descricao: Pequena via localizada ao final da falésia do Bloco dos Dois Dedos
+      à direita. À partir da via Suco de Laranja acompanhar a rocha pra direita até
+      o final. Saindo da estrada, subir alguns metros após os Dois Dedos e subir um
+      rampado de pedras e mato à esquerda.
 - uid: Kj3yJFM1q0W9eT
   via_movel:
     nome: Miosótis
@@ -192,8 +195,8 @@ escaladas:
     - André Ilha
     - Lúcia Duarte
     data_abertura: '1984-07-23'
-    descricao: Via muito fácil que sobe por agarras entre duas fendas em formato de V, localizada no Paredão 2,5 à 
-      direita das rotas de treinamento.
+    descricao: Via muito fácil que sobe por agarras entre duas fendas em formato de
+      V, localizada no Paredão 2,5 à direita das rotas de treinamento.
 - uid: NFBguOBPOQb6FE
   via_movel:
     nome: Chá das Cinco
@@ -204,9 +207,11 @@ escaladas:
     - Kate Benedict
     - Boris Flegr
     data_abertura: '2004-10-10'
-    descricao: Início em chaminé pelo lado esquerdo do grande bloco que há entre as rochas. Uma vez em cima dele, segue 
-      para a óbvia fenda acima, voltada para a esquerda. Ao final da fenda segue por um trecho meio quebrado, com lances
-      curtos e fáceis até a base do lance final de agarras, que é belíssimo e ligeiramente negativo.
+    descricao: Início em chaminé pelo lado esquerdo do grande bloco que há entre as
+      rochas. Uma vez em cima dele, segue para a óbvia fenda acima, voltada para a
+      esquerda. Ao final da fenda segue por um trecho meio quebrado, com lances curtos
+      e fáceis até a base do lance final de agarras, que é belíssimo e ligeiramente
+      negativo.
 - uid: iKMWfLr3A4GDa2
   via_movel:
     nome: Dança dos Vampiros
@@ -216,9 +221,9 @@ escaladas:
     - André Ilha
     - Lúcia Duarte
     data_abertura: '1984-07-23'
-    descricao: Seu início fica atrás de um grande bloco e por isso não pode ser visto de fora. Começa em uma chaminé 
-      média até atingir um platô, passando para uma chaminé larga até sair por entre os blocos de rocha. Depois segue 
-      por agarras.
+    descricao: Seu início fica atrás de um grande bloco e por isso não pode ser visto
+      de fora. Começa em uma chaminé média até atingir um platô, passando para uma
+      chaminé larga até sair por entre os blocos de rocha. Depois segue por agarras.
 - uid: LmYGwiPfAcXm7x
   via_movel:
     nome: Deixa a Fenda Me Levar
@@ -239,8 +244,8 @@ escaladas:
     dificuldade: BR_7B
     conquistadores:
     - Ronaldo Franzen "Nativo"
-    descricao: Linha através de um bonito sistema de fendas, levemente negativa em alguns pontos. Descida por caminhada 
-      à direita.
+    descricao: Linha através de um bonito sistema de fendas, levemente negativa em
+      alguns pontos. Descida por caminhada à direita.
 - uid: mG8iiXA5J4kTqN
   via_movel:
     nome: Juízo Final
@@ -250,7 +255,8 @@ escaladas:
     - André Ilha
     - Lúcia Duarte
     data_abertura: '1984-07-27'
-    descricao: Bela fissura que percorre boa parte da via, intercalando com lances de boas agarras.
+    descricao: Bela fissura que percorre boa parte da via, intercalando com lances
+      de boas agarras.
 - uid: zbBoMKxGZP1b7N
   via_movel:
     nome: Por Favor Me Esqueça
@@ -260,8 +266,9 @@ escaladas:
     - Eduardo Rodrigues (Edu RC)
     - Marcello Goulart
     data_abertura: '2024-08-07'
-    descricao: Via bem divertida. Pegar a segunda trilha descendo a estrada a partir do portão do Cemonta. Após cerca de
-      50m abandonar a trilha principal e pegar um corte de agua meio fechado pra direita e transpor uns blocos.
+    descricao: Via bem divertida. Pegar a segunda trilha descendo a estrada a partir
+      do portão do Cemonta. Após cerca de 50m abandonar a trilha principal e pegar
+      um corte de agua meio fechado pra direita e transpor uns blocos.
 ---
 
 # Falésias do Lenheiro

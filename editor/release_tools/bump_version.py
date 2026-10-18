@@ -166,9 +166,7 @@ def bump_version_metainfo(
         return False
 
     data_lancamento = data or datetime.date.today().isoformat()
-    texto_desc = (
-        descricao_release or "Atualizações de estabilidade e melhorias de empacotamento."
-    )
+    texto_desc = descricao_release or "Atualizações de estabilidade e melhorias de empacotamento."
 
     bloco_nova_release = (
         f'    <release version="{nova_versao}" date="{data_lancamento}">\n'

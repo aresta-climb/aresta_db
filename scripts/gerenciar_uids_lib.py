@@ -8,7 +8,6 @@ de identificadores imutáveis NanoID 14c em Base62 para todo o ecossistema Arest
 O uso da biblioteca externa 'nanoid' é estritamente encapsulado neste módulo.
 """
 
-import io
 import re
 import string
 import urllib.parse
@@ -16,7 +15,16 @@ from pathlib import Path
 from typing import Any
 
 import nanoid
-from ruamel.yaml import YAML
+
+from editor.core.serializacao_util import (
+    carregar_yaml,
+    escrever_texto_se_modificado,
+    serializar_yaml,
+)
+from scripts.markdown_frontmatter_lib import (
+    parse_md_com_frontmatter,
+    salvar_md_com_frontmatter,
+)
 
 # Alfabeto Base62 estritamente alfanumérico contínuo: [0-9a-zA-Z]
 ALFABETO_BASE62: str = string.digits + string.ascii_letters
@@ -96,75 +104,24 @@ def extrair_uid_de_url(url: str) -> str | None:
     return None
 
 
-def _inserir_ou_mover_para_posicao(mapa: Any, chave: str, valor: Any = None, pos: int = 0) -> None:
-    """Insere ou move uma chave para uma posição específica (padrão 0 = início) preservando ruamel.yaml CommentedMap."""
-    if hasattr(mapa, "insert"):
-        if chave in mapa:
-            val = mapa.pop(chave)
-            mapa.insert(pos, chave, valor if valor is not None else val)
-        elif valor is not None:
-            mapa.insert(pos, chave, valor)
-    elif isinstance(mapa, dict):
-        if chave in mapa:
-            val = mapa.pop(chave)
-            novo_val = valor if valor is not None else val
-        elif valor is not None:
-            novo_val = valor
-        else:
-            return
-        itens = list(mapa.items())
-        itens.insert(pos, (chave, novo_val))
-        mapa.clear()
-        for k, v in itens:
-            mapa[k] = v
-
-
-def _obter_yaml() -> YAML:
-    """Configura instância do ruamel.yaml com preservação estrita de comentários e formatação."""
-    y = YAML()
-    y.preserve_quotes = True
-    y.width = 120
-    y.representer.ignore_aliases = lambda *data: True
-    return y
-
-
-def _carregar_md_ruamel(caminho: Path) -> tuple[Any | None, str, YAML | None]:
-    """Lê um arquivo Markdown e faz o parse do Frontmatter preservando formatação e comentários."""
-    try:
-        conteudo = caminho.read_text(encoding="utf-8")
-    except Exception:
-        return None, "", None
-
-    match = re.match(r"^---\s*\n(.*?)\n---\s*(?:\n(.*))?$", conteudo, re.DOTALL)
-    if not match:
-        return None, conteudo, None
-
-    y = _obter_yaml()
-    try:
-        dados = y.load(match.group(1)) or {}
-    except Exception:
-        return None, conteudo, None
-
-    corpo = match.group(2) or ""
-    return dados, corpo, y
-
-
-def _salvar_md_ruamel(caminho: Path, dados: Any, corpo: str, y: YAML) -> None:
-    """Salva o Frontmatter e o corpo preservando comentários originais."""
-    stream = io.StringIO()
-    y.dump(dados, stream)
-    texto_yaml = stream.getvalue().strip()
-    texto_corpo = corpo.strip()
-    if texto_corpo:
-        caminho.write_text(f"---\n{texto_yaml}\n---\n\n{texto_corpo}\n", encoding="utf-8")
+def _inserir_ou_mover_para_posicao(
+    mapa: dict[str, Any], chave: str, valor: Any = None, pos: int = 0
+) -> None:
+    """Insere ou move uma chave para uma posição específica (padrão 0 = início) em um dicionário."""
+    if chave in mapa:
+        val = mapa.pop(chave)
+        novo_val = valor if valor is not None else val
     else:
-        caminho.write_text(f"---\n{texto_yaml}\n---\n", encoding="utf-8")
+        novo_val = valor
+    itens = list(mapa.items())
+    itens.insert(pos, (chave, novo_val))
+    mapa.clear()
+    for k, v in itens:
+        mapa[k] = v
 
 
 def _extrair_nome_escalada(escalada: dict[str, Any]) -> str:
     """Extrai o nome de uma escalada suportando modelo plano ou polimórfico."""
-    if not isinstance(escalada, dict):
-        return ""
     if "nome" in escalada and isinstance(escalada["nome"], str):
         return escalada["nome"].strip()
     for subtipo in (
@@ -183,62 +140,89 @@ def _extrair_nome_escalada(escalada: dict[str, Any]) -> str:
     return ""
 
 
-def sanear_uids_croqui(pico_path: str | Path) -> bool:
+def sanear_uids_croqui(
+    pico_path: str | Path,
+    *,
+    dados_croqui_memoria: dict[str, Any] | None = None,
+    cache_md_memoria: dict[str, tuple[dict[str, Any] | None, str]] | None = None,
+    persistir_no_disco: bool = True,
+) -> bool:
     """Executa o saneamento contínuo e idempotente de UIDs e referências de mapas em um croqui.
 
     Garante que todas as entidades (Croqui, Grupo, Setor, Escalada, PontoDeInteresse e Botao)
     possuam NanoIDs 14c Base62 válidos, que labels legados sejam convertidos para rotulo,
     e que referências semânticas textuais (escalada/setor/grupo) sejam convertidas para alvo_uid/pontos_uids,
     preservando integralmente os UIDs pré-existentes.
-    Retorna True se algum arquivo foi modificado no disco, False caso contrário.
+    Quando dados_croqui_memoria e/ou cache_md_memoria são fornecidos, opera e atualiza
+    diretamente esses objetos em memória além de persistir no disco apenas os arquivos modificados.
+    Retorna True se houve modificação, False caso contrário.
     """
     pico_path = Path(pico_path)
     houve_modificacao = False
 
     # 1. Saneia croqui.yaml
     caminho_yaml = pico_path / "croqui.yaml"
-    if caminho_yaml.exists():
-        y = _obter_yaml()
+    dados_croqui: dict[str, Any] = {}
+    if dados_croqui_memoria is not None:
+        dados_croqui = dados_croqui_memoria
+    elif caminho_yaml.exists():
         try:
-            dados_croqui = y.load(caminho_yaml.read_text(encoding="utf-8")) or {}
+            lido = carregar_yaml(caminho_yaml.read_text(encoding="utf-8"))
+            if isinstance(lido, dict):
+                dados_croqui = lido
         except Exception:
             dados_croqui = {}
 
-        if dados_croqui:
-            modificado_yaml = False
-            croqui_uid = dados_croqui.get("uid")
-            if croqui_uid is None or str(croqui_uid).strip() == "":
-                croqui_uid = gerar_uid()
-                _inserir_ou_mover_para_posicao(dados_croqui, "uid", croqui_uid, 0)
-                modificado_yaml = True
+    if dados_croqui:
+        modificado_yaml = False
+        croqui_uid = dados_croqui.get("uid")
+        if croqui_uid is None or str(croqui_uid).strip() == "":
+            croqui_uid = gerar_uid()
+            _inserir_ou_mover_para_posicao(dados_croqui, "uid", croqui_uid, 0)
+            modificado_yaml = True
 
-            for botao in dados_croqui.get("botoes", []):
-                if isinstance(botao, dict):
-                    botao_uid = botao.get("uid")
-                    if botao_uid is None or str(botao_uid).strip() == "":
-                        botao_uid = gerar_uid()
-                        _inserir_ou_mover_para_posicao(botao, "uid", botao_uid, 0)
-                        modificado_yaml = True
+        for botao in dados_croqui.get("botoes", []):
+            if isinstance(botao, dict):
+                botao_uid = botao.get("uid")
+                if botao_uid is None or str(botao_uid).strip() == "":
+                    botao_uid = gerar_uid()
+                    _inserir_ou_mover_para_posicao(botao, "uid", botao_uid, 0)
+                    modificado_yaml = True
 
-            if modificado_yaml:
-                stream = io.StringIO()
-                y.dump(dados_croqui, stream)
-                caminho_yaml.write_text(stream.getvalue(), encoding="utf-8")
+        if modificado_yaml:
+            if persistir_no_disco:
+                if caminho_yaml.exists() and escrever_texto_se_modificado(
+                    caminho_yaml,
+                    serializar_yaml(dados_croqui, incluir_cabecalho_spdx=True),
+                ):
+                    houve_modificacao = True
+            else:
                 houve_modificacao = True
 
     # 2. Primeira passagem pelos arquivos .md: atribui UIDs a setores, grupos e escaladas,
     # e constrói o índice de resolução de nomes para referências
-    arquivos_md: list[Path] = [p for p in pico_path.glob("*.md") if p.is_file()]
-    dados_md_carregados: dict[Path, tuple[Any, str, YAML, bool]] = {}
+    if cache_md_memoria is None:
+        cache_md_memoria = {}
+
+    if (persistir_no_disco or not cache_md_memoria) and pico_path.exists():
+        for md_path in sorted(p for p in pico_path.glob("*.md") if p.is_file()):
+            if md_path.name not in cache_md_memoria:
+                try:
+                    fm, corpo_lido = parse_md_com_frontmatter(md_path, lancar_erro_yaml=True)
+                    cache_md_memoria[md_path.name] = (fm, corpo_lido)
+                except Exception:
+                    continue
+
+    dados_md_carregados: dict[Path, tuple[dict[str, Any], str, bool]] = {}
 
     mapa_escaladas_com_setor: dict[tuple[str, str], str] = {}
     mapa_escaladas_simples: dict[str, str] = {}
     mapa_setores: dict[str, str] = {}
     mapa_grupos: dict[str, str] = {}
 
-    for md_path in arquivos_md:
-        dados, corpo, inst_y = _carregar_md_ruamel(md_path)
-        if dados is None or not isinstance(dados, dict) or inst_y is None:
+    for nome_md, (dados, corpo) in list(cache_md_memoria.items()):
+        md_path = pico_path / nome_md
+        if dados is None or not isinstance(dados, dict):
             continue
 
         nome_lower = str(dados.get("nome", "")).lower()
@@ -257,12 +241,15 @@ def sanear_uids_croqui(pico_path: str | Path) -> bool:
 
         if not (eh_setor or eh_grupo or eh_mapa):
             # Arquivo auxiliar de texto (ex: capa.md, avisos.md):
-            # Preserva comentários de licença e outros campos, mas garante que não possui UID nem ID no frontmatter
+            # Garante que não possui UID nem ID no frontmatter
             if "uid" in dados or "id" in dados:
                 dados.pop("uid", None)
                 dados.pop("id", None)
-                _salvar_md_ruamel(md_path, dados, corpo, inst_y)
-                houve_modificacao = True
+                if persistir_no_disco:
+                    if salvar_md_com_frontmatter(md_path, dados, corpo):
+                        houve_modificacao = True
+                else:
+                    houve_modificacao = True
             continue
 
         modificado_md = False
@@ -310,10 +297,10 @@ def sanear_uids_croqui(pico_path: str | Path) -> bool:
                             mapa_escaladas_com_setor[(nome_entidade, nome_via)] = escalada["uid"]
                         mapa_escaladas_simples[nome_via] = escalada["uid"]
 
-        dados_md_carregados[md_path] = (dados, corpo, inst_y, modificado_md)
+        dados_md_carregados[md_path] = (dados, corpo, modificado_md)
 
     # 3. Segunda passagem pelos arquivos .md: migra mapas (POIs e referências)
-    for md_path, (dados, corpo, y, modificado_passagem1) in dados_md_carregados.items():
+    for md_path, (dados, corpo, modificado_passagem1) in dados_md_carregados.items():
         modificado_md = modificado_passagem1
         nome_setor_atual = str(dados.get("nome", "")).strip()
         mapas = dados.get("mapas", [])
@@ -353,7 +340,7 @@ def sanear_uids_croqui(pico_path: str | Path) -> bool:
                     if "rotulo" in poi:
                         chaves = list(poi.keys())
                         if len(chaves) >= 2 and (chaves[0] != "uid" or chaves[1] != "rotulo"):
-                            _inserir_ou_mover_para_posicao(poi, "rotulo", poi["rotulo"], 0)
+                            _inserir_ou_mover_para_posicao(poi, "rotulo", str(poi["rotulo"]), 0)
                             _inserir_ou_mover_para_posicao(poi, "uid", poi_uid, 0)
                             modificado_md = True
 
@@ -430,7 +417,7 @@ def sanear_uids_croqui(pico_path: str | Path) -> bool:
 
         # Salva o arquivo apenas se houve modificações reais
         if modificado_md:
-            _salvar_md_ruamel(md_path, dados, corpo, y)
-            houve_modificacao = True
+            if not persistir_no_disco or salvar_md_com_frontmatter(md_path, dados, corpo):
+                houve_modificacao = True
 
     return houve_modificacao

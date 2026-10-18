@@ -159,7 +159,9 @@ def test_migracao_automatica_schema_legado(tmp_path: Path) -> None:
         """
     )
     cursor.execute("INSERT INTO catalogo_croquis VALUES ('c1', 'slug', 'Pico', 'BH', 'MG', 0)")
-    cursor.execute("INSERT INTO catalogo_aresta VALUES ('v1', 'c1', 'Via', '6a', 'esp', 'S1', 's1')")
+    cursor.execute(
+        "INSERT INTO catalogo_aresta VALUES ('v1', 'c1', 'Via', '6a', 'esp', 'S1', 's1')"
+    )
     conexao.commit()
     conexao.close()
 

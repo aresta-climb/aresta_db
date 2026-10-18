@@ -184,3 +184,38 @@ Texto do setor.
     # 3. Idempotência: rodar novamente não deve modificar o disco
     modificado_novamente = sanear_uids_croqui(pico)
     assert modificado_novamente is False
+
+
+def test_sanear_uids_croqui_com_cache_em_memoria(tmp_path) -> None:
+    """Garante que sanear_uids_croqui atualiza estruturas em memória in-place e persiste alterações."""
+    from scripts.gerenciar_uids_lib import sanear_uids_croqui
+
+    pico = tmp_path / "croqui_mem"
+    pico.mkdir()
+    (pico / "croqui.yaml").write_text("id: br_mg_mem\nnome: Mem\n", encoding="utf-8")
+    (pico / "setor1.md").write_text("---\nnome: Setor Mem\n---\nCorpo\n", encoding="utf-8")
+
+    dados_croqui_mem = {"id": "br_mg_mem", "nome": "Mem"}
+    cache_md_mem = {
+        "setor1.md": (
+            {
+                "nome": "Setor Mem",
+                "escaladas": [
+                    {"nome": "Via Plana"},
+                    {"via_esportiva": {}},
+                ],
+            },
+            "Corpo",
+        )
+    }
+
+    modificado = sanear_uids_croqui(
+        pico,
+        dados_croqui_memoria=dados_croqui_mem,
+        cache_md_memoria=cache_md_mem,
+    )
+    assert modificado is True
+    assert validar_uid(dados_croqui_mem.get("uid")) is True
+    fm_setor, _ = cache_md_mem["setor1.md"]
+    assert fm_setor is not None
+    assert validar_uid(fm_setor.get("uid")) is True

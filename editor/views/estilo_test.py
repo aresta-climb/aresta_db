@@ -169,10 +169,7 @@ def test_configurar_tema_claro_aplicacao_define_color_scheme_light(qtbot):
     # O grupo Disabled NÃO deve usar a cor escura de texto ativo (#212529), mas sim a cor desabilitada
     cor_esperada_disabled = Icones.COR_DESABILITADO.lower()
     assert (
-        app.palette()
-        .color(QPalette.ColorGroup.Disabled, QPalette.ColorRole.Text)
-        .name()
-        .lower()
+        app.palette().color(QPalette.ColorGroup.Disabled, QPalette.ColorRole.Text).name().lower()
         == cor_esperada_disabled
     )
     assert (

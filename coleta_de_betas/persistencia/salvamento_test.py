@@ -1,10 +1,9 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
-import yaml
-
 from aresta_api.proto.generated import beta_pb2
 from coleta_de_betas.persistencia.salvamento import injetar_betas_no_markdown, persistir_aprovacoes
+from editor.core.serializacao_util import carregar_yaml
 
 
 def test_injetar_betas_no_markdown(tmp_path):
@@ -45,7 +44,7 @@ Este é o texto descritivo do setor.
 
     # Valida YAML gerado
     partes = conteudo_pos.split("---")
-    frontmatter = yaml.safe_load(partes[1])
+    frontmatter = carregar_yaml(partes[1])
     assert len(frontmatter["escaladas"]) == 2
 
     esc1 = frontmatter["escaladas"][0]

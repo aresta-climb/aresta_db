@@ -5,8 +5,11 @@ import re
 from pathlib import Path
 from typing import Any
 
-import ruamel.yaml
-
+from editor.core.serializacao_util import (
+    carregar_yaml,
+    escrever_texto_se_modificado,
+    serializar_yaml,
+)
 from scripts.markdown_frontmatter_lib import parse_md_com_frontmatter, salvar_md_com_frontmatter
 
 
@@ -57,12 +60,7 @@ def migrar(pico_path: Path) -> None:
     if not croqui_yaml_path.exists():
         return
 
-    ryaml = ruamel.yaml.YAML()
-    ryaml.preserve_quotes = True
-    ryaml.width = 90
-
-    with open(croqui_yaml_path, encoding="utf-8") as f:
-        croqui_data = ryaml.load(f) or {}
+    croqui_data = carregar_yaml(croqui_yaml_path.read_text(encoding="utf-8")) or {}
 
     botoes = croqui_data.get("botoes", [])
     mapas_gerais_entry = None
@@ -99,5 +97,7 @@ def migrar(pico_path: Path) -> None:
 
             salvar_md_com_frontmatter(md_path, novo_frontmatter, novo_corpo)
 
-    with open(croqui_yaml_path, "w", encoding="utf-8") as f:
-        ryaml.dump(croqui_data, f)
+    escrever_texto_se_modificado(
+        croqui_yaml_path,
+        serializar_yaml(croqui_data, incluir_cabecalho_spdx=True),
+    )

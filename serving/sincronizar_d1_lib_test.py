@@ -145,9 +145,7 @@ def test_cliente_d1_executar_query_erro_api(servidor_http_d1: str) -> None:
 
 
 def test_cliente_d1_executar_query_erro_http(servidor_http_d1: str) -> None:
-    _ManipuladorHttpD1ParaTestes.respostas = [
-        (401, {"errors": [{"message": "Invalid token"}]})
-    ]
+    _ManipuladorHttpD1ParaTestes.respostas = [(401, {"errors": [{"message": "Invalid token"}]})]
     cliente = ClienteCloudflareD1("acc-1", "db-1", "tok-1", base_url=servidor_http_d1)
     with pytest.raises(RuntimeError, match="Erro HTTP 401 no Cloudflare D1"):
         cliente.executar_query("SELECT 1")
@@ -409,7 +407,9 @@ def test_sincronizar_catalogo_d1_delta_incremental(tmp_path: Path) -> None:
     assert obter_ultima_versao_d1(fake) == versao_nova
 
     # Verifica o delta salvo
-    ultimo_delta = fake.executar_query("SELECT upserts_json FROM deltas_catalogo ORDER BY id DESC LIMIT 1")
+    ultimo_delta = fake.executar_query(
+        "SELECT upserts_json FROM deltas_catalogo ORDER BY id DESC LIMIT 1"
+    )
     upserts = json.loads(ultimo_delta[0]["upserts_json"])
     assert len(upserts["entidades"]) == 1
     assert upserts["entidades"][0]["uid"] == "v2"
@@ -464,7 +464,9 @@ def test_sincronizar_catalogo_d1_renomear_setor_gera_um_upsert(tmp_path: Path) -
     )
     assert status == "delta"
 
-    ultimo_delta = fake.executar_query("SELECT upserts_json FROM deltas_catalogo ORDER BY id DESC LIMIT 1")
+    ultimo_delta = fake.executar_query(
+        "SELECT upserts_json FROM deltas_catalogo ORDER BY id DESC LIMIT 1"
+    )
     upserts = json.loads(ultimo_delta[0]["upserts_json"])
     assert len(upserts["entidades"]) == 1
     assert upserts["entidades"][0]["uid"] == "s1"
@@ -498,8 +500,20 @@ def test_sincronizar_catalogo_d1_cliente_padrao_ambiente(
     monkeypatch.setenv("CLOUDFLARE_D1_BASE_URL", servidor_http_d1)
 
     _ManipuladorHttpD1ParaTestes.respostas = [
-        (200, {"success": True, "result": [{"results": [{"name": "croqui_uid"}, {"name": "estado"}]}]}),
-        (200, {"success": True, "result": [{"results": [{"name": "uid"}, {"name": "escalada_tipo"}]}]}),
+        (
+            200,
+            {
+                "success": True,
+                "result": [{"results": [{"name": "croqui_uid"}, {"name": "estado"}]}],
+            },
+        ),
+        (
+            200,
+            {
+                "success": True,
+                "result": [{"results": [{"name": "uid"}, {"name": "escalada_tipo"}]}],
+            },
+        ),
         (200, {"success": True, "result": []}),
         (200, {"success": True, "result": []}),
         (200, {"success": True, "result": []}),
@@ -512,4 +526,3 @@ def test_sincronizar_catalogo_d1_cliente_padrao_ambiente(
 
     status = sincronizar_catalogo_d1(caminho_novo, None, cliente=None)
     assert status == "atualizado"
-

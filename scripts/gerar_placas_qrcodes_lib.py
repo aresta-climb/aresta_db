@@ -21,12 +21,12 @@ if _RAIZ not in sys.path:
 
 import qrcode
 import qrcode.constants
-import yaml
 from PIL import Image, ImageChops, ImageDraw, ImageFont
 from PIL.ImageFont import FreeTypeFont
 from PIL.ImageFont import ImageFont as PILImageFont
 
 from aresta_api.proto.generated import croqui_pb2
+from editor.core.serializacao_util import carregar_yaml
 
 LARGURA_PADRAO_A4_600DPI = 4960
 ALTURA_PADRAO_A4_600DPI = 7016
@@ -1222,7 +1222,7 @@ def extrair_itens_croqui(
     caminho_yaml = raiz_projeto / "database" / pico_id / "croqui.yaml"
     if caminho_yaml.exists():
         with open(caminho_yaml, encoding="utf-8") as f:
-            dados_yaml = yaml.safe_load(f)
+            dados_yaml = carregar_yaml(f)
 
         nome_pico = dados_yaml.get("nome", pico_id)
         itens = [

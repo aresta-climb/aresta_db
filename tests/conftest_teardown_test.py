@@ -248,4 +248,3 @@ class TestConftestTeardown(unittest.TestCase):
             self.assertEqual(os.environ.get("QT_QPA_PLATFORM"), "offscreen")
             self.assertEqual(os.environ.get("PADDLE_PDX_DISABLE_MODEL_SOURCE_CHECK"), "True")
             self.assertEqual(os.environ.get("ARESTA_DESATIVAR_TELEMETRIA"), "1")
-

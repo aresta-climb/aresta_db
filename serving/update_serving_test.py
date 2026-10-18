@@ -330,9 +330,7 @@ def test_delta_deploy_sincroniza_d1_antes_do_upload_r2(
         assert obj_final_r2["Body"].read() == b"sqlite-new-local"
 
 
-def test_delta_deploy_falha_d1_aborta_antes_de_alterar_r2(
-    deployer: Deployer, mock_s3
-) -> None:
+def test_delta_deploy_falha_d1_aborta_antes_de_alterar_r2(deployer: Deployer, mock_s3) -> None:
     remoto_arquivos = {"indice.binarypb": "hash_old", "catalogo.db": "hash_cat_old"}
     mock_s3.put_object(
         Bucket="aresta",
@@ -425,9 +423,7 @@ def test_delta_deploy_with_compilado_only(deployer: Deployer, mock_s3) -> None:
         )
 
 
-def test_upload_file_content_types_e_operacoes_vazias(
-    deployer: Deployer, mock_s3
-) -> None:
+def test_upload_file_content_types_e_operacoes_vazias(deployer: Deployer, mock_s3) -> None:
     arquivos_teste = {
         "doc.pdf": "application/pdf",
         "imagem.webp": "image/webp",

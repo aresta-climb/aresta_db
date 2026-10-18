@@ -4,9 +4,8 @@
 from pathlib import Path
 from typing import Any
 
-import yaml
-
 from aresta_api.proto.generated import beta_pb2
+from editor.core.serializacao_util import carregar_yaml, serializar_yaml
 
 
 def _midia_beta_para_dict(midia: beta_pb2.MidiaBeta) -> dict[str, Any]:
@@ -67,7 +66,7 @@ def injetar_betas_no_markdown(
             linhas_yaml.append(l)
 
     try:
-        frontmatter: dict[str, Any] = yaml.safe_load("\n".join(linhas_yaml)) or {}
+        frontmatter: dict[str, Any] = carregar_yaml("\n".join(linhas_yaml)) or {}
     except Exception:
         return False
 
@@ -104,10 +103,10 @@ def injetar_betas_no_markdown(
 
     if alterado:
         # Serializa YAML e reconstrói o arquivo Markdown
-        yaml_dumped = yaml.dump(frontmatter, allow_unicode=True, sort_keys=False)
-        cabecalho_final = ""
+        yaml_dumped = serializar_yaml(frontmatter, incluir_cabecalho_spdx=False)
+        cabecalho_final = "\n"
         if comentarios:
-            cabecalho_final = "\n".join(comentarios) + "\n"
+            cabecalho_final += "\n".join(comentarios) + "\n"
         cabecalho_final += yaml_dumped
 
         novo_conteudo = f"---{cabecalho_final}---{body_raw}"

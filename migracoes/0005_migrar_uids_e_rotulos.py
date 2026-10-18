@@ -8,10 +8,9 @@ para a biblioteca pura gerenciar_uids_lib.
 """
 
 from pathlib import Path
+
 from scripts.gerenciar_uids_lib import (
     sanear_uids_croqui,
-    _extrair_nome_escalada,
-    _inserir_ou_mover_para_posicao,
 )
 
 # Migração com escopo restrito aos arquivos de dados internos (database/ e croquis).

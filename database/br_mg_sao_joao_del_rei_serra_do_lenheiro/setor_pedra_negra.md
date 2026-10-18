@@ -244,7 +244,8 @@ escaladas:
     - Webert (Beto) Resende
     - Heider Ribeiro (Tio Nem)
     data_abertura: '2016'
-    descricao: Via com um crux bem concentrado em pequenos regletes duros com movimentação complexa.
+    descricao: Via com um crux bem concentrado em pequenos regletes duros com movimentação
+      complexa.
 - uid: RWv162QWXRrp4G
   via_esportiva:
     nome: Quando a Cabeça Falha
@@ -256,7 +257,8 @@ escaladas:
     - Luiz Cláudio
     - Márcio Andrade
     data_abertura: '2002'
-    descricao: Via constante levemente negativa com boas agarras. São 5 chapas mais duas no top.
+    descricao: Via constante levemente negativa com boas agarras. São 5 chapas mais
+      duas no top.
 - uid: Xl8I4msI0U2U4D
   via_esportiva:
     nome: Calangos Molhados
@@ -267,7 +269,8 @@ escaladas:
     - Jonatas Lima
     - Fabricio Nascimento
     - Carlos Pádua
-    descricao: Via levemente negativa, mas com boas agarras. Sugere-se colocar a segunda costura antes de entrar. 5+2.
+    descricao: Via levemente negativa, mas com boas agarras. Sugere-se colocar a segunda
+      costura antes de entrar. 5+2.
 - uid: 2agRKBnvCDJ69Q
   via_esportiva:
     nome: Calango Camuflado
@@ -279,7 +282,8 @@ escaladas:
     - Fabricio Nascimento
     - Carlos Pádua
     data_abertura: '2012'
-    descricao: Uma das mais frequentadas do local, com um crux concentrado. São 5+2 chapas.
+    descricao: Uma das mais frequentadas do local, com um crux concentrado. São 5+2
+      chapas.
 - uid: n82f98ZQcpnU8Q
   via_esportiva:
     nome: Fio de Cabelo
@@ -291,7 +295,8 @@ escaladas:
     - Leonardo Rodrigues
     - Márcio Andrade
     data_abertura: '2000'
-    descricao: Primeira via do setor. Via técnica, exige boa leitura pra não perder a cadena. 5+2 chapas.
+    descricao: Primeira via do setor. Via técnica, exige boa leitura pra não perder
+      a cadena. 5+2 chapas.
 - uid: FbiACCE0ffYprz
   via_esportiva:
     nome: Docinho do Tio Nem
@@ -300,7 +305,8 @@ escaladas:
     quantidade_protecoes_parada: 2
     conquistadores:
     - Jonatas Lima
-    descricao: Via muito repetida por ser uma das mais fáceis e ao mesmo tempo longa. Boa para top-rope. 6+2 chapas.
+    descricao: Via muito repetida por ser uma das mais fáceis e ao mesmo tempo longa.
+      Boa para top-rope. 6+2 chapas.
 - uid: lsgRnVpwwaN83H
   via_esportiva:
     nome: Heróis da Persistência
@@ -311,7 +317,8 @@ escaladas:
     - Luiz Cláudio
     - Leonardo Rodrigues
     data_abertura: '2014'
-    descricao: Via longa, completa e bem protegida. Também bastante frequentada por ser a única do grau no setor. 7+2.
+    descricao: Via longa, completa e bem protegida. Também bastante frequentada por
+      ser a única do grau no setor. 7+2.
 - uid: UlWDEIo5sYVYQJ
   via_esportiva:
     nome: Matrix
@@ -344,8 +351,8 @@ escaladas:
     - Webert (Beto) Resende
     - Heider Ribeiro (Tio Nem)
     data_abertura: '2012'
-    descricao: Via mais difícil do setor, possui apenas uma cadena até o momento, favor avisar os locais em caso de 
-      cadena.
+    descricao: Via mais difícil do setor, possui apenas uma cadena até o momento,
+      favor avisar os locais em caso de cadena.
 - uid: eWuJ7s5hxxkfVn
   via_esportiva:
     nome: Berbaridade
@@ -356,7 +363,8 @@ escaladas:
     - Jonatas Lima
     - Carlos Pádua
     data_abertura: '2015'
-    descricao: Via com um crux muito técnico e de difícil leitura. Também exige um pouco do psicológico. 6+2.
+    descricao: Via com um crux muito técnico e de difícil leitura. Também exige um
+      pouco do psicológico. 6+2.
 - uid: awbwGbBqo6LKFD
   via_esportiva:
     nome: Lontra Radical
@@ -368,8 +376,8 @@ escaladas:
     - Leonardo Rodrigues
     - Márcio Andrade
     data_abertura: '2000'
-    descricao: Uma das mais clássicas e talvez a mais repetida do setor. Via técnica que exige boa leitura e 
-      resistência. 6+2.
+    descricao: Uma das mais clássicas e talvez a mais repetida do setor. Via técnica
+      que exige boa leitura e resistência. 6+2.
 - uid: URpzo4mgyHb6SV
   via_esportiva:
     nome: Diamante Negro
@@ -390,8 +398,8 @@ escaladas:
     - Mariana Fiche
     - Flora Fiche Naves
     data_abertura: '2024-09-14'
-    descricao: Possui um estilo bem diferente de batentes escorridos, alternando lances de força e lances de equilíbrio.
-      5+2.
+    descricao: Possui um estilo bem diferente de batentes escorridos, alternando lances
+      de força e lances de equilíbrio. 5+2.
 - uid: DrKwEy7hXTbcMa
   via_esportiva:
     nome: JL Projeto
@@ -410,8 +418,8 @@ escaladas:
     - Leonardo Rodrigues
     - Gelson Feliciano
     data_abertura: '2005'
-    descricao: Outra clássica, com movimentação complexa. Crux peculiar de força e resistência em agarras escorridas 
-      5+2.
+    descricao: Outra clássica, com movimentação complexa. Crux peculiar de força e
+      resistência em agarras escorridas 5+2.
 - uid: NJwxNF7vRX1WwJ
   via_esportiva:
     nome: Viabilizoou
@@ -422,8 +430,8 @@ escaladas:
     - Pedro Naves
     - Lucas Agostini
     data_abertura: '2024-10-06'
-    descricao: Via com movimentação variada alternando leve negativo em agarras escorridas com positivo de equilíbrio. 
-      São 3+2 chapas.
+    descricao: Via com movimentação variada alternando leve negativo em agarras escorridas
+      com positivo de equilíbrio. São 3+2 chapas.
 - uid: zfzHhhS6LGjEzg
   via_esportiva:
     nome: Professor Pardal
@@ -444,8 +452,8 @@ escaladas:
     - Jonatas Lima
     - Heider Ribeiro (Tio Nem)
     data_abertura: '2014'
-    descricao: Via mais fácil do setor. Última via lá pra direita. Boa opção pra um primeiro contato com a escalada. São
-      duas chapas mais parada dupla.
+    descricao: Via mais fácil do setor. Última via lá pra direita. Boa opção pra um
+      primeiro contato com a escalada. São duas chapas mais parada dupla.
 ---
 
 # Pedra Negra

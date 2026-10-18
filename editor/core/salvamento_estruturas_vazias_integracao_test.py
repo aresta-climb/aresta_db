@@ -4,9 +4,9 @@
 from pathlib import Path
 
 import pytest
-import yaml
 
 from editor.core.croqui_experimental import GerenciadorCroquiExperimental
+from editor.core.serializacao_util import serializar_yaml
 from editor.core.storage import GerenciadorCaminhos
 from editor.core.workspace import ExperimentalWorkspace
 
@@ -72,7 +72,7 @@ def test_salvamento_e_compilacao_com_pico_vazio_e_grupo_sem_setores(
 
     caminho_yaml = caminho_database / "croqui.yaml"
     with open(caminho_yaml, "w", encoding="utf-8") as f:
-        yaml.dump(dados_croqui, f, allow_unicode=True, sort_keys=False)
+        serializar_yaml(dados_croqui, f, sort_keys=False)
 
     # 4. Executa a compilação através do ExperimentalWorkspace
     workspace = ExperimentalWorkspace(caminho_croqui)
@@ -86,9 +86,9 @@ def test_salvamento_e_compilacao_com_pico_vazio_e_grupo_sem_setores(
     assert caminho_resultado == caminho_croqui
     assert not any("erro" in m.lower() for m in mensagens_erro)
 
-    # E os arquivos compilados finais devem existir diretamente na raiz de compilado/ (formato compacto)
+    # E o arquivo compilado final deve existir diretamente na raiz de compilado/ (sem arquivos de debug legados)
     caminho_compilado = caminho_croqui / "compilado"
     assert (caminho_compilado / "compilado.binarypb").is_file()
-    assert (caminho_compilado / "compilado.yaml").is_file()
-    assert (caminho_compilado / "compilado.md").is_file()
+    assert not (caminho_compilado / "compilado.yaml").exists()
+    assert not (caminho_compilado / "compilado.md").exists()
     assert not (caminho_compilado / "br_mg_teste_vazio").exists()

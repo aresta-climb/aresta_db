@@ -4,7 +4,7 @@
 import unittest
 from pathlib import Path
 
-import yaml
+from editor.core.serializacao_util import carregar_yaml
 
 
 class TestWorkflowPrCodeValidator(unittest.TestCase):
@@ -16,7 +16,7 @@ class TestWorkflowPrCodeValidator(unittest.TestCase):
             self.skipTest(f"Workflow {self.workflow_path} não encontrado no checkout.")
 
         with open(self.workflow_path, encoding="utf-8") as f:
-            self.conteudo_yaml = yaml.safe_load(f)
+            self.conteudo_yaml = carregar_yaml(f)
 
     def test_workflow_instala_dependencias_graficas_qt(self) -> None:
         """Garante que o validador de PR instala dependências de sistema para Qt/PySide6 no Ubuntu."""

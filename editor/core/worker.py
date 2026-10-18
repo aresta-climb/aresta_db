@@ -359,6 +359,9 @@ class TarefaSalvamento(QThread):
         novo_id: str,
         id_atual: str,
         undo_index: int,
+        *,
+        cache_md: dict[str, tuple[dict[str, Any] | None, str]] | None = None,
+        corpos_brutos_md: dict[str, str] | None = None,
     ) -> None:
         super().__init__()
         self.workspace: Any = workspace
@@ -368,41 +371,59 @@ class TarefaSalvamento(QThread):
         self.novo_id: str = novo_id
         self.id_atual: str = id_atual
         self.undo_index: int = undo_index
+        self.cache_md: dict[str, tuple[dict[str, Any] | None, str]] = (
+            cache_md if cache_md is not None else {}
+        )
+        self.corpos_brutos_md: dict[str, str] = (
+            corpos_brutos_md if corpos_brutos_md is not None else {}
+        )
 
     def run(self) -> None:
         try:
-            import yaml
-
-            from editor.core.serializacao_util import configurar_yaml_representer
-
-            configurar_yaml_representer()
-            yaml_path = self.caminho_db / "croqui.yaml"
-            with open(yaml_path, "w", encoding="utf-8", newline="\n") as f:
-                f.write("# SPDX-License-Identifier: ODbL-1.0\n")
-                f.write("# Copyright (C) 2026 Aresta Climb Contributors\n")
-                yaml.dump(self.croqui_data, f, allow_unicode=True, sort_keys=False)
+            from scripts.deploy_generated import (
+                persistir_contexto_memoria_no_disco,
+                usar_contexto_memoria_deploy,
+            )
 
             houve_renomeacao = False
             if self.novo_id and self.id_atual and self.novo_id != self.id_atual:
                 houve_renomeacao = True
 
-            try:
-                resultado_proc = self.workspace.processar_renomeacao_e_compilacao(
-                    self.novo_id, self.id_atual, self.storage
-                )
-                if len(resultado_proc) == 3:
-                    caminho_retornado, erros, database_modificado = resultado_proc
-                else:
-                    caminho_retornado, erros = resultado_proc
+            caminhos_contexto: list[Path] = [self.caminho_db]
+            if houve_renomeacao and self.caminho_db.name != "database":
+                caminhos_contexto.append(self.caminho_db.parent / self.novo_id)
+
+            with usar_contexto_memoria_deploy(
+                caminhos_contexto,
+                self.croqui_data,
+                cache_md=self.cache_md,
+                corpos_brutos_md=self.corpos_brutos_md,
+            ) as ctx_deploy:
+                try:
+                    resultado_proc = self.workspace.processar_renomeacao_e_compilacao(
+                        self.novo_id, self.id_atual, self.storage
+                    )
+                    if len(resultado_proc) == 3:
+                        caminho_retornado, erros, database_modificado = resultado_proc
+                    else:
+                        caminho_retornado, erros = resultado_proc
+                        database_modificado = False
+                except Exception as e:
+                    caminho_retornado = (
+                        self.caminho_db.parent
+                        if self.caminho_db.name == "database"
+                        else self.caminho_db
+                    )
+                    erros = [f"Erro na compilação: {e}"]
                     database_modificado = False
-            except Exception as e:
-                caminho_retornado = (
-                    self.caminho_db.parent
-                    if self.caminho_db.name == "database"
-                    else self.caminho_db
-                )
-                erros = [f"Erro na compilação: {e}"]
-                database_modificado = False
+
+                if not ctx_deploy.persistido_no_disco:
+                    caminho_persistir = self.caminho_db
+                    if houve_renomeacao and self.caminho_db.name != "database":
+                        candidato_renomeado = self.caminho_db.parent / self.novo_id
+                        if candidato_renomeado.exists():
+                            caminho_persistir = candidato_renomeado
+                    persistir_contexto_memoria_no_disco(caminho_persistir, ctx_deploy)
 
             self.sucesso.emit(
                 caminho_retornado, erros, houve_renomeacao, self.undo_index, database_modificado

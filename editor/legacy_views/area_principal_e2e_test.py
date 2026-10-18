@@ -3,9 +3,9 @@
 
 
 import pytest
-import yaml
 from PySide6.QtWidgets import QApplication
 
+from editor.core.serializacao_util import carregar_yaml, serializar_yaml
 from editor.legacy_views.area_principal import JanelaPrincipal
 
 
@@ -38,7 +38,7 @@ def test_salvar_croqui_extrai_arquivos_wrapper(tmp_path, qapp):
         ],
     }
     with open(db_path / "croqui.yaml", "w", encoding="utf-8") as f:
-        yaml.dump(croqui_yaml, f)
+        serializar_yaml(croqui_yaml, f)
 
     from editor.core.workspace import ExperimentalWorkspace
 
@@ -67,7 +67,7 @@ def test_salvar_croqui_extrai_arquivos_wrapper(tmp_path, qapp):
     loop.exec()
 
     with open(db_path / "croqui.yaml", encoding="utf-8") as f:
-        saved_yaml = yaml.safe_load(f)
+        saved_yaml = carregar_yaml(f)
 
     setor_saved = saved_yaml["picos"][0]["setores_ou_grupos"][0]["setor"]
     assert "conteudo" not in setor_saved
@@ -130,7 +130,7 @@ Texto da capa do croqui.
         ],
     }
     with open(db_path / "croqui.yaml", "w", encoding="utf-8") as f:
-        yaml.dump(croqui_yaml, f)
+        serializar_yaml(croqui_yaml, f)
 
     from editor.core.workspace import ExperimentalWorkspace
 
@@ -191,7 +191,7 @@ Corpo original.
         ],
     }
     with open(db_path / "croqui.yaml", "w", encoding="utf-8") as f:
-        yaml.dump(croqui_yaml, f)
+        serializar_yaml(croqui_yaml, f)
 
     from editor.core.workspace import ExperimentalWorkspace
 
@@ -232,7 +232,7 @@ Corpo original.
 
     # O YAML do croqui deve estar apontando para o novo caminho
     with open(db_path / "croqui.yaml", encoding="utf-8") as f:
-        saved_yaml = yaml.safe_load(f)
+        saved_yaml = carregar_yaml(f)
     assert saved_yaml["picos"][0]["setores_ou_grupos"][0]["setor"]["caminho"] == "setor_novo.md"
 
     # Em memória, a mensagem ativa continua intacta
@@ -271,7 +271,7 @@ Texto da capa do croqui.
         "secoes_textuais": [{"titulo": "Capa Principal", "caminho": "doc_capa.md"}],
     }
     with open(db_path / "croqui.yaml", "w", encoding="utf-8") as f:
-        yaml.dump(croqui_yaml, f)
+        serializar_yaml(croqui_yaml, f)
 
     # 3. Abre a janela e carrega o croqui
     from editor.core.workspace import ExperimentalWorkspace
@@ -286,7 +286,7 @@ Texto da capa do croqui.
     assert "Capa Principal" in croqui_msg.botoes[0].destino.secao_textual.conteudo
 
     with open(db_path / "croqui.yaml", encoding="utf-8") as f:
-        dados_yaml = yaml.safe_load(f)
+        dados_yaml = carregar_yaml(f)
     assert "secoes_textuais" not in dados_yaml
     assert "botoes" in dados_yaml
     assert dados_yaml["ultima_migracao"] >= 1
@@ -306,13 +306,13 @@ def test_carregar_croqui_experimental_aplica_migracao_5(tmp_path, qapp):
         "ultima_migracao": 4,
     }
     with open(db_path / "croqui.yaml", "w", encoding="utf-8") as f:
-        yaml.dump(croqui_yaml, f)
+        serializar_yaml(croqui_yaml, f)
 
     janela = JanelaPrincipal(workspace=ExperimentalWorkspace(tmp_path))
     janela.carregar_croqui()
 
     with open(db_path / "croqui.yaml", encoding="utf-8") as f:
-        dados_salvos = yaml.safe_load(f)
+        dados_salvos = carregar_yaml(f)
 
     assert dados_salvos.get("ultima_migracao") == 5
     assert "uid" in dados_salvos
@@ -320,8 +320,6 @@ def test_carregar_croqui_experimental_aplica_migracao_5(tmp_path, qapp):
 
 
 def test_e2e_selecao_mapa_por_node_path(tmp_path, qapp):
-    import yaml
-
     db_path = tmp_path / "database"
     db_path.mkdir(parents=True)
     croqui_yaml = {
@@ -343,7 +341,7 @@ def test_e2e_selecao_mapa_por_node_path(tmp_path, qapp):
         ]
     }
     with open(db_path / "croqui.yaml", "w", encoding="utf-8") as fw:
-        yaml.dump(croqui_yaml, fw)
+        serializar_yaml(croqui_yaml, fw)
     from editor.core.workspace import ExperimentalWorkspace
 
     janela = JanelaPrincipal(workspace=ExperimentalWorkspace(tmp_path))

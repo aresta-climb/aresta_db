@@ -1,4 +1,4 @@
-versao_catalogo: 8f5027d0f987d808
+versao_catalogo: 70c7ddb0cf371148
 croquis:
 - id: br_mg_araxa_bocaina_boulders
   croqui_uid: oyCb72FtUENKNi
@@ -21,9 +21,9 @@ croquis:
 - id: br_mg_araxa_bocaina_esportivas
   croqui_uid: Ygo9aN5g9LtcLo
   nome: Bocaina Park (Esportivas)
-  descricao: "O Bocaina Park, localizado em Araxá - MG, é um dos principais polos\
-    \ de escalada esportiva da região. \nEste croqui cobre as 220 vias do parque,\
-    \ distribuídas em diversos setores com graduações que vão do 4º ao 10º grau.\n"
+  descricao: "O Bocaina Park, localizado em Araxá - MG, é um dos principais polos
+    de escalada esportiva da região. \nEste croqui cobre as 220 vias do parque, distribuídas
+    em diversos setores com graduações que vão do 4º ao 10º grau.\n"
   caminho_relativo: br_mg_araxa_bocaina_esportivas/compilado.binarypb
   checksum_sha256_croqui: 902c94a1ac98cd519b15d32b9a88f5faec36997647e35d47eea0c8441194ac66
   checksum_sha256_thumbnail: f07945364407d969d520d40ad78d646d07e0dba72a51f85285903b356efdd8ef
@@ -277,9 +277,9 @@ croquis:
   nome: Gruta da Lapinha
   descricao: Guia de escalada da Gruta da Lapinha em Lagoa Santa, MG.
   caminho_relativo: br_mg_lagoa_santa_gruta_da_lapinha/compilado.binarypb
-  checksum_sha256_croqui: a53ba65da38a674c4a29434435ff5f5390a986f20fed6510aee547b5f32f93f2
+  checksum_sha256_croqui: 1bfd0bd831c9aec08aa66a72693ff2a66084473e4a79360ab01af731815b633e
   checksum_sha256_thumbnail: 76c57c2b9159772355858ad8f40ba79a8584dfdda215379031adc9afff1f1416
-  timestamp_update: '2026-10-14T00:45:08Z'
+  timestamp_update: '2026-10-18T12:48:00Z'
   precomputados:
     total_escaladas: 129
     total_setores: 10

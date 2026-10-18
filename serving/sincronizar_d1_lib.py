@@ -78,14 +78,9 @@ class ClienteCloudflareD1:
             base_url=base_url,
         )
 
-    def executar_query(
-        self, sql: str, params: list[Any] | None = None
-    ) -> list[dict[str, Any]]:
+    def executar_query(self, sql: str, params: list[Any] | None = None) -> list[dict[str, Any]]:
         """Executa uma instrução SQL parametrizada no Cloudflare D1 via API REST."""
-        url = (
-            f"{self.base_url}/accounts/{self.account_id}"
-            f"/d1/database/{self.database_id}/query"
-        )
+        url = f"{self.base_url}/accounts/{self.account_id}/d1/database/{self.database_id}/query"
         corpo = json.dumps({"sql": sql, "params": params or []}).encode("utf-8")
         requisicao = urllib.request.Request(
             url,
@@ -102,9 +97,7 @@ class ClienteCloudflareD1:
                 dados = json.loads(resposta.read().decode("utf-8"))
         except urllib.error.HTTPError as erro:
             detalhe = erro.read().decode("utf-8", errors="replace")
-            raise RuntimeError(
-                f"Erro HTTP {erro.code} no Cloudflare D1: {detalhe}"
-            ) from erro
+            raise RuntimeError(f"Erro HTTP {erro.code} no Cloudflare D1: {detalhe}") from erro
 
         if not dados.get("success", False):
             erros = dados.get("errors", [])
@@ -151,16 +144,12 @@ def obter_ultima_versao_d1(cliente: ClienteCloudflareD1) -> str | None:
     return None
 
 
-def aplicar_upserts_e_deletes_d1(
-    cliente: ClienteCloudflareD1, deltas: dict[str, Any]
-) -> None:
+def aplicar_upserts_e_deletes_d1(cliente: ClienteCloudflareD1, deltas: dict[str, Any]) -> None:
     """
     Aplica as deleções e inserções/atualizações nas tabelas espelho do D1 em lotes
     compatíveis com o limite de bind parameters da API D1.
     """
-    entidades_deletes: list[str] = deltas.get("entidades", {}).get(
-        "deletes", []
-    )
+    entidades_deletes: list[str] = deltas.get("entidades", {}).get("deletes", [])
     for i in range(0, len(entidades_deletes), TAMANHO_LOTE_DELETE):
         lote = entidades_deletes[i : i + TAMANHO_LOTE_DELETE]
         marcadores = ", ".join("?" for _ in lote)
@@ -198,9 +187,7 @@ def aplicar_upserts_e_deletes_d1(
             parametros,
         )
 
-    entidades_upserts: list[dict[str, Any]] = deltas.get("entidades", {}).get(
-        "upserts", []
-    )
+    entidades_upserts: list[dict[str, Any]] = deltas.get("entidades", {}).get("upserts", [])
     for i in range(0, len(entidades_upserts), TAMANHO_LOTE_UPSERT_ENTIDADES):
         lote_entidades = entidades_upserts[i : i + TAMANHO_LOTE_UPSERT_ENTIDADES]
         marcadores = ", ".join("(?, ?, ?, ?, ?, ?, ?, ?)" for _ in lote_entidades)
@@ -254,21 +241,15 @@ def sincronizar_catalogo_d1(
 
     ant_path = Path(caminho_catalogo_anterior_r2) if caminho_catalogo_anterior_r2 else None
     versao_anterior_r2 = (
-        obter_versao_catalogo(ant_path)
-        if (ant_path is not None and ant_path.exists())
-        else ""
+        obter_versao_catalogo(ant_path) if (ant_path is not None and ant_path.exists()) else ""
     )
 
     precisa_bootstrap = (
-        ultima_versao_d1 is None
-        or not versao_anterior_r2
-        or ultima_versao_d1 != versao_anterior_r2
+        ultima_versao_d1 is None or not versao_anterior_r2 or ultima_versao_d1 != versao_anterior_r2
     )
 
     if precisa_bootstrap:
-        print(
-            f"Executando bootstrap completo do Cloudflare D1 para versão {versao_nova}..."
-        )
+        print(f"Executando bootstrap completo do Cloudflare D1 para versão {versao_nova}...")
         cliente.executar_query("DELETE FROM catalogo_aresta")
         cliente.executar_query("DELETE FROM catalogo_croquis")
         cliente.executar_query("DELETE FROM deltas_catalogo")

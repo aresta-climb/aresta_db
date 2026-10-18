@@ -4,7 +4,7 @@
 import unittest
 from pathlib import Path
 
-import yaml
+from editor.core.serializacao_util import carregar_yaml
 
 
 class TestWorkflowReleaseEditor(unittest.TestCase):
@@ -20,16 +20,16 @@ class TestWorkflowReleaseEditor(unittest.TestCase):
             self.skipTest(f"Workflow {self.workflow_path} não encontrado no checkout.")
 
         with open(self.workflow_path, encoding="utf-8") as f:
-            self.conteudo_yaml = yaml.safe_load(f)
+            self.conteudo_yaml = carregar_yaml(f)
 
         with open(self.windows_path, encoding="utf-8") as f:
-            self.conteudo_windows = yaml.safe_load(f)
+            self.conteudo_windows = carregar_yaml(f)
 
         with open(self.macos_path, encoding="utf-8") as f:
-            self.conteudo_macos = yaml.safe_load(f)
+            self.conteudo_macos = carregar_yaml(f)
 
         with open(self.linux_path, encoding="utf-8") as f:
-            self.conteudo_linux = yaml.safe_load(f)
+            self.conteudo_linux = carregar_yaml(f)
 
     def test_workflow_possui_sparse_checkout_com_tests_e_github(self) -> None:
         """Garante que o sparse-checkout do workflow inclui as pastas tests e .github para testes arquiteturais."""
@@ -298,14 +298,18 @@ class TestWorkflowReleaseEditor(unittest.TestCase):
             "Deve haver publicação no Cloudflare R2.",
         )
 
-    def test_subaction_macos_utiliza_modulo_dedicado_para_configurar_certificado_apple(self) -> None:
+    def test_subaction_macos_utiliza_modulo_dedicado_para_configurar_certificado_apple(
+        self,
+    ) -> None:
         """Garante que a configuração do certificado Apple no macOS utiliza a biblioteca dedicada para compatibilidade de cifras PBKDF2/Keychain."""
         passos = self.conteudo_macos["jobs"]["compilar_macos"]["steps"]
         passo_cert = next(
             (s for s in passos if "Configurar Certificado Apple Developer ID" in s.get("name", "")),
             None,
         )
-        self.assertIsNotNone(passo_cert, "Passo de configuração de certificado Apple não encontrado.")
+        self.assertIsNotNone(
+            passo_cert, "Passo de configuração de certificado Apple não encontrado."
+        )
         assert passo_cert is not None
         run_cmd = passo_cert.get("run", "")
         self.assertIn("editor.release_tools.configurar_certificado_macos", run_cmd)
@@ -329,7 +333,9 @@ class TestWorkflowReleaseEditor(unittest.TestCase):
         caminhos_artefatos = "\n".join(
             str(s.get("with", {}).get("path", "")) for s in passos_artifact
         )
-        self.assertIn("*.dmg", caminhos_artefatos, "O arquivo *.dmg deve estar no path do upload-artifact.")
+        self.assertIn(
+            "*.dmg", caminhos_artefatos, "O arquivo *.dmg deve estar no path do upload-artifact."
+        )
 
     def test_subactions_etapa_testes_configurada_com_offscreen_e_ci(self) -> None:
         """Garante que a etapa de testes nos workflows do macOS e Windows define QT_QPA_PLATFORM offscreen e CI true."""
@@ -475,12 +481,12 @@ class TestWorkflowReleaseEditor(unittest.TestCase):
                 f"O sub-workflow {caminho.name} referencia 'steps.versao' inexistente. Deve usar 'inputs.versao'.",
             )
 
-    def test_subaction_linux_instala_ferramentas_e_dependencias_flatpak_com_sudo_para_sistema(self) -> None:
+    def test_subaction_linux_instala_ferramentas_e_dependencias_flatpak_com_sudo_para_sistema(
+        self,
+    ) -> None:
         """Garante que o passo de instalação do Flatpak no Linux utiliza sudo para registrar o Flathub no escopo do sistema."""
         passos = self.conteudo_linux["jobs"]["build_linux"]["steps"]
-        passo_flatpak = next(
-            (s for s in passos if "Instalar Flatpak" in s.get("name", "")), None
-        )
+        passo_flatpak = next((s for s in passos if "Instalar Flatpak" in s.get("name", "")), None)
         self.assertIsNotNone(passo_flatpak, "Passo de instalação de Flatpak não encontrado.")
         assert passo_flatpak is not None
         run_cmd = passo_flatpak.get("run", "")
@@ -492,9 +498,7 @@ class TestWorkflowReleaseEditor(unittest.TestCase):
     def test_subaction_linux_exige_chave_gpg_e_falha_se_ausente(self) -> None:
         """Garante que a subaction Linux falha com exit 1 caso a secret ARESTA_FLATPAK_GPG_PRIVATE_KEY esteja ausente."""
         passos = self.conteudo_linux["jobs"]["build_linux"]["steps"]
-        passo_gpg = next(
-            (s for s in passos if "Configurar Chave GPG" in s.get("name", "")), None
-        )
+        passo_gpg = next((s for s in passos if "Configurar Chave GPG" in s.get("name", "")), None)
         self.assertIsNotNone(passo_gpg, "Passo de configuração de GPG não encontrado.")
         assert passo_gpg is not None
         run_cmd = passo_gpg.get("run", "")
@@ -506,7 +510,11 @@ class TestWorkflowReleaseEditor(unittest.TestCase):
         """Garante que flatpak-builder e flatpak build-update-repo assinam commits e índices com a chave GPG."""
         passos = self.conteudo_linux["jobs"]["build_linux"]["steps"]
         passo_builder = next(
-            (s for s in passos if "flatpak-github-actions/flatpak-builder" in str(s.get("uses", ""))),
+            (
+                s
+                for s in passos
+                if "flatpak-github-actions/flatpak-builder" in str(s.get("uses", ""))
+            ),
             None,
         )
         self.assertIsNotNone(passo_builder)
@@ -553,7 +561,9 @@ class TestWorkflowReleaseEditor(unittest.TestCase):
         self.assertIn("editor/release_tools/publicar_flatpak_cli.py publicar", run_pub)
         self.assertNotIn("python3 -c", run_pub)
 
-    def test_subaction_linux_empacota_bundle_flatpak_e_disponibiliza_artefato_sem_incluir_na_release(self) -> None:
+    def test_subaction_linux_empacota_bundle_flatpak_e_disponibiliza_artefato_sem_incluir_na_release(
+        self,
+    ) -> None:
         """Garante que o bundle .flatpak é gerado assinado, disponibilizado como artefato/output e não anexado à release do GitHub."""
         passos = self.conteudo_linux["jobs"]["build_linux"]["steps"]
         passo_bundle = next(
@@ -573,15 +583,23 @@ class TestWorkflowReleaseEditor(unittest.TestCase):
         # Valida que o bundle .flatpak está nos artefatos disponibilizados no GitHub Actions
         passos_artifact = [s for s in passos if "upload-artifact" in str(s.get("uses", ""))]
         self.assertTrue(len(passos_artifact) > 0, "Deve haver step de upload-artifact.")
-        caminhos_artefatos = "\n".join(str(s.get("with", {}).get("path", "")) for s in passos_artifact)
-        self.assertIn("*.flatpak", caminhos_artefatos, "O bundle .flatpak deve estar no path do upload-artifact.")
+        caminhos_artefatos = "\n".join(
+            str(s.get("with", {}).get("path", "")) for s in passos_artifact
+        )
+        self.assertIn(
+            "*.flatpak",
+            caminhos_artefatos,
+            "O bundle .flatpak deve estar no path do upload-artifact.",
+        )
 
         # Valida que o bundle .flatpak NÃO é enviado para a release oficial do GitHub
-        passo_release = next((s for s in passos if "gh release upload" in str(s.get("run", ""))), None)
+        passo_release = next(
+            (s for s in passos if "gh release upload" in str(s.get("run", ""))), None
+        )
         if passo_release:
             run_release = passo_release.get("run", "")
-            self.assertNotIn(".flatpak", run_release, "O bundle .flatpak não deve ser enviado na release do GitHub.")
-
-
-
-
+            self.assertNotIn(
+                ".flatpak",
+                run_release,
+                "O bundle .flatpak não deve ser enviado na release do GitHub.",
+            )

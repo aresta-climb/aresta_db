@@ -97,7 +97,7 @@ class DialogoBuscaCroqui(QDialog):
             print(f"[AVISO] Pasta database não encontrada em: {caminho_database}")
             return
 
-        import yaml
+        from editor.core.serializacao_util import carregar_yaml
 
         try:
             self.lista_croquis.clear()
@@ -111,10 +111,9 @@ class DialogoBuscaCroqui(QDialog):
                 croqui_yaml = pasta / "croqui.yaml"
                 if croqui_yaml.is_file():
                     try:
-                        with open(croqui_yaml, encoding="utf-8") as f:
-                            dados = yaml.safe_load(f)
-                            if isinstance(dados, dict) and "nome" in dados:
-                                nome = dados["nome"]
+                        dados = carregar_yaml(croqui_yaml.read_text(encoding="utf-8"))
+                        if isinstance(dados, dict) and "nome" in dados:
+                            nome = dados["nome"]
                     except Exception:
                         pass
 

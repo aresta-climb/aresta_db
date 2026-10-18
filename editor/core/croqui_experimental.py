@@ -2,25 +2,21 @@
 # Copyright (C) 2026 Aresta Climb Contributors
 
 import shutil
-import sys
 import uuid
 from datetime import UTC, datetime
 from pathlib import Path
-
-import pygit2
-import yaml
-from google.protobuf.json_format import MessageToDict
-
-from aresta_api.proto.generated.croqui_experimental_pb2 import CroquiExperimental
-from editor.core.storage import GerenciadorCaminhos
-
-# Adiciona a raiz do projeto ao sys.path para encontrar o módulo 'scripts'
-ROOT_DIR = Path(__file__).resolve().parent.parent.parent
-if str(ROOT_DIR) not in sys.path:
-    sys.path.append(str(ROOT_DIR))
-
 from typing import Any
 
+import pygit2
+from google.protobuf.json_format import MessageToDict, ParseDict
+
+from aresta_api.proto.generated.croqui_experimental_pb2 import CroquiExperimental
+from editor.core.serializacao_util import (
+    carregar_yaml,
+    escrever_texto_se_modificado,
+    serializar_yaml,
+)
+from editor.core.storage import GerenciadorCaminhos
 from scripts.deploy_generated import deploy
 from scripts.gerenciar_uids_lib import gerar_uid
 from scripts.migrador import obter_ultima_versao_migracao
@@ -68,37 +64,10 @@ class GerenciadorCroquiExperimental:
 
         dict_meta = MessageToDict(meta, preserving_proto_field_name=True)
 
-        from editor.core.serializacao_util import configurar_yaml_representer
-
-        configurar_yaml_representer()
         yaml_path = caminho_raiz / "croqui_experimental.yaml"
-        with open(yaml_path, "w", encoding="utf-8", newline="\n") as f:
-            yaml_str = yaml.dump(dict_meta, allow_unicode=True, sort_keys=False)
-            f.write(yaml_str.replace("\r\n", "\n"))
-
-        # Inicializar repositório Git local
-        # O repositório será criado na raiz do croqui experimental
-        repo = pygit2.init_repository(str(caminho_raiz), False)
-        repo.config["core.autocrlf"] = False
-
-        # Criar um commit inicial vazio ou com os arquivos base para o git existir?
-        # Apenas criar os arquivos de metadados e commitar
-        index = repo.index
-        index.add("croqui_experimental.yaml")
-        index.write()
-
-        tree = index.write_tree()
-
-        # Assinatura (usando autor generico já que é só local)
-        autor = pygit2.Signature("Editor Aresta", "editor@aresta.local")
-
-        repo.create_commit(
-            "HEAD",  # nome da referência a ser atualizada
-            autor,
-            autor,
-            f"Commit inicial do croqui experimental\n\nSigned-off-by: {autor.name} <{autor.email}>",
-            tree,
-            [],  # Sem parents para o primeiro commit
+        escrever_texto_se_modificado(
+            yaml_path,
+            serializar_yaml(dict_meta, incluir_cabecalho_spdx=False),
         )
 
         return caminho_raiz
@@ -122,7 +91,7 @@ class GerenciadorCroquiExperimental:
         Cria um novo croqui a partir de metadados, inicializa o croqui.yaml e realiza o primeiro build.
         """
         commit_base_sha = self._obter_commit_base_sha()
-        # 1. Cria a estrutura base (pastas e git inicial)
+        # 1. Cria a estrutura base de pastas e metadados
         caminho_raiz = self._criar_estrutura_croqui(
             id_croqui,
             nome_usuario,
@@ -131,54 +100,30 @@ class GerenciadorCroquiExperimental:
             commit_base_sha=commit_base_sha,
         )
 
-        try:
-            # 2. Cria o arquivo database/croqui.yaml seguindo a estrutura do proto
-            croqui_data = {
-                "id": id_croqui,
-                "uid": gerar_uid(),
-                "nome": pico,
-                "ultima_migracao": obter_ultima_versao_migracao(),
-                "picos": [{"nome": pico, "estado": estado}],
-            }
+        # 2. Cria o arquivo database/croqui.yaml seguindo a estrutura do proto
+        croqui_data = {
+            "id": id_croqui,
+            "uid": gerar_uid(),
+            "nome": pico,
+            "ultima_migracao": obter_ultima_versao_migracao(),
+            "picos": [{"nome": pico, "estado": estado}],
+        }
 
-            caminho_database = caminho_raiz / "database"
-            yaml_path = caminho_database / "croqui.yaml"
+        caminho_database = caminho_raiz / "database"
+        yaml_path = caminho_database / "croqui.yaml"
 
-            with open(yaml_path, "w", encoding="utf-8", newline="\n") as f:
-                yaml_str = yaml.dump(croqui_data, allow_unicode=True, sort_keys=False)
-                f.write(yaml_str.replace("\r\n", "\n"))
+        escrever_texto_se_modificado(
+            yaml_path,
+            serializar_yaml(croqui_data, incluir_cabecalho_spdx=True),
+        )
 
-            # 3. Executa a compilação inicial para garantir ambiente funcional
-            if log_dialog:
-                log_dialog.adicionar_log(f"Inicializando compilação de setup para '{id_croqui}'...")
+        # 3. Executa a compilação inicial para garantir ambiente funcional
+        if log_dialog:
+            log_dialog.adicionar_log(f"Inicializando compilação de setup para '{id_croqui}'...")
 
-            self.compilar_croqui(caminho_raiz)
+        self.compilar_croqui(caminho_raiz)
 
-            # 4. Commit com os arquivos criados e compilados
-            repo = pygit2.Repository(str(caminho_raiz))
-            index = repo.index
-            index.add_all(["database"])
-            if (caminho_raiz / "compilado").exists():
-                index.add_all(["compilado"])
-            index.write()
-
-            tree = index.write_tree()
-            autor = pygit2.Signature("Editor Aresta", "editor@aresta.local")
-            head = repo.head.target
-            repo.create_commit(
-                "HEAD",
-                autor,
-                autor,
-                f"Setup inicial: criação do croqui.yaml e compilação de sucesso\n\nSigned-off-by: {autor.name} <{autor.email}>",
-                tree,
-                [head],
-            )
-
-            return caminho_raiz
-        except Exception as e:
-            # Em caso de falha, limpa a pasta para não deixar lixo no storage
-            self.excluir_croqui(caminho_raiz)
-            raise e
+        return caminho_raiz
 
     def criar_croqui_a_partir_de_oficial(
         self, id_oficial: str, nome_usuario: str, resumo_edicao: str = ""
@@ -187,7 +132,7 @@ class GerenciadorCroquiExperimental:
         Cria um croqui experimental a partir de um croqui oficial, copiando os arquivos.
         """
         commit_base_sha = self._obter_commit_base_sha()
-        # 1. Inicializa o croqui experimental (cria pastas e git inicial)
+        # 1. Inicializa o croqui experimental (cria pastas e metadados)
         caminho_experimental = self._criar_estrutura_croqui(
             id_oficial, nome_usuario, resumo_edicao, id_oficial, commit_base_sha=commit_base_sha
         )
@@ -209,32 +154,8 @@ class GerenciadorCroquiExperimental:
                 else:
                     shutil.copy2(item, caminho_destino_database / item.name)
 
-            # 3.2. Compila o croqui localmente para gerar a pasta compilado
+            # 4. Compila o croqui localmente para gerar a pasta compilado
             self.compilar_croqui(caminho_experimental)
-
-            # 4. Realiza o commit com os arquivos importados
-            repo = pygit2.Repository(str(caminho_experimental))
-            index = repo.index
-            # Adiciona recursivamente os arquivos da pasta database e compilado
-            index.add_all(["database"])
-            if (caminho_experimental / "compilado").exists():
-                index.add_all(["compilado"])
-            index.write()
-
-            tree = index.write_tree()
-            autor = pygit2.Signature("Editor Aresta", "editor@aresta.local")
-
-            # O criar_croqui já criou o primeiro commit.
-            # Este será o segundo commit (Importação).
-            head = repo.head.target
-            repo.create_commit(
-                "HEAD",
-                autor,
-                autor,
-                f"Importação do croqui oficial: {id_oficial}\n\nSigned-off-by: {autor.name} <{autor.email}>",
-                tree,
-                [head],
-            )
 
             return caminho_experimental
         except Exception as e:
@@ -251,10 +172,7 @@ class GerenciadorCroquiExperimental:
         if not yaml_path.is_file():
             return
 
-        from google.protobuf.json_format import MessageToDict, ParseDict
-
-        with open(yaml_path, encoding="utf-8") as f:
-            dados = yaml.safe_load(f) or {}
+        dados = carregar_yaml(yaml_path.read_text(encoding="utf-8")) or {}
 
         meta = CroquiExperimental()
         ParseDict(dados, meta, ignore_unknown_fields=True)
@@ -265,9 +183,10 @@ class GerenciadorCroquiExperimental:
         meta.ultima_edicao.FromDatetime(datetime.now(UTC))
 
         dict_meta = MessageToDict(meta, preserving_proto_field_name=True)
-        with open(yaml_path, "w", encoding="utf-8", newline="\n") as f:
-            yaml_str = yaml.dump(dict_meta, allow_unicode=True, sort_keys=False)
-            f.write(yaml_str.replace("\r\n", "\n"))
+        escrever_texto_se_modificado(
+            yaml_path,
+            serializar_yaml(dict_meta, incluir_cabecalho_spdx=False),
+        )
 
     def compilar_croqui(self, caminho_raiz: Path) -> bool:
         """
@@ -280,33 +199,27 @@ class GerenciadorCroquiExperimental:
         # Garante que a pasta compilado exista
         caminho_compilado.mkdir(parents=True, exist_ok=True)
 
-        # Executa o deploy localmente
-        # deploy(url_base=None, output_dir=<pasta compilado>, target_path=<pasta database>, force_thumbnails=True)
         try:
-            # Garante que o diretório é um repositório Git (necessário para o histórico local)
-            if not (caminho_raiz / ".git").is_dir():
-                repo = pygit2.init_repository(str(caminho_raiz))
-                # Cria um commit inicial vazio para ter uma base
-                index = repo.index
-                index.write()
-                tree = index.write_tree()
-                autor = pygit2.Signature("Editor Aresta", "editor@aresta.local")
-                repo.create_commit(
-                    "HEAD",
-                    autor,
-                    autor,
-                    f"Inicialização automática após importação\n\nSigned-off-by: {autor.name} <{autor.email}>",
-                    tree,
-                    [],
-                )
-            else:
-                repo = pygit2.Repository(str(caminho_raiz))
+            # Limpa eventual repositório .git local legado para liberar espaço e evitar overhead
+            self.excluir_croqui(caminho_raiz / ".git")
+
+            pb_compactado = caminho_compilado / "compilado.binarypb"
+            if pb_compactado.is_file():
+                from aresta_api.proto.generated import croqui_pb2
+
+                croqui_anterior = croqui_pb2.Croqui()
+                croqui_anterior.ParseFromString(pb_compactado.read_bytes())
+                pasta_previa = caminho_compilado / croqui_anterior.id
+                pasta_previa.mkdir(parents=True, exist_ok=True)
+                for nome_artefato in ("compilado.binarypb", "imagens", "anexos"):
+                    origem_artefato = caminho_compilado / nome_artefato
+                    if origem_artefato.exists():
+                        shutil.move(str(origem_artefato), str(pasta_previa / nome_artefato))
 
             database_modificado = deploy(
                 output_dir=caminho_compilado,
                 target_paths=[str(caminho_database)],
-                force_thumbnails=True,
-                gerar_arquivos_de_debug=True,
+                force_thumbnails=False,
                 is_producao=False,
                 sair_ao_falhar=False,
             )
@@ -318,41 +231,14 @@ class GerenciadorCroquiExperimental:
                 for d in caminho_compilado.iterdir()
                 if d.is_dir()
                 and d.name not in ("imagens", "anexos", "thumbnails")
-                and ((d / "compilado.binarypb").is_file() or (d / "compilado.yaml").is_file())
+                and (d / "compilado.binarypb").is_file()
             ]
             for pasta_croqui in pastas_para_compactar:
                 for sub_item in list(pasta_croqui.iterdir()):
                     destino = caminho_compilado / sub_item.name
-                    if destino.exists():
-                        if destino.is_dir():
-                            shutil.rmtree(destino, ignore_errors=True)
-                        else:
-                            destino.unlink(missing_ok=True)
                     shutil.move(str(sub_item), str(destino))
                 shutil.rmtree(pasta_croqui, ignore_errors=True)
 
-            # Commit no Git local
-            index = repo.index
-            # Adiciona a pasta compilado inteira ao index
-            index.add_all(["compilado"])
-            index.write()
-
-            tree = index.write_tree()
-            autor = pygit2.Signature("Editor Aresta", "editor@aresta.local")
-
-            # Pega o head atual para ser o pai do novo commit
-            head = repo.head.target
-            repo.create_commit(
-                "HEAD",
-                autor,
-                autor,
-                f"Compilação do croqui experimental\n\nSigned-off-by: {autor.name} <{autor.email}>",
-                tree,
-                [head],
-            )
-
-            # Força liberação de handles no Windows
-            del repo
             return bool(database_modificado)
         except Exception as e:
             # Re-lança como RuntimeError para ser capturado pela UI
@@ -363,7 +249,6 @@ class GerenciadorCroquiExperimental:
         Exclui permanentemente um croqui experimental do disco.
         """
         if caminho_raiz.is_dir():
-            import time
 
             def remover_somente_leitura(func: Any, path: str, _: Any) -> None:
                 # Limpa o atributo somente-leitura e tenta novamente
@@ -371,16 +256,7 @@ class GerenciadorCroquiExperimental:
                 Path(path).chmod(0o777)
                 func(path)
 
-            # No Windows, processos como antivírus ou indexadores podem travar pastas
-            # temporariamente. Tentamos algumas vezes antes de desistir.
-            for i in range(5):
-                try:
-                    shutil.rmtree(caminho_raiz, onerror=remover_somente_leitura)
-                    return
-                except PermissionError:
-                    if i == 4:
-                        raise
-                    time.sleep(0.2)
+            shutil.rmtree(caminho_raiz, onerror=remover_somente_leitura)
 
     def renomear_pasta_croqui(self, caminho_raiz: Path, novo_id: str) -> Path:
         """
@@ -388,9 +264,6 @@ class GerenciadorCroquiExperimental:
         pois a pasta raiz agora é opaca (UUID) e não precisa ser renomeada fisicamente.
         Retorna o mesmo Path raiz.
         """
-        if not self.caminhos:
-            return caminho_raiz  # Sem storage, não faz nada
-
         # Limpeza do compilado antigo para não gerar duplicação local.
         # Ao apenas apagar a pasta compilado, forçamos a recompilação limpa na próxima vez.
         caminho_compilado = caminho_raiz / "compilado"

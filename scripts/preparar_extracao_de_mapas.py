@@ -10,9 +10,10 @@ from pathlib import Path
 from typing import Any
 
 import numpy as np
-import yaml
 from paddleocr import PaddleOCR
 from PIL import Image
+
+from editor.core.serializacao_util import ErroSerializacaoYaml, carregar_yaml
 
 
 class PreparadorDeMapas:
@@ -79,8 +80,8 @@ class PreparadorDeMapas:
             parts = re.split(r"^---$", content, maxsplit=2, flags=re.MULTILINE)
             if len(parts) >= 3:
                 try:
-                    frontmatter = yaml.safe_load(parts[1]) or {}
-                except yaml.YAMLError as e:
+                    frontmatter = carregar_yaml(parts[1]) or {}
+                except ErroSerializacaoYaml as e:
                     print(f"Erro ao processar frontmatter em {md_file.name}: {e}")
                     return []
 

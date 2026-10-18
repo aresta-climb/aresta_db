@@ -420,7 +420,8 @@ escaladas:
     conquistadores:
     - Centro Excursionista Lenheiro
     data_abertura: '1988'
-    descricao: Via curta e fácil por uma fissura reta e um pouco suja. Sem relatos de repetições.
+    descricao: Via curta e fácil por uma fissura reta e um pouco suja. Sem relatos
+      de repetições.
 - uid: zTsT08fXXcl2I9
   via_esportiva:
     nome: Boca Murcha
@@ -430,7 +431,8 @@ escaladas:
     - Michel Rodrigues
     - Douglas Marques
     data_abertura: '2023-07-27'
-    descricao: Primeira via fixa da esquerda pra direita do setor. Via bem fácil, interessante pra uma primeira guiada.
+    descricao: Primeira via fixa da esquerda pra direita do setor. Via bem fácil,
+      interessante pra uma primeira guiada.
 - uid: xiAzRu2EWQTMeK
   via_esportiva:
     nome: Sorte de Principiante
@@ -440,8 +442,8 @@ escaladas:
     - Michel Rodrigues
     - Douglas Marques
     data_abertura: '2023-07-27'
-    descricao: Via começa vertical em boas agarras, passa por um fácil positivo e termina com um crux vertical mais 
-      técnico.
+    descricao: Via começa vertical em boas agarras, passa por um fácil positivo e
+      termina com um crux vertical mais técnico.
 - uid: ssn2x8RGX21pbr
   via_esportiva:
     nome: Pescador de Ilusões
@@ -451,8 +453,8 @@ escaladas:
     - Michel Rodrigues
     - Douglas Marques
     data_abertura: '2023-07-27'
-    descricao: Bem ao lado da via anterior, se parecem no estilo. Porém essa tem um crux mais negativo e de difícil 
-      leitura.
+    descricao: Bem ao lado da via anterior, se parecem no estilo. Porém essa tem um
+      crux mais negativo e de difícil leitura.
 - uid: zmPEFqN96jQIrC
   via_esportiva:
     nome: Malvado Favorito
@@ -463,7 +465,8 @@ escaladas:
     - Pablo Veloso
     - Carlos Pádua
     data_abertura: '2021-10-12'
-    descricao: Saída embaixo da copa de uma árvore. Início em positivo e crux no final em uma bonita sequência negativa.
+    descricao: Saída embaixo da copa de uma árvore. Início em positivo e crux no final
+      em uma bonita sequência negativa.
 - uid: jPAltt7zZixKe7
   via_movel:
     nome: A Primeira e Gente Nunca Esquece
@@ -473,8 +476,9 @@ escaladas:
     quantidade_protecoes_parada: 2
     conquistadores:
     - Luiz Cláudio
-    descricao: Via bem no meio do bloco rochoso vertical de cor mais clara. Possui apenas duas chapeletas em sua metade 
-      superior e parada dupla no cume. Para montagem de top-rope levar ao menos duas fitas de 1,20m.
+    descricao: Via bem no meio do bloco rochoso vertical de cor mais clara. Possui
+      apenas duas chapeletas em sua metade superior e parada dupla no cume. Para montagem
+      de top-rope levar ao menos duas fitas de 1,20m.
 - uid: bxnlGD0vbwsDIU
   via_movel:
     nome: Fissura dos Dois Dedos
@@ -483,10 +487,11 @@ escaladas:
     conquistadores:
     - André Ilha
     data_abertura: '1984-04-28'
-    descricao: Primeira via do setor e uma das mais belas, foi conquistada em solo. Saída ao lado da via anterior, 
-      depois segue pelo diedro e termina no topo da formação que dá nome ao setor. Um jogo de friends é o suficiente. 
-      Para descer, desescalar um lance pra direita, subir o trepa-pedras e ir até a parada fixa no final da via Portal 
-      do Delírio ou descer por caminhada.
+    descricao: Primeira via do setor e uma das mais belas, foi conquistada em solo.
+      Saída ao lado da via anterior, depois segue pelo diedro e termina no topo da
+      formação que dá nome ao setor. Um jogo de friends é o suficiente. Para descer,
+      desescalar um lance pra direita, subir o trepa-pedras e ir até a parada fixa
+      no final da via Portal do Delírio ou descer por caminhada.
 - uid: UQQNyI4JCAmyR0
   via_movel:
     nome: O Retorno
@@ -527,8 +532,9 @@ escaladas:
     conquistadores:
     - Leonardo Rodrigues
     - Márcio Andrade
-    descricao: Via inicia em uma fenda larga e suja entre duas vias fixas. Depois entra na grande cavidade da rocha e 
-      segue por uma fissura perfeita ao fundo. Costuma ficar bastante húmida na época de chuvas. Um jogo de friends.
+    descricao: Via inicia em uma fenda larga e suja entre duas vias fixas. Depois
+      entra na grande cavidade da rocha e segue por uma fissura perfeita ao fundo.
+      Costuma ficar bastante húmida na época de chuvas. Um jogo de friends.
 - uid: 8wDJrxOyROFxq2
   via_esportiva:
     nome: Investida Invertida
@@ -548,7 +554,8 @@ escaladas:
     conquistadores:
     - Leonardo Rodrigues
     - Márcio Andrade
-    descricao: Diedro oposto ao da Fissura dos Dois Dedos. Depois segue por uma bonita fenda em diagonal pra direita.
+    descricao: Diedro oposto ao da Fissura dos Dois Dedos. Depois segue por uma bonita
+      fenda em diagonal pra direita.
 - uid: da9IBfGwU1vpzm
   via_movel:
     nome: Portal do Delírio
@@ -560,8 +567,9 @@ escaladas:
     - P. C. Caliano
     - Guilherme
     data_abertura: '1988-04-17'
-    descricao: Inicia na aresta à esquerda do “Portal”, mas também é feita saindo pela fenda óbvia bem ao lado do portal
-      devido à sua beleza e dá menos arrasto na corda, desta forma o grau deve subir pra casa do sexto grau.
+    descricao: Inicia na aresta à esquerda do “Portal”, mas também é feita saindo
+      pela fenda óbvia bem ao lado do portal devido à sua beleza e dá menos arrasto
+      na corda, desta forma o grau deve subir pra casa do sexto grau.
 - uid: auYvOZ1jzPCJNJ
   via_movel:
     nome: Outra Dimensão
@@ -571,10 +579,12 @@ escaladas:
     - Pedro Naves
     - Bruno Bastos
     data_abertura: '2021-10-12'
-    descricao: 'Apesar de ter sido conquistada recentemente, é clássica e uma das móveis mais difíceis do setor. Pois além
-      do crux estilo Boulder no final possui mais outros lances técnicos. Foi conquistada saindo pela bela fissura que já
-      era usada como variante da via anterior, no platô segue reto entre blocos de pedra até atingir uma canaleta negativa
-      que também é exigente. Levar um jogo de friends até BD #4(final da via) e um de nuts.'
+    descricao: 'Apesar de ter sido conquistada recentemente, é clássica e uma das
+      móveis mais difíceis do setor. Pois além do crux estilo Boulder no final possui
+      mais outros lances técnicos. Foi conquistada saindo pela bela fissura que já
+      era usada como variante da via anterior, no platô segue reto entre blocos de
+      pedra até atingir uma canaleta negativa que também é exigente. Levar um jogo
+      de friends até BD #4(final da via) e um de nuts.'
 - uid: VGSteh9NLivxiN
   via_movel:
     nome: Variante Teto do Portal
@@ -595,8 +605,9 @@ escaladas:
     - Pedro Bugim
     - Vivianne Sawczuk
     data_abertura: '2015-04-26'
-    descricao: Inicia na aresta à direita do portal, em grampos. Sua metade superior é feita toda em móvel, cruzando com
-      a “Portal do Delírio” no grande platô no meio da parede. Parada dupla no topo, para segurança e rapel.
+    descricao: Inicia na aresta à direita do portal, em grampos. Sua metade superior
+      é feita toda em móvel, cruzando com a “Portal do Delírio” no grande platô no
+      meio da parede. Parada dupla no topo, para segurança e rapel.
 - uid: WQ2LCVCVgYCo5z
   via_movel:
     nome: Garimpeiros
@@ -606,11 +617,13 @@ escaladas:
     - Pedro Naves
     - Guilherme Otoni
     data_abertura: '2021-12-08'
-    descricao: 'Outra conquista recente bem interessante. Início em uma fenda escura, segue por um sistema de canaletas passando
-      bem ao lado direito de uma árvore, até chegar no grande platô onde encontra-se o crux: uma proteção antes de entrar
-      no lance ajuda a dar confiança no movimento dinâmico para alcançar um bico, no qual bloca-se para proteger com um Camalot
-      #4 e terminar a virada do negativo. Mais acima passa por uma fenda branca e segue por uma fissura perfeita até o cume.
-      Levar um jogo de friends até BD#4 e um de nuts.'
+    descricao: 'Outra conquista recente bem interessante. Início em uma fenda escura,
+      segue por um sistema de canaletas passando bem ao lado direito de uma árvore,
+      até chegar no grande platô onde encontra-se o crux: uma proteção antes de entrar
+      no lance ajuda a dar confiança no movimento dinâmico para alcançar um bico,
+      no qual bloca-se para proteger com um Camalot #4 e terminar a virada do negativo.
+      Mais acima passa por uma fenda branca e segue por uma fissura perfeita até o
+      cume. Levar um jogo de friends até BD#4 e um de nuts.'
 - uid: Wz8EiPQRlPgqsL
   via_esportiva:
     nome: Um Minuto de Silêncio
@@ -620,7 +633,8 @@ escaladas:
     - Fernando Honse
     - Mahananda Vargas
     data_abertura: '2011-01-15'
-    descricao: Via curta, mas explosiva do início ao fim. Difícil de sacar as costuras, melhora muito com elas no lugar.
+    descricao: Via curta, mas explosiva do início ao fim. Difícil de sacar as costuras,
+      melhora muito com elas no lugar.
 - uid: 4At4ETcm2r2RnW
   via_movel:
     nome: Mina de Cristal
@@ -631,7 +645,8 @@ escaladas:
     - Pedro Bugim
     - Vivianne Sawczuk
     data_abertura: '2015-04-26'
-    descricao: Via curta e levemente negativa, com boas passadas de oposição. Grampo no topo para segurança e rapel.
+    descricao: Via curta e levemente negativa, com boas passadas de oposição. Grampo
+      no topo para segurança e rapel.
 - uid: YuWr3n1ojM0zyV
   via_movel:
     nome: Erva do Diabo
@@ -640,8 +655,9 @@ escaladas:
     conquistadores:
     - Juratan Câmara
     data_abertura: '2001'
-    descricao: Bela via, principalmente na sua parte final. Sua base fica atrás do top da via anterior. Na conquista seu
-      final foi feito pela aresta à direita, mas tem sido repetida tocando reto na bonita e óbvia fenda principal.
+    descricao: Bela via, principalmente na sua parte final. Sua base fica atrás do
+      top da via anterior. Na conquista seu final foi feito pela aresta à direita,
+      mas tem sido repetida tocando reto na bonita e óbvia fenda principal.
 - uid: KqUpniGlfDVB6g
   via_movel:
     nome: Olhos de Lince
@@ -649,7 +665,8 @@ escaladas:
     conquistadores:
     - Luiz Cláudio
     - Leonardo Rodrigues
-    descricao: Variante da via anterior. Compartilha a mesma saída e segue pra esquerda em uma fenda após o platô.
+    descricao: Variante da via anterior. Compartilha a mesma saída e segue pra esquerda
+      em uma fenda após o platô.
 - uid: 429svd4mQSpFQf
   via_esportiva:
     nome: Da Toca Pra Cima
@@ -659,7 +676,8 @@ escaladas:
     - Guilherme Otoni
     - Pedro Naves
     data_abertura: '2021-08-22'
-    descricao: Via curta com saída de Boulder na entrada da “toca”. Após o platô, mais um crux na bela pedra laranja.
+    descricao: Via curta com saída de Boulder na entrada da “toca”. Após o platô,
+      mais um crux na bela pedra laranja.
 - uid: SBbc5gg7IoRUhg
   via_movel:
     nome: Magnésio de Cheirar
@@ -668,8 +686,9 @@ escaladas:
     - Everton Alves
     - Fernando Honse
     data_abertura: '2006'
-    descricao: Variante da via seguinte, não pode ser vista da base pois passa pela parte de trás da fenda da Erva do 
-      Diabo, ficando escondida nas costas da rocha onde possui uma fissura de mão perfeita.
+    descricao: Variante da via seguinte, não pode ser vista da base pois passa pela
+      parte de trás da fenda da Erva do Diabo, ficando escondida nas costas da rocha
+      onde possui uma fissura de mão perfeita.
 - uid: NPPzNmqTEcjtFf
   via_movel:
     nome: Fissura do Desejo
@@ -679,8 +698,8 @@ escaladas:
     - André Ilha
     - Lúcia Duarte
     data_abertura: '1984-07-23'
-    descricao: Saída por uma calha, passa por baixo de um grande bloco de pedra e sobe por um diedro fendado ao fundo. 
-      Seu final não pode ser visto da base.
+    descricao: Saída por uma calha, passa por baixo de um grande bloco de pedra e
+      sobe por um diedro fendado ao fundo. Seu final não pode ser visto da base.
 - uid: ypTPfm58pAGtjh
   via_movel:
     nome: Reconciliação (Variante)
@@ -700,8 +719,10 @@ escaladas:
     - Hebert Souza
     - Halle
     data_abertura: '2024-05-11'
-    descricao: 'Bonita fissura formada do desplacamento entre duas rochas formando uma fenda larga que protege com peças grandes
-      (até o camalot #5 já dá, mas o #6 ajuda a proteger melhor) daí o nome da via. Depois a fenda vai afinando no final.'
+    descricao: 'Bonita fissura formada do desplacamento entre duas rochas formando
+      uma fenda larga que protege com peças grandes (até o camalot #5 já dá, mas o
+      #6 ajuda a proteger melhor) daí o nome da via. Depois a fenda vai afinando no
+      final.'
 - uid: n6ZHPedpjmiyC2
   via_movel:
     nome: Diedro do Professor
@@ -711,7 +732,8 @@ escaladas:
     - Márcio Andrade
     - Hebert Souza
     data_abertura: '2024-04-28'
-    descricao: Sai na mesma canaleta das vias anteriores, mas ao final dela contorna-se o grande bloco pela direita.
+    descricao: Sai na mesma canaleta das vias anteriores, mas ao final dela contorna-se
+      o grande bloco pela direita.
 - uid: XwPg9HUTcnLZsb
   via_esportiva:
     nome: Vacinados
@@ -722,7 +744,8 @@ escaladas:
     - Carlos Pádua
     - Luiz Cláudio
     data_abertura: '2021-07-17'
-    descricao: Via positiva e bem protegida. Boa para treinar lances de equilíbrio e pra quem está começando a guiar.
+    descricao: Via positiva e bem protegida. Boa para treinar lances de equilíbrio
+      e pra quem está começando a guiar.
 - uid: ul6nnEmm6l3jfQ
   via_esportiva:
     nome: Finalmente
@@ -732,7 +755,8 @@ escaladas:
     - Pedro Naves
     - Márcio Andrade
     data_abertura: '2024-08-15'
-    descricao: Variante da via anterior, compartilham as primeiras chapas e depois sai pra esquerda passando pelo bloco.
+    descricao: Variante da via anterior, compartilham as primeiras chapas e depois
+      sai pra esquerda passando pelo bloco.
 - uid: YWhcRaq2nVm1Pb
   via_movel:
     nome: Idade da Pedra
@@ -743,8 +767,9 @@ escaladas:
     - Lúcia Duarte
     - José Ronaldo "Pelé"
     data_abertura: '1990-02-27'
-    descricao: Seu crux fica na bela fenda inicial, com proteções em friends grandes e stoppers. Continua em agarras e 
-      finaliza em uma fácil e bonita fissura em diagonal pra direita ao lado de uma mais larga e suja.
+    descricao: Seu crux fica na bela fenda inicial, com proteções em friends grandes
+      e stoppers. Continua em agarras e finaliza em uma fácil e bonita fissura em
+      diagonal pra direita ao lado de uma mais larga e suja.
 - uid: 3qYz3ixEr0LbQe
   via_esportiva:
     nome: Os Nômades
@@ -757,7 +782,8 @@ escaladas:
     - Carlos Pádua
     - Jonatas Lima
     data_abertura: 2021-09
-    descricao: Via bem variada, com início explosivo e depois passa por lances delicados. 3 chapas e mais parada dupla.
+    descricao: Via bem variada, com início explosivo e depois passa por lances delicados.
+      3 chapas e mais parada dupla.
 - uid: KcfNNlwTSyWop1
   via_movel:
     nome: Projetistas
@@ -767,7 +793,8 @@ escaladas:
     - Pedro Naves
     - Guilherme Otoni
     data_abertura: '2021-09-12'
-    descricao: Crux no início com proteções não muito boas. Começa em uma fenda e depois passa pra outra à direita.
+    descricao: Crux no início com proteções não muito boas. Começa em uma fenda e
+      depois passa pra outra à direita.
 - uid: L2ASFLHBJUJtbj
   via_esportiva:
     nome: Esperança
@@ -779,7 +806,8 @@ escaladas:
     - Gabriel Defelippe (Ripa)
     - Mariana Fiche
     data_abertura: '2021-08-21'
-    descricao: Via com saída em abaulados e após um rampado fácil segue mais vertical até parada dupla.
+    descricao: Via com saída em abaulados e após um rampado fácil segue mais vertical
+      até parada dupla.
 - uid: pPMinGu5DvNcnA
   via_esportiva:
     nome: Pedra Lascada
@@ -791,8 +819,8 @@ escaladas:
     - Carlos Pádua
     - Pablo Veloso
     data_abertura: '2021-08-21'
-    descricao: Via interessante com uma saída delicada e crux bem técnico na virada. São 3 chapeletas e mais parada 
-      dupla.
+    descricao: Via interessante com uma saída delicada e crux bem técnico na virada.
+      São 3 chapeletas e mais parada dupla.
 - uid: Cvcv1pT0Kd9oPn
   via_movel:
     nome: Chaminé Estiagem
@@ -803,7 +831,8 @@ escaladas:
     - Lúcia Duarte
     - José Ronaldo "Pelé"
     data_abertura: '1990-02-27'
-    descricao: Começa em uma chaminé média/estreita, bem limpa, evoluindo para lances em agarras.
+    descricao: Começa em uma chaminé média/estreita, bem limpa, evoluindo para lances
+      em agarras.
 - uid: raCT0z6Xg8vzVJ
   via_movel:
     nome: Temporal
@@ -814,7 +843,8 @@ escaladas:
     - Lúcia Duarte
     - José Ronaldo "Pelé"
     data_abertura: '1990-02-27'
-    descricao: Início em agarras, chegando em um bom platô. A segunda metade segue uma fenda fácil.
+    descricao: Início em agarras, chegando em um bom platô. A segunda metade segue
+      uma fenda fácil.
 - uid: Q2ZP3rueS0HypD
   via_esportiva:
     nome: Golias
@@ -825,7 +855,8 @@ escaladas:
     - Michel Rodrigues
     - Gabriel Tollentino
     data_abertura: '2021-12-12'
-    descricao: Via com crux bem concentrado em seu início com move explosivo. Depois segue tranquila até parada dupla.
+    descricao: Via com crux bem concentrado em seu início com move explosivo. Depois
+      segue tranquila até parada dupla.
 - uid: gfKmwX2oBTDTnf
   via_movel:
     nome: Esqueceram de Mim
@@ -836,7 +867,8 @@ escaladas:
     - Márcio Andrade
     - Jonatas Lima
     data_abertura: '2004'
-    descricao: Bonita fissura, possui apenas um grampo no final. Mas é possível rapelar da parada dupla da via ao lado.
+    descricao: Bonita fissura, possui apenas um grampo no final. Mas é possível rapelar
+      da parada dupla da via ao lado.
 - uid: v125u2uJQi4viQ
   via_esportiva:
     nome: Suco de Laranja
@@ -846,7 +878,8 @@ escaladas:
     - Pablo Veloso
     - Carlos Pádua
     data_abertura: '2021-08-21'
-    descricao: Via técnica que engana por parecer mais fácil do que é. Movimentos interessantes do início ao fim.
+    descricao: Via técnica que engana por parecer mais fácil do que é. Movimentos
+      interessantes do início ao fim.
 ---
 
 É o setor mais acessível da cidade, pois fica literalmente na beira da estrada à esquerda de quem sobe pro CEMONTA, ao lado do setor Ácidos. Está à 1km da saída da cidade.

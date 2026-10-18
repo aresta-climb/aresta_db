@@ -309,8 +309,7 @@ def test_publicador_flatpak_r2_publicar_metadados(tmp_path: Path) -> None:
 
     assert mock_s3.upload_file.call_count == 4
     extra_por_chave = {
-        call[0][2]: call[1].get("ExtraArgs", {})
-        for call in mock_s3.upload_file.call_args_list
+        call[0][2]: call[1].get("ExtraArgs", {}) for call in mock_s3.upload_file.call_args_list
     }
     assert extra_por_chave["flatpak/logo.png"].get("ContentType") == "image/png"
     assert (

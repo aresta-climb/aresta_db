@@ -1,0 +1,31 @@
+# Proposal
+
+## Why
+
+Atualmente, a compilação de um único croqui via `scripts/deploy_generated.py --target` (tanto na linha de comando quanto durante o salvamento no Aresta Editor) leva cerca de 11 a 12 segundos em hardware rápido, prejudicando severamente o ciclo de feedback de edição e validação. Esse atraso decorre de múltiplas leituras e parses redundantes dos mesmos arquivos `.yaml` e `.md` a partir do disco (6 a 8 vezes por arquivo usando parsers em Python puro como `ruamel.yaml` e `yaml.SafeLoader`), cópia destrutiva integral de imagens com `force_rmtree` e leitura em blocos de 4 KB para SHA-256, geração desnecessária de artefatos de debug (`compilado.yaml` e `compilado.md`), varredura de todos os croquis da base mesmo quando `--target` é informado, e execução de um subprocesso Python separado (`medir_saude_croquis.py`) que reprocessa todos os 52 croquis do zero.
+
+## What Changes
+
+- **Carregamento Único em RAM e Pipeline em Memória**: Ler `croqui.yaml` e os arquivos `.md` do croqui alvo uma única vez para a memória e conduzir todas as etapas de saneamento de UIDs, migração de caminhos, desduplicação de referências, limpeza de órfãos, auditoria contratual, expansão de entidades e validações diretamente sobre as estruturas em RAM, regravando no disco apenas os arquivos de `database/` que sofrerem modificação real.
+- **Centralização em `LibYAML` (`CSafeLoader` / `CSafeDumper`) e Remoção de `ruamel.yaml`**: Substituir todos os usos de `yaml.safe_load`, `yaml.dump` em Python puro e `ruamel.yaml` por funções centralizadas em `editor/core/serializacao_util.py` e `scripts/markdown_frontmatter_lib.py` baseadas em `CSafeLoader` e `CSafeDumper` (com fallback seguro caso o binding C não esteja disponível), abandonando a preservação de comentários arbitrários no meio do YAML (mantendo apenas os cabeçalhos fixos de licença SPDX/Copyright no topo) e removendo `ruamel.yaml` como dependência do projeto (`pyproject.toml` e `editor/build.py`).
+- **Sincronização Incremental de Imagens, Anexos e Thumbnails via `stat()` e `hashlib.file_digest`**: Eliminar o `force_rmtree` da pasta do croqui em `generated/<id>` durante a compilação. Copiar imagens/anexos (`shutil.copy2`) e calcular seu SHA-256 (`hashlib.file_digest`) apenas quando o arquivo não existir no destino ou quando `(st_mtime_ns, st_size)` divergir entre `database/` e `generated/`, reaproveitando o `checksum_sha256` registrado no `compilado.binarypb` anterior para arquivos intocados e removendo de `generated/<id>` apenas arquivos órfãos que deixaram de existir na origem. Para thumbnails (`generated/thumbnails/<id>.webp`), sincronizar seu `mtime` com a imagem de origem via `shutil.copystat` ao gerá-la e só reprocessar no Pillow se `st_mtime_ns` divergir ou se `--force` for informado (removendo o `force_thumbnails=True` fixo do salvamento normal do Editor).
+- **Flag Unificada `--force`**: Introduzir a flag `--force` (mantendo `--force-thumbnails` como alias compatível) para forçar o recálculo completo de hashes SHA-256 de todas as imagens/anexos e a regeneração incondicional das thumbnails.
+- **Escopo Estrito para `--target`**: Quando `target_paths` for especificado, carregar apenas os croquis alvo (sem abrir os `croqui.yaml` dos demais croquis da `database/`) e, no `passo_d_gerar_manifesto_serving`, reaproveitar as entradas de `arquivos_serving.yaml` anterior para os croquis preservados sem reler seus `compilado.binarypb` do disco.
+- **BREAKING — Remoção dos Arquivos de Debug (`compilado.yaml` e `compilado.md`)**: Deixar de gerar `compilado.yaml` e `compilado.md` no pipeline de deploy, executar todas as validações pós-compilação diretamente sobre o dicionário compilado em memória, remover o módulo legado `scripts/gerar_compilado_md.py` (e seu teste) e atualizar a documentação/skills que referenciavam esses arquivos.
+- **Medição de Saúde (`STATUS_CROQUIS.md`) em Memória e Incremental**: Refatorar `scripts/medir_saude_croquis.py` para ser consumido diretamente como biblioteca em memória (sem `subprocess.run`), fazendo um único parse por croqui e, em compilações parciais (`--target`), atualizando apenas a(s) linha(s) do(s) croqui(s) compilado(s) e recalculando os totais do cabeçalho sobre a tabela existente em `STATUS_CROQUIS.md` sem reler os demais croquis do disco.
+- **Alinhamento Visual do Indicador `"Salvando..."` no Editor**: Mover o indicador de progresso `"Salvando..."` em `editor/legacy_views/area_principal.py` do canto superior direito para o canto inferior direito da janela principal, alinhando-o com a posição do toast `"Croqui salvo e compilado com sucesso!"`.
+
+## Capabilities
+
+### New Capabilities
+- `pipeline-compilacao-incremental-em-memoria`: Compilação em memória com leitura única por croqui, sincronização incremental de mídias/thumbnails baseada em `stat()` e `hashlib.file_digest` (com suporte a `--force`), isolamento de escopo em `--target`, remoção de `compilado.yaml`/`compilado.md` e atualização incremental em memória de `STATUS_CROQUIS.md`.
+
+### Modified Capabilities
+- `editor-serializacao-croqui`: Centralização da leitura e escrita YAML em `LibYAML` (`CSafeLoader`/`CSafeDumper`), remoção da dependência `ruamel.yaml` e atualização dos requisitos de serialização e do relatório `STATUS_CROQUIS.md`.
+- `editor-notificacoes`: Posicionamento unificado do indicador de salvamento em andamento (`"Salvando..."`) no canto inferior direito da janela principal do editor.
+
+## Impact
+
+- **Scripts e Pipeline de Deploy**: `scripts/deploy_generated.py`, `scripts/preparar_submissao_lib.py`, `scripts/gerenciar_uids_lib.py`, `scripts/markdown_frontmatter_lib.py`, `scripts/migrador.py`, `scripts/medir_saude_croquis.py`, `scripts/recalcular_coordenadas.py` e remoção de `scripts/gerar_compilado_md.py` (+ respectivos arquivos `*_test.py`).
+- **Aresta Editor**: `editor/core/serializacao_util.py`, `editor/core/workspace.py`, `editor/core/croqui_experimental.py`, `editor/models/croqui_model.py`, `editor/legacy_views/area_principal.py` e `editor/build.py`.
+- **Dependências e Configuração**: Remoção de `ruamel.yaml` em `pyproject.toml` e `editor/build.py`; atualização de `.agents/skills/preencher_croqui_yaml/SKILL.md` e `.agents/workflows/processar_croqui_completo.md`.

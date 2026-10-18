@@ -23,6 +23,9 @@ mimetypes.add_type("text/plain", ".yaml")
 mimetypes.add_type("text/plain", ".yml")
 mimetypes.add_type("text/plain", ".md")
 mimetypes.add_type("application/octet-stream", ".binarypb")
+mimetypes.add_type("application/octet-stream", ".db")
+mimetypes.add_type("application/octet-stream", ".sqlite")
+mimetypes.add_type("application/octet-stream", ".sqlite3")
 
 
 class ServidorCelular(QObject):

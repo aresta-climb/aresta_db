@@ -110,21 +110,22 @@ class PublishController:
             return {}
         yaml_meta = self.workspace.caminho_raiz / "croqui_experimental.yaml"
         if yaml_meta.is_file():
-            import yaml
+            from editor.core.serializacao_util import carregar_yaml
 
-            with open(yaml_meta, encoding="utf-8") as f:
-                res = yaml.safe_load(f)
-                return res if isinstance(res, dict) else {}
+            res = carregar_yaml(yaml_meta.read_text(encoding="utf-8"))
+            return res if isinstance(res, dict) else {}
         return {}
 
     def _salvar_meta_experimental(self, meta: dict[str, Any]) -> None:
         if not hasattr(self.workspace, "caminho_raiz") or not self.workspace.caminho_raiz:
             return
         yaml_meta = self.workspace.caminho_raiz / "croqui_experimental.yaml"
-        import yaml
+        from editor.core.serializacao_util import escrever_texto_se_modificado, serializar_yaml
 
-        with open(yaml_meta, "w", encoding="utf-8") as f:
-            yaml.dump(meta, f, allow_unicode=True, default_flow_style=False)
+        escrever_texto_se_modificado(
+            yaml_meta,
+            serializar_yaml(meta, incluir_cabecalho_spdx=False),
+        )
 
     def _obter_resumo_arquivos(self) -> list[str]:
         """Retorna a lista de arquivos modificados na pasta database do croqui."""
