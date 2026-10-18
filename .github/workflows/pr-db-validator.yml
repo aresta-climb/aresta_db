@@ -20,13 +20,15 @@ jobs:
       - uses: actions/checkout@v7
         with:
           token: ${{ steps.app-token.outputs.token }}
-          submodules: true
+          submodules: recursive
           sparse-checkout: |
+            .gitmodules
             database
             editor
             serving
             scripts
             migracoes
+            aresta_api
             pyproject.toml
             uv.lock
             .python-version

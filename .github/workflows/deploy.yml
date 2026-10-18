@@ -7,6 +7,9 @@ on:
       - 'generated/**'
       - 'migracoes/**'
       - 'serving/**'
+      - 'scripts/gerar_catalogo_sqlite_lib.py'
+      - 'scripts/gerar_deltas_catalogo.py'
+      - 'aresta_api'
       - '.github/workflows/deploy.yml'
 
   workflow_dispatch:
@@ -16,13 +19,23 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Generate Github App Token
+        id: app-token
+        uses: actions/create-github-app-token@v3
+        with:
+          client-id: ${{ secrets.BOT_APP_ID }}
+          private-key: ${{ secrets.BOT_PRIVATE_KEY }}
+          owner: ${{ github.repository_owner }}
+
       - name: Checkout Otimizado
         uses: actions/checkout@v7
         with:
+          token: ${{ steps.app-token.outputs.token }}
           fetch-depth: 1
           filter: 'blob:none'
-          submodules: false
+          submodules: recursive
           sparse-checkout: |
+            .gitmodules
             serving/update_serving.py
             serving/sincronizar_d1_lib.py
             scripts/gerar_catalogo_sqlite_lib.py
@@ -30,6 +43,7 @@ jobs:
             generated/arquivos_serving.yaml
             generated/catalogo.db
             migracoes
+            aresta_api
 
       - name: Executar Update Serving
         run: python3 serving/update_serving.py
