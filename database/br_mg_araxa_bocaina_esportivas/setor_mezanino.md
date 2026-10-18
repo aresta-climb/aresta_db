@@ -6,8 +6,8 @@ caminho_imagem_capa: imagens/setor_mezanino_p0_i0.webp
 nome: Setor Mezanino
 mapas:
 - caminho_imagem_mapa: imagens/setor_mezanino_p1.webp
-  largura_mapa: 1280
-  altura_mapa: 1707
+  largura_mapa: 858
+  altura_mapa: 1272
   pontos_de_interesse:
   - uid: GTvj00Y0ph9osU
     rotulo: '01'
@@ -56,8 +56,8 @@ mapas:
     pontos_uids:
     - VZYLXVwApIJypM
 - caminho_imagem_mapa: imagens/setor_mezanino_p2.webp
-  largura_mapa: 1280
-  altura_mapa: 1707
+  largura_mapa: 849
+  altura_mapa: 1273
   pontos_de_interesse:
   - uid: AoAU97R3prQlf7
     rotulo: '06'
@@ -79,8 +79,8 @@ mapas:
     pontos_uids:
     - QjYbSF13EwdPZI
 - caminho_imagem_mapa: imagens/setor_mezanino_p3.webp
-  largura_mapa: 1280
-  altura_mapa: 1707
+  largura_mapa: 852
+  altura_mapa: 1275
   pontos_de_interesse:
   - uid: GVeWle0FVGoMUC
     rotulo: '08'
@@ -129,8 +129,8 @@ mapas:
     pontos_uids:
     - 8ZEvdP9NmDyg4f
 - caminho_imagem_mapa: imagens/setor_mezanino_p4.webp
-  largura_mapa: 1280
-  altura_mapa: 1707
+  largura_mapa: 846
+  altura_mapa: 1275
   pontos_de_interesse:
   - uid: Pqrg7anDY1mGbe
     rotulo: '13'
@@ -179,8 +179,8 @@ mapas:
     pontos_uids:
     - rGGcxXm39CnRRy
 - caminho_imagem_mapa: imagens/setor_mezanino_p5.webp
-  largura_mapa: 1280
-  altura_mapa: 1707
+  largura_mapa: 854
+  altura_mapa: 1275
   pontos_de_interesse:
   - uid: 56sHbocurTc3qM
     rotulo: '01'

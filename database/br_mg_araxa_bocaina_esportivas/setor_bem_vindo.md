@@ -5,8 +5,8 @@ uid: dwuQyJozrODbgq
 nome: Setor Bem-vindo
 mapas:
 - caminho_imagem_mapa: imagens/setor_bem_vindo_p1.webp
-  largura_mapa: 1280
-  altura_mapa: 1280
+  largura_mapa: 1152
+  altura_mapa: 1270
   pontos_de_interesse:
   - uid: w8LEhOvZahBt0d
     rotulo: '01'
@@ -55,8 +55,8 @@ mapas:
     pontos_uids:
     - X8b1Z8K6CzoucU
 - caminho_imagem_mapa: imagens/setor_bem_vindo_p2.webp
-  largura_mapa: 1280
-  altura_mapa: 1280
+  largura_mapa: 1152
+  altura_mapa: 1261
   pontos_de_interesse:
   - uid: MguiTufKeNXtSC
     rotulo: '06'
@@ -96,8 +96,8 @@ mapas:
     pontos_uids:
     - nf5cdU4DiBadLg
 - caminho_imagem_mapa: imagens/setor_bem_vindo_p3.webp
-  largura_mapa: 1280
-  altura_mapa: 1280
+  largura_mapa: 1152
+  altura_mapa: 1267
   pontos_de_interesse:
   - uid: QKJmWTjZqfd9ot
     rotulo: '08'
@@ -155,8 +155,8 @@ mapas:
     pontos_uids:
     - SEU4YTGVyE6oi7
 - caminho_imagem_mapa: imagens/setor_bem_vindo_p4.webp
-  largura_mapa: 1280
-  altura_mapa: 1280
+  largura_mapa: 1152
+  altura_mapa: 1264
   pontos_de_interesse:
   - uid: R30WB7YYFrXWYx
     rotulo: '14'

@@ -11,8 +11,8 @@ localizacao_escalada:
   longitude: -438896100
 mapas:
 - caminho_imagem_mapa: imagens/setor_covide_ala_aderencia_p0.webp
-  largura_mapa: 1046
-  altura_mapa: 1536
+  largura_mapa: 2067
+  altura_mapa: 1209
   pontos_de_interesse:
   - uid: 5q0AedNUEeV1GJ
     rotulo: '1'

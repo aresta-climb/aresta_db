@@ -139,8 +139,8 @@ escaladas:
       mesma até o topo da parede.
   mapas:
   - caminho_imagem_mapa: imagens/grupo_aderencias_setor_de_cima_p4_i2.webp
-    largura_mapa: 1037
-    altura_mapa: 692
+    largura_mapa: 692
+    altura_mapa: 1037
 - uid: rg3BWvUObM4m0B
   via_multiplas_enfiadas:
     nome: São Lourenço
@@ -175,8 +175,8 @@ escaladas:
       chegando na P1!
   mapas:
   - caminho_imagem_mapa: imagens/grupo_aderencias_setor_de_cima_p4_i1.webp
-    largura_mapa: 1078
-    altura_mapa: 748
+    largura_mapa: 748
+    altura_mapa: 1078
 ---
 
 <small>Capa: Maria Fernanda descendo a trilha de acesso do Setor de Cima da Parede das Aderências (Foto: Pedro Bugim)</small>

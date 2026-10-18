@@ -6,8 +6,8 @@ caminho_imagem_capa: imagens/setor_pirados_de_rocha_p0_i0.webp
 nome: Setor Pirados de Rocha
 mapas:
 - caminho_imagem_mapa: imagens/setor_pirados_de_rocha_p1.webp
-  largura_mapa: 1280
-  altura_mapa: 1707
+  largura_mapa: 1152
+  altura_mapa: 1261
   pontos_de_interesse:
   - uid: 0z6BsJvzvwywYg
     rotulo: '01'

@@ -43,8 +43,9 @@ Primeiro, verifique se o arquivo `croqui.yaml` já existe na pasta
 Após gerar o `croqui.yaml`, você deve validar ativamente o projeto inteiro:
 
 1. Execute o comando `python scripts/deploy_generated.py database/<croqui>`.
-   - Este script corrige os caminhos das imagens nos arquivos `.md` e gera o
-     arquivo compilado na pasta `generated/<croqui>` (`compilado.binarypb`).
+   - Este script corrige os caminhos das imagens nos arquivos `.md` e gera os
+     arquivos compilados na pasta `generated/<croqui>` (`compilado.yaml` e
+     `compilado.binarypb`).
    - **IMPORTANTE:** O script pode falhar, retornar exceções, ou apresentar
      **warnings**. Se isso acontecer, você **DEVE** corrigir os problemas de
      forma autônoma. Leia as mensagens, identifique o problema (pode ser sintaxe

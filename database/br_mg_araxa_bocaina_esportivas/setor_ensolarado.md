@@ -6,8 +6,8 @@ caminho_imagem_capa: imagens/setor_ensolarado_p0_i0.webp
 nome: Setor Ensolarado
 mapas:
 - caminho_imagem_mapa: imagens/setor_ensolarado_p1.webp
-  largura_mapa: 1280
-  altura_mapa: 1280
+  largura_mapa: 1152
+  altura_mapa: 1264
   pontos_de_interesse:
   - uid: OdHP2xjGnE6wPV
     rotulo: '01'
@@ -74,8 +74,8 @@ mapas:
     pontos_uids:
     - Y9OBNRuCmmINk6
 - caminho_imagem_mapa: imagens/setor_ensolarado_p2.webp
-  largura_mapa: 1280
-  altura_mapa: 1280
+  largura_mapa: 1152
+  altura_mapa: 1267
   pontos_de_interesse:
   - uid: OIOKU6vPgVnAOl
     rotulo: '08'
@@ -142,8 +142,8 @@ mapas:
     pontos_uids:
     - juduvWR6Jt50o9
 - caminho_imagem_mapa: imagens/setor_ensolarado_p3.webp
-  largura_mapa: 1280
-  altura_mapa: 1280
+  largura_mapa: 1152
+  altura_mapa: 1258
   pontos_de_interesse:
   - uid: 0oZel6NpfOGh5R
     rotulo: '15'
@@ -210,8 +210,8 @@ mapas:
     pontos_uids:
     - AgrFFuyXMOIMiM
 - caminho_imagem_mapa: imagens/setor_ensolarado_p4.webp
-  largura_mapa: 1280
-  altura_mapa: 1707
+  largura_mapa: 852
+  altura_mapa: 1278
   pontos_de_interesse:
   - uid: OYYmmEE85dnVjn
     rotulo: '19'

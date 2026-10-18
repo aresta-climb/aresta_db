@@ -5,8 +5,8 @@ uid: sNFsCYKIltcEmd
 nome: Setor Cemitério dos Ossos
 mapas:
 - caminho_imagem_mapa: imagens/setor_cemiterio_dos_ossos_p0_i0.webp
-  largura_mapa: 1013
-  altura_mapa: 984
+  largura_mapa: 1024
+  altura_mapa: 996
   pontos_de_interesse:
   - uid: xzAkKYZz1gJg6n
     rotulo: '1'

@@ -6,8 +6,8 @@ caminho_imagem_capa: imagens/setor_headwall_p0_i0_2.webp
 nome: Setor Headwall
 mapas:
 - caminho_imagem_mapa: imagens/setor_headwall_p0_i1.webp
-  largura_mapa: 367
-  altura_mapa: 144
+  largura_mapa: 862
+  altura_mapa: 1240
   pontos_de_interesse: []
 escaladas:
 - uid: O9VEKasSWFvhyx

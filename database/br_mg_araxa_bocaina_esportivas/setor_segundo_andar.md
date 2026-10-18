@@ -6,8 +6,8 @@ caminho_imagem_capa: imagens/setor_segundo_andar_p0_i0.webp
 nome: Setor Segundo Andar
 mapas:
 - caminho_imagem_mapa: imagens/setor_segundo_andar_p1.webp
-  largura_mapa: 1280
-  altura_mapa: 1707
+  largura_mapa: 1152
+  altura_mapa: 1266
   pontos_de_interesse:
   - uid: iwYgC4aJ56Q7n1
     rotulo: '01'
@@ -74,8 +74,8 @@ mapas:
     pontos_uids:
     - k2ndXucmZJ8mLM
 - caminho_imagem_mapa: imagens/setor_segundo_andar_p2.webp
-  largura_mapa: 1280
-  altura_mapa: 1707
+  largura_mapa: 1140
+  altura_mapa: 1255
   pontos_de_interesse:
   - uid: ez4EG55dLdavku
     rotulo: '08'

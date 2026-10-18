@@ -6,8 +6,8 @@ caminho_imagem_capa: imagens/setor_shana_crazy_p0_i0.webp
 nome: Setor Shana Crazy
 mapas:
 - caminho_imagem_mapa: imagens/setor_shana_crazy_p1.webp
-  largura_mapa: 1280
-  altura_mapa: 1707
+  largura_mapa: 846
+  altura_mapa: 1267
   pontos_de_interesse:
   - uid: 3Lyfms77DTU25h
     rotulo: '01'
@@ -20,8 +20,8 @@ mapas:
     pontos_uids:
     - 3Lyfms77DTU25h
 - caminho_imagem_mapa: imagens/setor_shana_crazy_p2.webp
-  largura_mapa: 1280
-  altura_mapa: 1707
+  largura_mapa: 1142
+  altura_mapa: 1264
   pontos_de_interesse:
   - uid: l00ZSL8CowRe11
     rotulo: '02'
@@ -61,8 +61,8 @@ mapas:
     pontos_uids:
     - UuMnef3ScwBU5q
 - caminho_imagem_mapa: imagens/setor_shana_crazy_p3.webp
-  largura_mapa: 1280
-  altura_mapa: 1707
+  largura_mapa: 1143
+  altura_mapa: 1272
   pontos_de_interesse:
   - uid: bJRwtmAaAdgtU2
     rotulo: '06'

@@ -5,8 +5,8 @@ uid: RVnHesmJXyO5RN
 nome: Setor Toca dos Gatos
 mapas:
 - caminho_imagem_mapa: imagens/setor_toca_dos_gatos_p0_i0.webp
-  largura_mapa: 1600
-  altura_mapa: 1000
+  largura_mapa: 922
+  altura_mapa: 1147
   pontos_de_interesse:
   - uid: MmSHgBQR7XIaVv
     rotulo: Setor Vale das Sombras

@@ -5,8 +5,8 @@ uid: dSynigSRiYv0uW
 nome: Setor Onça
 mapas:
 - caminho_imagem_mapa: imagens/setor_onca_p0_i0.webp
-  largura_mapa: 1600
-  altura_mapa: 1000
+  largura_mapa: 920
+  altura_mapa: 1153
   pontos_de_interesse:
   - uid: rqXfIu9KaO2JrO
     rotulo: Setor Vale das Sombras
@@ -170,8 +170,8 @@ mapas:
     pontos_uids:
     - rqXfIu9KaO2JrO
 - caminho_imagem_mapa: imagens/setor_onca_p1_i0.webp
-  largura_mapa: 1600
-  altura_mapa: 1000
+  largura_mapa: 916
+  altura_mapa: 1151
   pontos_de_interesse:
   - uid: Puj0U46EP4dpW4
     rotulo: Setor Vale das Sombras

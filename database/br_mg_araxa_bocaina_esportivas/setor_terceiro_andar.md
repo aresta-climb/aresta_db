@@ -6,8 +6,8 @@ caminho_imagem_capa: imagens/setor_terceiro_andar_p0_i0.webp
 nome: Setor Terceiro Andar
 mapas:
 - caminho_imagem_mapa: imagens/setor_terceiro_andar_p1.webp
-  largura_mapa: 1280
-  altura_mapa: 1707
+  largura_mapa: 1143
+  altura_mapa: 1273
   pontos_de_interesse:
   - uid: oMU5Wwu9cqkvML
     rotulo: '01'
@@ -65,8 +65,8 @@ mapas:
     pontos_uids:
     - O9dQ0QtlDnX7zp
 - caminho_imagem_mapa: imagens/setor_terceiro_andar_p2.webp
-  largura_mapa: 1280
-  altura_mapa: 1707
+  largura_mapa: 1151
+  altura_mapa: 1270
   pontos_de_interesse:
   - uid: G0M0PbtSsy8HSa
     rotulo: '05'
@@ -115,8 +115,8 @@ mapas:
     pontos_uids:
     - pZfCIskHdR0Gin
 - caminho_imagem_mapa: imagens/setor_terceiro_andar_p3.webp
-  largura_mapa: 1280
-  altura_mapa: 1707
+  largura_mapa: 1149
+  altura_mapa: 1276
   pontos_de_interesse:
   - uid: 29tVY3b9Mgy4v4
     rotulo: '10'
@@ -165,8 +165,8 @@ mapas:
     pontos_uids:
     - QqBq3ZguacLg81
 - caminho_imagem_mapa: imagens/setor_terceiro_andar_p4.webp
-  largura_mapa: 1280
-  altura_mapa: 1707
+  largura_mapa: 1143
+  altura_mapa: 1270
   pontos_de_interesse:
   - uid: IqSYGhdzyuj3lR
     rotulo: '01'

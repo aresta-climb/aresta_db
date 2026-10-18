@@ -5,8 +5,8 @@ uid: UsSUW7apVi41SD
 nome: Setor Gruta - Mapa 4 (Sala de Aula)
 mapas:
 - caminho_imagem_mapa: imagens/setor_mapa_4_p0_i0.webp
-  largura_mapa: 438
-  altura_mapa: 323
+  largura_mapa: 434
+  altura_mapa: 325
   pontos_de_interesse:
   - uid: YbwIrMGf3g0rBr
     rotulo: '27'

@@ -5,8 +5,8 @@ uid: 0Im8sPD9odkqAH
 nome: Setor Corredor Polonês
 mapas:
 - caminho_imagem_mapa: imagens/setor_corredor_polones_p0_i0.webp
-  largura_mapa: 1013
-  altura_mapa: 984
+  largura_mapa: 1026
+  altura_mapa: 990
   pontos_de_interesse:
   - uid: xJ7MAl2SIioU4j
     rotulo: '1'

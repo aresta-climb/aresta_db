@@ -722,17 +722,17 @@ botoes:
   texto: Acesso
   destino:
     secao_textual:
-      conteudo: "# Acesso\nO Setor Rock Master fica na Serra do Cipó, em Santana do\
-        \ Riacho (MG), a cerca de 100 km de Belo Horizonte.\n\nSaindo de Belo Horizonte,\
-        \ siga pela MG-010 em direção à Serra do Cipó, passando por Lagoa Santa e\
-        \ Jaboticatubas. Continue pela rodovia até a região da Serra do Cipó e do\
-        \ distrito de Cardeal Mota.\n\nO trecho final é feito por uma estrada local,\
-        \ seguido de uma caminhada até a área de escalada. A partir daí, siga as placas\
-        \ e os acessos locais até o Setor Rock Master. \n\n**Coordenadas geográficas\
-        \ do estacionamento:**-19º18'56.1 -43º36'48.6\n\n**Coordenadas geográficas\
-        \ do setor:** -19º18'31.5 -43º36'53.2\n\n**Link para trilha wikiloc:** https://www.wikiloc.com/hiking-trails/setor-rockmaster-1-2-e-3-86913870\n\
-        \n| ![Estacionamento - Início da trilha](imagens/acesso_p0_i0.webp) |\n| :--:\
-        \ |\n| *Estacionamento - Início da trilha* |"
+      conteudo: "# Acesso\nO Setor Rock Master fica na Serra do Cipó, em Santana do
+        Riacho (MG), a cerca de 100 km de Belo Horizonte.\n\nSaindo de Belo Horizonte,
+        siga pela MG-010 em direção à Serra do Cipó, passando por Lagoa Santa e Jaboticatubas.
+        Continue pela rodovia até a região da Serra do Cipó e do distrito de Cardeal
+        Mota.\n\nO trecho final é feito por uma estrada local, seguido de uma caminhada
+        até a área de escalada. A partir daí, siga as placas e os acessos locais até
+        o Setor Rock Master. \n\n**Coordenadas geográficas do estacionamento:**-19º18'56.1
+        -43º36'48.6\n\n**Coordenadas geográficas do setor:** -19º18'31.5 -43º36'53.2\n\n**Link
+        para trilha wikiloc:** https://www.wikiloc.com/hiking-trails/setor-rockmaster-1-2-e-3-86913870\n\n|
+        ![Estacionamento - Início da trilha](imagens/acesso_p0_i0.webp) |\n| :--:
+        |\n| *Estacionamento - Início da trilha* |"
 publicar_croqui: true
 arquivos_externos:
 - caminho: imagens/acesso_p0_i0.webp

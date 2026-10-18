@@ -33,7 +33,8 @@ escaladas:
   boulder:
     nome: Fugitivos
     dificuldade: V7
-    descricao: Saída sentada abaixo da pedra e escala para a esquerda, dominando em cima da pedra
+    descricao: Saída sentada abaixo da pedra e escala para a esquerda, dominando em
+      cima da pedra
 - uid: ILJ785LLhC7IEo
   boulder:
     nome: Igarapedra
@@ -68,7 +69,7 @@ escaladas:
     dificuldade: V2
 mapas:
 - caminho_imagem_mapa: imagens/setor_bloco_fugitivos_ii_p0.webp
-  largura_mapa: 3331
+  largura_mapa: 2796
   altura_mapa: 1259
   pontos_de_interesse:
   - uid: ihoIqsysq4uYJd

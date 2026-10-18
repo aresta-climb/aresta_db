@@ -557,8 +557,8 @@ escaladas:
       na graduação.
   mapas:
   - caminho_imagem_mapa: imagens/grupo_aderencias_setor_face_central_p6_i1.webp
-    largura_mapa: 1105
-    altura_mapa: 789
+    largura_mapa: 789
+    altura_mapa: 1105
 - uid: hbR1sZ7v7RoYJp
   via_multiplas_enfiadas:
     nome: Antes Só do Que Mal Acompanhado
@@ -576,8 +576,8 @@ escaladas:
       dupla.
   mapas:
   - caminho_imagem_mapa: imagens/grupo_aderencias_setor_face_central_p7_i3.webp
-    largura_mapa: 1130
-    altura_mapa: 807
+    largura_mapa: 807
+    altura_mapa: 1130
 - uid: amCMhA1NdrgmEY
   via_esportiva:
     nome: Hematita
@@ -593,8 +593,8 @@ escaladas:
     descricao: Boa via em aderência equipada com doze grampos.
   mapas:
   - caminho_imagem_mapa: imagens/grupo_aderencias_setor_face_central_p7_i1.webp
-    largura_mapa: 562
-    altura_mapa: 348
+    largura_mapa: 348
+    altura_mapa: 562
 - uid: GpY3uMFI4VpQxp
   via_multiplas_enfiadas:
     nome: Pavão Misterioso

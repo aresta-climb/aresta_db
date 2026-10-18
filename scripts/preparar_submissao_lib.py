@@ -2268,7 +2268,9 @@ def compilar_croqui(
     if dados_extras:
         croqui_data.update(dados_extras)
 
-    # 5. Garante diretório de saída e salva compilado.binarypb
+    # 5. Garante diretórios de saída e salva compilado.yaml / compilado.binarypb
+    if destino_yaml is not None:
+        destino_yaml.parent.mkdir(parents=True, exist_ok=True)
     destino_binarypb.parent.mkdir(parents=True, exist_ok=True)
 
     croqui_msg = croqui_pb2.Croqui()
@@ -2281,6 +2283,12 @@ def compilar_croqui(
                 f"Erro de validação Protobuf em {pico_path.name}/croqui.yaml: {err_msg}"
             )
         raise ValueError(f"Erro de estrutura em {pico_path.name}/croqui.yaml: {err_msg}")
+
+    if destino_yaml is not None:
+        escrever_texto_se_modificado(
+            destino_yaml,
+            serializar_yaml(croqui_data, incluir_cabecalho_spdx=False),
+        )
 
     with open(destino_binarypb, "wb") as f:
         f.write(croqui_msg.SerializeToString())

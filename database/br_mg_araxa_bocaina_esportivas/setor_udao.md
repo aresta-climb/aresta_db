@@ -6,8 +6,8 @@ caminho_imagem_capa: imagens/setor_udao_p0_i0.webp
 nome: Setor Udão
 mapas:
 - caminho_imagem_mapa: imagens/setor_udao_p1.webp
-  largura_mapa: 1280
-  altura_mapa: 1707
+  largura_mapa: 1152
+  altura_mapa: 1267
   pontos_de_interesse:
   - uid: AHeyOArgvGM8P9
     rotulo: '01'
@@ -65,8 +65,8 @@ mapas:
     pontos_uids:
     - 4INVlIPpmgU0qV
 - caminho_imagem_mapa: imagens/setor_udao_p2.webp
-  largura_mapa: 1280
-  altura_mapa: 1707
+  largura_mapa: 1152
+  altura_mapa: 1267
   pontos_de_interesse:
   - uid: AG9ezkMldrsn60
     rotulo: '07'

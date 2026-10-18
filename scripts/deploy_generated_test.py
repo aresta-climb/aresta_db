@@ -645,10 +645,10 @@ class DeployGeneratedTest(unittest.TestCase):
             )
             self.assertTrue(img_gen_migrada.exists())
 
-            # compilado.yaml e compilado.md NÃO devem ser gerados
+            # compilado.yaml deve ser gerado; compilado.md NÃO deve ser gerado
             comp_yaml = generated_dir / "lenheiro_fake" / "compilado.yaml"
             comp_md = generated_dir / "lenheiro_fake" / "compilado.md"
-            self.assertFalse(comp_yaml.exists())
+            self.assertTrue(comp_yaml.exists())
             self.assertFalse(comp_md.exists())
 
             # compilado.binarypb deve conter o novo caminho

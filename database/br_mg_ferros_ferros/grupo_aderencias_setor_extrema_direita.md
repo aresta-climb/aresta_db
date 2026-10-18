@@ -130,8 +130,8 @@ escaladas:
       A primeira enfiada passa por um extenso costão de 60 metros, com apenas três grampos. Depois deste ponto, a parede ganha inclinação, aumentando a graduação, pouco a pouco, culminando no crux da via, já nos metros finais da parede. Possui duas passadas em móvel, nos quais se recomenda a utilização de stoppers grandes de camalot #2.
   mapas:
   - caminho_imagem_mapa: imagens/grupo_aderencias_setor_extrema_direita_p4_i2.webp
-    largura_mapa: 524
-    altura_mapa: 348
+    largura_mapa: 348
+    altura_mapa: 524
 - uid: PatXOUxy4UT3Cv
   via_multiplas_enfiadas:
     nome: 51, Uma Boa Ideia
@@ -165,8 +165,8 @@ escaladas:
       A via é predominante em aderência, com fendas que ajudam a melhorar a proteção. Seu início é mais inclinado e, logo após a primeira proteção, cai bastante até a P1. Dessa proteção em diante, a inclinação aumenta gradativamente, com uma passada entre um pequeno teto rodeado de mato e grandes blocos soltos, que não aguentariam uma queda. Recomenda-se um jogo de camalots do #0.5 a #3. Os últimos grampos da via estão intercalados entre a vegetação e espaços onde a rocha aflora.
   mapas:
   - caminho_imagem_mapa: imagens/grupo_aderencias_setor_extrema_direita_p4_i1.webp
-    largura_mapa: 524
-    altura_mapa: 368
+    largura_mapa: 368
+    altura_mapa: 524
 - uid: UoXB13cUPwjXci
   via_multiplas_enfiadas:
     nome: Só a Cabecinha

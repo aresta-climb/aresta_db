@@ -422,8 +422,8 @@ escaladas:
       50m.'
   mapas:
   - caminho_imagem_mapa: imagens/grupo_principal_setor_classicas_longas_p6_i1.webp
-    largura_mapa: 540
-    altura_mapa: 381
+    largura_mapa: 381
+    altura_mapa: 540
 - uid: QRzLPeTtQG5uod
   via_multiplas_enfiadas:
     nome: Jardim do Éden

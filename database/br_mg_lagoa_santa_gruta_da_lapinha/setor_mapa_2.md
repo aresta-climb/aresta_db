@@ -5,8 +5,8 @@ uid: k6xxkL2askccdr
 nome: Setor Mapa 2
 mapas:
 - caminho_imagem_mapa: imagens/setor_mapa_2_p0_i0.webp
-  largura_mapa: 330
-  altura_mapa: 246
+  largura_mapa: 369
+  altura_mapa: 276
   pontos_de_interesse:
   - uid: 8TWtxGbJHVaSf3
     rotulo: '07'

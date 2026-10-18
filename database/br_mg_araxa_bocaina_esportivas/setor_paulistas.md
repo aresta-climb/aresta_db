@@ -6,8 +6,8 @@ caminho_imagem_capa: imagens/setor_paulistas_p0_i0.webp
 nome: Setor Paulistas
 mapas:
 - caminho_imagem_mapa: imagens/setor_paulistas_p1.webp
-  largura_mapa: 1280
-  altura_mapa: 1707
+  largura_mapa: 1143
+  altura_mapa: 1267
   pontos_de_interesse:
   - uid: QmCpk76e3ZhLrV
     rotulo: '01'
@@ -56,8 +56,8 @@ mapas:
     pontos_uids:
     - DYFLxmXq3OA8Ro
 - caminho_imagem_mapa: imagens/setor_paulistas_p2.webp
-  largura_mapa: 1280
-  altura_mapa: 1707
+  largura_mapa: 1152
+  altura_mapa: 1261
   pontos_de_interesse:
   - uid: Fiqi4PRdQnQZkB
     rotulo: '06'
@@ -115,8 +115,8 @@ mapas:
     pontos_uids:
     - xghK6WxznTRTMO
 - caminho_imagem_mapa: imagens/setor_paulistas_p3.webp
-  largura_mapa: 1280
-  altura_mapa: 1707
+  largura_mapa: 1152
+  altura_mapa: 1267
   pontos_de_interesse:
   - uid: wLG9AEMAZeRdKl
     rotulo: '12'

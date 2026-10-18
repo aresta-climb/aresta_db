@@ -199,8 +199,8 @@ mapas:
     pontos_uids:
     - uwyHPEidm2qWvo
 - caminho_imagem_mapa: imagens/setor_igarameca_p1.webp
-  largura_mapa: 2048
-  altura_mapa: 1232
+  largura_mapa: 1022
+  altura_mapa: 1450
   pontos_de_interesse:
   - uid: 2OadTAgvrjK843
     rotulo: '01'
@@ -384,8 +384,8 @@ mapas:
     pontos_uids:
     - DTtETvJqpoKXYI
 - caminho_imagem_mapa: imagens/setor_igarameca_p2.webp
-  largura_mapa: 2048
-  altura_mapa: 1232
+  largura_mapa: 938
+  altura_mapa: 530
   pontos_de_interesse:
   - uid: dUmQnFazoQm2jV
     rotulo: '04'

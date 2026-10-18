@@ -27,8 +27,8 @@ escaladas:
     descricao: Começa perto do chão de areia bem a direita e vira no Amnésia
 mapas:
 - caminho_imagem_mapa: imagens/grupo_sunset_setor_capitao_jack_p0.webp
-  largura_mapa: 374
-  altura_mapa: 336
+  largura_mapa: 386
+  altura_mapa: 344
   pontos_de_interesse:
   - uid: 9zBgTGalp61NWO
     rotulo: '1'
@@ -48,8 +48,8 @@ mapas:
     - 9zBgTGalp61NWO
     - BMqKeFxbgsxDrR
 - caminho_imagem_mapa: imagens/grupo_sunset_setor_capitao_jack_p1.webp
-  largura_mapa: 845
-  altura_mapa: 805
+  largura_mapa: 847
+  altura_mapa: 814
   pontos_de_interesse:
   - uid: THvR6FkgIcMxJz
     rotulo: '1'

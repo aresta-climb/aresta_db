@@ -1010,7 +1010,7 @@ def test_compilar_croqui_faz_inline_de_mapas_gerais(tmp_path):
     # 5. Roda compilar_croqui
     compilado = compilar_croqui(pico_path, dest_yaml, dest_binarypb)
 
-    assert not dest_yaml.exists()
+    assert dest_yaml.exists()
     assert dest_binarypb.exists()
 
     pico = compilado["picos"][0]
@@ -2183,7 +2183,7 @@ def test_compilar_croqui_com_mapas_gerais_e_mapas_de_escaladas(tmp_path):
 
     compilar_croqui(pico_dir, destino_yaml, destino_binarypb)
 
-    assert not destino_yaml.exists()
+    assert destino_yaml.exists()
     assert destino_binarypb.exists()
 
     # Validação no modelo Protobuf
@@ -3196,10 +3196,10 @@ Descrição do setor parcial
     assert refs[1].get("pontos_uids") == [novo_poi_uid]
 
 
-def test_compilar_croqui_e_garantir_comentarios_licenca_escrevem_lf_e_nao_geram_compilado_yaml(
+def test_compilar_croqui_e_garantir_comentarios_licenca_escrevem_lf(
     tmp_path: Path,
 ):
-    """Garante que garantir_comentarios_licenca escreve exclusivamente LF e compilar_croqui não gera compilado.yaml."""
+    """Garante que garantir_comentarios_licenca e compilar_croqui escrevem exclusivamente LF em compilado.yaml."""
     from scripts.preparar_submissao_lib import compilar_croqui, garantir_comentarios_licenca
 
     pico_dir = tmp_path / "pico_lf"
@@ -3237,9 +3237,15 @@ def test_compilar_croqui_e_garantir_comentarios_licenca_escrevem_lf_e_nao_geram_
     destino_binarypb = tmp_path / "compilado.binarypb"
     compilado = compilar_croqui(pico_dir, destino_yaml, destino_binarypb)
 
-    assert not destino_yaml.exists()
+    assert destino_yaml.exists()
     assert destino_binarypb.exists()
     assert compilado["id"] == "08"
+
+    bytes_compilado = destino_yaml.read_bytes()
+    assert b"\r\n" not in bytes_compilado
+    texto_compilado = bytes_compilado.decode("utf-8")
+    assert "id: '08'" in texto_compilado
+    assert "descricao: |-\n" in texto_compilado
 
 
 def test_atualizar_dimensoes_mapas_vinculado_a_imagens_inalteradas_e_modificadas(

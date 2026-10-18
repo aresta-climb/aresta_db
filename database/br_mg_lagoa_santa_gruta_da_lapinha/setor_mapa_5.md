@@ -5,8 +5,8 @@ uid: WACdTSW0GaT2WF
 nome: Setor Mapa 5
 mapas:
 - caminho_imagem_mapa: imagens/setor_mapa_5_p0_i0.webp
-  largura_mapa: 438
-  altura_mapa: 323
+  largura_mapa: 417
+  altura_mapa: 310
   pontos_de_interesse:
   - uid: mwcrIssn7Fbu7K
     rotulo: '52'

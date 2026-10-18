@@ -5,8 +5,8 @@ uid: 0wRwwt2zncNQw9
 nome: Setor Beco do Tiú
 mapas:
 - caminho_imagem_mapa: imagens/setor_beco_do_tiu_p0_i0.webp
-  largura_mapa: 1600
-  altura_mapa: 1000
+  largura_mapa: 918
+  altura_mapa: 1152
   pontos_de_interesse:
   - uid: gRsqS41flIfcOv
     rotulo: Setor Grutinha

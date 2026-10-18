@@ -75,8 +75,8 @@ mapas:
     pontos_uids:
     - c5jKPTaPO5TQmO
 - caminho_imagem_mapa: imagens/grupo_estacionamento_boulders_p1.webp
-  largura_mapa: 2364
-  altura_mapa: 1773
+  largura_mapa: 1376
+  altura_mapa: 1824
   pontos_de_interesse:
   - uid: D8roTsgyrTkubQ
     rotulo: ''

@@ -152,8 +152,8 @@ escaladas:
         quantidade_protecoes_parada: 2
   mapas:
   - caminho_imagem_mapa: imagens/grupo_principal_setor_setor_de_cima_p3_i1.webp
-    largura_mapa: 1086
-    altura_mapa: 741
+    largura_mapa: 741
+    altura_mapa: 1086
 - uid: N55UoPSK5yscyM
   via_multiplas_enfiadas:
     nome: Noite de São João
@@ -188,8 +188,8 @@ escaladas:
         quantidade_protecoes_parada: 2
   mapas:
   - caminho_imagem_mapa: imagens/grupo_principal_setor_setor_de_cima_p3_i3.webp
-    largura_mapa: 518
-    altura_mapa: 331
+    largura_mapa: 331
+    altura_mapa: 518
 ---
 
 <small>Capa: Vista da Parede Principal - Setor de Cima, durante o rapel da "Um Momento no Tempo". Todo este setor encontra-se ainda sem vias (Foto: Pedro Bugim)</small>

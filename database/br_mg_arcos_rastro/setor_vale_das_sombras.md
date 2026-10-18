@@ -5,8 +5,8 @@ uid: I8731IVGqI3fpV
 nome: Setor Vale das Sombras
 mapas:
 - caminho_imagem_mapa: imagens/setor_vale_das_sombras_p0_i0.webp
-  largura_mapa: 1600
-  altura_mapa: 1000
+  largura_mapa: 914
+  altura_mapa: 988
   pontos_de_interesse:
   - uid: gqXaZdIqfggNNg
     rotulo: Setor Leão de Judah

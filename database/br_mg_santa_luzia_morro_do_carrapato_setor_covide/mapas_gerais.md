@@ -4,7 +4,7 @@
 mapas:
 - caminho_imagem_mapa: imagens/mapas_gerais_p0_i0.webp
   largura_mapa: 1046
-  altura_mapa: 1537
+  altura_mapa: 1535
 - caminho_imagem_mapa: imagens/mapas_gerais_p1_i0.webp
   largura_mapa: 1046
   altura_mapa: 1536
@@ -34,3 +34,4 @@ mapas:
       largura: 144
       angulo_graus_x100: 820
 ---
+

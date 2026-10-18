@@ -5,8 +5,8 @@ uid: rTPz6f4oHTpzLr
 nome: Setor 1º Andar
 mapas:
 - caminho_imagem_mapa: imagens/setor_1o_andar_p0_i0.webp
-  largura_mapa: 848
-  altura_mapa: 1143
+  largura_mapa: 858
+  altura_mapa: 1149
   pontos_de_interesse:
   - uid: deILCkeAxmThKN
     rotulo: Setor Jardim Suspenso

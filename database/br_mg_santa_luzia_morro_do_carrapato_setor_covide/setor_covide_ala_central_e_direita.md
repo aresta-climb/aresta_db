@@ -11,8 +11,8 @@ localizacao_escalada:
   longitude: -438896100
 mapas:
 - caminho_imagem_mapa: imagens/setor_covide_ala_central_e_direita_p0.webp
-  largura_mapa: 1046
-  altura_mapa: 1536
+  largura_mapa: 2068
+  altura_mapa: 862
   pontos_de_interesse:
   - uid: kDbpBcb35XUyTm
     rotulo: '14'

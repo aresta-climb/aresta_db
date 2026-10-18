@@ -6,8 +6,8 @@ caminho_imagem_capa: imagens/setor_tetos_p0_i0.webp
 nome: Setor Tetos
 mapas:
 - caminho_imagem_mapa: imagens/setor_tetos_p1.webp
-  largura_mapa: 1280
-  altura_mapa: 1707
+  largura_mapa: 1140
+  altura_mapa: 1269
   pontos_de_interesse:
   - uid: VVmeYDqpqUrzMC
     rotulo: '01'
@@ -83,8 +83,8 @@ mapas:
     pontos_uids:
     - Pa68eSDpzyjJfi
 - caminho_imagem_mapa: imagens/setor_tetos_p2.webp
-  largura_mapa: 1280
-  altura_mapa: 1707
+  largura_mapa: 1143
+  altura_mapa: 1267
   pontos_de_interesse:
   - uid: TBReM08vDSQoNC
     rotulo: '09'
@@ -160,8 +160,8 @@ mapas:
     pontos_uids:
     - TBReM08vDSQoNC
 - caminho_imagem_mapa: imagens/setor_tetos_p3.webp
-  largura_mapa: 1280
-  altura_mapa: 1707
+  largura_mapa: 1140
+  altura_mapa: 1270
   pontos_de_interesse:
   - uid: xGj9tV6IsE76OZ
     rotulo: '17'
@@ -201,8 +201,8 @@ mapas:
     pontos_uids:
     - 57zwLNC4NB1QgE
 - caminho_imagem_mapa: imagens/setor_tetos_p4.webp
-  largura_mapa: 1280
-  altura_mapa: 1707
+  largura_mapa: 1146
+  altura_mapa: 1264
   pontos_de_interesse:
   - uid: XweVblYrpqTYtU
     rotulo: '21'
@@ -278,8 +278,8 @@ mapas:
     pontos_uids:
     - owKBZE3xVZYpir
 - caminho_imagem_mapa: imagens/setor_tetos_p5.webp
-  largura_mapa: 1280
-  altura_mapa: 1707
+  largura_mapa: 1145
+  altura_mapa: 1258
   pontos_de_interesse:
   - uid: akOsodANt89xcy
     rotulo: '29'
@@ -355,8 +355,8 @@ mapas:
     pontos_uids:
     - TZopm3wqMLsNCq
 - caminho_imagem_mapa: imagens/setor_tetos_p6.webp
-  largura_mapa: 1280
-  altura_mapa: 1707
+  largura_mapa: 1145
+  altura_mapa: 1264
   pontos_de_interesse:
   - uid: dDQ5kKPVTlQ5Cs
     rotulo: '37'

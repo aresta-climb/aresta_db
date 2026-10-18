@@ -5,41 +5,40 @@ ultima_migracao: 5
 picos:
 - nome: Pedreira Dr. Gravatá - "VALE DOS OSSOS"
   estado: MG
-  descricao: "# Pedreira Dr. Gravatá\n\n**Conhecer o pico é mais do que conhecer as\
-    \ vias.**\n\nLocalizada em **Betim, Minas Gerais**, a Pedreira Dr. Gravatá reúne\
-    \ hoje **mais de 50 vias de escalada esportiva**, linhas de rapel e diferentes\
-    \ setores em desenvolvimento.\n\nA organização atual da área, a abertura de novas\
-    \ linhas e a consolidação das informações são conduzidas por **Marcio Macena e\
-    \ Samuel Lucas**, responsáveis pelo desenvolvimento do pico e por grande parte\
-    \ do conhecimento contemporâneo reunido neste registro.\n\nA escalada, porém,\
-    \ é o capítulo mais recente de uma paisagem marcada por transformações anteriores.\n\
-    \nNo início do século XX, quando Betim ainda era conhecida como **Capela Nova\
-    \ do Betim**, a região passou por mudanças ligadas à exploração de pedreiras,\
-    \ à implantação da ferrovia e à geração de energia. Pesquisas históricas registram\
-    \ a importância das pedreiras locais no fornecimento de materiais para o crescimento\
-    \ de Belo Horizonte e mostram como pedra, trabalho e infraestrutura conectaram\
-    \ Capela Nova à nova capital mineira.\n\nEm **1914**, entrou em funcionamento\
-    \ a **Usina Hidrelétrica Dr. Gravatá**, instalada no Rio Betim e associada ao\
-    \ engenheiro Antônio Gonçalves Gravatá. O complexo utilizava aproximadamente **84\
-    \ metros de desnível** e incluía barragem, canais, reservatório, tubulações e\
-    \ Casa de Máquinas. Há registros de que parte da energia produzida foi destinada\
-    \ à operação de uma pedreira localizada na mesma **Fazenda Cachoeira**.\n\nA usina\
-    \ permaneceu em atividade até a década de 1950 e foi **tombada pelo município\
-    \ de Betim em 2001**, preservando parte importante da memória industrial da cidade.\n\
-    \nAinda não há documentação suficiente para afirmar que a parede atualmente utilizada\
-    \ pelos escaladores corresponde exatamente à frente histórica de extração mencionada\
-    \ nesses registros. Essa relação permanece aberta à pesquisa e deve ser atualizada\
-    \ conforme novos mapas, documentos, relatos e evidências de campo forem incorporados.\n\
-    \nHoje, a escalada acrescenta uma nova camada a esse território. Setores como\
-    \ **Vale dos Ossos** e **Palanque** já possuem vias documentadas, enquanto novas\
-    \ linhas continuam sendo abertas, mantidas e consolidadas.\n\nEste croqui reúne\
-    \ diferentes tipos de informação em um único lugar:\n\n**acesso, localização,\
-    \ setores, vias, graduações, conquistadores, manutenção, segurança, história e\
-    \ fontes.**\n\nO objetivo é permitir que quem chega hoje encontre informações\
-    \ confiáveis — e que quem chegar no futuro consiga entender como esse pico foi\
-    \ construído.\n\n*Um croqui ajuda a encontrar uma via. Um bom registro ajuda a\
-    \ compreender o lugar inteiro.*\n\n**Pedreira Dr. Gravatá — Betim, Minas Gerais.**\
-    \  \n**Mais de 50 vias e uma história que começou muito antes da primeira conquista.**\n"
+  descricao: "# Pedreira Dr. Gravatá\n\n**Conhecer o pico é mais do que conhecer as
+    vias.**\n\nLocalizada em **Betim, Minas Gerais**, a Pedreira Dr. Gravatá reúne
+    hoje **mais de 50 vias de escalada esportiva**, linhas de rapel e diferentes setores
+    em desenvolvimento.\n\nA organização atual da área, a abertura de novas linhas
+    e a consolidação das informações são conduzidas por **Marcio Macena e Samuel Lucas**,
+    responsáveis pelo desenvolvimento do pico e por grande parte do conhecimento contemporâneo
+    reunido neste registro.\n\nA escalada, porém, é o capítulo mais recente de uma
+    paisagem marcada por transformações anteriores.\n\nNo início do século XX, quando
+    Betim ainda era conhecida como **Capela Nova do Betim**, a região passou por mudanças
+    ligadas à exploração de pedreiras, à implantação da ferrovia e à geração de energia.
+    Pesquisas históricas registram a importância das pedreiras locais no fornecimento
+    de materiais para o crescimento de Belo Horizonte e mostram como pedra, trabalho
+    e infraestrutura conectaram Capela Nova à nova capital mineira.\n\nEm **1914**,
+    entrou em funcionamento a **Usina Hidrelétrica Dr. Gravatá**, instalada no Rio
+    Betim e associada ao engenheiro Antônio Gonçalves Gravatá. O complexo utilizava
+    aproximadamente **84 metros de desnível** e incluía barragem, canais, reservatório,
+    tubulações e Casa de Máquinas. Há registros de que parte da energia produzida
+    foi destinada à operação de uma pedreira localizada na mesma **Fazenda Cachoeira**.\n\nA
+    usina permaneceu em atividade até a década de 1950 e foi **tombada pelo município
+    de Betim em 2001**, preservando parte importante da memória industrial da cidade.\n\nAinda
+    não há documentação suficiente para afirmar que a parede atualmente utilizada
+    pelos escaladores corresponde exatamente à frente histórica de extração mencionada
+    nesses registros. Essa relação permanece aberta à pesquisa e deve ser atualizada
+    conforme novos mapas, documentos, relatos e evidências de campo forem incorporados.\n\nHoje,
+    a escalada acrescenta uma nova camada a esse território. Setores como **Vale dos
+    Ossos** e **Palanque** já possuem vias documentadas, enquanto novas linhas continuam
+    sendo abertas, mantidas e consolidadas.\n\nEste croqui reúne diferentes tipos
+    de informação em um único lugar:\n\n**acesso, localização, setores, vias, graduações,
+    conquistadores, manutenção, segurança, história e fontes.**\n\nO objetivo é permitir
+    que quem chega hoje encontre informações confiáveis — e que quem chegar no futuro
+    consiga entender como esse pico foi construído.\n\n*Um croqui ajuda a encontrar
+    uma via. Um bom registro ajuda a compreender o lugar inteiro.*\n\n**Pedreira Dr.
+    Gravatá — Betim, Minas Gerais.**  \n**Mais de 50 vias e uma história que começou
+    muito antes da primeira conquista.**\n"
   setores_ou_grupos:
   - grupo:
       conteudo:
@@ -797,109 +796,108 @@ botoes:
   texto: Como Chegar
   destino:
     secao_textual:
-      conteudo: "**Pedreira Dr. Gravatá**  \n**R. Rio Doce, 508 — Pedreira, Betim\
-        \ — MG, 32600-450**\n\nA área de escalada está inserida na malha urbana de\
-        \ Betim, com chegada pela **Rua Rio Doce**.\n\nPara quem parte de **Belo Horizonte\
-        \ ou Contagem**, o principal eixo regional é o sistema **BR-381 / BR-262**,\
-        \ seguindo em direção a Betim.\n\nJá dentro do município, utilize a navegação\
-        \ até a Rua Rio Doce e o ponto indicado para a Pedreira Dr. Gravatá.\n\n**Endereço\
-        \ de referência:**  \nR. Rio Doce, 508 — Pedreira  \nBetim — Minas Gerais\
-        \  \nCEP 32600-450\n\n**Coordenada pública de referência da área de escalada:**\
-        \  \n-19.9732747, -44.2163477\n\n[Pesquisar rota no Google Maps](https://www.google.com/maps/search/?api=1&query=Pedreira+Dr.+Gravata%2C+Rua+Rio+Doce+508%2C+Betim+MG)\n\
-        \nAo chegar, utilize somente **entradas, áreas de estacionamento e aproximações\
-        \ validadas pelos responsáveis locais**.\n\nEvite abrir atalhos, atravessar\
-        \ propriedades sem autorização ou estacionar de maneira que prejudique moradores,\
-        \ circulação de veículos ou o acesso ao local.\n\nA aproximação detalhada\
-        \ para cada setor será registrada conforme entrada, estacionamento, trilhas\
-        \ e pontos de referência forem definitivamente validados em campo.\n\n## Emergência\n\
-        \nSAMU: **192**  \nCorpo de Bombeiros: **193**\n\nAo pedir socorro, informe\
-        \ o endereço de referência, as coordenadas disponíveis e as condições de acesso\
-        \ até a pessoa acidentada."
+      conteudo: "**Pedreira Dr. Gravatá**  \n**R. Rio Doce, 508 — Pedreira, Betim
+        — MG, 32600-450**\n\nA área de escalada está inserida na malha urbana de Betim,
+        com chegada pela **Rua Rio Doce**.\n\nPara quem parte de **Belo Horizonte
+        ou Contagem**, o principal eixo regional é o sistema **BR-381 / BR-262**,
+        seguindo em direção a Betim.\n\nJá dentro do município, utilize a navegação
+        até a Rua Rio Doce e o ponto indicado para a Pedreira Dr. Gravatá.\n\n**Endereço
+        de referência:**  \nR. Rio Doce, 508 — Pedreira  \nBetim — Minas Gerais  \nCEP
+        32600-450\n\n**Coordenada pública de referência da área de escalada:**  \n-19.9732747,
+        -44.2163477\n\n[Pesquisar rota no Google Maps](https://www.google.com/maps/search/?api=1&query=Pedreira+Dr.+Gravata%2C+Rua+Rio+Doce+508%2C+Betim+MG)\n\nAo
+        chegar, utilize somente **entradas, áreas de estacionamento e aproximações
+        validadas pelos responsáveis locais**.\n\nEvite abrir atalhos, atravessar
+        propriedades sem autorização ou estacionar de maneira que prejudique moradores,
+        circulação de veículos ou o acesso ao local.\n\nA aproximação detalhada para
+        cada setor será registrada conforme entrada, estacionamento, trilhas e pontos
+        de referência forem definitivamente validados em campo.\n\n## Emergência\n\nSAMU:
+        **192**  \nCorpo de Bombeiros: **193**\n\nAo pedir socorro, informe o endereço
+        de referência, as coordenadas disponíveis e as condições de acesso até a pessoa
+        acidentada."
 - uid: cZMJKmq2xfDotq
   texto: A escalada na Pedreira
   destino:
     secao_textual:
-      conteudo: "**Conhecer o pico é mais do que conhecer as vias.**\n\nLocalizada\
-        \ em **Betim, Minas Gerais**, a Pedreira Dr. Gravatá reúne hoje **mais de\
-        \ 50 vias de escalada esportiva**, linhas de rapel e diferentes setores em\
-        \ desenvolvimento.\n\n| ![Vale dos Ossos - Pedreira Gravatá](imagens/setor_vale_dos_ossos.webp)\
-        \ |\n| :--: |\n| *Vale dos Ossos - Pedreira Gravatá* |\n\nA organização atual\
-        \ da área, a abertura de novas linhas e a consolidação das informações são\
-        \ conduzidas por **Marcio Macena e Samuel Lucas**, responsáveis pelo desenvolvimento\
-        \ do pico e por grande parte do conhecimento contemporâneo reunido neste registro.\n\
-        \nA escalada, porém, é o capítulo mais recente de uma paisagem marcada por\
-        \ transformações anteriores.\n\nNo início do século XX, quando Betim ainda\
-        \ era conhecida como **Capela Nova do Betim**, a região passou por mudanças\
-        \ ligadas à exploração de pedreiras, à implantação da ferrovia e à geração\
-        \ de energia. Pesquisas históricas registram a importância das pedreiras locais\
-        \ no fornecimento de materiais para o crescimento de Belo Horizonte e mostram\
-        \ como pedra, trabalho e infraestrutura conectaram Capela Nova à nova capital\
-        \ mineira.\n\n| ![Usina Dr. Gravatá](imagens/imagem_do_chatgpt_8_de_out_de_2026_16_14_27_2.webp)\
-        \ |\n| :--: |\n| *Usina Dr. Gravatá* |\n\nEm **1914**, entrou em funcionamento\
-        \ a **Usina Hidrelétrica Dr. Gravatá**, instalada no Rio Betim e associada\
-        \ ao engenheiro Antônio Gonçalves Gravatá. O complexo utilizava aproximadamente\
-        \ **84 metros de desnível** e incluía barragem, canais, reservatório, tubulações\
-        \ e Casa de Máquinas. Há registros de que parte da energia produzida foi destinada\
-        \ à operação de uma pedreira localizada na mesma **Fazenda Cachoeira**.\n\n\
-        | ![Casa de Máquinas](imagens/imagem_do_chatgpt_8_de_out_de_2026_16_14_25_1.webp)\
-        \ |\n| :--: |\n| *Casa de Máquinas* |\n\nA usina permaneceu em atividade até\
-        \ a década de 1950 e foi **tombada pelo município de Betim em 2001**, preservando\
-        \ parte importante da memória industrial da cidade.\n\nHoje, a escalada acrescenta\
-        \ uma nova camada a esse território. Setores como **Vale dos Ossos** e **Palanque**\
-        \ já possuem vias documentadas, enquanto novas linhas continuam sendo abertas,\
-        \ mantidas e consolidadas.\n\n| ![Vale dos Ossos](imagens/capa_pedreira_gravata_gigante.webp)\
-        \ |\n| :--: |\n| *Vale dos Ossos* |\n\nEste croqui reúne diferentes tipos\
-        \ de informação em um único lugar:\n\n**acesso, localização, setores, vias,\
-        \ graduações, conquistadores, manutenção, segurança, história e fontes.**\n\
-        \nO objetivo é permitir que quem chega hoje encontre informações confiáveis\
-        \ — e que quem chegar no futuro consiga entender como esse pico foi construído.\n\
-        \n*Um croqui ajuda a encontrar uma via. Um bom registro ajuda a compreender\
-        \ o lugar inteiro.*\n\n**Pedreira Dr. Gravatá — Betim, Minas Gerais.**  \n\
-        **Mais de 50 vias e uma história que começou muito antes da primeira conquista.**"
+      conteudo: "**Conhecer o pico é mais do que conhecer as vias.**\n\nLocalizada
+        em **Betim, Minas Gerais**, a Pedreira Dr. Gravatá reúne hoje **mais de 50
+        vias de escalada esportiva**, linhas de rapel e diferentes setores em desenvolvimento.\n\n|
+        ![Vale dos Ossos - Pedreira Gravatá](imagens/setor_vale_dos_ossos.webp) |\n|
+        :--: |\n| *Vale dos Ossos - Pedreira Gravatá* |\n\nA organização atual da
+        área, a abertura de novas linhas e a consolidação das informações são conduzidas
+        por **Marcio Macena e Samuel Lucas**, responsáveis pelo desenvolvimento do
+        pico e por grande parte do conhecimento contemporâneo reunido neste registro.\n\nA
+        escalada, porém, é o capítulo mais recente de uma paisagem marcada por transformações
+        anteriores.\n\nNo início do século XX, quando Betim ainda era conhecida como
+        **Capela Nova do Betim**, a região passou por mudanças ligadas à exploração
+        de pedreiras, à implantação da ferrovia e à geração de energia. Pesquisas
+        históricas registram a importância das pedreiras locais no fornecimento de
+        materiais para o crescimento de Belo Horizonte e mostram como pedra, trabalho
+        e infraestrutura conectaram Capela Nova à nova capital mineira.\n\n| ![Usina
+        Dr. Gravatá](imagens/imagem_do_chatgpt_8_de_out_de_2026_16_14_27_2.webp) |\n|
+        :--: |\n| *Usina Dr. Gravatá* |\n\nEm **1914**, entrou em funcionamento a
+        **Usina Hidrelétrica Dr. Gravatá**, instalada no Rio Betim e associada ao
+        engenheiro Antônio Gonçalves Gravatá. O complexo utilizava aproximadamente
+        **84 metros de desnível** e incluía barragem, canais, reservatório, tubulações
+        e Casa de Máquinas. Há registros de que parte da energia produzida foi destinada
+        à operação de uma pedreira localizada na mesma **Fazenda Cachoeira**.\n\n|
+        ![Casa de Máquinas](imagens/imagem_do_chatgpt_8_de_out_de_2026_16_14_25_1.webp)
+        |\n| :--: |\n| *Casa de Máquinas* |\n\nA usina permaneceu em atividade até
+        a década de 1950 e foi **tombada pelo município de Betim em 2001**, preservando
+        parte importante da memória industrial da cidade.\n\nHoje, a escalada acrescenta
+        uma nova camada a esse território. Setores como **Vale dos Ossos** e **Palanque**
+        já possuem vias documentadas, enquanto novas linhas continuam sendo abertas,
+        mantidas e consolidadas.\n\n| ![Vale dos Ossos](imagens/capa_pedreira_gravata_gigante.webp)
+        |\n| :--: |\n| *Vale dos Ossos* |\n\nEste croqui reúne diferentes tipos de
+        informação em um único lugar:\n\n**acesso, localização, setores, vias, graduações,
+        conquistadores, manutenção, segurança, história e fontes.**\n\nO objetivo
+        é permitir que quem chega hoje encontre informações confiáveis — e que quem
+        chegar no futuro consiga entender como esse pico foi construído.\n\n*Um croqui
+        ajuda a encontrar uma via. Um bom registro ajuda a compreender o lugar inteiro.*\n\n**Pedreira
+        Dr. Gravatá — Betim, Minas Gerais.**  \n**Mais de 50 vias e uma história que
+        começou muito antes da primeira conquista.**"
 - uid: jv0X4dVg1IZYuq
   texto: Conduta, segurança e mínimo impacto
   destino:
     secao_textual:
-      conteudo: "## Conduta, segurança e mínimo impacto\n\n**A continuidade da escalada\
-        \ depende de como cuidamos do pico.**\n\n\n| ![Restrições](imagens/guia_de_conduta_no_vale_dos_ossos.webp)\
-        \ |\n| :--: |\n| *Restrições* |\n\nA Pedreira Dr. Gravatá está inserida em\
-        \ uma paisagem urbana com remanescentes e características de **Mata Atlântica\
-        \ e transição com o Cerrado**.\n\nMesmo em uma área historicamente alterada\
-        \ pela atividade humana, a vegetação que permanece ou se recupera tem função\
-        \ importante para **fauna, solo, sombra, drenagem e regeneração ambiental**.\n\
-        \nPor isso, preservar o pico significa cuidar tanto da escalada quanto do\
-        \ território ao redor.\n\n## Regras do pico\n\n- **É proibido quebrar, talhar,\
-        \ colar, lixar ou alterar agarras naturais.**\n- **Não pinte, escreva ou faça\
-        \ marcações permanentes na rocha.**\n- **Não corte árvores, galhos, arbustos\
-        \ ou remova vegetação.**\n- Não abra novas trilhas ou atalhos sem necessidade.\n\
-        - **Não altere proteções, paradas ou vias por conta própria.**\n- Não retire,\
-        \ mova ou acrescente chapeletas sem alinhamento com os responsáveis pelo desenvolvimento\
-        \ do pico.\n- **Não faça fogueiras.**\n- Não deixe lixo, bitucas, esparadrapos,\
-        \ fitas, garrafas ou restos de alimento.\n- Não capture, alimente ou perturbe\
-        \ animais.\n- Não mexa em ninhos, colmeias ou abrigos de fauna.\n- Não entre\
-        \ em áreas fechadas, interditadas ou propriedades sem autorização\n\n**Uma\
-        \ via pode esperar. Uma árvore ou área degradada pode levar anos para se recuperar.**\n\
-        \n## Segurança\n\nA escalada envolve risco.\n\n- Use equipamento adequado\
-        \ e em boas condições.\n- Faça checagem entre escalador e segurança.\n- **Use\
-        \ capacete.**\n- Observe rocha, proteções, parada e base antes de iniciar.\n\
-        - Pedreiras podem apresentar **blocos soltos, fraturas e zonas alteradas pela\
-        \ antiga extração**.\n- Não considere uma proteção segura apenas porque ela\
-        \ existe.\n- Em caso de dúvida, escolha outra via.\n\n## Acesso e convivência\n\
-        \n- Estacione somente onde for permitido.\n- Não bloqueie garagens, calçadas\
-        \ ou circulação.\n- Utilize os caminhos existentes.\n- Evite som alto e conflitos\
-        \ com moradores.\n- Respeite orientações e restrições temporárias.\n- Leve\
-        \ tudo o que trouxe de volta.\n\n## Fauna\n\nAo encontrar animais, ninhos,\
-        \ colmeias ou áreas de reprodução:\n\n**mantenha distância e não interfira.**\n\
-        \nSe a presença de fauna tornar uma via inadequada temporariamente, **escolha\
-        \ outra linha**.\n\n## Ao sair\n\nAntes de deixar o setor:\n\n- recolha seu\
-        \ lixo;\n- retire materiais pessoais;\n- reduza o excesso de magnésio quando\
-        \ possível;\n- não deixe marcações;\n- comunique riscos, proteções danificadas\
-        \ ou alterações no acesso.\n\n## Emergência\n\n**SAMU — 192**  \n**Corpo de\
-        \ Bombeiros — 193**\n\nInforme:\n\n**Pedreira Dr. Gravatá — Betim/MG**  \n\
-        **setor ou via**  \n**tipo de ocorrência**  \n**condições de acesso até a\
-        \ vítima**\n\n## Regra simples\n\n**Não deixe o lugar pior do que encontrou.**\n\
-        \nEscalar também é cuidar.\n\n**Preserve a rocha. Preserve a vegetação. Respeite\
-        \ a fauna. Respeite quem vive ao redor.**"
+      conteudo: "## Conduta, segurança e mínimo impacto\n\n**A continuidade da escalada
+        depende de como cuidamos do pico.**\n\n\n| ![Restrições](imagens/guia_de_conduta_no_vale_dos_ossos.webp)
+        |\n| :--: |\n| *Restrições* |\n\nA Pedreira Dr. Gravatá está inserida em uma
+        paisagem urbana com remanescentes e características de **Mata Atlântica e
+        transição com o Cerrado**.\n\nMesmo em uma área historicamente alterada pela
+        atividade humana, a vegetação que permanece ou se recupera tem função importante
+        para **fauna, solo, sombra, drenagem e regeneração ambiental**.\n\nPor isso,
+        preservar o pico significa cuidar tanto da escalada quanto do território ao
+        redor.\n\n## Regras do pico\n\n- **É proibido quebrar, talhar, colar, lixar
+        ou alterar agarras naturais.**\n- **Não pinte, escreva ou faça marcações permanentes
+        na rocha.**\n- **Não corte árvores, galhos, arbustos ou remova vegetação.**\n-
+        Não abra novas trilhas ou atalhos sem necessidade.\n- **Não altere proteções,
+        paradas ou vias por conta própria.**\n- Não retire, mova ou acrescente chapeletas
+        sem alinhamento com os responsáveis pelo desenvolvimento do pico.\n- **Não
+        faça fogueiras.**\n- Não deixe lixo, bitucas, esparadrapos, fitas, garrafas
+        ou restos de alimento.\n- Não capture, alimente ou perturbe animais.\n- Não
+        mexa em ninhos, colmeias ou abrigos de fauna.\n- Não entre em áreas fechadas,
+        interditadas ou propriedades sem autorização\n\n**Uma via pode esperar. Uma
+        árvore ou área degradada pode levar anos para se recuperar.**\n\n## Segurança\n\nA
+        escalada envolve risco.\n\n- Use equipamento adequado e em boas condições.\n-
+        Faça checagem entre escalador e segurança.\n- **Use capacete.**\n- Observe
+        rocha, proteções, parada e base antes de iniciar.\n- Pedreiras podem apresentar
+        **blocos soltos, fraturas e zonas alteradas pela antiga extração**.\n- Não
+        considere uma proteção segura apenas porque ela existe.\n- Em caso de dúvida,
+        escolha outra via.\n\n## Acesso e convivência\n\n- Estacione somente onde
+        for permitido.\n- Não bloqueie garagens, calçadas ou circulação.\n- Utilize
+        os caminhos existentes.\n- Evite som alto e conflitos com moradores.\n- Respeite
+        orientações e restrições temporárias.\n- Leve tudo o que trouxe de volta.\n\n##
+        Fauna\n\nAo encontrar animais, ninhos, colmeias ou áreas de reprodução:\n\n**mantenha
+        distância e não interfira.**\n\nSe a presença de fauna tornar uma via inadequada
+        temporariamente, **escolha outra linha**.\n\n## Ao sair\n\nAntes de deixar
+        o setor:\n\n- recolha seu lixo;\n- retire materiais pessoais;\n- reduza o
+        excesso de magnésio quando possível;\n- não deixe marcações;\n- comunique
+        riscos, proteções danificadas ou alterações no acesso.\n\n## Emergência\n\n**SAMU
+        — 192**  \n**Corpo de Bombeiros — 193**\n\nInforme:\n\n**Pedreira Dr. Gravatá
+        — Betim/MG**  \n**setor ou via**  \n**tipo de ocorrência**  \n**condições
+        de acesso até a vítima**\n\n## Regra simples\n\n**Não deixe o lugar pior do
+        que encontrou.**\n\nEscalar também é cuidar.\n\n**Preserve a rocha. Preserve
+        a vegetação. Respeite a fauna. Respeite quem vive ao redor.**"
 - uid: M7wyGM0Zj2ATwz
   texto: Linha do Tempo
   destino:
@@ -940,33 +938,32 @@ botoes:
   texto: Fontes e referências
   destino:
     secao_textual:
-      conteudo: "Este registro utiliza fontes diferentes para tipos diferentes de\
-        \ informação.\n\n## História urbana, pedreiras, ferrovia e Antônio Gonçalves\
-        \ Gravatá\n\n**Universidade Federal de Minas Gerais — Repositório Institucional**\
-        \  \nPesquisa utilizada para reconstrução da história urbana de Betim, pedreiras,\
-        \ ferrovia, Antônio Gonçalves Gravatá, geração de energia e relações com a\
-        \ Fazenda Cachoeira.  \n[Consultar fonte](https://repositorio.ufmg.br/server/api/core/bitstreams/4abfacfc-ce96-47de-8a1d-93cf47e4c51d/content)\n\
-        \n## Usina e patrimônio\n\n**iPatrimônio — Casa de Máquina Usina Hidrelétrica\
-        \ Dr. Gravatá**  \nDescrição do complexo, barragem, canais, reservatório,\
-        \ tubulações, Casa de Máquinas e histórico de tombamento.  \n[Consultar fonte](https://www.ipatrimonio.org/betim-casa-de-maquina-usina-hidreletrica-dr-gravata/)\n\
-        \n**Prefeitura Municipal de Betim — Patrimônio Cultural**  \nReferência oficial\
-        \ municipal para o tombamento da Usina Hidrelétrica Dr. Gravatá.  \n[Consultar\
-        \ fonte](https://www.betim.mg.gov.br/portal/secretarias-paginas/278/superintendencia-patrimonio-cultural/)\n\
-        \n## Geologia regional\n\n**Serviço Geológico do Brasil — Folha Contagem**\
-        \  \nContexto geológico regional do Complexo Belo Horizonte e ocorrências\
-        \ de gnaisses e migmatitos na região de Contagem e Betim.  \n[Consultar fonte](https://rigeo.sgb.gov.br/bitstream/doc/18325/3/relatorio_contagem.pdf)\n\
-        \n## Restauração\n\n**Construtora QBHZ — Case Usina Doutor Gravatá**  \nRegistro\
-        \ público de restauração da Casa de Máquinas para a MRV Engenharia e Participações\
-        \ S/A.  \n[Consultar fonte](https://construtoraqbhz.com.br/case-study/usina-doutor-gravata/)\n\
-        \n## Escalada\n\n**Escaladas.com.br — Pedreira Dr. Gravatá**  \nCadastro público\
-        \ utilizado para cruzamento inicial de setores e dados técnicos de vias. \
-        \ \n[Consultar fonte](https://www.escaladas.com.br/local/id/2040/Pedreira%20Dr.%20Gravat%C3%A1)\n\
-        \n## Memória local\n\nInformações sobre desenvolvimento contemporâneo, acesso\
-        \ real, nomenclatura, manutenção, história das conquistas e estado atual do\
-        \ pico devem continuar sendo atualizadas com base nos registros de **Marcio\
-        \ Macena, Samuel Lucas e demais participantes identificados da comunidade\
-        \ local**.\n\n**Fonte documental sustenta o fato. Memória local explica contexto.\
-        \ As duas precisam permanecer identificadas.**"
+      conteudo: "Este registro utiliza fontes diferentes para tipos diferentes de
+        informação.\n\n## História urbana, pedreiras, ferrovia e Antônio Gonçalves
+        Gravatá\n\n**Universidade Federal de Minas Gerais — Repositório Institucional**
+        \ \nPesquisa utilizada para reconstrução da história urbana de Betim, pedreiras,
+        ferrovia, Antônio Gonçalves Gravatá, geração de energia e relações com a Fazenda
+        Cachoeira.  \n[Consultar fonte](https://repositorio.ufmg.br/server/api/core/bitstreams/4abfacfc-ce96-47de-8a1d-93cf47e4c51d/content)\n\n##
+        Usina e patrimônio\n\n**iPatrimônio — Casa de Máquina Usina Hidrelétrica Dr.
+        Gravatá**  \nDescrição do complexo, barragem, canais, reservatório, tubulações,
+        Casa de Máquinas e histórico de tombamento.  \n[Consultar fonte](https://www.ipatrimonio.org/betim-casa-de-maquina-usina-hidreletrica-dr-gravata/)\n\n**Prefeitura
+        Municipal de Betim — Patrimônio Cultural**  \nReferência oficial municipal
+        para o tombamento da Usina Hidrelétrica Dr. Gravatá.  \n[Consultar fonte](https://www.betim.mg.gov.br/portal/secretarias-paginas/278/superintendencia-patrimonio-cultural/)\n\n##
+        Geologia regional\n\n**Serviço Geológico do Brasil — Folha Contagem**  \nContexto
+        geológico regional do Complexo Belo Horizonte e ocorrências de gnaisses e
+        migmatitos na região de Contagem e Betim.  \n[Consultar fonte](https://rigeo.sgb.gov.br/bitstream/doc/18325/3/relatorio_contagem.pdf)\n\n##
+        Restauração\n\n**Construtora QBHZ — Case Usina Doutor Gravatá**  \nRegistro
+        público de restauração da Casa de Máquinas para a MRV Engenharia e Participações
+        S/A.  \n[Consultar fonte](https://construtoraqbhz.com.br/case-study/usina-doutor-gravata/)\n\n##
+        Escalada\n\n**Escaladas.com.br — Pedreira Dr. Gravatá**  \nCadastro público
+        utilizado para cruzamento inicial de setores e dados técnicos de vias.  \n[Consultar
+        fonte](https://www.escaladas.com.br/local/id/2040/Pedreira%20Dr.%20Gravat%C3%A1)\n\n##
+        Memória local\n\nInformações sobre desenvolvimento contemporâneo, acesso real,
+        nomenclatura, manutenção, história das conquistas e estado atual do pico devem
+        continuar sendo atualizadas com base nos registros de **Marcio Macena, Samuel
+        Lucas e demais participantes identificados da comunidade local**.\n\n**Fonte
+        documental sustenta o fato. Memória local explica contexto. As duas precisam
+        permanecer identificadas.**"
 publicar_croqui: true
 arquivos_externos:
 - caminho: imagens/capa_pedreira_gravata_gigante.webp

@@ -1788,14 +1788,14 @@ picos:
             tipo_parede: NEGATIVO
             quantidade_protecoes_intermediarias: 6
             quantidade_protecoes_parada: 2
-            descricao: "### IMPORTANTE \n#### Segurança usar capacete!!!\n\nGrau sugerido\
-              \ saindo da segunda proteção."
+            descricao: "### IMPORTANTE \n#### Segurança usar capacete!!!\n\nGrau sugerido
+              saindo da segunda proteção."
         - uid: ORxLpEqaVr3jtN
           via_esportiva:
             nome: Missionárias do Além
-            descricao: "### IMPORTANTE \n#### Segurança usar capacete!!!\n\n- Melhor\
-              \ sair com segunda proteção clipada.\n- Existe um ponto de ancoragem\
-              \ para o seg na pedra que fica na base da via."
+            descricao: "### IMPORTANTE \n#### Segurança usar capacete!!!\n\n- Melhor
+              sair com segunda proteção clipada.\n- Existe um ponto de ancoragem para
+              o seg na pedra que fica na base da via."
             tipo_parede: NEGATIVO
             quantidade_protecoes_intermediarias: 9
             quantidade_protecoes_parada: 2
@@ -1803,9 +1803,9 @@ picos:
         - uid: wodKaOmLPIbirQ
           via_esportiva:
             nome: Variante Santo do Pau Oco
-            descricao: "### IMPORTANTE \n#### Segurança usar capacete!!!\n\n- Melhor\
-              \ sair com segunda proteção clipada.\n- Existe um ponto de ancoragem\
-              \ para o seg na pedra que fica na base da via."
+            descricao: "### IMPORTANTE \n#### Segurança usar capacete!!!\n\n- Melhor
+              sair com segunda proteção clipada.\n- Existe um ponto de ancoragem para
+              o seg na pedra que fica na base da via."
             dificuldade: BR_8A
             tipo_parede: NEGATIVO
             quantidade_protecoes_intermediarias: 7
@@ -1813,17 +1813,17 @@ picos:
         - uid: 8iXm4ulWkfmMAq
           via_esportiva:
             nome: Projeto Aresta
-            descricao: "### IMPORTANTE \n#### Segurança usar capacete!!!\n\n- Melhor\
-              \ sair com segunda proteção clipada.\n- Existe um ponto de ancoragem\
-              \ para o seg na pedra que fica na base da via."
+            descricao: "### IMPORTANTE \n#### Segurança usar capacete!!!\n\n- Melhor
+              sair com segunda proteção clipada.\n- Existe um ponto de ancoragem para
+              o seg na pedra que fica na base da via."
             tipo_parede: NEGATIVO
             quantidade_protecoes_intermediarias: 18
         - uid: nhC5JJljtzD0LB
           via_esportiva:
             nome: Variante Santo do Pau Oco (extensão)
-            descricao: "### IMPORTANTE \n#### Segurança usar capacete!!!\n\n- Melhor\
-              \ sair com segunda proteção clipada.\n- Existe um ponto de ancoragem\
-              \ para o seg na pedra que fica na base da via."
+            descricao: "### IMPORTANTE \n#### Segurança usar capacete!!!\n\n- Melhor
+              sair com segunda proteção clipada.\n- Existe um ponto de ancoragem para
+              o seg na pedra que fica na base da via."
             dificuldade: BR_8C
             tipo_parede: NEGATIVO
             quantidade_protecoes_intermediarias: 9
@@ -1842,11 +1842,11 @@ picos:
         precomputados:
           total_escaladas: 15
           total_esportivas: 15
-  descricao: "![Foto aérea](imagens/foto_drone.webp)\n\nEm uma área de extração e\
-    \ exploração de pedreiras o setor mantém-se ainda intacto devido a sua história\
-    \ de missas realizadas no local. Ainda podemos observar resquícios como janelas,\
-    \ muretas, altar... \nO setor fica localizado entre as cidades de Nova Friburgo\
-    \ e Bom Jardim, tendo acesso pelas duas cidades."
+  descricao: "![Foto aérea](imagens/foto_drone.webp)\n\nEm uma área de extração e
+    exploração de pedreiras o setor mantém-se ainda intacto devido a sua história
+    de missas realizadas no local. Ainda podemos observar resquícios como janelas,
+    muretas, altar... \nO setor fica localizado entre as cidades de Nova Friburgo
+    e Bom Jardim, tendo acesso pelas duas cidades."
   localizacao:
     latitude: -222285860
     longitude: -424249510

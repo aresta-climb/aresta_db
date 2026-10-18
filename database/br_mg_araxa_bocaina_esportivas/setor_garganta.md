@@ -6,8 +6,8 @@ caminho_imagem_capa: imagens/setor_garganta_p0_i0.webp
 nome: Setor Garganta
 mapas:
 - caminho_imagem_mapa: imagens/setor_garganta_p1.webp
-  largura_mapa: 1280
-  altura_mapa: 1707
+  largura_mapa: 1152
+  altura_mapa: 1267
   pontos_de_interesse:
   - uid: 0h2qRVRPVdKkob
     rotulo: '01'
@@ -38,8 +38,8 @@ mapas:
     pontos_uids:
     - x3nCRY0i89PKXK
 - caminho_imagem_mapa: imagens/setor_garganta_p2.webp
-  largura_mapa: 1280
-  altura_mapa: 1707
+  largura_mapa: 840
+  altura_mapa: 1269
   pontos_de_interesse:
   - uid: 9y4XyyOynjpYI5
     rotulo: '04'
@@ -52,8 +52,8 @@ mapas:
     pontos_uids:
     - 9y4XyyOynjpYI5
 - caminho_imagem_mapa: imagens/setor_garganta_p3.webp
-  largura_mapa: 1280
-  altura_mapa: 1707
+  largura_mapa: 843
+  altura_mapa: 1270
   pontos_de_interesse:
   - uid: DmBaJzqQnlxOlQ
     rotulo: '05'
@@ -66,8 +66,8 @@ mapas:
     pontos_uids:
     - DmBaJzqQnlxOlQ
 - caminho_imagem_mapa: imagens/setor_garganta_p4.webp
-  largura_mapa: 1280
-  altura_mapa: 960
+  largura_mapa: 1151
+  altura_mapa: 1264
   pontos_de_interesse:
   - uid: 9s7ZM1DpHcJJYv
     rotulo: '06'
@@ -89,8 +89,8 @@ mapas:
     pontos_uids:
     - MUz2E49JzHgvtt
 - caminho_imagem_mapa: imagens/setor_garganta_p5.webp
-  largura_mapa: 1280
-  altura_mapa: 960
+  largura_mapa: 1148
+  altura_mapa: 1258
   pontos_de_interesse:
   - uid: 8VdnWwoB0Q133l
     rotulo: '08'
@@ -112,8 +112,8 @@ mapas:
     pontos_uids:
     - Qq300CtAsjD06M
 - caminho_imagem_mapa: imagens/setor_garganta_p6.webp
-  largura_mapa: 1280
-  altura_mapa: 1707
+  largura_mapa: 854
+  altura_mapa: 1269
   pontos_de_interesse:
   - uid: h5UDx1EvJnl51e
     rotulo: '10'
@@ -153,8 +153,8 @@ mapas:
     pontos_uids:
     - hk7WRbg4CUR06u
 - caminho_imagem_mapa: imagens/setor_garganta_p7.webp
-  largura_mapa: 1280
-  altura_mapa: 1707
+  largura_mapa: 1143
+  altura_mapa: 1264
   pontos_de_interesse:
   - uid: 8wThMUBhTcCw74
     rotulo: '10'
@@ -221,8 +221,8 @@ mapas:
     pontos_uids:
     - bnTRcKGc8y5Nrq
 - caminho_imagem_mapa: imagens/setor_garganta_p8.webp
-  largura_mapa: 1280
-  altura_mapa: 1707
+  largura_mapa: 1151
+  altura_mapa: 1264
   pontos_de_interesse:
   - uid: vVYiSXHuHaKo3E
     rotulo: '17'
@@ -289,8 +289,8 @@ mapas:
     pontos_uids:
     - AJZm6TcIqd0Ajc
 - caminho_imagem_mapa: imagens/setor_garganta_p9.webp
-  largura_mapa: 1280
-  altura_mapa: 1707
+  largura_mapa: 1152
+  altura_mapa: 1261
   pontos_de_interesse:
   - uid: wQHeKMHQoqYT9a
     rotulo: '24'

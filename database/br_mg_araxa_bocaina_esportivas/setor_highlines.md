@@ -5,8 +5,8 @@ uid: qSQoG5K7dOGfrN
 nome: Setor Highlines - Bocaina Park
 mapas:
 - caminho_imagem_mapa: imagens/setor_highlines_p0.webp
-  largura_mapa: 1280
-  altura_mapa: 960
+  largura_mapa: 1152
+  altura_mapa: 946
   pontos_de_interesse:
   - uid: xf7ye0AEXOOAhI
     rotulo: '01'

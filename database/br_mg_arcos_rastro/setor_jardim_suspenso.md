@@ -5,8 +5,8 @@ uid: Xxlz6Srh7a9jQT
 nome: Setor Jardim Suspenso
 mapas:
 - caminho_imagem_mapa: imagens/setor_jardim_suspenso_p0_i0.webp
-  largura_mapa: 1600
-  altura_mapa: 1000
+  largura_mapa: 922
+  altura_mapa: 1139
   pontos_de_interesse:
   - uid: Pm4F1BTv2SkgDn
     rotulo: Setor Terceiro Andar

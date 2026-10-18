@@ -945,14 +945,14 @@ def preparar_generated(limpar: bool = True) -> None:
 def passo_a_compilar_croquis(
     a_compilar: list[tuple[Path, dict[str, Any]]],
     force_thumbnails: bool = False,
-    gerar_arquivos_de_debug: bool = False,
+    gerar_arquivos_de_debug: bool = True,
     verbose: bool = False,
     *,
     force: bool = False,
 ) -> tuple[list[tuple[str, dict[str, Any], Path]], list[str], list[Exception], bool]:
     """
     Passo A: Corrige cada croqui em memória, sincroniza imagens/anexos incrementalmente
-    e compila para .binarypb sem reler arquivos do disco.
+    e compila para .binarypb (e compilado.yaml se gerar_arquivos_de_debug=True) sem reler arquivos do disco.
     Retorna (compilados, erros, excecoes, database_modificado).
     """
     print("\n=== Passo A: Compilando croquis ===")
@@ -969,9 +969,11 @@ def passo_a_compilar_croquis(
         dest_dir.mkdir(parents=True, exist_ok=True)
 
         dest_pb = dest_dir / "compilado.binarypb"
+        dest_yaml = dest_dir / "compilado.yaml" if gerar_arquivos_de_debug else None
         hashes_anteriores = {} if force else carregar_hashes_externos_anteriores(dest_pb)
 
-        (dest_dir / "compilado.yaml").unlink(missing_ok=True)
+        if not gerar_arquivos_de_debug:
+            (dest_dir / "compilado.yaml").unlink(missing_ok=True)
         (dest_dir / "compilado.md").unlink(missing_ok=True)
 
         ctx_memoria = obter_contexto_memoria_deploy(croqui_dir)
@@ -1051,7 +1053,7 @@ def passo_a_compilar_croquis(
             )
             croqui_compilado = compilar_croqui(
                 croqui_dir,
-                destino_yaml=None,
+                destino_yaml=dest_yaml,
                 destino_binarypb=dest_pb,
                 dados_extras={"arquivos_externos": arquivos_externos}
                 if arquivos_externos
@@ -1344,7 +1346,7 @@ def deploy(
     output_dir: Path,
     target_paths: Sequence[str | Path] | None = None,
     force_thumbnails: bool = False,
-    gerar_arquivos_de_debug: bool = False,
+    gerar_arquivos_de_debug: bool = True,
     is_producao: bool = True,
     verbose: bool = False,
     sair_ao_falhar: bool = False,
@@ -1552,6 +1554,9 @@ def passo_d_gerar_manifesto_serving(
         if base in mapa_novos_memoria:
             for ext_dict in mapa_novos_memoria[base]:
                 add_file(f"{base}/{ext_dict['caminho']}", ext_dict["checksum_sha256"])
+            p_yaml = GENERATED_DIR / base / "compilado.yaml"
+            if p_yaml.exists():
+                add_file(f"{base}/compilado.yaml", calcular_sha256(p_yaml))
         elif alvos is not None and base not in alvos and base in entradas_anteriores_por_croqui:
             for rel_ant, chk_ant in entradas_anteriores_por_croqui[base]:
                 if rel_ant != f"{base}/compilado.binarypb":
@@ -1563,6 +1568,9 @@ def passo_d_gerar_manifesto_serving(
                 c.ParseFromString(compilado_path.read_bytes())
                 for ext in c.arquivos_externos:
                     add_file(f"{base}/{ext.caminho}", ext.checksum_sha256)
+            p_yaml = GENERATED_DIR / base / "compilado.yaml"
+            if p_yaml.exists():
+                add_file(f"{base}/compilado.yaml", calcular_sha256(p_yaml))
 
     # 2. Calcula para os arquivos globais
     for global_file in ["indice.binarypb", "indice.yaml", "catalogo.db"]:
@@ -1670,6 +1678,12 @@ def create_parser() -> argparse.ArgumentParser:
         help="Atualiza o arquivo STATUS_CROQUIS.md ao final (padrao: True).",
     )
     parser.add_argument(
+        "--arquivos-de-debug",
+        action=argparse.BooleanOptionalAction,
+        default=True,
+        help="Gera arquivo auxiliar compilado.yaml para debug (padrao: True).",
+    )
+    parser.add_argument(
         "--verbose",
         action="store_true",
         help="Habilita logs detalhados dos passos B, C e D.",
@@ -1690,6 +1704,7 @@ if __name__ == "__main__":
             output_dir,
             target_paths=target_paths,
             force_thumbnails=(args.force or args.force_thumbnails),
+            gerar_arquivos_de_debug=args.arquivos_de_debug,
             is_producao=args.producao,
             verbose=args.verbose,
             sair_ao_falhar=True,

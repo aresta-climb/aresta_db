@@ -10144,11 +10144,11 @@ botoes:
   texto: Capa
   destino:
     secao_textual:
-      conteudo: "# GUIA DE ESCALADA DA SERRA DO LENHEIRO\n\n## 5ª Edição\n\n| ![Capa\
-        \ do Guia de Escalada da Serra do Lenheiro](imagens/capa_p0_i2.webp) |\n|\
-        \ :--: |\n| *Capa do Guia de Escalada da Serra do Lenheiro* |\n\n**São João\
-        \ Del Rei – MG**  \n\n**Atenção:** Para escalar no CEMONTA é necessário pegar\
-        \ autorização prévia!"
+      conteudo: "# GUIA DE ESCALADA DA SERRA DO LENHEIRO\n\n## 5ª Edição\n\n| ![Capa
+        do Guia de Escalada da Serra do Lenheiro](imagens/capa_p0_i2.webp) |\n| :--:
+        |\n| *Capa do Guia de Escalada da Serra do Lenheiro* |\n\n**São João Del Rei
+        – MG**  \n\n**Atenção:** Para escalar no CEMONTA é necessário pegar autorização
+        prévia!"
 - uid: 5TwqFVNnblyrkV
   texto: Apresentação
   destino:
@@ -10250,99 +10250,96 @@ botoes:
   texto: Áreas de Escalada
   destino:
     secao_textual:
-      conteudo: "# Áreas de Escalada\n\nAtualmente a cidade conta com aproximadamente\
-        \ 200 vias de escalada, divididas em 18 setores com uma grande variedade de\
-        \ estilos, todos no afloramento rochoso da Serra do Lenheiro, portanto em\
-        \ rocha de quartzito. Devido ao comprimento de mais de 10km desta serra, eles\
-        \ foram divididos em 3 grupos para melhor visualização na imagem abaixo:\n\
-        \n| ![Áreas de Escalada](imagens/legenda_p0_i3.webp) |\n| :--: |\n| *Áreas\
-        \ de Escalada* |\n\nObs: Os alfinetes são localizações aproximadas de cada\
-        \ grupo de setores para uma visão geral da Serra do Lenheiro, não reflete\
-        \ o local exato de cada setor, este detalhe estará nos capítulos específicos\
-        \ de cada um.\n\n## Setores do Lenheiro\n\nEsta é a área mais antiga e com\
-        \ maior quantidade de setores e vias. É a mais próxima de São João em termos\
-        \ de estrada (máximo 2km), porém as trilhas para cada setor variam de alguns\
-        \ metros da estrada até 30 minutos de caminhada. Consequentemente com menos\
-        \ de 10 minutos da saída da cidade é possível estar na base de algumas vias.\n\
-        \n| ![Setores do Lenheiro](imagens/setores_do_lenheiro_p0_i2.webp) |\n| :--:\
-        \ |\n| *Setores do Lenheiro* |\n\nPara acessar estes setores basta pegar a\
-        \ estrada de terra que dá acesso ao povoado da Trindade, que tem início na\
-        \ **Rua Geraldo Batista Alves** no bairro **Tejuco**, pode-se perguntar pela\
-        \ área do exército (**Cemonta**). As trilhas para os setores estão ao longo\
-        \ desta estrada. Portanto a descrição de cada setor vai partir da saída do\
-        \ Tejuco (início da estrada de terra).\n\n| ![QR Code Google Maps início estrada](imagens/setores_do_lenheiro_p0_i3.webp)\
-        \ |\n| :--: |\n| *QR Code Google Maps início estrada* |\n\n**QR Code Google\
-        \ Maps início estrada**  \n<https://www.google.com.br/maps/@-21.1397043,-44.2836832,334m/data=!3m1!1e3?hl=pt-BR>\n\
-        \n| ![FEMEMG - Federação de Montanhismo e Escalada de Minas Gerais](imagens/setores_do_lenheiro_p0_i4.webp)\
-        \ |\n| :--: |\n| *FEMEMG - Federação de Montanhismo e Escalada de Minas Gerais*\
-        \ |"
+      conteudo: "# Áreas de Escalada\n\nAtualmente a cidade conta com aproximadamente
+        200 vias de escalada, divididas em 18 setores com uma grande variedade de
+        estilos, todos no afloramento rochoso da Serra do Lenheiro, portanto em rocha
+        de quartzito. Devido ao comprimento de mais de 10km desta serra, eles foram
+        divididos em 3 grupos para melhor visualização na imagem abaixo:\n\n| ![Áreas
+        de Escalada](imagens/legenda_p0_i3.webp) |\n| :--: |\n| *Áreas de Escalada*
+        |\n\nObs: Os alfinetes são localizações aproximadas de cada grupo de setores
+        para uma visão geral da Serra do Lenheiro, não reflete o local exato de cada
+        setor, este detalhe estará nos capítulos específicos de cada um.\n\n## Setores
+        do Lenheiro\n\nEsta é a área mais antiga e com maior quantidade de setores
+        e vias. É a mais próxima de São João em termos de estrada (máximo 2km), porém
+        as trilhas para cada setor variam de alguns metros da estrada até 30 minutos
+        de caminhada. Consequentemente com menos de 10 minutos da saída da cidade
+        é possível estar na base de algumas vias.\n\n| ![Setores do Lenheiro](imagens/setores_do_lenheiro_p0_i2.webp)
+        |\n| :--: |\n| *Setores do Lenheiro* |\n\nPara acessar estes setores basta
+        pegar a estrada de terra que dá acesso ao povoado da Trindade, que tem início
+        na **Rua Geraldo Batista Alves** no bairro **Tejuco**, pode-se perguntar pela
+        área do exército (**Cemonta**). As trilhas para os setores estão ao longo
+        desta estrada. Portanto a descrição de cada setor vai partir da saída do Tejuco
+        (início da estrada de terra).\n\n| ![QR Code Google Maps início estrada](imagens/setores_do_lenheiro_p0_i3.webp)
+        |\n| :--: |\n| *QR Code Google Maps início estrada* |\n\n**QR Code Google
+        Maps início estrada**  \n<https://www.google.com.br/maps/@-21.1397043,-44.2836832,334m/data=!3m1!1e3?hl=pt-BR>\n\n|
+        ![FEMEMG - Federação de Montanhismo e Escalada de Minas Gerais](imagens/setores_do_lenheiro_p0_i4.webp)
+        |\n| :--: |\n| *FEMEMG - Federação de Montanhismo e Escalada de Minas Gerais*
+        |"
 - uid: mjJF31lc8mRkBy
   texto: Regras CEMONTA
   destino:
     secao_textual:
-      conteudo: "# NORMAS DE CONDUTA E AUTORIZAÇÃO PARA USO DO CAMPO ESCOLA DE MONTANHISMO\
-        \ (CEMONTA)\n\n## SERRA DO LENHEIRO – TRÊS PONTÕES\n[\U0001F4E5 Baixar Ficha\
-        \ para Autorização de Uso do CEMONTA (PDF)](anexos/ficha_autorizacao_cemonta.pdf)\n\
-        \n[\U0001F4E5 Baixar Termo de Reconhecimento de Riscos (PDF)](anexos/termo_reconhecimento_riscos_cemonta.pdf)\n\
-        \nO Campo Escola de Montanhismo (CEMONTA), mais conhecido como Lenheiro ou\
-        \ Três Pontões, está localizado na cidade de São João del – Rei, MG, em uma\
-        \ Área Militar, de propriedade do Exército Brasileiro. Por esta razão e para\
-        \ o bom relacionamento entre escaladores e o 11º Batalhão de Infantaria de\
-        \ Montanha (11º BI Mth), responsável pela área, as regras abaixo devem ser\
-        \ seguidas:\n\n1. O 11º BI Mth tem atividades práticas no CEMONTA durante\
-        \ todo o ano. É proibida a prática da escalada por civis nos dias em que houver\
-        \ atividades militares no local.\n2. Antes de solicitar autorização, o escalador\
-        \ deverá se certificar de que não haverá atividades militares no local, verificando\
-        \ os períodos disponibilizados à Federação de Escalada e Montanhismo de Minas\
-        \ Gerais (FEMEMG) – Em caráter excepcional, poderá haver a utilização do CEMONTA\
-        \ fora destes períodos estipulados, fazendo-se importante o contato prévio\
-        \ com o Batalhão.\n3. Para solicitar autorização, o escalador responsável\
-        \ pelo grupo deverá preencher a “Ficha para Autorização de uso do CEMONTA”,\
-        \ e remetê-la para o 11º BIMth, com o mínimo de sete dias de antecedência,\
-        \ através do e-mail: ciopmth@gmail.com . O Batalhão responderá ao remetente,\
-        \ no e-mail do escalador, se foi ou não autorizada sua solicitação. Caso tenha\
-        \ sido autorizada, todos os participantes do grupo deverão se dirigir ao 11º\
-        \ Batalhão de Infantaria de Montanha, entre às 08:00 e às 18:00 horas, para\
-        \ assinar o “Termo de Reconhecimento de Riscos” e pegar as chaves das instalações\
-        \ sanitárias do CEMONTA.\n4. Após a atividade de escalada, o grupo deverá\
-        \ deixar as instalações sanitárias nas mesmas condições de limpeza que receberam\
-        \ e entregar as chaves no 11º BIMth.\n5. É proibida a equipagem de vias ou\
-        \ grampeação.\n6. Todo lixo produzido deverá ser conduzido de volta pelo escalador\
-        \ e depositado em local adequado, fora do CEMONTA.\n7. Leve seu material de\
-        \ escalada. O Batalhão não possui qualquer material para empréstimo.\n8. Tenha\
-        \ certeza de deixar o local tão limpo quanto o encontrou.\n9. É proibida a\
-        \ prática isolada da atividade, devendo ser realizada, no mínimo, em dupla.\n\
-        10. É obrigatório o uso de capacete durante a prática de qualquer modalidade\
-        \ de escalada.\n11. Não deve ser dispensada, sob qualquer pretexto, a segurança\
-        \ durante as escaladas, seja ela proporcionada por cordas e outros meios,\
-        \ seja pelos próprios praticantes (segurança aproximada).\n12. É proibida\
-        \ a utilização do galpão de instrução.\n13. As necessidades fisiológicas deverão\
-        \ ser realizadas junto às instalações sanitárias, existentes no CEMONTA.\n\
-        14. É proibido o corte ou derrubada de qualquer árvore ou arbusto no local,\
-        \ bem como a retirada de grama.\n\n15. É proibido o consumo de bebidas alcoólicas\
-        \ no local.\n16. É proibido o acendimento de fogueiras no local.\n17. É proibida\
-        \ a transposição da cerca de isolamento das pinturas rupestres.\n18. A autorização\
-        \ de uso do CEMONTA não inclui permissão para acessar outras áreas de propriedade\
-        \ particular.\n19. Durante a escalada no CEMONTA, você pode ser interpelado\
-        \ por militares do 11º BIMth que realizam rondas no local. Nesta situação,\
-        \ basta identificar-se e apresentar a autorização recebida.\n20. É proibido\
-        \ gravar nomes, datas ou sinais em pedras, árvores, imóveis, placas ou outros\
-        \ bens do CEMONTA;\n21. É proibido provocar qualquer tipo de barulho que possa\
-        \ perturbar a fauna local (Ex: estampidos, gritos ou utilização de aparelhos\
-        \ de som de qualquer espécie).\n22. Para a visita de grupos com a finalidade\
-        \ de realizar cursos de escalada, deve ser apresentada a carteira de guia\
-        \ ou instrutor de algum clube, ou entidade ligada às federações ou associações\
-        \ que compõem a Confederação Brasileira de Montanhismo e Escalada (CBME).\n\
-        23. O uso ou posse de drogas em ambiente militar (CEMONTA) será tratado com\
-        \ o mesmo rigor que o tráfico de drogas, não havendo distinção, no Direito\
-        \ Penal Militar, da figura do usuário e do traficante, conforme artigo 290\
-        \ do Decreto-Lei Nº 1.001/69.\n24. Na ocorrência do descumprimento de qualquer\
-        \ uma destas regras, ou de qualquer outra conduta que traga consequências\
-        \ negativas para a preservação do local, o responsável será retirado do CEMONTA,\
-        \ e poderá ser negada sua entrada no local em solicitações posteriores, sem\
-        \ prejuízo das responsabilidades cíveis, administrativas e penais aplicáveis.\n\
-        \nGUSTAVO TIYODI NAKASHIMA - TC  \nComandante do 11º Batalhão de Infantaria\
-        \ de Montanha"
+      conteudo: "# NORMAS DE CONDUTA E AUTORIZAÇÃO PARA USO DO CAMPO ESCOLA DE MONTANHISMO
+        (CEMONTA)\n\n## SERRA DO LENHEIRO – TRÊS PONTÕES\n[\U0001F4E5 Baixar Ficha
+        para Autorização de Uso do CEMONTA (PDF)](anexos/ficha_autorizacao_cemonta.pdf)\n\n[\U0001F4E5
+        Baixar Termo de Reconhecimento de Riscos (PDF)](anexos/termo_reconhecimento_riscos_cemonta.pdf)\n\nO
+        Campo Escola de Montanhismo (CEMONTA), mais conhecido como Lenheiro ou Três
+        Pontões, está localizado na cidade de São João del – Rei, MG, em uma Área
+        Militar, de propriedade do Exército Brasileiro. Por esta razão e para o bom
+        relacionamento entre escaladores e o 11º Batalhão de Infantaria de Montanha
+        (11º BI Mth), responsável pela área, as regras abaixo devem ser seguidas:\n\n1.
+        O 11º BI Mth tem atividades práticas no CEMONTA durante todo o ano. É proibida
+        a prática da escalada por civis nos dias em que houver atividades militares
+        no local.\n2. Antes de solicitar autorização, o escalador deverá se certificar
+        de que não haverá atividades militares no local, verificando os períodos disponibilizados
+        à Federação de Escalada e Montanhismo de Minas Gerais (FEMEMG) – Em caráter
+        excepcional, poderá haver a utilização do CEMONTA fora destes períodos estipulados,
+        fazendo-se importante o contato prévio com o Batalhão.\n3. Para solicitar
+        autorização, o escalador responsável pelo grupo deverá preencher a “Ficha
+        para Autorização de uso do CEMONTA”, e remetê-la para o 11º BIMth, com o mínimo
+        de sete dias de antecedência, através do e-mail: ciopmth@gmail.com . O Batalhão
+        responderá ao remetente, no e-mail do escalador, se foi ou não autorizada
+        sua solicitação. Caso tenha sido autorizada, todos os participantes do grupo
+        deverão se dirigir ao 11º Batalhão de Infantaria de Montanha, entre às 08:00
+        e às 18:00 horas, para assinar o “Termo de Reconhecimento de Riscos” e pegar
+        as chaves das instalações sanitárias do CEMONTA.\n4. Após a atividade de escalada,
+        o grupo deverá deixar as instalações sanitárias nas mesmas condições de limpeza
+        que receberam e entregar as chaves no 11º BIMth.\n5. É proibida a equipagem
+        de vias ou grampeação.\n6. Todo lixo produzido deverá ser conduzido de volta
+        pelo escalador e depositado em local adequado, fora do CEMONTA.\n7. Leve seu
+        material de escalada. O Batalhão não possui qualquer material para empréstimo.\n8.
+        Tenha certeza de deixar o local tão limpo quanto o encontrou.\n9. É proibida
+        a prática isolada da atividade, devendo ser realizada, no mínimo, em dupla.\n10.
+        É obrigatório o uso de capacete durante a prática de qualquer modalidade de
+        escalada.\n11. Não deve ser dispensada, sob qualquer pretexto, a segurança
+        durante as escaladas, seja ela proporcionada por cordas e outros meios, seja
+        pelos próprios praticantes (segurança aproximada).\n12. É proibida a utilização
+        do galpão de instrução.\n13. As necessidades fisiológicas deverão ser realizadas
+        junto às instalações sanitárias, existentes no CEMONTA.\n14. É proibido o
+        corte ou derrubada de qualquer árvore ou arbusto no local, bem como a retirada
+        de grama.\n\n15. É proibido o consumo de bebidas alcoólicas no local.\n16.
+        É proibido o acendimento de fogueiras no local.\n17. É proibida a transposição
+        da cerca de isolamento das pinturas rupestres.\n18. A autorização de uso do
+        CEMONTA não inclui permissão para acessar outras áreas de propriedade particular.\n19.
+        Durante a escalada no CEMONTA, você pode ser interpelado por militares do
+        11º BIMth que realizam rondas no local. Nesta situação, basta identificar-se
+        e apresentar a autorização recebida.\n20. É proibido gravar nomes, datas ou
+        sinais em pedras, árvores, imóveis, placas ou outros bens do CEMONTA;\n21.
+        É proibido provocar qualquer tipo de barulho que possa perturbar a fauna local
+        (Ex: estampidos, gritos ou utilização de aparelhos de som de qualquer espécie).\n22.
+        Para a visita de grupos com a finalidade de realizar cursos de escalada, deve
+        ser apresentada a carteira de guia ou instrutor de algum clube, ou entidade
+        ligada às federações ou associações que compõem a Confederação Brasileira
+        de Montanhismo e Escalada (CBME).\n23. O uso ou posse de drogas em ambiente
+        militar (CEMONTA) será tratado com o mesmo rigor que o tráfico de drogas,
+        não havendo distinção, no Direito Penal Militar, da figura do usuário e do
+        traficante, conforme artigo 290 do Decreto-Lei Nº 1.001/69.\n24. Na ocorrência
+        do descumprimento de qualquer uma destas regras, ou de qualquer outra conduta
+        que traga consequências negativas para a preservação do local, o responsável
+        será retirado do CEMONTA, e poderá ser negada sua entrada no local em solicitações
+        posteriores, sem prejuízo das responsabilidades cíveis, administrativas e
+        penais aplicáveis.\n\nGUSTAVO TIYODI NAKASHIMA - TC  \nComandante do 11º Batalhão
+        de Infantaria de Montanha"
 revisado_manualmente: true
 publicar_croqui: true
 arquivos_externos:

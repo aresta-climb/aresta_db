@@ -5,8 +5,8 @@ uid: yy0t8zuwWuZbNZ
 nome: Setor Barceloneta
 mapas:
 - caminho_imagem_mapa: imagens/setor_barceloneta_p0_i0.webp
-  largura_mapa: 1013
-  altura_mapa: 984
+  largura_mapa: 1028
+  altura_mapa: 981
   pontos_de_interesse:
   - uid: nOCGwLwLA4Dlzw
     rotulo: '1'

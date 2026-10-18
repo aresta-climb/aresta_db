@@ -167,8 +167,8 @@ mapas:
     pontos_uids:
     - lprOfHt44C6VGf
 - caminho_imagem_mapa: imagens/setor_sherpa_boulders_p2.webp
-  largura_mapa: 1215
-  altura_mapa: 1295
+  largura_mapa: 893
+  altura_mapa: 700
   pontos_de_interesse:
   - uid: aOdPqWNRnf2uqz
     linha:
@@ -260,8 +260,8 @@ mapas:
     - cBoyDvIZHtIX4l
     - LNwf2jrszO1ytd
 - caminho_imagem_mapa: imagens/setor_sherpa_boulders_p3.webp
-  largura_mapa: 1448
-  altura_mapa: 1086
+  largura_mapa: 940
+  altura_mapa: 910
   pontos_de_interesse:
   - uid: OfgDeurgL8xjXZ
     rotulo: ''
@@ -339,8 +339,8 @@ mapas:
     pontos_uids:
     - pnqFRZh57P4cXM
 - caminho_imagem_mapa: imagens/setor_sherpa_boulders_p4.webp
-  largura_mapa: 1136
-  altura_mapa: 1385
+  largura_mapa: 1392
+  altura_mapa: 3013
   pontos_de_interesse:
   - uid: gIdTXNgfyNjlSe
     rotulo: ''
@@ -496,8 +496,8 @@ mapas:
     pontos_uids:
     - DN7m1qc736k5mX
 - caminho_imagem_mapa: imagens/setor_sherpa_boulders_p6.webp
-  largura_mapa: 1392
-  altura_mapa: 3013
+  largura_mapa: 1057
+  altura_mapa: 1697
   pontos_de_interesse:
   - uid: jQ9GhuTtWSfP6I
     rotulo: ''

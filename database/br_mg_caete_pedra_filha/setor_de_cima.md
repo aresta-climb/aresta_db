@@ -5,8 +5,8 @@ uid: VBhfxuMtfq7Opr
 nome: Setor de Cima
 mapas:
 - caminho_imagem_mapa: imagens/setor_de_cima_p0.webp
-  largura_mapa: 884
-  altura_mapa: 457
+  largura_mapa: 760
+  altura_mapa: 384
   pontos_de_interesse:
   - uid: IJMhQ4m8JwLwHH
     rotulo: '1'

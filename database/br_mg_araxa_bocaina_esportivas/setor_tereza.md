@@ -6,8 +6,8 @@ caminho_imagem_capa: imagens/setor_tereza_p0_i0.webp
 nome: Setor Tereza
 mapas:
 - caminho_imagem_mapa: imagens/setor_tereza_p1.webp
-  largura_mapa: 1280
-  altura_mapa: 1707
+  largura_mapa: 1145
+  altura_mapa: 1273
   pontos_de_interesse:
   - uid: jsnhRlqh8PYw4C
     rotulo: '01'
@@ -65,8 +65,8 @@ mapas:
     pontos_uids:
     - 8Xvl9JGHXDkANZ
 - caminho_imagem_mapa: imagens/setor_tereza_p2.webp
-  largura_mapa: 1280
-  altura_mapa: 1707
+  largura_mapa: 843
+  altura_mapa: 1273
   pontos_de_interesse:
   - uid: ciUqgfQcb73IcX
     rotulo: '06'

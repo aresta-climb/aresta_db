@@ -9,8 +9,8 @@ mapas:
   - alvo_uid: ztvAnYjUeagKnP
     pontos_uids:
     - CGS0FrAZT9abWx
-  largura_mapa: 1244
-  altura_mapa: 2008
+  largura_mapa: 2008
+  altura_mapa: 1244
   pontos_de_interesse:
   - uid: CGS0FrAZT9abWx
     rotulo: '1'

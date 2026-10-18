@@ -18,8 +18,8 @@ escaladas:
     dificuldade: V0
 mapas:
 - caminho_imagem_mapa: imagens/grupo_estacionamento_bloco_virada_brasil_p0.webp
-  largura_mapa: 1280
-  altura_mapa: 960
+  largura_mapa: 2364
+  altura_mapa: 1773
   pontos_de_interesse:
   - uid: TCqSo3l4scy9Cr
     rotulo: ''
@@ -184,3 +184,4 @@ mapas:
     - d7TPFX7nth7n3n
     - enl6MWJpNyBsAG
 ---
+

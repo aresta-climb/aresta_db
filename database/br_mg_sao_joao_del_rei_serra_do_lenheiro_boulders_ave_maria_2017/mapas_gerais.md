@@ -3,8 +3,8 @@
 # Copyright (C) 2026 Aresta Climb Contributors
 mapas:
 - caminho_imagem_mapa: imagens/mapas_gerais_p0_i0.webp
-  largura_mapa: 853
-  altura_mapa: 1243
+  largura_mapa: 1243
+  altura_mapa: 853
   pontos_de_interesse:
   - uid: Z0fnv3up4Jgpwy
     rotulo: A
@@ -124,3 +124,4 @@ mapas:
     pontos_uids:
     - kTL9YPgRp1NRWE
 ---
+

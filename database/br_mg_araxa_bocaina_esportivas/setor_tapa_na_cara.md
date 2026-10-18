@@ -6,8 +6,8 @@ caminho_imagem_capa: imagens/setor_tapa_na_cara_p0_i0.webp
 nome: Setor Tapa na Cara
 mapas:
 - caminho_imagem_mapa: imagens/setor_tapa_na_cara_p1.webp
-  largura_mapa: 1280
-  altura_mapa: 1707
+  largura_mapa: 1148
+  altura_mapa: 1264
   pontos_de_interesse:
   - uid: QgT7EBt8FUEXVE
     rotulo: '01'

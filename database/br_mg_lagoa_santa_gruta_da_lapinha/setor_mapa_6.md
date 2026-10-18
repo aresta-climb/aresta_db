@@ -5,8 +5,8 @@ uid: DzpVy5IyHcY19t
 nome: Setor Vale Verde (Mapa 6)
 mapas:
 - caminho_imagem_mapa: imagens/setor_mapa_6_p0_i0.webp
-  largura_mapa: 510
-  altura_mapa: 380
+  largura_mapa: 465
+  altura_mapa: 340
   pontos_de_interesse:
   - uid: co0L3lzfGktyam
     rotulo: '62'

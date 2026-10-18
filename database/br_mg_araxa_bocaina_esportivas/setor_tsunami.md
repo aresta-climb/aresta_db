@@ -6,8 +6,8 @@ caminho_imagem_capa: imagens/setor_tsunami_p0_i0.webp
 nome: Setor Tsunami
 mapas:
 - caminho_imagem_mapa: imagens/setor_tsunami_p1.webp
-  largura_mapa: 1280
-  altura_mapa: 1707
+  largura_mapa: 1142
+  altura_mapa: 1270
   pontos_de_interesse:
   - uid: lYkbXINI3M14TB
     rotulo: '01'
@@ -83,8 +83,8 @@ mapas:
     pontos_uids:
     - DZqmdaStIME3ny
 - caminho_imagem_mapa: imagens/setor_tsunami_p2.webp
-  largura_mapa: 1280
-  altura_mapa: 1707
+  largura_mapa: 1152
+  altura_mapa: 1270
   pontos_de_interesse:
   - uid: gmlZ1pUF6PQPfN
     rotulo: '09'
@@ -160,8 +160,8 @@ mapas:
     pontos_uids:
     - gmlZ1pUF6PQPfN
 - caminho_imagem_mapa: imagens/setor_tsunami_p3.webp
-  largura_mapa: 1280
-  altura_mapa: 1707
+  largura_mapa: 1152
+  altura_mapa: 1270
   pontos_de_interesse:
   - uid: mztaNYC4v4wyuV
     rotulo: '17'

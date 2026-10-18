@@ -54,8 +54,8 @@ escaladas:
     dificuldade: V1
 mapas:
 - caminho_imagem_mapa: imagens/setor_fugitivos_i_p0.webp
-  largura_mapa: 2155
-  altura_mapa: 1945
+  largura_mapa: 1847
+  altura_mapa: 1577
   pontos_de_interesse:
   - uid: 29CR0yWUubJgsh
     rotulo: '2'

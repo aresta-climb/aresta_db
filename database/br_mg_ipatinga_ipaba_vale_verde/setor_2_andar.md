@@ -5,8 +5,8 @@ uid: Ly4gwN209FrZnL
 nome: Setor 2° Andar
 mapas:
 - caminho_imagem_mapa: imagens/setor_2_andar_p0.webp
-  largura_mapa: 643
-  altura_mapa: 1653
+  largura_mapa: 674
+  altura_mapa: 1671
   pontos_de_interesse:
   - uid: BGCGU9h7rGHWyI
     rotulo: '27'

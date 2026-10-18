@@ -50,12 +50,12 @@ Quando `target_paths` (`--target` ou argumentos posicionais) for especificado em
 - **WHEN** `deploy()` é invocado com `target_paths=["database/meu_croqui"]`
 - **THEN** o sistema lê apenas os arquivos de `database/meu_croqui`, preserva os metadados dos demais croquis a partir de `indice.binarypb` e `arquivos_serving.yaml` anteriores e não abre os arquivos `croqui.yaml` nem `compilado.binarypb` dos outros croquis não modificados.
 
-### Requirement: Ausência de Artefatos Legados de Debug (`compilado.yaml` e `compilado.md`)
-O pipeline de compilação e deploy SHALL gerar exclusivamente `compilado.binarypb` (além de `imagens/` e `anexos/`) dentro de `generated/<id>/`, abstendo-se de criar ou indexar os arquivos `compilado.yaml` e `compilado.md`.
+### Requirement: Geração de `compilado.yaml` e Ausência do Artefato Legado `compilado.md`
+O pipeline de compilação e deploy SHALL gerar `compilado.binarypb` e `compilado.yaml` (além de `imagens/` e `anexos/`) dentro de `generated/<id>/` quando `gerar_arquivos_de_debug=True` (padrão), abstendo-se de criar ou indexar o arquivo legado `compilado.md`.
 
 #### Scenario: Estrutura do diretório compilado de um croqui
-- **WHEN** um croqui é compilado por `deploy()` ou `compilar_croqui()`
-- **THEN** o diretório de saída contém `compilado.binarypb` (e as pastas de mídia correspondentes), sem gerar `compilado.yaml` ou `compilado.md`.
+- **WHEN** um croqui é compilado por `deploy()` ou `compilar_croqui()` com `destino_yaml` informado
+- **THEN** o diretório de saída contém `compilado.binarypb` e `compilado.yaml` (e as pastas de mídia correspondentes), sem gerar `compilado.md`.
 
 ### Requirement: Atualização em Memória e Incremental do Relatório de Saúde (`STATUS_CROQUIS.md`)
 O módulo `scripts/medir_saude_croquis.py` SHALL expor funções de biblioteca invocáveis diretamente no mesmo processo Python por `deploy_generated.py` e pelo Editor (sem `subprocess.run`), realizando um único parse por croqui avaliado e, quando um subconjunto de croquis (`alvos`) for informado e `STATUS_CROQUIS.md` já existir, SHALL atualizar apenas as linhas correspondentes aos croquis avaliados e recalcular os contadores agregados do cabeçalho da tabela a partir das linhas em memória, sem ler do disco os demais croquis da pasta `database/`.

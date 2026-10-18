@@ -705,8 +705,8 @@ escaladas:
       se feito mais pela direita.
   mapas:
   - caminho_imagem_mapa: imagens/grupo_principal_setor_central_p7_i1.webp
-    largura_mapa: 606
-    altura_mapa: 388
+    largura_mapa: 388
+    altura_mapa: 606
 - uid: J2n3pSVvme8VQe
   via_multiplas_enfiadas:
     nome: Pé de Pano
@@ -728,8 +728,8 @@ escaladas:
       com corda simples de 50 metros.
   mapas:
   - caminho_imagem_mapa: imagens/grupo_principal_setor_central_p7_i3.webp
-    largura_mapa: 641
-    altura_mapa: 421
+    largura_mapa: 421
+    altura_mapa: 641
 - uid: 0jcnw04M5QsGqJ
   via_multiplas_enfiadas:
     nome: CDF

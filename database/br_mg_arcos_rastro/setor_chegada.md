@@ -5,8 +5,8 @@ uid: Pi6c115axze0qS
 nome: Setor Chegada
 mapas:
 - caminho_imagem_mapa: imagens/setor_chegada_p0_i0.webp
-  largura_mapa: 1600
-  altura_mapa: 1000
+  largura_mapa: 912
+  altura_mapa: 1151
   pontos_de_interesse:
   - uid: eBKFyJdsJsOmfz
     rotulo: Mezanino, 1o, 2o Andar, Jardim Suspenso e 3o Andar
