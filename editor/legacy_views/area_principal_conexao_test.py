@@ -162,9 +162,7 @@ def test_deve_salvar_croqui_antes_de_conectar_celular_quando_houver_modificacoes
         ) as MockDialogo,
     ):
         janela.acao_celular.trigger()
-        mock_salvar.assert_called_once_with(
-            callback_sucesso=janela._abrir_dialogo_conexao_celular
-        )
+        mock_salvar.assert_called_once_with(callback_sucesso=janela._abrir_dialogo_conexao_celular)
         MockDialogo.assert_not_called()
 
 
@@ -186,9 +184,7 @@ def test_deve_salvar_croqui_antes_de_conectar_celular_quando_catalogo_db_ausente
         ) as MockDialogo,
     ):
         janela.acao_celular.trigger()
-        mock_salvar.assert_called_once_with(
-            callback_sucesso=janela._abrir_dialogo_conexao_celular
-        )
+        mock_salvar.assert_called_once_with(callback_sucesso=janela._abrir_dialogo_conexao_celular)
         MockDialogo.assert_not_called()
 
 
@@ -212,4 +208,3 @@ def test_deve_abrir_dialogo_direto_quando_limpo_e_artefatos_presentes(qtbot, jan
         janela.acao_celular.trigger()
         mock_salvar.assert_not_called()
         MockDialogo.assert_called_once()
-

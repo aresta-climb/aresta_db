@@ -792,4 +792,3 @@ def test_deve_reescrever_rota_compacta_e_sanitizar_query_string(pasta_temporaria
     res_cat = cliente._ler_arquivo_proxy("req-cat", "catalogo.db?v=abc123")
     assert res_cat["status"] == 200
     assert base64.b64decode(res_cat["corpoBase64"]) == b"SQLite format 3\x00catalogo"
-

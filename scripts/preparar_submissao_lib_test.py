@@ -3664,4 +3664,3 @@ def test_corrigir_database_sem_snapshot_rglob_e_modo_em_memoria(tmp_path: Path) 
         persistir_no_disco=False,
     )
     assert modificou_segunda is False
-

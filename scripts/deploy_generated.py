@@ -90,9 +90,7 @@ def _estruturas_identicas_com_ordem(a: Any, b: Any) -> bool:
             for (k1, v1), (k2, v2) in zip(a.items(), b.items())
         )
     if isinstance(a, list):
-        return len(a) == len(b) and all(
-            _estruturas_identicas_com_ordem(x, y) for x, y in zip(a, b)
-        )
+        return len(a) == len(b) and all(_estruturas_identicas_com_ordem(x, y) for x, y in zip(a, b))
     return bool(a == b)
 
 

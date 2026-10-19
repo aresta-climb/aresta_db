@@ -828,9 +828,7 @@ class TestWorker(unittest.TestCase):
                 .read_text(encoding="utf-8")
                 .endswith("---\nCorpo A\n")
             )
-            tarefa.sucesso.emit.assert_called_once_with(
-                caminho_renomeado, [], True, 2, False
-            )
+            tarefa.sucesso.emit.assert_called_once_with(caminho_renomeado, [], True, 2, False)
         finally:
             shutil.rmtree(tmp_dir, ignore_errors=True)
 

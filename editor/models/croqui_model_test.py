@@ -1774,4 +1774,3 @@ def test_croqui_model_extrair_arquivos_em_memoria_sem_persistir_no_disco(tmp_pat
     assert "secao_sobre.md" in cache_md
     assert cache_md["secao_sobre.md"] == (None, "Texto da seção em RAM")
     assert corpos_brutos["secao_sobre.md"] == "Texto da seção em RAM\n"
-

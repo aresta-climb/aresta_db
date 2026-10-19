@@ -273,7 +273,6 @@ def test_extrair_dados_croqui_prioriza_cidade_e_estado_do_pico() -> None:
     assert dados_croqui_2["estado"] == "Minas Gerais"
 
 
-
 def test_formatar_tipo_escalada() -> None:
     esc = croqui_pb2.Escalada()
     assert formatar_tipo_escalada(esc) == ""
@@ -661,9 +660,9 @@ def test_gerar_catalogo_completo_nao_modifica_banco_quando_dados_logicos_inalter
     assert caminho_db.read_bytes() == bytes_antes
 
     # Altera apenas uma escalada em catalogo_aresta (mantendo catalogo_croquis igual) -> deve atualizar
-    croqui.picos[0].setores_ou_grupos[0].setor.conteudo.escaladas[0].via_esportiva.nome = (
-        "Pé na Chapa Renovada"
-    )
+    croqui.picos[0].setores_ou_grupos[0].setor.conteudo.escaladas[
+        0
+    ].via_esportiva.nome = "Pé na Chapa Renovada"
     (croqui_dir / "compilado.binarypb").write_bytes(croqui.SerializeToString())
     gerar_catalogo_completo(pasta_gerados, caminho_db, alvos=["br_mg_ferros_croqui1"])
     assert "Pé na Chapa Renovada" in (pasta_gerados / "catalogo_aresta.csv").read_text(
@@ -946,7 +945,3 @@ def test_gerar_catalogo_completo_ignora_e_remove_croquis_rascunho_nao_publicados
     with contextlib.closing(sqlite3.connect(caminho_db)) as con:
         total = con.execute("SELECT COUNT(*) FROM catalogo_croquis").fetchone()[0]
         assert total == 2
-
-
-
-

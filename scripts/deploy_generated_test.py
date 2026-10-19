@@ -1640,9 +1640,7 @@ class DeployGeneratedTest(unittest.TestCase):
             from PIL import Image
 
             (cdir / "imagens").mkdir(parents=True, exist_ok=True)
-            Image.new("RGB", (60, 40), color="green").save(
-                cdir / "imagens" / "mapa.webp", "WEBP"
-            )
+            Image.new("RGB", (60, 40), color="green").save(cdir / "imagens" / "mapa.webp", "WEBP")
             cache_md_mutado = {
                 "setor_ram.md": (
                     {
@@ -1768,15 +1766,9 @@ class DeployGeneratedTest(unittest.TestCase):
                 )
             )
             self.assertFalse(
-                deploy_generated._estruturas_identicas_com_ordem(
-                    fm_setor_a, "nao_eh_dict"
-                )
+                deploy_generated._estruturas_identicas_com_ordem(fm_setor_a, "nao_eh_dict")
             )
-            self.assertFalse(
-                deploy_generated._estruturas_identicas_com_ordem(
-                    [1, 2], [1, 3]
-                )
-            )
+            self.assertFalse(deploy_generated._estruturas_identicas_com_ordem([1, 2], [1, 3]))
 
             # Segunda persistência: setor_a e croqui.yaml inalterados, setor_b modificado
             fm_setor_b_mod = {
@@ -1804,4 +1796,3 @@ class DeployGeneratedTest(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
-

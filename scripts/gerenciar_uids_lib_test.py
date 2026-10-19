@@ -254,5 +254,3 @@ picos:
 
     # Idempotente na segunda execução
     assert sanear_uids_croqui(pico_dir) is False
-
-

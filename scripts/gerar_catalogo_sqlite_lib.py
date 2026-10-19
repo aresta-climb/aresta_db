@@ -216,11 +216,7 @@ def extrair_dados_croqui_para_catalogo(
     estado_pico = getattr(primeiro_pico, "estado", "").strip() if primeiro_pico is not None else ""
 
     cidade = cidade_pico or cidade_slug
-    estado = (
-        estado_pico.upper()
-        if len(estado_pico) == 2
-        else (estado_slug or estado_pico)
-    )
+    estado = estado_pico.upper() if len(estado_pico) == 2 else (estado_slug or estado_pico)
 
     dados_croqui: LinhaCatalogoCroquis = {
         "croqui_uid": croqui_uid,
@@ -718,5 +714,3 @@ def exportar_catalogo_csv(
         caminho_csv = pasta / nome_arquivo
         if not caminho_csv.is_file() or caminho_csv.read_text(encoding="utf-8") != conteudo:
             caminho_csv.write_text(conteudo, encoding="utf-8", newline="\n")
-
-

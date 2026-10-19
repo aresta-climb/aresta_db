@@ -108,6 +108,10 @@ mypy_path = ["."]
 explicit_package_bases = true
 strict = true
 follow_imports = "silent"
+exclude = [
+    "(^|/)(tests|database|scratch|dist|build)/",
+    ".*_test\\.py$",
+]
 
 disallow_untyped_defs = true
 disallow_incomplete_defs = true
