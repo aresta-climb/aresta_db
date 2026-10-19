@@ -86,9 +86,9 @@ def test_salvamento_e_compilacao_com_pico_vazio_e_grupo_sem_setores(
     assert caminho_resultado == caminho_croqui
     assert not any("erro" in m.lower() for m in mensagens_erro)
 
-    # E o arquivo compilado final deve existir diretamente na raiz de compilado/ (sem arquivos de debug legados)
+    # E o arquivo compilado final deve existir diretamente na raiz de compilado/ com compilado.yaml (sem compilado.md legado)
     caminho_compilado = caminho_croqui / "compilado"
     assert (caminho_compilado / "compilado.binarypb").is_file()
-    assert not (caminho_compilado / "compilado.yaml").exists()
+    assert (caminho_compilado / "compilado.yaml").is_file()
     assert not (caminho_compilado / "compilado.md").exists()
     assert not (caminho_compilado / "br_mg_teste_vazio").exists()

@@ -15,9 +15,15 @@ class TestWorker(unittest.TestCase):
     """Testes unitários para as tarefas de background do editor."""
 
     def setUp(self):
+        import tempfile
+
         patcher = patch("time.sleep")
         self.mock_sleep = patcher.start()
         self.addCleanup(patcher.stop)
+        self.tmp_dir_obj = tempfile.TemporaryDirectory()
+        self.addCleanup(self.tmp_dir_obj.cleanup)
+        self.caminho_fake_db = Path(self.tmp_dir_obj.name) / "db"
+        self.caminho_fake_db.mkdir(parents=True, exist_ok=True)
 
     def test_tarefa_publicacao_nova_pr(self):
         """Testa o fluxo de publicação de uma PR com sucesso."""
@@ -559,7 +565,7 @@ class TestWorker(unittest.TestCase):
         tarefa = TarefaSalvamento(
             workspace=mock_ws,
             storage=None,
-            caminho_db=Path("/fake/db"),
+            caminho_db=self.caminho_fake_db,
             croqui_data={"id": "teste", "nome": "Teste"},
             novo_id="teste",
             id_atual="teste",
@@ -590,7 +596,7 @@ class TestWorker(unittest.TestCase):
         tarefa = TarefaSalvamento(
             workspace=mock_ws,
             storage=None,
-            caminho_db=Path("/fake/db"),
+            caminho_db=self.caminho_fake_db,
             croqui_data={"id": "teste", "nome": "Teste"},
             novo_id="teste",
             id_atual="teste",
@@ -618,7 +624,7 @@ class TestWorker(unittest.TestCase):
         tarefa = TarefaSalvamento(
             workspace=mock_ws,
             storage=None,
-            caminho_db=Path("/fake/db"),
+            caminho_db=self.caminho_fake_db,
             croqui_data={"id": "teste"},
             novo_id="teste",
             id_atual="teste",
@@ -654,7 +660,7 @@ class TestWorker(unittest.TestCase):
         tarefa = TarefaSalvamento(
             workspace=mock_ws,
             storage=None,
-            caminho_db=Path("/fake/db"),
+            caminho_db=self.caminho_fake_db,
             croqui_data={"id": "teste", "nome": "Teste"},
             novo_id="teste",
             id_atual="teste",
@@ -684,7 +690,7 @@ class TestWorker(unittest.TestCase):
         tarefa = TarefaSalvamento(
             workspace=mock_ws,
             storage=None,
-            caminho_db=Path("/fake/db"),
+            caminho_db=self.caminho_fake_db,
             croqui_data={"id": "teste", "nome": "Teste"},
             novo_id="teste",
             id_atual="teste",
@@ -713,7 +719,7 @@ class TestWorker(unittest.TestCase):
         tarefa = TarefaSalvamento(
             workspace=mock_ws,
             storage=None,
-            caminho_db=Path("/fake/db"),
+            caminho_db=self.caminho_fake_db,
             croqui_data={"id": "teste"},
             novo_id="teste",
             id_atual="teste",

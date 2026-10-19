@@ -123,6 +123,7 @@ show_error_codes = true
 
 [[tool.mypy.overrides]]
 module = [
+    "aresta_api.build",
     "aresta_api.proto.generated.*",
     "beta_pb2",
     "croqui_pb2",

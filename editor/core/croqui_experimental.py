@@ -211,7 +211,7 @@ class GerenciadorCroquiExperimental:
                 croqui_anterior.ParseFromString(pb_compactado.read_bytes())
                 pasta_previa = caminho_compilado / croqui_anterior.id
                 pasta_previa.mkdir(parents=True, exist_ok=True)
-                for nome_artefato in ("compilado.binarypb", "imagens", "anexos"):
+                for nome_artefato in ("compilado.binarypb", "compilado.yaml", "imagens", "anexos"):
                     origem_artefato = caminho_compilado / nome_artefato
                     if origem_artefato.exists():
                         shutil.move(str(origem_artefato), str(pasta_previa / nome_artefato))

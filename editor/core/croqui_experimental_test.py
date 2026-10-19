@@ -107,9 +107,9 @@ def test_compilar_croqui_sucesso(gerenciador, storage_temp):
     # QUANDO compilar
     gerenciador.compilar_croqui(caminho_croqui)
 
-    # ENTÃO o binário compilado deve existir e arquivos de debug não devem ser gerados
+    # ENTÃO o binário compilado e o arquivo de debug YAML devem existir (sem compilado.md legado)
     assert (caminho_croqui / "compilado" / "compilado.binarypb").is_file()
-    assert not (caminho_croqui / "compilado" / "compilado.yaml").exists()
+    assert (caminho_croqui / "compilado" / "compilado.yaml").is_file()
     assert not (caminho_croqui / "compilado" / "compilado.md").exists()
     assert not (caminho_croqui / ".git").exists()
 
@@ -133,7 +133,7 @@ def test_compilar_croqui_compacta_saida_diretamente_em_compilado(gerenciador, st
 
     compilado_dir = caminho_croqui / "compilado"
     assert (compilado_dir / "compilado.binarypb").is_file()
-    assert not (compilado_dir / "compilado.yaml").exists()
+    assert (compilado_dir / "compilado.yaml").is_file()
     foto_compilada = compilado_dir / "imagens" / "foto.webp"
     assert foto_compilada.is_file()
     assert not (compilado_dir / "br_mg_compacto").exists()
@@ -148,6 +148,7 @@ def test_compilar_croqui_compacta_saida_diretamente_em_compilado(gerenciador, st
     gerenciador.compilar_croqui(caminho_croqui)
 
     assert (compilado_dir / "compilado.binarypb").is_file()
+    assert (compilado_dir / "compilado.yaml").is_file()
     assert foto_compilada.is_file()
     assert foto_compilada.read_bytes() == conteudo_sentinela
     assert not (compilado_dir / "br_mg_compacto").exists()
