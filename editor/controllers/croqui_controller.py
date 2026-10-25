@@ -1,20 +1,23 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
+"""
+Controlador da Arquitetura MVC para o Croqui.
+Orquestra intenções da UI gerando comandos canônicos no QUndoStack / histórico.
+"""
+
+from pathlib import Path
 from typing import Any
 
 from editor.commands.comandos_protobuf import (
     CmdAdicionarRepeated,
-    CmdAlterarCampoImagem,
-    CmdAlterarMultiplosRepeatedItems,
-    CmdAlterarOneof,
-    CmdAlterarPrimitivo,
-    CmdAlterarRepeatedItem,
-    CmdInserirBotaoMarkdown,
-    CmdInserirImagemMarkdown,
+    CmdAlterarAnexo,
+    CmdAlterarCampo,
+    CmdAlterarImagem,
     CmdMacro,
     CmdMoverRepeated,
     CmdRemoverRepeated,
+    ComandoEditor,
 )
 from editor.models.croqui_model import CroquiModel
 
@@ -65,28 +68,6 @@ class CroquiController:
             macro.armar_carregamento_silencioso()
             self._executar_comando(macro)
 
-    def _obter_comando_renomear_topo(self, session_id: int | None, msg: Any) -> Any | None:
-        """Retorna o comando do topo se for CmdRenomearEscalada da mesma sessão e mensagem."""
-        if session_id is None:
-            return None
-        pilha = getattr(self.undo_stack, "_pilha", self.undo_stack)
-        idx = pilha.index()
-        if idx <= 0:
-            return None
-        cmd = pilha.command(idx - 1)
-        from editor.commands.comandos_protobuf import CmdRenomearEscalada
-
-        if not isinstance(cmd, CmdRenomearEscalada):
-            return None
-        if not cmd.pode_mesclar or cmd.session_id != session_id:
-            return None
-        msg_topo = getattr(cmd, "_msg_cache", None) or cmd.msg_escalada
-        msg_real = getattr(msg, "_obj", msg)
-        msg_topo_real = getattr(msg_topo, "_obj", msg_topo)
-        if msg_topo_real is msg_real:
-            return cmd
-        return None
-
     def alterar_primitivo(
         self,
         msg: Any,
@@ -96,44 +77,16 @@ class CroquiController:
         pode_mesclar: bool = False,
         session_id: int | None = None,
     ) -> None:
-        if campo_nome == "nome":
-            cmd_topo = self._obter_comando_renomear_topo(session_id, msg)
-            if cmd_topo is not None:
-                self.renomear_escalada(
-                    msg_escalada=msg,
-                    nome_antigo=cmd_topo.nome_antigo,
-                    nome_novo=str(valor_novo) if valor_novo is not None else "",
-                    pode_mesclar=pode_mesclar,
-                    session_id=session_id,
-                    referencias=cmd_topo.referencias,
-                    caminhos_referencias=cmd_topo.caminhos_referencias,
-                    caminho_msg=cmd_topo.caminho_msg,
-                )
-                return
-
-            from editor.models.referencias_util import obter_contexto_escalada
-
-            root = self.model.obter_croqui_readonly()
-            pico, grupo, setor, nome_escalada = obter_contexto_escalada(root, msg)
-            if pico is not None and setor is not None:
-                self.renomear_escalada(
-                    msg_escalada=msg,
-                    nome_antigo=str(valor_antigo) if valor_antigo is not None else "",
-                    nome_novo=str(valor_novo) if valor_novo is not None else "",
-                    pode_mesclar=pode_mesclar,
-                    session_id=session_id,
-                    contexto=(pico, grupo, setor, nome_escalada),
-                )
-                return
-
-        cmd = CmdAlterarPrimitivo(
-            self.model,
-            msg,
-            campo_nome,
-            valor_antigo,
-            valor_novo,
-            self.contexto_atual_path,
+        """Despacha comando para alterar um campo primitivo via CmdAlterarCampo."""
+        cmd = CmdAlterarCampo(
+            model=self.model,
+            alvo=msg,
+            campo_nome=campo_nome,
+            valor_novo=valor_novo,
+            valor_antigo=valor_antigo,
             pode_mesclar=pode_mesclar,
+            session_id=session_id,
+            context_path=self.contexto_atual_path,
         )
         self._executar_comando(cmd)
 
@@ -150,37 +103,17 @@ class CroquiController:
         contexto: Any | None = None,
     ) -> None:
         """
-        Renomeia uma escalada e atualiza simultaneamente todas as referências
-        em mapas que apontam para ela no mesmo pico.
+        Renomeia uma escalada de forma atômica e atualiza referências por UID via CmdAlterarCampo.
         """
-        from editor.commands.comandos_protobuf import CmdRenomearEscalada
-
-        if referencias is None and caminhos_referencias is None:
-            cmd_topo = self._obter_comando_renomear_topo(session_id, msg_escalada)
-            if cmd_topo is not None:
-                referencias = cmd_topo.referencias
-                caminhos_referencias = cmd_topo.caminhos_referencias
-                caminho_msg = cmd_topo.caminho_msg
-            else:
-                from editor.models.referencias_util import buscar_referencias_para_escalada
-
-                root = self.model.obter_croqui_readonly()
-                referencias = buscar_referencias_para_escalada(
-                    root, msg_escalada, contexto=contexto
-                )
-
-        cmd = CmdRenomearEscalada(
+        cmd = CmdAlterarCampo(
             model=self.model,
-            msg_escalada=msg_escalada,
+            alvo=msg_escalada,
             campo_nome="nome",
-            nome_antigo=nome_antigo,
-            nome_novo=nome_novo,
-            referencias=referencias,
-            caminhos_referencias=caminhos_referencias,
-            caminho_msg=caminho_msg,
-            context_path=self.contexto_atual_path,
+            valor_novo=nome_novo,
+            valor_antigo=nome_antigo,
             pode_mesclar=pode_mesclar,
             session_id=session_id,
+            context_path=self.contexto_atual_path,
         )
         self._executar_comando(cmd)
 
@@ -193,18 +126,33 @@ class CroquiController:
         caminho_novo: str | None,
         bytes_novo: bytes | None,
     ) -> None:
-        """Despacha comando de alteração de imagem com gerenciamento em RAM."""
-        cmd = CmdAlterarCampoImagem(
-            self.model,
-            msg,
-            campo_nome,
-            caminho_antigo,
-            bytes_antigo,
-            caminho_novo,
-            bytes_novo,
-            self.contexto_atual_path,
-        )
-        self._executar_comando(cmd)
+        """Despacha comando de alteração de imagem com gerenciamento em RAM via CmdMacro/CmdAlterarImagem."""
+        comandos: list[ComandoEditor] = []
+        if caminho_novo and bytes_novo is not None:
+            comandos.append(
+                CmdAlterarImagem(
+                    model=self.model,
+                    caminho_relativo=caminho_novo,
+                    bytes_novos=bytes_novo,
+                    bytes_antigos=bytes_antigo if caminho_novo == caminho_antigo else None,
+                    context_path=self.contexto_atual_path,
+                )
+            )
+        if caminho_novo != caminho_antigo:
+            comandos.append(
+                CmdAlterarCampo(
+                    model=self.model,
+                    alvo=msg,
+                    campo_nome=campo_nome,
+                    valor_novo=caminho_novo or "",
+                    valor_antigo=caminho_antigo,
+                    context_path=self.contexto_atual_path,
+                )
+            )
+        if len(comandos) == 1:
+            self._executar_comando(comandos[0])
+        elif comandos:
+            self._executar_comando(CmdMacro(comandos, texto=f"Alterar Imagem {campo_nome}"))
 
     def inserir_imagem_markdown(
         self,
@@ -215,18 +163,31 @@ class CroquiController:
         caminho_imagem: str | None = None,
         bytes_imagem: bytes | None = None,
     ) -> None:
-        """Despacha comando de inserção de imagem no Markdown com gestão transacional de bytes em RAM."""
-        cmd = CmdInserirImagemMarkdown(
-            self.model,
-            msg,
-            campo_nome,
-            texto_antigo,
-            texto_novo,
-            caminho_imagem,
-            bytes_imagem,
-            self.contexto_atual_path,
+        """Despacha comando de inserção de imagem no Markdown com gestão de RAM via CmdMacro."""
+        comandos: list[ComandoEditor] = []
+        if caminho_imagem and bytes_imagem:
+            comandos.append(
+                CmdAlterarImagem(
+                    model=self.model,
+                    caminho_relativo=caminho_imagem,
+                    bytes_novos=bytes_imagem,
+                    context_path=self.contexto_atual_path,
+                )
+            )
+        comandos.append(
+            CmdAlterarCampo(
+                model=self.model,
+                alvo=msg,
+                campo_nome=campo_nome,
+                valor_novo=texto_novo,
+                valor_antigo=texto_antigo,
+                context_path=self.contexto_atual_path,
+            )
         )
-        self._executar_comando(cmd)
+        if len(comandos) == 1:
+            self._executar_comando(comandos[0])
+        else:
+            self._executar_comando(CmdMacro(comandos, texto="Inserir Imagem Markdown"))
 
     def inserir_botao_markdown(
         self,
@@ -237,27 +198,56 @@ class CroquiController:
         caminho_anexo: str | None = None,
         bytes_anexo: bytes | None = None,
     ) -> None:
-        """Despacha comando de inserção de botão/link no Markdown com gestão transacional de arquivo anexo em RAM."""
-        cmd = CmdInserirBotaoMarkdown(
-            self.model,
-            msg,
-            campo_nome,
-            texto_antigo,
-            texto_novo,
-            caminho_anexo,
-            bytes_anexo,
-            self.contexto_atual_path,
+        """Despacha comando de inserção de botão/link no Markdown com gestão de anexo em RAM via CmdMacro."""
+        comandos: list[ComandoEditor] = []
+        if caminho_anexo and bytes_anexo:
+            comandos.append(
+                CmdAlterarAnexo(
+                    model=self.model,
+                    nome_arquivo=caminho_anexo,
+                    bytes_novos=bytes_anexo,
+                    context_path=self.contexto_atual_path,
+                )
+            )
+        comandos.append(
+            CmdAlterarCampo(
+                model=self.model,
+                alvo=msg,
+                campo_nome=campo_nome,
+                valor_novo=texto_novo,
+                valor_antigo=texto_antigo,
+                context_path=self.contexto_atual_path,
+            )
         )
-        self._executar_comando(cmd)
+        if len(comandos) == 1:
+            self._executar_comando(comandos[0])
+        else:
+            self._executar_comando(CmdMacro(comandos, texto="Inserir Botão Markdown"))
 
     def adicionar_repeated(self, msg: Any, campo_nome: str, index: int, valor: Any) -> None:
+        """Adiciona item em coleção repeated via CmdAdicionarRepeated."""
         cmd = CmdAdicionarRepeated(
-            self.model, msg, campo_nome, index, valor, self.contexto_atual_path
+            model=self.model,
+            alvo=msg,
+            campo_nome=campo_nome,
+            index=index,
+            valor=valor,
+            context_path=self.contexto_atual_path,
         )
         self._executar_comando(cmd)
 
-    def remover_repeated(self, msg: Any, campo_nome: str, index: int, valor_removido: Any) -> None:
-        cmd = CmdRemoverRepeated(self.model, msg, campo_nome, index, valor_removido)
+    def remover_repeated(
+        self, msg: Any, campo_nome: str, index: int, valor_removido: Any = None
+    ) -> None:
+        """Remove item de coleção repeated com captura de imagens órfãs via CmdRemoverRepeated."""
+        cmd = CmdRemoverRepeated(
+            model=self.model,
+            alvo=msg,
+            campo_nome=campo_nome,
+            index=index,
+            valor_removido=valor_removido,
+            context_path=self.contexto_atual_path,
+        )
         self._executar_comando(cmd)
 
     def alterar_repeated_item(
@@ -269,15 +259,15 @@ class CroquiController:
         valor_novo: Any,
         pode_mesclar: bool = False,
     ) -> None:
-        cmd = CmdAlterarRepeatedItem(
-            self.model,
-            msg,
-            campo_nome,
-            index,
-            valor_antigo,
-            valor_novo,
-            self.contexto_atual_path,
+        """Altera item em coleção repeated via CmdAlterarCampo indexado."""
+        cmd = CmdAlterarCampo(
+            model=self.model,
+            alvo=msg,
+            campo_nome=f"{campo_nome}.{index}",
+            valor_novo=valor_novo,
+            valor_antigo=valor_antigo,
             pode_mesclar=pode_mesclar,
+            context_path=self.contexto_atual_path,
         )
         self._executar_comando(cmd)
 
@@ -287,17 +277,26 @@ class CroquiController:
         campo_nome: str,
         alteracoes: list[tuple[int, Any, Any]],
     ) -> None:
-        """Despacha comando para alterar múltiplos itens de uma coleção repeated simultaneamente."""
+        """Altera múltiplos itens de uma coleção repeated simultaneamente via CmdMacro."""
         if not alteracoes:
             return
-        cmd = CmdAlterarMultiplosRepeatedItems(
-            model=self.model,
-            msg=msg,
-            campo_nome=campo_nome,
-            alteracoes=alteracoes,
-            context_path=self.contexto_atual_path,
-        )
-        self._executar_comando(cmd)
+        comandos: list[ComandoEditor] = [
+            CmdAlterarCampo(
+                model=self.model,
+                alvo=msg,
+                campo_nome=f"{campo_nome}.{idx}",
+                valor_novo=v_novo,
+                valor_antigo=v_antigo,
+                context_path=self.contexto_atual_path,
+            )
+            for idx, v_antigo, v_novo in alteracoes
+        ]
+        if len(comandos) == 1:
+            self._executar_comando(comandos[0])
+        else:
+            self._executar_comando(
+                CmdMacro(comandos, texto=f"Alterar {len(comandos)} itens em {campo_nome}")
+            )
 
     def alterar_oneof(
         self,
@@ -308,18 +307,30 @@ class CroquiController:
         campo_novo: str | None,
         valor_novo: Any,
     ) -> None:
-        """Despacha intenção de alterar um campo do tipo Oneof."""
-        comando = CmdAlterarOneof(
-            self.model, msg, oneof_nome, nome_antigo, valor_antigo, campo_novo, valor_novo
+        """Altera o campo ativo de um oneof via CmdAlterarCampo."""
+        alvo_campo = campo_novo if campo_novo else oneof_nome
+        cmd = CmdAlterarCampo(
+            model=self.model,
+            alvo=msg,
+            campo_nome=alvo_campo,
+            valor_novo=valor_novo,
+            valor_antigo=valor_antigo,
+            context_path=self.contexto_atual_path,
         )
-        self._executar_comando(comando)
+        self._executar_comando(cmd)
 
     def mover_repeated_para_cima(self, msg: Any, campo_nome: str, index: int) -> None:
         """Move o item do index fornecido uma posição para cima."""
         if index <= 0:
             return
-
-        cmd = CmdMoverRepeated(self.model, msg, campo_nome, index, index - 1)
+        cmd = CmdMoverRepeated(
+            model=self.model,
+            alvo=msg,
+            campo_nome=campo_nome,
+            index_from=index,
+            index_to=index - 1,
+            context_path=self.contexto_atual_path,
+        )
         self._executar_comando(cmd)
 
     def mover_repeated_para_baixo(self, msg: Any, campo_nome: str, index: int) -> None:
@@ -327,19 +338,51 @@ class CroquiController:
         tamanho = len(getattr(msg, campo_nome))
         if index >= tamanho - 1:
             return
+        cmd = CmdMoverRepeated(
+            model=self.model,
+            alvo=msg,
+            campo_nome=campo_nome,
+            index_from=index,
+            index_to=index + 1,
+            context_path=self.contexto_atual_path,
+        )
+        self._executar_comando(cmd)
 
-        cmd = CmdMoverRepeated(self.model, msg, campo_nome, index, index + 1)
+    def mover_repeated_para_posicao(
+        self,
+        msg: Any,
+        campo_nome: str,
+        index_from: int,
+        index_to: int,
+    ) -> None:
+        """Move o item do index_from para index_to na coleção repeated."""
+        if index_from == index_to:
+            return
+        cmd = CmdMoverRepeated(
+            model=self.model,
+            alvo=msg,
+            campo_nome=campo_nome,
+            index_from=index_from,
+            index_to=index_to,
+            context_path=self.contexto_atual_path,
+        )
         self._executar_comando(cmd)
 
     def alterar_metadados_caminho_novo(
         self, msg: Any, field_ext: Any, valor_antigo: Any, valor_novo: Any
     ) -> None:
-        from editor.commands.comandos_protobuf import CmdAlterarMetadadosCaminhoNovo
-
-        cmd = CmdAlterarMetadadosCaminhoNovo(
-            self.model, msg, field_ext, valor_antigo, valor_novo, self.contexto_atual_path
+        """Altera metadados de arquivo (caminho_novo) via CmdAlterarCampo."""
+        cmd = CmdAlterarCampo(
+            model=self.model,
+            alvo=msg,
+            campo_nome=getattr(field_ext, "name", str(field_ext)),
+            valor_novo=valor_novo,
+            valor_antigo=valor_antigo,
+            context_path=self.contexto_atual_path,
+            field_ext=field_ext,
         )
         self._executar_comando(cmd)
+
 
     def adicionar_mapa_com_arquivo(
         self,
@@ -350,19 +393,36 @@ class CroquiController:
         caminho_absoluto: Any,
         img_bytes: bytes | None,
     ) -> None:
-        from editor.commands.comandos_mapas import CmdAdicionarMapaArquivo
-
-        cmd = CmdAdicionarMapaArquivo(
-            self.model,
-            msg,
-            campo_nome,
-            index,
-            valor,
-            caminho_absoluto,
-            img_bytes,
-            self.contexto_atual_path,
+        """Adiciona mapa e carrega seus bytes em RAM atomicamente via CmdMacro."""
+        caminho_rel = (
+            str(valor.caminho_imagem_mapa)
+            if hasattr(valor, "caminho_imagem_mapa") and valor.caminho_imagem_mapa
+            else (Path(caminho_absoluto).name if caminho_absoluto else "")
         )
-        self._executar_comando(cmd)
+        comandos: list[ComandoEditor] = []
+        if caminho_rel and img_bytes:
+            comandos.append(
+                CmdAlterarImagem(
+                    model=self.model,
+                    caminho_relativo=caminho_rel,
+                    bytes_novos=img_bytes,
+                    context_path=self.contexto_atual_path,
+                )
+            )
+        comandos.append(
+            CmdAdicionarRepeated(
+                model=self.model,
+                alvo=msg,
+                campo_nome=campo_nome,
+                index=index,
+                valor=valor,
+                context_path=self.contexto_atual_path,
+            )
+        )
+        if len(comandos) == 1:
+            self._executar_comando(comandos[0])
+        else:
+            self._executar_comando(CmdMacro(comandos, texto="Adicionar Mapa com Arquivo"))
 
     def substituir_imagem(
         self,
@@ -371,14 +431,16 @@ class CroquiController:
         bytes_antigo: bytes | None = None,
         context_path: str | None = None,
     ) -> None:
-        """Despacha comando de substituição de imagem em memória RAM."""
-        from editor.commands.comandos_protobuf import CmdSubstituirImagemMemoria
-
+        """Despacha comando de substituição de imagem em memória RAM via CmdAlterarImagem."""
         if bytes_antigo is None:
             bytes_antigo = self.model.obter_bytes_imagem(caminho_relativo)
         ctx = context_path if context_path is not None else self.contexto_atual_path
-        cmd = CmdSubstituirImagemMemoria(
-            self.model, caminho_relativo, bytes_antigo, bytes_novo, ctx
+        cmd = CmdAlterarImagem(
+            model=self.model,
+            caminho_relativo=caminho_relativo,
+            bytes_novos=bytes_novo,
+            bytes_antigos=bytes_antigo,
+            context_path=ctx,
         )
         self._executar_comando(cmd)
 
@@ -396,36 +458,49 @@ class CroquiController:
         caminho_msg_destino: str | None = None,
         context_path: str | None = None,
     ) -> None:
-        """Despacha comando atômico de migração de setor entre pais hierárquicos."""
-        from editor.commands.comandos_protobuf import CmdMigrarSetor
+        """
+        Despacha migração de setor atômica entre pais hierárquicos via CmdMacro,
+        reutilizando CmdRemoverRepeated e CmdAdicionarRepeated canônicos.
+        """
+        pai_origem_raw = getattr(pai_origem, "_obj", pai_origem)
+        container_origem = getattr(pai_origem_raw, campo_origem)
+        item_origem = container_origem[indice_origem]
 
-        cmd = CmdMigrarSetor(
+        from aresta_api.proto.generated import croqui_pb2
+
+        arq_setor = croqui_pb2.ArquivoSetor()
+        if campo_origem == "setores_ou_grupos":
+            arq_setor.CopyFrom(item_origem.setor)
+        else:
+            arq_setor.CopyFrom(item_origem)
+
+        if caminho_novo is not None:
+            arq_setor.Extensions[
+                croqui_pb2.ArquivoSetor.ext_metadados_arquivo
+            ].caminho_novo = caminho_novo
+
+        if campo_destino == "setores_ou_grupos":
+            item_destino = croqui_pb2.SetorOuGrupo()
+            item_destino.setor.CopyFrom(arq_setor)
+        else:
+            item_destino = arq_setor
+
+        ctx = context_path or self.contexto_atual_path
+        cmd_remover = CmdRemoverRepeated(
             model=self.model,
-            pai_origem=pai_origem,
-            campo_origem=campo_origem,
-            indice_origem=indice_origem,
-            pai_destino=pai_destino,
-            campo_destino=campo_destino,
-            indice_destino=indice_destino,
-            caminho_novo=caminho_novo,
-            caminho_antigo=caminho_antigo,
-            caminho_msg_origem=caminho_msg_origem,
-            caminho_msg_destino=caminho_msg_destino,
-            context_path=context_path or self.contexto_atual_path,
+            alvo=pai_origem,
+            campo_nome=campo_origem,
+            index=indice_origem,
+            valor_removido=item_origem,
+            context_path=ctx,
         )
-        self._executar_comando(cmd)
-
-    def mover_repeated_para_posicao(
-        self,
-        msg: Any,
-        campo_nome: str,
-        index_from: int,
-        index_to: int,
-    ) -> None:
-        """Move o item do index_from para index_to na coleção repeated."""
-        if index_from == index_to:
-            return
-        cmd = CmdMoverRepeated(
-            self.model, msg, campo_nome, index_from, index_to, context_path=self.contexto_atual_path
+        cmd_adicionar = CmdAdicionarRepeated(
+            model=self.model,
+            alvo=pai_destino,
+            campo_nome=campo_destino,
+            index=indice_destino,
+            valor=item_destino,
+            context_path=ctx,
         )
-        self._executar_comando(cmd)
+        macro = CmdMacro([cmd_remover, cmd_adicionar], texto="Migrar Setor")
+        self._executar_comando(macro)

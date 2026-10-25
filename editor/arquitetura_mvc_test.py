@@ -184,3 +184,132 @@ def test_todos_comandos_implementam_serializacao_e_deserializacao():
             # Qualquer exceção de parsing de campos internos é esperada pois passamos dados vazios,
             # mas NÃO deve ser ValueError de classe desconhecida.
             pass
+
+
+def test_proibicao_uso_comandos_legados_fora_da_deserializacao():
+    """
+    Guarda AST estrita:
+    1. Proíbe qualquer importação ou instanciação de comandos_legados e de suas 12 classes
+       fora de editor/commands/comandos_legados.py, editor/commands/comandos_legados_test.py
+       e da função deserializar_comando em editor/commands/comandos_protobuf.py.
+    2. Garante que todos os 7 comandos canônicos e 12 comandos legados (total 19)
+       estão registrados e são aceitos por deserializar_comando.
+    """
+    CLASSES_LEGADAS = {
+        "CmdAlterarPrimitivo",
+        "CmdRenomearEscalada",
+        "CmdAlterarOneof",
+        "CmdAlterarRepeatedItem",
+        "CmdAlterarMultiplosRepeatedItems",
+        "CmdAlterarMetadadosCaminhoNovo",
+        "CmdAlterarCampoImagem",
+        "CmdInserirImagemMarkdown",
+        "CmdInserirBotaoMarkdown",
+        "CmdAdicionarMapaArquivo",
+        "CmdSubstituirImagemMemoria",
+        "CmdMigrarSetor",
+    }
+    COMANDOS_CANONICOS = {
+        "CmdAlterarCampo",
+        "CmdAlterarImagem",
+        "CmdAlterarAnexo",
+        "CmdAdicionarRepeated",
+        "CmdRemoverRepeated",
+        "CmdMoverRepeated",
+        "CmdMacro",
+    }
+
+    editor_dir = Path(__file__).parent
+    violacoes = []
+
+    for filepath in get_python_files(editor_dir):
+        path_obj = Path(filepath)
+
+        # Arquivos autorizados a conter referências aos comandos legados
+        if (
+            path_obj.name == "arquitetura_mvc_test.py"
+            or path_obj.name == "comandos_legados.py"
+            or path_obj.name == "comandos_legados_test.py"
+            or "venv" in path_obj.parts
+            or ".venv" in path_obj.parts
+        ):
+            continue
+
+        try:
+            with open(filepath, encoding="utf-8") as f:
+                tree = ast.parse(f.read(), filename=filepath)
+        except SyntaxError:
+            continue
+
+        rel_path = path_obj.relative_to(editor_dir)
+
+        # Para comandos_protobuf.py, apenas o import interno de COMANDOS_LEGADOS_MAP em deserializar_comando é tolerado
+        if path_obj.name == "comandos_protobuf.py":
+            for node in ast.walk(tree):
+                if isinstance(node, ast.ImportFrom):
+                    if node.module and "comandos_legados" in node.module:
+                        nomes_importados = [alias.name for alias in node.names]
+                        if nomes_importados != ["COMANDOS_LEGADOS_MAP"]:
+                            violacoes.append(
+                                f"{rel_path}:{node.lineno} - comandos_protobuf.py só pode importar 'COMANDOS_LEGADOS_MAP', mas importou: {nomes_importados}"
+                            )
+                elif isinstance(node, ast.Call) and isinstance(node.func, ast.Name):
+                    if node.func.id in CLASSES_LEGADAS:
+                        violacoes.append(
+                            f"{rel_path}:{node.lineno} - Instanciação proibida da classe legada '{node.func.id}' em comandos_protobuf.py."
+                        )
+            continue
+
+        # Em qualquer outro arquivo do editor: PROIBIÇÃO TOTAL de import ou uso das 12 classes
+        for node in ast.walk(tree):
+            if isinstance(node, ast.Import):
+                for alias in node.names:
+                    if "comandos_legados" in alias.name:
+                        violacoes.append(
+                            f"{rel_path}:{node.lineno} - Import proibido de '{alias.name}'. O módulo comandos_legados é restrito à deserialização."
+                        )
+            elif isinstance(node, ast.ImportFrom):
+                if node.module and "comandos_legados" in node.module:
+                    violacoes.append(
+                        f"{rel_path}:{node.lineno} - Import proibido de 'editor.commands.comandos_legados'. "
+                        f"O módulo comandos_legados é restrito à deserialização."
+                    )
+                for alias in node.names:
+                    if alias.name in CLASSES_LEGADAS:
+                        violacoes.append(
+                            f"{rel_path}:{node.lineno} - Import proibido da classe legada '{alias.name}'. "
+                            f"Utilize os comandos canônicos em comandos_protobuf.py."
+                        )
+            elif isinstance(node, ast.Call) and isinstance(node.func, ast.Name):
+                if node.func.id in CLASSES_LEGADAS:
+                    violacoes.append(
+                        f"{rel_path}:{node.lineno} - Instanciação proibida da classe legada '{node.func.id}'. "
+                        f"Utilize os comandos canônicos em comandos_protobuf.py."
+                    )
+
+    assert not violacoes, "Violações de proibição de comandos legados encontradas:\n" + "\n".join(
+        violacoes
+    )
+
+    # Validação do registro completo em deserializar_comando
+    from editor.commands.comandos_legados import COMANDOS_LEGADOS_MAP
+    from editor.commands.comandos_protobuf import deserializar_comando
+
+    assert set(COMANDOS_LEGADOS_MAP.keys()) == CLASSES_LEGADAS, (
+        f"COMANDOS_LEGADOS_MAP incompleto: esperado {CLASSES_LEGADAS}, obtido {set(COMANDOS_LEGADOS_MAP.keys())}"
+    )
+
+    total_esperado = COMANDOS_CANONICOS | CLASSES_LEGADAS
+    assert len(total_esperado) == 19
+
+    for nome_classe in total_esperado:
+        try:
+            deserializar_comando({"classe": nome_classe}, model=None)
+        except ValueError as e:
+            if "Classe de comando desconhecida" in str(e):
+                assert False, (
+                    f"Comando '{nome_classe}' não reconhecido por deserializar_comando: {e}"
+                )
+        except Exception:
+            # Erros de dados vazios são normais, o que importa é não ser rejeitado como classe desconhecida
+            pass

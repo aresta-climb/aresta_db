@@ -201,19 +201,19 @@ Corpo original.
     croqui_msg = janela.pagina_dados.editor_dados.croqui
     setor_msg = croqui_msg.picos[0].setores_ou_grupos[0].setor.conteudo
 
-    # Renomeia o arquivo na extension usando o CmdAlterarMetadadosCaminhoNovo
+    # Renomeia o arquivo na extension usando CmdAlterarCampo
     from aresta_api.proto.generated import croqui_pb2
-    from editor.commands.comandos_protobuf import CmdAlterarMetadadosCaminhoNovo
+    from editor.commands.comandos_protobuf import CmdAlterarCampo
 
     wrapper = croqui_msg.picos[0].setores_ou_grupos[0].setor
     ext_desc = croqui_pb2.ArquivoSetor.ext_metadados_arquivo
 
-    cmd = CmdAlterarMetadadosCaminhoNovo(
+    cmd = CmdAlterarCampo(
         janela.croqui_model,
         wrapper,
-        ext_desc,
-        wrapper.Extensions[ext_desc].caminho_novo,
+        "caminho_novo",
         "setor_novo.md",
+        field_ext=ext_desc,
     )
     janela.croqui_controller.undo_stack.push(cmd)
 

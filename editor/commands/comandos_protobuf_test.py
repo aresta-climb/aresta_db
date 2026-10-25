@@ -1,630 +1,823 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
-import unittest
-
-from PySide6.QtGui import QUndoStack
+import io
+import logging
+from PIL import Image
+import pytest
 
 from aresta_api.proto.generated import croqui_pb2
 from aresta_api.proto.generated.croqui_pb2 import (
-    ArquivoGrupo,
-    ArquivoSetor,
+    Boulder,
+    Coordenada,
     Croqui,
+    Patrocinador,
     Pico,
     SetorOuGrupo,
+    Trilha,
+    ViaEsportiva,
 )
 from editor.commands.comandos_protobuf import (
     CmdAdicionarRepeated,
-    CmdAlterarMultiplosRepeatedItems,
-    CmdAlterarOneof,
-    CmdAlterarPrimitivo,
-    CmdAlterarRepeatedItem,
+    CmdAlterarAnexo,
+    CmdAlterarCampo,
+    CmdAlterarImagem,
+    CmdMacro,
+    CmdMoverRepeated,
     CmdRemoverRepeated,
+    ComandoEditor,
+    MensagemAlvoNaoEncontradaError,
+    _buscar_mensagem_por_uid,
+    _validar_campo_se_msg_existir,
+    deserializar_comando,
+    navegar_para_alvo,
+    navegar_para_mensagem,
+    resolver_alvo_mensagem,
+    resolver_caminho_mensagem,
+    validar_pertence_ao_croqui,
 )
 from editor.models.croqui_model import CroquiModel
+from editor.models.readonly_proxy import ReadOnlyProxy
 
 
-class TestComandosProtobuf(unittest.TestCase):
-    def test_cmd_alterar_primitivo(self):
-        croqui = Croqui()
-        croqui.nome = "Antigo Nome"
-        model = CroquiModel(croqui)
+# ==============================================================================
+# 1. Testes de CmdAlterarCampo (Primitivos, UIDs, Merge, Oneof, Repeated Item)
+# ==============================================================================
 
-        # Cria e executa o comando
-        cmd = CmdAlterarPrimitivo(model, croqui, "nome", "Antigo Nome", "Novo Nome")
-        cmd.redo()
-        self.assertEqual(croqui.nome, "Novo Nome")
 
-        # Desfaz
-        cmd.undo()
-        self.assertEqual(croqui.nome, "Antigo Nome")
+def test_cmd_alterar_campo_primitivo_e_renomeacao_com_merge():
+    """Valida alteração de primitivos, renomeação com sincronização de UID e mergeWith."""
+    croqui = Croqui(nome="Croqui Original")
+    pico = croqui.picos.add(nome="Pico 1")
+    sg = pico.setores_ou_grupos.add()
+    setor = sg.setor.conteudo
+    setor.uid = "set_001"
+    setor.nome = "Setor Antigo"
 
-        # Refaz
-        cmd.redo()
-        self.assertEqual(croqui.nome, "Novo Nome")
+    esc = setor.escaladas.add(uid="esc_001")
+    esc.via_esportiva.nome = "Via Velha"
 
-    def test_cmd_alterar_primitivo_esvaziar_string_e_reversao(self):
-        from aresta_api.proto.generated.croqui_pb2 import Setor
-
-        setor = Setor()
-        setor.nome = "Setor Estacionamento"
-        model = CroquiModel(setor)
-
-        # Esvazia a string
-        cmd = CmdAlterarPrimitivo(model, setor, "nome", "Setor Estacionamento", "")
-        cmd.redo()
-        self.assertFalse(setor.HasField("nome"))
-
-        # Desfaz e restaura
-        cmd.undo()
-        self.assertTrue(setor.HasField("nome"))
-        self.assertEqual(setor.nome, "Setor Estacionamento")
-
-        # Refaz e limpa novamente
-        cmd.redo()
-        self.assertFalse(setor.HasField("nome"))
-
-    def test_cmd_alterar_primitivo_booleano_tri_state_none(self):
-        from aresta_api.proto.generated.croqui_pb2 import Setor
-
-        setor = Setor()
-        setor.sinal_de_celular = True
-        model = CroquiModel(setor)
-
-        # Altera para None (indefinido)
-        cmd = CmdAlterarPrimitivo(model, setor, "sinal_de_celular", True, None)
-        cmd.redo()
-        self.assertFalse(setor.HasField("sinal_de_celular"))
-
-        # Desfaz
-        cmd.undo()
-        self.assertTrue(setor.HasField("sinal_de_celular"))
-        self.assertTrue(setor.sinal_de_celular)
-
-    def test_cmd_alterar_primitivo_inteiro_nullable_e_zero(self):
-        from aresta_api.proto.generated.croqui_pb2 import ViaEsportiva
-
-        via = ViaEsportiva()
-        model = CroquiModel(via)
-        self.assertFalse(via.HasField("extensao"))
-
-        # Define como 0 (presente!)
-        cmd = CmdAlterarPrimitivo(model, via, "extensao", None, 0)
-        cmd.redo()
-        self.assertTrue(via.HasField("extensao"))
-        self.assertEqual(via.extensao, 0)
-
-        # Desfaz (volta a ser None / ausente)
-        cmd.undo()
-        self.assertFalse(via.HasField("extensao"))
-
-    def test_cmd_adicionar_remover_repeated_primitives(self):
-        croqui = Croqui()
-        croqui.creditos.append("Renato")
-        model = CroquiModel(croqui)
-
-        # Adicionar "Silva" no índice 1
-        cmd_add = CmdAdicionarRepeated(model, croqui, "creditos", 1, "Silva")
-        cmd_add.redo()
-        self.assertEqual(list(croqui.creditos), ["Renato", "Silva"])
-
-        cmd_add.undo()
-        self.assertEqual(list(croqui.creditos), ["Renato"])
-
-        # Remover "Renato" no índice 0
-        cmd_rem = CmdRemoverRepeated(model, croqui, "creditos", 0, "Renato")
-        cmd_rem.redo()
-        self.assertEqual(list(croqui.creditos), [])
-
-        cmd_rem.undo()
-        self.assertEqual(list(croqui.creditos), ["Renato"])
-
-    def test_cmd_adicionar_remover_repeated_composite(self):
-        croqui = Croqui()
-        pico = Pico()
-        pico.nome = "Pico Falso"
-        model = CroquiModel(croqui)
-
-        cmd_add = CmdAdicionarRepeated(model, croqui, "picos", 0, pico)
-        cmd_add.redo()
-        self.assertEqual(len(croqui.picos), 1)
-        self.assertEqual(croqui.picos[0].nome, "Pico Falso")
-
-        cmd_add.undo()
-        self.assertEqual(len(croqui.picos), 0)
-
-        # recoloca para poder testar remoção
-        cmd_add.redo()
-
-        cmd_rem = CmdRemoverRepeated(model, croqui, "picos", 0, croqui.picos[0])
-        cmd_rem.redo()
-        self.assertEqual(len(croqui.picos), 0)
-
-        cmd_rem.undo()
-        self.assertEqual(len(croqui.picos), 1)
-        self.assertEqual(croqui.picos[0].nome, "Pico Falso")
-
-    def test_cmd_remover_repeated_limpa_imagens_orfas_da_ram_e_restaura_no_undo(self):
-        from aresta_api.proto.generated.croqui_pb2 import Croqui
-
-        croqui = Croqui()
-        pico = croqui.picos.add()
-        sg = pico.setores_ou_grupos.add()
-        setor = sg.setor.conteudo
-        setor.nome = "Setor Fugitivos"
-        mapa = setor.mapas.add()
-        mapa.caminho_imagem_mapa = "imagens/setor_fugitivos_p0.webp"
-
-        model = CroquiModel(croqui)
-        model.definir_imagem_memoria("imagens/setor_fugitivos_p0.webp", b"conteudo_bytes_ram")
-
-        cmd_rem = CmdRemoverRepeated(model, setor, "mapas", 0, setor.mapas[0])
-        self.assertIn("imagens/setor_fugitivos_p0.webp", cmd_rem.imagens_removidas_ram)
-        self.assertEqual(
-            cmd_rem.imagens_removidas_ram["imagens/setor_fugitivos_p0.webp"], b"conteudo_bytes_ram"
-        )
-
-        cmd_rem.redo()
-        self.assertEqual(len(setor.mapas), 0)
-        self.assertNotIn("imagens/setor_fugitivos_p0.webp", model.obter_imagens_em_memoria())
-
-        cmd_rem.undo()
-        self.assertEqual(len(setor.mapas), 1)
-        self.assertIn("imagens/setor_fugitivos_p0.webp", model.obter_imagens_em_memoria())
-        self.assertEqual(
-            model.obter_bytes_imagem("imagens/setor_fugitivos_p0.webp"), b"conteudo_bytes_ram"
-        )
-
-    def test_cmd_remover_repeated_preserva_imagem_compartilhada_em_ram(self):
-        from aresta_api.proto.generated.croqui_pb2 import Croqui
-
-        croqui = Croqui()
-        pico = croqui.picos.add()
-        sg = pico.setores_ou_grupos.add()
-        setor = sg.setor.conteudo
-        mapa1 = setor.mapas.add()
-        mapa1.caminho_imagem_mapa = "imagens/compartilhada.webp"
-        mapa2 = setor.mapas.add()
-        mapa2.caminho_imagem_mapa = "imagens/compartilhada.webp"
-
-        model = CroquiModel(croqui)
-        model.definir_imagem_memoria("imagens/compartilhada.webp", b"conteudo_comp")
-
-        cmd_rem = CmdRemoverRepeated(model, setor, "mapas", 0, setor.mapas[0])
-        self.assertEqual(cmd_rem.imagens_removidas_ram, {})
-
-        cmd_rem.redo()
-        self.assertEqual(len(setor.mapas), 1)
-        self.assertIn("imagens/compartilhada.webp", model.obter_imagens_em_memoria())
-
-    def test_cmd_remover_repeated_serializacao_com_imagens_em_ram(self):
-        from aresta_api.proto.generated.croqui_pb2 import Croqui
-        from editor.commands.comandos_protobuf import deserializar_comando
-
-        croqui = Croqui()
-        pico = croqui.picos.add()
-        sg = pico.setores_ou_grupos.add()
-        setor = sg.setor.conteudo
-        mapa = setor.mapas.add()
-        mapa.caminho_imagem_mapa = "imagens/mapa.webp"
-
-        model = CroquiModel(croqui)
-        model.definir_imagem_memoria("imagens/mapa.webp", b"bytes_teste")
-
-        cmd_rem = CmdRemoverRepeated(model, setor, "mapas", 0, setor.mapas[0])
-        dados = cmd_rem.serializar(anonimizado=False)
-        self.assertIn("imagens_removidas_ram", dados)
-        self.assertEqual(dados["imagens_removidas_ram"], {"imagens/mapa.webp": b"bytes_teste"})
-
-        cmd_deserializado = deserializar_comando(dados, model)
-        self.assertEqual(
-            cmd_deserializado.imagens_removidas_ram, {"imagens/mapa.webp": b"bytes_teste"}
-        )
-
-        dados_anon = cmd_rem.serializar(anonimizado=True)
-        self.assertIn("imagens_removidas_ram", dados_anon)
-        self.assertNotEqual(
-            dados_anon["imagens_removidas_ram"]["imagens/mapa.webp"], b"bytes_teste"
-        )
-
-    def test_cmd_alterar_oneof(self):
-        croqui = Croqui()
-        pico = croqui.picos.add()
-        sg = pico.setores_ou_grupos.add()
-        model = CroquiModel(croqui)
-
-        # Inicialmente, nenhum campo do oneof está setado
-        self.assertEqual(sg.WhichOneof("tipo"), None)
-
-        setor = ArquivoSetor()
-        setor.caminho = "caminho/do/setor.md"
-
-        # Cria e executa o comando para ativar "setor"
-        cmd1 = CmdAlterarOneof(model, sg, "tipo", None, None, "setor", setor)
-        cmd1.redo()
-
-        self.assertEqual(sg.WhichOneof("tipo"), "setor")
-        self.assertEqual(sg.setor.caminho, "caminho/do/setor.md")
-
-        # Desfaz
-        cmd1.undo()
-        self.assertEqual(sg.WhichOneof("tipo"), None)
-
-        # Refaz
-        cmd1.redo()
-        self.assertEqual(sg.WhichOneof("tipo"), "setor")
-
-        # Agora muda de "setor" para "grupo"
-        grupo = ArquivoGrupo()
-        grupo.caminho = "caminho/do/grupo.md"
-
-        cmd2 = CmdAlterarOneof(model, sg, "tipo", "setor", setor, "grupo", grupo)
-        cmd2.redo()
-
-        self.assertEqual(sg.WhichOneof("tipo"), "grupo")
-        self.assertEqual(sg.grupo.caminho, "caminho/do/grupo.md")
-        self.assertFalse(sg.HasField("setor"))  # Deve ter limpado "setor"
-
-        # Desfaz cmd2
-        cmd2.undo()
-        self.assertEqual(sg.WhichOneof("tipo"), "setor")
-        self.assertEqual(sg.setor.caminho, "caminho/do/setor.md")
-
-    def test_cmd_alterar_repeated_item(self):
-        croqui = Croqui()
-        croqui.creditos.append("Renato")
-        model = CroquiModel(croqui)
-
-        cmd = CmdAlterarRepeatedItem(model, croqui, "creditos", 0, "Renato", "Silva")
-        cmd.redo()
-        self.assertEqual(list(croqui.creditos), ["Silva"])
-
-        cmd.undo()
-        self.assertEqual(list(croqui.creditos), ["Renato"])
-
-    def test_gerenciador_historico_runtime_error_no_crash(self):
-        """
-        Garante que o _on_index_changed trata silenciosamente o RuntimeError
-        que ocorre quando o QUndoStack C++ subjacente ja foi deletado durante o fechamento do app.
-        """
-        from unittest.mock import patch
-
-        from editor.core.historico import GerenciadorHistorico
-
-        gerenciador = GerenciadorHistorico()
-
-        # Simula o erro do C++ quando o QUndoStack é destruido e command() é chamado
-        with patch.object(
-            gerenciador._pilha,
-            "command",
-            side_effect=RuntimeError("wrapped C/C++ object of type QUndoStack has been deleted"),
-        ):
-            # Tenta notificar index change. Não deve propagar a exceção
-            gerenciador._ultimo_index = 0
-            try:
-                gerenciador._on_index_changed(1)
-            except RuntimeError:
-                import pytest
-
-                pytest.fail("RuntimeError vazou do _on_index_changed!")
-
-            # O índice interno ainda deve ser atualizado
-            assert gerenciador._ultimo_index == 1
-
-    def test_cmd_alterar_multiplos_repeated_items(self):
-        croqui = Croqui()
-        croqui.creditos.extend(["Um", "Dois", "Tres"])
-        model = CroquiModel(croqui)
-
-        # Cria e executa comando alterando indices 0 e 2
-        alteracoes = [(0, "Um", "NovoUm"), (2, "Tres", "NovoTres")]
-        cmd = CmdAlterarMultiplosRepeatedItems(model, croqui, "creditos", alteracoes)
-        cmd.redo()
-
-        self.assertEqual(croqui.creditos[0], "NovoUm")
-        self.assertEqual(croqui.creditos[1], "Dois")
-        self.assertEqual(croqui.creditos[2], "NovoTres")
-
-        # Desfaz
-        cmd.undo()
-        self.assertEqual(croqui.creditos[0], "Um")
-        self.assertEqual(croqui.creditos[1], "Dois")
-        self.assertEqual(croqui.creditos[2], "Tres")
-
-        # Refaz novamente
-        cmd.redo()
-        self.assertEqual(croqui.creditos[0], "NovoUm")
-        self.assertEqual(croqui.creditos[2], "NovoTres")
-
-    def test_gerenciador_historico_sinais(self):
-        from editor.core.historico import GerenciadorHistorico
-
-        gerenciador = GerenciadorHistorico()
-        croqui = Croqui()
-        croqui.nome = "Original"
-        model = CroquiModel(croqui)
-
-        sinais_campo = []
-        sinais_add = []
-        sinais_rem = []
-
-        gerenciador.sinal_campo_alterado.connect(
-            lambda msg_id, campo, val: sinais_campo.append((msg_id, campo, val))
-        )
-        gerenciador.sinal_item_adicionado.connect(
-            lambda msg_id, campo, idx: sinais_add.append((msg_id, campo, idx))
-        )
-        gerenciador.sinal_item_removido.connect(
-            lambda msg_id, campo, idx: sinais_rem.append((msg_id, campo, idx))
-        )
-
-        # Teste 1: Alterar Primitivo
-        cmd = CmdAlterarPrimitivo(model, croqui, "nome", "Original", "Novo")
-        gerenciador.executar(cmd)
-
-        # Como o Gerenciador não emite mais para nós, vamos apenas testar o modelo
-        sinais_modelo_campo = []
-        model.dado_alterado.connect(lambda msg, campo: sinais_modelo_campo.append(campo))
-
-        # Teste 2: Adicionar Repeated
-        cmd_add = CmdAdicionarRepeated(model, croqui, "creditos", 0, "Item1")
-        gerenciador.executar(cmd_add)
-
-
-def test_cmd_alterar_metadados_caminho_novo():
-    from aresta_api.proto.generated import croqui_pb2
-    from editor.commands.comandos_protobuf import CmdAlterarMetadadosCaminhoNovo
-
-    croqui = Croqui()
-    sg = croqui.picos.add().setores_ou_grupos.add()
-    sg.setor.conteudo.nome = "Setor"
     model = CroquiModel(croqui)
 
-    # Executa o comando para mudar caminho novo
-    cmd = CmdAlterarMetadadosCaminhoNovo(
-        model, sg.setor, croqui_pb2.ArquivoSetor.ext_metadados_arquivo, "", "novo_caminho.md"
+    # 1. Alteração com captura automática de valor_antigo
+    cmd1 = CmdAlterarCampo(
+        model=model,
+        alvo=setor,
+        campo_nome="nome",
+        valor_novo="Setor Novo",
     )
-    cmd.redo()
+    assert cmd1.valor_antigo == "Setor Antigo"
+    cmd1.executar_redo()
+    assert setor.nome == "Setor Novo"
+    assert model.indice_uids.obter("set_001").nome_setor == "Setor Novo"
 
-    assert sg.setor.HasExtension(croqui_pb2.ArquivoSetor.ext_metadados_arquivo)
-    assert (
-        sg.setor.Extensions[croqui_pb2.ArquivoSetor.ext_metadados_arquivo].caminho_novo
-        == "novo_caminho.md"
+    cmd1.undo()
+    assert setor.nome == "Setor Antigo"
+    assert model.indice_uids.obter("set_001").nome_setor == "Setor Antigo"
+
+    # 2. Renomeação de escalada via alvo str (UID)
+    cmd_renomear = CmdAlterarCampo(
+        model=model,
+        alvo="esc_001",
+        campo_nome="nome",
+        valor_novo="Via Nova",
+    )
+    assert cmd_renomear.valor_antigo == "Via Velha"
+    cmd_renomear.executar_redo()
+    assert esc.via_esportiva.nome == "Via Nova"
+    assert model.indice_uids.obter("esc_001").nome_escalada == "Via Nova"
+
+    cmd_renomear.undo()
+    assert esc.via_esportiva.nome == "Via Velha"
+    assert model.indice_uids.obter("esc_001").nome_escalada == "Via Velha"
+
+    # 3. Teste de mergeWith com session_id
+    cmd_merge1 = CmdAlterarCampo(
+        model=model,
+        alvo=pico,
+        campo_nome="descricao",
+        valor_novo="A",
+        pode_mesclar=True,
+        session_id="sess_123",
+    )
+    cmd_merge1.executar_redo()
+    assert pico.descricao == "A"
+
+    cmd_merge2 = CmdAlterarCampo(
+        model=model,
+        alvo=pico,
+        campo_nome="descricao",
+        valor_novo="AB",
+        pode_mesclar=True,
+        session_id="sess_123",
+    )
+    assert cmd_merge1.mergeWith(cmd_merge2) is True
+    assert pico.descricao == "AB"
+
+    # Incompatibilidades de merge
+    cmd_incompativel_session = CmdAlterarCampo(
+        model=model,
+        alvo=pico,
+        campo_nome="descricao",
+        valor_novo="ABC",
+        pode_mesclar=True,
+        session_id="sess_outra",
+    )
+    assert cmd_merge1.mergeWith(cmd_incompativel_session) is False
+
+    cmd_incompativel_campo = CmdAlterarCampo(
+        model=model,
+        alvo=pico,
+        campo_nome="nome",
+        valor_novo="Outro",
+        pode_mesclar=True,
+        session_id="sess_123",
+    )
+    assert cmd_merge1.mergeWith(cmd_incompativel_campo) is False
+
+    # Undo deve reverter para o estado anterior a toda a sessão
+    cmd_merge1.undo()
+    assert pico.descricao == ""
+
+
+def test_cmd_alterar_campo_tipos_primitivos_e_nulos():
+    """Valida alteração de primitivos opcionais/nulos (strings vazias, booleanos tri-state, inteiros)."""
+    croqui = Croqui()
+    pico = croqui.picos.add(nome="Pico 1")
+    sg = pico.setores_ou_grupos.add()
+    setor = sg.setor.conteudo
+    setor.nome = "Setor Estacionamento"
+    setor.sinal_de_celular = True
+
+    esc = setor.escaladas.add(uid="esc_002")
+    via = esc.via_esportiva
+
+    model = CroquiModel(croqui)
+
+    # 1. Esvaziar string opcional limpa o campo no Protobuf
+    cmd_str = CmdAlterarCampo(model, setor, "nome", "")
+    cmd_str.executar_redo()
+    assert not setor.HasField("nome")
+    cmd_str.undo()
+    assert setor.HasField("nome")
+    assert setor.nome == "Setor Estacionamento"
+
+    # 2. Booleano tri-state para None
+    cmd_bool = CmdAlterarCampo(model, setor, "sinal_de_celular", None)
+    cmd_bool.executar_redo()
+    assert not setor.HasField("sinal_de_celular")
+    cmd_bool.undo()
+    assert setor.HasField("sinal_de_celular")
+    assert setor.sinal_de_celular is True
+
+    # 3. Inteiro nullable para 0 (presente!) e depois para None
+    cmd_int = CmdAlterarCampo(model, via, "extensao", 0)
+    cmd_int.executar_redo()
+    assert via.HasField("extensao")
+    assert via.extensao == 0
+    cmd_int.undo()
+    assert not via.HasField("extensao")
+
+
+def test_cmd_alterar_campo_repeated_item_indexado():
+    """Valida alteração de item indexado de lista repeated primitiva e composta."""
+    croqui = Croqui()
+    croqui.creditos.extend(["Credito 1", "Credito 2"])
+
+    pico = croqui.picos.add(nome="Pico 1")
+    sg = pico.setores_ou_grupos.add()
+    setor = sg.setor.conteudo
+    setor.uid = "set_rep_001"
+    setor.trilhas.add(nome="Trilha A", tempo_aproximacao="15min")
+
+    model = CroquiModel(croqui)
+
+    # 1. Item primitivo em repeated ("creditos.0")
+    cmd_prim = CmdAlterarCampo(
+        model=model,
+        alvo=croqui,
+        campo_nome="creditos.0",
+        valor_novo="Credito Modificado",
+    )
+    assert cmd_prim.valor_antigo == "Credito 1"
+    cmd_prim.executar_redo()
+    assert croqui.creditos[0] == "Credito Modificado"
+
+    cmd_prim.undo()
+    assert croqui.creditos[0] == "Credito 1"
+
+    # 2. Item composto em repeated ("trilhas.0")
+    nova_trilha = Trilha(nome="Trilha B", tempo_aproximacao="25min")
+    cmd_comp = CmdAlterarCampo(
+        model=model,
+        alvo="set_rep_001",
+        campo_nome="trilhas.0",
+        valor_novo=nova_trilha,
+    )
+    assert cmd_comp.valor_antigo.nome == "Trilha A"
+    cmd_comp.executar_redo()
+    assert setor.trilhas[0].nome == "Trilha B"
+    assert setor.trilhas[0].tempo_aproximacao == "25min"
+
+    cmd_comp.undo()
+    assert setor.trilhas[0].nome == "Trilha A"
+    assert setor.trilhas[0].tempo_aproximacao == "15min"
+
+
+def test_cmd_alterar_campo_oneof_e_submensagem():
+    """Valida alteração e reversão de oneofs e submensagens singulares."""
+    croqui = Croqui()
+    pico = croqui.picos.add(nome="Pico 1")
+    sg = pico.setores_ou_grupos.add()
+    setor = sg.setor.conteudo
+    setor.uid = "set_oneof_001"
+    esc = setor.escaladas.add(uid="esc_oneof_001")
+    esc.via_esportiva.nome = "Via Teste"
+
+    model = CroquiModel(croqui)
+
+    # 1. Oneof: troca de via_esportiva para boulder
+    novo_boulder = Boulder(nome="Bloco Alpha")
+    cmd_oneof = CmdAlterarCampo(
+        model=model,
+        alvo="esc_oneof_001",
+        campo_nome="boulder",
+        valor_novo=novo_boulder,
+    )
+    cmd_oneof.executar_redo()
+    assert esc.WhichOneof("tipo") == "boulder"
+    assert esc.boulder.nome == "Bloco Alpha"
+
+    cmd_oneof.undo()
+    assert esc.WhichOneof("tipo") == "via_esportiva"
+    assert esc.via_esportiva.nome == "Via Teste"
+
+    # 2. Submensagem singular (Coordenada em Pico)
+    coord = Coordenada(latitude=-200000000, longitude=-440000000)
+    cmd_sub = CmdAlterarCampo(
+        model=model,
+        alvo=pico,
+        campo_nome="localizacao",
+        valor_novo=coord,
+    )
+    assert cmd_sub.valor_antigo is None
+    cmd_sub.executar_redo()
+    assert pico.HasField("localizacao")
+    assert pico.localizacao.latitude == -200000000
+
+    cmd_sub.undo()
+    assert not pico.HasField("localizacao")
+
+    # 3. Limpeza de submensagem singular para None
+    cmd_sub.executar_redo()
+    assert pico.HasField("localizacao")
+    cmd_sub_limpa = CmdAlterarCampo(
+        model=model,
+        alvo=pico,
+        campo_nome="localizacao",
+        valor_novo=None,
+    )
+    cmd_sub_limpa.executar_redo()
+    assert not pico.HasField("localizacao")
+    cmd_sub_limpa.undo()
+    assert pico.HasField("localizacao")
+
+
+def test_cmd_alterar_campo_serializacao_deserializacao():
+    """Valida serialização e deserialização para o diário de CmdAlterarCampo."""
+    croqui = Croqui(nome="Croqui Serializar")
+    pico = croqui.picos.add(nome="Pico 1")
+    sg = pico.setores_ou_grupos.add()
+    setor = sg.setor.conteudo
+    setor.uid = "set_ser_001"
+    setor.nome = "Setor Original"
+
+    model = CroquiModel(croqui)
+
+    cmd = CmdAlterarCampo(
+        model=model,
+        alvo="set_ser_001",
+        campo_nome="nome",
+        valor_novo="Setor Deserializado",
+        context_path="set_ser_001.nome",
+        pode_mesclar=True,
+        session_id="sess_abc",
     )
 
-    # Desfaz
-    cmd.undo()
-    assert sg.setor.Extensions[croqui_pb2.ArquivoSetor.ext_metadados_arquivo].caminho_novo == ""
+    dados = cmd.serializar()
+    assert dados["classe"] == "CmdAlterarCampo"
+    assert dados["caminho_msg"] == "set_ser_001"
+    assert dados["campo_nome"] == "nome"
+    assert dados["valor_novo"] == "Setor Deserializado"
+
+    cmd_recriado = deserializar_comando(dados, model)
+    assert isinstance(cmd_recriado, CmdAlterarCampo)
+    cmd_recriado.executar_redo()
+    assert setor.nome == "Setor Deserializado"
+    cmd_recriado.undo()
+    assert setor.nome == "Setor Original"
+
+
+# ==============================================================================
+# 2. Testes de CmdAlterarImagem e CmdAlterarAnexo
+# ==============================================================================
+
+
+def test_cmd_alterar_imagem_adicao_substituicao_remocao():
+    """Valida adições, substituições e remoções de imagens na RAM com CmdAlterarImagem."""
+    croqui = Croqui()
+    model = CroquiModel(croqui)
+
+    sinais_emitidos: list[str] = []
+    model.imagem_alterada.connect(lambda caminho: sinais_emitidos.append(caminho))
+
+    img = Image.new("RGB", (200, 200), color="blue")
+    buf = io.BytesIO()
+    img.save(buf, format="WEBP")
+    bytes_webp_1 = buf.getvalue()
+
+    # 1. Adição (bytes_antigos capturado como None)
+    cmd_add = CmdAlterarImagem(
+        model=model,
+        nome_arquivo="setores/foto1.webp",
+        bytes_novos=bytes_webp_1,
+    )
+    assert cmd_add.bytes_antigos is None
+    cmd_add.executar_redo()
+    assert model.obter_bytes_imagem("setores/foto1.webp") == bytes_webp_1
+    assert "setores/foto1.webp" in sinais_emitidos
+
+    cmd_add.undo()
+    assert model.obter_bytes_imagem("setores/foto1.webp") is None
+
+    # Redo restaura
+    cmd_add.executar_redo()
+    assert model.obter_bytes_imagem("setores/foto1.webp") == bytes_webp_1
+
+    # 2. Substituição (bytes_antigos capturado automaticamente)
+    bytes_webp_2 = b"RIFF_FAKE_WEBP_NOVO_VALOR"
+    cmd_subst = CmdAlterarImagem(
+        model=model,
+        nome_arquivo="setores/foto1.webp",
+        bytes_novos=bytes_webp_2,
+    )
+    assert cmd_subst.bytes_antigos == bytes_webp_1
+    cmd_subst.executar_redo()
+    assert model.obter_bytes_imagem("setores/foto1.webp") == bytes_webp_2
+
+    cmd_subst.undo()
+    assert model.obter_bytes_imagem("setores/foto1.webp") == bytes_webp_1
+
+    # 3. Remoção (bytes_novos=None)
+    cmd_rem = CmdAlterarImagem(
+        model=model,
+        nome_arquivo="setores/foto1.webp",
+        bytes_novos=None,
+    )
+    assert cmd_rem.bytes_antigos == bytes_webp_1
+    cmd_rem.executar_redo()
+    assert model.obter_bytes_imagem("setores/foto1.webp") is None
+
+    cmd_rem.undo()
+    assert model.obter_bytes_imagem("setores/foto1.webp") == bytes_webp_1
+
+    # 4. Serialização e deserialização com e sem anonimização
+    dados = cmd_subst.serializar()
+    assert dados["classe"] == "CmdAlterarImagem"
+    assert dados["nome_arquivo"] == "setores/foto1.webp"
+
+    dados_anon = cmd_subst.serializar(anonimizado=True)
+    assert dados_anon["bytes_novos"] is not None
+
+    cmd_recriado = deserializar_comando(dados, model)
+    assert isinstance(cmd_recriado, CmdAlterarImagem)
+    cmd_recriado.executar_redo()
+    assert model.obter_bytes_imagem("setores/foto1.webp") == bytes_webp_2
+
+
+def test_cmd_alterar_anexo_adicao_substituicao_remocao():
+    """Valida adições, substituições e remoções de anexos na RAM com CmdAlterarAnexo."""
+    croqui = Croqui()
+    model = CroquiModel(croqui)
+
+    # 1. Adição
+    cmd_add = CmdAlterarAnexo(
+        model=model,
+        nome_arquivo="documentos/guia.pdf",
+        bytes_novos=b"%PDF-1.4-FAKE",
+    )
+    assert cmd_add.bytes_antigos is None
+    cmd_add.executar_redo()
+    assert model.obter_bytes_anexo("documentos/guia.pdf") == b"%PDF-1.4-FAKE"
+
+    cmd_add.undo()
+    assert model.obter_bytes_anexo("documentos/guia.pdf") is None
+
+    # 2. Substituição
+    cmd_add.executar_redo()
+    cmd_subst = CmdAlterarAnexo(
+        model=model,
+        nome_arquivo="documentos/guia.pdf",
+        bytes_novos=b"%PDF-2.0-NOVO",
+    )
+    assert cmd_subst.bytes_antigos == b"%PDF-1.4-FAKE"
+    cmd_subst.executar_redo()
+    assert model.obter_bytes_anexo("documentos/guia.pdf") == b"%PDF-2.0-NOVO"
+
+    cmd_subst.undo()
+    assert model.obter_bytes_anexo("documentos/guia.pdf") == b"%PDF-1.4-FAKE"
+
+    # 3. Remoção
+    cmd_rem = CmdAlterarAnexo(
+        model=model,
+        nome_arquivo="documentos/guia.pdf",
+        bytes_novos=None,
+    )
+    cmd_rem.executar_redo()
+    assert model.obter_bytes_anexo("documentos/guia.pdf") is None
+
+    cmd_rem.undo()
+    assert model.obter_bytes_anexo("documentos/guia.pdf") == b"%PDF-1.4-FAKE"
+
+    # 4. Serialização e deserialização
+    dados = cmd_subst.serializar()
+    assert dados["classe"] == "CmdAlterarAnexo"
+    assert dados["nome_arquivo"] == "documentos/guia.pdf"
+
+    cmd_recriado = deserializar_comando(dados, model)
+    assert isinstance(cmd_recriado, CmdAlterarAnexo)
+    cmd_recriado.executar_redo()
+    assert model.obter_bytes_anexo("documentos/guia.pdf") == b"%PDF-2.0-NOVO"
+
+
+# ==============================================================================
+# 3. Testes de Repeated (CmdAdicionarRepeated, CmdRemoverRepeated, CmdMoverRepeated)
+# ==============================================================================
+
+
+def test_cmd_adicionar_remover_repeated_primitives():
+    """Valida adição e remoção em campos repeated primitivos."""
+    croqui = Croqui()
+    croqui.creditos.append("Renato")
+    model = CroquiModel(croqui)
+
+    # Adicionar "Silva" no índice 1
+    cmd_add = CmdAdicionarRepeated(model, croqui, "creditos", 1, "Silva")
+    cmd_add.redo()
+    assert list(croqui.creditos) == ["Renato", "Silva"]
+
+    cmd_add.undo()
+    assert list(croqui.creditos) == ["Renato"]
+
+    # Remover "Renato" no índice 0
+    cmd_rem = CmdRemoverRepeated(model, croqui, "creditos", 0, "Renato")
+    cmd_rem.redo()
+    assert list(croqui.creditos) == []
+
+    cmd_rem.undo()
+    assert list(croqui.creditos) == ["Renato"]
+
+
+def test_cmd_adicionar_remover_repeated_composite():
+    """Valida adição e remoção em campos repeated compostos."""
+    croqui = Croqui()
+    pico = Pico(nome="Pico Falso")
+    model = CroquiModel(croqui)
+
+    cmd_add = CmdAdicionarRepeated(model, croqui, "picos", 0, pico)
+    cmd_add.redo()
+    assert len(croqui.picos) == 1
+    assert croqui.picos[0].nome == "Pico Falso"
+
+    cmd_add.undo()
+    assert len(croqui.picos) == 0
+
+    # recoloca para poder testar remoção
+    cmd_add.redo()
+
+    cmd_rem = CmdRemoverRepeated(model, croqui, "picos", 0, croqui.picos[0])
+    cmd_rem.redo()
+    assert len(croqui.picos) == 0
+
+    cmd_rem.undo()
+    assert len(croqui.picos) == 1
+    assert croqui.picos[0].nome == "Pico Falso"
+
+
+def test_cmd_remover_repeated_limpa_imagens_orfas_da_ram_e_restaura_no_undo():
+    """Garante que ao remover uma subárvore com imagens na memória, elas são limpas e restauradas no undo."""
+    croqui = Croqui()
+    pico = croqui.picos.add()
+    sg = pico.setores_ou_grupos.add()
+    setor = sg.setor.conteudo
+    setor.nome = "Setor Fugitivos"
+    mapa = setor.mapas.add()
+    mapa.caminho_imagem_mapa = "imagens/setor_fugitivos_p0.webp"
+
+    model = CroquiModel(croqui)
+    model.definir_imagem_memoria("imagens/setor_fugitivos_p0.webp", b"conteudo_bytes_ram")
+
+    cmd_rem = CmdRemoverRepeated(model, setor, "mapas", 0, setor.mapas[0])
+    assert "imagens/setor_fugitivos_p0.webp" in cmd_rem.imagens_removidas_ram
+    assert cmd_rem.imagens_removidas_ram["imagens/setor_fugitivos_p0.webp"] == b"conteudo_bytes_ram"
+
+    cmd_rem.redo()
+    assert len(setor.mapas) == 0
+    assert "imagens/setor_fugitivos_p0.webp" not in model.obter_imagens_em_memoria()
+
+    cmd_rem.undo()
+    assert len(setor.mapas) == 1
+    assert "imagens/setor_fugitivos_p0.webp" in model.obter_imagens_em_memoria()
+    assert model.obter_bytes_imagem("imagens/setor_fugitivos_p0.webp") == b"conteudo_bytes_ram"
+
+
+def test_cmd_remover_repeated_preserva_imagem_compartilhada_em_ram():
+    """Garante que imagem compartilhada por mais de uma mensagem não seja removida da RAM."""
+    croqui = Croqui()
+    pico = croqui.picos.add()
+    sg = pico.setores_ou_grupos.add()
+    setor = sg.setor.conteudo
+    mapa1 = setor.mapas.add()
+    mapa1.caminho_imagem_mapa = "imagens/compartilhada.webp"
+    mapa2 = setor.mapas.add()
+    mapa2.caminho_imagem_mapa = "imagens/compartilhada.webp"
+
+    model = CroquiModel(croqui)
+    model.definir_imagem_memoria("imagens/compartilhada.webp", b"conteudo_comp")
+
+    cmd_rem = CmdRemoverRepeated(model, setor, "mapas", 0, setor.mapas[0])
+    assert cmd_rem.imagens_removidas_ram == {}
+
+    cmd_rem.redo()
+    assert len(setor.mapas) == 1
+    assert "imagens/compartilhada.webp" in model.obter_imagens_em_memoria()
+
+
+def test_cmd_remover_repeated_serializacao_com_imagens_em_ram():
+    """Valida serialização e deserialização com imagens de RAM em CmdRemoverRepeated."""
+    croqui = Croqui()
+    pico = croqui.picos.add()
+    sg = pico.setores_ou_grupos.add()
+    setor = sg.setor.conteudo
+    mapa = setor.mapas.add()
+    mapa.caminho_imagem_mapa = "imagens/mapa.webp"
+
+    model = CroquiModel(croqui)
+    model.definir_imagem_memoria("imagens/mapa.webp", b"bytes_teste")
+
+    cmd_rem = CmdRemoverRepeated(model, setor, "mapas", 0, setor.mapas[0])
+    dados = cmd_rem.serializar(anonimizado=False)
+    assert "imagens_removidas_ram" in dados
+    assert dados["imagens_removidas_ram"] == {"imagens/mapa.webp": b"bytes_teste"}
+
+    cmd_deserializado = deserializar_comando(dados, model)
+    assert cmd_deserializado.imagens_removidas_ram == {"imagens/mapa.webp": b"bytes_teste"}
+
+    dados_anon = cmd_rem.serializar(anonimizado=True)
+    assert "imagens_removidas_ram" in dados_anon
+    assert dados_anon["imagens_removidas_ram"]["imagens/mapa.webp"] != b"bytes_teste"
 
 
 def test_cmd_mover_repeated():
-    from aresta_api.proto.generated.croqui_pb2 import Croqui
-    from editor.commands.comandos_protobuf import CmdMoverRepeated
-    from editor.models.croqui_model import CroquiModel
-
+    """Valida reordenação de itens repeated com CmdMoverRepeated."""
     croqui = Croqui()
     croqui.creditos.extend(["A", "B", "C"])
     model = CroquiModel(croqui)
+
     cmd = CmdMoverRepeated(model, croqui, "creditos", 0, 2)
     cmd.redo()
-    assert croqui.creditos == ["B", "C", "A"]
+    assert list(croqui.creditos) == ["B", "C", "A"]
     cmd.undo()
-    assert croqui.creditos == ["A", "B", "C"]
+    assert list(croqui.creditos) == ["A", "B", "C"]
 
 
-def test_cmd_alterar_campo_imagem():
-    from aresta_api.proto.generated.croqui_pb2 import Croqui
-    from editor.commands.comandos_protobuf import CmdAlterarCampoImagem
-    from editor.models.croqui_model import CroquiModel
-
+def test_cmd_repeated_com_alvo_str_e_uid():
+    """Valida CmdAdicionarRepeated, CmdRemoverRepeated e CmdMoverRepeated com alvos por UID string."""
     croqui = Croqui()
-    croqui.caminho_thumbnail = "imagens/antiga.webp"
+    pico = croqui.picos.add(nome="Pico 1")
+    sg = pico.setores_ou_grupos.add()
+    setor = sg.setor.conteudo
+    setor.uid = "set_rep_uid"
+    setor.nome = "Setor Repeated"
+
     model = CroquiModel(croqui)
 
-    bytes_novos = b"bytes_imagem_webp_nova"
-    cmd = CmdAlterarCampoImagem(
+    # 1. CmdAdicionarRepeated com alvo UID string
+    t1 = Trilha(nome="Trilha 1", tempo_aproximacao="10min")
+    cmd_add = CmdAdicionarRepeated(
         model=model,
-        msg=croqui,
-        campo_nome="caminho_thumbnail",
-        caminho_antigo="imagens/antiga.webp",
-        bytes_antigo=None,
-        caminho_novo="imagens/nova.webp",
-        bytes_novo=bytes_novos,
+        alvo="set_rep_uid",
+        campo_nome="trilhas",
+        index=0,
+        valor=t1,
     )
+    cmd_add.executar_redo()
+    assert len(setor.trilhas) == 1
+    assert setor.trilhas[0].nome == "Trilha 1"
 
-    # Executa Redo
-    cmd.redo()
-    assert croqui.caminho_thumbnail == "imagens/nova.webp"
-    assert model.obter_bytes_imagem("imagens/nova.webp") == bytes_novos
+    cmd_add.undo()
+    assert len(setor.trilhas) == 0
 
-    # Executa Undo
-    cmd.undo()
-    assert croqui.caminho_thumbnail == "imagens/antiga.webp"
-    assert model.obter_bytes_imagem("imagens/nova.webp") is None
+    cmd_add.executar_redo()
 
-    # Executa Redo novamente
-    cmd.redo()
-    assert croqui.caminho_thumbnail == "imagens/nova.webp"
-    assert model.obter_bytes_imagem("imagens/nova.webp") == bytes_novos
+    # Adiciona segunda trilha
+    t2 = Trilha(nome="Trilha 2", tempo_aproximacao="20min")
+    cmd_add2 = CmdAdicionarRepeated(
+        model=model,
+        alvo="set_rep_uid",
+        campo_nome="trilhas",
+        index=1,
+        valor=t2,
+    )
+    cmd_add2.executar_redo()
+    assert len(setor.trilhas) == 2
+
+    # 2. CmdMoverRepeated com alvo UID string
+    cmd_mov = CmdMoverRepeated(
+        model=model,
+        alvo="set_rep_uid",
+        campo_nome="trilhas",
+        index_from=0,
+        index_to=1,
+    )
+    cmd_mov.executar_redo()
+    assert setor.trilhas[0].nome == "Trilha 2"
+    assert setor.trilhas[1].nome == "Trilha 1"
+
+    cmd_mov.undo()
+    assert setor.trilhas[0].nome == "Trilha 1"
+    assert setor.trilhas[1].nome == "Trilha 2"
+
+    # 3. CmdRemoverRepeated com alvo UID string (valor_removido capturado automaticamente)
+    cmd_rem = CmdRemoverRepeated(
+        model=model,
+        alvo="set_rep_uid",
+        campo_nome="trilhas",
+        index=0,
+    )
+    cmd_rem.executar_redo()
+    assert len(setor.trilhas) == 1
+    assert setor.trilhas[0].nome == "Trilha 2"
+
+    cmd_rem.undo()
+    assert len(setor.trilhas) == 2
+    assert setor.trilhas[0].nome == "Trilha 1"
 
 
-def test_cmd_substituir_imagem_memoria():
-    from aresta_api.proto.generated.croqui_pb2 import Croqui
-    from editor.commands.comandos_protobuf import CmdSubstituirImagemMemoria
-    from editor.models.croqui_model import CroquiModel
-
+def test_cmd_repeated_serializacao_deserializacao():
+    """Valida serialização e deserialização de CmdAdicionarRepeated e CmdMoverRepeated."""
     croqui = Croqui()
+    pico = croqui.picos.add(nome="Pico 1")
+    sg = pico.setores_ou_grupos.add()
+    setor = sg.setor.conteudo
+    setor.uid = "set_ser_rep"
+    setor.nome = "Setor Ser Rep"
+
     model = CroquiModel(croqui)
 
-    bytes_antigos = b"bytes_antigos"
-    bytes_novos = b"bytes_novos"
-    model.definir_imagem_memoria("imagens/mapa.webp", bytes_antigos)
-
-    cmd = CmdSubstituirImagemMemoria(
+    t1 = Trilha(nome="Trilha Serializada")
+    cmd_add = CmdAdicionarRepeated(
         model=model,
-        caminho_relativo="imagens/mapa.webp",
-        bytes_antigo=bytes_antigos,
-        bytes_novo=bytes_novos,
+        alvo="set_ser_rep",
+        campo_nome="trilhas",
+        index=0,
+        valor=t1,
     )
+    dados_add = cmd_add.serializar()
+    assert dados_add["classe"] == "CmdAdicionarRepeated"
+    cmd_add_recriado = deserializar_comando(dados_add, model)
+    assert isinstance(cmd_add_recriado, CmdAdicionarRepeated)
+    cmd_add_recriado.executar_redo()
+    assert len(setor.trilhas) == 1
+    assert setor.trilhas[0].nome == "Trilha Serializada"
 
-    # Redo
-    cmd.redo()
-    assert model.obter_bytes_imagem("imagens/mapa.webp") == bytes_novos
+    t2 = Trilha(nome="Trilha Dois")
+    setor.trilhas.append(t2)
+    assert len(setor.trilhas) == 2
 
-    # Undo
-    cmd.undo()
-    assert model.obter_bytes_imagem("imagens/mapa.webp") == bytes_antigos
-
-    # Teste sem bytes antigos (imagem nova)
-    cmd_novo = CmdSubstituirImagemMemoria(
+    cmd_mov = CmdMoverRepeated(
         model=model,
-        caminho_relativo="imagens/outra.webp",
-        bytes_antigo=None,
-        bytes_novo=bytes_novos,
+        alvo="set_ser_rep",
+        campo_nome="trilhas",
+        index_from=0,
+        index_to=1,
     )
-    cmd_novo.redo()
-    assert model.obter_bytes_imagem("imagens/outra.webp") == bytes_novos
-    cmd_novo.undo()
-    assert model.obter_bytes_imagem("imagens/outra.webp") is None
+    dados_mov = cmd_mov.serializar()
+    assert dados_mov["classe"] == "CmdMoverRepeated"
+    cmd_mov_recriado = deserializar_comando(dados_mov, model)
+    assert isinstance(cmd_mov_recriado, CmdMoverRepeated)
+    cmd_mov_recriado.executar_redo()
+    assert setor.trilhas[0].nome == "Trilha Dois"
+    assert setor.trilhas[1].nome == "Trilha Serializada"
 
 
-def test_serializacao_deserializacao_comandos_protobuf():
-    from aresta_api.proto.generated.croqui_pb2 import ArquivoSetor, Croqui
-    from editor.commands.comandos_protobuf import (
-        CmdAdicionarRepeated,
-        CmdAlterarCampoImagem,
-        CmdAlterarMetadadosCaminhoNovo,
-        CmdAlterarMultiplosRepeatedItems,
-        CmdAlterarOneof,
-        CmdAlterarPrimitivo,
-        CmdAlterarRepeatedItem,
-        CmdMoverRepeated,
-        CmdRemoverRepeated,
-        CmdSubstituirImagemMemoria,
-        deserializar_comando,
-    )
-    from editor.models.croqui_model import CroquiModel
+# ==============================================================================
+# 4. Testes de Resolução em 3 Níveis, Navegação Tardia e Validações
+# ==============================================================================
+
+
+def test_resolucao_alvo_3_niveis_e_navegacao_tardia():
+    """Valida resolução e navegação tardia de alvos nos 3 níveis (UID, ancestral com UID, fallback posicional)."""
+    croqui = Croqui(nome="Croqui Teste")
+    pico = croqui.picos.add(nome="Pico 1")
+    sg = pico.setores_ou_grupos.add()
+    setor = sg.setor.conteudo
+    setor.uid = "set_1234567890"
+    setor.nome = "Setor A"
+
+    mapa_setor = setor.mapas.add(caminho_imagem_mapa="setor_mapa.webp")
+    esc = setor.escaladas.add(uid="esc_1234567890")
+    esc.via_esportiva.nome = "Via 1"
+
+    patr = pico.patrocinadores.add(nome="Aresta Equipamentos")
+    pico.localizacao.latitude = -200000000
+
+    model = CroquiModel(croqui)
+    indice_uids = model.indice_uids
+
+    # 1. Testes de resolver_alvo_mensagem
+    assert resolver_alvo_mensagem(croqui, croqui, indice_uids) == ""
+    # Nível 1: UID direto
+    assert resolver_alvo_mensagem(croqui, setor, indice_uids) == "set_1234567890"
+    assert resolver_alvo_mensagem(croqui, esc, indice_uids) == "esc_1234567890"
+    # Nível 2: Ancestral mais próximo com UID + subcaminho relativo
+    assert resolver_alvo_mensagem(croqui, mapa_setor, indice_uids) == "set_1234567890.mapas.0"
+    assert resolver_alvo_mensagem(croqui, esc.via_esportiva, indice_uids) == "esc_1234567890.via_esportiva"
+    # Nível 3: Fallback posicional desde a raiz
+    assert resolver_alvo_mensagem(croqui, pico, indice_uids) == "picos.0"
+    assert resolver_alvo_mensagem(croqui, patr, indice_uids) == "picos.0.patrocinadores.0"
+    assert resolver_alvo_mensagem(croqui, pico.localizacao, indice_uids) == "picos.0.localizacao"
+
+    # 2. Testes de navegar_para_alvo
+    assert navegar_para_alvo(croqui, "", indice_uids) is croqui
+    assert navegar_para_alvo(croqui, "root", indice_uids) is croqui
+    assert navegar_para_alvo(croqui, "set_1234567890", indice_uids) is setor
+    assert navegar_para_alvo(croqui, "esc_1234567890", indice_uids) is esc
+    assert navegar_para_alvo(croqui, "set_1234567890.mapas.0", indice_uids) is mapa_setor
+    assert navegar_para_alvo(croqui, "esc_1234567890.via_esportiva", indice_uids) is esc.via_esportiva
+    assert navegar_para_alvo(croqui, "picos.0", indice_uids) is pico
+    assert navegar_para_alvo(croqui, "picos.0.patrocinadores.0", indice_uids) is patr
+    assert navegar_para_alvo(croqui, "picos.0.localizacao", indice_uids) is pico.localizacao
+
+    # Casos limites de navegação
+    assert navegar_para_alvo(croqui, "uid_inexistente", indice_uids) is None
+    assert navegar_para_alvo(croqui, "set_1234567890.campo_inexistente", indice_uids) is None
+    assert navegar_para_alvo(croqui, "picos.99", indice_uids) is None
+    assert navegar_para_alvo(None, "picos.0", indice_uids) is None
+
+    # 3. Teste da propriedade alvo em ComandoEditor
+    cmd = ComandoEditor()
+    assert cmd.alvo is None
+    cmd.alvo = "set_1234567890"
+    assert cmd.alvo == "set_1234567890"
+    assert cmd.caminho_msg == "set_1234567890"
+
+    # 4. Testes de validar_pertence_ao_croqui com alvo str e Message
+    assert validar_pertence_ao_croqui(model, croqui) == ""
+    assert validar_pertence_ao_croqui(model, setor) == "set_1234567890"
+    assert validar_pertence_ao_croqui(model, "set_1234567890") == "set_1234567890"
+    assert validar_pertence_ao_croqui(model, "set_1234567890.mapas.0") == "set_1234567890.mapas.0"
+    assert validar_pertence_ao_croqui(model, "picos.0") == "picos.0"
+
+    # Mensagem órfã e string inválida rejeitadas
+    setor_orfa = Croqui().picos.add().setores_ou_grupos.add().setor.conteudo
+    setor_orfa.uid = "orfa_12345"
+    with pytest.raises(ValueError, match="órfã"):
+        validar_pertence_ao_croqui(model, setor_orfa)
+
+    with pytest.raises(ValueError, match="não encontrada"):
+        validar_pertence_ao_croqui(model, "alvo_inexistente_123")
+
+
+def test_buscar_mensagem_por_uid_casos_borda():
+    """Valida busca recursiva direta por UID nos casos limites."""
+    assert _buscar_mensagem_por_uid(None, "uid_qualquer") is None
 
     croqui = Croqui()
     pico = croqui.picos.add()
-    pico.nome = "Pico A"
     sg = pico.setores_ou_grupos.add()
     setor = sg.setor.conteudo
-    setor.nome = "Setor 1"
-    model = CroquiModel(croqui)
+    setor.uid = "set_uid_1"
+    achado = _buscar_mensagem_por_uid(croqui, "set_uid_1")
+    assert achado is not None
+    assert achado[0] is setor
+    assert achado[1] == "picos.0.setores_ou_grupos.0.setor.conteudo"
 
-    # 1. CmdAlterarPrimitivo
-    cmd_prim = CmdAlterarPrimitivo(
-        model, setor, "nome", "Setor 1", "Setor Principal", context_path="setores.0"
-    )
-    dados = cmd_prim.serializar()
-    assert dados["classe"] == "CmdAlterarPrimitivo"
-    cmd_recriado = deserializar_comando(dados, model)
-    cmd_recriado.redo()
-    assert setor.nome == "Setor Principal"
-    cmd_recriado.undo()
-    assert setor.nome == "Setor 1"
-
-    # 2. CmdAdicionarRepeated
-    from aresta_api.proto.generated.croqui_pb2 import Trilha
-
-    trilha = Trilha(nome="Trilha Teste")
-    cmd_add = CmdAdicionarRepeated(model, setor, "trilhas", 0, trilha)
-    dados = cmd_add.serializar()
-    assert dados["classe"] == "CmdAdicionarRepeated"
-    cmd_recriado = deserializar_comando(dados, model)
-    cmd_recriado.redo()
-    assert len(setor.trilhas) == 1
-    assert setor.trilhas[0].nome == "Trilha Teste"
-
-    # 3. CmdAlterarRepeatedItem
-    trilha_nova = Trilha(nome="Trilha Atualizada")
-    cmd_alt_item = CmdAlterarRepeatedItem(model, setor, "trilhas", 0, trilha, trilha_nova)
-    dados = cmd_alt_item.serializar()
-    cmd_recriado = deserializar_comando(dados, model)
-    cmd_recriado.redo()
-    assert setor.trilhas[0].nome == "Trilha Atualizada"
-
-    # 4. CmdMoverRepeated
-    trilha2 = Trilha(nome="Trilha 2")
-    setor.trilhas.append(trilha2)
-    assert len(setor.trilhas) == 2
-    cmd_move = CmdMoverRepeated(model, setor, "trilhas", 0, 1)
-    dados = cmd_move.serializar()
-    cmd_recriado = deserializar_comando(dados, model)
-    cmd_recriado.redo()
-    assert setor.trilhas[0].nome == "Trilha 2"
-    assert setor.trilhas[1].nome == "Trilha Atualizada"
-
-    # 5. CmdAlterarMultiplosRepeatedItems
-    alteracoes = [
-        (0, setor.trilhas[0], Trilha(nome="Trilha Zero")),
-        (1, setor.trilhas[1], Trilha(nome="Trilha Um")),
-    ]
-    cmd_mult = CmdAlterarMultiplosRepeatedItems(model, setor, "trilhas", alteracoes)
-    dados = cmd_mult.serializar()
-    cmd_recriado = deserializar_comando(dados, model)
-    cmd_recriado.redo()
-    assert setor.trilhas[0].nome == "Trilha Zero"
-    assert setor.trilhas[1].nome == "Trilha Um"
-
-    # 6. CmdRemoverRepeated
-    cmd_rem = CmdRemoverRepeated(model, setor, "trilhas", 0, setor.trilhas[0])
-    dados = cmd_rem.serializar()
-    cmd_recriado = deserializar_comando(dados, model)
-    cmd_recriado.redo()
-    assert len(setor.trilhas) == 1
-
-    # 7. CmdAlterarOneof
-    cmd_oneof = CmdAlterarOneof(model, sg, "item", "setor", sg.setor, "grupo", None)
-    dados = cmd_oneof.serializar()
-    cmd_recriado = deserializar_comando(dados, model)
-    assert cmd_recriado.oneof_nome == "item"
-
-    # 8. CmdAlterarMetadadosCaminhoNovo
-    cmd_meta = CmdAlterarMetadadosCaminhoNovo(
-        model, sg.setor, ArquivoSetor.ext_metadados_arquivo, "", "novo/caminho.md"
-    )
-    dados = cmd_meta.serializar()
-    cmd_recriado = deserializar_comando(dados, model)
-    cmd_recriado.redo()
-    assert sg.setor.Extensions[ArquivoSetor.ext_metadados_arquivo].caminho_novo == "novo/caminho.md"
-
-    # 9. CmdAlterarCampoImagem (com anonimização)
-    import io
-
-    from PIL import Image
-
-    img = Image.new("RGB", (100, 100), color="red")
-    buf = io.BytesIO()
-    img.save(buf, format="PNG")
-    img_bytes = buf.getvalue()
-
-    cmd_img = CmdAlterarCampoImagem(
-        model, croqui, "caminho_thumbnail", "", None, "thumb.webp", img_bytes
-    )
-    dados_normais = cmd_img.serializar(anonimizado=False)
-    assert dados_normais["bytes_novo"] == img_bytes
-    dados_anon = cmd_img.serializar(anonimizado=True)
-    assert len(dados_anon["bytes_novo"]) < len(img_bytes) or len(dados_anon["bytes_novo"]) < 500
-
-    cmd_recriado = deserializar_comando(dados_normais, model)
-    cmd_recriado.redo()
-    assert model.obter_bytes_imagem("thumb.webp") == img_bytes
-
-    # 10. CmdSubstituirImagemMemoria
-    cmd_sub = CmdSubstituirImagemMemoria(model, "thumb.webp", img_bytes, b"novos_bytes")
-    dados = cmd_sub.serializar()
-    cmd_recriado = deserializar_comando(dados, model)
-    cmd_recriado.redo()
-    assert model.obter_bytes_imagem("thumb.webp") == b"novos_bytes"
+    assert _buscar_mensagem_por_uid(croqui, "uid_inexistente") is None
 
 
 def test_comando_editor_carregamento_silencioso():
+    """Garante que a armação de carregamento silencioso omite mutação no primeiro redo()."""
     croqui = Croqui(nome="Nome Atual")
     model = CroquiModel(croqui)
 
-    cmd = CmdAlterarPrimitivo(model, croqui, "nome", "Nome Antigo", "Nome Mutado")
+    cmd = CmdAlterarCampo(
+        model=model,
+        alvo=croqui,
+        campo_nome="nome",
+        valor_novo="Nome Mutado",
+        valor_antigo="Nome Antigo",
+    )
     cmd.armar_carregamento_silencioso()
 
     # Primeiro redo (durante push na inicialização) NÃO deve alterar o modelo
@@ -641,29 +834,13 @@ def test_comando_editor_carregamento_silencioso():
 
 
 def test_guarda_integridade_mensagem_orfa_rejeitada():
-    import pytest
-
-    from aresta_api.proto.generated.croqui_pb2 import ArquivoSetor, Patrocinador, Pico
-    from editor.commands.comandos_protobuf import (
-        CmdAdicionarRepeated,
-        CmdAlterarCampoImagem,
-        CmdAlterarMetadadosCaminhoNovo,
-        CmdAlterarMultiplosRepeatedItems,
-        CmdAlterarOneof,
-        CmdAlterarPrimitivo,
-        CmdAlterarRepeatedItem,
-        CmdMoverRepeated,
-        CmdRemoverRepeated,
-    )
-
+    """Garante que comandos sobre mensagens desconectadas da árvore são rejeitados na instanciação."""
     croqui = Croqui(nome="Croqui Teste")
     model = CroquiModel(croqui)
     pico_orfa = Pico(nome="Pico Órfão")
-    sog_orfa = SetorOuGrupo()
 
-    # Cada comando que opera sobre mensagem órfã deve lançar ValueError
     with pytest.raises(ValueError, match="órfã|árvore"):
-        CmdAlterarPrimitivo(model, pico_orfa, "nome", "Antigo", "Novo")
+        CmdAlterarCampo(model, pico_orfa, "nome", "Novo")
 
     with pytest.raises(ValueError, match="órfã|árvore"):
         CmdAdicionarRepeated(model, pico_orfa, "patrocinadores", 0, Patrocinador(nome="P1"))
@@ -672,54 +849,29 @@ def test_guarda_integridade_mensagem_orfa_rejeitada():
         CmdRemoverRepeated(model, pico_orfa, "patrocinadores", 0, Patrocinador(nome="P1"))
 
     with pytest.raises(ValueError, match="órfã|árvore"):
-        CmdAlterarOneof(model, sog_orfa, "tipo", None, None, "setor", ArquivoSetor())
-
-    with pytest.raises(ValueError, match="órfã|árvore"):
-        CmdAlterarRepeatedItem(
-            model, pico_orfa, "patrocinadores", 0, Patrocinador(nome="A"), Patrocinador(nome="B")
-        )
-
-    with pytest.raises(ValueError, match="órfã|árvore"):
-        CmdAlterarMultiplosRepeatedItems(
-            model, pico_orfa, "patrocinadores", [(0, Patrocinador(), Patrocinador())]
-        )
-
-    with pytest.raises(ValueError, match="órfã|árvore"):
         CmdMoverRepeated(model, pico_orfa, "patrocinadores", 0, 1)
-
-    with pytest.raises(ValueError, match="órfã|árvore"):
-        CmdAlterarMetadadosCaminhoNovo(model, pico_orfa, "ext", {}, {})
-
-    with pytest.raises(ValueError, match="órfã|árvore"):
-        CmdAlterarCampoImagem(model, pico_orfa, "caminho_thumbnail", "", None, "img.webp", b"123")
 
 
 def test_guarda_integridade_campo_invalido_rejeitado():
-    import pytest
-
-    from editor.commands.comandos_protobuf import CmdAdicionarRepeated, CmdAlterarPrimitivo
-
+    """Garante que campos inexistentes no DESCRIPTOR Protobuf são rejeitados."""
     croqui = Croqui(nome="Croqui Teste")
     model = CroquiModel(croqui)
 
     with pytest.raises(ValueError, match="não existe"):
-        CmdAlterarPrimitivo(model, croqui, "campo_completamente_inexistente", "A", "B")
+        CmdAlterarCampo(model, croqui, "campo_completamente_inexistente", "B")
 
     with pytest.raises(ValueError, match="não existe"):
         CmdAdicionarRepeated(model, croqui, "pontos_de_interesse", 0, "algo")
 
 
 def test_guarda_integridade_mensagem_conectada_valida():
-    from aresta_api.proto.generated.croqui_pb2 import Patrocinador
-    from editor.commands.comandos_protobuf import CmdAdicionarRepeated, CmdAlterarPrimitivo
-
+    """Garante que mensagem conectada na árvore é aceita sem erro."""
     croqui = Croqui(nome="Croqui Teste")
     croqui.picos.add(nome="Pico Legítimo")
     model = CroquiModel(croqui)
 
-    # Mensagem conectada na árvore deve ser aceita
     proxy_pico = model.obter_croqui_readonly().picos[0]
-    cmd_alt = CmdAlterarPrimitivo(model, proxy_pico, "nome", "Pico Legítimo", "Pico Modificado")
+    cmd_alt = CmdAlterarCampo(model, proxy_pico, "nome", "Pico Modificado")
     assert cmd_alt is not None
 
     cmd_add = CmdAdicionarRepeated(model, proxy_pico, "patrocinadores", 0, Patrocinador(nome="P1"))
@@ -727,10 +879,7 @@ def test_guarda_integridade_mensagem_conectada_valida():
 
 
 def test_validar_pertence_ao_croqui_casos_limite():
-    import pytest
-
-    from editor.commands.comandos_protobuf import validar_pertence_ao_croqui
-
+    """Valida tratamentos de parâmetros inválidos em validar_pertence_ao_croqui."""
     with pytest.raises(ValueError, match="inválida"):
         validar_pertence_ao_croqui(None, Croqui())
 
@@ -742,68 +891,11 @@ def test_validar_pertence_ao_croqui_casos_limite():
             return None
 
     # Se root for None, caminho é vazio
-    caminho = validar_pertence_ao_croqui(ModelSemRoot(), Croqui())
-    assert caminho == ""
-
-
-def test_cmd_inserir_imagem_markdown():
-    from aresta_api.proto.generated.croqui_pb2 import Croqui
-    from editor.commands.comandos_protobuf import CmdInserirImagemMarkdown, deserializar_comando
-    from editor.models.croqui_model import CroquiModel
-
-    croqui = Croqui()
-    croqui.descricao = "Texto inicial"
-    model = CroquiModel(croqui)
-
-    foco_notificado = []
-    model.foco_requisitado.connect(lambda ctx: foco_notificado.append(ctx))
-
-    bytes_img = b"fake_bytes_img_123"
-    cmd = CmdInserirImagemMarkdown(
-        model=model,
-        msg=croqui,
-        campo_nome="descricao",
-        texto_antigo="Texto inicial",
-        texto_novo="Texto inicial\n![Foto](imagens/foto.webp)",
-        caminho_imagem="imagens/foto.webp",
-        bytes_imagem=bytes_img,
-        context_path="croqui.descricao",
-    )
-
-    # Redo
-    cmd.redo()
-    assert croqui.descricao == "Texto inicial\n![Foto](imagens/foto.webp)"
-    assert model.obter_imagens_em_memoria().get("imagens/foto.webp") == bytes_img
-    assert foco_notificado == ["croqui.descricao"]
-
-    # Undo
-    cmd.undo()
-    assert croqui.descricao == "Texto inicial"
-    assert "imagens/foto.webp" not in model.obter_imagens_em_memoria()
-    assert foco_notificado == ["croqui.descricao", "croqui.descricao"]
-
-    # Serialização e Deserialização
-    dados = cmd.serializar(anonimizado=False)
-    assert dados["classe"] == "CmdInserirImagemMarkdown"
-    assert dados["campo_nome"] == "descricao"
-    assert dados["texto_novo"] == "Texto inicial\n![Foto](imagens/foto.webp)"
-    assert dados["caminho_imagem"] == "imagens/foto.webp"
-    assert dados["bytes_imagem"] == bytes_img
-
-    cmd_deserializado = deserializar_comando(dados, model)
-    assert isinstance(cmd_deserializado, CmdInserirImagemMarkdown)
-    assert cmd_deserializado.caminho_imagem == "imagens/foto.webp"
-    assert cmd_deserializado.bytes_imagem == bytes_img
-
-    # Serialização anonimizada
-    dados_anon = cmd.serializar(anonimizado=True)
-    assert dados_anon["bytes_imagem"] is not None
+    assert validar_pertence_ao_croqui(ModelSemRoot(), Croqui()) == ""
 
 
 def test_navegar_para_mensagem_limites_e_oneofs():
-    from aresta_api.proto.generated.croqui_pb2 import Croqui
-    from editor.commands.comandos_protobuf import navegar_para_mensagem
-
+    """Valida navegação direta em mensagem Protobuf com oneofs e índices inválidos."""
     croqui = Croqui()
 
     # 1. Caminho raiz
@@ -839,21 +931,16 @@ def test_navegar_para_mensagem_limites_e_oneofs():
 
 
 def test_comando_editor_resolucao_tardia_e_alvo_inexistente(caplog):
-    import logging
-
-    from aresta_api.proto.generated.croqui_pb2 import Croqui
-    from editor.commands.comandos_protobuf import CmdAlterarPrimitivo
-    from editor.models.croqui_model import CroquiModel
-
+    """Garante que comando instanciado com caminho tardio trata graciosamente alvo apagado."""
     croqui = Croqui()
     pico = croqui.picos.add()
     pico.nome = "Pico Antigo"
     model = CroquiModel(croqui)
 
     # 1. Instanciação direta com caminho_msg (resolução tardia)
-    cmd = CmdAlterarPrimitivo(
+    cmd = CmdAlterarCampo(
         model=model,
-        caminho_msg="picos.0",
+        alvo="picos.0",
         campo_nome="nome",
         valor_antigo="Pico Antigo",
         valor_novo="Pico Novo",
@@ -878,41 +965,26 @@ def test_comando_editor_resolucao_tardia_e_alvo_inexistente(caplog):
 
 
 def test_deserializar_comando_sem_navegacao_ansiosa():
-    from aresta_api.proto.generated.croqui_pb2 import Croqui
-    from editor.commands.comandos_protobuf import CmdAlterarPrimitivo, deserializar_comando
-    from editor.models.croqui_model import CroquiModel
-
+    """Garante que a deserialização não tenta acessar a mensagem ansiosamente na carga."""
     croqui = Croqui()  # Sem picos cadastrados
     model = CroquiModel(croqui)
 
     dados = {
-        "classe": "CmdAlterarPrimitivo",
-        "caminho_msg": "picos.5.setores_ou_grupos.0",
+        "classe": "CmdAlterarCampo",
+        "alvo": "picos.5.setores_ou_grupos.0",
         "campo_nome": "nome",
         "valor_antigo": "Antigo",
         "valor_novo": "Novo",
         "context_path": None,
     }
 
-    # Deserialização NÃO deve falhar com IndexError mesmo o índice 5 não existindo no momento da carga
     cmd = deserializar_comando(dados, model)
-    assert isinstance(cmd, CmdAlterarPrimitivo)
+    assert isinstance(cmd, CmdAlterarCampo)
     assert cmd.caminho_msg == "picos.5.setores_ou_grupos.0"
 
 
 def test_mensagem_alvo_nao_encontrada_error_e_msg_cache(caplog):
-    import logging
-
-    import pytest
-
-    from aresta_api.proto.generated.croqui_pb2 import Croqui
-    from editor.commands.comandos_protobuf import (
-        CmdAlterarPrimitivo,
-        MensagemAlvoNaoEncontradaError,
-    )
-    from editor.models.croqui_model import CroquiModel
-
-    # 1. Verifica hierarquia da exceção customizada
+    """Valida cache de mensagem e comportamento da exceção MensagemAlvoNaoEncontradaError."""
     assert issubclass(MensagemAlvoNaoEncontradaError, LookupError)
 
     croqui = Croqui()
@@ -920,55 +992,44 @@ def test_mensagem_alvo_nao_encontrada_error_e_msg_cache(caplog):
     pico.nome = "Pico A"
     model = CroquiModel(croqui)
 
-    # 2. Comando instanciado com mensagem viva (popula _msg_cache)
-    cmd = CmdAlterarPrimitivo(
+    # 1. Comando instanciado com mensagem viva (popula _msg_cache)
+    cmd = CmdAlterarCampo(
         model=model,
-        msg=pico,
+        alvo=pico,
         campo_nome="nome",
         valor_antigo="Pico A",
         valor_novo="Pico B",
     )
     assert cmd._msg_cache is pico
 
-    # Se a árvore for alterada e o caminho picos.0 se tornar inválido, mas _msg_cache estiver presente:
+    # Se a árvore for alterada mas _msg_cache estiver presente:
     croqui.ClearField("picos")
     assert len(croqui.picos) == 0
 
-    # Com _msg_cache presente, _obter_msg deve retornar _msg_cache sem logar erro
     caplog.clear()
     with caplog.at_level(logging.ERROR):
         msg_resolvida = cmd.msg
     assert msg_resolvida is pico
     assert "Falha ao resolver mensagem alvo" not in caplog.text
 
-    # 3. Quando _msg_cache é None e o caminho não existe no modelo:
+    # 2. Quando _msg_cache é None e o caminho não existe no modelo:
     cmd._msg_cache = None
     with pytest.raises(MensagemAlvoNaoEncontradaError):
         cmd._obter_msg(levantar_se_nao_encontrado=True)
 
-    # Em acesso passivo via propriedade msg, retorna None e registra log de erro
     with caplog.at_level(logging.ERROR):
         assert cmd.msg is None
 
-    # 4. Caso de borda: _caminho_msg é None e _msg_cache é None
+    # 3. Casos de borda: caminho_msg ou model None
     cmd._caminho_msg = None
     assert cmd._obter_msg() is None
 
-    # 5. Caso de borda: model é None
     cmd.model = None
     assert cmd._obter_msg() is None
 
 
 def test_comando_editor_metodos_base_e_validacao():
-    import pytest
-
-    from aresta_api.proto.generated.croqui_pb2 import Croqui
-    from editor.commands.comandos_protobuf import (
-        ComandoEditor,
-        _validar_campo_se_msg_existir,
-    )
-    from editor.models.croqui_model import CroquiModel
-
+    """Valida métodos da classe base ComandoEditor e validador de campos."""
     croqui = Croqui(nome="Croqui Teste")
     model = CroquiModel(croqui)
 
@@ -1001,321 +1062,593 @@ def test_comando_editor_metodos_base_e_validacao():
         cmd.serializar()
 
 
-def test_cmd_migrar_setor_pico_para_grupo():
-    """Testa migração de setor de Pico para Grupo com Undo, Redo e alteração de caminho_novo."""
-    from editor.commands.comandos_protobuf import CmdMigrarSetor
-
+def test_deserializar_comando_desconhecido_lanca_erro():
+    """Garante que classe desconhecida para deserializar_comando levanta ValueError."""
     croqui = Croqui()
-    pico = croqui.picos.add()
-    pico.nome = "Pico Central"
-
-    sg_setor = pico.setores_ou_grupos.add()
-    sg_setor.setor.conteudo.nome = "Savassinha"
-    sg_setor.setor.Extensions[
-        croqui_pb2.ArquivoSetor.ext_metadados_arquivo
-    ].caminho_original = "setor_savassinha.md"
-    sg_setor.setor.Extensions[
-        croqui_pb2.ArquivoSetor.ext_metadados_arquivo
-    ].caminho_novo = "setor_savassinha.md"
-
-    sg_grupo = pico.setores_ou_grupos.add()
-    sg_grupo.grupo.conteudo.nome = "Vale Oculto"
-
     model = CroquiModel(croqui)
-    pilha = QUndoStack()
 
-    cmd = CmdMigrarSetor(
-        model=model,
-        pai_origem=pico,
-        campo_origem="setores_ou_grupos",
-        indice_origem=0,
-        pai_destino=sg_grupo.grupo.conteudo,
-        campo_destino="setores",
-        indice_destino=0,
-        caminho_novo="grupo_vale_oculto_setor_savassinha.md",
-        caminho_antigo="setor_savassinha.md",
-    )
-    pilha.push(cmd)
+    with pytest.raises(ValueError, match="Classe de comando desconhecida"):
+        deserializar_comando({"classe": "ComandoAlien"}, model)
 
-    # Verifica estado após redo/execução
-    assert len(pico.setores_ou_grupos) == 1
-    assert len(sg_grupo.grupo.conteudo.setores) == 1
-    assert sg_grupo.grupo.conteudo.setores[0].conteudo.nome == "Savassinha"
-    assert (
-        sg_grupo.grupo.conteudo.setores[0]
-        .Extensions[croqui_pb2.ArquivoSetor.ext_metadados_arquivo]
-        .caminho_novo
-        == "grupo_vale_oculto_setor_savassinha.md"
-    )
 
-    # Undo
-    pilha.undo()
-    assert len(pico.setores_ou_grupos) == 2
-    assert pico.setores_ou_grupos[0].setor.conteudo.nome == "Savassinha"
-    assert (
-        pico.setores_ou_grupos[0]
-        .setor.Extensions[croqui_pb2.ArquivoSetor.ext_metadados_arquivo]
-        .caminho_novo
-        == "setor_savassinha.md"
-    )
-    assert len(sg_grupo.grupo.conteudo.setores) == 0
+def test_cmd_macro_completo():
+    """Valida o ciclo de vida completo de CmdMacro."""
+    croqui = Croqui()
+    pico = croqui.picos.add(nome="Pico Inicial")
+    model = CroquiModel(croqui)
+
+    macro = CmdMacro(texto="Macro Teste")
+    assert macro.text() == "Macro Teste"
+    assert len(macro.comandos) == 0
+
+    cmd1 = CmdAlterarCampo(model, pico, "nome", "Pico Intermediário")
+    cmd2 = CmdAlterarCampo(model, pico, "descricao", "Nova Descrição")
+    macro.adicionar_comando(cmd1)
+    macro.adicionar_comando(cmd2)
+    assert len(macro.comandos) == 2
 
     # Redo
-    pilha.redo()
-    assert len(pico.setores_ou_grupos) == 1
-    assert len(sg_grupo.grupo.conteudo.setores) == 1
-
-
-def test_cmd_migrar_setor_grupo_para_pico():
-    """Testa migração de setor de dentro de um Grupo para a raiz do Pico."""
-    from editor.commands.comandos_protobuf import CmdMigrarSetor
-
-    croqui = Croqui()
-    pico = croqui.picos.add()
-
-    sg_grupo = pico.setores_ou_grupos.add()
-    sg_grupo.grupo.conteudo.nome = "Vale Oculto"
-    setor_interno = sg_grupo.grupo.conteudo.setores.add()
-    setor_interno.conteudo.nome = "De Cara"
-    setor_interno.Extensions[
-        croqui_pb2.ArquivoSetor.ext_metadados_arquivo
-    ].caminho_original = "grupo_vale_oculto_setor_de_cara.md"
-    setor_interno.Extensions[
-        croqui_pb2.ArquivoSetor.ext_metadados_arquivo
-    ].caminho_novo = "grupo_vale_oculto_setor_de_cara.md"
-
-    model = CroquiModel(croqui)
-    pilha = QUndoStack()
-
-    cmd = CmdMigrarSetor(
-        model=model,
-        pai_origem=sg_grupo.grupo.conteudo,
-        campo_origem="setores",
-        indice_origem=0,
-        pai_destino=pico,
-        campo_destino="setores_ou_grupos",
-        indice_destino=1,
-        caminho_novo="setor_de_cara.md",
-        caminho_antigo="grupo_vale_oculto_setor_de_cara.md",
-    )
-    pilha.push(cmd)
-
-    assert len(sg_grupo.grupo.conteudo.setores) == 0
-    assert len(pico.setores_ou_grupos) == 2
-    assert pico.setores_ou_grupos[1].setor.conteudo.nome == "De Cara"
-    assert (
-        pico.setores_ou_grupos[1]
-        .setor.Extensions[croqui_pb2.ArquivoSetor.ext_metadados_arquivo]
-        .caminho_novo
-        == "setor_de_cara.md"
-    )
-
-    pilha.undo()
-    assert len(sg_grupo.grupo.conteudo.setores) == 1
-    assert len(pico.setores_ou_grupos) == 1
-
-
-def test_cmd_migrar_setor_serializacao_deserializacao():
-    """Testa serialização e deserialização com resolução tardia de caminhos."""
-    from editor.commands.comandos_protobuf import CmdMigrarSetor, deserializar_comando
-
-    croqui = Croqui()
-    pico = croqui.picos.add()
-    pico.nome = "Pico Central"
-
-    sg_setor = pico.setores_ou_grupos.add()
-    sg_setor.setor.conteudo.nome = "Savassinha"
-    sg_grupo = pico.setores_ou_grupos.add()
-    sg_grupo.grupo.conteudo.nome = "Vale Oculto"
-
-    model = CroquiModel(croqui)
-
-    cmd = CmdMigrarSetor(
-        model=model,
-        pai_origem=pico,
-        campo_origem="setores_ou_grupos",
-        indice_origem=0,
-        pai_destino=sg_grupo.grupo.conteudo,
-        campo_destino="setores",
-        indice_destino=0,
-        caminho_novo="grupo_vale_oculto_setor_savassinha.md",
-        caminho_antigo="setor_savassinha.md",
-    )
-
-    dados = cmd.serializar()
-    assert dados["classe"] == "CmdMigrarSetor"
-    assert dados["campo_origem"] == "setores_ou_grupos"
-    assert dados["campo_destino"] == "setores"
-
-    cmd_recriado = deserializar_comando(dados, model)
-    assert isinstance(cmd_recriado, CmdMigrarSetor)
-    assert cmd_recriado.caminho_novo == "grupo_vale_oculto_setor_savassinha.md"
-
-
-def test_cmd_migrar_setor_execucao_apos_deserializacao_e_foco():
-    """Testa que comando deserializado resolve caminhos lazy e notifica foco."""
-    from editor.commands.comandos_protobuf import CmdMigrarSetor, deserializar_comando
-    from editor.models.readonly_proxy import ReadOnlyProxy
-
-    croqui = Croqui()
-    pico = croqui.picos.add()
-    pico.nome = "Pico Central"
-
-    sg_setor = pico.setores_ou_grupos.add()
-    sg_setor.setor.conteudo.nome = "Savassinha"
-    sg_grupo = pico.setores_ou_grupos.add()
-    sg_grupo.grupo.conteudo.nome = "Vale Oculto"
-
-    model = CroquiModel(croqui)
-    foco_recebido = []
-    model.foco_requisitado.connect(lambda ctx: foco_recebido.append(ctx))
-
-    # Testa também passando ReadOnlyProxy nos pais
-    cmd = CmdMigrarSetor(
-        model=model,
-        pai_origem=ReadOnlyProxy(pico),
-        campo_origem="setores_ou_grupos",
-        indice_origem=0,
-        pai_destino=ReadOnlyProxy(sg_grupo.grupo.conteudo),
-        campo_destino="setores",
-        indice_destino=0,
-        caminho_novo="grupo_vale_oculto_setor_savassinha.md",
-        caminho_antigo="setor_savassinha.md",
-        context_path="setores.0",
-    )
-
-    assert cmd.pai_origem == pico
-    dados = cmd.serializar()
-    cmd_recriado = deserializar_comando(dados, model)
-    assert cmd_recriado._pai_origem_cache is None
-    assert cmd_recriado._pai_destino_cache is None
-
-    # Redo usando lazy resolution
-    cmd_recriado.executar_redo()
-    assert len(pico.setores_ou_grupos) == 1
-    assert len(sg_grupo.grupo.conteudo.setores) == 1
-    assert "setores.0" in foco_recebido
-
-    # Undo usando lazy resolution
-    cmd_recriado.undo()
-    assert len(pico.setores_ou_grupos) == 2
-    assert len(sg_grupo.grupo.conteudo.setores) == 0
-
-
-def test_cmd_migrar_setor_casos_borda_e_erros():
-    """Testa caminhos inválidos, model nulo e fallbacks de resolução de pai."""
-    from editor.commands.comandos_protobuf import CmdMigrarSetor
-
-    croqui = Croqui()
-    pico = croqui.picos.add()
-    model = CroquiModel(croqui)
-
-    cmd = CmdMigrarSetor(
-        model=model,
-        pai_origem=pico,
-        campo_origem="setores_ou_grupos",
-        indice_origem=0,
-        pai_destino=pico,
-        campo_destino="setores_ou_grupos",
-        indice_destino=0,
-    )
-
-    # 1. model é None e caminho_msg é None
-    cmd.model = None
-    cmd._pai_origem_cache = None
-    assert cmd._obter_pai(None, "_pai_origem_cache") is None
-
-    # 2. caminho_msg aponta para nó inexistente
-    cmd.model = model
-    cmd.caminho_msg_origem = "caminho.completamente.invalido"
-    assert cmd.pai_origem is None
-
-    # 3. undo e redo com pais não resolvidos abortam silenciosamente
-    cmd.undo()
-    cmd.executar_redo()
-
-    # 4. caminho_msg vazio ("") resolve para a raiz croqui
-    cmd.caminho_msg_origem = ""
-    cmd._pai_origem_cache = None
-    assert cmd.pai_origem == croqui
-
-
-def test_cmd_inserir_botao_markdown_com_anexo_undo_redo():
-    """Valida CmdInserirBotaoMarkdown com anexo em memória, Undo e Redo."""
-    from PySide6.QtGui import QUndoStack
-
-    from aresta_api.proto.generated.croqui_pb2 import Croqui
-    from editor.commands.comandos_protobuf import CmdInserirBotaoMarkdown
-    from editor.models.croqui_model import CroquiModel
-
-    croqui = Croqui()
-    croqui.descricao = "Texto inicial sem botão."
-    model = CroquiModel(croqui)
-    pilha = QUndoStack()
-
-    caminho_anexo = "anexos/formulario_termo.pdf"
-    bytes_anexo = b"%PDF-1.4 Termo de Risco Anexo"
-
-    texto_antigo = croqui.descricao
-    texto_novo = "Texto inicial sem botão.\n\n[Assinar Termo](anexos/formulario_termo.pdf)"
-
-    cmd = CmdInserirBotaoMarkdown(
-        model=model,
-        msg=croqui,
-        campo_nome="descricao",
-        texto_antigo=texto_antigo,
-        texto_novo=texto_novo,
-        caminho_anexo=caminho_anexo,
-        bytes_anexo=bytes_anexo,
-    )
-    pilha.push(cmd)
-
-    # Estado após Redo
-    assert croqui.descricao == texto_novo
-    assert model.obter_bytes_anexo(caminho_anexo) == bytes_anexo
+    macro.executar_redo()
+    assert pico.nome == "Pico Intermediário"
+    assert pico.descricao == "Nova Descrição"
 
     # Undo
-    pilha.undo()
-    assert croqui.descricao == texto_antigo
-    assert model.obter_bytes_anexo(caminho_anexo) is None
+    macro.undo()
+    assert pico.nome == "Pico Inicial"
+    assert pico.descricao == ""
 
-    # Redo novamente
-    pilha.redo()
-    assert croqui.descricao == texto_novo
-    assert model.obter_bytes_anexo(caminho_anexo) == bytes_anexo
+    # Armar carregamento silencioso
+    macro.armar_carregamento_silencioso()
+    macro.redo()
+    # Primeiro redo com a flag não altera
+    assert pico.nome == "Pico Inicial"
+    macro.undo()
+    macro.redo()
+    assert pico.nome == "Pico Intermediário"
+
+    # Serialização e Deserialização
+    dados = macro.serializar()
+    assert dados["classe"] == "CmdMacro"
+    assert len(dados["comandos"]) == 2
+    macro_recriado = deserializar_comando(dados, model)
+    assert isinstance(macro_recriado, CmdMacro)
+    assert len(macro_recriado.comandos) == 2
 
 
-def test_cmd_inserir_botao_markdown_serializacao_deserializacao():
-    """Valida serialização e deserialização do CmdInserirBotaoMarkdown."""
-    from aresta_api.proto.generated.croqui_pb2 import Croqui
-    from editor.commands.comandos_protobuf import CmdInserirBotaoMarkdown, deserializar_comando
-    from editor.models.croqui_model import CroquiModel
-
+def test_cmd_alterar_imagem_merge_e_contexto():
+    """Valida mergeWith, id() e notificação de foco em CmdAlterarImagem."""
     croqui = Croqui()
-    pico = croqui.picos.add()
-    pico.descricao = "Descricao antiga."
     model = CroquiModel(croqui)
 
-    cmd = CmdInserirBotaoMarkdown(
+    foco_recebido: list[str] = []
+    model.foco_requisitado.connect(lambda ctx: foco_recebido.append(ctx))
+
+    cmd1 = CmdAlterarImagem(
         model=model,
-        msg=pico,
-        campo_nome="descricao",
-        texto_antigo="Descricao antiga.",
-        texto_novo="Descricao antiga.\n\n[Acessar Guia](https://aresta.app)",
-        caminho_anexo=None,
-        bytes_anexo=None,
-        context_path="picos.0.descricao",
+        nome_arquivo="setores/foto.webp",
+        bytes_novos=b"FOTO_1",
+        pode_mesclar=True,
+        context_path="campo.foto",
+    )
+    assert cmd1.id() == CmdAlterarImagem.ID_COMANDO
+    cmd1.executar_redo()
+    assert model.obter_bytes_imagem("setores/foto.webp") == b"FOTO_1"
+    assert "campo.foto" in foco_recebido
+
+    cmd2 = CmdAlterarImagem(
+        model=model,
+        nome_arquivo="setores/foto.webp",
+        bytes_novos=b"FOTO_2",
+        pode_mesclar=True,
+        context_path="campo.foto.2",
+    )
+    assert cmd1.mergeWith(cmd2) is True
+    assert model.obter_bytes_imagem("setores/foto.webp") == b"FOTO_2"
+
+    cmd_incompativel = CmdAlterarImagem(
+        model=model,
+        nome_arquivo="setores/outra.webp",
+        bytes_novos=b"FOTO_3",
+        pode_mesclar=True,
+    )
+    assert cmd1.mergeWith(cmd_incompativel) is False
+
+    cmd_sem_merge = CmdAlterarImagem(
+        model=model,
+        nome_arquivo="setores/foto.webp",
+        bytes_novos=b"FOTO_4",
+        pode_mesclar=False,
+    )
+    assert cmd_sem_merge.id() == -1
+    assert cmd1.mergeWith(cmd_sem_merge) is False
+    assert cmd_sem_merge.mergeWith(cmd1) is False
+
+    cmd1.undo()
+    assert model.obter_bytes_imagem("setores/foto.webp") is None
+
+
+def test_cmd_alterar_anexo_merge_e_contexto():
+    """Valida mergeWith, id() e notificação de foco em CmdAlterarAnexo."""
+    croqui = Croqui()
+    model = CroquiModel(croqui)
+
+    foco_recebido: list[str] = []
+    model.foco_requisitado.connect(lambda ctx: foco_recebido.append(ctx))
+
+    cmd1 = CmdAlterarAnexo(
+        model=model,
+        nome_arquivo="docs/manual.pdf",
+        bytes_novos=b"PDF_1",
+        pode_mesclar=True,
+        context_path="campo.manual",
+    )
+    assert cmd1.id() == CmdAlterarAnexo.ID_COMANDO
+    cmd1.executar_redo()
+    assert model.obter_bytes_anexo("docs/manual.pdf") == b"PDF_1"
+    assert "campo.manual" in foco_recebido
+
+    cmd2 = CmdAlterarAnexo(
+        model=model,
+        nome_arquivo="docs/manual.pdf",
+        bytes_novos=b"PDF_2",
+        pode_mesclar=True,
+    )
+    assert cmd1.mergeWith(cmd2) is True
+    assert model.obter_bytes_anexo("docs/manual.pdf") == b"PDF_2"
+
+    cmd_outro = CmdAlterarAnexo(
+        model=model,
+        nome_arquivo="docs/outro.pdf",
+        bytes_novos=b"PDF_3",
+        pode_mesclar=True,
+    )
+    assert cmd1.mergeWith(cmd_outro) is False
+
+    cmd_sem_merge = CmdAlterarAnexo(
+        model=model,
+        nome_arquivo="docs/manual.pdf",
+        bytes_novos=b"PDF_4",
+        pode_mesclar=False,
+    )
+    assert cmd_sem_merge.id() == -1
+    assert cmd1.mergeWith(cmd_sem_merge) is False
+
+
+def test_cmd_alterar_campo_oneof_nome_direto_e_extensao():
+    """Valida CmdAlterarCampo com campo_nome sendo o identificador do oneof e extensão de metadados."""
+    from aresta_api.proto.generated.croqui_pb2 import ArquivoSetor, Boulder
+
+    croqui = Croqui()
+    pico = croqui.picos.add(nome="Pico 1")
+    sg = pico.setores_ou_grupos.add()
+    setor = sg.setor.conteudo
+    setor.uid = "set_oneof_dir"
+    esc = setor.escaladas.add(uid="esc_oneof_dir")
+
+    model = CroquiModel(croqui)
+
+    # 1. Ativa variante via tupla (nome_variante, valor) no oneof "tipo"
+    cmd_oneof = CmdAlterarCampo(
+        model=model,
+        alvo="esc_oneof_dir",
+        campo_nome="tipo",
+        valor_novo=("boulder", Boulder(nome="Bloco Teste")),
+    )
+    cmd_oneof.executar_redo()
+    assert esc.WhichOneof("tipo") == "boulder"
+    assert esc.boulder.nome == "Bloco Teste"
+
+    # Limpa o oneof passando valor_novo=None
+    cmd_limpa = CmdAlterarCampo(
+        model=model,
+        alvo="esc_oneof_dir",
+        campo_nome="tipo",
+        valor_novo=None,
+    )
+    cmd_limpa.executar_redo()
+    assert esc.WhichOneof("tipo") is None
+
+    cmd_limpa.undo()
+    assert esc.WhichOneof("tipo") == "boulder"
+
+    # 2. Extensão de metadados caminho_novo
+    cmd_ext = CmdAlterarCampo(
+        model=model,
+        alvo=sg.setor,
+        campo_nome="ext_metadados_arquivo",
+        valor_novo="setores/novo_caminho.md",
+        field_ext=ArquivoSetor.ext_metadados_arquivo,
+    )
+    cmd_ext.executar_redo()
+    assert (
+        sg.setor.Extensions[ArquivoSetor.ext_metadados_arquivo].caminho_novo
+        == "setores/novo_caminho.md"
+    )
+    cmd_ext.undo()
+    assert sg.setor.Extensions[ArquivoSetor.ext_metadados_arquivo].caminho_novo == ""
+
+
+def test_cmd_repeated_context_path_e_casos_alvo_nulo():
+    """Valida foco_requisitado e tratamento gracioso de alvo apagado em comandos de repeated."""
+    croqui = Croqui()
+    pico = croqui.picos.add(nome="Pico 1")
+    sg = pico.setores_ou_grupos.add()
+    setor = sg.setor.conteudo
+    setor.uid = "set_rep_ctx"
+
+    model = CroquiModel(croqui)
+
+    focos: list[str] = []
+    model.foco_requisitado.connect(lambda ctx: focos.append(ctx))
+
+    t = Trilha(nome="Trilha Foco")
+    cmd_add = CmdAdicionarRepeated(
+        model=model,
+        alvo="set_rep_ctx",
+        campo_nome="trilhas",
+        index=0,
+        valor=t,
+        context_path="trilhas.0.foco",
+    )
+    cmd_add.executar_redo()
+    assert "trilhas.0.foco" in focos
+    cmd_add.undo()
+    assert len(setor.trilhas) == 0
+
+    cmd_add.executar_redo()
+    cmd_rem = CmdRemoverRepeated(
+        model=model,
+        alvo="set_rep_ctx",
+        campo_nome="trilhas",
+        index=0,
+        context_path="trilhas.removida",
+    )
+    cmd_rem.executar_redo()
+    assert "trilhas.removida" in focos
+    cmd_rem.undo()
+
+    cmd_mov = CmdMoverRepeated(
+        model=model,
+        alvo="set_rep_ctx",
+        campo_nome="trilhas",
+        index_from=0,
+        index_to=0,
+        context_path="trilhas.movida",
+    )
+    cmd_mov.executar_redo()
+    assert "trilhas.movida" in focos
+    cmd_mov.undo()
+
+    # Alvo nulo / apagado não quebra nem propaga exceção
+    cmd_add._caminho_msg = "alvo_inexistente"
+    cmd_add._msg_cache = None
+    cmd_add.undo()
+    cmd_add.executar_redo()
+
+    cmd_rem._caminho_msg = "alvo_inexistente"
+    cmd_rem._msg_cache = None
+    cmd_rem.undo()
+    cmd_rem.executar_redo()
+
+    cmd_mov._caminho_msg = "alvo_inexistente"
+    cmd_mov._msg_cache = None
+    cmd_mov.undo()
+    cmd_mov.executar_redo()
+
+
+def test_resolver_caminho_mensagem_direto():
+    """Valida resolver_caminho_mensagem diretamente em todos os seus ramos e tipos de campo."""
+    from editor.commands.comandos_protobuf import resolver_caminho_mensagem
+
+    assert resolver_caminho_mensagem(None, None) == ""
+    croqui = Croqui()
+    assert resolver_caminho_mensagem(croqui, croqui) == ""
+
+    pico = croqui.picos.add(nome="Pico")
+    sg = pico.setores_ou_grupos.add()
+    setor = sg.setor.conteudo
+    esc = setor.escaladas.add(uid="esc_res")
+    via = esc.via_esportiva
+    via.nome = "Via Res"
+
+    assert resolver_caminho_mensagem(croqui, pico) == "picos.0"
+    assert resolver_caminho_mensagem(croqui, sg) == "picos.0.setores_ou_grupos.0"
+    assert resolver_caminho_mensagem(croqui, sg.setor) == "picos.0.setores_ou_grupos.0.setor"
+    assert resolver_caminho_mensagem(croqui, setor) == "picos.0.setores_ou_grupos.0.setor.conteudo"
+    assert (
+        resolver_caminho_mensagem(croqui, esc)
+        == "picos.0.setores_ou_grupos.0.setor.conteudo.escaladas.0"
+    )
+    assert (
+        resolver_caminho_mensagem(croqui, via)
+        == "picos.0.setores_ou_grupos.0.setor.conteudo.escaladas.0.via_esportiva"
     )
 
-    dados = cmd.serializar()
-    assert dados["classe"] == "CmdInserirBotaoMarkdown"
-    assert dados["caminho_msg"] == "picos.0"
-    assert dados["campo_nome"] == "descricao"
-    assert dados["context_path"] == "picos.0.descricao"
+    # Alvo não contido na árvore retorna ""
+    outro_pico = Pico(nome="Outro")
+    assert resolver_caminho_mensagem(croqui, outro_pico) == ""
 
-    cmd_recriado = deserializar_comando(dados, model)
-    assert isinstance(cmd_recriado, CmdInserirBotaoMarkdown)
-    cmd_recriado.executar_redo()
-    assert pico.descricao == "Descricao antiga.\n\n[Acessar Guia](https://aresta.app)"
-    cmd_recriado.undo()
-    assert pico.descricao == "Descricao antiga."
+
+def test_deserializar_comando_legado_delegado():
+    """Garante que deserializar_comando aceita e delega para comandos legados em COMANDOS_LEGADOS_MAP."""
+    croqui = Croqui()
+    pico = croqui.picos.add(nome="Pico Antigo")
+    model = CroquiModel(croqui)
+
+    dados_legado = {
+        "classe": "CmdAlterarPrimitivo",
+        "caminho_msg": "picos.0",
+        "campo_nome": "nome",
+        "valor_antigo": "Pico Antigo",
+        "valor_novo": "Pico Moderno",
+    }
+    cmd = deserializar_comando(dados_legado, model)
+    assert cmd.__class__.__name__ == "CmdAlterarPrimitivo"
+    cmd.executar_redo()
+    assert pico.nome == "Pico Moderno"
+
+
+def test_comandos_protobuf_cobertura_casos_borda():
+    """Cobre casos de borda de proxy, parent, validações de campo com ponto e ramificações de merge."""
+    from PySide6.QtGui import QUndoCommand
+
+    from editor.commands.comandos_protobuf import (
+        _buscar_mensagem_por_uid,
+        _validar_campo_se_msg_existir,
+        navegar_para_alvo,
+        resolver_alvo_mensagem,
+        resolver_caminho_mensagem,
+        validar_pertence_ao_croqui,
+    )
+    from editor.models.readonly_proxy import ReadOnlyProxy
+
+    # 1. ComandoEditor com parent
+    parent_cmd = QUndoCommand()
+    cmd_parent = ComandoEditor(parent=parent_cmd)
+    assert cmd_parent is not None
+
+    # 2. ReadOnlyProxy em resoluções
+    croqui = Croqui()
+    pico = croqui.picos.add(nome="Pico Proxy")
+    proxy_croqui = ReadOnlyProxy(croqui)
+    proxy_pico = ReadOnlyProxy(pico)
+
+    assert resolver_alvo_mensagem(proxy_croqui, proxy_croqui) == ""
+    assert resolver_alvo_mensagem(proxy_croqui, proxy_pico) == "picos.0"
+    assert resolver_alvo_mensagem(None, None) == ""
+    assert resolver_caminho_mensagem(proxy_croqui, proxy_croqui) == ""
+    assert resolver_caminho_mensagem(proxy_croqui, proxy_pico) == "picos.0"
+    assert resolver_caminho_mensagem(croqui, "objeto_sem_descriptor") == ""
+
+    assert _buscar_mensagem_por_uid(proxy_croqui, "uid_inexistente") is None
+    assert _buscar_mensagem_por_uid("objeto_sem_descriptor", "qualquer") is None
+
+    # 3. validar_pertence_ao_croqui com "root", "", e campo com ponto inválido
+    model = CroquiModel(croqui)
+    assert validar_pertence_ao_croqui(model, "root") == ""
+    assert validar_pertence_ao_croqui(model, "") == ""
+    with pytest.raises(ValueError, match="não existe"):
+        validar_pertence_ao_croqui(model, croqui, "campo_invalido.0")
+
+    with pytest.raises(ValueError, match="não existe"):
+        _validar_campo_se_msg_existir(model, "", "campo_invalido.0")
+
+    # 4. navegar_para_alvo com índice uids None e busca por prefixo na árvore
+    pico.setores_ou_grupos.add().setor.conteudo.uid = "set_busca_dir"
+    assert navegar_para_alvo(croqui, "set_busca_dir", indice_uids=None) is not None
+    assert navegar_para_alvo(croqui, "set_busca_dir.mapas.99", indice_uids=None) is None
+
+
+def test_cmd_alterar_campo_casos_borda_merge_e_variantes():
+    """Valida redirecionamento de variante, repeated além do limite e mergeWith."""
+    croqui = Croqui()
+    pico = croqui.picos.add(nome="Pico 1")
+    sg = pico.setores_ou_grupos.add()
+    setor = sg.setor.conteudo
+    setor.uid = "set_borda_001"
+    esc = setor.escaladas.add(uid="esc_borda_001")
+    esc.via_esportiva.nome = "Via Original"
+
+    model = CroquiModel(croqui)
+
+    # 1. Alvo é a própria Escalada (Message), mas campo_nome é "nome" (da variante ativa)
+    cmd_var = CmdAlterarCampo(
+        model=model,
+        alvo=esc,
+        campo_nome="nome",
+        valor_novo="Via Redirecionada",
+    )
+    assert cmd_var.caminho_msg == "esc_borda_001.via_esportiva"
+    cmd_var.executar_redo()
+    assert esc.via_esportiva.nome == "Via Redirecionada"
+
+    # 2. Repeated com índice fora do limite tem valor_antigo inferido como None
+    cmd_rep_lim = CmdAlterarCampo(
+        model=model,
+        alvo=croqui,
+        campo_nome="creditos.99",
+        valor_novo="Credito Extra",
+    )
+    assert cmd_rep_lim.valor_antigo is None
+
+    # 3. Limpeza de variante ativa passando nome da variante e None
+    cmd_limpa_var = CmdAlterarCampo(
+        model=model,
+        alvo="esc_borda_001",
+        campo_nome="via_esportiva",
+        valor_novo=None,
+    )
+    cmd_limpa_var.executar_redo()
+    assert esc.WhichOneof("tipo") is None
+
+    # 4. Extensão inferida automaticamente por nome sem passar field_ext
+    from aresta_api.proto.generated.croqui_pb2 import ArquivoSetor
+
+    # Sem extensão prévia (captura "" como valor_antigo)
+    cmd_ext_nova = CmdAlterarCampo(
+        model=model,
+        alvo=sg.setor,
+        campo_nome="ext_metadados_arquivo",
+        valor_novo="inicial.md",
+    )
+    assert cmd_ext_nova.valor_antigo == ""
+    cmd_ext_nova.executar_redo()
+
+    # Com extensão prévia (captura "inicial.md" como valor_antigo)
+    cmd_ext_auto = CmdAlterarCampo(
+        model=model,
+        alvo=sg.setor,
+        campo_nome="ext_metadados_arquivo",
+        valor_novo="novo.md",
+    )
+    assert cmd_ext_auto.valor_antigo == "inicial.md"
+    cmd_ext_auto.executar_redo()
+    assert sg.setor.Extensions[ArquivoSetor.ext_metadados_arquivo].caminho_novo == "novo.md"
+
+    # Restaura variante para testar navegação interna
+    cmd_limpa_var.undo()
+    assert esc.WhichOneof("tipo") == "via_esportiva"
+
+    # Navegação por UID com resolução de variante ativa interna
+    assert navegar_para_alvo(croqui, "esc_borda_001.nome", model.indice_uids) is not None
+    # Navegação direta para variante inativa retorna None
+    assert navegar_para_mensagem(esc, "boulder") is None
+
+    # 5. mergeWith com context_path, tipos incompatíveis e alvo nulo
+    cmd1 = CmdAlterarCampo(
+        model=model,
+        alvo=pico,
+        campo_nome="descricao",
+        valor_novo="A",
+        pode_mesclar=True,
+        session_id="s1",
+    )
+    assert cmd1.id() == CmdAlterarCampo.ID_COMANDO
+
+    cmd_sem_merge = CmdAlterarCampo(
+        model=model,
+        alvo=pico,
+        campo_nome="descricao",
+        valor_novo="A",
+        pode_mesclar=False,
+    )
+    assert cmd_sem_merge.id() == -1
+
+    cmd2 = CmdAlterarCampo(
+        model=model,
+        alvo=pico,
+        campo_nome="descricao",
+        valor_novo="AB",
+        pode_mesclar=True,
+        session_id="s1",
+        context_path="desc.foco",
+    )
+    assert cmd1.mergeWith(cmd2) is True
+    assert cmd1.context_path == "desc.foco"
+
+    # mergeWith quando outro não pode mesclar
+    cmd2_sem_merge = CmdAlterarCampo(
+        model=model,
+        alvo=pico,
+        campo_nome="descricao",
+        valor_novo="ABC",
+        pode_mesclar=False,
+        session_id=None,
+    )
+    assert cmd1.mergeWith(cmd2_sem_merge) is False
+    assert cmd_sem_merge.mergeWith(cmd1) is False
+
+    cmd_outro_tipo = CmdAlterarImagem(
+        model=model, nome_arquivo="x.webp", bytes_novos=b"1", pode_mesclar=True
+    )
+    assert cmd1.mergeWith(cmd_outro_tipo) is False
+
+    cmd_outro_alvo = CmdAlterarCampo(
+        model=model,
+        alvo="set_borda_001",
+        campo_nome="descricao",
+        valor_novo="Outro",
+        pode_mesclar=True,
+        session_id="s1",
+    )
+    assert cmd1.mergeWith(cmd_outro_alvo) is False
+
+    # Alvo nulo / apagado em ambos os comandos
+    cmd1._caminho_msg = "inexistente"
+    cmd1._msg_cache = None
+    cmd_alvo_nulo2 = CmdAlterarCampo(
+        model=model,
+        alvo=pico,
+        campo_nome="descricao",
+        valor_novo="ABC",
+        pode_mesclar=True,
+        session_id="s1",
+    )
+    cmd_alvo_nulo2._caminho_msg = "inexistente"
+    cmd_alvo_nulo2._msg_cache = None
+    assert cmd1.mergeWith(cmd_alvo_nulo2) is False
+
+    # 6. mergeWith em CmdAlterarImagem e CmdAlterarAnexo com tipos incompatíveis e context_path
+    cmd_img1 = CmdAlterarImagem(
+        model=model, nome_arquivo="a.webp", bytes_novos=b"1", pode_mesclar=True
+    )
+    cmd_img2 = CmdAlterarImagem(
+        model=model,
+        nome_arquivo="a.webp",
+        bytes_novos=b"2",
+        pode_mesclar=True,
+        context_path="img.foco",
+    )
+    assert cmd_img1.mergeWith(cmd_img2) is True
+    assert cmd_img1.context_path == "img.foco"
+    assert cmd_img1.mergeWith(cmd1) is False
+    assert cmd_img1.mergeWith("invalido") is False
+
+    cmd_anx1 = CmdAlterarAnexo(
+        model=model, nome_arquivo="a.pdf", bytes_novos=b"1", pode_mesclar=True
+    )
+    cmd_anx2 = CmdAlterarAnexo(
+        model=model,
+        nome_arquivo="a.pdf",
+        bytes_novos=b"2",
+        pode_mesclar=True,
+        context_path="anx.foco",
+    )
+    assert cmd_anx1.mergeWith(cmd_anx2) is True
+    assert cmd_anx1.context_path == "anx.foco"
+    assert cmd_anx1.mergeWith(cmd1) is False
+    assert cmd_anx1.mergeWith("invalido") is False
+
+    # Resolução de caminho e alvo com submensagens aninhadas e proxy
+    assert resolver_caminho_mensagem(sg, sg.setor.conteudo) == "setor.conteudo"
+    assert resolver_caminho_mensagem("string_sem_descriptor", pico) == ""
+    proxy_croqui = ReadOnlyProxy(croqui)
+    assert (
+        resolver_caminho_mensagem(proxy_croqui, sg.setor.conteudo)
+        == "picos.0.setores_ou_grupos.0.setor.conteudo"
+    )
+
+    class IndiceComProxy:
+        def obter_objeto(self, uid):
+            if uid == "set_proxy_ancora":
+                return ReadOnlyProxy(setor)
+            return None
+
+    assert navegar_para_alvo(croqui, "set_proxy_ancora.nome", indice_uids=IndiceComProxy()) is not None
+    assert navegar_para_mensagem(None, "picos.0") is None
+    assert navegar_para_mensagem(proxy_croqui, "picos.0") is pico
+    assert navegar_para_mensagem(object(), "campo_totalmente_inexistente") is None
+
+    # Primitivo escalar sem has_presence (sint32 latitude em Coordenada)
+    pico.localizacao.latitude = -200000000
+    cmd_coord = CmdAlterarCampo(
+        model=model,
+        alvo=pico.localizacao,
+        campo_nome="latitude",
+        valor_novo=-210000000,
+    )
+    assert cmd_coord.valor_antigo == -200000000
+    cmd_coord.executar_redo()
+    assert pico.localizacao.latitude == -210000000
+    cmd_coord.undo()
+    assert pico.localizacao.latitude == -200000000

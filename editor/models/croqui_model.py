@@ -76,6 +76,18 @@ class CroquiModel(QObject):
         """Retorna o modelo de índice de UIDs universal do croqui."""
         return self._indice_uids
 
+    def obter_objeto_por_uid(self, uid: str | None) -> Any | None:
+        """Retorna a instância da mensagem Protobuf correspondente ao UID ou None se não existir."""
+        if not uid:
+            return None
+        if hasattr(self, "_indice_uids") and self._indice_uids is not None:
+            obj = self._indice_uids.obter_objeto(str(uid))
+            if obj is not None:
+                return obj
+        from editor.commands.comandos_protobuf import navegar_para_alvo
+
+        return navegar_para_alvo(self.__croqui, str(uid), getattr(self, "_indice_uids", None))
+
     def definir_caminho_db(self, caminho_db: Any) -> None:
         """Define o caminho base do banco de dados/croqui no disco para busca de arquivos."""
         from pathlib import Path
@@ -165,14 +177,22 @@ class CroquiModel(QObject):
 
     def _set_primitivo(self, msg: Any, campo_nome: str, valor_novo: Any) -> None:
         msg = self.__desembrulhar_proxy(msg)
-        if valor_novo is None or valor_novo == "":
+        if valor_novo is None:
             try:
                 msg.ClearField(campo_nome)
             except ValueError:
-                # Campo já limpo ou não presente
+                pass
+        elif isinstance(valor_novo, str) and valor_novo == "":
+            try:
+                msg.ClearField(campo_nome)
+            except ValueError:
                 pass
         else:
-            setattr(msg, campo_nome, _copia_segura(valor_novo))
+            valor_seguro = _copia_segura(valor_novo)
+            if isinstance(valor_seguro, Message):
+                getattr(msg, campo_nome).CopyFrom(valor_seguro)
+            else:
+                setattr(msg, campo_nome, valor_seguro)
 
         if hasattr(self, "_indice_uids") and self._indice_uids is not None:
             from editor.models.indice_uids_model import TipoEntidadeUid
@@ -304,6 +324,8 @@ class CroquiModel(QObject):
         if hasattr(self, "_indice_uids") and self._indice_uids is not None:
             self._indice_uids.carregar_do_croqui(self.__croqui)
         self.oneof_alterado.emit(msg, campo_afetado)
+        if campo_novo or nome_antigo:
+            self.dado_alterado.emit(msg, str(campo_novo or nome_antigo))
 
     def _alterar_metadados_caminho_novo(
         self, msg: Any, ext_descriptor: Any, valor_novo: Any

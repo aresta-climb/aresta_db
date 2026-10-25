@@ -135,7 +135,7 @@ def test_registrar_contexto_croqui(mock_sentry):
 def test_anexar_diario_escopo(mock_sentry, tmp_path):
     mock_diario = MagicMock()
     mock_diario.exportar_diario_anonimizado.return_value = [
-        {"classe": "CmdAlterarPrimitivo", "campo": "nome"}
+        {"classe": "CmdAlterarCampo", "campo": "nome"}
     ]
 
     anexar_diario_escopo(mock_diario)
@@ -177,7 +177,7 @@ def test_registrar_breadcrumb_comando(mock_sentry):
     mock_cmd = MagicMock()
     mock_cmd.campo_nome = "nome"
     mock_cmd.context_path = "picos.0"
-    type(mock_cmd).__name__ = "CmdAlterarPrimitivo"
+    type(mock_cmd).__name__ = "CmdAlterarCampo"
 
     registrar_breadcrumb_comando(mock_cmd)
 

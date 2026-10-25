@@ -916,6 +916,67 @@ class MapasControllerTest(unittest.TestCase):
         self.assertEqual(ref_criada.alvo_uid, escalada_criada.uid)
         self.assertIn(poi_criado.uid, ref_criada.pontos_uids)
 
+    def test_converter_boxes_e_circulos_branches(self):
+        # 1. Converter um único box para círculo (len(cmds) == 1)
+        poi_box = croqui_pb2.Mapa.PontoDeInteresse(uid="box_1")
+        poi_box.retangulo.x = 10
+        poi_box.retangulo.y = 20
+        poi_box.retangulo.comprimento = 30
+        poi_box.retangulo.largura = 30
+        self.controller.adicionar_poi(self.msg_mapa_proxy, poi_box)
+        idx_box = len(self.mapa.pontos_de_interesse) - 1
+
+        self.controller.converter_boxes_para_circulos(self.msg_mapa_proxy, [idx_box])
+        self.assertTrue(self.mapa.pontos_de_interesse[idx_box].HasField("circulo"))
+
+        # 2. Converter múltiplos círculos para boxes (len(cmds) > 1)
+        poi_circ1 = croqui_pb2.Mapa.PontoDeInteresse(uid="circ_1")
+        poi_circ1.circulo.x = 5
+        poi_circ1.circulo.y = 5
+        poi_circ1.circulo.raio = 10
+        poi_circ2 = croqui_pb2.Mapa.PontoDeInteresse(uid="circ_2")
+        poi_circ2.circulo.x = 25
+        poi_circ2.circulo.y = 25
+        poi_circ2.circulo.raio = 15
+        self.controller.adicionar_poi(self.msg_mapa_proxy, poi_circ1)
+        self.controller.adicionar_poi(self.msg_mapa_proxy, poi_circ2)
+        idx_c1 = len(self.mapa.pontos_de_interesse) - 2
+        idx_c2 = len(self.mapa.pontos_de_interesse) - 1
+
+        self.controller.converter_circulos_para_boxes(self.msg_mapa_proxy, [idx_c1, idx_c2])
+        self.assertTrue(self.mapa.pontos_de_interesse[idx_c1].HasField("retangulo"))
+        self.assertTrue(self.mapa.pontos_de_interesse[idx_c2].HasField("retangulo"))
+
+    def test_adicionar_mapa_com_arquivo(self):
+        setor = self.croqui.picos[0].setores_ou_grupos[0].setor.conteudo
+        novo_mapa = croqui_pb2.Mapa(caminho_imagem_mapa="mapas/novo.webp")
+        img_bytes = b"bytes_imagem_mapa"
+
+        # Com imagem e caminho_imagem_mapa
+        self.controller.adicionar_mapa_com_arquivo(
+            msg_pai=setor,
+            campo_nome="mapas",
+            index=len(setor.mapas),
+            valor_mapa=novo_mapa,
+            caminho_absoluto=None,
+            img_bytes=img_bytes,
+        )
+        self.assertEqual(len(setor.mapas), 2)
+        self.assertEqual(self.model.obter_bytes_imagem("mapas/novo.webp"), img_bytes)
+
+        # Sem bytes de imagem (len(comandos) == 1)
+        mapa_sem_img = croqui_pb2.Mapa()
+        self.controller.adicionar_mapa_com_arquivo(
+            msg_pai=setor,
+            campo_nome="mapas",
+            index=len(setor.mapas),
+            valor_mapa=mapa_sem_img,
+            caminho_absoluto=None,
+            img_bytes=None,
+        )
+        self.assertEqual(len(setor.mapas), 3)
+
 
 if __name__ == "__main__":
+
     unittest.main()

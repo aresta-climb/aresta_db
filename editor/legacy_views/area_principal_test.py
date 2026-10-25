@@ -1237,7 +1237,7 @@ def test_recuperacao_de_crash_ao_reabrir_croqui_com_pendencias(qtbot, tmp_path):
     diario = GerenciadorDiario(pasta_croqui)
     diario.gravar_comando_pendente(
         {
-            "classe": "CmdAlterarPrimitivo",
+            "classe": "CmdAlterarCampo",
             "caminho_msg": "node:root",
             "campo_nome": "nome",
             "valor_antigo": "Nome Original",
@@ -1283,7 +1283,7 @@ def test_reabrir_croqui_com_diario_salvo_habilita_undo_e_preserva_historico(qtbo
     diario = GerenciadorDiario(pasta_croqui)
     diario.gravar_comando_pendente(
         {
-            "classe": "CmdAlterarPrimitivo",
+            "classe": "CmdAlterarCampo",
             "caminho_msg": "",
             "campo_nome": "nome",
             "valor_antigo": "Nome Base Original",
@@ -1338,7 +1338,7 @@ def test_recuperacao_de_crash_com_diario_salvo_e_pendente_permite_undo_imediato_
     # 1. Comando que foi consolidado no passado
     diario.gravar_comando_pendente(
         {
-            "classe": "CmdAlterarPrimitivo",
+            "classe": "CmdAlterarCampo",
             "caminho_msg": "",
             "campo_nome": "nome",
             "valor_antigo": "Nome Base Original",
@@ -1351,7 +1351,7 @@ def test_recuperacao_de_crash_com_diario_salvo_e_pendente_permite_undo_imediato_
     # 2. Comando que estava pendente quando ocorreu o crash
     diario.gravar_comando_pendente(
         {
-            "classe": "CmdAlterarPrimitivo",
+            "classe": "CmdAlterarCampo",
             "caminho_msg": "",
             "campo_nome": "nome",
             "valor_antigo": "Nome Salvo",

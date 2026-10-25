@@ -6,7 +6,8 @@ from typing import Any
 
 from editor.commands.comandos_protobuf import (
     CmdAdicionarRepeated,
-    CmdAlterarRepeatedItem,
+    CmdAlterarCampo,
+    CmdAlterarImagem,
     CmdMacro,
     CmdRemoverRepeated,
 )
@@ -74,7 +75,6 @@ class MapasController:
 
     def converter_boxes_para_circulos(self, msg_mapa_proxy: Any, indices: list[int]) -> None:
         """Converte múltiplos POIs do tipo box para circular de uma só vez."""
-        from editor.commands.comandos_protobuf import CmdAlterarMultiplosRepeatedItems
         from editor.models.readonly_proxy import _copia_segura
 
         alteracoes = []
@@ -95,18 +95,24 @@ class MapasController:
             alteracoes.append((index, poi_antigo, poi_novo))
 
         if alteracoes:
-            cmd = CmdAlterarMultiplosRepeatedItems(
-                model=self.model,
-                msg=msg_mapa_proxy,
-                campo_nome="pontos_de_interesse",
-                alteracoes=alteracoes,
-                context_path=self.contexto_atual_path,
-            )
-            self._executar_comando(cmd)
+            cmds = [
+                CmdAlterarCampo(
+                    model=self.model,
+                    alvo=msg_mapa_proxy,
+                    campo_nome=f"pontos_de_interesse.{idx}",
+                    valor_antigo=antigo,
+                    valor_novo=novo,
+                    context_path=self.contexto_atual_path,
+                )
+                for idx, antigo, novo in alteracoes
+            ]
+            if len(cmds) == 1:
+                self._executar_comando(cmds[0])
+            else:
+                self._executar_comando(CmdMacro(cmds, texto="Converter Boxes para Círculos"))
 
     def converter_circulos_para_boxes(self, msg_mapa_proxy: Any, indices: list[int]) -> None:
         """Converte múltiplos POIs do tipo circular para box de uma só vez."""
-        from editor.commands.comandos_protobuf import CmdAlterarMultiplosRepeatedItems
         from editor.models.readonly_proxy import _copia_segura
 
         alteracoes = []
@@ -128,14 +134,21 @@ class MapasController:
             alteracoes.append((index, poi_antigo, poi_novo))
 
         if alteracoes:
-            cmd = CmdAlterarMultiplosRepeatedItems(
-                model=self.model,
-                msg=msg_mapa_proxy,
-                campo_nome="pontos_de_interesse",
-                alteracoes=alteracoes,
-                context_path=self.contexto_atual_path,
-            )
-            self._executar_comando(cmd)
+            cmds = [
+                CmdAlterarCampo(
+                    model=self.model,
+                    alvo=msg_mapa_proxy,
+                    campo_nome=f"pontos_de_interesse.{idx}",
+                    valor_antigo=antigo,
+                    valor_novo=novo,
+                    context_path=self.contexto_atual_path,
+                )
+                for idx, antigo, novo in alteracoes
+            ]
+            if len(cmds) == 1:
+                self._executar_comando(cmds[0])
+            else:
+                self._executar_comando(CmdMacro(cmds, texto="Converter Círculos para Boxes"))
 
     def adicionar_poi(self, msg_mapa_proxy: Any, poi_novo: Any) -> None:
         """Adiciona um POI ao mapa garantindo uid e rotulo."""
@@ -177,11 +190,10 @@ class MapasController:
         if precisa_cascata:
             self.iniciar_grupo_undo(f"Renomear UID de POI {uid_antigo} para {uid_novo}")
         try:
-            cmd = CmdAlterarRepeatedItem(
+            cmd = CmdAlterarCampo(
                 model=self.model,
-                msg=msg_mapa_proxy,
-                campo_nome="pontos_de_interesse",
-                index=index,
+                alvo=msg_mapa_proxy,
+                campo_nome=f"pontos_de_interesse.{index}",
                 valor_antigo=poi_antigo,
                 valor_novo=poi_novo,
                 context_path=self.contexto_atual_path,
@@ -348,11 +360,10 @@ class MapasController:
         self, msg_mapa_proxy: Any, index: int, ref_antiga: Any, ref_nova: Any
     ) -> None:
         """Altera uma referência."""
-        cmd = CmdAlterarRepeatedItem(
+        cmd = CmdAlterarCampo(
             model=self.model,
-            msg=msg_mapa_proxy,
-            campo_nome="referencias",
-            index=index,
+            alvo=msg_mapa_proxy,
+            campo_nome=f"referencias.{index}",
             valor_antigo=ref_antiga,
             valor_novo=ref_nova,
             context_path=self.contexto_atual_path,
@@ -373,15 +384,57 @@ class MapasController:
         context_path: str | None = None,
     ) -> None:
         """Despacha comando de substituição de imagem em memória RAM via GerenciadorHistorico / QUndoStack."""
-        from editor.commands.comandos_protobuf import CmdSubstituirImagemMemoria
-
         if bytes_antigo is None:
             bytes_antigo = self.model.obter_bytes_imagem(caminho_relativo)
         ctx = context_path if context_path is not None else self.contexto_atual_path
-        cmd = CmdSubstituirImagemMemoria(
-            self.model, caminho_relativo, bytes_antigo, bytes_novo, ctx
+        cmd = CmdAlterarImagem(
+            model=self.model,
+            nome_arquivo=caminho_relativo,
+            bytes_novos=bytes_novo,
+            bytes_antigos=bytes_antigo,
+            context_path=ctx,
         )
         self._executar_comando(cmd)
+
+    def adicionar_mapa_com_arquivo(
+        self,
+        msg_pai: Any,
+        campo_nome: str,
+        index: int,
+        valor_mapa: Any,
+        caminho_absoluto: Any,
+        img_bytes: bytes | None,
+    ) -> None:
+        """Adiciona um mapa ao pai e carrega sua imagem em RAM via CmdMacro."""
+        caminho_rel = (
+            str(valor_mapa.caminho_imagem_mapa)
+            if hasattr(valor_mapa, "caminho_imagem_mapa") and valor_mapa.caminho_imagem_mapa
+            else (Path(caminho_absoluto).name if caminho_absoluto else "")
+        )
+        comandos: list[Any] = []
+        if caminho_rel and img_bytes:
+            comandos.append(
+                CmdAlterarImagem(
+                    model=self.model,
+                    nome_arquivo=caminho_rel,
+                    bytes_novos=img_bytes,
+                    context_path=self.contexto_atual_path,
+                )
+            )
+        comandos.append(
+            CmdAdicionarRepeated(
+                model=self.model,
+                alvo=msg_pai,
+                campo_nome=campo_nome,
+                index=index,
+                valor=valor_mapa,
+                context_path=self.contexto_atual_path,
+            )
+        )
+        if len(comandos) == 1:
+            self._executar_comando(comandos[0])
+        else:
+            self._executar_comando(CmdMacro(comandos, texto="Adicionar Mapa com Arquivo"))
 
     def adicionar_rota_com_tracado(
         self,

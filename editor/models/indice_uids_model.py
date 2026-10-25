@@ -110,6 +110,7 @@ class IndiceUidsModel(QObject):
         super().__init__(parent)
         self._registros: dict[str, RegistroUid] = {}
         self._obj_id_para_uid: dict[int, str] = {}
+        self._uid_para_obj: dict[str, Any] = {}
         if croqui is not None:
             self.carregar_do_croqui(croqui)
 
@@ -151,6 +152,7 @@ class IndiceUidsModel(QObject):
         """Reconstrói completamente o índice a partir do objeto raiz do croqui."""
         self._registros.clear()
         self._obj_id_para_uid.clear()
+        self._uid_para_obj.clear()
         croqui = _desembrulhar(croqui)
         if not croqui:
             self.indice_alterado.emit()
@@ -168,6 +170,7 @@ class IndiceUidsModel(QObject):
                         texto_botao=getattr(b, "texto", ""),
                     )
                     self._obj_id_para_uid[id(b)] = uid_b
+                    self._uid_para_obj[uid_b] = b
 
         # 2. Picos e suas árvores
         if hasattr(croqui, "picos"):
@@ -201,6 +204,7 @@ class IndiceUidsModel(QObject):
                 nome_grupo=nome_g,
             )
             self._obj_id_para_uid[id(grupo)] = uid_g
+            self._uid_para_obj[uid_g] = grupo
 
         if hasattr(grupo, "setores"):
             for s_item in grupo.setores:
@@ -226,6 +230,7 @@ class IndiceUidsModel(QObject):
                 nome_setor=nome_s,
             )
             self._obj_id_para_uid[id(setor)] = uid_s
+            self._uid_para_obj[uid_s] = setor
 
         if hasattr(setor, "escaladas"):
             for esc in setor.escaladas:
@@ -260,11 +265,13 @@ class IndiceUidsModel(QObject):
                 nome_escalada=nome_e,
             )
             self._obj_id_para_uid[id(esc)] = uid_e
+            self._uid_para_obj[uid_e] = esc
             if hasattr(esc, "WhichOneof"):
                 tipo = esc.WhichOneof("tipo")
                 if tipo:
                     sub = getattr(esc, tipo)
                     self._obj_id_para_uid[id(sub)] = uid_e
+                    self._uid_para_obj[f"{uid_e}.{tipo}"] = sub
 
         # Enfiadas se for via de múltiplas enfiadas
         if hasattr(esc, "WhichOneof") and esc.WhichOneof("tipo") == "via_multiplas_enfiadas":
@@ -285,11 +292,23 @@ class IndiceUidsModel(QObject):
                         escalada_pai_uid=uid_e,
                     )
                     self._obj_id_para_uid[id(enf)] = uid_enf
+                    self._uid_para_obj[uid_enf] = enf
                     if hasattr(enf, "WhichOneof"):
                         tipo_enf = enf.WhichOneof("tipo")
                         if tipo_enf:
                             sub_enf = getattr(enf, tipo_enf)
                             self._obj_id_para_uid[id(sub_enf)] = uid_enf
+                            self._uid_para_obj[f"{uid_enf}.{tipo_enf}"] = sub_enf
+
+    def obter_objeto(self, uid: str) -> Any | None:
+        """Retorna a mensagem Protobuf correspondente ao UID ou None se não existir."""
+        if not uid:
+            return None
+        return self._uid_para_obj.get(str(uid))
+
+    def obter_objeto_por_uid(self, uid: str) -> Any | None:
+        """Alias para obter_objeto."""
+        return self.obter_objeto(uid)
 
     # ==========================================================================
     # Mutações Granulares
@@ -400,6 +419,7 @@ class IndiceUidsModel(QObject):
             ]
             for u in uids_remover:
                 self._registros.pop(u, None)
+                self._uid_para_obj.pop(u, None)
         elif reg.tipo_id == TipoEntidadeUid.SETOR:
             # Remove o setor e todas as escaladas filhas
             uids_remover = [
@@ -407,6 +427,7 @@ class IndiceUidsModel(QObject):
             ]
             for u in uids_remover:
                 self._registros.pop(u, None)
+                self._uid_para_obj.pop(u, None)
         elif reg.tipo_id == TipoEntidadeUid.ESCALADA:
             # Remove a via e suas enfiadas
             uids_remover = [
@@ -414,7 +435,9 @@ class IndiceUidsModel(QObject):
             ]
             for u in uids_remover:
                 self._registros.pop(u, None)
+                self._uid_para_obj.pop(u, None)
         else:
             self._registros.pop(uid, None)
+            self._uid_para_obj.pop(uid, None)
 
         self.indice_alterado.emit()

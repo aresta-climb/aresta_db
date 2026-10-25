@@ -263,7 +263,7 @@ def test_croqui_controller_mover_repeated_para_posicao(qapp):
 
 def test_croqui_controller_adicionar_mapa_com_arquivo(qapp, tmp_path):
     from aresta_api.proto.generated.croqui_pb2 import Mapa
-    from editor.commands.comandos_mapas import CmdAdicionarMapaArquivo
+    from editor.commands.comandos_protobuf import CmdMacro
 
     croqui = Croqui()
     pico = croqui.picos.add()
@@ -287,9 +287,10 @@ def test_croqui_controller_adicionar_mapa_com_arquivo(qapp, tmp_path):
 
     assert undo_stack.count() == 1
     cmd = undo_stack.command(0)
-    assert isinstance(cmd, CmdAdicionarMapaArquivo)
+    assert isinstance(cmd, CmdMacro)
     assert len(proxy_setor.mapas) == 1
     assert model.obter_bytes_imagem("imagens/mapa.webp") == img_bytes
+
 
 
 def test_croqui_controller_substituir_imagem(qapp):
@@ -452,13 +453,13 @@ def test_croqui_controller_grava_no_diario_com_gerenciador_historico(qapp, tmp_p
     assert diario.tem_alteracoes_pendentes()
     comandos_pendentes = diario.ler_diario_pendente()
     assert len(comandos_pendentes) == 1
-    assert comandos_pendentes[0]["classe"] == "CmdAlterarPrimitivo"
+    assert comandos_pendentes[0]["classe"] == "CmdAlterarCampo"
     assert comandos_pendentes[0]["valor_novo"] == "Modificado"
 
 
 def test_croqui_controller_alterar_primitivo_escalada_cria_cmd_renomear_escalada(qapp):
     from aresta_api.proto.generated import croqui_pb2
-    from editor.commands.comandos_protobuf import CmdRenomearEscalada
+    from editor.commands.comandos_protobuf import CmdAlterarCampo
 
     croqui = croqui_pb2.Croqui()
     pico = croqui.picos.add(nome="Pico 1")
@@ -497,9 +498,9 @@ def test_croqui_controller_alterar_primitivo_escalada_cria_cmd_renomear_escalada
         proxy_via, "nome", "Via Inicial", "Via Renomeada", pode_mesclar=True, session_id=42
     )
 
-    # Verifica que o comando gerado foi CmdRenomearEscalada
+    # Verifica que o comando gerado foi CmdAlterarCampo
     cmd = undo_stack.command(0)
-    assert isinstance(cmd, CmdRenomearEscalada)
+    assert isinstance(cmd, CmdAlterarCampo)
     assert cmd.session_id == 42
     assert proxy_via.nome == "Via Renomeada"
     assert proxy_ref.alvo_uid == "via_1"
@@ -520,7 +521,7 @@ def test_croqui_controller_alterar_primitivo_escalada_cria_cmd_renomear_escalada
 
 def test_croqui_controller_renomear_escalada_direto(qapp):
     from aresta_api.proto.generated import croqui_pb2
-    from editor.commands.comandos_protobuf import CmdRenomearEscalada
+    from editor.commands.comandos_protobuf import CmdAlterarCampo
 
     croqui = croqui_pb2.Croqui()
     pico = croqui.picos.add(nome="Pico 1")
@@ -559,7 +560,7 @@ def test_croqui_controller_renomear_escalada_direto(qapp):
     )
 
     cmd = undo_stack.command(0)
-    assert isinstance(cmd, CmdRenomearEscalada)
+    assert isinstance(cmd, CmdAlterarCampo)
     assert cmd.session_id == 10
     assert proxy_boulder.nome == "Boulder Novo"
     assert proxy_ref.alvo_uid == "boulder_1"
@@ -580,7 +581,7 @@ def test_croqui_controller_renomear_escalada_direto(qapp):
 
 
 def test_croqui_controller_inserir_imagem_markdown(qapp):
-    from editor.commands.comandos_protobuf import CmdInserirImagemMarkdown
+    from editor.commands.comandos_protobuf import CmdMacro
 
     croqui = Croqui()
     croqui.descricao = "Descricao antes"
@@ -601,7 +602,7 @@ def test_croqui_controller_inserir_imagem_markdown(qapp):
     assert proxy.descricao == "Descricao antes\n![Foto](imagens/via.webp)"
     assert model.obter_imagens_em_memoria().get("imagens/via.webp") == b"bytes_da_imagem"
     assert undo_stack.count() == 1
-    assert isinstance(undo_stack.command(0), CmdInserirImagemMarkdown)
+    assert isinstance(undo_stack.command(0), CmdMacro)
 
     undo_stack.undo()
     assert proxy.descricao == "Descricao antes"
@@ -609,7 +610,7 @@ def test_croqui_controller_inserir_imagem_markdown(qapp):
 
 
 def test_croqui_controller_inserir_botao_markdown(qapp):
-    from editor.commands.comandos_protobuf import CmdInserirBotaoMarkdown
+    from editor.commands.comandos_protobuf import CmdMacro
 
     croqui = Croqui()
     croqui.descricao = "Texto base"
@@ -629,14 +630,15 @@ def test_croqui_controller_inserir_botao_markdown(qapp):
 
     assert proxy.descricao == "Texto base\n[Guia PDF](anexos/guia.pdf)"
     assert undo_stack.count() == 1
-    assert isinstance(undo_stack.command(0), CmdInserirBotaoMarkdown)
+    assert isinstance(undo_stack.command(0), CmdMacro)
 
     undo_stack.undo()
     assert proxy.descricao == "Texto base"
 
 
+
 def test_croqui_controller_alterar_primitivo_escalada_mescla_mesma_sessao(qapp):
-    """Garante que digitações consecutivas com mesmo session_id mesclam no mesmo CmdRenomearEscalada."""
+    """Garante que digitações consecutivas com mesmo session_id mesclam no mesmo CmdAlterarCampo."""
     from aresta_api.proto.generated import croqui_pb2
 
     croqui = croqui_pb2.Croqui()
@@ -716,7 +718,7 @@ def test_croqui_controller_alterar_primitivo_escalada_mescla_mesma_sessao(qapp):
     assert undo_stack.count() == 3
     assert proxy_via.nome == "Via ABC"
 
-    # Quando o topo da pilha é outro comando (não CmdRenomearEscalada), cria novo CmdRenomearEscalada
+    # Quando o topo da pilha é outro comando (não CmdAlterarCampo), cria novo CmdAlterarCampo
     controller.alterar_primitivo(proxy_via, "extensao", 0, 25)
     controller.alterar_primitivo(
         proxy_via, "nome", "Via ABC", "Via ABCD", pode_mesclar=True, session_id=100
@@ -726,7 +728,7 @@ def test_croqui_controller_alterar_primitivo_escalada_mescla_mesma_sessao(qapp):
 
 
 def test_croqui_controller_migrar_setor(qapp):
-    """Testa que controller despacha CmdMigrarSetor na pilha de undo."""
+    """Testa que controller despacha CmdMacro na pilha de undo."""
     croqui = Croqui()
     pico = croqui.picos.add()
     pico.nome = "Pico Central"
@@ -754,3 +756,59 @@ def test_croqui_controller_migrar_setor(qapp):
     assert undo_stack.count() == 1
     assert len(pico.setores_ou_grupos) == 1
     assert len(sg_grupo.grupo.conteudo.setores) == 1
+
+
+def test_croqui_controller_comandos_individuais_e_migracao_reversa(qapp):
+    """Cobre branches de comando único (len==1) e migração de Grupo para Pico."""
+    from aresta_api.proto.generated.croqui_pb2 import Mapa
+
+    croqui = Croqui()
+    pico = croqui.picos.add(nome="Pico 1")
+    sg_grupo = pico.setores_ou_grupos.add()
+    sg_grupo.grupo.conteudo.nome = "Grupo 1"
+    setor_grupo = sg_grupo.grupo.conteudo.setores.add()
+    setor_grupo.conteudo.nome = "Setor no Grupo"
+
+    model = CroquiModel(croqui)
+    undo_stack = QUndoStack()
+    controller = CroquiController(model, undo_stack)
+
+    # 1. alterar_campo_imagem com len(comandos) == 1 (só altera caminho, bytes_novo é None)
+    controller.alterar_campo_imagem(
+        croqui, "caminho_thumbnail", "", None, "thumb.webp", None
+    )
+    assert croqui.caminho_thumbnail == "thumb.webp"
+
+    # 2. inserir_imagem_markdown sem bytes
+    controller.inserir_imagem_markdown(croqui, "descricao", "", "Novo Markdown")
+    assert croqui.descricao == "Novo Markdown"
+
+    # 3. inserir_botao_markdown sem bytes
+    controller.inserir_botao_markdown(croqui, "descricao", "Novo Markdown", "Botao Markdown")
+    assert croqui.descricao == "Botao Markdown"
+
+    # 4. alterar_multiplos_repeated_items com apenas 1 item
+    croqui.creditos.append("Antigo")
+    controller.alterar_multiplos_repeated_items(croqui, "creditos", [(0, "Antigo", "Novo")])
+    assert croqui.creditos[0] == "Novo"
+
+    # 5. adicionar_mapa_com_arquivo sem bytes
+    mapa = Mapa(caminho_imagem_mapa="mapa.webp")
+    controller.adicionar_mapa_com_arquivo(
+        setor_grupo.conteudo, "mapas", 0, mapa, None, None
+    )
+    assert len(setor_grupo.conteudo.mapas) == 1
+
+    # 6. migrar_setor de Grupo para Pico (campo_origem != setores_ou_grupos e campo_destino == setores_ou_grupos)
+    controller.migrar_setor(
+        pai_origem=sg_grupo.grupo.conteudo,
+        campo_origem="setores",
+        indice_origem=0,
+        pai_destino=pico,
+        campo_destino="setores_ou_grupos",
+        indice_destino=1,
+        caminho_novo="setor_migrado.md",
+    )
+    assert len(sg_grupo.grupo.conteudo.setores) == 0
+    assert len(pico.setores_ou_grupos) == 2
+    assert pico.setores_ou_grupos[1].setor.conteudo.nome == "Setor no Grupo"

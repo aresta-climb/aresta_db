@@ -1,15 +1,13 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
-import shutil
-import uuid
-from pathlib import Path
 from typing import Any
 
 from PySide6.QtCore import QObject, QTimer, Signal
 from PySide6.QtGui import QUndoCommand, QUndoStack
 
 from editor.core.registro_log import obter_logger
+from editor.core.telemetria import anexar_diario_escopo, registrar_breadcrumb_comando
 
 logger = obter_logger("historico")
 
@@ -66,27 +64,17 @@ class GerenciadorHistorico(QObject):
         self._pilha.push(comando)
         count_depois = self._pilha.count()
 
-        try:
-            from editor.core.telemetria import registrar_breadcrumb_comando
-
-            registrar_breadcrumb_comando(comando)
-        except Exception:
-            pass
+        registrar_breadcrumb_comando(comando)
 
         if self._diario and not self._gravacao_pausada:
-            try:
-                # Se o comando foi mesclado pelo QUndoStack (a contagem não aumentou),
-                # agenda a sincronização do diário pendente no disco com debounce para digitação fluida.
-                if count_depois == count_antes and count_depois > 0:
-                    self._sincronizar_diario_pendente()
-                else:
-                    self.flush_diario_pendente()
-                    self._diario.gravar_comando_pendente(comando)
-                    from editor.core.telemetria import anexar_diario_escopo
-
-                    anexar_diario_escopo(self._diario)
-            except Exception:
-                pass
+            # Se o comando foi mesclado pelo QUndoStack (a contagem não aumentou),
+            # agenda a sincronização do diário pendente no disco com debounce para digitação fluida.
+            if count_depois == count_antes and count_depois > 0:
+                self._sincronizar_diario_pendente()
+            else:
+                self.flush_diario_pendente()
+                self._diario.gravar_comando_pendente(comando)
+                anexar_diario_escopo(self._diario)
 
     def _sincronizar_diario_pendente(self) -> None:
         """Agenda a sincronização do diário pendente no disco respeitando o debounce."""
@@ -118,12 +106,7 @@ class GerenciadorHistorico(QObject):
             if cmd:
                 comandos_pendentes.append(cmd)
         self._diario.substituir_comandos_pendentes(comandos_pendentes)
-        try:
-            from editor.core.telemetria import anexar_diario_escopo
-
-            anexar_diario_escopo(self._diario)
-        except Exception:
-            pass
+        anexar_diario_escopo(self._diario)
 
     def push(self, comando: QUndoCommand) -> None:
         """Atalho compatível com QUndoStack que executa e persiste no diário."""
@@ -246,30 +229,21 @@ class GerenciadorHistorico(QObject):
             self._ultimo_index = novo_index
             return
 
-        try:
-            if diff > 0:
-                # Redo ou Push: o comando executado está no índice anterior
-                cmd = self._pilha.command(novo_index - 1)
-                self._despachar_sinal(cmd, is_undo=False)
-            else:
-                # Undo: o comando desfeito está no índice atual (onde a pilha estava antes)
-                cmd = self._pilha.command(novo_index)
-                self._despachar_sinal(cmd, is_undo=True)
-        except RuntimeError:
-            # O objeto C++ QUndoStack pode já ter sido deletado se a aplicação estiver fechando
-            pass
-        finally:
-            self._ultimo_index = novo_index
+        if diff > 0:
+            # Redo ou Push: o comando executado está no índice anterior
+            cmd = self._pilha.command(novo_index - 1)
+            self._despachar_sinal(cmd, is_undo=False)
+        else:
+            # Undo: o comando desfeito está no índice atual (onde a pilha estava antes)
+            cmd = self._pilha.command(novo_index)
+            self._despachar_sinal(cmd, is_undo=True)
+        self._ultimo_index = novo_index
 
     def _despachar_sinal(self, cmd: QUndoCommand | None, is_undo: bool) -> None:
         from editor.commands.comandos_protobuf import (
             CmdAdicionarRepeated,
-            CmdAlterarMultiplosRepeatedItems,
-            CmdAlterarOneof,
-            CmdAlterarPrimitivo,
-            CmdAlterarRepeatedItem,
+            CmdAlterarCampo,
             CmdRemoverRepeated,
-            CmdRenomearEscalada,
             MensagemAlvoNaoEncontradaError,
         )
 
@@ -299,22 +273,12 @@ class GerenciadorHistorico(QObject):
             except (MensagemAlvoNaoEncontradaError, LookupError, AttributeError):
                 return None
 
-        if isinstance(cmd, CmdAlterarPrimitivo):
+        if isinstance(cmd, CmdAlterarCampo):
             msg = _obter_msg_segura(cmd)
             if msg is None:
                 return
             valor = cmd.valor_antigo if is_undo else cmd.valor_novo
             self.sinal_campo_alterado.emit(id(msg), cmd.campo_nome, valor)
-
-        elif isinstance(cmd, CmdRenomearEscalada):
-            msg = _obter_msg_segura(cmd)
-            if msg is None:
-                return
-            valor = cmd.nome_antigo if is_undo else cmd.nome_novo
-            self.sinal_campo_alterado.emit(id(msg), cmd.campo_nome, valor)
-            for ref in cmd.referencias:
-                if ref is not None:
-                    self.sinal_campo_alterado.emit(id(ref), "escalada", valor)
 
         elif isinstance(cmd, CmdAdicionarRepeated):
             msg = _obter_msg_segura(cmd)
@@ -333,73 +297,3 @@ class GerenciadorHistorico(QObject):
                 self.sinal_item_adicionado.emit(id(msg), cmd.campo_nome, cmd.index)
             else:
                 self.sinal_item_removido.emit(id(msg), cmd.campo_nome, cmd.index)
-
-        elif isinstance(cmd, CmdAlterarRepeatedItem):
-            msg = _obter_msg_segura(cmd)
-            if msg is None:
-                return
-            valor = cmd.valor_antigo if is_undo else cmd.valor_novo
-            chave = f"{cmd.campo_nome}[{cmd.index}]"
-            self.sinal_campo_alterado.emit(id(msg), chave, valor)
-
-        elif isinstance(cmd, CmdAlterarMultiplosRepeatedItems):
-            msg = _obter_msg_segura(cmd)
-            if msg is None:
-                return
-            # Para múltiplos itens, emitimos o sinal de alteração no nome do campo repetido (apenas informativo)
-            self.sinal_campo_alterado.emit(id(msg), cmd.campo_nome, cmd.alteracoes)
-
-        elif isinstance(cmd, CmdAlterarOneof):
-            msg = _obter_msg_segura(cmd)
-            if msg is None:
-                return
-            valor = cmd.nome_antigo if is_undo else cmd.nome_novo
-            self.sinal_campo_alterado.emit(id(msg), cmd.oneof_nome, valor)
-
-
-class CmdRemoverArquivoFisico(QUndoCommand):
-    """
-    Comando para remoção de arquivo físico com suporte a desfazer/refazer.
-    Move o arquivo para a lixeira interna temporária em vez de removê-lo em definitivo.
-    """
-
-    def __init__(
-        self,
-        caminho_arquivo: Path | str,
-        gerenciador_caminhos: Any,
-        parent: QUndoCommand | None = None,
-    ) -> None:
-        super().__init__(parent)
-        self._caminho_arquivo: Path = Path(caminho_arquivo)
-        self._gerenciador: Any = gerenciador_caminhos
-        self._caminho_lixeira: Path | None = None
-
-    def undo(self) -> None:
-        """Restaura o arquivo da lixeira interna para o caminho original."""
-        if self._caminho_lixeira and self._caminho_lixeira.exists():
-            # Garante que a pasta pai original exista
-            self._caminho_arquivo.parent.mkdir(parents=True, exist_ok=True)
-            shutil.move(str(self._caminho_lixeira), str(self._caminho_arquivo))
-            self._caminho_lixeira = None
-
-    def redo(self) -> None:
-        """Move o arquivo para a lixeira interna."""
-        if self._caminho_arquivo.exists():
-            lixeira_dir = self._gerenciador.obter_caminho_lixeira()
-            lixeira_dir.mkdir(parents=True, exist_ok=True)
-
-            # Gera um nome único para evitar colisões
-            id_unico = uuid.uuid4().hex
-            nome_arquivo_lixeira = f"{id_unico}_{self._caminho_arquivo.name}"
-            self._caminho_lixeira = lixeira_dir / nome_arquivo_lixeira
-
-            shutil.move(str(self._caminho_arquivo), str(self._caminho_lixeira))
-
-    def __del__(self) -> None:
-        # Se o objeto do comando for destruído e o arquivo ainda estiver na lixeira,
-        # removemos em definitivo para evitar lixo em disco.
-        try:
-            if self._caminho_lixeira and self._caminho_lixeira.exists():
-                self._caminho_lixeira.unlink()
-        except Exception:
-            pass

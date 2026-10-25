@@ -1774,3 +1774,31 @@ def test_croqui_model_extrair_arquivos_em_memoria_sem_persistir_no_disco(tmp_pat
     assert "secao_sobre.md" in cache_md
     assert cache_md["secao_sobre.md"] == (None, "Texto da seção em RAM")
     assert corpos_brutos["secao_sobre.md"] == "Texto da seção em RAM\n"
+
+
+def test_croqui_model_obter_objeto_por_uid():
+    from aresta_api.proto.generated.croqui_pb2 import Croqui
+
+    croqui = Croqui(nome="Croqui Teste")
+    pico = croqui.picos.add(nome="Pico 1")
+    sg = pico.setores_ou_grupos.add()
+    sg.setor.conteudo.uid = "set_1234567890"
+    sg.setor.conteudo.nome = "Setor A"
+
+    esc = sg.setor.conteudo.escaladas.add(uid="esc_1234567890")
+    esc.via_esportiva.nome = "Via 1"
+
+    btn = croqui.botoes.add(uid="btn_1234567890", texto="Info")
+
+    model = CroquiModel(croqui)
+
+    # 1. Recupera entidades por UID
+    assert model.obter_objeto_por_uid("set_1234567890") is sg.setor.conteudo
+    assert model.obter_objeto_por_uid("esc_1234567890") is esc
+    assert model.obter_objeto_por_uid("btn_1234567890") is btn
+
+    # 2. UIDs inexistentes ou vazios retornam None com segurança
+    assert model.obter_objeto_por_uid("uid_inexistente") is None
+    assert model.obter_objeto_por_uid("") is None
+    assert model.obter_objeto_por_uid(None) is None
+

@@ -3,7 +3,7 @@
 
 from aresta_api.proto.generated import croqui_pb2
 from editor.commands.comandos_protobuf import (
-    CmdAlterarPrimitivo,
+    CmdAlterarCampo,
     CmdMacro,
     deserializar_comando,
 )
@@ -29,8 +29,8 @@ def test_cmd_macro_execucao_redo_e_undo():
     pico = croqui.picos[0]
     setor = pico.setores_ou_grupos[0].setor.conteudo
 
-    cmd1 = CmdAlterarPrimitivo(model, pico, "nome", "Pico 1", "Pico Modificado")
-    cmd2 = CmdAlterarPrimitivo(model, setor, "nome", "Setor 1", "Setor Modificado")
+    cmd1 = CmdAlterarCampo(model, pico, "nome", "Pico Modificado")
+    cmd2 = CmdAlterarCampo(model, setor, "nome", "Setor Modificado")
 
     macro = CmdMacro(comandos=[cmd1, cmd2], texto="Alterar Nomes")
     assert macro.text() == "Alterar Nomes"
@@ -59,7 +59,7 @@ def test_cmd_macro_adicionar_comando():
     macro = CmdMacro(texto="Vazio Inicialmente")
     assert len(macro.comandos) == 0
 
-    cmd = CmdAlterarPrimitivo(model, pico, "nome", "Pico 1", "Pico 2")
+    cmd = CmdAlterarCampo(model, pico, "nome", "Pico 2")
     macro.adicionar_comando(cmd)
     assert len(macro.comandos) == 1
 
@@ -73,7 +73,7 @@ def test_cmd_macro_carregamento_silencioso():
     model = _criar_model_teste()
     pico = model.obter_croqui_readonly().picos[0]
 
-    cmd = CmdAlterarPrimitivo(model, pico, "nome", "Pico 1", "Pico Mutado")
+    cmd = CmdAlterarCampo(model, pico, "nome", "Pico Mutado")
     macro = CmdMacro(comandos=[cmd], texto="Silencioso")
     macro.armar_carregamento_silencioso()
 
@@ -92,8 +92,8 @@ def test_cmd_macro_serializacao_e_deserializacao():
     pico = croqui.picos[0]
     setor = pico.setores_ou_grupos[0].setor.conteudo
 
-    cmd1 = CmdAlterarPrimitivo(model, pico, "nome", "Pico 1", "Pico X")
-    cmd2 = CmdAlterarPrimitivo(model, setor, "nome", "Setor 1", "Setor Y")
+    cmd1 = CmdAlterarCampo(model, pico, "nome", "Pico X")
+    cmd2 = CmdAlterarCampo(model, setor, "nome", "Setor Y")
 
     macro = CmdMacro(comandos=[cmd1, cmd2], texto="Macro Teste")
     dados = macro.serializar()
@@ -101,8 +101,8 @@ def test_cmd_macro_serializacao_e_deserializacao():
     assert dados["classe"] == "CmdMacro"
     assert dados["texto"] == "Macro Teste"
     assert len(dados["comandos"]) == 2
-    assert dados["comandos"][0]["classe"] == "CmdAlterarPrimitivo"
-    assert dados["comandos"][1]["classe"] == "CmdAlterarPrimitivo"
+    assert dados["comandos"][0]["classe"] == "CmdAlterarCampo"
+    assert dados["comandos"][1]["classe"] == "CmdAlterarCampo"
 
     # Deserializa globalmente
     macro_recriado = deserializar_comando(dados, model)
@@ -124,7 +124,7 @@ def test_cmd_macro_persistencia_no_diario(tmp_path):
     pico = model.obter_croqui_readonly().picos[0]
     diario = GerenciadorDiario(tmp_path)
 
-    cmd = CmdAlterarPrimitivo(model, pico, "nome", "Pico 1", "Pico Gravado")
+    cmd = CmdAlterarCampo(model, pico, "nome", "Pico Gravado")
     macro = CmdMacro(comandos=[cmd], texto="Gravar no Diario")
 
     diario.gravar_comando_pendente(macro)
@@ -154,8 +154,8 @@ def test_cmd_macro_com_historico_e_sinais(qtbot):
         lambda id_msg, campo, val: sinais_recebidos.append((id_msg, campo, val))
     )
 
-    cmd1 = CmdAlterarPrimitivo(model, pico, "nome", "Pico 1", "Pico H")
-    cmd2 = CmdAlterarPrimitivo(model, setor, "nome", "Setor 1", "Setor H")
+    cmd1 = CmdAlterarCampo(model, pico, "nome", "Pico H")
+    cmd2 = CmdAlterarCampo(model, setor, "nome", "Setor H")
     macro = CmdMacro(comandos=[cmd1, cmd2], texto="Macro com Historico")
 
     historico.executar(macro)

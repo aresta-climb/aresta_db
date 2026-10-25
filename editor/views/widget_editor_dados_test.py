@@ -4199,7 +4199,7 @@ def test_widget_editor_markdown_componentes_cabecalho_botao(qapp):
 
 
 def test_widget_editor_markdown_inserir_botao_historico_undo_redo(qapp, monkeypatch):
-    """Garante que a inserção de botão empilha CmdInserirBotaoMarkdown na pilha de histórico."""
+    """Garante que a inserção de botão empilha CmdMacro na pilha de histórico."""
     from unittest.mock import MagicMock
 
     from PySide6.QtGui import QUndoStack

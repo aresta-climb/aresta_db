@@ -12,8 +12,8 @@ def test_gerenciador_diario_gravar_e_ler_pendente(tmp_path):
     assert not diario.tem_alteracoes_pendentes()
 
     # QUANDO gravar comandos no diário pendente
-    cmd1 = {"classe": "CmdAlterarPrimitivo", "campo": "nome", "valor": "A"}
-    cmd2 = {"classe": "CmdAlterarPrimitivo", "campo": "nome", "valor": "B"}
+    cmd1 = {"classe": "CmdAlterarCampo", "campo": "nome", "valor": "A"}
+    cmd2 = {"classe": "CmdAlterarCampo", "campo": "nome", "valor": "B"}
 
     diario.gravar_comando_pendente(cmd1)
     diario.gravar_comando_pendente(cmd2)
@@ -109,7 +109,7 @@ def test_gerenciador_diario_exportar_anonimizado(tmp_path):
     img_bytes = buf.getvalue()
 
     cmd_com_imagem = {
-        "classe": "CmdAlterarCampoImagem",
+        "classe": "CmdAlterarImagem",
         "campo_nome": "caminho_thumbnail",
         "bytes_novo": img_bytes,
         "caminho_novo": "thumb.webp",

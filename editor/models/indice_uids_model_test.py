@@ -16,10 +16,10 @@ from PySide6.QtGui import QUndoStack
 from aresta_api.proto.generated import croqui_pb2
 from editor.commands.comandos_protobuf import (
     CmdAdicionarRepeated,
-    CmdAlterarPrimitivo,
-    CmdMigrarSetor,
+    CmdAlterarCampo,
     CmdRemoverRepeated,
 )
+from editor.controllers.croqui_controller import CroquiController
 from editor.models.croqui_model import CroquiModel
 from editor.models.indice_uids_model import (
     IndiceUidsModel,
@@ -250,6 +250,14 @@ def test_indice_carga_inicial_e_busca(qapp):
     assert not indice.existe("nao_existe")
     assert indice.existe("esca_0000000001")
 
+    # Obtenção de objeto Message associado ao UID
+    assert indice.obter_objeto("setr_0000000001") is not None
+    assert indice.obter_objeto("esca_0000000001") is not None
+    assert indice.obter_objeto_por_uid("bota_0000000001") is not None
+    assert indice.obter_objeto("nao_existe") is None
+    assert indice.obter_objeto("") is None
+    assert indice.obter_objeto(None) is None
+
 
 # ==============================================================================
 # 3. Testes de Mutação Granular no IndiceUidsModel
@@ -417,11 +425,10 @@ def test_historico_undo_redo_renomear_escalada_sincroniza_indice(qapp):
     esc1 = croqui.picos[0].setores_ou_grupos[0].grupo.conteudo.setores[0].conteudo.escaladas[0]
 
     # 1. Executa comando de renomeação de primitivo (nome da via)
-    cmd = CmdAlterarPrimitivo(
+    cmd = CmdAlterarCampo(
         model=model,
-        msg=esc1.via_esportiva,
+        alvo=esc1.via_esportiva,
         campo_nome="nome",
-        valor_antigo="Via Simples",
         valor_novo="Super Fenda 10a",
     )
     undo_stack.push(cmd)
@@ -456,11 +463,10 @@ def test_historico_undo_redo_renomear_setor_sincroniza_indice_e_filhos(qapp):
 
     setor = croqui.picos[0].setores_ou_grupos[0].grupo.conteudo.setores[0].conteudo
 
-    cmd = CmdAlterarPrimitivo(
+    cmd = CmdAlterarCampo(
         model=model,
-        msg=setor,
+        alvo=setor,
         campo_nome="nome",
-        valor_antigo="Setor Sul",
         valor_novo="Paredão Sul Extremo",
     )
     undo_stack.push(cmd)
@@ -496,11 +502,10 @@ def test_historico_undo_redo_renomear_grupo_sincroniza_indice_e_subarvore(qapp):
 
     grupo = croqui.picos[0].setores_ou_grupos[0].grupo.conteudo
 
-    cmd = CmdAlterarPrimitivo(
+    cmd = CmdAlterarCampo(
         model=model,
-        msg=grupo,
+        alvo=grupo,
         campo_nome="nome",
-        valor_antigo="Grupo Alfa",
         valor_novo="Setorzao Beta",
     )
     undo_stack.push(cmd)
@@ -588,8 +593,8 @@ def test_historico_undo_redo_migrar_setor_sincroniza_indice(qapp):
 
     # Setor Norte está no índice 1 de setores_ou_grupos (isolado no Pico)
     # Vamos migrá-lo para dentro de grupo.setores (índice 1)
-    cmd_migrar = CmdMigrarSetor(
-        model=model,
+    controller = CroquiController(model, undo_stack)
+    controller.migrar_setor(
         pai_origem=pico,
         campo_origem="setores_ou_grupos",
         indice_origem=1,
@@ -597,7 +602,6 @@ def test_historico_undo_redo_migrar_setor_sincroniza_indice(qapp):
         campo_destino="setores",
         indice_destino=1,
     )
-    undo_stack.push(cmd_migrar)
 
     # Redo: Setor Norte agora está dentro do Grupo Alfa
     assert model.indice_uids.obter("setr_0000000002").grupo_uid == "grup_0000000001"
