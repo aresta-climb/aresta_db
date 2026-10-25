@@ -105,6 +105,14 @@ Exemplo de pontos de interesse para mapa específico de escalada (`pertence_a_es
 > 3. Conte quantas entradas você acabou de registrar no arquivo `raw_mapas/<imagem>.json`.
 > 4. **Os números batem perfeitamente?** Volte à imagem e procure em todos os cantos. Se algum estiver faltando, adicione. Se houver sobras, remova os falsos positivos. Só finalize quando tiver certeza que cobriu 100% da imagem.
 
-## 4. Quando usar essa habilidade
+## 4. Operação via Servidor MCP do Editor Aresta (Quando Conectado)
+
+Quando estiver editando um croqui aberto no **Editor Aresta** via MCP (`editor-aresta`):
+- Use `aresta_obter_esquema_proto` (`tipo_mensagem="PontoDeInteresse"` ou `"Mapa"`) para consultar o formato exato das geometrias (`circulo`, `quadrado`, `retangulo`, `poligono`) no Protobuf.
+- Use `aresta_obter_arvore` (ex: `alvo="<uid_setor>.mapas.0"`, `campo="pontos_de_interesse"`) para inspecionar os pontos existentes e seus `UID`s.
+- Use `aresta_adicionar_repeated` no campo `"pontos_de_interesse"` do mapa para adicionar novos pontos preservando o histórico `Undo/Redo`, e `aresta_vincular_referencia_mapa` para vincular `pontos_uids` ao `alvo_uid` da escalada ou setor correspondente.
+- Use `aresta_capturar_canvas` (`alvo="mapas"`) para inspecionar visualmente o mapa renderizado no editor.
+
+## 5. Quando usar essa habilidade
 
 Use essa habilidade quando precisar extrair pontos de interesse de um mapa de um setor de escalada.

@@ -90,37 +90,42 @@ url = "http://127.0.0.1:27378/mcp"
 
 ## 4. Catálogo de Ferramentas MCP
 
-### 4.1. Mutação de Dados, Mapas e Macros (`editor.mcp.ferramentas_comandos`)
+### 4.1. Mutação de Dados e Mapas (`editor.mcp.ferramentas_comandos`)
 
 | Ferramenta | Descrição |
 | :--- | :--- |
-| `aresta_alterar_primitivo` | Altera um campo escalar (`string`, `int`, `float`, `bool`, `enum`) em uma mensagem alvo por `UID` ou caminho. |
-| `aresta_alterar_oneof` | Troca a variante ativa de um grupo `oneof` (ex: `tipo` em `Escalada`) com valores iniciais opcionais. |
-| `aresta_adicionar_repeated` | Insere um novo item em uma lista `repeated`, gerando e retornando imediatamente o `uid` NanoID. |
-| `aresta_remover_repeated` | Remove um item de uma lista `repeated` pelo índice. |
+| `aresta_alterar_campo` | Altera um campo (`campo` + `valor`) ou múltiplos campos em lote atômico (`campos: dict`) em uma mensagem alvo por `UID` ou caminho (incluindo notação de colchetes `escaladas[0]`), com coerção automática de `dict` JSON -> `Message` Protobuf e strings `Enum` -> `int`. |
+| `aresta_adicionar_repeated` | Insere um ou mais itens (`valores`, escalares ou `dict`s JSON convertidos via `ParseDict`) em uma lista `repeated`, retornando os `uids` NanoID gerados e o `tamanho` atualizado da lista. |
+| `aresta_remover_repeated` | Remove um item de uma lista `repeated` pelo índice e retorna o `tamanho` atualizado da lista. |
 | `aresta_mover_repeated` | Reordena um item dentro de uma lista `repeated` (`indice_origem` -> `indice_destino`). |
-| `aresta_alterar_item_repeated` | Substitui o valor de um item escalar em uma lista `repeated`. |
-| `aresta_alterar_multiplos_repeated` | Atualiza múltiplos itens de uma lista `repeated` em um único comando atômico. |
 | `aresta_renomear_escalada` | Renomeia uma escalada atualizando referências associadas. |
 | `aresta_migrar_setor` | Migra um setor para grupo ou vice-versa preservando seu conteúdo. |
-| `aresta_alterar_campo_imagem` | Define ou remove a imagem associada a um campo do croqui (via Base64 ou caminho no disco). |
+| `aresta_alterar_imagem` | Define ou remove a imagem associada a um campo do croqui (via Base64 ou caminho no disco). |
 | `aresta_inserir_imagem_markdown` | Copia uma imagem para a pasta do croqui e insere a tag Markdown no campo de texto. |
 | `aresta_inserir_botao_markdown` | Cria um `Botao` na raiz do croqui e insere a tag `<botao id="...">` no texto Markdown. |
 | `aresta_adicionar_mapa_arquivo` | Cria um novo `Mapa` com arquivo de imagem em `mapas/` no container alvo. |
 | `aresta_vincular_referencia_mapa` | Vincula os pontos (`pontos_uids`) de uma escalada ou setor (`alvo_uid`) em um `Mapa`. |
-| `aresta_iniciar_macro` | Inicia um grupo transacional (`CmdMacro`) na pilha de histórico. |
-| `aresta_finalizar_macro` | Finaliza o grupo transacional ativo, consolidando as edições em um único passo de `Undo`. |
 
 ### 4.2. Visão Multimodal e Inspeção (`editor.mcp.ferramentas_visao`)
 
 | Ferramenta / Recurso | Descrição |
 | :--- | :--- |
 | `aresta_capturar_canvas` | Captura um screenshot PNG Base64 do viewport solicitado (`mapas`, `imagens`, `dados` ou `janela`). |
-| `aresta_obter_arvore` | Retorna a estrutura JSON completa (ou subárvore) do croqui e o índice de `UID`s com caminhos formatados (`Grupo > Setor > Escalada`). |
+| `aresta_obter_arvore` | Retorna a estrutura JSON completa (ou subárvore/campo filtrado por `alvo` e `campo`), `tamanhos_repeated` com a contagem de itens das listas da mensagem e o índice de `UID`s na raiz. |
 | `aresta_obter_selecao_atual` | Retorna a página ativa e o elemento atualmente selecionado pelo usuário na interface gráfica. |
-| `aresta://croqui/arvore` | Recurso MCP (`resources/read`) com o JSON completo do croqui e índice de `UID`s. |
+| `aresta://croqui/arvore` | Recurso MCP (`resources/read`) com o JSON completo do croqui, `tamanhos_repeated` e índice de `UID`s. |
 
-### 4.3. Ciclo de Vida e Workspace (`editor.mcp.ferramentas_ciclo_vida`)
+### 4.3. Descoberta de Esquema Protobuf e Skills (`editor.mcp.ferramentas_conhecimento`)
+
+| Ferramenta / Recurso | Descrição |
+| :--- | :--- |
+| `aresta_obter_esquema_proto` | Retorna a definição estruturada de `croqui.proto` (campos, tipos, `oneofs`, valores de `Enum`, comentários) ou a visão geral com guia de uso MCP. |
+| `aresta_listar_skills` | Lista todas as skills de domínio em `.agents/skills/` com nome e descrição. |
+| `aresta_ler_skill` | Lê o conteúdo completo (`SKILL.md`) e lista os arquivos auxiliares de uma skill específica. |
+| `aresta://esquema/proto` | Recurso MCP (`resources/read`) com o esquema e guia rápido de `croqui.proto`. |
+| `aresta://skills` | Recurso MCP (`resources/read`) com o catálogo de skills disponíveis. |
+
+### 4.4. Ciclo de Vida e Workspace (`editor.mcp.ferramentas_ciclo_vida`)
 
 | Ferramenta | Descrição |
 | :--- | :--- |

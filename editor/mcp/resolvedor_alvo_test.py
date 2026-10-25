@@ -102,6 +102,14 @@ def test_resolver_alvo_escalada_e_enfiada_redireciona_para_variante_ativa_quando
         == "picos.0.setores_ou_grupos.0.grupo.conteudo.setores.0.conteudo.escaladas.1.via_multiplas_enfiadas.enfiadas.0.via_esportiva"
     )
 
+    # Escalada com campo indexado da variante ativa (conquistadores.0)
+    msg_conq, cam_conq = resolver_alvo_mcp(model, "uid_escalada_1", campo_nome="conquistadores.0")
+    assert msg_conq.nome == "Fissura Central"
+    assert (
+        cam_conq
+        == "picos.0.setores_ou_grupos.0.grupo.conteudo.setores.0.conteudo.escaladas.0.via_esportiva"
+    )
+
 
 def test_resolver_alvo_hibrido_uid_com_subcaminho():
     """Deve resolver <uid>.<subcaminho>, inclusive atravessando a variante ativa de Escalada."""

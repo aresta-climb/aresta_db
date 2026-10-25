@@ -1519,6 +1519,7 @@ class JanelaPrincipal(QMainWindow):
         from editor.controllers.mapas_controller import MapasController
         from editor.mcp.ferramentas_ciclo_vida import registrar_ferramentas_ciclo_vida
         from editor.mcp.ferramentas_comandos import registrar_ferramentas_comandos
+        from editor.mcp.ferramentas_conhecimento import registrar_ferramentas_conhecimento
         from editor.mcp.ferramentas_visao import registrar_ferramentas_visao
 
         mapas_controller = MapasController(self.croqui_model, self.historico)
@@ -1545,6 +1546,7 @@ class JanelaPrincipal(QMainWindow):
             workspace=self.workspace,
             storage=self.storage,
         )
+        registrar_ferramentas_conhecimento(self.servidor_mcp)
 
     def _obter_widget_alvo_mcp(self, alvo: str) -> QWidget | None:
         """Retorna o widget correspondente ao viewport solicitado pela ferramenta de captura."""

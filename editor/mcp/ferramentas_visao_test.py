@@ -138,6 +138,127 @@ def test_aresta_obter_arvore_e_selecao_atual_com_uids_e_caminhos_formatados(qapp
     assert resp_sub is not None
     dados_sub = resp_sub["result"]["structuredContent"]
     assert dados_sub["dados"]["nome"] == "Setor Cristais"
+    assert dados_sub["tipo_mensagem"] == "Setor"
+    assert dados_sub["tamanhos_repeated"]["escaladas"] == 1
+    assert dados_sub["tamanhos_repeated"]["trilhas"] == 0
+    assert "indice_uids" not in dados_sub
+
+    # Sub-alvo solicitando explicitamente incluir_indice_uids=True
+    resp_sub_uids = servidor.processar_mensagem_jsonrpc(
+        {
+            "jsonrpc": "2.0",
+            "id": 41,
+            "method": "tools/call",
+            "params": {
+                "name": "aresta_obter_arvore",
+                "arguments": {"alvo": "uid_setor_vis1", "incluir_indice_uids": True},
+            },
+        }
+    )
+    assert "indice_uids" in resp_sub_uids["result"]["structuredContent"]
+
+    # Leitura direta de campo repeated (por parâmetro campo e por subcaminho em alvo), item indexado, oneof e singular
+    resp_rep = servidor.processar_mensagem_jsonrpc(
+        {
+            "jsonrpc": "2.0",
+            "id": 42,
+            "method": "tools/call",
+            "params": {
+                "name": "aresta_obter_arvore",
+                "arguments": {"alvo": "uid_setor_vis1", "campo": "escaladas"},
+            },
+        }
+    )
+    dados_rep = resp_rep["result"]["structuredContent"]
+    assert dados_rep["tipo_campo"] == "repeated"
+    assert dados_rep["tamanho"] == 1
+    assert dados_rep["itens"][0]["via_esportiva"]["nome"] == "Aresta Dourada"
+
+    resp_rep_alvo = servidor.processar_mensagem_jsonrpc(
+        {
+            "jsonrpc": "2.0",
+            "id": 43,
+            "method": "tools/call",
+            "params": {
+                "name": "aresta_obter_arvore",
+                "arguments": {"alvo": "uid_setor_vis1.escaladas"},
+            },
+        }
+    )
+    dados_rep_alvo = resp_rep_alvo["result"]["structuredContent"]
+    assert dados_rep_alvo["tipo_campo"] == "repeated"
+    assert dados_rep_alvo["tamanho"] == 1
+
+    resp_rep_item = servidor.processar_mensagem_jsonrpc(
+        {
+            "jsonrpc": "2.0",
+            "id": 44,
+            "method": "tools/call",
+            "params": {
+                "name": "aresta_obter_arvore",
+                "arguments": {"alvo": "uid_setor_vis1", "campo": "escaladas.0"},
+            },
+        }
+    )
+    dados_rep_item = resp_rep_item["result"]["structuredContent"]
+    assert dados_rep_item["tipo_campo"] == "repeated_item"
+    assert dados_rep_item["tamanho_colecao"] == 1
+    assert dados_rep_item["valor"]["uid"] == "uid_via_vis001"
+
+    resp_oneof = servidor.processar_mensagem_jsonrpc(
+        {
+            "jsonrpc": "2.0",
+            "id": 45,
+            "method": "tools/call",
+            "params": {
+                "name": "aresta_obter_arvore",
+                "arguments": {"alvo": "uid_via_vis001", "campo": "tipo"},
+            },
+        }
+    )
+    dados_oneof = resp_oneof["result"]["structuredContent"]
+    assert dados_oneof["tipo_campo"] == "oneof"
+    assert dados_oneof["variante_ativa"] == "via_esportiva"
+
+    resp_sing = servidor.processar_mensagem_jsonrpc(
+        {
+            "jsonrpc": "2.0",
+            "id": 46,
+            "method": "tools/call",
+            "params": {
+                "name": "aresta_obter_arvore",
+                "arguments": {"alvo": "uid_via_vis001", "campo": "nome"},
+            },
+        }
+    )
+    assert resp_sing["result"]["structuredContent"]["valor"] == "Aresta Dourada"
+
+    # Erros em campo inexistente ou índice fora de alcance
+    resp_err_campo = servidor.processar_mensagem_jsonrpc(
+        {
+            "jsonrpc": "2.0",
+            "id": 47,
+            "method": "tools/call",
+            "params": {
+                "name": "aresta_obter_arvore",
+                "arguments": {"alvo": "uid_setor_vis1", "campo": "campo_inexistente"},
+            },
+        }
+    )
+    assert resp_err_campo["result"]["isError"] is True
+
+    resp_err_idx = servidor.processar_mensagem_jsonrpc(
+        {
+            "jsonrpc": "2.0",
+            "id": 48,
+            "method": "tools/call",
+            "params": {
+                "name": "aresta_obter_arvore",
+                "arguments": {"alvo": "uid_setor_vis1", "campo": "escaladas.99"},
+            },
+        }
+    )
+    assert resp_err_idx["result"]["isError"] is True
 
     # 2. Seleção atual enriquecida pelo IndiceUidsModel
     resp_sel = servidor.processar_mensagem_jsonrpc(

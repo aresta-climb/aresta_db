@@ -792,3 +792,13 @@ class TestGerenciadorHistorico(unittest.TestCase):
         gerenciador._gravacao_pausada = True
         gerenciador._on_index_changed(5)
         self.assertEqual(gerenciador._ultimo_index, 5)
+
+    def test_slot_on_index_changed_registrado_no_metaobject_e_getattr_protege_privados(self):
+        gerenciador = GerenciadorHistorico()
+        indice_slot = gerenciador.metaObject().indexOfSlot("_on_index_changed(int)")
+        self.assertGreaterEqual(indice_slot, 0)
+
+        with self.assertRaises(AttributeError) as ctx:
+            _ = gerenciador._atributo_privado_inexistente
+        self.assertIn("GerenciadorHistorico", str(ctx.exception))
+

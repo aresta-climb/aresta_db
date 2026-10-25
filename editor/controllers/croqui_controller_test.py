@@ -812,3 +812,53 @@ def test_croqui_controller_comandos_individuais_e_migracao_reversa(qapp):
     assert len(sg_grupo.grupo.conteudo.setores) == 0
     assert len(pico.setores_ou_grupos) == 2
     assert pico.setores_ou_grupos[1].setor.conteudo.nome == "Setor no Grupo"
+
+
+def test_croqui_controller_alterar_campo_unico_e_lote_atomico(qapp):
+    """Valida alterar_campo canônico com campo único, lote atômico via CmdMacro e rejeição fail-fast."""
+    import pytest
+    from editor.commands.comandos_protobuf import CmdAlterarCampo, CmdMacro
+
+    croqui = Croqui(nome="Inicial", descricao="Desc Inicial")
+    model = CroquiModel(croqui)
+    undo_stack = QUndoStack()
+    controller = CroquiController(model, undo_stack)
+
+    # 1. Chamada vazia não empilha comando
+    controller.alterar_campo(croqui)
+    controller.alterar_campo(croqui, campos={})
+    assert undo_stack.count() == 0
+
+    # 2. Campo único empilha CmdAlterarCampo direto
+    controller.alterar_campo(croqui, campo_nome="nome", valor_novo="Modificado")
+    assert undo_stack.count() == 1
+    assert isinstance(undo_stack.command(0), CmdAlterarCampo)
+    assert croqui.nome == "Modificado"
+    undo_stack.undo()
+    assert croqui.nome == "Inicial"
+
+    # 3. Lote de múltiplos campos empilha 1 CmdMacro e reverte atomicamente
+    controller.alterar_campo(
+        croqui,
+        campos={"nome": "Nome Lote", "descricao": "Desc Lote", "publicar_croqui": True},
+    )
+    assert undo_stack.count() == 1
+    assert isinstance(undo_stack.command(0), CmdMacro)
+    assert croqui.nome == "Nome Lote"
+    assert croqui.descricao == "Desc Lote"
+    assert croqui.publicar_croqui is True
+
+    undo_stack.undo()
+    assert croqui.nome == "Inicial"
+    assert croqui.descricao == "Desc Inicial"
+    assert croqui.publicar_croqui is False
+
+    # 4. Erro em qualquer campo do lote aborta antes de empilhar ou alterar qualquer campo
+    with pytest.raises(TypeError):
+        controller.alterar_campo(
+            croqui,
+            campos={"nome": "Nao Deve Aplicar", "ultima_migracao": "tipo_invalido"},
+        )
+    assert croqui.nome == "Inicial"
+    assert not undo_stack.canUndo()
+

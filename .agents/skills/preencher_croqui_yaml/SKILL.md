@@ -63,6 +63,13 @@ Após gerar o `croqui.yaml`, você deve validar ativamente o projeto inteiro:
      `deploy_generated.py` novamente, até que ambos os scripts passem de
      primeira sem relatar erros.
 
+## 3. Operação via Servidor MCP do Editor Aresta (Quando Conectado)
+
+Quando o **Editor Aresta** estiver aberto e conectado via MCP (`editor-aresta`), prefira operar diretamente pelas ferramentas canônicas do editor para manter a árvore Protobuf e a pilha de `Undo/Redo` sincronizadas em tempo real:
+- Consulte o esquema Protobuf e valores de `Enum` com `aresta_obter_esquema_proto` e inspecione a árvore atual (incluindo `tamanhos_repeated` e `indice_uids`) com `aresta_obter_arvore`.
+- Atualize campos escalares, submensagens ou `oneofs` (individualmente ou em lote atômico `campos: dict`) com `aresta_alterar_campo`, e adicione itens em listas `repeated` com `aresta_adicionar_repeated`.
+- Execute a validação e compilação em memória com `aresta_compilar` (corrigindo eventuais erros ou avisos) e persista no disco com `aresta_salvar`.
+
 ## Quando usar essa habilidade
 
 Use essa habilidade quando precisar concluir o pipeline de conversão de Markdown

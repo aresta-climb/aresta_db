@@ -2060,7 +2060,9 @@ def test_janela_principal_integra_servidor_mcp_e_dialogo_conexao(
         {"jsonrpc": "2.0", "id": 1, "method": "tools/list"}
     )
     ferramentas = {f["name"] for f in resposta_tools["result"]["tools"]}
-    assert "aresta_alterar_primitivo" in ferramentas
+    assert "aresta_alterar_campo" in ferramentas
+    assert "aresta_obter_esquema_proto" in ferramentas
+    assert "aresta_listar_skills" in ferramentas
     assert "aresta_capturar_canvas" in ferramentas
     assert "aresta_compilar" in ferramentas
 

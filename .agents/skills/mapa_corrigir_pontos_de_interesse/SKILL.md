@@ -55,6 +55,13 @@ Para confirmar que cada ponto de interesse está na posição correta, você pos
 
 Faça uma última conferência, **um ponto de interesse de cada vez**, para garantir que **todas** as marcações vermelhas estão perfeitamente enquadrando os textos/labels dos pontos de interesse correspondentes no mapa. Caso algum não estiver perfeito, volte à etapa 3 para ajustar apenas esses pontos de interesse, sem mexer nos outros que já estão corretos. Repita isso até que **todos** os pontos estejam enquadrando perfeitamente os textos/labels dos pontos de interesse.
 
-## 5. Quando usar essa habilidade
+## 5. Ajuste Interativo via Servidor MCP do Editor Aresta (Quando Conectado)
+
+Se o croqui já estiver aberto no **Editor Aresta** com o servidor MCP ativo (`editor-aresta`), você também pode ajustar coordenadas de pontos de interesse diretamente na árvore Protobuf:
+- Localize o ponto de interesse pelo seu `UID` (ou índice em `mapas[i].pontos_de_interesse[j]`) usando `aresta_obter_arvore`.
+- Altere a geometria ou rótulo com `aresta_alterar_campo` (ex: `alvo="<uid_poi>"`, `campos={"rotulo": "01", "circulo": {"x": 684, "y": 824, "raio": 16}}`).
+- Visualize o resultado em tempo real no viewport de mapas com `aresta_capturar_canvas` (`alvo="mapas"`).
+
+## 6. Quando usar essa habilidade
 
 Use essa habilidade quando precisar corrigir os pontos de interesse de um mapa de um setor de escalada.

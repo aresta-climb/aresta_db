@@ -126,6 +126,14 @@ Antes de finalizar sua tarefa, você **DEVE** reler o arquivo `.md` que você ac
 3. **Integralidade:** Certifique-se de que *nenhuma* informação do PDF original foi omitida.
 Se encontrar qualquer problema sintático, edite o arquivo e corrija de imediato antes de devolver a resposta.
 
+## 4. Edição Direta via Servidor MCP do Editor Aresta (Quando Conectado)
+
+Se você estiver conectado ao servidor MCP do **Editor Aresta** (`editor-aresta`) com o croqui aberto:
+- Use `aresta_obter_esquema_proto` (ex: `tipo_mensagem="Setor"`, `"Escalada"`, `"ViaEsportiva"`, `"GrauVia"`) para consultar todos os campos, `oneofs` e enumerações válidas sem precisar adivinhar nomes de campos.
+- Use `aresta_obter_arvore` para inspecionar o setor/grupo alvo pelo seu `UID` ou caminho, verificando `tamanhos_repeated`.
+- Use `aresta_adicionar_repeated` para inserir setores, escaladas ou mapas já populados com dicionários JSON (`valores`), e `aresta_alterar_campo` (com `campo` + `valor` ou `campos: dict` em lote) para atualizar propriedades preservando o histórico `Undo/Redo`.
+- Para imagens e botões no corpo Markdown, utilize `aresta_inserir_imagem_markdown`, `aresta_inserir_botao_markdown` e `aresta_adicionar_mapa_arquivo`.
+
 ## Quando usar essa habilidade
 
 Use essa habilidade quando precisar converter uma parte de um croqui para arquivo Markdown com YAML Frontmatter.

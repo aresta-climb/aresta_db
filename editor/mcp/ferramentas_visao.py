@@ -19,6 +19,13 @@ def _desembrulhar_proto(msg: Any) -> Any:
     return getattr(msg, "_obj", msg)
 
 
+def _serializar_objeto_proto(obj: Any) -> Any:
+    desembrulhado = _desembrulhar_proto(obj)
+    if hasattr(desembrulhado, "DESCRIPTOR"):
+        return MessageToDict(desembrulhado, preserving_proto_field_name=True)
+    return desembrulhado
+
+
 def registrar_ferramentas_visao(
     servidor: ServidorMCP,
     model: CroquiModel,
@@ -59,23 +66,107 @@ def registrar_ferramentas_visao(
 
     def _obter_arvore(args: dict[str, Any]) -> dict[str, Any]:
         alvo = str(args.get("alvo") or "")
-        msg, caminho = resolver_alvo_mcp(model, alvo)
+        campo = str(args.get("campo") or "")
+        incluir_indice_arg = args.get("incluir_indice_uids")
+        incluir_indice = (
+            bool(incluir_indice_arg)
+            if incluir_indice_arg is not None
+            else (not alvo and not campo)
+        )
+
+        msg, caminho = resolver_alvo_mcp(model, alvo, campo_nome=campo or None)
         msg_proto = _desembrulhar_proto(msg)
+
+        if not hasattr(msg_proto, "DESCRIPTOR"):
+            itens = [_serializar_objeto_proto(it) for it in msg_proto]
+            return {
+                "caminho": alvo,
+                "tipo_campo": "repeated",
+                "tamanho": len(itens),
+                "itens": itens,
+            }
+
+        if campo:
+            if "." in campo and campo.split(".", 1)[1].isdigit():
+                nome_base, idx_str = campo.split(".", 1)
+                colecao = getattr(msg_proto, nome_base)
+                idx = int(idx_str)
+                if idx < 0 or idx >= len(colecao):
+                    raise IndexError(
+                        f"Índice fora de alcance ({idx}) para o campo '{nome_base}' "
+                        f"de tamanho {len(colecao)}."
+                    )
+                return {
+                    "caminho": caminho,
+                    "campo": campo,
+                    "tipo_campo": "repeated_item",
+                    "indice": idx,
+                    "tamanho_colecao": len(colecao),
+                    "valor": _serializar_objeto_proto(colecao[idx]),
+                }
+
+            if campo in msg_proto.DESCRIPTOR.oneofs_by_name:
+                ativo = msg_proto.WhichOneof(campo)
+                val_oneof = (
+                    _serializar_objeto_proto(getattr(msg_proto, ativo)) if ativo else None
+                )
+                return {
+                    "caminho": caminho,
+                    "campo": campo,
+                    "tipo_campo": "oneof",
+                    "variante_ativa": ativo,
+                    "valor": val_oneof,
+                }
+
+            if campo not in msg_proto.DESCRIPTOR.fields_by_name:
+                raise ValueError(
+                    f"Campo '{campo}' não existe na mensagem '{msg_proto.DESCRIPTOR.name}'."
+                )
+
+            desc_c = msg_proto.DESCRIPTOR.fields_by_name[campo]
+            eh_rep = getattr(desc_c, "label", None) == 3 or getattr(
+                desc_c, "is_repeated", False
+            )
+            if eh_rep:
+                colecao = getattr(msg_proto, campo)
+                return {
+                    "caminho": caminho,
+                    "campo": campo,
+                    "tipo_campo": "repeated",
+                    "tamanho": len(colecao),
+                    "itens": [_serializar_objeto_proto(it) for it in colecao],
+                }
+
+            return {
+                "caminho": caminho,
+                "campo": campo,
+                "tipo_campo": "singular",
+                "valor": _serializar_objeto_proto(getattr(msg_proto, campo)),
+            }
+
+        tamanhos_repeated = {
+            f.name: len(getattr(msg_proto, f.name))
+            for f in msg_proto.DESCRIPTOR.fields
+            if getattr(f, "label", None) == 3 or getattr(f, "is_repeated", False)
+        }
         dados_dict = MessageToDict(msg_proto, preserving_proto_field_name=True)
 
-        indice_lista = [
-            {
-                "uid": reg.uid,
-                "tipo_id": int(reg.tipo_id),
-                "caminho_formatado": reg.obter_caminho_formatado(),
-            }
-            for reg in model.indice_uids.listar()
-        ]
-        return {
+        resultado: dict[str, Any] = {
             "caminho": caminho,
+            "tipo_mensagem": msg_proto.DESCRIPTOR.name,
+            "tamanhos_repeated": tamanhos_repeated,
             "dados": dados_dict,
-            "indice_uids": indice_lista,
         }
+        if incluir_indice:
+            resultado["indice_uids"] = [
+                {
+                    "uid": reg.uid,
+                    "tipo_id": int(reg.tipo_id),
+                    "caminho_formatado": reg.obter_caminho_formatado(),
+                }
+                for reg in model.indice_uids.listar()
+            ]
+        return resultado
 
     def _obter_selecao_atual(_args: dict[str, Any]) -> dict[str, Any]:
         info = (
@@ -105,14 +196,25 @@ def registrar_ferramentas_visao(
     )
     servidor.registrar_ferramenta(
         nome="aresta_obter_arvore",
-        descricao="Retorna a árvore do croqui (ou subárvore por UID/caminho) junto ao índice completo de UIDs e caminhos formatados.",
+        descricao=(
+            "Retorna a árvore do croqui, subárvore ou campo específico (incluindo listas repeated "
+            "e o mapa 'tamanhos_repeated' com o tamanho atual de todas as coleções da mensagem)."
+        ),
         esquema_entrada={
             "type": "object",
             "properties": {
                 "alvo": {
                     "type": "string",
-                    "description": "Opcional: UID ou caminho da subárvore. Vazio retorna o croqui inteiro.",
-                }
+                    "description": "Opcional: UID ou caminho da entidade. Vazio retorna o croqui inteiro.",
+                },
+                "campo": {
+                    "type": "string",
+                    "description": "Opcional: Nome do campo, oneof, coleção repeated ou item indexado ('campo.0') a inspecionar.",
+                },
+                "incluir_indice_uids": {
+                    "type": "boolean",
+                    "description": "Opcional: Se True, inclui o índice completo de UIDs do croqui (padrão: True apenas na raiz).",
+                },
             },
         },
         manipulador=_obter_arvore,

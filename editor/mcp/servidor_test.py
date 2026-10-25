@@ -87,6 +87,8 @@ def test_protocolo_jsonrpc_completo_via_post_mcp(qapp, tmp_path: Path):
             dados_init = resp_init.json()["result"]
             assert dados_init["serverInfo"]["name"] == "editor-aresta"
             assert "tools" in dados_init["capabilities"]
+            assert "aresta_obter_esquema_proto" in dados_init["instructions"]
+            assert "aresta_listar_skills" in dados_init["instructions"]
 
             # 3. Notificação (sem id) -> 202 Accepted sem corpo JSON-RPC
             resp_notif = await client.post(

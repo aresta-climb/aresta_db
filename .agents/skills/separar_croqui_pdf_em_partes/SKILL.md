@@ -124,6 +124,10 @@ Ao inspecionar o PDF e preparar as partes:
 - **Detecção Automática:** O script `repartir_pdf.py` detecta automaticamente essas páginas fatiadas em mosaico e renderiza a página completa (`pX.webp`) em alta resolução, suprimindo fatias quebradas para manter a pasta limpa. (A flag manual `--incluir-paginas` continua disponível caso se deseje forçar a renderização completa em todas as páginas).
 - **Conferência:** Ao concluir a separação e geração das imagens, confirme visualmente se as imagens extraídas da parede estão completas. Quando a página contiver mosaico/fatiamento, a imagem de página completa (`pX.webp`) terá sido gerada automaticamente para ser utilizada pelo conversor de Markdown.
 
+## 4. Integração com o Servidor MCP do Editor Aresta
+
+Quando o **Editor Aresta** estiver conectado via MCP (`editor-aresta`), você pode consultar o catálogo de skills e o esquema Protobuf diretamente pelas ferramentas `aresta_listar_skills`, `aresta_ler_skill` e `aresta_obter_esquema_proto` (ou pelos recursos `aresta://skills` e `aresta://esquema/proto`), além de verificar o workspace ativo com `aresta_status_workspace`.
+
 ## Quando usar essa habilidade
 
 Use essa habilidade quando precisar separar um croqui em partes lógicas para processamento posterior.

@@ -68,6 +68,45 @@ class CroquiController:
             macro.armar_carregamento_silencioso()
             self._executar_comando(macro)
 
+    def alterar_campo(
+        self,
+        alvo: Any,
+        campo_nome: str | None = None,
+        valor_novo: Any = None,
+        campos: dict[str, Any] | None = None,
+        pode_mesclar: bool = False,
+        session_id: int | str | None = None,
+    ) -> None:
+        """
+        Despacha comando canônico para alterar um único campo ou um lote de campos (via CmdMacro).
+        Todos os CmdAlterarCampo são instanciados e validados antes da execução na pilha.
+        """
+        mapa_campos: dict[str, Any] = {}
+        if campos:
+            mapa_campos.update(campos)
+        if campo_nome:
+            mapa_campos[campo_nome] = valor_novo
+        if not mapa_campos:
+            return
+
+        comandos: list[ComandoEditor] = [
+            CmdAlterarCampo(
+                model=self.model,
+                alvo=alvo,
+                campo_nome=nome_c,
+                valor_novo=val_c,
+                pode_mesclar=pode_mesclar if len(mapa_campos) == 1 else False,
+                session_id=session_id if len(mapa_campos) == 1 else None,
+                context_path=self.contexto_atual_path,
+            )
+            for nome_c, val_c in mapa_campos.items()
+        ]
+        if len(comandos) == 1:
+            self._executar_comando(comandos[0])
+        else:
+            self._executar_comando(CmdMacro(comandos, texto=f"Alterar {len(comandos)} campos"))
+
+
     def alterar_primitivo(
         self,
         msg: Any,

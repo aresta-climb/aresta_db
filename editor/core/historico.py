@@ -3,7 +3,7 @@
 
 from typing import Any
 
-from PySide6.QtCore import QObject, QTimer, Signal
+from PySide6.QtCore import QObject, QTimer, Signal, Slot
 from PySide6.QtGui import QUndoCommand, QUndoStack
 
 from editor.core.registro_log import obter_logger
@@ -113,7 +113,9 @@ class GerenciadorHistorico(QObject):
         self.executar(comando)
 
     def __getattr__(self, name: str) -> Any:
-        """Delega chamadas desconhecidas para a pilha interna QUndoStack."""
+        """Delega chamadas públicas desconhecidas para a pilha interna QUndoStack."""
+        if name.startswith("_"):
+            raise AttributeError(f"'{type(self).__name__}' object has no attribute '{name}'")
         return getattr(self._pilha, name)
 
     def carregar_diario_salvo(self, model: Any, diario: Any) -> int:
@@ -220,6 +222,7 @@ class GerenciadorHistorico(QObject):
         self._pilha.clear()
         self._ultimo_index = 0
 
+    @Slot(int)
     def _on_index_changed(self, novo_index: int) -> None:
         diff = novo_index - self._ultimo_index
         if diff == 0:

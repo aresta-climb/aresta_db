@@ -154,6 +154,14 @@ class ServidorMCP:
                         "name": "editor-aresta",
                         "version": self.versao_servidor,
                     },
+                    "instructions": (
+                        "Editor Aresta MCP ativo. Antes de editar o croqui, consulte a estrutura "
+                        "de dados com `aresta_obter_esquema_proto` (ou recurso "
+                        "`aresta://esquema/proto`) e os guias de domínio com "
+                        "`aresta_listar_skills` / `aresta_ler_skill`. Para inspecionar o estado "
+                        "atual e tamanhos de listas, use `aresta_obter_arvore`. Para editar "
+                        "campos (individuais ou em lote atômico), use `aresta_alterar_campo`."
+                    ),
                 },
             }
 
