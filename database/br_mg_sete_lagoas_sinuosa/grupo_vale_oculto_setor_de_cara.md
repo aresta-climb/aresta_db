@@ -101,5 +101,3 @@ escaladas:
     quantidade_protecoes_intermediarias: 3
     quantidade_protecoes_parada: 1
 ---
-
-# Setor Vale Oculto - Sub Setor de Cara

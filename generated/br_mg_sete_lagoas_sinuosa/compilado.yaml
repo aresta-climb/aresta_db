@@ -1021,16 +1021,6 @@ picos:
               largura: 211
             id: 5hm1ZRkPZ8qWdz
             label: ↑ SETOR 7 PARALELO
-          - uid: Oge0fm7uumdZ2J
-            rotulo: ENTRADA SINUOSA ↑
-            retangulo:
-              x: 592
-              y: 526
-              comprimento: 30
-              largura: 207
-              angulo_graus_x100: -215
-            id: Oge0fm7uumdZ2J
-            label: ENTRADA SINUOSA ↑
           - uid: EGnoWLV0KliMsx
             rotulo: SETOR GAMELEIRA →
             retangulo:
@@ -1160,7 +1150,9 @@ picos:
           via_esportiva:
             nome: Araticum
             quantidade_protecoes_intermediarias: 14
-            descricao: Projeto (Sem F/A).
+            dificuldade: BR_9B
+            conquistadores:
+            - Thales Maia (FA)
         descricao: |-
           Setor que fica logo na entrada. Parede extensa, alta e com trechos muito
           negativos. A beleza da formação da parede impressiona pelas cores, formas curiosas
@@ -3048,7 +3040,7 @@ picos:
                 dificuldade: BR_6SUP
                 quantidade_protecoes_intermediarias: 3
                 quantidade_protecoes_parada: 1
-            descricao: '# Setor Vale Oculto - Sub Setor de Cara'
+            descricao: ''
             precomputados:
               total_escaladas: 5
               total_esportivas: 5
@@ -3361,7 +3353,7 @@ picos:
                 dificuldade: BR_6SUP
                 quantidade_protecoes_intermediarias: 4
                 quantidade_protecoes_parada: 1
-            descricao: '# Setor Vale Oculto - Sub Setor Laranja'
+            descricao: ''
             precomputados:
               total_escaladas: 12
               total_esportivas: 12
@@ -3731,7 +3723,7 @@ picos:
                 dificuldade: BR_6SUP
                 quantidade_protecoes_intermediarias: 6
                 quantidade_protecoes_parada: 1
-            descricao: '# Setor Vale Oculto - Sub Setor Anfiteatro'
+            descricao: ''
             precomputados:
               total_escaladas: 15
               total_esportivas: 15

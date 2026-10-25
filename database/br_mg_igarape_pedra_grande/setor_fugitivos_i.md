@@ -15,7 +15,7 @@ escaladas:
 - uid: 5UWi9FU93v9Wn7
   boulder:
     nome: Boulder do Bola
-    dificuldade: V5
+    dificuldade: V3
 - uid: f21zxSYALzzqd4
   boulder:
     nome: Trolls
@@ -52,6 +52,10 @@ escaladas:
   boulder:
     nome: Quem vai primeiro
     dificuldade: V1
+- uid: 5Evw2v0aRDOfCo
+  boulder:
+    nome: Inseminação Artificial
+    dificuldade: V4
 mapas:
 - caminho_imagem_mapa: imagens/setor_fugitivos_i_p0.webp
   largura_mapa: 1847
@@ -93,46 +97,6 @@ mapas:
           y: 912
           tipo: PASSAGEM
           rotulo: D
-      espessura: 3
-    cor: '#FFD600'
-  - uid: THBRLUul62myxD
-    rotulo: '4'
-    linha:
-      estilo: TRACEJADO
-      conteudo:
-        nos:
-        - x: 1305
-          y: 961
-          tipo: CIRCULO_IDENTIFICADOR
-          rotulo: '4'
-        - x: 1388
-          y: 768
-          tipo: PASSAGEM
-        - x: 1380
-          y: 652
-          tipo: PASSAGEM
-      espessura: 3
-    cor: '#FFD600'
-  - uid: Dj12Nq8fQktwyt
-    rotulo: '5'
-    linha:
-      estilo: TRACEJADO
-      conteudo:
-        nos:
-        - x: 1461
-          y: 842
-          tipo: CIRCULO_IDENTIFICADOR
-          rotulo: '5'
-        - x: 1321
-          y: 906
-          tipo: PASSAGEM
-        - x: 1247
-          y: 964
-          tipo: PASSAGEM
-        - x: 1206
-          y: 974
-          tipo: PASSAGEM
-          rotulo: A
       espessura: 3
     cor: '#FFD600'
   - uid: c6VFijpXyPqMOR
@@ -272,15 +236,108 @@ mapas:
           rotulo: D
       espessura: 3
     cor: '#FFD600'
+  - uid: gCGdXZnEmX96N2
+    rotulo: ''
+    linha:
+      estilo: TRACEJADO
+      conteudo:
+        nos:
+        - x: 1328
+          y: 955
+        - x: 1324
+          y: 925
+          tipo: PASSAGEM
+        - x: 1283
+          y: 939
+      espessura: 3
+    cor: '#FFD600'
+  - uid: HLGlzsSXX7Dkt9
+    rotulo: '4'
+    linha:
+      estilo: TRACEJADO
+      conteudo:
+        nos:
+        - x: 1314
+          y: 994
+          tipo: CIRCULO_IDENTIFICADOR
+          rotulo: '4'
+        - x: 1328
+          y: 955
+          tipo: PASSAGEM
+          rotulo: ''
+      espessura: 3
+    cor: '#FFD600'
+  - uid: kue1SF9CwTvnZM
+    rotulo: '4'
+    linha:
+      estilo: TRACEJADO
+      conteudo:
+        nos:
+        - x: 1328
+          y: 955
+          tipo: PASSAGEM
+          rotulo: ''
+        - x: 1388
+          y: 768
+          tipo: PASSAGEM
+          rotulo: ''
+        - x: 1380
+          y: 652
+          tipo: PASSAGEM
+          rotulo: ''
+      espessura: 3
+    cor: '#FFD600'
+  - uid: VLXnUnMG8rc9Y5
+    rotulo: '5'
+    linha:
+      estilo: TRACEJADO
+      conteudo:
+        nos:
+        - x: 1461
+          y: 842
+          tipo: CIRCULO_IDENTIFICADOR
+          rotulo: '5'
+        - x: 1321
+          y: 906
+          tipo: PASSAGEM
+          rotulo: ''
+        - x: 1281
+          y: 937
+          tipo: PASSAGEM
+          rotulo: ''
+      espessura: 3
+    cor: '#FFD600'
+  - uid: 9tkKjBX6ZOknPg
+    rotulo: '5'
+    linha:
+      estilo: TRACEJADO
+      conteudo:
+        nos:
+        - x: 1281
+          y: 937
+          tipo: PASSAGEM
+          rotulo: ''
+        - x: 1247
+          y: 964
+          tipo: PASSAGEM
+          rotulo: ''
+        - x: 1206
+          y: 974
+          tipo: PASSAGEM
+          rotulo: A
+      espessura: 3
+    cor: '#FFD600'
   referencias:
   - alvo_uid: ylP5dyJeN3B2O3
     pontos_uids:
-    - Dj12Nq8fQktwyt
+    - VLXnUnMG8rc9Y5
+    - 9tkKjBX6ZOknPg
     - IpevDPdsnVHfkx
     - kp1FBa7XztavAz
   - alvo_uid: 4Fg4D2G7fatIQu
     pontos_uids:
-    - Dj12Nq8fQktwyt
+    - VLXnUnMG8rc9Y5
+    - 9tkKjBX6ZOknPg
     - Jfeu3ieoYdblPv
     - c6VFijpXyPqMOR
   - alvo_uid: 5UWi9FU93v9Wn7
@@ -291,7 +348,8 @@ mapas:
     - 3rqfVJ0dJgmYpW
   - alvo_uid: f21zxSYALzzqd4
     pontos_uids:
-    - THBRLUul62myxD
+    - HLGlzsSXX7Dkt9
+    - kue1SF9CwTvnZM
     - 3rqfVJ0dJgmYpW
   - alvo_uid: JRWNVEWv9PW7cT
     pontos_uids:
@@ -304,6 +362,13 @@ mapas:
     pontos_uids:
     - eyMQLEIXumeXrC
     - Jfeu3ieoYdblPv
+  - alvo_uid: 5Evw2v0aRDOfCo
+    pontos_uids:
+    - HLGlzsSXX7Dkt9
+    - gCGdXZnEmX96N2
+    - c6VFijpXyPqMOR
+    - Jfeu3ieoYdblPv
+    - 9tkKjBX6ZOknPg
 - caminho_imagem_mapa: imagens/setor_fugitivos_i_p1.webp
   largura_mapa: 1280
   altura_mapa: 960
@@ -367,26 +432,6 @@ mapas:
           y: 537
           tipo: PASSAGEM
           rotulo: ''
-      espessura: 3
-    cor: '#FFD600'
-  - uid: 6AXDXEHiYZDc39
-    rotulo: ''
-    linha:
-      estilo: TRACEJADO
-      conteudo:
-        nos:
-        - x: 651
-          y: 557
-          tipo: CIRCULO_IDENTIFICADOR
-          rotulo: '4'
-          raio: 14
-        - x: 673
-          y: 404
-          tipo: PASSAGEM
-        - x: 645
-          y: 288
-          tipo: PASSAGEM
-          rotulo: E
       espessura: 3
     cor: '#FFD600'
   - uid: UqW5Vdic5cdh5s
@@ -456,29 +501,6 @@ mapas:
           y: 289
           tipo: PASSAGEM
           rotulo: ''
-      espessura: 3
-    cor: '#FFD600'
-  - uid: ZnUSwyudUfVn2U
-    rotulo: ''
-    linha:
-      estilo: TRACEJADO
-      conteudo:
-        nos:
-        - x: 1138
-          y: 455
-          tipo: CIRCULO_IDENTIFICADOR
-          rotulo: '5'
-          raio: 14
-        - x: 1007
-          y: 455
-        - x: 848
-          y: 470
-        - x: 713
-          y: 492
-        - x: 660
-          y: 497
-        - x: 569
-          y: 515
       espessura: 3
     cor: '#FFD600'
   - uid: d0kTCKro3sfCw0
@@ -583,6 +605,101 @@ mapas:
           raio: 14
       espessura: 3
     cor: '#FFD600'
+  - uid: 72QEM0G5Mfhrjz
+    linha:
+      estilo: TRACEJADO
+      conteudo:
+        nos:
+        - x: 650
+          y: 565
+          tipo: CIRCULO_IDENTIFICADOR
+          rotulo: '4'
+        - x: 658
+          y: 527
+          tipo: PASSAGEM
+          rotulo: ''
+      espessura: 3
+    cor: '#FFD600'
+  - uid: UHFvkI2pSvmKKZ
+    linha:
+      estilo: TRACEJADO
+      conteudo:
+        nos:
+        - x: 658
+          y: 527
+          tipo: PASSAGEM
+          rotulo: ''
+        - x: 673
+          y: 404
+          tipo: PASSAGEM
+          rotulo: ''
+        - x: 645
+          y: 288
+          tipo: PASSAGEM
+          rotulo: E
+      espessura: 3
+    cor: '#FFD600'
+  - uid: wnWtufBZqMkCe5
+    linha:
+      estilo: TRACEJADO
+      conteudo:
+        nos:
+        - x: 1138
+          y: 455
+          tipo: CIRCULO_IDENTIFICADOR
+          rotulo: '5'
+        - x: 1007
+          y: 455
+          tipo: PASSAGEM
+          rotulo: ''
+        - x: 848
+          y: 470
+          tipo: PASSAGEM
+          rotulo: ''
+        - x: 713
+          y: 492
+          tipo: PASSAGEM
+          rotulo: ''
+        - x: 660
+          y: 497
+          tipo: PASSAGEM
+          rotulo: ''
+        - x: 624
+          y: 506
+          tipo: PASSAGEM
+          rotulo: ''
+      espessura: 3
+    cor: '#FFD600'
+  - uid: E8AXMIzYBc5Xl5
+    linha:
+      estilo: TRACEJADO
+      conteudo:
+        nos:
+        - x: 624
+          y: 506
+          tipo: PASSAGEM
+          rotulo: ''
+        - x: 569
+          y: 515
+          tipo: PASSAGEM
+          rotulo: ''
+      espessura: 3
+    cor: '#FFD600'
+  - uid: dw5caGPTvCGXmf
+    rotulo: ''
+    linha:
+      estilo: TRACEJADO
+      conteudo:
+        nos:
+        - x: 658
+          y: 527
+        - x: 650
+          y: 509
+          tipo: PASSAGEM
+        - x: 624
+          y: 506
+      espessura: 3
+    cor: '#FFD600'
   referencias:
   - alvo_uid: OM7GKqux35ulMX
     pontos_uids:
@@ -605,22 +722,34 @@ mapas:
     - UqW5Vdic5cdh5s
   - alvo_uid: f21zxSYALzzqd4
     pontos_uids:
-    - 6AXDXEHiYZDc39
+    - 72QEM0G5Mfhrjz
+    - UHFvkI2pSvmKKZ
     - UqW5Vdic5cdh5s
   - alvo_uid: ylP5dyJeN3B2O3
     pontos_uids:
-    - ZnUSwyudUfVn2U
+    - wnWtufBZqMkCe5
+    - E8AXMIzYBc5Xl5
     - o2IkqfXURRXDw3
     - 2gzP6aTpHqJ8KN
     - 87JwkW3LS5NWd2
     - UUTTGa1l6VaHjj
   - alvo_uid: 4Fg4D2G7fatIQu
     pontos_uids:
-    - ZnUSwyudUfVn2U
+    - wnWtufBZqMkCe5
+    - E8AXMIzYBc5Xl5
     - o2IkqfXURRXDw3
     - 2gzP6aTpHqJ8KN
     - O4g3rMMzncA2s1
     - 87JwkW3LS5NWd2
+  - alvo_uid: 5Evw2v0aRDOfCo
+    pontos_uids:
+    - 72QEM0G5Mfhrjz
+    - dw5caGPTvCGXmf
+    - E8AXMIzYBc5Xl5
+    - o2IkqfXURRXDw3
+    - 2gzP6aTpHqJ8KN
+    - 87JwkW3LS5NWd2
+    - O4g3rMMzncA2s1
 - caminho_imagem_mapa: imagens/setor_fugitivos_i_p2.webp
   largura_mapa: 1280
   altura_mapa: 960

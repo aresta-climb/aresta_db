@@ -41,7 +41,8 @@ escaladas:
   boulder:
     nome: Utopia
     dificuldade: V6
-    descricao: Começa na parede da direita e muda pra parede da esquerda no meio do boulder.
+    descricao: Começa na parede da direita e muda pra parede da esquerda no meio do
+      boulder.
 - uid: fVhTfbikhEidfi
   boulder:
     nome: Dejavu
@@ -56,7 +57,7 @@ escaladas:
     dificuldade: V6
 - uid: MjbF0c0oN3HNGe
   boulder:
-    nome: Sem nome 26
+    nome: Boulder do pilão
     dificuldade: V6
 - uid: E7MTuSCnwN9m2r
   boulder:
@@ -963,29 +964,29 @@ mapas:
         - x: 978
           y: 1208
           tipo: PASSAGEM
-        - x: 1012
-          y: 1168
+        - x: 1007
+          y: 1164
           tipo: PASSAGEM
         - x: 1029
           y: 1126
           tipo: PASSAGEM
-        - x: 1029
-          y: 1082
+        - x: 1062
+          y: 1065
           tipo: PASSAGEM
-        - x: 989
-          y: 953
+        - x: 1018
+          y: 936
           tipo: PASSAGEM
-        - x: 948
-          y: 855
+        - x: 993
+          y: 840
           tipo: PASSAGEM
-        - x: 902
-          y: 736
+        - x: 965
+          y: 720
           tipo: PASSAGEM
-        - x: 874
-          y: 640
+        - x: 927
+          y: 627
           tipo: PASSAGEM
-        - x: 844
-          y: 535
+        - x: 872
+          y: 531
           tipo: PASSAGEM
         - x: 825
           y: 428

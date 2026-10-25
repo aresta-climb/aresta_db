@@ -56,28 +56,28 @@ mapas:
       estilo: TRACEJADO
       conteudo:
         nos:
-        - x: 721
-          y: 2033
+        - x: 964
+          y: 1648
           tipo: CIRCULO_IDENTIFICADOR
           rotulo: '1'
           raio: 26
-        - x: 811
-          y: 1760
+        - x: 887
+          y: 1532
           tipo: PASSAGEM
-        - x: 817
-          y: 1502
+        - x: 851
+          y: 1406
           tipo: PASSAGEM
-        - x: 805
-          y: 1149
+        - x: 806
+          y: 1150
           tipo: PASSAGEM
-        - x: 796
-          y: 769
+        - x: 797
+          y: 770
           tipo: PASSAGEM
-        - x: 834
-          y: 570
+        - x: 835
+          y: 571
           tipo: PASSAGEM
-        - x: 819
-          y: 217
+        - x: 820
+          y: 218
           tipo: PASSAGEM
           rotulo: ''
       espessura: 5

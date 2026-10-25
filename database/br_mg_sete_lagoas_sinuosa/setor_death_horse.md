@@ -70,14 +70,6 @@ mapas:
       y: 254
       comprimento: 26
       largura: 211
-  - uid: Oge0fm7uumdZ2J
-    rotulo: ENTRADA SINUOSA ↑
-    retangulo:
-      x: 592
-      y: 526
-      comprimento: 30
-      largura: 207
-      angulo_graus_x100: -215
   - uid: EGnoWLV0KliMsx
     rotulo: SETOR GAMELEIRA →
     retangulo:
@@ -163,7 +155,9 @@ escaladas:
   via_esportiva:
     nome: Araticum
     quantidade_protecoes_intermediarias: 14
-    descricao: Projeto (Sem F/A).
+    dificuldade: BR_9B
+    conquistadores:
+    - Thales Maia (FA)
 ---
 
 Setor que fica logo na entrada. Parede extensa, alta e com trechos muito

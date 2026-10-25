@@ -2175,7 +2175,7 @@ picos:
             - uid: tkXSRSpNWY5yL3
               boulder:
                 nome: Só o pó
-                dificuldade: V1
+                dificuldade: V2
             - uid: 1E48e1PlohVfeJ
               boulder:
                 nome: Só poeira
@@ -2746,7 +2746,7 @@ picos:
         - uid: 5UWi9FU93v9Wn7
           boulder:
             nome: Boulder do Bola
-            dificuldade: V5
+            dificuldade: V3
         - uid: f21zxSYALzzqd4
           boulder:
             nome: Trolls
@@ -2783,6 +2783,10 @@ picos:
           boulder:
             nome: Quem vai primeiro
             dificuldade: V1
+        - uid: 5Evw2v0aRDOfCo
+          boulder:
+            nome: Inseminação Artificial
+            dificuldade: V4
         mapas:
         - caminho_imagem_mapa: imagens/setor_fugitivos_i_p0.webp
           largura_mapa: 1847
@@ -2836,51 +2840,6 @@ picos:
             cor: '#FFD600'
             id: 889TBw74ifLuxF
             label: '3'
-          - uid: THBRLUul62myxD
-            rotulo: '4'
-            linha:
-              estilo: TRACEJADO
-              espessura: 3
-              compilado:
-                caminho_svg: M 1305 961 C 1332.7 896.7, 1378.3 825.2, 1388 768 C 1395.3
-                  725.4, 1382.7 690.7, 1380 652
-                caixa_delimitadora:
-                  x: 1346
-                  y: 806
-                  comprimento: 83
-                  largura: 309
-                marcadores:
-                - tipo: CIRCULO_IDENTIFICADOR
-                  x: 1305
-                  y: 961
-                  angulo_graus_x100: -6673
-                  rotulo: '4'
-            cor: '#FFD600'
-            id: THBRLUul62myxD
-            label: '4'
-          - uid: Dj12Nq8fQktwyt
-            rotulo: '5'
-            linha:
-              estilo: TRACEJADO
-              espessura: 3
-              compilado:
-                caminho_svg: M 1461 842 C 1414.3 863.3, 1359.2 882.8, 1321 906 C 1291.2
-                  924.2, 1269.1 953.3, 1247 964 C 1232.2 971.2, 1219.7 970.7, 1206
-                  974
-                caixa_delimitadora:
-                  x: 1334
-                  y: 908
-                  comprimento: 255
-                  largura: 132
-                marcadores:
-                - tipo: CIRCULO_IDENTIFICADOR
-                  x: 1461
-                  y: 842
-                  angulo_graus_x100: 15543
-                  rotulo: '5'
-            cor: '#FFD600'
-            id: Dj12Nq8fQktwyt
-            label: '5'
           - uid: c6VFijpXyPqMOR
             rotulo: X
             linha:
@@ -3027,27 +2986,125 @@ picos:
             cor: '#FFD600'
             id: 3rqfVJ0dJgmYpW
             label: d
+          - uid: gCGdXZnEmX96N2
+            rotulo: ''
+            linha:
+              estilo: TRACEJADO
+              espessura: 3
+              compilado:
+                caminho_svg: M 1328 955 C 1326.7 945.0, 1329.9 928.7, 1324 925 C 1316.9
+                  920.6, 1296.7 934.3, 1283 939
+                caixa_delimitadora:
+                  x: 1306
+                  y: 940
+                  comprimento: 45
+                  largura: 30
+                marcadores: []
+            cor: '#FFD600'
+            id: gCGdXZnEmX96N2
+            label: ''
+          - uid: HLGlzsSXX7Dkt9
+            rotulo: '4'
+            linha:
+              estilo: TRACEJADO
+              espessura: 3
+              compilado:
+                caminho_svg: M 1314 994 C 1318.7 981.0, 1323.3 968.0, 1328 955
+                caixa_delimitadora:
+                  x: 1321
+                  y: 974
+                  comprimento: 14
+                  largura: 39
+                marcadores:
+                - tipo: CIRCULO_IDENTIFICADOR
+                  x: 1314
+                  y: 994
+                  angulo_graus_x100: -7025
+                  rotulo: '4'
+            cor: '#FFD600'
+            id: HLGlzsSXX7Dkt9
+            label: '4'
+          - uid: kue1SF9CwTvnZM
+            rotulo: '4'
+            linha:
+              estilo: TRACEJADO
+              espessura: 3
+              compilado:
+                caminho_svg: M 1328 955 C 1348.0 892.7, 1381.3 823.5, 1388 768 C 1393.2
+                  725.3, 1382.7 690.7, 1380 652
+                caixa_delimitadora:
+                  x: 1358
+                  y: 804
+                  comprimento: 60
+                  largura: 303
+                marcadores: []
+            cor: '#FFD600'
+            id: kue1SF9CwTvnZM
+            label: '4'
+          - uid: VLXnUnMG8rc9Y5
+            rotulo: '5'
+            linha:
+              estilo: TRACEJADO
+              espessura: 3
+              compilado:
+                caminho_svg: M 1461 842 C 1414.3 863.3, 1352.8 886.8, 1321 906 C 1302.8
+                  917.0, 1294.3 926.7, 1281 937
+                caixa_delimitadora:
+                  x: 1371
+                  y: 890
+                  comprimento: 180
+                  largura: 95
+                marcadores:
+                - tipo: CIRCULO_IDENTIFICADOR
+                  x: 1461
+                  y: 842
+                  angulo_graus_x100: 15543
+                  rotulo: '5'
+            cor: '#FFD600'
+            id: VLXnUnMG8rc9Y5
+            label: '5'
+          - uid: 9tkKjBX6ZOknPg
+            rotulo: '5'
+            linha:
+              estilo: TRACEJADO
+              espessura: 3
+              compilado:
+                caminho_svg: M 1281 937 C 1269.7 946.0, 1259.6 957.8, 1247 964 C 1234.6
+                  970.1, 1219.7 970.7, 1206 974
+                caixa_delimitadora:
+                  x: 1244
+                  y: 956
+                  comprimento: 75
+                  largura: 37
+                marcadores: []
+            cor: '#FFD600'
+            id: 9tkKjBX6ZOknPg
+            label: '5'
           referencias:
           - alvo_uid: ylP5dyJeN3B2O3
             pontos_uids:
-            - Dj12Nq8fQktwyt
+            - VLXnUnMG8rc9Y5
+            - 9tkKjBX6ZOknPg
             - IpevDPdsnVHfkx
             - kp1FBa7XztavAz
             escalada: Polydance
             setor: Bloco Fugitivos I
             ids:
-            - Dj12Nq8fQktwyt
+            - VLXnUnMG8rc9Y5
+            - 9tkKjBX6ZOknPg
             - IpevDPdsnVHfkx
             - kp1FBa7XztavAz
           - alvo_uid: 4Fg4D2G7fatIQu
             pontos_uids:
-            - Dj12Nq8fQktwyt
+            - VLXnUnMG8rc9Y5
+            - 9tkKjBX6ZOknPg
             - Jfeu3ieoYdblPv
             - c6VFijpXyPqMOR
             escalada: Bigdance
             setor: Bloco Fugitivos I
             ids:
-            - Dj12Nq8fQktwyt
+            - VLXnUnMG8rc9Y5
+            - 9tkKjBX6ZOknPg
             - Jfeu3ieoYdblPv
             - c6VFijpXyPqMOR
           - alvo_uid: 5UWi9FU93v9Wn7
@@ -3065,12 +3122,14 @@ picos:
             - 3rqfVJ0dJgmYpW
           - alvo_uid: f21zxSYALzzqd4
             pontos_uids:
-            - THBRLUul62myxD
+            - HLGlzsSXX7Dkt9
+            - kue1SF9CwTvnZM
             - 3rqfVJ0dJgmYpW
             escalada: Trolls
             setor: Bloco Fugitivos I
             ids:
-            - THBRLUul62myxD
+            - HLGlzsSXX7Dkt9
+            - kue1SF9CwTvnZM
             - 3rqfVJ0dJgmYpW
           - alvo_uid: JRWNVEWv9PW7cT
             pontos_uids:
@@ -3097,6 +3156,21 @@ picos:
             ids:
             - eyMQLEIXumeXrC
             - Jfeu3ieoYdblPv
+          - alvo_uid: 5Evw2v0aRDOfCo
+            pontos_uids:
+            - HLGlzsSXX7Dkt9
+            - gCGdXZnEmX96N2
+            - c6VFijpXyPqMOR
+            - Jfeu3ieoYdblPv
+            - 9tkKjBX6ZOknPg
+            escalada: Inseminação Artificial
+            setor: Bloco Fugitivos I
+            ids:
+            - HLGlzsSXX7Dkt9
+            - gCGdXZnEmX96N2
+            - c6VFijpXyPqMOR
+            - Jfeu3ieoYdblPv
+            - 9tkKjBX6ZOknPg
         - caminho_imagem_mapa: imagens/setor_fugitivos_i_p1.webp
           largura_mapa: 1280
           altura_mapa: 960
@@ -3180,29 +3254,6 @@ picos:
                   raio: 14
             cor: '#FFD600'
             id: cxHVpp0pV2HDdc
-          - uid: 6AXDXEHiYZDc39
-            rotulo: ''
-            linha:
-              estilo: TRACEJADO
-              espessura: 3
-              compilado:
-                caminho_svg: M 651 557 C 658.3 506.0, 675.2 451.3, 673 404 C 671.0
-                  362.5, 654.3 326.7, 645 288
-                caixa_delimitadora:
-                  x: 659
-                  y: 422
-                  comprimento: 28
-                  largura: 269
-                marcadores:
-                - tipo: CIRCULO_IDENTIFICADOR
-                  x: 651
-                  y: 557
-                  angulo_graus_x100: -8182
-                  rotulo: '4'
-                  raio: 14
-            cor: '#FFD600'
-            id: 6AXDXEHiYZDc39
-            label: ''
           - uid: UqW5Vdic5cdh5s
             linha:
               estilo: TRACEJADO
@@ -3266,31 +3317,6 @@ picos:
                 marcadores: []
             cor: '#FFD600'
             id: OTcUfRsFOnjDk0
-          - uid: ZnUSwyudUfVn2U
-            rotulo: ''
-            linha:
-              estilo: TRACEJADO
-              espessura: 3
-              compilado:
-                caminho_svg: M 1138 455 C 1094.3 455.0, 1052.7 452.8, 1007 455 C 956.5
-                  457.4, 898.7 463.5, 848 470 C 801.1 476.0, 747.7 487.5, 713 492
-                  C 691.3 494.8, 680.0 494.1, 660 497 C 633.7 500.8, 599.3 509.0,
-                  569 515
-                caixa_delimitadora:
-                  x: 854
-                  y: 485
-                  comprimento: 569
-                  largura: 60
-                marcadores:
-                - tipo: CIRCULO_IDENTIFICADOR
-                  x: 1138
-                  y: 455
-                  angulo_graus_x100: 18000
-                  rotulo: '5'
-                  raio: 14
-            cor: '#FFD600'
-            id: ZnUSwyudUfVn2U
-            label: ''
           - uid: d0kTCKro3sfCw0
             linha:
               estilo: TRACEJADO
@@ -3382,6 +3408,93 @@ picos:
                   raio: 14
             cor: '#FFD600'
             id: UUTTGa1l6VaHjj
+          - uid: 72QEM0G5Mfhrjz
+            linha:
+              estilo: TRACEJADO
+              espessura: 3
+              compilado:
+                caminho_svg: M 650 565 C 652.7 552.3, 655.3 539.7, 658 527
+                caixa_delimitadora:
+                  x: 654
+                  y: 546
+                  comprimento: 8
+                  largura: 38
+                marcadores:
+                - tipo: CIRCULO_IDENTIFICADOR
+                  x: 650
+                  y: 565
+                  angulo_graus_x100: -7811
+                  rotulo: '4'
+            cor: '#FFD600'
+            id: 72QEM0G5Mfhrjz
+          - uid: UHFvkI2pSvmKKZ
+            linha:
+              estilo: TRACEJADO
+              espessura: 3
+              compilado:
+                caminho_svg: M 658 527 C 663.0 486.0, 675.3 444.2, 673 404 C 670.7
+                  364.6, 654.3 326.7, 645 288
+                caixa_delimitadora:
+                  x: 659
+                  y: 408
+                  comprimento: 28
+                  largura: 239
+                marcadores: []
+            cor: '#FFD600'
+            id: UHFvkI2pSvmKKZ
+          - uid: wnWtufBZqMkCe5
+            linha:
+              estilo: TRACEJADO
+              espessura: 3
+              compilado:
+                caminho_svg: M 1138 455 C 1094.3 455.0, 1052.7 452.8, 1007 455 C 956.5
+                  457.4, 898.7 463.5, 848 470 C 801.1 476.0, 747.7 487.5, 713 492
+                  C 691.3 494.8, 675.9 494.3, 660 497 C 646.7 499.3, 636.0 503.0,
+                  624 506
+                caixa_delimitadora:
+                  x: 881
+                  y: 480
+                  comprimento: 514
+                  largura: 51
+                marcadores:
+                - tipo: CIRCULO_IDENTIFICADOR
+                  x: 1138
+                  y: 455
+                  angulo_graus_x100: 18000
+                  rotulo: '5'
+            cor: '#FFD600'
+            id: wnWtufBZqMkCe5
+          - uid: E8AXMIzYBc5Xl5
+            linha:
+              estilo: TRACEJADO
+              espessura: 3
+              compilado:
+                caminho_svg: M 624 506 C 605.7 509.0, 587.3 512.0, 569 515
+                caixa_delimitadora:
+                  x: 596
+                  y: 510
+                  comprimento: 55
+                  largura: 9
+                marcadores: []
+            cor: '#FFD600'
+            id: E8AXMIzYBc5Xl5
+          - uid: dw5caGPTvCGXmf
+            rotulo: ''
+            linha:
+              estilo: TRACEJADO
+              espessura: 3
+              compilado:
+                caminho_svg: M 658 527 C 655.3 521.0, 654.9 512.6, 650 509 C 644.3
+                  504.8, 632.7 507.0, 624 506
+                caixa_delimitadora:
+                  x: 641
+                  y: 516
+                  comprimento: 34
+                  largura: 21
+                marcadores: []
+            cor: '#FFD600'
+            id: dw5caGPTvCGXmf
+            label: ''
           referencias:
           - alvo_uid: OM7GKqux35ulMX
             pontos_uids:
@@ -3427,16 +3540,19 @@ picos:
             - UqW5Vdic5cdh5s
           - alvo_uid: f21zxSYALzzqd4
             pontos_uids:
-            - 6AXDXEHiYZDc39
+            - 72QEM0G5Mfhrjz
+            - UHFvkI2pSvmKKZ
             - UqW5Vdic5cdh5s
             escalada: Trolls
             setor: Bloco Fugitivos I
             ids:
-            - 6AXDXEHiYZDc39
+            - 72QEM0G5Mfhrjz
+            - UHFvkI2pSvmKKZ
             - UqW5Vdic5cdh5s
           - alvo_uid: ylP5dyJeN3B2O3
             pontos_uids:
-            - ZnUSwyudUfVn2U
+            - wnWtufBZqMkCe5
+            - E8AXMIzYBc5Xl5
             - o2IkqfXURRXDw3
             - 2gzP6aTpHqJ8KN
             - 87JwkW3LS5NWd2
@@ -3444,14 +3560,16 @@ picos:
             escalada: Polydance
             setor: Bloco Fugitivos I
             ids:
-            - ZnUSwyudUfVn2U
+            - wnWtufBZqMkCe5
+            - E8AXMIzYBc5Xl5
             - o2IkqfXURRXDw3
             - 2gzP6aTpHqJ8KN
             - 87JwkW3LS5NWd2
             - UUTTGa1l6VaHjj
           - alvo_uid: 4Fg4D2G7fatIQu
             pontos_uids:
-            - ZnUSwyudUfVn2U
+            - wnWtufBZqMkCe5
+            - E8AXMIzYBc5Xl5
             - o2IkqfXURRXDw3
             - 2gzP6aTpHqJ8KN
             - O4g3rMMzncA2s1
@@ -3459,11 +3577,31 @@ picos:
             escalada: Bigdance
             setor: Bloco Fugitivos I
             ids:
-            - ZnUSwyudUfVn2U
+            - wnWtufBZqMkCe5
+            - E8AXMIzYBc5Xl5
             - o2IkqfXURRXDw3
             - 2gzP6aTpHqJ8KN
             - O4g3rMMzncA2s1
             - 87JwkW3LS5NWd2
+          - alvo_uid: 5Evw2v0aRDOfCo
+            pontos_uids:
+            - 72QEM0G5Mfhrjz
+            - dw5caGPTvCGXmf
+            - E8AXMIzYBc5Xl5
+            - o2IkqfXURRXDw3
+            - 2gzP6aTpHqJ8KN
+            - 87JwkW3LS5NWd2
+            - O4g3rMMzncA2s1
+            escalada: Inseminação Artificial
+            setor: Bloco Fugitivos I
+            ids:
+            - 72QEM0G5Mfhrjz
+            - dw5caGPTvCGXmf
+            - E8AXMIzYBc5Xl5
+            - o2IkqfXURRXDw3
+            - 2gzP6aTpHqJ8KN
+            - 87JwkW3LS5NWd2
+            - O4g3rMMzncA2s1
         - caminho_imagem_mapa: imagens/setor_fugitivos_i_p2.webp
           largura_mapa: 1280
           altura_mapa: 960
@@ -3607,8 +3745,8 @@ picos:
             - BYw7OkD4pwJDY0
         descricao: 'Veja a trilha para chegar ao setor no Wikiloc: https://loc.wiki/t/169742661?wa=sc'
         precomputados:
-          total_escaladas: 12
-          total_boulders: 12
+          total_escaladas: 13
+          total_boulders: 13
   - setor:
       conteudo:
         uid: xNOT4evG3tUx7A
@@ -3666,20 +3804,20 @@ picos:
               estilo: TRACEJADO
               espessura: 5
               compilado:
-                caminho_svg: M 721 2033 C 751.0 1942.0, 795.3 1850.9, 811 1760 C 825.9
-                  1673.9, 817.5 1594.7, 817 1502 C 816.4 1393.5, 808.5 1268.8, 805
-                  1149 C 801.4 1024.7, 787.2 875.0, 796 769 C 802.4 691.6, 828.4 646.1,
-                  834 570 C 841.4 469.4, 824.0 334.7, 819 217
+                caminho_svg: M 964 1648 C 938.3 1609.3, 905.9 1573.0, 887 1532 C 868.6
+                  1492.2, 862.4 1455.7, 851 1406 C 834.9 1336.0, 815.3 1244.1, 806
+                  1150 C 794.7 1036.2, 788.2 876.0, 797 770 C 803.4 692.6, 829.4 647.1,
+                  835 571 C 842.4 470.4, 825.0 335.7, 820 218
                 caixa_delimitadora:
-                  x: 778
-                  y: 1125
-                  comprimento: 113
-                  largura: 1816
+                  x: 880
+                  y: 933
+                  comprimento: 167
+                  largura: 1430
                 marcadores:
                 - tipo: CIRCULO_IDENTIFICADOR
-                  x: 721
-                  y: 2033
-                  angulo_graus_x100: -7175
+                  x: 964
+                  y: 1648
+                  angulo_graus_x100: -12358
                   rotulo: '1'
                   raio: 26
             cor: '#FFD600'
@@ -5908,7 +6046,7 @@ picos:
           via_esportiva:
             nome: Playground
             dificuldade: BR_4
-            quantidade_protecoes_intermediarias: 2
+            quantidade_protecoes_intermediarias: 3
             quantidade_protecoes_parada: 2
             extensao: 8
             conquistadores:
@@ -5918,7 +6056,7 @@ picos:
           via_esportiva:
             nome: Depressão Pós Reforma
             dificuldade: BR_4
-            quantidade_protecoes_intermediarias: 2
+            quantidade_protecoes_intermediarias: 3
             quantidade_protecoes_parada: 2
             extensao: 7
             conquistadores:
@@ -5928,7 +6066,7 @@ picos:
           via_esportiva:
             nome: Chuvasca
             dificuldade: BR_4
-            quantidade_protecoes_intermediarias: 2
+            quantidade_protecoes_intermediarias: 3
             quantidade_protecoes_parada: 2
             extensao: 6
             conquistadores:
@@ -5950,7 +6088,7 @@ picos:
           via_esportiva:
             nome: Franzinha
             dificuldade: BR_4
-            quantidade_protecoes_intermediarias: 2
+            quantidade_protecoes_intermediarias: 3
             quantidade_protecoes_parada: 2
             extensao: 6
             conquistadores:
@@ -6494,7 +6632,7 @@ picos:
             dificuldade: V6
         - uid: MjbF0c0oN3HNGe
           boulder:
-            nome: Sem nome 26
+            nome: Boulder do pilão
             dificuldade: V6
         - uid: E7MTuSCnwN9m2r
           boulder:
@@ -7182,12 +7320,12 @@ picos:
                 caminho_svg: M 1135 1420 C 1108.0 1409.0, 1076.8 1400.1, 1054 1387
                   C 1035.1 1376.1, 1019.5 1362.5, 1006 1350 C 994.6 1339.5, 983.0
                   1331.3, 977 1318 C 970.3 1303.0, 970.8 1281.3, 971 1263 C 971.2
-                  1244.7, 970.9 1224.0, 978 1208 C 984.9 1192.4, 1003.4 1182.2, 1012
-                  1168 C 1020.0 1154.8, 1026.2 1140.4, 1029 1126 C 1031.8 1111.8,
-                  1031.8 1100.3, 1029 1082 C 1024.2 1050.0, 1003.4 992.7, 989 953
-                  C 976.2 917.8, 961.8 889.4, 948 855 C 932.9 817.4, 914.8 773.8,
-                  902 736 C 890.7 702.5, 883.4 672.7, 874 640 C 864.1 605.8, 852.2
-                  570.4, 844 535 C 835.8 499.7, 832.7 454.6, 825 428 C 820.2 411.5,
+                  1244.7, 971.8 1224.7, 978 1208 C 984.0 1191.8, 998.2 1178.3, 1007
+                  1164 C 1015.0 1151.0, 1021.0 1140.2, 1029 1126 C 1039.0 1108.1,
+                  1059.9 1089.6, 1062 1065 C 1064.9 1030.5, 1030.0 976.0, 1018 936
+                  C 1007.7 901.8, 1001.4 873.8, 993 840 C 983.7 802.3, 976.8 757.0,
+                  965 720 C 954.3 686.6, 942.0 657.8, 927 627 C 911.2 594.7, 888.9
+                  564.0, 872 531 C 854.9 497.7, 836.4 454.2, 825 428 C 818.1 412.0,
                   814.3 402.0, 809 389
                 caixa_delimitadora:
                   x: 972
@@ -7279,7 +7417,7 @@ picos:
             pontos_uids:
             - SHCOhsdHYBae5A
             - GA9j8Ik294SeTh
-            escalada: Sem nome 26
+            escalada: Boulder do pilão
             setor: Bloco Democracia
             ids:
             - SHCOhsdHYBae5A
@@ -11462,11 +11600,11 @@ picos:
     longitude: -443593480
   cidade: Igarapé
   precomputados:
-    total_escaladas: 240
+    total_escaladas: 241
     total_setores: 21
     total_grupos: 2
     total_esportivas: 95
-    total_boulders: 103
+    total_boulders: 104
     total_multiplas_enfiadas: 1
 botoes:
 - uid: axpnQInJsigqZt

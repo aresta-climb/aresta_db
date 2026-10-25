@@ -518,7 +518,7 @@ escaladas:
   via_esportiva:
     nome: Playground
     dificuldade: BR_4
-    quantidade_protecoes_intermediarias: 2
+    quantidade_protecoes_intermediarias: 3
     quantidade_protecoes_parada: 2
     extensao: 8
     conquistadores:
@@ -528,7 +528,7 @@ escaladas:
   via_esportiva:
     nome: Depressão Pós Reforma
     dificuldade: BR_4
-    quantidade_protecoes_intermediarias: 2
+    quantidade_protecoes_intermediarias: 3
     quantidade_protecoes_parada: 2
     extensao: 7
     conquistadores:
@@ -538,7 +538,7 @@ escaladas:
   via_esportiva:
     nome: Chuvasca
     dificuldade: BR_4
-    quantidade_protecoes_intermediarias: 2
+    quantidade_protecoes_intermediarias: 3
     quantidade_protecoes_parada: 2
     extensao: 6
     conquistadores:
@@ -560,7 +560,7 @@ escaladas:
   via_esportiva:
     nome: Franzinha
     dificuldade: BR_4
-    quantidade_protecoes_intermediarias: 2
+    quantidade_protecoes_intermediarias: 3
     quantidade_protecoes_parada: 2
     extensao: 6
     conquistadores:

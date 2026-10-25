@@ -864,7 +864,7 @@ escaladas:
 - uid: tkXSRSpNWY5yL3
   boulder:
     nome: Só o pó
-    dificuldade: V1
+    dificuldade: V2
 - uid: 1E48e1PlohVfeJ
   boulder:
     nome: Só poeira

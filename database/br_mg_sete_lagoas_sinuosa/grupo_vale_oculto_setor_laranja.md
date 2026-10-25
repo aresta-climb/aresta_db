@@ -214,5 +214,3 @@ escaladas:
     quantidade_protecoes_intermediarias: 4
     quantidade_protecoes_parada: 1
 ---
-
-# Setor Vale Oculto - Sub Setor Laranja

@@ -254,5 +254,3 @@ escaladas:
     quantidade_protecoes_intermediarias: 6
     quantidade_protecoes_parada: 1
 ---
-
-# Setor Vale Oculto - Sub Setor Anfiteatro
