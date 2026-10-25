@@ -6158,3 +6158,148 @@ def test_item_grafico_valido_cobertura_defensiva(qtbot):
     widget.item_camera_overlay = None
     # Deve retornar sem erro e sem mutações
     assert widget.salvar_ajuste_camera() is None
+
+
+def _criar_widget_com_rota_base_para_confluencia(qtbot):
+    from PySide6.QtGui import QUndoStack
+
+    from aresta_api.proto.generated import croqui_pb2
+    from editor.controllers.mapas_controller import MapasController
+    from editor.models.croqui_model import CroquiModel
+    from editor.views.widget_editor_mapas import WidgetEditorMapas
+
+    croqui = croqui_pb2.Croqui()
+    pico = croqui.picos.add()
+    sg = pico.setores_ou_grupos.add()
+    setor = sg.setor.conteudo
+    setor.uid = "setor_1"
+    setor.nome = "Setor Teste"
+    mapa = setor.mapas.add()
+
+    model = CroquiModel(croqui)
+    undo_stack = QUndoStack()
+    controller = MapasController(model, undo_stack)
+
+    widget = WidgetEditorMapas(mapas_controller=controller, croqui_model=model)
+    qtbot.addWidget(widget)
+
+    proxy_setor = model.obter_croqui_readonly().picos[0].setores_ou_grupos[0].setor.conteudo
+    proxy_mapa = proxy_setor.mapas[0]
+
+    controller.adicionar_rota_com_tracado(
+        proxy_mapa,
+        proxy_setor,
+        {"nome": "Via Base", "tipo": "boulder", "grau": "V2", "nova": True},
+        [(100.0, 500.0), (100.0, 300.0), (100.0, 100.0)],
+    )
+
+    widget.pico_idx = 0
+    widget.sg_idx = 0
+    widget.mapa_idx = 0
+    widget.set_mapa_atual(proxy_mapa)
+    return widget, croqui, mapa, undo_stack
+
+
+def test_confluencia_guarda_primeiro_clique_adiciona_ponto_sem_popover(qtbot):
+    """[TDD] Clicar em nó existente como 1º ponto da rota apenas adiciona o ponto inicial sem abrir popover."""
+    from PySide6.QtCore import QPointF
+
+    widget, _croqui, _mapa, _undo = _criar_widget_com_rota_base_para_confluencia(qtbot)
+    widget.iniciar_modo_nova_rota({"nome": "Rota 2", "tipo": "boulder", "nova": True})
+
+    # 1º clique em cima do nó inicial (100, 500) ou intermediário (100, 300)
+    widget.adicionar_ponto_nova_rota(QPointF(100.0, 300.0))
+
+    assert widget.popover_confluencia_ativo is None
+    assert len(widget.pontos_nova_rota) == 1
+    assert widget.modo_nova_rota is True
+
+
+def test_confluencia_clique_intermediario_abre_popover_e_exibe_ghost_preview(qtbot):
+    """[TDD] A partir do 2º ponto, clique com snap intermediário abre popover com Ghost Preview e confirma confluência."""
+    from PySide6.QtCore import QPointF, Qt
+
+    widget, _croqui, mapa, _undo = _criar_widget_com_rota_base_para_confluencia(qtbot)
+    widget.iniciar_modo_nova_rota({"nome": "Rota 2", "tipo": "boulder", "nova": True})
+
+    # 1º ponto livre
+    widget.adicionar_ponto_nova_rota(QPointF(20.0, 500.0))
+    assert len(widget.pontos_nova_rota) == 1
+
+    # 2º ponto em snap no nó intermediário (100, 300) da Via Base
+    widget.adicionar_ponto_nova_rota(QPointF(100.0, 300.0))
+
+    popover = widget.popover_confluencia_ativo
+    assert popover is not None
+    assert popover.isVisible()
+    # Ghost preview aceso imediatamente pela pré-seleção da 1ª opção
+    assert widget.item_ghost_preview_temp is not None
+    assert widget.item_ghost_preview_temp.isVisible()
+
+    # Seta para baixo foca "Apenas adicionar ponto..." e remove o Ghost Preview
+    qtbot.keyClick(popover, Qt.Key.Key_Down)
+    assert widget.item_ghost_preview_temp is None
+
+    # Seta para cima volta para a 1ª opção e recria o Ghost Preview
+    qtbot.keyClick(popover, Qt.Key.Key_Up)
+    assert widget.item_ghost_preview_temp is not None
+
+    # Pressionar Enter confirma a confluência, fecha o popover e encerra modo_nova_rota
+    qtbot.keyClick(popover, Qt.Key.Key_Return)
+    assert widget.popover_confluencia_ativo is None
+    assert widget.item_ghost_preview_temp is None
+    assert widget.modo_nova_rota is False
+    assert len(mapa.pontos_de_interesse) == 3
+    assert len(mapa.referencias) == 2
+
+
+def test_confluencia_opcoes_apenas_adicionar_ponto_e_cancelamento_esc(qtbot):
+    """[TDD] Esc no popover cancela o último clique sem adicionar ponto; opção 2 adiciona ponto e segue desenhando."""
+    from PySide6.QtCore import QPointF, Qt
+
+    widget, _croqui, _mapa, _undo = _criar_widget_com_rota_base_para_confluencia(qtbot)
+    widget.iniciar_modo_nova_rota({"nome": "Rota 2", "tipo": "boulder", "nova": True})
+    widget.adicionar_ponto_nova_rota(QPointF(20.0, 500.0))
+
+    # Clica no nó intermediário -> abre popover -> pressiona Esc
+    widget.adicionar_ponto_nova_rota(QPointF(100.0, 300.0))
+    assert widget.popover_confluencia_ativo is not None
+    qtbot.keyClick(widget.popover_confluencia_ativo, Qt.Key.Key_Escape)
+
+    assert widget.popover_confluencia_ativo is None
+    assert widget.item_ghost_preview_temp is None
+    assert len(widget.pontos_nova_rota) == 1
+    assert widget.modo_nova_rota is True
+
+    # Clica novamente no nó intermediário -> escolhe [2] Apenas adicionar ponto e continuar desenhando
+    widget.adicionar_ponto_nova_rota(QPointF(100.0, 300.0))
+    assert widget.popover_confluencia_ativo is not None
+    qtbot.keyClick(widget.popover_confluencia_ativo, Qt.Key.Key_2)
+
+    assert widget.popover_confluencia_ativo is None
+    assert widget.item_ghost_preview_temp is None
+    assert len(widget.pontos_nova_rota) == 2
+    assert widget.modo_nova_rota is True
+
+
+def test_confluencia_direta_no_topo_final_sem_popover(qtbot):
+    """[TDD] Clicar diretamente no nó de topo final real encerra a rota no mesmo topo sem abrir popover."""
+    from PySide6.QtCore import QPointF
+
+    from aresta_api.proto.generated import croqui_pb2
+
+    widget, _croqui, mapa, _undo = _criar_widget_com_rota_base_para_confluencia(qtbot)
+    widget.iniciar_modo_nova_rota({"nome": "Rota 2", "tipo": "boulder", "nova": True})
+    widget.adicionar_ponto_nova_rota(QPointF(20.0, 500.0))
+
+    # Clica diretamente no topo final (100, 100) da Via Base
+    widget.adicionar_ponto_nova_rota(QPointF(100.0, 100.0))
+
+    assert widget.popover_confluencia_ativo is None
+    assert widget.modo_nova_rota is False
+    assert len(mapa.pontos_de_interesse) == 2
+    for poi in mapa.pontos_de_interesse:
+        no_fim = poi.linha.conteudo.nos[-1]
+        assert no_fim.tipo == croqui_pb2.NoTrajeto.TipoNo.FIM_TOP
+        assert no_fim.rotulo == "A"
+

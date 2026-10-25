@@ -2275,6 +2275,10 @@ class WidgetEditorMapas(QWidget):
         self.item_desenho_nova_rota_temp: QGraphicsPathItem | None = None
         self.alcas_desenho_nova_rota_temp: list[Any] = []
         self.item_mira_snap: QGraphicsEllipseItem | None = None
+        self.item_ghost_preview_temp: QGraphicsPathItem | None = None
+        self.popover_confluencia_ativo: Any | None = None
+        self._ponto_confluencia_pendente: QPointF | None = None
+        self.ultimo_resultado_snap: Any | None = None
         self.modo_conversao: bool = False
         self.origem_selecao: QPointF | None = None
         self.item_selecao_conversao: QGraphicsRectItem | None = None
@@ -3869,6 +3873,7 @@ class WidgetEditorMapas(QWidget):
             ]
 
         res_snap = calcular_snap(Ponto2D(pos.x(), pos.y()), linhas_existentes, raio_snap=15.0)
+        self.ultimo_resultado_snap = res_snap
 
         if res_snap.tipo != TipoSnap.LIVRE:
             coord = QPointF(res_snap.coordenada.x, res_snap.coordenada.y)
@@ -3894,13 +3899,188 @@ class WidgetEditorMapas(QWidget):
                 self.item_mira_snap.setVisible(False)
             return pos
 
+    def atualizar_ghost_preview_confluencia(self, opcao: Any | None) -> None:
+        """Renderiza ou atualiza a spline translúcida do Ghost Preview para a opção de confluência em foco."""
+        if (
+            opcao is None
+            or not getattr(opcao, "coordenadas_remanescentes", None)
+            or not self.dados_atuais
+            or "cena" not in self.dados_atuais
+        ):
+            self.limpar_ghost_preview_confluencia()
+            return
+
+        cena = self.dados_atuais["cena"]
+        if not self._item_grafico_valido(self.item_ghost_preview_temp, cena_esperada=cena):
+            self.item_ghost_preview_temp = QGraphicsPathItem()
+            pen_ghost = QPen(
+                QColor(0, 230, 118, 190),
+                7,
+                Qt.PenStyle.SolidLine,
+                Qt.PenCapStyle.RoundCap,
+                Qt.PenJoinStyle.RoundJoin,
+            )
+            self.item_ghost_preview_temp.setPen(pen_ghost)
+            self.item_ghost_preview_temp.setBrush(QBrush(Qt.GlobalColor.transparent))
+            self.item_ghost_preview_temp.setZValue(1950)
+            cena.addItem(self.item_ghost_preview_temp)
+
+        pts_dicts = [{"x": p.x, "y": p.y} for p in opcao.coordenadas_remanescentes]
+        from editor.core.spline_catmull_rom import converter_pontos_para_bezier
+
+        segmentos = converter_pontos_para_bezier(pts_dicts)
+        path = QPainterPath()
+        if segmentos:
+            path.moveTo(segmentos[0].p0.x, segmentos[0].p0.y)
+            for seg in segmentos:
+                path.cubicTo(seg.c1.x, seg.c1.y, seg.c2.x, seg.c2.y, seg.p3.x, seg.p3.y)
+
+        if self.item_ghost_preview_temp is not None:
+            self.item_ghost_preview_temp.setPath(path)
+            self.item_ghost_preview_temp.setVisible(True)
+
+    def limpar_ghost_preview_confluencia(self) -> None:
+        """Remove com segurança o item temporário de Ghost Preview da cena."""
+        if self.item_ghost_preview_temp is not None:
+            self._remover_item_seguro(self.item_ghost_preview_temp)
+            self.item_ghost_preview_temp = None
+
+    def _fechar_popover_confluencia(self) -> None:
+        self._ponto_confluencia_pendente = None
+        if self.popover_confluencia_ativo is not None:
+            popover = self.popover_confluencia_ativo
+            self.popover_confluencia_ativo = None
+            popover._acao_disparada = True
+            popover.close()
+        self.limpar_ghost_preview_confluencia()
+
+    def _ao_cancelar_popover_confluencia(self) -> None:
+        self._ponto_confluencia_pendente = None
+        self.popover_confluencia_ativo = None
+        self.limpar_ghost_preview_confluencia()
+
+    def _confirmar_apenas_adicionar_ponto_confluencia(self, pos_ajustada: QPointF) -> None:
+        self._ponto_confluencia_pendente = None
+        self.popover_confluencia_ativo = None
+        self.limpar_ghost_preview_confluencia()
+        self._adicionar_ponto_nova_rota_direto(pos_ajustada)
+
+    def _confirmar_confluencia_nova_rota(self, snap: Any, opcao: Any | None) -> None:
+        self._fechar_popover_confluencia()
+        if self.mapas_controller and self.dados_nova_rota_atual:
+            pts = [(float(p.x()), float(p.y())) for p in self.pontos_nova_rota]
+            setor = self._obter_setor_atual()
+            self.mapas_controller.confluir_rota_em_tracado(
+                msg_mapa_proxy=self.msg_mapa_proxy,
+                msg_setor_proxy=setor,
+                dados_rota=self.dados_nova_rota_atual,
+                pontos_trajeto=pts,
+                snap=snap,
+                opcao=opcao,
+            )
+        self.cancelar_modo_nova_rota()
+
+    def _abrir_popover_confluencia(
+        self, pos_ajustada: QPointF, snap: Any, opcoes: tuple[Any, ...]
+    ) -> None:
+        from editor.views.componentes.popover_confluencia_rota import PopoverConfluenciaRota
+
+        self._fechar_popover_confluencia()
+        self._ponto_confluencia_pendente = pos_ajustada
+        popover = PopoverConfluenciaRota(opcoes, parent=self)
+        self.popover_confluencia_ativo = popover
+        popover.opcao_focada.connect(self.atualizar_ghost_preview_confluencia)
+        popover.opcao_confirmada.connect(
+            lambda op, s=snap: self._confirmar_confluencia_nova_rota(s, op)
+        )
+        popover.apenas_adicionar_ponto.connect(
+            lambda pt=pos_ajustada: self._confirmar_apenas_adicionar_ponto_confluencia(pt)
+        )
+        popover.cancelado.connect(self._ao_cancelar_popover_confluencia)
+
+        pos_view = self.visualizador.mapFromScene(pos_ajustada)
+        pos_global = self.visualizador.viewport().mapToGlobal(pos_view)
+        popover.exibir_em(pos_global)
+
     def adicionar_ponto_nova_rota(self, pos: QPointF) -> None:
-        """Adiciona um ponto ao traçado da nova rota com suporte a snap magnético."""
+        """Adiciona um ponto ao traçado da nova rota com suporte a snap magnético e confluência."""
         if not self.modo_nova_rota:
             return
         cena_atual = self.dados_atuais.get("cena") if self.dados_atuais else None
         if not cena_atual:
             self.cancelar_modo_nova_rota()
+            return
+
+        if self.popover_confluencia_ativo is not None and self._ponto_confluencia_pendente is not None:
+            pt_pendente = self._ponto_confluencia_pendente
+            self._fechar_popover_confluencia()
+            self._adicionar_ponto_nova_rota_direto(pt_pendente)
+
+        pos_ajustada = self.atualizar_mira_snap(pos)
+        res_snap = self.ultimo_resultado_snap
+        eh_rota_vinculada = not (
+            self.dados_nova_rota_atual and self.dados_nova_rota_atual.get("sem_ligacao", False)
+        )
+
+        from editor.core.topologia_trajeto import (
+            Ponto2D,
+            TipoSnap,
+            calcular_snap,
+            descobrir_caminhos_confluencia,
+        )
+
+        if (
+            len(self.pontos_nova_rota) >= 1
+            and eh_rota_vinculada
+            and res_snap is not None
+            and res_snap.tipo != TipoSnap.LIVRE
+            and self.msg_mapa_proxy is not None
+        ):
+            linhas_existentes = [
+                p for p in self.msg_mapa_proxy.pontos_de_interesse if p.HasField("linha")
+            ]
+            linha_alvo = next(
+                (l for l in linhas_existentes if str(getattr(l, "uid", "")) == res_snap.id_linha),
+                None,
+            )
+            ultimo_pt = self.pontos_nova_rota[-1]
+            ja_estava_na_linha_alvo = (
+                linha_alvo is not None
+                and calcular_snap(
+                    Ponto2D(ultimo_pt.x(), ultimo_pt.y()), [linha_alvo], raio_snap=5.0
+                ).tipo
+                != TipoSnap.LIVRE
+            )
+
+            if not ja_estava_na_linha_alvo:
+                setor = self._obter_setor_atual()
+                nomes_por_uid: dict[str, str] = {}
+                if setor is not None and hasattr(setor, "escaladas"):
+                    for esc in setor.escaladas:
+                        t = esc.WhichOneof("tipo")
+                        if t:
+                            nomes_por_uid[str(getattr(esc, "uid", ""))] = str(
+                                getattr(getattr(esc, t), "nome", "")
+                            )
+                analise = descobrir_caminhos_confluencia(
+                    snap=res_snap,
+                    linhas=linhas_existentes,
+                    referencias=list(self.msg_mapa_proxy.referencias),
+                    nomes_por_uid=nomes_por_uid,
+                )
+                if analise.eh_topo_final:
+                    self._confirmar_confluencia_nova_rota(res_snap, opcao=None)
+                    return
+                if analise.opcoes:
+                    self._abrir_popover_confluencia(pos_ajustada, res_snap, analise.opcoes)
+                    return
+
+        self._adicionar_ponto_nova_rota_direto(pos_ajustada)
+
+    def _adicionar_ponto_nova_rota_direto(self, pos_ajustada: QPointF) -> None:
+        """Anexa diretamente o ponto ajustado ao traçado temporário da nova rota."""
+        cena_atual = self.dados_atuais.get("cena") if self.dados_atuais else None
+        if not cena_atual:
             return
 
         valido = self.item_desenho_nova_rota_temp is not None
@@ -3926,7 +4106,6 @@ class WidgetEditorMapas(QWidget):
             self.item_desenho_nova_rota_temp.setBrush(QBrush(Qt.GlobalColor.transparent))
             cena_atual.addItem(self.item_desenho_nova_rota_temp)
 
-        pos_ajustada = self.atualizar_mira_snap(pos)
         self.pontos_nova_rota.append(pos_ajustada)
 
         pts_dicts = [{"x": p.x(), "y": p.y()} for p in self.pontos_nova_rota]
@@ -4045,6 +4224,8 @@ class WidgetEditorMapas(QWidget):
         """Cancela o modo de desenho da nova rota e remove itens temporários."""
         self.modo_nova_rota = False
         self.dados_nova_rota_atual = None
+        self.ultimo_resultado_snap = None
+        self._fechar_popover_confluencia()
         self.label_modo.setVisible(False)
         self.visualizador.unsetCursor()
         if self.item_desenho_nova_rota_temp:

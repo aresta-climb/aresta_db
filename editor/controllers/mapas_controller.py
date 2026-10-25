@@ -10,6 +10,7 @@ from editor.commands.comandos_protobuf import (
     CmdAlterarImagem,
     CmdMacro,
     CmdRemoverRepeated,
+    ComandoEditor,
 )
 from editor.models.croqui_model import CroquiModel
 from scripts.gerenciar_uids_lib import gerar_uid
@@ -95,7 +96,7 @@ class MapasController:
             alteracoes.append((index, poi_antigo, poi_novo))
 
         if alteracoes:
-            cmds = [
+            cmds: list[ComandoEditor] = [
                 CmdAlterarCampo(
                     model=self.model,
                     alvo=msg_mapa_proxy,
@@ -134,7 +135,7 @@ class MapasController:
             alteracoes.append((index, poi_antigo, poi_novo))
 
         if alteracoes:
-            cmds = [
+            cmds_circ: list[ComandoEditor] = [
                 CmdAlterarCampo(
                     model=self.model,
                     alvo=msg_mapa_proxy,
@@ -145,10 +146,10 @@ class MapasController:
                 )
                 for idx, antigo, novo in alteracoes
             ]
-            if len(cmds) == 1:
-                self._executar_comando(cmds[0])
+            if len(cmds_circ) == 1:
+                self._executar_comando(cmds_circ[0])
             else:
-                self._executar_comando(CmdMacro(cmds, texto="Converter Círculos para Boxes"))
+                self._executar_comando(CmdMacro(cmds_circ, texto="Converter Círculos para Boxes"))
 
     def adicionar_poi(self, msg_mapa_proxy: Any, poi_novo: Any) -> None:
         """Adiciona um POI ao mapa garantindo uid e rotulo."""
@@ -436,6 +437,108 @@ class MapasController:
         else:
             self._executar_comando(CmdMacro(comandos, texto="Adicionar Mapa com Arquivo"))
 
+    def _garantir_escalada_e_resolver_identificadores(
+        self,
+        msg_mapa_proxy: Any,
+        msg_setor_proxy: Any | None,
+        dados_rota: dict[str, Any],
+    ) -> tuple[str, str]:
+        """
+        Garante a criação da Escalada no setor (se nova) e retorna
+        `(rotulo_inicio, alvo_uid)`.
+        """
+        from aresta_api.proto.generated import croqui_pb2
+        from editor.core.topologia_trajeto import (
+            calcular_proximo_numero_inicio_setor,
+            obter_rotulo_escalada_no_setor,
+        )
+
+        nome_rota = dados_rota.get("nome", "Nova Rota")
+        if dados_rota.get("nova", False) and msg_setor_proxy is not None:
+            nomes_existentes = []
+            for esc in msg_setor_proxy.escaladas:
+                t = esc.WhichOneof("tipo")
+                if t:
+                    nomes_existentes.append(getattr(esc, t).nome)
+            if nome_rota not in nomes_existentes:
+                nova_esc = croqui_pb2.Escalada(uid=gerar_uid())
+                tipo_str = dados_rota.get("tipo", "boulder")
+                grau_str = dados_rota.get("grau", "")
+
+                if tipo_str == "boulder":
+                    nova_esc.boulder.nome = nome_rota
+                    if grau_str:
+                        grau_enum = getattr(croqui_pb2.GrauBoulder, grau_str.upper(), None)
+                        if grau_enum is not None:
+                            nova_esc.boulder.dificuldade = grau_enum
+                elif tipo_str == "via_esportiva":
+                    nova_esc.via_esportiva.nome = nome_rota
+                    if grau_str:
+                        g_norm = grau_str.upper().replace("-", "_").replace(" ", "_")
+                        if (
+                            not g_norm.startswith("BR_")
+                            and not g_norm.startswith("FR_")
+                            and not g_norm.startswith("US_")
+                        ):
+                            g_norm = f"BR_{g_norm}"
+                        grau_enum = getattr(
+                            croqui_pb2.GrauVia.GrauVia, g_norm, None
+                        ) or getattr(croqui_pb2.GrauVia, g_norm, None)
+                        if grau_enum is not None:
+                            nova_esc.via_esportiva.dificuldade = grau_enum
+                elif tipo_str == "via_movel":
+                    nova_esc.via_movel.nome = nome_rota
+                elif tipo_str == "via_multiplas_enfiadas":
+                    nova_esc.via_multiplas_enfiadas.nome = nome_rota
+                elif tipo_str == "highline":
+                    nova_esc.highline.nome = nome_rota
+
+                idx_esc = len(msg_setor_proxy.escaladas)
+                cmd_esc = CmdAdicionarRepeated(
+                    model=self.model,
+                    msg=msg_setor_proxy,
+                    campo_nome="escaladas",
+                    index=idx_esc,
+                    valor=nova_esc,
+                    context_path=self.contexto_atual_path,
+                )
+                self._executar_comando(cmd_esc)
+
+        rotulo_inicio = (
+            obter_rotulo_escalada_no_setor(msg_setor_proxy, nome_rota)
+            if msg_setor_proxy
+            else None
+        )
+        if not rotulo_inicio:
+            rotulo_inicio = str(
+                calcular_proximo_numero_inicio_setor(msg_setor_proxy, mapa_ativo=msg_mapa_proxy)
+            )
+
+        alvo_uid = ""
+        if msg_setor_proxy is not None:
+            for esc in msg_setor_proxy.escaladas:
+                t = esc.WhichOneof("tipo")
+                if t and getattr(esc, t).nome == nome_rota:
+                    alvo_uid = str(getattr(esc, "uid", ""))
+                    break
+
+        return rotulo_inicio, alvo_uid
+
+    def _aplicar_desambiguacao_topos(self, msg_mapa_proxy: Any) -> None:
+        """Executa `desambiguar_topos` sobre as linhas do mapa e aplica diferenças via comando Undo."""
+        from editor.core.topologia_trajeto import desambiguar_topos
+        from editor.models.readonly_proxy import _copia_segura
+
+        linhas_atuais = [p for p in msg_mapa_proxy.pontos_de_interesse if p.HasField("linha")]
+        refs_atuais = list(msg_mapa_proxy.referencias)
+        linhas_copia = [_copia_segura(l) for l in linhas_atuais]
+        desambiguar_topos(linhas_copia, refs_atuais)
+
+        for l_original, l_modificada in zip(linhas_atuais, linhas_copia):
+            if l_original != l_modificada:
+                idx_real = list(msg_mapa_proxy.pontos_de_interesse).index(l_original)
+                self.mover_poi(msg_mapa_proxy, idx_real, l_original, l_modificada)
+
     def adicionar_rota_com_tracado(
         self,
         msg_mapa_proxy: Any,
@@ -456,15 +559,12 @@ class MapasController:
             Ponto2D,
             adicionar_numero_inicio,
             atualizar_referencias_apos_fatiamento,
-            calcular_proximo_numero_inicio_setor,
-            desambiguar_topos,
             detectar_snap_curva,
             detectar_snap_nos,
             fatiar_linha_em_no,
             fatiar_linha_em_ponto_curva,
             fatiar_linha_triplo,
             gerar_id_poi_disjunto_setor,
-            obter_rotulo_escalada_no_setor,
         )
         from editor.models.readonly_proxy import _copia_segura
 
@@ -472,76 +572,9 @@ class MapasController:
         self.iniciar_grupo_undo(f"Adicionar Rota: {nome_rota}")
 
         try:
-            # 1. Criação da escalada no Setor (se for nova)
-            if dados_rota.get("nova", False) and msg_setor_proxy is not None:
-                nomes_existentes = []
-                for esc in msg_setor_proxy.escaladas:
-                    t = esc.WhichOneof("tipo")
-                    if t:
-                        nomes_existentes.append(getattr(esc, t).nome)
-                if nome_rota not in nomes_existentes:
-                    nova_esc = croqui_pb2.Escalada(uid=gerar_uid())
-                    tipo_str = dados_rota.get("tipo", "boulder")
-                    grau_str = dados_rota.get("grau", "")
-
-                    if tipo_str == "boulder":
-                        nova_esc.boulder.nome = nome_rota
-                        if grau_str:
-                            grau_enum = getattr(croqui_pb2.GrauBoulder, grau_str.upper(), None)
-                            if grau_enum is not None:
-                                nova_esc.boulder.dificuldade = grau_enum
-                    elif tipo_str == "via_esportiva":
-                        nova_esc.via_esportiva.nome = nome_rota
-                        if grau_str:
-                            g_norm = grau_str.upper().replace("-", "_").replace(" ", "_")
-                            if (
-                                not g_norm.startswith("BR_")
-                                and not g_norm.startswith("FR_")
-                                and not g_norm.startswith("US_")
-                            ):
-                                g_norm = f"BR_{g_norm}"
-                            grau_enum = getattr(
-                                croqui_pb2.GrauVia.GrauVia, g_norm, None
-                            ) or getattr(croqui_pb2.GrauVia, g_norm, None)
-                            if grau_enum is not None:
-                                nova_esc.via_esportiva.dificuldade = grau_enum
-                    elif tipo_str == "via_movel":
-                        nova_esc.via_movel.nome = nome_rota
-                    elif tipo_str == "via_multiplas_enfiadas":
-                        nova_esc.via_multiplas_enfiadas.nome = nome_rota
-                    elif tipo_str == "highline":
-                        nova_esc.highline.nome = nome_rota
-
-                    idx_esc = len(msg_setor_proxy.escaladas)
-                    cmd_esc = CmdAdicionarRepeated(
-                        model=self.model,
-                        msg=msg_setor_proxy,
-                        campo_nome="escaladas",
-                        index=idx_esc,
-                        valor=nova_esc,
-                        context_path=self.contexto_atual_path,
-                    )
-                    self._executar_comando(cmd_esc)
-
-            # 2. Resolução do rótulo numérico inicial no escopo do setor
-            rotulo_inicio = (
-                obter_rotulo_escalada_no_setor(msg_setor_proxy, nome_rota)
-                if msg_setor_proxy
-                else None
+            rotulo_inicio, alvo_uid = self._garantir_escalada_e_resolver_identificadores(
+                msg_mapa_proxy, msg_setor_proxy, dados_rota
             )
-            if not rotulo_inicio:
-                rotulo_inicio = str(
-                    calcular_proximo_numero_inicio_setor(msg_setor_proxy, mapa_ativo=msg_mapa_proxy)
-                )
-
-            # Resolução de alvo_uid da escalada
-            alvo_uid = ""
-            if msg_setor_proxy is not None:
-                for esc in msg_setor_proxy.escaladas:
-                    t = esc.WhichOneof("tipo")
-                    if t and getattr(esc, t).nome == nome_rota:
-                        alvo_uid = str(getattr(esc, "uid", ""))
-                        break
 
             # 3. Análise topológica de traçados existentes
             linhas_existentes = [
@@ -589,107 +622,97 @@ class MapasController:
                         ][0]
 
                         if pos_in < pos_out:
-                            try:
-                                ids_reservados: set[str] = set()
-                                id_sub1 = gerar_id_poi_disjunto_setor(
+                            ids_reservados: set[str] = set()
+                            id_sub1 = gerar_id_poi_disjunto_setor(
+                                msg_setor_proxy,
+                                "linha",
+                                ids_reservados=ids_reservados,
+                                mapa_ativo=msg_mapa_proxy,
+                            )
+                            ids_reservados.add(id_sub1)
+                            id_sub2 = gerar_id_poi_disjunto_setor(
+                                msg_setor_proxy,
+                                "linha",
+                                ids_reservados=ids_reservados,
+                                mapa_ativo=msg_mapa_proxy,
+                            )
+                            ids_reservados.add(id_sub2)
+                            id_sub3 = gerar_id_poi_disjunto_setor(
+                                msg_setor_proxy,
+                                "linha",
+                                ids_reservados=ids_reservados,
+                                mapa_ativo=msg_mapa_proxy,
+                            )
+                            ids_reservados.add(id_sub3)
+                            sub1, sub2, sub3 = fatiar_linha_triplo(
+                                linha_cand, idx_in, idx_out, id_sub1, id_sub2, id_sub3
+                            )
+
+                            # Remove linha original
+                            idx_original = list(msg_mapa_proxy.pontos_de_interesse).index(
+                                linha_cand
+                            )
+                            self.deletar_poi(msg_mapa_proxy, idx_original)
+                            self.adicionar_poi(msg_mapa_proxy, sub1)
+                            self.adicionar_poi(msg_mapa_proxy, sub2)
+                            self.adicionar_poi(msg_mapa_proxy, sub3)
+
+                            # Atualiza referências que apontavam para linha_cand
+                            for i_ref, ref in enumerate(msg_mapa_proxy.referencias):
+                                if id_cand in ref.pontos_uids:
+                                    ref_antiga = _copia_segura(ref)
+                                    ref_nova = _copia_segura(ref)
+                                    atualizar_referencias_apos_fatiamento(
+                                        [ref_nova], id_cand, [id_sub1, id_sub2, id_sub3]
+                                    )
+                                    self.alterar_referencia(
+                                        msg_mapa_proxy, i_ref, ref_antiga, ref_nova
+                                    )
+
+                            # Cria entrada própria da travessia (se houver pontos antes da junção)
+                            ids_travessia = []
+                            if pos_in > 0:
+                                id_ent = gerar_id_poi_disjunto_setor(
                                     msg_setor_proxy,
                                     "linha",
                                     ids_reservados=ids_reservados,
                                     mapa_ativo=msg_mapa_proxy,
                                 )
-                                ids_reservados.add(id_sub1)
-                                id_sub2 = gerar_id_poi_disjunto_setor(
+                                ids_reservados.add(id_ent)
+                                pts_ent = [
+                                    {"x": p[0], "y": p[1]} for p in pontos_trajeto[: pos_in + 1]
+                                ]
+                                self.adicionar_linha(
+                                    msg_mapa_proxy, id_linha=id_ent, nos=pts_ent
+                                )
+                                ids_travessia.append(id_ent)
+
+                            ids_travessia.append(id_sub2)
+
+                            # Cria saída própria da travessia (se houver pontos após a junção)
+                            if pos_out < len(pontos_trajeto) - 1:
+                                id_sai = gerar_id_poi_disjunto_setor(
                                     msg_setor_proxy,
                                     "linha",
                                     ids_reservados=ids_reservados,
                                     mapa_ativo=msg_mapa_proxy,
                                 )
-                                ids_reservados.add(id_sub2)
-                                id_sub3 = gerar_id_poi_disjunto_setor(
-                                    msg_setor_proxy,
-                                    "linha",
-                                    ids_reservados=ids_reservados,
-                                    mapa_ativo=msg_mapa_proxy,
+                                ids_reservados.add(id_sai)
+                                pts_sai = [
+                                    {"x": p[0], "y": p[1]} for p in pontos_trajeto[pos_out:]
+                                ]
+                                self.adicionar_linha(
+                                    msg_mapa_proxy, id_linha=id_sai, nos=pts_sai
                                 )
-                                ids_reservados.add(id_sub3)
-                                sub1, sub2, sub3 = fatiar_linha_triplo(
-                                    linha_cand, idx_in, idx_out, id_sub1, id_sub2, id_sub3
-                                )
+                                ids_travessia.append(id_sai)
 
-                                # Remove linha original
-                                idx_original = list(msg_mapa_proxy.pontos_de_interesse).index(
-                                    linha_cand
-                                )
-                                self.deletar_poi(msg_mapa_proxy, idx_original)
-                                self.adicionar_poi(msg_mapa_proxy, sub1)
-                                self.adicionar_poi(msg_mapa_proxy, sub2)
-                                self.adicionar_poi(msg_mapa_proxy, sub3)
-
-                                # Atualiza referências que apontavam para linha_cand
-                                for i_ref, ref in enumerate(msg_mapa_proxy.referencias):
-                                    if id_cand in ref.pontos_uids:
-                                        ref_antiga = _copia_segura(ref)
-                                        ref_nova = _copia_segura(ref)
-                                        atualizar_referencias_apos_fatiamento(
-                                            [ref_nova], id_cand, [id_sub1, id_sub2, id_sub3]
-                                        )
-                                        self.alterar_referencia(
-                                            msg_mapa_proxy, i_ref, ref_antiga, ref_nova
-                                        )
-
-                                # Cria entrada própria da travessia (se houver pontos antes da junção)
-                                ids_travessia = []
-                                if pos_in > 0:
-                                    id_ent = gerar_id_poi_disjunto_setor(
-                                        msg_setor_proxy,
-                                        "linha",
-                                        ids_reservados=ids_reservados,
-                                        mapa_ativo=msg_mapa_proxy,
-                                    )
-                                    ids_reservados.add(id_ent)
-                                    pts_ent = [
-                                        {"x": p[0], "y": p[1]} for p in pontos_trajeto[: pos_in + 1]
-                                    ]
-                                    self.adicionar_linha(
-                                        msg_mapa_proxy, id_linha=id_ent, nos=pts_ent
-                                    )
-                                    ids_travessia.append(id_ent)
-
-                                ids_travessia.append(id_sub2)
-
-                                # Cria saída própria da travessia (se houver pontos após a junção)
-                                if pos_out < len(pontos_trajeto) - 1:
-                                    id_sai = gerar_id_poi_disjunto_setor(
-                                        msg_setor_proxy,
-                                        "linha",
-                                        ids_reservados=ids_reservados,
-                                        mapa_ativo=msg_mapa_proxy,
-                                    )
-                                    ids_reservados.add(id_sai)
-                                    pts_sai = [
-                                        {"x": p[0], "y": p[1]} for p in pontos_trajeto[pos_out:]
-                                    ]
-                                    self.adicionar_linha(
-                                        msg_mapa_proxy, id_linha=id_sai, nos=pts_sai
-                                    )
-                                    ids_travessia.append(id_sai)
-
-                                # Cria referência da travessia
-                                ref_trav = croqui_pb2.Mapa.Referencia(
-                                    alvo_uid=alvo_uid, pontos_uids=ids_travessia
-                                )
-                                self.adicionar_referencia(msg_mapa_proxy, ref_trav)
-                                fatiou = True
-                                break
-                            except Exception as exc:
-                                import logging
-
-                                logging.getLogger(__name__).warning(
-                                    "Falha no fatiamento triplo da linha %s: %s. Revertendo para caso simples.",
-                                    id_cand,
-                                    exc,
-                                )
-                                fatiou = False
+                            # Cria referência da travessia
+                            ref_trav = croqui_pb2.Mapa.Referencia(
+                                alvo_uid=alvo_uid, pontos_uids=ids_travessia
+                            )
+                            self.adicionar_referencia(msg_mapa_proxy, ref_trav)
+                            fatiou = True
+                            break
 
                 if not fatiou:
                     # Cenário Bifurcação: compartilha o início e fatiamento em nó ou curva
@@ -832,17 +855,138 @@ class MapasController:
                 self.adicionar_referencia(msg_mapa_proxy, nova_ref)
 
             # 5. Desambiguação de topos sob demanda
-            linhas_atuais = [p for p in msg_mapa_proxy.pontos_de_interesse if p.HasField("linha")]
-            refs_atuais = list(msg_mapa_proxy.referencias)
-            linhas_copia = [_copia_segura(l) for l in linhas_atuais]
-            desambiguar_topos(linhas_copia, refs_atuais)
+            self._aplicar_desambiguacao_topos(msg_mapa_proxy)
 
-            # Aplica modificações de topos calculadas no índice real de pontos_de_interesse
-            for l_original, l_modificada in zip(linhas_atuais, linhas_copia):
-                if l_original != l_modificada:
-                    idx_real = list(msg_mapa_proxy.pontos_de_interesse).index(l_original)
-                    self.mover_poi(msg_mapa_proxy, idx_real, l_original, l_modificada)
+        finally:
+            self.finalizar_grupo_undo()
 
+    def confluir_rota_em_tracado(
+        self,
+        msg_mapa_proxy: Any,
+        msg_setor_proxy: Any | None,
+        dados_rota: dict[str, Any],
+        pontos_trajeto: list[tuple[float, float]],
+        snap: Any,
+        opcao: Any | None = None,
+    ) -> None:
+        """
+        Conflui e encerra uma nova rota em um traçado existente:
+        - Se `opcao` exigir fatiamento (`requer_fatiamento=True`), fatia a linha alvo
+          em `(sub1, sub2)` no nó intermediário ou ponto de curva e atualiza todas as
+          referências existentes;
+        - Caso contrário (`requer_fatiamento=False` ou `opcao is None`), reaproveita a
+          junção ou topo final existente sem refatiar;
+        - Cria o segmento inicial exclusivo da nova rota, vincula sua `Referencia` e
+          executa `desambiguar_topos`, agrupando tudo em uma única macro de Undo.
+        """
+        import math
+
+        from aresta_api.proto.generated import croqui_pb2
+        from editor.core.topologia_trajeto import (
+            TipoSnap,
+            atualizar_referencias_apos_fatiamento,
+            fatiar_linha_em_no,
+            fatiar_linha_em_ponto_curva,
+            gerar_id_poi_disjunto_setor,
+        )
+        from editor.models.readonly_proxy import _copia_segura
+
+        id_alvo = str(snap.id_linha)
+        linha_alvo = None
+        for p in msg_mapa_proxy.pontos_de_interesse:
+            if str(getattr(p, "uid", "")) == id_alvo and p.HasField("linha"):
+                linha_alvo = p
+                break
+
+        if linha_alvo is None:
+            raise ValueError(f"Linha alvo '{id_alvo}' não encontrada no mapa.")
+
+        nome_rota = dados_rota.get("nome", "Nova Rota")
+        self.iniciar_grupo_undo(f"Confluir Rota: {nome_rota}")
+
+        try:
+            rotulo_inicio, alvo_uid = self._garantir_escalada_e_resolver_identificadores(
+                msg_mapa_proxy, msg_setor_proxy, dados_rota
+            )
+
+            ids_reservados: set[str] = set()
+            uids_compartilhados: list[str] = []
+
+            if opcao is not None and opcao.requer_fatiamento:
+                id_sub1 = gerar_id_poi_disjunto_setor(
+                    msg_setor_proxy,
+                    "linha",
+                    ids_reservados=ids_reservados,
+                    mapa_ativo=msg_mapa_proxy,
+                )
+                ids_reservados.add(id_sub1)
+                id_sub2 = gerar_id_poi_disjunto_setor(
+                    msg_setor_proxy,
+                    "linha",
+                    ids_reservados=ids_reservados,
+                    mapa_ativo=msg_mapa_proxy,
+                )
+                ids_reservados.add(id_sub2)
+
+                if snap.tipo == TipoSnap.NO:
+                    assert snap.indice_no is not None
+                    sub1, sub2 = fatiar_linha_em_no(linha_alvo, snap.indice_no, id_sub1, id_sub2)
+                else:
+                    assert snap.indice_segmento is not None
+                    sub1, sub2 = fatiar_linha_em_ponto_curva(
+                        linha_alvo, snap.coordenada, snap.indice_segmento, id_sub1, id_sub2
+                    )
+
+                idx_original = list(msg_mapa_proxy.pontos_de_interesse).index(linha_alvo)
+                self.deletar_poi(msg_mapa_proxy, idx_original)
+                self.adicionar_poi(msg_mapa_proxy, sub1)
+                self.adicionar_poi(msg_mapa_proxy, sub2)
+
+                for i_ref, ref in enumerate(msg_mapa_proxy.referencias):
+                    if id_alvo in ref.pontos_uids:
+                        ref_antiga = _copia_segura(ref)
+                        ref_nova = _copia_segura(ref)
+                        atualizar_referencias_apos_fatiamento(
+                            [ref_nova], id_alvo, [id_sub1, id_sub2]
+                        )
+                        self.alterar_referencia(msg_mapa_proxy, i_ref, ref_antiga, ref_nova)
+
+                uids_compartilhados = [id_sub2, *opcao.uids_subsequentes]
+            elif opcao is not None:
+                uids_compartilhados = list(opcao.uids_subsequentes)
+
+            pts_exclusivos = [(float(x), float(y)) for x, y in pontos_trajeto]
+            p_snap = (float(snap.coordenada.x), float(snap.coordenada.y))
+            if (
+                not pts_exclusivos
+                or math.hypot(pts_exclusivos[-1][0] - p_snap[0], pts_exclusivos[-1][1] - p_snap[1])
+                > 1e-3
+            ):
+                pts_exclusivos.append(p_snap)
+
+            id_nova_linha = gerar_id_poi_disjunto_setor(
+                msg_setor_proxy,
+                "linha",
+                ids_reservados=ids_reservados,
+                mapa_ativo=msg_mapa_proxy,
+            )
+            nos_dicts = []
+            for idx, pt in enumerate(pts_exclusivos):
+                tipo_no = croqui_pb2.NoTrajeto.TipoNo.PASSAGEM
+                rotulo_no = ""
+                if idx == 0:
+                    tipo_no = croqui_pb2.NoTrajeto.TipoNo.CIRCULO_IDENTIFICADOR
+                    rotulo_no = rotulo_inicio
+                nos_dicts.append({"x": pt[0], "y": pt[1], "tipo": tipo_no, "rotulo": rotulo_no})
+
+            self.adicionar_linha(msg_mapa_proxy, id_linha=id_nova_linha, nos=nos_dicts)
+            nova_ref = croqui_pb2.Mapa.Referencia(
+                alvo_uid=alvo_uid,
+                pontos_uids=[id_nova_linha, *uids_compartilhados],
+            )
+            self.adicionar_referencia(msg_mapa_proxy, nova_ref)
+
+            self._aplicar_desambiguacao_topos(msg_mapa_proxy)
         finally:
             self.finalizar_grupo_undo()
 

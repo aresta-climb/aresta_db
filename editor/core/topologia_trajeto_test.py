@@ -12,12 +12,15 @@ import pytest
 from aresta_api.proto.generated import croqui_pb2
 from editor.core.spline_catmull_rom import Ponto2D
 from editor.core.topologia_trajeto import (
+    ResultadoAnaliseConfluencia,
+    ResultadoSnap,
     TipoSnap,
     adicionar_numero_inicio,
     atualizar_referencias_apos_fatiamento,
     calcular_proximo_numero_inicio_setor,
     calcular_snap,
     desambiguar_topos,
+    descobrir_caminhos_confluencia,
     detectar_snap_curva,
     detectar_snap_nos,
     fatiar_linha_em_no,
@@ -436,6 +439,11 @@ class TestConvencaoSemanticaOuroboulder:
 class TestEscopoSetor:
     def test_obter_rotulo_escalada_no_setor(self):
         setor = croqui_pb2.Setor(nome="Setor Teste")
+        esc_outra = setor.escaladas.add(uid="uid_outra")
+        esc_outra.boulder.nome = "Outra Via"
+        esc_central = setor.escaladas.add(uid="uid_via_central")
+        esc_central.boulder.nome = "Via Central"
+
         m1 = setor.mapas.add()
         l1 = _criar_linha_pb("l1", [(100, 500), (100, 100)], rotulo_inicio="1")
         m1.pontos_de_interesse.append(l1)
@@ -443,8 +451,11 @@ class TestEscopoSetor:
 
         m2 = setor.mapas.add()
 
-        rotulo = obter_rotulo_escalada_no_setor(setor, "uid_via_central")
-        assert rotulo == "1"
+        rotulo_por_uid = obter_rotulo_escalada_no_setor(setor, "uid_via_central")
+        assert rotulo_por_uid == "1"
+
+        rotulo_por_nome = obter_rotulo_escalada_no_setor(setor, "Via Central")
+        assert rotulo_por_nome == "1"
 
         rotulo_inexistente = obter_rotulo_escalada_no_setor(setor, "uid_via_fantasma")
         assert rotulo_inexistente is None
@@ -564,3 +575,200 @@ class TestEscopoSetor:
         assert len(sub2.linha.conteudo.nos) == 3
         assert sub2.linha.conteudo.nos[1].x == 20
         assert sub2.linha.conteudo.nos[1].y == 20
+
+
+class TestDescobertaCaminhosConfluencia:
+    def test_snap_livre_ou_linha_invalida_retorna_vazio(self):
+        linha = _criar_linha_pb("l1", [(100, 500), (100, 100)])
+        snap_livre = ResultadoSnap(tipo=TipoSnap.LIVRE, coordenada=Ponto2D(50, 50))
+        res_livre = descobrir_caminhos_confluencia(snap_livre, [linha], [])
+        assert res_livre == ResultadoAnaliseConfluencia(eh_topo_final=False, opcoes=())
+
+        snap_inexistente = ResultadoSnap(
+            tipo=TipoSnap.NO, coordenada=Ponto2D(100, 500), id_linha="inexistente", indice_no=0
+        )
+        res_inex = descobrir_caminhos_confluencia(snap_inexistente, [linha], [])
+        assert res_inex == ResultadoAnaliseConfluencia(eh_topo_final=False, opcoes=())
+
+    def test_snap_em_no_intermediario_de_rota_unica(self):
+        linha = _criar_linha_pb(
+            "l1", [(100, 500), (100, 350), (100, 200), (100, 100)], rotulo_inicio="1"
+        )
+        ref = croqui_pb2.Mapa.Referencia(alvo_uid="uid_v1", pontos_uids=["l1"])
+        snap = ResultadoSnap(
+            tipo=TipoSnap.NO, coordenada=Ponto2D(100, 350), id_linha="l1", indice_no=1
+        )
+
+        res = descobrir_caminhos_confluencia(
+            snap, [linha], [ref], nomes_por_uid={"uid_v1": "Fissura Principal"}
+        )
+
+        assert res.eh_topo_final is False
+        assert len(res.opcoes) == 1
+        op = res.opcoes[0]
+        assert op.rotulo_exibicao == 'Seguir até o topo de "Fissura Principal"'
+        assert op.nomes_escaladas == ("Fissura Principal",)
+        assert op.rotulo_topo == ""
+        assert op.coordenadas_remanescentes == (
+            Ponto2D(100, 350),
+            Ponto2D(100, 200),
+            Ponto2D(100, 100),
+        )
+        assert op.id_linha_alvo == "l1"
+        assert op.requer_fatiamento is True
+        assert op.incluir_segunda_sublinha_fatiada is True
+        assert op.uids_subsequentes == ()
+
+    def test_snap_em_ponto_curva_projeta_caminho_remanescente(self):
+        linha = _criar_linha_pb("l1", [(100, 500), (100, 300), (100, 100)], rotulo_inicio="1")
+        ref = croqui_pb2.Mapa.Referencia(alvo_uid="Via Central", pontos_uids=["l1"])
+        snap = ResultadoSnap(
+            tipo=TipoSnap.CURVA,
+            coordenada=Ponto2D(100, 400),
+            id_linha="l1",
+            indice_segmento=0,
+            fator_t=0.5,
+        )
+
+        res = descobrir_caminhos_confluencia(snap, [linha], [ref])
+
+        assert res.eh_topo_final is False
+        assert len(res.opcoes) == 1
+        op = res.opcoes[0]
+        assert op.requer_fatiamento is True
+        assert op.incluir_segunda_sublinha_fatiada is True
+        assert op.coordenadas_remanescentes == (
+            Ponto2D(100, 400),
+            Ponto2D(100, 300),
+            Ponto2D(100, 100),
+        )
+        assert op.uids_subsequentes == ()
+
+    def test_multiplas_rotas_divergentes_adiante_gera_opcoes_distintas(self):
+        seg_base = _criar_linha_pb("base", [(100, 500), (100, 350), (100, 250)], rotulo_inicio="1, 2")
+        seg_topo_a = _criar_linha_pb("topo_a", [(100, 250), (70, 100)], rotulo_fim="A")
+        seg_topo_b = _criar_linha_pb("topo_b", [(100, 250), (130, 100)], rotulo_fim="B")
+        ref1 = croqui_pb2.Mapa.Referencia(alvo_uid="Via Esquerda", pontos_uids=["base", "topo_a"])
+        ref2 = croqui_pb2.Mapa.Referencia(alvo_uid="Via Direita", pontos_uids=["base", "topo_b"])
+
+        snap = ResultadoSnap(
+            tipo=TipoSnap.NO, coordenada=Ponto2D(100, 350), id_linha="base", indice_no=1
+        )
+        res = descobrir_caminhos_confluencia(
+            snap, [seg_base, seg_topo_a, seg_topo_b], [ref1, ref2]
+        )
+
+        assert res.eh_topo_final is False
+        assert len(res.opcoes) == 2
+
+        op1, op2 = res.opcoes
+        assert op1.rotulo_exibicao == 'Seguir até Topo A via "Via Esquerda"'
+        assert op1.rotulo_topo == "A"
+        assert op1.uids_subsequentes == ("topo_a",)
+        assert op1.coordenadas_remanescentes == (
+            Ponto2D(100, 350),
+            Ponto2D(100, 250),
+            Ponto2D(70, 100),
+        )
+
+        assert op2.rotulo_exibicao == 'Seguir até Topo B via "Via Direita"'
+        assert op2.rotulo_topo == "B"
+        assert op2.uids_subsequentes == ("topo_b",)
+        assert op2.coordenadas_remanescentes == (
+            Ponto2D(100, 350),
+            Ponto2D(100, 250),
+            Ponto2D(130, 100),
+        )
+
+    def test_deduplicacao_caminhos_remanescentes_identicos(self):
+        seg_v1 = _criar_linha_pb("v1", [(60, 500), (100, 350)], rotulo_inicio="1")
+        seg_v2 = _criar_linha_pb("v2", [(140, 500), (100, 350)], rotulo_inicio="2")
+        seg_comum = _criar_linha_pb(
+            "comum", [(100, 350), (100, 200), (100, 100)], rotulo_fim="A"
+        )
+        ref1 = croqui_pb2.Mapa.Referencia(alvo_uid="Via 1", pontos_uids=["v1", "comum"])
+        ref2 = croqui_pb2.Mapa.Referencia(alvo_uid="Via 2", pontos_uids=["v2", "comum"])
+
+        snap = ResultadoSnap(
+            tipo=TipoSnap.NO, coordenada=Ponto2D(100, 200), id_linha="comum", indice_no=1
+        )
+        res = descobrir_caminhos_confluencia(
+            snap, [seg_v1, seg_v2, seg_comum], [ref1, ref2]
+        )
+
+        assert len(res.opcoes) == 1
+        op = res.opcoes[0]
+        assert op.nomes_escaladas == ("Via 1", "Via 2")
+        assert op.rotulo_exibicao == 'Seguir até Topo A via "Via 1 / Via 2"'
+
+    def test_juncao_existente_entre_sublinhas_nao_requer_fatiamento(self):
+        seg1 = _criar_linha_pb("s1", [(100, 500), (100, 300)], rotulo_inicio="1")
+        seg2 = _criar_linha_pb("s2", [(100, 300), (100, 100)], rotulo_fim="A")
+        ref = croqui_pb2.Mapa.Referencia(alvo_uid="Via 1", pontos_uids=["s1", "s2"])
+
+        # Caso A: Snap capturou o último nó de s1 (que continua em s2)
+        snap_fim_s1 = ResultadoSnap(
+            tipo=TipoSnap.NO, coordenada=Ponto2D(100, 300), id_linha="s1", indice_no=1
+        )
+        res_a = descobrir_caminhos_confluencia(snap_fim_s1, [seg1, seg2], [ref])
+        assert res_a.eh_topo_final is False
+        assert len(res_a.opcoes) == 1
+        assert res_a.opcoes[0].requer_fatiamento is False
+        assert res_a.opcoes[0].incluir_segunda_sublinha_fatiada is False
+        assert res_a.opcoes[0].uids_subsequentes == ("s2",)
+        assert res_a.opcoes[0].coordenadas_remanescentes == (
+            Ponto2D(100, 300),
+            Ponto2D(100, 100),
+        )
+
+        # Caso B: Snap capturou o primeiro nó (índice 0) de s2
+        snap_ini_s2 = ResultadoSnap(
+            tipo=TipoSnap.NO, coordenada=Ponto2D(100, 300), id_linha="s2", indice_no=0
+        )
+        res_b = descobrir_caminhos_confluencia(snap_ini_s2, [seg1, seg2], [ref])
+        assert res_b.eh_topo_final is False
+        assert len(res_b.opcoes) == 1
+        assert res_b.opcoes[0].requer_fatiamento is False
+        assert res_b.opcoes[0].incluir_segunda_sublinha_fatiada is False
+        assert res_b.opcoes[0].uids_subsequentes == ("s2",)
+        assert res_b.opcoes[0].coordenadas_remanescentes == (
+            Ponto2D(100, 300),
+            Ponto2D(100, 100),
+        )
+
+    def test_snap_no_topo_final_real_sinaliza_eh_topo_final(self):
+        seg1 = _criar_linha_pb("s1", [(100, 500), (100, 300)], rotulo_inicio="1")
+        seg2 = _criar_linha_pb("s2", [(100, 300), (100, 100)], rotulo_fim="A")
+        ref = croqui_pb2.Mapa.Referencia(alvo_uid="Via 1", pontos_uids=["s1", "s2"])
+
+        snap_topo = ResultadoSnap(
+            tipo=TipoSnap.NO, coordenada=Ponto2D(100, 100), id_linha="s2", indice_no=1
+        )
+        res = descobrir_caminhos_confluencia(snap_topo, [seg1, seg2], [ref])
+
+        assert res.eh_topo_final is True
+        assert res.opcoes == ()
+
+    def test_linha_avulsa_sem_referencia_gera_opcao_generica_e_detecta_topo(self):
+        linha_avulsa = _criar_linha_pb("avulsa", [(100, 500), (100, 300), (100, 100)])
+
+        snap_meio = ResultadoSnap(
+            tipo=TipoSnap.NO, coordenada=Ponto2D(100, 300), id_linha="avulsa", indice_no=1
+        )
+        res_meio = descobrir_caminhos_confluencia(snap_meio, [linha_avulsa], [])
+        assert res_meio.eh_topo_final is False
+        assert len(res_meio.opcoes) == 1
+        assert res_meio.opcoes[0].rotulo_exibicao == "Seguir até o fim da linha"
+        assert res_meio.opcoes[0].requer_fatiamento is True
+        assert res_meio.opcoes[0].coordenadas_remanescentes == (
+            Ponto2D(100, 300),
+            Ponto2D(100, 100),
+        )
+
+        snap_fim = ResultadoSnap(
+            tipo=TipoSnap.NO, coordenada=Ponto2D(100, 100), id_linha="avulsa", indice_no=2
+        )
+        res_fim = descobrir_caminhos_confluencia(snap_fim, [linha_avulsa], [])
+        assert res_fim.eh_topo_final is True
+        assert res_fim.opcoes == ()
+

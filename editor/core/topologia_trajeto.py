@@ -45,6 +45,28 @@ class ResultadoSnap:
     rotulo: str | None = None
 
 
+@dataclass(frozen=True)
+class OpcaoCaminhoConfluencia:
+    """Representa um caminho remanescente disponível a partir de um ponto de confluência."""
+
+    rotulo_exibicao: str
+    nomes_escaladas: tuple[str, ...]
+    rotulo_topo: str
+    coordenadas_remanescentes: tuple[Ponto2D, ...]
+    id_linha_alvo: str
+    requer_fatiamento: bool
+    incluir_segunda_sublinha_fatiada: bool
+    uids_subsequentes: tuple[str, ...]
+
+
+@dataclass(frozen=True)
+class ResultadoAnaliseConfluencia:
+    """Resultado da análise topológica de confluência a partir de um snap magnético."""
+
+    eh_topo_final: bool
+    opcoes: tuple[OpcaoCaminhoConfluencia, ...]
+
+
 def projetar_ponto_em_segmento(p: Ponto2D, a: Ponto2D, b: Ponto2D) -> tuple[Ponto2D, float, float]:
     """
     Projeta o ponto 'p' ortogonalmente sobre o segmento de reta 'ab'.
@@ -586,33 +608,145 @@ def calcular_proximo_numero_inicio_setor(setor_msg: Any, mapa_ativo: Any | None 
 
 
 def gerar_id_poi_disjunto_setor(
-    setor_msg: Any,
+    setor_msg: Any = None,
     prefixo: str = "linha",
     ids_reservados: set[str] | None = None,
     mapa_ativo: Any | None = None,
 ) -> str:
     """
-    Gera um novo identificador único de POI (NanoID 14c) garantindo que seja estritamente
-    disjunto em relação a todos os UIDs do mapa ativo, de todos os mapas do setor e aos reservados.
+    Gera um novo identificador único de POI (NanoID 14c).
     """
-    ids_existentes: set[str] = set(ids_reservados or [])
+    _ = (setor_msg, prefixo, ids_reservados, mapa_ativo)
+    return gerar_uid()
 
-    if mapa_ativo is not None and hasattr(mapa_ativo, "pontos_de_interesse"):
-        for p in mapa_ativo.pontos_de_interesse:
-            uid = getattr(p, "uid", None) or getattr(p, "id", None)
-            if uid:
-                ids_existentes.add(str(uid))
 
-    setor = desembrulhar_setor(setor_msg)
-    if setor and hasattr(setor, "mapas"):
-        for mapa in setor.mapas:
-            for p in mapa.pontos_de_interesse:
-                uid = getattr(p, "uid", None) or getattr(p, "id", None)
-                if uid:
-                    ids_existentes.add(str(uid))
+def _formatar_rotulo_opcao_confluencia(
+    nomes_escaladas: Sequence[str], rotulo_topo: str
+) -> str:
+    """Formata o texto legível de uma opção de confluência para o popover."""
+    if not nomes_escaladas:
+        return "Seguir até o fim da linha"
+    nomes_str = " / ".join(nomes_escaladas)
+    if rotulo_topo:
+        return f'Seguir até Topo {rotulo_topo} via "{nomes_str}"'
+    return f'Seguir até o topo de "{nomes_str}"'
 
-    novo_uid = gerar_uid()
-    while novo_uid in ids_existentes:
-        novo_uid = gerar_uid()
 
-    return novo_uid
+def descobrir_caminhos_confluencia(
+    snap: ResultadoSnap,
+    linhas: Sequence[Any],
+    referencias: Sequence[Any],
+    nomes_por_uid: dict[str, str] | None = None,
+) -> ResultadoAnaliseConfluencia:
+    """
+    Analisa as linhas e referências do mapa a partir de um ponto de snap magnético,
+    descobrindo todas as continuações possíveis até os topos e deduplicando caminhos
+    fisicamente coincidentes.
+    """
+    if snap.tipo == TipoSnap.LIVRE or not snap.id_linha:
+        return ResultadoAnaliseConfluencia(eh_topo_final=False, opcoes=())
+
+    linhas_por_id = {
+        str(getattr(l, "uid", "") or getattr(l, "id", "")): l
+        for l in linhas
+        if hasattr(l, "linha") and l.HasField("linha")
+    }
+    id_alvo = str(snap.id_linha)
+    if id_alvo not in linhas_por_id:
+        return ResultadoAnaliseConfluencia(eh_topo_final=False, opcoes=())
+
+    linha_alvo = linhas_por_id[id_alvo]
+    nos_alvo = linha_alvo.linha.conteudo.nos
+    total_nos = len(nos_alvo)
+
+    if snap.tipo == TipoSnap.CURVA:
+        idx_seg = snap.indice_segmento or 0
+        requer_fatiamento = True
+        no_inicio_da_linha = False
+        no_fim_da_linha = False
+        coords_base = [snap.coordenada] + [
+            Ponto2D(float(n.x), float(n.y)) for n in nos_alvo[idx_seg + 1 :]
+        ]
+    else:
+        idx_no = snap.indice_no or 0
+        no_inicio_da_linha = idx_no == 0
+        no_fim_da_linha = idx_no == total_nos - 1
+        requer_fatiamento = 0 < idx_no < total_nos - 1
+        coords_base = [Ponto2D(float(n.x), float(n.y)) for n in nos_alvo[idx_no:]]
+
+    refs_com_linha = [
+        ref for ref in referencias if id_alvo in [str(u) for u in ref.pontos_uids]
+    ]
+
+    if not refs_com_linha:
+        if no_fim_da_linha:
+            return ResultadoAnaliseConfluencia(eh_topo_final=True, opcoes=())
+        rotulo_topo_avulsa = str(nos_alvo[-1].rotulo or "")
+        uids_sub: tuple[str, ...] = (id_alvo,) if no_inicio_da_linha else ()
+        opcao_avulsa = OpcaoCaminhoConfluencia(
+            rotulo_exibicao=_formatar_rotulo_opcao_confluencia((), rotulo_topo_avulsa),
+            nomes_escaladas=(),
+            rotulo_topo=rotulo_topo_avulsa,
+            coordenadas_remanescentes=tuple(coords_base),
+            id_linha_alvo=id_alvo,
+            requer_fatiamento=requer_fatiamento,
+            incluir_segunda_sublinha_fatiada=requer_fatiamento,
+            uids_subsequentes=uids_sub,
+        )
+        return ResultadoAnaliseConfluencia(eh_topo_final=False, opcoes=(opcao_avulsa,))
+
+    grupos_caminhos: dict[
+        tuple[tuple[str, ...], tuple[Ponto2D, ...], str], list[str]
+    ] = {}
+    encontrou_topo_final = False
+
+    for ref in refs_com_linha:
+        uids_ref = [str(u) for u in ref.pontos_uids]
+        idx_ref = uids_ref.index(id_alvo)
+        uids_posteriores = [u for u in uids_ref[idx_ref + 1 :] if u in linhas_por_id]
+
+        if no_fim_da_linha and not uids_posteriores:
+            encontrou_topo_final = True
+            continue
+
+        uids_sub = (
+            (id_alvo, *uids_posteriores) if no_inicio_da_linha else tuple(uids_posteriores)
+        )
+        coords_caminho = list(coords_base)
+        rotulo_topo = str(nos_alvo[-1].rotulo or "")
+
+        for uid_post in uids_posteriores:
+            nos_post = linhas_por_id[uid_post].linha.conteudo.nos
+            for n in nos_post:
+                pt = Ponto2D(float(n.x), float(n.y))
+                if coords_caminho[-1].distancia_ate(pt) > 1e-6:
+                    coords_caminho.append(pt)
+            rotulo_topo = str(nos_post[-1].rotulo or "")
+
+        alvo_uid = str(getattr(ref, "alvo_uid", ""))
+        nome_via = (nomes_por_uid or {}).get(alvo_uid, alvo_uid)
+        chave = (uids_sub, tuple(coords_caminho), rotulo_topo)
+        nomes_grupo = grupos_caminhos.setdefault(chave, [])
+        if nome_via and nome_via not in nomes_grupo:
+            nomes_grupo.append(nome_via)
+
+    if not grupos_caminhos:
+        return ResultadoAnaliseConfluencia(eh_topo_final=encontrou_topo_final, opcoes=())
+
+    opcoes_finais: list[OpcaoCaminhoConfluencia] = []
+    for (uids_sub, coords_tupla, rotulo_topo), nomes in grupos_caminhos.items():
+        nomes_tupla = tuple(nomes)
+        opcoes_finais.append(
+            OpcaoCaminhoConfluencia(
+                rotulo_exibicao=_formatar_rotulo_opcao_confluencia(nomes_tupla, rotulo_topo),
+                nomes_escaladas=nomes_tupla,
+                rotulo_topo=rotulo_topo,
+                coordenadas_remanescentes=coords_tupla,
+                id_linha_alvo=id_alvo,
+                requer_fatiamento=requer_fatiamento,
+                incluir_segunda_sublinha_fatiada=requer_fatiamento,
+                uids_subsequentes=uids_sub,
+            )
+        )
+
+    return ResultadoAnaliseConfluencia(eh_topo_final=False, opcoes=tuple(opcoes_finais))

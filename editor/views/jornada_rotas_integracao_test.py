@@ -948,3 +948,115 @@ def test_jornada_navegacao_pan_zoom_durante_desenho_de_rota(tmp_path, qtbot):
     assert len(linha_poi.linha.conteudo.nos) == 2
     assert (linha_poi.linha.conteudo.nos[0].x, linha_poi.linha.conteudo.nos[0].y) == (100, 400)
     assert (linha_poi.linha.conteudo.nos[1].x, linha_poi.linha.conteudo.nos[1].y) == (100, 100)
+
+
+def test_14_confluencia_interativa_com_multiplas_saidas_ghost_preview_e_undo_redo(qtbot, tmp_path):
+    """
+    Cenário 14: Jornada ponta a ponta de confluência de nova rota em traçado com bifurcação adiante.
+    Contrato:
+    - Cria 'Via Principal' (Topo A) e 'Variante Direita' (Topo B) compartilhando tronco inicial.
+    - Inicia 'Entrada Esquerda' em (20, 500) e clica no nó intermediário (100, 350) do tronco comum.
+    - O PopoverConfluenciaRota abre listando as 2 opções de confluência (Topo A e Topo B) + 'Apenas adicionar ponto'.
+    - O Ghost Preview acende imediatamente para Topo A e atualiza para Topo B ao navegar com Seta para Baixo.
+    - Confirmar com Enter fatia o tronco comum, atualiza 'Via Principal' e 'Variante Direita', e conecta
+      'Entrada Esquerda' até o Topo B.
+    - Undo/Redo revertem e restauram atomicamente todas as linhas, referências e escaladas.
+    """
+    env = _criar_ambiente_teste(tmp_path)
+    widget = env["widget"]
+    undo_stack = env["undo_stack"]
+    qtbot.addWidget(widget)
+
+    # 1. Cria 'Via Principal' -> (100, 500) -> (100, 350) -> (100, 200) -> (100, 100)
+    widget.iniciar_modo_nova_rota(
+        {"nome": "Via Principal", "tipo": "boulder", "grau": "V4", "nova": True}
+    )
+    for p in [QPointF(100, 500), QPointF(100, 350), QPointF(100, 200), QPointF(100, 100)]:
+        widget.adicionar_ponto_nova_rota(p)
+    widget.finalizar_modo_nova_rota()
+
+    # 2. Cria 'Variante Direita' bifurcando em (100, 200) para (180, 100)
+    widget.iniciar_modo_nova_rota(
+        {"nome": "Variante Direita", "tipo": "boulder", "grau": "V6", "nova": True}
+    )
+    for p in [QPointF(100, 500), QPointF(100, 350), QPointF(100, 200), QPointF(180, 100)]:
+        widget.adicionar_ponto_nova_rota(p)
+    widget.finalizar_modo_nova_rota()
+
+    # Estado antes da confluência: 3 POIs de linha e 2 referências
+    setor_antes = env["model"].obter_croqui_readonly().picos[0].setores_ou_grupos[0].setor.conteudo
+    mapa_antes = setor_antes.mapas[0]
+    assert len(mapa_antes.pontos_de_interesse) == 3
+    assert len(mapa_antes.referencias) == 2
+
+    # 3. Inicia 'Entrada Esquerda' em (20, 500) e clica em (100, 350)
+    widget.iniciar_modo_nova_rota(
+        {"nome": "Entrada Esquerda", "tipo": "boulder", "grau": "V5", "nova": True}
+    )
+    widget.adicionar_ponto_nova_rota(QPointF(20, 500))
+    widget.adicionar_ponto_nova_rota(QPointF(100, 350))
+
+    popover = widget.popover_confluencia_ativo
+    assert popover is not None
+    assert len(popover.botoes_opcoes) == 3
+    assert "Topo A" in popover.botoes_opcoes[0].text()
+    assert "Topo B" in popover.botoes_opcoes[1].text()
+    assert widget.item_ghost_preview_temp is not None
+
+    # Navega para a 2ª opção (Topo B via "Variante Direita") e confirma com Enter
+    qtbot.keyClick(popover, Qt.Key.Key_Down)
+    assert popover.indice_selecionado == 1
+    assert widget.item_ghost_preview_temp is not None
+    qtbot.keyClick(popover, Qt.Key.Key_Return)
+
+    assert widget.modo_nova_rota is False
+    assert widget.popover_confluencia_ativo is None
+    assert widget.item_ghost_preview_temp is None
+
+    # 4. Verifica o estado do Protobuf após a confluência
+    setor_depois = env["model"].obter_croqui_readonly().picos[0].setores_ou_grupos[0].setor.conteudo
+    mapa_depois = setor_depois.mapas[0]
+    assert len(setor_depois.escaladas) == 3
+    assert len(mapa_depois.pontos_de_interesse) == 5
+    assert len(mapa_depois.referencias) == 3
+
+    uids_por_nome = {
+        getattr(e, e.WhichOneof("tipo")).nome: e.uid
+        for e in setor_depois.escaladas
+        if e.WhichOneof("tipo")
+    }
+    refs_por_uid = {r.alvo_uid: list(r.pontos_uids) for r in mapa_depois.referencias}
+
+    uids_principal = refs_por_uid[uids_por_nome["Via Principal"]]
+    uids_variante = refs_por_uid[uids_por_nome["Variante Direita"]]
+    uids_entrada_esq = refs_por_uid[uids_por_nome["Entrada Esquerda"]]
+
+    # 'Via Principal' e 'Variante Direita' foram atualizadas com as 2 sublinhas do tronco fatiado + saída
+    assert len(uids_principal) == 3
+    assert len(uids_variante) == 3
+    # 'Entrada Esquerda' tem sua linha exclusiva inicial + 2ª metade do tronco + saída da 'Variante Direita'
+    assert len(uids_entrada_esq) == 3
+    assert uids_entrada_esq[1:] == uids_variante[1:]
+
+    # Validação estrutural de referências do mapa sem erros
+    croqui_ro = env["model"].obter_croqui_readonly()
+    croqui_obj = getattr(croqui_ro, "_obj", croqui_ro)
+    croqui_dict = MessageToDict(croqui_obj, preserving_proto_field_name=True)
+    erros_validacao = validar_referencias_mapa(croqui_dict)
+    assert erros_validacao == []
+
+    # 5. Undo e Redo atômicos
+    undo_stack.undo()
+    setor_undo = env["model"].obter_croqui_readonly().picos[0].setores_ou_grupos[0].setor.conteudo
+    mapa_undo = setor_undo.mapas[0]
+    assert len(setor_undo.escaladas) == 2
+    assert len(mapa_undo.pontos_de_interesse) == 3
+    assert len(mapa_undo.referencias) == 2
+
+    undo_stack.redo()
+    setor_redo = env["model"].obter_croqui_readonly().picos[0].setores_ou_grupos[0].setor.conteudo
+    mapa_redo = setor_redo.mapas[0]
+    assert len(setor_redo.escaladas) == 3
+    assert len(mapa_redo.pontos_de_interesse) == 5
+    assert len(mapa_redo.referencias) == 3
+

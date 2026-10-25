@@ -2,7 +2,6 @@
 # Copyright (C) 2026 Aresta Climb Contributors
 
 import unittest
-from unittest.mock import Mock
 
 from PySide6.QtGui import QUndoStack
 
@@ -385,10 +384,11 @@ class MapasControllerTest(unittest.TestCase):
         self.assertEqual(len(self.mapa.pontos_de_interesse[0].linha.conteudo.nos), 2)
 
     def test_obter_pilha_com_gerenciador(self):
-        mock_hist = Mock()
-        mock_hist.obter_pilha.return_value = "pilha_interna"
-        ctrl = MapasController(self.model, mock_hist)
-        self.assertEqual(ctrl.obter_pilha(), "pilha_interna")
+        from editor.core.historico import GerenciadorHistorico
+
+        gerenciador = GerenciadorHistorico()
+        ctrl = MapasController(self.model, gerenciador)
+        self.assertIs(ctrl.obter_pilha(), gerenciador.obter_pilha())
 
     def test_obter_pilha_direto_sem_wrapper(self):
         pilha_pura = "pilha_pura"
@@ -684,33 +684,6 @@ class MapasControllerTest(unittest.TestCase):
         refs = self._obter_mapa_referencias_por_nome()
         self.assertIn("Travessia Reversa", refs)
 
-    def test_adicionar_rota_com_tracado_fallback_gracioso_em_excecao(self):
-        setor_proxy = (
-            self.model.obter_croqui_readonly().picos[0].setores_ou_grupos[0].setor.conteudo
-        )
-        dados_base = {"nome": "Via Base", "tipo": "boulder", "grau": "V3", "nova": True}
-        pontos_base = [(100.0, 500.0), (100.0, 400.0), (100.0, 300.0), (100.0, 100.0)]
-        self.controller.adicionar_rota_com_tracado(
-            self.msg_mapa_proxy, setor_proxy, dados_base, pontos_base
-        )
-
-        dados_trav = {"nome": "Travessia Falha", "tipo": "boulder", "grau": "V7", "nova": True}
-        pontos_trav = [(20.0, 400.0), (100.0, 400.0), (100.0, 300.0), (180.0, 250.0)]
-
-        from unittest.mock import patch
-
-        with patch(
-            "editor.core.topologia_trajeto.fatiar_linha_triplo",
-            side_effect=ValueError("Falha simulada"),
-        ):
-            self.controller.adicionar_rota_com_tracado(
-                self.msg_mapa_proxy, setor_proxy, dados_trav, pontos_trav
-            )
-
-        refs = self._obter_mapa_referencias_por_nome()
-        self.assertIn("Travessia Falha", refs)
-        self.assertEqual(len(refs["Via Base"]), 1)
-
     def test_adicionar_rota_com_tracado_diversos_tipos(self):
         setor_proxy = (
             self.model.obter_croqui_readonly().picos[0].setores_ou_grupos[0].setor.conteudo
@@ -975,6 +948,261 @@ class MapasControllerTest(unittest.TestCase):
             img_bytes=None,
         )
         self.assertEqual(len(setor.mapas), 3)
+
+    def test_confluir_rota_em_tracado_fatiamento_em_no_intermediario_e_undo_redo(self):
+        """[TDD] Confluência em nó intermediário fatia linha alvo, atualiza referências e suporta Undo/Redo."""
+        from editor.core.topologia_trajeto import (
+            Ponto2D,
+            ResultadoSnap,
+            TipoSnap,
+            descobrir_caminhos_confluencia,
+        )
+
+        setor_proxy = (
+            self.model.obter_croqui_readonly().picos[0].setores_ou_grupos[0].setor.conteudo
+        )
+        dados_base = {"nome": "Via Base", "tipo": "boulder", "grau": "V2", "nova": True}
+        self.controller.adicionar_rota_com_tracado(
+            self.msg_mapa_proxy,
+            setor_proxy,
+            dados_base,
+            [(100.0, 500.0), (100.0, 300.0), (100.0, 100.0)],
+        )
+        uid_linha_base = self.mapa.pontos_de_interesse[0].uid
+        count_undo_antes = self.undo_stack.count()
+
+        snap = ResultadoSnap(
+            tipo=TipoSnap.NO,
+            coordenada=Ponto2D(100.0, 300.0),
+            id_linha=uid_linha_base,
+            indice_no=1,
+        )
+        analise = descobrir_caminhos_confluencia(
+            snap=snap,
+            linhas=self.msg_mapa_proxy.pontos_de_interesse,
+            referencias=self.msg_mapa_proxy.referencias,
+            nomes_por_uid={
+                self.croqui.picos[0].setores_ou_grupos[0].setor.conteudo.escaladas[0].uid: "Via Base"
+            },
+        )
+        self.assertEqual(len(analise.opcoes), 1)
+        opcao = analise.opcoes[0]
+
+        dados_nova = {"nome": "Variante Esquerda", "tipo": "boulder", "grau": "V4", "nova": True}
+        self.controller.confluir_rota_em_tracado(
+            msg_mapa_proxy=self.msg_mapa_proxy,
+            msg_setor_proxy=setor_proxy,
+            dados_rota=dados_nova,
+            pontos_trajeto=[(20.0, 500.0)],
+            snap=snap,
+            opcao=opcao,
+        )
+
+        # Apenas 1 macro de Undo adicionado para toda a operação
+        self.assertEqual(self.undo_stack.count(), count_undo_antes + 1)
+
+        # A linha base foi fatiada em 2 + 1 linha exclusiva da nova rota = 3 linhas
+        self.assertEqual(len(self.mapa.pontos_de_interesse), 3)
+        refs = self._obter_mapa_referencias_por_nome()
+        self.assertEqual(len(refs["Via Base"]), 2)
+        self.assertEqual(len(refs["Variante Esquerda"]), 2)
+        # Ambas compartilham a segunda sublinha até o topo
+        self.assertEqual(refs["Via Base"][1], refs["Variante Esquerda"][1])
+
+        # Undo reverte atomicamente para o estado de 1 linha e 1 referência
+        self.undo_stack.undo()
+        self.assertEqual(len(self.mapa.pontos_de_interesse), 1)
+        self.assertEqual(self.mapa.pontos_de_interesse[0].uid, uid_linha_base)
+        refs_apos_undo = self._obter_mapa_referencias_por_nome()
+        self.assertEqual(refs_apos_undo, {"Via Base": [uid_linha_base]})
+
+        # Redo reaplica a confluência integralmente
+        self.undo_stack.redo()
+        self.assertEqual(len(self.mapa.pontos_de_interesse), 3)
+        refs_apos_redo = self._obter_mapa_referencias_por_nome()
+        self.assertEqual(len(refs_apos_redo["Via Base"]), 2)
+        self.assertEqual(len(refs_apos_redo["Variante Esquerda"]), 2)
+        self.assertEqual(refs_apos_redo["Via Base"][1], refs_apos_redo["Variante Esquerda"][1])
+
+    def test_confluir_rota_em_tracado_fatiamento_em_curva_e_rota_existente(self):
+        """[TDD] Confluência em ponto de curva fatia segmento e vincula escalada pré-existente."""
+        from editor.core.topologia_trajeto import (
+            Ponto2D,
+            ResultadoSnap,
+            TipoSnap,
+            descobrir_caminhos_confluencia,
+        )
+
+        setor = self.croqui.picos[0].setores_ou_grupos[0].setor.conteudo
+        esc_existente = setor.escaladas.add(uid="esc_existente_123")
+        esc_existente.boulder.nome = "Boulder Pre-Existente"
+
+        setor_proxy = (
+            self.model.obter_croqui_readonly().picos[0].setores_ou_grupos[0].setor.conteudo
+        )
+        dados_base = {"nome": "Via Principal", "tipo": "boulder", "nova": True}
+        self.controller.adicionar_rota_com_tracado(
+            self.msg_mapa_proxy,
+            setor_proxy,
+            dados_base,
+            [(100.0, 500.0), (100.0, 100.0)],
+        )
+        uid_linha_base = self.mapa.pontos_de_interesse[0].uid
+
+        snap = ResultadoSnap(
+            tipo=TipoSnap.CURVA,
+            coordenada=Ponto2D(100.0, 300.0),
+            id_linha=uid_linha_base,
+            indice_segmento=0,
+        )
+        analise = descobrir_caminhos_confluencia(
+            snap=snap,
+            linhas=self.msg_mapa_proxy.pontos_de_interesse,
+            referencias=self.msg_mapa_proxy.referencias,
+        )
+        self.assertEqual(len(analise.opcoes), 1)
+
+        dados_vinc = {"nome": "Boulder Pre-Existente", "tipo": "boulder", "nova": False}
+        self.controller.confluir_rota_em_tracado(
+            msg_mapa_proxy=self.msg_mapa_proxy,
+            msg_setor_proxy=setor_proxy,
+            dados_rota=dados_vinc,
+            pontos_trajeto=[(40.0, 500.0), (100.0, 300.0)],
+            snap=snap,
+            opcao=analise.opcoes[0],
+        )
+
+        refs = self._obter_mapa_referencias_por_nome()
+        self.assertEqual(len(refs["Via Principal"]), 2)
+        self.assertEqual(len(refs["Boulder Pre-Existente"]), 2)
+        self.assertEqual(refs["Via Principal"][1], refs["Boulder Pre-Existente"][1])
+
+    def test_confluir_rota_em_tracado_juncao_existente_sem_refatiar(self):
+        """[TDD] Confluência em junção existente (requer_fatiamento=False) reaproveita sublinha subsequente."""
+        from editor.core.topologia_trajeto import (
+            Ponto2D,
+            ResultadoSnap,
+            TipoSnap,
+            descobrir_caminhos_confluencia,
+        )
+
+        setor_proxy = (
+            self.model.obter_croqui_readonly().picos[0].setores_ou_grupos[0].setor.conteudo
+        )
+        self.controller.adicionar_linha(
+            self.msg_mapa_proxy,
+            id_linha="sub_1",
+            nos=[
+                {"x": 100, "y": 500, "tipo": 1, "rotulo": "1"},
+                {"x": 100, "y": 300, "tipo": 0, "rotulo": ""},
+            ],
+        )
+        self.controller.adicionar_linha(
+            self.msg_mapa_proxy,
+            id_linha="sub_2",
+            nos=[
+                {"x": 100, "y": 300, "tipo": 0, "rotulo": ""},
+                {"x": 100, "y": 100, "tipo": 2, "rotulo": "A"},
+            ],
+        )
+        setor = self.croqui.picos[0].setores_ou_grupos[0].setor.conteudo
+        esc1 = setor.escaladas.add(uid="uid_v1")
+        esc1.boulder.nome = "Via 1"
+        self.controller.adicionar_referencia(
+            self.msg_mapa_proxy,
+            croqui_pb2.Mapa.Referencia(alvo_uid="uid_v1", pontos_uids=["sub_1", "sub_2"]),
+        )
+
+        snap = ResultadoSnap(
+            tipo=TipoSnap.NO,
+            coordenada=Ponto2D(100.0, 300.0),
+            id_linha="sub_1",
+            indice_no=1,
+        )
+        analise = descobrir_caminhos_confluencia(
+            snap=snap,
+            linhas=self.msg_mapa_proxy.pontos_de_interesse,
+            referencias=self.msg_mapa_proxy.referencias,
+            nomes_por_uid={"uid_v1": "Via 1"},
+        )
+        self.assertEqual(len(analise.opcoes), 1)
+        self.assertFalse(analise.opcoes[0].requer_fatiamento)
+
+        dados_nova = {"nome": "Via 2", "tipo": "boulder", "nova": True}
+        self.controller.confluir_rota_em_tracado(
+            msg_mapa_proxy=self.msg_mapa_proxy,
+            msg_setor_proxy=setor_proxy,
+            dados_rota=dados_nova,
+            pontos_trajeto=[(30.0, 500.0)],
+            snap=snap,
+            opcao=analise.opcoes[0],
+        )
+
+        # Não refatiou sub_1 nem sub_2: apenas adicionou 1 linha exclusiva para Via 2 (total 3 POIs)
+        self.assertEqual(len(self.mapa.pontos_de_interesse), 3)
+        refs = self._obter_mapa_referencias_por_nome()
+        self.assertEqual(refs["Via 1"], ["sub_1", "sub_2"])
+        self.assertEqual(refs["Via 2"][1], "sub_2")
+
+    def test_confluir_rota_em_tracado_direto_no_topo_final(self):
+        """[TDD] Confluência direta no topo final (opcao=None) encerra no mesmo topo sem fatiar."""
+        from editor.core.topologia_trajeto import Ponto2D, ResultadoSnap, TipoSnap
+
+        setor_proxy = (
+            self.model.obter_croqui_readonly().picos[0].setores_ou_grupos[0].setor.conteudo
+        )
+        self.controller.adicionar_rota_com_tracado(
+            self.msg_mapa_proxy,
+            setor_proxy,
+            {"nome": "Via Direita", "tipo": "boulder", "nova": True},
+            [(100.0, 500.0), (100.0, 100.0)],
+        )
+        uid_base = self.mapa.pontos_de_interesse[0].uid
+
+        snap_topo = ResultadoSnap(
+            tipo=TipoSnap.NO,
+            coordenada=Ponto2D(100.0, 100.0),
+            id_linha=uid_base,
+            indice_no=1,
+        )
+        self.controller.confluir_rota_em_tracado(
+            msg_mapa_proxy=self.msg_mapa_proxy,
+            msg_setor_proxy=setor_proxy,
+            dados_rota={"nome": "Via Esquerda", "tipo": "boulder", "nova": True},
+            pontos_trajeto=[(20.0, 500.0)],
+            snap=snap_topo,
+            opcao=None,
+        )
+
+        self.assertEqual(len(self.mapa.pontos_de_interesse), 2)
+        # Ambas terminam em (100, 100) e recebem o topo compartilhado 'A'
+        for poi in self.mapa.pontos_de_interesse:
+            no_fim = poi.linha.conteudo.nos[-1]
+            self.assertEqual(no_fim.tipo, croqui_pb2.NoTrajeto.TipoNo.FIM_TOP)
+            self.assertEqual(no_fim.rotulo, "A")
+
+    def test_confluir_rota_em_tracado_linha_alvo_inexistente_dispara_erro(self):
+        """[TDD] Passar snap apontando para linha inexistente dispara ValueError."""
+        from editor.core.topologia_trajeto import Ponto2D, ResultadoSnap, TipoSnap
+
+        setor_proxy = (
+            self.model.obter_croqui_readonly().picos[0].setores_ou_grupos[0].setor.conteudo
+        )
+        snap_invalido = ResultadoSnap(
+            tipo=TipoSnap.NO,
+            coordenada=Ponto2D(100.0, 100.0),
+            id_linha="uid_inexistente",
+            indice_no=1,
+        )
+        with self.assertRaises(ValueError):
+            self.controller.confluir_rota_em_tracado(
+                msg_mapa_proxy=self.msg_mapa_proxy,
+                msg_setor_proxy=setor_proxy,
+                dados_rota={"nome": "Via Erro", "tipo": "boulder", "nova": True},
+                pontos_trajeto=[(10.0, 500.0)],
+                snap=snap_invalido,
+                opcao=None,
+            )
 
 
 if __name__ == "__main__":
