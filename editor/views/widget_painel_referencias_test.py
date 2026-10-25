@@ -829,3 +829,84 @@ def test_widget_editor_mapas_propaga_controller_ao_painel(qapp):
 
     widget.croqui_controller = ctrl_mock
     assert widget.croqui_controller is ctrl_mock
+
+
+def test_referenciar_escalada_setor_e_grupo_recem_adicionados_sem_salvar(qapp):
+    """
+    Valida que entidades (Grupo, Setor e Escalada) recém-adicionadas via comandos
+    do editor sem salvar no disco recebem UID imediatamente e podem ser selecionadas
+    no DialogoBuscaReferencia e exibidas no PainelReferencias sem 'Referência Inválida'.
+    """
+    from PySide6.QtGui import QUndoStack
+
+    from editor.controllers.croqui_controller import CroquiController
+    from editor.controllers.mapas_controller import MapasController
+    from editor.models.croqui_model import CroquiModel
+    from editor.views.dialogos.dialogo_busca_referencia import DialogoBuscaReferencia
+    from scripts.gerenciar_uids_lib import validar_uid
+
+    croqui = croqui_pb2.Croqui(uid="crq_sem_salvar", nome="Croqui Em Memória")
+    pico = croqui.picos.add(nome="Pico Novo")
+    mapa = pico.mapas_gerais.conteudo.mapas.add(caminho_imagem_mapa="imagens/geral.webp")
+
+    model = CroquiModel(croqui)
+    undo_stack = QUndoStack()
+    croqui_ctrl = CroquiController(model, undo_stack)
+    mapas_ctrl = MapasController(model, undo_stack)
+
+    # 1. Adiciona Grupo sem UID prévio (como faz WidgetEditorDados)
+    sg_grupo = croqui_pb2.SetorOuGrupo()
+    sg_grupo.grupo.conteudo.nome = "Vale Oculto"
+    assert sg_grupo.grupo.conteudo.uid == ""
+    croqui_ctrl.adicionar_repeated(pico, "setores_ou_grupos", 0, sg_grupo)
+    grupo_adicionado = pico.setores_ou_grupos[0].grupo.conteudo
+    assert validar_uid(grupo_adicionado.uid)
+
+    # 2. Adiciona Setor dentro do Grupo sem UID prévio
+    arq_setor = croqui_pb2.ArquivoSetor()
+    arq_setor.conteudo.nome = "Parede Sul"
+    assert arq_setor.conteudo.uid == ""
+    croqui_ctrl.adicionar_repeated(grupo_adicionado, "setores", 0, arq_setor)
+    setor_adicionado = grupo_adicionado.setores[0].conteudo
+    assert validar_uid(setor_adicionado.uid)
+
+    # 3. Adiciona Escalada dentro do Setor sem UID prévio
+    nova_via = croqui_pb2.Escalada()
+    nova_via.via_esportiva.nome = "Fenda Nova"
+    assert nova_via.uid == ""
+    croqui_ctrl.adicionar_repeated(setor_adicionado, "escaladas", 0, nova_via)
+    via_adicionada = setor_adicionado.escaladas[0]
+    assert validar_uid(via_adicionada.uid)
+
+    # 4. Seleciona cada entidade recém-adicionada no DialogoBuscaReferencia (sem salvar no disco)
+    painel = PainelReferencias(mapas_ctrl)
+    painel.carregar_mapa(model.obter_croqui_readonly().picos[0].mapas_gerais.conteudo.mapas[0])
+
+    for row_idx, uid_esperado in [
+        (2, via_adicionada.uid),
+        (1, setor_adicionado.uid),
+        (0, grupo_adicionado.uid),
+    ]:
+        dlg = DialogoBuscaReferencia(model)
+        assert dlg.lista_resultados.count() == 3
+        dlg.lista_resultados.setCurrentRow(row_idx)
+        dlg.accept()
+        ref = dlg.obter_referencia()
+        assert ref is not None
+        assert ref.alvo_uid == uid_esperado
+        mapas_ctrl.adicionar_referencia(mapa, ref)
+
+    painel.atualizar_cards()
+    assert painel.layout_cards.count() == 3
+
+    textos_cards = [
+        painel.layout_cards.itemAt(i).widget().label_titulo.text()
+        for i in range(painel.layout_cards.count())
+    ]
+    for texto in textos_cards:
+        assert "Referência Inválida" not in texto
+
+    assert "Vale Oculto > Parede Sul > Fenda Nova" in textos_cards[0]
+    assert "Vale Oculto > Parede Sul" in textos_cards[1]
+    assert "Vale Oculto" in textos_cards[2]
+

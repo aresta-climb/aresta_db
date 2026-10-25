@@ -1652,3 +1652,285 @@ def test_cmd_alterar_campo_casos_borda_merge_e_variantes():
     assert pico.localizacao.latitude == -210000000
     cmd_coord.undo()
     assert pico.localizacao.latitude == -200000000
+
+
+def test_garantir_uids_em_mensagem_e_comandos_geram_uid_automatico():
+    """
+    Valida que `garantir_uids_em_mensagem`, `CmdAdicionarRepeated` e `CmdAlterarCampo`
+    geram automaticamente UIDs NanoID (14 caracteres Base62) para entidades e submensagens
+    ativas com campo `uid` vazio, preservam UIDs existentes, mantêm determinismo em Undo/Redo
+    e serialização, indexam imediatamente no `IndiceUidsModel` e não ativam submensagens
+    singulares vazias (`HasField`).
+    """
+    from editor.commands.comandos_protobuf import garantir_uids_em_mensagem
+    from scripts.gerenciar_uids_lib import validar_uid
+
+    # 1. Primitivos e None retornam string vazia sem erro
+    assert garantir_uids_em_mensagem(None) == ""
+    assert garantir_uids_em_mensagem("texto_primitivo") == ""
+    assert garantir_uids_em_mensagem(123) == ""
+
+    # 2. Mensagem sem campo uid e com submensagem singular opcional vazia (HasField preservado False)
+    pico_isolado = croqui_pb2.Pico(nome="Pico Sem Localização")
+    assert not pico_isolado.HasField("localizacao")
+    assert garantir_uids_em_mensagem(pico_isolado) == ""
+    assert not pico_isolado.HasField("localizacao")
+
+    # E quando a submensagem singular opcional está preenchida, percorre-a sem erro
+    pico_isolado.localizacao.latitude = -200000000
+    assert pico_isolado.HasField("localizacao")
+    assert garantir_uids_em_mensagem(pico_isolado) == ""
+
+    # 3. ArquivoSetor / ArquivoGrupo com caminho externo não devem ter `.conteudo` ativado
+    arq_setor_caminho = croqui_pb2.ArquivoSetor(caminho="setor_externo.md")
+    assert garantir_uids_em_mensagem(arq_setor_caminho) == ""
+    assert arq_setor_caminho.WhichOneof("arquivo") == "caminho"
+
+    arq_grupo_caminho = croqui_pb2.ArquivoGrupo(caminho="grupo_externo.md")
+    assert garantir_uids_em_mensagem(arq_grupo_caminho) == ""
+    assert arq_grupo_caminho.WhichOneof("arquivo") == "caminho"
+
+    # ArquivoSetor recém-instanciado sem variante explícita gera UID no `.conteudo`
+    arq_setor_vazio = croqui_pb2.ArquivoSetor()
+    uid_arq_vazio = garantir_uids_em_mensagem(ReadOnlyProxy(arq_setor_vazio))
+    assert validar_uid(uid_arq_vazio)
+    assert arq_setor_vazio.conteudo.uid == uid_arq_vazio
+
+    # 4. Criação de modelo e adição via CmdAdicionarRepeated
+    croqui = croqui_pb2.Croqui(uid="crq_uid_auto01", nome="Croqui Teste UIDs")
+    pico = croqui.picos.add(nome="Pico Principal")
+    model = CroquiModel(croqui)
+
+    # 4a. Adição de SetorOuGrupo (variante grupo e variante setor) sem UID prévio
+    novo_sg_grupo = croqui_pb2.SetorOuGrupo()
+    novo_sg_grupo.grupo.conteudo.nome = "Grupo Novo"
+    cmd_add_grupo = CmdAdicionarRepeated(
+        model=model,
+        alvo=pico,
+        campo_nome="setores_ou_grupos",
+        index=0,
+        valor=novo_sg_grupo,
+    )
+    uid_grupo = novo_sg_grupo.grupo.conteudo.uid
+    assert validar_uid(uid_grupo)
+    assert cmd_add_grupo.valor.grupo.conteudo.uid == uid_grupo
+    cmd_add_grupo.executar_redo()
+    assert model.indice_uids.obter_objeto(uid_grupo) is not None
+
+    novo_sg_setor = croqui_pb2.SetorOuGrupo()
+    novo_sg_setor.setor.conteudo.nome = "Setor Raiz Novo"
+    cmd_add_setor_raiz = CmdAdicionarRepeated(
+        model=model,
+        alvo=pico,
+        campo_nome="setores_ou_grupos",
+        index=1,
+        valor=novo_sg_setor,
+    )
+    uid_setor_raiz = novo_sg_setor.setor.conteudo.uid
+    assert validar_uid(uid_setor_raiz)
+    assert not novo_sg_setor.setor.conteudo.HasField("localizacao_escalada")
+    cmd_add_setor_raiz.executar_redo()
+    assert model.indice_uids.obter_objeto(uid_setor_raiz) is not None
+
+    # 4b. Adição de ArquivoSetor dentro de Grupo.setores
+    grupo_no_modelo = pico.setores_ou_grupos[0].grupo.conteudo
+    novo_arq_setor = croqui_pb2.ArquivoSetor()
+    novo_arq_setor.conteudo.nome = "Setor Interno"
+    cmd_add_setor_interno = CmdAdicionarRepeated(
+        model=model,
+        alvo=grupo_no_modelo,
+        campo_nome="setores",
+        index=0,
+        valor=novo_arq_setor,
+    )
+    uid_setor_interno = novo_arq_setor.conteudo.uid
+    assert validar_uid(uid_setor_interno)
+    cmd_add_setor_interno.executar_redo()
+    assert model.indice_uids.obter_objeto(uid_setor_interno) is not None
+
+    # 4c. Adição de Escalada com múltiplas enfiadas aninhadas sem UIDs prévios
+    setor_no_modelo = pico.setores_ou_grupos[1].setor.conteudo
+    nova_via = croqui_pb2.Escalada()
+    nova_via.via_multiplas_enfiadas.nome = "Via Paredão"
+    enf1 = nova_via.via_multiplas_enfiadas.enfiadas.add()
+    enf1.via_esportiva.nome = "Enfiada 1"
+    enf2 = nova_via.via_multiplas_enfiadas.enfiadas.add(uid="enf_uid_fixo02")
+    enf2.via_movel.nome = "Enfiada 2"
+
+    cmd_add_via = CmdAdicionarRepeated(
+        model=model,
+        alvo=setor_no_modelo,
+        campo_nome="escaladas",
+        index=0,
+        valor=nova_via,
+    )
+    uid_via = nova_via.uid
+    uid_enf1 = nova_via.via_multiplas_enfiadas.enfiadas[0].uid
+    assert validar_uid(uid_via)
+    assert validar_uid(uid_enf1)
+    assert uid_via != uid_enf1
+    # UID preexistente deve ser preservado
+    assert nova_via.via_multiplas_enfiadas.enfiadas[1].uid == "enf_uid_fixo02"
+
+    cmd_add_via.executar_redo()
+    assert model.indice_uids.obter_objeto(uid_via) is not None
+
+    # 4d. Ciclo Undo/Redo e serialização/deserialização preservam exatamente o mesmo UID
+    cmd_add_via.undo()
+    assert model.indice_uids.obter_objeto(uid_via) is None
+    cmd_add_via.executar_redo()
+    assert setor_no_modelo.escaladas[0].uid == uid_via
+    assert setor_no_modelo.escaladas[0].via_multiplas_enfiadas.enfiadas[0].uid == uid_enf1
+    assert model.indice_uids.obter_objeto(uid_via) is not None
+
+    dados_ser = cmd_add_via.serializar()
+    cmd_add_via.undo()
+    cmd_deser = CmdAdicionarRepeated.deserializar(dados_ser, model)
+    assert cmd_deser.valor.uid == uid_via
+    cmd_deser.executar_redo()
+    assert setor_no_modelo.escaladas[0].uid == uid_via
+
+    # 4e. Botao e Mapa.PontoDeInteresse recebem UID automaticamente
+    novo_botao = croqui_pb2.Botao(texto="Guia de Bolso")
+    cmd_add_botao = CmdAdicionarRepeated(
+        model=model,
+        alvo=croqui,
+        campo_nome="botoes",
+        index=0,
+        valor=novo_botao,
+    )
+    assert validar_uid(novo_botao.uid)
+    cmd_add_botao.executar_redo()
+    assert croqui.botoes[0].uid == novo_botao.uid
+
+    mapa = setor_no_modelo.mapas.add(caminho_imagem_mapa="imagens/parede.webp")
+    novo_poi = croqui_pb2.Mapa.PontoDeInteresse(rotulo="P1")
+    cmd_add_poi = CmdAdicionarRepeated(
+        model=model,
+        alvo=mapa,
+        campo_nome="pontos_de_interesse",
+        index=0,
+        valor=novo_poi,
+    )
+    assert validar_uid(novo_poi.uid)
+    cmd_add_poi.executar_redo()
+    assert mapa.pontos_de_interesse[0].uid == novo_poi.uid
+
+    # 5. CmdAlterarCampo gera UID em repeated_item e oneof (tupla e variante direta)
+    via_substituta = croqui_pb2.Escalada()
+    via_substituta.boulder.nome = "Boulder Substituto"
+    cmd_alt_item = CmdAlterarCampo(
+        model=model,
+        alvo=setor_no_modelo,
+        campo_nome="escaladas.0",
+        valor_novo=via_substituta,
+    )
+    uid_substituta = via_substituta.uid
+    assert validar_uid(uid_substituta)
+    cmd_alt_item.executar_redo()
+    assert setor_no_modelo.escaladas[0].uid == uid_substituta
+    assert model.indice_uids.obter_objeto(uid_substituta) is not None
+    cmd_alt_item.undo()
+    assert setor_no_modelo.escaladas[0].uid == uid_via
+
+    # CmdAlterarCampo trocando variante oneof por tupla (nome_oneof="tipo") com submensagens com uid
+    vme_nova = croqui_pb2.ViaMultiplasEnfiadas(nome="Multi Nova")
+    vme_nova.enfiadas.add().via_esportiva.nome = "Enfiada Via Oneof"
+    cmd_alt_oneof_tupla = CmdAlterarCampo(
+        model=model,
+        alvo=setor_no_modelo.escaladas[0],
+        campo_nome="tipo",
+        valor_novo=("via_multiplas_enfiadas", vme_nova),
+    )
+    uid_enf_oneof = vme_nova.enfiadas[0].uid
+    assert validar_uid(uid_enf_oneof)
+    cmd_alt_oneof_tupla.executar_redo()
+    assert (
+        setor_no_modelo.escaladas[0].via_multiplas_enfiadas.enfiadas[0].uid == uid_enf_oneof
+    )
+
+    # CmdAlterarCampo trocando variante oneof pelo nome direto do campo da variante
+    arq_grupo_novo = croqui_pb2.ArquivoGrupo()
+    arq_grupo_novo.conteudo.nome = "Convertido em Grupo"
+    cmd_alt_oneof_direto = CmdAlterarCampo(
+        model=model,
+        alvo=pico.setores_ou_grupos[1],
+        campo_nome="grupo",
+        valor_novo=arq_grupo_novo,
+    )
+    uid_grupo_convertido = arq_grupo_novo.conteudo.uid
+    assert validar_uid(uid_grupo_convertido)
+    cmd_alt_oneof_direto.executar_redo()
+    assert pico.setores_ou_grupos[1].grupo.conteudo.uid == uid_grupo_convertido
+    assert model.indice_uids.obter_objeto(uid_grupo_convertido) is not None
+    cmd_alt_oneof_direto.undo()
+    assert pico.setores_ou_grupos[1].setor.conteudo.uid == uid_setor_raiz
+
+
+def test_cmd_alterar_campo_rejeita_repeated_sem_indice_e_tipos_incompativeis_fail_fast():
+    """
+    Valida que CmdAlterarCampo rejeita no __init__ (antes de empilhar no QUndoStack)
+    campos repeated sem índice, índices em campos escalares e tipos incompatíveis com o FieldDescriptor.
+    """
+    croqui = croqui_pb2.Croqui(nome="Croqui Blindado")
+    croqui.creditos.append("Autor 1")
+    pico = croqui.picos.add(nome="Pico 1")
+    sg = pico.setores_ou_grupos.add()
+    setor = sg.setor.conteudo
+    setor.uid = "set_val_01"
+    esc = setor.escaladas.add(uid="esc_val_01")
+    esc.via_esportiva.nome = "Via 1"
+    model = CroquiModel(croqui)
+
+    # 1. Campo repeated sem índice deve falhar no __init__ com ValueError
+    with pytest.raises(ValueError, match="repeated"):
+        CmdAlterarCampo(model, croqui, "creditos", ["Autor A", "Autor B"])
+
+    with pytest.raises(ValueError, match="repeated"):
+        CmdAlterarCampo(model, croqui, "picos", [])
+
+    # 2. Índice em campo que não é repeated ou índice não numérico
+    with pytest.raises(ValueError, match="não é uma lista"):
+        CmdAlterarCampo(model, croqui, "nome.0", "Outro")
+
+    with pytest.raises(ValueError, match="Índice inválido"):
+        CmdAlterarCampo(model, croqui, "creditos.abc", "Outro")
+
+    # 3. Tipos escalares incompatíveis (string, int, bool, float, enum)
+    with pytest.raises(TypeError, match="string"):
+        CmdAlterarCampo(model, croqui, "nome", 12345)
+
+    with pytest.raises(TypeError, match="inteiro"):
+        CmdAlterarCampo(model, esc.via_esportiva, "extensao", "25m")
+
+    with pytest.raises(TypeError, match="inteiro"):
+        CmdAlterarCampo(model, esc.via_esportiva, "extensao", True)
+
+    with pytest.raises(TypeError, match="booleano"):
+        CmdAlterarCampo(model, setor, "sinal_de_celular", "sim")
+
+    # Enum inválido (string crua ou número inexistente no enum) e válido
+    with pytest.raises(TypeError, match="enum"):
+        CmdAlterarCampo(model, esc.via_esportiva, "dificuldade", "BR_7A")
+
+    with pytest.raises(ValueError, match="enum"):
+        CmdAlterarCampo(model, esc.via_esportiva, "dificuldade", 999999)
+
+    cmd_enum_ok = CmdAlterarCampo(model, esc.via_esportiva, "dificuldade", 1)
+    cmd_enum_ok.executar_redo()
+    assert esc.via_esportiva.dificuldade == 1
+
+    # 4. Submensagem e Oneof com dict ou classe de mensagem incorreta
+    with pytest.raises(TypeError, match="Coordenada"):
+        CmdAlterarCampo(model, pico, "localizacao", {"latitude": -20, "longitude": -44})
+
+    with pytest.raises(TypeError, match="Coordenada"):
+        CmdAlterarCampo(model, pico, "localizacao", croqui_pb2.Trilha(nome="Errada"))
+
+    with pytest.raises(TypeError, match="oneof"):
+        CmdAlterarCampo(model, esc, "tipo", "boulder")
+
+    with pytest.raises(ValueError, match="variante"):
+        CmdAlterarCampo(model, esc, "tipo", ("variante_inexistente", croqui_pb2.Boulder()))
+
+

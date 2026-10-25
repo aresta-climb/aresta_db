@@ -19,6 +19,69 @@ class MensagemAlvoNaoEncontradaError(LookupError):
     pass
 
 
+def garantir_uids_em_mensagem(msg: Any) -> str:
+    """
+    Garante recursivamente que `msg` e todas as suas submensagens ativas possuam
+    um `uid` NanoID (14 caracteres Base62) preenchido quando o seu `DESCRIPTOR`
+    definir o campo `uid`.
+
+    Preserva qualquer `uid` já preenchido, atua in-place sobre `msg` (desembrulhando
+    `ReadOnlyProxy` se necessário) e evita ativar submensagens singulares vazias
+    (`HasField` / variantes inativas de `oneof`), exceto `.conteudo` em `ArquivoSetor`
+    e `ArquivoGrupo` quando `WhichOneof("arquivo") != "caminho"`.
+
+    Retorna o `uid` principal de `msg` (ou o primeiro `uid` encontrado na sua
+    subárvore ativa de `oneof`), ou `""` caso não haja `uid`.
+    """
+    from editor.models.readonly_proxy import ReadOnlyProxy
+
+    if isinstance(msg, ReadOnlyProxy):
+        msg = object.__getattribute__(msg, "_obj")
+
+    if not hasattr(msg, "DESCRIPTOR"):
+        return ""
+
+    from scripts.gerenciar_uids_lib import gerar_uid
+
+    uid_principal = ""
+    desc = msg.DESCRIPTOR
+    if "uid" in desc.fields_by_name:
+        uid_atual = str(getattr(msg, "uid", "") or "").strip()
+        if not uid_atual:
+            uid_atual = gerar_uid()
+            msg.uid = uid_atual
+        uid_principal = uid_atual
+
+    for field_desc in desc.fields:
+        if getattr(field_desc, "type", None) != 11:
+            continue
+
+        eh_repeated = getattr(field_desc, "label", None) == 3 or getattr(
+            field_desc, "is_repeated", False
+        )
+        if eh_repeated:
+            for item in getattr(msg, field_desc.name):
+                garantir_uids_em_mensagem(item)
+        elif field_desc.containing_oneof is not None:
+            nome_oneof = field_desc.containing_oneof.name
+            ativo = msg.WhichOneof(nome_oneof)
+            eh_conteudo_arquivo = (
+                nome_oneof == "arquivo"
+                and field_desc.name == "conteudo"
+                and desc.name in ("ArquivoSetor", "ArquivoGrupo")
+                and ativo != "caminho"
+            )
+            if ativo == field_desc.name or eh_conteudo_arquivo:
+                uid_filho = garantir_uids_em_mensagem(getattr(msg, field_desc.name))
+                if not uid_principal:
+                    uid_principal = uid_filho
+        elif msg.HasField(field_desc.name):
+            garantir_uids_em_mensagem(getattr(msg, field_desc.name))
+
+    return uid_principal
+
+
+
 def _buscar_mensagem_por_uid(
     msg_atual: Any, uid_procurado: str, caminho_atual: str = ""
 ) -> tuple[Any, str] | None:
@@ -468,10 +531,6 @@ def _validar_campo_se_msg_existir(
                     f"Campo '{campo_nome}' não existe na mensagem '{msg_alvo.DESCRIPTOR.name}' "
                     f"para o comando {nome_comando}."
                 )
-                raise ValueError(
-                    f"Campo '{campo_nome}' não existe na mensagem '{msg_alvo.DESCRIPTOR.name}' "
-                    f"para o comando {nome_comando}."
-                )
 
 
 def _serializar_valor(valor: Any, anonimizado: bool = False) -> Any:
@@ -610,6 +669,60 @@ class ComandoEditor(QUndoCommand):
 _VALOR_OMITIDO = object()
 
 
+def _eh_campo_repeated(field_desc: Any) -> bool:
+    """Retorna True se o descritor de campo Protobuf representa uma coleção repeated."""
+    return bool(
+        getattr(field_desc, "label", None) == 3 or getattr(field_desc, "is_repeated", False)
+    )
+
+
+def _validar_tipo_valor_campo(field_desc: Any, valor: Any, nome_campo: str) -> None:
+    """Valida se `valor` é compatível com o `FieldDescriptor` do Protobuf antes de empilhar no histórico."""
+    if valor is None:
+        return
+    if getattr(field_desc, "message_type", None) is not None:
+        valor_raw = getattr(valor, "_obj", valor)
+        if (
+            not isinstance(valor_raw, Message)
+            or valor_raw.DESCRIPTOR.full_name != field_desc.message_type.full_name
+        ):
+            raise TypeError(
+                f"Valor inválido para o campo '{nome_campo}': esperado mensagem "
+                f"'{field_desc.message_type.name}', recebido '{type(valor).__name__}'."
+            )
+    elif getattr(field_desc, "enum_type", None) is not None:
+        if not isinstance(valor, int) or isinstance(valor, bool):
+            raise TypeError(
+                f"Valor inválido para o campo '{nome_campo}': esperado inteiro de enum "
+                f"'{field_desc.enum_type.name}', recebido '{type(valor).__name__}'."
+            )
+        if valor not in field_desc.enum_type.values_by_number:
+            opcoes = ", ".join(f"{v.name}={v.number}" for v in field_desc.enum_type.values)
+            raise ValueError(
+                f"Valor de enum inválido ({valor}) para '{nome_campo}' "
+                f"({field_desc.enum_type.name}). Valores válidos: {opcoes}."
+            )
+    elif getattr(field_desc, "type", None) == 9:
+        if not isinstance(valor, str):
+            raise TypeError(
+                f"Valor inválido para o campo '{nome_campo}': esperado string, "
+                f"recebido '{type(valor).__name__}'."
+            )
+    elif getattr(field_desc, "type", None) == 8:
+        if not isinstance(valor, bool):
+            raise TypeError(
+                f"Valor inválido para o campo '{nome_campo}': esperado booleano, "
+                f"recebido '{type(valor).__name__}'."
+            )
+    else:
+        if not isinstance(valor, int) or isinstance(valor, bool):
+            raise TypeError(
+                f"Valor inválido para o campo '{nome_campo}': esperado inteiro, "
+                f"recebido '{type(valor).__name__}'."
+            )
+
+
+
 class CmdAlterarCampo(ComandoEditor):
     """
     Comando unificado canônico para alterar qualquer campo singular no Protobuf via Model.
@@ -687,11 +800,23 @@ class CmdAlterarCampo(ComandoEditor):
 
         if "." in campo_nome and not campo_nome.startswith("ext_"):
             partes = campo_nome.split(".", 1)
-            if partes[1].isdigit():
-                self.modalidade = "repeated_item"
-                self._nome_campo_base = partes[0]
-                self._indice_repeated = int(partes[1])
-                if valor_antigo is _VALOR_OMITIDO and msg_alvo is not None:
+            if not partes[1].isdigit():
+                raise ValueError(
+                    f"Índice inválido em '{campo_nome}': esperado '<campo>.<indice_inteiro>'."
+                )
+            self.modalidade = "repeated_item"
+            self._nome_campo_base = partes[0]
+            self._indice_repeated = int(partes[1])
+            if msg_alvo is not None and hasattr(msg_alvo, "DESCRIPTOR"):
+                field_desc = msg_alvo.DESCRIPTOR.fields_by_name.get(self._nome_campo_base)
+                if field_desc is not None:
+                    if not _eh_campo_repeated(field_desc):
+                        raise ValueError(
+                            f"O campo '{self._nome_campo_base}' em '{msg_alvo.DESCRIPTOR.name}' "
+                            f"não é uma lista (repeated) e não aceita índice '{campo_nome}'."
+                        )
+                    _validar_tipo_valor_campo(field_desc, valor_novo, campo_nome)
+                if valor_antigo is _VALOR_OMITIDO:
                     colecao = getattr(msg_alvo, self._nome_campo_base, [])
                     if 0 <= self._indice_repeated < len(colecao):
                         valor_antigo = colecao[self._indice_repeated]
@@ -707,11 +832,36 @@ class CmdAlterarCampo(ComandoEditor):
                     self._valor_variante_antiga = getattr(msg_alvo, self._var_antiga)
                 if isinstance(valor_novo, tuple) and len(valor_novo) == 2:
                     self._var_nova, self._valor_variante_nova = valor_novo
+                    if self._var_nova is not None:
+                        field_var = desc.fields_by_name.get(self._var_nova)
+                        if (
+                            field_var is None
+                            or getattr(field_var.containing_oneof, "name", None) != campo_nome
+                        ):
+                            raise ValueError(
+                                f"A variante '{self._var_nova}' não pertence ao oneof "
+                                f"'{campo_nome}' em '{desc.name}'."
+                            )
+                        _validar_tipo_valor_campo(
+                            field_var, self._valor_variante_nova, self._var_nova
+                        )
                 elif valor_novo is None:
                     self._var_nova = None
                     self._valor_variante_nova = None
+                else:
+                    raise TypeError(
+                        f"Valor inválido para o oneof '{campo_nome}': esperado tupla "
+                        f"(nome_variante, mensagem) ou None, recebido '{type(valor_novo).__name__}'."
+                    )
             elif campo_nome in desc.fields_by_name:
                 field_desc = desc.fields_by_name[campo_nome]
+                if _eh_campo_repeated(field_desc):
+                    raise ValueError(
+                        f"O campo '{campo_nome}' em '{desc.name}' é uma lista (repeated). "
+                        f"Use '{campo_nome}.<indice>' para alterar um item específico ou "
+                        f"CmdAdicionarRepeated / CmdRemoverRepeated para modificar a coleção."
+                    )
+                _validar_tipo_valor_campo(field_desc, valor_novo, campo_nome)
                 if field_desc.containing_oneof:
                     self.modalidade = "oneof"
                     self._nome_oneof = field_desc.containing_oneof.name
@@ -756,6 +906,10 @@ class CmdAlterarCampo(ComandoEditor):
         if valor_antigo is _VALOR_OMITIDO:
             valor_antigo = None
 
+        garantir_uids_em_mensagem(valor_novo)
+        garantir_uids_em_mensagem(self._valor_variante_nova)
+        self._valor_variante_antiga = _copia_segura(self._valor_variante_antiga)
+        self._valor_variante_nova = _copia_segura(self._valor_variante_nova)
         self.valor_antigo: Any = _copia_segura(valor_antigo)
         self.valor_novo: Any = _copia_segura(valor_novo)
 
@@ -1050,6 +1204,7 @@ class CmdAdicionarRepeated(ComandoEditor):
             if not isinstance(alvo_efetivo, str):
                 self._msg_cache = alvo_efetivo
         self.index: int = index
+        garantir_uids_em_mensagem(valor)
         self.valor: Any = _copia_segura(valor)
         self.context_path: str | None = context_path
 

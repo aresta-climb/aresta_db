@@ -8,11 +8,11 @@ from typing import Any
 from google.protobuf.json_format import ParseDict
 
 from aresta_api.proto.generated import croqui_pb2
+from editor.commands.comandos_protobuf import garantir_uids_em_mensagem
 from editor.controllers.croqui_controller import CroquiController
 from editor.controllers.mapas_controller import MapasController
 from editor.mcp.resolvedor_alvo import resolver_alvo_mcp
 from editor.mcp.servidor import ServidorMCP
-from scripts.gerenciar_uids_lib import gerar_uid
 
 
 def _decodificar_bytes_entrada(
@@ -25,22 +25,54 @@ def _decodificar_bytes_entrada(
     return None
 
 
-def _garantir_uid_em_mensagem(obj: Any) -> str:
-    """Garante que `obj` (ou seu subobjeto `.conteudo` / `.setor.conteudo` / `.grupo.conteudo`) possua UID NanoID."""
-    if hasattr(obj, "DESCRIPTOR") and "uid" in obj.DESCRIPTOR.fields_by_name:
-        if not getattr(obj, "uid", ""):
-            obj.uid = gerar_uid()
-        return str(obj.uid)
+def _instanciar_mensagem_de_dict(desc_msg: Any, dados_brutos: dict[str, Any]) -> tuple[Any, str]:
+    """
+    Constrói uma mensagem Protobuf a partir de um dicionário JSON, suportando
+    atalhos ergonômicos para wrappers (`SetorOuGrupo`, `ArquivoSetor`, `ArquivoGrupo`, `Escalada`)
+    e gerando automaticamente o `uid` NanoID quando aplicável.
+    """
+    cls_item = desc_msg._concrete_class
+    novo_obj = cls_item()
+    dados = dict(dados_brutos)
+    nome_tipo = desc_msg.name
 
-    if hasattr(obj, "conteudo"):
-        return _garantir_uid_em_mensagem(obj.conteudo)
+    if nome_tipo == "SetorOuGrupo" and "setor" not in dados and "grupo" not in dados:
+        tipo_escolhido = str(dados.pop("tipo", "setor")).lower()
+        alvo_conteudo = (
+            novo_obj.grupo.conteudo if tipo_escolhido == "grupo" else novo_obj.setor.conteudo
+        )
+        ParseDict(dados, alvo_conteudo, ignore_unknown_fields=False)
+    elif (
+        nome_tipo in ("ArquivoSetor", "ArquivoGrupo")
+        and "conteudo" not in dados
+        and "caminho" not in dados
+    ):
+        ParseDict(dados, novo_obj.conteudo, ignore_unknown_fields=False)
+    elif nome_tipo == "Escalada" and not any(
+        k in dados
+        for k in (
+            "via_esportiva",
+            "via_movel",
+            "boulder",
+            "via_multiplas_enfiadas",
+            "highline",
+        )
+    ):
+        tipo_esc = str(dados.pop("tipo", "via_esportiva"))
+        nomes_variantes = [f.name for f in novo_obj.DESCRIPTOR.oneofs_by_name["tipo"].fields]
+        if tipo_esc not in nomes_variantes:
+            opcoes = ", ".join(nomes_variantes)
+            raise ValueError(
+                f"Variante de escalada '{tipo_esc}' inválida. Opções válidas: {opcoes}."
+            )
+        sub_var = getattr(novo_obj, tipo_esc)
+        sub_var.SetInParent()
+        ParseDict(dados, sub_var, ignore_unknown_fields=False)
+    else:
+        ParseDict(dados, novo_obj, ignore_unknown_fields=False)
 
-    if hasattr(obj, "WhichOneof") and "tipo" in obj.DESCRIPTOR.oneofs_by_name:
-        variante = obj.WhichOneof("tipo")
-        if variante:
-            return _garantir_uid_em_mensagem(getattr(obj, variante))
-
-    return ""
+    uid_gerado = garantir_uids_em_mensagem(novo_obj)
+    return novo_obj, uid_gerado
 
 
 def _instanciar_valor_para_campo_repeated(msg: Any, campo: str, dados_item: Any) -> tuple[Any, str]:
@@ -60,31 +92,62 @@ def _instanciar_valor_para_campo_repeated(msg: Any, campo: str, dados_item: Any)
     if desc_campo.message_type is None:
         return dados_item, ""
 
-    cls_item = desc_campo.message_type._concrete_class
-    novo_obj = cls_item()
-    dados = dict(dados_item) if isinstance(dados_item, dict) else {}
-    nome_tipo = desc_campo.message_type.name
+    dados_dict = dict(dados_item) if isinstance(dados_item, dict) else {}
+    return _instanciar_mensagem_de_dict(desc_campo.message_type, dados_dict)
 
-    if nome_tipo == "SetorOuGrupo" and "setor" not in dados and "grupo" not in dados:
-        tipo_escolhido = str(dados.pop("tipo", "setor")).lower()
-        alvo_conteudo = (
-            novo_obj.grupo.conteudo if tipo_escolhido == "grupo" else novo_obj.setor.conteudo
+
+def _coagir_valor_para_campo(msg: Any, nome_campo: str, valor_bruto: Any) -> Any:
+    """
+    Converte um valor vindo do JSON-RPC (dict de submensagem, nome textual de Enum, etc.)
+    para o tipo nativo esperado pelo `CmdAlterarCampo` antes de despachar ao Controller.
+    """
+    if valor_bruto is None:
+        return None
+
+    desc = msg.DESCRIPTOR
+    if "." in nome_campo and not nome_campo.startswith("ext_"):
+        campo_base, _ = nome_campo.split(".", 1)
+        if campo_base in desc.fields_by_name:
+            val_item, _ = _instanciar_valor_para_campo_repeated(msg, campo_base, valor_bruto)
+            return val_item
+
+    if nome_campo in desc.oneofs_by_name:
+        if isinstance(valor_bruto, dict) and len(valor_bruto) == 1:
+            var_nome, dados_var = next(iter(valor_bruto.items()))
+            val_var = _coagir_valor_para_campo(msg, str(var_nome), dados_var)
+            return (str(var_nome), val_var)
+        raise ValueError(
+            f"Para alterar o oneof '{nome_campo}', informe um dicionário com a variante "
+            f"(ex: {{'boulder': {{'nome': '...'}}}}) ou altere o campo da variante diretamente."
         )
-        ParseDict(dados, alvo_conteudo, ignore_unknown_fields=True)
-    elif nome_tipo == "ArquivoSetor" and "conteudo" not in dados:
-        ParseDict(dados, novo_obj.conteudo, ignore_unknown_fields=True)
-    else:
-        ParseDict(dados, novo_obj, ignore_unknown_fields=True)
-        if nome_tipo == "Escalada":
-            variante = novo_obj.WhichOneof("tipo")
-            if not variante:
-                novo_obj.via_esportiva.SetInParent()
-                variante = "via_esportiva"
-            if "nome" in dados:
-                getattr(novo_obj, variante).nome = str(dados["nome"])
 
-    uid_gerado = _garantir_uid_em_mensagem(novo_obj)
-    return novo_obj, uid_gerado
+    desc_campo = desc.fields_by_name.get(nome_campo)
+    if desc_campo is None:
+        return valor_bruto
+
+    eh_repeated = getattr(desc_campo, "label", None) == 3 or getattr(
+        desc_campo, "is_repeated", False
+    )
+    if eh_repeated:
+        return valor_bruto
+
+    if desc_campo.message_type is not None and isinstance(valor_bruto, dict):
+        obj_msg, _ = _instanciar_mensagem_de_dict(desc_campo.message_type, valor_bruto)
+        return obj_msg
+
+    if desc_campo.enum_type is not None and isinstance(valor_bruto, str):
+        val_enum = desc_campo.enum_type.values_by_name.get(
+            valor_bruto
+        ) or desc_campo.enum_type.values_by_name.get(valor_bruto.upper())
+        if val_enum is None:
+            opcoes = ", ".join(v.name for v in desc_campo.enum_type.values)
+            raise ValueError(
+                f"Valor de enum '{valor_bruto}' inválido para o campo '{nome_campo}' "
+                f"({desc_campo.enum_type.name}). Opções válidas: {opcoes}."
+            )
+        return int(val_enum.number)
+
+    return valor_bruto
 
 
 def registrar_ferramentas_comandos(
@@ -93,63 +156,37 @@ def registrar_ferramentas_comandos(
     mapas_controller: MapasController | None = None,
 ) -> None:
     """
-    Registra no `ServidorMCP` o catálogo de ferramentas 1:1 mapeadas aos comandos
-    do editor, despachando exclusivamente via `CroquiController` e `MapasController`.
+    Registra no `ServidorMCP` o catálogo de ferramentas canônicas mapeadas à interface
+    de `CroquiController` e `MapasController`.
     """
     model = croqui_controller.model
     ctrl_mapas = mapas_controller or MapasController(model, croqui_controller.undo_stack)
 
-    def _alterar_primitivo(args: dict[str, Any]) -> dict[str, Any]:
+    def _alterar_campo(args: dict[str, Any]) -> dict[str, Any]:
         alvo = str(args.get("alvo", ""))
-        campo = str(args["campo"])
-        valor = args["valor"]
-        msg, caminho = resolver_alvo_mcp(model, alvo, campo_nome=campo)
-        if campo not in msg.DESCRIPTOR.fields_by_name:
-            raise ValueError(f"Campo '{campo}' não existe na mensagem '{msg.DESCRIPTOR.name}'.")
-        valor_antigo = getattr(msg, campo)
-        croqui_controller.alterar_primitivo(msg, campo, valor_antigo, valor)
+        mapa_entrada: dict[str, Any] = {}
+        if isinstance(args.get("campos"), dict):
+            mapa_entrada.update(args["campos"])
+        if args.get("campo"):
+            mapa_entrada[str(args["campo"])] = args.get("valor")
+        if not mapa_entrada:
+            raise ValueError(
+                "Informe 'campo' (com 'valor') ou o dicionário 'campos' para alterar."
+            )
+
+        mapa_coagido: dict[str, Any] = {}
+        ultimo_caminho = ""
+        for nome_c, val_bruto in mapa_entrada.items():
+            msg_c, ultimo_caminho = resolver_alvo_mcp(model, alvo, campo_nome=nome_c)
+            mapa_coagido[nome_c] = _coagir_valor_para_campo(msg_c, nome_c, val_bruto)
+
+        croqui_controller.alterar_campo(alvo=alvo, campos=mapa_coagido)
+        model.indice_uids.carregar_do_croqui(model.obter_croqui_readonly())
         return {
             "status": "ok",
-            "caminho": caminho,
-            "campo": campo,
-            "valor": getattr(msg, campo),
-        }
-
-    def _alterar_oneof(args: dict[str, Any]) -> dict[str, Any]:
-        alvo = str(args.get("alvo", ""))
-        oneof = str(args["oneof"])
-        campo_novo = args.get("campo_novo")
-        valores_iniciais = args.get("valores_iniciais") or {}
-        msg, caminho = resolver_alvo_mcp(model, alvo, campo_nome=oneof)
-        if oneof not in msg.DESCRIPTOR.oneofs_by_name:
-            raise ValueError(f"Oneof '{oneof}' não existe na mensagem '{msg.DESCRIPTOR.name}'.")
-        nome_antigo = msg.WhichOneof(oneof)
-        valor_antigo = getattr(msg, nome_antigo) if nome_antigo else None
-
-        if campo_novo:
-            campo_novo_str = str(campo_novo)
-            desc_novo = msg.DESCRIPTOR.fields_by_name.get(campo_novo_str)
-            if desc_novo is None:
-                raise ValueError(
-                    f"Campo '{campo_novo_str}' não existe na mensagem '{msg.DESCRIPTOR.name}'."
-                )
-            cls_novo = desc_novo.message_type._concrete_class
-            valor_novo = cls_novo()
-            if isinstance(valores_iniciais, dict) and valores_iniciais:
-                ParseDict(valores_iniciais, valor_novo, ignore_unknown_fields=True)
-            _garantir_uid_em_mensagem(valor_novo)
-        else:
-            campo_novo_str = None
-            valor_novo = None
-
-        croqui_controller.alterar_oneof(
-            msg, oneof, nome_antigo, valor_antigo, campo_novo_str, valor_novo
-        )
-        return {
-            "status": "ok",
-            "caminho": caminho,
-            "oneof": oneof,
-            "campo_ativo": msg.WhichOneof(oneof),
+            "alvo": alvo,
+            "caminho": ultimo_caminho,
+            "campos_alterados": list(mapa_coagido.keys()),
         }
 
     def _adicionar_repeated(args: dict[str, Any]) -> dict[str, Any]:
@@ -169,6 +206,7 @@ def registrar_ferramentas_comandos(
             "uid": uid_gerado,
             "caminho": caminho_item,
             "indice": idx_final,
+            "tamanho": len(colecao),
         }
 
     def _remover_repeated(args: dict[str, Any]) -> dict[str, Any]:
@@ -188,6 +226,7 @@ def registrar_ferramentas_comandos(
             "caminho": caminho,
             "campo": campo,
             "indice_removido": indice,
+            "tamanho": len(colecao),
         }
 
     def _mover_repeated(args: dict[str, Any]) -> dict[str, Any]:
@@ -203,56 +242,6 @@ def registrar_ferramentas_comandos(
             "campo": campo,
             "indice_origem": indice_origem,
             "indice_destino": indice_destino,
-        }
-
-    def _alterar_item_repeated(args: dict[str, Any]) -> dict[str, Any]:
-        alvo = str(args.get("alvo", ""))
-        campo = str(args["campo"])
-        indice = int(args["indice"])
-        valor_bruto = args["valor"]
-        msg, caminho = resolver_alvo_mcp(model, alvo, campo_nome=campo)
-        colecao = getattr(msg, campo)
-        valor_antigo = colecao[indice]
-        valor_novo, _ = _instanciar_valor_para_campo_repeated(msg, campo, valor_bruto)
-        croqui_controller.alterar_repeated_item(msg, campo, indice, valor_antigo, valor_novo)
-        return {
-            "status": "ok",
-            "caminho": caminho,
-            "campo": campo,
-            "indice": indice,
-        }
-
-    def _alterar_multiplos_repeated(args: dict[str, Any]) -> dict[str, Any]:
-        alvo = str(args.get("alvo", ""))
-        campo = str(args["campo"])
-        alteracoes_in = list(args.get("alteracoes") or [])
-        msg, caminho = resolver_alvo_mcp(model, alvo, campo_nome=campo)
-        colecao = getattr(msg, campo)
-        lista_tuplas: list[tuple[int, Any, Any]] = []
-        for item in alteracoes_in:
-            idx = int(item["indice"])
-            val_novo, _ = _instanciar_valor_para_campo_repeated(msg, campo, item["valor"])
-            lista_tuplas.append((idx, colecao[idx], val_novo))
-        croqui_controller.alterar_multiplos_repeated_items(msg, campo, lista_tuplas)
-        return {
-            "status": "ok",
-            "caminho": caminho,
-            "campo": campo,
-            "quantidade": len(lista_tuplas),
-        }
-
-    def _renomear_escalada(args: dict[str, Any]) -> dict[str, Any]:
-        alvo = str(args["alvo"])
-        nome_novo = str(args["nome_novo"])
-        msg, caminho = resolver_alvo_mcp(model, alvo, campo_nome="nome")
-        nome_antigo = str(getattr(msg, "nome", ""))
-        croqui_controller.renomear_escalada(msg, nome_antigo, nome_novo, pode_mesclar=False)
-        model.indice_uids.carregar_do_croqui(model.obter_croqui_readonly())
-        return {
-            "status": "ok",
-            "caminho": caminho,
-            "nome_antigo": nome_antigo,
-            "nome_novo": nome_novo,
         }
 
     def _migrar_setor(args: dict[str, Any]) -> dict[str, Any]:
@@ -277,6 +266,22 @@ def registrar_ferramentas_comandos(
             "status": "ok",
             "origem": cam_origem,
             "destino": cam_destino,
+        }
+
+    def _alterar_imagem(args: dict[str, Any]) -> dict[str, Any]:
+        caminho_rel = str(args["caminho_relativo"])
+        bytes_novo = _decodificar_bytes_entrada(
+            args.get("imagem_base64"), args.get("caminho_arquivo_disco")
+        )
+        if bytes_novo is None:
+            raise ValueError(
+                "Informe 'imagem_base64' ou 'caminho_arquivo_disco' para atualizar a imagem."
+            )
+        croqui_controller.substituir_imagem(caminho_rel, bytes_novo)
+        return {
+            "status": "ok",
+            "caminho_relativo": caminho_rel,
+            "tamanho_bytes": len(bytes_novo),
         }
 
     def _alterar_campo_imagem(args: dict[str, Any]) -> dict[str, Any]:
@@ -371,50 +376,39 @@ def registrar_ferramentas_comandos(
             "pontos_uids": pontos_uids,
         }
 
-    def _iniciar_macro(args: dict[str, Any]) -> dict[str, Any]:
-        descricao = str(args.get("descricao") or "Operação MCP em lote")
-        croqui_controller.iniciar_grupo_undo(descricao)
-        return {"status": "ok", "macro_ativa": True, "descricao": descricao}
-
-    def _finalizar_macro(_args: dict[str, Any]) -> dict[str, Any]:
-        croqui_controller.finalizar_grupo_undo()
-        return {"status": "ok", "macro_ativa": False}
-
     servidor.registrar_ferramenta(
-        nome="aresta_alterar_primitivo",
-        descricao="Altera um campo primitivo (string, número, booleano, enum) de uma entidade por UID ou caminho.",
+        nome="aresta_alterar_campo",
+        descricao=(
+            "Altera um ou mais campos de uma entidade por UID ou caminho (primitivos, "
+            "enums por nome, submensagens via dict, oneofs ou itens indexados 'campo.0'). "
+            "Quando 'campos' possui múltiplas chaves, agrupa a alteração em um único comando atômico."
+        ),
         esquema_entrada={
             "type": "object",
             "properties": {
                 "alvo": {
                     "type": "string",
-                    "description": "UID de 14 caracteres ou caminho da mensagem.",
+                    "description": "UID NanoID ou caminho da mensagem alvo (vazio ou 'root' para a raiz).",
                 },
-                "campo": {"type": "string", "description": "Nome do campo Protobuf."},
-                "valor": {"description": "Novo valor a ser atribuído."},
+                "campo": {
+                    "type": "string",
+                    "description": "Nome do campo único a alterar (ex: 'nome', 'dificuldade', 'boulder', 'creditos.0').",
+                },
+                "valor": {
+                    "description": "Novo valor para 'campo' (primitivo, nome de Enum, dict para submensagem/oneof ou null)."
+                },
+                "campos": {
+                    "type": "object",
+                    "description": "Dicionário {campo: valor} para alterar múltiplos campos atomicamente no mesmo alvo.",
+                },
             },
-            "required": ["alvo", "campo", "valor"],
+            "required": ["alvo"],
         },
-        manipulador=_alterar_primitivo,
-    )
-    servidor.registrar_ferramenta(
-        nome="aresta_alterar_oneof",
-        descricao="Altera a variante ativa de um campo oneof (ex: tipo da escalada entre via_esportiva, boulder, etc.).",
-        esquema_entrada={
-            "type": "object",
-            "properties": {
-                "alvo": {"type": "string"},
-                "oneof": {"type": "string"},
-                "campo_novo": {"type": ["string", "null"]},
-                "valores_iniciais": {"type": "object"},
-            },
-            "required": ["alvo", "oneof"],
-        },
-        manipulador=_alterar_oneof,
+        manipulador=_alterar_campo,
     )
     servidor.registrar_ferramenta(
         nome="aresta_adicionar_repeated",
-        descricao="Adiciona um item a uma coleção repeated gerando e retornando imediatamente o UID NanoID.",
+        descricao="Adiciona um item a uma coleção repeated gerando e retornando imediatamente o UID NanoID e o tamanho atualizado.",
         esquema_entrada={
             "type": "object",
             "properties": {
@@ -429,7 +423,7 @@ def registrar_ferramentas_comandos(
     )
     servidor.registrar_ferramenta(
         nome="aresta_remover_repeated",
-        descricao="Remove um item de uma coleção repeated pelo seu índice.",
+        descricao="Remove um item de uma coleção repeated pelo seu índice e retorna o tamanho atualizado.",
         esquema_entrada={
             "type": "object",
             "properties": {
@@ -457,48 +451,6 @@ def registrar_ferramentas_comandos(
         manipulador=_mover_repeated,
     )
     servidor.registrar_ferramenta(
-        nome="aresta_alterar_item_repeated",
-        descricao="Substitui um item específico de uma coleção repeated pelo seu índice.",
-        esquema_entrada={
-            "type": "object",
-            "properties": {
-                "alvo": {"type": "string"},
-                "campo": {"type": "string"},
-                "indice": {"type": "integer"},
-                "valor": {},
-            },
-            "required": ["alvo", "campo", "indice", "valor"],
-        },
-        manipulador=_alterar_item_repeated,
-    )
-    servidor.registrar_ferramenta(
-        nome="aresta_alterar_multiplos_repeated",
-        descricao="Substitui múltiplos itens de uma coleção repeated em um único comando atômico.",
-        esquema_entrada={
-            "type": "object",
-            "properties": {
-                "alvo": {"type": "string"},
-                "campo": {"type": "string"},
-                "alteracoes": {"type": "array", "items": {"type": "object"}},
-            },
-            "required": ["alvo", "campo", "alteracoes"],
-        },
-        manipulador=_alterar_multiplos_repeated,
-    )
-    servidor.registrar_ferramenta(
-        nome="aresta_renomear_escalada",
-        descricao="Renomeia uma escalada por UID ou caminho mantendo todas as referências de mapas sincronizadas.",
-        esquema_entrada={
-            "type": "object",
-            "properties": {
-                "alvo": {"type": "string"},
-                "nome_novo": {"type": "string"},
-            },
-            "required": ["alvo", "nome_novo"],
-        },
-        manipulador=_renomear_escalada,
-    )
-    servidor.registrar_ferramenta(
         nome="aresta_migrar_setor",
         descricao="Migra atomicamente um setor entre um Pico e um Grupo.",
         esquema_entrada={
@@ -522,6 +474,20 @@ def registrar_ferramentas_comandos(
             ],
         },
         manipulador=_migrar_setor,
+    )
+    servidor.registrar_ferramenta(
+        nome="aresta_alterar_imagem",
+        descricao="Substitui ou adiciona os bytes de uma imagem (.webp) em memória RAM.",
+        esquema_entrada={
+            "type": "object",
+            "properties": {
+                "caminho_relativo": {"type": "string"},
+                "imagem_base64": {"type": "string"},
+                "caminho_arquivo_disco": {"type": "string"},
+            },
+            "required": ["caminho_relativo"],
+        },
+        manipulador=_alterar_imagem,
     )
     servidor.registrar_ferramenta(
         nome="aresta_alterar_campo_imagem",
@@ -600,19 +566,4 @@ def registrar_ferramentas_comandos(
             "required": ["alvo_mapa", "alvo_uid", "pontos_uids"],
         },
         manipulador=_vincular_referencia_mapa,
-    )
-    servidor.registrar_ferramenta(
-        nome="aresta_iniciar_macro",
-        descricao="Inicia um agrupamento transacional CmdMacro na pilha de histórico.",
-        esquema_entrada={
-            "type": "object",
-            "properties": {"descricao": {"type": "string"}},
-        },
-        manipulador=_iniciar_macro,
-    )
-    servidor.registrar_ferramenta(
-        nome="aresta_finalizar_macro",
-        descricao="Finaliza o agrupamento transacional CmdMacro atual na pilha de histórico.",
-        esquema_entrada={"type": "object", "properties": {}},
-        manipulador=_finalizar_macro,
     )
