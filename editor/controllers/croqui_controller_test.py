@@ -133,29 +133,27 @@ def test_croqui_controller_alterar_oneof(qapp):
     assert proxy_sg.setor.caminho == "Setor"
 
 
-from unittest.mock import patch
-
-
-def test_croqui_controller_mover_repeated_para_cima():
+def test_croqui_controller_mover_repeated_para_cima(qapp):
     croqui = Croqui()
+    croqui.creditos.extend(["Renato", "Silva"])
     model = CroquiModel(croqui)
     undo_stack = QUndoStack()
     controller = CroquiController(model, undo_stack)
-    with patch.object(undo_stack, "push") as mock_push:
-        croqui.creditos.extend(["Renato", "Silva"])
-        controller.mover_repeated_para_cima(croqui, "creditos", 0)
-        mock_push.assert_not_called()
+    proxy = model.obter_croqui_readonly()
 
-        # Testa mover com index > 0
-        controller.mover_repeated_para_cima(croqui, "creditos", 1)
-        mock_push.assert_called_once()
-        cmd = mock_push.call_args[0][0]
-        assert type(cmd).__name__ == "CmdMoverRepeated"
-        assert cmd.index_from == 1
-        assert cmd.index_to == 0
+    controller.mover_repeated_para_cima(proxy, "creditos", 0)
+    assert undo_stack.count() == 0
+    assert list(proxy.creditos) == ["Renato", "Silva"]
+
+    controller.mover_repeated_para_cima(proxy, "creditos", 1)
+    assert undo_stack.count() == 1
+    assert list(proxy.creditos) == ["Silva", "Renato"]
+
+    undo_stack.undo()
+    assert list(proxy.creditos) == ["Renato", "Silva"]
 
 
-def test_croqui_controller_alterar_metadados_caminho_novo():
+def test_croqui_controller_alterar_metadados_caminho_novo(qapp):
     from aresta_api.proto.generated.croqui_pb2 import ArquivoSetor
 
     croqui = Croqui()
@@ -183,20 +181,22 @@ def test_croqui_controller_alterar_metadados_caminho_novo():
     assert proxy_setor.Extensions[ArquivoSetor.ext_metadados_arquivo].caminho_novo == ""
 
 
-def test_croqui_controller_mover_repeated_para_baixo():
+def test_croqui_controller_mover_repeated_para_baixo(qapp):
     croqui = Croqui()
     croqui.creditos.extend(["A", "B", "C"])
     model = CroquiModel(croqui)
     undo_stack = QUndoStack()
     controller = CroquiController(model, undo_stack)
-    with patch.object(undo_stack, "push") as mock_push:
-        # Testa mover no último elemento (deve ignorar)
-        controller.mover_repeated_para_baixo(croqui, "creditos", 2)
-        mock_push.assert_not_called()
+    proxy = model.obter_croqui_readonly()
 
-        # Testa mover num elemento válido
-        controller.mover_repeated_para_baixo(croqui, "creditos", 0)
-        mock_push.assert_called_once()
+    # Testa mover no último elemento (deve ignorar)
+    controller.mover_repeated_para_baixo(proxy, "creditos", 2)
+    assert undo_stack.count() == 0
+
+    # Testa mover num elemento válido
+    controller.mover_repeated_para_baixo(proxy, "creditos", 0)
+    assert undo_stack.count() == 1
+    assert list(proxy.creditos) == ["B", "A", "C"]
 
 
 def test_mover_repeated_para_baixo_quando_ultimo(qapp):
@@ -206,10 +206,10 @@ def test_mover_repeated_para_baixo_quando_ultimo(qapp):
     model = CroquiModel(croqui)
     undo_stack = QUndoStack()
     controller = CroquiController(model, undo_stack)
+    proxy = model.obter_croqui_readonly()
 
-    with patch.object(undo_stack, "push") as mock_push:
-        controller.mover_repeated_para_baixo(croqui, "creditos", 2)
-        mock_push.assert_not_called()
+    controller.mover_repeated_para_baixo(proxy, "creditos", 2)
+    assert undo_stack.count() == 0
 
 
 def test_mover_repeated_para_cima_quando_primeiro(qapp):
@@ -219,10 +219,10 @@ def test_mover_repeated_para_cima_quando_primeiro(qapp):
     model = CroquiModel(croqui)
     undo_stack = QUndoStack()
     controller = CroquiController(model, undo_stack)
+    proxy = model.obter_croqui_readonly()
 
-    with patch.object(undo_stack, "push") as mock_push:
-        controller.mover_repeated_para_cima(croqui, "creditos", 0)
-        mock_push.assert_not_called()
+    controller.mover_repeated_para_cima(proxy, "creditos", 0)
+    assert undo_stack.count() == 0
 
 
 def test_mover_repeated_quando_unico_elemento(qapp):
@@ -232,27 +232,43 @@ def test_mover_repeated_quando_unico_elemento(qapp):
     model = CroquiModel(croqui)
     undo_stack = QUndoStack()
     controller = CroquiController(model, undo_stack)
+    proxy = model.obter_croqui_readonly()
 
-    with patch.object(undo_stack, "push") as mock_push:
-        # Move para cima
-        controller.mover_repeated_para_cima(croqui, "creditos", 0)
-        mock_push.assert_not_called()
+    controller.mover_repeated_para_cima(proxy, "creditos", 0)
+    assert undo_stack.count() == 0
 
-        # Move para baixo
-        controller.mover_repeated_para_baixo(croqui, "creditos", 0)
-        mock_push.assert_not_called()
+    controller.mover_repeated_para_baixo(proxy, "creditos", 0)
+    assert undo_stack.count() == 0
 
 
-def test_croqui_controller_adicionar_mapa_com_arquivo(qapp):
-    from pathlib import Path
+def test_croqui_controller_mover_repeated_para_posicao(qapp):
+    """Garante que mover_repeated_para_posicao move o item ou ignora se índices forem iguais."""
+    croqui = Croqui()
+    croqui.creditos.extend(["A", "B", "C"])
+    model = CroquiModel(croqui)
+    undo_stack = QUndoStack()
+    controller = CroquiController(model, undo_stack)
+    proxy = model.obter_croqui_readonly()
 
+    controller.mover_repeated_para_posicao(proxy, "creditos", 1, 1)
+    assert undo_stack.count() == 0
+
+    controller.mover_repeated_para_posicao(proxy, "creditos", 0, 2)
+    assert undo_stack.count() == 1
+    assert list(proxy.creditos) == ["B", "C", "A"]
+
+    undo_stack.undo()
+    assert list(proxy.creditos) == ["A", "B", "C"]
+
+
+def test_croqui_controller_adicionar_mapa_com_arquivo(qapp, tmp_path):
     from aresta_api.proto.generated.croqui_pb2 import Mapa
     from editor.commands.comandos_mapas import CmdAdicionarMapaArquivo
 
     croqui = Croqui()
     pico = croqui.picos.add()
     sg = pico.setores_ou_grupos.add()
-    setor = sg.setor.conteudo
+    sg.setor.conteudo.nome = "Setor Mapa"
 
     model = CroquiModel(croqui)
     undo_stack = QUndoStack()
@@ -261,22 +277,19 @@ def test_croqui_controller_adicionar_mapa_com_arquivo(qapp):
     proxy = model.obter_croqui_readonly()
     proxy_setor = proxy.picos[0].setores_ou_grupos[0].setor.conteudo
 
-    img_bytes = b"fake"
-    caminho_absoluto = Path("/fake/path.webp")
-    novo_mapa = Mapa()
+    img_bytes = b"fake_webp_bytes"
+    caminho_absoluto = tmp_path / "mapa.webp"
+    novo_mapa = Mapa(caminho_imagem_mapa="imagens/mapa.webp")
 
-    with patch.object(undo_stack, "push") as mock_push:
-        controller.adicionar_mapa_com_arquivo(
-            proxy_setor, "mapas", 0, novo_mapa, caminho_absoluto, img_bytes
-        )
+    controller.adicionar_mapa_com_arquivo(
+        proxy_setor, "mapas", 0, novo_mapa, caminho_absoluto, img_bytes
+    )
 
-        mock_push.assert_called_once()
-        cmd = mock_push.call_args[0][0]
-        assert isinstance(cmd, CmdAdicionarMapaArquivo)
-        assert cmd.campo_nome == "mapas"
-        assert cmd.index == 0
-        assert cmd.caminho_absoluto == caminho_absoluto
-        assert cmd.img_bytes == img_bytes
+    assert undo_stack.count() == 1
+    cmd = undo_stack.command(0)
+    assert isinstance(cmd, CmdAdicionarMapaArquivo)
+    assert len(proxy_setor.mapas) == 1
+    assert model.obter_bytes_imagem("imagens/mapa.webp") == img_bytes
 
 
 def test_croqui_controller_substituir_imagem(qapp):
@@ -343,6 +356,81 @@ def test_croqui_controller_alterar_repeated_item(qapp):
 
     undo_stack.undo()
     assert croqui.picos[0].nome == "Pico 1"
+
+
+def test_croqui_controller_alterar_multiplos_repeated_items(qapp):
+    """Verifica a alteração simultânea de múltiplos itens repeated com undo/redo."""
+    croqui = Croqui()
+    croqui.creditos.extend(["Autor 1", "Autor 2", "Autor 3"])
+    model = CroquiModel(croqui)
+    undo_stack = QUndoStack()
+    controller = CroquiController(model, undo_stack)
+    proxy = model.obter_croqui_readonly()
+
+    # Lista vazia não deve empilhar comando
+    controller.alterar_multiplos_repeated_items(proxy, "creditos", [])
+    assert undo_stack.count() == 0
+
+    alteracoes = [
+        (0, "Autor 1", "Autor A"),
+        (2, "Autor 3", "Autor C"),
+    ]
+    controller.alterar_multiplos_repeated_items(proxy, "creditos", alteracoes)
+    assert undo_stack.count() == 1
+    assert list(proxy.creditos) == ["Autor A", "Autor 2", "Autor C"]
+
+    undo_stack.undo()
+    assert list(proxy.creditos) == ["Autor 1", "Autor 2", "Autor 3"]
+
+    undo_stack.redo()
+    assert list(proxy.creditos) == ["Autor A", "Autor 2", "Autor C"]
+
+
+def test_croqui_controller_grupo_undo_macro(qapp):
+    """Verifica que iniciar_grupo_undo e finalizar_grupo_undo agrupam comandos em um único CmdMacro."""
+    from editor.commands.comandos_protobuf import CmdMacro
+
+    croqui = Croqui(nome="Original")
+    model = CroquiModel(croqui)
+    undo_stack = QUndoStack()
+    controller = CroquiController(model, undo_stack)
+    proxy = model.obter_croqui_readonly()
+
+    # Finalizar sem iniciar não faz nada
+    controller.finalizar_grupo_undo()
+    assert undo_stack.count() == 0
+
+    # Iniciar e finalizar vazio não empilha macro vazio
+    controller.iniciar_grupo_undo("Macro Vazia")
+    controller.finalizar_grupo_undo()
+    assert undo_stack.count() == 0
+
+    # Macro com múltiplos comandos e sub-macro aninhado
+    controller.iniciar_grupo_undo("Lote MCP")
+    controller.alterar_primitivo(proxy, "nome", "Original", "Novo Nome")
+    controller.iniciar_grupo_undo("Sub-lote")
+    controller.adicionar_repeated(proxy, "creditos", 0, "Crédito 1")
+    controller.finalizar_grupo_undo()
+    # Enquanto o macro externo está aberto, nada foi para a pilha principal ainda
+    assert undo_stack.count() == 0
+    assert proxy.nome == "Novo Nome"
+    assert list(proxy.creditos) == ["Crédito 1"]
+
+    controller.finalizar_grupo_undo()
+    assert undo_stack.count() == 1
+    cmd_topo = undo_stack.command(0)
+    assert isinstance(cmd_topo, CmdMacro)
+    assert cmd_topo.text() == "Lote MCP"
+
+    # Um único undo reverte todas as operações do macro
+    undo_stack.undo()
+    assert proxy.nome == "Original"
+    assert len(proxy.creditos) == 0
+
+    # Um único redo reaplica todas as operações
+    undo_stack.redo()
+    assert proxy.nome == "Novo Nome"
+    assert list(proxy.creditos) == ["Crédito 1"]
 
 
 def test_croqui_controller_grava_no_diario_com_gerenciador_historico(qapp, tmp_path):
@@ -480,6 +568,16 @@ def test_croqui_controller_renomear_escalada_direto(qapp):
         == "Setor 1 > Boulder Novo"
     )
 
+    # Renomeação subsequente na mesma sessão via renomear_escalada direto
+    controller.renomear_escalada(
+        proxy_boulder, "Boulder Novo", "Boulder Mesclado", pode_mesclar=True, session_id=20
+    )
+    controller.renomear_escalada(
+        proxy_boulder, "Boulder Mesclado", "Boulder Final", pode_mesclar=True, session_id=20
+    )
+    assert undo_stack.count() == 2
+    assert proxy_boulder.nome == "Boulder Final"
+
 
 def test_croqui_controller_inserir_imagem_markdown(qapp):
     from editor.commands.comandos_protobuf import CmdInserirImagemMarkdown
@@ -510,9 +608,35 @@ def test_croqui_controller_inserir_imagem_markdown(qapp):
     assert "imagens/via.webp" not in model.obter_imagens_em_memoria()
 
 
-def test_croqui_controller_alterar_primitivo_escalada_reutiliza_referencias_do_topo(mocker, qapp):
-    """Garante que digitações consecutivas com mesmo session_id reutilizam referências já resolvidas sem re-varrer a árvore."""
-    import editor.models.referencias_util as ref_util
+def test_croqui_controller_inserir_botao_markdown(qapp):
+    from editor.commands.comandos_protobuf import CmdInserirBotaoMarkdown
+
+    croqui = Croqui()
+    croqui.descricao = "Texto base"
+    model = CroquiModel(croqui)
+    undo_stack = QUndoStack()
+    controller = CroquiController(model, undo_stack)
+
+    proxy = model.obter_croqui_readonly()
+    controller.inserir_botao_markdown(
+        proxy,
+        "descricao",
+        "Texto base",
+        "Texto base\n[Guia PDF](anexos/guia.pdf)",
+        caminho_anexo="anexos/guia.pdf",
+        bytes_anexo=b"pdf_bytes",
+    )
+
+    assert proxy.descricao == "Texto base\n[Guia PDF](anexos/guia.pdf)"
+    assert undo_stack.count() == 1
+    assert isinstance(undo_stack.command(0), CmdInserirBotaoMarkdown)
+
+    undo_stack.undo()
+    assert proxy.descricao == "Texto base"
+
+
+def test_croqui_controller_alterar_primitivo_escalada_mescla_mesma_sessao(qapp):
+    """Garante que digitações consecutivas com mesmo session_id mesclam no mesmo CmdRenomearEscalada."""
     from aresta_api.proto.generated import croqui_pb2
 
     croqui = croqui_pb2.Croqui()
@@ -524,6 +648,10 @@ def test_croqui_controller_alterar_primitivo_escalada_reutiliza_referencias_do_t
     esc = setor.escaladas.add()
     esc.uid = "via_1"
     esc.via_esportiva.nome = "Via Inicial"
+
+    esc2 = setor.escaladas.add()
+    esc2.uid = "via_2"
+    esc2.via_esportiva.nome = "Via Outra"
 
     mapa = setor.mapas.add()
     ref = mapa.referencias.add(alvo_uid="via_1", pontos_uids=["linha_1"])
@@ -539,6 +667,13 @@ def test_croqui_controller_alterar_primitivo_escalada_reutiliza_referencias_do_t
         .setor.conteudo.escaladas[0]
         .via_esportiva
     )
+    proxy_via2 = (
+        model.obter_croqui_readonly()
+        .picos[0]
+        .setores_ou_grupos[0]
+        .setor.conteudo.escaladas[1]
+        .via_esportiva
+    )
     proxy_ref = (
         model.obter_croqui_readonly()
         .picos[0]
@@ -547,48 +682,47 @@ def test_croqui_controller_alterar_primitivo_escalada_reutiliza_referencias_do_t
         .referencias[0]
     )
 
-    spy_buscar = mocker.spy(ref_util, "buscar_referencias_para_escalada")
-    spy_contexto = mocker.spy(ref_util, "obter_contexto_escalada")
-
     # 1ª digitação: Inicializa sessão com session_id=99
     controller.alterar_primitivo(
         proxy_via, "nome", "Via Inicial", "Via A", pode_mesclar=True, session_id=99
     )
-    assert spy_buscar.call_count == 1
-    assert spy_contexto.call_count == 1
     assert undo_stack.count() == 1
     assert proxy_via.nome == "Via A"
-    assert proxy_ref.alvo_uid == "via_1"
     assert (
         resolver_caminho_referencia(model.obter_croqui_readonly(), proxy_ref) == "Setor 1 > Via A"
     )
 
-    # 2ª digitação consecutiva: mesmo session_id e mesma via
+    # 2ª digitação consecutiva: mesmo session_id e mesma via -> mescla
     controller.alterar_primitivo(
         proxy_via, "nome", "Via A", "Via AB", pode_mesclar=True, session_id=99
     )
-    # Não deve refazer busca nem obter contexto
-    assert spy_buscar.call_count == 1
-    assert spy_contexto.call_count == 1
     assert undo_stack.count() == 1
     assert proxy_via.nome == "Via AB"
-    assert proxy_ref.alvo_uid == "via_1"
     assert (
         resolver_caminho_referencia(model.obter_croqui_readonly(), proxy_ref) == "Setor 1 > Via AB"
     )
+
+    # Mesmo session_id mas outra via -> não reutiliza topo da primeira via
+    controller.alterar_primitivo(
+        proxy_via2, "nome", "Via Outra", "Via Outra 2", pode_mesclar=True, session_id=99
+    )
+    assert undo_stack.count() == 2
+    assert proxy_via2.nome == "Via Outra 2"
 
     # 3ª digitação: nova sessão (ex: mudou de campo ou perdeu foco e voltou)
     controller.alterar_primitivo(
         proxy_via, "nome", "Via AB", "Via ABC", pode_mesclar=True, session_id=100
     )
-    assert spy_buscar.call_count == 2
-    assert spy_contexto.call_count == 2
-    assert undo_stack.count() == 2
+    assert undo_stack.count() == 3
     assert proxy_via.nome == "Via ABC"
-    assert proxy_ref.alvo_uid == "via_1"
-    assert (
-        resolver_caminho_referencia(model.obter_croqui_readonly(), proxy_ref) == "Setor 1 > Via ABC"
+
+    # Quando o topo da pilha é outro comando (não CmdRenomearEscalada), cria novo CmdRenomearEscalada
+    controller.alterar_primitivo(proxy_via, "extensao", 0, 25)
+    controller.alterar_primitivo(
+        proxy_via, "nome", "Via ABC", "Via ABCD", pode_mesclar=True, session_id=100
     )
+    assert undo_stack.count() == 5
+    assert proxy_via.nome == "Via ABCD"
 
 
 def test_croqui_controller_migrar_setor(qapp):

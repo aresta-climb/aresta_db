@@ -6,11 +6,13 @@ from typing import Any
 from editor.commands.comandos_protobuf import (
     CmdAdicionarRepeated,
     CmdAlterarCampoImagem,
+    CmdAlterarMultiplosRepeatedItems,
     CmdAlterarOneof,
     CmdAlterarPrimitivo,
     CmdAlterarRepeatedItem,
     CmdInserirBotaoMarkdown,
     CmdInserirImagemMarkdown,
+    CmdMacro,
     CmdMoverRepeated,
     CmdRemoverRepeated,
 )
@@ -28,24 +30,46 @@ class CroquiController:
         self.model: CroquiModel = model
         self.undo_stack: Any = undo_stack
         self.contexto_atual_path: str | None = None
+        if not hasattr(model, "_pilha_macros"):
+            model._pilha_macros = []  # type: ignore[attr-defined]
+        self._pilha_macros: list[CmdMacro] = model._pilha_macros  # type: ignore[attr-defined]
 
     def set_contexto(self, path: str | None) -> None:
         self.contexto_atual_path = path
 
     def _executar_comando(self, cmd: Any) -> None:
         """Despacha o comando pelo GerenciadorHistorico (persistindo no diário) ou diretamente na pilha."""
+        if self._pilha_macros:
+            cmd.redo()
+            self._pilha_macros[-1].adicionar_comando(cmd)
+            return
+
         if hasattr(self.undo_stack, "executar"):
             self.undo_stack.executar(cmd)
-        elif hasattr(self.undo_stack, "push"):
+        else:
             self.undo_stack.push(cmd)
+
+    def iniciar_grupo_undo(self, texto: str) -> None:
+        """Inicia um macro de undo/redo para agrupar múltiplos comandos em um só."""
+        macro = CmdMacro(texto=texto)
+        self._pilha_macros.append(macro)
+
+    def finalizar_grupo_undo(self) -> None:
+        """Finaliza o macro atual de undo/redo e o empilha na pilha de histórico."""
+        if not self._pilha_macros:
+            return
+        macro = self._pilha_macros.pop()
+        if self._pilha_macros:
+            self._pilha_macros[-1].adicionar_comando(macro)
+        elif macro.comandos:
+            macro.armar_carregamento_silencioso()
+            self._executar_comando(macro)
 
     def _obter_comando_renomear_topo(self, session_id: int | None, msg: Any) -> Any | None:
         """Retorna o comando do topo se for CmdRenomearEscalada da mesma sessão e mensagem."""
         if session_id is None:
             return None
         pilha = getattr(self.undo_stack, "_pilha", self.undo_stack)
-        if not hasattr(pilha, "index") or not hasattr(pilha, "command"):
-            return None
         idx = pilha.index()
         if idx <= 0:
             return None
@@ -254,6 +278,24 @@ class CroquiController:
             valor_novo,
             self.contexto_atual_path,
             pode_mesclar=pode_mesclar,
+        )
+        self._executar_comando(cmd)
+
+    def alterar_multiplos_repeated_items(
+        self,
+        msg: Any,
+        campo_nome: str,
+        alteracoes: list[tuple[int, Any, Any]],
+    ) -> None:
+        """Despacha comando para alterar múltiplos itens de uma coleção repeated simultaneamente."""
+        if not alteracoes:
+            return
+        cmd = CmdAlterarMultiplosRepeatedItems(
+            model=self.model,
+            msg=msg,
+            campo_nome=campo_nome,
+            alteracoes=alteracoes,
+            context_path=self.contexto_atual_path,
         )
         self._executar_comando(cmd)
 

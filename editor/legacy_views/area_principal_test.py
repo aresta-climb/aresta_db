@@ -2026,3 +2026,67 @@ def test_carregar_croqui_com_pr_branch_dispara_sincronizacao_silenciosa(criar_ja
     with patch.object(JanelaPrincipal, "sincronizar_croqui") as mock_sinc:
         janela = criar_janela(workspace=mock_ws)
         mock_sinc.assert_called_with(silencioso=True)
+
+
+def test_janela_principal_integra_servidor_mcp_e_dialogo_conexao(
+    qtbot, criar_janela, tmp_path
+) -> None:
+    """Verifica a ação Conectar Agente de IA (MCP)..., o registro de ferramentas e o ciclo de vida do ServidorMCP."""
+    from PySide6.QtCore import QTimer
+    from PySide6.QtWidgets import QApplication
+
+    from editor.core.workspace import LocalRepoWorkspace
+    from editor.views.dialogos.dialogo_conexao_mcp import DialogoConexaoMcp
+
+    pasta_croqui = tmp_path / "croqui_mcp"
+    pasta_croqui.mkdir(parents=True, exist_ok=True)
+    (pasta_croqui / "croqui.yaml").write_text("id: mcp_teste\nnome: Croqui MCP\n", encoding="utf-8")
+    workspace = LocalRepoWorkspace(pasta_croqui)
+    dir_sessao = tmp_path / "sessao_mcp"
+
+    janela = criar_janela(
+        workspace=workspace,
+        iniciar_mcp=True,
+        diretorio_sessao_mcp=dir_sessao,
+    )
+
+    assert hasattr(janela, "acao_mcp")
+    assert janela.acao_mcp.toolTip() == "Conectar Agente de IA (MCP)..."
+    assert janela.servidor_mcp is not None
+    assert janela.servidor_mcp.esta_ativo
+
+    # Verifica que as ferramentas de comandos, visão e ciclo de vida foram registradas
+    resposta_tools = janela.servidor_mcp.processar_mensagem_jsonrpc(
+        {"jsonrpc": "2.0", "id": 1, "method": "tools/list"}
+    )
+    ferramentas = {f["name"] for f in resposta_tools["result"]["tools"]}
+    assert "aresta_alterar_primitivo" in ferramentas
+    assert "aresta_capturar_canvas" in ferramentas
+    assert "aresta_compilar" in ferramentas
+
+    # Verifica os callbacks de visão e seleção da JanelaPrincipal
+    assert janela._obter_widget_alvo_mcp("dados") is not None
+    assert janela._obter_widget_alvo_mcp("imagens") is not None
+    assert janela._obter_widget_alvo_mcp("mapas") is not None
+    assert janela._obter_widget_alvo_mcp("janela") is janela
+
+    selecao = janela._obter_selecao_mcp()
+    assert selecao["pagina"] == "dados"
+
+    # Aciona a ação de menu e fecha o DialogoConexaoMcp real via QTimer
+    dialogos_abertos: list[DialogoConexaoMcp] = []
+
+    def _fechar_dialogo_mcp() -> None:
+        for widget in QApplication.topLevelWidgets():
+            if isinstance(widget, DialogoConexaoMcp) and widget.isVisible():
+                dialogos_abertos.append(widget)
+                widget.btn_fechar.click()
+
+    QTimer.singleShot(50, _fechar_dialogo_mcp)
+    janela.acao_mcp.trigger()
+    assert len(dialogos_abertos) == 1
+    assert dialogos_abertos[0].servidor_ativo is True
+
+    # Ao fechar a janela, o servidor MCP deve ser encerrado
+    janela.close()
+    assert janela.servidor_mcp is None

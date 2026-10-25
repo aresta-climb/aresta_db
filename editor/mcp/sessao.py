@@ -1,0 +1,180 @@
+# SPDX-License-Identifier: MPL-2.0
+# Copyright (C) 2026 Aresta Climb Contributors
+
+import json
+import os
+import secrets
+import socket
+from collections.abc import Mapping
+from dataclasses import dataclass
+from pathlib import Path
+
+from editor.core.storage import obter_diretorio_base_app
+
+PORTA_MCP_PADRAO = 27378
+NOME_ARQUIVO_SESSAO_MCP = "mcp_sessao.json"
+VARIAVEL_AMBIENTE_PORTA_MCP = "ARESTA_MCP_PORTA"
+
+
+@dataclass(frozen=True)
+class DadosSessaoMcp:
+    """Metadados da sessão ativa do servidor MCP local do Editor Aresta."""
+
+    porta: int
+    pid: int
+    token: str
+
+    @property
+    def url_http(self) -> str:
+        """Retorna o endpoint HTTP JSON-RPC direto."""
+        return f"http://127.0.0.1:{self.porta}/mcp"
+
+    @property
+    def url_sse(self) -> str:
+        """Retorna o endpoint SSE para clientes MCP baseados em eventos."""
+        return f"http://127.0.0.1:{self.porta}/mcp/sse"
+
+
+def obter_caminho_sessao_mcp(diretorio_base: Path | None = None) -> Path:
+    """Retorna o caminho absoluto do arquivo `mcp_sessao.json`."""
+    base = Path(diretorio_base) if diretorio_base is not None else obter_diretorio_base_app()
+    return base / NOME_ARQUIVO_SESSAO_MCP
+
+
+def _tentar_vincular_porta(porta: int) -> socket.socket | None:
+    """Tenta vincular e retornar um socket TCP em `127.0.0.1:porta`, ou `None` se ocupada."""
+    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    if hasattr(socket, "SO_EXCLUSIVEADDRUSE"):
+        sock.setsockopt(socket.SOL_SOCKET, socket.SO_EXCLUSIVEADDRUSE, 1)
+    try:
+        sock.bind(("127.0.0.1", porta))
+        return sock
+    except OSError:
+        sock.close()
+        return None
+
+
+def porta_disponivel_local(porta: int) -> bool:
+    """Verifica se a porta TCP informada está livre para vinculação em `127.0.0.1`."""
+    sock = _tentar_vincular_porta(porta)
+    if sock is not None:
+        sock.close()
+        return True
+    return False
+
+
+def _extrair_porta_ambiente(env: Mapping[str, str] | None = None) -> int | None:
+    ambiente = env if env is not None else os.environ
+    valor = ambiente.get(VARIAVEL_AMBIENTE_PORTA_MCP, "").strip()
+    if valor.isdigit():
+        porta = int(valor)
+        if 1 <= porta <= 65535:
+            return porta
+    return None
+
+
+def vincular_socket_mcp(
+    porta_preferencial: int | None = None,
+    max_tentativas_sequenciais: int = 15,
+    env: Mapping[str, str] | None = None,
+) -> tuple[socket.socket, int]:
+    """
+    Vincula e retorna um socket TCP em `127.0.0.1` na `porta_preferencial`
+    (ou `ARESTA_MCP_PORTA` / `27378`) com fallback sequencial ou porta efêmera do SO.
+    """
+    porta_inicial = (
+        porta_preferencial
+        if porta_preferencial is not None
+        else (_extrair_porta_ambiente(env) or PORTA_MCP_PADRAO)
+    )
+    for deslocamento in range(max_tentativas_sequenciais):
+        candidata = porta_inicial + deslocamento
+        if 1 <= candidata <= 65535:
+            sock = _tentar_vincular_porta(candidata)
+            if sock is not None:
+                return sock, candidata
+
+    sock_efemero = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    sock_efemero.bind(("127.0.0.1", 0))
+    return sock_efemero, int(sock_efemero.getsockname()[1])
+
+
+def alocar_porta_mcp(
+    porta_preferencial: int | None = None,
+    max_tentativas_sequenciais: int = 15,
+    env: Mapping[str, str] | None = None,
+) -> int:
+    """
+    Aloca uma porta local livre em `127.0.0.1`, iniciando pela `porta_preferencial`
+    (ou `ARESTA_MCP_PORTA` / `27378`) e fazendo fallback sequencial ou para porta efêmera do SO.
+    """
+    sock, porta = vincular_socket_mcp(
+        porta_preferencial=porta_preferencial,
+        max_tentativas_sequenciais=max_tentativas_sequenciais,
+        env=env,
+    )
+    sock.close()
+    return porta
+
+
+def gravar_sessao_mcp(
+    porta: int,
+    token: str | None = None,
+    diretorio_base: Path | None = None,
+) -> DadosSessaoMcp:
+    """Persiste os dados da sessão ativa do servidor MCP em `mcp_sessao.json`."""
+    token_final = token if token is not None else secrets.token_urlsafe(24)
+    sessao = DadosSessaoMcp(porta=int(porta), pid=os.getpid(), token=token_final)
+    caminho = obter_caminho_sessao_mcp(diretorio_base)
+    caminho.parent.mkdir(parents=True, exist_ok=True)
+    conteudo = {
+        "porta": sessao.porta,
+        "pid": sessao.pid,
+        "token": sessao.token,
+        "url_http": sessao.url_http,
+        "url_sse": sessao.url_sse,
+    }
+    caminho.write_text(json.dumps(conteudo, indent=2, ensure_ascii=False), encoding="utf-8")
+    return sessao
+
+
+def ler_sessao_mcp(diretorio_base: Path | None = None) -> DadosSessaoMcp | None:
+    """Lê os dados da sessão ativa do arquivo `mcp_sessao.json`, ou retorna `None` se indisponível."""
+    caminho = obter_caminho_sessao_mcp(diretorio_base)
+    if not caminho.is_file():
+        return None
+    try:
+        dados = json.loads(caminho.read_text(encoding="utf-8"))
+        porta = dados.get("porta")
+        if not isinstance(porta, int) or isinstance(porta, bool):
+            return None
+        return DadosSessaoMcp(
+            porta=porta,
+            pid=int(dados.get("pid", 0)),
+            token=str(dados.get("token", "")),
+        )
+    except (OSError, ValueError, TypeError):
+        return None
+
+
+def remover_sessao_mcp(diretorio_base: Path | None = None) -> None:
+    """Remove o arquivo `mcp_sessao.json` ao encerrar o servidor MCP."""
+    caminho = obter_caminho_sessao_mcp(diretorio_base)
+    caminho.unlink(missing_ok=True)
+
+
+def descobrir_url_mcp_ativa(
+    diretorio_base: Path | None = None,
+    env: Mapping[str, str] | None = None,
+) -> tuple[str, str]:
+    """
+    Descobre a URL HTTP JSON-RPC (`http://127.0.0.1:<porta>/mcp`) e o token de sessão
+    priorizando `ARESTA_MCP_PORTA`, depois `mcp_sessao.json` e por fim a porta padrão `27378`.
+    """
+    sessao = ler_sessao_mcp(diretorio_base)
+    porta_env = _extrair_porta_ambiente(env)
+    if porta_env is not None:
+        return f"http://127.0.0.1:{porta_env}/mcp", (sessao.token if sessao else "")
+    if sessao is not None:
+        return sessao.url_http, sessao.token
+    return f"http://127.0.0.1:{PORTA_MCP_PADRAO}/mcp", ""

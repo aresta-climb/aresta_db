@@ -262,6 +262,8 @@ class JanelaPrincipal(QMainWindow):
         auth: Any | None = None,
         workspace: Any | None = None,
         parent: QWidget | None = None,
+        iniciar_mcp: bool = False,
+        diretorio_sessao_mcp: Path | None = None,
     ) -> None:
         super().__init__(parent)
         self.setFont(QFont("Segoe UI", 9))
@@ -281,6 +283,10 @@ class JanelaPrincipal(QMainWindow):
         self.servidor_celular: ServidorCelular | None = None
         self.monitor_inatividade: MonitorInatividade | None = None
         self.dialogo_celular: DialogoConexaoCelular | None = None
+        self.servidor_mcp: Any | None = None
+        self.despachante_mcp: Any | None = None
+        self._diretorio_sessao_mcp: Path | None = diretorio_sessao_mcp
+        self._iniciar_mcp_automatico: bool = iniciar_mcp
         self.historico: GerenciadorHistorico = GerenciadorHistorico(self)
         self.historico.obter_pilha().cleanChanged.connect(self._on_clean_changed)
 
@@ -379,6 +385,12 @@ class JanelaPrincipal(QMainWindow):
 
         if self.workspace:
             self.carregar_croqui()
+
+        if self._iniciar_mcp_automatico:
+            self.iniciar_servidor_mcp(
+                diretorio_sessao=self._diretorio_sessao_mcp,
+                iniciar_rede=True,
+            )
 
     def _setup_ui(self) -> None:
         # 1. Configura as Toolbars (Superior e Lateral)
@@ -518,6 +530,10 @@ class JanelaPrincipal(QMainWindow):
         self.acao_celular.setToolTip("Conectar com celular...")
         self.acao_celular.triggered.connect(self._exibir_conexao_celular)
 
+        self.acao_mcp = QAction(Icones.obter("ciencia"), "Conectar Agente de IA (MCP)...", self)
+        self.acao_mcp.setToolTip("Conectar Agente de IA (MCP)...")
+        self.acao_mcp.triggered.connect(self._exibir_conexao_mcp)
+
         self.acao_publicar = QAction(Icones.obter("publicar"), "Propor Mudança", self)
         self.acao_publicar.setToolTip("Enviar proposta de mudança no croqui")
         self.acao_publicar.triggered.connect(self.publicar_croqui)
@@ -549,6 +565,7 @@ class JanelaPrincipal(QMainWindow):
         self.toolbar_superior.addAction(self.acao_refazer)
         self.addAction(self.acao_refazer)
         self.toolbar_superior.addAction(self.acao_celular)
+        self.toolbar_superior.addAction(self.acao_mcp)
         self.toolbar_superior.addSeparator()
         self.toolbar_superior.addAction(self.acao_publicar)
         self.toolbar_superior.addAction(self.acao_sincronizar)
@@ -1011,6 +1028,9 @@ class JanelaPrincipal(QMainWindow):
                 if isinstance(diario, GerenciadorDiario):
                     anexar_diario_escopo(diario)
 
+                if self.servidor_mcp is not None:
+                    self._registrar_ferramentas_mcp()
+
                 self.atualizar_titulo()
                 self.atualizar_estado_sincronizacao()
                 self.sincronizar_croqui(silencioso=True)
@@ -1430,6 +1450,7 @@ class JanelaPrincipal(QMainWindow):
             self.historico.flush_diario_pendente()
 
         if self._forcar_fechamento:
+            self.encerrar_servidor_mcp()
             event.accept()
             return
 
@@ -1456,12 +1477,121 @@ class JanelaPrincipal(QMainWindow):
                 event.ignore()
             elif resposta == QMessageBox.StandardButton.Discard:
                 self._descartar_diario_pendente()
+                self.encerrar_servidor_mcp()
                 event.accept()
             else:
                 event.ignore()
         else:
             self._descartar_diario_pendente()
+            self.encerrar_servidor_mcp()
             event.accept()
+
+    def iniciar_servidor_mcp(
+        self,
+        porta_preferencial: int | None = None,
+        diretorio_sessao: Path | None = None,
+        iniciar_rede: bool = True,
+    ) -> Any:
+        """Inicializa (se necessário) o servidor MCP local e registra as ferramentas ativas."""
+        from editor.mcp.despachante import DespachanteQt
+        from editor.mcp.servidor import ServidorMCP
+
+        if self.despachante_mcp is None:
+            self.despachante_mcp = DespachanteQt(self)
+        if self.servidor_mcp is None:
+            dir_alvo = (
+                diretorio_sessao if diretorio_sessao is not None else self._diretorio_sessao_mcp
+            )
+            self.servidor_mcp = ServidorMCP(
+                despachante=self.despachante_mcp,
+                porta_preferencial=porta_preferencial,
+                diretorio_sessao=dir_alvo,
+            )
+        self._registrar_ferramentas_mcp()
+        if iniciar_rede and not self.servidor_mcp.esta_ativo:
+            self.servidor_mcp.iniciar()
+        return self.servidor_mcp
+
+    def _registrar_ferramentas_mcp(self) -> None:
+        """Registra as ferramentas de comandos, visão e ciclo de vida no ServidorMCP."""
+        if self.servidor_mcp is None or self.croqui_model is None or self.croqui_controller is None:
+            return
+        from editor.controllers.mapas_controller import MapasController
+        from editor.mcp.ferramentas_ciclo_vida import registrar_ferramentas_ciclo_vida
+        from editor.mcp.ferramentas_comandos import registrar_ferramentas_comandos
+        from editor.mcp.ferramentas_visao import registrar_ferramentas_visao
+
+        mapas_controller = MapasController(self.croqui_model, self.historico)
+        if self.workspace and hasattr(self.workspace, "obter_caminho_database"):
+            caminho_db = self.workspace.obter_caminho_database()
+            if caminho_db:
+                mapas_controller.set_caminho_db(Path(caminho_db))
+
+        registrar_ferramentas_comandos(
+            self.servidor_mcp,
+            self.croqui_controller,
+            mapas_controller,
+        )
+        registrar_ferramentas_visao(
+            self.servidor_mcp,
+            self.croqui_model,
+            provedor_widget_alvo=self._obter_widget_alvo_mcp,
+            provedor_selecao_atual=self._obter_selecao_mcp,
+        )
+        registrar_ferramentas_ciclo_vida(
+            self.servidor_mcp,
+            self.croqui_model,
+            self.historico,
+            workspace=self.workspace,
+            storage=self.storage,
+        )
+
+    def _obter_widget_alvo_mcp(self, alvo: str) -> QWidget | None:
+        """Retorna o widget correspondente ao viewport solicitado pela ferramenta de captura."""
+        if alvo == "mapas":
+            return self.pagina_mapas.garantir_editor_criado()
+        if alvo == "imagens":
+            return self.pagina_imagens.editor
+        if alvo == "dados":
+            return self.pagina_dados.editor_dados or self.pagina_dados
+        return self
+
+    def _obter_selecao_mcp(self) -> dict[str, Any]:
+        """Retorna a página ativa e o caminho selecionado na árvore de dados."""
+        mapa_paginas = {
+            0: "dados",
+            1: "imagens",
+            2: "mapas",
+            3: "betas",
+            4: "historico",
+        }
+        pagina = mapa_paginas.get(self.stack.currentIndex(), "dados")
+        caminho = ""
+        if (
+            hasattr(self.pagina_dados, "editor_dados")
+            and self.pagina_dados.editor_dados
+            and hasattr(self.pagina_dados.editor_dados, "obter_caminho_no_selecionado")
+        ):
+            caminho = self.pagina_dados.editor_dados.obter_caminho_no_selecionado() or ""
+        return {"pagina": pagina, "caminho": caminho}
+
+    def _exibir_conexao_mcp(self) -> None:
+        """Garante que o servidor MCP está ativo e exibe o diálogo de configuração para agentes."""
+        from editor.views.dialogos.dialogo_conexao_mcp import DialogoConexaoMcp
+
+        servidor = self.iniciar_servidor_mcp(iniciar_rede=True)
+        dialogo = DialogoConexaoMcp(
+            porta=servidor.porta,
+            servidor_ativo=servidor.esta_ativo,
+            parent=self,
+        )
+        dialogo.exec()
+
+    def encerrar_servidor_mcp(self) -> None:
+        """Encerra o servidor MCP local se estiver em execução."""
+        if self.servidor_mcp is not None:
+            self.servidor_mcp.parar()
+            self.servidor_mcp = None
 
     def _mostrar_modal_espera(self, mensagem: str = "Aguarde...") -> None:
         from PySide6.QtCore import Qt

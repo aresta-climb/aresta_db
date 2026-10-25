@@ -25,7 +25,9 @@ class MapasController:
         self.undo_stack: Any = undo_stack
         self.caminho_db: Path | None = None
         self.contexto_atual_path: str | None = None
-        self._pilha_macros: list[CmdMacro] = []
+        if not hasattr(model, "_pilha_macros"):
+            model._pilha_macros = []  # type: ignore[attr-defined]
+        self._pilha_macros: list[CmdMacro] = model._pilha_macros  # type: ignore[attr-defined]
 
     def set_contexto(self, path: str | None) -> None:
         self.contexto_atual_path = path

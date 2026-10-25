@@ -207,7 +207,10 @@ class ControladorAplicativo:
         workspace = ExperimentalWorkspace(self.tela_carregamento.caminho_croqui_selecionado)
 
         self.janela_principal = JanelaPrincipal(
-            storage=self.tarefa.storage, auth=self.tarefa.gerenciador_sessao, workspace=workspace
+            storage=self.tarefa.storage,
+            auth=self.tarefa.gerenciador_sessao,
+            workspace=workspace,
+            iniciar_mcp=True,
         )
         # Conecta o sinal para permitir voltar para a seleção
         self.janela_principal.solicitar_abrir_novo.connect(self.executar_selecao)
@@ -302,7 +305,9 @@ def main() -> None:
 
             workspace = LocalRepoWorkspace(caminho_path)
 
-            janela = JanelaPrincipal(storage=storage, auth=None, workspace=workspace)
+            janela = JanelaPrincipal(
+                storage=storage, auth=None, workspace=workspace, iniciar_mcp=True
+            )
             janela.setWindowIcon(QIcon(str(caminho_icone_app)))
             janela.show()
             app.processEvents()
