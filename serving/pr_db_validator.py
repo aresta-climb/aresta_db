@@ -142,6 +142,14 @@ def validar_pull_request(
 
 
 def main() -> int:
+    """
+    Ponto de entrada CLI do validador de Pull Requests do database.
+
+    Convenção de códigos de saída:
+    - `0`: Validação concluída com sucesso.
+    - `1`: Recusa legítima de validação do PR (erros de dados, migração ou licenças SPDX).
+    - `2`: Erro interno inesperado do script ou invocação inválida da CLI no workflow.
+    """
     import argparse
 
     parser = argparse.ArgumentParser(description="Valida pastas modificadas do database/")
@@ -150,8 +158,17 @@ def main() -> int:
         "--saida", default=None, help="Diretório de saída opcional para os artefatos"
     )
 
-    args = parser.parse_args()
-    erros = validar_pull_request(args.pastas, args.saida)
+    try:
+        args = parser.parse_args()
+        erros = validar_pull_request(args.pastas, args.saida)
+    except SystemExit:
+        return 2
+    except Exception as erro_inesperado:
+        print(
+            f"\nERRO INTERNO INESPERADO NO VALIDADOR: {erro_inesperado}",
+            file=sys.stderr,
+        )
+        return 2
 
     if erros:
         print(f"\nValidação concluída com {len(erros)} erro(s).")

@@ -162,6 +162,27 @@ def test_main_erro(mock_validador):
         mock_validador.assert_called_once_with(["database/pico"], "/tmp/out")
 
 
+@patch("serving.pr_db_validator.validar_pull_request")
+def test_main_excecao_inesperada_retorna_codigo_2(mock_validador):
+    """
+    Testa que uma exceção inesperada durante a execução do validador retorna exit code 2
+    (diferenciando falha interna do script de uma recusa legítima de PR que retorna 1).
+    """
+    mock_validador.side_effect = RuntimeError("Crash interno inesperado no script")
+    with patch("sys.argv", ["pr_db_validator.py", "--pastas", "database/pico"]):
+        codigo = main()
+        assert codigo == 2
+
+
+def test_main_argumentos_invalidos_retorna_codigo_2():
+    """
+    Testa que invocação inválida da CLI (ex: --pastas sem argumentos) retorna exit code 2.
+    """
+    with patch("sys.argv", ["pr_db_validator.py", "--pastas"]):
+        codigo = main()
+        assert codigo == 2
+
+
 def test_validar_versoes_migracao_sucesso(tmp_path: Path):
     """
     Testa que croquis com a versão de migração igual à mais recente passam na validação.

@@ -78,3 +78,11 @@ O ecossistema Aresta possui um modelo de licenciamento híbrido desenhado para p
 Para entender detalhadamente o que você pode ou não fazer com os dados e o código, bem como ler nossa política rigorosa de **Remoção de Conteúdo (Notice and Takedown)** para os autores originais, leia o documento:
 
 👉 **[Resumo de Licenças e Direitos Autorais](./LICENCAS_RESUMO.md)**
+
+---
+
+## 💜 Apoio Open Source — Sentry
+
+[![Monitorado com Sentry](https://img.shields.io/badge/Monitorado_com-Sentry-362D59?style=for-the-badge&logo=sentry&logoColor=white)](https://sentry.io/?utm_source=github&utm_medium=referral)
+
+O ecossistema **Aresta Climb** conta com o apoio oficial do **[Sentry](https://sentry.io/?utm_source=github&utm_medium=referral)** através do seu programa de incentivo a projetos Open Source (**Sponsored Business Plan**), garantindo monitoramento de erros, rastreamento de releases e estabilidade em tempo real no Editor Aresta Desktop, no aplicativo móvel e nos serviços de borda.

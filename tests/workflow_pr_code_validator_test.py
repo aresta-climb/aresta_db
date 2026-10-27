@@ -81,3 +81,28 @@ class TestWorkflowPrCodeValidator(unittest.TestCase):
         run_cmd = passos[idx_ruff].get("run", "")
         self.assertIn("uv run ruff check --output-format=github .", run_cmd)
         self.assertIn("uv run ruff format --check .", run_cmd)
+
+    def test_workflows_pr_possuem_step_sentinela_erro_interno_script_validacao(self) -> None:
+        """Garante que pr-code-validator.yml e pr-db-validator.yml separam exit code 1 de >= 2 com step sentinela."""
+        passos_code = self.conteudo_yaml["jobs"]["test"]["steps"]
+        sentinela_code = next(
+            (s for s in passos_code if s.get("name") == "Erro Interno no Script de Validação"),
+            None,
+        )
+        self.assertIsNotNone(
+            sentinela_code,
+            "Step 'Erro Interno no Script de Validação' ausente em pr-code-validator.yml.",
+        )
+
+        db_workflow_path = self.raiz_projeto / ".github" / "workflows" / "pr-db-validator.yml"
+        with open(db_workflow_path, encoding="utf-8") as f:
+            conteudo_db = carregar_yaml(f)
+        passos_db = conteudo_db["jobs"]["validate"]["steps"]
+        sentinela_db = next(
+            (s for s in passos_db if s.get("name") == "Erro Interno no Script de Validação"),
+            None,
+        )
+        self.assertIsNotNone(
+            sentinela_db,
+            "Step 'Erro Interno no Script de Validação' ausente em pr-db-validator.yml.",
+        )

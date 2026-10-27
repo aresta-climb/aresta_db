@@ -51,9 +51,21 @@ jobs:
           uv sync --frozen
           
       - name: Checagem de Qualidade de Código (Ruff)
+        id: validacao_ruff
         run: |
+          set +e
           uv run ruff check --output-format=github .
+          CODIGO_CHECK=$?
           uv run ruff format --check .
+          CODIGO_FMT=$?
+          if [ "$CODIGO_CHECK" -ge 2 ] || [ "$CODIGO_FMT" -ge 2 ]; then
+            echo "codigo_saida=2" >> $GITHUB_OUTPUT
+            exit 2
+          elif [ "$CODIGO_CHECK" -ne 0 ] || [ "$CODIGO_FMT" -ne 0 ]; then
+            echo "codigo_saida=1" >> $GITHUB_OUTPUT
+            exit 1
+          fi
+          echo "codigo_saida=0" >> $GITHUB_OUTPUT
 
       - name: Instalar Dependências Gráficas do Qt (Ubuntu)
         run: |
@@ -61,12 +73,28 @@ jobs:
           sudo apt-get install -y libegl1 libgl1 libxkbcommon-x11-0 libxcb-cursor0 libxcb-icccm4 libxcb-image0 libxcb-keysyms1 libxcb-randr0 libxcb-render-util0 libxcb-shape0 libxcb-sync1 libxcb-xfixes0 libxcb-xinerama0 libxcb-xkb1 xvfb
 
       - name: Run Pytest
+        id: validacao_pytest
         timeout-minutes: 10
         env:
           PYTHONFAULTHANDLER: "1"
           PYTHONUNBUFFERED: "1"
           CI: "true"
           QT_QPA_PLATFORM: "offscreen"
-        run: xvfb-run -a uv run pytest -n 0 -v --durations=10
+        run: |
+          set +e
+          xvfb-run -a uv run pytest -n 0 -v --durations=10
+          CODIGO_SAIDA=$?
+          echo "codigo_saida=$CODIGO_SAIDA" >> $GITHUB_OUTPUT
+          exit $CODIGO_SAIDA
+
+      - name: Erro Interno no Script de Validação
+        if: >-
+          always() && (
+            (steps.validacao_ruff.outputs.codigo_saida != '' && steps.validacao_ruff.outputs.codigo_saida != '0' && steps.validacao_ruff.outputs.codigo_saida != '1') ||
+            (steps.validacao_pytest.outputs.codigo_saida != '' && steps.validacao_pytest.outputs.codigo_saida != '0' && steps.validacao_pytest.outputs.codigo_saida != '1')
+          )
+        run: |
+          echo "🚨 ERRO INTERNO NO VALIDADOR DE CÓDIGO (ruff=${{ steps.validacao_ruff.outputs.codigo_saida }}, pytest=${{ steps.validacao_pytest.outputs.codigo_saida }})"
+          exit 2
 
 

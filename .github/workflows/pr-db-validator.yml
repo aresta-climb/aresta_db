@@ -53,12 +53,23 @@ jobs:
           dir_names_max_depth: 2
           
       - name: Run Validator
+        id: validacao_pr
         if: steps.changed-files.outputs.any_changed == 'true'
         env:
           PYTHONPATH: .
         run: |
+          set +e
           set -o pipefail
           uv run serving/pr_db_validator.py --pastas ${{ steps.changed-files.outputs.all_changed_files }} 2>&1 | tee validador_output.txt
+          CODIGO_SAIDA=$?
+          echo "codigo_saida=$CODIGO_SAIDA" >> $GITHUB_OUTPUT
+          exit $CODIGO_SAIDA
+
+      - name: Erro Interno no Script de Validação
+        if: always() && steps.validacao_pr.outputs.codigo_saida != '' && steps.validacao_pr.outputs.codigo_saida != '0' && steps.validacao_pr.outputs.codigo_saida != '1'
+        run: |
+          echo "🚨 ERRO INTERNO NO VALIDADOR DO DATABASE (exit code ${{ steps.validacao_pr.outputs.codigo_saida }})"
+          exit 2
 
       - name: Gerar Comentário de Sucesso
         if: success() && steps.changed-files.outputs.any_changed == 'true'
