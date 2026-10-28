@@ -8,10 +8,16 @@ from collections.abc import Sequence
 from typing import Any
 
 from PIL import Image, ImageDraw
+from PySide6.QtCore import QBuffer, QByteArray, QIODevice, QRectF, Qt
+from PySide6.QtGui import QImage, QPainter, QPixmap
+from PySide6.QtWidgets import QApplication, QGraphicsScene
+
+from editor.views.widget_editor_mapas import criar_item_visual_poi
 
 MARGEM_REGUA_PX = 28
 JANELA_RECORTE_MEIO_PX = 60
 ESCALA_RECORTE = 2
+_APP_QT_REF: Any = None
 
 
 def _codificar_png_base64(imagem: Image.Image) -> str:
@@ -57,6 +63,7 @@ def _extrair_info_poi(poi: Any) -> dict[str, Any]:
             "ancora_y": int(r.y),
             "comprimento": max(int(r.comprimento), 6),
             "largura": max(int(r.largura), 6),
+            "angulo_graus_x100": int(getattr(r, "angulo_graus_x100", 0)),
         }
     if tipo_area == "poligono":
         coords = list(poi_obj.poligono.coordenadas)
@@ -94,56 +101,50 @@ def _extrair_info_poi(poi: Any) -> dict[str, Any]:
     }
 
 
-def _desenhar_pois_na_imagem(
-    imagem_rgba: Image.Image, infos_pois: Sequence[dict[str, Any]]
+def renderizar_cena_mapa_editor(
+    bytes_imagem: bytes, pontos_de_interesse: Sequence[Any]
 ) -> Image.Image:
-    """Desenha todas as geometrias de POIs em vermelho translúcido sobre a imagem do mapa."""
-    camada = Image.new("RGBA", imagem_rgba.size, (0, 0, 0, 0))
-    draw = ImageDraw.Draw(camada)
-    cor_borda = (235, 30, 30, 235)
-    cor_preenchimento = (235, 30, 30, 55)
+    """
+    Renderiza o mapa e todos os seus POIs reutilizando exatamente a mesma `QGraphicsScene`
+    e os mesmos itens gráficos (`ItemBoundingCirculo`, `ItemBoundingQuadrado`,
+    `ItemBoundingRetangulo` com `angulo_graus_x100`, `ItemBoundingPoligono` e `ItemTrajetoLinha`)
+    do `WidgetEditorMapas` na resolução nativa 1:1 da imagem.
+    """
+    global _APP_QT_REF
+    _APP_QT_REF = QApplication.instance() or QApplication([])
+    cena = QGraphicsScene()
 
-    for info in infos_pois:
-        tipo = info["tipo_area"]
-        x = info["ancora_x"]
-        y = info["ancora_y"]
-        if x is None or y is None:
-            continue
+    pixmap = QPixmap()
+    pixmap.loadFromData(bytes_imagem)
+    largura = pixmap.width()
+    altura = pixmap.height()
 
-        if tipo == "circulo":
-            r = info["raio"]
-            draw.ellipse(
-                (x - r, y - r, x + r, y + r),
-                fill=cor_preenchimento,
-                outline=cor_borda,
-                width=2,
-            )
-        elif tipo == "quadrado":
-            meio = info["lado"] // 2
-            draw.rectangle(
-                (x - meio, y - meio, x + meio, y + meio),
-                fill=cor_preenchimento,
-                outline=cor_borda,
-                width=2,
-            )
-        elif tipo == "retangulo":
-            mx = info["comprimento"] // 2
-            my = info["largura"] // 2
-            draw.rectangle(
-                (x - mx, y - my, x + mx, y + my),
-                fill=cor_preenchimento,
-                outline=cor_borda,
-                width=2,
-            )
-        elif tipo == "poligono":
-            draw.polygon(info["pontos"], fill=cor_preenchimento, outline=cor_borda)
-        elif tipo == "linha":
-            draw.line(info["nos"], fill=cor_borda, width=3)
+    item_img = cena.addPixmap(pixmap)
+    item_img.setZValue(-100)
 
-        rotulo = info["rotulo"]
-        draw.text((x + 6, y - 10), rotulo, fill=(255, 255, 0, 255))
+    for poi in pontos_de_interesse:
+        item_visual = criar_item_visual_poi(poi)
+        if item_visual is not None:
+            cena.addItem(item_visual)
 
-    return Image.alpha_composite(imagem_rgba, camada)
+    qimg = QImage(largura, altura, QImage.Format.Format_RGBA8888)
+    qimg.fill(Qt.GlobalColor.transparent)
+    painter = QPainter(qimg)
+    painter.setRenderHint(QPainter.RenderHint.Antialiasing, True)
+    cena.render(
+        painter,
+        QRectF(0, 0, largura, altura),
+        QRectF(0, 0, largura, altura),
+    )
+    painter.end()
+
+    matriz = QByteArray()
+    buffer = QBuffer(matriz)
+    buffer.open(QIODevice.OpenModeFlag.WriteOnly)
+    qimg.save(buffer, "PNG")
+    buffer.close()
+
+    return Image.open(io.BytesIO(bytes(matriz))).convert("RGBA")
 
 
 def _aplicar_grade_e_reguas_globais(imagem_rgba: Image.Image) -> Image.Image:
@@ -236,17 +237,16 @@ def renderizar_pacote_visual_mapa(
 ) -> list[dict[str, Any]]:
     """
     Renderiza o pacote visual completo de um mapa para inspeção por agentes LLM via MCP,
-    retornando uma lista intercalada de blocos `[Texto, Imagem]`:
+    reutilizando a `QGraphicsScene` e os itens gráficos do `WidgetEditorMapas` e retornando
+    uma lista intercalada de blocos `[Texto, Imagem]`:
     - Bloco 0 (Texto): Metadados do mapa, candidatos vetoriais extraídos do PDF e resumo dos POIs.
-    - Bloco 1 (Imagem): Visão geral completa do mapa com POIs em vermelho e grade métrica de 100px.
+    - Bloco 1 (Imagem): Visão geral completa do mapa com POIs e grade métrica de 100px.
     - Blocos seguintes (Pares `[Texto, Imagem]`): Para cada POI com coordenada válida, metadados
       da âncora e recorte ampliado centrado em `(0, 0)` com régua relativa (`-50px` a `+50px`).
     """
-    img_original = Image.open(io.BytesIO(bytes_imagem)).convert("RGBA")
-    largura, altura = img_original.size
-
     infos_pois = [_extrair_info_poi(p) for p in pontos_de_interesse]
-    img_com_pois = _desenhar_pois_na_imagem(img_original, infos_pois)
+    img_com_pois = renderizar_cena_mapa_editor(bytes_imagem, pontos_de_interesse)
+    largura, altura = img_com_pois.size
     img_visao_geral = (
         _aplicar_grade_e_reguas_globais(img_com_pois) if incluir_grade else img_com_pois
     )

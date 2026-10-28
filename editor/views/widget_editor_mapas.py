@@ -2160,6 +2160,33 @@ class VisualizadorMapa(QGraphicsView):
         super().leaveEvent(evento)
 
 
+def criar_item_visual_poi(
+    poi: Any,
+    cb_deletar: Any = None,
+    cb_converter: Any = None,
+    cb_converter_retangulo: Any = None,
+) -> Any | None:
+    """Instancia o QGraphicsItem canônico do Editor de Mapas para um PontoDeInteresse Protobuf."""
+    from google.protobuf.json_format import MessageToDict
+
+    poi_obj = getattr(poi, "_obj", poi)
+    pt_dict = MessageToDict(poi_obj, preserving_proto_field_name=True)
+
+    if poi_obj.HasField("retangulo"):
+        return ItemBoundingRetangulo(pt_dict, cb_deletar, callback_converter=cb_converter)
+    if poi_obj.HasField("quadrado"):
+        return ItemBoundingQuadrado(pt_dict, cb_deletar, callback_converter=cb_converter)
+    if poi_obj.HasField("circulo"):
+        return ItemBoundingCirculo(
+            pt_dict, cb_deletar, callback_converter=cb_converter_retangulo
+        )
+    if poi_obj.HasField("poligono"):
+        return ItemBoundingPoligono(pt_dict, cb_deletar)
+    if poi_obj.HasField("linha"):
+        return ItemTrajetoLinha(pt_dict, cb_deletar)
+    return None
+
+
 class CenaDesenho(QGraphicsScene):
     def __init__(self, widget_editor: Any) -> None:
         super().__init__()
@@ -3366,11 +3393,6 @@ class WidgetEditorMapas(QWidget):
                 self.list_widget.blockSignals(False)
 
     def _adicionar_item_cena(self, poi: Any, index: int, cena: Any) -> None:
-        # Transforma mensagem protobuf em dicionário genérico para os itens gráficos legacy
-        from google.protobuf.json_format import MessageToDict
-
-        pt_dict = MessageToDict(poi, preserving_proto_field_name=True)
-
         def cb_deletar(item: Any) -> None:
             self.deletar_item_poi(item)
 
@@ -3380,19 +3402,12 @@ class WidgetEditorMapas(QWidget):
         def cb_converter_retangulo(item: Any) -> None:
             self.converter_item_para_retangulo(item)
 
-        item_visual: Any | None = None
-        if poi.HasField("retangulo"):
-            item_visual = ItemBoundingRetangulo(
-                pt_dict, cb_deletar, callback_converter=cb_converter
-            )
-        elif poi.HasField("circulo"):
-            item_visual = ItemBoundingCirculo(
-                pt_dict, cb_deletar, callback_converter=cb_converter_retangulo
-            )
-        elif poi.HasField("poligono"):
-            item_visual = ItemBoundingPoligono(pt_dict, cb_deletar)
-        elif poi.HasField("linha"):
-            item_visual = ItemTrajetoLinha(pt_dict, cb_deletar)
+        item_visual = criar_item_visual_poi(
+            poi,
+            cb_deletar=cb_deletar,
+            cb_converter=cb_converter,
+            cb_converter_retangulo=cb_converter_retangulo,
+        )
 
         if item_visual:
             item_visual.set_clique_handler(self.tratar_clique_poi)

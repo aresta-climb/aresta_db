@@ -8,7 +8,11 @@ import json
 from PIL import Image
 
 from aresta_api.proto.generated import croqui_pb2
-from editor.mcp.renderizador_mapa_mcp import renderizar_pacote_visual_mapa
+from editor.mcp.renderizador_mapa_mcp import (
+    renderizar_cena_mapa_editor,
+    renderizar_pacote_visual_mapa,
+)
+from editor.views.widget_editor_mapas import ItemBoundingQuadrado, criar_item_visual_poi
 
 
 def _gerar_imagem_png_bytes(largura: int = 320, altura: int = 240) -> bytes:
@@ -42,6 +46,20 @@ def test_renderizar_pacote_visual_mapa_com_grade_e_recortes_todas_geometrias():
     p_ret.retangulo.y = 160
     p_ret.retangulo.comprimento = 36
     p_ret.retangulo.largura = 20
+    p_ret.retangulo.angulo_graus_x100 = 4500
+
+    img_cena = renderizar_cena_mapa_editor(
+        bytes_img, [p_circ, p_quad, p_ret]
+    )
+    assert img_cena.size == (320, 240)
+    # Verifica que os itens da QGraphicsScene do Editor (incluindo o retângulo rotacionado)
+    # foram efetivamente desenhados sobre o fundo (60, 80, 100) nas coordenadas das âncoras
+    assert img_cena.getpixel((100, 120))[:3] != (60, 80, 100)
+    assert img_cena.getpixel((180, 90))[:3] != (60, 80, 100)
+    assert img_cena.getpixel((250, 160))[:3] != (60, 80, 100)
+
+    item_quad = criar_item_visual_poi(p_quad)
+    assert isinstance(item_quad, ItemBoundingQuadrado)
 
     p_poli = croqui_pb2.Mapa.PontoDeInteresse(uid="uid_p4", rotulo="P1")
     p_poli.poligono.coordenadas.extend([40, 40, 70, 40, 55, 70])
