@@ -6,14 +6,19 @@ from pathlib import Path
 
 from editor.core.storage import obter_diretorio_base_app
 from editor.mcp.sessao import (
+    DadosSessaoMcp,
     NOME_ARQUIVO_SESSAO_MCP,
     PORTA_MCP_PADRAO,
     alocar_porta_mcp,
     descobrir_url_mcp_ativa,
+    desregistrar_sessao_multi_mcp,
     gravar_sessao_mcp,
     ler_sessao_mcp,
+    listar_sessoes_mcp,
     obter_caminho_sessao_mcp,
+    obter_caminho_sessoes_mcp,
     porta_disponivel_local,
+    registrar_sessao_multi_mcp,
     remover_sessao_mcp,
 )
 
@@ -115,3 +120,61 @@ def test_descobrir_url_mcp_ativa_prioridades(tmp_path: Path):
     )
     assert url3 == "http://127.0.0.1:29999/mcp"
     assert token3 == "tok_secreto"
+
+
+def test_registro_multi_sessao_mcp(tmp_path: Path):
+    """Valida registro, atualização, listagem e remoção de múltiplas sessões em mcp_sessoes.json."""
+    assert listar_sessoes_mcp(tmp_path) == []
+
+    s1 = gravar_sessao_mcp(
+        porta=27378,
+        token="tok1",
+        diretorio_base=tmp_path,
+        id_croqui="croqui_a",
+        caminho_database="/db/a",
+    )
+    s2 = gravar_sessao_mcp(
+        porta=27379,
+        token="tok2",
+        diretorio_base=tmp_path,
+        id_croqui="croqui_b",
+        caminho_database="/db/b",
+    )
+    sessoes = listar_sessoes_mcp(tmp_path)
+    assert len(sessoes) == 2
+    assert [s.id_croqui for s in sessoes] == ["croqui_a", "croqui_b"]
+    assert [s.porta for s in sessoes] == [27378, 27379]
+
+    # Atualizar o id_croqui na mesma porta substitui o registro sem duplicar
+    registrar_sessao_multi_mcp(
+        DadosSessaoMcp(
+            porta=27378,
+            pid=s1.pid,
+            token=s1.token,
+            id_croqui="croqui_a_renomeado",
+            caminho_database="/db/a2",
+        ),
+        diretorio_base=tmp_path,
+    )
+    sessoes_atualizadas = listar_sessoes_mcp(tmp_path)
+    assert len(sessoes_atualizadas) == 2
+    assert sessoes_atualizadas[0].id_croqui == "croqui_a_renomeado"
+
+    # Remover a porta 27378 preserva a 27379 e promove-a em mcp_sessao.json
+    remover_sessao_mcp(tmp_path, porta=27378)
+    restantes = listar_sessoes_mcp(tmp_path)
+    assert len(restantes) == 1
+    assert restantes[0].porta == 27379
+    sessao_principal = ler_sessao_mcp(tmp_path)
+    assert sessao_principal is not None
+    assert sessao_principal.porta == 27379
+
+    # Desregistrar a última sessão limpa mcp_sessoes.json e mcp_sessao.json
+    desregistrar_sessao_multi_mcp(27379, tmp_path)
+    assert listar_sessoes_mcp(tmp_path) == []
+    assert not obter_caminho_sessoes_mcp(tmp_path).exists()
+
+    # Arquivo mcp_sessoes.json corrompido retorna lista vazia de forma resiliente
+    obter_caminho_sessoes_mcp(tmp_path).write_text("{corrompido", encoding="utf-8")
+    assert listar_sessoes_mcp(tmp_path) == []
+

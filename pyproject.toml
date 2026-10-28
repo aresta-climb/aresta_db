@@ -29,6 +29,7 @@ editor = [
     "pyyaml",
     "protobuf",
     "nanoid>=2.0.0",
+    "pymupdf",
     "pillow-heif>=1.7.0",
     "pyside6-essentials",
     "pygit2",
@@ -60,12 +61,9 @@ editor_deploy = [
     "boto3; sys_platform == 'darwin'",
 ]
 
-# Extração pesada de PDFS, IA e OCR
+# Extração pesada de PDFS e IA
 pdf = [
     "pymupdf",
-    "paddleocr",
-    "paddleocr[doc-parser]",
-    "paddleocr[ie]",
     "graphviz",
     "boto3",
     "duckduckgo-search",

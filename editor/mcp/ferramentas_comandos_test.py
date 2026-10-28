@@ -194,8 +194,85 @@ def test_aresta_alterar_campo_primitivo_enum_submensagem_oneof_e_lote(qapp, tmp_
         _chamar(
             servidor,
             "aresta_alterar_campo",
-            {"alvo": "uid_croqui_raiz", "campo": "creditos", "valor": ["A"]},
+            {"alvo": "uid_croqui_raiz", "campo": "creditos", "valor": "nao_eh_lista"},
         )
+
+    # 6. Substituição declarativa de listas repeated (primitivas e subárvores aninhadas) em chamada atômica
+    _chamar(
+        servidor,
+        "aresta_alterar_campo",
+        {"alvo": "uid_croqui_raiz", "campo": "creditos", "valor": ["Autor A", "Autor B"]},
+    )
+    assert list(raiz.creditos) == ["Autor A", "Autor B"]
+    undo_stack.undo()
+    assert list(raiz.creditos) == []
+
+    _chamar(
+        servidor,
+        "aresta_alterar_campo",
+        {
+            "alvo": "uid_setor_base",
+            "campos": {
+                "nome": "Setor Substituido Atomico",
+                "escaladas": [
+                    {
+                        "uid": "uid_via_base01",
+                        "tipo": "via_esportiva",
+                        "nome": "Via 1 Preservada",
+                        "dificuldade": "BR_7a",
+                    },
+                    {
+                        "boulder": {
+                            "nome": "Boulder 2 Novo",
+                            "dificuldade": "v4",
+                        }
+                    },
+                ],
+                "mapas": [
+                    {
+                        "caminho_imagem_mapa": "imagens/mapa_base.webp",
+                        "pontos_de_interesse": [
+                            {
+                                "uid": "uid_poi_base01",
+                                "rotulo": "1",
+                                "circulo": {"x": 150, "y": 250, "raio": 18},
+                            },
+                            {
+                                "rotulo": "2",
+                                "circulo": {"x": 300, "y": 400, "raio": 18},
+                            },
+                        ],
+                        "referencias": [
+                            {
+                                "alvo_uid": "uid_via_base01",
+                                "pontos_uids": ["uid_poi_base01"],
+                            }
+                        ],
+                    }
+                ],
+            },
+        },
+    )
+    setor_atual = raiz.picos[0].setores_ou_grupos[0].setor.conteudo
+    assert setor_atual.nome == "Setor Substituido Atomico"
+    assert len(setor_atual.escaladas) == 2
+    assert setor_atual.escaladas[0].uid == "uid_via_base01"
+    assert setor_atual.escaladas[0].via_esportiva.nome == "Via 1 Preservada"
+    assert setor_atual.escaladas[0].via_esportiva.dificuldade == croqui_pb2.GrauVia.BR_7A
+    assert len(setor_atual.escaladas[1].uid) == 14
+    assert setor_atual.escaladas[1].boulder.nome == "Boulder 2 Novo"
+    assert setor_atual.escaladas[1].boulder.dificuldade == croqui_pb2.GrauBoulder.V4
+    assert len(setor_atual.mapas) == 1
+    assert setor_atual.mapas[0].pontos_de_interesse[0].uid == "uid_poi_base01"
+    assert setor_atual.mapas[0].pontos_de_interesse[0].circulo.x == 150
+    assert len(setor_atual.mapas[0].pontos_de_interesse[1].uid) == 14
+    assert setor_atual.mapas[0].referencias[0].alvo_uid == "uid_via_base01"
+
+    # Um único undo reverte toda a substituição do setor
+    undo_stack.undo()
+    assert setor_atual.nome == "Setor Base"
+    assert len(setor_atual.escaladas) == 1
+    assert setor_atual.escaladas[0].via_esportiva.nome == "Via Antiga"
 
     with pytest.raises(RuntimeError, match="oneof 'tipo'"):
         _chamar(

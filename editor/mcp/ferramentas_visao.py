@@ -4,12 +4,14 @@
 import base64
 import json
 from collections.abc import Callable
+from pathlib import Path
 from typing import Any
 
 from google.protobuf.json_format import MessageToDict
 from PySide6.QtCore import QBuffer, QByteArray, QIODevice
 from PySide6.QtWidgets import QWidget
 
+from editor.mcp.renderizador_mapa_mcp import renderizar_pacote_visual_mapa
 from editor.mcp.resolvedor_alvo import resolver_alvo_mcp
 from editor.mcp.servidor import ServidorMCP
 from editor.models.croqui_model import CroquiModel
@@ -24,6 +26,35 @@ def _serializar_objeto_proto(obj: Any) -> Any:
     if hasattr(desembrulhado, "DESCRIPTOR"):
         return MessageToDict(desembrulhado, preserving_proto_field_name=True)
     return desembrulhado
+
+
+def _extrair_candidatos_vetoriais_mapa(
+    caminho_db: Path | None, caminho_imagem: str
+) -> list[dict[str, Any]]:
+    """Procura metadados JSON gerados pelo `repartir_pdf` para a imagem do mapa e extrai spans de texto."""
+    nome_arq = Path(caminho_imagem).stem
+    candidatos: list[dict[str, Any]] = []
+    arquivos_json = (
+        sorted((caminho_db / "raw_pdf_contents" / "imagens").rglob("*.json"))
+        if caminho_db is not None and (caminho_db / "raw_pdf_contents" / "imagens").is_dir()
+        else []
+    )
+    for arq_json in arquivos_json:
+        if arq_json.stem in nome_arq or nome_arq.endswith(arq_json.stem):
+            dados = json.loads(arq_json.read_text(encoding="utf-8"))
+            for bloco in dados.get("texto", []):
+                for linha in bloco.get("lines", []):
+                    for span in linha.get("spans", []):
+                        texto = str(span.get("text") or "").strip()
+                        if texto:
+                            candidatos.append(
+                                {
+                                    "texto": texto,
+                                    "bbox": span.get("bbox"),
+                                    "origin": span.get("origin"),
+                                }
+                            )
+    return candidatos
 
 
 def registrar_ferramentas_visao(
@@ -179,6 +210,73 @@ def registrar_ferramentas_visao(
             (model.indice_uids.obter_caminho(uid_sel) or "") if uid_sel else ""
         )
         return info
+
+    def _renderizar_mapa(args: dict[str, Any]) -> dict[str, Any]:
+        alvo = str(args.get("alvo") or "")
+        indice_mapa = int(args.get("indice_mapa", 0))
+        incluir_grade = bool(args.get("incluir_grade", True))
+        incluir_recortes = bool(args.get("incluir_recortes_pois", True))
+
+        msg, _ = resolver_alvo_mcp(model, alvo)
+        msg_proto = _desembrulhar_proto(msg)
+        mapa_proto = (
+            msg_proto.mapas[indice_mapa]
+            if msg_proto.DESCRIPTOR.name != "Mapa" and hasattr(msg_proto, "mapas")
+            else msg_proto
+        )
+        caminho_img = str(getattr(mapa_proto, "caminho_imagem_mapa", "") or "")
+        bytes_img = model.obter_bytes_imagem(caminho_img) or model.obter_bytes_imagem(
+            f"imagens/{Path(caminho_img).name}"
+        )
+        if not bytes_img:
+            raise ValueError(f"Imagem do mapa '{caminho_img}' não encontrada.")
+
+        candidatos = _extrair_candidatos_vetoriais_mapa(
+            getattr(model, "_caminho_db_atual", None), caminho_img
+        )
+        blocos = renderizar_pacote_visual_mapa(
+            bytes_imagem=bytes_img,
+            pontos_de_interesse=mapa_proto.pontos_de_interesse,
+            incluir_grade=incluir_grade,
+            incluir_recortes_pois=incluir_recortes,
+            candidatos_vetoriais=candidatos,
+        )
+        return {"_mcp_content": blocos}
+
+    servidor.registrar_ferramenta(
+        nome="aresta_renderizar_mapa",
+        descricao=(
+            "Renderiza o mapa indicado com os POIs em vermelho, grade métrica semitransparente "
+            "de 100px com réguas nas bordas (X/Y) e recortes ampliados centrados em cada POI "
+            "com mira relativa (-50px a +50px), retornando uma lista intercalada de blocos "
+            "[Texto, Imagem] para extração e ajuste preciso de coordenadas."
+        ),
+        esquema_entrada={
+            "type": "object",
+            "properties": {
+                "alvo": {
+                    "type": "string",
+                    "description": (
+                        "UID ou caminho do Setor/Grupo/ColecaoDeMapas ou caminho direto do Mapa."
+                    ),
+                },
+                "indice_mapa": {
+                    "type": "integer",
+                    "description": "Índice do mapa (0-based) quando 'alvo' aponta para Setor/Grupo.",
+                },
+                "incluir_grade": {
+                    "type": "boolean",
+                    "description": "Incluir grade métrica de 100px e réguas nas bordas da imagem geral.",
+                },
+                "incluir_recortes_pois": {
+                    "type": "boolean",
+                    "description": "Incluir recortes ampliados de cada POI com mira relativa (-50..+50).",
+                },
+            },
+            "required": ["alvo"],
+        },
+        manipulador=_renderizar_mapa,
+    )
 
     servidor.registrar_ferramenta(
         nome="aresta_capturar_canvas",

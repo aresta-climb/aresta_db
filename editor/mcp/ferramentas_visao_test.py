@@ -293,3 +293,124 @@ def test_aresta_obter_arvore_e_selecao_atual_com_uids_e_caminhos_formatados(qapp
         "aba_ativa": "",
         "caminho_formatado": "",
     }
+
+
+def test_aresta_renderizar_mapa_retorna_blocos_intercalados_texto_imagem(qapp, tmp_path: Path):
+    """
+    Valida aresta_renderizar_mapa resolvendo tanto o UID do Setor (com indice_mapa)
+    quanto o caminho direto do Mapa, extraindo candidatos vetoriais PyMuPDF quando presentes
+    e retornando blocos intercalados [Texto, Imagem] com visão geral + recortes de POIs.
+    """
+    import io
+
+    from PIL import Image
+
+    model, servidor, _ = _criar_ambiente_visao(tmp_path)
+    model.definir_caminho_db(tmp_path)
+
+    # Cria imagem do mapa em memória e metadados vetoriais PyMuPDF simulados do repartir_pdf
+    img = Image.new("RGB", (300, 200), color=(50, 70, 90))
+    buf = io.BytesIO()
+    img.save(buf, format="WEBP")
+    model.definir_imagem_memoria("imagens/01_setor_p0_i0.webp", buf.getvalue())
+
+    pasta_raw = tmp_path / "raw_pdf_contents" / "imagens" / "01_setor"
+    pasta_raw.mkdir(parents=True, exist_ok=True)
+    (pasta_raw / "p0_i0.json").write_text(
+        json.dumps(
+            {
+                "texto": [
+                    {
+                        "lines": [
+                            {
+                                "spans": [
+                                    {
+                                        "text": "1",
+                                        "bbox": [95.0, 110.0, 105.0, 125.0],
+                                        "origin": [100.0, 120.0],
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ),
+        encoding="utf-8",
+    )
+
+    # Adiciona um Mapa com 1 POI no Setor Cristais (uid_setor_vis1)
+    setor_proto = model.obter_objeto_por_uid("uid_setor_vis1")
+    mapa = setor_proto.mapas.add(
+        caminho_imagem_mapa="imagens/01_setor_p0_i0.webp",
+        largura_mapa=300,
+        altura_mapa=200,
+    )
+    poi = mapa.pontos_de_interesse.add(uid="uid_poi_1", rotulo="1")
+    poi.circulo.x = 100
+    poi.circulo.y = 120
+    poi.circulo.raio = 15
+
+    # 1. Chamando pelo UID do Setor + indice_mapa=0
+    resp = servidor.processar_mensagem_jsonrpc(
+        {
+            "jsonrpc": "2.0",
+            "id": 70,
+            "method": "tools/call",
+            "params": {
+                "name": "aresta_renderizar_mapa",
+                "arguments": {
+                    "alvo": "uid_setor_vis1",
+                    "indice_mapa": 0,
+                    "incluir_grade": True,
+                    "incluir_recortes_pois": True,
+                },
+            },
+        }
+    )
+    assert resp is not None
+    res = resp["result"]
+    assert res["isError"] is False
+    conteudo = res["content"]
+    # 2 blocos globais + 2 blocos para o único POI = 4 blocos
+    assert len(conteudo) == 4
+    assert [b["type"] for b in conteudo] == ["text", "image", "text", "image"]
+    meta_geral = json.loads(conteudo[0]["text"])
+    assert meta_geral["largura"] == 300
+    assert meta_geral["total_pois"] == 1
+    assert meta_geral["candidatos_vetoriais"][0]["texto"] == "1"
+
+    # 2. Chamando pelo caminho direto do Mapa
+    resp_direto = servidor.processar_mensagem_jsonrpc(
+        {
+            "jsonrpc": "2.0",
+            "id": 71,
+            "method": "tools/call",
+            "params": {
+                "name": "aresta_renderizar_mapa",
+                "arguments": {
+                    "alvo": "picos.0.setores_ou_grupos.0.grupo.conteudo.setores.0.conteudo.mapas.0",
+                    "incluir_recortes_pois": False,
+                },
+            },
+        }
+    )
+    assert resp_direto is not None
+    assert len(resp_direto["result"]["content"]) == 2
+
+    # 3. Mapa com imagem ausente retorna isError=True
+    setor_proto.mapas.add(caminho_imagem_mapa="imagens/nao_existe.webp")
+    resp_sem_img = servidor.processar_mensagem_jsonrpc(
+        {
+            "jsonrpc": "2.0",
+            "id": 72,
+            "method": "tools/call",
+            "params": {
+                "name": "aresta_renderizar_mapa",
+                "arguments": {"alvo": "uid_setor_vis1", "indice_mapa": 1},
+            },
+        }
+    )
+    assert resp_sem_img is not None
+    assert resp_sem_img["result"]["isError"] is True
+

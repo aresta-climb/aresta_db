@@ -1508,6 +1508,17 @@ class JanelaPrincipal(QMainWindow):
                 diretorio_sessao=dir_alvo,
             )
         self._registrar_ferramentas_mcp()
+        if self.croqui_model is not None:
+            raiz = self.croqui_model.obter_croqui_readonly()
+            id_croqui = str(getattr(raiz, "id", "") or "")
+            caminho_db = (
+                str(self.workspace.obter_caminho_database())
+                if self.workspace and hasattr(self.workspace, "obter_caminho_database")
+                else ""
+            )
+            self.servidor_mcp.definir_croqui_ativo(
+                id_croqui, caminho_db, croqui_aberto=True
+            )
         if iniciar_rede and not self.servidor_mcp.esta_ativo:
             self.servidor_mcp.iniciar()
         return self.servidor_mcp

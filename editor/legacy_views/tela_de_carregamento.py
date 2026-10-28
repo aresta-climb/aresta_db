@@ -330,10 +330,14 @@ class TelaDeCarregamento(QDialog):
         storage: Any | None = None,
         usuario: str = "Autor Desconhecido",
         parent: QWidget | None = None,
+        servidor_mcp: Any | None = None,
+        diretorio_sessao_mcp: Path | None = None,
     ) -> None:
         super().__init__(parent)
         self.storage: Any | None = storage
         self.usuario: str = usuario
+        self.servidor_mcp: Any | None = servidor_mcp
+        self._diretorio_sessao_mcp: Path | None = diretorio_sessao_mcp
         self.gerenciador: GerenciadorCroquiExperimental | None = (
             GerenciadorCroquiExperimental(storage) if storage else None
         )
@@ -404,9 +408,11 @@ class TelaDeCarregamento(QDialog):
 
         self.btn_novo: QPushButton = QPushButton("Novo croqui")
         self.btn_oficial: QPushButton = QPushButton("Editar croqui oficial")
+        self.btn_mcp: QPushButton = QPushButton("Conectar Agente de IA (MCP)...")
 
         self.layout_acoes.addWidget(self.btn_novo)
         self.layout_acoes.addWidget(self.btn_oficial)
+        self.layout_acoes.addWidget(self.btn_mcp)
 
         self.layout_principal.addWidget(self.grupo_acoes)
 
@@ -516,6 +522,7 @@ class TelaDeCarregamento(QDialog):
         # Conecta sinais
         self.btn_novo.clicked.connect(self.ao_clicar_novo)
         self.btn_oficial.clicked.connect(self.ao_clicar_oficial)
+        self.btn_mcp.clicked.connect(self.ao_clicar_conectar_mcp)
         self.lista_croquis.itemDoubleClicked.connect(self.ao_clicar_item)
 
         # Carregamento inicial
@@ -766,3 +773,45 @@ class TelaDeCarregamento(QDialog):
         tem_itens = self.lista_croquis.count() > 0
         self.lista_croquis.setVisible(tem_itens)
         self.label_historico_vazio.setVisible(not tem_itens)
+
+    def _abrir_croqui_via_mcp(self, caminho: Path) -> dict[str, Any]:
+        """Seleciona o croqui solicitado via MCP e aceita o diálogo de carregamento."""
+        self.caminho_croqui_selecionado = caminho
+        self.accept()
+        return {"janela_aberta": True}
+
+    def garantir_servidor_mcp(self, iniciar_rede: bool = True) -> Any:
+        """Garante que o servidor MCP esteja configurado com as ferramentas globais da TelaDeCarregamento."""
+        from editor.mcp.despachante import DespachanteQt
+        from editor.mcp.ferramentas_ciclo_vida import registrar_ferramentas_gestao_croquis
+        from editor.mcp.ferramentas_conhecimento import registrar_ferramentas_conhecimento
+        from editor.mcp.servidor import ServidorMCP
+
+        if self.servidor_mcp is None:
+            self.servidor_mcp = ServidorMCP(
+                despachante=DespachanteQt(self),
+                diretorio_sessao=self._diretorio_sessao_mcp,
+            )
+        self.servidor_mcp.definir_croqui_ativo("", croqui_aberto=False)
+        registrar_ferramentas_conhecimento(self.servidor_mcp)
+        registrar_ferramentas_gestao_croquis(
+            servidor=self.servidor_mcp,
+            storage=self.storage,
+            usuario=self.usuario,
+            callback_abrir_croqui=self._abrir_croqui_via_mcp,
+        )
+        if iniciar_rede and not self.servidor_mcp.esta_ativo:
+            self.servidor_mcp.iniciar()
+        return self.servidor_mcp
+
+    def ao_clicar_conectar_mcp(self) -> None:
+        """Inicia o servidor MCP (se necessário) e abre o diálogo de instruções de conexão."""
+        from editor.views.dialogos.dialogo_conexao_mcp import DialogoConexaoMcp
+
+        servidor = self.garantir_servidor_mcp(iniciar_rede=True)
+        dialogo = DialogoConexaoMcp(
+            porta=servidor.porta,
+            servidor_ativo=servidor.esta_ativo,
+            parent=self,
+        )
+        dialogo.exec()

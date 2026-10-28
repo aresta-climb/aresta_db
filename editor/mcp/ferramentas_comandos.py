@@ -25,29 +25,25 @@ def _decodificar_bytes_entrada(
     return None
 
 
-def _instanciar_mensagem_de_dict(desc_msg: Any, dados_brutos: dict[str, Any]) -> tuple[Any, str]:
+def _normalizar_dict_proto(desc_msg: Any, dados_brutos: dict[str, Any]) -> dict[str, Any]:
     """
-    Constrói uma mensagem Protobuf a partir de um dicionário JSON, suportando
-    atalhos ergonômicos para wrappers (`SetorOuGrupo`, `ArquivoSetor`, `ArquivoGrupo`, `Escalada`)
-    e gerando automaticamente o `uid` NanoID quando aplicável.
+    Normaliza recursivamente um dicionário JSON para ParseDict do Protobuf,
+    expandindo atalhos ergonômicos (`SetorOuGrupo`, `ArquivoSetor`, `ArquivoGrupo`, `Escalada`)
+    e convertendo valores textuais de Enum (case-insensitive) para seus nomes canônicos.
     """
-    cls_item = desc_msg._concrete_class
-    novo_obj = cls_item()
     dados = dict(dados_brutos)
     nome_tipo = desc_msg.name
 
     if nome_tipo == "SetorOuGrupo" and "setor" not in dados and "grupo" not in dados:
         tipo_escolhido = str(dados.pop("tipo", "setor")).lower()
-        alvo_conteudo = (
-            novo_obj.grupo.conteudo if tipo_escolhido == "grupo" else novo_obj.setor.conteudo
-        )
-        ParseDict(dados, alvo_conteudo, ignore_unknown_fields=False)
+        chave_ramo = "grupo" if tipo_escolhido == "grupo" else "setor"
+        dados = {chave_ramo: {"conteudo": dados}}
     elif (
         nome_tipo in ("ArquivoSetor", "ArquivoGrupo")
         and "conteudo" not in dados
         and "caminho" not in dados
     ):
-        ParseDict(dados, novo_obj.conteudo, ignore_unknown_fields=False)
+        dados = {"conteudo": dados}
     elif nome_tipo == "Escalada" and not any(
         k in dados
         for k in (
@@ -58,19 +54,48 @@ def _instanciar_mensagem_de_dict(desc_msg: Any, dados_brutos: dict[str, Any]) ->
             "highline",
         )
     ):
+        uid_esc = dados.pop("uid", None)
         tipo_esc = str(dados.pop("tipo", "via_esportiva"))
-        nomes_variantes = [f.name for f in novo_obj.DESCRIPTOR.oneofs_by_name["tipo"].fields]
+        nomes_variantes = [f.name for f in desc_msg.oneofs_by_name["tipo"].fields]
         if tipo_esc not in nomes_variantes:
             opcoes = ", ".join(nomes_variantes)
             raise ValueError(
                 f"Variante de escalada '{tipo_esc}' inválida. Opções válidas: {opcoes}."
             )
-        sub_var = getattr(novo_obj, tipo_esc)
-        sub_var.SetInParent()
-        ParseDict(dados, sub_var, ignore_unknown_fields=False)
-    else:
-        ParseDict(dados, novo_obj, ignore_unknown_fields=False)
+        dados = {tipo_esc: dados}
+        if uid_esc:
+            dados["uid"] = str(uid_esc)
 
+    resultado: dict[str, Any] = {}
+    for chave, valor in dados.items():
+        f_desc = desc_msg.fields_by_name.get(chave)
+        if f_desc is not None and f_desc.enum_type is not None and isinstance(valor, str):
+            val_enum = f_desc.enum_type.values_by_name.get(valor.upper())
+            resultado[chave] = val_enum.name if val_enum is not None else valor
+        elif f_desc is not None and f_desc.message_type is not None and isinstance(valor, list):
+            resultado[chave] = [
+                _normalizar_dict_proto(f_desc.message_type, item)
+                if isinstance(item, dict)
+                else item
+                for item in valor
+            ]
+        elif f_desc is not None and f_desc.message_type is not None and isinstance(valor, dict):
+            resultado[chave] = _normalizar_dict_proto(f_desc.message_type, valor)
+        else:
+            resultado[chave] = valor
+    return resultado
+
+
+def _instanciar_mensagem_de_dict(desc_msg: Any, dados_brutos: dict[str, Any]) -> tuple[Any, str]:
+    """
+    Constrói uma mensagem Protobuf a partir de um dicionário JSON, suportando
+    atalhos ergonômicos para wrappers (`SetorOuGrupo`, `ArquivoSetor`, `ArquivoGrupo`, `Escalada`)
+    e gerando automaticamente o `uid` NanoID quando aplicável.
+    """
+    cls_item = desc_msg._concrete_class
+    novo_obj = cls_item()
+    dados_norm = _normalizar_dict_proto(desc_msg, dados_brutos)
+    ParseDict(dados_norm, novo_obj, ignore_unknown_fields=False)
     uid_gerado = garantir_uids_em_mensagem(novo_obj)
     return novo_obj, uid_gerado
 
@@ -129,6 +154,11 @@ def _coagir_valor_para_campo(msg: Any, nome_campo: str, valor_bruto: Any) -> Any
         desc_campo, "is_repeated", False
     )
     if eh_repeated:
+        if isinstance(valor_bruto, list):
+            return [
+                _instanciar_valor_para_campo_repeated(msg, nome_campo, item)[0]
+                for item in valor_bruto
+            ]
         return valor_bruto
 
     if desc_campo.message_type is not None and isinstance(valor_bruto, dict):

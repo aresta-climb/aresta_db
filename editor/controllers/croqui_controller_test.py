@@ -862,3 +862,94 @@ def test_croqui_controller_alterar_campo_unico_e_lote_atomico(qapp):
     assert croqui.nome == "Inicial"
     assert not undo_stack.canUndo()
 
+
+def test_croqui_controller_alterar_campo_substituicao_declarativa_repeated(qapp):
+    """Valida que alterar_campo substitui listas repeated atomicamente preservando UIDs e imagens em RAM."""
+    from aresta_api.proto.generated import croqui_pb2
+    from editor.commands.comandos_protobuf import CmdMacro
+
+    croqui = croqui_pb2.Croqui(nome="Croqui Base")
+    croqui.creditos.extend(["Antigo 1", "Antigo 2"])
+    pico = croqui.picos.add(nome="Pico 1")
+    sg = pico.setores_ou_grupos.add()
+    setor = sg.setor.conteudo
+    setor.uid = "setor_uid_1"
+    setor.nome = "Setor Original"
+
+    esc1 = setor.escaladas.add(uid="esc_fixo_1")
+    esc1.via_esportiva.nome = "Via Antiga"
+
+    mapa_mantido = setor.mapas.add(caminho_imagem_mapa="imagens/mantido.webp")
+    poi_orig = mapa_mantido.pontos_de_interesse.add(uid="poi_fixo_1", rotulo="1")
+    poi_orig.circulo.x = 10
+    poi_orig.circulo.y = 20
+    poi_orig.circulo.raio = 15
+    setor.mapas.add(caminho_imagem_mapa="imagens/orfao.webp")
+
+    model = CroquiModel(croqui)
+    model.definir_imagem_memoria("imagens/mantido.webp", b"bytes_mantido")
+    model.definir_imagem_memoria("imagens/orfao.webp", b"bytes_orfao")
+    undo_stack = QUndoStack()
+    controller = CroquiController(model, undo_stack)
+
+    # 1. Substituição de lista vazia por lista vazia não empilha comando
+    controller.alterar_campo(croqui, campo_nome="botoes", valor_novo=[])
+    assert undo_stack.count() == 0
+
+    # 2. Substituição de lista repeated primitiva (creditos)
+    controller.alterar_campo(croqui, campo_nome="creditos", valor_novo=["Novo A", "Novo B", "Novo C"])
+    assert undo_stack.count() == 1
+    assert list(croqui.creditos) == ["Novo A", "Novo B", "Novo C"]
+    undo_stack.undo()
+    assert list(croqui.creditos) == ["Antigo 1", "Antigo 2"]
+    undo_stack.redo()
+    assert list(croqui.creditos) == ["Novo A", "Novo B", "Novo C"]
+
+    # 3. Substituição em lote de Setor com escaladas e mapas (preservando UID existente e gerando novo)
+    nova_esc_1 = croqui_pb2.Escalada(uid="esc_fixo_1")
+    nova_esc_1.via_esportiva.nome = "Via Atualizada"
+    nova_esc_2 = croqui_pb2.Escalada()
+    nova_esc_2.boulder.nome = "Boulder Novo Sem UID"
+
+    novo_mapa = croqui_pb2.Mapa(caminho_imagem_mapa="imagens/mantido.webp")
+    poi_preservado = novo_mapa.pontos_de_interesse.add(uid="poi_fixo_1", rotulo="1")
+    poi_preservado.circulo.x = 100
+    poi_preservado.circulo.y = 200
+    poi_preservado.circulo.raio = 15
+    poi_novo = novo_mapa.pontos_de_interesse.add(rotulo="2")
+    poi_novo.circulo.x = 300
+    poi_novo.circulo.y = 400
+    poi_novo.circulo.raio = 15
+
+    controller.alterar_campo(
+        "setor_uid_1",
+        campos={
+            "nome": "Setor Substituido",
+            "escaladas": [nova_esc_1, nova_esc_2],
+            "mapas": [novo_mapa],
+        },
+    )
+    assert undo_stack.count() == 2
+    assert isinstance(undo_stack.command(1), CmdMacro)
+    assert setor.nome == "Setor Substituido"
+    assert len(setor.escaladas) == 2
+    assert setor.escaladas[0].uid == "esc_fixo_1"
+    assert setor.escaladas[0].via_esportiva.nome == "Via Atualizada"
+    assert len(setor.escaladas[1].uid) == 14
+    assert setor.escaladas[1].boulder.nome == "Boulder Novo Sem UID"
+    assert len(setor.mapas) == 1
+    assert setor.mapas[0].pontos_de_interesse[0].uid == "poi_fixo_1"
+    assert len(setor.mapas[0].pontos_de_interesse[1].uid) == 14
+    # A imagem mantida continua na RAM; a imagem órfã foi removida
+    assert model.obter_bytes_imagem("imagens/mantido.webp") == b"bytes_mantido"
+    assert model.obter_bytes_imagem("imagens/orfao.webp") is None
+
+    # Undo reverte todo o lote em um único passo
+    undo_stack.undo()
+    assert setor.nome == "Setor Original"
+    assert len(setor.escaladas) == 1
+    assert setor.escaladas[0].via_esportiva.nome == "Via Antiga"
+    assert len(setor.mapas) == 2
+    assert model.obter_bytes_imagem("imagens/orfao.webp") == b"bytes_orfao"
+
+

@@ -11,7 +11,7 @@ A Tela de Carregamento MUST ser a visualização de entrada da aplicação. Ela 
 - **THEN** a aplicação MUST exibir a "Tela de Carregamento" como um diálogo independente
 
 ### Requirement: Ações de Gerenciamento de Croquis
-A aplicação MUST apresentar dois botões principais de ação rápida: "Novo croqui" e "Editar croqui oficial". Cada botão MUST executar sua respectiva ação de gerenciamento.
+A aplicação MUST apresentar na Tela de Carregamento os botões principais de ação rápida: "Novo croqui", "Editar croqui oficial" e "Conectar Agente de IA (MCP)...". Cada botão MUST executar sua respectiva ação de gerenciamento, e a Tela de Carregamento MUST também aceitar transições de abertura/criação de croqui disparadas pelas ferramentas do servidor MCP.
 
 #### Scenario: Novo croqui
 - **WHEN** o usuário clica no botão "Novo croqui"
@@ -34,6 +34,10 @@ A aplicação MUST apresentar dois botões principais de ação rápida: "Novo c
 - **WHEN** o usuário clica no botão "Editar croqui oficial"
 - **THEN** a aplicação MUST abrir o diálogo de busca de croquis oficiais
 
+#### Scenario: Conectar Agente de IA a partir da Tela de Carregamento
+- **WHEN** o usuário clica no botão "Conectar Agente de IA (MCP)..." na Tela de Carregamento
+- **THEN** a aplicação MUST exibir o `DialogoConexaoMcp` com o servidor MCP já ativo na porta local, permitindo que o agente liste, crie ou abra croquis diretamente
+
 ### Requirement: Listagem de Croquis Experimentais
 A aplicação MUST escanear a pasta de croquis experimentais e exibi-los ordenados pela data de última edição (mais recentes primeiro). Se a lista estiver vazia, a aplicação MUST exibir uma mensagem informativa.
 
@@ -45,4 +49,3 @@ A aplicação MUST escanear a pasta de croquis experimentais e exibi-los ordenad
 #### Scenario: Abrir croqui do histórico
 - **WHEN** o usuário clica duas vezes em um item da lista de histórico
 - **THEN** a aplicação MUST abrir a visualização de edição para o croqui selecionado
-

@@ -94,6 +94,7 @@ class ControladorAplicativo:
         abertura_cls = sys.modules[__name__].TelaDeAbertura
         self.abertura: Any = abertura_cls()
         self.janela_principal: Any | None = None
+        self.janelas_secundarias: list[Any] = []
         self.tela_carregamento: Any | None = None
         self.tarefa: Any | None = None
         self._logout_em_andamento: bool = False
@@ -215,6 +216,45 @@ class ControladorAplicativo:
         # Conecta o sinal para permitir voltar para a seleção
         self.janela_principal.solicitar_abrir_novo.connect(self.executar_selecao)
         self.janela_principal.show()
+
+    def abrir_croqui_via_mcp(
+        self, caminho_croqui: Path, iniciar_mcp_janela: bool = True
+    ) -> dict[str, Any]:
+        """
+        Abre um croqui solicitado via ferramenta MCP:
+        - Se não houver janela principal aberta, abre na janela principal atual.
+        - Se já houver uma janela principal com outro croqui aberto, instancia uma nova janela independente.
+        """
+        from editor.core.workspace import ExperimentalWorkspace
+        from editor.legacy_views.area_principal import JanelaPrincipal
+
+        storage = self.tarefa.storage if self.tarefa else None
+        auth = getattr(self.tarefa, "gerenciador_sessao", None) if self.tarefa else None
+        workspace = ExperimentalWorkspace(caminho_croqui)
+
+        if self.janela_principal is None:
+            if self.tela_carregamento is not None:
+                self.tela_carregamento.caminho_croqui_selecionado = caminho_croqui
+                self.tela_carregamento.accept()
+            self.janela_principal = JanelaPrincipal(
+                storage=storage,
+                auth=auth,
+                workspace=workspace,
+                iniciar_mcp=iniciar_mcp_janela,
+            )
+            self.janela_principal.solicitar_abrir_novo.connect(self.executar_selecao)
+            self.janela_principal.show()
+            return {"janela_aberta": True, "nova_janela": False}
+
+        nova_janela = JanelaPrincipal(
+            storage=storage,
+            auth=auth,
+            workspace=workspace,
+            iniciar_mcp=iniciar_mcp_janela,
+        )
+        self.janelas_secundarias.append(nova_janela)
+        nova_janela.show()
+        return {"janela_aberta": True, "nova_janela": True}
 
     def mostrar_erro(self, mensagem: str) -> None:
         if self.abertura:

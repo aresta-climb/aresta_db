@@ -11,6 +11,7 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
+import httpx
 import uvicorn
 from fastapi import FastAPI, Request, Response
 from fastapi.responses import JSONResponse, StreamingResponse
@@ -20,6 +21,8 @@ from editor.mcp.despachante import DespachanteQt
 from editor.mcp.sessao import (
     DadosSessaoMcp,
     gravar_sessao_mcp,
+    listar_sessoes_mcp,
+    registrar_sessao_multi_mcp,
     remover_sessao_mcp,
     vincular_socket_mcp,
 )
@@ -33,6 +36,7 @@ class DefinicaoFerramentaMcp:
     descricao: str
     esquema_entrada: dict[str, Any]
     manipulador: Callable[[dict[str, Any]], Any]
+    requer_croqui: bool = True
 
 
 @dataclass
@@ -66,6 +70,9 @@ class ServidorMCP:
         self.ferramentas: dict[str, DefinicaoFerramentaMcp] = {}
         self.recursos: dict[str, DefinicaoRecursoMcp] = {}
         self.sessao: DadosSessaoMcp | None = None
+        self.id_croqui_ativo: str = ""
+        self.caminho_database_ativo: str = ""
+        self.croqui_aberto: bool = True
         self._filas_sse: dict[
             str, tuple[asyncio.AbstractEventLoop, asyncio.Queue[dict[str, Any] | None]]
         ] = {}
@@ -85,19 +92,55 @@ class ServidorMCP:
             self._server is not None and self._thread is not None and self._thread.is_alive()
         )
 
+    def definir_croqui_ativo(
+        self,
+        id_croqui: str,
+        caminho_database: str = "",
+        croqui_aberto: bool = True,
+    ) -> None:
+        """Atualiza o croqui ativo desta janela e sincroniza o registro multi-sessão MCP."""
+        self.id_croqui_ativo = str(id_croqui).strip()
+        self.caminho_database_ativo = str(caminho_database).strip()
+        self.croqui_aberto = bool(croqui_aberto)
+        if self.sessao is not None:
+            self.sessao = DadosSessaoMcp(
+                porta=self.sessao.porta,
+                pid=self.sessao.pid,
+                token=self.sessao.token,
+                id_croqui=self.id_croqui_ativo if self.croqui_aberto else "",
+                caminho_database=self.caminho_database_ativo if self.croqui_aberto else "",
+            )
+            registrar_sessao_multi_mcp(self.sessao, diretorio_base=self.diretorio_sessao)
+
     def registrar_ferramenta(
         self,
         nome: str,
         descricao: str,
         esquema_entrada: dict[str, Any],
         manipulador: Callable[[dict[str, Any]], Any],
+        requer_croqui: bool = True,
     ) -> None:
         """Registra uma ferramenta no catálogo MCP do servidor."""
+        esquema_final = dict(esquema_entrada)
+        if requer_croqui and isinstance(esquema_final.get("properties"), dict):
+            props = dict(esquema_final["properties"])
+            props.setdefault(
+                "id_croqui",
+                {
+                    "type": "string",
+                    "description": (
+                        "ID opcional do croqui alvo quando múltiplos croquis estiverem "
+                        "abertos simultaneamente."
+                    ),
+                },
+            )
+            esquema_final["properties"] = props
         self.ferramentas[nome] = DefinicaoFerramentaMcp(
             nome=nome,
             descricao=descricao,
-            esquema_entrada=esquema_entrada,
+            esquema_entrada=esquema_final,
             manipulador=manipulador,
+            requer_croqui=requer_croqui,
         )
 
     def registrar_recurso(
@@ -197,6 +240,13 @@ class ServidorMCP:
                         "message": f"Ferramenta MCP desconhecida: '{nome_ferramenta}'.",
                     },
                 }
+
+            if ferramenta.requer_croqui:
+                resposta_roteamento = self._resolver_guarda_ou_roteamento_croqui(
+                    req_id, mensagem, argumentos
+                )
+                if resposta_roteamento is not None:
+                    return resposta_roteamento
 
             try:
                 resultado = self.despachante.executar(ferramenta.manipulador, argumentos)
@@ -350,13 +400,92 @@ class ServidorMCP:
 
         return app
 
+    def _encaminhar_via_proxy(self, url_http: str, mensagem: dict[str, Any]) -> dict[str, Any]:
+        """Encaminha a mensagem JSON-RPC via HTTP local sem bloquear o loop de eventos do Qt."""
+        caixa_resposta: list[dict[str, Any]] = []
+
+        def _fazer_post() -> None:
+            with httpx.Client(timeout=30.0) as client:
+                resp = client.post(url_http, json=mensagem)
+                caixa_resposta.append(resp.json())
+
+        thread_proxy = threading.Thread(target=_fazer_post, daemon=True)
+        thread_proxy.start()
+        while thread_proxy.is_alive():
+            QCoreApplication.processEvents()
+            thread_proxy.join(timeout=0.01)
+        return caixa_resposta[0]
+
+    def _erro_ferramenta_mcp(self, req_id: Any, mensagem_erro: str) -> dict[str, Any]:
+        texto_erro = json.dumps({"erro": mensagem_erro, "tipo": "ValueError"}, ensure_ascii=False)
+        return {
+            "jsonrpc": "2.0",
+            "id": req_id,
+            "result": {
+                "isError": True,
+                "content": [{"type": "text", "text": texto_erro}],
+            },
+        }
+
+    def _resolver_guarda_ou_roteamento_croqui(
+        self,
+        req_id: Any,
+        mensagem: dict[str, Any],
+        argumentos: dict[str, Any],
+    ) -> dict[str, Any] | None:
+        """
+        Verifica a guarda defensiva 'Nenhum Croqui Aberto' e realiza roteamento proxy
+        quando há múltiplas janelas ou quando o croqui alvo reside em outra porta local.
+        Retorna `None` se a ferramenta deve ser executada localmente nesta instância.
+        """
+        id_croqui_req = str(argumentos.get("id_croqui") or "").strip()
+        sessoes_com_croqui = [
+            s for s in listar_sessoes_mcp(self.diretorio_sessao) if s.id_croqui
+        ]
+        ids_abertos = [s.id_croqui for s in sessoes_com_croqui]
+
+        if id_croqui_req:
+            if self.croqui_aberto and self.id_croqui_ativo == id_croqui_req:
+                return None
+            for sessao_remota in sessoes_com_croqui:
+                if sessao_remota.id_croqui == id_croqui_req and sessao_remota.porta != self.porta:
+                    return self._encaminhar_via_proxy(sessao_remota.url_http, mensagem)
+            return self._erro_ferramenta_mcp(
+                req_id,
+                f"Croqui '{id_croqui_req}' não está aberto. Croquis abertos no momento: {ids_abertos}.",
+            )
+
+        if len(sessoes_com_croqui) > 1:
+            return self._erro_ferramenta_mcp(
+                req_id,
+                f"Múltiplos croquis estão abertos simultaneamente ({ids_abertos}). "
+                "Informe o parâmetro 'id_croqui' para indicar qual croqui deseja acessar.",
+            )
+
+        if not self.croqui_aberto:
+            if len(sessoes_com_croqui) == 1 and sessoes_com_croqui[0].porta != self.porta:
+                return self._encaminhar_via_proxy(sessoes_com_croqui[0].url_http, mensagem)
+            return self._erro_ferramenta_mcp(
+                req_id,
+                "Nenhum croqui está aberto no Editor Aresta. Use aresta_listar_croquis, "
+                "aresta_abrir_croqui_existente, aresta_importar_croqui_oficial ou "
+                "aresta_criar_novo_croqui primeiro.",
+            )
+
+        return None
+
     def iniciar(self, aguardar_pronto: bool = True, timeout: float = 5.0) -> DadosSessaoMcp:
         """Inicia o servidor Uvicorn em segundo plano vinculado a `127.0.0.1` e grava `mcp_sessao.json`."""
         if self.esta_ativo and self.sessao is not None:
             return self.sessao
 
         sock, porta = vincular_socket_mcp(porta_preferencial=self.porta_preferencial)
-        self.sessao = gravar_sessao_mcp(porta=porta, diretorio_base=self.diretorio_sessao)
+        self.sessao = gravar_sessao_mcp(
+            porta=porta,
+            diretorio_base=self.diretorio_sessao,
+            id_croqui=self.id_croqui_ativo if self.croqui_aberto else "",
+            caminho_database=self.caminho_database_ativo if self.croqui_aberto else "",
+        )
 
         config = uvicorn.Config(
             app=self.app,
@@ -386,7 +515,7 @@ class ServidorMCP:
         return self.sessao
 
     def parar(self) -> None:
-        """Encerra o servidor Uvicorn em segundo plano, fecha streams SSE e remove `mcp_sessao.json`."""
+        """Encerra o servidor Uvicorn em segundo plano, fecha streams SSE e remove a sessão."""
         for loop_sse, fila_sse in list(self._filas_sse.values()):
             loop_sse.call_soon_threadsafe(fila_sse.put_nowait, None)
         self._filas_sse.clear()
@@ -396,7 +525,8 @@ class ServidorMCP:
         if self._thread is not None and self._thread.is_alive():
             self._thread.join(timeout=3.0)
 
+        porta_encerrada = self.sessao.porta if self.sessao is not None else None
         self._server = None
         self._thread = None
         self.sessao = None
-        remover_sessao_mcp(self.diretorio_sessao)
+        remover_sessao_mcp(self.diretorio_sessao, porta=porta_encerrada)

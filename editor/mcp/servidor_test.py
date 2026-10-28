@@ -274,3 +274,139 @@ def test_transporte_sse_e_ciclo_vida_servidor_real(qapp, tmp_path: Path):
 
     assert servidor.esta_ativo is False
     assert ler_sessao_mcp(tmp_path) is None
+
+
+def test_guarda_sem_croqui_aberto_e_roteamento_proxy_multi_janela(qapp, tmp_path: Path):
+    """
+    Valida:
+    1. Guarda defensiva quando nenhum croqui está aberto (ferramentas com requer_croqui=True retornam erro,
+       enquanto ferramentas globais com requer_croqui=False executam normalmente).
+    2. Roteamento proxy transparente da porta primária para uma segunda instância do ServidorMCP
+       por id_croqui, e erro de desambiguação quando id_croqui é omitido com >1 croquis abertos.
+    """
+    srv_primario = _criar_servidor_teste(tmp_path)
+    srv_primario.registrar_ferramenta(
+        nome="aresta_listar_croquis",
+        descricao="Lista croquis.",
+        esquema_entrada={"type": "object", "properties": {}},
+        manipulador=lambda _args: {"abertos": []},
+        requer_croqui=False,
+    )
+    srv_primario.definir_croqui_ativo("", croqui_aberto=False)
+
+    # 1. Sem croqui aberto: ferramenta de edição falha com guarda defensiva; global funciona
+    resp_bloqueada = srv_primario.processar_mensagem_jsonrpc(
+        {
+            "jsonrpc": "2.0",
+            "id": 1,
+            "method": "tools/call",
+            "params": {"name": "aresta_somar", "arguments": {"a": 1, "b": 2}},
+        }
+    )
+    assert resp_bloqueada is not None
+    assert resp_bloqueada["result"]["isError"] is True
+    assert "Nenhum croqui está aberto" in resp_bloqueada["result"]["content"][0]["text"]
+
+    resp_global = srv_primario.processar_mensagem_jsonrpc(
+        {
+            "jsonrpc": "2.0",
+            "id": 2,
+            "method": "tools/call",
+            "params": {"name": "aresta_listar_croquis", "arguments": {}},
+        }
+    )
+    assert resp_global is not None
+    assert resp_global["result"]["isError"] is False
+
+    # 2. Inicia dois servidores reais com croquis distintos ("croqui_a" e "croqui_b")
+    srv_secundario = _criar_servidor_teste(tmp_path)
+    srv_secundario.registrar_ferramenta(
+        nome="aresta_identificar",
+        descricao="Retorna id do servidor.",
+        esquema_entrada={"type": "object", "properties": {"id_croqui": {"type": "string"}}},
+        manipulador=lambda _args: {"janela": "secundaria_b"},
+    )
+    srv_primario.registrar_ferramenta(
+        nome="aresta_identificar",
+        descricao="Retorna id do servidor.",
+        esquema_entrada={"type": "object", "properties": {"id_croqui": {"type": "string"}}},
+        manipulador=lambda _args: {"janela": "primaria_a"},
+    )
+
+    srv_primario.iniciar()
+    srv_secundario.iniciar()
+    try:
+        # Quando o primário está na Tela de Carregamento (sem croqui) e apenas o secundário tem "croqui_b" aberto,
+        # chamadas sem id_croqui no primário são encaminhadas automaticamente para o único croqui aberto ("croqui_b")!
+        srv_secundario.definir_croqui_ativo("croqui_b", "/db/b", croqui_aberto=True)
+        resp_unico_remoto = srv_primario.processar_mensagem_jsonrpc(
+            {
+                "jsonrpc": "2.0",
+                "id": 3,
+                "method": "tools/call",
+                "params": {"name": "aresta_identificar", "arguments": {}},
+            }
+        )
+        assert resp_unico_remoto is not None
+        assert resp_unico_remoto["result"]["structuredContent"] == {"janela": "secundaria_b"}
+
+        # Agora o primário também abre "croqui_a" -> temos 2 croquis abertos ("croqui_a" e "croqui_b")
+        srv_primario.definir_croqui_ativo("croqui_a", "/db/a", croqui_aberto=True)
+
+        # Omitir id_croqui com 2 croquis abertos deve exigir desambiguação
+        resp_ambiguo = srv_primario.processar_mensagem_jsonrpc(
+            {
+                "jsonrpc": "2.0",
+                "id": 4,
+                "method": "tools/call",
+                "params": {"name": "aresta_identificar", "arguments": {}},
+            }
+        )
+        assert resp_ambiguo is not None
+        assert resp_ambiguo["result"]["isError"] is True
+        assert "croqui_a" in resp_ambiguo["result"]["content"][0]["text"]
+        assert "croqui_b" in resp_ambiguo["result"]["content"][0]["text"]
+
+        # Informando id_croqui="croqui_a" -> executa no primário
+        resp_a = srv_primario.processar_mensagem_jsonrpc(
+            {
+                "jsonrpc": "2.0",
+                "id": 5,
+                "method": "tools/call",
+                "params": {"name": "aresta_identificar", "arguments": {"id_croqui": "croqui_a"}},
+            }
+        )
+        assert resp_a is not None
+        assert resp_a["result"]["structuredContent"] == {"janela": "primaria_a"}
+
+        # Informando id_croqui="croqui_b" no primário -> faz proxy transparente para o secundário
+        resp_b = srv_primario.processar_mensagem_jsonrpc(
+            {
+                "jsonrpc": "2.0",
+                "id": 6,
+                "method": "tools/call",
+                "params": {"name": "aresta_identificar", "arguments": {"id_croqui": "croqui_b"}},
+            }
+        )
+        assert resp_b is not None
+        assert resp_b["result"]["structuredContent"] == {"janela": "secundaria_b"}
+
+        # Informando id_croqui inexistente -> retorna erro listando os abertos
+        resp_inex = srv_primario.processar_mensagem_jsonrpc(
+            {
+                "jsonrpc": "2.0",
+                "id": 7,
+                "method": "tools/call",
+                "params": {
+                    "name": "aresta_identificar",
+                    "arguments": {"id_croqui": "croqui_inexistente"},
+                },
+            }
+        )
+        assert resp_inex is not None
+        assert resp_inex["result"]["isError"] is True
+        assert "croqui_inexistente" in resp_inex["result"]["content"][0]["text"]
+    finally:
+        srv_secundario.parar()
+        srv_primario.parar()
+

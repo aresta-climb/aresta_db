@@ -510,3 +510,27 @@ def test_tela_de_carregamento_titulo_e_icone_canal_beta(qtbot, monkeypatch):
     assert tela.windowTitle() == "Iniciar Editor Aresta (Beta)"
     assert not tela.windowIcon().isNull()
     tela.close()
+
+
+def test_tela_de_carregamento_possui_botao_conectar_mcp_e_abre_croqui_via_mcp(qtbot, tmp_path):
+    """
+    Garante que a TelaDeCarregamento exibe o botão 'Conectar Agente de IA (MCP)...',
+    inicia o servidor MCP em modo sem croqui aberto e permite abrir croqui via callback MCP.
+    """
+    tela = TelaDeCarregamento(diretorio_sessao_mcp=tmp_path)
+    qtbot.addWidget(tela)
+
+    assert hasattr(tela, "btn_mcp")
+    assert tela.btn_mcp.text() == "Conectar Agente de IA (MCP)..."
+
+    servidor = tela.garantir_servidor_mcp(iniciar_rede=False)
+    assert servidor.croqui_aberto is False
+    assert "aresta_listar_croquis" in servidor.ferramentas
+    assert "aresta_criar_novo_croqui" in servidor.ferramentas
+
+    pasta_croqui = tmp_path / "croqui_mcp_teste"
+    pasta_croqui.mkdir()
+    res = tela._abrir_croqui_via_mcp(pasta_croqui)
+    assert res["janela_aberta"] is True
+    assert tela.caminho_croqui_selecionado == pasta_croqui
+

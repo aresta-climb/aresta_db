@@ -262,6 +262,7 @@ def registrar_ferramentas_conhecimento(
             },
         },
         manipulador=_obter_esquema_proto,
+        requer_croqui=False,
     )
 
     servidor.registrar_ferramenta(
@@ -272,6 +273,7 @@ def registrar_ferramentas_conhecimento(
         ),
         esquema_entrada={"type": "object", "properties": {}},
         manipulador=_listar_skills,
+        requer_croqui=False,
     )
 
     servidor.registrar_ferramenta(
@@ -291,6 +293,7 @@ def registrar_ferramentas_conhecimento(
             "required": ["nome_skill"],
         },
         manipulador=_ler_skill,
+        requer_croqui=False,
     )
 
     servidor.registrar_recurso(

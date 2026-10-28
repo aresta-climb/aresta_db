@@ -18,7 +18,13 @@ from editor.commands.comandos_protobuf import (
     CmdMoverRepeated,
     CmdRemoverRepeated,
     ComandoEditor,
+    _ajustar_submensagem_variante_se_necessario,
+    _eh_campo_repeated,
+    _validar_tipo_valor_campo,
+    navegar_para_alvo,
+    validar_pertence_ao_croqui,
 )
+from editor.core.imagens_croqui import extrair_caminhos_imagens
 from editor.models.croqui_model import CroquiModel
 
 
@@ -89,18 +95,68 @@ class CroquiController:
         if not mapa_campos:
             return
 
-        comandos: list[ComandoEditor] = [
-            CmdAlterarCampo(
-                model=self.model,
-                alvo=alvo,
-                campo_nome=nome_c,
-                valor_novo=val_c,
-                pode_mesclar=pode_mesclar if len(mapa_campos) == 1 else False,
-                session_id=session_id if len(mapa_campos) == 1 else None,
-                context_path=self.contexto_atual_path,
+        comandos: list[ComandoEditor] = []
+        for nome_c, val_c in mapa_campos.items():
+            if "." not in nome_c and isinstance(val_c, (list, tuple)):
+                caminho_res = validar_pertence_ao_croqui(
+                    self.model, alvo, nome_c, nome_comando="CmdAlterarCampo"
+                )
+                msg_alvo = (
+                    navegar_para_alvo(
+                        self.model.obter_croqui_readonly(), caminho_res, self.model.indice_uids
+                    )
+                    if isinstance(alvo, str)
+                    else alvo
+                )
+                msg_alvo, _ = _ajustar_submensagem_variante_se_necessario(
+                    msg_alvo, caminho_res, nome_c
+                )
+                field_desc = msg_alvo.DESCRIPTOR.fields_by_name.get(nome_c)
+                if field_desc is not None and _eh_campo_repeated(field_desc):
+                    for item_novo in val_c:
+                        _validar_tipo_valor_campo(field_desc, item_novo, nome_c)
+                    caminhos_mantidos = {
+                        c for item_novo in val_c for c in extrair_caminhos_imagens(item_novo)
+                    }
+                    colecao_atual = getattr(msg_alvo, nome_c)
+                    for idx_rem in range(len(colecao_atual) - 1, -1, -1):
+                        cmd_rem = CmdRemoverRepeated(
+                            model=self.model,
+                            alvo=msg_alvo,
+                            campo_nome=nome_c,
+                            index=idx_rem,
+                            valor_removido=colecao_atual[idx_rem],
+                            context_path=self.contexto_atual_path,
+                        )
+                        for cam in caminhos_mantidos:
+                            cmd_rem.imagens_removidas_ram.pop(cam, None)
+                        comandos.append(cmd_rem)
+                    for idx_add, item_novo in enumerate(val_c):
+                        comandos.append(
+                            CmdAdicionarRepeated(
+                                model=self.model,
+                                alvo=msg_alvo,
+                                campo_nome=nome_c,
+                                index=idx_add,
+                                valor=item_novo,
+                                context_path=self.contexto_atual_path,
+                            )
+                        )
+                    continue
+
+            comandos.append(
+                CmdAlterarCampo(
+                    model=self.model,
+                    alvo=alvo,
+                    campo_nome=nome_c,
+                    valor_novo=val_c,
+                    pode_mesclar=pode_mesclar if len(mapa_campos) == 1 else False,
+                    session_id=session_id if len(mapa_campos) == 1 else None,
+                    context_path=self.contexto_atual_path,
+                )
             )
-            for nome_c, val_c in mapa_campos.items()
-        ]
+        if not comandos:
+            return
         if len(comandos) == 1:
             self._executar_comando(comandos[0])
         else:

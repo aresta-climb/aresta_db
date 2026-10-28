@@ -1,6 +1,7 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
+from pathlib import Path
 from unittest.mock import MagicMock, patch
 
 import pytest
@@ -375,3 +376,51 @@ def test_controlador_app_mostrar_janela_principal_sem_selecao(qtbot):
         controlador.mostrar_janela_principal()
         assert controlador.janela_principal is None
         controlador.abertura.close()
+
+
+def test_controlador_app_abrir_croqui_via_mcp_atual_e_multi_janela(qtbot, tmp_path):
+    """
+    Valida que ControladorAplicativo abre o primeiro croqui na janela principal atual
+    e abre croquis subsequentes em novas janelas independentes quando já há um croqui aberto.
+    """
+    from scripts.gerenciar_uids_lib import gerar_uid
+    from scripts.migrador import obter_ultima_versao_migracao
+
+    def _criar_pasta_exp(nome_id: str) -> Path:
+        p = tmp_path / nome_id
+        (p / "database").mkdir(parents=True, exist_ok=True)
+        (p / "database" / "croqui.yaml").write_text(
+            f"id: {nome_id}\nuid: {gerar_uid()}\nnome: {nome_id}\nultima_migracao: {obter_ultima_versao_migracao()}\n",
+            encoding="utf-8",
+        )
+        return p
+
+    pasta_a = _criar_pasta_exp("croqui_janela_a")
+    pasta_b = _criar_pasta_exp("croqui_janela_b")
+
+    with patch("editor.main.TarefaInicializacao") as MockTarefa:
+        mock_tarefa_inst = MockTarefa.return_value
+        mock_tarefa_inst.storage = None
+        mock_tarefa_inst.gerenciador_sessao = None
+        mock_tarefa_inst.sessao_usuario = None
+
+        controlador = ControladorAplicativo()
+        try:
+            # 1. Sem janela principal aberta -> abre na janela principal atual
+            res1 = controlador.abrir_croqui_via_mcp(pasta_a, iniciar_mcp_janela=False)
+            assert res1["janela_aberta"] is True
+            assert res1["nova_janela"] is False
+            assert controlador.janela_principal is not None
+
+            # 2. Com janela principal já aberta -> instancia segunda janela independente
+            res2 = controlador.abrir_croqui_via_mcp(pasta_b, iniciar_mcp_janela=False)
+            assert res2["janela_aberta"] is True
+            assert res2["nova_janela"] is True
+            assert len(controlador.janelas_secundarias) == 1
+        finally:
+            for j in controlador.janelas_secundarias:
+                j.close()
+            if controlador.janela_principal:
+                controlador.janela_principal.close()
+            controlador.abertura.close()
+
