@@ -173,11 +173,13 @@ pdf = [
 ]
 validador = [
     { name = "aresta-api" },
+    { name = "boto3" },
     { name = "nanoid" },
     { name = "pillow" },
     { name = "protobuf" },
     { name = "pygit2" },
     { name = "pyyaml" },
+    { name = "qrcode" },
 ]
 
 [package.metadata]
@@ -273,11 +275,13 @@ pdf = [
 ]
 validador = [
     { name = "aresta-api", virtual = "aresta_api" },
+    { name = "boto3" },
     { name = "nanoid", specifier = ">=2.0.0" },
     { name = "pillow" },
     { name = "protobuf" },
     { name = "pygit2" },
     { name = "pyyaml" },
+    { name = "qrcode" },
 ]
 
 [[package]]

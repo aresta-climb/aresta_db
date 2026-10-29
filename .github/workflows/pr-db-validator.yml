@@ -2,11 +2,13 @@ name: Validador do Database (PR)
 
 on:
   pull_request:
+    types: [opened, synchronize, reopened, closed]
     paths:
       - 'database/**'
 
 jobs:
   validate:
+    if: github.event.action != 'closed'
     runs-on: ubuntu-latest
     steps:
       - name: Generate Github App Token
@@ -31,7 +33,7 @@ jobs:
             pyproject.toml
             uv.lock
             .python-version
-      
+
       - name: Setup uv e Python
         uses: astral-sh/setup-uv@v10.0.1
         with:
@@ -43,7 +45,7 @@ jobs:
       - name: Install dependencies
         run: |
           uv sync --frozen --only-group validador
-          
+
       - name: Get changed files
         id: changed-files
         uses: tj-actions/changed-files@v47
@@ -51,16 +53,40 @@ jobs:
           files: database/**
           dir_names: true
           dir_names_max_depth: 2
-          
-      - name: Run Validator
+
+      - name: Extrair Estado Base da Branch Alvo
+        if: steps.changed-files.outputs.any_changed == 'true'
+        run: |
+          mkdir -p /tmp/base_database
+          git fetch --no-tags --depth=1 origin "${{ github.base_ref }}"
+          for PASTA in ${{ steps.changed-files.outputs.all_changed_files }}; do
+            if git cat-file -e "origin/${{ github.base_ref }}:${PASTA}" 2>/dev/null; then
+              git archive "origin/${{ github.base_ref }}" "${PASTA}" | tar -x -C /tmp
+            fi
+          done
+          if [ -d /tmp/database ]; then
+            cp -r /tmp/database/* /tmp/base_database/ 2>/dev/null || true
+          fi
+
+      - name: Run Validator e Publicar Prévia da PR
         id: validacao_pr
         if: steps.changed-files.outputs.any_changed == 'true'
         env:
           PYTHONPATH: .
+          AWS_ACCESS_KEY_ID: ${{ secrets.CLOUDFLARE_S3_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.CLOUDFLARE_S3_SECRET_ACCESS_KEY }}
+          AWS_REGION: auto
+          R2_ENDPOINT_URL: ${{ secrets.CLOUDFLARE_S3_API_URL }}
+          R2_BUCKET: aresta-serving
         run: |
           set +e
           set -o pipefail
-          uv run serving/pr_db_validator.py --pastas ${{ steps.changed-files.outputs.all_changed_files }} 2>&1 | tee validador_output.txt
+          uv run serving/pr_db_validator.py \
+            --pastas ${{ steps.changed-files.outputs.all_changed_files }} \
+            --base-database /tmp/base_database \
+            --numero-pr ${{ github.event.pull_request.number }} \
+            --commit-sha ${{ github.event.pull_request.head.sha }} \
+            --comentario-saida pr_comment.txt 2>&1 | tee validador_output.txt
           CODIGO_SAIDA=$?
           echo "codigo_saida=$CODIGO_SAIDA" >> $GITHUB_OUTPUT
           exit $CODIGO_SAIDA
@@ -71,26 +97,76 @@ jobs:
           echo "🚨 ERRO INTERNO NO VALIDADOR DO DATABASE (exit code ${{ steps.validacao_pr.outputs.codigo_saida }})"
           exit 2
 
-      - name: Gerar Comentário de Sucesso
-        if: success() && steps.changed-files.outputs.any_changed == 'true'
-        run: |
-          echo "✅ **Validação Concluída com Sucesso!** Todos os cabeçalhos, licenças e croquis modificados foram validados sem erros." > pr_comment.txt
-
-      - name: Gerar Comentário de Falha
+      - name: Gerar Comentário de Fallback em Caso de Erro Interno
         if: failure() && steps.changed-files.outputs.any_changed == 'true'
         run: |
-          echo "❌ **Falha na Validação do Pull Request**" > pr_comment.txt
-          echo "" >> pr_comment.txt
-          echo "\`\`\`" >> pr_comment.txt
-          cat validador_output.txt >> pr_comment.txt 2>/dev/null || echo "Falha na execução do validador." >> pr_comment.txt
-          echo "\`\`\`" >> pr_comment.txt
+          if [ ! -f pr_comment.txt ]; then
+            echo "<!-- aresta-pr-validator -->" > pr_comment.txt
+            echo "### ❌ Falha na Validação da Pull Request" >> pr_comment.txt
+            echo "" >> pr_comment.txt
+            echo "\`\`\`text" >> pr_comment.txt
+            cat validador_output.txt >> pr_comment.txt 2>/dev/null || echo "Falha na execução do validador." >> pr_comment.txt
+            echo "\`\`\`" >> pr_comment.txt
+          fi
 
-      - name: Comentar no PR
+      - name: Atualizar Comentário Único no Final da PR (Delete & Recreate)
         if: always() && steps.changed-files.outputs.any_changed == 'true'
         env:
           GH_TOKEN: ${{ steps.app-token.outputs.token }}
         run: |
           if [ -f pr_comment.txt ]; then
+            IDS_ANTIGOS=$(gh api "repos/${{ github.repository }}/issues/${{ github.event.pull_request.number }}/comments" --paginate --jq '.[] | select(.body | contains("<!-- aresta-pr-validator -->")) | .id' || true)
+            for CID in $IDS_ANTIGOS; do
+              gh api -X DELETE "repos/${{ github.repository }}/issues/comments/${CID}" || true
+            done
             gh pr comment ${{ github.event.pull_request.number }} --body-file pr_comment.txt
           fi
 
+  cleanup-pr:
+    if: github.event.action == 'closed'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Generate Github App Token
+        id: app-token
+        uses: actions/create-github-app-token@v3
+        with:
+          client-id: ${{ secrets.BOT_CLIENT_ID }}
+          private-key: ${{ secrets.BOT_PRIVATE_KEY }}
+
+      - uses: actions/checkout@v7
+        with:
+          token: ${{ steps.app-token.outputs.token }}
+          submodules: recursive
+          sparse-checkout: |
+            .gitmodules
+            editor
+            serving
+            scripts
+            migracoes
+            aresta_api
+            pyproject.toml
+            uv.lock
+            .python-version
+
+      - name: Setup uv e Python
+        uses: astral-sh/setup-uv@v10.0.1
+        with:
+          version: "latest"
+          python-version: "3.13"
+          enable-cache: true
+          cache-dependency-glob: uv.lock
+
+      - name: Install dependencies
+        run: |
+          uv sync --frozen --only-group validador
+
+      - name: Limpar Pasta da PR no Cloudflare R2
+        env:
+          PYTHONPATH: .
+          AWS_ACCESS_KEY_ID: ${{ secrets.CLOUDFLARE_S3_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.CLOUDFLARE_S3_SECRET_ACCESS_KEY }}
+          AWS_REGION: auto
+          R2_ENDPOINT_URL: ${{ secrets.CLOUDFLARE_S3_API_URL }}
+          R2_BUCKET: aresta-serving
+        run: |
+          uv run serving/pr_db_validator.py --limpar-pr ${{ github.event.pull_request.number }}

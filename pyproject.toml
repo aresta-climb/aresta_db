@@ -21,6 +21,8 @@ deploy = [
 validador = [
     {include-group = "deploy"},
     "pygit2",
+    "qrcode",
+    "boto3",
 ]
 
 # Interface gráfica do Editor Aresta 
