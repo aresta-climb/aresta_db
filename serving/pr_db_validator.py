@@ -61,11 +61,7 @@ def validar_versoes_migracao(
     o campo 'ultima_migracao' atualizado com a versão mais recente das migrações.
     """
     erros: list[str] = []
-    esperada = (
-        obter_ultima_versao_migracao()
-        if versao_esperada is None
-        else versao_esperada
-    )
+    esperada = obter_ultima_versao_migracao() if versao_esperada is None else versao_esperada
     if esperada == 0:
         return erros
 
@@ -338,7 +334,9 @@ def main(
                 cliente_r2=cli_s3,
                 bucket=bkt,
             )
-            print(f"Limpeza da PR #{args.limpar_pr} concluída ({len(removidos)} objetos removidos).")
+            print(
+                f"Limpeza da PR #{args.limpar_pr} concluída ({len(removidos)} objetos removidos)."
+            )
         return 0
 
     if not args.pastas:

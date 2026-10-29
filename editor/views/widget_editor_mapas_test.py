@@ -6302,4 +6302,3 @@ def test_confluencia_direta_no_topo_final_sem_popover(qtbot):
         no_fim = poi.linha.conteudo.nos[-1]
         assert no_fim.tipo == croqui_pb2.NoTrajeto.TipoNo.FIM_TOP
         assert no_fim.rotulo == "A"
-

@@ -162,7 +162,6 @@ class CroquiController:
         else:
             self._executar_comando(CmdMacro(comandos, texto=f"Alterar {len(comandos)} campos"))
 
-
     def alterar_primitivo(
         self,
         msg: Any,
@@ -478,7 +477,6 @@ class CroquiController:
         )
         self._executar_comando(cmd)
 
-
     def adicionar_mapa_com_arquivo(
         self,
         msg: Any,
@@ -575,8 +573,9 @@ class CroquiController:
             ].caminho_novo = caminho_novo
 
         if campo_destino == "setores_ou_grupos":
-            item_destino = croqui_pb2.SetorOuGrupo()
-            item_destino.setor.CopyFrom(arq_setor)
+            sg = croqui_pb2.SetorOuGrupo()
+            sg.setor.CopyFrom(arq_setor)
+            item_destino: Any = sg
         else:
             item_destino = arq_setor
 

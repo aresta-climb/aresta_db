@@ -3,6 +3,7 @@
 
 import ast
 import os
+import sys
 from collections.abc import Sequence
 
 from mypy import api
@@ -18,11 +19,21 @@ def executar_verificacao_mypy(
     Retorna uma tupla contendo (codigo_saida, stdout, stderr).
     """
     argumentos: list[str] = list(caminhos)
-    if config_path and os.path.exists(config_path):
-        argumentos.insert(0, f"--config-file={config_path}")
+    sys_path_original = list(sys.path)
+    try:
+        if config_path and os.path.exists(config_path):
+            argumentos.insert(0, f"--config-file={config_path}")
+            caminho_aresta_api = os.path.normcase(
+                os.path.abspath(os.path.join(os.path.dirname(config_path), "aresta_api"))
+            )
+            sys.path[:] = [
+                p for p in sys.path if os.path.normcase(os.path.abspath(p)) != caminho_aresta_api
+            ]
 
-    stdout, stderr, codigo_saida = api.run(argumentos)
-    return codigo_saida, stdout, stderr
+        stdout, stderr, codigo_saida = api.run(argumentos)
+        return codigo_saida, stdout, stderr
+    finally:
+        sys.path[:] = sys_path_original
 
 
 def verificar_anotacoes_ast(codigo_fonte: str) -> list[str]:

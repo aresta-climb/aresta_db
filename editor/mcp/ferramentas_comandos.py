@@ -200,9 +200,7 @@ def registrar_ferramentas_comandos(
         if args.get("campo"):
             mapa_entrada[str(args["campo"])] = args.get("valor")
         if not mapa_entrada:
-            raise ValueError(
-                "Informe 'campo' (com 'valor') ou o dicionário 'campos' para alterar."
-            )
+            raise ValueError("Informe 'campo' (com 'valor') ou o dicionário 'campos' para alterar.")
 
         mapa_coagido: dict[str, Any] = {}
         ultimo_caminho = ""

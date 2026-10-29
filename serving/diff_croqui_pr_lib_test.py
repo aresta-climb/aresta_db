@@ -41,7 +41,9 @@ def test_classifica_croqui_ausente_na_base_como_novo_e_contabiliza_entidades(
         caminho_thumbnail="imagens/thumb.webp",
     )
     _criar_imagem_webp(dir_pr / "serra_cipo" / "imagens" / "thumb.webp", 200, 150, (20, 40, 60))
-    _criar_imagem_webp(dir_pr / "serra_cipo" / "imagens" / "mapa_setor.webp", 800, 600, (90, 90, 90))
+    _criar_imagem_webp(
+        dir_pr / "serra_cipo" / "imagens" / "mapa_setor.webp", 800, 600, (90, 90, 90)
+    )
     croqui.arquivos_externos.add(caminho="imagens/thumb.webp", checksum_sha256="sha_thumb_novo")
     croqui.arquivos_externos.add(caminho="imagens/mapa_setor.webp", checksum_sha256="sha_mapa_novo")
 
@@ -101,7 +103,9 @@ def test_pareia_entidades_por_uid_detectando_renomeacoes_e_edicoes_de_campos(
         nome="Ouro Preto",
         descricao="Texto antigo do croqui.",
     )
-    pico_base = croqui_base.picos.add(nome="Parque das Andorinhas", cidade="Ouro Preto", estado="MG")
+    pico_base = croqui_base.picos.add(
+        nome="Parque das Andorinhas", cidade="Ouro Preto", estado="MG"
+    )
     grupo_base_rem = pico_base.setores_ou_grupos.add().grupo.conteudo
     grupo_base_rem.uid = "uid_grupo_rem"
     grupo_base_rem.nome = "Grupo Removido"
@@ -113,7 +117,9 @@ def test_pareia_entidades_por_uid_detectando_renomeacoes_e_edicoes_de_campos(
     grupo_base_mod.uid = "uid_grupo_mod"
     grupo_base_mod.nome = "Grupo Antigo"
     grupo_base_mod.caminho_imagem_capa = "imagens/capa_grupo.webp"
-    grupo_base_mod.mapas.add(caminho_imagem_mapa="imagens/mapa_grupo_rem.webp", largura_mapa=400, altura_mapa=300)
+    grupo_base_mod.mapas.add(
+        caminho_imagem_mapa="imagens/mapa_grupo_rem.webp", largura_mapa=400, altura_mapa=300
+    )
 
     setor_base = pico_base.setores_ou_grupos.add().setor.conteudo
     setor_base.uid = "uid_setor_andorinhas"
@@ -153,7 +159,9 @@ def test_pareia_entidades_por_uid_detectando_renomeacoes_e_edicoes_de_campos(
         nome="Ouro Preto Revisado",
         descricao="Texto atualizado do croqui.",
     )
-    pico_pr = croqui_pr.picos.add(nome="Parque Municipal das Andorinhas", cidade="Ouro Preto", estado="MG")
+    pico_pr = croqui_pr.picos.add(
+        nome="Parque Municipal das Andorinhas", cidade="Ouro Preto", estado="MG"
+    )
     pico_pr.mapas_gerais.conteudo.mapas.add(
         caminho_imagem_mapa="imagens/mapa_geral.webp", largura_mapa=500, altura_mapa=400
     )
@@ -251,14 +259,20 @@ def test_compara_mapas_pontos_de_interesse_e_copia_imagens_modificadas_para_past
     dir_pr.mkdir()
 
     # Imagens na base
-    _criar_imagem_webp(dir_base / "cipo" / "imagens" / "mapa_inalterado.webp", 1000, 800, (50, 50, 50))
-    _criar_imagem_webp(dir_base / "cipo" / "imagens" / "mapa_cortado.webp", 1000, 800, (100, 40, 40))
+    _criar_imagem_webp(
+        dir_base / "cipo" / "imagens" / "mapa_inalterado.webp", 1000, 800, (50, 50, 50)
+    )
+    _criar_imagem_webp(
+        dir_base / "cipo" / "imagens" / "mapa_cortado.webp", 1000, 800, (100, 40, 40)
+    )
     _criar_imagem_webp(dir_base / "cipo" / "imagens" / "capa_setor.webp", 600, 400, (30, 80, 30))
     _criar_imagem_webp(dir_base / "cipo" / "imagens" / "foto_removida.webp", 400, 300, (80, 80, 10))
     _criar_imagem_webp(dir_base / "thumbnails" / "cipo.webp", 300, 200, (10, 20, 30))
 
     # Imagens na PR (mapa_inalterado é idêntico; mapa_cortado e capa_setor e thumbnail mudaram; foto_md_nova adicionada)
-    _criar_imagem_webp(dir_pr / "cipo" / "imagens" / "mapa_inalterado.webp", 1000, 800, (50, 50, 50))
+    _criar_imagem_webp(
+        dir_pr / "cipo" / "imagens" / "mapa_inalterado.webp", 1000, 800, (50, 50, 50)
+    )
     _criar_imagem_webp(dir_pr / "cipo" / "imagens" / "mapa_cortado.webp", 900, 700, (120, 60, 60))
     _criar_imagem_webp(dir_pr / "cipo" / "imagens" / "capa_setor.webp", 600, 400, (40, 120, 40))
     _criar_imagem_webp(dir_pr / "cipo" / "imagens" / "foto_md_nova.webp", 500, 350, (90, 20, 90))
@@ -266,10 +280,18 @@ def test_compara_mapas_pontos_de_interesse_e_copia_imagens_modificadas_para_past
 
     # Croqui Base
     croqui_base = croqui_pb2.Croqui(id="cipo", uid="uid_cipo", nome="Cipó")
-    croqui_base.arquivos_externos.add(caminho="imagens/mapa_inalterado.webp", checksum_sha256="sha_m1_igual")
-    croqui_base.arquivos_externos.add(caminho="imagens/mapa_cortado.webp", checksum_sha256="sha_m2_antigo")
-    croqui_base.arquivos_externos.add(caminho="imagens/capa_setor.webp", checksum_sha256="sha_capa_antiga")
-    croqui_base.arquivos_externos.add(caminho="imagens/foto_removida.webp", checksum_sha256="sha_foto_rem")
+    croqui_base.arquivos_externos.add(
+        caminho="imagens/mapa_inalterado.webp", checksum_sha256="sha_m1_igual"
+    )
+    croqui_base.arquivos_externos.add(
+        caminho="imagens/mapa_cortado.webp", checksum_sha256="sha_m2_antigo"
+    )
+    croqui_base.arquivos_externos.add(
+        caminho="imagens/capa_setor.webp", checksum_sha256="sha_capa_antiga"
+    )
+    croqui_base.arquivos_externos.add(
+        caminho="imagens/foto_removida.webp", checksum_sha256="sha_foto_rem"
+    )
 
     pico_b = croqui_base.picos.add(nome="Serra")
     setor_b = pico_b.setores_ou_grupos.add().setor.conteudo
@@ -309,10 +331,18 @@ def test_compara_mapas_pontos_de_interesse_e_copia_imagens_modificadas_para_past
 
     # Croqui PR
     croqui_pr = croqui_pb2.Croqui(id="cipo", uid="uid_cipo", nome="Cipó")
-    croqui_pr.arquivos_externos.add(caminho="imagens/mapa_inalterado.webp", checksum_sha256="sha_m1_igual")
-    croqui_pr.arquivos_externos.add(caminho="imagens/mapa_cortado.webp", checksum_sha256="sha_m2_novo")
-    croqui_pr.arquivos_externos.add(caminho="imagens/capa_setor.webp", checksum_sha256="sha_capa_nova")
-    croqui_pr.arquivos_externos.add(caminho="imagens/foto_md_nova.webp", checksum_sha256="sha_foto_nova")
+    croqui_pr.arquivos_externos.add(
+        caminho="imagens/mapa_inalterado.webp", checksum_sha256="sha_m1_igual"
+    )
+    croqui_pr.arquivos_externos.add(
+        caminho="imagens/mapa_cortado.webp", checksum_sha256="sha_m2_novo"
+    )
+    croqui_pr.arquivos_externos.add(
+        caminho="imagens/capa_setor.webp", checksum_sha256="sha_capa_nova"
+    )
+    croqui_pr.arquivos_externos.add(
+        caminho="imagens/foto_md_nova.webp", checksum_sha256="sha_foto_nova"
+    )
 
     pico_p = croqui_pr.picos.add(nome="Serra")
     setor_p = pico_p.setores_ou_grupos.add().setor.conteudo
@@ -363,7 +393,10 @@ def test_compara_mapas_pontos_de_interesse_e_copia_imagens_modificadas_para_past
     assert pontos_m1["p_movido"].ponto_antes is not None
     assert pontos_m1["p_movido"].ponto_depois is not None
     assert (pontos_m1["p_movido"].ponto_antes.x, pontos_m1["p_movido"].ponto_antes.y) == (100, 200)
-    assert (pontos_m1["p_movido"].ponto_depois.x, pontos_m1["p_movido"].ponto_depois.y) == (150, 260)
+    assert (pontos_m1["p_movido"].ponto_depois.x, pontos_m1["p_movido"].ponto_depois.y) == (
+        150,
+        260,
+    )
     assert pontos_m1["p_rem"].status == "removido"
     assert pontos_m1["p_add"].status == "adicionado"
     assert pontos_m1["p_linha"].status == "modificado"

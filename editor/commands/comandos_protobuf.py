@@ -81,7 +81,6 @@ def garantir_uids_em_mensagem(msg: Any) -> str:
     return uid_principal
 
 
-
 def _buscar_mensagem_por_uid(
     msg_atual: Any, uid_procurado: str, caminho_atual: str = ""
 ) -> tuple[Any, str] | None:
@@ -139,9 +138,7 @@ def _buscar_mensagem_por_uid(
     return None
 
 
-def resolver_alvo_mensagem(
-    root_msg: Any, target_msg: Any, indice_uids: Any = None
-) -> str:
+def resolver_alvo_mensagem(root_msg: Any, target_msg: Any, indice_uids: Any = None) -> str:
     """
     Resolve o identificador híbrido de alvo em 3 níveis a partir de root_msg até target_msg:
     1. UID direto (ex: 'esc_1234') se target_msg tiver UID.
@@ -165,7 +162,7 @@ def resolver_alvo_mensagem(
     ) -> str | None:
         uid_atual = getattr(atual, "uid", None)
         if uid_atual and isinstance(uid_atual, str) and uid_atual.strip():
-            novo_ancestral_uid = uid_atual.strip()
+            novo_ancestral_uid: str | None = uid_atual.strip()
             novo_subcaminho = ""
         else:
             novo_ancestral_uid = ancestral_uid
@@ -198,9 +195,7 @@ def resolver_alvo_mensagem(
                             if caminho_raiz
                             else f"{descriptor.name}.{idx}"
                         )
-                        resultado = _resolver_rec(
-                            item, novo_ancestral_uid, prox_sub, prox_raiz
-                        )
+                        resultado = _resolver_rec(item, novo_ancestral_uid, prox_sub, prox_raiz)
                         if resultado is not None:
                             return resultado
             else:
@@ -223,9 +218,7 @@ def resolver_alvo_mensagem(
                         if caminho_raiz
                         else str(descriptor.name)
                     )
-                    resultado = _resolver_rec(
-                        val, novo_ancestral_uid, prox_sub, prox_raiz
-                    )
+                    resultado = _resolver_rec(val, novo_ancestral_uid, prox_sub, prox_raiz)
                     if resultado is not None:
                         return resultado
         return None
@@ -362,7 +355,11 @@ def navegar_para_alvo(root_msg: Any, alvo: str, indice_uids: Any = None) -> Any:
         if not subcaminho:
             return ancora
         res = navegar_para_mensagem(ancora, subcaminho)
-        if res is None and hasattr(ancora, "DESCRIPTOR") and "tipo" in ancora.DESCRIPTOR.oneofs_by_name:
+        if (
+            res is None
+            and hasattr(ancora, "DESCRIPTOR")
+            and "tipo" in ancora.DESCRIPTOR.oneofs_by_name
+        ):
             variante = ancora.WhichOneof("tipo")
             if variante:
                 res = navegar_para_mensagem(getattr(ancora, variante), subcaminho)
@@ -449,7 +446,9 @@ def validar_pertence_ao_croqui(
             caminho = ""
         elif root_raw is not None:
             caminho = resolver_alvo_mensagem(root_raw, msg_raw, indice_uids)
-            if not caminho and (not hasattr(root_raw, "ListFields") or len(root_raw.ListFields()) > 0):
+            if not caminho and (
+                not hasattr(root_raw, "ListFields") or len(root_raw.ListFields()) > 0
+            ):
                 raise ValueError(
                     f"Mensagem alvo órfã detectada para o comando {nome_comando}: "
                     f"a mensagem do tipo '{type(msg_raw).__name__}' não pertence à árvore ativa do croqui."
@@ -722,7 +721,6 @@ def _validar_tipo_valor_campo(field_desc: Any, valor: Any, nome_campo: str) -> N
             )
 
 
-
 class CmdAlterarCampo(ComandoEditor):
     """
     Comando unificado canônico para alterar qualquer campo singular no Protobuf via Model.
@@ -756,7 +754,7 @@ class CmdAlterarCampo(ComandoEditor):
         self.campo_nome: str = campo_nome
         self.context_path: str | None = context_path
         self.pode_mesclar: bool = pode_mesclar or (session_id is not None)
-        self.session_id: str | None = session_id
+        self.session_id: int | str | None = session_id
 
         if caminho_msg is not None:
             self.caminho_msg = caminho_msg
@@ -885,16 +883,20 @@ class CmdAlterarCampo(ComandoEditor):
                     self.modalidade = "primitivo"
                     if valor_antigo is _VALOR_OMITIDO:
                         valor_antigo = (
-                            getattr(msg_alvo, campo_nome)
-                            if msg_alvo.HasField(campo_nome)
-                            else None
+                            getattr(msg_alvo, campo_nome) if msg_alvo.HasField(campo_nome) else None
                         )
-            elif field_ext is not None or campo_nome.startswith("ext_") or hasattr(type(getattr(msg_alvo, "_obj", msg_alvo)), campo_nome):
+            elif (
+                field_ext is not None
+                or campo_nome.startswith("ext_")
+                or hasattr(type(getattr(msg_alvo, "_obj", msg_alvo)), campo_nome)
+            ):
                 from aresta_api.proto.generated import croqui_pb2
 
                 self.modalidade = "extensao"
                 raw_cls = type(getattr(msg_alvo, "_obj", msg_alvo))
-                self._field_ext = field_ext or getattr(raw_cls, campo_nome, getattr(croqui_pb2, campo_nome, None))
+                self._field_ext = field_ext or getattr(
+                    raw_cls, campo_nome, getattr(croqui_pb2, campo_nome, None)
+                )
                 if valor_antigo is _VALOR_OMITIDO:
                     raw_msg = getattr(msg_alvo, "_obj", msg_alvo)
                     if self._field_ext is not None and raw_msg.HasExtension(self._field_ext):
@@ -1485,7 +1487,7 @@ class CmdMacro(ComandoEditor):
 def deserializar_comando(dados: dict[str, Any], model: CroquiModel) -> ComandoEditor:
     """Factory global para deserializar qualquer ComandoEditor a partir de seu dicionário serializado."""
     classe_nome = dados.get("classe")
-    mapa_canonicos: dict[str, type[ComandoEditor]] = {
+    mapa_canonicos: dict[str, Any] = {
         "CmdAlterarCampo": CmdAlterarCampo,
         "CmdAlterarImagem": CmdAlterarImagem,
         "CmdAlterarAnexo": CmdAlterarAnexo,
@@ -1495,12 +1497,15 @@ def deserializar_comando(dados: dict[str, Any], model: CroquiModel) -> ComandoEd
         "CmdMacro": CmdMacro,
     }
 
-    if classe_nome in mapa_canonicos:
-        return mapa_canonicos[classe_nome].deserializar(dados, model)  # type: ignore[no-any-return]
+    if isinstance(classe_nome, str) and classe_nome in mapa_canonicos:
+        cmd_canonico: ComandoEditor = mapa_canonicos[classe_nome].deserializar(dados, model)
+        return cmd_canonico
 
     from editor.commands.comandos_legados import COMANDOS_LEGADOS_MAP
 
-    if classe_nome in COMANDOS_LEGADOS_MAP:
-        return COMANDOS_LEGADOS_MAP[classe_nome].deserializar(dados, model)  # type: ignore[no-any-return]
+    if isinstance(classe_nome, str) and classe_nome in COMANDOS_LEGADOS_MAP:
+        cls_legado: Any = COMANDOS_LEGADOS_MAP[classe_nome]
+        cmd_legado: ComandoEditor = cls_legado.deserializar(dados, model)
+        return cmd_legado
 
     raise ValueError(f"Classe de comando desconhecida para deserialização: {classe_nome}")

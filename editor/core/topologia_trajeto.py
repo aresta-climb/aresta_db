@@ -620,9 +620,7 @@ def gerar_id_poi_disjunto_setor(
     return gerar_uid()
 
 
-def _formatar_rotulo_opcao_confluencia(
-    nomes_escaladas: Sequence[str], rotulo_topo: str
-) -> str:
+def _formatar_rotulo_opcao_confluencia(nomes_escaladas: Sequence[str], rotulo_topo: str) -> str:
     """Formata o texto legível de uma opção de confluência para o popover."""
     if not nomes_escaladas:
         return "Seguir até o fim da linha"
@@ -674,9 +672,7 @@ def descobrir_caminhos_confluencia(
         requer_fatiamento = 0 < idx_no < total_nos - 1
         coords_base = [Ponto2D(float(n.x), float(n.y)) for n in nos_alvo[idx_no:]]
 
-    refs_com_linha = [
-        ref for ref in referencias if id_alvo in [str(u) for u in ref.pontos_uids]
-    ]
+    refs_com_linha = [ref for ref in referencias if id_alvo in [str(u) for u in ref.pontos_uids]]
 
     if not refs_com_linha:
         if no_fim_da_linha:
@@ -695,9 +691,7 @@ def descobrir_caminhos_confluencia(
         )
         return ResultadoAnaliseConfluencia(eh_topo_final=False, opcoes=(opcao_avulsa,))
 
-    grupos_caminhos: dict[
-        tuple[tuple[str, ...], tuple[Ponto2D, ...], str], list[str]
-    ] = {}
+    grupos_caminhos: dict[tuple[tuple[str, ...], tuple[Ponto2D, ...], str], list[str]] = {}
     encontrou_topo_final = False
 
     for ref in refs_com_linha:
@@ -709,9 +703,7 @@ def descobrir_caminhos_confluencia(
             encontrou_topo_final = True
             continue
 
-        uids_sub = (
-            (id_alvo, *uids_posteriores) if no_inicio_da_linha else tuple(uids_posteriores)
-        )
+        uids_sub = (id_alvo, *uids_posteriores) if no_inicio_da_linha else tuple(uids_posteriores)
         coords_caminho = list(coords_base)
         rotulo_topo = str(nos_alvo[-1].rotulo or "")
 

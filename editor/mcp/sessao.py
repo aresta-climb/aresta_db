@@ -202,9 +202,7 @@ def desregistrar_sessao_multi_mcp(
         restantes = [s for s in listar_sessoes_mcp(diretorio_base) if s.porta != int(porta)]
         if restantes:
             conteudo = {"sessoes": [s.para_dict() for s in restantes]}
-            caminho.write_text(
-                json.dumps(conteudo, indent=2, ensure_ascii=False), encoding="utf-8"
-            )
+            caminho.write_text(json.dumps(conteudo, indent=2, ensure_ascii=False), encoding="utf-8")
         else:
             caminho.unlink(missing_ok=True)
             obter_caminho_sessao_mcp(diretorio_base).unlink(missing_ok=True)

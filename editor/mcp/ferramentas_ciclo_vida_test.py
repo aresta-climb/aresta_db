@@ -210,9 +210,7 @@ def test_gestao_croquis_listar_criar_importar_e_abrir(qapp, tmp_path: Path):
         servidor=servidor,
         storage=storage,
         usuario="Agente Teste",
-        callback_abrir_croqui=lambda p: (
-            abertos_via_callback.append(p) or {"janela_aberta": True}
-        ),
+        callback_abrir_croqui=lambda p: abertos_via_callback.append(p) or {"janela_aberta": True},
     )
 
     # 1. Cria novo croqui com cópia de PDF original (mesmo com croqui_aberto=False)
@@ -368,4 +366,3 @@ def test_particionar_pdf_croqui_aloca_e_preserva_uids(qapp, tmp_path: Path):
     assert proc2["03_mapas_gerais"]["uid"] == uid_mapas_1
     assert len(model.obter_croqui_readonly().botoes) == 1
     assert len(model.obter_croqui_readonly().picos[0].setores_ou_grupos) == 2
-

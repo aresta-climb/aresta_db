@@ -423,4 +423,3 @@ def test_controlador_app_abrir_croqui_via_mcp_atual_e_multi_janela(qtbot, tmp_pa
             if controlador.janela_principal:
                 controlador.janela_principal.close()
             controlador.abertura.close()
-

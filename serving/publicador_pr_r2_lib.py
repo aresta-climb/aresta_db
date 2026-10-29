@@ -90,9 +90,7 @@ def publicar_diretorio_pr_no_r2(
     prefixo = f"pr/{numero_pr}/"
     chaves_anteriores = set(_listar_chaves_prefixo(cliente_r2, bucket, prefixo))
 
-    arquivos_locais = sorted(
-        p for p in diretorio_compilado.rglob("*") if p.is_file()
-    )
+    arquivos_locais = sorted(p for p in diretorio_compilado.rglob("*") if p.is_file())
     chaves_atuais: list[str] = []
 
     for caminho_arquivo in arquivos_locais:

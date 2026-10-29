@@ -9,6 +9,7 @@ from typing import Any
 from PySide6.QtGui import QUndoCommand
 from PySide6.QtWidgets import QApplication
 
+import editor.commands.comandos_protobuf as mod_proto
 from aresta_api.proto.generated.croqui_pb2 import Croqui
 from editor.commands.comandos_protobuf import (
     CmdAdicionarRepeated,
@@ -16,14 +17,15 @@ from editor.commands.comandos_protobuf import (
     CmdMacro,
     CmdRemoverRepeated,
 )
-import editor.commands.comandos_protobuf as mod_proto
 from editor.core.diario import GerenciadorDiario
 from editor.core.historico import GerenciadorHistorico
 from editor.models.croqui_model import CroquiModel
 
 
 class ComandoTeste(QUndoCommand):
-    def __init__(self, estado: dict, valor_antigo: Any, valor_novo: Any, id_merge: int | None = None):
+    def __init__(
+        self, estado: dict, valor_antigo: Any, valor_novo: Any, id_merge: int | None = None
+    ):
         super().__init__()
         self.estado = estado
         self.valor_antigo = valor_antigo
@@ -142,7 +144,12 @@ class TestGerenciadorHistorico(unittest.TestCase):
     def test_merge_comandos_preserva_cache_diario(self):
         with tempfile.TemporaryDirectory() as tmpdir:
             diario = GerenciadorDiario(Path(tmpdir))
-            cmd_salvo = {"classe": "CmdAlterarCampo", "caminho_msg": "", "campo_nome": "nome", "valor_novo": "V1"}
+            cmd_salvo = {
+                "classe": "CmdAlterarCampo",
+                "caminho_msg": "",
+                "campo_nome": "nome",
+                "valor_novo": "V1",
+            }
             diario.gravar_comando_pendente(cmd_salvo)
             diario.consolidar_salvamento()
             diario.exportar_diario_anonimizado()
@@ -357,9 +364,7 @@ class TestGerenciadorHistorico(unittest.TestCase):
 
             palavras = ["N", "No", "Nom", "Nome", "Nome Final"]
             for p in palavras:
-                cmd = CmdAlterarCampo(
-                    model1, croqui1, "nome", p, session_id="digitacao_nome"
-                )
+                cmd = CmdAlterarCampo(model1, croqui1, "nome", p, session_id="digitacao_nome")
                 gerenciador1.executar(cmd)
 
             self.assertEqual(gerenciador1.obter_pilha().count(), 1)
@@ -470,7 +475,9 @@ class TestGerenciadorHistorico(unittest.TestCase):
                 with self.assertLogs("aresta_editor.historico", level="ERROR") as cm_err:
                     res_pendente = gerenciador1.restaurar_do_diario(model1, diario1)
                     self.assertEqual(res_pendente, 0)
-                self.assertTrue(any("Erro inesperado ao restaurar comando" in l for l in cm_err.output))
+                self.assertTrue(
+                    any("Erro inesperado ao restaurar comando" in l for l in cm_err.output)
+                )
             finally:
                 mod_proto.deserializar_comando = orig
 
@@ -488,7 +495,12 @@ class TestGerenciadorHistorico(unittest.TestCase):
                 with self.assertLogs("aresta_editor.historico", level="ERROR") as cm_err_salvo:
                     res_salvo = gerenciador2.carregar_diario_salvo(model2, diario2)
                     self.assertEqual(res_salvo, 0)
-                self.assertTrue(any("Erro inesperado ao deserializar comando salvo" in l for l in cm_err_salvo.output))
+                self.assertTrue(
+                    any(
+                        "Erro inesperado ao deserializar comando salvo" in l
+                        for l in cm_err_salvo.output
+                    )
+                )
             finally:
                 mod_proto.deserializar_comando = orig
 
@@ -516,7 +528,12 @@ class TestGerenciadorHistorico(unittest.TestCase):
                 with self.assertLogs("aresta_editor.historico", level="WARNING") as cm_warn:
                     total = gerenciador1.restaurar_do_diario(model1, diario1)
                     self.assertEqual(total, 0)
-                self.assertTrue(any("Comando corrompido ou órfão descartado do diário pendente" in l for l in cm_warn.output))
+                self.assertTrue(
+                    any(
+                        "Comando corrompido ou órfão descartado do diário pendente" in l
+                        for l in cm_warn.output
+                    )
+                )
 
             with tempfile.TemporaryDirectory() as temp_dir2:
                 pasta_croqui2 = Path(temp_dir2)
@@ -530,7 +547,12 @@ class TestGerenciadorHistorico(unittest.TestCase):
                 with self.assertLogs("aresta_editor.historico", level="WARNING") as cm_warn_salvo:
                     total_salvo = gerenciador2.carregar_diario_salvo(model2, diario2)
                     self.assertEqual(total_salvo, 0)
-                self.assertTrue(any("Comando corrompido ou órfão descartado do diário salvo" in l for l in cm_warn_salvo.output))
+                self.assertTrue(
+                    any(
+                        "Comando corrompido ou órfão descartado do diário salvo" in l
+                        for l in cm_warn_salvo.output
+                    )
+                )
         finally:
             mod_proto.deserializar_comando = orig
 
@@ -666,10 +688,18 @@ class TestGerenciadorHistorico(unittest.TestCase):
             gerenciador = GerenciadorHistorico()
 
             sinais_emitidos = []
-            gerenciador.sinal_campo_alterado.connect(lambda *args: sinais_emitidos.append(("campo", args)))
-            gerenciador.sinal_item_adicionado.connect(lambda *args: sinais_emitidos.append(("adicionado", args)))
-            gerenciador.sinal_item_removido.connect(lambda *args: sinais_emitidos.append(("removido", args)))
-            gerenciador.sinal_foco_requisitado.connect(lambda *args: sinais_emitidos.append(("foco", args)))
+            gerenciador.sinal_campo_alterado.connect(
+                lambda *args: sinais_emitidos.append(("campo", args))
+            )
+            gerenciador.sinal_item_adicionado.connect(
+                lambda *args: sinais_emitidos.append(("adicionado", args))
+            )
+            gerenciador.sinal_item_removido.connect(
+                lambda *args: sinais_emitidos.append(("removido", args))
+            )
+            gerenciador.sinal_foco_requisitado.connect(
+                lambda *args: sinais_emitidos.append(("foco", args))
+            )
 
             total_carregados = gerenciador.carregar_diario_salvo(model_novo, diario)
 
@@ -683,9 +713,15 @@ class TestGerenciadorHistorico(unittest.TestCase):
         gerenciador = GerenciadorHistorico()
 
         sinais_emitidos = []
-        gerenciador.sinal_campo_alterado.connect(lambda *args: sinais_emitidos.append(("campo", args)))
-        gerenciador.sinal_item_adicionado.connect(lambda *args: sinais_emitidos.append(("adicionado", args)))
-        gerenciador.sinal_item_removido.connect(lambda *args: sinais_emitidos.append(("removido", args)))
+        gerenciador.sinal_campo_alterado.connect(
+            lambda *args: sinais_emitidos.append(("campo", args))
+        )
+        gerenciador.sinal_item_adicionado.connect(
+            lambda *args: sinais_emitidos.append(("adicionado", args))
+        )
+        gerenciador.sinal_item_removido.connect(
+            lambda *args: sinais_emitidos.append(("removido", args))
+        )
 
         cmd_campo = CmdAlterarCampo(model, croqui, "nome", "B")
         cmd_campo.caminho_msg = "picos.99.setor"
@@ -747,10 +783,12 @@ class TestGerenciadorHistorico(unittest.TestCase):
         self.assertEqual(sinais_adicionado[-1], (id(croqui), "creditos", 0))
 
         # 4. CmdMacro com subcomandos (redo e undo)
-        macro = CmdMacro([
-            CmdAlterarCampo(model, croqui, "nome", "Nome Macro 1", valor_antigo="Pico"),
-            CmdAlterarCampo(model, croqui, "nome", "Nome Macro 2", valor_antigo="Nome Macro 1"),
-        ])
+        macro = CmdMacro(
+            [
+                CmdAlterarCampo(model, croqui, "nome", "Nome Macro 1", valor_antigo="Pico"),
+                CmdAlterarCampo(model, croqui, "nome", "Nome Macro 2", valor_antigo="Nome Macro 1"),
+            ]
+        )
         gerenciador._despachar_sinal(macro, is_undo=False)
         self.assertEqual(sinais_campo[-1], (id(croqui), "nome", "Nome Macro 2"))
 
@@ -801,4 +839,3 @@ class TestGerenciadorHistorico(unittest.TestCase):
         with self.assertRaises(AttributeError) as ctx:
             _ = gerenciador._atributo_privado_inexistente
         self.assertIn("GerenciadorHistorico", str(ctx.exception))
-

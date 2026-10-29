@@ -8,9 +8,8 @@ para preservar a retrocompatibilidade com arquivos diario_pendente.bin e diario_
 """
 
 import io
-from pathlib import Path
+
 from PIL import Image
-import pytest
 from PySide6.QtGui import QUndoStack
 
 from aresta_api.proto.generated import croqui_pb2
@@ -78,7 +77,13 @@ def test_cmd_alterar_primitivo_undo_redo_e_merge():
     model.foco_requisitado.connect(lambda ctx: foco_requisitado.append(ctx))
 
     cmd = CmdAlterarPrimitivo(
-        model, croqui, "nome", "Antigo Nome", "Novo Nome", context_path="pico.nome", pode_mesclar=True
+        model,
+        croqui,
+        "nome",
+        "Antigo Nome",
+        "Novo Nome",
+        context_path="pico.nome",
+        pode_mesclar=True,
     )
     assert cmd.id() == CmdAlterarPrimitivo.ID_COMANDO
     cmd.redo()
@@ -90,7 +95,13 @@ def test_cmd_alterar_primitivo_undo_redo_e_merge():
 
     # mergeWith bem-sucedido
     cmd2 = CmdAlterarPrimitivo(
-        model, croqui, "nome", "Novo Nome", "Nome Mesclado", context_path="pico.nome2", pode_mesclar=True
+        model,
+        croqui,
+        "nome",
+        "Novo Nome",
+        "Nome Mesclado",
+        context_path="pico.nome2",
+        pode_mesclar=True,
     )
     assert cmd.mergeWith(cmd2) is True
     assert croqui.nome == "Nome Mesclado"
@@ -99,7 +110,9 @@ def test_cmd_alterar_primitivo_undo_redo_e_merge():
     cmd_outro_campo = CmdAlterarPrimitivo(model, croqui, "descricao", "", "Desc", pode_mesclar=True)
     assert cmd.mergeWith(cmd_outro_campo) is False
 
-    cmd_outro_nao_mesclavel = CmdAlterarPrimitivo(model, croqui, "nome", "A", "B", pode_mesclar=False)
+    cmd_outro_nao_mesclavel = CmdAlterarPrimitivo(
+        model, croqui, "nome", "A", "B", pode_mesclar=False
+    )
     assert cmd.mergeWith(cmd_outro_nao_mesclavel) is False
 
     cmd_sem_mescla = CmdAlterarPrimitivo(model, croqui, "nome", "A", "B", pode_mesclar=False)
@@ -148,12 +161,20 @@ def test_cmd_alterar_primitivo_caminho_inexistente_e_deserializacao():
     model = CroquiModel(croqui)
 
     cmd_invalido = CmdAlterarPrimitivo(
-        model=model, caminho_msg="caminho.inexistente", campo_nome="nome", valor_novo="X", pode_mesclar=True
+        model=model,
+        caminho_msg="caminho.inexistente",
+        campo_nome="nome",
+        valor_novo="X",
+        pode_mesclar=True,
     )
     cmd_invalido.undo()
     cmd_invalido.executar_redo()
     cmd2 = CmdAlterarPrimitivo(
-        model=model, caminho_msg="caminho.inexistente", campo_nome="nome", valor_novo="Y", pode_mesclar=True
+        model=model,
+        caminho_msg="caminho.inexistente",
+        campo_nome="nome",
+        valor_novo="Y",
+        pode_mesclar=True,
     )
     assert cmd_invalido.mergeWith(cmd2) is False
 
@@ -243,7 +264,9 @@ def test_cmd_alterar_repeated_item():
     cmd_outro_tipo = CmdAlterarPrimitivo(model, croqui, "nome", "A", "B", pode_mesclar=True)
     assert cmd.mergeWith(cmd_outro_tipo) is False
 
-    cmd_sem_mescla = CmdAlterarRepeatedItem(model, croqui, "creditos", 0, "A", "B", pode_mesclar=False)
+    cmd_sem_mescla = CmdAlterarRepeatedItem(
+        model, croqui, "creditos", 0, "A", "B", pode_mesclar=False
+    )
     assert cmd_sem_mescla.id() == -1
     assert cmd_sem_mescla.mergeWith(cmd) is False
     assert cmd.mergeWith(cmd_sem_mescla) is False
@@ -260,12 +283,20 @@ def test_cmd_alterar_repeated_item():
 
     # Caminho inválido
     cmd_invalido = CmdAlterarRepeatedItem(
-        model=model, caminho_msg="caminho.inexistente", campo_nome="creditos", index=0, pode_mesclar=True
+        model=model,
+        caminho_msg="caminho.inexistente",
+        campo_nome="creditos",
+        index=0,
+        pode_mesclar=True,
     )
     cmd_invalido.undo()
     cmd_invalido.executar_redo()
     cmd_invalido2 = CmdAlterarRepeatedItem(
-        model=model, caminho_msg="caminho.inexistente", campo_nome="creditos", index=0, pode_mesclar=True
+        model=model,
+        caminho_msg="caminho.inexistente",
+        campo_nome="creditos",
+        index=0,
+        pode_mesclar=True,
     )
     assert cmd_invalido.mergeWith(cmd_invalido2) is False
 
@@ -323,9 +354,7 @@ def test_cmd_alterar_metadados_caminho_novo():
     )
 
     cmd.undo()
-    assert (
-        sg.setor.Extensions[croqui_pb2.ArquivoSetor.ext_metadados_arquivo].caminho_novo == ""
-    )
+    assert sg.setor.Extensions[croqui_pb2.ArquivoSetor.ext_metadados_arquivo].caminho_novo == ""
 
     dados = cmd.serializar()
     assert dados["classe"] == "CmdAlterarMetadadosCaminhoNovo"
@@ -788,7 +817,11 @@ def test_cmd_renomear_escalada():
     assert cmd.mergeWith(cmd_outro_sessao) is False
 
     cmd_outro_campo = CmdRenomearEscalada(
-        model=model, caminho_msg="caminho.falso", campo_nome="outro_campo", session_id=123, pode_mesclar=True
+        model=model,
+        caminho_msg="caminho.falso",
+        campo_nome="outro_campo",
+        session_id=123,
+        pode_mesclar=True,
     )
     assert cmd.mergeWith(cmd_outro_campo) is False
 

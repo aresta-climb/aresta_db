@@ -409,4 +409,3 @@ def test_guarda_sem_croqui_aberto_e_roteamento_proxy_multi_janela(qapp, tmp_path
     finally:
         srv_secundario.parar()
         srv_primario.parar()
-

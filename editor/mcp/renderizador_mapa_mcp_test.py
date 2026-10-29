@@ -48,9 +48,7 @@ def test_renderizar_pacote_visual_mapa_com_grade_e_recortes_todas_geometrias():
     p_ret.retangulo.largura = 20
     p_ret.retangulo.angulo_graus_x100 = 4500
 
-    img_cena = renderizar_cena_mapa_editor(
-        bytes_img, [p_circ, p_quad, p_ret]
-    )
+    img_cena = renderizar_cena_mapa_editor(bytes_img, [p_circ, p_quad, p_ret])
     assert img_cena.size == (320, 240)
     # Verifica que os itens da QGraphicsScene do Editor (incluindo o retângulo rotacionado)
     # foram efetivamente desenhados sobre o fundo (60, 80, 100) nas coordenadas das âncoras

@@ -2177,9 +2177,7 @@ def criar_item_visual_poi(
     if poi_obj.HasField("quadrado"):
         return ItemBoundingQuadrado(pt_dict, cb_deletar, callback_converter=cb_converter)
     if poi_obj.HasField("circulo"):
-        return ItemBoundingCirculo(
-            pt_dict, cb_deletar, callback_converter=cb_converter_retangulo
-        )
+        return ItemBoundingCirculo(pt_dict, cb_deletar, callback_converter=cb_converter_retangulo)
     if poi_obj.HasField("poligono"):
         return ItemBoundingPoligono(pt_dict, cb_deletar)
     if poi_obj.HasField("linha"):
@@ -4026,7 +4024,10 @@ class WidgetEditorMapas(QWidget):
             self.cancelar_modo_nova_rota()
             return
 
-        if self.popover_confluencia_ativo is not None and self._ponto_confluencia_pendente is not None:
+        if (
+            self.popover_confluencia_ativo is not None
+            and self._ponto_confluencia_pendente is not None
+        ):
             pt_pendente = self._ponto_confluencia_pendente
             self._fechar_popover_confluencia()
             self._adicionar_ponto_nova_rota_direto(pt_pendente)

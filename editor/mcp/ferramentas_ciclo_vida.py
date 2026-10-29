@@ -117,9 +117,7 @@ def _finalizar_abertura_croqui(
     caminho_exp: Path,
     callback_abrir_croqui: Callable[[Path], dict[str, Any] | None] | None,
 ) -> dict[str, Any]:
-    caminho_db = (
-        caminho_exp / "database" if (caminho_exp / "database").is_dir() else caminho_exp
-    )
+    caminho_db = caminho_exp / "database" if (caminho_exp / "database").is_dir() else caminho_exp
     resposta: dict[str, Any] = {
         "status": status,
         "id_croqui": id_croqui,
@@ -135,7 +133,7 @@ def _finalizar_abertura_croqui(
 
 def registrar_ferramentas_gestao_croquis(
     servidor: ServidorMCP,
-    storage: Any | None = None,
+    storage: Any = None,
     usuario: str = "Autor MCP",
     callback_abrir_croqui: Callable[[Path], dict[str, Any] | None] | None = None,
 ) -> None:
@@ -162,7 +160,11 @@ def registrar_ferramentas_gestao_croquis(
 
         if storage is not None:
             caminho_exp = storage.obter_caminho_croquis_experimentais()
-            for pasta in sorted(p for p in caminho_exp.iterdir() if p.is_dir()) if caminho_exp.is_dir() else []:
+            for pasta in (
+                sorted(p for p in caminho_exp.iterdir() if p.is_dir())
+                if caminho_exp.is_dir()
+                else []
+            ):
                 id_logico, nome = _ler_metadados_croqui_yaml(
                     pasta / "database" / "croqui.yaml", pasta.name
                 )
@@ -177,7 +179,11 @@ def registrar_ferramentas_gestao_croquis(
                     )
 
             caminho_oficiais = storage.obter_caminho_base_repo() / "database"
-            for pasta in sorted(p for p in caminho_oficiais.iterdir() if p.is_dir()) if caminho_oficiais.is_dir() else []:
+            for pasta in (
+                sorted(p for p in caminho_oficiais.iterdir() if p.is_dir())
+                if caminho_oficiais.is_dir()
+                else []
+            ):
                 id_of, nome_of = _ler_metadados_croqui_yaml(pasta / "croqui.yaml", pasta.name)
                 if _corresponde_filtro(filtro, pasta.name, id_of, nome_of):
                     oficiais.append(
@@ -214,13 +220,19 @@ def registrar_ferramentas_gestao_croquis(
         if ja_aberto is not None:
             return ja_aberto
 
-        _exigir(storage is not None, "Storage não configurado para localizar croquis experimentais.")
+        _exigir(
+            storage is not None, "Storage não configurado para localizar croquis experimentais."
+        )
 
         caminho_exp_dir = storage.obter_caminho_croquis_experimentais()
         pasta_encontrada: Path | None = None
         id_logico_encontrado = identificador
 
-        for pasta in sorted(p for p in caminho_exp_dir.iterdir() if p.is_dir()) if caminho_exp_dir.is_dir() else []:
+        for pasta in (
+            sorted(p for p in caminho_exp_dir.iterdir() if p.is_dir())
+            if caminho_exp_dir.is_dir()
+            else []
+        ):
             id_logico, _ = _ler_metadados_croqui_yaml(
                 pasta / "database" / "croqui.yaml", pasta.name
             )
@@ -229,7 +241,9 @@ def registrar_ferramentas_gestao_croquis(
                 id_logico_encontrado = id_logico
                 break
 
-        _exigir(pasta_encontrada is not None, f"Croqui experimental '{identificador}' não encontrado.")
+        _exigir(
+            pasta_encontrada is not None, f"Croqui experimental '{identificador}' não encontrado."
+        )
         assert pasta_encontrada is not None
 
         GerenciadorCroquiExperimental(storage).abrir_croqui(pasta_encontrada, usuario)
@@ -283,9 +297,7 @@ def registrar_ferramentas_gestao_croquis(
             destino_pdf.parent.mkdir(parents=True, exist_ok=True)
             shutil.copy2(origem_pdf, destino_pdf)
 
-        return _finalizar_abertura_croqui(
-            "criado", id_gerado, caminho_exp, callback_abrir_croqui
-        )
+        return _finalizar_abertura_croqui("criado", id_gerado, caminho_exp, callback_abrir_croqui)
 
     servidor.registrar_ferramenta(
         nome="aresta_listar_croquis",
@@ -515,9 +527,7 @@ def registrar_ferramentas_ciclo_vida(
             "O parâmetro 'partes' deve ser um dicionário não vazio (ex: {'01_setor': [0, 1]}).",
         )
         assert isinstance(partes_raw, dict)
-        partes: dict[str, list[int]] = {
-            str(k): [int(p) for p in v] for k, v in partes_raw.items()
-        }
+        partes: dict[str, list[int]] = {str(k): [int(p) for p in v] for k, v in partes_raw.items()}
         tipos_partes = args.get("tipos_partes") or {}
         caminho_pdf_arg = str(args.get("caminho_pdf") or "").strip()
         incluir_paginas = bool(args.get("incluir_paginas", False))

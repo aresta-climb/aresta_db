@@ -91,9 +91,7 @@ class ClienteR2Fake:
             return {"KeyCount": 0}
         return {
             "KeyCount": len(chaves_filtradas),
-            "Contents": [
-                {"Key": k, "Size": len(objetos[k].conteudo)} for k in chaves_filtradas
-            ],
+            "Contents": [{"Key": k, "Size": len(objetos[k].conteudo)} for k in chaves_filtradas],
         }
 
     def delete_objects(

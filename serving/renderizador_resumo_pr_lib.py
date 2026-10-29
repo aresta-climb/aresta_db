@@ -112,9 +112,7 @@ def _renderizar_svg_pontos_mapa(
                 _renderizar_geometria_svg(dp.ponto_antes, "#f85149", "camada-antes camada-diff")
             )
         elif (
-            dp.status == "modificado"
-            and dp.ponto_antes is not None
-            and dp.ponto_depois is not None
+            dp.status == "modificado" and dp.ponto_antes is not None and dp.ponto_depois is not None
         ):
             elementos.append(
                 _renderizar_geometria_svg(dp.ponto_antes, "#f85149", "camada-antes camada-diff")
@@ -223,9 +221,7 @@ def _renderizar_secao_mapa(
 
 
 def _renderizar_diff_markdown(antes: str, depois: str) -> str:
-    linhas_diff = list(
-        difflib.ndiff(antes.splitlines(), depois.splitlines())
-    )
+    linhas_diff = list(difflib.ndiff(antes.splitlines(), depois.splitlines()))
     partes: list[str] = ['<pre class="diff-markdown">']
     for linha in linhas_diff:
         esc = html.escape(linha)
@@ -270,7 +266,9 @@ def _renderizar_cartao_entidade(ent: DiffEntidade) -> str:
         if ent.resumo_curto
         else ""
     )
-    campos_html = _renderizar_alteracoes_campos(ent.alteracoes_campos) if ent.alteracoes_campos else ""
+    campos_html = (
+        _renderizar_alteracoes_campos(ent.alteracoes_campos) if ent.alteracoes_campos else ""
+    )
     return f"""
     <div class="cartao-item item-filtravel" data-categoria="entidade" data-status="{ent.status}">
       <div class="cabecalho-cartao">
@@ -358,8 +356,7 @@ def _renderizar_bloco_croqui(
         if m.status != "inalterado"
     )
     imagens_html = "".join(
-        _renderizar_cartao_imagem(img, numero_pr, url_base_serving)
-        for img in croqui.imagens
+        _renderizar_cartao_imagem(img, numero_pr, url_base_serving) for img in croqui.imagens
     )
     entidades_html = "".join(_renderizar_cartao_entidade(e) for e in croqui.entidades)
 
@@ -394,8 +391,7 @@ def renderizar_resumo_html(
     commit_curto = commit_sha[:7] if commit_sha else "HEAD"
 
     blocos_croquis = "".join(
-        _renderizar_bloco_croqui(c, numero_pr, url_base_serving.rstrip("/"))
-        for c in resumo.croquis
+        _renderizar_bloco_croqui(c, numero_pr, url_base_serving.rstrip("/")) for c in resumo.croquis
     )
 
     return f"""<!DOCTYPE html>

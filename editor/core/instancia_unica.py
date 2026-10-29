@@ -139,9 +139,7 @@ def iniciar_servidor_instancia_unica(
                 else:
                     ativou = ativar_janela_existente()
 
-                em_tolerancia = (
-                    time.monotonic() - tempo_inicio
-                ) < tempo_tolerancia_inicializacao_s
+                em_tolerancia = (time.monotonic() - tempo_inicio) < tempo_tolerancia_inicializacao_s
                 if ativou or em_tolerancia:
                     s.write(b"PONG\n")
                 else:
@@ -162,9 +160,7 @@ def verificar_croqui_ja_aberto(id_croqui: str, timeout_ms: int = 500) -> bool:
     Verifica se o croqui `id_croqui` já está aberto em alguma janela do Editor.
     Se estiver, a janela correspondente é automaticamente elevada para o primeiro plano.
     """
-    return verificar_se_ja_em_execucao(
-        obter_nome_servidor_croqui(id_croqui), timeout_ms=timeout_ms
-    )
+    return verificar_se_ja_em_execucao(obter_nome_servidor_croqui(id_croqui), timeout_ms=timeout_ms)
 
 
 def iniciar_trava_croqui(

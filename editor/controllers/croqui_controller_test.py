@@ -292,7 +292,6 @@ def test_croqui_controller_adicionar_mapa_com_arquivo(qapp, tmp_path):
     assert model.obter_bytes_imagem("imagens/mapa.webp") == img_bytes
 
 
-
 def test_croqui_controller_substituir_imagem(qapp):
     croqui = Croqui()
     model = CroquiModel(croqui)
@@ -636,7 +635,6 @@ def test_croqui_controller_inserir_botao_markdown(qapp):
     assert proxy.descricao == "Texto base"
 
 
-
 def test_croqui_controller_alterar_primitivo_escalada_mescla_mesma_sessao(qapp):
     """Garante que digitações consecutivas com mesmo session_id mesclam no mesmo CmdAlterarCampo."""
     from aresta_api.proto.generated import croqui_pb2
@@ -774,9 +772,7 @@ def test_croqui_controller_comandos_individuais_e_migracao_reversa(qapp):
     controller = CroquiController(model, undo_stack)
 
     # 1. alterar_campo_imagem com len(comandos) == 1 (só altera caminho, bytes_novo é None)
-    controller.alterar_campo_imagem(
-        croqui, "caminho_thumbnail", "", None, "thumb.webp", None
-    )
+    controller.alterar_campo_imagem(croqui, "caminho_thumbnail", "", None, "thumb.webp", None)
     assert croqui.caminho_thumbnail == "thumb.webp"
 
     # 2. inserir_imagem_markdown sem bytes
@@ -794,9 +790,7 @@ def test_croqui_controller_comandos_individuais_e_migracao_reversa(qapp):
 
     # 5. adicionar_mapa_com_arquivo sem bytes
     mapa = Mapa(caminho_imagem_mapa="mapa.webp")
-    controller.adicionar_mapa_com_arquivo(
-        setor_grupo.conteudo, "mapas", 0, mapa, None, None
-    )
+    controller.adicionar_mapa_com_arquivo(setor_grupo.conteudo, "mapas", 0, mapa, None, None)
     assert len(setor_grupo.conteudo.mapas) == 1
 
     # 6. migrar_setor de Grupo para Pico (campo_origem != setores_ou_grupos e campo_destino == setores_ou_grupos)
@@ -817,6 +811,7 @@ def test_croqui_controller_comandos_individuais_e_migracao_reversa(qapp):
 def test_croqui_controller_alterar_campo_unico_e_lote_atomico(qapp):
     """Valida alterar_campo canônico com campo único, lote atômico via CmdMacro e rejeição fail-fast."""
     import pytest
+
     from editor.commands.comandos_protobuf import CmdAlterarCampo, CmdMacro
 
     croqui = Croqui(nome="Inicial", descricao="Desc Inicial")
@@ -897,7 +892,9 @@ def test_croqui_controller_alterar_campo_substituicao_declarativa_repeated(qapp)
     assert undo_stack.count() == 0
 
     # 2. Substituição de lista repeated primitiva (creditos)
-    controller.alterar_campo(croqui, campo_nome="creditos", valor_novo=["Novo A", "Novo B", "Novo C"])
+    controller.alterar_campo(
+        croqui, campo_nome="creditos", valor_novo=["Novo A", "Novo B", "Novo C"]
+    )
     assert undo_stack.count() == 1
     assert list(croqui.creditos) == ["Novo A", "Novo B", "Novo C"]
     undo_stack.undo()
@@ -951,5 +948,3 @@ def test_croqui_controller_alterar_campo_substituicao_declarativa_repeated(qapp)
     assert setor.escaladas[0].via_esportiva.nome == "Via Antiga"
     assert len(setor.mapas) == 2
     assert model.obter_bytes_imagem("imagens/orfao.webp") == b"bytes_orfao"
-
-

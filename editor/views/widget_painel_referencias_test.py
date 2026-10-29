@@ -909,4 +909,3 @@ def test_referenciar_escalada_setor_e_grupo_recem_adicionados_sem_salvar(qapp):
     assert "Vale Oculto > Parede Sul > Fenda Nova" in textos_cards[0]
     assert "Vale Oculto > Parede Sul" in textos_cards[1]
     assert "Vale Oculto" in textos_cards[2]
-

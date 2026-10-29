@@ -41,7 +41,9 @@ def test_deve_resetar_timer_ao_pressionar_tecla(qtbot):
         app.postEvent(app, evento)
 
         qtbot.wait(200)
-        assert not rastreador.chamado, "O sinal não deveria ter sido emitido pois o timer foi resetado"
+        assert not rastreador.chamado, (
+            "O sinal não deveria ter sido emitido pois o timer foi resetado"
+        )
 
         qtbot.wait(200)
         assert rastreador.chamado, "O sinal deveria ter sido emitido após o tempo do reset"

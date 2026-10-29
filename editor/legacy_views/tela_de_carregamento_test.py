@@ -533,4 +533,3 @@ def test_tela_de_carregamento_possui_botao_conectar_mcp_e_abre_croqui_via_mcp(qt
     res = tela._abrir_croqui_via_mcp(pasta_croqui)
     assert res["janela_aberta"] is True
     assert tela.caminho_croqui_selecionado == pasta_croqui
-

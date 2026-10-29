@@ -5,7 +5,7 @@ import base64
 import io
 import json
 from collections.abc import Sequence
-from typing import Any
+from typing import Any, cast
 
 from PIL import Image, ImageDraw
 from PySide6.QtCore import QBuffer, QByteArray, QIODevice, QRectF, Qt
@@ -67,9 +67,7 @@ def _extrair_info_poi(poi: Any) -> dict[str, Any]:
         }
     if tipo_area == "poligono":
         coords = list(poi_obj.poligono.coordenadas)
-        pares = [
-            (int(coords[i]), int(coords[i + 1])) for i in range(0, len(coords) - 1, 2)
-        ]
+        pares = [(int(coords[i]), int(coords[i + 1])) for i in range(0, len(coords) - 1, 2)]
         cx = sum(p[0] for p in pares) // len(pares)
         cy = sum(p[1] for p in pares) // len(pares)
         return {
@@ -141,10 +139,10 @@ def renderizar_cena_mapa_editor(
     matriz = QByteArray()
     buffer = QBuffer(matriz)
     buffer.open(QIODevice.OpenModeFlag.WriteOnly)
-    qimg.save(buffer, "PNG")
+    qimg.save(buffer, cast(Any, "PNG"))
     buffer.close()
 
-    return Image.open(io.BytesIO(bytes(matriz))).convert("RGBA")
+    return Image.open(io.BytesIO(matriz.data())).convert("RGBA")
 
 
 def _aplicar_grade_e_reguas_globais(imagem_rgba: Image.Image) -> Image.Image:

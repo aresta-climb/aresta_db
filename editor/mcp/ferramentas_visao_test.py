@@ -413,4 +413,3 @@ def test_aresta_renderizar_mapa_retorna_blocos_intercalados_texto_imagem(qapp, t
     )
     assert resp_sem_img is not None
     assert resp_sem_img["result"]["isError"] is True
-

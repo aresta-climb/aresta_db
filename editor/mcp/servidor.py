@@ -439,9 +439,7 @@ class ServidorMCP:
         Retorna `None` se a ferramenta deve ser executada localmente nesta instância.
         """
         id_croqui_req = str(argumentos.get("id_croqui") or "").strip()
-        sessoes_com_croqui = [
-            s for s in listar_sessoes_mcp(self.diretorio_sessao) if s.id_croqui
-        ]
+        sessoes_com_croqui = [s for s in listar_sessoes_mcp(self.diretorio_sessao) if s.id_croqui]
         ids_abertos = [s.id_croqui for s in sessoes_com_croqui]
 
         if id_croqui_req:

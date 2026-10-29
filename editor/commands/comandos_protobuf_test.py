@@ -3,8 +3,9 @@
 
 import io
 import logging
-from PIL import Image
+
 import pytest
+from PIL import Image
 
 from aresta_api.proto.generated import croqui_pb2
 from aresta_api.proto.generated.croqui_pb2 import (
@@ -13,9 +14,7 @@ from aresta_api.proto.generated.croqui_pb2 import (
     Croqui,
     Patrocinador,
     Pico,
-    SetorOuGrupo,
     Trilha,
-    ViaEsportiva,
 )
 from editor.commands.comandos_protobuf import (
     CmdAdicionarRepeated,
@@ -38,7 +37,6 @@ from editor.commands.comandos_protobuf import (
 )
 from editor.models.croqui_model import CroquiModel
 from editor.models.readonly_proxy import ReadOnlyProxy
-
 
 # ==============================================================================
 # 1. Testes de CmdAlterarCampo (Primitivos, UIDs, Merge, Oneof, Repeated Item)
@@ -742,7 +740,10 @@ def test_resolucao_alvo_3_niveis_e_navegacao_tardia():
     assert resolver_alvo_mensagem(croqui, esc, indice_uids) == "esc_1234567890"
     # Nível 2: Ancestral mais próximo com UID + subcaminho relativo
     assert resolver_alvo_mensagem(croqui, mapa_setor, indice_uids) == "set_1234567890.mapas.0"
-    assert resolver_alvo_mensagem(croqui, esc.via_esportiva, indice_uids) == "esc_1234567890.via_esportiva"
+    assert (
+        resolver_alvo_mensagem(croqui, esc.via_esportiva, indice_uids)
+        == "esc_1234567890.via_esportiva"
+    )
     # Nível 3: Fallback posicional desde a raiz
     assert resolver_alvo_mensagem(croqui, pico, indice_uids) == "picos.0"
     assert resolver_alvo_mensagem(croqui, patr, indice_uids) == "picos.0.patrocinadores.0"
@@ -754,7 +755,9 @@ def test_resolucao_alvo_3_niveis_e_navegacao_tardia():
     assert navegar_para_alvo(croqui, "set_1234567890", indice_uids) is setor
     assert navegar_para_alvo(croqui, "esc_1234567890", indice_uids) is esc
     assert navegar_para_alvo(croqui, "set_1234567890.mapas.0", indice_uids) is mapa_setor
-    assert navegar_para_alvo(croqui, "esc_1234567890.via_esportiva", indice_uids) is esc.via_esportiva
+    assert (
+        navegar_para_alvo(croqui, "esc_1234567890.via_esportiva", indice_uids) is esc.via_esportiva
+    )
     assert navegar_para_alvo(croqui, "picos.0", indice_uids) is pico
     assert navegar_para_alvo(croqui, "picos.0.patrocinadores.0", indice_uids) is patr
     assert navegar_para_alvo(croqui, "picos.0.localizacao", indice_uids) is pico.localizacao
@@ -1634,7 +1637,9 @@ def test_cmd_alterar_campo_casos_borda_merge_e_variantes():
                 return ReadOnlyProxy(setor)
             return None
 
-    assert navegar_para_alvo(croqui, "set_proxy_ancora.nome", indice_uids=IndiceComProxy()) is not None
+    assert (
+        navegar_para_alvo(croqui, "set_proxy_ancora.nome", indice_uids=IndiceComProxy()) is not None
+    )
     assert navegar_para_mensagem(None, "picos.0") is None
     assert navegar_para_mensagem(proxy_croqui, "picos.0") is pico
     assert navegar_para_mensagem(object(), "campo_totalmente_inexistente") is None
@@ -1845,9 +1850,7 @@ def test_garantir_uids_em_mensagem_e_comandos_geram_uid_automatico():
     uid_enf_oneof = vme_nova.enfiadas[0].uid
     assert validar_uid(uid_enf_oneof)
     cmd_alt_oneof_tupla.executar_redo()
-    assert (
-        setor_no_modelo.escaladas[0].via_multiplas_enfiadas.enfiadas[0].uid == uid_enf_oneof
-    )
+    assert setor_no_modelo.escaladas[0].via_multiplas_enfiadas.enfiadas[0].uid == uid_enf_oneof
 
     # CmdAlterarCampo trocando variante oneof pelo nome direto do campo da variante
     arq_grupo_novo = croqui_pb2.ArquivoGrupo()
@@ -1932,5 +1935,3 @@ def test_cmd_alterar_campo_rejeita_repeated_sem_indice_e_tipos_incompativeis_fai
 
     with pytest.raises(ValueError, match="variante"):
         CmdAlterarCampo(model, esc, "tipo", ("variante_inexistente", croqui_pb2.Boulder()))
-
-

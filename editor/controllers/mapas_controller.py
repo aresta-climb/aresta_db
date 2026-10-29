@@ -481,9 +481,9 @@ class MapasController:
                             and not g_norm.startswith("US_")
                         ):
                             g_norm = f"BR_{g_norm}"
-                        grau_enum = getattr(
-                            croqui_pb2.GrauVia.GrauVia, g_norm, None
-                        ) or getattr(croqui_pb2.GrauVia, g_norm, None)
+                        grau_enum = getattr(croqui_pb2.GrauVia.GrauVia, g_norm, None) or getattr(
+                            croqui_pb2.GrauVia, g_norm, None
+                        )
                         if grau_enum is not None:
                             nova_esc.via_esportiva.dificuldade = grau_enum
                 elif tipo_str == "via_movel":
@@ -505,9 +505,7 @@ class MapasController:
                 self._executar_comando(cmd_esc)
 
         rotulo_inicio = (
-            obter_rotulo_escalada_no_setor(msg_setor_proxy, nome_rota)
-            if msg_setor_proxy
-            else None
+            obter_rotulo_escalada_no_setor(msg_setor_proxy, nome_rota) if msg_setor_proxy else None
         )
         if not rotulo_inicio:
             rotulo_inicio = str(
@@ -682,9 +680,7 @@ class MapasController:
                                 pts_ent = [
                                     {"x": p[0], "y": p[1]} for p in pontos_trajeto[: pos_in + 1]
                                 ]
-                                self.adicionar_linha(
-                                    msg_mapa_proxy, id_linha=id_ent, nos=pts_ent
-                                )
+                                self.adicionar_linha(msg_mapa_proxy, id_linha=id_ent, nos=pts_ent)
                                 ids_travessia.append(id_ent)
 
                             ids_travessia.append(id_sub2)
@@ -698,12 +694,8 @@ class MapasController:
                                     mapa_ativo=msg_mapa_proxy,
                                 )
                                 ids_reservados.add(id_sai)
-                                pts_sai = [
-                                    {"x": p[0], "y": p[1]} for p in pontos_trajeto[pos_out:]
-                                ]
-                                self.adicionar_linha(
-                                    msg_mapa_proxy, id_linha=id_sai, nos=pts_sai
-                                )
+                                pts_sai = [{"x": p[0], "y": p[1]} for p in pontos_trajeto[pos_out:]]
+                                self.adicionar_linha(msg_mapa_proxy, id_linha=id_sai, nos=pts_sai)
                                 ids_travessia.append(id_sai)
 
                             # Cria referência da travessia

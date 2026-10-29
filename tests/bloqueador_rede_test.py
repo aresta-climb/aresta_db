@@ -13,6 +13,17 @@ from tests.bloqueador_rede import (
 )
 
 
+@pytest.fixture(autouse=True)
+def _isolar_estado_bloqueador():
+    """
+    Garante que cada teste desta suíte inicie com as funções nativas de socket
+    restauradas e reative o bloqueio global ao finalizar.
+    """
+    restaurar_acesso_rede()
+    yield
+    bloquear_acesso_externo()
+
+
 def test_eh_endereco_local_identifica_loopback():
     assert eh_endereco_local("127.0.0.1") is True
     assert eh_endereco_local("127.0.0.2") is True

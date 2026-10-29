@@ -6,9 +6,9 @@ from pathlib import Path
 
 from editor.core.storage import obter_diretorio_base_app
 from editor.mcp.sessao import (
-    DadosSessaoMcp,
     NOME_ARQUIVO_SESSAO_MCP,
     PORTA_MCP_PADRAO,
+    DadosSessaoMcp,
     alocar_porta_mcp,
     descobrir_url_mcp_ativa,
     desregistrar_sessao_multi_mcp,
@@ -177,4 +177,3 @@ def test_registro_multi_sessao_mcp(tmp_path: Path):
     # Arquivo mcp_sessoes.json corrompido retorna lista vazia de forma resiliente
     obter_caminho_sessoes_mcp(tmp_path).write_text("{corrompido", encoding="utf-8")
     assert listar_sessoes_mcp(tmp_path) == []
-

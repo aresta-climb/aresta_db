@@ -252,7 +252,9 @@ def test_renderiza_resumo_html_autocontido_com_mapas_svg_modos_imagem_e_qrcode()
     assert "960x720" in html
     # Links de imagens apontando para o namespace da PR e _base
     assert "https://serving.arestaclimb.com/pr/42/serra_cipo/imagens/mapa_parede.webp" in html
-    assert "https://serving.arestaclimb.com/pr/42/_base/serra_cipo/imagens/mapa_cortado.webp" in html
+    assert (
+        "https://serving.arestaclimb.com/pr/42/_base/serra_cipo/imagens/mapa_cortado.webp" in html
+    )
     assert "https://serving.arestaclimb.com/pr/42/_base/serra_cipo/imagens/capa.webp" in html
     assert "https://serving.arestaclimb.com/pr/42/serra_cipo/imagens/capa.webp" in html
     # Entidades e diffs

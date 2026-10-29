@@ -645,7 +645,9 @@ class TestDescobertaCaminhosConfluencia:
         assert op.uids_subsequentes == ()
 
     def test_multiplas_rotas_divergentes_adiante_gera_opcoes_distintas(self):
-        seg_base = _criar_linha_pb("base", [(100, 500), (100, 350), (100, 250)], rotulo_inicio="1, 2")
+        seg_base = _criar_linha_pb(
+            "base", [(100, 500), (100, 350), (100, 250)], rotulo_inicio="1, 2"
+        )
         seg_topo_a = _criar_linha_pb("topo_a", [(100, 250), (70, 100)], rotulo_fim="A")
         seg_topo_b = _criar_linha_pb("topo_b", [(100, 250), (130, 100)], rotulo_fim="B")
         ref1 = croqui_pb2.Mapa.Referencia(alvo_uid="Via Esquerda", pontos_uids=["base", "topo_a"])
@@ -654,9 +656,7 @@ class TestDescobertaCaminhosConfluencia:
         snap = ResultadoSnap(
             tipo=TipoSnap.NO, coordenada=Ponto2D(100, 350), id_linha="base", indice_no=1
         )
-        res = descobrir_caminhos_confluencia(
-            snap, [seg_base, seg_topo_a, seg_topo_b], [ref1, ref2]
-        )
+        res = descobrir_caminhos_confluencia(snap, [seg_base, seg_topo_a, seg_topo_b], [ref1, ref2])
 
         assert res.eh_topo_final is False
         assert len(res.opcoes) == 2
@@ -683,18 +683,14 @@ class TestDescobertaCaminhosConfluencia:
     def test_deduplicacao_caminhos_remanescentes_identicos(self):
         seg_v1 = _criar_linha_pb("v1", [(60, 500), (100, 350)], rotulo_inicio="1")
         seg_v2 = _criar_linha_pb("v2", [(140, 500), (100, 350)], rotulo_inicio="2")
-        seg_comum = _criar_linha_pb(
-            "comum", [(100, 350), (100, 200), (100, 100)], rotulo_fim="A"
-        )
+        seg_comum = _criar_linha_pb("comum", [(100, 350), (100, 200), (100, 100)], rotulo_fim="A")
         ref1 = croqui_pb2.Mapa.Referencia(alvo_uid="Via 1", pontos_uids=["v1", "comum"])
         ref2 = croqui_pb2.Mapa.Referencia(alvo_uid="Via 2", pontos_uids=["v2", "comum"])
 
         snap = ResultadoSnap(
             tipo=TipoSnap.NO, coordenada=Ponto2D(100, 200), id_linha="comum", indice_no=1
         )
-        res = descobrir_caminhos_confluencia(
-            snap, [seg_v1, seg_v2, seg_comum], [ref1, ref2]
-        )
+        res = descobrir_caminhos_confluencia(snap, [seg_v1, seg_v2, seg_comum], [ref1, ref2])
 
         assert len(res.opcoes) == 1
         op = res.opcoes[0]
@@ -771,4 +767,3 @@ class TestDescobertaCaminhosConfluencia:
         res_fim = descobrir_caminhos_confluencia(snap_fim, [linha_avulsa], [])
         assert res_fim.eh_topo_final is True
         assert res_fim.opcoes == ()
-

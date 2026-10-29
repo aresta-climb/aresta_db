@@ -1059,4 +1059,3 @@ def test_14_confluencia_interativa_com_multiplas_saidas_ghost_preview_e_undo_red
     assert len(setor_redo.escaladas) == 3
     assert len(mapa_redo.pontos_de_interesse) == 5
     assert len(mapa_redo.referencias) == 3
-

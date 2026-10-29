@@ -38,9 +38,7 @@ def _preparar_mini_repositorio(
     else:
         (raiz / "modulo.py").write_text("x = 1\n", encoding="utf-8")
 
-    versao_mig = (
-        obter_ultima_versao_migracao() if ultima_migracao is None else ultima_migracao
-    )
+    versao_mig = obter_ultima_versao_migracao() if ultima_migracao is None else ultima_migracao
     pasta_croqui = raiz / "database" / "cipo_teste"
     pasta_croqui.mkdir(parents=True, exist_ok=True)
     dados_croqui = {
@@ -139,8 +137,10 @@ def test_validar_pull_request_compila_gera_diff_resumo_html_e_publica_no_r2(
     repo_pr = tmp_path / "repo_pr"
     pasta_pr = _preparar_mini_repositorio(repo_pr)
     # Modifica o nome da via na PR mantendo o mesmo UID
-    texto_pr = (pasta_pr / "croqui.yaml").read_text(encoding="utf-8").replace(
-        "Via Teste", "Via Teste Modificada"
+    texto_pr = (
+        (pasta_pr / "croqui.yaml")
+        .read_text(encoding="utf-8")
+        .replace("Via Teste", "Via Teste Modificada")
     )
     (pasta_pr / "croqui.yaml").write_text(texto_pr, encoding="utf-8")
 

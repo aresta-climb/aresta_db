@@ -81,7 +81,7 @@ def registrar_ferramentas_visao(
         pixmap.save(buffer, "PNG")
         buffer.close()
 
-        dados_b64 = base64.b64encode(bytes(matriz_bytes)).decode("ascii")
+        dados_b64 = base64.b64encode(matriz_bytes.data()).decode("ascii")
         metadados = {
             "viewport": alvo_viewport,
             "largura": pixmap.width(),
@@ -100,9 +100,7 @@ def registrar_ferramentas_visao(
         campo = str(args.get("campo") or "")
         incluir_indice_arg = args.get("incluir_indice_uids")
         incluir_indice = (
-            bool(incluir_indice_arg)
-            if incluir_indice_arg is not None
-            else (not alvo and not campo)
+            bool(incluir_indice_arg) if incluir_indice_arg is not None else (not alvo and not campo)
         )
 
         msg, caminho = resolver_alvo_mcp(model, alvo, campo_nome=campo or None)
@@ -138,9 +136,7 @@ def registrar_ferramentas_visao(
 
             if campo in msg_proto.DESCRIPTOR.oneofs_by_name:
                 ativo = msg_proto.WhichOneof(campo)
-                val_oneof = (
-                    _serializar_objeto_proto(getattr(msg_proto, ativo)) if ativo else None
-                )
+                val_oneof = _serializar_objeto_proto(getattr(msg_proto, ativo)) if ativo else None
                 return {
                     "caminho": caminho,
                     "campo": campo,
@@ -155,9 +151,7 @@ def registrar_ferramentas_visao(
                 )
 
             desc_c = msg_proto.DESCRIPTOR.fields_by_name[campo]
-            eh_rep = getattr(desc_c, "label", None) == 3 or getattr(
-                desc_c, "is_repeated", False
-            )
+            eh_rep = getattr(desc_c, "label", None) == 3 or getattr(desc_c, "is_repeated", False)
             if eh_rep:
                 colecao = getattr(msg_proto, campo)
                 return {

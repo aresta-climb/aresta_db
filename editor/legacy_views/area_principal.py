@@ -1516,9 +1516,7 @@ class JanelaPrincipal(QMainWindow):
                 if self.workspace and hasattr(self.workspace, "obter_caminho_database")
                 else ""
             )
-            self.servidor_mcp.definir_croqui_ativo(
-                id_croqui, caminho_db, croqui_aberto=True
-            )
+            self.servidor_mcp.definir_croqui_ativo(id_croqui, caminho_db, croqui_aberto=True)
         if iniciar_rede and not self.servidor_mcp.esta_ativo:
             self.servidor_mcp.iniciar()
         return self.servidor_mcp
@@ -1562,7 +1560,8 @@ class JanelaPrincipal(QMainWindow):
     def _obter_widget_alvo_mcp(self, alvo: str) -> QWidget | None:
         """Retorna o widget correspondente ao viewport solicitado pela ferramenta de captura."""
         if alvo == "mapas":
-            return self.pagina_mapas.garantir_editor_criado()
+            widget_mapa: QWidget | None = self.pagina_mapas.garantir_editor_criado()
+            return widget_mapa
         if alvo == "imagens":
             return self.pagina_imagens.editor
         if alvo == "dados":

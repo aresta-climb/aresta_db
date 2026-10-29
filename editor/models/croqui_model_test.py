@@ -1801,4 +1801,3 @@ def test_croqui_model_obter_objeto_por_uid():
     assert model.obter_objeto_por_uid("uid_inexistente") is None
     assert model.obter_objeto_por_uid("") is None
     assert model.obter_objeto_por_uid(None) is None
-

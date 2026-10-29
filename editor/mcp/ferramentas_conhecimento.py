@@ -5,10 +5,10 @@ import re
 from pathlib import Path
 from typing import Any
 
-import yaml
 from google.protobuf.descriptor import Descriptor, EnumDescriptor, FieldDescriptor
 
 from aresta_api.proto.generated import croqui_pb2
+from editor.core.serializacao_util import carregar_yaml
 from editor.mcp.servidor import ServidorMCP
 
 _MAPA_TIPOS_ESCALARES: dict[int, str] = {
@@ -108,9 +108,7 @@ def _descrever_campo(
     else:
         nome_tipo = _MAPA_TIPOS_ESCALARES.get(field.type, "scalar")
 
-    opcoes_enum = (
-        [v.name for v in field.enum_type.values] if field.enum_type is not None else None
-    )
+    opcoes_enum = [v.name for v in field.enum_type.values] if field.enum_type is not None else None
     return {
         "nome": field.name,
         "numero": field.number,
@@ -127,7 +125,7 @@ def _extrair_metadados_frontmatter_skill(pasta_skill: Path, texto_markdown: str)
     if texto_markdown.startswith("---"):
         partes = texto_markdown.split("---", 2)
         if len(partes) >= 3:
-            dados = yaml.safe_load(partes[1])
+            dados = carregar_yaml(partes[1])
             if isinstance(dados, dict):
                 nome = str(dados.get("name") or pasta_skill.name)
                 descricao = str(dados.get("description") or "").strip()
@@ -168,12 +166,8 @@ def registrar_ferramentas_conhecimento(
         chave = filtro.lower()
         if chave in mensagens_por_nome:
             msg_desc = mensagens_por_nome[chave]
-            campos = [
-                _descrever_campo(msg_desc, f, comentarios) for f in msg_desc.fields
-            ]
-            oneofs = {
-                oneof.name: [f.name for f in oneof.fields] for oneof in msg_desc.oneofs
-            }
+            campos = [_descrever_campo(msg_desc, f, comentarios) for f in msg_desc.fields]
+            oneofs = {oneof.name: [f.name for f in oneof.fields] for oneof in msg_desc.oneofs}
             valores_enum = [
                 {"nome": v.name, "numero": v.number}
                 for enum_sub in msg_desc.enum_types
@@ -194,9 +188,7 @@ def registrar_ferramentas_conhecimento(
                 "tipo": "enum",
                 "nome": enum_desc.name,
                 "nome_completo": enum_desc.full_name,
-                "valores_enum": [
-                    {"nome": v.name, "numero": v.number} for v in enum_desc.values
-                ],
+                "valores_enum": [{"nome": v.name, "numero": v.number} for v in enum_desc.values],
             }
 
         disponiveis = ", ".join(sorted({m.name for m in mensagens_por_nome.values()}))

@@ -164,10 +164,7 @@ class ResumoDiffPullRequest:
     @property
     def total_mapas_alterados(self) -> int:
         return sum(
-            1
-            for croqui in self.croquis
-            for mapa in croqui.mapas
-            if mapa.status != "inalterado"
+            1 for croqui in self.croquis for mapa in croqui.mapas if mapa.status != "inalterado"
         )
 
     @property
@@ -215,7 +212,7 @@ def _comparar_valores(
 
 def _extrair_campos_escalada(
     escalada: croqui_pb2.Escalada,
-) -> tuple[str, str, str, list[ tuple[str, str, bool] ]]:
+) -> tuple[str, str, str, list[tuple[str, str, bool]]]:
     """Retorna (subtipo, nome, resumo_curto, lista de (nome_campo, valor, eh_markdown))."""
     subtipo = escalada.WhichOneof("tipo") or "via_esportiva"
     if subtipo == "via_esportiva":
@@ -280,8 +277,8 @@ def _extrair_campos_escalada(
 
 
 def _converter_ponto_visual(ponto: croqui_pb2.Mapa.PontoDeInteresse) -> PontoMapaVisual:
-    uid = ponto.uid or ponto.id
-    rotulo = ponto.rotulo or ponto.label or ponto.texto_visivel
+    uid = ponto.uid
+    rotulo = ponto.rotulo or ponto.texto_visivel
     tipo_area = ponto.WhichOneof("tipo_area") or "circulo"
     if tipo_area == "circulo":
         return PontoMapaVisual(
@@ -406,12 +403,11 @@ def _comparar_pontos_mapa(
     mapa_pr: croqui_pb2.Mapa | None,
 ) -> list[DiffPontoMapa]:
     pontos_base = {
-        (p.uid or p.id): _converter_ponto_visual(p)
+        p.uid: _converter_ponto_visual(p)
         for p in (mapa_base.pontos_de_interesse if mapa_base else [])
     }
     pontos_pr = {
-        (p.uid or p.id): _converter_ponto_visual(p)
-        for p in (mapa_pr.pontos_de_interesse if mapa_pr else [])
+        p.uid: _converter_ponto_visual(p) for p in (mapa_pr.pontos_de_interesse if mapa_pr else [])
     }
     todos_uids = list(dict.fromkeys(list(pontos_base.keys()) + list(pontos_pr.keys())))
     resultado: list[DiffPontoMapa] = []
@@ -458,7 +454,9 @@ def _comparar_pontos_mapa(
     return resultado
 
 
-def _copiar_para_base(origem: Path, dir_pr: Path, rel_destino_base: str, copiados: list[str]) -> str:
+def _copiar_para_base(
+    origem: Path, dir_pr: Path, rel_destino_base: str, copiados: list[str]
+) -> str:
     destino = dir_pr / rel_destino_base
     destino.parent.mkdir(parents=True, exist_ok=True)
     shutil.copy2(origem, destino)
@@ -781,11 +779,7 @@ def _processar_diff_croqui(
         m_p = m_p_tupla[1] if m_p_tupla else None
         ctx_m = m_p_tupla[0] if m_p_tupla else (m_b_tupla[0] if m_b_tupla else id_croqui)
         pontos_diff = _comparar_pontos_mapa(m_b, m_p)
-        img_alterada = (
-            caminho_m in imagens_alteradas_set
-            and m_b is not None
-            and m_p is not None
-        )
+        img_alterada = caminho_m in imagens_alteradas_set and m_b is not None and m_p is not None
         tem_ponto_alterado = any(p.status != "inalterado" for p in pontos_diff)
 
         if m_b is None:
@@ -855,9 +849,7 @@ def calcular_diff_pull_request(
         ids_descobertos = sorted(
             p.name
             for p in dir_pr.iterdir()
-            if p.is_dir()
-            and not p.name.startswith("_")
-            and (p / "compilado.binarypb").is_file()
+            if p.is_dir() and not p.name.startswith("_") and (p / "compilado.binarypb").is_file()
         )
     else:
         ids_descobertos = [

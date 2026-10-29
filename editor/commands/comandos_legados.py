@@ -1268,4 +1268,3 @@ COMANDOS_LEGADOS_MAP: dict[str, type[ComandoEditor]] = {
     "CmdAdicionarMapaArquivo": CmdAdicionarMapaArquivo,
     "CmdRenomearEscalada": CmdRenomearEscalada,
 }
-

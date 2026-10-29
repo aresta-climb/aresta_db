@@ -982,7 +982,10 @@ class MapasControllerTest(unittest.TestCase):
             linhas=self.msg_mapa_proxy.pontos_de_interesse,
             referencias=self.msg_mapa_proxy.referencias,
             nomes_por_uid={
-                self.croqui.picos[0].setores_ou_grupos[0].setor.conteudo.escaladas[0].uid: "Via Base"
+                self.croqui.picos[0]
+                .setores_ou_grupos[0]
+                .setor.conteudo.escaladas[0]
+                .uid: "Via Base"
             },
         )
         self.assertEqual(len(analise.opcoes), 1)
@@ -1206,5 +1209,4 @@ class MapasControllerTest(unittest.TestCase):
 
 
 if __name__ == "__main__":
-
     unittest.main()

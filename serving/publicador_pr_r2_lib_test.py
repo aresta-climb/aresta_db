@@ -67,12 +67,10 @@ def test_publica_artefatos_da_pr_com_tipos_mime_corretos_e_remove_orfaos_anterio
         == "text/yaml; charset=utf-8"
     )
     assert (
-        fake.obter_tipo_conteudo("aresta-serving", "pr/42/catalogo.db")
-        == "application/vnd.sqlite3"
+        fake.obter_tipo_conteudo("aresta-serving", "pr/42/catalogo.db") == "application/vnd.sqlite3"
     )
     assert (
-        fake.obter_tipo_conteudo("aresta-serving", "pr/42/cipo/imagens/mapa.webp")
-        == "image/webp"
+        fake.obter_tipo_conteudo("aresta-serving", "pr/42/cipo/imagens/mapa.webp") == "image/webp"
     )
     assert (
         fake.obter_conteudo("aresta-serving", "pr/42/_base/cipo/imagens/mapa.webp")
