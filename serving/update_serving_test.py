@@ -444,3 +444,95 @@ def test_upload_file_content_types_e_operacoes_vazias(deployer: Deployer, mock_s
     # Listas vazias não devem falhar
     deployer._upload_files_parallel([])
     deployer._delete_files_bulk([])
+
+
+def test_deploy_envia_arquivos_em_tres_estagios_sequenciais_midias_compilados_manifestos(
+    deployer: Deployer, mock_s3
+) -> None:
+    """Garante que mídias cheguem ao R2 antes de compilado.binarypb, e compilado.binarypb antes dos manifestos."""
+    local_arquivos = {
+        "arquivos_serving.yaml": "hash_manifest",
+        "catalogo.db": "hash_cat",
+        "indice.binarypb": "hash_ind_bin",
+        "indice.yaml": "hash_ind_yaml",
+        "alfa_pico/compilado.binarypb": "hash_comp_alfa",
+        "zed_pico/compilado.binarypb": "hash_comp_zed",
+        "zed_pico/imagens/topo.webp": "hash_midia_topo",
+        "thumbnails/zed_pico.webp": "hash_thumb",
+    }
+
+    for rel_path in local_arquivos:
+        caminho = deployer.generated_dir / rel_path
+        caminho.parent.mkdir(parents=True, exist_ok=True)
+        caminho.write_bytes(f"conteudo:{rel_path}".encode("utf-8"))
+
+    (deployer.generated_dir / "arquivos_serving.yaml").write_bytes(
+        criar_manifesto(local_arquivos).encode("utf-8")
+    )
+
+    upload_original = mock_s3.upload_file
+    ordem_chaves_enviadas: list[str] = []
+
+    def _rastrear_upload(Filename: str, Bucket: str, Key: str, ExtraArgs=None) -> None:
+        ordem_chaves_enviadas.append(Key)
+        upload_original(Filename, Bucket, Key, ExtraArgs=ExtraArgs)
+
+    with (
+        patch("subprocess.run"),
+        patch("serving.update_serving.sincronizar_catalogo_d1"),
+        patch.object(mock_s3, "upload_file", side_effect=_rastrear_upload),
+        patch.object(deployer.purger, "purge_manifests") as mock_purge,
+    ):
+        deployer.execute()
+        mock_purge.assert_called_once_with("v1")
+
+    chaves_midia = {
+        "v1/zed_pico/imagens/topo.webp",
+        "v1/thumbnails/zed_pico.webp",
+    }
+    chaves_compilados = {
+        "v1/alfa_pico/compilado.binarypb",
+        "v1/zed_pico/compilado.binarypb",
+    }
+    chaves_manifestos = {
+        "v1/arquivos_serving.yaml",
+        "v1/catalogo.db",
+        "v1/indice.binarypb",
+        "v1/indice.yaml",
+    }
+
+    indices_midia = [ordem_chaves_enviadas.index(k) for k in chaves_midia]
+    indices_compilados = [ordem_chaves_enviadas.index(k) for k in chaves_compilados]
+    indices_manifestos = [ordem_chaves_enviadas.index(k) for k in chaves_manifestos]
+
+    assert max(indices_midia) < min(indices_compilados), (
+        f"Todas as mídias devem terminar antes do 1º compilado.binarypb. Ordem: {ordem_chaves_enviadas}"
+    )
+    assert max(indices_compilados) < min(indices_manifestos), (
+        f"Todos os compilado.binarypb devem terminar antes do 1º manifesto raiz. Ordem: {ordem_chaves_enviadas}"
+    )
+
+    # Verifica também o caminho de Delta Deploy quando todos os arquivos sofrem atualização
+    ordem_chaves_enviadas.clear()
+    delta_arquivos = {k: f"{v}_v2" for k, v in local_arquivos.items()}
+    (deployer.generated_dir / "arquivos_serving.yaml").write_bytes(
+        criar_manifesto(delta_arquivos).encode("utf-8")
+    )
+
+    with (
+        patch("subprocess.run"),
+        patch("serving.update_serving.sincronizar_catalogo_d1"),
+        patch.object(mock_s3, "upload_file", side_effect=_rastrear_upload),
+        patch.object(deployer.purger, "purge_manifests") as mock_purge_delta,
+    ):
+        deployer.execute()
+        mock_purge_delta.assert_called_once_with("v1")
+
+    indices_midia_delta = [ordem_chaves_enviadas.index(k) for k in chaves_midia]
+    indices_compilados_delta = [ordem_chaves_enviadas.index(k) for k in chaves_compilados]
+    indices_manifestos_delta = [ordem_chaves_enviadas.index(k) for k in chaves_manifestos]
+
+    assert max(indices_midia_delta) < min(indices_compilados_delta)
+    assert max(indices_compilados_delta) < min(indices_manifestos_delta)
+
+

@@ -198,11 +198,41 @@ class Deployer:
             str(local_path), self.bucket, remote_key, ExtraArgs={"ContentType": content_type}
         )
 
+    MANIFESTOS_RAIZ = {
+        "indice.binarypb",
+        "indice.yaml",
+        "catalogo.db",
+        "arquivos_serving.yaml",
+    }
+
+    @classmethod
+    def _eh_compilado_croqui(cls, rel_path: str) -> bool:
+        return rel_path == "compilado.binarypb" or rel_path.endswith("/compilado.binarypb")
+
     def _upload_files_parallel(self, files: list[str]) -> None:
         if not files:
             return
         with ThreadPoolExecutor(max_workers=50) as executor:
             list(executor.map(self._upload_file, files))
+
+    def _upload_files_staged(self, files: list[str]) -> None:
+        """Envia arquivos para o R2 em 3 estágios sequenciais para evitar condição de corrida na CDN.
+
+        1º estágio: mídias, imagens e thumbnails (referenciados pelos croquis compilados).
+        2º estágio: arquivos compilado.binarypb (referenciados pelo índice).
+        3º estágio: manifestos raiz (indice.binarypb, indice.yaml, catalogo.db, arquivos_serving.yaml).
+        """
+        estagio_midias = [
+            p
+            for p in files
+            if p not in self.MANIFESTOS_RAIZ and not self._eh_compilado_croqui(p)
+        ]
+        estagio_compilados = [p for p in files if self._eh_compilado_croqui(p)]
+        estagio_manifestos = [p for p in files if p in self.MANIFESTOS_RAIZ]
+
+        self._upload_files_parallel(estagio_midias)
+        self._upload_files_parallel(estagio_compilados)
+        self._upload_files_parallel(estagio_manifestos)
 
     def _delete_files_bulk(self, rel_paths: list[str]) -> None:
         if not rel_paths:
@@ -234,8 +264,8 @@ class Deployer:
             if "arquivos_serving.yaml" not in paths:
                 paths.append("arquivos_serving.yaml")
 
-            print(f"Enviando {len(paths)} arquivos para R2 em paralelo...")
-            self._upload_files_parallel(paths)
+            print(f"Enviando {len(paths)} arquivos para R2 em 3 estágios...")
+            self._upload_files_staged(paths)
         else:
             print("=== DELTA DEPLOY ===")
             remote_map = {
@@ -287,7 +317,7 @@ class Deployer:
 
             self._sincronizar_catalogo_d1()
 
-            self._upload_files_parallel(to_upload)
+            self._upload_files_staged(to_upload)
             self._delete_files_bulk(sorted(deleted))
 
         # Purge cached manifest in Cloudflare
