@@ -111,18 +111,6 @@ jobs:
         env:
           PYTHONPATH: .
 
-      - name: Configurar Git
-        run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-
-      - name: Injetar Versão Oficial
-        run: |
-          uv run editor/release_tools/bump_version.py editor/core/version.py ${{ steps.versao.outputs.versao }} --descricao "${{ github.event.inputs.descricao_mudancas }}"
-          uv lock
-          git commit -am "chore: Lançar versão ${{ steps.versao.outputs.versao }} do Editor Aresta"
-          git tag editor-v${{ steps.versao.outputs.versao }}
-
       - name: Instalar Dependências Gráficas do Qt (Ubuntu)
         run: |
           sudo apt-get update
@@ -137,6 +125,41 @@ jobs:
           QT_QPA_PLATFORM: "offscreen"
         run: |
           xvfb-run -a uv run pytest -n 0 -v -s --durations=10
+
+      - name: Executar Campanha do Robô Caótico (5 min)
+        timeout-minutes: 10
+        env:
+          PYTHONFAULTHANDLER: "1"
+          PYTHONUNBUFFERED: "1"
+          CI: "true"
+          QT_QPA_PLATFORM: "offscreen"
+          DURACAO_CAMPANHA_CAOS_SEGUNDOS: "300"
+          REPORTAR_SENTRY_CAOS: "1"
+          DIRETORIO_SAIDA_RECEITAS_CAOS: "artefatos_caos"
+          SENTRY_DSN_EDITOR: ${{ secrets.SENTRY_DSN_EDITOR }}
+        run: |
+          mkdir -p artefatos_caos
+          xvfb-run -a uv run pytest -o addopts="" -v -s editor/caos/robo_caotico_exploratorio_test.py
+
+      - name: Upload de Receitas de Crash do Robô Caótico
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: receitas-crash-robo-caotico
+          path: artefatos_caos/*.json
+          if-no-files-found: ignore
+
+      - name: Configurar Git
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Injetar Versão Oficial
+        run: |
+          uv run editor/release_tools/bump_version.py editor/core/version.py ${{ steps.versao.outputs.versao }} --descricao "${{ github.event.inputs.descricao_mudancas }}"
+          uv lock
+          git commit -am "chore: Lançar versão ${{ steps.versao.outputs.versao }} do Editor Aresta"
+          git tag editor-v${{ steps.versao.outputs.versao }}
 
       - name: Calcular próxima versão -dev
         id: next_dev

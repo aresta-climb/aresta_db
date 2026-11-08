@@ -374,5 +374,72 @@ class TestGerenciadorSincronizacao(unittest.TestCase):
         mock_repo.checkout.assert_called_once_with(mock_local_branch)
 
 
+def _criar_commit_em_repo_local(repo: pygit2.Repository, arquivo_rel: str, conteudo: str) -> str:
+    caminho_arq = Path(repo.workdir) / arquivo_rel
+    caminho_arq.parent.mkdir(parents=True, exist_ok=True)
+    caminho_arq.write_text(conteudo, encoding="utf-8")
+
+    repo.index.add(arquivo_rel)
+    repo.index.write()
+    tree = repo.index.write_tree()
+    autor = pygit2.Signature("Autor Teste", "autor@arestaclimb.com")
+    pais = [] if repo.head_is_unborn else [repo.head.target]
+    commit_oid = repo.create_commit("refs/heads/main", autor, autor, "Commit teste", tree, pais)
+    repo.set_head("refs/heads/main")
+    return str(commit_oid)
+
+
+def test_gerenciador_sincronizacao_respeita_url_upstream_explicita_e_env(
+    tmp_path: Path, monkeypatch
+) -> None:
+    remoto_env = str(tmp_path / "remoto_env.git")
+    monkeypatch.setenv("ARESTA_GIT_UPSTREAM_URL", remoto_env)
+
+    gerenciador_env = GerenciadorSincronizacao(tmp_path / "clone_env")
+    assert gerenciador_env.obter_url_clone() == remoto_env
+
+    remoto_explicito = str(tmp_path / "remoto_explicito.git")
+    gerenciador_exp = GerenciadorSincronizacao(
+        tmp_path / "clone_exp", url_upstream=remoto_explicito
+    )
+    assert gerenciador_exp.obter_url_clone() == remoto_explicito
+
+
+def test_ciclo_completo_clone_fetch_e_checkout_contra_repo_git_local_real(
+    tmp_path: Path, monkeypatch
+) -> None:
+    caminho_remoto = tmp_path / "remoto_oficial.git"
+    repo_remoto = pygit2.init_repository(str(caminho_remoto), False)
+    sha_v1 = _criar_commit_em_repo_local(
+        repo_remoto, "database/croqui_teste/croqui.yaml", "id: croqui_teste\nnome: V1\n"
+    )
+
+    monkeypatch.setenv("ARESTA_GIT_UPSTREAM_URL", str(caminho_remoto))
+
+    caminho_clone = tmp_path / "aresta_db_local"
+    sync = GerenciadorSincronizacao(caminho_clone)
+
+    url_clone = sync.obter_url_clone()
+    assert url_clone == str(caminho_remoto)
+
+    sync.clonar(url_clone)
+    assert (caminho_clone / "database/croqui_teste/croqui.yaml").is_file()
+
+    # Avança o repositório remoto com um segundo commit e testa configurar_remotes + fetch + checkout
+    sha_v2 = _criar_commit_em_repo_local(
+        repo_remoto, "database/croqui_teste/croqui.yaml", "id: croqui_teste\nnome: V2\n"
+    )
+    assert sha_v1 != sha_v2
+
+    sync.configurar_remotes()
+    sync.fazer_fetch()
+    sync.fazer_checkout_main_upstream()
+
+    conteudo_atualizado = (caminho_clone / "database/croqui_teste/croqui.yaml").read_text(
+        encoding="utf-8"
+    )
+    assert "nome: V2" in conteudo_atualizado
+
+
 if __name__ == "__main__":
     unittest.main()

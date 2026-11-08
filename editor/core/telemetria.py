@@ -411,6 +411,9 @@ def capturar_excecao(
     id_croqui: str = "",
     etapa: str = "",
     contexto_extra: Any = None,
+    contextos_extras: dict[str, Any] | None = None,
+    nivel_severidade: str | None = None,
+    tags_extras: dict[str, str] | None = None,
 ) -> Any:
     """
     Captura qualquer exceção (incluindo falhas de salvamento e compilação),
@@ -427,10 +430,22 @@ def capturar_excecao(
                 sentry_sdk.set_tag("id_croqui", id_croqui)
             if etapa:
                 sentry_sdk.set_tag("etapa_falha", etapa)
+            if nivel_severidade:
+                sentry_sdk.set_tag("nivel_severidade", nivel_severidade)
+            if tags_extras:
+                for chave_tag, valor_tag in tags_extras.items():
+                    sentry_sdk.set_tag(chave_tag, valor_tag)
+
+        if nivel_severidade and hasattr(sentry_sdk, "set_level"):
+            sentry_sdk.set_level(nivel_severidade)
 
         if contexto_extra and hasattr(sentry_sdk, "set_context"):
             contexto_sanitizado = _sanitizar_objeto_recursivo(contexto_extra)
             sentry_sdk.set_context("detalhes_erro", contexto_sanitizado)
+
+        if contextos_extras and hasattr(sentry_sdk, "set_context"):
+            for nome_ctx, dados_ctx in contextos_extras.items():
+                sentry_sdk.set_context(nome_ctx, _sanitizar_objeto_recursivo(dados_ctx))
 
         _anexar_arquivos_diario_no_escopo()
 
@@ -443,3 +458,24 @@ def capturar_excecao(
         return event_id
     except Exception:
         return None
+
+
+def capturar_crash_robo_caotico(
+    erro: BaseException,
+    receita_robo_caotico: dict[str, Any],
+    id_croqui: str = "",
+    etapa: str = "robo_caotico",
+) -> Any:
+    """
+    Captura uma falha inédita encontrada pelo Robô Caótico e envia ao Sentry com
+    nível 'fatal', tag 'origem_crash=robo_caotico' e contexto estruturado 'receita_robo_caotico' sanitizado.
+    """
+    return capturar_excecao(
+        erro=erro,
+        id_croqui=id_croqui,
+        etapa=etapa,
+        contextos_extras={"receita_robo_caotico": receita_robo_caotico},
+        nivel_severidade="fatal",
+        tags_extras={"origem_crash": "robo_caotico"},
+    )
+

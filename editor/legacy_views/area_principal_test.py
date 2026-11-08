@@ -2092,3 +2092,113 @@ def test_janela_principal_integra_servidor_mcp_e_dialogo_conexao(
     # Ao fechar a janela, o servidor MCP deve ser encerrado
     janela.close()
     assert janela.servidor_mcp is None
+
+
+@patch("editor.legacy_views.area_principal.JanelaPrincipal.carregar_croqui")
+def test_janela_principal_usa_dependencias_injetadas_submissao_loja_e_celular(
+    mock_carregar, qtbot, tmp_path
+) -> None:
+    """Valida que JanelaPrincipal repassa servico_submissao, servico_loja e fabrica_servidor_celular injetados."""
+    from PySide6.QtCore import QObject, Signal
+
+    from editor.core.servico_submissao import ResultadoSincronizacao, StatusSincronizacao
+
+    class _ServicoSubmissaoEspiao:
+        def __init__(self) -> None:
+            self.sincronizacoes: list[tuple[str, str]] = []
+
+        def sincronizar_pr_remota(
+            self, id_croqui: str, nome_branch: str, caminho_database_croqui, **kwargs
+        ) -> ResultadoSincronizacao:
+            self.sincronizacoes.append((id_croqui, nome_branch))
+            return ResultadoSincronizacao(
+                status=StatusSincronizacao.ATUALIZADO,
+                mensagem="OK",
+            )
+
+    class _ServidorCelularEspiao(QObject):
+        dispositivo_conectado = Signal()
+
+        def __init__(self, pasta_compilado, jwt_token=None, parent=None) -> None:
+            super().__init__(parent)
+            self.pasta_compilado = pasta_compilado
+            self.jwt_token = jwt_token
+            self.porta = 9999
+            self.codigo_sessao = "abcd1234"
+            self.conectado = True
+            self.iniciado = False
+            self.parado = False
+
+        def iniciar(self) -> None:
+            self.iniciado = True
+
+        def parar(self) -> None:
+            self.parado = True
+
+        def obter_url_previa_canonica(self) -> str:
+            return "http://127.0.0.1:9999"
+
+        def gerar_qr_code(self, url: str) -> bytes:
+            return b""
+
+    class _WorkspaceStub:
+        caminho_raiz = tmp_path
+
+        def can_publish_pr(self) -> bool:
+            return True
+
+        def ler_metadados_experimentais(self) -> dict[str, str]:
+            return {"pull_request_branch": "sugestao-bau-123"}
+
+        def obter_caminho_database(self):
+            return tmp_path / "database"
+
+        def obter_pasta_servidor_celular(self):
+            return tmp_path / "compilado"
+
+        def obter_tag_titulo(self) -> str:
+            return "[Teste]"
+
+    servico_submissao = _ServicoSubmissaoEspiao()
+    servico_loja = object()
+    instancias_celular: list[_ServidorCelularEspiao] = []
+
+    def _fabrica_celular(pasta_compilado, jwt_token=None, parent=None):
+        srv = _ServidorCelularEspiao(pasta_compilado, jwt_token=jwt_token, parent=parent)
+        instancias_celular.append(srv)
+        return srv
+
+    janela = JanelaPrincipal(
+        workspace=_WorkspaceStub(),
+        servico_submissao=servico_submissao,
+        servico_loja=servico_loja,
+        fabrica_servidor_celular=_fabrica_celular,
+    )
+    qtbot.addWidget(janela)
+    janela.croqui_data = {"id": "bau"}
+
+    # 1. Publicar deve repassar servico_submissao e servico_loja para PublishController
+    with patch("editor.controllers.publish_controller.PublishController") as mock_pub_cls:
+        janela.publicar_croqui()
+        kwargs_pub = mock_pub_cls.call_args[1]
+        assert kwargs_pub["servico_submissao"] is servico_submissao
+        assert kwargs_pub["servico_loja"] is servico_loja
+
+    # 2. Sincronizar deve usar servico_submissao injetado sem instanciar ServicoSubmissao real
+    with patch.object(janela, "_on_sincronizacao_aviso"):
+        janela.sincronizar_croqui(silencioso=True)
+        if janela._tarefa_sincronizacao is not None:
+            janela._tarefa_sincronizacao.wait(2000)
+    assert servico_submissao.sincronizacoes == [("bau", "sugestao-bau-123")]
+
+    # 3. Abrir diálogo de celular deve usar fabrica_servidor_celular injetada
+    from PySide6.QtCore import QTimer
+
+    QTimer.singleShot(30, lambda: janela.dialogo_celular and janela.dialogo_celular.accept())
+    janela._abrir_dialogo_conexao_celular()
+    assert len(instancias_celular) == 1
+    assert instancias_celular[0].iniciado is True
+    janela._encerrar_servidor_celular()
+    assert instancias_celular[0].parado is True
+    janela.close()
+

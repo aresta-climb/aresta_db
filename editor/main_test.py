@@ -423,3 +423,276 @@ def test_controlador_app_abrir_croqui_via_mcp_atual_e_multi_janela(qtbot, tmp_pa
             if controlador.janela_principal:
                 controlador.janela_principal.close()
             controlador.abertura.close()
+
+
+def test_integracao_abertura_croqui_oficial_mantem_app_vivo_e_mesmo_servidor_mcp(
+    qtbot, tmp_path: Path
+):
+    """
+    Teste de integração real (dentro de app.exec()) reproduzindo o fluxo completo:
+    1. TelaDeAbertura -> TarefaInicializacao.sucesso -> TelaDeCarregamento (com ServidorMCP já ativo)
+    2. Clique em 'Editar croqui oficial' -> DialogoBuscaCroqui -> QInputDialog -> DialogoProgressoLog
+    3. Abertura da JanelaPrincipal sem encerrar prematuramente o app.exec() (sem aboutToQuit)
+    4. Manutenção da mesma instância e porta do ServidorMCP entre TelaDeCarregamento e JanelaPrincipal
+    5. Retorno via 'Abrir Novo' para a TelaDeCarregamento mantendo o mesmo ServidorMCP ativo
+    """
+    from PySide6.QtCore import QObject, QTimer, Signal
+    from PySide6.QtWidgets import QApplication, QInputDialog, QMessageBox
+
+    from editor.legacy_views.dialogo_busca_croqui import DialogoBuscaCroqui
+    from scripts.gerenciar_uids_lib import gerar_uid
+    from scripts.migrador import obter_ultima_versao_migracao
+
+    class _StorageTemp:
+        def __init__(self, raiz: Path) -> None:
+            self.raiz = raiz
+
+        def obter_diretorio_base(self) -> Path:
+            return self.raiz
+
+        def obter_caminho_base_repo(self) -> Path:
+            return self.raiz / "aresta_db"
+
+        def obter_caminho_croquis_experimentais(self) -> Path:
+            return self.raiz / "croquis"
+
+        def obter_caminho_diarios_locais(self) -> Path:
+            return self.raiz / "diarios_locais"
+
+        def obter_caminho_lixeira(self) -> Path:
+            return self.raiz / ".trash_interna"
+
+        def inicializar_diretorios(self) -> None:
+            self.obter_caminho_base_repo().mkdir(parents=True, exist_ok=True)
+            self.obter_caminho_croquis_experimentais().mkdir(parents=True, exist_ok=True)
+            self.obter_caminho_diarios_locais().mkdir(parents=True, exist_ok=True)
+            self.obter_caminho_lixeira().mkdir(parents=True, exist_ok=True)
+
+    class _SessaoTemp:
+        nome_completo = "Escalador Integração"
+
+    class _GerenciadorSessaoTemp:
+        def obter_sessao(self) -> _SessaoTemp:
+            return _SessaoTemp()
+
+        def recuperar_token(self) -> str:
+            return ""
+
+    class _TarefaInicializacaoDeterministica(QObject):
+        progresso = Signal(int)
+        mostrar_progresso = Signal(bool)
+        status = Signal(str)
+        atualizacao_disponivel = Signal(object)
+        auth_requerida = Signal(str)
+        solicitar_login_ui = Signal()
+        auth_concluida = Signal()
+        sucesso = Signal()
+        erro = Signal(str)
+
+        def __init__(self, storage: _StorageTemp) -> None:
+            super().__init__()
+            self.storage = storage
+            self.gerenciador_sessao = _GerenciadorSessaoTemp()
+            self.sessao_usuario = _SessaoTemp()
+
+        def start(self) -> None:
+            QTimer.singleShot(20, self.sucesso.emit)
+
+    storage = _StorageTemp(tmp_path)
+    storage.inicializar_diretorios()
+    id_oficial = "br_mg_igarape_pedra_grande"
+    pasta_oficial = storage.obter_caminho_base_repo() / "database" / id_oficial
+    pasta_oficial.mkdir(parents=True, exist_ok=True)
+    (pasta_oficial / "croqui.yaml").write_text(
+        f"id: {id_oficial}\n"
+        f"uid: {gerar_uid()}\n"
+        f"nome: Pedra Grande de Igarapé\n"
+        f"ultima_migracao: {obter_ultima_versao_migracao()}\n"
+        f"picos:\n"
+        f"  - nome: Pedra Grande\n"
+        f"    estado: MG\n",
+        encoding="utf-8",
+    )
+
+    tarefa_fake = _TarefaInicializacaoDeterministica(storage)
+    dir_sessao_mcp = tmp_path / "sessao_mcp"
+    dir_sessao_mcp.mkdir(parents=True, exist_ok=True)
+
+    controlador = ControladorAplicativo(
+        tarefa=tarefa_fake,
+        diretorio_sessao_mcp=dir_sessao_mcp,
+    )
+    app = controlador.app
+
+    eventos: list[str] = []
+    erros_modal: list[str] = []
+    portas_mcp: list[int | None] = []
+    instancias_mcp: list[object] = []
+    vezes_tela_carregamento = 0
+
+    def _ao_about_to_quit() -> None:
+        eventos.append("aboutToQuit")
+
+    app.aboutToQuit.connect(_ao_about_to_quit)
+
+    def _inspecionar_ciclo() -> None:
+        nonlocal vezes_tela_carregamento
+
+        # Automação de diálogos modais filhos durante ao_clicar_oficial
+        widget_modal = QApplication.activeModalWidget()
+        if isinstance(widget_modal, QMessageBox):
+            erros_modal.append(widget_modal.text())
+            widget_modal.accept()
+            app.quit()
+            return
+        if isinstance(widget_modal, DialogoBuscaCroqui):
+            assert widget_modal.lista_croquis.count() == 1
+            widget_modal.lista_croquis.setCurrentRow(0)
+            widget_modal.accept()
+            return
+        if isinstance(widget_modal, QInputDialog):
+            widget_modal.setTextValue("Revisão de integração")
+            widget_modal.accept()
+            return
+
+        # 1ª passagem na TelaDeCarregamento: verifica MCP ativo e clica em 'Editar croqui oficial'
+        if (
+            controlador.tela_carregamento is not None
+            and controlador.tela_carregamento.isVisible()
+            and vezes_tela_carregamento == 0
+        ):
+            vezes_tela_carregamento = 1
+            srv_carregamento = controlador.tela_carregamento.servidor_mcp
+            assert srv_carregamento is not None
+            assert srv_carregamento.esta_ativo is True
+            assert srv_carregamento.croqui_aberto is False
+            portas_mcp.append(srv_carregamento.porta)
+            instancias_mcp.append(srv_carregamento)
+            eventos.append("tela_carregamento_1")
+            QTimer.singleShot(10, controlador.tela_carregamento.btn_oficial.click)
+            return
+
+        # JanelaPrincipal aberta após importar croqui oficial
+        if (
+            controlador.janela_principal is not None
+            and controlador.janela_principal.isVisible()
+            and "janela_principal_viva" not in eventos
+        ):
+            assert "aboutToQuit" not in eventos
+            srv_janela = controlador.janela_principal.servidor_mcp
+            assert srv_janela is not None
+            assert srv_janela.esta_ativo is True
+            assert srv_janela.croqui_aberto is True
+            assert srv_janela.id_croqui_ativo == id_oficial
+            portas_mcp.append(srv_janela.porta)
+            instancias_mcp.append(srv_janela)
+            eventos.append("janela_principal_viva")
+            # Aciona 'Abrir Novo' para retornar à TelaDeCarregamento
+            QTimer.singleShot(20, controlador.janela_principal._on_abrir_novo_clicado)
+            return
+
+        # 2ª passagem na TelaDeCarregamento após 'Abrir Novo'
+        if (
+            controlador.tela_carregamento is not None
+            and controlador.tela_carregamento.isVisible()
+            and "janela_principal_viva" in eventos
+            and vezes_tela_carregamento == 1
+        ):
+            vezes_tela_carregamento = 2
+            assert "aboutToQuit" not in eventos
+            srv_retorno = controlador.tela_carregamento.servidor_mcp
+            assert srv_retorno is not None
+            assert srv_retorno.esta_ativo is True
+            assert srv_retorno.croqui_aberto is False
+            portas_mcp.append(srv_retorno.porta)
+            instancias_mcp.append(srv_retorno)
+            eventos.append("tela_carregamento_2")
+            # Fecha a TelaDeCarregamento para encerrar o app normalmente
+            QTimer.singleShot(10, controlador.tela_carregamento.reject)
+
+    timer_inspecao = QTimer()
+    timer_inspecao.setInterval(25)
+    timer_inspecao.timeout.connect(_inspecionar_ciclo)
+    timer_inspecao.start()
+    # Timeout de segurança para nunca travar a suíte
+    QTimer.singleShot(15000, app.quit)
+
+    try:
+        codigo_saida = controlador.executar()
+        assert not erros_modal, f"Erros exibidos em QMessageBox: {erros_modal}"
+        assert codigo_saida == 0
+        assert eventos[:3] == [
+            "tela_carregamento_1",
+            "janela_principal_viva",
+            "tela_carregamento_2",
+        ]
+        # O mesmo objeto ServidorMCP e a mesma porta foram mantidos em todas as etapas
+        assert len(instancias_mcp) == 3
+        assert instancias_mcp[0] is instancias_mcp[1] is instancias_mcp[2]
+        assert portas_mcp[0] is not None
+        assert portas_mcp[0] == portas_mcp[1] == portas_mcp[2]
+    finally:
+        timer_inspecao.stop()
+        app.aboutToQuit.disconnect(_ao_about_to_quit)
+        if hasattr(controlador, "encerrar_servidor_mcp"):
+            controlador.encerrar_servidor_mcp()
+        if controlador.janela_principal:
+            controlador.janela_principal.close()
+        if controlador.abertura:
+            controlador.abertura.close()
+
+
+def test_controlador_aplicativo_repassa_dependencias_injetadas(qtbot, tmp_path: Path) -> None:
+    """Valida que ControladorAplicativo repassa storage, sessao, auth, loja, submissao e fabrica_celular."""
+    from scripts.gerenciar_uids_lib import gerar_uid
+    from scripts.migrador import obter_ultima_versao_migracao
+
+    pasta_exp = tmp_path / "croqui_injecao"
+    (pasta_exp / "database").mkdir(parents=True, exist_ok=True)
+    (pasta_exp / "database" / "croqui.yaml").write_text(
+        f"id: croqui_injecao\nuid: {gerar_uid()}\nnome: Croqui Injeção\nultima_migracao: {obter_ultima_versao_migracao()}\n",
+        encoding="utf-8",
+    )
+
+    storage_obj = object()
+    sessao_obj = object()
+    auth_obj = object()
+    loja_obj = object()
+    submissao_obj = object()
+
+    def _fabrica_celular(*args, **kwargs):
+        return None
+
+    with patch("editor.main.TarefaInicializacao") as mock_tarefa_cls:
+        mock_tarefa_inst = mock_tarefa_cls.return_value
+        mock_tarefa_inst.storage = storage_obj
+        mock_tarefa_inst.gerenciador_sessao = sessao_obj
+        mock_tarefa_inst.cliente_auth = auth_obj
+        mock_tarefa_inst.servico_loja = loja_obj
+        mock_tarefa_inst.sessao_usuario = None
+
+        controlador = ControladorAplicativo(
+            iniciar_mcp=False,
+            storage=storage_obj,
+            gerenciador_sessao=sessao_obj,
+            cliente_auth=auth_obj,
+            servico_loja=loja_obj,
+            servico_submissao=submissao_obj,
+            fabrica_servidor_celular=_fabrica_celular,
+        )
+        try:
+            assert controlador.abertura.cliente_auth is auth_obj
+            assert controlador.abertura.gerenciador_sessao is sessao_obj
+
+            controlador.abrir_croqui_via_mcp(pasta_exp, iniciar_mcp_janela=False)
+            assert controlador.janela_principal is not None
+            assert controlador.janela_principal.servico_submissao is submissao_obj
+            assert controlador.janela_principal.servico_loja is loja_obj
+            assert controlador.janela_principal.fabrica_servidor_celular is _fabrica_celular
+        finally:
+            if controlador.janela_principal:
+                controlador.janela_principal.close()
+            if controlador.abertura:
+                controlador.abertura.close()
+
+

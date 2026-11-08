@@ -411,5 +411,77 @@ def test_capturar_excecao_sem_sentry():
     try:
         telemetria_mod.sentry_sdk = None
         assert telemetria_mod.capturar_excecao(ValueError("teste")) is None
+        assert (
+            telemetria_mod.capturar_crash_robo_caotico(
+                ValueError("teste"), {"seed": 42, "dataset": "toxico"}
+            )
+            is None
+        )
     finally:
         telemetria_mod.sentry_sdk = original_sentry
+
+
+class _SentryEspiao:
+    def __init__(self) -> None:
+        self.tags: dict[str, str] = {}
+        self.contextos: dict[str, dict] = {}
+        self.nivel: str | None = None
+        self.excecoes_capturadas: list[BaseException] = []
+        self.flushes: list[float] = []
+
+    def set_tag(self, chave: str, valor: str) -> None:
+        self.tags[chave] = valor
+
+    def set_context(self, nome: str, dados: dict) -> None:
+        self.contextos[nome] = dados
+
+    def set_level(self, nivel: str) -> None:
+        self.nivel = nivel
+
+    def capture_exception(self, erro: BaseException) -> str:
+        self.excecoes_capturadas.append(erro)
+        return "ev_robo_999"
+
+    def flush(self, timeout: float = 2.0) -> None:
+        self.flushes.append(timeout)
+
+
+def test_capturar_crash_robo_caotico_anexa_receita_sanitizada_e_nivel_fatal():
+    import editor.core.telemetria as telemetria_mod
+    from editor.core.telemetria import capturar_crash_robo_caotico
+
+    espiao = _SentryEspiao()
+    original_sentry = telemetria_mod.sentry_sdk
+    try:
+        telemetria_mod.sentry_sdk = espiao
+        caminho_sensivel = f"{Path.home()}\\croquis\\toxico.yaml"
+        receita = {
+            "seed": 4242,
+            "dataset": "toxico",
+            "passos_minimos": [{"acao": "digitar_fuzz", "valor_texto": caminho_sensivel}],
+            "passos_originais": [{"acao": "digitar_fuzz", "valor_texto": caminho_sensivel}],
+        }
+        erro = RuntimeError("Crash descoberto pelo Robô Caótico")
+
+        event_id = capturar_crash_robo_caotico(
+            erro=erro,
+            receita_robo_caotico=receita,
+            id_croqui="croqui_toxico",
+        )
+
+        assert event_id == "ev_robo_999"
+        assert espiao.nivel == "fatal"
+        assert espiao.tags["nivel_severidade"] == "fatal"
+        assert espiao.tags["origem_crash"] == "robo_caotico"
+        assert espiao.tags["id_croqui"] == "croqui_toxico"
+        assert espiao.tags["etapa_falha"] == "robo_caotico"
+        assert "receita_robo_caotico" in espiao.contextos
+        ctx_receita = espiao.contextos["receita_robo_caotico"]
+        assert ctx_receita["seed"] == 4242
+        assert ctx_receita["dataset"] == "toxico"
+        assert str(Path.home()) not in ctx_receita["passos_minimos"][0]["valor_texto"]
+        assert espiao.excecoes_capturadas == [erro]
+        assert espiao.flushes == [5.0]
+    finally:
+        telemetria_mod.sentry_sdk = original_sentry
+

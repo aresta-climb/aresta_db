@@ -1,6 +1,7 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
+import os
 from collections.abc import Callable
 from pathlib import Path
 from typing import Any, cast
@@ -29,9 +30,12 @@ class GerenciadorSincronizacao:
     Gerencia operações Git (clone, fetch, reset) usando pygit2.
     """
 
-    def __init__(self, caminho_repo: Path, token: str | None = None) -> None:
+    def __init__(
+        self, caminho_repo: Path, token: str | None = None, url_upstream: str | None = None
+    ) -> None:
         self.caminho_repo: Path = caminho_repo
         self.token: str | None = token
+        self.url_upstream: str | None = url_upstream
 
     def _obter_callbacks(
         self, progresso_callback: Callable[[float], None] | None = None
@@ -79,10 +83,13 @@ class GerenciadorSincronizacao:
         repo.config["core.longpaths"] = True
         repo.config["core.autocrlf"] = False
 
-        # 3. Configura remote e faz fetch (clone raso para agilizar)
+        # 3. Configura remote e faz fetch (clone raso para URLs HTTP/HTTPS; completo para caminho local)
         remote = repo.remotes.create("origin", url_repositorio)
         try:
-            remote.fetch(callbacks=callbacks, depth=1)
+            if url_repositorio.startswith(("http://", "https://")):
+                remote.fetch(callbacks=callbacks, depth=1)
+            else:
+                remote.fetch(callbacks=callbacks)
         except pygit2.GitError as e:
             raise _tratar_erro_git(e) from e
 
@@ -104,30 +111,37 @@ class GerenciadorSincronizacao:
 
     def obter_url_clone(self, repositorio_base: str = "aresta-climb/aresta_db") -> str:
         """
-        Retorna a URL oficial do repositório base público.
+        Retorna a URL oficial do repositório base público, respeitando override explícito ou ARESTA_GIT_UPSTREAM_URL.
         """
+        if self.url_upstream:
+            return self.url_upstream
+        if repositorio_base == "aresta-climb/aresta_db":
+            override_env = os.environ.get("ARESTA_GIT_UPSTREAM_URL", "").strip()
+            if override_env:
+                return override_env
         return f"https://github.com/{repositorio_base}.git"
 
     def configurar_remotes(
-        self, url_upstream: str = "https://github.com/aresta-climb/aresta_db.git"
+        self, url_upstream: str | None = None
     ) -> None:
         """
         Garante que o repositório local tem os remotes necessários:
         'origin' -> O repositório base oficial.
         'upstream' -> O repositório oficial (aresta_db).
         """
+        url_alvo = url_upstream or self.obter_url_clone()
         repo = pygit2.Repository(str(self.caminho_repo))
         remotes_names = [r.name for r in repo.remotes]
 
         if "upstream" not in remotes_names:
-            repo.remotes.create("upstream", url_upstream)
+            repo.remotes.create("upstream", url_alvo)
         else:
-            repo.remotes.set_url("upstream", url_upstream)
+            repo.remotes.set_url("upstream", url_alvo)
 
         if "origin" not in remotes_names:
-            repo.remotes.create("origin", url_upstream)
+            repo.remotes.create("origin", url_alvo)
         else:
-            repo.remotes.set_url("origin", url_upstream)
+            repo.remotes.set_url("origin", url_alvo)
 
         if "proxy" in remotes_names:
             try:

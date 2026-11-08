@@ -39,13 +39,24 @@ class TarefaInicializacao(QThread):
     sucesso: Signal = Signal()
     erro: Signal = Signal(str)
 
-    def __init__(self, id_cliente: str = "") -> None:
+    def __init__(
+        self,
+        id_cliente: str = "",
+        storage: GerenciadorCaminhos | None = None,
+        gerenciador_sessao: Any | None = None,
+        cliente_auth: Any | None = None,
+        servico_loja: AdaptadorPlataforma | None = None,
+        sincronizador_git: GerenciadorSincronizacao | None = None,
+        intervalo_espera_cofre: float = 1.5,
+    ) -> None:
         super().__init__()
         self.id_cliente: str = id_cliente
-        self.storage: GerenciadorCaminhos = GerenciadorCaminhos()
-        self.gerenciador_sessao: GerenciadorSessao = GerenciadorSessao()
-        self.cliente_auth: ClienteAuthSupabase = ClienteAuthSupabase()
-        self.servico_loja: AdaptadorPlataforma = obter_adaptador_plataforma()
+        self.storage: GerenciadorCaminhos = storage or GerenciadorCaminhos()
+        self.gerenciador_sessao: Any = gerenciador_sessao or GerenciadorSessao()
+        self.cliente_auth: Any = cliente_auth or ClienteAuthSupabase()
+        self.servico_loja: AdaptadorPlataforma = servico_loja or obter_adaptador_plataforma()
+        self.sincronizador_git: GerenciadorSincronizacao | None = sincronizador_git
+        self.intervalo_espera_cofre: float = intervalo_espera_cofre
         self.sessao_usuario: SessaoUsuario | None = None
         self._evento_autenticacao: threading.Event = threading.Event()
         self._login_cancelado: bool = False
@@ -73,7 +84,8 @@ class TarefaInicializacao(QThread):
             # 2. Inicializar cofre de credenciais
             self.status.emit("Acessando cofre de senhas do aplicativo...")
             self.progresso.emit(15)
-            time.sleep(1.5)
+            if self.intervalo_espera_cofre > 0:
+                time.sleep(self.intervalo_espera_cofre)
             cofre_ok = self.gerenciador_sessao.inicializar_cofre()
             if not cofre_ok:
                 logger.warning(
@@ -135,7 +147,9 @@ class TarefaInicializacao(QThread):
             self.status.emit("Sincronizando repositório base...")
             self.mostrar_progresso.emit(True)
 
-            sync = GerenciadorSincronizacao(self.storage.obter_caminho_base_repo())
+            sync = self.sincronizador_git or GerenciadorSincronizacao(
+                self.storage.obter_caminho_base_repo()
+            )
 
             caminho_repo = self.storage.obter_caminho_base_repo()
             if not caminho_repo.exists() or not any(caminho_repo.iterdir()):

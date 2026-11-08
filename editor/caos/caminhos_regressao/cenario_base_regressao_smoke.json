@@ -1,0 +1,98 @@
+{
+  "seed": 42,
+  "dataset": "toxico",
+  "escopo": "janela_principal",
+  "falha": {
+    "oraculo": "regressao_historica_corrigida",
+    "tipo_excecao": "NenhumErroEsperado",
+    "mensagem": "Cenário base de regressão para validar edição, abas, mapas, desfazer/refazer e salvamento.",
+    "frame_principal": "JanelaPrincipal:smoke",
+    "stack_trace": ""
+  },
+  "passos_minimos": [
+    {
+      "indice": 1,
+      "tipo_acao": "selecionar_no_arvore",
+      "seletor": {
+        "estrategia": "caminho_no_arvore",
+        "valor": "no_visivel:0",
+        "classe_widget": "QTreeView",
+        "indice": 0
+      },
+      "parametros": {
+        "pos": 0
+      },
+      "mutou_estado": false
+    },
+    {
+      "indice": 2,
+      "tipo_acao": "editar_campo_linha",
+      "seletor": {
+        "estrategia": "campo_formulario",
+        "valor": "QLineEdit:0",
+        "classe_widget": "QLineEdit",
+        "indice": 0
+      },
+      "parametros": {
+        "pos": 0,
+        "texto": "Pico Regressão 🧗"
+      },
+      "mutou_estado": true
+    },
+    {
+      "indice": 3,
+      "tipo_acao": "desfazer_ou_refazer",
+      "seletor": {
+        "estrategia": "acao_toolbar",
+        "valor": "undo",
+        "classe_widget": "",
+        "indice": 0
+      },
+      "parametros": {
+        "op": "undo"
+      },
+      "mutou_estado": true
+    },
+    {
+      "indice": 4,
+      "tipo_acao": "desfazer_ou_refazer",
+      "seletor": {
+        "estrategia": "acao_toolbar",
+        "valor": "redo",
+        "classe_widget": "",
+        "indice": 0
+      },
+      "parametros": {
+        "op": "redo"
+      },
+      "mutou_estado": true
+    },
+    {
+      "indice": 5,
+      "tipo_acao": "interagir_editor_mapas",
+      "seletor": {
+        "estrategia": "cena_grafica",
+        "valor": "mapa:circulo",
+        "classe_widget": "WidgetEditorMapas",
+        "indice": 0
+      },
+      "parametros": {
+        "sub_op": "circulo"
+      },
+      "mutou_estado": true
+    },
+    {
+      "indice": 6,
+      "tipo_acao": "salvar_croqui",
+      "seletor": {
+        "estrategia": "acao_toolbar",
+        "valor": "Salvar",
+        "classe_widget": "",
+        "indice": 0
+      },
+      "parametros": {},
+      "mutou_estado": true
+    }
+  ],
+  "passos_originais": []
+}

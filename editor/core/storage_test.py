@@ -1,99 +1,133 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
-import unittest
+import os
 from pathlib import Path
-from unittest.mock import patch
+
+import pytest
 
 from editor.core.storage import GerenciadorCaminhos, obter_diretorio_base_app
 
 
-class TestStorage(unittest.TestCase):
-    def setUp(self) -> None:
-        self._patcher_plataforma = patch("sys.platform", "win32")
-        self._patcher_plataforma.start()
+def test_obter_diretorio_base_app_prioriza_variavel_ambiente(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    diretorio_isolado = tmp_path / "instalacao_isolada"
+    monkeypatch.setenv("ARESTA_DIRETORIO_DADOS", str(diretorio_isolado))
 
-    def tearDown(self) -> None:
-        self._patcher_plataforma.stop()
+    caminho = obter_diretorio_base_app()
 
-    @patch("PySide6.QtCore.QStandardPaths.writableLocation")
-    def test_obter_diretorio_base_app_via_qstandardpaths(self, mock_writable_location):
-        mock_writable_location.return_value = "C:/fake/appdata/EditorAresta"
-        caminho = obter_diretorio_base_app()
-        self.assertEqual(str(caminho).replace("\\", "/"), "C:/fake/appdata/EditorAresta")
-
-    @patch("PySide6.QtCore.QStandardPaths.writableLocation", return_value="")
-    @patch.dict("os.environ", {"APPDATA": "C:/fake/appdata"})
-    def test_obter_diretorio_base_app_fallback_env(self, mock_writable_location):
-        caminho = obter_diretorio_base_app()
-        self.assertEqual(str(caminho).replace("\\", "/"), "C:/fake/appdata/EditorAresta")
-
-    @patch("PySide6.QtCore.QStandardPaths.writableLocation")
-    def test_resolver_diretorio_appdata(self, mock_writable_location):
-        mock_writable_location.return_value = "C:/fake/appdata"
-
-        gerenciador = GerenciadorCaminhos()
-        caminho = gerenciador.obter_diretorio_base()
-
-        self.assertEqual(str(caminho).replace("\\", "/"), "C:/fake/appdata")
-
-    @patch("PySide6.QtCore.QStandardPaths.writableLocation")
-    def test_obter_caminho_lixeira(self, mock_writable_location):
-        mock_writable_location.return_value = "C:/fake/appdata"
-        gerenciador = GerenciadorCaminhos()
-        caminho = gerenciador.obter_caminho_lixeira()
-        self.assertEqual(str(caminho).replace("\\", "/"), "C:/fake/appdata/.trash_interna")
-
-    @patch("PySide6.QtCore.QStandardPaths.writableLocation")
-    def test_obter_caminho_diarios_locais(self, mock_writable_location):
-        mock_writable_location.return_value = "C:/fake/appdata"
-        gerenciador = GerenciadorCaminhos()
-        caminho = gerenciador.obter_caminho_diarios_locais()
-        self.assertEqual(str(caminho).replace("\\", "/"), "C:/fake/appdata/diarios_locais")
-
-    @patch("PySide6.QtCore.QStandardPaths.writableLocation")
-    @patch("editor.core.storage.Path.mkdir")
-    def test_inicializar_diretorios_cria_pastas(self, mock_mkdir, mock_writable_location):
-        mock_writable_location.return_value = "C:/fake/appdata"
-
-        gerenciador = GerenciadorCaminhos()
-        gerenciador.inicializar_diretorios()
-
-        # Deve chamar mkdir para pasta base, base_repo, croquis_experimentais, diarios_locais e .trash_interna
-        self.assertGreaterEqual(mock_mkdir.call_count, 5)
-
-    @patch("sys._MEIPASS", "C:/Temp/_MEI12345", create=True)
-    def test_obter_caminho_recurso_interno_pyinstaller(self):
-        gerenciador = GerenciadorCaminhos()
-        caminho = gerenciador.obter_caminho_recurso_interno("recursos/logo_splash.png")
-        self.assertEqual(
-            str(caminho).replace("\\", "/"), "C:/Temp/_MEI12345/recursos/logo_splash.png"
-        )
-
-    def test_obter_caminho_recurso_interno_dev_mode(self):
-        # Em modo de desenvolvimento normal, sys._MEIPASS não existe
-        import sys
-
-        if hasattr(sys, "_MEIPASS"):
-            del sys._MEIPASS
-
-        gerenciador = GerenciadorCaminhos()
-        caminho = gerenciador.obter_caminho_recurso_interno("recursos/logo_splash.png")
-        from editor.core import storage
-
-        esperado = str(Path(storage.__file__).resolve().parent.parent / "recursos/logo_splash.png")
-        self.assertEqual(str(caminho), esperado)
-
-    def test_obter_caminho_recurso_interno_canal_beta(self):
-        """Garante que obter_caminho_recurso_interno prioriza recursos_beta quando em canal Beta."""
-        import os
-
-        with patch.dict(os.environ, {"ARESTA_CANAL": "beta"}):
-            gerenciador = GerenciadorCaminhos()
-            caminho = gerenciador.obter_caminho_recurso_interno("recursos/logo_app.png")
-            self.assertIn("recursos_beta", str(caminho).replace("\\", "/"))
-            self.assertEqual(caminho.name, "logo_app.png")
+    assert caminho == diretorio_isolado
 
 
-if __name__ == "__main__":
-    unittest.main()
+def test_obter_diretorio_base_app_delega_para_plataforma_quando_sem_env(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    monkeypatch.delenv("ARESTA_DIRETORIO_DADOS", raising=False)
+
+    caminho = obter_diretorio_base_app()
+
+    assert isinstance(caminho, Path)
+    assert str(caminho) != ""
+
+
+def test_gerenciador_caminhos_com_diretorio_base_explicito_isola_todas_as_pastas(
+    tmp_path: Path,
+) -> None:
+    base = tmp_path / "dados_editor"
+    gerenciador = GerenciadorCaminhos(diretorio_base=base)
+
+    assert gerenciador.obter_diretorio_base() == base
+    assert gerenciador.obter_caminho_base_repo() == base / "aresta_db"
+    assert gerenciador.obter_caminho_croquis_experimentais() == base / "croquis"
+    assert gerenciador.obter_caminho_diarios_locais() == base / "diarios_locais"
+    assert gerenciador.obter_caminho_lixeira() == base / ".trash_interna"
+
+
+def test_gerenciador_caminhos_sem_argumento_respeita_variavel_ambiente(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    base_env = tmp_path / "via_env"
+    monkeypatch.setenv("ARESTA_DIRETORIO_DADOS", str(base_env))
+
+    gerenciador = GerenciadorCaminhos()
+
+    assert gerenciador.obter_diretorio_base() == base_env
+    assert gerenciador.obter_caminho_base_repo() == base_env / "aresta_db"
+
+
+def test_inicializar_diretorios_cria_estrutura_real_no_disco(tmp_path: Path) -> None:
+    base = tmp_path / "instalacao_nova"
+    gerenciador = GerenciadorCaminhos(diretorio_base=base)
+
+    gerenciador.inicializar_diretorios()
+
+    assert base.is_dir()
+    assert (base / "aresta_db").is_dir()
+    assert (base / "croquis").is_dir()
+    assert (base / "diarios_locais").is_dir()
+    assert (base / ".trash_interna").is_dir()
+
+
+def test_obter_caminho_recurso_interno_modo_desenvolvimento(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    import sys
+
+    monkeypatch.delattr(sys, "_MEIPASS", raising=False)
+    monkeypatch.delenv("ARESTA_CANAL", raising=False)
+
+    gerenciador = GerenciadorCaminhos()
+    caminho = gerenciador.obter_caminho_recurso_interno("recursos/logo_splash.png")
+
+    from editor.core import storage
+
+    esperado = Path(storage.__file__).resolve().parent.parent / "recursos/logo_splash.png"
+    assert caminho == esperado
+
+
+def test_obter_caminho_recurso_interno_empacotado_pyinstaller(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    import sys
+
+    monkeypatch.setattr(sys, "_MEIPASS", str(tmp_path / "_MEI12345"), raising=False)
+    monkeypatch.delenv("ARESTA_CANAL", raising=False)
+
+    gerenciador = GerenciadorCaminhos()
+    caminho = gerenciador.obter_caminho_recurso_interno("recursos/logo_splash.png")
+
+    assert caminho == tmp_path / "_MEI12345" / "recursos/logo_splash.png"
+
+
+def test_obter_caminho_recurso_interno_canal_beta_prioriza_recurso_existente(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    monkeypatch.setenv("ARESTA_CANAL", "beta")
+
+    gerenciador = GerenciadorCaminhos()
+    caminho = gerenciador.obter_caminho_recurso_interno("recursos/logo_app.png")
+
+    assert "recursos_beta" in str(caminho).replace("\\", "/")
+    assert caminho.name == "logo_app.png"
+
+
+def test_obter_caminho_recurso_interno_canal_beta_faz_fallback_quando_ausente(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    import sys
+
+    monkeypatch.delattr(sys, "_MEIPASS", raising=False)
+    monkeypatch.setenv("ARESTA_CANAL", "beta")
+    assert os.environ.get("ARESTA_CANAL") == "beta"
+
+    gerenciador = GerenciadorCaminhos()
+    caminho = gerenciador.obter_caminho_recurso_interno("recursos/arquivo_inexistente_beta.png")
+
+    from editor.core import storage
+
+    esperado = (
+        Path(storage.__file__).resolve().parent.parent / "recursos/arquivo_inexistente_beta.png"
+    )
+    assert caminho == esperado
+

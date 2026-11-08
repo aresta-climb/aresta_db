@@ -35,3 +35,10 @@ O workflow DEVE (SHALL) orquestrar as etapas de build executando primeiro o cana
 - **WHEN** o workflow for acionado com `publicar_microsoft_store` igual a `true`
 - **THEN** a etapa do canal Beta é executada e publicada no Cloudflare R2 antes do início da compilação e publicação na Microsoft Store
 - **AND** a criação do commit com a próxima versão `-dev` e o `git push` ocorrem apenas após o sucesso de ambas as publicações.
+
+### Requirement: Gate de Campanha do Robô Caótico Antes da Tag de Release
+O job `prepare_release` do workflow `.github/workflows/release-editor.yml` SHALL executar a suíte de testes unitários/integração e uma campanha de 5 minutos do Robô Caótico **antes** de realizar o commit e a tag da versão de lançamento, reportando falhas inéditas ao Sentry e publicando as receitas JSON geradas como artefato do workflow em caso de falha.
+
+#### Scenario: Bloqueio de lançamento quando o Robô Caótico encontra falha
+- **WHEN** a campanha de 5 minutos do Robô Caótico no job `prepare_release` detecta ao menos uma falha de exceção ou violação de invariante
+- **THEN** o passo SHALL enviar cada falha inédita ao Sentry com sua receita encolhida, fazer upload dos arquivos `.json` de `editor/caos/caminhos_regressao/` como artefato do GitHub Actions e falhar o job antes de criar o commit ou a tag `editor-v*`.

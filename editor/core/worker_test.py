@@ -963,6 +963,90 @@ class TestWorker(unittest.TestCase):
         tarefa.sucesso.emit.assert_not_called()
         tarefa.conflito.emit.assert_not_called()
 
+    def test_tarefa_inicializacao_aceita_dependencias_injetadas_no_construtor(self):
+        """Valida que TarefaInicializacao aceita storage, gerenciador_sessao, cliente_auth, servico_loja e sincronizador_git injetados."""
+        from editor.plataforma import ResultadoAtualizacao, StatusAtualizacao
+
+        class _StorageInjetado:
+            def __init__(self, raiz: Path) -> None:
+                self.raiz = raiz
+                self.inicializado = False
+
+            def inicializar_diretorios(self) -> None:
+                self.inicializado = True
+                (self.raiz / "aresta_db").mkdir(parents=True, exist_ok=True)
+                (self.raiz / "aresta_db" / "README.md").write_text("ok", encoding="utf-8")
+
+            def obter_caminho_base_repo(self) -> Path:
+                return self.raiz / "aresta_db"
+
+        class _SessaoInjetada:
+            def inicializar_cofre(self) -> bool:
+                return True
+
+            def obter_sessao(self) -> SessaoUsuario:
+                return SessaoUsuario(
+                    email="caos@arestaclimb.com",
+                    nome_completo="Robô Caótico",
+                    jwt_supabase="jwt_caos",
+                    token_atualizacao="refresh_caos",
+                )
+
+        class _AuthInjetado:
+            def __init__(self) -> None:
+                self.tokens_validados: list[str] = []
+
+            def obter_usuario_atual(self, jwt: str) -> dict:
+                self.tokens_validados.append(jwt)
+                return {"email": "caos@arestaclimb.com"}
+
+        class _LojaInjetada:
+            def verificar_atualizacoes_disponiveis(self) -> ResultadoAtualizacao:
+                return ResultadoAtualizacao(status=StatusAtualizacao.NAO_APLICAVEL)
+
+        class _SyncInjetado:
+            def __init__(self) -> None:
+                self.remotes_configurados = False
+                self.fetch_executado = False
+                self.checkout_executado = False
+
+            def configurar_remotes(self) -> None:
+                self.remotes_configurados = True
+
+            def fazer_fetch(self, progresso_callback=None) -> None:
+                self.fetch_executado = True
+                if progresso_callback:
+                    progresso_callback(100)
+
+            def fazer_checkout_main_upstream(self) -> None:
+                self.checkout_executado = True
+
+        storage = _StorageInjetado(self.caminho_fake_db)
+        sessao_mgr = _SessaoInjetada()
+        auth_cli = _AuthInjetado()
+        loja = _LojaInjetada()
+        sync_git = _SyncInjetado()
+
+        tarefa = TarefaInicializacao(
+            id_cliente="cli_caos",
+            storage=storage,  # type: ignore[arg-type]
+            gerenciador_sessao=sessao_mgr,  # type: ignore[arg-type]
+            cliente_auth=auth_cli,  # type: ignore[arg-type]
+            servico_loja=loja,  # type: ignore[arg-type]
+            sincronizador_git=sync_git,  # type: ignore[arg-type]
+            intervalo_espera_cofre=0.0,
+        )
+        sucesso_emitido: list[bool] = []
+        tarefa.sucesso.connect(lambda: sucesso_emitido.append(True))
+        tarefa.run()
+
+        self.assertTrue(storage.inicializado)
+        self.assertEqual(auth_cli.tokens_validados, ["jwt_caos"])
+        self.assertTrue(sync_git.remotes_configurados)
+        self.assertTrue(sync_git.fetch_executado)
+        self.assertTrue(sync_git.checkout_executado)
+        self.assertEqual(sucesso_emitido, [True])
+
 
 if __name__ == "__main__":
     unittest.main()

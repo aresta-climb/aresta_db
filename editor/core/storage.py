@@ -1,13 +1,19 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
+import os
 from pathlib import Path
 
 
 def obter_diretorio_base_app() -> Path:
     """
-    Retorna o caminho canônico do diretório de dados do aplicativo para o sistema operacional ativo.
+    Retorna o caminho canônico do diretório de dados do aplicativo para o sistema operacional ativo,
+    respeitando a variável de ambiente ARESTA_DIRETORIO_DADOS quando definida.
     """
+    override_env = os.environ.get("ARESTA_DIRETORIO_DADOS", "").strip()
+    if override_env:
+        return Path(override_env)
+
     from editor.plataforma import obter_diretorio_dados_usuario
 
     return obter_diretorio_dados_usuario()
@@ -18,13 +24,18 @@ class GerenciadorCaminhos:
     Biblioteca para gerenciar caminhos de armazenamento local do Editor Aresta.
     """
 
-    def __init__(self) -> None:
+    def __init__(self, diretorio_base: Path | str | None = None) -> None:
         self.nome_app: str = "editor_aresta"
+        self._diretorio_base: Path | None = (
+            Path(diretorio_base) if diretorio_base is not None else None
+        )
 
     def obter_diretorio_base(self) -> Path:
         """
         Retorna o caminho base para os dados do aplicativo.
         """
+        if self._diretorio_base is not None:
+            return self._diretorio_base
         return obter_diretorio_base_app()
 
     def obter_caminho_recurso_interno(self, caminho_relativo: str) -> Path:
