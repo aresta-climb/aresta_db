@@ -1,8 +1,11 @@
 # renomeacao-croqui Specification
 
 ## Purpose
-TBD - created by archiving change fix-croqui-duplication-on-rename. Update Purpose after archive.
+
+Define o rastreamento do identificador original e o tratamento de alterações de ID de croquis no armazenamento local do Editor Desktop.
+
 ## Requirements
+
 ### Requirement: Rastreador de ID Original
 O sistema MUST salvar o `id_original` do croqui no seu arquivo local de metadados (`croqui_experimental.yaml`) sempre que o projeto for inicializado ou clonado da raiz oficial.
 
@@ -11,9 +14,12 @@ O sistema MUST salvar o `id_original` do croqui no seu arquivo local de metadado
 - **THEN** o sistema salva o ID solicitado dentro do campo `id_original` do arquivo `croqui_experimental.yaml`
 
 ### Requirement: Renomeação da Pasta Raiz
-O sistema MUST renomear fisicamente a pasta raiz experimental do croqui sempre que identificar, durante o processo de salvamento, que o ID dos dados extraídos difere do ID gravado no nome do diretório físico.
+O sistema MUST identificar alterações no ID do croqui comparando o ID extraído em memória com o ID anterior real persistido no workspace (obtido dos metadados/arquivos do croqui no modo experimental, e nunca do UUID opaco da pasta raiz, ou do nome da pasta no modo de repositório local), limpando o diretório `compilado/` no modo experimental ou renomeando a pasta via Git no modo de repositório local exclusivamente quando o ID do croqui tiver sido de fato modificado.
 
 #### Scenario: Edição e Salvamento de ID Alterado
-- **WHEN** o usuário altera o ID do croqui na aba de dados e clica em Salvar
-- **THEN** o sistema renomeia a pasta de trabalho (mantendo o timestamp original) e redireciona todas as instâncias ativas de salvamento contínuo para o novo caminho no disco
+- **WHEN** o usuário altera o ID do croqui na aba de dados (ex: de `br_mg_antigo` para `br_mg_novo`) e aciona o salvamento
+- **THEN** o sistema detecta a divergência entre o ID anterior real (`br_mg_antigo`) e o novo ID (`br_mg_novo`), limpa os artefatos compilados com o ID antigo (ou renomeia o diretório no modo repositório local) e recompila o croqui com o novo identificador
 
+#### Scenario: Salvamento sem Alteração de ID em Croqui Experimental com Pasta UUID
+- **WHEN** o usuário salva um croqui experimental armazenado em uma pasta raiz de nome UUID opaco (ex: `41aea39b`) cujo `id` do croqui permanece inalterado (ex: `br_mg_igarape_pedra_grande`)
+- **THEN** o sistema identifica que o ID atual real do croqui já é `br_mg_igarape_pedra_grande`, NÃO executa a limpeza destrutiva da pasta `compilado/` e realiza a compilação incremental preservando as imagens e artefatos existentes

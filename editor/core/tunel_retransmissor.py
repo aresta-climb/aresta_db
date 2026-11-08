@@ -131,12 +131,8 @@ class ClienteTunelRetransmissor:
         while not self._evento_parada.is_set():
             try:
                 await asyncio.sleep(intervalo)
-                if self._evento_parada.is_set():
-                    break
                 await ws.send(json.dumps({"tipo": "ping"}))
-            except asyncio.CancelledError:
-                break
-            except Exception:
+            except (asyncio.CancelledError, Exception):
                 break
 
     async def executar(self, intervalo_heartbeat: float = 30.0) -> None:
@@ -207,16 +203,12 @@ class ClienteTunelRetransmissor:
                                     pass
                     finally:
                         tarefa_heartbeat.cancel()
-                        try:
-                            await tarefa_heartbeat
-                        except (asyncio.CancelledError, Exception):
-                            pass
+                        await tarefa_heartbeat
             except (ConnectionClosed, asyncio.CancelledError, Exception):
-                if self._evento_parada.is_set():
-                    break
                 tentativas_falhas += 1
                 tempo_espera = min(5.0, 0.2 * (2 ** min(tentativas_falhas, 4)))
-                await asyncio.sleep(tempo_espera)
+                if not self._evento_parada.is_set():
+                    await asyncio.sleep(tempo_espera)
             finally:
                 self._websocket = None
 
@@ -333,15 +325,9 @@ class ClienteTunelRetransmissor:
             if not caminho_alvo.is_file():
                 partes = caminho_str.replace("\\", "/").split("/", 1)
                 if len(partes) == 2:
-                    subpasta, resto = partes
-                    caminho_sub = (pasta_base / subpasta).resolve()
+                    _, resto = partes
                     caminho_direto = (pasta_base / resto).resolve()
-                    if (
-                        caminho_sub.is_relative_to(pasta_base)
-                        and caminho_direto.is_relative_to(pasta_base)
-                        and not caminho_sub.exists()
-                        and caminho_direto.is_file()
-                    ):
+                    if caminho_direto.is_relative_to(pasta_base) and caminho_direto.is_file():
                         caminho_alvo = caminho_direto
 
             if not caminho_alvo.is_file():

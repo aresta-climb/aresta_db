@@ -264,6 +264,11 @@ class JanelaPrincipal(QMainWindow):
         parent: QWidget | None = None,
         iniciar_mcp: bool = False,
         diretorio_sessao_mcp: Path | None = None,
+        servidor_mcp: Any | None = None,
+        callback_abrir_croqui_mcp: Callable[[Path], dict[str, Any] | None] | None = None,
+        servico_submissao: Any | None = None,
+        fabrica_servidor_celular: Callable[..., Any] | None = None,
+        servico_loja: Any | None = None,
     ) -> None:
         super().__init__(parent)
         self.setFont(QFont("Segoe UI", 9))
@@ -274,6 +279,9 @@ class JanelaPrincipal(QMainWindow):
             auth = GerenciadorSessao()
         self.auth: Any | None = auth
         self.workspace: Any | None = workspace
+        self.servico_submissao: Any | None = servico_submissao
+        self.fabrica_servidor_celular: Callable[..., Any] | None = fabrica_servidor_celular
+        self.servico_loja: Any | None = servico_loja
         self.croqui_data: dict[str, Any] | None = None
         self.croqui_model: CroquiModel | None = None
         self.croqui_controller: CroquiController | None = None
@@ -283,8 +291,14 @@ class JanelaPrincipal(QMainWindow):
         self.servidor_celular: ServidorCelular | None = None
         self.monitor_inatividade: MonitorInatividade | None = None
         self.dialogo_celular: DialogoConexaoCelular | None = None
-        self.servidor_mcp: Any | None = None
-        self.despachante_mcp: Any | None = None
+        self.servidor_mcp: Any | None = servidor_mcp
+        self._servidor_mcp_compartilhado: bool = servidor_mcp is not None
+        self._callback_abrir_croqui_mcp: Callable[[Path], dict[str, Any] | None] | None = (
+            callback_abrir_croqui_mcp
+        )
+        self.despachante_mcp: Any | None = (
+            getattr(servidor_mcp, "despachante", None) if servidor_mcp is not None else None
+        )
         self._diretorio_sessao_mcp: Path | None = diretorio_sessao_mcp
         self._iniciar_mcp_automatico: bool = iniciar_mcp
         self.historico: GerenciadorHistorico = GerenciadorHistorico(self)
@@ -1072,9 +1086,17 @@ class JanelaPrincipal(QMainWindow):
             self.pagina_imagens.editor.salvar_alteracoes(mostrar_mensagem=False)
 
             novo_id = str(self.croqui_data.get("id", "")) if self.croqui_data else ""
-            nome_raiz = self.workspace.caminho_raiz.name
-            partes = nome_raiz.split("_", 1)
-            id_atual = partes[1] if len(partes) > 1 and partes[0].isdigit() else nome_raiz
+            id_atual_ws = (
+                self.workspace.obter_id_croqui_atual()
+                if hasattr(self.workspace, "obter_id_croqui_atual")
+                else None
+            )
+            if isinstance(id_atual_ws, str) and id_atual_ws:
+                id_atual = id_atual_ws
+            else:
+                nome_raiz = str(self.workspace.caminho_raiz.name)
+                partes = nome_raiz.split("_", 1)
+                id_atual = partes[1] if len(partes) > 1 and partes[0].isdigit() else nome_raiz
 
             undo_index = self.historico.obter_pilha().index()
 
@@ -1240,12 +1262,19 @@ class JanelaPrincipal(QMainWindow):
 
         from editor.controllers.publish_controller import PublishController
 
+        kwargs_extras: dict[str, Any] = {}
+        if self.servico_loja is not None:
+            kwargs_extras["servico_loja"] = self.servico_loja
+        if self.servico_submissao is not None:
+            kwargs_extras["servico_submissao"] = self.servico_submissao
+
         self._publish_controller: PublishController = PublishController(
             workspace=self.workspace,
             auth=self.auth,
             historico=self.historico,
             storage=self.storage,
             parent=self,
+            **kwargs_extras,
         )
         self._publish_controller.iniciar_publicacao()
 
@@ -1299,14 +1328,17 @@ class JanelaPrincipal(QMainWindow):
             return
 
         caminho_db = self.workspace.obter_caminho_database()
-        from editor.core.servico_submissao import ServicoSubmissao
+        if self.servico_submissao is not None:
+            servico = self.servico_submissao
+        else:
+            from editor.core.servico_submissao import ServicoSubmissao
 
-        caminho_repo = (
-            self.storage.obter_caminho_base_repo()
-            if self.storage is not None and hasattr(self.storage, "obter_caminho_base_repo")
-            else None
-        )
-        servico = ServicoSubmissao(caminho_repo_base=caminho_repo)
+            caminho_repo = (
+                self.storage.obter_caminho_base_repo()
+                if self.storage is not None and hasattr(self.storage, "obter_caminho_base_repo")
+                else None
+            )
+            servico = ServicoSubmissao(caminho_repo_base=caminho_repo)
 
         sessao = None
         if self.auth is not None and hasattr(self.auth, "obter_sessao"):
@@ -1450,7 +1482,10 @@ class JanelaPrincipal(QMainWindow):
             self.historico.flush_diario_pendente()
 
         if self._forcar_fechamento:
-            self.encerrar_servidor_mcp()
+            if self._servidor_mcp_compartilhado and self.servidor_mcp is not None:
+                self.servidor_mcp.definir_croqui_ativo("", croqui_aberto=False)
+            else:
+                self.encerrar_servidor_mcp()
             event.accept()
             return
 
@@ -1496,9 +1531,9 @@ class JanelaPrincipal(QMainWindow):
         from editor.mcp.despachante import DespachanteQt
         from editor.mcp.servidor import ServidorMCP
 
-        if self.despachante_mcp is None:
-            self.despachante_mcp = DespachanteQt(self)
         if self.servidor_mcp is None:
+            if self.despachante_mcp is None:
+                self.despachante_mcp = DespachanteQt(self)
             dir_alvo = (
                 diretorio_sessao if diretorio_sessao is not None else self._diretorio_sessao_mcp
             )
@@ -1507,6 +1542,8 @@ class JanelaPrincipal(QMainWindow):
                 porta_preferencial=porta_preferencial,
                 diretorio_sessao=dir_alvo,
             )
+        else:
+            self.despachante_mcp = getattr(self.servidor_mcp, "despachante", None)
         self._registrar_ferramentas_mcp()
         if self.croqui_model is not None:
             raiz = self.croqui_model.obter_croqui_readonly()
@@ -1554,6 +1591,7 @@ class JanelaPrincipal(QMainWindow):
             self.historico,
             workspace=self.workspace,
             storage=self.storage,
+            callback_abrir_croqui=self._callback_abrir_croqui_mcp,
         )
         registrar_ferramentas_conhecimento(self.servidor_mcp)
 
@@ -1618,19 +1656,29 @@ class JanelaPrincipal(QMainWindow):
             self.dlg_espera.setLabelText(mensagem)
         self.dlg_espera.show()
 
+    def _precisa_salvar_para_servidor_celular(self) -> bool:
+        """Verifica se há modificações não salvas no histórico ou artefatos de compilação ausentes."""
+        if not self.workspace:
+            return False
+        pasta_compilado = self.workspace.obter_pasta_servidor_celular()
+        return (
+            not self.historico.obter_pilha().isClean()
+            or not (pasta_compilado / "indice.binarypb").is_file()
+            or not (pasta_compilado / "catalogo.db").is_file()
+        )
+
+    def _ao_detectar_inatividade_celular(self) -> None:
+        """Salva automaticamente por inatividade apenas quando houver mudanças não salvas ou artefatos ausentes."""
+        if self._precisa_salvar_para_servidor_celular():
+            self.salvar_croqui()
+
     def _exibir_conexao_celular(self) -> None:
         """Salva/compila se necessário e inicia o servidor para conexão com o celular."""
         if not self.workspace:
             QMessageBox.warning(self, "Aviso", "Abra um croqui antes de conectar ao celular.")
             return
 
-        pasta_compilado = self.workspace.obter_pasta_servidor_celular()
-        precisa_salvar = (
-            not self.historico.obter_pilha().isClean()
-            or not (pasta_compilado / "indice.binarypb").is_file()
-            or not (pasta_compilado / "catalogo.db").is_file()
-        )
-        if precisa_salvar and self.croqui_data:
+        if self._precisa_salvar_para_servidor_celular() and self.croqui_data:
             self.salvar_croqui(callback_sucesso=self._abrir_dialogo_conexao_celular)
             return
 
@@ -1656,7 +1704,8 @@ class JanelaPrincipal(QMainWindow):
                     if sessao_usr and hasattr(sessao_usr, "jwt_supabase"):
                         jwt_supabase = sessao_usr.jwt_supabase
 
-            self.servidor_celular = ServidorCelular(
+            fabrica_celular = self.fabrica_servidor_celular or ServidorCelular
+            self.servidor_celular = fabrica_celular(
                 pasta_compilado,
                 jwt_token=jwt_supabase,
                 parent=self,
@@ -1667,7 +1716,9 @@ class JanelaPrincipal(QMainWindow):
         # Inicia o monitor de inatividade (10 segundos)
         if not self.monitor_inatividade:
             self.monitor_inatividade = MonitorInatividade(timeout_ms=10000, parent=self)
-            self.monitor_inatividade.inatividade_detectada.connect(self.salvar_croqui)
+            self.monitor_inatividade.inatividade_detectada.connect(
+                self._ao_detectar_inatividade_celular
+            )
             inst = QApplication.instance()
             if inst:
                 inst.installEventFilter(self.monitor_inatividade)

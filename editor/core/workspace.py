@@ -48,6 +48,7 @@ class EditorWorkspace(Protocol):
     def obter_tag_titulo(self) -> str: ...
     def obter_diario(self) -> GerenciadorDiario | None: ...
     def obter_commit_base_sha(self) -> str: ...
+    def obter_id_croqui_atual(self) -> str: ...
 
     def processar_renomeacao_e_compilacao(
         self, novo_id: str, id_atual: str, storage: GerenciadorCaminhos | None
@@ -98,13 +99,37 @@ class ExperimentalWorkspace:
                 pass
         return ""
 
+    def obter_id_croqui_atual(self) -> str:
+        """Retorna o ID atual real do croqui persistido em disco (e não o UUID da pasta raiz)."""
+        pb_compactado = self.obter_caminho_compilado() / "compilado.binarypb"
+        if pb_compactado.is_file():
+            from aresta_api.proto.generated import croqui_pb2
+
+            croqui_pb = croqui_pb2.Croqui()
+            croqui_pb.ParseFromString(pb_compactado.read_bytes())
+            if croqui_pb.id:
+                return str(croqui_pb.id)
+
+        yaml_db = self.obter_caminho_database() / "croqui.yaml"
+        if yaml_db.is_file():
+            from editor.core.serializacao_util import carregar_yaml
+
+            dados = carregar_yaml(yaml_db.read_text(encoding="utf-8"))
+            if isinstance(dados, dict) and dados.get("id"):
+                return str(dados["id"])
+
+        return self.caminho_raiz.name
+
     def processar_renomeacao_e_compilacao(
         self, novo_id: str, id_atual: str, storage: GerenciadorCaminhos | None
     ) -> tuple[Path, list[str], bool]:
         gerenciador = GerenciadorCroquiExperimental(storage or GerenciadorCaminhos())
         caminho = self.caminho_raiz
 
-        if novo_id and id_atual and novo_id != id_atual:
+        id_anterior = (
+            self.obter_id_croqui_atual() if id_atual == self.caminho_raiz.name else id_atual
+        )
+        if novo_id and id_anterior and novo_id != id_anterior:
             caminho = gerenciador.renomear_pasta_croqui(caminho, novo_id)
             self.caminho_raiz = caminho
             from editor.core.diario import GerenciadorDiario
@@ -187,6 +212,10 @@ class LocalRepoWorkspace:
 
     def obter_diario(self) -> GerenciadorDiario | None:
         return self.diario
+
+    def obter_id_croqui_atual(self) -> str:
+        """No modo repositório local, o ID atual é o nome do diretório em database/<id>."""
+        return self.caminho_raiz.name
 
     def processar_renomeacao_e_compilacao(
         self, novo_id: str, id_atual: str, storage: GerenciadorCaminhos | None

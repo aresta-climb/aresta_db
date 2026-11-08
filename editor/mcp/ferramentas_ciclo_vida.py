@@ -60,9 +60,7 @@ def _executar_salvamento_e_compilacao(
     )
 
     novo_id = str(croqui_data.get("id", ""))
-    nome_raiz = workspace.caminho_raiz.name
-    partes = nome_raiz.split("_", 1)
-    id_atual = partes[1] if len(partes) > 1 and partes[0].isdigit() else nome_raiz
+    id_atual = workspace.obter_id_croqui_atual()
 
     with usar_contexto_memoria_deploy(
         [caminho_db],

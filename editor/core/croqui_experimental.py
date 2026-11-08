@@ -203,6 +203,13 @@ class GerenciadorCroquiExperimental:
             # Limpa eventual repositório .git local legado para liberar espaço e evitar overhead
             self.excluir_croqui(caminho_raiz / ".git")
 
+            def _mover_substituindo(origem: Path, destino: Path) -> None:
+                if destino.is_dir():
+                    shutil.rmtree(destino, ignore_errors=True)
+                else:
+                    destino.unlink(missing_ok=True)
+                shutil.move(str(origem), str(destino))
+
             pb_compactado = caminho_compilado / "compilado.binarypb"
             if pb_compactado.is_file():
                 from aresta_api.proto.generated import croqui_pb2
@@ -214,7 +221,7 @@ class GerenciadorCroquiExperimental:
                 for nome_artefato in ("compilado.binarypb", "compilado.yaml", "imagens", "anexos"):
                     origem_artefato = caminho_compilado / nome_artefato
                     if origem_artefato.exists():
-                        shutil.move(str(origem_artefato), str(pasta_previa / nome_artefato))
+                        _mover_substituindo(origem_artefato, pasta_previa / nome_artefato)
 
             database_modificado = deploy(
                 output_dir=caminho_compilado,
@@ -235,8 +242,7 @@ class GerenciadorCroquiExperimental:
             ]
             for pasta_croqui in pastas_para_compactar:
                 for sub_item in list(pasta_croqui.iterdir()):
-                    destino = caminho_compilado / sub_item.name
-                    shutil.move(str(sub_item), str(destino))
+                    _mover_substituindo(sub_item, caminho_compilado / sub_item.name)
                 shutil.rmtree(pasta_croqui, ignore_errors=True)
 
             return bool(database_modificado)

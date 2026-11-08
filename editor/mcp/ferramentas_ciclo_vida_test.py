@@ -17,17 +17,23 @@ from editor.models.croqui_model import CroquiModel
 class _WorkspaceFake:
     """Fake determinístico de Workspace para testes comportamentais sem I/O externo."""
 
-    def __init__(self, pasta_raiz: Path) -> None:
+    def __init__(self, pasta_raiz: Path, id_croqui_atual: str = "cipo_teste") -> None:
         self.caminho_raiz = pasta_raiz
+        self.id_croqui_atual = id_croqui_atual
         self.compilacoes = 0
+        self.ultimo_id_atual_recebido: str | None = None
 
     def obter_caminho_database(self) -> Path:
         caminho = self.caminho_raiz / "database"
         caminho.mkdir(parents=True, exist_ok=True)
         return caminho
 
+    def obter_id_croqui_atual(self) -> str:
+        return self.id_croqui_atual
+
     def processar_renomeacao_e_compilacao(self, novo_id: str, id_atual: str, _storage: object):
         self.compilacoes += 1
+        self.ultimo_id_atual_recebido = id_atual
         return self.caminho_raiz, ["Aviso: teste de compilação"], False
 
 
@@ -119,6 +125,7 @@ def test_ciclo_vida_status_foco_salvar_compilar_sem_expor_undo_redo(qapp, tmp_pa
     res_salvar = _chamar(servidor, "aresta_salvar", {})
     assert res_salvar["status"] == "ok"
     assert workspace.compilacoes == 1
+    assert workspace.ultimo_id_atual_recebido == "cipo_teste"
     assert (workspace.obter_caminho_database() / "croqui.yaml").is_file()
 
     res_compilar = _chamar(servidor, "aresta_compilar", {})

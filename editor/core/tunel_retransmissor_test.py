@@ -792,3 +792,20 @@ def test_deve_reescrever_rota_compacta_e_sanitizar_query_string(pasta_temporaria
     res_cat = cliente._ler_arquivo_proxy("req-cat", "catalogo.db?v=abc123")
     assert res_cat["status"] == 200
     assert base64.b64decode(res_cat["corpoBase64"]) == b"SQLite format 3\x00catalogo"
+
+    # 4. Mesmo se a subpasta <id_croqui>/ existir vazia ou em transição durante recompilação,
+    # deve fazer fallback para os artefatos na raiz de compilado/
+    (pasta_temporaria / "br_mg_ferros_pico").mkdir(exist_ok=True)
+    res_pb_sub = cliente._ler_arquivo_proxy("req-pb-sub", "br_mg_ferros_pico/compilado.binarypb")
+    assert res_pb_sub["status"] == 200
+    assert base64.b64decode(res_pb_sub["corpoBase64"]) == b"croqui_compactado_bytes"
+
+    res_img_sub = cliente._ler_arquivo_proxy(
+        "req-img-sub", "br_mg_ferros_pico/imagens/setor1.webp?v=1760000000"
+    )
+    assert res_img_sub["status"] == 200
+    assert base64.b64decode(res_img_sub["corpoBase64"]) == b"webp_compactado"
+
+    # 5. Caminho vazio (ou apenas query string) retorna 404
+    res_vazio = cliente._ler_arquivo_proxy("req-vazio", "?v=123")
+    assert res_vazio["status"] == 404

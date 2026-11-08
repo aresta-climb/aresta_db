@@ -153,6 +153,27 @@ def test_compilar_croqui_compacta_saida_diretamente_em_compilado(gerenciador, st
     assert foto_compilada.read_bytes() == conteudo_sentinela
     assert not (compilado_dir / "br_mg_compacto").exists()
 
+    # Se uma subpasta ou arquivo residual existir em compilado/<id>/ antes de recompilar,
+    # deve preservá-la sem aninhar imagens/imagens (mantendo o fast-path incremental)
+    # e, na compactação final, substituir qualquer destino residual em compilado/
+    residual_dir = compilado_dir / "br_mg_compacto" / "imagens"
+    residual_dir.mkdir(parents=True, exist_ok=True)
+    (compilado_dir / "br_mg_compacto" / "compilado.yaml").write_text("residual", encoding="utf-8")
+
+    gerenciador.compilar_croqui(caminho_croqui)
+    assert foto_compilada.is_file()
+    assert foto_compilada.read_bytes() == conteudo_sentinela
+    assert not (compilado_dir / "imagens" / "imagens").exists()
+    assert not (compilado_dir / "br_mg_compacto").exists()
+
+    # Se compilado.binarypb foi removido mas compilado/imagens permaneceu de uma compactação
+    # interrompida, a próxima compilação não deve aninhar compilado/imagens/imagens
+    (compilado_dir / "compilado.binarypb").unlink()
+    gerenciador.compilar_croqui(caminho_croqui)
+    assert foto_compilada.is_file()
+    assert not (compilado_dir / "imagens" / "imagens").exists()
+    assert not (compilado_dir / "br_mg_compacto").exists()
+
 
 def test_compilar_croqui_falha_sem_yaml(gerenciador, storage_temp):
     """Verifica se falha ao compilar um croqui sem croqui.yaml."""

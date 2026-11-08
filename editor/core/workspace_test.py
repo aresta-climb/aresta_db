@@ -102,12 +102,40 @@ def test_experimental_workspace_processar_renomeacao_e_compilacao(tmp_path: Path
     assert not ws.obter_diario().tem_alteracoes_pendentes()
 
     # Segunda compilação sem renomeação e já saneado -> db_mod False
+    # Mesmo passando o nome UUID da pasta raiz como id_atual, não deve apagar compilado/
+    marcador_preservado = novo_caminho / "compilado" / "marcador_sessao.txt"
+    marcador_preservado.write_text("ativo", encoding="utf-8")
+    assert ws.obter_id_croqui_atual() == "croqui_renomeado"
+
     caminho2, msgs2, db_mod2 = ws.processar_renomeacao_e_compilacao(
-        "croqui_renomeado", "croqui_renomeado", storage
+        "croqui_renomeado", novo_caminho.name, storage
     )
     assert caminho2 == novo_caminho
     assert isinstance(msgs2, list)
     assert db_mod2 is False
+    assert marcador_preservado.is_file()
+
+
+def test_obter_id_croqui_atual_experimental_e_local(tmp_path: Path) -> None:
+    """Valida a resolução determinística do ID atual do croqui em ambos os tipos de workspace."""
+    raiz_vazia = tmp_path / "41aea39b"
+    raiz_vazia.mkdir(parents=True)
+    ws_exp = ExperimentalWorkspace(raiz_vazia)
+    assert ws_exp.obter_id_croqui_atual() == "41aea39b"
+
+    # Com database/croqui.yaml sem compilado.binarypb
+    (raiz_vazia / "database").mkdir()
+    (raiz_vazia / "database" / "croqui.yaml").write_text(
+        "id: br_mg_igarape_pedra_grande\nnome: Igarapé\n", encoding="utf-8"
+    )
+    assert ws_exp.obter_id_croqui_atual() == "br_mg_igarape_pedra_grande"
+
+    # No LocalRepoWorkspace retorna o nome da pasta em database/<id>
+    storage = CaminhosTemp(tmp_path / "appdata")
+    croqui_local = tmp_path / "aresta_db" / "database" / "br_mg_local"
+    croqui_local.mkdir(parents=True)
+    ws_local = LocalRepoWorkspace(croqui_local, storage=storage)
+    assert ws_local.obter_id_croqui_atual() == "br_mg_local"
 
 
 def test_experimental_workspace_compilacao_com_erro_retorna_mensagens(

@@ -359,6 +359,17 @@ def test_deve_servir_arquivos_compactos_mesmo_com_prefixo_croqui_id(tmp_path):
         resp_direta = requests.get(url_direta)
         assert resp_direta.status_code == 200
         assert resp_direta.content == b"dados_pb"
+
+        # 4. Mesmo se a subpasta <id_croqui>/ existir vazia durante recompilação/compactação,
+        # deve fazer fallback para a raiz de compilado/
+        (pasta_compilado / "br_mg_itambe").mkdir(exist_ok=True)
+        resp_pb_sub = requests.get(url_pb)
+        assert resp_pb_sub.status_code == 200
+        assert resp_pb_sub.content == b"dados_pb"
+
+        resp_img_sub = requests.get(url_img)
+        assert resp_img_sub.status_code == 200
+        assert resp_img_sub.content == b"imagem_bytes"
     finally:
         servidor.parar()
         if servidor._thread_servidor and servidor._thread_servidor.is_alive():
