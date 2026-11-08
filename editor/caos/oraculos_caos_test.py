@@ -172,3 +172,32 @@ def test_oraculo_diario_valida_diario_integro_e_detecta_corrupcao(
     falha_malformado = oraculos.verificar_integridade_diario(diario)
     assert falha_malformado is not None
     assert falha_malformado.oraculo == "corrupcao_diario"
+
+
+def test_oraculo_captura_erros_e_excecoes_registrados_no_logger() -> None:
+    from editor.core.registro_log import obter_logger
+
+    log = obter_logger("teste_caos")
+    oraculos = OraculosCaos()
+
+    with oraculos.monitorar_excecoes():
+        try:
+            raise OSError(22, "Invalid argument")
+        except OSError:
+            log.critical("Erro durante o salvamento do croqui", exc_info=True)
+
+    falha_com_exc = oraculos.obter_primeira_falha()
+    assert falha_com_exc is not None
+    assert falha_com_exc.oraculo == "erro_registrado_log"
+    assert falha_com_exc.tipo_excecao == "OSError"
+    assert "Invalid argument" in falha_com_exc.mensagem
+
+    oraculos.limpar_falhas()
+    with oraculos.monitorar_excecoes():
+        log.error("Falha sem exc_info ao processar comando")
+
+    falha_sem_exc = oraculos.obter_primeira_falha()
+    assert falha_sem_exc is not None
+    assert falha_sem_exc.oraculo == "erro_registrado_log"
+    assert falha_sem_exc.tipo_excecao == "LogError"
+    assert "Falha sem exc_info" in falha_sem_exc.mensagem

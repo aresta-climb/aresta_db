@@ -73,6 +73,7 @@ class FalhaCapturadaRobo:
     mensagem: str
     frame_principal: str
     stacktrace: str = ""
+    excecao_original: BaseException | None = field(default=None, repr=False, compare=False)
 
     def assinatura_deduplicacao(self) -> str:
         """Retorna chave única estável para deduplicar falhas e validar o shrinking."""

@@ -1,10 +1,12 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
+import contextlib
 import os
 import re
 import sys
 import threading
+from collections.abc import Iterator, Sequence
 from pathlib import Path
 from typing import Any
 
@@ -149,7 +151,7 @@ def inicializar_telemetria(dsn: str | None = None) -> bool:
     if os.environ.get("ARESTA_DESATIVAR_TELEMETRIA") == "1":
         return False
 
-    dsn_usado = dsn or DSN_PADRAO
+    dsn_usado = dsn if dsn is not None else os.environ.get("SENTRY_DSN_EDITOR", DSN_PADRAO)
     if not dsn_usado:
         return False
 
@@ -219,9 +221,11 @@ def anexar_diario_escopo(diario: Any) -> None:
         pass
 
 
-def _anexar_arquivos_diario_no_escopo() -> None:
-    """Anexa os arquivos .bin do diário ao escopo apenas no momento do envio do crash."""
-    if not sentry_sdk or not _diario_ativo:
+def _anexar_arquivos_diario_no_escopo(
+    arquivos_extras: Sequence[Path | str] | None = None,
+) -> None:
+    """Anexa os arquivos .bin do diário e eventuais arquivos extras ao escopo no momento do envio do crash."""
+    if not sentry_sdk or (not _diario_ativo and not arquivos_extras):
         return
     try:
         # Limpa anexos de todos os escopos do Sentry para garantir unicidade absoluta
@@ -251,7 +255,8 @@ def _anexar_arquivos_diario_no_escopo() -> None:
         )
         if scope and hasattr(scope, "add_attachment"):
             if (
-                hasattr(_diario_ativo, "caminho_pendente")
+                _diario_ativo
+                and hasattr(_diario_ativo, "caminho_pendente")
                 and _diario_ativo.caminho_pendente.exists()
                 and _diario_ativo.caminho_pendente.stat().st_size > 0
             ):
@@ -259,13 +264,23 @@ def _anexar_arquivos_diario_no_escopo() -> None:
                     path=str(_diario_ativo.caminho_pendente), filename="diario_pendente.bin"
                 )
             if (
-                hasattr(_diario_ativo, "caminho_salvo")
+                _diario_ativo
+                and hasattr(_diario_ativo, "caminho_salvo")
                 and _diario_ativo.caminho_salvo.exists()
                 and _diario_ativo.caminho_salvo.stat().st_size > 0
             ):
                 scope.add_attachment(
                     path=str(_diario_ativo.caminho_salvo), filename="diario_salvo.bin"
                 )
+            if arquivos_extras:
+                for item_extra in arquivos_extras:
+                    caminho_extra = Path(item_extra)
+                    if caminho_extra.is_file():
+                        scope.add_attachment(
+                            path=str(caminho_extra),
+                            filename=caminho_extra.name,
+                            content_type="application/json",
+                        )
     except Exception:
         pass
 
@@ -414,6 +429,7 @@ def capturar_excecao(
     contextos_extras: dict[str, Any] | None = None,
     nivel_severidade: str | None = None,
     tags_extras: dict[str, str] | None = None,
+    arquivos_anexos: Sequence[Path | str] | None = None,
 ) -> Any:
     """
     Captura qualquer exceção (incluindo falhas de salvamento e compilação),
@@ -447,7 +463,7 @@ def capturar_excecao(
             for nome_ctx, dados_ctx in contextos_extras.items():
                 sentry_sdk.set_context(nome_ctx, _sanitizar_objeto_recursivo(dados_ctx))
 
-        _anexar_arquivos_diario_no_escopo()
+        _anexar_arquivos_diario_no_escopo(arquivos_extras=arquivos_anexos)
 
         event_id = None
         if hasattr(sentry_sdk, "capture_exception"):
@@ -460,21 +476,56 @@ def capturar_excecao(
         return None
 
 
+@contextlib.contextmanager
+def habilitar_telemetria_temporaria_caos(dsn: str | None = None) -> Iterator[None]:
+    """
+    Habilita temporariamente o envio de telemetria ao Sentry mesmo quando executado
+    sob o bloqueio global de testes (ARESTA_DESATIVAR_TELEMETRIA=1 e tests.bloqueador_rede),
+    restaurando o isolamento original ao final do envio.
+    """
+    desativar_anterior = os.environ.pop("ARESTA_DESATIVAR_TELEMETRIA", None)
+    mod_rede = sys.modules.get("tests.bloqueador_rede")
+    rede_estava_bloqueada = bool(mod_rede and getattr(mod_rede, "_bloqueio_ativo", False))
+    if rede_estava_bloqueada and mod_rede is not None:
+        mod_rede.restaurar_acesso_rede()
+
+    hook_sys_anterior = sys.excepthook
+    hook_thread_anterior = getattr(threading, "excepthook", None)
+    inicializado = inicializar_telemetria(dsn=dsn)
+    try:
+        yield
+    finally:
+        if inicializado:
+            encerrar_telemetria(timeout=2.0)
+        sys.excepthook = hook_sys_anterior
+        if hook_thread_anterior is not None:
+            threading.excepthook = hook_thread_anterior
+        if rede_estava_bloqueada and mod_rede is not None:
+            mod_rede.bloquear_acesso_externo()
+        if desativar_anterior is not None:
+            os.environ["ARESTA_DESATIVAR_TELEMETRIA"] = desativar_anterior
+
+
 def capturar_crash_robo_caotico(
     erro: BaseException,
     receita_robo_caotico: dict[str, Any],
     id_croqui: str = "",
     etapa: str = "robo_caotico",
+    caminho_arquivo_json: Path | str | None = None,
 ) -> Any:
     """
     Captura uma falha inédita encontrada pelo Robô Caótico e envia ao Sentry com
-    nível 'fatal', tag 'origem_crash=robo_caotico' e contexto estruturado 'receita_robo_caotico' sanitizado.
+    nível 'fatal', tag 'origem_crash=robo_caotico', contexto estruturado 'receita_robo_caotico'
+    sanitizado e o arquivo '.json' da receita anexado ao evento.
     """
-    return capturar_excecao(
-        erro=erro,
-        id_croqui=id_croqui,
-        etapa=etapa,
-        contextos_extras={"receita_robo_caotico": receita_robo_caotico},
-        nivel_severidade="fatal",
-        tags_extras={"origem_crash": "robo_caotico"},
-    )
+    anexos = [caminho_arquivo_json] if caminho_arquivo_json else None
+    with habilitar_telemetria_temporaria_caos():
+        return capturar_excecao(
+            erro=erro,
+            id_croqui=id_croqui,
+            etapa=etapa,
+            contextos_extras={"receita_robo_caotico": receita_robo_caotico},
+            nivel_severidade="fatal",
+            tags_extras={"origem_crash": "robo_caotico"},
+            arquivos_anexos=anexos,
+        )

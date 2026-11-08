@@ -142,19 +142,28 @@ def test_interceptador_modal_desbloqueia_qdialog_exec_automaticamente(
 def test_campanha_por_tempo_captura_encolhe_deduplica_e_salva_receita(
     tmp_path: Path,
 ) -> None:
+    import os
+
     pasta_saida = tmp_path / "caminhos_regressao"
     eventos_sentry: list[object] = []
-
-    resumo = MotorRoboCaoticoQt.executar_campanha(
-        raiz_tmp=tmp_path / "campanha",
-        duracao_segundos=15.0,
-        max_sementes=2,
-        passos_por_semente=8,
-        diretorio_receitas=pasta_saida,
-        reportar_sentry=True,
-        injetar_falha_no_passo=4,
-        callback_reportar_sentry=eventos_sentry.append,
-    )
+    dsn_anterior = os.environ.get("SENTRY_DSN_EDITOR")
+    os.environ["SENTRY_DSN_EDITOR"] = ""
+    try:
+        resumo = MotorRoboCaoticoQt.executar_campanha(
+            raiz_tmp=tmp_path / "campanha",
+            duracao_segundos=15.0,
+            max_sementes=2,
+            passos_por_semente=8,
+            diretorio_receitas=pasta_saida,
+            reportar_sentry=True,
+            injetar_falha_no_passo=4,
+            callback_reportar_sentry=eventos_sentry.append,
+        )
+    finally:
+        if dsn_anterior is None:
+            os.environ.pop("SENTRY_DSN_EDITOR", None)
+        else:
+            os.environ["SENTRY_DSN_EDITOR"] = dsn_anterior
 
     assert resumo.sementes_executadas == 2
     assert resumo.falhas_totais == 2

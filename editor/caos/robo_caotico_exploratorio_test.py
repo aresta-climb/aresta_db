@@ -16,7 +16,7 @@ def test_campanha_exploratoria_robo_caotico(tmp_path: Path) -> None:
     - DURACAO_CAMPANHA_CAOS_SEGUNDOS (padrão: 4.0s localmente; 300s no workflow de release)
     - MAX_SEMENTES_CAOS (padrão: 2 localmente ou 1000 quando DURACAO_CAMPANHA_CAOS_SEGUNDOS é definido)
     - PASSOS_POR_SEMENTE_CAOS (padrão: 25)
-    - REPORTAR_SENTRY_CAOS ("1" ou "true" para enviar falhas inéditas ao Sentry)
+    - REPORTAR_SENTRY_CAOS (padrão: "1", enviando falhas inéditas e o arquivo .json ao Sentry)
     """
     duracao_env = os.environ.get("DURACAO_CAMPANHA_CAOS_SEGUNDOS")
     duracao_segundos = float(duracao_env) if duracao_env else 4.0
@@ -24,10 +24,10 @@ def test_campanha_exploratoria_robo_caotico(tmp_path: Path) -> None:
     max_sementes = int(os.environ.get("MAX_SEMENTES_CAOS", str(max_sementes_padrao)))
     passos_por_semente = int(os.environ.get("PASSOS_POR_SEMENTE_CAOS", "25"))
     seed_inicial = int(os.environ.get("SEED_INICIAL_CAOS", "2026"))
-    reportar_sentry = os.environ.get("REPORTAR_SENTRY_CAOS", "").strip().lower() in (
-        "1",
-        "true",
-        "yes",
+    reportar_sentry = os.environ.get("REPORTAR_SENTRY_CAOS", "1").strip().lower() not in (
+        "0",
+        "false",
+        "no",
     )
     dir_receitas_env = os.environ.get("DIRETORIO_SAIDA_RECEITAS_CAOS")
     diretorio_receitas = (

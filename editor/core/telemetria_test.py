@@ -421,13 +421,52 @@ def test_capturar_excecao_sem_sentry():
         telemetria_mod.sentry_sdk = original_sentry
 
 
+class _EscopoSentryEspiao:
+    def __init__(self) -> None:
+        self.anexos: list[dict[str, str | None]] = []
+
+    def clear_attachments(self) -> None:
+        self.anexos.clear()
+
+    def add_attachment(
+        self,
+        path: str | None = None,
+        filename: str | None = None,
+        content_type: str | None = None,
+    ) -> None:
+        self.anexos.append({"path": path, "filename": filename, "content_type": content_type})
+
+
+class _ClienteSentryEspiao:
+    def __init__(self) -> None:
+        self.fechado: bool = False
+        self.ultimo_timeout: float | None = None
+
+    def close(self, timeout: float = 2.0) -> None:
+        self.fechado = True
+        self.ultimo_timeout = timeout
+
+
 class _SentryEspiao:
     def __init__(self) -> None:
+        self.inicializado: bool = False
         self.tags: dict[str, str] = {}
         self.contextos: dict[str, dict] = {}
         self.nivel: str | None = None
         self.excecoes_capturadas: list[BaseException] = []
         self.flushes: list[float] = []
+        self.escopo = _EscopoSentryEspiao()
+        self.cliente = _ClienteSentryEspiao()
+
+    def init(self, **kwargs: object) -> None:
+        _ = kwargs
+        self.inicializado = True
+
+    def get_current_scope(self) -> _EscopoSentryEspiao:
+        return self.escopo
+
+    def get_client(self) -> _ClienteSentryEspiao:
+        return self.cliente
 
     def set_tag(self, chave: str, valor: str) -> None:
         self.tags[chave] = valor
@@ -446,12 +485,18 @@ class _SentryEspiao:
         self.flushes.append(timeout)
 
 
-def test_capturar_crash_robo_caotico_anexa_receita_sanitizada_e_nivel_fatal():
+def test_capturar_crash_robo_caotico_anexa_receita_json_e_reabilita_telemetria(
+    tmp_path: Path,
+) -> None:
     import editor.core.telemetria as telemetria_mod
-    from editor.core.telemetria import capturar_crash_robo_caotico
+    import tests.bloqueador_rede as mod_rede
+    from editor.core.telemetria import anexar_diario_escopo, capturar_crash_robo_caotico
 
     espiao = _SentryEspiao()
     original_sentry = telemetria_mod.sentry_sdk
+    anexar_diario_escopo(None)
+    mod_rede.bloquear_acesso_externo()
+    os.environ["ARESTA_DESATIVAR_TELEMETRIA"] = "1"
     try:
         telemetria_mod.sentry_sdk = espiao
         caminho_sensivel = f"{Path.home()}\\croquis\\toxico.yaml"
@@ -461,15 +506,20 @@ def test_capturar_crash_robo_caotico_anexa_receita_sanitizada_e_nivel_fatal():
             "passos_minimos": [{"acao": "digitar_fuzz", "valor_texto": caminho_sensivel}],
             "passos_originais": [{"acao": "digitar_fuzz", "valor_texto": caminho_sensivel}],
         }
+        arquivo_json = tmp_path / "crash_seed_4242_runtimeerror.json"
+        arquivo_json.write_text('{"seed": 4242}\n', encoding="utf-8")
         erro = RuntimeError("Crash descoberto pelo Robô Caótico")
 
         event_id = capturar_crash_robo_caotico(
             erro=erro,
             receita_robo_caotico=receita,
             id_croqui="croqui_toxico",
+            caminho_arquivo_json=arquivo_json,
         )
 
         assert event_id == "ev_robo_999"
+        assert espiao.inicializado is True
+        assert espiao.cliente.fechado is True
         assert espiao.nivel == "fatal"
         assert espiao.tags["nivel_severidade"] == "fatal"
         assert espiao.tags["origem_crash"] == "robo_caotico"
@@ -482,5 +532,14 @@ def test_capturar_crash_robo_caotico_anexa_receita_sanitizada_e_nivel_fatal():
         assert str(Path.home()) not in ctx_receita["passos_minimos"][0]["valor_texto"]
         assert espiao.excecoes_capturadas == [erro]
         assert espiao.flushes == [5.0]
+        assert espiao.escopo.anexos == [
+            {
+                "path": str(arquivo_json),
+                "filename": "crash_seed_4242_runtimeerror.json",
+                "content_type": "application/json",
+            }
+        ]
+        assert os.environ.get("ARESTA_DESATIVAR_TELEMETRIA") == "1"
+        assert mod_rede._bloqueio_ativo is True
     finally:
         telemetria_mod.sentry_sdk = original_sentry

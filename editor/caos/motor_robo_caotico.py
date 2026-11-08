@@ -850,6 +850,7 @@ class MotorRoboCaoticoQt:
                 self.janela._encerrar_servidor_celular()
             self.janela._forcar_fechamento = True
             self.janela.close()
+            self.janela.deleteLater()
             self.janela = None
         if self.controlador_app is not None:
             _aguardar_thread_se_ativa(getattr(self.controlador_app, "tarefa", None))
@@ -940,7 +941,7 @@ class MotorRoboCaoticoQt:
         max_sementes: int = 1000,
         passos_por_semente: int = 35,
         diretorio_receitas: Path | None = None,
-        reportar_sentry: bool = False,
+        reportar_sentry: bool = True,
         injetar_falha_no_passo: int | None = None,
         callback_reportar_sentry: Callable[[ReceitaCrashRobo], None] | None = None,
     ) -> ResumoCampanhaCaos:
@@ -948,7 +949,7 @@ class MotorRoboCaoticoQt:
         Executa uma campanha de exploração caótica por orçamento de tempo com:
         - Deduplicação de falhas por assinatura_deduplicacao();
         - Shrinking automático (ddmin) apenas para falhas inéditas;
-        - Gravação de receitas JSON e envio opcional ao Sentry.
+        - Gravação de receitas JSON e envio ao Sentry com o arquivo '.json' anexado.
         """
         inicio = time.monotonic()
         sementes_executadas = 0
@@ -996,22 +997,33 @@ class MotorRoboCaoticoQt:
                     encolhedor = EncolhedorCaminhoCrash(_avaliar, max_tentativas=10)
                     receita_minima = encolhedor.encolher(receita_bruta)
 
+                    pasta_destino_json = (
+                        Path(diretorio_receitas)
+                        if diretorio_receitas is not None
+                        else (Path(raiz_tmp) / "receitas_temporarias")
+                    )
+                    caminho_arq = (
+                        pasta_destino_json
+                        / f"crash_seed_{seed_atual}_{resultado.falha.tipo_excecao.lower()}.json"
+                    )
+                    receita_minima.salvar_json(caminho_arq)
                     if diretorio_receitas is not None:
-                        caminho_arq = (
-                            Path(diretorio_receitas)
-                            / f"crash_seed_{seed_atual}_{resultado.falha.tipo_excecao.lower()}.json"
-                        )
-                        receita_minima.salvar_json(caminho_arq)
                         receitas_salvas.append(caminho_arq)
 
                     if callback_reportar_sentry is not None:
                         callback_reportar_sentry(receita_minima)
                     if reportar_sentry:
+                        erro_sentry = resultado.falha.excecao_original or RuntimeError(
+                            f"[{receita_minima.falha.oraculo}] {receita_minima.falha.mensagem}"
+                        )
+                        id_croqui_crash = (
+                            "br_sp_caos_toxico" if dataset == "toxico" else "br_mg_caos_normal"
+                        )
                         capturar_crash_robo_caotico(
-                            RuntimeError(
-                                f"[{receita_minima.falha.oraculo}] {receita_minima.falha.mensagem}"
-                            ),
-                            receita_minima.para_dicionario(),
+                            erro=erro_sentry,
+                            receita_robo_caotico=receita_minima.para_dicionario(),
+                            id_croqui=id_croqui_crash,
+                            caminho_arquivo_json=caminho_arq,
                         )
 
         return ResumoCampanhaCaos(

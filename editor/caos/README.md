@@ -11,7 +11,7 @@ Sistema determinístico de testes exploratórios caóticos de interface gráfica
    - Inclui o interceptador automático de diálogos modais (`vigiar_dialogos_modais()`) via `QApplication.activeModalWidget()` para desbloquear loops `.exec()` aninhados sem travar a execução.
 
 2. **`OraculosCaos` (`oraculos_caos.py`)**:
-   - **Oráculo 1 (Exceções e C++)**: intercepta `sys.excepthook` e `threading.excepthook` e valida ponteiros C++ via `shiboken6.isValid(...)`.
+   - **Oráculo 1 (Exceções, Logs de Erro e C++)**: intercepta `sys.excepthook`, `threading.excepthook` e qualquer log `ERROR`/`CRITICAL` no logger `aresta_editor` (incluindo exceções capturadas em `QThread` como `TarefaSalvamento` e `TarefaPublicacao`), além de validar ponteiros C++ via `shiboken6.isValid(...)`.
    - **Oráculo 2 (Simetria Determinística de `Undo`/`Redo` e Princípio VIII)**: verifica que cada índice da `QUndoStack` restaura exatamente o mesmo hash SHA-256 de `Croqui.SerializeToString(deterministic=True)` e detecta mutações silenciosas fora do histórico.
    - **Oráculo 3 (Integridade do Diário Transacional)**: valida a desserialização completa até o `EOF` de `diario_pendente.bin` e `diario_salvo.bin`.
 
@@ -23,7 +23,10 @@ Sistema determinístico de testes exploratórios caóticos de interface gráfica
    - Intercepta `socket.socket.connect`, `connect_ex`, `socket.create_connection` e `QDesktopServices.openUrl`, bloqueando qualquer acesso de rede externo fora de *loopback* (`127.0.0.1`, `::1`, `localhost`).
 
 5. **`EncolhedorCaminhoCrash` (`encolhedor_caminho_crash.py`) e `ReceitaCrashRobo` (`receita_crash_robo.py`)**:
-   - Reduz automaticamente sequências de falha via busca binária (*delta debugging* / `ddmin`) com poda de passos `no-op` (`mutou_estado=False`) e serializa a receita mínima em JSON (`editor/caos/caminhos_regressao/`).
+   - Reduz automaticamente sequências de falha via busca binária (*delta debugging* / `ddmin`) com poda de passos `no-op` (`mutou_estado=False`), serializa a receita mínima em JSON (`editor/caos/caminhos_regressao/`) e despacha automaticamente para o Sentry com o arquivo `.json` anexado (`capturar_crash_robo_caotico`).
+
+6. **`executar_campanha_cli.py`**:
+   - Ponto de entrada dedicado de linha de comando para rodar o *Fuzz Testing* localmente com um único comando (janela visível por padrão, envio ao Sentry com anexo `.json` habilitado e gravação em `editor/caos/caminhos_regressao/`), sem interferir nos testes unitários rápidos e *headless* do `pytest`.
 
 ## Fakes Determinísticos de Fronteira Externa
 
@@ -35,13 +38,17 @@ Sistema determinístico de testes exploratórios caóticos de interface gráfica
 
 ## Como Executar
 
-```bash
-# Executar toda a suíte unitária e de regressão do Robô Caótico
+```powershell
+# Executar facilmente uma campanha local de Fuzz Testing (60s, janela visível, enviando crashes + .json ao Sentry)
+uv run editor/caos/executar_campanha_cli.py
+
+# Opções da CLI local (ex: 120 segundos, modo oculto --headless ou --sem-sentry)
+uv run editor/caos/executar_campanha_cli.py --duracao 120 --passos 80 --seed-inicial 5000
+uv run editor/caos/executar_campanha_cli.py --headless
+
+# Executar toda a suíte unitária e de regressão do Robô Caótico via pytest (headless)
 uv run pytest editor/caos/
 
 # Reproduzir apenas as receitas JSON salvas em editor/caos/caminhos_regressao/
 uv run pytest editor/caos/regressao_caminhos_test.py
-
-# Executar uma campanha exploratória customizada (ex: 60 segundos)
-DURACAO_CAMPANHA_CAOS_SEGUNDOS=60 uv run pytest -o addopts="" -v -s editor/caos/robo_caotico_exploratorio_test.py
 ```

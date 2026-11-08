@@ -3,6 +3,7 @@
 
 import contextlib
 import hashlib
+import logging
 import pickle
 import sys
 import threading
@@ -17,6 +18,7 @@ import shiboken6
 from editor.caos.receita_crash_robo import FalhaCapturadaRobo
 from editor.core.diario import GerenciadorDiario
 from editor.core.historico import GerenciadorHistorico
+from editor.core.telemetria import registrar_caminho_repo_local, sanitizar_texto_caminhos
 from editor.models.croqui_model import CroquiModel
 
 
@@ -56,10 +58,29 @@ def _assinatura_comando_topo(historico: GerenciadorHistorico) -> str:
     return f"{type(cmd).__name__}:{cmd.text()}"
 
 
+class _HandlerLogErroCaos(logging.Handler):
+    """Intercepta registros ERROR e CRITICAL no logger 'aresta_editor' durante sessões do Robô Caótico."""
+
+    def __init__(self, oraculos: "OraculosCaos") -> None:
+        super().__init__(level=logging.ERROR)
+        self._oraculos = oraculos
+
+    def emit(self, record: logging.LogRecord) -> None:
+        if record.exc_info and record.exc_info[0] is not None and record.exc_info[1] is not None:
+            self._oraculos.registrar_excecao(
+                record.exc_info[0],
+                record.exc_info[1],
+                record.exc_info[2],
+                oraculo="erro_registrado_log",
+            )
+            return
+        self._oraculos.registrar_erro_log(record)
+
+
 class OraculosCaos:
     """
     Reúne os 3 oráculos de falha do Robô Caótico:
-    1. Exceções não tratadas (sys.excepthook / threading.excepthook) e objetos C++ deletados.
+    1. Exceções não tratadas (sys.excepthook / threading.excepthook), logs ERROR/CRITICAL e objetos C++ deletados.
     2. Simetria determinística da pilha de Undo/Redo e obediência ao Princípio VIII.
     3. Integridade estrutural dos arquivos binários do GerenciadorDiario.
     """
@@ -83,22 +104,46 @@ class OraculosCaos:
         exc_tb: TracebackType | None,
         oraculo: str = "excecao_nao_tratada",
     ) -> FalhaCapturadaRobo:
-        texto_tb = "".join(traceback.format_exception(exc_type, exc_value, exc_tb))
+        registrar_caminho_repo_local(Path(__file__).resolve().parents[2])
+        texto_tb = sanitizar_texto_caminhos(
+            "".join(traceback.format_exception(exc_type, exc_value, exc_tb))
+        )
         falha = FalhaCapturadaRobo(
             oraculo=oraculo,
             tipo_excecao=exc_type.__name__,
-            mensagem=str(exc_value),
+            mensagem=sanitizar_texto_caminhos(str(exc_value)),
             frame_principal=_extrair_frame_principal(exc_tb),
             stacktrace=texto_tb,
+            excecao_original=exc_value,
+        )
+        self._falhas.append(falha)
+        return falha
+
+    def registrar_erro_log(self, record: logging.LogRecord) -> FalhaCapturadaRobo:
+        registrar_caminho_repo_local(Path(__file__).resolve().parents[2])
+        nome_arq = Path(record.pathname).as_posix()
+        if "aresta_db/" in nome_arq:
+            nome_arq = nome_arq.split("aresta_db/", 1)[1]
+        frame = f"{nome_arq}:{record.lineno}"
+        msg = sanitizar_texto_caminhos(record.getMessage())
+        falha = FalhaCapturadaRobo(
+            oraculo="erro_registrado_log",
+            tipo_excecao=f"Log{record.levelname.capitalize()}",
+            mensagem=msg,
+            frame_principal=frame,
+            stacktrace=f"{record.levelname} em {frame}: {msg}",
+            excecao_original=RuntimeError(msg),
         )
         self._falhas.append(falha)
         return falha
 
     @contextlib.contextmanager
     def monitorar_excecoes(self) -> Iterator[None]:
-        """Intercepta sys.excepthook e threading.excepthook durante um passo do Robô Caótico."""
+        """Intercepta sys.excepthook, threading.excepthook e logs ERROR/CRITICAL durante um passo do Robô Caótico."""
         hook_sys_orig = sys.excepthook
         hook_thread_orig = threading.excepthook
+        logger_raiz = logging.getLogger("aresta_editor")
+        handler_log = _HandlerLogErroCaos(self)
 
         def _hook_sys(
             exc_type: type[BaseException],
@@ -112,9 +157,11 @@ class OraculosCaos:
 
         sys.excepthook = _hook_sys
         threading.excepthook = _hook_thread
+        logger_raiz.addHandler(handler_log)
         try:
             yield
         finally:
+            logger_raiz.removeHandler(handler_log)
             sys.excepthook = hook_sys_orig
             threading.excepthook = hook_thread_orig
 
