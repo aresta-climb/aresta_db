@@ -19,7 +19,8 @@ from typing import Any, Protocol
 from serving.agente_feedback.renderizador_regua_mapa import MapaAnotadoEmMemoria
 
 URL_BASE_GEMINI_PADRAO = "https://generativelanguage.googleapis.com/v1beta/models"
-MODELO_GEMINI_PADRAO = "gemini-2.5-flash"
+MODELO_GEMINI_PROPOSTA_PADRAO = "gemini-3.8-flash"
+MODELO_GEMINI_DESAMBIGUACAO_PADRAO = "gemini-3.5-flash-lite"
 
 
 class ErroComunicacaoGemini(RuntimeError):
@@ -129,20 +130,23 @@ class ClienteGeminiFeedback:
         self,
         api_key: str,
         url_base: str = URL_BASE_GEMINI_PADRAO,
-        modelo: str = MODELO_GEMINI_PADRAO,
+        modelo_proposta: str = MODELO_GEMINI_PROPOSTA_PADRAO,
+        modelo_desambiguacao: str = MODELO_GEMINI_DESAMBIGUACAO_PADRAO,
         timeout_segundos: int = 90,
     ) -> None:
         self._api_key = api_key
         self._url_base = url_base.rstrip("/")
-        self._modelo = modelo
+        self._modelo_proposta = modelo_proposta
+        self._modelo_desambiguacao = modelo_desambiguacao
         self._timeout = timeout_segundos
 
     def _executar_chamada_json(
         self,
+        modelo: str,
         partes: list[dict[str, Any]],
         schema: dict[str, Any],
     ) -> dict[str, Any]:
-        url = f"{self._url_base}/{self._modelo}:generateContent?key={self._api_key}"
+        url = f"{self._url_base}/{modelo}:generateContent?key={self._api_key}"
         payload = {
             "contents": [{"role": "user", "parts": partes}],
             "generationConfig": {
@@ -201,7 +205,9 @@ class ClienteGeminiFeedback:
                 }
             )
 
-        resposta = self._executar_chamada_json(partes, _SCHEMA_DESAMBIGUACAO)
+        resposta = self._executar_chamada_json(
+            self._modelo_desambiguacao, partes, _SCHEMA_DESAMBIGUACAO
+        )
         return [str(a) for a in resposta.get("arquivos_selecionados", [])]
 
     def gerar_proposta_alteracao(
@@ -263,7 +269,7 @@ class ClienteGeminiFeedback:
                 }
             )
 
-        dados = self._executar_chamada_json(partes, _SCHEMA_PROPOSTA)
+        dados = self._executar_chamada_json(self._modelo_proposta, partes, _SCHEMA_PROPOSTA)
         alteracoes = [
             AlteracaoArquivoProposta(
                 arquivo_relativo=str(item["arquivo_relativo"]),

@@ -7,7 +7,8 @@ Este documento descreve como configurar a chave gratuita `GEMINI_API_KEY` do **G
 ## 1. Sobre Costos e a Assinatura do Google One AI Ultra
 
 - **Google One AI Pro / Ultra vs. API do Google AI Studio**: A assinatura consumidor do Google One AI Pro / Ultra aplica-se aos aplicativos voltados ao usuário final (Gemini Web/App, Antigravity, NotebookLM, Workspace), mas **não compartilha cota com chaves de API REST**.
-- **Tier Gratuito (Free Tier) Independente e Custo Zero**: Qualquer conta Google possui acesso ao **Free Tier** do Google AI Studio para os modelos da família **Gemini 2.5 Flash**, **sem necessidade de cadastrar cartão de crédito**.
+- **Tier Gratuito (Free Tier) Independente e Custo Zero**: Qualquer conta Google possui acesso ao **Free Tier** do Google AI Studio para os modelos **`gemini-3.8-flash`** (usado na geração da proposta e leitura espacial da régua nos mapas) e **`gemini-3.5-flash-lite`** (usado na etapa rápida de desambiguação de arquivos quando necessário), **sem necessidade de cadastrar cartão de crédito**. Como cada modelo tem sua própria cota diária independente no Free Tier, dividir a desambiguação no `3.5-flash-lite` e a proposta principal no `3.8-flash` preserva a cota do modelo principal.
+- **Atenção ao Modo Pago (Paid Tier)**: No Google AI Studio, caso você vincule uma conta de faturamento (*Cloud Billing*) ao projeto para mudá-lo para *Paid tier*, **não há franquia gratuita** (a cobrança passa a ocorrer desde o 1º token). Portanto, para manter custo R\$ 0,00 garantido, crie a chave em um **projeto separado sem conta de faturamento vinculada**.
 - **Compatibilidade de Licença**: No Free Tier do AI Studio, entradas e saídas não são faturadas e podem ser processadas pelo Google conforme os termos públicos do serviço — o que é 100% compatível com o `aresta_db`, visto que todo o nosso catálogo e as Issues de croqui já são públicos sob licença aberta `ODbL-1.0`.
 
 ---

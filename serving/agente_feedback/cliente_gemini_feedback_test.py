@@ -88,7 +88,6 @@ def test_desambigua_arquivos_enviando_indice_e_screenshot_ao_servidor(
     cliente = ClienteGeminiFeedback(
         api_key="chave-teste",
         url_base=url_base,
-        modelo="gemini-2.5-flash",
     )
     arquivos = cliente.desambiguar_arquivos_croqui(
         indice_compacto="- setor_bem_vindo.md | Setor: Setor Bem-vindo",
@@ -101,7 +100,7 @@ def test_desambigua_arquivos_enviando_indice_e_screenshot_ao_servidor(
     assert arquivos == ["setor_bem_vindo.md"]
     assert len(estado.requisicoes_recebidas) == 1
     req = estado.requisicoes_recebidas[0]
-    assert "gemini-2.5-flash:generateContent?key=chave-teste" in req["caminho"]
+    assert "gemini-3.5-flash-lite:generateContent?key=chave-teste" in req["caminho"]
     partes = req["corpo"]["contents"][0]["parts"]
     assert len(partes) == 2
     assert partes[1]["inlineData"]["mimeType"] == "image/png"
@@ -154,7 +153,9 @@ def test_gera_proposta_de_alteracao_multimodal_com_mapas_anotados_e_erro_anterio
     assert len(proposta.alteracoes) == 1
     assert proposta.alteracoes[0].arquivo_relativo == "setor_bem_vindo.md"
 
-    partes_enviadas = estado.requisicoes_recebidas[0]["corpo"]["contents"][0]["parts"]
+    req_proposta = estado.requisicoes_recebidas[0]
+    assert "gemini-3.8-flash:generateContent?key=chave-teste" in req_proposta["caminho"]
+    partes_enviadas = req_proposta["corpo"]["contents"][0]["parts"]
     # Texto principal + screenshot + texto descritivo do mapa + imagem do mapa com régua = 4 partes
     assert len(partes_enviadas) == 4
     assert "Erro de schema na tentativa anterior" in partes_enviadas[0]["text"]
