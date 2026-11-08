@@ -63,8 +63,20 @@ def test_serializacao_e_desserializacao_receita_crash_robo_em_json(
         receita.assinatura_deduplicacao()
         == "excecao_nao_tratada:RuntimeError:editor/views/dados/form_builder.py:142"
     )
+    hash_1 = receita.hash_deduplicacao()
+    assert len(hash_1) == 8
+    assert receita.nome_arquivo_padrao() == f"crash_seed_987654_runtimeerror_{hash_1}.json"
 
-    caminho_json = tmp_path / "crash_987654.json"
+    falha_outro_stack = FalhaCapturadaRobo(
+        oraculo="excecao_nao_tratada",
+        tipo_excecao="RuntimeError",
+        mensagem="Outro erro na mesma seed",
+        frame_principal="editor/core/worker.py:446",
+        stacktrace='Traceback (most recent call last):\n  File "editor/core/worker.py", line 446, in run\nRuntimeError',
+    )
+    assert falha_outro_stack.hash_deduplicacao() != hash_1
+
+    caminho_json = tmp_path / receita.nome_arquivo_padrao()
     receita.salvar_json(caminho_json)
     assert caminho_json.is_file()
 

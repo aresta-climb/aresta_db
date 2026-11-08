@@ -196,3 +196,19 @@ def test_campanha_por_tempo_captura_encolhe_deduplica_e_salva_receita(
     assert len(frames) >= 1
     nomes_anexos = [a.filename for a in hint_sentry.get("attachments", [])]
     assert resumo.receitas_salvas[0].name in nomes_anexos
+
+    # Segunda execução sobre o mesmo diretório de receitas deve deduplicar pelo hash existente no disco
+    resumo_2 = MotorRoboCaoticoQt.executar_campanha(
+        raiz_tmp=tmp_path / "campanha_2",
+        duracao_segundos=15.0,
+        seed_inicial=1001,
+        max_sementes=1,
+        passos_por_semente=8,
+        diretorio_receitas=pasta_saida,
+        reportar_sentry=False,
+        injetar_falha_no_passo=6,
+    )
+    assert resumo_2.falhas_totais == 1
+    assert resumo_2.falhas_unicas == 0
+    assert len(resumo_2.receitas_salvas) == 0
+    assert len(list(pasta_saida.glob("*.json"))) == 1

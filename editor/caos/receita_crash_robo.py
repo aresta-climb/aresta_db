@@ -1,6 +1,7 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
+import hashlib
 import json
 from dataclasses import dataclass, field
 from pathlib import Path
@@ -79,6 +80,20 @@ class FalhaCapturadaRobo:
         """Retorna chave única estável para deduplicar falhas e validar o shrinking."""
         return f"{self.oraculo}:{self.tipo_excecao}:{self.frame_principal}"
 
+    def hash_deduplicacao(self) -> str:
+        """Calcula hash SHA-256 curto (8 caracteres) da assinatura e dos frames relevantes do stacktrace."""
+        linhas_frames = [
+            linha.strip()
+            for linha in self.stacktrace.splitlines()
+            if linha.strip().startswith("File ")
+            and "motor_robo_caotico" not in linha
+            and "encolhedor_caminho_crash" not in linha
+            and "_pytest" not in linha
+            and "pluggy" not in linha
+        ]
+        base = "\n".join([self.assinatura_deduplicacao(), *linhas_frames])
+        return hashlib.sha256(base.encode("utf-8")).hexdigest()[:8]
+
     def para_dicionario(self) -> dict[str, Any]:
         return {
             "oraculo": self.oraculo,
@@ -112,6 +127,15 @@ class ReceitaCrashRobo:
 
     def assinatura_deduplicacao(self) -> str:
         return self.falha.assinatura_deduplicacao()
+
+    def hash_deduplicacao(self) -> str:
+        return self.falha.hash_deduplicacao()
+
+    def nome_arquivo_padrao(self) -> str:
+        return (
+            f"crash_seed_{self.seed}_{self.falha.tipo_excecao.lower()}"
+            f"_{self.hash_deduplicacao()}.json"
+        )
 
     def para_dicionario(self) -> dict[str, Any]:
         return {

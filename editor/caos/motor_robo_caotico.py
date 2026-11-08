@@ -959,7 +959,12 @@ class MotorRoboCaoticoQt:
         inicio = time.monotonic()
         sementes_executadas = 0
         falhas_totais = 0
+        falhas_unicas_novas = 0
         assinaturas_vistas: set[str] = set()
+        if diretorio_receitas is not None and Path(diretorio_receitas).is_dir():
+            for arq_existente in sorted(Path(diretorio_receitas).glob("*.json")):
+                receita_existente = ReceitaCrashRobo.carregar_json(arq_existente)
+                assinaturas_vistas.add(receita_existente.hash_deduplicacao())
         receitas_salvas: list[Path] = []
         gerenciador_sessao_sentry = (
             ativar_sessao_sentry_robo_caotico() if reportar_sentry else contextlib.nullcontext()
@@ -991,9 +996,10 @@ class MotorRoboCaoticoQt:
 
                     if resultado.falha is not None:
                         falhas_totais += 1
-                        assinatura = resultado.falha.assinatura_deduplicacao()
+                        assinatura = resultado.falha.hash_deduplicacao()
                         if assinatura not in assinaturas_vistas:
                             assinaturas_vistas.add(assinatura)
+                            falhas_unicas_novas += 1
                             receita_bruta = ReceitaCrashRobo(
                                 seed=seed_atual,
                                 dataset=dataset,
@@ -1020,10 +1026,7 @@ class MotorRoboCaoticoQt:
                                 if diretorio_receitas is not None
                                 else (Path(raiz_tmp) / "receitas_temporarias")
                             )
-                            caminho_arq = (
-                                pasta_destino_json
-                                / f"crash_seed_{seed_atual}_{resultado.falha.tipo_excecao.lower()}.json"
-                            )
+                            caminho_arq = pasta_destino_json / receita_minima.nome_arquivo_padrao()
                             receita_minima.salvar_json(caminho_arq)
                             if diretorio_receitas is not None:
                                 receitas_salvas.append(caminho_arq)
@@ -1047,6 +1050,6 @@ class MotorRoboCaoticoQt:
         return ResumoCampanhaCaos(
             sementes_executadas=sementes_executadas,
             falhas_totais=falhas_totais,
-            falhas_unicas=len(assinaturas_vistas),
+            falhas_unicas=falhas_unicas_novas,
             receitas_salvas=tuple(receitas_salvas),
         )
