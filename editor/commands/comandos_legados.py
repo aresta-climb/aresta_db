@@ -297,12 +297,15 @@ class CmdAlterarRepeatedItem(ComandoEditor):
 
     @staticmethod
     def deserializar(dados: dict[str, Any], model: CroquiModel) -> "CmdAlterarRepeatedItem":
-        valor_antigo = _deserializar_valor(dados["valor_antigo"], model=model)
-        valor_novo = _deserializar_valor(dados["valor_novo"], model=model)
+        campo_nome = dados["campo_nome"]
+        valor_antigo = _deserializar_valor(
+            dados["valor_antigo"], model=model, campo_nome=campo_nome
+        )
+        valor_novo = _deserializar_valor(dados["valor_novo"], model=model, campo_nome=campo_nome)
         return CmdAlterarRepeatedItem(
             model=model,
             caminho_msg=dados.get("caminho_msg", ""),
-            campo_nome=dados["campo_nome"],
+            campo_nome=campo_nome,
             index=dados["index"],
             valor_antigo=valor_antigo,
             valor_novo=valor_novo,
@@ -386,14 +389,19 @@ class CmdAlterarMultiplosRepeatedItems(ComandoEditor):
     def deserializar(
         dados: dict[str, Any], model: CroquiModel
     ) -> "CmdAlterarMultiplosRepeatedItems":
+        campo_nome = dados["campo_nome"]
         alt_deserializadas = [
-            (idx, _deserializar_valor(v_ant, model=model), _deserializar_valor(v_nov, model=model))
+            (
+                idx,
+                _deserializar_valor(v_ant, model=model, campo_nome=campo_nome),
+                _deserializar_valor(v_nov, model=model, campo_nome=campo_nome),
+            )
             for idx, v_ant, v_nov in dados["alteracoes"]
         ]
         return CmdAlterarMultiplosRepeatedItems(
             model=model,
             caminho_msg=dados.get("caminho_msg", ""),
-            campo_nome=dados["campo_nome"],
+            campo_nome=campo_nome,
             alteracoes=alt_deserializadas,
             context_path=dados.get("context_path"),
         )

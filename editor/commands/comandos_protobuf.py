@@ -535,22 +535,45 @@ def _validar_campo_se_msg_existir(
 def _serializar_valor(valor: Any, anonimizado: bool = False) -> Any:
     """Serializa tipos primitivos ou instâncias Protobuf Message para representação de dicionário."""
     if isinstance(valor, Message):
-        return {"__tipo_protobuf__": type(valor).__name__, "__bytes__": valor.SerializeToString()}
+        return {
+            "__tipo_protobuf__": type(valor).__qualname__,
+            "__bytes__": valor.SerializeToString(),
+        }
     return valor
 
 
-def _deserializar_valor(valor_serializado: Any, model: CroquiModel | None = None) -> Any:
+def _deserializar_valor(
+    valor_serializado: Any, model: CroquiModel | None = None, campo_nome: str = ""
+) -> Any:
     """Reconstrói tipo primitivo ou Protobuf Message a partir de representação serializada."""
     if isinstance(valor_serializado, dict) and "__tipo_protobuf__" in valor_serializado:
-        tipo_nome = valor_serializado["__tipo_protobuf__"]
+        tipo_nome = str(valor_serializado["__tipo_protobuf__"])
+        campo_base = campo_nome.split(".", 1)[0] if campo_nome else ""
+        if tipo_nome == "PontoDeInteresse" and campo_base == "pontos_de_interesse":
+            tipo_nome = "Mapa.PontoDeInteresse"
+        elif tipo_nome in ("Referencia", "AjusteDeCamera"):
+            tipo_nome = f"Mapa.{tipo_nome}"
+
         import aresta_api.proto.generated.croqui_pb2 as croqui_pb2
         import aresta_api.proto.generated.indice_pb2 as indice_pb2
 
-        cls = getattr(croqui_pb2, tipo_nome, None) or getattr(indice_pb2, tipo_nome, None)
-        if cls:
-            msg = cls()
-            msg.ParseFromString(valor_serializado["__bytes__"])
-            return msg
+        cls: Any = None
+        for mod in (croqui_pb2, indice_pb2):
+            obj: Any = mod
+            for parte in tipo_nome.split("."):
+                obj = getattr(obj, parte, None)
+                if obj is None:
+                    break
+            if obj is not None:
+                cls = obj
+                break
+
+        if cls is None:
+            raise ValueError(f"Tipo Protobuf desconhecido para deserialização: '{tipo_nome}'.")
+
+        msg = cls()
+        msg.ParseFromString(valor_serializado["__bytes__"])
+        return msg
     return valor_serializado
 
 
@@ -685,9 +708,11 @@ def _validar_tipo_valor_campo(field_desc: Any, valor: Any, nome_campo: str) -> N
             not isinstance(valor_raw, Message)
             or valor_raw.DESCRIPTOR.full_name != field_desc.message_type.full_name
         ):
+            esperado = field_desc.message_type.full_name.removeprefix("aresta.")
+            recebido = type(valor_raw).__qualname__
             raise TypeError(
                 f"Valor inválido para o campo '{nome_campo}': esperado mensagem "
-                f"'{field_desc.message_type.name}', recebido '{type(valor).__name__}'."
+                f"'{esperado}', recebido '{recebido}'."
             )
     elif getattr(field_desc, "enum_type", None) is not None:
         if not isinstance(valor, int) or isinstance(valor, bool):
@@ -993,12 +1018,17 @@ class CmdAlterarCampo(ComandoEditor):
 
     @staticmethod
     def deserializar(dados: dict[str, Any], model: CroquiModel) -> "CmdAlterarCampo":
-        valor_antigo = _deserializar_valor(dados.get("valor_antigo"), model=model)
-        valor_novo = _deserializar_valor(dados.get("valor_novo"), model=model)
+        campo_nome = dados.get("campo_nome", "")
+        valor_antigo = _deserializar_valor(
+            dados.get("valor_antigo"), model=model, campo_nome=campo_nome
+        )
+        valor_novo = _deserializar_valor(
+            dados.get("valor_novo"), model=model, campo_nome=campo_nome
+        )
         return CmdAlterarCampo(
             model=model,
             caminho_msg=dados.get("caminho_msg") or dados.get("alvo") or "",
-            campo_nome=dados.get("campo_nome", ""),
+            campo_nome=campo_nome,
             valor_novo=valor_novo,
             valor_antigo=valor_antigo,
             context_path=dados.get("context_path"),
@@ -1206,6 +1236,11 @@ class CmdAdicionarRepeated(ComandoEditor):
             if not isinstance(alvo_efetivo, str):
                 self._msg_cache = alvo_efetivo
         self.index: int = index
+        msg_alvo = self._obter_msg()
+        if msg_alvo is not None and hasattr(msg_alvo, "DESCRIPTOR"):
+            _validar_tipo_valor_campo(
+                msg_alvo.DESCRIPTOR.fields_by_name[self.campo_nome], valor, self.campo_nome
+            )
         garantir_uids_em_mensagem(valor)
         self.valor: Any = _copia_segura(valor)
         self.context_path: str | None = context_path
@@ -1238,11 +1273,12 @@ class CmdAdicionarRepeated(ComandoEditor):
 
     @staticmethod
     def deserializar(dados: dict[str, Any], model: CroquiModel) -> "CmdAdicionarRepeated":
-        valor = _deserializar_valor(dados["valor"], model=model)
+        campo_nome = dados["campo_nome"]
+        valor = _deserializar_valor(dados["valor"], model=model, campo_nome=campo_nome)
         return CmdAdicionarRepeated(
             model=model,
             caminho_msg=dados.get("caminho_msg", ""),
-            campo_nome=dados["campo_nome"],
+            campo_nome=campo_nome,
             index=dados["index"],
             valor=valor,
             context_path=dados.get("context_path"),
@@ -1281,12 +1317,17 @@ class CmdRemoverRepeated(ComandoEditor):
             if not isinstance(alvo_efetivo, str):
                 self._msg_cache = alvo_efetivo
         self.index: int = index
-        if valor_removido is None:
-            msg_alvo = self._obter_msg()
-            if msg_alvo is not None:
-                container = getattr(msg_alvo, self.campo_nome, None)
-                if container is not None and 0 <= index < len(container):
-                    valor_removido = container[index]
+        msg_alvo = self._obter_msg()
+        if valor_removido is None and msg_alvo is not None:
+            container = getattr(msg_alvo, self.campo_nome, None)
+            if container is not None and 0 <= index < len(container):
+                valor_removido = container[index]
+        if msg_alvo is not None and hasattr(msg_alvo, "DESCRIPTOR"):
+            _validar_tipo_valor_campo(
+                msg_alvo.DESCRIPTOR.fields_by_name[self.campo_nome],
+                valor_removido,
+                self.campo_nome,
+            )
         self.valor_removido: Any = _copia_segura(valor_removido)
         self.context_path: str | None = context_path
 
@@ -1350,11 +1391,14 @@ class CmdRemoverRepeated(ComandoEditor):
 
     @staticmethod
     def deserializar(dados: dict[str, Any], model: CroquiModel) -> "CmdRemoverRepeated":
-        valor_removido = _deserializar_valor(dados["valor_removido"], model=model)
+        campo_nome = dados["campo_nome"]
+        valor_removido = _deserializar_valor(
+            dados["valor_removido"], model=model, campo_nome=campo_nome
+        )
         return CmdRemoverRepeated(
             model=model,
             caminho_msg=dados.get("caminho_msg", ""),
-            campo_nome=dados["campo_nome"],
+            campo_nome=campo_nome,
             index=dados["index"],
             valor_removido=valor_removido,
             context_path=dados.get("context_path"),

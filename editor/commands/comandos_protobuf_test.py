@@ -1935,3 +1935,208 @@ def test_cmd_alterar_campo_rejeita_repeated_sem_indice_e_tipos_incompativeis_fai
 
     with pytest.raises(ValueError, match="variante"):
         CmdAlterarCampo(model, esc, "tipo", ("variante_inexistente", croqui_pb2.Boulder()))
+
+
+def test_serializacao_e_deserializacao_mensagens_aninhadas_e_homonimas_mapa():
+    """
+    Valida que mensagens aninhadas (`Mapa.PontoDeInteresse`, `Mapa.Referencia`, `Mapa.AjusteDeCamera`)
+    e mensagens homônimas de nível superior (`PontoDeInteresse` de `Trilha`) são serializadas com
+    nomes qualificados, deserializadas sem colisão (inclusive registros legados com nomes curtos) e
+    executam `undo()` e `redo()` sem TypeError no MergeFrom.
+    """
+    from aresta_api.proto.generated import indice_pb2
+
+    croqui = croqui_pb2.Croqui(nome="Croqui Mapas")
+    pico = croqui.picos.add(nome="Pico 1")
+    sg = pico.setores_ou_grupos.add()
+    setor = sg.setor.conteudo
+    setor.uid = "set_mapa_01"
+    mapa = setor.mapas.add(caminho_imagem_mapa="imagens/mapa.webp")
+    trilha = setor.trilhas.add(nome="Trilha Principal")
+    model = CroquiModel(croqui)
+
+    # 1. Mapa.PontoDeInteresse em CmdAdicionarRepeated, CmdAlterarCampo e CmdRemoverRepeated
+    poi_mapa_1 = croqui_pb2.Mapa.PontoDeInteresse(uid="poi_m1", rotulo="P1")
+    poi_mapa_1.circulo.x = 100
+    poi_mapa_1.circulo.y = 200
+    poi_mapa_1.circulo.raio = 15
+
+    cmd_add_poi = CmdAdicionarRepeated(
+        model=model,
+        alvo=mapa,
+        campo_nome="pontos_de_interesse",
+        index=0,
+        valor=poi_mapa_1,
+    )
+    cmd_add_poi.executar_redo()
+    dados_add_poi = cmd_add_poi.serializar()
+    assert dados_add_poi["valor"]["__tipo_protobuf__"] == "Mapa.PontoDeInteresse"
+
+    cmd_add_poi_recriado = deserializar_comando(dados_add_poi, model)
+    cmd_add_poi_recriado.undo()
+    assert len(mapa.pontos_de_interesse) == 0
+    cmd_add_poi_recriado.executar_redo()
+    assert len(mapa.pontos_de_interesse) == 1
+    assert mapa.pontos_de_interesse[0].rotulo == "P1"
+
+    poi_mapa_2 = croqui_pb2.Mapa.PontoDeInteresse(uid="poi_m1", rotulo="P1 Editado")
+    poi_mapa_2.circulo.x = 120
+    poi_mapa_2.circulo.y = 220
+    poi_mapa_2.circulo.raio = 20
+    cmd_alt_poi = CmdAlterarCampo(
+        model=model,
+        alvo=mapa,
+        campo_nome="pontos_de_interesse.0",
+        valor_novo=poi_mapa_2,
+    )
+    cmd_alt_poi.executar_redo()
+    dados_alt_poi = cmd_alt_poi.serializar()
+    assert dados_alt_poi["valor_novo"]["__tipo_protobuf__"] == "Mapa.PontoDeInteresse"
+
+    # Simula diário legado onde __tipo_protobuf__ foi gravado sem o prefixo "Mapa."
+    dados_alt_poi_legado = {
+        **dados_alt_poi,
+        "valor_antigo": {
+            "__tipo_protobuf__": "PontoDeInteresse",
+            "__bytes__": dados_alt_poi["valor_antigo"]["__bytes__"],
+        },
+        "valor_novo": {
+            "__tipo_protobuf__": "PontoDeInteresse",
+            "__bytes__": dados_alt_poi["valor_novo"]["__bytes__"],
+        },
+    }
+    cmd_alt_poi_legado = deserializar_comando(dados_alt_poi_legado, model)
+    cmd_alt_poi_legado.undo()
+    assert mapa.pontos_de_interesse[0].rotulo == "P1"
+    cmd_alt_poi_legado.executar_redo()
+    assert mapa.pontos_de_interesse[0].rotulo == "P1 Editado"
+
+    # CmdRemoverRepeated com Mapa.PontoDeInteresse (inclusive formato legado no diário)
+    cmd_rem_poi = CmdRemoverRepeated(
+        model=model,
+        alvo=mapa,
+        campo_nome="pontos_de_interesse",
+        index=0,
+    )
+    cmd_rem_poi.executar_redo()
+    assert len(mapa.pontos_de_interesse) == 0
+
+    dados_rem_poi = cmd_rem_poi.serializar()
+    dados_rem_poi_legado = {
+        **dados_rem_poi,
+        "valor_removido": {
+            "__tipo_protobuf__": "PontoDeInteresse",
+            "__bytes__": dados_rem_poi["valor_removido"]["__bytes__"],
+        },
+    }
+    cmd_rem_poi_recriado = deserializar_comando(dados_rem_poi_legado, model)
+    cmd_rem_poi_recriado.undo()
+    assert len(mapa.pontos_de_interesse) == 1
+    assert mapa.pontos_de_interesse[0].rotulo == "P1 Editado"
+
+    # 2. Mapa.Referencia e Mapa.AjusteDeCamera (inclusive formato legado no diário)
+    ref = croqui_pb2.Mapa.Referencia(alvo_uid="esc_01", pontos_uids=["poi_m1"])
+    ref.ajuste_de_camera.foco_id_indice = 0
+    ref.ajuste_de_camera.zoom = 1.5
+    cmd_add_ref = CmdAdicionarRepeated(
+        model=model,
+        alvo=mapa,
+        campo_nome="referencias",
+        index=0,
+        valor=ref,
+    )
+    cmd_add_ref.executar_redo()
+    dados_add_ref = cmd_add_ref.serializar()
+    assert dados_add_ref["valor"]["__tipo_protobuf__"] == "Mapa.Referencia"
+
+    dados_add_ref_legado = {
+        **dados_add_ref,
+        "valor": {
+            "__tipo_protobuf__": "Referencia",
+            "__bytes__": dados_add_ref["valor"]["__bytes__"],
+        },
+    }
+    cmd_add_ref_legado = deserializar_comando(dados_add_ref_legado, model)
+    cmd_add_ref_legado.undo()
+    assert len(mapa.referencias) == 0
+    cmd_add_ref_legado.executar_redo()
+    assert len(mapa.referencias) == 1
+    assert mapa.referencias[0].alvo_uid == "esc_01"
+
+    ajuste_novo = croqui_pb2.Mapa.AjusteDeCamera(
+        foco_id_indice=0, posicao_horizontal=50, posicao_vertical=50, zoom=2.0
+    )
+    cmd_alt_ajuste = CmdAlterarCampo(
+        model=model,
+        alvo=mapa.referencias[0],
+        campo_nome="ajuste_de_camera",
+        valor_novo=ajuste_novo,
+    )
+    cmd_alt_ajuste.executar_redo()
+    dados_ajuste = cmd_alt_ajuste.serializar()
+    assert dados_ajuste["valor_novo"]["__tipo_protobuf__"] == "Mapa.AjusteDeCamera"
+    dados_ajuste_legado = {
+        **dados_ajuste,
+        "valor_antigo": {
+            "__tipo_protobuf__": "AjusteDeCamera",
+            "__bytes__": dados_ajuste["valor_antigo"]["__bytes__"],
+        },
+        "valor_novo": {
+            "__tipo_protobuf__": "AjusteDeCamera",
+            "__bytes__": dados_ajuste["valor_novo"]["__bytes__"],
+        },
+    }
+    cmd_ajuste_legado = deserializar_comando(dados_ajuste_legado, model)
+    cmd_ajuste_legado.undo()
+    assert round(mapa.referencias[0].ajuste_de_camera.zoom, 2) == 1.5
+    cmd_ajuste_legado.executar_redo()
+    assert round(mapa.referencias[0].ajuste_de_camera.zoom, 2) == 2.0
+
+    # 3. PontoDeInteresse de Trilha (nível superior) continua resolvendo para croqui_pb2.PontoDeInteresse
+    poi_trilha = croqui_pb2.PontoDeInteresse(nome="Bifurcação")
+    cmd_add_poi_trilha = CmdAdicionarRepeated(
+        model=model,
+        alvo=trilha,
+        campo_nome="pontos",
+        index=0,
+        valor=poi_trilha,
+    )
+    cmd_add_poi_trilha.executar_redo()
+    dados_poi_trilha = cmd_add_poi_trilha.serializar()
+    assert dados_poi_trilha["valor"]["__tipo_protobuf__"] == "PontoDeInteresse"
+    cmd_poi_trilha_recriado = deserializar_comando(dados_poi_trilha, model)
+    cmd_poi_trilha_recriado.undo()
+    assert len(trilha.pontos) == 0
+    cmd_poi_trilha_recriado.executar_redo()
+    assert trilha.pontos[0].nome == "Bifurcação"
+
+    # 4. Resolução de mensagem de indice_pb2 e rejeição de tipo Protobuf inexistente
+    from editor.commands.comandos_protobuf import _deserializar_valor, _serializar_valor
+
+    resumo = indice_pb2.ResumoCroqui(id="crq_1", nome="Croqui Indice")
+    resumo_ser = _serializar_valor(resumo)
+    resumo_deser = _deserializar_valor(resumo_ser)
+    assert isinstance(resumo_deser, indice_pb2.ResumoCroqui)
+    assert resumo_deser.id == "crq_1"
+
+    with pytest.raises(ValueError, match="Tipo Protobuf desconhecido"):
+        _deserializar_valor({"__tipo_protobuf__": "MensagemInexistente", "__bytes__": b""})
+
+    # 5. Validação fail-fast de tipos em CmdAdicionarRepeated e CmdRemoverRepeated
+    with pytest.raises(TypeError, match="Mapa.PontoDeInteresse"):
+        CmdAdicionarRepeated(
+            model=model,
+            alvo=mapa,
+            campo_nome="pontos_de_interesse",
+            index=0,
+            valor=croqui_pb2.PontoDeInteresse(nome="Errado de Trilha"),
+        )
+
+    with pytest.raises(TypeError, match="Mapa.PontoDeInteresse"):
+        CmdRemoverRepeated(
+            model=model,
+            alvo=mapa,
+            campo_nome="pontos_de_interesse",
+            index=0,
+            valor_removido=croqui_pb2.PontoDeInteresse(nome="Errado de Trilha"),
+        )

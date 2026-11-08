@@ -730,7 +730,7 @@ class TestGerenciadorHistorico(unittest.TestCase):
         gerenciador._despachar_sinal(cmd_campo, is_undo=False)
         gerenciador._despachar_sinal(cmd_campo, is_undo=True)
 
-        cmd_add = CmdAdicionarRepeated(model, croqui, "creditos", "teste", 0)
+        cmd_add = CmdAdicionarRepeated(model, croqui, "creditos", 0, "teste")
         cmd_add.caminho_msg = "picos.99"
         cmd_add._msg_cache = None
         gerenciador._despachar_sinal(cmd_add, is_undo=False)
@@ -839,3 +839,115 @@ class TestGerenciadorHistorico(unittest.TestCase):
         with self.assertRaises(AttributeError) as ctx:
             _ = gerenciador._atributo_privado_inexistente
         self.assertIn("GerenciadorHistorico", str(ctx.exception))
+
+    def test_carregar_diario_salvo_com_pontos_de_interesse_e_referencias_mapa_desfazer_refazer(
+        self,
+    ):
+        with tempfile.TemporaryDirectory() as temp_dir:
+            pasta_croqui = Path(temp_dir)
+            diario = GerenciadorDiario(pasta_croqui)
+
+            from aresta_api.proto.generated import croqui_pb2
+
+            croqui = Croqui(nome="Croqui Mapa Histórico")
+            pico = croqui.picos.add(nome="Pico 1")
+            sg = pico.setores_ou_grupos.add()
+            setor = sg.setor.conteudo
+            setor.uid = "set_hist_mapa"
+            mapa = setor.mapas.add(caminho_imagem_mapa="imagens/mapa.webp")
+
+            poi_antigo = croqui_pb2.Mapa.PontoDeInteresse(uid="poi_01", rotulo="1")
+            poi_antigo.circulo.x = 10
+            poi_antigo.circulo.y = 20
+            poi_antigo.circulo.raio = 5
+
+            poi_novo = croqui_pb2.Mapa.PontoDeInteresse(uid="poi_01", rotulo="1A")
+            poi_novo.circulo.x = 30
+            poi_novo.circulo.y = 40
+            poi_novo.circulo.raio = 8
+
+            ref = croqui_pb2.Mapa.Referencia(alvo_uid="esc_01", pontos_uids=["poi_01"])
+
+            # Simula entradas gravadas em diario_salvo.bin (incluindo formato legado com nome curto)
+            diario.gravar_comando_pendente(
+                {
+                    "classe": "CmdAdicionarRepeated",
+                    "caminho_msg": "set_hist_mapa.mapas.0",
+                    "campo_nome": "pontos_de_interesse",
+                    "index": 0,
+                    "valor": {
+                        "__tipo_protobuf__": "PontoDeInteresse",
+                        "__bytes__": poi_antigo.SerializeToString(),
+                    },
+                    "context_path": None,
+                }
+            )
+            diario.gravar_comando_pendente(
+                {
+                    "classe": "CmdAlterarCampo",
+                    "caminho_msg": "set_hist_mapa.mapas.0",
+                    "campo_nome": "pontos_de_interesse.0",
+                    "valor_antigo": {
+                        "__tipo_protobuf__": "PontoDeInteresse",
+                        "__bytes__": poi_antigo.SerializeToString(),
+                    },
+                    "valor_novo": {
+                        "__tipo_protobuf__": "PontoDeInteresse",
+                        "__bytes__": poi_novo.SerializeToString(),
+                    },
+                    "context_path": None,
+                }
+            )
+            diario.gravar_comando_pendente(
+                {
+                    "classe": "CmdAdicionarRepeated",
+                    "caminho_msg": "set_hist_mapa.mapas.0",
+                    "campo_nome": "referencias",
+                    "index": 0,
+                    "valor": {
+                        "__tipo_protobuf__": "Referencia",
+                        "__bytes__": ref.SerializeToString(),
+                    },
+                    "context_path": None,
+                }
+            )
+            diario.gravar_comando_pendente(
+                {
+                    "classe": "CmdRemoverRepeated",
+                    "caminho_msg": "set_hist_mapa.mapas.0",
+                    "campo_nome": "pontos_de_interesse",
+                    "index": 0,
+                    "valor_removido": {
+                        "__tipo_protobuf__": "PontoDeInteresse",
+                        "__bytes__": poi_novo.SerializeToString(),
+                    },
+                    "imagens_removidas_ram": {},
+                    "context_path": None,
+                }
+            )
+            diario.consolidar_salvamento()
+
+            # Estado final consolidado no disco após os 4 comandos: 0 POIs e 1 Referencia
+            mapa.referencias.append(ref)
+            model = CroquiModel(croqui)
+            gerenciador = GerenciadorHistorico()
+
+            carregados = gerenciador.carregar_diario_salvo(model, diario)
+            self.assertEqual(carregados, 4)
+
+            # Desfaz CmdRemoverRepeated -> restaura poi_novo sem TypeError no MergeFrom
+            gerenciador.desfazer()
+            self.assertEqual(len(mapa.pontos_de_interesse), 1)
+            self.assertEqual(mapa.pontos_de_interesse[0].rotulo, "1A")
+
+            # Desfaz CmdAdicionarRepeated de referencia
+            gerenciador.desfazer()
+            self.assertEqual(len(mapa.referencias), 0)
+
+            # Desfaz CmdAlterarCampo de pontos_de_interesse.0 -> volta para poi_antigo
+            gerenciador.desfazer()
+            self.assertEqual(mapa.pontos_de_interesse[0].rotulo, "1")
+
+            # Desfaz CmdAdicionarRepeated de pontos_de_interesse
+            gerenciador.desfazer()
+            self.assertEqual(len(mapa.pontos_de_interesse), 0)
