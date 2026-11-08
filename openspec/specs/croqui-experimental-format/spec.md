@@ -12,11 +12,12 @@ The system MUST save experimental croquis in the `croquis_experimentais` directo
 - **AND** it creates the folder inside `croquis_experimentais`
 
 ### Requirement: Croqui Experimental Metadata
-The root folder MUST contain a `croqui_experimental.yaml` file that adheres to the `CroquiExperimental` message schema defined in `aresta_api/proto/croqui_experimental.proto`, which includes the `commit_base_sha` field recording the Git commit hash of the official repository from which the experimental croqui was originated.
+The root folder MUST contain a `croqui_experimental.yaml` file that adheres to the `CroquiExperimental` message schema defined in `aresta_api/proto/croqui_experimental.proto`, which includes the `commit_base_sha` field recording the Git commit hash of the official repository from which the experimental croqui was originated. O campo legado `resumo_edicao` (tag `4`) MUST ser removido do esquema Protobuf com `reserved 4;` ao final de `CroquiExperimental` e MUST NOT ser preenchido, exigido ou exibido na criação, importação (via UI ou MCP) ou listagem de histórico de croquis experimentais.
 
 #### Scenario: Validating metadata
-- **WHEN** the system reads an experimental croqui
-- **THEN** it MUST parse `croqui_experimental.yaml` to retrieve the experimental croqui metadata including `commit_base_sha`
+- **WHEN** the system creates, imports, or reads an experimental croqui
+- **THEN** it MUST parse and persist `croqui_experimental.yaml` to retrieve the experimental croqui metadata including `autores`, timestamps, `id_original`, and `commit_base_sha` without writing or displaying `resumo_edicao`
+- **AND** `CroquiExperimental` MUST reserve tag `4` (`reserved 4;`), keep `resumo_edicao` absent from its Protobuf descriptor, and audit against any usage in codebase AST checks
 
 ### Requirement: Database Directory Structure
 The experimental croqui MUST contain a `database/` subdirectory matching the structure of a decompiled croqui. This directory MUST contain a `croqui.yaml` file, imported Markdown (`*.md`) parts, and an `imagens/` directory. O arquivo `croqui.yaml` conterá também a lista de `botoes` e o campo `ultima_migracao`, que MUST ser obrigatoriamente preenchido com a versão mais recente de migração do catálogo tanto na criação quanto em qualquer salvamento ou submissão.

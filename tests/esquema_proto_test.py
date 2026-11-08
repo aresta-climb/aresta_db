@@ -164,11 +164,19 @@ def test_referencia_alvo_uid_e_pontos_uids() -> None:
 
 
 def test_croqui_experimental_croqui_uid() -> None:
-    """Valida o campo croqui_uid na mensagem CroquiExperimental."""
-    campo = croqui_experimental_pb2.CroquiExperimental.DESCRIPTOR.fields_by_name.get("croqui_uid")
+    """Valida o campo croqui_uid e a remoção de resumo_edicao na mensagem CroquiExperimental."""
+    desc = croqui_experimental_pb2.CroquiExperimental.DESCRIPTOR
+    campo = desc.fields_by_name.get("croqui_uid")
     assert campo is not None, "Campo 'croqui_uid' deve existir em CroquiExperimental"
     assert campo.number == 10, "Tag de 'croqui_uid' deve ser 10"
     assert campo.type == descriptor.FieldDescriptor.TYPE_STRING
+
+    assert desc.fields_by_name.get("resumo_edicao") is None, (
+        "Campo 'resumo_edicao' deve ser completamente removido de CroquiExperimental"
+    )
+    assert desc.fields_by_number.get(4) is None, (
+        "Tag 4 de 'resumo_edicao' deve estar reservada em CroquiExperimental"
+    )
 
 
 def test_serializacao_desserializacao_uids() -> None:

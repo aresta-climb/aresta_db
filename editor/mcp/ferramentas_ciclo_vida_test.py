@@ -239,11 +239,13 @@ def test_gestao_croquis_listar_criar_importar_e_abrir(qapp, tmp_path: Path):
     assert (caminho_exp_criado / "database" / "raw_original_pdf" / "croqui_original.pdf").is_file()
     assert len(abertos_via_callback) == 1
 
-    # 2. Importa croqui oficial
+    # 2. Importa croqui oficial (sem resumo_edicao no esquema nem no YAML gerado)
+    esquema_imp = servidor.ferramentas["aresta_importar_croqui_oficial"].esquema_entrada
+    assert "resumo_edicao" not in esquema_imp.get("properties", {})
     res_imp = _chamar(
         servidor,
         "aresta_importar_croqui_oficial",
-        {"id_oficial": "br_mg_cipo_setor_sol", "resumo_edicao": "Atualizar vias via MCP"},
+        {"id_oficial": "br_mg_cipo_setor_sol"},
     )
     assert res_imp["status"] == "importado"
     assert res_imp["id_croqui"] == "br_mg_cipo_setor_sol"

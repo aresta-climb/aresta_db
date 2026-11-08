@@ -1,27 +1,29 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
+from pathlib import Path
+
 import pytest
 from PySide6.QtCore import Qt
 
 from editor.core.serializacao_util import serializar_yaml
+from editor.core.storage import GerenciadorCaminhos
 from editor.legacy_views.dialogo_busca_croqui import DialogoBuscaCroqui
 
 
 @pytest.fixture
-def mock_storage(tmp_path):
-    from unittest.mock import MagicMock
-
-    mock = MagicMock()
-    # O diretório base onde database/ estará
-    mock.obter_caminho_base_repo.return_value = tmp_path
-    return mock
+def storage_real(tmp_path: Path) -> GerenciadorCaminhos:
+    storage = GerenciadorCaminhos()
+    storage.obter_diretorio_base = lambda: tmp_path / "editor_aresta"
+    storage.inicializar_diretorios()
+    return storage
 
 
-def test_deve_listar_croquis_do_database(qtbot, mock_storage, tmp_path):
-    # Setup: Criar pastas e croqui.yaml falsos na database
-    database_dir = tmp_path / "database"
-    database_dir.mkdir()
+def test_deve_listar_croquis_e_pre_selecionar_primeiro_item_ao_abrir(
+    qtbot, storage_real: GerenciadorCaminhos
+):
+    database_dir = storage_real.obter_caminho_base_repo() / "database"
+    database_dir.mkdir(parents=True, exist_ok=True)
 
     croqui1_dir = database_dir / "br_mg_araxa_bocaina"
     croqui1_dir.mkdir()
@@ -33,70 +35,104 @@ def test_deve_listar_croquis_do_database(qtbot, mock_storage, tmp_path):
     with open(croqui2_dir / "croqui.yaml", "w", encoding="utf-8") as f:
         serializar_yaml({"nome": "Corumbá"}, f)
 
-    # Pasta sem croqui.yaml (deve usar o id)
-    croqui3_dir = database_dir / "br_mg_sem_yaml"
-    croqui3_dir.mkdir()
+    # Pasta sem croqui.yaml e pasta com croqui.yaml corrompido (devem fazer fallback para o id)
+    (database_dir / "br_mg_sem_yaml").mkdir()
+    croqui_invalido = database_dir / "br_mg_yaml_invalido"
+    croqui_invalido.mkdir()
+    (croqui_invalido / "croqui.yaml").write_text("::: yaml_invalido: [", encoding="utf-8")
 
-    dialogo = DialogoBuscaCroqui(mock_storage)
+    dialogo = DialogoBuscaCroqui(storage_real)
     qtbot.addWidget(dialogo)
 
-    assert dialogo.lista_croquis.count() == 3
+    assert dialogo.lista_croquis.count() == 4
     items = [dialogo.lista_croquis.item(i).text() for i in range(dialogo.lista_croquis.count())]
     assert "Serra da Bocaina (br_mg_araxa_bocaina)" in items
     assert "Corumbá (br_mg_arcos_corumba)" in items
     assert "br_mg_sem_yaml (br_mg_sem_yaml)" in items
+    assert "br_mg_yaml_invalido (br_mg_yaml_invalido)" in items
+
+    # Deve já pré-selecionar o primeiro item e habilitar o botão Confirmar
+    assert dialogo.lista_croquis.currentRow() == 0
+    assert dialogo.btn_confirmar.isEnabled() is True
+    assert dialogo.obter_id_selecionado() == "br_mg_araxa_bocaina"
 
 
-def test_deve_filtrar_croquis_por_texto(qtbot, mock_storage, tmp_path):
-    database_dir = tmp_path / "database"
-    database_dir.mkdir(exist_ok=True)
+def test_deve_selecionar_primeiro_item_visivel_ao_filtrar_e_confirmar_com_enter(
+    qtbot, storage_real: GerenciadorCaminhos
+):
+    database_dir = storage_real.obter_caminho_base_repo() / "database"
+    database_dir.mkdir(parents=True, exist_ok=True)
 
-    croqui1 = database_dir / "bocaina"
+    croqui1 = database_dir / "br_mg_bocaina"
     croqui1.mkdir()
     with open(croqui1 / "croqui.yaml", "w", encoding="utf-8") as f:
         serializar_yaml({"nome": "Bocaina"}, f)
 
-    croqui2 = database_dir / "corumba"
+    croqui2 = database_dir / "br_mg_corumba"
     croqui2.mkdir()
     with open(croqui2 / "croqui.yaml", "w", encoding="utf-8") as f:
-        serializar_yaml({"nome": "Corumba"}, f)
+        serializar_yaml({"nome": "Corumbá"}, f)
 
-    dialogo = DialogoBuscaCroqui(mock_storage)
+    dialogo = DialogoBuscaCroqui(storage_real)
     qtbot.addWidget(dialogo)
+    dialogo.show()
 
-    # Filtrar por "boc"
-    qtbot.keyClicks(dialogo.campo_busca, "boc")
+    # Inicialmente seleciona o item 0 (Bocaina)
+    assert dialogo.lista_croquis.currentRow() == 0
+    assert dialogo.obter_id_selecionado() == "br_mg_bocaina"
 
-    # Verifica que apenas 1 item está visível
-    visiveis = 0
-    for i in range(dialogo.lista_croquis.count()):
-        if not dialogo.lista_croquis.isRowHidden(i):
-            visiveis += 1
+    # Filtrar por "corumba" oculta o item 0 e deve selecionar automaticamente o item 1 (Corumbá)
+    qtbot.keyClicks(dialogo.campo_busca, "corumba")
 
-    assert visiveis == 1
-    # Pega o item visível
-    for i in range(dialogo.lista_croquis.count()):
-        if not dialogo.lista_croquis.isRowHidden(i):
-            assert "Bocaina" in dialogo.lista_croquis.item(i).text()
+    assert dialogo.lista_croquis.isRowHidden(0) is True
+    assert dialogo.lista_croquis.isRowHidden(1) is False
+    assert dialogo.lista_croquis.currentRow() == 1
+    assert dialogo.btn_confirmar.isEnabled() is True
+    assert dialogo.obter_id_selecionado() == "br_mg_corumba"
+
+    # Pressionar Enter direto no campo de busca confirma imediatamente o item visível pré-selecionado
+    with qtbot.waitSignal(dialogo.accepted, timeout=1000):
+        qtbot.keyClick(dialogo.campo_busca, Qt.Key.Key_Return)
+
+    assert dialogo.id_selecionado == "br_mg_corumba"
 
 
-def test_deve_selecionar_croqui_e_retornar_id(qtbot, mock_storage, tmp_path):
-    database_dir = tmp_path / "database"
-    database_dir.mkdir(exist_ok=True)
+def test_deve_limpar_selecao_e_desabilitar_confirmacao_quando_filtro_nao_encontra_itens(
+    qtbot, storage_real: GerenciadorCaminhos
+):
+    database_dir = storage_real.obter_caminho_base_repo() / "database"
+    database_dir.mkdir(parents=True, exist_ok=True)
 
-    croqui1 = database_dir / "teste_id"
+    croqui1 = database_dir / "br_mg_bocaina"
     croqui1.mkdir()
     with open(croqui1 / "croqui.yaml", "w", encoding="utf-8") as f:
-        serializar_yaml({"nome": "Nome de Teste"}, f)
+        serializar_yaml({"nome": "Bocaina"}, f)
 
-    dialogo = DialogoBuscaCroqui(mock_storage)
+    dialogo = DialogoBuscaCroqui(storage_real)
     qtbot.addWidget(dialogo)
+    dialogo.show()
 
-    # Selecionar item
-    dialogo.lista_croquis.setCurrentRow(0)
+    qtbot.keyClicks(dialogo.campo_busca, "inexistente_xyz")
 
-    # Confirmar
-    with qtbot.waitSignal(dialogo.accepted):
-        qtbot.mouseClick(dialogo.btn_confirmar, Qt.MouseButton.LeftButton)
+    assert dialogo.lista_croquis.currentRow() == -1
+    assert dialogo.btn_confirmar.isEnabled() is False
+    assert dialogo.obter_id_selecionado() is None
 
-    assert dialogo.obter_id_selecionado() == "teste_id"
+    # Chamar accept() sem seleção válida não aceita o diálogo
+    dialogo.accept()
+    assert dialogo.id_selecionado is None
+
+
+def test_dialogo_busca_croqui_sem_storage_ou_sem_pasta_database(qtbot, tmp_path: Path):
+    dialogo_sem_storage = DialogoBuscaCroqui(None)
+    qtbot.addWidget(dialogo_sem_storage)
+    assert dialogo_sem_storage.lista_croquis.count() == 0
+    assert dialogo_sem_storage.btn_confirmar.isEnabled() is False
+    assert dialogo_sem_storage.obter_id_selecionado() is None
+
+    storage_vazio = GerenciadorCaminhos()
+    storage_vazio.obter_diretorio_base = lambda: tmp_path / "vazio"
+    dialogo_sem_db = DialogoBuscaCroqui(storage_vazio)
+    qtbot.addWidget(dialogo_sem_db)
+    assert dialogo_sem_db.lista_croquis.count() == 0
+    assert dialogo_sem_db.btn_confirmar.isEnabled() is False

@@ -13,11 +13,13 @@ from PySide6.QtWidgets import (
     QWidget,
 )
 
+from editor.core.serializacao_util import carregar_yaml
+
 
 class DialogoBuscaCroqui(QDialog):
     """
     Diálogo para busca e seleção de croquis oficiais.
-    Lê a lista de croquis do arquivo indice.binarypb dentro do repositório sincronizado.
+    Lê a lista de croquis da pasta database dentro do repositório sincronizado.
     """
 
     def __init__(self, storage: Any | None = None, parent: QWidget | None = None) -> None:
@@ -83,75 +85,78 @@ class DialogoBuscaCroqui(QDialog):
     def carregar_indice(self) -> None:
         """
         Carrega a lista de todos os croquis disponíveis a partir da pasta database no storage.
-        Lê o nome de cada croqui diretamente de seu respectivo croqui.yaml, ignorando a flag de publicação.
+        Lê o nome de cada croqui diretamente de seu respectivo croqui.yaml e pré-seleciona o primeiro item.
         """
         if not self.storage:
             return
 
         caminho_repo = self.storage.obter_caminho_base_repo()
-        if not caminho_repo:
-            return
-
         caminho_database = caminho_repo / "database"
         if not caminho_database.is_dir():
-            print(f"[AVISO] Pasta database não encontrada em: {caminho_database}")
             return
 
-        from editor.core.serializacao_util import carregar_yaml
+        self.lista_croquis.clear()
+        pastas = sorted([p for p in caminho_database.iterdir() if p.is_dir()])
 
-        try:
-            self.lista_croquis.clear()
+        for pasta in pastas:
+            id_croqui = pasta.name
+            nome = id_croqui
 
-            pastas = sorted([p for p in caminho_database.iterdir() if p.is_dir()])
+            croqui_yaml = pasta / "croqui.yaml"
+            if croqui_yaml.is_file():
+                try:
+                    dados = carregar_yaml(croqui_yaml.read_text(encoding="utf-8"))
+                    if isinstance(dados, dict) and "nome" in dados:
+                        nome = dados["nome"]
+                except Exception:
+                    pass
 
-            for pasta in pastas:
-                id_croqui = pasta.name
-                nome = id_croqui
+            texto = f"{nome} ({id_croqui})"
+            self.lista_croquis.addItem(texto)
 
-                croqui_yaml = pasta / "croqui.yaml"
-                if croqui_yaml.is_file():
-                    try:
-                        dados = carregar_yaml(croqui_yaml.read_text(encoding="utf-8"))
-                        if isinstance(dados, dict) and "nome" in dados:
-                            nome = dados["nome"]
-                    except Exception:
-                        pass
+        self._selecionar_primeiro_visivel()
 
-                texto = f"{nome} ({id_croqui})"
-                self.lista_croquis.addItem(texto)
+    def _selecionar_primeiro_visivel(self) -> None:
+        """Seleciona automaticamente o primeiro item visível da lista ou limpa a seleção se vazia."""
+        for i in range(self.lista_croquis.count()):
+            if not self.lista_croquis.isRowHidden(i):
+                self.lista_croquis.setCurrentRow(i)
+                self.ao_selecionar()
+                return
 
-        except Exception as e:
-            print(f"[ERRO] Falha ao listar croquis de database: {e}")
+        self.lista_croquis.setCurrentRow(-1)
+        self.lista_croquis.clearSelection()
+        self.ao_selecionar()
 
     def filtrar_lista(self, texto: str) -> None:
         """
-        Filtra os itens da lista baseado no texto de busca.
+        Filtra os itens da lista baseado no texto de busca e seleciona o primeiro item visível.
         """
+        termo = texto.lower()
         for i in range(self.lista_croquis.count()):
             item = self.lista_croquis.item(i)
-            if item:
-                ocultar = texto.lower() not in item.text().lower()
-                self.lista_croquis.setRowHidden(i, ocultar)
+            ocultar = termo not in item.text().lower()
+            self.lista_croquis.setRowHidden(i, ocultar)
+        self._selecionar_primeiro_visivel()
 
     def ao_selecionar(self) -> None:
         """
-        Habilita/desabilita o botão confirmar baseado na seleção.
+        Habilita/desabilita o botão confirmar baseado na existência de um item visível selecionado.
         """
-        self.btn_confirmar.setEnabled(self.lista_croquis.currentRow() >= 0)
+        self.btn_confirmar.setEnabled(self.obter_id_selecionado() is not None)
 
     def obter_id_selecionado(self) -> str | None:
         """
-        Extrai o ID do texto do item selecionado.
+        Extrai o ID do texto do item selecionado e visível.
         Exemplo: "Nome (id)" -> "id"
         """
-        item = self.lista_croquis.currentItem()
-        if not item:
+        linha = self.lista_croquis.currentRow()
+        if linha < 0 or self.lista_croquis.isRowHidden(linha):
             return None
 
+        item = self.lista_croquis.item(linha)
         texto = item.text()
-        if "(" in texto and texto.endswith(")"):
-            return texto.split("(")[-1][:-1]
-        return None
+        return texto.split("(")[-1][:-1]
 
     def accept(self) -> None:
         self.id_selecionado = self.obter_id_selecionado()

@@ -57,6 +57,10 @@ def test_criar_novo_croqui_experimental(gerenciador, storage_temp):
     # E os arquivos YAML devem estar com quebras de linha estritamente em LF (\n)
     assert b"\r\n" not in croqui_yaml.read_bytes()
     assert b"\r\n" not in (caminho_croqui / "croqui_experimental.yaml").read_bytes()
+    dados_meta_novo = carregar_yaml(
+        (caminho_croqui / "croqui_experimental.yaml").read_text(encoding="utf-8")
+    )
+    assert "resumo_edicao" not in dados_meta_novo
 
 
 def test_abrir_croqui(gerenciador, storage_temp):
@@ -206,9 +210,7 @@ def test_criar_croqui_a_partir_de_oficial_sucesso(gerenciador, storage_temp):
     (setor_dir / "setor.yaml").write_text("nome: Setor A", encoding="utf-8")
 
     # QUANDO criar o experimental a partir desse oficial
-    caminho_exp = gerenciador.criar_croqui_a_partir_de_oficial(
-        id_oficial, "Renato", "Cópia oficial"
-    )
+    caminho_exp = gerenciador.criar_croqui_a_partir_de_oficial(id_oficial, "Renato")
 
     # ENTÃO os arquivos devem ter sido copiados para a pasta database e compilados
     assert (caminho_exp / "database" / "croqui.yaml").is_file()
@@ -219,7 +221,7 @@ def test_criar_croqui_a_partir_de_oficial_sucesso(gerenciador, storage_temp):
     yaml_meta = caminho_exp / "croqui_experimental.yaml"
     dados_meta = carregar_yaml(yaml_meta.read_text(encoding="utf-8"))
     assert "Renato" in dados_meta["autores"]
-    assert dados_meta["resumo_edicao"] == "Cópia oficial"
+    assert "resumo_edicao" not in dados_meta
 
     # E não deve criar repositório git local redundante na pasta do croqui experimental
     assert not (caminho_exp / ".git").exists()
@@ -351,7 +353,7 @@ def test_criar_croqui_a_partir_de_oficial_com_commit_base_sha(gerenciador, stora
     commit_oid = repo.create_commit("HEAD", autor, autor, "Commit base de teste", tree, [])
     commit_sha = str(commit_oid)
 
-    caminho_exp = gerenciador.criar_croqui_a_partir_de_oficial(id_oficial, "Renato", "Edicao teste")
+    caminho_exp = gerenciador.criar_croqui_a_partir_de_oficial(id_oficial, "Renato")
 
     yaml_path = caminho_exp / "croqui_experimental.yaml"
     dados = carregar_yaml(yaml_path.read_text(encoding="utf-8"))

@@ -251,7 +251,6 @@ def registrar_ferramentas_gestao_croquis(
 
     def _importar_croqui_oficial(args: dict[str, Any]) -> dict[str, Any]:
         id_oficial = str(args.get("id_oficial") or "").strip()
-        resumo_edicao = str(args.get("resumo_edicao") or "").strip()
         _exigir(id_oficial, "O parâmetro 'id_oficial' é obrigatório.")
 
         ja_aberto = _procurar_sessao_ja_aberta(id_oficial)
@@ -261,7 +260,7 @@ def registrar_ferramentas_gestao_croquis(
         _exigir(storage is not None, "Storage não configurado para importar croqui oficial.")
 
         caminho_exp = GerenciadorCroquiExperimental(storage).criar_croqui_a_partir_de_oficial(
-            id_oficial, usuario, resumo_edicao
+            id_oficial, usuario
         )
         return _finalizar_abertura_croqui(
             "importado", id_oficial, caminho_exp, callback_abrir_croqui
@@ -340,10 +339,6 @@ def registrar_ferramentas_gestao_croquis(
                 "id_oficial": {
                     "type": "string",
                     "description": "ID do croqui oficial (ex: 'br_mg_serra_do_cipo_grupo_2').",
-                },
-                "resumo_edicao": {
-                    "type": "string",
-                    "description": "Resumo opcional descrevendo a edição planejada.",
                 },
             },
             "required": ["id_oficial"],

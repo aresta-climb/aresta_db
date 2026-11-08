@@ -34,7 +34,6 @@ class GerenciadorCroquiExperimental:
         self,
         id_croqui: str,
         nome_usuario: str,
-        resumo_edicao: str = "",
         id_original: str | None = None,
         commit_base_sha: str = "",
     ) -> Path:
@@ -52,7 +51,6 @@ class GerenciadorCroquiExperimental:
         # Salvar metadados
         meta = CroquiExperimental()
         meta.autores.append(nome_usuario)
-        meta.resumo_edicao = resumo_edicao
         if id_original:
             meta.id_original = id_original
         if commit_base_sha:
@@ -95,8 +93,7 @@ class GerenciadorCroquiExperimental:
         caminho_raiz = self._criar_estrutura_croqui(
             id_croqui,
             nome_usuario,
-            "Inicialização automática",
-            id_croqui,
+            id_original=id_croqui,
             commit_base_sha=commit_base_sha,
         )
 
@@ -126,7 +123,7 @@ class GerenciadorCroquiExperimental:
         return caminho_raiz
 
     def criar_croqui_a_partir_de_oficial(
-        self, id_oficial: str, nome_usuario: str, resumo_edicao: str = ""
+        self, id_oficial: str, nome_usuario: str
     ) -> Path:
         """
         Cria um croqui experimental a partir de um croqui oficial, copiando os arquivos.
@@ -134,7 +131,7 @@ class GerenciadorCroquiExperimental:
         commit_base_sha = self._obter_commit_base_sha()
         # 1. Inicializa o croqui experimental (cria pastas e metadados)
         caminho_experimental = self._criar_estrutura_croqui(
-            id_oficial, nome_usuario, resumo_edicao, id_oficial, commit_base_sha=commit_base_sha
+            id_oficial, nome_usuario, id_original=id_oficial, commit_base_sha=commit_base_sha
         )
 
         try:

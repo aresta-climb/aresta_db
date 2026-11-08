@@ -97,7 +97,7 @@ Chame `aresta_listar_croquis(busca="<nome_pico>")` para verificar:
 Escolha a ferramenta adequada conforme o caso:
 1. **Croqui já aberto na sessão**: Se já estiver listado em `abertos`, anote seu `id_croqui`.
 2. **Continuar rascunho existente ou pasta local**: Chame `aresta_abrir_croqui_existente(identificador="<id_ou_pasta>")`.
-3. **Atualizar um croqui oficial de produção**: Chame `aresta_importar_croqui_oficial(id_oficial="<id_oficial>", resumo_edicao="Atualização via PDF")`.
+3. **Atualizar um croqui oficial de produção**: Chame `aresta_importar_croqui_oficial(id_oficial="<id_oficial>")`.
 4. **Criar um novo croqui do zero**: Chame `aresta_criar_novo_croqui(nome_pico="...", cidade="...", estado="...", pais="br")`.
 
 > [!NOTE]

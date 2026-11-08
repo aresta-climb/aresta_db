@@ -15,7 +15,6 @@ from PySide6.QtWidgets import (
     QFormLayout,
     QGroupBox,
     QHBoxLayout,
-    QInputDialog,
     QLabel,
     QLineEdit,
     QListWidget,
@@ -70,18 +69,11 @@ class DialogoProgressoLog(QDialog):
         self.btn_fechar.setEnabled(False)
         self.btn_fechar.clicked.connect(self.accept)
         layout.addWidget(self.btn_fechar)
-        self._in_log: bool = False
 
     def adicionar_log(self, texto: str) -> None:
-        if getattr(self, "_in_log", False):
-            return
-        self._in_log = True
-        try:
-            self.log_view.appendPlainText(texto)
-            self.log_view.verticalScrollBar().setValue(self.log_view.verticalScrollBar().maximum())
-            QApplication.processEvents()
-        finally:
-            self._in_log = False
+        self.log_view.appendPlainText(texto)
+        self.log_view.verticalScrollBar().setValue(self.log_view.verticalScrollBar().maximum())
+        QApplication.processEvents()
 
 
 class DialogoNovoCroqui(QDialog):
@@ -264,12 +256,6 @@ class WidgetItemHistorico(QWidget):
         self.label_nome.setStyleSheet("font-weight: bold; font-size: 13px; color: #2c3e50;")
         text_layout.addWidget(self.label_nome)
 
-        # Subtítulo: Resumo (se houver)
-        if dados.get("resumo"):
-            self.label_resumo = QLabel(f'"{dados["resumo"]}"')
-            self.label_resumo.setStyleSheet("color: #555; font-style: italic; font-size: 11px;")
-            text_layout.addWidget(self.label_resumo)
-
         # Rodapé: ID e Datas
         footer_layout = QHBoxLayout()
         footer_layout.setSpacing(12)
@@ -332,12 +318,16 @@ class TelaDeCarregamento(QDialog):
         parent: QWidget | None = None,
         servidor_mcp: Any | None = None,
         diretorio_sessao_mcp: Path | None = None,
+        gerenciador_sessao: Any | None = None,
+        cliente_auth: Any | None = None,
     ) -> None:
         super().__init__(parent)
         self.storage: Any | None = storage
         self.usuario: str = usuario
         self.servidor_mcp: Any | None = servidor_mcp
         self._diretorio_sessao_mcp: Path | None = diretorio_sessao_mcp
+        self.gerenciador_sessao: Any | None = gerenciador_sessao
+        self.cliente_auth: Any | None = cliente_auth
         self.gerenciador: GerenciadorCroquiExperimental | None = (
             GerenciadorCroquiExperimental(storage) if storage else None
         )
@@ -546,14 +536,15 @@ class TelaDeCarregamento(QDialog):
             self.usuario = novo_nome
             self.label_usuario_logado.setText(f"👤 Conectado como: <b>{novo_nome}</b>")
 
-            gerenciador = GerenciadorSessao()
+            gerenciador = self.gerenciador_sessao or GerenciadorSessao()
             sessao = gerenciador.obter_sessao()
             if sessao:
                 sessao.nome_completo = novo_nome
                 gerenciador.salvar_sessao(sessao)
                 if sessao.jwt_supabase and sessao.jwt_supabase != "legado":
                     try:
-                        ClienteAuthSupabase().atualizar_nome_autor(sessao.jwt_supabase, novo_nome)
+                        cliente_auth = self.cliente_auth or ClienteAuthSupabase()
+                        cliente_auth.atualizar_nome_autor(sessao.jwt_supabase, novo_nome)
                     except Exception:
                         pass
 
@@ -569,7 +560,8 @@ class TelaDeCarregamento(QDialog):
         if resposta == QMessageBox.StandardButton.Yes:
             from editor.core.gerenciador_sessao import GerenciadorSessao
 
-            GerenciadorSessao().limpar_sessao()
+            gerenciador = self.gerenciador_sessao or GerenciadorSessao()
+            gerenciador.limpar_sessao()
             self.solicitar_logout.emit()
             self.reject()
 
@@ -591,12 +583,10 @@ class TelaDeCarregamento(QDialog):
                 nome_pasta = pasta.name
                 nome_legivel = nome_pasta.replace("_", " ").title()
 
-                # Tenta ler as datas e resumo do YAML de metadados experimentais
+                # Tenta ler as datas do YAML de metadados experimentais
                 dados_historico: dict[str, Any] = {
                     "nome": nome_legivel,
                     "id": nome_pasta,
-                    "resumo": "",
-                    "criacao": "N/A",
                     "edicao": "N/A",
                     "dt_edicao_raw": datetime.min.replace(tzinfo=UTC),  # Para ordenação
                 }
@@ -606,43 +596,30 @@ class TelaDeCarregamento(QDialog):
                 if croqui_yaml_path.is_file():
                     try:
                         c_yml = carregar_yaml(croqui_yaml_path.read_text(encoding="utf-8"))
-                        if c_yml and "nome" in c_yml:
-                            dados_historico["nome"] = c_yml["nome"]
-                        if c_yml and "id" in c_yml:
-                            dados_historico["id_logico"] = c_yml["id"]
+                        if isinstance(c_yml, dict):
+                            if "nome" in c_yml:
+                                dados_historico["nome"] = c_yml["nome"]
+                            if "id" in c_yml:
+                                dados_historico["id_logico"] = c_yml["id"]
                     except Exception:
                         pass
 
                 # 2. Tenta ler os metadados experimentais
                 yaml_path = pasta / "croqui_experimental.yaml"
                 if yaml_path.is_file():
+                    yml: Any = None
                     try:
                         yml = carregar_yaml(yaml_path.read_text(encoding="utf-8"))
-                        if yml:
-                            if "resumo_edicao" in yml:
-                                dados_historico["resumo"] = yml["resumo_edicao"]
-
-                            if "data_criacao" in yml:
-                                try:
-                                    dt_criacao = datetime.fromisoformat(
-                                        yml["data_criacao"].replace("Z", "+00:00")
-                                    ).astimezone()
-                                    dados_historico["criacao"] = dt_criacao.strftime("%d/%m %H:%M")
-                                except Exception:
-                                    pass
-
-                            if "ultima_edicao" in yml:
-                                try:
-                                    dt = datetime.fromisoformat(
-                                        yml["ultima_edicao"].replace("Z", "+00:00")
-                                    )
-                                    dados_historico["dt_edicao_raw"] = dt
-                                    dt_local = dt.astimezone()
-                                    dados_historico["edicao"] = dt_local.strftime("%d/%m/%Y %H:%M")
-                                except Exception:
-                                    dados_historico["edicao"] = yml["ultima_edicao"]
+                        if isinstance(yml, dict) and "ultima_edicao" in yml:
+                            dt = datetime.fromisoformat(
+                                str(yml["ultima_edicao"]).replace("Z", "+00:00")
+                            )
+                            dados_historico["dt_edicao_raw"] = dt
+                            dt_local = dt.astimezone()
+                            dados_historico["edicao"] = dt_local.strftime("%d/%m/%Y %H:%M")
                     except Exception:
-                        pass
+                        if isinstance(yml, dict) and "ultima_edicao" in yml:
+                            dados_historico["edicao"] = str(yml["ultima_edicao"])
 
                 lista_dados.append((pasta, dados_historico))
 
@@ -663,8 +640,7 @@ class TelaDeCarregamento(QDialog):
         self.atualizar_estado_vazio()
 
     def ao_clicar_excluir(self, caminho_str: str) -> None:
-        if not self.gerenciador:
-            return
+        assert self.gerenciador is not None
         caminho = Path(caminho_str)
         # Tenta pegar um nome legível para a confirmação
         partes = caminho.name.split("_", 1)
@@ -680,11 +656,8 @@ class TelaDeCarregamento(QDialog):
         )
 
         if resposta == QMessageBox.StandardButton.Yes:
-            try:
-                self.gerenciador.excluir_croqui(caminho)
-                self.carregar_croquis()
-            except Exception as e:
-                QMessageBox.critical(self, "Erro", f"Falha ao excluir croqui: {e}")
+            self.gerenciador.excluir_croqui(caminho)
+            self.carregar_croquis()
 
     def ao_clicar_novo(self) -> None:
         if not self.gerenciador:
@@ -699,7 +672,6 @@ class TelaDeCarregamento(QDialog):
             old_stdout = sys.stdout
             sys.stdout = StreamToCallback(log_dialog.adicionar_log)
             try:
-                # O Gerenciador agora recebe parâmetros individuais
                 caminho = self.gerenciador.criar_novo_croqui(
                     metadados["id"],
                     metadados["pico"],
@@ -713,9 +685,6 @@ class TelaDeCarregamento(QDialog):
                 log_dialog.adicionar_log("\n[SUCESSO] Croqui criado e compilado!")
                 log_dialog.accept()
                 self.accept()
-            except Exception as e:
-                log_dialog.adicionar_log(f"\n[ERRO] {e}")
-                QMessageBox.critical(self, "Erro", f"Falha ao criar croqui: {e}")
             finally:
                 sys.stdout = old_stdout
                 log_dialog.btn_fechar.setEnabled(True)
@@ -727,14 +696,6 @@ class TelaDeCarregamento(QDialog):
         if dialogo.exec():
             id_oficial = dialogo.obter_id_selecionado()
             if id_oficial:
-                resumo, ok = QInputDialog.getText(
-                    self,
-                    "Resumo da Edição",
-                    f"O que você pretende editar em '{id_oficial}'? (Opcional):",
-                )
-                if not ok:
-                    return
-
                 log_dialog = DialogoProgressoLog(f"Importando Oficial: {id_oficial}", self)
                 log_dialog.show()
 
@@ -742,7 +703,7 @@ class TelaDeCarregamento(QDialog):
                 sys.stdout = StreamToCallback(log_dialog.adicionar_log)
                 try:
                     caminho = self.gerenciador.criar_croqui_a_partir_de_oficial(
-                        id_oficial, self.usuario, resumo
+                        id_oficial, self.usuario
                     )
                     self.caminho_croqui_selecionado = caminho
                     log_dialog.adicionar_log(
@@ -760,8 +721,7 @@ class TelaDeCarregamento(QDialog):
                     log_dialog.btn_fechar.setEnabled(True)
 
     def ao_clicar_item(self, item: QListWidgetItem) -> None:
-        if not self.gerenciador:
-            return
+        assert self.gerenciador is not None
         caminho_str = item.data(Qt.ItemDataRole.UserRole)
         if caminho_str:
             caminho = Path(caminho_str)

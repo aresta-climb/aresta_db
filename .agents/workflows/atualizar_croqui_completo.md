@@ -45,7 +45,7 @@ Caso algum subagente reporte falha:
 ### Fase 1: Abertura/Importação do Croqui Existente e Particionamento do Novo PDF via MCP
 
 1. Chame `aresta_listar_croquis` para localizar o croqui que será atualizado:
-   - Se for um croqui oficial de produção que ainda não possui rascunho aberto, chame `aresta_importar_croqui_oficial(id_oficial="<id_oficial>", resumo_edicao="Atualização com novo PDF")`.
+   - Se for um croqui oficial de produção que ainda não possui rascunho aberto, chame `aresta_importar_croqui_oficial(id_oficial="<id_oficial>")`.
    - Se já for um rascunho em andamento ou pasta local em `database/<id_croqui>`, chame `aresta_abrir_croqui_existente(identificador="<identificador>")`.
    - Anote o `id_croqui` retornado.
 2. Invoque o subagente `SeparadorPDF` passando o `id_croqui` já aberto e o caminho do **novo PDF**.

@@ -15,7 +15,7 @@ import ast
 from pathlib import Path
 from typing import Any
 
-from aresta_api.proto.generated import croqui_pb2
+from aresta_api.proto.generated import croqui_experimental_pb2, croqui_pb2
 
 PASTA_RAIZ: Path = Path(__file__).resolve().parent.parent
 PASTAS_AUDITADAS: list[Path] = [
@@ -36,8 +36,9 @@ def obter_campos_deprecados_por_mensagem() -> dict[str, set[str]]:
         for nested in msg_desc.nested_types:
             _inspecionar_descriptor(nested)
 
-    for msg_desc in croqui_pb2.DESCRIPTOR.message_types_by_name.values():
-        _inspecionar_descriptor(msg_desc)
+    for desc_modulo in (croqui_pb2.DESCRIPTOR, croqui_experimental_pb2.DESCRIPTOR):
+        for msg_desc in desc_modulo.message_types_by_name.values():
+            _inspecionar_descriptor(msg_desc)
     return deprecados
 
 
@@ -89,6 +90,16 @@ class VisitanteASTCamposDeprecados(ast.NodeVisitor):
             func_name = node.func.id
         elif isinstance(node.func, ast.Attribute):
             func_name = node.func.attr
+
+        for keyword in node.keywords:
+            if keyword.arg == "resumo_edicao":
+                self.violacoes.append(
+                    (
+                        node.lineno,
+                        keyword.arg,
+                        "Uso de campo/parâmetro deprecado 'resumo_edicao' em chamada",
+                    )
+                )
 
         if func_name in ("PontoDeInteresse", "Referencia") or (
             isinstance(node.func, ast.Attribute)
@@ -205,6 +216,16 @@ class VisitanteASTCamposDeprecados(ast.NodeVisitor):
                         f"Acesso ao campo deprecado '{nome_base}.{attr}' em Referência (use '{nome_base}.alvo_uid')",
                     )
                 )
+
+        # 3. Checagem de CroquiExperimental: .resumo_edicao
+        elif attr == "resumo_edicao":
+            self.violacoes.append(
+                (
+                    node.lineno,
+                    attr,
+                    "Acesso ao campo deprecado 'resumo_edicao' em CroquiExperimental",
+                )
+            )
 
         self.generic_visit(node)
 
