@@ -159,8 +159,6 @@ escaladas:
     - André C. B. "Andrezão"
     - Anderson B. Felisário
     data_abertura: '1994'
-    descricao: 'INTERDITADA: ninho de aves no meio da via (2026/10/13). Está na 5a
-      chapa da Karrenglass, em um local extremamente próximo à Gigante de Bronze.'
 - uid: gIzPvcOt3tcfaW
   via_esportiva:
     nome: Karrenglass
@@ -170,7 +168,6 @@ escaladas:
     - Ricardo Leal
     - Rodrigo Tinoco
     data_abertura: '1993'
-    descricao: 'INTERDITADA: ninho de aves na 5a chapa (2026/10/13).'
 - uid: lieFJxvgjD0T4C
   via_esportiva:
     nome: Retorno dos Anões
