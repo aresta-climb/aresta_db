@@ -352,3 +352,52 @@ class TestWidgetMensagemCoordenada:
         )
         QApplication.sendEvent(widget.edit_lat, event)
         assert widget.obter_latitude_e7() == -198980280
+
+    def test_edicao_apos_undo_que_poda_submensagem_no_pai(self, qtbot):
+        from aresta_api.proto.generated.croqui_pb2 import Croqui
+
+        croqui = Croqui(id="crq_coord_pai", nome="Croqui Coord")
+        pico = croqui.picos.add(nome="Pico 1")
+        setor = pico.setores_ou_grupos.add().setor.conteudo
+        setor.uid = "setr0000000001"
+        setor.nome = "Setor 1"
+
+        model = CroquiModel(croqui)
+        undo_stack = QUndoStack()
+        controller = CroquiController(model, undo_stack)
+
+        widget = WidgetMensagemCoordenada(
+            setor.localizacao_estacionamento,
+            controller=controller,
+            model=model,
+            msg_pai=setor,
+            campo_pai="localizacao_estacionamento",
+        )
+        qtbot.addWidget(widget)
+
+        widget.edit_lat.setText("-20")
+        widget._confirmar_edicao_lat()
+        assert setor.HasField("localizacao_estacionamento")
+        assert setor.localizacao_estacionamento.latitude == -200000000
+
+        # Desfazer poda a submensagem vazia no Setor pai
+        undo_stack.undo()
+        assert not setor.HasField("localizacao_estacionamento")
+        assert widget.edit_lat.text() == ""
+
+        # Refazer recria uma nova submensagem viva no Setor pai e atualiza o widget
+        undo_stack.redo()
+        assert setor.HasField("localizacao_estacionamento")
+        assert widget.edit_lat.text() == "-20"
+
+        # Desfazer novamente e editar latitude e longitude no mesmo widget sem mensagem órfã
+        undo_stack.undo()
+        assert not setor.HasField("localizacao_estacionamento")
+
+        widget.edit_lat.setText("-21.5")
+        widget._confirmar_edicao_lat()
+        widget.edit_lon.setText("-43.5")
+        widget._confirmar_edicao_lon()
+        assert setor.HasField("localizacao_estacionamento")
+        assert setor.localizacao_estacionamento.latitude == -215000000
+        assert setor.localizacao_estacionamento.longitude == -435000000

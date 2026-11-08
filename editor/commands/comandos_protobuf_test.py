@@ -2140,3 +2140,96 @@ def test_serializacao_e_deserializacao_mensagens_aninhadas_e_homonimas_mapa():
             index=0,
             valor_removido=croqui_pb2.PontoDeInteresse(nome="Errado de Trilha"),
         )
+
+
+def test_cmd_alterar_campo_poda_submensagem_singular_vazia_no_undo_e_redo() -> None:
+    """Garante simetria binária determinística ao editar e desfazer campo em submensagem singular inicialmente ausente."""
+    croqui = croqui_pb2.Croqui(id="crq_simetria", nome="Croqui Simetria")
+    pico = croqui.picos.add(nome="Pico Simetria")
+    sg = pico.setores_ou_grupos.add()
+    setor = sg.setor.conteudo
+    setor.uid = "setor_00000001"
+    setor.nome = "Subsetor Sombra"
+
+    model = CroquiModel(croqui)
+    assert not setor.HasField("localizacao_estacionamento")
+    bytes_iniciais = croqui.SerializeToString(deterministic=True)
+
+    # Acessar getattr na submensagem não ativa HasField no pai
+    sub_coord = setor.localizacao_estacionamento
+    assert not setor.HasField("localizacao_estacionamento")
+
+    sinais_pai: list[tuple[object, str]] = []
+    model.dado_alterado.connect(lambda m, c: sinais_pai.append((m, c)))
+
+    cmd = CmdAlterarCampo(
+        model=model,
+        alvo=sub_coord,
+        campo_nome="latitude",
+        valor_novo=31415927,
+    )
+    cmd.executar_redo()
+    assert setor.HasField("localizacao_estacionamento")
+    assert setor.localizacao_estacionamento.latitude == 31415927
+
+    # Ao desfazer, deve limpar o campo escalar E podar a submensagem vazia no Setor pai
+    cmd.undo()
+    assert not setor.HasField("localizacao_estacionamento")
+    assert croqui.SerializeToString(deterministic=True) == bytes_iniciais
+    assert any(c == "localizacao_estacionamento" for _, c in sinais_pai)
+
+    # Ao refazer após ClearField no pai, deve re-resolver a nova submensagem viva e aplicar o valor
+    cmd.executar_redo()
+    assert setor.HasField("localizacao_estacionamento")
+    assert setor.localizacao_estacionamento.latitude == 31415927
+
+
+def test_cmd_alterar_campo_nao_poda_submensagem_pertencente_a_oneof_quando_vazia() -> None:
+    """Garante que limpar todos os campos de uma variante ativa de oneof não desativa a variante no pai."""
+    croqui = croqui_pb2.Croqui(id="crq_oneof", nome="Croqui Oneof")
+    pico = croqui.picos.add(nome="Pico Oneof")
+    sg = pico.setores_ou_grupos.add()
+    setor = sg.setor.conteudo
+    setor.uid = "setor_00000002"
+    esc = setor.escaladas.add(uid="esc_0000000001")
+    esc.boulder.nome = "Boulder Vazio"
+
+    model = CroquiModel(croqui)
+    assert esc.WhichOneof("tipo") == "boulder"
+
+    cmd = CmdAlterarCampo(
+        model=model,
+        alvo=esc.boulder,
+        campo_nome="nome",
+        valor_novo=None,
+    )
+    cmd.executar_redo()
+    assert len(esc.boulder.ListFields()) == 0
+    assert esc.WhichOneof("tipo") == "boulder"
+
+
+def test_comandos_canonicos_definem_texto_descritivo_nao_vazio() -> None:
+    """Garante que todos os 6 comandos folha canônicos definem QUndoCommand.text() descritivo."""
+    croqui = croqui_pb2.Croqui(id="crq_txt", nome="Croqui Texto")
+    p1 = croqui.picos.add(nome="Pico 1")
+    croqui.picos.add(nome="Pico 2")
+    model = CroquiModel(croqui)
+
+    cmd_campo = CmdAlterarCampo(model=model, alvo=p1, campo_nome="nome", valor_novo="Pico Editado")
+    cmd_add = CmdAdicionarRepeated(
+        model=model,
+        alvo=croqui,
+        campo_nome="picos",
+        index=2,
+        valor=croqui_pb2.Pico(nome="Pico 3"),
+    )
+    cmd_rem = CmdRemoverRepeated(model=model, alvo=croqui, campo_nome="picos", index=1)
+    cmd_mov = CmdMoverRepeated(
+        model=model, alvo=croqui, campo_nome="picos", index_from=0, index_to=1
+    )
+    cmd_img = CmdAlterarImagem(model=model, nome_arquivo="imagens/teste.webp", bytes_novos=b"123")
+    cmd_anx = CmdAlterarAnexo(model=model, nome_arquivo="anexos/guia.pdf", bytes_novos=b"pdf")
+
+    for cmd in (cmd_campo, cmd_add, cmd_rem, cmd_mov, cmd_img, cmd_anx):
+        assert cmd.text().strip() != ""
+

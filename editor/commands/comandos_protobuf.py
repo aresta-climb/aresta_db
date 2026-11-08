@@ -387,10 +387,7 @@ def _ajustar_submensagem_variante_se_necessario(
         if variante:
             sub_msg = getattr(msg, variante)
             if campo_nome in sub_msg.DESCRIPTOR.fields_by_name:
-                if caminho.endswith(f".{variante}"):
-                    novo_caminho = caminho
-                else:
-                    novo_caminho = f"{caminho}.{variante}" if caminho else str(variante)
+                novo_caminho = f"{caminho}.{variante}" if caminho else str(variante)
                 return sub_msg, novo_caminho
     return msg, caminho
 
@@ -622,20 +619,17 @@ class ComandoEditor(QUndoCommand):
     def _obter_msg(self, levantar_se_nao_encontrado: bool = False) -> Any:
         """
         Resolve a mensagem alvo atual na árvore do modelo a partir de caminho_msg.
-        Se _msg_cache já estiver definido, retorna-o diretamente sem navegar novamente.
-        Se caminho_msg não estiver definido, retorna _msg_cache.
+        Prioriza a resolução viva na árvore do modelo quando model e caminho_msg estão definidos,
+        utilizando _msg_cache como fallback quando a mensagem não puder ser resolvida na árvore.
         Se não for possível encontrar a mensagem alvo:
         - Levanta MensagemAlvoNaoEncontradaError se levantar_se_nao_encontrado for True.
         - Registra logger.error e retorna None se levantar_se_nao_encontrado for False.
         """
-        if self._msg_cache is not None:
-            return self._msg_cache
-
         model = getattr(self, "model", None)
-        if model is None:
+        if model is None or self._caminho_msg is None:
             return self._msg_cache
 
-        if self._caminho_msg is None:
+        if not self._caminho_msg and self._msg_cache is not None:
             return self._msg_cache
 
         root = (
@@ -645,20 +639,25 @@ class ComandoEditor(QUndoCommand):
         )
         indice_uids = getattr(model, "indice_uids", None)
         alvo = navegar_para_alvo(root, self._caminho_msg, indice_uids)
-        if alvo is None:
-            if levantar_se_nao_encontrado:
-                raise MensagemAlvoNaoEncontradaError(
-                    f"Mensagem alvo não encontrada no caminho '{self._caminho_msg}' "
-                    f"para o comando {type(self).__name__}."
-                )
-            logger.error(
-                "Falha ao resolver mensagem alvo no caminho '%s' para o comando %s",
-                self._caminho_msg,
-                type(self).__name__,
-            )
-            return None
+        if alvo is not None:
+            if self._msg_cache is not None:
+                self._msg_cache = alvo
+            return alvo
 
-        return alvo
+        if self._msg_cache is not None:
+            return self._msg_cache
+
+        if levantar_se_nao_encontrado:
+            raise MensagemAlvoNaoEncontradaError(
+                f"Mensagem alvo não encontrada no caminho '{self._caminho_msg}' "
+                f"para o comando {type(self).__name__}."
+            )
+        logger.error(
+            "Falha ao resolver mensagem alvo no caminho '%s' para o comando %s",
+            self._caminho_msg,
+            type(self).__name__,
+        )
+        return None
 
     @property
     def msg(self) -> Any:
@@ -803,14 +802,6 @@ class CmdAlterarCampo(ComandoEditor):
 
         # Inferência de modalidade e metadados via DESCRIPTOR
         msg_alvo = self._obter_msg()
-        if msg_alvo is not None and hasattr(msg_alvo, "DESCRIPTOR"):
-            msg_ajustada, novo_caminho = _ajustar_submensagem_variante_se_necessario(
-                msg_alvo, self.caminho_msg or "", self.campo_nome
-            )
-            if novo_caminho != self.caminho_msg or msg_ajustada is not msg_alvo:
-                self.caminho_msg = novo_caminho
-                self._msg_cache = msg_ajustada
-                msg_alvo = msg_ajustada
         self.modalidade: str = "primitivo"
         self._nome_campo_base: str = campo_nome
         self._indice_repeated: int = -1
@@ -939,6 +930,7 @@ class CmdAlterarCampo(ComandoEditor):
         self._valor_variante_nova = _copia_segura(self._valor_variante_nova)
         self.valor_antigo: Any = _copia_segura(valor_antigo)
         self.valor_novo: Any = _copia_segura(valor_novo)
+        self.setText(f"Alterar {self.campo_nome}")
 
     def id(self) -> int:
         return self.ID_COMANDO if self.pode_mesclar else -1
@@ -970,6 +962,34 @@ class CmdAlterarCampo(ComandoEditor):
 
         if self.modalidade in ("primitivo", "submensagem"):
             self.model._set_primitivo(msg, self.campo_nome, valor)
+            caminho_atual = self._caminho_msg or ""
+            msg_atual = msg
+            while (
+                "." in caminho_atual
+                and hasattr(msg_atual, "ListFields")
+                and not msg_atual.ListFields()
+            ):
+                caminho_pai, nome_sub = caminho_atual.rsplit(".", 1)
+                msg_pai = navegar_para_alvo(
+                    self.model.obter_croqui_readonly(),
+                    caminho_pai,
+                    getattr(self.model, "indice_uids", None),
+                )
+                field_pai = (
+                    msg_pai.DESCRIPTOR.fields_by_name.get(nome_sub)
+                    if hasattr(msg_pai, "DESCRIPTOR")
+                    else None
+                )
+                if (
+                    field_pai is None
+                    or field_pai.containing_oneof is not None
+                    or not msg_pai.HasField(nome_sub)
+                ):
+                    break
+                msg_pai.ClearField(nome_sub)
+                self.model.dado_alterado.emit(msg_pai, nome_sub)
+                caminho_atual = caminho_pai
+                msg_atual = msg_pai
         elif self.modalidade == "repeated_item":
             self.model._alterar_repeated_item(
                 msg, self._nome_campo_base, self._indice_repeated, valor
@@ -1065,6 +1085,7 @@ class CmdAlterarImagem(ComandoEditor):
         self.bytes_novos: bytes | None = bytes_novos
         self.context_path: str | None = context_path
         self.pode_mesclar: bool = pode_mesclar
+        self.setText(f"Alterar imagem {self.nome_arquivo}")
 
     def id(self) -> int:
         return self.ID_COMANDO if self.pode_mesclar else -1
@@ -1154,6 +1175,7 @@ class CmdAlterarAnexo(ComandoEditor):
         self.bytes_novos: bytes | None = bytes_novos
         self.context_path: str | None = context_path
         self.pode_mesclar: bool = pode_mesclar
+        self.setText(f"Alterar anexo {self.nome_arquivo}")
 
     def id(self) -> int:
         return self.ID_COMANDO if self.pode_mesclar else -1
@@ -1244,6 +1266,7 @@ class CmdAdicionarRepeated(ComandoEditor):
         garantir_uids_em_mensagem(valor)
         self.valor: Any = _copia_segura(valor)
         self.context_path: str | None = context_path
+        self.setText(f"Adicionar em {self.campo_nome}")
 
     def undo(self) -> None:
         msg = self.msg
@@ -1330,6 +1353,7 @@ class CmdRemoverRepeated(ComandoEditor):
             )
         self.valor_removido: Any = _copia_segura(valor_removido)
         self.context_path: str | None = context_path
+        self.setText(f"Remover de {self.campo_nome}")
 
         if imagens_removidas_ram is not None:
             self.imagens_removidas_ram: dict[str, bytes] = dict(imagens_removidas_ram)
@@ -1439,6 +1463,7 @@ class CmdMoverRepeated(ComandoEditor):
         self.index_from: int = index_from
         self.index_to: int = index_to
         self.context_path: str | None = context_path
+        self.setText(f"Mover em {self.campo_nome}")
 
     def undo(self) -> None:
         msg = self.msg

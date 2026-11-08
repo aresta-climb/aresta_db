@@ -2213,7 +2213,12 @@ class WidgetFormularioPadrao(QStackedWidget):
             target_layout.addSpacing(10)
 
     def _render_message_fields(
-        self, msg: Any, parent_layout: Any, extra_path: str | None = None
+        self,
+        msg: Any,
+        parent_layout: Any,
+        extra_path: str | None = None,
+        msg_pai: Any | None = None,
+        campo_pai: str | None = None,
     ) -> None:
         if not msg:
             return
@@ -2228,7 +2233,13 @@ class WidgetFormularioPadrao(QStackedWidget):
                 if conteudo_field:
                     if conteudo_field.type == FieldDescriptor.TYPE_MESSAGE:
                         conteudo_msg = msg.conteudo
-                        self._render_message_fields(conteudo_msg, parent_layout, extra_path)
+                        self._render_message_fields(
+                            conteudo_msg,
+                            parent_layout,
+                            extra_path,
+                            msg_pai=msg,
+                            campo_pai="conteudo",
+                        )
                     else:
                         self._render_field_container(msg, conteudo_field, parent_layout)
                 else:
@@ -2305,7 +2316,12 @@ class WidgetFormularioPadrao(QStackedWidget):
                 return
             elif formato_msg == croqui_pb2.MensagemFormatoUi.COORDENADA:
                 widget_coord = WidgetMensagemCoordenada(
-                    msg, controller=self.controller, model=self.model, parent=self
+                    msg,
+                    controller=self.controller,
+                    model=self.model,
+                    parent=self,
+                    msg_pai=msg_pai,
+                    campo_pai=campo_pai,
                 )
                 parent_layout.addWidget(widget_coord)
                 return
@@ -2723,7 +2739,13 @@ class WidgetFormularioPadrao(QStackedWidget):
                         new_path += "/conteudo"
                 elif formato == croqui_pb2.MensagemFormatoUi.INLINE:
                     # Renderiza os campos da mensagem inline diretamente no layout sem moldura redundante
-                    self._render_message_fields(sub_msg, layout, new_path)
+                    self._render_message_fields(
+                        sub_msg,
+                        layout,
+                        new_path,
+                        msg_pai=msg,
+                        campo_pai=field.name,
+                    )
                     return
 
             frame = QFrame()
@@ -2739,7 +2761,13 @@ class WidgetFormularioPadrao(QStackedWidget):
             frame_layout.setContentsMargins(10, 10, 10, 10)
             frame_layout.setSpacing(6)
 
-            self._render_message_fields(sub_msg, frame_layout, new_path)
+            self._render_message_fields(
+                sub_msg,
+                frame_layout,
+                new_path,
+                msg_pai=msg,
+                campo_pai=field.name,
+            )
             card_layout.addWidget(frame)
         else:
             opts = field.GetOptions()

@@ -6053,3 +6053,54 @@ def test_alterar_combobox_oneof_consolida_markdown_pendente_sem_mensagem_orfa(qa
     stack.undo()
     assert escalada.WhichOneof(nome_oneof) == "boulder"
     assert escalada.boulder.descricao == "Descricao editada antes de trocar oneof"
+
+
+def test_formulario_coordenada_edicao_apos_undo_poda_submensagem_sem_mensagem_orfa(qapp):
+    """Garante que editar Coordenada no formulário em cache após Undo que podou a submensagem no Setor pai não lança erro de mensagem órfã."""
+    from PySide6.QtGui import QUndoStack
+
+    from aresta_api.proto.generated.croqui_pb2 import Croqui
+    from editor.controllers.croqui_controller import CroquiController
+    from editor.models.croqui_model import CroquiModel
+    from editor.views.tree_view_adapter import ProtobufNode
+    from editor.views.widget_editor_dados import WidgetEditorDados, _get_id
+    from editor.views.widget_mensagem_coordenada import WidgetMensagemCoordenada
+
+    croqui = Croqui(id="teste_coord_orfa", nome="Croqui Coord Orfa")
+    pico = croqui.picos.add(nome="Pico 1")
+    setor = pico.setores_ou_grupos.add().setor.conteudo
+    setor.uid = "setr0000000001"
+    setor.nome = "Subsetor Sombra"
+
+    model = CroquiModel(croqui)
+    stack = QUndoStack()
+    controller = CroquiController(model, stack)
+    widget = WidgetEditorDados(model, controller)
+
+    node_setor = ProtobufNode(name="Setor", message=setor, descriptor=setor.DESCRIPTOR)
+    widget.form_padrao.load_node(node_setor)
+
+    container_info = widget.form_padrao.field_containers.get(
+        (_get_id(setor), "localizacao_estacionamento")
+    )
+    assert container_info is not None
+    _, container, _, _ = container_info
+    widget_coord = container.findChild(WidgetMensagemCoordenada)
+    assert widget_coord is not None
+
+    # 1. Primeira edição de latitude
+    widget_coord.edit_lat.setText("-20.5")
+    widget_coord._confirmar_edicao_lat()
+    assert setor.HasField("localizacao_estacionamento")
+    assert setor.localizacao_estacionamento.latitude == -205000000
+
+    # 2. Undo limpa o campo e poda localizacao_estacionamento no Setor
+    stack.undo()
+    assert not setor.HasField("localizacao_estacionamento")
+    assert widget_coord.edit_lat.text() == ""
+
+    # 3. Nova edição no mesmo formulário em cache deve re-resolver a submensagem viva sem ValueError
+    widget_coord.edit_lat.setText("-22.0")
+    widget_coord._confirmar_edicao_lat()
+    assert setor.HasField("localizacao_estacionamento")
+    assert setor.localizacao_estacionamento.latitude == -220000000

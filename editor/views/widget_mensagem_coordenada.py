@@ -51,9 +51,13 @@ class WidgetMensagemCoordenada(QWidget):
         controller: Any | None = None,
         model: Any | None = None,
         parent: QWidget | None = None,
+        msg_pai: Any | None = None,
+        campo_pai: str | None = None,
     ) -> None:
         super().__init__(parent)
         self.msg: Any = msg
+        self.msg_pai: Any | None = msg_pai
+        self.campo_pai: str | None = campo_pai
         self.controller: Any | None = controller
         self.model: Any | None = model
 
@@ -122,18 +126,24 @@ class WidgetMensagemCoordenada(QWidget):
 
         self._carregar_da_mensagem()
 
+    def _resolver_msg_atual(self) -> Any:
+        if self.msg_pai is not None and self.campo_pai:
+            self.msg = getattr(self.msg_pai, self.campo_pai)
+        return self.msg
+
     def _on_model_dado_alterado(self, msg: Any, campo_nome: str) -> None:
         from editor.models.readonly_proxy import ReadOnlyProxy
 
+        msg_atual = self._resolver_msg_atual()
         unwrapped_msg = (
-            object.__getattribute__(self.msg, "_obj")
-            if isinstance(self.msg, ReadOnlyProxy)
-            else self.msg
+            object.__getattribute__(msg_atual, "_obj")
+            if isinstance(msg_atual, ReadOnlyProxy)
+            else msg_atual
         )
         unwrapped_target = (
             object.__getattribute__(msg, "_obj") if isinstance(msg, ReadOnlyProxy) else msg
         )
-        if unwrapped_msg is unwrapped_target or self.msg == msg:
+        if unwrapped_msg is unwrapped_target or msg_atual == msg:
             if campo_nome in ("latitude", "longitude"):
                 self._carregar_da_mensagem()
 
@@ -143,14 +153,15 @@ class WidgetMensagemCoordenada(QWidget):
         return getattr(msg, field_name, None) is not None
 
     def _carregar_da_mensagem(self) -> None:
+        msg = self._resolver_msg_atual()
         lat = (
-            getattr(self.msg, "latitude", None)
-            if self._obter_has_field(self.msg, "latitude")
+            getattr(msg, "latitude", None)
+            if self._obter_has_field(msg, "latitude")
             else None
         )
         lon = (
-            getattr(self.msg, "longitude", None)
-            if self._obter_has_field(self.msg, "longitude")
+            getattr(msg, "longitude", None)
+            if self._obter_has_field(msg, "longitude")
             else None
         )
         self.definir_valores(lat, lon)
@@ -263,43 +274,45 @@ class WidgetMensagemCoordenada(QWidget):
         self.btn_maps.setEnabled(lat is not None or lon is not None)
 
     def _confirmar_edicao_lat(self) -> None:
+        msg = self._resolver_msg_atual()
         lat_novo = self.obter_latitude_e7()
         lat_antigo = (
-            getattr(self.msg, "latitude", None)
-            if self._obter_has_field(self.msg, "latitude")
+            getattr(msg, "latitude", None)
+            if self._obter_has_field(msg, "latitude")
             else None
         )
         if lat_novo != lat_antigo:
             if self.controller:
                 self.controller.alterar_primitivo(
-                    self.msg, "latitude", lat_antigo, lat_novo, pode_mesclar=True
+                    msg, "latitude", lat_antigo, lat_novo, pode_mesclar=True
                 )
             else:
                 if lat_novo is None:
-                    if hasattr(self.msg, "ClearField"):
-                        self.msg.ClearField("latitude")
+                    if hasattr(msg, "ClearField"):
+                        msg.ClearField("latitude")
                 else:
-                    self.msg.latitude = lat_novo
+                    msg.latitude = lat_novo
             self.sinal_coordenadas_alteradas.emit(lat_novo, self.obter_longitude_e7())
 
     def _confirmar_edicao_lon(self) -> None:
+        msg = self._resolver_msg_atual()
         lon_novo = self.obter_longitude_e7()
         lon_antigo = (
-            getattr(self.msg, "longitude", None)
-            if self._obter_has_field(self.msg, "longitude")
+            getattr(msg, "longitude", None)
+            if self._obter_has_field(msg, "longitude")
             else None
         )
         if lon_novo != lon_antigo:
             if self.controller:
                 self.controller.alterar_primitivo(
-                    self.msg, "longitude", lon_antigo, lon_novo, pode_mesclar=True
+                    msg, "longitude", lon_antigo, lon_novo, pode_mesclar=True
                 )
             else:
                 if lon_novo is None:
-                    if hasattr(self.msg, "ClearField"):
-                        self.msg.ClearField("longitude")
+                    if hasattr(msg, "ClearField"):
+                        msg.ClearField("longitude")
                 else:
-                    self.msg.longitude = lon_novo
+                    msg.longitude = lon_novo
             self.sinal_coordenadas_alteradas.emit(self.obter_latitude_e7(), lon_novo)
 
     def _ao_clicar_colar(self) -> None:
@@ -314,19 +327,20 @@ class WidgetMensagemCoordenada(QWidget):
             lat, lon = par
             dialogo = DialogoConfirmarCoordenadas(lat, lon, parent=self)
             if dialogo.exec() == QDialog.DialogCode.Accepted:
+                msg = self._resolver_msg_atual()
                 lat_final = dialogo.obter_latitude()
                 lon_final = dialogo.obter_longitude()
                 lat_e7 = graus_para_e7(lat_final)
                 lon_e7 = graus_para_e7(lon_final)
 
                 lat_antigo = (
-                    getattr(self.msg, "latitude", None)
-                    if self._obter_has_field(self.msg, "latitude")
+                    getattr(msg, "latitude", None)
+                    if self._obter_has_field(msg, "latitude")
                     else None
                 )
                 lon_antigo = (
-                    getattr(self.msg, "longitude", None)
-                    if self._obter_has_field(self.msg, "longitude")
+                    getattr(msg, "longitude", None)
+                    if self._obter_has_field(msg, "longitude")
                     else None
                 )
 
@@ -334,12 +348,12 @@ class WidgetMensagemCoordenada(QWidget):
 
                 if self.controller:
                     if lat_antigo != lat_e7:
-                        self.controller.alterar_primitivo(self.msg, "latitude", lat_antigo, lat_e7)
+                        self.controller.alterar_primitivo(msg, "latitude", lat_antigo, lat_e7)
                     if lon_antigo != lon_e7:
-                        self.controller.alterar_primitivo(self.msg, "longitude", lon_antigo, lon_e7)
+                        self.controller.alterar_primitivo(msg, "longitude", lon_antigo, lon_e7)
                 else:
-                    self.msg.latitude = lat_e7
-                    self.msg.longitude = lon_e7
+                    msg.latitude = lat_e7
+                    msg.longitude = lon_e7
 
                 self.sinal_coordenadas_alteradas.emit(lat_e7, lon_e7)
                 return True
