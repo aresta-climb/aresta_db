@@ -107,12 +107,14 @@ class PaginaDados(PaginaBase):
         self.editor_dados: Any | None = None
 
     def carregar_dados(self, model: CroquiModel, controller: CroquiController) -> None:
+        from editor.views.widget_editor_dados import WidgetEditorDados, WidgetEditorMarkdown
+
         layout = self.layout()
         if self.editor_dados and layout:
+            for w_md in self.editor_dados.findChildren(WidgetEditorMarkdown):
+                w_md.temporizador.descartar()
             layout.removeWidget(self.editor_dados)
             self.editor_dados.deleteLater()
-
-        from editor.views.widget_editor_dados import WidgetEditorDados
 
         self.editor_dados = WidgetEditorDados(model, controller, parent=self)
         if layout:
@@ -1061,6 +1063,14 @@ class JanelaPrincipal(QMainWindow):
         if foco_atual:
             foco_atual.clearFocus()
 
+        if (
+            hasattr(self.pagina_dados, "editor_dados")
+            and self.pagina_dados.editor_dados
+            and hasattr(self.pagina_dados.editor_dados, "form_padrao")
+            and self.pagina_dados.editor_dados.form_padrao
+        ):
+            self.pagina_dados.editor_dados.form_padrao.forcar_consolidacao_pendente()
+
         caminho_db = self.workspace.obter_caminho_database()
 
         try:
@@ -1482,6 +1492,7 @@ class JanelaPrincipal(QMainWindow):
             self.historico.flush_diario_pendente()
 
         if self._forcar_fechamento:
+            self._encerrar_servidor_celular()
             if self._servidor_mcp_compartilhado and self.servidor_mcp is not None:
                 self.servidor_mcp.definir_croqui_ativo("", croqui_aberto=False)
             else:
@@ -1512,12 +1523,14 @@ class JanelaPrincipal(QMainWindow):
                 event.ignore()
             elif resposta == QMessageBox.StandardButton.Discard:
                 self._descartar_diario_pendente()
+                self._encerrar_servidor_celular()
                 self.encerrar_servidor_mcp()
                 event.accept()
             else:
                 event.ignore()
         else:
             self._descartar_diario_pendente()
+            self._encerrar_servidor_celular()
             self.encerrar_servidor_mcp()
             event.accept()
 
@@ -1752,6 +1765,9 @@ class JanelaPrincipal(QMainWindow):
                 inst.removeEventFilter(self.monitor_inatividade)
             self.monitor_inatividade = None
 
+        if self.dialogo_celular:
+            self.dialogo_celular.encerrar_tarefa()
+            self.dialogo_celular.close()
         self.dialogo_celular = None
         self.acao_celular.setIcon(Icones.obter_celular(conectado=False))
 

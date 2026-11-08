@@ -125,3 +125,21 @@ def test_nao_deve_resetar_timer_ao_apenas_mover_mouse(qtbot):
     finally:
         app.removeEventFilter(monitor)
         monitor.parar()
+
+
+def test_event_filter_nao_falha_quando_alvo_eh_qwidgetitem_reciclado(qtbot):
+    """Garante que o filtro global ignora objetos não-QObject (como QWidgetItem reciclado pelo Shiboken) sem lançar TypeError."""
+    from PySide6.QtCore import QDynamicPropertyChangeEvent
+    from PySide6.QtWidgets import QLabel, QWidgetItem
+
+    monitor = MonitorInatividade(timeout_ms=300)
+    monitor.iniciar()
+    try:
+        rotulo = QLabel("Toast")
+        qtbot.addWidget(rotulo)
+        item_layout = QWidgetItem(rotulo)
+        evento_prop = QDynamicPropertyChangeEvent(b"opacity")
+
+        assert monitor.eventFilter(item_layout, evento_prop) is False
+    finally:
+        monitor.parar()

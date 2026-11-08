@@ -5895,3 +5895,99 @@ def test_caminho_imagem_capa_ordenacao_explicitada(qapp):
     assert campos[0].name == "caminho_imagem_capa"
     assert campos[1].name == "nome"
     assert campos[2].name == "outro"
+
+
+def test_load_node_consolida_temporizador_markdown_pendente_e_descarte_cancela_timer(qapp):
+    """Garante que trocar de nó na árvore consolida edições Markdown pendentes e descartar cache cancela timers órfãos."""
+    from PySide6.QtGui import QUndoStack
+
+    from aresta_api.proto.generated.croqui_pb2 import Setor
+    from editor.controllers.croqui_controller import CroquiController
+    from editor.models.croqui_model import CroquiModel
+    from editor.views.widget_editor_dados import WidgetEditorDados, WidgetEditorMarkdown, _get_id
+
+    setor = Setor(uid="setr0000000001", nome="Setor 1", descricao="Texto Inicial")
+
+    model = CroquiModel(setor)
+    stack = QUndoStack()
+    controller = CroquiController(model, stack)
+    widget = WidgetEditorDados(model, controller)
+    widget.show()
+    qapp.processEvents()
+
+    idx_setor = widget.tree_model.index(0, 0)
+    node_setor = idx_setor.internalPointer()
+    widget.form_padrao.load_node(node_setor)
+    qapp.processEvents()
+
+    w_md_setor = widget.form_padrao.currentWidget().findChild(WidgetEditorMarkdown)
+    assert w_md_setor is not None
+    w_md_setor.editor.setPlainText("Descricao editada antes de trocar de no")
+    assert w_md_setor.temporizador.esta_ativo() is True
+
+    # Ao trocar de nó (ex: selecionar None ou outro nó), deve consolidar imediatamente antes de sair
+    widget.form_padrao.load_node(None)
+    assert w_md_setor.temporizador.esta_ativo() is False
+    assert setor.descricao == "Descricao editada antes de trocar de no"
+
+    # Recarrega o nó, agenda nova edição e descarta o formulário do cache (simulando remoção/substituição)
+    widget.form_padrao.load_node(node_setor)
+    w_md_setor.editor.setPlainText("Edicao orfa que deve ser cancelada")
+    assert w_md_setor.temporizador.esta_ativo() is True
+
+    widget.form_padrao.descartar_cache_formulario(_get_id(setor))
+    assert w_md_setor.temporizador.esta_ativo() is False
+    assert setor.descricao == "Descricao editada antes de trocar de no"
+
+
+def test_alterar_combobox_oneof_consolida_markdown_pendente_sem_mensagem_orfa(qapp):
+    """Garante que trocar a variante de um oneof via QComboBox consolida edições Markdown pendentes na variante anterior antes de substituí-la."""
+    from PySide6.QtGui import QUndoStack
+    from PySide6.QtWidgets import QComboBox
+
+    from aresta_api.proto.generated.croqui_pb2 import Croqui
+    from editor.controllers.croqui_controller import CroquiController
+    from editor.models.croqui_model import CroquiModel
+    from editor.views.widget_editor_dados import WidgetEditorDados, WidgetEditorMarkdown
+
+    croqui = Croqui(id="teste_oneof_md", nome="Croqui Oneof")
+    pico = croqui.picos.add(nome="Pico 1")
+    setor = pico.setores_ou_grupos.add().setor.conteudo
+    setor.uid = "setr0000000001"
+    setor.nome = "Setor 1"
+    escalada = setor.escaladas.add(uid="escl0000000001")
+    escalada.boulder.nome = "Boulder 1"
+    escalada.boulder.descricao = "Boulder Inicial"
+
+    model = CroquiModel(croqui)
+    stack = QUndoStack()
+    controller = CroquiController(model, stack)
+    widget = WidgetEditorDados(model, controller)
+    widget.show()
+    qapp.processEvents()
+
+    from editor.views.tree_view_adapter import ProtobufNode
+
+    node_esc = ProtobufNode(name="Escalada", message=escalada, descriptor=escalada.DESCRIPTOR)
+    widget.form_padrao.load_node(node_esc)
+    qapp.processEvents()
+
+    w_md_boulder = widget.form_padrao.currentWidget().findChild(WidgetEditorMarkdown)
+    assert w_md_boulder is not None
+    w_md_boulder.editor.setPlainText("Descricao editada antes de trocar oneof")
+    assert w_md_boulder.temporizador.esta_ativo() is True
+
+    combos = widget.form_padrao.currentWidget().findChildren(QComboBox)
+    combo_oneof = next(c for c in combos if c.findData("via_esportiva") >= 0)
+    combo_oneof.setCurrentIndex(combo_oneof.findData("via_esportiva"))
+    qapp.processEvents()
+
+    assert w_md_boulder.temporizador.esta_ativo() is False
+    # Trocar de nó em seguida não deve tentar consolidar o Boulder substituído nem lançar ValueError
+    widget.form_padrao.load_node(None)
+    nome_oneof = escalada.DESCRIPTOR.oneofs[0].name
+    assert escalada.WhichOneof(nome_oneof) == "via_esportiva"
+    # Desfazer a troca de oneof restaura o Boulder com o texto que foi consolidado antes da troca
+    stack.undo()
+    assert escalada.WhichOneof(nome_oneof) == "boulder"
+    assert escalada.boulder.descricao == "Descricao editada antes de trocar oneof"

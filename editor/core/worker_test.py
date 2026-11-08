@@ -555,6 +555,22 @@ class TestWorker(unittest.TestCase):
             "f0zb-udvq",
         )
 
+    def test_tarefa_dados_conexao_solicitar_parada_interrompe_execucao(self):
+        """Valida que solicitar_parada cancela cooperativamente TarefaDadosConexao sem emitir concluido."""
+        from editor.core.servidor_celular_fake import ServidorCelularFake
+        from editor.core.worker import TarefaDadosConexao
+
+        servidor = ServidorCelularFake(Path("."))
+        emissoes: list[tuple[str, bytes, str]] = []
+
+        tarefa = TarefaDadosConexao(servidor)
+        tarefa.concluido.connect(lambda u, q, c: emissoes.append((u, q, c)))
+        tarefa.solicitar_parada()
+
+        tarefa.run()
+
+        self.assertEqual(emissoes, [])
+
     def test_tarefa_salvamento_sucesso(self):
         """Valida que TarefaSalvamento salva croqui.yaml, processa compilação e emite sucesso."""
         from editor.core.worker import TarefaSalvamento

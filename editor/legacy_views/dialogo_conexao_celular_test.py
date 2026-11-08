@@ -1,41 +1,30 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
-from unittest.mock import MagicMock
+from pathlib import Path
 
 import pytest
-from PySide6.QtCore import QObject, Qt, Signal
+from PySide6.QtCore import Qt
 from PySide6.QtGui import QGuiApplication
 
+from editor.core.servidor_celular_fake import ServidorCelularFake
 from editor.legacy_views.dialogo_conexao_celular import DialogoConexaoCelular
 
 
-class ServidorMock(QObject):
-    dispositivo_conectado = Signal()
-
-    def __init__(self):
-        super().__init__()
-        self.porta = 8080
-        self.codigo_sessao = "k9x2p83a"
-        self.obter_ip_local = MagicMock(return_value="192.168.1.5")
-        self.obter_url_previa_canonica = MagicMock(
-            return_value="https://previa.arestaclimb.com/k9x2p83a"
-        )
-        self.gerar_qr_code = MagicMock(return_value=b"fake_png_data")
-
-
 @pytest.fixture
-def dialogo(qtbot):
-    servidor = ServidorMock()
-    dialogo = DialogoConexaoCelular(servidor)
-    qtbot.addWidget(dialogo)
-    return dialogo
+def dialogo(qtbot, tmp_path: Path):
+    servidor = ServidorCelularFake(tmp_path, codigo_sessao="k9x2p83a")
+    servidor.iniciar()
+    dlg = DialogoConexaoCelular(servidor)
+    qtbot.addWidget(dlg)
+    yield dlg
+    dlg.close()
 
 
 def test_deve_exibir_endereco_codigo_e_qr_code_carregados(qtbot, dialogo):
     """Aguarda a tarefa de background emitir a URL canônica, código formatado e QR Code."""
     qtbot.wait_until(
-        lambda: dialogo.label_endereco.text() == "https://previa.arestaclimb.com/k9x2p83a",
+        lambda: dialogo.label_endereco.text() == "http://127.0.0.1:8765/k9x2p83a",
         timeout=2000,
     )
     assert dialogo.label_codigo.text() == "k9x2-p83a"
@@ -48,7 +37,7 @@ def test_deve_mudar_status_quando_conectado(qtbot, dialogo):
         lambda: not dialogo.label_endereco.text().startswith("Aguardando"), timeout=2000
     )
 
-    dialogo.servidor.dispositivo_conectado.emit()
+    dialogo.servidor.simular_conexao_dispositivo()
     assert dialogo.label_status.text() == "Celular Conectado!"
 
 
@@ -69,3 +58,16 @@ def test_deve_emitir_sinal_ao_clicar_encerrar(qtbot, dialogo):
     """Emite solicitar_encerrar ao clicar no botão encerrar."""
     with qtbot.wait_signal(dialogo.solicitar_encerrar):
         qtbot.mouseClick(dialogo.btn_encerrar, Qt.MouseButton.LeftButton)
+
+
+def test_fechar_dialogo_encerra_e_aguarda_tarefa_dados_em_andamento(qtbot, tmp_path: Path):
+    """Garante que fechar ou rejeitar o diálogo cancela cooperativamente e aguarda TarefaDadosConexao terminar."""
+    servidor_lento = ServidorCelularFake(tmp_path, codigo_sessao="k9x2p83a")
+    # Porta permanece None para manter TarefaDadosConexao aguardando em background
+    dlg = DialogoConexaoCelular(servidor_lento)
+    qtbot.addWidget(dlg)
+
+    qtbot.wait_until(lambda: dlg.tarefa_dados.isRunning(), timeout=1000)
+    dlg.reject()
+
+    assert not dlg.tarefa_dados.isRunning()

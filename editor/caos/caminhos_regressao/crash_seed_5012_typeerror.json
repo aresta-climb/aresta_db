@@ -1,0 +1,1360 @@
+{
+  "seed": 5012,
+  "dataset": "toxico",
+  "escopo": "janela_principal",
+  "falha": {
+    "oraculo": "excecao_nao_tratada",
+    "tipo_excecao": "TypeError",
+    "mensagem": "Error calling Python override of QObject::eventFilter(): Error calling Python override of QObject::eventFilter(): Error calling Python override of QObject::eventFilter(): Error calling Python override of QObject::eventFilter(): Error calling Python override of QObject::eventFilter(): Error calling Python override of QObject::eventFilter(): Error calling Python override of QObject::eventFilter(): Error calling Python override of QObject::eventFilter(): Error calling Python override of QObject::eventFilter(): Error calling Python override of QObject::eventFilter(): Error calling Python override of QObject::eventFilter(): Error calling Python override of QObject::eventFilter(): Error calling Python override of QObject::eventFilter(): Error calling Python override of QObject::eventFilter(): Error calling Python override of QObject::eventFilter(): Error calling Python override of QObject::eventFilter(): Error calling Python override of QObject::eventFilter(): Error calling Python override of QObject::eventFilter(): Error calling Python override of QObject::eventFilter(): Error calling Python override of QObject::eventFilter(): Error calling Python override of QObject::eventFilter(): Error calling Python override of QObject::eventFilter(): Error calling Python override of QObject::eventFilter(): Error calling Python override of QObject::eventFilter(): Error calling Python override of QObject::eventFilter(): Error calling Python override of QObject::eventFilter(): Error calling Python override of QObject::eventFilter(): Error calling Python override of QObject::eventFilter(): Error calling Python override of QObject::eventFilter(): Error calling Python override of QObject::eventFilter(): Error calling Python override of QObject::eventFilter(): Error calling Python override of QObject::eventFilter(): Error calling Python override of QObject::eventFilter(): Error calling Python override of QObject::eventFilter(): Error calling Python override of QObject::eventFilter(): Error calling Python override of QObject::eventFilter(): Error calling Python override of QObject::eventFilter(): Error calling Python override of QObject::eventFilter(): Error calling Python override of QObject::eventFilter(): Error calling Python override of QObject::eventFilter(): Error calling Python override of QObject::eventFilter(): Error calling Python override of QObject::eventFilter(): Error calling Python override of QObject::eventFilter(): 'PySide6.QtCore.QObject.eventFilter' called with wrong argument types:\n  PySide6.QtCore.QObject.eventFilter(QWidgetItem, QDynamicPropertyChangeEvent)\nSupported signatures:\n  PySide6.QtCore.QObject.eventFilter(watched: PySide6.QtCore.QObject, event: PySide6.QtCore.QEvent, /)",
+    "frame_principal": "editor/core/monitor_inatividade.py:44",
+    "stacktrace": "Traceback (most recent call last):\n  File \"C:\\Renato\\Devel\\aresta-climb\\aresta_db\\editor\\legacy_views\\area_principal.py\", line 1206, in _on_salvar_sucesso\n    self.exibir_notificacao(\"Croqui salvo com avisos de compilação.\")\n    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Renato\\Devel\\aresta-climb\\aresta_db\\editor\\legacy_views\\area_principal.py\", line 1774, in exibir_notificacao\n    toast.show()\n    ~~~~~~~~~~^^\n  File \"C:\\Renato\\Devel\\aresta-climb\\aresta_db\\editor\\core\\monitor_inatividade.py\", line 41, in eventFilter\n    if evento.type() in [QEvent.Type.KeyPress, QEvent.Type.MouseButtonPress]:\n       ~~~~~~~~~~~^^\n  File \"C:\\Renato\\Devel\\aresta-climb\\aresta_db\\editor\\core\\monitor_inatividade.py\", line 41, in eventFilter\n    if evento.type() in [QEvent.Type.KeyPress, QEvent.Type.MouseButtonPress]:\n       ~~~~~~~~~~~^^\n  File \"C:\\Renato\\Devel\\aresta-climb\\aresta_db\\editor\\core\\monitor_inatividade.py\", line 41, in eventFilter\n    if evento.type() in [QEvent.Type.KeyPress, QEvent.Type.MouseButtonPress]:\n       ~~~~~~~~~~~^^\n  [Previous line repeated 39 more times]\n  File \"C:\\Renato\\Devel\\aresta-climb\\aresta_db\\editor\\core\\monitor_inatividade.py\", line 44, in eventFilter\n    res = super().eventFilter(objeto, evento)\nTypeError: Error calling Python override of QObject::eventFilter(): Error calling Python override of QObject::eventFilter(): Error calling Python override of QObject::eventFilter(): Error calling Python override of QObject::eventFilter(): Error calling Python override of QObject::eventFilter(): Error calling Python override of QObject::eventFilter(): Error calling Python override of QObject::eventFilter(): Error calling Python override of QObject::eventFilter(): Error calling Python override of QObject::eventFilter(): Error calling Python override of QObject::eventFilter(): Error calling Python override of QObject::eventFilter(): Error calling Python override of QObject::eventFilter(): Error calling Python override of QObject::eventFilter(): Error calling Python override of QObject::eventFilter(): Error calling Python override of QObject::eventFilter(): Error calling Python override of QObject::eventFilter(): Error calling Python override of QObject::eventFilter(): Error calling Python override of QObject::eventFilter(): Error calling Python override of QObject::eventFilter(): Error calling Python override of QObject::eventFilter(): Error calling Python override of QObject::eventFilter(): Error calling Python override of QObject::eventFilter(): Error calling Python override of QObject::eventFilter(): Error calling Python override of QObject::eventFilter(): Error calling Python override of QObject::eventFilter(): Error calling Python override of QObject::eventFilter(): Error calling Python override of QObject::eventFilter(): Error calling Python override of QObject::eventFilter(): Error calling Python override of QObject::eventFilter(): Error calling Python override of QObject::eventFilter(): Error calling Python override of QObject::eventFilter(): Error calling Python override of QObject::eventFilter(): Error calling Python override of QObject::eventFilter(): Error calling Python override of QObject::eventFilter(): Error calling Python override of QObject::eventFilter(): Error calling Python override of QObject::eventFilter(): Error calling Python override of QObject::eventFilter(): Error calling Python override of QObject::eventFilter(): Error calling Python override of QObject::eventFilter(): Error calling Python override of QObject::eventFilter(): Error calling Python override of QObject::eventFilter(): Error calling Python override of QObject::eventFilter(): Error calling Python override of QObject::eventFilter(): 'PySide6.QtCore.QObject.eventFilter' called with wrong argument types:\n  PySide6.QtCore.QObject.eventFilter(QWidgetItem, QDynamicPropertyChangeEvent)\nSupported signatures:\n  PySide6.QtCore.QObject.eventFilter(watched: PySide6.QtCore.QObject, event: PySide6.QtCore.QEvent, /)\n"
+  },
+  "passos_minimos": [
+    {
+      "indice": 1,
+      "tipo_acao": "selecionar_no_arvore",
+      "seletor": {
+        "estrategia": "caminho_no_arvore",
+        "valor": "no_visivel:2",
+        "classe_widget": "QTreeView",
+        "indice": 2
+      },
+      "parametros": {
+        "pos": 2
+      },
+      "mutou_estado": false
+    },
+    {
+      "indice": 2,
+      "tipo_acao": "interagir_editor_mapas",
+      "seletor": {
+        "estrategia": "cena_grafica",
+        "valor": "mapa:circulo",
+        "classe_widget": "WidgetEditorMapas",
+        "indice": 0
+      },
+      "parametros": {
+        "sub_op": "circulo"
+      },
+      "mutou_estado": true
+    },
+    {
+      "indice": 3,
+      "tipo_acao": "selecionar_no_arvore",
+      "seletor": {
+        "estrategia": "caminho_no_arvore",
+        "valor": "no_visivel:7",
+        "classe_widget": "QTreeView",
+        "indice": 7
+      },
+      "parametros": {
+        "pos": 7
+      },
+      "mutou_estado": false
+    },
+    {
+      "indice": 4,
+      "tipo_acao": "desfazer_ou_refazer",
+      "seletor": {
+        "estrategia": "acao_toolbar",
+        "valor": "redo",
+        "classe_widget": "",
+        "indice": 0
+      },
+      "parametros": {
+        "op": "redo"
+      },
+      "mutou_estado": false
+    },
+    {
+      "indice": 5,
+      "tipo_acao": "noop_fallback",
+      "seletor": {
+        "estrategia": "acao_toolbar",
+        "valor": "Dados",
+        "classe_widget": "",
+        "indice": 0
+      },
+      "parametros": {},
+      "mutou_estado": false
+    },
+    {
+      "indice": 6,
+      "tipo_acao": "noop_fallback",
+      "seletor": {
+        "estrategia": "acao_toolbar",
+        "valor": "Dados",
+        "classe_widget": "",
+        "indice": 0
+      },
+      "parametros": {},
+      "mutou_estado": false
+    },
+    {
+      "indice": 7,
+      "tipo_acao": "noop_fallback",
+      "seletor": {
+        "estrategia": "acao_toolbar",
+        "valor": "Dados",
+        "classe_widget": "",
+        "indice": 0
+      },
+      "parametros": {},
+      "mutou_estado": false
+    },
+    {
+      "indice": 8,
+      "tipo_acao": "selecionar_no_arvore",
+      "seletor": {
+        "estrategia": "caminho_no_arvore",
+        "valor": "no_visivel:5",
+        "classe_widget": "QTreeView",
+        "indice": 5
+      },
+      "parametros": {
+        "pos": 5
+      },
+      "mutou_estado": false
+    },
+    {
+      "indice": 9,
+      "tipo_acao": "interagir_editor_mapas",
+      "seletor": {
+        "estrategia": "cena_grafica",
+        "valor": "mapa:circulo",
+        "classe_widget": "WidgetEditorMapas",
+        "indice": 0
+      },
+      "parametros": {
+        "sub_op": "circulo"
+      },
+      "mutou_estado": true
+    },
+    {
+      "indice": 10,
+      "tipo_acao": "abrir_dialogo_celular",
+      "seletor": {
+        "estrategia": "acao_toolbar",
+        "valor": "Celular",
+        "classe_widget": "",
+        "indice": 0
+      },
+      "parametros": {},
+      "mutou_estado": false
+    },
+    {
+      "indice": 11,
+      "tipo_acao": "interagir_painel_betas",
+      "seletor": {
+        "estrategia": "objeto_ou_texto",
+        "valor": "painel_betas",
+        "classe_widget": "PainelCuradoria",
+        "indice": 0
+      },
+      "parametros": {},
+      "mutou_estado": false
+    },
+    {
+      "indice": 12,
+      "tipo_acao": "interagir_editor_mapas",
+      "seletor": {
+        "estrategia": "cena_grafica",
+        "valor": "mapa:slider_circ",
+        "classe_widget": "WidgetEditorMapas",
+        "indice": 0
+      },
+      "parametros": {
+        "sub_op": "slider_circ"
+      },
+      "mutou_estado": true
+    },
+    {
+      "indice": 13,
+      "tipo_acao": "publicar_ou_sincronizar",
+      "seletor": {
+        "estrategia": "acao_toolbar",
+        "valor": "Sincronizar",
+        "classe_widget": "",
+        "indice": 0
+      },
+      "parametros": {},
+      "mutou_estado": true
+    },
+    {
+      "indice": 14,
+      "tipo_acao": "interagir_painel_betas",
+      "seletor": {
+        "estrategia": "objeto_ou_texto",
+        "valor": "painel_betas",
+        "classe_widget": "PainelCuradoria",
+        "indice": 0
+      },
+      "parametros": {},
+      "mutou_estado": false
+    },
+    {
+      "indice": 15,
+      "tipo_acao": "trocar_aba",
+      "seletor": {
+        "estrategia": "acao_toolbar",
+        "valor": "aba:0",
+        "classe_widget": "",
+        "indice": 0
+      },
+      "parametros": {
+        "aba": 0
+      },
+      "mutou_estado": false
+    },
+    {
+      "indice": 16,
+      "tipo_acao": "trocar_aba",
+      "seletor": {
+        "estrategia": "acao_toolbar",
+        "valor": "aba:0",
+        "classe_widget": "",
+        "indice": 0
+      },
+      "parametros": {
+        "aba": 0
+      },
+      "mutou_estado": false
+    },
+    {
+      "indice": 17,
+      "tipo_acao": "interagir_editor_imagens",
+      "seletor": {
+        "estrategia": "cena_grafica",
+        "valor": "imagem_selecionar",
+        "classe_widget": "WidgetEditorImagens",
+        "indice": 0
+      },
+      "parametros": {},
+      "mutou_estado": false
+    },
+    {
+      "indice": 18,
+      "tipo_acao": "interagir_editor_imagens",
+      "seletor": {
+        "estrategia": "cena_grafica",
+        "valor": "imagem_selecionar",
+        "classe_widget": "WidgetEditorImagens",
+        "indice": 0
+      },
+      "parametros": {},
+      "mutou_estado": false
+    },
+    {
+      "indice": 19,
+      "tipo_acao": "salvar_croqui",
+      "seletor": {
+        "estrategia": "acao_toolbar",
+        "valor": "Salvar",
+        "classe_widget": "",
+        "indice": 0
+      },
+      "parametros": {},
+      "mutou_estado": true
+    },
+    {
+      "indice": 20,
+      "tipo_acao": "noop_fallback",
+      "seletor": {
+        "estrategia": "acao_toolbar",
+        "valor": "Dados",
+        "classe_widget": "",
+        "indice": 0
+      },
+      "parametros": {},
+      "mutou_estado": false
+    },
+    {
+      "indice": 21,
+      "tipo_acao": "selecionar_no_arvore",
+      "seletor": {
+        "estrategia": "caminho_no_arvore",
+        "valor": "no_visivel:13",
+        "classe_widget": "QTreeView",
+        "indice": 13
+      },
+      "parametros": {
+        "pos": 13
+      },
+      "mutou_estado": false
+    },
+    {
+      "indice": 22,
+      "tipo_acao": "desfazer_ou_refazer",
+      "seletor": {
+        "estrategia": "acao_toolbar",
+        "valor": "redo",
+        "classe_widget": "",
+        "indice": 0
+      },
+      "parametros": {
+        "op": "redo"
+      },
+      "mutou_estado": false
+    },
+    {
+      "indice": 23,
+      "tipo_acao": "abrir_dialogo_celular",
+      "seletor": {
+        "estrategia": "acao_toolbar",
+        "valor": "Celular",
+        "classe_widget": "",
+        "indice": 0
+      },
+      "parametros": {},
+      "mutou_estado": false
+    },
+    {
+      "indice": 24,
+      "tipo_acao": "noop_fallback",
+      "seletor": {
+        "estrategia": "acao_toolbar",
+        "valor": "Dados",
+        "classe_widget": "",
+        "indice": 0
+      },
+      "parametros": {},
+      "mutou_estado": false
+    },
+    {
+      "indice": 25,
+      "tipo_acao": "noop_fallback",
+      "seletor": {
+        "estrategia": "acao_toolbar",
+        "valor": "Dados",
+        "classe_widget": "",
+        "indice": 0
+      },
+      "parametros": {},
+      "mutou_estado": false
+    },
+    {
+      "indice": 26,
+      "tipo_acao": "interagir_editor_imagens",
+      "seletor": {
+        "estrategia": "cena_grafica",
+        "valor": "imagem_selecionar",
+        "classe_widget": "WidgetEditorImagens",
+        "indice": 0
+      },
+      "parametros": {},
+      "mutou_estado": false
+    },
+    {
+      "indice": 27,
+      "tipo_acao": "noop_fallback",
+      "seletor": {
+        "estrategia": "acao_toolbar",
+        "valor": "Dados",
+        "classe_widget": "",
+        "indice": 0
+      },
+      "parametros": {},
+      "mutou_estado": false
+    },
+    {
+      "indice": 28,
+      "tipo_acao": "publicar_ou_sincronizar",
+      "seletor": {
+        "estrategia": "acao_toolbar",
+        "valor": "Sincronizar",
+        "classe_widget": "",
+        "indice": 0
+      },
+      "parametros": {},
+      "mutou_estado": true
+    },
+    {
+      "indice": 29,
+      "tipo_acao": "salvar_croqui",
+      "seletor": {
+        "estrategia": "acao_toolbar",
+        "valor": "Salvar",
+        "classe_widget": "",
+        "indice": 0
+      },
+      "parametros": {},
+      "mutou_estado": true
+    },
+    {
+      "indice": 30,
+      "tipo_acao": "publicar_ou_sincronizar",
+      "seletor": {
+        "estrategia": "acao_toolbar",
+        "valor": "Sincronizar",
+        "classe_widget": "",
+        "indice": 0
+      },
+      "parametros": {},
+      "mutou_estado": true
+    },
+    {
+      "indice": 31,
+      "tipo_acao": "interagir_editor_mapas",
+      "seletor": {
+        "estrategia": "cena_grafica",
+        "valor": "mapa:slider_circ",
+        "classe_widget": "WidgetEditorMapas",
+        "indice": 0
+      },
+      "parametros": {
+        "sub_op": "slider_circ"
+      },
+      "mutou_estado": true
+    },
+    {
+      "indice": 32,
+      "tipo_acao": "abrir_dialogo_celular",
+      "seletor": {
+        "estrategia": "acao_toolbar",
+        "valor": "Celular",
+        "classe_widget": "",
+        "indice": 0
+      },
+      "parametros": {},
+      "mutou_estado": false
+    },
+    {
+      "indice": 33,
+      "tipo_acao": "interagir_editor_imagens",
+      "seletor": {
+        "estrategia": "cena_grafica",
+        "valor": "imagem_selecionar",
+        "classe_widget": "WidgetEditorImagens",
+        "indice": 0
+      },
+      "parametros": {},
+      "mutou_estado": false
+    },
+    {
+      "indice": 34,
+      "tipo_acao": "noop_fallback",
+      "seletor": {
+        "estrategia": "acao_toolbar",
+        "valor": "Dados",
+        "classe_widget": "",
+        "indice": 0
+      },
+      "parametros": {},
+      "mutou_estado": false
+    },
+    {
+      "indice": 35,
+      "tipo_acao": "publicar_ou_sincronizar",
+      "seletor": {
+        "estrategia": "acao_toolbar",
+        "valor": "Sincronizar",
+        "classe_widget": "",
+        "indice": 0
+      },
+      "parametros": {},
+      "mutou_estado": true
+    },
+    {
+      "indice": 36,
+      "tipo_acao": "interagir_editor_imagens",
+      "seletor": {
+        "estrategia": "cena_grafica",
+        "valor": "imagem_selecionar",
+        "classe_widget": "WidgetEditorImagens",
+        "indice": 0
+      },
+      "parametros": {},
+      "mutou_estado": false
+    },
+    {
+      "indice": 37,
+      "tipo_acao": "abrir_dialogo_celular",
+      "seletor": {
+        "estrategia": "acao_toolbar",
+        "valor": "Celular",
+        "classe_widget": "",
+        "indice": 0
+      },
+      "parametros": {},
+      "mutou_estado": false
+    },
+    {
+      "indice": 38,
+      "tipo_acao": "publicar_ou_sincronizar",
+      "seletor": {
+        "estrategia": "acao_toolbar",
+        "valor": "Sincronizar",
+        "classe_widget": "",
+        "indice": 0
+      },
+      "parametros": {},
+      "mutou_estado": true
+    },
+    {
+      "indice": 39,
+      "tipo_acao": "publicar_ou_sincronizar",
+      "seletor": {
+        "estrategia": "acao_toolbar",
+        "valor": "Sincronizar",
+        "classe_widget": "",
+        "indice": 0
+      },
+      "parametros": {},
+      "mutou_estado": true
+    },
+    {
+      "indice": 40,
+      "tipo_acao": "desfazer_ou_refazer",
+      "seletor": {
+        "estrategia": "acao_toolbar",
+        "valor": "redo",
+        "classe_widget": "",
+        "indice": 0
+      },
+      "parametros": {
+        "op": "redo"
+      },
+      "mutou_estado": false
+    },
+    {
+      "indice": 41,
+      "tipo_acao": "salvar_croqui",
+      "seletor": {
+        "estrategia": "acao_toolbar",
+        "valor": "Salvar",
+        "classe_widget": "",
+        "indice": 0
+      },
+      "parametros": {},
+      "mutou_estado": true
+    },
+    {
+      "indice": 42,
+      "tipo_acao": "interagir_editor_mapas",
+      "seletor": {
+        "estrategia": "cena_grafica",
+        "valor": "mapa:circulo",
+        "classe_widget": "WidgetEditorMapas",
+        "indice": 0
+      },
+      "parametros": {
+        "sub_op": "circulo"
+      },
+      "mutou_estado": true
+    },
+    {
+      "indice": 43,
+      "tipo_acao": "interagir_editor_mapas",
+      "seletor": {
+        "estrategia": "cena_grafica",
+        "valor": "mapa:slider_circ",
+        "classe_widget": "WidgetEditorMapas",
+        "indice": 0
+      },
+      "parametros": {
+        "sub_op": "slider_circ"
+      },
+      "mutou_estado": true
+    },
+    {
+      "indice": 44,
+      "tipo_acao": "interagir_painel_betas",
+      "seletor": {
+        "estrategia": "objeto_ou_texto",
+        "valor": "painel_betas",
+        "classe_widget": "PainelCuradoria",
+        "indice": 0
+      },
+      "parametros": {},
+      "mutou_estado": false
+    },
+    {
+      "indice": 45,
+      "tipo_acao": "noop_fallback",
+      "seletor": {
+        "estrategia": "acao_toolbar",
+        "valor": "Dados",
+        "classe_widget": "",
+        "indice": 0
+      },
+      "parametros": {},
+      "mutou_estado": false
+    },
+    {
+      "indice": 46,
+      "tipo_acao": "interagir_painel_betas",
+      "seletor": {
+        "estrategia": "objeto_ou_texto",
+        "valor": "painel_betas",
+        "classe_widget": "PainelCuradoria",
+        "indice": 0
+      },
+      "parametros": {},
+      "mutou_estado": false
+    },
+    {
+      "indice": 47,
+      "tipo_acao": "interagir_painel_betas",
+      "seletor": {
+        "estrategia": "objeto_ou_texto",
+        "valor": "painel_betas",
+        "classe_widget": "PainelCuradoria",
+        "indice": 0
+      },
+      "parametros": {},
+      "mutou_estado": false
+    },
+    {
+      "indice": 48,
+      "tipo_acao": "trocar_aba",
+      "seletor": {
+        "estrategia": "acao_toolbar",
+        "valor": "aba:2",
+        "classe_widget": "",
+        "indice": 0
+      },
+      "parametros": {
+        "aba": 2
+      },
+      "mutou_estado": false
+    },
+    {
+      "indice": 49,
+      "tipo_acao": "noop_fallback",
+      "seletor": {
+        "estrategia": "acao_toolbar",
+        "valor": "Dados",
+        "classe_widget": "",
+        "indice": 0
+      },
+      "parametros": {},
+      "mutou_estado": false
+    },
+    {
+      "indice": 50,
+      "tipo_acao": "interagir_editor_imagens",
+      "seletor": {
+        "estrategia": "cena_grafica",
+        "valor": "imagem_selecionar",
+        "classe_widget": "WidgetEditorImagens",
+        "indice": 0
+      },
+      "parametros": {},
+      "mutou_estado": false
+    },
+    {
+      "indice": 51,
+      "tipo_acao": "selecionar_no_arvore",
+      "seletor": {
+        "estrategia": "caminho_no_arvore",
+        "valor": "no_visivel:0",
+        "classe_widget": "QTreeView",
+        "indice": 0
+      },
+      "parametros": {
+        "pos": 0
+      },
+      "mutou_estado": false
+    },
+    {
+      "indice": 52,
+      "tipo_acao": "selecionar_no_arvore",
+      "seletor": {
+        "estrategia": "caminho_no_arvore",
+        "valor": "no_visivel:1",
+        "classe_widget": "QTreeView",
+        "indice": 1
+      },
+      "parametros": {
+        "pos": 1
+      },
+      "mutou_estado": false
+    },
+    {
+      "indice": 53,
+      "tipo_acao": "salvar_croqui",
+      "seletor": {
+        "estrategia": "acao_toolbar",
+        "valor": "Salvar",
+        "classe_widget": "",
+        "indice": 0
+      },
+      "parametros": {},
+      "mutou_estado": true
+    }
+  ],
+  "passos_originais": [
+    {
+      "indice": 1,
+      "tipo_acao": "selecionar_no_arvore",
+      "seletor": {
+        "estrategia": "caminho_no_arvore",
+        "valor": "no_visivel:2",
+        "classe_widget": "QTreeView",
+        "indice": 2
+      },
+      "parametros": {
+        "pos": 2
+      },
+      "mutou_estado": false
+    },
+    {
+      "indice": 2,
+      "tipo_acao": "interagir_editor_mapas",
+      "seletor": {
+        "estrategia": "cena_grafica",
+        "valor": "mapa:circulo",
+        "classe_widget": "WidgetEditorMapas",
+        "indice": 0
+      },
+      "parametros": {
+        "sub_op": "circulo"
+      },
+      "mutou_estado": true
+    },
+    {
+      "indice": 3,
+      "tipo_acao": "selecionar_no_arvore",
+      "seletor": {
+        "estrategia": "caminho_no_arvore",
+        "valor": "no_visivel:7",
+        "classe_widget": "QTreeView",
+        "indice": 7
+      },
+      "parametros": {
+        "pos": 7
+      },
+      "mutou_estado": false
+    },
+    {
+      "indice": 4,
+      "tipo_acao": "desfazer_ou_refazer",
+      "seletor": {
+        "estrategia": "acao_toolbar",
+        "valor": "redo",
+        "classe_widget": "",
+        "indice": 0
+      },
+      "parametros": {
+        "op": "redo"
+      },
+      "mutou_estado": false
+    },
+    {
+      "indice": 5,
+      "tipo_acao": "noop_fallback",
+      "seletor": {
+        "estrategia": "acao_toolbar",
+        "valor": "Dados",
+        "classe_widget": "",
+        "indice": 0
+      },
+      "parametros": {},
+      "mutou_estado": false
+    },
+    {
+      "indice": 6,
+      "tipo_acao": "noop_fallback",
+      "seletor": {
+        "estrategia": "acao_toolbar",
+        "valor": "Dados",
+        "classe_widget": "",
+        "indice": 0
+      },
+      "parametros": {},
+      "mutou_estado": false
+    },
+    {
+      "indice": 7,
+      "tipo_acao": "noop_fallback",
+      "seletor": {
+        "estrategia": "acao_toolbar",
+        "valor": "Dados",
+        "classe_widget": "",
+        "indice": 0
+      },
+      "parametros": {},
+      "mutou_estado": false
+    },
+    {
+      "indice": 8,
+      "tipo_acao": "selecionar_no_arvore",
+      "seletor": {
+        "estrategia": "caminho_no_arvore",
+        "valor": "no_visivel:5",
+        "classe_widget": "QTreeView",
+        "indice": 5
+      },
+      "parametros": {
+        "pos": 5
+      },
+      "mutou_estado": false
+    },
+    {
+      "indice": 9,
+      "tipo_acao": "interagir_editor_mapas",
+      "seletor": {
+        "estrategia": "cena_grafica",
+        "valor": "mapa:circulo",
+        "classe_widget": "WidgetEditorMapas",
+        "indice": 0
+      },
+      "parametros": {
+        "sub_op": "circulo"
+      },
+      "mutou_estado": true
+    },
+    {
+      "indice": 10,
+      "tipo_acao": "abrir_dialogo_celular",
+      "seletor": {
+        "estrategia": "acao_toolbar",
+        "valor": "Celular",
+        "classe_widget": "",
+        "indice": 0
+      },
+      "parametros": {},
+      "mutou_estado": false
+    },
+    {
+      "indice": 11,
+      "tipo_acao": "interagir_painel_betas",
+      "seletor": {
+        "estrategia": "objeto_ou_texto",
+        "valor": "painel_betas",
+        "classe_widget": "PainelCuradoria",
+        "indice": 0
+      },
+      "parametros": {},
+      "mutou_estado": false
+    },
+    {
+      "indice": 12,
+      "tipo_acao": "interagir_editor_mapas",
+      "seletor": {
+        "estrategia": "cena_grafica",
+        "valor": "mapa:slider_circ",
+        "classe_widget": "WidgetEditorMapas",
+        "indice": 0
+      },
+      "parametros": {
+        "sub_op": "slider_circ"
+      },
+      "mutou_estado": true
+    },
+    {
+      "indice": 13,
+      "tipo_acao": "publicar_ou_sincronizar",
+      "seletor": {
+        "estrategia": "acao_toolbar",
+        "valor": "Sincronizar",
+        "classe_widget": "",
+        "indice": 0
+      },
+      "parametros": {},
+      "mutou_estado": true
+    },
+    {
+      "indice": 14,
+      "tipo_acao": "interagir_painel_betas",
+      "seletor": {
+        "estrategia": "objeto_ou_texto",
+        "valor": "painel_betas",
+        "classe_widget": "PainelCuradoria",
+        "indice": 0
+      },
+      "parametros": {},
+      "mutou_estado": false
+    },
+    {
+      "indice": 15,
+      "tipo_acao": "trocar_aba",
+      "seletor": {
+        "estrategia": "acao_toolbar",
+        "valor": "aba:0",
+        "classe_widget": "",
+        "indice": 0
+      },
+      "parametros": {
+        "aba": 0
+      },
+      "mutou_estado": false
+    },
+    {
+      "indice": 16,
+      "tipo_acao": "trocar_aba",
+      "seletor": {
+        "estrategia": "acao_toolbar",
+        "valor": "aba:0",
+        "classe_widget": "",
+        "indice": 0
+      },
+      "parametros": {
+        "aba": 0
+      },
+      "mutou_estado": false
+    },
+    {
+      "indice": 17,
+      "tipo_acao": "interagir_editor_imagens",
+      "seletor": {
+        "estrategia": "cena_grafica",
+        "valor": "imagem_selecionar",
+        "classe_widget": "WidgetEditorImagens",
+        "indice": 0
+      },
+      "parametros": {},
+      "mutou_estado": false
+    },
+    {
+      "indice": 18,
+      "tipo_acao": "interagir_editor_imagens",
+      "seletor": {
+        "estrategia": "cena_grafica",
+        "valor": "imagem_selecionar",
+        "classe_widget": "WidgetEditorImagens",
+        "indice": 0
+      },
+      "parametros": {},
+      "mutou_estado": false
+    },
+    {
+      "indice": 19,
+      "tipo_acao": "salvar_croqui",
+      "seletor": {
+        "estrategia": "acao_toolbar",
+        "valor": "Salvar",
+        "classe_widget": "",
+        "indice": 0
+      },
+      "parametros": {},
+      "mutou_estado": true
+    },
+    {
+      "indice": 20,
+      "tipo_acao": "noop_fallback",
+      "seletor": {
+        "estrategia": "acao_toolbar",
+        "valor": "Dados",
+        "classe_widget": "",
+        "indice": 0
+      },
+      "parametros": {},
+      "mutou_estado": false
+    },
+    {
+      "indice": 21,
+      "tipo_acao": "selecionar_no_arvore",
+      "seletor": {
+        "estrategia": "caminho_no_arvore",
+        "valor": "no_visivel:13",
+        "classe_widget": "QTreeView",
+        "indice": 13
+      },
+      "parametros": {
+        "pos": 13
+      },
+      "mutou_estado": false
+    },
+    {
+      "indice": 22,
+      "tipo_acao": "desfazer_ou_refazer",
+      "seletor": {
+        "estrategia": "acao_toolbar",
+        "valor": "redo",
+        "classe_widget": "",
+        "indice": 0
+      },
+      "parametros": {
+        "op": "redo"
+      },
+      "mutou_estado": false
+    },
+    {
+      "indice": 23,
+      "tipo_acao": "abrir_dialogo_celular",
+      "seletor": {
+        "estrategia": "acao_toolbar",
+        "valor": "Celular",
+        "classe_widget": "",
+        "indice": 0
+      },
+      "parametros": {},
+      "mutou_estado": false
+    },
+    {
+      "indice": 24,
+      "tipo_acao": "noop_fallback",
+      "seletor": {
+        "estrategia": "acao_toolbar",
+        "valor": "Dados",
+        "classe_widget": "",
+        "indice": 0
+      },
+      "parametros": {},
+      "mutou_estado": false
+    },
+    {
+      "indice": 25,
+      "tipo_acao": "noop_fallback",
+      "seletor": {
+        "estrategia": "acao_toolbar",
+        "valor": "Dados",
+        "classe_widget": "",
+        "indice": 0
+      },
+      "parametros": {},
+      "mutou_estado": false
+    },
+    {
+      "indice": 26,
+      "tipo_acao": "interagir_editor_imagens",
+      "seletor": {
+        "estrategia": "cena_grafica",
+        "valor": "imagem_selecionar",
+        "classe_widget": "WidgetEditorImagens",
+        "indice": 0
+      },
+      "parametros": {},
+      "mutou_estado": false
+    },
+    {
+      "indice": 27,
+      "tipo_acao": "noop_fallback",
+      "seletor": {
+        "estrategia": "acao_toolbar",
+        "valor": "Dados",
+        "classe_widget": "",
+        "indice": 0
+      },
+      "parametros": {},
+      "mutou_estado": false
+    },
+    {
+      "indice": 28,
+      "tipo_acao": "publicar_ou_sincronizar",
+      "seletor": {
+        "estrategia": "acao_toolbar",
+        "valor": "Sincronizar",
+        "classe_widget": "",
+        "indice": 0
+      },
+      "parametros": {},
+      "mutou_estado": true
+    },
+    {
+      "indice": 29,
+      "tipo_acao": "salvar_croqui",
+      "seletor": {
+        "estrategia": "acao_toolbar",
+        "valor": "Salvar",
+        "classe_widget": "",
+        "indice": 0
+      },
+      "parametros": {},
+      "mutou_estado": true
+    },
+    {
+      "indice": 30,
+      "tipo_acao": "publicar_ou_sincronizar",
+      "seletor": {
+        "estrategia": "acao_toolbar",
+        "valor": "Sincronizar",
+        "classe_widget": "",
+        "indice": 0
+      },
+      "parametros": {},
+      "mutou_estado": true
+    },
+    {
+      "indice": 31,
+      "tipo_acao": "interagir_editor_mapas",
+      "seletor": {
+        "estrategia": "cena_grafica",
+        "valor": "mapa:slider_circ",
+        "classe_widget": "WidgetEditorMapas",
+        "indice": 0
+      },
+      "parametros": {
+        "sub_op": "slider_circ"
+      },
+      "mutou_estado": true
+    },
+    {
+      "indice": 32,
+      "tipo_acao": "abrir_dialogo_celular",
+      "seletor": {
+        "estrategia": "acao_toolbar",
+        "valor": "Celular",
+        "classe_widget": "",
+        "indice": 0
+      },
+      "parametros": {},
+      "mutou_estado": false
+    },
+    {
+      "indice": 33,
+      "tipo_acao": "interagir_editor_imagens",
+      "seletor": {
+        "estrategia": "cena_grafica",
+        "valor": "imagem_selecionar",
+        "classe_widget": "WidgetEditorImagens",
+        "indice": 0
+      },
+      "parametros": {},
+      "mutou_estado": false
+    },
+    {
+      "indice": 34,
+      "tipo_acao": "noop_fallback",
+      "seletor": {
+        "estrategia": "acao_toolbar",
+        "valor": "Dados",
+        "classe_widget": "",
+        "indice": 0
+      },
+      "parametros": {},
+      "mutou_estado": false
+    },
+    {
+      "indice": 35,
+      "tipo_acao": "publicar_ou_sincronizar",
+      "seletor": {
+        "estrategia": "acao_toolbar",
+        "valor": "Sincronizar",
+        "classe_widget": "",
+        "indice": 0
+      },
+      "parametros": {},
+      "mutou_estado": true
+    },
+    {
+      "indice": 36,
+      "tipo_acao": "interagir_editor_imagens",
+      "seletor": {
+        "estrategia": "cena_grafica",
+        "valor": "imagem_selecionar",
+        "classe_widget": "WidgetEditorImagens",
+        "indice": 0
+      },
+      "parametros": {},
+      "mutou_estado": false
+    },
+    {
+      "indice": 37,
+      "tipo_acao": "abrir_dialogo_celular",
+      "seletor": {
+        "estrategia": "acao_toolbar",
+        "valor": "Celular",
+        "classe_widget": "",
+        "indice": 0
+      },
+      "parametros": {},
+      "mutou_estado": false
+    },
+    {
+      "indice": 38,
+      "tipo_acao": "publicar_ou_sincronizar",
+      "seletor": {
+        "estrategia": "acao_toolbar",
+        "valor": "Sincronizar",
+        "classe_widget": "",
+        "indice": 0
+      },
+      "parametros": {},
+      "mutou_estado": true
+    },
+    {
+      "indice": 39,
+      "tipo_acao": "publicar_ou_sincronizar",
+      "seletor": {
+        "estrategia": "acao_toolbar",
+        "valor": "Sincronizar",
+        "classe_widget": "",
+        "indice": 0
+      },
+      "parametros": {},
+      "mutou_estado": true
+    },
+    {
+      "indice": 40,
+      "tipo_acao": "desfazer_ou_refazer",
+      "seletor": {
+        "estrategia": "acao_toolbar",
+        "valor": "redo",
+        "classe_widget": "",
+        "indice": 0
+      },
+      "parametros": {
+        "op": "redo"
+      },
+      "mutou_estado": false
+    },
+    {
+      "indice": 41,
+      "tipo_acao": "salvar_croqui",
+      "seletor": {
+        "estrategia": "acao_toolbar",
+        "valor": "Salvar",
+        "classe_widget": "",
+        "indice": 0
+      },
+      "parametros": {},
+      "mutou_estado": true
+    },
+    {
+      "indice": 42,
+      "tipo_acao": "interagir_editor_mapas",
+      "seletor": {
+        "estrategia": "cena_grafica",
+        "valor": "mapa:circulo",
+        "classe_widget": "WidgetEditorMapas",
+        "indice": 0
+      },
+      "parametros": {
+        "sub_op": "circulo"
+      },
+      "mutou_estado": true
+    },
+    {
+      "indice": 43,
+      "tipo_acao": "interagir_editor_mapas",
+      "seletor": {
+        "estrategia": "cena_grafica",
+        "valor": "mapa:slider_circ",
+        "classe_widget": "WidgetEditorMapas",
+        "indice": 0
+      },
+      "parametros": {
+        "sub_op": "slider_circ"
+      },
+      "mutou_estado": true
+    },
+    {
+      "indice": 44,
+      "tipo_acao": "interagir_painel_betas",
+      "seletor": {
+        "estrategia": "objeto_ou_texto",
+        "valor": "painel_betas",
+        "classe_widget": "PainelCuradoria",
+        "indice": 0
+      },
+      "parametros": {},
+      "mutou_estado": false
+    },
+    {
+      "indice": 45,
+      "tipo_acao": "noop_fallback",
+      "seletor": {
+        "estrategia": "acao_toolbar",
+        "valor": "Dados",
+        "classe_widget": "",
+        "indice": 0
+      },
+      "parametros": {},
+      "mutou_estado": false
+    },
+    {
+      "indice": 46,
+      "tipo_acao": "interagir_painel_betas",
+      "seletor": {
+        "estrategia": "objeto_ou_texto",
+        "valor": "painel_betas",
+        "classe_widget": "PainelCuradoria",
+        "indice": 0
+      },
+      "parametros": {},
+      "mutou_estado": false
+    },
+    {
+      "indice": 47,
+      "tipo_acao": "interagir_painel_betas",
+      "seletor": {
+        "estrategia": "objeto_ou_texto",
+        "valor": "painel_betas",
+        "classe_widget": "PainelCuradoria",
+        "indice": 0
+      },
+      "parametros": {},
+      "mutou_estado": false
+    },
+    {
+      "indice": 48,
+      "tipo_acao": "trocar_aba",
+      "seletor": {
+        "estrategia": "acao_toolbar",
+        "valor": "aba:2",
+        "classe_widget": "",
+        "indice": 0
+      },
+      "parametros": {
+        "aba": 2
+      },
+      "mutou_estado": false
+    },
+    {
+      "indice": 49,
+      "tipo_acao": "noop_fallback",
+      "seletor": {
+        "estrategia": "acao_toolbar",
+        "valor": "Dados",
+        "classe_widget": "",
+        "indice": 0
+      },
+      "parametros": {},
+      "mutou_estado": false
+    },
+    {
+      "indice": 50,
+      "tipo_acao": "interagir_editor_imagens",
+      "seletor": {
+        "estrategia": "cena_grafica",
+        "valor": "imagem_selecionar",
+        "classe_widget": "WidgetEditorImagens",
+        "indice": 0
+      },
+      "parametros": {},
+      "mutou_estado": false
+    },
+    {
+      "indice": 51,
+      "tipo_acao": "selecionar_no_arvore",
+      "seletor": {
+        "estrategia": "caminho_no_arvore",
+        "valor": "no_visivel:0",
+        "classe_widget": "QTreeView",
+        "indice": 0
+      },
+      "parametros": {
+        "pos": 0
+      },
+      "mutou_estado": false
+    },
+    {
+      "indice": 52,
+      "tipo_acao": "selecionar_no_arvore",
+      "seletor": {
+        "estrategia": "caminho_no_arvore",
+        "valor": "no_visivel:1",
+        "classe_widget": "QTreeView",
+        "indice": 1
+      },
+      "parametros": {
+        "pos": 1
+      },
+      "mutou_estado": false
+    },
+    {
+      "indice": 53,
+      "tipo_acao": "salvar_croqui",
+      "seletor": {
+        "estrategia": "acao_toolbar",
+        "valor": "Salvar",
+        "classe_widget": "",
+        "indice": 0
+      },
+      "parametros": {},
+      "mutou_estado": true
+    }
+  ]
+}

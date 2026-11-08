@@ -1,0 +1,589 @@
+{
+  "seed": 5016,
+  "dataset": "toxico",
+  "escopo": "janela_principal",
+  "falha": {
+    "oraculo": "excecao_nao_tratada",
+    "tipo_excecao": "ValueError",
+    "mensagem": "Mensagem alvo órfã detectada para o comando CmdAlterarCampo: a mensagem do tipo 'Boulder' não pertence à árvore ativa do croqui.",
+    "frame_principal": "editor/commands/comandos_protobuf.py:452",
+    "stacktrace": "Traceback (most recent call last):\n  File \"C:\\Renato\\Devel\\aresta-climb\\aresta_db\\editor\\core\\temporizador_coalescencia.py\", line 52, in _ao_expirar_tempo\n    callback()\n    ~~~~~~~~^^\n  File \"C:\\Renato\\Devel\\aresta-climb\\aresta_db\\editor\\views\\widget_editor_dados.py\", line 838, in _consolidar_edicao\n    self.controller.alterar_primitivo(\n    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^\n        self.msg, self.field.name, val_antigo, text, pode_mesclar=True\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"C:\\Renato\\Devel\\aresta-climb\\aresta_db\\editor\\controllers\\croqui_controller.py\", line 177, in alterar_primitivo\n    cmd = CmdAlterarCampo(\n        model=self.model,\n    ...<6 lines>...\n        context_path=self.contexto_atual_path,\n    )\n  File \"C:\\Renato\\Devel\\aresta-climb\\aresta_db\\editor\\commands\\comandos_protobuf.py\", line 769, in __init__\n    self.caminho_msg = validar_pertence_ao_croqui(\n                       ~~~~~~~~~~~~~~~~~~~~~~~~~~^\n        self.model,\n        ^^^^^^^^^^^\n    ...<3 lines>...\n        field_ext=field_ext,\n        ^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"C:\\Renato\\Devel\\aresta-climb\\aresta_db\\editor\\commands\\comandos_protobuf.py\", line 452, in validar_pertence_ao_croqui\n    raise ValueError(\n    ...<2 lines>...\n    )\nValueError: Mensagem alvo órfã detectada para o comando CmdAlterarCampo: a mensagem do tipo 'Boulder' não pertence à árvore ativa do croqui.\n"
+  },
+  "passos_minimos": [
+    {
+      "indice": 28,
+      "tipo_acao": "selecionar_no_arvore",
+      "seletor": {
+        "estrategia": "caminho_no_arvore",
+        "valor": "no_visivel:15",
+        "classe_widget": "QTreeView",
+        "indice": 15
+      },
+      "parametros": {
+        "pos": 15
+      },
+      "mutou_estado": false
+    },
+    {
+      "indice": 29,
+      "tipo_acao": "editar_campo_texto",
+      "seletor": {
+        "estrategia": "campo_formulario",
+        "valor": "QTextEdit:0",
+        "classe_widget": "QTextEdit",
+        "indice": 0
+      },
+      "parametros": {
+        "pos": 0,
+        "texto": "3.14159265"
+      },
+      "mutou_estado": false
+    },
+    {
+      "indice": 30,
+      "tipo_acao": "alterar_combo_box",
+      "seletor": {
+        "estrategia": "campo_formulario",
+        "valor": "QComboBox:0",
+        "classe_widget": "QComboBox",
+        "indice": 0
+      },
+      "parametros": {
+        "pos": 0,
+        "idx_item": 2
+      },
+      "mutou_estado": true
+    },
+    {
+      "indice": 31,
+      "tipo_acao": "selecionar_no_arvore",
+      "seletor": {
+        "estrategia": "caminho_no_arvore",
+        "valor": "no_visivel:1",
+        "classe_widget": "QTreeView",
+        "indice": 1
+      },
+      "parametros": {
+        "pos": 1
+      },
+      "mutou_estado": false
+    },
+    {
+      "indice": 32,
+      "tipo_acao": "salvar_croqui",
+      "seletor": {
+        "estrategia": "acao_toolbar",
+        "valor": "Salvar",
+        "classe_widget": "",
+        "indice": 0
+      },
+      "parametros": {},
+      "mutou_estado": true
+    },
+    {
+      "indice": 35,
+      "tipo_acao": "desfazer_ou_refazer",
+      "seletor": {
+        "estrategia": "acao_toolbar",
+        "valor": "undo",
+        "classe_widget": "",
+        "indice": 0
+      },
+      "parametros": {
+        "op": "undo"
+      },
+      "mutou_estado": true
+    }
+  ],
+  "passos_originais": [
+    {
+      "indice": 1,
+      "tipo_acao": "salvar_croqui",
+      "seletor": {
+        "estrategia": "acao_toolbar",
+        "valor": "Salvar",
+        "classe_widget": "",
+        "indice": 0
+      },
+      "parametros": {},
+      "mutou_estado": true
+    },
+    {
+      "indice": 2,
+      "tipo_acao": "abrir_dialogo_celular",
+      "seletor": {
+        "estrategia": "acao_toolbar",
+        "valor": "Celular",
+        "classe_widget": "",
+        "indice": 0
+      },
+      "parametros": {},
+      "mutou_estado": false
+    },
+    {
+      "indice": 3,
+      "tipo_acao": "desfazer_ou_refazer",
+      "seletor": {
+        "estrategia": "acao_toolbar",
+        "valor": "redo",
+        "classe_widget": "",
+        "indice": 0
+      },
+      "parametros": {
+        "op": "redo"
+      },
+      "mutou_estado": false
+    },
+    {
+      "indice": 4,
+      "tipo_acao": "alterar_combo_box",
+      "seletor": {
+        "estrategia": "campo_formulario",
+        "valor": "QComboBox:0",
+        "classe_widget": "QComboBox",
+        "indice": 0
+      },
+      "parametros": {
+        "pos": 0,
+        "idx_item": 2
+      },
+      "mutou_estado": true
+    },
+    {
+      "indice": 5,
+      "tipo_acao": "interagir_editor_imagens",
+      "seletor": {
+        "estrategia": "cena_grafica",
+        "valor": "imagem_selecionar",
+        "classe_widget": "WidgetEditorImagens",
+        "indice": 0
+      },
+      "parametros": {},
+      "mutou_estado": false
+    },
+    {
+      "indice": 6,
+      "tipo_acao": "trocar_aba",
+      "seletor": {
+        "estrategia": "acao_toolbar",
+        "valor": "aba:0",
+        "classe_widget": "",
+        "indice": 0
+      },
+      "parametros": {
+        "aba": 0
+      },
+      "mutou_estado": false
+    },
+    {
+      "indice": 7,
+      "tipo_acao": "desfazer_ou_refazer",
+      "seletor": {
+        "estrategia": "acao_toolbar",
+        "valor": "redo",
+        "classe_widget": "",
+        "indice": 0
+      },
+      "parametros": {
+        "op": "redo"
+      },
+      "mutou_estado": false
+    },
+    {
+      "indice": 8,
+      "tipo_acao": "desfazer_ou_refazer",
+      "seletor": {
+        "estrategia": "acao_toolbar",
+        "valor": "undo",
+        "classe_widget": "",
+        "indice": 0
+      },
+      "parametros": {
+        "op": "undo"
+      },
+      "mutou_estado": true
+    },
+    {
+      "indice": 9,
+      "tipo_acao": "desfazer_ou_refazer",
+      "seletor": {
+        "estrategia": "acao_toolbar",
+        "valor": "redo",
+        "classe_widget": "",
+        "indice": 0
+      },
+      "parametros": {
+        "op": "redo"
+      },
+      "mutou_estado": true
+    },
+    {
+      "indice": 10,
+      "tipo_acao": "interagir_editor_mapas",
+      "seletor": {
+        "estrategia": "cena_grafica",
+        "valor": "mapa:circulo",
+        "classe_widget": "WidgetEditorMapas",
+        "indice": 0
+      },
+      "parametros": {
+        "sub_op": "circulo"
+      },
+      "mutou_estado": true
+    },
+    {
+      "indice": 11,
+      "tipo_acao": "publicar_ou_sincronizar",
+      "seletor": {
+        "estrategia": "acao_toolbar",
+        "valor": "Sincronizar",
+        "classe_widget": "",
+        "indice": 0
+      },
+      "parametros": {},
+      "mutou_estado": true
+    },
+    {
+      "indice": 12,
+      "tipo_acao": "desfazer_ou_refazer",
+      "seletor": {
+        "estrategia": "acao_toolbar",
+        "valor": "undo",
+        "classe_widget": "",
+        "indice": 0
+      },
+      "parametros": {
+        "op": "undo"
+      },
+      "mutou_estado": true
+    },
+    {
+      "indice": 13,
+      "tipo_acao": "alterar_combo_box",
+      "seletor": {
+        "estrategia": "campo_formulario",
+        "valor": "QComboBox:0",
+        "classe_widget": "QComboBox",
+        "indice": 0
+      },
+      "parametros": {
+        "pos": 0,
+        "idx_item": 2
+      },
+      "mutou_estado": false
+    },
+    {
+      "indice": 14,
+      "tipo_acao": "selecionar_no_arvore",
+      "seletor": {
+        "estrategia": "caminho_no_arvore",
+        "valor": "no_visivel:9",
+        "classe_widget": "QTreeView",
+        "indice": 9
+      },
+      "parametros": {
+        "pos": 9
+      },
+      "mutou_estado": false
+    },
+    {
+      "indice": 15,
+      "tipo_acao": "publicar_ou_sincronizar",
+      "seletor": {
+        "estrategia": "acao_toolbar",
+        "valor": "Sincronizar",
+        "classe_widget": "",
+        "indice": 0
+      },
+      "parametros": {},
+      "mutou_estado": true
+    },
+    {
+      "indice": 16,
+      "tipo_acao": "abrir_dialogo_celular",
+      "seletor": {
+        "estrategia": "acao_toolbar",
+        "valor": "Celular",
+        "classe_widget": "",
+        "indice": 0
+      },
+      "parametros": {},
+      "mutou_estado": false
+    },
+    {
+      "indice": 17,
+      "tipo_acao": "interagir_painel_betas",
+      "seletor": {
+        "estrategia": "objeto_ou_texto",
+        "valor": "painel_betas",
+        "classe_widget": "PainelCuradoria",
+        "indice": 0
+      },
+      "parametros": {},
+      "mutou_estado": false
+    },
+    {
+      "indice": 18,
+      "tipo_acao": "noop_fallback",
+      "seletor": {
+        "estrategia": "acao_toolbar",
+        "valor": "Dados",
+        "classe_widget": "",
+        "indice": 0
+      },
+      "parametros": {},
+      "mutou_estado": false
+    },
+    {
+      "indice": 19,
+      "tipo_acao": "noop_fallback",
+      "seletor": {
+        "estrategia": "acao_toolbar",
+        "valor": "Dados",
+        "classe_widget": "",
+        "indice": 0
+      },
+      "parametros": {},
+      "mutou_estado": false
+    },
+    {
+      "indice": 20,
+      "tipo_acao": "interagir_editor_imagens",
+      "seletor": {
+        "estrategia": "cena_grafica",
+        "valor": "imagem_selecionar",
+        "classe_widget": "WidgetEditorImagens",
+        "indice": 0
+      },
+      "parametros": {},
+      "mutou_estado": false
+    },
+    {
+      "indice": 21,
+      "tipo_acao": "interagir_editor_mapas",
+      "seletor": {
+        "estrategia": "cena_grafica",
+        "valor": "mapa:circulo",
+        "classe_widget": "WidgetEditorMapas",
+        "indice": 0
+      },
+      "parametros": {
+        "sub_op": "circulo"
+      },
+      "mutou_estado": true
+    },
+    {
+      "indice": 22,
+      "tipo_acao": "interagir_editor_imagens",
+      "seletor": {
+        "estrategia": "cena_grafica",
+        "valor": "imagem_selecionar",
+        "classe_widget": "WidgetEditorImagens",
+        "indice": 0
+      },
+      "parametros": {},
+      "mutou_estado": false
+    },
+    {
+      "indice": 23,
+      "tipo_acao": "noop_fallback",
+      "seletor": {
+        "estrategia": "acao_toolbar",
+        "valor": "Dados",
+        "classe_widget": "",
+        "indice": 0
+      },
+      "parametros": {},
+      "mutou_estado": false
+    },
+    {
+      "indice": 24,
+      "tipo_acao": "noop_fallback",
+      "seletor": {
+        "estrategia": "acao_toolbar",
+        "valor": "Dados",
+        "classe_widget": "",
+        "indice": 0
+      },
+      "parametros": {},
+      "mutou_estado": false
+    },
+    {
+      "indice": 25,
+      "tipo_acao": "abrir_dialogo_celular",
+      "seletor": {
+        "estrategia": "acao_toolbar",
+        "valor": "Celular",
+        "classe_widget": "",
+        "indice": 0
+      },
+      "parametros": {},
+      "mutou_estado": false
+    },
+    {
+      "indice": 26,
+      "tipo_acao": "noop_fallback",
+      "seletor": {
+        "estrategia": "acao_toolbar",
+        "valor": "Dados",
+        "classe_widget": "",
+        "indice": 0
+      },
+      "parametros": {},
+      "mutou_estado": false
+    },
+    {
+      "indice": 27,
+      "tipo_acao": "selecionar_no_arvore",
+      "seletor": {
+        "estrategia": "caminho_no_arvore",
+        "valor": "no_visivel:11",
+        "classe_widget": "QTreeView",
+        "indice": 11
+      },
+      "parametros": {
+        "pos": 11
+      },
+      "mutou_estado": false
+    },
+    {
+      "indice": 28,
+      "tipo_acao": "selecionar_no_arvore",
+      "seletor": {
+        "estrategia": "caminho_no_arvore",
+        "valor": "no_visivel:15",
+        "classe_widget": "QTreeView",
+        "indice": 15
+      },
+      "parametros": {
+        "pos": 15
+      },
+      "mutou_estado": false
+    },
+    {
+      "indice": 29,
+      "tipo_acao": "editar_campo_texto",
+      "seletor": {
+        "estrategia": "campo_formulario",
+        "valor": "QTextEdit:0",
+        "classe_widget": "QTextEdit",
+        "indice": 0
+      },
+      "parametros": {
+        "pos": 0,
+        "texto": "3.14159265"
+      },
+      "mutou_estado": false
+    },
+    {
+      "indice": 30,
+      "tipo_acao": "alterar_combo_box",
+      "seletor": {
+        "estrategia": "campo_formulario",
+        "valor": "QComboBox:0",
+        "classe_widget": "QComboBox",
+        "indice": 0
+      },
+      "parametros": {
+        "pos": 0,
+        "idx_item": 2
+      },
+      "mutou_estado": true
+    },
+    {
+      "indice": 31,
+      "tipo_acao": "selecionar_no_arvore",
+      "seletor": {
+        "estrategia": "caminho_no_arvore",
+        "valor": "no_visivel:1",
+        "classe_widget": "QTreeView",
+        "indice": 1
+      },
+      "parametros": {
+        "pos": 1
+      },
+      "mutou_estado": false
+    },
+    {
+      "indice": 32,
+      "tipo_acao": "salvar_croqui",
+      "seletor": {
+        "estrategia": "acao_toolbar",
+        "valor": "Salvar",
+        "classe_widget": "",
+        "indice": 0
+      },
+      "parametros": {},
+      "mutou_estado": true
+    },
+    {
+      "indice": 33,
+      "tipo_acao": "selecionar_no_arvore",
+      "seletor": {
+        "estrategia": "caminho_no_arvore",
+        "valor": "no_visivel:3",
+        "classe_widget": "QTreeView",
+        "indice": 3
+      },
+      "parametros": {
+        "pos": 3
+      },
+      "mutou_estado": false
+    },
+    {
+      "indice": 34,
+      "tipo_acao": "trocar_aba",
+      "seletor": {
+        "estrategia": "acao_toolbar",
+        "valor": "aba:3",
+        "classe_widget": "",
+        "indice": 0
+      },
+      "parametros": {
+        "aba": 3
+      },
+      "mutou_estado": false
+    },
+    {
+      "indice": 35,
+      "tipo_acao": "desfazer_ou_refazer",
+      "seletor": {
+        "estrategia": "acao_toolbar",
+        "valor": "undo",
+        "classe_widget": "",
+        "indice": 0
+      },
+      "parametros": {
+        "op": "undo"
+      },
+      "mutou_estado": true
+    },
+    {
+      "indice": 36,
+      "tipo_acao": "editar_campo_linha",
+      "seletor": {
+        "estrategia": "campo_formulario",
+        "valor": "QLineEdit:1",
+        "classe_widget": "QLineEdit",
+        "indice": 1
+      },
+      "parametros": {
+        "pos": 1,
+        "texto": "<script>alert('caos')</script> & <b>bold</b>"
+      },
+      "mutou_estado": true
+    },
+    {
+      "indice": 37,
+      "tipo_acao": "publicar_ou_sincronizar",
+      "seletor": {
+        "estrategia": "acao_toolbar",
+        "valor": "Sincronizar",
+        "classe_widget": "",
+        "indice": 0
+      },
+      "parametros": {},
+      "mutou_estado": true
+    }
+  ]
+}

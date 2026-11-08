@@ -34,12 +34,11 @@ class MonitorInatividade(QObject):
         """Emite o sinal quando o tempo de inatividade é atingido."""
         self.inatividade_detectada.emit()
 
-    def eventFilter(self, objeto: QObject, evento: QEvent) -> bool:
+    def eventFilter(self, objeto: object, evento: QEvent) -> bool:
         """Filtra eventos da aplicação para detectar atividade do usuário."""
         # Consideramos apenas cliques de mouse ou teclas pressionadas como interação
         # Mover o mouse (MouseMove) NÃO reseta o timer conforme requisitos
-        if evento.type() in [QEvent.Type.KeyPress, QEvent.Type.MouseButtonPress]:
+        if evento.type() in (QEvent.Type.KeyPress, QEvent.Type.MouseButtonPress):
             self.resetar()
 
-        res = super().eventFilter(objeto, evento)
-        return bool(res)
+        return False

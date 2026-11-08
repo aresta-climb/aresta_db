@@ -312,6 +312,11 @@ class TarefaDadosConexao(QThread):
     def __init__(self, servidor: Any) -> None:
         super().__init__()
         self.servidor: Any = servidor
+        self._cancelado: bool = False
+
+    def solicitar_parada(self) -> None:
+        """Sinaliza cancelamento cooperativo para interromper a espera da thread."""
+        self._cancelado = True
 
     def run(self) -> None:
         try:
@@ -319,12 +324,12 @@ class TarefaDadosConexao(QThread):
             import time
 
             tentativas = 0
-            while self.servidor.porta is None and tentativas < 100:
+            while self.servidor.porta is None and tentativas < 100 and not self._cancelado:
                 time.sleep(0.05)
                 tentativas += 1
 
-            if self.servidor.porta is None:
-                return  # Falha ao iniciar servidor
+            if self._cancelado or self.servidor.porta is None:
+                return  # Cancelado ou falha ao iniciar servidor
 
             if hasattr(self.servidor, "solicitar_sessao_servidor"):
                 if not getattr(self.servidor, "codigo_sessao", None):
@@ -349,7 +354,8 @@ class TarefaDadosConexao(QThread):
                 codigo_formatado = ""
 
             qr_bytes = self.servidor.gerar_qr_code(url)
-            self.concluido.emit(url, qr_bytes, codigo_formatado)
+            if not self._cancelado:
+                self.concluido.emit(url, qr_bytes, codigo_formatado)
         except Exception:
             traceback.print_exc()
 

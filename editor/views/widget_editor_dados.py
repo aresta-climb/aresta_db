@@ -790,6 +790,8 @@ class WidgetEditorMarkdown(QWidget):
         self.preview.setMarkdown(text or "")
 
     def set_conteudo(self, novo_conteudo: str) -> None:
+        if hasattr(self, "temporizador"):
+            self.temporizador.descartar()
         text = "" if novo_conteudo is None else str(novo_conteudo)
         if self.editor.toPlainText() == text:
             return
@@ -1516,6 +1518,7 @@ class ContainerRepeatedWidget(QWidget):
             if widget_alvo:
                 self.items_layout.removeWidget(widget_alvo)
                 widget_alvo.hide()
+                widget_alvo.setParent(None)
                 widget_alvo.deleteLater()
 
             self._atualizar_indices_e_botoes()
@@ -1929,6 +1932,8 @@ class WidgetFormularioPadrao(QStackedWidget):
         """Descarta formulário em cache associado a um msg_id para liberar memória e evitar referências órfãs."""
         if msg_id in self.cached_forms:
             w = self.cached_forms.pop(msg_id)
+            for w_md in w.findChildren(WidgetEditorMarkdown):
+                w_md.temporizador.descartar()
             self.removeWidget(w)
             w.setParent(None)
             w.deleteLater()
@@ -2012,6 +2017,7 @@ class WidgetFormularioPadrao(QStackedWidget):
     def load_node(self, node: Any) -> None:
         cur_w = self.currentWidget()
         if cur_w and cur_w != self.empty_widget:
+            self.forcar_consolidacao_pendente()
             self.atualizador_ui.salvar_estado_foco(cur_w)
 
         self.current_node = node
@@ -2460,6 +2466,10 @@ class WidgetFormularioPadrao(QStackedWidget):
             item = layout.takeAt(0)
             widget = item.widget()
             if widget:
+                for w_md in widget.findChildren(WidgetEditorMarkdown):
+                    w_md.temporizador.descartar()
+                widget.hide()
+                widget.setParent(None)
                 widget.deleteLater()
             elif item.layout():
                 layout_cleaner = QWidget()
@@ -2501,6 +2511,8 @@ class WidgetFormularioPadrao(QStackedWidget):
                 current_active = m.WhichOneof(o.name)
                 if selected_field_name == current_active:
                     return
+
+                self.forcar_consolidacao_pendente()
 
                 nome_antigo = current_active
                 valor_antigo = None

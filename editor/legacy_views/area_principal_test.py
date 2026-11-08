@@ -2202,3 +2202,61 @@ def test_janela_principal_usa_dependencias_injetadas_submissao_loja_e_celular(
     assert instancias_celular[0].parado is True
     janela.close()
 
+
+def test_fechar_janela_e_recarregar_pagina_dados_limpa_recursos_celular_e_timers_markdown(
+    qtbot, tmp_path
+) -> None:
+    """Garante que recarregar PaginaDados cancela timers Markdown órfãos e fechar JanelaPrincipal encerra servidor celular e monitor de inatividade."""
+    from PySide6.QtCore import QTimer
+    from PySide6.QtGui import QUndoStack
+
+    from aresta_api.proto.generated.croqui_pb2 import Setor
+    from editor.controllers.croqui_controller import CroquiController
+    from editor.core.servidor_celular_fake import ServidorCelularFake
+    from editor.legacy_views.area_principal import JanelaPrincipal, PaginaDados
+    from editor.models.croqui_model import CroquiModel
+    from editor.views.widget_editor_dados import WidgetEditorMarkdown
+
+    # 1. PaginaDados.carregar_dados deve cancelar temporizador de coalescência pendente do editor substituído
+    pagina = PaginaDados()
+    qtbot.addWidget(pagina)
+    setor1 = Setor(uid="setr0000000001", nome="Setor 1", descricao="Inicial")
+    model1 = CroquiModel(setor1)
+    ctrl1 = CroquiController(model1, QUndoStack())
+    pagina.carregar_dados(model1, ctrl1)
+
+    idx_raiz = pagina.editor_dados.tree_model.index(0, 0)
+    pagina.editor_dados.form_padrao.load_node(idx_raiz.internalPointer())
+    w_md_antigo = pagina.editor_dados.form_padrao.currentWidget().findChild(WidgetEditorMarkdown)
+    assert w_md_antigo is not None
+    w_md_antigo.editor.setPlainText("Edicao antes de recarregar")
+    assert w_md_antigo.temporizador.esta_ativo() is True
+
+    setor2 = Setor(uid="setr0000000002", nome="Setor 2", descricao="Novo")
+    model2 = CroquiModel(setor2)
+    ctrl2 = CroquiController(model2, QUndoStack())
+    pagina.carregar_dados(model2, ctrl2)
+    assert w_md_antigo.temporizador.esta_ativo() is False
+
+    # 2. Fechar JanelaPrincipal deve encerrar servidor_celular e monitor_inatividade ativos
+    from editor.core.gerenciador_sessao_fake import GerenciadorSessaoFake
+    from editor.core.workspace import ExperimentalWorkspace
+
+    pasta_exp = tmp_path / "001_teste_celular"
+    (pasta_exp / "database").mkdir(parents=True, exist_ok=True)
+    ws = ExperimentalWorkspace(pasta_exp)
+
+    janela = JanelaPrincipal(
+        workspace=ws,
+        auth=GerenciadorSessaoFake(),
+        fabrica_servidor_celular=ServidorCelularFake,
+    )
+    qtbot.addWidget(janela)
+    QTimer.singleShot(20, lambda: janela.dialogo_celular and janela.dialogo_celular.accept())
+    janela._abrir_dialogo_conexao_celular()
+    assert janela.servidor_celular is not None
+    assert janela.monitor_inatividade is not None
+
+    janela.close()
+    assert janela.servidor_celular is None
+    assert janela.monitor_inatividade is None

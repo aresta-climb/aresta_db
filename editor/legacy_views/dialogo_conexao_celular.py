@@ -1,11 +1,10 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Contributors
 
-import base64
 from typing import Any
 
 import qtawesome as qta
-from PySide6.QtCore import QBuffer, QIODevice, QSize, Qt, Signal
+from PySide6.QtCore import QSize, Qt, Signal
 from PySide6.QtGui import QGuiApplication, QPixmap
 from PySide6.QtWidgets import (
     QDialog,
@@ -276,17 +275,13 @@ class DialogoConexaoCelular(QDialog):
         self.solicitar_encerrar.emit()
         self.accept()
 
-    def _icon_para_base64(
-        self, icon_base: str, icon_check: str, cor: str = "#666", tamanho: int = 24
-    ) -> str:
-        """Converte um ícone composto para string Base64 para uso em HTML."""
-        icon = qta.icon(
-            icon_base,
-            icon_check,
-            options=[{"color": cor}, {"color": "#ffffff", "scale_factor": 0.45}],
-        )
-        pixmap = icon.pixmap(tamanho, tamanho)
-        buffer = QBuffer()
-        buffer.open(QIODevice.OpenModeFlag.WriteOnly)
-        pixmap.save(buffer, "PNG")
-        return str(base64.b64encode(buffer.data().data()).decode())
+    def encerrar_tarefa(self, timeout_ms: int = 1000) -> None:
+        """Cancela cooperativamente e aguarda a finalização da thread de dados de conexão."""
+        self.tarefa_dados.solicitar_parada()
+        if self.tarefa_dados.isRunning():
+            self.tarefa_dados.wait(timeout_ms)
+
+    def done(self, resultado: int) -> None:
+        """Garante que a thread de carregamento seja encerrada ao aceitar ou rejeitar o diálogo."""
+        self.encerrar_tarefa()
+        super().done(resultado)
