@@ -147,8 +147,7 @@ escaladas:
     dificuldade: BR_7C
     quantidade_protecoes_intermediarias: 7
     quantidade_protecoes_parada: 2
-    descricao: '**INTERDITADA:** Grande quantidade de chapas de spit antigas; chumbador
-      da 1ª proteção com rosca excessivamente exposta para fora; via muito suja.'
+    descricao: Via manutenida em 12/10/2026, liberada para escalar.
     conquistadores:
     - Juan Kempen
     - Pedro Assis Leite

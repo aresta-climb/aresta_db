@@ -290,8 +290,10 @@ escaladas:
     - Eustáquio Macedo Melo Júnior
     - Fábio Luiz Farias "Fabinho"
     data_abertura: '1993'
-    descricao: 'ATENÇÃO: não utilizar o bico de pedra próximo ao top rope como agarra!
-      Risco de queda do bloco!'
+    descricao: |-
+      ATENÇÃO: não utilizar o bico de pedra próximo ao top rope como agarra! Risco de queda do bloco!
+
+      Via manutenida em 12/10/2026, liberada para escalar, apenas cuidado com o bico de pedra!
 - uid: ZgB4gVcfZ1FoTC
   via_esportiva:
     nome: Bigode Sujo
