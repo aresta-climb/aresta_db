@@ -434,9 +434,9 @@ croquis:
   nome: Morro do Carrapato - Setor Covide
   descricao: ''
   caminho_relativo: br_mg_santa_luzia_morro_do_carrapato_setor_covide/compilado.binarypb
-  checksum_sha256_croqui: 04820ec2fd81c8b8f8e4a0b7e6e109b3c3ec788be30058db49b3cfeadef8b46f
+  checksum_sha256_croqui: f4463a3cc4ddb7acbe04fc82fe16bf0a1eab4bc115f26d1dfc1e13a4bb2dba43
   checksum_sha256_thumbnail: 0c93f073dc2a415f562f1f237494c4b1f939f50bd050323fc9e073bc69a1d8f1
-  timestamp_update: '2026-10-18T22:25:22Z'
+  timestamp_update: '2026-11-08T04:03:15Z'
   precomputados:
     total_escaladas: 31
     total_setores: 3
