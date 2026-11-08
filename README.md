@@ -65,6 +65,11 @@ WHERE e.uid = ? AND e.tipo = 'escalada';
 
 👉 **[Leia a Documentação Completa do Catálogo e Delta Sync](./docs/catalogo_sqlite_e_delta_sync.md)** para detalhes sobre o hash determinístico (`versao_catalogo`), sincronização transacional com o Cloudflare D1 e o gateway `catalogo.arestaclimb.com/sync`.
 
+### 🤖 Resolução Automatizada de Feedbacks de Croqui (`Gemini Flash` + `/ai-fix`)
+Issues de feedback de croqui enviadas pelo aplicativo (`feedback:croqui`) são analisadas automaticamente pelo agente multimodal em `serving/agente_feedback/` (usando visão espacial com régua cartesiana graduada nos mapas e validação Protobuf local com autoretry) para propor Pull Requests prontas para revisão. Mantenedores também podem acionar ou refinar alterações comentando `/ai-fix <instruções>` em Issues ou Pull Requests.
+
+👉 **[Leia o Guia de Configuração do Google AI Studio e Uso do `/ai-fix`](./docs/guia_configuracao_ai_studio_feedback.md)** para configurar a chave gratuita `GEMINI_API_KEY` (Free Tier) e conhecer o fluxo completo.
+
 ---
 
 ## ⚖️ Licenciamento e Política de Direitos Autorais

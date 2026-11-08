@@ -1,0 +1,120 @@
+name: Resolvedor de Feedbacks por IA (Gemini Flash)
+
+on:
+  issues:
+    types: [opened, labeled]
+  issue_comment:
+    types: [created]
+
+jobs:
+  solve-feedback:
+    if: >-
+      (
+        github.event_name == 'issues' &&
+        (
+          (github.event.action == 'opened' && contains(github.event.issue.labels.*.name, 'feedback:croqui')) ||
+          (github.event.action == 'labeled' && github.event.label.name == 'feedback:croqui')
+        )
+      ) ||
+      (
+        github.event_name == 'issue_comment' &&
+        contains(github.event.comment.body, '/ai-fix') &&
+        contains(fromJson('["OWNER", "MEMBER", "COLLABORATOR"]'), github.event.comment.author_association)
+      )
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Gerar Token Restrito do GitHub App (Downscoping)
+        id: app-token
+        uses: actions/create-github-app-token@v3
+        with:
+          client-id: ${{ secrets.BOT_CLIENT_ID }}
+          private-key: ${{ secrets.BOT_PRIVATE_KEY }}
+          permission-contents: write
+          permission-pull-requests: write
+          permission-issues: write
+
+      - name: Determinar Branch de Checkout (main ou PR existente)
+        id: branch-info
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+        run: |
+          NUMERO="${{ github.event.issue.number }}"
+          echo "numero_alvo=$NUMERO" >> $GITHUB_OUTPUT
+
+          if [ "${{ github.event_name }}" = "issue_comment" ] && [ -n "${{ github.event.issue.pull_request.url }}" ]; then
+            REF_BRANCH=$(gh pr view "$NUMERO" --repo "${{ github.repository }}" --json headRefName -q .headRefName)
+          else
+            REF_EXISTENTE=$(gh pr list --repo "${{ github.repository }}" --head "ai-fix/issue-${NUMERO}" --state open --json headRefName -q '.[0].headRefName' || echo "")
+            if [ -n "$REF_EXISTENTE" ]; then
+              REF_BRANCH="$REF_EXISTENTE"
+            else
+              REF_BRANCH="main"
+            fi
+          fi
+          echo "ref_checkout=$REF_BRANCH" >> $GITHUB_OUTPUT
+
+      - name: Checkout do Repositório
+        uses: actions/checkout@v7
+        with:
+          token: ${{ steps.app-token.outputs.token }}
+          ref: ${{ steps.branch-info.outputs.ref_checkout }}
+          fetch-depth: 1
+          submodules: recursive
+          sparse-checkout: |
+            .gitmodules
+            database
+            editor
+            serving
+            scripts
+            migracoes
+            aresta_api
+            pyproject.toml
+            uv.lock
+            .python-version
+
+      - name: Configurar uv e Python
+        uses: astral-sh/setup-uv@v10.0.1
+        with:
+          version: "latest"
+          python-version: "3.13"
+          enable-cache: true
+          cache-dependency-glob: uv.lock
+
+      - name: Instalar Dependências
+        run: |
+          uv sync --frozen --only-group validador
+
+      - name: Configurar Identidade Git do Bot (DCO)
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+        run: |
+          BOT_NAME="${{ steps.app-token.outputs.app-slug }}[bot]"
+          BOT_ID=$(gh api "/users/$BOT_NAME" --jq .id 2>/dev/null || echo "")
+          if [ -n "$BOT_ID" ]; then
+            BOT_EMAIL="${BOT_ID}+${BOT_NAME}@users.noreply.github.com"
+          else
+            BOT_EMAIL="${BOT_NAME}@users.noreply.github.com"
+          fi
+          git config user.name "$BOT_NAME"
+          git config user.email "$BOT_EMAIL"
+
+      - name: Executar Agente de Resolução de Feedback
+        env:
+          PYTHONPATH: .
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          NUMERO_ALVO: ${{ steps.branch-info.outputs.numero_alvo }}
+          CORPO_COMENTARIO: ${{ github.event_name == 'issue_comment' && github.event.comment.body || '' }}
+          ASSOCIACAO_AUTOR: ${{ github.event_name == 'issue_comment' && github.event.comment.author_association || '' }}
+        run: |
+          if [ "${{ github.event_name }}" = "issue_comment" ]; then
+            uv run serving/resolver_feedback_ia.py \
+              --numero-alvo "$NUMERO_ALVO" \
+              --comentario "$CORPO_COMENTARIO" \
+              --associacao-autor "$ASSOCIACAO_AUTOR"
+          else
+            uv run serving/resolver_feedback_ia.py \
+              --numero-alvo "$NUMERO_ALVO"
+          fi
