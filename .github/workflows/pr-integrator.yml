@@ -26,79 +26,12 @@ jobs:
         env:
           GH_TOKEN: ${{ steps.app-token.outputs.token }}
         run: |
-          # Pega o número do PR independente de qual evento acionou
           PR_NUMBER="${{ github.event.pull_request.number || github.event.issue.number }}"
-          # Usa o GH CLI para pegar as branches
-          BRANCH=$(gh pr view $PR_NUMBER --repo ${{ github.repository }} --json headRefName -q .headRefName)
-          BASE_BRANCH=$(gh pr view $PR_NUMBER --repo ${{ github.repository }} --json baseRefName -q .baseRefName)
-          
+          BRANCH=$(gh pr view "$PR_NUMBER" --repo "${{ github.repository }}" --json headRefName -q .headRefName)
+          BASE_BRANCH=$(gh pr view "$PR_NUMBER" --repo "${{ github.repository }}" --json baseRefName -q .baseRefName)
           echo "branch=$BRANCH" >> $GITHUB_OUTPUT
           echo "base_branch=$BASE_BRANCH" >> $GITHUB_OUTPUT
           echo "pr_number=$PR_NUMBER" >> $GITHUB_OUTPUT
-
-      - name: Aguardar e Validar Checagens do Pull Request
-        id: validacao_checks
-        env:
-          GH_TOKEN: ${{ steps.app-token.outputs.token }}
-        run: |
-          PR_ID="${{ steps.pr-info.outputs.pr_number }}"
-          if [ -z "$PR_ID" ]; then
-            echo "codigo_saida=2" >> $GITHUB_OUTPUT
-            exit 2
-          fi
-          echo "Aguardando e validando todas as checagens ativas do PR #$PR_ID..."
-
-          CHECAGENS_APROVADAS=false
-          for i in {1..72}; do
-            CHECKS_JSON=$(gh pr checks "$PR_ID" --repo "${{ github.repository }}" --json name,bucket,state 2>/dev/null || echo "[]")
-            CHECKS_JSON=$(echo "$CHECKS_JSON" | jq '[.[] | select(.name != "integrate")]' 2>/dev/null || echo "[]")
-            TOTAL=$(echo "$CHECKS_JSON" | jq 'length' 2>/dev/null || echo 0)
-
-            if [ "$TOTAL" -eq 0 ]; then
-              echo "Tentativa $i/72: Nenhuma checagem encontrada ainda. Aguardando 10s..."
-              sleep 10
-              continue
-            fi
-
-            # Inspeciona falhas ou cancelamentos (fail-fast)
-            FALHAS=$(echo "$CHECKS_JSON" | jq -r '.[] | select(.bucket == "fail" or .bucket == "cancel") | "\(.name) (bucket=\(.bucket), state=\(.state))"')
-            if [ -n "$FALHAS" ]; then
-              echo "❌ ERRO: Checagens com falha ou canceladas detectadas no PR #$PR_ID:"
-              echo "$FALHAS"
-              echo "Abortando execução do integrador (fail-fast)."
-              echo "codigo_saida=1" >> $GITHUB_OUTPUT
-              exit 1
-            fi
-
-            # Inspeciona se ainda há checagens pendentes
-            PENDENTES=$(echo "$CHECKS_JSON" | jq -r '.[] | select(.bucket == "pending") | "\(.name)"')
-            if [ -z "$PENDENTES" ]; then
-              echo "✅ Todas as checagens ativas ($TOTAL) foram concluídas com sucesso!"
-              echo "$CHECKS_JSON" | jq -r '.[] | " - \(.name): \(.bucket) (\(.state))"'
-              CHECAGENS_APROVADAS=true
-              break
-            fi
-
-            echo "Tentativa $i/72: Aguardando checagens pendentes no PR #$PR_ID:"
-            echo "$PENDENTES" | while read -r nome; do
-              [ -n "$nome" ] && echo "  - $nome (pendente)"
-            done
-
-            sleep 10
-          done
-
-          if [ "$CHECAGENS_APROVADAS" != "true" ]; then
-            echo "❌ ERRO: Tempo limite esgotado (12 minutos) aguardando checagens do PR #$PR_ID."
-            echo "codigo_saida=1" >> $GITHUB_OUTPUT
-            exit 1
-          fi
-          echo "codigo_saida=0" >> $GITHUB_OUTPUT
-
-      - name: Erro Interno no Script de Validação
-        if: always() && steps.validacao_checks.outputs.codigo_saida != '' && steps.validacao_checks.outputs.codigo_saida != '0' && steps.validacao_checks.outputs.codigo_saida != '1'
-        run: |
-          echo "🚨 ERRO INTERNO NO INTEGRADOR DE PR (exit code ${{ steps.validacao_checks.outputs.codigo_saida }})"
-          exit 2
 
       - name: Checkout do Repositório
         uses: actions/checkout@v7
@@ -107,7 +40,7 @@ jobs:
           fetch-depth: 0
           submodules: recursive
           ref: ${{ steps.pr-info.outputs.branch }}
-          
+
       - name: Configurar uv e Python
         uses: astral-sh/setup-uv@v10.0.1
         with:
@@ -116,10 +49,26 @@ jobs:
           enable-cache: true
           cache-dependency-glob: uv.lock
 
+      - name: Aguardar e Validar Checagens do Pull Request
+        id: validacao_checks
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+        run: |
+          PYTHONPATH=. uv run --no-project python serving/integrador_pr_lib.py validar-checks \
+            --pr "${{ steps.pr-info.outputs.pr_number || 0 }}" \
+            --repo "${{ github.repository }}" \
+            --github-output "$GITHUB_OUTPUT"
+
+      - name: Erro Interno no Script de Validação
+        if: always() && steps.validacao_checks.outputs.codigo_saida != '' && steps.validacao_checks.outputs.codigo_saida != '0' && steps.validacao_checks.outputs.codigo_saida != '1'
+        run: |
+          echo "🚨 ERRO INTERNO NO INTEGRADOR DE PR (exit code ${{ steps.validacao_checks.outputs.codigo_saida }})"
+          exit 2
+
       - name: Instalar Dependências
         run: |
           uv sync --frozen --only-group deploy
-          
+
       - name: Obter Arquivos Alterados
         id: changed-files
         uses: tj-actions/changed-files@v47
@@ -134,167 +83,38 @@ jobs:
         env:
           GH_TOKEN: ${{ steps.app-token.outputs.token }}
         run: |
-          BOT_NAME="${{ steps.app-token.outputs.app-slug }}[bot]"
-          BOT_ID=$(gh api "/users/$BOT_NAME" --jq .id 2>/dev/null || echo "")
-          if [ -n "$BOT_ID" ]; then
-            BOT_EMAIL="${BOT_ID}+${BOT_NAME}@users.noreply.github.com"
-          else
-            BOT_EMAIL="${BOT_NAME}@users.noreply.github.com"
-          fi
-          git config user.name "$BOT_NAME"
-          git config user.email "$BOT_EMAIL"
-
-          BASE_BRANCH="${{ steps.pr-info.outputs.base_branch }}"
-          echo "Sincronizando a branch do PR com origin/$BASE_BRANCH antes do deploy..."
-          git fetch origin "$BASE_BRANCH"
-
-          if ! git merge --no-commit --no-ff "origin/$BASE_BRANCH"; then
-            echo "Verificando conflitos de merge com origin/$BASE_BRANCH..."
-            uv run python -c '
-          import pathlib, subprocess, sys
-          conflitos = subprocess.check_output(["git", "diff", "--name-only", "--diff-filter=U"], text=True).splitlines()
-          for arq in conflitos:
-              if arq.startswith("generated/"):
-                  subprocess.run(["git", "checkout", "--theirs", "--", arq], check=True)
-                  subprocess.run(["git", "add", "--", arq], check=True)
-                  print(f"Conflito em artefato gerado resolvido via base: {arq}")
-              else:
-                  for stg, nome_tmp in [("1", ".merge_base"), ("2", ".merge_ours"), ("3", ".merge_theirs")]:
-                      blob = subprocess.check_output(["git", "show", f":{stg}:{arq}"])
-                      if not blob.endswith(b"\n"):
-                          blob += b"\n"
-                      pathlib.Path(nome_tmp).write_bytes(blob)
-                  res = subprocess.run(["git", "merge-file", "-p", ".merge_ours", ".merge_base", ".merge_theirs"], capture_output=True)
-                  for nome_tmp in (".merge_base", ".merge_ours", ".merge_theirs"):
-                      pathlib.Path(nome_tmp).unlink(missing_ok=True)
-                  if res.returncode == 0:
-                      pathlib.Path(arq).write_bytes(res.stdout)
-                      subprocess.run(["git", "add", "--", arq], check=True)
-                      print(f"Conflito de quebra de linha final (EOF) resolvido automaticamente em: {arq}")
-          restantes = subprocess.check_output(["git", "diff", "--name-only", "--diff-filter=U"], text=True).splitlines()
-          if restantes:
-              print(f"❌ ERRO: Conflitos reais não resolvidos automaticamente: {restantes}")
-              sys.exit(1)
-          '
-          fi
+          PYTHONPATH=. uv run python serving/integrador_pr_lib.py sincronizar-base \
+            --base-branch "${{ steps.pr-info.outputs.base_branch }}" \
+            --app-slug "${{ steps.app-token.outputs.app-slug }}" \
+            --repo "${{ github.repository }}"
 
       - name: Executar Deploy Generated
         if: steps.changed-files.outputs.any_changed == 'true'
         run: |
           PYTHONPATH=. uv run scripts/deploy_generated.py --target ${{ steps.changed-files.outputs.all_changed_files }}
-          
+
       - name: Commitar e Enviar Alterações
         env:
           GH_TOKEN: ${{ steps.app-token.outputs.token }}
         run: |
-          BOT_NAME="${{ steps.app-token.outputs.app-slug }}[bot]"
-          BOT_ID=$(gh api "/users/$BOT_NAME" --jq .id 2>/dev/null || echo "")
-          if [ -n "$BOT_ID" ]; then
-            BOT_EMAIL="${BOT_ID}+${BOT_NAME}@users.noreply.github.com"
-          else
-            BOT_EMAIL="${BOT_NAME}@users.noreply.github.com"
-          fi
-          git config user.name "$BOT_NAME"
-          git config user.email "$BOT_EMAIL"
-          git add generated/ database/
-          git commit -s -m "chore: compilação automática para deploy [skip ci]" || echo "Nenhuma alteração para commitar"
-          git push
+          PYTHONPATH=. uv run python serving/integrador_pr_lib.py commitar-e-enviar \
+            --app-slug "${{ steps.app-token.outputs.app-slug }}" \
+            --repo "${{ github.repository }}"
 
       - name: Aguardar e Verificar Check do DCO
         env:
           GH_TOKEN: ${{ steps.app-token.outputs.token }}
         run: |
-          PR_ID="${{ steps.pr-info.outputs.pr_number }}"
-          echo "Verificando o status check do DCO para o PR #$PR_ID..."
-          sleep 3
-
-          DCO_APROVADO=false
-          for i in {1..15}; do
-            DCO_STATUS=$(gh pr checks "$PR_ID" --repo ${{ github.repository }} --json name,bucket,state -q '.[] | select(.name == "DCO") | "\(.bucket)|\(.state)"' 2>/dev/null || echo "")
-            echo "Tentativa $i de 15 - Status DCO: '$DCO_STATUS'"
-
-            if [ -n "$DCO_STATUS" ]; then
-              IFS='|' read -r DCO_BUCKET DCO_STATE <<< "$DCO_STATUS"
-
-              if [ "$DCO_BUCKET" = "pass" ] || [ "$DCO_STATE" = "SUCCESS" ]; then
-                echo "✅ Check do DCO aprovado com sucesso!"
-                DCO_APROVADO=true
-                break
-              elif [ "$DCO_BUCKET" = "fail" ] || [ "$DCO_BUCKET" = "cancel" ] || [ "$DCO_STATE" = "FAILURE" ] || [ "$DCO_STATE" = "ACTION_REQUIRED" ]; then
-                echo "❌ ERRO: O status check do DCO falhou para o PR #$PR_ID. Merge bloqueado."
-                exit 1
-              fi
-            fi
-
-            echo "Aguardando o processamento do check DCO..."
-            sleep 3
-          done
-
-          if [ "$DCO_APROVADO" != "true" ]; then
-            echo "❌ ERRO: Tempo limite esgotado aguardando aprovação do check DCO para o PR #$PR_ID."
-            exit 1
-          fi
+          PYTHONPATH=. uv run python serving/integrador_pr_lib.py verificar-dco \
+            --pr "${{ steps.pr-info.outputs.pr_number }}" \
+            --repo "${{ github.repository }}"
 
       - name: Realizar Merge do PR
         env:
           GH_TOKEN: ${{ steps.app-token.outputs.token }}
         run: |
-          PR_ID="${{ steps.pr-info.outputs.pr_number }}"
-          BASE_BRANCH="${{ steps.pr-info.outputs.base_branch }}"
-          echo "Aguardando o GitHub processar o estado de merge do PR #$PR_ID após o push..."
-          sleep 3
-
-          # O GitHub precisa de alguns segundos após o 'git push' para recalcular o estado do PR.
-          # Usamos retry sem a flag '--auto' (que exige configuração de auto-merge nas configs do repo) para efetuar o merge direto.
-          for i in {1..10}; do
-            STATUS=$(gh pr view "$PR_ID" --repo ${{ github.repository }} --json mergeable,mergeStateStatus -q '{mergeable: .mergeable, status: .mergeStateStatus}' 2>/dev/null || echo "Processando")
-            MERGEABLE=$(gh pr view "$PR_ID" --repo ${{ github.repository }} --json mergeable -q .mergeable 2>/dev/null || echo "UNKNOWN")
-            echo "Tentativa $i de 10 - Estado do PR: $STATUS"
-
-            if [ "$MERGEABLE" = "CONFLICTING" ]; then
-              echo "⚠️ Conflito detectado com origin/$BASE_BRANCH (provavelmente outro PR acabou de ser integrado). Ressincronizando..."
-              git fetch origin "$BASE_BRANCH"
-              if ! git merge --no-commit --no-ff "origin/$BASE_BRANCH"; then
-                uv run python -c '
-          import pathlib, subprocess, sys
-          conflitos = subprocess.check_output(["git", "diff", "--name-only", "--diff-filter=U"], text=True).splitlines()
-          for arq in conflitos:
-              if arq.startswith("generated/"):
-                  subprocess.run(["git", "checkout", "--theirs", "--", arq], check=True)
-                  subprocess.run(["git", "add", "--", arq], check=True)
-              else:
-                  for stg, nome_tmp in [("1", ".merge_base"), ("2", ".merge_ours"), ("3", ".merge_theirs")]:
-                      blob = subprocess.check_output(["git", "show", f":{stg}:{arq}"])
-                      if not blob.endswith(b"\n"):
-                          blob += b"\n"
-                      pathlib.Path(nome_tmp).write_bytes(blob)
-                  res = subprocess.run(["git", "merge-file", "-p", ".merge_ours", ".merge_base", ".merge_theirs"], capture_output=True)
-                  for nome_tmp in (".merge_base", ".merge_ours", ".merge_theirs"):
-                      pathlib.Path(nome_tmp).unlink(missing_ok=True)
-                  if res.returncode == 0:
-                      pathlib.Path(arq).write_bytes(res.stdout)
-                      subprocess.run(["git", "add", "--", arq], check=True)
-          if subprocess.check_output(["git", "diff", "--name-only", "--diff-filter=U"], text=True).splitlines():
-              sys.exit(1)
-          '
-              fi
-              if [ "${{ steps.changed-files.outputs.any_changed }}" = "true" ]; then
-                PYTHONPATH=. uv run scripts/deploy_generated.py --target ${{ steps.changed-files.outputs.all_changed_files }}
-              fi
-              git add generated/ database/
-              git commit -s -m "chore: ressincronizar e recompilar para deploy [skip ci]" || true
-              git push
-              sleep 5
-            fi
-
-            if gh pr merge "$PR_ID" --repo ${{ github.repository }} --merge --delete-branch; then
-              echo "Merge realizado com sucesso!"
-              exit 0
-            fi
-
-            echo "Aguardando o GitHub finalizar a análise de mergeabilidade..."
-            sleep 4
-          done
-
-          echo "Falha ao realizar o merge após várias tentativas. Pode haver um conflito real ou bloqueio de branch protection."
-          exit 1
+          PYTHONPATH=. uv run python serving/integrador_pr_lib.py realizar-merge \
+            --pr "${{ steps.pr-info.outputs.pr_number }}" \
+            --repo "${{ github.repository }}" \
+            --base-branch "${{ steps.pr-info.outputs.base_branch }}" \
+            --pastas ${{ steps.changed-files.outputs.all_changed_files }}

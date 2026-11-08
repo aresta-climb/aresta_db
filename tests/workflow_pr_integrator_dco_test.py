@@ -13,7 +13,7 @@ from editor.core.serializacao_util import carregar_yaml
 
 
 class TestWorkflowPrIntegratorDco(unittest.TestCase):
-    """Testa a configuração do DCO e a verificação de DCO no workflow do integrador."""
+    """Testa a configuração do DCO e a delegação do workflow do integrador para `serving/integrador_pr_lib.py`."""
 
     def setUp(self) -> None:
         self.raiz_projeto = Path(__file__).resolve().parent.parent
@@ -57,7 +57,6 @@ class TestWorkflowPrIntegratorDco(unittest.TestCase):
         passos = conteudo_workflow["jobs"]["integrate"]["steps"]
         nomes_passos = [p.get("name", "") for p in passos]
 
-        # Verifica a existência do passo de DCO
         passo_dco = next((p for p in passos if "DCO" in p.get("name", "")), None)
         self.assertIsNotNone(
             passo_dco,
@@ -65,7 +64,6 @@ class TestWorkflowPrIntegratorDco(unittest.TestCase):
         )
         assert passo_dco is not None
 
-        # Verifica a ordem dos passos: DCO deve estar depois de 'Commitar e Enviar Alterações' e antes de 'Realizar Merge do PR'
         indice_dco = passos.index(passo_dco)
         passo_push = next((p for p in passos if "Commitar" in p.get("name", "")), None)
         self.assertIsNotNone(passo_push, "Passo de commit e push não encontrado.")
@@ -89,31 +87,21 @@ class TestWorkflowPrIntegratorDco(unittest.TestCase):
             "A verificação do DCO deve ser executada obrigatoriamente antes do merge do PR.",
         )
 
-        # Verifica as credenciais e variáveis de ambiente
         env_dco = passo_dco.get("env", {})
-        self.assertIn("GH_TOKEN", env_dco, "O passo de DCO deve definir GH_TOKEN.")
         self.assertEqual(
-            env_dco["GH_TOKEN"],
+            env_dco.get("GH_TOKEN"),
             "${{ steps.app-token.outputs.token }}",
             "O token usado deve ser o app-token com credenciais do bot.",
         )
 
-        # Verifica se o script do passo consulta gh pr checks e o check DCO
         script_dco = passo_dco.get("run", "")
-        self.assertIn("gh pr checks", script_dco, "O passo de DCO deve utilizar 'gh pr checks'.")
-        self.assertIn(
-            "DCO", script_dco, "O script do passo deve filtrar especificamente o check 'DCO'."
-        )
-        self.assertIn(
-            "exit 1", script_dco, "O passo deve abortar com exit 1 em caso de falha no DCO."
-        )
-        self.assertIn("pass", script_dco, "O passo deve tratar o bucket 'pass'.")
-        self.assertIn("fail", script_dco, "O passo deve tratar o bucket 'fail'.")
+        self.assertIn("serving/integrador_pr_lib.py", script_dco)
+        self.assertIn("verificar-dco", script_dco)
 
     def test_workflow_pr_integrator_possui_passo_aguardar_e_validar_checagens_antes_do_deploy(
         self,
     ) -> None:
-        """Garante que pr-integrator.yml possui etapa no início para validar todos os checks ativos com fail-fast."""
+        """Garante que pr-integrator.yml valida todos os checks ativos antes de instalar dependências e rodar deploy."""
         self.assertTrue(
             self.caminho_workflow.exists(), "O workflow pr-integrator.yml deve existir."
         )
@@ -138,68 +126,33 @@ class TestWorkflowPrIntegratorDco(unittest.TestCase):
         )
         assert passo_checks is not None
 
-        # Deve estar posicionado antes do checkout e deploy
         indice_checks = passos.index(passo_checks)
-        passo_info = next(
-            (p for p in passos if "Obter Informações do PR" in p.get("name", "")), None
-        )
-        self.assertIsNotNone(passo_info, "Passo de obter informações do PR não encontrado.")
-        assert passo_info is not None
-        indice_info = passos.index(passo_info)
-
-        self.assertLess(
-            indice_info,
-            indice_checks,
-            "A etapa de validação de checks deve ser executada após a obtenção das informações do PR.",
-        )
-
-        passo_checkout = next(
-            (p for p in passos if "Checkout do Repositório" in p.get("name", "")), None
-        )
-        self.assertIsNotNone(passo_checkout, "Passo de checkout não encontrado.")
-        assert passo_checkout is not None
-        indice_checkout = passos.index(passo_checkout)
+        passo_deps = next((p for p in passos if "Instalar Dependências" in p.get("name", "")), None)
+        self.assertIsNotNone(passo_deps, "Passo 'Instalar Dependências' não encontrado.")
+        assert passo_deps is not None
+        indice_deps = passos.index(passo_deps)
 
         self.assertLess(
             indice_checks,
-            indice_checkout,
-            "A etapa de validação de checks deve ser executada antes do checkout para garantir fail-fast.",
+            indice_deps,
+            "A etapa de validação de checks deve ocorrer antes da instalação de dependências para garantir fail-fast.",
         )
 
-        # Verifica env GH_TOKEN
         env_checks = passo_checks.get("env", {})
-        self.assertIn(
-            "GH_TOKEN", env_checks, "O passo de validação de checks deve definir GH_TOKEN."
-        )
         self.assertEqual(
-            env_checks["GH_TOKEN"],
+            env_checks.get("GH_TOKEN"),
             "${{ steps.app-token.outputs.token }}",
             "O token usado deve ser o app-token com credenciais do bot.",
         )
 
-        # Verifica conteúdo do script
         script_checks = passo_checks.get("run", "")
-        self.assertIn("gh pr checks", script_checks, "O script deve chamar 'gh pr checks'.")
-        self.assertIn(
-            'select(.name != "integrate")',
-            script_checks,
-            "O script deve filtrar o próprio check 'integrate' para evitar auto-deadlock e bloqueios em re-execuções.",
-        )
-        self.assertIn("fail", script_checks, "O script deve tratar falhas (fail).")
-        self.assertIn("cancel", script_checks, "O script deve tratar cancelamentos (cancel).")
-        self.assertIn(
-            "pending", script_checks, "O script deve monitorar checagens pendentes (pending)."
-        )
-        self.assertIn(
-            "exit 1",
-            script_checks,
-            "O script deve abortar com exit 1 em caso de falha de qualquer check.",
-        )
+        self.assertIn("serving/integrador_pr_lib.py", script_checks)
+        self.assertIn("validar-checks", script_checks)
 
-    def test_workflow_pr_integrator_sincroniza_branch_base_antes_do_deploy_e_em_conflito_de_merge(
+    def test_workflow_pr_integrator_sincroniza_branch_base_e_delega_commit_e_merge(
         self,
     ) -> None:
-        """Garante que pr-integrator.yml faz merge prévio da branch base antes do deploy e ressincroniza se a base avançar."""
+        """Garante que pr-integrator.yml delega sincronização da base, commit e merge para integrador_pr_lib.py."""
         self.assertTrue(
             self.caminho_workflow.exists(), "O workflow pr-integrator.yml deve existir."
         )
@@ -220,65 +173,35 @@ class TestWorkflowPrIntegratorDco(unittest.TestCase):
         )
         assert passo_sync is not None
 
-        passo_checkout = next(
-            (p for p in passos if "Checkout do Repositório" in p.get("name", "")), None
-        )
-        self.assertIsNotNone(passo_checkout)
-        assert passo_checkout is not None
-
         passo_deploy = next(
             (p for p in passos if "Executar Deploy Generated" in p.get("name", "")), None
         )
         self.assertIsNotNone(passo_deploy)
         assert passo_deploy is not None
 
-        indice_checkout = passos.index(passo_checkout)
-        indice_sync = passos.index(passo_sync)
-        indice_deploy = passos.index(passo_deploy)
-
         self.assertLess(
-            indice_checkout,
-            indice_sync,
-            "A sincronização com a branch base deve ocorrer após o checkout do repositório.",
-        )
-        self.assertLess(
-            indice_sync,
-            indice_deploy,
+            passos.index(passo_sync),
+            passos.index(passo_deploy),
             "A sincronização com a branch base deve ocorrer antes da execução do deploy_generated.py.",
         )
 
         script_sync = passo_sync.get("run", "")
-        self.assertIn("git fetch origin", script_sync)
-        self.assertIn("git merge", script_sync)
-        self.assertIn("merge-file", script_sync)
+        self.assertIn("serving/integrador_pr_lib.py", script_sync)
+        self.assertIn("sincronizar-base", script_sync)
+
+        passo_commit = next((p for p in passos if "Commitar" in p.get("name", "")), None)
+        self.assertIsNotNone(passo_commit)
+        assert passo_commit is not None
+        script_commit = passo_commit.get("run", "")
+        self.assertIn("serving/integrador_pr_lib.py", script_commit)
+        self.assertIn("commitar-e-enviar", script_commit)
 
         passo_merge = next((p for p in passos if "Realizar Merge do PR" in p.get("name", "")), None)
         self.assertIsNotNone(passo_merge)
         assert passo_merge is not None
         script_merge = passo_merge.get("run", "")
-        self.assertIn("CONFLICTING", script_merge)
-        self.assertIn("deploy_generated.py", script_merge)
-
-    def test_workflow_pr_integrator_inclui_pasta_database_no_staging_do_commit(self) -> None:
-        """Garante que a etapa de commit inclui tanto generated/ quanto database/ no git add."""
-        self.assertTrue(
-            self.caminho_workflow.exists(), "O workflow pr-integrator.yml deve existir."
-        )
-
-        with open(self.caminho_workflow, encoding="utf-8") as f:
-            conteudo_workflow = carregar_yaml(f)
-
-        passos = conteudo_workflow["jobs"]["integrate"]["steps"]
-        passo_commit = next((p for p in passos if "Commitar" in p.get("name", "")), None)
-        self.assertIsNotNone(passo_commit, "Passo de commit e push não encontrado.")
-        assert passo_commit is not None
-
-        script_commit = passo_commit.get("run", "")
-        self.assertIn(
-            "git add generated/ database/",
-            script_commit,
-            "O comando de staging no commit deve incluir tanto 'generated/' quanto 'database/'.",
-        )
+        self.assertIn("serving/integrador_pr_lib.py", script_merge)
+        self.assertIn("realizar-merge", script_merge)
 
 
 if __name__ == "__main__":
