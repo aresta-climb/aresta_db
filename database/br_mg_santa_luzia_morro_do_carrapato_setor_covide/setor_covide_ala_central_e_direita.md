@@ -495,7 +495,7 @@ escaladas:
     nome: Covide hepática
     dificuldade: BR_7A
     extensao: 10
-    quantidade_protecoes_intermediarias: 4
+    quantidade_protecoes_intermediarias: 7
     quantidade_protecoes_parada: 2
     conquistadores:
     - Márcio Macena
@@ -503,7 +503,7 @@ escaladas:
     descricao: |-
       **Equipamentos:**
       - 1x Corda 30m
-      - 4x costuras curtas
+      - 7x costuras curtas
       - 1x parada dupla montada
   mapas:
   - caminho_imagem_mapa: imagens/setor_covide_ala_central_e_direita_p19.webp
@@ -534,4 +534,4 @@ escaladas:
 | - | Encosto gripal | VIIb (5+2) |
 | - | Virose operária | VIIIa (5+2) |
 | - | Covidinho | VIIb (4+2) |
-| - | Covide hepática | VIIa (4+2) |
+| - | Covide hepática | VIIa (7+2) |
