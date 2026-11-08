@@ -56,6 +56,8 @@ def test_oraculo_captura_excecao_em_sys_e_threading_excepthook() -> None:
     oraculos.limpar_falhas()
     falha_sem_tb = oraculos.registrar_excecao(RuntimeError, RuntimeError("Sem TB"), None)
     assert falha_sem_tb.frame_principal == "frame_desconhecido:0"
+    assert falha_sem_tb.excecao_original is not None
+    assert falha_sem_tb.excecao_original.__traceback__ is not None
 
 
 def test_oraculo_detecta_objeto_qt_cpp_deletado(qtbot) -> None:  # type: ignore[no-untyped-def]
@@ -69,6 +71,9 @@ def test_oraculo_detecta_objeto_qt_cpp_deletado(qtbot) -> None:  # type: ignore[
     falha = oraculos.verificar_integridade_objetos_qt([widget_morto])
     assert falha is not None
     assert falha.oraculo == "objeto_cpp_deletado"
+    assert falha.excecao_original is not None
+    assert falha.excecao_original.__traceback__ is not None
+    assert "Traceback (most recent call last):" in falha.stacktrace
 
 
 def test_oraculo_simetria_undo_redo_aprova_comandos_simetricos_e_coalescencia() -> None:
@@ -123,6 +128,9 @@ def test_oraculo_simetria_detecta_mutacao_sem_comando_e_undo_assimetrico() -> No
     falha_viii = oraculos.auditar_passo_historico(model, historico, foi_undo_ou_redo=False)
     assert falha_viii is not None
     assert falha_viii.oraculo == "violacao_principio_viii"
+    assert falha_viii.excecao_original is not None
+    assert falha_viii.excecao_original.__traceback__ is not None
+    assert "Traceback (most recent call last):" in falha_viii.stacktrace
 
     # Ressincroniza e testa um comando com undo() defeituoso (assimétrico)
     oraculos.ressincronizar_estado_base(model, historico)
@@ -146,6 +154,9 @@ def test_oraculo_simetria_detecta_mutacao_sem_comando_e_undo_assimetrico() -> No
     assert falha_undo is not None
     assert falha_undo.oraculo == "assimetria_undo_redo"
     assert "Comando Bugado" in falha_undo.mensagem
+    assert falha_undo.excecao_original is not None
+    assert falha_undo.excecao_original.__traceback__ is not None
+    assert "Traceback (most recent call last):" in falha_undo.stacktrace
 
 
 def test_oraculo_diario_valida_diario_integro_e_detecta_corrupcao(
@@ -172,6 +183,9 @@ def test_oraculo_diario_valida_diario_integro_e_detecta_corrupcao(
     falha_malformado = oraculos.verificar_integridade_diario(diario)
     assert falha_malformado is not None
     assert falha_malformado.oraculo == "corrupcao_diario"
+    assert falha_malformado.excecao_original is not None
+    assert falha_malformado.excecao_original.__traceback__ is not None
+    assert "Traceback (most recent call last):" in falha_malformado.stacktrace
 
 
 def test_oraculo_captura_erros_e_excecoes_registrados_no_logger() -> None:
@@ -191,6 +205,8 @@ def test_oraculo_captura_erros_e_excecoes_registrados_no_logger() -> None:
     assert falha_com_exc.oraculo == "erro_registrado_log"
     assert falha_com_exc.tipo_excecao == "OSError"
     assert "Invalid argument" in falha_com_exc.mensagem
+    assert falha_com_exc.excecao_original is not None
+    assert falha_com_exc.excecao_original.__traceback__ is not None
 
     oraculos.limpar_falhas()
     with oraculos.monitorar_excecoes():
@@ -201,3 +217,6 @@ def test_oraculo_captura_erros_e_excecoes_registrados_no_logger() -> None:
     assert falha_sem_exc.oraculo == "erro_registrado_log"
     assert falha_sem_exc.tipo_excecao == "LogError"
     assert "Falha sem exc_info" in falha_sem_exc.mensagem
+    assert falha_sem_exc.excecao_original is not None
+    assert falha_sem_exc.excecao_original.__traceback__ is not None
+    assert "Traceback (most recent call last):" in falha_sem_exc.stacktrace

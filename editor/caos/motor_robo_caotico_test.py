@@ -142,32 +142,57 @@ def test_interceptador_modal_desbloqueia_qdialog_exec_automaticamente(
 def test_campanha_por_tempo_captura_encolhe_deduplica_e_salva_receita(
     tmp_path: Path,
 ) -> None:
-    import os
+    import sentry_sdk as sdk_real
+
+    from editor.core.telemetria import sanitizar_evento_sentry
 
     pasta_saida = tmp_path / "caminhos_regressao"
-    eventos_sentry: list[object] = []
-    dsn_anterior = os.environ.get("SENTRY_DSN_EDITOR")
-    os.environ["SENTRY_DSN_EDITOR"] = ""
+    eventos_callback: list[object] = []
+    envelopes_sentry: list[tuple[dict, dict]] = []
+
+    init_original = sdk_real.init
+
+    def _init_interceptado(*args: object, **kwargs: object) -> None:
+        kwargs_mod = dict(kwargs)
+        kwargs_mod["dsn"] = "https://public@example.com/1"
+
+        def _before_send_espiao(event: dict, hint: dict) -> None:
+            limpo = sanitizar_evento_sentry(event, hint)
+            if limpo is not None:
+                envelopes_sentry.append((limpo, hint))
+            return None
+
+        kwargs_mod["before_send"] = _before_send_espiao
+        init_original(*args, **kwargs_mod)
+
+    sdk_real.init = _init_interceptado  # type: ignore[assignment]
     try:
         resumo = MotorRoboCaoticoQt.executar_campanha(
             raiz_tmp=tmp_path / "campanha",
             duracao_segundos=15.0,
+            seed_inicial=1001,
             max_sementes=2,
             passos_por_semente=8,
             diretorio_receitas=pasta_saida,
             reportar_sentry=True,
-            injetar_falha_no_passo=4,
-            callback_reportar_sentry=eventos_sentry.append,
+            injetar_falha_no_passo=6,
+            callback_reportar_sentry=eventos_callback.append,
         )
     finally:
-        if dsn_anterior is None:
-            os.environ.pop("SENTRY_DSN_EDITOR", None)
-        else:
-            os.environ["SENTRY_DSN_EDITOR"] = dsn_anterior
+        sdk_real.init = init_original  # type: ignore[assignment]
 
     assert resumo.sementes_executadas == 2
     assert resumo.falhas_totais == 2
     assert resumo.falhas_unicas == 1
     assert len(resumo.receitas_salvas) == 1
     assert resumo.receitas_salvas[0].is_file()
-    assert len(eventos_sentry) == 1
+    assert len(eventos_callback) == 1
+
+    assert len(envelopes_sentry) == 1
+    evento_sentry, hint_sentry = envelopes_sentry[0]
+    breadcrumbs = evento_sentry.get("breadcrumbs", {}).get("values", [])
+    assert any(b.get("category") == "historico" for b in breadcrumbs)
+    frames = evento_sentry["exception"]["values"][0]["stacktrace"]["frames"]
+    assert len(frames) >= 1
+    nomes_anexos = [a.filename for a in hint_sentry.get("attachments", [])]
+    assert resumo.receitas_salvas[0].name in nomes_anexos

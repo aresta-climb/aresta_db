@@ -43,7 +43,12 @@ from editor.core.gerenciador_sessao_fake import GerenciadorSessaoFake
 from editor.core.servico_submissao import StatusSincronizacao
 from editor.core.servico_submissao_fake import ServicoSubmissaoFake
 from editor.core.servidor_celular_fake import ServidorCelularFake
-from editor.core.telemetria import capturar_crash_robo_caotico
+from editor.core.telemetria import (
+    ativar_sessao_sentry_robo_caotico,
+    capturar_crash_robo_caotico,
+    escopo_isolado_semente_sentry,
+    escopo_silencioso_ddmin_sentry,
+)
 from editor.core.workspace import ExperimentalWorkspace
 from editor.legacy_views.area_principal import JanelaPrincipal
 from editor.main import ControladorAplicativo
@@ -956,75 +961,88 @@ class MotorRoboCaoticoQt:
         falhas_totais = 0
         assinaturas_vistas: set[str] = set()
         receitas_salvas: list[Path] = []
+        gerenciador_sessao_sentry = (
+            ativar_sessao_sentry_robo_caotico() if reportar_sentry else contextlib.nullcontext()
+        )
 
-        while sementes_executadas < max_sementes and (time.monotonic() - inicio) < duracao_segundos:
-            seed_atual = seed_inicial + sementes_executadas
-            dataset = "toxico" if sementes_executadas % 2 == 0 else "normal"
-            cfg = ConfiguracaoSessaoCaos(
-                seed=seed_atual,
-                max_passos=passos_por_semente,
-                dataset=dataset,
-                escopo="janela_principal",
-                injetar_falha_no_passo=injetar_falha_no_passo,
-            )
-            pasta_semente = Path(raiz_tmp) / f"seed_{seed_atual}"
-            motor = cls(pasta_semente, cfg)
-            resultado = motor.executar_sessao()
-            sementes_executadas += 1
+        with gerenciador_sessao_sentry:
+            while (
+                sementes_executadas < max_sementes
+                and (time.monotonic() - inicio) < duracao_segundos
+            ):
+                seed_atual = seed_inicial + sementes_executadas
+                dataset = "toxico" if sementes_executadas % 2 == 0 else "normal"
+                cfg = ConfiguracaoSessaoCaos(
+                    seed=seed_atual,
+                    max_passos=passos_por_semente,
+                    dataset=dataset,
+                    escopo="janela_principal",
+                    injetar_falha_no_passo=injetar_falha_no_passo,
+                )
+                pasta_semente = Path(raiz_tmp) / f"seed_{seed_atual}"
+                with escopo_isolado_semente_sentry(
+                    seed=seed_atual,
+                    dataset=dataset,
+                    escopo=cfg.escopo,
+                ):
+                    motor = cls(pasta_semente, cfg)
+                    resultado = motor.executar_sessao()
+                    sementes_executadas += 1
 
-            if resultado.falha is not None:
-                falhas_totais += 1
-                assinatura = resultado.falha.assinatura_deduplicacao()
-                if assinatura not in assinaturas_vistas:
-                    assinaturas_vistas.add(assinatura)
-                    receita_bruta = ReceitaCrashRobo(
-                        seed=seed_atual,
-                        dataset=dataset,
-                        escopo=cfg.escopo,
-                        falha=resultado.falha,
-                        passos_minimos=resultado.passos_executados,
-                        passos_originais=resultado.passos_executados,
-                    )
-                    tentativa_idx = 0
+                    if resultado.falha is not None:
+                        falhas_totais += 1
+                        assinatura = resultado.falha.assinatura_deduplicacao()
+                        if assinatura not in assinaturas_vistas:
+                            assinaturas_vistas.add(assinatura)
+                            receita_bruta = ReceitaCrashRobo(
+                                seed=seed_atual,
+                                dataset=dataset,
+                                escopo=cfg.escopo,
+                                falha=resultado.falha,
+                                passos_minimos=resultado.passos_executados,
+                                passos_originais=resultado.passos_executados,
+                            )
+                            tentativa_idx = 0
 
-                    def _avaliar(cand: Sequence[PassoRobo]) -> FalhaCapturadaRobo | None:
-                        nonlocal tentativa_idx
-                        tentativa_idx += 1
-                        return motor.reproduzir_passos(
-                            cand, subpasta_replay=f"ddmin_{tentativa_idx}"
-                        )
+                            def _avaliar(cand: Sequence[PassoRobo]) -> FalhaCapturadaRobo | None:
+                                nonlocal tentativa_idx
+                                tentativa_idx += 1
+                                return motor.reproduzir_passos(
+                                    cand, subpasta_replay=f"ddmin_{tentativa_idx}"
+                                )
 
-                    encolhedor = EncolhedorCaminhoCrash(_avaliar, max_tentativas=10)
-                    receita_minima = encolhedor.encolher(receita_bruta)
+                            encolhedor = EncolhedorCaminhoCrash(_avaliar, max_tentativas=10)
+                            with escopo_silencioso_ddmin_sentry():
+                                receita_minima = encolhedor.encolher(receita_bruta)
 
-                    pasta_destino_json = (
-                        Path(diretorio_receitas)
-                        if diretorio_receitas is not None
-                        else (Path(raiz_tmp) / "receitas_temporarias")
-                    )
-                    caminho_arq = (
-                        pasta_destino_json
-                        / f"crash_seed_{seed_atual}_{resultado.falha.tipo_excecao.lower()}.json"
-                    )
-                    receita_minima.salvar_json(caminho_arq)
-                    if diretorio_receitas is not None:
-                        receitas_salvas.append(caminho_arq)
+                            pasta_destino_json = (
+                                Path(diretorio_receitas)
+                                if diretorio_receitas is not None
+                                else (Path(raiz_tmp) / "receitas_temporarias")
+                            )
+                            caminho_arq = (
+                                pasta_destino_json
+                                / f"crash_seed_{seed_atual}_{resultado.falha.tipo_excecao.lower()}.json"
+                            )
+                            receita_minima.salvar_json(caminho_arq)
+                            if diretorio_receitas is not None:
+                                receitas_salvas.append(caminho_arq)
 
-                    if callback_reportar_sentry is not None:
-                        callback_reportar_sentry(receita_minima)
-                    if reportar_sentry:
-                        erro_sentry = resultado.falha.excecao_original or RuntimeError(
-                            f"[{receita_minima.falha.oraculo}] {receita_minima.falha.mensagem}"
-                        )
-                        id_croqui_crash = (
-                            "br_sp_caos_toxico" if dataset == "toxico" else "br_mg_caos_normal"
-                        )
-                        capturar_crash_robo_caotico(
-                            erro=erro_sentry,
-                            receita_robo_caotico=receita_minima.para_dicionario(),
-                            id_croqui=id_croqui_crash,
-                            caminho_arquivo_json=caminho_arq,
-                        )
+                            if callback_reportar_sentry is not None:
+                                callback_reportar_sentry(receita_minima)
+                            if reportar_sentry:
+                                assert resultado.falha.excecao_original is not None
+                                id_croqui_crash = (
+                                    "br_sp_caos_toxico"
+                                    if dataset == "toxico"
+                                    else "br_mg_caos_normal"
+                                )
+                                capturar_crash_robo_caotico(
+                                    erro=resultado.falha.excecao_original,
+                                    receita_robo_caotico=receita_minima.para_dicionario(),
+                                    id_croqui=id_croqui_crash,
+                                    caminho_arquivo_json=caminho_arq,
+                                )
 
         return ResumoCampanhaCaos(
             sementes_executadas=sementes_executadas,

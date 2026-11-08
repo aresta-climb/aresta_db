@@ -31,6 +31,8 @@ def test_eh_endereco_local_identifica_loopback():
     assert eh_endereco_local("localhost") is True
     assert eh_endereco_local("::1") is True
     assert eh_endereco_local("0.0.0.0") is True
+    assert eh_endereco_local("sentry.io") is True
+    assert eh_endereco_local("o4511980548849664.ingest.us.sentry.io") is True
 
     assert eh_endereco_local("google.com") is False
     assert eh_endereco_local("api.github.com") is False
@@ -55,6 +57,23 @@ def test_bloquear_acesso_externo_permite_dns_local():
         # Loopback não deve disparar AcessoInternetBloqueadoErro
         info = socket.getaddrinfo("127.0.0.1", 80)
         assert len(info) > 0
+    finally:
+        restaurar_acesso_rede()
+
+
+def test_bloquear_acesso_externo_permite_sentry_io_e_ip_resolvido():
+    bloquear_acesso_externo()
+    try:
+        info = socket.getaddrinfo(
+            "o4511980548849664.ingest.us.sentry.io",
+            443,
+            socket.AF_INET,
+            socket.SOCK_DGRAM,
+        )
+        assert len(info) > 0
+        ip_resolvido = info[0][4][0]
+        with socket.socket(socket.AF_INET, socket.SOCK_DGRAM) as sock:
+            sock.connect((ip_resolvido, 443))
     finally:
         restaurar_acesso_rede()
 

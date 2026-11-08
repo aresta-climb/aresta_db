@@ -33,6 +33,33 @@ def _extrair_frame_principal(tb: TracebackType | None) -> str:
     return f"{nome_arq}:{ultimo.lineno}"
 
 
+def _construir_traceback_pilha_atual(profundidade_ignorar: int = 2) -> TracebackType | None:
+    """Constrói um TracebackType real percorrendo a pilha de chamadas ativa."""
+    frame: Any = sys._getframe(profundidade_ignorar)
+    frames: list[Any] = []
+    while frame is not None:
+        frames.append(frame)
+        frame = frame.f_back
+    tb: TracebackType | None = None
+    for f in frames:
+        tb = TracebackType(tb, f, f.f_lasti, f.f_lineno)
+    return tb
+
+
+def _vincular_traceback_completo(
+    exc: BaseException,
+    exc_tb: TracebackType | None = None,
+) -> tuple[BaseException, str]:
+    """Garante que a exceção possua um __traceback__ real e retorna (excecao, texto_stacktrace_sanitizado)."""
+    registrar_caminho_repo_local(Path(__file__).resolve().parents[2])
+    tb_efetivo = exc_tb or exc.__traceback__ or _construir_traceback_pilha_atual(2)
+    exc_com_tb = exc.with_traceback(tb_efetivo)
+    texto_tb = sanitizar_texto_caminhos(
+        "".join(traceback.format_exception(type(exc_com_tb), exc_com_tb, exc_com_tb.__traceback__))
+    )
+    return exc_com_tb, texto_tb
+
+
 def calcular_hash_estado_modelo(model: CroquiModel) -> str:
     """Calcula um digest SHA-256 determinístico do Protobuf e buffers em memória do CroquiModel."""
     hasher = hashlib.sha256()
@@ -104,17 +131,14 @@ class OraculosCaos:
         exc_tb: TracebackType | None,
         oraculo: str = "excecao_nao_tratada",
     ) -> FalhaCapturadaRobo:
-        registrar_caminho_repo_local(Path(__file__).resolve().parents[2])
-        texto_tb = sanitizar_texto_caminhos(
-            "".join(traceback.format_exception(exc_type, exc_value, exc_tb))
-        )
+        exc_com_tb, texto_tb = _vincular_traceback_completo(exc_value, exc_tb)
         falha = FalhaCapturadaRobo(
             oraculo=oraculo,
             tipo_excecao=exc_type.__name__,
             mensagem=sanitizar_texto_caminhos(str(exc_value)),
             frame_principal=_extrair_frame_principal(exc_tb),
             stacktrace=texto_tb,
-            excecao_original=exc_value,
+            excecao_original=exc_com_tb,
         )
         self._falhas.append(falha)
         return falha
@@ -126,13 +150,14 @@ class OraculosCaos:
             nome_arq = nome_arq.split("aresta_db/", 1)[1]
         frame = f"{nome_arq}:{record.lineno}"
         msg = sanitizar_texto_caminhos(record.getMessage())
+        exc_com_tb, texto_tb = _vincular_traceback_completo(RuntimeError(msg))
         falha = FalhaCapturadaRobo(
             oraculo="erro_registrado_log",
             tipo_excecao=f"Log{record.levelname.capitalize()}",
             mensagem=msg,
             frame_principal=frame,
-            stacktrace=f"{record.levelname} em {frame}: {msg}",
-            excecao_original=RuntimeError(msg),
+            stacktrace=texto_tb,
+            excecao_original=exc_com_tb,
         )
         self._falhas.append(falha)
         return falha
@@ -169,11 +194,15 @@ class OraculosCaos:
         """Verifica via shiboken6.isValid se algum objeto Qt monitorado teve o C++ destruído."""
         for obj in objetos:
             if not shiboken6.isValid(obj):
+                msg = f"Internal C++ object ({type(obj).__name__}) already deleted."
+                exc_com_tb, texto_tb = _vincular_traceback_completo(RuntimeError(msg))
                 falha = FalhaCapturadaRobo(
                     oraculo="objeto_cpp_deletado",
                     tipo_excecao="RuntimeError",
-                    mensagem=f"Internal C++ object ({type(obj).__name__}) already deleted.",
+                    mensagem=msg,
                     frame_principal="shiboken6.isValid",
+                    stacktrace=texto_tb,
+                    excecao_original=exc_com_tb,
                 )
                 self._falhas.append(falha)
                 return falha
@@ -214,14 +243,18 @@ class OraculosCaos:
                     else pilha.command(max(0, idx_atual - 1))
                 )
                 nome_cmd = cmd_ref.text() if cmd_ref else "desconhecido"
+                msg = (
+                    f"Quebra de simetria Undo/Redo no índice {idx_atual} "
+                    f"(comando '{nome_cmd}'): hash {hash_atual[:12]} != {hash_esperado[:12]}"
+                )
+                exc_com_tb, texto_tb = _vincular_traceback_completo(AssertionError(msg))
                 falha = FalhaCapturadaRobo(
                     oraculo="assimetria_undo_redo",
                     tipo_excecao="AssertionError",
-                    mensagem=(
-                        f"Quebra de simetria Undo/Redo no índice {idx_atual} "
-                        f"(comando '{nome_cmd}'): hash {hash_atual[:12]} != {hash_esperado[:12]}"
-                    ),
+                    mensagem=msg,
                     frame_principal=f"QUndoStack:{nome_cmd}",
+                    stacktrace=texto_tb,
+                    excecao_original=exc_com_tb,
                 )
                 self._falhas.append(falha)
                 return falha
@@ -247,14 +280,18 @@ class OraculosCaos:
                 self._ultima_assinatura_topo = assinatura_topo
                 return None
 
+            msg_viii = (
+                f"Mutação direta no CroquiModel detectada no índice {idx_atual} "
+                "sem empilhamento ou coalescência na QUndoStack (Princípio VIII)."
+            )
+            exc_viii, texto_tb_viii = _vincular_traceback_completo(AssertionError(msg_viii))
             falha = FalhaCapturadaRobo(
                 oraculo="violacao_principio_viii",
                 tipo_excecao="AssertionError",
-                mensagem=(
-                    f"Mutação direta no CroquiModel detectada no índice {idx_atual} "
-                    "sem empilhamento ou coalescência na QUndoStack (Princípio VIII)."
-                ),
+                mensagem=msg_viii,
                 frame_principal="CroquiModel:QUndoStack",
+                stacktrace=texto_tb_viii,
+                excecao_original=exc_viii,
             )
             self._falhas.append(falha)
             return falha
@@ -289,11 +326,14 @@ class OraculosCaos:
                                 f"Registro de diário malformado em {rotulo}: {type(registro)}"
                             )
             except Exception as exc:
+                exc_com_tb, texto_tb = _vincular_traceback_completo(exc, exc.__traceback__)
                 falha = FalhaCapturadaRobo(
                     oraculo="corrupcao_diario",
                     tipo_excecao=type(exc).__name__,
                     mensagem=f"Corrupção no diário {rotulo} ({caminho.name}): {exc}",
                     frame_principal=f"GerenciadorDiario:{rotulo}",
+                    stacktrace=texto_tb,
+                    excecao_original=exc_com_tb,
                 )
                 self._falhas.append(falha)
                 return falha

@@ -20,10 +20,11 @@ Sistema determinístico de testes exploratórios caóticos de interface gráfica
    - Gera os datasets **`normal`** e **`toxico`** (strings extremas com emojis multi-codepoint, caracteres RTL, quebras de linha, aspas YAML, coordenadas extremas, imagens PNG e betas pendentes).
 
 4. **`BloqueadorRedeCaos` (`bloqueador_rede.py`)**:
-   - Intercepta `socket.socket.connect`, `connect_ex`, `socket.create_connection` e `QDesktopServices.openUrl`, bloqueando qualquer acesso de rede externo fora de *loopback* (`127.0.0.1`, `::1`, `localhost`).
+   - Intercepta `socket.getaddrinfo`, `socket.socket.connect`, `connect_ex`, `socket.create_connection` e `QDesktopServices.openUrl`, bloqueando qualquer acesso de rede externo fora de *loopback* (`127.0.0.1`, `::1`, `localhost`) exceto os endpoints de ingestão de telemetria do Sentry (`*.sentry.io`).
 
 5. **`EncolhedorCaminhoCrash` (`encolhedor_caminho_crash.py`) e `ReceitaCrashRobo` (`receita_crash_robo.py`)**:
-   - Reduz automaticamente sequências de falha via busca binária (*delta debugging* / `ddmin`) com poda de passos `no-op` (`mutou_estado=False`), serializa a receita mínima em JSON (`editor/caos/caminhos_regressao/`) e despacha automaticamente para o Sentry com o arquivo `.json` anexado (`capturar_crash_robo_caotico`).
+   - Mantém o Sentry continuamente habilitado durante toda a campanha (`ativar_sessao_sentry_robo_caotico`) com escopo isolado por semente (`escopo_isolado_semente_sentry`) para acumular os *breadcrumbs* reais dos comandos (`QUndoStack`), logs e diário.
+   - Isola as reexecuções de busca binária (*delta debugging* / `ddmin`) em um escopo descartável (`escopo_silencioso_ddmin_sentry`), preservando intactos os *breadcrumbs* e o diário da semente original que falhou, serializa a receita mínima em JSON (`editor/caos/caminhos_regressao/`) e despacha automaticamente para o Sentry com *stacktrace* completo e o arquivo `.json` anexado (`capturar_crash_robo_caotico`).
 
 6. **`executar_campanha_cli.py`**:
    - Ponto de entrada dedicado de linha de comando para rodar o *Fuzz Testing* localmente com um único comando (janela visível por padrão, envio ao Sentry com anexo `.json` habilitado e gravação em `editor/caos/caminhos_regressao/`), sem interferir nos testes unitários rápidos e *headless* do `pytest`.

@@ -16,6 +16,7 @@ ENDERECOS_LOCAIS_PERMITIDOS: set[str] = {
     "::1",
     "0.0.0.0",
 }
+_ips_sentry_autorizados: set[str] = set()
 
 _getaddrinfo_original: Callable[..., Any] | None = None
 _connect_original: Callable[..., Any] | None = None
@@ -28,9 +29,16 @@ class AcessoInternetBloqueadoErro(RuntimeError):
     pass
 
 
+def eh_host_sentry(host: str) -> bool:
+    """Verifica se o host pertence ao domínio de telemetria do Sentry (.sentry.io)."""
+    host_limpo = host.strip().lower()
+    return host_limpo == "sentry.io" or host_limpo.endswith(".sentry.io")
+
+
 def eh_endereco_local(host: str) -> bool:
     """
-    Verifica se o host fornecido corresponde a um endereço de loopback ou local.
+    Verifica se o host fornecido corresponde a um endereço de loopback/local
+    ou a um endpoint autorizado do Sentry.
     """
     if not host or not isinstance(host, str):
         return True
@@ -40,6 +48,9 @@ def eh_endereco_local(host: str) -> bool:
         return True
 
     if host_limpo.startswith("127."):
+        return True
+
+    if eh_host_sentry(host_limpo) or host_limpo in _ips_sentry_autorizados:
         return True
 
     return False
@@ -70,7 +81,11 @@ def bloquear_acesso_externo() -> None:
                 f"tentativa de resolução DNS para '{host}'."
             )
         assert _getaddrinfo_original is not None
-        return _getaddrinfo_original(host, port, *args, **kwargs)
+        resultados = _getaddrinfo_original(host, port, *args, **kwargs)
+        if isinstance(host, str) and eh_host_sentry(host):
+            for item in resultados:
+                _ips_sentry_autorizados.add(str(item[4][0]).strip().lower())
+        return resultados
 
     def connect_interceptado(self: socket.socket, address: Any) -> Any:
         host: Any = address
@@ -86,7 +101,7 @@ def bloquear_acesso_externo() -> None:
         return _connect_original(self, address)
 
     socket.getaddrinfo = getaddrinfo_interceptado
-    socket.socket.connect = connect_interceptado
+    socket.socket.connect = connect_interceptado  # type: ignore[method-assign,assignment]
     _bloqueio_ativo = True
 
 
@@ -104,7 +119,7 @@ def restaurar_acesso_rede() -> None:
         _getaddrinfo_original = None
 
     if _connect_original is not None:
-        socket.socket.connect = _connect_original
+        socket.socket.connect = _connect_original  # type: ignore[method-assign]
         _connect_original = None
 
     _bloqueio_ativo = False

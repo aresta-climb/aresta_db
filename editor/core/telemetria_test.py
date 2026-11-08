@@ -543,3 +543,95 @@ def test_capturar_crash_robo_caotico_anexa_receita_json_e_reabilita_telemetria(
         assert mod_rede._bloqueio_ativo is True
     finally:
         telemetria_mod.sentry_sdk = original_sentry
+
+
+def test_sessao_continua_robo_caotico_preserva_breadcrumbs_isola_ddmin_e_anexa_json(
+    tmp_path: Path,
+) -> None:
+    from editor.core.telemetria import (
+        anexar_diario_escopo,
+        ativar_sessao_sentry_robo_caotico,
+        capturar_crash_robo_caotico,
+        capturar_excecao,
+        escopo_isolado_semente_sentry,
+        escopo_silencioso_ddmin_sentry,
+        registrar_breadcrumb_comando,
+        sanitizar_evento_sentry,
+    )
+
+    eventos_enviados: list[tuple[dict, dict]] = []
+
+    class _CmdFalso:
+        def __init__(self, campo: str, caminho: str) -> None:
+            self.campo_nome = campo
+            self.context_path = caminho
+
+    class _DiarioFalso:
+        def __init__(self, pasta: Path, etiqueta: str) -> None:
+            self.etiqueta = etiqueta
+            self.caminho_pendente = pasta / f"pend_{etiqueta}.bin"
+            self.caminho_pendente.write_bytes(b"dados_diario")
+            self.caminho_salvo = pasta / f"salv_{etiqueta}.bin"
+
+        def exportar_diario_anonimizado(self, limite_comandos: int = 50) -> list[dict[str, str]]:
+            _ = limite_comandos
+            return [{"etiqueta": self.etiqueta}]
+
+    os.environ["ARESTA_DESATIVAR_TELEMETRIA"] = "1"
+    with ativar_sessao_sentry_robo_caotico(dsn="https://public@example.com/1"):
+        import sentry_sdk as sdk_real
+
+        cliente = sdk_real.get_client()
+        opcoes = cliente.options
+
+        def _interceptar_before_send(event: dict, hint: dict) -> None:
+            limpo = sanitizar_evento_sentry(event, hint)
+            if limpo is not None:
+                eventos_enviados.append((limpo, hint))
+            return None
+
+        opcoes["before_send"] = _interceptar_before_send
+
+        with escopo_isolado_semente_sentry(seed=777, dataset="toxico", escopo="completo"):
+            diario_original = _DiarioFalso(tmp_path, "semente_777")
+            anexar_diario_escopo(diario_original)
+            registrar_breadcrumb_comando(_CmdFalso("nome", "croqui"))
+            registrar_breadcrumb_comando(_CmdFalso("altura", "picos.0"))
+
+            # Chamada intermediária de capturar_excecao antes do fim da semente não deve enviar evento sem .json
+            assert capturar_excecao(RuntimeError("Erro intermediário sem json")) is None
+            assert len(eventos_enviados) == 0
+
+            # Replays do ddmin não devem poluir os breadcrumbs nem substituir o diário da semente original
+            with escopo_silencioso_ddmin_sentry():
+                diario_ddmin = _DiarioFalso(tmp_path, "ddmin_temporario")
+                anexar_diario_escopo(diario_ddmin)
+                registrar_breadcrumb_comando(_CmdFalso("lixo_ddmin", "setores.99"))
+
+            arquivo_json = tmp_path / "crash_seed_777_oserror.json"
+            arquivo_json.write_text('{"seed": 777}\n', encoding="utf-8")
+
+            try:
+                raise OSError(22, "Invalid argument")
+            except OSError as erro_real:
+                capturar_crash_robo_caotico(
+                    erro=erro_real,
+                    receita_robo_caotico={"seed": 777, "dataset": "toxico"},
+                    id_croqui="br_sp_caos_toxico",
+                    caminho_arquivo_json=arquivo_json,
+                )
+
+    assert len(eventos_enviados) == 1
+    evento, hint = eventos_enviados[0]
+    mensagens_breadcrumbs = [b["message"] for b in evento["breadcrumbs"]["values"]]
+    assert "_CmdFalso: nome" in mensagens_breadcrumbs
+    assert "_CmdFalso: altura" in mensagens_breadcrumbs
+    assert "_CmdFalso: lixo_ddmin" not in mensagens_breadcrumbs
+
+    frames = evento["exception"]["values"][0]["stacktrace"]["frames"]
+    assert len(frames) >= 1
+
+    nomes_anexos = [a.filename for a in hint.get("attachments", [])]
+    assert "crash_seed_777_oserror.json" in nomes_anexos
+    assert "diario_pendente.bin" in nomes_anexos
+    assert evento["contexts"]["historico_comandos"]["comandos"] == [{"etiqueta": "semente_777"}]

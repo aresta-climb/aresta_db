@@ -1,7 +1,7 @@
 # editor-telemetria-crash Specification
 
 ## Purpose
-TBD - created by archiving change editor-crash-reporting-and-command-journal. Update Purpose after archive.
+Prover telemetria silenciosa de falhas e diagnósticos de sessão para o Editor Aresta via Sentry, incluindo sanitização de dados pessoais e caminhos locais, registro cronológico de breadcrumbs de comandos e logs, anexação do diário transacional e integração contínua com campanhas do Robô Caótico.
 
 ## Requirements
 
@@ -51,11 +51,11 @@ O módulo `editor/` SHALL utilizar a biblioteca `editor/core/registro_log.py`, e
 - **THEN** a mensagem é gravada no arquivo de log local e adicionada à linha do tempo de breadcrumbs da sessão no Sentry.
 
 ### Requirement: Envio de Receita do Robô Caótico no Contexto do Sentry
-A biblioteca `editor/core/telemetria.py` SHALL permitir anexar contextos estruturados adicionais (como `contexts.receita_robo_caotico`) e definir nível de severidade `fatal` ao reportar uma exceção ao Sentry, preservando os breadcrumbs normais da aplicação e a sanitização de caminhos locais.
+A biblioteca `editor/core/telemetria.py` SHALL manter o cliente Sentry continuamente ativo durante toda a campanha do Robô Caótico (registrando em tempo real os *breadcrumbs* de comandos do histórico e logs da aplicação) e, ao reportar uma falha inédita encontrada pelo robô, SHALL definir nível de severidade `fatal`, anexar o contexto estruturado `contexts.receita_robo_caotico` e anexar o arquivo `.json` da receita (`content_type="application/json"`) ao escopo do evento enviado ao Sentry.
 
 #### Scenario: Captura de falha inédita encontrada pelo Robô Caótico
-- **WHEN** o motor do Robô Caótico encontra uma falha inédita com o envio ao Sentry habilitado e invoca a captura passando o dicionário `receita_robo_caotico`
-- **THEN** o evento enviado ao Sentry SHALL conter `level="fatal"`, a tag `origem_crash="robo_caotico"`, o contexto estruturado `contexts.receita_robo_caotico` (com `seed`, `dataset`, `passos_minimos` e `passos_originais`) e todos os breadcrumbs cronológicos registrados até o momento da falha.
+- **WHEN** o motor do Robô Caótico executa uma campanha com o envio ao Sentry habilitado e uma semente sofre uma falha inédita
+- **THEN** o evento enviado ao Sentry SHALL conter o *stacktrace* real da exceção, todos os *breadcrumbs* cronológicos registrados durante os passos daquela semente até o momento da falha, `level="fatal"`, a tag `origem_crash="robo_caotico"`, o contexto estruturado `contexts.receita_robo_caotico` e o arquivo `.json` completo da receita anexado ao evento.
 
 ### Requirement: Diagnóstico e Reprodução de Receitas do Editor via MCP Sentry
 A skill `diagnosticar-issue-sentry` SHALL documentar o fluxo de extração de `contexts.receita_robo_caotico` para issues do `aresta_db`, orientando o salvamento da receita em `editor/caos/caminhos_regressao/` e sua execução via `pytest editor/caos/regressao_caminhos_test.py`.

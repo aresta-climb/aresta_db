@@ -58,3 +58,18 @@ def test_permite_comunicacao_loopback_local_e_intercepta_open_url() -> None:
             assert bloqueador.tentativas_bloqueadas == []
     finally:
         servidor.close()
+
+
+def test_permite_conexao_para_endpoints_sentry_io_e_ips_resolvidos() -> None:
+    with BloqueadorRedeCaos() as bloqueador:
+        info = socket.getaddrinfo(
+            "o4511980548849664.ingest.us.sentry.io",
+            443,
+            socket.AF_INET,
+            socket.SOCK_DGRAM,
+        )
+        ip_resolvido = info[0][4][0]
+        with socket.socket(socket.AF_INET, socket.SOCK_DGRAM) as s_udp:
+            s_udp.connect(("o4511980548849664.ingest.us.sentry.io", 443))
+            s_udp.connect((ip_resolvido, 443))
+        assert bloqueador.tentativas_bloqueadas == []

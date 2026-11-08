@@ -19,6 +19,8 @@ except ImportError:
 DSN_PADRAO = "https://a632ff22a93532930ea95f849b4a796b@o4511980548849664.ingest.us.sentry.io/4511980560515072"
 
 _caminhos_extras_sanitizacao: list[tuple[str, str]] = []
+_sessao_robo_caotico_ativa: bool = False
+_envio_consolidado_robo_caotico_em_andamento: bool = False
 
 
 def registrar_caminho_repo_local(caminho_repo: Path | str) -> None:
@@ -137,6 +139,9 @@ def _sanitizar_objeto_recursivo(obj: Any) -> Any:
 
 def sanitizar_evento_sentry(event: Any, hint: Any) -> Any:
     """Hook before_send do Sentry para sanitizar qualquer caminho local em eventos, stacktraces e breadcrumbs."""
+    _ = hint
+    if _sessao_robo_caotico_ativa and not _envio_consolidado_robo_caotico_em_andamento:
+        return None
     return _sanitizar_objeto_recursivo(event)
 
 
@@ -379,6 +384,9 @@ def capturar_falha_submissao(
     if not sentry_sdk:
         return None
 
+    if _sessao_robo_caotico_ativa and not _envio_consolidado_robo_caotico_em_andamento:
+        return None
+
     try:
         # Mapeamento taxonômico de severidade
         mapa_severidade = {
@@ -439,6 +447,9 @@ def capturar_excecao(
     if not sentry_sdk:
         return None
 
+    if _sessao_robo_caotico_ativa and not _envio_consolidado_robo_caotico_em_andamento:
+        return None
+
     try:
         if hasattr(sentry_sdk, "set_tag"):
             sentry_sdk.set_tag("tipo_evento", "excecao_editor")
@@ -477,33 +488,95 @@ def capturar_excecao(
 
 
 @contextlib.contextmanager
-def habilitar_telemetria_temporaria_caos(dsn: str | None = None) -> Iterator[None]:
+def ativar_sessao_sentry_robo_caotico(dsn: str | None = None) -> Iterator[None]:
     """
-    Habilita temporariamente o envio de telemetria ao Sentry mesmo quando executado
-    sob o bloqueio global de testes (ARESTA_DESATIVAR_TELEMETRIA=1 e tests.bloqueador_rede),
-    restaurando o isolamento original ao final do envio.
+    Mantém o Sentry continuamente ativo do início ao fim de uma campanha do Robô Caótico,
+    permitindo que breadcrumbs de comandos, logs e diário sejam acumulados em tempo real
+    durante a execução de cada semente e suprimindo envios intermediários sem o '.json'
+    anexado.
     """
+    global _sessao_robo_caotico_ativa, _envio_consolidado_robo_caotico_em_andamento
     desativar_anterior = os.environ.pop("ARESTA_DESATIVAR_TELEMETRIA", None)
-    mod_rede = sys.modules.get("tests.bloqueador_rede")
-    rede_estava_bloqueada = bool(mod_rede and getattr(mod_rede, "_bloqueio_ativo", False))
-    if rede_estava_bloqueada and mod_rede is not None:
-        mod_rede.restaurar_acesso_rede()
-
     hook_sys_anterior = sys.excepthook
     hook_thread_anterior = getattr(threading, "excepthook", None)
+    sessao_anterior = _sessao_robo_caotico_ativa
+    envio_anterior = _envio_consolidado_robo_caotico_em_andamento
+    _sessao_robo_caotico_ativa = True
+    _envio_consolidado_robo_caotico_em_andamento = False
     inicializado = inicializar_telemetria(dsn=dsn)
     try:
         yield
     finally:
         if inicializado:
             encerrar_telemetria(timeout=2.0)
+        _sessao_robo_caotico_ativa = sessao_anterior
+        _envio_consolidado_robo_caotico_em_andamento = envio_anterior
         sys.excepthook = hook_sys_anterior
         if hook_thread_anterior is not None:
             threading.excepthook = hook_thread_anterior
-        if rede_estava_bloqueada and mod_rede is not None:
-            mod_rede.bloquear_acesso_externo()
         if desativar_anterior is not None:
             os.environ["ARESTA_DESATIVAR_TELEMETRIA"] = desativar_anterior
+
+
+@contextlib.contextmanager
+def escopo_isolado_semente_sentry(
+    seed: int,
+    dataset: str = "",
+    escopo: str = "",
+) -> Iterator[None]:
+    """
+    Abre um escopo isolado do Sentry para uma semente individual do Robô Caótico,
+    garantindo que breadcrumbs, tags e anexos iniciem limpos a cada semente.
+    """
+    gerenciador = (
+        sentry_sdk.isolation_scope()
+        if sentry_sdk and hasattr(sentry_sdk, "isolation_scope")
+        else contextlib.nullcontext()
+    )
+    with gerenciador as escopo_iso:
+        try:
+            for escopo_alvo in (
+                escopo_iso,
+                sentry_sdk.get_current_scope()
+                if sentry_sdk and hasattr(sentry_sdk, "get_current_scope")
+                else None,
+                sentry_sdk.get_isolation_scope()
+                if sentry_sdk and hasattr(sentry_sdk, "get_isolation_scope")
+                else None,
+            ):
+                if escopo_alvo is not None:
+                    if hasattr(escopo_alvo, "clear_breadcrumbs"):
+                        escopo_alvo.clear_breadcrumbs()
+                    if hasattr(escopo_alvo, "clear_attachments"):
+                        escopo_alvo.clear_attachments()
+            if sentry_sdk and hasattr(sentry_sdk, "set_tag"):
+                sentry_sdk.set_tag("seed_caos", str(seed))
+                if dataset:
+                    sentry_sdk.set_tag("dataset_caos", dataset)
+                if escopo:
+                    sentry_sdk.set_tag("escopo_caos", escopo)
+        except Exception:
+            pass
+        yield
+
+
+@contextlib.contextmanager
+def escopo_silencioso_ddmin_sentry() -> Iterator[None]:
+    """
+    Isola as reexecuções de minimização (ddmin) em um escopo descartável do Sentry,
+    preservando intactos os breadcrumbs e o diário acumulados na semente original que falhou.
+    """
+    diario_semente_original = _diario_ativo
+    gerenciador = (
+        sentry_sdk.isolation_scope()
+        if sentry_sdk and hasattr(sentry_sdk, "isolation_scope")
+        else contextlib.nullcontext()
+    )
+    try:
+        with gerenciador:
+            yield
+    finally:
+        anexar_diario_escopo(diario_semente_original)
 
 
 def capturar_crash_robo_caotico(
@@ -516,16 +589,27 @@ def capturar_crash_robo_caotico(
     """
     Captura uma falha inédita encontrada pelo Robô Caótico e envia ao Sentry com
     nível 'fatal', tag 'origem_crash=robo_caotico', contexto estruturado 'receita_robo_caotico'
-    sanitizado e o arquivo '.json' da receita anexado ao evento.
+    sanitizado, breadcrumbs acumulados da semente e o arquivo '.json' da receita anexado.
     """
+    global _envio_consolidado_robo_caotico_em_andamento
     anexos = [caminho_arquivo_json] if caminho_arquivo_json else None
-    with habilitar_telemetria_temporaria_caos():
-        return capturar_excecao(
-            erro=erro,
-            id_croqui=id_croqui,
-            etapa=etapa,
-            contextos_extras={"receita_robo_caotico": receita_robo_caotico},
-            nivel_severidade="fatal",
-            tags_extras={"origem_crash": "robo_caotico"},
-            arquivos_anexos=anexos,
-        )
+    gerenciador = (
+        contextlib.nullcontext()
+        if _sessao_robo_caotico_ativa
+        else ativar_sessao_sentry_robo_caotico()
+    )
+    with gerenciador:
+        envio_anterior = _envio_consolidado_robo_caotico_em_andamento
+        _envio_consolidado_robo_caotico_em_andamento = True
+        try:
+            return capturar_excecao(
+                erro=erro,
+                id_croqui=id_croqui,
+                etapa=etapa,
+                contextos_extras={"receita_robo_caotico": receita_robo_caotico},
+                nivel_severidade="fatal",
+                tags_extras={"origem_crash": "robo_caotico"},
+                arquivos_anexos=anexos,
+            )
+        finally:
+            _envio_consolidado_robo_caotico_em_andamento = envio_anterior
