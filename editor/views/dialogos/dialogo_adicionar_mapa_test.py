@@ -556,3 +556,227 @@ class TestDialogoAdicionarMapa:
         assert ret is not None
         assert ret[2] > ret[0]
         assert ret[3] > ret[1]
+
+    def test_aba_galeria_imagens_do_croqui_disco_e_ram_com_busca(
+        self, qtbot, tmp_path, imagem_bytes_png
+    ):
+        from editor.core.processamento_imagem_campo import comprimir_imagem_para_bytes_webp
+
+        bytes_webp, _, _ = comprimir_imagem_para_bytes_webp(imagem_bytes_png)
+        pasta_img = tmp_path / "imagens"
+        pasta_img.mkdir(parents=True, exist_ok=True)
+        (pasta_img / "setor_norte.webp").write_bytes(bytes_webp)
+
+        croqui = Croqui()
+        model = CroquiModel(croqui)
+        model.definir_caminho_db(tmp_path)
+        model.definir_imagem_memoria("imagens/setor_sul_ram.webp", bytes_webp)
+
+        dialogo = DialogoAdicionarMapa("novo_mapa.webp", db_dir=tmp_path, model=model)
+        qtbot.addWidget(dialogo)
+
+        assert hasattr(dialogo, "tab_widget")
+        assert dialogo.tab_widget.count() == 2
+        assert dialogo.tab_widget.tabText(0) == "Importar Nova Imagem"
+        assert dialogo.tab_widget.tabText(1) == "Imagens do Croqui"
+
+        # Alterna para aba Imagens do Croqui
+        dialogo.tab_widget.setCurrentIndex(1)
+        assert dialogo.lista_imagens.count() == 2
+
+        # Filtra busca
+        dialogo.input_busca.setText("sul_ram")
+        assert dialogo.lista_imagens.item(0).isHidden() is True
+        assert dialogo.lista_imagens.item(1).isHidden() is False
+
+        # Seleciona item da galeria
+        dialogo.lista_imagens.setCurrentRow(1)
+        assert dialogo.btn_ok.isEnabled() is True
+        assert dialogo.obter_caminho_final_relativo() == "imagens/setor_sul_ram.webp"
+        assert dialogo.obter_dimensoes_imagem() == (300, 200)
+        assert dialogo.obter_bytes_imagem_processada() == bytes_webp
+
+    def test_modo_caminho_destino_fixo_nao_acusa_colisao_consigo_mesmo(
+        self, qtbot, tmp_path, imagem_png_teste
+    ):
+        pasta_img = tmp_path / "imagens"
+        pasta_img.mkdir(parents=True, exist_ok=True)
+        (pasta_img / "thumbnail.webp").write_bytes(b"antigo")
+
+        croqui = Croqui()
+        model = CroquiModel(croqui)
+        model.definir_caminho_db(tmp_path)
+        model.definir_imagem_memoria("imagens/thumbnail.webp", b"antigo_ram")
+
+        dialogo = DialogoAdicionarMapa(
+            "thumbnail.webp",
+            db_dir=tmp_path,
+            model=model,
+            caminho_destino_fixo="thumbnail.webp",
+        )
+        qtbot.addWidget(dialogo)
+
+        assert dialogo.input_nome.isReadOnly() is True
+        dialogo.carregar_imagem_arquivo(str(imagem_png_teste))
+
+        assert dialogo.rotulo_aviso.text() == ""
+        assert dialogo.btn_ok.isEnabled() is True
+        assert dialogo.obter_caminho_final_relativo() == "imagens/thumbnail.webp"
+
+    def test_modo_substituicao_mapa_exibe_checkbox_reescalar_pois_quando_muda_resolucao(
+        self, qtbot, tmp_path, imagem_png_teste
+    ):
+        # imagem_png_teste tem 300 x 200
+        dialogo = DialogoAdicionarMapa(
+            "setor_a_p0.webp",
+            db_dir=tmp_path,
+            modo_substituicao_mapa=True,
+            largura_mapa_antiga=600,
+            altura_mapa_antiga=400,
+            qtd_pois_mapa=4,
+        )
+        qtbot.addWidget(dialogo)
+        dialogo.show()
+
+        # Antes de carregar imagem, checkbox está oculto
+        assert dialogo.chk_reescalar_pois.isHidden() is True
+        assert dialogo.deve_reescalar_pois() is False
+
+        # Carrega imagem 300x200 (diferente de 600x400) -> exibe checkbox marcado por padrão
+        dialogo.carregar_imagem_arquivo(str(imagem_png_teste))
+        assert dialogo.chk_reescalar_pois.isVisible() is True
+        assert dialogo.chk_reescalar_pois.isChecked() is True
+        assert dialogo.deve_reescalar_pois() is True
+
+        # Se a resolução antiga já era 300x200, não exibe checkbox
+        dialogo_mesma_res = DialogoAdicionarMapa(
+            "setor_a_p0.webp",
+            db_dir=tmp_path,
+            modo_substituicao_mapa=True,
+            largura_mapa_antiga=300,
+            altura_mapa_antiga=200,
+            qtd_pois_mapa=4,
+        )
+        qtbot.addWidget(dialogo_mesma_res)
+        dialogo_mesma_res.show()
+        dialogo_mesma_res.carregar_imagem_arquivo(str(imagem_png_teste))
+        assert dialogo_mesma_res.chk_reescalar_pois.isHidden() is True
+        assert dialogo_mesma_res.deve_reescalar_pois() is False
+
+    def test_galeria_duplo_clique_deselecao_erro_disco_e_opcoes_customizadas(
+        self, qtbot, tmp_path, imagem_bytes_png, monkeypatch
+    ):
+        from editor.core.processamento_imagem_campo import comprimir_imagem_para_bytes_webp
+
+        bytes_webp, _, _ = comprimir_imagem_para_bytes_webp(imagem_bytes_png)
+        pasta_img = tmp_path / "imagens"
+        pasta_img.mkdir(parents=True, exist_ok=True)
+        (pasta_img / "img_ok.webp").write_bytes(bytes_webp)
+        (pasta_img / "img_erro.webp").write_bytes(b"dados")
+
+        orig_read = Path.read_bytes
+
+        def falha_leitura(self):
+            if self.name == "img_erro.webp":
+                raise PermissionError("Sem permissão")
+            return orig_read(self)
+
+        monkeypatch.setattr(Path, "read_bytes", falha_leitura)
+
+        dialogo = DialogoAdicionarMapa(
+            "capa.webp",
+            db_dir=tmp_path,
+            max_area_override=1_000_000,
+            titulo_janela="Trocar Capa",
+            texto_botao_ok="Salvar Capa",
+        )
+        qtbot.addWidget(dialogo)
+
+        assert dialogo.windowTitle() == "Trocar Capa"
+        assert dialogo.btn_ok.text() == "Salvar Capa"
+        assert dialogo.max_area == 1_000_000
+
+        # Chamadas de corte sem imagem carregada não falham
+        dialogo.aplicar_corte((0, 0, 10, 10))
+        dialogo.reverter_corte()
+
+        # Alterna para galeria, seleciona, deseleciona e dá duplo clique
+        dialogo.tab_widget.setCurrentIndex(1)
+        assert dialogo.lista_imagens.count() == 1
+        dialogo.lista_imagens.setCurrentRow(0)
+        assert dialogo.btn_ok.isEnabled() is True
+        dialogo.lista_imagens.clearSelection()
+        assert dialogo.btn_ok.isEnabled() is False
+
+        item = dialogo.lista_imagens.item(0)
+        dialogo._ao_duplo_clique_galeria(item)
+        assert dialogo.result() == QDialog.DialogCode.Accepted
+
+    def test_recorte_via_botao_e_tratamento_erro(
+        self, qtbot, tmp_path, imagem_png_teste, monkeypatch
+    ):
+        dialogo = DialogoAdicionarMapa("mapa.webp", db_dir=tmp_path)
+        qtbot.addWidget(dialogo)
+        dialogo.resize(560, 520)
+        dialogo.show()
+        dialogo.carregar_imagem_arquivo(str(imagem_png_teste))
+
+        # Simula seleção rubber-band no area_drop e clique em btn_recortar
+        ponto_ini = dialogo.area_drop.rect().center()
+        ponto_fim = ponto_ini + QPoint(80, 60)
+        qtbot.mousePress(dialogo.area_drop, Qt.MouseButton.LeftButton, pos=ponto_ini)
+        qtbot.mouseMove(dialogo.area_drop, pos=ponto_fim)
+        qtbot.mouseRelease(dialogo.area_drop, Qt.MouseButton.LeftButton, pos=ponto_fim)
+        assert dialogo.btn_recortar.isEnabled() is True
+        dialogo.btn_recortar.click()
+        assert dialogo.corte_ativo is True
+
+    def test_abertura_lazy_nao_carrega_galeria_no_init_e_le_bytes_sob_demanda(
+        self, qtbot, tmp_path, imagem_bytes_png, monkeypatch
+    ):
+        from editor.core.processamento_imagem_campo import comprimir_imagem_para_bytes_webp
+        from editor.views.dialogos.componentes_dialogo_imagem import (
+            limpar_cache_miniaturas_imagem,
+        )
+
+        limpar_cache_miniaturas_imagem()
+        bytes_webp, _, _ = comprimir_imagem_para_bytes_webp(imagem_bytes_png)
+        pasta_img = tmp_path / "imagens"
+        pasta_img.mkdir(parents=True, exist_ok=True)
+        (pasta_img / "mapa_lazy.webp").write_bytes(bytes_webp)
+
+        leituras_disco = []
+        orig_read_bytes = Path.read_bytes
+
+        def contar_read_bytes(self: Path) -> bytes:
+            leituras_disco.append(self.name)
+            return orig_read_bytes(self)
+
+        monkeypatch.setattr(Path, "read_bytes", contar_read_bytes)
+
+        # 1. Ao abrir na Aba 0 ("Importar Nova Imagem"), nenhuma imagem da galeria é lida
+        dialogo = DialogoAdicionarMapa("novo_mapa.webp", db_dir=tmp_path)
+        qtbot.addWidget(dialogo)
+        assert dialogo._galeria_carregada is False
+        assert dialogo.lista_imagens.count() == 0
+        assert leituras_disco == []
+
+        # 2. Ao alternar para a Aba 1 ("Imagens do Croqui"), carrega as miniaturas sob demanda
+        dialogo.tab_widget.setCurrentIndex(1)
+        assert dialogo._galeria_carregada is True
+        assert dialogo.lista_imagens.count() == 1
+        item = dialogo.lista_imagens.item(0)
+        # UserRole guarda apenas o nome do arquivo, não os bytes inteiros
+        assert item.data(Qt.ItemDataRole.UserRole) == "mapa_lazy.webp"
+
+        # 3. Ao selecionar o item, carrega os bytes completos sob demanda
+        dialogo.lista_imagens.setCurrentRow(0)
+        assert dialogo.obter_bytes_imagem_processada() == bytes_webp
+        assert dialogo.obter_dimensoes_imagem() == (300, 200)
+        assert dialogo.btn_ok.isEnabled() is True
+
+        # 4. Se o arquivo for removido antes da seleção de outro item, trata ausência com segurança
+        (pasta_img / "mapa_lazy.webp").unlink()
+        dialogo._ao_selecionar_item_galeria()
+        assert dialogo.obter_bytes_imagem_processada() is None
+        assert dialogo.btn_ok.isEnabled() is False

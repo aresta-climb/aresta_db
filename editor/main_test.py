@@ -694,5 +694,3 @@ def test_controlador_aplicativo_repassa_dependencias_injetadas(qtbot, tmp_path: 
                 controlador.janela_principal.close()
             if controlador.abertura:
                 controlador.abertura.close()
-
-

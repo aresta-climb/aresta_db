@@ -10,9 +10,7 @@ from editor.caos.receita_crash_robo import (
 )
 
 
-def _particionar_lista(
-    itens: list[PassoRobo], num_particoes: int
-) -> list[tuple[int, int]]:
+def _particionar_lista(itens: list[PassoRobo], num_particoes: int) -> list[tuple[int, int]]:
     n = len(itens)
     particoes: list[tuple[int, int]] = []
     for i in range(num_particoes):

@@ -1,77 +1,80 @@
 ---
-description: Orquestrador completo para atualização de um croqui PDF existente para uma nova versão
+description: Orquestrador completo para atualização de um croqui existente para uma nova versão de PDF 100% via MCP
 ---
 
-Este workflow atua como o Agente Orquestrador para a atualização de um croqui que já foi processado anteriormente, aproveitando o máximo de informações e arquivos Markdown já existentes.
-Você delegará tarefas pesadas para sub-agentes, controlará o fluxo do processo usando os arquivos do repositório antigo como base (arquivos com sufixo `_old`), e implementará rotinas de auto-correção (auto-heal) caso algum sub-agente falhe.
+Este workflow atua como o **Agente Orquestrador** para atualizar um croqui já existente (oficial de produção ou rascunho local) a partir de uma nova edição do PDF, operando **100% via ferramentas MCP do Editor Aresta (`editor-aresta`)** e preservando rigorosamente todos os identificadores públicos permanentes (`uid`, `alvo_uid` e `pontos_uids`).
 
-Para iniciar esse workflow, você precisará receber do usuário o caminho do novo PDF e a pasta do croqui já existente (ex: `database/br_mg_ouro_preto_ouroboulder`).
+> [!IMPORTANT]
+> **Arquitetura 100% MCP e Preservação de `UID`s:**
+> - Você é o orquestrador. Delegue a leitura detalhada das páginas e mapas aos subagentes especializados.
+> - **Proibição Absoluta de Edição Manual de Arquivos:** Nunca renomeie pastas manualmente no terminal nem edite arquivos `.md`, `croqui.yaml` ou `.json` diretamente no disco.
+> - **Preservação Obrigatória de `UID`s:** Entidades já existentes possuem links permanentes (`aresta.cc/<uid>`). Tanto `aresta_particionar_pdf_croqui` quanto `aresta_alterar_campo` preservam `UID`s existentes quando informados.
 
-> [!IMPORTANT] 
-> **Ação Orquestrada:** Você é o orquestrador. Nunca leia o PDF de capa a capa nem faça a atualização massiva você mesmo. Seu trabalho é avaliar o estado, invocar as ferramentas `define_subagent` e `invoke_subagent`, lidar com as respostas de sucesso ou erro (via auto-heal), rodar scripts de compilação Python, e pedir permissão explícita (Checkpoint) para o usuário antes de avançar de fase.
+---
 
-### 1. Inicialização: Definição de Sub-agentes
+### 1. Inicialização: Definição de Subagentes
 
-Sempre comece o workflow declarando as "classes" de trabalhadores que você precisa usando a ferramenta `define_subagent`. Declare as seguintes 3 classes:
+Comece o workflow declarando as 4 classes de subagentes usando `define_subagent`:
 
 - **TypeName**: `SeparadorPDF`
-  - **system_prompt**: Siga rigorosamente as instruções da skill `@separar_croqui_pdf_em_partes`.
+  - **SystemPrompt**: Siga rigorosamente as instruções da skill `@separar_croqui_pdf_em_partes` operando 100% via ferramentas MCP do `editor-aresta`.
 
 - **TypeName**: `ConversorMarkdown`
-  - **system_prompt**: Siga rigorosamente as instruções da skill `@converter_parte_croqui_para_markdown`. Você também deve ser capaz de receber arquivos PDF e Markdown antigos para comparar e apenas atualizar o que mudou.
+  - **SystemPrompt**: Siga rigorosamente as instruções da skill `@converter_parte_croqui_para_markdown`. Inspecione primeiro o estado atual da parte com `aresta_obter_arvore`, compare com o novo sub-PDF da parte e atualize via `aresta_alterar_campo` preservando estritamente todos os `uid`, `alvo_uid` e `pontos_uids` existentes.
 
 - **TypeName**: `CompiladorCroqui`
-  - **system_prompt**: Siga rigorosamente as instruções da skill `@preencher_croqui_yaml`.
+  - **SystemPrompt**: Siga rigorosamente as instruções da skill `@preencher_croqui_yaml` para validar metadados, executar `aresta_compilar` até atingir zero erros e zero avisos e persistir com `aresta_salvar`.
 
 - **TypeName**: `ExtratorMapas`
-  - **system_prompt**: Utilize a combinação das skills `@mapa_extrair_pontos_de_interesse` e `@mapa_corrigir_pontos_de_interesse`. Você deve ser capaz de comparar as imagens dos mapas antigos e novos.
+  - **SystemPrompt**: Utilize em conjunto as skills `@mapa_extrair_pontos_de_interesse` e `@mapa_corrigir_pontos_de_interesse`, usando `aresta_renderizar_mapa` para verificar se os POIs existentes continuam alinhados na nova imagem ou se precisam de ajuste/adição via `aresta_alterar_campo` e `aresta_vincular_referencia_mapa`, preservando os `uid`s dos POIs existentes.
 
 > [!NOTE]
-> Os sub-agentes trabalharão na mesma pasta do projeto, então, ao invocá-los, utilize a configuração `Workspace: 'inherit'` no `invoke_subagent` para que eles operem nos mesmos arquivos da branch atual sem clonar workspaces.
-
-### 2. Auto-Correção (Auto-heal)
-
-Caso algum sub-agente reporte uma falha de execução, erro de formatação ou não consiga completar o trabalho:
-1. Isole a falha (outras tarefas já concluídas na mesma fase não devem ser repetidas).
-2. Tente **auto-correção**: use `invoke_subagent` novamente exclusivamente para a parte que falhou (retry), e adicione no **Prompt** do novo sub-agente o log de erro ou o motivo da falha da tentativa anterior, instruindo-o a não cometer o mesmo erro.
-3. Permita até **3 retentativas** por item falho. Se na 3ª tentativa ele falhar, pause a execução e avise o usuário apontando a falha para intervenção manual.
+> Ao invocar subagentes com `invoke_subagent`, utilize `Workspace: 'inherit'`.
 
 ---
 
-### Fase 0: Preparação do Ambiente (Backup)
+### 2. Auto-Correção (Auto-Heal)
 
-1. Você receberá o caminho do novo PDF e a pasta do croqui (`database/<croqui>`).
-2. Utilizando os comandos do terminal, renomeie os arquivos e pastas atuais para usarem o sufixo `_old`:
-   - `partes.json` -> `partes_old.json`
-   - `raw_pdf_contents/` -> `raw_pdf_contents_old/`
-   - `raw_original_pdf/` -> `raw_original_pdf_old/`
-3. Crie a nova pasta `raw_original_pdf` e copie o novo PDF para lá com o nome de `croqui_original.pdf`.
+Caso algum subagente reporte falha:
+1. Isole a falha sem repetir partes que já concluíram com sucesso.
+2. Re-invoque (`invoke_subagent`) apenas o subagente que falhou passando o erro anterior no `Prompt`.
+3. Permita até **3 retentativas** por item falho; se persistir, pause e reporte ao usuário.
 
-### Fase 1: Preparação do NOVO PDF
+---
 
-1. Invoque (usando `invoke_subagent`) o sub-agente do tipo `SeparadorPDF` enviando o novo PDF. A tarefa dele é inspecionar o PDF visualmente e gerar o novo `partes.json` na raiz da pasta do croqui.
-2. Aguarde a conclusão.
-3. Execute `python scripts/repartir_pdf.py database/<croqui>` para desmembrar o novo PDF na pasta `raw_pdf_contents`.
-4. **[Checkpoint]** Pause a execução. Pergunte ao usuário: *"O novo `partes.json` e as imagens foram gerados corretamente na pasta raw_pdf_contents? Posso prosseguir com a Fase 2 (Conversão e Diffing)?"*
+### Fase 1: Abertura/Importação do Croqui Existente e Particionamento do Novo PDF via MCP
 
-### Fase 2: Conversão & Atualização (Diffing)
+1. Chame `aresta_listar_croquis` para localizar o croqui que será atualizado:
+   - Se for um croqui oficial de produção que ainda não possui rascunho aberto, chame `aresta_importar_croqui_oficial(id_oficial="<id_oficial>", resumo_edicao="Atualização com novo PDF")`.
+   - Se já for um rascunho em andamento ou pasta local em `database/<id_croqui>`, chame `aresta_abrir_croqui_existente(identificador="<identificador>")`.
+   - Anote o `id_croqui` retornado.
+2. Invoque o subagente `SeparadorPDF` passando o `id_croqui` já aberto e o caminho do **novo PDF**.
+   - O `SeparadorPDF` inspecionará o novo PDF com `view_file`/`read_file` e chamará `aresta_particionar_pdf_croqui(caminho_pdf=..., partes=..., id_croqui=id_croqui)`.
+   - Como o croqui já está carregado em memória, `aresta_particionar_pdf_croqui` reaproveitará automaticamente os `Setor`, `Grupo`, `Botao` e `ColecaoDeMapas` já existentes (preservando seus `UID`s originais) e pré-alocará novos esqueletos apenas para setores/apêndices inéditos da nova edição.
+3. **[Checkpoint]**:
+   - Pergunte ao usuário: *"O croqui `<id_croqui>` foi carregado e o novo PDF foi particionado preservando os UIDs existentes. Posso prosseguir com a Fase 2 (Atualização e Diffing Paralelo das Partes via MCP)?"*
 
-1. Leia os arquivos `partes_old.json` e `partes.json`.
-2. Usando um único chamado da tool `invoke_subagent` (enviando um array de Subagents), dispare agentes do tipo `ConversorMarkdown` em **paralelo** para cada parte listada no *novo* `partes.json`:
-   - **Para partes que já existiam (mesmo nome no old)**: No prompt, instrua: *"O arquivo `<parte>.md` já existe baseado em uma versão antiga do croqui. Fornecemos o PDF antigo (`raw_pdf_contents_old/<parte>.pdf`) e o novo (`raw_pdf_contents/<parte>.pdf`). Primeiro, compare visualmente o PDF antigo e o novo. Se forem essencialmente iguais em conteúdo (sem novas vias, sem mudanças de texto ou layout de mapas), não altere o arquivo `.md` e apenas responda 'Nenhuma mudança necessária'. Se houver diferenças, use as novas informações do PDF para atualizar o `.md`. PRESERVAÇÃO OBRIGATÓRIA DE UIDs: NUNCA altere ou remova os campos `uid`, `alvo_uid` e `pontos_uids` das entidades existentes (elas possuem links públicos permanentes `aresta.cc/<uid>`). Vias novas adicionadas podem ser inseridas sem campo `uid` (o compilador o gerará). Preserve a sintaxe de referências canônicas e links sempre que o conteúdo permanecer inalterado na nova edição."*
-   - **Para partes novas**: Instrua o sub-agente a converter do zero baseando-se apenas no novo PDF em `raw_pdf_contents`.
-3. Aguarde o retorno de todos. Se houver falhas, aplique a **Auto-Correção**.
-4. Invoque o sub-agente `CompiladorCroqui` para compilar o projeto (gerar yaml, validar protobuf).
-5. Quando finalizar com sucesso, **[Checkpoint]** pause a execução. Pergunte ao usuário: *"Os arquivos markdown foram atualizados e o projeto compilado. Por favor, confira no editor local se os textos foram mesclados corretamente. Posso prosseguir com a Fase 3 (Atualização de Mapas)?"*
+---
 
-### Fase 3: Re-Extração de Mapas
+### Fase 2: Atualização e Diffing Paralelo na Árvore Protobuf (Preservando `UID`s)
 
-1. Execute `python scripts/preparar_extracao_de_mapas.py database/<croqui>`.
-2. Dispare sub-agentes do tipo `ExtratorMapas` em paralelo usando a ferramenta `invoke_subagent`.
-   > [!IMPORTANT]
-   > **Limite de Lote (Batching):** Cada sub-agente deve processar no máximo **8 mapas**. Divida os arquivos de mapas restantes em lotes.
-3. No prompt dos sub-agentes `ExtratorMapas`, instrua: *"Você tem o mapa antigo (`raw_pdf_contents_old/imagens/...`) e o novo mapa (`raw_pdf_contents/imagens/...`). Compare visualmente o mapa antigo com o novo. Se o enquadramento, zoom e a posição das vias estiverem visualmente idênticos, responda 'Nenhuma mudança necessária'. Caso tenha tido alteração no mapa (mesmo que um leve deslocamento), re-faça a extração das coordenadas para o novo JSON, registrando na chave `rotulo` e preservando qualquer `uid` pré-existente nos pontos."*
-4. Aguarde a conclusão de todos.
-5. Quando todos concluírem com sucesso, execute `python scripts/finalizar_mapas.py database/<croqui>` para transferir os novos dados do JSON para o Markdown correspondente.
-6. Invoque o `CompiladorCroqui` novamente para garantir que a sintaxe final seja válida.
-7. **[Conclusão]** Volte ao usuário e comunique que o pipeline de atualização foi concluído com absoluto sucesso. Instrua-o a rodar o editor de croquis para conferir os mapas.
+1. Para cada parte retornada no dicionário `partes` da Fase 1, dispare um subagente `ConversorMarkdown` em **paralelo** via `invoke_subagent`, passando `id_croqui`, `nome_parte`, `uid`, `caminho_pdf` e `imagens`.
+   - No `Prompt` de cada subagente, instrua explicitamente:
+     *"Consulte primeiro o estado atual da sua parte chamando `aresta_obter_arvore(alvo='<uid>', id_croqui='<id_croqui>')` e compare com o novo sub-PDF (`<caminho_pdf>`). Se o conteúdo textual, as escaladas e os mapas permanecerem equivalentes, não faça mutações e responda 'Nenhuma mudança necessária'. Caso haja novas vias, mudanças de grau/texto ou novas imagens de mapa, envie a atualização completa em uma única chamada atômica `aresta_alterar_campo(alvo='<uid>', campos={...}, id_croqui='<id_croqui>')`, PRESERVANDO OBRIGATORIAMENTE todos os campos `uid`, `alvo_uid` e `pontos_uids` das entidades que já existiam. Para novas escaladas adicionadas, omita o campo `uid`."*
+2. Aguarde o retorno de todos os subagentes e aplique **Auto-Correção** se necessário.
+3. Invoque o subagente `CompiladorCroqui` com `id_croqui` para executar `aresta_compilar` (corrigindo eventuais erros ou avisos) e salvar com `aresta_salvar`.
+4. **[Checkpoint]**:
+   - Pause e pergunte ao usuário: *"Os setores e textos foram atualizados, compilados e salvos no Editor Aresta (`<id_croqui>`). Posso prosseguir com a Fase 3 (Verificação e Atualização dos Mapas via MCP)?"*
+
+---
+
+### Fase 3: Verificação e Re-Extração de Mapas via `aresta_renderizar_mapa`
+
+1. Liste os mapas do croqui via `aresta_obter_arvore(alvo="", id_croqui=id_croqui)` e agrupe-os em lotes de **no máximo 8 mapas por subagente**.
+2. Dispare subagentes `ExtratorMapas` em paralelo passando `id_croqui` e a lista de `alvo_mapa` do lote:
+   - Cada subagente deve chamar `aresta_renderizar_mapa(alvo=alvo_mapa, incluir_recortes=True, id_croqui=id_croqui)`.
+   - Se o mapa já possuía POIs e os recortes com mira `(0, 0)` mostrarem que todos os POIs continuam perfeitamente alinhados e nenhuma nova via foi adicionada ao mapa, o subagente responde `"Nenhuma mudança necessária"` para aquele mapa.
+   - Caso o mapa seja novo, tenha sofrido deslocamento/reenquadramento ou possua novas vias, o subagente extrai/ajusta as coordenadas usando a grade métrica de `100px` e os recortes relativos `-50px..+50px`, atualiza `pontos_de_interesse` via `aresta_alterar_campo` (preservando os `uid`s dos POIs preexistentes) e atualiza as `referencias` via `aresta_vincular_referencia_mapa`.
+3. Aguarde a conclusão de todos os lotes e invoque `CompiladorCroqui` (`aresta_compilar` + `aresta_salvar`).
+4. **[Conclusão]**:
+   - Comunique ao usuário que a atualização do croqui foi concluída, compilada sem erros/avisos e salva no **Editor Aresta**.

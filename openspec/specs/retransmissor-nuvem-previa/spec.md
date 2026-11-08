@@ -36,12 +36,12 @@ O Cloudflare Worker em `previa.arestaclimb.com` MUST interceptar requisições d
 - **WHEN** um cliente consultar `GET /<codigo_pr>/info` ou `GET /<codigo_pr>/meta`
 - **THEN** o Worker responde imediatamente com HTTP 200 e JSON informando o código normalizado sem URL de rede local (`local_url: null`), e retorna HTTP 404 para tentativas de upgrade WebSocket em `/<codigo_pr>/events`
 
-### Requirement: Atendimento do resumo visual HTML e exclusão em Universal Links
-O Cloudflare Worker em `previa.arestaclimb.com` MUST servir a página de resumo visual na rota `GET /resumo/<codigo_pr>` e excluir `/resumo/*` da interceptação de Universal Links do iOS.
+### Requirement: Atendimento do resumo visual HTML, página de prévia com Design System oficial e exclusão em Universal Links
+O Cloudflare Worker em `previa.arestaclimb.com` MUST servir a página de pareamento `GET /<codigo>` e a página de resumo visual `GET /resumo/<codigo_pr>` (incluindo o fallback 404) seguindo o Design System unificado Light/Dark do `arestaclimb.com` (com cabeçalho oficial, alternador `#themeToggle`, botões das lojas, QR Code da PR e link cruzado entre pareamento e resumo), além de excluir `/resumo/*` da interceptação de Universal Links do iOS.
 
 #### Scenario: Acesso ao resumo visual da Pull Request no navegador
 - **WHEN** um usuário acessar `GET https://previa.arestaclimb.com/resumo/<codigo_pr>`
-- **THEN** o Worker busca `https://serving.arestaclimb.com/pr/<numero_pr>/resumo.html` e retorna o documento com `Content-Type: text/html; charset=utf-8` (ou uma página HTML 404 amigável caso a Pull Request já tenha sido encerrada/removida)
+- **THEN** o Worker busca `https://serving.arestaclimb.com/pr/<numero_pr>/resumo.html` e retorna o documento com `Content-Type: text/html; charset=utf-8` (ou uma página HTML 404 amigável estilizada com o Design System do `arestaclimb.com` caso a Pull Request já tenha sido encerrada/removida)
 
 #### Scenario: Verificação de Universal Links pelo iOS
 - **WHEN** o sistema operacional iOS consultar `GET https://previa.arestaclimb.com/.well-known/apple-app-site-association`

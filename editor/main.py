@@ -149,7 +149,10 @@ class ControladorAplicativo:
                 if kwargs_tarefa
                 else tarefa_cls(ID_CLIENTE_GITHUB)
             )
-        if hasattr(self.tarefa, "gerenciador_sessao") and self.tarefa.gerenciador_sessao is not None:
+        if (
+            hasattr(self.tarefa, "gerenciador_sessao")
+            and self.tarefa.gerenciador_sessao is not None
+        ):
             self.abertura.gerenciador_sessao = self.tarefa.gerenciador_sessao
         if hasattr(self.tarefa, "cliente_auth") and self.tarefa.cliente_auth is not None:
             self.abertura.cliente_auth = self.tarefa.cliente_auth

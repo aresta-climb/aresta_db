@@ -15,6 +15,7 @@ from serving.diff_croqui_pr_lib import (
 )
 from serving.renderizador_resumo_pr_lib import (
     ASSINATURA_COMENTARIO_PR,
+    gerar_qr_code_svg,
     renderizar_comentario_falha_pr_markdown,
     renderizar_comentario_pr_markdown,
     renderizar_resumo_html,
@@ -237,8 +238,17 @@ def test_renderiza_resumo_html_autocontido_com_mapas_svg_modos_imagem_e_qrcode()
     )
 
     assert "<!DOCTYPE html>" in html
+    assert 'data-theme="dark"' in html
+    assert "--bg: #f4f1e9" in html
+    assert "--bg: #11120f" in html
+    assert "--accent: #b53e29" in html
+    assert "aresta-theme" in html
+    assert 'id="themeToggle"' in html
+    assert "https://arestaclimb.com/assets/logo_app.png" in html
+    assert "ARESTA CLIMB" in html
     assert "pr00-0042" in html
     assert "https://previa.arestaclimb.com/pr00-0042" in html
+    assert "aresta://previa/pr00-0042" in html
     assert "<svg" in html
     # Controles do mapa sem mudança de foto
     assert "Diff" in html
@@ -262,30 +272,38 @@ def test_renderiza_resumo_html_autocontido_com_mapas_svg_modos_imagem_e_qrcode()
     assert "BR_6SUP" in html
 
 
-def test_renderiza_comentario_markdown_com_assinatura_links_e_aviso_sem_r2() -> None:
-    """Deve gerar o comentário Markdown enxuto contendo a assinatura invisível e os links da prévia."""
+def test_renderiza_comentario_markdown_com_assinatura_links_qrcode_e_aviso_sem_r2() -> None:
+    """Deve gerar o comentário Markdown enxuto contendo a assinatura invisível, QR Code e os links da prévia."""
     resumo = _construir_resumo_exemplo()
+
+    svg_qr = gerar_qr_code_svg("https://previa.arestaclimb.com/pr00-0042")
+    assert svg_qr.startswith('<svg class="qr-svg"')
+    assert svg_qr.endswith("</svg>")
 
     md_com_r2 = renderizar_comentario_pr_markdown(
         resumo=resumo,
         numero_pr=42,
         url_base_previa="https://previa.arestaclimb.com",
+        url_base_serving="https://serving.arestaclimb.com",
         publicado_no_r2=True,
     )
     assert md_com_r2.startswith(ASSINATURA_COMENTARIO_PR)
     assert "`pr00-0042`" in md_com_r2
     assert "https://previa.arestaclimb.com/pr00-0042" in md_com_r2
     assert "https://previa.arestaclimb.com/resumo/pr00-0042" in md_com_r2
+    assert "https://serving.arestaclimb.com/pr/42/qrcode.svg" in md_com_r2
     assert "Serra do Cipó" in md_com_r2
 
     md_sem_r2 = renderizar_comentario_pr_markdown(
         resumo=resumo,
         numero_pr=42,
         url_base_previa="https://previa.arestaclimb.com",
+        url_base_serving="https://serving.arestaclimb.com",
         publicado_no_r2=False,
     )
     assert ASSINATURA_COMENTARIO_PR in md_sem_r2
     assert "Credenciais do R2 ausentes" in md_sem_r2
+    assert "qrcode.svg" not in md_sem_r2
 
     md_falha = renderizar_comentario_falha_pr_markdown(["Erro de schema no croqui X"])
     assert md_falha.startswith(ASSINATURA_COMENTARIO_PR)

@@ -13,11 +13,11 @@ O sistema SHALL fornecer um editor de imagens integrado para processamento em lo
 - **THEN** o sistema SHALL listar todas as imagens presentes na pasta `imagens/` do croqui atual.
 
 ### Requirement: Substituição de Imagem no Editor de Imagens em Memória RAM
-O sistema SHALL permitir a substituição do conteúdo de uma imagem existente selecionada no Editor de Imagens por um novo arquivo selecionado no disco, aplicando pré-processamento e compressão WebP automáticos em memória RAM e suportando desfazer/refazer (`QUndoCommand`) no histórico global de operações.
+O sistema SHALL permitir a substituição do conteúdo de uma imagem existente selecionada no Editor de Imagens através do wizard unificado de duas abas (`"Importar Nova Imagem"` com Drag & Drop, preview, recorte interativo e metadados ricos, e `"Imagens do Croqui"` com galeria em disco e RAM) em modo de destino fixo, aplicando pré-processamento e compressão WebP automáticos em memória RAM e suportando desfazer/refazer (`CmdAlterarImagem`) no histórico global de operações.
 
 #### Scenario: Substituição de Imagem com Pré-processamento e Recarregamento em RAM
-- **WHEN** o usuário seleciona uma imagem na lista do Editor de Imagens e aciona a ação "Substituir Imagem..." escolhendo um novo arquivo de imagem
-- **THEN** o sistema SHALL processar e converter a nova imagem para WebP, gravar a imagem atualizada no buffer de memória RAM do `CroquiModel` via `QUndoCommand`, recarregar o visualizador e a lista, e emitir o sinal de alteração para as demais telas.
+- **WHEN** o usuário seleciona uma imagem na lista do Editor de Imagens e aciona a ação `"Substituir Imagem..."`, confirmando uma nova imagem (com ou sem recorte) ou uma imagem da galeria no wizard unificado
+- **THEN** o sistema SHALL gravar os bytes WebP atualizados sob o caminho da imagem selecionada no buffer de memória RAM do `CroquiModel` via comando de histórico, recarregar o visualizador e a lista e emitir o sinal `imagem_alterada` para as demais telas
 
 ### Requirement: Sincronização Reativa Global do Editor de Imagens
 O sistema SHALL sincronizar automaticamente a lista de imagens e a imagem atualmente aberta no visualizador do Editor de Imagens quando qualquer imagem for alterada, adicionada ou removida em outra área (Editor de Mapas ou Editor de Dados).

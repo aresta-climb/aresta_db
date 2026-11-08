@@ -478,4 +478,3 @@ def capturar_crash_robo_caotico(
         nivel_severidade="fatal",
         tags_extras={"origem_crash": "robo_caotico"},
     )
-

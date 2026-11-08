@@ -32,9 +32,9 @@ from serving.diff_croqui_pr_lib import (
 ASSINATURA_COMENTARIO_PR = "<!-- aresta-pr-validator -->"
 
 
-def _gerar_qr_code_svg(url: str) -> str:
+def gerar_qr_code_svg(url: str) -> str:
     """Gera um elemento `<svg>` vetorial compacto representando o QR Code da URL."""
-    qr = qrcode.QRCode(border=1, box_size=4)
+    qr = qrcode.QRCode(border=2, box_size=4)
     qr.add_data(url)
     qr.make(fit=True)
     matriz = qr.get_matrix()
@@ -382,12 +382,14 @@ def renderizar_resumo_html(
     commit_sha: str = "",
 ) -> str:
     """
-    Gera a página HTML5 autocontida (`resumo.html`) com diffs estruturais,
-    overlays SVG de mapas, comparadores visuais de imagens e acesso rápido ao aplicativo.
+    Gera a página HTML5 autocontida (`resumo.html`) com o Design System unificado
+    Light/Dark do `arestaclimb.com`, diffs estruturais, overlays SVG de mapas,
+    comparadores visuais de imagens e acesso rápido ao aplicativo.
     """
     codigo_formatado = gerar_codigo_pull_request(numero_pr)
     url_app = obter_url_previa(codigo_formatado, base_url=url_base_previa)
-    qr_svg = _gerar_qr_code_svg(url_app)
+    deep_link_app = f"aresta://previa/{codigo_formatado}"
+    qr_svg = gerar_qr_code_svg(url_app)
     commit_curto = commit_sha[:7] if commit_sha else "HEAD"
 
     blocos_croquis = "".join(
@@ -395,37 +397,244 @@ def renderizar_resumo_html(
     )
 
     return f"""<!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" data-theme="dark">
 <head>
+  <script>try{{var t=localStorage.getItem('aresta-theme')||(window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark');document.documentElement.setAttribute('data-theme',t);}}catch(e){{}}</script>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Resumo da PR #{numero_pr} ({codigo_formatado}) - Aresta Climb</title>
+  <link rel="icon" type="image/svg+xml" href="https://arestaclimb.com/favicon.svg"/>
+  <title>Resumo da PR #{numero_pr} ({codigo_formatado}) | Aresta Climb</title>
   <style>
     :root {{
-      --bg: #0d1117; --card: #161b22; --border: #30363d; --text: #e6edf3;
-      --muted: #8b949e; --green: #2ea043; --yellow: #d29922; --red: #f85149; --blue: #58a6ff;
+      --bg: #f4f1e9;
+      --bg-soft: #ece7dd;
+      --surface: #faf8f2;
+      --surface-2: #e6e0d5;
+      --text: #1d1c19;
+      --muted: #6c675f;
+      --line: #d6cfc2;
+      --accent: #b53e29;
+      --accent-2: #9d2e1b;
+      --sage: #90a989;
+      --sage-deep: #596e55;
+      --shadow: 0 24px 70px rgba(57, 43, 33, 0.14);
+      --shadow-sm: 0 8px 24px rgba(57, 43, 33, 0.08);
+      --topo: rgba(109, 92, 72, 0.11);
+      --radius-sm: 12px;
+      --radius-md: 18px;
+      --radius-lg: 28px;
+      --radius-full: 9999px;
+      --green: #2ea043;
+      --yellow: #d29922;
+      --red: #f85149;
+    }}
+    html[data-theme="dark"] {{
+      --bg: #11120f;
+      --bg-soft: #171813;
+      --surface: #1c1d18;
+      --surface-2: #24251f;
+      --text: #f3f0e8;
+      --muted: #aaa69c;
+      --line: #35362e;
+      --accent: #cf563d;
+      --accent-2: #b53e29;
+      --sage: #90a989;
+      --sage-deep: #8ca684;
+      --shadow: 0 28px 90px rgba(0, 0, 0, 0.45);
+      --shadow-sm: 0 8px 24px rgba(0, 0, 0, 0.28);
+      --topo: rgba(144, 169, 137, 0.07);
     }}
     * {{ box-sizing: border-box; }}
-    body {{ margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: var(--bg); color: var(--text); line-height: 1.5; padding: 20px; }}
-    .container {{ max-width: 1180px; margin: 0 auto; }}
-    .hero {{ display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 20px; background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin-bottom: 20px; }}
-    .codigo-box {{ display: inline-flex; align-items: center; gap: 10px; background: #090d13; border: 1px solid var(--border); padding: 8px 14px; border-radius: 8px; font-family: monospace; font-size: 1.25rem; font-weight: bold; color: var(--blue); }}
-    .btn-acao {{ display: inline-block; background: var(--green); color: #fff; text-decoration: none; padding: 10px 18px; border-radius: 8px; font-weight: 600; border: none; cursor: pointer; }}
-    .btn-secundario {{ background: #21262d; color: var(--text); border: 1px solid var(--border); padding: 6px 12px; border-radius: 6px; cursor: pointer; }}
+    html {{ color-scheme: light dark; scroll-behavior: smooth; }}
+    body {{
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg);
+      background-image:
+        radial-gradient(circle at 90% 10%, var(--topo), transparent 30%),
+        radial-gradient(circle at 10% 80%, var(--topo), transparent 30%);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      transition: background-color 0.2s ease, color 0.2s ease;
+    }}
+    a {{ color: inherit; text-decoration: none; }}
+    .header {{
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      background: color-mix(in srgb, var(--bg) 85%, transparent);
+      border-bottom: 1px solid color-mix(in srgb, var(--line) 75%, transparent);
+    }}
+    .nav {{
+      max-width: 1180px;
+      margin: 0 auto;
+      height: 64px;
+      padding: 0 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }}
+    .logo {{
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 850;
+      letter-spacing: -0.04em;
+      font-size: 1.05rem;
+      color: var(--text);
+    }}
+    .logo-img {{
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      display: block;
+    }}
+    .nav-actions {{
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }}
+    .theme-toggle {{
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      border: 1px solid var(--line);
+      background: var(--surface);
+      color: var(--text);
+      display: grid;
+      place-items: center;
+      font-size: 1.05rem;
+      cursor: pointer;
+      transition: transform 0.15s ease, border-color 0.15s ease;
+    }}
+    .theme-toggle:hover {{
+      transform: scale(1.05);
+      border-color: var(--accent);
+    }}
+    .btn-site {{
+      padding: 8px 16px;
+      border-radius: var(--radius-full);
+      background: var(--surface);
+      border: 1px solid var(--line);
+      color: var(--text);
+      font-size: 0.84rem;
+      font-weight: 650;
+      transition: border-color 0.15s ease;
+    }}
+    .btn-site:hover {{ border-color: var(--accent); }}
+    .container {{ flex: 1; width: 100%; max-width: 1180px; margin: 0 auto; padding: 24px 20px 40px; }}
+    .etiqueta {{
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      margin-bottom: 4px;
+    }}
+    .etiqueta::before {{
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+    }}
+    .hero {{
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 24px 28px;
+      margin-bottom: 24px;
+      box-shadow: var(--shadow-sm);
+    }}
+    .hero h1 {{ margin: 0 0 6px; font-size: clamp(22px, 4vw, 30px); font-weight: 900; letter-spacing: -0.03em; }}
+    .codigo-box {{
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--bg-soft);
+      border: 1px dashed var(--accent);
+      padding: 8px 14px;
+      border-radius: var(--radius-sm);
+      font-family: monospace;
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--accent);
+    }}
+    .btn-acao {{
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--accent);
+      color: #fff;
+      text-decoration: none;
+      padding: 10px 18px;
+      border-radius: var(--radius-full);
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.15s ease;
+    }}
+    .btn-acao:hover {{ background: var(--accent-2); }}
+    .btn-secundario {{
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--bg-soft);
+      color: var(--text);
+      border: 1px solid var(--line);
+      padding: 8px 14px;
+      border-radius: var(--radius-full);
+      font-weight: 650;
+      cursor: pointer;
+      transition: border-color 0.15s ease;
+    }}
+    .btn-secundario:hover {{ border-color: var(--accent); }}
+    .qr-box {{
+      background: #ffffff;
+      padding: 8px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--line);
+      display: inline-flex;
+    }}
     .filtros {{ display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }}
-    .btn-modo {{ background: #21262d; color: var(--text); border: 1px solid var(--border); padding: 6px 12px; border-radius: 6px; cursor: pointer; font-size: 0.85rem; }}
-    .btn-modo.ativo {{ background: var(--blue); color: #0d1117; font-weight: 700; border-color: var(--blue); }}
+    .btn-modo {{
+      background: var(--surface);
+      color: var(--text);
+      border: 1px solid var(--line);
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+      cursor: pointer;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }}
+    .btn-modo.ativo {{ background: var(--accent); color: #ffffff; font-weight: 700; border-color: var(--accent); }}
     .secao-croqui {{ margin-bottom: 32px; }}
-    .cabecalho-croqui {{ display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--border); padding-bottom: 8px; margin-bottom: 16px; }}
-    .cartao-item {{ background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 16px; margin-bottom: 14px; }}
+    .cabecalho-croqui {{ display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--line); padding-bottom: 8px; margin-bottom: 16px; }}
+    .cartao-item {{ background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-md); padding: 16px; margin-bottom: 14px; box-shadow: var(--shadow-sm); }}
     .cabecalho-cartao {{ display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 10px; margin-bottom: 10px; }}
-    .badge {{ display: inline-block; padding: 2px 8px; border-radius: 999px; font-size: 0.75rem; font-weight: 700; margin-right: 6px; }}
-    .badge-adicionado, .badge-novo {{ background: rgba(46,160,67,0.2); color: #3fb950; border: 1px solid #2ea043; }}
-    .badge-modificado {{ background: rgba(210,153,34,0.2); color: #e3b341; border: 1px solid #d29922; }}
-    .badge-removido {{ background: rgba(248,81,73,0.2); color: #ff7b72; border: 1px solid #f85149; }}
-    .badge-neutro {{ background: #21262d; color: var(--muted); padding: 2px 8px; border-radius: 6px; font-size: 0.8rem; margin-left: 6px; }}
+    .badge {{ display: inline-block; padding: 2px 10px; border-radius: 999px; font-size: 0.75rem; font-weight: 700; margin-right: 6px; }}
+    .badge-adicionado, .badge-novo {{ background: rgba(46,160,67,0.18); color: #2ea043; border: 1px solid #2ea043; }}
+    .badge-modificado {{ background: rgba(210,153,34,0.18); color: #d29922; border: 1px solid #d29922; }}
+    .badge-removido {{ background: rgba(248,81,73,0.18); color: #f85149; border: 1px solid #f85149; }}
+    .badge-neutro {{ background: var(--bg-soft); color: var(--muted); padding: 2px 8px; border-radius: 6px; font-size: 0.8rem; margin-left: 6px; }}
     .subtexto {{ color: var(--muted); font-size: 0.85rem; margin-left: 6px; }}
-    .container-mapa {{ position: relative; display: inline-block; width: 100%; max-width: 900px; overflow: hidden; border-radius: 8px; border: 1px solid var(--border); }}
+    .container-mapa {{ position: relative; display: inline-block; width: 100%; max-width: 900px; overflow: hidden; border-radius: 8px; border: 1px solid var(--line); }}
     .container-mapa img {{ display: block; width: 100%; height: auto; }}
     .mapa-svg-overlay {{ position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }}
     .container-mapa.mode-antes .camada-depois {{ display: none; }}
@@ -436,29 +645,63 @@ def renderizar_resumo_html(
     .comparador-mapa-imagem.modo-cortina {{ position: relative; max-width: 900px; }}
     .comparador-mapa-imagem.modo-cortina .painel-depois {{ position: absolute; inset: 0; clip-path: inset(0 0 0 50%); }}
     .galeria-antes-depois {{ display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }}
-    .galeria-antes-depois img, .galeria-unica img {{ max-width: 100%; border-radius: 6px; border: 1px solid var(--border); }}
-    .val-antes {{ color: #ff7b72; text-decoration: line-through; }}
-    .val-depois {{ color: #3fb950; font-weight: 600; }}
-    .diff-markdown {{ background: #090d13; padding: 10px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; }}
-    .linha-add {{ display: block; color: #3fb950; background: rgba(46,160,67,0.12); }}
-    .linha-rem {{ display: block; color: #ff7b72; background: rgba(248,81,73,0.12); }}
+    .galeria-antes-depois img, .galeria-unica img {{ max-width: 100%; border-radius: 6px; border: 1px solid var(--line); }}
+    .val-antes {{ color: #f85149; text-decoration: line-through; }}
+    .val-depois {{ color: #2ea043; font-weight: 600; }}
+    .diff-markdown {{ background: var(--bg-soft); border: 1px solid var(--line); padding: 10px; border-radius: 8px; overflow-x: auto; font-size: 0.85rem; }}
+    .linha-add {{ display: block; color: #2ea043; background: rgba(46,160,67,0.12); }}
+    .linha-rem {{ display: block; color: #f85149; background: rgba(248,81,73,0.12); }}
+    .site-footer {{
+      border-top: 1px solid var(--line);
+      padding: 20px;
+      color: var(--muted);
+      font-size: 0.82rem;
+    }}
+    .footer-inner {{
+      max-width: 1180px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }}
+    .footer-links {{ display: flex; gap: 14px; flex-wrap: wrap; }}
+    .footer-links a:hover {{ color: var(--accent); text-decoration: underline; }}
   </style>
 </head>
 <body>
-  <div class="container">
+  <header class="header">
+    <div class="nav">
+      <a href="https://arestaclimb.com" class="logo" aria-label="Aresta Climb - Início">
+        <img src="https://arestaclimb.com/assets/logo_app.png" alt="Aresta Climb Logo" class="logo-img" width="32" height="32"/>
+        <span>ARESTA CLIMB</span>
+      </a>
+      <div class="nav-actions">
+        <a href="{html.escape(url_app)}" class="btn-site">Página da Prévia</a>
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Alternar tema claro e escuro">◐</button>
+        <a href="https://arestaclimb.com" class="btn-site">Conhecer o Aresta ↗</a>
+      </div>
+    </div>
+  </header>
+  <main class="container">
     <header class="hero">
       <div>
+        <div class="etiqueta">Resumo Visual de Alterações</div>
         <h1>Prévia da Pull Request #{numero_pr}</h1>
-        <p class="subtexto">Commit: <code>{html.escape(commit_curto)}</code> · Escaladas: +{resumo.total_escaladas_adicionadas} / ~{resumo.total_escaladas_modificadas} / -{resumo.total_escaladas_removidas} · Mapas: {resumo.total_mapas_alterados} · Imagens: {resumo.total_imagens_alteradas}</p>
-        <div style="margin-top: 12px; display: flex; flex-wrap: wrap; gap: 10px; align-items: center;">
+        <p class="subtexto" style="margin-left: 0;">Commit: <code>{html.escape(commit_curto)}</code> · Escaladas: +{resumo.total_escaladas_adicionadas} / ~{resumo.total_escaladas_modificadas} / -{resumo.total_escaladas_removidas} · Mapas: {resumo.total_mapas_alterados} · Imagens: {resumo.total_imagens_alteradas}</p>
+        <div style="margin-top: 14px; display: flex; flex-wrap: wrap; gap: 10px; align-items: center;">
           <span class="codigo-box" id="codigo-pr">{codigo_formatado}</span>
           <button type="button" class="btn-secundario" onclick="navigator.clipboard.writeText('{codigo_formatado}')">Copiar Código</button>
-          <a class="btn-acao" href="{html.escape(url_app)}">Abrir no Aplicativo Aresta Climb</a>
+          <a class="btn-acao" href="{html.escape(deep_link_app)}">Abrir no Aplicativo Aresta Climb</a>
+          <a class="btn-secundario" href="{html.escape(url_app)}">Ver Página de Pareamento</a>
         </div>
       </div>
       <div style="text-align: center;">
-        {qr_svg}
-        <div class="subtexto" style="margin-top: 4px;">Escaneie no celular</div>
+        <a class="qr-box" href="{html.escape(url_app)}" title="Abrir Prévia ({codigo_formatado})">
+          {qr_svg}
+        </a>
+        <div class="subtexto" style="margin-top: 6px; margin-left: 0;">Escaneie no celular</div>
       </div>
     </header>
 
@@ -472,8 +715,29 @@ def renderizar_resumo_html(
     </nav>
 
     {blocos_croquis}
-  </div>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>© 2026 Aresta Climb · Croquis de escalada 100% offline</span>
+      <div class="footer-links">
+        <a href="https://arestaclimb.com">arestaclimb.com</a>
+        <a href="https://apps.apple.com/app/id6776467893" target="_blank" rel="noopener noreferrer">App Store</a>
+        <a href="https://play.google.com/store/apps/details?id=app.escalada.croquis" target="_blank" rel="noopener noreferrer">Google Play</a>
+      </div>
+    </div>
+  </footer>
   <script>
+    (function () {{
+      var btnTema = document.getElementById("themeToggle");
+      if (btnTema) {{
+        btnTema.addEventListener("click", function () {{
+          var atual = document.documentElement.getAttribute("data-theme") || "dark";
+          var proximo = atual === "dark" ? "light" : "dark";
+          document.documentElement.setAttribute("data-theme", proximo);
+          try {{ localStorage.setItem("aresta-theme", proximo); }} catch (e) {{}}
+        }});
+      }}
+    }})();
     function definirModoSvg(idDom, classeModo, btn) {{
       const card = document.getElementById(idDom);
       const container = card.querySelector('.container-mapa');
@@ -516,11 +780,12 @@ def renderizar_comentario_pr_markdown(
     resumo: ResumoDiffPullRequest,
     numero_pr: int,
     url_base_previa: str = "https://previa.arestaclimb.com",
+    url_base_serving: str = "https://serving.arestaclimb.com",
     publicado_no_r2: bool = True,
 ) -> str:
     """
     Gera o comentário Markdown enxuto da Pull Request contendo a assinatura invisível
-    `<!-- aresta-pr-validator -->`, resumo das alterações e links diretos.
+    `<!-- aresta-pr-validator -->`, resumo das alterações, QR Code e links diretos.
     """
     codigo_formatado = gerar_codigo_pull_request(numero_pr)
     link_app = obter_url_previa(codigo_formatado, base_url=url_base_previa)
@@ -543,7 +808,15 @@ def renderizar_comentario_pr_markdown(
         f"- 📱 **Abrir direto no App Aresta Climb:** [{link_app}]({link_app})",
         f"- 🔍 **Ver Resumo Visual e Diff Interativo:** [{link_resumo}]({link_resumo})",
     ]
-    if not publicado_no_r2:
+    if publicado_no_r2:
+        url_qr_code = f"{url_base_serving.rstrip('/')}/pr/{numero_pr}/qrcode.svg"
+        linhas.extend(
+            [
+                "",
+                f"[![QR Code da Prévia ({codigo_formatado})]({url_qr_code})]({link_app})",
+            ]
+        )
+    else:
         linhas.extend(
             [
                 "",

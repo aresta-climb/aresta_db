@@ -1,139 +1,178 @@
 ---
-name: converter_parte_croqui_para_markdown 
-description: Converte uma parte de um croqui para arquivo Markdown com YAML Frontmatter.
+name: converter_parte_croqui_para_markdown
+description: Converte uma parte de um croqui diretamente para a árvore Protobuf do Editor Aresta via MCP em transação atômica por UID.
 ---
 
-# Converter Parte de Croqui de Escalada para Markdown com YAML Frontmatter
+# Converter Parte de Croqui para a Árvore Protobuf via MCP
 
-Nessa skill, você irá receber o nome da parte do croqui sendo convertida, que será o nome do arquivo `.md` que será gerado. Além disso, você receberá os números das páginas que devem compor essa parte do croqui.
+Nesta skill, você recebe os metadados de uma parte específica do croqui já particionada por `aresta_particionar_pdf_croqui`:
+- `id_croqui`: Identificador do croqui aberto no Editor Aresta.
+- `nome_parte`: Chave da parte (ex: `"capa"`, `"introducao"`, `"mapas_gerais"`, `"grupo_vale"`, `"setor_principal"`).
+- `uid`: O identificador único (`UID` NanoID ou caminho canônico como `"picos[0].mapas_gerais.conteudo"`) pré-alocado exclusivamente para esta parte na árvore Protobuf.
+- `caminho_pdf`: Caminho do sub-PDF contendo apenas as páginas desta parte.
+- `imagens`: Lista de caminhos relativos das imagens `.webp` extraídas para esta parte (ex: `["imagens/p4_i0.webp", "imagens/p4.webp"]`).
 
-## 1. Entendendo o conteúdo dessa parte do croqui e fazendo a transcrição inicial.
+---
 
-Leia o arquivo PDF que representa essa parte do croqui (`<parte>.pdf`). Transcreva todas as informações encontradas nessas páginas para o arquivo .md. Dê preferência para as seções estruturadas em YAML Frontmatter caso forem relevantes para a informação sendo transcrita. Alternativamente, preencha o Markdown da página com a informação transcrita.
+## 1. As Três Regras de Ouro de Isolamento e Atomicidade
 
-Instruções durante a conversão:
+> [!CAUTION]
+> **1. Escopo Estrito por `UID` (`alvo=<uid_atribuido>`):**
+> Você está rodando em paralelo com outros subagentes na mesma janela do Editor Aresta.
+> - Passe **sempre** o `id_croqui` recebido em todas as chamadas MCP.
+> - Opere **exclusivamente** sobre o `alvo` igual ao `uid` atribuído à sua parte.
+> - **NUNCA** modifique setores, grupos ou botões de outras partes e **NUNCA** chame `aresta_salvar` ou `aresta_compilar` (isso é responsabilidade exclusiva da fase de compilação após todos os subagentes terminarem).
+>
+> **2. Proibição Absoluta de Edição Manual de Arquivos:**
+> - É estritamente **PROIBIDO** criar ou editar arquivos `.md`, `croqui.yaml` ou `.json` no disco (`write_file`, `edit_file` ou scripts no terminal).
+> - Toda leitura de esquema e toda gravação de dados DEVEM ser feitas pelas ferramentas MCP do `editor-aresta`.
+>
+> **3. Transação Atômica Única com `aresta_alterar_campo`:**
+> - `aresta_alterar_campo` suporta a substituição declarativa completa de um objeto e de todas as suas listas `repeated` (`escaladas`, `mapas`, `referencias`, `participantes`, etc.) em **uma única chamada atômica** (`campos: dict`), preservando `uid`s informados e gerando NanoIDs automaticamente para novos itens.
+> - Inspecione o PDF e as imagens primeiro, monte o payload completo da sua parte e envie tudo em uma única chamada `aresta_alterar_campo(alvo=uid, campos={...}, id_croqui=id_croqui)`.
 
-### 1.1. Partes não-setores e não-grupos
+---
 
-Para partes que não são setores (i.e. não possuem o prefixo `setor_` ou `grupo_`), preencha o conteúdo principalmente na seção markdown do arquivo, transcrevendo toda a informação presente nas páginas. Mantenha em mente:
-- Transcreva **TODAS** as informações contidas nas páginas do PDF. Não sumarize, não deixe nada de fora. Transcreva **TODO** o conteúdo textual.
-- Caso as páginas possuírem imagens, procure e encontre a imagem correspondente na pasta `raw_pdf_contents/imagens/` e as inclua usando a sintaxe de imagens do Markdown.
-- Coloque as imagens próximas ao texto relacionada a elas, e não no fim do arquivo.
-- Note que a imagem correta pode ser qualquer uma das imagens na pasta da página, dado que as imagens estão fora de ordem.
-- Pode ser necessário inspecionar cada imagem para encontrar a imagem relevante para ser adicionada ao arquivo markdown.
-- Se o conteúdo especificar uma legenda para a imagem, essa legenda deve ser escrita na área de alt text para a imagem. Ela será processada apropriadamente depois se estiver no alt text.
-- **IMPORTANTE:** Garanta que exista pelo menos uma linha vazia entre imagens consecutivas e entre imagens e textos adjacentes.
+## 2. Como Transcrever Cada Tipo de Parte
 
-### 1.2 Grupos
+Primeiro, leia visualmente o sub-PDF da sua parte (`caminho_pdf`) e as imagens listadas em `imagens` usando `view_file` / `read_file`. Se tiver qualquer dúvida sobre nomes de campos ou valores de `Enum`, consulte `aresta_obter_esquema_proto(tipo_mensagem="Setor")` (ou `"Escalada"`, `"GrauVia"`, `"GrauBoulder"`, `"Grupo"`, `"ColecaoDeMapas"`).
 
-Para grupos (começando com o prefixo `grupo_`), siga RIGOROSAMENTE o formato da mensagem `Grupo` no código fonte `aresta_api/proto/croqui.proto` para representar a lista de setores na seção YAML. Esse tipo de arquivo será principalmente um arquivo Markdown com as informações do grupo de setores, podendo opcionalmente conter um mapa para localização de cada sub-setor, e então uma lista de sub-setores que podem ser especificados pelo campo `setores` da mensagem `Grupo`. Preencha a mensagem `Grupo` e coloque o caminho para os arquivos `.md` de cada sub-setor, que devem ficar em arquivos Markdown independentes.
-- **Nome do Grupo:** Preencha o campo `nome` no YAML Frontmatter com o nome do grupo (ex: `nome: Vale Oculto`). Não adicione o prefixo "Grupo " a menos que faça parte do nome próprio.
-- **Sem H1 no Corpo:** NUNCA inclua cabeçalhos H1 (`# Grupo ...`) no corpo Markdown.
+### 2.1. Capa (`nome_parte == "capa"`)
+Atualize os metadados gerais na raiz do `Croqui` / `Pico` (`alvo="picos[0]"` ou `alvo=uid` da raiz conforme o campo):
+- No `Croqui` (`alvo=""` ou `uid` raiz): `caminho_thumbnail` (escolha a imagem representativa da capa em `imagens/...`).
+- No `Pico` (`alvo="picos[0]"`): `nome`, `introducao` (se houver texto de apresentação na capa).
 
-### 1.3 Mapas Gerais
+### 2.2. Seções Textuais / Apêndices (`Botao` com `pagina_markdown`)
+Para partes textuais que não são setores nem grupos (`introducao`, `historia`, `hospedagem`, `regras_de_visitacao`, etc.), o `uid` recebido aponta para o `Botao` na raiz do croqui:
+- Transcreva **100% do conteúdo textual** presente nas páginas do sub-PDF para o campo `pagina_markdown` (e ajuste o rótulo do botão no campo `texto`, ex: `"Introdução"`, `"História"`). Não resuma nem omita nenhuma informação.
+- Se a página contiver imagens contextuais/ilustrativas em `imagens`, inclua-as no Markdown usando `![Legenda da imagem](imagens/pX_iY.webp)` (ou use `aresta_inserir_imagem_markdown`).
+- Garanta sempre uma linha em branco antes e depois de cada tag de imagem no Markdown.
+- Exemplo de chamada atômica:
+  ```json
+  {
+    "alvo": "<uid_botao>",
+    "id_croqui": "<id_croqui>",
+    "campos": {
+      "texto": "História e Acesso",
+      "pagina_markdown": "Texto integral transcrito do PDF...\n\n![Vista da entrada](imagens/p2_i0.webp)\n\nContinuação do texto..."
+    }
+  }
+  ```
 
-Para mapas gerais (nome da parte for `mapas_gerais`), você deve gerar um arquivo `.md` que representa a mensagem `ColecaoDeMapas` do Protobuf. Este arquivo deve conter SOMENTE o YAML frontmatter (sem conteúdo de texto fora dele, ou se houver, será ignorado). Siga RIGOROSAMENTE o formato:
-- Preencha a lista `mapas` no frontmatter.
-- Para cada imagem na pasta `raw_pdf_contents/imagens/mapas_gerais/` que representa um mapa, adicione um item à lista com o campo `caminho_imagem_mapa` apontando para a imagem (ex: `raw_pdf_contents/imagens/mapas_gerais/pX_iY.webp`).
-- Extraia referências visuais de outros setores no mapa, se existirem, preenchendo a lista `referencias`.
+### 2.3. Grupos (`nome_parte` começando com `grupo_` sem `_setor_`)
+O `uid` recebido aponta para a mensagem `Grupo`:
+- **`nome`**: Preencha com o nome próprio do grupo (ex: `"Vale Oculto"`). Não adicione o prefixo `"Grupo "` a menos que faça parte do nome original no PDF.
+- **`introducao`**: Texto descritivo do grupo em Markdown. **NUNCA** inclua cabeçalhos H1 (`# Grupo ...`) no início do Markdown.
+- **`mapas`**: Caso o grupo possua mapas de localização dos sub-setores, envie a lista `mapas: [{"caminho_imagem_mapa": "imagens/pX_iY.webp"}]`.
+- **Sub-setores (`setores`)**: Não sobrescreva a lista `setores` do `Grupo` na chamada do grupo, pois `aresta_particionar_pdf_croqui` já pré-alocou os sub-setores dentro de `grupo.setores` com seus próprios `UID`s para serem preenchidos pelos subagentes dedicados a cada `grupo_X_setor_Y`.
 
-### 1.4 Setores
-    
-Para setores (começando com o prefixo `setor_`), siga RIGOROSAMENTE o formato da mensagem `Setor` no código fonte `aresta_api/proto/croqui.proto` para representar a lista de escaladas na seção YAML. Inclua toda a informação disponível sobre cada escalada:
-  - Nome da escalada
-  - Dificuldade da escalada (mapeado obrigatoriamente para as enumerações `GrauVia` ou `GrauBoulder` encontradas em `aresta_api/proto/croqui.proto`, e.g., `BR_7A`, `BR_5SUP`, `V7`).
-  - **Mapeamentos Especiais de Enumeração:**
-    ```yaml
-    BR_6C: BR_6SUP
-    BR_6B: BR_6_BARRA_6SUP
-    BR_6A: BR_6
-    BR_5C: BR_5SUP
-    BR_5B: BR_5_BARRA_5SUP
-    BR_5A: BR_5
-    ```
-  - Caso a escalada estiver entre dois graus (por exemplo, "7b/c" para via, ou "V7/8" para boulder), use as enumerações BARRA para representar essas graduações (`BR_7B_BARRA_7C`, ou `V7_BARRA_V8`, respectivamente).
-  - Contagem de proteções: Parseie string como `"4+2"` gerando explicitamente a sintaxe:
-    ```yaml
-    quantidade_protecoes_intermediarias: 4
-    quantidade_protecoes_parada: 2
-    ```
-  - Para as escaladas que estiverem marcadas como uma "estrela" ou "diamante", adicione o campo `destaque: true`.
-  - Tipo da escalada (use Boulder para boulders, ViaEsportiva para vias inteiramente fixas, ViaMovel para vias móveis ou mistas, e ViaMultiplasEnfiadas para vias com múltiplas enfiadas)
-  - Conquistadores
-  - Outros campos que fazem parte da mensagem e sub-mensagens de `Escalada` em `croqui.proto`.
-  - Escolha as imagens em `raw_pdf_contents/imagens/` que representam os mapas do setor ou escalada.
-  - **Diferenciação e Mapeamento de Mapas e Imagens:**
-      - Adicione o caminho de cada mapa geral em um item da lista `mapas` na raiz do Setor com o campo `caminho_imagem_mapa`.
-      - **Referências de Mapa (Sintaxe Canônica vs Rascunho Inicial):**
-        - **Ao editar arquivo existente**: NUNCA remova ou altere os identificadores estáveis (`alvo_uid` e `pontos_uids`). Mantenha o formato canônico:
-          ```yaml
-          referencias:
-            - alvo_uid: "abc123def456gh"
-              pontos_uids:
-                - "poi123poi456gh"
-          ```
-        - **Ao transcrever novo croqui do zero**: Como os UIDs ainda não foram gerados, você pode utilizar o rascunho semântico vinculando cada escalada pelo seu nome exato e IDs numéricos da imagem: `referencias: [{escalada: 'Nome da Via', ids: ['01']}]`. O script compilador (`deploy_generated.py`) resolverá os nomes e converterá automaticamente para `alvo_uid` e `pontos_uids` no primeiro deploy. NUNCA coloque IDs de mapa dentro da mensagem da escalada em si.
-      - **Preservação de UIDs:** Ao editar arquivos `.md` existentes, **JAMAIS** altere ou delete os campos `uid`, `alvo_uid` ou `pontos_uids`. Para novas escaladas adicionadas, o campo `uid` pode ser omitido (o compilador o gerará deterministicamente).
-    - **Mapas Específicos de Escaladas (`escaladas[].mapas`)**: Imagens dedicadas exclusivamente a uma única escalada ou detalhe restrito a ela, tais como:
-      - Close-ups de blocos de boulder destacando agarras específicas, linha de saída sentada (*sit-start*), ou sequência detalhada de pegas;
-      - Croquis verticais ou topos detalhados de vias (especialmente vias de múltiplas enfiadas com divisão de enfiadas, paradas e proteções);
-      - Fotos focadas apenas no traçado de uma escalada individual específica.
-      - **Sintaxe no YAML Frontmatter:** Adicione a sub-lista `mapas` diretamente dentro do item da escalada correspondente (como campo irmão do tipo de escalada `via_esportiva`, `boulder`, etc.):
-        ```yaml
-        escaladas:
-          - via_esportiva:
-              nome: "Fenda do Medo"
-              dificuldade: BR_7A
-              descricao: "Croqui vertical detalhado com paradas e proteções"
-            mapas:
-              - caminho_imagem_mapa: raw_pdf_contents/imagens/p12_i2.webp
-          - boulder:
-              nome: "Tigre Branco"
-              dificuldade: V6
-              descricao: "Detalhe da saída sentada (sit-start)"
-            mapas:
-              - caminho_imagem_mapa: raw_pdf_contents/imagens/p14_i1.webp
-        ```
-    - **Imagens no Corpo Markdown:** Caso a imagem seja um mapa ou croqui (seja do setor ou de uma escalada individual), NÃO a adicione como tag de imagem Markdown `![]()` no corpo do texto para evitar duplicações visuais. Deixe para o Markdown apenas imagens fotográficas contextuais e ambientais (ex: foto de alguém escalando, paisagem do local).
-  - **Atenção à integridade das imagens (pX.webp vs pX_iY.webp):**
-    - Se a página possuía diagramação com sobreposições vetoriais ou transparências, o particionador terá detectado o fatiamento e gerado automaticamente a imagem de página completa `pX.webp`. Nesses casos, use diretamente `pX.webp`.
-    - Se a página possuía uma foto individual limpa e íntegra sem fatiamento, `pX_i0.webp` estará disponível e deve ser utilizada normalmente.
+### 2.4. Mapas Gerais (`nome_parte == "mapas_gerais"`)
+O `alvo` recebido (`"picos[0].mapas_gerais.conteudo"`) aponta para a `ColecaoDeMapas` do pico:
+- Inspecione as imagens da parte e selecione aquelas que representam mapas gerais/aéreos do pico.
+- Envie a lista `mapas` em `aresta_alterar_campo`:
+  ```json
+  {
+    "alvo": "picos[0].mapas_gerais.conteudo",
+    "id_croqui": "<id_croqui>",
+    "campos": {
+      "mapas": [
+        {
+          "caminho_imagem_mapa": "imagens/p8_i0.webp"
+        }
+      ]
+    }
+  }
+  ```
 
-  - **Nome do Setor e Prefixação no Frontmatter:**
-    - Para setores de vias: use SEMPRE o prefixo `"Setor "` no campo `nome:` do frontmatter (ex: `nome: Setor Bem-vindo`).
-    - Para blocos de boulder: use SEMPRE o prefixo `"Bloco "` no campo `nome:` do frontmatter (ex: `nome: Bloco 45º`).
-  - **Proibição Estrita de Títulos H1 no Corpo Markdown:**
-    - NUNCA adicione títulos H1 (`# Setor <Nome>` ou `# Bloco <Nome>`) no corpo do Markdown. O aplicativo já renderiza o nome do setor/bloco automaticamente no topo da tela a partir do campo `nome`. Adicionar títulos H1 no corpo causa duplicação visual e aciona avisos no pipeline de deploy. Subtítulos informativos (como `## Acesso` ou `## Observações`) são permitidos se houver texto relevante. Se não houver texto descritivo para o setor além de seus dados estruturados, o corpo Markdown deve ficar vazio.
-  - Quaisquer informação restante que não mapear diretamente para um campo no proto, adicione à área de texto livre do markdown ou ao campo `descricao` da escalada, o que for mais apropriado.
-  - **IMPORTANTE**: TODA a informação do setor, incluindo partes textuais, deve ser transcrita para algum campo do protobuf ou da área de markdown.
-  - Organizar a estrutura hierárquica: `Setores` -> `Escaladas` -> (uma entre `ViaEsportiva`, `Boulder`, `ViaMovel`, `ViaMultiplasEnfiadas`)
+### 2.5. Setores e Sub-setores (`setor_...` ou `grupo_..._setor_...`)
+O `uid` recebido aponta diretamente para a mensagem `Setor`:
+- **Prefixação Obrigatória em `nome`**:
+  - Para setores de vias: use **SEMPRE** o prefixo `"Setor "` (ex: `"Setor Bem-vindo"`).
+  - Para blocos de boulder: use **SEMPRE** o prefixo `"Bloco "` (ex: `"Bloco 45º"`).
+- **Proibição de H1 em `introducao`**:
+  - **NUNCA** adicione títulos H1 (`# Setor ...` ou `# Bloco ...`) no campo `introducao`. O aplicativo já renderiza o título automaticamente a partir de `nome`. Subtítulos (`## Acesso`, `## Observações`) são permitidos quando houver texto descritivo. Se não houver texto geral do setor além das vias, deixe `introducao: ""`.
+- **Lista de Escaladas (`escaladas`)**:
+  Cada item da lista `escaladas` contém a variante `oneof tipo` (`via_esportiva`, `boulder`, `via_movel` ou `via_multiplas_enfiadas`) e opcionalmente `mapas` (quando houver foto/croqui exclusivo daquela escalada individual):
+  - **Dificuldade (`GrauVia` / `GrauBoulder`)**:
+    Use os nomes exatos do `Enum` em `croqui.proto` (ex: `"BR_7A"`, `"BR_5SUP"`, `"V7"`).
+    Aplique obrigatoriamente os mapeamentos especiais da graduação brasileira:
+    - `6c` → `"BR_6SUP"`
+    - `6b` → `"BR_6_BARRA_6SUP"`
+    - `6a` → `"BR_6"`
+    - `5c` → `"BR_5SUP"`
+    - `5b` → `"BR_5_BARRA_5SUP"`
+    - `5a` → `"BR_5"`
+    - Graus intermediários com barra (ex: `7b/c` ou `V7/8`) → `"BR_7B_BARRA_7C"`, `"V7_BARRA_V8"`.
+  - **Proteções**: Converta notações como `"4+2"` em `quantidade_protecoes_intermediarias: 4` e `quantidade_protecoes_parada: 2`.
+  - **Destaque**: Escaladas marcadas com estrela ou diamante recebem `"destaque": true`.
+  - **Conquistadores / Participantes**: Preencha em `participantes` / `conquistadores` conforme o esquema Protobuf consultado em `aresta_obter_esquema_proto(tipo_mensagem="ViaEsportiva")`.
+  - **Mapas Exclusivos de uma Escalada (`escaladas[].mapas`)**: Close-ups de agarras, saídas sentadas (*sit-start*) ou topos verticais exclusivos de uma única via/boulder vão dentro do item daquela escalada em `mapas: [{"caminho_imagem_mapa": "imagens/..."}]`.
+- **Mapas Gerais do Setor (`mapas` na raiz do `Setor`)**:
+  - Escolha as imagens em `imagens` que mostram a parede/bloco com as linhas e números das vias.
+  - **Integridade da Imagem (`pX.webp` vs `pX_iY.webp`)**: Se a página do PDF possuía traçados vetoriais fatiados em mosaico, `aresta_particionar_pdf_croqui` terá gerado a imagem de página inteira `imagens/pX.webp` — prefira `pX.webp` sempre que as imagens individuais `pX_iY.webp` forem pedaços/fatias incompletas da parede.
+  - Não repita imagens que são mapas dentro do campo Markdown `introducao`.
 
-## 2. Regras Estritas de Formatação e Sintaxe
+### Exemplo Completo de Chamada Atômica para um `Setor`
+```json
+{
+  "alvo": "<uid_setor>",
+  "id_croqui": "<id_croqui>",
+  "campos": {
+    "nome": "Setor Vila da Perdição",
+    "introducao": "## Acesso\nTrilha de 10 minutos a partir do estacionamento principal.",
+    "escaladas": [
+      {
+        "via_esportiva": {
+          "nome": "Fenda do Medo",
+          "dificuldade": "BR_7A",
+          "quantidade_protecoes_intermediarias": 6,
+          "quantidade_protecoes_parada": 2,
+          "destaque": true,
+          "descricao": "Início técnico em regletes seguido de diedro."
+        },
+        "mapas": [
+          {
+            "caminho_imagem_mapa": "imagens/p11_i2.webp"
+          }
+        ]
+      },
+      {
+        "via_esportiva": {
+          "nome": "Diedro Oculto",
+          "dificuldade": "BR_6SUP",
+          "quantidade_protecoes_intermediarias": 5,
+          "quantidade_protecoes_parada": 2
+        }
+      }
+    ],
+    "mapas": [
+      {
+        "caminho_imagem_mapa": "imagens/p11.webp"
+      }
+    ]
+  }
+}
+```
 
-> [!WARNING]
-> **O YAML DEVE SER PERFEITO:** Você está escrevendo YAML Frontmatter. Qualquer erro de indentação, aspas não fechadas, ou listas mal formatadas no YAML fará com que o parser do Protobuf quebre na etapa final. Revise minuciosamente a sintaxe do seu output.
-> - Sempre use aspas em strings no YAML se elas contiverem caracteres especiais (ex: dois pontos `:`).
-> - Garanta que a indentação obedeça à estrutura exata do `croqui.proto`.
+---
 
-> [!IMPORTANT]
-> **Caminhos de Imagens:** Toda vez que precisar referenciar uma imagem no Markdown, use APENAS caminhos relativos começando a partir da pasta base de imagens. Exemplo correto: `![Mapa Geral](raw_pdf_contents/imagens/p2_i0.webp)`.
+## 3. Preservação Estrita de `UID`s ao Atualizar Croqui Existente
 
-## 3. Revisão Final (Self-Correction)
+Quando você estiver atualizando uma parte de um croqui que já possuía dados:
+1. Antes de montar sua alteração, chame `aresta_obter_arvore(alvo=uid, id_croqui=id_croqui)` para ler o estado atual daquela entidade.
+2. Se o PDF antigo e o PDF novo daquela parte forem equivalentes sem nenhuma alteração de conteúdo, não chame `aresta_alterar_campo` e retorne `"Nenhuma mudança necessária"`.
+3. Caso haja mudanças, **PRESERVE RIGOROSAMENTE** todos os campos `uid`, `alvo_uid` e `pontos_uids` das escaladas, mapas, pontos de interesse e referências que continuam existindo, incluindo-os nos dicionários enviados na lista para `aresta_alterar_campo`.
+4. Para novas escaladas ou novos mapas adicionados na nova edição, basta omitir o campo `uid` no dicionário do item novo (o Editor gerará um novo NanoID automaticamente).
 
-Antes de finalizar sua tarefa, você **DEVE** reler o arquivo `.md` que você acabou de criar.
-1. **Sintaxe YAML:** Verifique visualmente se a estrutura YAML está alinhada e as aspas estão corretas.
-2. **Imagens:** Confira se as imagens escolhidas são as mais representativas e os caminhos estão perfeitamente formatados.
-3. **Integralidade:** Certifique-se de que *nenhuma* informação do PDF original foi omitida.
-Se encontrar qualquer problema sintático, edite o arquivo e corrija de imediato antes de devolver a resposta.
+---
 
-## 4. Edição Direta via Servidor MCP do Editor Aresta (Quando Conectado)
+## 4. Conferência e Auto-Validação Final
 
-Se você estiver conectado ao servidor MCP do **Editor Aresta** (`editor-aresta`) com o croqui aberto:
-- Use `aresta_obter_esquema_proto` (ex: `tipo_mensagem="Setor"`, `"Escalada"`, `"ViaEsportiva"`, `"GrauVia"`) para consultar todos os campos, `oneofs` e enumerações válidas sem precisar adivinhar nomes de campos.
-- Use `aresta_obter_arvore` para inspecionar o setor/grupo alvo pelo seu `UID` ou caminho, verificando `tamanhos_repeated`.
-- Use `aresta_adicionar_repeated` para inserir setores, escaladas ou mapas já populados com dicionários JSON (`valores`), e `aresta_alterar_campo` (com `campo` + `valor` ou `campos: dict` em lote) para atualizar propriedades preservando o histórico `Undo/Redo`.
-- Para imagens e botões no corpo Markdown, utilize `aresta_inserir_imagem_markdown`, `aresta_inserir_botao_markdown` e `aresta_adicionar_mapa_arquivo`.
+Após executar `aresta_alterar_campo`:
+1. Chame `aresta_obter_arvore(alvo=uid, id_croqui=id_croqui)` para verificar a subárvore gravada em memória.
+2. Confirme que todas as escaladas do PDF estão presentes, que os `UID`s foram gerados/preservados e que os caminhos das imagens (`imagens/...`) estão corretos.
+3. Retorne ao Agente Orquestrador um resumo conciso com o `uid` atualizado, total de escaladas e mapas registrados.
 
 ## Quando usar essa habilidade
 
-Use essa habilidade quando precisar converter uma parte de um croqui para arquivo Markdown com YAML Frontmatter.
+Use essa habilidade quando precisar transcrever ou atualizar uma parte específica de um croqui PDF diretamente na árvore Protobuf do Editor Aresta via MCP.

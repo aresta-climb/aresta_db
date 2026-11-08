@@ -531,6 +531,9 @@ class TelaDeCarregamento(QDialog):
         else:
             self.atualizar_estado_vazio()
 
+        if self.servidor_mcp is not None:
+            self.garantir_servidor_mcp(iniciar_rede=False)
+
     def ao_clicar_alterar_nome(self) -> None:
         """Abre o diálogo de identificação do autor para renomear e persiste a alteração."""
         from editor.core.cliente_auth_supabase import ClienteAuthSupabase
@@ -789,7 +792,7 @@ class TelaDeCarregamento(QDialog):
 
         if self.servidor_mcp is None:
             self.servidor_mcp = ServidorMCP(
-                despachante=DespachanteQt(self),
+                despachante=DespachanteQt(),
                 diretorio_sessao=self._diretorio_sessao_mcp,
             )
         self.servidor_mcp.definir_croqui_ativo("", croqui_aberto=False)

@@ -1,134 +1,134 @@
 ---
 name: separar_croqui_pdf_em_partes
-description: Separa um croqui em partes lógicas para processamento posterior.
+description: Separa um croqui em partes lógicas e inicializa os esqueletos na árvore Protobuf via MCP para processamento posterior.
 ---
 
-# Separar PDF de Croqui de Escalada em Partes
+# Separar PDF de Croqui de Escalada em Partes (100% via MCP)
 
-Um PDF de croqui de escalada é composto por várias partes. Como parte de um workflow para extrair
-as informações do croqui, separar o PDF em partes lógicas é um passo importante.
+Um PDF de croqui de escalada é composto por várias partes lógicas. Nesta skill, você inspecionará visualmente o PDF, garantirá que o croqui esteja aberto ou criado no **Editor Aresta** via MCP e executará o particionamento automatizado com pré-alocação de `UID`s na árvore Protobuf (`aresta_particionar_pdf_croqui`).
 
-## Partes de interesse
+> [!CAUTION]
+> **Proibição Estrita de Manipulação Manual de Arquivos e Scripts Ad-Hoc:**
+> - **NUNCA** crie pastas manualmente em `database/`, nem escreva arquivos `partes.json`, `.md` ou `croqui.yaml` usando ferramentas de escrita em disco (`write_file`, `edit_file` ou comandos de terminal).
+> - **NUNCA** crie ou execute scripts Python no terminal para extrair texto ou fatiar páginas do PDF.
+> - Toda abertura/criação do croqui e todo o particionamento do PDF DEVEM ocorrer exclusivamente através das ferramentas MCP do `editor-aresta`.
 
-Dentre as partes do PDF, há várias que são de interesse para o workflow:
-- **capa**: capa do croqui
-- **secoes_textuais**: Seções textuais como disclaimer, introdução, história, regras de visitação, hospedagem, etc que não estão incluídas nas seções a serem ignoradas abaixo. Cada seção textual deve ter uma parte separada no arquivo .json.
-- **mapas_gerais**: Mapas gerais do pico de escalada, incluindo vista aérea
-- **setores**: Descrição de cada setor, com vias ou boulders, trilhas, acesso, etc. Cada setor deve ter uma parte separada no arquivo .json começando com o prefixo "setor_".
+---
 
-Além disso, provavelmente haverão várias partes que não são úteis para o workflow, as quais devem ser totalmente ignoradas e não adicionadas ao mapa de partes. Essas partes a serem ignoradas, são, estritamente:
-- Qualquer índice de páginas do PDF
-- Qualquer índice de vias ou boulders descritos anteriormente e re-ordenados (por exemplo, índice de todas as vias por grau de dificuldade, ou por ordem alfabética, etc)
+## 1. Partes de Interesse vs. Partes Ignoradas
 
+Dentre as páginas do PDF, mapeie apenas as partes úteis para o croqui:
+- **`capa`**: Capa do croqui (dados gerais do pico, foto de capa, créditos/autores).
+- **Seções textuais (apêndices)**: Seções informativas como `introducao`, `disclaimer`, `historia`, `regras_de_visitacao`, `hospedagem`, `como_chegar`, ` ética`, etc. Cada seção textual independente deve ter sua própria chave no dicionário `partes` (ex: `"introducao": [1]`, `"historia": [2, 3]`).
+- **`mapas_gerais`**: Mapas gerais do pico de escalada, incluindo vista aérea, mapa de trilhas e localização dos setores.
+- **`setor_<slug>`**: Descrição de cada setor ou bloco independente, contendo vias ou boulders, fotos de parede, trilhas e acesso. Cada setor deve usar o prefixo `"setor_"` (ex: `"setor_vila_da_perdicao": [11]`).
+- **`grupo_<slug>` e `grupo_<slug>_setor_<sub_slug>`**: Quando o croqui possui grupos de setores (ou setores divididos em sub-setores / conjuntos de blocos de boulder).
 
-## Como separar o PDF
+### Partes que DEVEM ser estritamente ignoradas (omitidas):
+- Qualquer sumário ou índice de páginas do PDF.
+- Qualquer índice remissivo de vias ou boulders já descritos nos setores e apenas reordenados (por exemplo: índice de todas as vias por grau de dificuldade ou por ordem alfabética).
+- Caso uma parte não exista no PDF, **jamais crie chave com lista vazia** (`[]`). Omita a chave completamente.
 
-### 1. Criação Resiliente da Pasta do Croqui
+---
+
+## 2. Leitura Visual do PDF e Identificação Geográfica
 
 > [!IMPORTANT]
-> **Leitura Visual Direta com `view_file` (Proibido Criar/Executar Scripts de Extração):**
-> Você DEVE usar a ferramenta `view_file` diretamente no arquivo `.pdf` para inspecioná-lo de forma visual e multimodal. A ferramenta suporta arquivos PDF nativamente.
-> É expressamente PROIBIDO criar ou rodar scripts Python (como pymupdf, pdfplumber, pypdf, scripts em scratch/, etc.) para tentar extrair texto ou ler páginas do PDF via código. Inspecione as páginas exclusivamente abrindo o PDF com `view_file`.
->
-> **PDFs maiores que 100 MB:**
-> A ferramenta `view_file` possui um limite de 100 MB. Se o arquivo PDF for grande demais para abrir diretamente com `view_file` (> 100 MB), divida o PDF em partes menores que 100 MB usando o `pymupdf` e visualize cada parte individualmente com `view_file` para definir o `partes.json` (mantendo a contagem de páginas referente ao PDF original, começando em 0).
+> **Leitura Visual Direta com `view_file` / `read_file`:**
+> Inspecione o arquivo `.pdf` diretamente usando a ferramenta nativa de leitura de arquivos (`view_file` / `read_file`), que suporta PDFs de forma multimodal.
 
-
-
-Antes de separar as páginas, você precisa identificar as informações exatas sobre a localização do croqui:
-- País
-- Estado
-- Cidade
-- Nome do Pico de Escalada
+Antes de criar ou abrir o croqui no Editor Aresta, identifique os metadados geográficos exatos:
+- **País** (código ISO de 2 letras em minúsculas, ex: `"br"`)
+- **Estado** (sigla de 2 letras, ex: `"mg"`, `"rj"`, `"sp"`)
+- **Cidade** (ex: `"Ouro Preto"`, `"Cocalzinho de Goiás"`)
+- **Nome do Pico de Escalada** (ex: `"Ouroboulder"`, `"Cocalzinho"`)
 
 **Estratégia de Busca (Siga estritamente a ordem):**
 1. **Capa e Introdução:** Inspecione visualmente as primeiras páginas do PDF para extrair esses dados.
-2. **Resto do PDF:** Se faltar alguma informação (por exemplo, a cidade ou estado), inspecione o restante do PDF lendo outras páginas.
-3. **Busca na Internet:** Se mesmo após vasculhar o PDF você não encontrar todas as informações geográficas, utilize a ferramenta de `search_web` na internet para pesquisar onde fica o pico de escalada e deduzir a cidade, estado e país corretos.
-4. **Último Recurso:** Apenas se não encontrar de forma alguma após a busca exaustiva na web, utilize `desconhecido` para o campo faltante. Não invente ou alucine dados geográficos.
+2. **Restante do PDF:** Se faltar alguma informação (como cidade ou estado), inspecione outras páginas de texto ou mapas de acesso.
+3. **Busca na Internet (`search_web`):** Se o PDF não informar explicitamente a cidade ou o estado do pico, pesquise na web onde fica o pico de escalada para obter a localização real.
+4. **Último Recurso:** Apenas se não for possível encontrar mesmo após busca na web, utilize `"desconhecido"` para o campo faltante. Não invente dados geográficos.
 
-Com essas informações completas e validadas, crie a pasta para o croqui dentro da pasta `database` seguindo rigorosamente o formato: `database/<pais>_<estado>_<cidade>_<pico_de_escalada>`.
-- Use apenas letras minúsculas.
-- Remova todos os acentos.
-- Substitua espaços por `_` (underscores).
+---
 
-> [!WARNING]
-> A correta formatação do arquivo `partes.json` que você irá criar na etapa 2 é fundamental. Erros de sintaxe ou vírgulas sobrando impedirão o andamento de toda a arquitetura. Revise cuidadosamente o JSON resultante.
+## 3. Regras para Croquis de Boulder e Grupos de Setores
 
-**MUITO IMPORTANTE:** Ao finalizar seu trabalho, você **DEVE** retornar na sua mensagem final o caminho exato da pasta que você criou, para que o agente orquestrador saiba onde continuar o fluxo.
-
-### 2. Separação em Partes
-
-Leia todas as páginas do PDF, identificando o conteúdo de cada uma, e construa um mapa de parte de
-interesse para páginas que compõem essa parte baseado nas partes de interesse e não interesse mencionadas acima.
-Esse mapa deve ser um arquivo `partes.json` dentro da pasta que você acabou de criar. Ele deve ter uma estrutura como a seguinte:
-
-```json
-{
-    "capa": [0],
-    "introducao": [1],
-    "historia": [4],
-    "outras_atracoes": [5, 6, 7],
-    "mapas_gerais": [8, 9],
-    "setor_vila_da_perdicao": [11],
-    "setor_casa_de_escalada": [12, 13],
-    "setor_bebedouro_da_onca": [14],
-    "setor_savassinha": [15, 16],
-}
-```
-
-Lembrando que:
-> [!WARNING]
-> **A contagem de páginas DEVE OBRIGATORIAMENTE começar em 0**. Não use 1-index (primeira página é 0).
-- As chaves (Keys) no JSON devem ser escritas sempre sem acentos e usando `_` (underscore) para separar palavras.
-- O valor de cada `key` deve ser um tipo `array` de números inteiros representando os números reais das páginas.
-- `secoes_textuais` e `setores` são objetos que mapeiam cada seção/setor para um array de inteiros representando os números das páginas.
-- Se uma parte não existir na imagem, **NÃO CRIAR** chave vazia. Ela deve ser estritamente omitida do JSON.
-
-## Croquis de boulder
-
-Croquis de boulders usualmente são organizados em blocos, onde vários blocos juntos agrupam-se em um "setor". Na conversão para um arquivo `partes.json` considere as seguintes regras:
-- Cada bloco independente deve ser representado como um setor, ou seja, `setor_X.md`.
-- O "setor" que agrupa os blocos deve ser representado como um grupo de setores, ou seja, `grupo_X.md`.
-- Cada bloco dentro do grupo deve ser representado como um setor dentro do grupo, ou seja, `grupo_X_setor_Y.md`.
+### 3.1. Croquis de Boulder
+Croquis de boulders costumam organizar vários blocos dentro de áreas/setores maiores:
+- Cada bloco independente sem agrupamento superior deve ser mapeado como `"setor_<nome_do_bloco>"`.
+- Uma área/setor que agrupa vários blocos deve ser mapeada como `"grupo_<nome_do_grupo>"`.
+- Cada bloco pertencente àquele grupo deve ser mapeado como `"grupo_<nome_do_grupo>_setor_<nome_do_bloco>"`.
 
 > [!IMPORTANT]
 > **Páginas com Fotos Gerais e Fotos de Detalhe de Escaladas:**
-> Se uma ou mais páginas consecutivas de um bloco ou setor contiverem tanto a visão geral da pedra quanto fotos de close-up/detalhes de boulders ou vias específicas (ex: fotos de saídas, pegas-chave ou agarras), **todas essas páginas devem ser agrupadas no mesmo setor** no `partes.json`.
-> **NUNCA crie chaves ou partes separadas para fotos de escaladas individuais**. O processamento e a vinculação de fotos de detalhe para cada escalada serão realizados pelo agente conversor diretamente dentro de `escaladas[].mapas` no arquivo `.md` daquele setor.
+> Se uma ou mais páginas consecutivas de um bloco ou setor contiverem tanto a visão geral da pedra quanto fotos de close-up/detalhes de boulders ou vias específicas (ex: saídas sentadas, pegas-chave ou agarras), **todas essas páginas devem ser agrupadas na mesma chave de setor**.
+> **NUNCA crie chaves separadas para fotos de escaladas individuais**. O subagente conversor vinculará fotos de detalhe diretamente dentro de `escaladas[].mapas` naquele setor.
 
-Desse modo, os boulders individuais poderão ser representados apropriadamente na nossa database.
+### 3.2. Formato do Dicionário `partes`
+- **Contagem de páginas 0-indexed obrigatória**: A primeira página do PDF é sempre `0` (nunca use 1-index).
+- As chaves devem conter apenas letras minúsculas, números e `_` (sem acentos, espaços ou caracteres especiais).
+- Exemplo de dicionário `partes`:
+  ```json
+  {
+    "capa": [0],
+    "introducao": [1],
+    "historia": [4],
+    "mapas_gerais": [8, 9],
+    "grupo_vila_araucaria": [10],
+    "grupo_vila_araucaria_setor_savassinha": [11, 12],
+    "setor_vila_da_perdicao": [13],
+    "setor_casa_de_escalada": [14, 15]
+  }
+  ```
 
-## Grupos de setores 
+---
 
-É possível que hajam grupos de setores no croqui, às vezes também chamados de setores com sub-setores.
-Nesse caso, arquivo do grupo passa a ser `grupo_X.md`, e cada subsetor fica em um arquivo `grupo_X_setor_Y.md`, ou seja, `grupo_X`, seguido por um underline (`_`), e então informações sobre cada sub-setor (`setor_Y.md`). Exemplo:
+## 4. Execução via Ferramentas MCP do Editor Aresta
 
+Com os dados geográficos e o dicionário `partes` prontos, execute a sequência abaixo no servidor MCP (`editor-aresta`):
+
+### Passo 1: Consultar Croquis Disponíveis (`aresta_listar_croquis`)
+Chame `aresta_listar_croquis(busca="<nome_pico>")` para verificar:
+- `abertos`: croquis que já estão abertos em janelas ativas do Editor Aresta.
+- `em_andamento`: rascunhos locais que já foram iniciados anteriormente.
+- `oficiais`: croquis oficiais publicados no repositório de produção.
+
+### Passo 2: Abrir, Importar ou Criar o Croqui
+Escolha a ferramenta adequada conforme o caso:
+1. **Croqui já aberto na sessão**: Se já estiver listado em `abertos`, anote seu `id_croqui`.
+2. **Continuar rascunho existente ou pasta local**: Chame `aresta_abrir_croqui_existente(identificador="<id_ou_pasta>")`.
+3. **Atualizar um croqui oficial de produção**: Chame `aresta_importar_croqui_oficial(id_oficial="<id_oficial>", resumo_edicao="Atualização via PDF")`.
+4. **Criar um novo croqui do zero**: Chame `aresta_criar_novo_croqui(nome_pico="...", cidade="...", estado="...", pais="br")`.
+
+> [!NOTE]
+> O Editor Aresta suporta múltiplas janelas abertas simultaneamente (uma por `id_croqui`). Sempre registre o `id_croqui` retornado pela ferramenta de abertura/criação e repasse-o nas chamadas seguintes.
+
+### Passo 3: Particionar o PDF e Pré-Alocar Esqueletos (`aresta_particionar_pdf_croqui`)
+Chame `aresta_particionar_pdf_croqui`:
 ```json
 {
+  "caminho_pdf": "C:/caminho/absoluto/para/arquivo.pdf",
+  "partes": {
     "capa": [0],
     "introducao": [1],
     "mapas_gerais": [2, 3],
-    "grupo_vila_araucaria": [4, 5],
-    "grupo_vila_araucaria_setor_savassinha": [6, 7],
-    "grupo_vila_araucaria_setor_fornalha": [8],
+    "setor_principal": [4, 5]
+  },
+  "id_croqui": "<id_croqui>"
 }
 ```
+Esta ferramenta executa automaticamente em uma única operação atômica:
+1. Fatia o PDF em sub-PDFs por parte e extrai todas as imagens `.webp` para a pasta `imagens/` do croqui (detectando automaticamente páginas fatiadas em mosaico e renderizando a página inteira `pX.webp` em alta resolução quando necessário).
+2. Extrai os candidatos vetoriais de texto e desenho via `PyMuPDF` (`*_dados.json`).
+3. Pré-aloca na árvore Protobuf em memória os esqueletos de `Botao` (apêndices), `ColecaoDeMapas` (`mapas_gerais`), `Grupo` e `Setor`, atribuindo e preservando os `UID`s NanoID de cada entidade.
+4. Retorna o mapa completo `partes` contendo para cada chave: `uid`, `tipo`, `caminho_pdf`, `imagens` e `dados_vetoriais`.
 
-Grupos (Setores com sub-setores) são representados em `croqui.proto` utilizando o proto de Grupo, que possui sub protos de `setores`. No `croqui.yaml`, a mensagem `Pico` pode listar ou setores ou grupos. Utilize dessa habilidade para listar grupos.
-
-## 3. Detecção e Preservação de Imagens de Página Inteira
-
-Ao inspecionar o PDF e preparar as partes:
-- **Diagramação e Fragmentação:** Em PDFs modernos (feitos no Canva, InDesign, Illustrator, etc.), fotos de paredes que contêm traçados vetoriais de vias, caixas de texto ou transparências sobrepostas costumam ser fatiadas pelo PDF em mosaicos de tiras retangulares.
-- **Detecção Automática:** O script `repartir_pdf.py` detecta automaticamente essas páginas fatiadas em mosaico e renderiza a página completa (`pX.webp`) em alta resolução, suprimindo fatias quebradas para manter a pasta limpa. (A flag manual `--incluir-paginas` continua disponível caso se deseje forçar a renderização completa em todas as páginas).
-- **Conferência:** Ao concluir a separação e geração das imagens, confirme visualmente se as imagens extraídas da parede estão completas. Quando a página contiver mosaico/fatiamento, a imagem de página completa (`pX.webp`) terá sido gerada automaticamente para ser utilizada pelo conversor de Markdown.
-
-## 4. Integração com o Servidor MCP do Editor Aresta
-
-Quando o **Editor Aresta** estiver conectado via MCP (`editor-aresta`), você pode consultar o catálogo de skills e o esquema Protobuf diretamente pelas ferramentas `aresta_listar_skills`, `aresta_ler_skill` e `aresta_obter_esquema_proto` (ou pelos recursos `aresta://skills` e `aresta://esquema/proto`), além de verificar o workspace ativo com `aresta_status_workspace`.
+### Passo 4: Retorno Obrigatório para o Orquestrador
+Ao finalizar, retorne em sua resposta final de forma estruturada:
+- `id_croqui`: O identificador do croqui aberto no Editor Aresta.
+- `caminho_database`: O caminho da pasta de trabalho do croqui.
+- `partes`: O dicionário retornado por `aresta_particionar_pdf_croqui` contendo o `uid`, `tipo`, `caminho_pdf` e lista de `imagens` de cada parte, permitindo que o Agente Orquestrador dispare os subagentes conversores em paralelo isolados por `uid`.
 
 ## Quando usar essa habilidade
 
-Use essa habilidade quando precisar separar um croqui em partes lógicas para processamento posterior.
-
+Use essa habilidade sempre que precisar inspecionar um PDF de croqui de escalada, inicializar ou abrir o croqui correspondente no Editor Aresta e particioná-lo em partes lógicas com `UID`s pré-alocados via MCP.

@@ -7,12 +7,13 @@ from pathlib import Path
 import pytest
 from PIL import Image
 from PySide6.QtGui import QUndoStack
-from PySide6.QtWidgets import QFileDialog, QMessageBox
+from PySide6.QtWidgets import QDialog
 
 from aresta_api.proto.generated import croqui_pb2
 from editor.controllers.croqui_controller import CroquiController
 from editor.legacy_views.widget_editor_imagens import WidgetEditorImagens
 from editor.models.croqui_model import CroquiModel
+from editor.views.dialogos.dialogo_adicionar_mapa import DialogoAdicionarMapa
 
 
 @pytest.fixture
@@ -54,12 +55,17 @@ class TestWidgetEditorImagensSubstituicao:
         widget.select_image_by_name("setor_foto.webp")
         bytes_originais = Path(img_orig_path).read_bytes()
 
-        # Cria novo arquivo de imagem para substituir
+        # Cria novo arquivo de imagem para substituir via wizard unificado
         novo_arq = tmp_path / "nova_imagem.png"
         img_nova = Image.new("RGB", (600, 400), color=(255, 200, 0))
         img_nova.save(novo_arq, format="PNG")
 
-        monkeypatch.setattr(QFileDialog, "getOpenFileName", lambda *a, **k: (str(novo_arq), "PNG"))
+        def fake_exec(dialogo: DialogoAdicionarMapa):
+            assert dialogo.caminho_destino_fixo == "setor_foto.webp"
+            dialogo.carregar_imagem_arquivo(str(novo_arq))
+            return QDialog.DialogCode.Accepted
+
+        monkeypatch.setattr(DialogoAdicionarMapa, "exec", fake_exec)
 
         # Executa substituição
         widget.substituir_imagem_selecionada()
@@ -108,17 +114,20 @@ class TestWidgetEditorImagensSubstituicao:
         widget.select_image_by_name("setor_foto.webp")
 
         # Cancelar diálogo
-        monkeypatch.setattr(QFileDialog, "getOpenFileName", lambda *a, **k: ("", ""))
+        monkeypatch.setattr(DialogoAdicionarMapa, "exec", lambda self: QDialog.DialogCode.Rejected)
         widget.substituir_imagem_selecionada()
 
-        # Erro ao processar arquivo
-        avisos = []
-        monkeypatch.setattr(QMessageBox, "warning", lambda parent, title, text: avisos.append(text))
-        monkeypatch.setattr(
-            QFileDialog, "getOpenFileName", lambda *a, **k: ("inexistente.png", "PNG")
-        )
+        # Substituir sem controller (apenas model) via segunda aba ou carregamento direto
+        novo_arq = Path(pasta_img).parent / "outra.png"
+        Image.new("RGB", (250, 250), color=(10, 200, 80)).save(novo_arq, format="PNG")
+
+        def fake_exec_sem_controller(dialogo: DialogoAdicionarMapa):
+            dialogo.carregar_imagem_arquivo(str(novo_arq))
+            return QDialog.DialogCode.Accepted
+
+        monkeypatch.setattr(DialogoAdicionarMapa, "exec", fake_exec_sem_controller)
         widget.substituir_imagem_selecionada()
-        assert len(avisos) == 1
+        assert model.obter_bytes_imagem("imagens/setor_foto.webp") is not None
 
     def test_inicializacao_botao_abrir_no_editor_mapas(self, qtbot, croqui_com_imagem_disco):
         model, pasta_img, _ = croqui_com_imagem_disco

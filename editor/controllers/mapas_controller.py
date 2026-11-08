@@ -397,6 +397,41 @@ class MapasController:
         )
         self._executar_comando(cmd)
 
+    def substituir_imagem_mapa(
+        self,
+        msg_mapa_proxy: Any,
+        caminho_relativo_novo: str,
+        bytes_novo: bytes | None,
+        largura_nova: int,
+        altura_nova: int,
+        reescalar_pois: bool = True,
+        largura_referencia_pois: int | None = None,
+        altura_referencia_pois: int | None = None,
+        context_path: str | None = None,
+    ) -> None:
+        """
+        Substitui atomicamente a imagem de um Mapa no Editor de Mapas,
+        atualizando `caminho_imagem_mapa`, `largura_mapa`, `altura_mapa` e
+        opcionalmente reescalando os POIs via CmdMacro.
+        """
+        from editor.controllers.croqui_controller import CroquiController
+
+        croqui_ctrl = CroquiController(self.model, self.undo_stack)
+        croqui_ctrl.set_contexto(
+            context_path if context_path is not None else self.contexto_atual_path
+        )
+        croqui_ctrl.substituir_imagem_mapa(
+            msg_mapa=msg_mapa_proxy,
+            caminho_relativo_novo=caminho_relativo_novo,
+            bytes_novo=bytes_novo,
+            largura_nova=largura_nova,
+            altura_nova=altura_nova,
+            reescalar_pois=reescalar_pois,
+            largura_referencia_pois=largura_referencia_pois,
+            altura_referencia_pois=altura_referencia_pois,
+            context_path=context_path,
+        )
+
     def adicionar_mapa_com_arquivo(
         self,
         msg_pai: Any,

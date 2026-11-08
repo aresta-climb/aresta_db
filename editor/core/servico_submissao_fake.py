@@ -74,9 +74,7 @@ class ServicoSubmissaoFake(ServicoSubmissao):
                 sem_alteracoes=True,
             )
 
-        self.sincronizar_arquivos_croqui(
-            caminho_database_croqui, self.caminho_repo_base, id_croqui
-        )
+        self.sincronizar_arquivos_croqui(caminho_database_croqui, self.caminho_repo_base, id_croqui)
         self._contador_prs += 1
         nome_branch = branch_existente or f"edicao-{id_croqui}-{self._contador_prs:04d}"
         self.submissoes_registradas.append(

@@ -24,8 +24,10 @@ from editor.commands.comandos_protobuf import (
     navegar_para_alvo,
     validar_pertence_ao_croqui,
 )
+from editor.core.geometrias_poi import redimensionar_pois_proporcionalmente
 from editor.core.imagens_croqui import extrair_caminhos_imagens
 from editor.models.croqui_model import CroquiModel
+from editor.models.readonly_proxy import _copia_segura
 
 
 class CroquiController:
@@ -536,6 +538,129 @@ class CroquiController:
             context_path=ctx,
         )
         self._executar_comando(cmd)
+
+    def substituir_imagem_mapa(
+        self,
+        msg_mapa: Any,
+        caminho_relativo_novo: str,
+        bytes_novo: bytes | None,
+        largura_nova: int,
+        altura_nova: int,
+        reescalar_pois: bool = True,
+        largura_referencia_pois: int | None = None,
+        altura_referencia_pois: int | None = None,
+        context_path: str | None = None,
+    ) -> None:
+        """
+        Substitui atomicamente a imagem de um Mapa, atualizando `caminho_imagem_mapa`,
+        `largura_mapa`, `altura_mapa` e opcionalmente reescalando proporcionalmente
+        os Pontos de Interesse via CmdMacro.
+        """
+        if isinstance(msg_mapa, str):
+            msg_obj = navegar_para_alvo(
+                self.model.obter_croqui_readonly(), msg_mapa, self.model.indice_uids
+            )
+        else:
+            msg_obj = getattr(msg_mapa, "_obj", msg_mapa)
+
+        caminho_antigo = str(getattr(msg_obj, "caminho_imagem_mapa", "") or "")
+        largura_antiga = int(getattr(msg_obj, "largura_mapa", 0) or 0)
+        altura_antiga = int(getattr(msg_obj, "altura_mapa", 0) or 0)
+        larg_ref = (
+            largura_referencia_pois
+            if largura_referencia_pois and largura_referencia_pois > 0
+            else largura_antiga
+        )
+        alt_ref = (
+            altura_referencia_pois
+            if altura_referencia_pois and altura_referencia_pois > 0
+            else altura_antiga
+        )
+        ctx = context_path if context_path is not None else self.contexto_atual_path
+
+        comandos: list[ComandoEditor] = []
+        if bytes_novo is not None:
+            bytes_antigo = self.model.obter_bytes_imagem(caminho_relativo_novo)
+            comandos.append(
+                CmdAlterarImagem(
+                    model=self.model,
+                    caminho_relativo=caminho_relativo_novo,
+                    bytes_novos=bytes_novo,
+                    bytes_antigos=bytes_antigo,
+                    context_path=ctx,
+                )
+            )
+
+        if caminho_relativo_novo and caminho_relativo_novo != caminho_antigo:
+            comandos.append(
+                CmdAlterarCampo(
+                    model=self.model,
+                    alvo=msg_mapa,
+                    campo_nome="caminho_imagem_mapa",
+                    valor_antigo=caminho_antigo,
+                    valor_novo=caminho_relativo_novo,
+                    context_path=ctx,
+                )
+            )
+
+        if largura_nova > 0 and largura_nova != largura_antiga:
+            comandos.append(
+                CmdAlterarCampo(
+                    model=self.model,
+                    alvo=msg_mapa,
+                    campo_nome="largura_mapa",
+                    valor_antigo=largura_antiga,
+                    valor_novo=int(largura_nova),
+                    context_path=ctx,
+                )
+            )
+
+        if altura_nova > 0 and altura_nova != altura_antiga:
+            comandos.append(
+                CmdAlterarCampo(
+                    model=self.model,
+                    alvo=msg_mapa,
+                    campo_nome="altura_mapa",
+                    valor_antigo=altura_antiga,
+                    valor_novo=int(altura_nova),
+                    context_path=ctx,
+                )
+            )
+
+        if (
+            reescalar_pois
+            and larg_ref > 0
+            and alt_ref > 0
+            and largura_nova > 0
+            and altura_nova > 0
+            and (larg_ref != largura_nova or alt_ref != altura_nova)
+            and len(msg_obj.pontos_de_interesse) > 0
+        ):
+            pois_novos = redimensionar_pois_proporcionalmente(
+                msg_obj.pontos_de_interesse,
+                larg_ref,
+                alt_ref,
+                largura_nova,
+                altura_nova,
+            )
+            for idx, (poi_orig, poi_novo) in enumerate(
+                zip(msg_obj.pontos_de_interesse, pois_novos, strict=False)
+            ):
+                comandos.append(
+                    CmdAlterarCampo(
+                        model=self.model,
+                        alvo=msg_mapa,
+                        campo_nome=f"pontos_de_interesse.{idx}",
+                        valor_antigo=_copia_segura(poi_orig),
+                        valor_novo=poi_novo,
+                        context_path=ctx,
+                    )
+                )
+
+        if len(comandos) == 1:
+            self._executar_comando(comandos[0])
+        elif len(comandos) > 1:
+            self._executar_comando(CmdMacro(comandos, texto="Substituir Imagem do Mapa"))
 
     def migrar_setor(
         self,

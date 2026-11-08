@@ -112,7 +112,9 @@ def test_motor_robo_caotico_exercita_todas_as_abas_e_acoes_janela_principal(
 def test_interceptador_modal_desbloqueia_qdialog_exec_automaticamente(
     tmp_path: Path,
 ) -> None:
-    cfg = ConfiguracaoSessaoCaos(seed=303, max_passos=5, dataset="normal", escopo="janela_principal")
+    cfg = ConfiguracaoSessaoCaos(
+        seed=303, max_passos=5, dataset="normal", escopo="janela_principal"
+    )
     motor = MotorRoboCaoticoQt(tmp_path / "modal_test", cfg)
 
     dlg = QDialog()

@@ -126,14 +126,34 @@ class WidgetCardMapa(QFrame):
         self.btn_abrir_editor.setSizePolicy(QSizePolicy.Policy.Maximum, QSizePolicy.Policy.Fixed)
         self.btn_abrir_editor.setCursor(Qt.CursorShape.PointingHandCursor)
         self.btn_abrir_editor.clicked.connect(self._ao_clicar_abrir_editor)
-        layout_info.addWidget(self.btn_abrir_editor, 0, Qt.AlignmentFlag.AlignLeft)
+
+        self.btn_substituir_imagem = QPushButton("Substituir Imagem...")
+        self.btn_substituir_imagem.setStyleSheet(
+            "QPushButton { padding: 6px 14px; font-weight: bold; background-color: #0969da; color: white; border-radius: 4px; } "
+            "QPushButton:hover { background-color: #0550ae; }"
+        )
+        self.btn_substituir_imagem.setSizePolicy(
+            QSizePolicy.Policy.Maximum, QSizePolicy.Policy.Fixed
+        )
+        self.btn_substituir_imagem.setCursor(Qt.CursorShape.PointingHandCursor)
+        self.btn_substituir_imagem.clicked.connect(self._ao_clicar_substituir_imagem)
+
+        layout_acoes = QHBoxLayout()
+        layout_acoes.setContentsMargins(0, 0, 0, 0)
+        layout_acoes.setSpacing(8)
+        layout_acoes.addWidget(self.btn_abrir_editor)
+        layout_acoes.addWidget(self.btn_substituir_imagem)
+        layout_acoes.addStretch()
+        layout_info.addLayout(layout_acoes)
 
         layout_corpo.addLayout(layout_info, stretch=1)
         layout_principal.addLayout(layout_corpo)
 
-        # Conecta sinal de imagem alterada no modelo se disponível
+        # Conecta sinais de alteração no modelo se disponíveis
         if self.model and hasattr(self.model, "imagem_alterada"):
             self.model.imagem_alterada.connect(self._ao_alterar_imagem)
+        if self.model and hasattr(self.model, "dado_alterado"):
+            self.model.dado_alterado.connect(self._ao_alterar_dado_modelo)
 
         self.atualizar_dados()
 
@@ -187,6 +207,58 @@ class WidgetCardMapa(QFrame):
             or Path(caminho_relativo).name == Path(caminho_atual).name
         ):
             self.atualizar_dados()
+
+    def _ao_alterar_dado_modelo(self, _msg_pai: Any, campo_nome: str) -> None:
+        if campo_nome in ("caminho_imagem_mapa", "largura_mapa", "altura_mapa"):
+            self.atualizar_dados()
+
+    def _ao_clicar_substituir_imagem(self) -> None:
+        """Abre o wizard unificado para substituir a imagem do mapa e atualiza modelo via histórico."""
+        if not self.controller:
+            return
+
+        from editor.views.dialogos.dialogo_adicionar_mapa import DialogoAdicionarMapa
+
+        db_dir = getattr(self.model, "_caminho_db_atual", None) if self.model else None
+
+        caminho_atual = str(getattr(self.msg_mapa, "caminho_imagem_mapa", "") or "")
+        nome_sugerido = Path(caminho_atual).name if caminho_atual else "novo_mapa.webp"
+        largura_antiga = int(getattr(self.msg_mapa, "largura_mapa", 0) or 0)
+        altura_antiga = int(getattr(self.msg_mapa, "altura_mapa", 0) or 0)
+        qtd_pois = len(getattr(self.msg_mapa, "pontos_de_interesse", []))
+
+        dialog = DialogoAdicionarMapa(
+            nome_sugerido=nome_sugerido,
+            db_dir=db_dir,
+            model=self.model,
+            parent=self,
+            modo_substituicao_mapa=True,
+            largura_mapa_antiga=largura_antiga,
+            altura_mapa_antiga=altura_antiga,
+            qtd_pois_mapa=qtd_pois,
+        )
+        if dialog.exec() == DialogoAdicionarMapa.DialogCode.Accepted:
+            caminho_novo = dialog.obter_caminho_final_relativo()
+            bytes_novo = dialog.obter_bytes_imagem_processada()
+            w_novo, h_novo = dialog.obter_dimensoes_imagem() or (0, 0)
+            reescalar = dialog.deve_reescalar_pois()
+
+            self.controller.substituir_imagem_mapa(
+                msg_mapa=self.msg_mapa,
+                caminho_relativo_novo=caminho_novo,
+                bytes_novo=bytes_novo,
+                largura_nova=w_novo,
+                altura_nova=h_novo,
+                reescalar_pois=reescalar,
+                largura_referencia_pois=largura_antiga,
+                altura_referencia_pois=altura_antiga,
+            )
+            self.atualizar_dados()
+            if self.formulario:
+                if hasattr(self.formulario, "_mark_dirty"):
+                    self.formulario._mark_dirty()
+                if hasattr(self.formulario, "_notify_tree_changed"):
+                    self.formulario._notify_tree_changed()
 
     def _ao_clicar_abrir_editor(self) -> None:
         """Navega diretamente para a visualização deste mapa no editor de mapas."""

@@ -507,7 +507,6 @@ class ServidorMCP:
         if aguardar_pronto:
             prazo = time.monotonic() + timeout
             while not self._server.started and time.monotonic() < prazo:
-                QCoreApplication.processEvents()
                 time.sleep(0.01)
 
         return self.sessao

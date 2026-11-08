@@ -948,3 +948,84 @@ def test_croqui_controller_alterar_campo_substituicao_declarativa_repeated(qapp)
     assert setor.escaladas[0].via_esportiva.nome == "Via Antiga"
     assert len(setor.mapas) == 2
     assert model.obter_bytes_imagem("imagens/orfao.webp") == b"bytes_orfao"
+
+
+def test_croqui_controller_substituir_imagem_mapa_com_reescala_pois_e_undo(qapp):
+    """Valida substituição atômica de imagem de mapa com atualização de resolução, reescala de POIs e Undo único."""
+    from aresta_api.proto.generated import croqui_pb2
+
+    croqui = croqui_pb2.Croqui(nome="Croqui Mapa")
+    pico = croqui.picos.add(nome="Pico 1")
+    sg = pico.setores_ou_grupos.add()
+    sg.setor.conteudo.uid = "setor_uid_1"
+    mapa = sg.setor.conteudo.mapas.add(
+        caminho_imagem_mapa="imagens/mapa_antigo.webp",
+        largura_mapa=1000,
+        altura_mapa=500,
+    )
+    poi = mapa.pontos_de_interesse.add(uid="poi_1", rotulo="1")
+    poi.circulo.x = 200
+    poi.circulo.y = 100
+    poi.circulo.raio = 20
+
+    model = CroquiModel(croqui)
+    model.definir_imagem_memoria("imagens/mapa_antigo.webp", b"bytes_antigos")
+    undo_stack = QUndoStack()
+    controller = CroquiController(model, undo_stack)
+
+    proxy_mapa = model.obter_croqui_readonly().picos[0].setores_ou_grupos[0].setor.conteudo.mapas[0]
+
+    # 1. Substituir por nova imagem com dobro da resolução e reescalar POIs
+    controller.substituir_imagem_mapa(
+        msg_mapa=proxy_mapa,
+        caminho_relativo_novo="imagens/mapa_novo.webp",
+        bytes_novo=b"bytes_novos",
+        largura_nova=2000,
+        altura_nova=1000,
+        reescalar_pois=True,
+    )
+
+    assert undo_stack.count() == 1
+    assert mapa.caminho_imagem_mapa == "imagens/mapa_novo.webp"
+    assert mapa.largura_mapa == 2000
+    assert mapa.altura_mapa == 1000
+    assert mapa.pontos_de_interesse[0].circulo.x == 400
+    assert mapa.pontos_de_interesse[0].circulo.y == 200
+    assert mapa.pontos_de_interesse[0].circulo.raio == 40
+    assert model.obter_bytes_imagem("imagens/mapa_novo.webp") == b"bytes_novos"
+
+    # 2. Um único Undo reverte caminho, dimensões, POIs e imagem em RAM
+    undo_stack.undo()
+    assert mapa.caminho_imagem_mapa == "imagens/mapa_antigo.webp"
+    assert mapa.largura_mapa == 1000
+    assert mapa.altura_mapa == 500
+    assert mapa.pontos_de_interesse[0].circulo.x == 200
+    assert mapa.pontos_de_interesse[0].circulo.y == 100
+    assert mapa.pontos_de_interesse[0].circulo.raio == 20
+    assert model.obter_bytes_imagem("imagens/mapa_novo.webp") is None
+
+    # 3. Substituir mantendo mesma resolução e mesmo caminho (apenas bytes novos) empilha 1 comando
+    controller.substituir_imagem_mapa(
+        msg_mapa="setor_uid_1.mapas.0",
+        caminho_relativo_novo="imagens/mapa_antigo.webp",
+        bytes_novo=b"bytes_atualizados",
+        largura_nova=1000,
+        altura_nova=500,
+        reescalar_pois=False,
+    )
+    assert model.obter_bytes_imagem("imagens/mapa_antigo.webp") == b"bytes_atualizados"
+    assert mapa.pontos_de_interesse[0].circulo.x == 200
+    undo_stack.undo()
+    assert model.obter_bytes_imagem("imagens/mapa_antigo.webp") == b"bytes_antigos"
+
+    # 4. Chamada sem nenhuma alteração efetiva não empilha comando
+    count_antes = undo_stack.count()
+    controller.substituir_imagem_mapa(
+        msg_mapa=proxy_mapa,
+        caminho_relativo_novo="imagens/mapa_antigo.webp",
+        bytes_novo=None,
+        largura_nova=1000,
+        altura_nova=500,
+        reescalar_pois=False,
+    )
+    assert undo_stack.count() == count_antes

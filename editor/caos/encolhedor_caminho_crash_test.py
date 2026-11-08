@@ -22,9 +22,7 @@ def _criar_passo(indice: int, acao: str, mutou: bool = True) -> PassoRobo:
 
 
 def test_encolhedor_ddmin_reduz_sequencia_longa_para_minima_reproduzivel() -> None:
-    passos_originais = tuple(
-        _criar_passo(i, f"acao_{i}", mutou=(i % 4 != 0)) for i in range(1, 21)
-    )
+    passos_originais = tuple(_criar_passo(i, f"acao_{i}", mutou=(i % 4 != 0)) for i in range(1, 21))
     falha_alvo = FalhaCapturadaRobo(
         oraculo="excecao_nao_tratada",
         tipo_excecao="RuntimeError",
@@ -87,9 +85,7 @@ def test_encolhedor_respeita_limite_tentativas_e_receita_unitaria() -> None:
         chamadas += 1
         return None
 
-    encolhedor = EncolhedorCaminhoCrash(
-        avaliar_candidato=_avaliar_nunca_reproduz, max_tentativas=3
-    )
+    encolhedor = EncolhedorCaminhoCrash(avaliar_candidato=_avaliar_nunca_reproduz, max_tentativas=3)
     assert encolhedor.encolher(receita_1) == receita_1
     assert chamadas == 0
 

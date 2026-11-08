@@ -48,7 +48,10 @@ def test_permite_comunicacao_loopback_local_e_intercepta_open_url() -> None:
                 conn2, _ = servidor.accept()
                 conn2.close()
 
-            assert QDesktopServices.openUrl(QUrl("https://github.com/aresta-climb/aresta_db/pull/1")) is True
+            assert (
+                QDesktopServices.openUrl(QUrl("https://github.com/aresta-climb/aresta_db/pull/1"))
+                is True
+            )
             assert bloqueador.urls_abertas_interceptadas == [
                 "https://github.com/aresta-climb/aresta_db/pull/1"
             ]

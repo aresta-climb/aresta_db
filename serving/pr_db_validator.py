@@ -20,6 +20,7 @@ _RAIZ_REPOSITORIO = Path(__file__).resolve().parent.parent
 if str(_RAIZ_REPOSITORIO) not in sys.path:  # pragma: no cover
     sys.path.insert(0, str(_RAIZ_REPOSITORIO))
 
+from editor.core.codigo_sessao import gerar_codigo_pull_request, obter_url_previa
 from editor.core.serializacao_util import carregar_yaml
 from scripts.deploy_generated import deploy
 from scripts.migrador import obter_ultima_versao_migracao
@@ -31,6 +32,7 @@ from serving.publicador_pr_r2_lib import (
     publicar_diretorio_pr_no_r2,
 )
 from serving.renderizador_resumo_pr_lib import (
+    gerar_qr_code_svg,
     renderizar_comentario_falha_pr_markdown,
     renderizar_comentario_pr_markdown,
     renderizar_resumo_html,
@@ -142,6 +144,9 @@ def _compilar_base_e_publicar_previa(
             commit_sha=commit_sha,
         )
         (out_dir / "resumo.html").write_text(html_resumo, encoding="utf-8")
+
+        url_previa_app = obter_url_previa(gerar_codigo_pull_request(numero_pr))
+        (out_dir / "qrcode.svg").write_text(gerar_qr_code_svg(url_previa_app), encoding="utf-8")
 
         par_r2 = (
             (cliente_r2, bucket_r2)

@@ -484,4 +484,3 @@ def test_capturar_crash_robo_caotico_anexa_receita_sanitizada_e_nivel_fatal():
         assert espiao.flushes == [5.0]
     finally:
         telemetria_mod.sentry_sdk = original_sentry
-

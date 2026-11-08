@@ -30,7 +30,6 @@ from PySide6.QtWidgets import (
     QColorDialog,
     QDialog,
     QDialogButtonBox,
-    QFileDialog,
     QFormLayout,
     QGraphicsEllipseItem,
     QGraphicsPathItem,
@@ -46,7 +45,6 @@ from PySide6.QtWidgets import (
     QListWidget,
     QListWidgetItem,
     QMenu,
-    QMessageBox,
     QPushButton,
     QSlider,
     QSpinBox,
@@ -3415,47 +3413,70 @@ class WidgetEditorMapas(QWidget):
                 self.dados_atuais["itens_bb"].append(item_visual)
 
     def substituir_imagem_mapa(self) -> None:
-        """Abre diálogo para substituir a imagem de fundo do mapa atual com pré-processamento WebP."""
+        """Abre o wizard unificado para substituir a imagem de fundo do mapa atual com pré-processamento WebP."""
         if not self._mapa_ativo_valido():
             return
         caminho_rel = getattr(self.msg_mapa_proxy, "caminho_imagem_mapa", "")
         if not caminho_rel:
             return
 
-        arquivo, _ = QFileDialog.getOpenFileName(
-            self,
-            "Substituir Imagem do Mapa",
-            "",
-            "Imagens (*.png *.jpg *.jpeg *.webp *.bmp *.tiff *.tif *.heic *.heif)",
-        )
-        if not arquivo:
-            return
-
         from pathlib import Path
 
-        from editor.core.processamento_imagem_campo import comprimir_imagem_para_bytes_webp
-
-        try:
-            bytes_originais = Path(arquivo).read_bytes()
-            bytes_webp, _, _ = comprimir_imagem_para_bytes_webp(bytes_originais)
-        except Exception as e:
-            QMessageBox.warning(self, "Erro", f"Falha ao processar nova imagem: {e}")
-            return
+        from editor.views.dialogos.dialogo_adicionar_mapa import DialogoAdicionarMapa
 
         nome_mapa = Path(caminho_rel).name
-        contexto_mapa = f"page:mapas/file:{nome_mapa}"
+        largura_antiga = int(getattr(self.msg_mapa_proxy, "largura_mapa", 0) or 0)
+        altura_antiga = int(getattr(self.msg_mapa_proxy, "altura_mapa", 0) or 0)
+        qtd_pois = len(getattr(self.msg_mapa_proxy, "pontos_de_interesse", []))
+        db_dir = (
+            getattr(self.croqui_model, "_caminho_db_atual", None) if self.croqui_model else None
+        ) or (getattr(self.mapas_controller, "caminho_db", None) if self.mapas_controller else None)
+
+        dialog = DialogoAdicionarMapa(
+            nome_sugerido=nome_mapa,
+            db_dir=db_dir,
+            model=self.croqui_model,
+            parent=self,
+            modo_substituicao_mapa=True,
+            largura_mapa_antiga=largura_antiga,
+            altura_mapa_antiga=altura_antiga,
+            qtd_pois_mapa=qtd_pois,
+        )
+        if dialog.exec() != DialogoAdicionarMapa.DialogCode.Accepted:
+            return
+
+        caminho_novo = dialog.obter_caminho_final_relativo()
+        bytes_webp = dialog.obter_bytes_imagem_processada()
+        w_novo, h_novo = dialog.obter_dimensoes_imagem() or (largura_antiga, altura_antiga)
+        reescalar = dialog.deve_reescalar_pois()
+
+        contexto_mapa = f"page:mapas/file:{Path(caminho_novo).name}"
         if self.croqui_controller:
             self.croqui_controller.set_contexto(contexto_mapa)
-            self.croqui_controller.substituir_imagem(
-                caminho_rel, bytes_webp, context_path=contexto_mapa
+            self.croqui_controller.substituir_imagem_mapa(
+                msg_mapa=self.msg_mapa_proxy,
+                caminho_relativo_novo=caminho_novo,
+                bytes_novo=bytes_webp,
+                largura_nova=w_novo,
+                altura_nova=h_novo,
+                reescalar_pois=reescalar,
+                largura_referencia_pois=largura_antiga,
+                altura_referencia_pois=altura_antiga,
+                context_path=contexto_mapa,
             )
         elif self.mapas_controller:
             self.mapas_controller.set_contexto(contexto_mapa)
-            self.mapas_controller.substituir_imagem(
-                caminho_rel, bytes_webp, context_path=contexto_mapa
+            self.mapas_controller.substituir_imagem_mapa(
+                msg_mapa_proxy=self.msg_mapa_proxy,
+                caminho_relativo_novo=caminho_novo,
+                bytes_novo=bytes_webp,
+                largura_nova=w_novo,
+                altura_nova=h_novo,
+                reescalar_pois=reescalar,
+                largura_referencia_pois=largura_antiga,
+                altura_referencia_pois=altura_antiga,
+                context_path=contexto_mapa,
             )
-        elif self.croqui_model:
-            self.croqui_model.definir_imagem_memoria(caminho_rel, bytes_webp)
 
         self.carregar_mapa(self.msg_mapa_proxy, reset_zoom=False)
 

@@ -223,9 +223,7 @@ class Deployer:
         3º estágio: manifestos raiz (indice.binarypb, indice.yaml, catalogo.db, arquivos_serving.yaml).
         """
         estagio_midias = [
-            p
-            for p in files
-            if p not in self.MANIFESTOS_RAIZ and not self._eh_compilado_croqui(p)
+            p for p in files if p not in self.MANIFESTOS_RAIZ and not self._eh_compilado_croqui(p)
         ]
         estagio_compilados = [p for p in files if self._eh_compilado_croqui(p)]
         estagio_manifestos = [p for p in files if p in self.MANIFESTOS_RAIZ]

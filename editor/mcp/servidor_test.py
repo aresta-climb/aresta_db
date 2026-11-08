@@ -409,3 +409,52 @@ def test_guarda_sem_croqui_aberto_e_roteamento_proxy_multi_janela(qapp, tmp_path
     finally:
         srv_secundario.parar()
         srv_primario.parar()
+
+
+def test_servidor_mcp_iniciar_nao_dispara_about_to_quit_em_transicao_sem_janela_visivel(
+    qapp, tmp_path: Path
+):
+    """
+    Garante que ServidorMCP.iniciar() sobe a thread do Uvicorn sem chamar QCoreApplication.processEvents(),
+    impedindo que uma transição de janela (onde a última janela visível acabou de fechar e a próxima
+    ainda será exibida) dispare prematuramente o sinal aboutToQuit do QApplication.
+    """
+    from PySide6.QtCore import QTimer
+    from PySide6.QtWidgets import QDialog, QMainWindow
+
+    eventos_quit: list[str] = []
+
+    def _ao_sair() -> None:
+        eventos_quit.append("aboutToQuit")
+
+    qapp.aboutToQuit.connect(_ao_sair)
+    servidor = _criar_servidor_teste(tmp_path)
+    janela_destino = QMainWindow()
+
+    try:
+        dialogo_inicial = QDialog()
+        dialogo_inicial.show()
+
+        def _transicionar_janelas() -> None:
+            dialogo_inicial.accept()
+            # Neste ponto, 0 janelas estão visíveis e lastWindowClosed foi emitido;
+            # ServidorMCP.iniciar() não deve processar a fila de eventos da GUI antes do show()
+            servidor.iniciar()
+            janela_destino.show()
+            QTimer.singleShot(
+                50,
+                lambda: (
+                    eventos_quit.append("janela_ainda_viva"),
+                    qapp.exit(0),
+                ),
+            )
+
+        QTimer.singleShot(20, _transicionar_janelas)
+        qapp.exec()
+
+        assert servidor.esta_ativo is True
+        assert eventos_quit[0] == "janela_ainda_viva"
+    finally:
+        qapp.aboutToQuit.disconnect(_ao_sair)
+        janela_destino.close()
+        servidor.parar()

@@ -81,6 +81,7 @@ def test_publica_artefatos_da_pr_com_tipos_mime_corretos_e_remove_orfaos_anterio
         == "application/octet-stream"
     )
     assert obter_tipo_mime_arquivo(Path("teste.yml")) == "text/yaml; charset=utf-8"
+    assert obter_tipo_mime_arquivo(Path("qrcode.svg")) == "image/svg+xml"
 
 
 def test_limpa_integralmente_pasta_da_pr_no_fechamento() -> None:

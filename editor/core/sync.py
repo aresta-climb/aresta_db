@@ -121,9 +121,7 @@ class GerenciadorSincronizacao:
                 return override_env
         return f"https://github.com/{repositorio_base}.git"
 
-    def configurar_remotes(
-        self, url_upstream: str | None = None
-    ) -> None:
+    def configurar_remotes(self, url_upstream: str | None = None) -> None:
         """
         Garante que o repositório local tem os remotes necessários:
         'origin' -> O repositório base oficial.

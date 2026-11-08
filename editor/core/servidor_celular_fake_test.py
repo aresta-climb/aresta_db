@@ -8,9 +8,7 @@ from PySide6.QtGui import QPixmap
 from editor.core.servidor_celular_fake import ServidorCelularFake
 
 
-def test_servidor_celular_fake_ciclo_vida_qr_code_e_recarregamento(
-    qtbot, tmp_path: Path
-) -> None:
+def test_servidor_celular_fake_ciclo_vida_qr_code_e_recarregamento(qtbot, tmp_path: Path) -> None:
     servidor = ServidorCelularFake(
         pasta_compilado=tmp_path,
         codigo_sessao="abcd2345",

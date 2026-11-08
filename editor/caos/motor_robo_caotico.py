@@ -339,10 +339,7 @@ class MotorRoboCaoticoQt:
         login_processado = False
 
         inicio = time.monotonic()
-        while (
-            self.controlador_app.janela_principal is None
-            and (time.monotonic() - inicio) < 8.0
-        ):
+        while self.controlador_app.janela_principal is None and (time.monotonic() - inicio) < 8.0:
             _bombear_eventos_qt(4)
             if abertura.update_container.isVisible():
                 abertura.btn_atualizar_store.click()
@@ -959,10 +956,7 @@ class MotorRoboCaoticoQt:
         assinaturas_vistas: set[str] = set()
         receitas_salvas: list[Path] = []
 
-        while (
-            sementes_executadas < max_sementes
-            and (time.monotonic() - inicio) < duracao_segundos
-        ):
+        while sementes_executadas < max_sementes and (time.monotonic() - inicio) < duracao_segundos:
             seed_atual = seed_inicial + sementes_executadas
             dataset = "toxico" if sementes_executadas % 2 == 0 else "normal"
             cfg = ConfiguracaoSessaoCaos(
@@ -995,7 +989,9 @@ class MotorRoboCaoticoQt:
                     def _avaliar(cand: Sequence[PassoRobo]) -> FalhaCapturadaRobo | None:
                         nonlocal tentativa_idx
                         tentativa_idx += 1
-                        return motor.reproduzir_passos(cand, subpasta_replay=f"ddmin_{tentativa_idx}")
+                        return motor.reproduzir_passos(
+                            cand, subpasta_replay=f"ddmin_{tentativa_idx}"
+                        )
 
                     encolhedor = EncolhedorCaminhoCrash(_avaliar, max_tentativas=10)
                     receita_minima = encolhedor.encolher(receita_bruta)

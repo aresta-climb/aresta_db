@@ -54,9 +54,7 @@ def test_inicializar_ambiente_instalacao_caos_cria_git_upstream_clonavel(
 
     # Deve ser possível clonar e dar fetch do repositório upstream local 100% offline
     destino_clone = ambiente.storage.obter_caminho_base_repo()
-    sync = GerenciadorSincronizacao(
-        destino_clone, url_upstream=ambiente.url_git_upstream
-    )
+    sync = GerenciadorSincronizacao(destino_clone, url_upstream=ambiente.url_git_upstream)
     sync.clonar(sync.obter_url_clone())
     assert (destino_clone / "database" / "br_mg_ouro_preto_normal" / "croqui.yaml").is_file()
     assert (destino_clone / "database" / "br_sp_caos_toxico" / "croqui.yaml").is_file()

@@ -9,7 +9,11 @@ da representação JSON/Dict das geometrias (`circulo`, `retangulo`, `quadrado`,
 e propriedades como `cor` seja isolado e testado independentemente do sistema de UI (PyQt).
 """
 
+import math
+from collections.abc import Iterable
 from typing import Any
+
+from aresta_api.proto.generated import croqui_pb2
 
 
 class GeometriaPOI:
@@ -156,3 +160,67 @@ class GeometriaPOI:
                 if isinstance(nos, list):
                     return [n for n in nos if isinstance(n, dict)]
         return []
+
+
+def redimensionar_pois_proporcionalmente(
+    pontos_de_interesse: Iterable[croqui_pb2.Mapa.PontoDeInteresse],
+    largura_antiga: int,
+    altura_antiga: int,
+    largura_nova: int,
+    altura_nova: int,
+) -> list[croqui_pb2.Mapa.PontoDeInteresse]:
+    """
+    Reescala proporcionalmente as coordenadas e dimensões de uma coleção de
+    mensagens `Mapa.PontoDeInteresse` da resolução `(largura_antiga, altura_antiga)`
+    para `(largura_nova, altura_nova)`.
+
+    Retorna uma nova lista de mensagens `PontoDeInteresse` sem mutar as entradas.
+    """
+    copias: list[croqui_pb2.Mapa.PontoDeInteresse] = []
+    for poi in pontos_de_interesse:
+        copia = croqui_pb2.Mapa.PontoDeInteresse()
+        copia.CopyFrom(poi)
+        copias.append(copia)
+
+    if (
+        largura_antiga <= 0
+        or altura_antiga <= 0
+        or largura_nova <= 0
+        or altura_nova <= 0
+        or (largura_antiga == largura_nova and altura_antiga == altura_nova)
+    ):
+        return copias
+
+    sx = largura_nova / largura_antiga
+    sy = altura_nova / altura_antiga
+    s_iso = math.sqrt(sx * sy)
+
+    for poi_novo in copias:
+        tipo = poi_novo.WhichOneof("tipo_area")
+        if tipo == "circulo":
+            poi_novo.circulo.x = round(poi_novo.circulo.x * sx)
+            poi_novo.circulo.y = round(poi_novo.circulo.y * sy)
+            poi_novo.circulo.raio = max(1, round(poi_novo.circulo.raio * s_iso))
+        elif tipo == "quadrado":
+            poi_novo.quadrado.x = round(poi_novo.quadrado.x * sx)
+            poi_novo.quadrado.y = round(poi_novo.quadrado.y * sy)
+            poi_novo.quadrado.lado = max(1, round(poi_novo.quadrado.lado * s_iso))
+        elif tipo == "retangulo":
+            poi_novo.retangulo.x = round(poi_novo.retangulo.x * sx)
+            poi_novo.retangulo.y = round(poi_novo.retangulo.y * sy)
+            poi_novo.retangulo.comprimento = max(1, round(poi_novo.retangulo.comprimento * sx))
+            poi_novo.retangulo.largura = max(1, round(poi_novo.retangulo.largura * sy))
+        elif tipo == "poligono":
+            coords_originais = list(poi_novo.poligono.coordenadas)
+            coords_novas = [
+                round(val * sx) if idx % 2 == 0 else round(val * sy)
+                for idx, val in enumerate(coords_originais)
+            ]
+            del poi_novo.poligono.coordenadas[:]
+            poi_novo.poligono.coordenadas.extend(coords_novas)
+        elif tipo == "linha":
+            for no in poi_novo.linha.conteudo.nos:
+                no.x = round(no.x * sx)
+                no.y = round(no.y * sy)
+
+    return copias

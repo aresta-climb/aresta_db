@@ -5,7 +5,6 @@ import io
 
 from PIL import Image
 from PySide6.QtGui import QUndoStack
-from PySide6.QtWidgets import QFileDialog
 
 from aresta_api.proto.generated import croqui_pb2
 from editor.controllers.croqui_controller import CroquiController
@@ -69,13 +68,19 @@ class TestMapasImagensIntegracao:
         widget_imagens.select_image_by_name("mapa_setor.webp")
 
         # 3. Substitui a imagem a partir do WidgetEditorMapas
+        from PySide6.QtWidgets import QDialog
+
+        from editor.views.dialogos.dialogo_adicionar_mapa import DialogoAdicionarMapa
+
         nova_foto_1 = tmp_path / "nova_foto_1.png"
         img1 = Image.new("RGB", (300, 200), color=(255, 0, 0))
         img1.save(nova_foto_1, format="PNG")
 
-        monkeypatch.setattr(
-            QFileDialog, "getOpenFileName", lambda *a, **k: (str(nova_foto_1), "PNG")
-        )
+        def fake_exec_1(dialogo: DialogoAdicionarMapa):
+            dialogo.carregar_imagem_arquivo(str(nova_foto_1))
+            return QDialog.DialogCode.Accepted
+
+        monkeypatch.setattr(DialogoAdicionarMapa, "exec", fake_exec_1)
         widget_mapas.substituir_imagem_mapa()
 
         bytes_alterados_1 = model.obter_bytes_imagem("imagens/mapa_setor.webp")
@@ -92,9 +97,11 @@ class TestMapasImagensIntegracao:
         img2 = Image.new("RGB", (400, 250), color=(0, 255, 0))
         img2.save(nova_foto_2, format="PNG")
 
-        monkeypatch.setattr(
-            QFileDialog, "getOpenFileName", lambda *a, **k: (str(nova_foto_2), "PNG")
-        )
+        def fake_exec_2(dialogo: DialogoAdicionarMapa):
+            dialogo.carregar_imagem_arquivo(str(nova_foto_2))
+            return QDialog.DialogCode.Accepted
+
+        monkeypatch.setattr(DialogoAdicionarMapa, "exec", fake_exec_2)
         widget_imagens.substituir_imagem_selecionada()
 
         bytes_alterados_2 = model.obter_bytes_imagem("imagens/mapa_setor.webp")
@@ -239,12 +246,18 @@ picos:
         editor_mapas.list_widget.setCurrentRow(0)
 
         # Prepara nova imagem
+        from PySide6.QtWidgets import QDialog
+
+        from editor.views.dialogos.dialogo_adicionar_mapa import DialogoAdicionarMapa
+
         nova_img = tmp_path / "nova_foto_mapa.png"
         Image.new("RGB", (350, 350), color=(100, 200, 50)).save(nova_img, format="PNG")
-        monkeypatch.setattr(
-            "editor.views.widget_editor_mapas.QFileDialog.getOpenFileName",
-            lambda *a, **k: (str(nova_img), "PNG"),
-        )
+
+        def fake_exec_mapa(dialogo: DialogoAdicionarMapa):
+            dialogo.carregar_imagem_arquivo(str(nova_img))
+            return QDialog.DialogCode.Accepted
+
+        monkeypatch.setattr(DialogoAdicionarMapa, "exec", fake_exec_mapa)
 
         # Executa substituição de imagem do mapa
         editor_mapas.substituir_imagem_mapa()

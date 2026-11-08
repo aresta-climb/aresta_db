@@ -44,6 +44,6 @@ O sistema MUST gerar um arquivo autocontido `resumo.html` e publicá-lo em `pr/<
 - **WHEN** imagens de capa, thumbnail ou fotos referenciadas em textos Markdown forem adicionadas, modificadas ou removidas na Pull Request
 - **THEN** o `resumo.html` exibe uma galeria de alterações de imagens indicando onde cada imagem é utilizada, suas dimensões e peso em KB, e um comparador visual `Antes vs. Depois` para as imagens modificadas
 
-#### Scenario: Abertura rápida no aplicativo a partir do relatório HTML
-- **WHEN** um revisor abrir o `resumo.html` no navegador do computador ou celular
-- **THEN** a página exibe o código formatado da Pull Request (ex: `pr00-0042`), um botão para copiá-lo, o QR Code em SVG apontando para `https://previa.arestaclimb.com/<codigo_pr>` e um botão de ação direta para abrir o croqui no aplicativo Aresta Climb
+#### Scenario: Abertura rápida no aplicativo a partir do relatório HTML e do comentário da PR
+- **WHEN** um revisor abrir o `resumo.html` no navegador ou visualizar o comentário automático do validador na Pull Request
+- **THEN** a página HTML e o comentário da Pull Request exibem o código formatado da Pull Request (ex: `pr00-0042`), o QR Code em SVG (`pr/<numero_pr>/qrcode.svg`) apontando para `https://previa.arestaclimb.com/<codigo_pr>` e o link direto para abrir o croqui no aplicativo Aresta Climb

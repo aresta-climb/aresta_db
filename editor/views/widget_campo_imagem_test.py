@@ -5,11 +5,14 @@ import io
 
 import pytest
 from PIL import Image
-from PySide6.QtWidgets import QDialog, QFileDialog
+from PySide6.QtGui import QUndoStack
+from PySide6.QtWidgets import QDialog
 
 from aresta_api.proto.generated.croqui_pb2 import Croqui
+from editor.controllers.croqui_controller import CroquiController
 from editor.models.croqui_model import CroquiModel
-from editor.views.widget_campo_imagem import DialogoNomeImagem, WidgetCampoImagem
+from editor.views.dialogos.dialogo_adicionar_mapa import DialogoAdicionarMapa
+from editor.views.widget_campo_imagem import WidgetCampoImagem
 
 
 @pytest.fixture
@@ -18,28 +21,6 @@ def imagem_valida_bytes():
     img = Image.new("RGB", (300, 200), color=(0, 120, 255))
     img.save(buf, format="WEBP")
     return buf.getvalue()
-
-
-class TestDialogoNomeImagem:
-    def test_dialogo_sugestao_e_validacao(self, qtbot, tmp_path):
-        pasta_imagens = tmp_path / "imagens"
-        pasta_imagens.mkdir()
-        (pasta_imagens / "existente.webp").write_bytes(b"123")
-
-        dialogo = DialogoNomeImagem(
-            nome_sugerido="existente.webp",
-            pasta_imagens=pasta_imagens,
-            imagens_em_memoria=None,
-        )
-        qtbot.addWidget(dialogo)
-
-        assert dialogo.obter_nome_escolhido() == "existente.webp"
-        assert dialogo.possui_conflito() is True
-
-        # Altera para nome livre
-        dialogo.definir_nome("livre.webp")
-        assert dialogo.obter_nome_escolhido() == "livre.webp"
-        assert dialogo.possui_conflito() is False
 
 
 class TestWidgetCampoImagem:
@@ -67,7 +48,9 @@ class TestWidgetCampoImagem:
         assert "300 x 200" in widget.rotulo_metadados.text()
         assert widget.btn_abrir_editor.isEnabled() is True
 
-    def test_aplicar_nova_imagem_emite_sinal(self, qtbot, imagem_valida_bytes):
+    def test_aplicar_nova_imagem_emite_sinal_sem_mutar_modelo_diretamente(
+        self, qtbot, imagem_valida_bytes
+    ):
         croqui = Croqui()
         model = CroquiModel(croqui)
 
@@ -81,6 +64,55 @@ class TestWidgetCampoImagem:
 
         assert blocker.args == ["imagens/thumbnail.webp", imagem_valida_bytes]
         assert widget.obter_caminho_atual() == "imagens/thumbnail.webp"
+        assert "300 x 200" in widget.rotulo_metadados.text()
+        # A View não deve mutar o CroquiModel diretamente fora do Controller/Histórico
+        assert model.obter_bytes_imagem("imagens/thumbnail.webp") is None
+
+    def test_substituicao_thumbnail_com_controller_preserva_bytes_antigos_no_undo(
+        self, qtbot, imagem_valida_bytes
+    ):
+        croqui = Croqui()
+        croqui.caminho_thumbnail = "imagens/thumbnail.webp"
+        model = CroquiModel(croqui)
+        model.definir_imagem_memoria("imagens/thumbnail.webp", imagem_valida_bytes)
+
+        undo_stack = QUndoStack()
+        controller = CroquiController(model, undo_stack)
+
+        widget = WidgetCampoImagem(
+            model=model,
+            caminho_imagem="imagens/thumbnail.webp",
+            nome_arquivo_fixo="thumbnail.webp",
+        )
+        qtbot.addWidget(widget)
+
+        def ao_alterar(caminho_novo: str, bytes_novos: bytes) -> None:
+            caminho_antigo = croqui.caminho_thumbnail or None
+            bytes_antigos = model.obter_bytes_imagem(caminho_antigo) if caminho_antigo else None
+            controller.alterar_campo_imagem(
+                croqui,
+                "caminho_thumbnail",
+                caminho_antigo,
+                bytes_antigos,
+                caminho_novo,
+                bytes_novos,
+            )
+
+        widget.imagem_alterada.connect(ao_alterar)
+
+        # Nova imagem com dimensões diferentes (450 x 350)
+        buf_nova = io.BytesIO()
+        Image.new("RGB", (450, 350), color=(255, 80, 0)).save(buf_nova, format="WEBP")
+        bytes_novos = buf_nova.getvalue()
+
+        widget.aplicar_nova_imagem("imagens/thumbnail.webp", bytes_novos)
+
+        assert model.obter_bytes_imagem("imagens/thumbnail.webp") == bytes_novos
+        assert "450 x 350" in widget.rotulo_metadados.text()
+
+        # Undo deve restaurar bytes_antigos e atualizar a visualização reativamente
+        undo_stack.undo()
+        assert model.obter_bytes_imagem("imagens/thumbnail.webp") == imagem_valida_bytes
         assert "300 x 200" in widget.rotulo_metadados.text()
 
     def test_remover_imagem_emite_sinal(self, qtbot, imagem_valida_bytes):
@@ -111,10 +143,12 @@ class TestWidgetCampoImagem:
         )
         qtbot.addWidget(widget)
 
-        # Mock de seleção de arquivo
-        monkeypatch.setattr(
-            QFileDialog, "getOpenFileName", lambda *args, **kwargs: (str(arquivo_origem), "Imagens")
-        )
+        def fake_exec(dialogo: DialogoAdicionarMapa):
+            assert dialogo.caminho_destino_fixo == "thumbnail.webp"
+            dialogo.carregar_imagem_arquivo(str(arquivo_origem))
+            return QDialog.DialogCode.Accepted
+
+        monkeypatch.setattr(DialogoAdicionarMapa, "exec", fake_exec)
 
         with qtbot.waitSignal(widget.imagem_alterada, timeout=1000) as blocker:
             widget.selecionar_e_trocar_imagem()
@@ -136,10 +170,12 @@ class TestWidgetCampoImagem:
         widget = WidgetCampoImagem(model=model, caminho_imagem="", nome_arquivo_fixo=None)
         qtbot.addWidget(widget)
 
-        monkeypatch.setattr(
-            QFileDialog, "getOpenFileName", lambda *args, **kwargs: (str(arquivo_origem), "Imagens")
-        )
-        monkeypatch.setattr(DialogoNomeImagem, "exec", lambda self: QDialog.DialogCode.Accepted)
+        def fake_exec(dialogo: DialogoAdicionarMapa):
+            assert dialogo.caminho_destino_fixo is None
+            dialogo.carregar_imagem_arquivo(str(arquivo_origem))
+            return QDialog.DialogCode.Accepted
+
+        monkeypatch.setattr(DialogoAdicionarMapa, "exec", fake_exec)
 
         with qtbot.waitSignal(widget.imagem_alterada, timeout=1000) as blocker:
             widget.selecionar_e_trocar_imagem()
@@ -147,6 +183,34 @@ class TestWidgetCampoImagem:
         caminho_novo, bytes_novos = blocker.args
         assert caminho_novo == "imagens/foto_minha_parede.webp"
         assert len(bytes_novos) > 0
+
+    def test_trocar_imagem_selecionando_da_galeria_do_croqui(
+        self, qtbot, tmp_path, imagem_valida_bytes, monkeypatch
+    ):
+        pasta_imagens = tmp_path / "imagens"
+        pasta_imagens.mkdir()
+        (pasta_imagens / "existente_galeria.webp").write_bytes(imagem_valida_bytes)
+
+        croqui = Croqui()
+        model = CroquiModel(croqui)
+        model.definir_caminho_db(tmp_path)
+
+        widget = WidgetCampoImagem(model=model, caminho_imagem="", nome_arquivo_fixo=None)
+        qtbot.addWidget(widget)
+
+        def fake_exec(dialogo: DialogoAdicionarMapa):
+            dialogo.tab_widget.setCurrentIndex(1)
+            dialogo.lista_imagens.setCurrentRow(0)
+            return QDialog.DialogCode.Accepted
+
+        monkeypatch.setattr(DialogoAdicionarMapa, "exec", fake_exec)
+
+        with qtbot.waitSignal(widget.imagem_alterada, timeout=1000) as blocker:
+            widget.selecionar_e_trocar_imagem()
+
+        caminho_novo, bytes_novos = blocker.args
+        assert caminho_novo == "imagens/existente_galeria.webp"
+        assert bytes_novos == imagem_valida_bytes
 
     def test_clique_abrir_no_editor_emite_sinal(self, qtbot, imagem_valida_bytes):
         croqui = Croqui()
@@ -183,26 +247,14 @@ class TestWidgetCampoImagem:
 
         assert "Erro Img" in widget.rotulo_preview.text()
 
-    def test_cancelamento_selecao_e_dialogo_nome(self, qtbot, tmp_path, monkeypatch):
+    def test_cancelamento_wizard_nao_altera_estado(self, qtbot, monkeypatch):
         croqui = Croqui()
         model = CroquiModel(croqui)
 
         widget = WidgetCampoImagem(model=model, caminho_imagem="")
         qtbot.addWidget(widget)
 
-        # 1. Cancela no file dialog
-        monkeypatch.setattr(QFileDialog, "getOpenFileName", lambda *args, **kwargs: ("", ""))
-        widget.selecionar_e_trocar_imagem()
-        assert widget.obter_caminho_atual() == ""
-
-        # 2. Cancela no diálogo de nome
-        arquivo_origem = tmp_path / "foto.png"
-        arquivo_origem.write_bytes(b"123")
-        monkeypatch.setattr(
-            QFileDialog, "getOpenFileName", lambda *args, **kwargs: (str(arquivo_origem), "Imagens")
-        )
-        monkeypatch.setattr(DialogoNomeImagem, "exec", lambda self: QDialog.DialogCode.Rejected)
-
+        monkeypatch.setattr(DialogoAdicionarMapa, "exec", lambda self: QDialog.DialogCode.Rejected)
         widget.selecionar_e_trocar_imagem()
         assert widget.obter_caminho_atual() == ""
 
@@ -225,12 +277,16 @@ class TestWidgetCampoImagem:
         )
         qtbot.addWidget(widget)
 
-        monkeypatch.setattr(
-            QFileDialog, "getOpenFileName", lambda *args, **kwargs: (str(arquivo_grande), "Imagens")
-        )
-        widget.selecionar_e_trocar_imagem()
+        def fake_exec(dialogo: DialogoAdicionarMapa):
+            dialogo.carregar_imagem_arquivo(str(arquivo_grande))
+            return QDialog.DialogCode.Accepted
 
-        bytes_resultado = model.obter_bytes_imagem("imagens/capa.webp")
+        monkeypatch.setattr(DialogoAdicionarMapa, "exec", fake_exec)
+
+        with qtbot.waitSignal(widget.imagem_alterada, timeout=1000) as blocker:
+            widget.selecionar_e_trocar_imagem()
+
+        _, bytes_resultado = blocker.args
         assert bytes_resultado is not None
         w, h, _, _ = obter_metadados_imagem(bytes_resultado)
         assert w * h <= AREA_MAXIMA_ESCALADA

@@ -12,7 +12,7 @@ from pathlib import Path
 from typing import Any
 
 from PySide6.QtCore import QSize, Qt
-from PySide6.QtGui import QIcon, QImage, QPixmap
+from PySide6.QtGui import QImage
 from PySide6.QtWidgets import (
     QDialog,
     QFileDialog,
@@ -36,9 +36,13 @@ from editor.core.processamento_imagem_campo import (
     obter_metadados_imagem,
     sanitizar_nome_imagem,
 )
+from editor.core.transformacoes_imagem import cortar_imagem_bytes
 from editor.views.componentes.area_drop_imagem import (
     FILTRO_ARQUIVOS_IMAGEM,
     AreaDropImagem,
+)
+from editor.views.dialogos.componentes_dialogo_imagem import (
+    obter_icone_miniatura_imagem,
 )
 
 
@@ -65,12 +69,14 @@ class DialogoInserirImagemMarkdown(QDialog):
         self.pasta_imagens.mkdir(parents=True, exist_ok=True)
 
         self.fonte_imagem_importacao: str | Path | QImage | bytes | None = None
+        self.bytes_originais_carregados: bytes | None = None
         self.bytes_processados_webp: bytes | None = None
         self.dimensoes: tuple[int, int] | None = None
+        self.corte_ativo: bool = False
         self.nome_imagem_selecionada: str = ""
+        self._galeria_carregada: bool = False
 
         self._criar_layout()
-        self._carregar_imagens_existentes()
 
         if imagem_inicial is not None:
             eh_interna = False
@@ -131,7 +137,21 @@ class DialogoInserirImagemMarkdown(QDialog):
         # Área de drag & drop
         self.area_drop = AreaDropImagem(self.aba_importar)
         self.area_drop.imagem_selecionada.connect(self.carregar_imagem_arquivo)
+        self.area_drop.regiao_selecionada.connect(self._ao_selecionar_regiao)
         layout_importar.addWidget(self.area_drop)
+
+        # Barra de ferramentas para recorte interativo
+        layout_corte = QHBoxLayout()
+        self.btn_recortar = QPushButton("✂ Recortar Área Selecionada")
+        self.btn_recortar.setEnabled(False)
+        self.btn_recortar.clicked.connect(self._ao_clicar_recortar)
+        self.btn_reverter_corte = QPushButton("↺ Reverter Imagem Original")
+        self.btn_reverter_corte.setEnabled(False)
+        self.btn_reverter_corte.clicked.connect(self.reverter_corte)
+        layout_corte.addWidget(self.btn_recortar)
+        layout_corte.addWidget(self.btn_reverter_corte)
+        layout_corte.addStretch()
+        layout_importar.addLayout(layout_corte)
 
         # Painel de metadados da imagem
         self.rotulo_metadados = QLabel("")
@@ -277,6 +297,10 @@ class DialogoInserirImagemMarkdown(QDialog):
         else:
             bytes_webp, w_final, h_final = comprimir_imagem_para_bytes_webp(bytes_originais)
 
+        self.bytes_originais_carregados = bytes_originais
+        self.corte_ativo = False
+        self.btn_reverter_corte.setEnabled(False)
+        self.btn_recortar.setEnabled(False)
         self.bytes_processados_webp = bytes_webp
         self.dimensoes = (w_final, h_final)
 
@@ -301,6 +325,62 @@ class DialogoInserirImagemMarkdown(QDialog):
             nome_sugerido = self._gerar_nome_unico(f"imagem_{timestamp}")
 
         self.input_nome_arquivo.setText(nome_sugerido)
+        self._validar_estado()
+
+    def _ao_selecionar_regiao(self, _rect: tuple[int, int, int, int]) -> None:
+        self.btn_recortar.setEnabled(True)
+
+    def _ao_clicar_recortar(self) -> None:
+        rect = self.area_drop.obter_retangulo_selecionado_imagem()
+        if rect:
+            self.aplicar_corte(rect)
+
+    def aplicar_corte(self, retangulo: tuple[int, int, int, int]) -> None:
+        """Recorta a imagem original na região selecionada e re-processa para WebP."""
+        if not self.bytes_originais_carregados:
+            return
+        bytes_cortados = cortar_imagem_bytes(
+            self.bytes_originais_carregados,
+            retangulo,
+            sem_perdas=False,
+        )
+        bytes_webp, w_final, h_final = comprimir_imagem_para_bytes_webp(bytes_cortados)
+        self.bytes_processados_webp = bytes_webp
+        self.dimensoes = (w_final, h_final)
+        self.corte_ativo = True
+
+        self.area_drop.definir_preview_bytes(bytes_webp)
+        self.btn_recortar.setEnabled(False)
+        self.btn_reverter_corte.setEnabled(True)
+
+        _, _, _, txt_tam_webp = obter_metadados_imagem(bytes_webp)
+        self.rotulo_metadados.setText(
+            f"Dimensões: {w_final} x {h_final} px (Recortado)  |  Tamanho WebP: {txt_tam_webp}"
+        )
+        self._validar_estado()
+
+    def reverter_corte(self) -> None:
+        """Reverte a imagem recortada para a imagem original inteira."""
+        if not self.bytes_originais_carregados:
+            return
+        self.area_drop.limpar_selecao()
+        bytes_webp, w_final, h_final = comprimir_imagem_para_bytes_webp(
+            self.bytes_originais_carregados
+        )
+        self.bytes_processados_webp = bytes_webp
+        self.dimensoes = (w_final, h_final)
+        self.corte_ativo = False
+
+        self.area_drop.definir_preview_bytes(bytes_webp)
+        self.btn_recortar.setEnabled(False)
+        self.btn_reverter_corte.setEnabled(False)
+
+        _, _, _, txt_tam_orig = obter_metadados_imagem(self.bytes_originais_carregados)
+        _, _, _, txt_tam_webp = obter_metadados_imagem(bytes_webp)
+        self.rotulo_metadados.setText(
+            f"Dimensões: {w_final} x {h_final} px  |  "
+            f"Tamanho WebP: {txt_tam_webp} (Original: {txt_tam_orig})"
+        )
         self._validar_estado()
 
     def carregar_imagem_externa(self, objeto_imagem: str | Path | QImage | bytes) -> None:
@@ -341,43 +421,36 @@ class DialogoInserirImagemMarkdown(QDialog):
 
     def _carregar_imagens_existentes(self) -> None:
         self.lista_imagens.clear()
+        self._galeria_carregada = True
         nomes_adicionados = set()
         extensoes = {".webp", ".png", ".jpg", ".jpeg", ".bmp"}
 
         if self.pasta_imagens.exists():
             for arquivo in sorted(self.pasta_imagens.iterdir()):
                 if arquivo.is_file() and arquivo.suffix.lower() in extensoes:
-                    bytes_img = None
-                    if self.model and hasattr(self.model, "obter_bytes_imagem"):
-                        bytes_img = self.model.obter_bytes_imagem(f"imagens/{arquivo.name}")
-                    if not bytes_img:
-                        try:
-                            bytes_img = arquivo.read_bytes()
-                        except Exception:
-                            bytes_img = None
-
-                    if bytes_img:
-                        pixmap = QPixmap()
-                        pixmap.loadFromData(bytes_img)
-                        if not pixmap.isNull():
-                            item = QListWidgetItem(arquivo.name)
-                            item.setIcon(QIcon(pixmap))
-                            item.setData(Qt.ItemDataRole.UserRole, arquivo.name)
-                            self.lista_imagens.addItem(item)
-                            nomes_adicionados.add(arquivo.name)
+                    icone = obter_icone_miniatura_imagem(
+                        arquivo.name, pasta_imagens=self.pasta_imagens, model=self.model
+                    )
+                    if icone is not None:
+                        item = QListWidgetItem(arquivo.name)
+                        item.setIcon(icone)
+                        item.setData(Qt.ItemDataRole.UserRole, arquivo.name)
+                        self.lista_imagens.addItem(item)
+                        nomes_adicionados.add(arquivo.name)
 
         if self.model and hasattr(self.model, "obter_imagens_em_memoria"):
-            for caminho_rel, bytes_img in sorted(self.model.obter_imagens_em_memoria().items()):
+            for caminho_rel in sorted(self.model.obter_imagens_em_memoria().keys()):
                 if caminho_rel.startswith("imagens/"):
                     nome = caminho_rel.split("/", 1)[1]
                     if nome not in nomes_adicionados and any(
                         nome.lower().endswith(ext) for ext in extensoes
                     ):
-                        pixmap = QPixmap()
-                        pixmap.loadFromData(bytes_img)
-                        if not pixmap.isNull():
+                        icone = obter_icone_miniatura_imagem(
+                            nome, pasta_imagens=self.pasta_imagens, model=self.model
+                        )
+                        if icone is not None:
                             item = QListWidgetItem(nome)
-                            item.setIcon(QIcon(pixmap))
+                            item.setIcon(icone)
                             item.setData(Qt.ItemDataRole.UserRole, nome)
                             self.lista_imagens.addItem(item)
                             nomes_adicionados.add(nome)
@@ -411,7 +484,9 @@ class DialogoInserirImagemMarkdown(QDialog):
     def _ao_alterar_legenda(self, _texto: str) -> None:
         self._validar_estado()
 
-    def _ao_trocar_aba(self, _indice: int) -> None:
+    def _ao_trocar_aba(self, indice: int) -> None:
+        if indice == 1 and not self._galeria_carregada:
+            self._carregar_imagens_existentes()
         self._validar_estado()
 
     def obter_caminho_final_relativo(self) -> str:

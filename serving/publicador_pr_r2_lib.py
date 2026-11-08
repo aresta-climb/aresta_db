@@ -22,6 +22,7 @@ _TIPOS_MIME_POR_EXTENSAO: dict[str, str] = {
     ".yaml": "text/yaml; charset=utf-8",
     ".yml": "text/yaml; charset=utf-8",
     ".webp": "image/webp",
+    ".svg": "image/svg+xml",
     ".binarypb": "application/x-protobuf",
     ".db": "application/vnd.sqlite3",
 }

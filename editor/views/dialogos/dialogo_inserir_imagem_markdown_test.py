@@ -601,4 +601,105 @@ def test_dialogo_carregar_imagens_existentes_com_erro_de_leitura(qapp, tmp_path,
     monkeypatch.setattr(Path, "read_bytes", falha_leitura)
 
     dialogo = DialogoInserirImagemMarkdown(caminho_db=tmp_path)
+    dialogo.tab_widget.setCurrentIndex(1)
     assert dialogo.lista_imagens.count() == 0
+
+
+def test_dialogo_markdown_abertura_lazy_sem_carregar_galeria_no_init(qapp, tmp_path, monkeypatch):
+    from editor.views.dialogos.componentes_dialogo_imagem import (
+        limpar_cache_miniaturas_imagem,
+    )
+
+    limpar_cache_miniaturas_imagem()
+    pasta_img = tmp_path / "imagens"
+    pasta_img.mkdir(parents=True, exist_ok=True)
+    img = QImage(80, 80, QImage.Format.Format_RGB32)
+    img.fill(0x112233)
+    img.save(str(pasta_img / "foto_lazy.webp"), "WEBP")
+
+    leituras_disco = []
+    orig_read_bytes = Path.read_bytes
+
+    def contar_read_bytes(self: Path) -> bytes:
+        leituras_disco.append(self.name)
+        return orig_read_bytes(self)
+
+    monkeypatch.setattr(Path, "read_bytes", contar_read_bytes)
+
+    dialogo = DialogoInserirImagemMarkdown(caminho_db=tmp_path)
+    assert dialogo._galeria_carregada is False
+    assert dialogo.lista_imagens.count() == 0
+    assert leituras_disco == []
+
+    # Ao trocar para a aba 1, carrega a galeria usando o cache
+    dialogo.tab_widget.setCurrentIndex(1)
+    assert dialogo._galeria_carregada is True
+    assert dialogo.lista_imagens.count() == 1
+    assert len(leituras_disco) == 1
+
+    # Segunda instância do diálogo reutiliza o cache de miniaturas sem reler do disco
+    dialogo_2 = DialogoInserirImagemMarkdown(caminho_db=tmp_path)
+    dialogo_2.tab_widget.setCurrentIndex(1)
+    assert dialogo_2.lista_imagens.count() == 1
+    assert len(leituras_disco) == 1
+
+
+def test_dialogo_markdown_recorte_interativo_e_reversao(qapp, tmp_path, monkeypatch):
+    from PySide6.QtCore import QPoint
+
+    dialogo_vazio = DialogoInserirImagemMarkdown(caminho_db=tmp_path)
+    dialogo_vazio.aplicar_corte((0, 0, 10, 10))
+    dialogo_vazio.reverter_corte()
+
+    img = QImage(300, 200, QImage.Format.Format_RGB32)
+    img.fill(0x336699)
+
+    dialogo = DialogoInserirImagemMarkdown(caminho_db=tmp_path, imagem_inicial=img)
+    dialogo.resize(580, 560)
+    dialogo.show()
+    assert dialogo.obter_dimensoes_imagem() == (300, 200)
+    assert hasattr(dialogo, "btn_recortar")
+    assert hasattr(dialogo, "btn_reverter_corte")
+    assert dialogo.btn_reverter_corte.isEnabled() is False
+
+    # Seleciona via rubber-band no area_drop e clica no botão recortar
+    ponto_ini = dialogo.area_drop.rect().center()
+    ponto_fim = ponto_ini + QPoint(80, 60)
+    from PySide6.QtGui import QMouseEvent
+
+    ev_press = QMouseEvent(
+        QMouseEvent.Type.MouseButtonPress,
+        ponto_ini,
+        ponto_ini,
+        Qt.MouseButton.LeftButton,
+        Qt.MouseButton.LeftButton,
+        Qt.KeyboardModifier.NoModifier,
+    )
+    ev_move = QMouseEvent(
+        QMouseEvent.Type.MouseMove,
+        ponto_fim,
+        ponto_fim,
+        Qt.MouseButton.LeftButton,
+        Qt.MouseButton.LeftButton,
+        Qt.KeyboardModifier.NoModifier,
+    )
+    ev_rel = QMouseEvent(
+        QMouseEvent.Type.MouseButtonRelease,
+        ponto_fim,
+        ponto_fim,
+        Qt.MouseButton.LeftButton,
+        Qt.MouseButton.NoButton,
+        Qt.KeyboardModifier.NoModifier,
+    )
+    dialogo.area_drop.mousePressEvent(ev_press)
+    dialogo.area_drop.mouseMoveEvent(ev_move)
+    dialogo.area_drop.mouseReleaseEvent(ev_rel)
+    assert dialogo.btn_recortar.isEnabled() is True
+    dialogo.btn_recortar.click()
+    assert dialogo.corte_ativo is True
+    assert dialogo.btn_reverter_corte.isEnabled() is True
+    assert "Recortado" in dialogo.rotulo_metadados.text()
+
+    dialogo.reverter_corte()
+    assert dialogo.obter_dimensoes_imagem() == (300, 200)
+    assert dialogo.btn_reverter_corte.isEnabled() is False

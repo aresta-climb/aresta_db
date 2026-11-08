@@ -162,6 +162,7 @@ def test_validar_pull_request_compila_gera_diff_resumo_html_e_publica_no_r2(
 
     assert erros == []
     assert (dir_saida / "resumo.html").is_file()
+    assert (dir_saida / "qrcode.svg").is_file()
     html_gerado = (dir_saida / "resumo.html").read_text(encoding="utf-8")
     assert "pr00-0042" in html_gerado
     assert "Via Teste Modificada" in html_gerado
@@ -169,6 +170,7 @@ def test_validar_pull_request_compila_gera_diff_resumo_html_e_publica_no_r2(
     # Verifica objetos publicados no ClienteR2Fake
     chaves_r2 = fake_r2.listar_chaves("aresta-serving", prefixo="pr/42/")
     assert "pr/42/resumo.html" in chaves_r2
+    assert "pr/42/qrcode.svg" in chaves_r2
     assert "pr/42/indice.binarypb" in chaves_r2
     assert "pr/42/cipo_teste/compilado.binarypb" in chaves_r2
 
@@ -177,6 +179,7 @@ def test_validar_pull_request_compila_gera_diff_resumo_html_e_publica_no_r2(
     assert comentario.startswith(ASSINATURA_COMENTARIO_PR)
     assert "https://previa.arestaclimb.com/pr00-0042" in comentario
     assert "https://previa.arestaclimb.com/resumo/pr00-0042" in comentario
+    assert "https://serving.arestaclimb.com/pr/42/qrcode.svg" in comentario
 
 
 def test_validar_pull_request_sem_credenciais_r2_e_sem_diretorio_saida_explicito(

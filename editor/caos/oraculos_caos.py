@@ -118,9 +118,7 @@ class OraculosCaos:
             sys.excepthook = hook_sys_orig
             threading.excepthook = hook_thread_orig
 
-    def verificar_integridade_objetos_qt(
-        self, objetos: Iterable[Any]
-    ) -> FalhaCapturadaRobo | None:
+    def verificar_integridade_objetos_qt(self, objetos: Iterable[Any]) -> FalhaCapturadaRobo | None:
         """Verifica via shiboken6.isValid se algum objeto Qt monitorado teve o C++ destruído."""
         for obj in objetos:
             if not shiboken6.isValid(obj):

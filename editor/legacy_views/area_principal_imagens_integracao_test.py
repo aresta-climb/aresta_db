@@ -136,7 +136,9 @@ class TestAreaPrincipalImagensIntegracao:
         # Usuário seleciona imagem e clica em Substituir Imagem
         area_principal.pagina_imagens.editor.select_image_by_name("thumbnail.webp")
 
-        from PySide6.QtWidgets import QMessageBox
+        from PySide6.QtWidgets import QDialog, QMessageBox
+
+        from editor.views.dialogos.dialogo_adicionar_mapa import DialogoAdicionarMapa
 
         monkeypatch.setattr(
             "editor.legacy_views.area_principal.QMessageBox.question",
@@ -145,10 +147,12 @@ class TestAreaPrincipalImagensIntegracao:
 
         nova_img = tmp_path / "nova_foto.png"
         Image.new("RGB", (300, 300), color=(0, 255, 100)).save(nova_img, format="PNG")
-        monkeypatch.setattr(
-            "editor.legacy_views.widget_editor_imagens.QFileDialog.getOpenFileName",
-            lambda *a, **k: (str(nova_img), "PNG"),
-        )
+
+        def fake_exec(dialogo: DialogoAdicionarMapa):
+            dialogo.carregar_imagem_arquivo(str(nova_img))
+            return QDialog.DialogCode.Accepted
+
+        monkeypatch.setattr(DialogoAdicionarMapa, "exec", fake_exec)
 
         area_principal.pagina_imagens.editor.substituir_imagem_selecionada()
 

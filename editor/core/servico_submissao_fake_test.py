@@ -23,7 +23,9 @@ def test_diff_real_e_submissao_com_e_sem_alteracoes(tmp_path: Path) -> None:
     repo_base = tmp_path / "aresta_db"
     pasta_base_croqui = repo_base / "database" / "bau"
     pasta_base_croqui.mkdir(parents=True)
-    (pasta_base_croqui / "croqui.yaml").write_text("id: bau\nnome: Pedra do Baú\n", encoding="utf-8")
+    (pasta_base_croqui / "croqui.yaml").write_text(
+        "id: bau\nnome: Pedra do Baú\n", encoding="utf-8"
+    )
 
     pasta_trabalho = tmp_path / "experimental" / "database"
     pasta_trabalho.mkdir(parents=True)

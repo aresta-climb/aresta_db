@@ -200,6 +200,7 @@ def test_form_renderiza_botao_para_mapa(qapp):
     botoes = form.findChildren(QPushButton)
     textos = [b.text() for b in botoes]
     assert "Abrir no Editor de Mapas" in textos
+    assert "Substituir Imagem..." in textos
 
     # Garante que não renderizou outros campos (como caminho_imagem_mapa) como QLineEdit
     from PySide6.QtWidgets import QLineEdit
@@ -249,6 +250,67 @@ def test_form_botao_mapa_emite_foco_requisitado(qapp):
     assert len(focos_recebidos) == 1
     assert focos_recebidos[0] == "page:mapas/node:Mapa"
     assert controller.contexto_atual_path == focos_recebidos[0]
+
+
+def test_form_botao_substituir_imagem_no_mapa_atualiza_modelo_e_undo(qapp, tmp_path, monkeypatch):
+    """[TDD] Verifica que clicar em 'Substituir Imagem...' na visão de nó MAPA abre o wizard e atualiza o mapa via Undo."""
+    import io
+
+    from PIL import Image
+    from PySide6.QtGui import QUndoStack
+    from PySide6.QtWidgets import QDialog, QPushButton
+
+    from aresta_api.proto.generated.croqui_pb2 import Croqui
+    from editor.controllers.croqui_controller import CroquiController
+    from editor.models.croqui_model import CroquiModel
+    from editor.views.dialogos.dialogo_adicionar_mapa import DialogoAdicionarMapa
+    from editor.views.tree_view_adapter import ProtobufNode
+    from editor.views.widget_editor_dados import WidgetFormularioPadrao
+
+    croqui = Croqui()
+    pico = croqui.picos.add(nome="Pico A")
+    setor = pico.setores_ou_grupos.add().setor.conteudo
+    mapa = setor.mapas.add(
+        caminho_imagem_mapa="imagens/mapa_orig.webp",
+        largura_mapa=300,
+        altura_mapa=200,
+    )
+
+    model = CroquiModel(croqui)
+    model.definir_caminho_db(tmp_path)
+    undo_stack = QUndoStack()
+    controller = CroquiController(model, undo_stack)
+    form = WidgetFormularioPadrao(model, controller)
+
+    proxy_mapa = model.obter_croqui_readonly().picos[0].setores_ou_grupos[0].setor.conteudo.mapas[0]
+    node = ProtobufNode(name="Mapa", message=proxy_mapa, descriptor=mapa.DESCRIPTOR)
+    form.load_node(node)
+
+    buf = io.BytesIO()
+    Image.new("RGB", (600, 400), color=(40, 80, 120)).save(buf, format="PNG")
+    bytes_png = buf.getvalue()
+
+    def fake_exec(self_dlg):
+        self_dlg.carregar_imagem_bytes(bytes_png, nome_sugerido_origem="mapa_novo.png")
+        self_dlg.input_nome.setText("mapa_novo.webp")
+        return QDialog.DialogCode.Accepted
+
+    monkeypatch.setattr(DialogoAdicionarMapa, "exec", fake_exec)
+
+    botoes = form.findChildren(QPushButton)
+    btn_sub = next((b for b in botoes if b.text() == "Substituir Imagem..."), None)
+    assert btn_sub is not None
+    btn_sub.click()
+
+    assert mapa.caminho_imagem_mapa == "imagens/mapa_novo.webp"
+    assert mapa.largura_mapa == 600
+    assert mapa.altura_mapa == 400
+    assert undo_stack.count() == 1
+
+    undo_stack.undo()
+    assert mapa.caminho_imagem_mapa == "imagens/mapa_orig.webp"
+    assert mapa.largura_mapa == 300
+    assert mapa.altura_mapa == 200
 
 
 def test_widget_formulario_padrao_no_overlap(qapp):

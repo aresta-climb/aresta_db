@@ -130,4 +130,3 @@ def test_obter_caminho_recurso_interno_canal_beta_faz_fallback_quando_ausente(
         Path(storage.__file__).resolve().parent.parent / "recursos/arquivo_inexistente_beta.png"
     )
     assert caminho == esperado
-

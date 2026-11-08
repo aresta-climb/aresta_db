@@ -1207,6 +1207,48 @@ class MapasControllerTest(unittest.TestCase):
                 opcao=None,
             )
 
+    def test_substituir_imagem_mapa_atualiza_dimensoes_e_reescala_pois(self):
+        """[TDD] Valida que substituir_imagem_mapa no MapasController atualiza dimensões e POIs atomicamente."""
+        self.mapa.caminho_imagem_mapa = "imagens/setor_p1.webp"
+        self.mapa.largura_mapa = 800
+        self.mapa.altura_mapa = 600
+        poi = self.mapa.pontos_de_interesse.add(uid="p1", rotulo="1")
+        poi.circulo.x = 400
+        poi.circulo.y = 300
+        poi.circulo.raio = 16
+        self.model.definir_imagem_memoria("imagens/setor_p1.webp", b"webp_original")
+
+        self.controller.substituir_imagem_mapa(
+            msg_mapa_proxy=self.msg_mapa_proxy,
+            caminho_relativo_novo="imagens/setor_p1.webp",
+            bytes_novo=b"webp_novo",
+            largura_nova=1600,
+            altura_nova=1200,
+            reescalar_pois=True,
+        )
+
+        self.assertEqual(self.undo_stack.count(), 1)
+        self.assertEqual(self.mapa.largura_mapa, 1600)
+        self.assertEqual(self.mapa.altura_mapa, 1200)
+        self.assertEqual(self.mapa.pontos_de_interesse[0].circulo.x, 800)
+        self.assertEqual(self.mapa.pontos_de_interesse[0].circulo.y, 600)
+        self.assertEqual(self.mapa.pontos_de_interesse[0].circulo.raio, 32)
+        self.assertEqual(
+            self.model.obter_bytes_imagem("imagens/setor_p1.webp"),
+            b"webp_novo",
+        )
+
+        self.undo_stack.undo()
+        self.assertEqual(self.mapa.largura_mapa, 800)
+        self.assertEqual(self.mapa.altura_mapa, 600)
+        self.assertEqual(self.mapa.pontos_de_interesse[0].circulo.x, 400)
+        self.assertEqual(self.mapa.pontos_de_interesse[0].circulo.y, 300)
+        self.assertEqual(self.mapa.pontos_de_interesse[0].circulo.raio, 16)
+        self.assertEqual(
+            self.model.obter_bytes_imagem("imagens/setor_p1.webp"),
+            b"webp_original",
+        )
+
 
 if __name__ == "__main__":
     unittest.main()

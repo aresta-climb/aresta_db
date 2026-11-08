@@ -1,67 +1,81 @@
 ---
-name: mapa_corrigir_pontos_de_interesse 
-description: Processa pontos de interesse de um mapa, corrigindo sua localização na imagem.
+name: mapa_corrigir_pontos_de_interesse
+description: Refina e corrige a localização dos pontos de interesse de um mapa via MCP usando os recortes com mira relativa de aresta_renderizar_mapa.
 ---
 
-# Corrigir pontos de interesse de um mapa 
+# Corrigir e Refinar Pontos de Interesse de um Mapa (100% via MCP)
 
-Um mapa é uma imagem que representa graficamente de maneira reduzida e simplificada os pontos de interesse de um setor de escalada, incluindo vias, boulders, trilhas, acesso, etc. O objetivo dessa skill é corrigir a localização dos pontos de interesse já preenchidos no arquivo JSON.
+O objetivo desta skill é inspecionar visualmente e ajustar com precisão cirúrgica as coordenadas `(x, y)` e dimensões de todos os pontos de interesse (`pontos_de_interesse`) de um `Mapa` no **Editor Aresta** utilizando a ferramenta MCP `aresta_renderizar_mapa` e seus recortes ampliados com mira relativa (`-50px` a `+50px`).
 
-Para essa skill, você receberá:
-* O caminho de uma imagem que representa um mapa de um setor de escalada dentro da pasta `imagens` de um pico de escalada
-* Um arquivo `raw_mapas/<imagem>.json` contendo metadados e pontos de interesse sobre a imagem.
+> [!CAUTION]
+> **Proibição de Scripts Legados e Arquivos JSON:**
+> - **NUNCA** procure ou execute `visualizar_mapa_processado.py` nem edite arquivos em `raw_mapas/`.
+> - Toda visualização e todo ajuste de coordenadas acontecem em memória no Editor Aresta via `aresta_renderizar_mapa` e `aresta_alterar_campo`.
 
-Você trabalhará apenas com essa imagem com o arquivo JSON correspondente.
+---
 
-## 1. Conferindo os pontos de interesse
+## 1. Como Funciona a Inspeção com `aresta_renderizar_mapa`
 
-Os pontos de interesse já estão marcados no arquivo JSON. Por exemplo, para o exemplo abaixo, há três pontos de interesse a serem atualizados, "01", "Mesa" e "Seta_Estacionamento":
-
+Chame a ferramenta `aresta_renderizar_mapa` com `incluir_recortes=True`:
 ```json
 {
-  "dimensoes_imagem": { "largura": 1108, "altura": 1241 },
-  "pontos_de_interesse": [
-    { "id": "01", "rotulo": "Via 01", "circulo": { "x": 684, "y": 824, "raio": 16 } },
-    { "id": "02", "rotulo": "Via 02", "quadrado": { "x": 732, "y": 882, "lado": 35 } },
-    { "id": "Mesa", "rotulo": "Mesa", "retangulo": { "x": 876, "y": 547, "comprimento": 48, "largura": 25 } },
-    { "id": "Setor_Diagonal", "rotulo": "Setor Diagonal", "retangulo": { "x": 1167, "y": 637, "comprimento": 265, "largura": 25, "angulo_graus_x100": 3000 } },
-    { "id": "Livre", "rotulo": "Área Livre", "poligono": { "coordenadas": [0, 0, 10, 0, 10, 10] } }
-  ]
+  "alvo": "<alvo_mapa>",
+  "incluir_recortes": true,
+  "id_croqui": "<id_croqui>"
 }
 ```
+*(Dica: se você estiver refinando apenas alguns pontos específicos após uma primeira rodada, pode passar `"uids_pois": ["<uid_1>", "<uid_2>"]` para receber apenas os recortes daqueles POIs).*
 
-## 2. Script para verificação da localização dos pontos de interesse 
+`aresta_renderizar_mapa` retorna uma **lista intercalada de blocos `[Texto, Imagem]`**:
+1. **Bloco 0 (`text`)**: Metadados gerais do mapa (`largura`, `altura`, `total_pois`, `candidatos_vetoriais`).
+2. **Bloco 1 (`image`)**: Visão geral completa do mapa com **grade métrica semitransparente a cada `100px`** (`50px` secundária), **réguas graduadas nas bordas (`X` e `Y`)** e todos os POIs demarcados em vermelho.
+3. **Pares `[Texto, Imagem]` para cada POI (`POI #1`, `POI #2`, ...)**:
+   - **Bloco de Texto (`content[2*i + 2]`)**: Identifica explicitamente o ponto:
+     `POI #1 | uid=xK9mP2qR | rotulo='01' | tipo=circulo | centro=(684, 824) | geometria={"x": 684, "y": 824, "raio": 18}`
+   - **Bloco de Imagem (`content[2*i + 3]`)**: Recorte ampliado de `120x120px` (escalado 2x para `240x240px`) centrado exatamente em `(cx, cy)` contendo:
+     - **Mira central verde/azul em `(0, 0)`** (indicando onde está o `(x, y)` atual do POI).
+     - **Contorno vermelho da geometria atual** do POI.
+     - **Réguas relativas nas bordas variando de `-50px` a `+50px`** (com marcações a cada `10px`).
 
-Para confirmar que cada ponto de interesse está na posição correta, você possui um script que gera uma imagem com as bounding areas dos pontos de interesse marcados em vermelho. Para gerar a imagem processada, execute o script `python scripts/visualizar_mapa_processado.py --imagem=<caminho_da_imagem> --pontos_json=<caminho_do_json>`. O resultado será uma imagem ao lado do arquivo JSON, `raw_mapas/<arquivo_json>_processado.webp`.
+---
 
-## 3. Acertando a posição das bounding areas dos pontos de interesse 
+## 2. Loop de Refinamento Visual com a Mira Relativa (`-50px` a `+50px`)
 
 > [!IMPORTANT]
-> **Loop de Iteração Visual (Execute até acertar)**
-> É possível que as bounding areas necessitem ajustes manuais finos. Faça os ajustes abaixo em loop sem interrupção até atingir um enquadramento **perfeito**:
-> 
-> 1. Use `run_command`: `python scripts/visualizar_mapa_processado.py --imagem=<caminho_da_imagem> --pontos_json=<caminho_do_json>` para cuspir a imagem processada. **Você tem autonomia para rodar isto quantas vezes precisar.** *Nota:* Se o script der erro de "JSONDecodeError" ou similar, isso significa que você estragou a sintaxe do JSON. Corrija a sintaxe com prioridade máxima antes de continuar!
-> 2. Use `view_file` na imagem recém gerada `_processado.webp` para visualizá-la.
-> 3. Observe a caixa (ou círculo) vermelho. Ele está perfeitamente delimitando APENAS o texto/label do ponto correspondente? Se não estiver:
-> 4. Ajuste os valores literais no arquivo `.json`:
->    * **x, y**: Mova o **centro** do item para alinhar com o texto.
->    * **comprimento, largura / raio**: Ajuste as dimensões para que fiquem justas ao redor do texto.
->    * **angulo_graus_x100**: Caso o texto esteja inclinado no mapa, ajuste o ângulo para que a caixa rotacione e se alinhe perfeitamente.
-> 5. Repita o passo 1 até que todos os textos estejam perfeitamente enquadrados.
-> 
-> Não se preocupe em trabalhar rápido, foque na exatidão finíssima.
+> **Iteração Visual até o Enquadramento Perfeito:**
+> Analise cada par `[Texto do POI, Imagem do Recorte]` retornado por `aresta_renderizar_mapa`:
 
-## 4 Conferência nos pontos de interesse
+1. **Verifique o Centro `(0, 0)` no Recorte**:
+   - O texto ou número real na foto da parede está centrado exatamente no cruzamento `(0, 0)` da mira?
+   - **Se estiver deslocado dentro do recorte**: Leia nas réguas relativas das bordas superior (`dx`) e esquerda (`dy`) quantos pixels o centro real do texto está deslocado em relação a `(0, 0)`.
+     - Exemplo: se o número `"01"` aparece na marca `+14` da régua horizontal superior e `-8` da régua vertical esquerda, então o novo centro exato é:
+       `novo_x = x_atual + 14`
+       `novo_y = y_atual - 8`
+   - **Se o texto não aparecer dentro do recorte (`> 60px` de erro)**: Olhe para a imagem completa com grade métrica (`Bloco 1`), localize onde o rótulo realmente está usando as réguas absolutas `X`/`Y` de `100px`, e anote a nova coordenada `(x, y)`.
 
-Faça uma última conferência, **um ponto de interesse de cada vez**, para garantir que **todas** as marcações vermelhas estão perfeitamente enquadrando os textos/labels dos pontos de interesse correspondentes no mapa. Caso algum não estiver perfeito, volte à etapa 3 para ajustar apenas esses pontos de interesse, sem mexer nos outros que já estão corretos. Repita isso até que **todos** os pontos estejam enquadrando perfeitamente os textos/labels dos pontos de interesse.
+2. **Verifique o Tamanho e a Rotação da Geometria Vermelha**:
+   - O círculo, quadrado ou retângulo vermelho envolve de forma justa apenas o rótulo/símbolo do ponto?
+   - Se estiver largo ou apertado demais, ajuste `raio` (em `circulo`), `lado` (em `quadrado`) ou `comprimento`/`largura` (em `retangulo`) usando a escala de `10px` das réguas relativas do recorte.
+   - Se for um `retangulo` ou `quadrado` sobre um texto inclinado, ajuste `angulo_graus_x100` (graus no sentido horário × 100) para alinhar com a inclinação do texto.
 
-## 5. Ajuste Interativo via Servidor MCP do Editor Aresta (Quando Conectado)
+3. **Aplique os Ajustes via `aresta_alterar_campo` (Preservando `UID`s)**:
+   - Você pode atualizar um POI individual diretamente pelo seu `uid`:
+     ```json
+     {
+       "alvo": "<uid_poi>",
+       "id_croqui": "<id_croqui>",
+       "campos": {
+         "rotulo": "01",
+         "circulo": { "x": 698, "y": 816, "raio": 16 }
+       }
+     }
+     ```
+   - Ou atualizar todos os POIs do mapa em uma única transação atômica passando a lista completa para `aresta_alterar_campo(alvo=alvo_mapa, campo="pontos_de_interesse", valor=[...], id_croqui=id_croqui)` — **lembrando sempre de manter o campo `"uid"` de cada ponto existente**.
 
-Se o croqui já estiver aberto no **Editor Aresta** com o servidor MCP ativo (`editor-aresta`), você também pode ajustar coordenadas de pontos de interesse diretamente na árvore Protobuf:
-- Localize o ponto de interesse pelo seu `UID` (ou índice em `mapas[i].pontos_de_interesse[j]`) usando `aresta_obter_arvore`.
-- Altere a geometria ou rótulo com `aresta_alterar_campo` (ex: `alvo="<uid_poi>"`, `campos={"rotulo": "01", "circulo": {"x": 684, "y": 824, "raio": 16}}`).
-- Visualize o resultado em tempo real no viewport de mapas com `aresta_capturar_canvas` (`alvo="mapas"`).
+4. **Re-verifique com `aresta_renderizar_mapa`**:
+   - Chame novamente `aresta_renderizar_mapa(alvo=alvo_mapa, incluir_recortes=True, uids_pois=[...], id_croqui=id_croqui)` para confirmar que os pontos ajustados agora estão perfeitamente centrados na mira `(0, 0)` e bem enquadrados.
+   - Repita até que **100% dos pontos de interesse** estejam centrados e justos ao redor de seus rótulos.
 
-## 6. Quando usar essa habilidade
+## Quando usar essa habilidade
 
-Use essa habilidade quando precisar corrigir os pontos de interesse de um mapa de um setor de escalada.
+Use essa habilidade sempre que precisar verificar e corrigir o posicionamento e o dimensionamento dos pontos de interesse de um mapa no Editor Aresta via MCP.

@@ -26,7 +26,6 @@ from PIL import Image, ImageDraw
 from PySide6.QtCore import QPointF, QRectF, Qt
 from PySide6.QtGui import QBrush, QColor, QImage, QPen, QPixmap, QUndoCommand
 from PySide6.QtWidgets import (
-    QFileDialog,
     QGraphicsRectItem,
     QGraphicsScene,
     QGraphicsView,
@@ -908,29 +907,41 @@ class WidgetEditorImagens(QWidget):
             self.croqui_model.foco_requisitado.emit(contexto_uri)
 
     def substituir_imagem_selecionada(self) -> None:
-        """Abre diálogo para substituir a imagem selecionada com compressão WebP em RAM."""
+        """Abre o wizard unificado para substituir a imagem selecionada com compressão WebP em RAM."""
         if not self.current_file:
             return
 
-        arquivo, _ = QFileDialog.getOpenFileName(
-            self,
-            "Substituir Imagem",
-            "",
-            "Imagens (*.png *.jpg *.jpeg *.webp *.bmp *.tiff *.tif)",
-        )
-        if not arquivo:
-            return
+        from PySide6.QtWidgets import QDialog
 
-        from editor.core.processamento_imagem_campo import comprimir_imagem_para_bytes_webp
-
-        try:
-            bytes_originais = Path(arquivo).read_bytes()
-            bytes_webp, _, _ = comprimir_imagem_para_bytes_webp(bytes_originais, quality=90)
-        except Exception as e:
-            QMessageBox.warning(self, "Erro", f"Falha ao processar nova imagem: {e}")
-            return
+        from editor.views.dialogos.dialogo_adicionar_mapa import DialogoAdicionarMapa
 
         nome_arquivo = Path(self.current_file).name
+        db_dir = None
+        if (
+            self.croqui_model
+            and hasattr(self.croqui_model, "_caminho_db_atual")
+            and self.croqui_model._caminho_db_atual
+        ):
+            db_dir = self.croqui_model._caminho_db_atual
+        elif self.imagens_path:
+            db_dir = Path(self.imagens_path).parent
+
+        dialogo = DialogoAdicionarMapa(
+            nome_sugerido=nome_arquivo,
+            db_dir=db_dir,
+            model=self.croqui_model,
+            parent=self,
+            caminho_destino_fixo=nome_arquivo,
+            titulo_janela="Substituir Imagem",
+            texto_botao_ok="Substituir Imagem",
+        )
+        if dialogo.exec() != QDialog.DialogCode.Accepted:
+            return
+
+        bytes_webp = dialogo.obter_bytes_imagem_processada()
+        if not bytes_webp:
+            return
+
         caminho_rel = f"imagens/{nome_arquivo}"
         contexto_img = f"page:imagens/file:{nome_arquivo}"
 

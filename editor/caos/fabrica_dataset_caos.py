@@ -53,8 +53,7 @@ def _persistir_croqui_no_disco(croqui: croqui_pb2.Croqui, pasta_db: Path) -> Non
     dados_dict = model.extrair_arquivos_e_serializar(pasta_db)
     texto_yaml = yaml.safe_dump(dados_dict, sort_keys=False, allow_unicode=True)
     cabecalho = (
-        "# SPDX-License-Identifier: ODbL-1.0\n"
-        "# Copyright (C) 2026 Aresta Climb Contributors\n"
+        "# SPDX-License-Identifier: ODbL-1.0\n# Copyright (C) 2026 Aresta Climb Contributors\n"
     )
     (pasta_db / "croqui.yaml").write_text(cabecalho + texto_yaml, encoding="utf-8")
 
@@ -231,9 +230,7 @@ class FabricaDatasetCaos:
             botao = croqui.botoes.add()
             botao.uid = gerar_uid()
             botao.texto = f"Seção Tóxica {idx_b + 1}"
-            botao.destino.secao_textual.conteudo = (
-                f"# Seção {idx_b + 1}\n\nTexto com caracteres especiais: `code`, *italico*, **negrito**."
-            )
+            botao.destino.secao_textual.conteudo = f"# Seção {idx_b + 1}\n\nTexto com caracteres especiais: `code`, *italico*, **negrito**."
 
         pico = croqui.picos.add()
         pico.nome = "Pico Extremo ⛰️"

@@ -464,7 +464,7 @@ def test_deploy_envia_arquivos_em_tres_estagios_sequenciais_midias_compilados_ma
     for rel_path in local_arquivos:
         caminho = deployer.generated_dir / rel_path
         caminho.parent.mkdir(parents=True, exist_ok=True)
-        caminho.write_bytes(f"conteudo:{rel_path}".encode("utf-8"))
+        caminho.write_bytes(f"conteudo:{rel_path}".encode())
 
     (deployer.generated_dir / "arquivos_serving.yaml").write_bytes(
         criar_manifesto(local_arquivos).encode("utf-8")
@@ -534,5 +534,3 @@ def test_deploy_envia_arquivos_em_tres_estagios_sequenciais_midias_compilados_ma
 
     assert max(indices_midia_delta) < min(indices_compilados_delta)
     assert max(indices_compilados_delta) < min(indices_manifestos_delta)
-
-

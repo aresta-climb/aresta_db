@@ -2253,6 +2253,55 @@ class WidgetFormularioPadrao(QStackedWidget):
 
                 btn_mapa.clicked.connect(go_to_map)
                 parent_layout.addWidget(btn_mapa)
+
+                btn_substituir_mapa = QPushButton("Substituir Imagem...")
+                btn_substituir_mapa.setStyleSheet(
+                    "padding: 8px; font-weight: bold; background-color: #0969da; color: white;"
+                )
+
+                def substituir_no_mapa() -> None:
+                    if not self.controller:
+                        return
+                    from editor.core.storage import GerenciadorCaminhos
+                    from editor.views.dialogos.dialogo_adicionar_mapa import DialogoAdicionarMapa
+
+                    db_dir = getattr(self.model, "_caminho_db_atual", None) if self.model else None
+                    if not db_dir:
+                        db_dir = GerenciadorCaminhos().obter_caminho_base_repo()
+
+                    caminho_atual = str(getattr(msg, "caminho_imagem_mapa", "") or "")
+                    nome_sugerido = Path(caminho_atual).name if caminho_atual else "novo_mapa.webp"
+                    largura_antiga = int(getattr(msg, "largura_mapa", 0) or 0)
+                    altura_antiga = int(getattr(msg, "altura_mapa", 0) or 0)
+                    qtd_pois = len(getattr(msg, "pontos_de_interesse", []))
+
+                    dialog = DialogoAdicionarMapa(
+                        nome_sugerido=nome_sugerido,
+                        db_dir=db_dir,
+                        model=self.model,
+                        parent=self,
+                        modo_substituicao_mapa=True,
+                        largura_mapa_antiga=largura_antiga,
+                        altura_mapa_antiga=altura_antiga,
+                        qtd_pois_mapa=qtd_pois,
+                    )
+                    if dialog.exec() == DialogoAdicionarMapa.DialogCode.Accepted:
+                        w_novo, h_novo = dialog.obter_dimensoes_imagem() or (0, 0)
+                        self.controller.substituir_imagem_mapa(
+                            msg_mapa=msg,
+                            caminho_relativo_novo=dialog.obter_caminho_final_relativo(),
+                            bytes_novo=dialog.obter_bytes_imagem_processada(),
+                            largura_nova=w_novo,
+                            altura_nova=h_novo,
+                            reescalar_pois=dialog.deve_reescalar_pois(),
+                            largura_referencia_pois=largura_antiga,
+                            altura_referencia_pois=altura_antiga,
+                        )
+                        self._mark_dirty()
+                        self._notify_tree_changed()
+
+                btn_substituir_mapa.clicked.connect(substituir_no_mapa)
+                parent_layout.addWidget(btn_substituir_mapa)
                 return
             elif formato_msg == croqui_pb2.MensagemFormatoUi.COORDENADA:
                 widget_coord = WidgetMensagemCoordenada(

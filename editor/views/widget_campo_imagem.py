@@ -12,12 +12,9 @@ from PySide6.QtCore import Qt, Signal
 from PySide6.QtGui import QPixmap
 from PySide6.QtWidgets import (
     QDialog,
-    QDialogButtonBox,
-    QFileDialog,
     QFrame,
     QHBoxLayout,
     QLabel,
-    QLineEdit,
     QPushButton,
     QVBoxLayout,
     QWidget,
@@ -25,76 +22,10 @@ from PySide6.QtWidgets import (
 
 from editor.core.processamento_imagem_campo import (
     AREA_MAXIMA_PADRAO,
-    comprimir_imagem_para_bytes_webp,
     obter_metadados_imagem,
-    sanitizar_nome_arquivo_imagem,
-    verificar_conflito_nome_imagem,
 )
 from editor.models.croqui_model import CroquiModel
-
-
-class DialogoNomeImagem(QDialog):
-    """
-    Diálogo para escolha do nome de destino da imagem quando o campo não possui nome fixo.
-    Informa sobre possíveis conflitos com arquivos já existentes.
-    """
-
-    def __init__(
-        self,
-        nome_sugerido: str,
-        pasta_imagens: Path | None = None,
-        imagens_em_memoria: dict[str, bytes] | None = None,
-        parent: QWidget | None = None,
-    ) -> None:
-
-        super().__init__(parent)
-        self.setWindowTitle("Nome do Arquivo da Imagem")
-        self.setModal(True)
-        self.pasta_imagens = pasta_imagens
-        self.imagens_em_memoria = imagens_em_memoria
-
-        layout = QVBoxLayout(self)
-
-        layout.addWidget(QLabel("Informe o nome do arquivo que será salvo na pasta 'imagens/':"))
-
-        self.input_nome = QLineEdit()
-        self.input_nome.setText(nome_sugerido)
-        self.input_nome.textChanged.connect(self._ao_alterar_nome)
-        layout.addWidget(self.input_nome)
-
-        self.rotulo_aviso = QLabel()
-        self.rotulo_aviso.setStyleSheet("color: #d97706; font-size: 11px;")
-        layout.addWidget(self.rotulo_aviso)
-
-        self.botoes = QDialogButtonBox(
-            QDialogButtonBox.StandardButton.Ok | QDialogButtonBox.StandardButton.Cancel
-        )
-        self.botoes.accepted.connect(self.accept)
-        self.botoes.rejected.connect(self.reject)
-        layout.addWidget(self.botoes)
-
-        self._ao_alterar_nome(nome_sugerido)
-
-    def _ao_alterar_nome(self, texto: str) -> None:
-        nome_sanitizado = sanitizar_nome_arquivo_imagem(texto)
-        tem_conflito = verificar_conflito_nome_imagem(
-            nome_sanitizado, self.pasta_imagens, self.imagens_em_memoria
-        )
-        if tem_conflito:
-            self.rotulo_aviso.setText(
-                "⚠️ Já existe um arquivo com este nome. Ele será substituído ao salvar o croqui."
-            )
-        else:
-            self.rotulo_aviso.setText("")
-
-    def obter_nome_escolhido(self) -> str:
-        return sanitizar_nome_arquivo_imagem(self.input_nome.text())
-
-    def definir_nome(self, nome: str) -> None:
-        self.input_nome.setText(nome)
-
-    def possui_conflito(self) -> bool:
-        return bool(self.rotulo_aviso.text())
+from editor.views.dialogos.dialogo_adicionar_mapa import DialogoAdicionarMapa
 
 
 class WidgetCampoImagem(QWidget):
@@ -173,7 +104,14 @@ class WidgetCampoImagem(QWidget):
         layout_card.addLayout(layout_info, stretch=1)
         layout_principal.addWidget(self.frame_card)
 
+        if self.model is not None and hasattr(self.model, "imagem_alterada"):
+            self.model.imagem_alterada.connect(self._ao_alterar_imagem_modelo)
+
         self.atualizar_visualizacao()
+
+    def _ao_alterar_imagem_modelo(self, caminho_relativo: str) -> None:
+        if self._caminho_atual and caminho_relativo == self._caminho_atual:
+            self.atualizar_visualizacao()
 
     def obter_caminho_atual(self) -> str:
         return self._caminho_atual
@@ -182,7 +120,7 @@ class WidgetCampoImagem(QWidget):
         self._caminho_atual = caminho
         self.atualizar_visualizacao()
 
-    def atualizar_visualizacao(self) -> None:
+    def atualizar_visualizacao(self, bytes_override: bytes | None = None) -> None:
         if not self._caminho_atual:
             self.rotulo_preview.clear()
             self.rotulo_preview.setText("Sem Imagem")
@@ -193,6 +131,8 @@ class WidgetCampoImagem(QWidget):
             return
 
         bytes_img = self.model.obter_bytes_imagem(self._caminho_atual) if self.model else None
+        if bytes_img is None and bytes_override is not None:
+            bytes_img = bytes_override
 
         if bytes_img:
             pixmap = QPixmap()
@@ -222,12 +162,10 @@ class WidgetCampoImagem(QWidget):
             self.btn_abrir_editor.setEnabled(False)
 
     def aplicar_nova_imagem(self, caminho_relativo: str, bytes_conteudo: bytes) -> None:
-        """Aplica os novos bytes da imagem na memória e atualiza o widget."""
+        """Emite o sinal de alteração de imagem para o controlador e atualiza o preview da View."""
         self._caminho_atual = caminho_relativo
-        if self.model:
-            self.model.definir_imagem_memoria(caminho_relativo, bytes_conteudo)
-        self.atualizar_visualizacao()
         self.imagem_alterada.emit(caminho_relativo, bytes_conteudo)
+        self.atualizar_visualizacao(bytes_override=bytes_conteudo)
 
     def remover_imagem(self) -> None:
         """Limpa o campo de imagem atual."""
@@ -236,45 +174,28 @@ class WidgetCampoImagem(QWidget):
         self.imagem_removida.emit()
 
     def selecionar_e_trocar_imagem(self) -> None:
-        """Abre diálogo para seleção de imagem e processamento WebP em memória."""
-        caminho_arquivo, _ = QFileDialog.getOpenFileName(
-            self,
-            "Selecionar Imagem",
-            "",
-            "Imagens (*.png *.jpg *.jpeg *.webp *.bmp *.gif);;Todos os Arquivos (*)",
+        """Abre o wizard unificado de imagem para importação/seleção e processamento WebP em memória."""
+        db_dir = None
+        if self.model and hasattr(self.model, "_caminho_db_atual") and self.model._caminho_db_atual:
+            db_dir = self.model._caminho_db_atual
+
+        dialogo = DialogoAdicionarMapa(
+            nome_sugerido=self.nome_arquivo_fixo or "",
+            db_dir=db_dir,
+            model=self.model,
+            parent=self,
+            max_area_override=self.area_maxima,
+            caminho_destino_fixo=self.nome_arquivo_fixo,
+            titulo_janela="Selecionar ou Importar Imagem",
+            texto_botao_ok="Confirmar Imagem",
         )
-        if not caminho_arquivo:
+        if dialogo.exec() != QDialog.DialogCode.Accepted:
             return
 
-        pasta_imagens = None
-        imagens_memoria = None
-        if self.model:
-            if hasattr(self.model, "_caminho_db_atual") and self.model._caminho_db_atual:
-                pasta_imagens = self.model._caminho_db_atual / "imagens"
-            imagens_memoria = self.model.obter_imagens_em_memoria()
-
-        if self.nome_arquivo_fixo:
-            nome_final = self.nome_arquivo_fixo
-        else:
-            nome_sugerido = sanitizar_nome_arquivo_imagem(Path(caminho_arquivo).name)
-            dialogo = DialogoNomeImagem(
-                nome_sugerido=nome_sugerido,
-                pasta_imagens=pasta_imagens,
-                imagens_em_memoria=imagens_memoria,
-                parent=self,
-            )
-            if dialogo.exec() != QDialog.DialogCode.Accepted:
-                return
-            nome_final = dialogo.obter_nome_escolhido()
-
-        caminho_relativo = f"imagens/{nome_final}"
-        bytes_webp, _, _ = comprimir_imagem_para_bytes_webp(
-            caminho_arquivo,
-            quality=85,
-            max_area=self.area_maxima,
-        )
-
-        self.aplicar_nova_imagem(caminho_relativo, bytes_webp)
+        caminho_relativo = dialogo.obter_caminho_final_relativo()
+        bytes_webp = dialogo.obter_bytes_imagem_processada()
+        if bytes_webp is not None:
+            self.aplicar_nova_imagem(caminho_relativo, bytes_webp)
 
     def _ao_clicar_abrir_editor(self) -> None:
         if self._caminho_atual:
