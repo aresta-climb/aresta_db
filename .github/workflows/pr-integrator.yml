@@ -51,6 +51,7 @@ jobs:
           CHECAGENS_APROVADAS=false
           for i in {1..72}; do
             CHECKS_JSON=$(gh pr checks "$PR_ID" --repo "${{ github.repository }}" --json name,bucket,state 2>/dev/null || echo "[]")
+            CHECKS_JSON=$(echo "$CHECKS_JSON" | jq '[.[] | select(.name != "integrate")]' 2>/dev/null || echo "[]")
             TOTAL=$(echo "$CHECKS_JSON" | jq 'length' 2>/dev/null || echo 0)
 
             if [ "$TOTAL" -eq 0 ]; then
@@ -128,7 +129,55 @@ jobs:
           dir_names_max_depth: 2
           # Garante que sempre compara a HEAD do PR com a branch base oficial do PR (ex: origin/main)
           base_sha: origin/${{ steps.pr-info.outputs.base_branch }}
-          
+
+      - name: Sincronizar Branch com a Branch Base
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+        run: |
+          BOT_NAME="${{ steps.app-token.outputs.app-slug }}[bot]"
+          BOT_ID=$(gh api "/users/$BOT_NAME" --jq .id 2>/dev/null || echo "")
+          if [ -n "$BOT_ID" ]; then
+            BOT_EMAIL="${BOT_ID}+${BOT_NAME}@users.noreply.github.com"
+          else
+            BOT_EMAIL="${BOT_NAME}@users.noreply.github.com"
+          fi
+          git config user.name "$BOT_NAME"
+          git config user.email "$BOT_EMAIL"
+
+          BASE_BRANCH="${{ steps.pr-info.outputs.base_branch }}"
+          echo "Sincronizando a branch do PR com origin/$BASE_BRANCH antes do deploy..."
+          git fetch origin "$BASE_BRANCH"
+
+          if ! git merge --no-commit --no-ff "origin/$BASE_BRANCH"; then
+            echo "Verificando conflitos de merge com origin/$BASE_BRANCH..."
+            uv run python -c '
+          import pathlib, subprocess, sys
+          conflitos = subprocess.check_output(["git", "diff", "--name-only", "--diff-filter=U"], text=True).splitlines()
+          for arq in conflitos:
+              if arq.startswith("generated/"):
+                  subprocess.run(["git", "checkout", "--theirs", "--", arq], check=True)
+                  subprocess.run(["git", "add", "--", arq], check=True)
+                  print(f"Conflito em artefato gerado resolvido via base: {arq}")
+              else:
+                  for stg, nome_tmp in [("1", ".merge_base"), ("2", ".merge_ours"), ("3", ".merge_theirs")]:
+                      blob = subprocess.check_output(["git", "show", f":{stg}:{arq}"])
+                      if not blob.endswith(b"\n"):
+                          blob += b"\n"
+                      pathlib.Path(nome_tmp).write_bytes(blob)
+                  res = subprocess.run(["git", "merge-file", "-p", ".merge_ours", ".merge_base", ".merge_theirs"], capture_output=True)
+                  for nome_tmp in (".merge_base", ".merge_ours", ".merge_theirs"):
+                      pathlib.Path(nome_tmp).unlink(missing_ok=True)
+                  if res.returncode == 0:
+                      pathlib.Path(arq).write_bytes(res.stdout)
+                      subprocess.run(["git", "add", "--", arq], check=True)
+                      print(f"Conflito de quebra de linha final (EOF) resolvido automaticamente em: {arq}")
+          restantes = subprocess.check_output(["git", "diff", "--name-only", "--diff-filter=U"], text=True).splitlines()
+          if restantes:
+              print(f"❌ ERRO: Conflitos reais não resolvidos automaticamente: {restantes}")
+              sys.exit(1)
+          '
+          fi
+
       - name: Executar Deploy Generated
         if: steps.changed-files.outputs.any_changed == 'true'
         run: |
@@ -191,6 +240,7 @@ jobs:
           GH_TOKEN: ${{ steps.app-token.outputs.token }}
         run: |
           PR_ID="${{ steps.pr-info.outputs.pr_number }}"
+          BASE_BRANCH="${{ steps.pr-info.outputs.base_branch }}"
           echo "Aguardando o GitHub processar o estado de merge do PR #$PR_ID após o push..."
           sleep 3
 
@@ -198,7 +248,44 @@ jobs:
           # Usamos retry sem a flag '--auto' (que exige configuração de auto-merge nas configs do repo) para efetuar o merge direto.
           for i in {1..10}; do
             STATUS=$(gh pr view "$PR_ID" --repo ${{ github.repository }} --json mergeable,mergeStateStatus -q '{mergeable: .mergeable, status: .mergeStateStatus}' 2>/dev/null || echo "Processando")
+            MERGEABLE=$(gh pr view "$PR_ID" --repo ${{ github.repository }} --json mergeable -q .mergeable 2>/dev/null || echo "UNKNOWN")
             echo "Tentativa $i de 10 - Estado do PR: $STATUS"
+
+            if [ "$MERGEABLE" = "CONFLICTING" ]; then
+              echo "⚠️ Conflito detectado com origin/$BASE_BRANCH (provavelmente outro PR acabou de ser integrado). Ressincronizando..."
+              git fetch origin "$BASE_BRANCH"
+              if ! git merge --no-commit --no-ff "origin/$BASE_BRANCH"; then
+                uv run python -c '
+          import pathlib, subprocess, sys
+          conflitos = subprocess.check_output(["git", "diff", "--name-only", "--diff-filter=U"], text=True).splitlines()
+          for arq in conflitos:
+              if arq.startswith("generated/"):
+                  subprocess.run(["git", "checkout", "--theirs", "--", arq], check=True)
+                  subprocess.run(["git", "add", "--", arq], check=True)
+              else:
+                  for stg, nome_tmp in [("1", ".merge_base"), ("2", ".merge_ours"), ("3", ".merge_theirs")]:
+                      blob = subprocess.check_output(["git", "show", f":{stg}:{arq}"])
+                      if not blob.endswith(b"\n"):
+                          blob += b"\n"
+                      pathlib.Path(nome_tmp).write_bytes(blob)
+                  res = subprocess.run(["git", "merge-file", "-p", ".merge_ours", ".merge_base", ".merge_theirs"], capture_output=True)
+                  for nome_tmp in (".merge_base", ".merge_ours", ".merge_theirs"):
+                      pathlib.Path(nome_tmp).unlink(missing_ok=True)
+                  if res.returncode == 0:
+                      pathlib.Path(arq).write_bytes(res.stdout)
+                      subprocess.run(["git", "add", "--", arq], check=True)
+          if subprocess.check_output(["git", "diff", "--name-only", "--diff-filter=U"], text=True).splitlines():
+              sys.exit(1)
+          '
+              fi
+              if [ "${{ steps.changed-files.outputs.any_changed }}" = "true" ]; then
+                PYTHONPATH=. uv run scripts/deploy_generated.py --target ${{ steps.changed-files.outputs.all_changed_files }}
+              fi
+              git add generated/ database/
+              git commit -s -m "chore: ressincronizar e recompilar para deploy [skip ci]" || true
+              git push
+              sleep 5
+            fi
 
             if gh pr merge "$PR_ID" --repo ${{ github.repository }} --merge --delete-branch; then
               echo "Merge realizado com sucesso!"

@@ -1606,7 +1606,7 @@ arquivos:
 - caminho_relativo: br_mg_sacramento_vo_gusta/compilado.yaml
   checksum_sha256: 90bdf624ac2ec0307e11c7d24d84f15dd4f4db3b6707c2cfad71d2e25c262a22
 - caminho_relativo: br_mg_santa_luzia_morro_do_carrapato_setor_covide/compilado.binarypb
-  checksum_sha256: 04820ec2fd81c8b8f8e4a0b7e6e109b3c3ec788be30058db49b3cfeadef8b46f
+  checksum_sha256: c4613f804a45dea3dfeb65b42d8c67e2d9c0dfafbc8eaa047c3d05fcf433575a
 - caminho_relativo: thumbnails/br_mg_santa_luzia_morro_do_carrapato_setor_covide.webp
   checksum_sha256: 0c93f073dc2a415f562f1f237494c4b1f939f50bd050323fc9e073bc69a1d8f1
 - caminho_relativo: br_mg_santa_luzia_morro_do_carrapato_setor_covide/imagens/acesso_p0_i0.webp
@@ -1692,7 +1692,7 @@ arquivos:
 - caminho_relativo: br_mg_santa_luzia_morro_do_carrapato_setor_covide/imagens/setor_covide_ala_esquerda_p9.webp
   checksum_sha256: d20d914bb4e443baa4bf33957f89bc9cc24389e2215872bb4bbcc63cbfda25c3
 - caminho_relativo: br_mg_santa_luzia_morro_do_carrapato_setor_covide/compilado.yaml
-  checksum_sha256: 02b413e01252b8b7ecab45ead36f6d8df3358ae2616034ee6a160861f6bde41d
+  checksum_sha256: 7599f6ae50453896767087e6a5e3dfdb2eb9e1b49691d9398d3b651dc9015b64
 - caminho_relativo: br_mg_santa_luzia_santuario/compilado.binarypb
   checksum_sha256: 392db8185b4255d00666625fb6267be1d85e192c3643deab6ecaf409ef505c00
 - caminho_relativo: thumbnails/br_mg_santa_luzia_santuario.webp
@@ -2204,8 +2204,8 @@ arquivos:
 - caminho_relativo: br_rj_nova_friburgobom_jardim_capelinha/compilado.yaml
   checksum_sha256: 6694c2e07f38d92fff2d54cd717c4b2f99121a2f5313c7ff07898a4526c013ee
 - caminho_relativo: indice.binarypb
-  checksum_sha256: 4f48ff97a6dd7028da0c20093cabd35fda087aa804be220b13e4890b7c115a6e
+  checksum_sha256: 830d67511f7642914b69961f24601a28fadd9e65ab78a06de81a29e8f012a73d
 - caminho_relativo: indice.yaml
-  checksum_sha256: ba798d07be4adecd7b7876804ede6489c25ce4b8fecc6673b258b40b501313d7
+  checksum_sha256: b5dc001e9f948b3250cf95686b693b9f5293f0ad09f9220a523cf5b125a183ee
 - caminho_relativo: catalogo.db
-  checksum_sha256: 9f36586045b3bf9b45f58c3c12c3df70ab576946e7b18df7ad4f793ed9166462
+  checksum_sha256: 3d177a518007a2038c110812c9432ff118085706397e33f00c1b445257410271
