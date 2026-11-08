@@ -180,6 +180,11 @@ class TestWorkflowPrIntegratorDco(unittest.TestCase):
         # Verifica conteúdo do script
         script_checks = passo_checks.get("run", "")
         self.assertIn("gh pr checks", script_checks, "O script deve chamar 'gh pr checks'.")
+        self.assertIn(
+            'select(.name != "integrate")',
+            script_checks,
+            "O script deve filtrar o próprio check 'integrate' para evitar auto-deadlock e bloqueios em re-execuções.",
+        )
         self.assertIn("fail", script_checks, "O script deve tratar falhas (fail).")
         self.assertIn("cancel", script_checks, "O script deve tratar cancelamentos (cancel).")
         self.assertIn(
@@ -190,6 +195,69 @@ class TestWorkflowPrIntegratorDco(unittest.TestCase):
             script_checks,
             "O script deve abortar com exit 1 em caso de falha de qualquer check.",
         )
+
+    def test_workflow_pr_integrator_sincroniza_branch_base_antes_do_deploy_e_em_conflito_de_merge(
+        self,
+    ) -> None:
+        """Garante que pr-integrator.yml faz merge prévio da branch base antes do deploy e ressincroniza se a base avançar."""
+        self.assertTrue(
+            self.caminho_workflow.exists(), "O workflow pr-integrator.yml deve existir."
+        )
+
+        with open(self.caminho_workflow, encoding="utf-8") as f:
+            conteudo_workflow = carregar_yaml(f)
+
+        passos = conteudo_workflow["jobs"]["integrate"]["steps"]
+        nomes_passos = [p.get("name", "") for p in passos]
+
+        passo_sync = next(
+            (p for p in passos if "Sincronizar Branch com a Branch Base" in p.get("name", "")),
+            None,
+        )
+        self.assertIsNotNone(
+            passo_sync,
+            f"Passo 'Sincronizar Branch com a Branch Base' não encontrado. Passos atuais: {nomes_passos}",
+        )
+        assert passo_sync is not None
+
+        passo_checkout = next(
+            (p for p in passos if "Checkout do Repositório" in p.get("name", "")), None
+        )
+        self.assertIsNotNone(passo_checkout)
+        assert passo_checkout is not None
+
+        passo_deploy = next(
+            (p for p in passos if "Executar Deploy Generated" in p.get("name", "")), None
+        )
+        self.assertIsNotNone(passo_deploy)
+        assert passo_deploy is not None
+
+        indice_checkout = passos.index(passo_checkout)
+        indice_sync = passos.index(passo_sync)
+        indice_deploy = passos.index(passo_deploy)
+
+        self.assertLess(
+            indice_checkout,
+            indice_sync,
+            "A sincronização com a branch base deve ocorrer após o checkout do repositório.",
+        )
+        self.assertLess(
+            indice_sync,
+            indice_deploy,
+            "A sincronização com a branch base deve ocorrer antes da execução do deploy_generated.py.",
+        )
+
+        script_sync = passo_sync.get("run", "")
+        self.assertIn("git fetch origin", script_sync)
+        self.assertIn("git merge", script_sync)
+        self.assertIn("merge-file", script_sync)
+
+        passo_merge = next((p for p in passos if "Realizar Merge do PR" in p.get("name", "")), None)
+        self.assertIsNotNone(passo_merge)
+        assert passo_merge is not None
+        script_merge = passo_merge.get("run", "")
+        self.assertIn("CONFLICTING", script_merge)
+        self.assertIn("deploy_generated.py", script_merge)
 
     def test_workflow_pr_integrator_inclui_pasta_database_no_staging_do_commit(self) -> None:
         """Garante que a etapa de commit inclui tanto generated/ quanto database/ no git add."""

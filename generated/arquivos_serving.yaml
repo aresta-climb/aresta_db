@@ -1020,7 +1020,7 @@ arquivos:
 - caminho_relativo: br_mg_januaria_salao_encantado/compilado.yaml
   checksum_sha256: 834348aa76060dd2f76b44b301c99b027cae644226ac9b104de684cbc0fa7f96
 - caminho_relativo: br_mg_lagoa_santa_gruta_da_lapinha/compilado.binarypb
-  checksum_sha256: e00388e706b557ba881d5531d534b4d484e51250aa0695905f21c22e4afd1f83
+  checksum_sha256: faa4f0df994d92a0387b850631a5f79a469fb4a0a6d5f58ef2c047b598338b7e
 - caminho_relativo: thumbnails/br_mg_lagoa_santa_gruta_da_lapinha.webp
   checksum_sha256: 76c57c2b9159772355858ad8f40ba79a8584dfdda215379031adc9afff1f1416
 - caminho_relativo: br_mg_lagoa_santa_gruta_da_lapinha/imagens/capa_p0_i0.webp
@@ -1056,7 +1056,7 @@ arquivos:
 - caminho_relativo: br_mg_lagoa_santa_gruta_da_lapinha/imagens/setor_mapa_9_p0_i0.webp
   checksum_sha256: e9f415800c4e7311d2d7da6fbd76eafafba99ec58c1c3453a7131eaee20d5cae
 - caminho_relativo: br_mg_lagoa_santa_gruta_da_lapinha/compilado.yaml
-  checksum_sha256: 3d13f0795f7a438e4c882fd00e4e611ea98950b4e1d43ba6ed33981f82bc7f07
+  checksum_sha256: ee31bc688c2543b8b7b1664cbb14e4746b469a32581b94772722a7a692e8a72b
 - caminho_relativo: br_mg_lagoa_santa_sitio_do_rod/compilado.binarypb
   checksum_sha256: 14eee706ae5f2c6eb505e1c94afbc3aea244fa3b41f79fdb2eb46b86c68d574c
 - caminho_relativo: thumbnails/br_mg_lagoa_santa_sitio_do_rod.webp
@@ -2204,8 +2204,8 @@ arquivos:
 - caminho_relativo: br_rj_nova_friburgobom_jardim_capelinha/compilado.yaml
   checksum_sha256: 6694c2e07f38d92fff2d54cd717c4b2f99121a2f5313c7ff07898a4526c013ee
 - caminho_relativo: indice.binarypb
-  checksum_sha256: 4f48ff97a6dd7028da0c20093cabd35fda087aa804be220b13e4890b7c115a6e
+  checksum_sha256: b7920d5b1978e8c6981e93d39db0aa14c9110afa837fb3e6e611ea5aabb6eec2
 - caminho_relativo: indice.yaml
-  checksum_sha256: ba798d07be4adecd7b7876804ede6489c25ce4b8fecc6673b258b40b501313d7
+  checksum_sha256: ecf9b4a275ef16c0ef830a97ba30a134d54f78d3a64f68a1abf00e28848b9222
 - caminho_relativo: catalogo.db
   checksum_sha256: 9f36586045b3bf9b45f58c3c12c3df70ab576946e7b18df7ad4f793ed9166462
