@@ -30,8 +30,8 @@ def criar_repositorio_base_teste(caminho: Path) -> pygit2.Repository:
     autor = pygit2.Signature("Sistema Aresta", "sistema@aresta.local")
     commit = repo.create_commit("HEAD", autor, autor, "Commit inicial oficial", tree, [])
 
-    # Cria referência explícita para upstream/main
-    repo.create_reference("refs/remotes/upstream/main", commit)
+    # Cria referência explícita para origin/main
+    repo.create_reference("refs/remotes/origin/main", commit)
     return repo
 
 

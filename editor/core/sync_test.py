@@ -1,380 +1,25 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
-import unittest
 from pathlib import Path
-from unittest.mock import MagicMock, patch
+from types import SimpleNamespace
 
 import pygit2
-
-from editor.core.sync import ErroSincronizacaoGit, GerenciadorSincronizacao
-
-
-class TestGerenciadorSincronizacao(unittest.TestCase):
-    """Testes unitários para o GerenciadorSincronizacao (100% Coverage Target)."""
-
-    def setUp(self):
-        self.caminho_fake = Path("/fake/repo")
-        self.gerenciador = GerenciadorSincronizacao(self.caminho_fake, "fake-token")
-
-    def test_obter_url_clone_padrao(self):
-        """Deve retornar a URL oficial do repositório base público."""
-        url = self.gerenciador.obter_url_clone()
-        self.assertEqual(url, "https://github.com/aresta-climb/aresta_db.git")
-
-    def test_obter_url_clone_personalizado(self):
-        """Deve retornar a URL oficial com base no repositório informado."""
-        url = self.gerenciador.obter_url_clone("outro-org/outro_repo")
-        self.assertEqual(url, "https://github.com/outro-org/outro_repo.git")
-
-    @patch("editor.core.sync.pygit2")
-    def test_configurar_remotes_cria_quando_inexistentes(self, mock_pygit2):
-        """Deve criar remote upstream e origin se não existirem."""
-        mock_repo = MagicMock()
-        mock_pygit2.Repository.return_value = mock_repo
-
-        mock_remotes_collection = MagicMock()
-        mock_remotes_collection.__iter__.return_value = iter([])
-        mock_repo.remotes = mock_remotes_collection
-
-        self.gerenciador.configurar_remotes()
-
-        mock_remotes_collection.create.assert_any_call(
-            "upstream", "https://github.com/aresta-climb/aresta_db.git"
-        )
-        mock_remotes_collection.create.assert_any_call(
-            "origin", "https://github.com/aresta-climb/aresta_db.git"
-        )
-
-    @patch("editor.core.sync.pygit2")
-    def test_configurar_remotes_atualiza_quando_existentes(self, mock_pygit2):
-        """Deve atualizar URLs de remotes upstream e origin se já existirem."""
-        mock_repo = MagicMock()
-        mock_pygit2.Repository.return_value = mock_repo
-
-        mock_upstream = MagicMock(name="upstream")
-        mock_upstream.configure_mock(name="upstream")
-        mock_origin = MagicMock(name="origin")
-        mock_origin.configure_mock(name="origin")
-
-        mock_remotes_collection = MagicMock()
-        mock_remotes_collection.__iter__.return_value = iter([mock_upstream, mock_origin])
-        mock_repo.remotes = mock_remotes_collection
-
-        self.gerenciador.configurar_remotes()
-
-        mock_remotes_collection.set_url.assert_any_call(
-            "upstream", "https://github.com/aresta-climb/aresta_db.git"
-        )
-        mock_remotes_collection.set_url.assert_any_call(
-            "origin", "https://github.com/aresta-climb/aresta_db.git"
-        )
-
-    @patch("editor.core.sync.pygit2")
-    def test_configurar_remotes_remove_remote_proxy_se_existir(self, mock_pygit2):
-        """Deve deletar remote efêmero proxy se existir."""
-        mock_repo = MagicMock()
-        mock_pygit2.Repository.return_value = mock_repo
-
-        mock_upstream = MagicMock()
-        mock_upstream.configure_mock(name="upstream")
-        mock_origin = MagicMock()
-        mock_origin.configure_mock(name="origin")
-        mock_proxy = MagicMock()
-        mock_proxy.configure_mock(name="proxy")
-
-        mock_remotes_collection = MagicMock()
-        mock_remotes_collection.__iter__.return_value = iter(
-            [mock_upstream, mock_origin, mock_proxy]
-        )
-        mock_repo.remotes = mock_remotes_collection
-
-        self.gerenciador.configurar_remotes()
-
-        mock_remotes_collection.delete.assert_called_once_with("proxy")
-
-    @patch("editor.core.sync.pygit2")
-    def test_configurar_remotes_ignora_erro_ao_deletar_proxy(self, mock_pygit2):
-        """Deve capturar silenciosamente qualquer erro ao tentar deletar remote efêmero proxy."""
-        mock_repo = MagicMock()
-        mock_pygit2.Repository.return_value = mock_repo
-
-        mock_proxy = MagicMock()
-        mock_proxy.configure_mock(name="proxy")
-        mock_remotes_collection = MagicMock()
-        mock_remotes_collection.__iter__.return_value = iter([mock_proxy])
-        mock_remotes_collection.delete.side_effect = RuntimeError("Erro ao deletar")
-        mock_repo.remotes = mock_remotes_collection
-
-        # Não deve levantar exceção
-        self.gerenciador.configurar_remotes()
-        mock_remotes_collection.delete.assert_called_once_with("proxy")
-
-    @patch("editor.core.sync.pygit2")
-    def test_fazer_fetch_apenas_origin_e_upstream(self, mock_pygit2):
-        """Deve fazer fetch apenas dos remotes oficiais (origin e upstream), ignorando proxy."""
-        mock_repo = MagicMock()
-        mock_pygit2.Repository.return_value = mock_repo
-
-        mock_origin = MagicMock()
-        mock_origin.configure_mock(name="origin", url="https://github.com/usuario/aresta_db.git")
-        mock_upstream = MagicMock()
-        mock_upstream.configure_mock(
-            name="upstream", url="https://github.com/aresta-climb/aresta_db.git"
-        )
-        mock_proxy = MagicMock()
-        mock_proxy.configure_mock(name="proxy", url="https://proxy.arestaclimb.com.br")
-
-        mock_repo.remotes = [mock_origin, mock_upstream, mock_proxy]
-
-        self.gerenciador.fazer_fetch()
-
-        mock_origin.fetch.assert_called_once()
-        mock_upstream.fetch.assert_called_once()
-        mock_proxy.fetch.assert_not_called()
-
-    @patch("editor.core.sync.pygit2")
-    def test_fazer_fetch_deduplica_remotes_com_mesma_url(self, mock_pygit2):
-        """Não deve fazer fetch repetido para remotes apontando para a mesma URL."""
-        mock_repo = MagicMock()
-        mock_pygit2.Repository.return_value = mock_repo
-
-        mock_origin = MagicMock()
-        mock_origin.configure_mock(
-            name="origin", url="https://github.com/aresta-climb/aresta_db.git"
-        )
-        mock_upstream = MagicMock()
-        mock_upstream.configure_mock(
-            name="upstream", url="https://github.com/aresta-climb/aresta_db.git"
-        )
-
-        mock_repo.remotes = [mock_origin, mock_upstream]
-
-        self.gerenciador.fazer_fetch()
-
-        chamadas_totais = mock_origin.fetch.call_count + mock_upstream.fetch.call_count
-        self.assertEqual(chamadas_totais, 1)
-
-    @patch("editor.core.sync.pygit2")
-    def test_fazer_fetch_traduz_giterror_no_error(self, mock_pygit2):
-        """Deve traduzir GitError com mensagem 'no error' para ErroSincronizacaoGit com mensagem amigável."""
-        mock_repo = MagicMock()
-        mock_pygit2.Repository.return_value = mock_repo
-        mock_pygit2.GitError = pygit2.GitError
-
-        mock_origin = MagicMock()
-        mock_origin.configure_mock(
-            name="origin", url="https://github.com/aresta-climb/aresta_db.git"
-        )
-        mock_origin.fetch.side_effect = pygit2.GitError("no error")
-        mock_repo.remotes = [mock_origin]
-
-        with self.assertRaises(ErroSincronizacaoGit) as ctx:
-            self.gerenciador.fazer_fetch()
-
-        mensagem = str(ctx.exception).lower()
-        self.assertTrue("tempo limite" in mensagem or "conexão" in mensagem or "ssl" in mensagem)
-
-    @patch("editor.core.sync.pygit2")
-    def test_fazer_fetch_traduz_outro_giterror(self, mock_pygit2):
-        """Deve traduzir qualquer outro GitError para ErroSincronizacaoGit preservando o motivo."""
-        mock_repo = MagicMock()
-        mock_pygit2.Repository.return_value = mock_repo
-        mock_pygit2.GitError = pygit2.GitError
-
-        mock_origin = MagicMock()
-        mock_origin.configure_mock(
-            name="origin", url="https://github.com/aresta-climb/aresta_db.git"
-        )
-        mock_origin.fetch.side_effect = pygit2.GitError("erro generico de rede")
-        mock_repo.remotes = [mock_origin]
-
-        with self.assertRaises(ErroSincronizacaoGit) as ctx:
-            self.gerenciador.fazer_fetch()
-
-        self.assertIn("erro generico de rede", str(ctx.exception))
-
-    @patch("editor.core.sync.pygit2")
-    def test_clonar_sucesso(self, mock_pygit2):
-        """Verifica se o clone manual inicializa o repo, configura longpaths e faz checkout."""
-        mock_repo = MagicMock()
-        mock_repo.config = {}
-        mock_pygit2.init_repository.return_value = mock_repo
-
-        mock_remote = MagicMock()
-        mock_repo.remotes.create.return_value = mock_remote
-
-        mock_branch = MagicMock()
-        mock_branch.branch_name = "origin/main"
-        mock_branch.target = "fake_target"
-        mock_repo.branches.remote.get.side_effect = lambda name: (
-            mock_branch if name == "origin/main" else None
-        )
-
-        mock_local_branch = MagicMock()
-        mock_repo.branches.local.create.return_value = mock_local_branch
-
-        self.gerenciador.clonar("https://github.com/aresta-climb/aresta_db.git")
-
-        mock_pygit2.init_repository.assert_called_once_with(str(self.caminho_fake), False)
-        self.assertTrue(mock_repo.config.get("core.longpaths"))
-        self.assertIs(mock_repo.config.get("core.autocrlf"), False)
-        mock_repo.remotes.create.assert_called_once_with(
-            "origin", "https://github.com/aresta-climb/aresta_db.git"
-        )
-        mock_remote.fetch.assert_called_once_with(callbacks=unittest.mock.ANY, depth=1)
-        mock_repo.checkout.assert_called_once_with(mock_local_branch)
-
-    @patch("editor.core.sync.pygit2")
-    def test_clonar_falha_sem_branch(self, mock_pygit2):
-        """Verifica se lança RuntimeError quando não acha origin/main ou origin/master."""
-        mock_repo = MagicMock()
-        mock_repo.config = {}
-        mock_pygit2.init_repository.return_value = mock_repo
-        mock_repo.branches.remote.get.return_value = None
-
-        with self.assertRaisesRegex(
-            RuntimeError, "Não foi possível encontrar a branch main ou master"
-        ):
-            self.gerenciador.clonar("https://github.com/url_invalida.git")
-
-    @patch("editor.core.sync.pygit2")
-    def test_clonar_traduz_giterror_no_error(self, mock_pygit2):
-        """Verifica se clone traduz GitError 'no error' para ErroSincronizacaoGit."""
-        mock_repo = MagicMock()
-        mock_repo.config = {}
-        mock_pygit2.init_repository.return_value = mock_repo
-        mock_pygit2.GitError = pygit2.GitError
-
-        mock_remote = MagicMock()
-        mock_remote.fetch.side_effect = pygit2.GitError("no error")
-        mock_repo.remotes.create.return_value = mock_remote
-
-        with self.assertRaises(ErroSincronizacaoGit) as ctx:
-            self.gerenciador.clonar("https://github.com/aresta-climb/aresta_db.git")
-
-        self.assertTrue(
-            "tempo limite" in str(ctx.exception).lower() or "conexão" in str(ctx.exception).lower()
-        )
-
-    @patch("editor.core.sync.pygit2")
-    def test_fazer_checkout_main_upstream_cria_branch(self, mock_pygit2):
-        """Testa criação da branch local main se ela não existir ao fazer checkout."""
-        mock_repo = MagicMock()
-        mock_repo.config = {}
-        mock_pygit2.Repository.return_value = mock_repo
-
-        mock_remote_branch = MagicMock()
-        mock_remote_branch.target = "target_commit"
-        mock_repo.branches.remote.get.return_value = mock_remote_branch
-
-        mock_local_branches = MagicMock()
-        mock_local_branches.__contains__.return_value = False
-        mock_local_branch = MagicMock()
-        mock_local_branches.create.return_value = mock_local_branch
-        mock_repo.branches.local = mock_local_branches
-
-        self.gerenciador.fazer_checkout_main_upstream()
-
-        self.assertIs(mock_repo.config.get("core.autocrlf"), False)
-        mock_local_branches.create.assert_called_once()
-        mock_repo.checkout.assert_called_once_with(
-            mock_local_branch, strategy=mock_pygit2.GIT_CHECKOUT_FORCE
-        )
-
-    @patch("editor.core.sync.pygit2")
-    def test_fazer_checkout_main_upstream_atualiza_branch(self, mock_pygit2):
-        """Testa atualização do target da branch local main se ela já existir."""
-        mock_repo = MagicMock()
-        mock_pygit2.Repository.return_value = mock_repo
-
-        mock_remote_branch = MagicMock()
-        mock_remote_branch.target = "target_commit"
-        mock_repo.branches.remote.get.return_value = mock_remote_branch
-
-        mock_local_branch = MagicMock()
-        mock_repo.branches.local = {"main": mock_local_branch}
-
-        self.gerenciador.fazer_checkout_main_upstream()
-
-        mock_local_branch.set_target.assert_called_once_with("target_commit")
-        mock_repo.checkout.assert_called_once_with(
-            mock_local_branch, strategy=mock_pygit2.GIT_CHECKOUT_FORCE
-        )
-
-    @patch("editor.core.sync.pygit2")
-    def test_fazer_checkout_main_upstream_sem_remoto_nao_faz_nada(self, mock_pygit2):
-        """Se não houver branch remota upstream/main ou origin/main, não executa checkout."""
-        mock_repo = MagicMock()
-        mock_pygit2.Repository.return_value = mock_repo
-        mock_repo.branches.remote.get.return_value = None
-
-        self.gerenciador.fazer_checkout_main_upstream()
-        mock_repo.checkout.assert_not_called()
-
-    @patch("editor.core.sync.pygit2")
-    def test_reset_hard(self, mock_pygit2):
-        """Testa reset hard para a HEAD do repo."""
-        mock_repo = MagicMock()
-        mock_pygit2.Repository.return_value = mock_repo
-        mock_repo.head.target = "head_target"
-
-        self.gerenciador.reset_hard()
-
-        mock_repo.reset.assert_called_once_with("head_target", mock_pygit2.GIT_RESET_HARD)
-
-    def test_callbacks_credentials_e_progress(self):
-        """Testa credenciais e progresso da classe interna ChamadasGit."""
-        progresso_valores = []
-        callbacks = self.gerenciador._obter_callbacks(lambda p: progresso_valores.append(p))
-
-        # Teste de credentials com token
-        cred = callbacks.credentials("url", "user", 0)
-        self.assertIsInstance(cred, pygit2.UserPass)
-
-        # Teste de credentials sem token deve levantar pygit2.Passthrough
-        gerenciador_sem_token = GerenciadorSincronizacao(self.caminho_fake, token=None)
-        callbacks_sem_token = gerenciador_sem_token._obter_callbacks()
-        with self.assertRaises(pygit2.Passthrough):
-            callbacks_sem_token.credentials("url", "user", 0)
-
-        # Teste de transfer_progress
-        stats = MagicMock()
-        stats.total_objects = 100
-        stats.received_objects = 50
-        callbacks.transfer_progress(stats)
-        self.assertEqual(progresso_valores, [50.0])
-
-        # Teste transfer_progress com total_objects == 0
-        stats.total_objects = 0
-        callbacks.transfer_progress(stats)
-        self.assertEqual(len(progresso_valores), 1)
-
-    @patch("editor.core.sync.pygit2")
-    def test_clonar_com_origin_master(self, mock_pygit2):
-        """Verifica se o clone aceita origin/master quando origin/main não existir."""
-        mock_repo = MagicMock()
-        mock_repo.config = {}
-        mock_pygit2.init_repository.return_value = mock_repo
-
-        mock_remote = MagicMock()
-        mock_repo.remotes.create.return_value = mock_remote
-
-        mock_branch = MagicMock()
-        mock_branch.branch_name = "origin/master"
-        mock_branch.target = "fake_target"
-        mock_repo.branches.remote.get.side_effect = lambda name: (
-            mock_branch if name == "origin/master" else None
-        )
-
-        mock_local_branch = MagicMock()
-        mock_repo.branches.local.create.return_value = mock_local_branch
-
-        self.gerenciador.clonar("https://github.com/aresta-climb/aresta_db.git")
-        mock_repo.checkout.assert_called_once_with(mock_local_branch)
-
-
-def _criar_commit_em_repo_local(repo: pygit2.Repository, arquivo_rel: str, conteudo: str) -> str:
+import pytest
+
+from editor.core.sync import (
+    ErroSincronizacaoGit,
+    GerenciadorSincronizacao,
+    _tratar_erro_git,
+)
+
+
+def _criar_commit_em_repo_local(
+    repo: pygit2.Repository,
+    arquivo_rel: str,
+    conteudo: str,
+    nome_branch: str = "main",
+) -> str:
     caminho_arq = Path(repo.workdir) / arquivo_rel
     caminho_arq.parent.mkdir(parents=True, exist_ok=True)
     caminho_arq.write_text(conteudo, encoding="utf-8")
@@ -383,20 +28,32 @@ def _criar_commit_em_repo_local(repo: pygit2.Repository, arquivo_rel: str, conte
     repo.index.write()
     tree = repo.index.write_tree()
     autor = pygit2.Signature("Autor Teste", "autor@arestaclimb.com")
-    pais = [] if repo.head_is_unborn else [repo.head.target]
-    commit_oid = repo.create_commit("refs/heads/main", autor, autor, "Commit teste", tree, pais)
-    repo.set_head("refs/heads/main")
+    ref_nome = f"refs/heads/{nome_branch}"
+    try:
+        ref_existente = repo.lookup_reference(ref_nome)
+        pais = [ref_existente.target]
+    except KeyError:
+        pais = []
+    commit_oid = repo.create_commit(ref_nome, autor, autor, f"Commit {arquivo_rel}", tree, pais)
+    repo.set_head(ref_nome)
     return str(commit_oid)
 
 
-def test_gerenciador_sincronizacao_respeita_url_upstream_explicita_e_env(
-    tmp_path: Path, monkeypatch
+def test_obter_url_clone_padrao_personalizado_e_overrides(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
 ) -> None:
+    """Deve retornar a URL oficial por padrão, permitindo repositório customizado ou override por env/arg."""
+    monkeypatch.delenv("ARESTA_GIT_UPSTREAM_URL", raising=False)
+    gerenciador = GerenciadorSincronizacao(tmp_path / "repo")
+    assert gerenciador.obter_url_clone() == "https://github.com/aresta-climb/aresta_db.git"
+    assert (
+        gerenciador.obter_url_clone("outro-org/outro_repo")
+        == "https://github.com/outro-org/outro_repo.git"
+    )
+
     remoto_env = str(tmp_path / "remoto_env.git")
     monkeypatch.setenv("ARESTA_GIT_UPSTREAM_URL", remoto_env)
-
-    gerenciador_env = GerenciadorSincronizacao(tmp_path / "clone_env")
-    assert gerenciador_env.obter_url_clone() == remoto_env
+    assert gerenciador.obter_url_clone() == remoto_env
 
     remoto_explicito = str(tmp_path / "remoto_explicito.git")
     gerenciador_exp = GerenciadorSincronizacao(
@@ -405,27 +62,58 @@ def test_gerenciador_sincronizacao_respeita_url_upstream_explicita_e_env(
     assert gerenciador_exp.obter_url_clone() == remoto_explicito
 
 
-def test_ciclo_completo_clone_fetch_e_checkout_contra_repo_git_local_real(
-    tmp_path: Path, monkeypatch
+def test_configurar_remotes_mantem_apenas_origin_e_remove_upstream_e_proxy_legados(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
 ) -> None:
+    """Deve garantir apenas o remote origin e remover quaisquer remotes upstream e proxy existentes."""
+    monkeypatch.delenv("ARESTA_GIT_UPSTREAM_URL", raising=False)
+    caminho_repo = tmp_path / "repo_local"
+    repo = pygit2.init_repository(str(caminho_repo), False)
+    sha_inicial = _criar_commit_em_repo_local(repo, "README.md", "v1\n")
+
+    gerenciador = GerenciadorSincronizacao(caminho_repo)
+    gerenciador.configurar_remotes()
+
+    repo_reaberto = pygit2.Repository(str(caminho_repo))
+    nomes_remotes = [r.name for r in repo_reaberto.remotes]
+    assert nomes_remotes == ["origin"]
+    assert repo_reaberto.remotes["origin"].url == "https://github.com/aresta-climb/aresta_db.git"
+
+    # Simula estado legado com remote upstream congelado, proxy efêmero e origin com URL antiga
+    repo_reaberto.remotes.set_url("origin", "https://github.com/antigo/aresta_db.git")
+    repo_reaberto.remotes.create("upstream", "https://github.com/aresta-climb/aresta_db.git")
+    repo_reaberto.remotes.create("proxy", "https://proxy.arestaclimb.com.br")
+    repo_reaberto.create_reference(
+        "refs/remotes/upstream/main", pygit2.Oid(hex=sha_inicial), force=True
+    )
+
+    nova_url = "https://github.com/aresta-climb/novo_aresta_db.git"
+    gerenciador.configurar_remotes(url_upstream=nova_url)
+
+    repo_limpo = pygit2.Repository(str(caminho_repo))
+    assert [r.name for r in repo_limpo.remotes] == ["origin"]
+    assert repo_limpo.remotes["origin"].url == nova_url
+    assert "refs/remotes/upstream/main" not in repo_limpo.references
+
+
+def test_fazer_fetch_e_checkout_usam_exclusivamente_origin_main(
+    tmp_path: Path,
+) -> None:
+    """Deve atualizar origin/main no fetch e fazer checkout ignorando qualquer ref upstream/main obsoleta."""
     caminho_remoto = tmp_path / "remoto_oficial.git"
     repo_remoto = pygit2.init_repository(str(caminho_remoto), False)
     sha_v1 = _criar_commit_em_repo_local(
         repo_remoto, "database/croqui_teste/croqui.yaml", "id: croqui_teste\nnome: V1\n"
     )
 
-    monkeypatch.setenv("ARESTA_GIT_UPSTREAM_URL", str(caminho_remoto))
-
     caminho_clone = tmp_path / "aresta_db_local"
-    sync = GerenciadorSincronizacao(caminho_clone)
+    sync = GerenciadorSincronizacao(caminho_clone, url_upstream=str(caminho_remoto))
+    sync.clonar(str(caminho_remoto))
 
-    url_clone = sync.obter_url_clone()
-    assert url_clone == str(caminho_remoto)
+    # Injeta uma referência legada upstream/main apontando para V1 enquanto o remoto avança para V2
+    repo_local = pygit2.Repository(str(caminho_clone))
+    repo_local.create_reference("refs/remotes/upstream/main", pygit2.Oid(hex=sha_v1), force=True)
 
-    sync.clonar(url_clone)
-    assert (caminho_clone / "database/croqui_teste/croqui.yaml").is_file()
-
-    # Avança o repositório remoto com um segundo commit e testa configurar_remotes + fetch + checkout
     sha_v2 = _criar_commit_em_repo_local(
         repo_remoto, "database/croqui_teste/croqui.yaml", "id: croqui_teste\nnome: V2\n"
     )
@@ -439,7 +127,103 @@ def test_ciclo_completo_clone_fetch_e_checkout_contra_repo_git_local_real(
         encoding="utf-8"
     )
     assert "nome: V2" in conteudo_atualizado
+    repo_verificado = pygit2.Repository(str(caminho_clone))
+    assert str(repo_verificado.head.target) == sha_v2
 
 
-if __name__ == "__main__":
-    unittest.main()
+def test_fazer_checkout_main_upstream_cria_branch_local_quando_ausente_e_ignora_sem_remoto(
+    tmp_path: Path,
+) -> None:
+    """Deve criar a branch local main a partir de origin/main quando ausente, ou não fazer nada sem origin/main."""
+    caminho_vazio = tmp_path / "repo_vazio"
+    pygit2.init_repository(str(caminho_vazio), False)
+    sync_vazio = GerenciadorSincronizacao(caminho_vazio)
+    sync_vazio.fazer_checkout_main_upstream()
+
+    caminho_repo = tmp_path / "repo_sem_main_local"
+    repo = pygit2.init_repository(str(caminho_repo), False)
+    sha = _criar_commit_em_repo_local(repo, "arquivo.txt", "conteudo\n", nome_branch="outra")
+    repo.create_reference("refs/remotes/origin/main", pygit2.Oid(hex=sha), force=True)
+    assert "main" not in repo.branches.local
+
+    sync = GerenciadorSincronizacao(caminho_repo)
+    sync.fazer_checkout_main_upstream()
+
+    repo_apos = pygit2.Repository(str(caminho_repo))
+    assert "main" in repo_apos.branches.local
+    assert str(repo_apos.branches.local["main"].target) == sha
+    assert repo_apos.config.get_bool("core.autocrlf") is False
+
+
+def test_clonar_suporta_branch_master_e_falha_em_repositorio_vazio_ou_url_invalida(
+    tmp_path: Path,
+) -> None:
+    """Deve aceitar origin/master quando origin/main não existir, e levantar erros adequados em falhas."""
+    caminho_remoto_master = tmp_path / "remoto_master.git"
+    repo_master = pygit2.init_repository(str(caminho_remoto_master), False)
+    _criar_commit_em_repo_local(repo_master, "README.md", "ramo master\n", nome_branch="master")
+
+    caminho_clone_master = tmp_path / "clone_master"
+    sync_master = GerenciadorSincronizacao(caminho_clone_master)
+    sync_master.clonar(str(caminho_remoto_master))
+    assert (caminho_clone_master / "README.md").read_text(encoding="utf-8") == "ramo master\n"
+
+    caminho_remoto_vazio = tmp_path / "remoto_vazio.git"
+    pygit2.init_repository(str(caminho_remoto_vazio), True)
+    sync_vazio = GerenciadorSincronizacao(tmp_path / "clone_vazio")
+    with pytest.raises(RuntimeError, match="Não foi possível encontrar a branch main ou master"):
+        sync_vazio.clonar(str(caminho_remoto_vazio))
+
+    sync_http_invalido = GerenciadorSincronizacao(tmp_path / "clone_http_invalido")
+    with pytest.raises(ErroSincronizacaoGit):
+        sync_http_invalido.clonar("http://127.0.0.1:1/repo_inexistente.git")
+
+
+def test_fazer_fetch_traduz_giterror_e_tratar_erro_git_no_error(tmp_path: Path) -> None:
+    """Deve traduzir falhas de fetch em ErroSincronizacaoGit e mapear 'no error' para mensagem amigável."""
+    caminho_repo = tmp_path / "repo_fetch_falho"
+    repo = pygit2.init_repository(str(caminho_repo), False)
+    repo.remotes.create("origin", str(tmp_path / "nao_existe.git"))
+
+    sync = GerenciadorSincronizacao(caminho_repo)
+    with pytest.raises(ErroSincronizacaoGit, match="Erro no Git ao sincronizar"):
+        sync.fazer_fetch()
+
+    erro_opaco = _tratar_erro_git(pygit2.GitError("no error"))
+    assert "tempo limite" in str(erro_opaco).lower()
+
+
+def test_reset_hard_restaura_arvore_de_trabalho(tmp_path: Path) -> None:
+    """Deve restaurar alterações locais para o commit atual de HEAD ao executar reset_hard."""
+    caminho_repo = tmp_path / "repo_reset"
+    repo = pygit2.init_repository(str(caminho_repo), False)
+    _criar_commit_em_repo_local(repo, "dados.txt", "original\n")
+
+    arquivo = caminho_repo / "dados.txt"
+    arquivo.write_text("modificado\n", encoding="utf-8")
+    assert arquivo.read_text(encoding="utf-8") == "modificado\n"
+
+    sync = GerenciadorSincronizacao(caminho_repo)
+    sync.reset_hard()
+    assert arquivo.read_text(encoding="utf-8") == "original\n"
+
+
+def test_callbacks_credenciais_e_progresso(tmp_path: Path) -> None:
+    """Deve fornecer credenciais UserPass quando houver token, Passthrough sem token e reportar progresso."""
+    progresso_valores: list[float] = []
+    gerenciador_com_token = GerenciadorSincronizacao(tmp_path / "repo", token="token-secreto")
+    callbacks = gerenciador_com_token._obter_callbacks(lambda p: progresso_valores.append(p))
+
+    cred = callbacks.credentials("https://github.com", "git", 0)
+    assert isinstance(cred, pygit2.UserPass)
+
+    gerenciador_sem_token = GerenciadorSincronizacao(tmp_path / "repo", token=None)
+    callbacks_sem_token = gerenciador_sem_token._obter_callbacks()
+    with pytest.raises(pygit2.Passthrough):
+        callbacks_sem_token.credentials("https://github.com", "git", 0)
+
+    callbacks.transfer_progress(SimpleNamespace(total_objects=100, received_objects=50))
+    assert progresso_valores == [50.0]
+
+    callbacks.transfer_progress(SimpleNamespace(total_objects=0, received_objects=0))
+    assert len(progresso_valores) == 1

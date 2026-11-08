@@ -163,16 +163,16 @@ class TarefaInicializacao(QThread):
                 logger.info(f"Repositório existente em {caminho_repo}. Configurando remotes...")
                 sync.configurar_remotes()
 
-                # Fetch Origin e Upstream
-                logger.info("Executando fetch de dados dos remotes...")
+                # Fetch do remote oficial (origin)
+                logger.info("Executando fetch de dados de origin...")
                 self.status.emit("Fazendo fetch de dados...")
                 try:
                     sync.fazer_fetch(
                         progresso_callback=lambda p: self.progresso.emit(70 + int(p * 0.15))
                     )
 
-                    # Checkout do upstream/main
-                    logger.info("Fazendo checkout do upstream/main...")
+                    # Checkout do origin/main
+                    logger.info("Fazendo checkout do origin/main...")
                     self.status.emit("Aplicando estado oficial mais recente...")
                     sync.fazer_checkout_main_upstream()
                 except Exception as e:

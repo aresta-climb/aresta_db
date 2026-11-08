@@ -33,7 +33,7 @@ def inicializar_repo_local(caminho: Path) -> pygit2.Repository:
 
     autor = pygit2.Signature("Autor Teste", "autor@aresta.local")
     commit = repo.create_commit("HEAD", autor, autor, "Commit inicial", tree, [])
-    repo.create_reference("refs/remotes/upstream/main", commit)
+    repo.create_reference("refs/remotes/origin/main", commit)
     return repo
 
 
@@ -76,7 +76,7 @@ class TesteServicoSubmissaoUnitario:
 
         servico = ServicoSubmissao(caminho_repo_base=repo_dir)
         nome_branch = "edicao-setor_norte-abcdef12"
-        commit_base = repo.lookup_reference("refs/remotes/upstream/main").peel()
+        commit_base = repo.lookup_reference("refs/remotes/origin/main").peel()
         branch = repo.create_branch(nome_branch, commit_base)
         repo.checkout(branch)
 
@@ -114,7 +114,7 @@ class TesteServicoSubmissaoUnitario:
 
         servico = ServicoSubmissao(caminho_repo_base=repo_dir)
         nome_branch = "sugestao-setor_norte-abcdef12"
-        commit_base = repo.lookup_reference("refs/remotes/upstream/main").peel()
+        commit_base = repo.lookup_reference("refs/remotes/origin/main").peel()
         branch = repo.create_branch(nome_branch, commit_base)
         repo.checkout(branch)
 
@@ -143,7 +143,7 @@ class TesteServicoSubmissaoUnitario:
 
         servico = ServicoSubmissao(caminho_repo_base=repo_dir)
         nome_branch = "edicao-setor_norte-isolamento123"
-        commit_base = repo.lookup_reference("refs/remotes/upstream/main").peel()
+        commit_base = repo.lookup_reference("refs/remotes/origin/main").peel()
         branch = repo.create_branch(nome_branch, commit_base)
         repo.checkout(branch)
 
@@ -207,7 +207,7 @@ class TesteServicoSubmissaoUnitario:
                 "refs/heads/main", autor, autor, "Base com foto", tree_base, [head_commit.id]
             )
         ]
-        repo.create_reference("refs/remotes/upstream/main", commit_com_foto.id, force=True)
+        repo.create_reference("refs/remotes/origin/main", commit_com_foto.id, force=True)
         repo.set_head("refs/heads/main")
         repo.checkout_head(strategy=pygit2.GIT_CHECKOUT_FORCE)
 
@@ -570,6 +570,56 @@ class TesteServicoSubmissaoUnitario:
             with pytest.raises(ErroSubmissao, match="Falha ao enviar proposta de mudança"):
                 servico.fazer_push_proxy(repo=repo, nome_branch="sugestao-1", jwt="jwt_valido")
 
+    def teste_fazer_push_proxy_rejeicao_referencia_push_update_reference(self, tmp_path):
+        repo_dir = tmp_path / "repo"
+        repo = inicializar_repo_local(repo_dir)
+        servico = ServicoSubmissao(caminho_repo_base=repo_dir)
+
+        def simular_push_com_recusa(refs, callbacks=None):
+            callbacks.push_update_reference("refs/heads/outra", None)
+            callbacks.push_update_reference(
+                "refs/heads/edicao-lapinha-bf4b154e", "unpack error: missing blob"
+            )
+
+        with patch("pygit2.Remote.push", side_effect=simular_push_com_recusa):
+            with patch("editor.core.servico_submissao.capturar_falha_submissao") as mock_telemetria:
+                with pytest.raises(
+                    ErroSubmissao,
+                    match="refs/heads/edicao-lapinha-bf4b154e: unpack error: missing blob",
+                ):
+                    servico.fazer_push_proxy(
+                        repo=repo,
+                        nome_branch="edicao-lapinha-bf4b154e",
+                        jwt="jwt_valido",
+                    )
+                mock_telemetria.assert_called_once()
+                assert mock_telemetria.call_args.kwargs["etapa"] == "push_proxy"
+                assert mock_telemetria.call_args.kwargs["categoria"] == "git_proxy"
+
+    def teste_obter_commit_base_ignora_upstream_legado_e_usa_origin_main(self, tmp_path):
+        repo_dir = tmp_path / "repo"
+        repo = inicializar_repo_local(repo_dir)
+        commit_antigo = repo.lookup_reference("refs/remotes/origin/main").peel()
+        repo.create_reference("refs/remotes/upstream/main", commit_antigo.id, force=True)
+
+        (repo_dir / "README.md").write_text("# Aresta DB v2\n", encoding="utf-8")
+        repo.index.add_all()
+        repo.index.write()
+        autor = pygit2.Signature("Autor Teste", "autor@aresta.local")
+        commit_novo_id = repo.create_commit(
+            "HEAD",
+            autor,
+            autor,
+            "Segundo commit oficial",
+            repo.index.write_tree(),
+            [commit_antigo.id],
+        )
+        repo.create_reference("refs/remotes/origin/main", commit_novo_id, force=True)
+
+        servico = ServicoSubmissao(caminho_repo_base=repo_dir)
+        commit_base = servico._obter_commit_base(repo)
+        assert commit_base.id == commit_novo_id
+
     def teste_inicializacao_padrao_com_gerenciador_caminhos(self, tmp_path):
         with patch("editor.core.servico_submissao.GerenciadorCaminhos") as mock_gc:
             mock_gc.return_value.obter_caminho_base_repo.return_value = tmp_path
@@ -729,7 +779,7 @@ class TesteServicoSubmissaoUnitario:
         repo = inicializar_repo_local(repo_dir)
 
         # Cria branch local existente
-        ref_upstream = repo.lookup_reference("refs/remotes/upstream/main")
+        ref_upstream = repo.lookup_reference("refs/remotes/origin/main")
         repo.create_branch("sugestao-bau-existente1", ref_upstream.peel())
 
         croqui_dir = tmp_path / "croqui" / "database" / "bau"
@@ -1283,7 +1333,7 @@ class TesteSincronizacaoPRServico:
         repo_dir = tmp_path / "repo"
         repo = inicializar_repo_local(repo_dir)
         repo.remotes.create("origin", "https://github.com/exemplo/repo.git")
-        commit_base = repo.lookup_reference("refs/remotes/upstream/main").peel()
+        commit_base = repo.lookup_reference("refs/remotes/origin/main").peel()
         repo.create_reference("refs/remotes/origin/edicao-bau-nova", commit_base.id)
 
         servico = ServicoSubmissao(caminho_repo_base=repo_dir)
@@ -1300,7 +1350,7 @@ class TesteSincronizacaoPRServico:
         repo_dir = tmp_path / "repo"
         repo = inicializar_repo_local(repo_dir)
         repo.remotes.create("origin", "https://github.com/exemplo/repo.git")
-        commit_base = repo.lookup_reference("refs/remotes/upstream/main").peel()
+        commit_base = repo.lookup_reference("refs/remotes/origin/main").peel()
         repo.create_branch("edicao-bau-igual", commit_base)
         repo.create_reference("refs/remotes/origin/edicao-bau-igual", commit_base.id)
 
@@ -1320,7 +1370,7 @@ class TesteSincronizacaoPRServico:
         repo_dir = tmp_path / "repo"
         repo = inicializar_repo_local(repo_dir)
         repo.remotes.create("origin", "https://github.com/exemplo/repo.git")
-        commit_base = repo.lookup_reference("refs/remotes/upstream/main").peel()
+        commit_base = repo.lookup_reference("refs/remotes/origin/main").peel()
         repo.create_reference("refs/remotes/origin/edicao-bau-ahead", commit_base.id)
 
         branch = repo.create_branch("edicao-bau-ahead", commit_base)
@@ -1350,7 +1400,7 @@ class TesteSincronizacaoPRServico:
         repo_dir = tmp_path / "repo"
         repo = inicializar_repo_local(repo_dir)
         repo.remotes.create("origin", "https://github.com/exemplo/repo.git")
-        commit_base = repo.lookup_reference("refs/remotes/upstream/main").peel()
+        commit_base = repo.lookup_reference("refs/remotes/origin/main").peel()
         repo.create_branch("edicao-bau-behind", commit_base)
 
         (repo_dir / "database" / "bau").mkdir(parents=True, exist_ok=True)
@@ -1403,7 +1453,7 @@ class TesteSincronizacaoPRServico:
         repo_dir = tmp_path / "repo"
         repo = inicializar_repo_local(repo_dir)
         repo.remotes.create("origin", "https://github.com/exemplo/repo.git")
-        commit_base = repo.lookup_reference("refs/remotes/upstream/main").peel()
+        commit_base = repo.lookup_reference("refs/remotes/origin/main").peel()
         repo.create_branch("edicao-bau-ff", commit_base)
 
         f = repo_dir / "database" / "bau" / "croqui.yaml"
@@ -1443,7 +1493,7 @@ class TesteSincronizacaoPRServico:
         repo_dir = tmp_path / "repo"
         repo = inicializar_repo_local(repo_dir)
         repo.remotes.create("origin", "https://github.com/exemplo/repo.git")
-        commit_base = repo.lookup_reference("refs/remotes/upstream/main").peel()
+        commit_base = repo.lookup_reference("refs/remotes/origin/main").peel()
 
         f = repo_dir / "database" / "bau" / "croqui.yaml"
         f.parent.mkdir(parents=True, exist_ok=True)
@@ -1481,7 +1531,7 @@ class TesteSincronizacaoPRServico:
         repo_dir = tmp_path / "repo"
         repo = inicializar_repo_local(repo_dir)
         repo.remotes.create("origin", "https://github.com/exemplo/repo.git")
-        commit_base = repo.lookup_reference("refs/remotes/upstream/main").peel()
+        commit_base = repo.lookup_reference("refs/remotes/origin/main").peel()
 
         branch_local = repo.create_branch("edicao-bau-limpo", commit_base)
         repo.checkout(branch_local)
@@ -1535,7 +1585,7 @@ class TesteSincronizacaoPRServico:
         repo_dir = tmp_path / "repo"
         repo = inicializar_repo_local(repo_dir)
         repo.remotes.create("origin", "https://github.com/exemplo/repo.git")
-        commit_base = repo.lookup_reference("refs/remotes/upstream/main").peel()
+        commit_base = repo.lookup_reference("refs/remotes/origin/main").peel()
 
         branch_local = repo.create_branch("edicao-bau-conflito", commit_base)
         repo.checkout(branch_local)
@@ -1587,7 +1637,7 @@ class TesteSincronizacaoPRServico:
         repo_dir = tmp_path / "repo"
         repo = inicializar_repo_local(repo_dir)
         repo.remotes.create("origin", "https://github.com/exemplo/repo.git")
-        commit_base = repo.lookup_reference("refs/remotes/upstream/main").peel()
+        commit_base = repo.lookup_reference("refs/remotes/origin/main").peel()
 
         branch_local = repo.create_branch("edicao-bau-res-local", commit_base)
         repo.checkout(branch_local)
@@ -1639,7 +1689,7 @@ class TesteSincronizacaoPRServico:
         repo_dir = tmp_path / "repo"
         repo = inicializar_repo_local(repo_dir)
         repo.remotes.create("origin", "https://github.com/exemplo/repo.git")
-        commit_base = repo.lookup_reference("refs/remotes/upstream/main").peel()
+        commit_base = repo.lookup_reference("refs/remotes/origin/main").peel()
 
         branch_local = repo.create_branch("edicao-bau-res-remoto", commit_base)
         repo.checkout(branch_local)

@@ -30,7 +30,7 @@ def inicializar_repo_git(caminho: Path) -> pygit2.Repository:
 
     autor = pygit2.Signature("Integracao Teste", "integracao@aresta.local")
     commit = repo.create_commit("HEAD", autor, autor, "Commit inicial", tree, [])
-    repo.create_reference("refs/remotes/upstream/main", commit)
+    repo.create_reference("refs/remotes/origin/main", commit)
     return repo
 
 
@@ -46,7 +46,7 @@ class TestIntegracaoSincronizacaoPR:
     def test_ciclo_completo_salvamento_publicacao_e_sincronizacao(self, tmp_path):
         repo_dir = tmp_path / "repo_base"
         repo = inicializar_repo_git(repo_dir)
-        commit_base = repo.lookup_reference("refs/remotes/upstream/main").peel()
+        commit_base = repo.lookup_reference("refs/remotes/origin/main").peel()
 
         dir_experimental = tmp_path / "croqui_exp"
         dir_experimental.mkdir()

@@ -123,74 +123,53 @@ class GerenciadorSincronizacao:
 
     def configurar_remotes(self, url_upstream: str | None = None) -> None:
         """
-        Garante que o repositório local tem os remotes necessários:
-        'origin' -> O repositório base oficial.
-        'upstream' -> O repositório oficial (aresta_db).
+        Garante que o repositório local possui exclusivamente o remote oficial 'origin',
+        removendo remotes legados ('upstream') ou efêmeros ('proxy').
         """
         url_alvo = url_upstream or self.obter_url_clone()
         repo = pygit2.Repository(str(self.caminho_repo))
         remotes_names = [r.name for r in repo.remotes]
-
-        if "upstream" not in remotes_names:
-            repo.remotes.create("upstream", url_alvo)
-        else:
-            repo.remotes.set_url("upstream", url_alvo)
 
         if "origin" not in remotes_names:
             repo.remotes.create("origin", url_alvo)
         else:
             repo.remotes.set_url("origin", url_alvo)
 
-        if "proxy" in remotes_names:
-            try:
-                repo.remotes.delete("proxy")
-            except Exception:
-                pass
+        for nome_obsoleto in ("upstream", "proxy"):
+            if nome_obsoleto in remotes_names:
+                repo.remotes.delete(nome_obsoleto)
 
     def fazer_fetch(self, progresso_callback: Callable[[float], None] | None = None) -> None:
         """
-        Faz fetch apenas dos remotes oficiais (origin e upstream), evitando requisições duplicadas.
+        Faz fetch do remote oficial (origin).
         """
         repo = pygit2.Repository(str(self.caminho_repo))
         callbacks = self._obter_callbacks(progresso_callback)
+        remote = repo.remotes["origin"]
 
-        remotes_para_fetch = [
-            r for r in repo.remotes if getattr(r, "name", None) in ("origin", "upstream")
-        ]
-        urls_visitadas: set[str] = set()
-
-        for remote in remotes_para_fetch:
-            url = getattr(remote, "url", None)
-            if url:
-                if url in urls_visitadas:
-                    continue
-                urls_visitadas.add(url)
-
-            try:
-                remote.fetch(callbacks=callbacks)
-            except pygit2.GitError as e:
-                raise _tratar_erro_git(e) from e
+        try:
+            remote.fetch(callbacks=callbacks)
+        except pygit2.GitError as e:
+            raise _tratar_erro_git(e) from e
 
     def fazer_checkout_main_upstream(self) -> None:
         """
-        Faz checkout da branch main do upstream ou origin de forma limpa.
+        Faz checkout da branch main a partir de origin/main de forma limpa.
         """
         repo = pygit2.Repository(str(self.caminho_repo))
         repo.config["core.autocrlf"] = False
-        branch_upstream = repo.branches.remote.get("upstream/main") or repo.branches.remote.get(
-            "origin/main"
-        )
-        if not branch_upstream:
+        branch_remota = repo.branches.remote.get("origin/main")
+        if not branch_remota:
             return
 
         # Atualiza ou cria a branch local 'main' apontando para a branch remota
         if "main" not in repo.branches.local:
             branch_local = repo.branches.local.create(
-                "main", cast(pygit2.Commit, repo[branch_upstream.target])
+                "main", cast(pygit2.Commit, repo[branch_remota.target])
             )
         else:
             branch_local = repo.branches.local["main"]
-            branch_local.set_target(branch_upstream.target)
+            branch_local.set_target(branch_remota.target)
 
         # Faz o checkout forçado
         repo.checkout(branch_local, strategy=pygit2.GIT_CHECKOUT_FORCE)

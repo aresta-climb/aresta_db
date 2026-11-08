@@ -276,6 +276,7 @@ class ServicoSubmissao:
                 self.token_jwt: str = token_jwt
                 self.prog_cb: Callable[[float], None] | None = prog_cb
                 self._tentativas: int = 0
+                self.erros_referencia: dict[str, str] = {}
 
             def credentials(
                 self, url: str, username_from_url: str | None, allowed_types: int
@@ -289,6 +290,10 @@ class ServicoSubmissao:
                 if self.prog_cb and getattr(stats, "total_objects", 0) > 0:
                     percentual = (stats.received_objects / stats.total_objects) * 100
                     self.prog_cb(percentual)
+
+            def push_update_reference(self, refname: str, message: str | None) -> None:
+                if message is not None:
+                    self.erros_referencia[refname] = message
 
         return CallbacksProxy(jwt, callback_progresso)
 
@@ -312,6 +317,10 @@ class ServicoSubmissao:
         id_croqui_extraido = _extrair_id_croqui_da_branch(nome_branch)
         try:
             remote.push([f"refs/heads/{nome_branch}"], callbacks=callbacks)
+            erros_ref = getattr(callbacks, "erros_referencia", None)
+            if isinstance(erros_ref, dict) and erros_ref:
+                detalhes = "; ".join(f"{ref}: {motivo}" for ref, motivo in erros_ref.items())
+                raise pygit2.GitError(f"Recusa ao atualizar referência remota ({detalhes})")
         except Exception as e:
             msg = str(e)
             contexto = {"url_proxy": url_proxy, "branch": nome_branch}
@@ -463,12 +472,10 @@ class ServicoSubmissao:
     def _obter_commit_base(self, repo: pygit2.Repository) -> pygit2.Commit:
         """
         Localiza o commit base para a criação da branch de proposta de mudança.
-        Tenta em ordem: upstream/main, origin/main, upstream/master, origin/master, main/master local ou HEAD.
+        Tenta em ordem: origin/main, origin/master, main/master local ou HEAD.
         """
         candidatos = [
-            "refs/remotes/upstream/main",
             "refs/remotes/origin/main",
-            "refs/remotes/upstream/master",
             "refs/remotes/origin/master",
             "refs/heads/main",
             "refs/heads/master",

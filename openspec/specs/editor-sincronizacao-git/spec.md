@@ -4,12 +4,20 @@
 Especificação dos mecanismos de clonagem, sincronização e resiliência do repositório base Git via biblioteca embarcada `pygit2` no Aresta Editor.
 ## Requirements
 ### Requirement: Sincronização Inteligente do Repositório Base
-A aplicação MUST garantir que o repositório `aresta-climb/aresta_db` local esteja sincronizado.
+A aplicação MUST garantir que o repositório `aresta-climb/aresta_db` local esteja sincronizado utilizando exclusivamente o remote oficial `origin` (`refs/remotes/origin/main`), removendo remotes legados (`upstream`) ou efêmeros (`proxy`) durante a configuração.
 
 #### Scenario: Usuário sem Permissão de Escrita
-- **WHEN** o usuário não tiver permissão de escrita no repositório `aresta-climb/aresta_db`
-- **THEN** a aplicação MUST criar um fork do repositório na conta do usuário via API
-- **THEN** a aplicação MUST clonar o fork localmente e configurar o original como `upstream`
+- **WHEN** o usuário não tiver permissão de escrita direta no repositório `aresta-climb/aresta_db`
+- **THEN** a aplicação MUST sincronizar o repositório local diretamente a partir do remote oficial `origin` sem criar forks e sem configurar o remote `upstream`
+
+#### Scenario: Configuração Unificada em Origin e Limpeza de Remotes Legados
+- **WHEN** a aplicação configurar os remotes do repositório base local (`configurar_remotes`)
+- **THEN** a aplicação MUST garantir a existência do remote `origin` apontando para a URL oficial do repositório base
+- **THEN** caso existam os remotes `upstream` ou `proxy` no repositório local, a aplicação MUST removê-los juntamente com suas referências remotas associadas
+
+#### Scenario: Fetch Exclusivo do Remote Origin
+- **WHEN** a aplicação executar a busca de atualizações remotas (`fazer_fetch`)
+- **THEN** a aplicação MUST realizar o `fetch` exclusivamente do remote `origin`, atualizando `refs/remotes/origin/main`
 
 #### Scenario: Repositório Privado
 - **WHEN** o repositório for privado e o usuário tentar sincronizar
@@ -33,8 +41,8 @@ A aplicação MUST realizar operações Git utilizando `pygit2` para evitar depe
 - **THEN** o sistema MUST realizar o `fetch` e `checkout` somente após a configuração ter sido aplicada
 
 #### Scenario: Proteção contra Conversão CRLF no Clone e Checkout
-- **WHEN** a aplicação iniciar a clonagem, sincronização (`fazer_checkout_main_upstream`) do repositório base ou a inicialização de um repositório de croqui experimental
-- **THEN** o sistema MUST configurar explicitamente `core.autocrlf = False` na configuração local do repositório antes do `checkout`, garantindo que os arquivos na árvore de trabalho utilizem `LF`
+- **WHEN** a aplicação iniciar a clonagem, a sincronização da branch principal do repositório base a partir de `origin/main` ou a inicialização de um repositório de croqui experimental
+- **THEN** o sistema MUST configurar explicitamente `core.autocrlf = False` na configuração local do repositório antes do `checkout` sobre o alvo de `origin/main`, garantindo que os arquivos na árvore de trabalho utilizem `LF`
 
 ### Requirement: Resiliência e Degradação Graciosa na Sincronização Remota
 A aplicação MUST tratar falhas de rede, timeouts de conexão e erros de transporte durante a sincronização remota sem interromper a execução quando o repositório local já existir no disco.
