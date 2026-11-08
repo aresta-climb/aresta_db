@@ -444,7 +444,7 @@ escaladas:
 - uid: XZKdVJITkU9hgS
   via_esportiva:
     nome: Virose operária
-    dificuldade: BR_8A
+    dificuldade: BR_8C
     extensao: 12
     quantidade_protecoes_intermediarias: 5
     quantidade_protecoes_parada: 2
@@ -532,6 +532,6 @@ escaladas:
 | 26 | Antígeno | VIIIa (4+2) |
 | - | Marreta imune | VIIb (5+2) |
 | - | Encosto gripal | VIIb (5+2) |
-| - | Virose operária | VIIIa (5+2) |
+| - | Virose operária | VIIIc (5+2) |
 | - | Covidinho | VIIb (4+2) |
 | - | Covide hepática | VIIa (4+2) |
