@@ -1,4 +1,4 @@
-versao_catalogo: e1cff496a9d0f1b0
+versao_catalogo: 9d47d5a9766dff98
 croquis:
 - id: br_mg_araxa_bocaina_boulders
   croqui_uid: oyCb72FtUENKNi
@@ -434,9 +434,9 @@ croquis:
   nome: Morro do Carrapato - Setor Covide
   descricao: ''
   caminho_relativo: br_mg_santa_luzia_morro_do_carrapato_setor_covide/compilado.binarypb
-  checksum_sha256_croqui: f4463a3cc4ddb7acbe04fc82fe16bf0a1eab4bc115f26d1dfc1e13a4bb2dba43
+  checksum_sha256_croqui: 8e614f28363815f8f96fece4fd1b47ac8a17de97944853a20b8a370edb4003a8
   checksum_sha256_thumbnail: 0c93f073dc2a415f562f1f237494c4b1f939f50bd050323fc9e073bc69a1d8f1
-  timestamp_update: '2026-11-08T04:03:15Z'
+  timestamp_update: '2026-11-08T04:03:24Z'
   precomputados:
     total_escaladas: 31
     total_setores: 3
