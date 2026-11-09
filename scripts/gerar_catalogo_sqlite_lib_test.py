@@ -1026,13 +1026,14 @@ def test_gerar_catalogo_completo_ignora_e_remove_croquis_rascunho_nao_publicados
         assert total == 2
 
 
-def test_gerar_catalogo_persiste_preserva_e_limpa_malha_estrada_com_cliente_overpass(
+def test_gerar_catalogo_preserva_e_limpa_malha_estrada_orfa_offline(
     tmp_path: Path,
 ) -> None:
     import contextlib
+    import inspect
     import shutil
 
-    from scripts.cliente_overpass_fake import ClienteOverpassFake
+    assert "cliente_overpass" not in inspect.signature(gerar_catalogo_completo).parameters
 
     pasta_gerados = tmp_path / "generated"
     c1_dir = pasta_gerados / "br_mg_lagoa_santa_lapinha"
@@ -1045,6 +1046,18 @@ def test_gerar_catalogo_persiste_preserva_e_limpa_malha_estrada_com_cliente_over
     c1.id = "br_mg_lagoa_santa_lapinha"
     c1.picos[0].localizacao.latitude = -195600000
     c1.picos[0].localizacao.longitude = -439600000
+    c1.picos[0].malha_estrada.conteudo.latitude_referencia_e7 = -195600000
+    c1.picos[0].malha_estrada.conteudo.longitude_referencia_e7 = -439600000
+    for nid, lat_e7, lon_e7, dist_m in (
+        (500, -195600000, -439600000, 0),
+        (501, -194500000, -437800000, 12000),
+        (502, -193500000, -436000000, 25000),
+    ):
+        no = c1.picos[0].malha_estrada.conteudo.nos.add()
+        no.no_osm_id = nid
+        no.latitude_e7 = lat_e7
+        no.longitude_e7 = lon_e7
+        no.distancia_metros = dist_m
     (c1_dir / "compilado.binarypb").write_bytes(c1.SerializeToString())
 
     c2 = _criar_croqui_exemplo()
@@ -1052,25 +1065,28 @@ def test_gerar_catalogo_persiste_preserva_e_limpa_malha_estrada_com_cliente_over
     c2.id = "br_mg_serra_do_cipo_cipo"
     c2.picos[0].localizacao.latitude = -193500000
     c2.picos[0].localizacao.longitude = -436000000
+    c2.picos[0].malha_estrada.conteudo.latitude_referencia_e7 = -193500000
+    c2.picos[0].malha_estrada.conteudo.longitude_referencia_e7 = -436000000
+    for nid, lat_e7, lon_e7, dist_m in (
+        (501, -194500000, -437800000, 13000),
+        (502, -193500000, -436000000, 0),
+        (503, -192000000, -435000000, 18000),
+    ):
+        no = c2.picos[0].malha_estrada.conteudo.nos.add()
+        no.no_osm_id = nid
+        no.latitude_e7 = lat_e7
+        no.longitude_e7 = lon_e7
+        no.distancia_metros = dist_m
     (c2_dir / "compilado.binarypb").write_bytes(c2.SerializeToString())
 
-    elementos_osm = [
-        {"type": "node", "id": 500, "lat": -19.5600, "lon": -43.9600},
-        {"type": "node", "id": 501, "lat": -19.4500, "lon": -43.7800},
-        {"type": "node", "id": 502, "lat": -19.3500, "lon": -43.6000},
-        {"type": "way", "id": 50, "nodes": [500, 501, 502], "tags": {"highway": "primary"}},
-    ]
-    fake_overpass = ClienteOverpassFake(elementos_padrao=elementos_osm)
-
     caminho_db = pasta_gerados / "catalogo.db"
-    gerar_catalogo_completo(pasta_gerados, caminho_db, cliente_overpass=fake_overpass)
-    assert len(fake_overpass.historico_consultas) == 2
+    gerar_catalogo_completo(pasta_gerados, caminho_db)
 
     with contextlib.closing(sqlite3.connect(caminho_db)) as con:
         nos = con.execute(
             "SELECT no_osm_id FROM catalogo_nos_estrada ORDER BY no_osm_id"
         ).fetchall()
-        assert [r[0] for r in nos] == [500, 501, 502]
+        assert [r[0] for r in nos] == [500, 501, 502, 503]
         dists_c1 = con.execute(
             "SELECT no_osm_id, distancia_metros FROM catalogo_distancias_estrada "
             "WHERE croqui_uid = 'uid_lapinha' ORDER BY no_osm_id"
@@ -1078,17 +1094,14 @@ def test_gerar_catalogo_persiste_preserva_e_limpa_malha_estrada_com_cliente_over
         assert len(dists_c1) == 3
         assert dists_c1[0] == (500, 0)
 
-    # 2. Recompilação alterando apenas o nome do croqui (sem passar cliente_overpass ou passando-o sem recalcular):
-    # Deve preservar a malha existente sem consultar o Overpass novamente
+    # 2. Recompilação alterando apenas o nome do croqui deve preservar a malha existente
     c1.nome = "Gruta da Lapinha Atualizada"
     (c1_dir / "compilado.binarypb").write_bytes(c1.SerializeToString())
     gerar_catalogo_completo(
         pasta_gerados,
         caminho_db,
         alvos=["br_mg_lagoa_santa_lapinha"],
-        cliente_overpass=fake_overpass,
     )
-    assert len(fake_overpass.historico_consultas) == 2
 
     with contextlib.closing(sqlite3.connect(caminho_db)) as con:
         qtd_c1 = con.execute(
@@ -1096,7 +1109,7 @@ def test_gerar_catalogo_persiste_preserva_e_limpa_malha_estrada_com_cliente_over
         ).fetchone()[0]
         assert qtd_c1 == 3
 
-    # 3. Se c2 for removido e c1 tiver um nó exclusivo que é limpo quando c1 também sair:
+    # 3. Se c2 for removido, suas distâncias e seu nó exclusivo (503) são limpos
     shutil.rmtree(c2_dir)
     gerar_catalogo_completo(pasta_gerados, caminho_db)
     with contextlib.closing(sqlite3.connect(caminho_db)) as con:
@@ -1104,6 +1117,13 @@ def test_gerar_catalogo_persiste_preserva_e_limpa_malha_estrada_com_cliente_over
             "SELECT COUNT(*) FROM catalogo_distancias_estrada WHERE croqui_uid = 'uid_cipo'"
         ).fetchone()[0]
         assert qtd_c2 == 0
+        nos_apos_remocao = [
+            r[0]
+            for r in con.execute(
+                "SELECT no_osm_id FROM catalogo_nos_estrada ORDER BY no_osm_id"
+            ).fetchall()
+        ]
+        assert nos_apos_remocao == [500, 501, 502]
 
     # 4. Se uma distância órfã e um nó órfão existirem no banco, gerar_catalogo_completo limpa ambos
     with contextlib.closing(sqlite3.connect(caminho_db)) as con:

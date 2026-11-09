@@ -21,38 +21,61 @@ from serving.update_serving import (
 )
 
 
-def test_migracao_afeta_serving_casos_borda(tmp_path: Path) -> None:
-    # Objeto sem read_text
-    assert _migracao_afeta_serving(object()) is True
-
-    # Arquivo com erro de sintaxe Python
+def test_migracao_afeta_serving_falha_rapido_em_sintaxe_invalida(tmp_path: Path) -> None:
     arq_invalido = tmp_path / "invalido.py"
     arq_invalido.write_text("def quebrado(:\n", encoding="utf-8")
-    assert _migracao_afeta_serving(arq_invalido) is True
+    with pytest.raises(SyntaxError):
+        _migracao_afeta_serving(arq_invalido)
+
+
+def test_update_serving_importa_sem_google_protobuf_e_sem_gerar_malha_estrada_lib(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    """Garante que o fluxo de deploy (update_serving -> sincronizar_d1_lib -> gerar_catalogo_sqlite_lib)
+    não depende de google.protobuf nem importa scripts.gerar_malha_estrada_lib."""
+    import importlib
+    import sys
+
+    import scripts.gerar_catalogo_sqlite_lib as mod_catalogo
+    import scripts.gerar_deltas_catalogo as mod_deltas
+    import serving.sincronizar_d1_lib as mod_d1
+    import serving.update_serving as mod_update
+
+    monkeypatch.setitem(sys.modules, "google", None)
+    monkeypatch.setitem(sys.modules, "google.protobuf", None)
+    monkeypatch.setitem(sys.modules, "aresta_api.proto.generated.croqui_pb2", None)
+    monkeypatch.setitem(sys.modules, "scripts.gerar_malha_estrada_lib", None)
+
+    importlib.reload(mod_catalogo)
+    importlib.reload(mod_deltas)
+    importlib.reload(mod_d1)
+    importlib.reload(mod_update)
+
+    caminho_db = tmp_path / "catalogo.db"
+    con = mod_catalogo.inicializar_banco_catalogo(caminho_db)
+    con.close()
+    versao = mod_catalogo.obter_versao_catalogo(caminho_db)
+    assert len(versao) == 16
 
 
 def test_get_db_version(tmp_path: Path) -> None:
     if "DB_VERSION" in os.environ:
         del os.environ["DB_VERSION"]
 
+    migracoes_dir = tmp_path / "migracoes"
+    migracoes_dir.mkdir()
+    (migracoes_dir / "0001_initial.py").write_text("# Migração inicial\nx = 1\n", encoding="utf-8")
+    (migracoes_dir / "0002_add_field.py").write_text(
+        "# Outra migração\nAFETA_VERSAO_SERVING: int = 1\n", encoding="utf-8"
+    )
+    (migracoes_dir / "0003_algo_test.py").write_text("", encoding="utf-8")
+    (migracoes_dir / "ignore.py").write_text("# Sem dígito\n", encoding="utf-8")
+    (migracoes_dir / "0010_latest.py").write_text("# Última migração\n", encoding="utf-8")
+
     with patch("serving.update_serving.Path") as mock_path:
-        mock_base = (
-            mock_path.return_value.resolve.return_value.parent.parent.__truediv__.return_value
+        mock_path.return_value.resolve.return_value.parent.parent.__truediv__.return_value = (
+            migracoes_dir
         )
-        mock_base.exists.return_value = True
-
-        class MockFile:
-            def __init__(self, name: str) -> None:
-                self.name = name
-
-        mock_base.glob.return_value = [
-            MockFile("0001_initial.py"),
-            MockFile("0002_add_field.py"),
-            MockFile("0003_algo_test.py"),  # Será ignorado
-            MockFile("ignore.txt"),  # Não tem dígito, será ignorado
-            MockFile("0010_latest.py"),
-        ]
-
         assert get_db_version() == "v10"
 
 

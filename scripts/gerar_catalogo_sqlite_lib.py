@@ -19,7 +19,7 @@ import hashlib
 import io
 import sqlite3
 from pathlib import Path
-from typing import Any
+from typing import TYPE_CHECKING, Any
 
 from aresta_api.sql.generated.python.catalogo_sql import (
     COMANDOS_DDL,
@@ -28,17 +28,9 @@ from aresta_api.sql.generated.python.catalogo_sql import (
     LinhaCatalogoDistanciasEstrada,
     LinhaCatalogoNosEstrada,
 )
-from scripts.gerar_malha_estrada_lib import (
-    ClienteOverpass,
-    extrair_linhas_malha_de_pico_proto,
-    gerar_malha_estrada_pico,
-    malha_estrada_pico_atualizada,
-)
 
-try:
+if TYPE_CHECKING:
     from aresta_api.proto.generated import croqui_pb2
-except ImportError:  # pragma: no cover
-    croqui_pb2 = None  # type: ignore[assignment]
 
 
 def inicializar_banco_catalogo(caminho_banco: Path | str) -> sqlite3.Connection:
@@ -184,6 +176,8 @@ def formatar_grau_escalada(escalada: croqui_pb2.Escalada) -> str:
     """
     Extrai e formata a graduação de uma escalada para exibição textual no catálogo.
     """
+    from aresta_api.proto.generated import croqui_pb2
+
     qual_tipo = escalada.WhichOneof("tipo")
     if not qual_tipo:
         return ""
@@ -601,13 +595,62 @@ def _croqui_modificado_no_catalogo(
     return linhas_aresta_atuais != linhas_aresta_esperadas
 
 
+def _malha_estrada_pico_atualizada(pico: Any) -> bool:
+    """
+    Verifica se a mensagem Pico possui `localizacao` válida e `malha_estrada.conteudo`
+    não-vazia sincronizada com a coordenada atual do pico.
+    """
+    loc = pico.localizacao
+    malha = pico.malha_estrada.conteudo
+    lat_loc = int(loc.latitude or 0)
+    lon_loc = int(loc.longitude or 0)
+    if lat_loc == 0 and lon_loc == 0:
+        return False
+    if not malha.nos:
+        return False
+    return (
+        int(malha.latitude_referencia_e7 or 0) == lat_loc
+        and int(malha.longitude_referencia_e7 or 0) == lon_loc
+    )
+
+
+def _extrair_linhas_malha_de_pico_proto(
+    croqui_uid: str,
+    pico: Any,
+) -> tuple[list[LinhaCatalogoNosEstrada], list[LinhaCatalogoDistanciasEstrada]]:
+    """
+    Extrai de forma 100% offline as linhas de `catalogo_nos_estrada` e
+    `catalogo_distancias_estrada` a partir de `pico.malha_estrada.conteudo`.
+    """
+    nos_saida: list[LinhaCatalogoNosEstrada] = []
+    distancias_saida: list[LinhaCatalogoDistanciasEstrada] = []
+    nos_ordenados = sorted(pico.malha_estrada.conteudo.nos, key=lambda n: int(n.no_osm_id))
+    for no in nos_ordenados:
+        nid = int(no.no_osm_id)
+        nos_saida.append(
+            {
+                "no_osm_id": nid,
+                "latitude_e7": int(no.latitude_e7),
+                "longitude_e7": int(no.longitude_e7),
+            }
+        )
+        distancias_saida.append(
+            {
+                "croqui_uid": croqui_uid,
+                "no_osm_id": nid,
+                "distancia_metros": int(no.distancia_metros),
+                "na_borda": 1 if no.na_borda else 0,
+            }
+        )
+    return nos_saida, distancias_saida
+
+
 def gerar_catalogo_completo(
     diretorio_gerados: Path | str,
     caminho_saida_db: Path | str,
     alvos: list[str] | None = None,
     ids_permitidos: set[str] | list[str] | None = None,
     apenas_publicados: bool = True,
-    cliente_overpass: ClienteOverpass | None = None,
 ) -> Path:
     """
     Gera ou atualiza incrementalmente o catálogo SQLite a partir dos compilado.binarypb,
@@ -627,6 +670,8 @@ def gerar_catalogo_completo(
     Returns:
         Path: Caminho do banco gerado.
     """
+    from aresta_api.proto.generated import croqui_pb2
+
     pasta_base = Path(diretorio_gerados)
     caminho_db = Path(caminho_saida_db)
 
@@ -714,8 +759,8 @@ def gerar_catalogo_completo(
 
             if len(croqui.picos) > 0:
                 pico_principal = croqui.picos[0]
-                if malha_estrada_pico_atualizada(pico_principal):
-                    nos_osm, dists_osm = extrair_linhas_malha_de_pico_proto(
+                if _malha_estrada_pico_atualizada(pico_principal):
+                    nos_osm, dists_osm = _extrair_linhas_malha_de_pico_proto(
                         croqui_uid, pico_principal
                     )
                     atuais_malha = conexao.execute(
@@ -737,21 +782,9 @@ def gerar_catalogo_completo(
                             (croqui_uid,),
                         ).fetchone()
                     )
-                    if pico_principal.HasField("malha_estrada") or cliente_overpass is None:
-                        if ja_tem_malha:
-                            inserir_malha_estrada_croqui(conexao, croqui_uid, [], [])
-                            houve_alteracao = True
-                    elif not ja_tem_malha:
-                        loc = pico_principal.localizacao
-                        nos_osm, dists_osm = gerar_malha_estrada_pico(
-                            croqui_uid,
-                            int(loc.latitude),
-                            int(loc.longitude),
-                            cliente_overpass,
-                        )
-                        if dists_osm:
-                            inserir_malha_estrada_croqui(conexao, croqui_uid, nos_osm, dists_osm)
-                            houve_alteracao = True
+                    if ja_tem_malha:
+                        inserir_malha_estrada_croqui(conexao, croqui_uid, [], [])
+                        houve_alteracao = True
 
         if conjunto_permitidos is not None:
             linhas_existentes = conexao.execute(

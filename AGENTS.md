@@ -1,6 +1,6 @@
 # Princípios de Engenharia Aresta (`aresta_db`)
 
-Para garantir que o nosso código, seja ele escrito por humanos ou por agentes autônomos de IA (como Google Antigravity e OPSX), se mantenha coeso, testável, sustentável e simples, adotamos nove princípios basilares e inegociáveis.
+Para garantir que o nosso código, seja ele escrito por humanos ou por agentes autônomos de IA (como Google Antigravity e OPSX), se mantenha coeso, testável, sustentável e simples, adotamos dez princípios basilares e inegociáveis.
 
 Estes princípios devem guiar toda e qualquer nova implementação, revisão ou refatoração no repositório.
 
@@ -44,14 +44,20 @@ A existência de código ou testes legados no repositório que ainda não sigam 
 - Agentes autônomos e desenvolvedores estão proibidos de imitar antipadrões presentes em arquivos vizinhos (como uso de `MagicMock`/`patch`, *change-detector tests* ou identificadores em inglês).
 - Sempre que tocar em um arquivo ou módulo existente que viole este `AGENTS.md`, você DEVE refatorar o trecho e os testes afetados para que passem a seguir integralmente estes princípios.
 
-## VIII. Edições de Estado via Comandos do Histórico (Undo/Redo)
-Toda e qualquer modificação no estado do croqui (seja no Protobuf, dados, imagens ou mapas) a partir da interface gráfica do editor deve ser realizada **obrigatoriamente** através do empilhamento de comandos na pilha global de histórico (`QUndoCommand` na pilha `historico`), e nunca por mutações diretas nos callbacks dos componentes gráficos. Isso garante que o estado do editor seja sempre passível de reversão (desfazer/refazer), auditoria e persistência no diário transacional de forma consistente e sincronizada.
+## VIII. Fail-Fast e Proibição de Fallbacks Legados ou Silenciosos
+O código DEVE operar por padrão sob a filosofia **Fail-Fast** (falhar cedo, de forma ruidosa e explícita) e realizar **cortes limpos** ao evoluir contratos, schemas e arquiteturas.
+- **Proibição de Fallbacks Legados por Padrão**: Quando um contrato, schema, formato de arquivo ou fluxo arquitetural for substituído, o caminho antigo DEVE ser integralmente removido na mesma alteração (migrando os dados existentes de uma só vez quando necessário). Por padrão, é proibido manter parâmetros opcionais legados, leitura dupla (*dual-read*) de formatos obsoletos ou ramificações de retrocompatibilidade.
+- **Proibição de Degradação Silenciosa e Engolimento de Erros**: É proibido usar blocos `try/except` genéricos que engulam exceções (`pass`, retorno de valores vazios/padrão mágicos) ou `except ImportError` para mascarar dependências ausentes ou acoplamento indevido entre módulos. Se uma pré-condição, dependência ou invariante falhar, o sistema DEVE lançar uma exceção clara imediatamente para que a falha seja capturada nos testes, no CI ou no Sentry.
+- **Exceção Explícita (*Escape Hatch*)**: Fallbacks (sejam de compatibilidade ou dentro da lógica de negócios) e degradações graciosas **SÓ** podem ser implementados quando **explicitamente solicitados pelo usuário** para um caso específico. Agentes autônomos jamais devem introduzir fallbacks por iniciativa própria; na dúvida se um cenário exige fallback ou erro explícito, o padrão é falhar explicitamente ou perguntar ao usuário.
 
 ## IX. Responsividade Inegociável da UI e Execução Pesada em Background (Orçamento de Meio Frame)
 A thread principal de interface gráfica (Qt Event Loop / Main Thread) **JAMAIS** deve ser bloqueada por operações que excedam o orçamento de **meio frame (`~8ms` a 60fps / `~4ms` a 120fps)**, mantendo margem folgada abaixo do limite de um frame.
 - **Proibição de I/O e Processamento Pesado na UI Thread**: Qualquer rotina que envolva rede/HTTP, scraping, banco de dados, leitura/escrita de múltiplos arquivos em disco, subprocessos, compilação, renderização de PDFs/imagens pesadas ou loops sobre coleções grandes DEVE obrigatoriamente ser executada em background (`QThread` / worker assíncrono).
 - **Proibição de `processEvents()` como Muleta**: É estritamente proibido tentar "destravar" loops síncronos pesados na thread principal usando `QApplication.processEvents()`. Operações longas devem rodar fora da thread de UI, comunicando progresso e resultado exclusivamente via sinais (`Signal`) e aplicando mutações no `CroquiController` de forma atômica e coalescida na thread principal.
 - **Cancelamento Cooperativo e Feedback Visual**: Toda tarefa em background acionada pelo usuário deve fornecer feedback visual imediato de progresso e suportar cancelamento cooperativo sem congelar a janela.
+
+## X. Edições de Estado via Comandos do Histórico (Undo/Redo)
+Toda e qualquer modificação no estado do croqui (seja no Protobuf, dados, imagens ou mapas) a partir da interface gráfica do editor deve ser realizada **obrigatoriamente** através do empilhamento de comandos na pilha global de histórico (`QUndoCommand` na pilha `historico`), e nunca por mutações diretas nos callbacks dos componentes gráficos. Isso garante que o estado do editor seja sempre passível de reversão (desfazer/refazer), auditoria e persistência no diário transacional de forma consistente e sincronizada.
 
 ---
 > **Nota para Agentes Autônomos**: Vocês estão estritamente obrigados a considerar este documento como diretriz de mais alta prioridade ao planejar arquitetura, sugerir refatorações, ou implementar novas rotinas (incluindo o uso do OpenSpec).
