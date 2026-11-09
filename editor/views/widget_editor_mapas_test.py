@@ -6302,3 +6302,163 @@ def test_confluencia_direta_no_topo_final_sem_popover(qtbot):
         no_fim = poi.linha.conteudo.nos[-1]
         assert no_fim.tipo == croqui_pb2.NoTrajeto.TipoNo.FIM_TOP
         assert no_fim.rotulo == "A"
+
+
+def test_poi_escala_fonte_automaticamente_ao_criar_e_redimensionar(qtbot):
+    """[TDD] Retângulo, círculo e quadrado escalam e centralizam texto_visivel automaticamente ao redimensionar."""
+    from types import SimpleNamespace
+
+    from PySide6.QtCore import QPointF, Qt
+    from PySide6.QtWidgets import QGraphicsScene
+
+    from editor.core.geometrias_poi import calcular_tamanho_fonte_poi
+    from editor.views.widget_editor_mapas import (
+        ItemBoundingCirculo,
+        ItemBoundingQuadrado,
+        ItemBoundingRetangulo,
+    )
+
+    cena = QGraphicsScene()
+
+    # 1. Retângulo
+    ret_dict = {
+        "uid": "r1",
+        "texto_visivel": "132",
+        "retangulo": {"x": 100, "y": 100, "comprimento": 20, "largura": 14},
+    }
+    item_ret = ItemBoundingRetangulo(ret_dict, lambda _x: None)
+    cena.addItem(item_ret)
+    tam_inicial_ret = item_ret.item_texto.font().pointSize()
+    assert tam_inicial_ret == calcular_tamanho_fonte_poi(ret_dict)
+
+    ev_press = SimpleNamespace(
+        modifiers=lambda: Qt.KeyboardModifier.ControlModifier,
+        scenePos=lambda: QPointF(110.0, 107.0),
+        accept=lambda: None,
+    )
+    item_ret.mousePressEvent(ev_press)
+    ev_move = SimpleNamespace(
+        scenePos=lambda: QPointF(130.0, 125.0),
+        accept=lambda: None,
+    )
+    item_ret.mouseMoveEvent(ev_move)
+    assert item_ret.item_texto.font().pointSize() > tam_inicial_ret
+
+    # 2. Quadrado
+    quad_dict = {
+        "uid": "q1",
+        "texto_visivel": "88",
+        "quadrado": {"x": 200, "y": 200, "lado": 16},
+    }
+    item_quad = ItemBoundingQuadrado(quad_dict, lambda _x: None)
+    cena.addItem(item_quad)
+    tam_inicial_quad = item_quad.item_texto.font().pointSize()
+    assert tam_inicial_quad == calcular_tamanho_fonte_poi(quad_dict)
+
+    ev_press_q = SimpleNamespace(
+        modifiers=lambda: Qt.KeyboardModifier.ControlModifier,
+        scenePos=lambda: QPointF(208.0, 208.0),
+        accept=lambda: None,
+    )
+    item_quad.mousePressEvent(ev_press_q)
+    ev_move_q = SimpleNamespace(
+        scenePos=lambda: QPointF(225.0, 225.0),
+        accept=lambda: None,
+    )
+    item_quad.mouseMoveEvent(ev_move_q)
+    assert item_quad.item_texto.font().pointSize() > tam_inicial_quad
+    centro_quad = item_quad.rect().center()
+    rect_txt_q = item_quad.item_texto.boundingRect()
+    assert abs(item_quad.item_texto.pos().x() - (centro_quad.x() - rect_txt_q.width() / 2)) < 1.0
+
+    # 3. Círculo
+    circ_dict = {
+        "uid": "c1",
+        "texto_visivel": "99",
+        "circulo": {"x": 300, "y": 300, "raio": 8},
+    }
+    item_circ = ItemBoundingCirculo(circ_dict, lambda _x: None)
+    cena.addItem(item_circ)
+    tam_inicial_circ = item_circ.item_texto.font().pointSize()
+    assert tam_inicial_circ == calcular_tamanho_fonte_poi(circ_dict)
+
+    ev_press_c = SimpleNamespace(
+        modifiers=lambda: Qt.KeyboardModifier.ControlModifier,
+        pos=lambda: QPointF(8.0, 0.0),
+        accept=lambda: None,
+    )
+    item_circ.mousePressEvent(ev_press_c)
+    ev_move_c = SimpleNamespace(
+        pos=lambda: QPointF(24.0, 0.0),
+        accept=lambda: None,
+    )
+    item_circ.mouseMoveEvent(ev_move_c)
+    assert item_circ.item_texto.font().pointSize() > tam_inicial_circ
+
+
+def test_poi_definir_e_restaurar_tamanho_fonte_manual_com_undo_redo(qtbot):
+    """[TDD] Definir tamanho_fonte manual em POI aplica valor fixo, persiste no Protobuf e suporta Undo/Redo."""
+    from PySide6.QtGui import QUndoStack
+
+    from aresta_api.proto.generated import croqui_pb2
+    from editor.controllers.mapas_controller import MapasController
+    from editor.models.croqui_model import CroquiModel
+    from editor.views.widget_editor_mapas import DialogoEdicaoPOI, WidgetEditorMapas
+
+    croqui = croqui_pb2.Croqui()
+    pico = croqui.picos.add()
+    sg = pico.setores_ou_grupos.add()
+    setor = sg.setor.conteudo
+    setor.uid = "setor_1"
+    mapa = setor.mapas.add()
+    poi = mapa.pontos_de_interesse.add()
+    poi.uid = "poi_132"
+    poi.rotulo = "132"
+    poi.texto_visivel = "132"
+    poi.retangulo.x = 100
+    poi.retangulo.y = 100
+    poi.retangulo.comprimento = 40
+    poi.retangulo.largura = 30
+
+    model = CroquiModel(croqui)
+    undo_stack = QUndoStack()
+    controller = MapasController(model, undo_stack)
+
+    widget = WidgetEditorMapas(mapas_controller=controller, croqui_model=model)
+    qtbot.addWidget(widget)
+    proxy_mapa = model.obter_croqui_readonly().picos[0].setores_ou_grupos[0].setor.conteudo.mapas[0]
+    widget.set_mapa_atual(proxy_mapa)
+
+    item = widget.itens_poi[0]
+    tam_auto = item.item_texto.font().pointSize()
+    assert tam_auto == 20
+    assert mapa.pontos_de_interesse[0].tamanho_fonte == 0
+
+    # Define tamanho manual 28pt
+    item.definir_tamanho_fonte(28)
+    assert mapa.pontos_de_interesse[0].tamanho_fonte == 28
+    item = widget.itens_poi[0]
+    assert item.item_texto.font().pointSize() == 28
+
+    # Restaura para automático (0)
+    item.definir_tamanho_fonte(0)
+    assert mapa.pontos_de_interesse[0].tamanho_fonte == 0
+    item = widget.itens_poi[0]
+    assert item.item_texto.font().pointSize() == tam_auto
+
+    # Undo volta para 28pt
+    undo_stack.undo()
+    assert mapa.pontos_de_interesse[0].tamanho_fonte == 28
+    assert widget.itens_poi[0].item_texto.font().pointSize() == 28
+
+    # Redo volta para automático (0)
+    undo_stack.redo()
+    assert mapa.pontos_de_interesse[0].tamanho_fonte == 0
+    assert widget.itens_poi[0].item_texto.font().pointSize() == tam_auto
+
+    # Verifica também DialogoEdicaoPOI
+    dlg = DialogoEdicaoPOI("poi_132", "132", "", "132", tamanho_fonte_atual=18)
+    qtbot.addWidget(dlg)
+    assert dlg.obter_tamanho_fonte() == 18
+    dlg.input_tamanho_fonte.setValue(0)
+    assert dlg.obter_tamanho_fonte() == 0

@@ -57,6 +57,7 @@ from PySide6.QtWidgets import (
 
 from aresta_api.proto.generated import croqui_pb2
 from editor.commands.comandos_protobuf import resolver_caminho_mensagem
+from editor.core.geometrias_poi import calcular_tamanho_fonte_poi
 
 shiboken6: Any
 try:
@@ -168,6 +169,7 @@ class DialogoEdicaoPOI(QDialog):
         texto_visivel_atual: str = "",
         parent: QWidget | None = None,
         espessura_atual: int | None = None,
+        tamanho_fonte_atual: int = 0,
     ) -> None:
         super().__init__(parent)
         self.setWindowTitle("Editar Ponto de Interesse")
@@ -187,6 +189,13 @@ class DialogoEdicaoPOI(QDialog):
             "Opcional: texto a ser exibido sobre a rocha no mapa"
         )
         layout.addRow("Texto Visível no Mapa:", self.input_texto_visivel)
+
+        self.input_tamanho_fonte = QSpinBox(self)
+        self.input_tamanho_fonte.setRange(0, 100)
+        self.input_tamanho_fonte.setSpecialValueText("Automático (Pela Caixa)")
+        self.input_tamanho_fonte.setSuffix(" pt")
+        self.input_tamanho_fonte.setValue(max(0, int(tamanho_fonte_atual or 0)))
+        layout.addRow("Tamanho da Fonte:", self.input_tamanho_fonte)
 
         self.input_espessura: QSpinBox | None = None
         if espessura_atual is not None:
@@ -273,6 +282,11 @@ class DialogoEdicaoPOI(QDialog):
             return int(self.input_espessura.value())
         return None
 
+    def obter_tamanho_fonte(self) -> int:
+        if hasattr(self, "input_tamanho_fonte") and self.input_tamanho_fonte is not None:
+            return int(self.input_tamanho_fonte.value())
+        return 0
+
 
 class BaseItemPOI:
     """Mixin base para itens de POI para compartilhar lógica comum."""
@@ -349,10 +363,18 @@ class BaseItemPOI:
         # Texto: exibido apenas se texto_visivel estiver preenchido
         self.item_texto = QGraphicsTextItem(texto_visivel, cast(Any, self))
         self.item_texto.setDefaultTextColor(QColor(0, 0, 0))
-        fonte = QFont("Arial", 12, QFont.Weight.Bold)
-        self.item_texto.setFont(fonte)
+        self.atualizar_fonte_texto()
         self.item_texto.setZValue(100)
         self.item_texto.setVisible(bool(texto_visivel))
+
+    def obter_tamanho_fonte(self) -> int:
+        return calcular_tamanho_fonte_poi(getattr(self, "pt_dict", {}))
+
+    def atualizar_fonte_texto(self) -> None:
+        if hasattr(self, "item_texto") and self.item_texto is not None:
+            tam = self.obter_tamanho_fonte()
+            fonte = QFont("Arial", tam, QFont.Weight.Bold)
+            self.item_texto.setFont(fonte)
 
     def atualizar_pos_texto(self, x: float, y: float) -> None:
         self.item_texto.setPos(x, y - 25)
@@ -360,6 +382,7 @@ class BaseItemPOI:
     def atualizar_texto_exibicao(self) -> None:
         texto_visivel = str(self.pt_dict.get("texto_visivel", "") or "")
         self.item_texto.setPlainText(texto_visivel)
+        self.atualizar_fonte_texto()
         self.item_texto.setVisible(bool(texto_visivel))
         id_atual = self.pt_dict.get("uid", self.pt_dict.get("id", ""))
         label_atual = self.pt_dict.get("rotulo", self.pt_dict.get("label", ""))
@@ -398,6 +421,32 @@ class BaseItemPOI:
     def _executar_menu(self, menu: QMenu, pos: Any) -> Any:
         return menu.exec(pos) if pos is not None else menu.exec()
 
+    def definir_tamanho_fonte(self, novo_tam: int) -> None:
+        estado_inicial = copy.deepcopy(self.obter_dict_atualizado())
+        if int(novo_tam) > 0:
+            self.pt_dict["tamanho_fonte"] = int(novo_tam)
+        else:
+            self.pt_dict.pop("tamanho_fonte", None)
+        self.atualizar_texto_exibicao()
+        if hasattr(self, "atualizar_posicao_texto"):
+            self.atualizar_posicao_texto()
+        registrar_movimento_final(self, estado_inicial)
+
+    def _editar_tamanho_fonte(self) -> None:
+        from PySide6.QtWidgets import QInputDialog
+
+        tam_manual = int(self.pt_dict.get("tamanho_fonte", 0) or 0)
+        novo_tam, ok = QInputDialog.getInt(
+            None,
+            "Tamanho da Fonte",
+            "Tamanho da fonte em pontos (0 = Automático pela caixa):",
+            value=tam_manual if tam_manual > 0 else self.obter_tamanho_fonte(),
+            minValue=0,
+            maxValue=100,
+        )
+        if ok:
+            self.definir_tamanho_fonte(novo_tam)
+
     def tratar_menu_contexto(
         self,
         evento: Any,
@@ -413,6 +462,15 @@ class BaseItemPOI:
             callback_personalizada=self._solicitar_cor_personalizada,
             callback_padrao=self._definir_cor_padrao,
         )
+
+        tam_manual = int(self.pt_dict.get("tamanho_fonte", 0) or 0)
+        tam_efetivo = self.obter_tamanho_fonte()
+        rotulo_acao_fonte = (
+            f"Tamanho da Fonte ({tam_manual}pt)..."
+            if tam_manual > 0
+            else f"Tamanho da Fonte (Auto: {tam_efetivo}pt)..."
+        )
+        acao_tamanho_fonte = menu.addAction(rotulo_acao_fonte)
 
         if acoes_extras:
             menu.addSeparator()
@@ -431,18 +489,29 @@ class BaseItemPOI:
 
         acao = self._executar_menu(menu, pos)
 
-        if acao == acao_renomear:
+        if acao == acao_tamanho_fonte:
+            self._editar_tamanho_fonte()
+
+        elif acao == acao_renomear:
             id_atual = str(self.pt_dict.get("uid", self.pt_dict.get("id", "")))
             label_atual = str(self.pt_dict.get("rotulo", self.pt_dict.get("label", "")))
             cor_atual = str(self.pt_dict.get("cor", ""))
             texto_visivel_atual = str(self.pt_dict.get("texto_visivel", ""))
-            dialogo = DialogoEdicaoPOI(id_atual, label_atual, cor_atual, texto_visivel_atual)
+            tam_fonte_atual = int(self.pt_dict.get("tamanho_fonte", 0) or 0)
+            dialogo = DialogoEdicaoPOI(
+                id_atual,
+                label_atual,
+                cor_atual,
+                texto_visivel_atual,
+                tamanho_fonte_atual=tam_fonte_atual,
+            )
             if dialogo.exec() == QDialog.DialogCode.Accepted:
                 vals = dialogo.obter_valores()
                 novo_id = vals[0]
                 novo_label = vals[1]
                 nova_cor = vals[2] if len(vals) > 2 else ""
                 novo_texto_visivel = vals[3] if len(vals) > 3 else ""
+                novo_tam_fonte = dialogo.obter_tamanho_fonte()
 
                 estado_inicial = copy.deepcopy(self.obter_dict_atualizado())
                 self.pt_dict["uid"] = novo_id
@@ -457,6 +526,10 @@ class BaseItemPOI:
                     self.pt_dict["texto_visivel"] = novo_texto_visivel
                 elif "texto_visivel" in self.pt_dict:
                     del self.pt_dict["texto_visivel"]
+                if novo_tam_fonte > 0:
+                    self.pt_dict["tamanho_fonte"] = novo_tam_fonte
+                else:
+                    self.pt_dict.pop("tamanho_fonte", None)
 
                 self.atualizar_estilo_visual()
                 self.atualizar_texto_exibicao()
@@ -498,6 +571,10 @@ class ItemBoundingRetangulo(QGraphicsRectItem, BaseItemPOI):
 
     def atualizar_posicao_texto(self) -> None:
         rect = self.rect()
+        if "retangulo" in self.pt_dict and rect.width() > 0 and rect.height() > 0:
+            self.pt_dict["retangulo"]["comprimento"] = int(round(rect.width()))
+            self.pt_dict["retangulo"]["largura"] = int(round(rect.height()))
+        self.atualizar_fonte_texto()
         rect_t = self.item_texto.boundingRect()
         self.item_texto.setPos(
             rect.center().x() - rect_t.width() / 2, rect.center().y() - rect_t.height() / 2
@@ -507,6 +584,10 @@ class ItemBoundingRetangulo(QGraphicsRectItem, BaseItemPOI):
         self.inicializando = True
         if "cor" not in pt_dict:
             self.pt_dict.pop("cor", None)
+        if "tamanho_fonte" not in pt_dict:
+            self.pt_dict.pop("tamanho_fonte", None)
+        if "texto_visivel" not in pt_dict:
+            self.pt_dict.pop("texto_visivel", None)
         self.pt_dict.update(pt_dict)
         box = self.pt_dict["retangulo"]
         w, h = box["comprimento"], box["largura"]
@@ -654,6 +735,9 @@ class ItemBoundingQuadrado(QGraphicsRectItem, BaseItemPOI):
 
     def atualizar_posicao_texto(self) -> None:
         rect = self.rect()
+        if "quadrado" in self.pt_dict and rect.width() > 0:
+            self.pt_dict["quadrado"]["lado"] = int(round(rect.width()))
+        self.atualizar_fonte_texto()
         rect_t = self.item_texto.boundingRect()
         self.item_texto.setPos(
             rect.center().x() - rect_t.width() / 2, rect.center().y() - rect_t.height() / 2
@@ -663,6 +747,10 @@ class ItemBoundingQuadrado(QGraphicsRectItem, BaseItemPOI):
         self.inicializando = True
         if "cor" not in pt_dict:
             self.pt_dict.pop("cor", None)
+        if "tamanho_fonte" not in pt_dict:
+            self.pt_dict.pop("tamanho_fonte", None)
+        if "texto_visivel" not in pt_dict:
+            self.pt_dict.pop("texto_visivel", None)
         self.pt_dict.update(pt_dict)
         box = self.pt_dict["quadrado"]
         lado = box["lado"]
@@ -721,6 +809,7 @@ class ItemBoundingQuadrado(QGraphicsRectItem, BaseItemPOI):
             novo_centro = self.rect().center()
             self.setTransformOriginPoint(novo_centro)
             self.setPos(self.centro_cena_inicio_redim - novo_centro)
+            self.atualizar_posicao_texto()
             evento.accept()
         else:
             super().mouseMoveEvent(evento)
@@ -775,6 +864,10 @@ class ItemBoundingCirculo(QGraphicsEllipseItem, BaseItemPOI):
         self.inicializando = False
 
     def atualizar_posicao_texto(self) -> None:
+        rect = self.rect()
+        if "circulo" in self.pt_dict and rect.width() > 0:
+            self.pt_dict["circulo"]["raio"] = int(round(rect.width() / 2))
+        self.atualizar_fonte_texto()
         rect_t = self.item_texto.boundingRect()
         self.item_texto.setPos(-rect_t.width() / 2, -rect_t.height() / 2)
 
@@ -782,6 +875,10 @@ class ItemBoundingCirculo(QGraphicsEllipseItem, BaseItemPOI):
         self.inicializando = True
         if "cor" not in pt_dict:
             self.pt_dict.pop("cor", None)
+        if "tamanho_fonte" not in pt_dict:
+            self.pt_dict.pop("tamanho_fonte", None)
+        if "texto_visivel" not in pt_dict:
+            self.pt_dict.pop("texto_visivel", None)
         self.pt_dict.update(pt_dict)
         circ = self.pt_dict["circulo"]
         r = circ["raio"]
@@ -3546,6 +3643,9 @@ class WidgetEditorMapas(QWidget):
             )
             if novo_texto_visivel:
                 novo_poi.texto_visivel = novo_texto_visivel
+            novo_tam_fonte = dialogo.obter_tamanho_fonte()
+            if novo_tam_fonte > 0:
+                novo_poi.tamanho_fonte = novo_tam_fonte
 
             if tipo == "circulo":
                 novo_poi.circulo.x = int(cx)

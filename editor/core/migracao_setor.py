@@ -18,13 +18,19 @@ TIPOS_VALIDOS_REORDENACAO: set[str] = {
 }
 
 
-def validar_movimento_permitido(origem_tipo: str, destino_tipo: str, eh_sobre_item: bool) -> bool:
+def validar_movimento_permitido(
+    origem_tipo: str,
+    destino_tipo: str,
+    eh_sobre_item: bool,
+    campo_destino: str = "",
+) -> bool:
     """Verifica se o movimento de arrastar e soltar é compatível com o schema Protobuf.
 
     Args:
-        origem_tipo: Tipo do nó arrastado ("setor", "grupo", "botao", "pico", etc.).
-        destino_tipo: Tipo do nó alvo ("setor", "grupo", "botao", "pico", "no_adicao", etc.).
+        origem_tipo: Tipo do nó arrastado ("setor", "grupo", "botao", "pico", "escalada", etc.).
+        destino_tipo: Tipo do nó alvo ("setor", "grupo", "botao", "pico", "no_adicao", "expando", etc.).
         eh_sobre_item: Se a soltura ocorre diretamente sobre o item (True) ou entre itens (False).
+        campo_destino: Nome opcional do campo repeated associado ao nó de destino (ex: "escaladas").
 
     Returns:
         True se o movimento for permitido; False caso contrário.
@@ -32,15 +38,29 @@ def validar_movimento_permitido(origem_tipo: str, destino_tipo: str, eh_sobre_it
     if origem_tipo in ("no_adicao", "expando") or origem_tipo not in TIPOS_VALIDOS_REORDENACAO:
         return False
 
+    tipos_setor = {"setor", "arquivosetor"}
+    tipos_grupo = {"grupo", "arquivogrupo"}
+
     if destino_tipo == "no_adicao":
-        # Permite soltar entre itens antes do botão de adição para mover ao final da lista
-        return not eh_sobre_item
+        if eh_sobre_item:
+            return False
+        if campo_destino:
+            if origem_tipo == "escalada":
+                return campo_destino == "escaladas"
+            if origem_tipo in tipos_setor:
+                return campo_destino in ("setores", "setores_ou_grupos")
+        return True
+
+    if destino_tipo == "expando":
+        return bool(
+            eh_sobre_item and origem_tipo == "escalada" and campo_destino in ("", "escaladas")
+        )
 
     if destino_tipo not in TIPOS_VALIDOS_REORDENACAO:
         return False
 
-    tipos_setor = {"setor", "arquivosetor"}
-    tipos_grupo = {"grupo", "arquivogrupo"}
+    if origem_tipo == "escalada" and destino_tipo in tipos_setor:
+        return eh_sobre_item
 
     if origem_tipo in tipos_setor:
         if destino_tipo in tipos_setor:

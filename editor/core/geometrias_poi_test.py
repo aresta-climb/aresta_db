@@ -6,6 +6,7 @@ import unittest
 from aresta_api.proto.generated import croqui_pb2
 from editor.core.geometrias_poi import (
     GeometriaPOI,
+    calcular_tamanho_fonte_poi,
     redimensionar_pois_proporcionalmente,
 )
 
@@ -180,6 +181,77 @@ class GeometriasPOITest(unittest.TestCase):
         invalido = redimensionar_pois_proporcionalmente([poi], 0, 800, 1000, 800)
         self.assertEqual(invalido[0].circulo.x, 100)
         self.assertEqual(invalido[0].circulo.y, 200)
+
+    def test_calcular_tamanho_fonte_poi_manual_sobrescreve_automatico(self):
+        pt_manual = {
+            "texto_visivel": "132",
+            "tamanho_fonte": 24,
+            "retangulo": {"x": 10, "y": 20, "comprimento": 14, "largura": 10},
+        }
+        self.assertEqual(calcular_tamanho_fonte_poi(pt_manual), 24)
+
+    def test_calcular_tamanho_fonte_poi_automatico_por_geometria_e_comprimento_texto(self):
+        ret_pequeno = {
+            "texto_visivel": "132",
+            "retangulo": {"x": 10, "y": 20, "comprimento": 14, "largura": 10},
+        }
+        ret_grande = {
+            "texto_visivel": "132",
+            "retangulo": {"x": 10, "y": 20, "comprimento": 60, "largura": 40},
+        }
+        self.assertLess(
+            calcular_tamanho_fonte_poi(ret_pequeno),
+            calcular_tamanho_fonte_poi(ret_grande),
+        )
+        self.assertEqual(calcular_tamanho_fonte_poi(ret_pequeno), 6)
+        self.assertEqual(calcular_tamanho_fonte_poi(ret_grande), 26)
+
+        circulo_pequeno = {"texto_visivel": "99", "circulo": {"x": 0, "y": 0, "raio": 8}}
+        circulo_grande = {"texto_visivel": "99", "circulo": {"x": 0, "y": 0, "raio": 20}}
+        self.assertLess(
+            calcular_tamanho_fonte_poi(circulo_pequeno),
+            calcular_tamanho_fonte_poi(circulo_grande),
+        )
+
+        quadrado_pequeno = {"texto_visivel": "88", "quadrado": {"x": 0, "y": 0, "lado": 14}}
+        quadrado_grande = {"texto_visivel": "88", "quadrado": {"x": 0, "y": 0, "lado": 40}}
+        self.assertLess(
+            calcular_tamanho_fonte_poi(quadrado_pequeno),
+            calcular_tamanho_fonte_poi(quadrado_grande),
+        )
+
+        poligono = {"texto_visivel": "Setor A", "poligono": {"coordenadas": [0, 0, 50, 0, 50, 50]}}
+        self.assertEqual(calcular_tamanho_fonte_poi(poligono), 12)
+
+    def test_redimensionar_pois_proporcionalmente_escala_tamanho_fonte_e_raio_no(self):
+        poi_ret = croqui_pb2.Mapa.PontoDeInteresse(
+            uid="r1",
+            texto_visivel="132",
+            tamanho_fonte=10,
+        )
+        poi_ret.retangulo.x = 50
+        poi_ret.retangulo.y = 50
+        poi_ret.retangulo.comprimento = 20
+        poi_ret.retangulo.largura = 15
+
+        poi_linha = croqui_pb2.Mapa.PontoDeInteresse(uid="l1")
+        no = poi_linha.linha.conteudo.nos.add()
+        no.x = 100
+        no.y = 100
+        no.tamanho_fonte = 12
+        no.raio = 14
+
+        resultado = redimensionar_pois_proporcionalmente(
+            [poi_ret, poi_linha],
+            largura_antiga=1000,
+            altura_antiga=1000,
+            largura_nova=2000,
+            altura_nova=2000,
+        )
+        self.assertEqual(resultado[0].tamanho_fonte, 20)
+        self.assertEqual(resultado[1].linha.conteudo.nos[0].tamanho_fonte, 24)
+        self.assertEqual(resultado[1].linha.conteudo.nos[0].raio, 28)
+
 
 
 if __name__ == "__main__":

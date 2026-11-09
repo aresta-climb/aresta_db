@@ -673,6 +673,8 @@ def test_tree_view_adapter_drag_drop_flags_e_mime():
     pico = croqui.picos.add(nome="Pico 1")
     sg_setor = pico.setores_ou_grupos.add()
     sg_setor.setor.conteudo.nome = "Setor A"
+    esc_a = sg_setor.setor.conteudo.escaladas.add()
+    esc_a.via_esportiva.nome = "Via 1"
     sg_grupo = pico.setores_ou_grupos.add()
     sg_grupo.grupo.conteudo.nome = "Grupo G"
 
@@ -693,11 +695,18 @@ def test_tree_view_adapter_drag_drop_flags_e_mime():
     idx_setor = adapter.index(0, 0, idx_sog_exp)  # Setor A
     idx_grupo = adapter.index(1, 0, idx_sog_exp)  # Grupo G
     idx_add = adapter.index(2, 0, idx_sog_exp)  # + Adicionar Setor ou Grupo
+    idx_esc_exp = adapter.index(0, 0, idx_setor)  # Expando Escaladas
+    idx_escalada = adapter.index(0, 0, idx_esc_exp)  # Via 1
 
-    # 3. Flags do Setor: ItemIsDragEnabled e não ItemIsDropEnabled (nó folha)
+    # 3. Flags do Setor: ItemIsDragEnabled e ItemIsDropEnabled (aceita escaladas)
     flags_setor = adapter.flags(idx_setor)
     assert bool(flags_setor & Qt.ItemFlag.ItemIsDragEnabled)
-    assert not bool(flags_setor & Qt.ItemFlag.ItemIsDropEnabled)
+    assert bool(flags_setor & Qt.ItemFlag.ItemIsDropEnabled)
+
+    # 3b. Flags da Escalada: ItemIsDragEnabled e não ItemIsDropEnabled (nó folha)
+    flags_esc = adapter.flags(idx_escalada)
+    assert bool(flags_esc & Qt.ItemFlag.ItemIsDragEnabled)
+    assert not bool(flags_esc & Qt.ItemFlag.ItemIsDropEnabled)
 
     # 4. Flags do Grupo: ItemIsDragEnabled e ItemIsDropEnabled
     flags_grupo = adapter.flags(idx_grupo)

@@ -3402,7 +3402,19 @@ class ArvoreDadosTreeView(QTreeView):
         else:
             tipo_destino = "expando"
 
-        if validar_movimento_permitido(tipo_origem, tipo_destino, eh_sobre):
+        campo_dest = ""
+        if getattr(node_destino, "is_expando", False) and getattr(node_destino, "descriptor", None):
+            campo_dest = node_destino.descriptor.name
+        elif (
+            getattr(node_destino, "parent_node", None)
+            and getattr(node_destino.parent_node, "is_expando", False)
+            and getattr(node_destino.parent_node, "descriptor", None)
+        ):
+            campo_dest = node_destino.parent_node.descriptor.name
+
+        if validar_movimento_permitido(
+            tipo_origem, tipo_destino, eh_sobre, campo_destino=campo_dest
+        ):
             event.setDropAction(Qt.DropAction.MoveAction)
             event.accept()
         else:
@@ -4325,7 +4337,19 @@ class WidgetEditorDados(QWidget):
             verificar_colisao_nome_arquivo,
         )
 
-        if not validar_movimento_permitido(origem_tipo, destino_tipo, eh_sobre_item):
+        campo_dest_val = ""
+        if getattr(node_destino, "is_expando", False) and getattr(node_destino, "descriptor", None):
+            campo_dest_val = node_destino.descriptor.name
+        elif (
+            getattr(node_destino, "parent_node", None)
+            and getattr(node_destino.parent_node, "is_expando", False)
+            and getattr(node_destino.parent_node, "descriptor", None)
+        ):
+            campo_dest_val = node_destino.parent_node.descriptor.name
+
+        if not validar_movimento_permitido(
+            origem_tipo, destino_tipo, eh_sobre_item, campo_destino=campo_dest_val
+        ):
             return False
 
         # Extrai pai e coleção de origem
@@ -4340,12 +4364,7 @@ class WidgetEditorDados(QWidget):
         indice_origem = node_origem.row()
 
         # Extrai pai e coleção de destino
-        if eh_sobre_item:
-            # Soltura diretamente sobre grupo
-            pai_destino = node_destino._resolve_transparency(node_destino.message)
-            campo_destino = "setores"
-            indice_destino = len(getattr(pai_destino, campo_destino))
-        elif getattr(node_destino, "is_expando", False):
+        if getattr(node_destino, "is_expando", False):
             exp_destino = node_destino
             if not exp_destino or not exp_destino.descriptor:
                 return False
@@ -4354,6 +4373,15 @@ class WidgetEditorDados(QWidget):
             if not ancestor_destino or ancestor_destino.message is None:
                 return False
             pai_destino = ancestor_destino._resolve_transparency(ancestor_destino.message)
+            target_row = len(getattr(pai_destino, campo_destino))
+            if _get_id(pai_origem) == _get_id(pai_destino) and campo_origem == campo_destino:
+                indice_destino = target_row - 1 if indice_origem < target_row else target_row
+            else:
+                indice_destino = target_row
+        elif eh_sobre_item:
+            # Soltura diretamente sobre grupo (para setor) ou sobre setor (para escalada)
+            pai_destino = node_destino._resolve_transparency(node_destino.message)
+            campo_destino = "escaladas" if origem_tipo == "escalada" else "setores"
             target_row = len(getattr(pai_destino, campo_destino))
             if _get_id(pai_origem) == _get_id(pai_destino) and campo_origem == campo_destino:
                 indice_destino = target_row - 1 if indice_origem < target_row else target_row
@@ -4413,7 +4441,31 @@ class WidgetEditorDados(QWidget):
                 self.tree_view.setCurrentIndex(idx_novo)
             return True
 
-        # Caso 2: Migração hierárquica (apenas setores)
+        # Caso 2: Migração de escalada entre setores
+        if origem_tipo == "escalada":
+            if campo_destino != "escaladas":
+                return False
+            self._descartar_cache_recursivo(node_origem)
+            idx_final = self.controller.migrar_escalada(
+                setor_origem=pai_origem,
+                indice_origem=indice_origem,
+                setor_destino=pai_destino,
+                indice_destino=indice_destino,
+            )
+            idx_setor_destino = self.tree_model.find_index_for_message_id(_get_id(pai_destino))
+            if idx_setor_destino.isValid():
+                self.tree_model.rowCount(idx_setor_destino)
+                self.tree_view.expand(idx_setor_destino)
+            idx_exp_esc = self.tree_model.find_expando_index(_get_id(pai_destino), "escaladas")
+            if idx_exp_esc.isValid():
+                self.tree_model.rowCount(idx_exp_esc)
+                self.tree_view.expand(idx_exp_esc)
+                idx_esc_nova = self.tree_model.index(idx_final, 0, idx_exp_esc)
+                if idx_esc_nova.isValid():
+                    self.tree_view.setCurrentIndex(idx_esc_nova)
+            return True
+
+        # Caso 3: Migração hierárquica de setores
         if origem_tipo != "setor":
             return False
 

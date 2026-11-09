@@ -312,7 +312,7 @@ class ProtobufTreeViewAdapter(QAbstractItemModel):
             resolved = node._resolve_transparency(node.message)
             if resolved is not None and hasattr(resolved, "DESCRIPTOR"):
                 tipo = resolved.DESCRIPTOR.name
-                if tipo in ("Grupo", "ArquivoGrupo"):
+                if tipo in ("Grupo", "ArquivoGrupo", "Setor", "ArquivoSetor"):
                     return padrao | Qt.ItemFlag.ItemIsDragEnabled | Qt.ItemFlag.ItemIsDropEnabled
                 if node.parent_node and getattr(node.parent_node, "is_expando", False):
                     return padrao | Qt.ItemFlag.ItemIsDragEnabled

@@ -136,3 +136,48 @@ def test_validar_movimento_permitido_tipos_desconhecidos():
 def test_calcular_novo_caminho_setor_nome_vazio():
     """Quando o nome do setor for vazio ou sem caracteres alfanuméricos."""
     assert calcular_novo_caminho_setor("invalido", "", nome_grupo_destino=None) == "setor.md"
+
+
+def test_validar_movimento_permitido_escaladas_entre_itens_e_no_adicao():
+    """Escalada pode ser solta entre escaladas ou antes de + Adicionar Escalada, mas não em outras listas."""
+    assert validar_movimento_permitido("escalada", "escalada", eh_sobre_item=False) is True
+    assert validar_movimento_permitido("escalada", "escalada", eh_sobre_item=True) is False
+    assert (
+        validar_movimento_permitido(
+            "escalada", "no_adicao", eh_sobre_item=False, campo_destino="escaladas"
+        )
+        is True
+    )
+    assert (
+        validar_movimento_permitido(
+            "escalada", "no_adicao", eh_sobre_item=False, campo_destino="setores"
+        )
+        is False
+    )
+    assert (
+        validar_movimento_permitido(
+            "setor", "no_adicao", eh_sobre_item=False, campo_destino="escaladas"
+        )
+        is False
+    )
+
+
+def test_validar_movimento_permitido_escalada_sobre_setor_e_expando():
+    """Escalada pode ser solta sobre Setor/ArquivoSetor ou sobre o agrupador Escaladas, mas não sobre Grupo ou entre Setores."""
+    assert validar_movimento_permitido("escalada", "setor", eh_sobre_item=True) is True
+    assert validar_movimento_permitido("escalada", "arquivosetor", eh_sobre_item=True) is True
+    assert validar_movimento_permitido("escalada", "setor", eh_sobre_item=False) is False
+    assert (
+        validar_movimento_permitido(
+            "escalada", "expando", eh_sobre_item=True, campo_destino="escaladas"
+        )
+        is True
+    )
+    assert (
+        validar_movimento_permitido(
+            "escalada", "expando", eh_sobre_item=True, campo_destino="botoes"
+        )
+        is False
+    )
+    assert validar_movimento_permitido("escalada", "grupo", eh_sobre_item=True) is False
+    assert validar_movimento_permitido("escalada", "grupo", eh_sobre_item=False) is False

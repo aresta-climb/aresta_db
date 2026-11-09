@@ -162,6 +162,39 @@ class GeometriaPOI:
         return []
 
 
+def calcular_tamanho_fonte_poi(pt_dict: dict[str, Any]) -> int:
+    """
+    Calcula o tamanho da fonte (em pontos/pixels) para o `texto_visivel` de um POI.
+
+    Se `tamanho_fonte` for positivo (> 0), retorna o valor explícito configurado.
+    Caso contrário (0 ou ausente), calcula automaticamente o tamanho proporcional
+    às dimensões da geometria (`circulo`, `quadrado` ou `retangulo`) e ao comprimento
+    do texto, mantendo padrão 12 para geometrias abertas (`poligono`, `linha`).
+    """
+    tam_manual = int(pt_dict.get("tamanho_fonte", 0) or 0)
+    if tam_manual > 0:
+        return tam_manual
+
+    texto = str(pt_dict.get("texto_visivel") or "")
+    n = max(1, len(texto))
+
+    if "circulo" in pt_dict:
+        diametro = 2.0 * max(1.0, float(pt_dict["circulo"].get("raio", 12)))
+        dim_h, dim_v = diametro, diametro
+    elif "quadrado" in pt_dict:
+        lado = max(1.0, float(pt_dict["quadrado"].get("lado", 24)))
+        dim_h, dim_v = lado, lado
+    elif "retangulo" in pt_dict:
+        dim_h = max(1.0, float(pt_dict["retangulo"].get("comprimento", 20)))
+        dim_v = max(1.0, float(pt_dict["retangulo"].get("largura", 20)))
+    else:
+        return 12
+
+    lim_v = dim_v * 0.65
+    lim_h = dim_h / (0.65 * n)
+    return max(4, min(72, round(min(lim_v, lim_h))))
+
+
 def redimensionar_pois_proporcionalmente(
     pontos_de_interesse: Iterable[croqui_pb2.Mapa.PontoDeInteresse],
     largura_antiga: int,
@@ -196,6 +229,8 @@ def redimensionar_pois_proporcionalmente(
     s_iso = math.sqrt(sx * sy)
 
     for poi_novo in copias:
+        if poi_novo.tamanho_fonte > 0:
+            poi_novo.tamanho_fonte = max(1, round(poi_novo.tamanho_fonte * s_iso))
         tipo = poi_novo.WhichOneof("tipo_area")
         if tipo == "circulo":
             poi_novo.circulo.x = round(poi_novo.circulo.x * sx)
@@ -222,5 +257,9 @@ def redimensionar_pois_proporcionalmente(
             for no in poi_novo.linha.conteudo.nos:
                 no.x = round(no.x * sx)
                 no.y = round(no.y * sy)
+                if no.tamanho_fonte > 0:
+                    no.tamanho_fonte = max(1, round(no.tamanho_fonte * s_iso))
+                if no.raio > 0:
+                    no.raio = max(1, round(no.raio * s_iso))
 
     return copias

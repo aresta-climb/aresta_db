@@ -4465,10 +4465,10 @@ def test_arvore_flags_itens_e_expandos(qapp):
     assert exp_sg.isValid()
     assert bool(adapter.flags(exp_sg) & Qt.ItemFlag.ItemIsDropEnabled) is True
 
-    # 5. Item Setor: pode ser arrastado, mas NÃO aceita drop direto (folha)
+    # 5. Item Setor: pode ser arrastado E aceita drop direto (container de escaladas)
     idx_setor = adapter.index(0, 0, exp_sg)
     assert bool(adapter.flags(idx_setor) & Qt.ItemFlag.ItemIsDragEnabled) is True
-    assert bool(adapter.flags(idx_setor) & Qt.ItemFlag.ItemIsDropEnabled) is False
+    assert bool(adapter.flags(idx_setor) & Qt.ItemFlag.ItemIsDropEnabled) is True
 
     # 6. Item Grupo: pode ser arrastado E aceita drop direto (container)
     idx_grupo = adapter.index(1, 0, exp_sg)
@@ -6222,3 +6222,112 @@ def test_formulario_escalada_exibe_secao_betas_adicao_manual_e_navegacao_revisao
     assert btn_revisao is not None
     btn_revisao.click()
     assert focos_emitidos == ["page:betas/esc_beta_1"]
+
+
+def test_migrar_escalada_entre_setores_via_drag_and_drop_arvore(qapp):
+    """
+    Valida que arrastar uma Escalada de um Setor para outro na árvore:
+    1. Entre escaladas do setor destino (AboveItem / BelowItem)
+    2. Sobre o agrupador 'Escaladas' do setor destino (OnItem)
+    3. Diretamente sobre o nó do Setor destino (OnItem)
+    transfere a escalada preservando o uid, seleciona o item migrado e suporta Undo/Redo.
+    """
+    from PySide6.QtGui import QUndoStack
+    from PySide6.QtWidgets import QAbstractItemView
+
+    from aresta_api.proto.generated.croqui_pb2 import Croqui
+    from editor.controllers.croqui_controller import CroquiController
+    from editor.models.croqui_model import CroquiModel
+    from editor.views.widget_editor_dados import WidgetEditorDados, _get_id
+
+    croqui = Croqui(id="teste_migrar_esc", nome="Croqui Migração Escalada")
+    pico = croqui.picos.add(nome="Pico 1")
+
+    setor_vale = pico.setores_ou_grupos.add().setor.conteudo
+    setor_vale.uid = "setor_vale_verde"
+    setor_vale.nome = "Setor Vale Verde"
+    e1 = setor_vale.escaladas.add(uid="esc_impossiveis")
+    e1.via_esportiva.nome = "Os Impossíveis"
+    e2 = setor_vale.escaladas.add(uid="esc_meio_cubanos")
+    e2.via_movel.nome = "Meio Cubanos"
+
+    setor_tunel = pico.setores_ou_grupos.add().setor.conteudo
+    setor_tunel.uid = "setor_tunel_pedra"
+    setor_tunel.nome = "Setor Túnel de Pedra"
+    t1 = setor_tunel.escaladas.add(uid="esc_bigode_cristo")
+    t1.via_esportiva.nome = "Bigode de Cristo"
+    t2 = setor_tunel.escaladas.add(uid="esc_bigode_sujo")
+    t2.via_esportiva.nome = "Bigode Sujo"
+
+    pilha = QUndoStack()
+    model = CroquiModel(croqui)
+    controller = CroquiController(model, pilha)
+    widget = WidgetEditorDados(model, controller)
+    widget.show()
+    widget.expandir_arvore_ate_alvos()
+    qapp.processEvents()
+
+    # Localiza os nós na árvore
+    idx_setor_vale = widget.tree_model.find_index_for_message_id(_get_id(setor_vale))
+    idx_setor_tunel = widget.tree_model.find_index_for_message_id(_get_id(setor_tunel))
+    widget.tree_view.expand(idx_setor_vale)
+    widget.tree_view.expand(idx_setor_tunel)
+
+    idx_exp_vale = widget.tree_model.find_expando_index(_get_id(setor_vale), "escaladas")
+    idx_exp_tunel = widget.tree_model.find_expando_index(_get_id(setor_tunel), "escaladas")
+    widget.tree_view.expand(idx_exp_vale)
+    widget.tree_view.expand(idx_exp_tunel)
+    qapp.processEvents()
+
+    # 1. Solta "Meio Cubanos" (índice 1 do Vale Verde) entre "Bigode de Cristo" (0) e "Bigode Sujo" (1)
+    idx_meio_cubanos = widget.tree_model.index(1, 0, idx_exp_vale)
+    idx_bigode_sujo = widget.tree_model.index(1, 0, idx_exp_tunel)
+
+    sucesso = widget._executar_soltura_arvore(
+        idx_meio_cubanos,
+        idx_bigode_sujo,
+        QAbstractItemView.DropIndicatorPosition.AboveItem,
+    )
+    assert sucesso is True
+    assert [e.uid for e in setor_vale.escaladas] == ["esc_impossiveis"]
+    assert [e.uid for e in setor_tunel.escaladas] == [
+        "esc_bigode_cristo",
+        "esc_meio_cubanos",
+        "esc_bigode_sujo",
+    ]
+    assert widget.tree_model.data(widget.tree_view.currentIndex()) == "Meio Cubanos"
+
+    # Undo restaura "Meio Cubanos" para o Vale Verde
+    pilha.undo()
+    assert [e.uid for e in setor_vale.escaladas] == ["esc_impossiveis", "esc_meio_cubanos"]
+    assert [e.uid for e in setor_tunel.escaladas] == ["esc_bigode_cristo", "esc_bigode_sujo"]
+
+    # 2. Solta "Meio Cubanos" diretamente sobre o nó do Setor Túnel de Pedra (OnItem)
+    idx_meio_cubanos = widget.tree_model.index(1, 0, idx_exp_vale)
+    idx_setor_tunel = widget.tree_model.find_index_for_message_id(_get_id(setor_tunel))
+    sucesso_sobre_setor = widget._executar_soltura_arvore(
+        idx_meio_cubanos,
+        idx_setor_tunel,
+        QAbstractItemView.DropIndicatorPosition.OnItem,
+    )
+    assert sucesso_sobre_setor is True
+    assert [e.uid for e in setor_vale.escaladas] == ["esc_impossiveis"]
+    assert [e.uid for e in setor_tunel.escaladas] == [
+        "esc_bigode_cristo",
+        "esc_bigode_sujo",
+        "esc_meio_cubanos",
+    ]
+    assert widget.tree_model.data(widget.tree_view.currentIndex()) == "Meio Cubanos"
+
+    # 3. Solta "Meio Cubanos" de volta sobre o agrupador 'Escaladas' do Setor Vale Verde (OnItem)
+    idx_exp_tunel = widget.tree_model.find_expando_index(_get_id(setor_tunel), "escaladas")
+    idx_meio_cubanos_tunel = widget.tree_model.index(2, 0, idx_exp_tunel)
+    idx_exp_vale = widget.tree_model.find_expando_index(_get_id(setor_vale), "escaladas")
+    sucesso_sobre_expando = widget._executar_soltura_arvore(
+        idx_meio_cubanos_tunel,
+        idx_exp_vale,
+        QAbstractItemView.DropIndicatorPosition.OnItem,
+    )
+    assert sucesso_sobre_expando is True
+    assert [e.uid for e in setor_vale.escaladas] == ["esc_impossiveis", "esc_meio_cubanos"]
+    assert [e.uid for e in setor_tunel.escaladas] == ["esc_bigode_cristo", "esc_bigode_sujo"]
