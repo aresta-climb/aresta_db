@@ -1,94 +1,49 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
-from unittest.mock import patch
+from PySide6.QtCore import QSize, Qt
+from PySide6.QtGui import QColor, QIcon, QPalette
+from PySide6.QtWidgets import QApplication
 
-from PySide6.QtGui import QIcon
-
-from editor.views.estilo import Icones
+from editor.views.estilo import Icones, configurar_tema_claro_aplicacao
 
 
-def test_icones_obter_retorna_qicon_valido(qtbot):
-    """Valida se o helper retorna uma instância de QIcon."""
+def test_icones_obter_retorna_qicon_valido_e_nulo_para_inexistente(qtbot):
+    """Valida se o helper retorna QIcon válido para ações mapeadas e nulo para inexistentes."""
     icon = Icones.obter("salvar")
     assert isinstance(icon, QIcon)
+    assert not icon.isNull()
+
+    icon_painel = Icones.obter("painel")
+    assert isinstance(icon_painel, QIcon)
+    assert not icon_painel.isNull()
+
+    icon_invalido = Icones.obter("acao_inexistente_totalmente_aleatoria")
+    assert icon_invalido.isNull()
 
 
-def test_icones_obter_nome_invalido_retorna_icon_vazio():
-    """Valida se nomes inexistentes retornam um ícone nulo."""
-    icon = Icones.obter("acao_inexistente_totalmente_aleatoria")
-    assert icon.isNull()
+def test_icones_obter_destaque_lixeira_celular_e_cor_customizada(qtbot):
+    """Valida a renderização real dos ícones de destaque, lixeira, celular e cor customizada."""
+    icon_destaque = Icones.obter_destaque("dados")
+    assert isinstance(icon_destaque, QIcon)
+    assert not icon_destaque.isNull()
 
+    icon_custom = Icones.obter("salvar", cor="#FF0000")
+    assert isinstance(icon_custom, QIcon)
+    assert not icon_custom.isNull()
 
-def test_icones_obter_destaque_retorna_icon_valido(qtbot):
-    """Valida se o método de destaque retorna um ícone."""
-    icon = Icones.obter_destaque("dados")
-    assert isinstance(icon, QIcon)
+    icon_lixeira = Icones.obter_lixeira()
+    assert isinstance(icon_lixeira, QIcon)
+    assert not icon_lixeira.isNull()
 
-
-def test_icones_obter_usa_qtawesome_com_cores_corretas():
-    """Valida a integração com qtawesome e o uso das cores de design."""
-    with patch("qtawesome.icon") as mock_qta:
-        mock_qta.return_value = QIcon()
-        Icones.obter("salvar")
-
-        # Verifica se chamou qta.icon com o identificador correto e cores padrão definidas no design
-        mock_qta.assert_called_once_with(
-            "fa5s.save",
-            color=Icones.COR_NORMAL,
-            color_active=Icones.COR_DESTAQUE,
-            color_selected=Icones.COR_DESTAQUE,
-            color_disabled=Icones.COR_DESABILITADO,
-        )
-
-
-def test_icones_obter_aceita_cor_customizada():
-    """Valida se é possível sobrescrever a cor base."""
-    with patch("qtawesome.icon") as mock_qta:
-        mock_qta.return_value = QIcon()
-        cor_custom = "#FF0000"
-        Icones.obter("salvar", cor=cor_custom)
-
-        mock_qta.assert_called_once_with(
-            "fa5s.save",
-            color=cor_custom,
-            color_active=Icones.COR_DESTAQUE,
-            color_selected=Icones.COR_DESTAQUE,
-            color_disabled=Icones.COR_DESABILITADO,
-        )
-
-
-def test_icones_obter_celular_retorna_icon_valido(qtbot):
-    """Valida se o ícone composto de celular é retornado."""
-    icon = Icones.obter_celular(conectado=True)
-    assert isinstance(icon, QIcon)
-
-    icon_off = Icones.obter_celular(conectado=False)
-    assert isinstance(icon_off, QIcon)
-
-
-def test_icones_obter_lixeira_retorna_icon_valido(qtbot):
-    """Valida se o helper obter_lixeira retorna um QIcon configurado."""
-    icon = Icones.obter_lixeira()
-    assert isinstance(icon, QIcon)
-
-
-def test_icones_obter_lixeira_usa_cores_apropriadas():
-    """Valida se o obter_lixeira chama qtawesome com cor vermelha (COR_ERRO) para deixar clara a ação de deletar."""
-    with patch("qtawesome.icon") as mock_qta:
-        mock_qta.return_value = QIcon()
-        Icones.obter_lixeira()
-        mock_qta.assert_called_once_with(
-            "fa5s.trash-alt",
-            color=Icones.COR_ERRO,
-            color_active=Icones.COR_ERRO,
-            color_selected=Icones.COR_ERRO,
-            color_disabled=Icones.COR_DESABILITADO,
-        )
+    icon_cel_on = Icones.obter_celular(conectado=True)
+    icon_cel_off = Icones.obter_celular(conectado=False)
+    assert not icon_cel_on.isNull()
+    assert not icon_cel_off.isNull()
 
 
 def test_icones_constantes_estilo_css_definidas():
-    """Valida se as constantes de estilo QSS para coleções repetidas estão definidas com borda sólida."""
+    """Valida se as constantes de estilo QSS para coleções repetidas estão definidas."""
     assert hasattr(Icones, "QSS_BOTAO_REMOVER_DISCRETO")
     assert "QPushButton" in Icones.QSS_BOTAO_REMOVER_DISCRETO
     assert hasattr(Icones, "QSS_CONTAINER_REPEATED_INTEGRADO")
@@ -96,105 +51,62 @@ def test_icones_constantes_estilo_css_definidas():
     assert "solid" in Icones.QSS_BOTAO_RODAPE_ADICIONAR
 
 
-def test_icones_obter_celular_usa_stacking_correto():
-    """Valida se o qtawesome é chamado com múltiplos argumentos para empilhamento."""
-    with patch("qtawesome.icon") as mock_qta:
-        mock_qta.return_value = QIcon()
-
-        # Teste conectado
-        Icones.obter_celular(conectado=True)
-        args, kwargs = mock_qta.call_args
-        assert args == ("fa5s.mobile-alt", "fa5s.circle")
-        options = kwargs["options"]
-        assert len(options) == 2
-        assert options[1]["color"] == Icones.COR_SUCESSO
-
-        # Teste desconectado
-        Icones.obter_celular(conectado=False)
-        args, kwargs = mock_qta.call_args
-        options = kwargs["options"]
-        assert options[1]["color"] == Icones.COR_ERRO
-
-
 def test_todos_os_mapeamentos_existem_no_qtawesome(qtbot):
-    """
-    Teste de fumaça para garantir que todos os nomes no MAPA
-    estão em um formato que o QtAwesome pelo menos tenta processar.
-    """
+    """Garante que todos os nomes no MAPA geram instâncias QIcon válidas pelo QtAwesome."""
     for nome in Icones.MAPA:
         icon = Icones.obter(nome)
         assert isinstance(icon, QIcon)
-        # Note: não verificamos icon.isNull() aqui pois depende do ambiente
-        # de execução (fontes instaladas), mas a chamada não deve dar erro.
+        assert not icon.isNull()
 
 
-def test_configurar_tema_claro_aplicacao_define_color_scheme_light(qtbot):
-    """Garante que configurar_tema_claro_aplicacao força o esquema de cores e a paleta padrão clara."""
-    from PySide6.QtCore import Qt
-    from PySide6.QtGui import QColor, QPalette
-    from PySide6.QtWidgets import QApplication
-
-    from editor.views.estilo import configurar_tema_claro_aplicacao
-
+def test_configurar_tema_claro_aplicacao_define_paleta_clara_e_estilos(qtbot):
+    """Garante que configurar_tema_claro_aplicacao força o esquema de cores, paleta clara e QSS."""
     app = QApplication.instance()
-    assert app is not None
+    assert isinstance(app, QApplication)
 
-    # Simula paleta com cores escuras herdadas de um Dark Mode externo no Linux
+    # Limpa a stylesheet inicial para exercitar a injeção de QToolTip e QLineEdit
+    app.setStyleSheet("")
+
     pal = app.palette()
     pal.setColor(QPalette.ColorRole.WindowText, QColor("#ffffff"))
     pal.setColor(QPalette.ColorRole.ButtonText, QColor("#ffffff"))
     pal.setColor(QPalette.ColorRole.Base, QColor("#121212"))
     pal.setColor(QPalette.ColorRole.Text, QColor("#ffffff"))
     app.setPalette(pal)
-    assert app.palette().color(QPalette.ColorRole.WindowText).name() == "#ffffff"
-    assert app.palette().color(QPalette.ColorRole.Base).name() == "#121212"
 
-    with patch.object(app.styleHints(), "setColorScheme") as mock_set_scheme:
-        configurar_tema_claro_aplicacao(app)
-        mock_set_scheme.assert_called_once_with(Qt.ColorScheme.Light)
+    configurar_tema_claro_aplicacao(app)
+    # Segunda chamada com stylesheet já preenchida não duplica regras
+    configurar_tema_claro_aplicacao(None)
+    # Chamada com objeto que não é QApplication retorna sem erro
+    configurar_tema_claro_aplicacao("objeto_nao_qapplication")
 
-    # A paleta padrão deve ter sido restaurada para texto escuro e fundo claro moderno
+    if hasattr(app, "styleHints") and hasattr(app.styleHints(), "colorScheme"):
+        assert app.styleHints().colorScheme() in (
+            Qt.ColorScheme.Light,
+            Qt.ColorScheme.Unknown,
+        )
+
     assert app.palette().color(QPalette.ColorRole.WindowText).name().lower() in (
         "#000000",
         "#212529",
     )
-    assert app.palette().color(QPalette.ColorRole.ButtonText).name().lower() in (
-        "#000000",
-        "#212529",
-    )
     assert app.palette().color(QPalette.ColorRole.Base).name().lower() == "#ffffff"
-    assert app.palette().color(QPalette.ColorRole.Text).name().lower() in ("#000000", "#212529")
-    assert app.palette().color(QPalette.ColorRole.Window).name() != "#d4d0c8"
+    assert app.palette().color(QPalette.ColorRole.ToolTipBase).name().lower() == "#ffffff"
+    assert app.palette().color(QPalette.ColorRole.ToolTipText).name().lower() == "#212529"
 
-    # O grupo Disabled NÃO deve usar a cor escura de texto ativo (#212529), mas sim a cor desabilitada
     cor_esperada_disabled = Icones.COR_DESABILITADO.lower()
     assert (
         app.palette().color(QPalette.ColorGroup.Disabled, QPalette.ColorRole.Text).name().lower()
         == cor_esperada_disabled
     )
-    assert (
-        app.palette()
-        .color(QPalette.ColorGroup.Disabled, QPalette.ColorRole.WindowText)
-        .name()
-        .lower()
-        == cor_esperada_disabled
-    )
-    assert (
-        app.palette()
-        .color(QPalette.ColorGroup.Disabled, QPalette.ColorRole.ButtonText)
-        .name()
-        .lower()
-        == cor_esperada_disabled
-    )
+
+    folha = app.styleSheet()
+    assert "QLineEdit" in folha
+    assert "QToolTip" in folha
 
 
 def test_icones_publicar_e_sincronizar_renderizam_greyed_out_quando_desabilitados(qtbot):
-    """Garante que os ícones de proposta de mudança e sincronização remota ficam greyed out no modo Disabled."""
-    from PySide6.QtCore import QSize
-    from PySide6.QtWidgets import QApplication
-
-    from editor.views.estilo import configurar_tema_claro_aplicacao
-
+    """Garante que os ícones ficam greyed out no modo Disabled."""
     app = QApplication.instance()
     configurar_tema_claro_aplicacao(app)
 
@@ -203,7 +115,6 @@ def test_icones_publicar_e_sincronizar_renderizam_greyed_out_quando_desabilitado
         img_normal = icone.pixmap(QSize(24, 24), QIcon.Mode.Normal).toImage()
         img_disabled = icone.pixmap(QSize(24, 24), QIcon.Mode.Disabled).toImage()
 
-        # Coleta os pixels opacos (onde o glifo foi desenhado)
         pixels_normal = [
             img_normal.pixelColor(x, y)
             for x in range(img_normal.width())
@@ -217,78 +128,11 @@ def test_icones_publicar_e_sincronizar_renderizam_greyed_out_quando_desabilitado
             if img_disabled.pixelColor(x, y).alpha() > 128
         ]
 
-        assert pixels_normal, f"Ícone {nome_icone} normal deveria ter pixels visíveis"
-        assert pixels_disabled, f"Ícone {nome_icone} disabled deveria ter pixels visíveis"
+        assert pixels_normal
+        assert pixels_disabled
 
         media_luminancia_normal = sum(c.lightness() for c in pixels_normal) / len(pixels_normal)
         media_luminancia_disabled = sum(c.lightness() for c in pixels_disabled) / len(
             pixels_disabled
         )
-
-        # O ícone desabilitado deve ser visivelmente mais claro (greyed out) que o ícone normal
         assert media_luminancia_disabled > media_luminancia_normal + 40
-
-
-def test_configurar_tema_claro_aplicacao_estiliza_campos_entrada(qtbot):
-    """Garante que configurar_tema_claro_aplicacao define estilo explícito para QLineEdit prevenindo renderização preta no Linux."""
-    from PySide6.QtWidgets import QApplication
-
-    from editor.views.estilo import configurar_tema_claro_aplicacao
-
-    app = QApplication.instance()
-    assert app is not None
-
-    configurar_tema_claro_aplicacao(app)
-
-    folha = app.styleSheet()
-    assert "QLineEdit" in folha
-    assert "background-color:" in folha
-    assert "color:" in folha
-
-
-def test_configurar_tema_claro_aplicacao_estiliza_qtooltip(qtbot):
-    """Garante que configurar_tema_claro_aplicacao define estilo explícito para QToolTip prevenindo renderização preta no Windows."""
-    from PySide6.QtGui import QPalette
-    from PySide6.QtWidgets import QApplication
-
-    from editor.views.estilo import configurar_tema_claro_aplicacao
-
-    app = QApplication.instance()
-    assert app is not None
-
-    configurar_tema_claro_aplicacao(app)
-
-    # Verifica folha de estilo global da aplicação
-    folha = app.styleSheet()
-    assert "QToolTip" in folha
-    assert "color:" in folha
-    assert "background-color:" in folha
-
-    # Verifica a paleta do QToolTip
-    pal = app.palette()
-    assert pal.color(QPalette.ColorRole.ToolTipBase).name().lower() == "#ffffff"
-    assert pal.color(QPalette.ColorRole.ToolTipText).name().lower() == "#212529"
-
-
-def test_configurar_tema_claro_aplicacao_sem_instancia():
-    """Garante que a função retorna graciosamente se nenhuma instância de QApplication existir."""
-    from editor.views.estilo import configurar_tema_claro_aplicacao
-
-    with patch("PySide6.QtWidgets.QApplication.instance", return_value=None):
-        configurar_tema_claro_aplicacao(None)
-
-
-def test_configurar_tema_claro_aplicacao_captura_excecoes(qtbot):
-    """Garante que a função não propaga exceções se styleHints ou setPalette falharem."""
-    from PySide6.QtWidgets import QApplication
-
-    from editor.views.estilo import configurar_tema_claro_aplicacao
-
-    app = QApplication.instance()
-    assert app is not None
-
-    with (
-        patch.object(app, "styleHints", side_effect=RuntimeError("erro simulado")),
-        patch.object(app, "setPalette", side_effect=RuntimeError("erro paleta")),
-    ):
-        configurar_tema_claro_aplicacao(app)

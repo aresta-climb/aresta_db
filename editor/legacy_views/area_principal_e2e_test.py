@@ -353,7 +353,7 @@ def test_e2e_selecao_mapa_por_node_path(tmp_path, qapp):
 
     janela.stack.setCurrentIndex(0)
     janela.croqui_model.notificar_foco_requisitado(uri)
-    assert janela.stack.currentIndex() == 2
+    assert janela.stack.currentIndex() == 3
     item_selecionado = list_widget.currentItem()
     assert item_selecionado is not None
     assert item_selecionado.text() == "mapa_2.webp"

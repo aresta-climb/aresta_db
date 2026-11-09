@@ -101,6 +101,22 @@ class PaginaBase(QWidget):
         return []
 
 
+class PaginaPainel(PaginaBase):
+    def __init__(self, parent: QWidget | None = None) -> None:
+        super().__init__("Painel", parent, criar_placeholder=False)
+        from editor.views.widget_painel_qualidade import WidgetPainelQualidade
+
+        self.painel: WidgetPainelQualidade = WidgetPainelQualidade(parent=self)
+        layout = self.layout()
+        if layout:
+            layout.addWidget(self.painel)
+
+    def carregar_painel(
+        self, model: CroquiModel, controller: CroquiController | None = None
+    ) -> None:
+        self.painel.set_model_e_controller(model, controller)
+
+
 class PaginaDados(PaginaBase):
     def __init__(self, parent: QWidget | None = None) -> None:
         super().__init__("Dados", parent, criar_placeholder=False)
@@ -591,34 +607,40 @@ class JanelaPrincipal(QMainWindow):
         self.toolbar_superior.addAction(self.acao_sincronizar)
 
     def _setup_navegacao_lateral(self) -> None:
+        self.acao_nav_painel = QAction(Icones.obter("painel"), "Painel", self)
+        self.acao_nav_painel.setToolTip("Painel")
+        self.acao_nav_painel.setCheckable(True)
+        self.acao_nav_painel.setChecked(True)
+        self.acao_nav_painel.triggered.connect(lambda: self._trocar_pagina(0))
+
         self.acao_nav_dados = QAction(Icones.obter("dados"), "Dados", self)
         self.acao_nav_dados.setToolTip("Dados")
         self.acao_nav_dados.setCheckable(True)
-        self.acao_nav_dados.setChecked(True)
-        self.acao_nav_dados.triggered.connect(lambda: self._trocar_pagina(0))
+        self.acao_nav_dados.triggered.connect(lambda: self._trocar_pagina(1))
 
         self.acao_nav_imagens = QAction(Icones.obter("imagens"), "Imagens", self)
         self.acao_nav_imagens.setToolTip("Imagens")
         self.acao_nav_imagens.setCheckable(True)
-        self.acao_nav_imagens.triggered.connect(lambda: self._trocar_pagina(1))
+        self.acao_nav_imagens.triggered.connect(lambda: self._trocar_pagina(2))
 
         self.acao_nav_mapas = QAction(Icones.obter("mapas"), "Mapas", self)
         self.acao_nav_mapas.setToolTip("Mapas")
         self.acao_nav_mapas.setCheckable(True)
-        self.acao_nav_mapas.triggered.connect(lambda: self._trocar_pagina(2))
+        self.acao_nav_mapas.triggered.connect(lambda: self._trocar_pagina(3))
 
         self.acao_nav_betas = QAction(Icones.obter("betas"), "Betas", self)
         self.acao_nav_betas.setToolTip("Betas")
         self.acao_nav_betas.setCheckable(True)
-        self.acao_nav_betas.triggered.connect(lambda: self._trocar_pagina(3))
+        self.acao_nav_betas.triggered.connect(lambda: self._trocar_pagina(4))
 
         self.acao_nav_historico = QAction(Icones.obter("historico"), "Histórico", self)
         self.acao_nav_historico.setToolTip("Histórico")
         self.acao_nav_historico.setCheckable(True)
         self.acao_nav_historico.setVisible(False)  # TODO: Habilitar quando for implementado
-        self.acao_nav_historico.triggered.connect(lambda: self._trocar_pagina(4))
+        self.acao_nav_historico.triggered.connect(lambda: self._trocar_pagina(5))
 
         self.grupo_nav: list[QAction] = [
+            self.acao_nav_painel,
             self.acao_nav_dados,
             self.acao_nav_imagens,
             self.acao_nav_mapas,
@@ -639,27 +661,29 @@ class JanelaPrincipal(QMainWindow):
         self.toolbar_lateral.setToolButtonStyle(Qt.ToolButtonStyle.ToolButtonTextUnderIcon)
 
     def _setup_paginas(self) -> None:
+        self.pagina_painel: PaginaPainel = PaginaPainel(self)
         self.pagina_dados: PaginaDados = PaginaDados(self)
         self.pagina_imagens: PaginaImagens = PaginaImagens(self)
         self.pagina_mapas: PaginaMapas = PaginaMapas(self)
         self.pagina_betas: PaginaBetas = PaginaBetas(self)
         self.pagina_historico: PaginaHistorico = PaginaHistorico(self)
 
+        self.stack.addWidget(self.pagina_painel)
         self.stack.addWidget(self.pagina_dados)
         self.stack.addWidget(self.pagina_imagens)
         self.stack.addWidget(self.pagina_mapas)
         self.stack.addWidget(self.pagina_betas)
         self.stack.addWidget(self.pagina_historico)
 
-        self.stack.setCurrentWidget(self.pagina_dados)
+        self.stack.setCurrentWidget(self.pagina_painel)
 
     def _trocar_pagina(self, indice: int) -> None:
         for i, acao in enumerate(self.grupo_nav):
             acao.setChecked(i == indice)
 
-        if indice == 2:
+        if indice == 3:
             self.pagina_mapas.garantir_editor_criado()
-        elif indice == 3:
+        elif indice == 4:
             self.pagina_betas.garantir_painel_criado()
 
         self.stack.setCurrentIndex(indice)
@@ -667,11 +691,12 @@ class JanelaPrincipal(QMainWindow):
 
         if getattr(self, "croqui_controller", None) and self.croqui_controller:
             mapa_paginas = {
-                0: "page:dados",
-                1: "page:imagens",
-                2: "page:mapas",
-                3: "page:betas",
-                4: "page:historico",
+                0: "page:painel",
+                1: "page:dados",
+                2: "page:imagens",
+                3: "page:mapas",
+                4: "page:betas",
+                5: "page:historico",
             }
             self.croqui_controller.set_contexto(mapa_paginas.get(indice, "page:dados"))
 
@@ -697,12 +722,15 @@ class JanelaPrincipal(QMainWindow):
 
         ctx = ContextoUIPath(uri)
 
-        if ctx.pagina == "dados":
+        if ctx.pagina == "painel":
             if self.stack.currentIndex() != 0:
                 self._trocar_pagina(0)
-        elif ctx.pagina == "imagens":
+        elif ctx.pagina == "dados":
             if self.stack.currentIndex() != 1:
                 self._trocar_pagina(1)
+        elif ctx.pagina == "imagens":
+            if self.stack.currentIndex() != 2:
+                self._trocar_pagina(2)
             if hasattr(self.pagina_imagens, "editor") and hasattr(
                 self.pagina_imagens.editor, "select_image_by_name"
             ):
@@ -713,8 +741,8 @@ class JanelaPrincipal(QMainWindow):
                     nome_imagem = nome_imagem[5:]
                 self.pagina_imagens.editor.select_image_by_name(nome_imagem)
         elif ctx.pagina == "mapas":
-            if self.stack.currentIndex() != 2:
-                self._trocar_pagina(2)
+            if self.stack.currentIndex() != 3:
+                self._trocar_pagina(3)
             else:
                 self.pagina_mapas.garantir_editor_criado()
             editor = getattr(self.pagina_mapas, "editor", None)
@@ -963,8 +991,8 @@ class JanelaPrincipal(QMainWindow):
             ):
                 painel.selecionar_escalada_por_uid(ctx.caminho_local_arvore)
         elif ctx.pagina == "historico":
-            if self.stack.currentIndex() != 3:
-                self._trocar_pagina(3)
+            if self.stack.currentIndex() != 5:
+                self._trocar_pagina(5)
 
     def _perguntar_recuperacao_sessao(self, total_acoes: int) -> bool:
         from PySide6.QtWidgets import QDialog
@@ -1038,6 +1066,7 @@ class JanelaPrincipal(QMainWindow):
                     self.historico.definir_gerenciador_diario(diario)
 
                 # Atualiza os componentes com os dados carregados
+                self.pagina_painel.carregar_painel(self.croqui_model, self.croqui_controller)
                 self.pagina_dados.carregar_dados(self.croqui_model, self.croqui_controller)
                 self.pagina_imagens.carregar_imagens(
                     caminho_db, model=self.croqui_model, controller=self.croqui_controller
@@ -1046,8 +1075,8 @@ class JanelaPrincipal(QMainWindow):
                     self.croqui_model, self.historico, caminho_db, controller=self.croqui_controller
                 )
                 self.pagina_betas.carregar_betas(
-            caminho_db, model=self.croqui_model, controller=self.croqui_controller
-        )
+                    caminho_db, model=self.croqui_model, controller=self.croqui_controller
+                )
 
                 # Registra contexto no escopo de telemetria
                 from editor.core.telemetria import anexar_diario_escopo, registrar_contexto_croqui
@@ -1631,6 +1660,8 @@ class JanelaPrincipal(QMainWindow):
 
     def _obter_widget_alvo_mcp(self, alvo: str) -> QWidget | None:
         """Retorna o widget correspondente ao viewport solicitado pela ferramenta de captura."""
+        if alvo == "painel":
+            return self.pagina_painel.painel
         if alvo == "mapas":
             widget_mapa: QWidget | None = self.pagina_mapas.garantir_editor_criado()
             return widget_mapa
@@ -1643,11 +1674,12 @@ class JanelaPrincipal(QMainWindow):
     def _obter_selecao_mcp(self) -> dict[str, Any]:
         """Retorna a página ativa e o caminho selecionado na árvore de dados."""
         mapa_paginas = {
-            0: "dados",
-            1: "imagens",
-            2: "mapas",
-            3: "betas",
-            4: "historico",
+            0: "painel",
+            1: "dados",
+            2: "imagens",
+            3: "mapas",
+            4: "betas",
+            5: "historico",
         }
         pagina = mapa_paginas.get(self.stack.currentIndex(), "dados")
         caminho = ""

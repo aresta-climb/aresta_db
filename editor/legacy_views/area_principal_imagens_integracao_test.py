@@ -46,8 +46,8 @@ class TestAreaPrincipalImagensIntegracao:
         # Dispara requisição de foco para imagens/mapa_1.webp
         area_principal._on_foco_requisitado("page:imagens/mapa_1.webp")
 
-        # Deve ter trocado para a aba de imagens (índice 1)
-        assert area_principal.stack.currentIndex() == 1
+        # Deve ter trocado para a aba de imagens (índice 2)
+        assert area_principal.stack.currentIndex() == 2
         item_atual = area_principal.pagina_imagens.editor.list_widget.currentItem()
         assert item_atual is not None
         assert item_atual.text() == "mapa_1.webp"
@@ -130,8 +130,8 @@ class TestAreaPrincipalImagensIntegracao:
         area_principal.croqui_controller.set_contexto("node:Croqui/picos/item:0")
 
         # Usuário clica na aba Imagens
-        area_principal._trocar_pagina(1)
-        assert area_principal.stack.currentIndex() == 1
+        area_principal._trocar_pagina(2)
+        assert area_principal.stack.currentIndex() == 2
 
         # Usuário seleciona imagem e clica em Substituir Imagem
         area_principal.pagina_imagens.editor.select_image_by_name("thumbnail.webp")
@@ -156,16 +156,16 @@ class TestAreaPrincipalImagensIntegracao:
 
         area_principal.pagina_imagens.editor.substituir_imagem_selecionada()
 
-        # DEVE continuar na aba de imagens (índice 1) e NÃO voltar para a aba de dados (índice 0)
-        assert area_principal.stack.currentIndex() == 1
+        # DEVE continuar na aba de imagens (índice 2) e NÃO voltar para a aba de dados (índice 1)
+        assert area_principal.stack.currentIndex() == 2
 
         # Undo também deve manter na aba de imagens
         area_principal.historico.obter_pilha().undo()
-        assert area_principal.stack.currentIndex() == 1
+        assert area_principal.stack.currentIndex() == 2
 
         # Redo também deve manter na aba de imagens
         area_principal.historico.obter_pilha().redo()
-        assert area_principal.stack.currentIndex() == 1
+        assert area_principal.stack.currentIndex() == 2
 
         area_principal.historico.obter_pilha().setClean()
 
@@ -186,7 +186,7 @@ class TestAreaPrincipalImagensIntegracao:
         qtbot.addWidget(area_principal)
         area_principal.carregar_croqui()
 
-        area_principal._trocar_pagina(1)
+        area_principal._trocar_pagina(2)
         editor = area_principal.pagina_imagens.editor
         editor.select_image_by_name("foto_setor.webp")
 
@@ -233,7 +233,7 @@ class TestAreaPrincipalImagensIntegracao:
         qtbot.addWidget(area_principal)
         area_principal.carregar_croqui()
 
-        area_principal._trocar_pagina(1)
+        area_principal._trocar_pagina(2)
         editor = area_principal.pagina_imagens.editor
         editor.select_image_by_name("foto_corte.webp")
 
@@ -289,7 +289,7 @@ class TestAreaPrincipalImagensIntegracao:
         qtbot.addWidget(area_principal)
         area_principal.carregar_croqui()
 
-        area_principal._trocar_pagina(1)
+        area_principal._trocar_pagina(2)
         editor = area_principal.pagina_imagens.editor
         editor.select_image_by_name("foto_mascara.webp")
 

@@ -11,6 +11,7 @@ from typing import Any
 
 # Adiciona o diretório raiz do projeto ao sys.path para importar a lib utilitária
 sys.path.append(str(Path(__file__).resolve().parent.parent))
+from editor.core.avaliador_nota_qualidade import avaliar_nota_qualidade_croqui
 from editor.core.serializacao_util import carregar_yaml
 from scripts.markdown_frontmatter_lib import parse_md_com_frontmatter
 
@@ -19,6 +20,7 @@ CacheMd = dict[str, tuple[dict[str, Any] | None, str]]
 CHAVES_COLUNAS_RELATORIO: tuple[str, ...] = (
     "Nome",
     "Publicado",
+    "Nota Qualidade",
     "Revisado Manual",
     "Revisado Circ",
     "Status Desenho",
@@ -393,6 +395,7 @@ def avaliar_saude_croqui(
 
     if not existe_yaml:
         publicado = "❌"
+        nota_qualidade = "0"
         revisado = "❌"
         revisado_circ = "❌"
         yaml_present = "❌"
@@ -403,6 +406,7 @@ def avaliar_saude_croqui(
         pontos = check_pontos_de_interesse(croqui_path, dados_yaml=None, cache_md=cache_local)
     elif erro_yaml or dados_carregados is None:
         publicado = "❌"
+        nota_qualidade = "0"
         revisado = "❌"
         revisado_circ = "❌"
         yaml_present = "✅"
@@ -413,6 +417,13 @@ def avaliar_saude_croqui(
         pontos = check_pontos_de_interesse(croqui_path, dados_yaml=None, cache_md=cache_local)
     else:
         publicado = "✅" if check_publicar_croqui(croqui_path, dados_carregados) else "❌"
+        nota_qualidade = str(
+            avaliar_nota_qualidade_croqui(
+                dados_carregados,
+                croqui_path=croqui_path,
+                cache_md=cache_local,
+            ).nota_qualidade
+        )
         revisado = "✅" if check_revisado_manualmente(croqui_path, dados_carregados) else "❌"
         revisado_circ = (
             "✅" if check_revisado_bounding_circle(croqui_path, dados_carregados) else "❌"
@@ -430,11 +441,14 @@ def avaliar_saude_croqui(
     raw_pdf = "✅" if check_raw_original_pdf(croqui_path) else "❌"
     raw_contents = "✅" if check_raw_pdf_contents(croqui_path) else "❌"
     mapas_gerais = "✅" if check_mapas_gerais_exists(croqui_path, cache_md=cache_local) else "❌"
-    betas_status = check_betas_pendentes(croqui_path)
+    betas_status = check_betas_pendentes(
+        croqui_path, dados_yaml=dados_carregados, cache_md=cache_local
+    )
 
     return {
         "Nome": nome,
         "Publicado": publicado,
+        "Nota Qualidade": nota_qualidade,
         "Revisado Manual": revisado,
         "Revisado Circ": revisado_circ,
         "Status Desenho": status_desenho,
@@ -499,6 +513,7 @@ def generate_report_table(report_data: list[dict[str, Any]]) -> str:
     headers = [
         "Croqui",
         f"Publicado ({a_publicados}/{total_croquis})",
+        "Nota Qualidade",
         f"Revisado Manual ({a_revisados}/{total_croquis})",
         f"Revisado Circ ({a_revisados_circ}/{total_croquis})",
         f"Desenho Extraível ({a_status_desenho}/{c_sim_mas_nao}/{c_unknown})",
@@ -522,6 +537,7 @@ def generate_report_table(report_data: list[dict[str, Any]]) -> str:
         row = [
             data["Nome"],
             data["Publicado"],
+            str(data.get("Nota Qualidade", "0")),
             data["Revisado Manual"],
             data["Revisado Circ"],
             data["Status Desenho"],

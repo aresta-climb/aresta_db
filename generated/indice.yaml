@@ -13,6 +13,7 @@ croquis:
     total_escaladas: 101
     total_setores: 12
     total_grupos: 0
+    nota_qualidade: 7310
     total_boulders: 101
     tamanho_download_bytes: 6166866
   localizacao:
@@ -32,6 +33,7 @@ croquis:
     total_escaladas: 240
     total_setores: 15
     total_grupos: 0
+    nota_qualidade: 7326
     total_esportivas: 235
     total_highlines: 5
     tamanho_download_bytes: 22830564
@@ -51,6 +53,7 @@ croquis:
     total_escaladas: 29
     total_setores: 3
     total_grupos: 0
+    nota_qualidade: 7146
     total_esportivas: 29
     tamanho_download_bytes: 4305482
   localizacao:
@@ -69,6 +72,7 @@ croquis:
     total_escaladas: 53
     total_setores: 4
     total_grupos: 0
+    nota_qualidade: 7309
     total_esportivas: 51
     tamanho_download_bytes: 3070460
   localizacao:
@@ -87,6 +91,7 @@ croquis:
     total_escaladas: 29
     total_setores: 4
     total_grupos: 0
+    nota_qualidade: 6991
     total_esportivas: 27
     tamanho_download_bytes: 881065
   localizacao:
@@ -104,6 +109,7 @@ croquis:
     total_escaladas: 247
     total_setores: 17
     total_grupos: 0
+    nota_qualidade: 6224
     total_esportivas: 242
     tamanho_download_bytes: 2126488
   localizacao:
@@ -122,6 +128,7 @@ croquis:
     total_escaladas: 31
     total_setores: 2
     total_grupos: 1
+    nota_qualidade: 4060
     total_esportivas: 31
     tamanho_download_bytes: 3850844
 - id: br_mg_caete_monte_alvao
@@ -137,6 +144,7 @@ croquis:
     total_escaladas: 55
     total_setores: 9
     total_grupos: 3
+    nota_qualidade: 4378
     total_esportivas: 44
     total_multiplas_enfiadas: 7
     tamanho_download_bytes: 363982
@@ -155,6 +163,7 @@ croquis:
     total_escaladas: 40
     total_setores: 2
     total_grupos: 0
+    nota_qualidade: 4787
     total_esportivas: 40
     tamanho_download_bytes: 222589
   localizacao:
@@ -173,6 +182,7 @@ croquis:
     total_escaladas: 22
     total_setores: 2
     total_grupos: 0
+    nota_qualidade: 4110
     total_esportivas: 22
     tamanho_download_bytes: 77162
   localizacao:
@@ -192,6 +202,7 @@ croquis:
     total_escaladas: 221
     total_setores: 32
     total_grupos: 4
+    nota_qualidade: 7220
     total_boulders: 221
     tamanho_download_bytes: 8023641
   localizacao:
@@ -210,6 +221,7 @@ croquis:
     total_escaladas: 89
     total_setores: 22
     total_grupos: 4
+    nota_qualidade: 6276
     total_boulders: 89
     tamanho_download_bytes: 15908399
   localizacao:
@@ -229,6 +241,7 @@ croquis:
     total_escaladas: 160
     total_setores: 18
     total_grupos: 3
+    nota_qualidade: 7036
     total_esportivas: 71
     total_multiplas_enfiadas: 72
     tamanho_download_bytes: 14862086
@@ -248,6 +261,7 @@ croquis:
     total_escaladas: 241
     total_setores: 21
     total_grupos: 2
+    nota_qualidade: 6095
     total_esportivas: 95
     total_boulders: 104
     total_multiplas_enfiadas: 1
@@ -267,6 +281,7 @@ croquis:
     total_escaladas: 45
     total_setores: 7
     total_grupos: 0
+    nota_qualidade: 7267
     total_esportivas: 45
     tamanho_download_bytes: 2706840
   localizacao:
@@ -277,13 +292,14 @@ croquis:
   nome: Gruta da Lapinha
   descricao: Guia de escalada da Gruta da Lapinha em Lagoa Santa, MG.
   caminho_relativo: br_mg_lagoa_santa_gruta_da_lapinha/compilado.binarypb
-  checksum_sha256_croqui: cdd7994134bd8be5493b38712bbf73dc2676935dc02d600533897323a5460b15
+  checksum_sha256_croqui: a758dc6f62a3bbe109f113201b99400191f8f2676ed2be893a67ed2bd64b45c5
   checksum_sha256_thumbnail: 76c57c2b9159772355858ad8f40ba79a8584dfdda215379031adc9afff1f1416
-  timestamp_update: '2026-11-09T01:18:13Z'
+  timestamp_update: '2026-11-09T02:43:24Z'
   precomputados:
     total_escaladas: 132
     total_setores: 10
     total_grupos: 0
+    nota_qualidade: 6150
     total_esportivas: 108
     tamanho_download_bytes: 514885
   localizacao:
@@ -303,6 +319,7 @@ croquis:
     total_escaladas: 85
     total_setores: 3
     total_grupos: 0
+    nota_qualidade: 5971
     total_esportivas: 74
     tamanho_download_bytes: 3761435
   localizacao:
@@ -320,6 +337,7 @@ croquis:
     total_escaladas: 44
     total_setores: 4
     total_grupos: 0
+    nota_qualidade: 4882
     total_esportivas: 36
     tamanho_download_bytes: 2870083
   localizacao:
@@ -337,6 +355,7 @@ croquis:
     total_escaladas: 302
     total_setores: 43
     total_grupos: 3
+    nota_qualidade: 7004
     total_boulders: 302
     tamanho_download_bytes: 78301856
   localizacao:
@@ -354,6 +373,7 @@ croquis:
     total_escaladas: 36
     total_setores: 8
     total_grupos: 1
+    nota_qualidade: 6012
     total_boulders: 36
     tamanho_download_bytes: 2703891
   localizacao:
@@ -373,6 +393,7 @@ croquis:
     total_escaladas: 43
     total_setores: 5
     total_grupos: 0
+    nota_qualidade: 5219
     total_esportivas: 29
     tamanho_download_bytes: 3545519
 - id: br_mg_pedro_leopoldo_gruta_do_bau
@@ -389,6 +410,7 @@ croquis:
     total_escaladas: 339
     total_setores: 13
     total_grupos: 0
+    nota_qualidade: 5823
     total_esportivas: 292
     total_multiplas_enfiadas: 2
     tamanho_download_bytes: 2979027
@@ -407,6 +429,7 @@ croquis:
     total_escaladas: 61
     total_setores: 10
     total_grupos: 1
+    nota_qualidade: 5394
     total_boulders: 61
     tamanho_download_bytes: 11712386
   localizacao:
@@ -424,6 +447,7 @@ croquis:
     total_escaladas: 11
     total_setores: 1
     total_grupos: 0
+    nota_qualidade: 7321
     total_esportivas: 11
     tamanho_download_bytes: 2155366
   localizacao:
@@ -441,6 +465,7 @@ croquis:
     total_escaladas: 31
     total_setores: 3
     total_grupos: 0
+    nota_qualidade: 5097
     total_esportivas: 31
     tamanho_download_bytes: 12916010
   localizacao:
@@ -458,6 +483,7 @@ croquis:
     total_escaladas: 46
     total_setores: 3
     total_grupos: 0
+    nota_qualidade: 5887
     total_esportivas: 21
     total_multiplas_enfiadas: 25
     tamanho_download_bytes: 2274220
@@ -477,6 +503,7 @@ croquis:
     total_escaladas: 35
     total_setores: 1
     total_grupos: 0
+    nota_qualidade: 7120
     total_esportivas: 35
     tamanho_download_bytes: 496820
   localizacao:
@@ -495,6 +522,7 @@ croquis:
     total_escaladas: 310
     total_setores: 26
     total_grupos: 4
+    nota_qualidade: 7232
     total_esportivas: 207
     tamanho_download_bytes: 15153205
   localizacao:
@@ -513,6 +541,7 @@ croquis:
     total_escaladas: 127
     total_setores: 38
     total_grupos: 5
+    nota_qualidade: 7206
     total_boulders: 127
     tamanho_download_bytes: 7904212
   localizacao:
@@ -530,6 +559,7 @@ croquis:
     total_escaladas: 141
     total_setores: 15
     total_grupos: 1
+    nota_qualidade: 5917
     total_esportivas: 135
     tamanho_download_bytes: 18237266
   localizacao:
@@ -548,6 +578,7 @@ croquis:
     total_escaladas: 15
     total_setores: 1
     total_grupos: 0
+    nota_qualidade: 7298
     total_esportivas: 15
     tamanho_download_bytes: 9930142
   localizacao:

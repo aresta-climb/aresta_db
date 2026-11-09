@@ -15,11 +15,16 @@ from editor.legacy_views.area_principal import (
     PaginaHistorico,
     PaginaImagens,
     PaginaMapas,
+    PaginaPainel,
 )
 
 
 def test_paginas_especializadas_nao_alocam_label_placeholder(qtbot):
     """Garante que páginas especializadas não criam labels descartados com deleteLater."""
+    p_painel = PaginaPainel()
+    qtbot.addWidget(p_painel)
+    assert not hasattr(p_painel, "label") or p_painel.label is None
+
     p_dados = PaginaDados()
     qtbot.addWidget(p_dados)
     assert not hasattr(p_dados, "label") or p_dados.label is None
@@ -104,11 +109,11 @@ def test_janela_principal_tem_areas_obrigatorias(janela_principal):
     assert widget_central is not None
 
 
-def test_janela_principal_exibe_pagina_dados_inicialmente(janela_principal):
+def test_janela_principal_exibe_pagina_painel_inicialmente(janela_principal):
     janela = janela_principal
 
     stack = janela.findChild(QStackedWidget)
-    assert isinstance(stack.currentWidget(), PaginaDados)
+    assert isinstance(stack.currentWidget(), PaginaPainel)
 
 
 def test_toolbar_superior_tem_acoes_globais(janela_principal):
@@ -134,6 +139,7 @@ def test_toolbar_lateral_tem_navegacao_entre_visoes(janela_principal):
     acoes = toolbar.actions()
     textos_acoes = [a.toolTip() for a in acoes]
 
+    assert "Painel" in textos_acoes
     assert "Dados" in textos_acoes
     assert "Imagens" in textos_acoes
     assert "Mapas" in textos_acoes
@@ -162,10 +168,15 @@ def test_navegacao_lateral_troca_paginas(janela_principal):
     acao_historico.trigger()
     assert isinstance(stack.currentWidget(), PaginaHistorico)
 
-    # Volta para Dados
+    # Vai para Dados
     acao_dados = next(a for a in acoes if a.toolTip() == "Dados")
     acao_dados.trigger()
     assert isinstance(stack.currentWidget(), PaginaDados)
+
+    # Volta para Painel
+    acao_painel = next(a for a in acoes if a.toolTip() == "Painel")
+    acao_painel.trigger()
+    assert isinstance(stack.currentWidget(), PaginaPainel)
 
 
 def test_janela_principal_nao_gera_avisos_de_fonte_qt(qtbot, criar_janela):
@@ -1781,7 +1792,7 @@ def test_janela_principal_lazy_loading_mapas_ao_trocar_pagina(criar_janela):
     assert janela.pagina_mapas.editor is None
     assert janela.pagina_betas.painel is None
 
-    janela._trocar_pagina(2)
+    janela._trocar_pagina(3)
     assert janela.pagina_mapas.editor is not None
 
 
@@ -2067,13 +2078,14 @@ def test_janela_principal_integra_servidor_mcp_e_dialogo_conexao(
     assert "aresta_compilar" in ferramentas
 
     # Verifica os callbacks de visão e seleção da JanelaPrincipal
+    assert janela._obter_widget_alvo_mcp("painel") is not None
     assert janela._obter_widget_alvo_mcp("dados") is not None
     assert janela._obter_widget_alvo_mcp("imagens") is not None
     assert janela._obter_widget_alvo_mcp("mapas") is not None
     assert janela._obter_widget_alvo_mcp("janela") is janela
 
     selecao = janela._obter_selecao_mcp()
-    assert selecao["pagina"] == "dados"
+    assert selecao["pagina"] == "painel"
 
     # Aciona a ação de menu e fecha o DialogoConexaoMcp real via QTimer
     dialogos_abertos: list[DialogoConexaoMcp] = []
@@ -2291,3 +2303,17 @@ def test_janela_principal_aba_betas_visivel_e_foco_requisitado_navega_para_escal
     assert janela.stack.currentWidget() is janela.pagina_betas
     assert janela.pagina_betas.painel is not None
     assert janela.pagina_betas.painel.filtro_escalada_uid == "esc_alvo"
+
+
+def test_janela_principal_foco_requisitado_navega_entre_painel_e_dados(
+    criar_janela,
+) -> None:
+    """Valida que _on_foco_requisitado('page:dados/...') e ('page:painel') alternam entre PaginaDados e PaginaPainel."""
+    janela = criar_janela()
+    assert janela.stack.currentWidget() is janela.pagina_painel
+
+    janela._on_foco_requisitado("page:dados/node:root/node:Croqui")
+    assert janela.stack.currentWidget() is janela.pagina_dados
+
+    janela._on_foco_requisitado("page:painel")
+    assert janela.stack.currentWidget() is janela.pagina_painel

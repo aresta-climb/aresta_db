@@ -31,6 +31,7 @@ class Icones:
         "nuvem": "fa5s.cloud-upload-alt",
         "externo": "fa5s.external-link-alt",
         "github": "fa5b.github",
+        "painel": "fa5s.tachometer-alt",
         "dados": "fa5s.database",
         "imagens": "fa5s.images",
         "mapas": "fa5s.map-marked-alt",
@@ -211,37 +212,31 @@ def configurar_tema_claro_aplicacao(app: Any | None = None) -> None:
     from PySide6.QtGui import QColor, QPalette
     from PySide6.QtWidgets import QApplication
 
-    instancia = app or QApplication.instance()
+    instancia = app if app is not None else QApplication.instance()
     if not isinstance(instancia, QApplication):
         return
 
-    try:
-        if hasattr(instancia, "styleHints") and hasattr(instancia.styleHints(), "setColorScheme"):
-            instancia.styleHints().setColorScheme(Qt.ColorScheme.Light)
-    except Exception:
-        pass
+    if hasattr(instancia, "styleHints") and hasattr(instancia.styleHints(), "setColorScheme"):
+        instancia.styleHints().setColorScheme(Qt.ColorScheme.Light)
 
-    try:
-        pal = QPalette()
-        pal.setColor(QPalette.ColorRole.Window, QColor("#ffffff"))
-        pal.setColor(QPalette.ColorRole.WindowText, QColor("#212529"))
-        pal.setColor(QPalette.ColorRole.Base, QColor("#ffffff"))
-        pal.setColor(QPalette.ColorRole.AlternateBase, QColor("#f8f9fa"))
-        pal.setColor(QPalette.ColorRole.Text, QColor("#212529"))
-        pal.setColor(QPalette.ColorRole.PlaceholderText, QColor("#6c757d"))
-        pal.setColor(QPalette.ColorRole.Button, QColor("#f8f9fa"))
-        pal.setColor(QPalette.ColorRole.ButtonText, QColor("#212529"))
-        pal.setColor(QPalette.ColorRole.ToolTipBase, QColor("#ffffff"))
-        pal.setColor(QPalette.ColorRole.ToolTipText, QColor("#212529"))
-        pal.setColor(QPalette.ColorRole.Highlight, QColor("#2b579a"))
-        pal.setColor(QPalette.ColorRole.HighlightedText, QColor("#ffffff"))
-        cor_desabilitado = QColor(Icones.COR_DESABILITADO)
-        pal.setColor(QPalette.ColorGroup.Disabled, QPalette.ColorRole.WindowText, cor_desabilitado)
-        pal.setColor(QPalette.ColorGroup.Disabled, QPalette.ColorRole.Text, cor_desabilitado)
-        pal.setColor(QPalette.ColorGroup.Disabled, QPalette.ColorRole.ButtonText, cor_desabilitado)
-        instancia.setPalette(pal)
-    except Exception:
-        pass
+    pal = QPalette()
+    pal.setColor(QPalette.ColorRole.Window, QColor("#ffffff"))
+    pal.setColor(QPalette.ColorRole.WindowText, QColor("#212529"))
+    pal.setColor(QPalette.ColorRole.Base, QColor("#ffffff"))
+    pal.setColor(QPalette.ColorRole.AlternateBase, QColor("#f8f9fa"))
+    pal.setColor(QPalette.ColorRole.Text, QColor("#212529"))
+    pal.setColor(QPalette.ColorRole.PlaceholderText, QColor("#6c757d"))
+    pal.setColor(QPalette.ColorRole.Button, QColor("#f8f9fa"))
+    pal.setColor(QPalette.ColorRole.ButtonText, QColor("#212529"))
+    pal.setColor(QPalette.ColorRole.ToolTipBase, QColor("#ffffff"))
+    pal.setColor(QPalette.ColorRole.ToolTipText, QColor("#212529"))
+    pal.setColor(QPalette.ColorRole.Highlight, QColor("#2b579a"))
+    pal.setColor(QPalette.ColorRole.HighlightedText, QColor("#ffffff"))
+    cor_desabilitado = QColor(Icones.COR_DESABILITADO)
+    pal.setColor(QPalette.ColorGroup.Disabled, QPalette.ColorRole.WindowText, cor_desabilitado)
+    pal.setColor(QPalette.ColorGroup.Disabled, QPalette.ColorRole.Text, cor_desabilitado)
+    pal.setColor(QPalette.ColorGroup.Disabled, QPalette.ColorRole.ButtonText, cor_desabilitado)
+    instancia.setPalette(pal)
 
     folha_atual = instancia.styleSheet() or ""
     trechos_novos = []

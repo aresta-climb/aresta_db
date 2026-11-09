@@ -7,7 +7,6 @@ import unittest
 from datetime import datetime
 from pathlib import Path
 
-from aresta_api.proto.generated import beta_pb2
 from scripts import medir_saude_croquis
 
 
@@ -395,6 +394,7 @@ class TestMedirSaudeCroquis(unittest.TestCase):
 
         self.assertEqual(linha["Nome"], "croqui_memoria")
         self.assertEqual(linha["Publicado"], "✅")
+        self.assertGreater(int(linha["Nota Qualidade"]), 0)
         self.assertEqual(linha["Revisado Manual"], "✅")
         self.assertEqual(linha["Revisado Circ"], "❌")
         self.assertEqual(linha["Status Desenho"], "✅")
@@ -433,6 +433,7 @@ class TestMedirSaudeCroquis(unittest.TestCase):
         self.assertTrue(modificou_inicial)
         texto_inicial = output_file.read_text(encoding="utf-8")
         self.assertIn("Publicado (1/2)", texto_inicial)
+        self.assertIn("Nota Qualidade", texto_inicial)
         self.assertIn("| croqui_a | ❌ |", texto_inicial)
         self.assertIn("| croqui_b | ✅ |", texto_inicial)
 
@@ -539,11 +540,13 @@ class TestMedirSaudeCroquis(unittest.TestCase):
         self.assertEqual(res_sem["croqui.yaml"], "❌")
         self.assertEqual(res_sem["Coordenadas Picos"], "N/A")
 
-        # Croqui com croqui.yaml corrompido e betas_pendentes corrompido
+        # Croqui com croqui.yaml corrompido e curadoria_betas.md corrompido
         c_corrompido = base_dir / "corrompido"
         c_corrompido.mkdir(parents=True)
         (c_corrompido / "croqui.yaml").write_text("yaml: [invalido", encoding="utf-8")
-        (c_corrompido / "betas_pendentes.binarypb").write_bytes(b"\xff\xff\xff\xff")
+        (c_corrompido / "curadoria_betas.md").write_text(
+            "---\nyaml: [invalido\n---\n", encoding="utf-8"
+        )
         res_corr = medir_saude_croquis.avaliar_saude_croqui(c_corrompido)
         self.assertEqual(res_corr["croqui.yaml"], "✅")
         self.assertEqual(res_corr["Coordenadas Picos"], "❌ (Erro)")

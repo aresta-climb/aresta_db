@@ -57,6 +57,7 @@ from PIL import Image, ImageDraw, ImageEnhance, ImageFilter
 
 sys.path.append(str(Path(__file__).resolve().parent.parent))
 from aresta_api.proto.generated import croqui_pb2, indice_pb2, serving_pb2
+from editor.core.avaliador_nota_qualidade import avaliar_nota_qualidade_croqui
 from editor.core.serializacao_util import (
     carregar_yaml,
     escrever_texto_se_modificado,
@@ -485,6 +486,17 @@ def extrair_descricao(croqui_data: dict[str, Any]) -> str:
     return ""
 
 
+_NOMES_PLACEHOLDER_ESCALADA = frozenset(
+    {
+        "via sem informação",
+        "via sem informacao",
+        "sem nome",
+        "projeto",
+        "projeto inacabado",
+    }
+)
+
+
 def verificar_nomes_duplicados_de_escalada(croqui_id: str, compiled_data: dict[str, Any]) -> None:
     """Procura escaladas com o mesmo nome no mesmo croqui e emite um aviso."""
     nomes_vistos: set[str] = set()
@@ -498,6 +510,8 @@ def verificar_nomes_duplicados_de_escalada(croqui_id: str, compiled_data: dict[s
                         for dados_via in escalada.values():
                             if isinstance(dados_via, dict) and "nome" in dados_via:
                                 nome = dados_via["nome"]
+                                if str(nome).strip().casefold() in _NOMES_PLACEHOLDER_ESCALADA:
+                                    continue
                                 if nome in nomes_vistos:
                                     duplicados.add(nome)
                                 else:
@@ -518,8 +532,8 @@ def verificar_nomes_duplicados_de_escalada(croqui_id: str, compiled_data: dict[s
 
 def verificar_escaladas_sem_mapa(croqui_id: str, compiled_data: dict[str, Any]) -> None:
     """Avisa se há escaladas que não estão mapeadas, caso o croqui já possua mapas desenhados."""
-    todas_escaladas: set[str] = set()
-    escaladas_referenciadas: set[str] = set()
+    todas_escaladas: list[tuple[str, str]] = []
+    alvos_referenciados: set[str] = set()
     tem_mapas_com_pontos = False
 
     def _buscar(obj: Any) -> None:
@@ -528,9 +542,12 @@ def verificar_escaladas_sem_mapa(croqui_id: str, compiled_data: dict[str, Any]) 
             if "escaladas" in obj and isinstance(obj["escaladas"], list):
                 for esc in obj["escaladas"]:
                     if isinstance(esc, dict):
+                        uid_esc = str(esc.get("uid", ""))
                         for dados_via in esc.values():
                             if isinstance(dados_via, dict) and "nome" in dados_via:
-                                todas_escaladas.add(dados_via["nome"])
+                                nome_esc = str(dados_via["nome"])
+                                chave_id = uid_esc or nome_esc
+                                todas_escaladas.append((chave_id, nome_esc))
 
             if (
                 "pontos_de_interesse" in obj
@@ -541,8 +558,8 @@ def verificar_escaladas_sem_mapa(croqui_id: str, compiled_data: dict[str, Any]) 
 
             if "referencias" in obj and isinstance(obj["referencias"], list):
                 for ref in obj["referencias"]:
-                    if isinstance(ref, dict) and "escalada" in ref:
-                        escaladas_referenciadas.add(ref["escalada"])
+                    if isinstance(ref, dict) and "alvo_uid" in ref:
+                        alvos_referenciados.add(str(ref["alvo_uid"]))
 
             for v in obj.values():
                 _buscar(v)
@@ -555,7 +572,9 @@ def verificar_escaladas_sem_mapa(croqui_id: str, compiled_data: dict[str, Any]) 
     if not tem_mapas_com_pontos:
         return
 
-    escaladas_sem_mapa = todas_escaladas - escaladas_referenciadas
+    escaladas_sem_mapa = {
+        nome for chave_id, nome in todas_escaladas if chave_id not in alvos_referenciados
+    }
     for nome in sorted(escaladas_sem_mapa):
         print(
             f"\nAviso: A escalada '{nome}' não está referenciada em nenhum mapa no croqui '{croqui_id}'."
@@ -1247,6 +1266,10 @@ def passo_c_gerar_indice(
         resumo.precomputados.total_boulders = total_boulders
         resumo.precomputados.total_multiplas_enfiadas = total_multiplas_enfiadas
         resumo.precomputados.total_highlines = total_highlines
+        resumo.precomputados.nota_qualidade = avaliar_nota_qualidade_croqui(
+            croqui_data,
+            croqui_path=DATABASE_DIR / croqui_id,
+        ).nota_qualidade
 
         # Injeta tamanho estimado de download para modo offline
         pasta_imagens = caminho_compilado_pb.parent / "imagens"
@@ -1319,6 +1342,7 @@ def passo_c_gerar_indice(
                 "total_escaladas": resumo.precomputados.total_escaladas,
                 "total_setores": resumo.precomputados.total_setores,
                 "total_grupos": resumo.precomputados.total_grupos,
+                "nota_qualidade": resumo.precomputados.nota_qualidade,
             }
             if resumo.precomputados.total_esportivas > 0:
                 pre_yaml["total_esportivas"] = resumo.precomputados.total_esportivas

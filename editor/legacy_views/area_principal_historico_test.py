@@ -81,11 +81,11 @@ def test_janela_roteamento_foco(qtbot):
     assert janela.pagina_mapas.editor is not None
     with patch.object(janela.pagina_mapas.editor, "selecionar_mapa_por_indices") as mock_selecionar:
         # Roteamento para Dados
-        janela.stack.setCurrentIndex(1)  # Muda para imagens antes
+        janela.stack.setCurrentIndex(2)  # Muda para imagens antes
         janela._on_foco_requisitado("page:dados/node:root")
-        assert janela.stack.currentIndex() == 0
+        assert janela.stack.currentIndex() == 1
 
         # Roteamento para Mapas
         janela._on_foco_requisitado("page:mapas/file:setor.md")
-        assert janela.stack.currentIndex() == 2
+        assert janela.stack.currentIndex() == 3
         mock_selecionar.assert_called_once_with(0, 0, 0)

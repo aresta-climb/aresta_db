@@ -1,12 +1,13 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
+import threading
 from collections.abc import Callable
 from concurrent.futures import Future
 from concurrent.futures import TimeoutError as FuturoTimeoutError
 from typing import Any, TypeVar
 
-from PySide6.QtCore import QObject, Qt, QThread, Signal, Slot
+from PySide6.QtCore import QObject, Qt, Signal, Slot
 
 T = TypeVar("T")
 
@@ -21,6 +22,7 @@ class DespachanteQt(QObject):
 
     def __init__(self, parent: QObject | None = None) -> None:
         super().__init__(parent)
+        self._id_thread_principal = threading.get_ident()
         self._sinal_executar.connect(self._processar_pacote, Qt.ConnectionType.QueuedConnection)
 
     @Slot(object)
@@ -41,7 +43,7 @@ class DespachanteQt(QObject):
         Executa `fn(*args, **kwargs)` na thread principal associada a este QObject
         e retorna o seu resultado ou relança qualquer exceção ocorrida.
         """
-        if QThread.currentThread() == self.thread():
+        if threading.get_ident() == self._id_thread_principal:
             return fn(*args, **kwargs)
 
         futuro: Future[T] = Future()

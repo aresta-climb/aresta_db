@@ -170,8 +170,8 @@ picos:
         area_principal.carregar_croqui()
 
         # Navega para a aba de Mapas
-        area_principal._trocar_pagina(2)
-        assert area_principal.stack.currentIndex() == 2
+        area_principal._trocar_pagina(3)
+        assert area_principal.stack.currentIndex() == 3
 
         # Seleciona o mapa na lista do editor de mapas
         editor_mapas = area_principal.pagina_mapas.editor
@@ -181,8 +181,8 @@ picos:
         # Clica no botão "Abrir no Editor de Imagens"
         editor_mapas.btn_abrir_editor_imagens.click()
 
-        # Deve ter navegado para a aba de imagens (índice 1)
-        assert area_principal.stack.currentIndex() == 1
+        # Deve ter navegado para a aba de imagens (índice 2)
+        assert area_principal.stack.currentIndex() == 2
 
         # Deve ter selecionado exatamente o arquivo 'mapa_setor_b.webp' na lista de imagens
         item_selecionado = area_principal.pagina_imagens.editor.list_widget.currentItem()
@@ -238,8 +238,8 @@ picos:
         area_principal.carregar_croqui()
 
         # Vai para a aba de mapas
-        area_principal._trocar_pagina(2)
-        assert area_principal.stack.currentIndex() == 2
+        area_principal._trocar_pagina(3)
+        assert area_principal.stack.currentIndex() == 3
 
         # Seleciona o mapa
         editor_mapas = area_principal.pagina_mapas.editor
@@ -262,8 +262,8 @@ picos:
         # Executa substituição de imagem do mapa
         editor_mapas.substituir_imagem_mapa()
 
-        # Deve permanecer na aba de mapas (índice 2) sem crash
-        assert area_principal.stack.currentIndex() == 2
+        # Deve permanecer na aba de mapas (índice 3) sem crash
+        assert area_principal.stack.currentIndex() == 3
         assert (
             area_principal.croqui_model.obter_bytes_imagem("imagens/mapa_principal.webp")
             is not None
@@ -271,11 +271,11 @@ picos:
 
         # Testa Undo
         area_principal.historico.obter_pilha().undo()
-        assert area_principal.stack.currentIndex() == 2
+        assert area_principal.stack.currentIndex() == 3
 
         # Testa Redo
         area_principal.historico.obter_pilha().redo()
-        assert area_principal.stack.currentIndex() == 2
+        assert area_principal.stack.currentIndex() == 3
 
         area_principal.historico.obter_pilha().setClean()
 
@@ -321,8 +321,8 @@ picos:
         area_principal.carregar_croqui()
 
         # Vai para a aba de imagens
-        area_principal._trocar_pagina(1)
-        assert area_principal.stack.currentIndex() == 1
+        area_principal._trocar_pagina(2)
+        assert area_principal.stack.currentIndex() == 2
 
         editor_imagens = area_principal.pagina_imagens.editor
 
@@ -337,8 +337,8 @@ picos:
         # Clica no botão
         editor_imagens.btn_abrir_no_editor_mapas.click()
 
-        # Deve ter navegado para a aba de mapas (índice 2)
-        assert area_principal.stack.currentIndex() == 2
+        # Deve ter navegado para a aba de mapas (índice 3)
+        assert area_principal.stack.currentIndex() == 3
 
         # Deve ter selecionado o mapa correspondente
         editor_mapas = area_principal.pagina_mapas.editor

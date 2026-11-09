@@ -19,6 +19,10 @@ Todos os pontos de entrada e substituição de imagens do editor utilizam os di�
   - Substituir imagens selecionadas no `WidgetEditorImagens` em modo de destino fixo.
 - **`dialogos/dialogo_inserir_imagem_markdown.py` (`DialogoInserirImagemMarkdown`)**: Diálogo de inserção de imagens em campos Markdown (`![alt](imagens/...)`), compartilhando os mesmos recursos de Drag & Drop, recorte interativo e seleção da galeria `"Imagens do Croqui"`.
 
+## Painel de Qualidade e Prontidão do Croqui (`widget_painel_qualidade.py`)
+
+- **`WidgetPainelQualidade` (`PaginaPainel`)**: Primeira aba (`page:painel`, índice `0`) exibida ao abrir um croqui no editor. Consome `avaliar_nota_qualidade_croqui` (`editor/core/avaliador_nota_qualidade.py`) de forma reativa aos sinais do `CroquiModel` para exibir a `nota_qualidade` total em escala aberta aditiva, o status de publicação (`Rascunho` / `Publicado`), as 3 etapas colapsáveis em cascata automática (`1000` / `100` / `10` pontos por tarefa) com botões de ação rápida (`ContextoUIPath`) e o controle de `publicar_croqui` via histórico de Undo/Redo no `CroquiController`.
+
 ## Coordenadas Geográficas e Geração de Malha Rodoviária (`widget_mensagem_coordenada.py`)
 
 - **`WidgetMensagemCoordenada`**: Renderiza campos `Coordenada` em E7 com conversão bidirecional para graus decimais, abertura externa no Google Maps e, exclusivamente para `pico.localizacao`, o botão `"Gerar Mapa de Pontos"` com resumo de nós da malha rodoviária OSM (`pico.malha_estrada.conteudo`).

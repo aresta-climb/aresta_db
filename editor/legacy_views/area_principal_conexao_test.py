@@ -66,6 +66,12 @@ class DialogoFake(QObject):
         self.exec_vezes += 1
         return 0
 
+    def encerrar_tarefa(self) -> None:
+        pass
+
+    def close(self) -> bool:
+        return True
+
 
 @pytest.fixture
 def ambiente_ui_celular(monkeypatch):

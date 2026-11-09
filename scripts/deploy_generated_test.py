@@ -94,6 +94,7 @@ class DeployGeneratedTest(unittest.TestCase):
     def test_passo_c_gerar_indice_precomputados(self):
         # Configurar um croqui_data com picos e precomputados
         croqui_data = {
+            "nome": "Croqui Teste",
             "publicar_croqui": True,
             "picos": [
                 {
@@ -147,11 +148,19 @@ class DeployGeneratedTest(unittest.TestCase):
             self.assertEqual(resumo.precomputados.total_boulders, 2)
             self.assertEqual(resumo.precomputados.total_multiplas_enfiadas, 5)
             self.assertEqual(resumo.precomputados.total_highlines, 0)
+            self.assertGreater(resumo.precomputados.nota_qualidade, 0)
 
-            # Verifica que o indice.yaml foi gravado estritamente com quebras LF (\n)
+            # Verifica que o indice.yaml foi gravado estritamente com quebras LF (\n) e inclui nota_qualidade
             indice_yaml = Path(tmp_dir) / "indice.yaml"
             self.assertTrue(indice_yaml.is_file())
             self.assertNotIn(b"\r\n", indice_yaml.read_bytes())
+            dados_indice_yaml = deploy_generated.carregar_yaml(
+                indice_yaml.read_text(encoding="utf-8")
+            )
+            self.assertEqual(
+                dados_indice_yaml["croquis"][0]["precomputados"]["nota_qualidade"],
+                resumo.precomputados.nota_qualidade,
+            )
 
     def test_passo_c_gerar_indice_tamanho_download_bytes(self):
         # Configurar croqui de teste com compilado.binarypb e pasta de imagens
@@ -1847,6 +1856,84 @@ class DeployGeneratedTest(unittest.TestCase):
         finally:
             sys.stdout = sys.__stdout__
         self.assertEqual(buf2.getvalue(), "")
+
+    def test_aviso_escalada_duplicada_ignora_placeholders_genericos(self):
+        compiled_data = {
+            "picos": [
+                {
+                    "setores_ou_grupos": [
+                        {
+                            "setor": {
+                                "escaladas": [
+                                    {"uid": "u1", "via_esportiva": {"nome": "Via sem informação"}},
+                                    {"uid": "u2", "via_esportiva": {"nome": "Via sem informação"}},
+                                    {"uid": "u3", "via_esportiva": {"nome": "Projeto"}},
+                                    {"uid": "u4", "via_esportiva": {"nome": "Projeto"}},
+                                    {"uid": "u5", "via_esportiva": {"nome": "Golpe Ninja"}},
+                                    {"uid": "u6", "via_esportiva": {"nome": "Golpe Ninja"}},
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+        buf = StringIO()
+        sys.stdout = buf
+        try:
+            deploy_generated.verificar_nomes_duplicados_de_escalada("croqui_teste", compiled_data)
+        finally:
+            sys.stdout = sys.__stdout__
+
+        saida = buf.getvalue()
+        self.assertNotIn("Via sem informação", saida)
+        self.assertNotIn("Projeto", saida)
+        self.assertIn(
+            "Aviso: A escalada 'Golpe Ninja' aparece mais de uma vez no croqui 'croqui_teste'",
+            saida,
+        )
+
+    def test_verificar_escaladas_sem_mapa_resolve_alvo_uid(self):
+        compiled_data = {
+            "picos": [
+                {
+                    "setores_ou_grupos": [
+                        {
+                            "setor": {
+                                "escaladas": [
+                                    {
+                                        "uid": "uid_mapeada",
+                                        "via_esportiva": {"nome": "Via Mapeada"},
+                                    },
+                                    {"uid": "uid_orfa", "via_esportiva": {"nome": "Via Sem Mapa"}},
+                                ],
+                                "mapas": [
+                                    {
+                                        "pontos_de_interesse": [{"uid": "p1", "rotulo": "01"}],
+                                        "referencias": [
+                                            {"alvo_uid": "uid_mapeada", "pontos_uids": ["p1"]}
+                                        ],
+                                    }
+                                ],
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+        buf = StringIO()
+        sys.stdout = buf
+        try:
+            deploy_generated.verificar_escaladas_sem_mapa("croqui_teste", compiled_data)
+        finally:
+            sys.stdout = sys.__stdout__
+
+        saida = buf.getvalue()
+        self.assertNotIn("Via Mapeada", saida)
+        self.assertIn(
+            "Aviso: A escalada 'Via Sem Mapa' não está referenciada em nenhum mapa no croqui 'croqui_teste'.",
+            saida,
+        )
 
 
 if __name__ == "__main__":
