@@ -598,9 +598,9 @@ def test_sessao_continua_robo_caotico_preserva_breadcrumbs_isola_ddmin_e_anexa_j
             registrar_breadcrumb_comando(_CmdFalso("nome", "croqui"))
             registrar_breadcrumb_comando(_CmdFalso("altura", "picos.0"))
 
-            # Chamada intermediária de capturar_excecao antes do fim da semente não deve enviar evento sem .json
-            assert capturar_excecao(RuntimeError("Erro intermediário sem json")) is None
-            assert len(eventos_enviados) == 0
+            # Chamada intermediária de capturar_excecao também é enviada ao Sentry em tempo real (Sentry liberado o tempo todo)
+            capturar_excecao(RuntimeError("Erro intermediário em tempo real"))
+            assert len(eventos_enviados) == 1
 
             # Replays do ddmin não devem poluir os breadcrumbs nem substituir o diário da semente original
             with escopo_silencioso_ddmin_sentry():
@@ -621,8 +621,8 @@ def test_sessao_continua_robo_caotico_preserva_breadcrumbs_isola_ddmin_e_anexa_j
                     caminho_arquivo_json=arquivo_json,
                 )
 
-    assert len(eventos_enviados) == 1
-    evento, hint = eventos_enviados[0]
+    assert len(eventos_enviados) == 2
+    evento, hint = eventos_enviados[-1]
     mensagens_breadcrumbs = [b["message"] for b in evento["breadcrumbs"]["values"]]
     assert "_CmdFalso: nome" in mensagens_breadcrumbs
     assert "_CmdFalso: altura" in mensagens_breadcrumbs

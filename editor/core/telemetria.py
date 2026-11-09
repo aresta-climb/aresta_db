@@ -20,7 +20,6 @@ DSN_PADRAO = "https://a632ff22a93532930ea95f849b4a796b@o4511980548849664.ingest.
 
 _caminhos_extras_sanitizacao: list[tuple[str, str]] = []
 _sessao_robo_caotico_ativa: bool = False
-_envio_consolidado_robo_caotico_em_andamento: bool = False
 
 
 def registrar_caminho_repo_local(caminho_repo: Path | str) -> None:
@@ -140,8 +139,6 @@ def _sanitizar_objeto_recursivo(obj: Any) -> Any:
 def sanitizar_evento_sentry(event: Any, hint: Any) -> Any:
     """Hook before_send do Sentry para sanitizar qualquer caminho local em eventos, stacktraces e breadcrumbs."""
     _ = hint
-    if _sessao_robo_caotico_ativa and not _envio_consolidado_robo_caotico_em_andamento:
-        return None
     return _sanitizar_objeto_recursivo(event)
 
 
@@ -384,9 +381,6 @@ def capturar_falha_submissao(
     if not sentry_sdk:
         return None
 
-    if _sessao_robo_caotico_ativa and not _envio_consolidado_robo_caotico_em_andamento:
-        return None
-
     try:
         # Mapeamento taxonômico de severidade
         mapa_severidade = {
@@ -447,9 +441,6 @@ def capturar_excecao(
     if not sentry_sdk:
         return None
 
-    if _sessao_robo_caotico_ativa and not _envio_consolidado_robo_caotico_em_andamento:
-        return None
-
     try:
         if hasattr(sentry_sdk, "set_tag"):
             sentry_sdk.set_tag("tipo_evento", "excecao_editor")
@@ -490,19 +481,16 @@ def capturar_excecao(
 @contextlib.contextmanager
 def ativar_sessao_sentry_robo_caotico(dsn: str | None = None) -> Iterator[None]:
     """
-    Mantém o Sentry continuamente ativo do início ao fim de uma campanha do Robô Caótico,
-    permitindo que breadcrumbs de comandos, logs e diário sejam acumulados em tempo real
-    durante a execução de cada semente e suprimindo envios intermediários sem o '.json'
-    anexado.
+    Mantém o Sentry continuamente ativo e liberado do início ao fim de uma campanha
+    do Robô Caótico, permitindo que erros, breadcrumbs de comandos, logs e diário
+    sejam enviados e acumulados em tempo real durante toda a execução.
     """
-    global _sessao_robo_caotico_ativa, _envio_consolidado_robo_caotico_em_andamento
+    global _sessao_robo_caotico_ativa
     desativar_anterior = os.environ.pop("ARESTA_DESATIVAR_TELEMETRIA", None)
     hook_sys_anterior = sys.excepthook
     hook_thread_anterior = getattr(threading, "excepthook", None)
     sessao_anterior = _sessao_robo_caotico_ativa
-    envio_anterior = _envio_consolidado_robo_caotico_em_andamento
     _sessao_robo_caotico_ativa = True
-    _envio_consolidado_robo_caotico_em_andamento = False
     inicializado = inicializar_telemetria(dsn=dsn)
     try:
         yield
@@ -510,7 +498,6 @@ def ativar_sessao_sentry_robo_caotico(dsn: str | None = None) -> Iterator[None]:
         if inicializado:
             encerrar_telemetria(timeout=2.0)
         _sessao_robo_caotico_ativa = sessao_anterior
-        _envio_consolidado_robo_caotico_em_andamento = envio_anterior
         sys.excepthook = hook_sys_anterior
         if hook_thread_anterior is not None:
             threading.excepthook = hook_thread_anterior
@@ -591,7 +578,6 @@ def capturar_crash_robo_caotico(
     nível 'fatal', tag 'origem_crash=robo_caotico', contexto estruturado 'receita_robo_caotico'
     sanitizado, breadcrumbs acumulados da semente e o arquivo '.json' da receita anexado.
     """
-    global _envio_consolidado_robo_caotico_em_andamento
     anexos = [caminho_arquivo_json] if caminho_arquivo_json else None
     gerenciador = (
         contextlib.nullcontext()
@@ -599,17 +585,12 @@ def capturar_crash_robo_caotico(
         else ativar_sessao_sentry_robo_caotico()
     )
     with gerenciador:
-        envio_anterior = _envio_consolidado_robo_caotico_em_andamento
-        _envio_consolidado_robo_caotico_em_andamento = True
-        try:
-            return capturar_excecao(
-                erro=erro,
-                id_croqui=id_croqui,
-                etapa=etapa,
-                contextos_extras={"receita_robo_caotico": receita_robo_caotico},
-                nivel_severidade="fatal",
-                tags_extras={"origem_crash": "robo_caotico"},
-                arquivos_anexos=anexos,
-            )
-        finally:
-            _envio_consolidado_robo_caotico_em_andamento = envio_anterior
+        return capturar_excecao(
+            erro=erro,
+            id_croqui=id_croqui,
+            etapa=etapa,
+            contextos_extras={"receita_robo_caotico": receita_robo_caotico},
+            nivel_severidade="fatal",
+            tags_extras={"origem_crash": "robo_caotico"},
+            arquivos_anexos=anexos,
+        )
