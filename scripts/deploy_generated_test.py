@@ -1842,9 +1842,11 @@ class DeployGeneratedTest(unittest.TestCase):
                     "nome": "Gruta da Lapinha",
                     "localizacao": {"latitude": -195600000, "longitude": -439600000},
                     "malha_estrada": {
-                        "latitude_referencia_e7": -195600000,
-                        "longitude_referencia_e7": -439600000,
-                        "nos": [{"no_osm_id": 500, "distancia_metros": 0}],
+                        "conteudo": {
+                            "latitude_referencia_e7": -195600000,
+                            "longitude_referencia_e7": -439600000,
+                            "nos": [{"no_osm_id": 500, "distancia_metros": 0}],
+                        }
                     },
                 },
             ]

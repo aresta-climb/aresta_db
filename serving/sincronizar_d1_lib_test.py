@@ -171,7 +171,7 @@ def test_inicializar_schema_d1_criacao_e_migracao_legado() -> None:
         "grupo_uid",
     ]
 
-    # 2. Simula schema legado no D1 (catalogo_croquis com uf, catalogo_aresta antiga e registros em deltas_catalogo)
+    # 2. Simula schema legado no D1 (catalogo_croquis com uf, catalogo_aresta antiga, catalogo_distancias_estrada sem duracao_minutos e registros em deltas_catalogo)
     fake.executar_query("DROP TABLE catalogo_croquis")
     fake.executar_query(
         """
@@ -198,13 +198,25 @@ def test_inicializar_schema_d1_criacao_e_migracao_legado() -> None:
         );
         """
     )
+    fake.executar_query("DROP TABLE catalogo_distancias_estrada")
+    fake.executar_query(
+        """
+        CREATE TABLE catalogo_distancias_estrada (
+            croqui_uid TEXT NOT NULL,
+            no_osm_id INTEGER NOT NULL,
+            distancia_metros INTEGER NOT NULL,
+            na_borda INTEGER NOT NULL DEFAULT 0,
+            PRIMARY KEY (croqui_uid, no_osm_id)
+        ) WITHOUT ROWID;
+        """
+    )
     fake.executar_query(
         "INSERT INTO deltas_catalogo (versao_hash, criado_em, upserts_json, deletes_json) "
         "VALUES ('versao_antiga', datetime('now'), '{}', '{}')"
     )
     assert len(fake.executar_query("SELECT * FROM deltas_catalogo")) == 1
 
-    # Ao rodar inicializar_schema_d1 novamente, detecta ausência de estado / escalada_tipo e migra
+    # Ao rodar inicializar_schema_d1 novamente, detecta ausência de estado / escalada_tipo / duracao_minutos e migra
     inicializar_schema_d1(fake)
 
     info_croquis_migrada = fake.executar_query("PRAGMA table_info(catalogo_croquis)")
@@ -216,6 +228,10 @@ def test_inicializar_schema_d1_criacao_e_migracao_legado() -> None:
     colunas_migradas = [linha["name"] for linha in info_migrada]
     assert "escalada_tipo" in colunas_migradas
     assert "setor_nome" not in colunas_migradas
+
+    info_dists_migrada = fake.executar_query("PRAGMA table_info(catalogo_distancias_estrada)")
+    colunas_dists_migradas = [linha["name"] for linha in info_dists_migrada]
+    assert "duracao_minutos" in colunas_dists_migradas
     # Deltas antigos foram limpos para forçar bootstrap limpo
     assert len(fake.executar_query("SELECT * FROM deltas_catalogo")) == 0
 
@@ -290,6 +306,7 @@ def test_aplicar_upserts_e_deletes_d1_em_lotes() -> None:
                     "no_osm_id": 1000 + i,
                     "distancia_metros": i * 1000,
                     "na_borda": 1 if i == 24 else 0,
+                    "duracao_minutos": i * 2,
                 }
                 for i in range(25)
             ],
@@ -310,6 +327,10 @@ def test_aplicar_upserts_e_deletes_d1_em_lotes() -> None:
 
     linhas_dists = fake.executar_query("SELECT COUNT(*) AS total FROM catalogo_distancias_estrada")
     assert linhas_dists[0]["total"] == 25
+    amostra_dist = fake.executar_query(
+        "SELECT duracao_minutos FROM catalogo_distancias_estrada WHERE no_osm_id = 1005"
+    )
+    assert amostra_dist[0]["duracao_minutos"] == 10
 
 
 def test_sincronizar_catalogo_d1_ja_atualizado(tmp_path: Path) -> None:
@@ -548,6 +569,13 @@ def test_sincronizar_catalogo_d1_cliente_padrao_ambiente(
             {
                 "success": True,
                 "result": [{"results": [{"name": "uid"}, {"name": "escalada_tipo"}]}],
+            },
+        ),
+        (
+            200,
+            {
+                "success": True,
+                "result": [{"results": [{"name": "croqui_uid"}, {"name": "duracao_minutos"}]}],
             },
         ),
         (200, {"success": True, "result": []}),

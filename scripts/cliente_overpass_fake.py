@@ -41,7 +41,14 @@ class ClienteOverpassFake(ClienteOverpass):
         chave = (int(round(latitude * 1e7)), int(round(longitude * 1e7)))
         self.respostas_por_coordenada[chave] = list(elementos)
 
-    def consultar_malha(self, latitude: float, longitude: float) -> list[dict[str, Any]]:
+    def consultar_malha(
+        self,
+        latitude: float,
+        longitude: float,
+        *,
+        ao_progresso: Any = None,
+        verificador_cancelamento: Any = None,
+    ) -> list[dict[str, Any]]:
         """Retorna os elementos pré-configurados em memória ou levanta o erro simulado."""
         if self.simular_erro is not None:
             raise self.simular_erro

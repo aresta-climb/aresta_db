@@ -125,7 +125,11 @@ class DialogoProgressoMalhaEstrada(QDialog):
         linha_botoes.addStretch()
         self.btn_cancelar = QPushButton("Cancelar")
         self.btn_cancelar.clicked.connect(self.cancelar_geracao)
+        self.btn_concluir = QPushButton("Concluir")
+        self.btn_concluir.setEnabled(False)
+        self.btn_concluir.clicked.connect(self.accept)
         linha_botoes.addWidget(self.btn_cancelar)
+        linha_botoes.addWidget(self.btn_concluir)
 
         layout.addWidget(self.rotulo_etapa)
         layout.addWidget(self.barra_progresso)
@@ -144,7 +148,10 @@ class DialogoProgressoMalhaEstrada(QDialog):
 
     def _ao_concluir(self, malha: Any) -> None:
         self.resultado_malha = malha
-        self.accept()
+        self.btn_cancelar.setEnabled(False)
+        self.btn_concluir.setEnabled(True)
+        self.btn_concluir.setDefault(True)
+        self.btn_concluir.setFocus()
 
     def _ao_falhar(self, erro_msg: str) -> None:
         self.mensagem_erro = erro_msg

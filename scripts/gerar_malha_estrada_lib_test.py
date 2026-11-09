@@ -19,6 +19,7 @@ from scripts.gerar_malha_estrada_lib import (
     ESPELHOS_OVERPASS_PADRAO,
     ClienteOverpass,
     ErroMalhaEstradaCancelada,
+    calcular_velocidade_sem_transito_kmh,
     construir_malha_estrada_pico_proto,
     construir_query_overpass,
     extrair_linhas_malha_de_pico_proto,
@@ -300,3 +301,98 @@ def test_amostragem_tres_aneis_deduplica_pela_prioridade_intrinseca_e_marca_port
 
     # Verifica que prioridade_intrinseca_no é determinística
     assert prioridade_intrinseca_no(2, 1, 3) < prioridade_intrinseca_no(3, 5, 1)
+
+
+def test_cliente_overpass_streaming_progresso_em_mb_e_cancelamento_entre_blocos() -> None:
+    # Gera um payload JSON > 128 KB para atravessar múltiplos blocos de 64 KB
+    nos_grandes = [
+        {"type": "node", "id": i, "lat": -19.5, "lon": -43.9, "pad": "x" * 200}
+        for i in range(1, 700)
+    ]
+    corpo_grande = json.dumps({"elements": nos_grandes}).encode("utf-8")
+    assert len(corpo_grande) > 131072
+
+    def abridor_streaming(req: urllib.request.Request, timeout: float) -> Any:
+        resposta = io.BytesIO(corpo_grande)
+        resposta.status = 200  # type: ignore[attr-defined]
+        return resposta
+
+    cliente = ClienteOverpass(
+        url_endpoint="https://overpass.exemplo/api/interpreter",
+        abridor_url=abridor_streaming,
+    )
+    eventos: list[tuple[str, int]] = []
+    elementos = cliente.consultar_malha(
+        -19.5,
+        -43.9,
+        ao_progresso=lambda msg, pct: eventos.append((msg, pct)),
+    )
+    assert len(elementos) == 699
+    assert any("overpass.exemplo" in msg and "MB" in msg for msg, _ in eventos)
+    assert all(15 <= pct <= 42 for _, pct in eventos)
+
+    # Cancelamento após o primeiro bloco lido interrompe imediatamente
+    leituras = 0
+
+    def verificar_cancelamento_no_meio() -> bool:
+        nonlocal leituras
+        leituras += 1
+        return leituras >= 3
+
+    with pytest.raises(ErroMalhaEstradaCancelada, match="cancelada"):
+        cliente.consultar_malha(
+            -19.5,
+            -43.9,
+            verificador_cancelamento=verificar_cancelamento_no_meio,
+        )
+
+
+def test_calcular_velocidade_sem_transito_e_dijkstra_escolhe_caminho_mais_rapido() -> None:
+    assert calcular_velocidade_sem_transito_kmh({"highway": "motorway"}) == 95.0
+    assert calcular_velocidade_sem_transito_kmh({"highway": "trunk"}) == 80.0
+    assert calcular_velocidade_sem_transito_kmh({"highway": "primary"}) == 70.0
+    assert calcular_velocidade_sem_transito_kmh({"highway": "secondary"}) == 55.0
+    assert calcular_velocidade_sem_transito_kmh({"highway": "tertiary"}) == 45.0
+    assert calcular_velocidade_sem_transito_kmh({"highway": "unclassified"}) == 35.0
+    assert calcular_velocidade_sem_transito_kmh({"highway": "residential"}) == 25.0
+    assert calcular_velocidade_sem_transito_kmh({"highway": "track"}) == 20.0
+    assert (
+        calcular_velocidade_sem_transito_kmh({"highway": "secondary", "surface": "unpaved"}) == 30.0
+    )
+    assert (
+        calcular_velocidade_sem_transito_kmh({"highway": "unclassified", "surface": "dirt"}) == 25.0
+    )
+    assert (
+        calcular_velocidade_sem_transito_kmh({"highway": "primary", "maxspeed": "100 km/h"}) == 85.0
+    )
+    assert (
+        calcular_velocidade_sem_transito_kmh({"highway": "primary", "maxspeed": "signals"}) == 70.0
+    )
+
+    # Pico em (0.0, 0.0) -> nó 1
+    # Nó de origem 2 em (0.09, 0.0) (~10 km em linha reta):
+    # - Rota A (direta por track de terra, ~10 km a 20 km/h => ~30 min): 1 -> 2
+    # - Rota B (desvio por motorway via nó 3 em (0.045, 0.07), ~18.7 km a 95 km/h => ~12 min): 1 -> 3 -> 2
+    elementos: list[dict[str, Any]] = [
+        {"type": "node", "id": 1, "lat": 0.0, "lon": 0.0},
+        {"type": "node", "id": 2, "lat": 0.09, "lon": 0.0},
+        {"type": "node", "id": 3, "lat": 0.045, "lon": 0.07},
+        {"type": "way", "id": 10, "nodes": [1, 2], "tags": {"highway": "track"}},
+        {"type": "way", "id": 20, "nodes": [1, 3, 2], "tags": {"highway": "motorway"}},
+    ]
+    fake = ClienteOverpassFake(elementos_padrao=elementos)
+
+    pico = croqui_pb2.Pico(nome="Pico Rápido")
+    pico.localizacao.latitude = 0
+    pico.localizacao.longitude = 100
+    malha_proto = construir_malha_estrada_pico_proto(0, 100, fake)
+    pico.malha_estrada.conteudo.CopyFrom(malha_proto)
+
+    _, dists = extrair_linhas_malha_de_pico_proto("uid_rapido", pico)
+    mapa_dist = {d["no_osm_id"]: d for d in dists}
+
+    assert mapa_dist[1]["distancia_metros"] == 0
+    assert mapa_dist[1]["duracao_minutos"] == 0
+    # Nó 2 deve ter sido alcançado pela Rota B (motorway: ~18.7 km e ~12 min, em vez de ~10 km e ~30 min)
+    assert mapa_dist[2]["distancia_metros"] > 15000
+    assert 10 <= mapa_dist[2]["duracao_minutos"] <= 14

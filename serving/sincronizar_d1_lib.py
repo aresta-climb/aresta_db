@@ -128,6 +128,13 @@ def inicializar_schema_d1(cliente: ClienteCloudflareD1) -> None:
         cliente.executar_query("DROP TABLE catalogo_aresta")
         cliente.executar_query("DELETE FROM deltas_catalogo")
 
+    # Detecta se catalogo_distancias_estrada já existe com formato legado (sem a coluna duracao_minutos)
+    info_distancias = cliente.executar_query("PRAGMA table_info(catalogo_distancias_estrada)")
+    colunas_distancias = [linha["name"] for linha in info_distancias if "name" in linha]
+    if colunas_distancias and "duracao_minutos" not in colunas_distancias:
+        cliente.executar_query("DROP TABLE catalogo_distancias_estrada")
+        cliente.executar_query("DELETE FROM deltas_catalogo")
+
     cliente.executar_query(DDL_TABELA_CATALOGO_CROQUIS)
     cliente.executar_query(DDL_TABELA_CATALOGO_ARESTA)
     cliente.executar_query(DDL_TABELA_CATALOGO_NOS_ESTRADA)
@@ -254,7 +261,7 @@ def aplicar_upserts_e_deletes_d1(cliente: ClienteCloudflareD1, deltas: dict[str,
     )
     for i in range(0, len(distancias_upserts), TAMANHO_LOTE_UPSERT_ESTRADA):
         lote_dists = distancias_upserts[i : i + TAMANHO_LOTE_UPSERT_ESTRADA]
-        marcadores = ", ".join("(?, ?, ?, ?)" for _ in lote_dists)
+        marcadores = ", ".join("(?, ?, ?, ?, ?)" for _ in lote_dists)
         parametros_dists: list[Any] = []
         for d in lote_dists:
             parametros_dists.extend(
@@ -263,11 +270,12 @@ def aplicar_upserts_e_deletes_d1(cliente: ClienteCloudflareD1, deltas: dict[str,
                     d["no_osm_id"],
                     d["distancia_metros"],
                     d.get("na_borda", 0),
+                    d.get("duracao_minutos", 0),
                 ]
             )
         cliente.executar_query(
             "INSERT OR REPLACE INTO catalogo_distancias_estrada "
-            "(croqui_uid, no_osm_id, distancia_metros, na_borda) "
+            "(croqui_uid, no_osm_id, distancia_metros, na_borda, duracao_minutos) "
             f"VALUES {marcadores}",
             parametros_dists,
         )

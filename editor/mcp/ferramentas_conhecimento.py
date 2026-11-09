@@ -201,15 +201,19 @@ def registrar_ferramentas_conhecimento(
     servidor: ServidorMCP,
     diretorio_skills: Path | None = None,
     caminho_proto: Path | None = None,
+    model: Any = None,
+    diretorio_database: Path | None = None,
 ) -> None:
     """
     Registra no `ServidorMCP` as ferramentas e recursos de descoberta de esquema Protobuf
-    (`aresta_obter_esquema_proto`, `aresta://esquema/proto`) e de consulta às skills de domínio
-    (`aresta_listar_skills`, `aresta_ler_skill`, `aresta://skills`).
+    (`aresta_obter_esquema_proto`, `aresta://esquema/proto`), de consulta às skills de domínio
+    (`aresta_listar_skills`, `aresta_ler_skill`, `aresta://skills`) e de diagnóstico do painel
+    de qualidade (`aresta_avaliar_qualidade`).
     """
     raiz_repo = Path(__file__).resolve().parents[2]
     dir_skills = diretorio_skills or (raiz_repo / ".agents" / "skills")
     arq_proto = caminho_proto or (raiz_repo / "aresta_api" / "proto" / "croqui.proto")
+    dir_db = diretorio_database or (raiz_repo / "database")
 
     mensagens_por_nome, enums_por_nome = _coletar_descritores_proto()
 
@@ -305,6 +309,79 @@ def registrar_ferramentas_conhecimento(
             "arquivos_auxiliares": arquivos_auxiliares,
         }
 
+    def _avaliar_qualidade(args: dict[str, Any]) -> dict[str, Any]:
+        from editor.core.avaliador_nota_qualidade import avaliar_nota_qualidade_croqui
+
+        id_solicitado = str(args.get("id_croqui") or "").strip()
+        usar_modelo_em_memoria = model is not None and (
+            not id_solicitado
+            or id_solicitado == servidor.id_croqui_ativo
+            or id_solicitado == str(getattr(model.obter_croqui_readonly(), "id", ""))
+        )
+
+        if usar_modelo_em_memoria:
+            caminho_db_ativo = (
+                Path(servidor.caminho_database_ativo)
+                if servidor.caminho_database_ativo
+                else None
+            )
+            resultado = avaliar_nota_qualidade_croqui(model, croqui_path=caminho_db_ativo)
+        else:
+            id_alvo = id_solicitado or servidor.id_croqui_ativo
+            pasta_croqui = dir_db / id_alvo if id_alvo else None
+            if pasta_croqui is None or not (pasta_croqui / "croqui.yaml").is_file():
+                raise ValueError(
+                    f"Não foi possível localizar o croqui '{id_alvo}' para avaliação de qualidade."
+                )
+            resultado = avaliar_nota_qualidade_croqui(None, croqui_path=pasta_croqui)
+
+        etapas_json: list[dict[str, Any]] = []
+        tarefas_pendentes: list[dict[str, Any]] = []
+        for etapa in resultado.etapas:
+            tarefas_etapa_json: list[dict[str, Any]] = []
+            for t in etapa.tarefas:
+                dict_t = {
+                    "id_tarefa": t.id_tarefa,
+                    "titulo": t.titulo,
+                    "descricao": t.descricao,
+                    "etapa": t.etapa,
+                    "pontos_obtidos": t.pontos_obtidos,
+                    "pontos_maximos": t.pontos_maximos,
+                    "ganho_potencial": t.ganho_potencial,
+                    "concluida": t.concluida,
+                    "progresso_atual": t.progresso_atual,
+                    "progresso_total": t.progresso_total,
+                    "acoes": [
+                        {"rotulo": a.rotulo, "uri_contexto": a.uri_contexto} for a in t.acoes
+                    ],
+                }
+                tarefas_etapa_json.append(dict_t)
+                if not t.concluida:
+                    tarefas_pendentes.append(dict_t)
+
+            etapas_json.append(
+                {
+                    "numero_etapa": etapa.numero_etapa,
+                    "titulo": etapa.titulo,
+                    "pontos_obtidos": etapa.pontos_obtidos,
+                    "pontos_maximos": etapa.pontos_maximos,
+                    "tarefas_concluidas": etapa.tarefas_concluidas,
+                    "total_tarefas": etapa.total_tarefas,
+                    "concluida": etapa.concluida,
+                    "tarefas": tarefas_etapa_json,
+                }
+            )
+
+        tarefas_pendentes.sort(key=lambda item: (item["etapa"], -item["ganho_potencial"]))
+        return {
+            "nota_qualidade": resultado.nota_qualidade,
+            "nota_maxima": resultado.nota_maxima,
+            "pronto_para_publicar": resultado.pronto_para_publicar,
+            "publicado": resultado.publicado,
+            "etapas": etapas_json,
+            "tarefas_pendentes": tarefas_pendentes,
+        }
+
     servidor.registrar_ferramenta(
         nome="aresta_obter_esquema_proto",
         descricao=(
@@ -356,6 +433,26 @@ def registrar_ferramentas_conhecimento(
             "required": ["nome_skill"],
         },
         manipulador=_ler_skill,
+        requer_croqui=False,
+    )
+
+    servidor.registrar_ferramenta(
+        nome="aresta_avaliar_qualidade",
+        descricao=(
+            "Avalia a nota de qualidade do croqui (escala aditiva até 8770 pontos nas Etapas 1, 2 e 3) "
+            "e retorna o diagnóstico estruturado com o progresso de cada tarefa, pontos obtidos, "
+            "ganho potencial e lista priorizada de `tarefas_pendentes` com `acoes` (`uri_contexto`)."
+        ),
+        esquema_entrada={
+            "type": "object",
+            "properties": {
+                "id_croqui": {
+                    "type": "string",
+                    "description": "ID opcional do croqui a avaliar (se omitido, avalia o croqui aberto na sessão).",
+                }
+            },
+        },
+        manipulador=_avaliar_qualidade,
         requer_croqui=False,
     )
 

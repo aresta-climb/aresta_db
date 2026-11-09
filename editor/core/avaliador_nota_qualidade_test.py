@@ -11,7 +11,7 @@ from editor.models.croqui_model import CroquiModel
 
 
 def _criar_croqui_etapa1_completa_setor_unico() -> croqui_pb2.Croqui:
-    """Cria um croqui Protobuf que cumpre todas as 7 tarefas da Etapa 1 com setor único."""
+    """Cria um croqui Protobuf que cumpre todas as 8 tarefas da Etapa 1 com setor único."""
     croqui = croqui_pb2.Croqui(
         id="br_mg_teste_qualidade",
         uid="uid_croqui_0001",
@@ -26,6 +26,14 @@ def _criar_croqui_etapa1_completa_setor_unico() -> croqui_pb2.Croqui:
     )
     pico.localizacao.latitude = -195000000
     pico.localizacao.longitude = -435000000
+    pico.malha_estrada.conteudo.latitude_referencia_e7 = -195000000
+    pico.malha_estrada.conteudo.longitude_referencia_e7 = -435000000
+    no_malha = pico.malha_estrada.conteudo.nos.add()
+    no_malha.no_osm_id = 1001
+    no_malha.latitude_e7 = -195000000
+    no_malha.longitude_e7 = -435000000
+    no_malha.distancia_metros = 0
+    no_malha.duracao_minutos = 0
 
     sg = pico.setores_ou_grupos.add()
     setor = sg.setor.conteudo
@@ -59,15 +67,17 @@ def test_croqui_vazio_retorna_nota_zero_e_nao_pronto_para_publicar() -> None:
     resultado = avaliar_nota_qualidade_croqui(croqui)
 
     assert resultado.nota_qualidade == 0
-    assert resultado.nota_maxima == 7770
+    assert resultado.nota_maxima == 8770
     assert resultado.pronto_para_publicar is False
     assert resultado.publicado is False
     assert len(resultado.etapas) == 3
     assert resultado.etapas[0].numero_etapa == 1
     assert resultado.etapas[0].pontos_obtidos == 0
-    assert resultado.etapas[0].pontos_maximos == 7000
+    assert resultado.etapas[0].pontos_maximos == 8000
     assert resultado.etapas[0].concluida is False
     assert resultado.etapas[0].tarefas[0].ganho_potencial == 1000
+    ids_etapa1 = [t.id_tarefa for t in resultado.etapas[0].tarefas]
+    assert "etapa1_malha_estrada_picos" in ids_etapa1
 
 
 def test_calculo_aditivo_entre_as_tres_etapas_por_ordens_de_grandeza() -> None:
@@ -77,7 +87,7 @@ def test_calculo_aditivo_entre_as_tres_etapas_por_ordens_de_grandeza() -> None:
     quando avaliado, então a nota_qualidade total deve ser exatamente 6340.
     """
     croqui = _criar_croqui_etapa1_completa_setor_unico()
-    # Deixa apenas 1 tarefa da Etapa 1 pendente (remove url_google_maps e coordenadas do pico -> 6 de 7 completas = 6000)
+    # Deixa 2 tarefas da Etapa 1 pendentes (remove url_google_maps e coordenadas do pico -> invalida localizacao e malha_estrada -> 6 de 8 completas = 6000)
     croqui.picos[0].ClearField("localizacao")
     croqui.picos[0].url_google_maps = ""
 
@@ -281,13 +291,25 @@ def test_avaliacao_completa_todas_etapas_e_suporte_a_dicionario_e_disco(tmp_path
     beta.url = "https://youtube.com/watch?v=dQw4w9WgXcQ"
 
     resultado_proto = avaliar_nota_qualidade_croqui(croqui)
-    assert resultado_proto.nota_qualidade == 7770
-    assert resultado_proto.nota_maxima == 7770
+    assert resultado_proto.nota_qualidade == 8770
+    assert resultado_proto.nota_maxima == 8770
     assert resultado_proto.pronto_para_publicar is True
     assert resultado_proto.publicado is True
     assert all(etapa.concluida for etapa in resultado_proto.etapas)
 
-    # Também valida leitura descompilada via dicionário + cache_md (como em medir_saude_croquis)
+    # Também valida leitura descompilada via dicionário + arquivo malha_estrada.yaml no disco + cache_md
+    (tmp_path / "malha_estrada.yaml").write_text(
+        """latitude_referencia_e7: -195000000
+longitude_referencia_e7: -435000000
+nos:
+  - no_osm_id: 1001
+    latitude_e7: -195000000
+    longitude_e7: -435000000
+    distancia_metros: 0
+    duracao_minutos: 0
+""",
+        encoding="utf-8",
+    )
     dados_yaml = {
         "id": "br_mg_teste_disco",
         "nome": "Serra da Qualidade",
@@ -304,6 +326,7 @@ def test_avaliacao_completa_todas_etapas_e_suporte_a_dicionario_e_disco(tmp_path
                 "descricao": "Acesso fácil.",
                 "url_google_maps": "https://maps.google.com/?q=-19.5,-43.5",
                 "localizacao": {"latitude": -195000000, "longitude": -435000000},
+                "malha_estrada": {"caminho": "malha_estrada.yaml"},
                 "chave_pix_manutencao": "pix@aresta.org",
                 "setores_ou_grupos": [
                     {
@@ -382,7 +405,7 @@ def test_avaliacao_completa_todas_etapas_e_suporte_a_dicionario_e_disco(tmp_path
     resultado_dict = avaliar_nota_qualidade_croqui(
         dados_yaml, croqui_path=tmp_path, cache_md=cache_md
     )
-    assert resultado_dict.nota_qualidade == 7770
+    assert resultado_dict.nota_qualidade == 8770
     assert resultado_dict.pronto_para_publicar is True
 
 
@@ -400,6 +423,9 @@ id: br_rj_teste
 nome: Pão de Açúcar
 picos:
   - nome: Morro da Urca
+    localizacao:
+      latitude: -229500000
+      longitude: -431600000
     setores_ou_grupos:
       - setor:
           caminho: setor_urca.md
@@ -448,6 +474,10 @@ Corpo do setor na Urca.
     # 2 de 4 escaladas possuem grau (Italianos e Linha das Nuvens)
     assert tarefas_e1["etapa1_grau_dificuldade"].progresso_atual == 2
     assert tarefas_e1["etapa1_grau_dificuldade"].progresso_total == 4
+    assert tarefas_e1["etapa1_malha_estrada_picos"].pontos_obtidos == 0
+    assert tarefas_e1["etapa1_malha_estrada_picos"].acoes[0].rotulo == (
+        "Gerar mapa de pontos de Morro da Urca"
+    )
 
     tarefas_e2 = {t.id_tarefa: t for t in resultado.etapas[1].tarefas}
     # 1 de 2 vias encordadas completa (Italianos completa, Via Sem Dados incompleta)

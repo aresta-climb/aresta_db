@@ -183,3 +183,57 @@ def test_aresta_listar_e_ler_skills_reais_e_customizadas(qapp, tmp_path: Path):
 
     lida_custom = _chamar(servidor_custom, "aresta_ler_skill", {"nome_skill": "minha_skill"})
     assert "exemplo.txt" in lida_custom["arquivos_auxiliares"]
+
+
+def test_aresta_avaliar_qualidade_em_memoria_e_em_disco(qapp, tmp_path: Path):
+    """Valida a ferramenta MCP aresta_avaliar_qualidade sobre o CroquiModel ativo e sobre diretório em disco."""
+    from aresta_api.proto.generated import croqui_pb2
+    from editor.models.croqui_model import CroquiModel
+
+    croqui = croqui_pb2.Croqui(
+        id="br_mg_lapinha",
+        uid="uid_lapinha_01",
+        nome="Gruta da Lapinha",
+        descricao="Clássico de calcário em Lagoa Santa.",
+        caminho_thumbnail="imagens/capa.webp",
+    )
+    pico = croqui.picos.add(nome="Gruta da Lapinha")
+    pico.localizacao.latitude = -195622616
+    pico.localizacao.longitude = -439595684
+    model = CroquiModel(croqui)
+
+    servidor = ServidorMCP(despachante=DespachanteQt(), diretorio_sessao=tmp_path)
+    servidor.definir_croqui_ativo("br_mg_lapinha", str(tmp_path))
+    registrar_ferramentas_conhecimento(servidor, model=model)
+
+    # 1. Avaliação do modelo em memória (nota 1000 da identidade_capa e parcial da localização)
+    diag = _chamar(servidor, "aresta_avaliar_qualidade", {})
+    assert diag["nota_maxima"] == 8770
+    assert diag["nota_qualidade"] >= 1000
+    assert diag["pronto_para_publicar"] is False
+    assert len(diag["etapas"]) == 3
+    ids_pendentes = [t["id_tarefa"] for t in diag["tarefas_pendentes"]]
+    assert "etapa1_malha_estrada_picos" in ids_pendentes
+
+    # 2. Avaliação de um croqui em disco informando id_croqui quando não há model ou id_croqui é outro
+    dir_db = tmp_path / "database" / "br_rj_urca"
+    dir_db.mkdir(parents=True)
+    (dir_db / "croqui.yaml").write_text(
+        "id: br_rj_urca\nnome: Morro da Urca\ndescricao: Desc\ncaminho_thumbnail: img/t.webp\n",
+        encoding="utf-8",
+    )
+    servidor_disco = ServidorMCP(despachante=DespachanteQt(), diretorio_sessao=tmp_path)
+    registrar_ferramentas_conhecimento(
+        servidor_disco, diretorio_database=tmp_path / "database"
+    )
+    diag_disco = _chamar(
+        servidor_disco, "aresta_avaliar_qualidade", {"id_croqui": "br_rj_urca"}
+    )
+    assert diag_disco["nota_qualidade"] == 1000
+    assert diag_disco["nota_maxima"] == 8770
+
+    # 3. Erro claro se não houver croqui aberto nem id_croqui válido em disco
+    with pytest.raises(RuntimeError, match="Não foi possível localizar o croqui"):
+        _chamar(
+            servidor_disco, "aresta_avaliar_qualidade", {"id_croqui": "croqui_inexistente"}
+        )

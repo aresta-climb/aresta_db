@@ -26,6 +26,14 @@ def _criar_croqui_etapa1_completa() -> croqui_pb2.Croqui:
     )
     pico.localizacao.latitude = -195000000
     pico.localizacao.longitude = -435000000
+    pico.malha_estrada.conteudo.latitude_referencia_e7 = -195000000
+    pico.malha_estrada.conteudo.longitude_referencia_e7 = -435000000
+    no_malha = pico.malha_estrada.conteudo.nos.add()
+    no_malha.no_osm_id = 1001
+    no_malha.latitude_e7 = -195000000
+    no_malha.longitude_e7 = -435000000
+    no_malha.distancia_metros = 0
+    no_malha.duracao_minutos = 0
 
     sg = pico.setores_ou_grupos.add()
     setor = sg.setor.conteudo

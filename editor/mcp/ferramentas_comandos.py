@@ -184,6 +184,7 @@ def registrar_ferramentas_comandos(
     servidor: ServidorMCP,
     croqui_controller: CroquiController,
     mapas_controller: MapasController | None = None,
+    cliente_overpass: Any = None,
 ) -> None:
     """
     Registra no `ServidorMCP` o catálogo de ferramentas canônicas mapeadas à interface
@@ -514,6 +515,50 @@ def registrar_ferramentas_comandos(
             "referencias_afetadas": afetadas,
         }
 
+    def _gerar_malha_estrada(args: dict[str, Any]) -> dict[str, Any]:
+        from scripts.gerar_malha_estrada_lib import (
+            ClienteOverpass,
+            construir_malha_estrada_pico_proto,
+        )
+
+        alvo_bruto = str(args.get("alvo") or "").strip()
+        if alvo_bruto in ("", "root"):
+            alvo_bruto = "picos.0"
+        raiz_ro = model.obter_croqui_readonly()
+        if alvo_bruto == "picos.0" and len(raiz_ro.picos) == 0:
+            raise ValueError("O croqui atual não possui picos cadastrados.")
+
+        msg_alvo, caminho_pico = resolver_alvo_mcp(model, alvo_bruto)
+        if msg_alvo.DESCRIPTOR.name != "Pico":
+            raise ValueError(
+                f"O alvo '{alvo_bruto}' ('{caminho_pico}') não corresponde a um Pico."
+            )
+
+        lat_e7 = int(msg_alvo.localizacao.latitude or 0)
+        lon_e7 = int(msg_alvo.localizacao.longitude or 0)
+        if lat_e7 == 0 and lon_e7 == 0:
+            raise ValueError(
+                "O pico não possui coordenadas de localização válidas (latitude/longitude) "
+                "para gerar o mapa de pontos de estrada."
+            )
+
+        cliente = cliente_overpass or ClienteOverpass()
+        malha_proto = construir_malha_estrada_pico_proto(lat_e7, lon_e7, cliente)
+        arq_malha = croqui_pb2.ArquivoMalhaEstrada()
+        arq_malha.conteudo.CopyFrom(malha_proto)
+
+        croqui_controller.alterar_campo(
+            alvo=caminho_pico,
+            campos={"malha_estrada": arq_malha},
+        )
+        return {
+            "status": "ok",
+            "alvo": caminho_pico,
+            "latitude_referencia_e7": int(malha_proto.latitude_referencia_e7),
+            "longitude_referencia_e7": int(malha_proto.longitude_referencia_e7),
+            "quantidade_nos": len(malha_proto.nos),
+        }
+
     servidor.registrar_ferramenta(
         nome="aresta_alterar_campo",
         descricao=(
@@ -793,4 +838,22 @@ def registrar_ferramentas_comandos(
             "required": ["alvo_mapa", "alvo_uid"],
         },
         manipulador=_remover_referencia_mapa,
+    )
+    servidor.registrar_ferramenta(
+        nome="aresta_gerar_malha_estrada",
+        descricao=(
+            "Gera ou atualiza o mapa de pontos de estrada (Overpass/OSM com Dijkstra por tempo "
+            "`duracao_minutos` e `distancia_metros`) para um Pico do croqui e registra na pilha "
+            "de Undo/Redo (`pico.malha_estrada`)."
+        ),
+        esquema_entrada={
+            "type": "object",
+            "properties": {
+                "alvo": {
+                    "type": "string",
+                    "description": "Caminho do Pico alvo (opcional; padrão 'picos.0').",
+                },
+            },
+        },
+        manipulador=_gerar_malha_estrada,
     )

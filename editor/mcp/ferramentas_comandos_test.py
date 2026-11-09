@@ -828,3 +828,68 @@ def test_aresta_migrar_escalada_e_alterar_em_lote(qapp, tmp_path: Path):
             },
         )
     assert raiz.nome == "Croqui Inicial"
+
+
+def test_aresta_gerar_malha_estrada_persiste_com_undo_e_valida_erros(qapp, tmp_path: Path):
+    """Testa a ferramenta MCP aresta_gerar_malha_estrada com ClienteOverpassFake e validações."""
+    from scripts.cliente_overpass_fake import ClienteOverpassFake
+
+    model, undo_stack, croqui_ctrl, mapas_ctrl, _ = _montar_ambiente_comandos(tmp_path)
+    fake_overpass = ClienteOverpassFake(
+        elementos_padrao=[
+            {"type": "node", "id": 101, "lat": -19.5622616, "lon": -43.9595684},
+            {"type": "node", "id": 102, "lat": -19.5000000, "lon": -43.9000000},
+            {
+                "type": "way",
+                "id": 900,
+                "nodes": [101, 102],
+                "tags": {"highway": "primary", "surface": "asphalt"},
+            },
+        ]
+    )
+    servidor = ServidorMCP(despachante=DespachanteQt(), diretorio_sessao=tmp_path)
+    registrar_ferramentas_comandos(
+        servidor, croqui_ctrl, mapas_ctrl, cliente_overpass=fake_overpass
+    )
+    raiz = model.obter_croqui_readonly()
+
+    # 1. Falha se o pico não tiver coordenadas preenchidas
+    with pytest.raises(RuntimeError, match="não possui coordenadas de localização válidas"):
+        _chamar(servidor, "aresta_gerar_malha_estrada", {"alvo": "picos.0"})
+
+    # 2. Falha se o alvo não for um Pico nem a raiz com picos
+    with pytest.raises(RuntimeError, match="não corresponde a um Pico"):
+        _chamar(servidor, "aresta_gerar_malha_estrada", {"alvo": "uid_setor_base"})
+
+    # 3. Preenche coordenadas do pico e gera a malha omitindo alvo (usa picos.0 por padrão)
+    _chamar(
+        servidor,
+        "aresta_alterar_campo",
+        {
+            "alvo": "picos.0",
+            "campo": "localizacao",
+            "valor": {"latitude": -195622616, "longitude": -439595684},
+        },
+    )
+    res_malha = _chamar(servidor, "aresta_gerar_malha_estrada", {})
+    assert res_malha["status"] == "ok"
+    assert res_malha["alvo"] == "picos.0"
+    assert res_malha["latitude_referencia_e7"] == -195622616
+    assert res_malha["longitude_referencia_e7"] == -439595684
+    assert res_malha["quantidade_nos"] == 2
+    assert len(raiz.picos[0].malha_estrada.conteudo.nos) == 2
+
+    # 4. Suporta Undo/Redo na pilha QUndoStack
+    undo_stack.undo()
+    assert len(raiz.picos[0].malha_estrada.conteudo.nos) == 0
+    undo_stack.redo()
+    assert len(raiz.picos[0].malha_estrada.conteudo.nos) == 2
+
+    # 5. Se o croqui não tiver nenhum pico, falha ao tentar resolver o pico padrão
+    croqui_vazio = croqui_pb2.Croqui(uid="uid_vazio")
+    model_vazio = CroquiModel(croqui_vazio)
+    ctrl_vazio = CroquiController(model_vazio, QUndoStack())
+    srv_vazio = ServidorMCP(despachante=DespachanteQt(), diretorio_sessao=tmp_path)
+    registrar_ferramentas_comandos(srv_vazio, ctrl_vazio, cliente_overpass=fake_overpass)
+    with pytest.raises(RuntimeError, match="não possui picos"):
+        _chamar(srv_vazio, "aresta_gerar_malha_estrada", {})

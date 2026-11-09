@@ -65,6 +65,7 @@ from editor.core.serializacao_util import (
 )
 from editor.plataforma import normalizar_caminho_estendido
 from scripts.calcular_tamanho_croqui_lib import calcular_tamanho_croqui_bytes
+from scripts.gerar_malha_estrada_lib import malha_estrada_pico_atualizada
 from scripts.preparar_submissao_lib import (
     CacheMd,
     compilar_croqui,
@@ -749,15 +750,7 @@ def verificar_malha_estrada_pico(croqui_id: str, compiled_data: dict[str, Any]) 
         lon = int(loc.get("longitude", 0) or 0)
         if lat == 0 and lon == 0:
             continue
-        malha = pico.get("malha_estrada")
-        malha_valida = (
-            isinstance(malha, dict)
-            and int(malha.get("latitude_referencia_e7", 0) or 0) == lat
-            and int(malha.get("longitude_referencia_e7", 0) or 0) == lon
-            and isinstance(malha.get("nos"), list)
-            and len(malha["nos"]) > 0
-        )
-        if not malha_valida:
+        if not malha_estrada_pico_atualizada(pico):
             nome_pico = pico.get("nome", "Pico Sem Nome")
             print(
                 f"\nAviso: O pico '{nome_pico}' no croqui '{croqui_id}' está sem mapa de pontos de estrada atualizado para sua localização."

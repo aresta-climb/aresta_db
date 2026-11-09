@@ -428,6 +428,15 @@ class TestWidgetMensagemCoordenada:
         undo_stack = QUndoStack()
         controller = CroquiController(model, undo_stack)
 
+        ao_concluir_original = DialogoProgressoMalhaEstrada._ao_concluir
+
+        def concluir_e_clicar_botao(dialogo_self, malha):
+            ao_concluir_original(dialogo_self, malha)
+            assert dialogo_self.btn_concluir.isEnabled() is True
+            dialogo_self.btn_concluir.click()
+
+        monkeypatch.setattr(DialogoProgressoMalhaEstrada, "_ao_concluir", concluir_e_clicar_botao)
+
         widget = WidgetMensagemCoordenada(
             pico.localizacao,
             controller=controller,
@@ -485,9 +494,19 @@ class TestWidgetMensagemCoordenada:
         assert len(pico.malha_estrada.conteudo.nos) == 2
         assert "✅" in widget.rotulo_status_malha.text()
 
-    def test_pico_localizacao_sem_controller_e_falha_rede_degrada_graciosamente(self, qtbot):
+    def test_pico_localizacao_sem_controller_e_falha_rede_degrada_graciosamente(
+        self, qtbot, monkeypatch
+    ):
         from aresta_api.proto.generated.croqui_pb2 import Pico
         from scripts.cliente_overpass_fake import ClienteOverpassFake
+
+        ao_concluir_original = DialogoProgressoMalhaEstrada._ao_concluir
+
+        def concluir_e_clicar_botao(dialogo_self, malha):
+            ao_concluir_original(dialogo_self, malha)
+            dialogo_self.btn_concluir.click()
+
+        monkeypatch.setattr(DialogoProgressoMalhaEstrada, "_ao_concluir", concluir_e_clicar_botao)
 
         pico = Pico(nome="Pico Offline")
         pico.localizacao.latitude = -200000000
@@ -554,13 +573,20 @@ class TestWidgetMensagemCoordenada:
         assert dialogo.resultado_malha is None
         assert len(pico.malha_estrada.conteudo.nos) == 0
 
-        # Verifica emissão direta de concluido_com_sucesso e falhou pelo worker
+        # Verifica que ao concluir 100%, o diálogo NÃO fecha sozinho e habilita o botão Concluir
         worker_ok = WorkerGeracaoMalhaEstrada(-200000000, -440000000, fake)
         dialogo_ok = DialogoProgressoMalhaEstrada(worker_ok)
         qtbot.addWidget(dialogo_ok)
+        assert dialogo_ok.btn_concluir.isEnabled() is False
+        assert dialogo_ok.btn_cancelar.isEnabled() is True
         worker_ok.run()
         assert dialogo_ok.resultado_malha is not None
         assert len(dialogo_ok.resultado_malha.nos) == 2
+        assert dialogo_ok.result() == 0
+        assert dialogo_ok.btn_cancelar.isEnabled() is False
+        assert dialogo_ok.btn_concluir.isEnabled() is True
+        dialogo_ok.btn_concluir.click()
+        assert dialogo_ok.result() == QDialog.DialogCode.Accepted
 
         fake_erro = ClienteOverpassFake(simular_erro=RuntimeError("Falha simulada"))
         worker_erro = WorkerGeracaoMalhaEstrada(-200000000, -440000000, fake_erro)

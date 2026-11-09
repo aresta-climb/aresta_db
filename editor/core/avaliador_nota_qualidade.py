@@ -5,7 +5,7 @@
 Motor determinístico de avaliação da nota_qualidade e diagnóstico de tarefas de melhoria de croquis.
 
 Opera em escala aberta aditiva estruturada em três etapas por ordens de grandeza:
-- Etapa 1 (Essenciais para Publicação): 1000 pontos por tarefa (7 tarefas = 7000 pontos).
+- Etapa 1 (Essenciais para Publicação): 1000 pontos por tarefa (8 tarefas = 8000 pontos).
 - Etapa 2 (Qualidade, Navegação Offline e Segurança): 100 pontos por tarefa (7 tarefas = 700 pontos).
 - Etapa 3 (Lapidação, História e Comunidade): 10 pontos por tarefa (7 tarefas = 70 pontos).
 """
@@ -137,6 +137,11 @@ def _resolver_arquivo_md(
     if croqui_path is not None:
         arquivo_md = croqui_path / caminho
         if arquivo_md.is_file():
+            if caminho.endswith((".yaml", ".yml")):
+                from editor.core.serializacao_util import carregar_yaml
+
+                carregado = carregar_yaml(arquivo_md.read_text(encoding="utf-8"))
+                return dict(carregado) if isinstance(carregado, Mapping) else {}
             from scripts.markdown_frontmatter_lib import parse_md_com_frontmatter
 
             fm, corpo = parse_md_com_frontmatter(arquivo_md)
@@ -146,6 +151,26 @@ def _resolver_arquivo_md(
             return res
 
     return {}
+
+
+def _pico_possui_malha_estrada_atualizada(
+    pico: Mapping[str, Any],
+    croqui_path: Path | None,
+    cache_md: Mapping[str, tuple[dict[str, Any] | None, str]] | None,
+) -> bool:
+    """Verifica se o pico possui localização válida e malha_estrada sincronizada."""
+    if not _coordenada_valida(pico.get("localizacao")):
+        return False
+    loc = pico["localizacao"]
+    lat_loc = int(loc.get("latitude") or 0)
+    lon_loc = int(loc.get("longitude") or 0)
+    malha_conteudo = _resolver_arquivo_md(pico.get("malha_estrada"), croqui_path, cache_md)
+    nos = malha_conteudo.get("nos")
+    if not isinstance(nos, list) or len(nos) == 0:
+        return False
+    lat_ref = int(malha_conteudo.get("latitude_referencia_e7") or 0)
+    lon_ref = int(malha_conteudo.get("longitude_referencia_e7") or 0)
+    return lat_ref == lat_loc and lon_ref == lon_loc
 
 
 def _coordenada_valida(coord: Any) -> bool:
@@ -700,6 +725,40 @@ def avaliar_nota_qualidade_croqui(
         acoes=() if conc_grau else tuple(acoes_grau[:3]),
     )
 
+    # 1.8 Mapa de pontos de estrada dos picos (100% dos picos com malha_estrada atualizada)
+    picos_com_malha = 0
+    acoes_malha: list[AcaoTarefaQualidade] = []
+    for p_idx, pico in enumerate(picos_raw):
+        if _pico_possui_malha_estrada_atualizada(pico, croqui_path, cache_md):
+            picos_com_malha += 1
+        else:
+            nome_p = str(pico.get("nome") or f"Pico {p_idx + 1}").strip()
+            acoes_malha.append(
+                AcaoTarefaQualidade(
+                    f"Gerar mapa de pontos de {nome_p}",
+                    f"page:dados/node:root/node:Croqui/expando:picos/item:{p_idx}",
+                )
+            )
+    if not tem_picos:
+        acoes_malha.append(
+            AcaoTarefaQualidade("Adicionar pico", "page:dados/node:root/node:Croqui")
+        )
+    pts_malha, conc_malha = _pontuar_cobertura(
+        picos_com_malha, len(picos_raw), 1000, meta=1.0, possui_estrutura_base=tem_picos
+    )
+    t1_malha_estrada = TarefaQualidade(
+        id_tarefa="etapa1_malha_estrada_picos",
+        titulo="Mapa de pontos de estrada dos picos",
+        descricao="Gerar a malha rodoviária de pontos (Overpass/OSM) sincronizada com a localização de cada pico.",
+        etapa=1,
+        pontos_obtidos=pts_malha,
+        pontos_maximos=1000,
+        concluida=conc_malha,
+        progresso_atual=picos_com_malha,
+        progresso_total=max(1, len(picos_raw)),
+        acoes=() if conc_malha else tuple(acoes_malha[:3]),
+    )
+
     tarefas_etapa1 = (
         t1_identidade,
         t1_localizacao,
@@ -708,6 +767,7 @@ def avaliar_nota_qualidade_croqui(
         t1_setores_mapa,
         t1_escaladas_mapa,
         t1_grau,
+        t1_malha_estrada,
     )
 
     # =========================================================================

@@ -269,9 +269,54 @@ def test_migracao_automatica_catalogo_distancias_estrada_without_rowid(tmp_path:
         assert "idx_catalogo_distancias_estrada_no" not in indices
 
         linhas = conexao_migrada.execute(
-            "SELECT croqui_uid, no_osm_id, distancia_metros, na_borda FROM catalogo_distancias_estrada"
+            "SELECT croqui_uid, no_osm_id, distancia_metros, na_borda, duracao_minutos "
+            "FROM catalogo_distancias_estrada"
         ).fetchall()
-        assert linhas == [("c1", 9001, 4200, 1)]
+        assert linhas == [("c1", 9001, 4200, 1, 0)]
+    finally:
+        conexao_migrada.close()
+
+
+def test_migracao_automatica_catalogo_distancias_estrada_adiciona_duracao_minutos(
+    tmp_path: Path,
+) -> None:
+    caminho_db = tmp_path / "catalogo_distancias_sem_duracao.db"
+    conexao = sqlite3.connect(caminho_db)
+    conexao.execute(
+        """
+        CREATE TABLE catalogo_distancias_estrada (
+            croqui_uid TEXT NOT NULL,
+            no_osm_id INTEGER NOT NULL,
+            distancia_metros INTEGER NOT NULL,
+            na_borda INTEGER NOT NULL DEFAULT 0,
+            PRIMARY KEY (croqui_uid, no_osm_id)
+        ) WITHOUT ROWID;
+        """
+    )
+    conexao.execute("INSERT INTO catalogo_distancias_estrada VALUES ('c1', 9001, 4200, 1)")
+    conexao.commit()
+    conexao.close()
+
+    conexao_migrada = inicializar_banco_catalogo(caminho_db)
+    try:
+        colunas = [
+            linha[1]
+            for linha in conexao_migrada.execute(
+                "PRAGMA table_info(catalogo_distancias_estrada)"
+            ).fetchall()
+        ]
+        assert colunas == [
+            "croqui_uid",
+            "no_osm_id",
+            "distancia_metros",
+            "na_borda",
+            "duracao_minutos",
+        ]
+        linhas = conexao_migrada.execute(
+            "SELECT croqui_uid, no_osm_id, distancia_metros, na_borda, duracao_minutos "
+            "FROM catalogo_distancias_estrada"
+        ).fetchall()
+        assert linhas == [("c1", 9001, 4200, 1, 0)]
     finally:
         conexao_migrada.close()
 
@@ -874,6 +919,7 @@ def test_gerar_catalogo_completo_exporta_tres_csvs_ordenados_e_preserva_quando_i
     no_csv.latitude_e7 = -195600000
     no_csv.longitude_e7 = -439600000
     no_csv.distancia_metros = 310
+    no_csv.duracao_minutos = 14
     no_csv.na_borda = True
     (c1_dir / "compilado.binarypb").write_bytes(c1.SerializeToString())
 
@@ -936,8 +982,8 @@ def test_gerar_catalogo_completo_exporta_tres_csvs_ordenados_e_preserva_quando_i
         csv.reader(csv_distancias_estrada.read_text(encoding="utf-8").splitlines())
     )
     assert linhas_dists == [
-        ["croqui_uid", "no_osm_id", "distancia_metros", "na_borda"],
-        ["croqui_z", "777", "310", "1"],
+        ["croqui_uid", "no_osm_id", "distancia_metros", "na_borda", "duracao_minutos"],
+        ["croqui_z", "777", "310", "1", "14"],
     ]
 
     # 3. Verifica catalogo_meta.csv
@@ -1165,12 +1211,14 @@ def test_gerar_catalogo_completo_extrai_malha_estrada_offline_do_pico_e_descarta
     no1.latitude_e7 = -195600000
     no1.longitude_e7 = -439600000
     no1.distancia_metros = 0
+    no1.duracao_minutos = 0
     no1.na_borda = False
     no2 = c1.picos[0].malha_estrada.conteudo.nos.add()
     no2.no_osm_id = 501
     no2.latitude_e7 = -194500000
     no2.longitude_e7 = -437800000
     no2.distancia_metros = 8500
+    no2.duracao_minutos = 11
     no2.na_borda = True
     (c1_dir / "compilado.binarypb").write_bytes(c1.SerializeToString())
 
@@ -1181,10 +1229,10 @@ def test_gerar_catalogo_completo_extrai_malha_estrada_offline_do_pico_e_descarta
 
     with contextlib.closing(sqlite3.connect(caminho_db)) as con:
         dists = con.execute(
-            "SELECT no_osm_id, distancia_metros, na_borda "
+            "SELECT no_osm_id, distancia_metros, na_borda, duracao_minutos "
             "FROM catalogo_distancias_estrada WHERE croqui_uid = 'uid_lapinha_offline' ORDER BY no_osm_id"
         ).fetchall()
-        assert dists == [(500, 0, 0), (501, 8500, 1)]
+        assert dists == [(500, 0, 0, 0), (501, 8500, 1, 11)]
 
     # 2. Idempotência quando a malha em pico.malha_estrada já é idêntica à do banco
     versao_antes = obter_versao_catalogo(caminho_db)

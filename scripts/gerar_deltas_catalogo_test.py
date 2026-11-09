@@ -335,15 +335,44 @@ def test_calcular_deltas_malha_estrada_upserts_e_deletes(tmp_path: Path) -> None
             {"no_osm_id": 20, "latitude_e7": -196000000, "longitude_e7": -438000000},
         ],
         [
-            {"croqui_uid": "c1", "no_osm_id": 10, "distancia_metros": 0, "na_borda": 0},
-            {"croqui_uid": "c1", "no_osm_id": 20, "distancia_metros": 15000, "na_borda": 1},
+            {
+                "croqui_uid": "c1",
+                "no_osm_id": 10,
+                "distancia_metros": 0,
+                "na_borda": 0,
+                "duracao_minutos": 0,
+            },
+            {
+                "croqui_uid": "c1",
+                "no_osm_id": 20,
+                "distancia_metros": 15000,
+                "na_borda": 1,
+                "duracao_minutos": 18,
+            },
+        ],
+    )
+    inserir_malha_estrada_croqui(
+        con_ant,
+        "c2",
+        [
+            {"no_osm_id": 10, "latitude_e7": -195000000, "longitude_e7": -439000000},
+        ],
+        [
+            {
+                "croqui_uid": "c2",
+                "no_osm_id": 10,
+                "distancia_metros": 5000,
+                "na_borda": 0,
+                "duracao_minutos": 7,
+            },
         ],
     )
     con_ant.close()
 
-    # Banco novo: c1 agora usa nós 10 (distância atualizada) e 30 (novo); nó 20 foi removido
+    # Banco novo: c1 agora usa nós 10 (distância/duração atualizadas) e 30 (novo); nó 20 foi removido; c2 mantém croqui mas perdeu a malha!
     con_novo = inicializar_banco_catalogo(caminho_novo)
     inserir_croqui_no_catalogo(con_novo, croqui_c1, [])
+    inserir_croqui_no_catalogo(con_novo, croqui_c2, [])
     inserir_malha_estrada_croqui(
         con_novo,
         "c1",
@@ -352,8 +381,20 @@ def test_calcular_deltas_malha_estrada_upserts_e_deletes(tmp_path: Path) -> None
             {"no_osm_id": 30, "latitude_e7": -197000000, "longitude_e7": -437000000},
         ],
         [
-            {"croqui_uid": "c1", "no_osm_id": 10, "distancia_metros": 500, "na_borda": 0},
-            {"croqui_uid": "c1", "no_osm_id": 30, "distancia_metros": 25000, "na_borda": 1},
+            {
+                "croqui_uid": "c1",
+                "no_osm_id": 10,
+                "distancia_metros": 500,
+                "na_borda": 0,
+                "duracao_minutos": 2,
+            },
+            {
+                "croqui_uid": "c1",
+                "no_osm_id": 30,
+                "distancia_metros": 25000,
+                "na_borda": 1,
+                "duracao_minutos": 30,
+            },
         ],
     )
     con_novo.close()
@@ -362,16 +403,21 @@ def test_calcular_deltas_malha_estrada_upserts_e_deletes(tmp_path: Path) -> None
     deltas_inicial = calcular_deltas_catalogo(None, caminho_novo)
     assert len(deltas_inicial["nos_estrada"]["upserts"]) == 2
     assert len(deltas_inicial["distancias_estrada"]["upserts"]) == 2
+    assert deltas_inicial["distancias_estrada"]["upserts"][1]["duracao_minutos"] == 30
 
-    # 2. Com banco anterior: detecta nó 30 adicionado, nó 20 removido e distâncias de c1 atualizadas
+    # 2. Com banco anterior: detecta nó 30 adicionado, nó 20 removido, distâncias de c1 atualizadas e malha de c2 removida
     deltas = calcular_deltas_catalogo(caminho_ant, caminho_novo)
     assert [n["no_osm_id"] for n in deltas["nos_estrada"]["upserts"]] == [30]
     assert deltas["nos_estrada"]["deletes"] == [20]
     assert [d["no_osm_id"] for d in deltas["distancias_estrada"]["upserts"]] == [10, 30]
+    assert [d["duracao_minutos"] for d in deltas["distancias_estrada"]["upserts"]] == [2, 30]
+    assert deltas["distancias_estrada"]["deletes"] == ["c1", "c2"]
 
     upserts_json, deletes_json = gerar_payload_d1(deltas)
     upserts_payload = json.loads(upserts_json)
     deletes_payload = json.loads(deletes_json)
     assert len(upserts_payload["nos_estrada"]) == 1
     assert len(upserts_payload["distancias_estrada"]) == 2
+    assert upserts_payload["distancias_estrada"][0]["duracao_minutos"] == 2
     assert deletes_payload["nos_estrada"] == [20]
+    assert deletes_payload["distancias_estrada"] == ["c1", "c2"]

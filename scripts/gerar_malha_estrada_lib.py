@@ -12,6 +12,7 @@ from __future__ import annotations
 import heapq
 import json
 import math
+import re
 import urllib.error
 import urllib.parse
 import urllib.request
@@ -53,6 +54,75 @@ RANK_POR_HIGHWAY: dict[str, int] = {
     "track": 6,
     "service": 6,
 }
+
+VELOCIDADE_PAVIMENTADA_POR_HIGHWAY: dict[str, float] = {
+    "motorway": 95.0,
+    "motorway_link": 60.0,
+    "trunk": 80.0,
+    "trunk_link": 50.0,
+    "primary": 70.0,
+    "primary_link": 45.0,
+    "secondary": 55.0,
+    "secondary_link": 40.0,
+    "tertiary": 45.0,
+    "tertiary_link": 35.0,
+    "unclassified": 35.0,
+    "residential": 25.0,
+    "living_street": 25.0,
+    "road": 25.0,
+    "service": 25.0,
+    "track": 20.0,
+}
+
+SUPERFICIES_NAO_PAVIMENTADAS: frozenset[str] = frozenset(
+    {
+        "unpaved",
+        "compacted",
+        "gravel",
+        "fine_gravel",
+        "pebblestone",
+        "dirt",
+        "earth",
+        "ground",
+        "mud",
+        "sand",
+        "grass",
+        "woodchips",
+    }
+)
+
+VIAS_PRINCIPAIS_NAO_PAVIMENTADAS: frozenset[str] = frozenset(
+    {
+        "primary",
+        "primary_link",
+        "secondary",
+        "secondary_link",
+        "tertiary",
+        "tertiary_link",
+    }
+)
+
+
+def calcular_velocidade_sem_transito_kmh(tags: dict[str, Any]) -> float:
+    """
+    Estima a velocidade livre de trânsito (em km/h) de um segmento OSM (`way`)
+    combinando `highway`, `surface` e `maxspeed`.
+    """
+    highway = str(tags.get("highway", "")).strip()
+    if highway == "track":
+        return 20.0
+
+    surface = str(tags.get("surface", "")).strip().lower()
+    if surface in SUPERFICIES_NAO_PAVIMENTADAS:
+        return 30.0 if highway in VIAS_PRINCIPAIS_NAO_PAVIMENTADAS else 25.0
+
+    maxspeed_bruto = str(tags.get("maxspeed", "")).strip()
+    correspondencia = re.match(r"^(\d+(?:\.\d+)?)", maxspeed_bruto)
+    if correspondencia:
+        velocidade_fluxo_livre = float(correspondencia.group(1)) * 0.85
+        return max(15.0, min(110.0, velocidade_fluxo_livre))
+
+    return VELOCIDADE_PAVIMENTADA_POR_HIGHWAY.get(highway, 35.0)
 
 
 def calcular_distancia_haversine_metros(
@@ -142,13 +212,27 @@ class ClienteOverpass:
         self.timeout_segundos = timeout_segundos
         self._abridor_url: Callable[..., Any] = abridor_url or urllib.request.urlopen
 
-    def consultar_malha(self, latitude: float, longitude: float) -> list[dict[str, Any]]:
-        """Executa a query Overpass para (latitude, longitude) com failover entre espelhos oficiais."""
+    def consultar_malha(
+        self,
+        latitude: float,
+        longitude: float,
+        *,
+        ao_progresso: Callable[[str, int], None] | None = None,
+        verificador_cancelamento: Callable[[], bool] | None = None,
+    ) -> list[dict[str, Any]]:
+        """Executa a query Overpass para (latitude, longitude) com failover e leitura em blocos."""
         query = construir_query_overpass(latitude, longitude)
         corpo = urllib.parse.urlencode({"data": query}).encode("utf-8")
         ultimo_erro: Exception | None = None
 
         for url in self.urls_endpoints:
+            host = urllib.parse.urlparse(url).netloc or url
+            _notificar_progresso(
+                ao_progresso,
+                verificador_cancelamento,
+                f"Aguardando resposta de {host}...",
+                16,
+            )
             requisicao = urllib.request.Request(
                 url,
                 data=corpo,
@@ -160,7 +244,23 @@ class ClienteOverpass:
             )
             try:
                 resposta = self._abridor_url(requisicao, timeout=float(self.timeout_segundos))
-                texto = resposta.read().decode("utf-8")
+                blocos: list[bytes] = []
+                total_bytes = 0
+                while True:
+                    bloco = resposta.read(65536)
+                    if not bloco:
+                        break
+                    blocos.append(bloco)
+                    total_bytes += len(bloco)
+                    mb_recebidos = total_bytes / (1024.0 * 1024.0)
+                    percentual_download = min(42, 18 + int(min(24.0, mb_recebidos * 2.0)))
+                    _notificar_progresso(
+                        ao_progresso,
+                        verificador_cancelamento,
+                        f"Recebendo malha viária de {host} ({mb_recebidos:.1f} MB)...",
+                        percentual_download,
+                    )
+                texto = b"".join(blocos).decode("utf-8")
                 dados = json.loads(texto)
                 elementos = dados.get("elements", [])
                 return list(elementos)
@@ -189,17 +289,22 @@ def prioridade_intrinseca_no(
 
 def _extrair_grafo_maior_componente(
     elementos: list[dict[str, Any]],
-) -> tuple[dict[int, tuple[float, float]], dict[int, dict[int, float]], dict[int, int]]:
+) -> tuple[
+    dict[int, tuple[float, float]],
+    dict[int, dict[int, tuple[float, float]]],
+    dict[int, int],
+]:
     """
     Constrói o grafo não-direcionado a partir dos elementos JSON da Overpass API
     e filtra apenas os nós pertencentes ao maior componente conexo.
+    Cada aresta armazena `(tempo_segundos, distancia_metros)`.
     """
     coordenadas: dict[int, tuple[float, float]] = {}
     for elem in elementos:
         if elem.get("type") == "node" and "lat" in elem and "lon" in elem:
             coordenadas[int(elem["id"])] = (float(elem["lat"]), float(elem["lon"]))
 
-    adjacencia: dict[int, dict[int, float]] = {}
+    adjacencia: dict[int, dict[int, tuple[float, float]]] = {}
     melhor_rank: dict[int, int] = {}
 
     for elem in elementos:
@@ -215,6 +320,9 @@ def _extrair_grafo_maior_componente(
         if len(nos_way) < 2:
             continue
 
+        vel_kmh = calcular_velocidade_sem_transito_kmh(tags)
+        vel_ms = vel_kmh / 3.6
+
         for nid in nos_way:
             rank_ant = melhor_rank.get(nid)
             if rank_ant is None or rank < rank_ant:
@@ -226,8 +334,11 @@ def _extrair_grafo_maior_componente(
             lat_u, lon_u = coordenadas[u]
             lat_v, lon_v = coordenadas[v]
             dist = calcular_distancia_haversine_metros(lat_u, lon_u, lat_v, lon_v)
-            adjacencia.setdefault(u, {})[v] = dist
-            adjacencia.setdefault(v, {})[u] = dist
+            tempo_seg = dist / vel_ms
+            for orig, dest in ((u, v), (v, u)):
+                anterior = adjacencia.setdefault(orig, {}).get(dest)
+                if anterior is None or tempo_seg < anterior[0]:
+                    adjacencia[orig][dest] = (tempo_seg, dist)
 
     visitados: set[int] = set()
     maior_componente: set[int] = set()
@@ -281,7 +392,12 @@ def gerar_malha_estrada_pico(
         "Consultando malha viária no OpenStreetMap (Overpass API)...",
         15,
     )
-    elementos = cliente.consultar_malha(lat_pico, lon_pico)
+    elementos = cliente.consultar_malha(
+        lat_pico,
+        lon_pico,
+        ao_progresso=ao_progresso,
+        verificador_cancelamento=verificador_cancelamento,
+    )
 
     _notificar_progresso(
         ao_progresso,
@@ -311,20 +427,23 @@ def gerar_malha_estrada_pico(
         65,
     )
 
-    # 2. Executa Dijkstra invertido a partir de no_pico
+    # 2. Executa Dijkstra invertido a partir de no_pico otimizando pelo menor tempo de viagem
+    tempos_estrada: dict[int, float] = {no_pico: 0.0}
     distancias_estrada: dict[int, float] = {no_pico: 0.0}
-    fila: list[tuple[float, int]] = [(0.0, no_pico)]
+    fila: list[tuple[float, float, int]] = [(0.0, 0.0, no_pico)]
 
     while fila:
-        dist_atual, u = heapq.heappop(fila)
-        if dist_atual > distancias_estrada[u]:
+        tempo_atual, dist_atual, u = heapq.heappop(fila)
+        if tempo_atual > tempos_estrada[u]:
             continue
-        for v, peso in adjacencia[u].items():
-            nova_dist = dist_atual + peso
-            dist_ant = distancias_estrada.get(v)
-            if dist_ant is None or nova_dist < dist_ant:
+        for v, (tempo_aresta, dist_aresta) in adjacencia[u].items():
+            novo_tempo = tempo_atual + tempo_aresta
+            nova_dist = dist_atual + dist_aresta
+            tempo_ant = tempos_estrada.get(v)
+            if tempo_ant is None or novo_tempo < tempo_ant:
+                tempos_estrada[v] = novo_tempo
                 distancias_estrada[v] = nova_dist
-                heapq.heappush(fila, (nova_dist, v))
+                heapq.heappush(fila, (novo_tempo, nova_dist, v))
 
     _notificar_progresso(
         ao_progresso,
@@ -416,12 +535,18 @@ def gerar_malha_estrada_pico(
             }
         )
         dist_m = 0 if nid == no_pico else int(round(distancias_estrada[nid]))
+        duracao_min = (
+            0
+            if nid == no_pico or dist_m == 0
+            else max(1, int(round(tempos_estrada[nid] / 60.0)))
+        )
         distancias_saida.append(
             {
                 "croqui_uid": croqui_uid,
                 "no_osm_id": nid,
                 "distancia_metros": dist_m,
                 "na_borda": 1 if nid in portais_borda else 0,
+                "duracao_minutos": duracao_min,
             }
         )
 
@@ -505,6 +630,7 @@ def construir_malha_estrada_pico_proto(
         item.longitude_e7 = no_osm["longitude_e7"]
         item.distancia_metros = dist_info["distancia_metros"]
         item.na_borda = bool(dist_info.get("na_borda", 0))
+        item.duracao_minutos = int(dist_info.get("duracao_minutos", 0))
     return malha_msg
 
 
@@ -538,6 +664,7 @@ def extrair_linhas_malha_de_pico_proto(
                 "no_osm_id": nid,
                 "distancia_metros": int(no.distancia_metros),
                 "na_borda": 1 if no.na_borda else 0,
+                "duracao_minutos": int(no.duracao_minutos),
             }
         )
     return nos_saida, distancias_saida

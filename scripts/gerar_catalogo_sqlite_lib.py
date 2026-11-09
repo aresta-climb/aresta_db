@@ -67,10 +67,20 @@ def inicializar_banco_catalogo(caminho_banco: Path | str) -> sqlite3.Connection:
     linha_ddl_distancias = cursor.execute(
         "SELECT sql FROM sqlite_master WHERE type = 'table' AND name = 'catalogo_distancias_estrada'"
     ).fetchone()
-    if linha_ddl_distancias and "WITHOUT ROWID" not in str(linha_ddl_distancias[0]).upper():
-        linhas_distancias_legadas = cursor.execute(
-            "SELECT croqui_uid, no_osm_id, distancia_metros, na_borda FROM catalogo_distancias_estrada"
-        ).fetchall()
+    cursor.execute("PRAGMA table_info(catalogo_distancias_estrada)")
+    colunas_distancias = {linha[1] for linha in cursor.fetchall()}
+    if linha_ddl_distancias and (
+        "WITHOUT ROWID" not in str(linha_ddl_distancias[0]).upper()
+        or "duracao_minutos" not in colunas_distancias
+    ):
+        consulta_backup = (
+            "SELECT croqui_uid, no_osm_id, distancia_metros, na_borda, duracao_minutos "
+            "FROM catalogo_distancias_estrada"
+            if "duracao_minutos" in colunas_distancias
+            else "SELECT croqui_uid, no_osm_id, distancia_metros, na_borda, 0 "
+            "FROM catalogo_distancias_estrada"
+        )
+        linhas_distancias_legadas = cursor.execute(consulta_backup).fetchall()
         cursor.execute("DROP TABLE catalogo_distancias_estrada")
         precisa_ddl = True
         precisa_vacuum = True
@@ -97,7 +107,8 @@ def inicializar_banco_catalogo(caminho_banco: Path | str) -> sqlite3.Connection:
         if linhas_distancias_legadas:
             cursor.executemany(
                 "INSERT OR REPLACE INTO catalogo_distancias_estrada "
-                "(croqui_uid, no_osm_id, distancia_metros, na_borda) VALUES (?, ?, ?, ?)",
+                "(croqui_uid, no_osm_id, distancia_metros, na_borda, duracao_minutos) "
+                "VALUES (?, ?, ?, ?, ?)",
                 linhas_distancias_legadas,
             )
         conexao.commit()
@@ -421,14 +432,15 @@ def inserir_malha_estrada_croqui(
         cursor.execute(
             """
             INSERT OR REPLACE INTO catalogo_distancias_estrada (
-                croqui_uid, no_osm_id, distancia_metros, na_borda
-            ) VALUES (?, ?, ?, ?)
+                croqui_uid, no_osm_id, distancia_metros, na_borda, duracao_minutos
+            ) VALUES (?, ?, ?, ?, ?)
             """,
             (
                 dist["croqui_uid"],
                 dist["no_osm_id"],
                 dist["distancia_metros"],
                 dist.get("na_borda", 0),
+                dist.get("duracao_minutos", 0),
             ),
         )
 
@@ -510,7 +522,7 @@ def calcular_versao_catalogo(conexao: sqlite3.Connection) -> str:
         hasher.update(repr(linha).encode("utf-8"))
 
     for linha in cursor.execute(
-        "SELECT croqui_uid, no_osm_id, distancia_metros, na_borda "
+        "SELECT croqui_uid, no_osm_id, distancia_metros, na_borda, duracao_minutos "
         "FROM catalogo_distancias_estrada ORDER BY croqui_uid, no_osm_id"
     ):
         hasher.update(repr(linha).encode("utf-8"))
@@ -640,6 +652,7 @@ def _extrair_linhas_malha_de_pico_proto(
                 "no_osm_id": nid,
                 "distancia_metros": int(no.distancia_metros),
                 "na_borda": 1 if no.na_borda else 0,
+                "duracao_minutos": int(getattr(no, "duracao_minutos", 0)),
             }
         )
     return nos_saida, distancias_saida
@@ -764,12 +777,17 @@ def gerar_catalogo_completo(
                         croqui_uid, pico_principal
                     )
                     atuais_malha = conexao.execute(
-                        "SELECT no_osm_id, distancia_metros, na_borda "
+                        "SELECT no_osm_id, distancia_metros, na_borda, duracao_minutos "
                         "FROM catalogo_distancias_estrada WHERE croqui_uid = ? ORDER BY no_osm_id",
                         (croqui_uid,),
                     ).fetchall()
                     esperados_malha = sorted(
-                        (d["no_osm_id"], d["distancia_metros"], d["na_borda"])
+                        (
+                            d["no_osm_id"],
+                            d["distancia_metros"],
+                            d["na_borda"],
+                            d.get("duracao_minutos", 0),
+                        )
                         for d in dists_osm
                     )
                     if atuais_malha != esperados_malha:
@@ -906,8 +924,8 @@ def exportar_catalogo_csv(
         ),
         (
             "catalogo_distancias_estrada.csv",
-            ("croqui_uid", "no_osm_id", "distancia_metros", "na_borda"),
-            "SELECT croqui_uid, no_osm_id, distancia_metros, na_borda "
+            ("croqui_uid", "no_osm_id", "distancia_metros", "na_borda", "duracao_minutos"),
+            "SELECT croqui_uid, no_osm_id, distancia_metros, na_borda, duracao_minutos "
             "FROM catalogo_distancias_estrada ORDER BY croqui_uid, no_osm_id",
         ),
         (

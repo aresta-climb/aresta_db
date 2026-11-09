@@ -1,8 +1,9 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
+"""Gera o relatório STATUS_CROQUIS.md como dump direto do Painel de Qualidade."""
+
 import argparse
-import json
 import sys
 from collections.abc import Mapping, Sequence
 from datetime import datetime
@@ -11,29 +12,49 @@ from typing import Any
 
 # Adiciona o diretório raiz do projeto ao sys.path para importar a lib utilitária
 sys.path.append(str(Path(__file__).resolve().parent.parent))
-from editor.core.avaliador_nota_qualidade import avaliar_nota_qualidade_croqui
+from editor.core.avaliador_nota_qualidade import (
+    ResumoEtapaQualidade,
+    TarefaQualidade,
+    avaliar_nota_qualidade_croqui,
+)
 from editor.core.serializacao_util import carregar_yaml
-from scripts.markdown_frontmatter_lib import parse_md_com_frontmatter
 
 CacheMd = dict[str, tuple[dict[str, Any] | None, str]]
+
+COLUNAS_TAREFAS_PAINEL: tuple[tuple[str, str], ...] = (
+    ("etapa1_identidade_capa", "1.1 Identidade e Capa"),
+    ("etapa1_localizacao_picos", "1.2 Localização e Maps"),
+    ("etapa1_instrucoes_acesso", "1.3 Instruções Acesso"),
+    ("etapa1_mapa_geral", "1.4 Mapa Geral"),
+    ("etapa1_setores_com_mapa", "1.5 Mapas Setores"),
+    ("etapa1_escaladas_no_mapa", "1.6 Escaladas no Mapa"),
+    ("etapa1_grau_dificuldade", "1.7 Grau Dificuldade"),
+    ("etapa1_malha_estrada_picos", "1.8 Malha Estrada"),
+    ("etapa2_coordenadas_setores", "2.1 Coords Setores"),
+    ("etapa2_trilhas_aproximacao", "2.2 Trilhas"),
+    ("etapa2_extensao_protecoes_vias", "2.3 Extensão/Proteções"),
+    ("etapa2_tracados_vetoriais", "2.4 Traçados Vetoriais"),
+    ("etapa2_destaques_setores", "2.5 Destaques"),
+    ("etapa2_descricoes_escaladas", "2.6 Descrições Vias"),
+    ("etapa2_fotos_capa_setores", "2.7 Fotos Capa Setores"),
+    ("etapa3_creditos", "3.1 Créditos"),
+    ("etapa3_conquistadores_datas", "3.2 Conquistadores/Datas"),
+    ("etapa3_tipo_parede_exposicao", "3.3 Parede/Exposição"),
+    ("etapa3_indicadores_familia_celular", "3.4 Sinal/Família"),
+    ("etapa3_videos_betas", "3.5 Vídeos Beta"),
+    ("etapa3_associacao_pix", "3.6 Associação/Pix"),
+    ("etapa3_revisao_final", "3.7 Revisão Final"),
+)
 
 CHAVES_COLUNAS_RELATORIO: tuple[str, ...] = (
     "Nome",
     "Publicado",
+    "Pronto Publicar",
     "Nota Qualidade",
-    "Revisado Manual",
-    "Revisado Circ",
-    "Status Desenho",
-    "Pontos de Interesse",
-    "Thumbnail",
-    "Coordenadas Picos",
-    "URL Google Maps",
-    "Mapas Gerais",
-    "Betas Pendentes",
-    "croqui.yaml",
-    "Conteúdo PDF",
-    "partes.json",
-    "PDF Original",
+    "Etapa 1",
+    "Etapa 2",
+    "Etapa 3",
+    *(nome_coluna for _, nome_coluna in COLUNAS_TAREFAS_PAINEL),
 )
 
 
@@ -59,324 +80,17 @@ def _carregar_dados_yaml(
         return True, None, True
 
 
-def _obter_frontmatter_md(
-    md_path: Path,
-    croqui_path: Path,
-    cache_md: CacheMd | None = None,
-) -> dict[str, Any] | None:
-    """Obtém o frontmatter de um arquivo Markdown usando cache em memória quando disponível."""
-    chave = (
-        md_path.relative_to(croqui_path).as_posix()
-        if md_path.is_relative_to(croqui_path)
-        else md_path.as_posix()
+def _formatar_etapa(etapa: ResumoEtapaQualidade) -> str:
+    icone = "✅" if etapa.concluida else ("⚠️" if etapa.pontos_obtidos > 0 else "❌")
+    return (
+        f"{icone} {etapa.pontos_obtidos}/{etapa.pontos_maximos} "
+        f"({etapa.tarefas_concluidas}/{etapa.total_tarefas})"
     )
-    if cache_md is not None and chave in cache_md:
-        return cache_md[chave][0]
-
-    if not md_path.exists():
-        return None
-
-    fm, corpo = parse_md_com_frontmatter(md_path)
-    if cache_md is not None and fm is not None:
-        cache_md[chave] = (fm, corpo)
-    return fm
 
 
-def check_partes_json(croqui_path: Path) -> bool:
-    """Verifica se partes.json existe e é um JSON válido."""
-    partes_path = croqui_path / "partes.json"
-    if not partes_path.exists():
-        return False
-    try:
-        with open(partes_path, encoding="utf-8") as f:
-            data = json.load(f)
-            return bool(data)
-    except (json.JSONDecodeError, UnicodeDecodeError):
-        return False
-
-
-def check_raw_original_pdf(croqui_path: Path) -> bool:
-    """Verifica se raw_original_pdf existe e não está vazia."""
-    pdf_path = croqui_path / "raw_original_pdf"
-    return pdf_path.exists() and pdf_path.is_dir() and any(pdf_path.iterdir())
-
-
-def check_raw_pdf_contents(croqui_path: Path) -> bool:
-    """Verifica se raw_pdf_contents existe e não está vazia."""
-    contents_path = croqui_path / "raw_pdf_contents"
-    return contents_path.exists() and contents_path.is_dir() and any(contents_path.iterdir())
-
-
-def check_croqui_yaml(croqui_path: Path) -> bool:
-    """Verifica se croqui.yaml existe."""
-    return (croqui_path / "croqui.yaml").exists()
-
-
-def check_caminho_thumbnail(croqui_path: Path, dados_yaml: dict[str, Any] | None = None) -> bool:
-    """Verifica se croqui.yaml possui caminho_thumbnail preenchido."""
-    existe, data, erro = _carregar_dados_yaml(croqui_path, dados_yaml)
-    if not existe or erro or not data:
-        return False
-    return bool(data.get("caminho_thumbnail"))
-
-
-def check_mapas_gerais_exists(croqui_path: Path, cache_md: CacheMd | None = None) -> bool:
-    """Verifica se mapas_gerais.md existe."""
-    if cache_md is not None and "mapas_gerais.md" in cache_md:
-        return True
-    return (croqui_path / "mapas_gerais.md").exists()
-
-
-def check_publicar_croqui(croqui_path: Path, dados_yaml: dict[str, Any] | None = None) -> bool:
-    """Verifica se croqui.yaml possui publicar_croqui: true."""
-    existe, data, erro = _carregar_dados_yaml(croqui_path, dados_yaml)
-    if not existe or erro or not data:
-        return False
-    return data.get("publicar_croqui") is True
-
-
-def check_revisado_manualmente(croqui_path: Path, dados_yaml: dict[str, Any] | None = None) -> bool:
-    """Verifica se croqui.yaml possui revisado_manualmente: true."""
-    existe, data, erro = _carregar_dados_yaml(croqui_path, dados_yaml)
-    if not existe or erro or not data:
-        return False
-    return data.get("revisado_manualmente") is True
-
-
-def check_revisado_bounding_circle(
-    croqui_path: Path, dados_yaml: dict[str, Any] | None = None
-) -> bool:
-    """Verifica se croqui.yaml possui revisado_bounding_circle: true."""
-    existe, data, erro = _carregar_dados_yaml(croqui_path, dados_yaml)
-    if not existe or erro or not data:
-        return False
-    return data.get("revisado_bounding_circle") is True
-
-
-def check_status_desenho_extraivel(
-    croqui_path: Path, dados_yaml: dict[str, Any] | None = None
-) -> str:
-    """Verifica o status de desenhos extraíveis no croqui.yaml."""
-    existe, data, erro = _carregar_dados_yaml(croqui_path, dados_yaml)
-    if not existe or erro or not data:
-        return "❌"
-    status = data.get("status_desenho_extraivel")
-    if status == "NAO_TEM_DESENHO":
-        return "✅ (não)"
-    if status == "TEM_DESENHO_MAS_NAO_EXTRAIDO":
-        return "⚠️"
-    if status == "DESENHO_EXTRAIDO":
-        return "✅"
-    return "❌"
-
-
-def check_pico_coordinates(croqui_path: Path, dados_yaml: dict[str, Any] | None = None) -> str:
-    """Verifica se os picos possuem coordenadas geográficas (latitude/longitude)."""
-    existe, data, erro = _carregar_dados_yaml(croqui_path, dados_yaml)
-    if not existe:
-        return "N/A"
-    if erro or data is None:
-        return "❌ (Erro)"
-    picos = data.get("picos", [])
-    if not picos or not isinstance(picos, list):
-        return "N/A"
-
-    passaram = 0
-    total = len(picos)
-    for pico in picos:
-        loc = pico.get("localizacao") if isinstance(pico, dict) else None
-        if (
-            loc
-            and isinstance(loc, dict)
-            and loc.get("latitude") is not None
-            and loc.get("longitude") is not None
-        ):
-            passaram += 1
-
-    if passaram == total:
-        return f"✅ ({passaram}/{total})"
-    if passaram > 0:
-        return f"⚠️ ({passaram}/{total})"
-    return f"❌ (0/{total})"
-
-
-def checar_url_google_maps(croqui_path: Path, dados_yaml: dict[str, Any] | None = None) -> str:
-    """Verifica se os picos possuem link para o Google Maps preenchido."""
-    existe, data, erro = _carregar_dados_yaml(croqui_path, dados_yaml)
-    if not existe:
-        return "N/A"
-    if erro or data is None:
-        return "❌ (Erro)"
-    picos = data.get("picos", [])
-    if not picos or not isinstance(picos, list):
-        return "N/A"
-
-    passaram = 0
-    total = len(picos)
-    for pico in picos:
-        if isinstance(pico, dict):
-            url = pico.get("url_google_maps")
-            if url and isinstance(url, str) and url.strip():
-                passaram += 1
-
-    if passaram == total:
-        return f"✅ ({passaram}/{total})"
-    if passaram > 0:
-        return f"⚠️ ({passaram}/{total})"
-    return f"❌ (0/{total})"
-
-
-# Alias em inglês para compatibilidade
-check_url_google_maps = checar_url_google_maps
-
-
-def find_all_sectors(
-    croqui_path: Path,
-    dados_yaml: dict[str, Any] | None = None,
-    cache_md: CacheMd | None = None,
-) -> list[Path]:
-    """Encontra recursivamente todos os caminhos de setores definidos no croqui.yaml."""
-    existe, data, erro = _carregar_dados_yaml(croqui_path, dados_yaml)
-    if not existe or erro or not data:
-        return sorted(croqui_path.glob("setor_*.md"))
-
-    sector_paths: list[Path] = []
-
-    def collect_recursively(elements: list[Any]) -> None:
-        for e in elements:
-            if not e or not isinstance(e, dict):
-                continue
-            tipo = "setor" if "setor" in e else "grupo"
-            obj = e.get(tipo)
-            if not obj:
-                continue
-
-            if isinstance(obj, str):
-                p = croqui_path / obj
-                if p.suffix == ".md" and p not in sector_paths:
-                    sector_paths.append(p)
-                continue
-
-            if not isinstance(obj, dict):
-                continue
-
-            if "caminho" in obj:
-                p = croqui_path / obj["caminho"]
-                if p.suffix == ".md" and p not in sector_paths:
-                    sector_paths.append(p)
-
-                if tipo == "grupo":
-                    fm = _obter_frontmatter_md(p, croqui_path, cache_md)
-                    if fm:
-                        filhos = fm.get("setores") or fm.get("sub_setores")
-                        if filhos:
-                            collect_recursively(
-                                [{"setor": s} if isinstance(s, (str, dict)) else s for s in filhos]
-                            )
-
-            conteudo = obj.get("conteudo")
-            if conteudo and isinstance(conteudo, dict):
-                sub = conteudo.get("setores") or conteudo.get("sub_setores")
-                if sub:
-                    collect_recursively(
-                        [{"setor": s} if isinstance(s, (str, dict)) else s for s in sub if s]
-                    )
-
-    picos = data.get("picos", [])
-    if isinstance(picos, list):
-        for pico in picos:
-            if isinstance(pico, dict) and "setores_ou_grupos" in pico:
-                collect_recursively(pico["setores_ou_grupos"])
-
-    if not sector_paths:
-        return sorted(croqui_path.glob("setor_*.md"))
-
-    return sorted(sector_paths)
-
-
-def check_pontos_de_interesse(
-    croqui_path: Path,
-    dados_yaml: dict[str, Any] | None = None,
-    cache_md: CacheMd | None = None,
-) -> str:
-    """Verifica pontos de interesse nos arquivos de setor encontrados recursivamente."""
-    cache_local = cache_md if cache_md is not None else {}
-    setores = find_all_sectors(croqui_path, dados_yaml=dados_yaml, cache_md=cache_local)
-    if not setores:
-        return "N/A"
-
-    passaram = 0
-    total = len(setores)
-
-    for setor_path in setores:
-        frontmatter = _obter_frontmatter_md(setor_path, croqui_path, cache_local)
-        if frontmatter and "mapas" in frontmatter:
-            tem_ponto = any(
-                isinstance(mapa, dict)
-                and isinstance(mapa.get("pontos_de_interesse"), list)
-                and len(mapa["pontos_de_interesse"]) > 0
-                for mapa in frontmatter["mapas"]
-            )
-            if tem_ponto:
-                passaram += 1
-
-    if passaram == total and total > 0:
-        return f"✅ ({passaram}/{total})"
-    if passaram > 0:
-        return f"⚠️ ({passaram}/{total})"
-    return f"❌ (0/{total})"
-
-
-def check_betas_pendentes(
-    croqui_path: Path,
-    dados_yaml: dict[str, Any] | None = None,
-    cache_md: CacheMd | None = None,
-) -> str:
-    """
-    Verifica se o croqui possui betas pendentes de curadoria (curadoria_betas.md).
-    Ter pendências em betas_nao_scorados ou betas_nao_revisados é considerado não saudável (⚠️).
-    """
-    caminho_rel = "curadoria_betas.md"
-    conteudo_inline: dict[str, Any] | None = None
-    if isinstance(dados_yaml, dict):
-        cb = dados_yaml.get("curadoria_betas")
-        if isinstance(cb, dict):
-            if isinstance(cb.get("conteudo"), dict):
-                conteudo_inline = cb["conteudo"]
-            elif isinstance(cb.get("caminho"), str) and cb["caminho"].strip():
-                caminho_rel = cb["caminho"].strip()
-
-    if conteudo_inline is not None:
-        frontmatter: dict[str, Any] | None = conteudo_inline
-    else:
-        md_path = croqui_path / caminho_rel
-        tem_no_cache = cache_md is not None and caminho_rel in cache_md
-        if not tem_no_cache and not md_path.exists():
-            return "✅"
-        frontmatter = _obter_frontmatter_md(md_path, croqui_path, cache_md)
-        if frontmatter is None:
-            return "⚠️"
-
-    if not isinstance(frontmatter, dict) or "escaladas" not in frontmatter:
-        return "⚠️"
-
-    escaladas = frontmatter["escaladas"]
-    if not isinstance(escaladas, list):
-        return "⚠️"
-
-    total = 0
-    for esc in escaladas:
-        if not isinstance(esc, dict):
-            return "⚠️"
-        nao_scorados = esc.get("betas_nao_scorados", [])
-        nao_revisados = esc.get("betas_nao_revisados", [])
-        if not isinstance(nao_scorados, list) or not isinstance(nao_revisados, list):
-            return "⚠️"
-        total += len(nao_scorados) + len(nao_revisados)
-
-    if total > 0:
-        return f"⚠️ ({total})"
-    return "✅"
+def _formatar_tarefa(tarefa: TarefaQualidade) -> str:
+    icone = "✅" if tarefa.concluida else ("⚠️" if tarefa.pontos_obtidos > 0 else "❌")
+    return f"{icone} ({tarefa.progresso_atual}/{tarefa.progresso_total})"
 
 
 def avaliar_saude_croqui(
@@ -385,84 +99,43 @@ def avaliar_saude_croqui(
     cache_md: CacheMd | None = None,
 ) -> dict[str, Any]:
     """
-    Avalia todas as métricas de saúde de um croqui realizando no máximo 1 parse
-    de croqui.yaml e 1 parse por arquivo .md (ou zero se dados_yaml e cache_md
-    já forem fornecidos em memória).
+    Avalia a saúde de um croqui espelhando diretamente o Painel de Qualidade
+    (`avaliar_nota_qualidade_croqui`), realizando no máximo 1 parse de `croqui.yaml`
+    e 1 parse por arquivo `.md` (ou zero quando `dados_yaml` e `cache_md` já estão em memória).
     """
     nome = croqui_path.name
     existe_yaml, dados_carregados, erro_yaml = _carregar_dados_yaml(croqui_path, dados_yaml)
     cache_local: CacheMd = cache_md if cache_md is not None else {}
 
-    if not existe_yaml:
+    if not existe_yaml or erro_yaml or dados_carregados is None:
         publicado = "❌"
-        nota_qualidade = "0"
-        revisado = "❌"
-        revisado_circ = "❌"
-        yaml_present = "❌"
-        thumbnail = "❌"
-        coord_picos = "N/A"
-        url_maps = "N/A"
-        status_desenho = "❌"
-        pontos = check_pontos_de_interesse(croqui_path, dados_yaml=None, cache_md=cache_local)
-    elif erro_yaml or dados_carregados is None:
-        publicado = "❌"
-        nota_qualidade = "0"
-        revisado = "❌"
-        revisado_circ = "❌"
-        yaml_present = "✅"
-        thumbnail = "❌"
-        coord_picos = "❌ (Erro)"
-        url_maps = "❌ (Erro)"
-        status_desenho = "❌"
-        pontos = check_pontos_de_interesse(croqui_path, dados_yaml=None, cache_md=cache_local)
+        avaliacao = avaliar_nota_qualidade_croqui({}, croqui_path=None, cache_md={})
     else:
-        publicado = "✅" if check_publicar_croqui(croqui_path, dados_carregados) else "❌"
-        nota_qualidade = str(
-            avaliar_nota_qualidade_croqui(
-                dados_carregados,
-                croqui_path=croqui_path,
-                cache_md=cache_local,
-            ).nota_qualidade
-        )
-        revisado = "✅" if check_revisado_manualmente(croqui_path, dados_carregados) else "❌"
-        revisado_circ = (
-            "✅" if check_revisado_bounding_circle(croqui_path, dados_carregados) else "❌"
-        )
-        yaml_present = "✅"
-        thumbnail = "✅" if check_caminho_thumbnail(croqui_path, dados_carregados) else "❌"
-        coord_picos = check_pico_coordinates(croqui_path, dados_carregados)
-        url_maps = checar_url_google_maps(croqui_path, dados_carregados)
-        status_desenho = check_status_desenho_extraivel(croqui_path, dados_carregados)
-        pontos = check_pontos_de_interesse(
-            croqui_path, dados_yaml=dados_carregados, cache_md=cache_local
+        publicado = "✅" if dados_carregados.get("publicar_croqui") is True else "❌"
+        avaliacao = avaliar_nota_qualidade_croqui(
+            dados_carregados,
+            croqui_path=croqui_path,
+            cache_md=cache_local,
         )
 
-    partes = "✅" if check_partes_json(croqui_path) else "❌"
-    raw_pdf = "✅" if check_raw_original_pdf(croqui_path) else "❌"
-    raw_contents = "✅" if check_raw_pdf_contents(croqui_path) else "❌"
-    mapas_gerais = "✅" if check_mapas_gerais_exists(croqui_path, cache_md=cache_local) else "❌"
-    betas_status = check_betas_pendentes(
-        croqui_path, dados_yaml=dados_carregados, cache_md=cache_local
-    )
+    mapa_tarefas: dict[str, TarefaQualidade] = {
+        t.id_tarefa: t for etapa in avaliacao.etapas for t in etapa.tarefas
+    }
 
-    return {
+    linha: dict[str, Any] = {
         "Nome": nome,
         "Publicado": publicado,
-        "Nota Qualidade": nota_qualidade,
-        "Revisado Manual": revisado,
-        "Revisado Circ": revisado_circ,
-        "Status Desenho": status_desenho,
-        "Pontos de Interesse": pontos,
-        "Thumbnail": thumbnail,
-        "Coordenadas Picos": coord_picos,
-        "URL Google Maps": url_maps,
-        "Mapas Gerais": mapas_gerais,
-        "Betas Pendentes": betas_status,
-        "croqui.yaml": yaml_present,
-        "Conteúdo PDF": raw_contents,
-        "partes.json": partes,
-        "PDF Original": raw_pdf,
+        "Pronto Publicar": "✅" if avaliacao.pronto_para_publicar else "❌",
+        "Nota Qualidade": str(avaliacao.nota_qualidade),
+        "Etapa 1": _formatar_etapa(avaliacao.etapas[0]),
+        "Etapa 2": _formatar_etapa(avaliacao.etapas[1]),
+        "Etapa 3": _formatar_etapa(avaliacao.etapas[2]),
     }
+
+    for id_tarefa, nome_coluna in COLUNAS_TAREFAS_PAINEL:
+        linha[nome_coluna] = _formatar_tarefa(mapa_tarefas[id_tarefa])
+
+    return linha
 
 
 def extrair_dados_tabela_markdown(texto_markdown: str) -> list[dict[str, Any]]:
@@ -485,73 +158,38 @@ def extrair_dados_tabela_markdown(texto_markdown: str) -> list[dict[str, Any]]:
 
 
 def generate_report_table(report_data: list[dict[str, Any]]) -> str:
-    """Gera a tabela Markdown a partir dos dados do relatório."""
+    """Gera a tabela Markdown a partir dos dados do relatório do Painel de Qualidade."""
     total_croquis = len(report_data)
     if total_croquis == 0:
         return ""
 
     a_publicados = sum(1 for d in report_data if d["Publicado"] == "✅")
-    a_revisados = sum(1 for d in report_data if d["Revisado Manual"] == "✅")
-    a_revisados_circ = sum(1 for d in report_data if d["Revisado Circ"] == "✅")
-    a_pontos = sum(1 for d in report_data if "✅" in d["Pontos de Interesse"])
-    a_thumbnail = sum(1 for d in report_data if d["Thumbnail"] == "✅")
-    a_coord_picos = sum(1 for d in report_data if "✅" in d["Coordenadas Picos"])
-    a_url_google_maps = sum(1 for d in report_data if "✅" in d.get("URL Google Maps", ""))
-    a_mapas_gerais = sum(1 for d in report_data if d["Mapas Gerais"] == "✅")
-    a_croqui_yaml = sum(1 for d in report_data if d["croqui.yaml"] == "✅")
-    a_raw_pdf_contents = sum(1 for d in report_data if d["Conteúdo PDF"] == "✅")
-    a_partes_json = sum(1 for d in report_data if d["partes.json"] == "✅")
-    a_raw_original_pdf = sum(1 for d in report_data if d["PDF Original"] == "✅")
-    a_betas_pendentes = sum(1 for d in report_data if d.get("Betas Pendentes") == "✅")
-
-    c_nao_tem = sum(1 for d in report_data if d["Status Desenho"] == "✅ (não)")
-    c_sim_extraido = sum(1 for d in report_data if d["Status Desenho"] == "✅")
-    c_sim_mas_nao = sum(1 for d in report_data if d["Status Desenho"] == "⚠️")
-    c_unknown = sum(1 for d in report_data if d["Status Desenho"] == "❌")
-    a_status_desenho = c_nao_tem + c_sim_extraido
+    a_prontos = sum(1 for d in report_data if d.get("Pronto Publicar") == "✅")
+    a_etapa1 = sum(1 for d in report_data if str(d.get("Etapa 1", "")).startswith("✅"))
+    a_etapa2 = sum(1 for d in report_data if str(d.get("Etapa 2", "")).startswith("✅"))
+    a_etapa3 = sum(1 for d in report_data if str(d.get("Etapa 3", "")).startswith("✅"))
 
     headers = [
         "Croqui",
         f"Publicado ({a_publicados}/{total_croquis})",
-        "Nota Qualidade",
-        f"Revisado Manual ({a_revisados}/{total_croquis})",
-        f"Revisado Circ ({a_revisados_circ}/{total_croquis})",
-        f"Desenho Extraível ({a_status_desenho}/{c_sim_mas_nao}/{c_unknown})",
-        f"Pontos de Interesse ({a_pontos}/{total_croquis})",
-        f"Thumbnail ({a_thumbnail}/{total_croquis})",
-        f"Coordenadas Picos ({a_coord_picos}/{total_croquis})",
-        f"URL Google Maps ({a_url_google_maps}/{total_croquis})",
-        f"Mapas Gerais ({a_mapas_gerais}/{total_croquis})",
-        f"Betas Pendentes ({a_betas_pendentes}/{total_croquis})",
-        f"croqui.yaml ({a_croqui_yaml}/{total_croquis})",
-        f"Conteúdo PDF ({a_raw_pdf_contents}/{total_croquis})",
-        f"partes.json ({a_partes_json}/{total_croquis})",
-        f"PDF Original ({a_raw_original_pdf}/{total_croquis})",
+        f"Pronto Publicar ({a_prontos}/{total_croquis})",
+        "Nota Qualidade (máx 8770)",
+        f"Etapa 1 ({a_etapa1}/{total_croquis})",
+        f"Etapa 2 ({a_etapa2}/{total_croquis})",
+        f"Etapa 3 ({a_etapa3}/{total_croquis})",
     ]
 
-    lines = []
-    lines.append("| " + " | ".join(headers) + " |")
-    lines.append("| " + " | ".join(["---"] * len(headers)) + " |")
+    for _, nome_coluna in COLUNAS_TAREFAS_PAINEL:
+        concluidas = sum(1 for d in report_data if str(d.get(nome_coluna, "")).startswith("✅"))
+        headers.append(f"{nome_coluna} ({concluidas}/{total_croquis})")
+
+    lines = [
+        "| " + " | ".join(headers) + " |",
+        "| " + " | ".join(["---"] * len(headers)) + " |",
+    ]
 
     for data in report_data:
-        row = [
-            data["Nome"],
-            data["Publicado"],
-            str(data.get("Nota Qualidade", "0")),
-            data["Revisado Manual"],
-            data["Revisado Circ"],
-            data["Status Desenho"],
-            data["Pontos de Interesse"],
-            data["Thumbnail"],
-            data["Coordenadas Picos"],
-            data.get("URL Google Maps", "N/A"),
-            data["Mapas Gerais"],
-            data["Betas Pendentes"],
-            data["croqui.yaml"],
-            data["Conteúdo PDF"],
-            data["partes.json"],
-            data["PDF Original"],
-        ]
+        row = [str(data.get(chave, "")) for chave in CHAVES_COLUNAS_RELATORIO]
         lines.append("| " + " | ".join(row) + " |")
 
     return "\n".join(lines)

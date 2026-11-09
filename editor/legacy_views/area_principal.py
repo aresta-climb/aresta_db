@@ -1656,7 +1656,7 @@ class JanelaPrincipal(QMainWindow):
             storage=self.storage,
             callback_abrir_croqui=self._callback_abrir_croqui_mcp,
         )
-        registrar_ferramentas_conhecimento(self.servidor_mcp)
+        registrar_ferramentas_conhecimento(self.servidor_mcp, model=self.croqui_model)
 
     def _obter_widget_alvo_mcp(self, alvo: str) -> QWidget | None:
         """Retorna o widget correspondente ao viewport solicitado pela ferramenta de captura."""
