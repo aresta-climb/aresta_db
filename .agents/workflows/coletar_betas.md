@@ -1,62 +1,35 @@
 ---
-description: Pipeline automatizado de busca, avaliação distribuída por sub-agentes e extração tipada de betas de escalada
+description: Pipeline integrado de descoberta multi-fonte (YouTube, Instagram e Blogs), avaliação via MCP por sub-agentes e curadoria 1 a 1 no Editor Aresta
 ---
 
-# Workflow: Coleta de Betas de Escalada
+# Workflow: Coleta e Curadoria de Betas de Escalada
 
-Este workflow atua como o orquestrador para descoberta, avaliação paralela por sub-agentes nativos do Antigravity e geração tipada do staging de betas das vias de um croqui.
-
----
-
-## 1. Pré-requisitos e Entradas
-- O usuário deve fornecer o caminho do croqui alvo (ex: `database/br_mg_ouro_preto_ouroboulder`).
-- As chaves de API opcionais/necessárias no ambiente:
-  - `YOUTUBE_API_KEY`: Para a busca na YouTube Data API v3.
-  - `VERTEX_PROJECT_ID` e `VERTEX_DATA_STORE_ID`: Para a busca de Instagram via Google Vertex AI Search (Agent Search).
+Este workflow descreve o ciclo integrado entre o **Editor Aresta** e o agente conectado via MCP para descoberta, pontuação por IA e publicação limpa de links de beta em `Escalada.betas`.
 
 ---
 
-## 2. Etapas de Execução do Orquestrador
+## 1. Coleta Multi-Fonte no Editor Aresta (`betas_nao_scorados`)
 
-### Fase 1: Extração Estática das Vias Alvo
-1. O orquestrador executa a biblioteca CLI de extração:
-   ```bash
-   python -m coleta_de_betas.extrair_vias database/<croqui>
-   ```
-2. O arquivo estaticamente tipado `database/<croqui>/vias_extraidas.yaml` (mensagem `ViasExtraidasCroqui`) é gerado, contendo todas as vias com nome, grau, setor, grupo, pico, cidade e estado.
+1. No **Editor Aresta**, abra o croqui desejado e acesse a aba **Betas** na barra lateral (ou clique em **"🔍 Abrir na Revisão de Betas"** dentro da ficha de uma `Escalada` na aba **Dados**).
+2. Clique em **"🌐 Coletar Betas..."** para abrir o Wizard de coleta:
+   - Selecione as escaladas desejadas e inicie a coleta.
+   - Os extratores (`ExtratorYouTube`, `ExtratorDuckDuckGo`, `ExtratorVertexSearch` e `ExtratorBlog`) buscam vídeos, reels/posts do Instagram e relatos em páginas de blog (`FonteMidia.BLOG`), ignorando automaticamente qualquer URL já presente nas 4 listas da escalada (`betas`, `betas_nao_scorados`, `betas_nao_revisados` e `betas_rejeitados`).
+   - Os novos candidatos são inseridos em `curadoria_betas.conteudo.escaladas` na lista `betas_nao_scorados` via comando reversível (`Undo`/`Redo`).
 
-### Fase 2: Busca Tripla Concorrente
-1. O orquestrador executa o runner de busca:
-   ```bash
-   python -m coleta_de_betas.buscar database/<croqui>
-   ```
-2. O script executa buscas concorrentes no YouTube, Vertex AI Search e DuckDuckGo, deduplica os resultados e gera `database/<croqui>/candidatos_brutos.yaml` tipado por `BetasPendentes`.
+---
 
-### Fase 3: Avaliação Semântica por Sub-agentes Antigravity
-1. O orquestrador registra o sub-agente especialista:
-   ```python
-   define_subagent(
-       name="AvaliadorBetas",
-       description="Avalia relevância semântica e correspondência de vídeos e postagens de betas",
-       system_prompt="""Você é um especialista em escalada em rocha brasileira.
-Sua missão é avaliar mídias candidatas a betas para as vias de um croqui.
-Para cada candidato:
-- Analise se o nome da via, setor, pico e cidade correspondem ao título, descrição, snippets e miniatura.
-- Atribua um score de confiança de 0 a 100 (llm_confidence_score).
-- Forneça uma justificativa textual concisa (llm_reasoning).
-Retorne a lista com os campos preenchidos em formato YAML."""
-   )
-   ```
-2. O orquestrador divide os candidatos de `candidatos_brutos.yaml` em lotes de 5 a 10 escaladas e dispara chamadas paralelas com `invoke_subagent`.
-3. Os sub-agentes avaliam os lotes concorrentemente e retornam os dados pontuados.
+## 2. Avaliação Semântica via MCP (`avaliar_betas_croqui`)
 
-### Fase 4: Geração do Arquivo de Staging Binário
-1. O orquestrador salva o YAML avaliado e executa o comando de staging:
-   ```bash
-   python -m coleta_de_betas.salvar_staging database/<croqui>
-   ```
-2. O arquivo binário `database/<croqui>/betas_pendentes.binarypb` é gerado para consumo no editor desktop e sinalizado no `STATUS_CROQUIS.md`.
+1. Com candidatos presentes na seção **2. Betas Não Scorados**, acione a skill [avaliar_betas_croqui](file:///c:/Renato/Devel/aresta-climb/aresta_db/.agents/skills/avaliar_betas_croqui/SKILL.md):
+   > *"Execute a skill `avaliar_betas_croqui` para avaliar e pontuar os `betas_nao_scorados` deste croqui."*
+2. O agente lê `curadoria_betas.conteudo.escaladas` via MCP, despacha lotes em paralelo para sub-agentes `AvaliadorBetas` e move os candidatos pontuados (com `llm_confidence_score` e `llm_reasoning`) de `betas_nao_scorados` para `betas_nao_revisados`.
 
-### Fase 5: Curadoria e Persistência In-Place
-1. O curador abre o Editor desktop (`python editor/main.py`), acessa a aba **Betas**, revisa as miniaturas/scores e aprova os itens desejados.
-2. Ao clicar em **Salvar Betas Aprovados**, os dados são gravados diretamente no frontmatter dos arquivos Markdown dos setores (`grupo_*.md`) e o arquivo temporário de staging é removido.
+---
+
+## 3. Revisão Humana 1 a 1 e Publicação Limpa
+
+1. Na aba **Betas** do Editor Aresta, revise os cards individualmente (com preview de thumbnail resolvido e cacheado offline pelo `ProvedorImagemAresta`):
+   - **✅ Aprovar (1 a 1)**: move a mídia limpa (`url`, `titulo`, `fonte`) para `Escalada.betas` (persistida no `.md` do setor e publicada no `compilado.binarypb`).
+   - **❌ Rejeitar (1 a 1)**: move a mídia para `betas_rejeitados` (persistida em `curadoria_betas.md` para impedir re-scraping futuro da mesma URL, mas omitida do `compilado.binarypb`).
+   - **↩️ Restaurar (1 a 1)**: devolve um item de `betas_rejeitados` para `betas_nao_scorados`.
+2. Salve o croqui (`Ctrl+S` ou botão **Salvar**). Apenas `Escalada.betas` é incluído no `compilado.binarypb`, enquanto `curadoria_betas.md` preserva o estado de curadoria e bloqueio de URLs rejeitadas no repositório.

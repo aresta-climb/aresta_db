@@ -224,7 +224,7 @@ class PaginaBetas(PaginaBase):
     def __init__(self, parent: QWidget | None = None) -> None:
         super().__init__("Betas", parent, criar_placeholder=False)
         self.painel: Any | None = None
-        self._caminho_staging_pendente: Path | None = None
+        self._dados_pendentes: tuple[Any, Any] | None = None
 
     def garantir_painel_criado(self) -> Any:
         """Instancia e conecta o PainelCuradoria sob demanda (lazy loading)."""
@@ -235,17 +235,21 @@ class PaginaBetas(PaginaBase):
             self.painel = PainelCuradoria(parent=self)
             if layout:
                 layout.addWidget(self.painel)
-            if self._caminho_staging_pendente:
-                self.painel.carregar_staging(self._caminho_staging_pendente)
+            if self._dados_pendentes is not None:
+                self.painel.carregar_dados(self._dados_pendentes[0], self._dados_pendentes[1])
         return self.painel
 
-    def carregar_betas(self, caminho_db: str | Path | None) -> None:
-        if caminho_db:
-            caminho_staging = Path(caminho_db) / "betas_pendentes.binarypb"
-            if caminho_staging.exists():
-                self._caminho_staging_pendente = caminho_staging
-                if self.painel is not None:
-                    self.painel.carregar_staging(caminho_staging)
+    def carregar_betas(
+        self,
+        caminho_db: str | Path | None = None,
+        model: Any | None = None,
+        controller: Any | None = None,
+    ) -> None:
+        _ = caminho_db
+        if model is not None and controller is not None:
+            self._dados_pendentes = (model, controller)
+            if self.painel is not None:
+                self.painel.carregar_dados(model, controller)
 
 
 class PaginaHistorico(PaginaBase):
@@ -606,7 +610,6 @@ class JanelaPrincipal(QMainWindow):
         self.acao_nav_betas = QAction(Icones.obter("betas"), "Betas", self)
         self.acao_nav_betas.setToolTip("Betas")
         self.acao_nav_betas.setCheckable(True)
-        self.acao_nav_betas.setVisible(False)
         self.acao_nav_betas.triggered.connect(lambda: self._trocar_pagina(3))
 
         self.acao_nav_historico = QAction(Icones.obter("historico"), "Histórico", self)
@@ -946,6 +949,19 @@ class JanelaPrincipal(QMainWindow):
                             )
                         else:
                             editor.selecionar_mapa_por_indices(p_idx, sg_idx, m_idx, s_idx)
+        elif ctx.pagina == "betas":
+            idx_betas = self.stack.indexOf(self.pagina_betas)
+            if self.stack.currentIndex() != idx_betas:
+                self._trocar_pagina(idx_betas)
+            else:
+                self.pagina_betas.garantir_painel_criado()
+            painel = getattr(self.pagina_betas, "painel", None)
+            if (
+                painel is not None
+                and ctx.caminho_local_arvore
+                and hasattr(painel, "selecionar_escalada_por_uid")
+            ):
+                painel.selecionar_escalada_por_uid(ctx.caminho_local_arvore)
         elif ctx.pagina == "historico":
             if self.stack.currentIndex() != 3:
                 self._trocar_pagina(3)
@@ -1029,7 +1045,9 @@ class JanelaPrincipal(QMainWindow):
                 self.pagina_mapas.carregar_mapas(
                     self.croqui_model, self.historico, caminho_db, controller=self.croqui_controller
                 )
-                self.pagina_betas.carregar_betas(caminho_db)
+                self.pagina_betas.carregar_betas(
+            caminho_db, model=self.croqui_model, controller=self.croqui_controller
+        )
 
                 # Registra contexto no escopo de telemetria
                 from editor.core.telemetria import anexar_diario_escopo, registrar_contexto_croqui
@@ -1194,6 +1212,9 @@ class JanelaPrincipal(QMainWindow):
         if self.croqui_model is not None:
             self.pagina_mapas.carregar_mapas(
                 self.croqui_model, self.historico, caminho_db, controller=self.croqui_controller
+            )
+            self.pagina_betas.carregar_betas(
+                caminho_db, model=self.croqui_model, controller=self.croqui_controller
             )
 
     def _on_salvar_sucesso(

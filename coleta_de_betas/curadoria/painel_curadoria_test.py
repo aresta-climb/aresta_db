@@ -1,68 +1,137 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
-from aresta_api.proto.generated import beta_pb2
-from coleta_de_betas.curadoria.painel_curadoria import ItemBetaWidget, PainelCuradoria
+from pathlib import Path
+
+from PySide6.QtGui import QUndoStack
+
+from aresta_api.proto.generated import beta_pb2, croqui_pb2
+from coleta_de_betas.curadoria.painel_curadoria import (
+    CardBetaCuradoria,
+    PainelCuradoria,
+)
+from coleta_de_betas.curadoria.provedor_imagem_aresta import ProvedorImagemAresta
+from coleta_de_betas.extratores.cliente_http_fake import ClienteHttpFake
+from editor.controllers.croqui_controller import CroquiController
+from editor.models.croqui_model import CroquiModel
 
 
-def test_item_beta_widget_renderiza_informacoes(qtbot):
-    midia = beta_pb2.MidiaBeta()
-    midia.url = "https://youtube.com/v1"
-    midia.titulo = "Mandando Fusca Azul V4"
-    midia.fonte = beta_pb2.FonteMidia.YOUTUBE
-    midia.match_multiplas_fontes = True
-    midia.match_nome_no_snippet = True
-    midia.resultado_llm.llm_confidence_score = 95
-    midia.resultado_llm.llm_reasoning = "Perfeita correspondência"
+def _criar_croqui_curadoria() -> croqui_pb2.Croqui:
+    croqui = croqui_pb2.Croqui(uid="croqui_1", id="serra_cipo", nome="Serra do Cipó")
+    pico = croqui.picos.add(nome="Morro da Pedreira")
+    setor = pico.setores_ou_grupos.add().setor.conteudo
+    setor.uid = "setor_1"
+    setor.nome = "Salão"
 
-    widget = ItemBetaWidget(midia)
-    qtbot.addWidget(widget)
+    esc1 = setor.escaladas.add(uid="esc_1")
+    esc1.via_esportiva.nome = "Fusca Azul"
+    esc1.betas.add(
+        url="https://youtube.com/watch?v=ja_aprovado",
+        titulo="Beta Já Aprovado",
+        fonte=beta_pb2.FonteMidia.YOUTUBE,
+    )
 
-    assert "Mandando Fusca Azul V4" in widget.label_titulo.text()
-    assert "95%" in widget.label_score.text()
-    assert "Perfeita correspondência" in widget.label_reasoning.text()
-    assert widget.checkbox_aprovado.isChecked() is False
+    esc2 = setor.escaladas.add(uid="esc_2")
+    esc2.boulder.nome = "Crux de Cristal"
 
-    # Marca como aprovado
-    widget.checkbox_aprovado.setChecked(True)
-    assert widget.esta_aprovado() is True
+    cur1 = croqui.curadoria_betas.conteudo.escaladas.add(escalada_uid="esc_1")
+
+    # 2 candidatos não revisados fora de ordem (devem aparecer ordenados por score decrescente: 95 depois 60)
+    nr_baixo = cur1.betas_nao_revisados.add()
+    nr_baixo.midia.url = "https://instagram.com/p/score60"
+    nr_baixo.midia.titulo = "Post Score 60"
+    nr_baixo.midia.fonte = beta_pb2.FonteMidia.INSTAGRAM
+    nr_baixo.resultado_llm.llm_confidence_score = 60
+    nr_baixo.resultado_llm.llm_reasoning = "Apenas foto na base."
+
+    nr_alto = cur1.betas_nao_revisados.add()
+    nr_alto.midia.url = "https://youtube.com/watch?v=score95"
+    nr_alto.midia.titulo = "Vídeo Score 95"
+    nr_alto.midia.fonte = beta_pb2.FonteMidia.YOUTUBE
+    nr_alto.resultado_llm.llm_confidence_score = 95
+    nr_alto.resultado_llm.llm_reasoning = "Mostra todos os movimentos da via."
+    nr_alto.snippets.append("Mandando a Fusca Azul")
+
+    # 1 candidato não scorado
+    ns = cur1.betas_nao_scorados.add()
+    ns.midia.url = "https://blogescalada.com/fusca-azul"
+    ns.midia.titulo = "Relato Blog Fusca Azul"
+    ns.midia.fonte = beta_pb2.FonteMidia.BLOG
+    ns.snippets.append("O crux fica na terceira chapeleta.")
+
+    # 1 beta rejeitado
+    cur1.betas_rejeitados.add(
+        url="https://youtube.com/watch?v=ruido",
+        titulo="Vídeo Ruído",
+        fonte=beta_pb2.FonteMidia.YOUTUBE,
+    )
+
+    return croqui
 
 
-def test_painel_curadoria_carrega_staging(tmp_path, qtbot):
-    arquivo_pb = tmp_path / "betas_pendentes.binarypb"
+def test_painel_curadoria_exibe_4_secoes_ordena_por_score_e_transiciona_1_a_1_com_undo(
+    tmp_path: Path, qtbot
+) -> None:
+    croqui = _criar_croqui_curadoria()
+    model = CroquiModel(croqui)
+    stack = QUndoStack()
+    controller = CroquiController(model, stack)
+    provedor = ProvedorImagemAresta(
+        diretorio_cache=tmp_path / "cache",
+        cliente_http=ClienteHttpFake(),
+    )
 
-    msg = beta_pb2.BetasPendentes()
-    msg.id_croqui = "croqui_teste"
-
-    escalada = msg.candidatos_por_escalada.add()
-    escalada.nome_escalada = "Fusca Azul"
-    escalada.nome_setor = "Geriatria"
-
-    m1 = escalada.candidatos.add()
-    m1.url = "https://youtube.com/v1"
-    m1.titulo = "Vídeo 1"
-    m1.resultado_llm.llm_confidence_score = 90
-
-    m2 = escalada.candidatos.add()
-    m2.url = "https://instagram.com/p/123"
-    m2.titulo = "Post 2"
-    m2.resultado_llm.llm_confidence_score = 30
-
-    with open(arquivo_pb, "wb") as f:
-        f.write(msg.SerializeToString())
-
-    painel = PainelCuradoria()
+    painel = PainelCuradoria(provedor_imagem=provedor, carregar_assincrono=False)
     qtbot.addWidget(painel)
+    painel.carregar_dados(model, controller)
 
-    painel.carregar_staging(arquivo_pb)
+    # Verifica que as 4 seções e o banner MCP existem
+    assert "avaliar_betas_croqui" in painel.label_instrucoes_mcp.text()
+    assert len(painel.cards_nao_revisados) == 2
+    assert len(painel.cards_nao_scorados) == 1
+    assert len(painel.cards_aprovados) == 1
+    assert len(painel.cards_rejeitados) == 1
 
-    assert painel.obter_id_croqui() == "croqui_teste"
-    assert len(painel.itens_widgets) == 2
+    # Ordenação por score decrescente em betas_nao_revisados (95 vem antes de 60)
+    assert "Vídeo Score 95" in painel.cards_nao_revisados[0].label_titulo.text()
+    assert "95%" in painel.cards_nao_revisados[0].label_score.text()
+    assert "Post Score 60" in painel.cards_nao_revisados[1].label_titulo.text()
 
-    # Aprova apenas o item 1
-    painel.itens_widgets[0].checkbox_aprovado.setChecked(True)
+    # 1. Aprovar 1 a 1 o card de score 95 -> vai para escalada.betas
+    card_95: CardBetaCuradoria = painel.cards_nao_revisados[0]
+    assert card_95.btn_aprovar is not None
+    card_95.btn_aprovar.click()
 
-    aprovados = painel.obter_betas_aprovados()
-    assert "Fusca Azul" in aprovados
-    assert len(aprovados["Fusca Azul"]) == 1
-    assert aprovados["Fusca Azul"][0].url == "https://youtube.com/v1"
+    assert len(painel.cards_nao_revisados) == 1
+    assert len(painel.cards_aprovados) == 2
+    assert croqui.picos[0].setores_ou_grupos[0].setor.conteudo.escaladas[0].betas[-1].url == (
+        "https://youtube.com/watch?v=score95"
+    )
+
+    # Undo reverte a aprovação e atualiza o painel automaticamente
+    stack.undo()
+    assert len(painel.cards_nao_revisados) == 2
+    assert len(painel.cards_aprovados) == 1
+    stack.redo()
+
+    # 2. Rejeitar 1 a 1 o candidato de betas_nao_scorados -> vai para betas_rejeitados
+    card_ns = painel.cards_nao_scorados[0]
+    assert card_ns.btn_rejeitar is not None
+    card_ns.btn_rejeitar.click()
+    assert len(painel.cards_nao_scorados) == 0
+    assert len(painel.cards_rejeitados) == 2
+
+    # 3. Restaurar 1 a 1 um item de betas_rejeitados -> volta para betas_nao_scorados
+    card_rej = painel.cards_rejeitados[0]
+    assert card_rej.btn_restaurar is not None
+    card_rej.btn_restaurar.click()
+    assert len(painel.cards_rejeitados) == 1
+    assert len(painel.cards_nao_scorados) == 1
+
+    # 4. Filtrar por escalada_uid específica ("esc_2" sem candidatos)
+    painel.selecionar_escalada_por_uid("esc_2")
+    assert len(painel.cards_nao_revisados) == 0
+    assert len(painel.cards_aprovados) == 0
+
+    painel.selecionar_escalada_por_uid("esc_1")
+    assert len(painel.cards_aprovados) == 2

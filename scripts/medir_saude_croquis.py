@@ -325,25 +325,56 @@ def check_pontos_de_interesse(
     return f"❌ (0/{total})"
 
 
-def check_betas_pendentes(croqui_path: Path) -> str:
+def check_betas_pendentes(
+    croqui_path: Path,
+    dados_yaml: dict[str, Any] | None = None,
+    cache_md: CacheMd | None = None,
+) -> str:
     """
-    Verifica se o croqui possui betas pendentes de curadoria (betas_pendentes.binarypb).
-    Ter pendências é considerado não saudável (⚠️).
+    Verifica se o croqui possui betas pendentes de curadoria (curadoria_betas.md).
+    Ter pendências em betas_nao_scorados ou betas_nao_revisados é considerado não saudável (⚠️).
     """
-    staging_file = croqui_path / "betas_pendentes.binarypb"
-    if not staging_file.exists():
-        return "✅"
+    caminho_rel = "curadoria_betas.md"
+    conteudo_inline: dict[str, Any] | None = None
+    if isinstance(dados_yaml, dict):
+        cb = dados_yaml.get("curadoria_betas")
+        if isinstance(cb, dict):
+            if isinstance(cb.get("conteudo"), dict):
+                conteudo_inline = cb["conteudo"]
+            elif isinstance(cb.get("caminho"), str) and cb["caminho"].strip():
+                caminho_rel = cb["caminho"].strip()
 
-    try:
-        from coleta_de_betas.inteligencia.avaliador import carregar_betas_pendentes
+    if conteudo_inline is not None:
+        frontmatter: dict[str, Any] | None = conteudo_inline
+    else:
+        md_path = croqui_path / caminho_rel
+        tem_no_cache = cache_md is not None and caminho_rel in cache_md
+        if not tem_no_cache and not md_path.exists():
+            return "✅"
+        frontmatter = _obter_frontmatter_md(md_path, croqui_path, cache_md)
+        if frontmatter is None:
+            return "⚠️"
 
-        pendentes = carregar_betas_pendentes(staging_file)
-        total = sum(len(e.candidatos) for e in pendentes.candidatos_por_escalada)
-        if total > 0:
-            return f"⚠️ ({total})"
-    except Exception:
-        pass
-    return "⚠️"
+    if not isinstance(frontmatter, dict) or "escaladas" not in frontmatter:
+        return "⚠️"
+
+    escaladas = frontmatter["escaladas"]
+    if not isinstance(escaladas, list):
+        return "⚠️"
+
+    total = 0
+    for esc in escaladas:
+        if not isinstance(esc, dict):
+            return "⚠️"
+        nao_scorados = esc.get("betas_nao_scorados", [])
+        nao_revisados = esc.get("betas_nao_revisados", [])
+        if not isinstance(nao_scorados, list) or not isinstance(nao_revisados, list):
+            return "⚠️"
+        total += len(nao_scorados) + len(nao_revisados)
+
+    if total > 0:
+        return f"⚠️ ({total})"
+    return "✅"
 
 
 def avaliar_saude_croqui(

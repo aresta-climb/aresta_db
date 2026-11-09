@@ -2279,6 +2279,45 @@ def compilar_croqui(
                         me["conteudo"] = lido_me
                         del me["caminho"]
 
+    # 2.5.1. Inspeciona curadoria_betas (emite AVISO para pendências e valida antes de limpar)
+    cb_raw = croqui_data.get("curadoria_betas")
+    caminho_cb = "curadoria_betas.md"
+    conteudo_cb: dict[str, Any] | None = None
+    if isinstance(cb_raw, dict):
+        if isinstance(cb_raw.get("conteudo"), dict):
+            conteudo_cb = cb_raw["conteudo"]
+        elif isinstance(cb_raw.get("caminho"), str) and cb_raw["caminho"].strip():
+            caminho_cb = cb_raw["caminho"].strip()
+
+    if conteudo_cb is None:
+        md_cb_path = pico_path / caminho_cb
+        if (
+            cache_md_memoria is not None
+            and _chave_cache_md(md_cb_path, pico_path) in cache_md_memoria
+        ) or md_cb_path.exists():
+            fm_cb, _ = _ler_md_com_cache(md_cb_path, pico_path, cache_md_memoria)
+            if isinstance(fm_cb, dict):
+                conteudo_cb = fm_cb
+
+    if isinstance(conteudo_cb, dict):
+        croqui_data["curadoria_betas"] = {
+            "conteudo": {"escaladas": copy.deepcopy(conteudo_cb.get("escaladas", []))}
+        }
+        total_nao_scorados = 0
+        total_nao_revisados = 0
+        for esc_cb in conteudo_cb.get("escaladas", []):
+            if isinstance(esc_cb, dict):
+                total_nao_scorados += len(esc_cb.get("betas_nao_scorados", []))
+                total_nao_revisados += len(esc_cb.get("betas_nao_revisados", []))
+        total_pendentes_cb = total_nao_scorados + total_nao_revisados
+        if total_pendentes_cb > 0:
+            print(
+                f"AVISO: Croqui '{pico_path.name}' possui {total_pendentes_cb} beta(s) pendente(s) "
+                f"de curadoria ({total_nao_scorados} não scorado(s), {total_nao_revisados} não revisado(s))."
+            )
+    else:
+        croqui_data.pop("curadoria_betas", None)
+
     # 2.6 Preenche em memória campos legados para retrocompatibilidade
     preencher_compatibilidade_legada_em_memoria(croqui_data)
 
@@ -2326,6 +2365,10 @@ def compilar_croqui(
                 f"Erro de validação Protobuf em {pico_path.name}/croqui.yaml: {err_msg}"
             )
         raise ValueError(f"Erro de estrutura em {pico_path.name}/croqui.yaml: {err_msg}")
+
+    # Remove dados transitórios de curadoria antes de publicar os artefatos compilados
+    croqui_data.pop("curadoria_betas", None)
+    croqui_msg.ClearField("curadoria_betas")
 
     if destino_yaml is not None:
         escrever_texto_se_modificado(

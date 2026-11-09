@@ -1029,3 +1029,118 @@ def test_croqui_controller_substituir_imagem_mapa_com_reescala_pois_e_undo(qapp)
         reescalar_pois=False,
     )
     assert undo_stack.count() == count_antes
+
+
+def test_croqui_controller_ciclo_completo_curadoria_betas_undo_redo(qapp):
+    """
+    Valida que todas as transições 1 a 1 da curadoria de betas (coleta em betas_nao_scorados,
+    promoção para betas_nao_revisados, aprovação para escalada.betas, rejeição para
+    betas_rejeitados e restauração) operam via comandos reversíveis no QUndoStack.
+    """
+    import pytest
+
+    from aresta_api.proto.generated import beta_pb2, croqui_pb2
+
+    croqui = croqui_pb2.Croqui(uid="croqui_uid", nome="Croqui Betas")
+    pico = croqui.picos.add(nome="Pico 1")
+    sg = pico.setores_ou_grupos.add()
+    setor = sg.setor.conteudo
+    setor.uid = "setor_uid"
+    setor.nome = "Setor 1"
+    esc = setor.escaladas.add(uid="esc_1")
+    esc.via_esportiva.nome = "Via Clássica"
+
+    model = CroquiModel(croqui)
+    undo_stack = QUndoStack()
+    controller = CroquiController(model, undo_stack)
+
+    c1 = beta_pb2.CandidatoMidiaBeta()
+    c1.midia.url = "https://www.youtube.com/watch?v=vid1"
+    c1.midia.titulo = "Vídeo 1"
+    c1.midia.fonte = beta_pb2.FonteMidia.YOUTUBE
+    c1.snippets.append("Snippet 1")
+
+    c2 = beta_pb2.CandidatoMidiaBeta()
+    c2.midia.url = "https://blogescalada.com/via-classica"
+    c2.midia.titulo = "Post no Blog"
+    c2.midia.fonte = beta_pb2.FonteMidia.BLOG
+    c2.snippets.append("Snippet Blog")
+
+    # 1. Adicionar candidatos em betas_nao_scorados (cria entrada CuradoriaBetasEscalada sob demanda)
+    adicionados = controller.adicionar_candidatos_nao_scorados("esc_1", [c1, c2])
+    assert adicionados == 2
+    assert undo_stack.count() == 1
+    curadoria_esc = croqui.curadoria_betas.conteudo.escaladas[0]
+    assert curadoria_esc.escalada_uid == "esc_1"
+    assert len(curadoria_esc.betas_nao_scorados) == 2
+
+    # Tentar adicionar novamente as mesmas URLs ignora duplicatas e não empilha comando
+    assert controller.adicionar_candidatos_nao_scorados("esc_1", [c1]) == 0
+    assert undo_stack.count() == 1
+
+    # Undo e Redo da coleta
+    undo_stack.undo()
+    assert len(croqui.curadoria_betas.conteudo.escaladas) == 0
+    undo_stack.redo()
+    curadoria_esc = croqui.curadoria_betas.conteudo.escaladas[0]
+    assert len(curadoria_esc.betas_nao_scorados) == 2
+
+    # 2. Promover c1 (índice 0) para betas_nao_revisados com score 85 e c2 (agora índice 0) com score 95
+    controller.promover_candidato_para_nao_revisado("esc_1", 0, 85, "Bom vídeo")
+    controller.promover_candidato_para_nao_revisado("esc_1", 0, 95, "Relato detalhado")
+    assert len(curadoria_esc.betas_nao_scorados) == 0
+    assert len(curadoria_esc.betas_nao_revisados) == 2
+    # Ordenados por score decrescente (95 primeiro, 85 depois)
+    assert curadoria_esc.betas_nao_revisados[0].resultado_llm.llm_confidence_score == 95
+    assert curadoria_esc.betas_nao_revisados[1].resultado_llm.llm_confidence_score == 85
+
+    undo_stack.undo()
+    assert len(curadoria_esc.betas_nao_scorados) == 1
+    assert len(curadoria_esc.betas_nao_revisados) == 1
+    undo_stack.redo()
+
+    # 3. Aprovar 1 a 1 o primeiro candidato de betas_nao_revisados (Post no Blog, score 95)
+    controller.aprovar_beta_curadoria("esc_1", "betas_nao_revisados", 0)
+    assert len(esc.betas) == 1
+    assert esc.betas[0].url == "https://blogescalada.com/via-classica"
+    assert esc.betas[0].fonte == beta_pb2.FonteMidia.BLOG
+    assert len(curadoria_esc.betas_nao_revisados) == 1
+
+    undo_stack.undo()
+    assert len(esc.betas) == 0
+    assert len(curadoria_esc.betas_nao_revisados) == 2
+    undo_stack.redo()
+
+    # 4. Rejeitar 1 a 1 o candidato restante em betas_nao_revisados (Vídeo 1)
+    controller.rejeitar_beta_curadoria("esc_1", "betas_nao_revisados", 0)
+    assert len(curadoria_esc.betas_nao_revisados) == 0
+    assert len(curadoria_esc.betas_rejeitados) == 1
+    assert curadoria_esc.betas_rejeitados[0].url == "https://youtube.com/watch?v=vid1"
+
+    undo_stack.undo()
+    assert len(curadoria_esc.betas_nao_revisados) == 1
+    assert len(curadoria_esc.betas_rejeitados) == 0
+    undo_stack.redo()
+
+    # 5. Restaurar beta rejeitado de volta para betas_nao_scorados
+    controller.restaurar_beta_rejeitado("esc_1", 0)
+    assert len(curadoria_esc.betas_rejeitados) == 0
+    assert len(curadoria_esc.betas_nao_scorados) == 1
+    assert curadoria_esc.betas_nao_scorados[0].midia.url == "https://youtube.com/watch?v=vid1"
+
+    undo_stack.undo()
+    assert len(curadoria_esc.betas_rejeitados) == 1
+    assert len(curadoria_esc.betas_nao_scorados) == 0
+    undo_stack.redo()
+
+    # 6. Também permite rejeitar um beta já aprovado em escalada.betas (movendo para betas_rejeitados)
+    controller.rejeitar_beta_curadoria("esc_1", "betas", 0)
+    assert len(esc.betas) == 0
+    assert len(curadoria_esc.betas_rejeitados) == 1
+    assert curadoria_esc.betas_rejeitados[0].url == "https://blogescalada.com/via-classica"
+
+    # Validação de erro para origem inválida ou escalada inexistente
+    with pytest.raises(ValueError):
+        controller.aprovar_beta_curadoria("esc_1", "origem_invalida", 0)
+    with pytest.raises(KeyError):
+        controller.aprovar_beta_curadoria("uid_inexistente", "betas_nao_scorados", 0)

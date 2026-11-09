@@ -578,6 +578,40 @@ class CroquiModel(QObject):
                 elif sg.HasField("grupo"):
                     _carregar_arquivo_grupo(sg.grupo)
 
+        # 3. Carrega Curadoria de Betas (curadoria_betas.md)
+        if croqui_msg.HasField("curadoria_betas"):
+            arq_cur = croqui_msg.curadoria_betas
+            if arq_cur.WhichOneof("arquivo") == "caminho" and arq_cur.caminho:
+                nome_relativo = arq_cur.caminho
+                caminho_arquivo = caminho_db / nome_relativo
+                if caminho_arquivo.exists():
+                    try:
+                        from aresta_api.proto.generated.croqui_pb2 import ArquivoCuradoriaBetas
+
+                        dados_cur = _ler_objeto_com_frontmatter(
+                            caminho_arquivo, arq_cur, ArquivoCuradoriaBetas.ext_metadados_arquivo
+                        )
+                        if dados_cur:
+                            json_format.ParseDict(
+                                dados_cur, arq_cur.conteudo, ignore_unknown_fields=True
+                            )
+                            arq_cur.Extensions[
+                                ArquivoCuradoriaBetas.ext_metadados_arquivo
+                            ].caminho_original = nome_relativo
+                            arq_cur.Extensions[
+                                ArquivoCuradoriaBetas.ext_metadados_arquivo
+                            ].caminho_novo = nome_relativo
+                            arq_cur.ClearField("caminho")
+                        else:
+                            if arq_cur.HasExtension(ArquivoCuradoriaBetas.ext_metadados_arquivo):
+                                arq_cur.ClearExtension(ArquivoCuradoriaBetas.ext_metadados_arquivo)
+                    except Exception as e:
+                        from aresta_api.proto.generated.croqui_pb2 import ArquivoCuradoriaBetas
+
+                        if arq_cur.HasExtension(ArquivoCuradoriaBetas.ext_metadados_arquivo):
+                            arq_cur.ClearExtension(ArquivoCuradoriaBetas.ext_metadados_arquivo)
+                        print(f"Erro ao carregar curadoria de betas {arq_cur.caminho}: {e}")
+
         if hasattr(self, "_indice_uids") and self._indice_uids is not None:
             self._indice_uids.carregar_do_croqui(self.__croqui)
 
@@ -906,6 +940,83 @@ class CroquiModel(QObject):
             arq_mapas.ClearExtension(ArquivoMapas.ext_metadados_arquivo)
             if ext:
                 ext.caminho_original = novo_caminho
+
+        # Curadoria de Betas (curadoria_betas.md)
+        if croqui_msg_copy.HasField("curadoria_betas"):
+            from aresta_api.proto.generated.croqui_pb2 import ArquivoCuradoriaBetas
+
+            arq_cur = croqui_msg_copy.curadoria_betas
+            arq_cur_ref = self.__croqui.curadoria_betas
+            if arq_cur.HasField("conteudo"):
+                ext_cur = None
+                if arq_cur_ref.HasExtension(ArquivoCuradoriaBetas.ext_metadados_arquivo):
+                    ext_cur = arq_cur_ref.Extensions[ArquivoCuradoriaBetas.ext_metadados_arquivo]
+                original_caminho_cur = ext_cur.caminho_original if ext_cur else None
+                proposto_cur = (
+                    ext_cur.caminho_novo if ext_cur and ext_cur.caminho_novo else None
+                )
+                novo_caminho_cur = garantir_nome_arquivo_md_seguro(
+                    proposto_cur,
+                    None,
+                    "curadoria_betas",
+                    caminho_original=original_caminho_cur,
+                )
+
+                escaladas_nao_vazias = [
+                    esc
+                    for esc in arq_cur.conteudo.escaladas
+                    if esc.escalada_uid
+                    and (
+                        len(esc.betas_nao_scorados) > 0
+                        or len(esc.betas_nao_revisados) > 0
+                        or len(esc.betas_rejeitados) > 0
+                    )
+                ]
+                del arq_cur.conteudo.escaladas[:]
+                arq_cur.conteudo.escaladas.extend(escaladas_nao_vazias)
+
+                if not escaladas_nao_vazias:
+                    if persistir_no_disco:
+                        for cam_antigo in {original_caminho_cur, novo_caminho_cur}:
+                            if cam_antigo:
+                                arq_disco = caminho_db_path / cam_antigo
+                                if arq_disco.exists():
+                                    try:
+                                        arq_disco.unlink()
+                                    except Exception:
+                                        pass
+                    croqui_msg_copy.ClearField("curadoria_betas")
+                    if arq_cur_ref.HasExtension(ArquivoCuradoriaBetas.ext_metadados_arquivo):
+                        arq_cur_ref.ClearExtension(ArquivoCuradoriaBetas.ext_metadados_arquivo)
+                else:
+                    if original_caminho_cur and original_caminho_cur != novo_caminho_cur:
+                        old_cur_path = caminho_db_path / original_caminho_cur
+                        if old_cur_path.exists():
+                            try:
+                                old_cur_path.unlink()
+                            except Exception:
+                                pass
+
+                    conteudo_cur_dict = MessageToDict(
+                        arq_cur.conteudo, preserving_proto_field_name=True
+                    )
+                    json_orig_cur = (
+                        ext_cur.dados_json_originais
+                        if ext_cur and ext_cur.dados_json_originais
+                        else None
+                    )
+                    _salvar_objeto_com_frontmatter(
+                        caminho_db_path / novo_caminho_cur,
+                        conteudo_cur_dict,
+                        json_original=json_orig_cur,
+                    )
+                    arq_cur.caminho = novo_caminho_cur
+                    arq_cur.ClearField("conteudo")
+                    arq_cur.ClearExtension(ArquivoCuradoriaBetas.ext_metadados_arquivo)
+                    if ext_cur:
+                        ext_cur.caminho_original = novo_caminho_cur
+            else:
+                arq_cur.ClearExtension(ArquivoCuradoriaBetas.ext_metadados_arquivo)
 
         # Picos e Grupos/Setores
         for idx_pico, pico in enumerate(croqui_msg_copy.picos):

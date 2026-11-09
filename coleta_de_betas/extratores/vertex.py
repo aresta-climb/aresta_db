@@ -2,10 +2,12 @@
 # Copyright (C) 2026 Aresta Climb Contributors
 
 import os
+from typing import cast
 
 import requests
 
 from aresta_api.proto.generated import beta_pb2
+from coleta_de_betas.extratores.cliente_http_fake import ClienteHttpProtocolo
 
 
 class ExtratorVertexSearch:
@@ -19,11 +21,15 @@ class ExtratorVertexSearch:
         data_store_id: str | None = None,
         location: str = "global",
         api_key: str | None = None,
+        cliente_http: ClienteHttpProtocolo | None = None,
     ) -> None:
         self.project_id = project_id or os.environ.get("VERTEX_PROJECT_ID", "")
         self.data_store_id = data_store_id or os.environ.get("VERTEX_DATA_STORE_ID", "")
         self.location = location or os.environ.get("VERTEX_LOCATION", "global")
         self.api_key = api_key or os.environ.get("VERTEX_API_KEY", "")
+        self._cliente_http: ClienteHttpProtocolo = cliente_http or cast(
+            ClienteHttpProtocolo, requests
+        )
 
     def montar_query(self, nome_escalada: str, nome_setor: str = "", nome_pico: str = "") -> str:
         """
@@ -42,9 +48,9 @@ class ExtratorVertexSearch:
         nome_setor: str = "",
         nome_pico: str = "",
         max_resultados: int = 10,
-    ) -> list[beta_pb2.MidiaBeta]:
+    ) -> list[beta_pb2.CandidatoMidiaBeta]:
         """
-        Executa a busca no Vertex AI Search e retorna objetos MidiaBeta.
+        Executa a busca no Vertex AI Search e retorna objetos CandidatoMidiaBeta.
         """
         query = self.montar_query(nome_escalada, nome_setor, nome_pico)
         url_endpoint = (
@@ -59,7 +65,7 @@ class ExtratorVertexSearch:
         payload = {"query": query, "pageSize": max_resultados}
 
         try:
-            resposta = requests.post(url_endpoint, json=payload, params=params, timeout=10)
+            resposta = self._cliente_http.post(url_endpoint, json=payload, params=params, timeout=10)
         except Exception as e:
             raise RuntimeError(f"Erro na conexão com a API do Vertex AI Search: {e}")
 
@@ -69,7 +75,7 @@ class ExtratorVertexSearch:
             )
 
         dados = resposta.json()
-        resultados: list[beta_pb2.MidiaBeta] = []
+        resultados: list[beta_pb2.CandidatoMidiaBeta] = []
         termo_lower = nome_escalada.lower().strip()
 
         for item in dados.get("results", []):
@@ -83,24 +89,17 @@ class ExtratorVertexSearch:
             snippets = struct_data.get("snippets", [])
             snippet_text = " ".join([s.get("snippet", "") for s in snippets])
 
-            # Extração de thumbnail se presente
-            thumb_url = ""
-            pagemap = struct_data.get("pagemap", {})
-            if pagemap.get("cse_image"):
-                thumb_url = pagemap["cse_image"][0].get("src", "")
-
-            midia = beta_pb2.MidiaBeta()
-            midia.url = link
-            midia.titulo = titulo
-            midia.thumbnail_url = thumb_url
-            midia.fonte = beta_pb2.FonteMidia.INSTAGRAM
+            candidato = beta_pb2.CandidatoMidiaBeta()
+            candidato.midia.url = link
+            candidato.midia.titulo = titulo
+            candidato.midia.fonte = beta_pb2.FonteMidia.INSTAGRAM
 
             texto_completo = f"{titulo} {snippet_text}".lower()
-            midia.match_nome_no_snippet = termo_lower in texto_completo
+            candidato.match_nome_no_snippet = termo_lower in texto_completo
 
             if snippet_text:
-                midia.snippets.append(snippet_text)
+                candidato.snippets.append(snippet_text)
 
-            resultados.append(midia)
+            resultados.append(candidato)
 
         return resultados

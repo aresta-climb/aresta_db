@@ -723,3 +723,328 @@ class CroquiController:
         )
         macro = CmdMacro([cmd_remover, cmd_adicionar], texto="Migrar Setor")
         self._executar_comando(macro)
+
+    def _obter_escalada_por_uid(self, escalada_uid: str) -> Any:
+        alvo = self.model.obter_objeto_por_uid(escalada_uid)
+        if alvo is None:
+            raise KeyError(f"Escalada com UID '{escalada_uid}' não encontrada no croqui.")
+        return getattr(alvo, "_obj", alvo)
+
+    def _obter_curadoria_escalada(self, escalada_uid: str) -> Any | None:
+        raiz = getattr(self.model.obter_croqui_readonly(), "_obj", self.model.obter_croqui_readonly())
+        for item in raiz.curadoria_betas.conteudo.escaladas:
+            if item.escalada_uid == escalada_uid:
+                return item
+        return None
+
+    def _garantir_curadoria_escalada(self, escalada_uid: str, ctx: str | None) -> Any:
+        existente = self._obter_curadoria_escalada(escalada_uid)
+        if existente is not None:
+            return existente
+
+        from aresta_api.proto.generated import beta_pb2
+
+        raiz = getattr(self.model.obter_croqui_readonly(), "_obj", self.model.obter_croqui_readonly())
+        if not raiz.curadoria_betas.HasField("conteudo"):
+            raiz.curadoria_betas.conteudo.SetInParent()
+        nova_curadoria = beta_pb2.CuradoriaBetasEscalada(escalada_uid=escalada_uid)
+        cmd_criar = CmdAdicionarRepeated(
+            model=self.model,
+            alvo=raiz.curadoria_betas.conteudo,
+            campo_nome="escaladas",
+            index=len(raiz.curadoria_betas.conteudo.escaladas),
+            valor=nova_curadoria,
+            context_path=ctx,
+        )
+        self._executar_comando(cmd_criar)
+        criada = self._obter_curadoria_escalada(escalada_uid)
+        assert criada is not None
+        return criada
+
+    def adicionar_candidatos_nao_scorados(
+        self,
+        escalada_uid: str,
+        candidatos: Any,
+        context_path: str | None = None,
+    ) -> int:
+        """
+        Adiciona candidatos recém-coletados em betas_nao_scorados da escalada,
+        descartando URLs já presentes nas 4 listas da via e empilhando um único comando Undo/Redo.
+        """
+        from aresta_api.proto.generated import beta_pb2
+        from coleta_de_betas.extratores.deduplicador import (
+            normalizar_url,
+            obter_urls_conhecidas_escalada,
+        )
+
+        esc_raw = self._obter_escalada_por_uid(escalada_uid)
+        curadoria_atual = self._obter_curadoria_escalada(escalada_uid)
+        urls_conhecidas = obter_urls_conhecidas_escalada(esc_raw, curadoria_atual)
+
+        novos: list[beta_pb2.CandidatoMidiaBeta] = []
+        for cand in candidatos:
+            url_norm = normalizar_url(cand.midia.url)
+            if not url_norm or url_norm in urls_conhecidas:
+                continue
+            urls_conhecidas.add(url_norm)
+            copia = beta_pb2.CandidatoMidiaBeta()
+            copia.CopyFrom(cand)
+            copia.midia.url = url_norm
+            novos.append(copia)
+
+        if not novos:
+            return 0
+
+        ctx = context_path or self.contexto_atual_path
+        self.iniciar_grupo_undo("Coletar Betas")
+        try:
+            curadoria_esc = self._garantir_curadoria_escalada(escalada_uid, ctx)
+            for item in novos:
+                cmd_add = CmdAdicionarRepeated(
+                    model=self.model,
+                    alvo=curadoria_esc,
+                    campo_nome="betas_nao_scorados",
+                    index=len(curadoria_esc.betas_nao_scorados),
+                    valor=item,
+                    context_path=ctx,
+                )
+                self._executar_comando(cmd_add)
+        finally:
+            self.finalizar_grupo_undo()
+        return len(novos)
+
+    def promover_candidato_para_nao_revisado(
+        self,
+        escalada_uid: str,
+        indice_nao_scorado: int,
+        score: int,
+        justificativa: str,
+        context_path: str | None = None,
+    ) -> None:
+        """
+        Move 1 candidato de betas_nao_scorados para betas_nao_revisados preenchendo o resultado
+        do LLM e mantendo a lista ordenada por score decrescente via comando reversível.
+        """
+        from aresta_api.proto.generated import beta_pb2
+
+        self._obter_escalada_por_uid(escalada_uid)
+        curadoria_esc = self._obter_curadoria_escalada(escalada_uid)
+        if curadoria_esc is None or not (
+            0 <= indice_nao_scorado < len(curadoria_esc.betas_nao_scorados)
+        ):
+            raise IndexError("Candidato não scorado fora de alcance.")
+
+        cand_orig = curadoria_esc.betas_nao_scorados[indice_nao_scorado]
+        cand_avaliado = beta_pb2.CandidatoMidiaBeta()
+        cand_avaliado.CopyFrom(cand_orig)
+        cand_avaliado.resultado_llm.llm_confidence_score = int(score)
+        cand_avaliado.resultado_llm.llm_reasoning = str(justificativa)
+
+        idx_insercao = len(curadoria_esc.betas_nao_revisados)
+        for i, existente in enumerate(curadoria_esc.betas_nao_revisados):
+            if int(score) > existente.resultado_llm.llm_confidence_score:
+                idx_insercao = i
+                break
+
+        ctx = context_path or self.contexto_atual_path
+        self.iniciar_grupo_undo("Avaliar Beta (LLM)")
+        try:
+            self._executar_comando(
+                CmdRemoverRepeated(
+                    model=self.model,
+                    alvo=curadoria_esc,
+                    campo_nome="betas_nao_scorados",
+                    index=indice_nao_scorado,
+                    valor_removido=cand_orig,
+                    context_path=ctx,
+                )
+            )
+            self._executar_comando(
+                CmdAdicionarRepeated(
+                    model=self.model,
+                    alvo=curadoria_esc,
+                    campo_nome="betas_nao_revisados",
+                    index=idx_insercao,
+                    valor=cand_avaliado,
+                    context_path=ctx,
+                )
+            )
+        finally:
+            self.finalizar_grupo_undo()
+
+    def aprovar_beta_curadoria(
+        self,
+        escalada_uid: str,
+        origem: str,
+        indice: int,
+        context_path: str | None = None,
+    ) -> None:
+        """
+        Aprova individualmente (1 a 1) um candidato de betas_nao_revisados ou betas_nao_scorados,
+        extraindo seu MidiaBeta limpo para escalada.betas via comando Undo/Redo.
+        """
+        from aresta_api.proto.generated import beta_pb2
+
+        if origem not in ("betas_nao_revisados", "betas_nao_scorados"):
+            raise ValueError(f"Origem inválida para aprovação de beta: '{origem}'.")
+
+        esc_raw = self._obter_escalada_por_uid(escalada_uid)
+        curadoria_esc = self._obter_curadoria_escalada(escalada_uid)
+        if curadoria_esc is None:
+            raise IndexError("Nenhum candidato de curadoria encontrado para esta escalada.")
+
+        colecao = getattr(curadoria_esc, origem)
+        if not (0 <= indice < len(colecao)):
+            raise IndexError(f"Índice {indice} fora de alcance em '{origem}'.")
+
+        cand_orig = colecao[indice]
+        midia_aprovada = beta_pb2.MidiaBeta(
+            url=cand_orig.midia.url,
+            titulo=cand_orig.midia.titulo,
+            fonte=cand_orig.midia.fonte,
+        )
+
+        ctx = context_path or self.contexto_atual_path
+        self.iniciar_grupo_undo("Aprovar Beta")
+        try:
+            self._executar_comando(
+                CmdRemoverRepeated(
+                    model=self.model,
+                    alvo=curadoria_esc,
+                    campo_nome=origem,
+                    index=indice,
+                    valor_removido=cand_orig,
+                    context_path=ctx,
+                )
+            )
+            self._executar_comando(
+                CmdAdicionarRepeated(
+                    model=self.model,
+                    alvo=esc_raw,
+                    campo_nome="betas",
+                    index=len(esc_raw.betas),
+                    valor=midia_aprovada,
+                    context_path=ctx,
+                )
+            )
+        finally:
+            self.finalizar_grupo_undo()
+
+    def rejeitar_beta_curadoria(
+        self,
+        escalada_uid: str,
+        origem: str,
+        indice: int,
+        context_path: str | None = None,
+    ) -> None:
+        """
+        Rejeita individualmente (1 a 1) um item de betas_nao_revisados, betas_nao_scorados
+        ou escalada.betas, movendo-o para betas_rejeitados via comando Undo/Redo.
+        """
+        from aresta_api.proto.generated import beta_pb2
+
+        if origem not in ("betas_nao_revisados", "betas_nao_scorados", "betas"):
+            raise ValueError(f"Origem inválida para rejeição de beta: '{origem}'.")
+
+        esc_raw = self._obter_escalada_por_uid(escalada_uid)
+        ctx = context_path or self.contexto_atual_path
+
+        if origem == "betas":
+            if not (0 <= indice < len(esc_raw.betas)):
+                raise IndexError(f"Índice {indice} fora de alcance em 'betas'.")
+            item_orig = esc_raw.betas[indice]
+            midia_rej = beta_pb2.MidiaBeta(
+                url=item_orig.url,
+                titulo=item_orig.titulo,
+                fonte=item_orig.fonte,
+            )
+            alvo_remocao: Any = esc_raw
+        else:
+            curadoria_atual = self._obter_curadoria_escalada(escalada_uid)
+            if curadoria_atual is None:
+                raise IndexError("Nenhum candidato de curadoria encontrado para esta escalada.")
+            colecao = getattr(curadoria_atual, origem)
+            if not (0 <= indice < len(colecao)):
+                raise IndexError(f"Índice {indice} fora de alcance em '{origem}'.")
+            item_orig = colecao[indice]
+            midia_rej = beta_pb2.MidiaBeta(
+                url=item_orig.midia.url,
+                titulo=item_orig.midia.titulo,
+                fonte=item_orig.midia.fonte,
+            )
+            alvo_remocao = curadoria_atual
+
+        self.iniciar_grupo_undo("Rejeitar Beta")
+        try:
+            curadoria_esc = self._garantir_curadoria_escalada(escalada_uid, ctx)
+            self._executar_comando(
+                CmdRemoverRepeated(
+                    model=self.model,
+                    alvo=alvo_remocao,
+                    campo_nome=origem,
+                    index=indice,
+                    valor_removido=item_orig,
+                    context_path=ctx,
+                )
+            )
+            self._executar_comando(
+                CmdAdicionarRepeated(
+                    model=self.model,
+                    alvo=curadoria_esc,
+                    campo_nome="betas_rejeitados",
+                    index=len(curadoria_esc.betas_rejeitados),
+                    valor=midia_rej,
+                    context_path=ctx,
+                )
+            )
+        finally:
+            self.finalizar_grupo_undo()
+
+    def restaurar_beta_rejeitado(
+        self,
+        escalada_uid: str,
+        indice_rejeitado: int,
+        context_path: str | None = None,
+    ) -> None:
+        """
+        Restaura individualmente (1 a 1) um item de betas_rejeitados de volta para
+        betas_nao_scorados via comando Undo/Redo.
+        """
+        from aresta_api.proto.generated import beta_pb2
+
+        self._obter_escalada_por_uid(escalada_uid)
+        curadoria_esc = self._obter_curadoria_escalada(escalada_uid)
+        if curadoria_esc is None or not (
+            0 <= indice_rejeitado < len(curadoria_esc.betas_rejeitados)
+        ):
+            raise IndexError("Beta rejeitado fora de alcance.")
+
+        midia_orig = curadoria_esc.betas_rejeitados[indice_rejeitado]
+        cand_restaurado = beta_pb2.CandidatoMidiaBeta()
+        cand_restaurado.midia.CopyFrom(midia_orig)
+
+        ctx = context_path or self.contexto_atual_path
+        self.iniciar_grupo_undo("Restaurar Beta Rejeitado")
+        try:
+            self._executar_comando(
+                CmdRemoverRepeated(
+                    model=self.model,
+                    alvo=curadoria_esc,
+                    campo_nome="betas_rejeitados",
+                    index=indice_rejeitado,
+                    valor_removido=midia_orig,
+                    context_path=ctx,
+                )
+            )
+            self._executar_comando(
+                CmdAdicionarRepeated(
+                    model=self.model,
+                    alvo=curadoria_esc,
+                    campo_nome="betas_nao_scorados",
+                    index=len(curadoria_esc.betas_nao_scorados),
+                    valor=cand_restaurado,
+                    context_path=ctx,
+                )
+            )
+        finally:
+            self.finalizar_grupo_undo()

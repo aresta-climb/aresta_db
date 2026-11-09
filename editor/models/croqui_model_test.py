@@ -1860,6 +1860,55 @@ def test_extrair_arquivos_e_serializar_higieniza_nomes_toxicos_em_setor_grupo_ma
     assert (tmp_path / "secao_sobre_acesso.md").exists()
 
 
+def test_croqui_model_carrega_e_extrai_curadoria_betas_omitindo_entradas_vazias(tmp_path):
+    """
+    Valida que CroquiModel carrega curadoria_betas.md para a memória via ONEOF_CONTEUDO,
+    persiste apenas escaladas com itens de curadoria não vazios e remove o arquivo quando esvaziado.
+    """
+    from aresta_api.proto.generated import beta_pb2
+    from aresta_api.proto.generated.croqui_pb2 import Croqui
+
+    db_path = tmp_path / "database"
+    db_path.mkdir()
+
+    croqui = Croqui(id="br_mg_teste", nome="Croqui Betas")
+    esc_com_itens = croqui.curadoria_betas.conteudo.escaladas.add(escalada_uid="esc_com_itens1")
+    cand = esc_com_itens.betas_nao_scorados.add()
+    cand.midia.url = "https://blog.exemplo.com/via-1"
+    cand.midia.titulo = "Post sobre a Via 1"
+    cand.midia.fonte = beta_pb2.FonteMidia.BLOG
+    cand.snippets.append("A Via 1 é um clássico do setor.")
+
+    # Escalada sem nenhum item em nenhuma das 3 listas deve ser omitida no salvamento
+    croqui.curadoria_betas.conteudo.escaladas.add(escalada_uid="esc_vazia_0000")
+
+    model = CroquiModel(croqui)
+    dados = model.extrair_arquivos_e_serializar(db_path)
+
+    assert dados["curadoria_betas"]["caminho"] == "curadoria_betas.md"
+    arquivo_curadoria = db_path / "curadoria_betas.md"
+    assert arquivo_curadoria.exists()
+
+    # Recarrega em uma nova instância de Croqui a partir do caminho
+    croqui_recarregado = Croqui(id="br_mg_teste", nome="Croqui Betas")
+    croqui_recarregado.curadoria_betas.caminho = "curadoria_betas.md"
+    model_recarregado = CroquiModel(croqui_recarregado)
+    model_recarregado.carregar_arquivos_externos(db_path)
+
+    assert croqui_recarregado.curadoria_betas.WhichOneof("arquivo") == "conteudo"
+    assert len(croqui_recarregado.curadoria_betas.conteudo.escaladas) == 1
+    esc_lida = croqui_recarregado.curadoria_betas.conteudo.escaladas[0]
+    assert esc_lida.escalada_uid == "esc_com_itens1"
+    assert len(esc_lida.betas_nao_scorados) == 1
+    assert esc_lida.betas_nao_scorados[0].midia.fonte == beta_pb2.FonteMidia.BLOG
+
+    # Se esvaziarmos todos os itens de curadoria, o arquivo deve ser removido e omitido do croqui.yaml
+    del croqui_recarregado.curadoria_betas.conteudo.escaladas[:]
+    dados_apos_limpeza = model_recarregado.extrair_arquivos_e_serializar(db_path)
+    assert "curadoria_betas" not in dados_apos_limpeza
+    assert not arquivo_curadoria.exists()
+
+
 def test_croqui_model_carrega_e_extrai_malha_estrada_yaml(tmp_path):
     """
     Valida que CroquiModel extrai pico.malha_estrada.conteudo para malha_estrada.yaml separado,

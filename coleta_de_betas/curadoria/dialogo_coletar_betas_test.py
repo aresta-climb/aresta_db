@@ -1,0 +1,145 @@
+# SPDX-License-Identifier: MPL-2.0
+# Copyright (C) 2026 Aresta Climb Contributors
+
+from dataclasses import dataclass, field
+
+from PySide6.QtGui import QUndoStack
+
+from aresta_api.proto.generated import beta_pb2, croqui_pb2
+from coleta_de_betas.curadoria.dialogo_coletar_betas import (
+    DialogoColetarBetas,
+    extrair_escaladas_do_croqui,
+)
+from editor.controllers.croqui_controller import CroquiController
+from editor.models.croqui_model import CroquiModel
+
+
+@dataclass
+class _ExtratorBetaFake:
+    """Extrator determinístico em memória para testar o Wizard de coleta de betas."""
+
+    respostas_por_via: dict[str, list[beta_pb2.CandidatoMidiaBeta]] = field(default_factory=dict)
+    falhar_em: str | None = None
+    chamadas: list[tuple[str, str, str]] = field(default_factory=list)
+
+    def buscar(
+        self,
+        nome_escalada: str,
+        nome_setor: str = "",
+        nome_pico: str = "",
+        max_resultados: int = 10,
+    ) -> list[beta_pb2.CandidatoMidiaBeta]:
+        _ = max_resultados
+        self.chamadas.append((nome_escalada, nome_setor, nome_pico))
+        if self.falhar_em == nome_escalada:
+            raise RuntimeError("Erro de rede simulado")
+        return list(self.respostas_por_via.get(nome_escalada, []))
+
+
+def _criar_croqui_exemplo() -> croqui_pb2.Croqui:
+    croqui = croqui_pb2.Croqui(uid="croqui_1", nome="Serra do Cipó")
+    pico = croqui.picos.add(nome="Morro da Pedreira")
+
+    sg_setor = pico.setores_ou_grupos.add()
+    setor1 = sg_setor.setor.conteudo
+    setor1.uid = "setor_1"
+    setor1.nome = "Salão Principal"
+    esc1 = setor1.escaladas.add(uid="esc_1")
+    esc1.via_esportiva.nome = "Via do Sol"
+
+    sg_grupo = pico.setores_ou_grupos.add()
+    grupo = sg_grupo.grupo.conteudo
+    grupo.uid = "grupo_1"
+    grupo.nome = "Grupo Norte"
+    subsetor = grupo.setores.add().conteudo
+    subsetor.uid = "setor_2"
+    subsetor.nome = "Fendas"
+    esc2 = subsetor.escaladas.add(uid="esc_2")
+    esc2.boulder.nome = "Boulder da Lua"
+
+    return croqui
+
+
+def test_extrair_escaladas_do_croqui_lista_setores_e_grupos() -> None:
+    croqui = _criar_croqui_exemplo()
+    itens = extrair_escaladas_do_croqui(croqui)
+    assert len(itens) == 2
+    assert itens[0].escalada_uid == "esc_1"
+    assert itens[0].nome_escalada == "Via do Sol"
+    assert itens[0].nome_setor == "Salão Principal"
+    assert itens[0].nome_pico == "Morro da Pedreira"
+
+    assert itens[1].escalada_uid == "esc_2"
+    assert itens[1].nome_escalada == "Boulder da Lua"
+    assert itens[1].nome_setor == "Fendas"
+
+
+def test_dialogo_coletar_betas_seleciona_executa_coleta_e_suporta_undo(qtbot) -> None:
+    croqui = _criar_croqui_exemplo()
+    model = CroquiModel(croqui)
+    stack = QUndoStack()
+    controller = CroquiController(model, stack)
+
+    cand_yt = beta_pb2.CandidatoMidiaBeta()
+    cand_yt.midia.url = "https://www.youtube.com/watch?v=sol123"
+    cand_yt.midia.titulo = "Via do Sol Beta"
+    cand_yt.midia.fonte = beta_pb2.FonteMidia.YOUTUBE
+
+    cand_blog = beta_pb2.CandidatoMidiaBeta()
+    cand_blog.midia.url = "https://blog.com/boulder-lua"
+    cand_blog.midia.titulo = "Boulder da Lua Relato"
+    cand_blog.midia.fonte = beta_pb2.FonteMidia.BLOG
+
+    extrator_ok = _ExtratorBetaFake(
+        respostas_por_via={
+            "Via do Sol": [cand_yt],
+            "Boulder da Lua": [cand_blog],
+        }
+    )
+    extrator_falho = _ExtratorBetaFake(falhar_em="Via do Sol")
+
+    dialogo = DialogoColetarBetas(
+        model=model,
+        controller=controller,
+        extratores=[extrator_ok, extrator_falho],
+    )
+    qtbot.addWidget(dialogo)
+
+    assert len(dialogo.checkboxes_por_uid) == 2
+
+    # Testa Desmarcar Todas e Marcar Todas
+    dialogo.btn_desmarcar_todas.click()
+    assert all(not cb.isChecked() for cb in dialogo.checkboxes_por_uid.values())
+    assert dialogo.executar_coleta_sincrona() == 0
+
+    dialogo.btn_marcar_todas.click()
+    assert all(cb.isChecked() for cb in dialogo.checkboxes_por_uid.values())
+
+    # Executa coleta síncrona e verifica injeção em betas_nao_scorados e barra de progresso
+    total_adicionados = dialogo.executar_coleta_sincrona()
+    assert total_adicionados == 2
+    assert dialogo.barra_progresso.value() == 2
+    assert len(croqui.curadoria_betas.conteudo.escaladas) == 2
+
+    # Um único Undo reverte toda a sessão de coleta do Wizard
+    assert stack.count() == 1
+    stack.undo()
+    assert len(croqui.curadoria_betas.conteudo.escaladas) == 0
+
+
+def test_dialogo_coletar_betas_cancelamento_interrompe_coleta(qtbot) -> None:
+    croqui = _criar_croqui_exemplo()
+    model = CroquiModel(croqui)
+    stack = QUndoStack()
+    controller = CroquiController(model, stack)
+
+    dialogo = DialogoColetarBetas(
+        model=model,
+        controller=controller,
+        extratores=[],
+    )
+    qtbot.addWidget(dialogo)
+
+    dialogo.solicitar_cancelamento()
+    assert dialogo.cancelado is True
+    assert dialogo.executar_coleta_sincrona() == 0

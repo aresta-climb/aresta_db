@@ -1,16 +1,18 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
-
-import duckduckgo_search
-
 from aresta_api.proto.generated import beta_pb2
+from coleta_de_betas.extratores.blog import _BuscadorDuckDuckGoPadrao
+from coleta_de_betas.extratores.cliente_http_fake import BuscadorWebProtocolo
 
 
 class ExtratorDuckDuckGo:
     """
     Extrator de postagens e vídeos do Instagram via scraping da busca do DuckDuckGo.
     """
+
+    def __init__(self, buscador: BuscadorWebProtocolo | None = None) -> None:
+        self._buscador: BuscadorWebProtocolo = buscador or _BuscadorDuckDuckGoPadrao()
 
     def montar_query(self, nome_escalada: str, nome_setor: str = "", nome_pico: str = "") -> str:
         """
@@ -30,17 +32,16 @@ class ExtratorDuckDuckGo:
         nome_setor: str = "",
         nome_pico: str = "",
         max_resultados: int = 10,
-    ) -> list[beta_pb2.MidiaBeta]:
+    ) -> list[beta_pb2.CandidatoMidiaBeta]:
         """
-        Executa a busca no DuckDuckGo e formata em objetos MidiaBeta.
+        Executa a busca no DuckDuckGo e formata em objetos CandidatoMidiaBeta.
         """
         query = self.montar_query(nome_escalada, nome_setor, nome_pico)
-        resultados: list[beta_pb2.MidiaBeta] = []
+        resultados: list[beta_pb2.CandidatoMidiaBeta] = []
         termo_lower = nome_escalada.lower().strip()
 
         try:
-            with duckduckgo_search.DDGS() as ddgs:
-                res_ddg = list(ddgs.text(query, max_results=max_resultados))
+            res_ddg = self._buscador.buscar_texto(query, max_resultados=max_resultados)
         except Exception as e:
             raise RuntimeError(f"Erro na busca via DuckDuckGo: {e}")
 
@@ -52,18 +53,17 @@ class ExtratorDuckDuckGo:
             titulo = item.get("title", "")
             body = item.get("body", "")
 
-            midia = beta_pb2.MidiaBeta()
-            midia.url = link
-            midia.titulo = titulo
-            midia.thumbnail_url = ""  # DuckDuckGo text search não garante thumbnail estável
-            midia.fonte = beta_pb2.FonteMidia.INSTAGRAM
+            candidato = beta_pb2.CandidatoMidiaBeta()
+            candidato.midia.url = link
+            candidato.midia.titulo = titulo
+            candidato.midia.fonte = beta_pb2.FonteMidia.INSTAGRAM
 
             texto_completo = f"{titulo} {body}".lower()
-            midia.match_nome_no_snippet = termo_lower in texto_completo
+            candidato.match_nome_no_snippet = termo_lower in texto_completo
 
             if body:
-                midia.snippets.append(body)
+                candidato.snippets.append(body)
 
-            resultados.append(midia)
+            resultados.append(candidato)
 
         return resultados

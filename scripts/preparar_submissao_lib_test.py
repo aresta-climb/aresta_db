@@ -1398,45 +1398,72 @@ def test_injetar_precomputados():
     assert pico["precomputados"]["total_boulders"] == 1
 
 
-def test_compilar_croqui_com_betas(tmp_path):
+def test_compilar_croqui_com_betas(tmp_path, capsys):
     """
-    Testa se o compilador de croqui serializa corretamente o bloco betas de uma escalada.
+    Testa se o compilador de croqui serializa corretamente o bloco betas limpo de uma escalada
+    (incluindo FonteMidia.BLOG), emite AVISO quando há betas pendentes em curadoria_betas.md
+    e omite curadoria_betas do compilado.binarypb e compilado.yaml.
     """
 
     from aresta_api.proto.generated import beta_pb2, croqui_pb2
-    from scripts.preparar_submissao_lib import compilar_croqui
+    from scripts.preparar_submissao_lib import carregar_yaml, compilar_croqui
 
     pico_dir = tmp_path / "pico_teste"
     pico_dir.mkdir()
 
-    # Cria setor com escalada contendo betas
+    # Cria setor com escalada contendo betas aprovados limpos
     setor_md = pico_dir / "setor_1.md"
     setor_conteudo = """---
 nome: Setor Teste
 escaladas:
-  - via_esportiva:
+  - uid: esc-1
+    via_esportiva:
       nome: Via dos Betas
     betas:
       - url: https://www.youtube.com/watch?v=xyz123
-        titulo: Beta Completo
+        titulo: Beta Completo YouTube
         fonte: YOUTUBE
-        thumbnail_url: https://img.youtube.com/vi/xyz123/hqdefault.jpg
-        resultado_llm:
-          llm_confidence_score: 95
-          llm_reasoning: Nome e grau batem exatamente com a descrição do vídeo.
-        match_multiplas_fontes: true
-        match_nome_no_snippet: true
-        snippets:
-          - Descrição completa do beta
+      - url: https://blogescalada.com/via-dos-betas
+        titulo: Relato no Blog
+        fonte: BLOG
 ---
 Descrição do setor de teste.
 """
     setor_md.write_text(setor_conteudo, encoding="utf-8")
 
-    # Cria croqui.yaml
+    # Cria curadoria_betas.md com itens não scorados, não revisados e rejeitados
+    curadoria_md = pico_dir / "curadoria_betas.md"
+    curadoria_conteudo = """---
+escaladas:
+  - escalada_uid: esc-1
+    betas_nao_scorados:
+      - midia:
+          url: https://www.instagram.com/reel/abc/
+          titulo: Reel Pendente
+          fonte: INSTAGRAM
+        snippets:
+          - Subindo a Via dos Betas
+    betas_nao_revisados:
+      - midia:
+          url: https://www.youtube.com/watch?v=def456
+          titulo: Vídeo Avaliado pelo LLM
+          fonte: YOUTUBE
+        resultado_llm:
+          llm_confidence_score: 92
+          llm_reasoning: Vídeo mostra a via completa.
+    betas_rejeitados:
+      - url: https://www.youtube.com/watch?v=ruido999
+        titulo: Vídeo Ruído
+        fonte: YOUTUBE
+---
+"""
+    curadoria_md.write_text(curadoria_conteudo, encoding="utf-8")
+
+    # Cria croqui.yaml referenciando curadoria_betas.md
     croqui_yaml = pico_dir / "croqui.yaml"
     croqui_data = {
         "nome": "Croqui Teste Betas",
+        "curadoria_betas": {"caminho": "curadoria_betas.md"},
         "picos": [
             {"nome": "Pico Teste", "setores_ou_grupos": [{"setor": {"caminho": "setor_1.md"}}]}
         ],
@@ -1449,30 +1476,36 @@ Descrição do setor de teste.
 
     compilar_croqui(pico_dir, destino_yaml, destino_binarypb)
 
-    # Lê o binarypb gerado e valida o bloco betas
+    capturado = capsys.readouterr().out
+    assert "AVISO" in capturado
+    assert "2 beta(s) pendente(s)" in capturado
+
+    # Verifica que curadoria_betas foi omitido do compilado.yaml
+    yaml_compilado = carregar_yaml(destino_yaml.read_text(encoding="utf-8"))
+    assert "curadoria_betas" not in yaml_compilado
+
+    # Lê o binarypb gerado e valida o bloco betas e a omissão de curadoria_betas
     croqui_msg = croqui_pb2.Croqui()
     with open(destino_binarypb, "rb") as f:
         croqui_msg.ParseFromString(f.read())
+
+    assert not croqui_msg.HasField("curadoria_betas")
 
     setor = croqui_msg.picos[0].setores_ou_grupos[0].setor.conteudo
     assert len(setor.escaladas) == 1
     escalada = setor.escaladas[0]
     assert escalada.via_esportiva.nome == "Via dos Betas"
-    assert len(escalada.betas) == 1
+    assert len(escalada.betas) == 2
 
-    beta = escalada.betas[0]
-    assert beta.url == "https://www.youtube.com/watch?v=xyz123"
-    assert beta.titulo == "Beta Completo"
-    assert beta.fonte == beta_pb2.FonteMidia.YOUTUBE
-    assert beta.thumbnail_url == "https://img.youtube.com/vi/xyz123/hqdefault.jpg"
-    assert beta.resultado_llm.llm_confidence_score == 95
-    assert (
-        beta.resultado_llm.llm_reasoning == "Nome e grau batem exatamente com a descrição do vídeo."
-    )
-    assert beta.match_multiplas_fontes is True
-    assert beta.match_nome_no_snippet is True
-    assert len(beta.snippets) == 1
-    assert beta.snippets[0] == "Descrição completa do beta"
+    beta_yt = escalada.betas[0]
+    assert beta_yt.url == "https://www.youtube.com/watch?v=xyz123"
+    assert beta_yt.titulo == "Beta Completo YouTube"
+    assert beta_yt.fonte == beta_pb2.FonteMidia.YOUTUBE
+
+    beta_blog = escalada.betas[1]
+    assert beta_blog.url == "https://blogescalada.com/via-dos-betas"
+    assert beta_blog.titulo == "Relato no Blog"
+    assert beta_blog.fonte == beta_pb2.FonteMidia.BLOG
 
 
 def test_precompilar_linhas_mapas_recursivo_valida_protobuf():

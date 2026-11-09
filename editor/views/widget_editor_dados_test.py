@@ -428,8 +428,6 @@ def test_widget_formulario_padrao_oneof_default(qapp):
 
 
 def test_formulario_exibe_e_edita_nome_de_arquivo(qapp):
-    from PySide6.QtWidgets import QLineEdit
-
     from aresta_api.proto.generated import croqui_pb2
     from aresta_api.proto.generated.croqui_pb2 import Croqui
     from editor.views.widget_editor_dados import WidgetEditorDados
@@ -6150,3 +6148,77 @@ def test_formulario_coordenada_edicao_apos_undo_poda_submensagem_sem_mensagem_or
     assert setor.HasField("localizacao_estacionamento")
     assert setor.localizacao_estacionamento.latitude == -220000000
 
+
+def test_formulario_escalada_exibe_secao_betas_adicao_manual_e_navegacao_revisao(qapp):
+    """
+    Valida que a ficha da Escalada na aba Dados renderiza a seção de betas aprovados,
+    o resumo de curadoria pendente, permite adição/edição manual com Undo/Redo e
+    navega para 'page:betas/<uid>' ao clicar em 'Abrir na Revisão de Betas'.
+    """
+    from PySide6.QtGui import QUndoStack
+    from PySide6.QtWidgets import QFrame, QLabel, QLineEdit, QPushButton
+
+    from aresta_api.proto.generated import beta_pb2, croqui_pb2
+    from editor.controllers.croqui_controller import CroquiController
+    from editor.models.croqui_model import CroquiModel
+    from editor.views.tree_view_adapter import ProtobufNode
+    from editor.views.widget_editor_dados import WidgetFormularioPadrao
+
+    croqui = croqui_pb2.Croqui(uid="croqui_1", nome="Croqui Betas UI")
+    pico = croqui.picos.add(nome="Pico 1")
+    setor = pico.setores_ou_grupos.add().setor.conteudo
+    setor.uid = "setor_1"
+    setor.nome = "Setor 1"
+    escalada = setor.escaladas.add(uid="esc_beta_1")
+    escalada.via_esportiva.nome = "Via Teste Beta"
+    escalada.betas.add(
+        url="https://youtube.com/watch?v=aprovado1",
+        titulo="Beta Inicial",
+        fonte=beta_pb2.FonteMidia.YOUTUBE,
+    )
+
+    cur_esc = croqui.curadoria_betas.conteudo.escaladas.add(escalada_uid="esc_beta_1")
+    cur_esc.betas_nao_scorados.add().midia.url = "https://instagram.com/p/ns1"
+    cur_esc.betas_nao_revisados.add().midia.url = "https://blog.com/nr1"
+
+    model = CroquiModel(croqui)
+    stack = QUndoStack()
+    controller = CroquiController(model, stack)
+    form = WidgetFormularioPadrao(model, controller)
+
+    node_esc = ProtobufNode(name="Escalada", message=escalada, descriptor=escalada.DESCRIPTOR)
+    form.load_node(node_esc)
+
+    secao = form.findChild(QFrame, "SecaoBetasEscalada")
+    assert secao is not None
+
+    lbl_resumo = secao.findChild(QLabel, "LabelResumoBetasEscalada")
+    assert lbl_resumo is not None
+    assert "1 aprovado(s)" in lbl_resumo.text()
+    assert "1 aguardando revisão" in lbl_resumo.text()
+    assert "1 não scorado(s)" in lbl_resumo.text()
+
+    # Adicionar beta manual via botão
+    btn_add = secao.findChild(QPushButton, "BtnAdicionarBetaManual")
+    assert btn_add is not None
+    btn_add.click()
+    assert len(escalada.betas) == 2
+
+    # Editar URL e título do novo beta manual
+    edit_url_1 = secao.findChild(QLineEdit, "EditUrlBeta_1")
+    edit_titulo_1 = secao.findChild(QLineEdit, "EditTituloBeta_1")
+    assert edit_url_1 is not None and edit_titulo_1 is not None
+    edit_url_1.setText("https://blog.com/manual")
+    edit_url_1.editingFinished.emit()
+    edit_titulo_1.setText("Relato Manual")
+    edit_titulo_1.editingFinished.emit()
+    assert escalada.betas[1].url == "https://blog.com/manual"
+    assert escalada.betas[1].titulo == "Relato Manual"
+
+    # Botão Abrir na Revisão de Betas emite foco_requisitado para page:betas/esc_beta_1
+    focos_emitidos: list[str] = []
+    model.foco_requisitado.connect(focos_emitidos.append)
+    btn_revisao = secao.findChild(QPushButton, "BtnAbrirRevisaoBetas")
+    assert btn_revisao is not None
+    btn_revisao.click()
+    assert focos_emitidos == ["page:betas/esc_beta_1"]

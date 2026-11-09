@@ -259,26 +259,87 @@ class TestMedirSaudeCroquis(unittest.TestCase):
         setores_glob = medir_saude_croquis.find_all_sectors(croqui_dir)
         self.assertEqual([p.name for p in setores_glob], ["setor_1.md", "setor_2.md"])
 
-    def test_check_betas_pendentes_real_protobuf(self) -> None:
+    def test_check_betas_pendentes_curadoria_md(self) -> None:
         croqui_dir = self.tmp_path / "croqui_betas"
         croqui_dir.mkdir()
 
         # Sem arquivo -> ✅
         self.assertEqual(medir_saude_croquis.check_betas_pendentes(croqui_dir), "✅")
 
-        # Com arquivo contendo 2 candidatos pendentes -> ⚠️ (2)
-        staging = beta_pb2.BetasPendentes()
-        esc = staging.candidatos_por_escalada.add()
-        esc.candidatos.add()
-        esc.candidatos.add()
-        (croqui_dir / "betas_pendentes.binarypb").write_bytes(staging.SerializeToString())
-
+        # Com curadoria_betas.md contendo 1 não scorado e 1 não revisado -> ⚠️ (2)
+        (croqui_dir / "curadoria_betas.md").write_text(
+            "---\n"
+            "escaladas:\n"
+            "  - escalada_uid: esc-1\n"
+            "    betas_nao_scorados:\n"
+            "      - midia:\n"
+            "          url: https://www.youtube.com/watch?v=1\n"
+            "          titulo: Video 1\n"
+            "          fonte: YOUTUBE\n"
+            "    betas_nao_revisados:\n"
+            "      - midia:\n"
+            "          url: https://www.youtube.com/watch?v=2\n"
+            "          titulo: Video 2\n"
+            "          fonte: YOUTUBE\n"
+            "---\n",
+            encoding="utf-8",
+        )
         self.assertEqual(medir_saude_croquis.check_betas_pendentes(croqui_dir), "⚠️ (2)")
 
-        # Com arquivo vazio (0 candidatos) -> ⚠️
-        staging_vazio = beta_pb2.BetasPendentes()
-        (croqui_dir / "betas_pendentes.binarypb").write_bytes(staging_vazio.SerializeToString())
-        self.assertEqual(medir_saude_croquis.check_betas_pendentes(croqui_dir), "⚠️")
+        # Com apenas betas_rejeitados (0 pendentes) -> ✅
+        (croqui_dir / "curadoria_betas.md").write_text(
+            "---\n"
+            "escaladas:\n"
+            "  - escalada_uid: esc-1\n"
+            "    betas_rejeitados:\n"
+            "      - url: https://www.youtube.com/watch?v=3\n"
+            "        titulo: Video Rejeitado\n"
+            "        fonte: YOUTUBE\n"
+            "---\n",
+            encoding="utf-8",
+        )
+        self.assertEqual(medir_saude_croquis.check_betas_pendentes(croqui_dir), "✅")
+
+        # Conteúdo inline via dados_yaml e caminho customizado + estruturas malformadas -> ⚠️
+        self.assertEqual(
+            medir_saude_croquis.check_betas_pendentes(
+                croqui_dir,
+                dados_yaml={"curadoria_betas": {"conteudo": {"escaladas": "invalido"}}},
+            ),
+            "⚠️",
+        )
+        self.assertEqual(
+            medir_saude_croquis.check_betas_pendentes(
+                croqui_dir,
+                dados_yaml={"curadoria_betas": {"conteudo": {"escaladas": ["nao_dict"]}}},
+            ),
+            "⚠️",
+        )
+        self.assertEqual(
+            medir_saude_croquis.check_betas_pendentes(
+                croqui_dir,
+                dados_yaml={
+                    "curadoria_betas": {
+                        "conteudo": {"escaladas": [{"betas_nao_scorados": "nao_lista"}]}
+                    }
+                },
+            ),
+            "⚠️",
+        )
+        self.assertEqual(
+            medir_saude_croquis.check_betas_pendentes(
+                croqui_dir,
+                dados_yaml={"curadoria_betas": {"caminho": "curadoria_betas.md"}},
+            ),
+            "✅",
+        )
+        self.assertEqual(
+            medir_saude_croquis.check_betas_pendentes(
+                croqui_dir,
+                cache_md={"curadoria_betas.md": (None, "")},
+            ),
+            "⚠️",
+        )
 
     def test_avaliar_saude_croqui_em_memoria_sem_reler_disco(self) -> None:
         croqui_dir = self.tmp_path / "croqui_memoria"

@@ -1,0 +1,53 @@
+---
+name: avaliar_betas_croqui
+description: Avalia e pontua candidatos em betas_nao_scorados do croqui aberto no Editor Aresta via MCP usando sub-agentes AvaliadorBetas e move-os para betas_nao_revisados.
+---
+
+# Avaliação e Pontuação de Betas Não Scorados (100% via MCP)
+
+Sua missão é ler as entradas de `curadoria_betas.conteudo.escaladas` do croqui aberto no **Editor Aresta** via MCP, avaliar todos os candidatos em `betas_nao_scorados` usando sub-agentes `AvaliadorBetas` em paralelo e promover os candidatos pontuados para `betas_nao_revisados` (ordenados por `llm_confidence_score` decrescente).
+
+> [!CAUTION]
+> **Regras Inegociáveis de Curadoria:**
+> - **NUNCA** promova candidatos automaticamente para `Escalada.betas` nem para `betas_rejeitados`. A aprovação e a rejeição final são **exclusivas da revisão humana 1 a 1** na aba **Betas** do Editor Aresta.
+> - **NUNCA** edite manualmente o arquivo `curadoria_betas.md` no disco (`write_file`, `edit_file`). Todas as mutações devem ser feitas via ferramentas MCP do Editor (`aresta_alterar_campo`, `aresta_adicionar_repeated`, `aresta_remover_repeated`) para preservar o histórico de Undo/Redo.
+
+---
+
+## 1. Leitura dos Candidatos Não Scorados via MCP
+
+1. Chame `aresta_status_workspace()` para identificar o `id_croqui` ativo e `aresta_obter_arvore(alvo="curadoria_betas.conteudo")` para ler todas as entradas de `CuradoriaBetasEscalada`.
+2. Para cada entrada em `curadoria_betas.conteudo.escaladas` que possua itens em `betas_nao_scorados`:
+   - Consulte os dados da escalada correspondente com `aresta_obter_arvore(alvo=escalada_uid)` (nome da escalada, grau, modalidade e setor/pico).
+
+---
+
+## 2. Avaliação Paralela por Sub-Agentes (`AvaliadorBetas`)
+
+1. Defina o sub-agente especialista `AvaliadorBetas` via `define_subagent`:
+   ```python
+   define_subagent(
+       Name="AvaliadorBetas",
+       Description="Avalia relevância semântica e correspondência de vídeos, reels e relatos de blog para escaladas",
+       SystemPrompt="""Você é um especialista em escalada em rocha e boulder no Brasil.
+Sua missão é avaliar candidatos a beta (YouTube, Instagram e Blogs) para escaladas específicas de um croqui.
+Para cada candidato fornecido em betas_nao_scorados:
+- Compare o nome da via, grau, modalidade, setor, pico e cidade com o título, URL e snippets da mídia.
+- Atribua um score inteiro de confiança de 0 a 100 (llm_confidence_score).
+- Escreva uma justificativa curta e objetiva em português (llm_reasoning) explicando por que o candidato recebeu aquela nota.
+Retorne os candidatos avaliados estruturados por escalada_uid."""
+   )
+   ```
+2. Divida as escaladas com `betas_nao_scorados` em lotes de 5 a 10 escaladas e invoque os sub-agentes em paralelo via `invoke_subagent`.
+
+---
+
+## 3. Gravação em `betas_nao_revisados` via MCP
+
+Para cada escalada avaliada (`curadoria_betas.conteudo.escaladas.<idx>`):
+
+1. Monte a nova lista de `betas_nao_revisados` combinando os itens já existentes em `betas_nao_revisados` com os candidatos recém-avaliados (preenchendo `resultado_llm.llm_confidence_score` e `resultado_llm.llm_reasoning`), **ordenada de forma decrescente por `llm_confidence_score`**.
+2. Atualize o nó da escalada em `curadoria_betas.conteudo.escaladas.<idx>` via `aresta_alterar_em_lote` ou `aresta_alterar_campo`:
+   - Defina `betas_nao_revisados` com os candidatos avaliados e ordenados.
+   - Limpe `betas_nao_scorados` (`[]`) para os candidatos que já foram promovidos para `betas_nao_revisados`.
+3. Chame `aresta_salvar()` ao final caso o usuário tenha solicitado persistência imediata, ou informe ao usuário que os candidatos já estão prontos para revisão 1 a 1 na aba **Betas** do Editor Aresta.

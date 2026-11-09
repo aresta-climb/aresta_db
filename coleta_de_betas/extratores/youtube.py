@@ -2,10 +2,12 @@
 # Copyright (C) 2026 Aresta Climb Contributors
 
 import os
+from typing import cast
 
 import requests
 
 from aresta_api.proto.generated import beta_pb2
+from coleta_de_betas.extratores.cliente_http_fake import ClienteHttpProtocolo
 
 
 class ExtratorYouTube:
@@ -13,8 +15,15 @@ class ExtratorYouTube:
     Extrator de mídias e vídeos de betas de escalada via YouTube Data API v3.
     """
 
-    def __init__(self, chave_api: str | None = None) -> None:
+    def __init__(
+        self,
+        chave_api: str | None = None,
+        cliente_http: ClienteHttpProtocolo | None = None,
+    ) -> None:
         self.chave_api = chave_api or os.environ.get("YOUTUBE_API_KEY", "")
+        self._cliente_http: ClienteHttpProtocolo = cliente_http or cast(
+            ClienteHttpProtocolo, requests
+        )
 
     def montar_query(self, nome_escalada: str, nome_setor: str = "", nome_pico: str = "") -> str:
         """
@@ -34,9 +43,9 @@ class ExtratorYouTube:
         nome_setor: str = "",
         nome_pico: str = "",
         max_resultados: int = 10,
-    ) -> list[beta_pb2.MidiaBeta]:
+    ) -> list[beta_pb2.CandidatoMidiaBeta]:
         """
-        Executa a pesquisa na API do YouTube e retorna uma lista de objetos MidiaBeta.
+        Executa a pesquisa na API do YouTube e retorna uma lista de objetos CandidatoMidiaBeta.
         """
         query = self.montar_query(nome_escalada, nome_setor, nome_pico)
         url_api = "https://www.googleapis.com/youtube/v3/search"
@@ -49,7 +58,7 @@ class ExtratorYouTube:
         }
 
         try:
-            resposta = requests.get(url_api, params=parametros, timeout=10)
+            resposta = self._cliente_http.get(url_api, params=parametros, timeout=10)
         except Exception as e:
             raise RuntimeError(f"Erro na conexão com a API do YouTube: {e}")
 
@@ -58,7 +67,7 @@ class ExtratorYouTube:
 
         dados = resposta.json()
         itens = dados.get("items", [])
-        resultados: list[beta_pb2.MidiaBeta] = []
+        resultados: list[beta_pb2.CandidatoMidiaBeta] = []
 
         termo_lower = nome_escalada.lower().strip()
 
@@ -70,27 +79,18 @@ class ExtratorYouTube:
             snippet = item.get("snippet", {})
             titulo = snippet.get("title", "")
             descricao = snippet.get("description", "")
-            thumbnails = snippet.get("thumbnails", {})
 
-            # Prioriza resolução maior
-            thumb_url = ""
-            for qualidade in ["high", "medium", "default"]:
-                if qualidade in thumbnails and "url" in thumbnails[qualidade]:
-                    thumb_url = thumbnails[qualidade]["url"]
-                    break
+            candidato = beta_pb2.CandidatoMidiaBeta()
+            candidato.midia.url = f"https://www.youtube.com/watch?v={video_id}"
+            candidato.midia.titulo = titulo
+            candidato.midia.fonte = beta_pb2.FonteMidia.YOUTUBE
 
-            midia = beta_pb2.MidiaBeta()
-            midia.url = f"https://www.youtube.com/watch?v={video_id}"
-            midia.titulo = titulo
-            midia.thumbnail_url = thumb_url
-            midia.fonte = beta_pb2.FonteMidia.YOUTUBE
-            # Checa se o nome da escalada aparece no título ou na descrição
             texto_completo = f"{titulo} {descricao}".lower()
-            midia.match_nome_no_snippet = termo_lower in texto_completo
+            candidato.match_nome_no_snippet = termo_lower in texto_completo
 
             if descricao:
-                midia.snippets.append(descricao)
+                candidato.snippets.append(descricao)
 
-            resultados.append(midia)
+            resultados.append(candidato)
 
         return resultados

@@ -2452,6 +2452,195 @@ class WidgetFormularioPadrao(QStackedWidget):
                 self._renderizar_cartao_subelementos(msg, field, parent_layout)
                 parent_layout.addSpacing(8)
 
+        # 6. Se for uma Escalada, renderiza a seção integrada de Betas Aprovados e Revisão
+        if msg.DESCRIPTOR.name == "Escalada":
+            parent_layout.addSpacing(10)
+            self._renderizar_secao_betas_escalada(msg, parent_layout)
+
+    def _renderizar_secao_betas_escalada(self, msg: Any, parent_layout: Any) -> None:
+        """Renderiza a seção de betas aprovados (com suporte a adição/edição manual) e atalho para Revisão de Betas."""
+        from aresta_api.proto.generated import beta_pb2
+
+        card = QFrame()
+        card.setObjectName("SecaoBetasEscalada")
+        card.setFrameShape(QFrame.Shape.StyledPanel)
+        card.setStyleSheet("""
+            QFrame#SecaoBetasEscalada {
+                background-color: #f8f9fa;
+                border: 1px solid #dcdcdc;
+                border-radius: 6px;
+                padding: 8px;
+            }
+        """)
+        card_layout = QVBoxLayout(card)
+        card_layout.setContentsMargins(12, 10, 12, 10)
+        card_layout.setSpacing(6)
+        parent_layout.addWidget(card)
+
+        def recarregar_secao() -> None:
+            while card_layout.count():
+                item = card_layout.takeAt(0)
+                w = item.widget()
+                if w:
+                    w.hide()
+                    w.setParent(None)
+                    w.deleteLater()
+                elif item.layout():
+                    limpador = QWidget()
+                    limpador.hide()
+                    limpador.setLayout(item.layout())
+                    limpador.deleteLater()
+
+            lbl_titulo = QLabel("🎬 Betas e Relatos da Escalada")
+            lbl_titulo.setStyleSheet(
+                "font-weight: bold; font-size: 10pt; color: #2b579a; border: none; background: transparent;"
+            )
+            card_layout.addWidget(lbl_titulo)
+
+            esc_uid = str(getattr(msg, "uid", "") or "")
+            qtd_aprovados = len(getattr(msg, "betas", []))
+            qtd_nao_revisados = 0
+            qtd_nao_scorados = 0
+            qtd_rejeitados = 0
+            if self.model and esc_uid:
+                raiz = self.model.obter_croqui_readonly()
+                for cur_esc in raiz.curadoria_betas.conteudo.escaladas:
+                    if cur_esc.escalada_uid == esc_uid:
+                        qtd_nao_revisados = len(cur_esc.betas_nao_revisados)
+                        qtd_nao_scorados = len(cur_esc.betas_nao_scorados)
+                        qtd_rejeitados = len(cur_esc.betas_rejeitados)
+                        break
+
+            lbl_resumo = QLabel(
+                f"{qtd_aprovados} aprovado(s) • {qtd_nao_revisados} aguardando revisão • "
+                f"{qtd_nao_scorados} não scorado(s) • {qtd_rejeitados} rejeitado(s)"
+            )
+            lbl_resumo.setObjectName("LabelResumoBetasEscalada")
+            lbl_resumo.setStyleSheet(
+                "color: #555; font-size: 9pt; border: none; background: transparent;"
+            )
+            card_layout.addWidget(lbl_resumo)
+
+            for idx, beta_item in enumerate(getattr(msg, "betas", [])):
+                linha = QHBoxLayout()
+                combo_fonte = ComboBoxSemScroll()
+                combo_fonte.setObjectName(f"ComboFonteBeta_{idx}")
+                combo_fonte.addItem("YouTube", int(beta_pb2.FonteMidia.YOUTUBE))
+                combo_fonte.addItem("Instagram", int(beta_pb2.FonteMidia.INSTAGRAM))
+                combo_fonte.addItem("Blog", int(beta_pb2.FonteMidia.BLOG))
+                idx_combo = combo_fonte.findData(int(beta_item.fonte))
+                if idx_combo >= 0:
+                    combo_fonte.setCurrentIndex(idx_combo)
+
+                edit_titulo = QLineEdit(str(beta_item.titulo or ""))
+                edit_titulo.setObjectName(f"EditTituloBeta_{idx}")
+                edit_titulo.setPlaceholderText("Título do beta/vídeo/post")
+
+                edit_url = QLineEdit(str(beta_item.url or ""))
+                edit_url.setObjectName(f"EditUrlBeta_{idx}")
+                edit_url.setPlaceholderText("https://...")
+
+                btn_rem = QPushButton("✕")
+                btn_rem.setObjectName(f"BtnRemoverBeta_{idx}")
+                btn_rem.setFixedWidth(28)
+
+                def _make_alterar_fonte(i: int = idx, cb: Any = combo_fonte) -> Callable[[], None]:
+                    def _on_fonte() -> None:
+                        if not self.controller:
+                            return
+                        b_alvo = getattr(msg, "betas")[i]
+                        nova_fonte = int(cb.currentData())
+                        if int(b_alvo.fonte) != nova_fonte:
+                            self.controller.alterar_campo(b_alvo, "fonte", nova_fonte)
+
+                    return _on_fonte
+
+                def _make_alterar_titulo(
+                    i: int = idx, ed: QLineEdit = edit_titulo
+                ) -> Callable[[], None]:
+                    def _on_titulo() -> None:
+                        if not self.controller:
+                            return
+                        b_alvo = getattr(msg, "betas")[i]
+                        novo_txt = ed.text().strip()
+                        if str(b_alvo.titulo) != novo_txt:
+                            self.controller.alterar_campo(b_alvo, "titulo", novo_txt)
+
+                    return _on_titulo
+
+                def _make_alterar_url(i: int = idx, ed: QLineEdit = edit_url) -> Callable[[], None]:
+                    def _on_url() -> None:
+                        if not self.controller:
+                            return
+                        b_alvo = getattr(msg, "betas")[i]
+                        nova_u = ed.text().strip()
+                        if str(b_alvo.url) != nova_u:
+                            self.controller.alterar_campo(b_alvo, "url", nova_u)
+
+                    return _on_url
+
+                def _make_remover(i: int = idx) -> Callable[[], None]:
+                    def _on_rem() -> None:
+                        if not self.controller:
+                            return
+                        b_alvo = getattr(msg, "betas")[i]
+                        self.controller.remover_repeated(msg, "betas", i, b_alvo)
+                        recarregar_secao()
+
+                    return _on_rem
+
+                combo_fonte.currentIndexChanged.connect(_make_alterar_fonte())
+                edit_titulo.editingFinished.connect(_make_alterar_titulo())
+                edit_url.editingFinished.connect(_make_alterar_url())
+                btn_rem.clicked.connect(_make_remover())
+
+                linha.addWidget(combo_fonte)
+                linha.addWidget(edit_titulo, 1)
+                linha.addWidget(edit_url, 2)
+                linha.addWidget(btn_rem)
+                card_layout.addLayout(linha)
+
+            botoes_layout = QHBoxLayout()
+            btn_add_manual = QPushButton("+ Adicionar Beta Manual")
+            btn_add_manual.setObjectName("BtnAdicionarBetaManual")
+            btn_add_manual.setStyleSheet(Icones.QSS_BOTAO_RODAPE_ADICIONAR)
+            btn_add_manual.setCursor(Qt.CursorShape.PointingHandCursor)
+
+            def on_add_manual() -> None:
+                if not self.controller:
+                    return
+                novo_beta = beta_pb2.MidiaBeta(fonte=beta_pb2.FonteMidia.YOUTUBE)
+                self.controller.adicionar_repeated(
+                    msg, "betas", len(getattr(msg, "betas")), novo_beta
+                )
+                recarregar_secao()
+
+            btn_add_manual.clicked.connect(on_add_manual)
+
+            btn_abrir_revisao = QPushButton("🔍 Abrir na Revisão de Betas")
+            btn_abrir_revisao.setObjectName("BtnAbrirRevisaoBetas")
+            btn_abrir_revisao.setStyleSheet(
+                "padding: 6px 12px; font-weight: bold; background-color: #0969da; color: white; border-radius: 4px;"
+            )
+            btn_abrir_revisao.setCursor(Qt.CursorShape.PointingHandCursor)
+
+            def on_abrir_revisao() -> None:
+                uid_esc = str(getattr(msg, "uid", "") or "")
+                destino = f"page:betas/{uid_esc}" if uid_esc else "page:betas"
+                if self.controller:
+                    self.controller.set_contexto(destino)
+                if self.model:
+                    self.model.notificar_foco_requisitado(destino)
+
+            btn_abrir_revisao.clicked.connect(on_abrir_revisao)
+
+            botoes_layout.addWidget(btn_add_manual)
+            botoes_layout.addWidget(btn_abrir_revisao)
+            botoes_layout.addStretch()
+            card_layout.addLayout(botoes_layout)
+
+        recarregar_secao()
+
     def _renderizar_cartao_subelementos(self, msg: Any, field: Any, parent_layout: Any) -> None:
         """Renderiza um cartão contextual e de ação rápida no rodapé para coleções de subelementos."""
         import re

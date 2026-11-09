@@ -2260,3 +2260,34 @@ def test_fechar_janela_e_recarregar_pagina_dados_limpa_recursos_celular_e_timers
     janela.close()
     assert janela.servidor_celular is None
     assert janela.monitor_inatividade is None
+
+
+def test_janela_principal_aba_betas_visivel_e_foco_requisitado_navega_para_escalada(
+    criar_janela,
+) -> None:
+    """Valida que a aba Betas está visível e que _on_foco_requisitado('page:betas/<uid>') abre e filtra o PainelCuradoria."""
+    from PySide6.QtGui import QUndoStack
+
+    from aresta_api.proto.generated import croqui_pb2
+    from editor.controllers.croqui_controller import CroquiController
+    from editor.models.croqui_model import CroquiModel
+
+    janela = criar_janela()
+    assert janela.acao_nav_betas.isVisible() is True
+
+    croqui = croqui_pb2.Croqui(uid="croqui_1", nome="Croqui Betas")
+    pico = croqui.picos.add(nome="Pico 1")
+    setor = pico.setores_ou_grupos.add().setor.conteudo
+    setor.uid = "setor_1"
+    setor.nome = "Setor 1"
+    esc = setor.escaladas.add(uid="esc_alvo")
+    esc.via_esportiva.nome = "Via Alvo"
+
+    model = CroquiModel(croqui)
+    ctrl = CroquiController(model, QUndoStack())
+    janela.pagina_betas.carregar_betas(model=model, controller=ctrl)
+
+    janela._on_foco_requisitado("page:betas/esc_alvo")
+    assert janela.stack.currentWidget() is janela.pagina_betas
+    assert janela.pagina_betas.painel is not None
+    assert janela.pagina_betas.painel.filtro_escalada_uid == "esc_alvo"
