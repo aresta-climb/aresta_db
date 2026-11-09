@@ -70,6 +70,20 @@ def inicializar_banco_catalogo(caminho_banco: Path | str) -> sqlite3.Connection:
         cursor.execute("DROP TABLE catalogo_aresta")
         precisa_ddl = True
 
+    precisa_vacuum = False
+    linhas_distancias_legadas: list[tuple[Any, ...]] = []
+    linha_ddl_distancias = cursor.execute(
+        "SELECT sql FROM sqlite_master WHERE type = 'table' AND name = 'catalogo_distancias_estrada'"
+    ).fetchone()
+    if linha_ddl_distancias and "WITHOUT ROWID" not in str(linha_ddl_distancias[0]).upper():
+        linhas_distancias_legadas = cursor.execute(
+            "SELECT croqui_uid, no_osm_id, distancia_metros, na_borda FROM catalogo_distancias_estrada"
+        ).fetchall()
+        cursor.execute("DROP TABLE catalogo_distancias_estrada")
+        precisa_ddl = True
+        precisa_vacuum = True
+
+    cursor.execute("DROP INDEX IF EXISTS idx_catalogo_distancias_estrada_no")
     cursor.execute("SELECT name FROM sqlite_master WHERE type IN ('table', 'index')")
     objetos_existentes = {linha[0] for linha in cursor.fetchall()}
     objetos_esperados = {
@@ -81,7 +95,6 @@ def inicializar_banco_catalogo(caminho_banco: Path | str) -> sqlite3.Connection:
         "idx_catalogo_aresta_croqui",
         "idx_catalogo_aresta_nome",
         "idx_catalogo_aresta_tipo",
-        "idx_catalogo_distancias_estrada_no",
     }
     if not objetos_esperados.issubset(objetos_existentes):
         precisa_ddl = True
@@ -89,7 +102,17 @@ def inicializar_banco_catalogo(caminho_banco: Path | str) -> sqlite3.Connection:
     if precisa_ddl:
         for comando_ddl in COMANDOS_DDL:
             cursor.execute(comando_ddl)
+        if linhas_distancias_legadas:
+            cursor.executemany(
+                "INSERT OR REPLACE INTO catalogo_distancias_estrada "
+                "(croqui_uid, no_osm_id, distancia_metros, na_borda) VALUES (?, ?, ?, ?)",
+                linhas_distancias_legadas,
+            )
         conexao.commit()
+
+    if precisa_vacuum:
+        conexao.commit()
+        conexao.execute("VACUUM")
 
     return conexao
 
@@ -707,17 +730,18 @@ def gerar_catalogo_completo(
                     if atuais_malha != esperados_malha:
                         inserir_malha_estrada_croqui(conexao, croqui_uid, nos_osm, dists_osm)
                         houve_alteracao = True
-                elif pico_principal.HasField("malha_estrada"):
-                    inserir_malha_estrada_croqui(conexao, croqui_uid, [], [])
-                    houve_alteracao = True
-                elif cliente_overpass is not None:
+                else:
                     ja_tem_malha = bool(
                         conexao.execute(
                             "SELECT 1 FROM catalogo_distancias_estrada WHERE croqui_uid = ? LIMIT 1",
                             (croqui_uid,),
                         ).fetchone()
                     )
-                    if not ja_tem_malha:
+                    if pico_principal.HasField("malha_estrada") or cliente_overpass is None:
+                        if ja_tem_malha:
+                            inserir_malha_estrada_croqui(conexao, croqui_uid, [], [])
+                            houve_alteracao = True
+                    elif not ja_tem_malha:
                         loc = pico_principal.localizacao
                         nos_osm, dists_osm = gerar_malha_estrada_pico(
                             croqui_uid,

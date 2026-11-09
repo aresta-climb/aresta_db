@@ -28,7 +28,6 @@ from aresta_api.sql.generated.python.catalogo_sql import (
     DDL_INDICE_IDX_CATALOGO_ARESTA_CROQUI,
     DDL_INDICE_IDX_CATALOGO_ARESTA_NOME,
     DDL_INDICE_IDX_CATALOGO_ARESTA_TIPO,
-    DDL_INDICE_IDX_CATALOGO_DISTANCIAS_ESTRADA_NO,
     DDL_TABELA_CATALOGO_ARESTA,
     DDL_TABELA_CATALOGO_CROQUIS,
     DDL_TABELA_CATALOGO_DISTANCIAS_ESTRADA,
@@ -137,7 +136,7 @@ def inicializar_schema_d1(cliente: ClienteCloudflareD1) -> None:
     cliente.executar_query(DDL_INDICE_IDX_CATALOGO_ARESTA_CROQUI)
     cliente.executar_query(DDL_INDICE_IDX_CATALOGO_ARESTA_NOME)
     cliente.executar_query(DDL_INDICE_IDX_CATALOGO_ARESTA_TIPO)
-    cliente.executar_query(DDL_INDICE_IDX_CATALOGO_DISTANCIAS_ESTRADA_NO)
+    cliente.executar_query("DROP INDEX IF EXISTS idx_catalogo_distancias_estrada_no")
     cliente.executar_query(DDL_INDICE_IDX_DELTAS_VERSAO_HASH)
 
 

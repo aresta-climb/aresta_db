@@ -110,6 +110,12 @@ def test_inicializar_banco_catalogo(tmp_path: Path) -> None:
     assert "idx_catalogo_aresta_croqui" in indices
     assert "idx_catalogo_aresta_nome" in indices
     assert "idx_catalogo_aresta_tipo" in indices
+    assert "idx_catalogo_distancias_estrada_no" not in indices
+
+    ddl_dist = cursor.execute(
+        "SELECT sql FROM sqlite_master WHERE type='table' AND name='catalogo_distancias_estrada'"
+    ).fetchone()[0]
+    assert "WITHOUT ROWID" in ddl_dist.upper()
 
     # Verifica as colunas da tabela catalogo_croquis (sem atualizado_em)
     cursor.execute("PRAGMA table_info(catalogo_croquis)")
@@ -222,6 +228,50 @@ def test_migracao_automatica_remove_coluna_atualizado_em_preservando_dados(tmp_p
         assert colunas == ["croqui_uid", "id_slug", "nome", "cidade", "estado"]
         linha = conexao_migrada.execute("SELECT * FROM catalogo_croquis").fetchone()
         assert linha == ("c1", "slug1", "Pico 1", "BH", "MG")
+    finally:
+        conexao_migrada.close()
+
+
+def test_migracao_automatica_catalogo_distancias_estrada_without_rowid(tmp_path: Path) -> None:
+    caminho_db = tmp_path / "catalogo_distancias_legado.db"
+    conexao = sqlite3.connect(caminho_db)
+    conexao.execute(
+        """
+        CREATE TABLE catalogo_distancias_estrada (
+            croqui_uid TEXT NOT NULL,
+            no_osm_id INTEGER NOT NULL,
+            distancia_metros INTEGER NOT NULL,
+            na_borda INTEGER NOT NULL DEFAULT 0,
+            PRIMARY KEY (croqui_uid, no_osm_id)
+        );
+        """
+    )
+    conexao.execute(
+        "CREATE INDEX idx_catalogo_distancias_estrada_no ON catalogo_distancias_estrada(no_osm_id);"
+    )
+    conexao.execute("INSERT INTO catalogo_distancias_estrada VALUES ('c1', 9001, 4200, 1)")
+    conexao.commit()
+    conexao.close()
+
+    conexao_migrada = inicializar_banco_catalogo(caminho_db)
+    try:
+        ddl_dist = conexao_migrada.execute(
+            "SELECT sql FROM sqlite_master WHERE type='table' AND name='catalogo_distancias_estrada'"
+        ).fetchone()[0]
+        assert "WITHOUT ROWID" in ddl_dist.upper()
+
+        indices = {
+            row[0]
+            for row in conexao_migrada.execute(
+                "SELECT name FROM sqlite_master WHERE type='index'"
+            ).fetchall()
+        }
+        assert "idx_catalogo_distancias_estrada_no" not in indices
+
+        linhas = conexao_migrada.execute(
+            "SELECT croqui_uid, no_osm_id, distancia_metros, na_borda FROM catalogo_distancias_estrada"
+        ).fetchall()
+        assert linhas == [("c1", 9001, 4200, 1)]
     finally:
         conexao_migrada.close()
 
@@ -1133,3 +1183,18 @@ def test_gerar_catalogo_completo_extrai_malha_estrada_offline_do_pico_e_descarta
         qtd_nos = con.execute("SELECT COUNT(*) FROM catalogo_nos_estrada").fetchone()[0]
         assert qtd_dists == 0
         assert qtd_nos == 0
+
+    # 4. Restaura malha válida e depois remove malha_estrada completamente da database (ClearField):
+    # gerar_catalogo_completo deve remover os registros de catalogo_distancias_estrada e catalogo_nos_estrada
+    c1.picos[0].localizacao.latitude = -195600000
+    (c1_dir / "compilado.binarypb").write_bytes(c1.SerializeToString())
+    gerar_catalogo_completo(pasta_gerados, caminho_db, alvos=["br_mg_lagoa_santa_lapinha"])
+    with contextlib.closing(sqlite3.connect(caminho_db)) as con:
+        assert con.execute("SELECT COUNT(*) FROM catalogo_distancias_estrada").fetchone()[0] == 2
+
+    c1.picos[0].ClearField("malha_estrada")
+    (c1_dir / "compilado.binarypb").write_bytes(c1.SerializeToString())
+    gerar_catalogo_completo(pasta_gerados, caminho_db, alvos=["br_mg_lagoa_santa_lapinha"])
+    with contextlib.closing(sqlite3.connect(caminho_db)) as con:
+        assert con.execute("SELECT COUNT(*) FROM catalogo_distancias_estrada").fetchone()[0] == 0
+        assert con.execute("SELECT COUNT(*) FROM catalogo_nos_estrada").fetchone()[0] == 0

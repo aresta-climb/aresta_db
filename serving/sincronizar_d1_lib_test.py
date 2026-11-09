@@ -8,6 +8,7 @@ from __future__ import annotations
 import http.server
 import json
 import threading
+from collections.abc import Iterator
 from pathlib import Path
 from typing import Any
 
@@ -92,7 +93,7 @@ class _ManipuladorHttpD1ParaTestes(http.server.BaseHTTPRequestHandler):
 
 
 @pytest.fixture
-def servidor_http_d1():
+def servidor_http_d1() -> Iterator[str]:
     _ManipuladorHttpD1ParaTestes.respostas = []
     _ManipuladorHttpD1ParaTestes.requisicoes_recebidas = []
     servidor = http.server.HTTPServer(("127.0.0.1", 0), _ManipuladorHttpD1ParaTestes)
@@ -217,6 +218,16 @@ def test_inicializar_schema_d1_criacao_e_migracao_legado() -> None:
     assert "setor_nome" not in colunas_migradas
     # Deltas antigos foram limpos para forçar bootstrap limpo
     assert len(fake.executar_query("SELECT * FROM deltas_catalogo")) == 0
+
+    ddl_dist = fake.executar_query(
+        "SELECT sql FROM sqlite_master WHERE type='table' AND name='catalogo_distancias_estrada'"
+    )[0]["sql"]
+    assert "WITHOUT ROWID" in str(ddl_dist).upper()
+    indices_d1 = {
+        linha["name"]
+        for linha in fake.executar_query("SELECT name FROM sqlite_master WHERE type='index'")
+    }
+    assert "idx_catalogo_distancias_estrada_no" not in indices_d1
 
 
 def test_obter_ultima_versao_d1() -> None:
