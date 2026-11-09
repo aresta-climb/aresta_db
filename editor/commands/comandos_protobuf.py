@@ -456,31 +456,47 @@ def validar_pertence_ao_croqui(
     msg_raw, caminho = _ajustar_submensagem_variante_se_necessario(msg_raw, caminho, campo_nome)
 
     if campo_nome and msg_raw is not None and hasattr(msg_raw, "DESCRIPTOR"):
-        if "." in campo_nome:
-            parte_campo = campo_nome.split(".", 1)[0]
-            if parte_campo not in msg_raw.DESCRIPTOR.fields_by_name:
-                raise ValueError(
-                    f"Campo '{campo_nome}' não existe na mensagem '{msg_raw.DESCRIPTOR.name}' "
-                    f"para o comando {nome_comando}."
-                )
-        else:
-            has_field = campo_nome in msg_raw.DESCRIPTOR.fields_by_name
-            has_oneof = campo_nome in msg_raw.DESCRIPTOR.oneofs_by_name
-            from aresta_api.proto.generated import croqui_pb2
-
-            has_ext = (
-                field_ext is not None
-                or campo_nome.startswith("ext_")
-                or hasattr(type(msg_raw), campo_nome)
-                or hasattr(croqui_pb2, campo_nome)
-            )
-            if not (has_field or has_oneof or has_ext):
-                raise ValueError(
-                    f"Campo '{campo_nome}' não existe na mensagem '{msg_raw.DESCRIPTOR.name}' "
-                    f"para o comando {nome_comando}."
-                )
+        _garantir_campo_valido_na_mensagem(msg_raw, campo_nome, nome_comando, field_ext=field_ext)
 
     return caminho
+
+
+def _formatar_campos_validos_mensagem(msg: Any) -> str:
+    """Retorna a lista ordenada de campos e oneofs válidos da mensagem (incluindo variante oneof ativa)."""
+    desc = msg.DESCRIPTOR
+    nomes = set(desc.fields_by_name.keys()) | set(desc.oneofs_by_name.keys())
+    if "tipo" in desc.oneofs_by_name:
+        variante = msg.WhichOneof("tipo")
+        if variante:
+            sub_msg = getattr(msg, variante)
+            nomes.update(sub_msg.DESCRIPTOR.fields_by_name.keys())
+    return ", ".join(sorted(nomes))
+
+
+def _garantir_campo_valido_na_mensagem(
+    msg: Any, campo_nome: str, nome_comando: str, field_ext: Any = None
+) -> None:
+    """Levanta ValueError com a lista de campos válidos caso `campo_nome` não exista em `msg`."""
+    if "." in campo_nome:
+        parte_campo = campo_nome.split(".", 1)[0]
+        eh_valido = parte_campo in msg.DESCRIPTOR.fields_by_name
+    else:
+        from aresta_api.proto.generated import croqui_pb2
+
+        eh_valido = (
+            campo_nome in msg.DESCRIPTOR.fields_by_name
+            or campo_nome in msg.DESCRIPTOR.oneofs_by_name
+            or field_ext is not None
+            or campo_nome.startswith("ext_")
+            or hasattr(type(msg), campo_nome)
+            or hasattr(croqui_pb2, campo_nome)
+        )
+    if not eh_valido:
+        opcoes_validas = _formatar_campos_validos_mensagem(msg)
+        raise ValueError(
+            f"Campo '{campo_nome}' não existe na mensagem '{msg.DESCRIPTOR.name}' "
+            f"para o comando {nome_comando}. Campos válidos: [{opcoes_validas}]."
+        )
 
 
 def _validar_campo_se_msg_existir(
@@ -504,29 +520,7 @@ def _validar_campo_se_msg_existir(
     indice_uids = getattr(model, "indice_uids", None)
     msg_alvo = navegar_para_alvo(root, caminho_msg, indice_uids)
     if msg_alvo is not None and hasattr(msg_alvo, "DESCRIPTOR"):
-        if "." in campo_nome:
-            parte_campo = campo_nome.split(".", 1)[0]
-            if parte_campo not in msg_alvo.DESCRIPTOR.fields_by_name:
-                raise ValueError(
-                    f"Campo '{campo_nome}' não existe na mensagem '{msg_alvo.DESCRIPTOR.name}' "
-                    f"para o comando {nome_comando}."
-                )
-        else:
-            has_field = campo_nome in msg_alvo.DESCRIPTOR.fields_by_name
-            has_oneof = campo_nome in msg_alvo.DESCRIPTOR.oneofs_by_name
-            from aresta_api.proto.generated import croqui_pb2
-
-            has_ext = (
-                field_ext is not None
-                or campo_nome.startswith("ext_")
-                or hasattr(type(msg_alvo), campo_nome)
-                or hasattr(croqui_pb2, campo_nome)
-            )
-            if not (has_field or has_oneof or has_ext):
-                raise ValueError(
-                    f"Campo '{campo_nome}' não existe na mensagem '{msg_alvo.DESCRIPTOR.name}' "
-                    f"para o comando {nome_comando}."
-                )
+        _garantir_campo_valido_na_mensagem(msg_alvo, campo_nome, nome_comando, field_ext=field_ext)
 
 
 def _serializar_valor(valor: Any, anonimizado: bool = False) -> Any:

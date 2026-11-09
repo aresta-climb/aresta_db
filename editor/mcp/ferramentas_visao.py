@@ -11,6 +11,7 @@ from google.protobuf.json_format import MessageToDict
 from PySide6.QtCore import QBuffer, QByteArray, QIODevice
 from PySide6.QtWidgets import QWidget
 
+from editor.mcp.ferramentas_conhecimento import filtrar_dict_mcp, obter_campos_ocultos_mcp
 from editor.mcp.renderizador_mapa_mcp import renderizar_pacote_visual_mapa
 from editor.mcp.resolvedor_alvo import resolver_alvo_mcp
 from editor.mcp.servidor import ServidorMCP
@@ -24,8 +25,35 @@ def _desembrulhar_proto(msg: Any) -> Any:
 def _serializar_objeto_proto(obj: Any) -> Any:
     desembrulhado = _desembrulhar_proto(obj)
     if hasattr(desembrulhado, "DESCRIPTOR"):
-        return MessageToDict(desembrulhado, preserving_proto_field_name=True)
+        bruto = MessageToDict(desembrulhado, preserving_proto_field_name=True)
+        return filtrar_dict_mcp(desembrulhado.DESCRIPTOR, bruto)
     return desembrulhado
+
+
+def _extrair_rotulo_poi(poi: Any) -> str:
+    rotulos = [
+        str(getattr(poi, "rotulo", "") or "").strip(),
+        *(str(n.rotulo or "").strip() for n in poi.linha.conteudo.nos),
+    ]
+    return next((r for r in rotulos if r), "")
+
+
+def _coletar_referencias_por_alvo(mapas: list[Any]) -> dict[str, tuple[list[str], list[str]]]:
+    """Mapeia `alvo_uid -> (rotulos_mapa, pontos_uids)` a partir de uma sequência de `Mapa`."""
+    indice: dict[str, tuple[list[str], list[str]]] = {}
+    for mapa in mapas:
+        rotulo_por_poi = {str(p.uid): _extrair_rotulo_poi(p) for p in mapa.pontos_de_interesse}
+        for ref in mapa.referencias:
+            alvo_uid = str(ref.alvo_uid or "")
+            rotulos, pontos = indice.setdefault(alvo_uid, ([], []))
+            for p_uid in ref.pontos_uids:
+                p_str = str(p_uid)
+                if p_str not in pontos:
+                    pontos.append(p_str)
+                rot = rotulo_por_poi.get(p_str, "")
+                if rot and rot not in rotulos:
+                    rotulos.append(rot)
+    return indice
 
 
 def _extrair_candidatos_vetoriais_mapa(
@@ -169,12 +197,14 @@ def registrar_ferramentas_visao(
                 "valor": _serializar_objeto_proto(getattr(msg_proto, campo)),
             }
 
+        ocultos_msg = obter_campos_ocultos_mcp(msg_proto.DESCRIPTOR)
         tamanhos_repeated = {
             f.name: len(getattr(msg_proto, f.name))
             for f in msg_proto.DESCRIPTOR.fields
-            if getattr(f, "label", None) == 3 or getattr(f, "is_repeated", False)
+            if (getattr(f, "label", None) == 3 or getattr(f, "is_repeated", False))
+            and f.name not in ocultos_msg
         }
-        dados_dict = MessageToDict(msg_proto, preserving_proto_field_name=True)
+        dados_dict = _serializar_objeto_proto(msg_proto)
 
         resultado: dict[str, Any] = {
             "caminho": caminho,
@@ -236,6 +266,88 @@ def registrar_ferramentas_visao(
             candidatos_vetoriais=candidatos,
         )
         return {"_mcp_content": blocos}
+
+    def _listar_escaladas(args: dict[str, Any]) -> dict[str, Any]:
+        alvo_setor = str(args.get("alvo_setor") or "").strip()
+        filtro_nome = str(args.get("filtro_nome") or "").strip().lower()
+        setor_filtrado = (
+            _desembrulhar_proto(resolver_alvo_mcp(model, alvo_setor)[0]) if alvo_setor else None
+        )
+        croqui_proto = _desembrulhar_proto(model.obter_croqui_readonly())
+
+        escaladas_lista: list[dict[str, Any]] = []
+        for pico in croqui_proto.picos:
+            mapas_pico = list(pico.mapas_gerais.conteudo.mapas)
+            for sg in pico.setores_ou_grupos:
+                eh_grupo = sg.HasField("grupo")
+                setores_sg = (
+                    [arq_s.conteudo for arq_s in sg.grupo.conteudo.setores]
+                    if eh_grupo
+                    else [sg.setor.conteudo]
+                )
+                mapas_grupo = list(sg.grupo.conteudo.mapas) if eh_grupo else []
+                for setor in setores_sg:
+                    if setor_filtrado is not None and setor is not setor_filtrado:
+                        continue
+                    refs_por_uid = _coletar_referencias_por_alvo(
+                        [*mapas_pico, *mapas_grupo, *setor.mapas]
+                    )
+                    for idx_esc, esc in enumerate(setor.escaladas):
+                        tipo_esc = str(esc.WhichOneof("tipo") or "")
+                        sub = getattr(esc, tipo_esc)
+                        nome_via = str(getattr(sub, "nome", "") or "")
+                        if filtro_nome and filtro_nome not in nome_via.lower():
+                            continue
+                        campo_dif = sub.DESCRIPTOR.fields_by_name.get("dificuldade")
+                        val_dif = int(getattr(sub, "dificuldade", 0) or 0)
+                        nome_dif = (
+                            campo_dif.enum_type.values_by_number[val_dif].name
+                            if campo_dif is not None and val_dif
+                            else ""
+                        )
+                        rotulos_mapa, pontos_uids = refs_por_uid.get(str(esc.uid), ([], []))
+                        escaladas_lista.append(
+                            {
+                                "uid": str(esc.uid),
+                                "indice_no_setor": idx_esc,
+                                "setor_uid": str(setor.uid),
+                                "setor_nome": str(setor.nome),
+                                "rotulos_mapa": rotulos_mapa,
+                                "pontos_uids": pontos_uids,
+                                "tipo": tipo_esc,
+                                "nome": nome_via,
+                                "dificuldade": nome_dif,
+                                "data_abertura": str(getattr(sub, "data_abertura", "") or ""),
+                                "conquistadores": list(getattr(sub, "conquistadores", [])),
+                            }
+                        )
+        return {
+            "total_escaladas": len(escaladas_lista),
+            "escaladas": escaladas_lista,
+        }
+
+    servidor.registrar_ferramenta(
+        nome="aresta_listar_escaladas",
+        descricao=(
+            "Lista as escaladas do croqui (ou de um setor específico) cruzadas automaticamente "
+            "com os rótulos ('rotulos_mapa') e 'pontos_uids' referenciados nos mapas dos setores "
+            "e em 'mapas_gerais'."
+        ),
+        esquema_entrada={
+            "type": "object",
+            "properties": {
+                "alvo_setor": {
+                    "type": "string",
+                    "description": "Opcional: UID ou caminho de um Setor específico para filtrar.",
+                },
+                "filtro_nome": {
+                    "type": "string",
+                    "description": "Opcional: Substring case-insensitive para filtrar pelo nome da escalada.",
+                },
+            },
+        },
+        manipulador=_listar_escaladas,
+    )
 
     servidor.registrar_ferramenta(
         nome="aresta_renderizar_mapa",

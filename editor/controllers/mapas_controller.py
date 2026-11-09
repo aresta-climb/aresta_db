@@ -371,6 +371,63 @@ class MapasController:
         )
         self._executar_comando(cmd)
 
+    def remover_referencia(
+        self,
+        msg_mapa_proxy: Any,
+        alvo_uid: str,
+        pontos_uids: list[str] | None = None,
+    ) -> int:
+        """
+        Remove entradas de `Referencia` (ou apenas `pontos_uids` específicos) para `alvo_uid`
+        no mapa via comandos da pilha de histórico e retorna a quantidade de referências afetadas.
+        """
+        from editor.models.readonly_proxy import _copia_segura
+
+        conjunto_remover = {str(p) for p in pontos_uids} if pontos_uids else set()
+        comandos: list[ComandoEditor] = []
+
+        for idx in range(len(msg_mapa_proxy.referencias) - 1, -1, -1):
+            ref = msg_mapa_proxy.referencias[idx]
+            if str(ref.alvo_uid) != str(alvo_uid):
+                continue
+
+            atuais = [str(p) for p in ref.pontos_uids]
+            novos = [p for p in atuais if p not in conjunto_remover] if conjunto_remover else []
+
+            if not novos:
+                comandos.append(
+                    CmdRemoverRepeated(
+                        model=self.model,
+                        msg=msg_mapa_proxy,
+                        campo_nome="referencias",
+                        index=idx,
+                        valor_removido=ref,
+                        context_path=self.contexto_atual_path,
+                    )
+                )
+            elif novos != atuais:
+                ref_antiga = _copia_segura(ref)
+                ref_nova = _copia_segura(ref)
+                del ref_nova.pontos_uids[:]
+                ref_nova.pontos_uids.extend(novos)
+                comandos.append(
+                    CmdAlterarCampo(
+                        model=self.model,
+                        alvo=msg_mapa_proxy,
+                        campo_nome=f"referencias.{idx}",
+                        valor_antigo=ref_antiga,
+                        valor_novo=ref_nova,
+                        context_path=self.contexto_atual_path,
+                    )
+                )
+
+        if len(comandos) == 1:
+            self._executar_comando(comandos[0])
+        elif len(comandos) > 1:
+            self._executar_comando(CmdMacro(comandos, texto="Remover Referência de Mapa"))
+
+        return len(comandos)
+
     def obter_caminho_imagem_mapa(self, msg_mapa_proxy: Any) -> Path | None:
         """Retorna o caminho absoluto para a imagem do mapa."""
         if not self.caminho_db or not msg_mapa_proxy.caminho_imagem_mapa:

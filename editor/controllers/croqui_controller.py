@@ -30,6 +30,44 @@ from editor.models.croqui_model import CroquiModel
 from editor.models.readonly_proxy import _copia_segura
 
 
+def _eh_campo_compativel_oneof(f_orig: Any, f_dest: Any | None) -> bool:
+    """Retorna True se dois FieldDescriptors de variantes oneof possuem tipos idênticos."""
+    if (
+        f_dest is None
+        or f_dest.type != f_orig.type
+        or _eh_campo_repeated(f_dest) != _eh_campo_repeated(f_orig)
+    ):
+        return False
+    if f_dest.enum_type is not None:
+        return f_orig.enum_type is not None and (
+            f_dest.enum_type.full_name == f_orig.enum_type.full_name
+        )
+    return f_dest.message_type is None
+
+
+def _mesclar_campos_compativeis_oneof(msg_origem: Any, msg_destino: Any) -> Any:
+    """
+    Copia para uma cópia de `msg_destino` os campos homônimos compatíveis presentes em
+    `msg_origem` que ainda não foram explicitamente definidos em `msg_destino`.
+    """
+    orig_raw = getattr(msg_origem, "_obj", msg_origem)
+    dest_copia = _copia_segura(getattr(msg_destino, "_obj", msg_destino))
+    desc_dest = dest_copia.DESCRIPTOR
+
+    for f_orig, val_orig in orig_raw.ListFields():
+        f_dest = desc_dest.fields_by_name.get(f_orig.name)
+        if not _eh_campo_compativel_oneof(f_orig, f_dest):
+            continue
+        if _eh_campo_repeated(f_dest):
+            colecao_dest = getattr(dest_copia, f_dest.name)
+            if len(colecao_dest) == 0:
+                colecao_dest.extend(val_orig)
+        elif not dest_copia.HasField(f_dest.name):
+            setattr(dest_copia, f_dest.name, val_orig)
+
+    return dest_copia
+
+
 class CroquiController:
     """
     Controlador da Arquitetura MVC.
@@ -76,29 +114,46 @@ class CroquiController:
             macro.armar_carregamento_silencioso()
             self._executar_comando(macro)
 
-    def alterar_campo(
+    def _aplicar_preservacao_oneof(self, alvo: Any, nome_c: str, val_c: Any) -> Any:
+        """Se `nome_c` altera um ramo oneof em `alvo`, mescla os campos compatíveis da variante anterior."""
+        caminho_res = validar_pertence_ao_croqui(
+            self.model, alvo, nome_c, nome_comando="CmdAlterarCampo"
+        )
+        msg_alvo = (
+            navegar_para_alvo(
+                self.model.obter_croqui_readonly(), caminho_res, self.model.indice_uids
+            )
+            if isinstance(alvo, str)
+            else alvo
+        )
+        desc = msg_alvo.DESCRIPTOR
+        if nome_c in desc.oneofs_by_name and isinstance(val_c, tuple) and len(val_c) == 2:
+            var_antiga = msg_alvo.WhichOneof(nome_c)
+            var_nova, msg_nova = val_c
+            if var_antiga and msg_nova is not None:
+                return (
+                    var_nova,
+                    _mesclar_campos_compativeis_oneof(getattr(msg_alvo, var_antiga), msg_nova),
+                )
+        elif nome_c in desc.fields_by_name and desc.fields_by_name[nome_c].containing_oneof:
+            var_antiga = msg_alvo.WhichOneof(desc.fields_by_name[nome_c].containing_oneof.name)
+            if var_antiga and val_c is not None:
+                return _mesclar_campos_compativeis_oneof(getattr(msg_alvo, var_antiga), val_c)
+        return val_c
+
+    def _construir_comandos_para_alvo(
         self,
         alvo: Any,
-        campo_nome: str | None = None,
-        valor_novo: Any = None,
-        campos: dict[str, Any] | None = None,
+        mapa_campos: dict[str, Any],
         pode_mesclar: bool = False,
         session_id: int | str | None = None,
-    ) -> None:
-        """
-        Despacha comando canônico para alterar um único campo ou um lote de campos (via CmdMacro).
-        Todos os CmdAlterarCampo são instanciados e validados antes da execução na pilha.
-        """
-        mapa_campos: dict[str, Any] = {}
-        if campos:
-            mapa_campos.update(campos)
-        if campo_nome:
-            mapa_campos[campo_nome] = valor_novo
-        if not mapa_campos:
-            return
-
+        preservar_campos_compativeis: bool = False,
+    ) -> list[ComandoEditor]:
+        """Constrói e valida previamente os comandos folha para atualizar `mapa_campos` em `alvo`."""
         comandos: list[ComandoEditor] = []
         for nome_c, val_c in mapa_campos.items():
+            if preservar_campos_compativeis:
+                val_c = self._aplicar_preservacao_oneof(alvo, nome_c, val_c)
             if "." not in nome_c and isinstance(val_c, (list, tuple)):
                 caminho_res = validar_pertence_ao_croqui(
                     self.model, alvo, nome_c, nome_comando="CmdAlterarCampo"
@@ -157,12 +212,77 @@ class CroquiController:
                     context_path=self.contexto_atual_path,
                 )
             )
+        return comandos
+
+    def alterar_em_lote(
+        self,
+        operacoes: list[dict[str, Any]],
+        texto_macro: str | None = None,
+        pode_mesclar: bool = False,
+        session_id: int | str | None = None,
+        preservar_campos_compativeis: bool = False,
+    ) -> None:
+        """
+        Despacha alterações para múltiplos alvos e campos em um único CmdMacro atômico.
+        Todos os comandos folha são instanciados e validados previamente (fail-fast).
+        """
+        comandos: list[ComandoEditor] = []
+        permitir_mescla = len(operacoes) == 1 and pode_mesclar
+        sessao = session_id if len(operacoes) == 1 else None
+        for op in operacoes:
+            alvo_op = op.get("alvo")
+            mapa_campos: dict[str, Any] = {}
+            if isinstance(op.get("campos"), dict):
+                mapa_campos.update(op["campos"])
+            if op.get("campo"):
+                mapa_campos[str(op["campo"])] = op.get("valor")
+            if not mapa_campos:
+                continue
+            preservar_op = bool(
+                op.get("preservar_campos_compativeis", preservar_campos_compativeis)
+            )
+            comandos.extend(
+                self._construir_comandos_para_alvo(
+                    alvo=alvo_op,
+                    mapa_campos=mapa_campos,
+                    pode_mesclar=permitir_mescla,
+                    session_id=sessao,
+                    preservar_campos_compativeis=preservar_op,
+                )
+            )
         if not comandos:
             return
         if len(comandos) == 1:
             self._executar_comando(comandos[0])
         else:
-            self._executar_comando(CmdMacro(comandos, texto=f"Alterar {len(comandos)} campos"))
+            rotulo = texto_macro or f"Alterar {len(comandos)} campos"
+            self._executar_comando(CmdMacro(comandos, texto=rotulo))
+
+    def alterar_campo(
+        self,
+        alvo: Any,
+        campo_nome: str | None = None,
+        valor_novo: Any = None,
+        campos: dict[str, Any] | None = None,
+        pode_mesclar: bool = False,
+        session_id: int | str | None = None,
+        preservar_campos_compativeis: bool = False,
+    ) -> None:
+        """
+        Despacha comando canônico para alterar um único campo ou um lote de campos (via CmdMacro).
+        Todos os CmdAlterarCampo são instanciados e validados antes da execução na pilha.
+        """
+        mapa_campos: dict[str, Any] = {}
+        if campos:
+            mapa_campos.update(campos)
+        if campo_nome:
+            mapa_campos[campo_nome] = valor_novo
+        self.alterar_em_lote(
+            [{"alvo": alvo, "campos": mapa_campos}],
+            pode_mesclar=pode_mesclar,
+            session_id=session_id,
+            preservar_campos_compativeis=preservar_campos_compativeis,
+        )
 
     def alterar_primitivo(
         self,
@@ -322,15 +442,31 @@ class CroquiController:
 
     def adicionar_repeated(self, msg: Any, campo_nome: str, index: int, valor: Any) -> None:
         """Adiciona item em coleção repeated via CmdAdicionarRepeated."""
-        cmd = CmdAdicionarRepeated(
-            model=self.model,
-            alvo=msg,
-            campo_nome=campo_nome,
-            index=index,
-            valor=valor,
-            context_path=self.contexto_atual_path,
-        )
-        self._executar_comando(cmd)
+        self.adicionar_multiplos_repeated(msg, campo_nome, index, [valor])
+
+    def adicionar_multiplos_repeated(
+        self, msg: Any, campo_nome: str, index_inicial: int, valores: list[Any]
+    ) -> None:
+        """Adiciona um ou mais itens consecutivos em coleção repeated (em CmdMacro quando múltiplos)."""
+        if not valores:
+            return
+        comandos: list[ComandoEditor] = [
+            CmdAdicionarRepeated(
+                model=self.model,
+                alvo=msg,
+                campo_nome=campo_nome,
+                index=index_inicial + offset,
+                valor=item,
+                context_path=self.contexto_atual_path,
+            )
+            for offset, item in enumerate(valores)
+        ]
+        if len(comandos) == 1:
+            self._executar_comando(comandos[0])
+        else:
+            self._executar_comando(
+                CmdMacro(comandos, texto=f"Adicionar {len(comandos)} itens em {campo_nome}")
+            )
 
     def remover_repeated(
         self, msg: Any, campo_nome: str, index: int, valor_removido: Any = None
@@ -724,6 +860,82 @@ class CroquiController:
         macro = CmdMacro([cmd_remover, cmd_adicionar], texto="Migrar Setor")
         self._executar_comando(macro)
 
+    def migrar_escalada(
+        self,
+        setor_origem: Any,
+        indice_origem: int,
+        setor_destino: Any,
+        indice_destino: int | None = None,
+        context_path: str | None = None,
+    ) -> int:
+        """
+        Migra atomicamente uma Escalada de setor_origem.escaladas[indice_origem]
+        para setor_destino.escaladas[indice_destino] via CmdMacro, preservando seu UID
+        e imagens em memória RAM. Retorna o índice final no setor de destino.
+        """
+        caminho_orig = validar_pertence_ao_croqui(
+            self.model, setor_origem, "escaladas", nome_comando="CmdRemoverRepeated"
+        )
+        caminho_dest = validar_pertence_ao_croqui(
+            self.model, setor_destino, "escaladas", nome_comando="CmdAdicionarRepeated"
+        )
+        raiz = self.model.obter_croqui_readonly()
+        msg_orig = (
+            navegar_para_alvo(raiz, caminho_orig, self.model.indice_uids)
+            if isinstance(setor_origem, str)
+            else setor_origem
+        )
+        msg_dest = (
+            navegar_para_alvo(raiz, caminho_dest, self.model.indice_uids)
+            if isinstance(setor_destino, str)
+            else setor_destino
+        )
+        setor_orig_raw = getattr(msg_orig, "_obj", msg_orig)
+        setor_dest_raw = getattr(msg_dest, "_obj", msg_dest)
+
+        escaladas_orig = setor_orig_raw.escaladas
+        if indice_origem < 0 or indice_origem >= len(escaladas_orig):
+            raise IndexError(
+                f"Índice de origem fora de alcance ({indice_origem}) em 'escaladas' "
+                f"(tamanho {len(escaladas_orig)})."
+            )
+
+        from aresta_api.proto.generated import croqui_pb2
+
+        item_origem = escaladas_orig[indice_origem]
+        item_destino = croqui_pb2.Escalada()
+        item_destino.CopyFrom(item_origem)
+
+        tamanho_apos_remocao = len(setor_dest_raw.escaladas) - (
+            1 if setor_orig_raw is setor_dest_raw else 0
+        )
+        idx_final = (
+            tamanho_apos_remocao
+            if indice_destino is None or int(indice_destino) < 0
+            else min(max(0, int(indice_destino)), tamanho_apos_remocao)
+        )
+
+        ctx = context_path or self.contexto_atual_path
+        cmd_remover = CmdRemoverRepeated(
+            model=self.model,
+            alvo=setor_orig_raw,
+            campo_nome="escaladas",
+            index=indice_origem,
+            valor_removido=item_origem,
+            context_path=ctx,
+        )
+        cmd_remover.imagens_removidas_ram.clear()
+        cmd_adicionar = CmdAdicionarRepeated(
+            model=self.model,
+            alvo=setor_dest_raw,
+            campo_nome="escaladas",
+            index=idx_final,
+            valor=item_destino,
+            context_path=ctx,
+        )
+        self._executar_comando(CmdMacro([cmd_remover, cmd_adicionar], texto="Migrar Escalada"))
+        return idx_final
+
     def _obter_escalada_por_uid(self, escalada_uid: str) -> Any:
         alvo = self.model.obter_objeto_por_uid(escalada_uid)
         if alvo is None:
@@ -731,7 +943,9 @@ class CroquiController:
         return getattr(alvo, "_obj", alvo)
 
     def _obter_curadoria_escalada(self, escalada_uid: str) -> Any | None:
-        raiz = getattr(self.model.obter_croqui_readonly(), "_obj", self.model.obter_croqui_readonly())
+        raiz = getattr(
+            self.model.obter_croqui_readonly(), "_obj", self.model.obter_croqui_readonly()
+        )
         for item in raiz.curadoria_betas.conteudo.escaladas:
             if item.escalada_uid == escalada_uid:
                 return item
@@ -744,7 +958,9 @@ class CroquiController:
 
         from aresta_api.proto.generated import beta_pb2
 
-        raiz = getattr(self.model.obter_croqui_readonly(), "_obj", self.model.obter_croqui_readonly())
+        raiz = getattr(
+            self.model.obter_croqui_readonly(), "_obj", self.model.obter_croqui_readonly()
+        )
         if not raiz.curadoria_betas.HasField("conteudo"):
             raiz.curadoria_betas.conteudo.SetInParent()
         nova_curadoria = beta_pb2.CuradoriaBetasEscalada(escalada_uid=escalada_uid)

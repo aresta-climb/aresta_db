@@ -1249,6 +1249,56 @@ class MapasControllerTest(unittest.TestCase):
             b"webp_original",
         )
 
+    def test_remover_referencia_parcial_total_multiplas_e_undo_redo(self):
+        """[TDD] Valida remoção parcial de pontos_uids, remoção total e reversão via Undo/Redo."""
+        self.mapa.referencias.add(alvo_uid="uid_via_1", pontos_uids=["poi_a", "poi_b"])
+        self.mapa.referencias.add(alvo_uid="uid_via_2", pontos_uids=["poi_c"])
+        self.mapa.referencias.add(alvo_uid="uid_via_1", pontos_uids=["poi_d"])
+
+        # 1. Remoção parcial de poi_a em uid_via_1 (poi_d não tem poi_a, então só 1 referência é afetada)
+        afetadas_parcial = self.controller.remover_referencia(
+            self.msg_mapa_proxy, alvo_uid="uid_via_1", pontos_uids=["poi_a"]
+        )
+        self.assertEqual(afetadas_parcial, 1)
+        self.assertEqual(len(self.mapa.referencias), 3)
+        self.assertEqual(list(self.mapa.referencias[0].pontos_uids), ["poi_b"])
+
+        self.undo_stack.undo()
+        self.assertEqual(list(self.mapa.referencias[0].pontos_uids), ["poi_a", "poi_b"])
+        self.undo_stack.redo()
+        self.assertEqual(list(self.mapa.referencias[0].pontos_uids), ["poi_b"])
+
+        # 2. Remoção parcial que esvazia os pontos_uids de uma referência remove a entrada inteira
+        afetadas_esvaziou = self.controller.remover_referencia(
+            self.msg_mapa_proxy, alvo_uid="uid_via_2", pontos_uids=["poi_c"]
+        )
+        self.assertEqual(afetadas_esvaziou, 1)
+        self.assertEqual(len(self.mapa.referencias), 2)
+
+        self.undo_stack.undo()
+        self.assertEqual(len(self.mapa.referencias), 3)
+        self.assertEqual(self.mapa.referencias[1].alvo_uid, "uid_via_2")
+
+        # 3. Remoção total (pontos_uids=None) em múltiplas entradas do mesmo alvo_uid agrupa em CmdMacro
+        afetadas_total = self.controller.remover_referencia(
+            self.msg_mapa_proxy, alvo_uid="uid_via_1"
+        )
+        self.assertEqual(afetadas_total, 2)
+        self.assertEqual(len(self.mapa.referencias), 1)
+        self.assertEqual(self.mapa.referencias[0].alvo_uid, "uid_via_2")
+
+        # Um único undo restaura ambas as referências de uid_via_1
+        self.undo_stack.undo()
+        self.assertEqual(len(self.mapa.referencias), 3)
+
+        # 4. Alvo inexistente retorna 0 sem empilhar comando
+        count_antes = self.undo_stack.count()
+        afetadas_zero = self.controller.remover_referencia(
+            self.msg_mapa_proxy, alvo_uid="uid_inexistente"
+        )
+        self.assertEqual(afetadas_zero, 0)
+        self.assertEqual(self.undo_stack.count(), count_antes)
+
 
 if __name__ == "__main__":
     unittest.main()

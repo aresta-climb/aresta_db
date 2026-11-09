@@ -33,6 +33,8 @@ def test_croqui_controller_alterar_primitivo(qapp):
 
 
 def test_croqui_controller_adicionar_repeated(qapp):
+    from editor.commands.comandos_protobuf import CmdMacro
+
     croqui = Croqui()
     model = CroquiModel(croqui)
     undo_stack = QUndoStack()
@@ -48,6 +50,23 @@ def test_croqui_controller_adicionar_repeated(qapp):
 
     undo_stack.undo()
     assert len(proxy.picos) == 0
+
+    # adicionar_multiplos_repeated: lista vazia não empilha, 1 item empilha direto, N itens empilham CmdMacro
+    controller.adicionar_multiplos_repeated(proxy, "creditos", 0, [])
+    assert undo_stack.index() == 0
+
+    controller.adicionar_multiplos_repeated(proxy, "creditos", 0, ["Autor Único"])
+    assert undo_stack.count() == 1
+    assert list(proxy.creditos) == ["Autor Único"]
+    undo_stack.undo()
+    assert list(proxy.creditos) == []
+
+    controller.adicionar_multiplos_repeated(proxy, "creditos", 0, ["Autor 1", "Autor 2", "Autor 3"])
+    assert undo_stack.count() == 1
+    assert isinstance(undo_stack.command(0), CmdMacro)
+    assert list(proxy.creditos) == ["Autor 1", "Autor 2", "Autor 3"]
+    undo_stack.undo()
+    assert list(proxy.creditos) == []
 
 
 def test_croqui_controller_remover_repeated(qapp):
@@ -1031,6 +1050,177 @@ def test_croqui_controller_substituir_imagem_mapa_com_reescala_pois_e_undo(qapp)
     assert undo_stack.count() == count_antes
 
 
+def test_croqui_controller_migrar_escalada_preserva_uid_e_imagens_ram(qapp):
+    """Valida que migrar_escalada move uma Escalada entre setores via CmdMacro, preservando UID e imagens em RAM."""
+    import pytest
+
+    from aresta_api.proto.generated import croqui_pb2
+    from editor.commands.comandos_protobuf import CmdMacro
+
+    croqui = croqui_pb2.Croqui(nome="Croqui Migracao")
+    pico = croqui.picos.add(nome="Pico 1")
+
+    sg1 = pico.setores_ou_grupos.add()
+    setor1 = sg1.setor.conteudo
+    setor1.uid = "setor_1_uid"
+    setor1.nome = "Setor 1"
+
+    sg2 = pico.setores_ou_grupos.add()
+    setor2 = sg2.setor.conteudo
+    setor2.uid = "setor_2_uid"
+    setor2.nome = "Setor 2"
+
+    esc_a = setor1.escaladas.add(uid="esc_uid_a")
+    esc_a.via_esportiva.nome = "Via A"
+    esc_a.via_esportiva.descricao = "![Foto](imagens/via_a.webp)"
+
+    esc_b = setor1.escaladas.add(uid="esc_uid_b")
+    esc_b.via_movel.nome = "Meio Cubanos"
+
+    esc_c = setor2.escaladas.add(uid="esc_uid_c")
+    esc_c.via_esportiva.nome = "Via C"
+
+    model = CroquiModel(croqui)
+    model.definir_imagem_memoria("imagens/via_a.webp", b"bytes_via_a")
+    undo_stack = QUndoStack()
+    controller = CroquiController(model, undo_stack)
+
+    # 1. Migrar esc_a (com imagem em RAM) do setor1[0] para o final do setor2 (indice_destino omitido/-1)
+    controller.migrar_escalada(
+        setor_origem=setor1,
+        indice_origem=0,
+        setor_destino="setor_2_uid",
+    )
+    assert undo_stack.count() == 1
+    assert isinstance(undo_stack.command(0), CmdMacro)
+    assert len(setor1.escaladas) == 1
+    assert setor1.escaladas[0].uid == "esc_uid_b"
+    assert len(setor2.escaladas) == 2
+    assert setor2.escaladas[1].uid == "esc_uid_a"
+    assert setor2.escaladas[1].via_esportiva.nome == "Via A"
+    assert model.obter_bytes_imagem("imagens/via_a.webp") == b"bytes_via_a"
+
+    # Um único Undo reverte a migração mantendo a imagem em RAM e o UID original
+    undo_stack.undo()
+    assert len(setor1.escaladas) == 2
+    assert setor1.escaladas[0].uid == "esc_uid_a"
+    assert len(setor2.escaladas) == 1
+    assert model.obter_bytes_imagem("imagens/via_a.webp") == b"bytes_via_a"
+
+    # 2. Migrar com indice_destino explícito (0) usando UIDs de setores
+    controller.migrar_escalada(
+        setor_origem="setor_1_uid",
+        indice_origem=1,
+        setor_destino="setor_2_uid",
+        indice_destino=0,
+    )
+    assert len(setor1.escaladas) == 1
+    assert setor2.escaladas[0].uid == "esc_uid_b"
+    assert setor2.escaladas[0].via_movel.nome == "Meio Cubanos"
+
+    # 3. Migrar dentro do mesmo setor reordena sem perder itens
+    controller.migrar_escalada(
+        setor_origem=setor2,
+        indice_origem=0,
+        setor_destino=setor2,
+        indice_destino=1,
+    )
+    assert [e.uid for e in setor2.escaladas] == ["esc_uid_c", "esc_uid_b"]
+
+    # 4. Índice fora de alcance lança IndexError sem empilhar comando
+    with pytest.raises(IndexError):
+        controller.migrar_escalada(
+            setor_origem=setor1,
+            indice_origem=99,
+            setor_destino=setor2,
+        )
+
+
+def test_croqui_controller_alterar_em_lote_multi_alvo_atomico(qapp):
+    """Valida que alterar_em_lote aplica mutações em múltiplos alvos em 1 CmdMacro com fail-fast."""
+    import pytest
+
+    from aresta_api.proto.generated import croqui_pb2
+    from editor.commands.comandos_protobuf import CmdAlterarCampo, CmdMacro
+
+    croqui = croqui_pb2.Croqui(uid="croqui_uid", nome="Croqui Inicial")
+    pico = croqui.picos.add(nome="Pico 1")
+    sg = pico.setores_ou_grupos.add()
+    setor = sg.setor.conteudo
+    setor.uid = "setor_uid"
+    setor.nome = "Setor 1"
+    esc1 = setor.escaladas.add(uid="via_1_uid")
+    esc1.via_esportiva.nome = "Via 1"
+    esc2 = setor.escaladas.add(uid="via_2_uid")
+    esc2.via_esportiva.nome = "Via 2"
+
+    model = CroquiModel(croqui)
+    undo_stack = QUndoStack()
+    controller = CroquiController(model, undo_stack)
+
+    # 1. Lista vazia ou operações sem campos não empilham comandos
+    controller.alterar_em_lote([])
+    controller.alterar_em_lote([{"alvo": "croqui_uid", "campos": {}}])
+    assert undo_stack.count() == 0
+
+    # 2. Lote com apenas 1 comando (usando chave 'campo'/'valor') empilha o comando diretamente
+    controller.alterar_em_lote([{"alvo": "croqui_uid", "campo": "nome", "valor": "Croqui Único"}])
+    assert undo_stack.count() == 1
+    assert isinstance(undo_stack.command(0), CmdAlterarCampo)
+    assert croqui.nome == "Croqui Único"
+    undo_stack.undo()
+    assert croqui.nome == "Croqui Inicial"
+
+    # 3. Lote multi-alvo empilha 1 único CmdMacro e reverte tudo em 1 Undo
+    controller.alterar_em_lote(
+        [
+            {"alvo": "croqui_uid", "campos": {"nome": "Croqui Lote", "creditos": ["Autor 1"]}},
+            {
+                "alvo": "via_1_uid",
+                "campos": {
+                    "nome": "Via 1 Nova",
+                    "dificuldade": croqui_pb2.GrauVia.BR_8A,
+                },
+            },
+            {
+                "alvo": "via_2_uid",
+                "campos": {
+                    "nome": "Via 2 Nova",
+                    "data_abertura": "1997",
+                },
+            },
+        ],
+        texto_macro="Atualizar Lote Lapinha",
+    )
+    assert undo_stack.count() == 1
+    cmd_macro = undo_stack.command(0)
+    assert isinstance(cmd_macro, CmdMacro)
+    assert cmd_macro.text() == "Atualizar Lote Lapinha"
+    assert croqui.nome == "Croqui Lote"
+    assert list(croqui.creditos) == ["Autor 1"]
+    assert esc1.via_esportiva.nome == "Via 1 Nova"
+    assert esc1.via_esportiva.dificuldade == croqui_pb2.GrauVia.BR_8A
+    assert esc2.via_esportiva.nome == "Via 2 Nova"
+    assert esc2.via_esportiva.data_abertura == "1997"
+
+    undo_stack.undo()
+    assert croqui.nome == "Croqui Inicial"
+    assert list(croqui.creditos) == []
+    assert esc1.via_esportiva.nome == "Via 1"
+    assert esc2.via_esportiva.nome == "Via 2"
+
+    # 4. Erro na última operação do lote aborta antes de tocar no modelo (fail-fast)
+    with pytest.raises(ValueError, match="não existe"):
+        controller.alterar_em_lote(
+            [
+                {"alvo": "via_1_uid", "campos": {"nome": "Nao Deve Persistir"}},
+                {"alvo": "via_2_uid", "campos": {"campo_invalido": 123}},
+            ]
+        )
+    assert esc1.via_esportiva.nome == "Via 1"
+    assert not undo_stack.canUndo()
+
+
 def test_croqui_controller_ciclo_completo_curadoria_betas_undo_redo(qapp):
     """
     Valida que todas as transições 1 a 1 da curadoria de betas (coleta em betas_nao_scorados,
@@ -1144,3 +1334,95 @@ def test_croqui_controller_ciclo_completo_curadoria_betas_undo_redo(qapp):
         controller.aprovar_beta_curadoria("esc_1", "origem_invalida", 0)
     with pytest.raises(KeyError):
         controller.aprovar_beta_curadoria("uid_inexistente", "betas_nao_scorados", 0)
+    with pytest.raises(IndexError):
+        controller.promover_candidato_para_nao_revisado("esc_1", 99, 50, "Fora")
+    with pytest.raises(IndexError):
+        controller.aprovar_beta_curadoria("esc_1", "betas_nao_scorados", 99)
+    with pytest.raises(ValueError):
+        controller.rejeitar_beta_curadoria("esc_1", "origem_invalida", 0)
+    with pytest.raises(IndexError):
+        controller.rejeitar_beta_curadoria("esc_1", "betas", 99)
+    with pytest.raises(IndexError):
+        controller.rejeitar_beta_curadoria("esc_1", "betas_nao_scorados", 99)
+    with pytest.raises(IndexError):
+        controller.restaurar_beta_rejeitado("esc_1", 99)
+
+    esc_sem_curadoria = setor.escaladas.add(uid="esc_sem_cur")
+    esc_sem_curadoria.via_esportiva.nome = "Sem Curadoria"
+    with pytest.raises(IndexError):
+        controller.aprovar_beta_curadoria("esc_sem_cur", "betas_nao_scorados", 0)
+    with pytest.raises(IndexError):
+        controller.rejeitar_beta_curadoria("esc_sem_cur", "betas_nao_scorados", 0)
+
+
+def test_croqui_controller_preservar_campos_compativeis_na_troca_de_oneof(qapp):
+    """Valida que preservar_campos_compativeis=True copia campos homônimos compatíveis ao trocar variante oneof."""
+    from aresta_api.proto.generated import croqui_pb2
+
+    croqui = croqui_pb2.Croqui(uid="croqui_oneof")
+    pico = croqui.picos.add(nome="Pico 1")
+    sg = pico.setores_ou_grupos.add()
+    setor = sg.setor.conteudo
+    setor.uid = "setor_oneof"
+
+    esc = setor.escaladas.add(uid="via_oneof_1")
+    esc.via_esportiva.nome = "Meio Cubanos"
+    esc.via_esportiva.dificuldade = croqui_pb2.GrauVia.BR_6SUP
+    esc.via_esportiva.extensao = 25
+    esc.via_esportiva.conquistadores.extend(["Autor 1", "Autor 2"])
+
+    model = CroquiModel(croqui)
+    undo_stack = QUndoStack()
+    controller = CroquiController(model, undo_stack)
+
+    # 1. Com preservar_campos_compativeis=False (padrão), não copia campos não informados
+    controller.alterar_campo(
+        "via_oneof_1",
+        campo_nome="via_movel",
+        valor_novo=croqui_pb2.ViaMovel(nome="Apenas Nome"),
+    )
+    assert esc.WhichOneof("tipo") == "via_movel"
+    assert esc.via_movel.nome == "Apenas Nome"
+    assert not esc.via_movel.HasField("extensao")
+    assert list(esc.via_movel.conquistadores) == []
+    undo_stack.undo()
+    assert esc.WhichOneof("tipo") == "via_esportiva"
+
+    # 2. Com preservar_campos_compativeis=True trocando via_esportiva -> via_movel
+    nova_movel = croqui_pb2.ViaMovel(descricao="Fenda clássica")
+    controller.alterar_campo(
+        "via_oneof_1",
+        campo_nome="via_movel",
+        valor_novo=nova_movel,
+        preservar_campos_compativeis=True,
+    )
+    assert esc.WhichOneof("tipo") == "via_movel"
+    assert esc.via_movel.nome == "Meio Cubanos"
+    assert esc.via_movel.dificuldade == croqui_pb2.GrauVia.BR_6SUP
+    assert esc.via_movel.extensao == 25
+    assert list(esc.via_movel.conquistadores) == ["Autor 1", "Autor 2"]
+    assert esc.via_movel.descricao == "Fenda clássica"
+
+    undo_stack.undo()
+    assert esc.WhichOneof("tipo") == "via_esportiva"
+    assert esc.via_esportiva.extensao == 25
+
+    # 3. Troca via_esportiva -> boulder via tupla de oneof ("tipo") em alterar_em_lote:
+    # dificuldade (GrauVia vs GrauBoulder) é ignorada por incompatibilidade de enum, mas nome e conquistadores são copiados
+    novo_boulder = croqui_pb2.Boulder(conquistadores=["Sobrescrito"])
+    controller.alterar_em_lote(
+        [
+            {
+                "alvo": esc,
+                "campos": {
+                    "tipo": ("boulder", novo_boulder),
+                    "uid": "via_oneof_1",
+                },
+                "preservar_campos_compativeis": True,
+            }
+        ]
+    )
+    assert esc.WhichOneof("tipo") == "boulder"
+    assert esc.boulder.nome == "Meio Cubanos"
+    assert not esc.boulder.HasField("dificuldade")
+    assert list(esc.boulder.conquistadores) == ["Sobrescrito"]

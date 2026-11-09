@@ -158,6 +158,24 @@ def test_aresta_alterar_campo_primitivo_enum_submensagem_oneof_e_lote(qapp, tmp_
     undo_stack.undo()
     undo_stack.undo()
 
+    # 4b. Troca de variante oneof com preservar_campos_compativeis=True preserva nome e extensao da Via Antiga
+    _chamar(
+        servidor,
+        "aresta_alterar_campo",
+        {
+            "alvo": "uid_via_base01",
+            "campo": "via_movel",
+            "valor": {"descricao": "Convertida preservando campos"},
+            "preservar_campos_compativeis": True,
+        },
+    )
+    assert esc_proxy.WhichOneof("tipo") == "via_movel"
+    assert esc_proxy.via_movel.nome == "Via Antiga"
+    assert esc_proxy.via_movel.extensao == 15
+    assert esc_proxy.via_movel.descricao == "Convertida preservando campos"
+    undo_stack.undo()
+    assert esc_proxy.WhichOneof("tipo") == "via_esportiva"
+
     # Alterar SetorOuGrupo trocando variante para grupo com atalho de dict sem chave 'conteudo'
     _chamar(
         servidor,
@@ -183,7 +201,7 @@ def test_aresta_alterar_campo_primitivo_enum_submensagem_oneof_e_lote(qapp, tmp_
             {"alvo": "uid_via_base01", "campo": "dificuldade", "valor": "GRAU_INEXISTENTE"},
         )
 
-    with pytest.raises(RuntimeError, match="Campo 'inexistente'"):
+    with pytest.raises(RuntimeError, match=r"Campo 'inexistente'.*Campos válidos:"):
         _chamar(
             servidor,
             "aresta_alterar_campo",
@@ -299,11 +317,49 @@ def test_operacoes_repeated_e_alterar_campo_indexado(qapp, tmp_path: Path):
     )
     novo_uid_esc = res_esc["uid"]
     assert len(novo_uid_esc) == 14
+    assert res_esc["uid_gerado"] == novo_uid_esc
+    assert res_esc["uids_gerados"] == [novo_uid_esc]
+    assert res_esc["indice_inicial_inserido"] == 1
     assert res_esc["tamanho"] == 2
     assert model.indice_uids.existe(novo_uid_esc)
     setor_proxy = raiz.picos[0].setores_ou_grupos[0].setor.conteudo
     assert setor_proxy.escaladas[1].via_esportiva.nome == "Nova Via MCP"
     assert setor_proxy.escaladas[1].via_esportiva.extensao == 22
+
+    # 1b. Adicionar múltiplas escaladas em lote via 'valores' em um único CmdMacro
+    res_lote_esc = _chamar(
+        servidor,
+        "aresta_adicionar_repeated",
+        {
+            "alvo": "uid_setor_base",
+            "campo": "escaladas",
+            "valores": [
+                {"nome": "Via Lote 1", "dificuldade": "BR_7A"},
+                {"tipo": "boulder", "nome": "Boulder Lote 2", "dificuldade": "V3"},
+            ],
+        },
+    )
+    assert res_lote_esc["uid"] == ""
+    assert "uid_gerado" not in res_lote_esc
+    assert len(res_lote_esc["uids_gerados"]) == 2
+    assert all(len(u) == 14 for u in res_lote_esc["uids_gerados"])
+    assert res_lote_esc["indice_inicial_inserido"] == 2
+    assert res_lote_esc["tamanho"] == 4
+    assert setor_proxy.escaladas[2].via_esportiva.nome == "Via Lote 1"
+    assert setor_proxy.escaladas[3].boulder.nome == "Boulder Lote 2"
+
+    # Um único undo reverte ambas as escaladas inseridas em lote
+    undo_stack.undo()
+    model.indice_uids.carregar_do_croqui(model.obter_croqui_readonly())
+    assert len(setor_proxy.escaladas) == 2
+
+    # Chamada sem 'valor' nem 'valores' deve falhar com ValueError claro
+    with pytest.raises(RuntimeError, match="Informe 'valor'"):
+        _chamar(
+            servidor,
+            "aresta_adicionar_repeated",
+            {"alvo": "uid_setor_base", "campo": "escaladas"},
+        )
 
     # Adicionar escalada com variante explícita inválida deve falhar
     with pytest.raises(RuntimeError, match="Variante de escalada"):
@@ -487,11 +543,37 @@ def test_migrar_imagens_markdown_e_mapas_sem_expor_macro(qapp, tmp_path: Path):
         {
             "alvo_mapa": "uid_setor_base.mapas.0",
             "alvo_uid": "uid_via_base01",
-            "pontos_uids": ["uid_poi_base01"],
+            "pontos_uids": ["uid_poi_base01", "uid_poi_extra"],
         },
     )
     assert res_ref["alvo_uid"] == "uid_via_base01"
     mapa_proxy = raiz.picos[0].setores_ou_grupos[0].setor.conteudo.mapas[0]
+    assert len(mapa_proxy.referencias) == 1
+
+    # 1b. Remover parcialmente um ponto da referência via aresta_remover_referencia_mapa e depois remover tudo
+    res_rem_parcial = _chamar(
+        servidor,
+        "aresta_remover_referencia_mapa",
+        {
+            "alvo_mapa": "uid_setor_base.mapas.0",
+            "alvo_uid": "uid_via_base01",
+            "pontos_uids": ["uid_poi_extra"],
+        },
+    )
+    assert res_rem_parcial["referencias_afetadas"] == 1
+    assert list(mapa_proxy.referencias[0].pontos_uids) == ["uid_poi_base01"]
+
+    res_rem_total = _chamar(
+        servidor,
+        "aresta_remover_referencia_mapa",
+        {
+            "alvo_mapa": "uid_setor_base.mapas.0",
+            "alvo_uid": "uid_via_base01",
+        },
+    )
+    assert res_rem_total["referencias_afetadas"] == 1
+    assert len(mapa_proxy.referencias) == 0
+    undo_stack.undo()
     assert len(mapa_proxy.referencias) == 1
 
     # 2. Alterar campo de imagem e substituir imagem em RAM (via base64 e via arquivo em disco)
@@ -608,3 +690,141 @@ def test_migrar_imagens_markdown_e_mapas_sem_expor_macro(qapp, tmp_path: Path):
     assert len(raiz.picos[0].setores_ou_grupos[0].grupo.conteudo.setores) == 1
     undo_stack.undo()
     assert len(raiz.picos[0].setores_ou_grupos) == 2
+
+
+def test_aresta_migrar_escalada_e_alterar_em_lote(qapp, tmp_path: Path):
+    """Testa aresta_migrar_escalada entre setores por UID e aresta_alterar_em_lote multi-alvo atômico."""
+    model, undo_stack, _, _, servidor = _montar_ambiente_comandos(tmp_path)
+    raiz = model.obter_croqui_readonly()
+
+    # Adiciona um segundo setor para testar migração de escalada entre setores
+    res_setor2 = _chamar(
+        servidor,
+        "aresta_adicionar_repeated",
+        {
+            "alvo": "picos.0",
+            "campo": "setores_ou_grupos",
+            "valor": {"nome": "Setor Destino"},
+        },
+    )
+    uid_setor_destino = res_setor2["uid"]
+
+    # Adiciona uma segunda escalada no setor base
+    res_via2 = _chamar(
+        servidor,
+        "aresta_adicionar_repeated",
+        {
+            "alvo": "uid_setor_base",
+            "campo": "escaladas",
+            "valor": {"tipo": "via_movel", "nome": "Meio Cubanos", "dificuldade": "BR_6SUP"},
+        },
+    )
+    uid_via2 = res_via2["uid"]
+
+    # 1. Migrar uid_via2 do Setor Base para Setor Destino informando apenas UIDs
+    res_mig = _chamar(
+        servidor,
+        "aresta_migrar_escalada",
+        {
+            "alvo_escalada": uid_via2,
+            "alvo_setor_destino": uid_setor_destino,
+        },
+    )
+    assert res_mig["status"] == "ok"
+    assert res_mig["uid"] == uid_via2
+    assert res_mig["indice_origem"] == 1
+    assert res_mig["indice_destino"] == 0
+
+    setor_orig_proxy = raiz.picos[0].setores_ou_grupos[0].setor.conteudo
+    setor_dest_proxy = raiz.picos[0].setores_ou_grupos[2].setor.conteudo
+    assert len(setor_orig_proxy.escaladas) == 1
+    assert len(setor_dest_proxy.escaladas) == 1
+    assert setor_dest_proxy.escaladas[0].uid == uid_via2
+    assert model.indice_uids.obter(uid_via2).nome_setor == "Setor Destino"
+
+    # Um único undo reverte a migração da escalada
+    undo_stack.undo()
+    model.indice_uids.carregar_do_croqui(model.obter_croqui_readonly())
+    assert len(setor_orig_proxy.escaladas) == 2
+    assert len(setor_dest_proxy.escaladas) == 0
+
+    # Reaplica a migração
+    undo_stack.redo()
+    model.indice_uids.carregar_do_croqui(model.obter_croqui_readonly())
+
+    # Tentar migrar um alvo que não é uma Escalada deve falhar com erro claro
+    with pytest.raises(RuntimeError, match="não corresponde a uma Escalada"):
+        _chamar(
+            servidor,
+            "aresta_migrar_escalada",
+            {
+                "alvo_escalada": "uid_setor_base",
+                "alvo_setor_destino": uid_setor_destino,
+            },
+        )
+
+    # 2. Alterar em lote múltiplos UIDs distintos em 1 único CmdMacro
+    res_lote = _chamar(
+        servidor,
+        "aresta_alterar_em_lote",
+        {
+            "descricao_macro": "Revisão Lapinha Lote",
+            "operacoes": [
+                {
+                    "alvo": "uid_croqui_raiz",
+                    "campo": "nome",
+                    "valor": "Gruta da Lapinha Revisada",
+                },
+                {
+                    "alvo": "uid_via_base01",
+                    "campos": {
+                        "nome": "Escalador sem mãe",
+                        "dificuldade": "BR_8A",
+                        "data_abertura": "2002",
+                        "conquistadores": ['Antônio Carlos Magalhães "Toninho"'],
+                    },
+                },
+                {
+                    "alvo": uid_via2,
+                    "campos": {
+                        "data_abertura": "2000",
+                        "conquistadores": ["Roberto Lincoln de Freitas"],
+                    },
+                },
+            ],
+        },
+    )
+    assert res_lote["quantidade_operacoes"] == 3
+    assert res_lote["total_campos_alterados"] == 7
+    assert res_lote["alvos_alterados"] == ["uid_croqui_raiz", "uid_via_base01", uid_via2]
+    assert raiz.nome == "Gruta da Lapinha Revisada"
+    assert setor_orig_proxy.escaladas[0].via_esportiva.nome == "Escalador sem mãe"
+    assert setor_orig_proxy.escaladas[0].via_esportiva.dificuldade == croqui_pb2.GrauVia.BR_8A
+    assert list(setor_orig_proxy.escaladas[0].via_esportiva.conquistadores) == [
+        'Antônio Carlos Magalhães "Toninho"'
+    ]
+    assert setor_dest_proxy.escaladas[0].via_movel.data_abertura == "2000"
+    assert model.indice_uids.obter("uid_via_base01").nome_escalada == "Escalador sem mãe"
+
+    # Um único undo reverte todas as 3 entidades alteradas no lote
+    undo_stack.undo()
+    assert raiz.nome == "Croqui Inicial"
+    assert setor_orig_proxy.escaladas[0].via_esportiva.nome == "Via Antiga"
+    assert setor_dest_proxy.escaladas[0].via_movel.data_abertura == ""
+
+    # 3. Validações fail-fast de aresta_alterar_em_lote
+    with pytest.raises(RuntimeError, match="lista não vazia"):
+        _chamar(servidor, "aresta_alterar_em_lote", {"operacoes": []})
+
+    with pytest.raises(RuntimeError, match="Opções válidas"):
+        _chamar(
+            servidor,
+            "aresta_alterar_em_lote",
+            {
+                "operacoes": [
+                    {"alvo": "uid_croqui_raiz", "campo": "nome", "valor": "Nao Deve Mudar"},
+                    {"alvo": "uid_via_base01", "campo": "dificuldade", "valor": "GRAU_INVALIDO"},
+                ]
+            },
+        )
+    assert raiz.nome == "Croqui Inicial"

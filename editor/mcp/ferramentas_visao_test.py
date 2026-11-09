@@ -413,3 +413,190 @@ def test_aresta_renderizar_mapa_retorna_blocos_intercalados_texto_imagem(qapp, t
     )
     assert resp_sem_img is not None
     assert resp_sem_img["result"]["isError"] is True
+
+
+def test_aresta_obter_arvore_omite_ext_metadados_e_campos_invisiveis_preservando_uids(
+    qapp, tmp_path: Path
+):
+    """Valida que aresta_obter_arvore filtra [aresta.*] e campos INVISIVEL, mantendo uid, alvo_uid e pontos_uids."""
+    model, servidor, _ = _criar_ambiente_visao(tmp_path)
+    croqui = model.obter_objeto_por_uid("uid_croqui_vis")
+    croqui.ultima_migracao = 5
+    croqui.arquivos_externos.add(caminho="setor_1.md", checksum_sha256="hash")
+    croqui.curadoria_betas.caminho = "betas.yaml"
+
+    pico = croqui.picos[0]
+    pico.precomputados.total_boulders = 10
+    pico.malha_estrada.caminho = "malha.bin"
+
+    sg = pico.setores_ou_grupos[0]
+    sg.grupo.Extensions[
+        croqui_pb2.ArquivoGrupo.ext_metadados_arquivo
+    ].dados_json_originais = '{"huge": true}'
+    sg.grupo.conteudo.precomputados.total_boulders = 5
+
+    arq_setor = sg.grupo.conteudo.setores[0]
+    arq_setor.Extensions[
+        croqui_pb2.ArquivoSetor.ext_metadados_arquivo
+    ].dados_json_originais = '{"setor_json": true}'
+    setor = arq_setor.conteudo
+    setor.precomputados.total_esportivas = 1
+
+    mapa = setor.mapas.add(caminho_imagem_mapa="imagens/mapa.webp")
+    poi = mapa.pontos_de_interesse.add(uid="poi_uid_01", rotulo="1")
+    poi.id = "legado_id"
+    poi.label = "legado_label"
+    poi.linha.espessura = 3
+    poi.linha.compilado.caminho_svg = "M 0 0 L 10 10"
+
+    ref = mapa.referencias.add(alvo_uid="uid_via_vis001", pontos_uids=["poi_uid_01"])
+    ref.ids.append("legado_ref_id")
+    ref.escalada = "Aresta Dourada"
+
+    resp_raiz = servidor.processar_mensagem_jsonrpc(
+        {
+            "jsonrpc": "2.0",
+            "id": 80,
+            "method": "tools/call",
+            "params": {"name": "aresta_obter_arvore", "arguments": {}},
+        }
+    )
+    dados_raiz = resp_raiz["result"]["structuredContent"]
+    assert "arquivos_externos" not in dados_raiz["tamanhos_repeated"]
+    d_croqui = dados_raiz["dados"]
+    assert d_croqui["uid"] == "uid_croqui_vis"
+    assert "ultima_migracao" not in d_croqui
+    assert "arquivos_externos" not in d_croqui
+    assert "curadoria_betas" not in d_croqui
+
+    d_pico = d_croqui["picos"][0]
+    assert "precomputados" not in d_pico
+    assert "malha_estrada" not in d_pico
+
+    d_arq_grupo = d_pico["setores_ou_grupos"][0]["grupo"]
+    assert not any(k.startswith("[aresta.") for k in d_arq_grupo)
+    d_grupo = d_arq_grupo["conteudo"]
+    assert d_grupo["uid"] == "uid_grupo_vis1"
+    assert "precomputados" not in d_grupo
+
+    d_arq_setor = d_grupo["setores"][0]
+    assert not any(k.startswith("[aresta.") for k in d_arq_setor)
+    d_setor = d_arq_setor["conteudo"]
+    assert d_setor["uid"] == "uid_setor_vis1"
+    assert "precomputados" not in d_setor
+
+    d_mapa = d_setor["mapas"][0]
+    d_poi = d_mapa["pontos_de_interesse"][0]
+    assert d_poi["uid"] == "poi_uid_01"
+    assert d_poi["rotulo"] == "1"
+    assert "id" not in d_poi
+    assert "label" not in d_poi
+    assert "compilado" not in d_poi["linha"]
+
+    d_ref = d_mapa["referencias"][0]
+    assert d_ref["alvo_uid"] == "uid_via_vis001"
+    assert d_ref["pontos_uids"] == ["poi_uid_01"]
+    assert "ids" not in d_ref
+    assert "escalada" not in d_ref
+
+
+def test_aresta_listar_escaladas_cruza_mapas_setor_mapas_gerais_e_filtros(qapp, tmp_path: Path):
+    """Valida aresta_listar_escaladas com setores em grupo e diretos, mapas_gerais e filtros."""
+    model, servidor, _ = _criar_ambiente_visao(tmp_path)
+    croqui = model.obter_objeto_por_uid("uid_croqui_vis")
+    pico = croqui.picos[0]
+
+    # Setor 1 (dentro do Grupo Leste) já tem uid_via_vis001 ("Aresta Dourada")
+    setor1 = model.obter_objeto_por_uid("uid_setor_vis1")
+    esc1 = setor1.escaladas[0]
+    esc1.via_esportiva.dificuldade = croqui_pb2.GrauVia.BR_7A
+    esc1.via_esportiva.data_abertura = "1997"
+    esc1.via_esportiva.conquistadores.extend(["Ana", "Bruno"])
+
+    mapa_s1 = setor1.mapas.add(caminho_imagem_mapa="imagens/s1.webp")
+    poi_s1 = mapa_s1.pontos_de_interesse.add(uid="poi_s1_1", rotulo="")
+    no_s1 = poi_s1.linha.conteudo.nos.add(
+        x=10,
+        y=20,
+        tipo=croqui_pb2.NoTrajeto.TipoNo.CIRCULO_IDENTIFICADOR,
+        rotulo="10",
+    )
+    assert no_s1.rotulo == "10"
+    mapa_s1.referencias.add(alvo_uid="uid_via_vis001", pontos_uids=["poi_s1_1"])
+
+    # Setor 2 (direto em pico.setores_ou_grupos) com via mapeada em mapas_gerais
+    sg2 = pico.setores_ou_grupos.add()
+    setor2 = sg2.setor.conteudo
+    setor2.uid = "uid_setor_vis2"
+    setor2.nome = "Setor Lagoa"
+    esc2 = setor2.escaladas.add(uid="uid_via_vis002")
+    esc2.via_movel.nome = "Ecos do Além"
+    esc2.via_movel.dificuldade = croqui_pb2.GrauVia.BR_6SUP
+
+    mapa_geral = pico.mapas_gerais.conteudo.mapas.add(caminho_imagem_mapa="imagens/geral.webp")
+    mapa_geral.pontos_de_interesse.add(uid="poi_geral_90", rotulo="90")
+    mapa_geral.referencias.add(alvo_uid="uid_via_vis002", pontos_uids=["poi_geral_90"])
+
+    model.indice_uids.carregar_do_croqui(model.obter_croqui_readonly())
+
+    # 1. Listar todas as escaladas do croqui
+    resp_todas = servidor.processar_mensagem_jsonrpc(
+        {
+            "jsonrpc": "2.0",
+            "id": 90,
+            "method": "tools/call",
+            "params": {"name": "aresta_listar_escaladas", "arguments": {}},
+        }
+    )
+    assert resp_todas["result"]["isError"] is False
+    res_todas = resp_todas["result"]["structuredContent"]
+    assert res_todas["total_escaladas"] == 2
+    vias = {v["uid"]: v for v in res_todas["escaladas"]}
+
+    v1 = vias["uid_via_vis001"]
+    assert v1["indice_no_setor"] == 0
+    assert v1["setor_uid"] == "uid_setor_vis1"
+    assert v1["setor_nome"] == "Setor Cristais"
+    assert v1["rotulos_mapa"] == ["10"]
+    assert v1["pontos_uids"] == ["poi_s1_1"]
+    assert v1["tipo"] == "via_esportiva"
+    assert v1["nome"] == "Aresta Dourada"
+    assert v1["dificuldade"] == "BR_7A"
+    assert v1["data_abertura"] == "1997"
+    assert v1["conquistadores"] == ["Ana", "Bruno"]
+
+    v2 = vias["uid_via_vis002"]
+    assert v2["setor_uid"] == "uid_setor_vis2"
+    assert v2["rotulos_mapa"] == ["90"]
+    assert v2["pontos_uids"] == ["poi_geral_90"]
+    assert v2["tipo"] == "via_movel"
+    assert v2["dificuldade"] == "BR_6SUP"
+
+    # 2. Filtrar por alvo_setor e por filtro_nome
+    resp_setor = servidor.processar_mensagem_jsonrpc(
+        {
+            "jsonrpc": "2.0",
+            "id": 91,
+            "method": "tools/call",
+            "params": {
+                "name": "aresta_listar_escaladas",
+                "arguments": {"alvo_setor": "uid_setor_vis2"},
+            },
+        }
+    )
+    assert resp_setor["result"]["structuredContent"]["total_escaladas"] == 1
+
+    resp_filtro = servidor.processar_mensagem_jsonrpc(
+        {
+            "jsonrpc": "2.0",
+            "id": 92,
+            "method": "tools/call",
+            "params": {
+                "name": "aresta_listar_escaladas",
+                "arguments": {"filtro_nome": "ecos"},
+            },
+        }
+    )
+    res_filtro = resp_filtro["result"]["structuredContent"]
+    assert res_filtro["total_escaladas"] == 1
+    assert res_filtro["escaladas"][0]["uid"] == "uid_via_vis002"

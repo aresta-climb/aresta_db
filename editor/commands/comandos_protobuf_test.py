@@ -2233,3 +2233,26 @@ def test_comandos_canonicos_definem_texto_descritivo_nao_vazio() -> None:
     for cmd in (cmd_campo, cmd_add, cmd_rem, cmd_mov, cmd_img, cmd_anx):
         assert cmd.text().strip() != ""
 
+
+def test_validar_campo_inexistente_lista_campos_validos_no_erro() -> None:
+    """Garante que erros de campo inexistente listam em ordem alfabética os campos válidos do DESCRIPTOR."""
+    croqui = croqui_pb2.Croqui(id="crq_err", nome="Croqui Erro")
+    pico = croqui.picos.add(nome="Pico 1")
+    sg = pico.setores_ou_grupos.add()
+    setor = sg.setor.conteudo
+    setor.uid = "setor_err_1"
+    esc = setor.escaladas.add(uid="esc_err_1")
+    esc.via_esportiva.nome = "Via 1"
+    model = CroquiModel(croqui)
+
+    with pytest.raises(ValueError, match=r"Campos válidos: \[.*nome.*\]"):
+        CmdAlterarCampo(model=model, alvo="esc_err_1", campo_nome="protecao_fixa", valor_novo=5)
+
+    with pytest.raises(ValueError, match=r"Campos válidos: \[.*creditos.*\]"):
+        CmdAlterarCampo(model=model, alvo=croqui, campo_nome="inexistente.0", valor_novo="x")
+
+    with pytest.raises(ValueError, match=r"Campos válidos: \[.*nome.*\]"):
+        _validar_campo_se_msg_existir(model, "setor_err_1", "campo_fantasma", "CmdAlterarCampo")
+
+    with pytest.raises(ValueError, match=r"Campos válidos: \[.*escaladas.*\]"):
+        _validar_campo_se_msg_existir(model, "setor_err_1", "inexistente.0", "CmdAlterarCampo")

@@ -80,6 +80,55 @@ def test_aresta_obter_esquema_proto_visao_geral_mensagem_e_enum(qapp, tmp_path: 
         _chamar(servidor, "aresta_obter_esquema_proto", {"tipo_mensagem": "TipoInexistenteXYZ"})
 
 
+def test_aresta_obter_esquema_proto_omite_campos_invisiveis_preservando_uids(qapp, tmp_path: Path):
+    """Valida que campos INVISIVEL internos/legados são omitidos do schema, mantendo uid, alvo_uid e pontos_uids."""
+    servidor = ServidorMCP(despachante=DespachanteQt(), diretorio_sessao=tmp_path)
+    registrar_ferramentas_conhecimento(servidor)
+
+    croqui_info = _chamar(servidor, "aresta_obter_esquema_proto", {"tipo_mensagem": "Croqui"})
+    nomes_croqui = {c["nome"] for c in croqui_info["campos"]}
+    assert "uid" in nomes_croqui
+    assert "nome" in nomes_croqui
+    assert "arquivos_externos" not in nomes_croqui
+    assert "ultima_migracao" not in nomes_croqui
+    assert "curadoria_betas" not in nomes_croqui
+
+    pico_info = _chamar(servidor, "aresta_obter_esquema_proto", {"tipo_mensagem": "Pico"})
+    nomes_pico = {c["nome"] for c in pico_info["campos"]}
+    assert "precomputados" not in nomes_pico
+    assert "malha_estrada" not in nomes_pico
+
+    setor_info = _chamar(servidor, "aresta_obter_esquema_proto", {"tipo_mensagem": "Setor"})
+    nomes_setor = {c["nome"] for c in setor_info["campos"]}
+    assert "uid" in nomes_setor
+    assert "precomputados" not in nomes_setor
+
+    ref_info = _chamar(servidor, "aresta_obter_esquema_proto", {"tipo_mensagem": "Referencia"})
+    nomes_ref = {c["nome"] for c in ref_info["campos"]}
+    assert "alvo_uid" in nomes_ref
+    assert "pontos_uids" in nomes_ref
+    assert "id" not in nomes_ref
+    assert "ids" not in nomes_ref
+    assert "escalada" not in nomes_ref
+    assert "setor" not in nomes_ref
+    assert "grupo" not in nomes_ref
+    assert "alvo_referencia" not in ref_info["oneofs"]
+    assert "identificador_ponto" not in ref_info["oneofs"]
+
+    poi_info = _chamar(
+        servidor, "aresta_obter_esquema_proto", {"tipo_mensagem": "PontoDeInteresse"}
+    )
+    nomes_poi = {c["nome"] for c in poi_info["campos"]}
+    assert "uid" in nomes_poi
+    assert "rotulo" in nomes_poi
+    assert "id" not in nomes_poi
+    assert "label" not in nomes_poi
+
+    linha_info = _chamar(servidor, "aresta_obter_esquema_proto", {"tipo_mensagem": "LinhaTrajeto"})
+    nomes_linha = {c["nome"] for c in linha_info["campos"]}
+    assert "compilado" not in nomes_linha
+
+
 def test_aresta_listar_e_ler_skills_reais_e_customizadas(qapp, tmp_path: Path):
     """Valida a listagem e leitura de skills do repositório e de um diretório customizado."""
     servidor = ServidorMCP(despachante=DespachanteQt(), diretorio_sessao=tmp_path)

@@ -177,3 +177,25 @@ Os comandos canônicos que introduzem ou substituem mensagens Protobuf na árvor
 - **WHEN** `CmdAlterarCampo` é instanciado para definir ou substituir uma variante de `oneof`, submensagem singular ou item de lista `repeated` cuja nova mensagem possui campo `uid` vazio
 - **THEN** o comando preenche automaticamente o `uid` na nova mensagem antes de congelar `valor_novo` e aplica a mutação indexando o novo `uid` no `IndiceUidsModel`
 
+### Requirement: Migração de Escalada e Alteração Multi-Alvo em Lote via CmdMacro
+O `CroquiController` SHALL disponibilizar os métodos compostos `migrar_escalada` (combinando `CmdRemoverRepeated` no setor de origem e `CmdAdicionarRepeated` no setor de destino sem expurgar imagens da escalada em RAM) e `alterar_em_lote` (instanciando e validando previamente todos os comandos de múltiplos alvos antes de empilhar um único `CmdMacro` na `QUndoStack`).
+
+#### Scenario: Migração de escalada preserva imagens em RAM e reverte em um único Undo
+- **WHEN** `CroquiController.migrar_escalada` move uma `Escalada` contendo imagens associadas de um `Setor` de origem para um `Setor` de destino
+- **THEN** as imagens em memória RAM da escalada são preservadas durante o `redo()`, o `uid` da escalada permanece inalterado no setor de destino, e um único `undo()` restaura a escalada ao setor e índice originais
+
+#### Scenario: Alteração em lote multi-alvo valida todos os comandos antes de empilhar CmdMacro
+- **WHEN** `CroquiController.alterar_em_lote` recebe uma sequência de operações para diferentes alvos da árvore Protobuf
+- **THEN** todos os comandos folha (`CmdAlterarCampo`, `CmdRemoverRepeated`, `CmdAdicionarRepeated`) são instanciados e validados antes de empilhar um único `CmdMacro` na `QUndoStack`, garantindo reversão integral em um passo de `undo()`
+
+### Requirement: Sugestão de Campos Válidos em Erros de Campo Inexistente e Preservação Opt-In em Oneof
+Quando um comando Protobuf ou validação de alvo receber um nome de campo inexistente na mensagem alvo, a exceção `ValueError` SHALL listar em ordem alfabética os nomes de campos e `oneofs` válidos do `DESCRIPTOR` daquela mensagem. Adicionalmente, `CroquiController.alterar_campo` e `alterar_em_lote` SHALL suportar `preservar_campos_compativeis: bool = False` na troca de ramo `oneof`, e `MapasController.remover_referencia` SHALL remover referências via comandos na `QUndoStack`.
+
+#### Scenario: Mensagem de ValueError lista campos válidos quando campo não existe no DESCRIPTOR
+- **WHEN** `CmdAlterarCampo` ou `validar_pertence_ao_croqui` é invocado com um `campo_nome` inexistente na mensagem alvo (ex.: `campo_nome="descricao"` em `ColecaoDeMapas`)
+- **THEN** o `ValueError` lançado informa o nome da mensagem (`ColecaoDeMapas`) e inclui a lista ordenada dos campos válidos definidos no seu `DESCRIPTOR` (ex.: `mapas`)
+
+#### Scenario: Remoção de referência em MapasController reversível via QUndoStack
+- **WHEN** `MapasController.remover_referencia` é chamado para remover um subconjunto de `pontos_uids` ou uma `Referencia` completa de um `Mapa`
+- **THEN** a mutação é executada via `CmdAlterarCampo` ou `CmdRemoverRepeated` (agrupados em `CmdMacro` se múltiplas entradas forem afetadas) e um único `undo()` restaura integralmente as referências anteriores
+

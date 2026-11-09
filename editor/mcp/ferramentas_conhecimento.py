@@ -46,7 +46,8 @@ def _coletar_descritores_proto() -> tuple[dict[str, Descriptor], dict[str, EnumD
     enums: dict[str, EnumDescriptor] = {}
 
     def _visitar_mensagem(msg_desc: Descriptor) -> None:
-        mensagens[msg_desc.name.lower()] = msg_desc
+        mensagens.setdefault(msg_desc.name.lower(), msg_desc)
+        mensagens.setdefault(msg_desc.full_name.removeprefix("aresta.").lower(), msg_desc)
         for enum_sub in msg_desc.enum_types:
             enums[enum_sub.name.lower()] = enum_sub
         for msg_sub in msg_desc.nested_types:
@@ -56,6 +57,68 @@ def _coletar_descritores_proto() -> tuple[dict[str, Descriptor], dict[str, EnumD
         _visitar_mensagem(msg_top)
 
     return mensagens, enums
+
+
+_CAMPOS_ENDERECAMENTO_MCP: frozenset[str] = frozenset({"uid", "alvo_uid", "pontos_uids"})
+
+
+def _eh_campo_oculto_mcp(field: FieldDescriptor) -> bool:
+    """Retorna True se o campo for interno (`INVISIVEL`) ou depreciado, preservando UIDs de endereçamento."""
+    if field.name in _CAMPOS_ENDERECAMENTO_MCP:
+        return False
+    opcoes = field.GetOptions()
+    if getattr(opcoes, "deprecated", False):
+        return True
+    if opcoes.Extensions[croqui_pb2.formato_na_ui] == croqui_pb2.CampoFormatoUi.INVISIVEL:
+        return True
+    return bool(
+        field.message_type is not None
+        and field.message_type.GetOptions().Extensions[croqui_pb2.mensagem_formato_na_ui]
+        == croqui_pb2.MensagemFormatoUi.INVISIVEL
+    )
+
+
+def _construir_campos_ocultos_mcp() -> dict[str, frozenset[str]]:
+    """Pré-computa em $O(1)$ os nomes de campos ocultos por `Descriptor.full_name`."""
+    ocultos_por_msg: dict[str, frozenset[str]] = {}
+
+    def _visitar(msg_desc: Descriptor) -> None:
+        ocultos_por_msg[msg_desc.full_name] = frozenset(
+            f.name for f in msg_desc.fields if _eh_campo_oculto_mcp(f)
+        )
+        for sub in msg_desc.nested_types:
+            _visitar(sub)
+
+    for msg_top in croqui_pb2.DESCRIPTOR.message_types_by_name.values():
+        _visitar(msg_top)
+
+    return ocultos_por_msg
+
+
+_CAMPOS_OCULTOS_MCP: dict[str, frozenset[str]] = _construir_campos_ocultos_mcp()
+
+
+def obter_campos_ocultos_mcp(msg_desc: Descriptor) -> frozenset[str]:
+    """Retorna em $O(1)$ o conjunto de campos ocultos no MCP para `msg_desc`."""
+    return _CAMPOS_OCULTOS_MCP.get(msg_desc.full_name, frozenset())
+
+
+def filtrar_dict_mcp(msg_desc: Descriptor, dados: dict[str, Any]) -> dict[str, Any]:
+    """Remove recursivamente extensões `[aresta.*]` e campos internos/invisíveis de um dict serializado."""
+    ocultos = obter_campos_ocultos_mcp(msg_desc)
+    resultado: dict[str, Any] = {}
+    for chave, valor in dados.items():
+        if chave.startswith("[") or chave in ocultos:
+            continue
+        f_desc = msg_desc.fields_by_name.get(chave)
+        if f_desc is not None and f_desc.message_type is not None:
+            if isinstance(valor, dict):
+                resultado[chave] = filtrar_dict_mcp(f_desc.message_type, valor)
+            else:
+                resultado[chave] = [filtrar_dict_mcp(f_desc.message_type, item) for item in valor]
+        else:
+            resultado[chave] = valor
+    return resultado
 
 
 def _extrair_comentarios_campos_proto(texto_proto: str) -> dict[tuple[str, str], str]:
@@ -166,8 +229,16 @@ def registrar_ferramentas_conhecimento(
         chave = filtro.lower()
         if chave in mensagens_por_nome:
             msg_desc = mensagens_por_nome[chave]
-            campos = [_descrever_campo(msg_desc, f, comentarios) for f in msg_desc.fields]
-            oneofs = {oneof.name: [f.name for f in oneof.fields] for oneof in msg_desc.oneofs}
+            ocultos = obter_campos_ocultos_mcp(msg_desc)
+            campos = [
+                _descrever_campo(msg_desc, f, comentarios)
+                for f in msg_desc.fields
+                if f.name not in ocultos
+            ]
+            oneofs = {
+                oneof.name: [f.name for f in oneof.fields if f.name not in ocultos]
+                for oneof in msg_desc.oneofs
+            }
             valores_enum = [
                 {"nome": v.name, "numero": v.number}
                 for enum_sub in msg_desc.enum_types

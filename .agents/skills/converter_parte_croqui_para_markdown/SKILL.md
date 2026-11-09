@@ -159,9 +159,9 @@ O `uid` recebido aponta diretamente para a mensagem `Setor`:
 ## 3. Preservação Estrita de `UID`s ao Atualizar Croqui Existente
 
 Quando você estiver atualizando uma parte de um croqui que já possuía dados:
-1. Antes de montar sua alteração, chame `aresta_obter_arvore(alvo=uid, id_croqui=id_croqui)` para ler o estado atual daquela entidade.
+1. Antes de montar sua alteração, chame `aresta_obter_arvore(alvo=uid, id_croqui=id_croqui)` (e `aresta_listar_escaladas(alvo_setor=uid, id_croqui=id_croqui)` quando for um setor) para ler o estado atual daquela entidade e o cruzamento de `UID`s com os rótulos de mapa.
 2. Se o PDF antigo e o PDF novo daquela parte forem equivalentes sem nenhuma alteração de conteúdo, não chame `aresta_alterar_campo` e retorne `"Nenhuma mudança necessária"`.
-3. Caso haja mudanças, **PRESERVE RIGOROSAMENTE** todos os campos `uid`, `alvo_uid` e `pontos_uids` das escaladas, mapas, pontos de interesse e referências que continuam existindo, incluindo-os nos dicionários enviados na lista para `aresta_alterar_campo`.
+3. Caso haja mudanças, **PRESERVE RIGOROSAMENTE** todos os campos `uid`, `alvo_uid` e `pontos_uids` das escaladas, mapas, pontos de interesse e referências que continuam existindo, incluindo-os nos dicionários enviados na lista para `aresta_alterar_campo` (ou usando `preservar_campos_compativeis=True` ao converter a modalidade `oneof` de uma escalada existente).
 4. Para novas escaladas ou novos mapas adicionados na nova edição, basta omitir o campo `uid` no dicionário do item novo (o Editor gerará um novo NanoID automaticamente).
 
 ---

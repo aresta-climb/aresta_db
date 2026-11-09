@@ -192,13 +192,13 @@ def registrar_ferramentas_comandos(
     model = croqui_controller.model
     ctrl_mapas = mapas_controller or MapasController(model, croqui_controller.undo_stack)
 
-    def _alterar_campo(args: dict[str, Any]) -> dict[str, Any]:
-        alvo = str(args.get("alvo", ""))
+    def _preparar_mapa_coagido(item_args: dict[str, Any]) -> tuple[str, str, dict[str, Any]]:
+        alvo = str(item_args.get("alvo", ""))
         mapa_entrada: dict[str, Any] = {}
-        if isinstance(args.get("campos"), dict):
-            mapa_entrada.update(args["campos"])
-        if args.get("campo"):
-            mapa_entrada[str(args["campo"])] = args.get("valor")
+        if isinstance(item_args.get("campos"), dict):
+            mapa_entrada.update(item_args["campos"])
+        if item_args.get("campo"):
+            mapa_entrada[str(item_args["campo"])] = item_args.get("valor")
         if not mapa_entrada:
             raise ValueError("Informe 'campo' (com 'valor') ou o dicionário 'campos' para alterar.")
 
@@ -207,8 +207,15 @@ def registrar_ferramentas_comandos(
         for nome_c, val_bruto in mapa_entrada.items():
             msg_c, ultimo_caminho = resolver_alvo_mcp(model, alvo, campo_nome=nome_c)
             mapa_coagido[nome_c] = _coagir_valor_para_campo(msg_c, nome_c, val_bruto)
+        return alvo, ultimo_caminho, mapa_coagido
 
-        croqui_controller.alterar_campo(alvo=alvo, campos=mapa_coagido)
+    def _alterar_campo(args: dict[str, Any]) -> dict[str, Any]:
+        alvo, ultimo_caminho, mapa_coagido = _preparar_mapa_coagido(args)
+        croqui_controller.alterar_campo(
+            alvo=alvo,
+            campos=mapa_coagido,
+            preservar_campos_compativeis=bool(args.get("preservar_campos_compativeis", False)),
+        )
         model.indice_uids.carregar_do_croqui(model.obter_croqui_readonly())
         return {
             "status": "ok",
@@ -217,25 +224,81 @@ def registrar_ferramentas_comandos(
             "campos_alterados": list(mapa_coagido.keys()),
         }
 
+    def _alterar_em_lote(args: dict[str, Any]) -> dict[str, Any]:
+        operacoes_brutas = args.get("operacoes")
+        if not isinstance(operacoes_brutas, list) or not operacoes_brutas:
+            raise ValueError("Informe uma lista não vazia em 'operacoes' para alterar em lote.")
+
+        preservar_padrao = bool(args.get("preservar_campos_compativeis", False))
+        operacoes_coagidas: list[dict[str, Any]] = []
+        alvos_alterados: list[str] = []
+        total_campos = 0
+        for item in operacoes_brutas:
+            alvo_op, _, mapa_coagido = _preparar_mapa_coagido(item)
+            operacoes_coagidas.append(
+                {
+                    "alvo": alvo_op,
+                    "campos": mapa_coagido,
+                    "preservar_campos_compativeis": bool(
+                        item.get("preservar_campos_compativeis", preservar_padrao)
+                    ),
+                }
+            )
+            alvos_alterados.append(alvo_op)
+            total_campos += len(mapa_coagido)
+
+        croqui_controller.alterar_em_lote(
+            operacoes=operacoes_coagidas,
+            texto_macro=args.get("descricao_macro"),
+            preservar_campos_compativeis=preservar_padrao,
+        )
+        model.indice_uids.carregar_do_croqui(model.obter_croqui_readonly())
+        return {
+            "status": "ok",
+            "quantidade_operacoes": len(operacoes_coagidas),
+            "total_campos_alterados": total_campos,
+            "alvos_alterados": alvos_alterados,
+        }
+
     def _adicionar_repeated(args: dict[str, Any]) -> dict[str, Any]:
         alvo = str(args.get("alvo", ""))
         campo = str(args["campo"])
-        valor_bruto = args.get("valor")
+        valores_brutos = args.get("valores")
+        if isinstance(valores_brutos, list) and valores_brutos:
+            lista_bruta = valores_brutos
+        elif "valor" in args and args["valor"] is not None:
+            lista_bruta = [args["valor"]]
+        else:
+            raise ValueError(
+                "Informe 'valor' (1 item) ou 'valores' (lista não vazia de itens) para adicionar."
+            )
+
         indice = args.get("indice")
         msg, caminho = resolver_alvo_mcp(model, alvo, campo_nome=campo)
-        item_proto, uid_gerado = _instanciar_valor_para_campo_repeated(msg, campo, valor_bruto)
+        itens_proto: list[Any] = []
+        uids_gerados: list[str] = []
+        for item_bruto in lista_bruta:
+            item_proto, uid_item = _instanciar_valor_para_campo_repeated(msg, campo, item_bruto)
+            itens_proto.append(item_proto)
+            uids_gerados.append(uid_item)
+
         colecao = getattr(msg, campo)
         idx_final = len(colecao) if indice is None or int(indice) < 0 else int(indice)
-        croqui_controller.adicionar_repeated(msg, campo, idx_final, item_proto)
+        croqui_controller.adicionar_multiplos_repeated(msg, campo, idx_final, itens_proto)
         model.indice_uids.carregar_do_croqui(model.obter_croqui_readonly())
         caminho_item = f"{caminho}.{campo}.{idx_final}" if caminho else f"{campo}.{idx_final}"
-        return {
+        resposta: dict[str, Any] = {
             "status": "ok",
-            "uid": uid_gerado,
+            "uid": uids_gerados[0] if len(uids_gerados) == 1 else "",
+            "uids_gerados": uids_gerados,
             "caminho": caminho_item,
             "indice": idx_final,
+            "indice_inicial_inserido": idx_final,
             "tamanho": len(colecao),
         }
+        if len(uids_gerados) == 1:
+            resposta["uid_gerado"] = uids_gerados[0]
+        return resposta
 
     def _remover_repeated(args: dict[str, Any]) -> dict[str, Any]:
         alvo = str(args.get("alvo", ""))
@@ -294,6 +357,37 @@ def registrar_ferramentas_comandos(
             "status": "ok",
             "origem": cam_origem,
             "destino": cam_destino,
+        }
+
+    def _migrar_escalada(args: dict[str, Any]) -> dict[str, Any]:
+        alvo_escalada = str(args["alvo_escalada"])
+        alvo_setor_destino = str(args["alvo_setor_destino"])
+        msg_esc, caminho_esc = resolver_alvo_mcp(model, alvo_escalada)
+        partes = caminho_esc.rsplit(".escaladas.", 1)
+        if len(partes) != 2 or not partes[1].isdigit():
+            raise ValueError(
+                f"O alvo '{alvo_escalada}' ('{caminho_esc}') não corresponde a uma Escalada pertencente a um Setor."
+            )
+        caminho_setor_origem = partes[0]
+        indice_origem = int(partes[1])
+        setor_origem, _ = resolver_alvo_mcp(model, caminho_setor_origem, campo_nome="escaladas")
+        setor_destino, caminho_setor_destino = resolver_alvo_mcp(
+            model, alvo_setor_destino, campo_nome="escaladas"
+        )
+        idx_final = croqui_controller.migrar_escalada(
+            setor_origem=setor_origem,
+            indice_origem=indice_origem,
+            setor_destino=setor_destino,
+            indice_destino=args.get("indice_destino"),
+        )
+        model.indice_uids.carregar_do_croqui(model.obter_croqui_readonly())
+        return {
+            "status": "ok",
+            "uid": str(getattr(msg_esc, "uid", "")),
+            "setor_origem": caminho_setor_origem,
+            "indice_origem": indice_origem,
+            "setor_destino": caminho_setor_destino,
+            "indice_destino": idx_final,
         }
 
     def _alterar_imagem(args: dict[str, Any]) -> dict[str, Any]:
@@ -404,6 +498,22 @@ def registrar_ferramentas_comandos(
             "pontos_uids": pontos_uids,
         }
 
+    def _remover_referencia_mapa(args: dict[str, Any]) -> dict[str, Any]:
+        alvo_mapa = str(args["alvo_mapa"])
+        alvo_uid = str(args["alvo_uid"])
+        pontos_brutos = args.get("pontos_uids")
+        pontos_uids = [str(p) for p in pontos_brutos] if pontos_brutos else None
+        msg_mapa, caminho = resolver_alvo_mcp(model, alvo_mapa)
+        afetadas = ctrl_mapas.remover_referencia(
+            msg_mapa, alvo_uid=alvo_uid, pontos_uids=pontos_uids
+        )
+        return {
+            "status": "ok",
+            "caminho_mapa": caminho,
+            "alvo_uid": alvo_uid,
+            "referencias_afetadas": afetadas,
+        }
+
     servidor.registrar_ferramenta(
         nome="aresta_alterar_campo",
         descricao=(
@@ -429,20 +539,66 @@ def registrar_ferramentas_comandos(
                     "type": "object",
                     "description": "Dicionário {campo: valor} para alterar múltiplos campos atomicamente no mesmo alvo.",
                 },
+                "preservar_campos_compativeis": {
+                    "type": "boolean",
+                    "description": "Quando True ao trocar variante oneof, copia os campos homônimos compatíveis da variante anterior.",
+                },
             },
             "required": ["alvo"],
         },
         manipulador=_alterar_campo,
     )
     servidor.registrar_ferramenta(
+        nome="aresta_alterar_em_lote",
+        descricao=(
+            "Altera múltiplos alvos e campos em uma única transação atômica (CmdMacro). "
+            "Valida todos os alvos e campos previamente (fail-fast) antes de empilhar no histórico."
+        ),
+        esquema_entrada={
+            "type": "object",
+            "properties": {
+                "operacoes": {
+                    "type": "array",
+                    "description": "Lista de operações {alvo, campo?, valor?, campos?, preservar_campos_compativeis?}.",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "alvo": {"type": "string"},
+                            "campo": {"type": "string"},
+                            "valor": {},
+                            "campos": {"type": "object"},
+                            "preservar_campos_compativeis": {"type": "boolean"},
+                        },
+                        "required": ["alvo"],
+                    },
+                },
+                "descricao_macro": {
+                    "type": "string",
+                    "description": "Descrição opcional do macro para a pilha de histórico.",
+                },
+                "preservar_campos_compativeis": {
+                    "type": "boolean",
+                    "description": "Valor padrão de preservar_campos_compativeis para as operações do lote.",
+                },
+            },
+            "required": ["operacoes"],
+        },
+        manipulador=_alterar_em_lote,
+    )
+    servidor.registrar_ferramenta(
         nome="aresta_adicionar_repeated",
-        descricao="Adiciona um item a uma coleção repeated gerando e retornando imediatamente o UID NanoID e o tamanho atualizado.",
+        descricao=(
+            "Adiciona um item ('valor') ou múltiplos itens em lote ('valores') a uma coleção "
+            "repeated, gerando e retornando imediatamente os UIDs NanoID ('uid', 'uid_gerado', "
+            "'uids_gerados') e o tamanho atualizado."
+        ),
         esquema_entrada={
             "type": "object",
             "properties": {
                 "alvo": {"type": "string"},
                 "campo": {"type": "string"},
                 "valor": {},
+                "valores": {"type": "array", "items": {}},
                 "indice": {"type": "integer"},
             },
             "required": ["alvo", "campo"],
@@ -502,6 +658,32 @@ def registrar_ferramentas_comandos(
             ],
         },
         manipulador=_migrar_setor,
+    )
+    servidor.registrar_ferramenta(
+        nome="aresta_migrar_escalada",
+        descricao=(
+            "Migra atomicamente uma Escalada de seu Setor atual para um Setor de destino "
+            "preservando seu UID NanoID, imagens em RAM e referências em mapas."
+        ),
+        esquema_entrada={
+            "type": "object",
+            "properties": {
+                "alvo_escalada": {
+                    "type": "string",
+                    "description": "UID NanoID ou caminho da Escalada a ser migrada.",
+                },
+                "alvo_setor_destino": {
+                    "type": "string",
+                    "description": "UID NanoID ou caminho do Setor de destino.",
+                },
+                "indice_destino": {
+                    "type": "integer",
+                    "description": "Índice de inserção em setor_destino.escaladas (opcional; padrão ao final).",
+                },
+            },
+            "required": ["alvo_escalada", "alvo_setor_destino"],
+        },
+        manipulador=_migrar_escalada,
     )
     servidor.registrar_ferramenta(
         nome="aresta_alterar_imagem",
@@ -594,4 +776,21 @@ def registrar_ferramentas_comandos(
             "required": ["alvo_mapa", "alvo_uid", "pontos_uids"],
         },
         manipulador=_vincular_referencia_mapa,
+    )
+    servidor.registrar_ferramenta(
+        nome="aresta_remover_referencia_mapa",
+        descricao=(
+            "Remove uma referência de mapa para alvo_uid por completo (quando pontos_uids "
+            "é omitido) ou remove apenas pontos_uids específicos da referência."
+        ),
+        esquema_entrada={
+            "type": "object",
+            "properties": {
+                "alvo_mapa": {"type": "string"},
+                "alvo_uid": {"type": "string"},
+                "pontos_uids": {"type": "array", "items": {"type": "string"}},
+            },
+            "required": ["alvo_mapa", "alvo_uid"],
+        },
+        manipulador=_remover_referencia_mapa,
     )
