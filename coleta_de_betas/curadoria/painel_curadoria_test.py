@@ -135,3 +135,45 @@ def test_painel_curadoria_exibe_4_secoes_ordena_por_score_e_transiciona_1_a_1_co
 
     painel.selecionar_escalada_por_uid("esc_1")
     assert len(painel.cards_aprovados) == 2
+
+
+def test_painel_curadoria_coalesce_mutacoes_em_lote_e_encerra_workers_de_thumbnail(
+    tmp_path: Path, qtbot
+) -> None:
+    croqui = _criar_croqui_curadoria()
+    model = CroquiModel(croqui)
+    stack = QUndoStack()
+    controller = CroquiController(model, stack)
+    provedor = ProvedorImagemAresta(
+        diretorio_cache=tmp_path / "cache",
+        cliente_http=ClienteHttpFake(),
+    )
+
+    painel = PainelCuradoria(provedor_imagem=provedor, carregar_assincrono=True)
+    qtbot.addWidget(painel)
+    painel.carregar_dados(model, controller)
+
+    atualizacoes_antes = painel.total_atualizacoes_visualizacao
+    assert atualizacoes_antes == 1
+
+    # Inserir 5 novos candidatos em lote para esc_2 deve reconstruir os cards apenas 1 vez
+    novos_candidatos = [
+        beta_pb2.CandidatoMidiaBeta(
+            midia=beta_pb2.MidiaBeta(
+                url=f"https://youtube.com/watch?v=lote_{i}",
+                titulo=f"Beta Lote {i}",
+                fonte=beta_pb2.FonteMidia.YOUTUBE,
+            )
+        )
+        for i in range(5)
+    ]
+    adicionados = controller.adicionar_candidatos_nao_scorados("esc_2", novos_candidatos)
+    assert adicionados == 5
+    assert painel.total_atualizacoes_visualizacao == atualizacoes_antes + 1
+    assert len(painel.cards_nao_scorados) == 6
+
+    # Undo do lote de 5 candidatos também deve reconstruir os cards apenas 1 vez
+    stack.undo()
+    assert painel.total_atualizacoes_visualizacao == atualizacoes_antes + 2
+    assert len(painel.cards_nao_scorados) == 1
+

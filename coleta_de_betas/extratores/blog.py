@@ -8,10 +8,10 @@ Extrator de postagens e relatos de escalada em blogs da web.
 import html
 import re
 from html.parser import HTMLParser
-from typing import cast
+from typing import Any, cast
 
-import duckduckgo_search
 import requests
+from ddgs import DDGS
 
 from aresta_api.proto.generated import beta_pb2
 from coleta_de_betas.extratores.cliente_http_fake import (
@@ -99,10 +99,13 @@ def extrair_titulo_e_texto_html(conteudo_html: str) -> tuple[str, str]:
 
 
 class _BuscadorDuckDuckGoPadrao:
-    """Adaptador padrão para busca textual via duckduckgo_search."""
+    """Adaptador padrão para busca textual via pacote ddgs."""
+
+    def __init__(self, fabrica_ddgs: Any = DDGS) -> None:
+        self._fabrica_ddgs = fabrica_ddgs
 
     def buscar_texto(self, query: str, max_resultados: int = 10) -> list[dict[str, str]]:
-        with duckduckgo_search.DDGS() as ddgs:
+        with self._fabrica_ddgs() as ddgs:
             return [dict(item) for item in ddgs.text(query, max_results=max_resultados)]
 
 

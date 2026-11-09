@@ -53,6 +53,7 @@ editor = [
     "winrt-Windows.Services.Store; sys_platform == 'win32'",
     "winrt-Windows.ApplicationModel; sys_platform == 'win32'",
     "sentry-sdk>=2.68.1",
+    "ddgs",
 ]
 
 # Ferramentas de empacotamento, distribuição e deploy do Editor
@@ -68,7 +69,7 @@ pdf = [
     "pymupdf",
     "graphviz",
     "boto3",
-    "duckduckgo-search",
+    "ddgs",
     "numpy",
 ]
 

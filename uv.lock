@@ -112,6 +112,7 @@ dev = [
 editor = [
     { name = "cryptography", version = "48.0.1", source = { registry = "https://pypi.org/simple" }, marker = "platform_machine == 'x86_64' and sys_platform == 'darwin'" },
     { name = "cryptography", version = "50.0.2", source = { registry = "https://pypi.org/simple" }, marker = "platform_machine != 'x86_64' or sys_platform != 'darwin'" },
+    { name = "ddgs" },
     { name = "fastapi" },
     { name = "httpx" },
     { name = "jeepney", marker = "sys_platform == 'linux'" },
@@ -139,6 +140,7 @@ editor-deploy = [
     { name = "boto3", marker = "sys_platform == 'darwin'" },
     { name = "cryptography", version = "48.0.1", source = { registry = "https://pypi.org/simple" }, marker = "platform_machine == 'x86_64' and sys_platform == 'darwin'" },
     { name = "cryptography", version = "50.0.2", source = { registry = "https://pypi.org/simple" }, marker = "platform_machine != 'x86_64' or sys_platform != 'darwin'" },
+    { name = "ddgs" },
     { name = "fastapi" },
     { name = "flatpak-pip-generator", marker = "sys_platform == 'linux'" },
     { name = "httpx" },
@@ -166,7 +168,7 @@ editor-deploy = [
 ]
 pdf = [
     { name = "boto3" },
-    { name = "duckduckgo-search" },
+    { name = "ddgs" },
     { name = "graphviz" },
     { name = "numpy" },
     { name = "pymupdf" },
@@ -214,6 +216,7 @@ dev = [
 editor = [
     { name = "cryptography", marker = "platform_machine != 'x86_64' or sys_platform != 'darwin'", specifier = ">=50.0.0" },
     { name = "cryptography", marker = "platform_machine == 'x86_64' and sys_platform == 'darwin'", specifier = "<=48.0.1" },
+    { name = "ddgs" },
     { name = "fastapi" },
     { name = "httpx" },
     { name = "jeepney", marker = "sys_platform == 'linux'" },
@@ -241,6 +244,7 @@ editor-deploy = [
     { name = "boto3", marker = "sys_platform == 'darwin'" },
     { name = "cryptography", marker = "platform_machine != 'x86_64' or sys_platform != 'darwin'", specifier = ">=50.0.0" },
     { name = "cryptography", marker = "platform_machine == 'x86_64' and sys_platform == 'darwin'", specifier = "<=48.0.1" },
+    { name = "ddgs" },
     { name = "fastapi" },
     { name = "flatpak-pip-generator", marker = "sys_platform == 'linux'" },
     { name = "httpx" },
@@ -268,7 +272,7 @@ editor-deploy = [
 ]
 pdf = [
     { name = "boto3" },
-    { name = "duckduckgo-search" },
+    { name = "ddgs" },
     { name = "graphviz" },
     { name = "numpy" },
     { name = "pymupdf" },
@@ -561,17 +565,17 @@ wheels = [
 ]
 
 [[package]]
-name = "duckduckgo-search"
-version = "8.1.1"
+name = "ddgs"
+version = "9.16.1"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "click" },
     { name = "lxml" },
     { name = "primp" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/10/ef/07791a05751e6cc9de1dd49fb12730259ee109b18e6d097e25e6c32d5617/duckduckgo_search-8.1.1.tar.gz", hash = "sha256:9da91c9eb26a17e016ea1da26235d40404b46b0565ea86d75a9f78cc9441f935", size = 22868, upload-time = "2025-07-06T15:30:59.73Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/ec/c4/165b9b1581813063847349421c014a8ccc346222a58b3233ba168bf257c1/ddgs-9.16.1.tar.gz", hash = "sha256:0cde5682e5801b838915bcb1d12ade8f2e1ec11763b88d0035a1faa0662b517a", size = 38033, upload-time = "2026-10-23T21:16:42.709Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/db/72/c027b3b488b1010cf71670032fcf7e681d44b81829d484bb04e31a949a8d/duckduckgo_search-8.1.1-py3-none-any.whl", hash = "sha256:f48adbb06626ee05918f7e0cef3a45639e9939805c4fc179e68c48a12f1b5062", size = 18932, upload-time = "2025-07-06T15:30:58.339Z" },
+    { url = "https://files.pythonhosted.org/packages/60/5f/9388344fe821102459a73d2d49ab5e6769b3bab3f17ecf79fb1f736cf1d6/ddgs-9.16.1-py3-none-any.whl", hash = "sha256:9ac0b3c19d865a9bfbf7bc7cc8090bd43d1e7adfb083a017bbece360a22e21b6", size = 47695, upload-time = "2026-10-23T21:16:41.413Z" },
 ]
 
 [[package]]

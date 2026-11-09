@@ -8,6 +8,7 @@ from PySide6.QtGui import QUndoStack
 from aresta_api.proto.generated import beta_pb2, croqui_pb2
 from coleta_de_betas.curadoria.dialogo_coletar_betas import (
     DialogoColetarBetas,
+    WorkerColetaBetas,
     extrair_escaladas_do_croqui,
 )
 from editor.controllers.croqui_controller import CroquiController
@@ -143,3 +144,67 @@ def test_dialogo_coletar_betas_cancelamento_interrompe_coleta(qtbot) -> None:
     dialogo.solicitar_cancelamento()
     assert dialogo.cancelado is True
     assert dialogo.executar_coleta_sincrona() == 0
+
+
+def test_dialogo_coletar_betas_executa_em_background_via_qthread_e_permite_cancelar(qtbot) -> None:
+    croqui = _criar_croqui_exemplo()
+    model = CroquiModel(croqui)
+    stack = QUndoStack()
+    controller = CroquiController(model, stack)
+
+    cand_yt = beta_pb2.CandidatoMidiaBeta()
+    cand_yt.midia.url = "https://www.youtube.com/watch?v=sol_bg"
+    cand_yt.midia.titulo = "Via do Sol Background"
+    cand_yt.midia.fonte = beta_pb2.FonteMidia.YOUTUBE
+
+    cand_blog = beta_pb2.CandidatoMidiaBeta()
+    cand_blog.midia.url = "https://blog.com/boulder-lua-bg"
+    cand_blog.midia.titulo = "Boulder da Lua Background"
+    cand_blog.midia.fonte = beta_pb2.FonteMidia.BLOG
+
+    extrator = _ExtratorBetaFake(
+        respostas_por_via={
+            "Via do Sol": [cand_yt],
+            "Boulder da Lua": [cand_blog],
+        }
+    )
+
+    dialogo = DialogoColetarBetas(
+        model=model,
+        controller=controller,
+        extratores=[extrator],
+    )
+    qtbot.addWidget(dialogo)
+
+    # Clicar em Iniciar Coleta dispara WorkerColetaBetas em background (QThread)
+    dialogo.btn_iniciar.click()
+    assert isinstance(dialogo.worker_ativo, WorkerColetaBetas)
+
+    qtbot.waitUntil(
+        lambda: dialogo.worker_ativo is None and len(croqui.curadoria_betas.conteudo.escaladas) == 2,
+        timeout=3000,
+    )
+    assert dialogo.barra_progresso.value() == 2
+    assert "2 novo(s) candidato(s)" in dialogo.label_progresso.text()
+    assert stack.count() == 1
+
+    # Testa cancelamento cooperativo diretamente no WorkerColetaBetas após a 1ª escalada
+    escaladas = extrair_escaladas_do_croqui(croqui)
+    worker_cancel = WorkerColetaBetas(
+        escaladas=escaladas,
+        extratores=[extrator],
+    )
+    worker_cancel.progresso_alterado.connect(
+        lambda idx, _total, _nome: worker_cancel.solicitar_cancelamento() if idx == 2 else None
+    )
+    resultados_finais: list = []
+    worker_cancel.concluido.connect(
+        lambda lote, cancelado: resultados_finais.append((lote, cancelado))
+    )
+    worker_cancel.run()
+    assert len(resultados_finais) == 1
+    lote_parcial, flag_cancelado = resultados_finais[0]
+    assert flag_cancelado is True
+    assert len(lote_parcial) == 1
+    assert lote_parcial[0][0] == "esc_1"
+

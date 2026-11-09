@@ -1,6 +1,6 @@
 # Princípios de Engenharia Aresta (`aresta_db`)
 
-Para garantir que o nosso código, seja ele escrito por humanos ou por agentes autônomos de IA (como Google Antigravity e OPSX), se mantenha coeso, testável, sustentável e simples, adotamos oito princípios basilares e inegociáveis.
+Para garantir que o nosso código, seja ele escrito por humanos ou por agentes autônomos de IA (como Google Antigravity e OPSX), se mantenha coeso, testável, sustentável e simples, adotamos nove princípios basilares e inegociáveis.
 
 Estes princípios devem guiar toda e qualquer nova implementação, revisão ou refatoração no repositório.
 
@@ -46,6 +46,12 @@ A existência de código ou testes legados no repositório que ainda não sigam 
 
 ## VIII. Edições de Estado via Comandos do Histórico (Undo/Redo)
 Toda e qualquer modificação no estado do croqui (seja no Protobuf, dados, imagens ou mapas) a partir da interface gráfica do editor deve ser realizada **obrigatoriamente** através do empilhamento de comandos na pilha global de histórico (`QUndoCommand` na pilha `historico`), e nunca por mutações diretas nos callbacks dos componentes gráficos. Isso garante que o estado do editor seja sempre passível de reversão (desfazer/refazer), auditoria e persistência no diário transacional de forma consistente e sincronizada.
+
+## IX. Responsividade Inegociável da UI e Execução Pesada em Background (Orçamento de Meio Frame)
+A thread principal de interface gráfica (Qt Event Loop / Main Thread) **JAMAIS** deve ser bloqueada por operações que excedam o orçamento de **meio frame (`~8ms` a 60fps / `~4ms` a 120fps)**, mantendo margem folgada abaixo do limite de um frame.
+- **Proibição de I/O e Processamento Pesado na UI Thread**: Qualquer rotina que envolva rede/HTTP, scraping, banco de dados, leitura/escrita de múltiplos arquivos em disco, subprocessos, compilação, renderização de PDFs/imagens pesadas ou loops sobre coleções grandes DEVE obrigatoriamente ser executada em background (`QThread` / worker assíncrono).
+- **Proibição de `processEvents()` como Muleta**: É estritamente proibido tentar "destravar" loops síncronos pesados na thread principal usando `QApplication.processEvents()`. Operações longas devem rodar fora da thread de UI, comunicando progresso e resultado exclusivamente via sinais (`Signal`) e aplicando mutações no `CroquiController` de forma atômica e coalescida na thread principal.
+- **Cancelamento Cooperativo e Feedback Visual**: Toda tarefa em background acionada pelo usuário deve fornecer feedback visual imediato de progresso e suportar cancelamento cooperativo sem congelar a janela.
 
 ---
 > **Nota para Agentes Autônomos**: Vocês estão estritamente obrigados a considerar este documento como diretriz de mais alta prioridade ao planejar arquitetura, sugerir refatorações, ou implementar novas rotinas (incluindo o uso do OpenSpec).

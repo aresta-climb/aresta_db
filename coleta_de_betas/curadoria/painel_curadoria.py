@@ -10,7 +10,7 @@ from collections.abc import Callable, Sequence
 from functools import partial
 from typing import Any
 
-from PySide6.QtCore import Qt
+from PySide6.QtCore import Qt, QTimer
 from PySide6.QtGui import QFont, QPixmap
 from PySide6.QtWidgets import (
     QApplication,
@@ -219,6 +219,17 @@ class CardBetaCuradoria(QFrame):
         if pixmap and not pixmap.isNull():
             self.label_thumbnail.setPixmap(pixmap)
 
+    def encerrar_worker(self) -> None:
+        """Desconecta e aguarda com segurança a finalização da QThread de thumbnail, se ativa."""
+        if self._worker_imagem is not None:
+            try:
+                self._worker_imagem.imagem_carregada.disconnect(self._ao_carregar_thumbnail)
+            except Exception:
+                pass
+            if self._worker_imagem.isRunning():
+                self._worker_imagem.wait(500)
+            self._worker_imagem = None
+
 
 class PainelCuradoria(QWidget):
     """
@@ -246,6 +257,9 @@ class PainelCuradoria(QWidget):
         self.cards_nao_scorados: list[CardBetaCuradoria] = []
         self.cards_aprovados: list[CardBetaCuradoria] = []
         self.cards_rejeitados: list[CardBetaCuradoria] = []
+        self._atualizacao_pendente: bool = False
+        self._agendado_timer: bool = False
+        self.total_atualizacoes_visualizacao: int = 0
 
         layout_principal = QVBoxLayout(self)
         layout_principal.setContentsMargins(12, 12, 12, 12)
@@ -338,6 +352,13 @@ class PainelCuradoria(QWidget):
                 "Execute a skill avaliar_betas_croqui para avaliar e pontuar os betas_nao_scorados deste croqui."
             )
 
+    @staticmethod
+    def _obter_pilha_undo(controller: Any) -> Any | None:
+        pilha = getattr(controller, "undo_stack", None)
+        if pilha is not None and hasattr(pilha, "obter_pilha"):
+            return pilha.obter_pilha()
+        return pilha
+
     def carregar_dados(self, model: Any, controller: Any) -> None:
         """Conecta o painel ao CroquiModel e ao CroquiController ativos e renderiza as 4 seções."""
         if self.model is not None and self.model is not model:
@@ -349,6 +370,15 @@ class PainelCuradoria(QWidget):
                     except Exception:
                         pass
 
+        pilha_antiga = self._obter_pilha_undo(self.controller)
+        if pilha_antiga is not None:
+            sig_idx_ant = getattr(pilha_antiga, "indexChanged", None)
+            if sig_idx_ant is not None:
+                try:
+                    sig_idx_ant.disconnect(self._ao_alterar_indice_undo)
+                except Exception:
+                    pass
+
         self.model = model
         self.controller = controller
 
@@ -358,10 +388,30 @@ class PainelCuradoria(QWidget):
                 if sig is not None:
                     sig.connect(self._ao_mutar_modelo)
 
+        pilha_nova = self._obter_pilha_undo(self.controller)
+        if pilha_nova is not None:
+            sig_idx_nova = getattr(pilha_nova, "indexChanged", None)
+            if sig_idx_nova is not None:
+                sig_idx_nova.connect(self._ao_alterar_indice_undo)
+
         self._popular_combo_escaladas()
         self.atualizar_visualizacao()
 
     def _ao_mutar_modelo(self, *_args: Any) -> None:
+        self._atualizacao_pendente = True
+        if not self._agendado_timer:
+            self._agendado_timer = True
+            QTimer.singleShot(0, self._processar_atualizacao_pendente)
+
+    def _ao_alterar_indice_undo(self, *_args: Any) -> None:
+        self._processar_atualizacao_pendente()
+
+    def _processar_atualizacao_pendente(self) -> None:
+        self._agendado_timer = False
+        if not self._atualizacao_pendente:
+            return
+        self._atualizacao_pendente = False
+        self._popular_combo_escaladas()
         self.atualizar_visualizacao()
 
     def _popular_combo_escaladas(self) -> None:
@@ -396,18 +446,24 @@ class PainelCuradoria(QWidget):
 
     @staticmethod
     def _limpar_layout(layout: QVBoxLayout, lista_cards: list[CardBetaCuradoria]) -> None:
+        for card in lista_cards:
+            card.encerrar_worker()
         lista_cards.clear()
         while layout.count():
             item = layout.takeAt(0)
             if item is not None:
                 w = item.widget()
                 if w is not None:
+                    if isinstance(w, CardBetaCuradoria):
+                        w.encerrar_worker()
                     w.hide()
                     w.setParent(None)
                     w.deleteLater()
 
     def atualizar_visualizacao(self) -> None:
         """Reconstrói os cards das 4 seções refletindo o estado atual do CroquiModel."""
+        self._atualizacao_pendente = False
+        self.total_atualizacoes_visualizacao += 1
         self._limpar_layout(self.layout_nao_revisados, self.cards_nao_revisados)
         self._limpar_layout(self.layout_nao_scorados, self.cards_nao_scorados)
         self._limpar_layout(self.layout_aprovados, self.cards_aprovados)

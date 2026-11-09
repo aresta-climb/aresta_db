@@ -4,7 +4,7 @@
 import pytest
 
 from aresta_api.proto.generated import beta_pb2
-from coleta_de_betas.extratores.blog import ExtratorBlog
+from coleta_de_betas.extratores.blog import ExtratorBlog, _BuscadorDuckDuckGoPadrao
 from coleta_de_betas.extratores.cliente_http_fake import (
     BuscadorWebFake,
     ClienteHttpFake,
@@ -143,3 +143,21 @@ def test_extrator_blog_propaga_erro_quando_buscador_falha() -> None:
 
     with pytest.raises(RuntimeError, match="Erro na busca de blogs"):
         extrator.buscar("Via Teste")
+
+
+def test_buscador_duckduckgo_padrao_usa_ddgs_sem_runtime_warning() -> None:
+    class _SessaoDdgsFake:
+        def __enter__(self):
+            return self
+
+        def __exit__(self, exc_type, exc_val, exc_tb):
+            return False
+
+        def text(self, query: str, max_results: int = 10) -> list[dict[str, str]]:
+            return [{"href": "https://blog.com/post", "title": query, "body": str(max_results)}]
+
+    buscador_padrao = _BuscadorDuckDuckGoPadrao(fabrica_ddgs=_SessaoDdgsFake)
+    res = buscador_padrao.buscar_texto("Via Teste", max_resultados=5)
+    assert res == [{"href": "https://blog.com/post", "title": "Via Teste", "body": "5"}]
+    assert _BuscadorDuckDuckGoPadrao()._fabrica_ddgs.__module__.startswith("ddgs")
+
