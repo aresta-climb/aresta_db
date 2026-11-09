@@ -373,7 +373,7 @@ def gerar_malha_estrada_pico(
                 "croqui_uid": croqui_uid,
                 "no_osm_id": nid,
                 "distancia_metros": dist_m,
-                "e_portal_borda": 1 if nid in portais_borda else 0,
+                "na_borda": 1 if nid in portais_borda else 0,
             }
         )
 
@@ -438,7 +438,7 @@ def construir_malha_estrada_pico_proto(
         item.latitude_e7 = no_osm["latitude_e7"]
         item.longitude_e7 = no_osm["longitude_e7"]
         item.distancia_metros = dist_info["distancia_metros"]
-        item.e_portal_borda = bool(dist_info.get("e_portal_borda", 0))
+        item.na_borda = bool(dist_info.get("na_borda", 0))
     return malha_msg
 
 
@@ -471,7 +471,7 @@ def extrair_linhas_malha_de_pico_proto(
                 "croqui_uid": croqui_uid,
                 "no_osm_id": nid,
                 "distancia_metros": int(no.distancia_metros),
-                "e_portal_borda": 1 if no.e_portal_borda else 0,
+                "na_borda": 1 if no.na_borda else 0,
             }
         )
     return nos_saida, distancias_saida

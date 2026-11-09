@@ -263,12 +263,12 @@ def aplicar_upserts_e_deletes_d1(cliente: ClienteCloudflareD1, deltas: dict[str,
                     d["croqui_uid"],
                     d["no_osm_id"],
                     d["distancia_metros"],
-                    d.get("e_portal_borda", 0),
+                    d.get("na_borda", 0),
                 ]
             )
         cliente.executar_query(
             "INSERT OR REPLACE INTO catalogo_distancias_estrada "
-            "(croqui_uid, no_osm_id, distancia_metros, e_portal_borda) "
+            "(croqui_uid, no_osm_id, distancia_metros, na_borda) "
             f"VALUES {marcadores}",
             parametros_dists,
         )

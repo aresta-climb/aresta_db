@@ -335,8 +335,8 @@ def test_calcular_deltas_malha_estrada_upserts_e_deletes(tmp_path: Path) -> None
             {"no_osm_id": 20, "latitude_e7": -196000000, "longitude_e7": -438000000},
         ],
         [
-            {"croqui_uid": "c1", "no_osm_id": 10, "distancia_metros": 0, "e_portal_borda": 0},
-            {"croqui_uid": "c1", "no_osm_id": 20, "distancia_metros": 15000, "e_portal_borda": 1},
+            {"croqui_uid": "c1", "no_osm_id": 10, "distancia_metros": 0, "na_borda": 0},
+            {"croqui_uid": "c1", "no_osm_id": 20, "distancia_metros": 15000, "na_borda": 1},
         ],
     )
     con_ant.close()
@@ -352,8 +352,8 @@ def test_calcular_deltas_malha_estrada_upserts_e_deletes(tmp_path: Path) -> None
             {"no_osm_id": 30, "latitude_e7": -197000000, "longitude_e7": -437000000},
         ],
         [
-            {"croqui_uid": "c1", "no_osm_id": 10, "distancia_metros": 500, "e_portal_borda": 0},
-            {"croqui_uid": "c1", "no_osm_id": 30, "distancia_metros": 25000, "e_portal_borda": 1},
+            {"croqui_uid": "c1", "no_osm_id": 10, "distancia_metros": 500, "na_borda": 0},
+            {"croqui_uid": "c1", "no_osm_id": 30, "distancia_metros": 25000, "na_borda": 1},
         ],
     )
     con_novo.close()

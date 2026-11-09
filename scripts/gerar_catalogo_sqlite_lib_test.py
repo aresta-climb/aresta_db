@@ -1032,7 +1032,7 @@ def test_gerar_catalogo_persiste_preserva_e_limpa_malha_estrada_com_cliente_over
             "INSERT INTO catalogo_nos_estrada (no_osm_id, latitude_e7, longitude_e7) VALUES (9999, -190000000, -430000000)"
         )
         con.execute(
-            "INSERT INTO catalogo_distancias_estrada (croqui_uid, no_osm_id, distancia_metros, e_portal_borda) "
+            "INSERT INTO catalogo_distancias_estrada (croqui_uid, no_osm_id, distancia_metros, na_borda) "
             "VALUES ('uid_inexistente', 9999, 1000, 0)"
         )
         con.commit()
@@ -1066,13 +1066,13 @@ def test_gerar_catalogo_completo_extrai_malha_estrada_offline_do_pico_e_descarta
     no1.latitude_e7 = -195600000
     no1.longitude_e7 = -439600000
     no1.distancia_metros = 0
-    no1.e_portal_borda = False
+    no1.na_borda = False
     no2 = c1.picos[0].malha_estrada.nos.add()
     no2.no_osm_id = 501
     no2.latitude_e7 = -194500000
     no2.longitude_e7 = -437800000
     no2.distancia_metros = 8500
-    no2.e_portal_borda = True
+    no2.na_borda = True
     (c1_dir / "compilado.binarypb").write_bytes(c1.SerializeToString())
 
     caminho_db = pasta_gerados / "catalogo.db"
@@ -1082,7 +1082,7 @@ def test_gerar_catalogo_completo_extrai_malha_estrada_offline_do_pico_e_descarta
 
     with contextlib.closing(sqlite3.connect(caminho_db)) as con:
         dists = con.execute(
-            "SELECT no_osm_id, distancia_metros, e_portal_borda "
+            "SELECT no_osm_id, distancia_metros, na_borda "
             "FROM catalogo_distancias_estrada WHERE croqui_uid = 'uid_lapinha_offline' ORDER BY no_osm_id"
         ).fetchall()
         assert dists == [(500, 0, 0), (501, 8500, 1)]

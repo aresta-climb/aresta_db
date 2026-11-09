@@ -81,7 +81,7 @@ CREATE TABLE catalogo_distancias_estrada (
     croqui_uid TEXT NOT NULL,
     no_osm_id INTEGER NOT NULL,
     distancia_metros INTEGER NOT NULL,
-    e_portal_borda INTEGER NOT NULL DEFAULT 0,
+    na_borda INTEGER NOT NULL DEFAULT 0,
     PRIMARY KEY (croqui_uid, no_osm_id)
 );
 

@@ -278,7 +278,7 @@ def test_aplicar_upserts_e_deletes_d1_em_lotes() -> None:
                     "croqui_uid": "c0",
                     "no_osm_id": 1000 + i,
                     "distancia_metros": i * 1000,
-                    "e_portal_borda": 1 if i == 24 else 0,
+                    "na_borda": 1 if i == 24 else 0,
                 }
                 for i in range(25)
             ],

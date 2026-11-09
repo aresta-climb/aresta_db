@@ -124,7 +124,7 @@ def test_malha_estrada_pico_proto_conversao_e_deteccao_de_defasagem() -> None:
     assert [n["no_osm_id"] for n in nos] == [100, 101]
     assert [d["croqui_uid"] for d in dists] == ["uid_1", "uid_1"]
     assert dists[0]["distancia_metros"] == 0
-    assert dists[1]["e_portal_borda"] == 1
+    assert dists[1]["na_borda"] == 1
 
     # Ao alterar a coordenada do pico sem regerar a malha, ela passa a ser detectada como defasada
     pico.localizacao.latitude = -201000000
@@ -270,7 +270,7 @@ def test_amostragem_tres_aneis_deduplica_pela_prioridade_intrinseca_e_marca_port
     assert 7 in ids_escolhidos
     assert 8 not in ids_escolhidos
 
-    portais = {d["no_osm_id"] for d in distancias if d["e_portal_borda"] == 1}
+    portais = {d["no_osm_id"] for d in distancias if d["na_borda"] == 1}
     assert portais == {6, 7}
 
     # Verifica que prioridade_intrinseca_no é determinística

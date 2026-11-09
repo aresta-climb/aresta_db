@@ -20,7 +20,7 @@ O gerador de malha rodoviária SHALL consultar a Overpass API (com cabeçalho `U
 ## ADDED Requirements
 
 ### Requirement: Persistência pré-computada da malha rodoviária no modelo do Pico
-O modelo `Pico` no Protobuf (`croqui.proto`) e no arquivo fonte `database/<id>/croqui.yaml` SHALL armazenar a malha rodoviária pré-computada em `malha_estrada`, contendo a coordenada de referência (`latitude_referencia_e7` e `longitude_referencia_e7`) para a qual os pontos foram calculados e a lista ordenada de nós (`no_osm_id`, `latitude_e7`, `longitude_e7`, `distancia_metros` e `e_portal_borda`).
+O modelo `Pico` no Protobuf (`croqui.proto`) e no arquivo fonte `database/<id>/croqui.yaml` SHALL armazenar a malha rodoviária pré-computada em `malha_estrada`, contendo a coordenada de referência (`latitude_referencia_e7` e `longitude_referencia_e7`) para a qual os pontos foram calculados e a lista ordenada de nós (`no_osm_id`, `latitude_e7`, `longitude_e7`, `distancia_metros` e `na_borda`).
 
 #### Scenario: Validação de sincronia entre a malha pré-computada e a localização atual do pico
 - **WHEN** `pico.malha_estrada` possui ao menos um nó e `latitude_referencia_e7 == pico.localizacao.latitude` e `longitude_referencia_e7 == pico.localizacao.longitude`

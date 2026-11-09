@@ -42,7 +42,7 @@ Conforme descrito em `proposal.md`, o contrato em `aresta_api` (`sql/catalogo.sq
     - **Anel 3 ($60\text{ km} < d \le 180\text{ km}$)**: passo de grade `0.18°`, aceita `rank_rodovia <= 3` (até `secondary`).
   - Em cada célula `(math.floor(lat / passo), math.floor(lon / passo))`, eleger o único nó vencedor que minimiza a tupla:
     $$\text{prioridade}(\text{nó}) = \big(\text{rank\_rodovia},\; -\text{grau\_cruzamento},\; \text{zlib.crc32}(str(\text{no\_osm\_id}).encode())\big)$$
-  - **Portais de Borda (`e_portal_borda = 1`)**: Dividir os nós amostrados no anel mais externo disponível do pico em 8 octantes direcionais ($0 \dots 7$, cada um de $45^\circ$ a partir do pico) e marcar como portal (`e_portal_borda = 1`) o nó mais externo (maior distância geodésica ao pico, desempatando por menor prioridade intrínseca) em cada octante ocupado.
+  - **Portais de Borda (`na_borda = 1`)**: Dividir os nós amostrados no anel mais externo disponível do pico em 8 octantes direcionais ($0 \dots 7$, cada um de $45^\circ$ a partir do pico) e marcar como portal (`na_borda = 1`) o nó mais externo (maior distância geodésica ao pico, desempatando por menor prioridade intrínseca) em cada octante ocupado.
 
 ### 4. Persistência Incremental em `gerar_catalogo_sqlite_lib.py`
 - **Decisão**:

@@ -404,14 +404,14 @@ def inserir_malha_estrada_croqui(
         cursor.execute(
             """
             INSERT OR REPLACE INTO catalogo_distancias_estrada (
-                croqui_uid, no_osm_id, distancia_metros, e_portal_borda
+                croqui_uid, no_osm_id, distancia_metros, na_borda
             ) VALUES (?, ?, ?, ?)
             """,
             (
                 dist["croqui_uid"],
                 dist["no_osm_id"],
                 dist["distancia_metros"],
-                dist.get("e_portal_borda", 0),
+                dist.get("na_borda", 0),
             ),
         )
 
@@ -493,7 +493,7 @@ def calcular_versao_catalogo(conexao: sqlite3.Connection) -> str:
         hasher.update(repr(linha).encode("utf-8"))
 
     for linha in cursor.execute(
-        "SELECT croqui_uid, no_osm_id, distancia_metros, e_portal_borda "
+        "SELECT croqui_uid, no_osm_id, distancia_metros, na_borda "
         "FROM catalogo_distancias_estrada ORDER BY croqui_uid, no_osm_id"
     ):
         hasher.update(repr(linha).encode("utf-8"))
@@ -696,12 +696,12 @@ def gerar_catalogo_completo(
                         croqui_uid, pico_principal
                     )
                     atuais_malha = conexao.execute(
-                        "SELECT no_osm_id, distancia_metros, e_portal_borda "
+                        "SELECT no_osm_id, distancia_metros, na_borda "
                         "FROM catalogo_distancias_estrada WHERE croqui_uid = ? ORDER BY no_osm_id",
                         (croqui_uid,),
                     ).fetchall()
                     esperados_malha = sorted(
-                        (d["no_osm_id"], d["distancia_metros"], d["e_portal_borda"])
+                        (d["no_osm_id"], d["distancia_metros"], d["na_borda"])
                         for d in dists_osm
                     )
                     if atuais_malha != esperados_malha:

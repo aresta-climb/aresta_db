@@ -32,14 +32,14 @@ A partir do `no_pico`, o sistema SHALL executar o algoritmo de Dijkstra sobre o 
 - **THEN** `distancia_metros` registrada para o nó amostrado reflete a soma dos comprimentos dos segmentos do caminho mínimo (~42000 m).
 
 ### Requirement: Eleição de portais de borda nos octantes externos da malha
-O gerador SHALL identificar até 8 portais de borda (`e_portal_borda = 1`), correspondendo a um nó rodoviário principal na faixa externa da malha para cada um dos 8 octantes direcionais (N, NE, L, SE, S, SO, O, NO) em torno do pico.
+O gerador SHALL identificar até 8 portais de borda (`na_borda = 1`), correspondendo a um nó rodoviário principal na faixa externa da malha para cada um dos 8 octantes direcionais (N, NE, L, SE, S, SO, O, NO) em torno do pico.
 
 #### Scenario: Marcação de portais de borda por octante direcional
 - **WHEN** a malha de um pico possui nós alcançáveis distribuídos em diferentes direções cardeais e colaterais no anel externo
-- **THEN** o sistema marca `e_portal_borda = 1` para o nó representante de cada octante ocupado (até 8 portais) e `e_portal_borda = 0` para os demais nós.
+- **THEN** o sistema marca `na_borda = 1` para o nó representante de cada octante ocupado (até 8 portais) e `na_borda = 0` para os demais nós.
 
 ### Requirement: Persistência pré-computada da malha rodoviária no modelo do Pico
-O modelo `Pico` no Protobuf (`croqui.proto`) e no arquivo fonte `database/<id>/croqui.yaml` SHALL armazenar a malha rodoviária pré-computada em `malha_estrada`, contendo a coordenada de referência (`latitude_referencia_e7` e `longitude_referencia_e7`) para a qual os pontos foram calculados e a lista ordenada de nós (`no_osm_id`, `latitude_e7`, `longitude_e7`, `distancia_metros` e `e_portal_borda`).
+O modelo `Pico` no Protobuf (`croqui.proto`) e no arquivo fonte `database/<id>/croqui.yaml` SHALL armazenar a malha rodoviária pré-computada em `malha_estrada`, contendo a coordenada de referência (`latitude_referencia_e7` e `longitude_referencia_e7`) para a qual os pontos foram calculados e a lista ordenada de nós (`no_osm_id`, `latitude_e7`, `longitude_e7`, `distancia_metros` e `na_borda`).
 
 #### Scenario: Validação de sincronia entre a malha pré-computada e a localização atual do pico
 - **WHEN** `pico.malha_estrada` possui ao menos um nó e `latitude_referencia_e7 == pico.localizacao.latitude` e `longitude_referencia_e7 == pico.localizacao.longitude`

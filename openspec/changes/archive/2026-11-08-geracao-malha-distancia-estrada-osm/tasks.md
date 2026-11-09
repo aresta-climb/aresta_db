@@ -6,7 +6,7 @@
 
 ## 2. Biblioteca de Extração OSM, Dijkstra Invertido e Amostragem 3 Anéis (`scripts/gerar_malha_estrada_lib.py`)
 
-- [x] 2.1 Criar os testes espelhados `scripts/cliente_overpass_fake_test.py` e `scripts/gerar_malha_estrada_lib_test.py` cobrindo: cliente Fake da Overpass API (respostas pré-configuradas e simulação de erro), filtragem do maior componente conexo descartando ilhas isoladas, inclusão do nó do estacionamento (`distancia_metros = 0`), Dijkstra invertido ponderado por Haversine, deduplicação determinística nos 3 anéis concêntricos (`0.02°`, `0.06°`, `0.18°`) pela tupla `(rank_rodovia, -grau_cruzamento, crc32(no_osm_id))` e marcação de até 8 portais de borda (`e_portal_borda = 1`), verificando a falha inicial (Red) via `pytest`
+- [x] 2.1 Criar os testes espelhados `scripts/cliente_overpass_fake_test.py` e `scripts/gerar_malha_estrada_lib_test.py` cobrindo: cliente Fake da Overpass API (respostas pré-configuradas e simulação de erro), filtragem do maior componente conexo descartando ilhas isoladas, inclusão do nó do estacionamento (`distancia_metros = 0`), Dijkstra invertido ponderado por Haversine, deduplicação determinística nos 3 anéis concêntricos (`0.02°`, `0.06°`, `0.18°`) pela tupla `(rank_rodovia, -grau_cruzamento, crc32(no_osm_id))` e marcação de até 8 portais de borda (`na_borda = 1`), verificando a falha inicial (Red) via `pytest`
 - [x] 2.2 Implementar `scripts/cliente_overpass_fake.py` e `scripts/gerar_malha_estrada_lib.py` em Python puro (com tipagem estrita `mypy --strict`) e verificar que `pytest scripts/cliente_overpass_fake_test.py scripts/gerar_malha_estrada_lib_test.py --cov` passa com 100% de cobertura
 
 ## 3. Persistência Incremental da Malha no `catalogo.db` (`scripts/gerar_catalogo_sqlite_lib.py`)

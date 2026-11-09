@@ -76,7 +76,7 @@ def calcular_deltas_catalogo(
             resultado["nos_estrada"]["upserts"] = [dict(row) for row in cur.fetchall()]
 
             cur.execute(
-                "SELECT croqui_uid, no_osm_id, distancia_metros, e_portal_borda "
+                "SELECT croqui_uid, no_osm_id, distancia_metros, na_borda "
                 "FROM catalogo_distancias_estrada ORDER BY croqui_uid, no_osm_id"
             )
             resultado["distancias_estrada"]["upserts"] = [dict(row) for row in cur.fetchall()]
@@ -155,9 +155,9 @@ def calcular_deltas_catalogo(
         # 6. Distâncias de Estrada: Upserts e Deletes (por croqui_uid)
         cur.execute(
             """
-            SELECT croqui_uid, no_osm_id, distancia_metros, e_portal_borda FROM catalogo_distancias_estrada
+            SELECT croqui_uid, no_osm_id, distancia_metros, na_borda FROM catalogo_distancias_estrada
             EXCEPT
-            SELECT croqui_uid, no_osm_id, distancia_metros, e_portal_borda FROM anterior.catalogo_distancias_estrada
+            SELECT croqui_uid, no_osm_id, distancia_metros, na_borda FROM anterior.catalogo_distancias_estrada
             ORDER BY croqui_uid, no_osm_id
             """
         )
