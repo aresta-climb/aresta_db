@@ -1781,6 +1781,14 @@ class DeployGeneratedTest(unittest.TestCase):
                 cache_md={
                     "setor_a.md": (fm_setor_a, "Corpo A"),
                     "setor_b.md": (fm_setor_b_mod, "Corpo B"),
+                    "malha_estrada.yaml": (
+                        {
+                            "latitude_referencia_e7": -195600000,
+                            "longitude_referencia_e7": -439600000,
+                            "nos": [{"no_osm_id": 500, "distancia_metros": 0}],
+                        },
+                        "",
+                    ),
                 },
                 corpos_brutos_md={
                     "setor_a.md": "\nCorpo A\n",
@@ -1788,6 +1796,9 @@ class DeployGeneratedTest(unittest.TestCase):
                 },
             )
             deploy_generated.persistir_contexto_memoria_no_disco(cdir, ctx2)
+            # Reexecuta persistir_contexto_memoria_no_disco com malha_estrada.yaml inalterada no snapshot
+            deploy_generated.persistir_contexto_memoria_no_disco(cdir, ctx2)
+            self.assertTrue((cdir / "malha_estrada.yaml").is_file())
             self.assertIn(
                 "Setor B Modificado",
                 (cdir / "setor_b.md").read_text(encoding="utf-8"),

@@ -18,3 +18,8 @@ Todos os pontos de entrada e substituição de imagens do editor utilizam os di�
   - Selecionar ou trocar imagens de campos Protobuf no `WidgetCampoImagem` (com suporte a destino fixo como `thumbnail.webp` e orçamento de área customizado).
   - Substituir imagens selecionadas no `WidgetEditorImagens` em modo de destino fixo.
 - **`dialogos/dialogo_inserir_imagem_markdown.py` (`DialogoInserirImagemMarkdown`)**: Diálogo de inserção de imagens em campos Markdown (`![alt](imagens/...)`), compartilhando os mesmos recursos de Drag & Drop, recorte interativo e seleção da galeria `"Imagens do Croqui"`.
+
+## Coordenadas Geográficas e Geração de Malha Rodoviária (`widget_mensagem_coordenada.py`)
+
+- **`WidgetMensagemCoordenada`**: Renderiza campos `Coordenada` em E7 com conversão bidirecional para graus decimais, abertura externa no Google Maps e, exclusivamente para `pico.localizacao`, o botão `"Gerar Mapa de Pontos"` com resumo de nós da malha rodoviária OSM (`pico.malha_estrada.conteudo`).
+- **`DialogoProgressoMalhaEstrada` e `WorkerGeracaoMalhaEstrada`**: Executam a consulta Overpass API e simplificação do grafo rodoviário em uma `QThread` em background com barra de progresso (`0–100%`), log de etapas em tempo real e suporte a cancelamento cooperativo sem bloquear a interface do editor.

@@ -815,6 +815,16 @@ def test_gerar_catalogo_completo_exporta_tres_csvs_ordenados_e_preserva_quando_i
     c1 = _criar_croqui_exemplo()
     c1.uid = "croqui_z"
     c1.id = "br_mg_ferros_c1"
+    c1.picos[0].localizacao.latitude = -195600000
+    c1.picos[0].localizacao.longitude = -439600000
+    c1.picos[0].malha_estrada.conteudo.latitude_referencia_e7 = -195600000
+    c1.picos[0].malha_estrada.conteudo.longitude_referencia_e7 = -439600000
+    no_csv = c1.picos[0].malha_estrada.conteudo.nos.add()
+    no_csv.no_osm_id = 777
+    no_csv.latitude_e7 = -195600000
+    no_csv.longitude_e7 = -439600000
+    no_csv.distancia_metros = 310
+    no_csv.na_borda = True
     (c1_dir / "compilado.binarypb").write_bytes(c1.SerializeToString())
 
     c2 = croqui_pb2.Croqui(uid="croqui_a", id="br_mg_araxa_c2", nome="Croqui Araxá")
@@ -829,10 +839,14 @@ def test_gerar_catalogo_completo_exporta_tres_csvs_ordenados_e_preserva_quando_i
 
     csv_croquis = pasta_gerados / "catalogo_croquis.csv"
     csv_aresta = pasta_gerados / "catalogo_aresta.csv"
+    csv_nos_estrada = pasta_gerados / "catalogo_nos_estrada.csv"
+    csv_distancias_estrada = pasta_gerados / "catalogo_distancias_estrada.csv"
     csv_meta = pasta_gerados / "catalogo_meta.csv"
 
     assert csv_croquis.is_file()
     assert csv_aresta.is_file()
+    assert csv_nos_estrada.is_file()
+    assert csv_distancias_estrada.is_file()
     assert csv_meta.is_file()
 
     # 1. Verifica catalogo_croquis.csv (sem atualizado_em, ordenado por id_slug, croqui_uid)
@@ -862,6 +876,20 @@ def test_gerar_catalogo_completo_exporta_tres_csvs_ordenados_e_preserva_quando_i
     assert len(uids_croqui_z) == 9
     assert uids_croqui_z == sorted(uids_croqui_z)
 
+    # 2.5. Verifica catalogo_nos_estrada.csv e catalogo_distancias_estrada.csv
+    linhas_nos = list(csv.reader(csv_nos_estrada.read_text(encoding="utf-8").splitlines()))
+    assert linhas_nos == [
+        ["no_osm_id", "latitude_e7", "longitude_e7"],
+        ["777", "-195600000", "-439600000"],
+    ]
+    linhas_dists = list(
+        csv.reader(csv_distancias_estrada.read_text(encoding="utf-8").splitlines())
+    )
+    assert linhas_dists == [
+        ["croqui_uid", "no_osm_id", "distancia_metros", "na_borda"],
+        ["croqui_z", "777", "310", "1"],
+    ]
+
     # 3. Verifica catalogo_meta.csv
     linhas_meta = list(csv.reader(csv_meta.read_text(encoding="utf-8").splitlines()))
     assert linhas_meta == [
@@ -869,19 +897,20 @@ def test_gerar_catalogo_completo_exporta_tres_csvs_ordenados_e_preserva_quando_i
         ["versao_catalogo", obter_versao_catalogo(caminho_db)],
     ]
 
-    # 4. Short-circuit: se nada mudou e os 3 CSVs existem, não reescreve no disco
+    # 4. Short-circuit: se nada mudou e os 5 CSVs existem, não reescreve no disco
     mtime_antigo = 1_600_000_000_000_000_000
-    for arq in (csv_croquis, csv_aresta, csv_meta):
+    todos_csvs = (csv_croquis, csv_aresta, csv_nos_estrada, csv_distancias_estrada, csv_meta)
+    for arq in todos_csvs:
         os.utime(arq, ns=(mtime_antigo, mtime_antigo))
 
     gerar_catalogo_completo(pasta_gerados, caminho_db, alvos=["br_mg_ferros_c1"])
-    for arq in (csv_croquis, csv_aresta, csv_meta):
+    for arq in todos_csvs:
         assert arq.stat().st_mtime_ns == mtime_antigo
 
     # 5. Se um dos arquivos CSV for apagado, deve recriá-lo mesmo sem mudança no SQLite
-    csv_meta.unlink()
+    csv_distancias_estrada.unlink()
     gerar_catalogo_completo(pasta_gerados, caminho_db, alvos=["br_mg_ferros_c1"])
-    assert csv_meta.is_file()
+    assert csv_distancias_estrada.is_file()
 
 
 def test_gerar_catalogo_completo_ignora_e_remove_croquis_rascunho_nao_publicados(
@@ -1059,15 +1088,15 @@ def test_gerar_catalogo_completo_extrai_malha_estrada_offline_do_pico_e_descarta
     c1.id = "br_mg_lagoa_santa_lapinha"
     c1.picos[0].localizacao.latitude = -195600000
     c1.picos[0].localizacao.longitude = -439600000
-    c1.picos[0].malha_estrada.latitude_referencia_e7 = -195600000
-    c1.picos[0].malha_estrada.longitude_referencia_e7 = -439600000
-    no1 = c1.picos[0].malha_estrada.nos.add()
+    c1.picos[0].malha_estrada.conteudo.latitude_referencia_e7 = -195600000
+    c1.picos[0].malha_estrada.conteudo.longitude_referencia_e7 = -439600000
+    no1 = c1.picos[0].malha_estrada.conteudo.nos.add()
     no1.no_osm_id = 500
     no1.latitude_e7 = -195600000
     no1.longitude_e7 = -439600000
     no1.distancia_metros = 0
     no1.na_borda = False
-    no2 = c1.picos[0].malha_estrada.nos.add()
+    no2 = c1.picos[0].malha_estrada.conteudo.nos.add()
     no2.no_osm_id = 501
     no2.latitude_e7 = -194500000
     no2.longitude_e7 = -437800000

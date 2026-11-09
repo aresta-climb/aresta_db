@@ -10,7 +10,11 @@ from aresta_api.proto.generated.croqui_pb2 import Coordenada
 from editor.controllers.croqui_controller import CroquiController
 from editor.models.croqui_model import CroquiModel
 from editor.views.widget_campo_coordenada_e7 import DialogoConfirmarCoordenadas
-from editor.views.widget_mensagem_coordenada import WidgetMensagemCoordenada
+from editor.views.widget_mensagem_coordenada import (
+    DialogoProgressoMalhaEstrada,
+    WidgetMensagemCoordenada,
+    WorkerGeracaoMalhaEstrada,
+)
 
 
 class TestWidgetMensagemCoordenada:
@@ -451,11 +455,14 @@ class TestWidgetMensagemCoordenada:
         widget.edit_lon.setText("-44.0")
         widget._confirmar_edicao_lon()
 
-        assert len(pico.malha_estrada.nos) == 2
-        assert pico.malha_estrada.latitude_referencia_e7 == -200000000
-        assert pico.malha_estrada.longitude_referencia_e7 == -440000000
+        assert len(pico.malha_estrada.conteudo.nos) == 2
+        assert pico.malha_estrada.conteudo.latitude_referencia_e7 == -200000000
+        assert pico.malha_estrada.conteudo.longitude_referencia_e7 == -440000000
         assert "✅" in widget.rotulo_status_malha.text()
         assert widget.rotulo_status_malha.isVisible() is True
+        assert widget.ultimo_dialogo_progresso is not None
+        assert widget.ultimo_dialogo_progresso.barra_progresso.value() == 100
+        assert "100%" in widget.ultimo_dialogo_progresso.lista_etapas.toPlainText()
 
         # Se a malha for limpa ou a coordenada mudar sem regerar, exibe o warning
         pico.ClearField("malha_estrada")
@@ -465,17 +472,17 @@ class TestWidgetMensagemCoordenada:
 
         # Clicar no botão "Gerar Mapa de Pontos" regera via controller com suporte a Undo/Redo
         widget.btn_gerar_malha.click()
-        assert len(pico.malha_estrada.nos) == 2
+        assert len(pico.malha_estrada.conteudo.nos) == 2
         assert "✅" in widget.rotulo_status_malha.text()
 
         # Undo desfaz a geração da malha e volta a mostrar o warning
         undo_stack.undo()
-        assert len(pico.malha_estrada.nos) == 0
+        assert len(pico.malha_estrada.conteudo.nos) == 0
         assert "⚠️" in widget.rotulo_status_malha.text()
 
         # Redo restaura a malha e o status positivo
         undo_stack.redo()
-        assert len(pico.malha_estrada.nos) == 2
+        assert len(pico.malha_estrada.conteudo.nos) == 2
         assert "✅" in widget.rotulo_status_malha.text()
 
     def test_pico_localizacao_sem_controller_e_falha_rede_degrada_graciosamente(self, qtbot):
@@ -503,7 +510,7 @@ class TestWidgetMensagemCoordenada:
         sucesso = widget.gerar_malha_pontos_estrada()
         assert sucesso is False
         assert "⚠️" in widget.rotulo_status_malha.text()
-        assert len(pico.malha_estrada.nos) == 0
+        assert len(pico.malha_estrada.conteudo.nos) == 0
 
         # Quando a rede volta a funcionar (sem controller, direto na msg), grava em pico.malha_estrada
         fake_falha.simular_erro = None
@@ -518,5 +525,46 @@ class TestWidgetMensagemCoordenada:
         )
         sucesso_ok = widget.gerar_malha_pontos_estrada()
         assert sucesso_ok is True
-        assert len(pico.malha_estrada.nos) == 2
+        assert len(pico.malha_estrada.conteudo.nos) == 2
         assert "✅" in widget.rotulo_status_malha.text()
+
+    def test_dialogo_progresso_malha_estrada_permite_cancelar_sem_alterar_pico(self, qtbot):
+        from aresta_api.proto.generated.croqui_pb2 import Pico
+        from scripts.cliente_overpass_fake import ClienteOverpassFake
+
+        pico = Pico(nome="Pico Cancelado")
+        pico.localizacao.latitude = -200000000
+        pico.localizacao.longitude = -440000000
+
+        fake = ClienteOverpassFake(
+            elementos_padrao=[
+                {"type": "node", "id": 100, "lat": -20.0010, "lon": -44.0010},
+                {"type": "node", "id": 101, "lat": -20.0300, "lon": -44.0010},
+                {"type": "way", "id": 10, "nodes": [100, 101], "tags": {"highway": "primary"}},
+            ]
+        )
+        worker = WorkerGeracaoMalhaEstrada(-200000000, -440000000, fake)
+        dialogo = DialogoProgressoMalhaEstrada(worker)
+        qtbot.addWidget(dialogo)
+
+        # Solicita cancelamento pelo botão Cancelar antes/durante a execução
+        dialogo.btn_cancelar.click()
+        assert worker.foi_cancelado() is True
+        worker.run()
+        assert dialogo.resultado_malha is None
+        assert len(pico.malha_estrada.conteudo.nos) == 0
+
+        # Verifica emissão direta de concluido_com_sucesso e falhou pelo worker
+        worker_ok = WorkerGeracaoMalhaEstrada(-200000000, -440000000, fake)
+        dialogo_ok = DialogoProgressoMalhaEstrada(worker_ok)
+        qtbot.addWidget(dialogo_ok)
+        worker_ok.run()
+        assert dialogo_ok.resultado_malha is not None
+        assert len(dialogo_ok.resultado_malha.nos) == 2
+
+        fake_erro = ClienteOverpassFake(simular_erro=RuntimeError("Falha simulada"))
+        worker_erro = WorkerGeracaoMalhaEstrada(-200000000, -440000000, fake_erro)
+        dialogo_erro = DialogoProgressoMalhaEstrada(worker_erro)
+        qtbot.addWidget(dialogo_erro)
+        worker_erro.run()
+        assert dialogo_erro.mensagem_erro == "Falha simulada"

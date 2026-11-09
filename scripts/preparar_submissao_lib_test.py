@@ -3664,3 +3664,77 @@ def test_corrigir_database_sem_snapshot_rglob_e_modo_em_memoria(tmp_path: Path) 
         persistir_no_disco=False,
     )
     assert modificou_segunda is False
+
+
+def test_compilar_croqui_e_corrigir_database_com_malha_estrada_yaml(tmp_path: Path) -> None:
+    """
+    Valida que corrigir_database preserva malha_estrada.yaml referenciado, injeta SPDX nele,
+    remove .yaml órfão não referenciado, e compilar_croqui expande malha_estrada.conteudo no binarypb.
+    """
+    from scripts.migrador import obter_ultima_versao_migracao
+
+    pico_dir = tmp_path / "croqui_malha"
+    pico_dir.mkdir()
+
+    malha_yaml = pico_dir / "malha_estrada.yaml"
+    malha_yaml.write_text(
+        serializar_yaml(
+            {
+                "latitude_referencia_e7": -195622616,
+                "longitude_referencia_e7": -439595684,
+                "nos": [
+                    {
+                        "no_osm_id": 999888,
+                        "latitude_e7": -195600000,
+                        "longitude_e7": -439580000,
+                        "distancia_metros": 320,
+                        "na_borda": True,
+                    }
+                ],
+            },
+            incluir_cabecalho_spdx=False,
+        ),
+        encoding="utf-8",
+    )
+    orfao_yaml = pico_dir / "malha_antiga_orfa.yaml"
+    orfao_yaml.write_text("nos: []\n", encoding="utf-8")
+
+    croqui_yaml = pico_dir / "croqui.yaml"
+    croqui_yaml.write_text(
+        serializar_yaml(
+            {
+                "uid": gerar_uid(),
+                "id": "croqui_malha",
+                "nome": "Croqui Com Malha",
+                "ultima_migracao": obter_ultima_versao_migracao(),
+                "picos": [
+                    {
+                        "nome": "Pico Malha",
+                        "localizacao": {"latitude": -195622616, "longitude": -439595684},
+                        "malha_estrada": {"caminho": "malha_estrada.yaml"},
+                    }
+                ],
+            },
+            incluir_cabecalho_spdx=True,
+        ),
+        encoding="utf-8",
+    )
+
+    assert corrigir_database(pico_dir) is True
+    assert malha_yaml.exists()
+    assert not orfao_yaml.exists()
+    assert malha_yaml.read_text(encoding="utf-8").startswith(
+        "# SPDX-License-Identifier: ODbL-1.0\n"
+    )
+
+    destino_pb = tmp_path / "compilado.binarypb"
+    compilado = compilar_croqui(pico_dir, None, destino_pb)
+    assert compilado["picos"][0]["malha_estrada"]["conteudo"]["latitude_referencia_e7"] == -195622616
+
+    msg = croqui_pb2.Croqui()
+    msg.ParseFromString(destino_pb.read_bytes())
+    assert msg.picos[0].malha_estrada.WhichOneof("arquivo") == "conteudo"
+    assert len(msg.picos[0].malha_estrada.conteudo.nos) == 1
+    assert msg.picos[0].malha_estrada.conteudo.nos[0].no_osm_id == 999888
+    assert msg.picos[0].malha_estrada.conteudo.nos[0].na_borda is True
+

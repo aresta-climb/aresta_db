@@ -534,10 +534,44 @@ class CroquiModel(QObject):
                                 md.ClearExtension(ArquivoMarkdown.ext_metadados_arquivo)
                             print(f"Erro ao carregar markdown externo {nome_relativo}: {e}")
 
+        def _carregar_arquivo_malha_estrada(arq_malha: Any) -> None:
+            if arq_malha.WhichOneof("arquivo") == "caminho" and arq_malha.caminho:
+                nome_relativo = arq_malha.caminho
+                caminho_arquivo = caminho_db / nome_relativo
+                if caminho_arquivo.exists():
+                    try:
+                        from aresta_api.proto.generated.croqui_pb2 import ArquivoMalhaEstrada
+
+                        dados_malha = _ler_objeto_com_frontmatter(
+                            caminho_arquivo, arq_malha, ArquivoMalhaEstrada.ext_metadados_arquivo
+                        )
+                        if dados_malha:
+                            json_format.ParseDict(
+                                dados_malha, arq_malha.conteudo, ignore_unknown_fields=True
+                            )
+                            arq_malha.Extensions[
+                                ArquivoMalhaEstrada.ext_metadados_arquivo
+                            ].caminho_original = nome_relativo
+                            arq_malha.Extensions[
+                                ArquivoMalhaEstrada.ext_metadados_arquivo
+                            ].caminho_novo = nome_relativo
+                            arq_malha.ClearField("caminho")
+                        else:
+                            if arq_malha.HasExtension(ArquivoMalhaEstrada.ext_metadados_arquivo):
+                                arq_malha.ClearExtension(ArquivoMalhaEstrada.ext_metadados_arquivo)
+                    except Exception as e:
+                        from aresta_api.proto.generated.croqui_pb2 import ArquivoMalhaEstrada
+
+                        if arq_malha.HasExtension(ArquivoMalhaEstrada.ext_metadados_arquivo):
+                            arq_malha.ClearExtension(ArquivoMalhaEstrada.ext_metadados_arquivo)
+                        print(f"Erro ao carregar malha de estrada {arq_malha.caminho}: {e}")
+
         # 2. Carrega Picos -> Setores e Grupos
         for pico in croqui_msg.picos:
             if pico.HasField("mapas_gerais"):
                 _carregar_arquivo_mapas(pico.mapas_gerais)
+            if pico.HasField("malha_estrada"):
+                _carregar_arquivo_malha_estrada(pico.malha_estrada)
             for sg in pico.setores_ou_grupos:
                 if sg.HasField("setor"):
                     _carregar_arquivo_setor(sg.setor)
@@ -882,6 +916,81 @@ class CroquiModel(QObject):
                     _extrair_arquivo_mapas(pico.mapas_gerais, pico_ref.mapas_gerais)
                 else:
                     pico.mapas_gerais.ClearExtension(ArquivoMapas.ext_metadados_arquivo)
+
+            if pico.HasField("malha_estrada"):
+                from aresta_api.proto.generated.croqui_pb2 import ArquivoMalhaEstrada
+
+                arq_malha = pico.malha_estrada
+                arq_malha_ref = pico_ref.malha_estrada
+                if arq_malha.HasField("conteudo"):
+                    ext_malha = None
+                    if arq_malha_ref.HasExtension(ArquivoMalhaEstrada.ext_metadados_arquivo):
+                        ext_malha = arq_malha_ref.Extensions[
+                            ArquivoMalhaEstrada.ext_metadados_arquivo
+                        ]
+                    original_caminho_malha = (
+                        ext_malha.caminho_original
+                        if ext_malha and ext_malha.caminho_original
+                        else None
+                    )
+                    proposto_malha = (
+                        ext_malha.caminho_novo if ext_malha and ext_malha.caminho_novo else None
+                    )
+                    nome_padrao_malha = (
+                        "malha_estrada.yaml"
+                        if idx_pico == 0
+                        else f"malha_estrada_{idx_pico + 1}.yaml"
+                    )
+                    novo_caminho_malha = (
+                        proposto_malha or original_caminho_malha or nome_padrao_malha
+                    )
+                    if not novo_caminho_malha.endswith(".yaml"):
+                        novo_caminho_malha = f"{Path(novo_caminho_malha).stem}.yaml"
+
+                    if len(arq_malha.conteudo.nos) == 0:
+                        if persistir_no_disco:
+                            for cam_antigo in {original_caminho_malha, novo_caminho_malha}:
+                                if cam_antigo:
+                                    arq_disco = caminho_db_path / cam_antigo
+                                    if arq_disco.exists():
+                                        try:
+                                            arq_disco.unlink()
+                                        except Exception:
+                                            pass
+                        pico.ClearField("malha_estrada")
+                        if arq_malha_ref.HasExtension(ArquivoMalhaEstrada.ext_metadados_arquivo):
+                            arq_malha_ref.ClearExtension(ArquivoMalhaEstrada.ext_metadados_arquivo)
+                    else:
+                        if (
+                            original_caminho_malha
+                            and original_caminho_malha != novo_caminho_malha
+                        ):
+                            old_malha_path = caminho_db_path / original_caminho_malha
+                            if old_malha_path.exists():
+                                try:
+                                    old_malha_path.unlink()
+                                except Exception:
+                                    pass
+
+                        conteudo_malha_dict = sanitizar_dicionario_sem_extensoes(
+                            MessageToDict(arq_malha.conteudo, preserving_proto_field_name=True)
+                        )
+                        if cache_md_out is not None:
+                            cache_md_out[novo_caminho_malha] = (conteudo_malha_dict, "")
+                        if persistir_no_disco:
+                            yaml_malha_str = serializar_yaml(
+                                conteudo_malha_dict, incluir_cabecalho_spdx=True
+                            ).replace("\r\n", "\n")
+                            escrever_texto_se_modificado(
+                                caminho_db_path / novo_caminho_malha, yaml_malha_str
+                            )
+                        arq_malha.caminho = novo_caminho_malha
+                        arq_malha.ClearField("conteudo")
+                        arq_malha.ClearExtension(ArquivoMalhaEstrada.ext_metadados_arquivo)
+                        if ext_malha:
+                            ext_malha.caminho_original = novo_caminho_malha
+                else:
+                    arq_malha.ClearExtension(ArquivoMalhaEstrada.ext_metadados_arquivo)
 
             for idx_sg, sg in enumerate(pico.setores_ou_grupos):
                 sg_ref = pico_ref.setores_ou_grupos[idx_sg]

@@ -173,6 +173,14 @@ def persistir_contexto_memoria_no_disco(
         caminho_md = croqui_dir_path / chave_rel
         bruto = contexto.corpos_brutos_md.get(chave_rel)
         if fm is not None:
+            if chave_rel.endswith(".yaml"):
+                if not _arquivo_inalterado_no_snapshot(caminho_md, fm, None):
+                    bloco_yaml = serializar_yaml(fm, incluir_cabecalho_spdx=True).replace(
+                        "\r\n", "\n"
+                    )
+                    escrever_texto_se_modificado(caminho_md, bloco_yaml)
+                    registrar_snapshot_disco_arquivo(caminho_md, fm, None)
+                continue
             eh_bruto_preservado = bruto is not None and bruto.strip() == corpo.strip()
             corpo_snapshot = bruto if eh_bruto_preservado else corpo
             if not _arquivo_inalterado_no_snapshot(caminho_md, fm, corpo_snapshot):

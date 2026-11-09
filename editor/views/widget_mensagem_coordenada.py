@@ -10,7 +10,7 @@ Latitude e Longitude na mesma linha horizontal.
 
 from typing import Any
 
-from PySide6.QtCore import QUrl, Signal
+from PySide6.QtCore import QThread, QTimer, QUrl, Signal
 from PySide6.QtGui import QDesktopServices
 from PySide6.QtWidgets import (
     QApplication,
@@ -18,6 +18,8 @@ from PySide6.QtWidgets import (
     QHBoxLayout,
     QLabel,
     QLineEdit,
+    QPlainTextEdit,
+    QProgressBar,
     QPushButton,
     QVBoxLayout,
     QWidget,
@@ -35,6 +37,130 @@ from editor.core.coordenadas import (
     validar_longitude,
 )
 from editor.views.widget_campo_coordenada_e7 import DialogoConfirmarCoordenadas
+
+
+class WorkerGeracaoMalhaEstrada(QThread):
+    """Worker em background (QThread) para consulta Overpass e cálculo da malha rodoviária OSM."""
+
+    progresso_alterado = Signal(str, int)
+    concluido_com_sucesso = Signal(object)
+    falhou = Signal(str)
+    cancelado = Signal()
+
+    def __init__(
+        self,
+        latitude_e7: int,
+        longitude_e7: int,
+        cliente: Any,
+        parent: QWidget | None = None,
+    ) -> None:
+        super().__init__(parent)
+        self.latitude_e7 = latitude_e7
+        self.longitude_e7 = longitude_e7
+        self.cliente = cliente
+        self._cancelamento_solicitado = False
+
+    def solicitar_cancelamento(self) -> None:
+        """Marca a flag de cancelamento cooperativo para interromper o processamento."""
+        self._cancelamento_solicitado = True
+
+    def foi_cancelado(self) -> bool:
+        """Retorna True se o usuário solicitou o cancelamento da operação."""
+        return self._cancelamento_solicitado
+
+    def run(self) -> None:
+        """Executa a extração da malha rodoviária em background emitindo sinais de progresso."""
+        from scripts.gerar_malha_estrada_lib import (
+            ErroMalhaEstradaCancelada,
+            construir_malha_estrada_pico_proto,
+        )
+
+        try:
+            malha = construir_malha_estrada_pico_proto(
+                self.latitude_e7,
+                self.longitude_e7,
+                self.cliente,
+                ao_progresso=lambda msg, pct: self.progresso_alterado.emit(msg, pct),
+                verificador_cancelamento=self.foi_cancelado,
+            )
+            self.concluido_com_sucesso.emit(malha)
+        except ErroMalhaEstradaCancelada:
+            self.cancelado.emit()
+        except Exception as erro:
+            self.falhou.emit(str(erro))
+
+
+class DialogoProgressoMalhaEstrada(QDialog):
+    """Janela modal de progresso com log detalhado das etapas e botão Cancelar."""
+
+    def __init__(
+        self,
+        worker: WorkerGeracaoMalhaEstrada,
+        parent: QWidget | None = None,
+    ) -> None:
+        super().__init__(parent)
+        self.worker = worker
+        self.resultado_malha: Any | None = None
+        self.mensagem_erro: str | None = None
+
+        self.setWindowTitle("Gerando Mapa de Pontos Rodoviários (OpenStreetMap)")
+        self.setMinimumWidth(480)
+        self.setModal(True)
+
+        layout = QVBoxLayout(self)
+        layout.setSpacing(10)
+
+        self.rotulo_etapa = QLabel("Iniciando consulta ao OpenStreetMap...")
+        self.rotulo_etapa.setWordWrap(True)
+
+        self.barra_progresso = QProgressBar()
+        self.barra_progresso.setRange(0, 100)
+        self.barra_progresso.setValue(0)
+
+        self.lista_etapas = QPlainTextEdit()
+        self.lista_etapas.setReadOnly(True)
+        self.lista_etapas.setMinimumHeight(110)
+
+        linha_botoes = QHBoxLayout()
+        linha_botoes.addStretch()
+        self.btn_cancelar = QPushButton("Cancelar")
+        self.btn_cancelar.clicked.connect(self.cancelar_geracao)
+        linha_botoes.addWidget(self.btn_cancelar)
+
+        layout.addWidget(self.rotulo_etapa)
+        layout.addWidget(self.barra_progresso)
+        layout.addWidget(self.lista_etapas)
+        layout.addLayout(linha_botoes)
+
+        self.worker.progresso_alterado.connect(self._ao_progresso)
+        self.worker.concluido_com_sucesso.connect(self._ao_concluir)
+        self.worker.falhou.connect(self._ao_falhar)
+        self.worker.cancelado.connect(self.reject)
+
+    def _ao_progresso(self, mensagem: str, percentual: int) -> None:
+        self.rotulo_etapa.setText(mensagem)
+        self.barra_progresso.setValue(percentual)
+        self.lista_etapas.appendPlainText(f"[{percentual}%] {mensagem}")
+
+    def _ao_concluir(self, malha: Any) -> None:
+        self.resultado_malha = malha
+        self.accept()
+
+    def _ao_falhar(self, erro_msg: str) -> None:
+        self.mensagem_erro = erro_msg
+        self.reject()
+
+    def cancelar_geracao(self) -> None:
+        """Solicita o cancelamento ao worker e fecha a janela de progresso."""
+        self.worker.solicitar_cancelamento()
+        self.reject()
+
+    def executar_em_background(self) -> bool:
+        """Inicia o worker no loop de eventos do diálogo e aguarda sua conclusão sem travar a UI."""
+        QTimer.singleShot(0, self.worker.start)
+        codigo = self.exec()
+        self.worker.wait(2000)
+        return codigo == QDialog.DialogCode.Accepted and self.resultado_malha is not None
 
 
 class WidgetMensagemCoordenada(QWidget):
@@ -66,6 +192,7 @@ class WidgetMensagemCoordenada(QWidget):
         self.cliente_overpass: Any | None = cliente_overpass
         self.btn_gerar_malha: QPushButton | None = None
         self.rotulo_status_malha: QLabel | None = None
+        self.ultimo_dialogo_progresso: DialogoProgressoMalhaEstrada | None = None
 
         layout = QVBoxLayout(self)
         layout.setContentsMargins(0, 0, 0, 0)
@@ -316,10 +443,10 @@ class WidgetMensagemCoordenada(QWidget):
 
         if (
             malha_estrada_pico_atualizada(self.msg_pai)
-            and self.msg_pai.malha_estrada.latitude_referencia_e7 == lat_e7
-            and self.msg_pai.malha_estrada.longitude_referencia_e7 == lon_e7
+            and self.msg_pai.malha_estrada.conteudo.latitude_referencia_e7 == lat_e7
+            and self.msg_pai.malha_estrada.conteudo.longitude_referencia_e7 == lon_e7
         ):
-            qtd_nos = len(self.msg_pai.malha_estrada.nos)
+            qtd_nos = len(self.msg_pai.malha_estrada.conteudo.nos)
             self.rotulo_status_malha.setText(
                 f"✅ Mapa de pontos de estrada gerado ({qtd_nos} nós)."
             )
@@ -334,28 +461,32 @@ class WidgetMensagemCoordenada(QWidget):
         self.rotulo_status_malha.setVisible(True)
 
     def gerar_malha_pontos_estrada(self) -> bool:
-        """Consulta a Overpass API e persiste os nós da malha rodoviária em Pico.malha_estrada."""
+        """Consulta a Overpass API em background com janela de progresso e persiste em Pico.malha_estrada."""
         lat_e7 = self.obter_latitude_e7()
         lon_e7 = self.obter_longitude_e7()
         if not self._eh_localizacao_pico() or lat_e7 is None or lon_e7 is None:
             return False
 
-        from scripts.gerar_malha_estrada_lib import (
-            ClienteOverpass,
-            construir_malha_estrada_pico_proto,
-        )
+        from aresta_api.proto.generated import croqui_pb2
+        from scripts.gerar_malha_estrada_lib import ClienteOverpass
 
         cliente = self.cliente_overpass if self.cliente_overpass is not None else ClienteOverpass()
-        try:
-            nova_malha = construir_malha_estrada_pico_proto(lat_e7, lon_e7, cliente)
-        except Exception:
+        worker = WorkerGeracaoMalhaEstrada(lat_e7, lon_e7, cliente, parent=self)
+        dialogo = DialogoProgressoMalhaEstrada(worker, parent=self)
+        self.ultimo_dialogo_progresso = dialogo
+
+        sucesso = dialogo.executar_em_background()
+        if not sucesso or dialogo.resultado_malha is None:
             self._atualizar_status_malha_pico()
             return False
 
+        arq_malha = croqui_pb2.ArquivoMalhaEstrada()
+        arq_malha.conteudo.CopyFrom(dialogo.resultado_malha)
+
         if self.controller is not None:
-            self.controller.alterar_campo(self.msg_pai, "malha_estrada", nova_malha)
+            self.controller.alterar_campo(self.msg_pai, "malha_estrada", arq_malha)
         else:
-            self.msg_pai.malha_estrada.CopyFrom(nova_malha)
+            self.msg_pai.malha_estrada.CopyFrom(arq_malha)
 
         self._atualizar_status_malha_pico()
         return True

@@ -76,14 +76,14 @@ def calcular_distancia_haversine_metros(
 
 def construir_query_overpass(latitude: float, longitude: float) -> str:
     """
-    Constrói a query Overpass QL escalonada nos 3 raios concêntricos (15 km, 60 km e 180 km)
+    Constrói a query Overpass QL escalonada nos raios concêntricos (4 km local, 15 km, 60 km e 180 km)
     para extrair apenas a hierarquia rodoviária relevante em cada anel.
     """
     coords = f"{latitude},{longitude}"
+    vias_locais = "residential|living_street|road|track|service"
     vias_anel_1 = (
         "motorway|motorway_link|trunk|trunk_link|primary|primary_link|"
-        "secondary|secondary_link|tertiary|tertiary_link|unclassified|"
-        "residential|living_street|road|track|service"
+        "secondary|secondary_link|tertiary|tertiary_link|unclassified"
     )
     vias_anel_2 = (
         "motorway|motorway_link|trunk|trunk_link|primary|primary_link|"
@@ -95,6 +95,7 @@ def construir_query_overpass(latitude: float, longitude: float) -> str:
     return (
         "[out:json][timeout:120];\n"
         "(\n"
+        f'  way["highway"~"^({vias_locais})$"](around:4000,{coords});\n'
         f'  way["highway"~"^({vias_anel_1})$"](around:15000,{coords});\n'
         f'  way["highway"~"^({vias_anel_2})$"](around:60000,{coords});\n'
         f'  way["highway"~"^({vias_anel_3})$"](around:180000,{coords});\n'
@@ -103,6 +104,23 @@ def construir_query_overpass(latitude: float, longitude: float) -> str:
         ">;\n"
         "out skel qt;\n"
     )
+
+
+class ErroMalhaEstradaCancelada(RuntimeError):
+    """Exceção levantada quando a geração da malha rodoviária é cancelada pelo usuário."""
+
+
+def _notificar_progresso(
+    ao_progresso: Callable[[str, int], None] | None,
+    verificador_cancelamento: Callable[[], bool] | None,
+    mensagem: str,
+    percentual: int,
+) -> None:
+    """Verifica cancelamento cooperativo e emite notificação de progresso caso configurada."""
+    if verificador_cancelamento is not None and verificador_cancelamento():
+        raise ErroMalhaEstradaCancelada("Geração da malha rodoviária cancelada pelo usuário.")
+    if ao_progresso is not None:
+        ao_progresso(mensagem, percentual)
 
 
 class ClienteOverpass:
@@ -243,6 +261,9 @@ def gerar_malha_estrada_pico(
     latitude_e7: int,
     longitude_e7: int,
     cliente: ClienteOverpass,
+    *,
+    ao_progresso: Callable[[str, int], None] | None = None,
+    verificador_cancelamento: Callable[[], bool] | None = None,
 ) -> tuple[list[LinhaCatalogoNosEstrada], list[LinhaCatalogoDistanciasEstrada]]:
     """
     Calcula os nós rodoviários amostrados nos 3 anéis concêntricos e suas distâncias
@@ -254,7 +275,20 @@ def gerar_malha_estrada_pico(
     lat_pico = latitude_e7 / 1e7
     lon_pico = longitude_e7 / 1e7
 
+    _notificar_progresso(
+        ao_progresso,
+        verificador_cancelamento,
+        "Consultando malha viária no OpenStreetMap (Overpass API)...",
+        15,
+    )
     elementos = cliente.consultar_malha(lat_pico, lon_pico)
+
+    _notificar_progresso(
+        ao_progresso,
+        verificador_cancelamento,
+        f"Construindo grafo viário e filtrando componente principal ({len(elementos)} elementos)...",
+        45,
+    )
     coordenadas, adjacencia, rank_rodovia = _extrair_grafo_maior_componente(elementos)
     if not coordenadas:
         return [], []
@@ -268,6 +302,13 @@ def gerar_malha_estrada_pico(
             ),
             nid,
         ),
+    )
+
+    _notificar_progresso(
+        ao_progresso,
+        verificador_cancelamento,
+        f"Calculando caminhos mínimos por estrada (Dijkstra em {len(coordenadas)} nós)...",
+        65,
     )
 
     # 2. Executa Dijkstra invertido a partir de no_pico
@@ -284,6 +325,13 @@ def gerar_malha_estrada_pico(
             if dist_ant is None or nova_dist < dist_ant:
                 distancias_estrada[v] = nova_dist
                 heapq.heappush(fila, (nova_dist, v))
+
+    _notificar_progresso(
+        ao_progresso,
+        verificador_cancelamento,
+        "Amostrando células nos 3 anéis e identificando portais de borda...",
+        85,
+    )
 
     # 3. Amostragem determinística nos 3 anéis concêntricos ancorados em (0°, 0°)
     # Chave da célula: (anel, ix, iy) -> (prioridade_tupla, no_osm_id, anel, dist_reta_km)
@@ -377,19 +425,27 @@ def gerar_malha_estrada_pico(
             }
         )
 
+    _notificar_progresso(
+        ao_progresso,
+        verificador_cancelamento,
+        f"Concluído! {len(nos_saida)} pontos rodoviários gerados.",
+        100,
+    )
     return nos_saida, distancias_saida
 
 
 def malha_estrada_pico_atualizada(pico: Any) -> bool:
     """
     Verifica se a mensagem Pico (ou dict compilado equivalente) possui `localizacao` válida
-    e `malha_estrada` não-vazia sincronizada com a coordenada atual do pico.
+    e `malha_estrada.conteudo` não-vazia sincronizada com a coordenada atual do pico.
     """
     if isinstance(pico, dict):
         loc_dict = pico.get("localizacao")
-        malha_dict = pico.get("malha_estrada")
-        if not isinstance(loc_dict, dict) or not isinstance(malha_dict, dict):
+        malha_raw = pico.get("malha_estrada")
+        if not isinstance(loc_dict, dict) or not isinstance(malha_raw, dict):
             return False
+        conteudo_dict = malha_raw.get("conteudo")
+        malha_dict = conteudo_dict if isinstance(conteudo_dict, dict) else malha_raw
         lat_loc = int(loc_dict.get("latitude", 0) or 0)
         lon_loc = int(loc_dict.get("longitude", 0) or 0)
         if lat_loc == 0 and lon_loc == 0:
@@ -402,7 +458,7 @@ def malha_estrada_pico_atualizada(pico: Any) -> bool:
         return lat_ref == lat_loc and lon_ref == lon_loc
 
     loc = pico.localizacao
-    malha = pico.malha_estrada
+    malha = pico.malha_estrada.conteudo
     lat_loc = int(loc.latitude or 0)
     lon_loc = int(loc.longitude or 0)
     if lat_loc == 0 and lon_loc == 0:
@@ -419,6 +475,9 @@ def construir_malha_estrada_pico_proto(
     latitude_e7: int,
     longitude_e7: int,
     cliente: ClienteOverpass,
+    *,
+    ao_progresso: Callable[[str, int], None] | None = None,
+    verificador_cancelamento: Callable[[], bool] | None = None,
 ) -> croqui_pb2.MalhaEstradaPico:
     """
     Consulta a malha rodoviária para `(latitude_e7, longitude_e7)` e retorna a mensagem
@@ -428,7 +487,14 @@ def construir_malha_estrada_pico_proto(
         latitude_referencia_e7=latitude_e7,
         longitude_referencia_e7=longitude_e7,
     )
-    nos_osm, dists_osm = gerar_malha_estrada_pico("pico", latitude_e7, longitude_e7, cliente)
+    nos_osm, dists_osm = gerar_malha_estrada_pico(
+        "pico",
+        latitude_e7,
+        longitude_e7,
+        cliente,
+        ao_progresso=ao_progresso,
+        verificador_cancelamento=verificador_cancelamento,
+    )
     mapa_dist = {d["no_osm_id"]: d for d in dists_osm}
     for no_osm in nos_osm:
         nid = no_osm["no_osm_id"]
@@ -448,7 +514,7 @@ def extrair_linhas_malha_de_pico_proto(
 ) -> tuple[list[LinhaCatalogoNosEstrada], list[LinhaCatalogoDistanciasEstrada]]:
     """
     Extrai de forma 100% offline as linhas de `catalogo_nos_estrada` e
-    `catalogo_distancias_estrada` a partir de `pico.malha_estrada`, desde que
+    `catalogo_distancias_estrada` a partir de `pico.malha_estrada.conteudo`, desde que
     a malha esteja sincronizada com a localização atual do pico.
     """
     if not malha_estrada_pico_atualizada(pico):
@@ -456,7 +522,7 @@ def extrair_linhas_malha_de_pico_proto(
 
     nos_saida: list[LinhaCatalogoNosEstrada] = []
     distancias_saida: list[LinhaCatalogoDistanciasEstrada] = []
-    nos_ordenados = sorted(pico.malha_estrada.nos, key=lambda n: int(n.no_osm_id))
+    nos_ordenados = sorted(pico.malha_estrada.conteudo.nos, key=lambda n: int(n.no_osm_id))
     for no in nos_ordenados:
         nid = int(no.no_osm_id)
         nos_saida.append(

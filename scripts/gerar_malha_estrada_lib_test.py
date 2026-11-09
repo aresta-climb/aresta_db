@@ -18,6 +18,7 @@ from scripts.cliente_overpass_fake import ClienteOverpassFake
 from scripts.gerar_malha_estrada_lib import (
     ESPELHOS_OVERPASS_PADRAO,
     ClienteOverpass,
+    ErroMalhaEstradaCancelada,
     construir_malha_estrada_pico_proto,
     construir_query_overpass,
     extrair_linhas_malha_de_pico_proto,
@@ -30,6 +31,8 @@ from scripts.gerar_malha_estrada_lib import (
 def test_construir_query_overpass_inclui_tres_aneis_escalonados() -> None:
     query = construir_query_overpass(-19.5622616, -43.9595684)
 
+    assert "around:4000,-19.5622616,-43.9595684" in query
+    assert "residential|living_street|road|track|service" in query
     assert "around:15000,-19.5622616,-43.9595684" in query
     assert "around:60000,-19.5622616,-43.9595684" in query
     assert "around:180000,-19.5622616,-43.9595684" in query
@@ -116,8 +119,17 @@ def test_malha_estrada_pico_proto_conversao_e_deteccao_de_defasagem() -> None:
     pico.localizacao.longitude = -440000000
     assert malha_estrada_pico_atualizada(pico) is False
 
-    malha_proto = construir_malha_estrada_pico_proto(-200000000, -440000000, fake)
-    pico.malha_estrada.CopyFrom(malha_proto)
+    etapas_progresso: list[tuple[str, int]] = []
+    malha_proto = construir_malha_estrada_pico_proto(
+        -200000000,
+        -440000000,
+        fake,
+        ao_progresso=lambda msg, pct: etapas_progresso.append((msg, pct)),
+    )
+    assert len(etapas_progresso) >= 4
+    assert etapas_progresso[-1][1] == 100
+
+    pico.malha_estrada.conteudo.CopyFrom(malha_proto)
     assert malha_estrada_pico_atualizada(pico) is True
 
     nos, dists = extrair_linhas_malha_de_pico_proto("uid_1", pico)
@@ -131,13 +143,22 @@ def test_malha_estrada_pico_proto_conversao_e_deteccao_de_defasagem() -> None:
     assert malha_estrada_pico_atualizada(pico) is False
     assert extrair_linhas_malha_de_pico_proto("uid_1", pico) == ([], [])
 
+    # Cancelamento cooperativo levanta ErroMalhaEstradaCancelada
+    with pytest.raises(ErroMalhaEstradaCancelada, match="cancelada"):
+        construir_malha_estrada_pico_proto(
+            -200000000,
+            -440000000,
+            fake,
+            verificador_cancelamento=lambda: True,
+        )
+
     # Também funciona quando o pico está em formato dict compilado (usado por deploy_generated.py)
     assert malha_estrada_pico_atualizada({"nome": "Sem Localizacao"}) is False
     assert (
         malha_estrada_pico_atualizada(
             {
                 "localizacao": {"latitude": 0, "longitude": 0},
-                "malha_estrada": {"nos": [{"no_osm_id": 1}]},
+                "malha_estrada": {"conteudo": {"nos": [{"no_osm_id": 1}]}},
             }
         )
         is False
@@ -147,9 +168,11 @@ def test_malha_estrada_pico_proto_conversao_e_deteccao_de_defasagem() -> None:
             {
                 "localizacao": {"latitude": -200000000, "longitude": -440000000},
                 "malha_estrada": {
-                    "latitude_referencia_e7": -200000000,
-                    "longitude_referencia_e7": -440000000,
-                    "nos": [],
+                    "conteudo": {
+                        "latitude_referencia_e7": -200000000,
+                        "longitude_referencia_e7": -440000000,
+                        "nos": [],
+                    }
                 },
             }
         )
@@ -160,9 +183,11 @@ def test_malha_estrada_pico_proto_conversao_e_deteccao_de_defasagem() -> None:
             {
                 "localizacao": {"latitude": -200000000, "longitude": -440000000},
                 "malha_estrada": {
-                    "latitude_referencia_e7": -200000000,
-                    "longitude_referencia_e7": -440000000,
-                    "nos": [{"no_osm_id": 100}],
+                    "conteudo": {
+                        "latitude_referencia_e7": -200000000,
+                        "longitude_referencia_e7": -440000000,
+                        "nos": [{"no_osm_id": 100}],
+                    }
                 },
             }
         )

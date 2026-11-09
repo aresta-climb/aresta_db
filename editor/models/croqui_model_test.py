@@ -1859,3 +1859,57 @@ def test_extrair_arquivos_e_serializar_higieniza_nomes_toxicos_em_setor_grupo_ma
     assert dados["botoes"][0]["destino"]["secao_textual"]["caminho"] == "secao_sobre_acesso.md"
     assert (tmp_path / "secao_sobre_acesso.md").exists()
 
+
+def test_croqui_model_carrega_e_extrai_malha_estrada_yaml(tmp_path):
+    """
+    Valida que CroquiModel extrai pico.malha_estrada.conteudo para malha_estrada.yaml separado,
+    mantém apenas caminho: malha_estrada.yaml no croqui.yaml, hidrata de volta em carregar_arquivos_externos
+    e remove o arquivo quando os nós são esvaziados.
+    """
+    from aresta_api.proto.generated.croqui_pb2 import Croqui
+
+    db_path = tmp_path / "database_malha"
+    db_path.mkdir()
+
+    croqui = Croqui(id="br_mg_lapinha", nome="Gruta da Lapinha")
+    pico = croqui.picos.add(nome="Gruta da Lapinha")
+    pico.malha_estrada.conteudo.latitude_referencia_e7 = -195622616
+    pico.malha_estrada.conteudo.longitude_referencia_e7 = -439595684
+    no = pico.malha_estrada.conteudo.nos.add()
+    no.no_osm_id = 123456789
+    no.latitude_e7 = -195600000
+    no.longitude_e7 = -439580000
+    no.distancia_metros = 450
+    no.na_borda = False
+
+    model = CroquiModel(croqui)
+    cache_md: dict = {}
+    dados = model.extrair_arquivos_e_serializar(db_path, cache_md_out=cache_md)
+
+    assert dados["picos"][0]["malha_estrada"] == {"caminho": "malha_estrada.yaml"}
+    arquivo_malha = db_path / "malha_estrada.yaml"
+    assert arquivo_malha.exists()
+    texto_malha = arquivo_malha.read_text(encoding="utf-8")
+    assert texto_malha.startswith("# SPDX-License-Identifier: ODbL-1.0\n")
+    assert "malha_estrada.yaml" in cache_md
+
+    # Recarrega em uma nova instância de Croqui a partir do caminho
+    croqui_recarregado = Croqui(id="br_mg_lapinha", nome="Gruta da Lapinha")
+    pico_rec = croqui_recarregado.picos.add(nome="Gruta da Lapinha")
+    pico_rec.malha_estrada.caminho = "malha_estrada.yaml"
+    model_recarregado = CroquiModel(croqui_recarregado)
+    model_recarregado.carregar_arquivos_externos(db_path)
+
+    assert pico_rec.malha_estrada.WhichOneof("arquivo") == "conteudo"
+    assert pico_rec.malha_estrada.conteudo.latitude_referencia_e7 == -195622616
+    assert len(pico_rec.malha_estrada.conteudo.nos) == 1
+    assert pico_rec.malha_estrada.conteudo.nos[0].no_osm_id == 123456789
+    assert pico_rec.malha_estrada.conteudo.nos[0].distancia_metros == 450
+
+    # Esvaziando os nós, o arquivo deve ser removido e omitido do croqui.yaml
+    del pico_rec.malha_estrada.conteudo.nos[:]
+    dados_limpo = model_recarregado.extrair_arquivos_e_serializar(db_path)
+    assert "malha_estrada" not in dados_limpo["picos"][0]
+    assert not arquivo_malha.exists()
+
+

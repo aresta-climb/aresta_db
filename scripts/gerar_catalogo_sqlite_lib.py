@@ -790,6 +790,8 @@ def gerar_catalogo_completo(
             for nome_csv in (
                 "catalogo_croquis.csv",
                 "catalogo_aresta.csv",
+                "catalogo_nos_estrada.csv",
+                "catalogo_distancias_estrada.csv",
                 "catalogo_meta.csv",
             )
         )
@@ -807,9 +809,11 @@ def exportar_catalogo_csv(
     diretorio_saida: Path | str,
 ) -> None:
     """
-    Exporta as 3 tabelas do catálogo SQLite para arquivos CSV determinísticos (UTF-8, LF):
+    Exporta as 5 tabelas do catálogo SQLite para arquivos CSV determinísticos (UTF-8, LF):
     - catalogo_croquis.csv (ordenado por id_slug, croqui_uid, sem atualizado_em)
     - catalogo_aresta.csv (ordenado por croqui_uid, uid)
+    - catalogo_nos_estrada.csv (ordenado por no_osm_id)
+    - catalogo_distancias_estrada.csv (ordenado por croqui_uid, no_osm_id)
     - catalogo_meta.csv (ordenado por chave)
     """
     pasta = Path(diretorio_saida)
@@ -836,6 +840,18 @@ def exportar_catalogo_csv(
             ),
             "SELECT uid, tipo, croqui_uid, nome, escalada_grau, escalada_tipo, setor_uid, grupo_uid "
             "FROM catalogo_aresta ORDER BY croqui_uid, uid",
+        ),
+        (
+            "catalogo_nos_estrada.csv",
+            ("no_osm_id", "latitude_e7", "longitude_e7"),
+            "SELECT no_osm_id, latitude_e7, longitude_e7 "
+            "FROM catalogo_nos_estrada ORDER BY no_osm_id",
+        ),
+        (
+            "catalogo_distancias_estrada.csv",
+            ("croqui_uid", "no_osm_id", "distancia_metros", "na_borda"),
+            "SELECT croqui_uid, no_osm_id, distancia_metros, na_borda "
+            "FROM catalogo_distancias_estrada ORDER BY croqui_uid, no_osm_id",
         ),
         (
             "catalogo_meta.csv",

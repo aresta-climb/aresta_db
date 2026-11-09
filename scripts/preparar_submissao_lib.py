@@ -742,6 +742,12 @@ def coletar_referencias_arquivos(
                 and obj["caminho"].endswith(".md")
             ):
                 processar_md(obj["caminho"])
+            elif (
+                "caminho" in obj
+                and isinstance(obj["caminho"], str)
+                and obj["caminho"].endswith(".yaml")
+            ):
+                referencias.add(obj["caminho"].replace("\\", "/").strip())
             for k, v in obj.items():
                 if k in (
                     "caminho_imagem_mapa",
@@ -768,6 +774,7 @@ def coletar_referencias_arquivos(
             ref.replace("\\", "/").strip().startswith("imagens/")
             or ref.replace("\\", "/").strip().startswith("anexos/")
             or ref.replace("\\", "/").strip().endswith(".md")
+            or ref.replace("\\", "/").strip().endswith(".yaml")
         )
     }
 
@@ -797,7 +804,13 @@ def limpar_arquivos_nao_utilizados(
 
     if pico_path.exists():
         arquivos_fisicos.update(
-            f.name for f in pico_path.iterdir() if f.is_file() and f.suffix == ".md"
+            f.name
+            for f in pico_path.iterdir()
+            if f.is_file()
+            and (
+                f.suffix == ".md"
+                or (f.suffix == ".yaml" and f.name != "croqui.yaml")
+            )
         )
 
     nao_utilizados = arquivos_fisicos - referencias
@@ -1078,6 +1091,12 @@ def corrigir_database(
                     caminho_origem=md_file,
                     lancar_erro_yaml=True,
                 )
+        for yaml_extra in sorted(
+            p for p in pico_path.glob("*.yaml") if p.is_file() and p.name != "croqui.yaml"
+        ):
+            texto_extra = yaml_extra.read_text(encoding="utf-8")
+            if not _tem_cabecalho_spdx_valido(texto_extra, ".yaml"):
+                arquivos_sem_spdx.add(yaml_extra)
 
     # Saneamento contínuo e idempotente de UIDs e referências operando em memória
     if sanear_uids_database(
@@ -2230,7 +2249,7 @@ def compilar_croqui(
                 pico["setores_ou_grupos"], pico_path, cache_md=cache_md_memoria
             )
 
-    # 2.5. Expande mapas gerais de cada pico
+    # 2.5. Expande mapas gerais e malha rodoviária de cada pico
     for pico in croqui_data.get("picos", []):
         if "mapas_gerais" in pico:
             mg = pico["mapas_gerais"]
@@ -2244,6 +2263,21 @@ def compilar_croqui(
                     if frontmatter and "mapas" in frontmatter:
                         mg["conteudo"] = {"mapas": copy.deepcopy(frontmatter["mapas"])}
                         del mg["caminho"]
+        if "malha_estrada" in pico:
+            me = pico["malha_estrada"]
+            if isinstance(me, dict) and "caminho" in me:
+                yaml_me_path = pico_path / me["caminho"]
+                chave_me = _chave_cache_md(yaml_me_path, pico_path)
+                if cache_md_memoria is not None and chave_me in cache_md_memoria:
+                    dados_me, _ = cache_md_memoria[chave_me]
+                    if isinstance(dados_me, dict):
+                        me["conteudo"] = copy.deepcopy(dados_me)
+                        del me["caminho"]
+                elif yaml_me_path.exists():
+                    lido_me = carregar_yaml(yaml_me_path.read_text(encoding="utf-8"))
+                    if isinstance(lido_me, dict):
+                        me["conteudo"] = lido_me
+                        del me["caminho"]
 
     # 2.6 Preenche em memória campos legados para retrocompatibilidade
     preencher_compatibilidade_legada_em_memoria(croqui_data)
