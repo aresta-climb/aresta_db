@@ -89,9 +89,9 @@ escaladas:
 - uid: uMZtAWeka4OQlJ
   via_movel:
     nome: Retorno do Marco
-    dificuldade: BR_3
+    dificuldade: BR_3SUP
     conquistadores:
-    - Antonio C. Magalhães
+    - Antônio Carlos Magalhães "Toninho"
     - Marco Antônio Canelas
 - uid: gcztZvEGjZmcgV
   via_esportiva:
@@ -101,7 +101,7 @@ escaladas:
     quantidade_protecoes_parada: 2
     conquistadores:
     - Christian A. N. Costa
-    - Leo Guimarães "Léo Dandão"
+    - Leonardo Guimarães "Léo Dandão"
     data_abertura: '2001'
 - uid: QBYl00QZT0YkrW
   via_esportiva:
@@ -111,16 +111,19 @@ escaladas:
     quantidade_protecoes_parada: 1
     conquistadores:
     - Marcelo Henrique Grijó Utsch
-    - Cristiano Loureiro
+    - Cristiano Loureiro "Negão"
     data_abertura: '1993'
 - uid: YJo7r0hFIoOXTZ
   via_esportiva:
-    nome: Projeto
+    nome: Perrengue total
     dificuldade: PROJETO
     quantidade_protecoes_intermediarias: 3
     quantidade_protecoes_parada: 0
     descricao: '**INTERDITADA:** Via inacabada, conta com apenas 3 proteções intermediárias
       e sem parada instalada no topo.'
+    conquistadores:
+    - Cristiano Loureiro "Negão"
+    - Ricardo Jardim Leal
 ---
 
 Setor localizado próximo ao Restaurante Castelinho. Possui vias de graduação

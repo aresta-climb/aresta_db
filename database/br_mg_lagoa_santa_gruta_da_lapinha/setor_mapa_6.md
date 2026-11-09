@@ -8,6 +8,13 @@ mapas:
   largura_mapa: 465
   altura_mapa: 340
   pontos_de_interesse:
+  - uid: 3likO2D5k3Swvh
+    rotulo: '61'
+    retangulo:
+      x: 31
+      y: 139
+      comprimento: 14
+      largura: 12
   - uid: co0L3lzfGktyam
     rotulo: '62'
     retangulo:
@@ -21,6 +28,13 @@ mapas:
       x: 122
       y: 189
       comprimento: 14
+      largura: 12
+  - uid: 2DHKUd8mdgKpT2
+    rotulo: '132'
+    retangulo:
+      x: 157
+      y: 207
+      comprimento: 20
       largura: 12
   - uid: 4D7AxhkAElF1mz
     rotulo: '64'
@@ -107,12 +121,12 @@ mapas:
       comprimento: 14
       largura: 12
   referencias:
+  - alvo_uid: E47PBUWaztdeq5
+    pontos_uids:
+    - 3likO2D5k3Swvh
   - alvo_uid: WNnbACHqlufqB4
     pontos_uids:
     - co0L3lzfGktyam
-  - alvo_uid: E47PBUWaztdeq5
-    pontos_uids:
-    - Pcws7jdnBdkFf1
   - alvo_uid: AlhpLzBbvxdARj
     pontos_uids:
     - 4D7AxhkAElF1mz
@@ -149,26 +163,44 @@ mapas:
   - alvo_uid: gCEazUeMzsA3dp
     pontos_uids:
     - h3386PrCzycAkF
+  - alvo_uid: Bs0O5a4jMF2Epw
+    pontos_uids:
+    - Pcws7jdnBdkFf1
+  - alvo_uid: L69C6jL7Bphv5T
+    pontos_uids:
+    - 2DHKUd8mdgKpT2
 escaladas:
+- uid: E47PBUWaztdeq5
+  via_esportiva:
+    nome: Os Impossíveis
+    dificuldade: BR_8B
+    conquistadores:
+    - André C. B. "Andrezão"
+    - Anderson B. Felisardo
+    data_abertura: '1999'
 - uid: WNnbACHqlufqB4
   via_esportiva:
     nome: Psico Circus
     dificuldade: BR_8A
     conquistadores:
     - André C. B. "Andrezão"
-    - Anderson B. Felisário
+    - Anderson B. Felisardo
     data_abertura: '1999'
-- uid: E47PBUWaztdeq5
+    tipo_parede: NEGATIVO
+    descricao: Via em teto.
+- uid: Bs0O5a4jMF2Epw
   via_esportiva:
-    nome: Os impossíveis
-    dificuldade: BR_8B
+    nome: Via sem informação
+- uid: L69C6jL7Bphv5T
+  via_movel:
+    nome: Meio Cubanos
+    dificuldade: BR_6SUP
     conquistadores:
-    - André C. B. "Andrezão"
-    - Anderson B. Felisário
+    - Roberto Lincoln de Freitas
 - uid: AlhpLzBbvxdARj
   via_esportiva:
     nome: Carbonáticus Calcicus
-    dificuldade: BR_7A
+    dificuldade: BR_7B
     conquistadores:
     - Leonardo Hoffmann
     - Eduardo Viana de Azevedo "Ralf"
@@ -178,19 +210,19 @@ escaladas:
     nome: Para não dizer que não falei de flores
     dificuldade: BR_5SUP
     conquistadores:
-    - Antonio Carlos Magalhães
+    - Antônio Carlos Magalhães "Toninho"
     - Ricardo Jardim Leal
 - uid: OmqF412h2OG31Q
   via_movel:
     nome: As Aparências Enganam
     dificuldade: BR_5SUP
     conquistadores:
-    - Antonio Carlos Magalhães
+    - Antônio Carlos Magalhães "Toninho"
     - Júlio César Cardoso
 - uid: uN41mUNxKhQLnR
   via_esportiva:
     nome: Eu quero é ver o oco
-    dificuldade: BR_7B
+    dificuldade: BR_8A
     conquistadores:
     - Ricardo Jardim Leal
     - Leonardo Oliveira
@@ -202,24 +234,27 @@ escaladas:
     dificuldade: BR_6SUP
     conquistadores:
     - Edgardo Abreu "Caca"
-    - Leandro Antônio Reis
+    - Rodrigo "Gaguinho"
+    - Daniel Fernandes "Salim"
     data_abertura: '1998'
 - uid: 6HNjjzHD8ZgV5A
   via_esportiva:
     nome: Vive lá brenf
     dificuldade: BR_6SUP
     conquistadores:
-    - André "DJ"
-    - Léo Hoffmann
+    - André Viana "DJ"
+    - Leonardo Hoffmann
     - André "Granola"
-    - Guta Piancastelli
+    - Gustavo Piancastelli "Guta"
+    - Edgardo Abreu "Caca"
     data_abertura: '1997'
 - uid: 40ZgWfXSRvNVRD
   via_esportiva:
     nome: Rastafary Baby
     dificuldade: BR_7C
     conquistadores:
-    - Leonardo Hoffman
+    - Leonardo Hoffmann
+    - Alexandre F. de Queiroz "Caverna"
     data_abertura: '1999'
 - uid: nRjQg6NF3gMoB5
   via_esportiva:
@@ -227,42 +262,44 @@ escaladas:
     dificuldade: BR_7A
     conquistadores:
     - Wilson Novaes
-    - Márcio Soares Macenas
+    - Márcio Soares Macena
     data_abertura: '2000'
 - uid: tJ3b11CN9Dk1k8
   via_esportiva:
     nome: Tempestade Cerebral
     dificuldade: BR_8A
     conquistadores:
+    - Vitor Martins (PR)
     - André C. B. "Andrezão"
-    - Anderson B. Felisário
+    - Anderson B. Felisardo
     data_abertura: '1999'
 - uid: mPhlYzOBycx1yO
   via_esportiva:
     nome: Chambinho
     dificuldade: BR_8C
     conquistadores:
-    - Anderson Felisário
-    - Andrezão
-    - Eduardo "Ralf"
-    - Eustáquio Jr.
+    - Anderson B. Felisardo
+    - André C. B. "Andrezão"
+    - Eduardo Viana de Azevedo "Ralf"
+    - Eustáquio Macedo Melo Júnior
     data_abertura: '1996'
 - uid: a601ekOt4Z8grf
   via_esportiva:
     nome: Revolução dos Micos
-    dificuldade: BR_7B
+    dificuldade: BR_7A
     conquistadores:
     - Eduardo Amaral
     - Jean Ouriques
     - Anne Ouriques
-    - Leonardo Rocenik
+    - Leonardo Roenik
     data_abertura: '2000'
 - uid: gCEazUeMzsA3dp
   via_esportiva:
     nome: Al Capote
-    dificuldade: BR_8B
+    dificuldade: BR_8C
     conquistadores:
     - Ricardo Jardim Leal
+    - Cristiano Loureiro "Negão"
     data_abertura: '1998'
 ---
 

@@ -37,6 +37,10 @@ picos:
     longitude: -439595684
   cidade: Lagoa Santa
   estado: MG
+  descricao: |-
+    A região de Lagoa Santa possui inúmeras paredes de rocha calcária propícias à escalada, destacando-se a Gruta da Lapinha como um dos principais pontos de escalada esportiva e móvel de Minas Gerais.
+
+    **ATENÇÃO:** A Gruta da Lapinha está inserida em unidade de conservação (Parque Estadual do Sumidouro / Refúgio de Vida Silvestre). Respeite as normas do parque, não faça fogueiras, traga todo o seu lixo de volta e preserve a flora, a fauna e os sítios arqueológicos e espeleológicos.
 botoes:
 - uid: bd8N6s3AVnvUzT
   texto: Capa

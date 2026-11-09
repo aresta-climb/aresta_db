@@ -85,8 +85,9 @@ escaladas:
     nome: Spartacus
     dificuldade: BR_5
     conquistadores:
-    - Fabiano Fernandes da Silva
-    descricao: Vía em Top Rope
+    - Fabiano da Silva Fernandes
+    - Giovanni
+    descricao: Via em Top Rope
     data_abertura: '1993'
 - uid: oPLa4xCzRYXrVG
   via_esportiva:
@@ -95,13 +96,16 @@ escaladas:
     conquistadores:
     - Eustáquio Macedo Melo Júnior
     - Gilberto Torres
+    - Fabiano da Silva Fernandes
     data_abertura: '1994'
 - uid: uSw0jQzVmg9ExX
   via_esportiva:
-    nome: Coliseu
+    nome: Coliseu (inacabada)
     dificuldade: BR_6
     conquistadores:
     - Ramaya Vallias
+    - Daniel Fernandes "Salim"
+    - Alexandre F. de Queiroz "Caverna"
 - uid: HwvzyrjBiIz5pv
   via_esportiva:
     nome: Pobre César
@@ -120,12 +124,13 @@ escaladas:
     - Eduardo Feliciano
     - Alexandre Magos
     - Ivo Ferreira Marcelino
+    dificuldade: PROJETO
 - uid: Fgz8Lc1dNFdZrG
   via_esportiva:
     nome: Sodoma e Gomorra
     dificuldade: BR_4
     conquistadores:
-    - Daniel Fernandes "Salim"
+    - Fabiano da Silva Fernandes
     - Eustáquio Macedo Melo Júnior
     data_abertura: '1993'
 - uid: sjR4IxURCOCn7w

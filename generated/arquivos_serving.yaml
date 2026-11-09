@@ -1020,7 +1020,7 @@ arquivos:
 - caminho_relativo: br_mg_januaria_salao_encantado/compilado.yaml
   checksum_sha256: 834348aa76060dd2f76b44b301c99b027cae644226ac9b104de684cbc0fa7f96
 - caminho_relativo: br_mg_lagoa_santa_gruta_da_lapinha/compilado.binarypb
-  checksum_sha256: 92f7dff5cecbd0b19d1c7049e9f4fb607c21d182c506a466e0f513c93c1fbf14
+  checksum_sha256: cdd7994134bd8be5493b38712bbf73dc2676935dc02d600533897323a5460b15
 - caminho_relativo: thumbnails/br_mg_lagoa_santa_gruta_da_lapinha.webp
   checksum_sha256: 76c57c2b9159772355858ad8f40ba79a8584dfdda215379031adc9afff1f1416
 - caminho_relativo: br_mg_lagoa_santa_gruta_da_lapinha/imagens/capa_p0_i0.webp
@@ -1056,7 +1056,7 @@ arquivos:
 - caminho_relativo: br_mg_lagoa_santa_gruta_da_lapinha/imagens/setor_mapa_9_p0_i0.webp
   checksum_sha256: e9f415800c4e7311d2d7da6fbd76eafafba99ec58c1c3453a7131eaee20d5cae
 - caminho_relativo: br_mg_lagoa_santa_gruta_da_lapinha/compilado.yaml
-  checksum_sha256: 31ca3ad64fdee60e2186e9fbd30936a5edad13db60107a31fe84f0a076700058
+  checksum_sha256: 0965060d6d8e19ed545525c00e468202e72607e7f00c1cf005cd009a98b02595
 - caminho_relativo: br_mg_lagoa_santa_sitio_do_rod/compilado.binarypb
   checksum_sha256: 14eee706ae5f2c6eb505e1c94afbc3aea244fa3b41f79fdb2eb46b86c68d574c
 - caminho_relativo: thumbnails/br_mg_lagoa_santa_sitio_do_rod.webp
@@ -2204,8 +2204,8 @@ arquivos:
 - caminho_relativo: br_rj_nova_friburgobom_jardim_capelinha/compilado.yaml
   checksum_sha256: 6694c2e07f38d92fff2d54cd717c4b2f99121a2f5313c7ff07898a4526c013ee
 - caminho_relativo: indice.binarypb
-  checksum_sha256: a5df2a040c1aeca1c3e2fc9775cb1e8824dacfeffef34cdc2ff9530a431939fd
+  checksum_sha256: a1d7809316aea64ba7c315d693ffedb9ed3288776913be8d0808719b0105b8e6
 - caminho_relativo: indice.yaml
-  checksum_sha256: 901b5ba44c7c715b88afea6461732b9271036247a102f4b704c024c97f272838
+  checksum_sha256: 602af79fffe82d13e232aaff305a92cdc1de647389d5107d1d5c3a6e82f701be
 - caminho_relativo: catalogo.db
-  checksum_sha256: 3d177a518007a2038c110812c9432ff118085706397e33f00c1b445257410271
+  checksum_sha256: 54f657143a01b441d7f184a8294127150acdab8bedc14d081e99e0a5a37a1e3b

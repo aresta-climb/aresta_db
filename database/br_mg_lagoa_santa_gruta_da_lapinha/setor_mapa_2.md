@@ -35,17 +35,21 @@ escaladas:
     nome: Ajoelhou tem que Rezar
     dificuldade: BR_6SUP
     conquistadores:
-    - Antonio Carlos Magalhães
+    - Antônio Carlos Magalhães "Toninho"
 - uid: VzHgiUIINvtKec
   via_esportiva:
     nome: O Exibicionista
     dificuldade: BR_5
     quantidade_protecoes_intermediarias: 2
     quantidade_protecoes_parada: 1
-    descricao: '**INTERDITADA:** Grampos com palheta demandam substituição por novas
-      ancoragens. Parada simples que necessita ser duplicada.'
+    descricao: |-
+      **INTERDITADA:** Grampos com palheta demandam substituição por novas ancoragens. Parada simples que necessita ser duplicada.
+
+      Também chamada por alguns de *Homem Calcário*.
     conquistadores:
     - Daniel Fernandes "Salim"
+    - Barbosa
+    data_abertura: '1997'
 ---
 
 Localizado próximo à entrada da gruta. 

@@ -1,4 +1,4 @@
-versao_catalogo: 9d47d5a9766dff98
+versao_catalogo: 312339fac6accc78
 croquis:
 - id: br_mg_araxa_bocaina_boulders
   croqui_uid: oyCb72FtUENKNi
@@ -277,15 +277,15 @@ croquis:
   nome: Gruta da Lapinha
   descricao: Guia de escalada da Gruta da Lapinha em Lagoa Santa, MG.
   caminho_relativo: br_mg_lagoa_santa_gruta_da_lapinha/compilado.binarypb
-  checksum_sha256_croqui: 92f7dff5cecbd0b19d1c7049e9f4fb607c21d182c506a466e0f513c93c1fbf14
+  checksum_sha256_croqui: cdd7994134bd8be5493b38712bbf73dc2676935dc02d600533897323a5460b15
   checksum_sha256_thumbnail: 76c57c2b9159772355858ad8f40ba79a8584dfdda215379031adc9afff1f1416
-  timestamp_update: '2026-11-08T22:52:29Z'
+  timestamp_update: '2026-11-09T01:18:13Z'
   precomputados:
-    total_escaladas: 129
+    total_escaladas: 132
     total_setores: 10
     total_grupos: 0
-    total_esportivas: 106
-    tamanho_download_bytes: 512370
+    total_esportivas: 108
+    tamanho_download_bytes: 514885
   localizacao:
     latitude: -195622616
     longitude: -439595684

@@ -123,12 +123,14 @@ escaladas:
 - uid: afC111TsB5Shpo
   via_esportiva:
     nome: Cariocas não dizem Uai
-    dificuldade: BR_7A
+    dificuldade: BR_7B
     quantidade_protecoes_intermediarias: 8
     quantidade_protecoes_parada: 2
     conquistadores:
     - Ivo Júnior
-    - Rma
+    - Ramaya Vallias
+    - Daniel Fernandes "Salim"
+    - Fabiano da Silva Fernandes
     data_abertura: '1999'
 - uid: qqE2Xa62AWdHkq
   via_esportiva:
@@ -139,7 +141,7 @@ escaladas:
     quantidade_protecoes_parada: 2
     conquistadores:
     - Eustáquio Macedo Melo Júnior
-    - Mário Almeida Neto
+    - Fabiano da Silva Fernandes
     data_abertura: '1993'
 - uid: CQy3SWhpDCc528
   via_esportiva:
@@ -155,7 +157,7 @@ escaladas:
 - uid: OXAvr0Rdr0rU5G
   via_esportiva:
     nome: Rosa dos Ventos
-    dificuldade: BR_9A
+    dificuldade: BR_8A
     conquistadores:
     - Ramaya Vallias
     - Léo Quirino
@@ -174,7 +176,7 @@ escaladas:
     dificuldade: BR_5
     conquistadores:
     - Wilson Novaes
-    - Márcio Soares Macenas
+    - Márcio Soares Macena
 - uid: ZYG9ghLMTzMJVk
   via_esportiva:
     nome: Três dentro, três fora
@@ -215,6 +217,7 @@ escaladas:
     quantidade_protecoes_parada: 2
     conquistadores:
     - Daniel Fernandes "Salim"
+    - Ramaya Vallias
     data_abertura: '1999'
 - uid: 46pgZmHpsgEsde
   via_esportiva:
@@ -223,8 +226,10 @@ escaladas:
     quantidade_protecoes_intermediarias: 5
     quantidade_protecoes_parada: 2
     conquistadores:
-    - Antonio Carlos Magalhães
     - Emerson Alves Azeredo
+    - Gilberto Torres
+    - Antônio Carlos Magalhães "Toninho"
+    - Eustáquio Macedo Melo Júnior
     data_abertura: '1993'
 ---
 

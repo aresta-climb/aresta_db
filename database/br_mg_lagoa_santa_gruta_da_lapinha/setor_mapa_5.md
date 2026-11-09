@@ -107,7 +107,7 @@ escaladas:
     quantidade_protecoes_intermediarias: 0
     quantidade_protecoes_parada: 0
     conquistadores:
-    - Eustáquio Macedo
+    - Eustáquio Macedo Melo Júnior
     - Emerson Alves Azeredo
     descricao: Via em Top Rope (sem proteções fixas na linha).
     data_abertura: '1994'
@@ -125,23 +125,23 @@ escaladas:
 - uid: LlhTp0HQEPx14C
   via_esportiva:
     nome: O Perigo que Veio do Céu
-    dificuldade: BR_7A
+    dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 5
     quantidade_protecoes_parada: 2
     conquistadores:
     - Fabiano da Silva Fernandes
-    - Charles Costa Marinho
+    - Felipe
     data_abertura: '1993'
 - uid: 0ea9JvzzJRmTMc
   via_esportiva:
     nome: Arranca Couro
-    dificuldade: BR_7A
+    dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 3
     quantidade_protecoes_parada: 2
     conquistadores:
-    - Charles C. Marinho
-    - Emerson A. Azeredo
-    - Fabiano Fernandes
+    - Charles Costa Marinho
+    - Emerson Alves Azeredo
+    - Fabiano da Silva Fernandes
     data_abertura: '1993'
 - uid: Y3VMbBAjE0gzDE
   via_esportiva:
@@ -157,16 +157,16 @@ escaladas:
     dificuldade: BR_6
     conquistadores:
     - André C. B. "Andrezão"
-    - Anderson B. Felisário
+    - Anderson B. Felisardo
     data_abertura: '1994'
 - uid: gIzPvcOt3tcfaW
   via_esportiva:
-    nome: Karrenglass
+    nome: Karren Glass
     dificuldade: BR_5SUP
     conquistadores:
-    - Eduardo V. de A. "Ralf"
-    - Ricardo Leal
-    - Rodrigo Tinoco
+    - Eduardo Viana de Azevedo "Ralf"
+    - Ricardo Jardim Leal
+    - Rodrigo Tinoco França
     data_abertura: '1993'
 - uid: lieFJxvgjD0T4C
   via_esportiva:
@@ -178,13 +178,13 @@ escaladas:
     - Denise
     data_abertura: '1996'
 - uid: RnZKGhZfGOypo1
-  via_esportiva:
+  via_movel:
     nome: Compromisso Sexual
     dificuldade: BR_7C
     conquistadores:
-    - Emerson A. Azeredo
-    - Eustáquio Júnior
-    - Fabiano Fernandes
+    - Emerson Alves Azeredo
+    - Eustáquio Macedo Melo Júnior
+    - Fabiano da Silva Fernandes
     data_abertura: '1994'
 ---
 

@@ -210,10 +210,10 @@ mapas:
   - alvo_uid: GksFepQerd6kj3
     pontos_uids:
     - RRYXB42aOGnIxX
-  - alvo_uid: L69C6jL7Bphv5T
+  - alvo_uid: PBMAKEwduou7iM
     pontos_uids:
     - WaTUfE5SA2tfw8
-  - alvo_uid: PBMAKEwduou7iM
+  - alvo_uid: N4hJyI7RGyxkhp
     pontos_uids:
     - kTNF5z1DbFB7OT
   - alvo_uid: CDDjlHX6ZPFIfg
@@ -288,7 +288,7 @@ escaladas:
     quantidade_protecoes_parada: 2
     conquistadores:
     - Eustáquio Macedo Melo Júnior
-    - Fábio Luiz Farias "Fabinho"
+    - Fábio Luiz Faria "Fabinho"
     data_abertura: '1993'
     descricao: |-
       ATENÇÃO: não utilizar o bico de pedra próximo ao top rope como agarra! Risco de queda do bloco!
@@ -314,7 +314,9 @@ escaladas:
     quantidade_protecoes_parada: 0
     conquistadores:
     - Alexandre F. de Queiroz "Caverna"
+    - Gustavo Vianna
     - Edgardo Abreu "Caca"
+    - Daniel Fernandes "Salim"
     data_abertura: '1995'
 - uid: UxgAsYgQCFlueX
   via_esportiva:
@@ -323,30 +325,34 @@ escaladas:
     quantidade_protecoes_intermediarias: 4
     quantidade_protecoes_parada: 2
     conquistadores:
-    - Dante Martins Borges
-    - Sérgio Bastos da Silva
+    - Paulo Nogueira "Paulista"
+    - Rodrigo Chinês
+    data_abertura: '2002'
 - uid: GksFepQerd6kj3
   via_movel:
     nome: Trombeta Acéfala
     dificuldade: BR_5SUP
     conquistadores:
-    - Eustáquio M. Melo Júnior
+    - Eustáquio Macedo Melo Júnior
     - Leonardo Hoffmann
+    - Fabiano da Silva Fernandes
     data_abertura: '1994'
-- uid: L69C6jL7Bphv5T
-  via_movel:
-    nome: Meio Cubanos
-    dificuldade: BR_6SUP
-    conquistadores:
-    - Roberto Lincoln de Freitas
 - uid: PBMAKEwduou7iM
   via_esportiva:
     nome: Golpe Ninja
     dificuldade: BR_7C
     quantidade_protecoes_intermediarias: 4
     quantidade_protecoes_parada: 2
+    conquistadores:
+    - Dante Martins Borges
+    - Sérgio Bastos da Silva
+    data_abertura: '2000'
     descricao: '**INTERDITADA:** Bloco com fratura/rachadura crítica na altura da
       2ª proteção, com alto risco de descolamento.'
+- uid: N4hJyI7RGyxkhp
+  via_esportiva:
+    nome: Via sem informação
+    dificuldade: BR_6
     conquistadores:
     - Dante Martins Borges
     - Sérgio Bastos da Silva
@@ -359,9 +365,9 @@ escaladas:
     quantidade_protecoes_intermediarias: 5
     quantidade_protecoes_parada: 2
     conquistadores:
-    - Emerson A. Azeredo
-    - Eustáquio M. M. Júnior
-    - Léo Hoffmann
+    - Emerson Alves Azeredo
+    - Eustáquio Macedo Melo Júnior
+    - Fabiano da Silva Fernandes
     data_abertura: '1994'
 - uid: 8b8K01Oui85IB0
   via_esportiva:
@@ -376,7 +382,7 @@ escaladas:
     data_abertura: '1994'
 - uid: 6laLGWjMZtyl5K
   via_esportiva:
-    nome: Planeta dos Macacos
+    nome: Planeta dos Macacos (inacabada)
     dificuldade: PROJETO
     quantidade_protecoes_intermediarias: 4
     quantidade_protecoes_parada: 0
@@ -384,7 +390,7 @@ escaladas:
       e grampos com palheta antigos.'
     conquistadores:
     - Leonardo Hoffmann
-    - Alexandre "Caverna"
+    - Alexandre F. de Queiroz "Caverna"
 - uid: kulsF9JNdpDYC3
   via_esportiva:
     nome: Rota de colisão
@@ -431,7 +437,7 @@ escaladas:
 - uid: 3i1j443nXNqSp1
   via_esportiva:
     nome: Santos e Hereges
-    dificuldade: BR_9B
+    dificuldade: BR_8A
     quantidade_protecoes_intermediarias: 3
     quantidade_protecoes_parada: 1
     conquistadores:
@@ -451,11 +457,11 @@ escaladas:
 - uid: ZX3E7xP5ZmQP0s
   via_esportiva:
     nome: Jegue Voador
-    dificuldade: BR_6SUP
+    dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 5
     quantidade_protecoes_parada: 2
     conquistadores:
-    - Léo Hoffmann
+    - Leonardo Hoffmann
     - Marco Antônio Canelas
     - Marcelo Andrê
     data_abertura: '1994'
@@ -495,12 +501,14 @@ escaladas:
     data_abertura: '1994'
 - uid: cQzxdvJXXi1bmC
   via_esportiva:
-    nome: Projeto Rodrigo do Paraná
+    nome: Sociedade Anônima
     conquistadores:
     - Pedro (PR)
     - Rodrigo (PR)
     - Antônio Paulo
     - Chico
+    dificuldade: PROJETO
+    descricao: Antigo *Projeto Rodrigo do Paraná* (guia de 2002).
 - uid: ULAvbV9FOKor89
   via_esportiva:
     nome: Pequena Criança
@@ -509,6 +517,7 @@ escaladas:
     - Wilson Novaes
     - Ivo Ferreira Marcelino
     - Alexandre Magos
+    - Fábio Lascazas
     data_abertura: '1998'
 ---
 

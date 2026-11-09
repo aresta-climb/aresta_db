@@ -242,10 +242,10 @@ mapas:
   - alvo_uid: iE2bR4i3ORITBt
     pontos_uids:
     - mIQ6BoZIFWnpzd
-  - alvo_uid: lnwPHtyMsnk7PX
+  - alvo_uid: 0kjmgCEQvr7jqR
     pontos_uids:
     - Fo3bDOOX5AvnLS
-  - alvo_uid: 0kjmgCEQvr7jqR
+  - alvo_uid: lnwPHtyMsnk7PX
     pontos_uids:
     - TzfHeUzGtWrhfI
   - alvo_uid: nzc62lIrSNVui8
@@ -260,10 +260,10 @@ mapas:
   - alvo_uid: CHeLwtTXSiOQCo
     pontos_uids:
     - 69uCcDNsRqJK6d
-  - alvo_uid: 6faaxq4WPUk78M
+  - alvo_uid: HD6YyW6TnowhuN
     pontos_uids:
     - Oe8hpZkQ4qjkll
-  - alvo_uid: HD6YyW6TnowhuN
+  - alvo_uid: 6faaxq4WPUk78M
     pontos_uids:
     - ZIFl9D0Bczeb7l
   - alvo_uid: UlccfwkdM6gnf0
@@ -275,12 +275,12 @@ escaladas:
     nome: Luzes
     dificuldade: BR_4
     conquistadores:
-    - Antonio Carlos Magalhães
+    - Antônio Carlos Magalhães "Toninho"
     - Lúcia Magalhães
     data_abertura: '1997'
 - uid: hTFVFnVNlXtvJf
   via_esportiva:
-    nome: Via sem informação
+    nome: Pau Mole
     dificuldade: BR_4
     conquistadores:
     - Leonardo Guimarães "Léo Dandão"
@@ -290,8 +290,8 @@ escaladas:
     nome: Êta Sô
     dificuldade: BR_6
     conquistadores:
-    - Antonio Carlos Magalhães
-    - Lúcia Magalhães
+    - Antônio Carlos Magalhães "Toninho"
+    - Júlio César Cardoso
     data_abertura: '1997'
 - uid: qLY9XVrCzvCVqL
   via_esportiva:
@@ -299,6 +299,7 @@ escaladas:
     dificuldade: BR_5SUP
     conquistadores:
     - Leonardo Guimarães "Léo Dandão"
+    - Ricardo
     data_abertura: '1994'
 - uid: CwigryYDSWgxcb
   via_esportiva:
@@ -324,7 +325,7 @@ escaladas:
     nome: Viajandão Grampeando na Chuva
     dificuldade: BR_3
     conquistadores:
-    - Eustáquio M. Melo Júnior e alunos
+    - Eustáquio Macedo Melo Júnior
     data_abertura: '1997'
     data_manutencao: 27/05/2022
 - uid: 6XVtUPIENKTN1i
@@ -346,14 +347,14 @@ escaladas:
 - uid: O24NOv7tMTcj2m
   via_esportiva:
     nome: Ravenloft
-    dificuldade: BR_6
+    dificuldade: BR_5SUP
     data_abertura: '1997'
     conquistadores:
     - Leonardo Guimarães "Léo Dandão"
 - uid: dXlxB7P6VbEhc4
   via_esportiva:
     nome: Muro das Lamentações
-    dificuldade: BR_7B
+    dificuldade: BR_7A
     conquistadores:
     - Fabiano da Silva Fernandes
     - Viviane da Silva Euler
@@ -374,14 +375,16 @@ escaladas:
     dificuldade: BR_9A
     conquistadores:
     - Cristiano Loureiro "Negão"
+    - Ricardo Jardim Leal
     data_abertura: '1998'
-- uid: lnwPHtyMsnk7PX
-  via_movel:
-    nome: Pierrô e Colombina
-    dificuldade: BR_4SUP
+- uid: 0kjmgCEQvr7jqR
+  via_esportiva:
+    nome: Escalador sem mãe
+    dificuldade: BR_8A
     conquistadores:
-    - Antonio Carlos Magalhães
-    - Lúcia Magalhães
+    - Jovinei Miguel Medeiros
+    - Dante Martins Borges
+    - Sérgio Bastos da Silva
     data_abertura: '2002'
 - uid: CHeLwtTXSiOQCo
   via_esportiva:
@@ -390,18 +393,9 @@ escaladas:
     quantidade_protecoes_intermediarias: 6
     quantidade_protecoes_parada: 2
     conquistadores:
-    - Gustavo Piancastelli
-    - Ronie
+    - Gustavo Piancastelli "Guta"
+    - Ronie Gibson
     data_abertura: '1997'
-- uid: 6faaxq4WPUk78M
-  via_esportiva:
-    nome: Posições Exóticas
-    dificuldade: BR_7B
-    quantidade_protecoes_intermediarias: 7
-    quantidade_protecoes_parada: 2
-    conquistadores:
-    - Ivo Ferreira Marcelino
-    data_abertura: '1994'
 - uid: HD6YyW6TnowhuN
   via_esportiva:
     nome: Garotos não Choram
@@ -410,7 +404,19 @@ escaladas:
     quantidade_protecoes_parada: 2
     conquistadores:
     - Eustáquio Macedo Melo Júnior
-    - Emerson Alves Azeredo
+    - Fabiano da Silva Fernandes
+    data_abertura: '1994'
+- uid: 6faaxq4WPUk78M
+  via_esportiva:
+    nome: Posições Exóticas
+    dificuldade: BR_7A
+    quantidade_protecoes_intermediarias: 7
+    quantidade_protecoes_parada: 2
+    conquistadores:
+    - Márcio Soares Macena
+    - Alexandre Magos
+    - Eduardo
+    - Ivo Ferreira Marcelino
     data_abertura: '1997'
 ---
 

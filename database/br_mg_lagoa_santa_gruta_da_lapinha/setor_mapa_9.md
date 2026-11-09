@@ -127,6 +127,13 @@ mapas:
       y: 141
       comprimento: 20
       largura: 12
+  - uid: zVaqXP1BSx5PBy
+    rotulo: '122'
+    retangulo:
+      x: 421
+      y: 132
+      comprimento: 20
+      largura: 12
   - uid: DKaCgDIP3QOO0w
     rotulo: '123'
     retangulo:
@@ -199,6 +206,9 @@ mapas:
   - alvo_uid: cREoYdqil3YrLf
     pontos_uids:
     - A8rpj2zbcQOQon
+  - alvo_uid: 91t7ydDPLQ5jvH
+    pontos_uids:
+    - zVaqXP1BSx5PBy
 escaladas:
 - uid: xaZU9xGBqraEEw
   via_esportiva:
@@ -213,10 +223,10 @@ escaladas:
     nome: Gralha Pigmeia
     dificuldade: BR_6
     conquistadores:
-    - W. Novaes
-    - Ivo Marcelino
+    - Wilson Novaes
+    - Ivo Ferreira Marcelino
     - Alexandre Magos
-    - Léo Hoffmann
+    - Leonardo Hoffmann
     data_abertura: '1999'
     data_manutencao: 02/08/2022
 - uid: YtEytEnRAxkFxc
@@ -226,6 +236,7 @@ escaladas:
     conquistadores:
     - Rodrigo Tinoco França
     - Vinícius
+    - Venâncio
     data_abertura: '1997'
 - uid: mKED1qNqrmdGHj
   via_esportiva:
@@ -238,20 +249,21 @@ escaladas:
 - uid: y4NYbcV7IdM2vX
   via_esportiva:
     nome: Um Corpo que Cai
-    dificuldade: BR_6
+    dificuldade: BR_6_BARRA_6SUP
     conquistadores:
     - Emerson Alves Azeredo
     - Fábio C. Araújo
-    - Júlio Cesar Cardoso
+    - Júlio César Cardoso
     data_abertura: '1993'
 - uid: WEywEUghxL4mZj
   via_esportiva:
     nome: Realidade da Coisa
-    dificuldade: BR_9B
+    dificuldade: BR_9A
     conquistadores:
-    - Fabinho de Petrópolis
+    - Prudente
     - Marquinhos
-    - Xacundum
+    - Alexandre Xacundum
+    - Glauco
     data_abertura: '1994'
 - uid: C883Mwi7oTTO47
   via_esportiva:
@@ -260,6 +272,8 @@ escaladas:
     conquistadores:
     - Fabiano da Silva Fernandes
     - Fabinho de Teresópolis
+    - Alexandre Galvão
+    - Gilberto Morte
     data_abertura: '1993'
 - uid: jYYHO2cKIcdbSA
   via_esportiva:
@@ -267,12 +281,12 @@ escaladas:
     dificuldade: BR_8B
     conquistadores:
     - Felipe
-    - Tiago Abobrinha
+    - Thiago "Abobrinha"
     data_abertura: '1996'
 - uid: gWN5ChcePCIBxL
   via_esportiva:
     nome: Cova dos Leões
-    dificuldade: BR_7A
+    dificuldade: BR_7B
     conquistadores:
     - Emerson Alves Azeredo
     - Gilberto Torres
@@ -280,26 +294,30 @@ escaladas:
 - uid: 9AjpygLA38EGdx
   via_esportiva:
     nome: Mentalidade Suburbana
-    dificuldade: BR_7A
+    dificuldade: BR_7B
     conquistadores:
-    - Ricardo J. Leal
-    - Rodrigo Tinoco
-    - Fábio L. Farias "Fabinho"
+    - Ricardo Jardim Leal
+    - Rodrigo Tinoco França
+    - Fábio Luiz Faria "Fabinho"
+    - Felipe
     data_abertura: '1994'
 - uid: gHWveURBBDxMSG
   via_esportiva:
     nome: Rato Assassino
     dificuldade: BR_8A
     conquistadores:
-    - Fabinho de Petrópolis
+    - Prudente
     - Alexandre Xacundum
     data_abertura: '1996'
+- uid: 91t7ydDPLQ5jvH
+  via_esportiva:
+    nome: Via sem informação
 - uid: RkACWCnC4LYvb1
   via_esportiva:
     nome: Masturbações de Calígula
     dificuldade: BR_7A
     conquistadores:
-    - Márcio Soares Macenas
+    - Márcio Soares Macena
     - Wilson Novaes
 - uid: gEn9QjBaACWP6y
   via_movel:
@@ -307,8 +325,8 @@ escaladas:
     dificuldade: BR_6SUP
     conquistadores:
     - Roberto Lincoln de Freitas
-    descricao: Vía de proteção mista
     data_abertura: '1998'
+    descricao: Via de proteção mista
 - uid: cREoYdqil3YrLf
   via_esportiva:
     nome: Três Pontos

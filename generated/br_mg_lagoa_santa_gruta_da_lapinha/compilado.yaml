@@ -110,7 +110,7 @@ picos:
           - alvo_uid: YJo7r0hFIoOXTZ
             pontos_uids:
             - tzWTPn01zEiYeE
-            escalada: Projeto
+            escalada: Perrengue total
             setor: Setor Castelinho
             ids:
             - tzWTPn01zEiYeE
@@ -134,9 +134,9 @@ picos:
         - uid: uMZtAWeka4OQlJ
           via_movel:
             nome: Retorno do Marco
-            dificuldade: BR_3
+            dificuldade: BR_3SUP
             conquistadores:
-            - Antonio C. Magalhães
+            - Antônio Carlos Magalhães "Toninho"
             - Marco Antônio Canelas
         - uid: gcztZvEGjZmcgV
           via_esportiva:
@@ -146,7 +146,7 @@ picos:
             quantidade_protecoes_parada: 2
             conquistadores:
             - Christian A. N. Costa
-            - Leo Guimarães "Léo Dandão"
+            - Leonardo Guimarães "Léo Dandão"
             data_abertura: '2001'
         - uid: QBYl00QZT0YkrW
           via_esportiva:
@@ -156,16 +156,19 @@ picos:
             quantidade_protecoes_parada: 1
             conquistadores:
             - Marcelo Henrique Grijó Utsch
-            - Cristiano Loureiro
+            - Cristiano Loureiro "Negão"
             data_abertura: '1993'
         - uid: YJo7r0hFIoOXTZ
           via_esportiva:
-            nome: Projeto
+            nome: Perrengue total
             dificuldade: PROJETO
             quantidade_protecoes_intermediarias: 3
             quantidade_protecoes_parada: 0
             descricao: '**INTERDITADA:** Via inacabada, conta com apenas 3 proteções
               intermediárias e sem parada instalada no topo.'
+            conquistadores:
+            - Cristiano Loureiro "Negão"
+            - Ricardo Jardim Leal
         descricao: |-
           Setor localizado próximo ao Restaurante Castelinho. Possui vias de graduação
           variada, incluindo algumas vias em móvel.
@@ -220,17 +223,21 @@ picos:
             nome: Ajoelhou tem que Rezar
             dificuldade: BR_6SUP
             conquistadores:
-            - Antonio Carlos Magalhães
+            - Antônio Carlos Magalhães "Toninho"
         - uid: VzHgiUIINvtKec
           via_esportiva:
             nome: O Exibicionista
             dificuldade: BR_5
             quantidade_protecoes_intermediarias: 2
             quantidade_protecoes_parada: 1
-            descricao: '**INTERDITADA:** Grampos com palheta demandam substituição
-              por novas ancoragens. Parada simples que necessita ser duplicada.'
+            descricao: |-
+              Também chamada por alguns de *Homem Calcário*.
+
+              **INTERDITADA:** Grampos com palheta demandam substituição por novas ancoragens. Parada simples que necessita ser duplicada.
             conquistadores:
             - Daniel Fernandes "Salim"
+            - Barbosa
+            data_abertura: '1997'
         descricao: "Localizado próximo à entrada da gruta. \n**Atenção:** \"Não entre
           em cavernas\"."
         precomputados:
@@ -511,7 +518,7 @@ picos:
           - alvo_uid: PsWevz52vrX9CP
             pontos_uids:
             - YXUlxFX4b4dt9T
-            escalada: Vicio
+            escalada: Vício
             setor: Setor Gruta - Mapa 3
             ids:
             - YXUlxFX4b4dt9T
@@ -634,10 +641,10 @@ picos:
             setor: Setor Gruta - Mapa 3
             ids:
             - ZdrpCXFkdGihXw
-          - alvo_uid: 0kjmgCEQvr7jqR
+          - alvo_uid: lnwPHtyMsnk7PX
             pontos_uids:
             - WYGuHzuajIpHHg
-            escalada: Escalador sem mãe
+            escalada: Pierrô e Colombina
             setor: Setor Gruta - Mapa 3
             ids:
             - WYGuHzuajIpHHg
@@ -668,14 +675,15 @@ picos:
             nome: Lua Cheia
             dificuldade: BR_5
             conquistadores:
-            - Antonio Carlos Magalhães
+            - Antônio Carlos Magalhães "Toninho"
             - Vladmir Haddad
+            data_abertura: '1997'
         - uid: JZxQkEyA4lXM9C
           via_esportiva:
             nome: Jornada nas Estrelas
             dificuldade: BR_7A
             conquistadores:
-            - Antonio Carlos Magalhães
+            - Antônio Carlos Magalhães "Toninho"
             - Vladmir Haddad
             data_abertura: '1997'
         - uid: egUwOsiMnN45Tu
@@ -683,7 +691,7 @@ picos:
             nome: Egotrip
             dificuldade: BR_6SUP
             conquistadores:
-            - Antonio Carlos Magalhães
+            - Antônio Carlos Magalhães "Toninho"
             - Vladmir Haddad
             data_abertura: '1997'
         - uid: cbZ263w7zUzsEf
@@ -692,14 +700,14 @@ picos:
             dificuldade: BR_6SUP
             conquistadores:
             - Leonardo Hoffmann
-            - Fao
+            - Flávio Henrique Dias
             data_abertura: '2001'
         - uid: PsWevz52vrX9CP
           via_esportiva:
-            nome: Vicio
+            nome: Vício
             dificuldade: BR_6
             conquistadores:
-            - Antonio Carlos Magalhães
+            - Antônio Carlos Magalhães "Toninho"
             - Vladmir Haddad
             data_abertura: '1997'
         - uid: bCJDqPZpZ6a12y
@@ -708,13 +716,13 @@ picos:
             dificuldade: BR_6SUP
             conquistadores:
             - Leonardo Hoffmann
-            - Alexandre
+            - Alexandre F. de Queiroz "Caverna"
         - uid: CyKGqcG4aTKxfn
           via_movel:
             nome: Gota D’água
             dificuldade: BR_6
             conquistadores:
-            - Antonio Carlos Magalhães
+            - Antônio Carlos Magalhães "Toninho"
             - Vladmir Haddad
             data_abertura: '1997'
         - uid: trj4G3vGOArENf
@@ -722,7 +730,7 @@ picos:
             nome: Sai de Baixo
             dificuldade: BR_5
             conquistadores:
-            - Antonio Carlos Magalhães
+            - Antônio Carlos Magalhães "Toninho"
             - Danilo Abreu
             data_abertura: '1997'
         - uid: IOUnxnbFfZEGs4
@@ -736,6 +744,7 @@ picos:
             conquistadores:
             - Gabriel Fillizola
             - Sílvio Om
+            - Pedro Leite
             data_abertura: '1997'
         - uid: LtbPet4uTXi7Pg
           via_esportiva:
@@ -752,7 +761,7 @@ picos:
         - uid: s6aziD9QKGJOpP
           via_esportiva:
             nome: Perigo Mora ao Lado
-            dificuldade: BR_8A
+            dificuldade: BR_7C
             quantidade_protecoes_intermediarias: 4
             quantidade_protecoes_parada: 2
             descricao: '**INTERDITADA:** Grampos com palheta em má situação e instalados
@@ -760,6 +769,7 @@ picos:
             conquistadores:
             - Márcio Soares Macena
             - Mozart
+            - Alexandre Magos
             data_abertura: '1998'
         - uid: PhAfEvHO25UiXj
           via_esportiva:
@@ -776,40 +786,40 @@ picos:
         - uid: 3YGXOKygemgTsz
           via_esportiva:
             nome: Sorriso do Lagarto
-            dificuldade: BR_6
+            dificuldade: BR_6_BARRA_6SUP
             quantidade_protecoes_intermediarias: 3
             quantidade_protecoes_parada: 1
             descricao: '**INTERDITADA:** Parada simples; grampos de menor diâmetro
               a substituir.'
             conquistadores:
             - André C. B. "Andrezão"
-            - J. Roberto Cardoso "Dagó"
+            - Anderson Barbosa
             data_abertura: '1995'
         - uid: 5de82BQO55DmG8
           via_esportiva:
             nome: Orgasmatrom
-            dificuldade: BR_6
+            dificuldade: BR_6SUP
             quantidade_protecoes_intermediarias: 5
             quantidade_protecoes_parada: 1
             descricao: '**INTERDITADA:** Grampos de olhal estreito (dificuldade de
               clipagem de 2 mosquetões); substituição necessária.'
             conquistadores:
-            - André C. B. "Andrezão"
-            - J. Roberto Cardoso "Dagó"
+            - Antônio Carlos Magalhães "Toninho"
+            - Vladmir Haddad
             data_abertura: '1995'
         - uid: 6qtIK6oko89RLT
           via_movel:
             nome: Escaramuça
             dificuldade: BR_3
             conquistadores:
-            - Antonio Carlos Magalhães
+            - Antônio Carlos Magalhães "Toninho"
             data_abertura: '1997'
         - uid: fTlGW2iOfrQfhh
           via_movel:
             nome: Túnel do Tempo
             dificuldade: BR_5
             conquistadores:
-            - Antonio Carlos Magalhães
+            - Antônio Carlos Magalhães "Toninho"
             - Lúcia Magalhães
             data_abertura: '1997'
         - uid: zrPctwMqr1OhvR
@@ -817,7 +827,7 @@ picos:
             nome: Dédalos
             dificuldade: BR_4SUP
             conquistadores:
-            - Antonio Carlos Magalhães
+            - Antônio Carlos Magalhães "Toninho"
             - Lúcia Magalhães
             data_abertura: '1997'
         - uid: KW35NZAOeB6cPC
@@ -825,7 +835,7 @@ picos:
             nome: Bouquet de Rosas
             dificuldade: BR_4SUP
             conquistadores:
-            - Antonio C. Magalhães
+            - Antônio Carlos Magalhães "Toninho"
             - Danilo Abreu
             data_abertura: '1997'
         - uid: MHuDaw7hjXX15m
@@ -840,7 +850,7 @@ picos:
         - uid: JOmpj2z9VixPwr
           via_esportiva:
             nome: Bobeou Sobrou
-            dificuldade: BR_7A
+            dificuldade: BR_7B
             conquistadores:
             - Fabiano da Silva Fernandes
             - Viviane da Silva Euler
@@ -859,17 +869,16 @@ picos:
             nome: Folião
             dificuldade: BR_6
             conquistadores:
-            - Antonio Carlos Magalhães
+            - Antônio Carlos Magalhães "Toninho"
             - Lúcia Magalhães
             data_abertura: '1997'
-        - uid: 0kjmgCEQvr7jqR
-          via_esportiva:
-            nome: Escalador sem mãe
-            dificuldade: BR_8A
+        - uid: lnwPHtyMsnk7PX
+          via_movel:
+            nome: Pierrô e Colombina
+            dificuldade: BR_4SUP
             conquistadores:
-            - Jovinei M. Medeiros
-            - Dante M. Borges
-            - Sérgio B. da Silva.
+            - Antônio Carlos Magalhães "Toninho"
+            - Lúcia Magalhães
             data_abertura: '1997'
         - uid: nzc62lIrSNVui8
           via_esportiva:
@@ -880,7 +889,7 @@ picos:
             descricao: '**INTERDITADA:** Via inacabada, conta com 2 grampos com palheta
               e sem parada instalada no topo.'
             conquistadores:
-            - André Coutinho
+            - André Coutinho "Andrezão"
         - uid: 0XkrqDPEYpl2vw
           via_esportiva:
             nome: Sobrevibrenf´s
@@ -889,6 +898,7 @@ picos:
             quantidade_protecoes_parada: 2
             conquistadores:
             - Leonardo Hoffmann
+            - Anderson Barbosa
             data_abertura: '2001'
             data_manutencao: 10/08/2022
         - uid: f8fyK7B3Fuo95O
@@ -898,14 +908,14 @@ picos:
             quantidade_protecoes_intermediarias: 6
             quantidade_protecoes_parada: 2
             conquistadores:
-            - Anderson (Neném)
             - Douglas
-            - Bombom
+            - Anderson "Neném"
+            - Bruno
             data_abertura: '1994'
         descricao: Parte interna e externa da gruta com vias esportivas e móveis.
         precomputados:
           total_escaladas: 26
-          total_esportivas: 18
+          total_esportivas: 17
   - setor:
       conteudo:
         uid: UsSUW7apVi41SD
@@ -1188,7 +1198,7 @@ picos:
           - alvo_uid: hTFVFnVNlXtvJf
             pontos_uids:
             - WcMk6ADqlyWuEi
-            escalada: Via sem informação
+            escalada: Pau Mole
             setor: Setor Gruta - Mapa 4 (Sala de Aula)
             ids:
             - WcMk6ADqlyWuEi
@@ -1269,17 +1279,17 @@ picos:
             setor: Setor Gruta - Mapa 4 (Sala de Aula)
             ids:
             - mIQ6BoZIFWnpzd
-          - alvo_uid: lnwPHtyMsnk7PX
+          - alvo_uid: 0kjmgCEQvr7jqR
             pontos_uids:
             - Fo3bDOOX5AvnLS
-            escalada: Pierrô e Colombina
+            escalada: Escalador sem mãe
             setor: Setor Gruta - Mapa 4 (Sala de Aula)
             ids:
             - Fo3bDOOX5AvnLS
-          - alvo_uid: 0kjmgCEQvr7jqR
+          - alvo_uid: lnwPHtyMsnk7PX
             pontos_uids:
             - TzfHeUzGtWrhfI
-            escalada: Escalador sem mãe
+            escalada: Pierrô e Colombina
             setor: Setor Gruta - Mapa 3
             ids:
             - TzfHeUzGtWrhfI
@@ -1311,17 +1321,17 @@ picos:
             setor: Setor Gruta - Mapa 4 (Sala de Aula)
             ids:
             - 69uCcDNsRqJK6d
-          - alvo_uid: 6faaxq4WPUk78M
+          - alvo_uid: HD6YyW6TnowhuN
             pontos_uids:
             - Oe8hpZkQ4qjkll
-            escalada: Posições Exóticas
+            escalada: Garotos não Choram
             setor: Setor Gruta - Mapa 4 (Sala de Aula)
             ids:
             - Oe8hpZkQ4qjkll
-          - alvo_uid: HD6YyW6TnowhuN
+          - alvo_uid: 6faaxq4WPUk78M
             pontos_uids:
             - ZIFl9D0Bczeb7l
-            escalada: Garotos não Choram
+            escalada: Posições Exóticas
             setor: Setor Gruta - Mapa 4 (Sala de Aula)
             ids:
             - ZIFl9D0Bczeb7l
@@ -1337,12 +1347,12 @@ picos:
             nome: Luzes
             dificuldade: BR_4
             conquistadores:
-            - Antonio Carlos Magalhães
+            - Antônio Carlos Magalhães "Toninho"
             - Lúcia Magalhães
             data_abertura: '1997'
         - uid: hTFVFnVNlXtvJf
           via_esportiva:
-            nome: Via sem informação
+            nome: Pau Mole
             dificuldade: BR_4
             conquistadores:
             - Leonardo Guimarães "Léo Dandão"
@@ -1352,8 +1362,8 @@ picos:
             nome: Êta Sô
             dificuldade: BR_6
             conquistadores:
-            - Antonio Carlos Magalhães
-            - Lúcia Magalhães
+            - Antônio Carlos Magalhães "Toninho"
+            - Júlio César Cardoso
             data_abertura: '1997'
         - uid: qLY9XVrCzvCVqL
           via_esportiva:
@@ -1361,6 +1371,7 @@ picos:
             dificuldade: BR_5SUP
             conquistadores:
             - Leonardo Guimarães "Léo Dandão"
+            - Ricardo
             data_abertura: '1994'
         - uid: CwigryYDSWgxcb
           via_esportiva:
@@ -1386,7 +1397,7 @@ picos:
             nome: Viajandão Grampeando na Chuva
             dificuldade: BR_3
             conquistadores:
-            - Eustáquio M. Melo Júnior e alunos
+            - Eustáquio Macedo Melo Júnior
             data_abertura: '1997'
             data_manutencao: 27/05/2022
         - uid: 6XVtUPIENKTN1i
@@ -1408,14 +1419,14 @@ picos:
         - uid: O24NOv7tMTcj2m
           via_esportiva:
             nome: Ravenloft
-            dificuldade: BR_6
+            dificuldade: BR_5SUP
             data_abertura: '1997'
             conquistadores:
             - Leonardo Guimarães "Léo Dandão"
         - uid: dXlxB7P6VbEhc4
           via_esportiva:
             nome: Muro das Lamentações
-            dificuldade: BR_7B
+            dificuldade: BR_7A
             conquistadores:
             - Fabiano da Silva Fernandes
             - Viviane da Silva Euler
@@ -1436,14 +1447,16 @@ picos:
             dificuldade: BR_9A
             conquistadores:
             - Cristiano Loureiro "Negão"
+            - Ricardo Jardim Leal
             data_abertura: '1998'
-        - uid: lnwPHtyMsnk7PX
-          via_movel:
-            nome: Pierrô e Colombina
-            dificuldade: BR_4SUP
+        - uid: 0kjmgCEQvr7jqR
+          via_esportiva:
+            nome: Escalador sem mãe
+            dificuldade: BR_8A
             conquistadores:
-            - Antonio Carlos Magalhães
-            - Lúcia Magalhães
+            - Jovinei Miguel Medeiros
+            - Dante Martins Borges
+            - Sérgio Bastos da Silva
             data_abertura: '2002'
         - uid: CHeLwtTXSiOQCo
           via_esportiva:
@@ -1452,18 +1465,9 @@ picos:
             quantidade_protecoes_intermediarias: 6
             quantidade_protecoes_parada: 2
             conquistadores:
-            - Gustavo Piancastelli
-            - Ronie
+            - Gustavo Piancastelli "Guta"
+            - Ronie Gibson
             data_abertura: '1997'
-        - uid: 6faaxq4WPUk78M
-          via_esportiva:
-            nome: Posições Exóticas
-            dificuldade: BR_7B
-            quantidade_protecoes_intermediarias: 7
-            quantidade_protecoes_parada: 2
-            conquistadores:
-            - Ivo Ferreira Marcelino
-            data_abertura: '1994'
         - uid: HD6YyW6TnowhuN
           via_esportiva:
             nome: Garotos não Choram
@@ -1472,13 +1476,25 @@ picos:
             quantidade_protecoes_parada: 2
             conquistadores:
             - Eustáquio Macedo Melo Júnior
-            - Emerson Alves Azeredo
+            - Fabiano da Silva Fernandes
+            data_abertura: '1994'
+        - uid: 6faaxq4WPUk78M
+          via_esportiva:
+            nome: Posições Exóticas
+            dificuldade: BR_7A
+            quantidade_protecoes_intermediarias: 7
+            quantidade_protecoes_parada: 2
+            conquistadores:
+            - Márcio Soares Macena
+            - Alexandre Magos
+            - Eduardo
+            - Ivo Ferreira Marcelino
             data_abertura: '1997'
         descricao: Vias localizadas na região da Sala de Aula e em direção ao setor
           Savassinha.
         precomputados:
           total_escaladas: 17
-          total_esportivas: 14
+          total_esportivas: 15
   - setor:
       conteudo:
         uid: WACdTSW0GaT2WF
@@ -1615,7 +1631,7 @@ picos:
           - alvo_uid: gIzPvcOt3tcfaW
             pontos_uids:
             - peXLU6yqiBgVaf
-            escalada: Karrenglass
+            escalada: Karren Glass
             setor: Setor Mapa 5
             ids:
             - peXLU6yqiBgVaf
@@ -1641,7 +1657,7 @@ picos:
             quantidade_protecoes_intermediarias: 0
             quantidade_protecoes_parada: 0
             conquistadores:
-            - Eustáquio Macedo
+            - Eustáquio Macedo Melo Júnior
             - Emerson Alves Azeredo
             descricao: Via em Top Rope (sem proteções fixas na linha).
             data_abertura: '1994'
@@ -1659,23 +1675,23 @@ picos:
         - uid: LlhTp0HQEPx14C
           via_esportiva:
             nome: O Perigo que Veio do Céu
-            dificuldade: BR_7A
+            dificuldade: BR_6SUP
             quantidade_protecoes_intermediarias: 5
             quantidade_protecoes_parada: 2
             conquistadores:
             - Fabiano da Silva Fernandes
-            - Charles Costa Marinho
+            - Felipe
             data_abertura: '1993'
         - uid: 0ea9JvzzJRmTMc
           via_esportiva:
             nome: Arranca Couro
-            dificuldade: BR_7A
+            dificuldade: BR_6SUP
             quantidade_protecoes_intermediarias: 3
             quantidade_protecoes_parada: 2
             conquistadores:
-            - Charles C. Marinho
-            - Emerson A. Azeredo
-            - Fabiano Fernandes
+            - Charles Costa Marinho
+            - Emerson Alves Azeredo
+            - Fabiano da Silva Fernandes
             data_abertura: '1993'
         - uid: Y3VMbBAjE0gzDE
           via_esportiva:
@@ -1691,16 +1707,16 @@ picos:
             dificuldade: BR_6
             conquistadores:
             - André C. B. "Andrezão"
-            - Anderson B. Felisário
+            - Anderson B. Felisardo
             data_abertura: '1994'
         - uid: gIzPvcOt3tcfaW
           via_esportiva:
-            nome: Karrenglass
+            nome: Karren Glass
             dificuldade: BR_5SUP
             conquistadores:
-            - Eduardo V. de A. "Ralf"
-            - Ricardo Leal
-            - Rodrigo Tinoco
+            - Eduardo Viana de Azevedo "Ralf"
+            - Ricardo Jardim Leal
+            - Rodrigo Tinoco França
             data_abertura: '1993'
         - uid: lieFJxvgjD0T4C
           via_esportiva:
@@ -1712,20 +1728,20 @@ picos:
             - Denise
             data_abertura: '1996'
         - uid: RnZKGhZfGOypo1
-          via_esportiva:
+          via_movel:
             nome: Compromisso Sexual
             dificuldade: BR_7C
             conquistadores:
-            - Emerson A. Azeredo
-            - Eustáquio Júnior
-            - Fabiano Fernandes
+            - Emerson Alves Azeredo
+            - Eustáquio Macedo Melo Júnior
+            - Fabiano da Silva Fernandes
             data_abertura: '1994'
         descricao: |-
           Vias localizadas próximo à região do "Pasto" e "Mancha amarela".
           Confira a localização no mapa.
         precomputados:
           total_escaladas: 9
-          total_esportivas: 9
+          total_esportivas: 8
   - setor:
       conteudo:
         uid: DzpVy5IyHcY19t
@@ -1735,6 +1751,15 @@ picos:
           largura_mapa: 465
           altura_mapa: 340
           pontos_de_interesse:
+          - uid: 3likO2D5k3Swvh
+            rotulo: '61'
+            retangulo:
+              x: 31
+              y: 139
+              comprimento: 14
+              largura: 12
+            id: 3likO2D5k3Swvh
+            label: '61'
           - uid: co0L3lzfGktyam
             rotulo: '62'
             retangulo:
@@ -1753,6 +1778,15 @@ picos:
               largura: 12
             id: Pcws7jdnBdkFf1
             label: '63'
+          - uid: 2DHKUd8mdgKpT2
+            rotulo: '132'
+            retangulo:
+              x: 157
+              y: 207
+              comprimento: 20
+              largura: 12
+            id: 2DHKUd8mdgKpT2
+            label: '132'
           - uid: 4D7AxhkAElF1mz
             rotulo: '64'
             retangulo:
@@ -1862,6 +1896,13 @@ picos:
             id: h3386PrCzycAkF
             label: '75'
           referencias:
+          - alvo_uid: E47PBUWaztdeq5
+            pontos_uids:
+            - 3likO2D5k3Swvh
+            escalada: Os Impossíveis
+            setor: Setor Vale Verde (Mapa 6)
+            ids:
+            - 3likO2D5k3Swvh
           - alvo_uid: WNnbACHqlufqB4
             pontos_uids:
             - co0L3lzfGktyam
@@ -1869,13 +1910,6 @@ picos:
             setor: Setor Vale Verde (Mapa 6)
             ids:
             - co0L3lzfGktyam
-          - alvo_uid: E47PBUWaztdeq5
-            pontos_uids:
-            - Pcws7jdnBdkFf1
-            escalada: Os impossíveis
-            setor: Setor Vale Verde (Mapa 6)
-            ids:
-            - Pcws7jdnBdkFf1
           - alvo_uid: AlhpLzBbvxdARj
             pontos_uids:
             - 4D7AxhkAElF1mz
@@ -1960,26 +1994,52 @@ picos:
             setor: Setor Vale Verde (Mapa 6)
             ids:
             - h3386PrCzycAkF
+          - alvo_uid: Bs0O5a4jMF2Epw
+            pontos_uids:
+            - Pcws7jdnBdkFf1
+            escalada: Via sem informação
+            setor: Setor Vale Verde (Mapa 6)
+            ids:
+            - Pcws7jdnBdkFf1
+          - alvo_uid: L69C6jL7Bphv5T
+            pontos_uids:
+            - 2DHKUd8mdgKpT2
+            escalada: Meio Cubanos
+            setor: Setor Vale Verde (Mapa 6)
+            ids:
+            - 2DHKUd8mdgKpT2
         escaladas:
+        - uid: E47PBUWaztdeq5
+          via_esportiva:
+            nome: Os Impossíveis
+            dificuldade: BR_8B
+            conquistadores:
+            - André C. B. "Andrezão"
+            - Anderson B. Felisardo
+            data_abertura: '1999'
         - uid: WNnbACHqlufqB4
           via_esportiva:
             nome: Psico Circus
             dificuldade: BR_8A
             conquistadores:
             - André C. B. "Andrezão"
-            - Anderson B. Felisário
+            - Anderson B. Felisardo
             data_abertura: '1999'
-        - uid: E47PBUWaztdeq5
+            tipo_parede: NEGATIVO
+            descricao: Via em teto.
+        - uid: Bs0O5a4jMF2Epw
           via_esportiva:
-            nome: Os impossíveis
-            dificuldade: BR_8B
+            nome: Via sem informação
+        - uid: L69C6jL7Bphv5T
+          via_movel:
+            nome: Meio Cubanos
+            dificuldade: BR_6SUP
             conquistadores:
-            - André C. B. "Andrezão"
-            - Anderson B. Felisário
+            - Roberto Lincoln de Freitas
         - uid: AlhpLzBbvxdARj
           via_esportiva:
             nome: Carbonáticus Calcicus
-            dificuldade: BR_7A
+            dificuldade: BR_7B
             conquistadores:
             - Leonardo Hoffmann
             - Eduardo Viana de Azevedo "Ralf"
@@ -1989,19 +2049,19 @@ picos:
             nome: Para não dizer que não falei de flores
             dificuldade: BR_5SUP
             conquistadores:
-            - Antonio Carlos Magalhães
+            - Antônio Carlos Magalhães "Toninho"
             - Ricardo Jardim Leal
         - uid: OmqF412h2OG31Q
           via_movel:
             nome: As Aparências Enganam
             dificuldade: BR_5SUP
             conquistadores:
-            - Antonio Carlos Magalhães
+            - Antônio Carlos Magalhães "Toninho"
             - Júlio César Cardoso
         - uid: uN41mUNxKhQLnR
           via_esportiva:
             nome: Eu quero é ver o oco
-            dificuldade: BR_7B
+            dificuldade: BR_8A
             conquistadores:
             - Ricardo Jardim Leal
             - Leonardo Oliveira
@@ -2013,24 +2073,27 @@ picos:
             dificuldade: BR_6SUP
             conquistadores:
             - Edgardo Abreu "Caca"
-            - Leandro Antônio Reis
+            - Rodrigo "Gaguinho"
+            - Daniel Fernandes "Salim"
             data_abertura: '1998'
         - uid: 6HNjjzHD8ZgV5A
           via_esportiva:
             nome: Vive lá brenf
             dificuldade: BR_6SUP
             conquistadores:
-            - André "DJ"
-            - Léo Hoffmann
+            - André Viana "DJ"
+            - Leonardo Hoffmann
             - André "Granola"
-            - Guta Piancastelli
+            - Gustavo Piancastelli "Guta"
+            - Edgardo Abreu "Caca"
             data_abertura: '1997'
         - uid: 40ZgWfXSRvNVRD
           via_esportiva:
             nome: Rastafary Baby
             dificuldade: BR_7C
             conquistadores:
-            - Leonardo Hoffman
+            - Leonardo Hoffmann
+            - Alexandre F. de Queiroz "Caverna"
             data_abertura: '1999'
         - uid: nRjQg6NF3gMoB5
           via_esportiva:
@@ -2038,49 +2101,51 @@ picos:
             dificuldade: BR_7A
             conquistadores:
             - Wilson Novaes
-            - Márcio Soares Macenas
+            - Márcio Soares Macena
             data_abertura: '2000'
         - uid: tJ3b11CN9Dk1k8
           via_esportiva:
             nome: Tempestade Cerebral
             dificuldade: BR_8A
             conquistadores:
+            - Vitor Martins (PR)
             - André C. B. "Andrezão"
-            - Anderson B. Felisário
+            - Anderson B. Felisardo
             data_abertura: '1999'
         - uid: mPhlYzOBycx1yO
           via_esportiva:
             nome: Chambinho
             dificuldade: BR_8C
             conquistadores:
-            - Anderson Felisário
-            - Andrezão
-            - Eduardo "Ralf"
-            - Eustáquio Jr.
+            - Anderson B. Felisardo
+            - André C. B. "Andrezão"
+            - Eduardo Viana de Azevedo "Ralf"
+            - Eustáquio Macedo Melo Júnior
             data_abertura: '1996'
         - uid: a601ekOt4Z8grf
           via_esportiva:
             nome: Revolução dos Micos
-            dificuldade: BR_7B
+            dificuldade: BR_7A
             conquistadores:
             - Eduardo Amaral
             - Jean Ouriques
             - Anne Ouriques
-            - Leonardo Rocenik
+            - Leonardo Roenik
             data_abertura: '2000'
         - uid: gCEazUeMzsA3dp
           via_esportiva:
             nome: Al Capote
-            dificuldade: BR_8B
+            dificuldade: BR_8C
             conquistadores:
             - Ricardo Jardim Leal
+            - Cristiano Loureiro "Negão"
             data_abertura: '1998'
         descricao: |-
           Setor com vias técnicas e atléticas. O mapa está fora de escala ("fora de escala").
           O Bloco do Raul Seixas está localizado próximo às vias 73, 74 e 75.
         precomputados:
-          total_escaladas: 14
-          total_esportivas: 11
+          total_escaladas: 16
+          total_esportivas: 12
   - setor:
       conteudo:
         uid: n7TZtwIPFNeMNy
@@ -2271,12 +2336,14 @@ picos:
         - uid: afC111TsB5Shpo
           via_esportiva:
             nome: Cariocas não dizem Uai
-            dificuldade: BR_7A
+            dificuldade: BR_7B
             quantidade_protecoes_intermediarias: 8
             quantidade_protecoes_parada: 2
             conquistadores:
             - Ivo Júnior
-            - Rma
+            - Ramaya Vallias
+            - Daniel Fernandes "Salim"
+            - Fabiano da Silva Fernandes
             data_abertura: '1999'
         - uid: qqE2Xa62AWdHkq
           via_esportiva:
@@ -2287,7 +2354,7 @@ picos:
             quantidade_protecoes_parada: 2
             conquistadores:
             - Eustáquio Macedo Melo Júnior
-            - Mário Almeida Neto
+            - Fabiano da Silva Fernandes
             data_abertura: '1993'
         - uid: CQy3SWhpDCc528
           via_esportiva:
@@ -2303,7 +2370,7 @@ picos:
         - uid: OXAvr0Rdr0rU5G
           via_esportiva:
             nome: Rosa dos Ventos
-            dificuldade: BR_9A
+            dificuldade: BR_8A
             conquistadores:
             - Ramaya Vallias
             - Léo Quirino
@@ -2322,7 +2389,7 @@ picos:
             dificuldade: BR_5
             conquistadores:
             - Wilson Novaes
-            - Márcio Soares Macenas
+            - Márcio Soares Macena
         - uid: ZYG9ghLMTzMJVk
           via_esportiva:
             nome: Três dentro, três fora
@@ -2363,6 +2430,7 @@ picos:
             quantidade_protecoes_parada: 2
             conquistadores:
             - Daniel Fernandes "Salim"
+            - Ramaya Vallias
             data_abertura: '1999'
         - uid: 46pgZmHpsgEsde
           via_esportiva:
@@ -2371,8 +2439,10 @@ picos:
             quantidade_protecoes_intermediarias: 5
             quantidade_protecoes_parada: 2
             conquistadores:
-            - Antonio Carlos Magalhães
             - Emerson Alves Azeredo
+            - Gilberto Torres
+            - Antônio Carlos Magalhães "Toninho"
+            - Eustáquio Macedo Melo Júnior
             data_abertura: '1993'
         descricao: Este setor abriga a base da via "Monte Calvário". Possui vias predominantemente
           esportivas.
@@ -2660,17 +2730,17 @@ picos:
             setor: Setor Túnel de Pedra (Mapa 8)
             ids:
             - RRYXB42aOGnIxX
-          - alvo_uid: L69C6jL7Bphv5T
+          - alvo_uid: PBMAKEwduou7iM
             pontos_uids:
             - WaTUfE5SA2tfw8
-            escalada: Meio Cubanos
+            escalada: Golpe Ninja
             setor: Setor Túnel de Pedra (Mapa 8)
             ids:
             - WaTUfE5SA2tfw8
-          - alvo_uid: PBMAKEwduou7iM
+          - alvo_uid: N4hJyI7RGyxkhp
             pontos_uids:
             - kTNF5z1DbFB7OT
-            escalada: Golpe Ninja
+            escalada: Via sem informação
             setor: Setor Túnel de Pedra (Mapa 8)
             ids:
             - kTNF5z1DbFB7OT
@@ -2691,7 +2761,7 @@ picos:
           - alvo_uid: 6laLGWjMZtyl5K
             pontos_uids:
             - wLT0df5guGG1CC
-            escalada: Planeta dos Macacos
+            escalada: Planeta dos Macacos (inacabada)
             setor: Setor Túnel de Pedra (Mapa 8)
             ids:
             - wLT0df5guGG1CC
@@ -2775,7 +2845,7 @@ picos:
           - alvo_uid: cQzxdvJXXi1bmC
             pontos_uids:
             - u2jYmRiNJiWfqo
-            escalada: Projeto Rodrigo do Paraná
+            escalada: Sociedade Anônima
             setor: Setor Túnel de Pedra (Mapa 8)
             ids:
             - u2jYmRiNJiWfqo
@@ -2830,7 +2900,7 @@ picos:
             quantidade_protecoes_parada: 2
             conquistadores:
             - Eustáquio Macedo Melo Júnior
-            - Fábio Luiz Farias "Fabinho"
+            - Fábio Luiz Faria "Fabinho"
             data_abertura: '1993'
             descricao: |-
               ATENÇÃO: não utilizar o bico de pedra próximo ao top rope como agarra! Risco de queda do bloco!
@@ -2856,7 +2926,9 @@ picos:
             quantidade_protecoes_parada: 0
             conquistadores:
             - Alexandre F. de Queiroz "Caverna"
+            - Gustavo Vianna
             - Edgardo Abreu "Caca"
+            - Daniel Fernandes "Salim"
             data_abertura: '1995'
         - uid: UxgAsYgQCFlueX
           via_esportiva:
@@ -2865,30 +2937,34 @@ picos:
             quantidade_protecoes_intermediarias: 4
             quantidade_protecoes_parada: 2
             conquistadores:
-            - Dante Martins Borges
-            - Sérgio Bastos da Silva
+            - Paulo Nogueira "Paulista"
+            - Rodrigo Chinês
+            data_abertura: '2002'
         - uid: GksFepQerd6kj3
           via_movel:
             nome: Trombeta Acéfala
             dificuldade: BR_5SUP
             conquistadores:
-            - Eustáquio M. Melo Júnior
+            - Eustáquio Macedo Melo Júnior
             - Leonardo Hoffmann
+            - Fabiano da Silva Fernandes
             data_abertura: '1994'
-        - uid: L69C6jL7Bphv5T
-          via_movel:
-            nome: Meio Cubanos
-            dificuldade: BR_6SUP
-            conquistadores:
-            - Roberto Lincoln de Freitas
         - uid: PBMAKEwduou7iM
           via_esportiva:
             nome: Golpe Ninja
             dificuldade: BR_7C
             quantidade_protecoes_intermediarias: 4
             quantidade_protecoes_parada: 2
+            conquistadores:
+            - Dante Martins Borges
+            - Sérgio Bastos da Silva
+            data_abertura: '2000'
             descricao: '**INTERDITADA:** Bloco com fratura/rachadura crítica na altura
               da 2ª proteção, com alto risco de descolamento.'
+        - uid: N4hJyI7RGyxkhp
+          via_esportiva:
+            nome: Via sem informação
+            dificuldade: BR_6
             conquistadores:
             - Dante Martins Borges
             - Sérgio Bastos da Silva
@@ -2901,9 +2977,9 @@ picos:
             quantidade_protecoes_intermediarias: 5
             quantidade_protecoes_parada: 2
             conquistadores:
-            - Emerson A. Azeredo
-            - Eustáquio M. M. Júnior
-            - Léo Hoffmann
+            - Emerson Alves Azeredo
+            - Eustáquio Macedo Melo Júnior
+            - Fabiano da Silva Fernandes
             data_abertura: '1994'
         - uid: 8b8K01Oui85IB0
           via_esportiva:
@@ -2918,7 +2994,7 @@ picos:
             data_abertura: '1994'
         - uid: 6laLGWjMZtyl5K
           via_esportiva:
-            nome: Planeta dos Macacos
+            nome: Planeta dos Macacos (inacabada)
             dificuldade: PROJETO
             quantidade_protecoes_intermediarias: 4
             quantidade_protecoes_parada: 0
@@ -2926,7 +3002,7 @@ picos:
               de spits e grampos com palheta antigos.'
             conquistadores:
             - Leonardo Hoffmann
-            - Alexandre "Caverna"
+            - Alexandre F. de Queiroz "Caverna"
         - uid: kulsF9JNdpDYC3
           via_esportiva:
             nome: Rota de colisão
@@ -2973,7 +3049,7 @@ picos:
         - uid: 3i1j443nXNqSp1
           via_esportiva:
             nome: Santos e Hereges
-            dificuldade: BR_9B
+            dificuldade: BR_8A
             quantidade_protecoes_intermediarias: 3
             quantidade_protecoes_parada: 1
             conquistadores:
@@ -2993,11 +3069,11 @@ picos:
         - uid: ZX3E7xP5ZmQP0s
           via_esportiva:
             nome: Jegue Voador
-            dificuldade: BR_6SUP
+            dificuldade: BR_7A
             quantidade_protecoes_intermediarias: 5
             quantidade_protecoes_parada: 2
             conquistadores:
-            - Léo Hoffmann
+            - Leonardo Hoffmann
             - Marco Antônio Canelas
             - Marcelo Andrê
             data_abertura: '1994'
@@ -3037,12 +3113,14 @@ picos:
             data_abertura: '1994'
         - uid: cQzxdvJXXi1bmC
           via_esportiva:
-            nome: Projeto Rodrigo do Paraná
+            nome: Sociedade Anônima
             conquistadores:
             - Pedro (PR)
             - Rodrigo (PR)
             - Antônio Paulo
             - Chico
+            dificuldade: PROJETO
+            descricao: Antigo *Projeto Rodrigo do Paraná* (guia de 2002).
         - uid: ULAvbV9FOKor89
           via_esportiva:
             nome: Pequena Criança
@@ -3051,13 +3129,14 @@ picos:
             - Wilson Novaes
             - Ivo Ferreira Marcelino
             - Alexandre Magos
+            - Fábio Lascazas
             data_abertura: '1998'
         descricao: |-
           Vias localizadas na região do Túnel de Pedra.
           O setor possui uma grande concentração de vias esportivas de graduação variada.
         precomputados:
           total_escaladas: 23
-          total_esportivas: 20
+          total_esportivas: 21
   - setor:
       conteudo:
         uid: UlccfwkdM6gnf0
@@ -3220,6 +3299,15 @@ picos:
               largura: 12
             id: A8rpj2zbcQOQon
             label: '121'
+          - uid: zVaqXP1BSx5PBy
+            rotulo: '122'
+            retangulo:
+              x: 421
+              y: 132
+              comprimento: 20
+              largura: 12
+            id: zVaqXP1BSx5PBy
+            label: '122'
           - uid: DKaCgDIP3QOO0w
             rotulo: '123'
             retangulo:
@@ -3354,7 +3442,7 @@ picos:
           - alvo_uid: cQzxdvJXXi1bmC
             pontos_uids:
             - Yw4cWIL4NQYZK6
-            escalada: Projeto Rodrigo do Paraná
+            escalada: Sociedade Anônima
             setor: Setor Túnel de Pedra (Mapa 8)
             ids:
             - Yw4cWIL4NQYZK6
@@ -3372,6 +3460,13 @@ picos:
             setor: Setor Savassinha (Mapa 9)
             ids:
             - A8rpj2zbcQOQon
+          - alvo_uid: 91t7ydDPLQ5jvH
+            pontos_uids:
+            - zVaqXP1BSx5PBy
+            escalada: Via sem informação
+            setor: Setor Savassinha (Mapa 9)
+            ids:
+            - zVaqXP1BSx5PBy
         escaladas:
         - uid: xaZU9xGBqraEEw
           via_esportiva:
@@ -3386,10 +3481,10 @@ picos:
             nome: Gralha Pigmeia
             dificuldade: BR_6
             conquistadores:
-            - W. Novaes
-            - Ivo Marcelino
+            - Wilson Novaes
+            - Ivo Ferreira Marcelino
             - Alexandre Magos
-            - Léo Hoffmann
+            - Leonardo Hoffmann
             data_abertura: '1999'
             data_manutencao: 02/08/2022
         - uid: YtEytEnRAxkFxc
@@ -3399,6 +3494,7 @@ picos:
             conquistadores:
             - Rodrigo Tinoco França
             - Vinícius
+            - Venâncio
             data_abertura: '1997'
         - uid: mKED1qNqrmdGHj
           via_esportiva:
@@ -3411,20 +3507,21 @@ picos:
         - uid: y4NYbcV7IdM2vX
           via_esportiva:
             nome: Um Corpo que Cai
-            dificuldade: BR_6
+            dificuldade: BR_6_BARRA_6SUP
             conquistadores:
             - Emerson Alves Azeredo
             - Fábio C. Araújo
-            - Júlio Cesar Cardoso
+            - Júlio César Cardoso
             data_abertura: '1993'
         - uid: WEywEUghxL4mZj
           via_esportiva:
             nome: Realidade da Coisa
-            dificuldade: BR_9B
+            dificuldade: BR_9A
             conquistadores:
-            - Fabinho de Petrópolis
+            - Prudente
             - Marquinhos
-            - Xacundum
+            - Alexandre Xacundum
+            - Glauco
             data_abertura: '1994'
         - uid: C883Mwi7oTTO47
           via_esportiva:
@@ -3433,6 +3530,8 @@ picos:
             conquistadores:
             - Fabiano da Silva Fernandes
             - Fabinho de Teresópolis
+            - Alexandre Galvão
+            - Gilberto Morte
             data_abertura: '1993'
         - uid: jYYHO2cKIcdbSA
           via_esportiva:
@@ -3440,12 +3539,12 @@ picos:
             dificuldade: BR_8B
             conquistadores:
             - Felipe
-            - Tiago Abobrinha
+            - Thiago "Abobrinha"
             data_abertura: '1996'
         - uid: gWN5ChcePCIBxL
           via_esportiva:
             nome: Cova dos Leões
-            dificuldade: BR_7A
+            dificuldade: BR_7B
             conquistadores:
             - Emerson Alves Azeredo
             - Gilberto Torres
@@ -3453,26 +3552,30 @@ picos:
         - uid: 9AjpygLA38EGdx
           via_esportiva:
             nome: Mentalidade Suburbana
-            dificuldade: BR_7A
+            dificuldade: BR_7B
             conquistadores:
-            - Ricardo J. Leal
-            - Rodrigo Tinoco
-            - Fábio L. Farias "Fabinho"
+            - Ricardo Jardim Leal
+            - Rodrigo Tinoco França
+            - Fábio Luiz Faria "Fabinho"
+            - Felipe
             data_abertura: '1994'
         - uid: gHWveURBBDxMSG
           via_esportiva:
             nome: Rato Assassino
             dificuldade: BR_8A
             conquistadores:
-            - Fabinho de Petrópolis
+            - Prudente
             - Alexandre Xacundum
             data_abertura: '1996'
+        - uid: 91t7ydDPLQ5jvH
+          via_esportiva:
+            nome: Via sem informação
         - uid: RkACWCnC4LYvb1
           via_esportiva:
             nome: Masturbações de Calígula
             dificuldade: BR_7A
             conquistadores:
-            - Márcio Soares Macenas
+            - Márcio Soares Macena
             - Wilson Novaes
         - uid: gEn9QjBaACWP6y
           via_movel:
@@ -3480,8 +3583,8 @@ picos:
             dificuldade: BR_6SUP
             conquistadores:
             - Roberto Lincoln de Freitas
-            descricao: Vía de proteção mista
             data_abertura: '1998'
+            descricao: Via de proteção mista
         - uid: cREoYdqil3YrLf
           via_esportiva:
             nome: Três Pontos
@@ -3494,8 +3597,8 @@ picos:
           Setor com vias de alto nível técnico e físico.
           Vias localizadas em uma das áreas mais frequentadas da Lapinha.
         precomputados:
-          total_escaladas: 14
-          total_esportivas: 13
+          total_escaladas: 15
+          total_esportivas: 14
   - setor:
       conteudo:
         uid: UOqpFYTCHoAXZp
@@ -3586,7 +3689,7 @@ picos:
           - alvo_uid: uSw0jQzVmg9ExX
             pontos_uids:
             - V2jZxGqcd48WAa
-            escalada: Coliseu
+            escalada: Coliseu (inacabada)
             setor: Bloco Romano (Mapa 10)
             ids:
             - V2jZxGqcd48WAa
@@ -3624,8 +3727,9 @@ picos:
             nome: Spartacus
             dificuldade: BR_5
             conquistadores:
-            - Fabiano Fernandes da Silva
-            descricao: Vía em Top Rope
+            - Fabiano da Silva Fernandes
+            - Giovanni
+            descricao: Via em Top Rope
             data_abertura: '1993'
         - uid: oPLa4xCzRYXrVG
           via_esportiva:
@@ -3634,13 +3738,16 @@ picos:
             conquistadores:
             - Eustáquio Macedo Melo Júnior
             - Gilberto Torres
+            - Fabiano da Silva Fernandes
             data_abertura: '1994'
         - uid: uSw0jQzVmg9ExX
           via_esportiva:
-            nome: Coliseu
+            nome: Coliseu (inacabada)
             dificuldade: BR_6
             conquistadores:
             - Ramaya Vallias
+            - Daniel Fernandes "Salim"
+            - Alexandre F. de Queiroz "Caverna"
         - uid: HwvzyrjBiIz5pv
           via_esportiva:
             nome: Pobre César
@@ -3659,12 +3766,13 @@ picos:
             - Eduardo Feliciano
             - Alexandre Magos
             - Ivo Ferreira Marcelino
+            dificuldade: PROJETO
         - uid: Fgz8Lc1dNFdZrG
           via_esportiva:
             nome: Sodoma e Gomorra
             dificuldade: BR_4
             conquistadores:
-            - Daniel Fernandes "Salim"
+            - Fabiano da Silva Fernandes
             - Eustáquio Macedo Melo Júnior
             data_abertura: '1993'
         - uid: sjR4IxURCOCn7w
@@ -3949,10 +4057,14 @@ picos:
     longitude: -439595684
   cidade: Lagoa Santa
   estado: MG
+  descricao: |-
+    A região de Lagoa Santa possui inúmeras paredes de rocha calcária propícias à escalada, destacando-se a Gruta da Lapinha como um dos principais pontos de escalada esportiva e móvel de Minas Gerais.
+
+    **ATENÇÃO:** A Gruta da Lapinha está inserida em unidade de conservação (Parque Estadual do Sumidouro / Refúgio de Vida Silvestre). Respeite as normas do parque, não faça fogueiras, traga todo o seu lixo de volta e preserve a flora, a fauna e os sítios arqueológicos e espeleológicos.
   precomputados:
-    total_escaladas: 129
+    total_escaladas: 132
     total_setores: 10
-    total_esportivas: 106
+    total_esportivas: 108
 botoes:
 - uid: bd8N6s3AVnvUzT
   texto: Capa

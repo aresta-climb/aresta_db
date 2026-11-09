@@ -257,7 +257,7 @@ mapas:
   - alvo_uid: FHwRMLcg9gfbK6
     pontos_uids:
     - ZdrpCXFkdGihXw
-  - alvo_uid: 0kjmgCEQvr7jqR
+  - alvo_uid: lnwPHtyMsnk7PX
     pontos_uids:
     - WYGuHzuajIpHHg
   - alvo_uid: nzc62lIrSNVui8
@@ -275,14 +275,15 @@ escaladas:
     nome: Lua Cheia
     dificuldade: BR_5
     conquistadores:
-    - Antonio Carlos Magalhães
+    - Antônio Carlos Magalhães "Toninho"
     - Vladmir Haddad
+    data_abertura: '1997'
 - uid: JZxQkEyA4lXM9C
   via_esportiva:
     nome: Jornada nas Estrelas
     dificuldade: BR_7A
     conquistadores:
-    - Antonio Carlos Magalhães
+    - Antônio Carlos Magalhães "Toninho"
     - Vladmir Haddad
     data_abertura: '1997'
 - uid: egUwOsiMnN45Tu
@@ -290,7 +291,7 @@ escaladas:
     nome: Egotrip
     dificuldade: BR_6SUP
     conquistadores:
-    - Antonio Carlos Magalhães
+    - Antônio Carlos Magalhães "Toninho"
     - Vladmir Haddad
     data_abertura: '1997'
 - uid: cbZ263w7zUzsEf
@@ -299,14 +300,14 @@ escaladas:
     dificuldade: BR_6SUP
     conquistadores:
     - Leonardo Hoffmann
-    - Fao
+    - Flávio Henrique Dias
     data_abertura: '2001'
 - uid: PsWevz52vrX9CP
   via_esportiva:
-    nome: Vicio
+    nome: Vício
     dificuldade: BR_6
     conquistadores:
-    - Antonio Carlos Magalhães
+    - Antônio Carlos Magalhães "Toninho"
     - Vladmir Haddad
     data_abertura: '1997'
 - uid: bCJDqPZpZ6a12y
@@ -315,13 +316,13 @@ escaladas:
     dificuldade: BR_6SUP
     conquistadores:
     - Leonardo Hoffmann
-    - Alexandre
+    - Alexandre F. de Queiroz "Caverna"
 - uid: CyKGqcG4aTKxfn
   via_movel:
     nome: Gota D’água
     dificuldade: BR_6
     conquistadores:
-    - Antonio Carlos Magalhães
+    - Antônio Carlos Magalhães "Toninho"
     - Vladmir Haddad
     data_abertura: '1997'
 - uid: trj4G3vGOArENf
@@ -329,7 +330,7 @@ escaladas:
     nome: Sai de Baixo
     dificuldade: BR_5
     conquistadores:
-    - Antonio Carlos Magalhães
+    - Antônio Carlos Magalhães "Toninho"
     - Danilo Abreu
     data_abertura: '1997'
 - uid: IOUnxnbFfZEGs4
@@ -343,6 +344,7 @@ escaladas:
     conquistadores:
     - Gabriel Fillizola
     - Sílvio Om
+    - Pedro Leite
     data_abertura: '1997'
 - uid: LtbPet4uTXi7Pg
   via_esportiva:
@@ -359,7 +361,7 @@ escaladas:
 - uid: s6aziD9QKGJOpP
   via_esportiva:
     nome: Perigo Mora ao Lado
-    dificuldade: BR_8A
+    dificuldade: BR_7C
     quantidade_protecoes_intermediarias: 4
     quantidade_protecoes_parada: 2
     descricao: '**INTERDITADA:** Grampos com palheta em má situação e instalados em
@@ -367,6 +369,7 @@ escaladas:
     conquistadores:
     - Márcio Soares Macena
     - Mozart
+    - Alexandre Magos
     data_abertura: '1998'
 - uid: PhAfEvHO25UiXj
   via_esportiva:
@@ -383,39 +386,39 @@ escaladas:
 - uid: 3YGXOKygemgTsz
   via_esportiva:
     nome: Sorriso do Lagarto
-    dificuldade: BR_6
+    dificuldade: BR_6_BARRA_6SUP
     quantidade_protecoes_intermediarias: 3
     quantidade_protecoes_parada: 1
     descricao: '**INTERDITADA:** Parada simples; grampos de menor diâmetro a substituir.'
     conquistadores:
     - André C. B. "Andrezão"
-    - J. Roberto Cardoso "Dagó"
+    - Anderson Barbosa
     data_abertura: '1995'
 - uid: 5de82BQO55DmG8
   via_esportiva:
     nome: Orgasmatrom
-    dificuldade: BR_6
+    dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 5
     quantidade_protecoes_parada: 1
     descricao: '**INTERDITADA:** Grampos de olhal estreito (dificuldade de clipagem
       de 2 mosquetões); substituição necessária.'
     conquistadores:
-    - André C. B. "Andrezão"
-    - J. Roberto Cardoso "Dagó"
+    - Antônio Carlos Magalhães "Toninho"
+    - Vladmir Haddad
     data_abertura: '1995'
 - uid: 6qtIK6oko89RLT
   via_movel:
     nome: Escaramuça
     dificuldade: BR_3
     conquistadores:
-    - Antonio Carlos Magalhães
+    - Antônio Carlos Magalhães "Toninho"
     data_abertura: '1997'
 - uid: fTlGW2iOfrQfhh
   via_movel:
     nome: Túnel do Tempo
     dificuldade: BR_5
     conquistadores:
-    - Antonio Carlos Magalhães
+    - Antônio Carlos Magalhães "Toninho"
     - Lúcia Magalhães
     data_abertura: '1997'
 - uid: zrPctwMqr1OhvR
@@ -423,7 +426,7 @@ escaladas:
     nome: Dédalos
     dificuldade: BR_4SUP
     conquistadores:
-    - Antonio Carlos Magalhães
+    - Antônio Carlos Magalhães "Toninho"
     - Lúcia Magalhães
     data_abertura: '1997'
 - uid: KW35NZAOeB6cPC
@@ -431,7 +434,7 @@ escaladas:
     nome: Bouquet de Rosas
     dificuldade: BR_4SUP
     conquistadores:
-    - Antonio C. Magalhães
+    - Antônio Carlos Magalhães "Toninho"
     - Danilo Abreu
     data_abertura: '1997'
 - uid: MHuDaw7hjXX15m
@@ -446,7 +449,7 @@ escaladas:
 - uid: JOmpj2z9VixPwr
   via_esportiva:
     nome: Bobeou Sobrou
-    dificuldade: BR_7A
+    dificuldade: BR_7B
     conquistadores:
     - Fabiano da Silva Fernandes
     - Viviane da Silva Euler
@@ -465,17 +468,16 @@ escaladas:
     nome: Folião
     dificuldade: BR_6
     conquistadores:
-    - Antonio Carlos Magalhães
+    - Antônio Carlos Magalhães "Toninho"
     - Lúcia Magalhães
     data_abertura: '1997'
-- uid: 0kjmgCEQvr7jqR
-  via_esportiva:
-    nome: Escalador sem mãe
-    dificuldade: BR_8A
+- uid: lnwPHtyMsnk7PX
+  via_movel:
+    nome: Pierrô e Colombina
+    dificuldade: BR_4SUP
     conquistadores:
-    - Jovinei M. Medeiros
-    - Dante M. Borges
-    - Sérgio B. da Silva.
+    - Antônio Carlos Magalhães "Toninho"
+    - Lúcia Magalhães
     data_abertura: '1997'
 - uid: nzc62lIrSNVui8
   via_esportiva:
@@ -486,7 +488,7 @@ escaladas:
     descricao: '**INTERDITADA:** Via inacabada, conta com 2 grampos com palheta e
       sem parada instalada no topo.'
     conquistadores:
-    - André Coutinho
+    - André Coutinho "Andrezão"
 - uid: 0XkrqDPEYpl2vw
   via_esportiva:
     nome: Sobrevibrenf´s
@@ -495,6 +497,7 @@ escaladas:
     quantidade_protecoes_parada: 2
     conquistadores:
     - Leonardo Hoffmann
+    - Anderson Barbosa
     data_abertura: '2001'
     data_manutencao: 10/08/2022
 - uid: f8fyK7B3Fuo95O
@@ -504,9 +507,9 @@ escaladas:
     quantidade_protecoes_intermediarias: 6
     quantidade_protecoes_parada: 2
     conquistadores:
-    - Anderson (Neném)
     - Douglas
-    - Bombom
+    - Anderson "Neném"
+    - Bruno
     data_abertura: '1994'
 ---
 
