@@ -603,3 +603,32 @@ class TestWorkflowReleaseEditor(unittest.TestCase):
                 run_release,
                 "O bundle .flatpak não deve ser enviado na release do GitHub.",
             )
+
+    def test_input_executar_robo_caotico_configurado_com_default_true_e_condicional_no_step(
+        self,
+    ) -> None:
+        """Garante que o input executar_robo_caotico existe como booleano default true e condiciona a campanha de 5 min."""
+        on_block = self.conteudo_yaml.get("on", self.conteudo_yaml.get(True, {}))
+        inputs = on_block.get("workflow_dispatch", {}).get("inputs", {})
+        self.assertIn(
+            "executar_robo_caotico",
+            inputs,
+            "O input 'executar_robo_caotico' deve existir no workflow_dispatch.",
+        )
+        self.assertEqual(inputs["executar_robo_caotico"].get("type"), "boolean")
+        self.assertTrue(inputs["executar_robo_caotico"].get("default"))
+
+        passos = self.conteudo_yaml["jobs"]["prepare_release"]["steps"]
+        passo_caos = next(
+            (s for s in passos if "Campanha do Robô Caótico" in s.get("name", "")),
+            None,
+        )
+        self.assertIsNotNone(passo_caos, "Passo da Campanha do Robô Caótico não encontrado.")
+        assert passo_caos is not None
+        condicao_caos = str(passo_caos.get("if", ""))
+        self.assertIn(
+            "inputs.executar_robo_caotico",
+            condicao_caos,
+            "O passo da campanha do Robô Caótico deve ser condicionado a inputs.executar_robo_caotico.",
+        )
+
