@@ -38,8 +38,6 @@ picos:
   mapas_gerais:
     caminho: mapas_gerais.md
   cidade: Lagoa Santa
-  malha_estrada:
-    caminho: malha_estrada.yaml
 caminho_thumbnail: imagens/capa_p0_i0.webp
 revisado_manualmente: true
 revisado_bounding_circle: true

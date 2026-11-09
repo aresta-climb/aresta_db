@@ -181,12 +181,6 @@ escaladas:
 - uid: Bs0O5a4jMF2Epw
   via_esportiva:
     nome: Via sem informação
-- uid: L69C6jL7Bphv5T
-  via_movel:
-    nome: Meio Cubanos
-    dificuldade: BR_6SUP
-    conquistadores:
-    - Roberto Lincoln de Freitas
 - uid: AlhpLzBbvxdARj
   via_esportiva:
     nome: Carbonáticus Calcicus

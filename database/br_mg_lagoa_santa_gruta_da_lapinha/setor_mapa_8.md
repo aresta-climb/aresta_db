@@ -200,12 +200,28 @@ mapas:
   - uid: VkEBvFhsn3wGKo
     rotulo: '132'
     retangulo:
-      x: 164
-      y: 242
-      comprimento: 27
-      largura: 17
+      x: 172
+      y: 237
+      comprimento: 15
+      largura: 8
     cor: '#757575'
     texto_visivel: '132'
+    tamanho_fonte: 6
+  - uid: geB2DRiTJ28d9X
+    rotulo: ''
+    linha:
+      estilo: TRACEJADO
+      conteudo:
+        nos:
+        - x: 184
+          y: 238
+          tipo: BURACO_CLIFF
+        - x: 184
+          y: 238
+          tipo: BURACO_CLIFF
+          rotulo: geB2DRiTJ28d9X
+      espessura: 3
+    cor: '#757575'
   referencias:
   - alvo_uid: IqzNu0BRjbdzLz
     pontos_uids:
@@ -291,6 +307,7 @@ mapas:
   - alvo_uid: L69C6jL7Bphv5T
     pontos_uids:
     - VkEBvFhsn3wGKo
+    - geB2DRiTJ28d9X
 escaladas:
 - uid: IqzNu0BRjbdzLz
   via_esportiva:
@@ -349,16 +366,22 @@ escaladas:
     - Leonardo Hoffmann
     - Fabiano da Silva Fernandes
     data_abertura: '1994'
+- uid: L69C6jL7Bphv5T
+  via_movel:
+    nome: Meio Cubanos
+    dificuldade: BR_6SUP
+    conquistadores:
+    - Roberto Lincoln de Freitas
 - uid: PBMAKEwduou7iM
   via_esportiva:
     nome: Golpe Ninja
     dificuldade: BR_7C
-    quantidade_protecoes_intermediarias: 4
-    quantidade_protecoes_parada: 2
     conquistadores:
     - Dante Martins Borges
     - Sérgio Bastos da Silva
     data_abertura: '2000'
+    quantidade_protecoes_intermediarias: 4
+    quantidade_protecoes_parada: 2
     descricao: '**INTERDITADA:** Bloco com fratura/rachadura crítica na altura da
       2ª proteção, com alto risco de descolamento.'
 - uid: N4hJyI7RGyxkhp
@@ -373,7 +396,6 @@ escaladas:
   via_esportiva:
     nome: Tripla Traição
     dificuldade: BR_5
-    data_manutencao: 05/09/2026
     quantidade_protecoes_intermediarias: 5
     quantidade_protecoes_parada: 2
     conquistadores:
@@ -381,6 +403,7 @@ escaladas:
     - Eustáquio Macedo Melo Júnior
     - Fabiano da Silva Fernandes
     data_abertura: '1994'
+    data_manutencao: 05/09/2026
 - uid: 8b8K01Oui85IB0
   via_esportiva:
     nome: Noivado da Feiticeira
@@ -398,10 +421,10 @@ escaladas:
     dificuldade: PROJETO
     quantidade_protecoes_intermediarias: 4
     quantidade_protecoes_parada: 0
-    descricao: '**INTERDITADA:** Via inacabada, sem parada no topo. Presença de spits
-      e grampos com palheta antigos.'
     conquistadores:
     - Leonardo Hoffmann
+    descricao: '**INTERDITADA:** Via inacabada, sem parada no topo. Presença de spits
+      e grampos com palheta antigos.'
 - uid: kulsF9JNdpDYC3
   via_esportiva:
     nome: Rota de colisão
@@ -418,10 +441,10 @@ escaladas:
     dificuldade: PROJETO
     quantidade_protecoes_intermediarias: 1
     quantidade_protecoes_parada: 0
-    descricao: '**INTERDITADA:** Via inacabada, possui apenas 1 proteção com palheta
-      e não possui parada no topo.'
     conquistadores:
     - Daniel Fernandes "Salim"
+    descricao: '**INTERDITADA:** Via inacabada, possui apenas 1 proteção com palheta
+      e não possui parada no topo.'
 - uid: fuAERj0RgZMLR5
   via_esportiva:
     nome: Vale Perdido
@@ -505,20 +528,20 @@ escaladas:
 - uid: Ro3Eflgqd8pPx9
   via_esportiva:
     nome: Ato Imperdoável
-    dificuldade: BR_8A
     conquistadores:
     - Eustáquio Macedo Melo Júnior
     - Fabiano da Silva Fernandes
+    dificuldade: BR_8A
     data_abertura: '1994'
 - uid: cQzxdvJXXi1bmC
   via_esportiva:
     nome: Sociedade Anônima
+    dificuldade: PROJETO
     conquistadores:
     - Pedro (PR)
     - Rodrigo (PR)
     - Antônio Paulo
     - Chico
-    dificuldade: PROJETO
     descricao: Antigo *Projeto Rodrigo do Paraná* (guia de 2002).
 - uid: ULAvbV9FOKor89
   via_esportiva:
