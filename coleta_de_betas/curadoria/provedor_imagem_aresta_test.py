@@ -29,17 +29,24 @@ def _gerar_png_bytes(cor: QColor, largura: int = 4, altura: int = 4) -> bytes:
 
 def test_obter_pixmap_fallback_para_todas_as_fontes(qtbot) -> None:
     _ = qtbot
-    for fonte in (
-        beta_pb2.FonteMidia.YOUTUBE,
-        beta_pb2.FonteMidia.INSTAGRAM,
-        beta_pb2.FonteMidia.BLOG,
-        beta_pb2.FonteMidia.INDEFINIDO,
-    ):
+    cores_esperadas = {
+        beta_pb2.FonteMidia.YOUTUBE: "#ff0000",
+        beta_pb2.FonteMidia.INSTAGRAM: "#e1306c",
+        beta_pb2.FonteMidia.BLOG: "#2563eb",
+        beta_pb2.FonteMidia.TIKTOK: "#111827",
+        beta_pb2.FonteMidia.FACEBOOK: "#1877f2",
+        beta_pb2.FonteMidia.TWITTER: "#0f172a",
+        beta_pb2.FonteMidia.REDDIT: "#ff4500",
+        beta_pb2.FonteMidia.OUTRO_UGC: "#0d9488",
+        beta_pb2.FonteMidia.INDEFINIDO: "#4b5563",
+    }
+    for fonte, cor_hex in cores_esperadas.items():
         pixmap = obter_pixmap_fallback(fonte, largura=100, altura=80)
         assert isinstance(pixmap, QPixmap)
         assert not pixmap.isNull()
         assert pixmap.width() == 100
         assert pixmap.height() == 80
+        assert pixmap.toImage().pixelColor(1, 1).name().lower() == cor_hex
 
 
 def test_extrair_id_video_youtube_formatos_variados() -> None:

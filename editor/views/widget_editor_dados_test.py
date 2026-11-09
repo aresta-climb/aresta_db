@@ -6204,7 +6204,27 @@ def test_formulario_escalada_exibe_secao_betas_adicao_manual_e_navegacao_revisao
     btn_add.click()
     assert len(escalada.betas) == 2
 
-    # Editar URL e título do novo beta manual
+    # Editar URL, título e fonte (incluindo as 8 categorias de FonteMidia.Enum) do novo beta manual
+    from PySide6.QtWidgets import QComboBox
+
+    combo_fonte_1 = secao.findChild(QComboBox, "ComboFonteBeta_1")
+    assert combo_fonte_1 is not None
+    textos_combo = [combo_fonte_1.itemText(i) for i in range(combo_fonte_1.count())]
+    assert textos_combo == [
+        "YouTube",
+        "Instagram",
+        "Blog",
+        "TikTok",
+        "Facebook",
+        "Twitter",
+        "Reddit",
+        "Outro UGC",
+    ]
+    idx_tiktok = combo_fonte_1.findData(int(beta_pb2.FonteMidia.TIKTOK))
+    assert idx_tiktok >= 0
+    combo_fonte_1.setCurrentIndex(idx_tiktok)
+    assert escalada.betas[1].fonte == beta_pb2.FonteMidia.TIKTOK
+
     edit_url_1 = secao.findChild(QLineEdit, "EditUrlBeta_1")
     edit_titulo_1 = secao.findChild(QLineEdit, "EditTituloBeta_1")
     assert edit_url_1 is not None and edit_titulo_1 is not None

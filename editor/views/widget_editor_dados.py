@@ -2525,9 +2525,17 @@ class WidgetFormularioPadrao(QStackedWidget):
                 linha = QHBoxLayout()
                 combo_fonte = ComboBoxSemScroll()
                 combo_fonte.setObjectName(f"ComboFonteBeta_{idx}")
-                combo_fonte.addItem("YouTube", int(beta_pb2.FonteMidia.YOUTUBE))
-                combo_fonte.addItem("Instagram", int(beta_pb2.FonteMidia.INSTAGRAM))
-                combo_fonte.addItem("Blog", int(beta_pb2.FonteMidia.BLOG))
+                for rotulo_fonte, enum_fonte in (
+                    ("YouTube", int(beta_pb2.FonteMidia.YOUTUBE)),
+                    ("Instagram", int(beta_pb2.FonteMidia.INSTAGRAM)),
+                    ("Blog", int(beta_pb2.FonteMidia.BLOG)),
+                    ("TikTok", int(beta_pb2.FonteMidia.TIKTOK)),
+                    ("Facebook", int(beta_pb2.FonteMidia.FACEBOOK)),
+                    ("Twitter", int(beta_pb2.FonteMidia.TWITTER)),
+                    ("Reddit", int(beta_pb2.FonteMidia.REDDIT)),
+                    ("Outro UGC", int(beta_pb2.FonteMidia.OUTRO_UGC)),
+                ):
+                    combo_fonte.addItem(rotulo_fonte, enum_fonte)
                 idx_combo = combo_fonte.findData(int(beta_item.fonte))
                 if idx_combo >= 0:
                     combo_fonte.setCurrentIndex(idx_combo)

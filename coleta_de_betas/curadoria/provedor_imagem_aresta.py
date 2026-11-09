@@ -23,24 +23,27 @@ from coleta_de_betas.extratores.deduplicador import normalizar_url
 DIRETORIO_CACHE_PADRAO = Path.home() / ".cache" / "aresta" / "thumbnails_betas"
 
 
+_ESTILO_FALLBACK_POR_FONTE: dict[int, tuple[str, str]] = {
+    beta_pb2.FonteMidia.YOUTUBE: ("#FF0000", "YouTube"),
+    beta_pb2.FonteMidia.INSTAGRAM: ("#E1306C", "Instagram"),
+    beta_pb2.FonteMidia.BLOG: ("#2563EB", "Blog"),
+    beta_pb2.FonteMidia.TIKTOK: ("#111827", "TikTok"),
+    beta_pb2.FonteMidia.FACEBOOK: ("#1877F2", "Facebook"),
+    beta_pb2.FonteMidia.TWITTER: ("#0F172A", "Twitter"),
+    beta_pb2.FonteMidia.REDDIT: ("#FF4500", "Reddit"),
+    beta_pb2.FonteMidia.OUTRO_UGC: ("#0D9488", "Outro UGC"),
+}
+
+
 def obter_pixmap_fallback(fonte: int, largura: int = 120, altura: int = 90) -> QPixmap:
     """
-    Gera um QPixmap com visual estilizado temático (YouTube, Instagram, Blog ou Mídia)
-    para servir de fallback quando a thumbnail não estiver disponível.
+    Gera um QPixmap com visual estilizado temático (YouTube, Instagram, Blog, TikTok,
+    Facebook, Twitter, Reddit, Outro UGC ou Mídia) para servir de fallback quando a
+    thumbnail não estiver disponível.
     """
     pixmap = QPixmap(largura, altura)
-    if fonte == beta_pb2.FonteMidia.INSTAGRAM:
-        cor_fundo = QColor("#E1306C")
-        texto = "Instagram"
-    elif fonte == beta_pb2.FonteMidia.YOUTUBE:
-        cor_fundo = QColor("#FF0000")
-        texto = "YouTube"
-    elif fonte == beta_pb2.FonteMidia.BLOG:
-        cor_fundo = QColor("#2563EB")
-        texto = "Blog"
-    else:
-        cor_fundo = QColor("#4B5563")
-        texto = "Mídia"
+    cor_hex, texto = _ESTILO_FALLBACK_POR_FONTE.get(fonte, ("#4B5563", "Mídia"))
+    cor_fundo = QColor(cor_hex)
 
     pixmap.fill(cor_fundo)
     painter = QPainter(pixmap)

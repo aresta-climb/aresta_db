@@ -9,8 +9,10 @@ from aresta_api.proto.generated import beta_pb2, croqui_pb2
 from coleta_de_betas.curadoria.dialogo_coletar_betas import (
     DialogoColetarBetas,
     WorkerColetaBetas,
+    criar_extratores_padrao,
     extrair_escaladas_do_croqui,
 )
+from coleta_de_betas.extratores.blog import ExtratorBlog
 from editor.controllers.croqui_controller import CroquiController
 from editor.models.croqui_model import CroquiModel
 
@@ -207,4 +209,11 @@ def test_dialogo_coletar_betas_executa_em_background_via_qthread_e_permite_cance
     assert flag_cancelado is True
     assert len(lote_parcial) == 1
     assert lote_parcial[0][0] == "esc_1"
+
+
+def test_criar_extratores_padrao_usa_busca_unificada_ddgs() -> None:
+    extratores = criar_extratores_padrao()
+    assert len(extratores) == 1
+    assert isinstance(extratores[0], ExtratorBlog)
+
 

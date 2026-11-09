@@ -43,14 +43,20 @@ INSTRUCOES_MCP_AVALIACAO = (
 )
 
 
+_ROTULOS_POR_FONTE: dict[int, str] = {
+    beta_pb2.FonteMidia.YOUTUBE: "YouTube",
+    beta_pb2.FonteMidia.INSTAGRAM: "Instagram",
+    beta_pb2.FonteMidia.BLOG: "Blog",
+    beta_pb2.FonteMidia.TIKTOK: "TikTok",
+    beta_pb2.FonteMidia.FACEBOOK: "Facebook",
+    beta_pb2.FonteMidia.TWITTER: "Twitter",
+    beta_pb2.FonteMidia.REDDIT: "Reddit",
+    beta_pb2.FonteMidia.OUTRO_UGC: "Outro UGC",
+}
+
+
 def _rotulo_fonte(fonte: int) -> str:
-    if fonte == beta_pb2.FonteMidia.YOUTUBE:
-        return "YouTube"
-    if fonte == beta_pb2.FonteMidia.INSTAGRAM:
-        return "Instagram"
-    if fonte == beta_pb2.FonteMidia.BLOG:
-        return "Blog"
-    return "Mídia"
+    return _ROTULOS_POR_FONTE.get(fonte, "Mídia")
 
 
 class CardBetaCuradoria(QFrame):

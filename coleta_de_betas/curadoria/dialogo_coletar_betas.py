@@ -5,7 +5,6 @@
 Wizard / Diálogo de coleta de betas multi-fonte em background (QThread) para escaladas selecionadas do croqui.
 """
 
-import os
 from collections.abc import Sequence
 from dataclasses import dataclass
 from typing import Any, Protocol
@@ -26,9 +25,6 @@ from PySide6.QtWidgets import (
 from aresta_api.proto.generated import beta_pb2
 from coleta_de_betas.extratores.blog import ExtratorBlog
 from coleta_de_betas.extratores.deduplicador import deduplicar_midias
-from coleta_de_betas.extratores.duckduckgo import ExtratorDuckDuckGo
-from coleta_de_betas.extratores.vertex import ExtratorVertexSearch
-from coleta_de_betas.extratores.youtube import ExtratorYouTube
 
 
 class ExtratorBetaProtocolo(Protocol):
@@ -107,16 +103,11 @@ def extrair_escaladas_do_croqui(croqui: Any) -> list[InfoEscaladaColeta]:
 
 
 def criar_extratores_padrao() -> list[ExtratorBetaProtocolo]:
-    """Cria a lista padrão de extratores ativos conforme credenciais disponíveis no ambiente."""
-    extratores: list[ExtratorBetaProtocolo] = [
-        ExtratorDuckDuckGo(),
-        ExtratorBlog(),
-    ]
-    if os.environ.get("YOUTUBE_API_KEY"):
-        extratores.insert(0, ExtratorYouTube())
-    if os.environ.get("VERTEX_PROJECT_ID") and os.environ.get("VERTEX_DATA_STORE_ID"):
-        extratores.append(ExtratorVertexSearch())
-    return extratores
+    """
+    Cria a lista padrão com o extrator web unificado (ddgs), que executa 1 única
+    busca aberta por escalada e classifica os resultados nas 8 categorias de FonteMidia.Enum.
+    """
+    return [ExtratorBlog()]
 
 
 class WorkerColetaBetas(QThread):

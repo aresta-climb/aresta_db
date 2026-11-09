@@ -15,7 +15,7 @@ O sistema SHALL disponibilizar a aba **Betas** (`PainelCuradoriaBetas`) visível
   2. **Não Scorados (`betas_nao_scorados`)**: candidatos recém-coletados aguardando avaliação da IA, acompanhados de instruções claras na UI para acionar a skill de scoring via agente MCP conectado.
   3. **Betas Aprovados (`betas`)**: mídias já aprovadas na escalada, permitindo edição manual ou remoção/rejeição.
   4. **Betas Rejeitados (`betas_rejeitados`)**: mídias descartadas anteriormente, exibidas com opção de restauração.
-- **THEN** cada card de mídia MUST carregar sua miniatura de pré-visualização de forma assíncrona via cache persistente (`ProvedorImagemAresta`) com fallback temático caso a imagem não esteja disponível, encerrando com segurança as threads de download ao substituir ou destruir cards.
+- **THEN** cada card de mídia MUST exibir o badge de sua `FonteMidia.Enum` (`YouTube`, `Instagram`, `Blog`, `TikTok`, `Facebook`, `Twitter`, `Reddit` ou `Outro UGC`) e carregar sua miniatura de pré-visualização de forma assíncrona via cache persistente (`ProvedorImagemAresta`) com fallback temático caso a imagem não esteja disponível, encerrando com segurança as threads de download ao substituir ou destruir cards.
 
 #### Scenario: Curadoria estritamente individual (1 a 1) sem ações destrutivas em lote
 - **WHEN** o curador revisa os cards nas seções `betas_nao_revisados` ou `betas_nao_scorados`

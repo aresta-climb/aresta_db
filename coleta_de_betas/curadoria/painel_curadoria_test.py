@@ -177,3 +177,33 @@ def test_painel_curadoria_coalesce_mutacoes_em_lote_e_encerra_workers_de_thumbna
     assert painel.total_atualizacoes_visualizacao == atualizacoes_antes + 2
     assert len(painel.cards_nao_scorados) == 1
 
+
+def test_card_beta_curadoria_exibe_rotulos_das_8_fontes_de_midia(
+    tmp_path: Path, qtbot
+) -> None:
+    provedor = ProvedorImagemAresta(
+        diretorio_cache=tmp_path / "cache_rotulos",
+        cliente_http=ClienteHttpFake(),
+    )
+    rotulos_esperados = {
+        beta_pb2.FonteMidia.YOUTUBE: "YouTube",
+        beta_pb2.FonteMidia.INSTAGRAM: "Instagram",
+        beta_pb2.FonteMidia.BLOG: "Blog",
+        beta_pb2.FonteMidia.TIKTOK: "TikTok",
+        beta_pb2.FonteMidia.FACEBOOK: "Facebook",
+        beta_pb2.FonteMidia.TWITTER: "Twitter",
+        beta_pb2.FonteMidia.REDDIT: "Reddit",
+        beta_pb2.FonteMidia.OUTRO_UGC: "Outro UGC",
+        beta_pb2.FonteMidia.INDEFINIDO: "Mídia",
+    }
+    for fonte, rotulo in rotulos_esperados.items():
+        card = CardBetaCuradoria(
+            midia=beta_pb2.MidiaBeta(url="https://exemplo.com/post", titulo="Post", fonte=fonte),
+            nome_escalada="Fusca Azul",
+            provedor_imagem=provedor,
+            carregar_assincrono=False,
+        )
+        qtbot.addWidget(card)
+        assert card.label_fonte.text() == rotulo
+
+
