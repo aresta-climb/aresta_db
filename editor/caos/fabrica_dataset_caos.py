@@ -6,11 +6,10 @@ from dataclasses import dataclass
 from pathlib import Path
 
 import pygit2
-import yaml
 from PySide6.QtGui import QColor, QImage
 
 from aresta_api.proto.generated import beta_pb2, croqui_pb2
-from coleta_de_betas.inteligencia.avaliador import salvar_betas_pendentes
+from editor.core.serializacao_util import serializar_yaml
 from editor.core.storage import GerenciadorCaminhos
 from editor.models.croqui_model import CroquiModel
 from scripts.gerenciar_uids_lib import gerar_uid
@@ -51,7 +50,7 @@ def _persistir_croqui_no_disco(croqui: croqui_pb2.Croqui, pasta_db: Path) -> Non
     pasta_db.mkdir(parents=True, exist_ok=True)
     model = CroquiModel(croqui)
     dados_dict = model.extrair_arquivos_e_serializar(pasta_db)
-    texto_yaml = yaml.safe_dump(dados_dict, sort_keys=False, allow_unicode=True)
+    texto_yaml = serializar_yaml(dados_dict, sort_keys=False)
     cabecalho = (
         "# SPDX-License-Identifier: ODbL-1.0\n# Copyright (C) 2026 Aresta Climb Contributors\n"
     )
@@ -181,32 +180,24 @@ class FabricaDatasetCaos:
         esc_sub.via_movel.nome = "Fenda da Sombra"
         esc_sub.via_movel.dificuldade = croqui_pb2.GrauVia.BR_5SUP
 
-        _persistir_croqui_no_disco(croqui, pasta_db)
-
         # Betas pendentes para exercitar PainelCuradoria
-        cand_esc = beta_pb2.CandidatosBetaPorEscalada(
-            nome_escalada="Aresta Clássica",
-            nome_setor="Setor Principal",
-        )
-        midia_alta = cand_esc.candidatos.add()
-        midia_alta.url = "https://www.youtube.com/watch?v=normal00001"
-        midia_alta.titulo = "Beta Aresta Clássica"
-        midia_alta.fonte = beta_pb2.FonteMidia.YOUTUBE
-        midia_alta.resultado_llm.llm_confidence_score = 92
-        midia_alta.resultado_llm.llm_reasoning = "Mesmo nome de via e setor."
+        croqui.curadoria_betas.caminho = "curadoria_betas.md"
+        cur_esc = croqui.curadoria_betas.conteudo.escaladas.add(escalada_uid=esc_via.uid)
+        cand_alta = cur_esc.betas_nao_revisados.add()
+        cand_alta.midia.url = "https://www.youtube.com/watch?v=normal00001"
+        cand_alta.midia.titulo = "Beta Aresta Clássica"
+        cand_alta.midia.fonte = beta_pb2.FonteMidia.YOUTUBE
+        cand_alta.resultado_llm.llm_confidence_score = 92
+        cand_alta.resultado_llm.llm_reasoning = "Mesmo nome de via e setor."
 
-        midia_baixa = cand_esc.candidatos.add()
-        midia_baixa.url = "https://www.instagram.com/p/normal00002/"
-        midia_baixa.titulo = "Post escalada genérica"
-        midia_baixa.fonte = beta_pb2.FonteMidia.INSTAGRAM
-        midia_baixa.resultado_llm.llm_confidence_score = 45
-        midia_baixa.resultado_llm.llm_reasoning = "Apenas menciona a região."
+        cand_baixa = cur_esc.betas_nao_revisados.add()
+        cand_baixa.midia.url = "https://www.instagram.com/p/normal00002/"
+        cand_baixa.midia.titulo = "Post escalada genérica"
+        cand_baixa.midia.fonte = beta_pb2.FonteMidia.INSTAGRAM
+        cand_baixa.resultado_llm.llm_confidence_score = 45
+        cand_baixa.resultado_llm.llm_reasoning = "Apenas menciona a região."
 
-        salvar_betas_pendentes(
-            id_croqui=id_croqui,
-            candidatos_por_escalada=[cand_esc],
-            caminho_arquivo=pasta_db / "betas_pendentes.binarypb",
-        )
+        _persistir_croqui_no_disco(croqui, pasta_db)
         return croqui
 
     @staticmethod
@@ -317,30 +308,22 @@ class FabricaDatasetCaos:
         setor_vazio.uid = gerar_uid()
         setor_vazio.nome = "Setor Vazio"
 
-        _persistir_croqui_no_disco(croqui, pasta_db)
-
-        cand1 = beta_pb2.CandidatosBetaPorEscalada(
-            nome_escalada="Via Limite Zero",
-            nome_setor="Setor Poligonal & Trajetos",
-        )
+        croqui.curadoria_betas.caminho = "curadoria_betas.md"
+        cur1 = croqui.curadoria_betas.conteudo.escaladas.add(escalada_uid=esc1.uid)
         for score, url_suf, titulo in (
             (100, "tox100", "Beta Perfeito 100% 🔥"),
             (80, "tox080", "Beta Limiar 80%"),
             (0, "tox000", "Beta Ruído 0%"),
         ):
-            m = cand1.candidatos.add()
-            m.url = f"https://www.youtube.com/watch?v={url_suf}"
-            m.titulo = titulo
-            m.fonte = beta_pb2.FonteMidia.YOUTUBE
-            m.resultado_llm.llm_confidence_score = score
-            m.resultado_llm.llm_reasoning = f"Score extremo {score}"
-            m.snippets.extend(["Snippet 1", "Snippet 2"])
+            cand = cur1.betas_nao_revisados.add()
+            cand.midia.url = f"https://www.youtube.com/watch?v={url_suf}"
+            cand.midia.titulo = titulo
+            cand.midia.fonte = beta_pb2.FonteMidia.YOUTUBE
+            cand.resultado_llm.llm_confidence_score = score
+            cand.resultado_llm.llm_reasoning = f"Score extremo {score}"
+            cand.snippets.extend(["Snippet 1", "Snippet 2"])
 
-        salvar_betas_pendentes(
-            id_croqui=id_croqui,
-            candidatos_por_escalada=[cand1],
-            caminho_arquivo=pasta_db / "betas_pendentes.binarypb",
-        )
+        _persistir_croqui_no_disco(croqui, pasta_db)
         return croqui
 
     @classmethod

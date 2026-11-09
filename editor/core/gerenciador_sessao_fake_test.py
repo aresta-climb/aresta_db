@@ -1,8 +1,10 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
+import pytest
+
 from editor.core.gerenciador_sessao import SessaoUsuario
-from editor.core.gerenciador_sessao_fake import GerenciadorSessaoFake
+from editor.core.gerenciador_sessao_fake import CofreChaveiroFake, GerenciadorSessaoFake
 
 
 def test_gerenciador_sessao_fake_ciclo_completo_em_memoria() -> None:
@@ -47,3 +49,41 @@ def test_gerenciador_sessao_fake_com_sessao_inicial_e_cofre_indisponivel() -> No
     assert gerenciador.inicializar_cofre() is False
     assert gerenciador.cofre_disponivel() is False
     assert gerenciador.recuperar_token() == "jwt_ini"
+
+
+def test_cofre_chaveiro_fake_armazena_recupera_e_remove_senhas_em_memoria() -> None:
+    cofre = CofreChaveiroFake()
+
+    assert cofre.priority == 10
+    assert cofre.get_password("editor_aresta", "chave_1") is None
+
+    cofre.set_password("editor_aresta", "chave_1", "segredo_abc")
+    assert cofre.get_password("editor_aresta", "chave_1") == "segredo_abc"
+    assert cofre.obter_registros() == {("editor_aresta", "chave_1"): "segredo_abc"}
+
+    cofre.delete_password("editor_aresta", "chave_1")
+    assert cofre.get_password("editor_aresta", "chave_1") is None
+
+    # Remover chave inexistente é idempotente no cofre fake
+    cofre.delete_password("editor_aresta", "chave_inexistente")
+
+    cofre.set_password("editor_aresta", "chave_2", "outro_segredo")
+    cofre.limpar()
+    assert cofre.obter_registros() == {}
+
+
+def test_cofre_chaveiro_fake_simula_falhas_deterministicas() -> None:
+    cofre = CofreChaveiroFake(
+        erro_leitura=RuntimeError("Falha simulada de leitura"),
+        erro_escrita=RuntimeError("Falha simulada de escrita"),
+        erro_delecao=RuntimeError("Falha simulada de deleção"),
+    )
+
+    with pytest.raises(RuntimeError, match="Falha simulada de leitura"):
+        cofre.get_password("servico", "usuario")
+
+    with pytest.raises(RuntimeError, match="Falha simulada de escrita"):
+        cofre.set_password("servico", "usuario", "senha")
+
+    with pytest.raises(RuntimeError, match="Falha simulada de deleção"):
+        cofre.delete_password("servico", "usuario")

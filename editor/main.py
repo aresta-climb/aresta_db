@@ -11,7 +11,7 @@ from pathlib import Path
 
 # Adiciona o diretório raiz do projeto ao sys.path para permitir imports do pacote 'editor'
 parent_dir = str(Path(__file__).resolve().parent.parent)
-if parent_dir not in sys.path:
+if parent_dir not in sys.path:  # pragma: no cover
     sys.path.insert(0, parent_dir)
 
 from editor.plataforma import (
@@ -52,13 +52,10 @@ def __getattr__(name: str) -> Any:
 
 
 # Configuração de identidade do processo no shell da plataforma (preservando MSIX no Windows)
-try:
-    from editor.core.configuracao_canal import obter_configuracao_canal
+from editor.core.configuracao_canal import obter_configuracao_canal
 
-    config_canal_global = obter_configuracao_canal()
-    configurar_identidade_processo(config_canal_global.app_user_model_id)
-except Exception:
-    pass
+config_canal_global = obter_configuracao_canal()
+configurar_identidade_processo(config_canal_global.app_user_model_id)
 
 # Placeholder para o Client ID do GitHub (deve ser substituído por um real em produção)
 ID_CLIENTE_GITHUB: str = "Iv23li5kcnSYgMgEfvAC"
@@ -81,12 +78,10 @@ class ControladorAplicativo:
         servico_loja: Any | None = None,
         servico_submissao: Any | None = None,
         fabrica_servidor_celular: Any | None = None,
+        caminho_croqui_local: Path | None = None,
     ) -> None:
         inst = QApplication.instance()
-        if isinstance(inst, QApplication):
-            self.app: QApplication = inst
-        else:
-            self.app = QApplication(sys.argv)
+        self.app: QApplication = inst if isinstance(inst, QApplication) else QApplication(sys.argv)
 
         config_canal = obter_configuracao_canal()
         self.app.setApplicationName(config_canal.nome_aplicativo)
@@ -95,12 +90,9 @@ class ControladorAplicativo:
         caminho_logo_app = config_canal.obter_caminho_icone_aplicacao()
         self.app.setWindowIcon(QIcon(str(caminho_logo_app)))
 
-        try:
-            from editor.core.version import VERSION
+        from editor.core.version import VERSION
 
-            self.app.setApplicationVersion(VERSION)
-        except ImportError:
-            pass
+        self.app.setApplicationVersion(VERSION)
 
         self._storage: Any | None = storage
         self._gerenciador_sessao: Any | None = gerenciador_sessao
@@ -108,6 +100,9 @@ class ControladorAplicativo:
         self._servico_loja: Any | None = servico_loja
         self._servico_submissao: Any | None = servico_submissao
         self._fabrica_servidor_celular: Any | None = fabrica_servidor_celular
+        self._caminho_croqui_local: Path | None = (
+            Path(caminho_croqui_local) if caminho_croqui_local is not None else None
+        )
 
         abertura_cls = sys.modules[__name__].TelaDeAbertura
         self.abertura: Any = abertura_cls()
@@ -144,6 +139,9 @@ class ControladorAplicativo:
                 kwargs_tarefa["cliente_auth"] = self._cliente_auth
             if self._servico_loja is not None:
                 kwargs_tarefa["servico_loja"] = self._servico_loja
+            if self._caminho_croqui_local is not None:
+                kwargs_tarefa["sincronizar_git"] = False
+                kwargs_tarefa["intervalo_espera_cofre"] = 0.0
             self.tarefa = (
                 tarefa_cls(ID_CLIENTE_GITHUB, **kwargs_tarefa)
                 if kwargs_tarefa
@@ -220,6 +218,10 @@ class ControladorAplicativo:
             self.app.setQuitOnLastWindowClosed(True)
             return
 
+        if self._caminho_croqui_local is not None:
+            self.mostrar_janela_principal()
+            return
+
         usuario = self.tarefa.sessao_usuario.nome_completo if self.tarefa.sessao_usuario else ""
         tela_carregamento_cls = sys.modules[__name__].TelaDeCarregamento
         self.tela_carregamento = tela_carregamento_cls(
@@ -265,17 +267,20 @@ class ControladorAplicativo:
             self.janela_principal.close()
             self.janela_principal = None
 
-        from editor.core.workspace import ExperimentalWorkspace
+        from editor.core.workspace import ExperimentalWorkspace, LocalRepoWorkspace
         from editor.legacy_views.area_principal import JanelaPrincipal
 
-        if (
-            not self.tela_carregamento
-            or not self.tela_carregamento.caminho_croqui_selecionado
-            or not self.tarefa
-        ):
-            self.app.setQuitOnLastWindowClosed(True)
-            return
-        workspace = ExperimentalWorkspace(self.tela_carregamento.caminho_croqui_selecionado)
+        if self._caminho_croqui_local is not None and self.tarefa:
+            workspace: Any = LocalRepoWorkspace(self._caminho_croqui_local)
+        else:
+            if (
+                not self.tela_carregamento
+                or not self.tela_carregamento.caminho_croqui_selecionado
+                or not self.tarefa
+            ):
+                self.app.setQuitOnLastWindowClosed(True)
+                return
+            workspace = ExperimentalWorkspace(self.tela_carregamento.caminho_croqui_selecionado)
 
         self.janela_principal = JanelaPrincipal(
             storage=self.tarefa.storage,
@@ -364,9 +369,7 @@ class ControladorAplicativo:
         QApplication.quit()
 
     def executar(self) -> int:
-        if self.app:
-            return int(self.app.exec())
-        return 0
+        return int(self.app.exec())
 
 
 def main() -> None:
@@ -377,10 +380,7 @@ def main() -> None:
 
     # Garante a instância global do QApplication
     inst = QApplication.instance()
-    if isinstance(inst, QApplication):
-        app = inst
-    else:
-        app = QApplication(sys.argv)
+    app: QApplication = inst if isinstance(inst, QApplication) else QApplication(sys.argv)
     from editor.core.configuracao_canal import obter_configuracao_canal
 
     config_canal = obter_configuracao_canal()
@@ -412,6 +412,7 @@ def main() -> None:
         setattr(app, "servidor_local", servidor_local)
 
     # Verificação de modo LocalRepo: argumento fornecido na linha de comando
+    caminho_croqui_local: Path | None = None
     if len(sys.argv) > 1:
         caminho_str = sys.argv[1]
         caminho_path = Path(caminho_str).resolve()
@@ -421,36 +422,7 @@ def main() -> None:
             caminho_path = caminho_path.parent
 
         if caminho_path.is_dir() and (caminho_path / "croqui.yaml").exists():
-            gerenciador_caminhos_cls = sys.modules[__name__].GerenciadorCaminhos
-            storage = gerenciador_caminhos_cls()
-            caminho_icone_app = config_canal.obter_caminho_icone_aplicacao()
-
-            # QIcon precisa receber string
-            try:
-                app.setWindowIcon(QIcon(str(caminho_icone_app)))
-                app.processEvents()
-            except Exception:
-                pass
-
-            try:
-                from editor.core.version import VERSION
-
-                app.setApplicationVersion(VERSION)
-            except ImportError:
-                pass
-
-            from editor.core.workspace import LocalRepoWorkspace
-            from editor.legacy_views.area_principal import JanelaPrincipal
-
-            workspace = LocalRepoWorkspace(caminho_path)
-
-            janela = JanelaPrincipal(
-                storage=storage, auth=None, workspace=workspace, iniciar_mcp=True
-            )
-            janela.setWindowIcon(QIcon(str(caminho_icone_app)))
-            janela.show()
-            app.processEvents()
-            sys.exit(app.exec())
+            caminho_croqui_local = caminho_path
         elif "database" in caminho_str or caminho_str.endswith("croqui.yaml"):
             msg_erro = (
                 f"Erro: O caminho especificado '{caminho_str}' não contém um croqui.yaml válido."
@@ -459,10 +431,14 @@ def main() -> None:
             QMessageBox.critical(None, "Erro ao Abrir Croqui", msg_erro)
             sys.exit(1)
 
-    # Inicialização Padrão (Experimental Workspace com Autenticação e Sync)
-    controlador = ControladorAplicativo()
+    # Inicialização Unificada (com Autenticação; sincronização Git apenas no modo padrão)
+    controlador = (
+        ControladorAplicativo(caminho_croqui_local=caminho_croqui_local)
+        if caminho_croqui_local is not None
+        else ControladorAplicativo()
+    )
     sys.exit(controlador.executar())
 
 
-if __name__ == "__main__":
+if __name__ == "__main__":  # pragma: no cover
     main()

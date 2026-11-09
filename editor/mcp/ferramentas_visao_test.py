@@ -444,14 +444,14 @@ def test_aresta_obter_arvore_omite_ext_metadados_e_campos_invisiveis_preservando
 
     mapa = setor.mapas.add(caminho_imagem_mapa="imagens/mapa.webp")
     poi = mapa.pontos_de_interesse.add(uid="poi_uid_01", rotulo="1")
-    poi.id = "legado_id"
-    poi.label = "legado_label"
+    setattr(poi, "id", "legado_id")
+    setattr(poi, "label", "legado_label")
     poi.linha.espessura = 3
     poi.linha.compilado.caminho_svg = "M 0 0 L 10 10"
 
     ref = mapa.referencias.add(alvo_uid="uid_via_vis001", pontos_uids=["poi_uid_01"])
-    ref.ids.append("legado_ref_id")
-    ref.escalada = "Aresta Dourada"
+    getattr(ref, "ids").append("legado_ref_id")
+    setattr(ref, "escalada", "Aresta Dourada")
 
     resp_raiz = servidor.processar_mensagem_jsonrpc(
         {

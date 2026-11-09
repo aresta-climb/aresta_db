@@ -22,13 +22,19 @@ class ServidorCelularFake(QObject):
         codigo_sessao: str | None = None,
         url_retransmissor_ws: str | None = None,
         jwt_token: str | None = None,
+        erro_previa: Exception | None = None,
         parent: QObject | None = None,
     ) -> None:
         super().__init__(parent)
         self.pasta_compilado: Path = Path(pasta_compilado)
-        self.codigo_sessao: str = codigo_sessao or "abcd2345"
+        self.codigo_sessao: str | None = (
+            None
+            if erro_previa is not None and codigo_sessao is None
+            else (codigo_sessao or "abcd2345")
+        )
         self.url_retransmissor_ws: str | None = url_retransmissor_ws
         self.jwt_token: str | None = jwt_token
+        self.erro_previa: Exception | None = erro_previa
         self.porta: int | None = None
         self._servindo: bool = False
         self.conectado: bool = False
@@ -37,6 +43,10 @@ class ServidorCelularFake(QObject):
     def solicitar_sessao_servidor(self, url_base: str = "") -> bool:
         """Simula criação instantânea de sessão local sem chamadas HTTP externas."""
         _ = url_base
+        if self.erro_previa is not None:
+            return False
+        if not self.codigo_sessao:
+            self.codigo_sessao = "abcd2345"
         return True
 
     def obter_ip_local(self) -> str:
@@ -44,7 +54,9 @@ class ServidorCelularFake(QObject):
         return "127.0.0.1"
 
     def obter_url_previa_canonica(self) -> str:
-        """Retorna URL local determinística para exibição no diálogo."""
+        """Retorna URL local determinística para exibição no diálogo ou lança erro_previa."""
+        if self.erro_previa is not None:
+            raise self.erro_previa
         porta_efetiva = self.porta or 8765
         return f"http://127.0.0.1:{porta_efetiva}/{self.codigo_sessao}"
 

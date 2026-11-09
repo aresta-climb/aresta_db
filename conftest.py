@@ -39,6 +39,30 @@ def limpar_janelas_qt_ativas() -> None:
 
 
 @pytest.fixture(autouse=True)
+def _isolar_ambiente_sessao_e_dados(
+    tmp_path: Any,
+    monkeypatch: pytest.MonkeyPatch,
+) -> Any:
+    """
+    Isola o cofre de credenciais (keyring) em memória e redireciona ARESTA_DIRETORIO_DADOS
+    para um diretório temporário descartável em cada teste, impedindo vazamento para o SO.
+    """
+    import keyring
+
+    from editor.core.gerenciador_sessao_fake import CofreChaveiroFake
+
+    backend_anterior = keyring.get_keyring()
+    cofre_isolado = CofreChaveiroFake()
+    keyring.set_keyring(cofre_isolado)
+    diretorio_dados = tmp_path / "aresta_dados_isolados"
+    monkeypatch.setenv("ARESTA_DIRETORIO_DADOS", str(diretorio_dados))
+    try:
+        yield cofre_isolado
+    finally:
+        keyring.set_keyring(backend_anterior)
+
+
+@pytest.fixture(autouse=True)
 def _limpar_janelas_qt_apos_teste() -> Any:
     """Garante que qualquer janela do Qt aberta pelo teste seja fechada e os eventos drenados."""
     yield
@@ -51,8 +75,12 @@ def pytest_configure(config: Any) -> None:
     os.environ["PADDLE_PDX_DISABLE_MODEL_SOURCE_CHECK"] = "True"
     os.environ["ARESTA_DESATIVAR_TELEMETRIA"] = "1"
 
+    import keyring
+
+    from editor.core.gerenciador_sessao_fake import CofreChaveiroFake
     from tests.bloqueador_rede import bloquear_acesso_externo
 
+    keyring.set_keyring(CofreChaveiroFake())
     bloquear_acesso_externo()
 
 

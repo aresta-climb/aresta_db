@@ -71,3 +71,32 @@ def test_fechar_dialogo_encerra_e_aguarda_tarefa_dados_em_andamento(qtbot, tmp_p
     dlg.reject()
 
     assert not dlg.tarefa_dados.isRunning()
+
+
+def test_deve_exibir_erro_quando_tarefa_dados_falha(qtbot, tmp_path: Path):
+    """Exibe erro explícito na UI e mantém QR Code oculto quando a criação da sessão de prévia falha."""
+    servidor_erro = ServidorCelularFake(
+        tmp_path,
+        erro_previa=RuntimeError(
+            "Não foi possível iniciar sessão de prévia. Verifique sua autenticação."
+        ),
+    )
+    servidor_erro.iniciar()
+    dlg = DialogoConexaoCelular(servidor_erro)
+    qtbot.addWidget(dlg)
+    try:
+        qtbot.wait_until(
+            lambda: "sessão de prévia" in dlg.label_status.text(),
+            timeout=2000,
+        )
+        assert not dlg.widget_carregando.isVisible()
+        assert not dlg.label_qr.isVisible()
+        assert dlg.label_endereco.text().startswith("Indisponível")
+
+        # Clicar em copiar quando indisponível não deve alterar o clipboard
+        cb = QGuiApplication.clipboard()
+        cb.setText("preservado")
+        qtbot.mouseClick(dlg.btn_copiar, Qt.MouseButton.LeftButton)
+        assert cb.text() == "preservado"
+    finally:
+        dlg.close()

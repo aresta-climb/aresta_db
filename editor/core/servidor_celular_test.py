@@ -273,15 +273,33 @@ def test_deve_solicitar_sessao_ao_servidor_remoto(tmp_path):
 
 def test_deve_recuperar_jwt_automaticamente_do_gerenciador_sessao(tmp_path):
     """Quando jwt_token for None, deve buscar automaticamente no GerenciadorSessao."""
+    import base64
+    import time
+
+    from editor.core.gerenciador_sessao import GerenciadorSessao, SessaoUsuario
+
     pasta_compilado = tmp_path / "compilado"
     pasta_compilado.mkdir()
 
-    with patch(
-        "editor.core.gerenciador_sessao.GerenciadorSessao.recuperar_token",
-        return_value="jwt_auto_recuperado",
-    ):
-        servidor = ServidorCelular(pasta_compilado=pasta_compilado)
-        assert servidor.jwt_token == "jwt_auto_recuperado"
+    agora = int(time.time())
+    header = base64.urlsafe_b64encode(b'{"alg":"HS256"}').decode().rstrip("=")
+    payload = (
+        base64.urlsafe_b64encode(json.dumps({"exp": agora + 3600}).encode()).decode().rstrip("=")
+    )
+    jwt_valido = f"{header}.{payload}.sig"
+
+    gerenciador = GerenciadorSessao()
+    gerenciador.salvar_sessao(
+        SessaoUsuario(
+            email="autor@arestaclimb.com",
+            nome_completo="Autor Teste",
+            jwt_supabase=jwt_valido,
+            token_atualizacao="refresh_123",
+        )
+    )
+
+    servidor = ServidorCelular(pasta_compilado=pasta_compilado)
+    assert servidor.jwt_token == jwt_valido
 
 
 def test_servidor_celular_inicia_tunel_com_jwt_e_callback(tmp_path):
@@ -370,6 +388,102 @@ def test_deve_servir_arquivos_compactos_mesmo_com_prefixo_croqui_id(tmp_path):
         resp_img_sub = requests.get(url_img)
         assert resp_img_sub.status_code == 200
         assert resp_img_sub.content == b"imagem_bytes"
+    finally:
+        servidor.parar()
+        if servidor._thread_servidor and servidor._thread_servidor.is_alive():
+            servidor._thread_servidor.join(timeout=3.0)
+
+
+def test_obter_url_previa_canonica_lanca_erro_quando_sem_sessao_e_sem_jwt(tmp_path):
+    """Fail-Fast: deve lançar RuntimeError quando não houver sessão ativa nem JWT para criar uma."""
+    pasta_compilado = tmp_path / "compilado"
+    pasta_compilado.mkdir()
+
+    servidor = ServidorCelular(pasta_compilado=pasta_compilado)
+    assert servidor.jwt_token is None
+
+    with pytest.raises(RuntimeError, match="sessão de prévia"):
+        servidor.obter_url_previa_canonica()
+
+
+def test_obter_url_previa_canonica_solicita_sessao_sob_demanda(tmp_path):
+    """Quando ainda não há código mas há JWT válido, obter_url_previa_canonica solicita sessão ao servidor."""
+    pasta_compilado = tmp_path / "compilado"
+    pasta_compilado.mkdir()
+
+    servidor = ServidorCelular(pasta_compilado=pasta_compilado, jwt_token="jwt_sob_demanda")
+
+    with patch(
+        "editor.core.tunel_retransmissor.solicitar_sessao_servidor",
+        return_value={
+            "codigo": "m2n4p6q8",
+            "url_previa": "https://previa.arestaclimb.com/m2n4-p6q8",
+            "ws_url": "wss://previa.arestaclimb.com/ws?sessao=m2n4p6q8",
+        },
+    ) as mock_api:
+        url = servidor.obter_url_previa_canonica()
+        assert url == "https://previa.arestaclimb.com/m2n4-p6q8"
+        assert mock_api.call_count == 1
+
+        # Chamada subsequente a solicitar_sessao_servidor deve ser idempotente (já possui sessão)
+        assert servidor.solicitar_sessao_servidor() is True
+        assert mock_api.call_count == 1
+
+
+def test_solicitar_sessao_servidor_retorna_false_quando_api_falha(tmp_path):
+    """Quando a API do Cloudflare Relay lança exceção, solicitar_sessao_servidor retorna False."""
+    pasta_compilado = tmp_path / "compilado"
+    pasta_compilado.mkdir()
+
+    servidor = ServidorCelular(pasta_compilado=pasta_compilado, jwt_token="jwt_teste")
+
+    with patch(
+        "editor.core.tunel_retransmissor.solicitar_sessao_servidor",
+        side_effect=RuntimeError("Falha de conexão com Cloudflare"),
+    ):
+        assert servidor.solicitar_sessao_servidor() is False
+        with pytest.raises(RuntimeError, match="sessão de prévia"):
+            servidor.obter_url_previa_canonica()
+
+
+def test_obter_porta_disponivel_retorna_zero_quando_intervalo_ocupado(tmp_path):
+    """Quando todas as portas do intervalo estão ocupadas, obter_porta_disponivel retorna 0."""
+    servidor = ServidorCelular(tmp_path)
+    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock_ocupado:
+        sock_ocupado.bind(("127.0.0.1", 0))
+        sock_ocupado.listen(5)
+        porta_ocupada = sock_ocupado.getsockname()[1]
+
+        porta_obtida = servidor.obter_porta_disponivel(
+            inicio=porta_ocupada, fim=porta_ocupada, max_tentativas=1
+        )
+        assert porta_obtida == 0
+
+
+def test_iniciar_parar_idempotentes_e_notificacao_remota(tmp_path, qtbot):
+    """Garante idempotência de iniciar/parar, aviso de recarregamento sem túnel e sinal remoto."""
+    pasta_compilado = tmp_path / "compilado"
+    pasta_compilado.mkdir()
+
+    servidor = ServidorCelular(pasta_compilado=pasta_compilado)
+    # Parar antes de iniciar não deve falhar
+    servidor.parar()
+    # Emitir recarregamento sem túnel ativo não deve falhar
+    servidor.emitir_recarregamento("setor_inativo")
+
+    # Notificação remota deve emitir dispositivo_conectado apenas na primeira vez
+    with qtbot.waitSignal(servidor.dispositivo_conectado, timeout=1000):
+        servidor._ao_notificar_conexao_remota()
+    assert servidor.conectado is True
+    servidor._ao_notificar_conexao_remota()
+
+    servidor.iniciar()
+    esperar_porta(servidor)
+    try:
+        # Chamar iniciar novamente enquanto já está servindo deve retornar imediatamente
+        thread_original = servidor._thread_servidor
+        servidor.iniciar()
+        assert servidor._thread_servidor is thread_original
     finally:
         servidor.parar()
         if servidor._thread_servidor and servidor._thread_servidor.is_alive():

@@ -8,6 +8,7 @@ Testes unitários para o publicador de artefatos do canal macOS no Cloudflare R2
 from pathlib import Path
 from unittest.mock import MagicMock, patch
 
+import pytest
 import requests
 
 from editor.release_tools.publicador_r2_macos import PublicadorR2MacOS
@@ -213,8 +214,10 @@ def test_purga_cache_cloudflare_sucesso() -> None:
         assert "https://serving.arestaclimb.com/editor-macos/appcast.xml" in arquivos
 
 
-def test_purga_cache_cloudflare_sem_credenciais() -> None:
+def test_purga_cache_cloudflare_sem_credenciais(monkeypatch: pytest.MonkeyPatch) -> None:
     """Valida que ausência de zone_id ou api_token pula a purgação retornando False."""
+    monkeypatch.delenv("CLOUDFLARE_ZONE_ID", raising=False)
+    monkeypatch.delenv("CLOUDFLARE_API_TOKEN", raising=False)
     pub = PublicadorR2MacOS(zone_id=None, api_token=None)
     assert pub.purga_cache_cloudflare(versao="0.5.13") is False
 

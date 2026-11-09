@@ -61,12 +61,9 @@ class ServidorCelular(QObject):
 
     def _recuperar_jwt(self) -> str | None:
         """Tenta obter ou renovar o token JWT do usuário a partir do GerenciadorSessao."""
-        try:
-            from editor.core.gerenciador_sessao import GerenciadorSessao
+        from editor.core.gerenciador_sessao import GerenciadorSessao
 
-            return GerenciadorSessao().recuperar_token(auto_renovar=True)
-        except Exception:
-            return None
+        return GerenciadorSessao().recuperar_token(auto_renovar=True)
 
     def solicitar_sessao_servidor(self, url_base: str = DOMINIO_PREVIA_CANONICO) -> bool:
         """Solicita ao Cloudflare Worker (POST /sessoes) a criação da sessão e armazena os dados oficiais."""
@@ -104,12 +101,12 @@ class ServidorCelular(QObject):
             return self.url_previa_canonica
         if self.codigo_sessao:
             return obter_url_previa(self.codigo_sessao)
-        if self.solicitar_sessao_servidor():
-            if self.url_previa_canonica:
-                return self.url_previa_canonica
-        ip = self.obter_ip_local()
-        porta = self.porta or 8000
-        return f"http://{ip}:{porta}"
+        if self.solicitar_sessao_servidor() and self.url_previa_canonica:
+            return self.url_previa_canonica
+        raise RuntimeError(
+            "Não foi possível iniciar sessão de prévia no servidor de retransmissão. "
+            "Verifique sua autenticação e conexão com a internet."
+        )
 
     def obter_porta_disponivel(
         self, inicio: int = 8000, fim: int = 9000, max_tentativas: int = 10
@@ -212,11 +209,6 @@ class ServidorCelular(QObject):
                 print(f"[INFO] Servidor Celular rodando em http://0.0.0.0:{self.porta}")
                 self.server.run()
                 print("[INFO] Loop ASGI do servidor celular encerrado com sucesso.")
-            except Exception as e:
-                import traceback
-
-                print(f"[ERROR] Falha no servidor celular ASGI: {e}")
-                traceback.print_exc()
             finally:
                 self._servindo = False
                 self.server = None
@@ -270,8 +262,6 @@ class ServidorCelular(QObject):
 
             try:
                 self._loop_tunel.run_until_complete(self.cliente_tunel.executar())
-            except Exception as e:
-                print(f"[WARN] Erro no loop do túnel retransmissor: {e}")
             finally:
                 if self._loop_tunel and not self._loop_tunel.is_closed():
                     self._loop_tunel.close()

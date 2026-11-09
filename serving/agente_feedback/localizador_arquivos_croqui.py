@@ -14,7 +14,7 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
-import yaml
+from editor.core.serializacao_util import carregar_yaml
 
 
 @dataclass(frozen=True)
@@ -133,9 +133,9 @@ def _extrair_frontmatter_yaml(caminho_md: Path) -> dict[str, Any]:
         return {}
     bloco_yaml = texto.split("\n---\n", 1)[0][4:]
     try:
-        dados = yaml.safe_load(bloco_yaml)
+        dados = carregar_yaml(bloco_yaml)
         return dados if isinstance(dados, dict) else {}
-    except yaml.YAMLError:
+    except Exception:
         return {}
 
 

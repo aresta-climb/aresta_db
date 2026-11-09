@@ -571,6 +571,65 @@ class TestWorker(unittest.TestCase):
 
         self.assertEqual(emissoes, [])
 
+    def test_tarefa_dados_conexao_emite_erro_quando_obter_url_previa_falha(self):
+        """Valida que TarefaDadosConexao emite sinal erro quando obter_url_previa_canonica falha."""
+        from editor.core.servidor_celular_fake import ServidorCelularFake
+        from editor.core.worker import TarefaDadosConexao
+
+        servidor = ServidorCelularFake(
+            Path("."),
+            erro_previa=RuntimeError("Não foi possível iniciar sessão de prévia."),
+        )
+        servidor.iniciar()
+
+        erros_recebidos: list[str] = []
+        concluidos: list[str] = []
+
+        tarefa = TarefaDadosConexao(servidor)
+        tarefa.erro.connect(erros_recebidos.append)
+        tarefa.concluido.connect(lambda u, _q, _c: concluidos.append(u))
+
+        tarefa.run()
+
+        self.assertEqual(concluidos, [])
+        self.assertEqual(len(erros_recebidos), 1)
+        self.assertIn("sessão de prévia", erros_recebidos[0])
+
+    def test_tarefa_dados_conexao_emite_erro_quando_porta_nao_alocada(self):
+        """Valida que TarefaDadosConexao emite erro se o servidor não alocar porta após as tentativas."""
+        from editor.core.servidor_celular_fake import ServidorCelularFake
+        from editor.core.worker import TarefaDadosConexao
+
+        servidor = ServidorCelularFake(Path("."))
+        # porta permanece None (iniciar() não chamado)
+        erros_recebidos: list[str] = []
+
+        tarefa = TarefaDadosConexao(servidor)
+        tarefa.erro.connect(erros_recebidos.append)
+
+        tarefa.run()
+
+        self.assertEqual(len(erros_recebidos), 1)
+        self.assertIn("servidor", erros_recebidos[0].lower())
+
+    def test_tarefa_dados_conexao_solicita_sessao_quando_codigo_ausente(self):
+        """Valida que TarefaDadosConexao chama solicitar_sessao_servidor quando codigo_sessao é None."""
+        from editor.core.servidor_celular_fake import ServidorCelularFake
+        from editor.core.worker import TarefaDadosConexao
+
+        servidor = ServidorCelularFake(Path("."))
+        servidor.codigo_sessao = None
+        servidor.iniciar()
+
+        concluidos: list[tuple[str, str]] = []
+        tarefa = TarefaDadosConexao(servidor)
+        tarefa.concluido.connect(lambda u, _q, c: concluidos.append((u, c)))
+
+        tarefa.run()
+
+        self.assertEqual(len(concluidos), 1)
+        self.assertEqual(concluidos[0][1], "abcd-2345")
+
     def test_tarefa_salvamento_sucesso(self):
         """Valida que TarefaSalvamento salva croqui.yaml, processa compilação e emite sucesso."""
         from editor.core.worker import TarefaSalvamento
@@ -1062,6 +1121,137 @@ class TestWorker(unittest.TestCase):
         self.assertTrue(sync_git.fetch_executado)
         self.assertTrue(sync_git.checkout_executado)
         self.assertEqual(sucesso_emitido, [True])
+
+    def test_tarefa_inicializacao_modo_local_sem_sincronizar_git_valida_sessao_e_renova_token(self):
+        """Valida que sincronizar_git=False autentica/renova sessão no Supabase sem acionar loja nem sync Git."""
+        from editor.core.cliente_auth_supabase_fake import ClienteAuthSupabaseFake
+        from editor.core.gerenciador_sessao_fake import GerenciadorSessaoFake
+
+        class _StorageLocal:
+            def __init__(self, raiz: Path) -> None:
+                self.raiz = raiz
+                self.inicializado = False
+
+            def inicializar_diretorios(self) -> None:
+                self.inicializado = True
+
+            def obter_caminho_base_repo(self) -> Path:
+                raise AssertionError(
+                    "Não deve consultar repositório base quando sincronizar_git=False"
+                )
+
+        class _LojaProibida:
+            def verificar_atualizacoes_disponiveis(self):
+                raise AssertionError("Não deve verificar loja quando sincronizar_git=False")
+
+        sessao_expirada = SessaoUsuario(
+            email="local@arestaclimb.com",
+            nome_completo="Autor Local",
+            jwt_supabase="jwt_antigo_expirado",
+            token_atualizacao="refresh_valido_local",
+        )
+        gerenciador_sessao = GerenciadorSessaoFake(sessao_inicial=sessao_expirada)
+        cliente_auth = ClienteAuthSupabaseFake()
+        cliente_auth.usuarios_por_jwt["jwt_antigo_expirado"] = {"email": "local@arestaclimb.com"}
+        cliente_auth.jwt_por_refresh["refresh_valido_local"] = "jwt_antigo_expirado"
+        cliente_auth.configurar_falha_proxima_chamada("JWT expirado", codigo_status=401)
+
+        storage = _StorageLocal(self.caminho_fake_db)
+        tarefa = TarefaInicializacao(
+            storage=storage,  # type: ignore[arg-type]
+            gerenciador_sessao=gerenciador_sessao,
+            cliente_auth=cliente_auth,
+            servico_loja=_LojaProibida(),  # type: ignore[arg-type]
+            intervalo_espera_cofre=0.0,
+            sincronizar_git=False,
+        )
+
+        sucesso_emitido: list[bool] = []
+        tarefa.sucesso.connect(lambda: sucesso_emitido.append(True))
+        tarefa.run()
+
+        self.assertTrue(storage.inicializado)
+        self.assertEqual(sucesso_emitido, [True])
+        self.assertIsNotNone(tarefa.sessao_usuario)
+        assert tarefa.sessao_usuario is not None
+        self.assertEqual(tarefa.sessao_usuario.jwt_supabase, "jwt_fake_1")
+        sessao_salva = gerenciador_sessao.obter_sessao()
+        assert sessao_salva is not None
+        self.assertEqual(sessao_salva.jwt_supabase, "jwt_fake_1")
+
+    def test_tarefa_inicializacao_modo_local_solicita_login_quando_renovacao_falha(self):
+        """Valida que quando validação e renovação falham no modo local, solicita login na UI e conclui após autenticar."""
+        from editor.core.cliente_auth_supabase_fake import ClienteAuthSupabaseFake
+        from editor.core.gerenciador_sessao_fake import GerenciadorSessaoFake
+
+        class _StorageSimples:
+            def inicializar_diretorios(self) -> None:
+                pass
+
+        sessao_invalida = SessaoUsuario(
+            email="invalido@arestaclimb.com",
+            nome_completo="Invalido",
+            jwt_supabase="jwt_invalido",
+            token_atualizacao="refresh_invalido",
+        )
+        gerenciador_sessao = GerenciadorSessaoFake(sessao_inicial=sessao_invalida)
+        cliente_auth = ClienteAuthSupabaseFake()
+
+        nova_sessao = SessaoUsuario(
+            email="novo@arestaclimb.com",
+            nome_completo="Novo Escalador",
+            jwt_supabase="jwt_novo_login",
+            token_atualizacao="refresh_novo_login",
+        )
+
+        tarefa = TarefaInicializacao(
+            storage=_StorageSimples(),  # type: ignore[arg-type]
+            gerenciador_sessao=gerenciador_sessao,
+            cliente_auth=cliente_auth,
+            intervalo_espera_cofre=0.0,
+            sincronizar_git=False,
+        )
+        tarefa.solicitar_login_ui.connect(lambda: tarefa.definir_sessao_concluida(nova_sessao))
+
+        sucesso_emitido: list[bool] = []
+        tarefa.sucesso.connect(lambda: sucesso_emitido.append(True))
+        tarefa.run()
+
+        self.assertEqual(sucesso_emitido, [True])
+        self.assertEqual(tarefa.sessao_usuario, nova_sessao)
+
+    def test_tarefa_publicacao_callback_progresso_e_validacao_caminho_ausente(self):
+        """Valida emissão de erro quando caminho_database_croqui é None e repasse do callback_progresso."""
+        erros: list[str] = []
+        tarefa_sem_caminho = TarefaPublicacao(caminho_database_croqui=None, id_croqui="teste")
+        tarefa_sem_caminho.erro.connect(erros.append)
+        tarefa_sem_caminho.run()
+        self.assertEqual(len(erros), 1)
+        self.assertIn("Caminho do banco de dados", erros[0])
+
+        class _ServicoComProgresso:
+            def submeter_sugestao(self, **kwargs):
+                cb = kwargs["callback_progresso"]
+                cb(50, "Enviando arquivos...")
+                return ResultadoSubmissao(
+                    sucesso=True,
+                    pr_number=10,
+                    pr_url="https://github.com/aresta-climb/aresta_db/pull/10",
+                    nome_branch="branch-10",
+                    mensagem="OK",
+                )
+
+        progressos: list[tuple[int, str]] = []
+        tarefa_prog = TarefaPublicacao(
+            caminho_database_croqui=self.caminho_fake_db,
+            id_croqui="teste",
+            servico_submissao=_ServicoComProgresso(),  # type: ignore[arg-type]
+        )
+        tarefa_prog.progresso.connect(lambda p: progressos.append((p, "")))
+        tarefa_prog.status.connect(lambda s: progressos.append((-1, s)))
+        tarefa_prog.run()
+        self.assertIn((50, ""), progressos)
+        self.assertIn((-1, "Enviando arquivos..."), progressos)
 
 
 if __name__ == "__main__":

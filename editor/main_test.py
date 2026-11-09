@@ -214,26 +214,42 @@ def test_main_configura_icone_global_antecipadamente(qtbot):
 def test_main_abre_modo_local_repo_com_sucesso(qtbot, tmp_path):
     pasta_croqui = tmp_path / "br_mg_ouro_preto_ouroboulder"
     pasta_croqui.mkdir()
-    (pasta_croqui / "croqui.yaml").write_text("id: ouroboulder\n", encoding="utf-8")
+    arquivo_yaml = pasta_croqui / "croqui.yaml"
+    arquivo_yaml.write_text("id: ouroboulder\n", encoding="utf-8")
 
     with patch("editor.core.instancia_unica.verificar_se_ja_em_execucao", return_value=False):
         with patch("editor.core.instancia_unica.iniciar_servidor_instancia_unica"):
-            with patch("editor.legacy_views.area_principal.JanelaPrincipal") as MockJanela:
-                with patch("PySide6.QtWidgets.QApplication.exec", return_value=0):
-                    with patch("editor.main.sys.exit", side_effect=SystemExit) as mock_exit:
-                        with patch("editor.main.QMessageBox.critical") as mock_crit:
-                            mock_janela_inst = MockJanela.return_value
+            with patch("editor.main.ControladorAplicativo") as MockControlador:
+                with patch("editor.main.sys.exit", side_effect=SystemExit) as mock_exit:
+                    with patch("editor.main.QMessageBox.critical") as mock_crit:
+                        mock_ctrl_inst = MockControlador.return_value
+                        mock_ctrl_inst.executar.return_value = 0
 
-                            from editor.main import main
+                        from editor.main import main
 
-                            with patch("sys.argv", ["editor/main.py", str(pasta_croqui)]):
-                                with pytest.raises(SystemExit):
-                                    main()
+                        # 1. Passando o diretório do croqui
+                        with patch("sys.argv", ["editor/main.py", str(pasta_croqui)]):
+                            with pytest.raises(SystemExit):
+                                main()
 
-                            MockJanela.assert_called_once()
-                            mock_janela_inst.show.assert_called_once()
-                            mock_exit.assert_called_once_with(0)
-                            mock_crit.assert_not_called()
+                        MockControlador.assert_called_once_with(
+                            caminho_croqui_local=pasta_croqui.resolve()
+                        )
+                        mock_ctrl_inst.executar.assert_called_once()
+                        mock_exit.assert_called_once_with(0)
+                        mock_crit.assert_not_called()
+
+                        # 2. Passando diretamente o arquivo croqui.yaml
+                        MockControlador.reset_mock()
+                        mock_ctrl_inst.executar.reset_mock()
+                        mock_exit.reset_mock()
+                        with patch("sys.argv", ["editor/main.py", str(arquivo_yaml)]):
+                            with pytest.raises(SystemExit):
+                                main()
+
+                        MockControlador.assert_called_once_with(
+                            caminho_croqui_local=pasta_croqui.resolve()
+                        )
 
 
 def test_main_erro_quando_caminho_database_invalido(qtbot, capsys):
@@ -694,3 +710,110 @@ def test_controlador_aplicativo_repassa_dependencias_injetadas(qtbot, tmp_path: 
                 controlador.janela_principal.close()
             if controlador.abertura:
                 controlador.abertura.close()
+
+
+def test_controlador_aplicativo_modo_local_abre_janela_com_auth_sem_tela_carregamento(
+    qtbot, tmp_path: Path
+) -> None:
+    """Valida que ControladorAplicativo com caminho_croqui_local autentica sem sync Git e abre LocalRepoWorkspace com auth."""
+    from editor.core.cliente_auth_supabase_fake import ClienteAuthSupabaseFake
+    from editor.core.gerenciador_sessao import SessaoUsuario
+    from editor.core.gerenciador_sessao_fake import GerenciadorSessaoFake
+    from editor.core.storage import GerenciadorCaminhos
+    from editor.core.workspace import LocalRepoWorkspace
+    from scripts.gerenciar_uids_lib import gerar_uid
+    from scripts.migrador import obter_ultima_versao_migracao
+
+    pasta_local = tmp_path / "br_mg_local_teste"
+    pasta_local.mkdir(parents=True, exist_ok=True)
+    (pasta_local / "croqui.yaml").write_text(
+        f"id: br_mg_local_teste\nuid: {gerar_uid()}\nnome: Local Teste\nultima_migracao: {obter_ultima_versao_migracao()}\n",
+        encoding="utf-8",
+    )
+
+    sessao = SessaoUsuario(
+        email="local@arestaclimb.com",
+        nome_completo="Escalador Local",
+        jwt_supabase="jwt_local_123",
+        token_atualizacao="refresh_local_123",
+    )
+    gerenciador_sessao = GerenciadorSessaoFake(sessao_inicial=sessao)
+    cliente_auth = ClienteAuthSupabaseFake()
+    cliente_auth.usuarios_por_jwt["jwt_local_123"] = {"email": "local@arestaclimb.com"}
+    storage = GerenciadorCaminhos()
+
+    controlador = ControladorAplicativo(
+        caminho_croqui_local=pasta_local,
+        iniciar_mcp=False,
+        storage=storage,
+        gerenciador_sessao=gerenciador_sessao,
+        cliente_auth=cliente_auth,
+    )
+    try:
+        assert controlador.tarefa.sincronizar_git is False
+        assert controlador.tarefa.intervalo_espera_cofre == 0.0
+
+        qtbot.wait_until(lambda: controlador.janela_principal is not None, timeout=3000)
+        assert controlador.tela_carregamento is None
+        assert isinstance(controlador.janela_principal.workspace, LocalRepoWorkspace)
+        assert controlador.janela_principal.auth is gerenciador_sessao
+    finally:
+        if controlador.tarefa and controlador.tarefa.isRunning():
+            controlador.tarefa.wait(1000)
+        if controlador.janela_principal:
+            controlador.janela_principal.close()
+        if controlador.abertura:
+            controlador.abertura.close()
+
+
+def test_controlador_aplicativo_logout_e_transicoes_janela(qtbot, tmp_path: Path) -> None:
+    """Valida logout a partir da TelaDeCarregamento, substituição de janela principal e abertura MCP com diálogo ativo."""
+    from scripts.gerenciar_uids_lib import gerar_uid
+    from scripts.migrador import obter_ultima_versao_migracao
+
+    pasta_exp = tmp_path / "croqui_transicao"
+    (pasta_exp / "database").mkdir(parents=True, exist_ok=True)
+    (pasta_exp / "database" / "croqui.yaml").write_text(
+        f"id: croqui_transicao\nuid: {gerar_uid()}\nnome: Transição\nultima_migracao: {obter_ultima_versao_migracao()}\n",
+        encoding="utf-8",
+    )
+
+    with patch("editor.main.TarefaInicializacao") as MockTarefa:
+        with patch("editor.main.TelaDeCarregamento") as MockDialog:
+            mock_tarefa_inst = MockTarefa.return_value
+            mock_tarefa_inst.storage = None
+            mock_tarefa_inst.gerenciador_sessao = None
+            mock_tarefa_inst.sessao_usuario = None
+
+            mock_dialog_inst = MockDialog.return_value
+
+            controlador = ControladorAplicativo(iniciar_mcp=False)
+            try:
+                # 1. Logout acionado durante TelaDeCarregamento.exec()
+                def _simular_logout_no_exec():
+                    controlador.ao_solicitar_logout()
+                    return QDialog.DialogCode.Rejected
+
+                mock_dialog_inst.exec.side_effect = _simular_logout_no_exec
+                controlador.executar_selecao()
+                assert controlador._logout_em_andamento is False
+
+                # 2. abrir_croqui_via_mcp quando tela_carregamento existe e janela_principal é None
+                controlador.tela_carregamento = mock_dialog_inst
+                controlador.abrir_croqui_via_mcp(pasta_exp, iniciar_mcp_janela=False)
+                mock_dialog_inst.accept.assert_called_once()
+                assert controlador.janela_principal is not None
+
+                # 3. mostrar_janela_principal fecha janela_principal existente antes de abrir outra
+                mock_dialog_inst.caminho_croqui_selecionado = pasta_exp
+                controlador.mostrar_janela_principal()
+                assert controlador.janela_principal is not None
+
+                # 4. executar_selecao quando tarefa é None retorna sem erro
+                controlador.tarefa = None
+                controlador.executar_selecao()
+            finally:
+                if controlador.janela_principal:
+                    controlador.janela_principal.close()
+                if controlador.abertura:
+                    controlador.abertura.close()

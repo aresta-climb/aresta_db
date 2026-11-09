@@ -2193,9 +2193,7 @@ class WidgetFormularioPadrao(QStackedWidget):
         widget_nome.definir_nome_arquivo(current_filename)
         self._aplicar_largura_maxima(widget_nome)
         if not current_filename:
-            widget_nome.edit_nome.setPlaceholderText(
-                "(nome será gerado automaticamente ao salvar)"
-            )
+            widget_nome.edit_nome.setPlaceholderText("(nome será gerado automaticamente ao salvar)")
 
         msg_id = _get_id(wrapper_msg)
         widget_nome.setProperty("protobuf_field", "__filename__")
@@ -2480,16 +2478,20 @@ class WidgetFormularioPadrao(QStackedWidget):
         def recarregar_secao() -> None:
             while card_layout.count():
                 item = card_layout.takeAt(0)
+                if item is None:
+                    continue
                 w = item.widget()
                 if w:
                     w.hide()
                     w.setParent(None)
                     w.deleteLater()
-                elif item.layout():
-                    limpador = QWidget()
-                    limpador.hide()
-                    limpador.setLayout(item.layout())
-                    limpador.deleteLater()
+                else:
+                    sub_layout = item.layout()
+                    if sub_layout is not None:
+                        limpador = QWidget()
+                        limpador.hide()
+                        limpador.setLayout(sub_layout)
+                        limpador.deleteLater()
 
             lbl_titulo = QLabel("🎬 Betas e Relatos da Escalada")
             lbl_titulo.setStyleSheet(

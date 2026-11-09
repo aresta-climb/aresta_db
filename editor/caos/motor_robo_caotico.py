@@ -533,7 +533,7 @@ class MotorRoboCaoticoQt:
             )
 
         if tipo_acao == "selecionar_no_arvore":
-            janela._trocar_pagina(0)
+            janela._trocar_pagina(1)
             editor_dados = getattr(janela.pagina_dados, "editor_dados", None)
             tree_view = getattr(editor_dados, "tree_view", None)
             if isinstance(tree_view, QTreeView):
@@ -562,7 +562,7 @@ class MotorRoboCaoticoQt:
                     )
 
         if tipo_acao == "editar_campo_linha":
-            janela._trocar_pagina(0)
+            janela._trocar_pagina(1)
             editor_dados = getattr(janela.pagina_dados, "editor_dados", None)
             if editor_dados is not None:
                 edits = [
@@ -601,7 +601,7 @@ class MotorRoboCaoticoQt:
                     )
 
         if tipo_acao == "editar_campo_texto":
-            janela._trocar_pagina(0)
+            janela._trocar_pagina(1)
             editor_dados = getattr(janela.pagina_dados, "editor_dados", None)
             if editor_dados is not None:
                 txts = [
@@ -639,7 +639,7 @@ class MotorRoboCaoticoQt:
                     )
 
         if tipo_acao == "alterar_combo_box":
-            janela._trocar_pagina(0)
+            janela._trocar_pagina(1)
             editor_dados = getattr(janela.pagina_dados, "editor_dados", None)
             if editor_dados is not None:
                 combos = [
@@ -675,7 +675,7 @@ class MotorRoboCaoticoQt:
                     )
 
         if tipo_acao == "interagir_editor_mapas":
-            janela._trocar_pagina(2)
+            janela._trocar_pagina(3)
             ed_mapas = janela.pagina_mapas.garantir_editor_criado()
             if ed_mapas is not None:
                 if ed_mapas.list_widget.count() > 0 and ed_mapas.list_widget.currentRow() < 0:
@@ -719,7 +719,7 @@ class MotorRoboCaoticoQt:
                 )
 
         if tipo_acao == "interagir_editor_imagens":
-            janela._trocar_pagina(1)
+            janela._trocar_pagina(2)
             ed_img = janela.pagina_imagens.editor
             if hasattr(ed_img, "list_widget") and isinstance(ed_img.list_widget, QListWidget):
                 if ed_img.list_widget.count() > 0:
@@ -737,7 +737,7 @@ class MotorRoboCaoticoQt:
             )
 
         if tipo_acao == "interagir_painel_betas":
-            janela._trocar_pagina(3)
+            janela._trocar_pagina(4)
             painel = janela.pagina_betas.garantir_painel_criado()
             if painel is not None and hasattr(painel, "btn_auto_selecionar"):
                 painel.btn_auto_selecionar.click()
@@ -822,7 +822,7 @@ class MotorRoboCaoticoQt:
             )
 
         # Fallback determinístico caso a ação sorteada não tenha alvo visível no momento
-        janela._trocar_pagina(0)
+        janela._trocar_pagina(1)
         _bombear_eventos_qt(1)
         return PassoRobo(
             indice=indice_passo,

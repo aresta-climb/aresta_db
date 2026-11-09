@@ -14,8 +14,9 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
-import yaml
 from PIL import Image, ImageDraw
+
+from editor.core.serializacao_util import carregar_yaml
 
 MARGEM_REGUA_PX = 42
 PASSO_GRADE_PX = 100
@@ -130,7 +131,7 @@ def extrair_e_renderizar_mapas_do_setor(
         return []
 
     bloco_yaml = texto.split("\n---\n", 1)[0][4:]
-    dados = yaml.safe_load(bloco_yaml)
+    dados = carregar_yaml(bloco_yaml)
     mapas = dados.get("mapas") if isinstance(dados, dict) else None
     if not isinstance(mapas, list):
         return []

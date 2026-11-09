@@ -39,6 +39,7 @@ class DialogoConexaoCelular(QDialog):
         # Inicia carregamento em background
         self.tarefa_dados = TarefaDadosConexao(self.servidor)
         self.tarefa_dados.concluido.connect(self._ao_dados_carregados)
+        self.tarefa_dados.erro.connect(self._ao_erro_carregamento)
         self.tarefa_dados.start()
 
     def _setup_ui(self) -> None:
@@ -255,6 +256,18 @@ class DialogoConexaoCelular(QDialog):
         self.label_qr.setPixmap(pixmap)
         self.label_qr.show()
 
+    def _ao_erro_carregamento(self, mensagem: str) -> None:
+        """Exibe erro explícito quando a criação da sessão de prévia ou servidor falha."""
+        self.widget_carregando.hide()
+        self.label_qr.hide()
+        self.label_endereco.setText("Indisponível")
+        self.icon_status.setIcon(qta.icon("fa5s.exclamation-circle", color=Icones.COR_ERRO))
+        self.label_status.setWordWrap(True)
+        self.label_status.setText(mensagem)
+        self.label_status.setStyleSheet(
+            f"font-weight: bold; color: {Icones.COR_ERRO}; font-size: 13px;"
+        )
+
     def _ao_dispositivo_conectado(self) -> None:
         """Atualiza a UI para o estado conectado."""
         self.icon_status.setIcon(qta.icon("fa5s.check-circle", color=Icones.COR_SUCESSO))
@@ -266,7 +279,7 @@ class DialogoConexaoCelular(QDialog):
     def _ao_clicar_copiar(self) -> None:
         """Copia a URL para a área de transferência."""
         url = self.label_endereco.text()
-        if url and not url.startswith("Aguardando"):
+        if url and not url.startswith("Aguardando") and not url.startswith("Indisponível"):
             cb = QGuiApplication.clipboard()
             if cb:
                 cb.setText(url)

@@ -48,6 +48,7 @@ class TarefaInicializacao(QThread):
         servico_loja: AdaptadorPlataforma | None = None,
         sincronizador_git: GerenciadorSincronizacao | None = None,
         intervalo_espera_cofre: float = 1.5,
+        sincronizar_git: bool = True,
     ) -> None:
         super().__init__()
         self.id_cliente: str = id_cliente
@@ -57,6 +58,7 @@ class TarefaInicializacao(QThread):
         self.servico_loja: AdaptadorPlataforma = servico_loja or obter_adaptador_plataforma()
         self.sincronizador_git: GerenciadorSincronizacao | None = sincronizador_git
         self.intervalo_espera_cofre: float = intervalo_espera_cofre
+        self.sincronizar_git: bool = sincronizar_git
         self.sessao_usuario: SessaoUsuario | None = None
         self._evento_autenticacao: threading.Event = threading.Event()
         self._login_cancelado: bool = False
@@ -93,12 +95,13 @@ class TarefaInicializacao(QThread):
                 )
 
             # 3. Verificação de Atualização
-            self.status.emit("Verificando atualizações...")
-            resultado_update = self.servico_loja.verificar_atualizacoes_disponiveis()
-            if resultado_update.tem_atualizacao:
-                logger.info(f"Atualização detectada: {resultado_update.versao_disponivel}")
-                self.atualizacao_disponivel.emit(resultado_update)
-                return
+            if self.sincronizar_git:
+                self.status.emit("Verificando atualizações...")
+                resultado_update = self.servico_loja.verificar_atualizacoes_disponiveis()
+                if resultado_update.tem_atualizacao:
+                    logger.info(f"Atualização detectada: {resultado_update.versao_disponivel}")
+                    self.atualizacao_disponivel.emit(resultado_update)
+                    return
 
             self.progresso.emit(20)
 
@@ -143,43 +146,45 @@ class TarefaInicializacao(QThread):
             )
             self.status.emit(f"Logado como: {usuario_identificado}")
 
-            # 4. Sincronização Git
-            self.status.emit("Sincronizando repositório base...")
-            self.mostrar_progresso.emit(True)
+            if self.sincronizar_git:
+                # 4. Sincronização Git
+                self.status.emit("Sincronizando repositório base...")
+                self.mostrar_progresso.emit(True)
 
-            sync = self.sincronizador_git or GerenciadorSincronizacao(
-                self.storage.obter_caminho_base_repo()
-            )
-
-            caminho_repo = self.storage.obter_caminho_base_repo()
-            if not caminho_repo.exists() or not any(caminho_repo.iterdir()):
-                logger.info(f"Repositório não encontrado em {caminho_repo}. Clonando...")
-                url_clone = sync.obter_url_clone()
-                logger.info(f"URL de clone obtida: {url_clone}")
-                sync.clonar(
-                    url_clone, progresso_callback=lambda p: self.progresso.emit(40 + int(p * 0.3))
+                sync = self.sincronizador_git or GerenciadorSincronizacao(
+                    self.storage.obter_caminho_base_repo()
                 )
-            else:
-                logger.info(f"Repositório existente em {caminho_repo}. Configurando remotes...")
-                sync.configurar_remotes()
 
-                # Fetch do remote oficial (origin)
-                logger.info("Executando fetch de dados de origin...")
-                self.status.emit("Fazendo fetch de dados...")
-                try:
-                    sync.fazer_fetch(
-                        progresso_callback=lambda p: self.progresso.emit(70 + int(p * 0.15))
+                caminho_repo = self.storage.obter_caminho_base_repo()
+                if not caminho_repo.exists() or not any(caminho_repo.iterdir()):
+                    logger.info(f"Repositório não encontrado em {caminho_repo}. Clonando...")
+                    url_clone = sync.obter_url_clone()
+                    logger.info(f"URL de clone obtida: {url_clone}")
+                    sync.clonar(
+                        url_clone,
+                        progresso_callback=lambda p: self.progresso.emit(40 + int(p * 0.3)),
                     )
+                else:
+                    logger.info(f"Repositório existente em {caminho_repo}. Configurando remotes...")
+                    sync.configurar_remotes()
 
-                    # Checkout do origin/main
-                    logger.info("Fazendo checkout do origin/main...")
-                    self.status.emit("Aplicando estado oficial mais recente...")
-                    sync.fazer_checkout_main_upstream()
-                except Exception as e:
-                    logger.warning(
-                        f"Não foi possível sincronizar com o GitHub ({e}). Continuando em modo offline com a base local."
-                    )
-                    self.status.emit("GitHub inacessível. Usando dados locais offline...")
+                    # Fetch do remote oficial (origin)
+                    logger.info("Executando fetch de dados de origin...")
+                    self.status.emit("Fazendo fetch de dados...")
+                    try:
+                        sync.fazer_fetch(
+                            progresso_callback=lambda p: self.progresso.emit(70 + int(p * 0.15))
+                        )
+
+                        # Checkout do origin/main
+                        logger.info("Fazendo checkout do origin/main...")
+                        self.status.emit("Aplicando estado oficial mais recente...")
+                        sync.fazer_checkout_main_upstream()
+                    except Exception as e:
+                        logger.warning(
+                            f"Não foi possível sincronizar com o GitHub ({e}). Continuando em modo offline com a base local."
+                        )
+                        self.status.emit("GitHub inacessível. Usando dados locais offline...")
 
             logger.info("[Worker] Inicialização e sincronização finalizadas com sucesso!")
             self.progresso.emit(100)
@@ -308,6 +313,7 @@ class TarefaDadosConexao(QThread):
     """
 
     concluido: Signal = Signal(str, bytes, str)  # url, qr_bytes, codigo_formatado
+    erro: Signal = Signal(str)
 
     def __init__(self, servidor: Any) -> None:
         super().__init__()
@@ -328,36 +334,30 @@ class TarefaDadosConexao(QThread):
                 time.sleep(0.05)
                 tentativas += 1
 
-            if self._cancelado or self.servidor.porta is None:
-                return  # Cancelado ou falha ao iniciar servidor
+            if self._cancelado:
+                return
 
-            if hasattr(self.servidor, "solicitar_sessao_servidor"):
-                if not getattr(self.servidor, "codigo_sessao", None):
-                    self.servidor.solicitar_sessao_servidor()
+            if self.servidor.porta is None:
+                self.erro.emit("Tempo limite esgotado ao aguardar inicialização do servidor local.")
+                return
+
+            if not getattr(self.servidor, "codigo_sessao", None):
+                self.servidor.solicitar_sessao_servidor()
 
             from editor.core.codigo_sessao import formatar_codigo
 
-            if hasattr(self.servidor, "obter_url_previa_canonica"):
-                url = self.servidor.obter_url_previa_canonica()
-            else:
-                ip = self.servidor.obter_ip_local()
-                porta = self.servidor.porta
-                url = f"http://{ip}:{porta}"
+            url = self.servidor.obter_url_previa_canonica()
 
             codigo_raw = getattr(self.servidor, "codigo_sessao", None)
-            if codigo_raw:
-                try:
-                    codigo_formatado = formatar_codigo(codigo_raw)
-                except Exception:
-                    codigo_formatado = str(codigo_raw)
-            else:
-                codigo_formatado = ""
+            codigo_formatado = formatar_codigo(codigo_raw) if codigo_raw else ""
 
             qr_bytes = self.servidor.gerar_qr_code(url)
             if not self._cancelado:
                 self.concluido.emit(url, qr_bytes, codigo_formatado)
-        except Exception:
+        except Exception as e:
             traceback.print_exc()
+            if not self._cancelado:
+                self.erro.emit(str(e))
 
 
 class TarefaSalvamento(QThread):

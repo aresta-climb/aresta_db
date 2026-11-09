@@ -124,7 +124,7 @@ def test_oraculo_simetria_detecta_mutacao_sem_comando_e_undo_assimetrico() -> No
     oraculos.ressincronizar_estado_base(model, historico)
 
     # Violação do Princípio VIII: mutação direta no modelo sem empilhar comando
-    model._set_primitivo(croqui, "nome", "Mutado Fora do Historico")
+    croqui.nome = "Mutado Fora do Historico"
     falha_viii = oraculos.auditar_passo_historico(model, historico, foi_undo_ou_redo=False)
     assert falha_viii is not None
     assert falha_viii.oraculo == "violacao_principio_viii"
@@ -140,11 +140,11 @@ def test_oraculo_simetria_detecta_mutacao_sem_comando_e_undo_assimetrico() -> No
             super().__init__("Comando Bugado")
 
         def redo(self) -> None:
-            model._set_primitivo(croqui, "descricao", "Nova Descricao")
+            croqui.descricao = "Nova Descricao"
 
         def undo(self) -> None:
             # Bug: esqueceu de limpar ou colocou valor diferente do estado anterior
-            model._set_primitivo(croqui, "descricao", "Descricao Suja Residual")
+            croqui.descricao = "Descricao Suja Residual"
 
     historico.executar(_CmdAssimetricoBugado())
     assert oraculos.auditar_passo_historico(model, historico, foi_undo_ou_redo=False) is None

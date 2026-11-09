@@ -248,3 +248,33 @@ class TestConftestTeardown(unittest.TestCase):
             self.assertEqual(os.environ.get("QT_QPA_PLATFORM"), "offscreen")
             self.assertEqual(os.environ.get("PADDLE_PDX_DISABLE_MODEL_SOURCE_CHECK"), "True")
             self.assertEqual(os.environ.get("ARESTA_DESATIVAR_TELEMETRIA"), "1")
+
+    def test_isolamento_automatico_de_keyring_e_diretorio_dados_em_testes(self) -> None:
+        """
+        Valida que a fixture autouse do conftest instala CofreChaveiroFake no keyring
+        e redireciona ARESTA_DIRETORIO_DADOS para um diretório temporário isolado.
+        """
+        import keyring
+
+        from editor.core.gerenciador_sessao import GerenciadorSessao, SessaoUsuario
+        from editor.core.gerenciador_sessao_fake import CofreChaveiroFake
+        from editor.core.storage import obter_diretorio_base_app
+
+        backend = keyring.get_keyring()
+        self.assertIsInstance(backend, CofreChaveiroFake)
+
+        dir_dados_env = os.environ.get("ARESTA_DIRETORIO_DADOS", "")
+        self.assertTrue(bool(dir_dados_env))
+        self.assertEqual(str(obter_diretorio_base_app()), dir_dados_env)
+
+        gerenciador = GerenciadorSessao()
+        sessao = SessaoUsuario(
+            email="isolado@arestaclimb.com",
+            nome_completo="Teste Isolado",
+            jwt_supabase="jwt.isolado.123",
+            token_atualizacao="refresh.isolado.123",
+        )
+        gerenciador.salvar_sessao(sessao)
+        self.assertIsNotNone(gerenciador.obter_sessao())
+        gerenciador.limpar_sessao()
+        self.assertIsNone(gerenciador.obter_sessao())
