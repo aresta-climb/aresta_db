@@ -401,3 +401,122 @@ class TestWidgetMensagemCoordenada:
         assert setor.HasField("localizacao_estacionamento")
         assert setor.localizacao_estacionamento.latitude == -215000000
         assert setor.localizacao_estacionamento.longitude == -435000000
+        assert widget.btn_gerar_malha is None
+        assert widget.rotulo_status_malha is None
+        assert widget.gerar_malha_pontos_estrada() is False
+
+    def test_pico_localizacao_exibe_warning_e_botao_gerar_malha_com_undo_redo(
+        self, qtbot, monkeypatch
+    ):
+        from aresta_api.proto.generated.croqui_pb2 import Croqui
+        from scripts.cliente_overpass_fake import ClienteOverpassFake
+
+        elementos = [
+            {"type": "node", "id": 100, "lat": -20.0010, "lon": -44.0010},
+            {"type": "node", "id": 101, "lat": -20.0300, "lon": -44.0010},
+            {"type": "way", "id": 10, "nodes": [100, 101], "tags": {"highway": "primary"}},
+        ]
+        fake_overpass = ClienteOverpassFake(elementos_padrao=elementos)
+
+        croqui = Croqui(id="crq_pico_malha", nome="Croqui Malha")
+        pico = croqui.picos.add(nome="Pico Malha")
+        model = CroquiModel(croqui)
+        undo_stack = QUndoStack()
+        controller = CroquiController(model, undo_stack)
+
+        widget = WidgetMensagemCoordenada(
+            pico.localizacao,
+            controller=controller,
+            model=model,
+            msg_pai=pico,
+            campo_pai="localizacao",
+            cliente_overpass=fake_overpass,
+        )
+        qtbot.addWidget(widget)
+        widget.show()
+
+        # Inicialmente sem coordenadas: botão desabilitado e status oculto
+        assert widget.btn_gerar_malha is not None
+        assert widget.rotulo_status_malha is not None
+        assert widget.btn_gerar_malha.text() == "Gerar Mapa de Pontos"
+        assert widget.btn_gerar_malha.isEnabled() is False
+        assert widget.rotulo_status_malha.isVisible() is False
+
+        # Preenche apenas latitude: ainda incompleto, mas ao preencher longitude gera ou exibe status
+        widget.edit_lat.setText("-20.0")
+        widget._confirmar_edicao_lat()
+        assert widget.btn_gerar_malha.isEnabled() is False
+
+        # Ao preencher longitude, como cliente_overpass está configurado, gera automaticamente
+        widget.edit_lon.setText("-44.0")
+        widget._confirmar_edicao_lon()
+
+        assert len(pico.malha_estrada.nos) == 2
+        assert pico.malha_estrada.latitude_referencia_e7 == -200000000
+        assert pico.malha_estrada.longitude_referencia_e7 == -440000000
+        assert "✅" in widget.rotulo_status_malha.text()
+        assert widget.rotulo_status_malha.isVisible() is True
+
+        # Se a malha for limpa ou a coordenada mudar sem regerar, exibe o warning
+        pico.ClearField("malha_estrada")
+        widget._atualizar_status_malha_pico()
+        assert "⚠️" in widget.rotulo_status_malha.text()
+        assert "não gerado" in widget.rotulo_status_malha.text()
+
+        # Clicar no botão "Gerar Mapa de Pontos" regera via controller com suporte a Undo/Redo
+        widget.btn_gerar_malha.click()
+        assert len(pico.malha_estrada.nos) == 2
+        assert "✅" in widget.rotulo_status_malha.text()
+
+        # Undo desfaz a geração da malha e volta a mostrar o warning
+        undo_stack.undo()
+        assert len(pico.malha_estrada.nos) == 0
+        assert "⚠️" in widget.rotulo_status_malha.text()
+
+        # Redo restaura a malha e o status positivo
+        undo_stack.redo()
+        assert len(pico.malha_estrada.nos) == 2
+        assert "✅" in widget.rotulo_status_malha.text()
+
+    def test_pico_localizacao_sem_controller_e_falha_rede_degrada_graciosamente(self, qtbot):
+        from aresta_api.proto.generated.croqui_pb2 import Pico
+        from scripts.cliente_overpass_fake import ClienteOverpassFake
+
+        pico = Pico(nome="Pico Offline")
+        pico.localizacao.latitude = -200000000
+        pico.localizacao.longitude = -440000000
+
+        fake_falha = ClienteOverpassFake(simular_erro=RuntimeError("Sem conexão com Overpass"))
+        widget = WidgetMensagemCoordenada(
+            pico.localizacao,
+            msg_pai=pico,
+            campo_pai="localizacao",
+            cliente_overpass=fake_falha,
+        )
+        qtbot.addWidget(widget)
+        widget.show()
+
+        assert widget.btn_gerar_malha is not None
+        assert "⚠️" in widget.rotulo_status_malha.text()
+
+        # Ao clicar em gerar com falha de rede, não lança exceção e mantém o warning
+        sucesso = widget.gerar_malha_pontos_estrada()
+        assert sucesso is False
+        assert "⚠️" in widget.rotulo_status_malha.text()
+        assert len(pico.malha_estrada.nos) == 0
+
+        # Quando a rede volta a funcionar (sem controller, direto na msg), grava em pico.malha_estrada
+        fake_falha.simular_erro = None
+        fake_falha.registrar_resposta(
+            -20.0,
+            -44.0,
+            [
+                {"type": "node", "id": 100, "lat": -20.0010, "lon": -44.0010},
+                {"type": "node", "id": 101, "lat": -20.0300, "lon": -44.0010},
+                {"type": "way", "id": 10, "nodes": [100, 101], "tags": {"highway": "primary"}},
+            ],
+        )
+        sucesso_ok = widget.gerar_malha_pontos_estrada()
+        assert sucesso_ok is True
+        assert len(pico.malha_estrada.nos) == 2
+        assert "✅" in widget.rotulo_status_malha.text()

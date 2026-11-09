@@ -1793,6 +1793,50 @@ class DeployGeneratedTest(unittest.TestCase):
                 (cdir / "setor_b.md").read_text(encoding="utf-8"),
             )
 
+    def test_verificar_malha_estrada_pico_avisa_quando_ausente_ou_defasada(self):
+        dados_sem_malha = {
+            "picos": [
+                {
+                    "nome": "Gruta da Lapinha",
+                    "localizacao": {"latitude": -195600000, "longitude": -439600000},
+                }
+            ]
+        }
+        buf1 = StringIO()
+        sys.stdout = buf1
+        try:
+            deploy_generated.verificar_malha_estrada_pico("br_mg_lapinha", dados_sem_malha)
+        finally:
+            sys.stdout = sys.__stdout__
+        self.assertIn(
+            "Aviso: O pico 'Gruta da Lapinha' no croqui 'br_mg_lapinha' está sem mapa de pontos de estrada atualizado",
+            buf1.getvalue(),
+        )
+
+        dados_malha_ok = {
+            "picos": [
+                "item_invalido",
+                {"nome": "Pico Sem Localizacao"},
+                {"nome": "Pico Zero", "localizacao": {"latitude": 0, "longitude": 0}},
+                {
+                    "nome": "Gruta da Lapinha",
+                    "localizacao": {"latitude": -195600000, "longitude": -439600000},
+                    "malha_estrada": {
+                        "latitude_referencia_e7": -195600000,
+                        "longitude_referencia_e7": -439600000,
+                        "nos": [{"no_osm_id": 500, "distancia_metros": 0}],
+                    },
+                },
+            ]
+        }
+        buf2 = StringIO()
+        sys.stdout = buf2
+        try:
+            deploy_generated.verificar_malha_estrada_pico("br_mg_lapinha", dados_malha_ok)
+        finally:
+            sys.stdout = sys.__stdout__
+        self.assertEqual(buf2.getvalue(), "")
+
 
 if __name__ == "__main__":
     unittest.main()

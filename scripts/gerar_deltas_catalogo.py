@@ -51,6 +51,8 @@ def calcular_deltas_catalogo(
         "versao_hash": versao_hash,
         "croquis": {"upserts": [], "deletes": []},
         "entidades": {"upserts": [], "deletes": []},
+        "nos_estrada": {"upserts": [], "deletes": []},
+        "distancias_estrada": {"upserts": [], "deletes": []},
     }
 
     try:
@@ -66,6 +68,18 @@ def calcular_deltas_catalogo(
                 "FROM catalogo_aresta ORDER BY uid"
             )
             resultado["entidades"]["upserts"] = [dict(row) for row in cur.fetchall()]
+
+            cur.execute(
+                "SELECT no_osm_id, latitude_e7, longitude_e7 "
+                "FROM catalogo_nos_estrada ORDER BY no_osm_id"
+            )
+            resultado["nos_estrada"]["upserts"] = [dict(row) for row in cur.fetchall()]
+
+            cur.execute(
+                "SELECT croqui_uid, no_osm_id, distancia_metros, e_portal_borda "
+                "FROM catalogo_distancias_estrada ORDER BY croqui_uid, no_osm_id"
+            )
+            resultado["distancias_estrada"]["upserts"] = [dict(row) for row in cur.fetchall()]
 
             return resultado
 
@@ -117,6 +131,52 @@ def calcular_deltas_catalogo(
         )
         resultado["entidades"]["deletes"] = [row["uid"] for row in cur.fetchall()]
 
+        # 5. Nós de Estrada: Upserts e Deletes
+        cur.execute(
+            """
+            SELECT no_osm_id, latitude_e7, longitude_e7 FROM catalogo_nos_estrada
+            EXCEPT
+            SELECT no_osm_id, latitude_e7, longitude_e7 FROM anterior.catalogo_nos_estrada
+            ORDER BY no_osm_id
+            """
+        )
+        resultado["nos_estrada"]["upserts"] = [dict(row) for row in cur.fetchall()]
+
+        cur.execute(
+            """
+            SELECT no_osm_id FROM anterior.catalogo_nos_estrada
+            EXCEPT
+            SELECT no_osm_id FROM catalogo_nos_estrada
+            ORDER BY no_osm_id
+            """
+        )
+        resultado["nos_estrada"]["deletes"] = [int(row["no_osm_id"]) for row in cur.fetchall()]
+
+        # 6. Distâncias de Estrada: Upserts e Deletes (por croqui_uid)
+        cur.execute(
+            """
+            SELECT croqui_uid, no_osm_id, distancia_metros, e_portal_borda FROM catalogo_distancias_estrada
+            EXCEPT
+            SELECT croqui_uid, no_osm_id, distancia_metros, e_portal_borda FROM anterior.catalogo_distancias_estrada
+            ORDER BY croqui_uid, no_osm_id
+            """
+        )
+        resultado["distancias_estrada"]["upserts"] = [dict(row) for row in cur.fetchall()]
+
+        cur.execute(
+            """
+            SELECT DISTINCT croqui_uid FROM anterior.catalogo_distancias_estrada
+            WHERE croqui_uid NOT IN (SELECT DISTINCT croqui_uid FROM catalogo_distancias_estrada)
+               OR (croqui_uid, no_osm_id) IN (
+                   SELECT croqui_uid, no_osm_id FROM anterior.catalogo_distancias_estrada
+                   EXCEPT
+                   SELECT croqui_uid, no_osm_id FROM catalogo_distancias_estrada
+               )
+            ORDER BY croqui_uid
+            """
+        )
+        resultado["distancias_estrada"]["deletes"] = [row["croqui_uid"] for row in cur.fetchall()]
+
     finally:
         con_novo.close()
 
@@ -136,10 +196,13 @@ def gerar_payload_d1(deltas: dict[str, Any]) -> tuple[str, str]:
     upserts: UpsertsSyncCatalogo = {
         "croquis": deltas["croquis"]["upserts"],
         "entidades": lista_entidades_upsert,
+        "nos_estrada": deltas.get("nos_estrada", {}).get("upserts", []),
+        "distancias_estrada": deltas.get("distancias_estrada", {}).get("upserts", []),
     }
     deletes: DeletesSyncCatalogo = {
         "croquis": deltas["croquis"]["deletes"],
         "entidades": lista_entidades_delete,
+        "nos_estrada": deltas.get("nos_estrada", {}).get("deletes", []),
     }
     return json.dumps(upserts, ensure_ascii=False), json.dumps(deletes, ensure_ascii=False)
 

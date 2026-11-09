@@ -11,6 +11,7 @@ import pytest
 from scripts.gerar_catalogo_sqlite_lib import (
     inicializar_banco_catalogo,
     inserir_croqui_no_catalogo,
+    inserir_malha_estrada_croqui,
 )
 from scripts.gerar_deltas_catalogo import (
     calcular_deltas_catalogo,
@@ -301,3 +302,76 @@ def test_main_cli(
     assert "croquis" in dados_salvos
     assert "entidades" in dados_salvos
     assert "INSERT INTO deltas_catalogo" in caminho_sql.read_text(encoding="utf-8")
+
+
+def test_calcular_deltas_malha_estrada_upserts_e_deletes(tmp_path: Path) -> None:
+    caminho_ant = tmp_path / "ant.db"
+    caminho_novo = tmp_path / "novo.db"
+
+    croqui_c1 = {
+        "croqui_uid": "c1",
+        "id_slug": "br_mg_bh_1",
+        "nome": "Pico 1",
+        "cidade": "BH",
+        "estado": "MG",
+    }
+    croqui_c2 = {
+        "croqui_uid": "c2",
+        "id_slug": "br_mg_bh_2",
+        "nome": "Pico 2",
+        "cidade": "BH",
+        "estado": "MG",
+    }
+
+    # Banco anterior tem c1 e c2 com nós 10 e 20
+    con_ant = inicializar_banco_catalogo(caminho_ant)
+    inserir_croqui_no_catalogo(con_ant, croqui_c1, [])
+    inserir_croqui_no_catalogo(con_ant, croqui_c2, [])
+    inserir_malha_estrada_croqui(
+        con_ant,
+        "c1",
+        [
+            {"no_osm_id": 10, "latitude_e7": -195000000, "longitude_e7": -439000000},
+            {"no_osm_id": 20, "latitude_e7": -196000000, "longitude_e7": -438000000},
+        ],
+        [
+            {"croqui_uid": "c1", "no_osm_id": 10, "distancia_metros": 0, "e_portal_borda": 0},
+            {"croqui_uid": "c1", "no_osm_id": 20, "distancia_metros": 15000, "e_portal_borda": 1},
+        ],
+    )
+    con_ant.close()
+
+    # Banco novo: c1 agora usa nós 10 (distância atualizada) e 30 (novo); nó 20 foi removido
+    con_novo = inicializar_banco_catalogo(caminho_novo)
+    inserir_croqui_no_catalogo(con_novo, croqui_c1, [])
+    inserir_malha_estrada_croqui(
+        con_novo,
+        "c1",
+        [
+            {"no_osm_id": 10, "latitude_e7": -195000000, "longitude_e7": -439000000},
+            {"no_osm_id": 30, "latitude_e7": -197000000, "longitude_e7": -437000000},
+        ],
+        [
+            {"croqui_uid": "c1", "no_osm_id": 10, "distancia_metros": 500, "e_portal_borda": 0},
+            {"croqui_uid": "c1", "no_osm_id": 30, "distancia_metros": 25000, "e_portal_borda": 1},
+        ],
+    )
+    con_novo.close()
+
+    # 1. Sem banco anterior: todos os nós e distâncias do novo entram como upserts
+    deltas_inicial = calcular_deltas_catalogo(None, caminho_novo)
+    assert len(deltas_inicial["nos_estrada"]["upserts"]) == 2
+    assert len(deltas_inicial["distancias_estrada"]["upserts"]) == 2
+
+    # 2. Com banco anterior: detecta nó 30 adicionado, nó 20 removido e distâncias de c1 atualizadas
+    deltas = calcular_deltas_catalogo(caminho_ant, caminho_novo)
+    assert [n["no_osm_id"] for n in deltas["nos_estrada"]["upserts"]] == [30]
+    assert deltas["nos_estrada"]["deletes"] == [20]
+    assert [d["no_osm_id"] for d in deltas["distancias_estrada"]["upserts"]] == [10, 30]
+
+    upserts_json, deletes_json = gerar_payload_d1(deltas)
+    upserts_payload = json.loads(upserts_json)
+    deletes_payload = json.loads(deletes_json)
+    assert len(upserts_payload["nos_estrada"]) == 1
+    assert len(upserts_payload["distancias_estrada"]) == 2
+    assert deletes_payload["nos_estrada"] == [20]

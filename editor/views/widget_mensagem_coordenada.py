@@ -3,8 +3,9 @@
 
 """
 Componente visual especializado para a mensagem Coordenada (MensagemFormatoUi.COORDENADA).
-Exibe na primeira linha os botões de ação ('Colar' e 'Abrir no Maps') unificados para a mensagem,
-e na segunda linha os campos de Latitude e Longitude na mesma linha horizontal.
+Exibe na primeira linha os botões de ação ('Colar', 'Abrir no Maps' e, em Pico.localizacao,
+'Gerar Mapa de Pontos') unificados para a mensagem, e na segunda linha os campos de
+Latitude e Longitude na mesma linha horizontal.
 """
 
 from typing import Any
@@ -39,8 +40,9 @@ from editor.views.widget_campo_coordenada_e7 import DialogoConfirmarCoordenadas
 class WidgetMensagemCoordenada(QWidget):
     """
     Widget para edição integrada da mensagem Coordenada.
-    Linha 1: Botões 'Colar' e 'Abrir no Maps'.
+    Linha 1: Botões 'Colar', 'Abrir no Maps' (e 'Gerar Mapa de Pontos' em Pico.localizacao).
     Linha 2: 'Latitude:' [Input] [Card] | 'Longitude:' [Input] [Card].
+    Linha 3 (apenas Pico.localizacao): Indicador de status / warning da malha rodoviária OSM.
     """
 
     sinal_coordenadas_alteradas = Signal(object, object)  # (lat_e7, lon_e7)
@@ -53,13 +55,17 @@ class WidgetMensagemCoordenada(QWidget):
         parent: QWidget | None = None,
         msg_pai: Any | None = None,
         campo_pai: str | None = None,
+        cliente_overpass: Any | None = None,
     ) -> None:
         super().__init__(parent)
         self.msg: Any = msg
-        self.msg_pai: Any | None = msg_pai
+        self.msg_pai: Any = msg_pai
         self.campo_pai: str | None = campo_pai
         self.controller: Any | None = controller
         self.model: Any | None = model
+        self.cliente_overpass: Any | None = cliente_overpass
+        self.btn_gerar_malha: QPushButton | None = None
+        self.rotulo_status_malha: QLabel | None = None
 
         layout = QVBoxLayout(self)
         layout.setContentsMargins(0, 0, 0, 0)
@@ -81,6 +87,18 @@ class WidgetMensagemCoordenada(QWidget):
 
         linha_acoes.addWidget(self.btn_colar)
         linha_acoes.addWidget(self.btn_maps)
+
+        if self._eh_localizacao_pico():
+            self.btn_gerar_malha = QPushButton("Gerar Mapa de Pontos")
+            self.btn_gerar_malha.setToolTip(
+                "Consultar OpenStreetMap e pré-computar o mapa de pontos de estrada para esta localização"
+            )
+            self.btn_gerar_malha.clicked.connect(self.gerar_malha_pontos_estrada)
+            linha_acoes.addWidget(self.btn_gerar_malha)
+
+            self.rotulo_status_malha = QLabel()
+            self.rotulo_status_malha.setWordWrap(True)
+
         linha_acoes.addStretch()
 
         # Linha 2: Inputs de Latitude e Longitude na mesma linha
@@ -114,6 +132,8 @@ class WidgetMensagemCoordenada(QWidget):
 
         layout.addLayout(linha_acoes)
         layout.addLayout(linha_campos)
+        if self.rotulo_status_malha is not None:
+            layout.addWidget(self.rotulo_status_malha)
 
         self.edit_lat.textChanged.connect(self._ao_alterar_texto_lat)
         self.edit_lat.editingFinished.connect(self._confirmar_edicao_lat)
@@ -126,6 +146,13 @@ class WidgetMensagemCoordenada(QWidget):
 
         self._carregar_da_mensagem()
 
+    def _eh_localizacao_pico(self) -> bool:
+        return (
+            self.msg_pai is not None
+            and self.campo_pai == "localizacao"
+            and getattr(getattr(self.msg_pai, "DESCRIPTOR", None), "name", None) == "Pico"
+        )
+
     def _resolver_msg_atual(self) -> Any:
         if self.msg_pai is not None and self.campo_pai:
             self.msg = getattr(self.msg_pai, self.campo_pai)
@@ -133,6 +160,10 @@ class WidgetMensagemCoordenada(QWidget):
 
     def _on_model_dado_alterado(self, msg: Any, campo_nome: str) -> None:
         from editor.models.readonly_proxy import ReadOnlyProxy
+
+        if campo_nome == "malha_estrada":
+            self._atualizar_status_malha_pico()
+            return
 
         msg_atual = self._resolver_msg_atual()
         unwrapped_msg = (
@@ -154,20 +185,11 @@ class WidgetMensagemCoordenada(QWidget):
 
     def _carregar_da_mensagem(self) -> None:
         msg = self._resolver_msg_atual()
-        lat = (
-            getattr(msg, "latitude", None)
-            if self._obter_has_field(msg, "latitude")
-            else None
-        )
-        lon = (
-            getattr(msg, "longitude", None)
-            if self._obter_has_field(msg, "longitude")
-            else None
-        )
+        lat = getattr(msg, "latitude", None) if self._obter_has_field(msg, "latitude") else None
+        lon = getattr(msg, "longitude", None) if self._obter_has_field(msg, "longitude") else None
         self.definir_valores(lat, lon)
 
     def definir_valores(self, lat_e7: int | None, lon_e7: int | None) -> None:
-
         self.edit_lat.blockSignals(True)
         self.edit_lon.blockSignals(True)
 
@@ -195,6 +217,7 @@ class WidgetMensagemCoordenada(QWidget):
 
         self.edit_lat.blockSignals(False)
         self.edit_lon.blockSignals(False)
+        self._atualizar_status_malha_pico()
 
     def obter_latitude_e7(self) -> int | None:
         txt = self.edit_lat.text().strip().replace(",", ".")
@@ -272,14 +295,88 @@ class WidgetMensagemCoordenada(QWidget):
         lat = self.obter_latitude_e7()
         lon = self.obter_longitude_e7()
         self.btn_maps.setEnabled(lat is not None or lon is not None)
+        self._atualizar_status_malha_pico()
+
+    def _atualizar_status_malha_pico(self) -> None:
+        if self.btn_gerar_malha is None or self.rotulo_status_malha is None:
+            return
+
+        lat_e7 = self.obter_latitude_e7()
+        lon_e7 = self.obter_longitude_e7()
+        coordenadas_validas = (
+            lat_e7 is not None and lon_e7 is not None and (lat_e7 != 0 or lon_e7 != 0)
+        )
+        self.btn_gerar_malha.setEnabled(coordenadas_validas)
+        if not coordenadas_validas:
+            self.rotulo_status_malha.setText("")
+            self.rotulo_status_malha.setVisible(False)
+            return
+
+        from scripts.gerar_malha_estrada_lib import malha_estrada_pico_atualizada
+
+        if (
+            malha_estrada_pico_atualizada(self.msg_pai)
+            and self.msg_pai.malha_estrada.latitude_referencia_e7 == lat_e7
+            and self.msg_pai.malha_estrada.longitude_referencia_e7 == lon_e7
+        ):
+            qtd_nos = len(self.msg_pai.malha_estrada.nos)
+            self.rotulo_status_malha.setText(
+                f"✅ Mapa de pontos de estrada gerado ({qtd_nos} nós)."
+            )
+            self.rotulo_status_malha.setStyleSheet("color: #2e7d32; font-size: 11px;")
+        else:
+            self.rotulo_status_malha.setText(
+                "⚠️ Mapa de pontos de estrada não gerado para esta localização."
+            )
+            self.rotulo_status_malha.setStyleSheet(
+                "color: #ef6c00; font-size: 11px; font-weight: bold;"
+            )
+        self.rotulo_status_malha.setVisible(True)
+
+    def gerar_malha_pontos_estrada(self) -> bool:
+        """Consulta a Overpass API e persiste os nós da malha rodoviária em Pico.malha_estrada."""
+        lat_e7 = self.obter_latitude_e7()
+        lon_e7 = self.obter_longitude_e7()
+        if not self._eh_localizacao_pico() or lat_e7 is None or lon_e7 is None:
+            return False
+
+        from scripts.gerar_malha_estrada_lib import (
+            ClienteOverpass,
+            construir_malha_estrada_pico_proto,
+        )
+
+        cliente = self.cliente_overpass if self.cliente_overpass is not None else ClienteOverpass()
+        try:
+            nova_malha = construir_malha_estrada_pico_proto(lat_e7, lon_e7, cliente)
+        except Exception:
+            self._atualizar_status_malha_pico()
+            return False
+
+        if self.controller is not None:
+            self.controller.alterar_campo(self.msg_pai, "malha_estrada", nova_malha)
+        else:
+            self.msg_pai.malha_estrada.CopyFrom(nova_malha)
+
+        self._atualizar_status_malha_pico()
+        return True
+
+    def _sincronizar_malha_apos_edicao_pico(self) -> None:
+        if not self._eh_localizacao_pico():
+            return
+        if (
+            self.cliente_overpass is not None
+            and self.obter_latitude_e7() is not None
+            and self.obter_longitude_e7() is not None
+        ):
+            self.gerar_malha_pontos_estrada()
+        else:
+            self._atualizar_status_malha_pico()
 
     def _confirmar_edicao_lat(self) -> None:
         msg = self._resolver_msg_atual()
         lat_novo = self.obter_latitude_e7()
         lat_antigo = (
-            getattr(msg, "latitude", None)
-            if self._obter_has_field(msg, "latitude")
-            else None
+            getattr(msg, "latitude", None) if self._obter_has_field(msg, "latitude") else None
         )
         if lat_novo != lat_antigo:
             if self.controller:
@@ -293,14 +390,13 @@ class WidgetMensagemCoordenada(QWidget):
                 else:
                     msg.latitude = lat_novo
             self.sinal_coordenadas_alteradas.emit(lat_novo, self.obter_longitude_e7())
+            self._sincronizar_malha_apos_edicao_pico()
 
     def _confirmar_edicao_lon(self) -> None:
         msg = self._resolver_msg_atual()
         lon_novo = self.obter_longitude_e7()
         lon_antigo = (
-            getattr(msg, "longitude", None)
-            if self._obter_has_field(msg, "longitude")
-            else None
+            getattr(msg, "longitude", None) if self._obter_has_field(msg, "longitude") else None
         )
         if lon_novo != lon_antigo:
             if self.controller:
@@ -314,6 +410,7 @@ class WidgetMensagemCoordenada(QWidget):
                 else:
                     msg.longitude = lon_novo
             self.sinal_coordenadas_alteradas.emit(self.obter_latitude_e7(), lon_novo)
+            self._sincronizar_malha_apos_edicao_pico()
 
     def _ao_clicar_colar(self) -> None:
         clipboard = QApplication.clipboard()
@@ -356,6 +453,7 @@ class WidgetMensagemCoordenada(QWidget):
                     msg.longitude = lon_e7
 
                 self.sinal_coordenadas_alteradas.emit(lat_e7, lon_e7)
+                self._sincronizar_malha_apos_edicao_pico()
                 return True
             return False
 

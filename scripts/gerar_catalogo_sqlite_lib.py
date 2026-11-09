@@ -25,6 +25,14 @@ from aresta_api.sql.generated.python.catalogo_sql import (
     COMANDOS_DDL,
     LinhaCatalogoAresta,
     LinhaCatalogoCroquis,
+    LinhaCatalogoDistanciasEstrada,
+    LinhaCatalogoNosEstrada,
+)
+from scripts.gerar_malha_estrada_lib import (
+    ClienteOverpass,
+    extrair_linhas_malha_de_pico_proto,
+    gerar_malha_estrada_pico,
+    malha_estrada_pico_atualizada,
 )
 
 try:
@@ -68,9 +76,12 @@ def inicializar_banco_catalogo(caminho_banco: Path | str) -> sqlite3.Connection:
         "catalogo_croquis",
         "catalogo_aresta",
         "catalogo_meta",
+        "catalogo_nos_estrada",
+        "catalogo_distancias_estrada",
         "idx_catalogo_aresta_croqui",
         "idx_catalogo_aresta_nome",
         "idx_catalogo_aresta_tipo",
+        "idx_catalogo_distancias_estrada_no",
     }
     if not objetos_esperados.issubset(objetos_existentes):
         precisa_ddl = True
@@ -332,6 +343,8 @@ def remover_croqui_do_catalogo(
     conexao: sqlite3.Connection,
     croqui_uid: str,
     id_slug: str | None = None,
+    *,
+    preservar_malha_estrada: bool = False,
 ) -> None:
     """
     Remove todos os registros pertencentes a um determinado croqui_uid (e opcionalmente
@@ -349,8 +362,63 @@ def remover_croqui_do_catalogo(
     for uid_alvo in sorted(uids_para_remover):
         cursor.execute("DELETE FROM catalogo_croquis WHERE croqui_uid = ?", (uid_alvo,))
         cursor.execute("DELETE FROM catalogo_aresta WHERE croqui_uid = ?", (uid_alvo,))
+        if not preservar_malha_estrada or uid_alvo != croqui_uid:
+            cursor.execute(
+                "DELETE FROM catalogo_distancias_estrada WHERE croqui_uid = ?",
+                (uid_alvo,),
+            )
     if id_slug:
         cursor.execute("DELETE FROM catalogo_croquis WHERE id_slug = ?", (id_slug,))
+    if not preservar_malha_estrada:
+        cursor.execute(
+            "DELETE FROM catalogo_nos_estrada "
+            "WHERE no_osm_id NOT IN (SELECT DISTINCT no_osm_id FROM catalogo_distancias_estrada)"
+        )
+    conexao.commit()
+
+
+def inserir_malha_estrada_croqui(
+    conexao: sqlite3.Connection,
+    croqui_uid: str,
+    nos_estrada: list[LinhaCatalogoNosEstrada],
+    distancias_estrada: list[LinhaCatalogoDistanciasEstrada],
+) -> None:
+    """
+    Substitui os registros de malha rodoviária de `croqui_uid` em `catalogo_distancias_estrada`
+    e atualiza os nós correspondentes em `catalogo_nos_estrada`.
+    """
+    cursor = conexao.cursor()
+    cursor.execute("DELETE FROM catalogo_distancias_estrada WHERE croqui_uid = ?", (croqui_uid,))
+
+    for no in nos_estrada:
+        cursor.execute(
+            """
+            INSERT OR REPLACE INTO catalogo_nos_estrada (
+                no_osm_id, latitude_e7, longitude_e7
+            ) VALUES (?, ?, ?)
+            """,
+            (no["no_osm_id"], no["latitude_e7"], no["longitude_e7"]),
+        )
+
+    for dist in distancias_estrada:
+        cursor.execute(
+            """
+            INSERT OR REPLACE INTO catalogo_distancias_estrada (
+                croqui_uid, no_osm_id, distancia_metros, e_portal_borda
+            ) VALUES (?, ?, ?, ?)
+            """,
+            (
+                dist["croqui_uid"],
+                dist["no_osm_id"],
+                dist["distancia_metros"],
+                dist.get("e_portal_borda", 0),
+            ),
+        )
+
+    cursor.execute(
+        "DELETE FROM catalogo_nos_estrada "
+        "WHERE no_osm_id NOT IN (SELECT DISTINCT no_osm_id FROM catalogo_distancias_estrada)"
+    )
     conexao.commit()
 
 
@@ -416,6 +484,17 @@ def calcular_versao_catalogo(conexao: sqlite3.Connection) -> str:
     for linha in cursor.execute(
         "SELECT uid, tipo, croqui_uid, nome, escalada_grau, escalada_tipo, setor_uid, grupo_uid "
         "FROM catalogo_aresta ORDER BY uid"
+    ):
+        hasher.update(repr(linha).encode("utf-8"))
+
+    for linha in cursor.execute(
+        "SELECT no_osm_id, latitude_e7, longitude_e7 FROM catalogo_nos_estrada ORDER BY no_osm_id"
+    ):
+        hasher.update(repr(linha).encode("utf-8"))
+
+    for linha in cursor.execute(
+        "SELECT croqui_uid, no_osm_id, distancia_metros, e_portal_borda "
+        "FROM catalogo_distancias_estrada ORDER BY croqui_uid, no_osm_id"
     ):
         hasher.update(repr(linha).encode("utf-8"))
 
@@ -505,6 +584,7 @@ def gerar_catalogo_completo(
     alvos: list[str] | None = None,
     ids_permitidos: set[str] | list[str] | None = None,
     apenas_publicados: bool = True,
+    cliente_overpass: ClienteOverpass | None = None,
 ) -> Path:
     """
     Gera ou atualiza incrementalmente o catálogo SQLite a partir dos compilado.binarypb,
@@ -600,9 +680,54 @@ def gerar_catalogo_completo(
             if tem_uid_antigo_mesmo_slug or _croqui_modificado_no_catalogo(
                 conexao, dados_croqui, registros_aresta
             ):
-                remover_croqui_do_catalogo(conexao, croqui_uid, id_slug=id_slug)
+                remover_croqui_do_catalogo(
+                    conexao,
+                    croqui_uid,
+                    id_slug=id_slug,
+                    preservar_malha_estrada=True,
+                )
                 inserir_croqui_no_catalogo(conexao, dados_croqui, registros_aresta)
                 houve_alteracao = True
+
+            if len(croqui.picos) > 0:
+                pico_principal = croqui.picos[0]
+                if malha_estrada_pico_atualizada(pico_principal):
+                    nos_osm, dists_osm = extrair_linhas_malha_de_pico_proto(
+                        croqui_uid, pico_principal
+                    )
+                    atuais_malha = conexao.execute(
+                        "SELECT no_osm_id, distancia_metros, e_portal_borda "
+                        "FROM catalogo_distancias_estrada WHERE croqui_uid = ? ORDER BY no_osm_id",
+                        (croqui_uid,),
+                    ).fetchall()
+                    esperados_malha = sorted(
+                        (d["no_osm_id"], d["distancia_metros"], d["e_portal_borda"])
+                        for d in dists_osm
+                    )
+                    if atuais_malha != esperados_malha:
+                        inserir_malha_estrada_croqui(conexao, croqui_uid, nos_osm, dists_osm)
+                        houve_alteracao = True
+                elif pico_principal.HasField("malha_estrada"):
+                    inserir_malha_estrada_croqui(conexao, croqui_uid, [], [])
+                    houve_alteracao = True
+                elif cliente_overpass is not None:
+                    ja_tem_malha = bool(
+                        conexao.execute(
+                            "SELECT 1 FROM catalogo_distancias_estrada WHERE croqui_uid = ? LIMIT 1",
+                            (croqui_uid,),
+                        ).fetchone()
+                    )
+                    if not ja_tem_malha:
+                        loc = pico_principal.localizacao
+                        nos_osm, dists_osm = gerar_malha_estrada_pico(
+                            croqui_uid,
+                            int(loc.latitude),
+                            int(loc.longitude),
+                            cliente_overpass,
+                        )
+                        if dists_osm:
+                            inserir_malha_estrada_croqui(conexao, croqui_uid, nos_osm, dists_osm)
+                            houve_alteracao = True
 
         if conjunto_permitidos is not None:
             linhas_existentes = conexao.execute(
@@ -630,6 +755,22 @@ def gerar_catalogo_completo(
             conexao.execute(
                 "DELETE FROM catalogo_aresta "
                 "WHERE croqui_uid NOT IN (SELECT croqui_uid FROM catalogo_croquis)"
+            )
+            conexao.commit()
+            houve_alteracao = True
+
+        orfaos_distancias = conexao.execute(
+            "SELECT COUNT(*) FROM catalogo_distancias_estrada "
+            "WHERE croqui_uid NOT IN (SELECT croqui_uid FROM catalogo_croquis)"
+        ).fetchone()[0]
+        if orfaos_distancias > 0:
+            conexao.execute(
+                "DELETE FROM catalogo_distancias_estrada "
+                "WHERE croqui_uid NOT IN (SELECT croqui_uid FROM catalogo_croquis)"
+            )
+            conexao.execute(
+                "DELETE FROM catalogo_nos_estrada "
+                "WHERE no_osm_id NOT IN (SELECT DISTINCT no_osm_id FROM catalogo_distancias_estrada)"
             )
             conexao.commit()
             houve_alteracao = True

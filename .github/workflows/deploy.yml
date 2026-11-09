@@ -8,6 +8,7 @@ on:
       - 'migracoes/**'
       - 'serving/**'
       - 'scripts/gerar_catalogo_sqlite_lib.py'
+      - 'scripts/gerar_malha_estrada_lib.py'
       - 'scripts/gerar_deltas_catalogo.py'
       - 'aresta_api'
       - '.github/workflows/deploy.yml'
@@ -38,6 +39,7 @@ jobs:
             serving/update_serving.py
             serving/sincronizar_d1_lib.py
             scripts/gerar_catalogo_sqlite_lib.py
+            scripts/gerar_malha_estrada_lib.py
             scripts/gerar_deltas_catalogo.py
             generated/arquivos_serving.yaml
             generated/catalogo.db

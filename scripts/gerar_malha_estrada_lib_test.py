@@ -13,11 +13,16 @@ from typing import Any
 
 import pytest
 
+from aresta_api.proto.generated import croqui_pb2
 from scripts.cliente_overpass_fake import ClienteOverpassFake
 from scripts.gerar_malha_estrada_lib import (
+    ESPELHOS_OVERPASS_PADRAO,
     ClienteOverpass,
+    construir_malha_estrada_pico_proto,
     construir_query_overpass,
+    extrair_linhas_malha_de_pico_proto,
     gerar_malha_estrada_pico,
+    malha_estrada_pico_atualizada,
     prioridade_intrinseca_no,
 )
 
@@ -65,6 +70,104 @@ def test_cliente_overpass_http_propaga_runtime_error_em_falha_http() -> None:
     cliente = ClienteOverpass(abridor_url=abridor_erro)
     with pytest.raises(RuntimeError, match="Erro HTTP 504 na Overpass API"):
         cliente.consultar_malha(-19.5, -43.9)
+
+
+def test_cliente_overpass_realiza_failover_entre_espelhos_publicos() -> None:
+    chamadas: list[str] = []
+    corpo_ok = json.dumps(
+        {"elements": [{"type": "node", "id": 77, "lat": -19.5, "lon": -43.9}]}
+    ).encode("utf-8")
+
+    def abridor_com_failover(req: urllib.request.Request, timeout: float) -> Any:
+        chamadas.append(req.full_url)
+        assert "ArestaClimbEditor/1.0" in req.get_header("User-agent", "")
+        if len(chamadas) == 1:
+            raise urllib.error.URLError("Servidor 1 indisponivel")
+        resposta = io.BytesIO(corpo_ok)
+        resposta.status = 200  # type: ignore[attr-defined]
+        return resposta
+
+    cliente = ClienteOverpass(
+        url_endpoint=list(ESPELHOS_OVERPASS_PADRAO[:2]),
+        abridor_url=abridor_com_failover,
+    )
+    assert len(ESPELHOS_OVERPASS_PADRAO) >= 2
+    elementos = cliente.consultar_malha(-19.5, -43.9)
+    assert elementos == [{"type": "node", "id": 77, "lat": -19.5, "lon": -43.9}]
+    assert chamadas == list(ESPELHOS_OVERPASS_PADRAO[:2])
+
+    cliente_padrao = ClienteOverpass(abridor_url=abridor_com_failover)
+    assert cliente_padrao.urls_endpoints == ESPELHOS_OVERPASS_PADRAO
+
+
+def test_malha_estrada_pico_proto_conversao_e_deteccao_de_defasagem() -> None:
+    elementos: list[dict[str, Any]] = [
+        {"type": "node", "id": 100, "lat": -20.0010, "lon": -44.0010},
+        {"type": "node", "id": 101, "lat": -20.0300, "lon": -44.0010},
+        {"type": "way", "id": 10, "nodes": [100, 101], "tags": {"highway": "primary"}},
+    ]
+    fake = ClienteOverpassFake(elementos_padrao=elementos)
+
+    pico = croqui_pb2.Pico(nome="Pico Teste")
+    assert malha_estrada_pico_atualizada(pico) is False
+    assert extrair_linhas_malha_de_pico_proto("uid_1", pico) == ([], [])
+
+    pico.localizacao.latitude = -200000000
+    pico.localizacao.longitude = -440000000
+    assert malha_estrada_pico_atualizada(pico) is False
+
+    malha_proto = construir_malha_estrada_pico_proto(-200000000, -440000000, fake)
+    pico.malha_estrada.CopyFrom(malha_proto)
+    assert malha_estrada_pico_atualizada(pico) is True
+
+    nos, dists = extrair_linhas_malha_de_pico_proto("uid_1", pico)
+    assert [n["no_osm_id"] for n in nos] == [100, 101]
+    assert [d["croqui_uid"] for d in dists] == ["uid_1", "uid_1"]
+    assert dists[0]["distancia_metros"] == 0
+    assert dists[1]["e_portal_borda"] == 1
+
+    # Ao alterar a coordenada do pico sem regerar a malha, ela passa a ser detectada como defasada
+    pico.localizacao.latitude = -201000000
+    assert malha_estrada_pico_atualizada(pico) is False
+    assert extrair_linhas_malha_de_pico_proto("uid_1", pico) == ([], [])
+
+    # Também funciona quando o pico está em formato dict compilado (usado por deploy_generated.py)
+    assert malha_estrada_pico_atualizada({"nome": "Sem Localizacao"}) is False
+    assert (
+        malha_estrada_pico_atualizada(
+            {
+                "localizacao": {"latitude": 0, "longitude": 0},
+                "malha_estrada": {"nos": [{"no_osm_id": 1}]},
+            }
+        )
+        is False
+    )
+    assert (
+        malha_estrada_pico_atualizada(
+            {
+                "localizacao": {"latitude": -200000000, "longitude": -440000000},
+                "malha_estrada": {
+                    "latitude_referencia_e7": -200000000,
+                    "longitude_referencia_e7": -440000000,
+                    "nos": [],
+                },
+            }
+        )
+        is False
+    )
+    assert (
+        malha_estrada_pico_atualizada(
+            {
+                "localizacao": {"latitude": -200000000, "longitude": -440000000},
+                "malha_estrada": {
+                    "latitude_referencia_e7": -200000000,
+                    "longitude_referencia_e7": -440000000,
+                    "nos": [{"no_osm_id": 100}],
+                },
+            }
+        )
+        is True
+    )
 
 
 def test_gerar_malha_retorna_vazio_para_coordenada_zero_ou_resposta_vazia() -> None:
@@ -137,15 +240,16 @@ def test_amostragem_tres_aneis_deduplica_pela_prioridade_intrinseca_e_marca_port
         {"type": "node", "id": 1, "lat": 0.0, "lon": 0.0},
         {"type": "node", "id": 2, "lat": 0.050, "lon": 0.010},
         {"type": "node", "id": 3, "lat": 0.051, "lon": 0.011},
+        {"type": "node", "id": 9, "lat": 0.060, "lon": -0.005},
         {"type": "node", "id": 4, "lat": 0.300, "lon": 0.000},
         {"type": "node", "id": 5, "lat": 0.310, "lon": 0.000},
         {"type": "node", "id": 6, "lat": 0.900, "lon": 0.000},
         {"type": "node", "id": 7, "lat": -0.900, "lon": 0.000},
         {"type": "node", "id": 8, "lat": 1.850, "lon": 0.000},
         {"type": "way", "id": 100, "nodes": [7, 1, 2, 4, 6, 8], "tags": {"highway": "motorway"}},
-        {"type": "way", "id": 101, "nodes": [2, 3], "tags": {"highway": "residential"}},
+        {"type": "way", "id": 101, "nodes": [2, 3, 4], "tags": {"highway": "residential"}},
         {"type": "way", "id": 102, "nodes": [4, 5], "tags": {"highway": "service"}},
-        {"type": "way", "id": 103, "nodes": [1, 4], "tags": {"highway": "tertiary"}},
+        {"type": "way", "id": 103, "nodes": [1, 9, 4], "tags": {"highway": "tertiary"}},
         {"type": "way", "id": 104, "nodes": [4, 6], "tags": {"highway": "secondary"}},
     ]
     fake = ClienteOverpassFake(elementos_padrao=elementos)

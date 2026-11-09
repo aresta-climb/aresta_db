@@ -265,6 +265,25 @@ def test_aplicar_upserts_e_deletes_d1_em_lotes() -> None:
             ],
             "deletes": ["v_del_1"],
         },
+        "nos_estrada": {
+            "upserts": [
+                {"no_osm_id": 1000 + i, "latitude_e7": -195000000, "longitude_e7": -439000000}
+                for i in range(25)
+            ],
+            "deletes": [999],
+        },
+        "distancias_estrada": {
+            "upserts": [
+                {
+                    "croqui_uid": "c0",
+                    "no_osm_id": 1000 + i,
+                    "distancia_metros": i * 1000,
+                    "e_portal_borda": 1 if i == 24 else 0,
+                }
+                for i in range(25)
+            ],
+            "deletes": ["c_del_1"],
+        },
     }
 
     aplicar_upserts_e_deletes_d1(fake, deltas)
@@ -274,6 +293,12 @@ def test_aplicar_upserts_e_deletes_d1_em_lotes() -> None:
 
     linhas_aresta = fake.executar_query("SELECT COUNT(*) AS total FROM catalogo_aresta")
     assert linhas_aresta[0]["total"] == 13
+
+    linhas_nos = fake.executar_query("SELECT COUNT(*) AS total FROM catalogo_nos_estrada")
+    assert linhas_nos[0]["total"] == 25
+
+    linhas_dists = fake.executar_query("SELECT COUNT(*) AS total FROM catalogo_distancias_estrada")
+    assert linhas_dists[0]["total"] == 25
 
 
 def test_sincronizar_catalogo_d1_ja_atualizado(tmp_path: Path) -> None:
@@ -514,6 +539,9 @@ def test_sincronizar_catalogo_d1_cliente_padrao_ambiente(
                 "result": [{"results": [{"name": "uid"}, {"name": "escalada_tipo"}]}],
             },
         ),
+        (200, {"success": True, "result": []}),
+        (200, {"success": True, "result": []}),
+        (200, {"success": True, "result": []}),
         (200, {"success": True, "result": []}),
         (200, {"success": True, "result": []}),
         (200, {"success": True, "result": []}),

@@ -70,10 +70,26 @@ CREATE TABLE catalogo_meta (
     valor TEXT NOT NULL            -- Hash SHA-256 curto (16 chars hex)
 );
 
+-- Tabelas da malha rodoviária offline (OpenStreetMap)
+CREATE TABLE catalogo_nos_estrada (
+    no_osm_id INTEGER PRIMARY KEY,
+    latitude_e7 INTEGER NOT NULL,
+    longitude_e7 INTEGER NOT NULL
+);
+
+CREATE TABLE catalogo_distancias_estrada (
+    croqui_uid TEXT NOT NULL,
+    no_osm_id INTEGER NOT NULL,
+    distancia_metros INTEGER NOT NULL,
+    e_portal_borda INTEGER NOT NULL DEFAULT 0,
+    PRIMARY KEY (croqui_uid, no_osm_id)
+);
+
 -- Índices otimizados
 CREATE INDEX idx_catalogo_aresta_croqui ON catalogo_aresta(croqui_uid);
 CREATE INDEX idx_catalogo_aresta_nome ON catalogo_aresta(nome COLLATE NOCASE);
 CREATE INDEX idx_catalogo_aresta_tipo ON catalogo_aresta(tipo);
+CREATE INDEX idx_catalogo_distancias_estrada_no ON catalogo_distancias_estrada(no_osm_id);
 ```
 
 ### Exemplo de Consulta para Metadados e Links Curtos (`aresta.cc/<uid>`)
@@ -104,11 +120,12 @@ WHERE e.uid = ? AND e.tipo = 'escalada';
 
 ## 3. Pipeline de Geração (`deploy_generated.py`) e Serving (`update_serving.py`)
 
-### 3.1. Compilação Local (`scripts/deploy_generated.py`)
-1. **Passo A**: Compila os croquis para `compilado.binarypb`.
-2. **Passo E**: Atualiza `generated/catalogo.db`, calcula `versao_catalogo` e persiste na tabela `catalogo_meta`.
-3. **Passo C**: Grava `indice.binarypb` e `indice.yaml` incluindo `versao_catalogo`.
-4. **Passo D**: Registra `catalogo.db` e seu checksum SHA-256 em `generated/arquivos_serving.yaml`.
+### 3.1. Compilação Local 100% Offline (`scripts/deploy_generated.py`)
+1. **Geração no Editor Desktop (`Pico.malha_estrada`)**: Quando o curador edita a localização de um `Pico` no Editor Desktop (ou clica no botão **`Gerar Mapa de Pontos`** em `Pico.localizacao`), o `ClienteOverpass` (`scripts/gerar_malha_estrada_lib.py`) consulta os espelhos públicos oficiais da Overpass API (`overpass-api.de`, `overpass.private.coffee`, `maps.mail.ru/osm/tools/overpass`), calcula os nós da malha rodoviária (raio de `50 km`, passo mínimo de `5 km`, portais de borda em `>= 45 km`) e grava o resultado em `Pico.malha_estrada` (`database/<id>/croqui.yaml`), vinculado a `(latitude_referencia_e7, longitude_referencia_e7)`.
+2. **Passo A**: Compila os croquis para `compilado.binarypb` de forma 100% offline. Se um `Pico` possuir localização válida mas não tiver `malha_estrada` sincronizada com suas coordenadas atuais, emite um `Aviso:` não-bloqueante.
+3. **Passo E**: Atualiza `generated/catalogo.db` de forma 100% offline (extraindo `pico.malha_estrada` diretamente do `compilado.binarypb` para `catalogo_nos_estrada` e `catalogo_distancias_estrada`), calcula `versao_catalogo` e persiste na tabela `catalogo_meta`.
+4. **Passo C**: Grava `indice.binarypb` e `indice.yaml` incluindo `versao_catalogo`.
+5. **Passo D**: Registra `catalogo.db` e seu checksum SHA-256 em `generated/arquivos_serving.yaml`.
 
 ### 3.2. Deploy Transacional D1 + R2 (`serving/update_serving.py`)
 Executado no GitHub Actions (`.github/workflows/deploy.yml`) utilizando os secrets:

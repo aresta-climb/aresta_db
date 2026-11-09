@@ -710,6 +710,33 @@ def verificar_titulos_em_descricao_setor_grupo(
                     _verificar_entidade("setor", setor)
 
 
+def verificar_malha_estrada_pico(croqui_id: str, compiled_data: dict[str, Any]) -> None:
+    """Emite aviso se um Pico possuir localização válida mas não tiver malha rodoviária atualizada."""
+    for pico in compiled_data.get("picos", []):
+        if not isinstance(pico, dict):
+            continue
+        loc = pico.get("localizacao")
+        if not isinstance(loc, dict):
+            continue
+        lat = int(loc.get("latitude", 0) or 0)
+        lon = int(loc.get("longitude", 0) or 0)
+        if lat == 0 and lon == 0:
+            continue
+        malha = pico.get("malha_estrada")
+        malha_valida = (
+            isinstance(malha, dict)
+            and int(malha.get("latitude_referencia_e7", 0) or 0) == lat
+            and int(malha.get("longitude_referencia_e7", 0) or 0) == lon
+            and isinstance(malha.get("nos"), list)
+            and len(malha["nos"]) > 0
+        )
+        if not malha_valida:
+            nome_pico = pico.get("nome", "Pico Sem Nome")
+            print(
+                f"\nAviso: O pico '{nome_pico}' no croqui '{croqui_id}' está sem mapa de pontos de estrada atualizado para sua localização."
+            )
+
+
 # ---------------------------------------------------------------------------
 # Imagens e Anexos: cópia e sincronização incremental
 # ---------------------------------------------------------------------------
@@ -1081,6 +1108,7 @@ def passo_a_compilar_croquis(
             verificar_imagens_inexistentes(croqui_dir, croqui_id, croqui_compilado)
             verificar_mapas_duplicados(croqui_id, croqui_compilado)
             verificar_titulos_em_descricao_setor_grupo(croqui_id, croqui_compilado)
+            verificar_malha_estrada_pico(croqui_id, croqui_compilado)
         except Exception as e:
             import traceback
 

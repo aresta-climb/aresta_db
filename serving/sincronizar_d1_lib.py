@@ -28,8 +28,11 @@ from aresta_api.sql.generated.python.catalogo_sql import (
     DDL_INDICE_IDX_CATALOGO_ARESTA_CROQUI,
     DDL_INDICE_IDX_CATALOGO_ARESTA_NOME,
     DDL_INDICE_IDX_CATALOGO_ARESTA_TIPO,
+    DDL_INDICE_IDX_CATALOGO_DISTANCIAS_ESTRADA_NO,
     DDL_TABELA_CATALOGO_ARESTA,
     DDL_TABELA_CATALOGO_CROQUIS,
+    DDL_TABELA_CATALOGO_DISTANCIAS_ESTRADA,
+    DDL_TABELA_CATALOGO_NOS_ESTRADA,
 )
 from scripts.gerar_catalogo_sqlite_lib import obter_versao_catalogo
 from scripts.gerar_deltas_catalogo import calcular_deltas_catalogo, gerar_payload_d1
@@ -37,6 +40,7 @@ from scripts.gerar_deltas_catalogo import calcular_deltas_catalogo, gerar_payloa
 TAMANHO_LOTE_DELETE = 50
 TAMANHO_LOTE_UPSERT_CROQUIS = 15
 TAMANHO_LOTE_UPSERT_ENTIDADES = 10
+TAMANHO_LOTE_UPSERT_ESTRADA = 20
 
 
 class ClienteCloudflareD1:
@@ -127,10 +131,13 @@ def inicializar_schema_d1(cliente: ClienteCloudflareD1) -> None:
 
     cliente.executar_query(DDL_TABELA_CATALOGO_CROQUIS)
     cliente.executar_query(DDL_TABELA_CATALOGO_ARESTA)
+    cliente.executar_query(DDL_TABELA_CATALOGO_NOS_ESTRADA)
+    cliente.executar_query(DDL_TABELA_CATALOGO_DISTANCIAS_ESTRADA)
     cliente.executar_query(DDL_TABELA_DELTAS_CATALOGO)
     cliente.executar_query(DDL_INDICE_IDX_CATALOGO_ARESTA_CROQUI)
     cliente.executar_query(DDL_INDICE_IDX_CATALOGO_ARESTA_NOME)
     cliente.executar_query(DDL_INDICE_IDX_CATALOGO_ARESTA_TIPO)
+    cliente.executar_query(DDL_INDICE_IDX_CATALOGO_DISTANCIAS_ESTRADA_NO)
     cliente.executar_query(DDL_INDICE_IDX_DELTAS_VERSAO_HASH)
 
 
@@ -212,6 +219,60 @@ def aplicar_upserts_e_deletes_d1(cliente: ClienteCloudflareD1, deltas: dict[str,
             parametros_entidades,
         )
 
+    distancias_deletes: list[str] = deltas.get("distancias_estrada", {}).get("deletes", [])
+    for i in range(0, len(distancias_deletes), TAMANHO_LOTE_DELETE):
+        lote_dist_del = distancias_deletes[i : i + TAMANHO_LOTE_DELETE]
+        marcadores = ", ".join("?" for _ in lote_dist_del)
+        cliente.executar_query(
+            f"DELETE FROM catalogo_distancias_estrada WHERE croqui_uid IN ({marcadores})",
+            lote_dist_del,
+        )
+
+    nos_deletes: list[int] = deltas.get("nos_estrada", {}).get("deletes", [])
+    for i in range(0, len(nos_deletes), TAMANHO_LOTE_DELETE):
+        lote_nos_del = nos_deletes[i : i + TAMANHO_LOTE_DELETE]
+        marcadores = ", ".join("?" for _ in lote_nos_del)
+        cliente.executar_query(
+            f"DELETE FROM catalogo_nos_estrada WHERE no_osm_id IN ({marcadores})",
+            lote_nos_del,
+        )
+
+    nos_upserts: list[dict[str, Any]] = deltas.get("nos_estrada", {}).get("upserts", [])
+    for i in range(0, len(nos_upserts), TAMANHO_LOTE_UPSERT_ESTRADA):
+        lote_nos = nos_upserts[i : i + TAMANHO_LOTE_UPSERT_ESTRADA]
+        marcadores = ", ".join("(?, ?, ?)" for _ in lote_nos)
+        parametros_nos: list[Any] = []
+        for n in lote_nos:
+            parametros_nos.extend([n["no_osm_id"], n["latitude_e7"], n["longitude_e7"]])
+        cliente.executar_query(
+            "INSERT OR REPLACE INTO catalogo_nos_estrada (no_osm_id, latitude_e7, longitude_e7) "
+            f"VALUES {marcadores}",
+            parametros_nos,
+        )
+
+    distancias_upserts: list[dict[str, Any]] = deltas.get("distancias_estrada", {}).get(
+        "upserts", []
+    )
+    for i in range(0, len(distancias_upserts), TAMANHO_LOTE_UPSERT_ESTRADA):
+        lote_dists = distancias_upserts[i : i + TAMANHO_LOTE_UPSERT_ESTRADA]
+        marcadores = ", ".join("(?, ?, ?, ?)" for _ in lote_dists)
+        parametros_dists: list[Any] = []
+        for d in lote_dists:
+            parametros_dists.extend(
+                [
+                    d["croqui_uid"],
+                    d["no_osm_id"],
+                    d["distancia_metros"],
+                    d.get("e_portal_borda", 0),
+                ]
+            )
+        cliente.executar_query(
+            "INSERT OR REPLACE INTO catalogo_distancias_estrada "
+            "(croqui_uid, no_osm_id, distancia_metros, e_portal_borda) "
+            f"VALUES {marcadores}",
+            parametros_dists,
+        )
+
 
 def sincronizar_catalogo_d1(
     caminho_catalogo_novo: Path | str,
@@ -250,6 +311,8 @@ def sincronizar_catalogo_d1(
 
     if precisa_bootstrap:
         print(f"Executando bootstrap completo do Cloudflare D1 para versão {versao_nova}...")
+        cliente.executar_query("DELETE FROM catalogo_distancias_estrada")
+        cliente.executar_query("DELETE FROM catalogo_nos_estrada")
         cliente.executar_query("DELETE FROM catalogo_aresta")
         cliente.executar_query("DELETE FROM catalogo_croquis")
         cliente.executar_query("DELETE FROM deltas_catalogo")
