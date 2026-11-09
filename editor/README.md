@@ -9,6 +9,7 @@ Para garantir estabilidade, testabilidade e separação de responsabilidades (ev
 - **`controllers/`**: Orquestradores. Recebem intenções das Views, instanciam `QUndoCommand`s e os enviam para o Gerenciador de Histórico.
 - **`commands/`**: Único lugar permitido a alterar o estado do Model e do Protobuf através dos métodos `_set_*`. Garantem que cada mudança é rastreável e passível de Undo/Redo.
 - **`core/`**: Bibliotecas de domínio e infraestrutura desacopladas da UI, incluindo o motor determinístico de avaliação da `nota_qualidade` e diagnóstico de tarefas (`avaliador_nota_qualidade.py`).
+- **`caos/`**: Robô Caótico do Editor Aresta (`MotorRoboCaoticoQt`, oráculos de C++/logs/simetria de `Undo`/`Redo`/diário transacional, shrinking `ddmin` e reprodução de receitas `.json`). Consulte [`caos/README.md`](caos/README.md) para instruções de execução (`uv run editor/caos/executar_campanha_cli.py`).
 - **`legacy_views/`**: Componentes de interface que ainda não foram migrados para o padrão MVC. Não devem ser tomados como exemplo para novos desenvolvimentos.
 
 ## Arquitetura de Fluxo de Dados (MVC)

@@ -40,6 +40,28 @@ Para executar a suíte de testes:
 uv run pytest
 ```
 
+### 🤖 Robô Caótico do Editor Aresta (Fuzz Testing e Regressão)
+O Editor Aresta conta com um motor determinístico de testes exploratórios caóticos em [`editor/caos/`](editor/caos/README.md) que exercita toda a interface PySide6/Qt (`TelaDeAbertura`, `TelaDeCarregamento`, `JanelaPrincipal`, abas `Dados`, `Imagens`, `Mapas`, `Betas`, `QUndoStack` e sincronização) com datasets `normal` e `toxico`, mantendo o Sentry (`SENTRY_DSN_PADRAO` e `REPORTAR_SENTRY_CAOS=1`) liberado em tempo real, encolhendo sequências de falha via *Delta Debugging* (`ddmin`) e gerando receitas `.json` em `editor/caos/caminhos_regressao/`:
+
+```powershell
+# 1. Executar uma campanha local ao vivo na tela (padrão 60s, janela visível e Sentry ativo por padrão)
+uv run editor/caos/executar_campanha_cli.py
+
+# 2. Executar com duração personalizada ou em modo oculto (--headless)
+uv run editor/caos/executar_campanha_cli.py --duracao 120 --passos 80
+uv run editor/caos/executar_campanha_cli.py --headless
+
+# 3. Executar a campanha exploratória via pytest (ex: 30s, Sentry ativo por padrão)
+$env:DURACAO_CAMPANHA_CAOS_SEGUNDOS="30"; uv run pytest editor/caos/robo_caotico_exploratorio_test.py
+
+# 4. Reexecutar apenas as receitas permanentes de regressão (.json)
+uv run pytest editor/caos/regressao_caminhos_test.py
+
+# 5. Executar toda a suíte unitária e de regressão do módulo de caos
+uv run pytest editor/caos/
+```
+Consulte [`editor/caos/README.md`](editor/caos/README.md) para detalhes completos dos oráculos e arquitetura.
+
 ---
 
 ## Como Converter um Novo Croqui PDF
