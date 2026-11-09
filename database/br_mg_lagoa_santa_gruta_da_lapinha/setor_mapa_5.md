@@ -11,15 +11,15 @@ mapas:
   - uid: mwcrIssn7Fbu7K
     rotulo: '52'
     retangulo:
-      x: 379
-      y: 20
+      x: 380
+      y: 22
       comprimento: 14
       largura: 9
   - uid: YUblEqH5pfshO9
     rotulo: '53'
     retangulo:
       x: 370
-      y: 36
+      y: 37
       comprimento: 13
       largura: 10
   - uid: 37wN9SXE44Of5s

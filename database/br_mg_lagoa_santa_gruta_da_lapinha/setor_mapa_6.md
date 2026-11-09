@@ -29,13 +29,6 @@ mapas:
       y: 189
       comprimento: 14
       largura: 12
-  - uid: 2DHKUd8mdgKpT2
-    rotulo: '132'
-    retangulo:
-      x: 157
-      y: 207
-      comprimento: 20
-      largura: 12
   - uid: 4D7AxhkAElF1mz
     rotulo: '64'
     retangulo:
@@ -166,9 +159,6 @@ mapas:
   - alvo_uid: Bs0O5a4jMF2Epw
     pontos_uids:
     - Pcws7jdnBdkFf1
-  - alvo_uid: L69C6jL7Bphv5T
-    pontos_uids:
-    - 2DHKUd8mdgKpT2
 escaladas:
 - uid: E47PBUWaztdeq5
   via_esportiva:

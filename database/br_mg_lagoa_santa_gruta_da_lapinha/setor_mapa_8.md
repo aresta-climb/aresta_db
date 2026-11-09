@@ -197,6 +197,15 @@ mapas:
       y: 29
       comprimento: 17
       largura: 10
+  - uid: VkEBvFhsn3wGKo
+    rotulo: '132'
+    retangulo:
+      x: 164
+      y: 242
+      comprimento: 27
+      largura: 17
+    cor: '#757575'
+    texto_visivel: '132'
   referencias:
   - alvo_uid: IqzNu0BRjbdzLz
     pontos_uids:
@@ -279,6 +288,9 @@ mapas:
   - alvo_uid: 46pgZmHpsgEsde
     pontos_uids:
     - NgVYaSiIhijBMj
+  - alvo_uid: L69C6jL7Bphv5T
+    pontos_uids:
+    - VkEBvFhsn3wGKo
 escaladas:
 - uid: IqzNu0BRjbdzLz
   via_esportiva:
