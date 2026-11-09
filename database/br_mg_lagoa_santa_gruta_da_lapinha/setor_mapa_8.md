@@ -390,7 +390,6 @@ escaladas:
       e grampos com palheta antigos.'
     conquistadores:
     - Leonardo Hoffmann
-    - Alexandre F. de Queiroz "Caverna"
 - uid: kulsF9JNdpDYC3
   via_esportiva:
     nome: Rota de colisão

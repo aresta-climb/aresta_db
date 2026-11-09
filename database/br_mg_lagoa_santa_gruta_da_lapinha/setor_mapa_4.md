@@ -307,7 +307,6 @@ escaladas:
     dificuldade: BR_4
     conquistadores:
     - Fabiano da Silva Fernandes
-    - Viviane da Silva Euler
     data_abertura: '1998'
     data_manutencao: 27/05/2022
 - uid: RC5i9eNc3bCcBy

@@ -2,11 +2,16 @@ uid: 9jDSsMY9R5bPSY
 id: br_mg_lagoa_santa_gruta_da_lapinha
 nome: Gruta da Lapinha
 descricao: Guia de escalada da Gruta da Lapinha em Lagoa Santa, MG.
-caminho_thumbnail: imagens/capa_p0_i0.webp
-revisado_manualmente: true
-status_desenho_extraivel: NAO_TEM_DESENHO
 picos:
 - nome: Gruta da Lapinha
+  descricao: |-
+    A região de Lagoa Santa possui inúmeras paredes de rocha calcária propícias à escalada, destacando-se a Gruta da Lapinha como um dos principais pontos de escalada esportiva e móvel de Minas Gerais.
+
+    **ATENÇÃO:** A Gruta da Lapinha está inserida em unidade de conservação (Parque Estadual do Sumidouro / Refúgio de Vida Silvestre). Respeite as normas do parque, não faça fogueiras, traga todo o seu lixo de volta e preserve a flora, a fauna e os sítios arqueológicos e espeleológicos.
+  estado: MG
+  localizacao:
+    latitude: -195622616
+    longitude: -439595684
   setores_ou_grupos:
   - setor:
       conteudo:
@@ -231,9 +236,9 @@ picos:
             quantidade_protecoes_intermediarias: 2
             quantidade_protecoes_parada: 1
             descricao: |-
-              Também chamada por alguns de *Homem Calcário*.
-
               **INTERDITADA:** Grampos com palheta demandam substituição por novas ancoragens. Parada simples que necessita ser duplicada.
+
+              Também chamada por alguns de *Homem Calcário*.
             conquistadores:
             - Daniel Fernandes "Salim"
             - Barbosa
@@ -1379,7 +1384,6 @@ picos:
             dificuldade: BR_4
             conquistadores:
             - Fabiano da Silva Fernandes
-            - Viviane da Silva Euler
             data_abertura: '1998'
             data_manutencao: 27/05/2022
         - uid: RC5i9eNc3bCcBy
@@ -1690,7 +1694,6 @@ picos:
             quantidade_protecoes_parada: 2
             conquistadores:
             - Charles Costa Marinho
-            - Emerson Alves Azeredo
             - Fabiano da Silva Fernandes
             data_abertura: '1993'
         - uid: Y3VMbBAjE0gzDE
@@ -3002,7 +3005,6 @@ picos:
               de spits e grampos com palheta antigos.'
             conquistadores:
             - Leonardo Hoffmann
-            - Alexandre F. de Queiroz "Caverna"
         - uid: kulsF9JNdpDYC3
           via_esportiva:
             nome: Rota de colisão
@@ -3556,7 +3558,6 @@ picos:
             conquistadores:
             - Ricardo Jardim Leal
             - Rodrigo Tinoco França
-            - Fábio Luiz Faria "Fabinho"
             - Felipe
             data_abertura: '1994'
         - uid: gHWveURBBDxMSG
@@ -4052,19 +4053,15 @@ picos:
           setor: Setor Mapa 7
           ids:
           - TSErhv84UogfXj
-  localizacao:
-    latitude: -195622616
-    longitude: -439595684
   cidade: Lagoa Santa
-  estado: MG
-  descricao: |-
-    A região de Lagoa Santa possui inúmeras paredes de rocha calcária propícias à escalada, destacando-se a Gruta da Lapinha como um dos principais pontos de escalada esportiva e móvel de Minas Gerais.
-
-    **ATENÇÃO:** A Gruta da Lapinha está inserida em unidade de conservação (Parque Estadual do Sumidouro / Refúgio de Vida Silvestre). Respeite as normas do parque, não faça fogueiras, traga todo o seu lixo de volta e preserve a flora, a fauna e os sítios arqueológicos e espeleológicos.
   precomputados:
     total_escaladas: 132
     total_setores: 10
     total_esportivas: 108
+caminho_thumbnail: imagens/capa_p0_i0.webp
+revisado_manualmente: true
+revisado_bounding_circle: true
+status_desenho_extraivel: NAO_TEM_DESENHO
 botoes:
 - uid: bd8N6s3AVnvUzT
   texto: Capa
@@ -4129,7 +4126,6 @@ botoes:
         > Escale com segurança, respeite o local e traga seu lixo de volta para casa.
 ultima_migracao: 5
 publicar_croqui: true
-revisado_bounding_circle: true
 arquivos_externos:
 - caminho: imagens/capa_p0_i0.webp
   checksum_sha256: 62a972fe6e8f30f6e636d276f401029a7d49a419775bfd097ff742e8d0455cf8

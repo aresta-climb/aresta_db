@@ -4,11 +4,16 @@ uid: 9jDSsMY9R5bPSY
 id: br_mg_lagoa_santa_gruta_da_lapinha
 nome: Gruta da Lapinha
 descricao: Guia de escalada da Gruta da Lapinha em Lagoa Santa, MG.
-caminho_thumbnail: imagens/capa_p0_i0.webp
-revisado_manualmente: true
-status_desenho_extraivel: NAO_TEM_DESENHO
 picos:
 - nome: Gruta da Lapinha
+  descricao: |-
+    A região de Lagoa Santa possui inúmeras paredes de rocha calcária propícias à escalada, destacando-se a Gruta da Lapinha como um dos principais pontos de escalada esportiva e móvel de Minas Gerais.
+
+    **ATENÇÃO:** A Gruta da Lapinha está inserida em unidade de conservação (Parque Estadual do Sumidouro / Refúgio de Vida Silvestre). Respeite as normas do parque, não faça fogueiras, traga todo o seu lixo de volta e preserve a flora, a fauna e os sítios arqueológicos e espeleológicos.
+  estado: MG
+  localizacao:
+    latitude: -195622616
+    longitude: -439595684
   setores_ou_grupos:
   - setor:
       caminho: setor_mapa_1.md
@@ -32,15 +37,11 @@ picos:
       caminho: setor_mapa_10.md
   mapas_gerais:
     caminho: mapas_gerais.md
-  localizacao:
-    latitude: -195622616
-    longitude: -439595684
   cidade: Lagoa Santa
-  estado: MG
-  descricao: |-
-    A região de Lagoa Santa possui inúmeras paredes de rocha calcária propícias à escalada, destacando-se a Gruta da Lapinha como um dos principais pontos de escalada esportiva e móvel de Minas Gerais.
-
-    **ATENÇÃO:** A Gruta da Lapinha está inserida em unidade de conservação (Parque Estadual do Sumidouro / Refúgio de Vida Silvestre). Respeite as normas do parque, não faça fogueiras, traga todo o seu lixo de volta e preserve a flora, a fauna e os sítios arqueológicos e espeleológicos.
+caminho_thumbnail: imagens/capa_p0_i0.webp
+revisado_manualmente: true
+revisado_bounding_circle: true
+status_desenho_extraivel: NAO_TEM_DESENHO
 botoes:
 - uid: bd8N6s3AVnvUzT
   texto: Capa
@@ -54,4 +55,3 @@ botoes:
       caminho: creditos.md
 ultima_migracao: 5
 publicar_croqui: true
-revisado_bounding_circle: true

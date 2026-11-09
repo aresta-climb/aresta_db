@@ -140,7 +140,6 @@ escaladas:
     quantidade_protecoes_parada: 2
     conquistadores:
     - Charles Costa Marinho
-    - Emerson Alves Azeredo
     - Fabiano da Silva Fernandes
     data_abertura: '1993'
 - uid: Y3VMbBAjE0gzDE

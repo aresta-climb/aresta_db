@@ -298,7 +298,6 @@ escaladas:
     conquistadores:
     - Ricardo Jardim Leal
     - Rodrigo Tinoco França
-    - Fábio Luiz Faria "Fabinho"
     - Felipe
     data_abertura: '1994'
 - uid: gHWveURBBDxMSG
