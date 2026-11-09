@@ -72,9 +72,9 @@ def test_salvar_croqui_extrai_arquivos_wrapper(tmp_path, qapp):
     setor_saved = saved_yaml["picos"][0]["setores_ou_grupos"][0]["setor"]
     assert "conteudo" not in setor_saved
     assert "caminho" in setor_saved
-    assert setor_saved["caminho"] == "setor_setor_novo.md"
+    assert setor_saved["caminho"] == "setor_novo.md"
 
-    assert (db_path / "setor_setor_novo.md").exists()
+    assert (db_path / "setor_novo.md").exists()
 
 
 def test_carregar_croqui_carrega_conteudos_externos(tmp_path, qapp):

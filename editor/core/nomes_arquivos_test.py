@@ -3,9 +3,13 @@
 
 from aresta_api.proto.generated import croqui_pb2
 from editor.core.nomes_arquivos import (
+    LIMITE_MAXIMO_CARACTERES_ARQUIVO_MD,
     deduplicar_prefixo,
+    garantir_nome_arquivo_md_seguro,
     gerar_nome_arquivo_entidade,
     gerar_nome_mapa_sugerido,
+    normalizar_entrada_nome_arquivo_md,
+    validar_nome_arquivo_md,
 )
 
 
@@ -110,3 +114,131 @@ class TestNomesArquivos:
         # Objeto direto ViaEsportiva
         via_direta = croqui_pb2.ViaEsportiva(nome="Sol Nascente")
         assert gerar_nome_mapa_sugerido(via_direta, 0) == "via_sol_nascente_p0.webp"
+
+        # Highline em Escalada e direto
+        escalada_high = croqui_pb2.Escalada()
+        escalada_high.highline.nome = "Travessia do Vale"
+        assert gerar_nome_mapa_sugerido(escalada_high, 0) == "highline_travessia_do_vale_p0.webp"
+
+        highline_direto = croqui_pb2.Highline(nome=" Fita Azul ")
+        assert gerar_nome_mapa_sugerido(highline_direto, 0) == "highline_fita_azul_p0.webp"
+
+        # Escalada sem oneof preenchido
+        escalada_vazia = croqui_pb2.Escalada()
+        assert gerar_nome_mapa_sugerido(escalada_vazia, 0) == "escalada_p0.webp"
+
+    def test_normalizar_entrada_nome_arquivo_md_converte_espacos_e_adiciona_extensao(self):
+        assert normalizar_entrada_nome_arquivo_md("setor fornos") == "setor_fornos.md"
+        assert normalizar_entrada_nome_arquivo_md("  setor   do   meio.md  ") == "setor_do_meio.md"
+        assert normalizar_entrada_nome_arquivo_md("") == ""
+        assert normalizar_entrada_nome_arquivo_md("   ") == ""
+
+    def test_validar_nome_arquivo_md_aceita_snake_case_valido_ate_limite(self):
+        valido, normalizado, erro = validar_nome_arquivo_md("setor fornos 2")
+        assert valido is True
+        assert normalizado == "setor_fornos_2.md"
+        assert erro == ""
+
+        nome_no_limite = "a" * (LIMITE_MAXIMO_CARACTERES_ARQUIVO_MD - 3) + ".md"
+        valido_lim, norm_lim, erro_lim = validar_nome_arquivo_md(nome_no_limite)
+        assert len(norm_lim) == LIMITE_MAXIMO_CARACTERES_ARQUIVO_MD
+        assert valido_lim is True
+        assert erro_lim == ""
+
+    def test_validar_nome_arquivo_md_recusa_vazio_ou_apenas_extensao(self):
+        for entrada in ("", "   ", ".md"):
+            valido, _, erro = validar_nome_arquivo_md(entrada)
+            assert valido is False
+            assert erro != ""
+
+    def test_validar_nome_arquivo_md_recusa_acima_do_limite_de_100_caracteres(self):
+        nome_longo = "a" * (LIMITE_MAXIMO_CARACTERES_ARQUIVO_MD - 2) + ".md"
+        assert len(nome_longo) == 101
+        valido, _, erro = validar_nome_arquivo_md(nome_longo)
+        assert valido is False
+        assert "100" in erro
+
+    def test_validar_nome_arquivo_md_recusa_caracteres_invalidos_acentos_e_maiusculas(self):
+        entradas_invalidas = [
+            "YAML: 'aspas' \"duplas\".md",
+            "<script>alert('caos')</script>.md",
+            "subpasta/setor.md",
+            "subpasta\\setor.md",
+            "setor_forno_da_onça.md",
+            "Setor_Fornos.md",
+            "_setor_fornos.md",
+            "setor_fornos_.md",
+            "setor__fornos.md",
+            "setor-fornos.md",
+        ]
+        for entrada in entradas_invalidas:
+            valido, _, erro = validar_nome_arquivo_md(entrada)
+            assert valido is False, f"Deveria recusar: {entrada}"
+            assert erro != ""
+
+    def test_validar_nome_arquivo_md_verifica_duplicidade_exceto_arquivo_atual(self):
+        existentes = ["setor_norte.md", "setor_sul.md"]
+        valido_dup, _, erro_dup = validar_nome_arquivo_md("setor norte", existentes)
+        assert valido_dup is False
+        assert "já existe" in erro_dup.lower() or "uso" in erro_dup.lower()
+
+        valido_atual, norm_atual, erro_atual = validar_nome_arquivo_md(
+            "setor_norte.md",
+            existentes,
+            arquivo_atual="setor_norte.md",
+        )
+        assert valido_atual is True
+        assert norm_atual == "setor_norte.md"
+        assert erro_atual == ""
+
+    def test_garantir_nome_arquivo_md_seguro_preserva_nome_valido_ou_original_legado(self):
+        assert (
+            garantir_nome_arquivo_md_seguro("setor_custom.md", "Setor X", "setor")
+            == "setor_custom.md"
+        )
+        # Arquivo legado com acento mas sem caracteres ilegais de sistema operacional
+        assert (
+            garantir_nome_arquivo_md_seguro(
+                "setor_forno_da_onça.md",
+                "Forno da Onça",
+                "setor",
+                caminho_original="setor_forno_da_onça.md",
+            )
+            == "setor_forno_da_onça.md"
+        )
+        assert (
+            garantir_nome_arquivo_md_seguro(
+                "",
+                "Forno da Onça",
+                "setor",
+                caminho_original="setor_forno_da_onça.md",
+            )
+            == "setor_forno_da_onça.md"
+        )
+
+    def test_garantir_nome_arquivo_md_seguro_higieniza_strings_toxicas_e_nomes_longos(self):
+        # Issue #86: dois-pontos, aspas, pipes, etc.
+        assert (
+            garantir_nome_arquivo_md_seguro(
+                "YAML: 'aspas' \"duplas\" : # --- | > @ `.md",
+                "Setor Principal",
+                "setor",
+            )
+            == "setor_principal.md"
+        )
+        # Issue #87: barras e tags HTML, com nome da entidade também tóxico
+        assert (
+            garantir_nome_arquivo_md_seguro(
+                "<script>alert('caos')</script> & <b>bold</b>",
+                "???: *** ///",
+                "setor",
+            )
+            == "setor.md"
+        )
+        # Nome da entidade muito longo truncado <= 100 caracteres
+        nome_gigante = "Setor " + ("muito_longo_" * 20)
+        gerado = garantir_nome_arquivo_md_seguro("invalido:?.md", nome_gigante, "setor")
+        assert len(gerado) <= LIMITE_MAXIMO_CARACTERES_ARQUIVO_MD
+        assert gerado.endswith(".md")
+        valido, _, _ = validar_nome_arquivo_md(gerado)
+        assert valido is True

@@ -1,0 +1,586 @@
+{
+  "seed": 4242424242,
+  "dataset": "toxico",
+  "escopo": "janela_principal",
+  "falha": {
+    "oraculo": "erro_registrado_log",
+    "tipo_excecao": "OSError",
+    "mensagem": "[Errno 22] Invalid argument: '%appdata%\\\\EditorAresta\\\\croquis\\\\br_sp_caos_toxico\\\\database\\\\YAML: \\'aspas\\' \"duplas\" : # --- ... [ ] { } & * ! | > @ `'",
+    "frame_principal": "editor/core/serializacao_util.py:107",
+    "stacktrace": "Traceback (most recent call last):\n  File \"<aresta_db>\\editor\\core\\worker.py\", line 446, in run\n    persistir_contexto_memoria_no_disco(caminho_persistir, ctx_deploy)\n    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<aresta_db>\\scripts\\deploy_generated.py\", line 197, in persistir_contexto_memoria_no_disco\n    escrever_texto_se_modificado(caminho_md, texto_md)\n    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^\n  File \"<aresta_db>\\editor\\core\\serializacao_util.py\", line 107, in escrever_texto_se_modificado\n    with open(alvo, \"w\", encoding=\"utf-8\", newline=\"\\n\") as f:\n         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nOSError: [Errno 22] Invalid argument: '%appdata%\\\\EditorAresta\\\\croquis\\\\br_sp_caos_toxico\\\\database\\\\YAML: \\'aspas\\' \"duplas\" : # --- ... [ ] { } & * ! | > @ `'\n"
+  },
+  "passos_minimos": [
+    {
+      "indice": 1,
+      "tipo_acao": "alterar_combo_box",
+      "seletor": {
+        "estrategia": "campo_formulario",
+        "valor": "QComboBox:0",
+        "classe_widget": "QComboBox",
+        "indice": 0
+      },
+      "parametros": {
+        "pos": 0,
+        "idx_item": 0
+      },
+      "mutou_estado": false
+    },
+    {
+      "indice": 2,
+      "tipo_acao": "salvar_croqui",
+      "seletor": {
+        "estrategia": "acao_toolbar",
+        "valor": "Salvar",
+        "classe_widget": "",
+        "indice": 0
+      },
+      "parametros": {},
+      "mutou_estado": true
+    },
+    {
+      "indice": 3,
+      "tipo_acao": "abrir_dialogo_celular",
+      "seletor": {
+        "estrategia": "acao_toolbar",
+        "valor": "Celular",
+        "classe_widget": "",
+        "indice": 0
+      },
+      "parametros": {},
+      "mutou_estado": false
+    },
+    {
+      "indice": 4,
+      "tipo_acao": "alterar_combo_box",
+      "seletor": {
+        "estrategia": "campo_formulario",
+        "valor": "QComboBox:0",
+        "classe_widget": "QComboBox",
+        "indice": 0
+      },
+      "parametros": {
+        "pos": 0,
+        "idx_item": 1
+      },
+      "mutou_estado": true
+    },
+    {
+      "indice": 5,
+      "tipo_acao": "publicar_ou_sincronizar",
+      "seletor": {
+        "estrategia": "acao_toolbar",
+        "valor": "Sincronizar",
+        "classe_widget": "",
+        "indice": 0
+      },
+      "parametros": {},
+      "mutou_estado": true
+    },
+    {
+      "indice": 6,
+      "tipo_acao": "selecionar_no_arvore",
+      "seletor": {
+        "estrategia": "caminho_no_arvore",
+        "valor": "no_visivel:11",
+        "classe_widget": "QTreeView",
+        "indice": 11
+      },
+      "parametros": {
+        "pos": 11
+      },
+      "mutou_estado": false
+    },
+    {
+      "indice": 7,
+      "tipo_acao": "selecionar_no_arvore",
+      "seletor": {
+        "estrategia": "caminho_no_arvore",
+        "valor": "no_visivel:2",
+        "classe_widget": "QTreeView",
+        "indice": 2
+      },
+      "parametros": {
+        "pos": 2
+      },
+      "mutou_estado": false
+    },
+    {
+      "indice": 18,
+      "tipo_acao": "editar_campo_linha",
+      "seletor": {
+        "estrategia": "campo_formulario",
+        "valor": "QLineEdit:1",
+        "classe_widget": "QLineEdit",
+        "indice": 1
+      },
+      "parametros": {
+        "pos": 1,
+        "texto": "YAML: 'aspas' \"duplas\" : # --- ... [ ] { } & * ! | > @ `"
+      },
+      "mutou_estado": true
+    },
+    {
+      "indice": 19,
+      "tipo_acao": "interagir_editor_mapas",
+      "seletor": {
+        "estrategia": "cena_grafica",
+        "valor": "mapa:retangulo",
+        "classe_widget": "WidgetEditorMapas",
+        "indice": 0
+      },
+      "parametros": {
+        "sub_op": "retangulo"
+      },
+      "mutou_estado": true
+    },
+    {
+      "indice": 20,
+      "tipo_acao": "interagir_editor_imagens",
+      "seletor": {
+        "estrategia": "cena_grafica",
+        "valor": "imagem_selecionar",
+        "classe_widget": "WidgetEditorImagens",
+        "indice": 0
+      },
+      "parametros": {},
+      "mutou_estado": false
+    },
+    {
+      "indice": 21,
+      "tipo_acao": "editar_campo_texto",
+      "seletor": {
+        "estrategia": "campo_formulario",
+        "valor": "QTextEdit:0",
+        "classe_widget": "QTextEdit",
+        "indice": 0
+      },
+      "parametros": {
+        "pos": 0,
+        "texto": "3.14159265"
+      },
+      "mutou_estado": false
+    },
+    {
+      "indice": 30,
+      "tipo_acao": "abrir_dialogo_celular",
+      "seletor": {
+        "estrategia": "acao_toolbar",
+        "valor": "Celular",
+        "classe_widget": "",
+        "indice": 0
+      },
+      "parametros": {},
+      "mutou_estado": false
+    }
+  ],
+  "passos_originais": [
+    {
+      "indice": 1,
+      "tipo_acao": "alterar_combo_box",
+      "seletor": {
+        "estrategia": "campo_formulario",
+        "valor": "QComboBox:0",
+        "classe_widget": "QComboBox",
+        "indice": 0
+      },
+      "parametros": {
+        "pos": 0,
+        "idx_item": 0
+      },
+      "mutou_estado": false
+    },
+    {
+      "indice": 2,
+      "tipo_acao": "salvar_croqui",
+      "seletor": {
+        "estrategia": "acao_toolbar",
+        "valor": "Salvar",
+        "classe_widget": "",
+        "indice": 0
+      },
+      "parametros": {},
+      "mutou_estado": true
+    },
+    {
+      "indice": 3,
+      "tipo_acao": "abrir_dialogo_celular",
+      "seletor": {
+        "estrategia": "acao_toolbar",
+        "valor": "Celular",
+        "classe_widget": "",
+        "indice": 0
+      },
+      "parametros": {},
+      "mutou_estado": false
+    },
+    {
+      "indice": 4,
+      "tipo_acao": "alterar_combo_box",
+      "seletor": {
+        "estrategia": "campo_formulario",
+        "valor": "QComboBox:0",
+        "classe_widget": "QComboBox",
+        "indice": 0
+      },
+      "parametros": {
+        "pos": 0,
+        "idx_item": 1
+      },
+      "mutou_estado": true
+    },
+    {
+      "indice": 5,
+      "tipo_acao": "publicar_ou_sincronizar",
+      "seletor": {
+        "estrategia": "acao_toolbar",
+        "valor": "Sincronizar",
+        "classe_widget": "",
+        "indice": 0
+      },
+      "parametros": {},
+      "mutou_estado": true
+    },
+    {
+      "indice": 6,
+      "tipo_acao": "selecionar_no_arvore",
+      "seletor": {
+        "estrategia": "caminho_no_arvore",
+        "valor": "no_visivel:11",
+        "classe_widget": "QTreeView",
+        "indice": 11
+      },
+      "parametros": {
+        "pos": 11
+      },
+      "mutou_estado": false
+    },
+    {
+      "indice": 7,
+      "tipo_acao": "selecionar_no_arvore",
+      "seletor": {
+        "estrategia": "caminho_no_arvore",
+        "valor": "no_visivel:2",
+        "classe_widget": "QTreeView",
+        "indice": 2
+      },
+      "parametros": {
+        "pos": 2
+      },
+      "mutou_estado": false
+    },
+    {
+      "indice": 8,
+      "tipo_acao": "alterar_combo_box",
+      "seletor": {
+        "estrategia": "campo_formulario",
+        "valor": "QComboBox:0",
+        "classe_widget": "QComboBox",
+        "indice": 0
+      },
+      "parametros": {
+        "pos": 0,
+        "idx_item": 0
+      },
+      "mutou_estado": true
+    },
+    {
+      "indice": 9,
+      "tipo_acao": "desfazer_ou_refazer",
+      "seletor": {
+        "estrategia": "acao_toolbar",
+        "valor": "undo",
+        "classe_widget": "",
+        "indice": 0
+      },
+      "parametros": {
+        "op": "undo"
+      },
+      "mutou_estado": true
+    },
+    {
+      "indice": 10,
+      "tipo_acao": "trocar_aba",
+      "seletor": {
+        "estrategia": "acao_toolbar",
+        "valor": "aba:1",
+        "classe_widget": "",
+        "indice": 0
+      },
+      "parametros": {
+        "aba": 1
+      },
+      "mutou_estado": false
+    },
+    {
+      "indice": 11,
+      "tipo_acao": "desfazer_ou_refazer",
+      "seletor": {
+        "estrategia": "acao_toolbar",
+        "valor": "redo",
+        "classe_widget": "",
+        "indice": 0
+      },
+      "parametros": {
+        "op": "redo"
+      },
+      "mutou_estado": true
+    },
+    {
+      "indice": 12,
+      "tipo_acao": "interagir_editor_mapas",
+      "seletor": {
+        "estrategia": "cena_grafica",
+        "valor": "mapa:slider_circ",
+        "classe_widget": "WidgetEditorMapas",
+        "indice": 0
+      },
+      "parametros": {
+        "sub_op": "slider_circ"
+      },
+      "mutou_estado": true
+    },
+    {
+      "indice": 13,
+      "tipo_acao": "interagir_painel_betas",
+      "seletor": {
+        "estrategia": "objeto_ou_texto",
+        "valor": "painel_betas",
+        "classe_widget": "PainelCuradoria",
+        "indice": 0
+      },
+      "parametros": {},
+      "mutou_estado": false
+    },
+    {
+      "indice": 14,
+      "tipo_acao": "desfazer_ou_refazer",
+      "seletor": {
+        "estrategia": "acao_toolbar",
+        "valor": "undo",
+        "classe_widget": "",
+        "indice": 0
+      },
+      "parametros": {
+        "op": "undo"
+      },
+      "mutou_estado": true
+    },
+    {
+      "indice": 15,
+      "tipo_acao": "alterar_combo_box",
+      "seletor": {
+        "estrategia": "campo_formulario",
+        "valor": "QComboBox:0",
+        "classe_widget": "QComboBox",
+        "indice": 0
+      },
+      "parametros": {
+        "pos": 0,
+        "idx_item": 1
+      },
+      "mutou_estado": true
+    },
+    {
+      "indice": 16,
+      "tipo_acao": "alterar_combo_box",
+      "seletor": {
+        "estrategia": "campo_formulario",
+        "valor": "QComboBox:0",
+        "classe_widget": "QComboBox",
+        "indice": 0
+      },
+      "parametros": {
+        "pos": 0,
+        "idx_item": 1
+      },
+      "mutou_estado": false
+    },
+    {
+      "indice": 17,
+      "tipo_acao": "trocar_aba",
+      "seletor": {
+        "estrategia": "acao_toolbar",
+        "valor": "aba:2",
+        "classe_widget": "",
+        "indice": 0
+      },
+      "parametros": {
+        "aba": 2
+      },
+      "mutou_estado": false
+    },
+    {
+      "indice": 18,
+      "tipo_acao": "editar_campo_linha",
+      "seletor": {
+        "estrategia": "campo_formulario",
+        "valor": "QLineEdit:1",
+        "classe_widget": "QLineEdit",
+        "indice": 1
+      },
+      "parametros": {
+        "pos": 1,
+        "texto": "YAML: 'aspas' \"duplas\" : # --- ... [ ] { } & * ! | > @ `"
+      },
+      "mutou_estado": true
+    },
+    {
+      "indice": 19,
+      "tipo_acao": "interagir_editor_mapas",
+      "seletor": {
+        "estrategia": "cena_grafica",
+        "valor": "mapa:retangulo",
+        "classe_widget": "WidgetEditorMapas",
+        "indice": 0
+      },
+      "parametros": {
+        "sub_op": "retangulo"
+      },
+      "mutou_estado": true
+    },
+    {
+      "indice": 20,
+      "tipo_acao": "interagir_editor_imagens",
+      "seletor": {
+        "estrategia": "cena_grafica",
+        "valor": "imagem_selecionar",
+        "classe_widget": "WidgetEditorImagens",
+        "indice": 0
+      },
+      "parametros": {},
+      "mutou_estado": false
+    },
+    {
+      "indice": 21,
+      "tipo_acao": "editar_campo_texto",
+      "seletor": {
+        "estrategia": "campo_formulario",
+        "valor": "QTextEdit:0",
+        "classe_widget": "QTextEdit",
+        "indice": 0
+      },
+      "parametros": {
+        "pos": 0,
+        "texto": "3.14159265"
+      },
+      "mutou_estado": false
+    },
+    {
+      "indice": 22,
+      "tipo_acao": "interagir_editor_imagens",
+      "seletor": {
+        "estrategia": "cena_grafica",
+        "valor": "imagem_selecionar",
+        "classe_widget": "WidgetEditorImagens",
+        "indice": 0
+      },
+      "parametros": {},
+      "mutou_estado": false
+    },
+    {
+      "indice": 23,
+      "tipo_acao": "editar_campo_linha",
+      "seletor": {
+        "estrategia": "campo_formulario",
+        "valor": "QLineEdit:1",
+        "classe_widget": "QLineEdit",
+        "indice": 1
+      },
+      "parametros": {
+        "pos": 1,
+        "texto": "Acentuação: áéíóú âêô ãõ ç ñ ü"
+      },
+      "mutou_estado": true
+    },
+    {
+      "indice": 24,
+      "tipo_acao": "desfazer_ou_refazer",
+      "seletor": {
+        "estrategia": "acao_toolbar",
+        "valor": "undo",
+        "classe_widget": "",
+        "indice": 0
+      },
+      "parametros": {
+        "op": "undo"
+      },
+      "mutou_estado": true
+    },
+    {
+      "indice": 25,
+      "tipo_acao": "selecionar_no_arvore",
+      "seletor": {
+        "estrategia": "caminho_no_arvore",
+        "valor": "no_visivel:5",
+        "classe_widget": "QTreeView",
+        "indice": 5
+      },
+      "parametros": {
+        "pos": 5
+      },
+      "mutou_estado": false
+    },
+    {
+      "indice": 26,
+      "tipo_acao": "noop_fallback",
+      "seletor": {
+        "estrategia": "acao_toolbar",
+        "valor": "Dados",
+        "classe_widget": "",
+        "indice": 0
+      },
+      "parametros": {},
+      "mutou_estado": false
+    },
+    {
+      "indice": 27,
+      "tipo_acao": "noop_fallback",
+      "seletor": {
+        "estrategia": "acao_toolbar",
+        "valor": "Dados",
+        "classe_widget": "",
+        "indice": 0
+      },
+      "parametros": {},
+      "mutou_estado": false
+    },
+    {
+      "indice": 28,
+      "tipo_acao": "trocar_aba",
+      "seletor": {
+        "estrategia": "acao_toolbar",
+        "valor": "aba:0",
+        "classe_widget": "",
+        "indice": 0
+      },
+      "parametros": {
+        "aba": 0
+      },
+      "mutou_estado": false
+    },
+    {
+      "indice": 29,
+      "tipo_acao": "interagir_painel_betas",
+      "seletor": {
+        "estrategia": "objeto_ou_texto",
+        "valor": "painel_betas",
+        "classe_widget": "PainelCuradoria",
+        "indice": 0
+      },
+      "parametros": {},
+      "mutou_estado": false
+    },
+    {
+      "indice": 30,
+      "tipo_acao": "abrir_dialogo_celular",
+      "seletor": {
+        "estrategia": "acao_toolbar",
+        "valor": "Celular",
+        "classe_widget": "",
+        "indice": 0
+      },
+      "parametros": {},
+      "mutou_estado": false
+    }
+  ]
+}

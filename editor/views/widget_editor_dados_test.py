@@ -481,15 +481,30 @@ def test_formulario_exibe_e_edita_nome_de_arquivo(qapp):
     form = widget.form_padrao
     form.load_node(setor_idx.internalPointer())
 
-    # 2. Verifica se a UI renderizou o QLineEdit do nome do arquivo
-    line_edits = form.findChildren(QLineEdit)
-    edit_filename = next(le for le in line_edits if le.property("protobuf_field") == "__filename__")
-    assert edit_filename is not None
+    # 2. Verifica se a UI renderizou o WidgetCampoNomeArquivo com QLineEdit somente-leitura
+    from PySide6.QtCore import QTimer
+    from PySide6.QtWidgets import QApplication
+
+    from editor.views.dialogos.dialogo_renomear_arquivo import DialogoRenomearArquivo
+    from editor.views.widget_campo_nome_arquivo import WidgetCampoNomeArquivo
+
+    widgets_nome = form.findChildren(WidgetCampoNomeArquivo)
+    assert len(widgets_nome) == 1
+    widget_nome = widgets_nome[0]
+    edit_filename = widget_nome.edit_nome
+    assert edit_filename.property("protobuf_field") == "__filename__"
+    assert edit_filename.isReadOnly() is True
     assert edit_filename.text() == "setor_setor_fantastico.md"
 
-    # 3. Simula alteração do usuário no nome do arquivo na UI
-    edit_filename.setText("setor_perfeito.md")
-    edit_filename.editingFinished.emit()
+    # 3. Simula alteração do usuário clicando em "Modificar..." e confirmando no modal
+    def _confirmar_modal():
+        modal = QApplication.activeModalWidget()
+        assert isinstance(modal, DialogoRenomearArquivo)
+        modal.edit_arquivo.setText("setor_perfeito.md")
+        modal.btn_confirmar.click()
+
+    QTimer.singleShot(0, _confirmar_modal)
+    widget_nome.btn_modificar.click()
 
     # Verifica se a UI usou o comando e alterou a extensão!
     assert (
@@ -499,12 +514,16 @@ def test_formulario_exibe_e_edita_nome_de_arquivo(qapp):
 
 
 def test_formulario_usa_croqui_controller_para_caminho_novo(qapp):
-    from unittest.mock import MagicMock
-
-    from PySide6.QtWidgets import QLineEdit
+    from PySide6.QtCore import QTimer
+    from PySide6.QtGui import QUndoStack
+    from PySide6.QtWidgets import QApplication
 
     from aresta_api.proto.generated import croqui_pb2
     from aresta_api.proto.generated.croqui_pb2 import Croqui
+    from editor.controllers.croqui_controller import CroquiController
+    from editor.models.croqui_model import CroquiModel
+    from editor.views.dialogos.dialogo_renomear_arquivo import DialogoRenomearArquivo
+    from editor.views.widget_campo_nome_arquivo import WidgetCampoNomeArquivo
     from editor.views.widget_editor_dados import WidgetEditorDados
 
     croqui = Croqui()
@@ -515,12 +534,15 @@ def test_formulario_usa_croqui_controller_para_caminho_novo(qapp):
         croqui_pb2.ArquivoSetor.ext_metadados_arquivo
     ].caminho_novo = "caminho_velho.md"
 
-    from editor.models.croqui_model import CroquiModel
+    sg_outro = pico.setores_ou_grupos.add()
+    sg_outro.setor.conteudo.nome = "Setor Existente"
+    sg_outro.setor.Extensions[
+        croqui_pb2.ArquivoSetor.ext_metadados_arquivo
+    ].caminho_novo = "setor_existente.md"
 
     model = CroquiModel(croqui)
-
-    # Mock do controller
-    controller = MagicMock()
+    undo_stack = QUndoStack()
+    controller = CroquiController(model, undo_stack)
 
     widget = WidgetEditorDados(model, controller)
     modelo = widget.tree_model
@@ -552,21 +574,44 @@ def test_formulario_usa_croqui_controller_para_caminho_novo(qapp):
     form = widget.form_padrao
     form.load_node(setor_idx.internalPointer())
 
-    line_edits = form.findChildren(QLineEdit)
-    edit_filename = next(le for le in line_edits if le.property("protobuf_field") == "__filename__")
+    widgets_nome = form.findChildren(WidgetCampoNomeArquivo)
+    assert len(widgets_nome) == 1
+    widget_nome = widgets_nome[0]
 
-    # Altera e emite o sinal
-    edit_filename.setText("caminho_novissimo.md")
-    edit_filename.editingFinished.emit()
+    def _interagir_modal():
+        modal = QApplication.activeModalWidget()
+        assert isinstance(modal, DialogoRenomearArquivo)
+        # Colisão com outro arquivo do croqui deve ser bloqueada
+        modal.edit_arquivo.setText("setor_existente.md")
+        assert modal.btn_confirmar.isEnabled() is False
+        # Nome válido inédito é aceito
+        modal.edit_arquivo.setText("caminho_novissimo.md")
+        assert modal.btn_confirmar.isEnabled() is True
+        modal.btn_confirmar.click()
 
-    # Verifica se o método correto do controller foi acionado
-    controller.alterar_metadados_caminho_novo.assert_called_once()
+    QTimer.singleShot(0, _interagir_modal)
+    widget_nome.btn_modificar.click()
 
-    args, kwargs = controller.alterar_metadados_caminho_novo.call_args
-    assert args[0] == sg.setor
-    assert args[1] == croqui_pb2.ArquivoSetor.ext_metadados_arquivo
-    assert args[2] == "caminho_velho.md"
-    assert args[3] == "caminho_novissimo.md"
+    assert (
+        sg.setor.Extensions[croqui_pb2.ArquivoSetor.ext_metadados_arquivo].caminho_novo
+        == "caminho_novissimo.md"
+    )
+    assert widget_nome.edit_nome.text() == "caminho_novissimo.md"
+
+    # Undo e Redo sincronizam o estado do modelo e o campo na UI
+    undo_stack.undo()
+    assert (
+        sg.setor.Extensions[croqui_pb2.ArquivoSetor.ext_metadados_arquivo].caminho_novo
+        == "caminho_velho.md"
+    )
+    assert widget_nome.edit_nome.text() == "caminho_velho.md"
+
+    undo_stack.redo()
+    assert (
+        sg.setor.Extensions[croqui_pb2.ArquivoSetor.ext_metadados_arquivo].caminho_novo
+        == "caminho_novissimo.md"
+    )
+    assert widget_nome.edit_nome.text() == "caminho_novissimo.md"
 
 
 def test_formulario_oneof_transparencia_primitivos(qapp):
@@ -2094,7 +2139,7 @@ def test_fluxo_integracao_carregamento_e_salvamento_yaml_campos_vazios(tmp_path,
 
     # 2. Salva no disco via extrair_arquivos_e_serializar e lê o arquivo YAML
     model.extrair_arquivos_e_serializar(tmp_path)
-    arquivo_setor = tmp_path / "setor_setor_completo.md"
+    arquivo_setor = tmp_path / "setor_completo.md"
     assert arquivo_setor.exists()
 
     with open(arquivo_setor, encoding="utf-8") as f:
@@ -6104,3 +6149,4 @@ def test_formulario_coordenada_edicao_apos_undo_poda_submensagem_sem_mensagem_or
     widget_coord._confirmar_edicao_lat()
     assert setor.HasField("localizacao_estacionamento")
     assert setor.localizacao_estacionamento.latitude == -220000000
+

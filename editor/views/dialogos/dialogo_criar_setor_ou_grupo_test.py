@@ -115,12 +115,16 @@ def test_dialogo_criar_setor_ou_grupo_nome_vazio_e_caracteres_especiais(qapp):
     assert dialogo.edit_arquivo.text() == "setor.md"
 
 
-def test_dialogo_criar_setor_ou_grupo_metodo_obter_dados_estatico(qapp, monkeypatch):
+def test_dialogo_criar_setor_ou_grupo_metodo_obter_dados_estatico(qapp):
     """Verifica a execução do método estático obter_dados."""
-    from PySide6.QtWidgets import QDialog
+    from PySide6.QtCore import QTimer
 
-    monkeypatch.setattr(QDialog, "exec", lambda self: self.setResult(QDialog.DialogCode.Accepted))
+    def _confirmar():
+        modal = QApplication.activeModalWidget()
+        assert isinstance(modal, DialogoCriarSetorOuGrupo)
+        modal.btn_criar.click()
 
+    QTimer.singleShot(0, _confirmar)
     tipo, nome, arquivo, ok = DialogoCriarSetorOuGrupo.obter_dados(
         modo="ambos", nome_sugerido="Falésia"
     )
@@ -176,3 +180,34 @@ def test_dialogo_criar_setor_ou_grupo_validacao_duplicidade_bloco(qapp):
     dialogo.edit_nome.setText("Bloco do Lago")
     assert dialogo.btn_criar.isEnabled() is False
     assert dialogo.lbl_aviso.text() == "Já existe um bloco com este nome."
+
+
+
+def test_dialogo_criar_setor_ou_grupo_valida_nome_arquivo_contra_vazio_invalidos_e_limite_100(qapp):
+    """Verifica que o diálogo recusa arquivo vazio, caracteres inválidos ou > 100 chars e converte espaços."""
+    dialogo = DialogoCriarSetorOuGrupo(modo="ambos")
+    dialogo.show()
+
+    dialogo.edit_nome.setText("Setor Principal")
+    assert dialogo.btn_criar.isEnabled() is True
+
+    # Limpar manualmente o arquivo deve bloquear o botão Criar
+    dialogo.edit_arquivo.setText("")
+    assert dialogo.btn_criar.isEnabled() is False
+    assert dialogo.lbl_aviso.text() != ""
+
+    # Digitar espaços no arquivo converte em '_' e permite criar
+    dialogo.edit_arquivo.setText("setor principal norte")
+    assert dialogo.edit_arquivo.text() == "setor_principal_norte"
+    assert dialogo.btn_criar.isEnabled() is True
+
+    # Caracteres inválidos ou acentos bloqueiam
+    for invalido in ("setor:invalido.md", "<script>.md", "setor_onça.md", "Setor_Maiusculo.md"):
+        dialogo.edit_arquivo.setText(invalido)
+        assert dialogo.btn_criar.isEnabled() is False
+        assert dialogo.lbl_aviso.text() != ""
+
+    # Acima de 100 caracteres bloqueia
+    dialogo.edit_arquivo.setText("a" * 99 + ".md")
+    assert dialogo.btn_criar.isEnabled() is False
+    assert "100" in dialogo.lbl_aviso.text()

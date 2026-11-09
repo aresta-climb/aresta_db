@@ -6,6 +6,7 @@ from typing import Any, cast
 from google.protobuf.message import Message
 from PySide6.QtCore import QObject, Signal
 
+from editor.core.nomes_arquivos import garantir_nome_arquivo_md_seguro
 from editor.models.readonly_proxy import _copia_segura
 from scripts.gerenciar_uids_lib import gerar_uid, validar_uid
 
@@ -796,12 +797,13 @@ class CroquiModel(QObject):
             if arq_setor_ref.HasExtension(ArquivoSetor.ext_metadados_arquivo):
                 ext = arq_setor_ref.Extensions[ArquivoSetor.ext_metadados_arquivo]
             original_caminho = ext.caminho_original if ext else None
-            novo_caminho = ext.caminho_novo if ext and ext.caminho_novo else None
-
-            if not novo_caminho and original_caminho:
-                novo_caminho = original_caminho
-            if not novo_caminho:
-                novo_caminho = f"setor_{arq_setor.conteudo.nome.replace(' ', '_').lower()}.md"
+            proposto = ext.caminho_novo if ext and ext.caminho_novo else None
+            novo_caminho = garantir_nome_arquivo_md_seguro(
+                proposto,
+                arq_setor.conteudo.nome,
+                "setor",
+                caminho_original=original_caminho,
+            )
 
             if original_caminho and original_caminho != novo_caminho:
                 old_file_path = caminho_db_path / original_caminho
@@ -836,12 +838,13 @@ class CroquiModel(QObject):
             if arq_mapas_ref.HasExtension(ArquivoMapas.ext_metadados_arquivo):
                 ext = arq_mapas_ref.Extensions[ArquivoMapas.ext_metadados_arquivo]
             original_caminho = ext.caminho_original if ext else None
-            novo_caminho = ext.caminho_novo if ext and ext.caminho_novo else None
-
-            if not novo_caminho and original_caminho:
-                novo_caminho = original_caminho
-            if not novo_caminho:
-                novo_caminho = "mapas_gerais.md"
+            proposto = ext.caminho_novo if ext and ext.caminho_novo else None
+            novo_caminho = garantir_nome_arquivo_md_seguro(
+                proposto,
+                None,
+                "mapas_gerais",
+                caminho_original=original_caminho,
+            )
 
             if original_caminho and original_caminho != novo_caminho:
                 old_file_path = caminho_db_path / original_caminho
@@ -909,14 +912,13 @@ class CroquiModel(QObject):
                         if sg_ref.grupo.HasExtension(ArquivoGrupo.ext_metadados_arquivo):
                             ext = sg_ref.grupo.Extensions[ArquivoGrupo.ext_metadados_arquivo]
                         original_caminho = ext.caminho_original if ext else None
-                        novo_caminho = ext.caminho_novo if ext and ext.caminho_novo else None
-
-                        if not novo_caminho and original_caminho:
-                            novo_caminho = original_caminho
-                        if not novo_caminho:
-                            novo_caminho = (
-                                f"grupo_{sg.grupo.conteudo.nome.replace(' ', '_').lower()}.md"
-                            )
+                        proposto = ext.caminho_novo if ext and ext.caminho_novo else None
+                        novo_caminho = garantir_nome_arquivo_md_seguro(
+                            proposto,
+                            sg.grupo.conteudo.nome,
+                            "grupo",
+                            caminho_original=original_caminho,
+                        )
 
                         if original_caminho and original_caminho != novo_caminho:
                             old_file_path = caminho_db_path / original_caminho
@@ -959,12 +961,13 @@ class CroquiModel(QObject):
                     if md_ref.HasExtension(ArquivoMarkdown.ext_metadados_arquivo):
                         ext = md_ref.Extensions[ArquivoMarkdown.ext_metadados_arquivo]
                     original_caminho = ext.caminho_original if ext else None
-                    novo_caminho = ext.caminho_novo if ext and ext.caminho_novo else None
-
-                    if not novo_caminho and original_caminho:
-                        novo_caminho = original_caminho
-                    if not novo_caminho:
-                        novo_caminho = f"secao_{botao.texto.replace(' ', '_').lower()}.md"
+                    proposto = ext.caminho_novo if ext and ext.caminho_novo else None
+                    novo_caminho = garantir_nome_arquivo_md_seguro(
+                        proposto,
+                        botao.texto,
+                        "secao",
+                        caminho_original=original_caminho,
+                    )
 
                     if original_caminho and original_caminho != novo_caminho:
                         old_file_path = caminho_db_path / original_caminho

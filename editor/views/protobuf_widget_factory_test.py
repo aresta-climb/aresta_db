@@ -259,3 +259,15 @@ def test_widgets_coordenada_e_imagem(qapp):
     assert w_capa.nome_arquivo_fixo is None
     assert w_capa.area_maxima == AREA_MAXIMA_ESCALADA
     assert w_thumb.area_maxima == AREA_MAXIMA_PADRAO
+
+
+
+def test_widget_nome_arquivo(qapp):
+    """Garante que campos anotados com CampoFormatoUi.NOME_ARQUIVO instanciam WidgetCampoNomeArquivo."""
+    from aresta_api.proto.generated.croqui_pb2 import MetadadosArquivoNoEditor
+    from editor.views.widget_campo_nome_arquivo import WidgetCampoNomeArquivo
+
+    campo_caminho_novo = MetadadosArquivoNoEditor.DESCRIPTOR.fields_by_name["caminho_novo"]
+    widget = ProtobufWidgetFactory.create_widget(campo_caminho_novo)
+    assert isinstance(widget, WidgetCampoNomeArquivo)
+    assert ProtobufWidgetFactory.get_label(campo_caminho_novo) == "Nome do arquivo"

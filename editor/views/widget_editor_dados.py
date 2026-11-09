@@ -69,6 +69,7 @@ from editor.views.protobuf_widget_factory import ComboBoxSemScroll, ProtobufWidg
 from editor.views.tree_view_adapter import ProtobufTreeViewAdapter
 from editor.views.widget_campo_coordenada_e7 import WidgetCampoCoordenadaE7
 from editor.views.widget_campo_imagem import WidgetCampoImagem
+from editor.views.widget_campo_nome_arquivo import WidgetCampoNomeArquivo
 from editor.views.widget_mensagem_coordenada import WidgetMensagemCoordenada
 from scripts.gerenciar_uids_lib import gerar_uid
 
@@ -1791,6 +1792,10 @@ class WidgetFormularioPadrao(QStackedWidget):
                         val_caminho = str(novo_valor) if novo_valor is not None else ""
                         if widget.obter_caminho_atual() != val_caminho:
                             widget.definir_caminho_atual(val_caminho)
+                    elif isinstance(widget, WidgetCampoNomeArquivo):
+                        val_nome = str(novo_valor) if novo_valor is not None else ""
+                        if widget.obter_nome_arquivo() != val_nome:
+                            widget.definir_nome_arquivo(val_nome)
                 finally:
                     widget.blockSignals(False)
                 break
@@ -2171,8 +2176,10 @@ class WidgetFormularioPadrao(QStackedWidget):
             # Se não achou a extensão ou o wrapper apropriado, não renderiza o campo (acontece em testes isolados)
             return
 
+        campo_desc = croqui_pb2.MetadadosArquivoNoEditor.DESCRIPTOR.fields_by_name["caminho_novo"]
+        rotulo_texto = ProtobufWidgetFactory.get_label(campo_desc) + ":"
         row_layout = QHBoxLayout()
-        label = QLabel("Nome do arquivo:")
+        label = QLabel(rotulo_texto)
         label.setStyleSheet("font-weight: bold; color: #555;")
 
         current_filename = (
@@ -2181,28 +2188,44 @@ class WidgetFormularioPadrao(QStackedWidget):
             else ""
         )
 
-        edit = QLineEdit(current_filename)
-        self._aplicar_largura_maxima(edit)
+        widget_nome = ProtobufWidgetFactory.create_widget(campo_desc)
+        assert isinstance(widget_nome, WidgetCampoNomeArquivo)
+        widget_nome.definir_nome_arquivo(current_filename)
+        self._aplicar_largura_maxima(widget_nome)
         if not current_filename:
-            edit.setPlaceholderText("(nome será gerado automaticamente ao salvar)")
+            widget_nome.edit_nome.setPlaceholderText(
+                "(nome será gerado automaticamente ao salvar)"
+            )
 
-        edit.setProperty("protobuf_field", "__filename__")
-        edit.setProperty("protobuf_msg_id", _get_id(wrapper_msg))
+        msg_id = _get_id(wrapper_msg)
+        widget_nome.setProperty("protobuf_field", "__filename__")
+        widget_nome.setProperty("protobuf_msg_id", msg_id)
+        widget_nome.edit_nome.setProperty("protobuf_field", "__filename__")
+        widget_nome.edit_nome.setProperty("protobuf_msg_id", msg_id)
+        _garantir_filtro_undo_redo(widget_nome.edit_nome)
 
-        def on_editing_finished() -> None:
-            text = edit.text().strip()
+        if self.widget_editor is not None and hasattr(
+            self.widget_editor, "_coletar_todos_arquivos_croqui"
+        ):
+            widget_nome.definir_provedor_arquivos_existentes(
+                self.widget_editor._coletar_todos_arquivos_croqui
+            )
+
+        def ao_alterar_nome_arquivo(novo_nome: str) -> None:
             old_val = (
                 wrapper_msg.Extensions[ext_desc].caminho_novo
                 if wrapper_msg.HasExtension(ext_desc)
                 else ""
             )
-            if text != old_val:
-                self.controller.alterar_metadados_caminho_novo(wrapper_msg, ext_desc, old_val, text)
+            if novo_nome != old_val:
+                self.controller.alterar_metadados_caminho_novo(
+                    wrapper_msg, ext_desc, old_val, novo_nome
+                )
 
-        edit.editingFinished.connect(on_editing_finished)
+        widget_nome.nome_alterado.connect(ao_alterar_nome_arquivo)
 
         row_layout.addWidget(label)
-        row_layout.addWidget(edit, 1)
+        row_layout.addWidget(widget_nome, 1)
 
         if target_layout:
             target_layout.addLayout(row_layout)
@@ -3913,6 +3936,15 @@ class WidgetEditorDados(QWidget):
         self.tree_model._on_repeated_item_alterado(_get_id(msg), campo_nome, index, novo_valor)
 
     def _on_dado_alterado(self, msg: Any, campo_nome: str, *args: Any) -> None:
+        if campo_nome == "ext_metadados_arquivo" and hasattr(type(msg), "ext_metadados_arquivo"):
+            ext_desc = getattr(type(msg), "ext_metadados_arquivo")
+            novo_caminho = (
+                msg.Extensions[ext_desc].caminho_novo if msg.HasExtension(ext_desc) else ""
+            )
+            self.form_padrao._on_campo_alterado(_get_id(msg), "__filename__", novo_caminho)
+            self.tree_model._on_campo_alterado(_get_id(msg), campo_nome, novo_caminho)
+            return
+
         has_field = False
         try:
             has_field = msg.HasField(campo_nome)

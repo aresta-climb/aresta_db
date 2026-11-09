@@ -162,6 +162,11 @@ class ProtobufWidgetFactory:
             )
             return WidgetCampoImagem(nome_arquivo_fixo=nome_fixo, area_maxima=area_maxima)
 
+        if formato == croqui_pb2.CampoFormatoUi.NOME_ARQUIVO:
+            from editor.views.widget_campo_nome_arquivo import WidgetCampoNomeArquivo
+
+            return WidgetCampoNomeArquivo()
+
         if field_descriptor.type in (
             FieldDescriptor.TYPE_INT32,
             FieldDescriptor.TYPE_INT64,

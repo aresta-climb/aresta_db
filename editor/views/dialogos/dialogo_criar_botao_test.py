@@ -71,16 +71,27 @@ def test_dialogo_criar_botao_validacao_duplicidade(qapp):
     assert dialogo.lbl_aviso.text() == ""
 
 
-def test_dialogo_criar_botao_metodo_estatico_obter_dados(qapp, monkeypatch):
+def test_dialogo_criar_botao_metodo_estatico_obter_dados(qapp):
     """Verifica a chamada do método estático obter_dados com confirmação e rejeição."""
-    from PySide6.QtWidgets import QDialog
+    from PySide6.QtCore import QTimer
 
-    monkeypatch.setattr(QDialog, "exec", lambda self: self.setResult(QDialog.DialogCode.Accepted))
+    def _confirmar():
+        modal = QApplication.activeModalWidget()
+        assert isinstance(modal, DialogoCriarBotao)
+        modal.btn_criar.click()
 
+    QTimer.singleShot(0, _confirmar)
     texto, arquivo, ok = DialogoCriarBotao.obter_dados(texto_sugerido="Apoio")
     assert ok is True
+    assert texto == "Apoio"
+    assert arquivo == "apoio.md"
 
-    monkeypatch.setattr(QDialog, "exec", lambda self: self.setResult(QDialog.DialogCode.Rejected))
+    def _cancelar():
+        modal = QApplication.activeModalWidget()
+        assert isinstance(modal, DialogoCriarBotao)
+        modal.btn_cancelar.click()
+
+    QTimer.singleShot(0, _cancelar)
     texto, arquivo, ok = DialogoCriarBotao.obter_dados()
     assert ok is False
 
@@ -99,3 +110,34 @@ def test_dialogo_criar_botao_texto_vazio_e_caracteres_especiais(qapp):
 
     dialogo.edit_texto.setText("!!!")
     assert dialogo.edit_arquivo.text() == "botao.md"
+
+
+def test_dialogo_criar_botao_valida_nome_arquivo_contra_vazio_invalidos_e_limite_100(qapp):
+    """Verifica que o diálogo recusa arquivo vazio, caracteres inválidos ou > 100 chars e converte espaços."""
+    dialogo = DialogoCriarBotao()
+    dialogo.show()
+
+    dialogo.edit_texto.setText("Sobre o Local")
+    assert dialogo.btn_criar.isEnabled() is True
+
+    # Limpar manualmente o arquivo deve bloquear o botão Criar
+    dialogo.edit_arquivo.setText("")
+    assert dialogo.btn_criar.isEnabled() is False
+    assert dialogo.lbl_aviso.text() != ""
+
+    # Digitar espaços no arquivo converte em '_' e permite criar
+    dialogo.edit_arquivo.setText("secao sobre local")
+    assert dialogo.edit_arquivo.text() == "secao_sobre_local"
+    assert dialogo.btn_criar.isEnabled() is True
+
+    # Caracteres inválidos ou acentos bloqueiam
+    for invalido in ("secao:invalida.md", "<script>.md", "seção_acento.md", "Secao_Maiuscula.md"):
+        dialogo.edit_arquivo.setText(invalido)
+        assert dialogo.btn_criar.isEnabled() is False
+        assert dialogo.lbl_aviso.text() != ""
+
+    # Acima de 100 caracteres bloqueia
+    dialogo.edit_arquivo.setText("a" * 99 + ".md")
+    assert dialogo.btn_criar.isEnabled() is False
+    assert "100" in dialogo.lbl_aviso.text()
+

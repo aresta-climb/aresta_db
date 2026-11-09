@@ -2,6 +2,8 @@
 # Copyright (C) 2026 Aresta Climb Contributors
 
 
+import re
+
 from PySide6.QtWidgets import (
     QDialog,
     QHBoxLayout,
@@ -13,6 +15,7 @@ from PySide6.QtWidgets import (
 )
 
 from editor.core.formatacao import para_snake_case
+from editor.core.nomes_arquivos import validar_nome_arquivo_md
 
 
 class DialogoCriarBotao(QDialog):
@@ -107,6 +110,14 @@ class DialogoCriarBotao(QDialog):
         self._validar()
 
     def _on_arquivo_alterado(self, texto: str) -> None:
+        if re.search(r"\s", texto):
+            pos_cursor = self.edit_arquivo.cursorPosition()
+            convertido = re.sub(r"\s+", "_", texto)
+            self.edit_arquivo.blockSignals(True)
+            self.edit_arquivo.setText(convertido)
+            self.edit_arquivo.setCursorPosition(min(pos_cursor, len(convertido)))
+            self.edit_arquivo.blockSignals(False)
+            texto = convertido
         if not self._atualizando_internamente:
             self._arquivo_editado_manualmente = bool(texto.strip())
         self._validar()
@@ -140,11 +151,9 @@ class DialogoCriarBotao(QDialog):
             self.btn_criar.setEnabled(False)
             return
 
-        nome_arquivo_completo = (
-            arquivo if arquivo.endswith(".md") else f"{arquivo}.md" if arquivo else ""
-        )
-        if nome_arquivo_completo.lower() in self.arquivos_existentes:
-            self.lbl_aviso.setText(f"Já existe um arquivo com o nome '{nome_arquivo_completo}'.")
+        valido_arq, _, erro_arq = validar_nome_arquivo_md(arquivo, self.arquivos_existentes)
+        if not valido_arq:
+            self.lbl_aviso.setText(erro_arq)
             self.btn_criar.setEnabled(False)
             return
 
@@ -153,12 +162,17 @@ class DialogoCriarBotao(QDialog):
 
     def obter_dados_confirmados(self) -> tuple[str, str, bool]:
         """Retorna (texto_botao, nome_arquivo_md, confirmado)."""
-        ok = self.result() == QDialog.DialogCode.Accepted
+        valido_arq, arquivo_normalizado, _ = validar_nome_arquivo_md(
+            self.edit_arquivo.text(), self.arquivos_existentes
+        )
         texto = self.edit_texto.text().strip()
-        arquivo = self.edit_arquivo.text().strip()
-        if arquivo and not arquivo.endswith(".md"):
-            arquivo = f"{arquivo}.md"
-        return texto, arquivo, ok
+        ok = (
+            self.result() == QDialog.DialogCode.Accepted
+            and bool(texto)
+            and texto.lower() not in self.textos_existentes
+            and valido_arq
+        )
+        return texto, arquivo_normalizado, ok
 
     @classmethod
     def obter_dados(

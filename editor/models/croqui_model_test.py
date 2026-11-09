@@ -1211,7 +1211,7 @@ def test_salvar_croqui_quotes_string_digits(tmp_path):
     model = CroquiModel(croqui)
     model.extrair_arquivos_e_serializar(tmp_path)
 
-    caminho_yaml = tmp_path / "setor_.md"
+    caminho_yaml = tmp_path / "setor.md"
     with open(caminho_yaml, encoding="utf-8") as f:
         conteudo = f.read()
         assert "rotulo: '10'" in conteudo, "Rótulo composto apenas por digitos deve ter aspas"
@@ -1763,14 +1763,14 @@ def test_croqui_model_extrair_arquivos_em_memoria_sem_persistir_no_disco(tmp_pat
     )
 
     assert dados["nome"] == "Croqui RAM"
-    assert not (caminho_db / "setor_setor_ram.md").exists()
+    assert not (caminho_db / "setor_ram.md").exists()
     assert not (caminho_db / "secao_sobre.md").exists()
-    assert "setor_setor_ram.md" in cache_md
-    fm_setor, corpo_setor = cache_md["setor_setor_ram.md"]
+    assert "setor_ram.md" in cache_md
+    fm_setor, corpo_setor = cache_md["setor_ram.md"]
     assert fm_setor is not None
     assert fm_setor["nome"] == "Setor RAM"
     assert corpo_setor == "Corpo do setor em RAM"
-    assert corpos_brutos["setor_setor_ram.md"] == "Corpo do setor em RAM\n"
+    assert corpos_brutos["setor_ram.md"] == "Corpo do setor em RAM\n"
     assert "secao_sobre.md" in cache_md
     assert cache_md["secao_sobre.md"] == (None, "Texto da seção em RAM")
     assert corpos_brutos["secao_sobre.md"] == "Texto da seção em RAM\n"
@@ -1801,3 +1801,61 @@ def test_croqui_model_obter_objeto_por_uid():
     assert model.obter_objeto_por_uid("uid_inexistente") is None
     assert model.obter_objeto_por_uid("") is None
     assert model.obter_objeto_por_uid(None) is None
+
+
+
+def test_extrair_arquivos_e_serializar_higieniza_nomes_toxicos_em_setor_grupo_mapas_e_botao(
+    tmp_path,
+):
+    """Garante que extrair_arquivos_e_serializar higieniza nomes de arquivos e títulos tóxicos sem falhar no SO."""
+    from aresta_api.proto.generated import croqui_pb2
+    from aresta_api.proto.generated.croqui_pb2 import Croqui
+
+    croqui = Croqui(nome="Croqui Caos")
+    pico = croqui.picos.add(nome="Pico 1")
+
+    # 1. Mapas gerais com caminho_novo tóxico (Issue #87)
+    pico.mapas_gerais.conteudo.mapas.add(caminho_imagem_mapa="imagens/mapa.webp")
+    pico.mapas_gerais.Extensions[
+        croqui_pb2.ArquivoMapas.ext_metadados_arquivo
+    ].caminho_novo = "<script>alert('caos')</script>"
+
+    # 2. Setor com caminho_novo tóxico (Issue #86) e nome com caracteres especiais
+    sg_setor = pico.setores_ou_grupos.add()
+    sg_setor.setor.conteudo.nome = "Setor: Fenda / Principal?"
+    sg_setor.setor.Extensions[
+        croqui_pb2.ArquivoSetor.ext_metadados_arquivo
+    ].caminho_novo = "YAML: 'aspas' \"duplas\" : # --- | > @ `"
+
+    # 3. Grupo com caminho_novo tóxico e nome apenas com símbolos
+    sg_grupo = pico.setores_ou_grupos.add()
+    sg_grupo.grupo.conteudo.nome = "???: *** ///"
+    sg_grupo.grupo.Extensions[
+        croqui_pb2.ArquivoGrupo.ext_metadados_arquivo
+    ].caminho_novo = "<script>alert('caos')</script> & <b>bold</b>"
+
+    # 4. Botão de seção textual com caminho_novo tóxico
+    botao = croqui.botoes.add(texto="Sobre & Acesso!")
+    botao.destino.secao_textual.conteudo = "# Sobre\nTexto."
+    botao.destino.secao_textual.Extensions[
+        croqui_pb2.ArquivoMarkdown.ext_metadados_arquivo
+    ].caminho_novo = "YAML: 'aspas' \"duplas\" : # ---"
+
+    model = CroquiModel(croqui)
+    dados = model.extrair_arquivos_e_serializar(tmp_path)
+
+    assert dados["picos"][0]["mapas_gerais"]["caminho"] == "mapas_gerais.md"
+    assert (tmp_path / "mapas_gerais.md").exists()
+
+    assert (
+        dados["picos"][0]["setores_ou_grupos"][0]["setor"]["caminho"]
+        == "setor_fenda_principal.md"
+    )
+    assert (tmp_path / "setor_fenda_principal.md").exists()
+
+    assert dados["picos"][0]["setores_ou_grupos"][1]["grupo"]["caminho"] == "grupo.md"
+    assert (tmp_path / "grupo.md").exists()
+
+    assert dados["botoes"][0]["destino"]["secao_textual"]["caminho"] == "secao_sobre_acesso.md"
+    assert (tmp_path / "secao_sobre_acesso.md").exists()
+
