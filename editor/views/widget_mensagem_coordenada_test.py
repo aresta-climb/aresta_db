@@ -494,6 +494,14 @@ class TestWidgetMensagemCoordenada:
         assert len(pico.malha_estrada.conteudo.nos) == 2
         assert "✅" in widget.rotulo_status_malha.text()
 
+        # Se a malha existente não tiver duracao_minutos (> 0) para nós com distancia_metros > 0, reclama!
+        for no_malha in pico.malha_estrada.conteudo.nos:
+            if no_malha.distancia_metros > 0:
+                no_malha.duracao_minutos = 0
+        widget._atualizar_status_malha_pico()
+        assert "⚠️" in widget.rotulo_status_malha.text()
+        assert "sem tempo em minutos" in widget.rotulo_status_malha.text()
+
     def test_pico_localizacao_sem_controller_e_falha_rede_degrada_graciosamente(
         self, qtbot, monkeypatch
     ):
@@ -587,6 +595,26 @@ class TestWidgetMensagemCoordenada:
         assert dialogo_ok.btn_concluir.isEnabled() is True
         dialogo_ok.btn_concluir.click()
         assert dialogo_ok.result() == QDialog.DialogCode.Accepted
+
+        # Verifica que atualizações consecutivas de download ("Recebendo malha viária...") substituem a mesma linha in-place
+        worker_log = WorkerGeracaoMalhaEstrada(-200000000, -440000000, fake)
+        dialogo_log = DialogoProgressoMalhaEstrada(worker_log)
+        qtbot.addWidget(dialogo_log)
+        dialogo_log._ao_progresso("Consultando malha viária no OpenStreetMap (Overpass API)...", 15)
+        dialogo_log._ao_progresso("Aguardando resposta de overpass-api.de...", 16)
+        dialogo_log._ao_progresso("Recebendo malha viária de overpass-api.de (0.1 MB)...", 18)
+        dialogo_log._ao_progresso("Recebendo malha viária de overpass-api.de (2.4 MB)...", 22)
+        dialogo_log._ao_progresso("Recebendo malha viária de overpass-api.de (6.8 MB)...", 31)
+        dialogo_log._ao_progresso(
+            "Construindo grafo viário e filtrando componente principal (1200 elementos)...", 45
+        )
+        linhas_log = dialogo_log.lista_etapas.toPlainText().splitlines()
+        assert linhas_log == [
+            "[15%] Consultando malha viária no OpenStreetMap (Overpass API)...",
+            "[16%] Aguardando resposta de overpass-api.de...",
+            "[31%] Recebendo malha viária de overpass-api.de (6.8 MB)...",
+            "[45%] Construindo grafo viário e filtrando componente principal (1200 elementos)...",
+        ]
 
         fake_erro = ClienteOverpassFake(simular_erro=RuntimeError("Falha simulada"))
         worker_erro = WorkerGeracaoMalhaEstrada(-200000000, -440000000, fake_erro)

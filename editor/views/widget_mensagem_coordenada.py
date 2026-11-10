@@ -102,6 +102,7 @@ class DialogoProgressoMalhaEstrada(QDialog):
         self.worker = worker
         self.resultado_malha: Any | None = None
         self.mensagem_erro: str | None = None
+        self._ultima_linha_eh_recebimento = False
 
         self.setWindowTitle("Gerando Mapa de Pontos Rodoviários (OpenStreetMap)")
         self.setMinimumWidth(480)
@@ -144,7 +145,17 @@ class DialogoProgressoMalhaEstrada(QDialog):
     def _ao_progresso(self, mensagem: str, percentual: int) -> None:
         self.rotulo_etapa.setText(mensagem)
         self.barra_progresso.setValue(percentual)
-        self.lista_etapas.appendPlainText(f"[{percentual}%] {mensagem}")
+        nova_linha = f"[{percentual}%] {mensagem}"
+        eh_recebimento = mensagem.startswith("Recebendo malha viária")
+        if eh_recebimento and self._ultima_linha_eh_recebimento:
+            linhas = self.lista_etapas.toPlainText().splitlines()
+            linhas[-1] = nova_linha
+            self.lista_etapas.setPlainText("\n".join(linhas))
+            barra = self.lista_etapas.verticalScrollBar()
+            barra.setValue(barra.maximum())
+        else:
+            self.lista_etapas.appendPlainText(nova_linha)
+        self._ultima_linha_eh_recebimento = eh_recebimento
 
     def _ao_concluir(self, malha: Any) -> None:
         self.resultado_malha = malha
@@ -458,6 +469,16 @@ class WidgetMensagemCoordenada(QWidget):
                 f"✅ Mapa de pontos de estrada gerado ({qtd_nos} nós)."
             )
             self.rotulo_status_malha.setStyleSheet("color: #2e7d32; font-size: 11px;")
+        elif any(
+            int(n.distancia_metros or 0) > 0 and int(n.duracao_minutos or 0) <= 0
+            for n in self.msg_pai.malha_estrada.conteudo.nos
+        ):
+            self.rotulo_status_malha.setText(
+                "⚠️ Mapa de pontos de estrada sem tempo em minutos (clique em Gerar Mapa de Pontos)."
+            )
+            self.rotulo_status_malha.setStyleSheet(
+                "color: #ef6c00; font-size: 11px; font-weight: bold;"
+            )
         else:
             self.rotulo_status_malha.setText(
                 "⚠️ Mapa de pontos de estrada não gerado para esta localização."

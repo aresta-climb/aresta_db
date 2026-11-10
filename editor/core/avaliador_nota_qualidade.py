@@ -158,7 +158,7 @@ def _pico_possui_malha_estrada_atualizada(
     croqui_path: Path | None,
     cache_md: Mapping[str, tuple[dict[str, Any] | None, str]] | None,
 ) -> bool:
-    """Verifica se o pico possui localização válida e malha_estrada sincronizada."""
+    """Verifica se o pico possui localização válida e malha_estrada sincronizada com tempo em minutos."""
     if not _coordenada_valida(pico.get("localizacao")):
         return False
     loc = pico["localizacao"]
@@ -170,7 +170,15 @@ def _pico_possui_malha_estrada_atualizada(
         return False
     lat_ref = int(malha_conteudo.get("latitude_referencia_e7") or 0)
     lon_ref = int(malha_conteudo.get("longitude_referencia_e7") or 0)
-    return lat_ref == lat_loc and lon_ref == lon_loc
+    return (
+        lat_ref == lat_loc
+        and lon_ref == lon_loc
+        and all(
+            isinstance(n, Mapping)
+            and (int(n.get("distancia_metros") or 0) <= 0 or int(n.get("duracao_minutos") or 0) > 0)
+            for n in nos
+        )
+    )
 
 
 def _coordenada_valida(coord: Any) -> bool:

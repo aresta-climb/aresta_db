@@ -408,6 +408,31 @@ nos:
     assert resultado_dict.nota_qualidade == 8770
     assert resultado_dict.pronto_para_publicar is True
 
+    # Se malha_estrada.yaml tiver nó com distancia_metros > 0 sem duracao_minutos > 0, considera desatualizada
+    (tmp_path / "malha_estrada.yaml").write_text(
+        """latitude_referencia_e7: -195000000
+longitude_referencia_e7: -435000000
+nos:
+  - no_osm_id: 1001
+    latitude_e7: -195000000
+    longitude_e7: -435000000
+    distancia_metros: 0
+    duracao_minutos: 0
+  - no_osm_id: 1002
+    latitude_e7: -195300000
+    longitude_e7: -435000000
+    distancia_metros: 3500
+    duracao_minutos: 0
+""",
+        encoding="utf-8",
+    )
+    resultado_sem_minutos = avaliar_nota_qualidade_croqui(
+        dados_yaml, croqui_path=tmp_path, cache_md=cache_md
+    )
+    tarefas_sem_min = {t.id_tarefa: t for t in resultado_sem_minutos.etapas[0].tarefas}
+    assert tarefas_sem_min["etapa1_malha_estrada_picos"].concluida is False
+    assert resultado_sem_minutos.pronto_para_publicar is False
+
 
 def test_modalidades_multiplas_enfiadas_highline_e_leitura_direta_do_disco(
     tmp_path: Path,

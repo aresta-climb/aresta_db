@@ -20,6 +20,9 @@ import zlib
 from collections.abc import Callable, Sequence
 from typing import Any
 
+import brotli  # type: ignore[import-untyped]
+import zstandard
+
 from aresta_api.proto.generated import croqui_pb2
 from aresta_api.sql.generated.python.catalogo_sql import (
     LinhaCatalogoDistanciasEstrada,
@@ -30,11 +33,12 @@ RAIO_TERRA_METROS = 6371000.0
 
 ESPELHOS_OVERPASS_PADRAO: tuple[str, ...] = (
     "https://overpass-api.de/api/interpreter",
+    "https://lz4.overpass-api.de/api/interpreter",
     "https://overpass.private.coffee/api/interpreter",
-    "https://maps.mail.ru/osm/tools/overpass/api/interpreter",
 )
 
 USER_AGENT_OVERPASS = "ArestaClimbEditor/1.0 (+https://arestaclimb.com)"
+ACCEPT_ENCODING_OVERPASS = "zstd, br, gzip, deflate"
 
 RANK_POR_HIGHWAY: dict[str, int] = {
     "motorway": 1,
@@ -144,36 +148,63 @@ def calcular_distancia_haversine_metros(
     return RAIO_TERRA_METROS * c
 
 
+def _calcular_bbox_graus(latitude: float, longitude: float, raio_km: float) -> str:
+    """Converte um raio em quilômetros para uma Bounding Box Overpass `sul,oeste,norte,leste`."""
+    delta_lat = raio_km / 111.32
+    fator_lon = max(0.01, math.cos(math.radians(latitude)))
+    delta_lon = raio_km / (111.32 * fator_lon)
+    sul = latitude - delta_lat
+    oeste = longitude - delta_lon
+    norte = latitude + delta_lat
+    leste = longitude + delta_lon
+    return f"{sul:.5f},{oeste:.5f},{norte:.5f},{leste:.5f}"
+
+
 def construir_query_overpass(latitude: float, longitude: float) -> str:
     """
-    Constrói a query Overpass QL escalonada nos raios concêntricos (4 km local, 15 km, 60 km e 180 km)
-    para extrair apenas a hierarquia rodoviária relevante em cada anel.
+    Constrói a query Overpass QL particionada em 3 Bounding Boxes disjuntas
+    (4 km local + unclassified, 60 km tertiary e 180 km motorway..secondary)
+    com ordenação espacial Quadtile (`qt`).
     """
-    coords = f"{latitude},{longitude}"
-    vias_locais = "residential|living_street|road|track|service"
-    vias_anel_1 = (
-        "motorway|motorway_link|trunk|trunk_link|primary|primary_link|"
-        "secondary|secondary_link|tertiary|tertiary_link|unclassified"
-    )
-    vias_anel_2 = (
-        "motorway|motorway_link|trunk|trunk_link|primary|primary_link|"
-        "secondary|secondary_link|tertiary|tertiary_link"
-    )
-    vias_anel_3 = (
+    bbox_4km = _calcular_bbox_graus(latitude, longitude, 4.0)
+    bbox_60km = _calcular_bbox_graus(latitude, longitude, 60.0)
+    bbox_180km = _calcular_bbox_graus(latitude, longitude, 180.0)
+    vias_locais = "residential|living_street|road|track|service|unclassified"
+    vias_terciarias = "tertiary|tertiary_link"
+    vias_principais = (
         "motorway|motorway_link|trunk|trunk_link|primary|primary_link|secondary|secondary_link"
     )
     return (
         "[out:json][timeout:120];\n"
         "(\n"
-        f'  way["highway"~"^({vias_locais})$"](around:4000,{coords});\n'
-        f'  way["highway"~"^({vias_anel_1})$"](around:15000,{coords});\n'
-        f'  way["highway"~"^({vias_anel_2})$"](around:60000,{coords});\n'
-        f'  way["highway"~"^({vias_anel_3})$"](around:180000,{coords});\n'
+        f'  way["highway"~"^({vias_locais})$"]({bbox_4km});\n'
+        f'  way["highway"~"^({vias_terciarias})$"]({bbox_60km});\n'
+        f'  way["highway"~"^({vias_principais})$"]({bbox_180km});\n'
         ");\n"
-        "out body;\n"
+        "out body qt;\n"
         ">;\n"
         "out skel qt;\n"
     )
+
+
+def _criar_descompressor_streaming(
+    content_encoding: str,
+) -> tuple[Callable[[bytes], bytes], Callable[[], bytes]]:
+    """Retorna `(descomprimir_bloco, finalizar)` para o `Content-Encoding` negociado."""
+    codificacao = content_encoding.strip().lower()
+    if codificacao == "zstd":
+        obj_zstd = zstandard.ZstdDecompressor().decompressobj()
+        return obj_zstd.decompress, obj_zstd.flush
+    if codificacao == "br":
+        obj_br = brotli.Decompressor()
+        return obj_br.process, (lambda: b"")
+    if codificacao == "gzip":
+        obj_gzip = zlib.decompressobj(16 + zlib.MAX_WBITS)
+        return obj_gzip.decompress, obj_gzip.flush
+    if codificacao == "deflate":
+        obj_deflate = zlib.decompressobj()
+        return obj_deflate.decompress, obj_deflate.flush
+    return (lambda b: b), (lambda: b"")
 
 
 class ErroMalhaEstradaCancelada(RuntimeError):
@@ -212,6 +243,19 @@ class ClienteOverpass:
         self.timeout_segundos = timeout_segundos
         self._abridor_url: Callable[..., Any] = abridor_url or urllib.request.urlopen
 
+    def _encerrar_queries_pendentes_espelho(self, url_interpreter: str) -> None:
+        """Aciona `/api/kill_my_queries` em best-effort para liberar slots pendentes no espelho."""
+        url_kill = url_interpreter.removesuffix("/interpreter") + "/kill_my_queries"
+        req_kill = urllib.request.Request(
+            url_kill,
+            headers={"User-Agent": USER_AGENT_OVERPASS},
+            method="GET",
+        )
+        try:
+            self._abridor_url(req_kill, timeout=2.0)
+        except Exception:
+            pass
+
     def consultar_malha(
         self,
         latitude: float,
@@ -239,18 +283,24 @@ class ClienteOverpass:
                 headers={
                     "Content-Type": "application/x-www-form-urlencoded; charset=utf-8",
                     "User-Agent": USER_AGENT_OVERPASS,
+                    "Accept-Encoding": ACCEPT_ENCODING_OVERPASS,
                 },
                 method="POST",
             )
             try:
                 resposta = self._abridor_url(requisicao, timeout=float(self.timeout_segundos))
+                cabecalhos = getattr(resposta, "headers", None) or {}
+                codificacao = str(cabecalhos.get("Content-Encoding", "") or "")
+                descomprimir_bloco, finalizar_descompressao = _criar_descompressor_streaming(
+                    codificacao
+                )
                 blocos: list[bytes] = []
                 total_bytes = 0
                 while True:
                     bloco = resposta.read(65536)
                     if not bloco:
                         break
-                    blocos.append(bloco)
+                    blocos.append(descomprimir_bloco(bloco))
                     total_bytes += len(bloco)
                     mb_recebidos = total_bytes / (1024.0 * 1024.0)
                     percentual_download = min(42, 18 + int(min(24.0, mb_recebidos * 2.0)))
@@ -260,14 +310,19 @@ class ClienteOverpass:
                         f"Recebendo malha viária de {host} ({mb_recebidos:.1f} MB)...",
                         percentual_download,
                     )
+                blocos.append(finalizar_descompressao())
                 texto = b"".join(blocos).decode("utf-8")
                 dados = json.loads(texto)
                 elementos = dados.get("elements", [])
                 return list(elementos)
+            except ErroMalhaEstradaCancelada:
+                self._encerrar_queries_pendentes_espelho(url)
+                raise
             except urllib.error.HTTPError as erro:
                 detalhe = erro.read().decode("utf-8", errors="replace")
                 ultimo_erro = RuntimeError(f"Erro HTTP {erro.code} na Overpass API: {detalhe}")
             except (urllib.error.URLError, TimeoutError, OSError) as erro:
+                self._encerrar_queries_pendentes_espelho(url)
                 ultimo_erro = RuntimeError(f"Falha de conexão na Overpass API ({url}): {erro}")
 
         assert ultimo_erro is not None
@@ -536,9 +591,7 @@ def gerar_malha_estrada_pico(
         )
         dist_m = 0 if nid == no_pico else int(round(distancias_estrada[nid]))
         duracao_min = (
-            0
-            if nid == no_pico or dist_m == 0
-            else max(1, int(round(tempos_estrada[nid] / 60.0)))
+            0 if nid == no_pico or dist_m == 0 else max(1, int(round(tempos_estrada[nid] / 60.0)))
         )
         distancias_saida.append(
             {
@@ -562,7 +615,8 @@ def gerar_malha_estrada_pico(
 def malha_estrada_pico_atualizada(pico: Any) -> bool:
     """
     Verifica se a mensagem Pico (ou dict compilado equivalente) possui `localizacao` válida
-    e `malha_estrada.conteudo` não-vazia sincronizada com a coordenada atual do pico.
+    e `malha_estrada.conteudo` não-vazia sincronizada com a coordenada atual do pico
+    e com `duracao_minutos > 0` em todos os nós com `distancia_metros > 0`.
     """
     if isinstance(pico, dict):
         loc_dict = pico.get("localizacao")
@@ -580,7 +634,16 @@ def malha_estrada_pico_atualizada(pico: Any) -> bool:
             return False
         lat_ref = int(malha_dict.get("latitude_referencia_e7", 0) or 0)
         lon_ref = int(malha_dict.get("longitude_referencia_e7", 0) or 0)
-        return lat_ref == lat_loc and lon_ref == lon_loc
+        if lat_ref != lat_loc or lon_ref != lon_loc:
+            return False
+        return all(
+            isinstance(n, dict)
+            and (
+                int(n.get("distancia_metros", 0) or 0) <= 0
+                or int(n.get("duracao_minutos", 0) or 0) > 0
+            )
+            for n in nos_dict
+        )
 
     loc = pico.localizacao
     malha = pico.malha_estrada.conteudo
@@ -590,9 +653,13 @@ def malha_estrada_pico_atualizada(pico: Any) -> bool:
         return False
     if not malha.nos:
         return False
-    return (
-        int(malha.latitude_referencia_e7 or 0) == lat_loc
-        and int(malha.longitude_referencia_e7 or 0) == lon_loc
+    if (
+        int(malha.latitude_referencia_e7 or 0) != lat_loc
+        or int(malha.longitude_referencia_e7 or 0) != lon_loc
+    ):
+        return False
+    return all(
+        int(n.distancia_metros or 0) <= 0 or int(n.duracao_minutos or 0) > 0 for n in malha.nos
     )
 
 

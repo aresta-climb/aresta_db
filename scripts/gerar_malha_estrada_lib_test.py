@@ -9,9 +9,12 @@ import io
 import json
 import urllib.error
 import urllib.request
+import zlib
 from typing import Any
 
+import brotli  # type: ignore[import-untyped]
 import pytest
+import zstandard
 
 from aresta_api.proto.generated import croqui_pb2
 from scripts.cliente_overpass_fake import ClienteOverpassFake
@@ -29,15 +32,18 @@ from scripts.gerar_malha_estrada_lib import (
 )
 
 
-def test_construir_query_overpass_inclui_tres_aneis_escalonados() -> None:
+def test_construir_query_overpass_inclui_tres_bboxes_disjuntas_e_out_body_qt() -> None:
     query = construir_query_overpass(-19.5622616, -43.9595684)
 
-    assert "around:4000,-19.5622616,-43.9595684" in query
-    assert "residential|living_street|road|track|service" in query
-    assert "around:15000,-19.5622616,-43.9595684" in query
-    assert "around:60000,-19.5622616,-43.9595684" in query
-    assert "around:180000,-19.5622616,-43.9595684" in query
+    assert "around:" not in query
+    assert "residential|living_street|road|track|service|unclassified" in query
+    assert query.count("unclassified") == 1
+    assert query.count("tertiary") == 2  # tertiary|tertiary_link em uma única cláusula
+    assert query.count("motorway") == 2  # motorway|motorway_link em uma única cláusula
+    assert "out body qt;" in query
     assert "out skel qt;" in query
+    assert all("maps.mail.ru" not in url for url in ESPELHOS_OVERPASS_PADRAO)
+    assert any("lz4.overpass-api.de" in url for url in ESPELHOS_OVERPASS_PADRAO)
 
 
 def test_cliente_overpass_http_executa_post_e_retorna_elements() -> None:
@@ -98,10 +104,85 @@ def test_cliente_overpass_realiza_failover_entre_espelhos_publicos() -> None:
     assert len(ESPELHOS_OVERPASS_PADRAO) >= 2
     elementos = cliente.consultar_malha(-19.5, -43.9)
     assert elementos == [{"type": "node", "id": 77, "lat": -19.5, "lon": -43.9}]
-    assert chamadas == list(ESPELHOS_OVERPASS_PADRAO[:2])
+    assert chamadas == [
+        ESPELHOS_OVERPASS_PADRAO[0],
+        ESPELHOS_OVERPASS_PADRAO[0].replace("/interpreter", "/kill_my_queries"),
+        ESPELHOS_OVERPASS_PADRAO[1],
+    ]
 
     cliente_padrao = ClienteOverpass(abridor_url=abridor_com_failover)
     assert cliente_padrao.urls_endpoints == ESPELHOS_OVERPASS_PADRAO
+
+
+def test_cliente_overpass_negocia_e_descomprime_zstd_br_gzip_deflate_e_aciona_kill_my_queries() -> (
+    None
+):
+    payload = json.dumps(
+        {"elements": [{"type": "node", "id": 42, "lat": -19.5, "lon": -43.9}]}
+    ).encode("utf-8")
+
+    comp_gzip = zlib.compress(payload, wbits=16 + zlib.MAX_WBITS)
+    comp_deflate = zlib.compress(payload)
+    comp_br = brotli.compress(payload)
+    comp_zstd = zstandard.ZstdCompressor().compress(payload)
+
+    for codificacao, bytes_comprimidos in [
+        ("zstd", comp_zstd),
+        ("br", comp_br),
+        ("gzip", comp_gzip),
+        ("deflate", comp_deflate),
+        ("identity", payload),
+    ]:
+
+        def abridor_codificado(
+            req: urllib.request.Request,
+            timeout: float,
+            _enc: str = codificacao,
+            _dados: bytes = bytes_comprimidos,
+        ) -> Any:
+            assert req.get_header("Accept-encoding") == "zstd, br, gzip, deflate"
+            resp = io.BytesIO(_dados)
+            resp.status = 200  # type: ignore[attr-defined]
+            resp.headers = {"Content-Encoding": _enc}  # type: ignore[attr-defined]
+            return resp
+
+        cliente = ClienteOverpass(
+            url_endpoint="https://overpass.exemplo/api/interpreter",
+            abridor_url=abridor_codificado,
+        )
+        assert cliente.consultar_malha(-19.5, -43.9) == [
+            {"type": "node", "id": 42, "lat": -19.5, "lon": -43.9}
+        ]
+
+    # Verifica que ao cancelar durante o streaming de blocos, chama /api/kill_my_queries (mesmo se kill_my_queries falhar)
+    urls_chamadas: list[str] = []
+
+    def abridor_cancelado(req: urllib.request.Request, timeout: float) -> Any:
+        urls_chamadas.append(req.full_url)
+        if req.full_url.endswith("/kill_my_queries"):
+            raise urllib.error.URLError("kill_my_queries offline")
+        resp = io.BytesIO(comp_zstd)
+        resp.status = 200  # type: ignore[attr-defined]
+        resp.headers = {"Content-Encoding": "zstd"}  # type: ignore[attr-defined]
+        return resp
+
+    passos = 0
+
+    def cancelar_apos_abrir() -> bool:
+        nonlocal passos
+        passos += 1
+        return passos >= 2
+
+    cliente_canc = ClienteOverpass(
+        url_endpoint="https://overpass.exemplo/api/interpreter",
+        abridor_url=abridor_cancelado,
+    )
+    with pytest.raises(ErroMalhaEstradaCancelada):
+        cliente_canc.consultar_malha(-19.5, -43.9, verificador_cancelamento=cancelar_apos_abrir)
+    assert urls_chamadas == [
+        "https://overpass.exemplo/api/interpreter",
+        "https://overpass.exemplo/api/kill_my_queries",
+    ]
 
 
 def test_malha_estrada_pico_proto_conversao_e_deteccao_de_defasagem() -> None:
@@ -144,6 +225,14 @@ def test_malha_estrada_pico_proto_conversao_e_deteccao_de_defasagem() -> None:
     assert malha_estrada_pico_atualizada(pico) is False
     assert extrair_linhas_malha_de_pico_proto("uid_1", pico) == ([], [])
 
+    # Se a coordenada bater, mas algum nó com distancia_metros > 0 estiver sem duracao_minutos (> 0), também é detectada como defasada
+    pico.localizacao.latitude = -200000000
+    assert malha_estrada_pico_atualizada(pico) is True
+    for no_proto in pico.malha_estrada.conteudo.nos:
+        if no_proto.distancia_metros > 0:
+            no_proto.duracao_minutos = 0
+    assert malha_estrada_pico_atualizada(pico) is False
+
     # Cancelamento cooperativo levanta ErroMalhaEstradaCancelada
     with pytest.raises(ErroMalhaEstradaCancelada, match="cancelada"):
         construir_malha_estrada_pico_proto(
@@ -185,9 +274,42 @@ def test_malha_estrada_pico_proto_conversao_e_deteccao_de_defasagem() -> None:
                 "localizacao": {"latitude": -200000000, "longitude": -440000000},
                 "malha_estrada": {
                     "conteudo": {
-                        "latitude_referencia_e7": -200000000,
+                        "latitude_referencia_e7": -201000000,
                         "longitude_referencia_e7": -440000000,
                         "nos": [{"no_osm_id": 100}],
+                    }
+                },
+            }
+        )
+        is False
+    )
+    assert (
+        malha_estrada_pico_atualizada(
+            {
+                "localizacao": {"latitude": -200000000, "longitude": -440000000},
+                "malha_estrada": {
+                    "conteudo": {
+                        "latitude_referencia_e7": -200000000,
+                        "longitude_referencia_e7": -440000000,
+                        "nos": [{"no_osm_id": 100, "distancia_metros": 3500, "duracao_minutos": 0}],
+                    }
+                },
+            }
+        )
+        is False
+    )
+    assert (
+        malha_estrada_pico_atualizada(
+            {
+                "localizacao": {"latitude": -200000000, "longitude": -440000000},
+                "malha_estrada": {
+                    "conteudo": {
+                        "latitude_referencia_e7": -200000000,
+                        "longitude_referencia_e7": -440000000,
+                        "nos": [
+                            {"no_osm_id": 100, "distancia_metros": 0, "duracao_minutos": 0},
+                            {"no_osm_id": 101, "distancia_metros": 3500, "duracao_minutos": 5},
+                        ],
                     }
                 },
             }
