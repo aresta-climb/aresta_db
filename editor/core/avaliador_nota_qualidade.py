@@ -153,24 +153,24 @@ def _resolver_arquivo_md(
     return {}
 
 
-def _pico_possui_malha_estrada_atualizada(
+def _avaliar_estado_malha_estrada_pico(
     pico: Mapping[str, Any],
     croqui_path: Path | None,
     cache_md: Mapping[str, tuple[dict[str, Any] | None, str]] | None,
-) -> bool:
-    """Verifica se o pico possui localização válida e malha_estrada sincronizada com tempo em minutos."""
+) -> str:
+    """Classifica a malha_estrada do pico em 'atualizada' (v>=2), 'versao_antiga' (v<2) ou 'ausente'."""
     if not _coordenada_valida(pico.get("localizacao")):
-        return False
+        return "ausente"
     loc = pico["localizacao"]
     lat_loc = int(loc.get("latitude") or 0)
     lon_loc = int(loc.get("longitude") or 0)
     malha_conteudo = _resolver_arquivo_md(pico.get("malha_estrada"), croqui_path, cache_md)
     nos = malha_conteudo.get("nos")
     if not isinstance(nos, list) or len(nos) == 0:
-        return False
+        return "ausente"
     lat_ref = int(malha_conteudo.get("latitude_referencia_e7") or 0)
     lon_ref = int(malha_conteudo.get("longitude_referencia_e7") or 0)
-    return (
+    sincronizada = (
         lat_ref == lat_loc
         and lon_ref == lon_loc
         and all(
@@ -179,6 +179,12 @@ def _pico_possui_malha_estrada_atualizada(
             for n in nos
         )
     )
+    if not sincronizada:
+        return "ausente"
+    from scripts.gerar_malha_estrada_lib import VERSAO_ATUAL_MALHA_ESTRADA
+
+    versao = int(malha_conteudo.get("versao") or 0)
+    return "atualizada" if versao >= VERSAO_ATUAL_MALHA_ESTRADA else "versao_antiga"
 
 
 def _coordenada_valida(coord: Any) -> bool:
@@ -786,12 +792,25 @@ def avaliar_nota_qualidade_croqui(
         acoes=() if conc_grau else tuple(acoes_grau[:3]),
     )
 
-    # 1.8 Mapa de pontos de estrada dos picos (100% dos picos com malha_estrada atualizada)
+    # 1.8 Mapa de pontos de estrada dos picos (100% dos picos com malha_estrada atualizada na versão atual)
     picos_com_malha = 0
+    unidades_malha = 0.0
     acoes_malha: list[AcaoTarefaQualidade] = []
     for p_idx, pico in enumerate(picos_raw):
-        if _pico_possui_malha_estrada_atualizada(pico, croqui_path, cache_md):
+        estado_malha = _avaliar_estado_malha_estrada_pico(pico, croqui_path, cache_md)
+        if estado_malha == "atualizada":
             picos_com_malha += 1
+            unidades_malha += 1.0
+        elif estado_malha == "versao_antiga":
+            unidades_malha += 0.7
+            nome_p = str(pico.get("nome") or f"Pico {p_idx + 1}").strip()
+            sufixo_p = f" ({nome_p})" if multiplos_picos else ""
+            acoes_malha.append(
+                AcaoTarefaQualidade(
+                    f"Atualizar mapa de pontos{sufixo_p}",
+                    f"page:dados/node:root/node:Croqui/expando:picos/item:{p_idx}/campo:localizacao",
+                )
+            )
         else:
             nome_p = str(pico.get("nome") or f"Pico {p_idx + 1}").strip()
             sufixo_p = f" ({nome_p})" if multiplos_picos else ""
@@ -810,9 +829,12 @@ def avaliar_nota_qualidade_croqui(
         acoes_malha.append(
             AcaoTarefaQualidade("Adicionar pico", "page:dados/node:root/node:Croqui/campo:picos")
         )
-    pts_malha, conc_malha = _pontuar_cobertura(
-        picos_com_malha, len(picos_raw), 1000, meta=1.0, possui_estrutura_base=tem_picos
-    )
+        pts_malha, conc_malha = 0, False
+    elif picos_com_malha == len(picos_raw):
+        pts_malha, conc_malha = 1000, True
+    else:
+        pts_malha = int(round(1000 * (unidades_malha / len(picos_raw))))
+        conc_malha = False
     t1_malha_estrada = TarefaQualidade(
         id_tarefa="etapa1_malha_estrada_picos",
         titulo="Mapa de pontos de estrada dos picos",

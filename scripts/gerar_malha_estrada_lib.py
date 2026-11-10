@@ -32,6 +32,7 @@ from aresta_api.sql.generated.python.catalogo_sql import (
 RAIO_TERRA_METROS = 6371000.0
 RAIO_ANEL_3_KM = 150.0
 DISTANCIA_MAXIMA_ESTRADA_METROS = 200_000.0
+VERSAO_ATUAL_MALHA_ESTRADA = 2
 
 ESPELHOS_OVERPASS_PADRAO: tuple[str, ...] = (
     "https://lz4.overpass-api.de/api/interpreter",
@@ -626,11 +627,23 @@ def gerar_malha_estrada_pico(
     return nos_saida, distancias_saida
 
 
-def malha_estrada_pico_atualizada(pico: Any) -> bool:
+def obter_versao_malha_estrada_pico(pico: Any) -> int:
+    """Retorna a versão do algoritmo gravada em `pico.malha_estrada.conteudo` (0 quando ausente)."""
+    if isinstance(pico, dict):
+        malha_raw = pico.get("malha_estrada")
+        if not isinstance(malha_raw, dict):
+            return 0
+        conteudo_dict = malha_raw.get("conteudo")
+        malha_dict = conteudo_dict if isinstance(conteudo_dict, dict) else malha_raw
+        return int(malha_dict.get("versao", 0) or 0)
+    return int(pico.malha_estrada.conteudo.versao or 0)
+
+
+def malha_estrada_pico_sincronizada(pico: Any) -> bool:
     """
     Verifica se a mensagem Pico (ou dict compilado equivalente) possui `localizacao` válida
     e `malha_estrada.conteudo` não-vazia sincronizada com a coordenada atual do pico
-    e com `duracao_minutos > 0` em todos os nós com `distancia_metros > 0`.
+    e com `duracao_minutos > 0` em todos os nós com `distancia_metros > 0` (independentemente da versão).
     """
     if isinstance(pico, dict):
         loc_dict = pico.get("localizacao")
@@ -677,6 +690,17 @@ def malha_estrada_pico_atualizada(pico: Any) -> bool:
     )
 
 
+def malha_estrada_pico_atualizada(pico: Any) -> bool:
+    """
+    Verifica se `pico` possui malha rodoviária sincronizada com a localização atual
+    e gerada na versão mais recente (`versao >= VERSAO_ATUAL_MALHA_ESTRADA`).
+    """
+    return (
+        malha_estrada_pico_sincronizada(pico)
+        and obter_versao_malha_estrada_pico(pico) >= VERSAO_ATUAL_MALHA_ESTRADA
+    )
+
+
 def construir_malha_estrada_pico_proto(
     latitude_e7: int,
     longitude_e7: int,
@@ -687,11 +711,12 @@ def construir_malha_estrada_pico_proto(
 ) -> croqui_pb2.MalhaEstradaPico:
     """
     Consulta a malha rodoviária para `(latitude_e7, longitude_e7)` e retorna a mensagem
-    `MalhaEstradaPico` populada com a coordenada de referência e os nós ordenados.
+    `MalhaEstradaPico` populada com a coordenada de referência, versão atual e nós ordenados.
     """
     malha_msg = croqui_pb2.MalhaEstradaPico(
         latitude_referencia_e7=latitude_e7,
         longitude_referencia_e7=longitude_e7,
+        versao=VERSAO_ATUAL_MALHA_ESTRADA,
     )
     nos_osm, dists_osm = gerar_malha_estrada_pico(
         "pico",
@@ -724,7 +749,7 @@ def extrair_linhas_malha_de_pico_proto(
     `catalogo_distancias_estrada` a partir de `pico.malha_estrada.conteudo`, desde que
     a malha esteja sincronizada com a localização atual do pico.
     """
-    if not malha_estrada_pico_atualizada(pico):
+    if not malha_estrada_pico_sincronizada(pico):
         return [], []
 
     nos_saida: list[LinhaCatalogoNosEstrada] = []

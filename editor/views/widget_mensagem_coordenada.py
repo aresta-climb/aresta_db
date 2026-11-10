@@ -462,7 +462,12 @@ class WidgetMensagemCoordenada(QWidget):
             self.rotulo_status_malha.setVisible(False)
             return
 
-        from scripts.gerar_malha_estrada_lib import malha_estrada_pico_atualizada
+        from scripts.gerar_malha_estrada_lib import (
+            VERSAO_ATUAL_MALHA_ESTRADA,
+            malha_estrada_pico_atualizada,
+            malha_estrada_pico_sincronizada,
+            obter_versao_malha_estrada_pico,
+        )
 
         if (
             malha_estrada_pico_atualizada(self.msg_pai)
@@ -470,10 +475,23 @@ class WidgetMensagemCoordenada(QWidget):
             and self.msg_pai.malha_estrada.conteudo.longitude_referencia_e7 == lon_e7
         ):
             qtd_nos = len(self.msg_pai.malha_estrada.conteudo.nos)
+            versao_atual = obter_versao_malha_estrada_pico(self.msg_pai)
             self.rotulo_status_malha.setText(
-                f"✅ Mapa de pontos de estrada gerado ({qtd_nos} nós)."
+                f"✅ Mapa de pontos de estrada gerado ({qtd_nos} nós, v{versao_atual})."
             )
             self.rotulo_status_malha.setStyleSheet("color: #2e7d32; font-size: 11px;")
+        elif (
+            malha_estrada_pico_sincronizada(self.msg_pai)
+            and self.msg_pai.malha_estrada.conteudo.latitude_referencia_e7 == lat_e7
+            and self.msg_pai.malha_estrada.conteudo.longitude_referencia_e7 == lon_e7
+        ):
+            versao_antiga = obter_versao_malha_estrada_pico(self.msg_pai)
+            self.rotulo_status_malha.setText(
+                f"⚠️ Mapa de pontos de estrada desatualizado (v{versao_antiga} → v{VERSAO_ATUAL_MALHA_ESTRADA}) — clique em Gerar Mapa de Pontos."
+            )
+            self.rotulo_status_malha.setStyleSheet(
+                "color: #ef6c00; font-size: 11px; font-weight: bold;"
+            )
         elif any(
             int(n.distancia_metros or 0) > 0 and int(n.duracao_minutos or 0) <= 0
             for n in self.msg_pai.malha_estrada.conteudo.nos

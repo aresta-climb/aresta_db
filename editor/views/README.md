@@ -25,5 +25,5 @@ Todos os pontos de entrada e substituição de imagens do editor utilizam os di�
 
 ## Coordenadas Geográficas e Geração de Malha Rodoviária (`widget_mensagem_coordenada.py`)
 
-- **`WidgetMensagemCoordenada`**: Renderiza campos `Coordenada` em E7 com conversão bidirecional para graus decimais, abertura externa no Google Maps e, exclusivamente para `pico.localizacao`, o botão `"Gerar Mapa de Pontos"` com resumo de nós da malha rodoviária OSM (`pico.malha_estrada.conteudo`).
+- **`WidgetMensagemCoordenada`**: Renderiza campos `Coordenada` em E7 com conversão bidirecional para graus decimais, abertura externa no Google Maps e, exclusivamente para `pico.localizacao`, o botão `"Gerar Mapa de Pontos"` com resumo de nós e validação de versão (`VERSAO_ATUAL_MALHA_ESTRADA`) da malha rodoviária OSM (`pico.malha_estrada.conteudo`).
 - **`DialogoProgressoMalhaEstrada` e `WorkerGeracaoMalhaEstrada`**: Executam a consulta Overpass API e simplificação do grafo rodoviário em uma `QThread` em background com barra de progresso (`0–100%`), log de etapas em tempo real e suporte a cancelamento cooperativo sem bloquear a interface do editor.

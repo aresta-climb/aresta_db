@@ -22,6 +22,7 @@ from scripts.gerar_malha_estrada_lib import (
     DISTANCIA_MAXIMA_ESTRADA_METROS,
     ESPELHOS_OVERPASS_PADRAO,
     RAIO_ANEL_3_KM,
+    VERSAO_ATUAL_MALHA_ESTRADA,
     ClienteOverpass,
     ErroMalhaEstradaCancelada,
     _calcular_bbox_graus,
@@ -31,6 +32,8 @@ from scripts.gerar_malha_estrada_lib import (
     extrair_linhas_malha_de_pico_proto,
     gerar_malha_estrada_pico,
     malha_estrada_pico_atualizada,
+    malha_estrada_pico_sincronizada,
+    obter_versao_malha_estrada_pico,
     prioridade_intrinseca_no,
 )
 
@@ -238,6 +241,10 @@ def test_malha_estrada_pico_proto_conversao_e_deteccao_de_defasagem() -> None:
     assert etapas_progresso[-1][1] == 100
 
     pico.malha_estrada.conteudo.CopyFrom(malha_proto)
+    assert VERSAO_ATUAL_MALHA_ESTRADA == 2
+    assert pico.malha_estrada.conteudo.versao == 2
+    assert obter_versao_malha_estrada_pico(pico) == 2
+    assert malha_estrada_pico_sincronizada(pico) is True
     assert malha_estrada_pico_atualizada(pico) is True
 
     nos, dists = extrair_linhas_malha_de_pico_proto("uid_1", pico)
@@ -246,8 +253,19 @@ def test_malha_estrada_pico_proto_conversao_e_deteccao_de_defasagem() -> None:
     assert dists[0]["distancia_metros"] == 0
     assert dists[1]["na_borda"] == 1
 
+    # Se a versão for anterior (< 2), continua sincronizada (exportando para o catálogo), mas NÃO atualizada
+    pico.malha_estrada.conteudo.versao = 1
+    assert obter_versao_malha_estrada_pico(pico) == 1
+    assert malha_estrada_pico_sincronizada(pico) is True
+    assert malha_estrada_pico_atualizada(pico) is False
+    nos_v1, dists_v1 = extrair_linhas_malha_de_pico_proto("uid_1", pico)
+    assert len(nos_v1) == 2
+    assert len(dists_v1) == 2
+    pico.malha_estrada.conteudo.versao = 2
+
     # Ao alterar a coordenada do pico sem regerar a malha, ela passa a ser detectada como defasada
     pico.localizacao.latitude = -201000000
+    assert malha_estrada_pico_sincronizada(pico) is False
     assert malha_estrada_pico_atualizada(pico) is False
     assert extrair_linhas_malha_de_pico_proto("uid_1", pico) == ([], [])
 
@@ -257,6 +275,7 @@ def test_malha_estrada_pico_proto_conversao_e_deteccao_de_defasagem() -> None:
     for no_proto in pico.malha_estrada.conteudo.nos:
         if no_proto.distancia_metros > 0:
             no_proto.duracao_minutos = 0
+    assert malha_estrada_pico_sincronizada(pico) is False
     assert malha_estrada_pico_atualizada(pico) is False
 
     # Cancelamento cooperativo levanta ErroMalhaEstradaCancelada
@@ -269,6 +288,7 @@ def test_malha_estrada_pico_proto_conversao_e_deteccao_de_defasagem() -> None:
         )
 
     # Também funciona quando o pico está em formato dict compilado (usado por deploy_generated.py)
+    assert obter_versao_malha_estrada_pico({"nome": "Sem Malha"}) == 0
     assert malha_estrada_pico_atualizada({"nome": "Sem Localizacao"}) is False
     assert (
         malha_estrada_pico_atualizada(
@@ -317,6 +337,7 @@ def test_malha_estrada_pico_proto_conversao_e_deteccao_de_defasagem() -> None:
                     "conteudo": {
                         "latitude_referencia_e7": -200000000,
                         "longitude_referencia_e7": -440000000,
+                        "versao": 2,
                         "nos": [{"no_osm_id": 100, "distancia_metros": 3500, "duracao_minutos": 0}],
                     }
                 },
@@ -324,24 +345,42 @@ def test_malha_estrada_pico_proto_conversao_e_deteccao_de_defasagem() -> None:
         )
         is False
     )
-    assert (
-        malha_estrada_pico_atualizada(
-            {
-                "localizacao": {"latitude": -200000000, "longitude": -440000000},
-                "malha_estrada": {
-                    "conteudo": {
-                        "latitude_referencia_e7": -200000000,
-                        "longitude_referencia_e7": -440000000,
-                        "nos": [
-                            {"no_osm_id": 100, "distancia_metros": 0, "duracao_minutos": 0},
-                            {"no_osm_id": 101, "distancia_metros": 3500, "duracao_minutos": 5},
-                        ],
-                    }
-                },
+    # Em dict, se versao < 2, malha_estrada_pico_sincronizada é True mas malha_estrada_pico_atualizada é False
+    dict_v1 = {
+        "localizacao": {"latitude": -200000000, "longitude": -440000000},
+        "malha_estrada": {
+            "conteudo": {
+                "latitude_referencia_e7": -200000000,
+                "longitude_referencia_e7": -440000000,
+                "versao": 1,
+                "nos": [
+                    {"no_osm_id": 100, "distancia_metros": 0, "duracao_minutos": 0},
+                    {"no_osm_id": 101, "distancia_metros": 3500, "duracao_minutos": 5},
+                ],
             }
-        )
-        is True
-    )
+        },
+    }
+    assert obter_versao_malha_estrada_pico(dict_v1) == 1
+    assert malha_estrada_pico_sincronizada(dict_v1) is True
+    assert malha_estrada_pico_atualizada(dict_v1) is False
+
+    dict_v2 = {
+        "localizacao": {"latitude": -200000000, "longitude": -440000000},
+        "malha_estrada": {
+            "conteudo": {
+                "latitude_referencia_e7": -200000000,
+                "longitude_referencia_e7": -440000000,
+                "versao": 2,
+                "nos": [
+                    {"no_osm_id": 100, "distancia_metros": 0, "duracao_minutos": 0},
+                    {"no_osm_id": 101, "distancia_metros": 3500, "duracao_minutos": 5},
+                ],
+            }
+        },
+    }
+    assert obter_versao_malha_estrada_pico(dict_v2) == 2
+    assert malha_estrada_pico_sincronizada(dict_v2) is True
+    assert malha_estrada_pico_atualizada(dict_v2) is True
 
 
 def test_gerar_malha_retorna_vazio_para_coordenada_zero_ou_resposta_vazia() -> None:

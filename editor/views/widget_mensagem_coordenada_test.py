@@ -493,6 +493,13 @@ class TestWidgetMensagemCoordenada:
         undo_stack.redo()
         assert len(pico.malha_estrada.conteudo.nos) == 2
         assert "✅" in widget.rotulo_status_malha.text()
+        assert "v2" in widget.rotulo_status_malha.text()
+
+        # Se a malha estiver sincronizada e com tempo em minutos, mas em versão antiga (< 2), avisa para atualizar!
+        pico.malha_estrada.conteudo.versao = 1
+        widget._atualizar_status_malha_pico()
+        assert "⚠️" in widget.rotulo_status_malha.text()
+        assert "desatualizado (v1 → v2)" in widget.rotulo_status_malha.text()
 
         # Se a malha existente não tiver duracao_minutos (> 0) para nós com distancia_metros > 0, reclama!
         for no_malha in pico.malha_estrada.conteudo.nos:

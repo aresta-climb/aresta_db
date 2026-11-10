@@ -28,6 +28,7 @@ def _criar_croqui_etapa1_completa_setor_unico() -> croqui_pb2.Croqui:
     pico.localizacao.longitude = -435000000
     pico.malha_estrada.conteudo.latitude_referencia_e7 = -195000000
     pico.malha_estrada.conteudo.longitude_referencia_e7 = -435000000
+    pico.malha_estrada.conteudo.versao = 2
     no_malha = pico.malha_estrada.conteudo.nos.add()
     no_malha.no_osm_id = 1001
     no_malha.latitude_e7 = -195000000
@@ -301,6 +302,7 @@ def test_avaliacao_completa_todas_etapas_e_suporte_a_dicionario_e_disco(tmp_path
     (tmp_path / "malha_estrada.yaml").write_text(
         """latitude_referencia_e7: -195000000
 longitude_referencia_e7: -435000000
+versao: 2
 nos:
   - no_osm_id: 1001
     latitude_e7: -195000000
@@ -758,3 +760,42 @@ def test_acoes_diretas_desmembradas_por_campo_e_omissao_nome_pico_unico(
     assert t_e3_m["etapa3_associacao_pix"].acoes[0].rotulo == (
         "Adicionar associação (Gruta da Lapinha)"
     )
+
+
+def test_malha_estrada_versao_antiga_concede_700_pontos_e_exibe_acao_atualizar() -> None:
+    """
+    Dado um croqui onde o pico possui malha_estrada sincronizada com duracao_minutos válida,
+    porém com versao < 2 (ex: 0 ou 1), quando avaliado, então etapa1_malha_estrada_picos
+    concede 700 de 1000 pontos, fica com concluida=False (bloqueando pronto_para_publicar)
+    e emite a ação 'Atualizar mapa de pontos'.
+    """
+    croqui = _criar_croqui_etapa1_completa_setor_unico()
+    croqui.picos[0].malha_estrada.conteudo.versao = 1
+
+    resultado = avaliar_nota_qualidade_croqui(croqui)
+    tarefas_e1 = {t.id_tarefa: t for t in resultado.etapas[0].tarefas}
+    t_malha = tarefas_e1["etapa1_malha_estrada_picos"]
+
+    assert t_malha.pontos_obtidos == 700
+    assert t_malha.pontos_maximos == 1000
+    assert t_malha.ganho_potencial == 300
+    assert t_malha.concluida is False
+    assert resultado.etapas[0].pontos_obtidos == 7700
+    assert resultado.etapas[0].concluida is False
+    assert resultado.pronto_para_publicar is False
+    assert [(a.rotulo, a.uri_contexto) for a in t_malha.acoes] == [
+        (
+            "Atualizar mapa de pontos",
+            "page:dados/node:root/node:Croqui/expando:picos/item:0/campo:localizacao",
+        )
+    ]
+
+    # Quando atualizado para versao = 2, passa a conceder 1000 pontos e conclui a Etapa 1
+    croqui.picos[0].malha_estrada.conteudo.versao = 2
+    resultado_v2 = avaliar_nota_qualidade_croqui(croqui)
+    t_malha_v2 = {t.id_tarefa: t for t in resultado_v2.etapas[0].tarefas}[
+        "etapa1_malha_estrada_picos"
+    ]
+    assert t_malha_v2.pontos_obtidos == 1000
+    assert t_malha_v2.concluida is True
+    assert resultado_v2.pronto_para_publicar is True

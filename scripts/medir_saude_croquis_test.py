@@ -47,6 +47,7 @@ class TestMedirSaudeCroquis(unittest.TestCase):
                         "conteudo": {
                             "latitude_referencia_e7": -210000000,
                             "longitude_referencia_e7": -440000000,
+                            "versao": 2,
                             "nos": [
                                 {
                                     "no_osm_id": 10,
