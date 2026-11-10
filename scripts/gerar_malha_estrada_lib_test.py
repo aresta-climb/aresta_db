@@ -19,9 +19,12 @@ import zstandard
 from aresta_api.proto.generated import croqui_pb2
 from scripts.cliente_overpass_fake import ClienteOverpassFake
 from scripts.gerar_malha_estrada_lib import (
+    DISTANCIA_MAXIMA_ESTRADA_METROS,
     ESPELHOS_OVERPASS_PADRAO,
+    RAIO_ANEL_3_KM,
     ClienteOverpass,
     ErroMalhaEstradaCancelada,
+    _calcular_bbox_graus,
     calcular_velocidade_sem_transito_kmh,
     construir_malha_estrada_pico_proto,
     construir_query_overpass,
@@ -40,10 +43,17 @@ def test_construir_query_overpass_inclui_tres_bboxes_disjuntas_e_out_body_qt() -
     assert query.count("unclassified") == 1
     assert query.count("tertiary") == 2  # tertiary|tertiary_link em uma única cláusula
     assert query.count("motorway") == 2  # motorway|motorway_link em uma única cláusula
+    assert "secondary|secondary_link" in query
+    assert _calcular_bbox_graus(-19.5622616, -43.9595684, 150.0) in query
+    assert RAIO_ANEL_3_KM == 150.0
+    assert DISTANCIA_MAXIMA_ESTRADA_METROS == 200_000.0
     assert "out body qt;" in query
     assert "out skel qt;" in query
-    assert all("maps.mail.ru" not in url for url in ESPELHOS_OVERPASS_PADRAO)
-    assert any("lz4.overpass-api.de" in url for url in ESPELHOS_OVERPASS_PADRAO)
+    assert ESPELHOS_OVERPASS_PADRAO == (
+        "https://lz4.overpass-api.de/api/interpreter",
+        "https://overpass.private.coffee/api/interpreter",
+        "https://z.overpass-api.de/api/interpreter",
+    )
 
 
 def test_cliente_overpass_http_executa_post_e_retorna_elements() -> None:
@@ -93,22 +103,38 @@ def test_cliente_overpass_realiza_failover_entre_espelhos_publicos() -> None:
         assert "ArestaClimbEditor/1.0" in req.get_header("User-agent", "")
         if len(chamadas) == 1:
             raise urllib.error.URLError("Servidor 1 indisponivel")
+        if len(chamadas) == 3:
+            raise urllib.error.HTTPError(
+                req.full_url,
+                502,
+                "Bad Gateway",
+                hdrs=None,  # type: ignore[arg-type]
+                fp=io.BytesIO(b"Bad Gateway"),
+            )
         resposta = io.BytesIO(corpo_ok)
         resposta.status = 200  # type: ignore[attr-defined]
         return resposta
 
     cliente = ClienteOverpass(
-        url_endpoint=list(ESPELHOS_OVERPASS_PADRAO[:2]),
+        url_endpoint=list(ESPELHOS_OVERPASS_PADRAO),
         abridor_url=abridor_com_failover,
     )
-    assert len(ESPELHOS_OVERPASS_PADRAO) >= 2
-    elementos = cliente.consultar_malha(-19.5, -43.9)
+    assert len(ESPELHOS_OVERPASS_PADRAO) == 3
+    eventos_failover: list[tuple[str, int]] = []
+    elementos = cliente.consultar_malha(
+        -19.5,
+        -43.9,
+        ao_progresso=lambda msg, pct: eventos_failover.append((msg, pct)),
+    )
     assert elementos == [{"type": "node", "id": 77, "lat": -19.5, "lon": -43.9}]
     assert chamadas == [
         ESPELHOS_OVERPASS_PADRAO[0],
         ESPELHOS_OVERPASS_PADRAO[0].replace("/interpreter", "/kill_my_queries"),
         ESPELHOS_OVERPASS_PADRAO[1],
+        ESPELHOS_OVERPASS_PADRAO[2],
     ]
+    assert any("Falha em lz4.overpass-api.de" in msg for msg, _ in eventos_failover)
+    assert any("Falha em overpass.private.coffee (HTTP 502)" in msg for msg, _ in eventos_failover)
 
     cliente_padrao = ClienteOverpass(abridor_url=abridor_com_failover)
     assert cliente_padrao.urls_endpoints == ESPELHOS_OVERPASS_PADRAO
@@ -393,8 +419,10 @@ def test_amostragem_tres_aneis_deduplica_pela_prioridade_intrinseca_e_marca_port
         {"type": "node", "id": 5, "lat": 0.310, "lon": 0.000},
         {"type": "node", "id": 6, "lat": 0.900, "lon": 0.000},
         {"type": "node", "id": 7, "lat": -0.900, "lon": 0.000},
-        {"type": "node", "id": 8, "lat": 1.850, "lon": 0.000},
+        {"type": "node", "id": 8, "lat": 1.400, "lon": 0.000},
+        {"type": "node", "id": 10, "lat": 0.900, "lon": 1.000},
         {"type": "way", "id": 100, "nodes": [7, 1, 2, 4, 6, 8], "tags": {"highway": "motorway"}},
+        {"type": "way", "id": 105, "nodes": [6, 10], "tags": {"highway": "motorway"}},
         {"type": "way", "id": 101, "nodes": [2, 3, 4], "tags": {"highway": "residential"}},
         {"type": "way", "id": 102, "nodes": [4, 5], "tags": {"highway": "service"}},
         {"type": "way", "id": 103, "nodes": [1, 9, 4], "tags": {"highway": "tertiary"}},
@@ -413,10 +441,12 @@ def test_amostragem_tres_aneis_deduplica_pela_prioridade_intrinseca_e_marca_port
     # No Anel 2, Nó 4 entra e Nó 5 (service, rank 6 > 4) é filtrado
     assert 4 in ids_escolhidos
     assert 5 not in ids_escolhidos
-    # No Anel 3, Nós 6 e 7 entram e são marcados como portais de borda; Nó 8 (>180 km) fica de fora
+    # No Anel 3, Nós 6 e 7 entram e são marcados como portais de borda;
+    # Nó 8 (>150 km em linha reta: ~155.6 km) e Nó 10 (~149 km em linha reta, mas >211 km por estrada via Nó 6) ficam de fora!
     assert 6 in ids_escolhidos
     assert 7 in ids_escolhidos
     assert 8 not in ids_escolhidos
+    assert 10 not in ids_escolhidos
 
     portais = {d["no_osm_id"] for d in distancias if d["na_borda"] == 1}
     assert portais == {6, 7}

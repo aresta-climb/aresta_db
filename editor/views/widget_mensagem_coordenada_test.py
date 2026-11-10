@@ -596,25 +596,35 @@ class TestWidgetMensagemCoordenada:
         dialogo_ok.btn_concluir.click()
         assert dialogo_ok.result() == QDialog.DialogCode.Accepted
 
-        # Verifica que atualizações consecutivas de download ("Recebendo malha viária...") substituem a mesma linha in-place
+        # Verifica que cada linha inclui timestamp + tempo decorrido e que "Recebendo malha viária..." atualiza in-place
+        import re
+
         worker_log = WorkerGeracaoMalhaEstrada(-200000000, -440000000, fake)
         dialogo_log = DialogoProgressoMalhaEstrada(worker_log)
         qtbot.addWidget(dialogo_log)
         dialogo_log._ao_progresso("Consultando malha viária no OpenStreetMap (Overpass API)...", 15)
-        dialogo_log._ao_progresso("Aguardando resposta de overpass-api.de...", 16)
-        dialogo_log._ao_progresso("Recebendo malha viária de overpass-api.de (0.1 MB)...", 18)
-        dialogo_log._ao_progresso("Recebendo malha viária de overpass-api.de (2.4 MB)...", 22)
-        dialogo_log._ao_progresso("Recebendo malha viária de overpass-api.de (6.8 MB)...", 31)
+        dialogo_log._ao_progresso("Aguardando resposta de lz4.overpass-api.de...", 16)
+        dialogo_log._ao_progresso("Recebendo malha viária de lz4.overpass-api.de (0.1 MB)...", 18)
+        dialogo_log._ao_progresso("Recebendo malha viária de lz4.overpass-api.de (2.4 MB)...", 22)
+        dialogo_log._ao_progresso("Recebendo malha viária de lz4.overpass-api.de (6.8 MB)...", 31)
         dialogo_log._ao_progresso(
             "Construindo grafo viário e filtrando componente principal (1200 elementos)...", 45
         )
         linhas_log = dialogo_log.lista_etapas.toPlainText().splitlines()
-        assert linhas_log == [
-            "[15%] Consultando malha viária no OpenStreetMap (Overpass API)...",
-            "[16%] Aguardando resposta de overpass-api.de...",
-            "[31%] Recebendo malha viária de overpass-api.de (6.8 MB)...",
-            "[45%] Construindo grafo viário e filtrando componente principal (1200 elementos)...",
-        ]
+        assert len(linhas_log) == 4
+        padrao_ts = r"^\[\d{2}:\d{2}:\d{2} \+\d+\.\ds\] "
+        for linha in linhas_log:
+            assert re.match(padrao_ts, linha), f"Linha sem timestamp: {linha}"
+        assert linhas_log[0].endswith(
+            "[15%] Consultando malha viária no OpenStreetMap (Overpass API)..."
+        )
+        assert linhas_log[1].endswith("[16%] Aguardando resposta de lz4.overpass-api.de...")
+        assert linhas_log[2].endswith(
+            "[31%] Recebendo malha viária de lz4.overpass-api.de (6.8 MB)..."
+        )
+        assert linhas_log[3].endswith(
+            "[45%] Construindo grafo viário e filtrando componente principal (1200 elementos)..."
+        )
 
         fake_erro = ClienteOverpassFake(simular_erro=RuntimeError("Falha simulada"))
         worker_erro = WorkerGeracaoMalhaEstrada(-200000000, -440000000, fake_erro)

@@ -30,11 +30,13 @@ from aresta_api.sql.generated.python.catalogo_sql import (
 )
 
 RAIO_TERRA_METROS = 6371000.0
+RAIO_ANEL_3_KM = 150.0
+DISTANCIA_MAXIMA_ESTRADA_METROS = 200_000.0
 
 ESPELHOS_OVERPASS_PADRAO: tuple[str, ...] = (
-    "https://overpass-api.de/api/interpreter",
     "https://lz4.overpass-api.de/api/interpreter",
     "https://overpass.private.coffee/api/interpreter",
+    "https://z.overpass-api.de/api/interpreter",
 )
 
 USER_AGENT_OVERPASS = "ArestaClimbEditor/1.0 (+https://arestaclimb.com)"
@@ -163,12 +165,12 @@ def _calcular_bbox_graus(latitude: float, longitude: float, raio_km: float) -> s
 def construir_query_overpass(latitude: float, longitude: float) -> str:
     """
     Constrói a query Overpass QL particionada em 3 Bounding Boxes disjuntas
-    (4 km local + unclassified, 60 km tertiary e 180 km motorway..secondary)
+    (4 km local + unclassified, 60 km tertiary e 150 km motorway..secondary)
     com ordenação espacial Quadtile (`qt`).
     """
     bbox_4km = _calcular_bbox_graus(latitude, longitude, 4.0)
     bbox_60km = _calcular_bbox_graus(latitude, longitude, 60.0)
-    bbox_180km = _calcular_bbox_graus(latitude, longitude, 180.0)
+    bbox_150km = _calcular_bbox_graus(latitude, longitude, RAIO_ANEL_3_KM)
     vias_locais = "residential|living_street|road|track|service|unclassified"
     vias_terciarias = "tertiary|tertiary_link"
     vias_principais = (
@@ -179,7 +181,7 @@ def construir_query_overpass(latitude: float, longitude: float) -> str:
         "(\n"
         f'  way["highway"~"^({vias_locais})$"]({bbox_4km});\n'
         f'  way["highway"~"^({vias_terciarias})$"]({bbox_60km});\n'
-        f'  way["highway"~"^({vias_principais})$"]({bbox_180km});\n'
+        f'  way["highway"~"^({vias_principais})$"]({bbox_150km});\n'
         ");\n"
         "out body qt;\n"
         ">;\n"
@@ -269,7 +271,7 @@ class ClienteOverpass:
         corpo = urllib.parse.urlencode({"data": query}).encode("utf-8")
         ultimo_erro: Exception | None = None
 
-        for url in self.urls_endpoints:
+        for idx, url in enumerate(self.urls_endpoints):
             host = urllib.parse.urlparse(url).netloc or url
             _notificar_progresso(
                 ao_progresso,
@@ -321,9 +323,19 @@ class ClienteOverpass:
             except urllib.error.HTTPError as erro:
                 detalhe = erro.read().decode("utf-8", errors="replace")
                 ultimo_erro = RuntimeError(f"Erro HTTP {erro.code} na Overpass API: {detalhe}")
+                motivo_failover = f"HTTP {erro.code}"
             except (urllib.error.URLError, TimeoutError, OSError) as erro:
                 self._encerrar_queries_pendentes_espelho(url)
                 ultimo_erro = RuntimeError(f"Falha de conexão na Overpass API ({url}): {erro}")
+                motivo_failover = str(erro)
+
+            if idx + 1 < len(self.urls_endpoints):
+                _notificar_progresso(
+                    ao_progresso,
+                    verificador_cancelamento,
+                    f"Falha em {host} ({motivo_failover}), tentando próximo espelho...",
+                    16,
+                )
 
         assert ultimo_erro is not None
         raise ultimo_erro
@@ -512,6 +524,8 @@ def gerar_malha_estrada_pico(
     vencedores_celula: dict[tuple[int, int, int], tuple[tuple[int, int, int], int, int, float]] = {}
 
     for nid in distancias_estrada:
+        if nid != no_pico and distancias_estrada[nid] > DISTANCIA_MAXIMA_ESTRADA_METROS:
+            continue
         lat_no, lon_no = coordenadas[nid]
         dist_reta_km = (
             calcular_distancia_haversine_metros(lat_pico, lon_pico, lat_no, lon_no) / 1000.0
@@ -526,7 +540,7 @@ def gerar_malha_estrada_pico(
             anel = 2
             passo = 0.06
             rank_max = 4
-        elif dist_reta_km <= 180.0:
+        elif dist_reta_km <= RAIO_ANEL_3_KM:
             anel = 3
             passo = 0.18
             rank_max = 3

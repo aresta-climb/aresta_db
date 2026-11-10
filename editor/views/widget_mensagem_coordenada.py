@@ -8,6 +8,8 @@ Exibe na primeira linha os botões de ação ('Colar', 'Abrir no Maps' e, em Pic
 Latitude e Longitude na mesma linha horizontal.
 """
 
+import time
+from datetime import datetime
 from typing import Any
 
 from PySide6.QtCore import QThread, QTimer, QUrl, Signal
@@ -103,6 +105,7 @@ class DialogoProgressoMalhaEstrada(QDialog):
         self.resultado_malha: Any | None = None
         self.mensagem_erro: str | None = None
         self._ultima_linha_eh_recebimento = False
+        self._instante_inicio = time.monotonic()
 
         self.setWindowTitle("Gerando Mapa de Pontos Rodoviários (OpenStreetMap)")
         self.setMinimumWidth(480)
@@ -145,7 +148,9 @@ class DialogoProgressoMalhaEstrada(QDialog):
     def _ao_progresso(self, mensagem: str, percentual: int) -> None:
         self.rotulo_etapa.setText(mensagem)
         self.barra_progresso.setValue(percentual)
-        nova_linha = f"[{percentual}%] {mensagem}"
+        decorrido = max(0.0, time.monotonic() - self._instante_inicio)
+        horario = datetime.now().strftime("%H:%M:%S")
+        nova_linha = f"[{horario} +{decorrido:.1f}s] [{percentual}%] {mensagem}"
         eh_recebimento = mensagem.startswith("Recebendo malha viária")
         if eh_recebimento and self._ultima_linha_eh_recebimento:
             linhas = self.lista_etapas.toPlainText().splitlines()
