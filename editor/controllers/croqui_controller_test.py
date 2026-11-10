@@ -1329,6 +1329,29 @@ def test_croqui_controller_ciclo_completo_curadoria_betas_undo_redo(qapp):
     assert len(curadoria_esc.betas_rejeitados) == 1
     assert curadoria_esc.betas_rejeitados[0].url == "https://blogescalada.com/via-classica"
 
+    # 7. Adicionar betas auto-rejeitados em lote (adicionar_betas_rejeitados_lote) com deduplicação e Undo/Redo
+    m_rej_novo = beta_pb2.MidiaBeta(
+        url="https://pt.scribd.com/document/123/Croqui-PDF",
+        titulo="[Query: geral | Auto-filtrado: domínio bloqueado] Croqui PDF",
+        fonte=beta_pb2.FonteMidia.BLOG,
+    )
+    m_rej_dup = beta_pb2.MidiaBeta(
+        url="https://blogescalada.com/via-classica",
+        titulo="Duplicata já rejeitada",
+        fonte=beta_pb2.FonteMidia.BLOG,
+    )
+    rej_adicionados = controller.adicionar_betas_rejeitados_lote("esc_1", [m_rej_novo, m_rej_dup])
+    assert rej_adicionados == 1
+    assert len(curadoria_esc.betas_rejeitados) == 2
+    assert curadoria_esc.betas_rejeitados[1].titulo.startswith(
+        "[Query: geral | Auto-filtrado: domínio bloqueado]"
+    )
+    assert controller.adicionar_betas_rejeitados_lote("esc_1", [m_rej_novo]) == 0
+    undo_stack.undo()
+    assert len(curadoria_esc.betas_rejeitados) == 1
+    undo_stack.redo()
+    assert len(curadoria_esc.betas_rejeitados) == 2
+
     # Validação de erro para origem inválida ou escalada inexistente
     with pytest.raises(ValueError):
         controller.aprovar_beta_curadoria("esc_1", "origem_invalida", 0)

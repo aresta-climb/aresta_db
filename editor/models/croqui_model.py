@@ -578,12 +578,17 @@ class CroquiModel(QObject):
                 elif sg.HasField("grupo"):
                     _carregar_arquivo_grupo(sg.grupo)
 
-        # 3. Carrega Curadoria de Betas (curadoria_betas.md)
+        # 3. Carrega Curadoria de Betas (curadoria_betas.yaml ou curadoria_betas.md legado)
         if croqui_msg.HasField("curadoria_betas"):
             arq_cur = croqui_msg.curadoria_betas
             if arq_cur.WhichOneof("arquivo") == "caminho" and arq_cur.caminho:
                 nome_relativo = arq_cur.caminho
                 caminho_arquivo = caminho_db / nome_relativo
+                if not caminho_arquivo.exists() and nome_relativo.endswith(".md"):
+                    alt_yaml = f"{nome_relativo[:-3]}.yaml"
+                    if (caminho_db / alt_yaml).exists():
+                        nome_relativo = alt_yaml
+                        caminho_arquivo = caminho_db / alt_yaml
                 if caminho_arquivo.exists():
                     try:
                         from aresta_api.proto.generated.croqui_pb2 import ArquivoCuradoriaBetas
@@ -592,6 +597,12 @@ class CroquiModel(QObject):
                             caminho_arquivo, arq_cur, ArquivoCuradoriaBetas.ext_metadados_arquivo
                         )
                         if dados_cur:
+                            dados_cur.pop("uid", None)
+                            dados_cur.pop("id", None)
+                            for item_esc_cur in dados_cur.get("escaladas", []):
+                                if isinstance(item_esc_cur, dict):
+                                    item_esc_cur.pop("uid", None)
+                                    item_esc_cur.pop("id", None)
                             json_format.ParseDict(
                                 dados_cur, arq_cur.conteudo, ignore_unknown_fields=True
                             )
@@ -600,7 +611,7 @@ class CroquiModel(QObject):
                             ].caminho_original = nome_relativo
                             arq_cur.Extensions[
                                 ArquivoCuradoriaBetas.ext_metadados_arquivo
-                            ].caminho_novo = nome_relativo
+                            ].caminho_novo = "curadoria_betas.yaml"
                             arq_cur.ClearField("caminho")
                         else:
                             if arq_cur.HasExtension(ArquivoCuradoriaBetas.ext_metadados_arquivo):
@@ -941,7 +952,7 @@ class CroquiModel(QObject):
             if ext:
                 ext.caminho_original = novo_caminho
 
-        # Curadoria de Betas (curadoria_betas.md)
+        # Curadoria de Betas (curadoria_betas.yaml)
         if croqui_msg_copy.HasField("curadoria_betas"):
             from aresta_api.proto.generated.croqui_pb2 import ArquivoCuradoriaBetas
 
@@ -951,16 +962,17 @@ class CroquiModel(QObject):
                 ext_cur = None
                 if arq_cur_ref.HasExtension(ArquivoCuradoriaBetas.ext_metadados_arquivo):
                     ext_cur = arq_cur_ref.Extensions[ArquivoCuradoriaBetas.ext_metadados_arquivo]
-                original_caminho_cur = ext_cur.caminho_original if ext_cur else None
+                original_caminho_cur = (
+                    ext_cur.caminho_original
+                    if ext_cur and ext_cur.caminho_original
+                    else None
+                )
                 proposto_cur = (
                     ext_cur.caminho_novo if ext_cur and ext_cur.caminho_novo else None
                 )
-                novo_caminho_cur = garantir_nome_arquivo_md_seguro(
-                    proposto_cur,
-                    None,
-                    "curadoria_betas",
-                    caminho_original=original_caminho_cur,
-                )
+                novo_caminho_cur = proposto_cur or original_caminho_cur or "curadoria_betas.yaml"
+                if not novo_caminho_cur.endswith(".yaml"):
+                    novo_caminho_cur = f"{Path(novo_caminho_cur).stem}.yaml"
 
                 escaladas_nao_vazias = [
                     esc
@@ -977,7 +989,11 @@ class CroquiModel(QObject):
 
                 if not escaladas_nao_vazias:
                     if persistir_no_disco:
-                        for cam_antigo in {original_caminho_cur, novo_caminho_cur}:
+                        for cam_antigo in {
+                            original_caminho_cur,
+                            novo_caminho_cur,
+                            "curadoria_betas.md",
+                        }:
                             if cam_antigo:
                                 arq_disco = caminho_db_path / cam_antigo
                                 if arq_disco.exists():
@@ -989,27 +1005,27 @@ class CroquiModel(QObject):
                     if arq_cur_ref.HasExtension(ArquivoCuradoriaBetas.ext_metadados_arquivo):
                         arq_cur_ref.ClearExtension(ArquivoCuradoriaBetas.ext_metadados_arquivo)
                 else:
-                    if original_caminho_cur and original_caminho_cur != novo_caminho_cur:
-                        old_cur_path = caminho_db_path / original_caminho_cur
-                        if old_cur_path.exists():
-                            try:
-                                old_cur_path.unlink()
-                            except Exception:
-                                pass
+                    for cam_obsoleto in {original_caminho_cur, "curadoria_betas.md"}:
+                        if cam_obsoleto and cam_obsoleto != novo_caminho_cur:
+                            old_cur_path = caminho_db_path / cam_obsoleto
+                            if old_cur_path.exists():
+                                try:
+                                    old_cur_path.unlink()
+                                except Exception:
+                                    pass
 
-                    conteudo_cur_dict = MessageToDict(
-                        arq_cur.conteudo, preserving_proto_field_name=True
+                    conteudo_cur_dict = sanitizar_dicionario_sem_extensoes(
+                        MessageToDict(arq_cur.conteudo, preserving_proto_field_name=True)
                     )
-                    json_orig_cur = (
-                        ext_cur.dados_json_originais
-                        if ext_cur and ext_cur.dados_json_originais
-                        else None
-                    )
-                    _salvar_objeto_com_frontmatter(
-                        caminho_db_path / novo_caminho_cur,
-                        conteudo_cur_dict,
-                        json_original=json_orig_cur,
-                    )
+                    if cache_md_out is not None:
+                        cache_md_out[novo_caminho_cur] = (conteudo_cur_dict, "")
+                    if persistir_no_disco:
+                        yaml_cur_str = serializar_yaml(
+                            conteudo_cur_dict, incluir_cabecalho_spdx=True
+                        ).replace("\r\n", "\n")
+                        escrever_texto_se_modificado(
+                            caminho_db_path / novo_caminho_cur, yaml_cur_str
+                        )
                     arq_cur.caminho = novo_caminho_cur
                     arq_cur.ClearField("conteudo")
                     arq_cur.ClearExtension(ArquivoCuradoriaBetas.ext_metadados_arquivo)

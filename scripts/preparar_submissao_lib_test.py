@@ -3771,3 +3771,79 @@ def test_compilar_croqui_e_corrigir_database_com_malha_estrada_yaml(tmp_path: Pa
     assert msg.picos[0].malha_estrada.conteudo.nos[0].no_osm_id == 999888
     assert msg.picos[0].malha_estrada.conteudo.nos[0].na_borda is True
 
+
+def test_compilar_croqui_e_corrigir_database_com_curadoria_betas_yaml_sem_erro_uid(
+    tmp_path: Path, capsys: pytest.CaptureFixture[str]
+) -> None:
+    """
+    Valida que corrigir_database preserva curadoria_betas.yaml sem injetar 'uid' nas entradas de escaladas,
+    e compilar_croqui ignora chaves 'uid' espúrias legadas em CuradoriaBetasEscalada, emite aviso de pendências
+    e remove curadoria_betas do artefato compilado final.
+    """
+    from scripts.migrador import obter_ultima_versao_migracao
+
+    pico_dir = tmp_path / "croqui_curadoria_yaml"
+    pico_dir.mkdir()
+
+    curadoria_yaml = pico_dir / "curadoria_betas.yaml"
+    curadoria_yaml.write_text(
+        serializar_yaml(
+            {
+                "uid": "uid_espurio_raiz",
+                "escaladas": [
+                    {
+                        "uid": "uid_espurio_item",
+                        "escalada_uid": "esc_uid_123456",
+                        "betas_nao_scorados": [
+                            {
+                                "midia": {
+                                    "url": "https://www.instagram.com/reel/abc123/",
+                                    "titulo": "Beta no Instagram",
+                                    "fonte": "INSTAGRAM",
+                                },
+                                "match_nome_no_snippet": True,
+                            }
+                        ],
+                    }
+                ],
+            },
+            incluir_cabecalho_spdx=False,
+        ),
+        encoding="utf-8",
+    )
+
+    croqui_yaml = pico_dir / "croqui.yaml"
+    croqui_yaml.write_text(
+        serializar_yaml(
+            {
+                "uid": gerar_uid(),
+                "id": "croqui_curadoria_yaml",
+                "nome": "Croqui Curadoria YAML",
+                "ultima_migracao": obter_ultima_versao_migracao(),
+                "curadoria_betas": {"caminho": "curadoria_betas.yaml"},
+                "picos": [
+                    {
+                        "nome": "Pico Curadoria",
+                        "localizacao": {"latitude": -195622616, "longitude": -439595684},
+                    }
+                ],
+            },
+            incluir_cabecalho_spdx=True,
+        ),
+        encoding="utf-8",
+    )
+
+    assert corrigir_database(pico_dir) is True
+    assert curadoria_yaml.exists()
+    assert curadoria_yaml.read_text(encoding="utf-8").startswith(
+        "# SPDX-License-Identifier: ODbL-1.0\n"
+    )
+
+    destino_pb = tmp_path / "compilado.binarypb"
+    compilado = compilar_croqui(pico_dir, None, destino_pb)
+    saida = capsys.readouterr().out
+    assert "possui 1 beta(s) pendente(s) de curadoria" in saida
+    assert "curadoria_betas" not in compilado
+    assert destino_pb.exists()
+
+

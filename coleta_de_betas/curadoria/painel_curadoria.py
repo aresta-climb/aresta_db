@@ -128,9 +128,21 @@ class CardBetaCuradoria(QFrame):
         layout_textos = QVBoxLayout()
         layout_textos.setSpacing(4)
 
+        texto_via_setor = (
+            f"🧗 Via: {nome_escalada}  •  📍 {nome_setor}"
+            if nome_setor
+            else f"🧗 Via: {nome_escalada}"
+        )
+        self.label_via_setor = QLabel(texto_via_setor)
+        self.label_via_setor.setStyleSheet(
+            "background-color: #f0fdf4; color: #166534; font-weight: bold; "
+            "border: 1px solid #bbf7d0; border-radius: 4px; padding: 2px 8px; font-size: 11px;"
+        )
+        self.label_via_setor.setWordWrap(True)
+        layout_textos.addWidget(self.label_via_setor)
+
         layout_cabecalho = QHBoxLayout()
-        prefixo_via = f"[{nome_escalada}] " if nome_escalada else ""
-        titulo_exibido = f"{prefixo_via}{self.midia.titulo or self.midia.url}"
+        titulo_exibido = self.midia.titulo or self.midia.url
         self.label_titulo = QLabel(titulo_exibido)
         self.label_titulo.setFont(QFont("Segoe UI", 10, QFont.Weight.Bold))
         self.label_titulo.setWordWrap(True)
@@ -357,6 +369,11 @@ class PainelCuradoria(QWidget):
             clipboard.setText(
                 "Execute a skill avaliar_betas_croqui para avaliar e pontuar os betas_nao_scorados deste croqui."
             )
+        self.btn_copiar_prompt_mcp.setText("✅ Copiado para a área de transferência!")
+        QTimer.singleShot(2000, self._restaurar_botao_copiar_prompt_mcp)
+
+    def _restaurar_botao_copiar_prompt_mcp(self) -> None:
+        self.btn_copiar_prompt_mcp.setText("📋 Copiar Prompt MCP")
 
     @staticmethod
     def _obter_pilha_undo(controller: Any) -> Any | None:

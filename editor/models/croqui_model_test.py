@@ -1862,16 +1862,24 @@ def test_extrair_arquivos_e_serializar_higieniza_nomes_toxicos_em_setor_grupo_ma
 
 def test_croqui_model_carrega_e_extrai_curadoria_betas_omitindo_entradas_vazias(tmp_path):
     """
-    Valida que CroquiModel carrega curadoria_betas.md para a memória via ONEOF_CONTEUDO,
-    persiste apenas escaladas com itens de curadoria não vazios e remove o arquivo quando esvaziado.
+    Valida que CroquiModel carrega curadoria_betas.yaml (e migra eventual curadoria_betas.md legado)
+    para a memória via ONEOF_CONTEUDO, persiste apenas escaladas com itens de curadoria não vazios
+    em YAML puro (curadoria_betas.yaml) e remove o arquivo quando esvaziado.
     """
-    from aresta_api.proto.generated import beta_pb2
+    from aresta_api.proto.generated import beta_pb2, croqui_pb2
     from aresta_api.proto.generated.croqui_pb2 import Croqui
 
     db_path = tmp_path / "database"
     db_path.mkdir()
 
+    # Simula arquivo legado curadoria_betas.md que deve ser removido na migração para .yaml
+    arquivo_legado_md = db_path / "curadoria_betas.md"
+    arquivo_legado_md.write_text("---\nescaladas: []\n---\n", encoding="utf-8")
+
     croqui = Croqui(id="br_mg_teste", nome="Croqui Betas")
+    croqui.curadoria_betas.Extensions[
+        croqui_pb2.ArquivoCuradoriaBetas.ext_metadados_arquivo
+    ].caminho_original = "curadoria_betas.md"
     esc_com_itens = croqui.curadoria_betas.conteudo.escaladas.add(escalada_uid="esc_com_itens1")
     cand = esc_com_itens.betas_nao_scorados.add()
     cand.midia.url = "https://blog.exemplo.com/via-1"
@@ -1883,15 +1891,21 @@ def test_croqui_model_carrega_e_extrai_curadoria_betas_omitindo_entradas_vazias(
     croqui.curadoria_betas.conteudo.escaladas.add(escalada_uid="esc_vazia_0000")
 
     model = CroquiModel(croqui)
-    dados = model.extrair_arquivos_e_serializar(db_path)
+    cache_md: dict = {}
+    dados = model.extrair_arquivos_e_serializar(db_path, cache_md_out=cache_md)
 
-    assert dados["curadoria_betas"]["caminho"] == "curadoria_betas.md"
-    arquivo_curadoria = db_path / "curadoria_betas.md"
+    assert dados["curadoria_betas"]["caminho"] == "curadoria_betas.yaml"
+    arquivo_curadoria = db_path / "curadoria_betas.yaml"
     assert arquivo_curadoria.exists()
+    assert not arquivo_legado_md.exists()
+    texto_curadoria = arquivo_curadoria.read_text(encoding="utf-8")
+    assert texto_curadoria.startswith("# SPDX-License-Identifier: ODbL-1.0\n")
+    assert not texto_curadoria.startswith("---")
+    assert "curadoria_betas.yaml" in cache_md
 
     # Recarrega em uma nova instância de Croqui a partir do caminho
     croqui_recarregado = Croqui(id="br_mg_teste", nome="Croqui Betas")
-    croqui_recarregado.curadoria_betas.caminho = "curadoria_betas.md"
+    croqui_recarregado.curadoria_betas.caminho = "curadoria_betas.yaml"
     model_recarregado = CroquiModel(croqui_recarregado)
     model_recarregado.carregar_arquivos_externos(db_path)
 

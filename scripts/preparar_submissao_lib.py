@@ -2281,7 +2281,7 @@ def compilar_croqui(
 
     # 2.5.1. Inspeciona curadoria_betas (emite AVISO para pendências e valida antes de limpar)
     cb_raw = croqui_data.get("curadoria_betas")
-    caminho_cb = "curadoria_betas.md"
+    caminho_cb = "curadoria_betas.yaml"
     conteudo_cb: dict[str, Any] | None = None
     if isinstance(cb_raw, dict):
         if isinstance(cb_raw.get("conteudo"), dict):
@@ -2290,25 +2290,47 @@ def compilar_croqui(
             caminho_cb = cb_raw["caminho"].strip()
 
     if conteudo_cb is None:
-        md_cb_path = pico_path / caminho_cb
-        if (
-            cache_md_memoria is not None
-            and _chave_cache_md(md_cb_path, pico_path) in cache_md_memoria
-        ) or md_cb_path.exists():
-            fm_cb, _ = _ler_md_com_cache(md_cb_path, pico_path, cache_md_memoria)
-            if isinstance(fm_cb, dict):
-                conteudo_cb = fm_cb
+        caminhos_candidatos = [caminho_cb]
+        if caminho_cb.endswith(".yaml"):
+            caminhos_candidatos.append("curadoria_betas.md")
+        elif caminho_cb.endswith(".md"):
+            caminhos_candidatos.append("curadoria_betas.yaml")
+
+        for cam_cand in caminhos_candidatos:
+            arq_cb_path = pico_path / cam_cand
+            chave_cb = _chave_cache_md(arq_cb_path, pico_path)
+            if cache_md_memoria is not None and chave_cb in cache_md_memoria:
+                dados_cb_mem, _ = cache_md_memoria[chave_cb]
+                if isinstance(dados_cb_mem, dict):
+                    conteudo_cb = copy.deepcopy(dados_cb_mem)
+                    break
+            elif arq_cb_path.exists():
+                if cam_cand.endswith(".yaml"):
+                    lido_cb = carregar_yaml(arq_cb_path.read_text(encoding="utf-8"))
+                    if isinstance(lido_cb, dict):
+                        conteudo_cb = lido_cb
+                        break
+                else:
+                    fm_cb, _ = _ler_md_com_cache(arq_cb_path, pico_path, cache_md_memoria)
+                    if isinstance(fm_cb, dict):
+                        conteudo_cb = fm_cb
+                        break
 
     if isinstance(conteudo_cb, dict):
+        escaladas_cb_limpas: list[dict[str, Any]] = []
+        for item_cb in copy.deepcopy(conteudo_cb.get("escaladas", [])):
+            if isinstance(item_cb, dict):
+                item_cb.pop("uid", None)
+                item_cb.pop("id", None)
+                escaladas_cb_limpas.append(item_cb)
         croqui_data["curadoria_betas"] = {
-            "conteudo": {"escaladas": copy.deepcopy(conteudo_cb.get("escaladas", []))}
+            "conteudo": {"escaladas": escaladas_cb_limpas}
         }
         total_nao_scorados = 0
         total_nao_revisados = 0
-        for esc_cb in conteudo_cb.get("escaladas", []):
-            if isinstance(esc_cb, dict):
-                total_nao_scorados += len(esc_cb.get("betas_nao_scorados", []))
-                total_nao_revisados += len(esc_cb.get("betas_nao_revisados", []))
+        for esc_cb in escaladas_cb_limpas:
+            total_nao_scorados += len(esc_cb.get("betas_nao_scorados", []))
+            total_nao_revisados += len(esc_cb.get("betas_nao_revisados", []))
         total_pendentes_cb = total_nao_scorados + total_nao_revisados
         if total_pendentes_cb > 0:
             print(

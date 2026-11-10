@@ -3,30 +3,33 @@
 
 """
 Extrator web unificado de betas de escalada (YouTube, Instagram, TikTok, Facebook,
-Twitter/X, Reddit, portais UGC e Blogs) via ddgs com prevenção de rate-limit.
+Twitter/X, Reddit, portais UGC e Blogs) via ddgs com sessão TLS persistente,
+5 queries identificadas por escalada, sanitização, matching bidirecional de espaços/typos,
+blocklist de agregadores e auditoria de descartes em betas_rejeitados.
 """
 
-import html
 import re
+import threading
 import time
+import unicodedata
 from collections.abc import Callable, Sequence
-from html.parser import HTMLParser
-from typing import Any, cast
+from difflib import SequenceMatcher
+from typing import Any
 from urllib.parse import parse_qs, urlparse
 
-import requests
+import primp
 from ddgs import DDGS
+from ddgs.engines.yahoo import Yahoo
 
 from aresta_api.proto.generated import beta_pb2
 from coleta_de_betas.extratores.cliente_http_fake import (
     BuscadorWebProtocolo,
     ClienteHttpProtocolo,
 )
+from coleta_de_betas.extratores.deduplicador import normalizar_url
 
 BACKENDS_WEB_PADRAO: tuple[str, ...] = (
     "yahoo",
-    "duckduckgo",
-    "startpage",
     "brave",
 )
 
@@ -44,41 +47,168 @@ DOMINIOS_OUTRO_UGC: tuple[str, ...] = (
     "dailymotion.com",
 )
 
-FONTES_REDE_SOCIAL_DIRETA: frozenset[int] = frozenset(
+DOMINIOS_BLOQUEADOS: tuple[str, ...] = (
+    "scribd.com",
+    "ptdocz.com",
+    "doceru.com",
+    "slideshare.net",
+    "issuu.com",
+    "academia.edu",
+    "researchgate.net",
+    "thecrag.com",
+    "escaladas.com.br",
+    "wikiloc.com",
+    "mountainproject.com",
+    "8a.nu",
+    "27crags.com",
+    "thetopo.com",
+    "vertical-life.info",
+    "summitpost.org",
+    "ukclimbing.com",
+    "tripadvisor.com",
+    "tripadvisor.com.br",
+    "wikipedia.org",
+    "linktr.ee",
+    "pinterest.com",
+    "music.youtube.com",
+)
+
+STOPWORDS_PICO: frozenset[str] = frozenset(
     {
-        beta_pb2.FonteMidia.YOUTUBE,
-        beta_pb2.FonteMidia.INSTAGRAM,
-        beta_pb2.FonteMidia.TIKTOK,
-        beta_pb2.FonteMidia.FACEBOOK,
-        beta_pb2.FonteMidia.TWITTER,
+        "gruta",
+        "pedra",
+        "morro",
+        "serra",
+        "pico",
+        "monte",
+        "parque",
+        "vale",
+        "canyon",
+        "canion",
+        "cachoeira",
+        "setor",
+        "parede",
+        "falesia",
+        "estadual",
+        "nacional",
+        "municipal",
+        "natural",
+        "monumento",
+        "das",
+        "dos",
+        "para",
+        "com",
+        "por",
+        "uma",
+        "uns",
     }
 )
 
-VOCABULARIO_ESCALADA: tuple[str, ...] = (
-    "escalada",
-    "boulder",
-    "via",
-    "vias",
-    "setor",
-    "croqui",
-    "enfiada",
-    "enfiadas",
-    "chapeleta",
-    "chapeletas",
-    "crux",
-    "grampo",
-    "proteção",
-    "fenda",
-    "diedro",
-    "agarrão",
-    "reglete",
-    "cume",
-    "rapel",
-    "cordada",
-)
+LIMIAR_SIMILARIDADE_TYPO = 0.86
 
-JANELA_CONTEXTO_CARACTERES = 300
-MAX_SNIPPETS_POR_PAGINA = 5
+# Garante que o motor Yahoo do ddgs suporte tanto classes 'algo-sr' quanto 'relsrch' em desktop
+Yahoo.items_xpath = "//div[contains(@class, 'algo-sr') or contains(@class, 'relsrch')]"
+
+
+def sanitizar_termo_busca(texto: str) -> str:
+    """
+    Remove anotações técnicas entre parênteses/colchetes, sufixos de numeração de mapa/setor
+    (ex.: '- Mapa 3'), aspas e caracteres especiais ruidosos.
+    """
+    limpo = re.sub(r"\([^)]*\)|\[[^\]]*\]", " ", texto)
+    limpo = re.sub(
+        r"\s*[-–—]\s*(?:mapa|setor|parte)\s*\d+.*$",
+        " ",
+        limpo,
+        flags=re.IGNORECASE,
+    )
+    limpo = re.sub(r"[\"'“”‘’«»!?,.;:/\\|+-]+", " ", limpo)
+    return re.sub(r"\s+", " ", limpo).strip()
+
+
+def _normalizar_texto(texto: str) -> str:
+    """Remove acentos, converte para minúsculas e mantém apenas caracteres alfanuméricos."""
+    decomposed = unicodedata.normalize("NFKD", texto)
+    sem_acentos = "".join(c for c in decomposed if not unicodedata.combining(c))
+    alfa = re.sub(r"[^a-z0-9]+", " ", sem_acentos.lower())
+    return re.sub(r"\s+", " ", alfa).strip()
+
+
+def menciona_nome_via(texto: str, nome_via: str) -> bool:
+    """
+    Verifica se o texto menciona o nome da via com:
+    1. Substring normalizada direta;
+    2. Matching bidirecional de espaços colapsados ('Karren Glass' <-> 'Karrenglass');
+    3. Tolerância a pequenos typos (SequenceMatcher >= 0.86 em janelas de tokens).
+    """
+    via_norm = _normalizar_texto(sanitizar_termo_busca(nome_via))
+    texto_norm = _normalizar_texto(texto)
+    if not via_norm or not texto_norm:
+        return False
+
+    if via_norm in texto_norm:
+        return True
+
+    via_compacta = via_norm.replace(" ", "")
+    texto_compacto = texto_norm.replace(" ", "")
+    if len(via_compacta) >= 4 and via_compacta in texto_compacto:
+        return True
+
+    if len(via_compacta) >= 5:
+        palavras_texto = texto_norm.split()
+        n_via = len(via_norm.split())
+        tam_min = max(1, n_via - 1)
+        tam_max = min(len(palavras_texto), n_via + 1)
+        for tam in range(tam_min, tam_max + 1):
+            for idx in range(len(palavras_texto) - tam + 1):
+                janela_compacta = "".join(palavras_texto[idx : idx + tam])
+                if abs(len(janela_compacta) - len(via_compacta)) > 2:
+                    continue
+                ratio = SequenceMatcher(None, via_compacta, janela_compacta).ratio()
+                if ratio >= LIMIAR_SIMILARIDADE_TYPO:
+                    return True
+
+    return False
+
+
+def menciona_contexto_pico(texto: str, nome_pico: str) -> bool:
+    """
+    Verifica se o texto contém pelo menos um token significativo do nome do pico
+    (ex.: 'lapinha' para 'Gruta da Lapinha', 'cipo' para 'Serra do Cipó').
+    """
+    pico_norm = _normalizar_texto(sanitizar_termo_busca(nome_pico))
+    if not pico_norm:
+        return True
+
+    texto_norm = _normalizar_texto(texto)
+    if not texto_norm:
+        return False
+
+    tokens_todos = [t for t in pico_norm.split() if len(t) >= 3]
+    tokens_significativos = [t for t in tokens_todos if t not in STOPWORDS_PICO]
+    alvos = tokens_significativos or tokens_todos
+    if not alvos:
+        return True
+
+    texto_compacto = texto_norm.replace(" ", "")
+    return any(tok in texto_norm or tok in texto_compacto for tok in alvos)
+
+
+def eh_url_bloqueada(url: str) -> bool:
+    """
+    Retorna True se a URL pertencer à blocklist de agregadores de croquis,
+    repositórios de PDFs, portais de trilhas genéricas ou páginas de áudio.
+    """
+    url_limpa = url.strip().lower()
+    if not url_limpa:
+        return False
+    parsed = urlparse(url_limpa)
+    netloc = parsed.netloc.lower()
+    if any(netloc == dom or netloc.endswith(f".{dom}") for dom in DOMINIOS_BLOQUEADOS):
+        return True
+    if "/reels/audio/" in parsed.path.lower():
+        return True
+    return False
 
 
 def classificar_fonte_url(url: str) -> beta_pb2.FonteMidia.Enum.ValueType | None:
@@ -155,54 +285,10 @@ def classificar_fonte_url(url: str) -> beta_pb2.FonteMidia.Enum.ValueType | None
     return beta_pb2.FonteMidia.BLOG
 
 
-class _ExtratorTextoHtml(HTMLParser):
-    """Extrai o título e o texto limpo de um documento HTML ignorando scripts e estilos."""
-
-    def __init__(self) -> None:
-        super().__init__()
-        self._tags_ignoradas: int = 0
-        self._em_titulo: bool = False
-        self.partes_titulo: list[str] = []
-        self.partes_texto: list[str] = []
-
-    def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
-        _ = attrs
-        tag_lower = tag.lower()
-        if tag_lower in ("script", "style", "noscript", "svg", "head"):
-            if tag_lower != "head":
-                self._tags_ignoradas += 1
-        elif tag_lower == "title":
-            self._em_titulo = True
-
-    def handle_endtag(self, tag: str) -> None:
-        tag_lower = tag.lower()
-        if tag_lower in ("script", "style", "noscript", "svg"):
-            self._tags_ignoradas = max(0, self._tags_ignoradas - 1)
-        elif tag_lower == "title":
-            self._em_titulo = False
-        elif tag_lower in ("p", "div", "br", "li", "h1", "h2", "h3", "h4", "article", "section"):
-            self.partes_texto.append(" ")
-
-    def handle_data(self, data: str) -> None:
-        if self._em_titulo:
-            self.partes_titulo.append(data)
-        elif self._tags_ignoradas == 0:
-            self.partes_texto.append(data)
-
-
-def extrair_titulo_e_texto_html(conteudo_html: str) -> tuple[str, str]:
-    """Retorna (titulo, texto_limpo) extraídos de um documento HTML."""
-    parser = _ExtratorTextoHtml()
-    parser.feed(conteudo_html)
-    titulo = re.sub(r"\s+", " ", html.unescape("".join(parser.partes_titulo))).strip()
-    texto = re.sub(r"\s+", " ", html.unescape("".join(parser.partes_texto))).strip()
-    return titulo, texto
-
-
 class _BuscadorDuckDuckGoPadrao:
     """
-    Adaptador padrão para busca textual via pacote ddgs com rotação round-robin
-    entre motores de busca web reais e controle de cadência (pacing) anti-rate-limit.
+    Adaptador padrão para busca textual via pacote ddgs com sessão HTTP/TLS persistente
+    (keep-alive), User-Agent desktop fixo e controle de cadência (pacing) thread-safe.
     """
 
     def __init__(
@@ -210,7 +296,7 @@ class _BuscadorDuckDuckGoPadrao:
         fabrica_ddgs: Any = DDGS,
         backends: Sequence[str] = BACKENDS_WEB_PADRAO,
         regiao: str = "br-pt",
-        intervalo_minimo_s: float = 0.6,
+        intervalo_minimo_s: float = 0.15,
         relogio: Callable[[], float] = time.monotonic,
         dormir: Callable[[float], None] = time.sleep,
     ) -> None:
@@ -220,56 +306,63 @@ class _BuscadorDuckDuckGoPadrao:
         self._intervalo_minimo_s = intervalo_minimo_s
         self._relogio = relogio
         self._dormir = dormir
-        self._indice_backend: int = 0
         self._ultima_requisicao_s: float | None = None
+        self._lock = threading.Lock()
+        self._sessao_ddgs: Any | None = None
+
+    def _obter_sessao_ddgs(self) -> Any:
+        with self._lock:
+            if self._sessao_ddgs is None:
+                instancia = self._fabrica_ddgs()
+                if hasattr(instancia, "_get_engines"):
+                    for nome_backend in self._backends:
+                        for eng in instancia._get_engines("text", nome_backend):
+                            eng.http_client.client = primp.Client(
+                                impersonate="chrome",
+                                impersonate_os="windows",
+                                timeout=10,
+                                verify=True,
+                            )
+                self._sessao_ddgs = instancia
+            return self._sessao_ddgs
 
     def _aguardar_pacing(self) -> None:
-        if self._intervalo_minimo_s > 0 and self._ultima_requisicao_s is not None:
-            decorrido = self._relogio() - self._ultima_requisicao_s
-            if decorrido < self._intervalo_minimo_s:
-                self._dormir(self._intervalo_minimo_s - decorrido)
-        self._ultima_requisicao_s = self._relogio()
+        with self._lock:
+            if self._intervalo_minimo_s > 0 and self._ultima_requisicao_s is not None:
+                decorrido = self._relogio() - self._ultima_requisicao_s
+                if decorrido < self._intervalo_minimo_s:
+                    self._dormir(self._intervalo_minimo_s - decorrido)
+            self._ultima_requisicao_s = self._relogio()
 
     def buscar_texto(self, query: str, max_resultados: int = 10) -> list[dict[str, str]]:
+        sessao = self._obter_sessao_ddgs()
         ultimo_erro: Exception | None = None
-        total_backends = len(self._backends)
 
-        for _ in range(total_backends):
-            backend_atual = self._backends[self._indice_backend % total_backends]
-            self._indice_backend = (self._indice_backend + 1) % total_backends
+        for backend_atual in self._backends:
             self._aguardar_pacing()
-
             try:
-                with self._fabrica_ddgs() as ddgs:
-                    itens = ddgs.text(
-                        query,
-                        region=self._regiao,
-                        backend=backend_atual,
-                        max_results=max_resultados,
-                    )
-                    lista = [dict(item) for item in itens]
-                    if lista:
-                        return lista
+                itens = sessao.text(
+                    query,
+                    region=self._regiao,
+                    backend=backend_atual,
+                    max_results=max_resultados,
+                )
+                return [dict(item) for item in itens]
             except Exception as e:
-                msg = str(e).lower()
-                if "no results found" in msg:
-                    continue
+                if "no results found" in str(e).lower():
+                    return []
                 ultimo_erro = e
-                continue
 
-        if ultimo_erro is not None:
-            raise ultimo_erro
-        return []
+        assert ultimo_erro is not None
+        raise ultimo_erro
 
 
 class ExtratorBlog:
     """
-    Extrator web unificado de betas de escalada que executa 1 única busca aberta por via
-    e roteia/classifica os resultados entre as 8 categorias de FonteMidia.Enum:
-    - Redes sociais e vídeo (YOUTUBE, INSTAGRAM, TIKTOK, FACEBOOK, TWITTER): usa título + snippet.
-    - Páginas textuais e comunidades (BLOG, REDDIT, OUTRO_UGC): baixa HTML (com cache em memória
-      por URL), valida vocabulário de escalada e extrai janelas de +/- 300 chars ao redor do nome
-      da via (com fallback para o snippet da busca caso o portal bloqueie scraping direto).
+    Extrator web unificado de betas de escalada que executa 5 queries identificadas por escalada
+    (Instagram, YouTube, TikTok, Facebook e Geral), sem download de HTML durante a coleta,
+    aplicando blocklist de agregadores, filtro de precisão (via + pico) e registrando itens
+    descartados como MidiaBeta auto-rejeitados com identificação da query de origem.
     """
 
     def __init__(
@@ -277,123 +370,123 @@ class ExtratorBlog:
         buscador: BuscadorWebProtocolo | None = None,
         cliente_http: ClienteHttpProtocolo | None = None,
     ) -> None:
+        _ = cliente_http
         self._buscador: BuscadorWebProtocolo = buscador or _BuscadorDuckDuckGoPadrao()
-        self._cliente_http: ClienteHttpProtocolo = cliente_http or cast(
-            ClienteHttpProtocolo, requests
-        )
-        self._cache_paginas: dict[str, tuple[str, str] | None] = {}
 
-    def montar_query(self, nome_escalada: str, nome_setor: str = "", nome_pico: str = "") -> str:
-        """Monta uma única query aberta para localizar mídias e relatos sobre a escalada."""
-        partes = [f'"{nome_escalada}"']
-        if nome_setor:
-            partes.append(nome_setor)
-        if nome_pico:
-            partes.append(f'"{nome_pico}"')
-        partes.append("escalada")
-        return " ".join(partes)
+    def montar_queries_identificadas(
+        self,
+        nome_escalada: str,
+        nome_pico: str = "",
+    ) -> list[tuple[str, str]]:
+        """
+        Retorna as 5 queries identificadas (origem, query) omitindo o nome do setor:
+        instagram, youtube, tiktok, facebook e geral.
+        """
+        via_limpa = sanitizar_termo_busca(nome_escalada)
+        pico_limpo = sanitizar_termo_busca(nome_pico)
+        partes_base = [p for p in (via_limpa, pico_limpo, "escalada") if p]
+        base = " ".join(partes_base)
+        return [
+            ("instagram", f"{base} site:instagram.com"),
+            ("youtube", f"{base} site:youtube.com"),
+            ("tiktok", f"{base} site:tiktok.com"),
+            ("facebook", f"{base} site:facebook.com"),
+            ("geral", base),
+        ]
 
-    def _obter_pagina_processada(self, url: str) -> tuple[str, str] | None:
-        """Baixa e extrai (titulo, texto) da URL com cache em memória."""
-        if url in self._cache_paginas:
-            return self._cache_paginas[url]
-
-        try:
-            resposta = self._cliente_http.get(
-                url,
-                headers={"User-Agent": "ArestaBot/1.0 (+https://aresta.org)"},
-                timeout=10,
-            )
-        except Exception:
-            self._cache_paginas[url] = None
-            return None
-
-        if resposta.status_code != 200 or not resposta.text:
-            self._cache_paginas[url] = None
-            return None
-
-        processado = extrair_titulo_e_texto_html(resposta.text)
-        self._cache_paginas[url] = processado
-        return processado
-
-    @staticmethod
-    def _contem_vocabulario_escalada(texto_lower: str) -> bool:
-        return any(termo in texto_lower for termo in VOCABULARIO_ESCALADA)
-
-    @staticmethod
-    def _extrair_janelas_de_contexto(texto: str, nome_escalada: str) -> list[str]:
-        padrao = re.compile(re.escape(nome_escalada.strip()), re.IGNORECASE)
-        janelas: list[str] = []
-        for match in padrao.finditer(texto):
-            inicio = max(0, match.start() - JANELA_CONTEXTO_CARACTERES)
-            fim = min(len(texto), match.end() + JANELA_CONTEXTO_CARACTERES)
-            trecho = texto[inicio:fim].strip()
-            if trecho and trecho not in janelas:
-                janelas.append(trecho)
-            if len(janelas) >= MAX_SNIPPETS_POR_PAGINA:
-                break
-        return janelas
-
-    def buscar(
+    def montar_query(
         self,
         nome_escalada: str,
         nome_setor: str = "",
         nome_pico: str = "",
-        max_resultados: int = 10,
-    ) -> list[beta_pb2.CandidatoMidiaBeta]:
+    ) -> str:
+        """Retorna a query geral sanitizada (sem o nome do setor)."""
+        _ = nome_setor
+        return self.montar_queries_identificadas(nome_escalada, nome_pico)[-1][1]
+
+    def buscar_com_rejeitados(
+        self,
+        nome_escalada: str,
+        nome_setor: str = "",
+        nome_pico: str = "",
+        max_resultados: int = 8,
+    ) -> tuple[list[beta_pb2.CandidatoMidiaBeta], list[beta_pb2.MidiaBeta]]:
         """
-        Executa 1 busca web aberta para a escalada e classifica os resultados nas 8 categorias
-        de FonteMidia.Enum.
+        Executa as 5 queries identificadas para a escalada e retorna
+        (candidatos_aprovados_para_avaliacao, midias_auto_rejeitadas_com_motivo).
         """
-        query = self.montar_query(nome_escalada, nome_setor, nome_pico)
-        try:
-            resultados_busca = self._buscador.buscar_texto(query, max_resultados=max_resultados)
-        except Exception as e:
-            raise RuntimeError(f"Erro na busca de blogs: {e}")
+        _ = nome_setor
+        queries = self.montar_queries_identificadas(nome_escalada, nome_pico)
 
-        termo_lower = nome_escalada.lower().strip()
-        candidatos: list[beta_pb2.CandidatoMidiaBeta] = []
+        candidatos_por_url: dict[str, beta_pb2.CandidatoMidiaBeta] = {}
+        rejeitados_por_url: dict[str, beta_pb2.MidiaBeta] = {}
 
-        for item in resultados_busca:
-            link = item.get("href", "").strip()
-            fonte = classificar_fonte_url(link)
-            if fonte is None:
-                continue
+        for origem, query in queries:
+            try:
+                resultados_busca = self._buscador.buscar_texto(
+                    query,
+                    max_resultados=max_resultados,
+                )
+            except Exception as e:
+                raise RuntimeError(f"Erro na busca de blogs: {e}")
 
-            titulo_busca = item.get("title", "").strip()
-            body_busca = item.get("body", "").strip()
-            match_busca = bool(termo_lower and termo_lower in f"{titulo_busca} {body_busca}".lower())
+            for item in resultados_busca:
+                link = item.get("href", "").strip()
+                if not link:
+                    continue
 
-            if fonte in FONTES_REDE_SOCIAL_DIRETA:
-                candidato = beta_pb2.CandidatoMidiaBeta()
-                candidato.midia.url = link
-                candidato.midia.titulo = titulo_busca
-                candidato.midia.fonte = fonte
-                candidato.match_nome_no_snippet = match_busca
-                if body_busca:
-                    candidato.snippets.append(body_busca)
-                candidatos.append(candidato)
-                continue
+                chave_url = normalizar_url(link) or link
+                if chave_url in candidatos_por_url:
+                    continue
 
-            # Páginas textuais e comunidades (BLOG, REDDIT, OUTRO_UGC)
-            pagina = self._obter_pagina_processada(link)
-            if pagina is not None:
-                titulo_html, texto_limpo = pagina
-                if self._contem_vocabulario_escalada(texto_limpo.lower()):
-                    janelas = self._extrair_janelas_de_contexto(texto_limpo, nome_escalada)
-                    if janelas:
-                        candidato = beta_pb2.CandidatoMidiaBeta()
-                        candidato.midia.url = link
-                        candidato.midia.titulo = titulo_html or titulo_busca
-                        candidato.midia.fonte = fonte
-                        candidato.match_nome_no_snippet = True
-                        candidato.snippets.extend(janelas)
-                        candidatos.append(candidato)
-                continue
+                titulo_busca = item.get("title", "").strip()
+                body_busca = item.get("body", "").strip()
+                titulo_base = titulo_busca or link
 
-            # Fallback quando portal de comunidade (REDDIT / OUTRO_UGC) bloqueia HTTP direto,
-            # mas o snippet da busca já menciona explicitamente a escalada
-            if fonte in (beta_pb2.FonteMidia.REDDIT, beta_pb2.FonteMidia.OUTRO_UGC) and match_busca:
+                if eh_url_bloqueada(link):
+                    if chave_url not in rejeitados_por_url:
+                        fonte_bloq = classificar_fonte_url(link) or beta_pb2.FonteMidia.BLOG
+                        rejeitados_por_url[chave_url] = beta_pb2.MidiaBeta(
+                            url=link,
+                            titulo=(
+                                f"[Query: {origem} | Auto-filtrado: domínio bloqueado] "
+                                f"{titulo_base}"
+                            ),
+                            fonte=fonte_bloq,
+                        )
+                    continue
+
+                fonte = classificar_fonte_url(link)
+                if fonte is None:
+                    continue
+
+                texto_completo = f"{titulo_busca} {body_busca} {link}"
+
+                if not menciona_nome_via(texto_completo, nome_escalada):
+                    if chave_url not in rejeitados_por_url:
+                        rejeitados_por_url[chave_url] = beta_pb2.MidiaBeta(
+                            url=link,
+                            titulo=(
+                                f"[Query: {origem} | Auto-filtrado: sem menção à via] "
+                                f"{titulo_base}"
+                            ),
+                            fonte=fonte,
+                        )
+                    continue
+
+                if not menciona_contexto_pico(texto_completo, nome_pico):
+                    if chave_url not in rejeitados_por_url:
+                        rejeitados_por_url[chave_url] = beta_pb2.MidiaBeta(
+                            url=link,
+                            titulo=(
+                                f"[Query: {origem} | Auto-filtrado: sem menção ao pico] "
+                                f"{titulo_base}"
+                            ),
+                            fonte=fonte,
+                        )
+                    continue
+
+                rejeitados_por_url.pop(chave_url, None)
                 candidato = beta_pb2.CandidatoMidiaBeta()
                 candidato.midia.url = link
                 candidato.midia.titulo = titulo_busca
@@ -401,6 +494,22 @@ class ExtratorBlog:
                 candidato.match_nome_no_snippet = True
                 if body_busca:
                     candidato.snippets.append(body_busca)
-                candidatos.append(candidato)
+                candidatos_por_url[chave_url] = candidato
 
+        return list(candidatos_por_url.values()), list(rejeitados_por_url.values())
+
+    def buscar(
+        self,
+        nome_escalada: str,
+        nome_setor: str = "",
+        nome_pico: str = "",
+        max_resultados: int = 8,
+    ) -> list[beta_pb2.CandidatoMidiaBeta]:
+        """Executa a busca para a escalada e retorna a lista de candidatos aprovados."""
+        candidatos, _ = self.buscar_com_rejeitados(
+            nome_escalada=nome_escalada,
+            nome_setor=nome_setor,
+            nome_pico=nome_pico,
+            max_resultados=max_resultados,
+        )
         return candidatos

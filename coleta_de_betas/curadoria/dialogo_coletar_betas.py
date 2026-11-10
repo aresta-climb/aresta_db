@@ -2,10 +2,13 @@
 # Copyright (C) 2026 Aresta Climb Contributors
 
 """
-Wizard / Diálogo de coleta de betas multi-fonte em background (QThread) para escaladas selecionadas do croqui.
+Wizard / Diálogo de coleta de betas multi-fonte em background (QThread) com processamento
+paralelo de escaladas via ThreadPoolExecutor, auditoria de descartes em betas_rejeitados
+e ciclo de botões Iniciar Coleta -> Cancelar Coleta (com confirmação) -> Finalizar.
 """
 
-from collections.abc import Sequence
+from collections.abc import Callable, Sequence
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from dataclasses import dataclass
 from typing import Any, Protocol
 
@@ -15,6 +18,7 @@ from PySide6.QtWidgets import (
     QDialog,
     QHBoxLayout,
     QLabel,
+    QMessageBox,
     QProgressBar,
     QPushButton,
     QScrollArea,
@@ -24,7 +28,9 @@ from PySide6.QtWidgets import (
 
 from aresta_api.proto.generated import beta_pb2
 from coleta_de_betas.extratores.blog import ExtratorBlog
-from coleta_de_betas.extratores.deduplicador import deduplicar_midias
+from coleta_de_betas.extratores.deduplicador import deduplicar_midias, normalizar_url
+
+MAX_WORKERS_COLETA_PARALELA = 4
 
 
 class ExtratorBetaProtocolo(Protocol):
@@ -104,8 +110,8 @@ def extrair_escaladas_do_croqui(croqui: Any) -> list[InfoEscaladaColeta]:
 
 def criar_extratores_padrao() -> list[ExtratorBetaProtocolo]:
     """
-    Cria a lista padrão com o extrator web unificado (ddgs), que executa 1 única
-    busca aberta por escalada e classifica os resultados nas 8 categorias de FonteMidia.Enum.
+    Cria a lista padrão com o extrator web unificado (ddgs), que executa as 5 queries
+    identificadas por escalada e classifica os resultados nas 8 categorias de FonteMidia.Enum.
     """
     return [ExtratorBlog()]
 
@@ -113,7 +119,7 @@ def criar_extratores_padrao() -> list[ExtratorBetaProtocolo]:
 class WorkerColetaBetas(QThread):
     """
     Worker em background (QThread) que executa os extratores de rede e deduplicação
-    para as escaladas selecionadas sem bloquear o loop de eventos da GUI.
+    em paralelo (ThreadPoolExecutor) para as escaladas selecionadas sem bloquear a GUI.
     """
 
     progresso_alterado = Signal(int, int, str)
@@ -123,12 +129,15 @@ class WorkerColetaBetas(QThread):
         self,
         escaladas: Sequence[InfoEscaladaColeta],
         extratores: Sequence[ExtratorBetaProtocolo],
+        max_workers: int = MAX_WORKERS_COLETA_PARALELA,
         parent: QWidget | None = None,
     ) -> None:
         super().__init__(parent)
         self.escaladas = list(escaladas)
         self.extratores = list(extratores)
+        self.max_workers = max(1, int(max_workers))
         self._cancelado = False
+        self.rejeitados_por_uid: dict[str, list[beta_pb2.MidiaBeta]] = {}
 
     def solicitar_cancelamento(self) -> None:
         """Sinaliza cancelamento cooperativo imediato para interromper o loop de busca."""
@@ -138,44 +147,110 @@ class WorkerColetaBetas(QThread):
         """Retorna True se o cancelamento cooperativo foi solicitado."""
         return self._cancelado
 
-    def run(self) -> None:
-        """Executa a coleta e deduplicação em memória emitindo sinais para a thread principal."""
-        resultados_por_uid: list[tuple[str, list[beta_pb2.CandidatoMidiaBeta]]] = []
-        total = len(self.escaladas)
+    def _coletar_escalada(
+        self, info: InfoEscaladaColeta
+    ) -> tuple[list[beta_pb2.CandidatoMidiaBeta], list[beta_pb2.MidiaBeta]]:
+        if self._cancelado:
+            return [], []
 
-        for idx, info in enumerate(self.escaladas, start=1):
+        listas_brutas: list[list[beta_pb2.CandidatoMidiaBeta]] = []
+        rejeitados_brutos: list[beta_pb2.MidiaBeta] = []
+
+        for extrator in self.extratores:
             if self._cancelado:
                 break
-            self.progresso_alterado.emit(idx, total, info.nome_escalada)
-            if self._cancelado:
-                break
-
-            listas_brutas: list[list[beta_pb2.CandidatoMidiaBeta]] = []
-            for extrator in self.extratores:
-                if self._cancelado:
-                    break
-                try:
-                    res = extrator.buscar(
+            try:
+                if hasattr(extrator, "buscar_com_rejeitados"):
+                    res_cands, res_rejs = extrator.buscar_com_rejeitados(
                         nome_escalada=info.nome_escalada,
                         nome_setor=info.nome_setor,
                         nome_pico=info.nome_pico,
                     )
-                    listas_brutas.append(res)
-                except Exception:
-                    continue
+                    listas_brutas.append(res_cands)
+                    rejeitados_brutos.extend(res_rejs)
+                else:
+                    res_cands = extrator.buscar(
+                        nome_escalada=info.nome_escalada,
+                        nome_setor=info.nome_setor,
+                        nome_pico=info.nome_pico,
+                    )
+                    listas_brutas.append(res_cands)
+            except Exception:
+                continue
 
-            candidatos_dedup = deduplicar_midias(listas_brutas)
-            if candidatos_dedup:
-                resultados_por_uid.append((info.escalada_uid, candidatos_dedup))
+        candidatos_dedup = deduplicar_midias(listas_brutas)
+        urls_aprovadas = {normalizar_url(c.midia.url) for c in candidatos_dedup if c.midia.url}
+        rejeitados_dedup: list[beta_pb2.MidiaBeta] = []
+        urls_rej_vistas: set[str] = set()
+        for midia_rej in rejeitados_brutos:
+            url_norm = normalizar_url(midia_rej.url)
+            if not url_norm or url_norm in urls_aprovadas or url_norm in urls_rej_vistas:
+                continue
+            urls_rej_vistas.add(url_norm)
+            copia_rej = beta_pb2.MidiaBeta()
+            copia_rej.CopyFrom(midia_rej)
+            copia_rej.url = url_norm
+            rejeitados_dedup.append(copia_rej)
 
-        self.concluido.emit(resultados_por_uid, self._cancelado)
+        return candidatos_dedup, rejeitados_dedup
+
+    def run(self) -> None:
+        """Executa a coleta paralela e deduplicação em memória emitindo sinais para a thread principal."""
+        self.rejeitados_por_uid.clear()
+        total = len(self.escaladas)
+        if total == 0 or self._cancelado:
+            self.concluido.emit([], self._cancelado)
+            return
+
+        ordem_uid = {info.escalada_uid: pos for pos, info in enumerate(self.escaladas)}
+        resultados_coletados: list[tuple[str, list[beta_pb2.CandidatoMidiaBeta]]] = []
+
+        if self.max_workers == 1 or total == 1:
+            for idx, info in enumerate(self.escaladas, start=1):
+                if self._cancelado:
+                    break
+                cands, rejs = self._coletar_escalada(info)
+                if cands:
+                    resultados_coletados.append((info.escalada_uid, cands))
+                if rejs:
+                    self.rejeitados_por_uid[info.escalada_uid] = rejs
+                self.progresso_alterado.emit(idx, total, info.nome_escalada)
+                if self._cancelado:
+                    break
+        else:
+            concluidas = 0
+            with ThreadPoolExecutor(max_workers=min(self.max_workers, total)) as executor:
+                futuros = {
+                    executor.submit(self._coletar_escalada, info): info for info in self.escaladas
+                }
+                for futuro in as_completed(futuros):
+                    if self._cancelado:
+                        for f_rest in futuros:
+                            f_rest.cancel()
+                        break
+                    info = futuros[futuro]
+                    cands, rejs = futuro.result()
+                    if cands:
+                        resultados_coletados.append((info.escalada_uid, cands))
+                    if rejs:
+                        self.rejeitados_por_uid[info.escalada_uid] = rejs
+                    concluidas += 1
+                    self.progresso_alterado.emit(concluidas, total, info.nome_escalada)
+                    if self._cancelado:
+                        for f_rest in futuros:
+                            f_rest.cancel()
+                        break
+
+        resultados_coletados.sort(key=lambda par: ordem_uid.get(par[0], 0))
+        self.concluido.emit(resultados_coletados, self._cancelado)
 
 
 class DialogoColetarBetas(QDialog):
     """
     Wizard modal para selecionar escaladas do croqui, executar a busca multi-fonte
-    (YouTube, Instagram, Blogs) em background via WorkerColetaBetas(QThread) com barra
-    de progresso e injetar os novos candidatos em betas_nao_scorados via CroquiController.
+    em background via WorkerColetaBetas(QThread) com paralelismo e barra de progresso,
+    e injetar os novos candidatos em betas_nao_scorados e auto-filtrados em betas_rejeitados
+    via CroquiController.
     """
 
     def __init__(
@@ -183,6 +258,7 @@ class DialogoColetarBetas(QDialog):
         model: Any,
         controller: Any,
         extratores: Sequence[ExtratorBetaProtocolo] | None = None,
+        confirmador_cancelamento: Callable[[], bool] | None = None,
         parent: QWidget | None = None,
     ) -> None:
         super().__init__(parent)
@@ -191,7 +267,9 @@ class DialogoColetarBetas(QDialog):
         self.extratores: list[ExtratorBetaProtocolo] = (
             list(extratores) if extratores is not None else criar_extratores_padrao()
         )
+        self._confirmador_cancelamento = confirmador_cancelamento
         self.cancelado: bool = False
+        self._estado_botoes: str = "pronto"
         self.worker_ativo: WorkerColetaBetas | None = None
         self.checkboxes_por_uid: dict[str, QCheckBox] = {}
 
@@ -202,7 +280,7 @@ class DialogoColetarBetas(QDialog):
         layout.setSpacing(10)
 
         lbl_intro = QLabel(
-            "Selecione as escaladas para buscar candidatos de beta (YouTube, Instagram e Blogs).\n"
+            "Selecione as escaladas para buscar candidatos de beta (Instagram, YouTube, TikTok, Facebook e Blogs).\n"
             "URLs já aprovadas, pendentes ou rejeitadas serão ignoradas automaticamente."
         )
         lbl_intro.setWordWrap(True)
@@ -246,25 +324,64 @@ class DialogoColetarBetas(QDialog):
 
         botoes_rodape = QHBoxLayout()
         botoes_rodape.addStretch()
-        self.btn_cancelar = QPushButton("Cancelar / Fechar")
+        self.btn_cancelar = QPushButton("Cancelar")
         self.btn_cancelar.clicked.connect(self._ao_clicar_cancelar)
         self.btn_iniciar = QPushButton("Iniciar Coleta")
         self.btn_iniciar.setDefault(True)
         self.btn_iniciar.clicked.connect(self.iniciar_coleta_assincrona)
+        self.btn_finalizar = QPushButton("Finalizar")
+        self.btn_finalizar.setVisible(False)
+        self.btn_finalizar.clicked.connect(self.accept)
         botoes_rodape.addWidget(self.btn_cancelar)
         botoes_rodape.addWidget(self.btn_iniciar)
+        botoes_rodape.addWidget(self.btn_finalizar)
         layout.addLayout(botoes_rodape)
+
+        self._definir_estado_botoes("pronto")
+
+    def _definir_estado_botoes(self, estado: str) -> None:
+        self._estado_botoes = estado
+        if estado == "pronto":
+            self.btn_iniciar.setVisible(True)
+            self.btn_iniciar.setEnabled(True)
+            self.btn_cancelar.setVisible(True)
+            self.btn_cancelar.setText("Cancelar")
+            self.btn_finalizar.setVisible(False)
+            self._definir_controles_selecao_habilitados(True)
+        elif estado == "coletando":
+            self.btn_iniciar.setVisible(False)
+            self.btn_cancelar.setVisible(True)
+            self.btn_cancelar.setText("Cancelar Coleta")
+            self.btn_finalizar.setVisible(False)
+            self._definir_controles_selecao_habilitados(False)
+        elif estado == "concluido":
+            self.btn_iniciar.setVisible(False)
+            self.btn_cancelar.setVisible(False)
+            self.btn_finalizar.setVisible(True)
+            self.btn_finalizar.setDefault(True)
+            self._definir_controles_selecao_habilitados(False)
 
     def _definir_marcacao_todas(self, marcado: bool) -> None:
         for cb in self.checkboxes_por_uid.values():
             cb.setChecked(marcado)
 
-    def _definir_controles_habilitados(self, habilitado: bool) -> None:
-        self.btn_iniciar.setEnabled(habilitado)
+    def _definir_controles_selecao_habilitados(self, habilitado: bool) -> None:
         self.btn_marcar_todas.setEnabled(habilitado)
         self.btn_desmarcar_todas.setEnabled(habilitado)
         for cb in self.checkboxes_por_uid.values():
             cb.setEnabled(habilitado)
+
+    def _confirmar_cancelamento_coleta(self) -> bool:
+        if self._confirmador_cancelamento is not None:
+            return bool(self._confirmador_cancelamento())
+        resposta = QMessageBox.question(
+            self,
+            "Cancelar Coleta",
+            "Deseja realmente interromper a coleta em andamento?",
+            QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No,
+            QMessageBox.StandardButton.No,
+        )
+        return resposta == QMessageBox.StandardButton.Yes
 
     def solicitar_cancelamento(self) -> None:
         self.cancelado = True
@@ -273,6 +390,11 @@ class DialogoColetarBetas(QDialog):
         self.label_progresso.setText("Coleta cancelada pelo usuário.")
 
     def _ao_clicar_cancelar(self) -> None:
+        em_andamento = self._estado_botoes == "coletando" or (
+            self.worker_ativo is not None and self.worker_ativo.isRunning()
+        )
+        if em_andamento and not self._confirmar_cancelamento_coleta():
+            return
         self.solicitar_cancelamento()
         if self.worker_ativo is not None and self.worker_ativo.isRunning():
             self.worker_ativo.wait(1500)
@@ -288,10 +410,13 @@ class DialogoColetarBetas(QDialog):
     def _aplicar_lote_coletado(
         self,
         resultados_por_uid: Sequence[tuple[str, list[beta_pb2.CandidatoMidiaBeta]]],
-    ) -> int:
-        if not resultados_por_uid:
-            return 0
+        rejeitados_por_uid: dict[str, list[beta_pb2.MidiaBeta]] | None = None,
+    ) -> tuple[int, int]:
+        rejeitados_map = rejeitados_por_uid or {}
+        if not resultados_por_uid and not rejeitados_map:
+            return 0, 0
         total_adicionados = 0
+        total_rejeitados = 0
         self.controller.iniciar_grupo_undo("Coletar Betas")
         try:
             for escalada_uid, candidatos_dedup in resultados_por_uid:
@@ -299,9 +424,14 @@ class DialogoColetarBetas(QDialog):
                     total_adicionados += self.controller.adicionar_candidatos_nao_scorados(
                         escalada_uid, candidatos_dedup
                     )
+            for escalada_uid, midias_rej in rejeitados_map.items():
+                if midias_rej and hasattr(self.controller, "adicionar_betas_rejeitados_lote"):
+                    total_rejeitados += self.controller.adicionar_betas_rejeitados_lote(
+                        escalada_uid, midias_rej
+                    )
         finally:
             self.controller.finalizar_grupo_undo()
-        return total_adicionados
+        return total_adicionados, total_rejeitados
 
     def iniciar_coleta_assincrona(self) -> None:
         """Dispara a coleta em uma QThread de background mantendo a interface responsiva."""
@@ -313,7 +443,7 @@ class DialogoColetarBetas(QDialog):
 
         self.barra_progresso.setMaximum(len(selecionadas))
         self.barra_progresso.setValue(0)
-        self._definir_controles_habilitados(False)
+        self._definir_estado_botoes("coletando")
 
         worker = WorkerColetaBetas(
             escaladas=selecionadas,
@@ -334,17 +464,28 @@ class DialogoColetarBetas(QDialog):
         resultados_por_uid: list[tuple[str, list[beta_pb2.CandidatoMidiaBeta]]],
         foi_cancelado: bool,
     ) -> None:
-        total_adicionados = self._aplicar_lote_coletado(resultados_por_uid)
+        rejeitados_map = (
+            dict(self.worker_ativo.rejeitados_por_uid) if self.worker_ativo is not None else {}
+        )
+        total_adicionados, total_rejeitados = self._aplicar_lote_coletado(
+            resultados_por_uid, rejeitados_map
+        )
         if not foi_cancelado and not self.cancelado:
             self.barra_progresso.setValue(self.barra_progresso.maximum())
-            self.label_progresso.setText(
-                f"Coleta concluída: {total_adicionados} novo(s) candidato(s) adicionado(s)."
+            sufixo_rej = (
+                f" ({total_rejeitados} item(ns) auto-filtrado(s) em rejeitados)."
+                if total_rejeitados > 0
+                else "."
             )
+            self.label_progresso.setText(
+                f"Coleta concluída: {total_adicionados} novo(s) candidato(s) adicionado(s){sufixo_rej}"
+            )
+            self._definir_estado_botoes("concluido")
         else:
             self.label_progresso.setText(
                 f"Coleta cancelada ({total_adicionados} candidato(s) parcial(is) preservado(s))."
             )
-        self._definir_controles_habilitados(True)
+            self._definir_estado_botoes("pronto")
         if self.worker_ativo is not None:
             self.worker_ativo.deleteLater()
             self.worker_ativo = None
@@ -360,6 +501,7 @@ class DialogoColetarBetas(QDialog):
 
         self.barra_progresso.setMaximum(len(selecionadas))
         self.barra_progresso.setValue(0)
+        self._definir_estado_botoes("coletando")
 
         worker = WorkerColetaBetas(
             escaladas=selecionadas,
@@ -371,9 +513,17 @@ class DialogoColetarBetas(QDialog):
         worker.run()
 
         lote_final = resultados_capturados[0] if resultados_capturados else []
-        total_adicionados = self._aplicar_lote_coletado(lote_final)
+        total_adicionados, total_rejeitados = self._aplicar_lote_coletado(
+            lote_final, dict(worker.rejeitados_por_uid)
+        )
         if not self.cancelado:
-            self.label_progresso.setText(
-                f"Coleta concluída: {total_adicionados} novo(s) candidato(s) adicionado(s)."
+            sufixo_rej = (
+                f" ({total_rejeitados} item(ns) auto-filtrado(s) em rejeitados)."
+                if total_rejeitados > 0
+                else "."
             )
+            self.label_progresso.setText(
+                f"Coleta concluída: {total_adicionados} novo(s) candidato(s) adicionado(s){sufixo_rej}"
+            )
+            self._definir_estado_botoes("concluido")
         return total_adicionados

@@ -1029,6 +1029,58 @@ class CroquiController:
             self.finalizar_grupo_undo()
         return len(novos)
 
+    def adicionar_betas_rejeitados_lote(
+        self,
+        escalada_uid: str,
+        midias_rejeitadas: Any,
+        context_path: str | None = None,
+    ) -> int:
+        """
+        Adiciona itens auto-filtrados em lote em betas_rejeitados da escalada,
+        descartando URLs já presentes nas 4 listas da via e empilhando comandos Undo/Redo.
+        """
+        from aresta_api.proto.generated import beta_pb2
+        from coleta_de_betas.extratores.deduplicador import (
+            normalizar_url,
+            obter_urls_conhecidas_escalada,
+        )
+
+        esc_raw = self._obter_escalada_por_uid(escalada_uid)
+        curadoria_atual = self._obter_curadoria_escalada(escalada_uid)
+        urls_conhecidas = obter_urls_conhecidas_escalada(esc_raw, curadoria_atual)
+
+        novos: list[beta_pb2.MidiaBeta] = []
+        for midia in midias_rejeitadas:
+            url_norm = normalizar_url(midia.url)
+            if not url_norm or url_norm in urls_conhecidas:
+                continue
+            urls_conhecidas.add(url_norm)
+            copia = beta_pb2.MidiaBeta()
+            copia.CopyFrom(midia)
+            copia.url = url_norm
+            novos.append(copia)
+
+        if not novos:
+            return 0
+
+        ctx = context_path or self.contexto_atual_path
+        self.iniciar_grupo_undo("Registrar Betas Auto-Filtrados")
+        try:
+            curadoria_esc = self._garantir_curadoria_escalada(escalada_uid, ctx)
+            for item in novos:
+                cmd_add = CmdAdicionarRepeated(
+                    model=self.model,
+                    alvo=curadoria_esc,
+                    campo_nome="betas_rejeitados",
+                    index=len(curadoria_esc.betas_rejeitados),
+                    valor=item,
+                    context_path=ctx,
+                )
+                self._executar_comando(cmd_add)
+        finally:
+            self.finalizar_grupo_undo()
+        return len(novos)
+
     def promover_candidato_para_nao_revisado(
         self,
         escalada_uid: str,

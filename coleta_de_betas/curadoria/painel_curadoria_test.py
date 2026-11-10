@@ -92,6 +92,14 @@ def test_painel_curadoria_exibe_4_secoes_ordena_por_score_e_transiciona_1_a_1_co
     assert len(painel.cards_aprovados) == 1
     assert len(painel.cards_rejeitados) == 1
 
+    # Verifica badge de via e setor em destaque nos cards e feedback do botão Copiar Prompt MCP
+    assert "Fusca Azul" in painel.cards_nao_revisados[0].label_via_setor.text()
+    assert "Salão" in painel.cards_nao_revisados[0].label_via_setor.text()
+    painel.btn_copiar_prompt_mcp.click()
+    assert "Copiado" in painel.btn_copiar_prompt_mcp.text()
+    painel._restaurar_botao_copiar_prompt_mcp()
+    assert painel.btn_copiar_prompt_mcp.text() == "📋 Copiar Prompt MCP"
+
     # Ordenação por score decrescente em betas_nao_revisados (95 vem antes de 60)
     assert "Vídeo Score 95" in painel.cards_nao_revisados[0].label_titulo.text()
     assert "95%" in painel.cards_nao_revisados[0].label_score.text()

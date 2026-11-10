@@ -1,7 +1,7 @@
 # beta-model Specification
 
 ## Purpose
-Define o contrato Protobuf (`beta.proto` e integração em `croqui.proto`) que separa estritamente as mídias de beta publicadas (`MidiaBeta` em `Escalada.betas`) da coleção de curadoria (`ColecaoCuradoriaBetas` em `curadoria_betas.md`).
+Define o contrato Protobuf (`beta.proto` e integração em `croqui.proto`) que separa estritamente as mídias de beta publicadas (`MidiaBeta` em `Escalada.betas`) da coleção de curadoria (`ColecaoCuradoriaBetas` em `curadoria_betas.yaml`).
 
 ## Requirements
 
@@ -24,7 +24,7 @@ O sistema SHALL importar `beta.proto` em `croqui.proto` para vincular os betas a
 - **THEN** ele MUST importar `beta.proto`.
 - **THEN** a mensagem `Escalada` MUST conter `repeated MidiaBeta betas = 6;`, representando exclusivamente os betas aprovados que serão exportados no `compilado.binarypb`.
 - **THEN** a mensagem `ArquivoCuradoriaBetas` MUST seguir o padrão `ONEOF_CONTEUDO` com `oneof arquivo { string caminho = 1; ColecaoCuradoriaBetas conteudo = 2; }` e extensão `ext_metadados_arquivo`.
-- **THEN** a mensagem `Croqui` MUST conter o campo `ArquivoCuradoriaBetas curadoria_betas` persistido em arquivo Markdown dedicado (`curadoria_betas.md`) e omitido do `compilado.binarypb` e `compilado.yaml`.
+- **THEN** a mensagem `Croqui` MUST conter o campo `ArquivoCuradoriaBetas curadoria_betas` persistido em arquivo YAML dedicado (`curadoria_betas.yaml`) e omitido do `compilado.binarypb` e `compilado.yaml`.
 
 #### Scenario: Validação comportamental de serialização de Escalada.betas e FonteMidia
 - **WHEN** a suíte de validação de contratos do `aresta_api` (`uv run pytest`) é executada
