@@ -222,3 +222,31 @@ def test_clique_acao_rapida_emite_foco_requisitado_e_aviso_croqui_legado_publica
 
     assert len(uris_recebidas) == 1
     assert uris_recebidas[0] == "page:dados/node:root/node:Croqui/campo:nome"
+
+
+def test_painel_qualidade_coalesce_atualizacoes_durante_lote_curadoria_betas(qtbot) -> None:
+    """
+    Dado o WidgetPainelQualidade conectado ao modelo e controlador,
+    quando dezenas de candidatos e rejeitados são inseridos em lote via macro de Undo/Redo,
+    então o painel recalcula a nota de qualidade apenas 1 única vez ao final do lote.
+    """
+    croqui = _criar_croqui_etapa1_completa()
+    model = CroquiModel(croqui)
+    stack = QUndoStack()
+    controller = CroquiController(model, stack)
+
+    painel = WidgetPainelQualidade(model, controller)
+    qtbot.addWidget(painel)
+    ct_inicial = painel.total_atualizacoes_painel
+
+    rejeitados = [
+        beta_pb2.MidiaBeta(
+            url=f"https://example.com/rej/{i}",
+            titulo=f"[Query: geral | Auto-filtrado: sem menção à via] Post {i}",
+            fonte=beta_pb2.FonteMidia.BLOG,
+        )
+        for i in range(40)
+    ]
+    controller.adicionar_betas_rejeitados_lote("uid_esc_0000001", rejeitados)
+
+    assert painel.total_atualizacoes_painel == ct_inicial + 1

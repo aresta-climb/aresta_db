@@ -272,7 +272,7 @@ def test_buscador_duckduckgo_padrao_mantem_sessao_persistente_e_retorna_vazio_em
     assert len(chamadas) == 2
     assert tempos_dormidos[0] == 0.3
 
-    # 3ª chamada com erro de transporte/rate-limit no yahoo faz fallback para brave
+    # 3ª chamada com erro de transporte/rate-limit no yahoo descarta a sessão corrompida e faz fallback para brave
     relogio_atual[0] += 1.0
     res_fallback = buscador_padrao.buscar_texto("Via Com Rate Limit", max_resultados=5)
     assert res_fallback == [
@@ -284,9 +284,52 @@ def test_buscador_duckduckgo_padrao_mantem_sessao_persistente_e_retorna_vazio_em
     with pytest.raises(RuntimeError, match="Falha de rede em todos os motores"):
         buscador_padrao.buscar_texto("Via Falha Total", max_resultados=5)
 
-    # A fábrica foi instanciada apenas 1 única vez (sessão HTTP/TLS persistente)
-    assert len(instancias_criadas) == 1
     assert _BuscadorDuckDuckGoPadrao()._fabrica_ddgs.__module__.startswith("ddgs")
+
+
+def test_buscador_duckduckgo_padrao_isola_sessao_por_thread_e_renova_apos_limite() -> None:
+    import threading
+
+    instancias_por_thread: list[int] = []
+    lock_lista = threading.Lock()
+
+    class _SessaoThreadFake:
+        def __init__(self) -> None:
+            with lock_lista:
+                instancias_por_thread.append(threading.get_ident())
+
+        def text(
+            self,
+            query: str,
+            *,
+            region: str = "us-en",
+            backend: str = "auto",
+            max_results: int = 10,
+        ) -> list[dict[str, str]]:
+            _ = (region, backend, max_results)
+            return [{"href": "https://youtube.com/watch?v=1", "title": query, "body": "ok"}]
+
+    buscador = _BuscadorDuckDuckGoPadrao(
+        fabrica_ddgs=_SessaoThreadFake,
+        backends=("duckduckgo",),
+        intervalo_minimo_s=0.0,
+        max_requisicoes_por_sessao=3,
+    )
+
+    # Na mesma thread, 3 buscas usam a mesma sessão; a 4ª renova a sessão (evitando flood HTTP/2)
+    for i in range(4):
+        buscador.buscar_texto(f"Query {i}")
+    assert len(instancias_por_thread) == 2
+
+    # Outra thread cria sua própria sessão isolada
+    def _worker() -> None:
+        buscador.buscar_texto("Query Outra Thread")
+
+    t = threading.Thread(target=_worker)
+    t.start()
+    t.join()
+    assert len(instancias_por_thread) == 3
+    assert len(set(instancias_por_thread)) == 2
 
 
 def test_classificar_fonte_url_8_categorias() -> None:

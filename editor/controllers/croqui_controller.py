@@ -1316,3 +1316,155 @@ class CroquiController:
             )
         finally:
             self.finalizar_grupo_undo()
+
+    def aprovar_betas_nao_revisados_por_score(
+        self,
+        score_minimo: int,
+        escalada_uid: str = "",
+        context_path: str | None = None,
+    ) -> int:
+        """
+        Aprova em lote todos os candidatos de betas_nao_revisados com llm_confidence_score >= score_minimo
+        (restritos a escalada_uid se informado), empilhando um único grupo Undo/Redo.
+        """
+        from aresta_api.proto.generated import beta_pb2
+
+        limiar = int(score_minimo)
+        uid_filtro = escalada_uid.strip()
+        raiz = getattr(
+            self.model.obter_croqui_readonly(), "_obj", self.model.obter_croqui_readonly()
+        )
+
+        alvos: list[tuple[Any, Any, list[tuple[int, Any]]]] = []
+        total_aprovados = 0
+        for cur_esc in raiz.curadoria_betas.conteudo.escaladas:
+            if uid_filtro and cur_esc.escalada_uid != uid_filtro:
+                continue
+            esc_obj = self.model.obter_objeto_por_uid(cur_esc.escalada_uid)
+            if esc_obj is None:
+                continue
+            esc_raw = getattr(esc_obj, "_obj", esc_obj)
+            itens_match = [
+                (idx, cand)
+                for idx, cand in enumerate(cur_esc.betas_nao_revisados)
+                if int(cand.resultado_llm.llm_confidence_score) >= limiar
+            ]
+            if itens_match:
+                alvos.append((esc_raw, cur_esc, itens_match))
+                total_aprovados += len(itens_match)
+
+        if total_aprovados == 0:
+            return 0
+
+        ctx = context_path or self.contexto_atual_path
+        self.iniciar_grupo_undo(f"Aprovar Betas >= {limiar}%")
+        try:
+            for esc_raw, cur_esc, itens_match in alvos:
+                midias_aprovadas = [
+                    beta_pb2.MidiaBeta(
+                        url=cand.midia.url,
+                        titulo=cand.midia.titulo,
+                        fonte=cand.midia.fonte,
+                    )
+                    for _idx, cand in itens_match
+                ]
+                for idx_rem, cand_rem in reversed(itens_match):
+                    self._executar_comando(
+                        CmdRemoverRepeated(
+                            model=self.model,
+                            alvo=cur_esc,
+                            campo_nome="betas_nao_revisados",
+                            index=idx_rem,
+                            valor_removido=cand_rem,
+                            context_path=ctx,
+                        )
+                    )
+                for midia_ap in midias_aprovadas:
+                    self._executar_comando(
+                        CmdAdicionarRepeated(
+                            model=self.model,
+                            alvo=esc_raw,
+                            campo_nome="betas",
+                            index=len(esc_raw.betas),
+                            valor=midia_ap,
+                            context_path=ctx,
+                        )
+                    )
+        finally:
+            self.finalizar_grupo_undo()
+        return total_aprovados
+
+    def rejeitar_betas_nao_revisados_por_score(
+        self,
+        score_maximo_exclusivo: int,
+        escalada_uid: str = "",
+        context_path: str | None = None,
+    ) -> int:
+        """
+        Rejeita em lote todos os candidatos de betas_nao_revisados com llm_confidence_score < score_maximo_exclusivo
+        (restritos a escalada_uid se informado), movendo-os para betas_rejeitados em um único grupo Undo/Redo.
+        """
+        from aresta_api.proto.generated import beta_pb2
+
+        limiar = int(score_maximo_exclusivo)
+        uid_filtro = escalada_uid.strip()
+        raiz = getattr(
+            self.model.obter_croqui_readonly(), "_obj", self.model.obter_croqui_readonly()
+        )
+
+        alvos: list[tuple[Any, list[tuple[int, Any]]]] = []
+        total_rejeitados = 0
+        for cur_esc in raiz.curadoria_betas.conteudo.escaladas:
+            if uid_filtro and cur_esc.escalada_uid != uid_filtro:
+                continue
+            if self.model.obter_objeto_por_uid(cur_esc.escalada_uid) is None:
+                continue
+            itens_match = [
+                (idx, cand)
+                for idx, cand in enumerate(cur_esc.betas_nao_revisados)
+                if int(cand.resultado_llm.llm_confidence_score) < limiar
+            ]
+            if itens_match:
+                alvos.append((cur_esc, itens_match))
+                total_rejeitados += len(itens_match)
+
+        if total_rejeitados == 0:
+            return 0
+
+        ctx = context_path or self.contexto_atual_path
+        self.iniciar_grupo_undo(f"Rejeitar Betas < {limiar}%")
+        try:
+            for cur_esc, itens_match in alvos:
+                midias_rej = [
+                    beta_pb2.MidiaBeta(
+                        url=cand.midia.url,
+                        titulo=cand.midia.titulo,
+                        fonte=cand.midia.fonte,
+                    )
+                    for _idx, cand in itens_match
+                ]
+                for idx_rem, cand_rem in reversed(itens_match):
+                    self._executar_comando(
+                        CmdRemoverRepeated(
+                            model=self.model,
+                            alvo=cur_esc,
+                            campo_nome="betas_nao_revisados",
+                            index=idx_rem,
+                            valor_removido=cand_rem,
+                            context_path=ctx,
+                        )
+                    )
+                for midia_r in midias_rej:
+                    self._executar_comando(
+                        CmdAdicionarRepeated(
+                            model=self.model,
+                            alvo=cur_esc,
+                            campo_nome="betas_rejeitados",
+                            index=len(cur_esc.betas_rejeitados),
+                            valor=midia_r,
+                            context_path=ctx,
+                        )
+                    )
+        finally:
+            self.finalizar_grupo_undo()
+        return total_rejeitados

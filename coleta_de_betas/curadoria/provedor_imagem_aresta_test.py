@@ -153,6 +153,84 @@ def test_provedor_imagem_aresta_resolve_opengraph_blog_e_instagram_e_fallback(
     assert pixmap_falha.width() == 90
     assert pixmap_falha.height() == 70
 
+    # Caso onde o GET do HTML ou o GET da imagem lança exceção de rede
+    http.registrar_erro("https://blogescalada.com/erro-html", "Timeout HTML")
+    pix_erro_html = provedor.obter_pixmap(
+        "https://blogescalada.com/erro-html",
+        beta_pb2.FonteMidia.BLOG,
+        largura=90,
+        altura=70,
+    )
+    assert pix_erro_html.width() == 90
+
+    http.registrar_texto(
+        "https://blogescalada.com/erro-img",
+        '<html><head><meta property="og:image" content="https://blogescalada.com/quebrada.png"></head></html>',
+        status_code=200,
+    )
+    http.registrar_erro("https://blogescalada.com/quebrada.png", "Timeout Imagem")
+    pix_erro_img = provedor.obter_pixmap(
+        "https://blogescalada.com/erro-img",
+        beta_pb2.FonteMidia.BLOG,
+        largura=90,
+        altura=70,
+    )
+    assert pix_erro_img.width() == 90
+
+
+def test_provedor_imagem_aresta_cache_ram_e_cache_negativo_evita_novas_requisicoes(
+    tmp_path: Path, qtbot
+) -> None:
+    _ = qtbot
+    http = ClienteHttpFake()
+    png_bytes = _gerar_png_bytes(QColor("#228844"), largura=7, altura=6)
+    url_ok = "https://blog.com/com-og"
+    url_img = "https://blog.com/thumb.png"
+    url_sem_og = "https://blog.com/sem-og"
+
+    http.registrar_texto(
+        url_ok,
+        f'<html><head><meta property="og:image" content="{url_img}"></head></html>',
+        status_code=200,
+    )
+    http.registrar_bytes(url_img, png_bytes, status_code=200)
+    http.registrar_texto(url_sem_og, "<html><head></head></html>", status_code=200)
+
+    provedor = ProvedorImagemAresta(diretorio_cache=tmp_path / "cache_ram", cliente_http=http)
+
+    # Antes de resolver, obter_pixmap_imediato retorna None para URL desconhecida e fallback para vazio
+    assert provedor.obter_pixmap_imediato(url_ok, beta_pb2.FonteMidia.BLOG) is None
+    assert provedor.obter_pixmap_imediato("", beta_pb2.FonteMidia.BLOG) is not None
+
+    # Resolve url_ok (2 GETs: HTML + imagem) -> passa a estar disponível imediatamente em RAM
+    pix1 = provedor.obter_pixmap(url_ok, beta_pb2.FonteMidia.BLOG)
+    assert pix1.width() == 7
+    assert len(http.chamadas_get) == 2
+
+    imediato_ok = provedor.obter_pixmap_imediato(url_ok, beta_pb2.FonteMidia.BLOG)
+    assert imediato_ok is not None
+    assert imediato_ok.width() == 7
+    assert len(http.chamadas_get) == 2
+
+    # Resolve url_sem_og (1 GET: HTML sem og:image) -> entra no cache negativo
+    pix_falha_1 = provedor.obter_pixmap(
+        url_sem_og, beta_pb2.FonteMidia.BLOG, largura=80, altura=60
+    )
+    assert pix_falha_1.width() == 80
+    assert len(http.chamadas_get) == 3
+
+    # Nova chamada para url_sem_og (imediata ou obter_pixmap) NÃO faz novo HTTP GET
+    imediato_neg = provedor.obter_pixmap_imediato(
+        url_sem_og, beta_pb2.FonteMidia.BLOG, largura=80, altura=60
+    )
+    assert imediato_neg is not None
+    assert imediato_neg.width() == 80
+    pix_falha_2 = provedor.obter_pixmap(
+        url_sem_og, beta_pb2.FonteMidia.BLOG, largura=80, altura=60
+    )
+    assert pix_falha_2.width() == 80
+    assert len(http.chamadas_get) == 3
+
 
 def test_worker_provedor_imagem_emite_sinal_assincrono(tmp_path: Path, qtbot) -> None:
     http = ClienteHttpFake()

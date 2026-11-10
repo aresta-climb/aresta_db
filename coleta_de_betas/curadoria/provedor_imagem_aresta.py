@@ -7,6 +7,7 @@ Provedor de previews visuais estilo WhatsApp para mídias de beta com cache offl
 
 import hashlib
 import re
+import threading
 from html.parser import HTMLParser
 from pathlib import Path
 from typing import cast
@@ -118,9 +119,16 @@ class ProvedorImagemAresta:
             ClienteHttpProtocolo, requests
         )
         self.timeout = timeout
+        self._lock = threading.Lock()
+        self._cache_bytes_ram: dict[str, bytes] = {}
+        self._urls_sem_thumbnail: set[str] = set()
+
+    @staticmethod
+    def _chave_url(url_midia: str) -> str:
+        return normalizar_url(url_midia) or url_midia.strip()
 
     def _caminho_arquivo_cache(self, url_midia: str) -> Path:
-        url_chave = normalizar_url(url_midia) or url_midia.strip()
+        url_chave = self._chave_url(url_midia)
         digest = hashlib.sha256(url_chave.encode("utf-8")).hexdigest()
         return self.diretorio_cache / f"{digest}.img"
 
@@ -142,6 +150,46 @@ class ProvedorImagemAresta:
             return ""
         return ""
 
+    def obter_pixmap_imediato(
+        self,
+        url_midia: str,
+        fonte: int,
+        largura: int = 120,
+        altura: int = 90,
+    ) -> QPixmap | None:
+        """
+        Retorna imediatamente o QPixmap sem I/O de rede quando a URL for vazia, já estiver
+        no cache em RAM, no cache negativo da sessão ou no cache persistente em disco.
+        Retorna None quando ainda for necessário consultar a rede em background.
+        """
+        url_limpa = url_midia.strip()
+        if not url_limpa:
+            return obter_pixmap_fallback(fonte, largura, altura)
+
+        chave = self._chave_url(url_limpa)
+        with self._lock:
+            bytes_ram = self._cache_bytes_ram.get(chave)
+            negativo = chave in self._urls_sem_thumbnail
+
+        if bytes_ram is not None:
+            img_ram = QImage()
+            if img_ram.loadFromData(bytes_ram):
+                return QPixmap.fromImage(img_ram)
+
+        if negativo:
+            return obter_pixmap_fallback(fonte, largura, altura)
+
+        arq_cache = self._caminho_arquivo_cache(url_limpa)
+        if arq_cache.is_file():
+            dados_disco = arq_cache.read_bytes()
+            img_cache = QImage()
+            if img_cache.loadFromData(dados_disco):
+                with self._lock:
+                    self._cache_bytes_ram[chave] = dados_disco
+                return QPixmap.fromImage(img_cache)
+
+        return None
+
     def obter_pixmap(
         self,
         url_midia: str,
@@ -150,18 +198,17 @@ class ProvedorImagemAresta:
         altura: int = 90,
     ) -> QPixmap:
         """
-        Retorna o QPixmap da miniatura a partir do cache em disco ou faz o download/resolução
-        e persiste no cache offline. Em caso de falha, retorna o fallback temático.
+        Retorna o QPixmap da miniatura a partir do cache em RAM/disco ou faz o download/resolução
+        e persiste no cache offline. Em caso de falha, registra no cache negativo da sessão e
+        retorna o fallback temático.
         """
-        url_limpa = url_midia.strip()
-        if not url_limpa:
-            return obter_pixmap_fallback(fonte, largura, altura)
+        imediato = self.obter_pixmap_imediato(url_midia, fonte, largura, altura)
+        if imediato is not None:
+            return imediato
 
+        url_limpa = url_midia.strip()
+        chave = self._chave_url(url_limpa)
         arq_cache = self._caminho_arquivo_cache(url_limpa)
-        if arq_cache.is_file():
-            img_cache = QImage()
-            if img_cache.loadFromData(arq_cache.read_bytes()):
-                return QPixmap.fromImage(img_cache)
 
         url_thumb = self._resolver_url_thumbnail(url_limpa, fonte)
         if url_thumb:
@@ -176,10 +223,14 @@ class ProvedorImagemAresta:
                     if imagem.loadFromData(resp_img.content):
                         self.diretorio_cache.mkdir(parents=True, exist_ok=True)
                         arq_cache.write_bytes(resp_img.content)
+                        with self._lock:
+                            self._cache_bytes_ram[chave] = resp_img.content
                         return QPixmap.fromImage(imagem)
             except Exception:
                 pass
 
+        with self._lock:
+            self._urls_sem_thumbnail.add(chave)
         return obter_pixmap_fallback(fonte, largura, altura)
 
 

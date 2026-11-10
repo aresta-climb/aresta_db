@@ -1378,6 +1378,74 @@ def test_croqui_controller_ciclo_completo_curadoria_betas_undo_redo(qapp):
         controller.rejeitar_beta_curadoria("esc_sem_cur", "betas_nao_scorados", 0)
 
 
+def test_croqui_controller_aprovar_e_rejeitar_betas_nao_revisados_por_score_em_lote(qapp):
+    """Valida aprovação (>= Y) e rejeição (< X) em lote por score da LLM com Undo/Redo atômico."""
+    from aresta_api.proto.generated import beta_pb2, croqui_pb2
+
+    croqui = croqui_pb2.Croqui(uid="croqui_lote_score")
+    setor = croqui.picos.add(nome="Pico 1").setores_ou_grupos.add().setor.conteudo
+    setor.uid = "setor_1"
+    esc1 = setor.escaladas.add(uid="esc_1")
+    esc1.via_esportiva.nome = "Via 1"
+    esc2 = setor.escaladas.add(uid="esc_2")
+    esc2.via_esportiva.nome = "Via 2"
+
+    cur1 = croqui.curadoria_betas.conteudo.escaladas.add(escalada_uid="esc_1")
+    for score, url in [(95, "https://yt.com/v95"), (80, "https://yt.com/v80"), (40, "https://yt.com/v40")]:
+        c = cur1.betas_nao_revisados.add()
+        c.midia.url = url
+        c.midia.titulo = f"T {score}"
+        c.midia.fonte = beta_pb2.FonteMidia.YOUTUBE
+        c.resultado_llm.llm_confidence_score = score
+
+    cur2 = croqui.curadoria_betas.conteudo.escaladas.add(escalada_uid="esc_2")
+    for score, url in [(85, "https://ig.com/p85"), (20, "https://ig.com/p20")]:
+        c = cur2.betas_nao_revisados.add()
+        c.midia.url = url
+        c.midia.titulo = f"T {score}"
+        c.midia.fonte = beta_pb2.FonteMidia.INSTAGRAM
+        c.resultado_llm.llm_confidence_score = score
+
+    model = CroquiModel(croqui)
+    undo_stack = QUndoStack()
+    controller = CroquiController(model, undo_stack)
+
+    # Sem itens correspondentes retorna 0 sem empilhar comando
+    assert controller.aprovar_betas_nao_revisados_por_score(99) == 0
+    assert controller.rejeitar_betas_nao_revisados_por_score(10) == 0
+    assert undo_stack.count() == 0
+
+    # Aprova >= 80 filtrando apenas esc_1 (2 itens: 95 e 80) em um único comando Undo
+    aprovados_esc1 = controller.aprovar_betas_nao_revisados_por_score(80, escalada_uid="esc_1")
+    assert aprovados_esc1 == 2
+    assert undo_stack.count() == 1
+    assert [b.url for b in esc1.betas] == ["https://yt.com/v95", "https://yt.com/v80"]
+    assert len(cur1.betas_nao_revisados) == 1
+    assert len(esc2.betas) == 0
+
+    # Undo reverte ambos os itens aprovados de uma vez
+    undo_stack.undo()
+    assert len(esc1.betas) == 0
+    assert len(cur1.betas_nao_revisados) == 3
+    undo_stack.redo()
+    assert len(esc1.betas) == 2
+
+    # Rejeita < 80 globalmente em todas as escaladas (v40 em esc_1 e p20 em esc_2)
+    rejeitados_global = controller.rejeitar_betas_nao_revisados_por_score(80)
+    assert rejeitados_global == 2
+    assert undo_stack.count() == 2
+    assert len(cur1.betas_nao_revisados) == 0
+    assert [r.url for r in cur1.betas_rejeitados] == ["https://yt.com/v40"]
+    assert len(cur2.betas_nao_revisados) == 1
+    assert [r.url for r in cur2.betas_rejeitados] == ["https://ig.com/p20"]
+
+    undo_stack.undo()
+    assert len(cur1.betas_nao_revisados) == 1
+    assert len(cur1.betas_rejeitados) == 0
+    assert len(cur2.betas_nao_revisados) == 2
+    assert len(cur2.betas_rejeitados) == 0
+
+
 def test_croqui_controller_preservar_campos_compativeis_na_troca_de_oneof(qapp):
     """Valida que preservar_campos_compativeis=True copia campos homônimos compatíveis ao trocar variante oneof."""
     from aresta_api.proto.generated import croqui_pb2

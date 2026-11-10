@@ -285,10 +285,14 @@ def classificar_fonte_url(url: str) -> beta_pb2.FonteMidia.Enum.ValueType | None
     return beta_pb2.FonteMidia.BLOG
 
 
+MAX_REQUISICOES_POR_SESSAO_DDGS = 15
+
+
 class _BuscadorDuckDuckGoPadrao:
     """
-    Adaptador padrão para busca textual via pacote ddgs com sessão HTTP/TLS persistente
-    (keep-alive), User-Agent desktop fixo e controle de cadência (pacing) thread-safe.
+    Adaptador padrão para busca textual via pacote ddgs com sessão HTTP/TLS isolada
+    por thread (threading.local), renovação periódica contra flood HTTP/2 (ENHANCE_YOUR_CALM),
+    User-Agent desktop fixo e controle de cadência (pacing) thread-safe.
     """
 
     def __init__(
@@ -297,6 +301,7 @@ class _BuscadorDuckDuckGoPadrao:
         backends: Sequence[str] = BACKENDS_WEB_PADRAO,
         regiao: str = "br-pt",
         intervalo_minimo_s: float = 0.15,
+        max_requisicoes_por_sessao: int = MAX_REQUISICOES_POR_SESSAO_DDGS,
         relogio: Callable[[], float] = time.monotonic,
         dormir: Callable[[float], None] = time.sleep,
     ) -> None:
@@ -304,27 +309,36 @@ class _BuscadorDuckDuckGoPadrao:
         self._backends = tuple(backends) if backends else BACKENDS_WEB_PADRAO
         self._regiao = regiao
         self._intervalo_minimo_s = intervalo_minimo_s
+        self._max_requisicoes_por_sessao = max(1, int(max_requisicoes_por_sessao))
         self._relogio = relogio
         self._dormir = dormir
         self._ultima_requisicao_s: float | None = None
         self._lock = threading.Lock()
-        self._sessao_ddgs: Any | None = None
+        self._local = threading.local()
 
     def _obter_sessao_ddgs(self) -> Any:
-        with self._lock:
-            if self._sessao_ddgs is None:
-                instancia = self._fabrica_ddgs()
-                if hasattr(instancia, "_get_engines"):
-                    for nome_backend in self._backends:
-                        for eng in instancia._get_engines("text", nome_backend):
-                            eng.http_client.client = primp.Client(
-                                impersonate="chrome",
-                                impersonate_os="windows",
-                                timeout=10,
-                                verify=True,
-                            )
-                self._sessao_ddgs = instancia
-            return self._sessao_ddgs
+        sessao = getattr(self._local, "sessao_ddgs", None)
+        contagem = int(getattr(self._local, "contagem_reqs", 0))
+        if sessao is None or contagem >= self._max_requisicoes_por_sessao:
+            instancia = self._fabrica_ddgs()
+            if hasattr(instancia, "_get_engines"):
+                for nome_backend in self._backends:
+                    for eng in instancia._get_engines("text", nome_backend):
+                        eng.http_client.client = primp.Client(
+                            impersonate="chrome",
+                            impersonate_os="windows",
+                            timeout=10,
+                            verify=True,
+                        )
+            self._local.sessao_ddgs = instancia
+            self._local.contagem_reqs = 1
+            return instancia
+        self._local.contagem_reqs = contagem + 1
+        return sessao
+
+    def _descartar_sessao_thread(self) -> None:
+        self._local.sessao_ddgs = None
+        self._local.contagem_reqs = 0
 
     def _aguardar_pacing(self) -> None:
         with self._lock:
@@ -335,10 +349,10 @@ class _BuscadorDuckDuckGoPadrao:
             self._ultima_requisicao_s = self._relogio()
 
     def buscar_texto(self, query: str, max_resultados: int = 10) -> list[dict[str, str]]:
-        sessao = self._obter_sessao_ddgs()
         ultimo_erro: Exception | None = None
 
         for backend_atual in self._backends:
+            sessao = self._obter_sessao_ddgs()
             self._aguardar_pacing()
             try:
                 itens = sessao.text(
@@ -351,6 +365,7 @@ class _BuscadorDuckDuckGoPadrao:
             except Exception as e:
                 if "no results found" in str(e).lower():
                     return []
+                self._descartar_sessao_thread()
                 ultimo_erro = e
 
         assert ultimo_erro is not None

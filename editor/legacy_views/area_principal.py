@@ -248,7 +248,12 @@ class PaginaBetas(PaginaBase):
             layout = self.layout()
             from coleta_de_betas.curadoria.painel_curadoria import PainelCuradoria
 
-            self.painel = PainelCuradoria(parent=self)
+            janela = self.window()
+            callback_mcp = getattr(janela, "_exibir_conexao_mcp", None)
+            self.painel = PainelCuradoria(
+                ao_solicitar_conexao_mcp=callback_mcp if callable(callback_mcp) else None,
+                parent=self,
+            )
             if layout:
                 layout.addWidget(self.painel)
             if self._dados_pendentes is not None:

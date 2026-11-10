@@ -15,7 +15,7 @@ from __future__ import annotations
 from collections.abc import Callable
 from typing import Any
 
-from PySide6.QtCore import Qt
+from PySide6.QtCore import Qt, QTimer
 from PySide6.QtWidgets import (
     QFrame,
     QHBoxLayout,
@@ -264,6 +264,9 @@ class WidgetPainelQualidade(QWidget):
         self._model: CroquiModel | None = None
         self._controller: CroquiController | None = None
         self._estado_conclusao_anterior: tuple[bool, bool, bool] | None = None
+        self._atualizacao_pendente: bool = False
+        self._agendado_timer: bool = False
+        self.total_atualizacoes_painel: int = 0
 
         self.secoes_etapas: dict[int, SecaoEtapaExpansivel] = {}
         self.cards_tarefas: dict[str, CardTarefaQualidade] = {}
@@ -363,12 +366,28 @@ class WidgetPainelQualidade(QWidget):
         self._layout_conteudo.addWidget(self._container_secoes)
         self._layout_conteudo.addStretch(1)
 
+    @staticmethod
+    def _obter_pilha_undo(controller: CroquiController | None) -> Any | None:
+        pilha = getattr(controller, "undo_stack", None)
+        if pilha is not None and hasattr(pilha, "obter_pilha"):
+            return pilha.obter_pilha()
+        return pilha
+
     def set_model_e_controller(
         self,
         model: CroquiModel,
         controller: CroquiController | None = None,
     ) -> None:
         """Vincula o painel a um `CroquiModel` e `CroquiController` e atualiza o diagnóstico."""
+        pilha_antiga = self._obter_pilha_undo(self._controller)
+        if pilha_antiga is not None:
+            sig_ant = getattr(pilha_antiga, "indexChanged", None)
+            if sig_ant is not None:
+                try:
+                    sig_ant.disconnect(self._ao_alterar_indice_undo)
+                except Exception:
+                    pass
+
         self._model = model
         self._controller = controller
         self._estado_conclusao_anterior = None
@@ -380,9 +399,36 @@ class WidgetPainelQualidade(QWidget):
         model.repeated_movido.connect(self._ao_mutar_modelo)
         model.oneof_alterado.connect(self._ao_mutar_modelo)
 
+        pilha_nova = self._obter_pilha_undo(self._controller)
+        if pilha_nova is not None:
+            sig_nova = getattr(pilha_nova, "indexChanged", None)
+            if sig_nova is not None:
+                sig_nova.connect(self._ao_alterar_indice_undo)
+
         self.atualizar_painel()
 
+    def _em_macro_ativa(self) -> bool:
+        return bool(getattr(self._model, "_pilha_macros", None))
+
     def _ao_mutar_modelo(self, *_args: Any) -> None:
+        if self._em_macro_ativa():
+            self._atualizacao_pendente = True
+            if not self._agendado_timer:
+                self._agendado_timer = True
+                QTimer.singleShot(0, self._processar_atualizacao_pendente)
+            return
+        self._atualizacao_pendente = False
+        self.atualizar_painel()
+
+    def _ao_alterar_indice_undo(self, *_args: Any) -> None:
+        if not self._em_macro_ativa() and self._atualizacao_pendente:
+            self._processar_atualizacao_pendente()
+
+    def _processar_atualizacao_pendente(self) -> None:
+        self._agendado_timer = False
+        if not self._atualizacao_pendente:
+            return
+        self._atualizacao_pendente = False
         self.atualizar_painel()
 
     def _emitir_foco_acao(self, uri_foco: str) -> None:
@@ -403,8 +449,10 @@ class WidgetPainelQualidade(QWidget):
 
     def atualizar_painel(self) -> None:
         """Recalcula o `ResultadoNotaQualidade` e sincroniza o cabeçalho e as 3 etapas."""
+        self._atualizacao_pendente = False
         if self._model is None:
             return
+        self.total_atualizacoes_painel += 1
 
         croqui_ro = self._model.obter_croqui_readonly()
         resultado = avaliar_nota_qualidade_croqui(croqui_ro)

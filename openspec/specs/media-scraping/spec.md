@@ -6,7 +6,7 @@ Define a malha de extratores de mídias de beta (YouTube, Instagram, TikTok, Fac
 ## Requirements
 
 ### Requirement: APIs de Busca Oficiais e Scrapers
-O sistema SHALL extrair candidatos de mídias de beta para as escaladas selecionadas executando buscas direcionadas via pacote `ddgs` (para Instagram, YouTube e Web/Blogs, usando diretamente `title` e `body` do buscador sem baixar HTML de páginas durante a coleta), higienizando os termos da busca sem incluir o nome técnico do setor, bloqueando domínios agregadores, validando relevância por matching bidirecional de espaços/typos da via + token do pico e encaminhando itens descartados para `betas_rejeitados` para auditoria.
+O sistema SHALL extrair candidatos de mídias de beta para as escaladas selecionadas executando buscas direcionadas via pacote `ddgs` (para Instagram, YouTube, TikTok, Facebook e Web/Blogs, usando diretamente `title` e `body` do buscador sem baixar HTML de páginas durante a coleta), higienizando os termos da busca sem incluir o nome técnico do setor, bloqueando domínios agregadores, validando relevância por matching bidirecional de espaços/typos da via + token do pico, encaminhando itens descartados para `betas_rejeitados` para auditoria e isolando sessões HTTP/2 por thread com renovação periódica para evitar bloqueios de carga (`h2 connection driver error`).
 
 #### Scenario: Busca bem sucedida por vídeos
 - **WHEN** o coletor recebe uma escalada identificada por seu `uid` e metadados geográficos (Nome da Via, Setor, Pico)
@@ -19,8 +19,8 @@ O sistema SHALL extrair candidatos de mídias de beta para as escaladas selecion
 - **THEN** o coletor NÃO MUST realizar download síncrono do HTML da página durante a coleta, construindo o `CandidatoMidiaBeta` diretamente a partir do `title` e `body` (snippet) retornados pelo buscador para manter latência sub-segundo por via.
 
 #### Scenario: Busca web via pacote `ddgs` sem RuntimeWarning
-- **WHEN** o adaptador `_BuscadorDuckDuckGoPadrao` executa buscas sucessivas ou concorrentes para múltiplas escaladas
-- **THEN** o sistema MUST utilizar `from ddgs import DDGS` reutilizando conexões HTTP/TLS (*keep-alive*) com User-Agent desktop (`impersonate_os="windows"`) e XPath compatível (`algo-sr | relsrch`), sem disparar `RuntimeWarning`.
+- **WHEN** o adaptador `_BuscadorDuckDuckGoPadrao` executa buscas sucessivas ou concorrentes em múltiplas threads para dezenas ou centenas de escaladas
+- **THEN** o sistema MUST isolar uma instância de `DDGS` por thread (`threading.local()`) com User-Agent desktop (`impersonate_os="windows"`) e XPath compatível (`algo-sr | relsrch`), renovando periodicamente a sessão após um número máximo de requisições ou em caso de falha de transporte HTTP/2 para evitar o erro `h2 connection driver error: connection error detected: detected excessive load generating behavior` (`ENHANCE_YOUR_CALM`).
 - **THEN** quando o buscador responder sem erro de rede mas sem resultados (`No results found`), o adaptador MUST retornar `[]` imediatamente sem repetir a busca em outros backends em cascata.
 
 #### Scenario: Sanitização da query, matching bidirecional de espaços/typos e blocklist de agregadores
@@ -33,13 +33,13 @@ O sistema SHALL extrair candidatos de mídias de beta para as escaladas selecion
 - **THEN** o coletor MUST registrar essa mídia como `MidiaBeta` auto-rejeitada indicando no prefixo do `titulo` tanto a request de origem (`instagram`, `youtube`, `tiktok`, `facebook` ou `geral`) quanto o motivo do filtro (ex.: `"[Query: geral | Auto-filtrado: domínio bloqueado] ..."` ou `"[Query: instagram | Auto-filtrado: sem menção à via] ..."`) para que seja inserida em `betas_rejeitados` da escalada e possa ser auditada ou restaurada pelo curador na seção **4. Betas Rejeitados**.
 
 ### Requirement: Resolução de Preview Estilo WhatsApp e Cache Offline de Imagens
-O sistema SHALL resolver dinamicamente a imagem de pré-visualização (thumbnail) a partir da URL da mídia (`MidiaBeta.url`) sem armazenar `thumbnail_url` no Protobuf, persistindo a imagem baixada em cache local gerenciado pelo provedor de imagens (`ProvedorImagemAresta`) indexado pela URL canônica da mídia para disponibilidade offline.
+O sistema SHALL resolver dinamicamente a imagem de pré-visualização (thumbnail) a partir da URL da mídia (`MidiaBeta.url`) sem armazenar `thumbnail_url` no Protobuf, mantendo cache em memória RAM (`QPixmap`), cache negativo de URLs sem preview e cache persistente em disco no provedor de imagens (`ProvedorImagemAresta`) indexado pela URL canônica da mídia.
 
 #### Scenario: Resolução determinística para vídeos do YouTube
 - **WHEN** a interface solicita a pré-visualização de uma mídia com `FonteMidia.YOUTUBE`
-- **THEN** o provedor MUST extrair o identificador do vídeo a partir da URL (`watch?v=`, `youtu.be/` ou `shorts/`) e recuperar a imagem de `https://i.ytimg.com/vi/<id>/hqdefault.jpg` através do cache persistente offline.
+- **THEN** o provedor MUST extrair o identificador do vídeo a partir da URL (`watch?v=`, `youtu.be/` ou `shorts/`) e recuperar a imagem de `https://i.ytimg.com/vi/<id>/hqdefault.jpg` através do cache em RAM ou do cache persistente offline em disco.
 
 #### Scenario: Resolução via OpenGraph para Blogs e Instagram com fallback visual
 - **WHEN** a interface solicita a pré-visualização de uma mídia de `INSTAGRAM`, `BLOG`, `TIKTOK`, `FACEBOOK`, `TWITTER`, `REDDIT` ou `OUTRO_UGC`
-- **THEN** o provedor MUST consultar primeiro o cache local em disco indexado pela URL da mídia; caso ausente, MUST requisitar os metadados OpenGraph (`og:image` / `twitter:image`) da página, armazenar os bytes da imagem no cache offline e retornar o `QPixmap`.
-- **THEN** caso a página não exponha imagem OpenGraph ou bloqueie a requisição, `obter_pixmap_fallback` MUST exibir um card visual de fallback estilizado com cor e rótulo específicos para cada uma das 8 categorias de `FonteMidia.Enum` sem interromper a interface.
+- **THEN** o provedor MUST consultar primeiro o cache em memória RAM e o cache local em disco indexados pela URL da mídia; caso ausente e a URL ainda não conste no cache negativo da sessão, MUST requisitar os metadados OpenGraph (`og:image` / `twitter:image`) da página, armazenar os bytes da imagem no cache offline e retornar o `QPixmap`.
+- **THEN** caso a página não exponha imagem OpenGraph ou bloqueie a requisição, o provedor MUST registrar a URL no cache negativo em memória para não repetir requisições HTTP nas próximas atualizações visuais e retornar o card visual de fallback estilizado (`obter_pixmap_fallback`).

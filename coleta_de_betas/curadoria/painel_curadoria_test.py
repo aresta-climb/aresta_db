@@ -85,12 +85,34 @@ def test_painel_curadoria_exibe_4_secoes_ordena_por_score_e_transiciona_1_a_1_co
     qtbot.addWidget(painel)
     painel.carregar_dados(model, controller)
 
-    # Verifica que as 4 seções e o banner MCP existem
+    # Verifica que as 4 seções seguem a ordem do pipeline (1. Não Scorados, 2. Não Revisados, 3. Aprovados, 4. Rejeitados)
+    assert "1. Betas Não Scorados" in painel.secao_nao_scorados.title()
+    assert "2. Betas Não Revisados" in painel.secao_nao_revisados.title()
+    assert "3. Betas Aprovados" in painel.secao_aprovados.title()
+    assert "4. Betas Rejeitados" in painel.secao_rejeitados.title()
+    assert painel.layout_secoes.indexOf(painel.secao_nao_scorados) == 0
+    assert painel.layout_secoes.indexOf(painel.secao_nao_revisados) == 1
+    assert painel.layout_secoes.indexOf(painel.secao_aprovados) == 2
+    assert painel.layout_secoes.indexOf(painel.secao_rejeitados) == 3
+
+    # Seções 1, 2 e 3 iniciam expandidas (▼) e a seção 4 (Rejeitados) inicia recolhida (▶) e lazy
+    assert painel.secao_nao_scorados.esta_expandida() is True
+    assert painel.secao_nao_revisados.esta_expandida() is True
+    assert painel.secao_aprovados.esta_expandida() is True
+    assert painel.secao_rejeitados.esta_expandida() is False
+    assert len(painel.cards_rejeitados) == 0
+    assert "(1)" in painel.secao_rejeitados.title()
+
+    # Clicar no cabeçalho expando de Rejeitados expande a seção e instancia os cards sob demanda
+    painel.secao_rejeitados.botao_cabecalho.click()
+    assert painel.secao_rejeitados.esta_expandida() is True
+    assert len(painel.cards_rejeitados) == 1
+
+    # Verifica que o banner MCP tem instruções e botão de conectar agente MCP
     assert "avaliar_betas_croqui" in painel.label_instrucoes_mcp.text()
     assert len(painel.cards_nao_revisados) == 2
     assert len(painel.cards_nao_scorados) == 1
     assert len(painel.cards_aprovados) == 1
-    assert len(painel.cards_rejeitados) == 1
 
     # Verifica badge de via e setor em destaque nos cards e feedback do botão Copiar Prompt MCP
     assert "Fusca Azul" in painel.cards_nao_revisados[0].label_via_setor.text()
@@ -213,5 +235,80 @@ def test_card_beta_curadoria_exibe_rotulos_das_8_fontes_de_midia(
         )
         qtbot.addWidget(card)
         assert card.label_fonte.text() == rotulo
+
+
+def test_painel_curadoria_acoes_em_lote_por_score_conexao_mcp_e_preservacao_de_scroll(
+    tmp_path: Path, qtbot
+) -> None:
+    croqui = _criar_croqui_curadoria()
+    cur1 = croqui.curadoria_betas.conteudo.escaladas[0]
+    for i in range(15):
+        cand_extra = cur1.betas_nao_revisados.add()
+        cand_extra.midia.url = f"https://youtube.com/watch?v=extra_{i}"
+        cand_extra.midia.titulo = f"Extra {i}"
+        cand_extra.midia.fonte = beta_pb2.FonteMidia.YOUTUBE
+        cand_extra.resultado_llm.llm_confidence_score = 85 if i < 3 else 40
+    for i in range(15):
+        cur1.betas_rejeitados.add(
+            url=f"https://blog.com/rej_{i}",
+            titulo=f"Rejeitado {i}",
+            fonte=beta_pb2.FonteMidia.BLOG,
+        )
+
+    model = CroquiModel(croqui)
+    stack = QUndoStack()
+    controller = CroquiController(model, stack)
+    provedor = ProvedorImagemAresta(
+        diretorio_cache=tmp_path / "cache_scroll",
+        cliente_http=ClienteHttpFake(),
+    )
+
+    chamadas_mcp: list[int] = []
+    painel = PainelCuradoria(
+        provedor_imagem=provedor,
+        carregar_assincrono=False,
+        ao_solicitar_conexao_mcp=lambda: chamadas_mcp.append(1),
+    )
+    painel.resize(900, 500)
+    qtbot.addWidget(painel)
+    painel.carregar_dados(model, controller)
+    painel.secao_rejeitados.definir_expandida(True)
+    painel.show()
+    qtbot.waitExposed(painel)
+
+    # 1. Botão "🔌 Conectar Agente (MCP)..." aciona o callback do wizard MCP
+    painel.btn_conectar_mcp.click()
+    assert len(chamadas_mcp) == 1
+
+    # 2. Aprovar 1 card com foco no botão NÃO joga o scroll para o final da página
+    vbar = painel.scroll_area.verticalScrollBar()
+    vbar.setValue(180)
+    assert vbar.value() == 180
+    card_alvo = painel.cards_nao_revisados[1]
+    assert card_alvo.btn_aprovar is not None
+    card_alvo.btn_aprovar.setFocus()
+    card_alvo.btn_aprovar.click()
+    assert vbar.value() == 180
+
+    # 3. Barra de ações em lote em Betas Não Revisados (padrão 80%)
+    assert painel.spin_limiar_score.value() == 80
+    assert "✅ Aprovar >= 80% (3)" in painel.btn_aprovar_lote_score.text()
+    assert "❌ Rejeitar < 80% (13)" in painel.btn_rejeitar_lote_score.text()
+
+    painel.btn_aprovar_lote_score.click()
+    assert len(painel.cards_nao_revisados) == 13
+    assert painel.btn_aprovar_lote_score.isEnabled() is False
+
+    painel.btn_rejeitar_lote_score.click()
+    assert len(painel.cards_nao_revisados) == 0
+    assert painel.btn_rejeitar_lote_score.isEnabled() is False
+
+    # Undo reverte toda a rejeição em lote de uma só vez
+    stack.undo()
+    assert len(painel.cards_nao_revisados) == 13
+    # Undo reverte toda a aprovação em lote de uma só vez
+    stack.undo()
+    assert len(painel.cards_nao_revisados) == 16
+
 
 
