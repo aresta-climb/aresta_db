@@ -213,8 +213,12 @@ def test_clique_acao_rapida_emite_foco_requisitado_e_aviso_croqui_legado_publica
     model.foco_requisitado.connect(lambda uri: uris_recebidas.append(str(uri)))
 
     card_identidade = painel.cards_tarefas["etapa1_identidade_capa"]
-    assert len(card_identidade.botoes_acao) > 0
+    assert [b.text() for b in card_identidade.botoes_acao] == [
+        "Definir nome do croqui",
+        "Adicionar descrição do croqui",
+        "Adicionar imagem de capa",
+    ]
     qtbot.mouseClick(card_identidade.botoes_acao[0], Qt.MouseButton.LeftButton)
 
     assert len(uris_recebidas) == 1
-    assert uris_recebidas[0] == "page:dados/node:root/node:Croqui"
+    assert uris_recebidas[0] == "page:dados/node:root/node:Croqui/campo:nome"

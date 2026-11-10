@@ -15,6 +15,7 @@ class ContextoUIPath:
         self._pagina: str | None = None
         self._caminho_local_arvore: str = ""
         self._arquivo_mapa: str | None = None
+        self._campo_alvo: str | None = None
 
         self._parse()
 
@@ -29,16 +30,18 @@ class ContextoUIPath:
             self._pagina = primeira_parte.split(":", 1)[1]
             if len(partes) > 1:
                 resto = partes[1]
-                if self._pagina in ("mapas", "imagens"):
-                    if resto.startswith("file:"):
-                        self._arquivo_mapa = resto.split(":", 1)[1]
-                    else:
-                        self._caminho_local_arvore = resto
+                if self._pagina in ("mapas", "imagens") and resto.startswith("file:"):
+                    self._arquivo_mapa = resto.split(":", 1)[1]
                 else:
                     self._caminho_local_arvore = resto
         else:
             # Caso não tenha prefixo de página, assume que o path inteiro é o caminho da árvore local.
             self._caminho_local_arvore = self.raw_path
+
+        if "/campo:" in self._caminho_local_arvore:
+            caminho_arvore, campo = self._caminho_local_arvore.rsplit("/campo:", 1)
+            self._caminho_local_arvore = caminho_arvore
+            self._campo_alvo = campo if campo else None
 
     @property
     def pagina(self) -> str | None:
@@ -51,3 +54,7 @@ class ContextoUIPath:
     @property
     def arquivo_mapa(self) -> str | None:
         return self._arquivo_mapa
+
+    @property
+    def campo_alvo(self) -> str | None:
+        return self._campo_alvo

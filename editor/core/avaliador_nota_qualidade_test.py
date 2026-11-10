@@ -475,14 +475,261 @@ Corpo do setor na Urca.
     assert tarefas_e1["etapa1_grau_dificuldade"].progresso_atual == 2
     assert tarefas_e1["etapa1_grau_dificuldade"].progresso_total == 4
     assert tarefas_e1["etapa1_malha_estrada_picos"].pontos_obtidos == 0
-    assert tarefas_e1["etapa1_malha_estrada_picos"].acoes[0].rotulo == (
-        "Gerar mapa de pontos de Morro da Urca"
+    assert tarefas_e1["etapa1_malha_estrada_picos"].acoes[0].rotulo == "Gerar mapa de pontos"
+    assert (
+        tarefas_e1["etapa1_malha_estrada_picos"].acoes[0].uri_contexto
+        == "page:dados/node:root/node:Croqui/expando:picos/item:0/campo:localizacao"
     )
 
     tarefas_e2 = {t.id_tarefa: t for t in resultado.etapas[1].tarefas}
     # 1 de 2 vias encordadas completa (Italianos completa, Via Sem Dados incompleta)
     assert tarefas_e2["etapa2_extensao_protecoes_vias"].progresso_atual == 1
     assert tarefas_e2["etapa2_extensao_protecoes_vias"].progresso_total == 2
-    assert tarefas_e2["etapa2_extensao_protecoes_vias"].acoes[0].rotulo == (
-        "Ficha técnica de Via Sem Dados"
+    assert [
+        (a.rotulo, a.uri_contexto) for a in tarefas_e2["etapa2_extensao_protecoes_vias"].acoes
+    ] == [
+        (
+            "Adicionar extensão (Via Sem Dados)",
+            "page:dados/node:root/node:Croqui/expando:picos/item:0/expando:setores_ou_grupos/item:0/expando:escaladas/item:1/campo:comprimento_total",
+        ),
+        (
+            "Adicionar proteções (Via Sem Dados)",
+            "page:dados/node:root/node:Croqui/expando:picos/item:0/expando:setores_ou_grupos/item:0/expando:escaladas/item:1/campo:tipo_via_multiplas_enfiadas",
+        ),
+    ]
+
+
+def test_acoes_diretas_desmembradas_por_campo_e_omissao_nome_pico_unico(
+    tmp_path: Path,
+) -> None:
+    """
+    Valida que as 22 tarefas geram rótulos imperativos diretos e URIs com /campo:<nome_campo>,
+    omitindo o nome do pico quando há apenas 1 pico e incluindo-o quando há 2 ou mais picos.
+    """
+    croqui = croqui_pb2.Croqui(id="teste_acoes_diretas")
+    pico = croqui.picos.add(nome="Gruta da Lapinha")
+    setor = pico.setores_ou_grupos.add().setor.conteudo
+    setor.uid = "uid_setor_1"
+    setor.nome = "Setor Museu"
+    esc = setor.escaladas.add(uid="uid_esc_1")
+    esc.via_esportiva.nome = "Via 1"
+
+    setor2 = pico.setores_ou_grupos.add().setor.conteudo
+    setor2.uid = "uid_setor_2"
+    setor2.nome = "Setor Lagoa"
+
+    (tmp_path / "betas_pendentes.binarypb").write_bytes(b"pendente")
+
+    res = avaliar_nota_qualidade_croqui(croqui, croqui_path=tmp_path)
+    t_e1 = {t.id_tarefa: t for t in res.etapas[0].tarefas}
+    t_e2 = {t.id_tarefa: t for t in res.etapas[1].tarefas}
+    t_e3 = {t.id_tarefa: t for t in res.etapas[2].tarefas}
+
+    # 1.1 Identidade: 3 ações desmembradas
+    assert [(a.rotulo, a.uri_contexto) for a in t_e1["etapa1_identidade_capa"].acoes] == [
+        ("Definir nome do croqui", "page:dados/node:root/node:Croqui/campo:nome"),
+        ("Adicionar descrição do croqui", "page:dados/node:root/node:Croqui/campo:descricao"),
+        ("Adicionar imagem de capa", "page:dados/node:root/node:Croqui/campo:caminho_thumbnail"),
+    ]
+
+    # 1.2 Localização e Google Maps (1 pico -> omite nome do pico)
+    assert [(a.rotulo, a.uri_contexto) for a in t_e1["etapa1_localizacao_picos"].acoes] == [
+        (
+            "Adicionar localização",
+            "page:dados/node:root/node:Croqui/expando:picos/item:0/campo:localizacao",
+        ),
+        (
+            "Adicionar link Google Maps",
+            "page:dados/node:root/node:Croqui/expando:picos/item:0/campo:url_google_maps",
+        ),
+    ]
+
+    # 1.3 Acesso (1 pico -> omite nome do pico)
+    assert [(a.rotulo, a.uri_contexto) for a in t_e1["etapa1_instrucoes_acesso"].acoes] == [
+        (
+            "Adicionar instruções de acesso",
+            "page:dados/node:root/node:Croqui/expando:picos/item:0/campo:descricao",
+        ),
+    ]
+
+    # 1.4 Mapa Geral (sem mapa geral -> Adicionar Mapa Geral no campo:mapas_gerais)
+    assert [(a.rotulo, a.uri_contexto) for a in t_e1["etapa1_mapa_geral"].acoes] == [
+        (
+            "Adicionar Mapa Geral",
+            "page:dados/node:root/node:Croqui/expando:picos/item:0/campo:mapas_gerais",
+        ),
+    ]
+
+    # 1.5 Mapas nos setores -> campo:mapas
+    assert t_e1["etapa1_setores_com_mapa"].acoes[0] == (
+        t_e1["etapa1_setores_com_mapa"]
+        .acoes[0]
+        .__class__(
+            "Adicionar mapa em Setor Museu",
+            "page:dados/node:root/node:Croqui/expando:picos/item:0/expando:setores_ou_grupos/item:0/campo:mapas",
+        )
+    )
+
+    # 1.6 Escaladas no mapa (quando o setor ainda não tem mapa -> Adicionar mapa em ...)
+    assert t_e1["etapa1_escaladas_no_mapa"].acoes[0].rotulo == "Adicionar mapa em Setor Museu"
+    assert t_e1["etapa1_escaladas_no_mapa"].acoes[0].uri_contexto.endswith("/campo:mapas")
+
+    # 1.7 Grau de dificuldade -> Definir grau de Via 1 (/campo:dificuldade)
+    assert [(a.rotulo, a.uri_contexto) for a in t_e1["etapa1_grau_dificuldade"].acoes] == [
+        (
+            "Definir grau de Via 1",
+            "page:dados/node:root/node:Croqui/expando:picos/item:0/expando:setores_ou_grupos/item:0/expando:escaladas/item:0/campo:dificuldade",
+        ),
+    ]
+
+    # 1.8 Malha de estrada quando não há localização -> Adicionar localização (/campo:localizacao)
+    assert [(a.rotulo, a.uri_contexto) for a in t_e1["etapa1_malha_estrada_picos"].acoes] == [
+        (
+            "Adicionar localização",
+            "page:dados/node:root/node:Croqui/expando:picos/item:0/campo:localizacao",
+        ),
+    ]
+
+    # 2.1 Coordenadas dos setores desmembradas
+    assert [(a.rotulo, a.uri_contexto) for a in t_e2["etapa2_coordenadas_setores"].acoes[:2]] == [
+        (
+            "Adicionar estacionamento (Setor Museu)",
+            "page:dados/node:root/node:Croqui/expando:picos/item:0/expando:setores_ou_grupos/item:0/campo:localizacao_estacionamento",
+        ),
+        (
+            "Adicionar localização da parede (Setor Museu)",
+            "page:dados/node:root/node:Croqui/expando:picos/item:0/expando:setores_ou_grupos/item:0/campo:localizacao_escalada",
+        ),
+    ]
+
+    # 2.2 Trilhas -> Adicionar trilha em Setor Museu (/campo:trilhas)
+    assert t_e2["etapa2_trilhas_aproximacao"].acoes[0].rotulo == "Adicionar trilha em Setor Museu"
+    assert t_e2["etapa2_trilhas_aproximacao"].acoes[0].uri_contexto.endswith("/campo:trilhas")
+
+    # 2.3 Extensão e proteções (via esportiva)
+    assert [(a.rotulo, a.uri_contexto) for a in t_e2["etapa2_extensao_protecoes_vias"].acoes] == [
+        (
+            "Adicionar extensão (Via 1)",
+            "page:dados/node:root/node:Croqui/expando:picos/item:0/expando:setores_ou_grupos/item:0/expando:escaladas/item:0/campo:extensao",
+        ),
+        (
+            "Adicionar proteções (Via 1)",
+            "page:dados/node:root/node:Croqui/expando:picos/item:0/expando:setores_ou_grupos/item:0/expando:escaladas/item:0/campo:quantidade_protecoes_intermediarias",
+        ),
+    ]
+
+    # 2.4 Traçados vetoriais -> Desenhar linhas em Setor Museu
+    assert t_e2["etapa2_tracados_vetoriais"].acoes[0].rotulo == "Desenhar linhas em Setor Museu"
+
+    # 2.5 Destaques nos setores -> Escolher destaque em Setor Museu (1ª escalada /campo:destaque)
+    assert [(a.rotulo, a.uri_contexto) for a in t_e2["etapa2_destaques_setores"].acoes] == [
+        (
+            "Escolher destaque em Setor Museu",
+            "page:dados/node:root/node:Croqui/expando:picos/item:0/expando:setores_ou_grupos/item:0/expando:escaladas/item:0/campo:destaque",
+        ),
+    ]
+
+    # 2.6 Descrições nas escaladas -> Adicionar descrição (Via 1) (/campo:descricao)
+    assert [(a.rotulo, a.uri_contexto) for a in t_e2["etapa2_descricoes_escaladas"].acoes] == [
+        (
+            "Adicionar descrição (Via 1)",
+            "page:dados/node:root/node:Croqui/expando:picos/item:0/expando:setores_ou_grupos/item:0/expando:escaladas/item:0/campo:descricao",
+        ),
+    ]
+
+    # 2.7 Fotos de capa -> Adicionar foto de capa (Setor Museu) (/campo:caminho_imagem_capa)
+    assert (
+        t_e2["etapa2_fotos_capa_setores"].acoes[0].rotulo == "Adicionar foto de capa (Setor Museu)"
+    )
+    assert (
+        t_e2["etapa2_fotos_capa_setores"]
+        .acoes[0]
+        .uri_contexto.endswith("/campo:caminho_imagem_capa")
+    )
+
+    # 3.1 Créditos -> Adicionar créditos (/campo:creditos)
+    assert [(a.rotulo, a.uri_contexto) for a in t_e3["etapa3_creditos"].acoes] == [
+        ("Adicionar créditos", "page:dados/node:root/node:Croqui/campo:creditos"),
+    ]
+
+    # 3.2 Conquistadores -> Adicionar conquistadores (Via 1) (/campo:conquistadores)
+    assert [(a.rotulo, a.uri_contexto) for a in t_e3["etapa3_conquistadores_datas"].acoes] == [
+        (
+            "Adicionar conquistadores (Via 1)",
+            "page:dados/node:root/node:Croqui/expando:picos/item:0/expando:setores_ou_grupos/item:0/expando:escaladas/item:0/campo:conquistadores",
+        ),
+    ]
+
+    # 3.3 Tipo de parede -> Definir tipo de parede (Via 1) (/campo:tipo_parede)
+    assert [(a.rotulo, a.uri_contexto) for a in t_e3["etapa3_tipo_parede_exposicao"].acoes] == [
+        (
+            "Definir tipo de parede (Via 1)",
+            "page:dados/node:root/node:Croqui/expando:picos/item:0/expando:setores_ou_grupos/item:0/expando:escaladas/item:0/campo:tipo_parede",
+        ),
+    ]
+
+    # 3.4 Indicadores -> Preencher indicadores (Setor Museu) (/campo:sinal_de_celular)
+    assert t_e3["etapa3_indicadores_familia_celular"].acoes[0].rotulo == (
+        "Preencher indicadores (Setor Museu)"
+    )
+    assert (
+        t_e3["etapa3_indicadores_familia_celular"]
+        .acoes[0]
+        .uri_contexto.endswith("/campo:sinal_de_celular")
+    )
+
+    # 3.5 Betas pendentes -> Revisar betas pendentes (page:betas)
+    assert [(a.rotulo, a.uri_contexto) for a in t_e3["etapa3_videos_betas"].acoes] == [
+        ("Revisar betas pendentes", "page:betas"),
+    ]
+
+    # 3.6 Associação/Pix (1 pico -> omite nome do pico)
+    assert [(a.rotulo, a.uri_contexto) for a in t_e3["etapa3_associacao_pix"].acoes] == [
+        (
+            "Adicionar associação",
+            "page:dados/node:root/node:Croqui/expando:picos/item:0/campo:nome_associacao",
+        ),
+        (
+            "Adicionar chave Pix",
+            "page:dados/node:root/node:Croqui/expando:picos/item:0/campo:chave_pix_manutencao",
+        ),
+    ]
+
+    # 3.7 Revisão final desmembrada
+    assert [(a.rotulo, a.uri_contexto) for a in t_e3["etapa3_revisao_final"].acoes] == [
+        (
+            "Marcar revisão manual",
+            "page:dados/node:root/node:Croqui/campo:revisado_manualmente",
+        ),
+        (
+            "Marcar revisão de bounding circle",
+            "page:dados/node:root/node:Croqui/campo:revisado_bounding_circle",
+        ),
+    ]
+
+    # Agora adiciona um 2º pico e mapa no 1º pico/setor para validar sufixo (<Nome do Pico>) e Mapear setores/escaladas
+    croqui.picos.add(nome="Serra do Cipó")
+    pico.mapas_gerais.conteudo.mapas.add(caminho_imagem_mapa="imagens/mg.webp")
+    setor.mapas.add(caminho_imagem_mapa="imagens/ms.webp")
+
+    res_multi = avaliar_nota_qualidade_croqui(croqui)
+    t_e1_m = {t.id_tarefa: t for t in res_multi.etapas[0].tarefas}
+    t_e3_m = {t.id_tarefa: t for t in res_multi.etapas[2].tarefas}
+
+    assert t_e1_m["etapa1_localizacao_picos"].acoes[0].rotulo == (
+        "Adicionar localização (Gruta da Lapinha)"
+    )
+    assert t_e1_m["etapa1_localizacao_picos"].acoes[1].rotulo == (
+        "Adicionar link Google Maps (Gruta da Lapinha)"
+    )
+    assert t_e1_m["etapa1_instrucoes_acesso"].acoes[0].rotulo == (
+        "Adicionar instruções de acesso (Gruta da Lapinha)"
+    )
+    assert t_e1_m["etapa1_mapa_geral"].acoes[0].rotulo == (
+        "Mapear setores no Mapa Geral (Gruta da Lapinha)"
+    )
+    assert t_e1_m["etapa1_escaladas_no_mapa"].acoes[0].rotulo == ("Mapear escaladas em Setor Museu")
+    assert t_e3_m["etapa3_videos_betas"].acoes[0].rotulo == "Adicionar vídeo de beta"
+    assert t_e3_m["etapa3_associacao_pix"].acoes[0].rotulo == (
+        "Adicionar associação (Gruta da Lapinha)"
     )

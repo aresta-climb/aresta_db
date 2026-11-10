@@ -291,8 +291,10 @@ def _escalada_possui_grau(modalidade: str, dados_mod: dict[str, Any]) -> bool:
     return int(dados_mod.get("distancia") or 0) > 0
 
 
-def _via_encordada_possui_extensao_e_protecoes(modalidade: str, dados_mod: dict[str, Any]) -> bool:
-    """Verifica se uma via encordada possui extensão e dados de proteção preenchidos."""
+def _diagnosticar_extensao_e_protecoes_via(
+    modalidade: str, dados_mod: dict[str, Any]
+) -> tuple[bool, bool, str, str]:
+    """Retorna (tem_extensao, tem_protecoes, campo_extensao, campo_protecoes) de uma via encordada."""
     if modalidade in ("via_esportiva", "via_movel"):
         tem_ext = int(dados_mod.get("extensao") or 0) > 0
         tem_prot = (
@@ -300,7 +302,12 @@ def _via_encordada_possui_extensao_e_protecoes(modalidade: str, dados_mod: dict[
             or int(dados_mod.get("quantidade_protecoes_intermediarias") or 0) > 0
             or int(dados_mod.get("quantidade_protecoes_parada") or 0) > 0
         )
-        return tem_ext and tem_prot
+        campo_prot = (
+            "protecoes_moveis"
+            if modalidade == "via_movel"
+            else "quantidade_protecoes_intermediarias"
+        )
+        return tem_ext, tem_prot, "extensao", campo_prot
     # via_multiplas_enfiadas
     tem_ext = (
         int(dados_mod.get("comprimento_total") or 0) > 0
@@ -312,7 +319,7 @@ def _via_encordada_possui_extensao_e_protecoes(modalidade: str, dados_mod: dict[
         or int(dados_mod.get("quantidade_equipamentos_parada") or 0) > 0
         or _valor_enum_preenchido(dados_mod.get("tipo_via_multiplas_enfiadas"))
     )
-    return tem_ext and tem_prot
+    return tem_ext, tem_prot, "comprimento_total", "tipo_via_multiplas_enfiadas"
 
 
 def avaliar_nota_qualidade_croqui(
@@ -457,21 +464,35 @@ def avaliar_nota_qualidade_croqui(
     # =========================================================================
     # ETAPA 1: Essenciais para Publicação (1000 pontos cada)
     # =========================================================================
+    multiplos_picos = len(picos_raw) > 1
 
     # 1.1 Identidade e capa do croqui
-    itens_identidade = sum(
-        [
-            bool(str(dados.get("nome") or "").strip()),
-            bool(str(dados.get("descricao") or "").strip()),
-            bool(str(dados.get("caminho_thumbnail") or "").strip()),
-        ]
-    )
+    tem_nome_croqui = bool(str(dados.get("nome") or "").strip())
+    tem_desc_croqui = bool(str(dados.get("descricao") or "").strip())
+    tem_thumb_croqui = bool(str(dados.get("caminho_thumbnail") or "").strip())
+    itens_identidade = sum([tem_nome_croqui, tem_desc_croqui, tem_thumb_croqui])
     pts_id, conc_id = _pontuar_cobertura(itens_identidade, 3, 1000, meta=1.0)
-    acoes_id = (
-        ()
-        if conc_id
-        else (AcaoTarefaQualidade("Editar dados do croqui", "page:dados/node:root/node:Croqui"),)
-    )
+    lista_acoes_id: list[AcaoTarefaQualidade] = []
+    if not tem_nome_croqui:
+        lista_acoes_id.append(
+            AcaoTarefaQualidade(
+                "Definir nome do croqui", "page:dados/node:root/node:Croqui/campo:nome"
+            )
+        )
+    if not tem_desc_croqui:
+        lista_acoes_id.append(
+            AcaoTarefaQualidade(
+                "Adicionar descrição do croqui",
+                "page:dados/node:root/node:Croqui/campo:descricao",
+            )
+        )
+    if not tem_thumb_croqui:
+        lista_acoes_id.append(
+            AcaoTarefaQualidade(
+                "Adicionar imagem de capa",
+                "page:dados/node:root/node:Croqui/campo:caminho_thumbnail",
+            )
+        )
     t1_identidade = TarefaQualidade(
         id_tarefa="etapa1_identidade_capa",
         titulo="Identidade e capa do croqui",
@@ -482,7 +503,7 @@ def avaliar_nota_qualidade_croqui(
         concluida=conc_id,
         progresso_atual=itens_identidade,
         progresso_total=3,
-        acoes=acoes_id,
+        acoes=() if conc_id else tuple(lista_acoes_id),
     )
 
     # 1.2 Localização e Google Maps dos picos
@@ -495,15 +516,25 @@ def avaliar_nota_qualidade_croqui(
             picos_com_loc += 1
         else:
             nome_p = str(pico.get("nome") or f"Pico {p_idx + 1}").strip()
-            acoes_loc.append(
-                AcaoTarefaQualidade(
-                    f"Editar {nome_p}",
-                    f"page:dados/node:root/node:Croqui/expando:picos/item:{p_idx}",
+            sufixo_p = f" ({nome_p})" if multiplos_picos else ""
+            uri_pico = f"page:dados/node:root/node:Croqui/expando:picos/item:{p_idx}"
+            if not tem_coord:
+                acoes_loc.append(
+                    AcaoTarefaQualidade(
+                        f"Adicionar localização{sufixo_p}",
+                        f"{uri_pico}/campo:localizacao",
+                    )
                 )
-            )
+            if not tem_url:
+                acoes_loc.append(
+                    AcaoTarefaQualidade(
+                        f"Adicionar link Google Maps{sufixo_p}",
+                        f"{uri_pico}/campo:url_google_maps",
+                    )
+                )
     if not tem_picos:
         acoes_loc.append(
-            AcaoTarefaQualidade("Adicionar pico", "page:dados/node:root/node:Croqui")
+            AcaoTarefaQualidade("Adicionar pico", "page:dados/node:root/node:Croqui/campo:picos")
         )
     pts_loc, conc_loc = _pontuar_cobertura(
         picos_com_loc, len(picos_raw), 1000, meta=1.0, possui_estrutura_base=tem_picos
@@ -527,9 +558,9 @@ def avaliar_nota_qualidade_croqui(
         and isinstance(b.get("destino"), Mapping)
         and bool(
             str(
-                _resolver_arquivo_md(
-                    b["destino"].get("secao_textual"), croqui_path, cache_md
-                ).get("descricao")
+                _resolver_arquivo_md(b["destino"].get("secao_textual"), croqui_path, cache_md).get(
+                    "descricao"
+                )
                 or (
                     b["destino"].get("secao_textual", {}).get("conteudo")
                     if isinstance(b["destino"].get("secao_textual"), Mapping)
@@ -547,15 +578,16 @@ def avaliar_nota_qualidade_croqui(
             picos_com_acesso += 1
         else:
             nome_p = str(pico.get("nome") or f"Pico {p_idx + 1}").strip()
+            sufixo_p = f" ({nome_p})" if multiplos_picos else ""
             acoes_acesso.append(
                 AcaoTarefaQualidade(
-                    f"Descrever acesso de {nome_p}",
-                    f"page:dados/node:root/node:Croqui/expando:picos/item:{p_idx}",
+                    f"Adicionar instruções de acesso{sufixo_p}",
+                    f"page:dados/node:root/node:Croqui/expando:picos/item:{p_idx}/campo:descricao",
                 )
             )
     if not tem_picos:
         acoes_acesso.append(
-            AcaoTarefaQualidade("Adicionar pico", "page:dados/node:root/node:Croqui")
+            AcaoTarefaQualidade("Adicionar pico", "page:dados/node:root/node:Croqui/campo:picos")
         )
     pts_acesso, conc_acesso = _pontuar_cobertura(
         picos_com_acesso, len(picos_raw), 1000, meta=1.0, possui_estrutura_base=tem_picos
@@ -593,13 +625,19 @@ def avaliar_nota_qualidade_croqui(
                 else:
                     faltou_no_pico = True
             if faltou_no_pico:
+                nome_p = str(picos_raw[p_idx].get("nome") or f"Pico {p_idx + 1}").strip()
+                sufixo_p = f" ({nome_p})" if multiplos_picos else ""
                 uri_mg = (
                     f"page:mapas/node:root/node:Croqui/expando:picos/item:{p_idx}"
                     f"/node:mapas_gerais/expando:mapas/item:0"
                     if mapas_mg_pico
-                    else f"page:dados/node:root/node:Croqui/expando:picos/item:{p_idx}"
+                    else f"page:dados/node:root/node:Croqui/expando:picos/item:{p_idx}/campo:mapas_gerais"
                 )
-                rotulo_mg = "Abrir Mapa Geral" if mapas_mg_pico else "Configurar Mapa Geral"
+                rotulo_mg = (
+                    f"Mapear setores no Mapa Geral{sufixo_p}"
+                    if mapas_mg_pico
+                    else f"Adicionar Mapa Geral{sufixo_p}"
+                )
                 lista_acoes_mg.append(AcaoTarefaQualidade(rotulo_mg, uri_mg))
         pts_mg, conc_mg = _pontuar_cobertura(
             mapeados_mg,
@@ -636,7 +674,9 @@ def avaliar_nota_qualidade_croqui(
             setores_com_mapa += 1
         else:
             acoes_setores_mapa.append(
-                AcaoTarefaQualidade(f"Adicionar mapa em {s_info.nome}", s_info.uri_dados)
+                AcaoTarefaQualidade(
+                    f"Adicionar mapa em {s_info.nome}", f"{s_info.uri_dados}/campo:mapas"
+                )
             )
     pts_sm, conc_sm = _pontuar_cobertura(
         setores_com_mapa, len(setores_info), 1000, meta=0.90, possui_estrutura_base=tem_setores
@@ -667,12 +707,17 @@ def avaliar_nota_qualidade_croqui(
         )
         if tem_ref or tem_mapa_proprio:
             escaladas_mapeadas += 1
-        elif esc_info.setor_info.uri_mapa not in setores_ja_acionados_mapa:
-            setores_ja_acionados_mapa.add(esc_info.setor_info.uri_mapa)
+        elif esc_info.setor_info.uri_dados not in setores_ja_acionados_mapa:
+            setores_ja_acionados_mapa.add(esc_info.setor_info.uri_dados)
+            setor_tem_mapa = bool(esc_info.setor_info.dados.get("mapas"))
             acoes_esc_mapa.append(
                 AcaoTarefaQualidade(
-                    f"Mapear vias em {esc_info.setor_info.nome}",
-                    esc_info.setor_info.uri_mapa,
+                    f"Mapear escaladas em {esc_info.setor_info.nome}"
+                    if setor_tem_mapa
+                    else f"Adicionar mapa em {esc_info.setor_info.nome}",
+                    esc_info.setor_info.uri_mapa
+                    if setor_tem_mapa
+                    else f"{esc_info.setor_info.uri_dados}/campo:mapas",
                 )
             )
     pts_em, conc_em = _pontuar_cobertura(
@@ -702,8 +747,16 @@ def avaliar_nota_qualidade_croqui(
         if _escalada_possui_grau(esc_info.modalidade, esc_info.dados_modalidade):
             escaladas_com_grau += 1
         else:
+            campo_grau = (
+                "dificuldade_media"
+                if esc_info.modalidade == "via_multiplas_enfiadas"
+                else ("distancia" if esc_info.modalidade == "highline" else "dificuldade")
+            )
             acoes_grau.append(
-                AcaoTarefaQualidade(f"Graduar {esc_info.nome}", esc_info.uri_dados)
+                AcaoTarefaQualidade(
+                    f"Definir grau de {esc_info.nome}",
+                    f"{esc_info.uri_dados}/campo:{campo_grau}",
+                )
             )
     pts_grau, conc_grau = _pontuar_cobertura(
         escaladas_com_grau,
@@ -733,15 +786,21 @@ def avaliar_nota_qualidade_croqui(
             picos_com_malha += 1
         else:
             nome_p = str(pico.get("nome") or f"Pico {p_idx + 1}").strip()
+            sufixo_p = f" ({nome_p})" if multiplos_picos else ""
+            rotulo_malha = (
+                f"Gerar mapa de pontos{sufixo_p}"
+                if _coordenada_valida(pico.get("localizacao"))
+                else f"Adicionar localização{sufixo_p}"
+            )
             acoes_malha.append(
                 AcaoTarefaQualidade(
-                    f"Gerar mapa de pontos de {nome_p}",
-                    f"page:dados/node:root/node:Croqui/expando:picos/item:{p_idx}",
+                    rotulo_malha,
+                    f"page:dados/node:root/node:Croqui/expando:picos/item:{p_idx}/campo:localizacao",
                 )
             )
     if not tem_picos:
         acoes_malha.append(
-            AcaoTarefaQualidade("Adicionar pico", "page:dados/node:root/node:Croqui")
+            AcaoTarefaQualidade("Adicionar pico", "page:dados/node:root/node:Croqui/campo:picos")
         )
     pts_malha, conc_malha = _pontuar_cobertura(
         picos_com_malha, len(picos_raw), 1000, meta=1.0, possui_estrutura_base=tem_picos
@@ -789,9 +848,20 @@ def avaliar_nota_qualidade_croqui(
         if est_ok and esc_ok:
             setores_com_coord += 1
         else:
-            acoes_coord_setor.append(
-                AcaoTarefaQualidade(f"Coordenadas de {s_info.nome}", s_info.uri_dados)
-            )
+            if not est_ok:
+                acoes_coord_setor.append(
+                    AcaoTarefaQualidade(
+                        f"Adicionar estacionamento ({s_info.nome})",
+                        f"{s_info.uri_dados}/campo:localizacao_estacionamento",
+                    )
+                )
+            if not esc_ok:
+                acoes_coord_setor.append(
+                    AcaoTarefaQualidade(
+                        f"Adicionar localização da parede ({s_info.nome})",
+                        f"{s_info.uri_dados}/campo:localizacao_escalada",
+                    )
+                )
     pts_cs, conc_cs = _pontuar_cobertura(
         setores_com_coord, len(setores_info), 100, meta=0.90, possui_estrutura_base=tem_setores
     )
@@ -824,7 +894,9 @@ def avaliar_nota_qualidade_croqui(
             setores_com_trilha += 1
         else:
             acoes_trilhas.append(
-                AcaoTarefaQualidade(f"Trilha de {s_info.nome}", s_info.uri_dados)
+                AcaoTarefaQualidade(
+                    f"Adicionar trilha em {s_info.nome}", f"{s_info.uri_dados}/campo:trilhas"
+                )
             )
     pts_tr, conc_tr = _pontuar_cobertura(
         setores_com_trilha, len(setores_info), 100, meta=0.90, possui_estrutura_base=tem_setores
@@ -851,14 +923,26 @@ def avaliar_nota_qualidade_croqui(
     vias_completas = 0
     acoes_vias: list[AcaoTarefaQualidade] = []
     for via_info in vias_encordadas:
-        if _via_encordada_possui_extensao_e_protecoes(
+        tem_ext, tem_prot, campo_ext, campo_prot = _diagnosticar_extensao_e_protecoes_via(
             via_info.modalidade, via_info.dados_modalidade
-        ):
+        )
+        if tem_ext and tem_prot:
             vias_completas += 1
         else:
-            acoes_vias.append(
-                AcaoTarefaQualidade(f"Ficha técnica de {via_info.nome}", via_info.uri_dados)
-            )
+            if not tem_ext:
+                acoes_vias.append(
+                    AcaoTarefaQualidade(
+                        f"Adicionar extensão ({via_info.nome})",
+                        f"{via_info.uri_dados}/campo:{campo_ext}",
+                    )
+                )
+            if not tem_prot:
+                acoes_vias.append(
+                    AcaoTarefaQualidade(
+                        f"Adicionar proteções ({via_info.nome})",
+                        f"{via_info.uri_dados}/campo:{campo_prot}",
+                    )
+                )
     pts_ext, conc_ext = _pontuar_cobertura(
         vias_completas,
         len(vias_encordadas),
@@ -888,11 +972,22 @@ def avaliar_nota_qualidade_croqui(
         1,
         3,
     )
-    escaladas_com_linha = sum(
-        1
-        for e in escaladas_info
-        if (e.uid and e.uid in alvos_com_linha) or (e.nome and e.nome in alvos_com_linha)
-    )
+    escaladas_com_linha = 0
+    acoes_linhas: list[AcaoTarefaQualidade] = []
+    setores_ja_acionados_linha: set[str] = set()
+    for e in escaladas_info:
+        if (e.uid and e.uid in alvos_com_linha) or (e.nome and e.nome in alvos_com_linha):
+            escaladas_com_linha += 1
+        elif e.setor_info.uri_dados not in setores_ja_acionados_linha:
+            setores_ja_acionados_linha.add(e.setor_info.uri_dados)
+            uri_lin_setor = (
+                e.setor_info.uri_mapa
+                if bool(e.setor_info.dados.get("mapas"))
+                else f"{e.setor_info.uri_dados}/campo:mapas"
+            )
+            acoes_linhas.append(
+                AcaoTarefaQualidade(f"Desenhar linhas em {e.setor_info.nome}", uri_lin_setor)
+            )
     if tem_escaladas and desenho_extraido_ok and escaladas_mapeadas > 0:
         pts_lin, conc_lin = 100, True
         prog_lin_atual = len(escaladas_info)
@@ -905,7 +1000,19 @@ def avaliar_nota_qualidade_croqui(
             possui_estrutura_base=tem_escaladas,
         )
         prog_lin_atual = escaladas_com_linha
-    uri_acao_linha = setores_info[0].uri_mapa if setores_info else "page:dados/node:root/node:Croqui"
+    if not acoes_linhas and not conc_lin:
+        acoes_linhas.append(
+            AcaoTarefaQualidade(
+                f"Desenhar linhas em {setores_info[0].nome}",
+                setores_info[0].uri_mapa
+                if bool(setores_info[0].dados.get("mapas"))
+                else f"{setores_info[0].uri_dados}/campo:mapas",
+            )
+            if setores_info
+            else AcaoTarefaQualidade(
+                "Desenhar linhas no mapa", "page:dados/node:root/node:Croqui/campo:picos"
+            )
+        )
     t2_tracados = TarefaQualidade(
         id_tarefa="etapa2_tracados_vetoriais",
         titulo="Traçados vetoriais nas linhas de escalada",
@@ -916,7 +1023,7 @@ def avaliar_nota_qualidade_croqui(
         concluida=conc_lin,
         progresso_atual=prog_lin_atual,
         progresso_total=max(1, len(escaladas_info)),
-        acoes=() if conc_lin else (AcaoTarefaQualidade("Desenhar linhas no mapa", uri_acao_linha),),
+        acoes=() if conc_lin else tuple(acoes_linhas[:3]),
     )
 
     # 2.5 Escaladas de destaque nos setores (>= 90%)
@@ -932,7 +1039,10 @@ def avaliar_nota_qualidade_croqui(
             setores_com_destaque += 1
         else:
             acoes_destaque.append(
-                AcaoTarefaQualidade(f"Marcar destaque em {s_info.nome}", s_info.uri_dados)
+                AcaoTarefaQualidade(
+                    f"Escolher destaque em {s_info.nome}",
+                    f"{s_info.uri_dados}/expando:escaladas/item:0/campo:destaque",
+                )
             )
     pts_dest, conc_dest = _pontuar_cobertura(
         setores_com_destaque,
@@ -962,7 +1072,10 @@ def avaliar_nota_qualidade_croqui(
             escaladas_com_desc += 1
         else:
             acoes_desc_esc.append(
-                AcaoTarefaQualidade(f"Descrever {esc_info.nome}", esc_info.uri_dados)
+                AcaoTarefaQualidade(
+                    f"Adicionar descrição ({esc_info.nome})",
+                    f"{esc_info.uri_dados}/campo:descricao",
+                )
             )
     pts_de, conc_de = _pontuar_cobertura(
         escaladas_com_desc,
@@ -994,7 +1107,12 @@ def avaliar_nota_qualidade_croqui(
         if bool(str(dados_ent.get("caminho_imagem_capa") or "").strip()):
             com_capa += 1
         else:
-            acoes_capa.append(AcaoTarefaQualidade(f"Foto de capa de {nome_ent}", uri_ent))
+            acoes_capa.append(
+                AcaoTarefaQualidade(
+                    f"Adicionar foto de capa ({nome_ent})",
+                    f"{uri_ent}/campo:caminho_imagem_capa",
+                )
+            )
     pts_capa, conc_capa = _pontuar_cobertura(
         com_capa, len(entidades_capa), 100, meta=0.90, possui_estrutura_base=len(entidades_capa) > 0
     )
@@ -1040,7 +1158,11 @@ def avaliar_nota_qualidade_croqui(
         acoes=(
             ()
             if tem_creditos
-            else (AcaoTarefaQualidade("Adicionar créditos", "page:dados/node:root/node:Croqui"),)
+            else (
+                AcaoTarefaQualidade(
+                    "Adicionar créditos", "page:dados/node:root/node:Croqui/campo:creditos"
+                ),
+            )
         ),
     )
 
@@ -1056,7 +1178,10 @@ def avaliar_nota_qualidade_croqui(
             esc_com_hist += 1
         else:
             acoes_hist.append(
-                AcaoTarefaQualidade(f"Histórico de {esc_info.nome}", esc_info.uri_dados)
+                AcaoTarefaQualidade(
+                    f"Adicionar conquistadores ({esc_info.nome})",
+                    f"{esc_info.uri_dados}/campo:conquistadores",
+                )
             )
     pts_hist, conc_hist = _pontuar_cobertura(
         esc_com_hist, len(escaladas_info), 10, meta=0.90, possui_estrutura_base=tem_escaladas
@@ -1083,8 +1208,16 @@ def avaliar_nota_qualidade_croqui(
         if tem_tp or tem_exp:
             esc_com_parede += 1
         else:
+            campo_par = (
+                "exposicao"
+                if esc_info.modalidade in ("via_multiplas_enfiadas", "highline")
+                else "tipo_parede"
+            )
             acoes_parede.append(
-                AcaoTarefaQualidade(f"Tipo de parede de {esc_info.nome}", esc_info.uri_dados)
+                AcaoTarefaQualidade(
+                    f"Definir tipo de parede ({esc_info.nome})",
+                    f"{esc_info.uri_dados}/campo:{campo_par}",
+                )
             )
     pts_par, conc_par = _pontuar_cobertura(
         esc_com_parede, len(escaladas_info), 10, meta=0.90, possui_estrutura_base=tem_escaladas
@@ -1114,7 +1247,10 @@ def avaliar_nota_qualidade_croqui(
             setores_com_ind += 1
         else:
             acoes_ind.append(
-                AcaoTarefaQualidade(f"Indicadores de {s_info.nome}", s_info.uri_dados)
+                AcaoTarefaQualidade(
+                    f"Preencher indicadores ({s_info.nome})",
+                    f"{s_info.uri_dados}/campo:sinal_de_celular",
+                )
             )
     pts_ind, conc_ind = _pontuar_cobertura(
         setores_com_ind, len(setores_info), 10, meta=0.90, possui_estrutura_base=tem_setores
@@ -1142,6 +1278,9 @@ def avaliar_nota_qualidade_croqui(
         croqui_path is not None and (croqui_path / "betas_pendentes.binarypb").is_file()
     )
     betas_ok = tem_escaladas and tem_midia_beta and not tem_beta_pendente
+    rotulo_acao_betas = (
+        "Revisar betas pendentes" if tem_beta_pendente else "Adicionar vídeo de beta"
+    )
     t3_betas = TarefaQualidade(
         id_tarefa="etapa3_videos_betas",
         titulo="Vídeos de beta e curadoria em dia",
@@ -1152,7 +1291,7 @@ def avaliar_nota_qualidade_croqui(
         concluida=betas_ok,
         progresso_atual=1 if betas_ok else 0,
         progresso_total=1,
-        acoes=() if betas_ok else (AcaoTarefaQualidade("Abrir Betas", "page:betas"),),
+        acoes=() if betas_ok else (AcaoTarefaQualidade(rotulo_acao_betas, "page:betas"),),
     )
 
     # 3.6 Associação local ou chave Pix de manutenção
@@ -1174,10 +1313,17 @@ def avaliar_nota_qualidade_croqui(
             picos_com_assoc += 1
         else:
             nome_p = str(pico.get("nome") or f"Pico {p_idx + 1}").strip()
+            sufixo_p = f" ({nome_p})" if multiplos_picos else ""
+            uri_pico = f"page:dados/node:root/node:Croqui/expando:picos/item:{p_idx}"
             acoes_assoc.append(
                 AcaoTarefaQualidade(
-                    f"Associação/Pix em {nome_p}",
-                    f"page:dados/node:root/node:Croqui/expando:picos/item:{p_idx}",
+                    f"Adicionar associação{sufixo_p}", f"{uri_pico}/campo:nome_associacao"
+                )
+            )
+            acoes_assoc.append(
+                AcaoTarefaQualidade(
+                    f"Adicionar chave Pix{sufixo_p}",
+                    f"{uri_pico}/campo:chave_pix_manutencao",
                 )
             )
     pts_assoc, conc_assoc = _pontuar_cobertura(
@@ -1197,13 +1343,25 @@ def avaliar_nota_qualidade_croqui(
     )
 
     # 3.7 Flags de revisão manual e bounding circle
-    itens_revisao = sum(
-        [
-            bool(dados.get("revisado_manualmente") is True),
-            bool(dados.get("revisado_bounding_circle") is True),
-        ]
-    )
+    tem_rev_manual = bool(dados.get("revisado_manualmente") is True)
+    tem_rev_bc = bool(dados.get("revisado_bounding_circle") is True)
+    itens_revisao = sum([tem_rev_manual, tem_rev_bc])
     pts_rev, conc_rev = _pontuar_cobertura(itens_revisao, 2, 10, meta=1.0)
+    acoes_rev: list[AcaoTarefaQualidade] = []
+    if not tem_rev_manual:
+        acoes_rev.append(
+            AcaoTarefaQualidade(
+                "Marcar revisão manual",
+                "page:dados/node:root/node:Croqui/campo:revisado_manualmente",
+            )
+        )
+    if not tem_rev_bc:
+        acoes_rev.append(
+            AcaoTarefaQualidade(
+                "Marcar revisão de bounding circle",
+                "page:dados/node:root/node:Croqui/campo:revisado_bounding_circle",
+            )
+        )
     t3_revisao = TarefaQualidade(
         id_tarefa="etapa3_revisao_final",
         titulo="Revisão manual e de enquadramento concluída",
@@ -1214,11 +1372,7 @@ def avaliar_nota_qualidade_croqui(
         concluida=conc_rev,
         progresso_atual=itens_revisao,
         progresso_total=2,
-        acoes=(
-            ()
-            if conc_rev
-            else (AcaoTarefaQualidade("Revisar croqui", "page:dados/node:root/node:Croqui"),)
-        ),
+        acoes=() if conc_rev else tuple(acoes_rev),
     )
 
     tarefas_etapa3 = (

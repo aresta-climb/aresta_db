@@ -46,6 +46,33 @@ class ContextoUIPathTest(unittest.TestCase):
         self.assertIsNone(ctx.pagina)
         self.assertEqual(ctx.caminho_local_arvore, "node:root/node:Croqui")
         self.assertIsNone(ctx.arquivo_mapa)
+        self.assertIsNone(ctx.campo_alvo)
+
+    def test_parse_dados_com_campo_alvo(self):
+        uri = "page:dados/node:root/node:Croqui/expando:picos/item:0/campo:url_google_maps"
+        ctx = ContextoUIPath(uri)
+        self.assertEqual(ctx.pagina, "dados")
+        self.assertEqual(ctx.caminho_local_arvore, "node:root/node:Croqui/expando:picos/item:0")
+        self.assertEqual(ctx.campo_alvo, "url_google_maps")
+        self.assertIsNone(ctx.arquivo_mapa)
+
+    def test_parse_legado_com_campo_alvo(self):
+        uri = "node:root/node:Croqui/campo:revisado_manualmente"
+        ctx = ContextoUIPath(uri)
+        self.assertIsNone(ctx.pagina)
+        self.assertEqual(ctx.caminho_local_arvore, "node:root/node:Croqui")
+        self.assertEqual(ctx.campo_alvo, "revisado_manualmente")
+
+    def test_parse_mapas_por_caminho_arvore(self):
+        uri = "page:mapas/node:root/node:Croqui/expando:picos/item:0/expando:mapas/item:0"
+        ctx = ContextoUIPath(uri)
+        self.assertEqual(ctx.pagina, "mapas")
+        self.assertIsNone(ctx.arquivo_mapa)
+        self.assertEqual(
+            ctx.caminho_local_arvore,
+            "node:root/node:Croqui/expando:picos/item:0/expando:mapas/item:0",
+        )
+        self.assertIsNone(ctx.campo_alvo)
 
 
 if __name__ == "__main__":

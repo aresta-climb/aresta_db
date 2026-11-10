@@ -3311,6 +3311,102 @@ class WidgetFormularioPadrao(QStackedWidget):
     def _notify_tree_changed(self) -> None:
         pass
 
+    def focar_campo(self, nome_campo: str) -> bool:
+        """
+        Rola a QScrollArea ativa até o campo `nome_campo`, expandindo automaticamente
+        a seção 'Opções Avançadas' se o campo estiver oculto nela, e aplica foco ao
+        controle principal de edição ou adição do campo.
+        """
+        scroll_area = self.currentWidget()
+        if not isinstance(scroll_area, QScrollArea):
+            return False
+
+        widget_alvo: QWidget | None = None
+
+        # 1. Procura na seção especial de Betas da Escalada quando o alvo é 'betas'
+        if nome_campo == "betas":
+            widget_alvo = scroll_area.findChild(QFrame, "SecaoBetasEscalada")
+
+        # 2. Procura em field_containers (campos escalares, Coordenada, imagem, oneof)
+        if widget_alvo is None:
+            for (_msg_id, fname), (
+                _layout,
+                container,
+                _field,
+                _msg,
+            ) in self.field_containers.items():
+                if fname == nome_campo and scroll_area.isAncestorOf(container):
+                    widget_alvo = container
+                    break
+
+        # 3. Procura em ContainerRepeatedWidget (coleções repetidas: creditos, mapas, trilhas, etc.)
+        if widget_alvo is None:
+            for cw in scroll_area.findChildren(ContainerRepeatedWidget):
+                if cw.field.name == nome_campo:
+                    widget_alvo = cw
+                    break
+
+        # 4. Procura em card_containers (cartões de subelementos: picos, setores_ou_grupos, escaladas)
+        if widget_alvo is None:
+            for (_msg_id, fname), (lbl_contador, _msg, _field) in self.card_containers.items():
+                card_parent = lbl_contador.parentWidget()
+                if (
+                    fname == nome_campo
+                    and card_parent is not None
+                    and scroll_area.isAncestorOf(card_parent)
+                ):
+                    widget_alvo = card_parent
+                    break
+
+        if widget_alvo is None:
+            return False
+
+        # Expande automaticamente 'Opções Avançadas' caso o campo pertença a ela e esteja recolhida
+        ancestral: QWidget | None = widget_alvo.parentWidget()
+        while ancestral is not None and ancestral is not scroll_area:
+            if isinstance(ancestral, WidgetSecaoAvancada):
+                if not ancestral.toggle_button.isChecked():
+                    ancestral.toggle_button.setChecked(True)
+                content_layout = ancestral.content_area.layout()
+                if content_layout is not None:
+                    content_layout.activate()
+                anc_layout = ancestral.layout()
+                if anc_layout is not None:
+                    anc_layout.activate()
+                break
+            ancestral = ancestral.parentWidget()
+
+        conteudo_scroll = scroll_area.widget()
+        if conteudo_scroll is not None:
+            scroll_layout = conteudo_scroll.layout()
+            if scroll_layout is not None:
+                scroll_layout.activate()
+
+        # Determina o controle de entrada/ação prioritário dentro do container do campo
+        controle_foco: QWidget = widget_alvo
+        editores_md = widget_alvo.findChildren(WidgetEditorMarkdown)
+        if editores_md:
+            controle_foco = editores_md[0].editor
+        else:
+            controles_edicao = [
+                w
+                for w in widget_alvo.findChildren(QWidget)
+                if isinstance(w, (QLineEdit, QSpinBox, QDoubleSpinBox, QComboBox, QCheckBox))
+                and not isinstance(w.parentWidget(), (QSpinBox, QDoubleSpinBox, QComboBox))
+                and w.isEnabled()
+            ]
+            if controles_edicao:
+                controle_foco = controles_edicao[0]
+            else:
+                botoes = [b for b in widget_alvo.findChildren(QPushButton) if b.isEnabled()]
+                if botoes:
+                    controle_foco = botoes[0]
+
+        scroll_area.ensureWidgetVisible(widget_alvo, 0, 32)
+        scroll_area.ensureWidgetVisible(controle_foco, 0, 32)
+        controle_foco.setFocus()
+        return True
+
 
 class ArvoreDadosTreeView(QTreeView):
     """QTreeView customizada com interceptação de drag-and-drop para reordenação e migração."""
@@ -3550,15 +3646,23 @@ class WidgetEditorDados(QWidget):
             current_node = indexes[0].internalPointer()
             curr_path = get_node_path(current_node) if current_node else None
             if curr_path == path_local:
+                if ctx.campo_alvo:
+                    self.form_padrao.focar_campo(ctx.campo_alvo)
                 return
 
         idx = self.tree_model.find_index_for_path(path_local)
         if idx and idx.isValid():
+            ancestral = idx.parent()
+            while ancestral.isValid():
+                self.tree_view.expand(ancestral)
+                ancestral = ancestral.parent()
             self.tree_view.selectionModel().setCurrentIndex(
                 idx, QItemSelectionModel.SelectionFlag.ClearAndSelect
             )
             self.tree_view.scrollTo(idx)
             self._on_tree_selection_changed(None, None)
+            if ctx.campo_alvo:
+                self.form_padrao.focar_campo(ctx.campo_alvo)
 
     def obter_caminho_no_selecionado(self) -> str | None:
         """Retorna o caminho canônico do nó atualmente selecionado na árvore, ou None."""

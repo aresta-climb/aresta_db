@@ -139,7 +139,7 @@ class CardTarefaQualidade(QFrame):
         for idx, btn in enumerate(self._pool_botoes):
             if idx < len(acoes_visiveis):
                 acao = acoes_visiveis[idx]
-                btn.setText(f"Ir para: {acao.rotulo}")
+                btn.setText(acao.rotulo)
                 self._uris_botoes[idx] = acao.uri_contexto
                 btn.setVisible(True)
                 self.botoes_acao.append(btn)

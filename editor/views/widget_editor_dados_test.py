@@ -6351,3 +6351,204 @@ def test_migrar_escalada_entre_setores_via_drag_and_drop_arvore(qapp):
     assert sucesso_sobre_expando is True
     assert [e.uid for e in setor_vale.escaladas] == ["esc_impossiveis", "esc_meio_cubanos"]
     assert [e.uid for e in setor_tunel.escaladas] == ["esc_bigode_cristo", "esc_bigode_sujo"]
+
+
+def test_foco_requisitado_com_campo_alvo_seleciona_no_rola_e_foca_inclusive_no_ja_selecionado(
+    qapp,
+):
+    """
+    Valida que _on_foco_requisitado com sufixo /campo:<nome_campo> seleciona o nó na árvore,
+    rola a QScrollArea e foca no controle do campo, funcionando inclusive quando o nó
+    já está selecionado na árvore.
+    """
+    from PySide6.QtGui import QUndoStack
+
+    from aresta_api.proto.generated.croqui_pb2 import Croqui
+    from editor.controllers.croqui_controller import CroquiController
+    from editor.models.croqui_model import CroquiModel
+    from editor.views.widget_editor_dados import (
+        WidgetEditorDados,
+        WidgetEditorMarkdown,
+        WidgetMensagemCoordenada,
+    )
+
+    croqui = Croqui(id="teste_foco_campo", nome="Croqui Foco Campo")
+    croqui.picos.add(nome="Gruta da Lapinha")
+
+    pilha = QUndoStack()
+    model = CroquiModel(croqui)
+    controller = CroquiController(model, pilha)
+    widget = WidgetEditorDados(model, controller)
+    widget.resize(900, 320)
+    widget.show()
+    qapp.processEvents()
+
+    # 1. Navega do Croqui para o Pico 0 focando em url_google_maps
+    uri_gmaps = "page:dados/node:root/node:Croqui/expando:picos/item:0/campo:url_google_maps"
+    widget._on_foco_requisitado(uri_gmaps)
+    qapp.processEvents()
+
+    assert widget.obter_caminho_no_selecionado() == "node:root/node:Croqui/expando:picos/item:0"
+    focado = qapp.focusWidget()
+    assert isinstance(focado, QLineEdit)
+    assert focado.property("protobuf_field") == "url_google_maps"
+
+    # 2. Com o Pico 0 já selecionado, navega para o campo localizacao
+    uri_loc = "page:dados/node:root/node:Croqui/expando:picos/item:0/campo:localizacao"
+    widget._on_foco_requisitado(uri_loc)
+    qapp.processEvents()
+
+    focado_loc = qapp.focusWidget()
+    assert isinstance(focado_loc, QLineEdit)
+    ancestral_coord = focado_loc.parentWidget()
+    while ancestral_coord is not None and not isinstance(ancestral_coord, WidgetMensagemCoordenada):
+        ancestral_coord = ancestral_coord.parentWidget()
+    assert isinstance(ancestral_coord, WidgetMensagemCoordenada)
+
+    # 3. Com o Pico 0 já selecionado, navega para o campo descricao (Markdown)
+    uri_desc = "page:dados/node:root/node:Croqui/expando:picos/item:0/campo:descricao"
+    widget._on_foco_requisitado(uri_desc)
+    qapp.processEvents()
+
+    focado_desc = qapp.focusWidget()
+    assert focado_desc is not None
+    ancestral_md = focado_desc.parentWidget()
+    while ancestral_md is not None and not isinstance(ancestral_md, WidgetEditorMarkdown):
+        ancestral_md = ancestral_md.parentWidget()
+    assert isinstance(ancestral_md, WidgetEditorMarkdown)
+
+
+def test_foco_requisitado_em_campo_avancado_expande_opcoes_avancadas_automaticamente(qapp):
+    """
+    Valida que navegar para um campo dentro de 'Opções Avançadas' expande automaticamente
+    a WidgetSecaoAvancada quando recolhida e foca no controle do campo.
+    """
+    from PySide6.QtGui import QUndoStack
+    from PySide6.QtWidgets import QComboBox, QPushButton
+
+    from aresta_api.proto.generated.croqui_pb2 import Croqui
+    from editor.controllers.croqui_controller import CroquiController
+    from editor.models.croqui_model import CroquiModel
+    from editor.views.widget_editor_dados import (
+        ContainerRepeatedWidget,
+        WidgetEditorDados,
+        WidgetSecaoAvancada,
+    )
+
+    croqui = Croqui(id="teste_foco_avancado", nome="Croqui Avançado")
+    pico = croqui.picos.add(nome="Pico 1")
+    setor = pico.setores_ou_grupos.add().setor.conteudo
+    setor.uid = "setor_1"
+    setor.nome = "Setor 1"
+
+    pilha = QUndoStack()
+    model = CroquiModel(croqui)
+    controller = CroquiController(model, pilha)
+    widget = WidgetEditorDados(model, controller)
+    widget.resize(900, 400)
+    widget.show()
+    qapp.processEvents()
+
+    # Inicialmente, Opções Avançadas do Croqui está recolhida
+    scroll_croqui = widget.form_padrao.currentWidget()
+    secoes_croqui = scroll_croqui.findChildren(WidgetSecaoAvancada)
+    assert len(secoes_croqui) == 1
+    assert secoes_croqui[0].toggle_button.isChecked() is False
+
+    # 1. Foca em revisado_manualmente (campo avançado do Croqui)
+    widget._on_foco_requisitado("page:dados/node:root/node:Croqui/campo:revisado_manualmente")
+    qapp.processEvents()
+
+    assert secoes_croqui[0].toggle_button.isChecked() is True
+    assert secoes_croqui[0].content_area.isVisible() is True
+    focado_chk = qapp.focusWidget()
+    assert isinstance(focado_chk, QComboBox)
+    assert focado_chk.property("protobuf_field") == "revisado_manualmente"
+
+    # Recolhe novamente para testar expansão automática ao navegar para outro nó (Setor -> trilhas)
+    secoes_croqui[0].toggle_button.setChecked(False)
+    assert widget._campos_avancados_expandidos is False
+
+    widget._on_foco_requisitado(
+        "page:dados/node:root/node:Croqui/expando:picos/item:0/expando:setores_ou_grupos/item:0/campo:trilhas"
+    )
+    qapp.processEvents()
+
+    scroll_setor = widget.form_padrao.currentWidget()
+    secoes_setor = scroll_setor.findChildren(WidgetSecaoAvancada)
+    assert len(secoes_setor) == 1
+    assert secoes_setor[0].toggle_button.isChecked() is True
+    focado_trilhas = qapp.focusWidget()
+    assert isinstance(focado_trilhas, QPushButton)
+    ancestral_rep = focado_trilhas.parentWidget()
+    while ancestral_rep is not None and not isinstance(ancestral_rep, ContainerRepeatedWidget):
+        ancestral_rep = ancestral_rep.parentWidget()
+    assert isinstance(ancestral_rep, ContainerRepeatedWidget)
+    assert ancestral_rep.field.name == "trilhas"
+
+
+def test_foco_requisitado_expande_ancestrais_arvore_e_foca_oneof_cartoes_e_betas(qapp):
+    """
+    Valida que navegar para uma escalada expande o agrupador 'escaladas' na árvore,
+    foca em campos dentro do oneof da modalidade (ex: destaque), foca na seção de betas
+    e nos cartões de subelementos (ex: picos).
+    """
+    from PySide6.QtGui import QUndoStack
+    from PySide6.QtWidgets import QComboBox, QPushButton
+
+    from aresta_api.proto.generated.croqui_pb2 import Croqui
+    from editor.controllers.croqui_controller import CroquiController
+    from editor.models.croqui_model import CroquiModel
+    from editor.views.widget_editor_dados import WidgetEditorDados, _get_id
+
+    croqui = Croqui(id="teste_foco_arvore", nome="Croqui Árvore")
+    pico = croqui.picos.add(nome="Pico 1")
+    setor = pico.setores_ou_grupos.add().setor.conteudo
+    setor.uid = "setor_1"
+    setor.nome = "Setor 1"
+    esc = setor.escaladas.add(uid="esc_1")
+    esc.via_esportiva.nome = "Via 1"
+
+    pilha = QUndoStack()
+    model = CroquiModel(croqui)
+    controller = CroquiController(model, pilha)
+    widget = WidgetEditorDados(model, controller)
+    widget.resize(900, 400)
+    widget.show()
+    qapp.processEvents()
+
+    idx_exp_esc = widget.tree_model.find_expando_index(_get_id(setor), "escaladas")
+    assert widget.tree_view.isExpanded(idx_exp_esc) is False
+
+    # 1. Navega para a primeira escalada focando em 'destaque'
+    uri_destaque = (
+        "page:dados/node:root/node:Croqui/expando:picos/item:0"
+        "/expando:setores_ou_grupos/item:0/expando:escaladas/item:0/campo:destaque"
+    )
+    widget._on_foco_requisitado(uri_destaque)
+    qapp.processEvents()
+
+    assert widget.tree_view.isExpanded(idx_exp_esc) is True
+    focado_destaque = qapp.focusWidget()
+    assert isinstance(focado_destaque, QComboBox)
+    assert focado_destaque.property("protobuf_field") == "destaque"
+
+    # 2. Na mesma escalada, foca na seção 'betas'
+    assert widget.form_padrao.focar_campo("betas") is True
+    qapp.processEvents()
+    focado_betas = qapp.focusWidget()
+    assert isinstance(focado_betas, QPushButton)
+    assert focado_betas.objectName() == "BtnAdicionarBetaManual"
+
+    # 3. Navega para o Croqui focando no cartão de subelementos 'picos'
+    widget._on_foco_requisitado("page:dados/node:root/node:Croqui/campo:picos")
+    qapp.processEvents()
+    focado_picos = qapp.focusWidget()
+    assert isinstance(focado_picos, QPushButton)
+    assert "Pico" in focado_picos.text()
+
+    # 4. Campo inexistente ou formulário vazio retorna False sem erro
+    assert widget.form_padrao.focar_campo("campo_que_nao_existe") is False
+    from editor.views.widget_editor_dados import WidgetFormularioPadrao
+
+    assert WidgetFormularioPadrao(model, controller).focar_campo("nome") is False
