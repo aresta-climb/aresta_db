@@ -1159,6 +1159,43 @@ def avaliar_nota_qualidade_croqui(
         acoes=() if conc_capa else tuple(acoes_capa[:3]),
     )
 
+    # 2.8 Vídeos de beta e ausência de betas pendentes (100 pts)
+    tem_midia_beta = any(
+        bool(e.dados_escalada.get("betas"))
+        or bool(str(e.dados_modalidade.get("url_video_beta") or "").strip())
+        for e in escaladas_info
+    )
+    curadoria_conteudo = _resolver_arquivo_md(dados.get("curadoria_betas"), croqui_path, cache_md)
+    escaladas_curadoria = curadoria_conteudo.get("escaladas") or []
+    tem_beta_pendente_curadoria = any(
+        isinstance(esc_cur, Mapping)
+        and (
+            bool(esc_cur.get("betas_nao_scorados"))
+            or bool(esc_cur.get("betas_nao_revisados"))
+        )
+        for esc_cur in escaladas_curadoria
+    )
+    tem_beta_pendente_legado = bool(
+        croqui_path is not None and (croqui_path / "betas_pendentes.binarypb").is_file()
+    )
+    tem_beta_pendente = tem_beta_pendente_curadoria or tem_beta_pendente_legado
+    betas_ok = tem_escaladas and tem_midia_beta and not tem_beta_pendente
+    rotulo_acao_betas = (
+        "Revisar betas pendentes" if tem_beta_pendente else "Adicionar vídeo de beta"
+    )
+    t2_betas = TarefaQualidade(
+        id_tarefa="etapa2_videos_betas",
+        titulo="Vídeos de beta e curadoria em dia",
+        descricao="Ter vídeos/mídias de beta vinculados às escaladas e nenhum beta pendente de curadoria.",
+        etapa=2,
+        pontos_obtidos=100 if betas_ok else 0,
+        pontos_maximos=100,
+        concluida=betas_ok,
+        progresso_atual=1 if betas_ok else 0,
+        progresso_total=1,
+        acoes=() if betas_ok else (AcaoTarefaQualidade(rotulo_acao_betas, "page:betas"),),
+    )
+
     tarefas_etapa2 = (
         t2_coord_setores,
         t2_trilhas,
@@ -1167,6 +1204,7 @@ def avaliar_nota_qualidade_croqui(
         t2_destaques,
         t2_descricoes,
         t2_fotos_capa,
+        t2_betas,
     )
 
     # =========================================================================
@@ -1298,33 +1336,7 @@ def avaliar_nota_qualidade_croqui(
         acoes=() if conc_ind else tuple(acoes_ind[:3]),
     )
 
-    # 3.5 Vídeos de beta e ausência de betas pendentes
-    tem_midia_beta = any(
-        bool(e.dados_escalada.get("betas"))
-        or bool(str(e.dados_modalidade.get("url_video_beta") or "").strip())
-        for e in escaladas_info
-    )
-    tem_beta_pendente = bool(
-        croqui_path is not None and (croqui_path / "betas_pendentes.binarypb").is_file()
-    )
-    betas_ok = tem_escaladas and tem_midia_beta and not tem_beta_pendente
-    rotulo_acao_betas = (
-        "Revisar betas pendentes" if tem_beta_pendente else "Adicionar vídeo de beta"
-    )
-    t3_betas = TarefaQualidade(
-        id_tarefa="etapa3_videos_betas",
-        titulo="Vídeos de beta e curadoria em dia",
-        descricao="Ter vídeos/mídias de beta vinculados às escaladas e nenhum beta pendente de curadoria.",
-        etapa=3,
-        pontos_obtidos=10 if betas_ok else 0,
-        pontos_maximos=10,
-        concluida=betas_ok,
-        progresso_atual=1 if betas_ok else 0,
-        progresso_total=1,
-        acoes=() if betas_ok else (AcaoTarefaQualidade(rotulo_acao_betas, "page:betas"),),
-    )
-
-    # 3.6 Associação local ou chave Pix de manutenção
+    # 3.5 Associação local ou chave Pix de manutenção
     picos_com_assoc = 0
     acoes_assoc: list[AcaoTarefaQualidade] = []
     tem_pix_escalada = any(
@@ -1410,7 +1422,6 @@ def avaliar_nota_qualidade_croqui(
         t3_conquistadores,
         t3_parede,
         t3_indicadores,
-        t3_betas,
         t3_associacao,
         t3_revisao,
     )

@@ -7,6 +7,7 @@ from PySide6.QtGui import QUndoStack
 
 from aresta_api.proto.generated import beta_pb2, croqui_pb2
 from coleta_de_betas.curadoria.painel_curadoria import (
+    TAMANHO_FATIA_CARDS_PADRAO,
     CardBetaCuradoria,
     PainelCuradoria,
 )
@@ -345,6 +346,133 @@ def test_painel_curadoria_acoes_em_lote_por_score_conexao_mcp_e_preservacao_de_s
     finally:
         if estilo_anterior:
             QApplication.setStyle(estilo_anterior)
+
+
+def test_painel_curadoria_reconciliacao_incremental_reutiliza_cards_e_clique_abaixo_de_8ms(
+    tmp_path: Path, qtbot
+) -> None:
+    """Garante que clicar em Aprovar/Rejeitar reutiliza os cards existentes e executa em < 8 ms na média."""
+    import time
+
+    from PySide6.QtWidgets import QApplication
+
+    croqui = croqui_pb2.Croqui(uid="croqui_bench", id="lapinha", nome="Gruta da Lapinha")
+    pico = croqui.picos.add(nome="Gruta da Lapinha")
+    setor = pico.setores_ou_grupos.add().setor.conteudo
+    setor.uid = "setor_lapinha"
+    setor.nome = "Grande Gruta"
+    esc = setor.escaladas.add(uid="esc_lapinha")
+    esc.via_esportiva.nome = "Via Clássica"
+
+    cur = croqui.curadoria_betas.conteudo.escaladas.add(escalada_uid="esc_lapinha")
+    for i in range(80):
+        cand = cur.betas_nao_revisados.add()
+        cand.midia.url = f"https://youtube.com/watch?v=bench_{i}"
+        cand.midia.titulo = f"Vídeo de Beta {i} na Gruta da Lapinha"
+        cand.midia.fonte = beta_pb2.FonteMidia.YOUTUBE
+        cand.resultado_llm.llm_confidence_score = 95 - (i % 50)
+        cand.resultado_llm.llm_reasoning = (
+            f"Justificativa detalhada da LLM para o vídeo {i} mostrando os lances da via."
+        )
+        cand.snippets.append(f"Trecho extraído da descrição do vídeo {i}.")
+
+    model = CroquiModel(croqui)
+    stack = QUndoStack()
+    controller = CroquiController(model, stack)
+    provedor = ProvedorImagemAresta(
+        diretorio_cache=tmp_path / "cache_bench",
+        cliente_http=ClienteHttpFake(),
+    )
+
+    painel = PainelCuradoria(provedor_imagem=provedor, carregar_assincrono=False)
+    painel.resize(1100, 750)
+    qtbot.addWidget(painel)
+    painel.carregar_dados(model, controller)
+    painel.show()
+    qtbot.waitExposed(painel)
+    QApplication.processEvents()
+
+    assert len(painel.cards_nao_revisados) == 80
+    segundo_card_antes = painel.cards_nao_revisados[1]
+    url_segundo_antes = segundo_card_antes.midia.url
+
+    tempos_ms: list[float] = []
+    for passo in range(5):
+        card_topo = painel.cards_nao_revisados[0]
+        btn = card_topo.btn_rejeitar if passo % 2 == 0 else card_topo.btn_aprovar
+        assert btn is not None
+        t0 = time.perf_counter()
+        btn.click()
+        QApplication.processEvents()
+        tempos_ms.append((time.perf_counter() - t0) * 1000.0)
+        if passo == 0:
+            assert painel.cards_nao_revisados[0] is segundo_card_antes
+            assert painel.cards_nao_revisados[0].midia.url == url_segundo_antes
+
+    assert len(painel.cards_nao_revisados) == 75
+    assert len(painel.cards_aprovados) == 2
+    media_ms = sum(tempos_ms) / len(tempos_ms)
+    assert media_ms < 8.0, f"Média por clique ({media_ms:.2f} ms) excedeu 8 ms: {tempos_ms}"
+
+
+def test_painel_curadoria_hidratacao_em_fatias_na_primeira_abertura(
+    tmp_path: Path, qtbot
+) -> None:
+    """Garante que no modo assíncrono os cards são construídos em fatias de 5 sem bloquear a 1ª abertura."""
+    import time
+
+    from PySide6.QtWidgets import QApplication
+
+    assert TAMANHO_FATIA_CARDS_PADRAO == 5
+
+    croqui = croqui_pb2.Croqui(uid="croqui_fatias", id="lapinha", nome="Gruta da Lapinha")
+    pico = croqui.picos.add(nome="Gruta da Lapinha")
+    setor = pico.setores_ou_grupos.add().setor.conteudo
+    setor.uid = "setor_lapinha"
+    setor.nome = "Grande Gruta"
+    esc = setor.escaladas.add(uid="esc_lapinha")
+    esc.via_esportiva.nome = "Via Clássica"
+
+    cur = croqui.curadoria_betas.conteudo.escaladas.add(escalada_uid="esc_lapinha")
+    for i in range(30):
+        cand = cur.betas_nao_revisados.add()
+        cand.midia.url = f"https://youtube.com/watch?v=fatia_{i}"
+        cand.midia.titulo = f"Vídeo Fatia {i}"
+        cand.midia.fonte = beta_pb2.FonteMidia.YOUTUBE
+        cand.resultado_llm.llm_confidence_score = 90 - (i % 40)
+
+    model = CroquiModel(croqui)
+    stack = QUndoStack()
+    controller = CroquiController(model, stack)
+    provedor = ProvedorImagemAresta(
+        diretorio_cache=tmp_path / "cache_fatias",
+        cliente_http=ClienteHttpFake(),
+    )
+
+    painel = PainelCuradoria(provedor_imagem=provedor, carregar_assincrono=True)
+    qtbot.addWidget(painel)
+
+    t0 = time.perf_counter()
+    painel.carregar_dados(model, controller)
+    tempo_carga_inicial_ms = (time.perf_counter() - t0) * 1000.0
+
+    # No frame inicial, o título já reflete os 30 itens, mas apenas a 1ª fatia (5 cards) foi instanciada
+    assert "(30)" in painel.secao_nao_revisados.title()
+    assert len(painel.cards_nao_revisados) == TAMANHO_FATIA_CARDS_PADRAO
+    assert painel.hidratacao_em_andamento is True
+    assert tempo_carga_inicial_ms < 15.0
+
+    # Processar 1 tick do event loop avança exatamente mais 1 fatia (+5 cards = 10 cards)
+    QApplication.processEvents()
+    assert len(painel.cards_nao_revisados) == TAMANHO_FATIA_CARDS_PADRAO * 2
+    assert painel.hidratacao_em_andamento is True
+
+    # concluir_hidratacao_em_fatias() finaliza todas as fatias restantes
+    painel.concluir_hidratacao_em_fatias()
+    assert len(painel.cards_nao_revisados) == 30
+    assert painel.hidratacao_em_andamento is False
+    provedor.encerrar_workers(esperar=True)
+
 
 
 

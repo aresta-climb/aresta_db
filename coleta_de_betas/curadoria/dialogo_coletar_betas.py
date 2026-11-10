@@ -27,7 +27,6 @@ from PySide6.QtWidgets import (
 )
 
 from aresta_api.proto.generated import beta_pb2
-from coleta_de_betas.extratores.blog import ExtratorBlog
 from coleta_de_betas.extratores.deduplicador import deduplicar_midias, normalizar_url
 
 MAX_WORKERS_COLETA_PARALELA = 4
@@ -113,6 +112,8 @@ def criar_extratores_padrao() -> list[ExtratorBetaProtocolo]:
     Cria a lista padrão com o extrator web unificado (ddgs), que executa as 5 queries
     identificadas por escalada e classifica os resultados nas 8 categorias de FonteMidia.Enum.
     """
+    from coleta_de_betas.extratores.blog import ExtratorBlog
+
     return [ExtratorBlog()]
 
 

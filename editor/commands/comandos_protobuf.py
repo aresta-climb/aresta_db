@@ -342,6 +342,13 @@ def navegar_para_alvo(root_msg: Any, alvo: str, indice_uids: Any = None) -> Any:
     if indice_uids is not None and hasattr(indice_uids, "obter_objeto"):
         ancora = indice_uids.obter_objeto(prefixo)
 
+    if (
+        ancora is None
+        and hasattr(root_msg, "DESCRIPTOR")
+        and prefixo in root_msg.DESCRIPTOR.fields_by_name
+    ):
+        return navegar_para_mensagem(root_msg, alvo_limpo)
+
     if ancora is None:
         achado = _buscar_mensagem_por_uid(root_msg, prefixo)
         if achado is not None:

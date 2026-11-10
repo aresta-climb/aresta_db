@@ -8,8 +8,8 @@ from PySide6.QtGui import QColor, QImage, QPixmap
 
 from aresta_api.proto.generated import beta_pb2
 from coleta_de_betas.curadoria.provedor_imagem_aresta import (
+    MAX_WORKERS_THUMBNAIL,
     ProvedorImagemAresta,
-    WorkerProvedorImagem,
     extrair_id_video_youtube,
     extrair_url_opengraph_html,
     obter_pixmap_fallback,
@@ -210,6 +210,7 @@ def test_provedor_imagem_aresta_cache_ram_e_cache_negativo_evita_novas_requisico
     imediato_ok = provedor.obter_pixmap_imediato(url_ok, beta_pb2.FonteMidia.BLOG)
     assert imediato_ok is not None
     assert imediato_ok.width() == 7
+    assert len(provedor._cache_pixmap_ram) == 1
     assert len(http.chamadas_get) == 2
 
     # Resolve url_sem_og (1 GET: HTML sem og:image) -> entra no cache negativo
@@ -232,21 +233,80 @@ def test_provedor_imagem_aresta_cache_ram_e_cache_negativo_evita_novas_requisico
     assert len(http.chamadas_get) == 3
 
 
-def test_worker_provedor_imagem_emite_sinal_assincrono(tmp_path: Path, qtbot) -> None:
+def test_solicitar_pixmap_assincrono_usa_pool_4_workers_sem_io_disco_na_ui_thread(
+    tmp_path: Path, qtbot
+) -> None:
+    assert MAX_WORKERS_THUMBNAIL == 4
     http = ClienteHttpFake()
     png_bytes = _gerar_png_bytes(QColor("#ABCDEF"), largura=5, altura=5)
+    url_yt = "https://www.youtube.com/watch?v=xyz"
     http.registrar_bytes("https://i.ytimg.com/vi/xyz/hqdefault.jpg", png_bytes, status_code=200)
 
-    provedor = ProvedorImagemAresta(diretorio_cache=tmp_path / "cache_worker", cliente_http=http)
-    worker = WorkerProvedorImagem(
-        "https://www.youtube.com/watch?v=xyz",
-        beta_pb2.FonteMidia.YOUTUBE,
-        provedor=provedor,
+    cache_dir = tmp_path / "cache_worker"
+    provedor = ProvedorImagemAresta(diretorio_cache=cache_dir, cliente_http=http)
+    assert provedor.max_workers == 4
+
+    recebidos_1: list[QPixmap] = []
+    recebidos_2: list[QPixmap] = []
+    recebidos_cancelado: list[QPixmap] = []
+
+    chave_1 = provedor.solicitar_pixmap_assincrono(
+        url_yt, beta_pb2.FonteMidia.YOUTUBE, recebidos_1.append
     )
+    chave_2 = provedor.solicitar_pixmap_assincrono(
+        url_yt, beta_pb2.FonteMidia.YOUTUBE, recebidos_2.append
+    )
+    chave_cancel = provedor.solicitar_pixmap_assincrono(
+        url_yt, beta_pb2.FonteMidia.YOUTUBE, recebidos_cancelado.append
+    )
+    assert chave_1 != ""
+    assert chave_1 == chave_2 == chave_cancel
 
-    recebidos: list[QPixmap] = []
-    worker.imagem_carregada.connect(recebidos.append)
-    worker.run()
+    provedor.cancelar_callback_assincrono(chave_cancel, recebidos_cancelado.append)
+    provedor.cancelar_callback_assincrono("chave_inexistente", recebidos_cancelado.append)
 
-    assert len(recebidos) == 1
-    assert recebidos[0].width() == 5
+    qtbot.waitUntil(lambda: len(recebidos_1) == 1 and len(recebidos_2) == 1, timeout=3000)
+    assert not recebidos_1[0].isNull()
+    assert recebidos_1[0].width() == 5
+    assert recebidos_2[0].width() == 5
+    assert len(recebidos_cancelado) == 0
+    assert len(http.chamadas_get) == 1
+
+    # Quando já está em RAM, solicitar_pixmap_assincrono entrega imediatamente de forma síncrona
+    recebidos_imediato: list[QPixmap] = []
+    chave_imediata = provedor.solicitar_pixmap_assincrono(
+        url_yt, beta_pb2.FonteMidia.YOUTUBE, recebidos_imediato.append
+    )
+    assert chave_imediata == ""
+    assert len(recebidos_imediato) == 1
+    assert recebidos_imediato[0].width() == 5
+
+    # Um novo provedor com cache frio em RAM NÃO deve ler do disco em obter_pixmap_imediato (zero I/O na UI thread)
+    provedor_frio = ProvedorImagemAresta(
+        diretorio_cache=cache_dir, cliente_http=ClienteHttpFake()
+    )
+    assert provedor_frio.obter_pixmap_imediato(url_yt, beta_pb2.FonteMidia.YOUTUBE) is None
+
+    # E carrega do cache em disco em background via pool de workers
+    recebidos_disco: list[QPixmap] = []
+    provedor_frio.solicitar_pixmap_assincrono(
+        url_yt, beta_pb2.FonteMidia.YOUTUBE, recebidos_disco.append
+    )
+    qtbot.waitUntil(lambda: len(recebidos_disco) == 1, timeout=3000)
+    assert recebidos_disco[0].width() == 5
+
+    # Caso sem thumbnail (fallback assíncrono)
+    recebidos_fb: list[QPixmap] = []
+    provedor_frio.solicitar_pixmap_assincrono(
+        "https://instagram.com/p/sem_thumb",
+        beta_pb2.FonteMidia.INSTAGRAM,
+        recebidos_fb.append,
+        largura=70,
+        altura=50,
+    )
+    qtbot.waitUntil(lambda: len(recebidos_fb) == 1, timeout=3000)
+    assert recebidos_fb[0].width() == 70
+    assert recebidos_fb[0].height() == 50
+
+    provedor.encerrar_workers(esperar=True)
+    provedor_frio.encerrar_workers(esperar=True)

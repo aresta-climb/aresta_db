@@ -439,7 +439,7 @@ def registrar_ferramentas_conhecimento(
     servidor.registrar_ferramenta(
         nome="aresta_avaliar_qualidade",
         descricao=(
-            "Avalia a nota de qualidade do croqui (escala aditiva até 8770 pontos nas Etapas 1, 2 e 3) "
+            "Avalia a nota de qualidade do croqui (escala aditiva até 8860 pontos nas Etapas 1, 2 e 3) "
             "e retorna o diagnóstico estruturado com o progresso de cada tarefa, pontos obtidos, "
             "ganho potencial e lista priorizada de `tarefas_pendentes` com `acoes` (`uri_contexto`)."
         ),

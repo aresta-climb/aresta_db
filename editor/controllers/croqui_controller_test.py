@@ -1446,6 +1446,46 @@ def test_croqui_controller_aprovar_e_rejeitar_betas_nao_revisados_por_score_em_l
     assert len(cur2.betas_rejeitados) == 0
 
 
+def test_croqui_controller_curadoria_endereca_caminho_direto_em_o1(qapp):
+    """Garante que mutações de curadoria endereçam curadoria_betas.conteudo.escaladas.<idx> e escalada_uid diretamente sem varrer a árvore."""
+    import time
+
+    from aresta_api.proto.generated import beta_pb2, croqui_pb2
+
+    croqui = croqui_pb2.Croqui(uid="croqui_grande_o1")
+    setor = croqui.picos.add(nome="Pico Grande").setores_ou_grupos.add().setor.conteudo
+    setor.uid = "setor_grande"
+    for i in range(150):
+        esc_i = setor.escaladas.add(uid=f"esc_{i}")
+        esc_i.via_esportiva.nome = f"Via {i}"
+        for j in range(5):
+            esc_i.betas.add(url=f"https://yt.com/{i}_{j}", titulo=f"B {j}")
+
+    cur_esc = croqui.curadoria_betas.conteudo.escaladas.add(escalada_uid="esc_149")
+    for k in range(10):
+        cand = cur_esc.betas_nao_revisados.add()
+        cand.midia.url = f"https://youtube.com/watch?v=v{k}"
+        cand.midia.titulo = f"Video {k}"
+        cand.midia.fonte = beta_pb2.FonteMidia.YOUTUBE
+        cand.resultado_llm.llm_confidence_score = 90
+
+    model = CroquiModel(croqui)
+    undo_stack = QUndoStack()
+    controller = CroquiController(model, undo_stack)
+
+    t0 = time.perf_counter()
+    controller.aprovar_beta_curadoria("esc_149", "betas_nao_revisados", 0)
+    controller.rejeitar_beta_curadoria("esc_149", "betas_nao_revisados", 0)
+    dt_ms = (time.perf_counter() - t0) * 1000.0
+
+    macro_aprovar = undo_stack.command(0)
+    assert len(macro_aprovar.comandos) == 2
+    assert macro_aprovar.comandos[0].caminho_msg == "curadoria_betas.conteudo.escaladas.0"
+    assert macro_aprovar.comandos[1].caminho_msg == "esc_149"
+    assert dt_ms < 5.0
+
+
+
 def test_croqui_controller_preservar_campos_compativeis_na_troca_de_oneof(qapp):
     """Valida que preservar_campos_compativeis=True copia campos homônimos compatíveis ao trocar variante oneof."""
     from aresta_api.proto.generated import croqui_pb2

@@ -52,11 +52,15 @@ O sistema SHALL avaliar na Etapa 1 (`1000` pontos cada): (1) Identidade e capa d
 - **THEN** a tarefa `etapa1_malha_estrada_picos` SHALL conceder `700` de `1000` pontos (`ganho_potencial = 300`), constar com `concluida = false` e disponibilizar a ação `"Atualizar mapa de pontos"`.
 
 ### Requirement: Critérios da Etapa 2 e Etapa 3
-O sistema SHALL avaliar na Etapa 2 (`100` pontos cada): coordenadas de estacionamento e escalada nos setores/grupos ($\ge 90\%$), trilhas de aproximação, extensão e proteções nas vias encordadas ($\ge 90\%$), traçados vetoriais (`LinhaTrajeto`) ou desenhos extraídos nos mapas, destaques nos setores, descrições/betas nas escaladas ($\ge 50\%$) e fotos de capa nos setores/grupos ($\ge 90\%$). Na Etapa 3 (`10` pontos cada), SHALL avaliar créditos, conquistadores/data de abertura, tipo de parede, indicadores de família/celular, vídeos de beta sem pendências, associação/Pix e flags de revisão.
+O sistema SHALL avaliar na Etapa 2 (`100` pontos cada): coordenadas de estacionamento e escalada nos setores/grupos ($\ge 90\%$), trilhas de aproximação, extensão e proteções nas vias encordadas ($\ge 90\%$), traçados vetoriais (`LinhaTrajeto`) ou desenhos extraídos nos mapas, destaques nos setores, descrições/betas nas escaladas ($\ge 50\%$), fotos de capa nos setores/grupos ($\ge 90\%$) e vídeos de beta vinculados às escaladas sem candidatos pendentes em `curadoria_betas` (`betas_nao_scorados` e `betas_nao_revisados`). Na Etapa 3 (`10` pontos cada), SHALL avaliar créditos, conquistadores/data de abertura, tipo de parede, indicadores de família/celular, associação/Pix e flags de revisão.
 
 #### Scenario: Avaliação completa das Etapas 2 e 3
-- **WHEN** um croqui preenche gradualmente coordenadas de setores, trilhas, fichas técnicas de vias, créditos e conquistadores
+- **WHEN** um croqui preenche gradualmente coordenadas de setores, trilhas, fichas técnicas de vias, vídeos de beta sem pendências de curadoria, créditos e conquistadores
 - **THEN** cada critério das Etapas 2 e 3 SHALL somar até `100` e `10` pontos respectivamente à `nota_qualidade` total.
+
+#### Scenario: Detecção de betas pendentes em curadoria_betas na Etapa 2
+- **WHEN** um croqui possui vídeos de beta aprovados nas escaladas, mas ainda possui candidatos em `betas_nao_scorados` ou `betas_nao_revisados` dentro de `curadoria_betas`
+- **THEN** a tarefa `"Vídeos de beta e curadoria em dia"` na Etapa 2 (`100` pontos) SHALL constar como não concluída (`0` pontos) e exibir a ação rápida `"Revisar betas pendentes"` apontando para `"page:betas"`.
 
 ### Requirement: Exibição em Cascata de Etapas Colapsáveis no Painel
 A página "Painel" SHALL exibir as três etapas em seções colapsáveis (expandos) que se abrem em cascata automática conforme o progresso: a primeira etapa que ainda possuir tarefas pendentes SHALL iniciar expandida, enquanto as etapas anteriores já $100\%$ concluídas e as etapas posteriores SHALL iniciar recolhidas, permitindo expansão manual pelo usuário a qualquer momento.

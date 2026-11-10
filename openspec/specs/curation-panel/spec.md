@@ -16,12 +16,13 @@ O sistema SHALL disponibilizar a aba **Betas** (`PainelCuradoriaBetas`) visível
   3. **3. Betas Aprovados (`betas`)**: mídias já aprovadas na escalada, permitindo rejeição/remoção.
   4. **4. Betas Rejeitados (`betas_rejeitados`)**: mídias descartadas manualmente ou auto-filtradas na coleta, iniciando **recolhida (`▶`) por padrão** e instanciando seus cards sob demanda (*lazy*) apenas quando o usuário expandir a seção, exibindo fallback visual instantâneo por fonte sem realizar requisições HTTP de thumbnail.
 - **THEN** cada card de mídia (`CardBetaCuradoria`) MUST exibir em destaque no topo um cabeçalho/badge identificando a **Via** e o **Setor** (`🧗 Via: <nome_escalada> • 📍 <nome_setor>`), além do badge de sua `FonteMidia.Enum`.
+- **THEN** na abertura inicial ou ao carregar grandes volumes de candidatos no modo assíncrono, o painel MUST instanciar os cards em fatias (*time-sliced*) sem realizar I/O de disco na thread principal, carregando os thumbnails em background por meio de um pool de 4 worker threads (`MAX_WORKERS_THUMBNAIL = 4`).
 
 #### Scenario: Curadoria estritamente individual (1 a 1) sem ações destrutivas em lote
 - **WHEN** o curador revisa os cards nas seções `betas_nao_scorados`, `betas_nao_revisados`, `betas` ou `betas_rejeitados`
 - **THEN** cada card MUST fornecer botões individuais de ação (**Aprovar** / **Rejeitar** ou **Restaurar**) e a seção `1. Betas Não Scorados` NÃO MUST fornecer botões de aprovação ou rejeição em massa.
 - **THEN** exclusivamente na seção `2. Betas Não Revisados` (candidatos já avaliados pela LLM), a interface MUST fornecer um seletor numérico de limiar de confiança (padrão **`80`%**) acompanhado dos botões **"✅ Aprovar >= 80%"** e **"❌ Rejeitar < 80%"** (atualizando o rótulo conforme o limiar escolhido), que aprovam ou rejeitam em um único comando Undo/Redo (`CmdMacro`) todos os candidatos não revisados visíveis que atendam ao critério de score.
-- **THEN** ao clicar em **Aprovar** ou **Rejeitar** enquanto a página está rolada, o painel NÃO MUST transferir o foco em cascata para os cards inferiores nem rolar a `QScrollArea` para o final da página, preservando a posição vertical do scroll (`verticalScrollBar().value()`) e sem bloquear a thread principal com `worker.wait()`.
+- **THEN** ao clicar em **Aprovar**, **Rejeitar** ou **Restaurar** em um card individual, o painel MUST reconciliar incrementalmente os cards existentes (sem destruir nem recriar os demais cards que não sofreram alteração), preservando a posição vertical do scroll (`verticalScrollBar().value()`) e executando o ciclo completo na UI thread em menos de `8 ms` na média.
 
 #### Scenario: Execução do Wizard "Coletar Betas..." com progresso
 - **WHEN** o usuário abre o diálogo **"Coletar Betas..."** na aba **Betas**

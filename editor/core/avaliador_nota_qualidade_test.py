@@ -68,7 +68,7 @@ def test_croqui_vazio_retorna_nota_zero_e_nao_pronto_para_publicar() -> None:
     resultado = avaliar_nota_qualidade_croqui(croqui)
 
     assert resultado.nota_qualidade == 0
-    assert resultado.nota_maxima == 8770
+    assert resultado.nota_maxima == 8860
     assert resultado.pronto_para_publicar is False
     assert resultado.publicado is False
     assert len(resultado.etapas) == 3
@@ -292,8 +292,8 @@ def test_avaliacao_completa_todas_etapas_e_suporte_a_dicionario_e_disco(tmp_path
     beta.url = "https://youtube.com/watch?v=dQw4w9WgXcQ"
 
     resultado_proto = avaliar_nota_qualidade_croqui(croqui)
-    assert resultado_proto.nota_qualidade == 8770
-    assert resultado_proto.nota_maxima == 8770
+    assert resultado_proto.nota_qualidade == 8860
+    assert resultado_proto.nota_maxima == 8860
     assert resultado_proto.pronto_para_publicar is True
     assert resultado_proto.publicado is True
     assert all(etapa.concluida for etapa in resultado_proto.etapas)
@@ -407,7 +407,7 @@ nos:
     resultado_dict = avaliar_nota_qualidade_croqui(
         dados_yaml, croqui_path=tmp_path, cache_md=cache_md
     )
-    assert resultado_dict.nota_qualidade == 8770
+    assert resultado_dict.nota_qualidade == 8860
     assert resultado_dict.pronto_para_publicar is True
 
     # Se malha_estrada.yaml tiver nó com distancia_metros > 0 sem duracao_minutos > 0, considera desatualizada
@@ -705,10 +705,11 @@ def test_acoes_diretas_desmembradas_por_campo_e_omissao_nome_pico_unico(
         .uri_contexto.endswith("/campo:sinal_de_celular")
     )
 
-    # 3.5 Betas pendentes -> Revisar betas pendentes (page:betas)
-    assert [(a.rotulo, a.uri_contexto) for a in t_e3["etapa3_videos_betas"].acoes] == [
+    # 2.8 Betas pendentes -> Revisar betas pendentes (page:betas) na Etapa 2 (100 pts)
+    assert [(a.rotulo, a.uri_contexto) for a in t_e2["etapa2_videos_betas"].acoes] == [
         ("Revisar betas pendentes", "page:betas"),
     ]
+    assert t_e2["etapa2_videos_betas"].pontos_maximos == 100
 
     # 3.6 Associação/Pix (1 pico -> omite nome do pico)
     assert [(a.rotulo, a.uri_contexto) for a in t_e3["etapa3_associacao_pix"].acoes] == [
@@ -741,6 +742,7 @@ def test_acoes_diretas_desmembradas_por_campo_e_omissao_nome_pico_unico(
 
     res_multi = avaliar_nota_qualidade_croqui(croqui)
     t_e1_m = {t.id_tarefa: t for t in res_multi.etapas[0].tarefas}
+    t_e2_m = {t.id_tarefa: t for t in res_multi.etapas[1].tarefas}
     t_e3_m = {t.id_tarefa: t for t in res_multi.etapas[2].tarefas}
 
     assert t_e1_m["etapa1_localizacao_picos"].acoes[0].rotulo == (
@@ -756,10 +758,51 @@ def test_acoes_diretas_desmembradas_por_campo_e_omissao_nome_pico_unico(
         "Mapear setores no Mapa Geral (Gruta da Lapinha)"
     )
     assert t_e1_m["etapa1_escaladas_no_mapa"].acoes[0].rotulo == ("Mapear escaladas em Setor Museu")
-    assert t_e3_m["etapa3_videos_betas"].acoes[0].rotulo == "Adicionar vídeo de beta"
+    assert t_e2_m["etapa2_videos_betas"].acoes[0].rotulo == "Adicionar vídeo de beta"
     assert t_e3_m["etapa3_associacao_pix"].acoes[0].rotulo == (
         "Adicionar associação (Gruta da Lapinha)"
     )
+
+
+def test_etapa2_videos_betas_detecta_pendencias_em_curadoria_betas_e_vale_100_pontos() -> None:
+    """
+    Dado um croqui que já possui vídeo aprovado em escalada.betas mas ainda possui candidatos
+    em curadoria_betas (betas_nao_scorados ou betas_nao_revisados),
+    quando avaliado, então etapa2_videos_betas fica pendente (0/100 pts) com ação 'Revisar betas pendentes',
+    e ao concluir a curadoria (restando apenas betas aprovados e rejeitados), concede 100 pontos.
+    """
+    croqui = _criar_croqui_etapa1_completa_setor_unico()
+    esc = croqui.picos[0].setores_ou_grupos[0].setor.conteudo.escaladas[0]
+    esc.betas.add(
+        url="https://youtube.com/watch?v=aprovado",
+        titulo="Beta Aprovado",
+        fonte=beta_pb2.FonteMidia.YOUTUBE,
+    )
+
+    cur_esc = croqui.curadoria_betas.conteudo.escaladas.add(escalada_uid=esc.uid)
+    cand_nr = cur_esc.betas_nao_revisados.add()
+    cand_nr.midia.url = "https://youtube.com/watch?v=pendente_revisao"
+    cand_nr.resultado_llm.llm_confidence_score = 75
+
+    res_pendente = avaliar_nota_qualidade_croqui(croqui)
+    t_betas_pend = {t.id_tarefa: t for t in res_pendente.etapas[1].tarefas}["etapa2_videos_betas"]
+    assert t_betas_pend.etapa == 2
+    assert t_betas_pend.pontos_maximos == 100
+    assert t_betas_pend.pontos_obtidos == 0
+    assert t_betas_pend.concluida is False
+    assert [(a.rotulo, a.uri_contexto) for a in t_betas_pend.acoes] == [
+        ("Revisar betas pendentes", "page:betas")
+    ]
+
+    # Ao mover para betas_rejeitados (zerando betas_nao_revisados e betas_nao_scorados), conclui com 100 pts
+    cur_esc.ClearField("betas_nao_revisados")
+    cur_esc.betas_rejeitados.add(url="https://youtube.com/watch?v=pendente_revisao")
+
+    res_em_dia = avaliar_nota_qualidade_croqui(croqui)
+    t_betas_ok = {t.id_tarefa: t for t in res_em_dia.etapas[1].tarefas}["etapa2_videos_betas"]
+    assert t_betas_ok.pontos_obtidos == 100
+    assert t_betas_ok.concluida is True
+    assert t_betas_ok.acoes == ()
 
 
 def test_malha_estrada_versao_antiga_concede_700_pontos_e_exibe_acao_atualizar() -> None:

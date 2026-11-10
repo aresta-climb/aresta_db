@@ -208,7 +208,7 @@ def test_aresta_avaliar_qualidade_em_memoria_e_em_disco(qapp, tmp_path: Path):
 
     # 1. Avaliação do modelo em memória (nota 1000 da identidade_capa e parcial da localização)
     diag = _chamar(servidor, "aresta_avaliar_qualidade", {})
-    assert diag["nota_maxima"] == 8770
+    assert diag["nota_maxima"] == 8860
     assert diag["nota_qualidade"] >= 1000
     assert diag["pronto_para_publicar"] is False
     assert len(diag["etapas"]) == 3
@@ -230,7 +230,7 @@ def test_aresta_avaliar_qualidade_em_memoria_e_em_disco(qapp, tmp_path: Path):
         servidor_disco, "aresta_avaliar_qualidade", {"id_croqui": "br_rj_urca"}
     )
     assert diag_disco["nota_qualidade"] == 1000
-    assert diag_disco["nota_maxima"] == 8770
+    assert diag_disco["nota_maxima"] == 8860
 
     # 3. Erro claro se não houver croqui aberto nem id_croqui válido em disco
     with pytest.raises(RuntimeError, match="Não foi possível localizar o croqui"):

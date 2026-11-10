@@ -251,3 +251,44 @@ def test_painel_qualidade_coalesce_atualizacoes_durante_lote_curadoria_betas(qtb
     controller.adicionar_betas_rejeitados_lote("uid_esc_0000001", rejeitados)
 
     assert painel.total_atualizacoes_painel == ct_inicial + 1
+
+
+def test_painel_qualidade_adia_recalculo_quando_aba_oculta_e_atualiza_no_show_event(
+    qtbot,
+) -> None:
+    """
+    Dado o WidgetPainelQualidade em uma aba oculta de um QTabWidget visível,
+    quando mutações ocorrem na aba Betas ativa,
+    então o painel não recalcula enquanto oculto e recalcula imediatamente ao exibir a aba.
+    """
+    from PySide6.QtWidgets import QTabWidget, QWidget
+
+    croqui = _criar_croqui_etapa1_completa()
+    model = CroquiModel(croqui)
+    stack = QUndoStack()
+    controller = CroquiController(model, stack)
+
+    abas = QTabWidget()
+    aba_betas = QWidget()
+    painel = WidgetPainelQualidade(model, controller)
+    abas.addTab(aba_betas, "Betas")
+    abas.addTab(painel, "Painel")
+    abas.setCurrentWidget(aba_betas)
+    qtbot.addWidget(abas)
+    abas.show()
+    qtbot.waitExposed(abas)
+
+    ct_antes = painel.total_atualizacoes_painel
+    rejeitados = [
+        beta_pb2.MidiaBeta(
+            url="https://example.com/rej/oculto",
+            titulo="Post Oculto",
+            fonte=beta_pb2.FonteMidia.BLOG,
+        )
+    ]
+    controller.adicionar_betas_rejeitados_lote("uid_esc_0000001", rejeitados)
+    assert painel.total_atualizacoes_painel == ct_antes
+
+    abas.setCurrentWidget(painel)
+    assert painel.total_atualizacoes_painel == ct_antes + 1
+

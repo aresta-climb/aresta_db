@@ -4277,10 +4277,14 @@ class WidgetEditorDados(QWidget):
         self.form_padrao._on_estrutura_campo_alterada(_get_id(msg), campo_afetado)
 
     def _on_repeated_adicionado(self, msg: Any, campo_nome: str, index: int) -> None:
+        if campo_nome in ("betas_nao_scorados", "betas_nao_revisados", "betas_rejeitados"):
+            return
         self.tree_model._on_item_adicionado(_get_id(msg), campo_nome, index)
         self.form_padrao._on_repeated_adicionado(msg, campo_nome, index)
 
     def _on_repeated_removido(self, msg: Any, campo_nome: str, index: int) -> None:
+        if campo_nome in ("betas_nao_scorados", "betas_nao_revisados", "betas_rejeitados"):
+            return
         self.tree_model._on_item_removido(_get_id(msg), campo_nome, index)
         self.form_padrao._on_repeated_removido(msg, campo_nome, index)
 

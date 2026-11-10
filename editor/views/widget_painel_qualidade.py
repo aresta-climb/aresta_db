@@ -410,7 +410,14 @@ class WidgetPainelQualidade(QWidget):
     def _em_macro_ativa(self) -> bool:
         return bool(getattr(self._model, "_pilha_macros", None))
 
+    def _esta_oculto_em_janela_visivel(self) -> bool:
+        janela = self.window()
+        return janela is not self and janela.isVisible() and not self.isVisible()
+
     def _ao_mutar_modelo(self, *_args: Any) -> None:
+        if self._esta_oculto_em_janela_visivel():
+            self._atualizacao_pendente = True
+            return
         if self._em_macro_ativa():
             self._atualizacao_pendente = True
             if not self._agendado_timer:
@@ -428,8 +435,16 @@ class WidgetPainelQualidade(QWidget):
         self._agendado_timer = False
         if not self._atualizacao_pendente:
             return
+        if self._esta_oculto_em_janela_visivel():
+            return
         self._atualizacao_pendente = False
         self.atualizar_painel()
+
+    def showEvent(self, event: Any) -> None:
+        super().showEvent(event)
+        if self._atualizacao_pendente:
+            self._atualizacao_pendente = False
+            self.atualizar_painel()
 
     def _emitir_foco_acao(self, uri_foco: str) -> None:
         if self._model is not None:

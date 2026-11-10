@@ -106,7 +106,7 @@ class TestMedirSaudeCroquis(unittest.TestCase):
         self.assertEqual(linha["1.1 Identidade e Capa"], "✅ (3/3)")
         self.assertEqual(linha["1.8 Malha Estrada"], "✅ (1/1)")
         self.assertEqual(linha["3.1 Créditos"], "✅ (1/1)")
-        self.assertEqual(linha["3.7 Revisão Final"], "⚠️ (1/2)")
+        self.assertEqual(linha["3.6 Revisão Final"], "⚠️ (1/2)")
 
     def test_atualizar_relatorio_saude_croquis_incremental_atualiza_apenas_alvo_e_cabecalho(
         self,
@@ -132,7 +132,7 @@ class TestMedirSaudeCroquis(unittest.TestCase):
         self.assertTrue(modificou_inicial)
         texto_inicial = output_file.read_text(encoding="utf-8")
         self.assertIn("Publicado (1/2)", texto_inicial)
-        self.assertIn("Nota Qualidade (máx 8770)", texto_inicial)
+        self.assertIn("Nota Qualidade (máx 8860)", texto_inicial)
         self.assertIn("1.8 Malha Estrada (0/2)", texto_inicial)
         self.assertIn("| croqui_a | ❌ |", texto_inicial)
         self.assertIn("| croqui_b | ✅ |", texto_inicial)

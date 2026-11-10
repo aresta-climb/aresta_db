@@ -37,13 +37,13 @@ COLUNAS_TAREFAS_PAINEL: tuple[tuple[str, str], ...] = (
     ("etapa2_destaques_setores", "2.5 Destaques"),
     ("etapa2_descricoes_escaladas", "2.6 Descrições Vias"),
     ("etapa2_fotos_capa_setores", "2.7 Fotos Capa Setores"),
+    ("etapa2_videos_betas", "2.8 Vídeos Beta"),
     ("etapa3_creditos", "3.1 Créditos"),
     ("etapa3_conquistadores_datas", "3.2 Conquistadores/Datas"),
     ("etapa3_tipo_parede_exposicao", "3.3 Parede/Exposição"),
     ("etapa3_indicadores_familia_celular", "3.4 Sinal/Família"),
-    ("etapa3_videos_betas", "3.5 Vídeos Beta"),
-    ("etapa3_associacao_pix", "3.6 Associação/Pix"),
-    ("etapa3_revisao_final", "3.7 Revisão Final"),
+    ("etapa3_associacao_pix", "3.5 Associação/Pix"),
+    ("etapa3_revisao_final", "3.6 Revisão Final"),
 )
 
 CHAVES_COLUNAS_RELATORIO: tuple[str, ...] = (
@@ -173,7 +173,7 @@ def generate_report_table(report_data: list[dict[str, Any]]) -> str:
         "Croqui",
         f"Publicado ({a_publicados}/{total_croquis})",
         f"Pronto Publicar ({a_prontos}/{total_croquis})",
-        "Nota Qualidade (máx 8770)",
+        "Nota Qualidade (máx 8860)",
         f"Etapa 1 ({a_etapa1}/{total_croquis})",
         f"Etapa 2 ({a_etapa2}/{total_croquis})",
         f"Etapa 3 ({a_etapa3}/{total_croquis})",

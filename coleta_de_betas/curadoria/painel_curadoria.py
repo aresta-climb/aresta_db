@@ -33,9 +33,10 @@ from coleta_de_betas.curadoria.dialogo_coletar_betas import (
 )
 from coleta_de_betas.curadoria.provedor_imagem_aresta import (
     ProvedorImagemAresta,
-    WorkerProvedorImagem,
     obter_pixmap_fallback,
 )
+
+TAMANHO_FATIA_CARDS_PADRAO = 5
 
 INSTRUCOES_MCP_AVALIACAO = (
     "💡 Passo 1: Conecte seu agente de IA (Cursor, Claude, Antigravity) ao Editor Aresta clicando em "
@@ -153,6 +154,100 @@ class SecaoExpansivelCuradoria(QFrame):
         return str(self.botao_cabecalho.text())
 
 
+_ESTILO_CARDS_CURADORIA = """
+CardBetaCuradoria {
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    margin-bottom: 4px;
+    padding: 6px;
+}
+CardBetaCuradoria:hover {
+    border: 1px solid #0066cc;
+}
+QLabel#LabelViaSetor {
+    background-color: #f0fdf4;
+    color: #166534;
+    font-weight: bold;
+    border: 1px solid #bbf7d0;
+    border-radius: 4px;
+    padding: 2px 8px;
+    font-size: 11px;
+}
+QLabel#LabelFonteBeta {
+    background-color: #eef2ff;
+    color: #1e40af;
+    font-weight: bold;
+    border-radius: 4px;
+    padding: 2px 6px;
+    font-size: 10px;
+}
+QLabel#LabelScoreAlto {
+    background-color: #28a745;
+    color: #ffffff;
+    font-weight: bold;
+    border-radius: 4px;
+    padding: 3px 6px;
+}
+QLabel#LabelScoreMedio {
+    background-color: #ffc107;
+    color: #ffffff;
+    font-weight: bold;
+    border-radius: 4px;
+    padding: 3px 6px;
+}
+QLabel#LabelScoreBaixo {
+    background-color: #dc3545;
+    color: #ffffff;
+    font-weight: bold;
+    border-radius: 4px;
+    padding: 3px 6px;
+}
+QLabel#LabelUrlBeta {
+    color: #0066cc;
+    font-size: 11px;
+}
+QLabel#LabelReasoningBeta {
+    color: #444444;
+    font-size: 11px;
+    font-style: italic;
+}
+QLabel#LabelSnippetsBeta {
+    color: #666666;
+    font-size: 11px;
+}
+QPushButton#BtnAprovarBeta {
+    background-color: #28a745;
+    color: white;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+QPushButton#BtnRejeitarBeta {
+    background-color: #dc3545;
+    color: white;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+QPushButton#BtnRestaurarBeta {
+    background-color: #0969da;
+    color: white;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+"""
+_FONTE_TITULO_CARD: QFont | None = None
+
+
+def _obter_fonte_titulo_card() -> QFont:
+    global _FONTE_TITULO_CARD
+    if _FONTE_TITULO_CARD is None:
+        _FONTE_TITULO_CARD = QFont("Segoe UI", 10, QFont.Weight.Bold)
+    return _FONTE_TITULO_CARD
+
+
 class CardBetaCuradoria(QFrame):
     """
     Card individual de revisão 1 a 1 de uma mídia ou candidato a beta, exibindo
@@ -173,31 +268,25 @@ class CardBetaCuradoria(QFrame):
         provedor_imagem: ProvedorImagemAresta | None = None,
         carregar_assincrono: bool = True,
         usar_apenas_fallback: bool = False,
+        chave_reconciliacao: tuple[Any, ...] = (),
         parent: QWidget | None = None,
     ) -> None:
         super().__init__(parent)
         self.midia = midia
         self.nome_escalada = nome_escalada
         self.nome_setor = nome_setor
-        self._worker_imagem: WorkerProvedorImagem | None = None
+        self.chave_reconciliacao = chave_reconciliacao
+        self._ao_aprovar_cb: Callable[[], Any] | None = ao_aprovar
+        self._ao_rejeitar_cb: Callable[[], Any] | None = ao_rejeitar
+        self._ao_restaurar_cb: Callable[[], Any] | None = ao_restaurar
+        self._chave_thumb: str = ""
         self._provedor = provedor_imagem or ProvedorImagemAresta()
 
         self.setFrameShape(QFrame.Shape.StyledPanel)
-        self.setStyleSheet("""
-            CardBetaCuradoria {
-                background-color: #ffffff;
-                border: 1px solid #e0e0e0;
-                border-radius: 8px;
-                margin-bottom: 6px;
-                padding: 6px;
-            }
-            CardBetaCuradoria:hover {
-                border: 1px solid #0066cc;
-            }
-        """)
+        self.setFixedHeight(112)
 
         layout_principal = QHBoxLayout(self)
-        layout_principal.setContentsMargins(8, 8, 8, 8)
+        layout_principal.setContentsMargins(8, 6, 8, 6)
         layout_principal.setSpacing(12)
 
         self.label_thumbnail = QLabel()
@@ -211,14 +300,11 @@ class CardBetaCuradoria(QFrame):
                 self.label_thumbnail.setPixmap(pixmap_imediato)
             else:
                 self.label_thumbnail.setPixmap(obter_pixmap_fallback(self.midia.fonte))
-                self._worker_imagem = WorkerProvedorImagem(
+                self._chave_thumb = self._provedor.solicitar_pixmap_assincrono(
                     self.midia.url,
                     self.midia.fonte,
-                    provedor=self._provedor,
-                    parent=self,
+                    self._ao_carregar_thumbnail,
                 )
-                self._worker_imagem.imagem_carregada.connect(self._ao_carregar_thumbnail)
-                self._worker_imagem.start()
         else:
             self.label_thumbnail.setPixmap(
                 self._provedor.obter_pixmap(self.midia.url, self.midia.fonte)
@@ -226,7 +312,7 @@ class CardBetaCuradoria(QFrame):
         layout_principal.addWidget(self.label_thumbnail, alignment=Qt.AlignmentFlag.AlignVCenter)
 
         layout_textos = QVBoxLayout()
-        layout_textos.setSpacing(4)
+        layout_textos.setSpacing(2)
 
         texto_via_setor = (
             f"🧗 Via: {nome_escalada}  •  📍 {nome_setor}"
@@ -234,61 +320,53 @@ class CardBetaCuradoria(QFrame):
             else f"🧗 Via: {nome_escalada}"
         )
         self.label_via_setor = QLabel(texto_via_setor)
-        self.label_via_setor.setStyleSheet(
-            "background-color: #f0fdf4; color: #166534; font-weight: bold; "
-            "border: 1px solid #bbf7d0; border-radius: 4px; padding: 2px 8px; font-size: 11px;"
-        )
-        self.label_via_setor.setWordWrap(True)
+        self.label_via_setor.setObjectName("LabelViaSetor")
+        self.label_via_setor.setMinimumWidth(80)
         layout_textos.addWidget(self.label_via_setor)
 
         layout_cabecalho = QHBoxLayout()
         titulo_exibido = self.midia.titulo or self.midia.url
         self.label_titulo = QLabel(titulo_exibido)
-        self.label_titulo.setFont(QFont("Segoe UI", 10, QFont.Weight.Bold))
-        self.label_titulo.setWordWrap(True)
+        self.label_titulo.setFont(_obter_fonte_titulo_card())
+        self.label_titulo.setMinimumWidth(80)
         layout_cabecalho.addWidget(self.label_titulo, stretch=1)
 
         self.label_fonte = QLabel(_rotulo_fonte(self.midia.fonte))
-        self.label_fonte.setStyleSheet(
-            "background-color: #eef2ff; color: #1e40af; font-weight: bold; "
-            "border-radius: 4px; padding: 2px 6px; font-size: 10px;"
-        )
+        self.label_fonte.setObjectName("LabelFonteBeta")
         layout_cabecalho.addWidget(self.label_fonte)
 
         self.label_score: QLabel | None = None
         if score_llm is not None:
-            cor_score = (
-                "#28a745" if score_llm >= 80 else ("#ffc107" if score_llm >= 50 else "#dc3545")
+            nome_obj_score = (
+                "LabelScoreAlto"
+                if score_llm >= 80
+                else ("LabelScoreMedio" if score_llm >= 50 else "LabelScoreBaixo")
             )
             self.label_score = QLabel(f"Confiança: {score_llm}%")
-            self.label_score.setStyleSheet(
-                f"background-color: {cor_score}; color: #ffffff; font-weight: bold; "
-                "border-radius: 4px; padding: 3px 6px;"
-            )
+            self.label_score.setObjectName(nome_obj_score)
             layout_cabecalho.addWidget(self.label_score)
 
         layout_textos.addLayout(layout_cabecalho)
 
         self.label_url = QLabel(f'<a href="{self.midia.url}">{self.midia.url}</a>')
+        self.label_url.setObjectName("LabelUrlBeta")
         self.label_url.setOpenExternalLinks(True)
-        self.label_url.setStyleSheet("color: #0066cc; font-size: 11px;")
+        self.label_url.setMinimumWidth(80)
         layout_textos.addWidget(self.label_url)
 
         self.label_reasoning: QLabel | None = None
         if justificativa_llm:
             self.label_reasoning = QLabel(justificativa_llm)
-            self.label_reasoning.setStyleSheet(
-                "color: #444444; font-size: 11px; font-style: italic;"
-            )
-            self.label_reasoning.setWordWrap(True)
+            self.label_reasoning.setObjectName("LabelReasoningBeta")
+            self.label_reasoning.setMinimumWidth(80)
             layout_textos.addWidget(self.label_reasoning)
 
         self.label_snippets: QLabel | None = None
         if snippets:
             texto_snippets = " | ".join(snippets)
             self.label_snippets = QLabel(f"Trechos: {texto_snippets}")
-            self.label_snippets.setStyleSheet("color: #666666; font-size: 11px;")
-            self.label_snippets.setWordWrap(True)
+            self.label_snippets.setObjectName("LabelSnippetsBeta")
+            self.label_snippets.setMinimumWidth(80)
             layout_textos.addWidget(self.label_snippets)
 
         layout_principal.addLayout(layout_textos, stretch=1)
@@ -300,53 +378,64 @@ class CardBetaCuradoria(QFrame):
         self.btn_aprovar: QPushButton | None = None
         if ao_aprovar is not None:
             self.btn_aprovar = QPushButton("✅ Aprovar")
+            self.btn_aprovar.setObjectName("BtnAprovarBeta")
             self.btn_aprovar.setCursor(Qt.CursorShape.PointingHandCursor)
-            self.btn_aprovar.setStyleSheet(
-                "background-color: #28a745; color: white; font-weight: bold; "
-                "padding: 5px 10px; border-radius: 4px;"
-            )
-            self.btn_aprovar.clicked.connect(lambda _checked=False: ao_aprovar())
+            self.btn_aprovar.clicked.connect(self._disparar_aprovar)
             layout_botoes.addWidget(self.btn_aprovar)
 
         self.btn_rejeitar: QPushButton | None = None
         if ao_rejeitar is not None:
             self.btn_rejeitar = QPushButton("❌ Rejeitar")
+            self.btn_rejeitar.setObjectName("BtnRejeitarBeta")
             self.btn_rejeitar.setCursor(Qt.CursorShape.PointingHandCursor)
-            self.btn_rejeitar.setStyleSheet(
-                "background-color: #dc3545; color: white; font-weight: bold; "
-                "padding: 5px 10px; border-radius: 4px;"
-            )
-            self.btn_rejeitar.clicked.connect(lambda _checked=False: ao_rejeitar())
+            self.btn_rejeitar.clicked.connect(self._disparar_rejeitar)
             layout_botoes.addWidget(self.btn_rejeitar)
 
         self.btn_restaurar: QPushButton | None = None
         if ao_restaurar is not None:
             self.btn_restaurar = QPushButton("↩️ Restaurar")
+            self.btn_restaurar.setObjectName("BtnRestaurarBeta")
             self.btn_restaurar.setCursor(Qt.CursorShape.PointingHandCursor)
-            self.btn_restaurar.setStyleSheet(
-                "background-color: #0969da; color: white; font-weight: bold; "
-                "padding: 5px 10px; border-radius: 4px;"
-            )
-            self.btn_restaurar.clicked.connect(lambda _checked=False: ao_restaurar())
+            self.btn_restaurar.clicked.connect(self._disparar_restaurar)
             layout_botoes.addWidget(self.btn_restaurar)
 
         layout_botoes.addStretch()
         layout_principal.addLayout(layout_botoes)
 
-    def _ao_carregar_thumbnail(self, pixmap: QPixmap | None) -> None:
-        if pixmap and not pixmap.isNull():
-            self.label_thumbnail.setPixmap(pixmap)
+    def _disparar_aprovar(self, _checked: bool = False) -> None:
+        if self._ao_aprovar_cb is not None:
+            self._ao_aprovar_cb()
+
+    def _disparar_rejeitar(self, _checked: bool = False) -> None:
+        if self._ao_rejeitar_cb is not None:
+            self._ao_rejeitar_cb()
+
+    def _disparar_restaurar(self, _checked: bool = False) -> None:
+        if self._ao_restaurar_cb is not None:
+            self._ao_restaurar_cb()
+
+    def atualizar_acoes(
+        self,
+        ao_aprovar: Callable[[], Any] | None = None,
+        ao_rejeitar: Callable[[], Any] | None = None,
+        ao_restaurar: Callable[[], Any] | None = None,
+    ) -> None:
+        """Atualiza em O(1) os callbacks de clique do card sem reconstruir widgets ou sinais."""
+        self._ao_aprovar_cb = ao_aprovar
+        self._ao_rejeitar_cb = ao_rejeitar
+        self._ao_restaurar_cb = ao_restaurar
+
+    def _ao_carregar_thumbnail(self, pixmap: QPixmap) -> None:
+        self._chave_thumb = ""
+        self.label_thumbnail.setPixmap(pixmap)
 
     def encerrar_worker(self) -> None:
-        """Desconecta sem bloquear a UI thread a QThread de thumbnail, se ativa."""
-        if self._worker_imagem is not None:
-            try:
-                self._worker_imagem.imagem_carregada.disconnect(self._ao_carregar_thumbnail)
-            except Exception:
-                pass
-            self._worker_imagem.setParent(None)
-            self._worker_imagem.finished.connect(self._worker_imagem.deleteLater)
-            self._worker_imagem = None
+        """Cancela sem bloquear a UI thread o callback pendente no pool de thumbnails."""
+        if self._chave_thumb:
+            self._provedor.cancelar_callback_assincrono(
+                self._chave_thumb, self._ao_carregar_thumbnail
+            )
+            self._chave_thumb = ""
 
 
 class PainelCuradoria(QWidget):
@@ -363,6 +452,7 @@ class PainelCuradoria(QWidget):
         provedor_imagem: ProvedorImagemAresta | None = None,
         carregar_assincrono: bool = True,
         ao_solicitar_conexao_mcp: Callable[[], Any] | None = None,
+        tamanho_fatia_cards: int | None = None,
         parent: QWidget | None = None,
     ) -> None:
         super().__init__(parent)
@@ -371,6 +461,11 @@ class PainelCuradoria(QWidget):
         self.provedor_imagem = provedor_imagem or ProvedorImagemAresta()
         self.carregar_assincrono = carregar_assincrono
         self.ao_solicitar_conexao_mcp = ao_solicitar_conexao_mcp
+        self.tamanho_fatia_cards: int = (
+            (TAMANHO_FATIA_CARDS_PADRAO if carregar_assincrono else 0)
+            if tamanho_fatia_cards is None
+            else max(0, int(tamanho_fatia_cards))
+        )
         self.filtro_escalada_uid: str = ""
 
         self.cards_nao_scorados: list[CardBetaCuradoria] = []
@@ -379,6 +474,11 @@ class PainelCuradoria(QWidget):
         self.cards_rejeitados: list[CardBetaCuradoria] = []
         self._scores_nao_revisados_atuais: list[int] = []
         self._itens_rejeitados_atuais: list[tuple[str, int, Any, InfoEscaladaColeta]] = []
+        self._assinatura_combo_escaladas: tuple[tuple[str, str, str], ...] | None = None
+        self._fatias_pendentes: list[
+            tuple[QVBoxLayout, list[CardBetaCuradoria], dict[str, Any], QWidget]
+        ] = []
+        self._timer_fatia_agendado: bool = False
         self._atualizacao_pendente: bool = False
         self._agendado_timer: bool = False
         self.total_atualizacoes_visualizacao: int = 0
@@ -416,6 +516,7 @@ class PainelCuradoria(QWidget):
         self.scroll_area = QScrollArea()
         self.scroll_area.setWidgetResizable(True)
         self.container_secoes = QWidget()
+        self.container_secoes.setStyleSheet(_ESTILO_CARDS_CURADORIA)
         self.layout_secoes = QVBoxLayout(self.container_secoes)
         self.layout_secoes.setAlignment(Qt.AlignmentFlag.AlignTop)
         self.layout_secoes.setSpacing(12)
@@ -573,19 +674,34 @@ class PainelCuradoria(QWidget):
         if self.controller is None:
             return
         ctrl = self.controller
+        especificacoes_rej: list[dict[str, Any]] = []
         for uid, idx_rej, midia_rej, info in self._itens_rejeitados_atuais:
-            card = CardBetaCuradoria(
-                midia=midia_rej,
-                nome_escalada=info.nome_escalada,
-                nome_setor=info.nome_setor,
-                ao_restaurar=partial(ctrl.restaurar_beta_rejeitado, uid, idx_rej),
-                provedor_imagem=self.provedor_imagem,
-                carregar_assincrono=False,
-                usar_apenas_fallback=True,
-                parent=self.secao_rejeitados,
+            especificacoes_rej.append(
+                {
+                    "chave": (
+                        "rej",
+                        uid,
+                        str(midia_rej.url),
+                        str(midia_rej.titulo),
+                        int(midia_rej.fonte),
+                    ),
+                    "midia": midia_rej,
+                    "nome_escalada": info.nome_escalada,
+                    "nome_setor": info.nome_setor,
+                    "ao_restaurar": partial(ctrl.restaurar_beta_rejeitado, uid, idx_rej),
+                    "carregar_assincrono": False,
+                    "usar_apenas_fallback": True,
+                }
             )
-            self.cards_rejeitados.append(card)
-            self.layout_rejeitados.addWidget(card)
+        orcamento_rej = [self.tamanho_fatia_cards] if self.tamanho_fatia_cards > 0 else None
+        self._reconciliar_secao(
+            self.layout_rejeitados,
+            self.cards_rejeitados,
+            especificacoes_rej,
+            self.secao_rejeitados,
+            orcamento_novos=orcamento_rej,
+        )
+        self._agendar_proxima_fatia()
 
     @staticmethod
     def _obter_pilha_undo(controller: Any) -> Any | None:
@@ -616,6 +732,7 @@ class PainelCuradoria(QWidget):
 
         self.model = model
         self.controller = controller
+        self._assinatura_combo_escaladas = None
 
         if self.model is not None:
             for sig_name in ("repeated_adicionado", "repeated_removido", "dado_alterado"):
@@ -649,18 +766,32 @@ class PainelCuradoria(QWidget):
         self._popular_combo_escaladas()
         self.atualizar_visualizacao()
 
-    def _popular_combo_escaladas(self) -> None:
+    def _popular_combo_escaladas(
+        self, infos_pre_extraidas: list[InfoEscaladaColeta] | None = None
+    ) -> None:
+        infos = infos_pre_extraidas
+        if infos is None:
+            if self.model is not None:
+                croqui_ro = self.model.obter_croqui_readonly()
+                infos = extrair_escaladas_do_croqui(croqui_ro)
+            else:
+                infos = []
+        nova_assinatura = tuple(
+            (info.escalada_uid, info.nome_escalada, info.nome_setor) for info in infos
+        )
+        if self._assinatura_combo_escaladas == nova_assinatura:
+            return
+        self._assinatura_combo_escaladas = nova_assinatura
+
         self.combo_escalada.blockSignals(True)
         try:
             self.combo_escalada.clear()
             self.combo_escalada.addItem("Todas as Escaladas", "")
-            if self.model is not None:
-                croqui_ro = self.model.obter_croqui_readonly()
-                for info in extrair_escaladas_do_croqui(croqui_ro):
-                    self.combo_escalada.addItem(
-                        f"{info.nome_escalada} ({info.nome_setor})",
-                        info.escalada_uid,
-                    )
+            for info in infos:
+                self.combo_escalada.addItem(
+                    f"{info.nome_escalada} ({info.nome_setor})",
+                    info.escalada_uid,
+                )
             idx = self.combo_escalada.findData(self.filtro_escalada_uid)
             self.combo_escalada.setCurrentIndex(idx if idx >= 0 else 0)
         finally:
@@ -695,9 +826,115 @@ class PainelCuradoria(QWidget):
                     w.setParent(None)
                     w.deleteLater()
 
+    @property
+    def hidratacao_em_andamento(self) -> bool:
+        """Retorna True enquanto ainda houver fatias de cards aguardando instanciação."""
+        return len(self._fatias_pendentes) > 0
+
+    def _instanciar_card_de_spec(
+        self, spec: dict[str, Any], parent_secao: QWidget
+    ) -> CardBetaCuradoria:
+        return CardBetaCuradoria(
+            midia=spec["midia"],
+            nome_escalada=spec["nome_escalada"],
+            nome_setor=spec.get("nome_setor", ""),
+            score_llm=spec.get("score_llm"),
+            justificativa_llm=spec.get("justificativa_llm", ""),
+            snippets=spec.get("snippets", ()),
+            ao_aprovar=spec.get("ao_aprovar"),
+            ao_rejeitar=spec.get("ao_rejeitar"),
+            ao_restaurar=spec.get("ao_restaurar"),
+            provedor_imagem=self.provedor_imagem,
+            carregar_assincrono=spec.get("carregar_assincrono", self.carregar_assincrono),
+            usar_apenas_fallback=spec.get("usar_apenas_fallback", False),
+            chave_reconciliacao=spec["chave"],
+            parent=parent_secao,
+        )
+
+    def _agendar_proxima_fatia(self) -> None:
+        if self._fatias_pendentes and not self._timer_fatia_agendado:
+            self._timer_fatia_agendado = True
+            QTimer.singleShot(0, self._processar_proxima_fatia_cards)
+
+    def _processar_proxima_fatia_cards(self) -> None:
+        self._timer_fatia_agendado = False
+        if not self._fatias_pendentes:
+            return
+        limite = (
+            self.tamanho_fatia_cards
+            if self.tamanho_fatia_cards > 0
+            else len(self._fatias_pendentes)
+        )
+        lote = self._fatias_pendentes[:limite]
+        del self._fatias_pendentes[:limite]
+
+        self.container_secoes.setUpdatesEnabled(False)
+        try:
+            for layout, lista_cards, spec, parent_secao in lote:
+                card = self._instanciar_card_de_spec(spec, parent_secao)
+                lista_cards.append(card)
+                layout.addWidget(card)
+        finally:
+            self.container_secoes.setUpdatesEnabled(True)
+
+        self._agendar_proxima_fatia()
+
+    def concluir_hidratacao_em_fatias(self) -> None:
+        """Instancia imediatamente todas as fatias pendentes de cards."""
+        while self._fatias_pendentes:
+            self._processar_proxima_fatia_cards()
+
+    def _reconciliar_secao(
+        self,
+        layout: QVBoxLayout,
+        lista_cards: list[CardBetaCuradoria],
+        especificacoes: list[dict[str, Any]],
+        parent_secao: QWidget,
+        orcamento_novos: list[int] | None = None,
+    ) -> None:
+        pool: dict[tuple[Any, ...], list[CardBetaCuradoria]] = {}
+        for card_existente in lista_cards:
+            pool.setdefault(card_existente.chave_reconciliacao, []).append(card_existente)
+
+        novos_cards: list[CardBetaCuradoria] = []
+        for spec in especificacoes:
+            chave = spec["chave"]
+            disponiveis = pool.get(chave)
+            if disponiveis:
+                card = disponiveis.pop(0)
+                card.atualizar_acoes(
+                    ao_aprovar=spec.get("ao_aprovar"),
+                    ao_rejeitar=spec.get("ao_rejeitar"),
+                    ao_restaurar=spec.get("ao_restaurar"),
+                )
+                novos_cards.append(card)
+            elif orcamento_novos is None or orcamento_novos[0] > 0:
+                if orcamento_novos is not None:
+                    orcamento_novos[0] -= 1
+                card = self._instanciar_card_de_spec(spec, parent_secao)
+                novos_cards.append(card)
+            else:
+                self._fatias_pendentes.append((layout, lista_cards, spec, parent_secao))
+
+        for sobras in pool.values():
+            for card_removido in sobras:
+                card_removido.encerrar_worker()
+                layout.removeWidget(card_removido)
+                card_removido.hide()
+                card_removido.setParent(None)
+                card_removido.deleteLater()
+
+        for idx, card in enumerate(novos_cards):
+            item_atual = layout.itemAt(idx)
+            if item_atual is None or item_atual.widget() is not card:
+                layout.insertWidget(idx, card)
+
+        lista_cards[:] = novos_cards
+
     def atualizar_visualizacao(self) -> None:
-        """Reconstrói os cards das 4 seções refletindo o estado atual do CroquiModel sem perder o scroll."""
+        """Reconcilia incrementalmente os cards das 4 seções refletindo o estado atual do CroquiModel sem perder o scroll."""
         self._atualizacao_pendente = False
+        self._fatias_pendentes.clear()
         self.total_atualizacoes_visualizacao += 1
 
         vbar = self.scroll_area.verticalScrollBar()
@@ -709,22 +946,24 @@ class PainelCuradoria(QWidget):
 
         self.container_secoes.setUpdatesEnabled(False)
         try:
-            self._limpar_layout(self.layout_nao_scorados, self.cards_nao_scorados)
-            self._limpar_layout(self.layout_nao_revisados, self.cards_nao_revisados)
-            self._limpar_layout(self.layout_aprovados, self.cards_aprovados)
-            self._limpar_layout(self.layout_rejeitados, self.cards_rejeitados)
             self._scores_nao_revisados_atuais.clear()
             self._itens_rejeitados_atuais.clear()
 
             if self.model is None or self.controller is None:
+                self._limpar_layout(self.layout_nao_scorados, self.cards_nao_scorados)
+                self._limpar_layout(self.layout_nao_revisados, self.cards_nao_revisados)
+                self._limpar_layout(self.layout_aprovados, self.cards_aprovados)
+                self._limpar_layout(self.layout_rejeitados, self.cards_rejeitados)
                 self._atualizar_botoes_lote_score()
                 self.label_status.setText("Nenhum croqui carregado.")
                 return
 
             ctrl = self.controller
             croqui_ro = self.model.obter_croqui_readonly()
+            infos_escaladas = extrair_escaladas_do_croqui(croqui_ro)
+            self._popular_combo_escaladas(infos_escaladas)
             mapa_info: dict[str, InfoEscaladaColeta] = {
-                info.escalada_uid: info for info in extrair_escaladas_do_croqui(croqui_ro)
+                info.escalada_uid: info for info in infos_escaladas
             }
             mapa_curadoria: dict[str, Any] = {
                 cur.escalada_uid: cur for cur in croqui_ro.curadoria_betas.conteudo.escaladas
@@ -735,31 +974,48 @@ class PainelCuradoria(QWidget):
                 if self.filtro_escalada_uid and self.filtro_escalada_uid in mapa_info
                 else list(mapa_info.keys())
             )
+            orcamento_novos = (
+                [self.tamanho_fatia_cards] if self.tamanho_fatia_cards > 0 else None
+            )
 
             # 1. Betas Não Scorados
+            especificacoes_ns: list[dict[str, Any]] = []
             for uid in uids_alvo:
                 cur = mapa_curadoria.get(uid)
                 if cur is None:
                     continue
                 info = mapa_info[uid]
                 for idx_ns, cand in enumerate(cur.betas_nao_scorados):
-                    card = CardBetaCuradoria(
-                        midia=cand.midia,
-                        nome_escalada=info.nome_escalada,
-                        nome_setor=info.nome_setor,
-                        snippets=list(cand.snippets),
-                        ao_aprovar=partial(
-                            ctrl.aprovar_beta_curadoria, uid, "betas_nao_scorados", idx_ns
-                        ),
-                        ao_rejeitar=partial(
-                            ctrl.rejeitar_beta_curadoria, uid, "betas_nao_scorados", idx_ns
-                        ),
-                        provedor_imagem=self.provedor_imagem,
-                        carregar_assincrono=self.carregar_assincrono,
-                        parent=self.secao_nao_scorados,
+                    tupla_snippets = tuple(cand.snippets)
+                    especificacoes_ns.append(
+                        {
+                            "chave": (
+                                "ns",
+                                uid,
+                                str(cand.midia.url),
+                                str(cand.midia.titulo),
+                                int(cand.midia.fonte),
+                                tupla_snippets,
+                            ),
+                            "midia": cand.midia,
+                            "nome_escalada": info.nome_escalada,
+                            "nome_setor": info.nome_setor,
+                            "snippets": tupla_snippets,
+                            "ao_aprovar": partial(
+                                ctrl.aprovar_beta_curadoria, uid, "betas_nao_scorados", idx_ns
+                            ),
+                            "ao_rejeitar": partial(
+                                ctrl.rejeitar_beta_curadoria, uid, "betas_nao_scorados", idx_ns
+                            ),
+                        }
                     )
-                    self.cards_nao_scorados.append(card)
-                    self.layout_nao_scorados.addWidget(card)
+            self._reconciliar_secao(
+                self.layout_nao_scorados,
+                self.cards_nao_scorados,
+                especificacoes_ns,
+                self.secao_nao_scorados,
+                orcamento_novos=orcamento_novos,
+            )
 
             # 2. Betas Não Revisados (ordenados globalmente por score decrescente)
             itens_nr: list[tuple[int, str, int, Any]] = []
@@ -771,49 +1027,80 @@ class PainelCuradoria(QWidget):
                         itens_nr.append((score, uid, idx_orig, cand))
             itens_nr.sort(key=lambda t: t[0], reverse=True)
 
+            especificacoes_nr: list[dict[str, Any]] = []
             for score, uid, idx_orig, cand in itens_nr:
                 info = mapa_info[uid]
                 self._scores_nao_revisados_atuais.append(score)
-                card = CardBetaCuradoria(
-                    midia=cand.midia,
-                    nome_escalada=info.nome_escalada,
-                    nome_setor=info.nome_setor,
-                    score_llm=score,
-                    justificativa_llm=str(cand.resultado_llm.llm_reasoning or ""),
-                    snippets=list(cand.snippets),
-                    ao_aprovar=partial(
-                        ctrl.aprovar_beta_curadoria, uid, "betas_nao_revisados", idx_orig
-                    ),
-                    ao_rejeitar=partial(
-                        ctrl.rejeitar_beta_curadoria, uid, "betas_nao_revisados", idx_orig
-                    ),
-                    provedor_imagem=self.provedor_imagem,
-                    carregar_assincrono=self.carregar_assincrono,
-                    parent=self.secao_nao_revisados,
+                justificativa = str(cand.resultado_llm.llm_reasoning or "")
+                tupla_snippets = tuple(cand.snippets)
+                especificacoes_nr.append(
+                    {
+                        "chave": (
+                            "nr",
+                            uid,
+                            str(cand.midia.url),
+                            str(cand.midia.titulo),
+                            int(cand.midia.fonte),
+                            score,
+                            justificativa,
+                            tupla_snippets,
+                        ),
+                        "midia": cand.midia,
+                        "nome_escalada": info.nome_escalada,
+                        "nome_setor": info.nome_setor,
+                        "score_llm": score,
+                        "justificativa_llm": justificativa,
+                        "snippets": tupla_snippets,
+                        "ao_aprovar": partial(
+                            ctrl.aprovar_beta_curadoria, uid, "betas_nao_revisados", idx_orig
+                        ),
+                        "ao_rejeitar": partial(
+                            ctrl.rejeitar_beta_curadoria, uid, "betas_nao_revisados", idx_orig
+                        ),
+                    }
                 )
-                self.cards_nao_revisados.append(card)
-                self.layout_nao_revisados.addWidget(card)
+            self._reconciliar_secao(
+                self.layout_nao_revisados,
+                self.cards_nao_revisados,
+                especificacoes_nr,
+                self.secao_nao_revisados,
+                orcamento_novos=orcamento_novos,
+            )
 
             self._atualizar_botoes_lote_score()
 
             # 3. Betas Aprovados (em escalada.betas)
+            especificacoes_ap: list[dict[str, Any]] = []
             for uid in uids_alvo:
                 esc_obj = self.model.obter_objeto_por_uid(uid)
                 if esc_obj is None:
                     continue
                 info = mapa_info[uid]
                 for idx_ap, midia in enumerate(esc_obj.betas):
-                    card = CardBetaCuradoria(
-                        midia=midia,
-                        nome_escalada=info.nome_escalada,
-                        nome_setor=info.nome_setor,
-                        ao_rejeitar=partial(ctrl.rejeitar_beta_curadoria, uid, "betas", idx_ap),
-                        provedor_imagem=self.provedor_imagem,
-                        carregar_assincrono=self.carregar_assincrono,
-                        parent=self.secao_aprovados,
+                    especificacoes_ap.append(
+                        {
+                            "chave": (
+                                "ap",
+                                uid,
+                                str(midia.url),
+                                str(midia.titulo),
+                                int(midia.fonte),
+                            ),
+                            "midia": midia,
+                            "nome_escalada": info.nome_escalada,
+                            "nome_setor": info.nome_setor,
+                            "ao_rejeitar": partial(
+                                ctrl.rejeitar_beta_curadoria, uid, "betas", idx_ap
+                            ),
+                        }
                     )
-                    self.cards_aprovados.append(card)
-                    self.layout_aprovados.addWidget(card)
+            self._reconciliar_secao(
+                self.layout_aprovados,
+                self.cards_aprovados,
+                especificacoes_ap,
+                self.secao_aprovados,
+                orcamento_novos=orcamento_novos,
+            )
 
             # 4. Betas Rejeitados (instanciados apenas se a seção estiver expandida)
             for uid in uids_alvo:
@@ -826,27 +1113,30 @@ class PainelCuradoria(QWidget):
 
             if self.secao_rejeitados.esta_expandida():
                 self._renderizar_cards_rejeitados()
+            elif self.cards_rejeitados:
+                self._limpar_layout(self.layout_rejeitados, self.cards_rejeitados)
 
             total_rejeitados = len(self._itens_rejeitados_atuais)
             self.secao_nao_scorados.setTitle(
-                f"1. Betas Não Scorados - Aguardando Avaliação LLM ({len(self.cards_nao_scorados)})"
+                f"1. Betas Não Scorados - Aguardando Avaliação LLM ({len(especificacoes_ns)})"
             )
             self.secao_nao_revisados.setTitle(
-                f"2. Betas Não Revisados - Avaliados pelo LLM ({len(self.cards_nao_revisados)})"
+                f"2. Betas Não Revisados - Avaliados pelo LLM ({len(especificacoes_nr)})"
             )
             self.secao_aprovados.setTitle(
-                f"3. Betas Aprovados - Publicados na Escalada ({len(self.cards_aprovados)})"
+                f"3. Betas Aprovados - Publicados na Escalada ({len(especificacoes_ap)})"
             )
             self.secao_rejeitados.setTitle(
                 f"4. Betas Rejeitados - Ignorados em Futuras Coletas ({total_rejeitados})"
             )
 
             self.label_status.setText(
-                f"{len(self.cards_aprovados)} aprovado(s) • "
-                f"{len(self.cards_nao_revisados)} não revisado(s) • "
-                f"{len(self.cards_nao_scorados)} não scorado(s) • "
+                f"{len(especificacoes_ap)} aprovado(s) • "
+                f"{len(especificacoes_nr)} não revisado(s) • "
+                f"{len(especificacoes_ns)} não scorado(s) • "
                 f"{total_rejeitados} rejeitado(s)"
             )
+            self._agendar_proxima_fatia()
         finally:
             self.container_secoes.setUpdatesEnabled(True)
             if vbar is not None:

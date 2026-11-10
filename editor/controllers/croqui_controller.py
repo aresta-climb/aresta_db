@@ -942,19 +942,27 @@ class CroquiController:
             raise KeyError(f"Escalada com UID '{escalada_uid}' não encontrada no croqui.")
         return getattr(alvo, "_obj", alvo)
 
-    def _obter_curadoria_escalada(self, escalada_uid: str) -> Any | None:
+    def _obter_caminho_e_curadoria_escalada(
+        self, escalada_uid: str
+    ) -> tuple[str | None, Any | None]:
         raiz = getattr(
             self.model.obter_croqui_readonly(), "_obj", self.model.obter_croqui_readonly()
         )
-        for item in raiz.curadoria_betas.conteudo.escaladas:
+        for idx, item in enumerate(raiz.curadoria_betas.conteudo.escaladas):
             if item.escalada_uid == escalada_uid:
-                return item
-        return None
+                return f"curadoria_betas.conteudo.escaladas.{idx}", item
+        return None, None
 
-    def _garantir_curadoria_escalada(self, escalada_uid: str, ctx: str | None) -> Any:
-        existente = self._obter_curadoria_escalada(escalada_uid)
-        if existente is not None:
-            return existente
+    def _obter_curadoria_escalada(self, escalada_uid: str) -> Any | None:
+        _caminho, item = self._obter_caminho_e_curadoria_escalada(escalada_uid)
+        return item
+
+    def _garantir_caminho_e_curadoria_escalada(
+        self, escalada_uid: str, ctx: str | None
+    ) -> tuple[str, Any]:
+        caminho, existente = self._obter_caminho_e_curadoria_escalada(escalada_uid)
+        if caminho is not None and existente is not None:
+            return caminho, existente
 
         from aresta_api.proto.generated import beta_pb2
 
@@ -966,16 +974,16 @@ class CroquiController:
         nova_curadoria = beta_pb2.CuradoriaBetasEscalada(escalada_uid=escalada_uid)
         cmd_criar = CmdAdicionarRepeated(
             model=self.model,
-            alvo=raiz.curadoria_betas.conteudo,
+            alvo="curadoria_betas.conteudo",
             campo_nome="escaladas",
             index=len(raiz.curadoria_betas.conteudo.escaladas),
             valor=nova_curadoria,
             context_path=ctx,
         )
         self._executar_comando(cmd_criar)
-        criada = self._obter_curadoria_escalada(escalada_uid)
-        assert criada is not None
-        return criada
+        caminho_criada, criada = self._obter_caminho_e_curadoria_escalada(escalada_uid)
+        assert caminho_criada is not None and criada is not None
+        return caminho_criada, criada
 
     def adicionar_candidatos_nao_scorados(
         self,
@@ -1014,11 +1022,13 @@ class CroquiController:
         ctx = context_path or self.contexto_atual_path
         self.iniciar_grupo_undo("Coletar Betas")
         try:
-            curadoria_esc = self._garantir_curadoria_escalada(escalada_uid, ctx)
+            caminho_cur, curadoria_esc = self._garantir_caminho_e_curadoria_escalada(
+                escalada_uid, ctx
+            )
             for item in novos:
                 cmd_add = CmdAdicionarRepeated(
                     model=self.model,
-                    alvo=curadoria_esc,
+                    alvo=caminho_cur,
                     campo_nome="betas_nao_scorados",
                     index=len(curadoria_esc.betas_nao_scorados),
                     valor=item,
@@ -1066,11 +1076,13 @@ class CroquiController:
         ctx = context_path or self.contexto_atual_path
         self.iniciar_grupo_undo("Registrar Betas Auto-Filtrados")
         try:
-            curadoria_esc = self._garantir_curadoria_escalada(escalada_uid, ctx)
+            caminho_cur, curadoria_esc = self._garantir_caminho_e_curadoria_escalada(
+                escalada_uid, ctx
+            )
             for item in novos:
                 cmd_add = CmdAdicionarRepeated(
                     model=self.model,
-                    alvo=curadoria_esc,
+                    alvo=caminho_cur,
                     campo_nome="betas_rejeitados",
                     index=len(curadoria_esc.betas_rejeitados),
                     valor=item,
@@ -1096,9 +1108,11 @@ class CroquiController:
         from aresta_api.proto.generated import beta_pb2
 
         self._obter_escalada_por_uid(escalada_uid)
-        curadoria_esc = self._obter_curadoria_escalada(escalada_uid)
-        if curadoria_esc is None or not (
-            0 <= indice_nao_scorado < len(curadoria_esc.betas_nao_scorados)
+        caminho_cur, curadoria_esc = self._obter_caminho_e_curadoria_escalada(escalada_uid)
+        if (
+            caminho_cur is None
+            or curadoria_esc is None
+            or not (0 <= indice_nao_scorado < len(curadoria_esc.betas_nao_scorados))
         ):
             raise IndexError("Candidato não scorado fora de alcance.")
 
@@ -1120,7 +1134,7 @@ class CroquiController:
             self._executar_comando(
                 CmdRemoverRepeated(
                     model=self.model,
-                    alvo=curadoria_esc,
+                    alvo=caminho_cur,
                     campo_nome="betas_nao_scorados",
                     index=indice_nao_scorado,
                     valor_removido=cand_orig,
@@ -1130,7 +1144,7 @@ class CroquiController:
             self._executar_comando(
                 CmdAdicionarRepeated(
                     model=self.model,
-                    alvo=curadoria_esc,
+                    alvo=caminho_cur,
                     campo_nome="betas_nao_revisados",
                     index=idx_insercao,
                     valor=cand_avaliado,
@@ -1157,8 +1171,8 @@ class CroquiController:
             raise ValueError(f"Origem inválida para aprovação de beta: '{origem}'.")
 
         esc_raw = self._obter_escalada_por_uid(escalada_uid)
-        curadoria_esc = self._obter_curadoria_escalada(escalada_uid)
-        if curadoria_esc is None:
+        caminho_cur, curadoria_esc = self._obter_caminho_e_curadoria_escalada(escalada_uid)
+        if caminho_cur is None or curadoria_esc is None:
             raise IndexError("Nenhum candidato de curadoria encontrado para esta escalada.")
 
         colecao = getattr(curadoria_esc, origem)
@@ -1178,7 +1192,7 @@ class CroquiController:
             self._executar_comando(
                 CmdRemoverRepeated(
                     model=self.model,
-                    alvo=curadoria_esc,
+                    alvo=caminho_cur,
                     campo_nome=origem,
                     index=indice,
                     valor_removido=cand_orig,
@@ -1188,7 +1202,7 @@ class CroquiController:
             self._executar_comando(
                 CmdAdicionarRepeated(
                     model=self.model,
-                    alvo=esc_raw,
+                    alvo=escalada_uid,
                     campo_nome="betas",
                     index=len(esc_raw.betas),
                     valor=midia_aprovada,
@@ -1226,10 +1240,12 @@ class CroquiController:
                 titulo=item_orig.titulo,
                 fonte=item_orig.fonte,
             )
-            alvo_remocao: Any = esc_raw
+            alvo_remocao: str = escalada_uid
         else:
-            curadoria_atual = self._obter_curadoria_escalada(escalada_uid)
-            if curadoria_atual is None:
+            caminho_cur_atual, curadoria_atual = self._obter_caminho_e_curadoria_escalada(
+                escalada_uid
+            )
+            if caminho_cur_atual is None or curadoria_atual is None:
                 raise IndexError("Nenhum candidato de curadoria encontrado para esta escalada.")
             colecao = getattr(curadoria_atual, origem)
             if not (0 <= indice < len(colecao)):
@@ -1240,11 +1256,13 @@ class CroquiController:
                 titulo=item_orig.midia.titulo,
                 fonte=item_orig.midia.fonte,
             )
-            alvo_remocao = curadoria_atual
+            alvo_remocao = caminho_cur_atual
 
         self.iniciar_grupo_undo("Rejeitar Beta")
         try:
-            curadoria_esc = self._garantir_curadoria_escalada(escalada_uid, ctx)
+            caminho_cur, curadoria_esc = self._garantir_caminho_e_curadoria_escalada(
+                escalada_uid, ctx
+            )
             self._executar_comando(
                 CmdRemoverRepeated(
                     model=self.model,
@@ -1258,7 +1276,7 @@ class CroquiController:
             self._executar_comando(
                 CmdAdicionarRepeated(
                     model=self.model,
-                    alvo=curadoria_esc,
+                    alvo=caminho_cur,
                     campo_nome="betas_rejeitados",
                     index=len(curadoria_esc.betas_rejeitados),
                     valor=midia_rej,
@@ -1281,9 +1299,11 @@ class CroquiController:
         from aresta_api.proto.generated import beta_pb2
 
         self._obter_escalada_por_uid(escalada_uid)
-        curadoria_esc = self._obter_curadoria_escalada(escalada_uid)
-        if curadoria_esc is None or not (
-            0 <= indice_rejeitado < len(curadoria_esc.betas_rejeitados)
+        caminho_cur, curadoria_esc = self._obter_caminho_e_curadoria_escalada(escalada_uid)
+        if (
+            caminho_cur is None
+            or curadoria_esc is None
+            or not (0 <= indice_rejeitado < len(curadoria_esc.betas_rejeitados))
         ):
             raise IndexError("Beta rejeitado fora de alcance.")
 
@@ -1297,7 +1317,7 @@ class CroquiController:
             self._executar_comando(
                 CmdRemoverRepeated(
                     model=self.model,
-                    alvo=curadoria_esc,
+                    alvo=caminho_cur,
                     campo_nome="betas_rejeitados",
                     index=indice_rejeitado,
                     valor_removido=midia_orig,
@@ -1307,7 +1327,7 @@ class CroquiController:
             self._executar_comando(
                 CmdAdicionarRepeated(
                     model=self.model,
-                    alvo=curadoria_esc,
+                    alvo=caminho_cur,
                     campo_nome="betas_nao_scorados",
                     index=len(curadoria_esc.betas_nao_scorados),
                     valor=cand_restaurado,
@@ -1335,9 +1355,9 @@ class CroquiController:
             self.model.obter_croqui_readonly(), "_obj", self.model.obter_croqui_readonly()
         )
 
-        alvos: list[tuple[Any, Any, list[tuple[int, Any]]]] = []
+        alvos: list[tuple[Any, str, list[tuple[int, Any]]]] = []
         total_aprovados = 0
-        for cur_esc in raiz.curadoria_betas.conteudo.escaladas:
+        for idx_cur, cur_esc in enumerate(raiz.curadoria_betas.conteudo.escaladas):
             if uid_filtro and cur_esc.escalada_uid != uid_filtro:
                 continue
             esc_obj = self.model.obter_objeto_por_uid(cur_esc.escalada_uid)
@@ -1350,7 +1370,9 @@ class CroquiController:
                 if int(cand.resultado_llm.llm_confidence_score) >= limiar
             ]
             if itens_match:
-                alvos.append((esc_raw, cur_esc, itens_match))
+                alvos.append(
+                    (esc_raw, f"curadoria_betas.conteudo.escaladas.{idx_cur}", itens_match)
+                )
                 total_aprovados += len(itens_match)
 
         if total_aprovados == 0:
@@ -1359,7 +1381,7 @@ class CroquiController:
         ctx = context_path or self.contexto_atual_path
         self.iniciar_grupo_undo(f"Aprovar Betas >= {limiar}%")
         try:
-            for esc_raw, cur_esc, itens_match in alvos:
+            for esc_raw, caminho_cur, itens_match in alvos:
                 midias_aprovadas = [
                     beta_pb2.MidiaBeta(
                         url=cand.midia.url,
@@ -1372,7 +1394,7 @@ class CroquiController:
                     self._executar_comando(
                         CmdRemoverRepeated(
                             model=self.model,
-                            alvo=cur_esc,
+                            alvo=caminho_cur,
                             campo_nome="betas_nao_revisados",
                             index=idx_rem,
                             valor_removido=cand_rem,
@@ -1383,7 +1405,7 @@ class CroquiController:
                     self._executar_comando(
                         CmdAdicionarRepeated(
                             model=self.model,
-                            alvo=esc_raw,
+                            alvo=esc_raw.uid,
                             campo_nome="betas",
                             index=len(esc_raw.betas),
                             valor=midia_ap,
@@ -1412,9 +1434,9 @@ class CroquiController:
             self.model.obter_croqui_readonly(), "_obj", self.model.obter_croqui_readonly()
         )
 
-        alvos: list[tuple[Any, list[tuple[int, Any]]]] = []
+        alvos: list[tuple[Any, str, list[tuple[int, Any]]]] = []
         total_rejeitados = 0
-        for cur_esc in raiz.curadoria_betas.conteudo.escaladas:
+        for idx_cur, cur_esc in enumerate(raiz.curadoria_betas.conteudo.escaladas):
             if uid_filtro and cur_esc.escalada_uid != uid_filtro:
                 continue
             if self.model.obter_objeto_por_uid(cur_esc.escalada_uid) is None:
@@ -1425,7 +1447,9 @@ class CroquiController:
                 if int(cand.resultado_llm.llm_confidence_score) < limiar
             ]
             if itens_match:
-                alvos.append((cur_esc, itens_match))
+                alvos.append(
+                    (cur_esc, f"curadoria_betas.conteudo.escaladas.{idx_cur}", itens_match)
+                )
                 total_rejeitados += len(itens_match)
 
         if total_rejeitados == 0:
@@ -1434,7 +1458,7 @@ class CroquiController:
         ctx = context_path or self.contexto_atual_path
         self.iniciar_grupo_undo(f"Rejeitar Betas < {limiar}%")
         try:
-            for cur_esc, itens_match in alvos:
+            for cur_esc, caminho_cur, itens_match in alvos:
                 midias_rej = [
                     beta_pb2.MidiaBeta(
                         url=cand.midia.url,
@@ -1447,7 +1471,7 @@ class CroquiController:
                     self._executar_comando(
                         CmdRemoverRepeated(
                             model=self.model,
-                            alvo=cur_esc,
+                            alvo=caminho_cur,
                             campo_nome="betas_nao_revisados",
                             index=idx_rem,
                             valor_removido=cand_rem,
@@ -1458,7 +1482,7 @@ class CroquiController:
                     self._executar_comando(
                         CmdAdicionarRepeated(
                             model=self.model,
-                            alvo=cur_esc,
+                            alvo=caminho_cur,
                             campo_nome="betas_rejeitados",
                             index=len(cur_esc.betas_rejeitados),
                             valor=midia_r,
