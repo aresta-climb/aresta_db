@@ -6,6 +6,7 @@ import unittest
 from aresta_api.proto.generated import croqui_pb2
 from editor.core.geometrias_poi import (
     GeometriaPOI,
+    calcular_cor_texto_contraste,
     calcular_tamanho_fonte_poi,
     redimensionar_pois_proporcionalmente,
 )
@@ -235,22 +236,44 @@ class GeometriasPOITest(unittest.TestCase):
         poi_ret.retangulo.largura = 15
 
         poi_linha = croqui_pb2.Mapa.PontoDeInteresse(uid="l1")
+        poi_linha.linha.espessura = 3
         no = poi_linha.linha.conteudo.nos.add()
         no.x = 100
         no.y = 100
         no.tamanho_fonte = 12
         no.raio = 14
 
+        poi_linha_comp = croqui_pb2.Mapa.PontoDeInteresse(uid="l2")
+        marcador = poi_linha_comp.linha.compilado.marcadores.add()
+        marcador.x = 100
+        marcador.y = 100
+        marcador.tamanho_fonte = 12
+        marcador.raio = 14
+
         resultado = redimensionar_pois_proporcionalmente(
-            [poi_ret, poi_linha],
+            [poi_ret, poi_linha, poi_linha_comp],
             largura_antiga=1000,
             altura_antiga=1000,
             largura_nova=2000,
             altura_nova=2000,
         )
         self.assertEqual(resultado[0].tamanho_fonte, 20)
+        self.assertEqual(resultado[1].linha.espessura, 6)
         self.assertEqual(resultado[1].linha.conteudo.nos[0].tamanho_fonte, 24)
         self.assertEqual(resultado[1].linha.conteudo.nos[0].raio, 28)
+        self.assertEqual(resultado[2].linha.compilado.marcadores[0].x, 200)
+        self.assertEqual(resultado[2].linha.compilado.marcadores[0].y, 200)
+        self.assertEqual(resultado[2].linha.compilado.marcadores[0].tamanho_fonte, 24)
+        self.assertEqual(resultado[2].linha.compilado.marcadores[0].raio, 28)
+
+    def test_calcular_cor_texto_contraste_opaco_e_translucido(self):
+        self.assertEqual(calcular_cor_texto_contraste("#000000", preenchido=False), "#000000")
+        self.assertEqual(calcular_cor_texto_contraste("#000000", preenchido=True), "#FFFFFF")
+        self.assertEqual(calcular_cor_texto_contraste("#212121", preenchido=True), "#FFFFFF")
+        self.assertEqual(calcular_cor_texto_contraste("#AA00FF", preenchido=True), "#FFFFFF")
+        self.assertEqual(calcular_cor_texto_contraste("#FFD600", preenchido=True), "#000000")
+        self.assertEqual(calcular_cor_texto_contraste("#00FF00", preenchido=True), "#000000")
+        self.assertEqual(calcular_cor_texto_contraste("", preenchido=True), "#000000")
 
 
 

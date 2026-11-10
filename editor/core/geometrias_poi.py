@@ -195,6 +195,25 @@ def calcular_tamanho_fonte_poi(pt_dict: dict[str, Any]) -> int:
     return max(4, min(72, round(min(lim_v, lim_h))))
 
 
+def calcular_cor_texto_contraste(cor_hex: str, preenchido: bool) -> str:
+    """
+    Calcula a cor ideal de alto contraste (preto '#000000' ou branco '#FFFFFF')
+    para o `texto_visivel` de um POI conforme a luminância da cor de fundo quando
+    `preenchido` for True. Quando `preenchido` for False (fundo translúcido),
+    retorna sempre '#000000'.
+    """
+    if not preenchido:
+        return "#000000"
+    codigo = (cor_hex or "").strip().lstrip("#")
+    if len(codigo) != 6:
+        return "#000000"
+    r = int(codigo[0:2], 16)
+    g = int(codigo[2:4], 16)
+    b = int(codigo[4:6], 16)
+    luminancia = 0.299 * r + 0.587 * g + 0.114 * b
+    return "#FFFFFF" if luminancia < 140.0 else "#000000"
+
+
 def redimensionar_pois_proporcionalmente(
     pontos_de_interesse: Iterable[croqui_pb2.Mapa.PontoDeInteresse],
     largura_antiga: int,
@@ -254,7 +273,14 @@ def redimensionar_pois_proporcionalmente(
             del poi_novo.poligono.coordenadas[:]
             poi_novo.poligono.coordenadas.extend(coords_novas)
         elif tipo == "linha":
-            for no in poi_novo.linha.conteudo.nos:
+            if poi_novo.linha.espessura > 0:
+                poi_novo.linha.espessura = max(1, round(poi_novo.linha.espessura * s_iso))
+            nos_alvo = (
+                poi_novo.linha.compilado.marcadores
+                if poi_novo.linha.HasField("compilado")
+                else poi_novo.linha.conteudo.nos
+            )
+            for no in nos_alvo:
                 no.x = round(no.x * sx)
                 no.y = round(no.y * sy)
                 if no.tamanho_fonte > 0:

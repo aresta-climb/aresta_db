@@ -2478,44 +2478,41 @@ def test_item_trajeto_linha_solicitar_espessura_personalizada(qtbot, monkeypatch
     assert item.pt_dict["linha"]["espessura"] == 8
 
 
-def test_dialogo_edicao_poi_id_obrigatorio(qtbot):
-    from PySide6.QtWidgets import QDialogButtonBox
+def test_dialogo_edicao_poi_permite_criar_sem_rotulo_nem_texto_e_gera_uid(qtbot):
+    from PySide6.QtWidgets import QDialog, QDialogButtonBox
 
     from editor.views.widget_editor_mapas import DialogoEdicaoPOI
+    from scripts.gerenciar_uids_lib import validar_uid
 
     dialogo = DialogoEdicaoPOI(
-        id_atual="p1", label_atual="P1", texto_visivel_atual="", cor_atual="#FF6D00"
+        id_atual="", label_atual="", texto_visivel_atual="", cor_atual="#000000", preenchido_atual=True
     )
     qtbot.addWidget(dialogo)
 
     btn_ok = dialogo.findChild(QDialogButtonBox).button(QDialogButtonBox.StandardButton.Ok)
     assert btn_ok.isEnabled() is True
+    assert dialogo.chk_preenchido.isChecked() is True
+    assert dialogo.obter_preenchido() is True
 
-    # Se apagar o ID, deve desabilitar o botão OK
+    # Verifica ícones informativos ⓘ e tooltips explicando a diferença entre rotulo e texto_visivel
+    assert dialogo.info_id.text() == "ⓘ"
+    assert "uid" in dialogo.info_id.toolTip().lower() or "identificador" in dialogo.info_id.toolTip().lower()
+    assert dialogo.info_rotulo.text() == "ⓘ"
+    assert "lista" in dialogo.info_rotulo.toolTip().lower() or "codenome" in dialogo.info_rotulo.toolTip().lower()
+    assert "não é desenhado" in dialogo.info_rotulo.toolTip().lower()
+    assert dialogo.info_texto_visivel.text() == "ⓘ"
+    assert "desenhado" in dialogo.info_texto_visivel.toolTip().lower()
+
+    # Mesmo limpando input_id, o botão OK permanece habilitado e accept() gera um UID válido
     dialogo.input_id.setText("")
-    assert btn_ok.isEnabled() is False
-
-    # Se colocar apenas espaços em branco, continua desabilitado
-    dialogo.input_id.setText("   ")
-    assert btn_ok.isEnabled() is False
-
-    # Se preencher, volta a habilitar
-    dialogo.input_id.setText("p2")
     assert btn_ok.isEnabled() is True
-
-
-def test_dialogo_edicao_poi_accept_bloqueado_sem_id(qtbot):
-    from PySide6.QtWidgets import QDialog
-
-    from editor.views.widget_editor_mapas import DialogoEdicaoPOI
-
-    dialogo = DialogoEdicaoPOI(
-        id_atual="", label_atual="", texto_visivel_atual="", cor_atual="#FF6D00"
-    )
-    qtbot.addWidget(dialogo)
-
     dialogo.accept()
-    assert dialogo.result() != QDialog.DialogCode.Accepted
+    assert dialogo.result() == QDialog.DialogCode.Accepted
+    novo_id, novo_label, nova_cor, novo_txt = dialogo.obter_valores()
+    assert validar_uid(novo_id)
+    assert novo_label == ""
+    assert novo_txt == ""
+    assert nova_cor == "#000000"
 
 
 def test_item_trajeto_linha_bordas_arredondadas(qtbot):
@@ -6462,3 +6459,407 @@ def test_poi_definir_e_restaurar_tamanho_fonte_manual_com_undo_redo(qtbot):
     assert dlg.obter_tamanho_fonte() == 18
     dlg.input_tamanho_fonte.setValue(0)
     assert dlg.obter_tamanho_fonte() == 0
+
+
+def test_poi_preenchido_contraste_texto_highlight_e_preservacao_cor(qtbot):
+    """[TDD] POI preenchido renderiza alpha=255, ajusta contraste do texto, destaca em Ciano na referência e preserva cor após remover_destaque_pois."""
+    from PySide6.QtGui import QColor, QUndoStack
+
+    from aresta_api.proto.generated import croqui_pb2
+    from editor.controllers.mapas_controller import MapasController
+    from editor.models.croqui_model import CroquiModel
+    from editor.views.widget_editor_mapas import WidgetEditorMapas
+
+    croqui = croqui_pb2.Croqui()
+    pico = croqui.picos.add()
+    sg = pico.setores_ou_grupos.add()
+    setor = sg.setor.conteudo
+    setor.uid = "setor_1"
+    esc = setor.escaladas.add()
+    esc.uid = "esc_132"
+    esc.via_esportiva.nome = "Via 132"
+    mapa = setor.mapas.add()
+
+    # Caixa 132 + bolinha preta opaca sem texto vinculadas à mesma referência
+    poi_box = mapa.pontos_de_interesse.add()
+    poi_box.uid = "poi_box_132"
+    poi_box.rotulo = "132"
+    poi_box.texto_visivel = "132"
+    poi_box.cor = "#808080"
+    poi_box.retangulo.x = 100
+    poi_box.retangulo.y = 100
+    poi_box.retangulo.comprimento = 30
+    poi_box.retangulo.largura = 20
+
+    poi_dot = mapa.pontos_de_interesse.add()
+    poi_dot.uid = "poi_dot_132"
+    poi_dot.cor = "#000000"
+    poi_dot.preenchido = True
+    poi_dot.circulo.x = 125
+    poi_dot.circulo.y = 85
+    poi_dot.circulo.raio = 8
+
+    ref = mapa.referencias.add()
+    ref.alvo_uid = "esc_132"
+    ref.pontos_uids.extend(["poi_box_132", "poi_dot_132"])
+
+    model = CroquiModel(croqui)
+    undo_stack = QUndoStack()
+    controller = MapasController(model, undo_stack)
+
+    widget = WidgetEditorMapas(mapas_controller=controller, croqui_model=model)
+    qtbot.addWidget(widget)
+    proxy_mapa = model.obter_croqui_readonly().picos[0].setores_ou_grupos[0].setor.conteudo.mapas[0]
+    widget.set_mapa_atual(proxy_mapa)
+
+    item_box = widget.itens_poi[0]
+    item_dot = widget.itens_poi[1]
+
+    # 1. Bolinha opaca tem alpha=255 e cor #000000; caixa translúcida tem alpha=60 e cor #808080
+    assert item_dot.brush().color().alpha() == 255
+    assert item_dot.brush().color().name().upper() == "#000000"
+    assert item_box.brush().color().alpha() == 60
+    assert item_box.brush().color().name().upper() == "#808080"
+
+    # 2. Se adicionar texto na bolinha opaca preta, o texto fica branco (#FFFFFF) por contraste
+    item_dot.pt_dict["texto_visivel"] = "132"
+    item_dot.carregar_de_dict(item_dot.pt_dict)
+    assert item_dot.item_texto.defaultTextColor().name().upper() == "#FFFFFF"
+
+    # 3. Highlight da referência destaca tanto a caixa quanto a bolinha opaca em Ciano
+    widget.destacar_pois_temporariamente(proxy_mapa.referencias[0])
+    brush_dot_destaque = item_dot.brush() if callable(item_dot.brush) else item_dot.brush
+    assert brush_dot_destaque.color().red() == 0
+    assert brush_dot_destaque.color().green() == 255
+    assert brush_dot_destaque.color().blue() == 255
+    assert brush_dot_destaque.color().alpha() >= 200
+
+    # 4. Remover destaque restaura a cor e opacidade reais (#000000 alpha=255 e #808080 alpha=60), não verde!
+    widget.remover_destaque_pois(force=True)
+    brush_dot_restaurado = item_dot.brush() if callable(item_dot.brush) else item_dot.brush
+    brush_box_restaurado = item_box.brush() if callable(item_box.brush) else item_box.brush
+    assert brush_dot_restaurado.color().name().upper() == "#000000"
+    assert brush_dot_restaurado.color().alpha() == 255
+    assert brush_box_restaurado.color().name().upper() == "#808080"
+    assert brush_box_restaurado.color().alpha() == 60
+    assert item_box.pen().color().name().upper() == "#808080"
+
+    # 5. Alternar preenchido na caixa via método (com Undo/Redo)
+    item_box.alternar_preenchido()
+    assert mapa.pontos_de_interesse[0].preenchido is True
+    b_box_apos = widget.itens_poi[0].brush() if callable(widget.itens_poi[0].brush) else widget.itens_poi[0].brush
+    assert b_box_apos.color().alpha() == 255
+    undo_stack.undo()
+    assert mapa.pontos_de_interesse[0].preenchido is False
+    b_box_undo = widget.itens_poi[0].brush() if callable(widget.itens_poi[0].brush) else widget.itens_poi[0].brush
+    assert b_box_undo.color().alpha() == 60
+
+
+def test_alca_no_trajeto_redimensionar_ctrl_drag_e_escala_todos_os_marcadores(qtbot):
+    """[TDD] AlcaNoTrajeto suporta Ctrl+arraste com Undo/Redo e escala todos os tipos de marcadores proporcionalmente ao no.raio."""
+    from PySide6.QtCore import QPointF, Qt
+    from PySide6.QtGui import QImage, QPainter, QUndoStack
+    from PySide6.QtWidgets import QStyleOptionGraphicsItem
+
+    from aresta_api.proto.generated import croqui_pb2
+    from editor.controllers.mapas_controller import MapasController
+    from editor.models.croqui_model import CroquiModel
+    from editor.views.widget_editor_mapas import ItemTrajetoLinha, WidgetEditorMapas
+
+    croqui = croqui_pb2.Croqui()
+    pico = croqui.picos.add()
+    sg = pico.setores_ou_grupos.add()
+    setor = sg.setor.conteudo
+    setor.uid = "setor_1"
+    mapa = setor.mapas.add()
+
+    poi_linha = mapa.pontos_de_interesse.add()
+    poi_linha.uid = "via_1"
+    poi_linha.cor = "#FFD600"
+    poi_linha.linha.espessura = 3
+    no0 = poi_linha.linha.conteudo.nos.add()
+    no0.x = 100
+    no0.y = 200
+    no0.tipo = 1
+    no0.rotulo = "1"
+    no1 = poi_linha.linha.conteudo.nos.add()
+    no1.x = 100
+    no1.y = 150
+    no1.tipo = 3
+    no2 = poi_linha.linha.conteudo.nos.add()
+    no2.x = 100
+    no2.y = 100
+    no2.tipo = 4
+
+    model = CroquiModel(croqui)
+    undo_stack = QUndoStack()
+    controller = MapasController(model, undo_stack)
+
+    widget = WidgetEditorMapas(mapas_controller=controller, croqui_model=model)
+    qtbot.addWidget(widget)
+    proxy_mapa = model.obter_croqui_readonly().picos[0].setores_ou_grupos[0].setor.conteudo.mapas[0]
+    widget.set_mapa_atual(proxy_mapa)
+
+    item_linha = widget.itens_poi[0]
+    assert isinstance(item_linha, ItemTrajetoLinha)
+    alca_circulo = item_linha.alcas[0]
+    alca_grampo = item_linha.alcas[1]
+    alca_parada = item_linha.alcas[2]
+
+    # Tamanhos padrão sem raio customizado
+    assert alca_circulo.obter_raio() == 19
+    assert alca_grampo.obter_raio() == 8
+    assert alca_grampo.rect().width() == 16
+    assert alca_parada.rect().width() == 24
+
+    # Simula Ctrl + arraste na alça do grampo (tipo 3) para dobrar o raio (8 -> 16)
+    class EventoMouseFalso:
+        def __init__(self, scene_pos: QPointF, modifiers=Qt.KeyboardModifier.ControlModifier):
+            self._scene_pos = scene_pos
+            self._modifiers = modifiers
+            self.aceito = False
+
+        def button(self):
+            return Qt.MouseButton.LeftButton
+
+        def modifiers(self):
+            return self._modifiers
+
+        def scenePos(self):
+            return self._scene_pos
+
+        def pos(self):
+            return QPointF(0, 0)
+
+        def accept(self):
+            self.aceito = True
+
+    ev_press = EventoMouseFalso(QPointF(100, 150))
+    alca_grampo.mousePressEvent(ev_press)
+    assert getattr(alca_grampo, "redimensionando_no", False) is True
+
+    ev_move = EventoMouseFalso(QPointF(108, 150))
+    alca_grampo.mouseMoveEvent(ev_move)
+    assert alca_grampo.obter_raio() == 16
+    assert alca_grampo.rect().width() == 32
+    assert alca_grampo.pos() == QPointF(100, 150)  # Não moveu a posição do nó!
+
+    ev_release = EventoMouseFalso(QPointF(108, 150))
+    alca_grampo.mouseReleaseEvent(ev_release)
+    assert getattr(alca_grampo, "redimensionando_no", False) is False
+    assert mapa.pontos_de_interesse[0].linha.conteudo.nos[1].raio == 16
+
+    # Undo reverte para raio 0 (padrão 8px)
+    undo_stack.undo()
+    assert mapa.pontos_de_interesse[0].linha.conteudo.nos[1].raio == 0
+    assert widget.itens_poi[0].alcas[1].rect().width() == 16
+
+    # Redo reaplica raio 16 (largura 32px)
+    undo_stack.redo()
+    assert mapa.pontos_de_interesse[0].linha.conteudo.nos[1].raio == 16
+    assert widget.itens_poi[0].alcas[1].rect().width() == 32
+
+    # Verifica que outros tipos de marcadores escalam e renderizam sem erros quando no.raio é definido
+    for tipo_teste in (3, 4, 5, 6, 7, 8, 9, 10, 12):
+        alca_teste = widget.itens_poi[0].alcas[2]
+        alca_teste.no_dict["tipo"] = tipo_teste
+        alca_teste.no_dict["raio"] = 20
+        alca_teste.atualizar_estilo()
+        assert alca_teste.rect().width() >= 40
+        img = QImage(80, 80, QImage.Format.Format_ARGB32)
+        img.fill(Qt.GlobalColor.transparent)
+        painter = QPainter(img)
+        painter.translate(40, 40)
+        alca_teste.paint(painter, QStyleOptionGraphicsItem(), None)
+        painter.end()
+
+
+def test_sliders_bulk_nos_linha_espessura_linha_e_quadrado_undo_redo(qtbot):
+    """[TDD] Sliders bulk de Nós de Linha, Espessura Linhas e Quadrados redimensionam em tempo real, resetam ao soltar e gravam CmdMacro atômico."""
+    from PySide6.QtGui import QUndoStack
+
+    from aresta_api.proto.generated import croqui_pb2
+    from editor.controllers.mapas_controller import MapasController
+    from editor.models.croqui_model import CroquiModel
+    from editor.views.widget_editor_mapas import WidgetEditorMapas
+
+    croqui = croqui_pb2.Croqui()
+    pico = croqui.picos.add()
+    sg = pico.setores_ou_grupos.add()
+    setor = sg.setor.conteudo
+    setor.uid = "setor_1"
+    mapa = setor.mapas.add()
+
+    poi_linha = mapa.pontos_de_interesse.add()
+    poi_linha.uid = "via_1"
+    poi_linha.cor = "#FFD600"
+    poi_linha.linha.espessura = 4
+    no0 = poi_linha.linha.conteudo.nos.add()
+    no0.x = 50
+    no0.y = 100
+    no0.tipo = 1
+    no0.raio = 20
+    no1 = poi_linha.linha.conteudo.nos.add()
+    no1.x = 50
+    no1.y = 50
+    no1.tipo = 3
+    no1.raio = 8
+
+    poi_quad = mapa.pontos_de_interesse.add()
+    poi_quad.uid = "quad_1"
+    poi_quad.texto_visivel = "Q1"
+    poi_quad.quadrado.x = 120
+    poi_quad.quadrado.y = 120
+    poi_quad.quadrado.lado = 20
+
+    model = CroquiModel(croqui)
+    undo_stack = QUndoStack()
+    controller = MapasController(model, undo_stack)
+
+    widget = WidgetEditorMapas(mapas_controller=controller, croqui_model=model)
+    qtbot.addWidget(widget)
+    proxy_mapa = model.obter_croqui_readonly().picos[0].setores_ou_grupos[0].setor.conteudo.mapas[0]
+    widget.set_mapa_atual(proxy_mapa)
+
+    # 1. Slider de Nós de Linha (+50%)
+    widget.ao_pressionar_slider_bulk("nos_linha")
+    widget.slider_nos_linha.setValue(50)
+    assert widget.label_nos_linha.text() == "+50%"
+    assert widget.itens_poi[0].alcas[0].obter_raio() == 30
+    assert widget.itens_poi[0].alcas[1].obter_raio() == 12
+    widget.ao_soltar_slider_bulk("nos_linha")
+    assert widget.slider_nos_linha.value() == 0
+    assert widget.label_nos_linha.text() == "0%"
+    assert mapa.pontos_de_interesse[0].linha.conteudo.nos[0].raio == 30
+    assert mapa.pontos_de_interesse[0].linha.conteudo.nos[1].raio == 12
+
+    undo_stack.undo()
+    assert mapa.pontos_de_interesse[0].linha.conteudo.nos[0].raio == 20
+    assert mapa.pontos_de_interesse[0].linha.conteudo.nos[1].raio == 8
+
+    # 2. Slider de Espessura de Linhas (+50% sobre 4 -> 6)
+    widget.ao_pressionar_slider_bulk("espessura_linha")
+    widget.slider_espessura_linha.setValue(50)
+    assert widget.label_espessura_linha.text() == "+50%"
+    assert widget.itens_poi[0].pen().width() == 6
+    widget.ao_soltar_slider_bulk("espessura_linha")
+    assert widget.slider_espessura_linha.value() == 0
+    assert widget.label_espessura_linha.text() == "0%"
+    assert mapa.pontos_de_interesse[0].linha.espessura == 6
+
+    undo_stack.undo()
+    assert mapa.pontos_de_interesse[0].linha.espessura == 4
+
+    # 3. Slider de Quadrados (+50% sobre 20 -> 30) preserva a mesma instância ItemBoundingQuadrado
+    instancia_quad_antes = widget.itens_poi[1]
+    widget.ao_pressionar_slider_bulk("quadrado")
+    widget.slider_quad.setValue(50)
+    assert widget.label_quad.text() == "+50%"
+    widget.ao_soltar_slider_bulk("quadrado")
+    assert widget.slider_quad.value() == 0
+    assert widget.label_quad.text() == "0%"
+    assert mapa.pontos_de_interesse[1].quadrado.lado == 30
+    assert widget.itens_poi[1] is instancia_quad_antes
+
+
+def test_criacao_rapida_ponto_opaco_autovinculacao_duplicar_e_memoria_estilo(qtbot):
+    """[TDD] Criar Ponto Opaco na posição clicada, auto-vincular à Referencia selecionada, duplicar elemento com offset (+15,+15) e lembrar estilo na sessão."""
+    from PySide6.QtCore import QPointF
+    from PySide6.QtGui import QUndoStack
+
+    from aresta_api.proto.generated import croqui_pb2
+    from editor.controllers.mapas_controller import MapasController
+    from editor.models.croqui_model import CroquiModel
+    from editor.views.widget_editor_mapas import WidgetEditorMapas
+
+    croqui = croqui_pb2.Croqui()
+    pico = croqui.picos.add()
+    sg = pico.setores_ou_grupos.add()
+    setor = sg.setor.conteudo
+    setor.uid = "setor_1"
+    esc = setor.escaladas.add()
+    esc.uid = "esc_132"
+    esc.via_esportiva.nome = "Via 132"
+    mapa = setor.mapas.add()
+
+    ref = mapa.referencias.add()
+    ref.alvo_uid = "esc_132"
+
+    model = CroquiModel(croqui)
+    undo_stack = QUndoStack()
+    controller = MapasController(model, undo_stack)
+
+    widget = WidgetEditorMapas(mapas_controller=controller, croqui_model=model)
+    qtbot.addWidget(widget)
+    proxy_mapa = model.obter_croqui_readonly().picos[0].setores_ou_grupos[0].setor.conteudo.mapas[0]
+    widget.set_mapa_atual(proxy_mapa)
+
+    # 1. Seleciona a referência no painel (ou via callback de seleção)
+    widget._on_referencia_selecionada(0, proxy_mapa.referencias[0])
+
+    # 2. Define memória de estilo customizada e adiciona Ponto Opaco em (250, 300)
+    widget._ultimo_estilo_poi["cor"] = "#FF1744"
+    widget.adicionar_ponto_opaco_em(QPointF(250, 300))
+
+    assert len(mapa.pontos_de_interesse) == 1
+    poi_criado = mapa.pontos_de_interesse[0]
+    assert poi_criado.preenchido is True
+    assert poi_criado.cor == "#FF1744"
+    assert poi_criado.circulo.x == 250
+    assert poi_criado.circulo.y == 300
+    assert poi_criado.rotulo == ""
+    assert poi_criado.texto_visivel == ""
+    # Foi auto-vinculado à referência selecionada!
+    assert poi_criado.uid in mapa.referencias[0].pontos_uids
+
+    # 3. Duplicar o elemento cria novo POI deslocado em (+15, +15) e também vinculado à referência ativa
+    item_original = widget.itens_poi[0]
+    item_original.duplicar_elemento()
+    assert len(mapa.pontos_de_interesse) == 2
+    poi_dup = mapa.pontos_de_interesse[1]
+    assert poi_dup.uid != poi_criado.uid
+    assert poi_dup.preenchido is True
+    assert poi_dup.cor == "#FF1744"
+    assert poi_dup.circulo.x == 265
+    assert poi_dup.circulo.y == 315
+    assert poi_dup.uid in mapa.referencias[0].pontos_uids
+
+    # 4. Undo desfaz a duplicação e o vínculo atomicamente
+    undo_stack.undo()
+    assert len(mapa.pontos_de_interesse) == 1
+    assert len(mapa.referencias[0].pontos_uids) == 1
+
+    # 5. Undo desfaz a criação do ponto opaco e o vínculo atomicamente
+    undo_stack.undo()
+    assert len(mapa.pontos_de_interesse) == 0
+    assert len(mapa.referencias[0].pontos_uids) == 0
+
+    # 6. Menu de contexto no fundo vazio da cena dispara criação na coordenada clicada
+    cena = widget.visualizador.scene()
+
+    class EventoContextoCenaFalso:
+        def scenePos(self):
+            return QPointF(180, 220)
+
+        def screenPos(self):
+            return QPointF(180, 220)
+
+        def accept(self):
+            pass
+
+    def escolher_ponto_opaco(menu, pos=None):
+        for acao in menu.actions():
+            if "Adicionar Ponto Opaco Aqui" in acao.text():
+                return acao
+        return None
+
+    cena._executar_menu = escolher_ponto_opaco
+    cena.contextMenuEvent(EventoContextoCenaFalso())
+    assert len(mapa.pontos_de_interesse) == 1
+    assert mapa.pontos_de_interesse[0].circulo.x == 180
+    assert mapa.pontos_de_interesse[0].circulo.y == 220
+    assert mapa.pontos_de_interesse[0].preenchido is True
+
+
+
+
