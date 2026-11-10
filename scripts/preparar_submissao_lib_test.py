@@ -3762,7 +3762,9 @@ def test_compilar_croqui_e_corrigir_database_com_malha_estrada_yaml(tmp_path: Pa
 
     destino_pb = tmp_path / "compilado.binarypb"
     compilado = compilar_croqui(pico_dir, None, destino_pb)
-    assert compilado["picos"][0]["malha_estrada"]["conteudo"]["latitude_referencia_e7"] == -195622616
+    assert (
+        compilado["picos"][0]["malha_estrada"]["conteudo"]["latitude_referencia_e7"] == -195622616
+    )
 
     msg = croqui_pb2.Croqui()
     msg.ParseFromString(destino_pb.read_bytes())
@@ -3845,5 +3847,3 @@ def test_compilar_croqui_e_corrigir_database_com_curadoria_betas_yaml_sem_erro_u
     assert "possui 1 beta(s) pendente(s) de curadoria" in saida
     assert "curadoria_betas" not in compilado
     assert destino_pb.exists()
-
-

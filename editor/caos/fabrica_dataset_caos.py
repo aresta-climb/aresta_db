@@ -181,7 +181,7 @@ class FabricaDatasetCaos:
         esc_sub.via_movel.dificuldade = croqui_pb2.GrauVia.BR_5SUP
 
         # Betas pendentes para exercitar PainelCuradoria
-        croqui.curadoria_betas.caminho = "curadoria_betas.md"
+        croqui.curadoria_betas.caminho = "curadoria_betas.yaml"
         cur_esc = croqui.curadoria_betas.conteudo.escaladas.add(escalada_uid=esc_via.uid)
         cand_alta = cur_esc.betas_nao_revisados.add()
         cand_alta.midia.url = "https://www.youtube.com/watch?v=normal00001"
@@ -308,7 +308,7 @@ class FabricaDatasetCaos:
         setor_vazio.uid = gerar_uid()
         setor_vazio.nome = "Setor Vazio"
 
-        croqui.curadoria_betas.caminho = "curadoria_betas.md"
+        croqui.curadoria_betas.caminho = "curadoria_betas.yaml"
         cur1 = croqui.curadoria_betas.conteudo.escaladas.add(escalada_uid=esc1.uid)
         for score, url_suf, titulo in (
             (100, "tox100", "Beta Perfeito 100% 🔥"),

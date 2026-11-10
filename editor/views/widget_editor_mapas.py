@@ -280,9 +280,7 @@ class DialogoEdicaoPOI(QDialog):
         lbl = QLabel("ⓘ", self)
         lbl.setToolTip(tooltip)
         lbl.setCursor(Qt.CursorShape.WhatsThisCursor)
-        lbl.setStyleSheet(
-            "color: #0d6efd; font-weight: bold; font-size: 13px; padding: 0px 2px;"
-        )
+        lbl.setStyleSheet("color: #0d6efd; font-weight: bold; font-size: 13px; padding: 0px 2px;")
         return lbl
 
     def _montar_rotulo_campo(self, texto: str, icone_info: QLabel) -> QWidget:
@@ -397,7 +395,7 @@ class BaseItemPOI:
         alfa = 255 if preenchido else 60
         self.brush_poi = QBrush(QColor(cor.red(), cor.green(), cor.blue(), alfa))
         if "brush" in self.__dict__:
-            self.brush = self.brush_poi
+            self.__dict__["brush"] = self.brush_poi
 
         cast_self = cast(Any, self)
         if hasattr(cast_self, "setPen"):
@@ -1466,17 +1464,31 @@ class AlcaNoTrajeto(QGraphicsEllipseItem):
             d = max(2, int(round(5 * fator)))
             # Sombra preta externa
             painter.setPen(
-                QPen(QColor(0, 0, 0, 200), max(2.0, 4.0 * fator), Qt.PenStyle.SolidLine, Qt.PenCapStyle.RoundCap)
+                QPen(
+                    QColor(0, 0, 0, 200),
+                    max(2.0, 4.0 * fator),
+                    Qt.PenStyle.SolidLine,
+                    Qt.PenCapStyle.RoundCap,
+                )
             )
             painter.drawLine(-d, -d, d, d)
             painter.drawLine(-d, d, d, -d)
             # Traço colorido com branco
             painter.setPen(
-                QPen(QColor(255, 255, 255), max(1.5, 2.5 * fator), Qt.PenStyle.SolidLine, Qt.PenCapStyle.RoundCap)
+                QPen(
+                    QColor(255, 255, 255),
+                    max(1.5, 2.5 * fator),
+                    Qt.PenStyle.SolidLine,
+                    Qt.PenCapStyle.RoundCap,
+                )
             )
             painter.drawLine(-d, -d, d, d)
             painter.drawLine(-d, d, d, -d)
-            painter.setPen(QPen(cor_base, max(1.0, 1.2 * fator), Qt.PenStyle.SolidLine, Qt.PenCapStyle.RoundCap))
+            painter.setPen(
+                QPen(
+                    cor_base, max(1.0, 1.2 * fator), Qt.PenStyle.SolidLine, Qt.PenCapStyle.RoundCap
+                )
+            )
             painter.drawLine(-d, -d, d, d)
             painter.drawLine(-d, d, d, -d)
 
@@ -1489,14 +1501,26 @@ class AlcaNoTrajeto(QGraphicsEllipseItem):
             cor_destaque = QColor(255, 215, 0) if tipo == 5 else QColor(255, 255, 255)
             # Sombra
             painter.setPen(
-                QPen(QColor(0, 0, 0, 200), max(2.0, 4.0 * fator), Qt.PenStyle.SolidLine, Qt.PenCapStyle.RoundCap)
+                QPen(
+                    QColor(0, 0, 0, 200),
+                    max(2.0, 4.0 * fator),
+                    Qt.PenStyle.SolidLine,
+                    Qt.PenCapStyle.RoundCap,
+                )
             )
             painter.drawLine(-x1, -y1, -x2, y1)
             painter.drawLine(-x1, y1, -x2, -y1)
             painter.drawLine(x2, -y1, x1, y1)
             painter.drawLine(x2, y1, x1, -y1)
             # Traço principal
-            painter.setPen(QPen(cor_destaque, max(1.2, 2.2 * fator), Qt.PenStyle.SolidLine, Qt.PenCapStyle.RoundCap))
+            painter.setPen(
+                QPen(
+                    cor_destaque,
+                    max(1.2, 2.2 * fator),
+                    Qt.PenStyle.SolidLine,
+                    Qt.PenCapStyle.RoundCap,
+                )
+            )
             painter.drawLine(-x1, -y1, -x2, y1)
             painter.drawLine(-x1, y1, -x2, -y1)
             painter.drawLine(x2, -y1, x1, y1)
@@ -1521,14 +1545,28 @@ class AlcaNoTrajeto(QGraphicsEllipseItem):
             p1 = max(2, int(round(5 * fator)))
             p2 = max(1, int(round(2 * fator)))
             painter.setPen(
-                QPen(QColor(0, 0, 0, 200), max(2.0, 4.0 * fator), Qt.PenStyle.SolidLine, Qt.PenCapStyle.RoundCap)
+                QPen(
+                    QColor(0, 0, 0, 200),
+                    max(2.0, 4.0 * fator),
+                    Qt.PenStyle.SolidLine,
+                    Qt.PenCapStyle.RoundCap,
+                )
             )
             painter.drawLine(-p1, p1, p2, -p2)
             painter.setPen(
-                QPen(QColor(255, 255, 255), max(1.5, 2.5 * fator), Qt.PenStyle.SolidLine, Qt.PenCapStyle.RoundCap)
+                QPen(
+                    QColor(255, 255, 255),
+                    max(1.5, 2.5 * fator),
+                    Qt.PenStyle.SolidLine,
+                    Qt.PenCapStyle.RoundCap,
+                )
             )
             painter.drawLine(-p1, p1, p2, -p2)
-            painter.setPen(QPen(cor_base, max(1.0, 1.5 * fator), Qt.PenStyle.SolidLine, Qt.PenCapStyle.RoundCap))
+            painter.setPen(
+                QPen(
+                    cor_base, max(1.0, 1.5 * fator), Qt.PenStyle.SolidLine, Qt.PenCapStyle.RoundCap
+                )
+            )
             painter.drawLine(-p1, p1, p2, -p2)
             # Olhal
             painter.setPen(QPen(QColor(0, 0, 0, 200), max(1.0, 2.0 * fator)))
@@ -3960,7 +3998,9 @@ class WidgetEditorMapas(QWidget):
             if not (0 <= idx_ref < len(self.msg_mapa_proxy.referencias)):
                 alvo = getattr(self.referencia_selecionada, "alvo_uid", "")
                 for i, r in enumerate(self.msg_mapa_proxy.referencias):
-                    if r == self.referencia_selecionada or (alvo and getattr(r, "alvo_uid", "") == alvo):
+                    if r == self.referencia_selecionada or (
+                        alvo and getattr(r, "alvo_uid", "") == alvo
+                    ):
                         idx_ref = i
                         break
             if 0 <= idx_ref < len(self.msg_mapa_proxy.referencias):
@@ -4328,7 +4368,9 @@ class WidgetEditorMapas(QWidget):
         self.alcas_desenho_temp = []
         self.pontos_desenho = []
 
-    def ao_clicar_nova_rota(self, checked: bool = False, ponto_inicial: QPointF | None = None) -> None:
+    def ao_clicar_nova_rota(
+        self, checked: bool = False, ponto_inicial: QPointF | None = None
+    ) -> None:
         """Abre o diálogo de busca/criação de rota e inicia o traçado interativo no mapa."""
         if not self._mapa_ativo_valido():
             return
@@ -5068,10 +5110,7 @@ class WidgetEditorMapas(QWidget):
         elif tipo == "nos_linha":
             self.label_nos_linha.setText(f"{valor:+}%")
             for gui_item in self.itens_poi.values():
-                if (
-                    isinstance(gui_item, ItemTrajetoLinha)
-                    and id(gui_item) in self.bulk_base_dims
-                ):
+                if isinstance(gui_item, ItemTrajetoLinha) and id(gui_item) in self.bulk_base_dims:
                     raios_base = self.bulk_base_dims[id(gui_item)]["raios"]
                     fontes_base = self.bulk_base_dims[id(gui_item)]["fontes"]
                     nos = gui_item.pt_dict.get("linha", {}).get("conteudo", {}).get("nos", [])
@@ -5090,10 +5129,7 @@ class WidgetEditorMapas(QWidget):
         elif tipo == "espessura_linha":
             self.label_espessura_linha.setText(f"{valor:+}%")
             for gui_item in self.itens_poi.values():
-                if (
-                    isinstance(gui_item, ItemTrajetoLinha)
-                    and id(gui_item) in self.bulk_base_dims
-                ):
+                if isinstance(gui_item, ItemTrajetoLinha) and id(gui_item) in self.bulk_base_dims:
                     esp_base = self.bulk_base_dims[id(gui_item)]["espessura"]
                     nova_esp = max(1, int(round(esp_base * fator)))
                     gui_item.pt_dict.setdefault("linha", {})["espessura"] = nova_esp

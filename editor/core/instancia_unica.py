@@ -33,10 +33,10 @@ def ativar_janela_existente(janela_alvo: Any = None) -> bool:
     a restaura e traz para o primeiro plano.
     Retorna True se uma janela foi encontrada e ativada; False se nenhuma janela visível existir.
     """
-    janela = janela_alvo or QApplication.activeWindow()
+    janela = janela_alvo
     if not janela:
-        for widget in QApplication.topLevelWidgets():
-            if widget.isWindow() and widget.isVisible():
+        for widget in (QApplication.activeWindow(), *QApplication.topLevelWidgets()):
+            if widget is not None and widget.isWindow() and widget.isVisible():
                 janela = widget
                 break
 

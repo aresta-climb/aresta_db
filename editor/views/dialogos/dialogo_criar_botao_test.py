@@ -140,4 +140,3 @@ def test_dialogo_criar_botao_valida_nome_arquivo_contra_vazio_invalidos_e_limite
     dialogo.edit_arquivo.setText("a" * 99 + ".md")
     assert dialogo.btn_criar.isEnabled() is False
     assert "100" in dialogo.lbl_aviso.text()
-

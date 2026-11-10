@@ -207,7 +207,11 @@ def garantir_nome_arquivo_md_seguro(
     proposto = (caminho_proposto or "").strip()
     original = (caminho_original or "").strip()
 
-    if proposto and _PADRAO_NOME_ARQUIVO_MD.match(proposto) and len(proposto) <= LIMITE_MAXIMO_CARACTERES_ARQUIVO_MD:
+    if (
+        proposto
+        and _PADRAO_NOME_ARQUIVO_MD.match(proposto)
+        and len(proposto) <= LIMITE_MAXIMO_CARACTERES_ARQUIVO_MD
+    ):
         return proposto
 
     if (not proposto or proposto == original) and _eh_caminho_original_seguro_em_disco(original):

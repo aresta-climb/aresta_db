@@ -261,7 +261,6 @@ def test_widgets_coordenada_e_imagem(qapp):
     assert w_thumb.area_maxima == AREA_MAXIMA_PADRAO
 
 
-
 def test_widget_nome_arquivo(qapp):
     """Garante que campos anotados com CampoFormatoUi.NOME_ARQUIVO instanciam WidgetCampoNomeArquivo."""
     from aresta_api.proto.generated.croqui_pb2 import MetadadosArquivoNoEditor

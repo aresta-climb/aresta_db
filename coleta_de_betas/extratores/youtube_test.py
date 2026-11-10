@@ -54,9 +54,7 @@ def test_extrator_youtube_busca_com_sucesso() -> None:
     assert item1.midia.titulo == "Mandando o crux da Fusca Azul V4"
     assert item1.midia.fonte == beta_pb2.FonteMidia.YOUTUBE
     assert item1.match_nome_no_snippet is True
-    assert list(item1.snippets) == [
-        "Vídeo mostrando a beta da via Fusca Azul no setor Geriatria."
-    ]
+    assert list(item1.snippets) == ["Vídeo mostrando a beta da via Fusca Azul no setor Geriatria."]
 
     item2 = resultados[1]
     assert item2.midia.url == "https://www.youtube.com/watch?v=vid456"

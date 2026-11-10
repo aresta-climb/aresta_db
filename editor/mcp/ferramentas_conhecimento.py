@@ -321,9 +321,7 @@ def registrar_ferramentas_conhecimento(
 
         if usar_modelo_em_memoria:
             caminho_db_ativo = (
-                Path(servidor.caminho_database_ativo)
-                if servidor.caminho_database_ativo
-                else None
+                Path(servidor.caminho_database_ativo) if servidor.caminho_database_ativo else None
             )
             resultado = avaliar_nota_qualidade_croqui(model, croqui_path=caminho_db_ativo)
         else:

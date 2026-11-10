@@ -978,9 +978,7 @@ def test_gerar_catalogo_completo_exporta_tres_csvs_ordenados_e_preserva_quando_i
         ["no_osm_id", "latitude_e7", "longitude_e7"],
         ["777", "-195600000", "-439600000"],
     ]
-    linhas_dists = list(
-        csv.reader(csv_distancias_estrada.read_text(encoding="utf-8").splitlines())
-    )
+    linhas_dists = list(csv.reader(csv_distancias_estrada.read_text(encoding="utf-8").splitlines()))
     assert linhas_dists == [
         ["croqui_uid", "no_osm_id", "distancia_metros", "na_borda", "duracao_minutos"],
         ["croqui_z", "777", "310", "1", "14"],

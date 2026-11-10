@@ -291,4 +291,3 @@ def test_painel_qualidade_adia_recalculo_quando_aba_oculta_e_atualiza_no_show_ev
 
     abas.setCurrentWidget(painel)
     assert painel.total_atualizacoes_painel == ct_antes + 1
-

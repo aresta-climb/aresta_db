@@ -109,9 +109,7 @@ def test_provedor_imagem_aresta_resolve_youtube_e_persiste_cache_offline(
     http_offline.registrar_erro(url_thumb_yt, "Sem internet")
     provedor_offline = ProvedorImagemAresta(diretorio_cache=cache_dir, cliente_http=http_offline)
 
-    pixmap_2 = provedor_offline.obter_pixmap(
-        "https://youtu.be/vid777", beta_pb2.FonteMidia.YOUTUBE
-    )
+    pixmap_2 = provedor_offline.obter_pixmap("https://youtu.be/vid777", beta_pb2.FonteMidia.YOUTUBE)
     assert not pixmap_2.isNull()
     assert pixmap_2.width() == 6
     assert len(http_offline.chamadas_get) == 0
@@ -214,9 +212,7 @@ def test_provedor_imagem_aresta_cache_ram_e_cache_negativo_evita_novas_requisico
     assert len(http.chamadas_get) == 2
 
     # Resolve url_sem_og (1 GET: HTML sem og:image) -> entra no cache negativo
-    pix_falha_1 = provedor.obter_pixmap(
-        url_sem_og, beta_pb2.FonteMidia.BLOG, largura=80, altura=60
-    )
+    pix_falha_1 = provedor.obter_pixmap(url_sem_og, beta_pb2.FonteMidia.BLOG, largura=80, altura=60)
     assert pix_falha_1.width() == 80
     assert len(http.chamadas_get) == 3
 
@@ -226,9 +222,7 @@ def test_provedor_imagem_aresta_cache_ram_e_cache_negativo_evita_novas_requisico
     )
     assert imediato_neg is not None
     assert imediato_neg.width() == 80
-    pix_falha_2 = provedor.obter_pixmap(
-        url_sem_og, beta_pb2.FonteMidia.BLOG, largura=80, altura=60
-    )
+    pix_falha_2 = provedor.obter_pixmap(url_sem_og, beta_pb2.FonteMidia.BLOG, largura=80, altura=60)
     assert pix_falha_2.width() == 80
     assert len(http.chamadas_get) == 3
 
@@ -282,9 +276,7 @@ def test_solicitar_pixmap_assincrono_usa_pool_4_workers_sem_io_disco_na_ui_threa
     assert recebidos_imediato[0].width() == 5
 
     # Um novo provedor com cache frio em RAM NÃO deve ler do disco em obter_pixmap_imediato (zero I/O na UI thread)
-    provedor_frio = ProvedorImagemAresta(
-        diretorio_cache=cache_dir, cliente_http=ClienteHttpFake()
-    )
+    provedor_frio = ProvedorImagemAresta(diretorio_cache=cache_dir, cliente_http=ClienteHttpFake())
     assert provedor_frio.obter_pixmap_imediato(url_yt, beta_pb2.FonteMidia.YOUTUBE) is None
 
     # E carrega do cache em disco em background via pool de workers

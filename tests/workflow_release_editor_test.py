@@ -631,4 +631,3 @@ class TestWorkflowReleaseEditor(unittest.TestCase):
             condicao_caos,
             "O passo da campanha do Robô Caótico deve ser condicionado a inputs.executar_robo_caotico.",
         )
-

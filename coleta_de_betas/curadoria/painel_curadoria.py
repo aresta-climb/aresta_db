@@ -746,7 +746,6 @@ class PainelCuradoria(QWidget):
             if sig_idx_nova is not None:
                 sig_idx_nova.connect(self._ao_alterar_indice_undo)
 
-        self._popular_combo_escaladas()
         self.atualizar_visualizacao()
 
     def _ao_mutar_modelo(self, *_args: Any) -> None:
@@ -763,7 +762,6 @@ class PainelCuradoria(QWidget):
         if not self._atualizacao_pendente:
             return
         self._atualizacao_pendente = False
-        self._popular_combo_escaladas()
         self.atualizar_visualizacao()
 
     def _popular_combo_escaladas(
@@ -868,14 +866,10 @@ class PainelCuradoria(QWidget):
         lote = self._fatias_pendentes[:limite]
         del self._fatias_pendentes[:limite]
 
-        self.container_secoes.setUpdatesEnabled(False)
-        try:
-            for layout, lista_cards, spec, parent_secao in lote:
-                card = self._instanciar_card_de_spec(spec, parent_secao)
-                lista_cards.append(card)
-                layout.addWidget(card)
-        finally:
-            self.container_secoes.setUpdatesEnabled(True)
+        for layout, lista_cards, spec, parent_secao in lote:
+            card = self._instanciar_card_de_spec(spec, parent_secao)
+            lista_cards.append(card)
+            layout.addWidget(card)
 
         self._agendar_proxima_fatia()
 
@@ -916,18 +910,26 @@ class PainelCuradoria(QWidget):
             else:
                 self._fatias_pendentes.append((layout, lista_cards, spec, parent_secao))
 
+        removidos_ids: set[int] = set()
         for sobras in pool.values():
             for card_removido in sobras:
+                removidos_ids.add(id(card_removido))
                 card_removido.encerrar_worker()
                 layout.removeWidget(card_removido)
                 card_removido.hide()
                 card_removido.setParent(None)
                 card_removido.deleteLater()
 
-        for idx, card in enumerate(novos_cards):
-            item_atual = layout.itemAt(idx)
-            if item_atual is None or item_atual.widget() is not card:
-                layout.insertWidget(idx, card)
+        existentes_mantidos = [c for c in lista_cards if id(c) not in removidos_ids]
+        n_mantidos = len(existentes_mantidos)
+        if novos_cards[:n_mantidos] == existentes_mantidos:
+            for card_novo in novos_cards[n_mantidos:]:
+                layout.addWidget(card_novo)
+        else:
+            for idx, card in enumerate(novos_cards):
+                item_atual = layout.itemAt(idx)
+                if item_atual is None or item_atual.widget() is not card:
+                    layout.insertWidget(idx, card)
 
         lista_cards[:] = novos_cards
 
@@ -944,7 +946,6 @@ class PainelCuradoria(QWidget):
         if foco_atual is not None and self.container_secoes.isAncestorOf(foco_atual):
             foco_atual.clearFocus()
 
-        self.container_secoes.setUpdatesEnabled(False)
         try:
             self._scores_nao_revisados_atuais.clear()
             self._itens_rejeitados_atuais.clear()
@@ -974,9 +975,7 @@ class PainelCuradoria(QWidget):
                 if self.filtro_escalada_uid and self.filtro_escalada_uid in mapa_info
                 else list(mapa_info.keys())
             )
-            orcamento_novos = (
-                [self.tamanho_fatia_cards] if self.tamanho_fatia_cards > 0 else None
-            )
+            orcamento_novos = [self.tamanho_fatia_cards] if self.tamanho_fatia_cards > 0 else None
 
             # 1. Betas Não Scorados
             especificacoes_ns: list[dict[str, Any]] = []
@@ -1138,7 +1137,6 @@ class PainelCuradoria(QWidget):
             )
             self._agendar_proxima_fatia()
         finally:
-            self.container_secoes.setUpdatesEnabled(True)
             if vbar is not None:
                 vbar.setValue(pos_scroll)
 

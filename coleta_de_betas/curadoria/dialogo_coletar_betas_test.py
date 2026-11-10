@@ -161,8 +161,10 @@ def test_dialogo_coletar_betas_seleciona_executa_coleta_injeta_rejeitados_e_supo
     assert dialogo.barra_progresso.value() == 2
     assert len(croqui.curadoria_betas.conteudo.escaladas) == 2
     assert len(croqui.curadoria_betas.conteudo.escaladas[0].betas_rejeitados) == 1
-    assert croqui.curadoria_betas.conteudo.escaladas[0].betas_rejeitados[0].titulo.startswith(
-        "[Query: geral | Auto-filtrado: domínio bloqueado]"
+    assert (
+        croqui.curadoria_betas.conteudo.escaladas[0]
+        .betas_rejeitados[0]
+        .titulo.startswith("[Query: geral | Auto-filtrado: domínio bloqueado]")
     )
 
     # Estado concluído: Iniciar e Cancelar ocultos; apenas Finalizar visível
@@ -244,7 +246,9 @@ def test_dialogo_coletar_betas_executa_em_background_via_qthread_e_permite_cance
     assert isinstance(dialogo.worker_ativo, WorkerColetaBetas)
 
     qtbot.waitUntil(
-        lambda: dialogo.worker_ativo is None and len(croqui.curadoria_betas.conteudo.escaladas) == 2,
+        lambda: (
+            dialogo.worker_ativo is None and len(croqui.curadoria_betas.conteudo.escaladas) == 2
+        ),
         timeout=3000,
     )
     assert dialogo.barra_progresso.value() == 2

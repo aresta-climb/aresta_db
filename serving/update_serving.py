@@ -11,7 +11,6 @@ import urllib.error
 import urllib.request
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
-from typing import Any
 
 import boto3
 from botocore.config import Config

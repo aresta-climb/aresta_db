@@ -223,17 +223,11 @@ def test_aresta_avaliar_qualidade_em_memoria_e_em_disco(qapp, tmp_path: Path):
         encoding="utf-8",
     )
     servidor_disco = ServidorMCP(despachante=DespachanteQt(), diretorio_sessao=tmp_path)
-    registrar_ferramentas_conhecimento(
-        servidor_disco, diretorio_database=tmp_path / "database"
-    )
-    diag_disco = _chamar(
-        servidor_disco, "aresta_avaliar_qualidade", {"id_croqui": "br_rj_urca"}
-    )
+    registrar_ferramentas_conhecimento(servidor_disco, diretorio_database=tmp_path / "database")
+    diag_disco = _chamar(servidor_disco, "aresta_avaliar_qualidade", {"id_croqui": "br_rj_urca"})
     assert diag_disco["nota_qualidade"] == 1000
     assert diag_disco["nota_maxima"] == 8860
 
     # 3. Erro claro se não houver croqui aberto nem id_croqui válido em disco
     with pytest.raises(RuntimeError, match="Não foi possível localizar o croqui"):
-        _chamar(
-            servidor_disco, "aresta_avaliar_qualidade", {"id_croqui": "croqui_inexistente"}
-        )
+        _chamar(servidor_disco, "aresta_avaliar_qualidade", {"id_croqui": "croqui_inexistente"})

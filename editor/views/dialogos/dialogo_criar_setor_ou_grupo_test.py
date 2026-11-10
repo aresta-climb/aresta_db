@@ -182,7 +182,6 @@ def test_dialogo_criar_setor_ou_grupo_validacao_duplicidade_bloco(qapp):
     assert dialogo.lbl_aviso.text() == "Já existe um bloco com este nome."
 
 
-
 def test_dialogo_criar_setor_ou_grupo_valida_nome_arquivo_contra_vazio_invalidos_e_limite_100(qapp):
     """Verifica que o diálogo recusa arquivo vazio, caracteres inválidos ou > 100 chars e converte espaços."""
     dialogo = DialogoCriarSetorOuGrupo(modo="ambos")

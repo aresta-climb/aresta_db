@@ -963,13 +963,9 @@ class CroquiModel(QObject):
                 if arq_cur_ref.HasExtension(ArquivoCuradoriaBetas.ext_metadados_arquivo):
                     ext_cur = arq_cur_ref.Extensions[ArquivoCuradoriaBetas.ext_metadados_arquivo]
                 original_caminho_cur = (
-                    ext_cur.caminho_original
-                    if ext_cur and ext_cur.caminho_original
-                    else None
+                    ext_cur.caminho_original if ext_cur and ext_cur.caminho_original else None
                 )
-                proposto_cur = (
-                    ext_cur.caminho_novo if ext_cur and ext_cur.caminho_novo else None
-                )
+                proposto_cur = ext_cur.caminho_novo if ext_cur and ext_cur.caminho_novo else None
                 novo_caminho_cur = proposto_cur or original_caminho_cur or "curadoria_betas.yaml"
                 if not novo_caminho_cur.endswith(".yaml"):
                     novo_caminho_cur = f"{Path(novo_caminho_cur).stem}.yaml"
@@ -1088,10 +1084,7 @@ class CroquiModel(QObject):
                         if arq_malha_ref.HasExtension(ArquivoMalhaEstrada.ext_metadados_arquivo):
                             arq_malha_ref.ClearExtension(ArquivoMalhaEstrada.ext_metadados_arquivo)
                     else:
-                        if (
-                            original_caminho_malha
-                            and original_caminho_malha != novo_caminho_malha
-                        ):
+                        if original_caminho_malha and original_caminho_malha != novo_caminho_malha:
                             old_malha_path = caminho_db_path / original_caminho_malha
                             if old_malha_path.exists():
                                 try:

@@ -280,9 +280,7 @@ def test_dialogo_novo_croqui_limite_id(qtbot):
     dialog.edit_estado.setText("sp")
     dialog.edit_cidade.setText("sao bento do sapucai da serra da mantiqueira paulista")
 
-    texto_pico_enorme = (
-        "pedra do bau queijo com suico sociedade da felicidade grande"
-    )
+    texto_pico_enorme = "pedra do bau queijo com suico sociedade da felicidade grande"
     dialog.edit_pico.setText(texto_pico_enorme)
 
     id_gerado = dialog.edit_id.text()
@@ -307,9 +305,7 @@ def test_tela_de_carregamento_propriedades_janela(qtbot):
     assert layout.stretch(0) == 0
 
 
-def test_tela_de_carregamento_fluxo_novo_croqui_completo(
-    qtbot, storage_real: GerenciadorCaminhos
-):
+def test_tela_de_carregamento_fluxo_novo_croqui_completo(qtbot, storage_real: GerenciadorCaminhos):
     """
     Verifica se o botão 'Novo croqui' abre o diálogo de metadados e cria o croqui experimental
     sem gravar resumo_edicao.
@@ -495,8 +491,7 @@ def test_dialogo_novo_croqui_detecta_id_duplicado_e_campos_vazios(
 ):
     """Garante que o DialogoNovoCroqui bloqueia ID já existente no histórico e limpa validação quando campos esvaziam."""
     pasta_existente = (
-        storage_real.obter_caminho_croquis_experimentais()
-        / "20260501_br_sp_sao_bento_pedra_do_bau"
+        storage_real.obter_caminho_croquis_experimentais() / "20260501_br_sp_sao_bento_pedra_do_bau"
     )
     pasta_existente.mkdir(parents=True, exist_ok=True)
 

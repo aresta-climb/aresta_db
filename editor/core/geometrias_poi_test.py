@@ -276,6 +276,5 @@ class GeometriasPOITest(unittest.TestCase):
         self.assertEqual(calcular_cor_texto_contraste("", preenchido=True), "#000000")
 
 
-
 if __name__ == "__main__":
     unittest.main()

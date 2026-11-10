@@ -89,7 +89,9 @@ def test_extrator_blog_executa_5_queries_sem_setor_e_sem_scrape_html() -> None:
 
     extrator = ExtratorBlog(buscador=buscador, cliente_http=http)
     assert (
-        extrator.montar_query("Via do Sol (Setor Principal - Mapa 2)", "Setor Principal", "Serra do Cipó")
+        extrator.montar_query(
+            "Via do Sol (Setor Principal - Mapa 2)", "Setor Principal", "Serra do Cipó"
+        )
         == "Via do Sol Serra do Cipó escalada"
     )
     queries = extrator.montar_queries_identificadas(
@@ -192,12 +194,14 @@ def test_extrator_blog_buscar_com_rejeitados_registra_query_origem_e_motivo() ->
     assert urls_rejeitadas["https://www.youtube.com/watch?v=yt_outro_pico"].startswith(
         "[Query: youtube | Auto-filtrado: sem menção ao pico]"
     )
-    assert "Auto-filtrado: domínio bloqueado]" in urls_rejeitadas[
-        "https://pt.scribd.com/document/999/Croqui-Lapinha"
-    ]
-    assert "Auto-filtrado: domínio bloqueado]" in urls_rejeitadas[
-        "https://www.thecrag.com/route/karren-glass"
-    ]
+    assert (
+        "Auto-filtrado: domínio bloqueado]"
+        in urls_rejeitadas["https://pt.scribd.com/document/999/Croqui-Lapinha"]
+    )
+    assert (
+        "Auto-filtrado: domínio bloqueado]"
+        in urls_rejeitadas["https://www.thecrag.com/route/karren-glass"]
+    )
 
 
 def test_extrator_blog_propaga_erro_quando_buscador_falha() -> None:
@@ -209,7 +213,9 @@ def test_extrator_blog_propaga_erro_quando_buscador_falha() -> None:
         extrator.buscar("Via Teste")
 
 
-def test_buscador_duckduckgo_padrao_mantem_sessao_persistente_e_retorna_vazio_em_no_results() -> None:
+def test_buscador_duckduckgo_padrao_mantem_sessao_persistente_e_retorna_vazio_em_no_results() -> (
+    None
+):
     chamadas: list[tuple[str, str, str, int]] = []
     tempos_dormidos: list[float] = []
     instancias_criadas: list[int] = []
@@ -356,9 +362,7 @@ def test_classificar_fonte_url_8_categorias() -> None:
     assert classificar_fonte_url("https://www.tiktok.com/@user/video/123456") == (
         beta_pb2.FonteMidia.TIKTOK
     )
-    assert classificar_fonte_url("https://vm.tiktok.com/ZM12345/") == (
-        beta_pb2.FonteMidia.TIKTOK
-    )
+    assert classificar_fonte_url("https://vm.tiktok.com/ZM12345/") == (beta_pb2.FonteMidia.TIKTOK)
     assert classificar_fonte_url("https://www.tiktok.com/@user") is None
 
     assert classificar_fonte_url("https://www.facebook.com/user/videos/98765") == (

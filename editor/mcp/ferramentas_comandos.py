@@ -530,9 +530,7 @@ def registrar_ferramentas_comandos(
 
         msg_alvo, caminho_pico = resolver_alvo_mcp(model, alvo_bruto)
         if msg_alvo.DESCRIPTOR.name != "Pico":
-            raise ValueError(
-                f"O alvo '{alvo_bruto}' ('{caminho_pico}') não corresponde a um Pico."
-            )
+            raise ValueError(f"O alvo '{alvo_bruto}' ('{caminho_pico}') não corresponde a um Pico.")
 
         lat_e7 = int(msg_alvo.localizacao.latitude or 0)
         lon_e7 = int(msg_alvo.localizacao.longitude or 0)

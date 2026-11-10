@@ -326,9 +326,7 @@ class ProvedorImagemAresta:
         with self._lock:
             lista = self._callbacks_pendentes.get(chave)
             if lista is not None:
-                self._callbacks_pendentes[chave] = [
-                    item for item in lista if item[0] != callback
-                ]
+                self._callbacks_pendentes[chave] = [item for item in lista if item[0] != callback]
 
     def encerrar_workers(self, esperar: bool = False) -> None:
         """Cancela callbacks pendentes e encerra o pool de worker threads."""

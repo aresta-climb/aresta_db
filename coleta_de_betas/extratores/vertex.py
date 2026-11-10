@@ -65,7 +65,9 @@ class ExtratorVertexSearch:
         payload = {"query": query, "pageSize": max_resultados}
 
         try:
-            resposta = self._cliente_http.post(url_endpoint, json=payload, params=params, timeout=10)
+            resposta = self._cliente_http.post(
+                url_endpoint, json=payload, params=params, timeout=10
+            )
         except Exception as e:
             raise RuntimeError(f"Erro na conexão com a API do Vertex AI Search: {e}")
 

@@ -243,26 +243,18 @@ def sanear_uids_croqui(
 
         nome_lower = str(dados.get("nome", "")).lower()
         eh_curadoria_betas = md_path.stem.startswith("curadoria_betas")
-        eh_setor = (
-            not eh_curadoria_betas
-            and (
-                md_path.name.startswith("setor")
-                or "escaladas" in dados
-                or nome_lower.startswith("setor")
-            )
+        eh_setor = not eh_curadoria_betas and (
+            md_path.name.startswith("setor")
+            or "escaladas" in dados
+            or nome_lower.startswith("setor")
         )
-        eh_grupo = (
-            not eh_curadoria_betas
-            and (
-                md_path.name.startswith("grupo")
-                or "setores" in dados
-                or "sub_setores" in dados
-                or nome_lower.startswith("grupo")
-            )
+        eh_grupo = not eh_curadoria_betas and (
+            md_path.name.startswith("grupo")
+            or "setores" in dados
+            or "sub_setores" in dados
+            or nome_lower.startswith("grupo")
         )
-        eh_mapa = not eh_curadoria_betas and (
-            md_path.name.startswith("mapas") or "mapas" in dados
-        )
+        eh_mapa = not eh_curadoria_betas and (md_path.name.startswith("mapas") or "mapas" in dados)
 
         if not (eh_setor or eh_grupo or eh_mapa):
             # Arquivo auxiliar de texto (ex: capa.md, avisos.md):

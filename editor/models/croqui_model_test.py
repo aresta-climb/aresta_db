@@ -1803,7 +1803,6 @@ def test_croqui_model_obter_objeto_por_uid():
     assert model.obter_objeto_por_uid(None) is None
 
 
-
 def test_extrair_arquivos_e_serializar_higieniza_nomes_toxicos_em_setor_grupo_mapas_e_botao(
     tmp_path,
 ):
@@ -1848,8 +1847,7 @@ def test_extrair_arquivos_e_serializar_higieniza_nomes_toxicos_em_setor_grupo_ma
     assert (tmp_path / "mapas_gerais.md").exists()
 
     assert (
-        dados["picos"][0]["setores_ou_grupos"][0]["setor"]["caminho"]
-        == "setor_fenda_principal.md"
+        dados["picos"][0]["setores_ou_grupos"][0]["setor"]["caminho"] == "setor_fenda_principal.md"
     )
     assert (tmp_path / "setor_fenda_principal.md").exists()
 
@@ -1974,5 +1972,3 @@ def test_croqui_model_carrega_e_extrai_malha_estrada_yaml(tmp_path):
     dados_limpo = model_recarregado.extrair_arquivos_e_serializar(db_path)
     assert "malha_estrada" not in dados_limpo["picos"][0]
     assert not arquivo_malha.exists()
-
-

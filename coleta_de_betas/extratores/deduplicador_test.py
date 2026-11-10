@@ -20,10 +20,7 @@ def test_normalizar_url_instagram_youtube_e_blog() -> None:
         == normalizar_url(url3)
         == "https://instagram.com/p/Cxyz123"
     )
-    assert (
-        normalizar_url("https://www.instagram.com/usuario")
-        == "https://instagram.com/usuario"
-    )
+    assert normalizar_url("https://www.instagram.com/usuario") == "https://instagram.com/usuario"
 
     yt1 = "https://www.youtube.com/watch?v=vid123&feature=share"
     yt2 = "https://youtu.be/vid123"
@@ -37,11 +34,7 @@ def test_normalizar_url_instagram_youtube_e_blog() -> None:
 
     blog1 = "https://www.blogescalada.com.br/post-via/"
     blog2 = "http://blogescalada.com.br/post-via"
-    assert (
-        normalizar_url(blog1)
-        == normalizar_url(blog2)
-        == "https://blogescalada.com.br/post-via"
-    )
+    assert normalizar_url(blog1) == normalizar_url(blog2) == "https://blogescalada.com.br/post-via"
     assert normalizar_url("   ") == ""
 
 

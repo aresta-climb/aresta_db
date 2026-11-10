@@ -28,7 +28,7 @@ def test_criar_croqui_normal_e_toxico_carregam_no_workspace_e_compilam(
 
         assert proto.id != ""
         assert (pasta_db / "croqui.yaml").is_file()
-        assert (pasta_db / "curadoria_betas.md").is_file()
+        assert (pasta_db / "curadoria_betas.yaml").is_file()
         assert any((pasta_db / "imagens").glob("*.png"))
 
         ws = ExperimentalWorkspace(pasta_exp)

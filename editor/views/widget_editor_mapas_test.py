@@ -2485,7 +2485,11 @@ def test_dialogo_edicao_poi_permite_criar_sem_rotulo_nem_texto_e_gera_uid(qtbot)
     from scripts.gerenciar_uids_lib import validar_uid
 
     dialogo = DialogoEdicaoPOI(
-        id_atual="", label_atual="", texto_visivel_atual="", cor_atual="#000000", preenchido_atual=True
+        id_atual="",
+        label_atual="",
+        texto_visivel_atual="",
+        cor_atual="#000000",
+        preenchido_atual=True,
     )
     qtbot.addWidget(dialogo)
 
@@ -2496,9 +2500,15 @@ def test_dialogo_edicao_poi_permite_criar_sem_rotulo_nem_texto_e_gera_uid(qtbot)
 
     # Verifica ícones informativos ⓘ e tooltips explicando a diferença entre rotulo e texto_visivel
     assert dialogo.info_id.text() == "ⓘ"
-    assert "uid" in dialogo.info_id.toolTip().lower() or "identificador" in dialogo.info_id.toolTip().lower()
+    assert (
+        "uid" in dialogo.info_id.toolTip().lower()
+        or "identificador" in dialogo.info_id.toolTip().lower()
+    )
     assert dialogo.info_rotulo.text() == "ⓘ"
-    assert "lista" in dialogo.info_rotulo.toolTip().lower() or "codenome" in dialogo.info_rotulo.toolTip().lower()
+    assert (
+        "lista" in dialogo.info_rotulo.toolTip().lower()
+        or "codenome" in dialogo.info_rotulo.toolTip().lower()
+    )
     assert "não é desenhado" in dialogo.info_rotulo.toolTip().lower()
     assert dialogo.info_texto_visivel.text() == "ⓘ"
     assert "desenhado" in dialogo.info_texto_visivel.toolTip().lower()
@@ -6463,7 +6473,7 @@ def test_poi_definir_e_restaurar_tamanho_fonte_manual_com_undo_redo(qtbot):
 
 def test_poi_preenchido_contraste_texto_highlight_e_preservacao_cor(qtbot):
     """[TDD] POI preenchido renderiza alpha=255, ajusta contraste do texto, destaca em Ciano na referência e preserva cor após remover_destaque_pois."""
-    from PySide6.QtGui import QColor, QUndoStack
+    from PySide6.QtGui import QUndoStack
 
     from aresta_api.proto.generated import croqui_pb2
     from editor.controllers.mapas_controller import MapasController
@@ -6547,11 +6557,19 @@ def test_poi_preenchido_contraste_texto_highlight_e_preservacao_cor(qtbot):
     # 5. Alternar preenchido na caixa via método (com Undo/Redo)
     item_box.alternar_preenchido()
     assert mapa.pontos_de_interesse[0].preenchido is True
-    b_box_apos = widget.itens_poi[0].brush() if callable(widget.itens_poi[0].brush) else widget.itens_poi[0].brush
+    b_box_apos = (
+        widget.itens_poi[0].brush()
+        if callable(widget.itens_poi[0].brush)
+        else widget.itens_poi[0].brush
+    )
     assert b_box_apos.color().alpha() == 255
     undo_stack.undo()
     assert mapa.pontos_de_interesse[0].preenchido is False
-    b_box_undo = widget.itens_poi[0].brush() if callable(widget.itens_poi[0].brush) else widget.itens_poi[0].brush
+    b_box_undo = (
+        widget.itens_poi[0].brush()
+        if callable(widget.itens_poi[0].brush)
+        else widget.itens_poi[0].brush
+    )
     assert b_box_undo.color().alpha() == 60
 
 
@@ -6859,7 +6877,3 @@ def test_criacao_rapida_ponto_opaco_autovinculacao_duplicar_e_memoria_estilo(qtb
     assert mapa.pontos_de_interesse[0].circulo.x == 180
     assert mapa.pontos_de_interesse[0].circulo.y == 220
     assert mapa.pontos_de_interesse[0].preenchido is True
-
-
-
-

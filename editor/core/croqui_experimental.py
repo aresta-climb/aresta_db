@@ -122,9 +122,7 @@ class GerenciadorCroquiExperimental:
 
         return caminho_raiz
 
-    def criar_croqui_a_partir_de_oficial(
-        self, id_oficial: str, nome_usuario: str
-    ) -> Path:
+    def criar_croqui_a_partir_de_oficial(self, id_oficial: str, nome_usuario: str) -> Path:
         """
         Cria um croqui experimental a partir de um croqui oficial, copiando os arquivos.
         """

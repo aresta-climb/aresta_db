@@ -156,6 +156,7 @@ def test_ativar_janela_existente_comportamento_real(qtbot):
 
     for w in QApplication.topLevelWidgets():
         w.hide()
+    QApplication.processEvents()
 
     assert ativar_janela_existente() is False
 
@@ -168,6 +169,7 @@ def test_ativar_janela_existente_comportamento_real(qtbot):
     janela.show()
     assert ativar_janela_existente() is True
     janela.hide()
+    QApplication.processEvents()
 
 
 def test_servidor_desconexao_e_rejeicao_sem_janela(qtbot):
@@ -176,6 +178,7 @@ def test_servidor_desconexao_e_rejeicao_sem_janela(qtbot):
 
     for w in QApplication.topLevelWidgets():
         w.hide()
+    QApplication.processEvents()
 
     nome_servidor = f"aresta_teste_{uuid.uuid4().hex[:8]}"
     srv = iniciar_servidor_instancia_unica(

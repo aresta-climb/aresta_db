@@ -1169,10 +1169,7 @@ def avaliar_nota_qualidade_croqui(
     escaladas_curadoria = curadoria_conteudo.get("escaladas") or []
     tem_beta_pendente_curadoria = any(
         isinstance(esc_cur, Mapping)
-        and (
-            bool(esc_cur.get("betas_nao_scorados"))
-            or bool(esc_cur.get("betas_nao_revisados"))
-        )
+        and (bool(esc_cur.get("betas_nao_scorados")) or bool(esc_cur.get("betas_nao_revisados")))
         for esc_cur in escaladas_curadoria
     )
     tem_beta_pendente_legado = bool(

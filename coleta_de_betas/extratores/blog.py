@@ -482,8 +482,7 @@ class ExtratorBlog:
                         rejeitados_por_url[chave_url] = beta_pb2.MidiaBeta(
                             url=link,
                             titulo=(
-                                f"[Query: {origem} | Auto-filtrado: sem menção à via] "
-                                f"{titulo_base}"
+                                f"[Query: {origem} | Auto-filtrado: sem menção à via] {titulo_base}"
                             ),
                             fonte=fonte,
                         )

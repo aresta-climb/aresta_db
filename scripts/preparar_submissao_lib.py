@@ -807,10 +807,7 @@ def limpar_arquivos_nao_utilizados(
             f.name
             for f in pico_path.iterdir()
             if f.is_file()
-            and (
-                f.suffix == ".md"
-                or (f.suffix == ".yaml" and f.name != "croqui.yaml")
-            )
+            and (f.suffix == ".md" or (f.suffix == ".yaml" and f.name != "croqui.yaml"))
         )
 
     nao_utilizados = arquivos_fisicos - referencias
@@ -2323,9 +2320,7 @@ def compilar_croqui(
                 item_cb.pop("uid", None)
                 item_cb.pop("id", None)
                 escaladas_cb_limpas.append(item_cb)
-        croqui_data["curadoria_betas"] = {
-            "conteudo": {"escaladas": escaladas_cb_limpas}
-        }
+        croqui_data["curadoria_betas"] = {"conteudo": {"escaladas": escaladas_cb_limpas}}
         total_nao_scorados = 0
         total_nao_revisados = 0
         for esc_cb in escaladas_cb_limpas:

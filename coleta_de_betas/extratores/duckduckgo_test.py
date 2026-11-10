@@ -47,9 +47,7 @@ def test_extrator_duckduckgo_busca_com_sucesso() -> None:
     assert item1.midia.titulo == "Post do Instagram: Fusca Azul"
     assert item1.midia.fonte == beta_pb2.FonteMidia.INSTAGRAM
     assert item1.match_nome_no_snippet is True
-    assert list(item1.snippets) == [
-        "Mandando a via Fusca Azul no setor Geriatria em Ouro Preto."
-    ]
+    assert list(item1.snippets) == ["Mandando a via Fusca Azul no setor Geriatria em Ouro Preto."]
 
     item2 = resultados[1]
     assert item2.midia.url == "https://www.instagram.com/p/Cxyz789/"
