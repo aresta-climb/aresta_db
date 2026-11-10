@@ -319,10 +319,9 @@ escaladas:
     - Eustáquio Macedo Melo Júnior
     - Fábio Luiz Faria "Fabinho"
     data_abertura: '1993'
-    descricao: |-
-      ATENÇÃO: não utilizar o bico de pedra próximo ao top rope como agarra! Risco de queda do bloco!
-
-      Via manutenida em 12/10/2026, liberada para escalar, apenas cuidado com o bico de pedra!
+    descricao: 'ATENÇÃO: não utilizar o bico de pedra próximo ao top rope como agarra!
+      Risco de queda do bloco!'
+    data_manutencao: 12/10/2026
 - uid: ZgB4gVcfZ1FoTC
   via_esportiva:
     nome: Bigode Sujo
@@ -366,12 +365,17 @@ escaladas:
     - Leonardo Hoffmann
     - Fabiano da Silva Fernandes
     data_abertura: '1994'
+    quantidade_protecoes_parada: 2
+    descricao: '**INTERDITADA:** Presença de bloco instável no trecho de colocação
+      de proteção móvel.'
 - uid: L69C6jL7Bphv5T
   via_movel:
     nome: Meio Cubanos
     dificuldade: BR_6SUP
     conquistadores:
     - Roberto Lincoln de Freitas
+    quantidade_protecoes_parada: 0
+    descricao: Via em móvel sem parada (top rope) instalada no topo.
 - uid: PBMAKEwduou7iM
   via_esportiva:
     nome: Golpe Ninja
@@ -404,6 +408,8 @@ escaladas:
     - Fabiano da Silva Fernandes
     data_abertura: '1994'
     data_manutencao: 05/09/2026
+    descricao: Desmontagem recomendada por rapel devido ao atrito da corda na aresta.
+      Atenção na segurança devido ao risco de queda na aresta.
 - uid: 8b8K01Oui85IB0
   via_esportiva:
     nome: Noivado da Feiticeira
@@ -435,6 +441,7 @@ escaladas:
     - Leonardo Hoffmann
     - Marco Antônio Canelas
     data_abertura: '2001'
+    descricao: Lance final mais esticado entre a 4ª proteção e a parada.
 - uid: yMYiuu4C1XwTsU
   via_esportiva:
     nome: Projeto Daniel Salim
@@ -456,9 +463,10 @@ escaladas:
     - Gilberto Torres
     data_abertura: '1993'
     descricao: |-
-      Via mista, laçar a ponte de pedra com uma fita de 120cm entre a 3a proteção e o top.
+      Via mista, laçar a ponte de pedra com uma fita de 120cm entre a 3ª proteção e o top.
 
-      Muito cuidado nas primeiras três proteções por causa do bloco na base da via.
+      Atenção nas primeiras três proteções por causa do bloco na base da via (uso de stick clip recomendado).
+    data_manutencao: 12/10/2026
 - uid: Edh9kZy5L2CndU
   via_esportiva:
     nome: Consolo da Surucucu
@@ -468,6 +476,8 @@ escaladas:
     conquistadores:
     - Vinícius B. Assis
     data_abertura: '1997'
+    descricao: 'Linha em diagonal/travessia: recomenda-se limpar a via escalando de
+      segundo.'
 - uid: 3i1j443nXNqSp1
   via_esportiva:
     nome: Santos e Hereges
@@ -499,6 +509,7 @@ escaladas:
     - Marco Antônio Canelas
     - Marcelo Andrê
     data_abertura: '1994'
+    descricao: Lance mais esticado entre a 3ª e a 4ª proteção.
 - uid: 3RNMY4E3VJdcjO
   via_esportiva:
     nome: Labirinto das Maritacas

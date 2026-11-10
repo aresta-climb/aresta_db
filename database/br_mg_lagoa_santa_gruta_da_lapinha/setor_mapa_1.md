@@ -86,6 +86,8 @@ escaladas:
     conquistadores:
     - Márcio Soares Macena
     - Wilson Novaes
+    descricao: 'Via mista: exige complementação com peças móveis no trecho intermediário.
+      Verifique possível presença de abelhas na via.'
 - uid: uMZtAWeka4OQlJ
   via_movel:
     nome: Retorno do Marco

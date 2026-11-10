@@ -500,6 +500,7 @@ escaladas:
     - Anderson Barbosa
     data_abertura: '2001'
     data_manutencao: 10/08/2022
+    descricao: Proteções mais espaçadas, especialmente entre a 1ª e a 2ª proteção.
 - uid: f8fyK7B3Fuo95O
   via_esportiva:
     nome: Sobreviventes
@@ -511,6 +512,8 @@ escaladas:
     - Anderson "Neném"
     - Bruno
     data_abertura: '1994'
+    descricao: Atenção na segurança nos primeiros lances (até a 3ª proteção) devido
+      à saliência de rocha abaixo.
 ---
 
 Parte interna e externa da gruta com vias esportivas e móveis.

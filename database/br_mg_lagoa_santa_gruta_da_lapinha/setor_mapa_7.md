@@ -132,6 +132,8 @@ escaladas:
     - Daniel Fernandes "Salim"
     - Fabiano da Silva Fernandes
     data_abertura: '1999'
+    data_manutencao: 05/09/2026
+    descricao: Lance mais esticado no crux, entre a 6ª e a 7ª proteção.
 - uid: qqE2Xa62AWdHkq
   via_esportiva:
     nome: Doutor Lund
@@ -149,11 +151,11 @@ escaladas:
     dificuldade: BR_7C
     quantidade_protecoes_intermediarias: 7
     quantidade_protecoes_parada: 2
-    descricao: Via manutenida em 12/10/2026, liberada para escalar.
     conquistadores:
     - Juan Kempen
     - Pedro Assis Leite
     data_abertura: '1998'
+    data_manutencao: 12/10/2026
 - uid: OXAvr0Rdr0rU5G
   via_esportiva:
     nome: Rosa dos Ventos
@@ -162,6 +164,7 @@ escaladas:
     - Ramaya Vallias
     - Léo Quirino
     data_abertura: '1994'
+    descricao: Atenção na segurança entre a 1ª e a 2ª proteção.
 - uid: TAvEhL1wTI6EwM
   via_esportiva:
     nome: Monte Calvário
@@ -170,6 +173,9 @@ escaladas:
     - Ramaya Vallias
     - Léo Quirino
     data_abertura: '1994'
+    quantidade_protecoes_intermediarias: 6
+    descricao: Grampos de olhal mais estreito; parada no topo de difícil visualização
+      da base.
 - uid: Mpm6oLaVnlHimt
   via_movel:
     nome: Pó-na-beiça
@@ -209,6 +215,7 @@ escaladas:
     - Daniel Fernandes "Salim"
     - Ramaya Vallias
     data_abertura: '1995'
+    descricao: Compartilha temporariamente a parada no topo com a via Prestobarba.
 - uid: WHJ53V0DkIbf7P
   via_esportiva:
     nome: Prestobarba
@@ -219,6 +226,8 @@ escaladas:
     - Daniel Fernandes "Salim"
     - Ramaya Vallias
     data_abertura: '1999'
+    descricao: Utilize a parada original no alinhamento da via (desconsidere a parada
+      extra à direita).
 - uid: 46pgZmHpsgEsde
   via_esportiva:
     nome: Bigode Limpo
@@ -231,6 +240,9 @@ escaladas:
     - Antônio Carlos Magalhães "Toninho"
     - Eustáquio Macedo Melo Júnior
     data_abertura: '1993'
+    data_manutencao: 12/10/2026
+    descricao: Utilize a parada no final da linha original da via (desconsidere a
+      parada dupla antiga mais abaixo à esquerda).
 ---
 
 Este setor abriga a base da via "Monte Calvário". Possui vias predominantemente esportivas.

@@ -1,0 +1,1619 @@
+# SPDX-License-Identifier: ODbL-1.0
+# Copyright (C) 2026 Aresta Climb Contributors
+escaladas:
+- escalada_uid: IkF7tbLlAt5Zdz
+  betas_nao_revisados:
+  - midia:
+      url: https://pt.scribd.com/document/529842647/Guia-Escalada-Lapinha-1
+      titulo: Escaladas na Gruta da Lapinha | PDF
+      fonte: BLOG
+    resultado_llm:
+      llm_confidence_score: 3
+      llm_reasoning: Apenas hospeda o PDF do guia antigo da Gruta da Lapinha com dados
+        tabelados já presentes no croqui do Aresta, sem vídeo ou beta adicional.
+    match_nome_no_snippet: true
+    snippets:
+    - 'únior 2002 Este guia é de autoria de: Daniel Ferreira Mariano Eustáquio Macedo
+      Melo Júnior 2002 Disponível em: [Link] Escale com segurança, respeite o local
+      e traga seu lixo de volta para casa Nº Nome da via Grau Proteção Conquistadores1
+      Sai que é vaca 6º Móvel Márcio Soares Macena e Wilson Novaes2 Favo de Mel 6º
+      Móvel Márcio Soares Macena e Wilson Novaes3 Retorno do Marco 3º Móvel Antonio
+      C. Magalhães e Marco Antônio Canelas4 Tomara que não chova 6ºsup Fixa Christian
+      A. N. Costa, Leo Guimarães "Léo Dandão"5 Castelinho 6º Fixa Marcelo Henrique
+      Grijó Utsch e Cristiano Loureiro6 Projeto Fixa Nº Nome da via'
+- escalada_uid: uMZtAWeka4OQlJ
+  betas_nao_revisados:
+  - midia:
+      url: https://escaladas.com.br/via/id/4586/Fissura+Retorno+do+Marco
+      titulo: Escaladas.com.br | Via FISSURA RETORNO DO MARCO
+      fonte: OUTRO_UGC
+    resultado_llm:
+      llm_confidence_score: 5
+      llm_reasoning: Página de catálogo que apenas replica os dados básicos da via
+        (grau e modalidade tradicional/fissura) sem fotos, vídeo ou relato de escalada
+        adicional.
+    match_nome_no_snippet: true
+    snippets:
+    - 'de Esportiva, 663 vias de Bouldering, 83 vias de Artificial, 68 vias de Big
+      Wall, 65 vias de Tradicional Esportiva, 9 vias de Psicobloc e 8 vias de Descida.
+      Digite seu e-mail para receber uma recuperação de senha: Enviar Dados da Via
+      Minas Gerais > Lagoa Santa > Gruta da Lapinha (Maciço) > FISSURA RETORNO DO
+      MARCO Foto Envie suas fotos Contribua enviando fotos e/ou o croqui atualizado
+      desta via. Se quiser, adicione também uma legenda com o conteúdo da imagem e
+      o nome do autor. Selecionar imagens Limpar Declaro que esta imagem não viola
+      direitos autorais, responsabilizando-me integralmente por eventuais ações'
+    - 'croqui atualizado desta via. Se quiser, adicione também uma legenda com o conteúdo
+      da imagem e o nome do autor. Selecionar imagens Limpar Declaro que esta imagem
+      não viola direitos autorais, responsabilizando-me integralmente por eventuais
+      ações ajuizadas por terceiros interessados. Enviar FISSURA RETORNO DO MARCO
+      Compartilhar: WhatsApp Facebook Twitter Copiar Sua nota: Graduação: IIIsup Local:
+      Gruta da Lapinha (Maciço) Cadastrada por: Luciano Bender, em 14-09-2020 às 22:54
+      Alterada por: Luciano Bender, em 09-09-2026 às 13:13 Modalidade: Tradicional
+      Tipo de via: principal Tipo de escalada predominante: fissu'
+  - midia:
+      url: https://pt.scribd.com/document/529842647/Guia-Escalada-Lapinha-1
+      titulo: Escaladas na Gruta da Lapinha | PDF
+      fonte: BLOG
+    resultado_llm:
+      llm_confidence_score: 3
+      llm_reasoning: Apenas hospeda o PDF do guia antigo da Gruta da Lapinha com dados
+        tabelados já presentes no croqui do Aresta, sem vídeo ou beta adicional.
+    match_nome_no_snippet: true
+    snippets:
+    - 'no Eustáquio Macedo Melo Júnior 2002 Disponível em: [Link] Escale com segurança,
+      respeite o local e traga seu lixo de volta para casa Nº Nome da via Grau Proteção
+      Conquistadores1 Sai que é vaca 6º Móvel Márcio Soares Macena e Wilson Novaes2
+      Favo de Mel 6º Móvel Márcio Soares Macena e Wilson Novaes3 Retorno do Marco
+      3º Móvel Antonio C. Magalhães e Marco Antônio Canelas4 Tomara que não chova
+      6ºsup Fixa Christian A. N. Costa, Leo Guimarães "Léo Dandão"5 Castelinho 6º
+      Fixa Marcelo Henrique Grijó Utsch e Cristiano Loureiro6 Projeto Fixa Nº Nome
+      da via Grau Proteção Conquistadores7 Ajoelhou tem que Rezar 6ºsup Móve'
+- escalada_uid: gcztZvEGjZmcgV
+  betas_nao_revisados:
+  - midia:
+      url: https://pt.scribd.com/document/529842647/Guia-Escalada-Lapinha-1
+      titulo: Escaladas na Gruta da Lapinha | PDF
+      fonte: BLOG
+    resultado_llm:
+      llm_confidence_score: 3
+      llm_reasoning: Apenas hospeda o PDF do guia antigo da Gruta da Lapinha com dados
+        tabelados já presentes no croqui do Aresta, sem vídeo ou beta adicional.
+    match_nome_no_snippet: true
+    snippets:
+    - gurança, respeite o local e traga seu lixo de volta para casa Nº Nome da via
+      Grau Proteção Conquistadores1 Sai que é vaca 6º Móvel Márcio Soares Macena e
+      Wilson Novaes2 Favo de Mel 6º Móvel Márcio Soares Macena e Wilson Novaes3 Retorno
+      do Marco 3º Móvel Antonio C. Magalhães e Marco Antônio Canelas4 Tomara que não
+      chova 6ºsup Fixa Christian A. N. Costa, Leo Guimarães "Léo Dandão"5 Castelinho
+      6º Fixa Marcelo Henrique Grijó Utsch e Cristiano Loureiro6 Projeto Fixa Nº Nome
+      da via Grau Proteção Conquistadores7 Ajoelhou tem que Rezar 6ºsup Móvel Antonio
+      Carlos Magalhães8 O Exibicionista 5º Fixa Daniel Fernandes “Salim”
+  - midia:
+      url: https://instagram.com/reel/DCAgoxcxh6P
+      titulo: Cid Câmara | Hoje 5/11 a Gruta da Lapinha ... - Instagram
+      fonte: INSTAGRAM
+    resultado_llm:
+      llm_confidence_score: 2
+      llm_reasoning: 'Falso positivo: post sobre fechamento de trilha na Gruta da
+        Lapinha (Castelo) na Chapada Diamantina, sem relação com a via em Lagoa Santa
+        - MG.'
+    match_nome_no_snippet: false
+    snippets:
+    - A trilha que passa por dentro da gruta da Lapinha (Castelo) está fechada para
+      visitação devido ao agravamento dos riscos geológicos no interior da gruta.
+      Essa alteração vigora a partir de 05 de Novembro de 2024 e até que novo comunicado
+      a respeito seja emitido.
+  - midia:
+      url: https://facebook.com/guiachapadadiamantina1/photos/o-icmbio-responsável-pela-gestão-do-parque-nacional-da-chapada-diamantina-pncd-a/1101599751965126
+      titulo: Guia - O ICMBio, responsável pela gestão do Parque Nacional ...
+      fonte: FACEBOOK
+    resultado_llm:
+      llm_confidence_score: 1
+      llm_reasoning: 'Falso positivo: publicação sobre trilha no Morro da Lapinha
+        no Parque Nacional da Chapada Diamantina (BA), sem relação com escalada em
+        Lagoa Santa - MG.'
+    match_nome_no_snippet: false
+    snippets:
+    - Nov 5, 2024 · Guia - O ICMBio, responsável pela gestão do Parque Nacional da
+      Chapada Diamantina (PNCD), anuncia uma nova trilha de acesso aos mirantes do
+      Morro da Lapinha (também conhecido como Castelo), localizado no Vale do Pati.
+- escalada_uid: lJSlR2A2Xnc174
+  betas_nao_revisados:
+  - midia:
+      url: https://youtube.com/watch?v=cjZ9oxx0yLA
+      titulo: Escalada Gruta da Lapinha - Lagoa Santa MG - YouTube
+      fonte: YOUTUBE
+    resultado_llm:
+      llm_confidence_score: 8
+      llm_reasoning: Vídeo genérico sobre escalada na Gruta da Lapinha sem menção
+        ou beta específico da via Ajoelhou tem que Rezar.
+    match_nome_no_snippet: false
+    snippets:
+    - Apr 18, 2018 · Escalada Gruta da Lapinha - Lagoa Santa MG Escalada Gruta da
+      Lapinha - Lagoa Santa MG …
+  - midia:
+      url: https://pt.scribd.com/document/529842647/Guia-Escalada-Lapinha-1
+      titulo: Escaladas na Gruta da Lapinha | PDF
+      fonte: BLOG
+    resultado_llm:
+      llm_confidence_score: 3
+      llm_reasoning: Apenas hospeda o PDF do guia antigo da Gruta da Lapinha com dados
+        tabelados já presentes no croqui do Aresta, sem vídeo ou beta adicional.
+    match_nome_no_snippet: true
+    snippets:
+    - e Wilson Novaes3 Retorno do Marco 3º Móvel Antonio C. Magalhães e Marco Antônio
+      Canelas4 Tomara que não chova 6ºsup Fixa Christian A. N. Costa, Leo Guimarães
+      "Léo Dandão"5 Castelinho 6º Fixa Marcelo Henrique Grijó Utsch e Cristiano Loureiro6
+      Projeto Fixa Nº Nome da via Grau Proteção Conquistadores7 Ajoelhou tem que Rezar
+      6ºsup Móvel Antonio Carlos Magalhães8 O Exibicionista 5º Fixa Daniel Fernandes
+      “Salim” Descrição das vias na página 6 Descrição das vias na página 6 Nº Nome
+      da via Grau Proteção Conquistadores9 Lua Cheia 5º Móvel Antonio Carlos Magalhães
+      e Vladmir Haddad10 Jornada nas Estrelas 7ºa Fixa Antonio Carl
+- escalada_uid: VzHgiUIINvtKec
+  betas_nao_revisados:
+  - midia:
+      url: https://pt.scribd.com/document/529842647/Guia-Escalada-Lapinha-1
+      titulo: Escaladas na Gruta da Lapinha | PDF
+      fonte: BLOG
+    resultado_llm:
+      llm_confidence_score: 3
+      llm_reasoning: Apenas hospeda o PDF do guia antigo da Gruta da Lapinha com dados
+        tabelados já presentes no croqui do Aresta, sem vídeo ou beta adicional.
+    match_nome_no_snippet: true
+    snippets:
+    - es e Marco Antônio Canelas4 Tomara que não chova 6ºsup Fixa Christian A. N.
+      Costa, Leo Guimarães "Léo Dandão"5 Castelinho 6º Fixa Marcelo Henrique Grijó
+      Utsch e Cristiano Loureiro6 Projeto Fixa Nº Nome da via Grau Proteção Conquistadores7
+      Ajoelhou tem que Rezar 6ºsup Móvel Antonio Carlos Magalhães8 O Exibicionista
+      5º Fixa Daniel Fernandes “Salim” Descrição das vias na página 6 Descrição das
+      vias na página 6 Nº Nome da via Grau Proteção Conquistadores9 Lua Cheia 5º Móvel
+      Antonio Carlos Magalhães e Vladmir Haddad10 Jornada nas Estrelas 7ºa Fixa Antonio
+      Carlos Magalhães e Vladmir Haddad11 Egotrip 6ºsup Fixa Ant
+- escalada_uid: bCJDqPZpZ6a12y
+  betas_nao_revisados:
+  - midia:
+      url: https://youtube.com/watch?v=cjZ9oxx0yLA
+      titulo: Escalada Gruta da Lapinha - Lagoa Santa MG - YouTube
+      fonte: YOUTUBE
+    resultado_llm:
+      llm_confidence_score: 8
+      llm_reasoning: Vídeo genérico sobre escalada na Gruta da Lapinha sem menção
+        ou beta específico da via Conspiração Sanguessuga.
+    match_nome_no_snippet: false
+    snippets:
+    - Apr 18, 2018 · Escalada Gruta da Lapinha - Lagoa Santa MG Escalada Gruta da
+      Lapinha - Lagoa Santa MG …
+  - midia:
+      url: https://pt.scribd.com/document/529842647/Guia-Escalada-Lapinha-1
+      titulo: Escaladas na Gruta da Lapinha | PDF
+      fonte: BLOG
+    resultado_llm:
+      llm_confidence_score: 3
+      llm_reasoning: Apenas hospeda o PDF do guia antigo da Gruta da Lapinha com dados
+        tabelados já presentes no croqui do Aresta, sem vídeo ou beta adicional.
+    match_nome_no_snippet: true
+    snippets:
+    - ntonio Carlos Magalhães e Vladmir Haddad10 Jornada nas Estrelas 7ºa Fixa Antonio
+      Carlos Magalhães e Vladmir Haddad11 Egotrip 6ºsup Fixa Antonio Carlos Magalhães
+      e Vladmir Haddad12 Boicote de comunicação 6ºsup Fixa Leonardo Hoffmann e "Fao"13
+      Vicio 6º Fixa Antonio Carlos Magalhães e Vladmir Haddad14 Conspiração Sanguessuga
+      6ºsup Fixa Leonardo Hoffmann e Alexandre.15 Gota D’água 6º Móvel Antonio Carlos
+      Magalhães e Vladmir Haddad16 Sai de Baixo 5º Móvel Antonio Carlos Magalhães
+      e Danilo Abreu17 Pipeline 6ºsup Fixa Gabriel Fillizola e Sílvio Om18 Jurubeba
+      8ºb Fixa Wagner Morin Gomes e Wilson Novaes19 Perigo Mora ao Lado
+- escalada_uid: CyKGqcG4aTKxfn
+  betas_nao_revisados:
+  - midia:
+      url: https://pt.scribd.com/document/529842647/Guia-Escalada-Lapinha-1
+      titulo: Escaladas na Gruta da Lapinha | PDF
+      fonte: BLOG
+    resultado_llm:
+      llm_confidence_score: 3
+      llm_reasoning: Apenas hospeda o PDF do guia antigo da Gruta da Lapinha com dados
+        tabelados já presentes no croqui do Aresta, sem vídeo ou beta adicional.
+    match_nome_no_snippet: true
+    snippets:
+    - Fixa Antonio Carlos Magalhães e Vladmir Haddad11 Egotrip 6ºsup Fixa Antonio
+      Carlos Magalhães e Vladmir Haddad12 Boicote de comunicação 6ºsup Fixa Leonardo
+      Hoffmann e "Fao"13 Vicio 6º Fixa Antonio Carlos Magalhães e Vladmir Haddad14
+      Conspiração Sanguessuga 6ºsup Fixa Leonardo Hoffmann e Alexandre.15 Gota D’água
+      6º Móvel Antonio Carlos Magalhães e Vladmir Haddad16 Sai de Baixo 5º Móvel Antonio
+      Carlos Magalhães e Danilo Abreu17 Pipeline 6ºsup Fixa Gabriel Fillizola e Sílvio
+      Om18 Jurubeba 8ºb Fixa Wagner Morin Gomes e Wilson Novaes19 Perigo Mora ao Lado
+      8ºa Fixa Márcio Soares Macena e Mozart20 Pretexto da Tr
+- escalada_uid: IOUnxnbFfZEGs4
+  betas_nao_revisados:
+  - midia:
+      url: https://thecrag.com/pt/escalando/australia/nowra/the-grotto-cliffline/area/9898940667
+      titulo: Pipeline Boulders, Escalada em rocha | theCrag
+      fonte: OUTRO_UGC
+    resultado_llm:
+      llm_confidence_score: 1
+      llm_reasoning: 'Falso positivo homônimo: área Pipeline Boulders localizada em
+        Nowra, Austrália.'
+    match_nome_no_snippet: true
+    snippets:
+    - Jun 14, 2025 · Mapa Questões de acesso herdado de Nowra This climbing area has
+      recently become a focus spot for tension between climbers and the local Aboriginal
+      community. Be informed and respect closures. Clean up chalk and rethink adding
+      additional new routes to crags with access issues.
+  - midia:
+      url: https://youtube.com/watch?v=Z4x3bcgeRJI
+      titulo: 'Mapa Atlas Gorge (Pipeline Remake) - Call Of Duty: Advanced ...'
+      fonte: YOUTUBE
+    resultado_llm:
+      llm_confidence_score: 0
+      llm_reasoning: 'Falso positivo homônimo: vídeo de gameplay do jogo Call of Duty
+        (mapa Pipeline Remake), sem relação com escalada.'
+    match_nome_no_snippet: true
+    snippets:
+    - 'Obrigado pela companhia. Se curtir deixe sua avaliação e se inscreva-se para
+      receber novos vídeos! =DMais vídeos de COD Advanced Warfare: http://www.youtube...'
+- escalada_uid: LtbPet4uTXi7Pg
+  betas_nao_revisados:
+  - midia:
+      url: https://pt.wikiloc.com/trilhas/outdoor/brasil/pernambuco/jurubeba
+      titulo: As melhores trilhas em Jurubeba - Wikiloc
+      fonte: OUTRO_UGC
+    resultado_llm:
+      llm_confidence_score: 1
+      llm_reasoning: 'Falso positivo: página do Wikiloc sobre trilhas em Jurubeba
+        (Pernambuco), sem relação com escalada na Gruta da Lapinha.'
+    match_nome_no_snippet: true
+    snippets:
+    - Descubra os lugares mais bonitos do mundo, faça o download de percursos por
+      GPS e siga os melhores trajetos em um mapa. Grave a sua própria trilha no app
+      Wikiloc, faça o upload e compartilhe-a com a comunidade.
+  - midia:
+      url: https://es.wikiloc.com/rutas-senderismo/trilha-hombu-circuito-da-jurubeba-89666686
+      titulo: Wikiloc | Ruta Trilha HOMBU circuito da Jurubeba
+      fonte: OUTRO_UGC
+    resultado_llm:
+      llm_confidence_score: 1
+      llm_reasoning: 'Falso positivo: trilha de caminhada no Piauí pelo Wikiloc, sem
+        relação com a via de escalada na Gruta da Lapinha.'
+    match_nome_no_snippet: true
+    snippets:
+    - Ruta Trilha HOMBU circuito da Jurubeba de Senderismo en Vargem Grande, Piauí
+      (Brazil). Descarga el track GPS y sigue el itinerario del sendero desde un mapa.
+      Graba tu propio recorrido desde la app, sube la ruta y compártela con la comunidad.
+  - midia:
+      url: https://pt.wikiloc.com/trilhas-trekking/trilha-hombu-circuito-da-jurubeba-143902485
+      titulo: Trilha HOMBU circuito da Jurubeba - Wikiloc
+      fonte: OUTRO_UGC
+    resultado_llm:
+      llm_confidence_score: 1
+      llm_reasoning: 'Falso positivo: trilha de trekking em Vargem Grande (PI) no
+        Wikiloc, sem relação com escalada na Gruta da Lapinha.'
+    match_nome_no_snippet: true
+    snippets:
+    - Trilha Trilha HOMBU circuito da Jurubeba de Trekking em Vargem Grande, Piauí
+      (Brazil). Baixe a faixa GPS e siga o itinerário da rota a partir de um mapa.
+      Com Jeferson Formícola e Alessandra Fijumoto Jundiaí SP
+  - midia:
+      url: https://wikiloc.com/hiking-trails/serra-da-capivara-travessia-mirante-da-pedra-furada-e-circuito-da-jurubeba-136300126
+      titulo: Serra da Capivara - Travessia Mirante da Pedra ... - Wikiloc
+      fonte: OUTRO_UGC
+    resultado_llm:
+      llm_confidence_score: 1
+      llm_reasoning: 'Falso positivo: trilha de caminhada na Serra da Capivara (PI)
+        no Wikiloc, sem relação com escalada na Gruta da Lapinha.'
+    match_nome_no_snippet: true
+    snippets:
+    - May 31, 2023 · Serra da Capivara - Travessia Mirante da Pedra Furada e Circuito
+      da Jurubeba Hiking trail in Vargem Grande, Piauí (Brazil). Download its GPS
+      track and follow the itinerary on a map.
+- escalada_uid: PhAfEvHO25UiXj
+  betas_nao_revisados:
+  - midia:
+      url: https://pt.scribd.com/document/529842647/Guia-Escalada-Lapinha-1
+      titulo: Escaladas na Gruta da Lapinha | PDF
+      fonte: BLOG
+    resultado_llm:
+      llm_confidence_score: 3
+      llm_reasoning: Apenas hospeda o PDF do guia antigo da Lapinha com dados tabelados
+        já presentes no croqui do Aresta, sem vídeo ou beta adicional.
+    match_nome_no_snippet: true
+    snippets:
+    - 15 Gota D’água 6º Móvel Antonio Carlos Magalhães e Vladmir Haddad16 Sai de Baixo
+      5º Móvel Antonio Carlos Magalhães e Danilo Abreu17 Pipeline 6ºsup Fixa Gabriel
+      Fillizola e Sílvio Om18 Jurubeba 8ºb Fixa Wagner Morin Gomes e Wilson Novaes19
+      Perigo Mora ao Lado 8ºa Fixa Márcio Soares Macena e Mozart20 Pretexto da Traição
+      6ºsup Fixa Daniel Fernandes “Salim” e Ramaya Vallias21 Sorriso do Lagarto 6º
+      Fixa André C. B. “Andrezão “ e J. Roberto Cardoso “Dagó”22 Orgasmatrom 6º Fixa
+      André C. B. “Andrezão “ e J. Roberto Cardoso “Dagó”23 Escaramuça 3º Móvel Antonio
+      Carlos Magalhães24 Túnel do Tempo 5º Móvel Antonio Carlos Mag
+- escalada_uid: 3YGXOKygemgTsz
+  betas_nao_revisados:
+  - midia:
+      url: https://youtube.com/watch?v=cjZ9oxx0yLA
+      titulo: Escalada Gruta da Lapinha - Lagoa Santa MG - YouTube
+      fonte: YOUTUBE
+    resultado_llm:
+      llm_confidence_score: 8
+      llm_reasoning: Vídeo genérico de escalada na Gruta da Lapinha sem menção ou
+        beta específico da via Sorriso do Lagarto.
+    match_nome_no_snippet: false
+    snippets:
+    - Apr 18, 2018 · Escalada Gruta da Lapinha - Lagoa Santa MG Escalada Gruta da
+      Lapinha - Lagoa Santa MG …
+  - midia:
+      url: https://pt.scribd.com/document/529842647/Guia-Escalada-Lapinha-1
+      titulo: Escaladas na Gruta da Lapinha | PDF
+      fonte: BLOG
+    resultado_llm:
+      llm_confidence_score: 3
+      llm_reasoning: Apenas hospeda o PDF do guia antigo da Lapinha com dados tabelados
+        já presentes no croqui do Aresta, sem vídeo ou beta adicional.
+    match_nome_no_snippet: true
+    snippets:
+    - Baixo 5º Móvel Antonio Carlos Magalhães e Danilo Abreu17 Pipeline 6ºsup Fixa
+      Gabriel Fillizola e Sílvio Om18 Jurubeba 8ºb Fixa Wagner Morin Gomes e Wilson
+      Novaes19 Perigo Mora ao Lado 8ºa Fixa Márcio Soares Macena e Mozart20 Pretexto
+      da Traição 6ºsup Fixa Daniel Fernandes “Salim” e Ramaya Vallias21 Sorriso do
+      Lagarto 6º Fixa André C. B. “Andrezão “ e J. Roberto Cardoso “Dagó”22 Orgasmatrom
+      6º Fixa André C. B. “Andrezão “ e J. Roberto Cardoso “Dagó”23 Escaramuça 3º
+      Móvel Antonio Carlos Magalhães24 Túnel do Tempo 5º Móvel Antonio Carlos Magalhães
+      e Lúcia Magalhães25 Dédalos 4º sup Móvel Antonio Carlos Magalhães e
+- escalada_uid: 6qtIK6oko89RLT
+  betas_nao_revisados:
+  - midia:
+      url: https://pt.scribd.com/document/529842647/Guia-Escalada-Lapinha-1
+      titulo: Escaladas na Gruta da Lapinha | PDF
+      fonte: BLOG
+    resultado_llm:
+      llm_confidence_score: 3
+      llm_reasoning: Apenas hospeda o PDF do guia antigo da Lapinha com dados tabelados
+        já presentes no croqui do Aresta, sem vídeo ou beta adicional.
+    match_nome_no_snippet: true
+    snippets:
+    - Novaes19 Perigo Mora ao Lado 8ºa Fixa Márcio Soares Macena e Mozart20 Pretexto
+      da Traição 6ºsup Fixa Daniel Fernandes “Salim” e Ramaya Vallias21 Sorriso do
+      Lagarto 6º Fixa André C. B. “Andrezão “ e J. Roberto Cardoso “Dagó”22 Orgasmatrom
+      6º Fixa André C. B. “Andrezão “ e J. Roberto Cardoso “Dagó”23 Escaramuça 3º
+      Móvel Antonio Carlos Magalhães24 Túnel do Tempo 5º Móvel Antonio Carlos Magalhães
+      e Lúcia Magalhães25 Dédalos 4º sup Móvel Antonio Carlos Magalhães e Lúcia Magalhães26
+      Bouquet de Rosas 4º sup Móvel Antonio C. Magalhães e Danilo Abreu27 Fogo no
+      Rabo 6ºsup Fixa Fabiano da Silva Fernandes e Viviane
+  - midia:
+      url: https://pt.wikipedia.org/wiki/Escaramuça_em_Joncherey
+      titulo: Escaramuça em Joncherey – Wikipédia, a enciclopédia livre
+      fonte: BLOG
+    resultado_llm:
+      llm_confidence_score: 0
+      llm_reasoning: 'Falso positivo: artigo da Wikipédia sobre confronto militar
+        da Primeira Guerra Mundial na França, sem relação com escalada.'
+    match_nome_no_snippet: true
+    snippets:
+    - boração Boas-vindas Ajuda Páginas de testes públicas Portal comunitário Mudanças
+      recentes Manutenção Criar página Páginas novas Contato Busca Procurar Aparência
+      Doar Criar conta Iniciar sessão Ferramentas pessoais Doar Criar conta Iniciar
+      sessão Conteúdos mover para a barra lateral ocultar Início 1 Escaramuça 2 Ver
+      também 3 Referências Alternar o índice Escaramuça em Joncherey 7 idiomas English
+      Euskara Bahasa Indonesia Italiano Русский Српски / srpski Українська Editar
+      hiperligações Artigo Discussão português Ler Editar Editar código fonte Ver
+      histórico Guardar Ferramentas Ferramentas mover para a barra
+    - tal comunitário Mudanças recentes Manutenção Criar página Páginas novas Contato
+      Busca Procurar Aparência Doar Criar conta Iniciar sessão Ferramentas pessoais
+      Doar Criar conta Iniciar sessão Conteúdos mover para a barra lateral ocultar
+      Início 1 Escaramuça 2 Ver também 3 Referências Alternar o índice Escaramuça
+      em Joncherey 7 idiomas English Euskara Bahasa Indonesia Italiano Русский Српски
+      / srpski Українська Editar hiperligações Artigo Discussão português Ler Editar
+      Editar código fonte Ver histórico Guardar Ferramentas Ferramentas mover para
+      a barra lateral ocultar Ações Ler Editar Editar código fonte Ve
+    - 'er URL encurtado Mudar para o analisador sintático antigo Imprimir/exportar
+      Criar um livro Transferir como PDF Versão para impressão Noutros projetos Wikimedia
+      Commons Elemento Wikidata Aparência mover para a barra lateral ocultar 47° 31′
+      47″ N, 7° 00′ 07″ L Origem: Wikipédia, a enciclopédia livre. Escaramuça de JonchereyParte
+      do início da Primeira Guerra Mundial Fotografia de Joncherey no final do século
+      XIX. Data9h59 2 de agosto de 1914LocalJoncherey, FrançaCoordenadas47° 31'' 47"
+      N 7° 0'' 7" EDesfechoVitória francesaBeligerantes França Império Alemão Comandantes
+      Jules-André Peugeot [en] † Albert Mayer'
+    - Coordenadas47° 31' 47" N 7° 0' 7" EDesfechoVitória francesaBeligerantes França
+      Império Alemão Comandantes Jules-André Peugeot [en] † Albert Mayer [en] † Forças
+      5 homens 7 homens Baixas Jules-André Peugeot [en] morto 1 ferido Albert Mayer
+      [en] morto 3 feridos (1 capturado) 1 desaparecido 2 escaparam Escaramuça de
+      Joncherey Joncherey, uma comuna no departamento de Territoire de Belfort da
+      Franche-Comté, nordeste da França. Localização em mapa dinâmico Frente Ocidental
+      1914 Luxemburgo e Troisvierges Joncherey Moresnet [en] Invasão da Bélgica Liège
+      Dinant Namur Fronteiras Lorena Ardenas Charleroi Mons Troué
+    - o Michael Lys 3ª Aisne Bosque de Belleau 2ª Marne Soissons Amiens Ailette [en]
+      2ª Somme Saint-Mihiel Canal de St Quentin Meuse-Argonne 5ª Ypres 2ª Cambrai
+      Courtrai Sambre [en] Lys e Escaut [en] Artigos associados Trégua de Natal de
+      1914 Motins do Exército Francês Táticas da Frente Ocidental, 1917 A Escaramuça
+      de Joncherey foi um confronto no Territoire de Belfort, na fronteira entre a
+      França e o Alemanha, e foi a primeira ação militar da Frente Ocidental da Primeira
+      Guerra Mundial. Ocorreu na aldeia de Joncherey, perto da fronteira franco-alemã
+      na Alsácia-Lorena. A escaramuça ocorreu um dia antes da dec
+  - midia:
+      url: https://youtube.com/watch?v=w5J0YGnLW2U
+      titulo: Command & Conquer - Red Alert Retaliation (MAPA 29 Escaramuça ...Gruta
+        da Lapinha - O que saber antes de ir (ATUALIZADO 2026)Escaramuça em Joncherey
+        – Wikipédia, a enciclopédia livre
+      fonte: YOUTUBE
+    resultado_llm:
+      llm_confidence_score: 0
+      llm_reasoning: 'Falso positivo: vídeo de gameplay do jogo Command & Conquer
+        (Mapa 29 Escaramuça), sem relação com escalada.'
+    match_nome_no_snippet: true
+    snippets:
+    - Dec 28, 2025 · Command & Conquer - Red Alert Retaliation (MAPA 29 Escaramuça
+      / Longplay PSX) 181 views 7mo ago CSR LP 284 subscribers Uma gruta maravilhosa,
+      repleta de formações naturais, como por exemplo, estalagmite e estalactites.
+      A visita é paga porém é acompanhada de um guia que vai explicando todas as galerias.
+      A Escaramuça de Joncherey foi um confronto no Territoire de Belfort, na fronteira
+      entre a França e o Alemanha, e foi a primeira ação militar da Frente Ocidental
+      da Primeira Guerra Mundial.
+- escalada_uid: fTlGW2iOfrQfhh
+  betas_nao_revisados:
+  - midia:
+      url: https://escaladas.com.br/via/id/4574/Túnel+do+Tempo
+      titulo: Escaladas.com.br | Via TÚNEL DO TEMPO
+      fonte: OUTRO_UGC
+    resultado_llm:
+      llm_confidence_score: 4
+      llm_reasoning: Página de catálogo (Escaladas.com.br) que apenas replica dados
+        básicos tabelados sem foto, vídeo ou beta adicional ao croqui do Aresta.
+    match_nome_no_snippet: true
+    snippets:
+    - '194 vias de Esportiva, 663 vias de Bouldering, 83 vias de Artificial, 68 vias
+      de Big Wall, 65 vias de Tradicional Esportiva, 9 vias de Psicobloc e 8 vias
+      de Descida. Digite seu e-mail para receber uma recuperação de senha: Enviar
+      Dados da Via Minas Gerais > Lagoa Santa > Gruta da Lapinha (Maciço) > TÚNEL
+      DO TEMPO Foto Envie suas fotos Contribua enviando fotos e/ou o croqui atualizado
+      desta via. Se quiser, adicione também uma legenda com o conteúdo da imagem e
+      o nome do autor. Selecionar imagens Limpar Declaro que esta imagem não viola
+      direitos autorais, responsabilizando-me integralmente por eventuais ações'
+    - 's e/ou o croqui atualizado desta via. Se quiser, adicione também uma legenda
+      com o conteúdo da imagem e o nome do autor. Selecionar imagens Limpar Declaro
+      que esta imagem não viola direitos autorais, responsabilizando-me integralmente
+      por eventuais ações ajuizadas por terceiros interessados. Enviar TÚNEL DO TEMPO
+      Compartilhar: WhatsApp Facebook Twitter Copiar Sua nota: Graduação: II Local:
+      Gruta da Lapinha (Maciço) Cadastrada por: Luciano Bender, em 14-09-2020 às 22:32
+      Alterada por: Luciano Bender, em 09-09-2026 às 13:10 Modalidade: Tradicional
+      Tipo de via: principal Tipo de escalada predominante: agarras E'
+  - midia:
+      url: https://pt.scribd.com/document/529842647/Guia-Escalada-Lapinha-1
+      titulo: Escaladas na Gruta da Lapinha | PDF
+      fonte: BLOG
+    resultado_llm:
+      llm_confidence_score: 3
+      llm_reasoning: Apenas hospeda o PDF do guia antigo da Lapinha com dados tabelados
+        já presentes no croqui do Aresta, sem vídeo ou beta adicional.
+    match_nome_no_snippet: true
+    snippets:
+    - ares Macena e Mozart20 Pretexto da Traição 6ºsup Fixa Daniel Fernandes “Salim”
+      e Ramaya Vallias21 Sorriso do Lagarto 6º Fixa André C. B. “Andrezão “ e J. Roberto
+      Cardoso “Dagó”22 Orgasmatrom 6º Fixa André C. B. “Andrezão “ e J. Roberto Cardoso
+      “Dagó”23 Escaramuça 3º Móvel Antonio Carlos Magalhães24 Túnel do Tempo 5º Móvel
+      Antonio Carlos Magalhães e Lúcia Magalhães25 Dédalos 4º sup Móvel Antonio Carlos
+      Magalhães e Lúcia Magalhães26 Bouquet de Rosas 4º sup Móvel Antonio C. Magalhães
+      e Danilo Abreu27 Fogo no Rabo 6ºsup Fixa Fabiano da Silva Fernandes e Viviane
+      da Silva Euler28 Bobeou Sobrou 7ºa Fixa Fabiano da
+  - midia:
+      url: https://escaladas.com.br/local/id/541/Gruta+da+Lapinha+(Maciço)
+      titulo: Escaladas.com.br | Gruta da Lapinha (Maciço)
+      fonte: OUTRO_UGC
+    resultado_llm:
+      llm_confidence_score: 2
+      llm_reasoning: Página de catálogo geral do setor no Escaladas.com.br que apenas
+        lista nomes e graus de vias, sem beta ou mídia específica.
+    match_nome_no_snippet: true
+    snippets:
+    - TRIP VIIa ESPECTRO VIIa ETA SÔ VI FOLIA NO MATAGAL IIIsup FOLIÃO II GOTA D'ÁGUA
+      VI HERÓIS DA RESISTÊNCIA II JORNADA NAS ESTRELAS VIIb FISSURA LUA CHEIA IVsup
+      LUZES IV PARA NÃO DIZER QUE NÃO FALEI DE FLORES Vsup PIERRÔ E COLOMBINA IIIsup
+      FISSURA RETORNO DO MARCO IIIsup SAI DE BAIXO V SCARAMUÇA IIsup TÚNEL DO TEMPO
+      II VÍCIO VI Cadastrar nova via Encontre Montanhas e locais Vias Lugares onde
+      ficar Clubes Usuários Conquistadores Sobre Quem somos Termos de uso Advertência
+      Ética Relatório de Acidentes em Esportes de Montanha Contato Entre em contato
+      Doação Biblioteca Croquis / Guias Documentos Escaladas.com.br ©
+- escalada_uid: lnwPHtyMsnk7PX
+  betas_nao_revisados:
+  - midia:
+      url: https://escaladas.com.br/via/id/4577/PIERRÔ+E+COLOMBINA
+      titulo: Escaladas.com.br | Via PIERRÔ E COLOMBINA
+      fonte: OUTRO_UGC
+    resultado_llm:
+      llm_confidence_score: 4
+      llm_reasoning: Página de catálogo (Escaladas.com.br) que apenas replica dados
+        básicos tabelados sem foto, vídeo ou beta adicional ao croqui do Aresta.
+    match_nome_no_snippet: true
+    snippets:
+    - '194 vias de Esportiva, 663 vias de Bouldering, 83 vias de Artificial, 68 vias
+      de Big Wall, 65 vias de Tradicional Esportiva, 9 vias de Psicobloc e 8 vias
+      de Descida. Digite seu e-mail para receber uma recuperação de senha: Enviar
+      Dados da Via Minas Gerais > Lagoa Santa > Gruta da Lapinha (Maciço) > PIERRÔ
+      E COLOMBINA Foto Envie suas fotos Contribua enviando fotos e/ou o croqui atualizado
+      desta via. Se quiser, adicione também uma legenda com o conteúdo da imagem e
+      o nome do autor. Selecionar imagens Limpar Declaro que esta imagem não viola
+      direitos autorais, responsabilizando-me integralmente por eventuais ações'
+    - 's e/ou o croqui atualizado desta via. Se quiser, adicione também uma legenda
+      com o conteúdo da imagem e o nome do autor. Selecionar imagens Limpar Declaro
+      que esta imagem não viola direitos autorais, responsabilizando-me integralmente
+      por eventuais ações ajuizadas por terceiros interessados. Enviar PIERRÔ E COLOMBINA
+      Compartilhar: WhatsApp Facebook Twitter Copiar Sua nota: Graduação: IIIsup Local:
+      Gruta da Lapinha (Maciço) Cadastrada por: Luciano Bender, em 14-09-2020 às 22:37
+      Alterada por: Luciano Bender, em 09-09-2026 às 13:12 Modalidade: Tradicional
+      Tipo de via: principal Tipo de escalada predominante: agarr'
+  - midia:
+      url: https://pt.scribd.com/document/529842647/Guia-Escalada-Lapinha-1
+      titulo: Escaladas na Gruta da Lapinha | PDF
+      fonte: BLOG
+    resultado_llm:
+      llm_confidence_score: 3
+      llm_reasoning: Apenas hospeda o PDF do guia antigo da Lapinha com dados tabelados
+        já presentes no croqui do Aresta, sem vídeo ou beta adicional.
+    match_nome_no_snippet: true
+    snippets:
+    - Viviane da Silva Euler40 Ravenloft 6º Fixa Leonardo Guimarães "Léo Dandão"41
+      Muro das Lamentações 7ºb Fixa Fabiano da Silva Fernandes e Viviane da Silva
+      Euler42 Equilíbrio Distante 8ºa Fixa Fabiano da Silva Fernandes e Viviane da
+      Silva Euler43 Careta do Calango 9ºa Fixa Cristiano Loureiro “Negão”44 Pierrô
+      e Colombina 4º sup Móvel Antonio Carlos Magalhães e Lúcia Magalhães45 Escalador
+      sem mãe 8ºa Fixa Jovinei M. Medeiros, Dante M. Borges e Sérgio B. da Silva.46
+      Projeto inacabado Fixa47 Sobrevibrenf´s 6º sup Fixa Leonardo Hoffmann48 Sobreviventes
+      6º Fixa Anderson (Neném), Douglas e Bombom49 Scarface 7ºa Fixa Gust
+  - midia:
+      url: https://escaladas.com.br/local/id/541/Gruta+da+Lapinha+(Maciço)
+      titulo: Escaladas.com.br | Gruta da Lapinha (Maciço)
+      fonte: OUTRO_UGC
+    resultado_llm:
+      llm_confidence_score: 2
+      llm_reasoning: Página de catálogo geral do setor no Escaladas.com.br que apenas
+        lista nomes e graus de vias, sem beta ou mídia específica.
+    match_nome_no_snippet: true
+    snippets:
+    - p BOUQUET DE ROSAS IVsup CENA DE CINEMA III CORPO QUE CAI VIsup CHAMINÉ DEDALUS
+      IVsup EGOTRIP VIIa ESPECTRO VIIa ETA SÔ VI FOLIA NO MATAGAL IIIsup FOLIÃO II
+      GOTA D'ÁGUA VI HERÓIS DA RESISTÊNCIA II JORNADA NAS ESTRELAS VIIb FISSURA LUA
+      CHEIA IVsup LUZES IV PARA NÃO DIZER QUE NÃO FALEI DE FLORES Vsup PIERRÔ E COLOMBINA
+      IIIsup FISSURA RETORNO DO MARCO IIIsup SAI DE BAIXO V SCARAMUÇA IIsup TÚNEL
+      DO TEMPO II VÍCIO VI Cadastrar nova via Encontre Montanhas e locais Vias Lugares
+      onde ficar Clubes Usuários Conquistadores Sobre Quem somos Termos de uso Advertência
+      Ética Relatório de Acidentes em Esportes de Montanha Cont
+- escalada_uid: nzc62lIrSNVui8
+  betas_nao_revisados:
+  - midia:
+      url: https://youtube.com/watch?v=cjZ9oxx0yLA
+      titulo: Escalada Gruta da Lapinha - Lagoa Santa MG - YouTube
+      fonte: YOUTUBE
+    resultado_llm:
+      llm_confidence_score: 8
+      llm_reasoning: Vídeo genérico de escalada na Gruta da Lapinha sem menção ou
+        beta específico do Projeto inacabado.
+    match_nome_no_snippet: false
+    snippets:
+    - Apr 18, 2018 · Escalada Gruta da Lapinha - Lagoa Santa MG Escalada Gruta da
+      Lapinha - Lagoa Santa MG …
+  - midia:
+      url: https://pt.scribd.com/document/529842647/Guia-Escalada-Lapinha-1
+      titulo: Escaladas na Gruta da Lapinha | PDF
+      fonte: BLOG
+    resultado_llm:
+      llm_confidence_score: 3
+      llm_reasoning: Apenas hospeda o PDF do guia antigo da Lapinha com dados tabelados
+        já presentes no croqui do Aresta, sem vídeo ou beta adicional.
+    match_nome_no_snippet: true
+    snippets:
+    - líbrio Distante 8ºa Fixa Fabiano da Silva Fernandes e Viviane da Silva Euler43
+      Careta do Calango 9ºa Fixa Cristiano Loureiro “Negão”44 Pierrô e Colombina 4º
+      sup Móvel Antonio Carlos Magalhães e Lúcia Magalhães45 Escalador sem mãe 8ºa
+      Fixa Jovinei M. Medeiros, Dante M. Borges e Sérgio B. da Silva.46 Projeto inacabado
+      Fixa47 Sobrevibrenf´s 6º sup Fixa Leonardo Hoffmann48 Sobreviventes 6º Fixa
+      Anderson (Neném), Douglas e Bombom49 Scarface 7ºa Fixa Gustavo Piancastelli
+      e Ronie50 Posições Exóticas 7ºb Fixa Ivo Ferreira Marcelino51 Garotos não Choram
+      7ºa Fixa Eustáquio Macedo Melo Júnior e Emerson Alves Azeredo Nº N
+- escalada_uid: Jn3ntinFsz4Mej
+  betas_nao_revisados:
+  - midia:
+      url: https://youtube.com/watch?v=IQX5MfpiK1A
+      titulo: 'Guia Completo: Pegue TODOS os 65 Altares de Mapas ... - YouTubeIluminação
+        educacional LED - MOKOLight: Fabricante de luz ...Iluminação inteligente para
+        educação modernaIluminação Escolar: O Guia Definitivo - LEDYi LightingQue
+        tipo de luz são as luzes da sala de aula? Qual é a luz ...Iluminação LED para
+        escolas - um guia para escolher suas ...Iluminação Escolar - ledlucky.net'
+      fonte: YOUTUBE
+    resultado_llm:
+      llm_confidence_score: 0
+      llm_reasoning: 'Falso positivo: vídeo de guia de jogo (Sky) e textos de iluminação
+        LED para salas de aula escolares, sem relação com escalada.'
+    match_nome_no_snippet: true
+    snippets:
+    - "Este é o guia definitivo que vai facilitar sua jornada no jogo! ️ Neste vídeo,
+      você vai aprender passo a passo: Onde encontrar todos os altares de mapas no
+      Sky \U0001F30C A localização completa das... Determine o número de lâmpadas
+      de ensino necessárias com base nas funções de várias salas de aula, e as especificações
+      de iluminação dos padrões aplicáveis, e escolha luzes educacionais LED com desempenho
+      adequado. Mais ainda, com a seleção manual de cenas, pode também promover o
+      conforto visual dos estudantes e manter a sua atenção quando alternam entre
+      tarefas. Os controlos automáticos de iluminação garantem que as luzes se apagam
+      sempre que o espaço não estiver ocupado. Você pode garantir a uniformidade da
+      luz nas salas de aula garantindo a classificação lux é em torno de 500. Além
+      disso, todos os cantos das salas de aula devem receber a mesma intensidade de
+      luz. As luzes da grade de LED da sala de aula não têm impacto óbvio no estroboscópio,
+      o RGO isento não tem risco de luz azul, o índice de reprodução de cor não é
+      inferior a 90 e a temperatura da cor é controlada em cerca de 5000K, o que melhora
+      o conforto do espaço e reduz a luz azul dano. Apr 23, 2023 · Comece conduzindo
+      uma avaliação completa dos vários espaços dentro da escola, tomando nota de
+      fatores como disponibilidade de luz natural, tamanho do quarto, altura do teto,
+      e as necessidades específicas de diferentes áreas (salas de aula, corredores,
+      ginásios, etc.). Ao instalar a iluminação do painel de LED nas escolas, vários
+      fatores devem ser considerados para garantir um ótimo desempenho e eficiência
+      energética. Em primeiro lugar, é importante selecionar painéis de LED com alta
+      eficácia luminosa, medida em lúmens por watt, para garantir a máxima saída de
+      luz com o mínimo de consumo de energia."
+  - midia:
+      url: https://pt.benweilight.com/info/what-kind-of-light-are-the-lights-in-the-class-61402530.html
+      titulo: Que tipo de luz sÃ£o as luzes da sala de aula? Qual Ã© a luz inteligente
+        na sala de aula? - Conhecimento - Shenzhen Benwei Lighting Technology Co.,
+        Ltd
+      fonte: BLOG
+    resultado_llm:
+      llm_confidence_score: 0
+      llm_reasoning: 'Falso positivo: artigo comercial sobre lâmpadas e iluminação
+        LED para salas de aula, sem relação com escalada.'
+    match_nome_no_snippet: true
+    snippets:
+    - luz vermelha Kit de atualizaÃ§Ã£o universal de LED MagFit-2 sÃ©rie T10 Luz LED
+      para parede Painel de luz LED de emergÃªncia Tubo de luz LED com sensor Refletor
+      LED RGB Reator EletrÃ´nico Led Sensor fotocÃ©lula para luz LED externa Interruptor
+      de luz detector de sensor de movimento de ocupaÃ§Ã£o PIR Luzes de poste de estaca
+      de gramado Tiras de luz para toucador de banheiro Luzes MÃ©dicas, Luzes CirÃºrgicas
+      Suporte da lÃ¢mpada Tipo-personalizado NotÃ­cias ExibiÃ§Ã£o parcial de entrega
+      de pedido do cliente NotÃ­cias da empresa Conhecimento Conhecimento do produto
+      Tecnologia Mundial Luz LED para estÃ¡d
+    - LED para parede Painel de luz LED de emergÃªncia Tubo de luz LED com sensor
+      Refletor LED RGB Reator EletrÃ´nico Led Sensor fotocÃ©lula para luz LED externa
+      Interruptor de luz detector de sensor de movimento de ocupaÃ§Ã£o PIR Luzes de
+      poste de estaca de gramado Tiras de luz para toucador de banheiro Luzes MÃ©dicas,
+      Luzes CirÃºrgicas Suporte da lÃ¢mpada Tipo-personalizado NotÃ­cias ExibiÃ§Ã£o
+      parcial de entrega de pedido do cliente NotÃ­cias da empresa Conhecimento Conhecimento
+      do produto Tecnologia Mundial Luz LED para estÃ¡dio Contate-nos Projeto Blog
+      VR Linguagem PortuguÃªs English Gaeilgenah Ã‰ir
+    - Painel de luz LED de emergÃªncia Tubo de luz LED com sensor Refletor LED RGB
+      Reator EletrÃ´nico Led Sensor fotocÃ©lula para luz LED externa Interruptor de
+      luz detector de sensor de movimento de ocupaÃ§Ã£o PIR Luzes de poste de estaca
+      de gramado Tiras de luz para toucador de banheiro Luzes MÃ©dicas, Luzes CirÃºrgicas
+      Suporte da lÃ¢mpada Tipo-personalizado NotÃ­cias ExibiÃ§Ã£o parcial de entrega
+      de pedido do cliente NotÃ­cias da empresa Conhecimento Conhecimento do produto
+      Tecnologia Mundial Luz LED para estÃ¡dio Contate-nos Projeto Blog VR Linguagem
+      PortuguÃªs English Gaeilgenah Ã‰ireann í•œêµ­ì–´ S
+    - cnologia Mundial Luz LED para estÃ¡dio Contate-nos Projeto Blog VR Linguagem
+      PortuguÃªs English Gaeilgenah Ã‰ireann í•œêµ­ì–´ Svenska hrvatski bosanski KreyÃ²l
+      Ayisyen Ð‘ÑŠÐ»Ð³Ð°Ñ€Ñ ÐºÐ¸ Indonesia Norsk Srbija jezik (latinica) Ø¹Ø±Ø¨ÙŠ
+      Conhecimento Home/Conhecimento/Detalhes Que tipo de luz sÃ£o as luzes da sala
+      de aula? Qual Ã© a luz inteligente na sala de aula? Sep 03, 2021 Que tipo de
+      luz sÃ£o as luzes da sala de aula? Qual Ã© a luz inteligente na sala de aula?
+      A lÃ¢mpada fluorescente de tubo reto (tambÃ©m chamada de lÃ¢mpada fluorescente)
+      mais comumente usada nas primeiras salas de aula tradici
+    - nah Ã‰ireann í•œêµ­ì–´ Svenska hrvatski bosanski KreyÃ²l Ayisyen Ð‘ÑŠÐ»Ð³Ð°Ñ€Ñ
+      ÐºÐ¸ Indonesia Norsk Srbija jezik (latinica) Ø¹Ø±Ø¨ÙŠ Conhecimento Home/Conhecimento/Detalhes
+      Que tipo de luz sÃ£o as luzes da sala de aula? Qual Ã© a luz inteligente na
+      sala de aula? Sep 03, 2021 Que tipo de luz sÃ£o as luzes da sala de aula? Qual
+      Ã© a luz inteligente na sala de aula? A lÃ¢mpada fluorescente de tubo reto (tambÃ©m
+      chamada de lÃ¢mpada fluorescente) mais comumente usada nas primeiras salas de
+      aula tradicionais geralmente tinha as mais grossas e mais finas de acordo com
+      o nÃºmero de W, e o comprimento tambÃ
+  - midia:
+      url: https://etaplighting.com/pt-pt/applications/soluções-de-iluminação-para-educação
+      titulo: Iluminação inteligente para educação moderna
+      fonte: BLOG
+    resultado_llm:
+      llm_confidence_score: 0
+      llm_reasoning: 'Falso positivo: página comercial sobre soluções de iluminação
+        para escolas e salas de aula, sem relação com escalada.'
+    match_nome_no_snippet: true
+    snippets:
+    - as às soluções de remodelação da ETAP, melhora o desempenho e a eficiência da
+      sua iluminação. Mais ainda, com a seleção manual de cenas, pode também promover
+      o conforto visual dos estudantes e manter a sua atenção quando alternam entre
+      tarefas. Os controlos automáticos de iluminação garantem que as luzes se apagam
+      sempre que o espaço não estiver ocupado. Iluminação de áreas gerais Uma grande
+      variedade de aplicações de tetos requer uma vasta escolha de luminárias. Em
+      alguns casos, os designs personalizados das luminárias conferem-lhes o ajuste
+      perfeito de que necessita. Pode reduzir o desperdício at
+  - midia:
+      url: https://ledyilighting.com/pt/school-lighting-the-definitive-guide
+      titulo: 'Iluminação Escolar: O Guia Definitivo - LEDYi Lighting'
+      fonte: BLOG
+    resultado_llm:
+      llm_confidence_score: 0
+      llm_reasoning: 'Falso positivo: guia comercial sobre iluminação LED escolar
+        para salas de aula, sem relação com escalada.'
+    match_nome_no_snippet: true
+    snippets:
+    - a utilidade e, assim, inutilizar a iluminação. No entanto, você não precisa
+      se preocupar, pois explicaremos tudo o que há para saber sobre iluminação escolar
+      neste guia. Então vamos fazer isso. Conteúdo Esconder 1 O que exatamente é iluminação
+      escolar e por que isso é importante? 2 Importância das luzes LED na iluminação
+      escolar 2.1 Energia eficiente 2.2 Melhora o desempenho da sala de aula 2.3 Reduz
+      a sensibilidade à luz 2.4 Diminui os Níveis de Estresse 2.5 Reduz o risco ocular
+      a longo prazo 3 Coisas a considerar para iluminação escolar 3.1 Contraste de
+      luminância 3.2 Temperatura de cor 3.3 CRI
+    - emperatura de cor 3.3 CRI 3.4 Distribuição uniforme 3.5 Modelagem de objetos
+      e faces 3.6 Brilho de luz 4 Como iluminar a escola adequadamente 5 Perguntas
+      Frequentes 6 Conclusão 7 Artigos relacionados O que exatamente é iluminação
+      escolar e por que isso é importante? Dos dois papéis fundamentais das luzes,
+      a utilidade é particularmente importante quando se trata de luzes escolares.
+      Isso afeta a visibilidade da sala e o humor dos alunos, o que é uma consideração
+      importante em qualquer instalação de ensino. Más condições de iluminação podem
+      causar ofuscamento e reflexos, o que pode cansar os alunos e
+    - e objetos e faces 3.6 Brilho de luz 4 Como iluminar a escola adequadamente 5
+      Perguntas Frequentes 6 Conclusão 7 Artigos relacionados O que exatamente é iluminação
+      escolar e por que isso é importante? Dos dois papéis fundamentais das luzes,
+      a utilidade é particularmente importante quando se trata de luzes escolares.
+      Isso afeta a visibilidade da sala e o humor dos alunos, o que é uma consideração
+      importante em qualquer instalação de ensino. Más condições de iluminação podem
+      causar ofuscamento e reflexos, o que pode cansar os alunos e reduzir sua concentração
+      nas aulas. Por outro lado, um ambiente de
+    - e aumentará sua produtividade. A iluminação LED adequada reduzirá o brilho e
+      ocultará o reflexo. Assim, os alunos não sentirão nenhuma tensão ou fadiga nos
+      olhos, permitindo que eles se concentrem melhor e aprendam mais. Além disso,
+      as temperaturas da luz também desempenham um papel significativo. Luzes quentes
+      causam sonolência e diminuem o foco dos alunos. É porque as luzes quentes desencadeiam
+      a produção de melatonina no corpo, um hormônio do sono que produz sonolência.
+      Por outro lado, as luzes frias imitam a luz natural e interrompem a produção
+      de melatonina, fazendo com que o corpo se sinta m
+    - o e ocultará o reflexo. Assim, os alunos não sentirão nenhuma tensão ou fadiga
+      nos olhos, permitindo que eles se concentrem melhor e aprendam mais. Além disso,
+      as temperaturas da luz também desempenham um papel significativo. Luzes quentes
+      causam sonolência e diminuem o foco dos alunos. É porque as luzes quentes desencadeiam
+      a produção de melatonina no corpo, um hormônio do sono que produz sonolência.
+      Por outro lado, as luzes frias imitam a luz natural e interrompem a produção
+      de melatonina, fazendo com que o corpo se sinta mais ativo e enérgico. Isso
+      ajuda a melhorar o foco dos alunos e os torna m
+  - midia:
+      url: https://mokolight.com/pt/blog/led-educational-lighting/choose-led-lighting-for-schools
+      titulo: Iluminação LED para escolas - um guia para escolher suas luzes adequadas
+      fonte: BLOG
+    resultado_llm:
+      llm_confidence_score: 0
+      llm_reasoning: 'Falso positivo: blog comercial sobre escolha de iluminação LED
+        para escolas e salas de aula, sem relação com escalada.'
+    match_nome_no_snippet: true
+    snippets:
+    - Pular para o conteúdo Sobre nósSobre MokoLightPor que nósParceriaShowroomsSustentabilidadePerguntas
+      frequentes ODM & Serviços LED OEMOEM de luz LEDOEM de acessórios LEDProjeto
+      de PCB LEDLaboratório de testes Luzes LED para cultivoLuz LED de placa quânticaBarra
+      de luz LED para crescimentoLuz LED de aranha para cultivoDriver de LEDControlador
+      LEDAcessóriosProdutos Mais luzes paraIluminação PúblicaIluminação para HorticulturaIluminação
+      MédicaLuz LED inteligenteIluminação de escritórioIluminação PublicitáriaIlum
+    - oomsSustentabilidadePerguntas frequentes ODM & Serviços LED OEMOEM de luz LEDOEM
+      de acessórios LEDProjeto de PCB LEDLaboratório de testes Luzes LED para cultivoLuz
+      LED de placa quânticaBarra de luz LED para crescimentoLuz LED de aranha para
+      cultivoDriver de LEDControlador LEDAcessóriosProdutos Mais luzes paraIluminação
+      PúblicaIluminação para HorticulturaIluminação MédicaLuz LED inteligenteIluminação
+      de escritórioIluminação PublicitáriaIluminação de aquárioIluminação EducacionalLuz
+      LED RGBLuz ultravioleta Blogue Contate-nos X Procurar Iluminação LED para escolas
+      – um guia para escolher suas luzes ad
+    - is luzes paraIluminação PúblicaIluminação para HorticulturaIluminação MédicaLuz
+      LED inteligenteIluminação de escritórioIluminação PublicitáriaIluminação de
+      aquárioIluminação EducacionalLuz LED RGBLuz ultravioleta Blogue Contate-nos
+      X Procurar Iluminação LED para escolas – um guia para escolher suas luzes adequadas
+      abril 23, 2023 Iluminação educacional LED Conteúdo LED Lcombate para escolas
+      Nos últimos anos, A iluminação LED tornou-se a escolha preferida de muitas instituições,
+      incluindo escolas. Sua eficiência energética, longa vida, e os benefícios ambientais
+      são as razões. A gama cada vez maior d
+    - cessária. Adicionalmente, considere as atividades que acontecem em cada espaço.
+      Por exemplo, salas de aula podem exigir mais brilho, iluminação mais focada
+      para tarefas como leitura e escrita, enquanto corredores e áreas comuns podem
+      se beneficiar de ambientes mais suaves, mais iluminação ambiente. Luzes LED
+      escolares com alta relação lúmens por watt Uma das principais razões para escolher
+      a iluminação LED é a sua eficiência energética, o que leva à economia de custos
+      no longo prazo. Resultando em contas de energia mais baixas para sua escola,
+      As luzes LED consomem significativamente menos energia
+    - bientes mais suaves, mais iluminação ambiente. Luzes LED escolares com alta
+      relação lúmens por watt Uma das principais razões para escolher a iluminação
+      LED é a sua eficiência energética, o que leva à economia de custos no longo
+      prazo. Resultando em contas de energia mais baixas para sua escola, As luzes
+      LED consomem significativamente menos energia do que as tradicionais lâmpadas
+      incandescentes ou fluorescentes. Procure luzes LED com alta lúmens por watt
+      razão, o que indica melhor eficiência energética. Ao considerar o custo total
+      de propriedade, é essencial levar em consideração não apenas o cust
+- escalada_uid: 6XVtUPIENKTN1i
+  betas_nao_revisados:
+  - midia:
+      url: https://pt.scribd.com/document/529842647/Guia-Escalada-Lapinha-1
+      titulo: Escaladas na Gruta da Lapinha | PDF
+      fonte: BLOG
+    resultado_llm:
+      llm_confidence_score: 3
+      llm_reasoning: PDF do guia antigo da Lapinha no Scribd contendo apenas dados
+        tabelados básicos (nome, grau e conquistadores) que já constam no croqui atual
+        do Aresta, sem vídeo ou beta adicional.
+    match_nome_no_snippet: true
+    snippets:
+    - Êta Sô 6º Móvel Antonio Carlos Magalhães e Lúcia Magalhães34 Via do Tetinho
+      5º sup Fixa Leonardo Guimarães "Léo Dandão"35 Ataque das Bolinhas 4º Fixa Fabiano
+      da Silva Fernandes e Viviane da Silva Euler36 Via do curso 3º Fixa37 Viajandão
+      Gramando na Chuva 3º Fixa Eustáquio M. Melo Júnior e alunos38 Martelo Voador
+      4º Fixa Ramaya Vallias e Sérgio Soares39 Coquetel de Maracujá 4º Fixa Fabiano
+      da Silva Fernandes e Viviane da Silva Euler40 Ravenloft 6º Fixa Leonardo Guimarães
+      "Léo Dandão"41 Muro das Lamentações 7ºb Fixa Fabiano da Silva Fernandes e Viviane
+      da Silva Euler42 Equilíbrio Distante 8ºa Fixa Fabiano da
+- escalada_uid: lfaYDI92Vpufa7
+  betas_nao_revisados:
+  - midia:
+      url: https://pt.scribd.com/document/529842647/Guia-Escalada-Lapinha-1
+      titulo: Escaladas na Gruta da Lapinha | PDF
+      fonte: BLOG
+    resultado_llm:
+      llm_confidence_score: 3
+      llm_reasoning: PDF do guia antigo da Lapinha no Scribd que apenas lista dados
+        tabelados básicos já presentes no croqui do Aresta, sem relato ou beta adicional.
+    match_nome_no_snippet: true
+    snippets:
+    - . Melo Júnior e alunos38 Martelo Voador 4º Fixa Ramaya Vallias e Sérgio Soares39
+      Coquetel de Maracujá 4º Fixa Fabiano da Silva Fernandes e Viviane da Silva Euler40
+      Ravenloft 6º Fixa Leonardo Guimarães "Léo Dandão"41 Muro das Lamentações 7ºb
+      Fixa Fabiano da Silva Fernandes e Viviane da Silva Euler42 Equilíbrio Distante
+      8ºa Fixa Fabiano da Silva Fernandes e Viviane da Silva Euler43 Careta do Calango
+      9ºa Fixa Cristiano Loureiro “Negão”44 Pierrô e Colombina 4º sup Móvel Antonio
+      Carlos Magalhães e Lúcia Magalhães45 Escalador sem mãe 8ºa Fixa Jovinei M. Medeiros,
+      Dante M. Borges e Sérgio B. da Silva.46 Projeto inacaba
+  - midia:
+      url: https://youtube.com/watch?v=gfLtk4Ix6mU
+      titulo: Gruta da Lapinha - Trabalho de Campo do Diversitas - YouTubeWikiloc
+        | Trilha Gruta da Lapinha - Lagoa Santa/MGParque Estadual do Sumidouro - Gruta
+        da Lapinha | Portal ...
+      fonte: YOUTUBE
+    resultado_llm:
+      llm_confidence_score: 0
+      llm_reasoning: 'Falso positivo: vídeo de passeio escolar de trabalho de campo
+        no circuito turístico da Gruta da Lapinha (coincidência textual com ''sala
+        de aula''), sem relação com escalada.'
+    match_nome_no_snippet: false
+    snippets:
+    - "Oct 3, 2025 · É sempre mais divertido aprender na prática! \U0001F31F A turma
+      do 4º ano viveu uma aventura inesquecível na Gruta da Lapinha, onde a sala de
+      aula ganhou novas dimensões! Baixe a faixa GPS e siga o itinerário da rota a
+      partir de um mapa. Gruta da Lapinha - Lagoa Santa/MG Excelente opção de escalada
+      esportiva com várias vias interessantes. Localizada no distrito da Lapinha,
+      seu circuito turístico tem cerca de 300 metros de extensão, nos quais 12 salões
+      são abertos à visitação. Eleita uma das \"Sete Maravilhas da Estrada Real\"
+      em 2011, o percurso tem cerca de 40 minutos, em dificuldade média, facilitada
+      com escadas."
+- escalada_uid: Ugy016aDHDPI6Y
+  betas_nao_revisados:
+  - midia:
+      url: https://thecrag.com/pt/escalando/brazil/minas-gerais/route/501286677
+      titulo: VIIc Ben Moon, Top rope climb in Gruta da Lapinha | theCrag
+      fonte: OUTRO_UGC
+    resultado_llm:
+      llm_confidence_score: 4
+      llm_reasoning: Página de catálogo do theCrag que apenas replica dados básicos
+        do guia antigo (grau 7c e top rope), sem vídeo, relato ou beta novo em relação
+        ao croqui do Aresta.
+    match_nome_no_snippet: true
+    snippets:
+    - 'Aug 23, 2025 · Contexto da graduação: BRZ Comprimento: TOP ROPE Gruta da Lapinha
+      Parede Karen Glass Sala de Aula Bloco B Vale Maritacas Bloco Bigodes Savassinha
+      Bloco Romano'
+  - midia:
+      url: https://thecrag.com/de/klettern/brazil/minas-gerais/route/501286677
+      titulo: VIIc Ben Moon, Top rope climb in Gruta da Lapinha | theCrag
+      fonte: OUTRO_UGC
+    resultado_llm:
+      llm_confidence_score: 4
+      llm_reasoning: Página duplicada em alemão do catálogo theCrag que apenas replica
+        dados básicos do guia antigo, sem vídeo, descrição ou beta adicional.
+    match_nome_no_snippet: true
+    snippets:
+    - 'Jul 21, 2026 · Bewertungskontext: BRZ Länge: TOPROPE Gruta da Lapinha Parede
+      Karen Glass Sala de Aula Bloco B Vale Maritacas Bloco Bigodes Savassinha Bloco
+      Romano'
+  - midia:
+      url: https://pt.scribd.com/document/529842647/Guia-Escalada-Lapinha-1
+      titulo: Escaladas na Gruta da Lapinha | PDF
+      fonte: BLOG
+    resultado_llm:
+      llm_confidence_score: 3
+      llm_reasoning: PDF do guia antigo da Lapinha no Scribd apenas com a tabela básica
+        de vias que já consta no croqui do Aresta, sem beta adicional.
+    match_nome_no_snippet: true
+    snippets:
+    - o Hoffmann48 Sobreviventes 6º Fixa Anderson (Neném), Douglas e Bombom49 Scarface
+      7ºa Fixa Gustavo Piancastelli e Ronie50 Posições Exóticas 7ºb Fixa Ivo Ferreira
+      Marcelino51 Garotos não Choram 7ºa Fixa Eustáquio Macedo Melo Júnior e Emerson
+      Alves Azeredo Nº Nome da via Grau Proteção Conquistadores52 Ben Moon 7ºc Top
+      Rope Eustáquio Macedo e Emerson Alves Azeredo53 Come Quieto 8ºb Fixa Alexandre
+      Galvão e XXX54 O Perigo que Veio do Céu 7ºa Fixa Fabiano da Silva Fernandes
+      e Charles Costa Marinho Charles C. Marinho , Emerson A. Azeredo e Fabiano55
+      Arranca Couro 7º Fixa Fernandes56 Ônibus Inglês 6º Fixa Dani
+- escalada_uid: ntptButHFotLLK
+  betas_nao_revisados:
+  - midia:
+      url: https://thecrag.com/fr/grimper/brazil/minas-gerais/route/501287115
+      titulo: VIIIb Come Quieto, Sport climb in Gruta da Lapinha | theCrag
+      fonte: OUTRO_UGC
+    resultado_llm:
+      llm_confidence_score: 4
+      llm_reasoning: Página de catálogo do theCrag (em francês) que apenas replica
+        os dados básicos do guia antigo sem oferecer vídeo, relato ou beta adicional.
+    match_nome_no_snippet: true
+    snippets:
+    - 'Jul 22, 2026 · Contexte de la cotation : BRZ Longueur: SPORTIVE Gruta da Lapinha
+      Parede Karen Glass Sala de Aula Bloco B Vale Maritacas Bloco Bigodes Savassinha
+      Bloco Romano'
+  - midia:
+      url: https://pt.scribd.com/document/529842647/Guia-Escalada-Lapinha-1
+      titulo: Escaladas na Gruta da Lapinha | PDF
+      fonte: BLOG
+    resultado_llm:
+      llm_confidence_score: 3
+      llm_reasoning: PDF do guia antigo da Lapinha no Scribd apenas com dados tabelados
+        básicos (inclusive com conquistadores menos completos que no Aresta), sem
+        beta adicional.
+    match_nome_no_snippet: true
+    snippets:
+    - mbom49 Scarface 7ºa Fixa Gustavo Piancastelli e Ronie50 Posições Exóticas 7ºb
+      Fixa Ivo Ferreira Marcelino51 Garotos não Choram 7ºa Fixa Eustáquio Macedo Melo
+      Júnior e Emerson Alves Azeredo Nº Nome da via Grau Proteção Conquistadores52
+      Ben Moon 7ºc Top Rope Eustáquio Macedo e Emerson Alves Azeredo53 Come Quieto
+      8ºb Fixa Alexandre Galvão e XXX54 O Perigo que Veio do Céu 7ºa Fixa Fabiano
+      da Silva Fernandes e Charles Costa Marinho Charles C. Marinho , Emerson A. Azeredo
+      e Fabiano55 Arranca Couro 7º Fixa Fernandes56 Ônibus Inglês 6º Fixa Daniel Fernandes
+      “Salim” e Leonardo Hoffmann57 Gigante de Bronze 6º Fixa
+- escalada_uid: LlhTp0HQEPx14C
+  betas_nao_revisados:
+  - midia:
+      url: https://youtube.com/watch?v=cjZ9oxx0yLA
+      titulo: Escalada Gruta da Lapinha - Lagoa Santa MG - YouTube
+      fonte: YOUTUBE
+    resultado_llm:
+      llm_confidence_score: 8
+      llm_reasoning: Vídeo genérico de escalada na Gruta da Lapinha sem menção à via
+        'O Perigo que Veio do Céu' no título ou descrição.
+    match_nome_no_snippet: false
+    snippets:
+    - Apr 18, 2018 · Escalada Gruta da Lapinha - Lagoa Santa MG Escalada Gruta da
+      Lapinha - Lagoa Santa MG …
+  - midia:
+      url: https://pt.scribd.com/document/529842647/Guia-Escalada-Lapinha-1
+      titulo: Escaladas na Gruta da Lapinha | PDF
+      fonte: BLOG
+    resultado_llm:
+      llm_confidence_score: 3
+      llm_reasoning: PDF do guia antigo da Lapinha no Scribd que traz apenas a listagem
+        tabelada básica da via, sem relato de escalada, vídeo ou beta adicional.
+    match_nome_no_snippet: true
+    snippets:
+    - e Ronie50 Posições Exóticas 7ºb Fixa Ivo Ferreira Marcelino51 Garotos não Choram
+      7ºa Fixa Eustáquio Macedo Melo Júnior e Emerson Alves Azeredo Nº Nome da via
+      Grau Proteção Conquistadores52 Ben Moon 7ºc Top Rope Eustáquio Macedo e Emerson
+      Alves Azeredo53 Come Quieto 8ºb Fixa Alexandre Galvão e XXX54 O Perigo que Veio
+      do Céu 7ºa Fixa Fabiano da Silva Fernandes e Charles Costa Marinho Charles C.
+      Marinho , Emerson A. Azeredo e Fabiano55 Arranca Couro 7º Fixa Fernandes56 Ônibus
+      Inglês 6º Fixa Daniel Fernandes “Salim” e Leonardo Hoffmann57 Gigante de Bronze
+      6º Fixa André C. B. “Andrezão” e Anderson B. Felisário58 Karrengla
+- escalada_uid: gIzPvcOt3tcfaW
+  betas_nao_revisados:
+  - midia:
+      url: https://youtube.com/watch?v=Yj6x3S46VEU
+      titulo: Escalada Karrenglass 5ºsup - 29/07/12 - Gruta da Lapinha MG
+      fonte: YOUTUBE
+    resultado_llm:
+      llm_confidence_score: 95
+      llm_reasoning: Vídeo do YouTube dedicado especificamente à escalada da via Karren
+        Glass (5º sup) na Gruta da Lapinha, mostrando a escalada e comentando sobre
+        a tradição da linha e o visual do cume.
+    match_nome_no_snippet: false
+    snippets:
+    - Escalada em uma das vias mais tradicionais do Sumidouro a Karrenglass é uma
+      das primeiras vias da Lapinha vale muito a pena com um belo visual em seu cume...
+  - midia:
+      url: https://instagram.com/reel/DcpR6fet-D0
+      titulo: crux_sloth | 5sup Karren Glass é o nome da primeira via de ...
+      fonte: INSTAGRAM
+    resultado_llm:
+      llm_confidence_score: 92
+      llm_reasoning: Reel do Instagram específico da via Karren Glass (5º sup) na
+        Gruta da Lapinha, mostrando a escalada e trazendo contexto histórico sobre
+        ser a primeira via esportiva conquistada na região do Carste Mineiro.
+    match_nome_no_snippet: true
+    snippets:
+    - '56 likes, 0 comments - mana_climbs on August 29, 2026: "5sup Karren Glass é
+      o nome da primeira via de escalada esportiva conquistada na região do Carste
+      Mineiro, localizada no setor da Gruta da Lapinha @parquesumidouromg , no município
+      de Lagoa Santa, Minas Gerais.'
+  - midia:
+      url: https://escaladas.com.br/local/id/541/Gruta+da+Lapinha+(Maciço)
+      titulo: Escaladas.com.br | Gruta da Lapinha (Maciço)
+      fonte: OUTRO_UGC
+    resultado_llm:
+      llm_confidence_score: 25
+      llm_reasoning: Página geral do pico no catálogo Escaladas.com.br, mas que contém
+        foto de escalador na via Karren Glass e nota histórica informando ser a primeira
+        via esportiva do Carste Mineiro aberta no início dos anos 90.
+    match_nome_no_snippet: true
+    snippets:
+    - 'as de Bouldering, 83 vias de Artificial, 68 vias de Big Wall, 65 vias de Tradicional
+      Esportiva, 9 vias de Psicobloc e 8 vias de Descida. Digite seu e-mail para receber
+      uma recuperação de senha: Enviar Localização Dados do local Minas Gerais > Lagoa
+      Santa > Gruta da Lapinha (Maciço) Escalador na Via Karren Glass- A primeira
+      via esportiva do Carste Mineiro aberta no início dos anos 90, no setor de mesmo
+      nome. Escalador na via Bigode Sujo no setor dos bigodes Gruta da Lapinha (Maciço)
+      Compartilhar: WhatsApp Facebook Twitter Copiar Cadastrada por: Andre Portugal
+      Braga, em 30-06-2019 às 15:26 Descrição: Um dos'
+- escalada_uid: RnZKGhZfGOypo1
+  betas_nao_revisados:
+  - midia:
+      url: https://pt.scribd.com/document/529842647/Guia-Escalada-Lapinha-1
+      titulo: Escaladas na Gruta da Lapinha | PDF
+      fonte: BLOG
+    resultado_llm:
+      llm_confidence_score: 3
+      llm_reasoning: PDF do guia antigo da Lapinha no Scribd que apenas apresenta
+        a tabela básica de vias sem vídeo, relato ou beta adicional ao croqui do Aresta.
+    match_nome_no_snippet: true
+    snippets:
+    - nardo Hoffmann57 Gigante de Bronze 6º Fixa André C. B. “Andrezão” e Anderson
+      B. Felisário58 Karrenglass 5ºsup Fixa Eduardo V. de A. “Ralf”, Ricardo Leal
+      e Rodrigo Tinoco59 Retorno dos Anões 6ºsup Fixa Fábio Luiz Faria “Fabinho”,
+      Míriam Morato Duarte e Denise Emerson A. Azeredo, Eustáquio Júnior e60 Compromisso
+      Sexual 7ºc Fixa Fabiano Fernandes Nº Nome da via Grau Proteção Conquistadores6162
+      Psico Circus 8º Fixa André C. B “Andrezão” e Anderson B. Felisário63 Os impossíveis
+      8ºb Fixa André C. B. “Andrezão” e Anderson B. Felisário64 Carbonáticus Calcicus
+      7ºa Fixa Leonardo Hoffmann e Eduardo Viana de Azevedo “Ralf”
+- escalada_uid: E47PBUWaztdeq5
+  betas_nao_revisados:
+  - midia:
+      url: https://pt.scribd.com/document/529842647/Guia-Escalada-Lapinha-1
+      titulo: Escaladas na Gruta da Lapinha | PDF
+      fonte: BLOG
+    resultado_llm:
+      llm_confidence_score: 3
+      llm_reasoning: PDF do guia antigo da Lapinha no Scribd que apenas reproduz dados
+        tabelados básicos já presentes no croqui do Aresta, sem vídeo ou beta adicional.
+    match_nome_no_snippet: true
+    snippets:
+    - Tinoco59 Retorno dos Anões 6ºsup Fixa Fábio Luiz Faria “Fabinho”, Míriam Morato
+      Duarte e Denise Emerson A. Azeredo, Eustáquio Júnior e60 Compromisso Sexual
+      7ºc Fixa Fabiano Fernandes Nº Nome da via Grau Proteção Conquistadores6162 Psico
+      Circus 8º Fixa André C. B “Andrezão” e Anderson B. Felisário63 Os impossíveis
+      8ºb Fixa André C. B. “Andrezão” e Anderson B. Felisário64 Carbonáticus Calcicus
+      7ºa Fixa Leonardo Hoffmann e Eduardo Viana de Azevedo “Ralf”65 Para não dizer
+      que não falei de flores 5ºsup Móvel Antonio Carlos Magalhães e Ricardo JardimLeal66
+      As Aparências Enganam 5ºsup Móvel Antonio Carlos Magalhãe
+- escalada_uid: WNnbACHqlufqB4
+  betas_nao_revisados:
+  - midia:
+      url: https://pt.scribd.com/document/529842647/Guia-Escalada-Lapinha-1
+      titulo: Escaladas na Gruta da Lapinha | PDF
+      fonte: BLOG
+    resultado_llm:
+      llm_confidence_score: 3
+      llm_reasoning: Apenas replica o PDF do guia antigo da Gruta da Lapinha no Scribd
+        com dados tabelados básicos já presentes no croqui, sem vídeo ou beta adicional.
+    match_nome_no_snippet: true
+    snippets:
+    - rrenglass 5ºsup Fixa Eduardo V. de A. “Ralf”, Ricardo Leal e Rodrigo Tinoco59
+      Retorno dos Anões 6ºsup Fixa Fábio Luiz Faria “Fabinho”, Míriam Morato Duarte
+      e Denise Emerson A. Azeredo, Eustáquio Júnior e60 Compromisso Sexual 7ºc Fixa
+      Fabiano Fernandes Nº Nome da via Grau Proteção Conquistadores6162 Psico Circus
+      8º Fixa André C. B “Andrezão” e Anderson B. Felisário63 Os impossíveis 8ºb Fixa
+      André C. B. “Andrezão” e Anderson B. Felisário64 Carbonáticus Calcicus 7ºa Fixa
+      Leonardo Hoffmann e Eduardo Viana de Azevedo “Ralf”65 Para não dizer que não
+      falei de flores 5ºsup Móvel Antonio Carlos Magalhães e Ricardo
+- escalada_uid: Bs0O5a4jMF2Epw
+  betas_nao_revisados:
+  - midia:
+      url: https://pt.scribd.com/document/529842647/Guia-Escalada-Lapinha-1
+      titulo: Escaladas na Gruta da Lapinha | PDF
+      fonte: BLOG
+    resultado_llm:
+      llm_confidence_score: 2
+      llm_reasoning: Apenas hospeda o PDF do guia antigo da Gruta da Lapinha no Scribd
+        (cujo snippet refere-se a outra via sem informação nº 32), sem trazer beta
+        novo.
+    match_nome_no_snippet: true
+    snippets:
+    - Viviane da Silva Euler28 Bobeou Sobrou 7ºa Fixa Fabiano da Silva Fernandes e
+      Viviane da Silva Euler29 Los Cubanos 6ºsup Fixa Fabiano da Silva Fernandes e
+      Viviane da Silva Euler30 Folião 6º Móvel Antonio Carlos Magalhães e Lúcia Magalhães31
+      Luzes 4º Móvel Antonio Carlos Magalhães e Lúcia Magalhães32 Via sem informação
+      Fixa Leonardo Guimarães "Léo Dandão"33 Êta Sô 6º Móvel Antonio Carlos Magalhães
+      e Lúcia Magalhães34 Via do Tetinho 5º sup Fixa Leonardo Guimarães "Léo Dandão"35
+      Ataque das Bolinhas 4º Fixa Fabiano da Silva Fernandes e Viviane da Silva Euler36
+      Via do curso 3º Fixa37 Viajandão Gramando na Chuva 3º Fi
+- escalada_uid: AlhpLzBbvxdARj
+  betas_nao_revisados:
+  - midia:
+      url: https://youtube.com/watch?v=cjZ9oxx0yLA
+      titulo: Escalada Gruta da Lapinha - Lagoa Santa MG - YouTube
+      fonte: YOUTUBE
+    resultado_llm:
+      llm_confidence_score: 8
+      llm_reasoning: Vídeo genérico de escalada na Gruta da Lapinha sem menção ou
+        evidência de abordar a via específica Carbonáticus Calcicus.
+    match_nome_no_snippet: false
+    snippets:
+    - Apr 18, 2018 · Escalada Gruta da Lapinha - Lagoa Santa MG Escalada Gruta da
+      Lapinha - Lagoa Santa MG …
+  - midia:
+      url: https://pt.scribd.com/document/529842647/Guia-Escalada-Lapinha-1
+      titulo: Escaladas na Gruta da Lapinha | PDF
+      fonte: BLOG
+    resultado_llm:
+      llm_confidence_score: 3
+      llm_reasoning: Apenas replica o PDF do guia antigo da Gruta da Lapinha no Scribd
+        com dados tabelados já presentes no croqui, sem vídeo ou beta adicional.
+    match_nome_no_snippet: true
+    snippets:
+    - Morato Duarte e Denise Emerson A. Azeredo, Eustáquio Júnior e60 Compromisso
+      Sexual 7ºc Fixa Fabiano Fernandes Nº Nome da via Grau Proteção Conquistadores6162
+      Psico Circus 8º Fixa André C. B “Andrezão” e Anderson B. Felisário63 Os impossíveis
+      8ºb Fixa André C. B. “Andrezão” e Anderson B. Felisário64 Carbonáticus Calcicus
+      7ºa Fixa Leonardo Hoffmann e Eduardo Viana de Azevedo “Ralf”65 Para não dizer
+      que não falei de flores 5ºsup Móvel Antonio Carlos Magalhães e Ricardo JardimLeal66
+      As Aparências Enganam 5ºsup Móvel Antonio Carlos Magalhães e Júlio César Cardoso67
+      Eu quero é ver o oco 7ºb Fixa Ricardo Jardim Leal , Le
+- escalada_uid: yz8k8QP3JY3b7D
+  betas_nao_revisados:
+  - midia:
+      url: https://escaladas.com.br/via/id/4570/PARA+NÃO+DIZER+QUE+NÃO+FALEI+DE+FLORES
+      titulo: Escaladas.com.br | Via PARA NÃO DIZER QUE NÃO FALEI DE FLORES
+      fonte: OUTRO_UGC
+    resultado_llm:
+      llm_confidence_score: 25
+      llm_reasoning: Página de catálogo no Escaladas.com.br sem vídeo ou relato detalhado
+        de beta, porém inclui foto identificando a via enviada pelo próprio conquistador
+        (Tonico Magalhães) e indicação de estilo predominante em agarras.
+    match_nome_no_snippet: true
+    snippets:
+    - '194 vias de Esportiva, 663 vias de Bouldering, 83 vias de Artificial, 68 vias
+      de Big Wall, 65 vias de Tradicional Esportiva, 9 vias de Psicobloc e 8 vias
+      de Descida. Digite seu e-mail para receber uma recuperação de senha: Enviar
+      Dados da Via Minas Gerais > Lagoa Santa > Gruta da Lapinha (Maciço) > PARA NÃO
+      DIZER QUE NÃO FALEI DE FLORES Foto Via nº 1 - "Para não Dizer que não Falei
+      de Flores" Via nº 2 - "As Aparências Enganam" Enviada por Tonico Magalhães ,em
+      09/09/2026, às 11:43, que declara que esta imagem não viola direitos autorais,
+      responsabilizando-se integralmente por eventuais ações ajuizadas por terceiros
+      interessados. En'
+    - 'e Artificial, 68 vias de Big Wall, 65 vias de Tradicional Esportiva, 9 vias
+      de Psicobloc e 8 vias de Descida. Digite seu e-mail para receber uma recuperação
+      de senha: Enviar Dados da Via Minas Gerais > Lagoa Santa > Gruta da Lapinha
+      (Maciço) > PARA NÃO DIZER QUE NÃO FALEI DE FLORES Foto Via nº 1 - "Para não
+      Dizer que não Falei de Flores" Via nº 2 - "As Aparências Enganam" Enviada por
+      Tonico Magalhães ,em 09/09/2026, às 11:43, que declara que esta imagem não viola
+      direitos autorais, responsabilizando-se integralmente por eventuais ações ajuizadas
+      por terceiros interessados. Envie suas fotos Contribua enviando fotos e/ou o
+      croqui at'
+    - 's e/ou o croqui atualizado desta via. Se quiser, adicione também uma legenda
+      com o conteúdo da imagem e o nome do autor. Selecionar imagens Limpar Declaro
+      que esta imagem não viola direitos autorais, responsabilizando-me integralmente
+      por eventuais ações ajuizadas por terceiros interessados. Enviar PARA NÃO DIZER
+      QUE NÃO FALEI DE FLORES Compartilhar: WhatsApp Facebook Twitter Copiar Sua nota:
+      Graduação: Vsup Local: Gruta da Lapinha (Maciço) Cadastrada por: Luciano Bender,
+      em 14-09-2020 às 22:24 Alterada por: Luciano Bender, em 09-09-2026 às 13:29
+      Modalidade: Tradicional Tipo de via: principal Tipo de escalada predominante:
+      agarras'
+  - midia:
+      url: https://youtube.com/watch?v=2a0OS6gDj78
+      titulo: Canção brasileira "Pra não dizer que não falei das flores ...
+      fonte: YOUTUBE
+    resultado_llm:
+      llm_confidence_score: 0
+      llm_reasoning: 'Falso positivo: vídeo da canção ''Pra não dizer que não falei
+        das flores'' de Geraldo Vandré, sem relação com escalada.'
+    match_nome_no_snippet: false
+    snippets:
+    - '"Pra não dizer que não falei das flores (Caminhando)" (Geraldo Vandré)Intérprete:
+      Geraldo Vandré (1968)Olha, sabe o que eu acho?Eu acho uma coisa só a mais: ...'
+- escalada_uid: OmqF412h2OG31Q
+  betas_nao_revisados:
+  - midia:
+      url: https://pt.scribd.com/document/529842647/Guia-Escalada-Lapinha-1
+      titulo: Escaladas na Gruta da Lapinha | PDF
+      fonte: BLOG
+    resultado_llm:
+      llm_confidence_score: 3
+      llm_reasoning: Apenas replica o PDF do guia antigo da Gruta da Lapinha no Scribd
+        com dados tabelados já presentes no croqui, sem vídeo ou beta adicional.
+    match_nome_no_snippet: true
+    snippets:
+    - C. B “Andrezão” e Anderson B. Felisário63 Os impossíveis 8ºb Fixa André C. B.
+      “Andrezão” e Anderson B. Felisário64 Carbonáticus Calcicus 7ºa Fixa Leonardo
+      Hoffmann e Eduardo Viana de Azevedo “Ralf”65 Para não dizer que não falei de
+      flores 5ºsup Móvel Antonio Carlos Magalhães e Ricardo JardimLeal66 As Aparências
+      Enganam 5ºsup Móvel Antonio Carlos Magalhães e Júlio César Cardoso67 Eu quero
+      é ver o oco 7ºb Fixa Ricardo Jardim Leal , Leonardo Oliveira e Danilo Tolentino68
+      Cortando Prego 6ºsup Móvel Edgardo Abreu “Caca” e Leandro Antônio Reis69 Vive
+      lá brenf 6ºsup Fixa André “DJ”, Léo Hoffmann, André "Granola", Guta P
+- escalada_uid: uN41mUNxKhQLnR
+  betas_nao_revisados:
+  - midia:
+      url: https://pt.scribd.com/document/529842647/Guia-Escalada-Lapinha-1
+      titulo: Escaladas na Gruta da Lapinha | PDF
+      fonte: BLOG
+    resultado_llm:
+      llm_confidence_score: 3
+      llm_reasoning: Apenas replica o PDF do guia antigo da Gruta da Lapinha no Scribd
+        com dados tabelados já presentes no croqui, sem vídeo ou beta adicional.
+    match_nome_no_snippet: true
+    snippets:
+    - rezão” e Anderson B. Felisário64 Carbonáticus Calcicus 7ºa Fixa Leonardo Hoffmann
+      e Eduardo Viana de Azevedo “Ralf”65 Para não dizer que não falei de flores 5ºsup
+      Móvel Antonio Carlos Magalhães e Ricardo JardimLeal66 As Aparências Enganam
+      5ºsup Móvel Antonio Carlos Magalhães e Júlio César Cardoso67 Eu quero é ver
+      o oco 7ºb Fixa Ricardo Jardim Leal , Leonardo Oliveira e Danilo Tolentino68
+      Cortando Prego 6ºsup Móvel Edgardo Abreu “Caca” e Leandro Antônio Reis69 Vive
+      lá brenf 6ºsup Fixa André “DJ”, Léo Hoffmann, André "Granola", Guta Piancastelli70
+      Rastafary Baby 7ºc Fixa Leonardo Hoffman71 Varinha de Condon 7ºa Fix
+- escalada_uid: qqE2Xa62AWdHkq
+  betas_nao_revisados:
+  - midia:
+      url: https://expedicoesemfamilia.com.br/2019/06/circuito-das-grutas-mineiras-parte-2.html
+      titulo: Gruta da Lapinha em Lagoa Santa - Rota do Doutor Lund | Expedições em
+        Família
+      fonte: BLOG
+    resultado_llm:
+      llm_confidence_score: 2
+      llm_reasoning: 'Falso positivo: post de blog de turismo familiar sobre o passeio
+        na Gruta da Lapinha (Rota do Doutor Peter Lund) e trilhas de caminhada, sem
+        relação com escalada.'
+    match_nome_no_snippet: true
+    snippets:
+    - rem _Ruínas _Turismo Doméstico _Viagens a Dois _Viagens em Família mega/Estrada
+      Real Brasil _Amazonas _Minas Gerais _Paraná _Rio de Janeiro _Rio Grande do Sul
+      _Santa Catarina _São Paulo América Latina _Argentina _México América do Norte
+      Europa 24 junho 2019 Gruta da Lapinha em Lagoa Santa - Rota do Doutor Lund Expedições
+      em Família junho 24, 2019 11 comment Descubra agora como é o passeio pela Gruta
+      da Lapinha no Circuito das Grutas do Doutor Peter Lund. Gruta da Lapinha em
+      Lagoa Santa - Circuito das Grutas na Rota do Doutor Lund A Gruta da Lapinha
+      faz parte do Parque Estadual do Sumidouro e foi criado e
+    - ica do Norte Europa 24 junho 2019 Gruta da Lapinha em Lagoa Santa - Rota do
+      Doutor Lund Expedições em Família junho 24, 2019 11 comment Descubra agora como
+      é o passeio pela Gruta da Lapinha no Circuito das Grutas do Doutor Peter Lund.
+      Gruta da Lapinha em Lagoa Santa - Circuito das Grutas na Rota do Doutor Lund
+      A Gruta da Lapinha faz parte do Parque Estadual do Sumidouro e foi criado em
+      1980 para promover a preservação ambiental e cultural, favorecendo as atividades
+      de pesquisa, conservação, educação ambiental e turismo. O Parque detém uma área
+      total de 2004 hectares e também é caracterizado como Unidade
+    - rajetória desse naturalista dinamarquês. Foi inaugurado em 2012 e possui uma
+      exposição de 82 fósseis descobertos por Lund, advindos do Museu Natural de Copenhague,
+      além cerca de 15 fósseis doados pelo Museu de História Natural da PUC Minas.
+      Circuito Lapinha do Parque Estadual do Sumidouro - Rota do Doutor Lund Circuito
+      Lapinha se constitui em uma pequena trilha que se inicia ao lado da gruta da
+      Lapinha e termina na gruta da Macumba, à qual também visitamos. São 500 metros
+      de percurso e cerca de 45 minutos. Grau de dificuldade é médio a fácil. Durante
+      o percurso aprendemos sobre a história e o valor paisa
+    - demos sobre a história e o valor paisagístico do local, e nos foi apresentada
+      a vegetação, o relevo, e características da zona cárstica. Esse passeio foi
+      muito bacana para nós e nossa filha. Havia outras crianças fazendo o mesmo circuito.
+      Trilha da Travessia do Parque Estadual do Sumidouro- Rota do Doutor Lund Trilha
+      da Travessia com 5,5 Km de extensão e cerca de 2 horas e 30 minutos de caminhada
+      com grau de dificuldade médio. Nessa trilha tivemos a oportunidade de visitar
+      o Mirante do Cruzeiro, ponto mais alto do percurso, onde avistamos a comunidade
+      da Lapinha (Lagoa Santa), a Serra do Espinhaço e o ma
+    - imos muitíssimo também por não termos visto o painel de grafismos rupestres
+      da Lapa do Sumidouro. Ele está interditado (fevereiro de 2019) devido ao comprometimento
+      da passarela que dá acesso ao local, por desprendimento de rocha da lapa. Trilha
+      do Sumidouro do Parque Estadual do Sumidouro- Rota do Doutor Lund Trilha do
+      Sumidouro, com caráter bem interpretativo, é uma caminhada pela História e na
+      Pré-História brasileiras. Inicia-se na Casa Fernão Dias, passando pelo marco
+      histórico “Cruz do Pai Mané”. Segue por um percurso que conduz a um mirante,
+      onde é possível visualizar toda a extensão da lagoa do Su
+  - midia:
+      url: https://pt.wikiloc.com/trilhas-trekking/gruta-da-lapinha-145993679
+      titulo: Wikiloc | Trilha Gruta da lapinha
+      fonte: OUTRO_UGC
+    resultado_llm:
+      llm_confidence_score: 1
+      llm_reasoning: 'Falso positivo: trilha de caminhada/moto no Wikiloc passando
+        pela localidade de Doutor Lund e Gruta da Lapinha, sem relação com a via de
+        escalada.'
+    match_nome_no_snippet: true
+    snippets:
+    - Trilha Gruta da lapinha de Trekking em Doutor Lund, Minas Gerais (Brasil). Baixe
+      a faixa GPS e siga o itinerário da rota a partir de um mapa. Travessia de moto
+      de x até lagoa Santa passando pela gruta da lapinha e parque do sumidouro
+  - midia:
+      url: https://wikiloc.com/offroading-trails/bh-lapinha-da-serra-passando-por-gruta-da-lapinha-34643390
+      titulo: Bh Lapinha da Serra passando por Gruta da Lapinha - Wikiloc
+      fonte: OUTRO_UGC
+    resultado_llm:
+      llm_confidence_score: 1
+      llm_reasoning: 'Falso positivo: trilha off-road no Wikiloc passando pelo distrito
+        de Doutor Lund, sem relação com a via de escalada.'
+    match_nome_no_snippet: true
+    snippets:
+    - Mar 28, 2019 · Bh Lapinha da Serra passando por Gruta da Lapinha Off Road trail
+      in Doutor Lund, Minas Gerais (Brazil). Download its GPS track and follow the
+      route on a map. Record your own itinerary from the Wikiloc app, upload the trail
+      and share it with the community.
+  - midia:
+      url: https://pt.wikiloc.com/trilhas/outdoor/brasil/minas-gerais/doutor-lund
+      titulo: As melhores trilhas em Doutor Lund - Wikiloc
+      fonte: OUTRO_UGC
+    resultado_llm:
+      llm_confidence_score: 1
+      llm_reasoning: 'Falso positivo: página de listagem de trilhas outdoor no Wikiloc
+        para a localidade de Doutor Lund (MG), sem relação com a via de escalada.'
+    match_nome_no_snippet: true
+    snippets:
+    - Descubra os lugares mais bonitos do mundo, faça o download de percursos por
+      GPS e siga os melhores trajetos em um mapa. Grave a sua própria trilha no app
+      Wikiloc, faça o upload e compartilhe-a com a comunidade.
+  - midia:
+      url: https://wikiloc.com/trails/outdoor/brazil/minas-gerais/doutor-lund
+      titulo: The Best Trails in Doutor Lund, Minas Gerais (Brazil) - Wikiloc
+      fonte: OUTRO_UGC
+    resultado_llm:
+      llm_confidence_score: 1
+      llm_reasoning: 'Falso positivo: página em inglês de listagem de trilhas no Wikiloc
+        para a localidade de Doutor Lund (MG), sem relação com a via de escalada.'
+    match_nome_no_snippet: true
+    snippets:
+    - Find the best trails in Doutor Lund, Minas Gerais (Brazil). Discover the most
+      beautiful places, download GPS tracks and follow the top routes itinerary on
+      a map.
+- escalada_uid: CQy3SWhpDCc528
+  betas_nao_revisados:
+  - midia:
+      url: https://pt.scribd.com/document/529842647/Guia-Escalada-Lapinha-1
+      titulo: Escaladas na Gruta da Lapinha | PDF
+      fonte: BLOG
+    resultado_llm:
+      llm_confidence_score: 3
+      llm_reasoning: Apenas hospeda o PDF do guia antigo da Lapinha com dados tabelados
+        básicos já presentes no croqui do Aresta, sem vídeo ou beta adicional.
+    match_nome_no_snippet: true
+    snippets:
+    - Jr.74 Revolução dos Micos 7º b Fixa Eduardo Amaral, Jean e Ane Ouriques, Leonardo
+      Rocenik75 Al Capote 8ºb Fixa Ricardo Jardim Leal Nº Nome da via Grau Proteção
+      Conquistadores76 Cariocas não dizem Uai 7º Fixa Ivo Júnior e Rma77 Doutor Lund7ºa
+      Fixa Eustáquio Macedo Melo Júnior e Mário Almeida Neto78 Aceitam-se Sugestões
+      7ºc Fixa Juan Kempen e Pedro Assis Leite79 Rosa dos Ventos 9º Fixa Ramaya Vallias
+      e Léo Quirino80 Monte Calvário 5ºsup Fixa Ramaya Vallias e Léo Quirino81 Pó-na-beiça
+      5º Móvel Wilson Novaes e Márcio Soares Macenas82 Três dentro, três fora 7ºa
+      Fixa Jovinei M. Medeiros, Helon B. Neto e Paulo R. Patro
+- escalada_uid: OXAvr0Rdr0rU5G
+  betas_nao_revisados:
+  - midia:
+      url: https://pt.scribd.com/document/529842647/Guia-Escalada-Lapinha-1
+      titulo: Escaladas na Gruta da Lapinha | PDF
+      fonte: BLOG
+    resultado_llm:
+      llm_confidence_score: 3
+      llm_reasoning: Apenas hospeda o PDF do guia antigo da Lapinha com dados tabelados
+        básicos já presentes no croqui do Aresta, sem vídeo ou beta adicional.
+    match_nome_no_snippet: true
+    snippets:
+    - Ouriques, Leonardo Rocenik75 Al Capote 8ºb Fixa Ricardo Jardim Leal Nº Nome
+      da via Grau Proteção Conquistadores76 Cariocas não dizem Uai 7º Fixa Ivo Júnior
+      e Rma77 Doutor Lund7ºa Fixa Eustáquio Macedo Melo Júnior e Mário Almeida Neto78
+      Aceitam-se Sugestões 7ºc Fixa Juan Kempen e Pedro Assis Leite79 Rosa dos Ventos
+      9º Fixa Ramaya Vallias e Léo Quirino80 Monte Calvário 5ºsup Fixa Ramaya Vallias
+      e Léo Quirino81 Pó-na-beiça 5º Móvel Wilson Novaes e Márcio Soares Macenas82
+      Três dentro, três fora 7ºa Fixa Jovinei M. Medeiros, Helon B. Neto e Paulo R.
+      Patrocínio83 Só para eles 6ºsup Fixa Daniel Fernandes “Salim” e
+- escalada_uid: G4Gdw4XvIlJXQX
+  betas_nao_revisados:
+  - midia:
+      url: https://youtube.com/watch?v=cjZ9oxx0yLA
+      titulo: Escalada Gruta da Lapinha - Lagoa Santa MG - YouTube
+      fonte: YOUTUBE
+    resultado_llm:
+      llm_confidence_score: 8
+      llm_reasoning: Vídeo genérico sobre escalada na Gruta da Lapinha sem menção
+        ou foco na via específica 'Só para eles'.
+    match_nome_no_snippet: false
+    snippets:
+    - Apr 18, 2018 · Escalada Gruta da Lapinha - Lagoa Santa MG Escalada Gruta da
+      Lapinha - Lagoa Santa MG …
+  - midia:
+      url: https://pt.scribd.com/document/529842647/Guia-Escalada-Lapinha-1
+      titulo: Escaladas na Gruta da Lapinha | PDF
+      fonte: BLOG
+    resultado_llm:
+      llm_confidence_score: 3
+      llm_reasoning: Apenas hospeda o PDF do guia antigo da Lapinha com dados tabelados
+        básicos já presentes no croqui do Aresta, sem vídeo ou beta adicional.
+    match_nome_no_snippet: true
+    snippets:
+    - a Juan Kempen e Pedro Assis Leite79 Rosa dos Ventos 9º Fixa Ramaya Vallias e
+      Léo Quirino80 Monte Calvário 5ºsup Fixa Ramaya Vallias e Léo Quirino81 Pó-na-beiça
+      5º Móvel Wilson Novaes e Márcio Soares Macenas82 Três dentro, três fora 7ºa
+      Fixa Jovinei M. Medeiros, Helon B. Neto e Paulo R. Patrocínio83 Só para eles
+      6ºsup Fixa Daniel Fernandes “Salim” e Ramaya Vallias84 Só para elas 4º Fixa
+      Daniel Fernandes “Salim” e Ramaya Vallias85 Prestobarba 5º Fixa Daniel Fernandes
+      “Salim”86 Bigode Limpo 5ºsup Fixa Antonio Carlos Magalhães e Emerson Alves Azeredo
+      Nº Nome da via Grau Proteção Conquistadores87 Bigode de Cri
+- escalada_uid: WHJ53V0DkIbf7P
+  betas_nao_revisados:
+  - midia:
+      url: https://instagram.com/reel/Db2AGlbtw12
+      titulo: Instagram
+      fonte: INSTAGRAM
+    resultado_llm:
+      llm_confidence_score: 92
+      llm_reasoning: Reel do Instagram mostrando a escalada guiada da via 'Prestobarba'
+        (5º grau) na Gruta da Lapinha (#vemescalarnalapinha), com descrição de beta
+        sobre as agarras e saída acima da última proteção.
+    match_nome_no_snippet: true
+    snippets:
+    - '19 likes, 1 comments - mana_climbs on August 9, 2026: "5 Prestobarba Seg de
+      atc: @escalar_te Guiada flashando de red point, sentindo o compromisso de achar
+      as agarras (e trocá-las com atenção) com o pé acima da última proteção costurada
+      #climbing #escalada #rockclimb #vemescalarnalapinha".'
+  - midia:
+      url: https://thecrag.com/es/escalar/brazil/minas-gerais/route/501303552
+      titulo: V ★★Prestobarba, Sport climb in Gruta da Lapinha | theCragWikiloc |
+        Gruta da Lapinha - Lagoa Santa/MG TrailGruta da Lapinha - Lagoa Santa/MG -
+        WikilocGruta da Lapinha • Brazil - Ascents - Vertical-Life Climbing ...Escalada
+        Anhangava Prestobarba - YouTubeInstagramGruta da Lapinha - O que saber antes
+        de ir (ATUALIZADO 2026)
+      fonte: OUTRO_UGC
+    resultado_llm:
+      llm_confidence_score: 4
+      llm_reasoning: Página de catálogo (theCrag) que apenas replica os dados básicos
+        da via do guia antigo, sem vídeo ou beta próprio.
+    match_nome_no_snippet: true
+    snippets:
+    - 'May 30, 2026 · Prestobarba is a route inside of Bloco Bigodes Mar 11, 2025
+      · Gruta da Lapinha - Lagoa Santa/MG Rock Climbing trail in Lapinha, Minas Gerais
+      (Brazil). Download its GPS track and follow the itinerary on a map. Gruta da
+      Lapinha - Lagoa Santa/MG Excelente opção de escalada esportiva com várias vias
+      interessantes. Wikiloc | Gruta da Lapinha - Lagoa Santa/MG Ibilbidea Lapinha,
+      Minas Gerais (Brazil) Gruta da Lapinha - Lagoa Santa/MG Excelente opção de escalada
+      esportiva com várias vias interessantes. 8a.nu Brazil 3.9 911 ASCENTS 40 % OS
+      RATE 117 ROUTES IN DB FOLLOW 911 ASCENTS 40 % OS RATE 117 ROUTES IN DB Routes
+      Ascents Rankings Info Beta Videos (0) Gallery (1) Sector Jun 7, 2011 · Escalada
+      no boulder Prestobarba. Morro do Anhangava, Quatro Barras-PR 19 likes, 1 comments
+      - mana_climbs on August 9, 2026: "5 Prestobarba Seg de atc: @escalar_te Guiada
+      flashando de red point, sentindo o compromisso de achar as agarras (e trocá-las
+      com atenção) com o pé acima da última proteção costurada #climbing #escalada
+      #rockclimb #vemescalarnalapinha". Lugar de fácil acesso, conta com um museu
+      em anexo, que conta a história das tribos indígenas da região. Além da gruta
+      tem também as áreas de escalada, que são na parte de fora da gruta!'
+  - midia:
+      url: https://youtube.com/watch?v=mgbqO_HzEE0
+      titulo: Escalada Anhangava Prestobarba - YouTube
+      fonte: YOUTUBE
+    resultado_llm:
+      llm_confidence_score: 2
+      llm_reasoning: 'Falso positivo: vídeo de um boulder homônimo (''Prestobarba'')
+        localizado no Morro do Anhangava (Quatro Barras - PR).'
+    match_nome_no_snippet: true
+    snippets:
+    - Jun 7, 2011 · Escalada no boulder Prestobarba. Morro do Anhangava, Quatro Barras-PR
+- escalada_uid: Ro3Eflgqd8pPx9
+  betas_nao_revisados:
+  - midia:
+      url: https://youtube.com/watch?v=cjZ9oxx0yLA
+      titulo: Escalada Gruta da Lapinha - Lagoa Santa MG - YouTube
+      fonte: YOUTUBE
+    resultado_llm:
+      llm_confidence_score: 8
+      llm_reasoning: Vídeo genérico de escalada na Gruta da Lapinha sem menção ou
+        imagens confirmadas da via 'Ato Imperdoável'.
+    match_nome_no_snippet: false
+    snippets:
+    - Apr 18, 2018 · Escalada Gruta da Lapinha - Lagoa Santa MG Sem Destino Ecoturismo
+      40 subscribers 8 363 views 8 years ago
+  - midia:
+      url: https://youtube.com/watch?v=8bud0saw9Ec
+      titulo: Escalada na Gruta do Baú, Gruta da Lapinha, Sítio do Rodhe e ...
+      fonte: YOUTUBE
+    resultado_llm:
+      llm_confidence_score: 5
+      llm_reasoning: Compilação de escaladas que na Gruta da Lapinha aborda apenas
+        a via 'Los Cubanos', não mostrando 'Ato Imperdoável'.
+    match_nome_no_snippet: false
+    snippets:
+    - Feb 6, 2014 · Este vídeo mosta uma compilação do fotos e vídeos do escalador
+      Pablo Grossi em vias na Escalada na Gruta do Baú (Túneis do Tempo, Vaca Louca),
+      Gruta da Lapinha (Los Cubanos), Sítio do...
+  - midia:
+      url: https://pt.scribd.com/document/529842647/Guia-Escalada-Lapinha-1
+      titulo: Escaladas na Gruta da Lapinha | PDF
+      fonte: BLOG
+    resultado_llm:
+      llm_confidence_score: 3
+      llm_reasoning: Apenas hospeda o PDF do guia antigo da Lapinha com dados tabelados
+        básicos já presentes no croqui do Aresta, sem vídeo ou beta adicional.
+    match_nome_no_snippet: true
+    snippets:
+    - ador 6ºsup Fixa Léo Hoffmann, Marco Antônio Canelas e Marcelo Andrê.104 Labirinto
+      das Maritacas 6º Fixa Emerson Alves Azeredo e Gilberto Torres105 Tentações de
+      Maria Madalena 6º Móvel Eustáquio M. Melo Júnior e Leonardo Hoffmann106 Sai
+      do chão 9ºa Fixa Jovinei Miguel Medeiros e Helon Brazil Neto107 Ato Imperdoável
+      8ºa Fixa Eustáquio M. M. Júnior e Fabiano da Silva Fernandes108 Projeto Rodrigo
+      do Paraná Fixa109 Pequena Criança 7ºa Fixa Wilson Novaes, Ivo Ferreira Marcelino
+      e Alexandre Magos Nº Nome da via Grau Proteção Conquistadores110 Corvo Gigante
+      7º Fixa Eustáquio Macedo Melo Júnior e Gilberto Torres111 G
+- escalada_uid: oPLa4xCzRYXrVG
+  betas_nao_revisados:
+  - midia:
+      url: https://thecrag.com/de/klettern/brazil/minas-gerais/route/501321594
+      titulo: VIIa A Era dos Patrícios, Sport climb in Gruta da Lapinha ...
+      fonte: OUTRO_UGC
+    resultado_llm:
+      llm_confidence_score: 4
+      llm_reasoning: Página de catálogo (theCrag) que apenas copia os dados tabelados
+        básicos da via sem oferecer vídeo, relato ou beta novo.
+    match_nome_no_snippet: true
+    snippets:
+    - 'Apr 19, 2026 · Bewertungskontext: BRZ Länge: SPORT Gruta da Lapinha Parede
+      Karen Glass Sala de Aula Bloco B Vale Maritacas Bloco Bigodes Savassinha Bloco
+      Romano'
+  - midia:
+      url: https://pt.scribd.com/document/529842647/Guia-Escalada-Lapinha-1
+      titulo: Escaladas na Gruta da Lapinha | PDF
+      fonte: BLOG
+    resultado_llm:
+      llm_confidence_score: 3
+      llm_reasoning: Apenas hospeda o PDF do guia antigo da Lapinha com dados tabelados
+        básicos já presentes no croqui do Aresta, sem vídeo ou beta adicional.
+    match_nome_no_snippet: true
+    snippets:
+    - Fixa Fabinho de Petrópolis e Alexandre Xacundum121122123 Masturbações de Calígula
+      7ºa Fixa Márcio Soares Macenas e Wilson Novaes.124 Primeiro General 6ºsup Mista
+      Roberto Lincoln de Freitas Nº Nome da via Grau Proteção Conquistadores125 Spartacus
+      5º Top Rope Fabiano Fernandes da Silva (Top Rope)126 A Era dos Patrícios 7ºa
+      Fixa Eustáquio Macedo Melo Júnior e Gilberto Torres127 Coliseu 6º Fixa Ramaya
+      Vallias Emerson, Eustáquio, Fabiano Fernandes e Gilberto128 Pobre César 7ºa
+      Fixa Torres129 Soprano (inacabada) Fixa M. Macena, Eduardo Feliciano, A. Magos
+      e Ivo Marcelino Daniel Fernandes “Salim” e Eustáquio Macedo Me
+- escalada_uid: HwvzyrjBiIz5pv
+  betas_nao_revisados:
+  - midia:
+      url: https://montanhismus.com.br/cipo
+      titulo: Eliseu Frechou
+      fonte: BLOG
+    resultado_llm:
+      llm_confidence_score: 82
+      llm_reasoning: Relato e ensaio fotográfico no blog de Eliseu Frechou registrando
+        escaladores (Ralf Azevedo e Fernanda) escalando especificamente a via 'Pobre
+        César' (7a) no Bloco Romano da Gruta da Lapinha.
+    match_nome_no_snippet: true
+    snippets:
+    - s. Ralf Azevedo é, junto com Emerson, um dos mais importantes conquistadores
+      de MG, com dezenas de rotas conquistadas pelo Brasil. Os tons de cinza do calcário
+      tornam-se azuis a medida que os raios do sol e a iluminação difusa da floresta
+      mudam de lugar no decorrer do dia. Ralf Azevedo na imponente Pobre César, 7a
+      - bloco Romano Fernanda na Pobre César, 7a - bloco Romano A Lapinha é um emaranhado
+      de caminhos pelo meio de blocos. A cada passagem surge um salão, uma dolina...
+      há uma sensação de descoberta fascinante ao simples andar nesse lugar, que mas
+      se parece com um elo perdido no tempo. Yan Ouriques a
+    - s mais importantes conquistadores de MG, com dezenas de rotas conquistadas pelo
+      Brasil. Os tons de cinza do calcário tornam-se azuis a medida que os raios do
+      sol e a iluminação difusa da floresta mudam de lugar no decorrer do dia. Ralf
+      Azevedo na imponente Pobre César, 7a - bloco Romano Fernanda na Pobre César,
+      7a - bloco Romano A Lapinha é um emaranhado de caminhos pelo meio de blocos.
+      A cada passagem surge um salão, uma dolina... há uma sensação de descoberta
+      fascinante ao simples andar nesse lugar, que mas se parece com um elo perdido
+      no tempo. Yan Ouriques aquecendo na Um corpo que sobe, 6c no setor
+  - midia:
+      url: https://thecrag.com/fr/grimper/brazil/minas-gerais/route/501321753
+      titulo: VIIa Pobre César, Sport climb in Gruta da Lapinha | theCrag
+      fonte: OUTRO_UGC
+    resultado_llm:
+      llm_confidence_score: 4
+      llm_reasoning: Página de catálogo (theCrag) que apenas copia os dados tabelados
+        básicos da via sem oferecer vídeo, relato ou beta novo.
+    match_nome_no_snippet: true
+    snippets:
+    - 'Nov 21, 2025 · Contexte de la cotation : BRZ Longueur: SPORTIVE Gruta da Lapinha
+      Parede Karen Glass Sala de Aula Bloco B Vale Maritacas Bloco Bigodes Savassinha
+      Bloco Romano'
+  - midia:
+      url: https://pt.scribd.com/document/529842647/Guia-Escalada-Lapinha-1
+      titulo: Escaladas na Gruta da Lapinha | PDF
+      fonte: BLOG
+    resultado_llm:
+      llm_confidence_score: 3
+      llm_reasoning: Apenas hospeda o PDF do guia antigo da Lapinha com dados tabelados
+        básicos já presentes no croqui do Aresta, sem vídeo ou beta adicional.
+    match_nome_no_snippet: true
+    snippets:
+    - Roberto Lincoln de Freitas Nº Nome da via Grau Proteção Conquistadores125 Spartacus
+      5º Top Rope Fabiano Fernandes da Silva (Top Rope)126 A Era dos Patrícios 7ºa
+      Fixa Eustáquio Macedo Melo Júnior e Gilberto Torres127 Coliseu 6º Fixa Ramaya
+      Vallias Emerson, Eustáquio, Fabiano Fernandes e Gilberto128 Pobre César 7ºa
+      Fixa Torres129 Soprano (inacabada) Fixa M. Macena, Eduardo Feliciano, A. Magos
+      e Ivo Marcelino Daniel Fernandes “Salim” e Eustáquio Macedo Melo130 Sodoma e
+      Gomorra 4º Fixa Júnior131 Calígula 6ºsup Fixa Eustáquio, Fabiano, Gilberto Torres
+      e Emerson Azeredo Você também pode gostar Guia de Escalad

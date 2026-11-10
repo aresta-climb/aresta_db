@@ -122,6 +122,8 @@ escaladas:
     - Glauco
     - Fabinho de Petrópolis
     data_abertura: '1995'
+    descricao: Uma agarra da saída quebrou, deixando o lance mais exigente. A linha
+      atual termina antes do teto em parada simples.
 - uid: LlhTp0HQEPx14C
   via_esportiva:
     nome: O Perigo que Veio do Céu
@@ -142,6 +144,8 @@ escaladas:
     - Charles Costa Marinho
     - Fabiano da Silva Fernandes
     data_abertura: '1993'
+    descricao: Atenção na segurança entre a 1ª e a 2ª proteção (lance mais esticado
+      próximo à base).
 - uid: Y3VMbBAjE0gzDE
   via_esportiva:
     nome: Ônibus Inglês

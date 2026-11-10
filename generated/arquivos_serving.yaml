@@ -1020,7 +1020,7 @@ arquivos:
 - caminho_relativo: br_mg_januaria_salao_encantado/compilado.yaml
   checksum_sha256: 834348aa76060dd2f76b44b301c99b027cae644226ac9b104de684cbc0fa7f96
 - caminho_relativo: br_mg_lagoa_santa_gruta_da_lapinha/compilado.binarypb
-  checksum_sha256: f716469b1a034c017015f36184cbc6f33633933e5084c9c79202b11f103bc70a
+  checksum_sha256: ef811ff153a1c35e761becd78ae1b1d6ee530ec5b62d8252d8ba88e8f1d267f5
 - caminho_relativo: thumbnails/br_mg_lagoa_santa_gruta_da_lapinha.webp
   checksum_sha256: 76c57c2b9159772355858ad8f40ba79a8584dfdda215379031adc9afff1f1416
 - caminho_relativo: br_mg_lagoa_santa_gruta_da_lapinha/imagens/capa_p0_i0.webp
@@ -1056,7 +1056,7 @@ arquivos:
 - caminho_relativo: br_mg_lagoa_santa_gruta_da_lapinha/imagens/setor_mapa_9_p0_i0.webp
   checksum_sha256: e9f415800c4e7311d2d7da6fbd76eafafba99ec58c1c3453a7131eaee20d5cae
 - caminho_relativo: br_mg_lagoa_santa_gruta_da_lapinha/compilado.yaml
-  checksum_sha256: d137bbc5ad299af686155e5e63b3ec104c0d8c613b00647205d491dbe5220d2a
+  checksum_sha256: bea6d0bcbba07e3ce786565cae3511ac8b4eda35b3e6ea90a31b27e4ea6d65be
 - caminho_relativo: br_mg_lagoa_santa_sitio_do_rod/compilado.binarypb
   checksum_sha256: 14eee706ae5f2c6eb505e1c94afbc3aea244fa3b41f79fdb2eb46b86c68d574c
 - caminho_relativo: thumbnails/br_mg_lagoa_santa_sitio_do_rod.webp
@@ -2204,8 +2204,8 @@ arquivos:
 - caminho_relativo: br_rj_nova_friburgobom_jardim_capelinha/compilado.yaml
   checksum_sha256: 6694c2e07f38d92fff2d54cd717c4b2f99121a2f5313c7ff07898a4526c013ee
 - caminho_relativo: indice.binarypb
-  checksum_sha256: d7c33ede1f1c197e3f834eb1114bf46a7418c693be2d75094963876db33cf447
+  checksum_sha256: ef6be4c8333f2f73b6b50bb450fb45ad7b6bd760308074a185835b9dcc41837c
 - caminho_relativo: indice.yaml
-  checksum_sha256: ea6258e9452419d384214e89f343bea22c639032fc68d812ebfd8d8cca1a3188
+  checksum_sha256: a806ed27692dcbb328b47c2a234b8cf3026a4410563dad8ead29fbacb3d2207f
 - caminho_relativo: catalogo.db
-  checksum_sha256: 39eadb1e17e37264828afd50352db40a5d119d67f9e5345e53b455b574a033de
+  checksum_sha256: dae832bdfce20041aea8e5a7db3a58b7614b5b21937cbca425bdc39306d8e9ea

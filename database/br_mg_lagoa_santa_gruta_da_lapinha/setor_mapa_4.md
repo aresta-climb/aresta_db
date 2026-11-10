@@ -395,6 +395,7 @@ escaladas:
     - Gustavo Piancastelli "Guta"
     - Ronie Gibson
     data_abertura: '1997'
+    descricao: Proteções espaçadas; atenção na segurança entre a 1ª e a 2ª proteção.
 - uid: HD6YyW6TnowhuN
   via_esportiva:
     nome: Garotos não Choram
