@@ -428,8 +428,9 @@ class PainelCuradoria(QWidget):
             expandida=True,
         )
         banner_mcp = QFrame()
+        banner_mcp.setObjectName("BannerMcpCuradoria")
         banner_mcp.setStyleSheet(
-            "background-color: #fff8c5; border: 1px solid #d4a72c; border-radius: 6px; padding: 6px;"
+            "#BannerMcpCuradoria { background-color: #fff8c5; border: 1px solid #d4a72c; border-radius: 6px; padding: 6px; }"
         )
         layout_banner = QHBoxLayout(banner_mcp)
         self.label_instrucoes_mcp = QLabel(INSTRUCOES_MCP_AVALIACAO)
@@ -459,13 +460,15 @@ class PainelCuradoria(QWidget):
             expandida=True,
         )
         barra_lote = QFrame()
+        barra_lote.setObjectName("BarraLoteCuradoria")
         barra_lote.setStyleSheet(
-            "background-color: #f1f5f9; border: 1px solid #cbd5e1; border-radius: 6px; padding: 6px;"
+            "#BarraLoteCuradoria { background-color: #f1f5f9; border: 1px solid #cbd5e1; border-radius: 6px; padding: 6px; }"
         )
         layout_lote = QHBoxLayout(barra_lote)
         layout_lote.addWidget(QLabel("Limiar de confiança LLM:"))
 
         self.spin_limiar_score = QSpinBox()
+        self.spin_limiar_score.setMinimumWidth(85)
         self.spin_limiar_score.setRange(0, 100)
         self.spin_limiar_score.setSuffix("%")
         self.spin_limiar_score.setValue(80)

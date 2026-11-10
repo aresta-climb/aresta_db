@@ -263,52 +263,88 @@ def test_painel_curadoria_acoes_em_lote_por_score_conexao_mcp_e_preservacao_de_s
         cliente_http=ClienteHttpFake(),
     )
 
-    chamadas_mcp: list[int] = []
-    painel = PainelCuradoria(
-        provedor_imagem=provedor,
-        carregar_assincrono=False,
-        ao_solicitar_conexao_mcp=lambda: chamadas_mcp.append(1),
-    )
-    painel.resize(900, 500)
-    qtbot.addWidget(painel)
-    painel.carregar_dados(model, controller)
-    painel.secao_rejeitados.definir_expandida(True)
-    painel.show()
-    qtbot.waitExposed(painel)
+    from PySide6.QtWidgets import QApplication, QStyleFactory
 
-    # 1. Botão "🔌 Conectar Agente (MCP)..." aciona o callback do wizard MCP
-    painel.btn_conectar_mcp.click()
-    assert len(chamadas_mcp) == 1
+    estilo_anterior = QApplication.style().objectName()
+    if "windows11" in [k.lower() for k in QStyleFactory.keys()]:
+        QApplication.setStyle("windows11")
+    try:
+        chamadas_mcp: list[int] = []
+        painel = PainelCuradoria(
+            provedor_imagem=provedor,
+            carregar_assincrono=False,
+            ao_solicitar_conexao_mcp=lambda: chamadas_mcp.append(1),
+        )
+        painel.resize(900, 500)
+        qtbot.addWidget(painel)
+        painel.carregar_dados(model, controller)
+        painel.secao_rejeitados.definir_expandida(True)
+        painel.show()
+        qtbot.waitExposed(painel)
 
-    # 2. Aprovar 1 card com foco no botão NÃO joga o scroll para o final da página
-    vbar = painel.scroll_area.verticalScrollBar()
-    vbar.setValue(180)
-    assert vbar.value() == 180
-    card_alvo = painel.cards_nao_revisados[1]
-    assert card_alvo.btn_aprovar is not None
-    card_alvo.btn_aprovar.setFocus()
-    card_alvo.btn_aprovar.click()
-    assert vbar.value() == 180
+        # 1. Botão "🔌 Conectar Agente (MCP)..." aciona o callback do wizard MCP
+        painel.btn_conectar_mcp.click()
+        assert len(chamadas_mcp) == 1
 
-    # 3. Barra de ações em lote em Betas Não Revisados (padrão 80%)
-    assert painel.spin_limiar_score.value() == 80
-    assert "✅ Aprovar >= 80% (3)" in painel.btn_aprovar_lote_score.text()
-    assert "❌ Rejeitar < 80% (13)" in painel.btn_rejeitar_lote_score.text()
+        # 2. Aprovar 1 card com foco no botão NÃO joga o scroll para o final da página
+        vbar = painel.scroll_area.verticalScrollBar()
+        vbar.setValue(180)
+        assert vbar.value() == 180
+        card_alvo = painel.cards_nao_revisados[1]
+        assert card_alvo.btn_aprovar is not None
+        card_alvo.btn_aprovar.setFocus()
+        card_alvo.btn_aprovar.click()
+        assert vbar.value() == 180
 
-    painel.btn_aprovar_lote_score.click()
-    assert len(painel.cards_nao_revisados) == 13
-    assert painel.btn_aprovar_lote_score.isEnabled() is False
+        # 3. Barra de ações em lote em Betas Não Revisados (padrão 80%) e clique no botão ^ do spinbox
+        assert painel.spin_limiar_score.value() == 80
+        from PySide6.QtCore import Qt
+        from PySide6.QtWidgets import QStyle, QStyleOptionSpinBox
 
-    painel.btn_rejeitar_lote_score.click()
-    assert len(painel.cards_nao_revisados) == 0
-    assert painel.btn_rejeitar_lote_score.isEnabled() is False
+        opt_spin = QStyleOptionSpinBox()
+        painel.spin_limiar_score.initStyleOption(opt_spin)
+        rect_up = painel.spin_limiar_score.style().subControlRect(
+            QStyle.ComplexControl.CC_SpinBox,
+            opt_spin,
+            QStyle.SubControl.SC_SpinBoxUp,
+            painel.spin_limiar_score,
+        )
+        rect_edit = painel.spin_limiar_score.style().subControlRect(
+            QStyle.ComplexControl.CC_SpinBox,
+            opt_spin,
+            QStyle.SubControl.SC_SpinBoxEditField,
+            painel.spin_limiar_score,
+        )
+        assert not rect_edit.intersects(rect_up)
+        assert not painel.spin_limiar_score.lineEdit().geometry().intersects(rect_up)
+        assert painel.spin_limiar_score.childAt(rect_up.center()) is None
+        qtbot.mouseClick(
+            painel.spin_limiar_score,
+            Qt.MouseButton.LeftButton,
+            pos=rect_up.center(),
+        )
+        assert painel.spin_limiar_score.value() == 81
+        painel.spin_limiar_score.setValue(80)
+        assert "✅ Aprovar >= 80% (3)" in painel.btn_aprovar_lote_score.text()
+        assert "❌ Rejeitar < 80% (13)" in painel.btn_rejeitar_lote_score.text()
 
-    # Undo reverte toda a rejeição em lote de uma só vez
-    stack.undo()
-    assert len(painel.cards_nao_revisados) == 13
-    # Undo reverte toda a aprovação em lote de uma só vez
-    stack.undo()
-    assert len(painel.cards_nao_revisados) == 16
+        painel.btn_aprovar_lote_score.click()
+        assert len(painel.cards_nao_revisados) == 13
+        assert painel.btn_aprovar_lote_score.isEnabled() is False
+
+        painel.btn_rejeitar_lote_score.click()
+        assert len(painel.cards_nao_revisados) == 0
+        assert painel.btn_rejeitar_lote_score.isEnabled() is False
+
+        # Undo reverte toda a rejeição em lote de uma só vez
+        stack.undo()
+        assert len(painel.cards_nao_revisados) == 13
+        # Undo reverte toda a aprovação em lote de uma só vez
+        stack.undo()
+        assert len(painel.cards_nao_revisados) == 16
+    finally:
+        if estilo_anterior:
+            QApplication.setStyle(estilo_anterior)
 
 
 
