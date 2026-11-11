@@ -109,7 +109,8 @@ def test_painel_curadoria_exibe_4_secoes_ordena_por_score_e_transiciona_1_a_1_co
     assert painel.secao_rejeitados.esta_expandida() is True
     assert len(painel.cards_rejeitados) == 1
 
-    # Verifica que o banner MCP tem instruções e botão de conectar agente MCP
+    # Verifica que o banner MCP tem instruções e botão de conectar agente MCP e está visível quando há betas não scorados
+    assert not painel.banner_mcp.isHidden()
     assert "avaliar_betas_croqui" in painel.label_instrucoes_mcp.text()
     assert len(painel.cards_nao_revisados) == 2
     assert len(painel.cards_nao_scorados) == 1
@@ -145,24 +146,27 @@ def test_painel_curadoria_exibe_4_secoes_ordena_por_score_e_transiciona_1_a_1_co
     assert len(painel.cards_aprovados) == 1
     stack.redo()
 
-    # 2. Rejeitar 1 a 1 o candidato de betas_nao_scorados -> vai para betas_rejeitados
+    # 2. Rejeitar 1 a 1 o candidato de betas_nao_scorados -> vai para betas_rejeitados e oculta banner_mcp
     card_ns = painel.cards_nao_scorados[0]
     assert card_ns.btn_rejeitar is not None
     card_ns.btn_rejeitar.click()
     assert len(painel.cards_nao_scorados) == 0
+    assert painel.banner_mcp.isHidden()
     assert len(painel.cards_rejeitados) == 2
 
-    # 3. Restaurar 1 a 1 um item de betas_rejeitados -> volta para betas_nao_scorados
+    # 3. Restaurar 1 a 1 um item de betas_rejeitados -> volta para betas_nao_scorados e reexibe banner_mcp
     card_rej = painel.cards_rejeitados[0]
     assert card_rej.btn_restaurar is not None
     card_rej.btn_restaurar.click()
     assert len(painel.cards_rejeitados) == 1
     assert len(painel.cards_nao_scorados) == 1
+    assert not painel.banner_mcp.isHidden()
 
-    # 4. Filtrar por escalada_uid específica ("esc_2" sem candidatos)
+    # 4. Filtrar por escalada_uid específica ("esc_2" sem candidatos) oculta banner_mcp
     painel.selecionar_escalada_por_uid("esc_2")
     assert len(painel.cards_nao_revisados) == 0
     assert len(painel.cards_aprovados) == 0
+    assert painel.banner_mcp.isHidden()
 
     painel.selecionar_escalada_por_uid("esc_1")
     assert len(painel.cards_aprovados) == 2

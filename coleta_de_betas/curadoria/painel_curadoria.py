@@ -528,12 +528,13 @@ class PainelCuradoria(QWidget):
             "1. Betas Não Scorados - Aguardando Avaliação LLM",
             expandida=True,
         )
-        banner_mcp = QFrame()
-        banner_mcp.setObjectName("BannerMcpCuradoria")
-        banner_mcp.setStyleSheet(
+        self.banner_mcp = QFrame()
+        self.banner_mcp.setObjectName("BannerMcpCuradoria")
+        self.banner_mcp.setStyleSheet(
             "#BannerMcpCuradoria { background-color: #fff8c5; border: 1px solid #d4a72c; border-radius: 6px; padding: 6px; }"
         )
-        layout_banner = QHBoxLayout(banner_mcp)
+        self.banner_mcp.setVisible(False)
+        layout_banner = QHBoxLayout(self.banner_mcp)
         self.label_instrucoes_mcp = QLabel(INSTRUCOES_MCP_AVALIACAO)
         self.label_instrucoes_mcp.setWordWrap(True)
         layout_banner.addWidget(self.label_instrucoes_mcp, stretch=1)
@@ -550,7 +551,7 @@ class PainelCuradoria(QWidget):
         layout_botoes_mcp.addWidget(self.btn_copiar_prompt_mcp)
         layout_banner.addLayout(layout_botoes_mcp)
 
-        self.secao_nao_scorados.layout_conteudo.addWidget(banner_mcp)
+        self.secao_nao_scorados.layout_conteudo.addWidget(self.banner_mcp)
         self.layout_nao_scorados = QVBoxLayout()
         self.secao_nao_scorados.layout_conteudo.addLayout(self.layout_nao_scorados)
         self.layout_secoes.addWidget(self.secao_nao_scorados)
@@ -951,6 +952,7 @@ class PainelCuradoria(QWidget):
             self._itens_rejeitados_atuais.clear()
 
             if self.model is None or self.controller is None:
+                self.banner_mcp.setVisible(False)
                 self._limpar_layout(self.layout_nao_scorados, self.cards_nao_scorados)
                 self._limpar_layout(self.layout_nao_revisados, self.cards_nao_revisados)
                 self._limpar_layout(self.layout_aprovados, self.cards_aprovados)
@@ -1008,6 +1010,7 @@ class PainelCuradoria(QWidget):
                             ),
                         }
                     )
+            self.banner_mcp.setVisible(len(especificacoes_ns) > 0)
             self._reconciliar_secao(
                 self.layout_nao_scorados,
                 self.cards_nao_scorados,
