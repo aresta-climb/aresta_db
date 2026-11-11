@@ -40,22 +40,26 @@ from scripts.gerar_malha_estrada_lib import (
 
 def test_construir_query_overpass_inclui_tres_bboxes_disjuntas_e_out_body_qt() -> None:
     query = construir_query_overpass(-19.5622616, -43.9595684)
+    bbox_60 = _calcular_bbox_graus(-19.5622616, -43.9595684, 60.0)
+    bbox_150 = _calcular_bbox_graus(-19.5622616, -43.9595684, 150.0)
 
     assert "around:" not in query
+    assert "[out:json][timeout:60];" in query
     assert "residential|living_street|road|track|service|unclassified" in query
     assert query.count("unclassified") == 1
-    assert query.count("tertiary") == 2  # tertiary|tertiary_link em uma única cláusula
-    assert query.count("motorway") == 2  # motorway|motorway_link em uma única cláusula
-    assert "secondary|secondary_link" in query
-    assert _calcular_bbox_graus(-19.5622616, -43.9595684, 150.0) in query
+    assert f'way["highway"="tertiary"]({bbox_60});' in query
+    assert f'way["highway"="tertiary_link"]({bbox_60});' in query
+    assert f'way["highway"="motorway"]({bbox_150});' in query
+    assert f'way["highway"="secondary_link"]({bbox_150});' in query
     assert RAIO_ANEL_3_KM == 150.0
     assert DISTANCIA_MAXIMA_ESTRADA_METROS == 200_000.0
-    assert "out body qt;" in query
-    assert "out skel qt;" in query
+    assert "out geom qt;" in query
+    assert "out skel qt;" not in query
+    assert ">;" not in query
     assert ESPELHOS_OVERPASS_PADRAO == (
         "https://lz4.overpass-api.de/api/interpreter",
-        "https://overpass.private.coffee/api/interpreter",
         "https://z.overpass-api.de/api/interpreter",
+        "https://overpass.private.coffee/api/interpreter",
     )
 
 
@@ -137,10 +141,11 @@ def test_cliente_overpass_realiza_failover_entre_espelhos_publicos() -> None:
         ESPELHOS_OVERPASS_PADRAO[2],
     ]
     assert any("Falha em lz4.overpass-api.de" in msg for msg, _ in eventos_failover)
-    assert any("Falha em overpass.private.coffee (HTTP 502)" in msg for msg, _ in eventos_failover)
+    assert any("Falha em z.overpass-api.de (HTTP 502)" in msg for msg, _ in eventos_failover)
 
     cliente_padrao = ClienteOverpass(abridor_url=abridor_com_failover)
     assert cliente_padrao.urls_endpoints == ESPELHOS_OVERPASS_PADRAO
+    assert cliente_padrao.timeout_segundos == 60
 
 
 def test_cliente_overpass_negocia_e_descomprime_zstd_br_gzip_deflate_e_aciona_kill_my_queries() -> (
@@ -405,11 +410,7 @@ def test_gerar_malha_descarta_ilha_isolada_e_inclui_estacionamento_com_distancia
         {"type": "node", "id": 900, "lat": -20.0001, "lon": -44.0001},
         {"type": "node", "id": 901, "lat": -20.0002, "lon": -44.0002},
         {"type": "way", "id": 90, "nodes": [900, 901], "tags": {"highway": "track"}},
-        # Malha principal conectada (4 nós em diferentes células)
-        {"type": "node", "id": 100, "lat": -20.0010, "lon": -44.0010},
-        {"type": "node", "id": 101, "lat": -20.0300, "lon": -44.0010},
-        {"type": "node", "id": 102, "lat": -20.0600, "lon": -44.0010},
-        {"type": "node", "id": 103, "lat": -20.0900, "lon": -44.0010},
+        # Malha principal conectada (4 nós em diferentes células, via geometry inline de out geom qt)
         # Entradas inválidas/incompletas que devem ser ignoradas com segurança
         {"type": "node", "id": 999},
         {"type": "way", "id": 91, "nodes": [100], "tags": {"highway": "primary"}},
@@ -419,6 +420,12 @@ def test_gerar_malha_descarta_ilha_isolada_e_inclui_estacionamento_com_distancia
             "type": "way",
             "id": 10,
             "nodes": [100, 101, 102, 103],
+            "geometry": [
+                {"lat": -20.0010, "lon": -44.0010},
+                {"lat": -20.0300, "lon": -44.0010},
+                {"lat": -20.0600, "lon": -44.0010},
+                {"lat": -20.0900, "lon": -44.0010},
+            ],
             "tags": {"highway": "primary"},
         },
     ]

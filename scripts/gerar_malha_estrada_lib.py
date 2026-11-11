@@ -36,8 +36,8 @@ VERSAO_ATUAL_MALHA_ESTRADA = 2
 
 ESPELHOS_OVERPASS_PADRAO: tuple[str, ...] = (
     "https://lz4.overpass-api.de/api/interpreter",
-    "https://overpass.private.coffee/api/interpreter",
     "https://z.overpass-api.de/api/interpreter",
+    "https://overpass.private.coffee/api/interpreter",
 )
 
 USER_AGENT_OVERPASS = "ArestaClimbEditor/1.0 (+https://arestaclimb.com)"
@@ -166,28 +166,31 @@ def _calcular_bbox_graus(latitude: float, longitude: float, raio_km: float) -> s
 def construir_query_overpass(latitude: float, longitude: float) -> str:
     """
     Constrói a query Overpass QL particionada em 3 Bounding Boxes disjuntas
-    (4 km local + unclassified, 60 km tertiary e 150 km motorway..secondary)
-    com ordenação espacial Quadtile (`qt`).
+    (4 km local + unclassified, 60 km tertiary por igualdade exata e 150 km motorway..secondary
+    por igualdade exata) com geometria inline e ordenação espacial Quadtile (`out geom qt;`).
     """
     bbox_4km = _calcular_bbox_graus(latitude, longitude, 4.0)
     bbox_60km = _calcular_bbox_graus(latitude, longitude, 60.0)
     bbox_150km = _calcular_bbox_graus(latitude, longitude, RAIO_ANEL_3_KM)
     vias_locais = "residential|living_street|road|track|service|unclassified"
-    vias_terciarias = "tertiary|tertiary_link"
-    vias_principais = (
-        "motorway|motorway_link|trunk|trunk_link|primary|primary_link|secondary|secondary_link"
+    tipos_60km = ("tertiary", "tertiary_link")
+    tipos_150km = (
+        "motorway",
+        "motorway_link",
+        "trunk",
+        "trunk_link",
+        "primary",
+        "primary_link",
+        "secondary",
+        "secondary_link",
     )
-    return (
-        "[out:json][timeout:120];\n"
-        "(\n"
-        f'  way["highway"~"^({vias_locais})$"]({bbox_4km});\n'
-        f'  way["highway"~"^({vias_terciarias})$"]({bbox_60km});\n'
-        f'  way["highway"~"^({vias_principais})$"]({bbox_150km});\n'
-        ");\n"
-        "out body qt;\n"
-        ">;\n"
-        "out skel qt;\n"
-    )
+    clausulas = [f'  way["highway"~"^({vias_locais})$"]({bbox_4km});']
+    for tipo in tipos_60km:
+        clausulas.append(f'  way["highway"="{tipo}"]({bbox_60km});')
+    for tipo in tipos_150km:
+        clausulas.append(f'  way["highway"="{tipo}"]({bbox_150km});')
+    corpo_clausulas = "\n".join(clausulas)
+    return f"[out:json][timeout:60];\n(\n{corpo_clausulas}\n);\nout geom qt;\n"
 
 
 def _criar_descompressor_streaming(
@@ -233,7 +236,7 @@ class ClienteOverpass:
     def __init__(
         self,
         url_endpoint: str | Sequence[str] | None = None,
-        timeout_segundos: int = 120,
+        timeout_segundos: int = 60,
         abridor_url: Callable[..., Any] | None = None,
     ) -> None:
         if url_endpoint is None:
@@ -371,6 +374,9 @@ def _extrair_grafo_maior_componente(
     for elem in elementos:
         if elem.get("type") == "node" and "lat" in elem and "lon" in elem:
             coordenadas[int(elem["id"])] = (float(elem["lat"]), float(elem["lon"]))
+        elif elem.get("type") == "way" and "geometry" in elem:
+            for nid_raw, pt in zip(elem.get("nodes", []), elem["geometry"]):
+                coordenadas[int(nid_raw)] = (float(pt["lat"]), float(pt["lon"]))
 
     adjacencia: dict[int, dict[int, tuple[float, float]]] = {}
     melhor_rank: dict[int, int] = {}
