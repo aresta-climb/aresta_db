@@ -80,7 +80,7 @@ dev = [
 
 [[package]]
 name = "aresta-db"
-version = "0.6.1"
+version = "0.6.2-dev"
 source = { virtual = "." }
 
 [package.dev-dependencies]
