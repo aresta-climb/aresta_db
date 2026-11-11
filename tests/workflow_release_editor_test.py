@@ -32,17 +32,43 @@ class TestWorkflowReleaseEditor(unittest.TestCase):
             self.conteudo_linux = carregar_yaml(f)
 
     def test_workflow_possui_sparse_checkout_com_tests_e_github(self) -> None:
-        """Garante que o sparse-checkout do workflow inclui as pastas tests e .github para testes arquiteturais."""
-        passos = self.conteudo_yaml["jobs"]["prepare_release"]["steps"]
-        passo_checkout = next((s for s in passos if "Checkout" in s.get("name", "")), None)
-        self.assertIsNotNone(passo_checkout, "Passo com 'Checkout' não encontrado no workflow.")
-        assert passo_checkout is not None
-        sparse_checkout = passo_checkout.get("with", {}).get("sparse-checkout", "")
-        linhas_sparse = [linha.strip() for linha in sparse_checkout.splitlines() if linha.strip()]
-        self.assertIn("tests", linhas_sparse, "A pasta 'tests' deve constar no sparse-checkout.")
-        self.assertIn(
-            ".github", linhas_sparse, "A pasta '.github' deve constar no sparse-checkout."
-        )
+        """Garante que o sparse-checkout dos workflows de release, build e PR inclui tests, .github e .agents."""
+        pr_validator_path = self.dir_workflows / "pr-code-validator.yml"
+        with open(pr_validator_path, encoding="utf-8") as f:
+            conteudo_pr = carregar_yaml(f)
+
+        for nome_wf, conteudo_wf, job_key in [
+            ("release-editor.yml", self.conteudo_yaml, "prepare_release"),
+            ("build_editor_windows.yml", self.conteudo_windows, "build_windows"),
+            ("build_editor_macos.yml", self.conteudo_macos, "compilar_macos"),
+            ("build_editor_linux.yml", self.conteudo_linux, "build_linux"),
+            ("pr-code-validator.yml", conteudo_pr, "test"),
+        ]:
+            passos = conteudo_wf["jobs"][job_key]["steps"]
+            passo_checkout = next((s for s in passos if "Checkout" in s.get("name", "")), None)
+            self.assertIsNotNone(
+                passo_checkout, f"Passo com 'Checkout' não encontrado em {nome_wf}."
+            )
+            assert passo_checkout is not None
+            sparse_checkout = passo_checkout.get("with", {}).get("sparse-checkout", "")
+            linhas_sparse = [
+                linha.strip() for linha in sparse_checkout.splitlines() if linha.strip()
+            ]
+            self.assertIn(
+                "tests",
+                linhas_sparse,
+                f"A pasta 'tests' deve constar no sparse-checkout ({nome_wf}).",
+            )
+            self.assertIn(
+                ".github",
+                linhas_sparse,
+                f"A pasta '.github' deve constar no sparse-checkout ({nome_wf}).",
+            )
+            self.assertIn(
+                ".agents",
+                linhas_sparse,
+                f"A pasta '.agents' deve constar no sparse-checkout ({nome_wf}).",
+            )
 
     def test_workflow_possui_supressao_werfault(self) -> None:
         """Garante que o passo de supressão do Windows Error Reporting está configurado no build Windows."""

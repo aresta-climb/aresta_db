@@ -53,6 +53,7 @@ jobs:
           sparse-checkout: |
             .
             .github
+            .agents
             tests
             editor
             scripts
