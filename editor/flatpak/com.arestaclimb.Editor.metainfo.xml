@@ -38,6 +38,11 @@
   </categories>
   
   <releases>
+    <release version="0.6.1" date="2026-11-11">
+      <description>
+        <p>melhorias diversas, página de qualidade e página de betas </p>
+      </description>
+    </release>
     <release version="0.6.0" date="2026-11-11">
       <description>
         <p>muitas melhorias, incluindo nova página de qualidade e de betas</p>
