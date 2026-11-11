@@ -228,6 +228,10 @@ escaladas:
     data_abertura: '1999'
     descricao: Utilize a parada original no alinhamento da via (desconsidere a parada
       extra à direita).
+  betas:
+  - url: https://instagram.com/reel/Db2AGlbtw12
+    titulo: Instagram
+    fonte: INSTAGRAM
 - uid: 46pgZmHpsgEsde
   via_esportiva:
     nome: Bigode Limpo

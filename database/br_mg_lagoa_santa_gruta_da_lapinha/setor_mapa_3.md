@@ -371,6 +371,10 @@ escaladas:
     - Mozart
     - Alexandre Magos
     data_abertura: '1998'
+  betas:
+  - url: https://youtube.com/watch?v=npcc77F6B3A
+    titulo: O Perigo mora ao lado 8a - Lapinha/MG - YouTube
+    fonte: YOUTUBE
 - uid: PhAfEvHO25UiXj
   via_esportiva:
     nome: Pretexto da Traição
@@ -454,6 +458,10 @@ escaladas:
     - Fabiano da Silva Fernandes
     - Viviane da Silva Euler
     data_abertura: '1998'
+  betas:
+  - url: https://instagram.com/reel/Cf2igXhDZAn
+    titulo: 'MonkWay | Up! #donthatemeditate ... - Instagram'
+    fonte: INSTAGRAM
 - uid: lD3cxvUuA8Gf2i
   via_esportiva:
     nome: Los Cubanos
@@ -463,6 +471,10 @@ escaladas:
     - Viviane da Silva Euler
     data_abertura: '1999'
     data_manutencao: 12/07/2022
+  betas:
+  - url: https://youtube.com/watch?v=8bud0saw9Ec
+    titulo: Escalada na Gruta do Baú, Gruta da Lapinha, Sítio do Rodhe e ...
+    fonte: YOUTUBE
 - uid: FHwRMLcg9gfbK6
   via_movel:
     nome: Folião

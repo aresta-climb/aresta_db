@@ -322,6 +322,13 @@ escaladas:
     descricao: 'ATENÇÃO: não utilizar o bico de pedra próximo ao top rope como agarra!
       Risco de queda do bloco!'
     data_manutencao: 12/10/2026
+  betas:
+  - url: https://instagram.com/reel/Db16BZ0NR4C
+    titulo: 'crux_sloth on Instagram: "6 Bigode de Cristo Seg Master ...'
+    fonte: INSTAGRAM
+  - url: https://youtube.com/watch?v=XilJZDRyd_A
+    titulo: Bigode de Cristo - Gruta da Lapinha - YouTube
+    fonte: YOUTUBE
 - uid: ZgB4gVcfZ1FoTC
   via_esportiva:
     nome: Bigode Sujo

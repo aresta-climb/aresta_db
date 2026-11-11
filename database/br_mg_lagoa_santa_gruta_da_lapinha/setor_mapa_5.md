@@ -146,6 +146,10 @@ escaladas:
     data_abertura: '1993'
     descricao: Atenção na segurança entre a 1ª e a 2ª proteção (lance mais esticado
       próximo à base).
+  betas:
+  - url: https://instagram.com/reel/DGwJJnPyaTU
+    titulo: Rafael Mendes | Escalada na Gruta da Lapinha é sempre mágico ...
+    fonte: INSTAGRAM
 - uid: Y3VMbBAjE0gzDE
   via_esportiva:
     nome: Ônibus Inglês
@@ -171,6 +175,13 @@ escaladas:
     - Ricardo Jardim Leal
     - Rodrigo Tinoco França
     data_abertura: '1993'
+  betas:
+  - url: https://youtube.com/watch?v=Yj6x3S46VEU
+    titulo: Escalada Karrenglass 5ºsup - 29/07/12 - Gruta da Lapinha MG
+    fonte: YOUTUBE
+  - url: https://instagram.com/reel/DcpR6fet-D0
+    titulo: crux_sloth | 5sup Karren Glass é o nome da primeira via de ...
+    fonte: INSTAGRAM
 - uid: lieFJxvgjD0T4C
   via_esportiva:
     nome: Retorno dos Anões

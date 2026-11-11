@@ -9,12 +9,6 @@ nos:
   distancia_metros: 167663
   na_borda: false
   duracao_minutos: 161
-- no_osm_id: '29404361'
-  latitude_e7: -209479556
-  longitude_e7: -437972627
-  distancia_metros: 184829
-  na_borda: false
-  duracao_minutos: 177
 - no_osm_id: '29850039'
   latitude_e7: -199589029
   longitude_e7: -439431003
@@ -321,12 +315,6 @@ nos:
   distancia_metros: 86052
   na_borda: false
   duracao_minutos: 81
-- no_osm_id: '353301864'
-  latitude_e7: -184026816
-  longitude_e7: -450951809
-  distancia_metros: 222962
-  na_borda: false
-  duracao_minutos: 191
 - no_osm_id: '353303306'
   latitude_e7: -193522033
   longitude_e7: -438737337
@@ -339,24 +327,12 @@ nos:
   distancia_metros: 150570
   na_borda: false
   duracao_minutos: 132
-- no_osm_id: '353314049'
-  latitude_e7: -184446117
-  longitude_e7: -451894123
-  distancia_metros: 238013
-  na_borda: false
-  duracao_minutos: 221
 - no_osm_id: '353314250'
   latitude_e7: -192030206
   longitude_e7: -437381943
   distancia_metros: 77983
   na_borda: false
   duracao_minutos: 84
-- no_osm_id: '353316572'
-  latitude_e7: -199248471
-  longitude_e7: -452933198
-  distancia_metros: 222085
-  na_borda: false
-  duracao_minutos: 185
 - no_osm_id: '353455394'
   latitude_e7: -202811780
   longitude_e7: -437197971
@@ -393,12 +369,6 @@ nos:
   distancia_metros: 85481
   na_borda: false
   duracao_minutos: 76
-- no_osm_id: '415515847'
-  latitude_e7: -192039723
-  longitude_e7: -422935733
-  distancia_metros: 280484
-  na_borda: false
-  duracao_minutos: 268
 - no_osm_id: '419565536'
   latitude_e7: -192818523
   longitude_e7: -442319387
@@ -567,12 +537,6 @@ nos:
   distancia_metros: 194916
   na_borda: false
   duracao_minutos: 152
-- no_osm_id: '1432867260'
-  latitude_e7: -210731570
-  longitude_e7: -442979110
-  distancia_metros: 239218
-  na_borda: false
-  duracao_minutos: 225
 - no_osm_id: '1455634489'
   latitude_e7: -197930687
   longitude_e7: -438788723
@@ -591,12 +555,6 @@ nos:
   distancia_metros: 58544
   na_borda: false
   duracao_minutos: 56
-- no_osm_id: '1487967303'
-  latitude_e7: -200324049
-  longitude_e7: -455181037
-  distancia_metros: 248312
-  na_borda: false
-  duracao_minutos: 208
 - no_osm_id: '1494845050'
   latitude_e7: -196376186
   longitude_e7: -440082157
@@ -621,30 +579,6 @@ nos:
   distancia_metros: 156331
   na_borda: false
   duracao_minutos: 131
-- no_osm_id: '1512025255'
-  latitude_e7: -193085741
-  longitude_e7: -423917113
-  distancia_metros: 262965
-  na_borda: false
-  duracao_minutos: 251
-- no_osm_id: '1512105510'
-  latitude_e7: -194802772
-  longitude_e7: -424882282
-  distancia_metros: 243396
-  na_borda: false
-  duracao_minutos: 233
-- no_osm_id: '1583785031'
-  latitude_e7: -181777367
-  longitude_e7: -435603563
-  distancia_metros: 292773
-  na_borda: false
-  duracao_minutos: 239
-- no_osm_id: '1583849261'
-  latitude_e7: -184161414
-  longitude_e7: -436892171
-  distancia_metros: 255741
-  na_borda: false
-  duracao_minutos: 201
 - no_osm_id: '1583889476'
   latitude_e7: -194769300
   longitude_e7: -442884978
@@ -657,12 +591,6 @@ nos:
   distancia_metros: 190030
   na_borda: false
   duracao_minutos: 150
-- no_osm_id: '1618302140'
-  latitude_e7: -207883992
-  longitude_e7: -428385841
-  distancia_metros: 282782
-  na_borda: true
-  duracao_minutos: 292
 - no_osm_id: '1647968974'
   latitude_e7: -206775513
   longitude_e7: -437944198
@@ -675,18 +603,6 @@ nos:
   distancia_metros: 70427
   na_borda: false
   duracao_minutos: 65
-- no_osm_id: '1756253030'
-  latitude_e7: -202110105
-  longitude_e7: -426599206
-  distancia_metros: 219261
-  na_borda: false
-  duracao_minutos: 211
-- no_osm_id: '1756253048'
-  latitude_e7: -202103038
-  longitude_e7: -426607872
-  distancia_metros: 219106
-  na_borda: false
-  duracao_minutos: 210
 - no_osm_id: '1795680869'
   latitude_e7: -194096080
   longitude_e7: -448501225
@@ -741,12 +657,6 @@ nos:
   distancia_metros: 20569
   na_borda: false
   duracao_minutos: 21
-- no_osm_id: '1826446796'
-  latitude_e7: -201144030
-  longitude_e7: -455611503
-  distancia_metros: 258632
-  na_borda: false
-  duracao_minutos: 217
 - no_osm_id: '1830061743'
   latitude_e7: -199939306
   longitude_e7: -440452504
@@ -763,7 +673,7 @@ nos:
   latitude_e7: -200134062
   longitude_e7: -427489887
   distancia_metros: 192571
-  na_borda: false
+  na_borda: true
   duracao_minutos: 187
 - no_osm_id: '1864948240'
   latitude_e7: -201067571
@@ -771,54 +681,18 @@ nos:
   distancia_metros: 186380
   na_borda: false
   duracao_minutos: 200
-- no_osm_id: '1865761206'
-  latitude_e7: -191493414
-  longitude_e7: -427471644
-  distancia_metros: 301909
-  na_borda: false
-  duracao_minutos: 295
-- no_osm_id: '1865762147'
-  latitude_e7: -190791936
-  longitude_e7: -427225068
-  distancia_metros: 311364
-  na_borda: false
-  duracao_minutos: 305
-- no_osm_id: '1868371034'
-  latitude_e7: -207018226
-  longitude_e7: -430565364
-  distancia_metros: 249832
-  na_borda: false
-  duracao_minutos: 251
-- no_osm_id: '1868645291'
-  latitude_e7: -209193434
-  longitude_e7: -431010859
-  distancia_metros: 260180
-  na_borda: false
-  duracao_minutos: 254
 - no_osm_id: '1880214309'
   latitude_e7: -198831305
   longitude_e7: -447538590
   distancia_metros: 145425
   na_borda: false
   duracao_minutos: 124
-- no_osm_id: '1881806553'
-  latitude_e7: -194524197
-  longitude_e7: -424217373
-  distancia_metros: 251422
-  na_borda: false
-  duracao_minutos: 240
 - no_osm_id: '1895395823'
   latitude_e7: -199792280
   longitude_e7: -442236312
   distancia_metros: 82132
   na_borda: false
   duracao_minutos: 74
-- no_osm_id: '1905541651'
-  latitude_e7: -198372904
-  longitude_e7: -422767245
-  distancia_metros: 299202
-  na_borda: false
-  duracao_minutos: 301
 - no_osm_id: '1920931973'
   latitude_e7: -196188251
   longitude_e7: -439581454
@@ -999,12 +873,6 @@ nos:
   distancia_metros: 81259
   na_borda: false
   duracao_minutos: 75
-- no_osm_id: '1986986863'
-  latitude_e7: -206016911
-  longitude_e7: -427264154
-  distancia_metros: 279238
-  na_borda: false
-  duracao_minutos: 292
 - no_osm_id: '1987712426'
   latitude_e7: -195990047
   longitude_e7: -441554307
@@ -1035,30 +903,24 @@ nos:
   distancia_metros: 84899
   na_borda: false
   duracao_minutos: 93
-- no_osm_id: '1997329545'
-  latitude_e7: -187174478
-  longitude_e7: -430176839
-  distancia_metros: 240902
+- no_osm_id: '2025204590'
+  latitude_e7: -189591991
+  longitude_e7: -430775659
+  distancia_metros: 191964
   na_borda: false
-  duracao_minutos: 244
-- no_osm_id: '1997329634'
-  latitude_e7: -187700859
-  longitude_e7: -429324466
-  distancia_metros: 208366
+  duracao_minutos: 230
+- no_osm_id: '2029738216'
+  latitude_e7: -203594226
+  longitude_e7: -449356163
+  distancia_metros: 191468
+  na_borda: true
+  duracao_minutos: 173
+- no_osm_id: '2029879116'
+  latitude_e7: -188539499
+  longitude_e7: -429968029
+  distancia_metros: 195557
   na_borda: false
-  duracao_minutos: 249
-- no_osm_id: '2006154167'
-  latitude_e7: -180020073
-  longitude_e7: -441785203
-  distancia_metros: 249571
-  na_borda: false
-  duracao_minutos: 200
-- no_osm_id: '2035145663'
-  latitude_e7: -194388063
-  longitude_e7: -422540550
-  distancia_metros: 271094
-  na_borda: false
-  duracao_minutos: 258
+  duracao_minutos: 233
 - no_osm_id: '2070807473'
   latitude_e7: -204204379
   longitude_e7: -438817201
@@ -1077,36 +939,12 @@ nos:
   distancia_metros: 187980
   na_borda: false
   duracao_minutos: 177
-- no_osm_id: '2182329736'
-  latitude_e7: -181410974
-  longitude_e7: -442974822
-  distancia_metros: 229426
-  na_borda: false
-  duracao_minutos: 182
 - no_osm_id: '2211566766'
   latitude_e7: -198462126
   longitude_e7: -436001658
   distancia_metros: 90326
   na_borda: false
   duracao_minutos: 103
-- no_osm_id: '2268537345'
-  latitude_e7: -206980846
-  longitude_e7: -432484693
-  distancia_metros: 224218
-  na_borda: false
-  duracao_minutos: 220
-- no_osm_id: '2268537368'
-  latitude_e7: -207011559
-  longitude_e7: -432408813
-  distancia_metros: 225152
-  na_borda: false
-  duracao_minutos: 221
-- no_osm_id: '2269860210'
-  latitude_e7: -202996224
-  longitude_e7: -430877924
-  distancia_metros: 211633
-  na_borda: false
-  duracao_minutos: 221
 - no_osm_id: '2270170167'
   latitude_e7: -196984919
   longitude_e7: -440081134
@@ -1143,18 +981,6 @@ nos:
   distancia_metros: 30175
   na_borda: false
   duracao_minutos: 31
-- no_osm_id: '2274852245'
-  latitude_e7: -203534783
-  longitude_e7: -428004698
-  distancia_metros: 243450
-  na_borda: false
-  duracao_minutos: 232
-- no_osm_id: '2274863091'
-  latitude_e7: -203412909
-  longitude_e7: -424756544
-  distancia_metros: 250893
-  na_borda: false
-  duracao_minutos: 242
 - no_osm_id: '2289397665'
   latitude_e7: -199306620
   longitude_e7: -444009521
@@ -1191,18 +1017,6 @@ nos:
   distancia_metros: 131599
   na_borda: false
   duracao_minutos: 132
-- no_osm_id: '2306377753'
-  latitude_e7: -197204693
-  longitude_e7: -424213396
-  distancia_metros: 281124
-  na_borda: false
-  duracao_minutos: 274
-- no_osm_id: '2306780044'
-  latitude_e7: -191556890
-  longitude_e7: -425000241
-  distancia_metros: 288358
-  na_borda: false
-  duracao_minutos: 271
 - no_osm_id: '2310001721'
   latitude_e7: -197585904
   longitude_e7: -439499815
@@ -1215,30 +1029,6 @@ nos:
   distancia_metros: 195098
   na_borda: false
   duracao_minutos: 203
-- no_osm_id: '2311145035'
-  latitude_e7: -203956721
-  longitude_e7: -428711234
-  distancia_metros: 253205
-  na_borda: false
-  duracao_minutos: 241
-- no_osm_id: '2312917863'
-  latitude_e7: -206273997
-  longitude_e7: -451620998
-  distancia_metros: 251075
-  na_borda: false
-  duracao_minutos: 218
-- no_osm_id: '2315366578'
-  latitude_e7: -200971201
-  longitude_e7: -452942277
-  distancia_metros: 229981
-  na_borda: false
-  duracao_minutos: 201
-- no_osm_id: '2317822904'
-  latitude_e7: -182809783
-  longitude_e7: -441892809
-  distancia_metros: 231846
-  na_borda: false
-  duracao_minutos: 192
 - no_osm_id: '2318447341'
   latitude_e7: -191240928
   longitude_e7: -442862266
@@ -1269,23 +1059,11 @@ nos:
   distancia_metros: 158933
   na_borda: false
   duracao_minutos: 155
-- no_osm_id: '2329773427'
-  latitude_e7: -201683172
-  longitude_e7: -429236289
-  distancia_metros: 207033
-  na_borda: false
-  duracao_minutos: 227
-- no_osm_id: '2333688336'
-  latitude_e7: -188285801
-  longitude_e7: -427218765
-  distancia_metros: 237521
-  na_borda: false
-  duracao_minutos: 271
 - no_osm_id: '2334696081'
   latitude_e7: -186468476
   longitude_e7: -440558252
   distancia_metros: 199423
-  na_borda: false
+  na_borda: true
   duracao_minutos: 157
 - no_osm_id: '2338425699'
   latitude_e7: -199956842
@@ -1299,12 +1077,6 @@ nos:
   distancia_metros: 66362
   na_borda: false
   duracao_minutos: 65
-- no_osm_id: '2348389421'
-  latitude_e7: -181812040
-  longitude_e7: -435552399
-  distancia_metros: 293469
-  na_borda: false
-  duracao_minutos: 239
 - no_osm_id: '2370929010'
   latitude_e7: -199622644
   longitude_e7: -443430113
@@ -1329,12 +1101,12 @@ nos:
   distancia_metros: 146798
   na_borda: false
   duracao_minutos: 132
-- no_osm_id: '2374327999'
-  latitude_e7: -196069993
-  longitude_e7: -427613016
-  distancia_metros: 205172
-  na_borda: false
-  duracao_minutos: 197
+- no_osm_id: '2375409676'
+  latitude_e7: -208914552
+  longitude_e7: -438166789
+  distancia_metros: 176519
+  na_borda: true
+  duracao_minutos: 169
 - no_osm_id: '2376372845'
   latitude_e7: -195379720
   longitude_e7: -438268156
@@ -1455,12 +1227,6 @@ nos:
   distancia_metros: 96683
   na_borda: false
   duracao_minutos: 103
-- no_osm_id: '2380504624'
-  latitude_e7: -203495994
-  longitude_e7: -424869043
-  distancia_metros: 252878
-  na_borda: false
-  duracao_minutos: 244
 - no_osm_id: '2381914022'
   latitude_e7: -196343479
   longitude_e7: -437842575
@@ -1479,24 +1245,6 @@ nos:
   distancia_metros: 84518
   na_borda: false
   duracao_minutos: 92
-- no_osm_id: '2386539012'
-  latitude_e7: -202969949
-  longitude_e7: -451813977
-  distancia_metros: 201984
-  na_borda: false
-  duracao_minutos: 177
-- no_osm_id: '2386701330'
-  latitude_e7: -203426226
-  longitude_e7: -452512063
-  distancia_metros: 213123
-  na_borda: false
-  duracao_minutos: 186
-- no_osm_id: '2386701469'
-  latitude_e7: -203852610
-  longitude_e7: -453805601
-  distancia_metros: 229074
-  na_borda: false
-  duracao_minutos: 198
 - no_osm_id: '2387456550'
   latitude_e7: -196845746
   longitude_e7: -444331328
@@ -1527,17 +1275,11 @@ nos:
   distancia_metros: 174514
   na_borda: false
   duracao_minutos: 179
-- no_osm_id: '2395858280'
-  latitude_e7: -210401348
-  longitude_e7: -443253648
-  distancia_metros: 272269
-  na_borda: false
-  duracao_minutos: 227
 - no_osm_id: '2405056184'
   latitude_e7: -207008445
   longitude_e7: -434876573
   distancia_metros: 191309
-  na_borda: false
+  na_borda: true
   duracao_minutos: 179
 - no_osm_id: '2428035070'
   latitude_e7: -199841437
@@ -1581,12 +1323,6 @@ nos:
   distancia_metros: 82653
   na_borda: false
   duracao_minutos: 100
-- no_osm_id: '2487582846'
-  latitude_e7: -210672958
-  longitude_e7: -436454270
-  distancia_metros: 218372
-  na_borda: false
-  duracao_minutos: 212
 - no_osm_id: '2548740141'
   latitude_e7: -189369436
   longitude_e7: -435885859
@@ -1605,12 +1341,12 @@ nos:
   distancia_metros: 38895
   na_borda: false
   duracao_minutos: 49
-- no_osm_id: '2572693456'
-  latitude_e7: -207548723
-  longitude_e7: -447749137
-  distancia_metros: 201571
+- no_osm_id: '2580208855'
+  latitude_e7: -205533602
+  longitude_e7: -446605553
+  distancia_metros: 172928
   na_borda: false
-  duracao_minutos: 164
+  duracao_minutos: 143
 - no_osm_id: '2582035401'
   latitude_e7: -195647546
   longitude_e7: -438064498
@@ -1659,18 +1395,18 @@ nos:
   distancia_metros: 71715
   na_borda: false
   duracao_minutos: 73
+- no_osm_id: '2601131299'
+  latitude_e7: -197864415
+  longitude_e7: -452320332
+  distancia_metros: 199312
+  na_borda: false
+  duracao_minutos: 165
 - no_osm_id: '2601131357'
   latitude_e7: -197996607
   longitude_e7: -451405773
   distancia_metros: 189004
   na_borda: false
   duracao_minutos: 156
-- no_osm_id: '2623483762'
-  latitude_e7: -211498707
-  longitude_e7: -437630845
-  distancia_metros: 211294
-  na_borda: false
-  duracao_minutos: 203
 - no_osm_id: '2652908470'
   latitude_e7: -206649442
   longitude_e7: -441218186
@@ -1683,48 +1419,18 @@ nos:
   distancia_metros: 109977
   na_borda: false
   duracao_minutos: 111
-- no_osm_id: '2657386630'
-  latitude_e7: -197828114
-  longitude_e7: -452600700
-  distancia_metros: 202347
-  na_borda: false
-  duracao_minutos: 168
-- no_osm_id: '2657387084'
-  latitude_e7: -197853100
-  longitude_e7: -453953207
-  distancia_metros: 216657
-  na_borda: false
-  duracao_minutos: 181
 - no_osm_id: '2665095172'
   latitude_e7: -198837118
   longitude_e7: -446051480
   distancia_metros: 127620
   na_borda: false
   duracao_minutos: 112
-- no_osm_id: '2693823446'
-  latitude_e7: -194808889
-  longitude_e7: -455948293
-  distancia_metros: 258877
-  na_borda: false
-  duracao_minutos: 205
-- no_osm_id: '2713929377'
-  latitude_e7: -198484372
-  longitude_e7: -423177071
-  distancia_metros: 293652
-  na_borda: false
-  duracao_minutos: 295
 - no_osm_id: '2799953245'
   latitude_e7: -188613248
   longitude_e7: -436570857
   distancia_metros: 161860
   na_borda: false
   duracao_minutos: 177
-- no_osm_id: '2801807770'
-  latitude_e7: -185779377
-  longitude_e7: -435717362
-  distancia_metros: 283829
-  na_borda: false
-  duracao_minutos: 246
 - no_osm_id: '2807432055'
   latitude_e7: -192612046
   longitude_e7: -434107032
@@ -1755,30 +1461,6 @@ nos:
   distancia_metros: 96869
   na_borda: false
   duracao_minutos: 117
-- no_osm_id: '2899329738'
-  latitude_e7: -190704705
-  longitude_e7: -425465529
-  distancia_metros: 302096
-  na_borda: false
-  duracao_minutos: 283
-- no_osm_id: '2968755001'
-  latitude_e7: -192281036
-  longitude_e7: -423260616
-  distancia_metros: 275617
-  na_borda: false
-  duracao_minutos: 263
-- no_osm_id: '2974187401'
-  latitude_e7: -197826094
-  longitude_e7: -456618156
-  distancia_metros: 245487
-  na_borda: true
-  duracao_minutos: 207
-- no_osm_id: '2974979034'
-  latitude_e7: -204566095
-  longitude_e7: -448906731
-  distancia_metros: 202020
-  na_borda: false
-  duracao_minutos: 170
 - no_osm_id: '2975619221'
   latitude_e7: -195603492
   longitude_e7: -440809412
@@ -1827,48 +1509,18 @@ nos:
   distancia_metros: 175243
   na_borda: false
   duracao_minutos: 146
-- no_osm_id: '3033938337'
-  latitude_e7: -209145166
-  longitude_e7: -440752749
-  distancia_metros: 197791
-  na_borda: false
-  duracao_minutos: 186
 - no_osm_id: '3033950837'
   latitude_e7: -208339185
   longitude_e7: -440573698
   distancia_metros: 185918
   na_borda: false
   duracao_minutos: 175
-- no_osm_id: '3061361691'
-  latitude_e7: -185025193
-  longitude_e7: -433144837
-  distancia_metros: 204302
-  na_borda: false
-  duracao_minutos: 222
-- no_osm_id: '3068572360'
-  latitude_e7: -187283745
-  longitude_e7: -433639577
-  distancia_metros: 202205
-  na_borda: false
-  duracao_minutos: 221
-- no_osm_id: '3215586569'
-  latitude_e7: -210319301
-  longitude_e7: -441788873
-  distancia_metros: 217983
-  na_borda: false
-  duracao_minutos: 205
 - no_osm_id: '3217318437'
   latitude_e7: -199655440
   longitude_e7: -428070833
   distancia_metros: 183922
   na_borda: false
   duracao_minutos: 179
-- no_osm_id: '3220530152'
-  latitude_e7: -211517524
-  longitude_e7: -441761780
-  distancia_metros: 241146
-  na_borda: false
-  duracao_minutos: 227
 - no_osm_id: '3225983077'
   latitude_e7: -199616410
   longitude_e7: -437476882
@@ -1881,36 +1533,12 @@ nos:
   distancia_metros: 65016
   na_borda: false
   duracao_minutos: 70
-- no_osm_id: '3278508070'
-  latitude_e7: -184487493
-  longitude_e7: -437400554
-  distancia_metros: 248693
-  na_borda: false
-  duracao_minutos: 194
 - no_osm_id: '3286908422'
   latitude_e7: -186129226
   longitude_e7: -433772837
   distancia_metros: 186167
-  na_borda: false
+  na_borda: true
   duracao_minutos: 203
-- no_osm_id: '3294486527'
-  latitude_e7: -180782034
-  longitude_e7: -433019981
-  distancia_metros: 350700
-  na_borda: false
-  duracao_minutos: 296
-- no_osm_id: '3298686286'
-  latitude_e7: -186148866
-  longitude_e7: -427958729
-  distancia_metros: 234224
-  na_borda: false
-  duracao_minutos: 281
-- no_osm_id: '3332361411'
-  latitude_e7: -182291837
-  longitude_e7: -436064806
-  distancia_metros: 284129
-  na_borda: false
-  duracao_minutos: 229
 - no_osm_id: '3340184061'
   latitude_e7: -186066121
   longitude_e7: -433904057
@@ -1923,12 +1551,6 @@ nos:
   distancia_metros: 27863
   na_borda: false
   duracao_minutos: 29
-- no_osm_id: '3342414350'
-  latitude_e7: -202957341
-  longitude_e7: -424796030
-  distancia_metros: 244731
-  na_borda: false
-  duracao_minutos: 235
 - no_osm_id: '3359902207'
   latitude_e7: -198311229
   longitude_e7: -433554804
@@ -1965,18 +1587,6 @@ nos:
   distancia_metros: 58768
   na_borda: false
   duracao_minutos: 74
-- no_osm_id: '3464450727'
-  latitude_e7: -200939738
-  longitude_e7: -424494126
-  distancia_metros: 253165
-  na_borda: false
-  duracao_minutos: 247
-- no_osm_id: '3468026464'
-  latitude_e7: -206769772
-  longitude_e7: -448211362
-  distancia_metros: 207498
-  na_borda: false
-  duracao_minutos: 171
 - no_osm_id: '3473672612'
   latitude_e7: -197803012
   longitude_e7: -442395397
@@ -2049,24 +1659,6 @@ nos:
   distancia_metros: 80763
   na_borda: false
   duracao_minutos: 73
-- no_osm_id: '3749254327'
-  latitude_e7: -180472102
-  longitude_e7: -434362796
-  distancia_metros: 325990
-  na_borda: true
-  duracao_minutos: 268
-- no_osm_id: '3766359186'
-  latitude_e7: -210026100
-  longitude_e7: -433919513
-  distancia_metros: 243234
-  na_borda: false
-  duracao_minutos: 248
-- no_osm_id: '3766359414'
-  latitude_e7: -210677459
-  longitude_e7: -434629964
-  distancia_metros: 255386
-  na_borda: false
-  duracao_minutos: 260
 - no_osm_id: '3767306055'
   latitude_e7: -192358289
   longitude_e7: -430753758
@@ -2079,6 +1671,12 @@ nos:
   distancia_metros: 123163
   na_borda: false
   duracao_minutos: 102
+- no_osm_id: '3798481333'
+  latitude_e7: -206546659
+  longitude_e7: -442989699
+  distancia_metros: 197882
+  na_borda: false
+  duracao_minutos: 192
 - no_osm_id: '3805271970'
   latitude_e7: -198492827
   longitude_e7: -439196871
@@ -2091,24 +1689,12 @@ nos:
   distancia_metros: 188796
   na_borda: false
   duracao_minutos: 194
-- no_osm_id: '3843177104'
-  latitude_e7: -183510806
-  longitude_e7: -450930405
-  distancia_metros: 228951
-  na_borda: true
-  duracao_minutos: 196
 - no_osm_id: '3879052865'
   latitude_e7: -195062510
   longitude_e7: -436669528
   distancia_metros: 48680
   na_borda: false
   duracao_minutos: 83
-- no_osm_id: '3929605778'
-  latitude_e7: -211742675
-  longitude_e7: -439827848
-  distancia_metros: 256366
-  na_borda: true
-  duracao_minutos: 247
 - no_osm_id: '3967139866'
   latitude_e7: -196461834
   longitude_e7: -442223471
@@ -2121,12 +1707,6 @@ nos:
   distancia_metros: 112343
   na_borda: false
   duracao_minutos: 105
-- no_osm_id: '3968143913'
-  latitude_e7: -207706486
-  longitude_e7: -445883747
-  distancia_metros: 224490
-  na_borda: false
-  duracao_minutos: 185
 - no_osm_id: '3968790313'
   latitude_e7: -195563244
   longitude_e7: -439044090
@@ -2175,18 +1755,6 @@ nos:
   distancia_metros: 38582
   na_borda: false
   duracao_minutos: 36
-- no_osm_id: '4092620441'
-  latitude_e7: -188250730
-  longitude_e7: -424384844
-  distancia_metros: 279422
-  na_borda: true
-  duracao_minutos: 302
-- no_osm_id: '4110095163'
-  latitude_e7: -206852477
-  longitude_e7: -430814903
-  distancia_metros: 246273
-  na_borda: false
-  duracao_minutos: 246
 - no_osm_id: '4160309361'
   latitude_e7: -191906447
   longitude_e7: -441564615
@@ -2205,12 +1773,6 @@ nos:
   distancia_metros: 92693
   na_borda: false
   duracao_minutos: 107
-- no_osm_id: '4190134284'
-  latitude_e7: -194389492
-  longitude_e7: -425110897
-  distancia_metros: 242147
-  na_borda: false
-  duracao_minutos: 232
 - no_osm_id: '4302939176'
   latitude_e7: -194030583
   longitude_e7: -443346469
@@ -2241,12 +1803,6 @@ nos:
   distancia_metros: 51809
   na_borda: false
   duracao_minutos: 48
-- no_osm_id: '4344854894'
-  latitude_e7: -208991701
-  longitude_e7: -445023967
-  distancia_metros: 242463
-  na_borda: false
-  duracao_minutos: 200
 - no_osm_id: '4350128469'
   latitude_e7: -195503217
   longitude_e7: -440418175
@@ -2265,18 +1821,6 @@ nos:
   distancia_metros: 181411
   na_borda: false
   duracao_minutos: 172
-- no_osm_id: '4360530602'
-  latitude_e7: -182092196
-  longitude_e7: -445181958
-  distancia_metros: 218332
-  na_borda: false
-  duracao_minutos: 172
-- no_osm_id: '4361480563'
-  latitude_e7: -180815368
-  longitude_e7: -445344459
-  distancia_metros: 233254
-  na_borda: false
-  duracao_minutos: 185
 - no_osm_id: '4413525433'
   latitude_e7: -203415310
   longitude_e7: -444408396
@@ -2325,12 +1869,6 @@ nos:
   distancia_metros: 139266
   na_borda: false
   duracao_minutos: 125
-- no_osm_id: '4656703129'
-  latitude_e7: -209854146
-  longitude_e7: -436752160
-  distancia_metros: 202860
-  na_borda: false
-  duracao_minutos: 197
 - no_osm_id: '4678340265'
   latitude_e7: -193241575
   longitude_e7: -441504170
@@ -2409,12 +1947,6 @@ nos:
   distancia_metros: 32115
   na_borda: false
   duracao_minutos: 53
-- no_osm_id: '4828905932'
-  latitude_e7: -185220158
-  longitude_e7: -426530108
-  distancia_metros: 257672
-  na_borda: false
-  duracao_minutos: 308
 - no_osm_id: '4845551719'
   latitude_e7: -192287955
   longitude_e7: -440130411
@@ -2427,12 +1959,6 @@ nos:
   distancia_metros: 83597
   na_borda: false
   duracao_minutos: 92
-- no_osm_id: '4876393321'
-  latitude_e7: -188004883
-  longitude_e7: -426129003
-  distancia_metros: 252449
-  na_borda: false
-  duracao_minutos: 282
 - no_osm_id: '4929665766'
   latitude_e7: -201816016
   longitude_e7: -444728462
@@ -2451,6 +1977,12 @@ nos:
   distancia_metros: 8873
   na_borda: false
   duracao_minutos: 12
+- no_osm_id: '5033487648'
+  latitude_e7: -209058725
+  longitude_e7: -440662493
+  distancia_metros: 196338
+  na_borda: false
+  duracao_minutos: 184
 - no_osm_id: '5055108437'
   latitude_e7: -196517412
   longitude_e7: -439458804
@@ -2463,12 +1995,6 @@ nos:
   distancia_metros: 79131
   na_borda: false
   duracao_minutos: 78
-- no_osm_id: '5113808768'
-  latitude_e7: -210029535
-  longitude_e7: -432979042
-  distancia_metros: 255446
-  na_borda: false
-  duracao_minutos: 272
 - no_osm_id: '5120451074'
   latitude_e7: -193719743
   longitude_e7: -442493087
@@ -2541,36 +2067,6 @@ nos:
   distancia_metros: 58004
   na_borda: false
   duracao_minutos: 86
-- no_osm_id: '5280480646'
-  latitude_e7: -209022480
-  longitude_e7: -448572931
-  distancia_metros: 221754
-  na_borda: true
-  duracao_minutos: 179
-- no_osm_id: '5290761812'
-  latitude_e7: -208760078
-  longitude_e7: -448461490
-  distancia_metros: 218541
-  na_borda: false
-  duracao_minutos: 177
-- no_osm_id: '5352930758'
-  latitude_e7: -207626236
-  longitude_e7: -450682079
-  distancia_metros: 235834
-  na_borda: false
-  duracao_minutos: 202
-- no_osm_id: '5365678272'
-  latitude_e7: -206980154
-  longitude_e7: -448093879
-  distancia_metros: 204657
-  na_borda: false
-  duracao_minutos: 168
-- no_osm_id: '5405689354'
-  latitude_e7: -206832026
-  longitude_e7: -451970485
-  distancia_metros: 259800
-  na_borda: false
-  duracao_minutos: 235
 - no_osm_id: '5408637489'
   latitude_e7: -206769547
   longitude_e7: -436078586
@@ -2583,12 +2079,6 @@ nos:
   distancia_metros: 93065
   na_borda: false
   duracao_minutos: 102
-- no_osm_id: '5661444093'
-  latitude_e7: -185682367
-  longitude_e7: -450199241
-  distancia_metros: 199753
-  na_borda: false
-  duracao_minutos: 170
 - no_osm_id: '5779510244'
   latitude_e7: -192643014
   longitude_e7: -444206523
@@ -2631,12 +2121,6 @@ nos:
   distancia_metros: 94176
   na_borda: false
   duracao_minutos: 93
-- no_osm_id: '5902060077'
-  latitude_e7: -197627557
-  longitude_e7: -426427621
-  distancia_metros: 230931
-  na_borda: false
-  duracao_minutos: 220
 - no_osm_id: '6023335459'
   latitude_e7: -197346977
   longitude_e7: -434473316
@@ -2661,18 +2145,6 @@ nos:
   distancia_metros: 76446
   na_borda: false
   duracao_minutos: 77
-- no_osm_id: '6328621239'
-  latitude_e7: -206611603
-  longitude_e7: -443620741
-  distancia_metros: 212960
-  na_borda: false
-  duracao_minutos: 187
-- no_osm_id: '6333107790'
-  latitude_e7: -194409758
-  longitude_e7: -422476512
-  distancia_metros: 271861
-  na_borda: true
-  duracao_minutos: 259
 - no_osm_id: '6356974318'
   latitude_e7: -201177738
   longitude_e7: -443023701
@@ -2685,12 +2157,6 @@ nos:
   distancia_metros: 8950
   na_borda: false
   duracao_minutos: 10
-- no_osm_id: '6501305886'
-  latitude_e7: -190734736
-  longitude_e7: -430330576
-  distancia_metros: 219280
-  na_borda: false
-  duracao_minutos: 212
 - no_osm_id: '6511635899'
   latitude_e7: -197567372
   longitude_e7: -430271671
@@ -2763,18 +2229,12 @@ nos:
   distancia_metros: 119491
   na_borda: false
   duracao_minutos: 103
-- no_osm_id: '7424515447'
-  latitude_e7: -198516310
-  longitude_e7: -454124813
-  distancia_metros: 224410
-  na_borda: false
-  duracao_minutos: 188
-- no_osm_id: '7440436480'
-  latitude_e7: -192306738
-  longitude_e7: -453343266
-  distancia_metros: 201324
-  na_borda: false
-  duracao_minutos: 162
+- no_osm_id: '7440346144'
+  latitude_e7: -192415685
+  longitude_e7: -453196456
+  distancia_metros: 199348
+  na_borda: true
+  duracao_minutos: 160
 - no_osm_id: '7457064871'
   latitude_e7: -194073069
   longitude_e7: -439210653
@@ -2809,7 +2269,7 @@ nos:
   latitude_e7: -187121910
   longitude_e7: -449522578
   distancia_metros: 180990
-  na_borda: false
+  na_borda: true
   duracao_minutos: 153
 - no_osm_id: '7491167487'
   latitude_e7: -191480846
@@ -2817,12 +2277,6 @@ nos:
   distancia_metros: 80818
   na_borda: false
   duracao_minutos: 88
-- no_osm_id: '7510426395'
-  latitude_e7: -191918640
-  longitude_e7: -455968156
-  distancia_metros: 233722
-  na_borda: false
-  duracao_minutos: 191
 - no_osm_id: '7511015167'
   latitude_e7: -192693463
   longitude_e7: -436828530
@@ -2835,12 +2289,6 @@ nos:
   distancia_metros: 106502
   na_borda: false
   duracao_minutos: 116
-- no_osm_id: '7514229798'
-  latitude_e7: -199085439
-  longitude_e7: -426357481
-  distancia_metros: 211662
-  na_borda: false
-  duracao_minutos: 203
 - no_osm_id: '7546822158'
   latitude_e7: -190510846
   longitude_e7: -440767488
@@ -2853,30 +2301,12 @@ nos:
   distancia_metros: 166848
   na_borda: false
   duracao_minutos: 164
-- no_osm_id: '7564740601'
-  latitude_e7: -193679700
-  longitude_e7: -455349250
-  distancia_metros: 243170
-  na_borda: false
-  duracao_minutos: 193
-- no_osm_id: '7568758883'
-  latitude_e7: -184212151
-  longitude_e7: -430285819
-  distancia_metros: 269301
-  na_borda: false
-  duracao_minutos: 279
 - no_osm_id: '7588017357'
   latitude_e7: -195382828
   longitude_e7: -439877699
   distancia_metros: 12811
   na_borda: false
   duracao_minutos: 18
-- no_osm_id: '7592295639'
-  latitude_e7: -189632869
-  longitude_e7: -455460857
-  distancia_metros: 245878
-  na_borda: false
-  duracao_minutos: 206
 - no_osm_id: '7594174533'
   latitude_e7: -195192211
   longitude_e7: -445183826
@@ -2889,12 +2319,6 @@ nos:
   distancia_metros: 91893
   na_borda: false
   duracao_minutos: 85
-- no_osm_id: '7604269698'
-  latitude_e7: -185840534
-  longitude_e7: -439146314
-  distancia_metros: 220168
-  na_borda: false
-  duracao_minutos: 172
 - no_osm_id: '7605245429'
   latitude_e7: -197263597
   longitude_e7: -434225392
@@ -2907,12 +2331,6 @@ nos:
   distancia_metros: 119024
   na_borda: false
   duracao_minutos: 99
-- no_osm_id: '7628021585'
-  latitude_e7: -206415651
-  longitude_e7: -428655610
-  distancia_metros: 258445
-  na_borda: false
-  duracao_minutos: 269
 - no_osm_id: '7628267081'
   latitude_e7: -195753368
   longitude_e7: -434111479
@@ -2931,12 +2349,6 @@ nos:
   distancia_metros: 103743
   na_borda: false
   duracao_minutos: 101
-- no_osm_id: '7632258594'
-  latitude_e7: -201558589
-  longitude_e7: -424926778
-  distancia_metros: 243880
-  na_borda: false
-  duracao_minutos: 236
 - no_osm_id: '7637696910'
   latitude_e7: -195651253
   longitude_e7: -437631095
@@ -2961,12 +2373,6 @@ nos:
   distancia_metros: 190246
   na_borda: false
   duracao_minutos: 148
-- no_osm_id: '7672859439'
-  latitude_e7: -199529662
-  longitude_e7: -455811314
-  distancia_metros: 261573
-  na_borda: false
-  duracao_minutos: 223
 - no_osm_id: '7673078150'
   latitude_e7: -203816340
   longitude_e7: -446688864
@@ -2979,12 +2385,6 @@ nos:
   distancia_metros: 65547
   na_borda: false
   duracao_minutos: 71
-- no_osm_id: '7678858921'
-  latitude_e7: -185169655
-  longitude_e7: -430194782
-  distancia_metros: 252034
-  na_borda: false
-  duracao_minutos: 260
 - no_osm_id: '7679975176'
   latitude_e7: -192805675
   longitude_e7: -451604793
@@ -3003,12 +2403,6 @@ nos:
   distancia_metros: 59048
   na_borda: false
   duracao_minutos: 65
-- no_osm_id: '7691431674'
-  latitude_e7: -192019989
-  longitude_e7: -454671857
-  distancia_metros: 219218
-  na_borda: false
-  duracao_minutos: 175
 - no_osm_id: '7698775730'
   latitude_e7: -190265945
   longitude_e7: -439864628
@@ -3159,12 +2553,6 @@ nos:
   distancia_metros: 33174
   na_borda: false
   duracao_minutos: 35
-- no_osm_id: '7845061438'
-  latitude_e7: -185153994
-  longitude_e7: -427017396
-  distancia_metros: 252746
-  na_borda: false
-  duracao_minutos: 302
 - no_osm_id: '7848357155'
   latitude_e7: -200941167
   longitude_e7: -433944464
@@ -3201,18 +2589,12 @@ nos:
   distancia_metros: 145074
   na_borda: false
   duracao_minutos: 143
-- no_osm_id: '7907517550'
-  latitude_e7: -182946957
-  longitude_e7: -430138088
-  distancia_metros: 287498
+- no_osm_id: '7931017636'
+  latitude_e7: -199481808
+  longitude_e7: -451841390
+  distancia_metros: 199799
   na_borda: false
-  duracao_minutos: 299
-- no_osm_id: '7927076125'
-  latitude_e7: -182940635
-  longitude_e7: -430248763
-  distancia_metros: 286227
-  na_borda: false
-  duracao_minutos: 297
+  duracao_minutos: 173
 - no_osm_id: '7933459100'
   latitude_e7: -198634619
   longitude_e7: -442780887
@@ -3237,12 +2619,6 @@ nos:
   distancia_metros: 66364
   na_borda: false
   duracao_minutos: 63
-- no_osm_id: '8003047074'
-  latitude_e7: -194828406
-  longitude_e7: -453003484
-  distancia_metros: 207458
-  na_borda: false
-  duracao_minutos: 169
 - no_osm_id: '8021628962'
   latitude_e7: -196733253
   longitude_e7: -436900866
@@ -3279,12 +2655,6 @@ nos:
   distancia_metros: 157990
   na_borda: false
   duracao_minutos: 127
-- no_osm_id: '8133920525'
-  latitude_e7: -192891650
-  longitude_e7: -455532556
-  distancia_metros: 233690
-  na_borda: false
-  duracao_minutos: 186
 - no_osm_id: '8218371486'
   latitude_e7: -196599865
   longitude_e7: -439991646
@@ -3321,12 +2691,6 @@ nos:
   distancia_metros: 11618
   na_borda: false
   duracao_minutos: 16
-- no_osm_id: '8737675601'
-  latitude_e7: -207478925
-  longitude_e7: -428604555
-  distancia_metros: 276221
-  na_borda: false
-  duracao_minutos: 285
 - no_osm_id: '8878390318'
   latitude_e7: -198031476
   longitude_e7: -439937912
@@ -3339,6 +2703,12 @@ nos:
   distancia_metros: 14130
   na_borda: false
   duracao_minutos: 16
+- no_osm_id: '8892875321'
+  latitude_e7: -185397514
+  longitude_e7: -433256862
+  distancia_metros: 199285
+  na_borda: false
+  duracao_minutos: 216
 - no_osm_id: '8904844891'
   latitude_e7: -195388061
   longitude_e7: -441001216
@@ -3375,24 +2745,12 @@ nos:
   distancia_metros: 5609
   na_borda: false
   duracao_minutos: 6
-- no_osm_id: '9362859747'
-  latitude_e7: -182878705
-  longitude_e7: -449850471
-  distancia_metros: 264098
-  na_borda: false
-  duracao_minutos: 232
 - no_osm_id: '9543538773'
   latitude_e7: -196846126
   longitude_e7: -445097353
   distancia_metros: 117576
   na_borda: false
   duracao_minutos: 112
-- no_osm_id: '10075189137'
-  latitude_e7: -186672215
-  longitude_e7: -430811312
-  distancia_metros: 230742
-  na_borda: false
-  duracao_minutos: 237
 - no_osm_id: '10093671347'
   latitude_e7: -196383324
   longitude_e7: -428267841
@@ -3453,24 +2811,6 @@ nos:
   distancia_metros: 174416
   na_borda: false
   duracao_minutos: 137
-- no_osm_id: '13518986661'
-  latitude_e7: -183483138
-  longitude_e7: -444345823
-  distancia_metros: 201601
-  na_borda: false
-  duracao_minutos: 158
-- no_osm_id: '13520749010'
-  latitude_e7: -179942494
-  longitude_e7: -441740869
-  distancia_metros: 250555
-  na_borda: false
-  duracao_minutos: 201
-- no_osm_id: '13570366186'
-  latitude_e7: -204707063
-  longitude_e7: -451232595
-  distancia_metros: 228920
-  na_borda: false
-  duracao_minutos: 194
 - no_osm_id: '13841997595'
   latitude_e7: -198027825
   longitude_e7: -451344967
@@ -3483,3 +2823,4 @@ nos:
   distancia_metros: 78269
   na_borda: false
   duracao_minutos: 88
+versao: 2

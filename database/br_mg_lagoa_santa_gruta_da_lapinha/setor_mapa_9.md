@@ -246,6 +246,10 @@ escaladas:
     - Leonardo Hoffmann
     - Henriquinho
     data_abertura: '1996'
+  betas:
+  - url: https://youtube.com/watch?v=eJvwHR3jKyA
+    titulo: Escalada na Gruta da Lapinha - Um Porco que Sobe - Clumsy ...
+    fonte: YOUTUBE
 - uid: y4NYbcV7IdM2vX
   via_esportiva:
     nome: Um Corpo que Cai
@@ -265,6 +269,10 @@ escaladas:
     - Alexandre Xacundum
     - Glauco
     data_abertura: '1994'
+  betas:
+  - url: https://youtube.com/watch?v=LZcCYHWMRXA
+    titulo: Amazing Brazilian Limestone, 7C+ Realidade da Coisa - (9B BR ...
+    fonte: YOUTUBE
 - uid: C883Mwi7oTTO47
   via_esportiva:
     nome: Realidade Sobreposta
@@ -275,6 +283,16 @@ escaladas:
     - Alexandre Galvão
     - Gilberto Morte
     data_abertura: '1993'
+  betas:
+  - url: https://youtube.com/watch?v=lsXsNdX5BHA
+    titulo: Realidade Sobreposta "Solo" - YouTube
+    fonte: YOUTUBE
+  - url: https://facebook.com/FreeSoloClimbing/posts/realidade-sobreposta-from-leandro-lanotta-in-brazil-grade-viiic-512c7bi-like-the/2313601438868481
+    titulo: Free Solo - “Realidade Sobreposta” from Leandro Lanotta in...
+    fonte: FACEBOOK
+  - url: https://facebook.com/circuitodasgrutas/posts/começamos-a-semana-com-essa-imagem-linda-do-leandroiannotta-na-gruta-da-lapinha-/975106754661216
+    titulo: Começamos a semana com essa imagem... - Circuito Das Grutas ...
+    fonte: FACEBOOK
 - uid: jYYHO2cKIcdbSA
   via_esportiva:
     nome: Talhadeira Passa
@@ -291,6 +309,13 @@ escaladas:
     - Emerson Alves Azeredo
     - Gilberto Torres
     data_abertura: '1993'
+  betas:
+  - url: https://youtube.com/watch?v=EQYAydeVEsY
+    titulo: 'Brazil climb - Via: Cova dos leões 7b - Gruta da Lapinha ...'
+    fonte: YOUTUBE
+  - url: https://instagram.com/reel/Ck_94R6Lhsm
+    titulo: Subindo pelo Mundo | VERY COOL CLIMBING ESCALADA TOP!! ...
+    fonte: INSTAGRAM
 - uid: 9AjpygLA38EGdx
   via_esportiva:
     nome: Mentalidade Suburbana
@@ -308,6 +333,16 @@ escaladas:
     - Prudente
     - Alexandre Xacundum
     data_abertura: '1996'
+  betas:
+  - url: https://instagram.com/reel/C7e8V1mulrh
+    titulo: 'Reinaldo Maia on Instagram: "Via “Rato Assassino - 8a (Br ...'
+    fonte: INSTAGRAM
+  - url: https://instagram.com/reel/CxnSIIeuvZJ
+    titulo: 'Maia Aventuras on Instagram: "Gruta da Lapinha Via: Rato ...'
+    fonte: INSTAGRAM
+  - url: https://youtube.com/watch?v=cROIgg06lug
+    titulo: Rato assassino - Gruta da lapinha - 8a (25/05/24) - YouTube
+    fonte: YOUTUBE
 - uid: 91t7ydDPLQ5jvH
   via_esportiva:
     nome: Via sem informação

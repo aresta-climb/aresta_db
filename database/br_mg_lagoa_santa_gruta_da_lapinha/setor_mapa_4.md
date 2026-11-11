@@ -343,6 +343,13 @@ escaladas:
     - Fabiano da Silva Fernandes
     - Viviane da Silva Euler
     data_abertura: '1998'
+  betas:
+  - url: https://instagram.com/reel/DMnuwO4uk8n
+    titulo: Maná | Coquetel de Maracujá 4° (da Lapinha) Sacada à vista ...
+    fonte: INSTAGRAM
+  - url: https://youtube.com/watch?v=mXZM30F1ZtE
+    titulo: Escalada Via Coquetel de Maracuja 5º - Gruta da Lapinha MG ...
+    fonte: YOUTUBE
 - uid: O24NOv7tMTcj2m
   via_esportiva:
     nome: Ravenloft
