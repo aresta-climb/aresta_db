@@ -16,6 +16,10 @@ warnings.filterwarnings(
     "ignore", category=DeprecationWarning, message=r"builtin type swigvarlink.*"
 )
 
+# Garante saída padrão em UTF-8 no Windows (evita UnicodeEncodeError com cp1252 quando captura=-s)
+for _stream in (sys.stdout, sys.stderr):
+    getattr(_stream, "reconfigure", lambda **_kw: None)(encoding="utf-8", errors="replace")
+
 # Garante plataforma gráfica headless (offscreen) antes de qualquer importação de PySide6 ou plugins do pytest
 if "QT_QPA_PLATFORM" not in os.environ:
     os.environ["QT_QPA_PLATFORM"] = "offscreen"

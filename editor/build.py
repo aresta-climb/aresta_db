@@ -354,15 +354,22 @@ def gerar_arquivo_icone_icns(
 
 # Pacotes com extensões nativas (C/Rust) que devem usar binary wheels pré-compilados
 PACOTES_PREFERIR_WHEELS = (
-    "cryptography",
+    "brotli",
     "cffi",
-    "pygit2",
+    "charset-normalizer",
+    "cryptography",
+    "ddgs",
+    "lxml",
     "pillow",
     "pillow-heif",
-    "pydantic-core",
-    "pyyaml",
+    "primp",
     "protobuf",
+    "pydantic-core",
+    "pygit2",
+    "pymupdf",
+    "pyyaml",
     "websockets",
+    "zstandard",
 )
 
 # Dependências que não devem ser empacotadas no Flatpak oficial

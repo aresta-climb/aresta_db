@@ -657,3 +657,47 @@ class TestWorkflowReleaseEditor(unittest.TestCase):
             condicao_caos,
             "O passo da campanha do Robô Caótico deve ser condicionado a inputs.executar_robo_caotico.",
         )
+
+    def test_job_publicar_macos_possui_submodules_e_aresta_api_no_sparse_checkout(self) -> None:
+        """
+        Garante que o job publicar_macos de build_editor_macos.yml inicializa submodules
+        e inclui aresta_api no sparse-checkout para que o uv possa resolver a dependência local.
+        """
+        passos = self.conteudo_macos["jobs"]["publicar_macos"]["steps"]
+        passo_checkout = next((s for s in passos if "Checkout" in s.get("name", "")), None)
+        self.assertIsNotNone(passo_checkout, "Passo Checkout não encontrado em publicar_macos.")
+        assert passo_checkout is not None
+        with_cfg = passo_checkout.get("with", {})
+        self.assertEqual(
+            with_cfg.get("submodules"),
+            "recursive",
+            "O Checkout de publicar_macos deve configurar submodules: recursive.",
+        )
+        sparse_checkout = with_cfg.get("sparse-checkout", "")
+        linhas_sparse = [linha.strip() for linha in sparse_checkout.splitlines() if linha.strip()]
+        self.assertIn(
+            "aresta_api",
+            linhas_sparse,
+            "A pasta 'aresta_api' deve constar no sparse-checkout de publicar_macos.",
+        )
+
+    def test_etapa_testes_windows_define_utf8_no_ambiente(self) -> None:
+        """
+        Garante que o passo 'Executar Testes' em build_editor_windows.yml define PYTHONUTF8=1
+        e PYTHONIOENCODING=utf-8 para impedir UnicodeEncodeError (cp1252) ao imprimir emojis.
+        """
+        passos = self.conteudo_windows["jobs"]["build_windows"]["steps"]
+        passo_testes = next((s for s in passos if "Executar Testes" in s.get("name", "")), None)
+        self.assertIsNotNone(passo_testes, "Passo 'Executar Testes' não encontrado no Windows.")
+        assert passo_testes is not None
+        env_vars = passo_testes.get("env", {})
+        self.assertEqual(
+            str(env_vars.get("PYTHONUTF8", "")),
+            "1",
+            "PYTHONUTF8=1 deve estar configurado no step de testes do Windows.",
+        )
+        self.assertEqual(
+            str(env_vars.get("PYTHONIOENCODING", "")).lower(),
+            "utf-8",
+            "PYTHONIOENCODING=utf-8 deve estar configurado no step de testes do Windows.",
+        )

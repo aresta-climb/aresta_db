@@ -529,6 +529,9 @@ def executar_cli(
     compilador_deploy: Callable[[list[str], Path], None] = _executar_deploy_generated_padrao,
 ) -> int:
     """Ponto de entrada CLI do integrador de Pull Requests."""
+    for stream in (sys.stdout, sys.stderr):
+        getattr(stream, "reconfigure", lambda **_kw: None)(encoding="utf-8", errors="replace")
+
     parser = argparse.ArgumentParser(description="Integrador automatizado de Pull Requests Aresta.")
     subparsers = parser.add_subparsers(dest="subcomando", required=True)
 

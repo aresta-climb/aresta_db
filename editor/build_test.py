@@ -718,6 +718,18 @@ def test_flatpak_manifest_e_constantes_otimizadas() -> None:
     assert "grpcio-tools" in PACOTES_DISPENSAVEIS_FLATPAK
     assert "pyinstaller" in PACOTES_DISPENSAVEIS_FLATPAK
     assert "websockets" in PACOTES_PREFERIR_WHEELS
+    for pacote_nativo in (
+        "brotli",
+        "charset-normalizer",
+        "ddgs",
+        "lxml",
+        "primp",
+        "pymupdf",
+        "zstandard",
+    ):
+        assert pacote_nativo in PACOTES_PREFERIR_WHEELS, (
+            f"O pacote {pacote_nativo} possui extensão C/Rust e deve estar em PACOTES_PREFERIR_WHEELS."
+        )
 
     manifesto_texto = ARQUIVO_MANIFESTO_FLATPAK.read_text(encoding="utf-8")
     assert "BASEAPP_REMOVE_WEBENGINE" in manifesto_texto

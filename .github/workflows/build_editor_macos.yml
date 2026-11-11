@@ -193,9 +193,11 @@ jobs:
           ref: ${{ inputs.tag_name }}
           token: ${{ steps.app-token.outputs.token }}
           fetch-depth: 1
+          submodules: recursive
           sparse-checkout: |
             .
             editor
+            aresta_api
             pyproject.toml
             uv.lock
             .python-version

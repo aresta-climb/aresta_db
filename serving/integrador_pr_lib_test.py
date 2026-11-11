@@ -675,3 +675,38 @@ def test_executar_cli_todos_subcomandos(tmp_path: Path) -> None:
         )
         == 0
     )
+
+
+def test_executar_cli_reconfigura_stdout_cp1252_para_utf8(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    """Garante que `executar_cli` reconfigura streams cp1252 para UTF-8 evitando UnicodeEncodeError."""
+    import io
+    import sys
+
+    stream_cp1252 = io.TextIOWrapper(io.BytesIO(), encoding="cp1252")
+    monkeypatch.setattr(sys, "stdout", stream_cp1252)
+    monkeypatch.setattr(sys, "stderr", stream_cp1252)
+
+    fake = ClienteGhIntegradorFake()
+    fake.registrar_sequencia_checks(
+        78,
+        [[CheckPullRequest(nome="validate", bucket="pass", state="SUCCESS")]],
+    )
+    arq_out = tmp_path / "gh_out.txt"
+    codigo = executar_cli(
+        [
+            "validar-checks",
+            "--pr",
+            "78",
+            "--repo",
+            "aresta-climb/aresta_db",
+            "--github-output",
+            str(arq_out),
+        ],
+        cliente_gh=fake,
+        diretorio_repo=tmp_path,
+        funcao_espera=lambda _: None,
+    )
+    assert codigo == 0
+    assert stream_cp1252.encoding.lower() == "utf-8"
