@@ -701,3 +701,18 @@ class TestWorkflowReleaseEditor(unittest.TestCase):
             "utf-8",
             "PYTHONIOENCODING=utf-8 deve estar configurado no step de testes do Windows.",
         )
+
+    def test_etapa_testes_macos_executa_apenas_em_arm64_nativo(self) -> None:
+        """
+        Garante que a suíte de testes no macOS roda apenas no runner nativo (arm64),
+        evitando reexecutar toda a suíte sob tradução binária Rosetta 2 (x86_64).
+        """
+        passos = self.conteudo_macos["jobs"]["compilar_macos"]["steps"]
+        passo_testes = next((s for s in passos if "Executar Testes" in s.get("name", "")), None)
+        self.assertIsNotNone(passo_testes, "Passo 'Executar Testes' não encontrado no macOS.")
+        assert passo_testes is not None
+        self.assertEqual(
+            passo_testes.get("if"),
+            "matrix.arch == 'arm64'",
+            "A etapa de testes no macOS deve executar apenas na arquitetura nativa arm64.",
+        )

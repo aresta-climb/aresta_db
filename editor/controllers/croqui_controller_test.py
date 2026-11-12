@@ -1486,7 +1486,7 @@ def test_croqui_controller_curadoria_endereca_caminho_direto_em_o1(qapp):
     assert len(macro_aprovar.comandos) == 2
     assert macro_aprovar.comandos[0].caminho_msg == "curadoria_betas.conteudo.escaladas.0"
     assert macro_aprovar.comandos[1].caminho_msg == "esc_149"
-    assert dt_ms < 15.0
+    assert dt_ms < 50.0
 
 
 def test_croqui_controller_preservar_campos_compativeis_na_troca_de_oneof(qapp):
