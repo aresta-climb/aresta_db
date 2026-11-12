@@ -526,18 +526,47 @@ def gerar_malha_estrada_pico(
         85,
     )
 
-    # 3. Amostragem determinística nos 3 anéis concêntricos ancorados em (0°, 0°)
+    # 3. Amostragem determinística por quadrante inteiro nos 3 anéis concêntricos ancorados em (0°, 0°)
     # Chave da célula: (anel, ix, iy) -> (prioridade_tupla, no_osm_id, anel, dist_reta_km)
-    vencedores_celula: dict[tuple[int, int, int], tuple[tuple[int, int, int], int, int, float]] = {}
+    vencedores_intrinsecos_celula: dict[
+        tuple[int, int, int], tuple[tuple[int, int, int], int, int, float]
+    ] = {}
+    celulas_ativadas: set[tuple[int, int, int]] = set()
+    configuracoes_aneis: tuple[tuple[int, float, int], ...] = (
+        (1, 0.02, 6),
+        (2, 0.06, 4),
+        (3, 0.18, 3),
+    )
 
     for nid in distancias_estrada:
-        if nid != no_pico and distancias_estrada[nid] > DISTANCIA_MAXIMA_ESTRADA_METROS:
-            continue
         lat_no, lon_no = coordenadas[nid]
         dist_reta_km = (
             calcular_distancia_haversine_metros(lat_pico, lon_pico, lat_no, lon_no) / 1000.0
         )
         rank = rank_rodovia[nid]
+        limite_rank_grau = 3 if rank <= 3 else (4 if rank == 4 else 6)
+        grau_estavel = sum(1 for viz in adjacencia[nid] if rank_rodovia[viz] <= limite_rank_grau)
+        prio = prioridade_intrinseca_no(nid, rank, grau_estavel)
+
+        for anel_cfg, passo_cfg, rank_max_cfg in configuracoes_aneis:
+            if rank > rank_max_cfg:
+                continue
+            chave_cfg = (
+                anel_cfg,
+                math.floor(lat_no / passo_cfg),
+                math.floor(lon_no / passo_cfg),
+            )
+            atual_celula = vencedores_intrinsecos_celula.get(chave_cfg)
+            if atual_celula is None or prio < atual_celula[0]:
+                vencedores_intrinsecos_celula[chave_cfg] = (
+                    prio,
+                    nid,
+                    anel_cfg,
+                    dist_reta_km,
+                )
+
+        if nid != no_pico and distancias_estrada[nid] > DISTANCIA_MAXIMA_ESTRADA_METROS:
+            continue
 
         if dist_reta_km <= 15.0:
             anel = 1
@@ -554,21 +583,13 @@ def gerar_malha_estrada_pico(
         else:
             continue
 
-        if rank > rank_max:
-            continue
-
-        ix = math.floor(lat_no / passo)
-        iy = math.floor(lon_no / passo)
-        chave_celula = (anel, ix, iy)
-        prio = prioridade_intrinseca_no(nid, rank, len(adjacencia[nid]))
-
-        atual_celula = vencedores_celula.get(chave_celula)
-        if atual_celula is None or prio < atual_celula[0]:
-            vencedores_celula[chave_celula] = (prio, nid, anel, dist_reta_km)
+        if rank <= rank_max:
+            celulas_ativadas.add((anel, math.floor(lat_no / passo), math.floor(lon_no / passo)))
 
     ids_selecionados: set[int] = {no_pico}
     metadados_selecionados: dict[int, tuple[int, float]] = {}
-    for _, nid, anel, dist_reta_km in vencedores_celula.values():
+    for chave_celula in sorted(celulas_ativadas):
+        _, nid, anel, dist_reta_km = vencedores_intrinsecos_celula[chave_celula]
         ids_selecionados.add(nid)
         metadados_selecionados[nid] = (anel, dist_reta_km)
 

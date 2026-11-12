@@ -594,3 +594,77 @@ def test_calcular_velocidade_sem_transito_e_dijkstra_escolhe_caminho_mais_rapido
     # Nó 2 deve ter sido alcançado pela Rota B (motorway: ~18.7 km e ~12 min, em vez de ~10 km e ~30 min)
     assert mapa_dist[2]["distancia_metros"] > 15000
     assert 10 <= mapa_dist[2]["duracao_minutos"] <= 14
+
+
+def test_eleicao_por_quadrante_inteiro_e_grau_estavel_por_camada() -> None:
+    # 1. Quadrante (1, 6, 0) de 0.02° [0.12°, 0.14°) cortado pela fronteira de 15 km:
+    #    - Nó 20 (secondary, rank 3) em lat=0.130° (~14.47 km do pico em 0.0 -> <= 15 km)
+    #    - Nó 21 (motorway, rank 1) em lat=0.138° (~15.36 km do pico em 0.0 -> > 15 km)
+    #    O quadrante (1, 6, 0) é ativado pelo Nó 20 (<= 15 km), mas deve eleger o vencedor
+    #    intrínseco do quadrante inteiro (Nó 21, motorway), sem partir o quadrante ao meio!
+    # 2. Quadrante (3, 5, 0) de 0.18° [0.90°, 1.08°) cortado pelo limite de 200 km por estrada:
+    #    - Nó 30 (secondary, rank 3) em lat=0.91°, lon=0.01° alcançado a ~195 km por estrada (<= 200 km)
+    #    - Nó 31 (motorway, rank 1) em lat=0.95°, lon=0.01° alcançado a ~202 km por estrada (> 200 km)
+    #    Como o quadrante (3, 5, 0) está dentro de 200 km por estrada via Nó 30, deve eleger seu
+    #    vencedor intrínseco oficial (Nó 31) mesmo que Nó 31 esteja um pouco acima de 200 km.
+    # 3. Grau estável por camada no quadrante (1, 2, 0) [0.04°, 0.06°):
+    #    - Nós 40 e 41 ambos em rodovia tertiary (rank 4) com grau 2 na camada rank <= 4,
+    #      mas o nó de pior CRC32 recebe uma rua residential (rank 5) extra.
+    #      A rua residential (rank 5) não deve inflar o grau do nó tertiary (rank 4).
+    id_melhor_crc, id_pior_crc = (
+        (40, 41)
+        if prioridade_intrinseca_no(40, 4, 2) < prioridade_intrinseca_no(41, 4, 2)
+        else (41, 40)
+    )
+    elementos: list[dict[str, Any]] = [
+        {"type": "node", "id": 1, "lat": 0.0, "lon": 0.0},
+        # Caso 1: quadrante (1, 6, 0) [0.12°, 0.14°) na borda de 15 km
+        # Nó 20 (secondary, rank 3) em 0.130° (~14.47 km <= 15 km)
+        # Nó 22 (intermediário em 0.145°, fora do quadrante 6) faz a transição para motorway
+        # Nó 21 (motorway, rank 1) em 0.138° (~15.36 km > 15 km, mas dentro do quadrante 6!)
+        {"type": "node", "id": 20, "lat": 0.130, "lon": 0.005},
+        {"type": "node", "id": 22, "lat": 0.145, "lon": 0.005},
+        {"type": "node", "id": 21, "lat": 0.138, "lon": 0.010},
+        {"type": "way", "id": 200, "nodes": [1, 20, 22], "tags": {"highway": "secondary"}},
+        {"type": "way", "id": 201, "nodes": [22, 21], "tags": {"highway": "motorway"}},
+        # Caso 2: quadrante (3, 5, 0) [0.90°, 1.08°) na borda de 200 km por estrada
+        # Nó 30 (secondary, rank 3) em (0.91, 0.01) alcançado via Nó 29 (0.45, 0.70) a ~186 km (<= 200 km)
+        # Nó 32 (intermediário em 1.10°, fora do quadrante 5) leva ao Nó 31 (motorway, rank 1) em (0.95, 0.05) a ~225 km (> 200 km)
+        {"type": "node", "id": 29, "lat": 0.450, "lon": 0.700},
+        {"type": "node", "id": 30, "lat": 0.910, "lon": 0.010},
+        {"type": "node", "id": 32, "lat": 1.100, "lon": 0.010},
+        {"type": "node", "id": 31, "lat": 0.950, "lon": 0.050},
+        {"type": "way", "id": 300, "nodes": [1, 29, 30, 32], "tags": {"highway": "secondary"}},
+        {"type": "way", "id": 301, "nodes": [32, 31], "tags": {"highway": "motorway"}},
+        # Caso 3: quadrante (1, 2, 0) com via tertiary (rank 4) + rua residential (rank 5)
+        {"type": "node", "id": 39, "lat": 0.035, "lon": 0.005},
+        {"type": "node", "id": id_melhor_crc, "lat": 0.045, "lon": 0.005},
+        {"type": "node", "id": id_pior_crc, "lat": 0.050, "lon": 0.005},
+        {"type": "node", "id": 42, "lat": 0.065, "lon": 0.005},
+        {"type": "node", "id": 43, "lat": 0.050, "lon": 0.010},
+        {
+            "type": "way",
+            "id": 400,
+            "nodes": [1, 39, id_melhor_crc, id_pior_crc, 42],
+            "tags": {"highway": "tertiary"},
+        },
+        {
+            "type": "way",
+            "id": 401,
+            "nodes": [id_pior_crc, 43],
+            "tags": {"highway": "residential"},
+        },
+    ]
+    fake = ClienteOverpassFake(elementos_padrao=elementos)
+    _, distancias = gerar_malha_estrada_pico("uid_quadrante", 0, 100, fake)
+    ids_escolhidos = {d["no_osm_id"] for d in distancias}
+
+    # Caso 1: Nó 21 (motorway) vence o quadrante (1, 6, 0) inteiro
+    assert 21 in ids_escolhidos
+    assert 20 not in ids_escolhidos
+    # Caso 2: Nó 31 (motorway, ~202 km por estrada) vence o quadrante (3, 5, 0) ativado pelo Nó 30 (~198 km)
+    assert 31 in ids_escolhidos
+    assert 30 not in ids_escolhidos
+    # Caso 3: id_melhor_crc vence id_pior_crc pois a rua residential (rank 5) não infla o grau do nó tertiary (rank 4)
+    assert id_melhor_crc in ids_escolhidos
+    assert id_pior_crc not in ids_escolhidos

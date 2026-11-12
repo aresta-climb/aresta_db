@@ -1020,7 +1020,7 @@ arquivos:
 - caminho_relativo: br_mg_januaria_salao_encantado/compilado.yaml
   checksum_sha256: 834348aa76060dd2f76b44b301c99b027cae644226ac9b104de684cbc0fa7f96
 - caminho_relativo: br_mg_lagoa_santa_gruta_da_lapinha/compilado.binarypb
-  checksum_sha256: d1b58ca2da7cdcf4852adb1ba347e850d91b46b3b7274d1d9a99932e2cd24f86
+  checksum_sha256: a31f73a8cf2a461829e0c8b10b26ad7850e3b998d40d5f5acc6963a3e5242f95
 - caminho_relativo: thumbnails/br_mg_lagoa_santa_gruta_da_lapinha.webp
   checksum_sha256: 76c57c2b9159772355858ad8f40ba79a8584dfdda215379031adc9afff1f1416
 - caminho_relativo: br_mg_lagoa_santa_gruta_da_lapinha/imagens/capa_p0_i0.webp
@@ -1056,7 +1056,7 @@ arquivos:
 - caminho_relativo: br_mg_lagoa_santa_gruta_da_lapinha/imagens/setor_mapa_9_p0_i0.webp
   checksum_sha256: e9f415800c4e7311d2d7da6fbd76eafafba99ec58c1c3453a7131eaee20d5cae
 - caminho_relativo: br_mg_lagoa_santa_gruta_da_lapinha/compilado.yaml
-  checksum_sha256: 686e2c063c4a296e255c143d87f7d1be3e0b6c4ba9114ab6a4bd46855313e6d5
+  checksum_sha256: 39ea9cbba30a63b31d69cfec3f34556682ede29946f6efb06ee600ec1237dc2e
 - caminho_relativo: br_mg_lagoa_santa_sitio_do_rod/compilado.binarypb
   checksum_sha256: 14eee706ae5f2c6eb505e1c94afbc3aea244fa3b41f79fdb2eb46b86c68d574c
 - caminho_relativo: thumbnails/br_mg_lagoa_santa_sitio_do_rod.webp
@@ -1446,7 +1446,7 @@ arquivos:
 - caminho_relativo: br_mg_paraisopolis_pedra_da_divisa/compilado.yaml
   checksum_sha256: 15fa322aa06fef67638fbf22c93786711926deefc10928eb4e3779de256044fc
 - caminho_relativo: br_mg_pedro_leopoldo_gruta_do_bau/compilado.binarypb
-  checksum_sha256: 9fe02f549d8fa7cd3f096453d125f239be5e6dd9594fc2f891c60beb3c899c2e
+  checksum_sha256: 007df180203342f1edfbc1fd2426fe021ec436278b78bc1d7b762b52ee807857
 - caminho_relativo: thumbnails/br_mg_pedro_leopoldo_gruta_do_bau.webp
   checksum_sha256: dd7a58f4b98506504be378b79117fe97b45fcd5fc927d31680d4c20a54b59052
 - caminho_relativo: br_mg_pedro_leopoldo_gruta_do_bau/imagens/acesso_p0_i10.webp
@@ -1522,7 +1522,7 @@ arquivos:
 - caminho_relativo: br_mg_pedro_leopoldo_gruta_do_bau/imagens/setor_vale_dos_espinhos_p0_i6.webp
   checksum_sha256: 4e9c73398fdcba3611a5fe93b973779f891ed008fea953df46f9e9796b44809d
 - caminho_relativo: br_mg_pedro_leopoldo_gruta_do_bau/compilado.yaml
-  checksum_sha256: ecd89084aa4e60773313d40aa64fccf3134969cd1236a881f2f4dc11b64617b5
+  checksum_sha256: acf5f7096d428d501435484b917c02954d9cf633fa81513bfda7b7a3005f08d3
 - caminho_relativo: br_mg_sabara_pedra_rachada_setor_horizonte/compilado.binarypb
   checksum_sha256: e71337cf55f8a47350aa8689f3b0c043f2f1b3ae008e8b8ddc194a2a9451728b
 - caminho_relativo: thumbnails/br_mg_sabara_pedra_rachada_setor_horizonte.webp
@@ -2204,8 +2204,8 @@ arquivos:
 - caminho_relativo: br_rj_nova_friburgobom_jardim_capelinha/compilado.yaml
   checksum_sha256: 6694c2e07f38d92fff2d54cd717c4b2f99121a2f5313c7ff07898a4526c013ee
 - caminho_relativo: indice.binarypb
-  checksum_sha256: 625fe64ddb68860181a46e4e6786bf662c190781538e86f010c8b8be16bf20c6
+  checksum_sha256: 3071a2d68479f1c897561191455ca89976ca2a6159948749f5742d93c407dd8b
 - caminho_relativo: indice.yaml
-  checksum_sha256: 3c0a01ff6600ab4e8fbe524054882e21c3b4a1ce257bd1e7494c4449bf87977d
+  checksum_sha256: de11abb2126726880ebb613be6801400f770774929b7fb19edb636d32acb724d
 - caminho_relativo: catalogo.db
-  checksum_sha256: ebbd58138889f0128ead8b37dc552ceb751855b146007fe400075b20f51ff70a
+  checksum_sha256: 6f5d8c9eb6adb3b0c799b0ddcd18b1d7e6ebaeeb0b92864ef3ea58c6fa8a8dc1

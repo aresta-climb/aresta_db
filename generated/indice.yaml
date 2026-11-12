@@ -1,4 +1,4 @@
-versao_catalogo: 5d861ac67e69876e
+versao_catalogo: eb55682cb1899727
 croquis:
 - id: br_mg_araxa_bocaina_boulders
   croqui_uid: oyCb72FtUENKNi
@@ -292,16 +292,16 @@ croquis:
   nome: Gruta da Lapinha
   descricao: Guia de escalada da Gruta da Lapinha em Lagoa Santa, MG.
   caminho_relativo: br_mg_lagoa_santa_gruta_da_lapinha/compilado.binarypb
-  checksum_sha256_croqui: d1b58ca2da7cdcf4852adb1ba347e850d91b46b3b7274d1d9a99932e2cd24f86
+  checksum_sha256_croqui: a31f73a8cf2a461829e0c8b10b26ad7850e3b998d40d5f5acc6963a3e5242f95
   checksum_sha256_thumbnail: 76c57c2b9159772355858ad8f40ba79a8584dfdda215379031adc9afff1f1416
-  timestamp_update: '2026-11-11T01:27:55Z'
+  timestamp_update: '2026-11-12T16:50:50Z'
   precomputados:
     total_escaladas: 132
     total_setores: 10
     total_grupos: 0
     nota_qualidade: 8286
     total_esportivas: 108
-    tamanho_download_bytes: 532616
+    tamanho_download_bytes: 532310
   localizacao:
     latitude: -195622616
     longitude: -439595684
@@ -403,17 +403,17 @@ croquis:
     um dos principais picos de escalada em calcário de Minas Gerais, com centenas
     de vias de diversos graus.
   caminho_relativo: br_mg_pedro_leopoldo_gruta_do_bau/compilado.binarypb
-  checksum_sha256_croqui: 9fe02f549d8fa7cd3f096453d125f239be5e6dd9594fc2f891c60beb3c899c2e
+  checksum_sha256_croqui: 007df180203342f1edfbc1fd2426fe021ec436278b78bc1d7b762b52ee807857
   checksum_sha256_thumbnail: dd7a58f4b98506504be378b79117fe97b45fcd5fc927d31680d4c20a54b59052
-  timestamp_update: '2026-10-18T22:25:22Z'
+  timestamp_update: '2026-11-12T16:50:50Z'
   precomputados:
     total_escaladas: 339
     total_setores: 13
     total_grupos: 0
-    nota_qualidade: 5823
+    nota_qualidade: 6823
     total_esportivas: 292
     total_multiplas_enfiadas: 2
-    tamanho_download_bytes: 2979027
+    tamanho_download_bytes: 2992101
   localizacao:
     latitude: -195534530
     longitude: -439898860

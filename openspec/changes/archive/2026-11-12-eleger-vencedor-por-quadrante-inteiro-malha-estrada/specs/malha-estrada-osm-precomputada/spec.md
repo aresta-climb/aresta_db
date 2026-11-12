@@ -1,0 +1,12 @@
+## MODIFIED Requirements
+
+### Requirement: Cálculo de distâncias por Dijkstra invertido e amostragem determinística em 3 anéis concêntricos
+A partir do `no_pico`, o sistema SHALL executar o algoritmo de Dijkstra sobre o grafo viário e amostrar os quadrantes de grade global ancorada em `(0°, 0°)` nos 3 anéis concêntricos (`0.02°` com `rank <= 6` de 0 a 15 km; `0.06°` com `rank <= 4` de 15 a 60 km; `0.18°` com `rank <= 3` de 60 a 150 km em linha reta). Em cada anel, todos os nós alcançáveis pertencentes ao quadrante `(anel, ix, iy)` com `rank_rodovia <= rank_max` SHALL concorrer integralmente (sem recorte prévio do quadrante pelas fronteiras de `15 km`, `60 km`, `150 km` ou `200 km`) para eleger o vencedor intrínseco oficial do quadrante pela tupla `(rank_rodovia, -grau_cruzamento_estavel, crc32(no_osm_id))`, onde `grau_cruzamento_estavel` contabiliza apenas vizinhos compatíveis com a camada da BBox do nó (`rank <= 3` para nós com `rank <= 3`; `rank <= 4` para nós com `rank == 4`; `rank <= 6` para nós com `rank >= 5`). Um quadrante `(anel, ix, iy)` SHALL ser ativado e incluir seu vencedor intrínseco oficial na malha sempre que possuir ao menos um nó elegível na faixa radial do respectivo anel com distância rodoviária acumulada até `200.000 metros` (`200 km` por estrada), descartando quadrantes cujos nós na faixa radial excedam todos `200.000 metros` por estrada.
+
+#### Scenario: Coincidência determinística de nó vencedor entre picos distintos e anéis sobrepostos
+- **WHEN** dois picos distintos ativam um mesmo quadrante `(anel, ix, iy)` (inclusive quando o quadrante é cortado pela fronteira de `15 km`, `60 km`, `150 km` ou `200 km` por estrada, ou quando um dos picos inclui vias locais de BBox menor que interceptam a rodovia principal)
+- **THEN** a eleição por quadrante inteiro com grau de cruzamento estável elege exatamente o mesmo `no_osm_id` oficial do quadrante para ambos os picos, maximizando o compartilhamento de nós na tabela `catalogo_nos_estrada`.
+
+#### Scenario: Cálculo exato da distância rodoviária acumulada até o estacionamento
+- **WHEN** um caminho rodoviário no grafo requer contornar uma serra por múltiplos segmentos totalizando 42 km apesar de estar a 14 km em linha reta
+- **THEN** `distancia_metros` registrada para o nó amostrado reflete a soma dos comprimentos dos segmentos do caminho mínimo (~42000 m), e qualquer quadrante cujos nós elegíveis excedam todos `200.000 m` por estrada é excluído da amostragem.

@@ -47,6 +47,8 @@ picos:
   mapas_gerais:
     caminho: mapas_gerais.md
   cidade: Pedro Leopoldo
+  malha_estrada:
+    caminho: malha_estrada.yaml
 botoes:
 - uid: ULDPpvw832n2K7
   texto: Capa
