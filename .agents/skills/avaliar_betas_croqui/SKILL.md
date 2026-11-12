@@ -14,11 +14,18 @@ Sua missão é ler as entradas de `curadoria_betas.conteudo.escaladas` do croqui
 
 ---
 
-## 1. Leitura dos Candidatos Não Scorados via MCP
+## 1. Leitura Paginada dos Candidatos Não Scorados via MCP
 
-1. Chame `aresta_status_workspace()` para identificar o `id_croqui` ativo e `aresta_obter_arvore(alvo="curadoria_betas.conteudo")` para ler todas as entradas de `CuradoriaBetasEscalada`.
-2. Para cada entrada em `curadoria_betas.conteudo.escaladas` que possua itens em `betas_nao_scorados`:
-   - Consulte os dados da escalada correspondente com `aresta_obter_arvore(alvo=escalada_uid)` (nome da escalada, grau, modalidade e setor/pico).
+> [!TIP]
+> **Escalabilidade para Croquis de 1.000+ Vias:**
+> **NUNCA** chame `aresta_obter_arvore(alvo="curadoria_betas.conteudo")` no croqui inteiro para buscar candidatos pendentes — em croquis grandes, `betas_rejeitados` acumula milhares de URLs descartadas e gera payloads de vários megabytes.
+> Use **sempre** a ferramenta dedicada `aresta_listar_betas_nao_scorados`, que já filtra apenas escaladas com `betas_nao_scorados` não vazios, omite `betas_rejeitados` e já retorna os metadados enriquecidos da escalada (`indice_curadoria`, `escalada_uid`, `nome`, `dificuldade`, `modalidade`, `setor_uid`, `setor_nome`, `pico_nome` e `conquistadores`).
+
+1. Chame `aresta_status_workspace()` para identificar o `id_croqui` ativo.
+2. Chame `aresta_listar_betas_nao_scorados(offset=0, limite=25)` (opcionalmente filtrando por `alvo_setor`) para obter a primeira página de escaladas com candidatos pendentes:
+   - Cada item retornado em `escaladas` já contém `indice_curadoria` (o índice `<idx>` em `curadoria_betas.conteudo.escaladas.<idx>`), os metadados completos da via/boulder e as listas atuais de `betas_nao_scorados` e `betas_nao_revisados`.
+3. Caso o croqui ainda não tenha passado pela coleta de betas (`total_escaladas_pendentes == 0`), consulte a skill `coletar_betas_croqui` (`aresta_coletar_betas`).
+4. Se `tem_mais == true`, processe e grave a página atual (Passos 2 e 3 abaixo) e em seguida busque a próxima página com `aresta_listar_betas_nao_scorados(offset=0, limite=25)` (como as escaladas avaliadas têm `betas_nao_scorados` limpo para `[]`, elas saem automaticamente da fila pendente!).
 
 ---
 

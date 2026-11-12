@@ -18,8 +18,12 @@ O sistema SHALL delegar a avaliação semântica dos itens presentes em `betas_n
 - **THEN** os candidatos avaliados MUST ser movidos de `betas_nao_scorados` para `betas_nao_revisados` no modelo do croqui via MCP (`aresta_alterar_campo` / `aresta_alterar_em_lote`), ordenados por score decrescente.
 
 ### Requirement: Orquestração no Workflow Antigravity
-O sistema SHALL disponibilizar uma skill dedicada (`.agents/skills/avaliar_betas_croqui/SKILL.md`) e atualizar o workflow `.agents/workflows/coletar_betas.md` para operar de forma integrada com o servidor MCP do Editor Aresta e com o campo `curadoria_betas` do `Croqui`.
+O sistema SHALL disponibilizar duas skills complementares — `.agents/skills/coletar_betas_croqui/SKILL.md` (para coleta multi-fonte em background via `aresta_coletar_betas` suportando croquis de 1.000+ vias) e `.agents/skills/avaliar_betas_croqui/SKILL.md` (para leitura paginada via `aresta_listar_betas_nao_scorados` e pontuação paralela com sub-agentes `AvaliadorBetas`) — operando de forma integrada com o servidor MCP do Editor Aresta e com o campo `curadoria_betas` do `Croqui`.
 
-#### Scenario: Execução orquestrada do workflow
-- **WHEN** o usuário solicita ao agente conectado via MCP a avaliação dos betas não scorados (seguindo as instruções da aba **Betas** ou invocando `/coletar_betas`)
-- **THEN** o agente MUST carregar a skill `avaliar_betas_croqui`, ler os `betas_nao_scorados` do croqui via MCP, particionar em lotes para sub-agentes `AvaliadorBetas` em paralelo e persistir os itens pontuados em `betas_nao_revisados`.
+#### Scenario: Coleta autônoma de betas via MCP em croqui de qualquer porte
+- **WHEN** o usuário solicita ao agente conectado via MCP a coleta de betas do croqui (ou de um setor específico) usando a skill `coletar_betas_croqui`
+- **THEN** o agente MUST invocar `aresta_coletar_betas(acao="iniciar")`, acompanhar o progresso via `aresta_coletar_betas(acao="status")` (ou agendamento de timer) até que `status` seja `"concluido"`, sem bloquear a UI do Editor Aresta e preservando o progresso incremental em micro-lotes
+
+#### Scenario: Execução orquestrada da avaliação paginada de betas não scorados
+- **WHEN** o usuário solicita ao agente conectado via MCP a avaliação dos betas não scorados usando a skill `avaliar_betas_croqui`
+- **THEN** o agente MUST consultar as escaladas pendentes de forma paginada com `aresta_listar_betas_nao_scorados` (evitando carregar `betas_rejeitados` ou fazer consultas individuais por escalada), particionar em lotes para sub-agentes `AvaliadorBetas` em paralelo e persistir os itens pontuados em `betas_nao_revisados` via `aresta_alterar_em_lote`

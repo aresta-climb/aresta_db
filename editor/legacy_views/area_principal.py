@@ -1631,6 +1631,7 @@ class JanelaPrincipal(QMainWindow):
         if self.servidor_mcp is None or self.croqui_model is None or self.croqui_controller is None:
             return
         from editor.controllers.mapas_controller import MapasController
+        from editor.mcp.ferramentas_betas import registrar_ferramentas_betas
         from editor.mcp.ferramentas_ciclo_vida import registrar_ferramentas_ciclo_vida
         from editor.mcp.ferramentas_comandos import registrar_ferramentas_comandos
         from editor.mcp.ferramentas_conhecimento import registrar_ferramentas_conhecimento
@@ -1662,6 +1663,11 @@ class JanelaPrincipal(QMainWindow):
             callback_abrir_croqui=self._callback_abrir_croqui_mcp,
         )
         registrar_ferramentas_conhecimento(self.servidor_mcp, model=self.croqui_model)
+        registrar_ferramentas_betas(
+            self.servidor_mcp,
+            self.croqui_model,
+            self.croqui_controller,
+        )
 
     def _obter_widget_alvo_mcp(self, alvo: str) -> QWidget | None:
         """Retorna o widget correspondente ao viewport solicitado pela ferramenta de captura."""

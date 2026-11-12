@@ -112,6 +112,7 @@ def test_painel_curadoria_exibe_4_secoes_ordena_por_score_e_transiciona_1_a_1_co
     # Verifica que o banner MCP tem instruções e botão de conectar agente MCP e está visível quando há betas não scorados
     assert not painel.banner_mcp.isHidden()
     assert "avaliar_betas_croqui" in painel.label_instrucoes_mcp.text()
+    assert "coletar_betas_croqui" in painel.label_instrucoes_mcp.text()
     assert len(painel.cards_nao_revisados) == 2
     assert len(painel.cards_nao_scorados) == 1
     assert len(painel.cards_aprovados) == 1

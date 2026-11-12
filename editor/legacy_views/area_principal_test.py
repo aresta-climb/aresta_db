@@ -2076,6 +2076,8 @@ def test_janela_principal_integra_servidor_mcp_e_dialogo_conexao(
     assert "aresta_listar_skills" in ferramentas
     assert "aresta_capturar_canvas" in ferramentas
     assert "aresta_compilar" in ferramentas
+    assert "aresta_coletar_betas" in ferramentas
+    assert "aresta_listar_betas_nao_scorados" in ferramentas
 
     # Verifica os callbacks de visão e seleção da JanelaPrincipal
     assert janela._obter_widget_alvo_mcp("painel") is not None

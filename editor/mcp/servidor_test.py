@@ -458,3 +458,51 @@ def test_servidor_mcp_iniciar_nao_dispara_about_to_quit_em_transicao_sem_janela_
         qapp.aboutToQuit.disconnect(_ao_sair)
         janela_destino.close()
         servidor.parar()
+
+
+def test_ferramenta_com_executar_na_thread_qt_false_roda_fora_da_thread_principal(
+    qapp, tmp_path: Path
+):
+    """
+    Valida que ferramentas registradas com executar_na_thread_qt=False executam
+    diretamente na thread HTTP do Uvicorn sem bloquear na fila do DespachanteQt.
+    """
+    import threading
+
+    id_thread_principal = threading.get_ident()
+    servidor = _criar_servidor_teste(tmp_path)
+
+    def _manipulador_background(_args: dict[str, Any]) -> dict[str, Any]:
+        return {
+            "id_thread_execucao": threading.get_ident(),
+            "fora_da_thread_qt": threading.get_ident() != id_thread_principal,
+        }
+
+    servidor.registrar_ferramenta(
+        nome="aresta_background",
+        descricao="Executa fora da thread do Qt.",
+        esquema_entrada={"type": "object", "properties": {}},
+        manipulador=_manipulador_background,
+        executar_na_thread_qt=False,
+    )
+
+    sessao = servidor.iniciar()
+    try:
+        # Mesmo sem bombear o loop de eventos do Qt na thread principal (que travaria se passasse pelo DespachanteQt),
+        # a chamada HTTP deve responder imediatamente na thread do Uvicorn!
+        with httpx.Client(timeout=5.0) as http:
+            resp = http.post(
+                sessao.url_http,
+                json={
+                    "jsonrpc": "2.0",
+                    "id": 77,
+                    "method": "tools/call",
+                    "params": {"name": "aresta_background", "arguments": {}},
+                },
+            )
+            assert resp.status_code == 200
+            dados = resp.json()["result"]["structuredContent"]
+            assert dados["fora_da_thread_qt"] is True
+            assert dados["id_thread_execucao"] != id_thread_principal
+    finally:
+        servidor.parar()

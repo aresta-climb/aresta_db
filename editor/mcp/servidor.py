@@ -37,6 +37,7 @@ class DefinicaoFerramentaMcp:
     esquema_entrada: dict[str, Any]
     manipulador: Callable[[dict[str, Any]], Any]
     requer_croqui: bool = True
+    executar_na_thread_qt: bool = True
 
 
 @dataclass
@@ -119,6 +120,7 @@ class ServidorMCP:
         esquema_entrada: dict[str, Any],
         manipulador: Callable[[dict[str, Any]], Any],
         requer_croqui: bool = True,
+        executar_na_thread_qt: bool = True,
     ) -> None:
         """Registra uma ferramenta no catálogo MCP do servidor."""
         esquema_final = dict(esquema_entrada)
@@ -141,6 +143,7 @@ class ServidorMCP:
             esquema_entrada=esquema_final,
             manipulador=manipulador,
             requer_croqui=requer_croqui,
+            executar_na_thread_qt=executar_na_thread_qt,
         )
 
     def registrar_recurso(
@@ -249,7 +252,10 @@ class ServidorMCP:
                     return resposta_roteamento
 
             try:
-                resultado = self.despachante.executar(ferramenta.manipulador, argumentos)
+                if ferramenta.executar_na_thread_qt:
+                    resultado = self.despachante.executar(ferramenta.manipulador, argumentos)
+                else:
+                    resultado = ferramenta.manipulador(argumentos)
             except Exception as exc:
                 texto_erro = json.dumps(
                     {"erro": str(exc), "tipo": type(exc).__name__}, ensure_ascii=False

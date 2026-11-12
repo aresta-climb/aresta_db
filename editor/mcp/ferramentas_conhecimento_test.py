@@ -139,6 +139,8 @@ def test_aresta_listar_e_ler_skills_reais_e_customizadas(qapp, tmp_path: Path):
     nomes_skills = {s["nome"] for s in lista["skills"]}
     assert "preencher_croqui_yaml" in nomes_skills
     assert "mapa_extrair_pontos_de_interesse" in nomes_skills
+    assert "coletar_betas_croqui" in nomes_skills
+    assert "avaliar_betas_croqui" in nomes_skills
 
     resp_rec_skills = servidor.processar_mensagem_jsonrpc(
         {

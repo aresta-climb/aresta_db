@@ -41,7 +41,7 @@ TAMANHO_FATIA_CARDS_PADRAO = 5
 INSTRUCOES_MCP_AVALIACAO = (
     "💡 Passo 1: Conecte seu agente de IA (Cursor, Claude, Antigravity) ao Editor Aresta clicando em "
     '"🔌 Conectar Agente (MCP)...".\n'
-    "Passo 2: Copie e envie o comando ao agente:\n"
+    "Passo 2: Copie e envie o comando ao agente (ou use a skill coletar_betas_croqui para coletar via MCP):\n"
     '"Execute a skill avaliar_betas_croqui para avaliar e pontuar os betas_nao_scorados deste croqui."'
 )
 
