@@ -277,7 +277,7 @@ def test_filtrar_datas_desnecessarios_poda_mupdf_devel_fontes_metadados_testes_e
     destinos_win = [d[1] for d in filtrar_datas_desnecessarios(datas, plataforma="win32")]
     assert "pymupdf\\mupdf-devel\\include\\mupdf" not in destinos_win
     assert "pymupdf" in destinos_win
-    assert "qtawesome\\fonts\\phosphor.ttf" not in destinos_win
+    assert "qtawesome\\fonts\\phosphor.ttf" in destinos_win
     assert "qtawesome\\fonts\\fontawesome5-solid-webfont-5.15.4.ttf" in destinos_win
     assert "websockets-17.2.dist-info" not in destinos_win
     assert "pkg.egg-info" not in destinos_win
@@ -696,6 +696,7 @@ def test_manifesto_flatpak_poda_mupdf_devel_e_constantes_otimizadas() -> None:
 
     manifesto_texto = ARQUIVO_MANIFESTO_FLATPAK.read_text(encoding="utf-8")
     assert "mupdf-devel" in manifesto_texto
+    assert "qtawesome/fonts" not in manifesto_texto
 
     caminho_metainfo = DIRETORIO_FLATPAK / "com.arestaclimb.Editor.metainfo.xml"
     raiz = ET.parse(caminho_metainfo).getroot()

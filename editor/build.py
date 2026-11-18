@@ -112,16 +112,6 @@ NOMES_BASE_BINARIOS_DISPENSAVEIS = (
 )
 
 
-# Famílias de fontes de ícones do QtAwesome que não são utilizadas pelo tema do editor
-FONTES_DISPENSAVEIS = (
-    "materialdesignicons",
-    "phosphor",
-    "remixicon",
-    "codicon",
-    "elusiveicons",
-)
-
-
 def obter_modulos_excluidos() -> list[str]:
     """
     Retorna a lista de módulos pesados de IA, OCR, visão computacional, pacotes de dados
@@ -247,8 +237,6 @@ def filtrar_datas_desnecessarios(
         destino = item[1] if isinstance(item, (tuple, list)) and len(item) > 1 else ""
         alvo = f"{origem} {destino}".lower()
         if "mupdf-devel" in alvo:
-            continue
-        if any(fonte in alvo for fonte in FONTES_DISPENSAVEIS):
             continue
         if ".dist-info" in alvo or ".egg-info" in alvo:
             continue

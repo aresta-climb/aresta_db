@@ -76,12 +76,6 @@ cleanup:
   - /lib/python*/site-packages/PySide6/QtSql*
   - /lib/python*/site-packages/PySide6/QtXml*
   - /lib/python*/site-packages/PySide6/QtNetworkAuth*
-  # Fontes de ícones do QtAwesome não utilizadas pelo tema do Editor (mantemos apenas FontAwesome)
-  - /lib/python*/site-packages/qtawesome/fonts/*materialdesignicons*
-  - /lib/python*/site-packages/qtawesome/fonts/*phosphor*
-  - /lib/python*/site-packages/qtawesome/fonts/*remixicon*
-  - /lib/python*/site-packages/qtawesome/fonts/*codicon*
-  - /lib/python*/site-packages/qtawesome/fonts/*elusiveicons*
   # Cabeçalhos C/C++ de build-time do PyMuPDF desnecessários em runtime
   - /lib/python*/site-packages/pymupdf/mupdf-devel
 
