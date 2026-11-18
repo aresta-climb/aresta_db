@@ -59,7 +59,8 @@ def calcular_deltas_catalogo(
         # Se não há banco anterior, todos os registros do novo são upserts
         if caminho_anterior is None or not Path(caminho_anterior).exists():
             cur.execute(
-                "SELECT croqui_uid, id_slug, nome, cidade, estado FROM catalogo_croquis ORDER BY croqui_uid"
+                "SELECT croqui_uid, id_slug, nome, cidade, estado, latitude_e7, longitude_e7, url_google_maps "
+                "FROM catalogo_croquis ORDER BY croqui_uid"
             )
             resultado["croquis"]["upserts"] = [dict(row) for row in cur.fetchall()]
 
@@ -87,12 +88,26 @@ def calcular_deltas_catalogo(
         ant_path = Path(caminho_anterior)
         cur.execute("ATTACH DATABASE ? AS anterior", (str(ant_path),))
 
+        colunas_ant_croquis = {
+            row["name"]
+            for row in cur.execute("PRAGMA anterior.table_info(catalogo_croquis)").fetchall()
+        }
+        proj_lat_ant = "latitude_e7" if "latitude_e7" in colunas_ant_croquis else "NULL AS latitude_e7"
+        proj_lon_ant = "longitude_e7" if "longitude_e7" in colunas_ant_croquis else "NULL AS longitude_e7"
+        proj_url_ant = (
+            "url_google_maps"
+            if "url_google_maps" in colunas_ant_croquis
+            else "NULL AS url_google_maps"
+        )
+
         # 1. Croquis: Upserts (novos ou modificados)
         cur.execute(
-            """
-            SELECT croqui_uid, id_slug, nome, cidade, estado FROM catalogo_croquis
+            f"""
+            SELECT croqui_uid, id_slug, nome, cidade, estado, latitude_e7, longitude_e7, url_google_maps
+            FROM catalogo_croquis
             EXCEPT
-            SELECT croqui_uid, id_slug, nome, cidade, estado FROM anterior.catalogo_croquis
+            SELECT croqui_uid, id_slug, nome, cidade, estado, {proj_lat_ant}, {proj_lon_ant}, {proj_url_ant}
+            FROM anterior.catalogo_croquis
             ORDER BY croqui_uid
             """
         )

@@ -222,6 +222,9 @@ def test_inicializar_schema_d1_criacao_e_migracao_legado() -> None:
     info_croquis_migrada = fake.executar_query("PRAGMA table_info(catalogo_croquis)")
     colunas_croquis_migradas = [linha["name"] for linha in info_croquis_migrada]
     assert "estado" in colunas_croquis_migradas
+    assert "latitude_e7" in colunas_croquis_migradas
+    assert "longitude_e7" in colunas_croquis_migradas
+    assert "url_google_maps" in colunas_croquis_migradas
     assert "uf" not in colunas_croquis_migradas
 
     info_migrada = fake.executar_query("PRAGMA table_info(catalogo_aresta)")
@@ -271,6 +274,9 @@ def test_aplicar_upserts_e_deletes_d1_em_lotes() -> None:
                     "nome": f"Pico {i}",
                     "cidade": "BH",
                     "estado": "MG",
+                    "latitude_e7": -199000000 if i == 0 else None,
+                    "longitude_e7": -439000000 if i == 0 else None,
+                    "url_google_maps": "https://maps.app.goo.gl/Teste0" if i == 0 else None,
                 }
                 for i in range(16)
             ],
@@ -318,6 +324,16 @@ def test_aplicar_upserts_e_deletes_d1_em_lotes() -> None:
 
     linhas_croquis = fake.executar_query("SELECT COUNT(*) AS total FROM catalogo_croquis")
     assert linhas_croquis[0]["total"] == 16
+    c0_geo = fake.executar_query(
+        "SELECT latitude_e7, longitude_e7, url_google_maps FROM catalogo_croquis WHERE croqui_uid = 'c0'"
+    )
+    assert c0_geo == [
+        {
+            "latitude_e7": -199000000,
+            "longitude_e7": -439000000,
+            "url_google_maps": "https://maps.app.goo.gl/Teste0",
+        }
+    ]
 
     linhas_aresta = fake.executar_query("SELECT COUNT(*) AS total FROM catalogo_aresta")
     assert linhas_aresta[0]["total"] == 13
@@ -561,7 +577,17 @@ def test_sincronizar_catalogo_d1_cliente_padrao_ambiente(
             200,
             {
                 "success": True,
-                "result": [{"results": [{"name": "croqui_uid"}, {"name": "estado"}]}],
+                "result": [
+                    {
+                        "results": [
+                            {"name": "croqui_uid"},
+                            {"name": "estado"},
+                            {"name": "latitude_e7"},
+                            {"name": "longitude_e7"},
+                            {"name": "url_google_maps"},
+                        ]
+                    }
+                ],
             },
         ),
         (

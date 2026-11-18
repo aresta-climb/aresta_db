@@ -51,9 +51,23 @@ def inicializar_banco_catalogo(caminho_banco: Path | str) -> sqlite3.Connection:
     if colunas_croquis and "estado" not in colunas_croquis:
         cursor.execute("DROP TABLE catalogo_croquis")
         precisa_ddl = True
-    elif colunas_croquis and "atualizado_em" in colunas_croquis:
-        cursor.execute("ALTER TABLE catalogo_croquis DROP COLUMN atualizado_em")
-        conexao.commit()
+    elif colunas_croquis:
+        alterou_croquis = False
+        if "atualizado_em" in colunas_croquis:
+            cursor.execute("ALTER TABLE catalogo_croquis DROP COLUMN atualizado_em")
+            alterou_croquis = True
+        for nome_col, tipo_col in (
+            ("latitude_e7", "INTEGER"),
+            ("longitude_e7", "INTEGER"),
+            ("url_google_maps", "TEXT"),
+        ):
+            if nome_col not in colunas_croquis:
+                cursor.execute(
+                    f"ALTER TABLE catalogo_croquis ADD COLUMN {nome_col} {tipo_col}"
+                )
+                alterou_croquis = True
+        if alterou_croquis:
+            conexao.commit()
 
     # Detecta se a tabela catalogo_aresta existe com schema legado (sem a coluna escalada_tipo)
     cursor.execute("PRAGMA table_info(catalogo_aresta)")
@@ -257,12 +271,29 @@ def extrair_dados_croqui_para_catalogo(
     cidade = cidade_pico or cidade_slug
     estado = estado_pico.upper() if len(estado_pico) == 2 else (estado_slug or estado_pico)
 
+    latitude_e7: int | None = None
+    longitude_e7: int | None = None
+    url_google_maps: str | None = None
+    if primeiro_pico is not None:
+        if primeiro_pico.HasField("localizacao"):
+            lat_val = int(primeiro_pico.localizacao.latitude or 0)
+            lon_val = int(primeiro_pico.localizacao.longitude or 0)
+            if lat_val != 0 or lon_val != 0:
+                latitude_e7 = lat_val
+                longitude_e7 = lon_val
+        url_limpa = getattr(primeiro_pico, "url_google_maps", "").strip()
+        if url_limpa:
+            url_google_maps = url_limpa
+
     dados_croqui: LinhaCatalogoCroquis = {
         "croqui_uid": croqui_uid,
         "id_slug": id_slug,
         "nome": nome,
         "cidade": cidade,
         "estado": estado,
+        "latitude_e7": latitude_e7,
+        "longitude_e7": longitude_e7,
+        "url_google_maps": url_google_maps,
     }
 
     registros: list[LinhaCatalogoAresta] = []
@@ -464,8 +495,8 @@ def inserir_croqui_no_catalogo(
     cursor.execute(
         """
         INSERT OR REPLACE INTO catalogo_croquis (
-            croqui_uid, id_slug, nome, cidade, estado
-        ) VALUES (?, ?, ?, ?, ?)
+            croqui_uid, id_slug, nome, cidade, estado, latitude_e7, longitude_e7, url_google_maps
+        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?)
         """,
         (
             dados_croqui["croqui_uid"],
@@ -473,6 +504,9 @@ def inserir_croqui_no_catalogo(
             dados_croqui["nome"],
             dados_croqui.get("cidade", ""),
             dados_croqui.get("estado", ""),
+            dados_croqui.get("latitude_e7"),
+            dados_croqui.get("longitude_e7"),
+            dados_croqui.get("url_google_maps"),
         ),
     )
 
@@ -506,7 +540,8 @@ def calcular_versao_catalogo(conexao: sqlite3.Connection) -> str:
     hasher = hashlib.sha256()
 
     for linha in cursor.execute(
-        "SELECT croqui_uid, id_slug, nome, cidade, estado FROM catalogo_croquis ORDER BY croqui_uid"
+        "SELECT croqui_uid, id_slug, nome, cidade, estado, latitude_e7, longitude_e7, url_google_maps "
+        "FROM catalogo_croquis ORDER BY croqui_uid"
     ):
         hasher.update(repr(linha).encode("utf-8"))
 
@@ -569,7 +604,7 @@ def _croqui_modificado_no_catalogo(
     croqui_uid = dados_croqui["croqui_uid"]
     cursor = conexao.cursor()
     linha_croqui = cursor.execute(
-        "SELECT croqui_uid, id_slug, nome, cidade, estado "
+        "SELECT croqui_uid, id_slug, nome, cidade, estado, latitude_e7, longitude_e7, url_google_maps "
         "FROM catalogo_croquis WHERE croqui_uid = ?",
         (croqui_uid,),
     ).fetchone()
@@ -580,6 +615,9 @@ def _croqui_modificado_no_catalogo(
         dados_croqui["nome"],
         dados_croqui.get("cidade", ""),
         dados_croqui.get("estado", ""),
+        dados_croqui.get("latitude_e7"),
+        dados_croqui.get("longitude_e7"),
+        dados_croqui.get("url_google_maps"),
     )
     if linha_croqui != tupla_esperada_croqui:
         return True
@@ -897,8 +935,17 @@ def exportar_catalogo_csv(
     especificacoes = (
         (
             "catalogo_croquis.csv",
-            ("croqui_uid", "id_slug", "nome", "cidade", "estado"),
-            "SELECT croqui_uid, id_slug, nome, cidade, estado "
+            (
+                "croqui_uid",
+                "id_slug",
+                "nome",
+                "cidade",
+                "estado",
+                "latitude_e7",
+                "longitude_e7",
+                "url_google_maps",
+            ),
+            "SELECT croqui_uid, id_slug, nome, cidade, estado, latitude_e7, longitude_e7, url_google_maps "
             "FROM catalogo_croquis ORDER BY id_slug, croqui_uid",
         ),
         (

@@ -126,6 +126,9 @@ def test_inicializar_banco_catalogo(tmp_path: Path) -> None:
         "nome",
         "cidade",
         "estado",
+        "latitude_e7",
+        "longitude_e7",
+        "url_google_maps",
     ]
 
     # Verifica as colunas da tabela catalogo_aresta
@@ -225,9 +228,18 @@ def test_migracao_automatica_remove_coluna_atualizado_em_preservando_dados(tmp_p
             linha[1]
             for linha in conexao_migrada.execute("PRAGMA table_info(catalogo_croquis)").fetchall()
         ]
-        assert colunas == ["croqui_uid", "id_slug", "nome", "cidade", "estado"]
+        assert colunas == [
+            "croqui_uid",
+            "id_slug",
+            "nome",
+            "cidade",
+            "estado",
+            "latitude_e7",
+            "longitude_e7",
+            "url_google_maps",
+        ]
         linha = conexao_migrada.execute("SELECT * FROM catalogo_croquis").fetchone()
-        assert linha == ("c1", "slug1", "Pico 1", "BH", "MG")
+        assert linha == ("c1", "slug1", "Pico 1", "BH", "MG", None, None, None)
     finally:
         conexao_migrada.close()
 
@@ -429,6 +441,9 @@ def test_extrair_dados_croqui_para_catalogo() -> None:
         "nome": "Pico dos Ferros",
         "cidade": "Ferros",
         "estado": "MG",
+        "latitude_e7": None,
+        "longitude_e7": None,
+        "url_google_maps": None,
     }
 
     # 1 botao + 1 grupo + 2 setores + 5 escaladas = 9 registros
@@ -947,7 +962,16 @@ def test_gerar_catalogo_completo_exporta_tres_csvs_ordenados_e_preserva_quando_i
 
     # 1. Verifica catalogo_croquis.csv (sem atualizado_em, ordenado por id_slug, croqui_uid)
     linhas_croquis = list(csv.reader(csv_croquis.read_text(encoding="utf-8").splitlines()))
-    assert linhas_croquis[0] == ["croqui_uid", "id_slug", "nome", "cidade", "estado"]
+    assert linhas_croquis[0] == [
+        "croqui_uid",
+        "id_slug",
+        "nome",
+        "cidade",
+        "estado",
+        "latitude_e7",
+        "longitude_e7",
+        "url_google_maps",
+    ]
     assert [linha[1] for linha in linhas_croquis[1:]] == [
         "br_mg_araxa_c2",
         "br_mg_ferros_c1",
@@ -1264,3 +1288,37 @@ def test_gerar_catalogo_completo_extrai_malha_estrada_offline_do_pico_e_descarta
     with contextlib.closing(sqlite3.connect(caminho_db)) as con:
         assert con.execute("SELECT COUNT(*) FROM catalogo_distancias_estrada").fetchone()[0] == 0
         assert con.execute("SELECT COUNT(*) FROM catalogo_nos_estrada").fetchone()[0] == 0
+
+
+def test_extrair_e_persistir_coordenadas_e_url_google_maps_do_pico(tmp_path: Path) -> None:
+    croqui = _criar_croqui_exemplo()
+    croqui.picos[0].localizacao.latitude = -198765432
+    croqui.picos[0].localizacao.longitude = -438765432
+    croqui.picos[0].url_google_maps = " https://maps.app.goo.gl/PedraRachadaRef "
+
+    dados_croqui, registros = extrair_dados_croqui_para_catalogo(croqui)
+    assert dados_croqui["latitude_e7"] == -198765432
+    assert dados_croqui["longitude_e7"] == -438765432
+    assert dados_croqui["url_google_maps"] == "https://maps.app.goo.gl/PedraRachadaRef"
+
+    caminho_db = tmp_path / "catalogo_geo.db"
+    conexao = inicializar_banco_catalogo(caminho_db)
+    try:
+        inserir_croqui_no_catalogo(conexao, dados_croqui, registros)
+        linha = conexao.execute(
+            "SELECT latitude_e7, longitude_e7, url_google_maps FROM catalogo_croquis WHERE croqui_uid = ?",
+            (croqui.uid,),
+        ).fetchone()
+        assert linha == (-198765432, -438765432, "https://maps.app.goo.gl/PedraRachadaRef")
+    finally:
+        conexao.close()
+
+    croqui_vazio = croqui_pb2.Croqui(uid="croquiSemGeo123", id="br_mg_sabara_teste", nome="Teste")
+    pico_zero = croqui_vazio.picos.add()
+    pico_zero.localizacao.latitude = 0
+    pico_zero.localizacao.longitude = 0
+    pico_zero.url_google_maps = "   "
+    dados_vazio, _ = extrair_dados_croqui_para_catalogo(croqui_vazio)
+    assert dados_vazio["latitude_e7"] is None
+    assert dados_vazio["longitude_e7"] is None
+    assert dados_vazio["url_google_maps"] is None

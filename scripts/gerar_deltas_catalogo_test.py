@@ -421,3 +421,76 @@ def test_calcular_deltas_malha_estrada_upserts_e_deletes(tmp_path: Path) -> None
     assert upserts_payload["distancias_estrada"][0]["duracao_minutos"] == 2
     assert deletes_payload["nos_estrada"] == [20]
     assert deletes_payload["distancias_estrada"] == ["c1", "c2"]
+
+
+def test_calcular_deltas_croquis_inclui_coordenadas_e_suporta_banco_anterior_legado(
+    tmp_path: Path,
+) -> None:
+    import sqlite3
+
+    caminho_ant_legado = tmp_path / "ant_sem_geo.db"
+    con_leg = sqlite3.connect(caminho_ant_legado)
+    con_leg.execute(
+        """
+        CREATE TABLE catalogo_croquis (
+            croqui_uid TEXT PRIMARY KEY,
+            id_slug TEXT NOT NULL,
+            nome TEXT NOT NULL,
+            cidade TEXT,
+            estado TEXT
+        );
+        """
+    )
+    con_leg.execute(
+        "INSERT INTO catalogo_croquis VALUES ('c1', 'br_mg_sabara_pedra', 'Pedra Rachada', 'Sabará', 'MG')"
+    )
+    con_leg.execute(
+        """
+        CREATE TABLE catalogo_aresta (
+            uid TEXT PRIMARY KEY,
+            tipo TEXT NOT NULL,
+            croqui_uid TEXT NOT NULL,
+            nome TEXT NOT NULL,
+            escalada_grau TEXT,
+            escalada_tipo TEXT,
+            setor_uid TEXT,
+            grupo_uid TEXT
+        );
+        """
+    )
+    con_leg.execute("CREATE TABLE catalogo_meta (chave TEXT PRIMARY KEY, valor TEXT NOT NULL);")
+    con_leg.execute(
+        "CREATE TABLE catalogo_nos_estrada (no_osm_id INTEGER PRIMARY KEY, latitude_e7 INTEGER NOT NULL, longitude_e7 INTEGER NOT NULL);"
+    )
+    con_leg.execute(
+        "CREATE TABLE catalogo_distancias_estrada (croqui_uid TEXT NOT NULL, no_osm_id INTEGER NOT NULL, distancia_metros INTEGER NOT NULL, na_borda INTEGER NOT NULL DEFAULT 0, duracao_minutos INTEGER NOT NULL DEFAULT 0, PRIMARY KEY (croqui_uid, no_osm_id)) WITHOUT ROWID;"
+    )
+    con_leg.commit()
+    con_leg.close()
+
+    caminho_novo = tmp_path / "novo_com_geo.db"
+    _criar_banco_com_dados(
+        caminho_novo,
+        [
+            (
+                {
+                    "croqui_uid": "c1",
+                    "id_slug": "br_mg_sabara_pedra",
+                    "nome": "Pedra Rachada",
+                    "cidade": "Sabará",
+                    "estado": "MG",
+                    "latitude_e7": -198800000,
+                    "longitude_e7": -438000000,
+                    "url_google_maps": "https://maps.app.goo.gl/PedraRachada",
+                },
+                [],
+            )
+        ],
+    )
+
+    deltas = calcular_deltas_catalogo(caminho_ant_legado, caminho_novo)
+    assert len(deltas["croquis"]["upserts"]) == 1
+    c1_up = deltas["croquis"]["upserts"][0]
+    assert c1_up["latitude_e7"] == -198800000
+    assert c1_up["longitude_e7"] == -438000000
+    assert c1_up["url_google_maps"] == "https://maps.app.goo.gl/PedraRachada"

@@ -8,28 +8,18 @@ Este documento descreve a arquitetura do catálogo relacional SQLite (`catalogo.
 
 O ecossistema Aresta utiliza uma divisão clara de responsabilidades para dados offline e na borda:
 
-```
-[ aresta_db (deploy_generated.py) ]
-   │
-   ├─► Compilação dos Croquis Protobuf (compilado.binarypb)
-   ├─► Geração do Catálogo SQLite descomprimido (generated/catalogo.db)
-   └─► Hash Lógico Determinístico (versao_catalogo em catalogo_meta e indice.binarypb)
-            │
-            ▼
-[ Deploy CI/CD (serving/update_serving.py) ]
-   │
-   ├─► 1. Baixa catalogo.db anterior do R2 e calcula diff SQL (gerar_deltas_catalogo.py)
-   ├─► 2. Aplica upserts/deletes e grava delta em deltas_catalogo no Cloudflare D1 (API REST)
-   └─► 3. Só após sucesso no D1, faz upload para o R2 e purga cache da CDN
-            │
-            ▼
-   [ Cloudflare D1 + Worker (catalogo.arestaclimb.com) ]
-      ├─ catalogo_croquis
-      ├─ catalogo_aresta
-      └─ deltas_catalogo (id AUTOINCREMENT, versao_hash UNIQUE, upserts_json, deletes_json)
-            │
-            └──► GET /sync?versao_local=A&versao_destino=B ──► [ aresta_app (Flutter) ]
-                 (Cacheado na borda da CDN com immutable)       Busca textual instantânea offline
+```mermaid
+flowchart TD
+    DB["aresta_db (deploy_generated.py)"] --> Comp["Compilação dos Croquis (compilado.binarypb)"]
+    DB --> Cat["Geração do Catálogo SQLite (generated/catalogo.db)"]
+    DB --> Hash["Hash Lógico Determinístico (versao_catalogo)"]
+    Hash --> CI["Deploy CI/CD (serving/update_serving.py)"]
+    CI --> Diff["1. Diff SQL contra R2 (gerar_deltas_catalogo.py)"]
+    Diff --> D1Sync["2. Upserts/Deletes + deltas_catalogo no Cloudflare D1"]
+    D1Sync --> R2["3. Upload R2 + Purge CDN"]
+    D1Sync --> Edge["Cloudflare D1 (aresta-catalogo)"]
+    Edge --> WorkerSync["catalogo.arestaclimb.com/sync -> aresta_app"]
+    Edge --> WorkerWeb["arestaclimb.com/croquis -> Vitrine Web SSR e SEO"]
 ```
 
 1. **`catalogo.db`**: Banco SQLite descomprimido contendo metadados de croquis e escaladas, focado em busca textual ultrarrápida no app. Não geramos `catalogo.db.gz` localmente para manter o `deploy_generated.py` instantâneo; a compressão de rede é realizada automaticamente na borda pela CDN da Cloudflare e nativamente pelos pacotes APK/IPA.
@@ -49,7 +39,10 @@ CREATE TABLE catalogo_croquis (
     id_slug TEXT NOT NULL,         -- ex: 'br_mg_ferros_pico_dos_ferros'
     nome TEXT NOT NULL,            -- ex: 'Pico dos Ferros'
     cidade TEXT,                   -- ex: 'Ferros'
-    estado TEXT                    -- ex: 'MG'
+    estado TEXT,                   -- ex: 'MG'
+    latitude_e7 INTEGER,           -- Latitude do pico principal em micrograus E7
+    longitude_e7 INTEGER,          -- Longitude do pico principal em micrograus E7
+    url_google_maps TEXT           -- URL de referência do pico no Google Maps
 );
 
 -- Tabela de entidades endereçáveis por UID (escaladas, setores, grupos e botões)

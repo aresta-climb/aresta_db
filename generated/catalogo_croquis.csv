@@ -1,32 +1,32 @@
-croqui_uid,id_slug,nome,cidade,estado
-oyCb72FtUENKNi,br_mg_araxa_bocaina_boulders,Guia de Boulders - Bocaina Park,Araxá,MG
-Ygo9aN5g9LtcLo,br_mg_araxa_bocaina_esportivas,Bocaina Park (Esportivas),Araxá,MG
-Cj7ql1orkaqEyg,br_mg_arcos_bombonera,Arcos - Bombonera,Arcos,MG
-y9hp5TkJhwOAL7,br_mg_arcos_corumba,Arcos - Corumbá,Arcos,MG
-lK5vPq7hG9LKIk,br_mg_arcos_novo_mundo,Afloramento Novo Mundo,Arcos,MG
-N5QCgyleMFU1Mb,br_mg_arcos_rastro,Afloramento Rastro,Arcos,MG
-IueFHQqpIFT4cY,br_mg_betim_pedreira_dr_gravata,"Pedreira Dr. Gravatá - ""VALE DOS OSSOS""",Betim,MG
-hyRUkm1gfZRwSw,br_mg_caete_monte_alvao,Monte Alvão - Caeté,Caeté,MG
-Snfxx6EhH9zy7o,br_mg_caete_pedra_branca,Pedra Branca,Caeté,MG
-J7aXhhOuKqgLtF,br_mg_caete_pedra_filha,Pedra Filha (Pedrinha),Caeté,MG
-0tnE9prPHVg380,br_mg_conceicao_do_mato_dentro_festboulder,Fest Boulder,Conceição do Mato Dentro,MG
-rULBV89pXI7Ibg,br_mg_diamantina_diamaboulder,Diamaboulder (Cerrado Groove),Diamantina,MG
-Qk5OzgPaESC9GX,br_mg_ferros_ferros,Ferros,Ferros,MG
-nxZd44LfKUlR1H,br_mg_igarape_pedra_grande,Igarameca - Complexo Pedra Grande,Igarapé,MG
-j1xEFSrZQm7IFN,br_mg_januaria_salao_encantado,Salão Encantado,Januária,MG
-9jDSsMY9R5bPSY,br_mg_lagoa_santa_gruta_da_lapinha,Gruta da Lapinha,Lagoa Santa,MG
-GrHAA4JNn9WUhF,br_mg_lagoa_santa_sitio_do_rod,Sítio do Rod,Lagoa Santa,MG
-CiVmE57KaMXmNl,br_mg_ouro_preto_andorinhas,Parque Natural Municipal das Andorinhas,Ouro Preto,MG
-6d55ble314H5Q1,br_mg_ouro_preto_ouroboulder,Ouroboulder,Ouro Preto,MG
-37b8pZznCQRql0,br_mg_ouro_preto_ouroboulder_sunset,OuroBoulder Sunset,Ouro Preto,MG
-qsh4FUA8apmN3B,br_mg_paraisopolis_pedra_da_divisa,Pedra da Divisa - Face MG,Paraisópolis,MG
-Zazz5il9mKvyUZ,br_mg_pedro_leopoldo_gruta_do_bau,Gruta do Baú,Pedro Leopoldo,MG
-4onIN9Ga05O9Kr,br_mg_sabara_pedra_rachada_setor_horizonte,Sabará - Pedra Rachada - Setor Horizonte,Sabará,MG
-Jtg5MoeUOy5z93,br_mg_sacramento_vo_gusta,Pico da Vó Gusta,Sacramento,MG
-3YtzNWTuqBidGi,br_mg_santa_luzia_morro_do_carrapato_setor_covide,Morro do Carrapato - Setor Covide,Santa Luzia,MG
-lbNNTCh7zQ5FFx,br_mg_santa_luzia_santuario,Santuário de Santa Luzia,Santa Luzia,MG
-XTlcdWHJASykL5,br_mg_santana_do_riacho_serra_do_cipo_rock_master,Serra do Cipó - Setor Rock Master,Santana do Riacho,MG
-uOsWZu0uqFRB4r,br_mg_sao_joao_del_rei_serra_do_lenheiro,Serra do Lenheiro - São João Del Rei,São João del-Rei,MG
-AIgxBVTTkHODSK,br_mg_sao_joao_del_rei_serra_do_lenheiro_boulders_ave_maria_2017,Boulders da Ave Maria - Serra do Lenheiro,São João del-Rei,MG
-X6OTknRVmaiSvG,br_mg_sete_lagoas_sinuosa,Sinuosa,Sete Lagoas,MG
-VJpkI8Di29N8aZ,br_rj_nova_friburgobom_jardim_capelinha,Capelinha,Nova Friburgo / Bom Jardim,RJ
+croqui_uid,id_slug,nome,cidade,estado,latitude_e7,longitude_e7,url_google_maps
+oyCb72FtUENKNi,br_mg_araxa_bocaina_boulders,Guia de Boulders - Bocaina Park,Araxá,MG,-197151450,-467975110,https://maps.app.goo.gl/ph75hb2UY3xD4Y7CA
+Ygo9aN5g9LtcLo,br_mg_araxa_bocaina_esportivas,Bocaina Park (Esportivas),Araxá,MG,-197151110,-467977210,https://maps.app.goo.gl/ph75hb2UY3xD4Y7CA
+Cj7ql1orkaqEyg,br_mg_arcos_bombonera,Arcos - Bombonera,Arcos,MG,-203962230,-456497250,https://maps.app.goo.gl/tGRSEPsRVVn2Ru6n9
+y9hp5TkJhwOAL7,br_mg_arcos_corumba,Arcos - Corumbá,Arcos,MG,-203283130,-456115750,https://maps.app.goo.gl/kyRAVySvQXDD47uB9
+lK5vPq7hG9LKIk,br_mg_arcos_novo_mundo,Afloramento Novo Mundo,Arcos,MG,-203449420,-455770310,https://maps.app.goo.gl/NH7WxKaFaBwgPk5CA
+N5QCgyleMFU1Mb,br_mg_arcos_rastro,Afloramento Rastro,Arcos,MG,-202953470,-456009710,
+IueFHQqpIFT4cY,br_mg_betim_pedreira_dr_gravata,"Pedreira Dr. Gravatá - ""VALE DOS OSSOS""",Betim,MG,,,
+hyRUkm1gfZRwSw,br_mg_caete_monte_alvao,Monte Alvão - Caeté,Caeté,MG,-199102878,-435758238,
+Snfxx6EhH9zy7o,br_mg_caete_pedra_branca,Pedra Branca,Caeté,MG,-198897720,-436539390,
+J7aXhhOuKqgLtF,br_mg_caete_pedra_filha,Pedra Filha (Pedrinha),Caeté,MG,-198960870,-436547850,
+0tnE9prPHVg380,br_mg_conceicao_do_mato_dentro_festboulder,Fest Boulder,Conceição do Mato Dentro,MG,-190464720,-434401570,https://www.google.com/maps/d/u/0/edit?mid=1HoFEc0r-nrO6aur5x8pNNyp6eR1KmJs&usp=sharing
+rULBV89pXI7Ibg,br_mg_diamantina_diamaboulder,Diamaboulder (Cerrado Groove),Diamantina,MG,-182821730,-435199450,
+Qk5OzgPaESC9GX,br_mg_ferros_ferros,Ferros,Ferros,MG,-192905010,-429844990,https://maps.app.goo.gl/hGmJWp5oT1wnXpsG7
+nxZd44LfKUlR1H,br_mg_igarape_pedra_grande,Igarameca - Complexo Pedra Grande,Igarapé,MG,-201176660,-443593480,
+j1xEFSrZQm7IFN,br_mg_januaria_salao_encantado,Salão Encantado,Januária,MG,-154711340,-444448810,https://maps.app.goo.gl/FjzfV9Hur82qwP2b8
+9jDSsMY9R5bPSY,br_mg_lagoa_santa_gruta_da_lapinha,Gruta da Lapinha,Lagoa Santa,MG,-195622616,-439595684,https://maps.app.goo.gl/cxfDFt4fgUGfBBRK9
+GrHAA4JNn9WUhF,br_mg_lagoa_santa_sitio_do_rod,Sítio do Rod,Lagoa Santa,MG,-195686709,-439561783,
+CiVmE57KaMXmNl,br_mg_ouro_preto_andorinhas,Parque Natural Municipal das Andorinhas,Ouro Preto,MG,-203703540,-434619586,
+6d55ble314H5Q1,br_mg_ouro_preto_ouroboulder,Ouroboulder,Ouro Preto,MG,-203677334,-435075136,https://www.google.com/maps/d/u/0/edit?mid=1S2eJ09mMtWbyWYJ3ng4zF6-eVkWxbyE&usp=sharing
+37b8pZznCQRql0,br_mg_ouro_preto_ouroboulder_sunset,OuroBoulder Sunset,Ouro Preto,MG,-203600960,-435035650,
+qsh4FUA8apmN3B,br_mg_paraisopolis_pedra_da_divisa,Pedra da Divisa - Face MG,Paraisópolis,MG,,,
+Zazz5il9mKvyUZ,br_mg_pedro_leopoldo_gruta_do_bau,Gruta do Baú,Pedro Leopoldo,MG,-195534530,-439898860,
+4onIN9Ga05O9Kr,br_mg_sabara_pedra_rachada_setor_horizonte,Sabará - Pedra Rachada - Setor Horizonte,Sabará,MG,-198396970,-437722740,
+Jtg5MoeUOy5z93,br_mg_sacramento_vo_gusta,Pico da Vó Gusta,Sacramento,MG,-199973890,-473989720,https://maps.app.goo.gl/YdKBBSys29mFQNLz7
+3YtzNWTuqBidGi,br_mg_santa_luzia_morro_do_carrapato_setor_covide,Morro do Carrapato - Setor Covide,Santa Luzia,MG,-197584200,-438851100,
+lbNNTCh7zQ5FFx,br_mg_santa_luzia_santuario,Santuário de Santa Luzia,Santa Luzia,MG,-197022921,-438754158,
+XTlcdWHJASykL5,br_mg_santana_do_riacho_serra_do_cipo_rock_master,Serra do Cipó - Setor Rock Master,Santana do Riacho,MG,-193155830,-436135000,https://maps.app.goo.gl/cxF1NYUhuZw7AWQr9
+uOsWZu0uqFRB4r,br_mg_sao_joao_del_rei_serra_do_lenheiro,Serra do Lenheiro - São João Del Rei,São João del-Rei,MG,-211406830,-442847810,https://maps.app.goo.gl/an6b45Wq8bGkwSFy6
+AIgxBVTTkHODSK,br_mg_sao_joao_del_rei_serra_do_lenheiro_boulders_ave_maria_2017,Boulders da Ave Maria - Serra do Lenheiro,São João del-Rei,MG,-211406830,-442847810,https://maps.app.goo.gl/an6b45Wq8bGkwSFy6
+X6OTknRVmaiSvG,br_mg_sete_lagoas_sinuosa,Sinuosa,Sete Lagoas,MG,-194618320,-442793680,
+VJpkI8Di29N8aZ,br_rj_nova_friburgobom_jardim_capelinha,Capelinha,Nova Friburgo / Bom Jardim,RJ,-222285860,-424249510,https://maps.app.goo.gl/ehxMtrACYudb1sxY7?g_st=aw

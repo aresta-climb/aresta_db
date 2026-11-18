@@ -37,7 +37,7 @@ from scripts.gerar_catalogo_sqlite_lib import obter_versao_catalogo
 from scripts.gerar_deltas_catalogo import calcular_deltas_catalogo, gerar_payload_d1
 
 TAMANHO_LOTE_DELETE = 50
-TAMANHO_LOTE_UPSERT_CROQUIS = 15
+TAMANHO_LOTE_UPSERT_CROQUIS = 10
 TAMANHO_LOTE_UPSERT_ENTIDADES = 10
 TAMANHO_LOTE_UPSERT_ESTRADA = 20
 
@@ -114,10 +114,11 @@ class ClienteCloudflareD1:
 
 def inicializar_schema_d1(cliente: ClienteCloudflareD1) -> None:
     """Garante que as tabelas e índices do catálogo e de deltas existam no Cloudflare D1."""
-    # Detecta se catalogo_croquis já existe com formato legado (sem a coluna estado)
+    # Detecta se catalogo_croquis já existe com formato legado (sem estado ou metadados geográficos)
     info_croquis = cliente.executar_query("PRAGMA table_info(catalogo_croquis)")
-    colunas_croquis = [linha["name"] for linha in info_croquis if "name" in linha]
-    if colunas_croquis and "estado" not in colunas_croquis:
+    colunas_croquis = {linha["name"] for linha in info_croquis if "name" in linha}
+    colunas_croquis_esperadas = {"estado", "latitude_e7", "longitude_e7", "url_google_maps"}
+    if colunas_croquis and not colunas_croquis_esperadas.issubset(colunas_croquis):
         cliente.executar_query("DROP TABLE catalogo_croquis")
         cliente.executar_query("DELETE FROM deltas_catalogo")
 
@@ -183,7 +184,7 @@ def aplicar_upserts_e_deletes_d1(cliente: ClienteCloudflareD1, deltas: dict[str,
     croquis_upserts: list[dict[str, Any]] = deltas["croquis"]["upserts"]
     for i in range(0, len(croquis_upserts), TAMANHO_LOTE_UPSERT_CROQUIS):
         lote_croquis = croquis_upserts[i : i + TAMANHO_LOTE_UPSERT_CROQUIS]
-        marcadores = ", ".join("(?, ?, ?, ?, ?)" for _ in lote_croquis)
+        marcadores = ", ".join("(?, ?, ?, ?, ?, ?, ?, ?)" for _ in lote_croquis)
         parametros: list[Any] = []
         for c in lote_croquis:
             parametros.extend(
@@ -193,10 +194,15 @@ def aplicar_upserts_e_deletes_d1(cliente: ClienteCloudflareD1, deltas: dict[str,
                     c["nome"],
                     c.get("cidade", ""),
                     c.get("estado", ""),
+                    c.get("latitude_e7"),
+                    c.get("longitude_e7"),
+                    c.get("url_google_maps"),
                 ]
             )
         cliente.executar_query(
-            f"INSERT OR REPLACE INTO catalogo_croquis (croqui_uid, id_slug, nome, cidade, estado) VALUES {marcadores}",
+            "INSERT OR REPLACE INTO catalogo_croquis "
+            "(croqui_uid, id_slug, nome, cidade, estado, latitude_e7, longitude_e7, url_google_maps) "
+            f"VALUES {marcadores}",
             parametros,
         )
 

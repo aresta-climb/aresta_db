@@ -2204,8 +2204,8 @@ arquivos:
 - caminho_relativo: br_rj_nova_friburgobom_jardim_capelinha/compilado.yaml
   checksum_sha256: 6694c2e07f38d92fff2d54cd717c4b2f99121a2f5313c7ff07898a4526c013ee
 - caminho_relativo: indice.binarypb
-  checksum_sha256: 3071a2d68479f1c897561191455ca89976ca2a6159948749f5742d93c407dd8b
+  checksum_sha256: b40741f2af47ba7cfe2a176aee7c391107afd43d31afa25aa85ee229d918a0aa
 - caminho_relativo: indice.yaml
-  checksum_sha256: de11abb2126726880ebb613be6801400f770774929b7fb19edb636d32acb724d
+  checksum_sha256: 8da1d2d513f9a036a9f20213aa30adeff4a0cb2479a290d94bd73c36efd5f3a8
 - caminho_relativo: catalogo.db
-  checksum_sha256: 6f5d8c9eb6adb3b0c799b0ddcd18b1d7e6ebaeeb0b92864ef3ea58c6fa8a8dc1
+  checksum_sha256: c1e2dee24f9f4a6ae7dcf753bd5471d7d345a6988ff0071c51ffcc49b9ac826a
