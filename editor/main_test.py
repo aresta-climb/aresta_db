@@ -423,13 +423,13 @@ def test_controlador_app_abrir_croqui_via_mcp_atual_e_multi_janela(qtbot, tmp_pa
         controlador = ControladorAplicativo()
         try:
             # 1. Sem janela principal aberta -> abre na janela principal atual
-            res1 = controlador.abrir_croqui_via_mcp(pasta_a, iniciar_mcp_janela=False)
+            res1 = controlador.abrir_croqui_via_mcp(pasta_a, iniciar_rede_mcp_janela=False)
             assert res1["janela_aberta"] is True
             assert res1["nova_janela"] is False
             assert controlador.janela_principal is not None
 
             # 2. Com janela principal já aberta -> instancia segunda janela independente
-            res2 = controlador.abrir_croqui_via_mcp(pasta_b, iniciar_mcp_janela=False)
+            res2 = controlador.abrir_croqui_via_mcp(pasta_b, iniciar_rede_mcp_janela=False)
             assert res2["janela_aberta"] is True
             assert res2["nova_janela"] is True
             assert len(controlador.janelas_secundarias) == 1
@@ -688,7 +688,7 @@ def test_controlador_aplicativo_repassa_dependencias_injetadas(qtbot, tmp_path: 
         mock_tarefa_inst.sessao_usuario = None
 
         controlador = ControladorAplicativo(
-            iniciar_mcp=False,
+            iniciar_rede_mcp=False,
             storage=storage_obj,
             gerenciador_sessao=sessao_obj,
             cliente_auth=auth_obj,
@@ -700,7 +700,7 @@ def test_controlador_aplicativo_repassa_dependencias_injetadas(qtbot, tmp_path: 
             assert controlador.abertura.cliente_auth is auth_obj
             assert controlador.abertura.gerenciador_sessao is sessao_obj
 
-            controlador.abrir_croqui_via_mcp(pasta_exp, iniciar_mcp_janela=False)
+            controlador.abrir_croqui_via_mcp(pasta_exp, iniciar_rede_mcp_janela=False)
             assert controlador.janela_principal is not None
             assert controlador.janela_principal.servico_submissao is submissao_obj
             assert controlador.janela_principal.servico_loja is loja_obj
@@ -744,7 +744,7 @@ def test_controlador_aplicativo_modo_local_abre_janela_com_auth_sem_tela_carrega
 
     controlador = ControladorAplicativo(
         caminho_croqui_local=pasta_local,
-        iniciar_mcp=False,
+        iniciar_rede_mcp=False,
         storage=storage,
         gerenciador_sessao=gerenciador_sessao,
         cliente_auth=cliente_auth,
@@ -787,7 +787,7 @@ def test_controlador_aplicativo_logout_e_transicoes_janela(qtbot, tmp_path: Path
 
             mock_dialog_inst = MockDialog.return_value
 
-            controlador = ControladorAplicativo(iniciar_mcp=False)
+            controlador = ControladorAplicativo(iniciar_rede_mcp=False)
             try:
                 # 1. Logout acionado durante TelaDeCarregamento.exec()
                 def _simular_logout_no_exec():
@@ -800,7 +800,7 @@ def test_controlador_aplicativo_logout_e_transicoes_janela(qtbot, tmp_path: Path
 
                 # 2. abrir_croqui_via_mcp quando tela_carregamento existe e janela_principal é None
                 controlador.tela_carregamento = mock_dialog_inst
-                controlador.abrir_croqui_via_mcp(pasta_exp, iniciar_mcp_janela=False)
+                controlador.abrir_croqui_via_mcp(pasta_exp, iniciar_rede_mcp_janela=False)
                 mock_dialog_inst.accept.assert_called_once()
                 assert controlador.janela_principal is not None
 
@@ -817,3 +817,335 @@ def test_controlador_aplicativo_logout_e_transicoes_janela(qtbot, tmp_path: Path
                     controlador.janela_principal.close()
                 if controlador.abertura:
                     controlador.abertura.close()
+
+
+def test_controlador_aplicativo_registra_ferramentas_mcp_sem_abrir_rede(
+    qtbot, tmp_path: Path
+) -> None:
+    """
+    Garante que o registro completo de ferramentas MCP ocorre obrigatoriamente na TelaDeCarregamento
+    e na JanelaPrincipal mesmo quando iniciar_rede_mcp=False (sem abrir socket TCP).
+    """
+    from PySide6.QtCore import QObject, QTimer, Signal
+
+    from editor.core.gerenciador_sessao import SessaoUsuario
+    from editor.core.gerenciador_sessao_fake import GerenciadorSessaoFake
+    from editor.core.storage import GerenciadorCaminhos
+    from scripts.gerenciar_uids_lib import gerar_uid
+    from scripts.migrador import obter_ultima_versao_migracao
+
+    with pytest.raises(TypeError):
+        ControladorAplicativo(iniciar_mcp=False)  # type: ignore[call-arg]
+
+    storage = GerenciadorCaminhos()
+    storage.inicializar_diretorios()
+    pasta_exp = storage.obter_caminho_croquis_experimentais() / "001_croqui_mcp_mem"
+    (pasta_exp / "database").mkdir(parents=True, exist_ok=True)
+    (pasta_exp / "database" / "croqui.yaml").write_text(
+        f"id: br_mg_mcp_mem\nuid: {gerar_uid()}\nnome: MCP Mem\nultima_migracao: {obter_ultima_versao_migracao()}\n",
+        encoding="utf-8",
+    )
+
+    class _TarefaRapida(QObject):
+        progresso = Signal(int)
+        mostrar_progresso = Signal(bool)
+        status = Signal(str)
+        atualizacao_disponivel = Signal(object)
+        solicitar_login_ui = Signal()
+        sucesso = Signal()
+        erro = Signal(str)
+
+        def __init__(self) -> None:
+            super().__init__()
+            self.storage = storage
+            self.gerenciador_sessao = GerenciadorSessaoFake(
+                sessao_inicial=SessaoUsuario(
+                    email="mcp@arestaclimb.com",
+                    nome_completo="Teste MCP",
+                    jwt_supabase="jwt",
+                    token_atualizacao="ref",
+                )
+            )
+            self.sessao_usuario = self.gerenciador_sessao.obter_sessao()
+
+        def start(self) -> None:
+            pass
+
+    controlador = ControladorAplicativo(
+        tarefa=_TarefaRapida(),
+        iniciar_rede_mcp=False,
+        diretorio_sessao_mcp=tmp_path / "mcp_mem",
+    )
+    ferramentas_carregamento: set[str] = set()
+
+    def _selecionar_na_tela() -> None:
+        if controlador.tela_carregamento is not None and controlador.tela_carregamento.isVisible():
+            srv = controlador.tela_carregamento.servidor_mcp
+            assert srv is not None
+            assert srv.esta_ativo is False
+            resp = srv.processar_mensagem_jsonrpc(
+                {"jsonrpc": "2.0", "id": 1, "method": "tools/list"}
+            )
+            ferramentas_carregamento.update(f["name"] for f in resp["result"]["tools"])
+            controlador.tela_carregamento.caminho_croqui_selecionado = pasta_exp
+            controlador.tela_carregamento.accept()
+
+    timer = QTimer()
+    timer.setInterval(15)
+    timer.timeout.connect(_selecionar_na_tela)
+    timer.start()
+    try:
+        controlador.executar_selecao()
+        assert "aresta_listar_croquis" in ferramentas_carregamento
+        assert "aresta_criar_novo_croqui" in ferramentas_carregamento
+        assert controlador.janela_principal is not None
+        srv_janela = controlador.janela_principal.servidor_mcp
+        assert srv_janela is not None
+        assert srv_janela.esta_ativo is False
+        resp_j = srv_janela.processar_mensagem_jsonrpc(
+            {"jsonrpc": "2.0", "id": 2, "method": "tools/list"}
+        )
+        ferramentas_janela = {f["name"] for f in resp_j["result"]["tools"]}
+        assert "aresta_particionar_pdf_croqui" in ferramentas_janela
+        assert "aresta_alterar_campo" in ferramentas_janela
+        assert "aresta_coletar_betas" in ferramentas_janela
+    finally:
+        timer.stop()
+        if controlador.janela_principal:
+            controlador.janela_principal.close()
+        if controlador.abertura:
+            controlador.abertura.close()
+
+
+def test_executar_selecao_captura_falha_fatal_exibe_erro_e_evita_processo_zumbi(
+    qtbot, tmp_path: Path
+) -> None:
+    """
+    Garante que qualquer exceção inesperada durante executar_selecao() após o fechamento da
+    TelaDeAbertura aciona telemetria, restaura quitOnLastWindowClosed, fecha servidores locais
+    e exibe erro crítico encerrando o app (sem deixar processo invisível travando instância única).
+    """
+    import uuid
+
+    from PySide6.QtCore import QObject, Signal
+    from PySide6.QtNetwork import QLocalServer, QLocalSocket
+    from PySide6.QtWidgets import QMessageBox
+
+    from editor.core.storage import GerenciadorCaminhos
+
+    class _TarefaDummy(QObject):
+        progresso = Signal(int)
+        mostrar_progresso = Signal(bool)
+        status = Signal(str)
+        atualizacao_disponivel = Signal(object)
+        solicitar_login_ui = Signal()
+        sucesso = Signal()
+        erro = Signal(str)
+
+        def __init__(self) -> None:
+            super().__init__()
+            self.storage = GerenciadorCaminhos()
+            self.gerenciador_sessao = None
+            self.sessao_usuario = None
+
+        def start(self) -> None:
+            pass
+
+    caminho_bloqueado = tmp_path / "arquivo_bloqueando_diretorio_mcp"
+    caminho_bloqueado.write_text("bloqueio", encoding="utf-8")
+
+    nome_srv = f"aresta_zumbi_{uuid.uuid4().hex[:8]}"
+    QLocalServer.removeServer(nome_srv)
+    servidor_local = QLocalServer()
+    assert servidor_local.listen(nome_srv) is True
+
+    controlador = ControladorAplicativo(
+        tarefa=_TarefaDummy(),
+        iniciar_rede_mcp=True,
+        diretorio_sessao_mcp=caminho_bloqueado,
+    )
+    setattr(controlador.app, "servidor_local", servidor_local)
+
+    mensagens_erro: list[str] = []
+    quit_chamado: list[bool] = []
+
+    with (
+        patch.object(
+            QMessageBox,
+            "critical",
+            side_effect=lambda _p, _t, msg: mensagens_erro.append(str(msg)),
+        ),
+        patch("editor.main.QApplication.quit", side_effect=lambda: quit_chamado.append(True)),
+    ):
+        controlador.executar_selecao()
+
+    if controlador.tela_carregamento is not None:
+        controlador.tela_carregamento.close()
+
+    assert len(mensagens_erro) == 1
+    assert "Falha crítica ao iniciar o Editor (executar_selecao):" in mensagens_erro[0]
+    assert quit_chamado == [True]
+    assert controlador.app.quitOnLastWindowClosed() is True
+
+    # Verifica que o QLocalServer foi fechado e não bloqueia novas instâncias
+    sock = QLocalSocket()
+    sock.connectToServer(nome_srv)
+    assert sock.waitForConnected(100) is False
+    QLocalServer.removeServer(nome_srv)
+
+
+def test_condutor_smoke_test_em_memoria_e_validacao_dependencias_nativas(
+    qtbot, tmp_path: Path, monkeypatch
+) -> None:
+    """Valida _validar_dependencias_internas_smoke e _instalar_condutor_smoke_test em processo."""
+    from PySide6.QtCore import QObject, Signal
+
+    from editor.main import (
+        _instalar_condutor_smoke_test,
+        _validar_dependencias_internas_smoke,
+    )
+
+    res_deps = _validar_dependencias_internas_smoke()
+    assert res_deps["status"] == "ok"
+    assert "lxml" in res_deps["modulos_verificados"]
+    assert "pymupdf" in res_deps["modulos_verificados"]
+
+    monkeypatch.setenv("ARESTA_DIRETORIO_DADOS", str(tmp_path / "smoke_unit"))
+    (tmp_path / "smoke_unit").mkdir(parents=True, exist_ok=True)
+
+    class _TarefaParada(QObject):
+        progresso = Signal(int)
+        mostrar_progresso = Signal(bool)
+        status = Signal(str)
+        atualizacao_disponivel = Signal(object)
+        solicitar_login_ui = Signal()
+        sucesso = Signal()
+        erro = Signal(str)
+
+        def __init__(self) -> None:
+            from editor.core.gerenciador_sessao_fake import GerenciadorSessaoFake
+
+            super().__init__()
+            self.storage = None
+            self.gerenciador_sessao = GerenciadorSessaoFake()
+            self.sessao_usuario = None
+            self.intervalo_espera_cofre = 1.5
+
+        def definir_sessao_concluida(self, sessao: object) -> None:
+            self.sessao_usuario = sessao
+
+        def start(self) -> None:
+            pass
+
+    controlador = ControladorAplicativo(tarefa=_TarefaParada(), iniciar_rede_mcp=False)
+    timer = _instalar_condutor_smoke_test(controlador, timeout_segundos=10.0)
+    try:
+        assert controlador._modo_smoke_test is True
+        assert controlador.tarefa.intervalo_espera_cofre == 0.0
+
+        # 1. Exercita automação OTP na TelaDeAbertura com ClienteAuthSupabaseFake
+        from editor.core.cliente_auth_supabase_fake import ClienteAuthSupabaseFake
+
+        auth_fake = ClienteAuthSupabaseFake(
+            codigo_otp_padrao="123456",
+            nome_autor_inicial="Escalador Smoke",
+        )
+        controlador.abertura.cliente_auth = auth_fake
+        sessoes_recebidas = []
+        controlador.abertura.login_concluido.connect(sessoes_recebidas.append)
+        controlador.abertura.show()
+        controlador.abertura.iniciar_fluxo_login(cofre_disponivel=True)
+        qtbot.wait_until(lambda: len(sessoes_recebidas) == 1, timeout=3000)
+        assert sessoes_recebidas[0].email == "smoke@arestaclimb.com"
+
+        # 2. Simula janela aberta + sentinela .encerrar_smoke_test criada pelo orquestrador
+        (tmp_path / "smoke_unit" / ".encerrar_smoke_test").write_text("1", encoding="utf-8")
+        controlador.janela_principal = JanelaPrincipal(iniciar_rede_mcp=False)
+        controlador.janela_principal.show()
+        qtbot.wait_until(
+            lambda: (tmp_path / "smoke_unit" / ".smoke_test_concluido.json").is_file(),
+            timeout=3000,
+        )
+
+        # 3. mostrar_erro em modo smoke_test encerra sem QMessageBox modal
+        codigos_exit: list[int] = []
+        with patch.object(controlador.app, "exit", side_effect=codigos_exit.append):
+            controlador.abertura.show()
+            controlador.mostrar_erro("Falha smoke")
+        assert codigos_exit == [1]
+
+        # 4. Exceção em mostrar_janela_principal é tratada por _tratar_falha_fatal_transicao
+        codigos_exit.clear()
+        pasta_corrompida = tmp_path / "croqui_corrompido"
+        pasta_corrompida.mkdir(parents=True, exist_ok=True)
+        (pasta_corrompida / "croqui.yaml").write_text("::: [yaml_invalido\n", encoding="utf-8")
+        controlador._caminho_croqui_local = pasta_corrompida
+        with patch.object(controlador.app, "exit", side_effect=codigos_exit.append):
+            controlador.mostrar_janela_principal()
+        assert codigos_exit == [1]
+
+        # 5. Timeout e detecção de QMessageBox inesperado no condutor smoke test + CLI --smoke-test em main()
+        codigos_timeout: list[int] = []
+        ctrl_timeout = ControladorAplicativo(tarefa=_TarefaParada(), iniciar_rede_mcp=False)
+        with patch.object(ctrl_timeout.app, "exit", side_effect=codigos_timeout.append):
+            t_exp = _instalar_condutor_smoke_test(ctrl_timeout, timeout_segundos=-1.0)
+            qtbot.wait_until(lambda: codigos_timeout == [2], timeout=2000)
+            t_exp.stop()
+        ctrl_timeout.abertura.close()
+
+        from PySide6.QtWidgets import QMessageBox
+
+        codigos_modal: list[int] = []
+        ctrl_modal = ControladorAplicativo(tarefa=_TarefaParada(), iniciar_rede_mcp=False)
+        msg_box = QMessageBox()
+        with (
+            patch("editor.main.QApplication.activeModalWidget", return_value=msg_box),
+            patch.object(ctrl_modal.app, "exit", side_effect=codigos_modal.append),
+        ):
+            t_mod = _instalar_condutor_smoke_test(ctrl_modal, timeout_segundos=10.0)
+            qtbot.wait_until(lambda: codigos_modal == [1], timeout=2000)
+            t_mod.stop()
+        ctrl_modal.abertura.close()
+
+        timer.stop()
+        if controlador.janela_principal:
+            controlador.janela_principal.close()
+            controlador.janela_principal = None
+        if controlador.abertura:
+            controlador.abertura.close()
+
+        import sys
+
+        from editor.main import main
+        from editor.release_tools.smoke_test_pacote import (
+            ServidorAuthSupabaseLocal,
+            preparar_ambiente_smoke_test,
+        )
+
+        amb_e2e = preparar_ambiente_smoke_test(tmp_path / "main_e2e")
+        (amb_e2e.diretorio_dados / ".encerrar_smoke_test").write_text("ok", encoding="utf-8")
+        with ServidorAuthSupabaseLocal() as srv_auth:
+            monkeypatch.setenv("ARESTA_DIRETORIO_DADOS", str(amb_e2e.diretorio_dados))
+            monkeypatch.setenv("ARESTA_SUPABASE_URL", srv_auth.url_base)
+            monkeypatch.setenv("ARESTA_SUPABASE_PUBLISHABLE_KEY", "sb_publishable_smoke_fake")
+            monkeypatch.setenv("ARESTA_DESATIVAR_TELEMETRIA", "1")
+            monkeypatch.setattr(
+                sys,
+                "argv",
+                [
+                    "editor/main.py",
+                    "--smoke-test",
+                    str(amb_e2e.caminho_repo_upstream / "database" / amb_e2e.id_croqui_oficial),
+                ],
+            )
+            with pytest.raises(SystemExit) as exc_info:
+                main()
+            assert exc_info.value.code == 0
+            assert (amb_e2e.diretorio_dados / ".smoke_test_concluido.json").is_file()
+            assert srv_auth.contagem_verify >= 1
+    finally:
+        timer.stop()
+        if controlador.janela_principal:
+            controlador.janela_principal.close()
+        if controlador.abertura:
+            controlador.abertura.close()

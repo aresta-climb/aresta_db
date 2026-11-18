@@ -236,3 +236,26 @@ class TesteClienteAuthSupabase:
             "https://teste.supabase.co/auth/v1/authorize?"
             "provider=github&scopes=read:user,user:email,public_repo&redirect_to=http://localhost:55887/callback"
         )
+
+    def teste_cliente_le_url_e_chave_de_variaveis_de_ambiente_dinamicamente(self, monkeypatch):
+        from editor.core.cliente_auth_supabase import traduzir_mensagem_erro_supabase
+
+        assert traduzir_mensagem_erro_supabase("") == ""
+        monkeypatch.setenv("ARESTA_SUPABASE_URL", "http://127.0.0.1:19999/")
+        monkeypatch.setenv("ARESTA_SUPABASE_PUBLISHABLE_KEY", "sb_publishable_dinamica")
+        cliente_env = ClienteAuthSupabase()
+        assert cliente_env.url_supabase == "http://127.0.0.1:19999"
+        assert cliente_env.chave_publica == "sb_publishable_dinamica"
+
+    @responses.activate
+    def teste_resposta_erro_nao_json_propaga_texto_bruto(self, cliente):
+        responses.add(
+            responses.POST,
+            "https://teste.supabase.co/auth/v1/otp",
+            body="502 Bad Gateway",
+            status=502,
+            content_type="text/plain",
+        )
+        with pytest.raises(ErroAutenticacaoSupabase, match="502 Bad Gateway") as info_erro:
+            cliente.solicitar_codigo_otp("escalador@arestaclimb.com")
+        assert info_erro.value.codigo_status == 502

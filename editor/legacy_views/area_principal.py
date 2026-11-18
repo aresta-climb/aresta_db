@@ -289,7 +289,7 @@ class JanelaPrincipal(QMainWindow):
         auth: Any | None = None,
         workspace: Any | None = None,
         parent: QWidget | None = None,
-        iniciar_mcp: bool = False,
+        iniciar_rede_mcp: bool = False,
         diretorio_sessao_mcp: Path | None = None,
         servidor_mcp: Any | None = None,
         callback_abrir_croqui_mcp: Callable[[Path], dict[str, Any] | None] | None = None,
@@ -327,7 +327,7 @@ class JanelaPrincipal(QMainWindow):
             getattr(servidor_mcp, "despachante", None) if servidor_mcp is not None else None
         )
         self._diretorio_sessao_mcp: Path | None = diretorio_sessao_mcp
-        self._iniciar_mcp_automatico: bool = iniciar_mcp
+        self._iniciar_rede_mcp: bool = iniciar_rede_mcp
         self.historico: GerenciadorHistorico = GerenciadorHistorico(self)
         self.historico.obter_pilha().cleanChanged.connect(self._on_clean_changed)
 
@@ -427,11 +427,10 @@ class JanelaPrincipal(QMainWindow):
         if self.workspace:
             self.carregar_croqui()
 
-        if self._iniciar_mcp_automatico:
-            self.iniciar_servidor_mcp(
-                diretorio_sessao=self._diretorio_sessao_mcp,
-                iniciar_rede=True,
-            )
+        self.iniciar_servidor_mcp(
+            diretorio_sessao=self._diretorio_sessao_mcp,
+            iniciar_rede=self._iniciar_rede_mcp,
+        )
 
     def _setup_ui(self) -> None:
         # 1. Configura as Toolbars (Superior e Lateral)

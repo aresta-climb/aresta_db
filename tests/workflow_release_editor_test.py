@@ -716,3 +716,127 @@ class TestWorkflowReleaseEditor(unittest.TestCase):
             "matrix.arch == 'arm64'",
             "A etapa de testes no macOS deve executar apenas na arquitetura nativa arm64.",
         )
+
+    def test_release_editor_mantem_cut_da_versao_antes_dos_builds_por_plataforma(self) -> None:
+        """
+        Garante que prepare_release realiza o cut oficial da tag/versão antes de iniciar
+        build_windows, build_macos e build_linux para impedir colisão entre SOs.
+        """
+        passos_prep = self.conteudo_yaml["jobs"]["prepare_release"]["steps"]
+        textos_run = "\n".join(str(s.get("run", "")) for s in passos_prep)
+        self.assertIn("git tag editor-v", textos_run)
+        self.assertIn("git push origin main", textos_run)
+
+        for job_so in ("build_windows", "build_macos", "build_linux"):
+            needs = self.conteudo_yaml["jobs"][job_so].get("needs")
+            self.assertEqual(needs, "prepare_release")
+
+    def test_windows_executa_smoke_test_pos_build_antes_de_publicar_beta_e_store(self) -> None:
+        """
+        Garante que build_editor_windows.yml executa smoke_test_pacote.py contra EditorAresta.exe
+        tanto para o canal Beta (antes do R2) quanto para Produção (antes da Microsoft Store).
+        """
+        passos = self.conteudo_windows["jobs"]["build_windows"]["steps"]
+        nomes = [str(s.get("name", "")) for s in passos]
+
+        idx_build_beta = next(
+            i for i, n in enumerate(nomes) if "Build PyInstaller (Canal Beta)" in n
+        )
+        idx_pub_beta = next(i for i, n in enumerate(nomes) if "Publicar Canal Beta" in n)
+        idx_smoke_beta = next(
+            (
+                i
+                for i, s in enumerate(passos)
+                if i > idx_build_beta
+                and i < idx_pub_beta
+                and "smoke_test_pacote.py" in str(s.get("run", ""))
+            ),
+            None,
+        )
+        self.assertIsNotNone(
+            idx_smoke_beta,
+            "Deve existir smoke test pós-build entre o build PyInstaller Beta e a publicação no R2.",
+        )
+
+        idx_build_prod = next(i for i, n in enumerate(nomes) if "Build PyInstaller (Produção)" in n)
+        idx_pub_store = next(i for i, n in enumerate(nomes) if "Publish to MS Store" in n)
+        idx_smoke_prod = next(
+            (
+                i
+                for i, s in enumerate(passos)
+                if i > idx_build_prod
+                and i < idx_pub_store
+                and "smoke_test_pacote.py" in str(s.get("run", ""))
+            ),
+            None,
+        )
+        self.assertIsNotNone(
+            idx_smoke_prod,
+            "Deve existir smoke test pós-build entre o build PyInstaller Produção e o Publish to MS Store.",
+        )
+        assert idx_smoke_prod is not None
+        self.assertIn("publicar_microsoft_store", str(passos[idx_smoke_prod].get("if", "")))
+
+    def test_macos_executa_smoke_test_pos_build_em_arm64_e_intel_antes_de_empacotar_dmg(
+        self,
+    ) -> None:
+        """
+        Garante que build_editor_macos.yml valida EditorAresta.app em AMBAS as arquiteturas
+        (arm64 nativo e x86_64 via Rosetta 2) com --arquitetura-esperada antes de notarizar/publicar.
+        """
+        passos = self.conteudo_macos["jobs"]["compilar_macos"]["steps"]
+        nomes = [str(s.get("name", "")) for s in passos]
+        idx_build = next(i for i, n in enumerate(nomes) if "Build PyInstaller no macOS" in n)
+        idx_dmg = next(i for i, n in enumerate(nomes) if "Empacotar e Notarizar DMG" in n)
+
+        passo_smoke = next(
+            (
+                s
+                for i, s in enumerate(passos)
+                if i > idx_build and i < idx_dmg and "smoke_test_pacote.py" in str(s.get("run", ""))
+            ),
+            None,
+        )
+        self.assertIsNotNone(
+            passo_smoke,
+            "Deve existir smoke test pós-build no macOS entre o PyInstaller e a notarização do DMG.",
+        )
+        assert passo_smoke is not None
+        self.assertIsNone(
+            passo_smoke.get("if"),
+            "O smoke test pós-build do macOS deve rodar tanto em arm64 quanto em x86_64 (Rosetta 2).",
+        )
+        cmd_smoke = str(passo_smoke.get("run", ""))
+        self.assertIn("--arquitetura-esperada", cmd_smoke)
+        self.assertIn("matrix.arch", cmd_smoke)
+        self.assertIn("EditorAresta.app/Contents/MacOS/EditorAresta", cmd_smoke)
+
+    def test_linux_executa_smoke_test_pos_build_no_flatpak_antes_de_publicar_no_r2(self) -> None:
+        """
+        Garante que build_editor_linux.yml executa smoke_test_pacote.py dentro do Flatpak compilado
+        antes de publicar o repositório OSTree no Cloudflare R2.
+        """
+        passos = self.conteudo_linux["jobs"]["build_linux"]["steps"]
+        nomes = [str(s.get("name", "")) for s in passos]
+        idx_flatpak = next(i for i, n in enumerate(nomes) if "Compilar Repositório Flatpak" in n)
+        idx_pub = next(
+            i for i, n in enumerate(nomes) if "Publicar Repositório Flatpak no Cloudflare R2" in n
+        )
+        passo_smoke = next(
+            (
+                s
+                for i, s in enumerate(passos)
+                if i > idx_flatpak
+                and i < idx_pub
+                and "smoke_test_pacote.py" in str(s.get("run", ""))
+            ),
+            None,
+        )
+        self.assertIsNotNone(
+            passo_smoke,
+            "Deve existir smoke test pós-build no Linux entre a compilação do Flatpak e a publicação no R2.",
+        )
+        assert passo_smoke is not None
+        cmd_smoke = str(passo_smoke.get("run", ""))
+        self.assertIn("flatpak run", cmd_smoke)
+        self.assertIn("--filesystem=", cmd_smoke)

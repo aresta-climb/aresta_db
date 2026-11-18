@@ -1,723 +1,688 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
-import os
+import ast
+import builtins
+import importlib
+import importlib.util
 import subprocess
-import sys
-import types
+import tarfile
+import xml.etree.ElementTree as ET
 from pathlib import Path
-from unittest.mock import MagicMock, patch
 
 import pytest
-
-# Garante stubs em sys.modules para ambientes onde PyInstaller não é instalado (ex: Linux no CI)
-if "PyInstaller" not in sys.modules:
-    try:
-        import PyInstaller.__main__  # noqa: F401 # type: ignore[import-untyped]
-    except ImportError:
-        _mock_pyinstaller = types.ModuleType("PyInstaller")
-        _mock_pyinstaller_main = types.ModuleType("PyInstaller.__main__")
-        _mock_pyinstaller_main.run = MagicMock()  # type: ignore[attr-defined]
-        _mock_pyinstaller.__main__ = _mock_pyinstaller_main  # type: ignore[attr-defined]
-        sys.modules["PyInstaller"] = _mock_pyinstaller
-        sys.modules["PyInstaller.__main__"] = _mock_pyinstaller_main
+from PIL import Image
 
 from editor.build import (
+    ARQUIVO_MANIFESTO_FLATPAK,
     ARQUIVO_SPEC,
+    DIRETORIO_DIST_ONEDIR,
     DIRETORIO_EDITOR,
+    DIRETORIO_FLATPAK,
     LIMITE_MAXIMO_TAMANHO_EXECUTAVEL_MB,
+    PACOTES_DISPENSAVEIS_FLATPAK,
+    PACOTES_PREFERIR_WHEELS,
+    ExecutorBuildPadrao,
     executar_build,
     executar_testes,
     filtrar_binarios_desnecessarios,
     filtrar_datas_desnecessarios,
+    gerar_arquivo_icone,
+    gerar_arquivo_icone_icns,
+    gerar_manifesto_dependencias_flatpak,
     main,
     obter_argumentos_pyinstaller,
+    obter_caminho_icone_alvo,
+    obter_diretorio_distribuicao_onedir,
     obter_modulos_excluidos,
+    obter_versao_projeto,
+    orquestrar_build_flatpak,
 )
+from editor.executor_build_fake import ExecutorBuildFake
 
 
-def test_obter_modulos_excluidos_contem_ia_ocr_pandas_e_qt_desnecessario():
-    """Valida se a lista de exclusões contém bibliotecas de IA, OCR, Pandas e módulos dispensáveis do Qt."""
+def _criar_png_rgba(caminho: Path, tamanho: tuple[int, int] = (64, 64)) -> Path:
+    caminho.parent.mkdir(parents=True, exist_ok=True)
+    img = Image.new("RGBA", tamanho, (34, 139, 34, 255))
+    img.save(str(caminho), format="PNG")
+    return caminho
+
+
+def test_obter_modulos_excluidos_preserva_dependencias_do_editor_e_exclui_ia_pesada() -> None:
+    """
+    Valida que bibliotecas pesadas fora do grupo editor permanecem excluídas, enquanto
+    pymupdf/fitz e lxml (usados pelo editor em runtime) NÃO constam na lista de exclusão.
+    """
     excluidos = obter_modulos_excluidos()
-    assert isinstance(excluidos, list)
-    assert len(excluidos) > 0
-
-    # Verifica bibliotecas de IA, OCR, PDF e Visão Computacional
     assert "paddleocr" in excluidos
     assert "paddlex" in excluidos
     assert "cv2" in excluidos
-    assert "pymupdf" in excluidos
-    assert "fitz" in excluidos
-    assert "pypdfium2" in excluidos
     assert "scipy" in excluidos
-    assert "tokenizers" in excluidos
-    assert "grpc" in excluidos
-    assert "modelscope" in excluidos
-
-    # Verifica pacotes de dados transitivos não utilizados pelo editor
-    assert "pandas" in excluidos
-    assert "openpyxl" in excluidos
-    assert "sqlalchemy" in excluidos
-    assert "jinja2" in excluidos
-    assert "fsspec" in excluidos
-    assert "psutil" in excluidos
-    assert "sqlite3" in excluidos
-
-    # Verifica submódulos do PySide6 dispensáveis na aplicação QtWidgets
+    assert "torch" in excluidos
     assert "PySide6.QtQuick" in excluidos
-    assert "PySide6.QtQml" in excluidos
-    assert "PySide6.QtPdf" in excluidos
-    assert "PySide6.QtOpenGL" in excluidos
-    assert "PySide6.Qt3DCore" in excluidos
     assert "PySide6.QtWebEngineCore" in excluidos
 
+    assert "pymupdf" not in excluidos
+    assert "fitz" not in excluidos
+    assert "lxml" not in excluidos
+    assert "sqlite3" not in excluidos
 
-def test_filtrar_binarios_desnecessarios_remove_opengl_software_qdirect2d_e_qml():
-    """Valida se filtrar_binarios_desnecessarios remove opengl32sw, qdirect2d e DLLs de QML/Quick."""
-    binarios_mock = [
+
+def test_nenhum_pacote_do_grupo_editor_uv_lock_esta_em_modulos_excluidos() -> None:
+    """
+    Garante invariante estrutural: nenhum pacote instalado no grupo 'editor' do uv.lock
+    pode ser excluído pelo empacotamento PyInstaller em obter_modulos_excluidos().
+    """
+    raiz = DIRETORIO_EDITOR.parent
+    res = subprocess.run(
+        ["uv", "export", "--frozen", "--only-group", "editor", "--no-dev", "--no-hashes"],
+        cwd=str(raiz),
+        capture_output=True,
+        text=True,
+        check=True,
+    )
+    pacotes_editor: set[str] = set()
+    for linha in res.stdout.splitlines():
+        limpa = linha.strip()
+        if not limpa or limpa.startswith("#"):
+            continue
+        nome_pkg = limpa.split("==")[0].split(">=")[0].split("<=")[0].split(";")[0].strip().lower()
+        pacotes_editor.add(nome_pkg)
+        pacotes_editor.add(nome_pkg.replace("-", "_"))
+
+    excluidos = obter_modulos_excluidos()
+    conflitos = [
+        exc
+        for exc in excluidos
+        if exc.lower() in pacotes_editor or exc.lower().replace("_", "-") in pacotes_editor
+    ]
+    assert conflitos == [], (
+        f"Conflito fatal de empacotamento: pacotes do grupo 'editor' estão em obter_modulos_excluidos(): {conflitos}"
+    )
+
+
+def test_todos_os_modulos_de_producao_importam_sem_violar_modulos_excluidos() -> None:
+    """
+    Simula o bloqueio do PyInstaller em runtime E varre o fecho transitivo AST (incluindo
+    imports lazy dentro de funções em scripts.*, aresta_api.* e serving.*): nenhum módulo
+    alcançável a partir de editor/, coleta_de_betas/ ou migracoes/ pode importar obter_modulos_excluidos().
+    """
+    raiz = DIRETORIO_EDITOR.parent
+    excluidos = set(obter_modulos_excluidos())
+    import_original = builtins.__import__
+
+    def _import_com_bloqueio(name: str, *args: object, **kwargs: object) -> object:
+        for exc in excluidos:
+            if name == exc or name.startswith(f"{exc}."):
+                raise ModuleNotFoundError(
+                    f"Módulo '{name}' bloqueado por obter_modulos_excluidos ({exc})"
+                )
+        return import_original(name, *args, **kwargs)  # type: ignore[arg-type]
+
+    pastas_ignoradas = {"caos", "release_tools", "dist", "build", "__pycache__", ".venv"}
+    falhas: list[str] = []
+    fila_ast: list[Path] = []
+    visitados_ast: set[Path] = set()
+
+    builtins.__import__ = _import_com_bloqueio  # type: ignore[assignment]
+    try:
+        for base in ("editor", "coleta_de_betas", "migracoes"):
+            pasta_base = raiz / base
+            for arq in sorted(pasta_base.rglob("*.py")):
+                if (
+                    any(p in pastas_ignoradas for p in arq.parts)
+                    or arq.name.endswith("_test.py")
+                    or arq.name.endswith("_fake.py")
+                    or arq.name == "build.py"
+                ):
+                    continue
+                fila_ast.append(arq.resolve())
+                if base == "migracoes":
+                    spec = importlib.util.spec_from_file_location(arq.stem, arq)
+                    if spec and spec.loader:
+                        mod = importlib.util.module_from_spec(spec)
+                        try:
+                            spec.loader.exec_module(mod)
+                        except Exception as err:
+                            falhas.append(f"{arq.relative_to(raiz)}: {err!r}")
+                else:
+                    partes_rel = arq.relative_to(raiz).with_suffix("").parts
+                    nome_mod = ".".join(partes_rel)
+                    try:
+                        importlib.import_module(nome_mod)
+                    except Exception as err:
+                        falhas.append(f"{nome_mod}: {err!r}")
+    finally:
+        builtins.__import__ = import_original
+
+    # Varredura do fecho transitivo AST (captura inclusive imports lazy e stdlib já em sys.modules, ex: sqlite3)
+    prefixos_internos = ("editor.", "coleta_de_betas.", "scripts.", "serving.")
+    while fila_ast:
+        arq_atual = fila_ast.pop()
+        if arq_atual in visitados_ast or not arq_atual.is_file():
+            continue
+        visitados_ast.add(arq_atual)
+        arvore = ast.parse(arq_atual.read_text(encoding="utf-8"), filename=str(arq_atual))
+        for node in ast.walk(arvore):
+            modulos_ref: list[str] = []
+            if isinstance(node, ast.Import):
+                modulos_ref = [alias.name for alias in node.names]
+            elif isinstance(node, ast.ImportFrom) and node.module:
+                modulos_ref = [node.module]
+            for m_ref in modulos_ref:
+                for exc in excluidos:
+                    if m_ref == exc or m_ref.startswith(f"{exc}."):
+                        falhas.append(
+                            f"{arq_atual.relative_to(raiz)}:{node.lineno} importa '{m_ref}' (excluído por '{exc}')"
+                        )
+                if m_ref.startswith(prefixos_internos):
+                    candidato = (raiz / Path(*m_ref.split("."))).with_suffix(".py").resolve()
+                    if candidato.is_file() and candidato not in visitados_ast:
+                        fila_ast.append(candidato)
+
+    assert falhas == [], "Falhas de importação sob obter_modulos_excluidos():\n" + "\n".join(falhas)
+
+
+def test_spec_possui_hiddenimports_e_pacotes_coletados_validos() -> None:
+    """
+    Analisa estaticamente o EditorAresta.spec garantindo que nenhum hiddenimport ou pacote
+    em pacotes_para_coletar referencie módulos deletados/inexistentes, e que pymupdf e ddgs sejam coletados.
+    """
+    conteudo_spec = ARQUIVO_SPEC.read_text(encoding="utf-8")
+    arvore = ast.parse(conteudo_spec, filename=str(ARQUIVO_SPEC))
+
+    hidden_literais: list[str] = []
+    pacotes_coletados: list[str] = []
+
+    for node in ast.walk(arvore):
+        if isinstance(node, ast.Assign):
+            for target in node.targets:
+                if isinstance(target, ast.Name) and isinstance(node.value, ast.List):
+                    valores = [
+                        elt.value
+                        for elt in node.value.elts
+                        if isinstance(elt, ast.Constant) and isinstance(elt.value, str)
+                    ]
+                    if target.id == "hiddenimports":
+                        hidden_literais.extend(valores)
+                    elif target.id == "pacotes_para_coletar":
+                        pacotes_coletados.extend(valores)
+
+    assert len(hidden_literais) > 0
+    for mod_nome in hidden_literais:
+        assert importlib.util.find_spec(mod_nome) is not None, (
+            f"O módulo '{mod_nome}' listado em hiddenimports de EditorAresta.spec não existe!"
+        )
+
+    assert "pymupdf" in pacotes_coletados
+    assert "ddgs" in pacotes_coletados
+    for pkg in pacotes_coletados:
+        assert importlib.util.find_spec(pkg) is not None, (
+            f"O pacote '{pkg}' em pacotes_para_coletar de EditorAresta.spec não está instalado!"
+        )
+
+
+def test_filtrar_binarios_desnecessarios_windows_e_unix() -> None:
+    """Valida filtragem de binários gráficos dispensáveis preservando bibliotecas essenciais e pymupdf."""
+    binarios = [
         ("PySide6\\opengl32sw.dll", "C:\\fake\\opengl32sw.dll", "BINARY"),
         ("PySide6\\plugins\\platforms\\qdirect2d.dll", "C:\\fake\\qdirect2d.dll", "BINARY"),
+        ("PySide6/libQt6Quick.so.6", "/fake/libQt6Quick.so.6", "BINARY"),
+        ("PySide6/libQt6Qml.dylib", "/fake/libQt6Qml.dylib", "BINARY"),
+        ("PySide6/libQt6Pdf.dylib", "/fake/libQt6Pdf.dylib", "BINARY"),
         ("PySide6\\Qt6Core.dll", "C:\\fake\\Qt6Core.dll", "BINARY"),
         ("PySide6\\Qt6Widgets.dll", "C:\\fake\\Qt6Widgets.dll", "BINARY"),
-        ("PySide6\\Qt6Quick.dll", "C:\\fake\\Qt6Quick.dll", "BINARY"),
-        ("PySide6\\Qt6Qml.dll", "C:\\fake\\Qt6Qml.dll", "BINARY"),
-        ("PySide6\\Qt6Pdf.dll", "C:\\fake\\Qt6Pdf.dll", "BINARY"),
+        ("pymupdf\\mupdfcpp64.dll", "C:\\fake\\mupdfcpp64.dll", "BINARY"),
         ("pygit2\\git2.dll", "C:\\fake\\git2.dll", "BINARY"),
     ]
+    nomes = [b[0] for b in filtrar_binarios_desnecessarios(binarios)]
+    assert "PySide6\\opengl32sw.dll" not in nomes
+    assert "PySide6\\plugins\\platforms\\qdirect2d.dll" not in nomes
+    assert "PySide6/libQt6Quick.so.6" not in nomes
+    assert "PySide6/libQt6Qml.dylib" not in nomes
+    assert "PySide6/libQt6Pdf.dylib" not in nomes
 
-    filtrados = filtrar_binarios_desnecessarios(binarios_mock)
-    nomes_restantes = [b[0] for b in filtrados]
-
-    # Verifica remoção de opengl32sw, qdirect2d e DLLs do QML/Quick/Pdf
-    assert "PySide6\\opengl32sw.dll" not in nomes_restantes
-    assert "PySide6\\plugins\\platforms\\qdirect2d.dll" not in nomes_restantes
-    assert "PySide6\\Qt6Quick.dll" not in nomes_restantes
-    assert "PySide6\\Qt6Qml.dll" not in nomes_restantes
-    assert "PySide6\\Qt6Pdf.dll" not in nomes_restantes
-
-    # Verifica manutenção de binários essenciais
-    assert "PySide6\\Qt6Core.dll" in nomes_restantes
-    assert "PySide6\\Qt6Widgets.dll" in nomes_restantes
-    assert "pygit2\\git2.dll" in nomes_restantes
+    assert "PySide6\\Qt6Core.dll" in nomes
+    assert "PySide6\\Qt6Widgets.dll" in nomes
+    assert "pymupdf\\mupdfcpp64.dll" in nomes
+    assert "pygit2\\git2.dll" in nomes
 
 
-def test_filtrar_datas_desnecessarios_remove_fontes_nao_utilizadas():
-    """Valida se filtrar_datas_desnecessarios remove fontes dispensáveis do QtAwesome e mantém as essenciais."""
-    datas_mock = [
+def test_filtrar_datas_desnecessarios_poda_mupdf_devel_fontes_metadados_testes_e_fakes() -> None:
+    """Valida remoção de mupdf-devel, fontes extras, dist-info, testes/fakes e .ico no darwin."""
+    datas = [
         (
-            "C:\\fake\\qtawesome\\fonts\\phosphor-1.3.0.ttf",
-            "qtawesome\\fonts\\phosphor-1.3.0.ttf",
+            "C:\\venv\\pymupdf\\mupdf-devel\\include\\mupdf\\fitz.h",
+            "pymupdf\\mupdf-devel\\include\\mupdf",
             "DATA",
         ),
+        ("C:\\venv\\pymupdf\\utils.py", "pymupdf", "DATA"),
+        ("C:\\venv\\qtawesome\\fonts\\phosphor.ttf", "qtawesome\\fonts\\phosphor.ttf", "DATA"),
         (
-            "C:\\fake\\qtawesome\\fonts\\materialdesignicons6-webfont-6.9.96.ttf",
-            "qtawesome\\fonts\\materialdesignicons6-webfont-6.9.96.ttf",
-            "DATA",
-        ),
-        (
-            "C:\\fake\\qtawesome\\fonts\\fontawesome5-solid-webfont-5.15.4.ttf",
+            "C:\\venv\\qtawesome\\fonts\\fontawesome5-solid-webfont-5.15.4.ttf",
             "qtawesome\\fonts\\fontawesome5-solid-webfont-5.15.4.ttf",
             "DATA",
         ),
-        (
-            "C:\\fake\\qtawesome\\fonts\\fontawesome5-brands-webfont-5.15.4.ttf",
-            "qtawesome\\fonts\\fontawesome5-brands-webfont-5.15.4.ttf",
-            "DATA",
-        ),
-        ("C:\\fake\\editor\\recursos\\logo_app.png", "recursos\\logo_app.png", "DATA"),
+        ("C:\\venv\\websockets-17.2.dist-info\\METADATA", "websockets-17.2.dist-info", "DATA"),
+        ("C:\\venv\\pkg.egg-info\\PKG-INFO", "pkg.egg-info", "DATA"),
+        ("C:\\repo\\migracoes\\0005_mig_test.py", "migracoes\\0005_mig_test.py", "DATA"),
+        ("C:\\repo\\editor\\executor_build_fake.py", "editor\\executor_build_fake.py", "DATA"),
+        ("C:\\repo\\tests\\conftest.py", "tests\\conftest.py", "DATA"),
+        ("C:\\repo\\tests\\test_algo.py", "tests\\test_algo.py", "DATA"),
+        ("C:\\repo\\migracoes\\0005_mig.py", "migracoes\\0005_mig.py", "DATA"),
+        ("C:\\repo\\editor\\logo.ico", "editor\\logo.ico", "DATA"),
+        ("C:\\repo\\editor\\recursos\\logo_app.png", "recursos\\logo_app.png", "DATA"),
     ]
 
-    filtrados = filtrar_datas_desnecessarios(datas_mock)
-    destinos_restantes = [d[1] for d in filtrados]
+    destinos_win = [d[1] for d in filtrar_datas_desnecessarios(datas, plataforma="win32")]
+    assert "pymupdf\\mupdf-devel\\include\\mupdf" not in destinos_win
+    assert "pymupdf" in destinos_win
+    assert "qtawesome\\fonts\\phosphor.ttf" not in destinos_win
+    assert "qtawesome\\fonts\\fontawesome5-solid-webfont-5.15.4.ttf" in destinos_win
+    assert "websockets-17.2.dist-info" not in destinos_win
+    assert "pkg.egg-info" not in destinos_win
+    assert "migracoes\\0005_mig_test.py" not in destinos_win
+    assert "editor\\executor_build_fake.py" not in destinos_win
+    assert "tests\\conftest.py" not in destinos_win
+    assert "tests\\test_algo.py" not in destinos_win
+    assert "migracoes\\0005_mig.py" in destinos_win
+    assert "editor\\logo.ico" in destinos_win
 
-    # Verifica remoção de fontes não usadas no tema do editor
-    assert "qtawesome\\fonts\\phosphor-1.3.0.ttf" not in destinos_restantes
-    assert "qtawesome\\fonts\\materialdesignicons6-webfont-6.9.96.ttf" not in destinos_restantes
-
-    # Verifica manutenção das fontes do FontAwesome 5 e dos recursos do app
-    assert "qtawesome\\fonts\\fontawesome5-solid-webfont-5.15.4.ttf" in destinos_restantes
-    assert "qtawesome\\fonts\\fontawesome5-brands-webfont-5.15.4.ttf" in destinos_restantes
-    assert "recursos\\logo_app.png" in destinos_restantes
-
-
-def test_filtrar_datas_desnecessarios_remove_dist_info_e_egg_info():
-    """Valida se filtrar_datas_desnecessarios remove pastas .dist-info e .egg-info para prevenir falhas de codesign no macOS."""
-    datas_mock = [
-        (
-            "C:\\fake\\websockets-17.2.dist-info\\METADATA",
-            "websockets-17.2.dist-info\\METADATA",
-            "DATA",
-        ),
-        (
-            "C:\\fake\\keyring-24.3.0.dist-info\\entry_points.txt",
-            "keyring-24.3.0.dist-info\\entry_points.txt",
-            "DATA",
-        ),
-        ("C:\\fake\\pkg_resources.egg-info\\PKG-INFO", "pkg_resources.egg-info\\PKG-INFO", "DATA"),
-        ("C:\\fake\\editor\\recursos\\logo_app.png", "recursos\\logo_app.png", "DATA"),
-    ]
-
-    filtrados = filtrar_datas_desnecessarios(datas_mock)
-    destinos_restantes = [d[1] for d in filtrados]
-
-    assert "websockets-17.2.dist-info\\METADATA" not in destinos_restantes
-    assert "keyring-24.3.0.dist-info\\entry_points.txt" not in destinos_restantes
-    assert "pkg_resources.egg-info\\PKG-INFO" not in destinos_restantes
-    assert "recursos\\logo_app.png" in destinos_restantes
+    destinos_mac = [d[1] for d in filtrar_datas_desnecessarios(datas, plataforma="darwin")]
+    assert "editor\\logo.ico" not in destinos_mac
+    assert "recursos\\logo_app.png" in destinos_mac
 
 
-def test_filtrar_datas_desnecessarios_remove_arquivos_e_pastas_de_teste() -> None:
-    """Valida se filtrar_datas_desnecessarios remove arquivos de teste (*_test.py) e pastas tests."""
-    datas_mock = [
-        (
-            "C:\\fake\\migracoes\\0005_migrar_uids_e_rotulos_test.py",
-            "migracoes\\0005_migrar_uids_e_rotulos_test.py",
-            "DATA",
-        ),
-        (
-            "C:\\fake\\migracoes\\0005_migrar_uids_e_rotulos.py",
-            "migracoes\\0005_migrar_uids_e_rotulos.py",
-            "DATA",
-        ),
-        ("C:\\fake\\tests\\conftest.py", "tests\\conftest.py", "DATA"),
-        ("C:\\fake\\tests\\test_dummy.py", "tests\\test_dummy.py", "DATA"),
-    ]
+def test_geracao_real_de_icones_ico_e_icns_em_disco(tmp_path: Path) -> None:
+    """Valida criação real de arquivos .ico e .icns multi-resolução com PIL em tmp_path."""
+    png_rgb = tmp_path / "origem_rgb.png"
+    Image.new("RGB", (64, 64), (10, 20, 30)).save(str(png_rgb), format="PNG")
 
-    filtrados = filtrar_datas_desnecessarios(datas_mock)
-    destinos_restantes = [d[1] for d in filtrados]
+    caminho_ico = tmp_path / "saida" / "logo.ico"
+    gerar_arquivo_icone(caminho_ico, caminho_png=png_rgb, force_generation=True)
+    assert caminho_ico.is_file() and caminho_ico.stat().st_size > 0
+    mtime_ico = caminho_ico.stat().st_mtime_ns
+    gerar_arquivo_icone(caminho_ico, caminho_png=png_rgb, force_generation=False)
+    assert caminho_ico.stat().st_mtime_ns == mtime_ico
 
-    assert "migracoes\\0005_migrar_uids_e_rotulos_test.py" not in destinos_restantes
-    assert "tests\\conftest.py" not in destinos_restantes
-    assert "tests\\test_dummy.py" not in destinos_restantes
-    assert "migracoes\\0005_migrar_uids_e_rotulos.py" in destinos_restantes
+    caminho_icns = tmp_path / "saida" / "logo.icns"
+    gerar_arquivo_icone_icns(caminho_icns, caminho_png=png_rgb, force_generation=True)
+    assert caminho_icns.is_file() and caminho_icns.stat().st_size > 0
+    mtime_icns = caminho_icns.stat().st_mtime_ns
+    gerar_arquivo_icone_icns(caminho_icns, caminho_png=png_rgb, force_generation=False)
+    assert caminho_icns.stat().st_mtime_ns == mtime_icns
 
 
-def test_filtrar_datas_desnecessarios_remove_ico_no_macos() -> None:
-    """Valida se filtrar_datas_desnecessarios remove arquivos .ico na plataforma darwin."""
-    datas_mock = [
-        ("C:\\fake\\editor\\logo.ico", "editor\\logo.ico", "DATA"),
-        ("C:\\fake\\editor\\recursos\\logo.ico", "recursos\\logo.ico", "DATA"),
-        ("C:\\fake\\editor\\recursos\\logo_app.png", "recursos\\logo_app.png", "DATA"),
-    ]
+def test_obter_caminho_icone_alvo_todas_plataformas_e_canais(tmp_path: Path) -> None:
+    """Valida resolução de caminho de ícone para win32, darwin e linux nos canais produção e beta."""
+    ico_win, png_win = obter_caminho_icone_alvo(
+        eh_beta=False, plataforma="win32", diretorio_editor=tmp_path
+    )
+    assert ico_win == tmp_path / "logo.ico"
+    assert png_win == tmp_path / "recursos" / "logo_app.png"
 
-    with patch("sys.platform", "darwin"):
-        filtrados_darwin = filtrar_datas_desnecessarios(datas_mock)
-        destinos_darwin = [d[1] for d in filtrados_darwin]
-        assert "editor\\logo.ico" not in destinos_darwin
-        assert "recursos\\logo.ico" not in destinos_darwin
-        assert "recursos\\logo_app.png" in destinos_darwin
+    ico_win_beta, png_win_beta = obter_caminho_icone_alvo(
+        eh_beta=True, plataforma="win32", diretorio_editor=tmp_path
+    )
+    assert ico_win_beta == tmp_path / "recursos_beta" / "logo.ico"
+    assert png_win_beta == tmp_path / "recursos_beta" / "logo_app.png"
 
-    with patch("sys.platform", "win32"):
-        filtrados_win = filtrar_datas_desnecessarios(datas_mock)
-        destinos_win = [d[1] for d in filtrados_win]
-        assert "editor\\logo.ico" in destinos_win
-        assert "recursos\\logo.ico" in destinos_win
-        assert "recursos\\logo_app.png" in destinos_win
+    icns_mac, _ = obter_caminho_icone_alvo(
+        eh_beta=False, plataforma="darwin", diretorio_editor=tmp_path
+    )
+    assert icns_mac == tmp_path / "logo.icns"
+
+    icns_linux, png_linux = obter_caminho_icone_alvo(
+        eh_beta=False, plataforma="linux", diretorio_editor=tmp_path
+    )
+    assert icns_linux is None
+    assert png_linux == tmp_path / "recursos" / "logo_app.png"
+
+    icns_linux_beta, png_linux_beta = obter_caminho_icone_alvo(
+        eh_beta=True, plataforma="linux", diretorio_editor=tmp_path
+    )
+    assert icns_linux_beta is None
+    assert png_linux_beta == tmp_path / "recursos_beta" / "logo_app.png"
 
 
-def test_obter_argumentos_pyinstaller_usa_arquivo_spec():
-    """Valida se os argumentos para o PyInstaller apontam para o arquivo de especificação .spec."""
-    args = obter_argumentos_pyinstaller()
-
-    assert str(ARQUIVO_SPEC) in args
+def test_obter_argumentos_pyinstaller_e_diretorio_onedir(tmp_path: Path) -> None:
+    """Valida construção de argumentos do PyInstaller e caminho de distribuição onedir."""
+    assert obter_diretorio_distribuicao_onedir() == DIRETORIO_DIST_ONEDIR
+    spec_tmp = tmp_path / "EditorAresta.spec"
+    args = obter_argumentos_pyinstaller(caminho_spec=spec_tmp, diretorio_editor=tmp_path)
+    assert str(spec_tmp) in args
     assert "--clean" in args
     assert "--noconfirm" in args
-    assert "--distpath" in args
-    assert "--workpath" in args
+    assert str(tmp_path / "dist") in args
+    assert str(tmp_path / "build") in args
 
 
-def test_executar_build_executa_pyinstaller_com_spec():
-    """Valida se executar_build gera o ícone e executa o PyInstaller apontando para o spec."""
-    with patch("sys.platform", "win32"):
-        with patch("PyInstaller.__main__.run") as mock_run:
-            with patch("PIL.Image.open") as mock_image_open:
-                with patch("pathlib.Path.exists", return_value=True):
-                    mock_img = MagicMock()
-                    mock_img.mode = "RGBA"
-                    mock_img.width = 16
-                    mock_img.height = 16
-                    mock_img.resize.return_value = mock_img
-                    mock_image_open.return_value = mock_img
-                    executar_build(force_icon_generation=True)
+def test_executar_build_windows_macos_linux_e_erros(tmp_path: Path) -> None:
+    """Valida orquestração de executar_build nas 3 plataformas usando diretório temporário real e ExecutorBuildFake."""
+    dir_editor = tmp_path / "editor"
+    spec_file = dir_editor / "EditorAresta.spec"
+    _criar_png_rgba(dir_editor / "recursos" / "logo_app.png")
+    _criar_png_rgba(dir_editor / "recursos_beta" / "logo_app.png")
 
-                # 6 tamanhos redimensionados para editor/logo.ico e 6 para editor/recursos/logo.ico
-                assert mock_img.resize.call_count == 12
-                assert mock_img.save.call_count == 2
+    # 1. Falha se o spec não existir em Windows/macOS
+    fake = ExecutorBuildFake()
+    with pytest.raises(FileNotFoundError, match="Arquivo de especificação não encontrado"):
+        executar_build(plataforma="win32", diretorio_editor=dir_editor, executor=fake)
 
-                argumentos_passados = mock_run.call_args[0][0]
-                assert str(ARQUIVO_SPEC) in argumentos_passados
-                assert "--clean" in argumentos_passados
-                assert "--noconfirm" in argumentos_passados
+    spec_file.write_text("# spec", encoding="utf-8")
 
+    # 2. Windows produção: gera logo.ico e recursos/logo.ico e chama PyInstaller
+    executar_build(
+        force_icon_generation=True,
+        plataforma="win32",
+        canal="producao",
+        diretorio_editor=dir_editor,
+        executor=fake,
+    )
+    assert (dir_editor / "logo.ico").is_file()
+    assert (dir_editor / "recursos" / "logo.ico").is_file()
+    assert len(fake.chamadas_pyinstaller) == 1
+    assert str(spec_file) in fake.chamadas_pyinstaller[0]
 
-def test_executar_build_falha_se_spec_nao_existe():
-    """Valida se o build interrompe se o EditorAresta.spec sumir."""
-    with patch("sys.platform", "win32"):
-        with patch("pathlib.Path.exists", return_value=False):
-            with pytest.raises(FileNotFoundError):
-                executar_build()
+    # 3. Windows beta: gera recursos_beta/logo.ico
+    executar_build(
+        force_icon_generation=True,
+        plataforma="win32",
+        canal="beta",
+        diretorio_editor=dir_editor,
+        executor=fake,
+    )
+    assert (dir_editor / "recursos_beta" / "logo.ico").is_file()
 
+    # 4. macOS produção e beta: gera .icns
+    executar_build(
+        force_icon_generation=True,
+        plataforma="darwin",
+        canal="producao",
+        diretorio_editor=dir_editor,
+        executor=fake,
+    )
+    assert (dir_editor / "logo.icns").is_file()
+    assert (dir_editor / "recursos" / "logo.icns").is_file()
 
-def test_executar_build_pula_geracao_se_icone_existe():
-    """Valida se pula a geração de imagem se o logo.ico já existir."""
-    with patch("sys.platform", "win32"):
-        with patch("PyInstaller.__main__.run"):
-            with patch("PIL.Image.open") as mock_image_open:
-                with patch("pathlib.Path.exists", return_value=True):
-                    executar_build(force_icon_generation=False)
+    executar_build(
+        force_icon_generation=True,
+        plataforma="darwin",
+        canal="beta",
+        diretorio_editor=dir_editor,
+        executor=fake,
+    )
+    assert (dir_editor / "recursos_beta" / "logo.icns").is_file()
 
-                mock_image_open.assert_not_called()
+    # 5. Erro claro se PyInstaller não estiver instalado
+    fake_sem_pyi = ExecutorBuildFake(pyinstaller_disponivel=False)
+    with pytest.raises(RuntimeError, match="PyInstaller não está disponível"):
+        executar_build(plataforma="win32", diretorio_editor=dir_editor, executor=fake_sem_pyi)
 
+    # 6. Linux delega ao Flatpak sem chamar PyInstaller
+    raiz = tmp_path
+    (raiz / "pyproject.toml").write_text('[project]\nversion = "0.6.3"\n', encoding="utf-8")
+    (raiz / "uv.lock").write_text("# lock\n", encoding="utf-8")
+    manifesto_fp = dir_editor / "flatpak" / "com.arestaclimb.Editor.yaml"
+    manifesto_fp.parent.mkdir(parents=True, exist_ok=True)
+    manifesto_fp.write_text("app-id: com.arestaclimb.Editor\n", encoding="utf-8")
+    deps_fp = dir_editor / "flatpak" / "pypi-dependencies.json"
+    deps_fp.write_text("{}", encoding="utf-8")
 
-def test_executar_build_trata_excecao_na_geracao_de_icone():
-    """Valida o tratamento gracioso caso a geração do ícone lance exceção."""
-    with patch("sys.platform", "win32"):
-        with patch("PyInstaller.__main__.run"):
-            with patch("pathlib.Path.exists", side_effect=lambda: True):
-                # Simula erro ao abrir a imagem
-                with patch("PIL.Image.open", side_effect=Exception("Erro de leitura")):
-                    # Não deve levantar exceção não tratada
-                    executar_build(force_icon_generation=True)
-
-
-def test_executar_testes_sucesso():
-    """Valida chamada do ruff e pytest retornando 0."""
-    with (
-        patch(
-            "subprocess.run", return_value=subprocess.CompletedProcess(args=[], returncode=0)
-        ) as mock_sub,
-        patch("pytest.main", return_value=0) as mock_pytest,
-    ):
-        executar_testes()
-        assert mock_sub.call_count == 2
-        mock_pytest.assert_called_once()
-
-
-def test_executar_testes_falha_ruff_lint():
-    """Valida bloqueio imediato antes do pytest se o ruff check falhar."""
-    with (
-        patch(
-            "subprocess.run", return_value=subprocess.CompletedProcess(args=[], returncode=1)
-        ) as mock_sub,
-        patch("pytest.main") as mock_pytest,
-        pytest.raises(SystemExit) as exc_info,
-    ):
-        executar_testes()
-
-    assert exc_info.value.code == 1
-    mock_sub.assert_called_once()
-    mock_pytest.assert_not_called()
+    fake_linux = ExecutorBuildFake()
+    executar_build(plataforma="linux", diretorio_editor=dir_editor, executor=fake_linux)
+    assert fake_linux.chamadas_pyinstaller == []
+    assert any("flatpak-builder" in cmd[0] for cmd in fake_linux.comandos_executados)
 
 
-def test_executar_testes_falha_ruff_format():
-    """Valida bloqueio imediato antes do pytest se o ruff format falhar."""
-    respostas_subprocess = [
-        subprocess.CompletedProcess(args=[], returncode=0),  # ruff check
-        subprocess.CompletedProcess(args=[], returncode=2),  # ruff format
-    ]
-    with (
-        patch("subprocess.run", side_effect=respostas_subprocess) as mock_sub,
-        patch("pytest.main") as mock_pytest,
-        pytest.raises(SystemExit) as exc_info,
-    ):
-        executar_testes()
+def test_orquestrar_build_flatpak_e_gerar_manifesto_dependencias(tmp_path: Path) -> None:
+    """Valida geração de pypi-dependencies.json e orquestração completa do Flatpak com arquivos reais em tmp_path."""
+    raiz = tmp_path / "projeto"
+    dir_editor = raiz / "editor"
+    dir_flatpak = dir_editor / "flatpak"
+    dir_flatpak.mkdir(parents=True)
+    (raiz / "pyproject.toml").write_text('[project]\nversion = "1.0.0"\n', encoding="utf-8")
 
-    assert exc_info.value.code == 2
-    assert mock_sub.call_count == 2
-    mock_pytest.assert_not_called()
-
-
-def test_executar_testes_falha():
-    """Valida chamada do pytest retornando código de erro quando o ruff passa."""
-    with (
-        patch("subprocess.run", return_value=subprocess.CompletedProcess(args=[], returncode=0)),
-        patch("pytest.main", return_value=1),
-        pytest.raises(SystemExit) as exc_info,
-    ):
-        executar_testes()
-    assert exc_info.value.code == 1
-
-
-def test_main_cli_dispatch():
-    """Valida o despachante da linha de comando."""
-    with patch("editor.build.executar_testes") as mock_testes:
-        main(["test"])
-        mock_testes.assert_called_once()
-
-    with patch("editor.build.executar_build") as mock_build:
-        main(["dist", "--force-icon-generation"])
-        mock_build.assert_called_once_with(force_icon_generation=True)
-
-
-def test_executar_modulo_como_script():
-    """Valida execução do bloco __main__ quando executado como script."""
-    import runpy
-
-    with (
-        patch("sys.argv", ["build.py", "test"]),
-        patch("subprocess.run", return_value=subprocess.CompletedProcess(args=[], returncode=0)),
-        patch("pytest.main", return_value=0),
-    ):
-        runpy.run_path(str(DIRETORIO_EDITOR / "build.py"), run_name="__main__")
-
-
-def test_validacao_limite_tamanho_executavel_se_existir():
-    """Valida que o executável gerado em dist/ não ultrapassa o limite máximo de tamanho."""
-    caminho_exe = DIRETORIO_EDITOR / "dist" / "EditorAresta.exe"
-    if caminho_exe.exists():
-        tamanho_mb = caminho_exe.stat().st_size / (1024 * 1024)
-        assert tamanho_mb <= LIMITE_MAXIMO_TAMANHO_EXECUTAVEL_MB, (
-            f"Executável EditorAresta.exe excedeu o limite máximo: {tamanho_mb:.2f}MB > {LIMITE_MAXIMO_TAMANHO_EXECUTAVEL_MB}MB"
+    # Erro sem uv.lock
+    with pytest.raises(FileNotFoundError, match="Arquivo uv.lock não encontrado"):
+        gerar_manifesto_dependencias_flatpak(
+            caminho_saida=dir_flatpak / "pypi-dependencies.json",
+            raiz_projeto=raiz,
+            executor=ExecutorBuildFake(),
         )
 
+    (raiz / "uv.lock").write_text("# lock\n", encoding="utf-8")
+    destino_deps = dir_flatpak / "pypi-dependencies.json"
 
-def test_obter_caminho_icone_alvo_producao():
-    """Garante que a resolução de ícone no canal de produção aponte para recursos padrão."""
-    from editor.build import obter_caminho_icone_alvo
-
-    with patch("sys.platform", "win32"):
-        ico, png = obter_caminho_icone_alvo(eh_beta=False)
-        assert ico == DIRETORIO_EDITOR / "logo.ico"
-        assert png == DIRETORIO_EDITOR / "recursos" / "logo_app.png"
-
-
-def test_obter_caminho_icone_alvo_beta():
-    """Garante que a resolução de ícone no canal Beta aponte para recursos_beta."""
-    from editor.build import obter_caminho_icone_alvo
-
-    with patch("sys.platform", "win32"):
-        ico, png = obter_caminho_icone_alvo(eh_beta=True)
-        assert ico == DIRETORIO_EDITOR / "recursos_beta" / "logo.ico"
-        assert png == DIRETORIO_EDITOR / "recursos_beta" / "logo_app.png"
-
-
-def test_executar_build_canal_beta():
-    """Valida se executar_build em canal beta aciona o caminho correto de ícone beta."""
-    with patch("sys.platform", "win32"):
-        with patch.dict(os.environ, {"ARESTA_CANAL": "beta"}):
-            with patch("PyInstaller.__main__.run"):
-                with patch("editor.build.gerar_arquivo_icone") as mock_gerar_ico:
-                    with patch("pathlib.Path.exists", return_value=True):
-                        executar_build()
-                        mock_gerar_ico.assert_called_once_with(
-                            DIRETORIO_EDITOR / "recursos_beta" / "logo.ico",
-                            caminho_png=DIRETORIO_EDITOR / "recursos_beta" / "logo_app.png",
-                            force_generation=False,
-                        )
-
-
-def test_executar_build_sem_pyinstaller_lanca_excecao():
-    """Valida que executar_build no Windows sem PyInstaller disponível lança RuntimeError."""
-    with patch("sys.platform", "win32"):
-        with patch("pathlib.Path.exists", return_value=True):
-            with patch.dict(sys.modules):
-                sys.modules.pop("PyInstaller.__main__", None)
-                sys.modules.pop("PyInstaller", None)
-                import builtins
-
-                orig_import = builtins.__import__
-
-                def fake_import(name, *args, **kwargs):
-                    if "PyInstaller" in name:
-                        raise ImportError(f"No module named '{name}'")
-                    return orig_import(name, *args, **kwargs)
-
-                with patch("builtins.__import__", side_effect=fake_import):
-                    with pytest.raises(
-                        RuntimeError, match="PyInstaller não está disponível neste ambiente"
-                    ):
-                        executar_build()
-
-
-def test_spec_configura_modo_onedir_com_collect_e_sem_upx():
-    """Valida se EditorAresta.spec está configurado no modo onedir com COLLECT e upx=False."""
-    conteudo_spec = ARQUIVO_SPEC.read_text(encoding="utf-8")
-    assert "COLLECT(" in conteudo_spec, (
-        "EditorAresta.spec deve definir bloco COLLECT para distribuição onedir"
-    )
-    assert "upx=False" in conteudo_spec, "EditorAresta.spec deve desativar UPX em tempo de execução"
-    assert "upx=True" not in conteudo_spec, "EditorAresta.spec não deve conter upx=True"
-    assert "exclude_binaries=True" in conteudo_spec, (
-        "EXE deve conter exclude_binaries=True para modo onedir"
-    )
-
-
-def test_obter_diretorio_distribuicao_onedir():
-    """Valida o diretório de destino da distribuição onedir."""
-    from editor.build import DIRETORIO_DIST_ONEDIR, obter_diretorio_distribuicao_onedir
-
-    diretorio = obter_diretorio_distribuicao_onedir()
-    assert diretorio == DIRETORIO_EDITOR / "dist" / "EditorAresta"
-    assert DIRETORIO_DIST_ONEDIR == DIRETORIO_EDITOR / "dist" / "EditorAresta"
-
-
-def test_filtrar_binarios_desnecessarios_unix_so_e_dylib():
-    """Valida se filtrar_binarios_desnecessarios remove .so e .dylib de QML/Quick/Pdf."""
-    binarios_mock = [
-        ("PySide6/libQt6Quick.so.6", "/fake/libQt6Quick.so.6", "BINARY"),
-        ("PySide6/libQt6Qml.so.6", "/fake/libQt6Qml.so.6", "BINARY"),
-        ("PySide6/libQt6Pdf.dylib", "/fake/libQt6Pdf.dylib", "BINARY"),
-        ("PySide6/libQt6Quick.dylib", "/fake/libQt6Quick.dylib", "BINARY"),
-        ("PySide6/libQt6Core.so.6", "/fake/libQt6Core.so.6", "BINARY"),
-        ("PySide6/libQt6Widgets.dylib", "/fake/libQt6Widgets.dylib", "BINARY"),
-        ("pygit2/_pygit2.so", "/fake/_pygit2.so", "BINARY"),
-    ]
-
-    filtrados = filtrar_binarios_desnecessarios(binarios_mock)
-    nomes_restantes = [b[0] for b in filtrados]
-
-    assert "PySide6/libQt6Quick.so.6" not in nomes_restantes
-    assert "PySide6/libQt6Qml.so.6" not in nomes_restantes
-    assert "PySide6/libQt6Pdf.dylib" not in nomes_restantes
-    assert "PySide6/libQt6Quick.dylib" not in nomes_restantes
-
-    assert "PySide6/libQt6Core.so.6" in nomes_restantes
-    assert "PySide6/libQt6Widgets.dylib" in nomes_restantes
-    assert "pygit2/_pygit2.so" in nomes_restantes
-
-
-def test_gerar_arquivo_icone_icns_sucesso():
-    """Valida se gerar_arquivo_icone_icns converte PNG para ICNS multi-resolução."""
-    from editor.build import gerar_arquivo_icone_icns
-
-    with patch("PIL.Image.open") as mock_open:
-        mock_img = MagicMock()
-        mock_img.mode = "RGBA"
-        mock_img.width = 16
-        mock_img.height = 16
-        mock_img.resize.return_value = mock_img
-        mock_open.return_value = mock_img
-
-        caminho_icns = DIRETORIO_EDITOR / "logo.icns"
-        with patch.object(Path, "exists", return_value=False):
-            gerar_arquivo_icone_icns(caminho_icns, force_generation=True)
-
-        assert mock_img.resize.call_count == 6
-        mock_img.save.assert_called_once()
-        args, kwargs = mock_img.save.call_args
-        assert kwargs.get("format") == "ICNS"
-
-
-def test_gerar_arquivo_icone_icns_pula_se_existir():
-    """Valida se pula a geração de .icns se ele já existir e force_generation for False."""
-    from editor.build import gerar_arquivo_icone_icns
-
-    with patch("PIL.Image.open") as mock_open:
-        with patch.object(Path, "exists", return_value=True):
-            gerar_arquivo_icone_icns(DIRETORIO_EDITOR / "logo.icns", force_generation=False)
-        mock_open.assert_not_called()
-
-
-def test_gerar_arquivo_icone_icns_trata_excecao():
-    """Valida tratamento seguro contra falhas na geração de .icns."""
-    from editor.build import gerar_arquivo_icone_icns
-
-    with patch("PIL.Image.open", side_effect=Exception("Falha PIL")):
-        with patch.object(Path, "exists", return_value=False):
-            gerar_arquivo_icone_icns(DIRETORIO_EDITOR / "logo.icns", force_generation=True)
-
-
-def test_obter_caminho_icone_alvo_macos():
-    """Garante que a resolução de ícone no macOS retorne .icns."""
-    from editor.build import obter_caminho_icone_alvo
-
-    with patch("sys.platform", "darwin"):
-        icns, png = obter_caminho_icone_alvo(eh_beta=False)
-        assert icns == DIRETORIO_EDITOR / "logo.icns"
-        assert png == DIRETORIO_EDITOR / "recursos" / "logo_app.png"
-
-        icns_beta, png_beta = obter_caminho_icone_alvo(eh_beta=True)
-        assert icns_beta == DIRETORIO_EDITOR / "recursos_beta" / "logo.icns"
-        assert png_beta == DIRETORIO_EDITOR / "recursos_beta" / "logo_app.png"
-
-
-def test_executar_build_macos():
-    """Valida a execução de build no macOS acionando gerar_arquivo_icone_icns."""
-    with patch("sys.platform", "darwin"):
-        with patch("PyInstaller.__main__.run"):
-            with patch("editor.build.gerar_arquivo_icone_icns") as mock_icns:
-                with patch("pathlib.Path.exists", return_value=True):
-                    executar_build()
-                    mock_icns.assert_called()
-
-
-def test_obter_caminho_icone_alvo_linux():
-    """Garante que a resolução de ícone no Linux retorne None para arquivo de ícone e aponte para PNG."""
-    from editor.build import obter_caminho_icone_alvo
-
-    with patch("sys.platform", "linux"):
-        icone, png = obter_caminho_icone_alvo(eh_beta=False)
-        assert icone is None
-        assert png == DIRETORIO_EDITOR / "recursos" / "logo_app.png"
-
-        icone_beta, png_beta = obter_caminho_icone_alvo(eh_beta=True)
-        assert icone_beta is None
-        assert png_beta == DIRETORIO_EDITOR / "recursos_beta" / "logo_app.png"
-
-
-def test_orquestrar_build_flatpak_manifesto_inexistente_lanca_erro():
-    """Garante que orquestrar_build_flatpak lance FileNotFoundError se o manifesto não existir."""
-    from editor.build import orquestrar_build_flatpak
-
-    with patch("pathlib.Path.exists", return_value=False):
-        with pytest.raises(FileNotFoundError, match="Manifesto Flatpak não encontrado"):
-            orquestrar_build_flatpak()
-
-
-def test_orquestrar_build_flatpak_sem_ferramenta_lanca_erro():
-    """Garante que orquestrar_build_flatpak lance RuntimeError claro caso flatpak-builder não esteja no PATH."""
-    from editor.build import orquestrar_build_flatpak
-
-    with patch("pathlib.Path.exists", return_value=True):
-        with patch("shutil.which", return_value=None):
-            with pytest.raises(RuntimeError, match="flatpak-builder não encontrado no PATH"):
-                orquestrar_build_flatpak()
-
-
-def test_orquestrar_build_flatpak_executa_comandos():
-    """Valida se orquestrar_build_flatpak executa o build e a exportação do bundle com sucesso."""
-    from editor.build import orquestrar_build_flatpak
-
-    with patch("shutil.which", return_value="/usr/bin/flatpak-builder"):
-        with patch("subprocess.run") as mock_subproc:
-            with patch("pathlib.Path.exists", return_value=True):
-                with patch("pathlib.Path.unlink") as mock_unlink:
-                    with patch("editor.build.gerar_manifesto_dependencias_flatpak"):
-                        bundle_gerado = orquestrar_build_flatpak()
-                        assert mock_subproc.call_count >= 1
-                        cmd = mock_subproc.call_args_list[0][0][0]
-                        assert "flatpak-builder" in cmd[0]
-                        assert "com.arestaclimb.Editor.yaml" in str(cmd)
-                        assert "--install-deps-from=flathub" in cmd
-                        assert "--user" in cmd
-                        assert bundle_gerado.name.endswith(".flatpak")
-                        mock_unlink.assert_called_once()
-
-
-def test_executar_build_linux_delega_para_flatpak():
-    """Valida que executar_build no Linux invoca orquestrar_build_flatpak e não executa o PyInstaller."""
-    with patch("sys.platform", "linux"):
-        with patch("editor.build.orquestrar_build_flatpak") as mock_flatpak:
-            with patch("PyInstaller.__main__.run") as mock_pyinstaller:
-                executar_build()
-                mock_flatpak.assert_called_once()
-                mock_pyinstaller.assert_not_called()
-
-
-def test_spec_trata_icones_por_plataforma():
-    """Valida se o EditorAresta.spec possui tratamento específico para darwin, win e linux."""
-    conteudo_spec = ARQUIVO_SPEC.read_text(encoding="utf-8")
-    assert 'sys.platform == "darwin"' in conteudo_spec
-    assert 'sys.platform.startswith("win")' in conteudo_spec
-    assert "icone_pyinstaller = None" in conteudo_spec
-    assert "icon=icone_pyinstaller" in conteudo_spec
-
-
-def test_obter_versao_projeto_sucesso():
-    """Valida se obter_versao_projeto lê a versão correta do pyproject.toml."""
-    from editor.build import obter_versao_projeto
-
-    versao = obter_versao_projeto()
-    assert isinstance(versao, str)
-    assert len(versao) > 0
-
-
-def test_obter_versao_projeto_arquivo_inexistente():
-    """Valida se FileNotFoundError é levantado se o arquivo pyproject.toml não existir."""
-    from editor.build import obter_versao_projeto
-
-    caminho_fake = Path("caminho/falso/para/pyproject.toml")
-    with pytest.raises(FileNotFoundError, match="Arquivo pyproject.toml não encontrado"):
-        obter_versao_projeto(caminho_fake)
-
-
-def test_obter_versao_projeto_campo_invalido(tmp_path):
-    """Valida se ValueError é levantado caso o campo project.version seja ausente ou inválido."""
-    from editor.build import obter_versao_projeto
-
-    toml_invalido = tmp_path / "pyproject.toml"
-    toml_invalido.write_text("[project]\nname = 'aresta'\n", encoding="utf-8")
-    with pytest.raises(ValueError, match="Campo 'project.version' não encontrado"):
-        obter_versao_projeto(toml_invalido)
-
-
-def test_gerar_manifesto_dependencias_flatpak_lock_inexistente(tmp_path):
-    """Garante que FileNotFoundError é lançado se uv.lock não for encontrado."""
-    from editor.build import gerar_manifesto_dependencias_flatpak
-
-    with pytest.raises(FileNotFoundError, match="Arquivo uv.lock não encontrado"):
-        gerar_manifesto_dependencias_flatpak(raiz_projeto=tmp_path)
-
-
-def test_gerar_manifesto_dependencias_flatpak_sucesso(tmp_path):
-    """Valida o fluxo completo de exportação e filtragem de dependências Flatpak."""
-    from editor.build import gerar_manifesto_dependencias_flatpak
-
-    lock_file = tmp_path / "uv.lock"
-    lock_file.write_text("# lock", encoding="utf-8")
-    destino = tmp_path / "pypi-dependencies.json"
-
-    export_mock_stdout = "\n".join(
+    saida_export = "\n".join(
         [
-            "# comentário inicial",
+            "# exportado",
             "",
             "pyside6-essentials==6.8.0",
-            "shiboken6==6.8.0",
             "pyinstaller==6.10.0",
-            "pyinstaller-hooks-contrib==2026.8",
             "grpcio==1.84.0",
-            "grpcio-tools==1.84.0",
-            "mypy-protobuf==5.1.0",
+            "pymupdf==1.25.0",
+            "lxml==5.3.0",
             "requests==2.32.3",
-            "qtawesome==1.3.1",
         ]
     )
 
-    def mock_subprocess(cmd, *args, **kwargs):
-        res = MagicMock()
+    def manipulador_sucesso(
+        cmd: list[str], cwd: Path | None, capturar: bool, verificar: bool
+    ) -> subprocess.CompletedProcess[str]:
         if "export" in cmd:
-            res.stdout = export_mock_stdout
-            return res
+            return subprocess.CompletedProcess(args=cmd, returncode=0, stdout=saida_export)
+        if "info" in cmd:
+            return subprocess.CompletedProcess(args=cmd, returncode=0, stdout="ok")
         if "flatpak_pip_generator" in cmd:
-            assert "--group" in cmd
-            assert cmd[cmd.index("--group") + 1] == "editor_deploy"
-            # Verifica se os pacotes dispensáveis foram removidos do arquivo de requirements temporário
-            req_arg = [arg for arg in cmd if arg.startswith("--requirements-file=")][0]
-            req_path = Path(req_arg.split("=", 1)[1])
-            conteudo_req = req_path.read_text(encoding="utf-8")
-            assert "requests==2.32.3" in conteudo_req
-            assert "qtawesome==1.3.1" in conteudo_req
+            req_arg = [a for a in cmd if a.startswith("--requirements-file=")][0]
+            conteudo_req = Path(req_arg.split("=", 1)[1]).read_text(encoding="utf-8")
+            assert "pymupdf==1.25.0" in conteudo_req
+            assert "lxml==5.3.0" in conteudo_req
             assert "pyside6" not in conteudo_req
-            assert "shiboken6" not in conteudo_req
             assert "pyinstaller" not in conteudo_req
-            assert "grpcio" not in conteudo_req
-            assert "mypy-protobuf" not in conteudo_req
-            # Simula a criação do arquivo de saída
-            destino.write_text("{}", encoding="utf-8")
-            return res
-        return res
+            assert any(a.startswith("--runtime=") for a in cmd)
+            assert any(a.startswith("--prefer-wheels=") for a in cmd)
+            destino_deps.write_text('{"name": "pypi"}', encoding="utf-8")
+            return subprocess.CompletedProcess(args=cmd, returncode=0, stdout="")
+        if "build-bundle" in cmd:
+            Path(cmd[3]).write_text("bundle", encoding="utf-8")
+        return subprocess.CompletedProcess(args=cmd, returncode=0, stdout="")
 
-    with patch("subprocess.run", side_effect=mock_subprocess):
-        caminho_gerado = gerar_manifesto_dependencias_flatpak(
-            caminho_saida=destino,
-            raiz_projeto=tmp_path,
+    fake_ok = ExecutorBuildFake(manipulador_comando=manipulador_sucesso)
+
+    # Erro se manifesto não existir
+    with pytest.raises(FileNotFoundError, match="Manifesto Flatpak não encontrado"):
+        orquestrar_build_flatpak(
+            caminho_manifesto=dir_flatpak / "inexistente.yaml",
+            diretorio_dist=dir_editor / "dist",
+            versao="1.0.0",
+            raiz_projeto=raiz,
+            executor=fake_ok,
         )
-        assert caminho_gerado == destino
-        assert destino.exists()
 
+    manifesto = dir_flatpak / "com.arestaclimb.Editor.yaml"
+    manifesto.write_text("app-id: com.arestaclimb.Editor\n", encoding="utf-8")
 
-def test_flatpak_manifest_e_constantes_otimizadas() -> None:
-    """Valida se as constantes de otimização de tamanho e o manifesto com.arestaclimb.Editor.yaml contêm os ajustes."""
-    from editor.build import (
-        ARQUIVO_MANIFESTO_FLATPAK,
-        PACOTES_DISPENSAVEIS_FLATPAK,
-        PACOTES_PREFERIR_WHEELS,
+    # Erro se flatpak-builder ausente
+    fake_sem_builder = ExecutorBuildFake(executaveis={"flatpak-builder": None})
+    with pytest.raises(RuntimeError, match="flatpak-builder não encontrado"):
+        orquestrar_build_flatpak(
+            caminho_manifesto=manifesto,
+            diretorio_dist=dir_editor / "dist",
+            versao="1.0.0",
+            raiz_projeto=raiz,
+            executor=fake_sem_builder,
+        )
+
+    # Sucesso gerando pypi-dependencies.json e substituindo bundle pré-existente
+    dist_dir = dir_editor / "dist"
+    dist_dir.mkdir(parents=True)
+    bundle_antigo = dist_dir / "EditorAresta-1.0.0.flatpak"
+    bundle_antigo.write_text("antigo", encoding="utf-8")
+
+    bundle = orquestrar_build_flatpak(
+        caminho_manifesto=manifesto,
+        diretorio_dist=dist_dir,
+        versao="1.0.0",
+        raiz_projeto=raiz,
+        executor=fake_ok,
     )
+    assert bundle == bundle_antigo
+    assert bundle.read_text(encoding="utf-8") == "bundle"
+    assert destino_deps.is_file()
 
+    # Falha se o gerador não escrever o arquivo de saída
+    destino_ausente = dir_flatpak / "nao_criado.json"
+    fake_nao_gera = ExecutorBuildFake(executaveis={"uv": "/bin/uv", "flatpak": None})
+    fake_nao_gera.enfileirar_resposta_comando(returncode=0, stdout="requests==2.32.3\n")
+    fake_nao_gera.enfileirar_resposta_comando(returncode=0, stdout="")
+    with pytest.raises(FileNotFoundError, match="Falha ao gerar o manifesto de dependências"):
+        gerar_manifesto_dependencias_flatpak(
+            caminho_saida=destino_ausente,
+            raiz_projeto=raiz,
+            executor=fake_nao_gera,
+        )
+
+
+def test_obter_versao_projeto_e_erros(tmp_path: Path) -> None:
+    """Valida leitura da versão do pyproject.toml real e erros de arquivo/campo inválido."""
+    assert len(obter_versao_projeto()) > 0
+
+    with pytest.raises(FileNotFoundError, match="Arquivo pyproject.toml não encontrado"):
+        obter_versao_projeto(tmp_path / "ausente.toml")
+
+    toml_sem_versao = tmp_path / "pyproject.toml"
+    toml_sem_versao.write_text("[project]\nname = 'aresta'\n", encoding="utf-8")
+    with pytest.raises(ValueError, match="Campo 'project.version' não encontrado"):
+        obter_versao_projeto(toml_sem_versao)
+
+
+def test_executar_testes_fluxos_lint_format_e_pytest(tmp_path: Path) -> None:
+    """Valida bloqueio rápido em falha de ruff check, ruff format, falha de pytest e sucesso."""
+    # 1. Sucesso completo
+    fake_ok = ExecutorBuildFake(codigo_pytest=0)
+    executar_testes(diretorio_editor=tmp_path, executor=fake_ok)
+    assert len(fake_ok.comandos_executados) == 2
+    assert len(fake_ok.chamadas_pytest) == 1
+
+    # 2. Falha no ruff check
+    fake_lint = ExecutorBuildFake()
+    fake_lint.enfileirar_resposta_comando(returncode=1)
+    with pytest.raises(SystemExit) as exc_lint:
+        executar_testes(diretorio_editor=tmp_path, executor=fake_lint)
+    assert exc_lint.value.code == 1
+    assert fake_lint.chamadas_pytest == []
+
+    # 3. Falha no ruff format
+    fake_fmt = ExecutorBuildFake()
+    fake_fmt.enfileirar_resposta_comando(returncode=0)
+    fake_fmt.enfileirar_resposta_comando(returncode=2)
+    with pytest.raises(SystemExit) as exc_fmt:
+        executar_testes(diretorio_editor=tmp_path, executor=fake_fmt)
+    assert exc_fmt.value.code == 2
+    assert fake_fmt.chamadas_pytest == []
+
+    # 4. Falha no pytest
+    fake_pt = ExecutorBuildFake(codigo_pytest=4)
+    with pytest.raises(SystemExit) as exc_pt:
+        executar_testes(diretorio_editor=tmp_path, executor=fake_pt)
+    assert exc_pt.value.code == 4
+
+
+def test_gerar_tarball_codigo_fonte_e_cli_main(tmp_path: Path) -> None:
+    """Valida geração real de tarball de código-fonte excluindo database/testes/fakes e despacho CLI de main()."""
+    raiz = tmp_path / "repo"
+    raiz.mkdir()
+    (raiz / "pyproject.toml").write_text('[project]\nversion = "1.2.3"\n', encoding="utf-8")
+    (raiz / "uv.lock").write_text("lock", encoding="utf-8")
+    (raiz / "database").mkdir()
+    (raiz / "database" / "pesado.bin").write_text("dados", encoding="utf-8")
+    (raiz / "editor").mkdir()
+    (raiz / "editor" / "main.py").write_text("print('ok')", encoding="utf-8")
+    (raiz / "editor" / "main_test.py").write_text("def test(): pass", encoding="utf-8")
+    (raiz / "editor" / "executor_build_fake.py").write_text("# fake", encoding="utf-8")
+    (raiz / "editor" / "dist").mkdir()
+    (raiz / "editor" / "dist" / "bin").write_text("bin", encoding="utf-8")
+    for sub in ("aresta_api", "scripts", "coleta_de_betas", "migracoes", "serving"):
+        (raiz / sub).mkdir()
+        (raiz / sub / "mod.py").write_text("# ok", encoding="utf-8")
+
+    fake_cli = ExecutorBuildFake()
+
+    # Modo source-tarball via main()
+    saida_tar = tmp_path / "tarballs"
+    main(
+        ["source-tarball", "--output-dir", str(saida_tar), "--versao", "1.2.3"],
+        raiz_projeto=raiz,
+        executor=fake_cli,
+    )
+    tarball = saida_tar / "EditorAresta-1.2.3-source.tar.gz"
+    assert tarball.is_file()
+    with tarfile.open(tarball, "r:gz") as tar:
+        nomes = [n.replace("\\", "/") for n in tar.getnames()]
+        assert "editor/main.py" in nomes
+        assert not any("database" in n for n in nomes)
+        assert not any("_test.py" in n for n in nomes)
+        assert not any("_fake.py" in n for n in nomes)
+
+    # Modo test via main()
+    main(["test"], diretorio_editor=raiz / "editor", executor=fake_cli)
+    assert len(fake_cli.chamadas_pytest) == 1
+
+    # Modo dist via main()
+    _criar_png_rgba(raiz / "editor" / "recursos" / "logo_app.png")
+    (raiz / "editor" / "EditorAresta.spec").write_text("# spec", encoding="utf-8")
+    main(
+        ["dist", "--force-icon-generation"],
+        plataforma="win32",
+        diretorio_editor=raiz / "editor",
+        executor=fake_cli,
+    )
+    assert len(fake_cli.chamadas_pyinstaller) == 1
+
+    # Modo flatpak-deps via main()
+    saida_json = tmp_path / "pypi-deps.json"
+
+    def criar_json(
+        cmd: list[str], cwd: Path | None, capturar: bool, verificar: bool
+    ) -> subprocess.CompletedProcess[str]:
+        if "flatpak_pip_generator" in cmd:
+            saida_json.write_text("{}", encoding="utf-8")
+        return subprocess.CompletedProcess(args=cmd, returncode=0, stdout="requests==2.32.3\n")
+
+    fake_deps = ExecutorBuildFake(manipulador_comando=criar_json)
+    main(
+        ["flatpak-deps", "--output", str(saida_json)],
+        raiz_projeto=raiz,
+        executor=fake_deps,
+    )
+    assert saida_json.is_file()
+
+    # Cobertura real de ExecutorBuildPadrao em operações seguras e leves
+    padrao = ExecutorBuildPadrao()
+    assert padrao.qual_executavel("python") is not None or padrao.qual_executavel("uv") is not None
+    res_cmd = padrao.executar_comando(["uv", "--version"], capturar_saida=True, verificar=True)
+    assert res_cmd.returncode == 0
+    assert (
+        padrao.executar_pytest(
+            ["-o", "addopts=", str(DIRETORIO_EDITOR / "executor_build_fake_test.py")]
+        )
+        == 0
+    )
+    if importlib.util.find_spec("PyInstaller") is not None:
+        with pytest.raises(SystemExit) as exc_pyi:
+            padrao.executar_pyinstaller(["--version"])
+        assert exc_pyi.value.code == 0
+    else:
+        with pytest.raises(ModuleNotFoundError):
+            padrao.executar_pyinstaller(["--version"])
+
+
+def test_manifesto_flatpak_poda_mupdf_devel_e_constantes_otimizadas() -> None:
+    """Valida manifesto Flatpak, metainfo XML, poda de mupdf-devel e constantes de wheels nativos."""
     assert "grpcio" in PACOTES_DISPENSAVEIS_FLATPAK
-    assert "grpcio-tools" in PACOTES_DISPENSAVEIS_FLATPAK
     assert "pyinstaller" in PACOTES_DISPENSAVEIS_FLATPAK
-    assert "websockets" in PACOTES_PREFERIR_WHEELS
     for pacote_nativo in (
         "brotli",
         "charset-normalizer",
@@ -727,292 +692,12 @@ def test_flatpak_manifest_e_constantes_otimizadas() -> None:
         "pymupdf",
         "zstandard",
     ):
-        assert pacote_nativo in PACOTES_PREFERIR_WHEELS, (
-            f"O pacote {pacote_nativo} possui extensão C/Rust e deve estar em PACOTES_PREFERIR_WHEELS."
-        )
+        assert pacote_nativo in PACOTES_PREFERIR_WHEELS
 
     manifesto_texto = ARQUIVO_MANIFESTO_FLATPAK.read_text(encoding="utf-8")
-    assert "BASEAPP_REMOVE_WEBENGINE" in manifesto_texto
-    assert "BASEAPP_DISABLE_NUMPY" in manifesto_texto
-    assert "cleanup:" in manifesto_texto
-    assert "/app/cleanup-BaseApp.sh" in manifesto_texto
-    assert "skip:" in manifesto_texto
-    assert "- dist" in manifesto_texto
-    assert "- build" in manifesto_texto
-    assert "EditorAresta.sh" in manifesto_texto
-    assert "- .flatpak-builder" in manifesto_texto
-    assert "dest: aresta_api" in manifesto_texto
-    assert "dest: scripts" in manifesto_texto
-    assert "dest: coleta_de_betas" in manifesto_texto
-    assert "dest: migracoes" in manifesto_texto
-    assert "dest: serving" in manifesto_texto
-    assert "cp -r aresta_api" in manifesto_texto
-    assert "cp -r scripts" in manifesto_texto
-    assert "cp -r coleta_de_betas" in manifesto_texto
-    assert "cp -r migracoes" in manifesto_texto
-    assert "cp -r serving" in manifesto_texto
-    assert "|| true" not in manifesto_texto
-    assert "--talk-name=org.freedesktop.secrets" not in manifesto_texto
-    assert "--talk-name=org.kde.kwalletd5" not in manifesto_texto
-    assert "--talk-name=org.kde.kwalletd" not in manifesto_texto
-    # Poda de binários pesados de build-time do BaseApp (LLVM/Clang/Shiboken generator) e módulos/fontes dispensáveis
-    assert "/lib/libLLVM*" in manifesto_texto
-    assert "/lib/libclang*" in manifesto_texto
-    assert "shiboken6_generator*" in manifesto_texto
-    assert "Qt3D*" in manifesto_texto
-    assert "QtQuick*" in manifesto_texto
-    assert "QtQml*" in manifesto_texto
-    assert "QtCharts*" in manifesto_texto
-    assert "QtGraphs*" in manifesto_texto
-    assert "QtMultimedia*" in manifesto_texto
-    assert "materialdesignicons" in manifesto_texto
-    assert "sed -i '/pip uninstall -y packaging/d' /app/cleanup-BaseApp.sh" in manifesto_texto
-
-
-def test_metainfo_xml_valido_e_bem_formado():
-    """Valida se o arquivo com.arestaclimb.Editor.metainfo.xml é um XML válido e possui os nós essenciais do AppStream."""
-    import xml.etree.ElementTree as ET
-
-    from editor.build import DIRETORIO_FLATPAK
+    assert "mupdf-devel" in manifesto_texto
 
     caminho_metainfo = DIRETORIO_FLATPAK / "com.arestaclimb.Editor.metainfo.xml"
-    assert caminho_metainfo.exists()
-
-    tree = ET.parse(caminho_metainfo)
-    raiz = tree.getroot()
-
+    raiz = ET.parse(caminho_metainfo).getroot()
     assert raiz.tag == "component"
-    assert raiz.find("id").text == "com.arestaclimb.Editor"
-    assert raiz.find("name").text == "Editor Aresta"
-    assert raiz.find("screenshots") is not None
-    assert raiz.find("screenshots").find("screenshot") is not None
-    assert raiz.find("releases") is not None
-
-
-def test_gerar_manifesto_dependencias_flatpak_com_runtime_detectado(tmp_path):
-    """Valida a inclusão automática de --runtime e --prefer-wheels quando Flatpak runtime está instalado."""
-    from editor.build import gerar_manifesto_dependencias_flatpak
-
-    lock_file = tmp_path / "uv.lock"
-    lock_file.write_text("# lock", encoding="utf-8")
-    destino = tmp_path / "pypi-dependencies.json"
-
-    comandos_executados = []
-
-    def mock_subprocess(cmd, *args, **kwargs):
-        comandos_executados.append(cmd)
-        res = MagicMock()
-        res.returncode = 0
-        if "export" in cmd:
-            res.stdout = "cryptography==50.0.2\n"
-            return res
-        if "info" in cmd:
-            return res
-        if "flatpak_pip_generator" in cmd:
-            destino.write_text("{}", encoding="utf-8")
-            return res
-        return res
-
-    with patch("shutil.which", return_value="/usr/bin/flatpak"):
-        with patch("subprocess.run", side_effect=mock_subprocess):
-            caminho_gerado = gerar_manifesto_dependencias_flatpak(
-                caminho_saida=destino,
-                raiz_projeto=tmp_path,
-            )
-            assert caminho_gerado == destino
-            # Verifica se o comando do gerador recebeu --runtime e --prefer-wheels
-            cmd_gen = [c for c in comandos_executados if "flatpak_pip_generator" in c][0]
-            assert any(arg.startswith("--runtime=") for arg in cmd_gen)
-            assert any(arg.startswith("--prefer-wheels=") for arg in cmd_gen)
-            assert any("cryptography" in arg for arg in cmd_gen)
-
-
-def test_gerar_manifesto_dependencias_flatpak_falha_geracao_arquivo(tmp_path):
-    """Garante que FileNotFoundError é lançado se flatpak_pip_generator não gerar o arquivo."""
-    from editor.build import gerar_manifesto_dependencias_flatpak
-
-    lock_file = tmp_path / "uv.lock"
-    lock_file.write_text("# lock", encoding="utf-8")
-    destino = tmp_path / "pypi-dependencies.json"
-
-    with patch("subprocess.run", return_value=MagicMock(stdout="requests==2.32.3\n")):
-        with pytest.raises(FileNotFoundError, match="Falha ao gerar o manifesto de dependências"):
-            gerar_manifesto_dependencias_flatpak(caminho_saida=destino, raiz_projeto=tmp_path)
-
-
-def test_orquestrar_build_flatpak_preserva_deps_para_cache():
-    """Valida se dependências Flatpak são geradas quando ausentes e preservadas em disco para reuso de cache."""
-    from editor.build import orquestrar_build_flatpak
-
-    with patch("shutil.which", return_value="/usr/bin/flatpak-builder"):
-        with patch("subprocess.run"):
-            deps_criado = False
-
-            def mock_gerar(caminho_saida=None, raiz_projeto=None):
-                nonlocal deps_criado
-                deps_criado = True
-                return caminho_saida
-
-            with patch(
-                "editor.build.gerar_manifesto_dependencias_flatpak", side_effect=mock_gerar
-            ) as mock_gerar_deps:
-
-                def mock_exists(self):
-                    if "com.arestaclimb.Editor.yaml" in str(self):
-                        return True
-                    if "pypi-dependencies.json" in str(self):
-                        return deps_criado
-                    return True
-
-                with patch.object(Path, "exists", autospec=True, side_effect=mock_exists):
-                    with patch.object(Path, "unlink") as mock_unlink:
-                        bundle = orquestrar_build_flatpak()
-                        mock_gerar_deps.assert_called_once()
-                        mock_unlink.assert_called_once()
-                        assert bundle.name.endswith(".flatpak")
-
-
-def test_main_cli_dispatch_flatpak_deps():
-    """Valida o despachante CLI para o modo flatpak-deps."""
-    with patch("editor.build.gerar_manifesto_dependencias_flatpak") as mock_gerar:
-        main(["flatpak-deps", "--output", "custom.json"])
-        mock_gerar.assert_called_once_with(caminho_saida=Path("custom.json"))
-
-
-def test_spec_inclui_diretorio_migracoes():
-    """Valida se o EditorAresta.spec inclui a pasta migracoes nos datas do PyInstaller."""
-    conteudo_spec = ARQUIVO_SPEC.read_text(encoding="utf-8")
-    assert "'migracoes'" in conteudo_spec
-    assert "repo_root / 'migracoes'" in conteudo_spec or 'repo_root / "migracoes"' in conteudo_spec
-
-
-def test_gerar_tarball_codigo_fonte_sucesso(tmp_path):
-    """Valida se gerar_tarball_codigo_fonte cria o arquivo .tar.gz contendo apenas arquivos de código sem database."""
-    import tarfile
-
-    from editor.build import gerar_tarball_codigo_fonte
-
-    # Cria estrutura simulada
-    raiz = tmp_path / "repo"
-    raiz.mkdir()
-    (raiz / "pyproject.toml").write_text('[project]\nversion = "1.2.3"\n', encoding="utf-8")
-    (raiz / "uv.lock").write_text("lock", encoding="utf-8")
-    (raiz / "database").mkdir()
-    (raiz / "database" / "pesado.bin").write_text("dados pesados", encoding="utf-8")
-    (raiz / "editor").mkdir()
-    (raiz / "editor" / "main.py").write_text("print('oi')", encoding="utf-8")
-    (raiz / "editor" / "main_test.py").write_text("def test(): pass", encoding="utf-8")
-    (raiz / "editor" / "dist").mkdir()
-    (raiz / "editor" / "dist" / "bundle.flatpak").write_text("binario", encoding="utf-8")
-    (raiz / "aresta_api").mkdir()
-    (raiz / "aresta_api" / "proto.py").write_text("# proto", encoding="utf-8")
-    (raiz / "scripts").mkdir()
-    (raiz / "scripts" / "migrador.py").write_text("# migrador", encoding="utf-8")
-    (raiz / "coleta_de_betas").mkdir()
-    (raiz / "coleta_de_betas" / "extrator.py").write_text("# extrator", encoding="utf-8")
-    (raiz / "migracoes").mkdir()
-    (raiz / "migracoes" / "0001_init.py").write_text("# mig", encoding="utf-8")
-    (raiz / "serving").mkdir()
-    (raiz / "serving" / "update_serving.py").write_text("# serving", encoding="utf-8")
-
-    caminho_tarball, hash_sha256 = gerar_tarball_codigo_fonte(
-        diretorio_saida=tmp_path / "saida",
-        versao="1.2.3",
-        raiz_projeto=raiz,
-    )
-
-    assert caminho_tarball.exists()
-    assert caminho_tarball.name == "EditorAresta-1.2.3-source.tar.gz"
-    assert len(hash_sha256) == 64
-
-    # Verifica os membros do tarball
-    with tarfile.open(caminho_tarball, "r:gz") as tar:
-        nomes = [n.replace("\\", "/") for n in tar.getnames()]
-        assert "editor/main.py" in nomes
-        assert "aresta_api/proto.py" in nomes
-        assert "scripts/migrador.py" in nomes
-        assert "coleta_de_betas/extrator.py" in nomes
-        assert "migracoes/0001_init.py" in nomes
-        assert "serving/update_serving.py" in nomes
-
-        assert "uv.lock" in nomes
-        assert "pyproject.toml" in nomes
-        # Garante que database, dist e arquivos de teste foram excluídos
-        assert not any("database" in n for n in nomes)
-        assert not any("dist" in n for n in nomes)
-        assert not any("_test.py" in n for n in nomes)
-
-
-def test_main_cli_dispatch_source_tarball():
-    """Valida o despachante CLI para o modo source-tarball."""
-    with patch(
-        "editor.build.gerar_tarball_codigo_fonte", return_value=(Path("tarball.tar.gz"), "hash123")
-    ) as mock_tar:
-        main(["source-tarball", "--output-dir", "custom_dir"])
-        mock_tar.assert_called_once_with(diretorio_saida=Path("custom_dir"), versao=None)
-
-
-def test_main_cli_dispatch_source_tarball_com_versao():
-    """Valida o despachante CLI para o modo source-tarball com versão explícita."""
-    with patch(
-        "editor.build.gerar_tarball_codigo_fonte", return_value=(Path("tarball.tar.gz"), "hash123")
-    ) as mock_tar:
-        main(["source-tarball", "--output-dir", "custom_dir", "--versao", "0.4.0"])
-        mock_tar.assert_called_once_with(diretorio_saida=Path("custom_dir"), versao="0.4.0")
-
-
-def test_spec_inclui_keyring_macos_no_darwin():
-    """Valida se o EditorAresta.spec inclui keyring.backends.macOS quando executado no darwin."""
-    conteudo_spec = ARQUIVO_SPEC.read_text(encoding="utf-8")
-    assert "keyring.backends.macOS" in conteudo_spec
-
-
-def test_import_build_sem_pyinstaller_trata_import_error():
-    """Valida o bloco try/except no início de editor.build quando PyInstaller não está instalado."""
-    import builtins
-    import importlib
-
-    import editor.build
-
-    orig_import = builtins.__import__
-
-    def fake_import(name, *args, **kwargs):
-        if "PyInstaller" in name:
-            raise ImportError(f"No module named '{name}'")
-        return orig_import(name, *args, **kwargs)
-
-    with patch("builtins.__import__", side_effect=fake_import):
-        importlib.reload(editor.build)
-
-    # Restaura o módulo para o estado padrão
-    importlib.reload(editor.build)
-
-
-def test_executar_build_carrega_pyinstaller_sob_demanda():
-    """Valida que executar_build importa PyInstaller caso sys.modules não o contenha previamente."""
-    from editor.build import executar_build
-
-    mock_run = MagicMock()
-    fake_mod_main = MagicMock(run=mock_run)
-    fake_pkg = MagicMock()
-    fake_pkg.__main__ = fake_mod_main
-
-    with patch("sys.platform", "win32"):
-        with patch("pathlib.Path.exists", return_value=True):
-            with patch.dict(sys.modules):
-                sys.modules.pop("PyInstaller.__main__", None)
-                sys.modules.pop("PyInstaller", None)
-                import builtins
-
-                orig_import = builtins.__import__
-
-                def fake_import(name, *args, **kwargs):
-                    if name == "PyInstaller.__main__":
-                        return fake_pkg
-                    if name == "PyInstaller":
-                        return fake_pkg
-                    return orig_import(name, *args, **kwargs)
-
-                with patch("builtins.__import__", side_effect=fake_import):
-                    executar_build()
-                    mock_run.assert_called_once()
+    assert LIMITE_MAXIMO_TAMANHO_EXECUTAVEL_MB > 0

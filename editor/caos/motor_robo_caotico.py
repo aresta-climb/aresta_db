@@ -331,7 +331,7 @@ class MotorRoboCaoticoQt:
         )
         self.controlador_app = ControladorAplicativo(
             tarefa=tarefa_inicial,
-            iniciar_mcp=False,
+            iniciar_rede_mcp=False,
             storage=self.ambiente.storage,
             gerenciador_sessao=self.sessao_fake,
             cliente_auth=self.cliente_auth_fake,
@@ -460,7 +460,7 @@ class MotorRoboCaoticoQt:
             storage=self.ambiente.storage,
             auth=self.sessao_fake,
             workspace=ws,
-            iniciar_mcp=False,
+            iniciar_rede_mcp=False,
             servico_submissao=self.submissao_fake,
             fabrica_servidor_celular=ServidorCelularFake,
             servico_loja=self.adaptador_loja_fake,
@@ -859,6 +859,7 @@ class MotorRoboCaoticoQt:
             self.janela = None
         if self.controlador_app is not None:
             _aguardar_thread_se_ativa(getattr(self.controlador_app, "tarefa", None))
+            self.controlador_app.encerrar_servidor_mcp()
             if self.controlador_app.abertura is not None:
                 if hasattr(self.controlador_app.abertura, "_timer_reenvio"):
                     self.controlador_app.abertura._timer_reenvio.stop()

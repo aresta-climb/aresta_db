@@ -129,6 +129,21 @@ jobs:
         run: |
           flatpak build-update-repo --generate-static-deltas --prune --prune-depth=1 --gpg-sign="$GPG_KEY_ID" repo
 
+      - name: Smoke Test Pós-Build Offline (Flatpak)
+        env:
+          PYTHONPATH: .
+        run: |
+          rm -rf /tmp/smoke_flatpak
+          mkdir -p /tmp/smoke_flatpak
+          sudo flatpak remote-add --if-not-exists --no-gpg-verify local-smoke "file://$(pwd)/repo"
+          sudo flatpak install -y local-smoke com.arestaclimb.Editor
+          uv run editor/release_tools/smoke_test_pacote.py \
+            --diretorio-trabalho /tmp/smoke_flatpak \
+            -- flatpak run --filesystem=/tmp/smoke_flatpak com.arestaclimb.Editor
+          sudo flatpak uninstall -y com.arestaclimb.Editor
+          sudo flatpak remote-delete local-smoke
+          rm -rf /tmp/smoke_flatpak
+
       - name: Gerar Pacote Flatpak Bundle (.flatpak)
         id: gerar-bundle
         env:

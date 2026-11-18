@@ -62,9 +62,7 @@ def inicializar_banco_catalogo(caminho_banco: Path | str) -> sqlite3.Connection:
             ("url_google_maps", "TEXT"),
         ):
             if nome_col not in colunas_croquis:
-                cursor.execute(
-                    f"ALTER TABLE catalogo_croquis ADD COLUMN {nome_col} {tipo_col}"
-                )
+                cursor.execute(f"ALTER TABLE catalogo_croquis ADD COLUMN {nome_col} {tipo_col}")
                 alterou_croquis = True
         if alterou_croquis:
             conexao.commit()

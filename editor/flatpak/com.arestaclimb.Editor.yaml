@@ -82,6 +82,8 @@ cleanup:
   - /lib/python*/site-packages/qtawesome/fonts/*remixicon*
   - /lib/python*/site-packages/qtawesome/fonts/*codicon*
   - /lib/python*/site-packages/qtawesome/fonts/*elusiveicons*
+  # Cabeçalhos C/C++ de build-time do PyMuPDF desnecessários em runtime
+  - /lib/python*/site-packages/pymupdf/mupdf-devel
 
 cleanup-commands:
   # Preserva o pacote 'packaging' (usado pelo Editor e QtPy) que o cleanup-BaseApp.sh desinstalaria por engano

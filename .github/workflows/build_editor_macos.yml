@@ -114,6 +114,24 @@ jobs:
         env:
           PYTHONPATH: .
 
+      - name: Smoke Test Pós-Build Offline no Bundle macOS (${{ matrix.nome }})
+        env:
+          PYTHONPATH: .
+        run: |
+          uv run python3 -c "
+          from pathlib import Path
+          from editor.release_tools.empacotar_macos_dmg import criar_estrutura_bundle_macos
+          criar_estrutura_bundle_macos(
+              diretorio_origem_onedir=Path('editor/dist/EditorAresta'),
+              diretorio_destino_app=Path('/tmp/smoke_macos_bundle/EditorAresta.app'),
+              versao='${{ inputs.versao }}',
+          )
+          "
+          uv run python3 editor/release_tools/smoke_test_pacote.py \
+            --executavel "/tmp/smoke_macos_bundle/EditorAresta.app/Contents/MacOS/EditorAresta" \
+            --arquitetura-esperada "${{ matrix.arch }}"
+          rm -rf /tmp/smoke_macos_bundle
+
       - name: Configurar Certificado Apple Developer ID
         env:
           PYTHONPATH: .

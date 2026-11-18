@@ -60,10 +60,9 @@ hiddenimports = [
     'sentry_sdk',
     'yaml._yaml',
     'scripts.markdown_frontmatter_lib',
-    'scripts.finalizar_mapas',
 ]
 
-pacotes_para_coletar = ['pygit2', 'keyring', 'qtawesome']
+pacotes_para_coletar = ['pygit2', 'keyring', 'qtawesome', 'pymupdf', 'ddgs']
 if sys.platform.startswith("linux"):
     pacotes_para_coletar += ['secretstorage', 'jeepney']
 elif sys.platform == "darwin":

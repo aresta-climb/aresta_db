@@ -81,11 +81,13 @@ class ClienteAuthSupabase:
         chave_publica: str | None = None,
         tempo_limite: int = 15,
     ) -> None:
-        url = (url_supabase or "").strip()
+        url = (url_supabase or os.getenv("ARESTA_SUPABASE_URL") or "").strip()
         if not url.startswith("http://") and not url.startswith("https://"):
             url = _URL_SUPABASE_PADRAO
         self.url_supabase: str = url.rstrip("/")
-        chave = (chave_publica or "").strip() or _CHAVE_PUBLICA_PADRAO
+        chave = (
+            chave_publica or os.getenv("ARESTA_SUPABASE_PUBLISHABLE_KEY") or ""
+        ).strip() or _CHAVE_PUBLICA_PADRAO
         self.chave_publica: str = chave
         self.tempo_limite: int = tempo_limite
 

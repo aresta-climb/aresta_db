@@ -1,0 +1,22 @@
+# Tasks
+
+## 1. Empacotamento PyInstaller/Flatpak e Contrato Real de Dependências
+
+- [x] 1.1 Escrever testes reais (Red) em `editor/build_test.py` (removendo mocks internos de `PyInstaller`, `Path` e `PIL`) validando: (a) interseção vazia entre o export do grupo `editor` (`uv.lock`) e `obter_modulos_excluidos()`; (b) importação sem erro de todos os módulos de produção de `editor/`, `coleta_de_betas/` e `migracoes/` com bloqueio dos módulos excluídos; (c) existência/importabilidade de todos os `hiddenimports` em `EditorAresta.spec`; (d) filtragem de `mupdf-devel` em `filtrar_datas_desnecessarios()` e no `com.arestaclimb.Editor.yaml`; e verificar a falha inicial com `uv run pytest editor/build_test.py`.
+- [x] 1.2 Atualizar `editor/build.py`, `editor/EditorAresta.spec` e `editor/flatpak/com.arestaclimb.Editor.yaml` (Green/Refactor) para remover `pymupdf`, `fitz` e `lxml` de `obter_modulos_excluidos()`, coletar `pymupdf` e `ddgs` no spec, podar `mupdf-devel`, remover `scripts.finalizar_mapas` órfão e atingir 100% de cobertura em `editor/build.py` verificando com `uv run pytest editor/build_test.py --cov=editor.build --cov-fail-under=100`.
+
+## 2. Registro Obrigatório do Servidor MCP e Resiliência contra Processos Zumbis
+
+- [x] 2.1 Escrever testes comportamentais (Red) em `editor/main_test.py` e `editor/legacy_views/area_principal_test.py` validando que: (a) `ControladorAplicativo` e `JanelaPrincipal` usam `iniciar_rede_mcp` (registrando sempre todas as ferramentas MCP em memória mesmo quando `iniciar_rede_mcp=False`); e (b) uma exceção inesperada em `executar_selecao()` ou `mostrar_janela_principal()` após o fechamento da `TelaDeAbertura` é enviada à telemetria, aciona `mostrar_erro` e encerra o loop/servidores sem processo zumbi; verificar falha inicial com `uv run pytest editor/main_test.py`.
+- [x] 2.2 Implementar a substituição limpa de `iniciar_mcp` por `iniciar_rede_mcp` e a proteção fail-fast de transição em `editor/main.py`, `editor/legacy_views/area_principal.py` e `editor/caos/motor_robo_caotico.py` (Green/Refactor), verificando 100% dos testes de `editor/main_test.py`, `editor/legacy_views/area_principal_test.py` e `editor/caos/` passando.
+
+## 3. Modo `--smoke-test` e Orquestrador Offline `smoke_test_pacote.py`
+
+- [x] 3.1 Escrever testes comportamentais espelhados (Red) em `editor/release_tools/smoke_test_pacote_test.py` e em `editor/main_test.py` cobrindo o servidor HTTP local de autenticação OTP (`127.0.0.1`), a criação do repositório Git local com croqui e PDF de teste, a verificação de arquitetura Mach-O (`arm64` vs `x86_64`), o fluxo completo `--smoke-test` (login OTP, clone `pygit2`, `ServidorMCP` HTTP, criação/abertura de croqui na `JanelaPrincipal`, `aresta_particionar_pdf_croqui` com `pymupdf`, parser `ddgs`/`lxml` e compilação/salvamento) e a falha imediata com código não-zero em caso de erro.
+- [x] 3.2 Implementar `editor/release_tools/smoke_test_pacote.py` e o condutor `--smoke-test` integrado ao `editor/main.py` (Green/Refactor) com 100% de cobertura comportamental, verificando com `uv run pytest editor/release_tools/smoke_test_pacote_test.py editor/main_test.py --cov=editor.release_tools.smoke_test_pacote --cov=editor.main --cov-fail-under=100`.
+
+## 4. Integração dos Workflows de Release Multiplataforma e Validação Local do Binário
+
+- [x] 4.1 Atualizar `tests/workflow_release_editor_test.py` (Red) exigindo que `release-editor.yml` preserve o corte de versão em `prepare_release` e que `build_editor_windows.yml` (Beta e Produção Store), `build_editor_macos.yml` (validação Mach-O + execução nativa `arm64` e sob Rosetta 2 `arch -x86_64` para Intel sobre `EditorAresta.app`) e `build_editor_linux.yml` (execução no Flatpak compilado) executem `smoke_test_pacote.py` antes de qualquer publicação externa.
+- [x] 4.2 Atualizar `.github/workflows/build_editor_windows.yml`, `.github/workflows/build_editor_macos.yml`, `.github/workflows/build_editor_linux.yml` e `editor/release_tools/empacotar_macos_dmg.py` (se necessário para expor hook/etapa de validação do `.app` antes do `.dmg`) até passar `uv run pytest tests/workflow_release_editor_test.py`.
+- [x] 4.3 Compilar localmente o pacote real PyInstaller no Windows (`uv run editor/build.py dist`), executar `uv run editor/release_tools/smoke_test_pacote.py` contra `editor/dist/EditorAresta/EditorAresta.exe` real e rodar checagem completa (`ruff`, `mypy` e `pytest`) garantindo 100% de aprovação sem regressões.

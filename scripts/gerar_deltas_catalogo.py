@@ -92,8 +92,12 @@ def calcular_deltas_catalogo(
             row["name"]
             for row in cur.execute("PRAGMA anterior.table_info(catalogo_croquis)").fetchall()
         }
-        proj_lat_ant = "latitude_e7" if "latitude_e7" in colunas_ant_croquis else "NULL AS latitude_e7"
-        proj_lon_ant = "longitude_e7" if "longitude_e7" in colunas_ant_croquis else "NULL AS longitude_e7"
+        proj_lat_ant = (
+            "latitude_e7" if "latitude_e7" in colunas_ant_croquis else "NULL AS latitude_e7"
+        )
+        proj_lon_ant = (
+            "longitude_e7" if "longitude_e7" in colunas_ant_croquis else "NULL AS longitude_e7"
+        )
         proj_url_ant = (
             "url_google_maps"
             if "url_google_maps" in colunas_ant_croquis

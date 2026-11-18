@@ -21,6 +21,8 @@ DIRETORIOS_IGNORADOS = {
     ".agents",
     ".gemini",
     "scratch",
+    "dist",
+    "build",
 }
 
 

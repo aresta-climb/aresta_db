@@ -2055,9 +2055,17 @@ def test_janela_principal_integra_servidor_mcp_e_dialogo_conexao(
     workspace = LocalRepoWorkspace(pasta_croqui)
     dir_sessao = tmp_path / "sessao_mcp"
 
+    janela_mem = criar_janela(
+        workspace=workspace,
+        iniciar_rede_mcp=False,
+        diretorio_sessao_mcp=dir_sessao,
+    )
+    assert janela_mem.servidor_mcp is not None
+    assert not janela_mem.servidor_mcp.esta_ativo
+
     janela = criar_janela(
         workspace=workspace,
-        iniciar_mcp=True,
+        iniciar_rede_mcp=True,
         diretorio_sessao_mcp=dir_sessao,
     )
 
