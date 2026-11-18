@@ -264,3 +264,48 @@ def test_executar_smoke_test_pacote_falha_rapida_quando_binario_quebra(tmp_path:
             ]
         )
     assert exc_cli.value.code == 1
+
+
+def test_smoke_test_pacote_isola_pyside6_no_host_e_reconfigura_utf8_cli(tmp_path: Path) -> None:
+    """
+    Garante que importar smoke_test_pacote não carrega PySide6 (permitindo hosts Linux sem libEGL),
+    que _croqui_ativo_nas_sessoes_mcp tolera arquivo ausente ou JSON parcial e que stdout cp1252 aceita emojis.
+    """
+    import io
+    import subprocess
+
+    from editor.release_tools.smoke_test_pacote import (
+        _croqui_ativo_nas_sessoes_mcp,
+        configurar_streams_utf8_cli,
+    )
+
+    buf = io.BytesIO()
+    stream_cp1252 = io.TextIOWrapper(buf, encoding="cp1252", errors="strict")
+    configurar_streams_utf8_cli((stream_cp1252, object()))
+    stream_cp1252.write("✅ Smoke test pós-build concluído ❌\n")
+    stream_cp1252.flush()
+    assert "✅ Smoke test pós-build concluído ❌" in buf.getvalue().decode("utf-8")
+
+    pasta = tmp_path / "sessoes"
+    pasta.mkdir(parents=True)
+    assert _croqui_ativo_nas_sessoes_mcp(pasta, "br_mg_smoke") is False
+    (pasta / "mcp_sessoes.json").write_text("{json_parcial", encoding="utf-8")
+    assert _croqui_ativo_nas_sessoes_mcp(pasta, "br_mg_smoke") is False
+    (pasta / "mcp_sessoes.json").write_text(
+        '{"sessoes": [{"porta": 27378, "id_croqui": "br_mg_smoke"}]}',
+        encoding="utf-8",
+    )
+    assert _croqui_ativo_nas_sessoes_mcp(pasta, "br_mg_smoke") is True
+
+    res = subprocess.run(
+        [
+            sys.executable,
+            "-c",
+            "import sys, editor.release_tools.smoke_test_pacote; "
+            "assert not any(m.startswith('PySide6') for m in sys.modules), list(sys.modules)",
+        ],
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+    assert res.returncode == 0, res.stderr

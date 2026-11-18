@@ -35,11 +35,42 @@ import pygit2
 import pymupdf as _pymupdf
 from PIL import Image
 
-from editor.mcp.sessao import listar_sessoes_mcp
+_raiz_repo = str(Path(__file__).resolve().parents[2])
+if _raiz_repo not in sys.path:  # pragma: no cover
+    sys.path.insert(0, _raiz_repo)
+
 from scripts.gerenciar_uids_lib import gerar_uid
 from scripts.migrador import obter_ultima_versao_migracao
 
 pymupdf: Any = _pymupdf
+
+
+def configurar_streams_utf8_cli(streams: tuple[object, ...] | None = None) -> None:
+    """Reconfigura stdout/stderr para UTF-8 evitando falha cp1252 ao imprimir emojis no Windows CI."""
+    alvos = streams if streams is not None else (sys.stdout, sys.stderr)
+    for stream in alvos:
+        reconfigurar = getattr(stream, "reconfigure", None)
+        if callable(reconfigurar):
+            reconfigurar(encoding="utf-8", errors="replace")
+
+
+def _croqui_ativo_nas_sessoes_mcp(diretorio_dados: Path, id_croqui_esperado: str) -> bool:
+    """
+    Lê mcp_sessoes.json diretamente em JSON puro sem importar PySide6 no processo orquestrador
+    (permitindo executar smoke_test_pacote.py em hosts Linux sem libEGL instalada fora do Flatpak).
+    """
+    caminho = diretorio_dados / "mcp_sessoes.json"
+    if not caminho.is_file():
+        return False
+    try:
+        dados = json.loads(caminho.read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return False
+    sessoes = dados.get("sessoes", []) if isinstance(dados, dict) else []
+    return any(
+        isinstance(item, dict) and item.get("id_croqui") == id_croqui_esperado for item in sessoes
+    )
+
 
 EMAIL_SMOKE = "smoke@arestaclimb.com"
 CODIGO_OTP_SMOKE = "123456"
@@ -433,9 +464,8 @@ def executar_smoke_test_pacote(
                     # 3. Aguarda a JanelaPrincipal ativar o croqui nas sessões MCP
                     croqui_pronto = False
                     while not croqui_pronto and time.monotonic() <= prazo:
-                        croqui_pronto = any(
-                            s.id_croqui == amb.id_croqui_oficial
-                            for s in listar_sessoes_mcp(amb.diretorio_dados)
+                        croqui_pronto = _croqui_ativo_nas_sessoes_mcp(
+                            amb.diretorio_dados, amb.id_croqui_oficial
                         )
                         if not croqui_pronto:
                             time.sleep(0.05)
@@ -500,6 +530,7 @@ def executar_smoke_test_pacote(
 
 def main(argv: list[str] | None = None) -> int:
     """Ponto de entrada CLI para execução nos workflows de CI/CD de Windows, macOS e Linux."""
+    configurar_streams_utf8_cli()
     lista_args = list(sys.argv[1:] if argv is None else argv)
     extras: list[str] = []
     if "--" in lista_args:
