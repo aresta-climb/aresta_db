@@ -78,6 +78,8 @@ jobs:
           sudo chmod 700 /run/user/$(id -u)
 
       - name: Gerar Manifesto de Dependências Flatpak (pypi-dependencies.json)
+        env:
+          PYTHONPATH: .
         run: |
           uv run editor/build.py flatpak-deps --output editor/flatpak/pypi-dependencies.json
           cp editor/flatpak/pypi-dependencies.json /tmp/pypi-dependencies.json
@@ -133,16 +135,17 @@ jobs:
         env:
           PYTHONPATH: .
         run: |
-          rm -rf /tmp/smoke_flatpak
-          mkdir -p /tmp/smoke_flatpak
+          SMOKE_DIR="$(pwd)/smoke_flatpak_tmp"
+          rm -rf "$SMOKE_DIR"
+          mkdir -p "$SMOKE_DIR"
           sudo flatpak remote-add --if-not-exists --no-gpg-verify local-smoke "file://$(pwd)/repo"
           sudo flatpak install -y local-smoke com.arestaclimb.Editor
           uv run editor/release_tools/smoke_test_pacote.py \
-            --diretorio-trabalho /tmp/smoke_flatpak \
-            -- flatpak run --filesystem=/tmp/smoke_flatpak com.arestaclimb.Editor
+            --diretorio-trabalho "$SMOKE_DIR" \
+            -- flatpak run --filesystem="$SMOKE_DIR" com.arestaclimb.Editor
           sudo flatpak uninstall -y com.arestaclimb.Editor
           sudo flatpak remote-delete local-smoke
-          rm -rf /tmp/smoke_flatpak
+          rm -rf "$SMOKE_DIR"
 
       - name: Gerar Pacote Flatpak Bundle (.flatpak)
         id: gerar-bundle

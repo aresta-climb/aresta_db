@@ -113,39 +113,51 @@ def criar_estrutura_bundle_macos(
     if diretorio_destino_app.exists():
         shutil.rmtree(diretorio_destino_app)
 
-    diretorio_macos.mkdir(parents=True, exist_ok=True)
-    diretorio_resources.mkdir(parents=True, exist_ok=True)
+    candidato_app_nativo = (
+        diretorio_origem_onedir
+        if (diretorio_origem_onedir / "Contents" / "Frameworks").is_dir()
+        else diretorio_origem_onedir.parent / "EditorAresta.app"
+    )
+    usar_bundle_nativo = (candidato_app_nativo / "Contents" / "Frameworks").is_dir()
 
-    # Copia todo o conteúdo gerado pelo PyInstaller preservando symlinks.
-    # A pasta '_internal' contém dados, recursos e bibliotecas e deve residir em Contents/Resources/_internal
-    # com um link simbólico relativo em Contents/MacOS/_internal, garantindo conformidade com as regras do
-    # codesign da Apple (Contents/MacOS deve conter apenas o executável principal e symlinks).
-    for item in diretorio_origem_onedir.iterdir():
-        if item.name == "_internal":
-            destino_internal = diretorio_resources / "_internal"
-            shutil.copytree(item, destino_internal, symlinks=True)
+    if usar_bundle_nativo:
+        shutil.copytree(candidato_app_nativo, diretorio_destino_app, symlinks=True)
+        diretorio_macos.mkdir(parents=True, exist_ok=True)
+        diretorio_resources.mkdir(parents=True, exist_ok=True)
+    else:
+        diretorio_macos.mkdir(parents=True, exist_ok=True)
+        diretorio_resources.mkdir(parents=True, exist_ok=True)
 
-            symlink_macos = diretorio_macos / "_internal"
-            try:
-                alvo_symlink = (
-                    str(destino_internal.resolve()) if os.name == "nt" else "../Resources/_internal"
-                )
-                symlink_macos.symlink_to(alvo_symlink, target_is_directory=True)
-            except OSError:
-                pass
-        else:
-            destino_item = diretorio_macos / item.name
-            if item.is_dir():
-                shutil.copytree(item, destino_item, symlinks=True)
+        # Copia todo o conteúdo gerado pelo PyInstaller preservando symlinks.
+        for item in diretorio_origem_onedir.iterdir():
+            if item.name == "_internal":
+                destino_internal = diretorio_resources / "_internal"
+                shutil.copytree(item, destino_internal, symlinks=True)
+
+                symlink_macos = diretorio_macos / "_internal"
+                try:
+                    alvo_symlink = (
+                        str(destino_internal.resolve())
+                        if os.name == "nt"
+                        else "../Resources/_internal"
+                    )
+                    symlink_macos.symlink_to(alvo_symlink, target_is_directory=True)
+                except OSError:
+                    pass
             else:
-                shutil.copy2(item, destino_item, follow_symlinks=False)
+                destino_item = diretorio_macos / item.name
+                if item.is_dir():
+                    shutil.copytree(item, destino_item, symlinks=True)
+                else:
+                    shutil.copy2(item, destino_item, follow_symlinks=False)
 
-    # Garante que a pasta 'migracoes' resida exclusivamente em Contents/Resources/migracoes
-    migracoes_em_internal = diretorio_resources / "_internal" / "migracoes"
+        # Garante que a pasta 'migracoes' resida exclusivamente em Contents/Resources/migracoes
+        migracoes_em_internal = diretorio_resources / "_internal" / "migracoes"
+        migracoes_em_resources = diretorio_resources / "migracoes"
+        if migracoes_em_internal.exists():
+            shutil.move(str(migracoes_em_internal), str(migracoes_em_resources))
+
     migracoes_em_resources = diretorio_resources / "migracoes"
-    if migracoes_em_internal.exists():
-        shutil.move(str(migracoes_em_internal), str(migracoes_em_resources))
-
     if migracoes_em_resources.is_dir():
         precompilar_scripts_para_bytecode(migracoes_em_resources)
 
@@ -284,6 +296,10 @@ def sanitizar_bundle_para_codesign(
         if migracoes_resources.is_dir():
             precompilar_scripts_para_bytecode(migracoes_resources)
 
+    eh_bundle_nativo_pyinstaller = (
+        caminho_app / "Contents" / "Frameworks" / "base_library.zip"
+    ).exists() or (caminho_app / "Contents" / "Frameworks" / "Python").exists()
+
     # 1. Varre o bundle de baixo para cima removendo diretórios e arquivos problemáticos
     for raiz, pastas, arquivos in os.walk(caminho_app, topdown=False):
         caminho_raiz = Path(raiz)
@@ -296,6 +312,8 @@ def sanitizar_bundle_para_codesign(
         for arq in arquivos:
             nome_baixo = arq.lower()
             p_arq = caminho_raiz / arq
+            if p_arq.is_symlink():
+                continue
 
             eh_ds_store = arq == ".DS_Store"
             eh_teste = (
@@ -335,16 +353,32 @@ def sanitizar_bundle_para_codesign(
 
         # Remove pastas de metadados, caches e pastas de teste
         for pasta in pastas:
+            p_pasta = caminho_raiz / pasta
+            if p_pasta.is_symlink():
+                continue
+            eh_metadado_dist = pasta.endswith((".dist-info", ".egg-info"))
+            preservar_metadado_nativo = (
+                eh_bundle_nativo_pyinstaller and eh_metadado_dist and not esta_em_macos
+            )
             eh_pasta_problema = (
-                pasta.endswith((".dist-info", ".egg-info"))
+                (eh_metadado_dist and not preservar_metadado_nativo)
                 or pasta == "__pycache__"
                 or pasta == "tests"
             )
             if eh_pasta_problema:
-                p_pasta = caminho_raiz / pasta
                 itens_removidos.append(p_pasta)
                 if not dry_run and p_pasta.exists():
                     shutil.rmtree(p_pasta, ignore_errors=True)
+
+    # Remove eventuais symlinks órfãos (dangling symlinks) cujo alvo foi expurgado acima
+    if not dry_run:
+        for raiz_link, pastas_link, arquivos_link in os.walk(caminho_app, topdown=False):
+            base_link = Path(raiz_link)
+            for nome_item in (*arquivos_link, *pastas_link):
+                item_link = base_link / nome_item
+                if item_link.is_symlink() and not item_link.exists():
+                    itens_removidos.append(item_link)
+                    item_link.unlink(missing_ok=True)
 
     # 2. Limpa atributos estendidos no macOS (quarantine, FinderInfo, etc.)
     if not dry_run and sys.platform == "darwin":
@@ -386,6 +420,8 @@ def inspecionar_itens_inesperados_macos(caminho_app: Path) -> list[Path]:
 
         for arquivo in arquivos:
             p_arquivo = caminho_raiz / arquivo
+            if p_arquivo.is_symlink():
+                continue
             if caminho_raiz == diretorio_macos and arquivo == NOME_EXECUTAVEL_PADRAO:
                 print(f"  [DEBUG macOS - OK] {arquivo} (executável principal)")
             else:
@@ -585,13 +621,18 @@ def assinar_bundle_macos(
     diretorio_macos = caminho_app / "Contents" / "MacOS"
     if diretorio_macos.exists():
         for item in sorted(diretorio_macos.iterdir()):
-            if item.is_file() and item.suffix.lower() not in (
-                ".dylib",
-                ".so",
-                ".plist",
-                ".txt",
-                ".json",
-                ".xml",
+            if (
+                item.is_file()
+                and not item.is_symlink()
+                and item.suffix.lower()
+                not in (
+                    ".dylib",
+                    ".so",
+                    ".plist",
+                    ".txt",
+                    ".json",
+                    ".xml",
+                )
             ):
                 cmd_bin = cmd_base.copy()
                 if caminho_entitlements_efetivo and (

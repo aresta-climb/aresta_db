@@ -151,3 +151,11 @@ coll = COLLECT(
     upx_exclude=[],
     name='EditorAresta',
 )
+
+if sys.platform == "darwin":
+    app = BUNDLE(
+        coll,
+        name='EditorAresta.app',
+        icon=icone_pyinstaller[0] if icone_pyinstaller else None,
+        bundle_identifier='com.arestaclimb.Editor',
+    )

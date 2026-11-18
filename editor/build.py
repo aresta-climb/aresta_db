@@ -17,6 +17,10 @@ from typing import Any
 import pytest
 from PIL import Image
 
+_raiz_repositorio = str(Path(__file__).resolve().parents[1])
+if _raiz_repositorio not in sys.path:  # pragma: no cover
+    sys.path.insert(0, _raiz_repositorio)
+
 from editor.executor_build_fake import ExecutorBuildProtocolo
 
 # Caminhos padrão do pacote do editor

@@ -1347,3 +1347,81 @@ def test_assinar_subcomponentes_de_framework_execucao_real(
         )
         assert mock_run.call_count >= 5
         assert len(comandos) >= 5
+
+
+def test_criar_estrutura_bundle_macos_usa_app_nativo_pyinstaller_preservando_frameworks_python(
+    tmp_path: Path,
+) -> None:
+    """
+    Garante que quando PyInstaller 6 gera EditorAresta.app nativamente via BUNDLE() ao lado do onedir,
+    criar_estrutura_bundle_macos preserva Contents/Frameworks/Python (exigido pelo bootloader macOS),
+    mantém metadados .dist-info em Contents/Resources, ignora symlinks válidos e remove symlinks órfãos.
+    """
+    import os
+
+    dist_dir = tmp_path / "dist"
+    onedir_dir = dist_dir / "EditorAresta"
+    onedir_dir.mkdir(parents=True)
+    (onedir_dir / "EditorAresta").write_bytes(b"\xcf\xfa\xed\xfe" + b"\x00" * 20)
+
+    app_nativo = dist_dir / "EditorAresta.app"
+    macos_src = app_nativo / "Contents" / "MacOS"
+    fw_src = app_nativo / "Contents" / "Frameworks"
+    res_src = app_nativo / "Contents" / "Resources"
+    macos_src.mkdir(parents=True)
+    fw_src.mkdir(parents=True)
+    res_src.mkdir(parents=True)
+
+    exe_src = macos_src / "EditorAresta"
+    exe_src.write_bytes(b"\xcf\xfa\xed\xfe" + b"\x00" * 20)
+    exe_src.chmod(0o755)
+    (fw_src / "Python").write_bytes(b"\xcf\xfa\xed\xfe" + b"\x00" * 20)
+    (fw_src / "base_library.zip").write_bytes(b"PK\x03\x04")
+
+    dist_info_res = res_src / "keyring-25.6.0.dist-info"
+    dist_info_res.mkdir()
+    (dist_info_res / "METADATA").write_text("Name: keyring\n", encoding="utf-8")
+    migracoes_res = res_src / "migracoes"
+    migracoes_res.mkdir()
+    (migracoes_res / "m001.py").write_text("VERSAO = 1\n", encoding="utf-8")
+
+    # Caso o SO suporte symlinks sem privilégio especial, valida preservação de links válidos e poda de órfãos
+    suporta_symlink = True
+    try:
+        (macos_src / "logo.icns").symlink_to(
+            str(res_src / "logo_alvo.icns") if os.name == "nt" else "../Resources/logo_alvo.icns"
+        )
+        (res_src / "logo_alvo.icns").write_bytes(b"icns")
+        (fw_src / "pasta_link").symlink_to(
+            str(dist_info_res) if os.name == "nt" else "../Resources/keyring-25.6.0.dist-info",
+            target_is_directory=True,
+        )
+        (fw_src / "link_orfao.so").symlink_to("inexistente_absoluto.so")
+    except OSError:
+        suporta_symlink = False
+
+    destino_app = tmp_path / "saida" / "EditorAresta.app"
+    criar_estrutura_bundle_macos(
+        diretorio_origem_onedir=onedir_dir,
+        diretorio_destino_app=destino_app,
+        versao="0.6.4",
+    )
+
+    assert (destino_app / "Contents" / "Frameworks" / "Python").is_file()
+    assert (destino_app / "Contents" / "Resources" / "keyring-25.6.0.dist-info").is_dir()
+    assert (destino_app / "Contents" / "Resources" / "migracoes" / "m001.pyc").is_file()
+    assert "0.6.4" in (destino_app / "Contents" / "Info.plist").read_text(encoding="utf-8")
+
+    comandos = assinar_bundle_macos(
+        caminho_app=destino_app,
+        identidade_assinatura="Developer ID Application",
+        dry_run=True,
+    )
+    assert not any(c.endswith("logo.icns") for c in comandos)
+
+    itens_inesperados = inspecionar_itens_inesperados_macos(destino_app)
+    assert itens_inesperados == []
+
+    if suporta_symlink:
+        assert not (destino_app / "Contents" / "Frameworks" / "link_orfao.so").is_symlink()
+        assert (destino_app / "Contents" / "Frameworks" / "pasta_link").is_symlink()

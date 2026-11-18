@@ -7,6 +7,21 @@ import sys
 # Define explicitamente a API PySide6 para bibliotecas auxiliares como QtAwesome e QtPy
 os.environ.setdefault("QT_API", "pyside6")
 
+
+def configurar_streams_utf8(streams: tuple[object, ...] | None = None) -> None:
+    """
+    Garante que sys.stdout e sys.stderr utilizem UTF-8 com substituição segura ('replace'),
+    evitando UnicodeEncodeError (cp1252) em binários PyInstaller no Windows com pipes ou console=False.
+    """
+    alvos = streams if streams is not None else (sys.stdout, sys.stderr)
+    for stream in alvos:
+        reconfigurar = getattr(stream, "reconfigure", None)
+        if callable(reconfigurar):
+            reconfigurar(encoding="utf-8", errors="replace")
+
+
+configurar_streams_utf8()
+
 from pathlib import Path
 
 # Adiciona o diretório raiz do projeto ao sys.path para permitir imports do pacote 'editor'
@@ -561,6 +576,7 @@ def _instalar_condutor_smoke_test(
 
 
 def main() -> None:
+    configurar_streams_utf8()
     modo_smoke_test = "--smoke-test" in sys.argv[1:]
     argumentos_posicionais = [arg for arg in sys.argv[1:] if arg != "--smoke-test"]
 

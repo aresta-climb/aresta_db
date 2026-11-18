@@ -998,12 +998,22 @@ def test_condutor_smoke_test_em_memoria_e_validacao_dependencias_nativas(
     qtbot, tmp_path: Path, monkeypatch
 ) -> None:
     """Valida _validar_dependencias_internas_smoke e _instalar_condutor_smoke_test em processo."""
+    import io
+
     from PySide6.QtCore import QObject, Signal
 
     from editor.main import (
         _instalar_condutor_smoke_test,
         _validar_dependencias_internas_smoke,
+        configurar_streams_utf8,
     )
+
+    buf_cp1252 = io.BytesIO()
+    stream_cp1252 = io.TextIOWrapper(buf_cp1252, encoding="cp1252", errors="strict")
+    configurar_streams_utf8((stream_cp1252, object()))
+    stream_cp1252.write("💾 [Main] Salvando sessão 🚀\n")
+    stream_cp1252.flush()
+    assert "💾 [Main] Salvando sessão 🚀" in buf_cp1252.getvalue().decode("utf-8")
 
     res_deps = _validar_dependencias_internas_smoke()
     assert res_deps["status"] == "ok"
