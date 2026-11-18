@@ -38,6 +38,11 @@
   </categories>
   
   <releases>
+    <release version="0.6.6" date="2026-11-18">
+      <description>
+        <p>Corrige abertura do Editor no Windows e macOS (empacotamento PyMuPDF, lxml, sqlite3, bundle nativo macOS Contents/Frameworks e streams UTF-8 no Windows), evita processos travados em segundo plano e valida pacotes offline antes da publicacao.</p>
+      </description>
+    </release>
     <release version="0.6.5" date="2026-11-18">
       <description>
         <p>Corrige abertura do Editor no Windows e macOS (empacotamento PyMuPDF, lxml, sqlite3, bundle nativo macOS Contents/Frameworks e streams UTF-8 no Windows), evita processos travados em segundo plano e valida pacotes offline antes da publicacao.</p>
