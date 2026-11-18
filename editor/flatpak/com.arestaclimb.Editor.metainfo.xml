@@ -38,6 +38,11 @@
   </categories>
   
   <releases>
+    <release version="0.6.3" date="2026-11-18">
+      <description>
+        <p>Corrige falha de abertura no Windows e macOS ao empacotar PyMuPDF, lxml e sqlite3, evita processos travados em segundo plano e adiciona validacao pos-build automatica em todas as plataformas.</p>
+      </description>
+    </release>
     <release version="0.6.2" date="2026-11-12">
       <description>
         <p>melhorias no release</p>
