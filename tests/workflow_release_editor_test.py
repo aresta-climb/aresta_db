@@ -454,7 +454,10 @@ class TestWorkflowReleaseEditor(unittest.TestCase):
         passos = self.conteudo_yaml["jobs"]["prepare_release"]["steps"]
         comandos_run = "\n".join(str(s.get("run", "")) for s in passos)
         self.assertIn("git tag editor-v${{ steps.versao.outputs.versao }}", comandos_run)
-        self.assertIn("git push origin editor-v${{ steps.versao.outputs.versao }}", comandos_run)
+        self.assertIn(
+            "git push --atomic origin main editor-v${{ steps.versao.outputs.versao }}",
+            comandos_run,
+        )
         self.assertNotIn("gh release create", comandos_run)
         self.assertNotIn("gh release upload", comandos_run)
         self.assertNotIn("source-tarball", comandos_run)
@@ -725,7 +728,7 @@ class TestWorkflowReleaseEditor(unittest.TestCase):
         passos_prep = self.conteudo_yaml["jobs"]["prepare_release"]["steps"]
         textos_run = "\n".join(str(s.get("run", "")) for s in passos_prep)
         self.assertIn("git tag editor-v", textos_run)
-        self.assertIn("git push origin main", textos_run)
+        self.assertIn("git push --atomic origin main", textos_run)
 
         for job_so in ("build_windows", "build_macos", "build_linux"):
             needs = self.conteudo_yaml["jobs"][job_so].get("needs")

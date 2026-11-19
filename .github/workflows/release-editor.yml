@@ -187,8 +187,7 @@ jobs:
 
       - name: Push Repositório
         run: |
-          git push origin main
-          git push origin editor-v${{ steps.versao.outputs.versao }}
+          git push --atomic origin main editor-v${{ steps.versao.outputs.versao }}
 
 
   build_windows:
