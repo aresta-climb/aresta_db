@@ -2327,3 +2327,53 @@ def test_janela_principal_foco_requisitado_navega_entre_painel_e_dados(
 
     janela._on_foco_requisitado("page:painel")
     assert janela.stack.currentWidget() is janela.pagina_painel
+
+
+def test_janela_principal_close_encerra_workers_e_fatias_de_pagina_betas(
+    criar_janela, tmp_path: Path
+) -> None:
+    """
+    Garante que ao fechar a JanelaPrincipal (normal ou _forcar_fechamento), os worker threads
+    thumb_aresta e fatias pendentes do PainelCuradoria em PaginaBetas são encerrados sem vazar threads.
+    """
+
+    from PySide6.QtGui import QUndoStack
+
+    from aresta_api.proto.generated import beta_pb2, croqui_pb2
+    from coleta_de_betas.curadoria.provedor_imagem_aresta import ProvedorImagemAresta
+    from coleta_de_betas.extratores.cliente_http_fake import ClienteHttpFake
+    from editor.controllers.croqui_controller import CroquiController
+    from editor.models.croqui_model import CroquiModel
+
+    janela = criar_janela()
+    croqui = croqui_pb2.Croqui(uid="croqui_leak", nome="Croqui Leak")
+    pico = croqui.picos.add(nome="Pico 1")
+    setor = pico.setores_ou_grupos.add().setor.conteudo
+    setor.uid = "setor_1"
+    setor.nome = "Setor 1"
+    esc = setor.escaladas.add(uid="esc_1")
+    esc.via_esportiva.nome = "Via 1"
+    cur = croqui.curadoria_betas.conteudo.escaladas.add(escalada_uid="esc_1")
+    for i in range(12):
+        cand = cur.betas_nao_revisados.add()
+        cand.midia.url = f"https://www.youtube.com/watch?v=leak_{i:02d}"
+        cand.midia.titulo = f"Beta {i}"
+        cand.midia.fonte = beta_pb2.FonteMidia.YOUTUBE
+        cand.resultado_llm.llm_confidence_score = 80
+
+    model = CroquiModel(croqui)
+    ctrl = CroquiController(model, QUndoStack())
+    painel = janela.pagina_betas.garantir_painel_criado()
+    painel.provedor_imagem = ProvedorImagemAresta(
+        diretorio_cache=tmp_path / "cache_close",
+        cliente_http=ClienteHttpFake(),
+    )
+    janela.pagina_betas.carregar_betas(model=model, controller=ctrl)
+    assert painel.provedor_imagem._executor is not None
+    threads_deste_provedor = list(painel.provedor_imagem._executor._threads)
+
+    janela._forcar_fechamento = True
+    janela.close()
+
+    assert painel.provedor_imagem._executor is None
+    assert all(not t.is_alive() for t in threads_deste_provedor)

@@ -478,3 +478,48 @@ def test_painel_curadoria_hidratacao_em_fatias_na_primeira_abertura(tmp_path: Pa
     assert len(painel.cards_nao_revisados) == 30
     assert painel.hidratacao_em_andamento is False
     provedor.encerrar_workers(esperar=True)
+
+
+def test_painel_curadoria_encerrar_recursos_cancela_fatias_timers_e_worker_threads(
+    qtbot, tmp_path: Path
+) -> None:
+    """
+    Garante que encerrar_recursos() em PainelCuradoria desliga o ThreadPoolExecutor de thumbnails,
+    limpa fatias pendentes e impede callbacks tardios após destruição (evitando Segfault C++).
+    """
+
+    from PySide6.QtWidgets import QApplication
+
+    croqui = _criar_croqui_curadoria()
+    cur = croqui.curadoria_betas.conteudo.escaladas[0]
+    for i in range(15):
+        cand = cur.betas_nao_revisados.add()
+        cand.midia.url = f"https://www.youtube.com/watch?v=encerrar_{i:02d}"
+        cand.midia.titulo = f"Vídeo {i}"
+        cand.midia.fonte = beta_pb2.FonteMidia.YOUTUBE
+        cand.resultado_llm.llm_confidence_score = 70
+
+    model = CroquiModel(croqui)
+    stack = QUndoStack()
+    controller = CroquiController(model, stack)
+    provedor = ProvedorImagemAresta(
+        diretorio_cache=tmp_path / "cache_encerrar",
+        cliente_http=ClienteHttpFake(),
+    )
+
+    painel = PainelCuradoria(provedor_imagem=provedor, carregar_assincrono=True)
+    qtbot.addWidget(painel)
+    painel.carregar_dados(model, controller)
+    assert painel.hidratacao_em_andamento is True
+    assert provedor._executor is not None
+    threads_deste_provedor = list(provedor._executor._threads)
+    assert len(threads_deste_provedor) > 0
+
+    # Agenda também uma atualização pendente via mutação e encerra imediatamente antes do tick Qt
+    painel._ao_mutar_modelo()
+    painel.encerrar_recursos(esperar_workers=True)
+    QApplication.processEvents()
+
+    assert painel.hidratacao_em_andamento is False
+    assert provedor._executor is None
+    assert all(not t.is_alive() for t in threads_deste_provedor)

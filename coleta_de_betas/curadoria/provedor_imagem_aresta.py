@@ -297,7 +297,10 @@ class ProvedorImagemAresta:
 
     def _executar_worker_thumbnail(self, url_limpa: str, chave: str, fonte: int) -> None:
         imagem = self._carregar_qimage_disco_ou_rede(url_limpa, chave, fonte)
-        self._ponte_sinal.imagem_pronta.emit(chave, int(fonte), imagem)
+        with self._lock:
+            em_voo = chave in self._chaves_em_voo
+        if em_voo:
+            self._ponte_sinal.imagem_pronta.emit(chave, int(fonte), imagem)
 
     def _entregar_imagem_na_ui_thread(self, chave: str, fonte: int, imagem: QImage) -> None:
         with self._lock:

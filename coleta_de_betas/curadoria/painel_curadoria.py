@@ -481,6 +481,7 @@ class PainelCuradoria(QWidget):
         self._timer_fatia_agendado: bool = False
         self._atualizacao_pendente: bool = False
         self._agendado_timer: bool = False
+        self._encerrado: bool = False
         self.total_atualizacoes_visualizacao: int = 0
 
         layout_principal = QVBoxLayout(self)
@@ -760,10 +761,17 @@ class PainelCuradoria(QWidget):
 
     def _processar_atualizacao_pendente(self) -> None:
         self._agendado_timer = False
-        if not self._atualizacao_pendente:
+        if self._encerrado or not self._atualizacao_pendente:
             return
         self._atualizacao_pendente = False
         self.atualizar_visualizacao()
+
+    def encerrar_recursos(self, esperar_workers: bool = True) -> None:
+        """Cancela timers/fatias pendentes e encerra as worker threads de carregamento de thumbnails."""
+        self._encerrado = True
+        self._atualizacao_pendente = False
+        self._fatias_pendentes.clear()
+        self.provedor_imagem.encerrar_workers(esperar=esperar_workers)
 
     def _popular_combo_escaladas(
         self, infos_pre_extraidas: list[InfoEscaladaColeta] | None = None
@@ -857,7 +865,7 @@ class PainelCuradoria(QWidget):
 
     def _processar_proxima_fatia_cards(self) -> None:
         self._timer_fatia_agendado = False
-        if not self._fatias_pendentes:
+        if self._encerrado or not self._fatias_pendentes:
             return
         limite = (
             self.tamanho_fatia_cards

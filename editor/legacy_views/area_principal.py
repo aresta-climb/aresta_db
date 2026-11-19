@@ -272,6 +272,11 @@ class PaginaBetas(PaginaBase):
             if self.painel is not None:
                 self.painel.carregar_dados(model, controller)
 
+    def encerrar_recursos(self) -> None:
+        """Encerra workers e hidratações assíncronas do PainelCuradoria caso instanciado."""
+        if self.painel is not None and hasattr(self.painel, "encerrar_recursos"):
+            self.painel.encerrar_recursos(esperar_workers=True)
+
 
 class PaginaHistorico(PaginaBase):
     def __init__(self, parent: QWidget | None = None) -> None:
@@ -1540,13 +1545,19 @@ class JanelaPrincipal(QMainWindow):
         self.solicitar_abrir_novo.emit()
         self.close()
 
+    def _encerrar_recursos_janela(self) -> None:
+        """Encerra servidores locais e worker threads de curadoria antes da destruição da janela."""
+        self._encerrar_servidor_celular()
+        if hasattr(self, "pagina_betas") and self.pagina_betas is not None:
+            self.pagina_betas.encerrar_recursos()
+
     def closeEvent(self, event: QCloseEvent) -> None:
         """Intercepta o fechamento da janela para verificar modificações."""
         if hasattr(self, "historico") and self.historico:
             self.historico.flush_diario_pendente()
 
         if self._forcar_fechamento:
-            self._encerrar_servidor_celular()
+            self._encerrar_recursos_janela()
             if self._servidor_mcp_compartilhado and self.servidor_mcp is not None:
                 self.servidor_mcp.definir_croqui_ativo("", croqui_aberto=False)
             else:
@@ -1577,14 +1588,14 @@ class JanelaPrincipal(QMainWindow):
                 event.ignore()
             elif resposta == QMessageBox.StandardButton.Discard:
                 self._descartar_diario_pendente()
-                self._encerrar_servidor_celular()
+                self._encerrar_recursos_janela()
                 self.encerrar_servidor_mcp()
                 event.accept()
             else:
                 event.ignore()
         else:
             self._descartar_diario_pendente()
-            self._encerrar_servidor_celular()
+            self._encerrar_recursos_janela()
             self.encerrar_servidor_mcp()
             event.accept()
 
