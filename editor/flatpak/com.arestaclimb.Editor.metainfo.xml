@@ -38,6 +38,11 @@
   </categories>
   
   <releases>
+    <release version="0.6.7" date="2026-11-19">
+      <description>
+        <p>Corrige crash ao abrir o Editor pelo Menu Iniciar / MSIX no Windows sem console (ValueError no formatter do Uvicorn quando stdout/stderr sao None) e valida execucao destacada (DETACHED_PROCESS) no smoke test pos-build.</p>
+      </description>
+    </release>
     <release version="0.6.6" date="2026-11-18">
       <description>
         <p>Corrige abertura do Editor no Windows e macOS (empacotamento PyMuPDF, lxml, sqlite3, bundle nativo macOS Contents/Frameworks e streams UTF-8 no Windows), evita processos travados em segundo plano e valida pacotes offline antes da publicacao.</p>
