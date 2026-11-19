@@ -506,3 +506,29 @@ def test_ferramenta_com_executar_na_thread_qt_false_roda_fora_da_thread_principa
             assert dados["id_thread_execucao"] != id_thread_principal
     finally:
         servidor.parar()
+
+
+def test_servidor_mcp_inicia_e_responde_quando_stdout_e_stderr_sao_none(
+    qapp, tmp_path: Path, monkeypatch
+) -> None:
+    """
+    Regressão Issue #101 (ARESTA-EDITOR-1F): em executáveis GUI com console=False abertos pelo
+    Menu Iniciar do Windows (MSIX), sys.stdout e sys.stderr são None, o que não pode derrubar o Uvicorn.
+    """
+    import sys
+
+    servidor = _criar_servidor_teste(tmp_path)
+    monkeypatch.setattr(sys, "stdout", None)
+    monkeypatch.setattr(sys, "stderr", None)
+
+    sessao = servidor.iniciar()
+    try:
+        with httpx.Client(timeout=5.0) as http:
+            resp = http.post(
+                sessao.url_http,
+                json={"jsonrpc": "2.0", "id": 101, "method": "ping"},
+            )
+            assert resp.status_code == 200
+            assert resp.json() == {"jsonrpc": "2.0", "id": 101, "result": {}}
+    finally:
+        servidor.parar()

@@ -276,6 +276,32 @@ def montar_comando_execucao_smoke(
     return [*prefixo, *cmd_ajustado, *sufixo]
 
 
+def montar_kwargs_popen_smoke(
+    comando_final: list[str],
+    plataforma: str | None = None,
+) -> dict[str, Any]:
+    """
+    Monta os kwargs de subprocess.Popen para o smoke test.
+    No Windows (win32), executáveis GUI sem console (EditorAresta.exe / pythonw.exe) são iniciados
+    com DETACHED_PROCESS sem pipes de stdout/stderr para reproduzir fielmente a abertura pelo
+    Menu Iniciar / MSIX (onde sys.stdout e sys.stderr nascem como None).
+    """
+    plat = plataforma or sys.platform
+    eh_gui_win = plat.startswith("win") and Path(comando_final[0]).name.lower() in {
+        "editoraresta.exe",
+        "pythonw.exe",
+    }
+    if eh_gui_win:
+        return {"creationflags": getattr(subprocess, "DETACHED_PROCESS", 0x00000008)}
+    return {
+        "stdout": subprocess.PIPE,
+        "stderr": subprocess.PIPE,
+        "text": True,
+        "encoding": "utf-8",
+        "errors": "replace",
+    }
+
+
 @dataclass(frozen=True)
 class AmbienteSmokeTest:
     """Caminhos temporários isolados preparados para uma execução de smoke test."""
@@ -415,15 +441,12 @@ def executar_smoke_test_pacote(
             proc = subprocess.Popen(
                 cmd_final,
                 env=env,
-                stdout=subprocess.PIPE,
-                stderr=subprocess.PIPE,
-                text=True,
-                encoding="utf-8",
-                errors="replace",
+                **montar_kwargs_popen_smoke(cmd_final),
             )
 
             prazo = time.monotonic() + timeout_segundos
             arq_sessao_mcp = amb.diretorio_dados / "mcp_sessao.json"
+            arq_erro_smoke = amb.diretorio_dados / ".smoke_test_erro.log"
 
             try:
                 while not arq_sessao_mcp.is_file():
@@ -431,8 +454,13 @@ def executar_smoke_test_pacote(
                         if proc.poll() is None:
                             proc.kill()
                         out, err = proc.communicate(timeout=5.0)
+                        log_arq = (
+                            arq_erro_smoke.read_text(encoding="utf-8", errors="replace")
+                            if arq_erro_smoke.is_file()
+                            else ""
+                        )
                         raise ErroSmokeTestPacote(
-                            f"Falha aguardando ServidorMCP (código={proc.returncode}).\nSTDOUT:\n{out}\nSTDERR:\n{err}"
+                            f"Falha aguardando ServidorMCP (código={proc.returncode}).\nSTDOUT:\n{out}\nSTDERR:\n{err}\nLOG:\n{log_arq}"
                         )
                     time.sleep(0.05)
 

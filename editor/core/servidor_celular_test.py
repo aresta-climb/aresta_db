@@ -488,3 +488,32 @@ def test_iniciar_parar_idempotentes_e_notificacao_remota(tmp_path, qtbot):
         servidor.parar()
         if servidor._thread_servidor and servidor._thread_servidor.is_alive():
             servidor._thread_servidor.join(timeout=3.0)
+
+
+def test_servidor_celular_inicia_e_serve_arquivos_quando_stdout_e_stderr_sao_none(
+    tmp_path: Path, monkeypatch
+) -> None:
+    """
+    Regressão Issue #101: quando sys.stdout e sys.stderr são None (GUI console=False no Windows),
+    o ServidorCelular deve iniciar o Uvicorn normalmente sem falhar em formatter 'default'.
+    """
+    import sys
+
+    pasta_compilado = tmp_path / "compilado_gui"
+    pasta_compilado.mkdir()
+    (pasta_compilado / "index.json").write_text('{"gui": true}', encoding="utf-8")
+
+    monkeypatch.setattr(sys, "stdout", None)
+    monkeypatch.setattr(sys, "stderr", None)
+
+    servidor = ServidorCelular(pasta_compilado=pasta_compilado)
+    servidor.iniciar()
+    try:
+        esperar_porta(servidor, timeout=3.0)
+        resp = requests.get(f"http://127.0.0.1:{servidor.porta}/index.json", timeout=3.0)
+        assert resp.status_code == 200
+        assert resp.json() == {"gui": True}
+    finally:
+        servidor.parar()
+        if servidor._thread_servidor and servidor._thread_servidor.is_alive():
+            servidor._thread_servidor.join(timeout=3.0)

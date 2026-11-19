@@ -1015,6 +1015,25 @@ def test_condutor_smoke_test_em_memoria_e_validacao_dependencias_nativas(
     stream_cp1252.flush()
     assert "💾 [Main] Salvando sessão 🚀" in buf_cp1252.getvalue().decode("utf-8")
 
+    import sys as _sys
+
+    stdout_orig, stderr_orig = _sys.stdout, _sys.stderr
+    try:
+        _sys.stdout = None  # type: ignore[assignment]
+        _sys.stderr = None  # type: ignore[assignment]
+        configurar_streams_utf8()
+        assert _sys.stdout is not None and _sys.stderr is not None
+        assert isinstance(_sys.stderr.isatty(), bool)
+        print("💾 [Main] GUI sem console ok!")
+        print("🚨 [Main] Stderr GUI sem console ok!", file=_sys.stderr)
+    finally:
+        if _sys.stdout is not stdout_orig and _sys.stdout is not None:
+            _sys.stdout.close()
+        if _sys.stderr is not stderr_orig and _sys.stderr is not None:
+            _sys.stderr.close()
+        _sys.stdout = stdout_orig
+        _sys.stderr = stderr_orig
+
     res_deps = _validar_dependencias_internas_smoke()
     assert res_deps["status"] == "ok"
     assert "lxml" in res_deps["modulos_verificados"]

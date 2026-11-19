@@ -309,3 +309,22 @@ def test_smoke_test_pacote_isola_pyside6_no_host_e_reconfigura_utf8_cli(tmp_path
         check=False,
     )
     assert res.returncode == 0, res.stderr
+
+    from editor.release_tools.smoke_test_pacote import (
+        executar_smoke_test_pacote,
+        montar_kwargs_popen_smoke,
+    )
+
+    kw_win = montar_kwargs_popen_smoke(["C:\\dist\\EditorAresta.exe", "--smoke-test"], "win32")
+    assert "creationflags" in kw_win and "stdout" not in kw_win
+    kw_linux = montar_kwargs_popen_smoke(["/app/bin/EditorAresta", "--smoke-test"], "linux")
+    assert kw_linux["stdout"] == subprocess.PIPE
+
+    pythonw = Path(sys.executable).with_name("pythonw.exe")
+    if sys.platform.startswith("win") and pythonw.is_file():
+        relatorio_gui = executar_smoke_test_pacote(
+            [str(pythonw), "-m", "editor.main"],
+            diretorio_trabalho=tmp_path / "smoke_pythonw_detached",
+            timeout_segundos=45.0,
+        )
+        assert relatorio_gui["status"] == "ok"

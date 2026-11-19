@@ -10,10 +10,20 @@ os.environ.setdefault("QT_API", "pyside6")
 
 def configurar_streams_utf8(streams: tuple[object, ...] | None = None) -> None:
     """
-    Garante que sys.stdout e sys.stderr utilizem UTF-8 com substituição segura ('replace'),
-    evitando UnicodeEncodeError (cp1252) em binários PyInstaller no Windows com pipes ou console=False.
+    Garante que sys.stdout e sys.stderr nunca sejam None (como ocorre em executáveis GUI com
+    console=False abertos pelo Menu Iniciar / MSIX no Windows) e utilizem UTF-8 com substituição
+    segura ('replace'), evitando AttributeError ('NoneType' has no attribute 'isatty' no Uvicorn)
+    e UnicodeEncodeError (cp1252).
     """
-    alvos = streams if streams is not None else (sys.stdout, sys.stderr)
+    if streams is None:
+        if sys.stdout is None:
+            sys.stdout = open(os.devnull, "w", encoding="utf-8", errors="replace")
+        if sys.stderr is None:
+            sys.stderr = open(os.devnull, "w", encoding="utf-8", errors="replace")
+        alvos: tuple[object, ...] = (sys.stdout, sys.stderr)
+    else:
+        alvos = streams
+
     for stream in alvos:
         reconfigurar = getattr(stream, "reconfigure", None)
         if callable(reconfigurar):
@@ -419,6 +429,9 @@ class ControladorAplicativo:
             self.abertura.hide()
         if self._modo_smoke_test:
             print(f"🚨 [SmokeTest] {mensagem}", file=sys.stderr)
+            dir_env = os.environ.get("ARESTA_DIRETORIO_DADOS", "").strip()
+            if dir_env:
+                (Path(dir_env) / ".smoke_test_erro.log").write_text(mensagem, encoding="utf-8")
             if self.abertura:
                 self.abertura.close()
             self.encerrar_servidores_locais()

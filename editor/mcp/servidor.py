@@ -496,6 +496,7 @@ class ServidorMCP:
             host="127.0.0.1",
             port=porta,
             log_level="error",
+            log_config=None,
             ws="none",
         )
         self._server = uvicorn.Server(config)

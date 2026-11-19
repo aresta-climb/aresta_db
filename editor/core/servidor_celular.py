@@ -201,6 +201,7 @@ class ServidorCelular(QObject):
                     host="0.0.0.0",
                     port=self.porta,
                     log_level="warning",
+                    log_config=None,
                     ws="none",
                 )
 
