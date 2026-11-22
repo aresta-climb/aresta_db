@@ -38,6 +38,11 @@
   </categories>
   
   <releases>
+    <release version="0.6.9" date="2026-11-22">
+      <description>
+        <p>Deserialização 100% lazy no diário de histórico, correção de formulários órfãos na árvore, sincronização segura de PRs, extração de frontmatter YAML resiliente e blindagem ampliada do Robô Caótico.</p>
+      </description>
+    </release>
     <release version="0.6.8" date="2026-11-19">
       <description>
         <p>Corrige crash ao abrir o Editor pelo Menu Iniciar / MSIX no Windows sem console (ValueError no formatter do Uvicorn quando stdout/stderr sao None) e valida execucao destacada (DETACHED_PROCESS) no smoke test pos-build.</p>
