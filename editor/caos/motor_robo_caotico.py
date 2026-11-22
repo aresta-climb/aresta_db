@@ -10,7 +10,7 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
-from PySide6.QtCore import QModelIndex, QPoint, Qt, QTimer
+from PySide6.QtCore import QCoreApplication, QEvent, QModelIndex, QPoint, Qt, QTimer
 from PySide6.QtTest import QTest
 from PySide6.QtWidgets import (
     QApplication,
@@ -947,8 +947,11 @@ class MotorRoboCaoticoQt:
                 if hasattr(self.controlador_app.abertura, "_timer_reenvio"):
                     self.controlador_app.abertura._timer_reenvio.stop()
                 self.controlador_app.abertura.close()
+                self.controlador_app.abertura.deleteLater()
             self.controlador_app = None
         _bombear_eventos_qt(3)
+        QCoreApplication.sendPostedEvents(None, int(QEvent.Type.DeferredDelete))
+        _bombear_eventos_qt(1)
 
     def executar_sessao(self) -> ResultadoSessaoCaos:
         """Executa uma sessão exploratória completa respeitando o bloqueio de rede e os 3 oráculos."""

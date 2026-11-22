@@ -1011,7 +1011,7 @@ class JanelaPrincipal(QMainWindow):
         dialogo = DialogoRecuperacaoSessao(total_acoes=total_acoes, parent=self)
         return bool(dialogo.exec() == QDialog.DialogCode.Accepted)
 
-    def carregar_croqui(self) -> None:
+    def carregar_croqui(self, sincronizar_remoto: bool = True) -> None:
         """Carrega os dados do croqui a partir do sistema de arquivos."""
         if not self.workspace:
             return
@@ -1109,7 +1109,8 @@ class JanelaPrincipal(QMainWindow):
 
                 self.atualizar_titulo()
                 self.atualizar_estado_sincronizacao()
-                self.sincronizar_croqui(silencioso=True)
+                if sincronizar_remoto:
+                    self.sincronizar_croqui(silencioso=True)
 
     def salvar_croqui(self, callback_sucesso: Callable[[], None] | None = None) -> None:
         """Salva as alterações, compila e faz commit no git local se aplicável."""
@@ -1168,6 +1169,7 @@ class JanelaPrincipal(QMainWindow):
                 partes = nome_raiz.split("_", 1)
                 id_atual = partes[1] if len(partes) > 1 and partes[0].isdigit() else nome_raiz
 
+            self.historico.flush_diario_pendente()
             undo_index = self.historico.obter_pilha().index()
 
             import copy
@@ -1271,8 +1273,7 @@ class JanelaPrincipal(QMainWindow):
         if self.label_status_salvamento:
             self.label_status_salvamento.hide()
 
-        if self.historico.obter_pilha().index() == undo_index:
-            self.historico.obter_pilha().setClean()
+        self.historico.registrar_salvamento_concluido(undo_index)
 
         if erros:
             self.compilacao_controller.processar_resultado(erros)
@@ -1446,9 +1447,20 @@ class JanelaPrincipal(QMainWindow):
         )
         self._tarefa_sincronizacao.start()
 
+    def _recarregar_apos_sincronizacao_externa(self) -> None:
+        """Invalida os diários obsoletos e recarrega o croqui completo após merge ou conflito remoto."""
+        if self.workspace and hasattr(self.workspace, "obter_diario"):
+            from editor.core.diario import GerenciadorDiario
+
+            diario = self.workspace.obter_diario()
+            if isinstance(diario, GerenciadorDiario):
+                diario.invalidar_historico_completo()
+        self.historico.limpar()
+        self.carregar_croqui(sincronizar_remoto=False)
+
     def _on_sincronizacao_sucesso(self, resultado: Any, silencioso: bool) -> None:
         """Callback executado quando novos commits remotos são mesclados com sucesso."""
-        self._recarregar_dados_apos_salvamento()
+        self._recarregar_apos_sincronizacao_externa()
         if not silencioso:
             from PySide6.QtWidgets import QMessageBox
 
@@ -1510,7 +1522,7 @@ class JanelaPrincipal(QMainWindow):
                     manter_local=manter_local,
                     sessao=sessao,
                 )
-                self._recarregar_dados_apos_salvamento()
+                self._recarregar_apos_sincronizacao_externa()
                 from PySide6.QtWidgets import QMessageBox
 
                 QMessageBox.information(

@@ -1972,3 +1972,47 @@ def test_croqui_model_carrega_e_extrai_malha_estrada_yaml(tmp_path):
     dados_limpo = model_recarregado.extrair_arquivos_e_serializar(db_path)
     assert "malha_estrada" not in dados_limpo["picos"][0]
     assert not arquivo_malha.exists()
+
+
+def test_croqui_model_carrega_frontmatter_com_tres_hifens_embutidos_em_strings_yaml(tmp_path):
+    """
+    Garante que carregar_arquivos_externos não corta o frontmatter YAML na metade quando
+    algum campo textual contém '---' (ex: 'Trecho A --- Trecho B'), preservando todas as escaladas.
+    """
+    from aresta_api.proto.generated.croqui_pb2 import Croqui
+
+    db_path = tmp_path / "database_frontmatter_hifens"
+    db_path.mkdir()
+
+    conteudo_setor = (
+        "---\r\n"
+        'nome: "Setor --- Com Três Hífens"\r\n'
+        "escaladas:\r\n"
+        "  - via_esportiva:\r\n"
+        '      nome: "Via --- Crucial"\r\n'
+        "---\r\n"
+        "Descrição em markdown --- com travessão triplo."
+    )
+    (db_path / "setor_hifens.md").write_bytes(conteudo_setor.encode("utf-8"))
+
+    conteudo_acesso = (
+        '---\r\nnota: "Metadado --- interno"\r\n---\r\nTrilha principal --- seguir placas.'
+    )
+    (db_path / "acesso_hifens.md").write_bytes(conteudo_acesso.encode("utf-8"))
+
+    croqui = Croqui(id="br_mg_hifens", nome="Croqui Hífens")
+    botao = croqui.botoes.add()
+    botao.destino.secao_textual.caminho = "acesso_hifens.md"
+    pico = croqui.picos.add(nome="Pico Hífens")
+    sg = pico.setores_ou_grupos.add()
+    sg.setor.caminho = "setor_hifens.md"
+
+    model = CroquiModel(croqui)
+    model.carregar_arquivos_externos(db_path)
+
+    setor = croqui.picos[0].setores_ou_grupos[0].setor.conteudo
+    assert setor.nome == "Setor --- Com Três Hífens"
+    assert len(setor.escaladas) == 1
+    assert setor.escaladas[0].via_esportiva.nome == "Via --- Crucial"
+    assert setor.descricao == "Descrição em markdown --- com travessão triplo."
+    assert croqui.botoes[0].destino.secao_textual.conteudo == "Trilha principal --- seguir placas."

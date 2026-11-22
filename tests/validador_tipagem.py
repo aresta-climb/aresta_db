@@ -4,6 +4,7 @@
 import ast
 import os
 import sys
+import tempfile
 from collections.abc import Sequence
 
 from mypy import api
@@ -20,20 +21,55 @@ def executar_verificacao_mypy(
     """
     argumentos: list[str] = list(caminhos)
     sys_path_original = list(sys.path)
+    cwd_original = os.getcwd()
+    pythonpath_original = os.environ.get("PYTHONPATH")
+    mypypath_original = os.environ.get("MYPYPATH")
+    worker_xdist = os.environ.get("PYTEST_XDIST_WORKER", "").strip()
+    pasta_cache_temp: tempfile.TemporaryDirectory[str] | None = None
     try:
         if config_path and os.path.exists(config_path):
+            raiz_config = os.path.abspath(os.path.dirname(config_path))
+            os.chdir(raiz_config)
+            if worker_xdist:
+                cache_dir = os.path.join(raiz_config, ".mypy_cache", f"xdist_{worker_xdist}")
+                argumentos.insert(0, f"--cache-dir={cache_dir}")
             argumentos.insert(0, f"--config-file={config_path}")
-            caminho_aresta_api = os.path.normcase(
-                os.path.abspath(os.path.join(os.path.dirname(config_path), "aresta_api"))
-            )
+            prefixo_aresta_api = os.path.normcase(os.path.join(raiz_config, "aresta_api"))
             sys.path[:] = [
-                p for p in sys.path if os.path.normcase(os.path.abspath(p)) != caminho_aresta_api
+                p
+                for p in sys.path
+                if not os.path.normcase(os.path.abspath(p)).startswith(prefixo_aresta_api)
             ]
+            for var_env in ("PYTHONPATH", "MYPYPATH"):
+                val_atual = os.environ.get(var_env)
+                if val_atual:
+                    partes_limpas = [
+                        p
+                        for p in val_atual.split(os.pathsep)
+                        if p
+                        and not os.path.normcase(os.path.abspath(p)).startswith(prefixo_aresta_api)
+                    ]
+                    os.environ[var_env] = os.pathsep.join(partes_limpas)
+        else:
+            pasta_cache_temp = tempfile.TemporaryDirectory()
+            argumentos.insert(0, f"--cache-dir={pasta_cache_temp.name}")
 
         stdout, stderr, codigo_saida = api.run(argumentos)
         return codigo_saida, stdout, stderr
     finally:
         sys.path[:] = sys_path_original
+        if pythonpath_original is None:
+            os.environ.pop("PYTHONPATH", None)
+        else:
+            os.environ["PYTHONPATH"] = pythonpath_original
+        if mypypath_original is None:
+            os.environ.pop("MYPYPATH", None)
+        else:
+            os.environ["MYPYPATH"] = mypypath_original
+        if os.path.isdir(cwd_original):
+            os.chdir(cwd_original)
+        if pasta_cache_temp is not None:
+            pasta_cache_temp.cleanup()
 
 
 def verificar_anotacoes_ast(codigo_fonte: str) -> list[str]:

@@ -1076,3 +1076,63 @@ class TestGerenciadorHistorico(unittest.TestCase):
                 self.assertEqual(registros_erro, [])
             finally:
                 logger_app.removeHandler(capturador)
+
+    def test_carregar_diario_salvo_desfazer_abaixo_do_salvo_ramificar_restaurar_e_consolidar(
+        self,
+    ):
+        """
+        Valida o ciclo completo quando o usuário desfaz abaixo do índice salvo (diario_salvo.bin),
+        cria um novo ramo de edições, recupera a sessão via restaurar_do_diario e consolida o salvamento.
+        """
+        with tempfile.TemporaryDirectory() as temp_dir:
+            pasta_croqui = Path(temp_dir)
+            diario = GerenciadorDiario(pasta_croqui)
+
+            # Sessão 1: salva 2 comandos ("Inicial" -> "Passo 1" -> "Passo 2")
+            croqui_s1 = Croqui(nome="Inicial")
+            model_s1 = CroquiModel(croqui_s1)
+            hist_s1 = GerenciadorHistorico(diario=diario)
+            hist_s1.intervalo_debounce_ms = 0
+            hist_s1.executar(CmdAlterarCampo(model_s1, croqui_s1, "nome", "Passo 1"))
+            hist_s1.executar(CmdAlterarCampo(model_s1, croqui_s1, "nome", "Passo 2"))
+            diario.consolidar_salvamento()
+            hist_s1.registrar_salvamento_concluido(hist_s1.obter_pilha().index())
+            self.assertTrue(hist_s1.obter_pilha().isClean())
+
+            # Sessão 2: carrega os 2 salvos, desfaz 1 passo abaixo do salvo e cria novo ramo
+            croqui_s2 = Croqui(nome="Passo 2")
+            model_s2 = CroquiModel(croqui_s2)
+            hist_s2 = GerenciadorHistorico()
+            hist_s2.intervalo_debounce_ms = 0
+            self.assertEqual(hist_s2.carregar_diario_salvo(model_s2, diario), 2)
+            hist_s2.definir_gerenciador_diario(diario)
+
+            hist_s2.desfazer()
+            self.assertEqual(croqui_s2.nome, "Passo 1")
+            hist_s2.executar(CmdAlterarCampo(model_s2, croqui_s2, "nome", "Ramo Novo"))
+            self.assertEqual(croqui_s2.nome, "Ramo Novo")
+
+            # Sessão 3 (crash recovery antes de salvar): disco ainda tem "Passo 2" + diario_salvo + diario_pendente
+            croqui_s3 = Croqui(nome="Passo 2")
+            model_s3 = CroquiModel(croqui_s3)
+            hist_s3 = GerenciadorHistorico()
+            hist_s3.intervalo_debounce_ms = 0
+            self.assertEqual(hist_s3.carregar_diario_salvo(model_s3, diario), 2)
+            self.assertEqual(hist_s3.restaurar_do_diario(model_s3, diario), 1)
+            self.assertEqual(croqui_s3.nome, "Ramo Novo")
+
+            # A pilha recuperada deve desfazer exatamente "Ramo Novo" -> "Passo 1" -> "Inicial"
+            hist_s3.desfazer()
+            self.assertEqual(croqui_s3.nome, "Passo 1")
+            hist_s3.desfazer()
+            self.assertEqual(croqui_s3.nome, "Inicial")
+            hist_s3.refazer()
+            hist_s3.refazer()
+            self.assertEqual(croqui_s3.nome, "Ramo Novo")
+
+            # Consolidando o salvamento na Sessão 3, diario_salvo passa a conter [Passo 1, Ramo Novo]
+            diario.consolidar_salvamento()
+            hist_s3.registrar_salvamento_concluido(hist_s3.obter_pilha().index())
+            self.assertTrue(hist_s3.obter_pilha().isClean())
+            salvos_finais = diario.ler_diario_salvo()
+            self.assertEqual([c["valor_novo"] for c in salvos_finais], ["Passo 1", "Ramo Novo"])

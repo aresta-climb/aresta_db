@@ -350,43 +350,49 @@ class CroquiModel(QObject):
         if not caminho_db.exists():
             return
 
+        import re
+
+        _padrao_frontmatter = re.compile(
+            r"^---([ \t]*\r?\n(?:.*?\r?\n)?)---([ \t]*(?:\r?\n.*)?)$",
+            re.DOTALL,
+        )
+
         def _ler_objeto_com_frontmatter(
             caminho_arquivo: Any, message_ref: Any, ext_descriptor: Any
         ) -> dict[str, Any]:
             with open(caminho_arquivo, encoding="utf-8") as f:
                 content = f.read()
-            if content.startswith("---"):
-                parts = content.split("---", 2)
-                if len(parts) >= 3:
-                    frontmatter_str = parts[1]
-                    body_str = parts[2]
-                    # Se o frontmatter terminava logo na linha anterior, e o markdown começou logo depois
-                    # do "---", parts[2] começará com "\n". Removemos apenas esse \n e preservamos o resto.
-                    if body_str.startswith("\n"):
-                        body_str = body_str[1:]
+            match_fm = _padrao_frontmatter.match(content)
+            if match_fm:
+                frontmatter_str = match_fm.group(1)
+                body_str = match_fm.group(2)
+                if body_str.startswith("\r\n"):
+                    body_str = body_str[2:]
+                elif body_str.startswith("\n"):
+                    body_str = body_str[1:]
 
-                    try:
-                        dados = carregar_yaml(frontmatter_str) or {}
-                    except Exception:
-                        dados = {}
-                    # Configura a extensão se não existir e salva os metadados
-                    if not message_ref.HasExtension(ext_descriptor):
-                        message_ref.Extensions[ext_descriptor].caminho_original = ""
+                try:
+                    dados = carregar_yaml(frontmatter_str) or {}
+                except Exception:
+                    dados = {}
+                # Configura a extensão se não existir e salva os metadados
+                if not message_ref.HasExtension(ext_descriptor):
+                    message_ref.Extensions[ext_descriptor].caminho_original = ""
 
-                    import copy
-                    import json
+                import copy
+                import json
 
-                    from scripts.deploy_generated import registrar_snapshot_disco_arquivo
+                from scripts.deploy_generated import registrar_snapshot_disco_arquivo
 
-                    json_str = json.dumps(dados, ensure_ascii=False)
-                    message_ref.Extensions[ext_descriptor].dados_json_originais = json_str
-                    if isinstance(dados, dict):
-                        self._cache_json_original[json_str] = copy.deepcopy(dados)
-                        registrar_snapshot_disco_arquivo(caminho_arquivo, dados, body_str)
+                json_str = json.dumps(dados, ensure_ascii=False)
+                message_ref.Extensions[ext_descriptor].dados_json_originais = json_str
+                if isinstance(dados, dict):
+                    self._cache_json_original[json_str] = copy.deepcopy(dados)
+                    registrar_snapshot_disco_arquivo(caminho_arquivo, dados, body_str)
 
-                    if body_str:
-                        dados["descricao"] = body_str
-                    return dados if isinstance(dados, dict) else {}
+                if body_str:
+                    dados["descricao"] = body_str
+                return dados if isinstance(dados, dict) else {}
             try:
                 carregado = carregar_yaml(content) or {}
                 return carregado if isinstance(carregado, dict) else {}
@@ -505,13 +511,14 @@ class CroquiModel(QObject):
 
                             frontmatter_bloco = ""
                             corpo_md = conteudo_md
-                            if conteudo_md.startswith("---"):
-                                parts = conteudo_md.split("---", 2)
-                                if len(parts) >= 3:
-                                    frontmatter_bloco = f"---{parts[1]}---\n"
-                                    corpo_md = parts[2]
-                                    if corpo_md.startswith("\n"):
-                                        corpo_md = corpo_md[1:]
+                            match_md = _padrao_frontmatter.match(conteudo_md)
+                            if match_md:
+                                frontmatter_bloco = f"---{match_md.group(1)}---\n"
+                                corpo_md = match_md.group(2)
+                                if corpo_md.startswith("\r\n"):
+                                    corpo_md = corpo_md[2:]
+                                elif corpo_md.startswith("\n"):
+                                    corpo_md = corpo_md[1:]
 
                             md.conteudo = corpo_md
                             from aresta_api.proto.generated.croqui_pb2 import ArquivoMarkdown

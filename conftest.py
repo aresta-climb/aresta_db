@@ -5,6 +5,7 @@ import ctypes
 import os
 import sys
 import warnings
+from pathlib import Path
 from typing import Any
 from unittest.mock import MagicMock
 
@@ -44,11 +45,12 @@ def limpar_janelas_qt_ativas() -> None:
             app.closeAllWindows()
             QCoreApplication.sendPostedEvents(None, int(QEvent.Type.DeferredDelete))
             app.processEvents()
-            sonda = QEventLoop()
-            QTimer.singleShot(0, sonda.quit)
-            if sonda.exec() == -1:
-                QTimer.singleShot(0, app.quit)
-                app.exec()
+            if type(app) is QApplication:
+                sonda = QEventLoop()
+                QTimer.singleShot(0, sonda.quit)
+                if sonda.exec() == -1:
+                    QTimer.singleShot(0, app.quit)
+                    app.exec()
     except Exception:
         pass
 
@@ -71,10 +73,15 @@ def _isolar_ambiente_sessao_e_dados(
     keyring.set_keyring(cofre_isolado)
     diretorio_dados = tmp_path / "aresta_dados_isolados"
     monkeypatch.setenv("ARESTA_DIRETORIO_DADOS", str(diretorio_dados))
+    sys_path_anterior = list(sys.path)
+    cwd_anterior = Path.cwd()
     try:
         yield cofre_isolado
     finally:
         keyring.set_keyring(backend_anterior)
+        sys.path[:] = sys_path_anterior
+        if cwd_anterior.is_dir():
+            os.chdir(cwd_anterior)
 
 
 @pytest.fixture(autouse=True)
@@ -119,28 +126,12 @@ def pytest_sessionfinish(session: Any, exitstatus: int) -> None:
 
     try:
         from PySide6.QtCore import QThreadPool
-        from PySide6.QtWidgets import QApplication
 
-        app = QApplication.instance()
-        if isinstance(app, QApplication):
-            app.closeAllWindows()
-            app.processEvents()
+        limpar_janelas_qt_ativas()
 
         pool = QThreadPool.globalInstance()
         if pool is not None:
             pool.waitForDone(1000)
-
-        if isinstance(app, QApplication) and not (
-            os.environ.get("CI")
-            or os.environ.get("ARESTA_FAST_EXIT")
-            or os.environ.get("PYTEST_XDIST_WORKER")
-        ):
-            try:
-                import shiboken6
-
-                shiboken6.delete(app)
-            except Exception:
-                pass
     except Exception:
         pass
 
@@ -150,6 +141,8 @@ def pytest_unconfigure(config: Any) -> None:
     No ambiente de CI ou sob a flag ARESTA_FAST_EXIT, encerra o processo de forma atômica
     no nível de kernel (TerminateProcess no Windows / os._exit). Isso evita que o descarregamento
     de DLLs C++ (pyside6.abi3.dll) no DLL_PROCESS_DETACH do Windows dispare Access Violation (0xC0000005).
+    Em execuções locais sem xdist, destrói ordenadamente widgets órfãos e a QApplication após todos os
+    plugins (pytest-qt, pytest-cov) concluírem seus relatórios.
     """
     if os.environ.get("CI") or os.environ.get("ARESTA_FAST_EXIT"):
         try:
@@ -181,5 +174,28 @@ def pytest_unconfigure(config: Any) -> None:
                 kernel32.TerminateProcess(kernel32.GetCurrentProcess(), status)
             except Exception:
                 pass
-
         os._exit(status)
+
+    if not os.environ.get("PYTEST_XDIST_WORKER") and isinstance(
+        getattr(config, "_aresta_exitstatus", None), int
+    ):
+        try:
+            import gc
+
+            import shiboken6
+            from PySide6.QtCore import QCoreApplication, QEvent
+            from PySide6.QtWidgets import QApplication
+
+            limpar_janelas_qt_ativas()
+            gc.collect()
+            app = QApplication.instance()
+            if isinstance(app, QApplication):
+                for widget_restante in list(app.topLevelWidgets()):
+                    if shiboken6.isValid(widget_restante):
+                        shiboken6.delete(widget_restante)
+                QCoreApplication.sendPostedEvents(None, int(QEvent.Type.DeferredDelete))
+                app.processEvents()
+                gc.collect()
+                shiboken6.delete(app)
+        except Exception:
+            pass

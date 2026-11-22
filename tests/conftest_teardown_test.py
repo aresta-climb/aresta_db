@@ -14,15 +14,19 @@ if not hasattr(ctypes, "windll"):
 
 
 class TestConftestTeardown(unittest.TestCase):
-    def test_pytest_sessionfinish_executa_limpeza_qapplication_quando_existir(self) -> None:
+    def test_pytest_sessionfinish_executa_limpeza_janelas_e_pool_e_unconfigure_deleta_app(
+        self,
+    ) -> None:
         """
-        Valida que o teardown do pytest encerra janelas ativas e processa eventos pendentes
-        da QApplication antes da finalização do CPython, prevenindo falhas de Access Violation no Windows.
+        Valida que pytest_sessionfinish encerra janelas ativas e aguarda o QThreadPool sem destruir
+        prematuramente a QApplication antes dos plugins (pytest-cov/pytest-qt), e pytest_unconfigure
+        executa a destruição ordenada via shiboken6.delete ao final da sessão local.
         """
         from PySide6.QtCore import QThreadPool
         from PySide6.QtWidgets import QApplication
 
         mock_app = MagicMock(spec=QApplication)
+        mock_app.topLevelWidgets.return_value = []
         mock_pool = MagicMock(spec=QThreadPool)
         mock_session = MagicMock()
         mock_config = MagicMock()
@@ -42,8 +46,11 @@ class TestConftestTeardown(unittest.TestCase):
             mock_app.closeAllWindows.assert_called_once()
             mock_app.processEvents.assert_called_once()
             mock_pool.waitForDone.assert_called_once_with(1000)
-            mock_shiboken_delete.assert_called_once_with(mock_app)
+            mock_shiboken_delete.assert_not_called()
             self.assertEqual(getattr(mock_config, "_aresta_exitstatus", None), 0)
+
+            conftest.pytest_unconfigure(mock_config)
+            mock_shiboken_delete.assert_called_once_with(mock_app)
 
     def test_pytest_sessionfinish_nao_deleta_qapplication_em_ambiente_ci(self) -> None:
         """Valida que no ambiente CI o shiboken6.delete não é chamado para evitar conflito com fast exit."""
@@ -51,6 +58,7 @@ class TestConftestTeardown(unittest.TestCase):
         from PySide6.QtWidgets import QApplication
 
         mock_app = MagicMock(spec=QApplication)
+        mock_app.topLevelWidgets.return_value = []
         mock_pool = MagicMock(spec=QThreadPool)
         mock_session = MagicMock()
 
@@ -72,6 +80,7 @@ class TestConftestTeardown(unittest.TestCase):
         from PySide6.QtWidgets import QApplication
 
         mock_app = MagicMock(spec=QApplication)
+        mock_app.topLevelWidgets.return_value = []
         mock_pool = MagicMock(spec=QThreadPool)
         mock_session = MagicMock()
 
@@ -87,14 +96,17 @@ class TestConftestTeardown(unittest.TestCase):
             mock_pool.waitForDone.assert_called_once_with(1000)
             mock_shiboken_delete.assert_not_called()
 
-    def test_pytest_sessionfinish_nao_deleta_qapplication_sob_worker_xdist(self) -> None:
+    def test_pytest_unconfigure_nao_deleta_qapplication_sob_worker_xdist(self) -> None:
         """Valida que sob workers do pytest-xdist o shiboken6.delete não é chamado para evitar crash no execnet."""
         from PySide6.QtCore import QThreadPool
         from PySide6.QtWidgets import QApplication
 
         mock_app = MagicMock(spec=QApplication)
+        mock_app.topLevelWidgets.return_value = []
         mock_pool = MagicMock(spec=QThreadPool)
         mock_session = MagicMock()
+        mock_config = MagicMock()
+        mock_session.config = mock_config
 
         with (
             patch.dict(
@@ -110,27 +122,29 @@ class TestConftestTeardown(unittest.TestCase):
             mock_app.closeAllWindows.assert_called_once()
             mock_app.processEvents.assert_called_once()
             mock_pool.waitForDone.assert_called_once_with(1000)
+            conftest.pytest_unconfigure(mock_config)
             mock_shiboken_delete.assert_not_called()
 
-    def test_pytest_sessionfinish_trata_excecao_no_shiboken_delete(self) -> None:
-        """Valida que falha no shiboken6.delete é tratada graciosamente sem propagar exceção."""
-        from PySide6.QtCore import QThreadPool
+    def test_pytest_unconfigure_trata_excecao_no_shiboken_delete(self) -> None:
+        """Valida que falha no shiboken6.delete durante unconfigure é tratada graciosamente sem propagar exceção."""
         from PySide6.QtWidgets import QApplication
 
         mock_app = MagicMock(spec=QApplication)
-        mock_pool = MagicMock(spec=QThreadPool)
-        mock_session = MagicMock()
+        mock_app.topLevelWidgets.return_value = []
+        mock_config = MagicMock()
+        mock_config._aresta_exitstatus = 0
 
         with (
-            patch.dict(os.environ, {"CI": "", "ARESTA_FAST_EXIT": ""}, clear=False),
+            patch.dict(
+                os.environ,
+                {"CI": "", "ARESTA_FAST_EXIT": "", "PYTEST_XDIST_WORKER": ""},
+                clear=False,
+            ),
             patch("PySide6.QtWidgets.QApplication.instance", return_value=mock_app),
-            patch("PySide6.QtCore.QThreadPool.globalInstance", return_value=mock_pool),
             patch("shiboken6.delete", side_effect=RuntimeError("Erro no shiboken")),
         ):
-            conftest.pytest_sessionfinish(mock_session, 0)
+            conftest.pytest_unconfigure(mock_config)
             mock_app.closeAllWindows.assert_called_once()
-            mock_app.processEvents.assert_called_once()
-            mock_pool.waitForDone.assert_called_once_with(1000)
 
     def test_pytest_sessionfinish_ignora_quando_sem_qapplication(self) -> None:
         """Valida que o teardown conclui sem erros quando nenhuma QApplication estiver instanciada."""

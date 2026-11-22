@@ -106,19 +106,39 @@ class GerenciadorDiario:
         if not self.caminho_pendente.exists() or self.caminho_pendente.stat().st_size == 0:
             return
 
+        recuos = 0
         if not self.apenas_pendente:
             comandos_pendentes = self.ler_diario_pendente()
             if comandos_pendentes:
-                with open(self.caminho_salvo, "ab") as f_salvo:
-                    for cmd in comandos_pendentes:
-                        pickle.dump(cmd, f_salvo, protocol=5)
+                recuos = sum(
+                    max(0, int(c.get("passos", 0)))
+                    for c in comandos_pendentes
+                    if isinstance(c, dict) and c.get("__controle_diario__") == "recuo_salvo"
+                )
+                comandos_reais = [
+                    c
+                    for c in comandos_pendentes
+                    if not (isinstance(c, dict) and c.get("__controle_diario__") == "recuo_salvo")
+                ]
+                if recuos > 0:
+                    salvos_atuais = self.ler_diario_salvo()
+                    salvos_restantes = (
+                        salvos_atuais[:-recuos] if recuos < len(salvos_atuais) else []
+                    )
+                    with open(self.caminho_salvo, "wb") as f_salvo:
+                        for cmd in salvos_restantes + comandos_reais:
+                            pickle.dump(cmd, f_salvo, protocol=5)
+                elif comandos_reais:
+                    with open(self.caminho_salvo, "ab") as f_salvo:
+                        for cmd in comandos_reais:
+                            pickle.dump(cmd, f_salvo, protocol=5)
 
         # Trunca o arquivo pendente para 0 bytes
         with open(self.caminho_pendente, "wb") as f_pendente:
             f_pendente.truncate(0)
 
         # Atualiza caches em memória
-        if self._cache_salvo is not None and self._cache_pendente is not None:
+        if recuos == 0 and self._cache_salvo is not None and self._cache_pendente is not None:
             if not self.apenas_pendente:
                 self._cache_salvo.extend(self._cache_pendente)
             self._cache_pendente = []

@@ -36,6 +36,23 @@ class TestValidadorTipagem(unittest.TestCase):
         finally:
             os.remove(temp_name)
 
+    def test_executar_verificacao_mypy_ignora_subcaminhos_aresta_api_no_sys_path(self) -> None:
+        import sys
+        from pathlib import Path
+
+        raiz = Path(__file__).resolve().parent.parent
+        config_path = str(raiz / "pyproject.toml")
+        alvo = str((raiz / "aresta_api" / "src" / "gerador_openapi.py").resolve())
+        caminho_poluido = str((raiz / "aresta_api" / "src").resolve())
+
+        sys.path.insert(0, caminho_poluido)
+        try:
+            codigo, stdout, stderr = executar_verificacao_mypy([alvo], config_path=config_path)
+            self.assertEqual(codigo, 0, f"{stdout}\n{stderr}")
+        finally:
+            if caminho_poluido in sys.path:
+                sys.path.remove(caminho_poluido)
+
     def test_verificar_anotacoes_ast_funcao_completa(self) -> None:
         codigo = """
 def processar(nome: str, valor: int = 0) -> bool:

@@ -337,7 +337,10 @@ class OraculosCaos:
                             raise ValueError(
                                 f"Registro de diário malformado em {rotulo}: {type(registro)}"
                             )
-                        if model is not None:
+                        if (
+                            model is not None
+                            and registro.get("__controle_diario__") != "recuo_salvo"
+                        ):
                             deserializar_comando(registro, model)
             except Exception as exc:
                 exc_com_tb, texto_tb = _vincular_traceback_completo(exc, exc.__traceback__)
