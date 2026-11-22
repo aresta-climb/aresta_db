@@ -9,31 +9,31 @@ escaladas:
     nome: PRIMEIRINHA
     dificuldade: BR_6SUP
     conquistadores:
-    - Macena, Samuel, Maceninha
+    - Macena, Samuel
 - uid: 6JYjcdXtHnXlqK
   via_esportiva:
     nome: CHUVA DE CRISTAL
     dificuldade: BR_6
     conquistadores:
-    - Macena, Samuel, Maceninha
+    - Macena, Samuel
 - uid: 46Kx1SeggvMjxQ
   via_esportiva:
     nome: PÉ DE CHORUME
     dificuldade: BR_7C
     conquistadores:
-    - Macena, Samuel, Maceninha
+    - Macena, Samuel
 - uid: ZtWAYPeBMIEXRb
   via_esportiva:
     nome: S.O.S MORCEGO
     dificuldade: BR_6SUP
     conquistadores:
-    - Macena, Samuel, Maceninha
+    - Macena, Samuel
 - uid: 6hRLEAcFlUs3R0
   via_esportiva:
     nome: PEQUENA, MAS APERTADA
     dificuldade: BR_7C
     conquistadores:
-    - Macena, Samuel, Maceninha
+    - Macena, Samuel
 - uid: jwmO62cBE3tEel
   via_esportiva:
     nome: TOPOGRÁFO PERDIDO
@@ -43,17 +43,17 @@ escaladas:
     nome: MOVI TECTÔNICOS
     dificuldade: BR_7B
     conquistadores:
-    - Macena, Samuel, Maceninha
+    - Macena, Samuel
 - uid: sQsm7pQMj1n0ZP
   via_esportiva:
     nome: PSICOSE
     dificuldade: BR_7B
     conquistadores:
-    - Macena, Samuel, Maceninha
+    - Macena, Samuel
 - uid: TC8Wd0pa4YopiM
   via_esportiva:
     nome: CONFUSAO MENTAL
     dificuldade: BR_7A
     conquistadores:
-    - Macena, Samuel, Maceninha
+    - Macena, Samuel
 ---
