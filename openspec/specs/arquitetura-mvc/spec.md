@@ -1,7 +1,7 @@
 # arquitetura-mvc Specification
 
 ## Purpose
-TBD - created by archiving change migrar-dados-mvc. Update Purpose after archive.
+Definir e proteger por análise estática (AST) a separação Model-View-Controller orientada a comandos, o encapsulamento de mutações do modelo, o isolamento de comandos legados e a padronização global de loggers no Editor Aresta.
 ## Requirements
 ### Requirement: Estrutura de Diretórios MVC
 O módulo `editor` do Editor Aresta DEVE implementar uma estrutura estrita baseada no padrão Model-View-Controller orientada a Comandos. O código de interface antiga que não adere a este padrão DEVE ser movido para um diretório de isolamento legado.
@@ -22,7 +22,7 @@ O Model DEVE atuar como a fonte única da verdade e isolar estritamente seu aces
 - **THEN** a mutação DEVE ser feita exclusivamente pela invocação dos métodos prefixados com `_` (ex: `_set_atributo`), sendo obrigatório que as únicas classes a invocá-los sejam as que residem na camada de `commands/`. A View e o Controller NUNCA devem acessar tais métodos diretamente.
 
 ### Requirement: Proteção de Arquitetura Baseada em AST
-O sistema SHALL incorporar uma verificação automatizada de análise estática de código (em `editor/arquitetura_mvc_test.py`) para impedir a regressão da arquitetura MVC e o uso indevido de comandos legados descontinuados, de forma análoga a padrões como ArchUnit.
+O sistema SHALL incorporar uma verificação automatizada de análise estática de código (em `editor/arquitetura_mvc_test.py`) para impedir a regressão da arquitetura MVC, o uso indevido de comandos legados descontinuados e a instanciação de loggers fora da hierarquia global da aplicação, de forma análoga a padrões como ArchUnit.
 
 #### Scenario: Violação do Contrato de Mutação
 - **WHEN** qualquer arquivo fora da pasta `models/` e da pasta `commands/` tenta invocar um método mutador restrito do Model (iniciado com `_set_`)
@@ -31,4 +31,8 @@ O sistema SHALL incorporar uma verificação automatizada de análise estática 
 #### Scenario: Proibição de Importação ou Uso de Comandos Legados fora da Deserialização
 - **WHEN** qualquer arquivo Python em `editor/` (exceto a função `deserializar_comando` em `editor/commands/comandos_protobuf.py` e a suíte dedicada `editor/commands/comandos_legados_test.py`) importar o módulo `comandos_legados` ou referenciar/instanciar qualquer uma das 12 classes de comando legadas (`CmdAlterarPrimitivo`, `CmdRenomearEscalada`, `CmdAlterarOneof`, `CmdAlterarRepeatedItem`, `CmdAlterarMultiplosRepeatedItems`, `CmdAlterarMetadadosCaminhoNovo`, `CmdAlterarCampoImagem`, `CmdInserirImagemMarkdown`, `CmdInserirBotaoMarkdown`, `CmdAdicionarMapaArquivo`, `CmdSubstituirImagemMemoria`, `CmdMigrarSetor`)
 - **THEN** a suíte de testes de arquitetura (`editor/arquitetura_mvc_test.py`) utilizando inspeção de AST SHALL falhar imediatamente indicando o arquivo e a linha que violaram o isolamento dos comandos legados.
+
+#### Scenario: Proibição de Instanciação de Loggers fora do Logger Global do Aplicativo
+- **WHEN** qualquer arquivo Python de produção dentro de `editor/` (exceto `editor/core/registro_log.py`) invocar diretamente `logging.getLogger` ou instanciar `logging.Logger` em vez de usar `obter_logger` de `editor.core.registro_log`
+- **THEN** a suíte de testes de arquitetura (`editor/arquitetura_mvc_test.py`) utilizando inspeção de AST SHALL falhar imediatamente reportando o arquivo e a linha da violação.
 

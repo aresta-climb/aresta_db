@@ -1021,7 +1021,7 @@ class JanelaPrincipal(QMainWindow):
         # Roda as migrações no banco de dados antes de carregar
         from scripts.migrador import aplicar_migracoes
 
-        aplicar_migracoes(caminho_db)
+        houve_migracao = aplicar_migracoes(caminho_db)
 
         yaml_path = caminho_db / "croqui.yaml"
         if yaml_path.exists():
@@ -1060,17 +1060,21 @@ class JanelaPrincipal(QMainWindow):
                 from editor.core.diario import GerenciadorDiario
 
                 if isinstance(diario, GerenciadorDiario):
-                    # 1. Carrega comandos salvos na pilha de Undo (permitindo Ctrl+Z entre sessões)
-                    self.historico.carregar_diario_salvo(self.croqui_model, diario)
+                    if houve_migracao:
+                        diario.invalidar_historico_completo()
+                        self.historico.limpar()
+                    else:
+                        # 1. Carrega comandos salvos na pilha de Undo (permitindo Ctrl+Z entre sessões)
+                        self.historico.carregar_diario_salvo(self.croqui_model, diario)
 
-                    # 2. Verifica se há alterações pendentes de crash
-                    if diario.tem_alteracoes_pendentes():
-                        comandos_pendentes = diario.ler_diario_pendente()
-                        if comandos_pendentes:
-                            if self._perguntar_recuperacao_sessao(len(comandos_pendentes)):
-                                self.historico.restaurar_do_diario(self.croqui_model, diario)
-                            else:
-                                diario.descartar_pendente()
+                        # 2. Verifica se há alterações pendentes de crash
+                        if diario.tem_alteracoes_pendentes():
+                            comandos_pendentes = diario.ler_diario_pendente()
+                            if comandos_pendentes:
+                                if self._perguntar_recuperacao_sessao(len(comandos_pendentes)):
+                                    self.historico.restaurar_do_diario(self.croqui_model, diario)
+                                else:
+                                    diario.descartar_pendente()
 
                     self.historico.definir_gerenciador_diario(diario)
 
@@ -1415,6 +1419,10 @@ class JanelaPrincipal(QMainWindow):
 
         from editor.core.worker import TarefaSincronizacaoPR
 
+        tarefa_anterior = getattr(self, "_tarefa_sincronizacao", None)
+        if tarefa_anterior is not None and tarefa_anterior.isRunning():
+            tarefa_anterior.wait(2000)
+
         self._tarefa_sincronizacao = TarefaSincronizacaoPR(
             servico_submissao=servico,
             id_croqui=id_croqui,
@@ -1548,6 +1556,11 @@ class JanelaPrincipal(QMainWindow):
     def _encerrar_recursos_janela(self) -> None:
         """Encerra servidores locais e worker threads de curadoria antes da destruição da janela."""
         self._encerrar_servidor_celular()
+        tarefa_sync = getattr(self, "_tarefa_sincronizacao", None)
+        if tarefa_sync is not None and tarefa_sync.isRunning():
+            tarefa_sync.wait(2000)
+        if hasattr(self, "pagina_painel") and self.pagina_painel is not None:
+            self.pagina_painel.painel.desconectar_sinais()
         if hasattr(self, "pagina_betas") and self.pagina_betas is not None:
             self.pagina_betas.encerrar_recursos()
 

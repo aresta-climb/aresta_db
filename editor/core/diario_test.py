@@ -223,3 +223,23 @@ def test_gerenciador_diario_cobertura_propriedades_e_conversoes(tmp_path):
     anon = diario._anonimizar_comando({"img_bytes": b"fake_bytes", "bytes_novo": 123})
     assert isinstance(anon["img_bytes"], bytes)
     assert anon["bytes_novo"] == 123
+
+
+def test_gerenciador_diario_invalidar_historico_completo(tmp_path):
+    """Garante que invalidar_historico_completo limpa diario_salvo.bin, diario_pendente.bin e caches."""
+    diario = GerenciadorDiario(tmp_path)
+    diario.gravar_comando_pendente({"classe": "CmdAlterarCampo", "valor_novo": "Salvo"})
+    diario.consolidar_salvamento()
+    diario.gravar_comando_pendente({"classe": "CmdAlterarCampo", "valor_novo": "Pendente"})
+
+    # Popula caches em memória
+    assert len(diario.exportar_diario_anonimizado()) == 2
+    assert diario.caminho_salvo.stat().st_size > 0
+    assert diario.caminho_pendente.stat().st_size > 0
+
+    diario.invalidar_historico_completo()
+
+    assert diario.ler_diario_salvo() == []
+    assert diario.ler_diario_pendente() == []
+    assert not diario.tem_alteracoes_pendentes()
+    assert diario.exportar_diario_anonimizado() == []

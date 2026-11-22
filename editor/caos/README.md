@@ -7,13 +7,13 @@ Sistema determinístico de testes exploratórios caóticos de interface gráfica
 1. **`MotorRoboCaoticoQt` (`motor_robo_caotico.py`)**:
    - Opera sobre a aplicação real do Editor com **Orçamento Ponderado**:
      - **Fase A (~10–15% dos passos)**: travessia de entrada por `TelaDeAbertura` (aviso de atualização, login OTP, `DialogoPerfilAutor`) e `TelaDeCarregamento` (`DialogoNovoCroqui`, `DialogoBuscaCroqui` e seleção de croqui do histórico).
-     - **Fase B (~85–90% dos passos)**: exploração intensiva da `JanelaPrincipal` integrada (abas `Dados` com `QTreeView` e formulários `ProtobufWidgetFactory`, `Imagens`, `Mapas` com `QGraphicsScene`/sliders, `Betas`, rajadas de `Undo`/`Redo`, `Salvar`, `DialogoConexaoCelular` e `Sincronizar`).
+     - **Fase B (~85–90% dos passos)**: exploração intensiva da `JanelaPrincipal` integrada (abas `Dados` com `QTreeView` e formulários `ProtobufWidgetFactory`, mutações estruturais `repeated`/`oneof`, `Imagens`, `Mapas` com `QGraphicsScene`/sliders, `Betas`, rajadas de `Undo`/`Redo`, `Salvar`, recarregamento completo de sessão `carregar_croqui()` sobre `diario_salvo.bin`/`diario_pendente.bin`, `DialogoConexaoCelular` e `Sincronizar`).
    - Inclui o interceptador automático de diálogos modais (`vigiar_dialogos_modais()`) via `QApplication.activeModalWidget()` para desbloquear loops `.exec()` aninhados sem travar a execução.
 
 2. **`OraculosCaos` (`oraculos_caos.py`)**:
-   - **Oráculo 1 (Exceções, Logs de Erro e C++)**: intercepta `sys.excepthook`, `threading.excepthook` e qualquer log `ERROR`/`CRITICAL` no logger `aresta_editor` (incluindo exceções capturadas em `QThread` como `TarefaSalvamento` e `TarefaPublicacao`), além de validar ponteiros C++ via `shiboken6.isValid(...)`.
+   - **Oráculo 1 (Exceções, Logs de Erro e C++)**: intercepta `sys.excepthook`, `threading.excepthook` e qualquer log `ERROR`/`CRITICAL` tanto no logger `aresta_editor` quanto no *root logger* global (paridade 1:1 com o Sentry, protegido por guarda AST em `arquitetura_mvc_test.py`), além de validar ponteiros C++ via `shiboken6.isValid(...)`.
    - **Oráculo 2 (Simetria Determinística de `Undo`/`Redo` e Princípio VIII)**: verifica que cada índice da `QUndoStack` restaura exatamente o mesmo hash SHA-256 de `Croqui.SerializeToString(deterministic=True)` e detecta mutações silenciosas fora do histórico.
-   - **Oráculo 3 (Integridade do Diário Transacional)**: valida a desserialização completa até o `EOF` de `diario_pendente.bin` e `diario_salvo.bin`.
+   - **Oráculo 3 (Integridade e Deserialização do Diário Transacional)**: valida a leitura até o `EOF` e a reconstrução real via `deserializar_comando` de todos os registros em `diario_pendente.bin` e `diario_salvo.bin`.
 
 3. **`FabricaDatasetCaos` (`fabrica_dataset_caos.py`)**:
    - Inicializa em `tmp_path` toda a estrutura de diretórios da instalação (`ARESTA_DIRETORIO_DADOS`) e um repositório Git *upstream* local real via `pygit2` (`remoto_oficial.git`, configurado por `ARESTA_GIT_UPSTREAM_URL`).

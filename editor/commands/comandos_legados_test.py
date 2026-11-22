@@ -874,3 +874,133 @@ def test_cmd_renomear_escalada():
 
     cmd_sem_ref = CmdRenomearEscalada(model=model, caminho_msg="", caminhos_referencias=[])
     assert cmd_sem_ref.referencias == []
+
+
+def test_deserializar_todos_12_comandos_legados_100_por_cento_lazy_sem_tocar_modelo(caplog):
+    """
+    Garante que todos os 12 comandos legados são deserializados e empilhados silenciosamente
+    sem tocar no CroquiModel, sem emitir erros e preservando caminho_msg intocado até a execução.
+    """
+    import logging
+
+    from editor.commands.comandos_protobuf import _serializar_valor
+
+    class _ModeloProibidoNaDeserializacao:
+        def __getattr__(self, nome: str):
+            raise AssertionError(
+                f"Proibido acessar '{nome}' no CroquiModel ao deserializar comando legado!"
+            )
+
+    sentinela = _ModeloProibidoNaDeserializacao()
+    mapa = croqui_pb2.Mapa(caminho_imagem_mapa="imagens/m.webp")
+    boulder = croqui_pb2.Boulder(nome="B1")
+
+    payloads_legados = [
+        {
+            "classe": "CmdAlterarPrimitivo",
+            "caminho_msg": "picos.0.setores_ou_grupos.0.setor.conteudo",
+            "campo_nome": "nome",
+            "valor_antigo": "A",
+            "valor_novo": "B",
+        },
+        {
+            "classe": "CmdAlterarOneof",
+            "caminho_msg": "picos.0.setores_ou_grupos.0.setor.conteudo.escaladas.0",
+            "oneof_nome": "tipo",
+            "nome_antigo": None,
+            "valor_antigo": None,
+            "nome_novo": "boulder",
+            "valor_novo": _serializar_valor(boulder),
+        },
+        {
+            "classe": "CmdAlterarRepeatedItem",
+            "caminho_msg": "picos.0",
+            "campo_nome": "creditos",
+            "index": 0,
+            "valor_antigo": "X",
+            "valor_novo": "Y",
+        },
+        {
+            "classe": "CmdAlterarMultiplosRepeatedItems",
+            "caminho_msg": "picos.0",
+            "campo_nome": "creditos",
+            "alteracoes": [(0, "X", "Y")],
+        },
+        {
+            "classe": "CmdMigrarSetor",
+            "caminho_msg_origem": "picos.0",
+            "campo_origem": "setores_ou_grupos",
+            "indice_origem": 0,
+            "caminho_msg_destino": "picos.0",
+            "campo_destino": "setores_ou_grupos",
+            "indice_destino": 1,
+        },
+        {
+            "classe": "CmdAlterarMetadadosCaminhoNovo",
+            "caminho_msg": "picos.0.setores_ou_grupos.0.setor",
+            "containing_type": "ArquivoSetor",
+            "field_ext_nome": "ext_metadados_arquivo",
+            "valor_antigo": "a.md",
+            "valor_novo": "b.md",
+        },
+        {
+            "classe": "CmdAlterarCampoImagem",
+            "caminho_msg": "picos.0.setores_ou_grupos.0.setor.conteudo",
+            "campo_nome": "caminho_imagem_capa",
+            "caminho_antigo": None,
+            "bytes_antigo": None,
+            "caminho_novo": "imagens/capa.webp",
+            "bytes_novo": b"webp",
+        },
+        {
+            "classe": "CmdSubstituirImagemMemoria",
+            "caminho_relativo": "imagens/capa.webp",
+            "bytes_antigo": None,
+            "bytes_novo": b"webp",
+        },
+        {
+            "classe": "CmdInserirImagemMarkdown",
+            "caminho_msg": "picos.0",
+            "campo_nome": "descricao",
+            "texto_antigo": "",
+            "texto_novo": "![](imagens/x.webp)",
+            "caminho_imagem": "imagens/x.webp",
+            "bytes_imagem": b"webp",
+        },
+        {
+            "classe": "CmdInserirBotaoMarkdown",
+            "caminho_msg": "picos.0",
+            "campo_nome": "descricao",
+            "texto_antigo": "",
+            "texto_novo": "[Guia](anexos/g.pdf)",
+            "caminho_anexo": "anexos/g.pdf",
+            "bytes_anexo": b"pdf",
+        },
+        {
+            "classe": "CmdAdicionarMapaArquivo",
+            "caminho_msg": "picos.0.mapas_gerais.conteudo",
+            "campo_nome": "mapas",
+            "index": 0,
+            "valor": _serializar_valor(mapa),
+            "caminho_absoluto": "",
+            "img_bytes": b"webp",
+        },
+        {
+            "classe": "CmdRenomearEscalada",
+            "caminho_msg": "picos.0.setores_ou_grupos.0.setor.conteudo.escaladas.0.via_esportiva",
+            "campo_nome": "nome",
+            "nome_antigo": "V1",
+            "nome_novo": "V2",
+            "caminhos_referencias": ["picos.0.mapas_gerais.conteudo.mapas.0.referencias.0"],
+        },
+    ]
+
+    pilha = QUndoStack()
+    with caplog.at_level(logging.WARNING):
+        for dados in payloads_legados:
+            cmd = deserializar_comando(dados, sentinela)  # type: ignore[arg-type]
+            cmd.armar_carregamento_silencioso()
+            pilha.push(cmd)
+
+    assert caplog.records == []
+    assert pilha.count() == 12

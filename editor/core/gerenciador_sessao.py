@@ -3,7 +3,6 @@
 
 import base64
 import json
-import logging
 import os
 from dataclasses import asdict, dataclass
 from pathlib import Path
@@ -12,6 +11,7 @@ from typing import Any
 import keyring
 from cryptography.hazmat.primitives.ciphers.aead import AESGCM
 
+from editor.core.registro_log import obter_logger
 from editor.core.storage import GerenciadorCaminhos
 from editor.plataforma import configurar_cofre_credenciais
 
@@ -161,7 +161,7 @@ class GerenciadorSessao:
             self._caminho_arquivo.parent.mkdir(parents=True, exist_ok=True)
             self._caminho_arquivo.write_bytes(nonce + ciphertext_com_tag)
         except Exception as exc:
-            logging.getLogger("aresta_editor").warning(
+            obter_logger("sessao").warning(
                 "Falha ao persistir sessão no cofre do sistema: %s. Sessão preservada em memória.",
                 exc,
             )

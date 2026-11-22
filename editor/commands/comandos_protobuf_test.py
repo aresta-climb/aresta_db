@@ -27,7 +27,6 @@ from editor.commands.comandos_protobuf import (
     ComandoEditor,
     MensagemAlvoNaoEncontradaError,
     _buscar_mensagem_por_uid,
-    _validar_campo_se_msg_existir,
     deserializar_comando,
     navegar_para_alvo,
     navegar_para_mensagem,
@@ -967,8 +966,8 @@ def test_comando_editor_resolucao_tardia_e_alvo_inexistente(caplog):
     assert "Falha ao resolver mensagem alvo no caminho 'picos.0'" in caplog.text
 
 
-def test_deserializar_comando_sem_navegacao_ansiosa():
-    """Garante que a deserialização não tenta acessar a mensagem ansiosamente na carga."""
+def test_deserializar_comando_sem_navegacao_ansiosa(caplog):
+    """Garante que a deserialização não tenta acessar a mensagem ansiosamente na carga nem loga erro."""
     croqui = Croqui()  # Sem picos cadastrados
     model = CroquiModel(croqui)
 
@@ -981,9 +980,11 @@ def test_deserializar_comando_sem_navegacao_ansiosa():
         "context_path": None,
     }
 
-    cmd = deserializar_comando(dados, model)
+    with caplog.at_level(logging.WARNING):
+        cmd = deserializar_comando(dados, model)
     assert isinstance(cmd, CmdAlterarCampo)
     assert cmd.caminho_msg == "picos.5.setores_ou_grupos.0"
+    assert caplog.records == []
 
 
 def test_mensagem_alvo_nao_encontrada_error_e_msg_cache(caplog):
@@ -1032,20 +1033,14 @@ def test_mensagem_alvo_nao_encontrada_error_e_msg_cache(caplog):
 
 
 def test_comando_editor_metodos_base_e_validacao():
-    """Valida métodos da classe base ComandoEditor e validador de campos."""
+    """Valida métodos da classe base ComandoEditor e validador de pertencimento."""
     croqui = Croqui(nome="Croqui Teste")
     model = CroquiModel(croqui)
 
-    # 1. Validação de campo antecipada com parâmetros nulos/vazios
-    _validar_campo_se_msg_existir(None, "qualquer", "nome")
-    _validar_campo_se_msg_existir(model, None, "nome")
-    _validar_campo_se_msg_existir(model, "", "")
-
-    # 2. Validação com campo inexistente na mensagem raiz existente
     with pytest.raises(ValueError, match="não existe na mensagem"):
-        _validar_campo_se_msg_existir(model, "", "campo_totalmente_invalido", "CmdTeste")
+        validar_pertence_ao_croqui(model, "", "campo_totalmente_invalido", "CmdTeste")
 
-    # 3. Métodos da classe base ComandoEditor
+    # Métodos da classe base ComandoEditor
     cmd = ComandoEditor()
     assert cmd.caminho_msg is None
     assert cmd._obter_msg() is None
@@ -1397,7 +1392,6 @@ def test_comandos_protobuf_cobertura_casos_borda():
 
     from editor.commands.comandos_protobuf import (
         _buscar_mensagem_por_uid,
-        _validar_campo_se_msg_existir,
         navegar_para_alvo,
         resolver_alvo_mensagem,
         resolver_caminho_mensagem,
@@ -1432,9 +1426,6 @@ def test_comandos_protobuf_cobertura_casos_borda():
     assert validar_pertence_ao_croqui(model, "") == ""
     with pytest.raises(ValueError, match="não existe"):
         validar_pertence_ao_croqui(model, croqui, "campo_invalido.0")
-
-    with pytest.raises(ValueError, match="não existe"):
-        _validar_campo_se_msg_existir(model, "", "campo_invalido.0")
 
     # 4. navegar_para_alvo com índice uids None e busca por prefixo na árvore
     pico.setores_ou_grupos.add().setor.conteudo.uid = "set_busca_dir"
@@ -2251,8 +2242,344 @@ def test_validar_campo_inexistente_lista_campos_validos_no_erro() -> None:
     with pytest.raises(ValueError, match=r"Campos válidos: \[.*creditos.*\]"):
         CmdAlterarCampo(model=model, alvo=croqui, campo_nome="inexistente.0", valor_novo="x")
 
-    with pytest.raises(ValueError, match=r"Campos válidos: \[.*nome.*\]"):
-        _validar_campo_se_msg_existir(model, "setor_err_1", "campo_fantasma", "CmdAlterarCampo")
 
-    with pytest.raises(ValueError, match=r"Campos válidos: \[.*escaladas.*\]"):
-        _validar_campo_se_msg_existir(model, "setor_err_1", "inexistente.0", "CmdAlterarCampo")
+def test_deserializar_todos_comandos_canonicos_100_por_cento_lazy_sem_tocar_modelo(caplog) -> None:
+    """
+    Garante que deserializar e empilhar silenciosamente os 7 comandos canônicos não realiza
+    NENHUMA consulta ao CroquiModel, não gera UIDs novos em mensagens sem UID, não canoniza
+    caminho_msg e não emite nenhum log de erro ou aviso.
+    """
+    from PySide6.QtGui import QUndoStack
+
+    from editor.commands.comandos_protobuf import _serializar_valor
+
+    class _ModeloProibidoNaDeserializacao:
+        def __getattr__(self, nome: str):
+            raise AssertionError(
+                f"Proibido acessar '{nome}' no CroquiModel durante deserialização/carga silenciosa!"
+            )
+
+    modelo_sentinela = _ModeloProibidoNaDeserializacao()
+    esc_sem_uid = croqui_pb2.Escalada()
+    esc_sem_uid.via_esportiva.nome = "Via Histórica Sem UID"
+    assert esc_sem_uid.uid == ""
+
+    boulder_sem_uid = croqui_pb2.Boulder(nome="Boulder Sem UID")
+    coord = croqui_pb2.Coordenada(latitude=-200000000, longitude=-430000000)
+
+    payloads = [
+        {
+            "classe": "CmdAlterarCampo",
+            "caminho_msg": "picos.0.setores_ou_grupos.2.setor.conteudo.escaladas.21.via_esportiva",
+            "campo_nome": "nome",
+            "valor_antigo": "Antiga",
+            "valor_novo": "Nova",
+            "context_path": None,
+            "pode_mesclar": False,
+            "session_id": None,
+        },
+        {
+            "classe": "CmdAlterarCampo",
+            "caminho_msg": "picos.0",
+            "campo_nome": "localizacao",
+            "valor_antigo": None,
+            "valor_novo": _serializar_valor(coord),
+        },
+        {
+            "classe": "CmdAlterarCampo",
+            "caminho_msg": "picos.0.setores_ou_grupos.0.setor.conteudo.escaladas.0",
+            "campo_nome": "boulder",
+            "modalidade": "oneof",
+            "var_antiga": "via_esportiva",
+            "valor_variante_antiga": _serializar_valor(esc_sem_uid.via_esportiva),
+            "var_nova": "boulder",
+            "valor_variante_nova": _serializar_valor(boulder_sem_uid),
+            "valor_antigo": None,
+            "valor_novo": _serializar_valor(boulder_sem_uid),
+        },
+        {
+            "classe": "CmdAlterarImagem",
+            "nome_arquivo": "imagens/inexistente.webp",
+            "bytes_antigos": None,
+            "bytes_novos": b"webp",
+            "context_path": None,
+        },
+        {
+            "classe": "CmdAlterarAnexo",
+            "nome_arquivo": "anexos/inexistente.pdf",
+            "bytes_antigos": None,
+            "bytes_novos": b"pdf",
+            "context_path": None,
+        },
+        {
+            "classe": "CmdAdicionarRepeated",
+            "caminho_msg": "picos.0.setores_ou_grupos.0.setor.conteudo",
+            "campo_nome": "escaladas",
+            "index": 0,
+            "valor": _serializar_valor(esc_sem_uid),
+            "context_path": None,
+        },
+        {
+            "classe": "CmdRemoverRepeated",
+            "caminho_msg": "picos.0.setores_ou_grupos.0.setor.conteudo",
+            "campo_nome": "escaladas",
+            "index": 0,
+            "valor_removido": _serializar_valor(esc_sem_uid),
+            "imagens_removidas_ram": None,
+            "context_path": None,
+        },
+        {
+            "classe": "CmdMoverRepeated",
+            "caminho_msg": "picos.0.setores_ou_grupos.0.setor.conteudo",
+            "campo_nome": "escaladas",
+            "index_from": 0,
+            "index_to": 1,
+            "context_path": None,
+        },
+    ]
+    payloads.append({"classe": "CmdMacro", "texto": "Macro Lazy", "comandos": list(payloads)})
+
+    pilha = QUndoStack()
+    with caplog.at_level(logging.WARNING):
+        comandos = []
+        for dados in payloads:
+            cmd = deserializar_comando(dados, modelo_sentinela)  # type: ignore[arg-type]
+            cmd.armar_carregamento_silencioso()
+            pilha.push(cmd)
+            comandos.append(cmd)
+
+    assert caplog.records == []
+    assert pilha.count() == len(payloads)
+
+    # Verifica que o comando criado sem UID permanece sem UID enquanto não for executado
+    cmd_add_deser = comandos[5]
+    assert isinstance(cmd_add_deser, CmdAdicionarRepeated)
+    assert cmd_add_deser.valor.uid == ""
+    assert cmd_add_deser.caminho_msg == "picos.0.setores_ou_grupos.0.setor.conteudo"
+
+
+def test_cmd_alterar_campo_oneof_serializacao_deserializacao_e_inferencia_tardia(caplog) -> None:
+    """
+    Garante que CmdAlterarCampo preserva integralmente o estado anterior/novo de oneof na
+    serialização/deserialização e infere modalidade tardiamente para diários legados sem modalidade.
+    """
+    from editor.commands.comandos_protobuf import _serializar_valor
+
+    croqui_orig = Croqui()
+    setor_orig = croqui_orig.picos.add().setores_ou_grupos.add().setor.conteudo
+    setor_orig.uid = "set_oneof_ser"
+    esc_orig = setor_orig.escaladas.add(uid="esc_oneof_ser")
+    esc_orig.via_esportiva.nome = "Via Original"
+    esc_orig.via_esportiva.extensao = 28
+    model_orig = CroquiModel(croqui_orig)
+
+    # 1. Troca por variante direta ("boulder") e serializa
+    cmd_direto = CmdAlterarCampo(
+        model=model_orig,
+        alvo="esc_oneof_ser",
+        campo_nome="boulder",
+        valor_novo=Boulder(nome="Bloco Novo"),
+    )
+    cmd_direto.executar_redo()
+    dados_direto = cmd_direto.serializar()
+
+    # 2. Troca por tupla no oneof "tipo" e serializa
+    cmd_tupla = CmdAlterarCampo(
+        model=model_orig,
+        alvo="esc_oneof_ser",
+        campo_nome="tipo",
+        valor_novo=("highline", croqui_pb2.Highline(nome="Linha Alta", distancia=50)),
+    )
+    cmd_tupla.executar_redo()
+    dados_tupla = cmd_tupla.serializar()
+
+    # 3. Novo modelo simulando reabertura do editor no estado final (com a escalada removida primeiro!)
+    croqui_reaberto = Croqui()
+    setor_reaberto = croqui_reaberto.picos.add().setores_ou_grupos.add().setor.conteudo
+    setor_reaberto.uid = "set_oneof_ser"
+    model_reaberto = CroquiModel(croqui_reaberto)
+
+    with caplog.at_level(logging.WARNING):
+        cmd_dir_recriado = deserializar_comando(dados_direto, model_reaberto)
+        cmd_tup_recriado = deserializar_comando(dados_tupla, model_reaberto)
+    assert caplog.records == []
+
+    # Restaura a escalada no estado final ("highline") e desfaz os 2 comandos em ordem reversa!
+    esc_reaberta = setor_reaberto.escaladas.add(uid="esc_oneof_ser")
+    esc_reaberta.highline.nome = "Linha Alta"
+    esc_reaberta.highline.distancia = 50
+    model_reaberto.indice_uids.carregar_do_croqui(croqui_reaberto)
+
+    cmd_tup_recriado.undo()
+    assert esc_reaberta.WhichOneof("tipo") == "boulder"
+    assert esc_reaberta.boulder.nome == "Bloco Novo"
+
+    cmd_dir_recriado.undo()
+    assert esc_reaberta.WhichOneof("tipo") == "via_esportiva"
+    assert esc_reaberta.via_esportiva.nome == "Via Original"
+    assert esc_reaberta.via_esportiva.extensao == 28
+
+    cmd_dir_recriado.executar_redo()
+    assert esc_reaberta.WhichOneof("tipo") == "boulder"
+    cmd_tup_recriado.executar_redo()
+    assert esc_reaberta.WhichOneof("tipo") == "highline"
+    assert esc_reaberta.highline.distancia == 50
+
+    # 4. Diários antigos sem chave 'modalidade' (inferência tardia para submensagem, extensão e oneof)
+    dados_ext_sem_mod = {
+        "classe": "CmdAlterarCampo",
+        "caminho_msg": "picos.0.setores_ou_grupos.0.setor",
+        "campo_nome": "ext_metadados_arquivo",
+        "valor_antigo": "antigo.md",
+        "valor_novo": "novo.md",
+    }
+    cmd_ext_lazy = deserializar_comando(dados_ext_sem_mod, model_reaberto)
+    cmd_ext_lazy.executar_redo()
+    arq_setor = croqui_reaberto.picos[0].setores_ou_grupos[0].setor
+    assert (
+        arq_setor.Extensions[croqui_pb2.ArquivoSetor.ext_metadados_arquivo].caminho_novo
+        == "novo.md"
+    )
+    cmd_ext_lazy.undo()
+    assert (
+        arq_setor.Extensions[croqui_pb2.ArquivoSetor.ext_metadados_arquivo].caminho_novo
+        == "antigo.md"
+    )
+
+    dados_oneof_legado_sem_mod = {
+        "classe": "CmdAlterarCampo",
+        "caminho_msg": "esc_oneof_ser",
+        "campo_nome": "boulder",
+        "valor_antigo": None,
+        "valor_novo": _serializar_valor(Boulder(nome="Bloco Legado")),
+    }
+    cmd_oneof_lazy = deserializar_comando(dados_oneof_legado_sem_mod, model_reaberto)
+    cmd_oneof_lazy.executar_redo()
+    assert esc_reaberta.WhichOneof("tipo") == "boulder"
+    assert esc_reaberta.boulder.nome == "Bloco Legado"
+    cmd_oneof_lazy.undo()
+    assert esc_reaberta.WhichOneof("tipo") is None
+
+    dados_oneof_tupla_sem_mod = {
+        "classe": "CmdAlterarCampo",
+        "caminho_msg": "esc_oneof_ser",
+        "campo_nome": "tipo",
+        "valor_antigo": None,
+        "valor_novo": _serializar_valor(("boulder", Boulder(nome="Bloco Tupla Legado"))),
+    }
+    cmd_tupla_lazy = deserializar_comando(dados_oneof_tupla_sem_mod, model_reaberto)
+    cmd_tupla_lazy.executar_redo()
+    assert esc_reaberta.boulder.nome == "Bloco Tupla Legado"
+
+    dados_sub_sem_mod = {
+        "classe": "CmdAlterarCampo",
+        "caminho_msg": "picos.0",
+        "campo_nome": "localizacao",
+        "valor_antigo": None,
+        "valor_novo": _serializar_valor(Coordenada(latitude=-210000000, longitude=-440000000)),
+    }
+    cmd_sub_lazy = deserializar_comando(dados_sub_sem_mod, model_reaberto)
+    cmd_sub_lazy.executar_redo()
+    assert croqui_reaberto.picos[0].localizacao.latitude == -210000000
+    cmd_sub_lazy.undo()
+    assert not croqui_reaberto.picos[0].HasField("localizacao")
+
+
+def test_canonizacao_permanente_lazy_somente_ao_executar_undo_ou_redo() -> None:
+    """
+    Garante que comandos carregados com caminho posicional NÃO são canonizados na carga,
+    mas canonizam permanentemente seu caminho_msg para UID no exato instante em que
+    undo(), executar_redo() ou mergeWith() é executado.
+    """
+    croqui = Croqui()
+    pico = croqui.picos.add(nome="Pico 1")
+    sg = pico.setores_ou_grupos.add()
+    setor = sg.setor.conteudo
+    setor.uid = "set_canon_0001"
+    esc = setor.escaladas.add(uid="esc_canon_0001")
+    esc.via_esportiva.nome = "Via Antes"
+    model = CroquiModel(croqui)
+
+    caminho_posicional = "picos.0.setores_ou_grupos.0.setor.conteudo.escaladas.0.via_esportiva"
+    cmd = deserializar_comando(
+        {
+            "classe": "CmdAlterarCampo",
+            "caminho_msg": caminho_posicional,
+            "campo_nome": "nome",
+            "valor_antigo": "Via Antes",
+            "valor_novo": "Via Depois",
+        },
+        model,
+    )
+
+    # Enquanto não for executado, permanece estritamente posicional
+    assert cmd.caminho_msg == caminho_posicional
+
+    # Ao executar redo, resolve a mensagem viva e canoniza permanentemente para UID
+    cmd.executar_redo()
+    assert esc.via_esportiva.nome == "Via Depois"
+    assert cmd.caminho_msg == "esc_canon_0001.via_esportiva"
+
+    # Mesmo se inserirmos outro setor na posição 0 (quebrando o caminho posicional antigo),
+    # o comando já canonizado continua funcionando no undo!
+    sg_novo = croqui_pb2.SetorOuGrupo()
+    sg_novo.setor.conteudo.uid = "set_intruso_01"
+    pico.setores_ou_grupos.insert(0, sg_novo)
+    model.indice_uids.carregar_do_croqui(croqui)
+
+    cmd.undo()
+    assert esc.via_esportiva.nome == "Via Antes"
+
+
+def test_deserializar_comando_suporta_mensagens_curadoria_beta_pb2() -> None:
+    """
+    Garante que comandos envolvendo mensagens definidas em beta_pb2 (como CandidatoMidiaBeta
+    e MidiaBeta, gerados pela curadoria de betas) serializam e deserializam sem ValueError.
+    """
+    from aresta_api.proto.generated import beta_pb2
+
+    croqui = Croqui()
+    pico = croqui.picos.add(nome="Pico Betas")
+    setor = pico.setores_ou_grupos.add().setor.conteudo
+    setor.uid = "set_beta_0001"
+    esc = setor.escaladas.add(uid="esc_beta_0001")
+    esc.via_esportiva.nome = "Via com Beta"
+    cur_esc = croqui.curadoria_betas.conteudo.escaladas.add(escalada_uid="esc_beta_0001")
+    cand = cur_esc.betas_nao_revisados.add()
+    cand.midia.url = "https://www.youtube.com/watch?v=beta123"
+    cand.midia.titulo = "Beta Oficial"
+    cand.midia.fonte = beta_pb2.FonteMidia.YOUTUBE
+    cand.resultado_llm.llm_confidence_score = 95
+
+    model = CroquiModel(croqui)
+
+    cmd_remover_cand = CmdRemoverRepeated(
+        model=model,
+        alvo=cur_esc,
+        campo_nome="betas_nao_revisados",
+        index=0,
+    )
+    cmd_remover_cand.executar_redo()
+
+    midia_aprovada = beta_pb2.MidiaBeta(
+        url="https://www.youtube.com/watch?v=beta123",
+        titulo="Beta Oficial",
+        fonte=beta_pb2.FonteMidia.YOUTUBE,
+    )
+    cmd_adicionar_beta = CmdAdicionarRepeated(
+        model=model,
+        alvo=esc,
+        campo_nome="betas",
+        index=0,
+        valor=midia_aprovada,
+    )
+    cmd_adicionar_beta.executar_redo()
+
+    cmd_rem_des = deserializar_comando(cmd_remover_cand.serializar(), model)
+    cmd_add_des = deserializar_comando(cmd_adicionar_beta.serializar(), model)
+
+    cmd_add_des.undo()
+    cmd_rem_des.undo()
+    assert len(esc.betas) == 0
+    assert len(cur_esc.betas_nao_revisados) == 1
+    assert cur_esc.betas_nao_revisados[0].midia.url == "https://www.youtube.com/watch?v=beta123"

@@ -90,8 +90,16 @@ def test_motor_robo_caotico_exercita_todas_as_abas_e_acoes_janela_principal(
         parametros={"sub_op": "slider_circ"},
         mutou_estado=True,
     )
-    passo_orfao = PassoRobo(
+    passo_betas = PassoRobo(
         indice=99,
+        tipo_acao="interagir_painel_betas",
+        seletor=SeletorAlvoQt(
+            estrategia="objeto_ou_texto", valor="painel_betas", classe_widget="PainelCuradoria"
+        ),
+        mutou_estado=False,
+    )
+    passo_orfao = PassoRobo(
+        indice=100,
         tipo_acao="clicar_botao_formulario",
         seletor=SeletorAlvoQt(estrategia="objeto_ou_texto", valor="botao_inexistente_xyz"),
         mutou_estado=False,
@@ -101,7 +109,15 @@ def test_motor_robo_caotico_exercita_todas_as_abas_e_acoes_janela_principal(
     os.environ["ARESTA_DIRETORIO_DADOS"] = str(tmp_path / "anterior")
     try:
         falha_replay = motor.reproduzir_passos(
-            [passo_fase_a, passo_edicao, passo_undo, passo_redo, passo_slider, passo_orfao]
+            [
+                passo_fase_a,
+                passo_edicao,
+                passo_undo,
+                passo_redo,
+                passo_slider,
+                passo_betas,
+                passo_orfao,
+            ]
         )
         assert os.environ.get("ARESTA_DIRETORIO_DADOS") == str(tmp_path / "anterior")
     finally:
@@ -212,3 +228,120 @@ def test_campanha_por_tempo_captura_encolhe_deduplica_e_salva_receita(
     assert resumo_2.falhas_unicas == 0
     assert len(resumo_2.receitas_salvas) == 0
     assert len(list(pasta_saida.glob("*.json"))) == 1
+
+
+def test_motor_robo_caotico_ciclo_completo_mutacao_estrutural_salvar_recarregar_e_desfazer(
+    tmp_path: Path,
+) -> None:
+    """
+    Valida o ciclo completo no MotorRoboCaoticoQt:
+    mutações estruturais (adicionar repeated, alternar oneof, remover repeated) ->
+    salvar_croqui (consolida diario_salvo.bin) -> recarregar_sessao_croqui (reabre do disco) ->
+    sequência de Undo e Redo auditada pelos 3 oráculos sem falhas nem logs ERROR.
+    """
+    cfg = ConfiguracaoSessaoCaos(
+        seed=404,
+        max_passos=12,
+        dataset="normal",
+        escopo="janela_principal",
+    )
+    motor = MotorRoboCaoticoQt(tmp_path / "ciclo_completo", cfg)
+
+    passos = [
+        PassoRobo(
+            indice=1,
+            tipo_acao="alterar_estrutura_arvore",
+            seletor=SeletorAlvoQt(estrategia="caminho_no_arvore", valor="adicionar_escalada"),
+            parametros={"op_estrutural": "adicionar_escalada"},
+            mutou_estado=True,
+        ),
+        PassoRobo(
+            indice=2,
+            tipo_acao="alterar_estrutura_arvore",
+            seletor=SeletorAlvoQt(estrategia="caminho_no_arvore", valor="alternar_oneof_escalada"),
+            parametros={"op_estrutural": "alternar_oneof_escalada"},
+            mutou_estado=True,
+        ),
+        PassoRobo(
+            indice=3,
+            tipo_acao="alterar_estrutura_arvore",
+            seletor=SeletorAlvoQt(estrategia="caminho_no_arvore", valor="remover_escalada"),
+            parametros={"op_estrutural": "remover_escalada"},
+            mutou_estado=True,
+        ),
+        PassoRobo(
+            indice=4,
+            tipo_acao="salvar_croqui",
+            seletor=SeletorAlvoQt(estrategia="acao_toolbar", valor="Salvar"),
+            mutou_estado=True,
+        ),
+        PassoRobo(
+            indice=5,
+            tipo_acao="recarregar_sessao_croqui",
+            seletor=SeletorAlvoQt(estrategia="acao_toolbar", valor="RecarregarSessao"),
+            mutou_estado=True,
+        ),
+        PassoRobo(
+            indice=6,
+            tipo_acao="desfazer_ou_refazer",
+            seletor=SeletorAlvoQt(estrategia="acao_toolbar", valor="undo"),
+            parametros={"op": "undo"},
+            mutou_estado=True,
+        ),
+        PassoRobo(
+            indice=7,
+            tipo_acao="desfazer_ou_refazer",
+            seletor=SeletorAlvoQt(estrategia="acao_toolbar", valor="undo"),
+            parametros={"op": "undo"},
+            mutou_estado=True,
+        ),
+        PassoRobo(
+            indice=8,
+            tipo_acao="desfazer_ou_refazer",
+            seletor=SeletorAlvoQt(estrategia="acao_toolbar", valor="undo"),
+            parametros={"op": "undo"},
+            mutou_estado=True,
+        ),
+        PassoRobo(
+            indice=9,
+            tipo_acao="desfazer_ou_refazer",
+            seletor=SeletorAlvoQt(estrategia="acao_toolbar", valor="redo"),
+            parametros={"op": "redo"},
+            mutou_estado=True,
+        ),
+        PassoRobo(
+            indice=10,
+            tipo_acao="desfazer_ou_refazer",
+            seletor=SeletorAlvoQt(estrategia="acao_toolbar", valor="redo"),
+            parametros={"op": "redo"},
+            mutou_estado=True,
+        ),
+        PassoRobo(
+            indice=11,
+            tipo_acao="desfazer_ou_refazer",
+            seletor=SeletorAlvoQt(estrategia="acao_toolbar", valor="redo"),
+            parametros={"op": "redo"},
+            mutou_estado=True,
+        ),
+    ]
+
+    # Garante que os passos novos existem e são realmente executados (não caem em noop_fallback)
+    motor._preparar_ambiente()
+    try:
+        with (
+            motor.oraculos.monitorar_excecoes(),
+            motor.vigiar_dialogos_modais(),
+        ):
+            motor._iniciar_janela_principal_direta()
+            tipos_reais = []
+            for p in passos:
+                exec_p = motor._executar_acao_fase_b(
+                    p.indice, p.tipo_acao, parametros_fixos=p.parametros
+                )
+                tipos_reais.append(exec_p.tipo_acao)
+                assert motor._verificar_todos_oraculos(exec_p) is None
+            assert "alterar_estrutura_arvore" in tipos_reais
+            assert "recarregar_sessao_croqui" in tipos_reais
+            assert "noop_fallback" not in tipos_reais
+    finally:
+        motor._encerrar_instancias_qt()

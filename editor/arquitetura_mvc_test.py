@@ -313,3 +313,49 @@ def test_proibicao_uso_comandos_legados_fora_da_deserializacao():
         except Exception:
             # Erros de dados vazios são normais, o que importa é não ser rejeitado como classe desconhecida
             pass
+
+
+def test_proibicao_instanciacao_logger_fora_de_registro_log():
+    """
+    Guarda AST estrita:
+    Proíbe invocação direta de logging.getLogger ou instanciação de logging.Logger
+    em qualquer arquivo Python de produção sob editor/, exceto editor/core/registro_log.py.
+    Todos os módulos do editor devem usar obter_logger(...) de editor.core.registro_log.
+    """
+    editor_dir = Path(__file__).parent
+    violacoes = []
+
+    for filepath in get_python_files(editor_dir):
+        path_obj = Path(filepath)
+        if (
+            path_obj.name.endswith("_test.py")
+            or path_obj.name == "registro_log.py"
+            or "venv" in path_obj.parts
+            or ".venv" in path_obj.parts
+        ):
+            continue
+
+        with open(filepath, encoding="utf-8") as f:
+            tree = ast.parse(f.read(), filename=filepath)
+
+        rel_path = path_obj.relative_to(editor_dir)
+        for node in ast.walk(tree):
+            if isinstance(node, ast.Call):
+                nome_chamada = None
+                if isinstance(node.func, ast.Attribute) and node.func.attr in (
+                    "getLogger",
+                    "Logger",
+                ):
+                    nome_chamada = node.func.attr
+                elif isinstance(node.func, ast.Name) and node.func.id in ("getLogger", "Logger"):
+                    nome_chamada = node.func.id
+
+                if nome_chamada is not None:
+                    violacoes.append(
+                        f"{rel_path}:{node.lineno} - Chamada proibida a '{nome_chamada}'. "
+                        f"Use 'obter_logger' de 'editor.core.registro_log'."
+                    )
+
+    assert not violacoes, "Violações de padronização de logger encontradas:\n" + "\n".join(
+        violacoes
+    )

@@ -30,14 +30,25 @@ if not hasattr(ctypes, "windll"):
 
 
 def limpar_janelas_qt_ativas() -> None:
-    """Fecha todas as janelas ativas da QApplication e processa eventos pendentes."""
+    """Fecha todas as janelas ativas da QApplication, limpa quitNow residual e drena eventos."""
     try:
+        from PySide6.QtCore import QCoreApplication, QEvent, QEventLoop, QTimer
         from PySide6.QtWidgets import QApplication
 
         app = QApplication.instance()
         if isinstance(app, QApplication):
+            app.setQuitOnLastWindowClosed(False)
+            for w in app.topLevelWidgets():
+                if hasattr(w, "_forcar_fechamento"):
+                    setattr(w, "_forcar_fechamento", True)
             app.closeAllWindows()
+            QCoreApplication.sendPostedEvents(None, int(QEvent.Type.DeferredDelete))
             app.processEvents()
+            sonda = QEventLoop()
+            QTimer.singleShot(0, sonda.quit)
+            if sonda.exec() == -1:
+                QTimer.singleShot(0, app.quit)
+                app.exec()
     except Exception:
         pass
 

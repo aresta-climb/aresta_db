@@ -84,20 +84,14 @@ class GerenciadorDiario:
 
     def tem_alteracoes_pendentes(self) -> bool:
         """Verifica se existem comandos não consolidados no diário pendente."""
-        if hasattr(self, "_hook_flush") and callable(self._hook_flush):
-            try:
-                self._hook_flush()
-            except Exception:
-                pass
+        if callable(self._hook_flush):
+            self._hook_flush()
         return self.caminho_pendente.exists() and self.caminho_pendente.stat().st_size > 0
 
     def ler_diario_pendente(self) -> list[dict[str, Any]]:
         """Lê todos os comandos do diário pendente de forma tolerante a falhas de final de arquivo."""
-        if hasattr(self, "_hook_flush") and callable(self._hook_flush):
-            try:
-                self._hook_flush()
-            except Exception:
-                pass
+        if callable(self._hook_flush):
+            self._hook_flush()
         return self._ler_arquivo_pickle(self.caminho_pendente)
 
     def ler_diario_salvo(self) -> list[dict[str, Any]]:
@@ -137,6 +131,14 @@ class GerenciadorDiario:
         self._cache_pendente = []
         if self.caminho_pendente.exists():
             with open(self.caminho_pendente, "wb") as f:
+                f.truncate(0)
+
+    def invalidar_historico_completo(self) -> None:
+        """Invalida e limpa integralmente os diários salvo e pendente e seus caches em memória."""
+        self.descartar_pendente()
+        self._cache_salvo = []
+        if self.caminho_salvo.exists():
+            with open(self.caminho_salvo, "wb") as f:
                 f.truncate(0)
 
     def exportar_diario_anonimizado(self, limite_comandos: int = 100) -> list[dict[str, Any]]:

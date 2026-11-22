@@ -13,7 +13,6 @@ Written in English for upstream readiness (compatible with jaraco/keyring).
 
 import hashlib
 import json
-import logging
 import os
 import tempfile
 import uuid
@@ -28,7 +27,9 @@ from jeepney.io.blocking import open_dbus_connection
 from keyring.compat import properties
 from keyring.credentials import SimpleCredential
 
-log = logging.getLogger(__name__)
+from editor.core.registro_log import obter_logger
+
+log = obter_logger("plataforma.portal_keyring")
 
 PORTAL_BUS_NAME = "org.freedesktop.portal.Desktop"
 PORTAL_OBJECT_PATH = "/org/freedesktop/portal/desktop"

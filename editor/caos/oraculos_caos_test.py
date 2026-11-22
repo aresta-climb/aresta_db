@@ -163,24 +163,40 @@ def test_oraculo_diario_valida_diario_integro_e_detecta_corrupcao(
     tmp_path: Path,
 ) -> None:
     diario = GerenciadorDiario(tmp_path)
+    model = CroquiModel(croqui_pb2.Croqui(nome="Croqui Oráculo"))
     oraculos = OraculosCaos()
 
     assert oraculos.verificar_integridade_diario(None) is None
-    assert oraculos.verificar_integridade_diario(diario) is None
+    assert oraculos.verificar_integridade_diario(diario, model=model) is None
 
-    diario.gravar_comando_pendente({"tipo": "CmdAlterarCampo", "campo_nome": "nome"})
-    assert oraculos.verificar_integridade_diario(diario) is None
+    diario.gravar_comando_pendente(
+        {
+            "classe": "CmdAlterarCampo",
+            "caminho_msg": "picos.99.inexistente",
+            "campo_nome": "nome",
+            "valor_antigo": "A",
+            "valor_novo": "B",
+        }
+    )
+    assert oraculos.verificar_integridade_diario(diario, model=model) is None
 
     diario.consolidar_salvamento()
-    assert oraculos.verificar_integridade_diario(diario) is None
+    assert oraculos.verificar_integridade_diario(diario, model=model) is None
 
-    # Corrompe diario_pendente.bin com um objeto pickle malformado (dicionário vazio / não-dict)
+    # 1. Registro dict estruturalmente válido no pickle mas inválido em deserializar_comando
+    diario.gravar_comando_pendente({"classe": "ComandoDesconhecidoInvalido"})
+    falha_cmd_invalido = oraculos.verificar_integridade_diario(diario, model=model)
+    assert falha_cmd_invalido is not None
+    assert falha_cmd_invalido.oraculo == "corrupcao_diario"
+    oraculos.limpar_falhas()
+
+    # 2. Corrompe diario_pendente.bin com um objeto pickle malformado (dicionário vazio / não-dict)
     import pickle
 
     with open(diario.caminho_pendente, "wb") as f:
         pickle.dump({}, f)
 
-    falha_malformado = oraculos.verificar_integridade_diario(diario)
+    falha_malformado = oraculos.verificar_integridade_diario(diario, model=model)
     assert falha_malformado is not None
     assert falha_malformado.oraculo == "corrupcao_diario"
     assert falha_malformado.excecao_original is not None
@@ -220,3 +236,17 @@ def test_oraculo_captura_erros_e_excecoes_registrados_no_logger() -> None:
     assert falha_sem_exc.excecao_original is not None
     assert falha_sem_exc.excecao_original.__traceback__ is not None
     assert "Traceback (most recent call last):" in falha_sem_exc.stacktrace
+
+    # Também deve interceptar logs ERROR emitidos fora do namespace aresta_editor (root logger)
+    from editor.core.registro_log import obter_logger_raiz_python
+
+    oraculos.limpar_falhas()
+    log_externo = obter_logger_raiz_python().getChild("namespace_externo_teste_caos")
+    with oraculos.monitorar_excecoes():
+        log_externo.error("Erro em módulo fora de aresta_editor")
+
+    assert len(oraculos._falhas) == 1
+    falha_root = oraculos.obter_primeira_falha()
+    assert falha_root is not None
+    assert falha_root.oraculo == "erro_registrado_log"
+    assert "fora de aresta_editor" in falha_root.mensagem

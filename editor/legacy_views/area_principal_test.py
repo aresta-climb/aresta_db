@@ -1236,12 +1236,14 @@ def test_edicao_na_janela_principal_grava_diario_e_salva_consolida(qtbot, tmp_pa
 def test_recuperacao_de_crash_ao_reabrir_croqui_com_pendencias(qtbot, tmp_path):
     from editor.core.diario import GerenciadorDiario
     from editor.core.workspace import ExperimentalWorkspace
+    from scripts.migrador import obter_ultima_versao_migracao
 
     pasta_croqui = tmp_path / "croqui_crash"
     pasta_db = pasta_croqui / "database"
     pasta_db.mkdir(parents=True)
     (pasta_db / "croqui.yaml").write_text(
-        "id: teste_crash\nnome: Nome Original\n", encoding="utf-8"
+        f"id: teste_crash\nnome: Nome Original\nultima_migracao: {obter_ultima_versao_migracao()}\n",
+        encoding="utf-8",
     )
 
     # Simula gravação prévia no diário pendente (como se tivesse crashado)
@@ -1281,13 +1283,15 @@ def test_recuperacao_de_crash_ao_reabrir_croqui_com_pendencias(qtbot, tmp_path):
 def test_reabrir_croqui_com_diario_salvo_habilita_undo_e_preserva_historico(qtbot, tmp_path):
     from editor.core.diario import GerenciadorDiario
     from editor.core.workspace import ExperimentalWorkspace
+    from scripts.migrador import obter_ultima_versao_migracao
 
     pasta_croqui = tmp_path / "croqui_salvo"
     pasta_db = pasta_croqui / "database"
     pasta_db.mkdir(parents=True)
     # O YAML salvo reflete o estado pós-edição
     (pasta_db / "croqui.yaml").write_text(
-        "id: teste_salvo\nnome: Nome Pos Salvamento\n", encoding="utf-8"
+        f"id: teste_salvo\nnome: Nome Pos Salvamento\nultima_migracao: {obter_ultima_versao_migracao()}\n",
+        encoding="utf-8",
     )
 
     # diario_salvo.bin contém o comando que gerou essa modificação
@@ -1338,12 +1342,16 @@ def test_recuperacao_de_crash_com_diario_salvo_e_pendente_permite_undo_imediato_
 ):
     from editor.core.diario import GerenciadorDiario
     from editor.core.workspace import ExperimentalWorkspace
+    from scripts.migrador import obter_ultima_versao_migracao
 
     pasta_croqui = tmp_path / "croqui_misto"
     pasta_db = pasta_croqui / "database"
     pasta_db.mkdir(parents=True)
     # O YAML salvo reflete o estado pós-salvamento anterior
-    (pasta_db / "croqui.yaml").write_text("id: teste_misto\nnome: Nome Salvo\n", encoding="utf-8")
+    (pasta_db / "croqui.yaml").write_text(
+        f"id: teste_misto\nnome: Nome Salvo\nultima_migracao: {obter_ultima_versao_migracao()}\n",
+        encoding="utf-8",
+    )
 
     diario = GerenciadorDiario(pasta_croqui)
     # 1. Comando que foi consolidado no passado
@@ -2377,3 +2385,123 @@ def test_janela_principal_close_encerra_workers_e_fatias_de_pagina_betas(
 
     assert painel.provedor_imagem._executor is None
     assert all(not t.is_alive() for t in threads_deste_provedor)
+
+
+def test_carregar_croqui_invalida_diarios_quando_migracao_executa_e_preserva_sem_migracao(
+    qtbot, tmp_path: Path
+) -> None:
+    """
+    Garante sem mocks internos que:
+    1. Quando aplicar_migracoes executa uma migração real na abertura do croqui, diario_salvo.bin e
+       diario_pendente.bin obsoletos são invalidados e nenhum diálogo de recuperação é exibido;
+    2. Quando nenhuma migração é necessária, diario_salvo.bin é preservado e carregado na QUndoStack.
+    """
+    from editor.core.gerenciador_sessao_fake import GerenciadorSessaoFake
+    from editor.core.serializacao_util import serializar_yaml
+    from editor.core.servico_submissao_fake import ServicoSubmissaoFake
+    from editor.core.servidor_celular_fake import ServidorCelularFake
+    from editor.core.workspace import ExperimentalWorkspace
+    from editor.legacy_views.area_principal import JanelaPrincipal
+    from editor.plataforma.adaptador_plataforma_fake import AdaptadorPlataformaFake
+    from scripts.migrador import obter_ultima_versao_migracao
+
+    ultima_versao = obter_ultima_versao_migracao()
+    repo_base = tmp_path / "repo_base"
+    repo_base.mkdir(parents=True, exist_ok=True)
+
+    # Caso 1: Croqui com ultima_migracao desatualizada (dispara migração real!)
+    pasta_exp_migrado = tmp_path / "exp_migrado"
+    pasta_db_migrado = pasta_exp_migrado / "database"
+    pasta_db_migrado.mkdir(parents=True, exist_ok=True)
+    (pasta_db_migrado / "croqui.yaml").write_text(
+        serializar_yaml(
+            {
+                "id": "br_mg_teste_migracao",
+                "nome": "Croqui Pré-Migração",
+                "ultima_migracao": ultima_versao - 1,
+                "picos": [{"nome": "Pico Pré"}],
+            }
+        ),
+        encoding="utf-8",
+    )
+    ws_migrado = ExperimentalWorkspace(pasta_exp_migrado)
+    diario_migrado = ws_migrado.obter_diario()
+    diario_migrado.gravar_comando_pendente(
+        {
+            "classe": "CmdAlterarCampo",
+            "caminho_msg": "picos.0.inexistente_pos_migracao",
+            "campo_nome": "nome",
+            "valor_antigo": "A",
+            "valor_novo": "B",
+        }
+    )
+    diario_migrado.consolidar_salvamento()
+    diario_migrado.gravar_comando_pendente(
+        {
+            "classe": "CmdAlterarCampo",
+            "caminho_msg": "",
+            "campo_nome": "nome",
+            "valor_antigo": "Croqui Pré-Migração",
+            "valor_novo": "Pendente Obsoleto",
+        }
+    )
+
+    janela1 = JanelaPrincipal(
+        workspace=ws_migrado,
+        auth=GerenciadorSessaoFake(),
+        iniciar_rede_mcp=False,
+        servico_submissao=ServicoSubmissaoFake(caminho_repo_base=repo_base),
+        fabrica_servidor_celular=ServidorCelularFake,
+        servico_loja=AdaptadorPlataformaFake(diretorio_dados=tmp_path / "loja1"),
+    )
+    qtbot.addWidget(janela1)
+
+    assert diario_migrado.ler_diario_salvo() == []
+    assert diario_migrado.ler_diario_pendente() == []
+    assert janela1.historico.obter_pilha().count() == 0
+    janela1._forcar_fechamento = True
+    janela1.close()
+
+    # Caso 2: Croqui já na última migração (preserva diario_salvo.bin!)
+    pasta_exp_atual = tmp_path / "exp_atual"
+    pasta_db_atual = pasta_exp_atual / "database"
+    pasta_db_atual.mkdir(parents=True, exist_ok=True)
+    (pasta_db_atual / "croqui.yaml").write_text(
+        serializar_yaml(
+            {
+                "id": "br_mg_teste_atual",
+                "uid": "crq_atual_0001",
+                "nome": "Croqui Atualizado",
+                "ultima_migracao": ultima_versao,
+                "picos": [{"nome": "Pico Atual"}],
+            }
+        ),
+        encoding="utf-8",
+    )
+    ws_atual = ExperimentalWorkspace(pasta_exp_atual)
+    diario_atual = ws_atual.obter_diario()
+    diario_atual.gravar_comando_pendente(
+        {
+            "classe": "CmdAlterarCampo",
+            "caminho_msg": "",
+            "campo_nome": "nome",
+            "valor_antigo": "Croqui Antigo",
+            "valor_novo": "Croqui Atualizado",
+        }
+    )
+    diario_atual.consolidar_salvamento()
+
+    janela2 = JanelaPrincipal(
+        workspace=ws_atual,
+        auth=GerenciadorSessaoFake(),
+        iniciar_rede_mcp=False,
+        servico_submissao=ServicoSubmissaoFake(caminho_repo_base=repo_base),
+        fabrica_servidor_celular=ServidorCelularFake,
+        servico_loja=AdaptadorPlataformaFake(diretorio_dados=tmp_path / "loja2"),
+    )
+    qtbot.addWidget(janela2)
+
+    assert len(diario_atual.ler_diario_salvo()) == 1
+    assert janela2.historico.obter_pilha().count() == 1
+    janela2._forcar_fechamento = True
+    janela2.close()

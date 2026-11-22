@@ -182,6 +182,8 @@ class GerenciadorHistorico(QObject):
             for cmd_dict in comandos_dados:
                 try:
                     cmd = deserializar_comando(cmd_dict, model)
+                    cmd.redo()
+                    cmd.armar_carregamento_silencioso()
                     self._pilha.push(cmd)
                     total_restaurados += 1
                 except (ValueError, AttributeError, LookupError, TypeError) as e:
