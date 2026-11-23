@@ -4,6 +4,7 @@
 import os
 from pathlib import Path
 
+from editor.caos.executar_campanha_cli import resolver_seed_inicial_campanha
 from editor.caos.motor_robo_caotico import MotorRoboCaoticoQt
 
 DIRETORIO_PADRAO_RECEITAS = Path(__file__).resolve().parent / "caminhos_regressao"
@@ -23,7 +24,8 @@ def test_campanha_exploratoria_robo_caotico(tmp_path: Path) -> None:
     max_sementes_padrao = 1000 if duracao_env else 2
     max_sementes = int(os.environ.get("MAX_SEMENTES_CAOS", str(max_sementes_padrao)))
     passos_por_semente = int(os.environ.get("PASSOS_POR_SEMENTE_CAOS", "25"))
-    seed_inicial = int(os.environ.get("SEED_INICIAL_CAOS", "2026"))
+    seed_inicial = resolver_seed_inicial_campanha(os.environ.get("SEED_INICIAL_CAOS"))
+    print(f"🎲 [Robô Caótico] Iniciando campanha exploratória com seed_inicial={seed_inicial}...")
     reportar_sentry = os.environ.get("REPORTAR_SENTRY_CAOS", "1").strip().lower() not in (
         "0",
         "false",

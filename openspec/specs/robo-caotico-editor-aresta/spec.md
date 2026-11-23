@@ -102,5 +102,5 @@ O sistema SHALL prover um teste de regressão que reexecute todos os arquivos JS
 - **THEN** o motor SHALL executar as reexecuções de busca binária (`ddmin`) em um escopo isolado e silencioso do Sentry (sem descartar nem sobrescrever os *breadcrumbs* e o diário acumulados nos passos da semente original), salvar o arquivo `.json` reduzido e despachar um único evento ao Sentry com os *breadcrumbs* originais, o *stacktrace* real e o `.json` anexado.
 
 #### Scenario: Execução local via ponto de entrada de linha de comando
-- **WHEN** o desenvolvedor executa o ponto de entrada de linha de comando do robô caótico sem argumentos adicionais
-- **THEN** o sistema SHALL iniciar uma campanha local com janela visível por padrão, telemetria do Sentry habilitada e gravação automática de receitas `.json` em `editor/caos/caminhos_regressao/`, sem alterar o comportamento *headless* dos testes unitários do `pytest`.
+- **WHEN** o desenvolvedor executa o ponto de entrada de linha de comando do robô caótico ou a campanha exploratória sem fixar `--seed-inicial` / `SEED_INICIAL_CAOS`
+- **THEN** o sistema SHALL derivar uma semente inicial variável a partir do relógio atual em milissegundos a cada execução (registrando a semente efetiva no log e em eventuais receitas `.json` para reprodução 100% determinística), mantendo janela visível no CLI por padrão, telemetria do Sentry habilitada e gravação automática de receitas `.json` em `editor/caos/caminhos_regressao/`.

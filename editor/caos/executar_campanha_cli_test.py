@@ -8,6 +8,7 @@ from editor.caos.executar_campanha_cli import (
     configurar_plataforma_qt_cli,
     construir_parser_cli,
     executar_cli,
+    resolver_seed_inicial_campanha,
 )
 
 
@@ -18,10 +19,29 @@ def test_parser_cli_possui_padroes_amigaveis_para_execucao_local() -> None:
     assert args.duracao == 60.0
     assert args.passos == 60
     assert args.max_sementes == 1000
-    assert args.seed_inicial == 5000
+    assert args.seed_inicial == 0
     assert args.headless is False
     assert args.sem_sentry is False
     assert Path(args.diretorio_receitas).name == "caminhos_regressao"
+
+
+def test_resolver_seed_inicial_campanha_gera_semente_variavel_por_padrao_e_preserva_explicita() -> (
+    None
+):
+    import time
+
+    seed_a = resolver_seed_inicial_campanha(None)
+    time.sleep(0.003)
+    seed_b = resolver_seed_inicial_campanha(0)
+    seed_c = resolver_seed_inicial_campanha("0")
+    seed_vazia = resolver_seed_inicial_campanha("   ")
+
+    for s in (seed_a, seed_b, seed_c, seed_vazia):
+        assert 1 <= s < 100_000_000
+    assert seed_a != seed_b
+
+    assert resolver_seed_inicial_campanha(4242) == 4242
+    assert resolver_seed_inicial_campanha("7777") == 7777
 
 
 def test_configurar_plataforma_qt_cli_alterna_entre_visivel_e_offscreen() -> None:
