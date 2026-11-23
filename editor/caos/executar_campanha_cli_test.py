@@ -25,20 +25,22 @@ def test_parser_cli_possui_padroes_amigaveis_para_execucao_local() -> None:
     assert Path(args.diretorio_receitas).name == "caminhos_regressao"
 
 
-def test_resolver_seed_inicial_campanha_gera_semente_variavel_por_padrao_e_preserva_explicita() -> (
+def test_resolver_seed_inicial_campanha_gera_semente_via_urandom_por_padrao_e_preserva_explicita() -> (
     None
 ):
-    import time
+    amostras = [resolver_seed_inicial_campanha(None) for _ in range(32)]
+    amostras.extend(
+        [
+            resolver_seed_inicial_campanha(0),
+            resolver_seed_inicial_campanha("0"),
+            resolver_seed_inicial_campanha("   "),
+        ]
+    )
 
-    seed_a = resolver_seed_inicial_campanha(None)
-    time.sleep(0.003)
-    seed_b = resolver_seed_inicial_campanha(0)
-    seed_c = resolver_seed_inicial_campanha("0")
-    seed_vazia = resolver_seed_inicial_campanha("   ")
-
-    for s in (seed_a, seed_b, seed_c, seed_vazia):
-        assert 1 <= s < 100_000_000
-    assert seed_a != seed_b
+    for s in amostras:
+        assert 1 <= s <= 0x7FFFFFFF
+    # Em loop apertado sub-milissegundo, entropia criptográfica (os.urandom) não repete o mesmo valor
+    assert len(set(amostras)) >= 34
 
     assert resolver_seed_inicial_campanha(4242) == 4242
     assert resolver_seed_inicial_campanha("7777") == 7777

@@ -5,7 +5,6 @@ import argparse
 import os
 import sys
 import tempfile
-import time
 from collections.abc import Sequence
 from pathlib import Path
 
@@ -18,8 +17,8 @@ DIRETORIO_PADRAO_RECEITAS = Path(__file__).resolve().parent / "caminhos_regressa
 def resolver_seed_inicial_campanha(valor_configurado: int | str | None = None) -> int:
     """
     Resolve a semente inicial da campanha do Robô Caótico.
-    Quando omitida, vazia ou <= 0, gera uma semente variável em [1, 99_999_999]
-    derivada do relógio em milissegundos para explorar novos caminhos a cada execução.
+    Quando omitida, vazia ou <= 0, gera uma semente aleatória em [1, 2_147_483_647]
+    usando entropia do sistema operacional (os.urandom) a cada execução.
     """
     if valor_configurado is not None:
         texto = str(valor_configurado).strip()
@@ -27,8 +26,7 @@ def resolver_seed_inicial_campanha(valor_configurado: int | str | None = None) -
             valor_int = int(texto)
             if valor_int > 0:
                 return valor_int
-    semente_relogio = (time.time_ns() // 1_000_000) % 100_000_000
-    return semente_relogio if semente_relogio > 0 else 1
+    return (int.from_bytes(os.urandom(4), "big") & 0x7FFFFFFF) or 1
 
 
 def construir_parser_cli() -> argparse.ArgumentParser:

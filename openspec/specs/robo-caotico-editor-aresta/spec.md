@@ -103,4 +103,4 @@ O sistema SHALL prover um teste de regressão que reexecute todos os arquivos JS
 
 #### Scenario: Execução local via ponto de entrada de linha de comando
 - **WHEN** o desenvolvedor executa o ponto de entrada de linha de comando do robô caótico ou a campanha exploratória sem fixar `--seed-inicial` / `SEED_INICIAL_CAOS`
-- **THEN** o sistema SHALL derivar uma semente inicial variável a partir do relógio atual em milissegundos a cada execução (registrando a semente efetiva no log e em eventuais receitas `.json` para reprodução 100% determinística), mantendo janela visível no CLI por padrão, telemetria do Sentry habilitada e gravação automática de receitas `.json` em `editor/caos/caminhos_regressao/`.
+- **THEN** o sistema SHALL gerar uma semente inicial aleatória via `os.urandom` a cada execução (registrando a semente efetiva no log e em eventuais receitas `.json` para reprodução 100% determinística), mantendo janela visível no CLI por padrão, telemetria do Sentry habilitada e gravação automática de receitas `.json` em `editor/caos/caminhos_regressao/`.
