@@ -62,3 +62,8 @@ def obter_logger(nome: str = "") -> logging.Logger:
     if not nome or nome == "aresta_editor":
         return logging.getLogger("aresta_editor")
     return logging.getLogger(f"aresta_editor.{nome}")
+
+
+def obter_logger_raiz_python() -> logging.Logger:
+    """Retorna o root logger global do Python (usado pelos oráculos de teste para paridade com o Sentry)."""
+    return logging.getLogger()

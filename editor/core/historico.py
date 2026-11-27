@@ -28,6 +28,8 @@ class GerenciadorHistorico(QObject):
         super().__init__(parent)
         self._pilha: QUndoStack = QUndoStack(self)
         self._ultimo_index: int = 0
+        self._total_base_salva: int = 0
+        self._prefixo_salvo_intacto: int = 0
         self._diario: Any = diario
         self._gravacao_pausada: bool = False
         self.intervalo_debounce_ms: int = 300
@@ -60,7 +62,11 @@ class GerenciadorHistorico(QObject):
 
     def executar(self, comando: QUndoCommand) -> None:
         """Executa um comando e o empilha no histórico, persistindo no diário se ativo."""
+        idx_antes = self._pilha.index()
         count_antes = self._pilha.count()
+        descartou_ramo_redo = idx_antes < count_antes
+        if idx_antes < self._prefixo_salvo_intacto:
+            self._prefixo_salvo_intacto = idx_antes
         self._pilha.push(comando)
         count_depois = self._pilha.count()
 
@@ -69,12 +75,22 @@ class GerenciadorHistorico(QObject):
         if self._diario and not self._gravacao_pausada:
             # Se o comando foi mesclado pelo QUndoStack (a contagem não aumentou),
             # agenda a sincronização do diário pendente no disco com debounce para digitação fluida.
-            if count_depois == count_antes and count_depois > 0:
+            if count_depois == count_antes and count_depois > 0 and not descartou_ramo_redo:
                 self._sincronizar_diario_pendente()
+            elif descartou_ramo_redo or self._prefixo_salvo_intacto < self._total_base_salva:
+                self.flush_diario_pendente()
+                self._sincronizar_diario_pendente_imediato()
             else:
                 self.flush_diario_pendente()
                 self._diario.gravar_comando_pendente(comando)
                 anexar_diario_escopo(self._diario)
+
+    def registrar_salvamento_concluido(self, undo_index: int) -> None:
+        """Atualiza a linha de base de comandos salvos após consolidação no disco."""
+        self._total_base_salva = max(0, int(undo_index))
+        self._prefixo_salvo_intacto = min(self._total_base_salva, self._pilha.index())
+        if self._pilha.index() == self._total_base_salva:
+            self._pilha.setClean()
 
     def _sincronizar_diario_pendente(self) -> None:
         """Agenda a sincronização do diário pendente no disco respeitando o debounce."""
@@ -97,10 +113,18 @@ class GerenciadorHistorico(QObject):
         """Reescreve diario_pendente.bin imediatamente com os comandos pendentes atualmente na pilha."""
         if not self._diario:
             return
-        clean_idx = self._pilha.cleanIndex()
-        start_idx = max(0, clean_idx) if clean_idx >= 0 else 0
         current_idx = self._pilha.index()
-        comandos_pendentes = []
+        if self._total_base_salva > 0:
+            base_efetiva = min(self._prefixo_salvo_intacto, current_idx)
+            recuos = self._total_base_salva - base_efetiva
+            start_idx = base_efetiva
+        else:
+            clean_idx = self._pilha.cleanIndex()
+            start_idx = max(0, clean_idx) if clean_idx >= 0 else 0
+            recuos = 0
+        comandos_pendentes: list[Any] = []
+        if recuos > 0:
+            comandos_pendentes.append({"__controle_diario__": "recuo_salvo", "passos": recuos})
         for i in range(start_idx, current_idx):
             cmd = self._pilha.command(i)
             if cmd:
@@ -159,6 +183,8 @@ class GerenciadorHistorico(QObject):
                     logger.error("Erro inesperado ao deserializar comando salvo: %s", e)
                     continue
         finally:
+            self._total_base_salva = total_carregados
+            self._prefixo_salvo_intacto = total_carregados
             self._pilha.setClean()
             self._gravacao_pausada = False
 
@@ -180,8 +206,22 @@ class GerenciadorHistorico(QObject):
         total_restaurados = 0
         try:
             for cmd_dict in comandos_dados:
+                if (
+                    isinstance(cmd_dict, dict)
+                    and cmd_dict.get("__controle_diario__") == "recuo_salvo"
+                ):
+                    passos_recuo = max(0, int(cmd_dict.get("passos", 0)))
+                    for _ in range(passos_recuo):
+                        if self._pilha.canUndo():
+                            self._pilha.undo()
+                    self._prefixo_salvo_intacto = min(
+                        self._prefixo_salvo_intacto, self._pilha.index()
+                    )
+                    continue
                 try:
                     cmd = deserializar_comando(cmd_dict, model)
+                    cmd.redo()
+                    cmd.armar_carregamento_silencioso()
                     self._pilha.push(cmd)
                     total_restaurados += 1
                 except (ValueError, AttributeError, LookupError, TypeError) as e:
@@ -221,6 +261,8 @@ class GerenciadorHistorico(QObject):
             self._timer_sincronizacao.stop()
         self._pilha.clear()
         self._ultimo_index = 0
+        self._total_base_salva = 0
+        self._prefixo_salvo_intacto = 0
 
     @Slot(int)
     def _on_index_changed(self, novo_index: int) -> None:

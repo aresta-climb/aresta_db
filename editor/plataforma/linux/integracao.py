@@ -6,16 +6,17 @@ Biblioteca utilitária para integração com o ambiente de desktop Linux (XDG e 
 Implementa o AdaptadorLinux conforme o protocolo AdaptadorPlataforma.
 """
 
-import logging
 import os
 from pathlib import Path
 
-log = logging.getLogger("aresta_editor")
+from editor.core.registro_log import obter_logger
 from editor.plataforma.contrato import (
     AdaptadorPlataforma,
     ResultadoAtualizacao,
     StatusAtualizacao,
 )
+
+log = obter_logger("plataforma.linux")
 
 
 class AdaptadorLinux(AdaptadorPlataforma):

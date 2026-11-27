@@ -17,7 +17,7 @@ O sistema SHALL prover um motor de exploração caótica guiado por semente (`se
 - **THEN** o motor SHALL dedicar a fase inicial (10% a 15% do orçamento) para atravessar as telas de abertura, autenticação, seleção ou criação de croqui e dedicar os 85% a 90% restantes às interações profundas dentro da janela principal de edição.
 
 ### Requirement: Fuzzing de Entradas em Formulários, Árvore, Imagens e Mapas
-O motor SHALL sortear e aplicar ações de fuzzing sobre os componentes interativos visíveis das abas de Dados, Imagens, Mapas, Betas e barras de ferramentas, incluindo entradas de texto hostis, alternância de seletores `oneof`, manipulações na árvore Protobuf, traçados na cena gráfica 2D e rajadas de desfazer/refazer.
+O motor SHALL sortear e aplicar ações de fuzzing sobre os componentes interativos visíveis das abas de Dados, Imagens, Mapas, Betas e barras de ferramentas, incluindo entradas de texto hostis, alternância de seletores `oneof`, adições e remoções estruturais em listas `repeated`, manipulações na árvore Protobuf, traçados na cena gráfica 2D, salvamentos, recarregamentos completos de sessão do croqui a partir do disco e rajadas de desfazer/refazer.
 
 #### Scenario: Injeção de entradas fuzz em campos de formulário e coordenadas
 - **WHEN** o motor seleciona um campo de texto, numérico ou coordenada E7 visível no formulário de dados
@@ -31,6 +31,10 @@ O motor SHALL sortear e aplicar ações de fuzzing sobre os componentes interati
 - **WHEN** a pilha de histórico possuir comandos empilhados durante a exploração
 - **THEN** o motor SHALL sortear ações simples e rajadas consecutivas de `Undo` e `Redo` intercaladas com trocas de abas e salvamentos.
 
+#### Scenario: Ciclo completo de mutações estruturais, salvamento, reabertura de sessão e reversão
+- **WHEN** o motor sorteia ações estruturais (adição/remoção de itens `repeated` ou troca de variante `oneof`) seguidas de salvamento e ação de recarregar a sessão do croqui
+- **THEN** o motor SHALL reabrir o croqui a partir do disco (exercitando `carregar_diario_salvo` e eventual `restaurar_do_diario`), ressincronizar os hashes de simetria dos passos recarregados e permitir que passos subsequentes de `Undo` e `Redo` validem a reversão pós-reabertura sem erros de log ou quebra de simetria.
+
 ### Requirement: Interceptação Automática de Diálogos Modais Qt
 O motor SHALL detectar automaticamente qualquer diálogo modal (`QDialog`, `QMessageBox` ou similar) aberto durante a execução de um passo, interagir com seus controles internos e encerrar o diálogo sem bloquear permanentemente o loop de eventos do teste.
 
@@ -39,14 +43,14 @@ O motor SHALL detectar automaticamente qualquer diálogo modal (`QDialog`, `QMes
 - **THEN** o interceptador de modais SHALL identificar o widget modal ativo, executar passos de preenchimento ou seleção dentro do diálogo e acionar sua confirmação ou cancelamento para restituir o controle ao loop principal.
 
 ### Requirement: Oráculos de Exceção, Simetria de Undo/Redo e Integridade do Diário
-A cada passo executado, o motor SHALL verificar três oráculos independentes: ausência de exceções não tratadas, logs de erro (`ERROR`/`CRITICAL`) ou objetos C++ deletados, simetria determinística do estado Protobuf na pilha de `Undo`/`Redo` e integridade estrutural do diário binário de sessão, garantindo que toda falha detectada possua um *traceback* real da pilha de execução no ponto da verificação.
+A cada passo executado, o motor SHALL verificar três oráculos independentes: ausência de exceções não tratadas, logs de erro (`ERROR`/`CRITICAL`) em qualquer logger Python do processo (*root logger* e `aresta_editor`) ou objetos C++ deletados, simetria determinística do estado Protobuf na pilha de `Undo`/`Redo` e integridade estrutural e semântica do diário binário de sessão (incluindo deserialização real de cada comando persistido), garantindo que toda falha detectada possua um *traceback* real da pilha de execução no ponto da verificação.
 
 #### Scenario: Detecção de exceção em slot Qt ou objeto C++ já deletado
 - **WHEN** um slot Qt, temporizador ou thread em segundo plano lança uma exceção não tratada (como `RuntimeError: Internal C++ object already deleted`)
 - **THEN** o oráculo de exceções SHALL capturar imediatamente a exceção original com seu *traceback* completo, interrompendo a semente atual e registrando a falha.
 
 #### Scenario: Detecção de erro registrado no logger da aplicação
-- **WHEN** um componente ou thread em segundo plano (como a tarefa de salvamento ou publicação) captura uma exceção internamente e emite um registro de nível `ERROR` ou `CRITICAL` no logger da aplicação
+- **WHEN** qualquer módulo da aplicação ou thread em segundo plano emite um registro de nível `ERROR` ou `CRITICAL` (tanto sob `aresta_editor` quanto no *root logger*)
 - **THEN** o oráculo SHALL interceptar o registro (extraindo `exc_info` quando presente ou levantando uma exceção real com *traceback* no ponto do log), interromper a semente atual e tratá-la como falha reproduzível para encolhimento e envio ao Sentry.
 
 #### Scenario: Detecção de quebra de simetria na pilha de Undo/Redo
@@ -55,7 +59,7 @@ A cada passo executado, o motor SHALL verificar três oráculos independentes: a
 
 #### Scenario: Verificação de integridade do diário transacional
 - **WHEN** comandos são gravados no diário pendente ou consolidados no diário salvo durante a sessão
-- **THEN** o oráculo de diário SHALL validar que os arquivos binários do diário permanecem legíveis e desserializáveis sem erro, levantando exceção com *traceback* completo caso detecte corrupção.
+- **THEN** o oráculo de diário SHALL validar que os arquivos binários do diário permanecem legíveis até o `EOF` e que cada registro pode ser reconstruído por `deserializar_comando` sem levantar exceção e sem emitir logs `ERROR`, reportando falha com *traceback* completo caso detecte corrupção ou efeito colateral de erro.
 
 ### Requirement: Bloqueio Hard de Rede Externa Durante os Testes
 O sistema SHALL bloquear qualquer tentativa de conexão de rede externa ou abertura de navegador externo do sistema operacional durante a execução das sementes do robô caótico, exceto conexões de loopback (`127.0.0.1`, `::1`, `localhost`) e o endpoint de ingestão de telemetria do Sentry (`*.ingest.us.sentry.io` / `*.sentry.io`).
@@ -98,5 +102,5 @@ O sistema SHALL prover um teste de regressão que reexecute todos os arquivos JS
 - **THEN** o motor SHALL executar as reexecuções de busca binária (`ddmin`) em um escopo isolado e silencioso do Sentry (sem descartar nem sobrescrever os *breadcrumbs* e o diário acumulados nos passos da semente original), salvar o arquivo `.json` reduzido e despachar um único evento ao Sentry com os *breadcrumbs* originais, o *stacktrace* real e o `.json` anexado.
 
 #### Scenario: Execução local via ponto de entrada de linha de comando
-- **WHEN** o desenvolvedor executa o ponto de entrada de linha de comando do robô caótico sem argumentos adicionais
-- **THEN** o sistema SHALL iniciar uma campanha local com janela visível por padrão, telemetria do Sentry habilitada e gravação automática de receitas `.json` em `editor/caos/caminhos_regressao/`, sem alterar o comportamento *headless* dos testes unitários do `pytest`.
+- **WHEN** o desenvolvedor executa o ponto de entrada de linha de comando do robô caótico ou a campanha exploratória sem fixar `--seed-inicial` / `SEED_INICIAL_CAOS`
+- **THEN** o sistema SHALL gerar uma semente inicial aleatória via `os.urandom` a cada execução (registrando a semente efetiva no log e em eventuais receitas `.json` para reprodução 100% determinística), mantendo janela visível no CLI por padrão, telemetria do Sentry habilitada e gravação automática de receitas `.json` em `editor/caos/caminhos_regressao/`.

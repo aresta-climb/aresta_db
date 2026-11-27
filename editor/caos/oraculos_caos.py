@@ -16,8 +16,10 @@ from typing import Any
 import shiboken6
 
 from editor.caos.receita_crash_robo import FalhaCapturadaRobo
+from editor.commands.comandos_protobuf import deserializar_comando
 from editor.core.diario import GerenciadorDiario
 from editor.core.historico import GerenciadorHistorico
+from editor.core.registro_log import obter_logger, obter_logger_raiz_python
 from editor.core.telemetria import registrar_caminho_repo_local, sanitizar_texto_caminhos
 from editor.models.croqui_model import CroquiModel
 
@@ -86,13 +88,18 @@ def _assinatura_comando_topo(historico: GerenciadorHistorico) -> str:
 
 
 class _HandlerLogErroCaos(logging.Handler):
-    """Intercepta registros ERROR e CRITICAL no logger 'aresta_editor' durante sessões do Robô Caótico."""
+    """Intercepta registros ERROR e CRITICAL em todos os loggers durante sessões do Robô Caótico."""
 
     def __init__(self, oraculos: "OraculosCaos") -> None:
         super().__init__(level=logging.ERROR)
         self._oraculos = oraculos
+        self._ids_vistos: set[int] = set()
 
     def emit(self, record: logging.LogRecord) -> None:
+        rec_id = id(record)
+        if rec_id in self._ids_vistos:
+            return
+        self._ids_vistos.add(rec_id)
         if record.exc_info and record.exc_info[0] is not None and record.exc_info[1] is not None:
             self._oraculos.registrar_excecao(
                 record.exc_info[0],
@@ -167,7 +174,8 @@ class OraculosCaos:
         """Intercepta sys.excepthook, threading.excepthook e logs ERROR/CRITICAL durante um passo do Robô Caótico."""
         hook_sys_orig = sys.excepthook
         hook_thread_orig = threading.excepthook
-        logger_raiz = logging.getLogger("aresta_editor")
+        logger_app = obter_logger()
+        logger_root = obter_logger_raiz_python()
         handler_log = _HandlerLogErroCaos(self)
 
         def _hook_sys(
@@ -182,11 +190,13 @@ class OraculosCaos:
 
         sys.excepthook = _hook_sys
         threading.excepthook = _hook_thread
-        logger_raiz.addHandler(handler_log)
+        logger_app.addHandler(handler_log)
+        logger_root.addHandler(handler_log)
         try:
             yield
         finally:
-            logger_raiz.removeHandler(handler_log)
+            logger_root.removeHandler(handler_log)
+            logger_app.removeHandler(handler_log)
             sys.excepthook = hook_sys_orig
             threading.excepthook = hook_thread_orig
 
@@ -302,9 +312,11 @@ class OraculosCaos:
         return None
 
     def verificar_integridade_diario(
-        self, diario: GerenciadorDiario | None
+        self,
+        diario: GerenciadorDiario | None,
+        model: CroquiModel | None = None,
     ) -> FalhaCapturadaRobo | None:
-        """Verifica se diario_pendente.bin e diario_salvo.bin estão íntegros até o EOF."""
+        """Verifica se diario_pendente.bin e diario_salvo.bin estão íntegros e desserializáveis até o EOF."""
         if diario is None:
             return None
 
@@ -325,6 +337,11 @@ class OraculosCaos:
                             raise ValueError(
                                 f"Registro de diário malformado em {rotulo}: {type(registro)}"
                             )
+                        if (
+                            model is not None
+                            and registro.get("__controle_diario__") != "recuo_salvo"
+                        ):
+                            deserializar_comando(registro, model)
             except Exception as exc:
                 exc_com_tb, texto_tb = _vincular_traceback_completo(exc, exc.__traceback__)
                 falha = FalhaCapturadaRobo(

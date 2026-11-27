@@ -6,7 +6,7 @@ from unittest.mock import MagicMock, patch
 import pytest
 from PySide6.QtCore import Qt
 from PySide6.QtGui import QIcon
-from PySide6.QtWidgets import QDialog, QMainWindow, QStackedWidget, QToolBar
+from PySide6.QtWidgets import QMainWindow, QStackedWidget, QToolBar
 
 from editor.legacy_views.area_principal import (
     JanelaPrincipal,
@@ -1236,12 +1236,14 @@ def test_edicao_na_janela_principal_grava_diario_e_salva_consolida(qtbot, tmp_pa
 def test_recuperacao_de_crash_ao_reabrir_croqui_com_pendencias(qtbot, tmp_path):
     from editor.core.diario import GerenciadorDiario
     from editor.core.workspace import ExperimentalWorkspace
+    from scripts.migrador import obter_ultima_versao_migracao
 
     pasta_croqui = tmp_path / "croqui_crash"
     pasta_db = pasta_croqui / "database"
     pasta_db.mkdir(parents=True)
     (pasta_db / "croqui.yaml").write_text(
-        "id: teste_crash\nnome: Nome Original\n", encoding="utf-8"
+        f"id: teste_crash\nnome: Nome Original\nultima_migracao: {obter_ultima_versao_migracao()}\n",
+        encoding="utf-8",
     )
 
     # Simula gravação prévia no diário pendente (como se tivesse crashado)
@@ -1281,13 +1283,15 @@ def test_recuperacao_de_crash_ao_reabrir_croqui_com_pendencias(qtbot, tmp_path):
 def test_reabrir_croqui_com_diario_salvo_habilita_undo_e_preserva_historico(qtbot, tmp_path):
     from editor.core.diario import GerenciadorDiario
     from editor.core.workspace import ExperimentalWorkspace
+    from scripts.migrador import obter_ultima_versao_migracao
 
     pasta_croqui = tmp_path / "croqui_salvo"
     pasta_db = pasta_croqui / "database"
     pasta_db.mkdir(parents=True)
     # O YAML salvo reflete o estado pós-edição
     (pasta_db / "croqui.yaml").write_text(
-        "id: teste_salvo\nnome: Nome Pos Salvamento\n", encoding="utf-8"
+        f"id: teste_salvo\nnome: Nome Pos Salvamento\nultima_migracao: {obter_ultima_versao_migracao()}\n",
+        encoding="utf-8",
     )
 
     # diario_salvo.bin contém o comando que gerou essa modificação
@@ -1338,12 +1342,16 @@ def test_recuperacao_de_crash_com_diario_salvo_e_pendente_permite_undo_imediato_
 ):
     from editor.core.diario import GerenciadorDiario
     from editor.core.workspace import ExperimentalWorkspace
+    from scripts.migrador import obter_ultima_versao_migracao
 
     pasta_croqui = tmp_path / "croqui_misto"
     pasta_db = pasta_croqui / "database"
     pasta_db.mkdir(parents=True)
     # O YAML salvo reflete o estado pós-salvamento anterior
-    (pasta_db / "croqui.yaml").write_text("id: teste_misto\nnome: Nome Salvo\n", encoding="utf-8")
+    (pasta_db / "croqui.yaml").write_text(
+        f"id: teste_misto\nnome: Nome Salvo\nultima_migracao: {obter_ultima_versao_migracao()}\n",
+        encoding="utf-8",
+    )
 
     diario = GerenciadorDiario(pasta_croqui)
     # 1. Comando que foi consolidado no passado
@@ -1875,140 +1883,295 @@ def test_sincronizar_croqui_dispara_worker(criar_janela, tmp_path):
         instancia.start.assert_called_once()
 
 
-def test_on_sincronizacao_conflito_exibe_dialogo_e_resolve_manter_local(janela_principal):
-    from editor.views.dialogos.dialogo_conflito_sincronizacao import DecisaoConflito
+def _criar_janela_com_workspace_sincronizavel(criar_janela, tmp_path, sufixo: str):
+    from editor.core.gerenciador_sessao_fake import GerenciadorSessaoFake
+    from editor.core.serializacao_util import serializar_yaml
+    from editor.core.servico_submissao_fake import ServicoSubmissaoFake
+    from editor.core.servidor_celular_fake import ServidorCelularFake
+    from editor.core.workspace import ExperimentalWorkspace
+    from editor.plataforma.adaptador_plataforma_fake import AdaptadorPlataformaFake
+    from scripts.migrador import obter_ultima_versao_migracao
 
-    janela = janela_principal
-    janela._recarregar_dados_apos_salvamento = MagicMock()
+    repo_base = tmp_path / f"repo_{sufixo}"
+    repo_base.mkdir(parents=True, exist_ok=True)
+    pasta_exp = tmp_path / f"exp_{sufixo}"
+    pasta_db = pasta_exp / "database"
+    pasta_db.mkdir(parents=True, exist_ok=True)
+    (pasta_db / "croqui.yaml").write_text(
+        serializar_yaml(
+            {
+                "id": "bau",
+                "uid": "crq_bau_0001",
+                "nome": "Pedra do Baú Inicial",
+                "ultima_migracao": obter_ultima_versao_migracao(),
+                "picos": [{"nome": "Pico 1"}],
+            }
+        ),
+        encoding="utf-8",
+    )
+    ws = ExperimentalWorkspace(pasta_exp)
+    submissao_fake = ServicoSubmissaoFake(caminho_repo_base=repo_base)
+    janela = criar_janela(
+        workspace=ws,
+        auth=GerenciadorSessaoFake(),
+        iniciar_rede_mcp=False,
+        servico_submissao=submissao_fake,
+        fabrica_servidor_celular=ServidorCelularFake,
+        servico_loja=AdaptadorPlataformaFake(diretorio_dados=tmp_path / f"loja_{sufixo}"),
+    )
+    return janela, ws, submissao_fake, pasta_db
 
-    mock_servico = MagicMock()
-    mock_resultado = MagicMock()
-    mock_resultado.arquivos_conflito = ["database/bau/croqui.yaml"]
 
-    with (
-        patch(
-            "editor.views.dialogos.dialogo_conflito_sincronizacao.DialogoConflitoSincronizacao"
-        ) as mock_dlg_cls,
-        patch("PySide6.QtWidgets.QMessageBox.information"),
-    ):
-        mock_dlg = MagicMock()
-        mock_dlg.exec.return_value = QDialog.DialogCode.Accepted
-        mock_dlg.obter_decisao.return_value = DecisaoConflito.MANTER_LOCAL
-        mock_dlg_cls.return_value = mock_dlg
+def test_on_sincronizacao_conflito_exibe_dialogo_e_resolve_manter_local(criar_janela, tmp_path):
+    from PySide6.QtCore import QTimer
+    from PySide6.QtWidgets import QApplication, QMessageBox
 
+    from editor.core.serializacao_util import serializar_yaml
+    from editor.core.servico_submissao import ResultadoSincronizacao, StatusSincronizacao
+    from editor.views.dialogos.dialogo_conflito_sincronizacao import DialogoConflitoSincronizacao
+    from scripts.migrador import obter_ultima_versao_migracao
+
+    janela, ws, submissao_fake, pasta_db = _criar_janela_com_workspace_sincronizavel(
+        criar_janela, tmp_path, "conflito_local"
+    )
+    diario = ws.obter_diario()
+    diario.gravar_comando_pendente({"classe": "CmdAlterarCampo", "valor_novo": "Antigo"})
+
+    (pasta_db / "croqui.yaml").write_text(
+        serializar_yaml(
+            {
+                "id": "bau",
+                "uid": "crq_bau_0001",
+                "nome": "Pedra do Baú Resolvida Local",
+                "ultima_migracao": obter_ultima_versao_migracao(),
+                "picos": [{"nome": "Pico 1"}],
+            }
+        ),
+        encoding="utf-8",
+    )
+
+    def _interagir_modais() -> None:
+        w = QApplication.activeModalWidget()
+        if isinstance(w, DialogoConflitoSincronizacao):
+            w.botao_manter_local.click()
+        elif isinstance(w, QMessageBox):
+            w.accept()
+
+    timer = QTimer(janela)
+    timer.timeout.connect(_interagir_modais)
+    timer.start(10)
+    try:
         janela._on_sincronizacao_conflito(
-            resultado=mock_resultado,
-            servico=mock_servico,
+            resultado=ResultadoSincronizacao(
+                status=StatusSincronizacao.CONFLITO,
+                mensagem="Conflito",
+                arquivos_conflito=["database/bau/croqui.yaml"],
+            ),
+            servico=submissao_fake,
             id_croqui="bau",
             nome_branch="edicao-bau-1234",
-            caminho_db=Path("/fake/db"),
+            caminho_db=pasta_db,
             sessao=None,
         )
+    finally:
+        timer.stop()
 
-        mock_servico.resolver_conflito_pr.assert_called_once_with(
-            id_croqui="bau",
-            nome_branch="edicao-bau-1234",
-            caminho_database_croqui=Path("/fake/db"),
-            manter_local=True,
-            sessao=None,
-        )
-        janela._recarregar_dados_apos_salvamento.assert_called_once()
+    assert submissao_fake.conflitos_resolvidos == [("bau", "edicao-bau-1234", True)]
+    assert diario.ler_diario_pendente() == []
+    assert janela.croqui_model.obter_croqui_readonly().nome == "Pedra do Baú Resolvida Local"
 
 
-def test_on_sincronizacao_conflito_exibe_dialogo_e_resolve_usar_remoto(janela_principal):
-    from editor.views.dialogos.dialogo_conflito_sincronizacao import DecisaoConflito
+def test_on_sincronizacao_conflito_exibe_dialogo_e_resolve_usar_remoto(criar_janela, tmp_path):
+    from PySide6.QtCore import QTimer
+    from PySide6.QtWidgets import QApplication, QMessageBox
 
-    janela = janela_principal
-    janela._recarregar_dados_apos_salvamento = MagicMock()
+    from editor.core.serializacao_util import serializar_yaml
+    from editor.core.servico_submissao import ResultadoSincronizacao, StatusSincronizacao
+    from editor.views.dialogos.dialogo_conflito_sincronizacao import DialogoConflitoSincronizacao
+    from scripts.migrador import obter_ultima_versao_migracao
 
-    mock_servico = MagicMock()
-    mock_resultado = MagicMock()
-    mock_resultado.arquivos_conflito = ["database/bau/croqui.yaml"]
+    janela, ws, submissao_fake, pasta_db = _criar_janela_com_workspace_sincronizavel(
+        criar_janela, tmp_path, "conflito_remoto"
+    )
+    diario = ws.obter_diario()
+    diario.gravar_comando_pendente({"classe": "CmdAlterarCampo", "valor_novo": "Antigo"})
 
-    with (
-        patch(
-            "editor.views.dialogos.dialogo_conflito_sincronizacao.DialogoConflitoSincronizacao"
-        ) as mock_dlg_cls,
-        patch("PySide6.QtWidgets.QMessageBox.information"),
-    ):
-        mock_dlg = MagicMock()
-        mock_dlg.exec.return_value = QDialog.DialogCode.Accepted
-        mock_dlg.obter_decisao.return_value = DecisaoConflito.USAR_REMOTO
-        mock_dlg_cls.return_value = mock_dlg
+    (pasta_db / "croqui.yaml").write_text(
+        serializar_yaml(
+            {
+                "id": "bau",
+                "uid": "crq_bau_0001",
+                "nome": "Pedra do Baú Do GitHub",
+                "ultima_migracao": obter_ultima_versao_migracao(),
+                "picos": [{"nome": "Pico 1"}],
+            }
+        ),
+        encoding="utf-8",
+    )
 
+    def _interagir_modais() -> None:
+        w = QApplication.activeModalWidget()
+        if isinstance(w, DialogoConflitoSincronizacao):
+            w.botao_usar_remoto.click()
+        elif isinstance(w, QMessageBox):
+            w.accept()
+
+    timer = QTimer(janela)
+    timer.timeout.connect(_interagir_modais)
+    timer.start(10)
+    try:
         janela._on_sincronizacao_conflito(
-            resultado=mock_resultado,
-            servico=mock_servico,
+            resultado=ResultadoSincronizacao(
+                status=StatusSincronizacao.CONFLITO,
+                mensagem="Conflito",
+                arquivos_conflito=["database/bau/croqui.yaml"],
+            ),
+            servico=submissao_fake,
             id_croqui="bau",
             nome_branch="edicao-bau-1234",
-            caminho_db=Path("/fake/db"),
+            caminho_db=pasta_db,
             sessao=None,
         )
+    finally:
+        timer.stop()
 
-        mock_servico.resolver_conflito_pr.assert_called_once_with(
-            id_croqui="bau",
-            nome_branch="edicao-bau-1234",
-            caminho_database_croqui=Path("/fake/db"),
-            manter_local=False,
-            sessao=None,
-        )
-        janela._recarregar_dados_apos_salvamento.assert_called_once()
+    assert submissao_fake.conflitos_resolvidos == [("bau", "edicao-bau-1234", False)]
+    assert diario.ler_diario_pendente() == []
+    assert janela.croqui_model.obter_croqui_readonly().nome == "Pedra do Baú Do GitHub"
 
 
-def test_on_sincronizacao_conflito_cancelar_nao_chama_resolver(janela_principal):
-    from editor.views.dialogos.dialogo_conflito_sincronizacao import DecisaoConflito
+def test_on_sincronizacao_conflito_cancelar_nao_chama_resolver(criar_janela, tmp_path):
+    from PySide6.QtCore import QTimer
+    from PySide6.QtWidgets import QApplication
 
-    janela = janela_principal
-    janela._recarregar_dados_apos_salvamento = MagicMock()
+    from editor.core.servico_submissao import ResultadoSincronizacao, StatusSincronizacao
+    from editor.views.dialogos.dialogo_conflito_sincronizacao import DialogoConflitoSincronizacao
 
-    mock_servico = MagicMock()
-    mock_resultado = MagicMock()
-    mock_resultado.arquivos_conflito = ["database/bau/croqui.yaml"]
+    janela, ws, submissao_fake, pasta_db = _criar_janela_com_workspace_sincronizavel(
+        criar_janela, tmp_path, "conflito_cancelar"
+    )
+    diario = ws.obter_diario()
+    diario.gravar_comando_pendente({"classe": "CmdAlterarCampo", "valor_novo": "Mantido"})
 
-    with patch(
-        "editor.views.dialogos.dialogo_conflito_sincronizacao.DialogoConflitoSincronizacao"
-    ) as mock_dlg_cls:
-        mock_dlg = MagicMock()
-        mock_dlg.exec.return_value = QDialog.DialogCode.Rejected
-        mock_dlg.obter_decisao.return_value = DecisaoConflito.CANCELAR
-        mock_dlg_cls.return_value = mock_dlg
+    def _interagir_modais() -> None:
+        w = QApplication.activeModalWidget()
+        if isinstance(w, DialogoConflitoSincronizacao):
+            w.botao_cancelar.click()
 
+    timer = QTimer(janela)
+    timer.timeout.connect(_interagir_modais)
+    timer.start(10)
+    try:
         janela._on_sincronizacao_conflito(
-            resultado=mock_resultado,
-            servico=mock_servico,
+            resultado=ResultadoSincronizacao(
+                status=StatusSincronizacao.CONFLITO,
+                mensagem="Conflito",
+                arquivos_conflito=["database/bau/croqui.yaml"],
+            ),
+            servico=submissao_fake,
             id_croqui="bau",
             nome_branch="edicao-bau-1234",
-            caminho_db=Path("/fake/db"),
+            caminho_db=pasta_db,
             sessao=None,
         )
+    finally:
+        timer.stop()
 
-        mock_servico.resolver_conflito_pr.assert_not_called()
-        janela._recarregar_dados_apos_salvamento.assert_not_called()
-
-
-def test_on_sincronizacao_sucesso_nao_silencioso_exibe_messagebox(janela_principal):
-    janela = janela_principal
-    janela._recarregar_dados_apos_salvamento = MagicMock()
-    res = MagicMock()
-    res.mensagem = "Sincronizado 100%"
-
-    with patch("PySide6.QtWidgets.QMessageBox.information") as mock_info:
-        janela._on_sincronizacao_sucesso(res, silencioso=False)
-        janela._recarregar_dados_apos_salvamento.assert_called_once()
-        mock_info.assert_called_once()
+    assert submissao_fake.conflitos_resolvidos == []
+    assert len(diario.ler_diario_pendente()) == 1
 
 
-def test_on_sincronizacao_sucesso_silencioso_exibe_notificacao(janela_principal):
-    janela = janela_principal
-    janela._recarregar_dados_apos_salvamento = MagicMock()
-    janela.exibir_notificacao = MagicMock()
-    res = MagicMock()
+def test_on_sincronizacao_sucesso_nao_silencioso_exibe_messagebox(criar_janela, tmp_path):
+    from PySide6.QtCore import QTimer
+    from PySide6.QtWidgets import QApplication, QMessageBox
 
-    with patch("PySide6.QtWidgets.QMessageBox.information") as mock_info:
-        janela._on_sincronizacao_sucesso(res, silencioso=True)
-        janela._recarregar_dados_apos_salvamento.assert_called_once()
-        mock_info.assert_not_called()
-        janela.exibir_notificacao.assert_called_once()
+    from editor.core.serializacao_util import serializar_yaml
+    from editor.core.servico_submissao import ResultadoSincronizacao, StatusSincronizacao
+    from scripts.migrador import obter_ultima_versao_migracao
+
+    janela, ws, _submissao_fake, pasta_db = _criar_janela_com_workspace_sincronizavel(
+        criar_janela, tmp_path, "sucesso_dialogo"
+    )
+    diario = ws.obter_diario()
+    diario.gravar_comando_pendente({"classe": "CmdAlterarCampo", "valor_novo": "Antigo"})
+
+    (pasta_db / "croqui.yaml").write_text(
+        serializar_yaml(
+            {
+                "id": "bau",
+                "uid": "crq_bau_0001",
+                "nome": "Sincronizado Manualmente",
+                "ultima_migracao": obter_ultima_versao_migracao(),
+                "picos": [{"nome": "Pico 1"}],
+            }
+        ),
+        encoding="utf-8",
+    )
+
+    exibiu_messagebox = False
+
+    def _fechar_msgbox() -> None:
+        nonlocal exibiu_messagebox
+        w = QApplication.activeModalWidget()
+        if isinstance(w, QMessageBox):
+            exibiu_messagebox = True
+            w.accept()
+
+    timer = QTimer(janela)
+    timer.timeout.connect(_fechar_msgbox)
+    timer.start(10)
+    try:
+        janela._on_sincronizacao_sucesso(
+            ResultadoSincronizacao(
+                status=StatusSincronizacao.MESCLADO,
+                mensagem="Sincronizado 100%",
+                commit_merge="sha_ok",
+            ),
+            silencioso=False,
+        )
+    finally:
+        timer.stop()
+
+    assert exibiu_messagebox is True
+    assert diario.ler_diario_pendente() == []
+    assert janela.croqui_model.obter_croqui_readonly().nome == "Sincronizado Manualmente"
+
+
+def test_on_sincronizacao_sucesso_silencioso_exibe_notificacao(criar_janela, tmp_path):
+    from editor.core.serializacao_util import serializar_yaml
+    from editor.core.servico_submissao import ResultadoSincronizacao, StatusSincronizacao
+    from scripts.migrador import obter_ultima_versao_migracao
+
+    janela, ws, _submissao_fake, pasta_db = _criar_janela_com_workspace_sincronizavel(
+        criar_janela, tmp_path, "sucesso_silencioso"
+    )
+    diario = ws.obter_diario()
+    diario.gravar_comando_pendente({"classe": "CmdAlterarCampo", "valor_novo": "Antigo"})
+
+    (pasta_db / "croqui.yaml").write_text(
+        serializar_yaml(
+            {
+                "id": "bau",
+                "uid": "crq_bau_0001",
+                "nome": "Sincronizado Silenciosamente",
+                "ultima_migracao": obter_ultima_versao_migracao(),
+                "picos": [{"nome": "Pico 1"}],
+            }
+        ),
+        encoding="utf-8",
+    )
+
+    janela._on_sincronizacao_sucesso(
+        ResultadoSincronizacao(
+            status=StatusSincronizacao.MESCLADO,
+            mensagem="Sincronizado em segundo plano",
+            commit_merge="sha_silencioso",
+        ),
+        silencioso=True,
+    )
+
+    assert diario.ler_diario_pendente() == []
+    assert janela.croqui_model.obter_croqui_readonly().nome == "Sincronizado Silenciosamente"
 
 
 def test_on_sincronizacao_aviso_nao_silencioso_exibe_messagebox(janela_principal):
@@ -2377,3 +2540,229 @@ def test_janela_principal_close_encerra_workers_e_fatias_de_pagina_betas(
 
     assert painel.provedor_imagem._executor is None
     assert all(not t.is_alive() for t in threads_deste_provedor)
+
+
+def test_carregar_croqui_invalida_diarios_quando_migracao_executa_e_preserva_sem_migracao(
+    qtbot, tmp_path: Path
+) -> None:
+    """
+    Garante sem mocks internos que:
+    1. Quando aplicar_migracoes executa uma migração real na abertura do croqui, diario_salvo.bin e
+       diario_pendente.bin obsoletos são invalidados e nenhum diálogo de recuperação é exibido;
+    2. Quando nenhuma migração é necessária, diario_salvo.bin é preservado e carregado na QUndoStack.
+    """
+    from editor.core.gerenciador_sessao_fake import GerenciadorSessaoFake
+    from editor.core.serializacao_util import serializar_yaml
+    from editor.core.servico_submissao_fake import ServicoSubmissaoFake
+    from editor.core.servidor_celular_fake import ServidorCelularFake
+    from editor.core.workspace import ExperimentalWorkspace
+    from editor.legacy_views.area_principal import JanelaPrincipal
+    from editor.plataforma.adaptador_plataforma_fake import AdaptadorPlataformaFake
+    from scripts.migrador import obter_ultima_versao_migracao
+
+    ultima_versao = obter_ultima_versao_migracao()
+    repo_base = tmp_path / "repo_base"
+    repo_base.mkdir(parents=True, exist_ok=True)
+
+    # Caso 1: Croqui com ultima_migracao desatualizada (dispara migração real!)
+    pasta_exp_migrado = tmp_path / "exp_migrado"
+    pasta_db_migrado = pasta_exp_migrado / "database"
+    pasta_db_migrado.mkdir(parents=True, exist_ok=True)
+    (pasta_db_migrado / "croqui.yaml").write_text(
+        serializar_yaml(
+            {
+                "id": "br_mg_teste_migracao",
+                "nome": "Croqui Pré-Migração",
+                "ultima_migracao": ultima_versao - 1,
+                "picos": [{"nome": "Pico Pré"}],
+            }
+        ),
+        encoding="utf-8",
+    )
+    ws_migrado = ExperimentalWorkspace(pasta_exp_migrado)
+    diario_migrado = ws_migrado.obter_diario()
+    diario_migrado.gravar_comando_pendente(
+        {
+            "classe": "CmdAlterarCampo",
+            "caminho_msg": "picos.0.inexistente_pos_migracao",
+            "campo_nome": "nome",
+            "valor_antigo": "A",
+            "valor_novo": "B",
+        }
+    )
+    diario_migrado.consolidar_salvamento()
+    diario_migrado.gravar_comando_pendente(
+        {
+            "classe": "CmdAlterarCampo",
+            "caminho_msg": "",
+            "campo_nome": "nome",
+            "valor_antigo": "Croqui Pré-Migração",
+            "valor_novo": "Pendente Obsoleto",
+        }
+    )
+
+    janela1 = JanelaPrincipal(
+        workspace=ws_migrado,
+        auth=GerenciadorSessaoFake(),
+        iniciar_rede_mcp=False,
+        servico_submissao=ServicoSubmissaoFake(caminho_repo_base=repo_base),
+        fabrica_servidor_celular=ServidorCelularFake,
+        servico_loja=AdaptadorPlataformaFake(diretorio_dados=tmp_path / "loja1"),
+    )
+    qtbot.addWidget(janela1)
+
+    assert diario_migrado.ler_diario_salvo() == []
+    assert diario_migrado.ler_diario_pendente() == []
+    assert janela1.historico.obter_pilha().count() == 0
+    janela1._forcar_fechamento = True
+    janela1.close()
+
+    # Caso 2: Croqui já na última migração (preserva diario_salvo.bin!)
+    pasta_exp_atual = tmp_path / "exp_atual"
+    pasta_db_atual = pasta_exp_atual / "database"
+    pasta_db_atual.mkdir(parents=True, exist_ok=True)
+    (pasta_db_atual / "croqui.yaml").write_text(
+        serializar_yaml(
+            {
+                "id": "br_mg_teste_atual",
+                "uid": "crq_atual_0001",
+                "nome": "Croqui Atualizado",
+                "ultima_migracao": ultima_versao,
+                "picos": [{"nome": "Pico Atual"}],
+            }
+        ),
+        encoding="utf-8",
+    )
+    ws_atual = ExperimentalWorkspace(pasta_exp_atual)
+    diario_atual = ws_atual.obter_diario()
+    diario_atual.gravar_comando_pendente(
+        {
+            "classe": "CmdAlterarCampo",
+            "caminho_msg": "",
+            "campo_nome": "nome",
+            "valor_antigo": "Croqui Antigo",
+            "valor_novo": "Croqui Atualizado",
+        }
+    )
+    diario_atual.consolidar_salvamento()
+
+    janela2 = JanelaPrincipal(
+        workspace=ws_atual,
+        auth=GerenciadorSessaoFake(),
+        iniciar_rede_mcp=False,
+        servico_submissao=ServicoSubmissaoFake(caminho_repo_base=repo_base),
+        fabrica_servidor_celular=ServidorCelularFake,
+        servico_loja=AdaptadorPlataformaFake(diretorio_dados=tmp_path / "loja2"),
+    )
+    qtbot.addWidget(janela2)
+
+    assert len(diario_atual.ler_diario_salvo()) == 1
+    assert janela2.historico.obter_pilha().count() == 1
+    janela2._forcar_fechamento = True
+    janela2.close()
+
+
+def test_sincronizacao_externa_mesclada_invalida_diarios_e_recarrega_croqui_sem_recursao(
+    qtbot, tmp_path
+):
+    """
+    Valida que quando uma sincronização de PR mescla alterações externas no disco,
+    os diários locais (salvo e pendente) e a pilha de Undo são invalidados e o CroquiModel
+    inteiro é recarregado sem disparar recursão infinita de sincronização remota.
+    """
+    from editor.core.gerenciador_sessao_fake import GerenciadorSessaoFake
+    from editor.core.serializacao_util import serializar_yaml
+    from editor.core.servico_submissao import ResultadoSincronizacao, StatusSincronizacao
+    from editor.core.servico_submissao_fake import ServicoSubmissaoFake
+    from editor.core.servidor_celular_fake import ServidorCelularFake
+    from editor.core.workspace import ExperimentalWorkspace
+    from editor.plataforma.adaptador_plataforma_fake import AdaptadorPlataformaFake
+    from scripts.migrador import obter_ultima_versao_migracao
+
+    ultima_versao = obter_ultima_versao_migracao()
+    repo_base = tmp_path / "repo_sync"
+    repo_base.mkdir(parents=True, exist_ok=True)
+
+    pasta_exp = tmp_path / "exp_sync"
+    pasta_db = pasta_exp / "database"
+    pasta_db.mkdir(parents=True, exist_ok=True)
+    (pasta_db / "croqui.yaml").write_text(
+        serializar_yaml(
+            {
+                "id": "br_mg_sync_teste",
+                "uid": "crq_sync_0001",
+                "nome": "Nome Antes do Merge",
+                "ultima_migracao": ultima_versao,
+                "picos": [{"nome": "Pico Local"}],
+            }
+        ),
+        encoding="utf-8",
+    )
+
+    ws = ExperimentalWorkspace(pasta_exp)
+    diario = ws.obter_diario()
+    diario.gravar_comando_pendente(
+        {
+            "classe": "CmdAlterarCampo",
+            "caminho_msg": "",
+            "campo_nome": "nome",
+            "valor_antigo": "Inicial",
+            "valor_novo": "Nome Antes do Merge",
+        }
+    )
+    diario.consolidar_salvamento()
+
+    auth_fake = GerenciadorSessaoFake()
+    submissao_fake = ServicoSubmissaoFake(caminho_repo_base=repo_base)
+
+    janela = JanelaPrincipal(
+        workspace=ws,
+        auth=auth_fake,
+        iniciar_rede_mcp=False,
+        servico_submissao=submissao_fake,
+        fabrica_servidor_celular=ServidorCelularFake,
+        servico_loja=AdaptadorPlataformaFake(diretorio_dados=tmp_path / "loja_sync"),
+    )
+    qtbot.addWidget(janela)
+    tarefa_sync = getattr(janela, "_tarefa_sincronizacao", None)
+    if tarefa_sync is not None:
+        tarefa_sync.wait(2000)
+
+    # Faz uma edição pendente local antes de chegar um merge remoto
+    janela.croqui_controller.alterar_campo(
+        janela.croqui_model.obter_croqui_readonly(),
+        campo_nome="nome",
+        valor_novo="Edição Local Efêmera",
+    )
+    janela.historico.flush_diario_pendente()
+    assert len(diario.ler_diario_salvo()) == 1
+    assert len(diario.ler_diario_pendente()) == 1
+
+    # Simula gravação externa no disco trazida pelo merge remoto e dispara callback
+    (pasta_db / "croqui.yaml").write_text(
+        serializar_yaml(
+            {
+                "id": "br_mg_sync_teste",
+                "uid": "crq_sync_0001",
+                "nome": "Nome Trazido Pelo Merge Remoto",
+                "ultima_migracao": ultima_versao,
+                "picos": [{"nome": "Pico Remoto"}],
+            }
+        ),
+        encoding="utf-8",
+    )
+    janela._on_sincronizacao_sucesso(
+        ResultadoSincronizacao(
+            status=StatusSincronizacao.MESCLADO,
+            mensagem="Commits mesclados.",
+            commit_merge="sha_remoto_123",
+        ),
+        silencioso=True,
+    )
+
+    assert diario.ler_diario_salvo() == []
+    assert diario.ler_diario_pendente() == []
+    assert janela.historico.obter_pilha().count() == 0
+    assert janela.croqui_model.obter_croqui_readonly().nome == "Nome Trazido Pelo Merge Remoto"
+    janela._forcar_fechamento = True
+    janela.close()

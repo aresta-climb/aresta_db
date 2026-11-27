@@ -523,3 +523,40 @@ def test_painel_curadoria_encerrar_recursos_cancela_fatias_timers_e_worker_threa
     assert painel.hidratacao_em_andamento is False
     assert provedor._executor is None
     assert all(not t.is_alive() for t in threads_deste_provedor)
+
+
+def test_painel_curadoria_close_event_encerra_workers_e_card_ignora_thumbnail_apos_destruicao_cpp(
+    qtbot, tmp_path: Path
+) -> None:
+    """
+    Garante que fechar o PainelCuradoria (ex: via QApplication.closeAllWindows()) encerra
+    automaticamente as worker threads de thumbnails no closeEvent, e que CardBetaCuradoria
+    ignora entregas tardias de QPixmap caso seu QLabel C++ já tenha sido destruído.
+    """
+    import shiboken6
+
+    from coleta_de_betas.curadoria.provedor_imagem_aresta import obter_pixmap_fallback
+
+    croqui = _criar_croqui_curadoria()
+    model = CroquiModel(croqui)
+    stack = QUndoStack()
+    controller = CroquiController(model, stack)
+    provedor = ProvedorImagemAresta(
+        diretorio_cache=tmp_path / "cache_close",
+        cliente_http=ClienteHttpFake(),
+    )
+
+    painel = PainelCuradoria(provedor_imagem=provedor, carregar_assincrono=True)
+    qtbot.addWidget(painel)
+    painel.show()
+    painel.carregar_dados(model, controller)
+    assert provedor._executor is not None
+    threads_ativas = list(provedor._executor._threads)
+
+    painel.close()
+    assert provedor._executor is None
+    assert all(not t.is_alive() for t in threads_ativas)
+
+    card = painel.cards_nao_revisados[0]
+    shiboken6.delete(card.label_thumbnail)
+    card._ao_carregar_thumbnail(obter_pixmap_fallback(beta_pb2.FonteMidia.YOUTUBE))

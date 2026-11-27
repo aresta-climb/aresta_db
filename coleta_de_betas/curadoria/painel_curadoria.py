@@ -10,8 +10,9 @@ from collections.abc import Callable, Sequence
 from functools import partial
 from typing import Any
 
+import shiboken6
 from PySide6.QtCore import Qt, QTimer, Signal
-from PySide6.QtGui import QFont, QPixmap
+from PySide6.QtGui import QCloseEvent, QFont, QPixmap
 from PySide6.QtWidgets import (
     QApplication,
     QComboBox,
@@ -427,7 +428,8 @@ class CardBetaCuradoria(QFrame):
 
     def _ao_carregar_thumbnail(self, pixmap: QPixmap) -> None:
         self._chave_thumb = ""
-        self.label_thumbnail.setPixmap(pixmap)
+        if shiboken6.isValid(self.label_thumbnail):
+            self.label_thumbnail.setPixmap(pixmap)
 
     def encerrar_worker(self) -> None:
         """Cancela sem bloquear a UI thread o callback pendente no pool de thumbnails."""
@@ -772,6 +774,10 @@ class PainelCuradoria(QWidget):
         self._atualizacao_pendente = False
         self._fatias_pendentes.clear()
         self.provedor_imagem.encerrar_workers(esperar=esperar_workers)
+
+    def closeEvent(self, event: QCloseEvent) -> None:
+        self.encerrar_recursos(esperar_workers=True)
+        super().closeEvent(event)
 
     def _popular_combo_escaladas(
         self, infos_pre_extraidas: list[InfoEscaladaColeta] | None = None

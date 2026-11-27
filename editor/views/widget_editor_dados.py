@@ -1937,11 +1937,16 @@ class WidgetFormularioPadrao(QStackedWidget):
         """Descarta formulário em cache associado a um msg_id para liberar memória e evitar referências órfãs."""
         if msg_id in self.cached_forms:
             w = self.cached_forms.pop(msg_id)
+            era_atual = self.currentWidget() is w
             for w_md in w.findChildren(WidgetEditorMarkdown):
                 w_md.temporizador.descartar()
             self.removeWidget(w)
             w.setParent(None)
             w.deleteLater()
+            if era_atual:
+                self.current_node = None
+                self.widget_editor = None
+                self.setCurrentWidget(self.empty_widget)
 
     def inicializar_oneofs(self, msg: Any) -> None:
         if not msg:
@@ -3610,6 +3615,9 @@ class WidgetEditorDados(QWidget):
         indexes = self.tree_view.selectionModel().selectedIndexes()
         if not indexes:
             self.stacked_widget.setCurrentIndex(0)
+            self.form_padrao.current_node = None
+            self.form_padrao.widget_editor = None
+            self.form_padrao.setCurrentWidget(self.form_padrao.empty_widget)
             return
 
         index = indexes[0]
@@ -3617,10 +3625,17 @@ class WidgetEditorDados(QWidget):
 
         # Seleção do nó virtual de adição não carrega formulário nem abre diálogo modal
         if node and node.eh_no_adicao:
+            self.stacked_widget.setCurrentIndex(0)
+            self.form_padrao.current_node = None
+            self.form_padrao.widget_editor = None
+            self.form_padrao.setCurrentWidget(self.form_padrao.empty_widget)
             return
 
         if not node or not node.descriptor:
             self.stacked_widget.setCurrentIndex(0)
+            self.form_padrao.current_node = None
+            self.form_padrao.widget_editor = None
+            self.form_padrao.setCurrentWidget(self.form_padrao.empty_widget)
             return
 
         self.stacked_widget.setCurrentIndex(0)
@@ -4285,6 +4300,13 @@ class WidgetEditorDados(QWidget):
     def _on_repeated_removido(self, msg: Any, campo_nome: str, index: int) -> None:
         if campo_nome in ("betas_nao_scorados", "betas_nao_revisados", "betas_rejeitados"):
             return
+        exp_idx = self.tree_model.find_expando_index(_get_id(msg), campo_nome)
+        if exp_idx.isValid():
+            exp_node = exp_idx.internalPointer()
+            if exp_node and exp_node._is_populated and 0 <= index < len(exp_node.children):
+                no_removido = exp_node.children[index]
+                if not getattr(no_removido, "eh_no_adicao", False):
+                    self._descartar_cache_recursivo(no_removido)
         self.tree_model._on_item_removido(_get_id(msg), campo_nome, index)
         self.form_padrao._on_repeated_removido(msg, campo_nome, index)
 

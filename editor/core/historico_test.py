@@ -439,9 +439,9 @@ class TestGerenciadorHistorico(unittest.TestCase):
             cmd_invalido = {
                 "classe": "CmdAlterarCampo",
                 "caminho_msg": "",
-                "campo_nome": "campo_inexistente",
+                "campo_nome": "nome",
                 "valor_antigo": "A",
-                "valor_novo": "B",
+                "valor_novo": {"__tipo_protobuf__": "TipoProtobufCorrompido", "__bytes__": b""},
             }
             diario.gravar_comando_pendente(cmd_invalido)
 
@@ -951,3 +951,188 @@ class TestGerenciadorHistorico(unittest.TestCase):
             # Desfaz CmdAdicionarRepeated de pontos_de_interesse
             gerenciador.desfazer()
             self.assertEqual(len(mapa.pontos_de_interesse), 0)
+
+    def test_carregar_diario_salvo_ciclo_completo_issue_103_sem_logs_erro_e_com_reversao_total(
+        self,
+    ):
+        """
+        Reproduz e valida a correção da Issue #103:
+        1. Edita vias por caminho posicional enquanto ainda são via_esportiva;
+        2. Altera variante oneof para boulder e remove uma via posterior;
+        3. Consolida em diario_salvo.bin e reabre o croqui no estado final consolidado;
+        4. Verifica que carregar_diario_salvo não emite NENHUM log ERROR/WARNING e não canoniza na carga;
+        5. Executa desfazer() até o início e refazer() até o fim restaurando 100% do estado!
+        """
+        import logging
+
+        from aresta_api.proto.generated import croqui_pb2
+        from editor.core.registro_log import obter_logger
+
+        with tempfile.TemporaryDirectory() as temp_dir:
+            pasta_croqui = Path(temp_dir)
+            diario = GerenciadorDiario(pasta_croqui)
+
+            # Sessão 1: constrói histórico com caminhos posicionais, troca de oneof e remoção
+            croqui_s1 = Croqui(nome="Vale Teste")
+            pico_s1 = croqui_s1.picos.add(nome="Pico 1")
+            setor_s1 = pico_s1.setores_ou_grupos.add().setor.conteudo
+            setor_s1.uid = "set_issue103_01"
+            esc0 = setor_s1.escaladas.add(uid="esc_issue103_00")
+            esc0.via_esportiva.nome = "Via 0 Inicial"
+            esc1 = setor_s1.escaladas.add(uid="esc_issue103_01")
+            esc1.via_esportiva.nome = "Via 1 Inicial"
+
+            model_s1 = CroquiModel(croqui_s1)
+            hist_s1 = GerenciadorHistorico(diario=diario)
+
+            # Passo 1: edita via_esportiva com alvo posicional (como reportado na Issue #103)
+            diario.gravar_comando_pendente(
+                {
+                    "classe": "CmdAlterarCampo",
+                    "caminho_msg": "picos.0.setores_ou_grupos.0.setor.conteudo.escaladas.0.via_esportiva",
+                    "campo_nome": "nome",
+                    "valor_antigo": "Via 0 Inicial",
+                    "valor_novo": "Via 0 Editada",
+                }
+            )
+            esc0.via_esportiva.nome = "Via 0 Editada"
+
+            # Passo 2: troca esc0 de via_esportiva para boulder (torna via_esportiva inativa no estado final!)
+            cmd_oneof = CmdAlterarCampo(
+                model=model_s1,
+                alvo="esc_issue103_00",
+                campo_nome="boulder",
+                valor_novo=croqui_pb2.Boulder(nome="Bloco 0 Convertido"),
+            )
+            hist_s1.executar(cmd_oneof)
+
+            # Passo 3: remove esc1 (torna escaladas.1 inexistente no estado final!)
+            from editor.commands.comandos_protobuf import CmdRemoverRepeated
+
+            cmd_rem = CmdRemoverRepeated(
+                model=model_s1,
+                alvo=setor_s1,
+                campo_nome="escaladas",
+                index=1,
+            )
+            hist_s1.executar(cmd_rem)
+            diario.consolidar_salvamento()
+
+            # Sessão 2: abre novo CroquiModel já no estado final pós-salvamento
+            croqui_s2 = Croqui()
+            croqui_s2.ParseFromString(croqui_s1.SerializeToString())
+            model_s2 = CroquiModel(croqui_s2)
+            hist_s2 = GerenciadorHistorico()
+
+            registros_erro: list[logging.LogRecord] = []
+
+            class _Capturador(logging.Handler):
+                def emit(self, record: logging.LogRecord) -> None:
+                    if record.levelno >= logging.WARNING:
+                        registros_erro.append(record)
+
+            capturador = _Capturador()
+            logger_app = obter_logger()
+            logger_app.addHandler(capturador)
+            try:
+                carregados = hist_s2.carregar_diario_salvo(model_s2, diario)
+                self.assertEqual(carregados, 3)
+                self.assertEqual(registros_erro, [])
+
+                # Enquanto parado na pilha, o comando 0 mantém seu caminho_msg posicional original
+                cmd_passo1 = hist_s2.obter_pilha().command(0)
+                self.assertEqual(
+                    cmd_passo1.caminho_msg,  # type: ignore[attr-defined]
+                    "picos.0.setores_ou_grupos.0.setor.conteudo.escaladas.0.via_esportiva",
+                )
+
+                # Desfaz os 3 passos até o início: zero erros e restauração exata!
+                hist_s2.desfazer()  # desfaz remoção de esc1
+                self.assertEqual(
+                    len(croqui_s2.picos[0].setores_ou_grupos[0].setor.conteudo.escaladas), 2
+                )
+
+                hist_s2.desfazer()  # desfaz troca oneof boulder -> via_esportiva
+                esc0_s2 = croqui_s2.picos[0].setores_ou_grupos[0].setor.conteudo.escaladas[0]
+                self.assertEqual(esc0_s2.WhichOneof("tipo"), "via_esportiva")
+                self.assertEqual(esc0_s2.via_esportiva.nome, "Via 0 Editada")
+
+                hist_s2.desfazer()  # desfaz edição de nome e canoniza caminho_msg lazy!
+                self.assertEqual(esc0_s2.via_esportiva.nome, "Via 0 Inicial")
+                self.assertEqual(
+                    cmd_passo1.caminho_msg,  # type: ignore[attr-defined]
+                    "esc_issue103_00.via_esportiva",
+                )
+                self.assertEqual(registros_erro, [])
+
+                # Refaz tudo de volta até o estado final
+                hist_s2.refazer()
+                hist_s2.refazer()
+                hist_s2.refazer()
+                self.assertEqual(
+                    croqui_s2.SerializeToString(deterministic=True),
+                    croqui_s1.SerializeToString(deterministic=True),
+                )
+                self.assertEqual(registros_erro, [])
+            finally:
+                logger_app.removeHandler(capturador)
+
+    def test_carregar_diario_salvo_desfazer_abaixo_do_salvo_ramificar_restaurar_e_consolidar(
+        self,
+    ):
+        """
+        Valida o ciclo completo quando o usuário desfaz abaixo do índice salvo (diario_salvo.bin),
+        cria um novo ramo de edições, recupera a sessão via restaurar_do_diario e consolida o salvamento.
+        """
+        with tempfile.TemporaryDirectory() as temp_dir:
+            pasta_croqui = Path(temp_dir)
+            diario = GerenciadorDiario(pasta_croqui)
+
+            # Sessão 1: salva 2 comandos ("Inicial" -> "Passo 1" -> "Passo 2")
+            croqui_s1 = Croqui(nome="Inicial")
+            model_s1 = CroquiModel(croqui_s1)
+            hist_s1 = GerenciadorHistorico(diario=diario)
+            hist_s1.intervalo_debounce_ms = 0
+            hist_s1.executar(CmdAlterarCampo(model_s1, croqui_s1, "nome", "Passo 1"))
+            hist_s1.executar(CmdAlterarCampo(model_s1, croqui_s1, "nome", "Passo 2"))
+            diario.consolidar_salvamento()
+            hist_s1.registrar_salvamento_concluido(hist_s1.obter_pilha().index())
+            self.assertTrue(hist_s1.obter_pilha().isClean())
+
+            # Sessão 2: carrega os 2 salvos, desfaz 1 passo abaixo do salvo e cria novo ramo
+            croqui_s2 = Croqui(nome="Passo 2")
+            model_s2 = CroquiModel(croqui_s2)
+            hist_s2 = GerenciadorHistorico()
+            hist_s2.intervalo_debounce_ms = 0
+            self.assertEqual(hist_s2.carregar_diario_salvo(model_s2, diario), 2)
+            hist_s2.definir_gerenciador_diario(diario)
+
+            hist_s2.desfazer()
+            self.assertEqual(croqui_s2.nome, "Passo 1")
+            hist_s2.executar(CmdAlterarCampo(model_s2, croqui_s2, "nome", "Ramo Novo"))
+            self.assertEqual(croqui_s2.nome, "Ramo Novo")
+
+            # Sessão 3 (crash recovery antes de salvar): disco ainda tem "Passo 2" + diario_salvo + diario_pendente
+            croqui_s3 = Croqui(nome="Passo 2")
+            model_s3 = CroquiModel(croqui_s3)
+            hist_s3 = GerenciadorHistorico()
+            hist_s3.intervalo_debounce_ms = 0
+            self.assertEqual(hist_s3.carregar_diario_salvo(model_s3, diario), 2)
+            self.assertEqual(hist_s3.restaurar_do_diario(model_s3, diario), 1)
+            self.assertEqual(croqui_s3.nome, "Ramo Novo")
+
+            # A pilha recuperada deve desfazer exatamente "Ramo Novo" -> "Passo 1" -> "Inicial"
+            hist_s3.desfazer()
+            self.assertEqual(croqui_s3.nome, "Passo 1")
+            hist_s3.desfazer()
+            self.assertEqual(croqui_s3.nome, "Inicial")
+            hist_s3.refazer()
+            hist_s3.refazer()
+            self.assertEqual(croqui_s3.nome, "Ramo Novo")
+
+            # Consolidando o salvamento na Sessão 3, diario_salvo passa a conter [Passo 1, Ramo Novo]
+            diario.consolidar_salvamento()
+            hist_s3.registrar_salvamento_concluido(hist_s3.obter_pilha().index())
+            self.assertTrue(hist_s3.obter_pilha().isClean())
+            salvos_finais = diario.ler_diario_salvo()
+            self.assertEqual([c["valor_novo"] for c in salvos_finais], ["Passo 1", "Ramo Novo"])

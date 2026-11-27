@@ -1,0 +1,417 @@
+{
+  "seed": 2263,
+  "dataset": "normal",
+  "escopo": "janela_principal",
+  "falha": {
+    "oraculo": "assimetria_undo_redo",
+    "tipo_excecao": "AssertionError",
+    "mensagem": "Quebra de simetria Undo/Redo no índice 2 (comando 'Alterar creditos.0'): hash 6be935ac6e01 != 437e5bc94486",
+    "frame_principal": "QUndoStack:Alterar creditos.0",
+    "stacktrace": "Traceback (most recent call last):\n  File \"<aresta_db>/.venv/bin/pytest\", line 10, in <module>\n    sys.exit(_console_main())\n             ~~~~~~~~~~~~~^^\n  File \"<aresta_db>/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py\", line 253, in _console_main\n    code = _main(prog=_get_prog_name(sys.argv))\n  File \"<aresta_db>/.venv/lib/python3.13/site-packages/_pytest/config/__init__.py\", line 229, in _main\n    ret: ExitCode | int = config.hook.pytest_cmdline_main(config=config)\n                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^\n  File \"<aresta_db>/.venv/lib/python3.13/site-packages/pluggy/_hooks.py\", line 512, in __call__\n    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)\n           ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<aresta_db>/.venv/lib/python3.13/site-packages/pluggy/_manager.py\", line 120, in _hookexec\n    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)\n           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<aresta_db>/.venv/lib/python3.13/site-packages/pluggy/_callers.py\", line 121, in _multicall\n    res = hook_impl.function(*args)\n  File \"<aresta_db>/.venv/lib/python3.13/site-packages/_pytest/main.py\", line 377, in pytest_cmdline_main\n    return wrap_session(config, _main)\n  File \"<aresta_db>/.venv/lib/python3.13/site-packages/_pytest/main.py\", line 330, in wrap_session\n    session.exitstatus = doit(config, session) or 0\n                         ~~~~^^^^^^^^^^^^^^^^^\n  File \"<aresta_db>/.venv/lib/python3.13/site-packages/_pytest/main.py\", line 384, in _main\n    config.hook.pytest_runtestloop(session=session)\n    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\n  File \"<aresta_db>/.venv/lib/python3.13/site-packages/pluggy/_hooks.py\", line 512, in __call__\n    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)\n           ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<aresta_db>/.venv/lib/python3.13/site-packages/pluggy/_manager.py\", line 120, in _hookexec\n    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)\n           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<aresta_db>/.venv/lib/python3.13/site-packages/pluggy/_callers.py\", line 121, in _multicall\n    res = hook_impl.function(*args)\n  File \"<aresta_db>/.venv/lib/python3.13/site-packages/_pytest/main.py\", line 408, in pytest_runtestloop\n    item.config.hook.pytest_runtest_protocol(item=item, nextitem=nextitem)\n    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<aresta_db>/.venv/lib/python3.13/site-packages/pluggy/_hooks.py\", line 512, in __call__\n    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)\n           ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<aresta_db>/.venv/lib/python3.13/site-packages/pluggy/_manager.py\", line 120, in _hookexec\n    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)\n           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<aresta_db>/.venv/lib/python3.13/site-packages/pluggy/_callers.py\", line 121, in _multicall\n    res = hook_impl.function(*args)\n  File \"<aresta_db>/.venv/lib/python3.13/site-packages/_pytest/runner.py\", line 118, in pytest_runtest_protocol\n    runtestprotocol(item, nextitem=nextitem)\n    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<aresta_db>/.venv/lib/python3.13/site-packages/_pytest/runner.py\", line 139, in runtestprotocol\n    reports.append(call_and_report(item, \"call\", log))\n                   ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^\n  File \"<aresta_db>/.venv/lib/python3.13/site-packages/_pytest/runner.py\", line 249, in call_and_report\n    call = CallInfo.from_call(\n        lambda: runtest_hook(item=item, **kwds),\n        when=when,\n        reraise=get_reraise_exceptions(item.config),\n    )\n  File \"<aresta_db>/.venv/lib/python3.13/site-packages/_pytest/runner.py\", line 361, in from_call\n    result: TResult | None = func()\n                             ~~~~^^\n  File \"<aresta_db>/.venv/lib/python3.13/site-packages/_pytest/runner.py\", line 250, in <lambda>\n    lambda: runtest_hook(item=item, **kwds),\n            ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^\n  File \"<aresta_db>/.venv/lib/python3.13/site-packages/pluggy/_hooks.py\", line 512, in __call__\n    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)\n           ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<aresta_db>/.venv/lib/python3.13/site-packages/pluggy/_manager.py\", line 120, in _hookexec\n    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)\n           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<aresta_db>/.venv/lib/python3.13/site-packages/pluggy/_callers.py\", line 121, in _multicall\n    res = hook_impl.function(*args)\n  File \"<aresta_db>/.venv/lib/python3.13/site-packages/_pytest/runner.py\", line 184, in pytest_runtest_call\n    item.runtest()\n    ~~~~~~~~~~~~^^\n  File \"<aresta_db>/.venv/lib/python3.13/site-packages/_pytest/python.py\", line 1707, in runtest\n    self.ihook.pytest_pyfunc_call(pyfuncitem=self)\n    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\n  File \"<aresta_db>/.venv/lib/python3.13/site-packages/pluggy/_hooks.py\", line 512, in __call__\n    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)\n           ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<aresta_db>/.venv/lib/python3.13/site-packages/pluggy/_manager.py\", line 120, in _hookexec\n    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)\n           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<aresta_db>/.venv/lib/python3.13/site-packages/pluggy/_callers.py\", line 121, in _multicall\n    res = hook_impl.function(*args)\n  File \"<aresta_db>/.venv/lib/python3.13/site-packages/_pytest/python.py\", line 167, in pytest_pyfunc_call\n    result = testfunction(**testargs)\n  File \"<aresta_db>/editor/caos/robo_caotico_exploratorio_test.py\", line 37, in test_campanha_exploratoria_robo_caotico\n    resumo = MotorRoboCaoticoQt.executar_campanha(\n        raiz_tmp=tmp_path / \"campanha_exploratoria\",\n    ...<5 lines>...\n        reportar_sentry=reportar_sentry,\n    )\n  File \"<aresta_db>/editor/caos/motor_robo_caotico.py\", line 1078, in executar_campanha\n    resultado = motor.executar_sessao()\n  File \"<aresta_db>/editor/caos/motor_robo_caotico.py\", line 975, in executar_sessao\n    falha_oraculo = self._verificar_todos_oraculos(passo)\n  File \"<aresta_db>/editor/caos/motor_robo_caotico.py\", line 921, in _verificar_todos_oraculos\n    self.oraculos.auditar_passo_historico(\n    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^\n        self.janela.croqui_model,\n        ^^^^^^^^^^^^^^^^^^^^^^^^^\n        self.janela.historico,\n        ^^^^^^^^^^^^^^^^^^^^^^\n        foi_undo_ou_redo=foi_undo_redo,\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"<aresta_db>/editor/caos/oraculos_caos.py\", line 260, in auditar_passo_historico\n    exc_com_tb, texto_tb = _vincular_traceback_completo(AssertionError(msg))\n                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^\nAssertionError: Quebra de simetria Undo/Redo no índice 2 (comando 'Alterar creditos.0'): hash 6be935ac6e01 != 437e5bc94486\n"
+  },
+  "passos_minimos": [
+    {
+      "indice": 1,
+      "tipo_acao": "trocar_aba",
+      "seletor": {
+        "estrategia": "acao_toolbar",
+        "valor": "aba:2",
+        "classe_widget": "",
+        "indice": 0
+      },
+      "parametros": {
+        "aba": 2
+      },
+      "mutou_estado": false
+    },
+    {
+      "indice": 2,
+      "tipo_acao": "alterar_combo_box",
+      "seletor": {
+        "estrategia": "campo_formulario",
+        "valor": "QComboBox:0",
+        "classe_widget": "QComboBox",
+        "indice": 0
+      },
+      "parametros": {
+        "pos": 0,
+        "idx_item": 0
+      },
+      "mutou_estado": true
+    },
+    {
+      "indice": 3,
+      "tipo_acao": "publicar_ou_sincronizar",
+      "seletor": {
+        "estrategia": "acao_toolbar",
+        "valor": "Sincronizar",
+        "classe_widget": "",
+        "indice": 0
+      },
+      "parametros": {},
+      "mutou_estado": true
+    },
+    {
+      "indice": 4,
+      "tipo_acao": "editar_campo_linha",
+      "seletor": {
+        "estrategia": "campo_formulario",
+        "valor": "QLineEdit:2",
+        "classe_widget": "QLineEdit",
+        "indice": 2
+      },
+      "parametros": {
+        "pos": 2,
+        "texto": "Via RTL العربية עברית"
+      },
+      "mutou_estado": true
+    },
+    {
+      "indice": 9,
+      "tipo_acao": "salvar_croqui",
+      "seletor": {
+        "estrategia": "acao_toolbar",
+        "valor": "Salvar",
+        "classe_widget": "",
+        "indice": 0
+      },
+      "parametros": {},
+      "mutou_estado": true
+    },
+    {
+      "indice": 10,
+      "tipo_acao": "abrir_dialogo_celular",
+      "seletor": {
+        "estrategia": "acao_toolbar",
+        "valor": "Celular",
+        "classe_widget": "",
+        "indice": 0
+      },
+      "parametros": {},
+      "mutou_estado": false
+    },
+    {
+      "indice": 11,
+      "tipo_acao": "desfazer_ou_refazer",
+      "seletor": {
+        "estrategia": "acao_toolbar",
+        "valor": "undo",
+        "classe_widget": "",
+        "indice": 0
+      },
+      "parametros": {
+        "op": "undo"
+      },
+      "mutou_estado": true
+    },
+    {
+      "indice": 12,
+      "tipo_acao": "abrir_dialogo_celular",
+      "seletor": {
+        "estrategia": "acao_toolbar",
+        "valor": "Celular",
+        "classe_widget": "",
+        "indice": 0
+      },
+      "parametros": {},
+      "mutou_estado": false
+    },
+    {
+      "indice": 13,
+      "tipo_acao": "alterar_estrutura_arvore",
+      "seletor": {
+        "estrategia": "caminho_no_arvore",
+        "valor": "adicionar_escalada",
+        "classe_widget": "",
+        "indice": 0
+      },
+      "parametros": {
+        "op_estrutural": "adicionar_escalada"
+      },
+      "mutou_estado": true
+    },
+    {
+      "indice": 14,
+      "tipo_acao": "recarregar_sessao_croqui",
+      "seletor": {
+        "estrategia": "acao_toolbar",
+        "valor": "RecarregarSessao",
+        "classe_widget": "",
+        "indice": 0
+      },
+      "parametros": {},
+      "mutou_estado": true
+    },
+    {
+      "indice": 15,
+      "tipo_acao": "desfazer_ou_refazer",
+      "seletor": {
+        "estrategia": "acao_toolbar",
+        "valor": "undo",
+        "classe_widget": "",
+        "indice": 0
+      },
+      "parametros": {
+        "op": "undo"
+      },
+      "mutou_estado": true
+    },
+    {
+      "indice": 16,
+      "tipo_acao": "selecionar_no_arvore",
+      "seletor": {
+        "estrategia": "caminho_no_arvore",
+        "valor": "no_visivel:11",
+        "classe_widget": "QTreeView",
+        "indice": 11
+      },
+      "parametros": {
+        "pos": 11
+      },
+      "mutou_estado": false
+    },
+    {
+      "indice": 17,
+      "tipo_acao": "desfazer_ou_refazer",
+      "seletor": {
+        "estrategia": "acao_toolbar",
+        "valor": "redo",
+        "classe_widget": "",
+        "indice": 0
+      },
+      "parametros": {
+        "op": "redo"
+      },
+      "mutou_estado": true
+    }
+  ],
+  "passos_originais": [
+    {
+      "indice": 1,
+      "tipo_acao": "trocar_aba",
+      "seletor": {
+        "estrategia": "acao_toolbar",
+        "valor": "aba:2",
+        "classe_widget": "",
+        "indice": 0
+      },
+      "parametros": {
+        "aba": 2
+      },
+      "mutou_estado": false
+    },
+    {
+      "indice": 2,
+      "tipo_acao": "alterar_combo_box",
+      "seletor": {
+        "estrategia": "campo_formulario",
+        "valor": "QComboBox:0",
+        "classe_widget": "QComboBox",
+        "indice": 0
+      },
+      "parametros": {
+        "pos": 0,
+        "idx_item": 0
+      },
+      "mutou_estado": true
+    },
+    {
+      "indice": 3,
+      "tipo_acao": "publicar_ou_sincronizar",
+      "seletor": {
+        "estrategia": "acao_toolbar",
+        "valor": "Sincronizar",
+        "classe_widget": "",
+        "indice": 0
+      },
+      "parametros": {},
+      "mutou_estado": true
+    },
+    {
+      "indice": 4,
+      "tipo_acao": "editar_campo_linha",
+      "seletor": {
+        "estrategia": "campo_formulario",
+        "valor": "QLineEdit:2",
+        "classe_widget": "QLineEdit",
+        "indice": 2
+      },
+      "parametros": {
+        "pos": 2,
+        "texto": "Via RTL العربية עברית"
+      },
+      "mutou_estado": true
+    },
+    {
+      "indice": 5,
+      "tipo_acao": "interagir_editor_imagens",
+      "seletor": {
+        "estrategia": "cena_grafica",
+        "valor": "imagem_selecionar",
+        "classe_widget": "WidgetEditorImagens",
+        "indice": 0
+      },
+      "parametros": {},
+      "mutou_estado": false
+    },
+    {
+      "indice": 6,
+      "tipo_acao": "publicar_ou_sincronizar",
+      "seletor": {
+        "estrategia": "acao_toolbar",
+        "valor": "Sincronizar",
+        "classe_widget": "",
+        "indice": 0
+      },
+      "parametros": {},
+      "mutou_estado": true
+    },
+    {
+      "indice": 7,
+      "tipo_acao": "desfazer_ou_refazer",
+      "seletor": {
+        "estrategia": "acao_toolbar",
+        "valor": "undo",
+        "classe_widget": "",
+        "indice": 0
+      },
+      "parametros": {
+        "op": "undo"
+      },
+      "mutou_estado": true
+    },
+    {
+      "indice": 8,
+      "tipo_acao": "editar_campo_linha",
+      "seletor": {
+        "estrategia": "campo_formulario",
+        "valor": "QLineEdit:2",
+        "classe_widget": "QLineEdit",
+        "indice": 2
+      },
+      "parametros": {
+        "pos": 2,
+        "texto": "0"
+      },
+      "mutou_estado": true
+    },
+    {
+      "indice": 9,
+      "tipo_acao": "salvar_croqui",
+      "seletor": {
+        "estrategia": "acao_toolbar",
+        "valor": "Salvar",
+        "classe_widget": "",
+        "indice": 0
+      },
+      "parametros": {},
+      "mutou_estado": true
+    },
+    {
+      "indice": 10,
+      "tipo_acao": "abrir_dialogo_celular",
+      "seletor": {
+        "estrategia": "acao_toolbar",
+        "valor": "Celular",
+        "classe_widget": "",
+        "indice": 0
+      },
+      "parametros": {},
+      "mutou_estado": false
+    },
+    {
+      "indice": 11,
+      "tipo_acao": "desfazer_ou_refazer",
+      "seletor": {
+        "estrategia": "acao_toolbar",
+        "valor": "undo",
+        "classe_widget": "",
+        "indice": 0
+      },
+      "parametros": {
+        "op": "undo"
+      },
+      "mutou_estado": true
+    },
+    {
+      "indice": 12,
+      "tipo_acao": "abrir_dialogo_celular",
+      "seletor": {
+        "estrategia": "acao_toolbar",
+        "valor": "Celular",
+        "classe_widget": "",
+        "indice": 0
+      },
+      "parametros": {},
+      "mutou_estado": false
+    },
+    {
+      "indice": 13,
+      "tipo_acao": "alterar_estrutura_arvore",
+      "seletor": {
+        "estrategia": "caminho_no_arvore",
+        "valor": "adicionar_escalada",
+        "classe_widget": "",
+        "indice": 0
+      },
+      "parametros": {
+        "op_estrutural": "adicionar_escalada"
+      },
+      "mutou_estado": true
+    },
+    {
+      "indice": 14,
+      "tipo_acao": "recarregar_sessao_croqui",
+      "seletor": {
+        "estrategia": "acao_toolbar",
+        "valor": "RecarregarSessao",
+        "classe_widget": "",
+        "indice": 0
+      },
+      "parametros": {},
+      "mutou_estado": true
+    },
+    {
+      "indice": 15,
+      "tipo_acao": "desfazer_ou_refazer",
+      "seletor": {
+        "estrategia": "acao_toolbar",
+        "valor": "undo",
+        "classe_widget": "",
+        "indice": 0
+      },
+      "parametros": {
+        "op": "undo"
+      },
+      "mutou_estado": true
+    },
+    {
+      "indice": 16,
+      "tipo_acao": "selecionar_no_arvore",
+      "seletor": {
+        "estrategia": "caminho_no_arvore",
+        "valor": "no_visivel:11",
+        "classe_widget": "QTreeView",
+        "indice": 11
+      },
+      "parametros": {
+        "pos": 11
+      },
+      "mutou_estado": false
+    },
+    {
+      "indice": 17,
+      "tipo_acao": "desfazer_ou_refazer",
+      "seletor": {
+        "estrategia": "acao_toolbar",
+        "valor": "redo",
+        "classe_widget": "",
+        "indice": 0
+      },
+      "parametros": {
+        "op": "redo"
+      },
+      "mutou_estado": true
+    }
+  ]
+}

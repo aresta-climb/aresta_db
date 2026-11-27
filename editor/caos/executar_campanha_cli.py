@@ -14,6 +14,21 @@ sys.path.insert(0, str(RAIZ_REPO))
 DIRETORIO_PADRAO_RECEITAS = Path(__file__).resolve().parent / "caminhos_regressao"
 
 
+def resolver_seed_inicial_campanha(valor_configurado: int | str | None = None) -> int:
+    """
+    Resolve a semente inicial da campanha do Robô Caótico.
+    Quando omitida, vazia ou <= 0, gera uma semente aleatória em [1, 2_147_483_647]
+    usando entropia do sistema operacional (os.urandom) a cada execução.
+    """
+    if valor_configurado is not None:
+        texto = str(valor_configurado).strip()
+        if texto:
+            valor_int = int(texto)
+            if valor_int > 0:
+                return valor_int
+    return (int.from_bytes(os.urandom(4), "big") & 0x7FFFFFFF) or 1
+
+
 def construir_parser_cli() -> argparse.ArgumentParser:
     """Constrói o parser de argumentos de linha de comando para execução local do Robô Caótico."""
     parser = argparse.ArgumentParser(
@@ -40,8 +55,8 @@ def construir_parser_cli() -> argparse.ArgumentParser:
     parser.add_argument(
         "--seed-inicial",
         type=int,
-        default=5000,
-        help="Semente inicial determinística da campanha (padrão: 5000).",
+        default=0,
+        help="Semente inicial opcional (padrão: 0, gerando semente variável a cada execução).",
     )
     parser.add_argument(
         "--diretorio-receitas",
@@ -86,17 +101,18 @@ def executar_cli(
 
     reportar_sentry = not bool(args.sem_sentry)
     status_sentry = "ativo (com anexo .json)" if reportar_sentry else "desativado"
+    seed_efetiva = resolver_seed_inicial_campanha(args.seed_inicial)
     print(
         f"🤖 Iniciando campanha do Robô Caótico "
         f"(duração={args.duracao}s, passos={args.passos}, "
-        f"seed_inicial={args.seed_inicial}, sentry={status_sentry})..."
+        f"seed_inicial={seed_efetiva}, sentry={status_sentry})..."
     )
 
     with tempfile.TemporaryDirectory(prefix="aresta_caos_") as pasta_tmp:
         resumo = MotorRoboCaoticoQt.executar_campanha(
             raiz_tmp=Path(pasta_tmp),
             duracao_segundos=float(args.duracao),
-            seed_inicial=int(args.seed_inicial),
+            seed_inicial=seed_efetiva,
             max_sementes=int(args.max_sementes),
             passos_por_semente=int(args.passos),
             diretorio_receitas=Path(args.diretorio_receitas),

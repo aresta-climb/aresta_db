@@ -158,8 +158,11 @@ def inicializar_telemetria(dsn: str | None = None) -> bool:
         return False
 
     try:
+        from editor.core.version import VERSION
+
         sentry_sdk.init(
             dsn=dsn_usado,
+            release=f"aresta-editor@{VERSION}",
             send_default_pii=True,
             traces_sample_rate=1.0,
             profile_session_sample_rate=1.0,

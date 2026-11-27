@@ -635,3 +635,34 @@ def test_sessao_continua_robo_caotico_preserva_breadcrumbs_isola_ddmin_e_anexa_j
     assert "crash_seed_777_oserror.json" in nomes_anexos
     assert "diario_pendente.bin" in nomes_anexos
     assert evento["contexts"]["historico_comandos"]["comandos"] == [{"etiqueta": "semente_777"}]
+
+
+def test_inicializar_telemetria_define_release_explicita_do_editor() -> None:
+    """
+    Garante que inicializar_telemetria registra release='aresta-editor@<VERSION>' nos eventos,
+    permitindo que o Sentry distinga ocorrências de binários antigos empacotados sem pasta .git.
+    """
+    import sentry_sdk as sdk_real
+
+    from editor.core.telemetria import (
+        ativar_sessao_sentry_robo_caotico,
+        capturar_excecao,
+    )
+    from editor.core.version import VERSION
+
+    eventos_capturados: list[dict] = []
+    with ativar_sessao_sentry_robo_caotico(dsn="https://public@example.com/1"):
+        cliente = sdk_real.get_client()
+        assert cliente.options.get("release") == f"aresta-editor@{VERSION}"
+
+        def _capturar_before_send(event: dict, hint: dict) -> None:
+            limpo = sanitizar_evento_sentry(event, hint)
+            if limpo is not None:
+                eventos_capturados.append(limpo)
+            return None
+
+        cliente.options["before_send"] = _capturar_before_send
+        capturar_excecao(ValueError("Teste release Sentry"))
+
+    assert len(eventos_capturados) == 1
+    assert eventos_capturados[0].get("release") == f"aresta-editor@{VERSION}"

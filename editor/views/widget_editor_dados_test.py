@@ -6552,3 +6552,63 @@ def test_foco_requisitado_expande_ancestrais_arvore_e_foca_oneof_cartoes_e_betas
     from editor.views.widget_editor_dados import WidgetFormularioPadrao
 
     assert WidgetFormularioPadrao(model, controller).focar_campo("nome") is False
+
+
+def test_remover_ultima_escalada_selecionada_descarta_cache_orfao_e_exibe_empty_widget(qapp):
+    """
+    Garante que remover o item selecionado na árvore (ex: última Escalada de um Setor)
+    descarta recursivamente os formulários em cache do item removido e retorna o painel
+    direito para empty_widget mesmo quando a seleção migra para '+ Adicionar' ou fica vazia.
+    """
+    from PySide6.QtGui import QUndoStack
+
+    from aresta_api.proto.generated.croqui_pb2 import Croqui
+    from editor.controllers.croqui_controller import CroquiController
+    from editor.models.croqui_model import CroquiModel
+    from editor.views.widget_editor_dados import WidgetEditorDados, _get_id
+
+    croqui = Croqui(id="teste_remocao_orfao", nome="Croqui Remoção")
+    pico = croqui.picos.add(nome="Pico 1")
+    setor = pico.setores_ou_grupos.add().setor.conteudo
+    setor.uid = "setor_rem_01"
+    setor.nome = "Setor Remoção"
+    esc = setor.escaladas.add(uid="esc_rem_01")
+    esc.via_esportiva.nome = "Via Temporária"
+
+    pilha = QUndoStack()
+    model = CroquiModel(croqui)
+    controller = CroquiController(model, pilha)
+    widget = WidgetEditorDados(model, controller)
+    widget.resize(900, 500)
+    widget.show()
+    qapp.processEvents()
+
+    # Seleciona a escalada na árvore para montar e exibir seu formulário em cache
+    uri_esc = (
+        "page:dados/node:root/node:Croqui/expando:picos/item:0"
+        "/expando:setores_ou_grupos/item:0/expando:escaladas/item:0"
+    )
+    widget._on_foco_requisitado(uri_esc)
+    qapp.processEvents()
+
+    id_esc = _get_id(esc)
+    assert id_esc in widget.form_padrao.cached_forms
+    assert widget.form_padrao.currentWidget() is not widget.form_padrao.empty_widget
+
+    # Remove a única escalada do setor: a seleção migra para '+ Adicionar Escalada'
+    controller.remover_repeated(setor, "escaladas", 0)
+    qapp.processEvents()
+
+    assert id_esc not in widget.form_padrao.cached_forms
+    assert widget.form_padrao.currentWidget() is widget.form_padrao.empty_widget
+    assert widget.form_padrao.current_node is None
+
+    # Limpar completamente a seleção ou selecionar o expando também preserva empty_widget
+    idx_exp_esc = widget.tree_model.find_expando_index(_get_id(setor), "escaladas")
+    widget.tree_view.setCurrentIndex(idx_exp_esc)
+    qapp.processEvents()
+    assert widget.form_padrao.currentWidget() is widget.form_padrao.empty_widget
+
+    widget.tree_view.clearSelection()
+    qapp.processEvents()
+    assert widget.form_padrao.currentWidget() is widget.form_padrao.empty_widget

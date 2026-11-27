@@ -10,7 +10,7 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
-from PySide6.QtCore import QModelIndex, QPoint, Qt, QTimer
+from PySide6.QtCore import QCoreApplication, QEvent, QModelIndex, QPoint, Qt, QTimer
 from PySide6.QtTest import QTest
 from PySide6.QtWidgets import (
     QApplication,
@@ -466,6 +466,7 @@ class MotorRoboCaoticoQt:
             servico_loja=self.adaptador_loja_fake,
         )
         self.janela.show()
+        _aguardar_thread_se_ativa(getattr(self.janela, "_tarefa_sincronizacao", None))
         _bombear_eventos_qt(4)
         if self.janela.croqui_model is not None:
             self.oraculos.ressincronizar_estado_base(
@@ -484,11 +485,13 @@ class MotorRoboCaoticoQt:
             "editar_campo_linha",
             "editar_campo_texto",
             "alterar_combo_box",
+            "alterar_estrutura_arvore",
             "interagir_editor_mapas",
             "interagir_editor_imagens",
             "interagir_painel_betas",
             "desfazer_ou_refazer",
             "salvar_croqui",
+            "recarregar_sessao_croqui",
             "abrir_dialogo_celular",
             "publicar_ou_sincronizar",
         ]
@@ -739,8 +742,8 @@ class MotorRoboCaoticoQt:
         if tipo_acao == "interagir_painel_betas":
             janela._trocar_pagina(4)
             painel = janela.pagina_betas.garantir_painel_criado()
-            if painel is not None and hasattr(painel, "btn_auto_selecionar"):
-                painel.btn_auto_selecionar.click()
+            if painel is not None and hasattr(painel, "btn_aprovar_lote_score"):
+                painel.btn_aprovar_lote_score.click()
             _bombear_eventos_qt(2)
             return PassoRobo(
                 indice=indice_passo,
@@ -750,7 +753,7 @@ class MotorRoboCaoticoQt:
                     valor="painel_betas",
                     classe_widget="PainelCuradoria",
                 ),
-                mutou_estado=False,
+                mutou_estado=(pilha.index() != idx_antes),
             )
 
         if tipo_acao == "desfazer_ou_refazer":
@@ -821,6 +824,86 @@ class MotorRoboCaoticoQt:
                 mutou_estado=True,
             )
 
+        if tipo_acao == "alterar_estrutura_arvore":
+            from aresta_api.proto.generated import croqui_pb2
+
+            if janela.croqui_model is not None and janela.croqui_controller is not None:
+                croqui_ro = janela.croqui_model.obter_croqui_readonly()
+                setores: list[Any] = []
+                for pico in croqui_ro.picos:
+                    for sg in pico.setores_ou_grupos:
+                        if sg.HasField("setor"):
+                            setores.append(sg.setor.conteudo)
+                        elif sg.HasField("grupo"):
+                            for sub in sg.grupo.conteudo.setores:
+                                setores.append(sub.conteudo)
+                if setores:
+                    op_estrutural = (
+                        str(parametros_fixos["op_estrutural"])
+                        if parametros_fixos and "op_estrutural" in parametros_fixos
+                        else self._rng.choice(
+                            ["adicionar_escalada", "alternar_oneof_escalada", "remover_escalada"]
+                        )
+                    )
+                    texto_nome = gerar_texto_fuzz(self._rng).strip() or "Rota Caótica"
+                    if op_estrutural == "alternar_oneof_escalada":
+                        escaladas = [esc for s in setores for esc in s.escaladas]
+                        if escaladas:
+                            esc_alvo = escaladas[self._rng.randrange(len(escaladas))]
+                            if esc_alvo.HasField("boulder"):
+                                janela.croqui_controller.alterar_campo(
+                                    esc_alvo,
+                                    campo_nome="via_esportiva",
+                                    valor_novo=croqui_pb2.ViaEsportiva(nome=texto_nome),
+                                )
+                            else:
+                                janela.croqui_controller.alterar_campo(
+                                    esc_alvo,
+                                    campo_nome="boulder",
+                                    valor_novo=croqui_pb2.Boulder(nome=texto_nome),
+                                )
+                    elif op_estrutural == "remover_escalada":
+                        setores_com_sobra = [s for s in setores if len(s.escaladas) >= 2]
+                        if setores_com_sobra:
+                            s_rem = setores_com_sobra[self._rng.randrange(len(setores_com_sobra))]
+                            janela.croqui_controller.remover_repeated(
+                                s_rem, "escaladas", len(s_rem.escaladas) - 1
+                            )
+                    else:
+                        s_add = setores[self._rng.randrange(len(setores))]
+                        nova_esc = croqui_pb2.Escalada()
+                        nova_esc.via_esportiva.nome = texto_nome
+                        janela.croqui_controller.adicionar_repeated(
+                            s_add, "escaladas", len(s_add.escaladas), nova_esc
+                        )
+                    _bombear_eventos_qt(2)
+                    return PassoRobo(
+                        indice=indice_passo,
+                        tipo_acao="alterar_estrutura_arvore",
+                        seletor=SeletorAlvoQt(
+                            estrategia="caminho_no_arvore",
+                            valor=op_estrutural,
+                        ),
+                        parametros={"op_estrutural": op_estrutural},
+                        mutou_estado=(pilha.index() != idx_antes),
+                    )
+
+        if tipo_acao == "recarregar_sessao_croqui":
+            janela.historico.flush_diario_pendente()
+            if self.submissao_fake is not None:
+                self.submissao_fake.configurar_proxima_sincronizacao(StatusSincronizacao.ATUALIZADO)
+            janela.carregar_croqui()
+            _aguardar_thread_se_ativa(getattr(janela, "_tarefa_sincronizacao", None))
+            _bombear_eventos_qt(3)
+            if janela.croqui_model is not None:
+                self.oraculos.ressincronizar_estado_base(janela.croqui_model, janela.historico)
+            return PassoRobo(
+                indice=indice_passo,
+                tipo_acao="recarregar_sessao_croqui",
+                seletor=SeletorAlvoQt(estrategia="acao_toolbar", valor="RecarregarSessao"),
+                mutou_estado=True,
+            )
+
         # Fallback determinístico caso a ação sorteada não tenha alvo visível no momento
         janela._trocar_pagina(1)
         _bombear_eventos_qt(1)
@@ -843,7 +926,7 @@ class MotorRoboCaoticoQt:
             if self.janela.workspace is not None:
                 diario = self.janela.workspace.obter_diario()
                 self.janela.historico.flush_diario_pendente()
-                self.oraculos.verificar_integridade_diario(diario)
+                self.oraculos.verificar_integridade_diario(diario, model=self.janela.croqui_model)
 
         return self.oraculos.obter_primeira_falha()
 
@@ -864,8 +947,11 @@ class MotorRoboCaoticoQt:
                 if hasattr(self.controlador_app.abertura, "_timer_reenvio"):
                     self.controlador_app.abertura._timer_reenvio.stop()
                 self.controlador_app.abertura.close()
+                self.controlador_app.abertura.deleteLater()
             self.controlador_app = None
         _bombear_eventos_qt(3)
+        QCoreApplication.sendPostedEvents(None, int(QEvent.Type.DeferredDelete))
+        _bombear_eventos_qt(1)
 
     def executar_sessao(self) -> ResultadoSessaoCaos:
         """Executa uma sessão exploratória completa respeitando o bloqueio de rede e os 3 oráculos."""

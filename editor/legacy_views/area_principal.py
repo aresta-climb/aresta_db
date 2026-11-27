@@ -1011,7 +1011,7 @@ class JanelaPrincipal(QMainWindow):
         dialogo = DialogoRecuperacaoSessao(total_acoes=total_acoes, parent=self)
         return bool(dialogo.exec() == QDialog.DialogCode.Accepted)
 
-    def carregar_croqui(self) -> None:
+    def carregar_croqui(self, sincronizar_remoto: bool = True) -> None:
         """Carrega os dados do croqui a partir do sistema de arquivos."""
         if not self.workspace:
             return
@@ -1021,7 +1021,7 @@ class JanelaPrincipal(QMainWindow):
         # Roda as migrações no banco de dados antes de carregar
         from scripts.migrador import aplicar_migracoes
 
-        aplicar_migracoes(caminho_db)
+        houve_migracao = aplicar_migracoes(caminho_db)
 
         yaml_path = caminho_db / "croqui.yaml"
         if yaml_path.exists():
@@ -1060,17 +1060,21 @@ class JanelaPrincipal(QMainWindow):
                 from editor.core.diario import GerenciadorDiario
 
                 if isinstance(diario, GerenciadorDiario):
-                    # 1. Carrega comandos salvos na pilha de Undo (permitindo Ctrl+Z entre sessões)
-                    self.historico.carregar_diario_salvo(self.croqui_model, diario)
+                    if houve_migracao:
+                        diario.invalidar_historico_completo()
+                        self.historico.limpar()
+                    else:
+                        # 1. Carrega comandos salvos na pilha de Undo (permitindo Ctrl+Z entre sessões)
+                        self.historico.carregar_diario_salvo(self.croqui_model, diario)
 
-                    # 2. Verifica se há alterações pendentes de crash
-                    if diario.tem_alteracoes_pendentes():
-                        comandos_pendentes = diario.ler_diario_pendente()
-                        if comandos_pendentes:
-                            if self._perguntar_recuperacao_sessao(len(comandos_pendentes)):
-                                self.historico.restaurar_do_diario(self.croqui_model, diario)
-                            else:
-                                diario.descartar_pendente()
+                        # 2. Verifica se há alterações pendentes de crash
+                        if diario.tem_alteracoes_pendentes():
+                            comandos_pendentes = diario.ler_diario_pendente()
+                            if comandos_pendentes:
+                                if self._perguntar_recuperacao_sessao(len(comandos_pendentes)):
+                                    self.historico.restaurar_do_diario(self.croqui_model, diario)
+                                else:
+                                    diario.descartar_pendente()
 
                     self.historico.definir_gerenciador_diario(diario)
 
@@ -1105,7 +1109,8 @@ class JanelaPrincipal(QMainWindow):
 
                 self.atualizar_titulo()
                 self.atualizar_estado_sincronizacao()
-                self.sincronizar_croqui(silencioso=True)
+                if sincronizar_remoto:
+                    self.sincronizar_croqui(silencioso=True)
 
     def salvar_croqui(self, callback_sucesso: Callable[[], None] | None = None) -> None:
         """Salva as alterações, compila e faz commit no git local se aplicável."""
@@ -1164,6 +1169,7 @@ class JanelaPrincipal(QMainWindow):
                 partes = nome_raiz.split("_", 1)
                 id_atual = partes[1] if len(partes) > 1 and partes[0].isdigit() else nome_raiz
 
+            self.historico.flush_diario_pendente()
             undo_index = self.historico.obter_pilha().index()
 
             import copy
@@ -1267,8 +1273,7 @@ class JanelaPrincipal(QMainWindow):
         if self.label_status_salvamento:
             self.label_status_salvamento.hide()
 
-        if self.historico.obter_pilha().index() == undo_index:
-            self.historico.obter_pilha().setClean()
+        self.historico.registrar_salvamento_concluido(undo_index)
 
         if erros:
             self.compilacao_controller.processar_resultado(erros)
@@ -1415,6 +1420,10 @@ class JanelaPrincipal(QMainWindow):
 
         from editor.core.worker import TarefaSincronizacaoPR
 
+        tarefa_anterior = getattr(self, "_tarefa_sincronizacao", None)
+        if tarefa_anterior is not None and tarefa_anterior.isRunning():
+            tarefa_anterior.wait(2000)
+
         self._tarefa_sincronizacao = TarefaSincronizacaoPR(
             servico_submissao=servico,
             id_croqui=id_croqui,
@@ -1438,9 +1447,20 @@ class JanelaPrincipal(QMainWindow):
         )
         self._tarefa_sincronizacao.start()
 
+    def _recarregar_apos_sincronizacao_externa(self) -> None:
+        """Invalida os diários obsoletos e recarrega o croqui completo após merge ou conflito remoto."""
+        if self.workspace and hasattr(self.workspace, "obter_diario"):
+            from editor.core.diario import GerenciadorDiario
+
+            diario = self.workspace.obter_diario()
+            if isinstance(diario, GerenciadorDiario):
+                diario.invalidar_historico_completo()
+        self.historico.limpar()
+        self.carregar_croqui(sincronizar_remoto=False)
+
     def _on_sincronizacao_sucesso(self, resultado: Any, silencioso: bool) -> None:
         """Callback executado quando novos commits remotos são mesclados com sucesso."""
-        self._recarregar_dados_apos_salvamento()
+        self._recarregar_apos_sincronizacao_externa()
         if not silencioso:
             from PySide6.QtWidgets import QMessageBox
 
@@ -1502,7 +1522,7 @@ class JanelaPrincipal(QMainWindow):
                     manter_local=manter_local,
                     sessao=sessao,
                 )
-                self._recarregar_dados_apos_salvamento()
+                self._recarregar_apos_sincronizacao_externa()
                 from PySide6.QtWidgets import QMessageBox
 
                 QMessageBox.information(
@@ -1548,6 +1568,11 @@ class JanelaPrincipal(QMainWindow):
     def _encerrar_recursos_janela(self) -> None:
         """Encerra servidores locais e worker threads de curadoria antes da destruição da janela."""
         self._encerrar_servidor_celular()
+        tarefa_sync = getattr(self, "_tarefa_sincronizacao", None)
+        if tarefa_sync is not None and tarefa_sync.isRunning():
+            tarefa_sync.wait(2000)
+        if hasattr(self, "pagina_painel") and self.pagina_painel is not None:
+            self.pagina_painel.painel.desconectar_sinais()
         if hasattr(self, "pagina_betas") and self.pagina_betas is not None:
             self.pagina_betas.encerrar_recursos()
 

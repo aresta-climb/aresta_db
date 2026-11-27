@@ -34,11 +34,13 @@ def test_fluxo_inicializacao_cria_janela_principal(qtbot, tmp_path):
             mock_dialog_inst.exec.return_value = QDialog.DialogCode.Accepted
             mock_dialog_inst.caminho_croqui_selecionado = tmp_path
 
-            controlador = ControladorAplicativo()
+            controlador = ControladorAplicativo(iniciar_rede_mcp=False)
             controlador.executar_selecao()
 
             assert controlador.janela_principal is not None
             assert hasattr(controlador.janela_principal, "workspace")
+            controlador.janela_principal.close()
+            controlador.abertura.close()
 
 
 def test_controlador_app_conecta_sinais_corretamente(qtbot):
@@ -630,8 +632,11 @@ def test_integracao_abertura_croqui_oficial_mantem_app_vivo_e_mesmo_servidor_mcp
     timer_inspecao.setInterval(25)
     timer_inspecao.timeout.connect(_inspecionar_ciclo)
     timer_inspecao.start()
-    # Timeout de segurança para nunca travar a suíte
-    QTimer.singleShot(15000, app.quit)
+    # Timeout de segurança cancelável para nunca vazar disparo tardio em testes subsequentes
+    timer_timeout = QTimer()
+    timer_timeout.setSingleShot(True)
+    timer_timeout.timeout.connect(app.quit)
+    timer_timeout.start(15000)
 
     try:
         codigo_saida = controlador.executar()
@@ -649,6 +654,7 @@ def test_integracao_abertura_croqui_oficial_mantem_app_vivo_e_mesmo_servidor_mcp
         assert portas_mcp[0] == portas_mcp[1] == portas_mcp[2]
     finally:
         timer_inspecao.stop()
+        timer_timeout.stop()
         app.aboutToQuit.disconnect(_ao_about_to_quit)
         if hasattr(controlador, "encerrar_servidor_mcp"):
             controlador.encerrar_servidor_mcp()

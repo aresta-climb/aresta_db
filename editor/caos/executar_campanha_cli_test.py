@@ -8,6 +8,7 @@ from editor.caos.executar_campanha_cli import (
     configurar_plataforma_qt_cli,
     construir_parser_cli,
     executar_cli,
+    resolver_seed_inicial_campanha,
 )
 
 
@@ -18,10 +19,31 @@ def test_parser_cli_possui_padroes_amigaveis_para_execucao_local() -> None:
     assert args.duracao == 60.0
     assert args.passos == 60
     assert args.max_sementes == 1000
-    assert args.seed_inicial == 5000
+    assert args.seed_inicial == 0
     assert args.headless is False
     assert args.sem_sentry is False
     assert Path(args.diretorio_receitas).name == "caminhos_regressao"
+
+
+def test_resolver_seed_inicial_campanha_gera_semente_via_urandom_por_padrao_e_preserva_explicita() -> (
+    None
+):
+    amostras = [resolver_seed_inicial_campanha(None) for _ in range(32)]
+    amostras.extend(
+        [
+            resolver_seed_inicial_campanha(0),
+            resolver_seed_inicial_campanha("0"),
+            resolver_seed_inicial_campanha("   "),
+        ]
+    )
+
+    for s in amostras:
+        assert 1 <= s <= 0x7FFFFFFF
+    # Em loop apertado sub-milissegundo, entropia criptográfica (os.urandom) não repete o mesmo valor
+    assert len(set(amostras)) >= 34
+
+    assert resolver_seed_inicial_campanha(4242) == 4242
+    assert resolver_seed_inicial_campanha("7777") == 7777
 
 
 def test_configurar_plataforma_qt_cli_alterna_entre_visivel_e_offscreen() -> None:

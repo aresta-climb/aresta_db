@@ -15,6 +15,7 @@ from __future__ import annotations
 from collections.abc import Callable
 from typing import Any
 
+import shiboken6
 from PySide6.QtCore import Qt, QTimer
 from PySide6.QtWidgets import (
     QFrame,
@@ -263,6 +264,7 @@ class WidgetPainelQualidade(QWidget):
         super().__init__(parent)
         self._model: CroquiModel | None = None
         self._controller: CroquiController | None = None
+        self._pilha_conectada: Any | None = None
         self._estado_conclusao_anterior: tuple[bool, bool, bool] | None = None
         self._atualizacao_pendente: bool = False
         self._agendado_timer: bool = False
@@ -373,20 +375,29 @@ class WidgetPainelQualidade(QWidget):
             return pilha.obter_pilha()
         return pilha
 
+    def desconectar_sinais(self) -> None:
+        """Desconecta os sinais do modelo e da pilha de Undo/Redo atualmente vinculados."""
+        if self._model is not None and shiboken6.isValid(self._model):
+            self._model.dado_alterado.disconnect(self._ao_mutar_modelo)
+            self._model.repeated_adicionado.disconnect(self._ao_mutar_modelo)
+            self._model.repeated_removido.disconnect(self._ao_mutar_modelo)
+            self._model.repeated_item_alterado.disconnect(self._ao_mutar_modelo)
+            self._model.repeated_movido.disconnect(self._ao_mutar_modelo)
+            self._model.oneof_alterado.disconnect(self._ao_mutar_modelo)
+        if self._pilha_conectada is not None and shiboken6.isValid(self._pilha_conectada):
+            self._pilha_conectada.indexChanged.disconnect(self._ao_alterar_indice_undo)
+        self._model = None
+        self._controller = None
+        self._pilha_conectada = None
+        self._atualizacao_pendente = False
+
     def set_model_e_controller(
         self,
         model: CroquiModel,
         controller: CroquiController | None = None,
     ) -> None:
         """Vincula o painel a um `CroquiModel` e `CroquiController` e atualiza o diagnóstico."""
-        pilha_antiga = self._obter_pilha_undo(self._controller)
-        if pilha_antiga is not None:
-            sig_ant = getattr(pilha_antiga, "indexChanged", None)
-            if sig_ant is not None:
-                try:
-                    sig_ant.disconnect(self._ao_alterar_indice_undo)
-                except Exception:
-                    pass
+        self.desconectar_sinais()
 
         self._model = model
         self._controller = controller
@@ -404,6 +415,7 @@ class WidgetPainelQualidade(QWidget):
             sig_nova = getattr(pilha_nova, "indexChanged", None)
             if sig_nova is not None:
                 sig_nova.connect(self._ao_alterar_indice_undo)
+                self._pilha_conectada = pilha_nova
 
         self.atualizar_painel()
 
@@ -433,7 +445,7 @@ class WidgetPainelQualidade(QWidget):
 
     def _processar_atualizacao_pendente(self) -> None:
         self._agendado_timer = False
-        if not self._atualizacao_pendente:
+        if not self._atualizacao_pendente or not shiboken6.isValid(self.label_nota_qualidade):
             return
         if self._esta_oculto_em_janela_visivel():
             return

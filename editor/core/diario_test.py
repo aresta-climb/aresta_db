@@ -142,7 +142,7 @@ def test_gerenciador_diario_apenas_pendente(tmp_path):
     assert len(diario.ler_diario_salvo()) == 0
 
 
-def test_gerenciador_diario_preservacao_cache_salvo_ao_substituir_pendente(tmp_path, monkeypatch):
+def test_gerenciador_diario_preservacao_cache_salvo_ao_substituir_pendente(tmp_path):
     diario = GerenciadorDiario(tmp_path)
     cmd1 = {"classe": "CmdSalvo1", "valor": 1}
     cmd2 = {"classe": "CmdSalvo2", "valor": 2}
@@ -154,31 +154,19 @@ def test_gerenciador_diario_preservacao_cache_salvo_ao_substituir_pendente(tmp_p
     iniciais = diario.exportar_diario_anonimizado()
     assert len(iniciais) == 2
 
-    # Espiona ler_diario_salvo para garantir que não seja mais chamado do disco
-    leituras_disco = []
-    original_ler_salvo = diario.ler_diario_salvo
-
-    def spy_ler_salvo():
-        leituras_disco.append(True)
-        return original_ler_salvo()
-
-    monkeypatch.setattr(diario, "ler_diario_salvo", spy_ler_salvo)
+    # Remove o arquivo salvo do disco: se o cache salvo for preservado, não relemos do disco
+    diario.caminho_salvo.unlink()
 
     # Substitui os comandos pendentes (ex.: após mesclagem de digitação)
     cmd_novo = {"classe": "CmdPendenteMesclado", "valor": 99}
-    assert hasattr(diario, "substituir_comandos_pendentes"), (
-        "GerenciadorDiario deve ter o método substituir_comandos_pendentes"
-    )
     diario.substituir_comandos_pendentes([cmd_novo])
 
-    # Exporta novamente e valida
+    # Exporta novamente e valida que os 2 salvos do cache + 1 novo pendente estão presentes
     exportados = diario.exportar_diario_anonimizado()
     assert len(exportados) == 3
+    assert exportados[0]["valor"] == 1
+    assert exportados[1]["valor"] == 2
     assert exportados[2]["valor"] == 99
-    # O disco NÃO deve ter sido relido para os comandos salvos
-    assert len(leituras_disco) == 0, (
-        "O cache de comandos salvos não deve ser descartado ao substituir pendentes"
-    )
 
 
 def test_gerenciador_diario_cobertura_propriedades_e_conversoes(tmp_path):
@@ -223,3 +211,52 @@ def test_gerenciador_diario_cobertura_propriedades_e_conversoes(tmp_path):
     anon = diario._anonimizar_comando({"img_bytes": b"fake_bytes", "bytes_novo": 123})
     assert isinstance(anon["img_bytes"], bytes)
     assert anon["bytes_novo"] == 123
+
+
+def test_gerenciador_diario_invalidar_historico_completo(tmp_path):
+    """Garante que invalidar_historico_completo limpa diario_salvo.bin, diario_pendente.bin e caches."""
+    diario = GerenciadorDiario(tmp_path)
+    diario.gravar_comando_pendente({"classe": "CmdAlterarCampo", "valor_novo": "Salvo"})
+    diario.consolidar_salvamento()
+    diario.gravar_comando_pendente({"classe": "CmdAlterarCampo", "valor_novo": "Pendente"})
+
+    # Popula caches em memória
+    assert len(diario.exportar_diario_anonimizado()) == 2
+    assert diario.caminho_salvo.stat().st_size > 0
+    assert diario.caminho_pendente.stat().st_size > 0
+
+    diario.invalidar_historico_completo()
+
+    assert diario.ler_diario_salvo() == []
+    assert diario.ler_diario_pendente() == []
+    assert not diario.tem_alteracoes_pendentes()
+    assert diario.exportar_diario_anonimizado() == []
+
+
+def test_gerenciador_diario_consolidar_salvamento_com_recuo_salvo(tmp_path):
+    """Garante que consolidar_salvamento trunca comandos salvos recuados via recuo_salvo e anexa o novo ramo."""
+    diario = GerenciadorDiario(tmp_path)
+    cmd1 = {"classe": "CmdAlterarCampo", "valor_novo": "Passo 1"}
+    cmd2 = {"classe": "CmdAlterarCampo", "valor_novo": "Passo 2"}
+    cmd3 = {"classe": "CmdAlterarCampo", "valor_novo": "Passo 3"}
+    diario.substituir_comandos_pendentes([cmd1, cmd2, cmd3])
+    diario.consolidar_salvamento()
+    assert len(diario.exportar_diario_anonimizado()) == 3
+
+    # Recua 2 comandos salvos e adiciona um novo comando real
+    cmd_ramo = {"classe": "CmdAlterarCampo", "valor_novo": "Ramo Apos Passo 1"}
+    diario.substituir_comandos_pendentes(
+        [{"__controle_diario__": "recuo_salvo", "passos": 2}, cmd_ramo]
+    )
+    diario.consolidar_salvamento()
+
+    salvos = diario.ler_diario_salvo()
+    assert salvos == [cmd1, cmd_ramo]
+    assert diario.ler_diario_pendente() == []
+    assert len(diario.exportar_diario_anonimizado()) == 2
+
+    # Recuo total dos 2 comandos restantes sem novos comandos
+    diario.substituir_comandos_pendentes([{"__controle_diario__": "recuo_salvo", "passos": 2}])
+    diario.consolidar_salvamento()
+    assert diario.ler_diario_salvo() == []
+    assert diario.ler_diario_pendente() == []

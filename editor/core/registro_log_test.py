@@ -8,6 +8,7 @@ from editor.core.registro_log import (
     SanitizingFormatter,
     configurar_logging,
     obter_logger,
+    obter_logger_raiz_python,
 )
 
 
@@ -41,3 +42,30 @@ def test_obter_logger():
     logger2 = obter_logger("modulo_a")
     assert logger1 is logger2
     assert logger1.name == "aresta_editor.modulo_a"
+    assert obter_logger().name == "aresta_editor"
+
+
+def test_obter_logger_raiz_python():
+    raiz = obter_logger_raiz_python()
+    assert raiz is logging.getLogger()
+
+
+def test_safe_stream_handler_ignora_stream_fechado():
+    import io
+
+    from editor.core.registro_log import SafeStreamHandler
+
+    stream_fechado = io.StringIO()
+    stream_fechado.close()
+    handler = SafeStreamHandler(stream_fechado)
+    record = logging.LogRecord(
+        name="aresta_editor.teste",
+        level=logging.INFO,
+        pathname="teste.py",
+        lineno=1,
+        msg="mensagem",
+        args=(),
+        exc_info=None,
+    )
+    handler.emit(record)
+    handler.handleError(record)

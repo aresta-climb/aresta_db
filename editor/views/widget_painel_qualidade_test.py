@@ -291,3 +291,70 @@ def test_painel_qualidade_adia_recalculo_quando_aba_oculta_e_atualiza_no_show_ev
 
     abas.setCurrentWidget(painel)
     assert painel.total_atualizacoes_painel == ct_antes + 1
+
+
+def test_painel_qualidade_desconecta_modelo_anterior_e_suporta_destruicao_cpp_com_pendencia(
+    qtbot,
+) -> None:
+    """
+    Dado um WidgetPainelQualidade reassociado a um novo CroquiModel ou destruído pelo Qt C++
+    enquanto possui atualização pendente em aba oculta,
+    quando o modelo antigo emite sinais ou a QMainWindow pai é destruída junto à QUndoStack,
+    então o painel ignora sinais órfãos e não acessa widgets filhos C++ já destruídos.
+    """
+    import shiboken6
+    from PySide6.QtWidgets import QMainWindow, QStackedWidget, QWidget
+
+    croqui_1 = _criar_croqui_etapa1_completa()
+    model_1 = CroquiModel(croqui_1)
+    stack_1 = QUndoStack()
+    ctrl_1 = CroquiController(model_1, stack_1)
+
+    croqui_2 = _criar_croqui_etapa1_completa()
+    model_2 = CroquiModel(croqui_2)
+    stack_2 = QUndoStack()
+    ctrl_2 = CroquiController(model_2, stack_2)
+
+    painel_troca = WidgetPainelQualidade(model_1, ctrl_1)
+    qtbot.addWidget(painel_troca)
+    painel_troca.set_model_e_controller(model_2, ctrl_2)
+    ct_apos_troca = painel_troca.total_atualizacoes_painel
+
+    # Mutação no modelo antigo não deve disparar recálculo no painel já vinculado ao model_2
+    ctrl_1.alterar_primitivo(
+        model_1.obter_croqui_readonly(), "nome", "Serra da Qualidade", "Nome Antigo"
+    )
+    assert painel_troca.total_atualizacoes_painel == ct_apos_troca
+
+    painel_troca.desconectar_sinais()
+    ctrl_2.alterar_primitivo(
+        model_2.obter_croqui_readonly(), "nome", "Serra da Qualidade", "Nome Ignorado"
+    )
+    assert painel_troca.total_atualizacoes_painel == ct_apos_troca
+
+    from editor.core.historico import GerenciadorHistorico
+
+    # Simula a ordem exata da JanelaPrincipal: GerenciadorHistorico criado como 1º filho antes dos QWidgets
+    janela = QMainWindow()
+    stack_janela = GerenciadorHistorico(janela)
+    model_j = CroquiModel(_criar_croqui_etapa1_completa())
+    ctrl_j = CroquiController(model_j, stack_janela)
+
+    stack_paginas = QStackedWidget(janela)
+    pagina_painel = WidgetPainelQualidade(model_j, ctrl_j, parent=stack_paginas)
+    pagina_dados = QWidget(stack_paginas)
+    stack_paginas.addWidget(pagina_painel)
+    stack_paginas.addWidget(pagina_dados)
+    stack_paginas.setCurrentWidget(pagina_dados)
+    janela.setCentralWidget(stack_paginas)
+    janela.show()
+    qtbot.waitExposed(janela)
+
+    # Gera atualização pendente com o painel oculto e um comando na QUndoStack
+    ctrl_j.alterar_primitivo(
+        model_j.obter_croqui_readonly(), "nome", "Serra da Qualidade", "Mutação Oculta"
+    )
+    assert pagina_painel._atualizacao_pendente is True
+
+    # Destrói a janela C++ diretamente (QWidget::~QWidget destrói os filhos visuais antes de ~QUndoStack)
+    shiboken6.delete(janela)

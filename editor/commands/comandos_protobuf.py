@@ -1,16 +1,16 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
-import logging
 from typing import Any
 
 from google.protobuf.message import Message
 from PySide6.QtGui import QUndoCommand
 
+from editor.core.registro_log import obter_logger
 from editor.models.croqui_model import CroquiModel
 from editor.models.readonly_proxy import _copia_segura
 
-logger = logging.getLogger(__name__)
+logger = obter_logger("comandos_protobuf")
 
 
 class MensagemAlvoNaoEncontradaError(LookupError):
@@ -316,6 +316,34 @@ def navegar_para_mensagem(root_msg: Any, caminho: str) -> Any:
     return atual
 
 
+def _canonizar_caminho_posicional_em_o1(root_msg: Any, caminho: str) -> str:
+    """
+    Percorre apenas os segmentos de `caminho` a partir de `root_msg` (O(profundidade))
+    e ancora no ancestral intermediário ou nó final mais próximo que possua `uid` preenchido.
+    Se apenas `root_msg` (ou nenhum nó) possuir `uid`, preserva `caminho` inalterado.
+    """
+    from editor.models.readonly_proxy import ReadOnlyProxy
+
+    atual = (
+        object.__getattribute__(root_msg, "_obj")
+        if isinstance(root_msg, ReadOnlyProxy)
+        else root_msg
+    )
+    partes = caminho.split(".")
+    ultimo_uid = ""
+    indice_pos_uid = 0
+    for idx_parte, parte in enumerate(partes):
+        atual = atual[int(parte)] if parte.isdigit() else getattr(atual, parte)
+        uid_atual = str(getattr(atual, "uid", "") or "").strip()
+        if uid_atual:
+            ultimo_uid = uid_atual
+            indice_pos_uid = idx_parte + 1
+    if not ultimo_uid:
+        return caminho
+    sufixo = ".".join(partes[indice_pos_uid:])
+    return f"{ultimo_uid}.{sufixo}" if sufixo else ultimo_uid
+
+
 def navegar_para_alvo(root_msg: Any, alvo: str, indice_uids: Any = None) -> Any:
     """
     Navega na árvore a partir de um alvo nos 3 níveis:
@@ -506,44 +534,27 @@ def _garantir_campo_valido_na_mensagem(
         )
 
 
-def _validar_campo_se_msg_existir(
-    model: Any,
-    caminho_msg: str | None,
-    campo_nome: str | None,
-    nome_comando: str = "Comando",
-    field_ext: Any = None,
-) -> None:
-    """
-    Valida a existência do campo no descriptor se a mensagem puder ser resolvida no modelo.
-    Se a mensagem não existir no modelo (lazy resolution), não levanta erro prematuro.
-    """
-    if model is None or caminho_msg is None or not campo_nome:
-        return
-    root = (
-        model.obter_croqui_readonly()
-        if hasattr(model, "obter_croqui_readonly")
-        else getattr(model, "croqui", None)
-    )
-    indice_uids = getattr(model, "indice_uids", None)
-    msg_alvo = navegar_para_alvo(root, caminho_msg, indice_uids)
-    if msg_alvo is not None and hasattr(msg_alvo, "DESCRIPTOR"):
-        _garantir_campo_valido_na_mensagem(msg_alvo, campo_nome, nome_comando, field_ext=field_ext)
-
-
 def _serializar_valor(valor: Any, anonimizado: bool = False) -> Any:
-    """Serializa tipos primitivos ou instâncias Protobuf Message para representação de dicionário."""
+    """Serializa tipos primitivos, tuplas (variante, Message) ou instâncias Protobuf Message para dicionário."""
     if isinstance(valor, Message):
         return {
             "__tipo_protobuf__": type(valor).__qualname__,
             "__bytes__": valor.SerializeToString(),
         }
+    if isinstance(valor, tuple):
+        return tuple(_serializar_valor(item, anonimizado=anonimizado) for item in valor)
     return valor
 
 
 def _deserializar_valor(
     valor_serializado: Any, model: CroquiModel | None = None, campo_nome: str = ""
 ) -> Any:
-    """Reconstrói tipo primitivo ou Protobuf Message a partir de representação serializada."""
+    """Reconstrói tipo primitivo, tupla ou Protobuf Message a partir de representação serializada."""
+    if isinstance(valor_serializado, tuple):
+        return tuple(
+            _deserializar_valor(item, model=model, campo_nome=campo_nome)
+            for item in valor_serializado
+        )
     if isinstance(valor_serializado, dict) and "__tipo_protobuf__" in valor_serializado:
         tipo_nome = str(valor_serializado["__tipo_protobuf__"])
         campo_base = campo_nome.split(".", 1)[0] if campo_nome else ""
@@ -552,11 +563,16 @@ def _deserializar_valor(
         elif tipo_nome in ("Referencia", "AjusteDeCamera"):
             tipo_nome = f"Mapa.{tipo_nome}"
 
-        import aresta_api.proto.generated.croqui_pb2 as croqui_pb2
-        import aresta_api.proto.generated.indice_pb2 as indice_pb2
+        from aresta_api.proto.generated import (
+            beta_pb2,
+            croqui_experimental_pb2,
+            croqui_pb2,
+            indice_pb2,
+            serving_pb2,
+        )
 
         cls: Any = None
-        for mod in (croqui_pb2, indice_pb2):
+        for mod in (croqui_pb2, beta_pb2, indice_pb2, croqui_experimental_pb2, serving_pb2):
             obj: Any = mod
             for parte in tipo_nome.split("."):
                 obj = getattr(obj, parte, None)
@@ -643,6 +659,10 @@ class ComandoEditor(QUndoCommand):
         if alvo is not None:
             if self._msg_cache is not None:
                 self._msg_cache = alvo
+            if self._caminho_msg and root is not None and hasattr(root, "DESCRIPTOR"):
+                prefixo = self._caminho_msg.split(".", 1)[0]
+                if prefixo in root.DESCRIPTOR.fields_by_name:
+                    self._caminho_msg = _canonizar_caminho_posicional_em_o1(root, self._caminho_msg)
             return alvo
 
         if self._msg_cache is not None:
@@ -773,6 +793,12 @@ class CmdAlterarCampo(ComandoEditor):
         caminho_msg: str | None = None,
         parent: QUndoCommand | None = None,
         field_ext: Any = None,
+        modalidade: str | None = None,
+        nome_oneof: str = "",
+        var_antiga: str | None = None,
+        valor_variante_antiga: Any = None,
+        var_nova: str | None = None,
+        valor_variante_nova: Any = None,
     ) -> None:
         super().__init__(parent)
         self.model: Any = model
@@ -780,38 +806,16 @@ class CmdAlterarCampo(ComandoEditor):
         self.context_path: str | None = context_path
         self.pode_mesclar: bool = pode_mesclar or (session_id is not None)
         self.session_id: int | str | None = session_id
-
-        if caminho_msg is not None:
-            self.caminho_msg = caminho_msg
-            _validar_campo_se_msg_existir(
-                self.model,
-                self.caminho_msg,
-                self.campo_nome,
-                "CmdAlterarCampo",
-                field_ext=field_ext,
-            )
-        else:
-            self.caminho_msg = validar_pertence_ao_croqui(
-                self.model,
-                alvo,
-                self.campo_nome,
-                nome_comando="CmdAlterarCampo",
-                field_ext=field_ext,
-            )
-            if not isinstance(alvo, str):
-                self._msg_cache = alvo
-
-        # Inferência de modalidade e metadados via DESCRIPTOR
-        msg_alvo = self._obter_msg()
-        self.modalidade: str = "primitivo"
+        self.modalidade: str = modalidade or "primitivo"
         self._nome_campo_base: str = campo_nome
         self._indice_repeated: int = -1
-        self._nome_oneof: str = ""
-        self._var_antiga: str | None = None
-        self._var_nova: str | None = None
-        self._valor_variante_antiga: Any = None
-        self._valor_variante_nova: Any = None
-        self._field_ext: Any = None
+        self._nome_oneof: str = nome_oneof
+        self._var_antiga: str | None = var_antiga
+        self._var_nova: str | None = var_nova
+        self._valor_variante_antiga: Any = valor_variante_antiga
+        self._valor_variante_nova: Any = valor_variante_nova
+        self._field_ext: Any = field_ext
+        self._modalidade_inferida: bool = False
 
         if "." in campo_nome and not campo_nome.startswith("ext_"):
             partes = campo_nome.split(".", 1)
@@ -822,116 +826,184 @@ class CmdAlterarCampo(ComandoEditor):
             self.modalidade = "repeated_item"
             self._nome_campo_base = partes[0]
             self._indice_repeated = int(partes[1])
-            if msg_alvo is not None and hasattr(msg_alvo, "DESCRIPTOR"):
-                field_desc = msg_alvo.DESCRIPTOR.fields_by_name.get(self._nome_campo_base)
-                if field_desc is not None:
-                    if not _eh_campo_repeated(field_desc):
-                        raise ValueError(
-                            f"O campo '{self._nome_campo_base}' em '{msg_alvo.DESCRIPTOR.name}' "
-                            f"não é uma lista (repeated) e não aceita índice '{campo_nome}'."
-                        )
-                    _validar_tipo_valor_campo(field_desc, valor_novo, campo_nome)
-                if valor_antigo is _VALOR_OMITIDO:
-                    colecao = getattr(msg_alvo, self._nome_campo_base, [])
-                    if 0 <= self._indice_repeated < len(colecao):
-                        valor_antigo = colecao[self._indice_repeated]
-                    else:
-                        valor_antigo = None
-        elif msg_alvo is not None and hasattr(msg_alvo, "DESCRIPTOR"):
-            desc = msg_alvo.DESCRIPTOR
-            if campo_nome in desc.oneofs_by_name:
-                self.modalidade = "oneof"
-                self._nome_oneof = campo_nome
-                self._var_antiga = msg_alvo.WhichOneof(campo_nome)
-                if self._var_antiga:
-                    self._valor_variante_antiga = getattr(msg_alvo, self._var_antiga)
-                if isinstance(valor_novo, tuple) and len(valor_novo) == 2:
-                    self._var_nova, self._valor_variante_nova = valor_novo
-                    if self._var_nova is not None:
-                        field_var = desc.fields_by_name.get(self._var_nova)
-                        if (
-                            field_var is None
-                            or getattr(field_var.containing_oneof, "name", None) != campo_nome
-                        ):
+            self._modalidade_inferida = True
+
+        if caminho_msg is not None:
+            # Modo 100% lazy (deserialização do diário): zero acesso ao modelo, zero UID novo
+            self.caminho_msg = caminho_msg
+            if modalidade in ("primitivo", "submensagem") or (
+                modalidade == "oneof" and bool(self._nome_oneof)
+            ):
+                self._modalidade_inferida = True
+        else:
+            # Modo ao vivo (criação por Controller / MCP): validação e introspecção imediatas
+            self.caminho_msg = validar_pertence_ao_croqui(
+                self.model,
+                alvo,
+                self.campo_nome,
+                nome_comando="CmdAlterarCampo",
+                field_ext=field_ext,
+            )
+            if not isinstance(alvo, str):
+                self._msg_cache = alvo
+
+            msg_alvo = self._obter_msg()
+            self._modalidade_inferida = True
+            if self.modalidade == "repeated_item":
+                if msg_alvo is not None and hasattr(msg_alvo, "DESCRIPTOR"):
+                    field_desc = msg_alvo.DESCRIPTOR.fields_by_name.get(self._nome_campo_base)
+                    if field_desc is not None:
+                        if not _eh_campo_repeated(field_desc):
                             raise ValueError(
-                                f"A variante '{self._var_nova}' não pertence ao oneof "
-                                f"'{campo_nome}' em '{desc.name}'."
+                                f"O campo '{self._nome_campo_base}' em '{msg_alvo.DESCRIPTOR.name}' "
+                                f"não é uma lista (repeated) e não aceita índice '{campo_nome}'."
                             )
-                        _validar_tipo_valor_campo(
-                            field_var, self._valor_variante_nova, self._var_nova
-                        )
-                elif valor_novo is None:
-                    self._var_nova = None
-                    self._valor_variante_nova = None
-                else:
-                    raise TypeError(
-                        f"Valor inválido para o oneof '{campo_nome}': esperado tupla "
-                        f"(nome_variante, mensagem) ou None, recebido '{type(valor_novo).__name__}'."
-                    )
-            elif campo_nome in desc.fields_by_name:
-                field_desc = desc.fields_by_name[campo_nome]
-                if _eh_campo_repeated(field_desc):
-                    raise ValueError(
-                        f"O campo '{campo_nome}' em '{desc.name}' é uma lista (repeated). "
-                        f"Use '{campo_nome}.<indice>' para alterar um item específico ou "
-                        f"CmdAdicionarRepeated / CmdRemoverRepeated para modificar a coleção."
-                    )
-                _validar_tipo_valor_campo(field_desc, valor_novo, campo_nome)
-                if field_desc.containing_oneof:
-                    self.modalidade = "oneof"
-                    self._nome_oneof = field_desc.containing_oneof.name
-                    self._var_antiga = msg_alvo.WhichOneof(self._nome_oneof)
-                    if self._var_antiga:
-                        self._valor_variante_antiga = getattr(msg_alvo, self._var_antiga)
-                    if valor_novo is not None:
-                        self._var_nova = campo_nome
-                        self._valor_variante_nova = valor_novo
-                    else:
-                        self._var_nova = None
-                        self._valor_variante_nova = None
-                elif getattr(field_desc, "type", None) == 11:
-                    self.modalidade = "submensagem"
+                        _validar_tipo_valor_campo(field_desc, valor_novo, campo_nome)
                     if valor_antigo is _VALOR_OMITIDO:
-                        if msg_alvo.HasField(campo_nome):
-                            valor_antigo = getattr(msg_alvo, campo_nome)
+                        colecao = getattr(msg_alvo, self._nome_campo_base, [])
+                        if 0 <= self._indice_repeated < len(colecao):
+                            valor_antigo = colecao[self._indice_repeated]
                         else:
                             valor_antigo = None
-                else:
-                    self.modalidade = "primitivo"
-                    if valor_antigo is _VALOR_OMITIDO:
-                        valor_antigo = (
-                            getattr(msg_alvo, campo_nome) if msg_alvo.HasField(campo_nome) else None
-                        )
-            elif (
-                field_ext is not None
-                or campo_nome.startswith("ext_")
-                or hasattr(type(getattr(msg_alvo, "_obj", msg_alvo)), campo_nome)
-            ):
-                from aresta_api.proto.generated import croqui_pb2
-
-                self.modalidade = "extensao"
-                raw_cls = type(getattr(msg_alvo, "_obj", msg_alvo))
-                self._field_ext = field_ext or getattr(
-                    raw_cls, campo_nome, getattr(croqui_pb2, campo_nome, None)
-                )
-                if valor_antigo is _VALOR_OMITIDO:
-                    raw_msg = getattr(msg_alvo, "_obj", msg_alvo)
-                    if self._field_ext is not None and raw_msg.HasExtension(self._field_ext):
-                        ext = raw_msg.Extensions[self._field_ext]
-                        valor_antigo = getattr(ext, "caminho_novo", "")
+            elif msg_alvo is not None and hasattr(msg_alvo, "DESCRIPTOR"):
+                desc = msg_alvo.DESCRIPTOR
+                if campo_nome in desc.oneofs_by_name:
+                    self.modalidade = "oneof"
+                    self._nome_oneof = campo_nome
+                    self._var_antiga = msg_alvo.WhichOneof(campo_nome)
+                    if self._var_antiga:
+                        self._valor_variante_antiga = getattr(msg_alvo, self._var_antiga)
+                    if isinstance(valor_novo, tuple) and len(valor_novo) == 2:
+                        self._var_nova, self._valor_variante_nova = valor_novo
+                        if self._var_nova is not None:
+                            field_var = desc.fields_by_name.get(self._var_nova)
+                            if (
+                                field_var is None
+                                or getattr(field_var.containing_oneof, "name", None) != campo_nome
+                            ):
+                                raise ValueError(
+                                    f"A variante '{self._var_nova}' não pertence ao oneof "
+                                    f"'{campo_nome}' em '{desc.name}'."
+                                )
+                            _validar_tipo_valor_campo(
+                                field_var, self._valor_variante_nova, self._var_nova
+                            )
+                    elif valor_novo is None:
+                        self._var_nova = None
+                        self._valor_variante_nova = None
                     else:
-                        valor_antigo = ""
+                        raise TypeError(
+                            f"Valor inválido para o oneof '{campo_nome}': esperado tupla "
+                            f"(nome_variante, mensagem) ou None, recebido '{type(valor_novo).__name__}'."
+                        )
+                elif campo_nome in desc.fields_by_name:
+                    field_desc = desc.fields_by_name[campo_nome]
+                    if _eh_campo_repeated(field_desc):
+                        raise ValueError(
+                            f"O campo '{campo_nome}' em '{desc.name}' é uma lista (repeated). "
+                            f"Use '{campo_nome}.<indice>' para alterar um item específico ou "
+                            f"CmdAdicionarRepeated / CmdRemoverRepeated para modificar a coleção."
+                        )
+                    _validar_tipo_valor_campo(field_desc, valor_novo, campo_nome)
+                    if field_desc.containing_oneof:
+                        self.modalidade = "oneof"
+                        self._nome_oneof = field_desc.containing_oneof.name
+                        self._var_antiga = msg_alvo.WhichOneof(self._nome_oneof)
+                        if self._var_antiga:
+                            self._valor_variante_antiga = getattr(msg_alvo, self._var_antiga)
+                        if valor_novo is not None:
+                            self._var_nova = campo_nome
+                            self._valor_variante_nova = valor_novo
+                        else:
+                            self._var_nova = None
+                            self._valor_variante_nova = None
+                    elif getattr(field_desc, "type", None) == 11:
+                        self.modalidade = "submensagem"
+                        if valor_antigo is _VALOR_OMITIDO:
+                            if msg_alvo.HasField(campo_nome):
+                                valor_antigo = getattr(msg_alvo, campo_nome)
+                            else:
+                                valor_antigo = None
+                    else:
+                        self.modalidade = "primitivo"
+                        if valor_antigo is _VALOR_OMITIDO:
+                            valor_antigo = (
+                                getattr(msg_alvo, campo_nome)
+                                if msg_alvo.HasField(campo_nome)
+                                else None
+                            )
+                elif (
+                    field_ext is not None
+                    or campo_nome.startswith("ext_")
+                    or hasattr(type(getattr(msg_alvo, "_obj", msg_alvo)), campo_nome)
+                ):
+                    from aresta_api.proto.generated import croqui_pb2
+
+                    self.modalidade = "extensao"
+                    raw_cls = type(getattr(msg_alvo, "_obj", msg_alvo))
+                    self._field_ext = field_ext or getattr(
+                        raw_cls, campo_nome, getattr(croqui_pb2, campo_nome, None)
+                    )
+                    if valor_antigo is _VALOR_OMITIDO:
+                        raw_msg = getattr(msg_alvo, "_obj", msg_alvo)
+                        if self._field_ext is not None and raw_msg.HasExtension(self._field_ext):
+                            ext = raw_msg.Extensions[self._field_ext]
+                            valor_antigo = getattr(ext, "caminho_novo", "")
+                        else:
+                            valor_antigo = ""
 
         if valor_antigo is _VALOR_OMITIDO:
             valor_antigo = None
+        if caminho_msg is None:
+            garantir_uids_em_mensagem(valor_novo)
+            garantir_uids_em_mensagem(self._valor_variante_nova)
 
-        garantir_uids_em_mensagem(valor_novo)
-        garantir_uids_em_mensagem(self._valor_variante_nova)
         self._valor_variante_antiga = _copia_segura(self._valor_variante_antiga)
         self._valor_variante_nova = _copia_segura(self._valor_variante_nova)
         self.valor_antigo: Any = _copia_segura(valor_antigo)
         self.valor_novo: Any = _copia_segura(valor_novo)
         self.setText(f"Alterar {self.campo_nome}")
+
+    def _garantir_modalidade_inferida(self, msg: Any) -> None:
+        """Infere tardiamente a modalidade e metadados via DESCRIPTOR quando carregado do diário."""
+        if self._modalidade_inferida or not hasattr(msg, "DESCRIPTOR"):
+            return
+        desc = msg.DESCRIPTOR
+        campo = self.campo_nome
+        if campo in desc.oneofs_by_name:
+            self.modalidade = "oneof"
+            self._nome_oneof = campo
+            if (
+                self._var_nova is None
+                and isinstance(self.valor_novo, tuple)
+                and len(self.valor_novo) == 2
+            ):
+                self._var_nova, self._valor_variante_nova = self.valor_novo
+        elif campo in desc.fields_by_name:
+            field_desc = desc.fields_by_name[campo]
+            if field_desc.containing_oneof:
+                self.modalidade = "oneof"
+                self._nome_oneof = field_desc.containing_oneof.name
+                if self._var_nova is None and self.valor_novo is not None:
+                    self._var_nova = campo
+                    self._valor_variante_nova = self.valor_novo
+            elif getattr(field_desc, "type", None) == 11:
+                self.modalidade = "submensagem"
+            else:
+                self.modalidade = "primitivo"
+        elif (
+            self._field_ext is not None
+            or campo.startswith("ext_")
+            or hasattr(type(getattr(msg, "_obj", msg)), campo)
+        ):
+            from aresta_api.proto.generated import croqui_pb2
+
+            self.modalidade = "extensao"
+            raw_cls = type(getattr(msg, "_obj", msg))
+            self._field_ext = self._field_ext or getattr(
+                raw_cls, campo, getattr(croqui_pb2, campo, None)
+            )
+        self._modalidade_inferida = True
 
     def id(self) -> int:
         return self.ID_COMANDO if self.pode_mesclar else -1
@@ -942,14 +1014,19 @@ class CmdAlterarCampo(ComandoEditor):
         if not isinstance(outro, CmdAlterarCampo):
             return False
         if (
-            self.caminho_msg == outro.caminho_msg
-            and self.campo_nome == outro.campo_nome
+            self.campo_nome == outro.campo_nome
             and self.session_id == outro.session_id
+            and (
+                self.caminho_msg == outro.caminho_msg
+                or (self.msg is not None and self.msg is outro.msg)
+            )
         ):
             msg = self.msg
             if msg is None:
                 return False
             self.valor_novo = outro.valor_novo
+            self._var_nova = outro._var_nova
+            self._valor_variante_nova = outro._valor_variante_nova
             if hasattr(outro, "context_path") and outro.context_path:
                 self.context_path = outro.context_path
             self._aplicar_mutacao(self.valor_novo, eh_redo=True)
@@ -960,6 +1037,7 @@ class CmdAlterarCampo(ComandoEditor):
         msg = self.msg
         if msg is None:
             return
+        self._garantir_modalidade_inferida(msg)
 
         if self.modalidade in ("primitivo", "submensagem"):
             self.model._set_primitivo(msg, self.campo_nome, valor)
@@ -1026,16 +1104,28 @@ class CmdAlterarCampo(ComandoEditor):
         self._aplicar_mutacao(self.valor_novo, eh_redo=True)
 
     def serializar(self, anonimizado: bool = False) -> dict[str, Any]:
-        return {
+        dados: dict[str, Any] = {
             "classe": "CmdAlterarCampo",
             "caminho_msg": self.caminho_msg,
             "campo_nome": self.campo_nome,
+            "modalidade": self.modalidade,
             "valor_antigo": _serializar_valor(self.valor_antigo, anonimizado=anonimizado),
             "valor_novo": _serializar_valor(self.valor_novo, anonimizado=anonimizado),
             "context_path": self.context_path,
             "pode_mesclar": self.pode_mesclar,
             "session_id": self.session_id,
         }
+        if self.modalidade == "oneof":
+            dados["nome_oneof"] = self._nome_oneof
+            dados["var_antiga"] = self._var_antiga
+            dados["valor_variante_antiga"] = _serializar_valor(
+                self._valor_variante_antiga, anonimizado=anonimizado
+            )
+            dados["var_nova"] = self._var_nova
+            dados["valor_variante_nova"] = _serializar_valor(
+                self._valor_variante_nova, anonimizado=anonimizado
+            )
+        return dados
 
     @staticmethod
     def deserializar(dados: dict[str, Any], model: CroquiModel) -> "CmdAlterarCampo":
@@ -1046,15 +1136,35 @@ class CmdAlterarCampo(ComandoEditor):
         valor_novo = _deserializar_valor(
             dados.get("valor_novo"), model=model, campo_nome=campo_nome
         )
+        var_antiga = dados.get("var_antiga")
+        var_nova = dados.get("var_nova")
+        valor_variante_antiga = _deserializar_valor(
+            dados.get("valor_variante_antiga"),
+            model=model,
+            campo_nome=str(var_antiga or campo_nome),
+        )
+        valor_variante_nova = _deserializar_valor(
+            dados.get("valor_variante_nova"),
+            model=model,
+            campo_nome=str(var_nova or campo_nome),
+        )
         return CmdAlterarCampo(
             model=model,
-            caminho_msg=dados.get("caminho_msg") or dados.get("alvo") or "",
+            caminho_msg=dados.get("caminho_msg")
+            if "caminho_msg" in dados
+            else (dados.get("alvo") or ""),
             campo_nome=campo_nome,
             valor_novo=valor_novo,
             valor_antigo=valor_antigo,
             context_path=dados.get("context_path"),
             pode_mesclar=dados.get("pode_mesclar", False),
             session_id=dados.get("session_id"),
+            modalidade=dados.get("modalidade"),
+            nome_oneof=dados.get("nome_oneof", ""),
+            var_antiga=var_antiga,
+            valor_variante_antiga=valor_variante_antiga,
+            var_nova=var_nova,
+            valor_variante_nova=valor_variante_nova,
         )
 
 
@@ -1247,24 +1357,21 @@ class CmdAdicionarRepeated(ComandoEditor):
         self.model: Any = model
         self.campo_nome: str = campo_nome
         alvo_efetivo = alvo if alvo is not None else msg
+        self.index: int = index
         if caminho_msg is not None:
             self.caminho_msg = caminho_msg
-            _validar_campo_se_msg_existir(
-                self.model, self.caminho_msg, self.campo_nome, "CmdAdicionarRepeated"
-            )
         else:
             self.caminho_msg = validar_pertence_ao_croqui(
                 self.model, alvo_efetivo, self.campo_nome, nome_comando="CmdAdicionarRepeated"
             )
             if not isinstance(alvo_efetivo, str):
                 self._msg_cache = alvo_efetivo
-        self.index: int = index
-        msg_alvo = self._obter_msg()
-        if msg_alvo is not None and hasattr(msg_alvo, "DESCRIPTOR"):
-            _validar_tipo_valor_campo(
-                msg_alvo.DESCRIPTOR.fields_by_name[self.campo_nome], valor, self.campo_nome
-            )
-        garantir_uids_em_mensagem(valor)
+            msg_alvo = self._obter_msg()
+            if msg_alvo is not None and hasattr(msg_alvo, "DESCRIPTOR"):
+                _validar_tipo_valor_campo(
+                    msg_alvo.DESCRIPTOR.fields_by_name[self.campo_nome], valor, self.campo_nome
+                )
+            garantir_uids_em_mensagem(valor)
         self.valor: Any = _copia_segura(valor)
         self.context_path: str | None = context_path
         self.setText(f"Adicionar em {self.campo_nome}")
@@ -1329,39 +1436,35 @@ class CmdRemoverRepeated(ComandoEditor):
         self.model: Any = model
         self.campo_nome: str = campo_nome
         alvo_efetivo = alvo if alvo is not None else msg
+        self.index: int = index
+        self.imagens_removidas_ram: dict[str, bytes] = (
+            dict(imagens_removidas_ram) if imagens_removidas_ram else {}
+        )
         if caminho_msg is not None:
             self.caminho_msg = caminho_msg
-            _validar_campo_se_msg_existir(
-                self.model, self.caminho_msg, self.campo_nome, "CmdRemoverRepeated"
-            )
+            self.valor_removido: Any = _copia_segura(valor_removido)
         else:
             self.caminho_msg = validar_pertence_ao_croqui(
                 self.model, alvo_efetivo, self.campo_nome, nome_comando="CmdRemoverRepeated"
             )
             if not isinstance(alvo_efetivo, str):
                 self._msg_cache = alvo_efetivo
-        self.index: int = index
-        msg_alvo = self._obter_msg()
-        if valor_removido is None and msg_alvo is not None:
-            container = getattr(msg_alvo, self.campo_nome, None)
-            if container is not None and 0 <= index < len(container):
-                valor_removido = container[index]
-        if msg_alvo is not None and hasattr(msg_alvo, "DESCRIPTOR"):
-            _validar_tipo_valor_campo(
-                msg_alvo.DESCRIPTOR.fields_by_name[self.campo_nome],
-                valor_removido,
-                self.campo_nome,
-            )
-        self.valor_removido: Any = _copia_segura(valor_removido)
-        self.context_path: str | None = context_path
-        self.setText(f"Remover de {self.campo_nome}")
-
-        if imagens_removidas_ram is not None:
-            self.imagens_removidas_ram: dict[str, bytes] = dict(imagens_removidas_ram)
-        else:
-            self.imagens_removidas_ram = {}
-            if hasattr(self.model, "obter_imagens_em_memoria") and hasattr(
-                self.model, "obter_croqui_readonly"
+            msg_alvo = self._obter_msg()
+            if valor_removido is None and msg_alvo is not None:
+                container = getattr(msg_alvo, self.campo_nome, None)
+                if container is not None and 0 <= index < len(container):
+                    valor_removido = container[index]
+            if msg_alvo is not None and hasattr(msg_alvo, "DESCRIPTOR"):
+                _validar_tipo_valor_campo(
+                    msg_alvo.DESCRIPTOR.fields_by_name[self.campo_nome],
+                    valor_removido,
+                    self.campo_nome,
+                )
+            self.valor_removido = _copia_segura(valor_removido)
+            if (
+                imagens_removidas_ram is None
+                and hasattr(self.model, "obter_imagens_em_memoria")
+                and hasattr(self.model, "obter_croqui_readonly")
             ):
                 imagens_ram = self.model.obter_imagens_em_memoria()
                 if imagens_ram:
@@ -1374,6 +1477,8 @@ class CmdRemoverRepeated(ComandoEditor):
                     for caminho in orfas:
                         if caminho in imagens_ram:
                             self.imagens_removidas_ram[caminho] = imagens_ram[caminho]
+        self.context_path: str | None = context_path
+        self.setText(f"Remover de {self.campo_nome}")
 
     def undo(self) -> None:
         msg = self.msg
@@ -1452,9 +1557,6 @@ class CmdMoverRepeated(ComandoEditor):
         alvo_efetivo = alvo if alvo is not None else msg
         if caminho_msg is not None:
             self.caminho_msg = caminho_msg
-            _validar_campo_se_msg_existir(
-                self.model, self.caminho_msg, self.campo_nome, "CmdMoverRepeated"
-            )
         else:
             self.caminho_msg = validar_pertence_ao_croqui(
                 self.model, alvo_efetivo, self.campo_nome, nome_comando="CmdMoverRepeated"

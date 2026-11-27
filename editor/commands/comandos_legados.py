@@ -10,7 +10,6 @@ Nenhum código novo de produção deve instanciar estas classes diretamente.
 Consulte `editor/commands/comandos_protobuf.py` para os comandos canônicos ativos.
 """
 
-import logging
 from pathlib import Path
 from typing import Any
 
@@ -20,14 +19,14 @@ from editor.commands.comandos_protobuf import (
     ComandoEditor,
     _deserializar_valor,
     _serializar_valor,
-    _validar_campo_se_msg_existir,
     resolver_caminho_mensagem,
     validar_pertence_ao_croqui,
 )
+from editor.core.registro_log import obter_logger
 from editor.models.croqui_model import CroquiModel
 from editor.models.readonly_proxy import _copia_segura
 
-logger = logging.getLogger(__name__)
+logger = obter_logger("comandos_legados")
 
 
 class CmdAlterarPrimitivo(ComandoEditor):
@@ -52,9 +51,6 @@ class CmdAlterarPrimitivo(ComandoEditor):
         self.campo_nome: str = campo_nome
         if caminho_msg is not None:
             self.caminho_msg = caminho_msg
-            _validar_campo_se_msg_existir(
-                self.model, self.caminho_msg, self.campo_nome, "CmdAlterarPrimitivo"
-            )
         else:
             self.caminho_msg = validar_pertence_ao_croqui(
                 self.model, msg, self.campo_nome, nome_comando="CmdAlterarPrimitivo"
@@ -229,9 +225,6 @@ class CmdAlterarRepeatedItem(ComandoEditor):
         self.campo_nome: str = campo_nome
         if caminho_msg is not None:
             self.caminho_msg = caminho_msg
-            _validar_campo_se_msg_existir(
-                self.model, self.caminho_msg, self.campo_nome, "CmdAlterarRepeatedItem"
-            )
         else:
             self.caminho_msg = validar_pertence_ao_croqui(
                 self.model, msg, self.campo_nome, nome_comando="CmdAlterarRepeatedItem"
@@ -331,9 +324,6 @@ class CmdAlterarMultiplosRepeatedItems(ComandoEditor):
         self.campo_nome: str = campo_nome
         if caminho_msg is not None:
             self.caminho_msg = caminho_msg
-            _validar_campo_se_msg_existir(
-                self.model, self.caminho_msg, self.campo_nome, "CmdAlterarMultiplosRepeatedItems"
-            )
         else:
             self.caminho_msg = validar_pertence_ao_croqui(
                 self.model, msg, self.campo_nome, nome_comando="CmdAlterarMultiplosRepeatedItems"
@@ -667,9 +657,6 @@ class CmdAlterarCampoImagem(ComandoEditor):
         self.campo_nome: str = campo_nome
         if caminho_msg is not None:
             self.caminho_msg = caminho_msg
-            _validar_campo_se_msg_existir(
-                self.model, self.caminho_msg, self.campo_nome, "CmdAlterarCampoImagem"
-            )
         else:
             self.caminho_msg = validar_pertence_ao_croqui(
                 self.model, msg, self.campo_nome, nome_comando="CmdAlterarCampoImagem"
@@ -844,9 +831,6 @@ class CmdInserirImagemMarkdown(ComandoEditor):
         self.campo_nome: str = campo_nome
         if caminho_msg is not None:
             self.caminho_msg = caminho_msg
-            _validar_campo_se_msg_existir(
-                self.model, self.caminho_msg, self.campo_nome, "CmdInserirImagemMarkdown"
-            )
         else:
             self.caminho_msg = validar_pertence_ao_croqui(
                 self.model, msg, self.campo_nome, nome_comando="CmdInserirImagemMarkdown"
@@ -939,9 +923,6 @@ class CmdInserirBotaoMarkdown(ComandoEditor):
         self.campo_nome: str = campo_nome
         if caminho_msg is not None:
             self.caminho_msg = caminho_msg
-            _validar_campo_se_msg_existir(
-                self.model, self.caminho_msg, self.campo_nome, "CmdInserirBotaoMarkdown"
-            )
         else:
             self.caminho_msg = validar_pertence_ao_croqui(
                 self.model, msg, self.campo_nome, nome_comando="CmdInserirBotaoMarkdown"
@@ -1029,9 +1010,6 @@ class CmdAdicionarMapaArquivo(ComandoEditor):
         self.campo_nome: str = campo_nome
         if caminho_msg is not None:
             self.caminho_msg = caminho_msg
-            _validar_campo_se_msg_existir(
-                self.model, self.caminho_msg, self.campo_nome, "CmdAdicionarMapaArquivo"
-            )
         else:
             self.caminho_msg = validar_pertence_ao_croqui(
                 self.model, msg, self.campo_nome, nome_comando="CmdAdicionarMapaArquivo"
@@ -1137,9 +1115,6 @@ class CmdRenomearEscalada(ComandoEditor):
 
         if caminho_msg is not None:
             self.caminho_msg = caminho_msg
-            _validar_campo_se_msg_existir(
-                self.model, self.caminho_msg, self.campo_nome, "CmdRenomearEscalada"
-            )
             if msg_escalada is not None:
                 self._msg_cache = msg_escalada
         else:
