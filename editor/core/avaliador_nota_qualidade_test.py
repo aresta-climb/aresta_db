@@ -8,6 +8,7 @@ from editor.core.avaliador_nota_qualidade import (
     avaliar_nota_qualidade_croqui,
 )
 from editor.models.croqui_model import CroquiModel
+from scripts.gerar_malha_estrada_lib import VERSAO_ATUAL_MALHA_ESTRADA
 
 
 def _criar_croqui_etapa1_completa_setor_unico() -> croqui_pb2.Croqui:
@@ -28,7 +29,7 @@ def _criar_croqui_etapa1_completa_setor_unico() -> croqui_pb2.Croqui:
     pico.localizacao.longitude = -435000000
     pico.malha_estrada.conteudo.latitude_referencia_e7 = -195000000
     pico.malha_estrada.conteudo.longitude_referencia_e7 = -435000000
-    pico.malha_estrada.conteudo.versao = 2
+    pico.malha_estrada.conteudo.versao = VERSAO_ATUAL_MALHA_ESTRADA
     no_malha = pico.malha_estrada.conteudo.nos.add()
     no_malha.no_osm_id = 1001
     no_malha.latitude_e7 = -195000000
@@ -300,9 +301,9 @@ def test_avaliacao_completa_todas_etapas_e_suporte_a_dicionario_e_disco(tmp_path
 
     # Também valida leitura descompilada via dicionário + arquivo malha_estrada.yaml no disco + cache_md
     (tmp_path / "malha_estrada.yaml").write_text(
-        """latitude_referencia_e7: -195000000
+        f"""latitude_referencia_e7: -195000000
 longitude_referencia_e7: -435000000
-versao: 2
+versao: {VERSAO_ATUAL_MALHA_ESTRADA}
 nos:
   - no_osm_id: 1001
     latitude_e7: -195000000
@@ -833,12 +834,12 @@ def test_malha_estrada_versao_antiga_concede_700_pontos_e_exibe_acao_atualizar()
         )
     ]
 
-    # Quando atualizado para versao = 2, passa a conceder 1000 pontos e conclui a Etapa 1
-    croqui.picos[0].malha_estrada.conteudo.versao = 2
-    resultado_v2 = avaliar_nota_qualidade_croqui(croqui)
-    t_malha_v2 = {t.id_tarefa: t for t in resultado_v2.etapas[0].tarefas}[
+    # Quando atualizado para VERSAO_ATUAL_MALHA_ESTRADA, passa a conceder 1000 pontos e conclui a Etapa 1
+    croqui.picos[0].malha_estrada.conteudo.versao = VERSAO_ATUAL_MALHA_ESTRADA
+    resultado_atual = avaliar_nota_qualidade_croqui(croqui)
+    t_malha_atual = {t.id_tarefa: t for t in resultado_atual.etapas[0].tarefas}[
         "etapa1_malha_estrada_picos"
     ]
-    assert t_malha_v2.pontos_obtidos == 1000
-    assert t_malha_v2.concluida is True
-    assert resultado_v2.pronto_para_publicar is True
+    assert t_malha_atual.pontos_obtidos == 1000
+    assert t_malha_atual.concluida is True
+    assert resultado_atual.pronto_para_publicar is True

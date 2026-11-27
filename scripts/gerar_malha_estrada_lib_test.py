@@ -246,9 +246,9 @@ def test_malha_estrada_pico_proto_conversao_e_deteccao_de_defasagem() -> None:
     assert etapas_progresso[-1][1] == 100
 
     pico.malha_estrada.conteudo.CopyFrom(malha_proto)
-    assert VERSAO_ATUAL_MALHA_ESTRADA == 2
-    assert pico.malha_estrada.conteudo.versao == 2
-    assert obter_versao_malha_estrada_pico(pico) == 2
+    assert VERSAO_ATUAL_MALHA_ESTRADA == 3
+    assert pico.malha_estrada.conteudo.versao == 3
+    assert obter_versao_malha_estrada_pico(pico) == 3
     assert malha_estrada_pico_sincronizada(pico) is True
     assert malha_estrada_pico_atualizada(pico) is True
 
@@ -258,15 +258,15 @@ def test_malha_estrada_pico_proto_conversao_e_deteccao_de_defasagem() -> None:
     assert dists[0]["distancia_metros"] == 0
     assert dists[1]["na_borda"] == 1
 
-    # Se a versão for anterior (< 2), continua sincronizada (exportando para o catálogo), mas NÃO atualizada
-    pico.malha_estrada.conteudo.versao = 1
-    assert obter_versao_malha_estrada_pico(pico) == 1
+    # Se a versão for anterior (< 3), continua sincronizada (exportando para o catálogo), mas NÃO atualizada
+    pico.malha_estrada.conteudo.versao = 2
+    assert obter_versao_malha_estrada_pico(pico) == 2
     assert malha_estrada_pico_sincronizada(pico) is True
     assert malha_estrada_pico_atualizada(pico) is False
-    nos_v1, dists_v1 = extrair_linhas_malha_de_pico_proto("uid_1", pico)
-    assert len(nos_v1) == 2
-    assert len(dists_v1) == 2
-    pico.malha_estrada.conteudo.versao = 2
+    nos_v2, dists_v2 = extrair_linhas_malha_de_pico_proto("uid_1", pico)
+    assert len(nos_v2) == 2
+    assert len(dists_v2) == 2
+    pico.malha_estrada.conteudo.versao = 3
 
     # Ao alterar a coordenada do pico sem regerar a malha, ela passa a ser detectada como defasada
     pico.localizacao.latitude = -201000000
@@ -350,26 +350,8 @@ def test_malha_estrada_pico_proto_conversao_e_deteccao_de_defasagem() -> None:
         )
         is False
     )
-    # Em dict, se versao < 2, malha_estrada_pico_sincronizada é True mas malha_estrada_pico_atualizada é False
-    dict_v1 = {
-        "localizacao": {"latitude": -200000000, "longitude": -440000000},
-        "malha_estrada": {
-            "conteudo": {
-                "latitude_referencia_e7": -200000000,
-                "longitude_referencia_e7": -440000000,
-                "versao": 1,
-                "nos": [
-                    {"no_osm_id": 100, "distancia_metros": 0, "duracao_minutos": 0},
-                    {"no_osm_id": 101, "distancia_metros": 3500, "duracao_minutos": 5},
-                ],
-            }
-        },
-    }
-    assert obter_versao_malha_estrada_pico(dict_v1) == 1
-    assert malha_estrada_pico_sincronizada(dict_v1) is True
-    assert malha_estrada_pico_atualizada(dict_v1) is False
-
-    dict_v2 = {
+    # Em dict, se versao < 3, malha_estrada_pico_sincronizada é True mas malha_estrada_pico_atualizada é False
+    dict_v2_antigo = {
         "localizacao": {"latitude": -200000000, "longitude": -440000000},
         "malha_estrada": {
             "conteudo": {
@@ -383,9 +365,27 @@ def test_malha_estrada_pico_proto_conversao_e_deteccao_de_defasagem() -> None:
             }
         },
     }
-    assert obter_versao_malha_estrada_pico(dict_v2) == 2
-    assert malha_estrada_pico_sincronizada(dict_v2) is True
-    assert malha_estrada_pico_atualizada(dict_v2) is True
+    assert obter_versao_malha_estrada_pico(dict_v2_antigo) == 2
+    assert malha_estrada_pico_sincronizada(dict_v2_antigo) is True
+    assert malha_estrada_pico_atualizada(dict_v2_antigo) is False
+
+    dict_v3 = {
+        "localizacao": {"latitude": -200000000, "longitude": -440000000},
+        "malha_estrada": {
+            "conteudo": {
+                "latitude_referencia_e7": -200000000,
+                "longitude_referencia_e7": -440000000,
+                "versao": VERSAO_ATUAL_MALHA_ESTRADA,
+                "nos": [
+                    {"no_osm_id": 100, "distancia_metros": 0, "duracao_minutos": 0},
+                    {"no_osm_id": 101, "distancia_metros": 3500, "duracao_minutos": 5},
+                ],
+            }
+        },
+    }
+    assert obter_versao_malha_estrada_pico(dict_v3) == 3
+    assert malha_estrada_pico_sincronizada(dict_v3) is True
+    assert malha_estrada_pico_atualizada(dict_v3) is True
 
 
 def test_gerar_malha_retorna_vazio_para_coordenada_zero_ou_resposta_vazia() -> None:
@@ -546,31 +546,49 @@ def test_cliente_overpass_streaming_progresso_em_mb_e_cancelamento_entre_blocos(
 
 
 def test_calcular_velocidade_sem_transito_e_dijkstra_escolhe_caminho_mais_rapido() -> None:
-    assert calcular_velocidade_sem_transito_kmh({"highway": "motorway"}) == 95.0
-    assert calcular_velocidade_sem_transito_kmh({"highway": "trunk"}) == 80.0
-    assert calcular_velocidade_sem_transito_kmh({"highway": "primary"}) == 70.0
-    assert calcular_velocidade_sem_transito_kmh({"highway": "secondary"}) == 55.0
-    assert calcular_velocidade_sem_transito_kmh({"highway": "tertiary"}) == 45.0
-    assert calcular_velocidade_sem_transito_kmh({"highway": "unclassified"}) == 35.0
-    assert calcular_velocidade_sem_transito_kmh({"highway": "residential"}) == 25.0
-    assert calcular_velocidade_sem_transito_kmh({"highway": "track"}) == 20.0
+    assert calcular_velocidade_sem_transito_kmh({"highway": "motorway"}) == 82.0
+    assert calcular_velocidade_sem_transito_kmh({"highway": "trunk"}) == 68.0
+    assert calcular_velocidade_sem_transito_kmh({"highway": "primary"}) == 58.0
+    assert calcular_velocidade_sem_transito_kmh({"highway": "secondary"}) == 46.0
+    assert calcular_velocidade_sem_transito_kmh({"highway": "tertiary"}) == 36.0
+    assert calcular_velocidade_sem_transito_kmh({"highway": "unclassified"}) == 22.0
     assert (
-        calcular_velocidade_sem_transito_kmh({"highway": "secondary", "surface": "unpaved"}) == 30.0
+        calcular_velocidade_sem_transito_kmh({"highway": "unclassified", "surface": "asphalt"})
+        == 30.0
+    )
+    assert calcular_velocidade_sem_transito_kmh({"highway": "residential"}) == 19.8
+    assert calcular_velocidade_sem_transito_kmh({"highway": "track"}) == 15.0
+    assert (
+        calcular_velocidade_sem_transito_kmh({"highway": "secondary", "surface": "unpaved"}) == 24.0
     )
     assert (
-        calcular_velocidade_sem_transito_kmh({"highway": "unclassified", "surface": "dirt"}) == 25.0
+        calcular_velocidade_sem_transito_kmh({"highway": "unclassified", "surface": "dirt"}) == 18.0
     )
     assert (
-        calcular_velocidade_sem_transito_kmh({"highway": "primary", "maxspeed": "100 km/h"}) == 85.0
+        calcular_velocidade_sem_transito_kmh({"highway": "tertiary", "tracktype": "grade3"}) == 24.0
+    )
+    assert calcular_velocidade_sem_transito_kmh({"highway": "trunk", "maxspeed": "60"}) == 37.2
+    assert (
+        calcular_velocidade_sem_transito_kmh({"highway": "primary", "lit": "yes", "maxspeed": "80"})
+        == 37.2
+    )
+    assert calcular_velocidade_sem_transito_kmh({"highway": "primary", "lit": "yes"}) == 34.1
+    assert (
+        calcular_velocidade_sem_transito_kmh({"highway": "primary", "junction": "roundabout"})
+        == 25.0
     )
     assert (
-        calcular_velocidade_sem_transito_kmh({"highway": "primary", "maxspeed": "signals"}) == 70.0
+        calcular_velocidade_sem_transito_kmh({"highway": "motorway", "maxspeed": "100 km/h"})
+        == 74.0
+    )
+    assert (
+        calcular_velocidade_sem_transito_kmh({"highway": "primary", "maxspeed": "signals"}) == 58.0
     )
 
     # Pico em (0.0, 0.0) -> nó 1
     # Nó de origem 2 em (0.09, 0.0) (~10 km em linha reta):
-    # - Rota A (direta por track de terra, ~10 km a 20 km/h => ~30 min): 1 -> 2
-    # - Rota B (desvio por motorway via nó 3 em (0.045, 0.07), ~18.7 km a 95 km/h => ~12 min): 1 -> 3 -> 2
+    # - Rota A (direta por track de terra, ~10 km a 15 km/h => ~40 min): 1 -> 2
+    # - Rota B (desvio por motorway via nó 3 em (0.045, 0.07), ~18.7 km a 82 km/h => ~14 min): 1 -> 3 -> 2
     elementos: list[dict[str, Any]] = [
         {"type": "node", "id": 1, "lat": 0.0, "lon": 0.0},
         {"type": "node", "id": 2, "lat": 0.09, "lon": 0.0},
@@ -591,9 +609,58 @@ def test_calcular_velocidade_sem_transito_e_dijkstra_escolhe_caminho_mais_rapido
 
     assert mapa_dist[1]["distancia_metros"] == 0
     assert mapa_dist[1]["duracao_minutos"] == 0
-    # Nó 2 deve ter sido alcançado pela Rota B (motorway: ~18.7 km e ~12 min, em vez de ~10 km e ~30 min)
+    # Nó 2 deve ter sido alcançado pela Rota B (motorway: ~18.7 km e ~14 min, em vez de ~10 km e ~40 min)
     assert mapa_dist[2]["distancia_metros"] > 15000
-    assert 10 <= mapa_dist[2]["duracao_minutos"] <= 14
+    assert 12 <= mapa_dist[2]["duracao_minutos"] <= 16
+
+
+def test_penalidade_cruzamentos_favorece_contorno_sem_intersecoes() -> None:
+    # Dois caminhos secondary de comprimento praticamente idêntico entre Nó 1 (0.0, 0.0) e Nó 2 (0.10, 0.0):
+    # - Rota Norte (via lon=+0.001): livre de cruzamentos intermediários
+    # - Rota Sul (via lon=-0.001): atravessa 20 cruzamentos de grau >= 3 com ruas transversais
+    # O Dijkstra deve preferir a Rota Norte e registrar menor tempo do que se usasse a Rota Sul!
+    elementos: list[dict[str, Any]] = [
+        {"type": "node", "id": 1, "lat": 0.0, "lon": 0.0},
+        {"type": "node", "id": 2, "lat": 0.10, "lon": 0.0},
+        {"type": "node", "id": 10, "lat": 0.05, "lon": 0.02},
+        {"type": "way", "id": 100, "nodes": [1, 10, 2], "tags": {"highway": "secondary"}},
+    ]
+    nos_sul = [1]
+    for idx in range(1, 25):
+        nid_cruz = 1000 + idx
+        nid_ramo = 2000 + idx
+        lat_cruz = idx * (0.10 / 25.0)
+        elementos.append({"type": "node", "id": nid_cruz, "lat": lat_cruz, "lon": -0.001})
+        elementos.append({"type": "node", "id": nid_ramo, "lat": lat_cruz, "lon": -0.003})
+        elementos.append(
+            {
+                "type": "way",
+                "id": 3000 + idx,
+                "nodes": [nid_cruz, nid_ramo],
+                "tags": {"highway": "residential"},
+            }
+        )
+        nos_sul.append(nid_cruz)
+    nos_sul.append(2)
+    elementos.append({"type": "way", "id": 200, "nodes": nos_sul, "tags": {"highway": "secondary"}})
+
+    # Também inclui cruzamento de rank 1 (trunk) para cobrir penalidade reduzida de trevo
+    elementos.extend(
+        [
+            {"type": "node", "id": 50, "lat": -0.05, "lon": 0.0},
+            {"type": "node", "id": 51, "lat": -0.05, "lon": 0.01},
+            {"type": "node", "id": 52, "lat": -0.10, "lon": 0.0},
+            {"type": "way", "id": 500, "nodes": [1, 50, 52], "tags": {"highway": "trunk"}},
+            {"type": "way", "id": 501, "nodes": [50, 51], "tags": {"highway": "trunk_link"}},
+        ]
+    )
+
+    fake = ClienteOverpassFake(elementos_padrao=elementos)
+    _, dists = gerar_malha_estrada_pico("uid_cruzamentos", 0, 100, fake)
+    mapa = {d["no_osm_id"]: d for d in dists}
+    # A Rota Norte (~11.55 km) é ligeiramente mais longa em metros que a Rota Sul (~11.12 km),
+    # mas vence em tempo graças aos 24 cruzamentos (+96s) da Rota Sul!
+    assert mapa[2]["distancia_metros"] > 11400
 
 
 def test_eleicao_por_quadrante_inteiro_e_grau_estavel_por_camada() -> None:

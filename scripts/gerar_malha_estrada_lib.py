@@ -32,7 +32,7 @@ from aresta_api.sql.generated.python.catalogo_sql import (
 RAIO_TERRA_METROS = 6371000.0
 RAIO_ANEL_3_KM = 150.0
 DISTANCIA_MAXIMA_ESTRADA_METROS = 200_000.0
-VERSAO_ATUAL_MALHA_ESTRADA = 2
+VERSAO_ATUAL_MALHA_ESTRADA = 3
 
 ESPELHOS_OVERPASS_PADRAO: tuple[str, ...] = (
     "https://lz4.overpass-api.de/api/interpreter",
@@ -63,23 +63,54 @@ RANK_POR_HIGHWAY: dict[str, int] = {
 }
 
 VELOCIDADE_PAVIMENTADA_POR_HIGHWAY: dict[str, float] = {
-    "motorway": 95.0,
-    "motorway_link": 60.0,
-    "trunk": 80.0,
-    "trunk_link": 50.0,
-    "primary": 70.0,
-    "primary_link": 45.0,
-    "secondary": 55.0,
-    "secondary_link": 40.0,
-    "tertiary": 45.0,
-    "tertiary_link": 35.0,
-    "unclassified": 35.0,
-    "residential": 25.0,
-    "living_street": 25.0,
-    "road": 25.0,
-    "service": 25.0,
-    "track": 20.0,
+    "motorway": 82.0,
+    "motorway_link": 45.0,
+    "trunk": 68.0,
+    "trunk_link": 40.0,
+    "primary": 58.0,
+    "primary_link": 38.0,
+    "secondary": 46.0,
+    "secondary_link": 34.0,
+    "tertiary": 36.0,
+    "tertiary_link": 28.0,
+    "unclassified": 30.0,
+    "residential": 20.0,
+    "living_street": 16.0,
+    "road": 20.0,
+    "service": 18.0,
+    "track": 15.0,
 }
+
+LIMITE_PLACA_URBANA_POR_HIGHWAY: dict[str, float] = {
+    "motorway": 60.0,
+    "motorway_link": 45.0,
+    "trunk": 60.0,
+    "trunk_link": 40.0,
+    "primary": 55.0,
+    "primary_link": 40.0,
+    "secondary": 48.0,
+    "secondary_link": 35.0,
+    "tertiary": 40.0,
+    "tertiary_link": 32.0,
+    "unclassified": 35.0,
+    "residential": 32.0,
+    "living_street": 25.0,
+    "road": 32.0,
+    "service": 28.0,
+}
+
+SUPERFICIES_PAVIMENTADAS: frozenset[str] = frozenset(
+    {
+        "asphalt",
+        "paved",
+        "concrete",
+        "concrete:plates",
+        "concrete:lanes",
+        "paving_stones",
+        "sett",
+        "cobblestone",
+    }
+)
 
 SUPERFICIES_NAO_PAVIMENTADAS: frozenset[str] = frozenset(
     {
@@ -98,6 +129,14 @@ SUPERFICIES_NAO_PAVIMENTADAS: frozenset[str] = frozenset(
     }
 )
 
+TRACKTYPES_NAO_PAVIMENTADOS: frozenset[str] = frozenset({"grade2", "grade3", "grade4", "grade5"})
+
+VALORES_LIT_URBANO: frozenset[str] = frozenset({"yes", "true", "24/7", "automatic"})
+HIGHWAYS_SEMPRE_URBANAS: frozenset[str] = frozenset(
+    {"residential", "living_street", "service", "road"}
+)
+JUNCOES_ROTATORIA: frozenset[str] = frozenset({"roundabout", "circular"})
+
 VIAS_PRINCIPAIS_NAO_PAVIMENTADAS: frozenset[str] = frozenset(
     {
         "primary",
@@ -112,24 +151,52 @@ VIAS_PRINCIPAIS_NAO_PAVIMENTADAS: frozenset[str] = frozenset(
 
 def calcular_velocidade_sem_transito_kmh(tags: dict[str, Any]) -> float:
     """
-    Estima a velocidade livre de trânsito (em km/h) de um segmento OSM (`way`)
-    combinando `highway`, `surface` e `maxspeed`.
+    Estima a velocidade média efetiva em fluxo normal (em km/h) de um segmento OSM (`way`)
+    combinando `highway`, `surface`, `tracktype`, `lit`, `junction` e `maxspeed` para
+    distinguir rodovias intermunicipais, vias urbanas iluminadas/semaforizadas, rotatórias
+    e estradas rurais ou de terra.
     """
     highway = str(tags.get("highway", "")).strip()
     if highway == "track":
-        return 20.0
+        return 15.0
 
     surface = str(tags.get("surface", "")).strip().lower()
-    if surface in SUPERFICIES_NAO_PAVIMENTADAS:
-        return 30.0 if highway in VIAS_PRINCIPAIS_NAO_PAVIMENTADAS else 25.0
+    tracktype = str(tags.get("tracktype", "")).strip().lower()
+    if surface in SUPERFICIES_NAO_PAVIMENTADAS or tracktype in TRACKTYPES_NAO_PAVIMENTADOS:
+        return 24.0 if highway in VIAS_PRINCIPAIS_NAO_PAVIMENTADAS else 18.0
+
+    eh_iluminada = str(tags.get("lit", "")).strip().lower() in VALORES_LIT_URBANO
+    eh_rotatoria = str(tags.get("junction", "")).strip().lower() in JUNCOES_ROTATORIA
+
+    if highway == "unclassified" and surface not in SUPERFICIES_PAVIMENTADAS and not eh_iluminada:
+        return 22.0
 
     maxspeed_bruto = str(tags.get("maxspeed", "")).strip()
     correspondencia = re.match(r"^(\d+(?:\.\d+)?)", maxspeed_bruto)
-    if correspondencia:
-        velocidade_fluxo_livre = float(correspondencia.group(1)) * 0.85
-        return max(15.0, min(110.0, velocidade_fluxo_livre))
+    maxspeed_num = float(correspondencia.group(1)) if correspondencia else None
 
-    return VELOCIDADE_PAVIMENTADA_POR_HIGHWAY.get(highway, 35.0)
+    eh_urbana = (
+        eh_iluminada
+        or highway in HIGHWAYS_SEMPRE_URBANAS
+        or (maxspeed_num is not None and maxspeed_num <= 60.0)
+    )
+    teto_classe = VELOCIDADE_PAVIMENTADA_POR_HIGHWAY.get(highway, 30.0)
+
+    if eh_urbana:
+        limite_placa = (
+            min(60.0, maxspeed_num)
+            if maxspeed_num is not None
+            else LIMITE_PLACA_URBANA_POR_HIGHWAY.get(highway, 40.0)
+        )
+        vel = max(15.0, min(teto_classe, round(limite_placa * 0.62, 1)))
+    elif maxspeed_num is not None:
+        vel = max(15.0, min(teto_classe, round(maxspeed_num * 0.74, 1)))
+    else:
+        vel = teto_classe
+
+    if eh_rotatoria:
+        vel = min(vel, 25.0)
+    return vel
 
 
 def calcular_distancia_haversine_metros(
@@ -413,6 +480,20 @@ def _extrair_grafo_maior_componente(
                 anterior = adjacencia.setdefault(orig, {}).get(dest)
                 if anterior is None or tempo_seg < anterior[0]:
                     adjacencia[orig][dest] = (tempo_seg, dist)
+
+    # Penalidade simétrica de cruzamento em nós com 3+ conexões (atrito de esquinas/semáforos/trevos)
+    atraso_meia_intersecao: dict[int, float] = {
+        nid: (2.0 if melhor_rank[nid] >= 2 else 1.0)
+        for nid, vizinhos in adjacencia.items()
+        if len(vizinhos) >= 3
+    }
+    if atraso_meia_intersecao:
+        for u, vizinhos_u in adjacencia.items():
+            atraso_u = atraso_meia_intersecao.get(u, 0.0)
+            for v, (tempo_base, dist_uv) in list(vizinhos_u.items()):
+                acrescimo = atraso_u + atraso_meia_intersecao.get(v, 0.0)
+                if acrescimo > 0.0:
+                    vizinhos_u[v] = (tempo_base + acrescimo, dist_uv)
 
     visitados: set[int] = set()
     maior_componente: set[int] = set()

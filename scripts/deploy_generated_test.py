@@ -1845,7 +1845,7 @@ class DeployGeneratedTest(unittest.TestCase):
                         "conteudo": {
                             "latitude_referencia_e7": -195600000,
                             "longitude_referencia_e7": -439600000,
-                            "versao": 2,
+                            "versao": 3,
                             "nos": [{"no_osm_id": 500, "distancia_metros": 0}],
                         }
                     },

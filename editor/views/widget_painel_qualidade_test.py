@@ -8,6 +8,7 @@ from aresta_api.proto.generated import beta_pb2, croqui_pb2
 from editor.controllers.croqui_controller import CroquiController
 from editor.models.croqui_model import CroquiModel
 from editor.views.widget_painel_qualidade import WidgetPainelQualidade
+from scripts.gerar_malha_estrada_lib import VERSAO_ATUAL_MALHA_ESTRADA
 
 
 def _criar_croqui_etapa1_completa() -> croqui_pb2.Croqui:
@@ -28,7 +29,7 @@ def _criar_croqui_etapa1_completa() -> croqui_pb2.Croqui:
     pico.localizacao.longitude = -435000000
     pico.malha_estrada.conteudo.latitude_referencia_e7 = -195000000
     pico.malha_estrada.conteudo.longitude_referencia_e7 = -435000000
-    pico.malha_estrada.conteudo.versao = 2
+    pico.malha_estrada.conteudo.versao = VERSAO_ATUAL_MALHA_ESTRADA
     no_malha = pico.malha_estrada.conteudo.nos.add()
     no_malha.no_osm_id = 1001
     no_malha.latitude_e7 = -195000000
