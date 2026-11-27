@@ -2,8 +2,9 @@
 # Copyright (C) 2026 Aresta Climb Contributors
 
 """
-Testes de comportamento e integração para `ClienteGeminiFeedback` utilizando
-um micro-servidor HTTP local real para validar a comunicação multimodal e o JSON Schema.
+Testes comportamentais e de integração para `ClienteGeminiFeedback` com Function Calling,
+validando conversão de schemas MCP (`parametersJsonSchema`), turnos paralelos de 1 rodada,
+respostas multimodais de `aresta_renderizar_mapa` e tratamento de falhas HTTP/payload.
 """
 
 from __future__ import annotations
@@ -16,10 +17,15 @@ from typing import Any
 import pytest
 
 from serving.agente_feedback.cliente_gemini_feedback import (
+    NOME_FERRAMENTA_FINALIZAR,
+    ChamadaFerramentaAgente,
     ClienteGeminiFeedback,
     ErroComunicacaoGemini,
+    ResultadoFerramentaExecutada,
+    construir_declaracoes_ferramentas_gemini,
+    montar_turno_inicial_usuario,
+    montar_turno_respostas_ferramentas,
 )
-from serving.agente_feedback.renderizador_regua_mapa import MapaAnotadoEmMemoria
 
 
 class _ManipuladorGeminiLocal(BaseHTTPRequestHandler):
@@ -60,123 +66,145 @@ def servidor_gemini_local() -> Any:
     servidor.server_close()
 
 
-def test_desambigua_arquivos_enviando_indice_e_screenshot_ao_servidor(
-    servidor_gemini_local: Any,
-) -> None:
-    url_base, estado = servidor_gemini_local
-    estado.respostas_programadas.append(
-        (
-            200,
-            {
-                "candidates": [
-                    {
-                        "content": {
-                            "parts": [
-                                {
-                                    "text": json.dumps(
-                                        {"arquivos_selecionados": ["setor_bem_vindo.md"]}
-                                    )
-                                }
-                            ]
-                        }
-                    }
-                ]
+def test_constroi_declaracoes_filtrando_ferramentas_gui_e_id_croqui_e_incluindo_finalizar() -> None:
+    ferramentas_mcp = [
+        {
+            "name": "aresta_alterar_campo",
+            "description": "Altera campo",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "alvo": {"type": "string"},
+                    "valor": {},
+                    "id_croqui": {"type": "string"},
+                },
+                "required": ["alvo"],
             },
-        )
-    )
+        },
+        {
+            "name": "aresta_capturar_canvas",
+            "description": "Captura janela",
+            "inputSchema": {"type": "object", "properties": {}},
+        },
+        {
+            "name": "aresta_salvar",
+            "description": "Salva no disco",
+            "inputSchema": {"type": "object", "properties": {}},
+        },
+    ]
 
-    cliente = ClienteGeminiFeedback(
-        api_key="chave-teste",
-        url_base=url_base,
-    )
-    arquivos = cliente.desambiguar_arquivos_croqui(
-        indice_compacto="- setor_bem_vindo.md | Setor: Setor Bem-vindo",
-        descricao_feedback="A via 03 na imagem é 7b",
-        instrucao_extra="Verifique o mapa",
-        screenshot_bytes=b"\x89PNG\r\n",
-        screenshot_mime="image/png",
-    )
-
-    assert arquivos == ["setor_bem_vindo.md"]
-    assert len(estado.requisicoes_recebidas) == 1
-    req = estado.requisicoes_recebidas[0]
-    assert "gemini-3.5-flash-lite:generateContent?key=chave-teste" in req["caminho"]
-    partes = req["corpo"]["contents"][0]["parts"]
-    assert len(partes) == 2
-    assert partes[1]["inlineData"]["mimeType"] == "image/png"
+    declaracoes = construir_declaracoes_ferramentas_gemini(ferramentas_mcp)
+    nomes = [d["name"] for d in declaracoes]
+    assert nomes == ["aresta_alterar_campo", NOME_FERRAMENTA_FINALIZAR]
+    props_alt = declaracoes[0]["parametersJsonSchema"]["properties"]
+    assert "alvo" in props_alt
+    assert "id_croqui" not in props_alt
 
 
-def test_gera_proposta_de_alteracao_multimodal_com_mapas_anotados_e_erro_anterior(
+def test_executa_turno_function_calling_preservando_thought_signature_e_imagens_inline(
     servidor_gemini_local: Any,
 ) -> None:
     url_base, estado = servidor_gemini_local
-    resposta_json = {
-        "acionavel": True,
-        "titulo_pr": "fix(br_mg_araxa): ajusta grau da via Excalibur para 7b",
-        "resumo_mudanca": "Alterado campo dificuldade de BR_7C para BR_7B.",
-        "motivo_nao_acionavel": "",
-        "alteracoes": [
+    conteudo_modelo_t1 = {
+        "role": "model",
+        "parts": [
             {
-                "arquivo_relativo": "setor_bem_vindo.md",
-                "conteudo_novo": "---\nnome: Setor Bem-vindo\n---\n",
-            }
+                "thought": True,
+                "text": "Vou renderizar o mapa primeiro.",
+                "thoughtSignature": "sig_123",
+            },
+            {
+                "functionCall": {
+                    "name": "aresta_renderizar_mapa",
+                    "args": {"alvo": "uid_setor_01"},
+                }
+            },
         ],
     }
-    estado.respostas_programadas.append(
-        (
-            200,
-            {"candidates": [{"content": {"parts": [{"text": json.dumps(resposta_json)}]}}]},
+    conteudo_modelo_t2 = {
+        "role": "model",
+        "parts": [
+            {
+                "functionCall": {
+                    "name": "aresta_alterar_campo",
+                    "args": {"alvo": "uid_poi_01", "campo": "circulo.x", "valor": 120},
+                }
+            },
+            {
+                "functionCall": {
+                    "name": NOME_FERRAMENTA_FINALIZAR,
+                    "args": {
+                        "acao": "abrir_pr",
+                        "titulo_pr": "fix(croqui): ajusta POI",
+                        "resumo_mudanca": "Move POI para x=120.",
+                    },
+                }
+            },
+        ],
+    }
+    estado.respostas_programadas.append((200, {"candidates": [{"content": conteudo_modelo_t1}]}))
+    estado.respostas_programadas.append((200, {"candidates": [{"content": conteudo_modelo_t2}]}))
+
+    cliente = ClienteGeminiFeedback(api_key="chave-teste", url_base=url_base)
+    declaracoes = construir_declaracoes_ferramentas_gemini([])
+
+    historico = [
+        montar_turno_inicial_usuario(
+            prompt_texto="Prompt Warm-Start",
+            screenshot_bytes=b"\x89PNG\r\n",
+            screenshot_mime="image/png",
+        )
+    ]
+    resp_t1 = cliente.executar_turno_agente(historico, declaracoes)
+    assert resp_t1.chamadas == [
+        ChamadaFerramentaAgente("aresta_renderizar_mapa", {"alvo": "uid_setor_01"})
+    ]
+    assert resp_t1.conteudo_modelo_bruto == conteudo_modelo_t1
+
+    historico.append(resp_t1.conteudo_modelo_bruto)
+    historico.append(
+        montar_turno_respostas_ferramentas(
+            [
+                ResultadoFerramentaExecutada(
+                    nome="aresta_renderizar_mapa",
+                    resposta_json={"textos": ["Mapa renderizado"]},
+                    imagens_inline=[("image/png", "aW1nX2I2NA==")],
+                )
+            ]
         )
     )
 
-    cliente = ClienteGeminiFeedback(api_key="chave-teste", url_base=url_base)
-    proposta = cliente.gerar_proposta_alteracao(
-        croqui_id="br_mg_araxa",
-        descricao_feedback="O grau da Excalibur é 7b",
-        instrucao_extra="Confirmo o ajuste",
-        arquivos_atuais={"setor_bem_vindo.md": "---\nnome: Setor Bem-vindo\n---\n"},
-        screenshot_bytes=b"bytes_screenshot",
-        screenshot_mime="image/webp",
-        mapas_anotados=[
-            MapaAnotadoEmMemoria(
-                caminho_imagem_mapa="imagens/setor_p1.webp",
-                largura_mapa=1152,
-                altura_mapa=1270,
-                dados_imagem=b"bytes_mapa_regua",
-            )
-        ],
-        erro_validacao_anterior="Erro de schema na tentativa anterior",
-    )
+    resp_t2 = cliente.executar_turno_agente(historico, declaracoes)
+    assert len(resp_t2.chamadas) == 2
+    assert resp_t2.chamadas[1].nome == NOME_FERRAMENTA_FINALIZAR
 
-    assert proposta.acionavel is True
-    assert proposta.titulo_pr == "fix(br_mg_araxa): ajusta grau da via Excalibur para 7b"
-    assert len(proposta.alteracoes) == 1
-    assert proposta.alteracoes[0].arquivo_relativo == "setor_bem_vindo.md"
-
-    req_proposta = estado.requisicoes_recebidas[0]
-    assert "gemini-3.8-flash:generateContent?key=chave-teste" in req_proposta["caminho"]
-    partes_enviadas = req_proposta["corpo"]["contents"][0]["parts"]
-    # Texto principal + screenshot + texto descritivo do mapa + imagem do mapa com régua = 4 partes
-    assert len(partes_enviadas) == 4
-    assert "Erro de schema na tentativa anterior" in partes_enviadas[0]["text"]
+    req_t2 = estado.requisicoes_recebidas[1]["corpo"]
+    assert req_t2["toolConfig"]["functionCallingConfig"]["mode"] == "ANY"
+    assert req_t2["contents"][1]["parts"][0]["thoughtSignature"] == "sig_123"
+    partes_user_t2 = req_t2["contents"][2]["parts"]
+    assert partes_user_t2[0]["functionResponse"]["name"] == "aresta_renderizar_mapa"
+    assert partes_user_t2[1]["inlineData"]["data"] == "aW1nX2I2NA=="
 
 
-def test_lanca_erro_comunicacao_quando_api_retorna_http_erro_ou_json_invalido(
+def test_lanca_erro_comunicacao_para_falha_http_resposta_vazia_ou_sem_function_call(
     servidor_gemini_local: Any,
 ) -> None:
     url_base, estado = servidor_gemini_local
     estado.respostas_programadas.append((429, {"error": {"message": "Quota exceeded"}}))
     estado.respostas_programadas.append((200, {"candidates": []}))
+    estado.respostas_programadas.append(
+        (200, {"candidates": [{"content": {"role": "model", "parts": [{"text": "Sem tool"}]}}]})
+    )
 
     cliente = ClienteGeminiFeedback(api_key="chave-teste", url_base=url_base)
+    historico = [montar_turno_inicial_usuario("Prompt sem screenshot")]
+    decls = construir_declaracoes_ferramentas_gemini([])
 
     with pytest.raises(ErroComunicacaoGemini, match="429"):
-        cliente.desambiguar_arquivos_croqui("indice", "desc")
+        cliente.executar_turno_agente(historico, decls)
 
-    with pytest.raises(ErroComunicacaoGemini, match="Resposta vazia ou malformada"):
-        cliente.gerar_proposta_alteracao(
-            croqui_id="br_mg_araxa",
-            descricao_feedback="desc",
-            instrucao_extra="",
-            arquivos_atuais={"setor.md": "conteudo"},
-        )
+    with pytest.raises(ErroComunicacaoGemini, match="vazia ou malformada"):
+        cliente.executar_turno_agente(historico, decls)
+
+    with pytest.raises(ErroComunicacaoGemini, match="nenhuma chamada de ferramenta"):
+        cliente.executar_turno_agente(historico, decls)

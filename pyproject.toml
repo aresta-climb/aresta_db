@@ -27,19 +27,22 @@ validador = [
     "boto3",
 ]
 
-# Interface gráfica do Editor Aresta 
-editor = [
-    "pillow",
-    "pyyaml",
-    "protobuf",
-    "nanoid>=2.0.0",
-    "zstandard",
-    "brotli",
+# Núcleo Headless do Editor Aresta e Servidor MCP (sem janelas/distribuição desktop)
+editor_headless = [
+    { include-group = "validador" },
     "pymupdf",
     "pillow-heif>=1.7.0",
     "pyside6-essentials",
-    "pygit2",
     "requests",
+    "fastapi",
+    "uvicorn",
+    "httpx",
+    "ddgs",
+]
+
+# Interface gráfica do Editor Aresta 
+editor = [
+    { include-group = "editor_headless" },
     # cryptography>=49 descontinuou wheels pré-compilados para macOS Intel (x86_64).
     # Mantemos <=48.0.1 (universal2) exclusivamente para macOS Intel, e a versão mais recente para os demais.
     "cryptography<=48.0.1; sys_platform == 'darwin' and platform_machine == 'x86_64'",
@@ -48,16 +51,11 @@ editor = [
     "secretstorage; sys_platform == 'linux'",
     "jeepney; sys_platform == 'linux'",
     "qtawesome",
-    "qrcode",
-    "fastapi",
-    "uvicorn",
-    "httpx",
     "websockets",
     "pyinstaller; sys_platform == 'win32' or sys_platform == 'darwin'",
     "winrt-Windows.Services.Store; sys_platform == 'win32'",
     "winrt-Windows.ApplicationModel; sys_platform == 'win32'",
     "sentry-sdk>=2.68.1",
-    "ddgs",
 ]
 
 # Ferramentas de empacotamento, distribuição e deploy do Editor

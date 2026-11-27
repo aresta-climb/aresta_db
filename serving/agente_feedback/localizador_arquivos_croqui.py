@@ -2,19 +2,19 @@
 # Copyright (C) 2026 Aresta Climb Contributors
 
 """
-Localizador em cascata de arquivos `.md`/`.yaml` de croqui e extrator de contexto
-de Issues e comentários (`/ai-fix`) para resolução automatizada de feedbacks.
+Extrator de contexto de Issues e comentários (`/ai-fix`) e construtor do pacote
+estrutural pré-aquecido (*Warm-Start*) sobre `SessaoEditorHeadless` (0 chamadas de IA).
 """
 
 from __future__ import annotations
 
+import json
 import re
 import unicodedata
 from dataclasses import dataclass
-from pathlib import Path
 from typing import Any
 
-from editor.core.serializacao_util import carregar_yaml
+from editor.mcp.sessao_headless import SessaoEditorHeadless
 
 
 @dataclass(frozen=True)
@@ -30,13 +30,33 @@ class ContextoFeedbackExtraido:
 
 
 @dataclass(frozen=True)
-class ResultadoLocalizacaoArquivos:
-    """Resultado da busca em cascata pelos arquivos-fonte do croqui."""
+class PacoteWarmStartCroqui:
+    """Contexto completo pré-aquecido do croqui carregado em memória para o Turno 1 do agente."""
 
-    estrategia: str
-    arquivos_relativos: list[str]
-    precisa_desambiguacao_ia: bool
-    indice_compacto: str
+    croqui_id: str
+    descricao_usuario: str
+    instrucoes_skill: str
+    catalogo_skills: str
+    indice_estrutural: str
+    uid_foco: str
+    subarvore_foco_json: str
+
+    def montar_prompt_inicial(self, instrucao_extra: str = "") -> str:
+        """Constrói o prompt unificado do primeiro turno com instruções, índice de UIDs e foco."""
+        partes = [
+            self.instrucoes_skill.strip(),
+            f"### Catálogo de Skills Disponíveis via `aresta_ler_skill`:\n{self.catalogo_skills}",
+            f"### Índice Estrutural Completo do Croqui (`{self.croqui_id}`):\n{self.indice_estrutural}",
+        ]
+        if self.subarvore_foco_json:
+            partes.append(
+                f"### Subárvore Detalhada do Alvo em Foco (`uid={self.uid_foco}`):\n"
+                f"```json\n{self.subarvore_foco_json}\n```"
+            )
+        partes.append(f"### Feedback do Usuário:\n{self.descricao_usuario}")
+        if instrucao_extra:
+            partes.append(f"### Instrução Autorizada do Mantenedor (`/ai-fix`):\n{instrucao_extra}")
+        return "\n\n".join(partes)
 
 
 _REGEX_SECAO_DESCRICAO = re.compile(
@@ -126,148 +146,137 @@ def extrair_instrucao_comentario_ai_fix(corpo_comentario: str) -> str | None:
     return instrucao.strip() if instrucao else ""
 
 
-def _extrair_frontmatter_yaml(caminho_md: Path) -> dict[str, Any]:
-    """Lê o bloco YAML frontmatter de um arquivo `.md` se existir e for válido."""
-    texto = caminho_md.read_text(encoding="utf-8")
-    if not texto.startswith("---\n") or "\n---\n" not in texto:
-        return {}
-    bloco_yaml = texto.split("\n---\n", 1)[0][4:]
-    try:
-        dados = carregar_yaml(bloco_yaml)
-        return dados if isinstance(dados, dict) else {}
-    except Exception:
-        return {}
+def _descrever_escalada_linha(esc: Any) -> tuple[str, str]:
+    """Retorna `(nome_via, linha_formatada)` para o índice estrutural compacto."""
+    modalidade = str(esc.WhichOneof("tipo") or "")
+    sub = getattr(esc, modalidade)
+    nome_via = str(getattr(sub, "nome", "") or "")
+    campo_dif = sub.DESCRIPTOR.fields_by_name.get("dificuldade")
+    val_dif = int(getattr(sub, "dificuldade", 0) or 0)
+    grau = (
+        campo_dif.enum_type.values_by_number[val_dif].name
+        if campo_dif is not None and val_dif in campo_dif.enum_type.values_by_number
+        else "PROJETO"
+    )
+    conqs = ", ".join(str(c) for c in getattr(sub, "conquistadores", []))
+    sufixo_conq = f" | conquistadores=[{conqs}]" if conqs else ""
+    linha = (
+        f"      * Escalada uid={esc.uid} | {modalidade} | "
+        f"nome={nome_via!r} | grau={grau}{sufixo_conq}"
+    )
+    return nome_via, linha
 
 
-def _extrair_escaladas_resumo(dados_setor: dict[str, Any]) -> list[tuple[str, str]]:
-    """Retorna lista de pares `(nome_via, dificuldade)` a partir do dicionário YAML do setor."""
-    escaladas = dados_setor.get("escaladas") or []
-    resultado: list[tuple[str, str]] = []
-    for item in escaladas:
-        for chave_modalidade in ("via_esportiva", "boulder", "via_tradicional", "dws", "psicobloc"):
-            bloco = item.get(chave_modalidade)
-            if isinstance(bloco, dict) and bloco.get("nome"):
-                nome = str(bloco["nome"])
-                dificuldade = str(bloco.get("dificuldade", "PROJETO"))
-                resultado.append((nome, dificuldade))
-    return resultado
-
-
-def gerar_indice_compacto_croqui(pasta_croqui: Path) -> str:
+def _montar_indice_e_candidatos_foco(
+    sessao: SessaoEditorHeadless,
+) -> tuple[str, list[tuple[str, str, list[str]]]]:
     """
-    Constrói uma representação textual enxuta de todos os arquivos `.md` de um croqui,
-    listando nome do arquivo, nome do setor e escaladas (com dificuldade), omitindo
-    coordenadas pesadas de mapas.
+    Percorre a árvore Protobuf ativa e retorna `(indice_textual, candidatos_setor)`
+    onde cada item de `candidatos_setor` é `(uid_setor, nome_setor, nomes_escaladas)`.
     """
-    if not pasta_croqui.is_dir():
-        return ""
+    raiz = getattr(sessao.croqui_model.obter_croqui_readonly(), "_obj", None)
+    assert raiz is not None
 
-    linhas: list[str] = []
-    for caminho_md in sorted(pasta_croqui.glob("*.md")):
-        dados = _extrair_frontmatter_yaml(caminho_md)
-        nome_setor = dados.get("nome")
-        escaladas = _extrair_escaladas_resumo(dados)
-        if nome_setor or escaladas:
-            vias_str = ", ".join(f"{n} ({d})" for n, d in escaladas)
-            linhas.append(f"- {caminho_md.name} | Setor: {nome_setor} | Escaladas: [{vias_str}]")
-        else:
-            linhas.append(f"- {caminho_md.name} (documento textual)")
-    return "\n".join(linhas)
+    linhas: list[str] = [
+        f"- Croqui id={raiz.id!r} | uid={raiz.uid} | nome={raiz.nome!r} | botoes={len(raiz.botoes)}"
+    ]
+    for idx_b, botao in enumerate(raiz.botoes):
+        linhas.append(f"  - Botao[{idx_b}] uid={botao.uid} | texto={botao.texto!r}")
+
+    candidatos_setor: list[tuple[str, str, list[str]]] = []
+    for idx_p, pico in enumerate(raiz.picos):
+        linhas.append(
+            f"- Pico picos.{idx_p} | nome={pico.nome!r} | cidade={pico.cidade!r} | estado={pico.estado}"
+        )
+        for idx_sg, sg in enumerate(pico.setores_ou_grupos):
+            if sg.HasField("grupo"):
+                grp = sg.grupo.conteudo
+                linhas.append(
+                    f"  - Grupo uid={grp.uid} (picos.{idx_p}.setores_ou_grupos.{idx_sg}) | "
+                    f"nome={grp.nome!r} | mapas={len(grp.mapas)} | setores={len(grp.setores)}"
+                )
+                setores_iter = [arq_s.conteudo for arq_s in grp.setores]
+            else:
+                setores_iter = [sg.setor.conteudo]
+
+            for setor in setores_iter:
+                linhas.append(
+                    f"    - Setor uid={setor.uid} | nome={setor.nome!r} | "
+                    f"mapas={len(setor.mapas)} | escaladas={len(setor.escaladas)}"
+                )
+                nomes_vias: list[str] = []
+                for esc in setor.escaladas:
+                    nome_v, linha_esc = _descrever_escalada_linha(esc)
+                    nomes_vias.append(nome_v)
+                    linhas.append(linha_esc)
+                candidatos_setor.append((str(setor.uid), str(setor.nome), nomes_vias))
+
+    return "\n".join(linhas), candidatos_setor
 
 
-def localizar_arquivos_candidatos_croqui(
-    diretorio_database: Path,
+def _resolver_uid_setor_foco(
     contexto: ContextoFeedbackExtraido,
-    instrucao_extra: str = "",
-    arquivos_modificados_pr: list[str] | None = None,
-) -> ResultadoLocalizacaoArquivos:
-    """
-    Executa a busca em cascata (1: Determinística por PR ou Árvore de Navegação,
-    2: Busca Textual Local, 3: Índice Compacto para Desambiguação por IA) para
-    selecionar quais arquivos `.md`/`.yaml` de `database/<croqui_id>/` devem ser inspecionados.
-    """
-    pasta_croqui = diretorio_database / (contexto.croqui_id or "")
-
-    # Nível 1A: Arquivos já modificados na Pull Request (quando acionado via /ai-fix em PR)
-    if arquivos_modificados_pr and contexto.croqui_id:
-        prefixo = f"database/{contexto.croqui_id}/"
-        relativos_pr = [
-            arq[len(prefixo) :]
-            for arq in arquivos_modificados_pr
-            if arq.startswith(prefixo) and arq.endswith((".md", ".yaml"))
-        ]
-        if relativos_pr:
-            return ResultadoLocalizacaoArquivos(
-                estrategia="deterministica_pr",
-                arquivos_relativos=sorted(set(relativos_pr)),
-                precisa_desambiguacao_ia=False,
-                indice_compacto="",
-            )
-
-    arquivos_md = sorted(pasta_croqui.glob("*.md")) if pasta_croqui.is_dir() else []
-    metadados_por_arquivo: list[tuple[str, str, list[str]]] = []
-    for caminho_md in arquivos_md:
-        dados = _extrair_frontmatter_yaml(caminho_md)
-        nome_setor = str(dados.get("nome", ""))
-        nomes_vias = [n for n, _ in _extrair_escaladas_resumo(dados)]
-        metadados_por_arquivo.append((caminho_md.name, nome_setor, nomes_vias))
-
-    # Nível 1B: Localização determinística pela Árvore de Navegação (Setor ou Via)
+    candidatos_setor: list[tuple[str, str, list[str]]],
+) -> str:
     if contexto.nome_setor:
         alvo_setor = normalizar_texto_busca(contexto.nome_setor)
-        encontrados = [
-            arq
-            for arq, setor, _ in metadados_por_arquivo
-            if setor and normalizar_texto_busca(setor) == alvo_setor
-        ]
-        if encontrados:
-            return ResultadoLocalizacaoArquivos(
-                estrategia="deterministica",
-                arquivos_relativos=encontrados,
-                precisa_desambiguacao_ia=False,
-                indice_compacto="",
-            )
+        for uid_s, nome_s, _ in candidatos_setor:
+            if nome_s and normalizar_texto_busca(nome_s) == alvo_setor:
+                return uid_s
 
     if contexto.nome_via:
         alvo_via = normalizar_texto_busca(contexto.nome_via)
-        encontrados = [
-            arq
-            for arq, _, vias in metadados_por_arquivo
-            if any(normalizar_texto_busca(v) == alvo_via for v in vias)
-        ]
-        if encontrados:
-            return ResultadoLocalizacaoArquivos(
-                estrategia="deterministica",
-                arquivos_relativos=encontrados,
-                precisa_desambiguacao_ia=False,
-                indice_compacto="",
-            )
+        for uid_s, _, vias in candidatos_setor:
+            if any(normalizar_texto_busca(v) == alvo_via for v in vias):
+                return uid_s
 
-    # Nível 2: Busca textual local normalizada no corpo do feedback + instrução extra
-    texto_combinado = normalizar_texto_busca(f"{contexto.descricao_usuario} {instrucao_extra}")
-    candidatos_texto: list[str] = []
-    for arq, setor, vias in metadados_por_arquivo:
-        setor_norm = normalizar_texto_busca(setor) if setor else ""
-        bateu_setor = len(setor_norm) >= 4 and setor_norm in texto_combinado
+    texto_desc = normalizar_texto_busca(contexto.descricao_usuario)
+    for uid_s, nome_s, vias in candidatos_setor:
+        nome_norm = normalizar_texto_busca(nome_s)
+        bateu_setor = len(nome_norm) >= 4 and nome_norm in texto_desc
         bateu_via = any(
-            len(normalizar_texto_busca(v)) >= 4 and normalizar_texto_busca(v) in texto_combinado
+            len(normalizar_texto_busca(v)) >= 4 and normalizar_texto_busca(v) in texto_desc
             for v in vias
         )
         if bateu_setor or bateu_via:
-            candidatos_texto.append(arq)
+            return uid_s
 
-    if candidatos_texto:
-        return ResultadoLocalizacaoArquivos(
-            estrategia="busca_textual",
-            arquivos_relativos=candidatos_texto,
-            precisa_desambiguacao_ia=False,
-            indice_compacto="",
+    return ""
+
+
+def construir_pacote_warm_start(
+    sessao: SessaoEditorHeadless,
+    contexto: ContextoFeedbackExtraido,
+) -> PacoteWarmStartCroqui:
+    """
+    Extrai o pacote *Warm-Start* completo diretamente da `SessaoEditorHeadless` sem
+    realizar nenhuma chamada de IA.
+    """
+    res_skill = sessao.chamar_ferramenta(
+        "aresta_ler_skill", {"nome_skill": "resolver_feedback_croqui"}
+    )
+    instrucoes_skill = str(res_skill["structuredContent"]["conteudo_markdown"])
+
+    res_lista = sessao.chamar_ferramenta("aresta_listar_skills", {})
+    skills = res_lista["structuredContent"]["skills"]
+    catalogo_skills = "\n".join(f"- `{item['nome']}`: {item['descricao']}" for item in skills)
+
+    indice_estrutural, candidatos_setor = _montar_indice_e_candidatos_foco(sessao)
+    uid_foco = _resolver_uid_setor_foco(contexto, candidatos_setor)
+    subarvore_json = ""
+    if uid_foco:
+        res_arvore = sessao.chamar_ferramenta(
+            "aresta_obter_arvore",
+            {"alvo": uid_foco, "incluir_indice_uids": False},
         )
+        subarvore_json = json.dumps(res_arvore["structuredContent"], ensure_ascii=False, indent=2)
 
-    # Nível 3: Desambiguação multimodal com índice compacto
-    return ResultadoLocalizacaoArquivos(
-        estrategia="desambiguacao_ia",
-        arquivos_relativos=[],
-        precisa_desambiguacao_ia=True,
-        indice_compacto=gerar_indice_compacto_croqui(pasta_croqui),
+    return PacoteWarmStartCroqui(
+        croqui_id=sessao.id_croqui,
+        descricao_usuario=contexto.descricao_usuario,
+        instrucoes_skill=instrucoes_skill,
+        catalogo_skills=catalogo_skills,
+        indice_estrutural=indice_estrutural,
+        uid_foco=uid_foco,
+        subarvore_foco_json=subarvore_json,
     )

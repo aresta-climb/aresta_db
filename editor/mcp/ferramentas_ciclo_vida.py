@@ -61,9 +61,12 @@ def _executar_salvamento_e_compilacao(
 
     novo_id = str(croqui_data.get("id", ""))
     id_atual = workspace.obter_id_croqui_atual()
+    alvos_ctx = [caminho_db]
+    if novo_id and novo_id != id_atual:
+        alvos_ctx.append(caminho_db.parent / novo_id)
 
     with usar_contexto_memoria_deploy(
-        [caminho_db],
+        alvos_ctx,
         croqui_data,
         cache_md=cache_md,
         corpos_brutos_md=corpos_brutos_md,
@@ -72,7 +75,7 @@ def _executar_salvamento_e_compilacao(
             workspace.processar_renomeacao_e_compilacao(novo_id, id_atual, storage)
         )
         if not ctx_deploy.persistido_no_disco:
-            persistir_contexto_memoria_no_disco(caminho_db, ctx_deploy)
+            persistir_contexto_memoria_no_disco(workspace.obter_caminho_database(), ctx_deploy)
 
     pilha = _obter_pilha_qt(undo_stack)
     pilha.setClean()

@@ -2,41 +2,57 @@
 # Copyright (C) 2026 Aresta Climb Contributors
 
 """
-Testes orientados a comportamento para o localizador em cascata de arquivos de croqui
-e extrator de contexto de Issues e Pull Requests de feedback.
+Testes orientados a comportamento para o extrator de contexto de Issues/`/ai-fix`
+e construtor do pacote Warm-Start sobre `SessaoEditorHeadless`.
 """
 
 from __future__ import annotations
 
 from pathlib import Path
 
+from PIL import Image
+
+from editor.mcp.sessao_headless import abrir_editor_headless
 from serving.agente_feedback.localizador_arquivos_croqui import (
     ContextoFeedbackExtraido,
-    ResultadoLocalizacaoArquivos,
+    PacoteWarmStartCroqui,
+    construir_pacote_warm_start,
     extrair_contexto_issue_feedback,
     extrair_instrucao_comentario_ai_fix,
-    gerar_indice_compacto_croqui,
-    localizar_arquivos_candidatos_croqui,
 )
 
 
-def _criar_croqui_exemplo(pasta_database: Path) -> Path:
+def _criar_croqui_exemplo_warm_start(pasta_database: Path) -> Path:
     pasta_croqui = pasta_database / "br_mg_araxa_bocaina_esportivas"
-    pasta_croqui.mkdir(parents=True, exist_ok=True)
+    (pasta_croqui / "imagens").mkdir(parents=True, exist_ok=True)
+    Image.new("RGB", (32, 32), color="orange").save(pasta_croqui / "imagens" / "capa.webp", "WEBP")
+    Image.new("RGB", (100, 100), color="white").save(
+        pasta_croqui / "imagens" / "setor_bem_vindo_p1.webp", "WEBP"
+    )
+
     (pasta_croqui / "croqui.yaml").write_text(
         """# SPDX-License-Identifier: ODbL-1.0
 # Copyright (C) 2026 Aresta Climb Contributors
 uid: Ygo9aN5g9LtcLo
 id: br_mg_araxa_bocaina_esportivas
 nome: Bocaina Park (Esportivas)
+caminho_thumbnail: imagens/capa.webp
+ultima_migracao: 5
+botoes:
+- uid: btnComoChegar01
+  texto: Como Chegar
+  destino:
+    secao_textual:
+      conteudo: Texto de acesso
 picos:
 - nome: Bocaina Park
+  estado: MG
+  cidade: Araxá
   setores_ou_grupos:
   - setor:
       caminho: setor_bem_vindo.md
-  - setor:
-      caminho: setor_garganta.md
-ultima_migracao: 5
+  - grupo:
+      caminho: grupo_garganta.md
 """,
         encoding="utf-8",
     )
@@ -48,20 +64,22 @@ uid: dwuQyJozrODbgq
 nome: Setor Bem-vindo
 mapas:
 - caminho_imagem_mapa: imagens/setor_bem_vindo_p1.webp
-  largura_mapa: 1152
-  altura_mapa: 1270
+  largura_mapa: 100
+  altura_mapa: 100
   pontos_de_interesse:
   - uid: HnWMGgZrbhzWVB
     rotulo: '03'
     circulo:
-      x: 489
-      y: 1219
-      raio: 26
+      x: 48
+      y: 62
+      raio: 10
 escaladas:
 - uid: 4RV25nAblvsxNc
   via_esportiva:
     nome: Sainhaca
     dificuldade: BR_8A
+    conquistadores:
+    - João Escalador
 - uid: 0u3XfCe434ygyF
   via_esportiva:
     nome: Excalibur
@@ -69,6 +87,18 @@ escaladas:
 ---
 
 Texto do setor Bem-vindo.
+""",
+        encoding="utf-8",
+    )
+    (pasta_croqui / "grupo_garganta.md").write_text(
+        """---
+# SPDX-License-Identifier: ODbL-1.0
+# Copyright (C) 2026 Aresta Climb Contributors
+uid: grpGargantaUid1
+nome: Grupo Garganta
+setores:
+- caminho: setor_garganta.md
+---
 """,
         encoding="utf-8",
     )
@@ -83,10 +113,6 @@ escaladas:
   boulder:
     nome: Chaminé Sombria
     dificuldade: V4
-- uid: tradFendaUid002
-  via_tradicional:
-    nome: Fenda do Vento
-    dificuldade: BR_6SUP
 ---
 
 Texto do setor Garganta.
@@ -123,7 +149,7 @@ O grau da Excalibur é 7b, não 7c!
     assert contexto.url_screenshot == "https://feedback.arestaclimb.com/anexos/123/screenshot.webp"
 
 
-def test_extrai_croqui_id_pelo_titulo_ou_label_quando_ausente_no_corpo() -> None:
+def test_extrai_croqui_id_pelo_titulo_label_ou_arvore() -> None:
     contexto_titulo = extrair_contexto_issue_feedback(
         titulo_issue="[Croqui | br_mg_serra_do_cipo] Ajuste na capa",
         corpo_issue="Apenas um texto livre sem seção de informações.",
@@ -138,7 +164,7 @@ def test_extrai_croqui_id_pelo_titulo_ou_label_quando_ausente_no_corpo() -> None
     contexto_label = extrair_contexto_issue_feedback(
         titulo_issue="[Croqui] Ajuste geral",
         corpo_issue="## Descrição\nTexto na seção\n\n## Informações Gerais\n- **Categoria:** Sobre o Croqui\n",
-        labels=["pico:br_mg_lapinha"],
+        labels=["outro:label", "pico:br_mg_lapinha"],
     )
     assert contexto_label.croqui_id == "br_mg_lapinha"
     assert contexto_label.descricao_usuario == "Texto na seção"
@@ -149,6 +175,13 @@ def test_extrai_croqui_id_pelo_titulo_ou_label_quando_ausente_no_corpo() -> None
         labels=[],
     )
     assert contexto_arvore.croqui_id == "br_mg_cipo"
+
+    contexto_sem_id = extrair_contexto_issue_feedback(
+        titulo_issue="Sem croqui",
+        corpo_issue="Texto solto",
+        labels=["feedback:croqui"],
+    )
+    assert contexto_sem_id.croqui_id is None
 
 
 def test_extrai_instrucao_do_comentario_ai_fix() -> None:
@@ -164,130 +197,71 @@ def test_extrai_instrucao_do_comentario_ai_fix() -> None:
     assert extrair_instrucao_comentario_ai_fix("Comentário comum sem comando") is None
 
 
-def test_localiza_arquivo_deterministicamente_pela_arvore_de_navegacao(tmp_path: Path) -> None:
-    _criar_croqui_exemplo(tmp_path)
-    contexto = ContextoFeedbackExtraido(
-        croqui_id="br_mg_araxa_bocaina_esportivas",
-        descricao_usuario="O grau está errado",
-        nome_grupo=None,
-        nome_setor="Setor Bem-vindo",
-        nome_via="Excalibur",
-        url_screenshot=None,
-    )
-
-    resultado: ResultadoLocalizacaoArquivos = localizar_arquivos_candidatos_croqui(
-        diretorio_database=tmp_path,
-        contexto=contexto,
-    )
-
-    assert resultado.estrategia == "deterministica"
-    assert resultado.arquivos_relativos == ["setor_bem_vindo.md"]
-    assert resultado.precisa_desambiguacao_ia is False
-
-
-def test_localiza_arquivo_deterministicamente_pelo_nome_da_via_na_arvore(tmp_path: Path) -> None:
-    _criar_croqui_exemplo(tmp_path)
-    contexto = ContextoFeedbackExtraido(
-        croqui_id="br_mg_araxa_bocaina_esportivas",
-        descricao_usuario="É V5 na verdade",
-        nome_grupo=None,
-        nome_setor=None,
-        nome_via="Chaminé Sombria",
-        url_screenshot=None,
-    )
-
-    resultado = localizar_arquivos_candidatos_croqui(
-        diretorio_database=tmp_path,
-        contexto=contexto,
-    )
-
-    assert resultado.estrategia == "deterministica"
-    assert resultado.arquivos_relativos == ["setor_garganta.md"]
-    assert resultado.precisa_desambiguacao_ia is False
-
-
-def test_localiza_arquivo_pelos_arquivos_modificados_na_pr(tmp_path: Path) -> None:
-    _criar_croqui_exemplo(tmp_path)
-    contexto = ContextoFeedbackExtraido(
-        croqui_id="br_mg_araxa_bocaina_esportivas",
-        descricao_usuario="Ajusta também a descrição",
-        nome_grupo=None,
-        nome_setor=None,
-        nome_via=None,
-        url_screenshot=None,
-    )
-
-    resultado = localizar_arquivos_candidatos_croqui(
-        diretorio_database=tmp_path,
-        contexto=contexto,
-        arquivos_modificados_pr=[
-            "database/br_mg_araxa_bocaina_esportivas/setor_garganta.md",
-            "database/br_mg_araxa_bocaina_esportivas/imagens/foto.webp",
-        ],
-    )
-
-    assert resultado.estrategia == "deterministica_pr"
-    assert resultado.arquivos_relativos == ["setor_garganta.md"]
-    assert resultado.precisa_desambiguacao_ia is False
-
-
-def test_localiza_arquivo_por_busca_textual_local_quando_arvore_so_tem_pico(
+def test_constroi_pacote_warm_start_com_foco_por_setor_via_texto_e_sem_foco(
     tmp_path: Path,
 ) -> None:
-    _criar_croqui_exemplo(tmp_path)
-    contexto = ContextoFeedbackExtraido(
-        croqui_id="br_mg_araxa_bocaina_esportivas",
-        descricao_usuario="Na via chamine sombria o grau correto é V5.",
-        nome_grupo=None,
-        nome_setor=None,
-        nome_via=None,
-        url_screenshot=None,
-    )
+    pasta_croqui = _criar_croqui_exemplo_warm_start(tmp_path)
 
-    resultado = localizar_arquivos_candidatos_croqui(
-        diretorio_database=tmp_path,
-        contexto=contexto,
-        instrucao_extra="Pode atualizar",
-    )
+    with abrir_editor_headless(pasta_croqui) as sessao:
+        # 1. Foco resolvido pelo nome_setor na árvore de navegação
+        ctx_setor = ContextoFeedbackExtraido(
+            croqui_id="br_mg_araxa_bocaina_esportivas",
+            descricao_usuario="Excalibur é 7b",
+            nome_grupo=None,
+            nome_setor="Setor Bem-vindo",
+            nome_via="Excalibur",
+            url_screenshot=None,
+        )
+        pacote_setor: PacoteWarmStartCroqui = construir_pacote_warm_start(sessao, ctx_setor)
+        assert "resolver_feedback_croqui" in pacote_setor.catalogo_skills
+        assert "aresta_migrar_escalada" in pacote_setor.instrucoes_skill
+        assert "dwuQyJozrODbgq" in pacote_setor.indice_estrutural
+        assert "grpGargantaUid1" in pacote_setor.indice_estrutural
+        assert "secGargantaUid1" in pacote_setor.indice_estrutural
+        assert "0u3XfCe434ygyF" in pacote_setor.indice_estrutural
+        assert "btnComoChegar01" in pacote_setor.indice_estrutural
+        assert pacote_setor.uid_foco == "dwuQyJozrODbgq"
+        assert "HnWMGgZrbhzWVB" in pacote_setor.subarvore_foco_json
 
-    assert resultado.estrategia == "busca_textual"
-    assert resultado.arquivos_relativos == ["setor_garganta.md"]
-    assert resultado.precisa_desambiguacao_ia is False
+        prompt_completo = pacote_setor.montar_prompt_inicial(instrucao_extra="Priorize esta via")
+        assert "Priorize esta via" in prompt_completo
+        assert "Excalibur é 7b" in prompt_completo
 
+        # 2. Foco resolvido pelo nome_via quando nome_setor está ausente
+        ctx_via = ContextoFeedbackExtraido(
+            croqui_id="br_mg_araxa_bocaina_esportivas",
+            descricao_usuario="Grau errado",
+            nome_grupo=None,
+            nome_setor=None,
+            nome_via="Chaminé Sombria",
+            url_screenshot=None,
+        )
+        pacote_via = construir_pacote_warm_start(sessao, ctx_via)
+        assert pacote_via.uid_foco == "secGargantaUid1"
 
-def test_solicita_desambiguacao_com_indice_compacto_quando_texto_for_ambiguo(
-    tmp_path: Path,
-) -> None:
-    pasta_croqui = _criar_croqui_exemplo(tmp_path)
-    # Adiciona um arquivo .md sem frontmatter válido e um arquivo com YAML inválido para garantir resiliência
-    (pasta_croqui / "capa.md").write_text("Texto de capa sem frontmatter.", encoding="utf-8")
-    (pasta_croqui / "invalido.md").write_text("---\n: yaml_quebrado: [\n---\n", encoding="utf-8")
+        # 3. Foco resolvido por menção textual na descrição/instrução extra
+        ctx_texto = ContextoFeedbackExtraido(
+            croqui_id="br_mg_araxa_bocaina_esportivas",
+            descricao_usuario="Na via sainhaca faltou extensão",
+            nome_grupo=None,
+            nome_setor=None,
+            nome_via=None,
+            url_screenshot=None,
+        )
+        pacote_texto = construir_pacote_warm_start(sessao, ctx_texto)
+        assert pacote_texto.uid_foco == "dwuQyJozrODbgq"
 
-    contexto = ContextoFeedbackExtraido(
-        croqui_id="br_mg_araxa_bocaina_esportivas",
-        descricao_usuario="Essa via que circulei na foto é 7b!",
-        nome_grupo=None,
-        nome_setor=None,
-        nome_via=None,
-        url_screenshot="https://feedback.arestaclimb.com/anexos/123/screenshot.webp",
-    )
-
-    resultado = localizar_arquivos_candidatos_croqui(
-        diretorio_database=tmp_path,
-        contexto=contexto,
-    )
-
-    assert resultado.estrategia == "desambiguacao_ia"
-    assert resultado.precisa_desambiguacao_ia is True
-    assert "setor_bem_vindo.md" in resultado.indice_compacto
-    assert "Setor Bem-vindo" in resultado.indice_compacto
-    assert "Excalibur (BR_7C)" in resultado.indice_compacto
-    assert "Chaminé Sombria (V4)" in resultado.indice_compacto
-    assert "Fenda do Vento (BR_6SUP)" in resultado.indice_compacto
-    assert "capa.md" in resultado.indice_compacto
-    # Garante que coordenadas de círculos não poluem o índice compacto
-    assert "1219" not in resultado.indice_compacto
-
-
-def test_gera_indice_compacto_vazio_se_pasta_croqui_nao_existir(tmp_path: Path) -> None:
-    assert gerar_indice_compacto_croqui(tmp_path / "inexistente") == ""
+        # 4. Feedback genérico sem setor específico -> uid_foco vazio, índice completo presente
+        ctx_geral = ContextoFeedbackExtraido(
+            croqui_id="br_mg_araxa_bocaina_esportivas",
+            descricao_usuario="Ajustar introdução geral do pico",
+            nome_grupo=None,
+            nome_setor=None,
+            nome_via=None,
+            url_screenshot=None,
+        )
+        pacote_geral = construir_pacote_warm_start(sessao, ctx_geral)
+        assert pacote_geral.uid_foco == ""
+        assert pacote_geral.subarvore_foco_json == ""
+        prompt_sem_extra = pacote_geral.montar_prompt_inicial()
+        assert "Ajustar introdução geral do pico" in prompt_sem_extra

@@ -52,11 +52,13 @@ from typing import Any
 from PySide6.QtGui import QIcon
 from PySide6.QtWidgets import QApplication, QDialog, QMessageBox
 
-from editor.views.estilo import configurar_tema_claro_aplicacao
-
 
 def __getattr__(name: str) -> Any:
     """Carregamento tardio e sob demanda de classes pesadas para acelerar o arranque do editor."""
+    if name == "configurar_tema_claro_aplicacao":
+        from editor.views.estilo import configurar_tema_claro_aplicacao
+
+        return configurar_tema_claro_aplicacao
     if name == "TarefaInicializacao":
         from editor.core.worker import TarefaInicializacao
 
@@ -110,7 +112,7 @@ class ControladorAplicativo:
 
         config_canal = obter_configuracao_canal()
         self.app.setApplicationName(config_canal.nome_aplicativo)
-        configurar_tema_claro_aplicacao(self.app)
+        sys.modules[__name__].configurar_tema_claro_aplicacao(self.app)
 
         caminho_logo_app = config_canal.obter_caminho_icone_aplicacao()
         self.app.setWindowIcon(QIcon(str(caminho_logo_app)))
@@ -590,6 +592,28 @@ def _instalar_condutor_smoke_test(
 
 def main() -> None:
     configurar_streams_utf8()
+    if "--headless" in sys.argv[1:]:
+        args_headless = [arg for arg in sys.argv[1:] if arg not in ("--headless", "--smoke-test")]
+        if not args_headless:
+            print(
+                "Erro: Informe o caminho do croqui ao utilizar --headless "
+                "(ex: editor/main.py --headless database/<id_croqui>).",
+                file=sys.stderr,
+            )
+            sys.exit(1)
+
+        from editor.mcp.sessao_headless import (
+            abrir_editor_headless,
+            executar_servidor_stdio_headless,
+        )
+
+        try:
+            with abrir_editor_headless(args_headless[0]) as sessao_hl:
+                sys.exit(executar_servidor_stdio_headless(sessao_hl))
+        except FileNotFoundError as erro_hl:
+            print(f"Erro: {erro_hl}", file=sys.stderr)
+            sys.exit(1)
+
     modo_smoke_test = "--smoke-test" in sys.argv[1:]
     argumentos_posicionais = [arg for arg in sys.argv[1:] if arg != "--smoke-test"]
 
@@ -605,7 +629,7 @@ def main() -> None:
 
     config_canal = obter_configuracao_canal()
     app.setApplicationName(config_canal.nome_aplicativo)
-    configurar_tema_claro_aplicacao(app)
+    sys.modules[__name__].configurar_tema_claro_aplicacao(app)
 
     caminho_icone_app = config_canal.obter_caminho_icone_aplicacao()
     app.setWindowIcon(QIcon(str(caminho_icone_app)))

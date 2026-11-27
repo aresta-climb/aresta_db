@@ -5,7 +5,9 @@ import contextlib
 import io
 import subprocess
 import sys
+import tempfile
 from pathlib import Path
+from types import TracebackType
 from typing import Protocol
 
 from editor.core.classificador_mensagens import filtrar_mensagens_de_log
@@ -287,4 +289,114 @@ class LocalRepoWorkspace:
         mensagens = _filtrar_mensagens(out.getvalue())
         if self.diario:
             self.diario.consolidar_salvamento()
+        return caminho, mensagens, database_modificado
+
+
+class HeadlessWorkspace:
+    """
+    Terceiro modo oficial de entrada do Editor Aresta (Modo Headless MCP).
+    Opera sobre `database/<id>` persistindo apenas os arquivos-fonte do croqui
+    e compilando `compilado.binarypb` em um diretório temporário isolado, sem
+    tocar em `generated/`, `STATUS_CROQUIS.md` ou diários locais.
+    """
+
+    def __init__(
+        self,
+        caminho_raiz: Path | str,
+        diretorio_compilado: Path | None = None,
+    ) -> None:
+        self.caminho_raiz: Path = Path(caminho_raiz)
+        self.diario: GerenciadorDiario | None = None
+        self._temp_dir: tempfile.TemporaryDirectory[str] | None = None
+        if diretorio_compilado is not None:
+            self._raiz_compilado = Path(diretorio_compilado)
+            self._raiz_compilado.mkdir(parents=True, exist_ok=True)
+        else:
+            self._temp_dir = tempfile.TemporaryDirectory(
+                prefix=f"aresta_headless_{self.caminho_raiz.name}_"
+            )
+            self._raiz_compilado = Path(self._temp_dir.name)
+
+    def __enter__(self) -> "HeadlessWorkspace":
+        return self
+
+    def __exit__(
+        self,
+        exc_type: type[BaseException] | None,
+        exc_val: BaseException | None,
+        exc_tb: TracebackType | None,
+    ) -> None:
+        self.fechar()
+
+    def fechar(self) -> None:
+        """Remove o diretório temporário de compilação quando gerenciado internamente."""
+        if self._temp_dir is not None:
+            self._temp_dir.cleanup()
+            self._temp_dir = None
+
+    def obter_caminho_database(self) -> Path:
+        return self.caminho_raiz
+
+    def obter_caminho_compilado(self) -> Path:
+        return self._raiz_compilado / self.caminho_raiz.name
+
+    def obter_pasta_servidor_celular(self) -> Path:
+        return self._raiz_compilado
+
+    def can_publish_pr(self) -> bool:
+        return False
+
+    def obter_tag_titulo(self) -> str:
+        return "[Headless Mode]"
+
+    def obter_diario(self) -> GerenciadorDiario | None:
+        return None
+
+    def obter_commit_base_sha(self) -> str:
+        if not self.caminho_raiz.is_dir():
+            return ""
+        res = subprocess.run(
+            ["git", "rev-parse", "HEAD"],
+            cwd=str(self.caminho_raiz),
+            capture_output=True,
+            text=True,
+            timeout=2,
+        )
+        if res.returncode == 0:
+            return res.stdout.strip()
+        return ""
+
+    def obter_id_croqui_atual(self) -> str:
+        return self.caminho_raiz.name
+
+    def processar_renomeacao_e_compilacao(
+        self, novo_id: str, id_atual: str, storage: GerenciadorCaminhos | None
+    ) -> tuple[Path, list[str], bool]:
+        _ = storage
+        caminho = self.caminho_raiz
+        if novo_id and id_atual and novo_id != id_atual:
+            novo_caminho_db = caminho.parent / novo_id
+            caminho.rename(novo_caminho_db)
+            caminho = novo_caminho_db
+            self.caminho_raiz = caminho
+
+        database_modificado = False
+        with capturar_saida() as out:
+            try:
+                database_modificado = bool(
+                    deploy(
+                        output_dir=self.obter_pasta_servidor_celular(),
+                        target_paths=[caminho],
+                        database_dir=caminho.resolve().parent,
+                        force_thumbnails=False,
+                        gerar_arquivos_de_debug=False,
+                        is_producao=False,
+                        verbose=False,
+                        sair_ao_falhar=False,
+                    )
+                )
+            except Exception as e:
+                print(f"Erro ao compilar croqui: {e}")
+
+        mensagens = _filtrar_mensagens(out.getvalue())
         return caminho, mensagens, database_modificado

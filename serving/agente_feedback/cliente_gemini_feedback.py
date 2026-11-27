@@ -2,9 +2,8 @@
 # Copyright (C) 2026 Aresta Climb Contributors
 
 """
-Cliente HTTP estruturado para o modelo multimodal Gemini Flash (Google AI Studio),
-responsável por desambiguar arquivos `.md` a partir de índice compacto e gerar propostas
-de alteração de croquis baseadas em texto, captura de tela e mapas com régua cartesiana.
+Cliente HTTP multimodal com Function Calling (`parametersJsonSchema`) para o modelo
+Gemini Flash (Google AI Studio), acoplado às ferramentas MCP do Editor Aresta.
 """
 
 from __future__ import annotations
@@ -13,14 +12,70 @@ import base64
 import json
 import urllib.error
 import urllib.request
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from typing import Any, Protocol
 
-from serving.agente_feedback.renderizador_regua_mapa import MapaAnotadoEmMemoria
-
 URL_BASE_GEMINI_PADRAO = "https://generativelanguage.googleapis.com/v1beta/models"
-MODELO_GEMINI_PROPOSTA_PADRAO = "gemini-3.8-flash"
-MODELO_GEMINI_DESAMBIGUACAO_PADRAO = "gemini-3.5-flash-lite"
+MODELO_GEMINI_AGENTE_PADRAO = "gemini-3.8-flash"
+NOME_FERRAMENTA_FINALIZAR = "finalizar_resolucao"
+
+FERRAMENTAS_MCP_EXCLUIDAS_FEEDBACK: frozenset[str] = frozenset(
+    {
+        "aresta_listar_croquis",
+        "aresta_abrir_croqui_existente",
+        "aresta_importar_croqui_oficial",
+        "aresta_criar_novo_croqui",
+        "aresta_particionar_pdf_croqui",
+        "aresta_focar_elemento",
+        "aresta_capturar_canvas",
+        "aresta_obter_selecao_atual",
+        "aresta_coletar_betas",
+        "aresta_listar_betas_nao_scorados",
+        "aresta_salvar",
+        "aresta_compilar",
+    }
+)
+
+DECLARACAO_FINALIZAR_RESOLUCAO: dict[str, Any] = {
+    "name": NOME_FERRAMENTA_FINALIZAR,
+    "description": (
+        "Finaliza o atendimento do feedback. Emita acao='abrir_pr' (em paralelo às ferramentas "
+        "de edição no mesmo turno quando os UIDs já forem conhecidos, ou após turnos de "
+        "inspeção/criação) para validar, salvar e abrir a Pull Request; ou acao='nao_acionavel' "
+        "para desistir com diagnóstico claro quando o relato for vago, subjetivo ou exigir "
+        "edição manual no Editor Desktop."
+    ),
+    "parametersJsonSchema": {
+        "type": "object",
+        "properties": {
+            "acao": {
+                "type": "string",
+                "enum": ["abrir_pr", "nao_acionavel"],
+                "description": "'abrir_pr' para concluir a correção ou 'nao_acionavel' para desistir.",
+            },
+            "titulo_pr": {
+                "type": "string",
+                "description": "Título curto da PR (ex: 'fix(id_croqui): resumo'), quando acao='abrir_pr'.",
+            },
+            "resumo_mudanca": {
+                "type": "string",
+                "description": "Resumo claro das edições realizadas para o corpo da PR.",
+            },
+            "motivo": {
+                "type": "string",
+                "description": "Motivo detalhado caso acao='nao_acionavel'.",
+            },
+        },
+        "required": ["acao"],
+    },
+}
+
+_INSTRUCAO_SISTEMA_AGENTE = (
+    "Você é o agente autônomo especialista de curadoria do banco de dados Aresta Climb (aresta_db), "
+    "operando diretamente sobre o Editor Aresta em modo Headless via ferramentas MCP. "
+    "Use sempre os UIDs reais das entidades, preserve UIDs existentes ao migrar escaladas "
+    "(aresta_migrar_escalada) e finalize sempre chamando finalizar_resolucao."
+)
 
 
 class ErroComunicacaoGemini(RuntimeError):
@@ -28,132 +83,145 @@ class ErroComunicacaoGemini(RuntimeError):
 
 
 @dataclass(frozen=True)
-class AlteracaoArquivoProposta:
-    """Representa o conteúdo completo atualizado de um arquivo relativo dentro de `database/<croqui_id>/`."""
+class ChamadaFerramentaAgente:
+    """Representa uma invocação `functionCall` emitida pelo modelo em um turno."""
 
-    arquivo_relativo: str
-    conteudo_novo: str
+    nome: str
+    argumentos: dict[str, Any]
 
 
 @dataclass(frozen=True)
-class RespostaPropostaGemini:
-    """Resposta estruturada retornada pelo modelo de IA para um feedback de croqui."""
+class RespostaTurnoGemini:
+    """Resultado de um turno de inferência contendo as chamadas emitidas e o bloco bruto `model`."""
 
-    acionavel: bool
-    titulo_pr: str
-    resumo_mudanca: str
-    motivo_nao_acionavel: str
-    alteracoes: list[AlteracaoArquivoProposta]
+    chamadas: list[ChamadaFerramentaAgente]
+    conteudo_modelo_bruto: dict[str, Any]
+
+
+@dataclass(frozen=True)
+class ResultadoFerramentaExecutada:
+    """Resultado da execução local de uma ferramenta MCP (incluindo blocos visuais opcionais)."""
+
+    nome: str
+    resposta_json: dict[str, Any]
+    imagens_inline: list[tuple[str, str]] = field(default_factory=list)
 
 
 class InterfaceClienteGeminiFeedback(Protocol):
-    """Protocolo para o cliente Gemini real e sua implementação Fake determinística."""
+    """Protocolo compartilhado entre `ClienteGeminiFeedback` e `ClienteGeminiFeedbackFake`."""
 
-    def desambiguar_arquivos_croqui(
+    def executar_turno_agente(
         self,
-        indice_compacto: str,
-        descricao_feedback: str,
-        instrucao_extra: str = "",
-        screenshot_bytes: bytes | None = None,
-        screenshot_mime: str = "image/webp",
-    ) -> list[str]: ...
-
-    def gerar_proposta_alteracao(
-        self,
-        croqui_id: str,
-        descricao_feedback: str,
-        instrucao_extra: str,
-        arquivos_atuais: dict[str, str],
-        screenshot_bytes: bytes | None = None,
-        screenshot_mime: str = "image/webp",
-        mapas_anotados: list[MapaAnotadoEmMemoria] | None = None,
-        erro_validacao_anterior: str = "",
-    ) -> RespostaPropostaGemini: ...
+        historico_contents: list[dict[str, Any]],
+        declaracoes_ferramentas: list[dict[str, Any]],
+    ) -> RespostaTurnoGemini: ...
 
 
-_SCHEMA_DESAMBIGUACAO: dict[str, Any] = {
-    "type": "OBJECT",
-    "properties": {
-        "arquivos_selecionados": {
-            "type": "ARRAY",
-            "items": {"type": "STRING"},
-        }
-    },
-    "required": ["arquivos_selecionados"],
-}
+def construir_declaracoes_ferramentas_gemini(
+    ferramentas_mcp: list[dict[str, Any]],
+) -> list[dict[str, Any]]:
+    """
+    Converte o catálogo `tools/list` do `ServidorMCP` para `functionDeclarations` da API
+    Gemini (`parametersJsonSchema`), omitindo ferramentas exclusivas de GUI/gestão global
+    e o parâmetro `id_croqui` redundante na sessão single-croqui, e anexando `finalizar_resolucao`.
+    """
+    declaracoes: list[dict[str, Any]] = []
+    for item in ferramentas_mcp:
+        nome = str(item.get("name", ""))
+        if not nome or nome in FERRAMENTAS_MCP_EXCLUIDAS_FEEDBACK:
+            continue
+        esquema_orig = dict(item.get("inputSchema") or {"type": "object", "properties": {}})
+        props_orig = dict(esquema_orig.get("properties") or {})
+        props_orig.pop("id_croqui", None)
+        esquema_limpo = dict(esquema_orig)
+        esquema_limpo["properties"] = props_orig
+        declaracoes.append(
+            {
+                "name": nome,
+                "description": str(item.get("description", "")),
+                "parametersJsonSchema": esquema_limpo,
+            }
+        )
+    declaracoes.append(DECLARACAO_FINALIZAR_RESOLUCAO)
+    return declaracoes
 
-_SCHEMA_PROPOSTA: dict[str, Any] = {
-    "type": "OBJECT",
-    "properties": {
-        "acionavel": {"type": "BOOLEAN"},
-        "titulo_pr": {"type": "STRING"},
-        "resumo_mudanca": {"type": "STRING"},
-        "motivo_nao_acionavel": {"type": "STRING"},
-        "alteracoes": {
-            "type": "ARRAY",
-            "items": {
-                "type": "OBJECT",
-                "properties": {
-                    "arquivo_relativo": {"type": "STRING"},
-                    "conteudo_novo": {"type": "STRING"},
-                },
-                "required": ["arquivo_relativo", "conteudo_novo"],
-            },
-        },
-    },
-    "required": [
-        "acionavel",
-        "titulo_pr",
-        "resumo_mudanca",
-        "motivo_nao_acionavel",
-        "alteracoes",
-    ],
-}
 
-_INSTRUCOES_SISTEMA_PROPOSTA = """Você é o assistente especialista de manutenção do banco de dados de escalada Aresta Climb (`aresta_db`).
-Sua tarefa é analisar o feedback de um usuário (e eventuais instruções de um mantenedor via `/ai-fix`) e propor a edição exata nos arquivos `.md` ou `.yaml` do croqui.
+def montar_turno_inicial_usuario(
+    prompt_texto: str,
+    screenshot_bytes: bytes | None = None,
+    screenshot_mime: str = "image/webp",
+) -> dict[str, Any]:
+    """Constrói a mensagem inicial `role='user'` com o pacote Warm-Start e screenshot opcional."""
+    partes: list[dict[str, Any]] = [{"text": prompt_texto}]
+    if screenshot_bytes:
+        partes.append(
+            {
+                "inlineData": {
+                    "mimeType": screenshot_mime,
+                    "data": base64.b64encode(screenshot_bytes).decode("ascii"),
+                }
+            }
+        )
+    return {"role": "user", "parts": partes}
 
-Regras Inegociáveis de Formato:
-1. Preserve TODOS os cabeçalhos `# SPDX-License-Identifier: ODbL-1.0` e `# Copyright (C) 2026 Aresta Climb Contributors`, bem como todos os `uid` existentes.
-2. Enums de dificuldade válidos no Protobuf:
-   - Vias: `PROJETO`, `BR_1`, `BR_2`, `BR_2SUP`, `BR_3`, `BR_3SUP`, `BR_4`, `BR_4SUP`, `BR_5`, `BR_5SUP`, `BR_6`, `BR_6SUP`, `BR_6SUP_BARRA_7A`, `BR_7A`, `BR_7A_BARRA_7B`, `BR_7B`, `BR_7B_BARRA_7C`, `BR_7C`, `BR_7C_BARRA_8A`, `BR_8A`, `BR_8B`, `BR_8C`, `BR_9A`, `BR_9B`, `BR_9C`, `BR_10A`, `BR_10B`, `BR_10C`, `BR_11A`, `BR_11B`, `BR_11C`.
-   - Boulders: `PROJETO`, `V0`, `V1`, `V2`, `V3`, `V4`, `V5`, `V6`, `V7`, `V8`, `V9`, `V10`, `V11`, `V12`, `V13`, `V14`, `V15`, `V16`.
-3. Se imagens de mapa do setor forem fornecidas, elas contêm uma RÉGUA CARTESIANA graduada em pixels (eixo X amarelo no topo/base de 0 a `largura_mapa`, eixo Y azul nas laterais de 0 a `altura_mapa`) e os `pontos_de_interesse` atuais desenhados em vermelho/amarelo. Use essa régua para localizar ou ajustar coordenadas `circulo: {x, y, raio}`.
-4. Se o feedback exigir redesenhar linhas vetoriais complexas (`tracados`) ou for vago/impossível de determinar com segurança, retorne `acionavel: false` e explique em `motivo_nao_acionavel`.
-"""
+
+def montar_turno_respostas_ferramentas(
+    resultados: list[ResultadoFerramentaExecutada],
+) -> dict[str, Any]:
+    """
+    Constrói a mensagem de retorno `role='user'` contendo os `functionResponse`s executados
+    no turno anterior e eventuais imagens PNG Base64 geradas por `aresta_renderizar_mapa`.
+    """
+    partes: list[dict[str, Any]] = []
+    for res in resultados:
+        partes.append(
+            {
+                "functionResponse": {
+                    "name": res.nome,
+                    "response": res.resposta_json,
+                }
+            }
+        )
+        for mime_type, dados_b64 in res.imagens_inline:
+            partes.append(
+                {
+                    "inlineData": {
+                        "mimeType": mime_type,
+                        "data": dados_b64,
+                    }
+                }
+            )
+    return {"role": "user", "parts": partes}
 
 
 class ClienteGeminiFeedback:
-    """Implementação real do cliente HTTP para a API Gemini do Google AI Studio."""
+    """Implementação real do cliente HTTP para Function Calling na API Gemini do Google AI Studio."""
 
     def __init__(
         self,
         api_key: str,
         url_base: str = URL_BASE_GEMINI_PADRAO,
-        modelo_proposta: str = MODELO_GEMINI_PROPOSTA_PADRAO,
-        modelo_desambiguacao: str = MODELO_GEMINI_DESAMBIGUACAO_PADRAO,
+        modelo: str = MODELO_GEMINI_AGENTE_PADRAO,
         timeout_segundos: int = 90,
     ) -> None:
         self._api_key = api_key
         self._url_base = url_base.rstrip("/")
-        self._modelo_proposta = modelo_proposta
-        self._modelo_desambiguacao = modelo_desambiguacao
+        self._modelo = modelo
         self._timeout = timeout_segundos
 
-    def _executar_chamada_json(
+    def executar_turno_agente(
         self,
-        modelo: str,
-        partes: list[dict[str, Any]],
-        schema: dict[str, Any],
-    ) -> dict[str, Any]:
-        url = f"{self._url_base}/{modelo}:generateContent?key={self._api_key}"
-        payload = {
-            "contents": [{"role": "user", "parts": partes}],
-            "generationConfig": {
-                "temperature": 0.1,
-                "responseMimeType": "application/json",
-                "responseSchema": schema,
-            },
+        historico_contents: list[dict[str, Any]],
+        declaracoes_ferramentas: list[dict[str, Any]],
+    ) -> RespostaTurnoGemini:
+        """Executa um turno do agente no Gemini com modo `ANY` (chamada de ferramenta garantida)."""
+        url = f"{self._url_base}/{self._modelo}:generateContent?key={self._api_key}"
+        payload: dict[str, Any] = {
+            "systemInstruction": {"parts": [{"text": _INSTRUCAO_SISTEMA_AGENTE}]},
+            "contents": historico_contents,
+            "tools": [{"functionDeclarations": declaracoes_ferramentas}],
+            "toolConfig": {"functionCallingConfig": {"mode": "ANY"}},
+            "generationConfig": {"temperature": 0.1},
         }
         corpo_bytes = json.dumps(payload).encode("utf-8")
         req = urllib.request.Request(
@@ -170,117 +238,28 @@ class ClienteGeminiFeedback:
             raise ErroComunicacaoGemini(f"Erro HTTP {e.code} na API Gemini: {detalhe}") from e
 
         candidatos = dados_brutos.get("candidates") or []
-        if not candidatos:
+        if not candidatos or "content" not in candidatos[0]:
             raise ErroComunicacaoGemini("Resposta vazia ou malformada da API Gemini.")
-        texto_json = candidatos[0]["content"]["parts"][0]["text"]
-        return dict(json.loads(texto_json))
 
-    def desambiguar_arquivos_croqui(
-        self,
-        indice_compacto: str,
-        descricao_feedback: str,
-        instrucao_extra: str = "",
-        screenshot_bytes: bytes | None = None,
-        screenshot_mime: str = "image/webp",
-    ) -> list[str]:
-        """Seleciona quais arquivos `.md` de `database/<croqui_id>/` devem ser inspecionados."""
-        prompt = (
-            "Com base no índice compacto do croqui abaixo e no feedback do usuário, "
-            "retorne em `arquivos_selecionados` os nomes dos arquivos `.md` que precisam ser "
-            "lidos/modificados (máximo de 3 arquivos).\n\n"
-            f"### Índice Compacto do Croqui:\n{indice_compacto}\n\n"
-            f"### Feedback do Usuário:\n{descricao_feedback}\n"
-        )
-        if instrucao_extra:
-            prompt += f"\n### Instrução do Mantenedor (/ai-fix):\n{instrucao_extra}\n"
-
-        partes: list[dict[str, Any]] = [{"text": prompt}]
-        if screenshot_bytes:
-            partes.append(
-                {
-                    "inlineData": {
-                        "mimeType": screenshot_mime,
-                        "data": base64.b64encode(screenshot_bytes).decode("ascii"),
-                    }
-                }
-            )
-
-        resposta = self._executar_chamada_json(
-            self._modelo_desambiguacao, partes, _SCHEMA_DESAMBIGUACAO
-        )
-        return [str(a) for a in resposta.get("arquivos_selecionados", [])]
-
-    def gerar_proposta_alteracao(
-        self,
-        croqui_id: str,
-        descricao_feedback: str,
-        instrucao_extra: str,
-        arquivos_atuais: dict[str, str],
-        screenshot_bytes: bytes | None = None,
-        screenshot_mime: str = "image/webp",
-        mapas_anotados: list[MapaAnotadoEmMemoria] | None = None,
-        erro_validacao_anterior: str = "",
-    ) -> RespostaPropostaGemini:
-        """Gera a proposta estruturada de alteração nos arquivos `.md`/`.yaml` do croqui."""
-        blocos_arquivos = "\n\n".join(
-            f"=== ARQUIVO: {nome} ===\n{conteudo}\n=== FIM ARQUIVO: {nome} ==="
-            for nome, conteudo in arquivos_atuais.items()
-        )
-        prompt = (
-            f"{_INSTRUCOES_SISTEMA_PROPOSTA}\n\n"
-            f"Croqui ID: {croqui_id}\n"
-            f"### Feedback do Usuário:\n{descricao_feedback}\n"
-        )
-        if instrucao_extra:
-            prompt += f"\n### Instrução do Mantenedor (/ai-fix):\n{instrucao_extra}\n"
-        if erro_validacao_anterior:
-            prompt += (
-                "\n### ATENÇÃO — ERRO DE VALIDAÇÃO NA TENTATIVA ANTERIOR (CORRIJA):\n"
-                f"{erro_validacao_anterior}\n"
-            )
-        prompt += f"\n### Arquivos Atuais:\n{blocos_arquivos}\n"
-
-        partes: list[dict[str, Any]] = [{"text": prompt}]
-        if screenshot_bytes:
-            partes.append(
-                {
-                    "inlineData": {
-                        "mimeType": screenshot_mime,
-                        "data": base64.b64encode(screenshot_bytes).decode("ascii"),
-                    }
-                }
-            )
-
-        for mapa in mapas_anotados or []:
-            partes.append(
-                {
-                    "text": (
-                        f"Mapa do setor `{mapa.caminho_imagem_mapa}` com régua cartesiana "
-                        f"(largura={mapa.largura_mapa}, altura={mapa.altura_mapa}):"
+        conteudo_modelo: dict[str, Any] = dict(candidatos[0]["content"])
+        partes_modelo = conteudo_modelo.get("parts") or []
+        chamadas: list[ChamadaFerramentaAgente] = []
+        for parte in partes_modelo:
+            fc = parte.get("functionCall")
+            if isinstance(fc, dict) and fc.get("name"):
+                chamadas.append(
+                    ChamadaFerramentaAgente(
+                        nome=str(fc["name"]),
+                        argumentos=dict(fc.get("args") or {}),
                     )
-                }
-            )
-            partes.append(
-                {
-                    "inlineData": {
-                        "mimeType": mapa.mime_type,
-                        "data": base64.b64encode(mapa.dados_imagem).decode("ascii"),
-                    }
-                }
+                )
+
+        if not chamadas:
+            raise ErroComunicacaoGemini(
+                "O modelo não retornou nenhuma chamada de ferramenta no turno."
             )
 
-        dados = self._executar_chamada_json(self._modelo_proposta, partes, _SCHEMA_PROPOSTA)
-        alteracoes = [
-            AlteracaoArquivoProposta(
-                arquivo_relativo=str(item["arquivo_relativo"]),
-                conteudo_novo=str(item["conteudo_novo"]),
-            )
-            for item in dados.get("alteracoes", [])
-        ]
-        return RespostaPropostaGemini(
-            acionavel=bool(dados.get("acionavel", False)),
-            titulo_pr=str(dados.get("titulo_pr", "")),
-            resumo_mudanca=str(dados.get("resumo_mudanca", "")),
-            motivo_nao_acionavel=str(dados.get("motivo_nao_acionavel", "")),
-            alteracoes=alteracoes,
+        return RespostaTurnoGemini(
+            chamadas=chamadas,
+            conteudo_modelo_bruto=conteudo_modelo,
         )

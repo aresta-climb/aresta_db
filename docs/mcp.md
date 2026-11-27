@@ -92,6 +92,23 @@ url = "http://127.0.0.1:27378/mcp"
 }
 ```
 
+### 3.5. Modo Headless (CI / Automação / `stdio` direto sem janelas)
+
+Para agentes em segundo plano (como a GitHub Action de resolução de feedbacks) ou integração `stdio` sem abrir janelas gráficas (`QT_QPA_PLATFORM=offscreen`), o Editor Aresta possui uma 3ª porta oficial de entrada:
+
+- **Via linha de comando (`stdio` JSON-RPC 2.0):**
+  ```bash
+  uv run python editor/main.py --headless database/<id_croqui>
+  ```
+- **Via API Python em processo (`in-process`, zero rede):**
+  ```python
+  from editor.mcp.sessao_headless import abrir_editor_headless
+
+  with abrir_editor_headless("database/br_mg_betim_pedreira_dr_gravata") as sessao:
+      arvore = sessao.chamar_ferramenta("aresta_obter_arvore", {})
+  ```
+  No modo *headless*, `aresta_compilar` e `aresta_salvar` executam o pipeline completo de compilação em um diretório temporário isolado, gravando apenas os arquivos-fonte canônicos em `database/<id_croqui>` sem sujar `generated/` nem `STATUS_CROQUIS.md`.
+
 ---
 
 ## 4. Catálogo de Ferramentas MCP

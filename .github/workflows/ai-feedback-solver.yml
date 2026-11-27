@@ -2,19 +2,21 @@ name: Resolvedor de Feedbacks por IA (Gemini Flash)
 
 on:
   issues:
-    types: [opened, labeled]
+    types: [labeled]
   issue_comment:
     types: [created]
+
+concurrency:
+  group: ai-feedback-${{ github.repository }}-${{ github.event.issue.number }}
+  cancel-in-progress: false
 
 jobs:
   solve-feedback:
     if: >-
       (
         github.event_name == 'issues' &&
-        (
-          (github.event.action == 'opened' && contains(github.event.issue.labels.*.name, 'feedback:croqui')) ||
-          (github.event.action == 'labeled' && github.event.label.name == 'feedback:croqui')
-        )
+        github.event.action == 'labeled' &&
+        github.event.label.name == 'feedback:croqui'
       ) ||
       (
         github.event_name == 'issue_comment' &&
@@ -63,8 +65,10 @@ jobs:
           submodules: recursive
           sparse-checkout: |
             .gitmodules
+            .agents
             database
             editor
+            coleta_de_betas
             serving
             scripts
             migracoes
@@ -81,9 +85,11 @@ jobs:
           enable-cache: true
           cache-dependency-glob: uv.lock
 
-      - name: Instalar Dependências
+      - name: Instalar Bibliotecas Sistema Qt Offscreen e Dependências Python
         run: |
-          uv sync --frozen --only-group validador
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends libegl1 libgl1 libxkbcommon0 libfontconfig1
+          uv sync --frozen --only-group editor_headless
 
       - name: Configurar Identidade Git do Bot (DCO)
         env:
@@ -102,6 +108,7 @@ jobs:
       - name: Executar Agente de Resolução de Feedback
         env:
           PYTHONPATH: .
+          QT_QPA_PLATFORM: offscreen
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           GH_TOKEN: ${{ steps.app-token.outputs.token }}
           GITHUB_REPOSITORY: ${{ github.repository }}

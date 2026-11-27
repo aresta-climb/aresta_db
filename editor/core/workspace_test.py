@@ -12,6 +12,7 @@ from editor.core.croqui_experimental import GerenciadorCroquiExperimental
 from editor.core.storage import GerenciadorCaminhos
 from editor.core.workspace import (
     ExperimentalWorkspace,
+    HeadlessWorkspace,
     LocalRepoWorkspace,
     capturar_saida,
 )
@@ -288,3 +289,92 @@ def test_capturar_saida_e_filtragem_de_mensagens(tmp_path: Path) -> None:
     assert "  Warning: isso falhou feio" in msgs
     assert "Isso é um print normal." not in msgs
     assert "[br_mg_ferros_ferros] Compilado com sucesso." not in msgs
+
+
+def test_headless_workspace_compila_em_diretorio_temporario_sem_sujar_repo(tmp_path: Path) -> None:
+    """Garante que HeadlessWorkspace compila de verdade em diretório temporário sem sujar generated/ nem STATUS_CROQUIS.md."""
+    aresta_db = tmp_path / "aresta_db"
+    croqui_dir = aresta_db / "database" / "meu_croqui_headless"
+    _criar_croqui_valido(croqui_dir, "meu_croqui_headless")
+
+    with HeadlessWorkspace(croqui_dir) as ws:
+        assert ws.obter_caminho_database() == croqui_dir
+        assert ws.can_publish_pr() is False
+        assert ws.obter_tag_titulo() == "[Headless Mode]"
+        assert ws.obter_diario() is None
+        assert ws.obter_id_croqui_atual() == "meu_croqui_headless"
+        assert ws.obter_commit_base_sha() == ""
+
+        pasta_servidor = ws.obter_pasta_servidor_celular()
+        caminho_comp = ws.obter_caminho_compilado()
+        assert caminho_comp == pasta_servidor / "meu_croqui_headless"
+        assert pasta_servidor.is_dir()
+
+        caminho_ret, msgs, db_mod = ws.processar_renomeacao_e_compilacao(
+            "meu_croqui_headless", "meu_croqui_headless", None
+        )
+        assert caminho_ret == croqui_dir
+        assert msgs == []
+        assert db_mod is True
+        assert (caminho_comp / "compilado.binarypb").is_file()
+        assert not (aresta_db / "generated").exists()
+        assert not (aresta_db / "STATUS_CROQUIS.md").exists()
+
+    # Ao sair do context manager, o diretório temporário gerenciado é limpo
+    assert not pasta_servidor.exists()
+
+
+def test_headless_workspace_renomeacao_erro_compilacao_e_diretorio_explicito(
+    tmp_path: Path,
+) -> None:
+    """Valida renomeação de pasta, diretório compilado explícito, SHA Git e propagação de erros."""
+    aresta_db = tmp_path / "aresta_db"
+    croqui_dir = aresta_db / "database" / "croqui_antigo"
+    _criar_croqui_valido(croqui_dir, "croqui_novo")
+
+    subprocess.run(["git", "init"], cwd=str(aresta_db), check=True, capture_output=True)
+    subprocess.run(
+        ["git", "config", "user.email", "teste@aresta.local"],
+        cwd=str(aresta_db),
+        check=True,
+    )
+    subprocess.run(["git", "config", "user.name", "Teste"], cwd=str(aresta_db), check=True)
+    subprocess.run(["git", "add", "."], cwd=str(aresta_db), check=True)
+    subprocess.run(
+        ["git", "commit", "-m", "Inicial"],
+        cwd=str(aresta_db),
+        check=True,
+        capture_output=True,
+    )
+
+    dir_comp_explicito = tmp_path / "saida_compilada_custom"
+    ws = HeadlessWorkspace(croqui_dir, diretorio_compilado=dir_comp_explicito)
+    assert len(ws.obter_commit_base_sha()) == 40
+    assert ws.obter_pasta_servidor_celular() == dir_comp_explicito
+
+    novo_caminho, msgs, _ = ws.processar_renomeacao_e_compilacao(
+        "croqui_novo", "croqui_antigo", None
+    )
+    assert novo_caminho == aresta_db / "database" / "croqui_novo"
+    assert ws.caminho_raiz == novo_caminho
+    assert msgs == []
+    assert (dir_comp_explicito / "croqui_novo" / "compilado.binarypb").is_file()
+
+    # fechar() com diretório explícito não apaga o diretório fornecido pelo chamador
+    ws.fechar()
+    assert dir_comp_explicito.is_dir()
+
+    # Caminho inexistente em obter_commit_base_sha e erro de compilação
+    ws_inexistente = HeadlessWorkspace(aresta_db / "database" / "inexistente")
+    assert ws_inexistente.obter_commit_base_sha() == ""
+    ws_inexistente.fechar()
+
+    croqui_quebrado = aresta_db / "database" / "quebrado"
+    croqui_quebrado.mkdir(parents=True)
+    (croqui_quebrado / "croqui.yaml").write_text("yaml: [quebrado", encoding="utf-8")
+    with HeadlessWorkspace(croqui_quebrado) as ws_err:
+        _, msgs_err, mod_err = ws_err.processar_renomeacao_e_compilacao(
+            "quebrado", "quebrado", None
+        )
+        assert mod_err is False
+        assert any("Erro" in m for m in msgs_err)

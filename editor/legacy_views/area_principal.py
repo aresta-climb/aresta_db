@@ -1665,43 +1665,18 @@ class JanelaPrincipal(QMainWindow):
         """Registra as ferramentas de comandos, visão e ciclo de vida no ServidorMCP."""
         if self.servidor_mcp is None or self.croqui_model is None or self.croqui_controller is None:
             return
-        from editor.controllers.mapas_controller import MapasController
-        from editor.mcp.ferramentas_betas import registrar_ferramentas_betas
-        from editor.mcp.ferramentas_ciclo_vida import registrar_ferramentas_ciclo_vida
-        from editor.mcp.ferramentas_comandos import registrar_ferramentas_comandos
-        from editor.mcp.ferramentas_conhecimento import registrar_ferramentas_conhecimento
-        from editor.mcp.ferramentas_visao import registrar_ferramentas_visao
+        from editor.mcp.registro_ferramentas import registrar_catalogo_ferramentas_croqui
 
-        mapas_controller = MapasController(self.croqui_model, self.historico)
-        if self.workspace and hasattr(self.workspace, "obter_caminho_database"):
-            caminho_db = self.workspace.obter_caminho_database()
-            if caminho_db:
-                mapas_controller.set_caminho_db(Path(caminho_db))
-
-        registrar_ferramentas_comandos(
-            self.servidor_mcp,
-            self.croqui_controller,
-            mapas_controller,
-        )
-        registrar_ferramentas_visao(
-            self.servidor_mcp,
-            self.croqui_model,
-            provedor_widget_alvo=self._obter_widget_alvo_mcp,
-            provedor_selecao_atual=self._obter_selecao_mcp,
-        )
-        registrar_ferramentas_ciclo_vida(
-            self.servidor_mcp,
-            self.croqui_model,
-            self.historico,
+        registrar_catalogo_ferramentas_croqui(
+            servidor=self.servidor_mcp,
+            croqui_model=self.croqui_model,
+            croqui_controller=self.croqui_controller,
+            historico=self.historico,
             workspace=self.workspace,
             storage=self.storage,
+            provedor_widget_alvo=self._obter_widget_alvo_mcp,
+            provedor_selecao_atual=self._obter_selecao_mcp,
             callback_abrir_croqui=self._callback_abrir_croqui_mcp,
-        )
-        registrar_ferramentas_conhecimento(self.servidor_mcp, model=self.croqui_model)
-        registrar_ferramentas_betas(
-            self.servidor_mcp,
-            self.croqui_model,
-            self.croqui_controller,
         )
 
     def _obter_widget_alvo_mcp(self, alvo: str) -> QWidget | None:

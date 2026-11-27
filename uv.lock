@@ -80,7 +80,7 @@ dev = [
 
 [[package]]
 name = "aresta-db"
-version = "0.6.10-dev"
+version = "0.6.10.dev0"
 source = { virtual = "." }
 
 [package.dev-dependencies]
@@ -112,6 +112,8 @@ dev = [
     { name = "types-requests" },
 ]
 editor = [
+    { name = "aresta-api" },
+    { name = "boto3" },
     { name = "brotli" },
     { name = "cryptography", version = "48.0.1", source = { registry = "https://pypi.org/simple" }, marker = "platform_machine == 'x86_64' and sys_platform == 'darwin'" },
     { name = "cryptography", version = "50.0.2", source = { registry = "https://pypi.org/simple" }, marker = "platform_machine != 'x86_64' or sys_platform != 'darwin'" },
@@ -141,7 +143,8 @@ editor = [
     { name = "zstandard" },
 ]
 editor-deploy = [
-    { name = "boto3", marker = "sys_platform == 'darwin'" },
+    { name = "aresta-api" },
+    { name = "boto3" },
     { name = "brotli" },
     { name = "cryptography", version = "48.0.1", source = { registry = "https://pypi.org/simple" }, marker = "platform_machine == 'x86_64' and sys_platform == 'darwin'" },
     { name = "cryptography", version = "50.0.2", source = { registry = "https://pypi.org/simple" }, marker = "platform_machine != 'x86_64' or sys_platform != 'darwin'" },
@@ -170,6 +173,26 @@ editor-deploy = [
     { name = "websockets" },
     { name = "winrt-windows-applicationmodel", marker = "sys_platform == 'win32'" },
     { name = "winrt-windows-services-store", marker = "sys_platform == 'win32'" },
+    { name = "zstandard" },
+]
+editor-headless = [
+    { name = "aresta-api" },
+    { name = "boto3" },
+    { name = "brotli" },
+    { name = "ddgs" },
+    { name = "fastapi" },
+    { name = "httpx" },
+    { name = "nanoid" },
+    { name = "pillow" },
+    { name = "pillow-heif" },
+    { name = "protobuf" },
+    { name = "pygit2" },
+    { name = "pymupdf" },
+    { name = "pyside6-essentials" },
+    { name = "pyyaml" },
+    { name = "qrcode" },
+    { name = "requests" },
+    { name = "uvicorn" },
     { name = "zstandard" },
 ]
 pdf = [
@@ -224,6 +247,8 @@ dev = [
     { name = "types-requests" },
 ]
 editor = [
+    { name = "aresta-api", virtual = "aresta_api" },
+    { name = "boto3" },
     { name = "brotli" },
     { name = "cryptography", marker = "platform_machine != 'x86_64' or sys_platform != 'darwin'", specifier = ">=50.0.0" },
     { name = "cryptography", marker = "platform_machine == 'x86_64' and sys_platform == 'darwin'", specifier = "<=48.0.1" },
@@ -253,6 +278,8 @@ editor = [
     { name = "zstandard" },
 ]
 editor-deploy = [
+    { name = "aresta-api", virtual = "aresta_api" },
+    { name = "boto3" },
     { name = "boto3", marker = "sys_platform == 'darwin'" },
     { name = "brotli" },
     { name = "cryptography", marker = "platform_machine != 'x86_64' or sys_platform != 'darwin'", specifier = ">=50.0.0" },
@@ -282,6 +309,26 @@ editor-deploy = [
     { name = "websockets" },
     { name = "winrt-windows-applicationmodel", marker = "sys_platform == 'win32'" },
     { name = "winrt-windows-services-store", marker = "sys_platform == 'win32'" },
+    { name = "zstandard" },
+]
+editor-headless = [
+    { name = "aresta-api", virtual = "aresta_api" },
+    { name = "boto3" },
+    { name = "brotli" },
+    { name = "ddgs" },
+    { name = "fastapi" },
+    { name = "httpx" },
+    { name = "nanoid", specifier = ">=2.0.0" },
+    { name = "pillow" },
+    { name = "pillow-heif", specifier = ">=1.7.0" },
+    { name = "protobuf" },
+    { name = "pygit2" },
+    { name = "pymupdf" },
+    { name = "pyside6-essentials" },
+    { name = "pyyaml" },
+    { name = "qrcode" },
+    { name = "requests" },
+    { name = "uvicorn" },
     { name = "zstandard" },
 ]
 pdf = [

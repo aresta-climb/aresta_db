@@ -100,7 +100,11 @@ def registrar_ferramentas_visao(
         alvo_viewport = str(args.get("alvo_viewport") or "janela")
         widget = provedor_widget_alvo(alvo_viewport) if provedor_widget_alvo else None
         if widget is None:
-            raise ValueError(f"Viewport '{alvo_viewport}' não disponível para captura no momento.")
+            raise ValueError(
+                f"Viewport '{alvo_viewport}' não disponível para captura no momento "
+                "(sem interface gráfica ativa ou em modo headless). "
+                "Utilize 'aresta_renderizar_mapa' ou 'aresta_obter_arvore'."
+            )
 
         pixmap = widget.grab()
         matriz_bytes = QByteArray()

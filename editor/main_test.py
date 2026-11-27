@@ -1184,3 +1184,63 @@ def test_condutor_smoke_test_em_memoria_e_validacao_dependencias_nativas(
             controlador.janela_principal.close()
         if controlador.abertura:
             controlador.abertura.close()
+
+
+def test_main_modo_headless_sucesso_e_erros_argumento(monkeypatch, tmp_path: Path, capsys) -> None:
+    """Valida a 3ª porta oficial de entrada (--headless) via main() com stdio JSON-RPC real."""
+    import io
+    import json
+    import sys
+
+    from PIL import Image
+
+    from editor.main import main
+
+    # 1. Sem caminho do croqui -> erro código 1
+    monkeypatch.setattr(sys, "argv", ["editor/main.py", "--headless"])
+    with pytest.raises(SystemExit) as exc_sem_arg:
+        main()
+    assert exc_sem_arg.value.code == 1
+    assert "--headless" in capsys.readouterr().err
+
+    # 2. Caminho inexistente -> erro código 1
+    monkeypatch.setattr(sys, "argv", ["editor/main.py", "--headless", str(tmp_path / "nao_existe")])
+    with pytest.raises(SystemExit) as exc_inexistente:
+        main()
+    assert exc_inexistente.value.code == 1
+    assert "croqui.yaml" in capsys.readouterr().err
+
+    # 3. Execução real com croqui válido sobre stdin/stdout
+    pasta_db = tmp_path / "database" / "br_mg_headless_main"
+    (pasta_db / "imagens").mkdir(parents=True)
+    Image.new("RGB", (24, 24), color="green").save(pasta_db / "imagens" / "capa.webp", "WEBP")
+    (pasta_db / "croqui.yaml").write_text(
+        "id: br_mg_headless_main\n"
+        "nome: Headless Main\n"
+        "ultima_migracao: 5\n"
+        "caminho_thumbnail: imagens/capa.webp\n"
+        "picos:\n"
+        "- nome: Pico Headless\n"
+        "  estado: MG\n",
+        encoding="utf-8",
+    )
+
+    entrada_jsonrpc = io.StringIO(
+        json.dumps(
+            {
+                "jsonrpc": "2.0",
+                "id": 1,
+                "method": "tools/call",
+                "params": {"name": "aresta_status_workspace", "arguments": {}},
+            }
+        )
+        + "\n"
+    )
+    monkeypatch.setattr(sys, "stdin", entrada_jsonrpc)
+    monkeypatch.setattr(sys, "argv", ["editor/main.py", "--headless", str(pasta_db)])
+    with pytest.raises(SystemExit) as exc_ok:
+        main()
+    assert exc_ok.value.code == 0
+    saida = capsys.readouterr().out.strip()
+    resposta = json.loads(saida)
+    assert resposta["result"]["structuredContent"]["id_croqui"] == "br_mg_headless_main"

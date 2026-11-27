@@ -7,7 +7,7 @@ Este documento descreve como configurar a chave gratuita `GEMINI_API_KEY` do **G
 ## 1. Sobre Costos e a Assinatura do Google One AI Ultra
 
 - **Google One AI Pro / Ultra vs. API do Google AI Studio**: A assinatura consumidor do Google One AI Pro / Ultra aplica-se aos aplicativos voltados ao usuário final (Gemini Web/App, Antigravity, NotebookLM, Workspace), mas **não compartilha cota com chaves de API REST**.
-- **Tier Gratuito (Free Tier) Independente e Custo Zero**: Qualquer conta Google possui acesso ao **Free Tier** do Google AI Studio para os modelos **`gemini-3.8-flash`** (usado na geração da proposta e leitura espacial da régua nos mapas) e **`gemini-3.5-flash-lite`** (usado na etapa rápida de desambiguação de arquivos quando necessário), **sem necessidade de cadastrar cartão de crédito**. Como cada modelo tem sua própria cota diária independente no Free Tier, dividir a desambiguação no `3.5-flash-lite` e a proposta principal no `3.8-flash` preserva a cota do modelo principal.
+- **Tier Gratuito (Free Tier) Independente e Custo Zero**: Qualquer conta Google possui acesso ao **Free Tier** do Google AI Studio para o modelo **`gemini-3.8-flash`** (usado com *Function Calling* acoplado em memória à `SessaoEditorHeadless` do Editor Aresta), **sem necessidade de cadastrar cartão de crédito**. Graças ao contexto pré-aquecido (*Warm-Start* com 0 chamadas de IA) e ao *Parallel Function Calling*, ~85% dos feedbacks simples são resolvidos em **apenas 1 requisição de API**, preservando ao máximo a cota diária gratuita.
 - **Atenção ao Modo Pago (Paid Tier)**: No Google AI Studio, caso você vincule uma conta de faturamento (*Cloud Billing*) ao projeto para mudá-lo para *Paid tier*, **não há franquia gratuita** (a cobrança passa a ocorrer desde o 1º token). Portanto, para manter custo R\$ 0,00 garantido, crie a chave em um **projeto separado sem conta de faturamento vinculada**.
 - **Compatibilidade de Licença**: No Free Tier do AI Studio, entradas e saídas não são faturadas e podem ser processadas pelo Google conforme os termos públicos do serviço — o que é 100% compatível com o `aresta_db`, visto que todo o nosso catálogo e as Issues de croqui já são públicos sob licença aberta `ODbL-1.0`.
 
@@ -42,10 +42,10 @@ Este documento descreve como configurar a chave gratuita `GEMINI_API_KEY` do **G
 ### A. Disparo Automático na Abertura de Issue (`feedback:croqui`)
 Sempre que um usuário envia um feedback sobre um croqui pelo app Aresta Climb:
 1. A Edge Function `app-feedback` cria uma Issue com a label `feedback:croqui`.
-2. O workflow `Resolvedor de Feedbacks por IA (Gemini Flash)` inicia automaticamente:
-   - Localiza o arquivo `.md` correspondente em `database/<croqui_id>/` (via Árvore de Navegação, busca textual local ou desambiguação multimodal com índice compacto).
-   - Renderiza em memória os mapas do setor com **régua cartesiana graduada em pixels (X/Y) + pontos de interesse atuais** e envia junto com a captura de tela do usuário ao Gemini Flash.
-   - Valida a alteração localmente contra o compilador Protobuf (`deploy_generated.py`) com até **1 retentativa automática (autoretry)** se houver erro de schema.
+2. O workflow `Resolvedor de Feedbacks por IA (Gemini Flash)` inicia uma única vez (deduplicado por `labeled` + `concurrency`):
+   - Abre o croqui no **Editor Aresta em Modo Headless** (`SessaoEditorHeadless`, `QT_QPA_PLATFORM=offscreen`) e monta em memória o pacote *Warm-Start* (skill `.agents/skills/resolver_feedback_croqui/SKILL.md`, catálogo de skills, índice completo de picos/grupos/setores/vias com `UID`s e subárvore do setor foco).
+   - Resolve edições diretas em **1 único turno de IA**, ou usa múltiplos turnos (teto de 5 turnos) quando precisa criar um setor novo + `aresta_migrar_escalada` (ex: Issue #108) ou inspecionar mapas sob demanda com `aresta_renderizar_mapa` (grade métrica + recortes `(-50..+50px)`).
+   - Compila o croqui em diretório temporário isolado, verifica a **Guarda de Mudança Maior** via `diff_croqui_pr_lib` (exigindo `/ai-fix` se houver exclusão líquida, `>1` setor novo, `>5` vias alteradas ou mudança de `id`/`publicar_croqui`) e aplica o Hard Jail em `database/<croqui_id>/`.
    - Abre uma Pull Request na branch `ai-fix/issue-<numero>` (com `Fixes #<numero>`) e comenta o link na Issue!
 3. Para aprovar e publicar a PR, basta revisar o diff e comentar `/approve` (ou aprovar pelo GitHub Review) na PR — o `pr-integrator.yml` compila o `generated/` e faz o merge automaticamente.
 

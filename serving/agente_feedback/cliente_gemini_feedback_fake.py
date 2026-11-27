@@ -2,20 +2,22 @@
 # Copyright (C) 2026 Aresta Climb Contributors
 
 """
-Biblioteca test-only de Fake determinístico em memória para `ClienteGeminiFeedback`.
-Permite simular desambiguação de arquivos, sequências de propostas (incluindo autoretry)
-e falhas determinísticas de comunicação/cota sem acesso à rede externa.
+Biblioteca test-only de Fake determinístico em memória para `ClienteGeminiFeedback`,
+suportando filas de turnos de Function Calling, roteiros dinâmicos baseados nas
+respostas do Editor Headless e simulação determinística de erros de rede/cota.
 """
 
 from __future__ import annotations
 
+import copy
+from collections.abc import Callable
 from typing import Any
 
 from serving.agente_feedback.cliente_gemini_feedback import (
+    ChamadaFerramentaAgente,
     ErroComunicacaoGemini,
-    RespostaPropostaGemini,
+    RespostaTurnoGemini,
 )
-from serving.agente_feedback.renderizador_regua_mapa import MapaAnotadoEmMemoria
 
 
 class ClienteGeminiFeedbackFake:
@@ -23,64 +25,41 @@ class ClienteGeminiFeedbackFake:
 
     def __init__(
         self,
-        arquivos_desambiguados: list[str] | None = None,
-        respostas_proposta: list[RespostaPropostaGemini] | None = None,
+        turnos_programados: list[list[ChamadaFerramentaAgente]] | None = None,
+        roteiro_dinamico: Callable[[list[dict[str, Any]], int], list[ChamadaFerramentaAgente]]
+        | None = None,
         erro_simulado: str | None = None,
     ) -> None:
-        self._arquivos_desambiguados = list(arquivos_desambiguados or [])
-        self._respostas_proposta = list(respostas_proposta or [])
+        self._turnos = [list(t) for t in (turnos_programados or [])]
+        self._roteiro_dinamico = roteiro_dinamico
         self._erro_simulado = erro_simulado
-        self.chamadas_desambiguacao: list[dict[str, Any]] = []
-        self.chamadas_proposta: list[dict[str, Any]] = []
+        self.chamadas_turnos: list[list[dict[str, Any]]] = []
 
-    def desambiguar_arquivos_croqui(
+    def executar_turno_agente(
         self,
-        indice_compacto: str,
-        descricao_feedback: str,
-        instrucao_extra: str = "",
-        screenshot_bytes: bytes | None = None,
-        screenshot_mime: str = "image/webp",
-    ) -> list[str]:
-        """Registra a chamada e retorna a lista determinística de arquivos desambiguados."""
-        self.chamadas_desambiguacao.append(
-            {
-                "indice_compacto": indice_compacto,
-                "descricao_feedback": descricao_feedback,
-                "instrucao_extra": instrucao_extra,
-                "screenshot_bytes": screenshot_bytes,
-                "screenshot_mime": screenshot_mime,
-            }
-        )
+        historico_contents: list[dict[str, Any]],
+        declaracoes_ferramentas: list[dict[str, Any]],
+    ) -> RespostaTurnoGemini:
+        """Registra o snapshot do histórico recebido e devolve as chamadas programadas do turno."""
+        _ = declaracoes_ferramentas
+        indice_turno = len(self.chamadas_turnos)
+        copia_historico = copy.deepcopy(historico_contents)
+        self.chamadas_turnos.append(copia_historico)
+
         if self._erro_simulado:
             raise ErroComunicacaoGemini(self._erro_simulado)
-        return list(self._arquivos_desambiguados)
 
-    def gerar_proposta_alteracao(
-        self,
-        croqui_id: str,
-        descricao_feedback: str,
-        instrucao_extra: str,
-        arquivos_atuais: dict[str, str],
-        screenshot_bytes: bytes | None = None,
-        screenshot_mime: str = "image/webp",
-        mapas_anotados: list[MapaAnotadoEmMemoria] | None = None,
-        erro_validacao_anterior: str = "",
-    ) -> RespostaPropostaGemini:
-        """Registra a chamada e retorna a próxima `RespostaPropostaGemini` configurada."""
-        self.chamadas_proposta.append(
-            {
-                "croqui_id": croqui_id,
-                "descricao_feedback": descricao_feedback,
-                "instrucao_extra": instrucao_extra,
-                "arquivos_atuais": dict(arquivos_atuais),
-                "screenshot_bytes": screenshot_bytes,
-                "screenshot_mime": screenshot_mime,
-                "mapas_anotados": list(mapas_anotados or []),
-                "erro_validacao_anterior": erro_validacao_anterior,
-            }
+        if self._roteiro_dinamico is not None:
+            chamadas = list(self._roteiro_dinamico(copia_historico, indice_turno))
+        elif len(self._turnos) > 1:
+            chamadas = self._turnos.pop(0)
+        else:
+            chamadas = list(self._turnos[0])
+
+        partes_modelo = [
+            {"functionCall": {"name": c.nome, "args": dict(c.argumentos)}} for c in chamadas
+        ]
+        return RespostaTurnoGemini(
+            chamadas=chamadas,
+            conteudo_modelo_bruto={"role": "model", "parts": partes_modelo},
         )
-        if self._erro_simulado:
-            raise ErroComunicacaoGemini(self._erro_simulado)
-        if len(self._respostas_proposta) > 1:
-            return self._respostas_proposta.pop(0)
-        return self._respostas_proposta[0]
