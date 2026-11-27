@@ -328,7 +328,7 @@ arquivos:
 - caminho_relativo: br_mg_arcos_rastro/compilado.yaml
   checksum_sha256: 99590f8008ba661c2681e9a5013c0eddd5b595b68a080f2f8470eeab6c1b2880
 - caminho_relativo: br_mg_betim_pedreira_dr_gravata/compilado.binarypb
-  checksum_sha256: c1e24ad732c2231cd442650c7ab8bbf73d49c4e6a4afc3f5159e0512b6939204
+  checksum_sha256: 385df867296dc9fc80239b2a6aac7d29aecbcd20ad8ab0b831409b815d94e27c
 - caminho_relativo: thumbnails/br_mg_betim_pedreira_dr_gravata.webp
   checksum_sha256: 4e80464b26764e6d96408614ce015d40358956c95eedf4fa73e906bfcb258ebe
 - caminho_relativo: br_mg_betim_pedreira_dr_gravata/imagens/capa_pedreira_gravata_gigante.webp
@@ -352,7 +352,7 @@ arquivos:
 - caminho_relativo: br_mg_betim_pedreira_dr_gravata/imagens/thumbnail.webp
   checksum_sha256: 8a3e945c9a8f54736ddfd7128453bedb362cfdb978c9d48f418c08ef9281e247
 - caminho_relativo: br_mg_betim_pedreira_dr_gravata/compilado.yaml
-  checksum_sha256: 4565285adfeec8aefaabe41007740ba36432b60feda3bc875d5b6a08dec37434
+  checksum_sha256: a729b78e184e55c1d4535d215870d2424ca3b11ba6dc770cc588f574eaf0b9d8
 - caminho_relativo: br_mg_caete_monte_alvao/compilado.binarypb
   checksum_sha256: a97170eaf57fcf669fc6426f7866f97d6ac3ce4118219cffdd44085b222a6b3b
 - caminho_relativo: thumbnails/br_mg_caete_monte_alvao.webp
@@ -2204,8 +2204,8 @@ arquivos:
 - caminho_relativo: br_rj_nova_friburgobom_jardim_capelinha/compilado.yaml
   checksum_sha256: 6694c2e07f38d92fff2d54cd717c4b2f99121a2f5313c7ff07898a4526c013ee
 - caminho_relativo: indice.binarypb
-  checksum_sha256: b40741f2af47ba7cfe2a176aee7c391107afd43d31afa25aa85ee229d918a0aa
+  checksum_sha256: ce4f4807fc85f538dffe81c7ad491af2e008bdd412337510b820717c1a5b9a46
 - caminho_relativo: indice.yaml
-  checksum_sha256: 8da1d2d513f9a036a9f20213aa30adeff4a0cb2479a290d94bd73c36efd5f3a8
+  checksum_sha256: ee44b207363633be3210ead1e6dfee550f1dcf315b648e8c18ff4390582890d5
 - caminho_relativo: catalogo.db
   checksum_sha256: c1e2dee24f9f4a6ae7dcf753bd5471d7d345a6988ff0071c51ffcc49b9ac826a

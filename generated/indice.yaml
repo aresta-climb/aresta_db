@@ -121,16 +121,16 @@ croquis:
   descricao: |
     A **Pedreira Dr. Gravatá**, em Betim/MG, reúne **mais de 50 vias de escalada esportiva**, linhas de rapel e setores em desenvolvimento. O pico é conduzido por **Marcio Macena e Samuel Lucas**. Este registro organiza acesso, setores, vias, autoria e história de uma paisagem ligada às antigas pedreiras, à ferrovia e à Usina Hidrelétrica Dr. Gravatá, inaugurada em 1914. Um croqui para escalar hoje e preservar conhecimento para quem vier depois.
   caminho_relativo: br_mg_betim_pedreira_dr_gravata/compilado.binarypb
-  checksum_sha256_croqui: c1e24ad732c2231cd442650c7ab8bbf73d49c4e6a4afc3f5159e0512b6939204
+  checksum_sha256_croqui: 385df867296dc9fc80239b2a6aac7d29aecbcd20ad8ab0b831409b815d94e27c
   checksum_sha256_thumbnail: 4e80464b26764e6d96408614ce015d40358956c95eedf4fa73e906bfcb258ebe
-  timestamp_update: '2026-10-18T22:25:22Z'
+  timestamp_update: '2026-11-27T21:56:22Z'
   precomputados:
     total_escaladas: 31
     total_setores: 2
     total_grupos: 1
     nota_qualidade: 4060
     total_esportivas: 31
-    tamanho_download_bytes: 3850844
+    tamanho_download_bytes: 3850756
 - id: br_mg_caete_monte_alvao
   croqui_uid: hyRUkm1gfZRwSw
   nome: Monte Alvão - Caeté
