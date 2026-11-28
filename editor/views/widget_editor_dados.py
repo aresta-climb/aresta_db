@@ -5,6 +5,7 @@ from collections.abc import Callable
 from pathlib import Path
 from typing import Any, cast
 
+import shiboken6
 from google.protobuf.descriptor import FieldDescriptor
 from google.protobuf.message_factory import GetMessageClass
 from PySide6.QtCore import (
@@ -1902,6 +1903,7 @@ class WidgetFormularioPadrao(QStackedWidget):
         self.atualizador_ui = AtualizadorUI()
         self.field_containers: dict[Any, Any] = {}
         self.card_containers: dict[Any, Any] = {}
+        self._foco_campo_pendente: tuple[QScrollArea, QWidget, QWidget] | None = None
 
         self.empty_widget = QWidget()
         empty_layout = QVBoxLayout(self.empty_widget)
@@ -1938,6 +1940,8 @@ class WidgetFormularioPadrao(QStackedWidget):
         if msg_id in self.cached_forms:
             w = self.cached_forms.pop(msg_id)
             era_atual = self.currentWidget() is w
+            if self._foco_campo_pendente is not None and self._foco_campo_pendente[0] is w:
+                self._foco_campo_pendente = None
             for w_md in w.findChildren(WidgetEditorMarkdown):
                 w_md.temporizador.descartar()
             self.removeWidget(w)
@@ -2025,6 +2029,7 @@ class WidgetFormularioPadrao(QStackedWidget):
                             setattr(msg, f.name, f.default_value)
 
     def load_node(self, node: Any) -> None:
+        self._foco_campo_pendente = None
         cur_w = self.currentWidget()
         if cur_w and cur_w != self.empty_widget:
             self.forcar_consolidacao_pendente()
@@ -2048,11 +2053,6 @@ class WidgetFormularioPadrao(QStackedWidget):
         scroll_area.setWidgetResizable(True)
         container = QWidget()
         self.form_layout = QVBoxLayout(container)
-        scroll_area.setWidget(container)
-
-        self.addWidget(scroll_area)
-        self.cached_forms[msg_id] = scroll_area
-        self.setCurrentWidget(scroll_area)
 
         # Renderiza e exibe o campo do nome do arquivo (caminho_novo) da extensão do Shadow State
         msg_name = node.message.DESCRIPTOR.name
@@ -2125,6 +2125,10 @@ class WidgetFormularioPadrao(QStackedWidget):
             self._render_message_fields(node.message, self.form_layout)
         if self.form_layout:
             self.form_layout.addStretch()
+        scroll_area.setWidget(container)
+        self.addWidget(scroll_area)
+        self.cached_forms[msg_id] = scroll_area
+        self.setCurrentWidget(scroll_area)
         self.atualizador_ui.restaurar_estado_foco(self)
 
     def _render_filename_field(
@@ -3333,6 +3337,7 @@ class WidgetFormularioPadrao(QStackedWidget):
             widget_alvo = scroll_area.findChild(QFrame, "SecaoBetasEscalada")
 
         # 2. Procura em field_containers (campos escalares, Coordenada, imagem, oneof)
+        campo_busca = "localizacao" if nome_campo == "malha_estrada" else nome_campo
         if widget_alvo is None:
             for (_msg_id, fname), (
                 _layout,
@@ -3340,7 +3345,7 @@ class WidgetFormularioPadrao(QStackedWidget):
                 _field,
                 _msg,
             ) in self.field_containers.items():
-                if fname == nome_campo and scroll_area.isAncestorOf(container):
+                if fname == campo_busca and scroll_area.isAncestorOf(container):
                     widget_alvo = container
                     break
 
@@ -3389,28 +3394,73 @@ class WidgetFormularioPadrao(QStackedWidget):
 
         # Determina o controle de entrada/ação prioritário dentro do container do campo
         controle_foco: QWidget = widget_alvo
-        editores_md = widget_alvo.findChildren(WidgetEditorMarkdown)
-        if editores_md:
-            controle_foco = editores_md[0].editor
-        else:
-            controles_edicao = [
-                w
-                for w in widget_alvo.findChildren(QWidget)
-                if isinstance(w, (QLineEdit, QSpinBox, QDoubleSpinBox, QComboBox, QCheckBox))
-                and not isinstance(w.parentWidget(), (QSpinBox, QDoubleSpinBox, QComboBox))
-                and w.isEnabled()
+        botoes_malha = (
+            [
+                wc.btn_gerar_malha
+                for wc in widget_alvo.findChildren(WidgetMensagemCoordenada)
+                if wc.btn_gerar_malha is not None and wc.btn_gerar_malha.isEnabled()
             ]
-            if controles_edicao:
-                controle_foco = controles_edicao[0]
+            if nome_campo == "malha_estrada"
+            else []
+        )
+        if botoes_malha:
+            controle_foco = botoes_malha[0]
+        else:
+            editores_md = widget_alvo.findChildren(WidgetEditorMarkdown)
+            if editores_md:
+                controle_foco = editores_md[0].editor
             else:
-                botoes = [b for b in widget_alvo.findChildren(QPushButton) if b.isEnabled()]
-                if botoes:
-                    controle_foco = botoes[0]
+                controles_edicao = [
+                    w
+                    for w in widget_alvo.findChildren(QWidget)
+                    if isinstance(w, (QLineEdit, QSpinBox, QDoubleSpinBox, QComboBox, QCheckBox))
+                    and not isinstance(w.parentWidget(), (QSpinBox, QDoubleSpinBox, QComboBox))
+                    and w.isEnabled()
+                ]
+                if controles_edicao:
+                    controle_foco = controles_edicao[0]
+                else:
+                    botoes = [b for b in widget_alvo.findChildren(QPushButton) if b.isEnabled()]
+                    if botoes:
+                        controle_foco = botoes[0]
+
+        self._posicionar_scroll_no_campo(scroll_area, widget_alvo, controle_foco)
+        self._foco_campo_pendente = (scroll_area, widget_alvo, controle_foco)
+        QTimer.singleShot(0, self._confirmar_foco_campo_pendente)
+        return True
+
+    def _posicionar_scroll_no_campo(
+        self, scroll_area: QScrollArea, widget_alvo: QWidget, controle_foco: QWidget
+    ) -> None:
+        """Ativa e ajusta o layout do formulário e garante que o campo e o controle fiquem visíveis."""
+        conteudo_scroll = scroll_area.widget()
+        if conteudo_scroll is not None:
+            scroll_layout = conteudo_scroll.layout()
+            if scroll_layout is not None:
+                scroll_layout.activate()
+            conteudo_scroll.adjustSize()
 
         scroll_area.ensureWidgetVisible(widget_alvo, 0, 32)
         scroll_area.ensureWidgetVisible(controle_foco, 0, 32)
         controle_foco.setFocus()
-        return True
+
+    def _confirmar_foco_campo_pendente(self) -> None:
+        """Reaplica scroll e foco após o event loop concluir ShowToParent e LayoutRequest pendentes."""
+        pendente = self._foco_campo_pendente
+        self._foco_campo_pendente = None
+        if pendente is None:
+            return
+        scroll_area, widget_alvo, controle_foco = pendente
+        if not (
+            shiboken6.isValid(self)
+            and shiboken6.isValid(scroll_area)
+            and shiboken6.isValid(widget_alvo)
+            and shiboken6.isValid(controle_foco)
+        ):
+            return
+        if self.currentWidget() is not scroll_area:
+            return
+        self._posicionar_scroll_no_campo(scroll_area, widget_alvo, controle_foco)
 
 
 class ArvoreDadosTreeView(QTreeView):

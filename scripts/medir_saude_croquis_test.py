@@ -104,7 +104,9 @@ class TestMedirSaudeCroquis(unittest.TestCase):
         self.assertEqual(linha["Nota Qualidade"], "8015")
         self.assertEqual(linha["Etapa 1"], "✅ 8000/8000 (8/8)")
         self.assertEqual(linha["1.1 Identidade e Capa"], "✅ (3/3)")
-        self.assertEqual(linha["1.8 Malha Estrada"], "✅ (1/1)")
+        self.assertEqual(linha["1.3 Malha Estrada"], "✅ (1/1)")
+        self.assertEqual(linha["1.4 Instruções Acesso"], "✅ (1/1)")
+        self.assertEqual(linha["1.8 Grau Dificuldade"], "✅ (1/1)")
         self.assertEqual(linha["3.1 Créditos"], "✅ (1/1)")
         self.assertEqual(linha["3.6 Revisão Final"], "⚠️ (1/2)")
 
@@ -133,7 +135,9 @@ class TestMedirSaudeCroquis(unittest.TestCase):
         texto_inicial = output_file.read_text(encoding="utf-8")
         self.assertIn("Publicado (1/2)", texto_inicial)
         self.assertIn("Nota Qualidade (máx 8860)", texto_inicial)
-        self.assertIn("1.8 Malha Estrada (0/2)", texto_inicial)
+        self.assertIn("1.3 Malha Estrada (0/2)", texto_inicial)
+        self.assertIn("1.4 Instruções Acesso (0/2)", texto_inicial)
+        self.assertIn("1.8 Grau Dificuldade (0/2)", texto_inicial)
         self.assertIn("| croqui_a | ❌ |", texto_inicial)
         self.assertIn("| croqui_b | ✅ |", texto_inicial)
 
@@ -262,6 +266,66 @@ class TestMedirSaudeCroquis(unittest.TestCase):
         texto_final = out_cli.read_text(encoding="utf-8")
         self.assertNotIn("| sem_yaml |", texto_final)
         self.assertIn("| corrompido | ✅ |", texto_final)
+
+    def test_atualizacao_incremental_regenera_quando_cabecalho_existente_tem_ordem_antiga(
+        self,
+    ) -> None:
+        base_dir = self.tmp_path / "database"
+        output_file = self.tmp_path / "STATUS_CROQUIS.md"
+        for cid in ("croqui_a", "croqui_b"):
+            cdir = base_dir / cid
+            cdir.mkdir(parents=True)
+            (cdir / "croqui.yaml").write_text(
+                f"id: {cid}\nnome: {cid}\ndescricao: Desc\ncaminho_thumbnail: img.webp\n",
+                encoding="utf-8",
+            )
+
+        # Simula STATUS_CROQUIS.md com a ordem antiga de colunas (1.8 Malha Estrada no fim da Etapa 1)
+        colunas_antigas = [
+            "Croqui",
+            "Publicado (0/2)",
+            "Pronto Publicar (0/2)",
+            "Nota Qualidade (máx 8860)",
+            "Etapa 1 (0/2)",
+            "Etapa 2 (0/2)",
+            "Etapa 3 (0/2)",
+            "1.1 Identidade e Capa (2/2)",
+            "1.2 Localização e Maps (0/2)",
+            "1.3 Instruções Acesso (0/2)",
+            "1.4 Mapa Geral (0/2)",
+            "1.5 Mapas Setores (0/2)",
+            "1.6 Escaladas no Mapa (0/2)",
+            "1.7 Grau Dificuldade (0/2)",
+            "1.8 Malha Estrada (0/2)",
+            *(f"Col {i}" for i in range(14)),
+        ]
+        # Ajusta exatamente para o total de colunas esperadas
+        colunas_antigas = colunas_antigas[: len(medir_saude_croquis.CHAVES_COLUNAS_RELATORIO)]
+        linha_a = ["croqui_a"] + ["x"] * (len(colunas_antigas) - 1)
+        linha_b = ["croqui_b"] + ["y"] * (len(colunas_antigas) - 1)
+        output_file.write_text(
+            "| "
+            + " | ".join(colunas_antigas)
+            + " |\n| "
+            + " | ".join(["---"] * len(colunas_antigas))
+            + " |\n| "
+            + " | ".join(linha_a)
+            + " |\n| "
+            + " | ".join(linha_b)
+            + " |\n",
+            encoding="utf-8",
+        )
+
+        modificou = medir_saude_croquis.atualizar_relatorio_saude_croquis(
+            base_path=base_dir,
+            output_path=output_file,
+            alvos=["croqui_a"],
+        )
+        self.assertTrue(modificou)
+        texto = output_file.read_text(encoding="utf-8")
+        self.assertIn("1.3 Malha Estrada (0/2)", texto)
+        self.assertNotIn("1.8 Malha Estrada", texto)
+        self.assertIn("| croqui_b | ❌ |", texto)
 
 
 if __name__ == "__main__":

@@ -6554,6 +6554,117 @@ def test_foco_requisitado_expande_ancestrais_arvore_e_foca_oneof_cartoes_e_betas
     assert WidgetFormularioPadrao(model, controller).focar_campo("nome") is False
 
 
+def test_foco_requisitado_do_painel_rola_scroll_na_primeira_visita_e_foca_malha_estrada(
+    qapp, qtbot
+):
+    """
+    Valida que, ao navegar pela primeira vez a partir da aba Painel (com PaginaDados oculta
+    em um QStackedWidget), o formulário rola até o campo alvo após estabilização do layout
+    tanto para url_google_maps quanto para malha_estrada (focando 'Gerar Mapa de Pontos') e
+    para campo avançado na primeira exibição do nó raiz Croqui, coalescendo chamadas seguidas.
+    """
+    from PySide6.QtGui import QUndoStack
+    from PySide6.QtWidgets import QPushButton, QScrollArea, QStackedWidget
+
+    from aresta_api.proto.generated.croqui_pb2 import Croqui
+    from editor.controllers.croqui_controller import CroquiController
+    from editor.legacy_views.area_principal import PaginaDados, PaginaPainel
+    from editor.models.croqui_model import CroquiModel
+    from editor.views.widget_editor_dados import WidgetSecaoAvancada
+
+    croqui = Croqui(
+        id="teste_scroll_painel",
+        nome="Croqui Scroll",
+        descricao="Descrição longa\n" * 30,
+    )
+    pico = croqui.picos.add(nome="Pico Scroll", descricao="Acesso longo\n" * 30)
+    pico.localizacao.latitude = -201176660
+    pico.localizacao.longitude = -443593480
+
+    pilha = QUndoStack()
+    model = CroquiModel(croqui)
+    controller = CroquiController(model, pilha)
+
+    stack = QStackedWidget()
+    qtbot.addWidget(stack)
+    stack.resize(1100, 620)
+    pagina_painel = PaginaPainel()
+    pagina_dados = PaginaDados()
+    stack.addWidget(pagina_painel)
+    stack.addWidget(pagina_dados)
+
+    def ao_focar(uri: str) -> None:
+        if uri.startswith("page:dados"):
+            stack.setCurrentIndex(1)
+
+    model.foco_requisitado.connect(ao_focar)
+    pagina_painel.carregar_painel(model, controller)
+    pagina_dados.carregar_dados(model, controller)
+    stack.setCurrentIndex(0)
+    stack.show()
+    qapp.processEvents()
+
+    # 1. Primeira abertura do Pico 0 vindo do Painel -> url_google_maps deve rolar e focar QLineEdit
+    model.foco_requisitado.emit(
+        "page:dados/node:root/node:Croqui/expando:picos/item:0/campo:url_google_maps"
+    )
+    qapp.processEvents()
+
+    editor_dados = pagina_dados.editor_dados
+    scroll_pico = editor_dados.form_padrao.currentWidget()
+    assert isinstance(scroll_pico, QScrollArea)
+    assert scroll_pico.verticalScrollBar().value() > 0
+    focado_gmaps = qapp.focusWidget()
+    assert isinstance(focado_gmaps, QLineEdit)
+    assert focado_gmaps.property("protobuf_field") == "url_google_maps"
+
+    # 2. Navegação para malha_estrada rola até localização e foca botão 'Gerar Mapa de Pontos'
+    scroll_pico.verticalScrollBar().setValue(0)
+    model.foco_requisitado.emit(
+        "page:dados/node:root/node:Croqui/expando:picos/item:0/campo:malha_estrada"
+    )
+    qapp.processEvents()
+
+    assert scroll_pico.verticalScrollBar().value() > 0
+    focado_malha = qapp.focusWidget()
+    assert isinstance(focado_malha, QPushButton)
+    assert focado_malha.text() == "Gerar Mapa de Pontos"
+
+    # 3. Primeira exibição do nó raiz Croqui vinda do Painel com duas chamadas seguidas (coalescência)
+    stack2 = QStackedWidget()
+    qtbot.addWidget(stack2)
+    stack2.resize(1100, 620)
+    painel2 = PaginaPainel()
+    dados2 = PaginaDados()
+    stack2.addWidget(painel2)
+    stack2.addWidget(dados2)
+    model2 = CroquiModel(croqui)
+    ctrl2 = CroquiController(model2, QUndoStack())
+    model2.foco_requisitado.connect(
+        lambda uri: stack2.setCurrentIndex(1) if uri.startswith("page:dados") else None
+    )
+    painel2.carregar_painel(model2, ctrl2)
+    dados2.carregar_dados(model2, ctrl2)
+    stack2.setCurrentIndex(0)
+    stack2.show()
+    qapp.processEvents()
+
+    # Chama foco em 'nome' e imediatamente em 'revisado_manualmente' no mesmo turno (coalesce no último)
+    model2.foco_requisitado.emit("page:dados/node:root/node:Croqui/campo:nome")
+    model2.foco_requisitado.emit("page:dados/node:root/node:Croqui/campo:revisado_manualmente")
+    qapp.processEvents()
+
+    scroll_croqui = dados2.editor_dados.form_padrao.currentWidget()
+    assert isinstance(scroll_croqui, QScrollArea)
+    secoes = scroll_croqui.findChildren(WidgetSecaoAvancada)
+    assert len(secoes) == 1
+    assert secoes[0].toggle_button.isChecked() is True
+    assert scroll_croqui.verticalScrollBar().value() > 0
+    focado_rev = qapp.focusWidget()
+    assert focado_rev is not None
+    assert focado_rev.property("protobuf_field") == "revisado_manualmente"
+
+
 def test_remover_ultima_escalada_selecionada_descarta_cache_orfao_e_exibe_empty_widget(qapp):
     """
     Garante que remover o item selecionado na árvore (ex: última Escalada de um Setor)

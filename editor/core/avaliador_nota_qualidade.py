@@ -566,7 +566,7 @@ def avaliar_nota_qualidade_croqui(
         acoes=() if conc_loc else tuple(acoes_loc[:3]),
     )
 
-    # 1.3 Instruções de chegada e acesso
+    # 1.4 Instruções de chegada e acesso
     tem_botao_texto = any(
         isinstance(b, Mapping)
         and isinstance(b.get("destino"), Mapping)
@@ -619,7 +619,7 @@ def avaliar_nota_qualidade_croqui(
         acoes=() if conc_acesso else tuple(acoes_acesso[:3]),
     )
 
-    # 1.4 Mapa Geral referenciando >= 90% dos setores/grupos (dispensado se <= 1 setor)
+    # 1.5 Mapa Geral referenciando >= 90% dos setores/grupos (dispensado se <= 1 setor)
     total_entidades_mg = sum(len(itens) for _, itens in itens_topo_por_pico)
     dispensa_mapa_geral = tem_setores and len(setores_info) <= 1 and total_entidades_mg <= 1
     if dispensa_mapa_geral:
@@ -677,7 +677,7 @@ def avaliar_nota_qualidade_croqui(
         acoes=acoes_mg,
     )
 
-    # 1.5 >= 90% dos setores com mapa
+    # 1.6 >= 90% dos setores com mapa
     setores_com_mapa = 0
     acoes_setores_mapa: list[AcaoTarefaQualidade] = []
     for s_info in setores_info:
@@ -708,7 +708,7 @@ def avaliar_nota_qualidade_croqui(
         acoes=() if conc_sm else tuple(acoes_setores_mapa[:3]),
     )
 
-    # 1.6 >= 90% das escaladas referenciadas em mapas
+    # 1.7 >= 90% das escaladas referenciadas em mapas
     escaladas_mapeadas = 0
     acoes_esc_mapa: list[AcaoTarefaQualidade] = []
     setores_ja_acionados_mapa: set[str] = set()
@@ -754,7 +754,7 @@ def avaliar_nota_qualidade_croqui(
         acoes=() if conc_em else tuple(acoes_esc_mapa[:3]),
     )
 
-    # 1.7 >= 90% das escaladas com grau de dificuldade (incluindo PROJETO)
+    # 1.8 >= 90% das escaladas com grau de dificuldade (incluindo PROJETO)
     escaladas_com_grau = 0
     acoes_grau: list[AcaoTarefaQualidade] = []
     for esc_info in escaladas_info:
@@ -792,7 +792,7 @@ def avaliar_nota_qualidade_croqui(
         acoes=() if conc_grau else tuple(acoes_grau[:3]),
     )
 
-    # 1.8 Mapa de pontos de estrada dos picos (100% dos picos com malha_estrada atualizada na versão atual)
+    # 1.3 Mapa de pontos de estrada dos picos (100% dos picos com malha_estrada atualizada na versão atual)
     picos_com_malha = 0
     unidades_malha = 0.0
     acoes_malha: list[AcaoTarefaQualidade] = []
@@ -808,21 +808,23 @@ def avaliar_nota_qualidade_croqui(
             acoes_malha.append(
                 AcaoTarefaQualidade(
                     f"Atualizar mapa de pontos{sufixo_p}",
-                    f"page:dados/node:root/node:Croqui/expando:picos/item:{p_idx}/campo:localizacao",
+                    f"page:dados/node:root/node:Croqui/expando:picos/item:{p_idx}/campo:malha_estrada",
                 )
             )
         else:
             nome_p = str(pico.get("nome") or f"Pico {p_idx + 1}").strip()
             sufixo_p = f" ({nome_p})" if multiplos_picos else ""
+            tem_coord_pico = _coordenada_valida(pico.get("localizacao"))
             rotulo_malha = (
                 f"Gerar mapa de pontos{sufixo_p}"
-                if _coordenada_valida(pico.get("localizacao"))
+                if tem_coord_pico
                 else f"Adicionar localização{sufixo_p}"
             )
+            campo_malha = "malha_estrada" if tem_coord_pico else "localizacao"
             acoes_malha.append(
                 AcaoTarefaQualidade(
                     rotulo_malha,
-                    f"page:dados/node:root/node:Croqui/expando:picos/item:{p_idx}/campo:localizacao",
+                    f"page:dados/node:root/node:Croqui/expando:picos/item:{p_idx}/campo:{campo_malha}",
                 )
             )
     if not tem_picos:
@@ -851,12 +853,12 @@ def avaliar_nota_qualidade_croqui(
     tarefas_etapa1 = (
         t1_identidade,
         t1_localizacao,
+        t1_malha_estrada,
         t1_acesso,
         t1_mapa_geral,
         t1_setores_mapa,
         t1_escaladas_mapa,
         t1_grau,
-        t1_malha_estrada,
     )
 
     # =========================================================================

@@ -79,7 +79,16 @@ def test_croqui_vazio_retorna_nota_zero_e_nao_pronto_para_publicar() -> None:
     assert resultado.etapas[0].concluida is False
     assert resultado.etapas[0].tarefas[0].ganho_potencial == 1000
     ids_etapa1 = [t.id_tarefa for t in resultado.etapas[0].tarefas]
-    assert "etapa1_malha_estrada_picos" in ids_etapa1
+    assert ids_etapa1 == [
+        "etapa1_identidade_capa",
+        "etapa1_localizacao_picos",
+        "etapa1_malha_estrada_picos",
+        "etapa1_instrucoes_acesso",
+        "etapa1_mapa_geral",
+        "etapa1_setores_com_mapa",
+        "etapa1_escaladas_no_mapa",
+        "etapa1_grau_dificuldade",
+    ]
 
 
 def test_calculo_aditivo_entre_as_tres_etapas_por_ordens_de_grandeza() -> None:
@@ -506,7 +515,7 @@ Corpo do setor na Urca.
     assert tarefas_e1["etapa1_malha_estrada_picos"].acoes[0].rotulo == "Gerar mapa de pontos"
     assert (
         tarefas_e1["etapa1_malha_estrada_picos"].acoes[0].uri_contexto
-        == "page:dados/node:root/node:Croqui/expando:picos/item:0/campo:localizacao"
+        == "page:dados/node:root/node:Croqui/expando:picos/item:0/campo:malha_estrada"
     )
 
     tarefas_e2 = {t.id_tarefa: t for t in resultado.etapas[1].tarefas}
@@ -830,7 +839,7 @@ def test_malha_estrada_versao_antiga_concede_700_pontos_e_exibe_acao_atualizar()
     assert [(a.rotulo, a.uri_contexto) for a in t_malha.acoes] == [
         (
             "Atualizar mapa de pontos",
-            "page:dados/node:root/node:Croqui/expando:picos/item:0/campo:localizacao",
+            "page:dados/node:root/node:Croqui/expando:picos/item:0/campo:malha_estrada",
         )
     ]
 

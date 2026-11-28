@@ -24,12 +24,12 @@ CacheMd = dict[str, tuple[dict[str, Any] | None, str]]
 COLUNAS_TAREFAS_PAINEL: tuple[tuple[str, str], ...] = (
     ("etapa1_identidade_capa", "1.1 Identidade e Capa"),
     ("etapa1_localizacao_picos", "1.2 Localização e Maps"),
-    ("etapa1_instrucoes_acesso", "1.3 Instruções Acesso"),
-    ("etapa1_mapa_geral", "1.4 Mapa Geral"),
-    ("etapa1_setores_com_mapa", "1.5 Mapas Setores"),
-    ("etapa1_escaladas_no_mapa", "1.6 Escaladas no Mapa"),
-    ("etapa1_grau_dificuldade", "1.7 Grau Dificuldade"),
-    ("etapa1_malha_estrada_picos", "1.8 Malha Estrada"),
+    ("etapa1_malha_estrada_picos", "1.3 Malha Estrada"),
+    ("etapa1_instrucoes_acesso", "1.4 Instruções Acesso"),
+    ("etapa1_mapa_geral", "1.5 Mapa Geral"),
+    ("etapa1_setores_com_mapa", "1.6 Mapas Setores"),
+    ("etapa1_escaladas_no_mapa", "1.7 Escaladas no Mapa"),
+    ("etapa1_grau_dificuldade", "1.8 Grau Dificuldade"),
     ("etapa2_coordenadas_setores", "2.1 Coords Setores"),
     ("etapa2_trilhas_aproximacao", "2.2 Trilhas"),
     ("etapa2_extensao_protecoes_vias", "2.3 Extensão/Proteções"),
@@ -142,8 +142,10 @@ def extrair_dados_tabela_markdown(texto_markdown: str) -> list[dict[str, Any]]:
     """
     Extrai os dicionários de linhas a partir de uma tabela Markdown gerada anteriormente
     em STATUS_CROQUIS.md, permitindo atualização incremental em memória.
+    Retorna lista vazia se o cabeçalho não corresponder à ordem esperada das colunas.
     """
     linhas_dados: list[dict[str, Any]] = []
+    prefixos_esperados = ("Croqui", *CHAVES_COLUNAS_RELATORIO[1:])
     for linha in texto_markdown.replace("\r\n", "\n").splitlines():
         linha_limpa = linha.strip()
         if not linha_limpa.startswith("|") or not linha_limpa.endswith("|"):
@@ -151,7 +153,14 @@ def extrair_dados_tabela_markdown(texto_markdown: str) -> list[dict[str, Any]]:
         colunas = [c.strip() for c in linha_limpa.strip("|").split("|")]
         if len(colunas) != len(CHAVES_COLUNAS_RELATORIO):
             continue
-        if colunas[0] == "Croqui" or set(colunas[0]) <= {"-"}:
+        if colunas[0] == "Croqui":
+            if any(
+                not col.startswith(pref)
+                for col, pref in zip(colunas, prefixos_esperados, strict=True)
+            ):
+                return []
+            continue
+        if set(colunas[0]) <= {"-"}:
             continue
         linhas_dados.append(dict(zip(CHAVES_COLUNAS_RELATORIO, colunas, strict=True)))
     return linhas_dados
