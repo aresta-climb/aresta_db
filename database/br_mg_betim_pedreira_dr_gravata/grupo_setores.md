@@ -104,6 +104,7 @@ mapas:
 setores:
 - caminho: setor_vale_dos_ossos.md
 - caminho: setor_das_treze.md
+- caminho: setor_do_palanque.md
 localizacao_estacionamento:
   latitude: -199731200
   longitude: -442166520
