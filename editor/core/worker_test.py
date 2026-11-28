@@ -1253,6 +1253,69 @@ class TestWorker(unittest.TestCase):
         self.assertIn((50, ""), progressos)
         self.assertIn((-1, "Enviando arquivos..."), progressos)
 
+    def test_tarefa_inicializacao_pre_carrega_pacote_croqui_local_e_tarefa_carregamento(self):
+        """Valida pré-carregamento em background na TarefaInicializacao (modo CLI) e TarefaCarregamentoCroqui."""
+        from editor.core.cliente_auth_supabase_fake import ClienteAuthSupabaseFake
+        from editor.core.gerenciador_sessao_fake import GerenciadorSessaoFake
+        from editor.core.storage import GerenciadorCaminhos
+        from editor.core.worker import TarefaCarregamentoCroqui
+        from scripts.gerenciar_uids_lib import gerar_uid
+        from scripts.migrador import obter_ultima_versao_migracao
+
+        pasta_repo = Path(self.tmp_dir_obj.name) / "aresta_db"
+        pasta_croqui = pasta_repo / "database" / "br_mg_local"
+        pasta_croqui.mkdir(parents=True, exist_ok=True)
+        (pasta_croqui / "croqui.yaml").write_text(
+            f"id: br_mg_local\nuid: {gerar_uid()}\nnome: Local CLI\nultima_migracao: {obter_ultima_versao_migracao()}\n",
+            encoding="utf-8",
+        )
+
+        sessao = SessaoUsuario(
+            email="cli@arestaclimb.com",
+            nome_completo="Dev CLI",
+            jwt_supabase="jwt_cli",
+            token_atualizacao="ref_cli",
+        )
+        ger_sessao = GerenciadorSessaoFake(sessao_inicial=sessao)
+        cli_auth = ClienteAuthSupabaseFake()
+        cli_auth.usuarios_por_jwt["jwt_cli"] = {"email": sessao.email}
+        storage = GerenciadorCaminhos(diretorio_base=Path(self.tmp_dir_obj.name) / "dados_app")
+
+        tarefa_init = TarefaInicializacao(
+            storage=storage,
+            gerenciador_sessao=ger_sessao,
+            cliente_auth=cli_auth,
+            intervalo_espera_cofre=0.0,
+            sincronizar_git=False,
+            caminho_croqui_local=pasta_croqui,
+        )
+        mensagens_status: list[str] = []
+        tarefa_init.status.connect(mensagens_status.append)
+        tarefa_init.run()
+
+        self.assertIsNotNone(tarefa_init.pacote_croqui_inicial)
+        assert tarefa_init.pacote_croqui_inicial is not None
+        self.assertEqual(tarefa_init.pacote_croqui_inicial.croqui_data["nome"], "Local CLI")
+        self.assertTrue(any("Carregando dados do croqui" in m for m in mensagens_status))
+
+        # TarefaCarregamentoCroqui: sucesso e erro determinístico
+        pacotes: list[object] = []
+        tarefa_carga = TarefaCarregamentoCroqui(pasta_croqui, obter_commit_sha=lambda: "sha_teste")
+        tarefa_carga.sucesso.connect(pacotes.append)
+        tarefa_carga.run()
+        self.assertEqual(len(pacotes), 1)
+
+        erros_carga: list[str] = []
+
+        def _falhar_sha() -> str:
+            raise RuntimeError("Falha git determinística")
+
+        tarefa_erro = TarefaCarregamentoCroqui(pasta_croqui, obter_commit_sha=_falhar_sha)
+        tarefa_erro.erro.connect(erros_carga.append)
+        tarefa_erro.run()
+        self.assertEqual(len(erros_carga), 1)
+        self.assertIn("Falha git determinística", erros_carga[0])
+
 
 if __name__ == "__main__":
     unittest.main()

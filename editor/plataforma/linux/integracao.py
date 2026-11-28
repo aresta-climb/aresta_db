@@ -27,12 +27,23 @@ class AdaptadorLinux(AdaptadorPlataforma):
         # Suprime avisos e erros diagnósticos não-críticos de parse de keysyms (ex: dead_hamza) no libxkbcommon
         os.environ.setdefault("XKB_LOG_LEVEL", "critical")
 
-    def configurar_presenca_barra_de_tarefas(self, identificador_janela: int) -> bool:
+    def configurar_presenca_barra_de_tarefas(
+        self,
+        identificador_janela: int,
+        caminho_icone: Path | str | None = None,
+    ) -> bool:
         """No Linux, a barra de tarefas é gerida nativamente pelo compositor/WM."""
+        _ = (identificador_janela, caminho_icone)
         return True
 
-    def configurar_identidade_processo(self, identificador_app: str) -> bool:
+    def configurar_identidade_processo(
+        self,
+        identificador_app: str,
+        nome_exibicao: str = "",
+        caminho_icone: Path | str | None = None,
+    ) -> bool:
         """Configura o nome do arquivo desktop no QGuiApplication para o shell Linux."""
+        _ = (nome_exibicao, caminho_icone)
         try:
             from PySide6.QtGui import QGuiApplication
 
@@ -40,6 +51,15 @@ class AdaptadorLinux(AdaptadorPlataforma):
             return True
         except Exception:
             return False
+
+    def aplicar_icone_janela_nativa(
+        self,
+        identificador_janela: int,
+        caminho_icone: Path | str | None = None,
+    ) -> bool:
+        """No Linux, o ícone da janela é gerido pelo QIcon / arquivo .desktop."""
+        _ = (identificador_janela, caminho_icone)
+        return True
 
     def trazer_janela_para_frente(self, identificador_janela: int) -> bool:
         """Restaura e eleva a janela via APIs padrão do Qt."""

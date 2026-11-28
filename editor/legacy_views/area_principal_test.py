@@ -2939,3 +2939,129 @@ def test_janela_principal_ciclo_vida_trava_por_croqui_e_renomeacao(
 
     assert verificar_croqui_ja_aberto("croqui_trava_a_novo", timeout_ms=80) is False
     assert verificar_croqui_ja_aberto("croqui_trava_b", timeout_ms=80) is False
+
+
+def test_janela_principal_abas_lazy_pacote_precarregado_e_recuperacao_pos_show(
+    qtbot, tmp_path: Path
+) -> None:
+    """
+    Valida que:
+    1. Ao abrir com `pacote_croqui` pré-carregado, `PaginaDados` e `PaginaImagens` permanecem
+       não instanciadas até navegação/acesso sob demanda.
+    2. Com `adiar_recuperacao_sessao=True`, `DialogoRecuperacaoSessao` só é acionado em
+       `processar_recuperacao_sessao_pendente()` após `janela.show()`.
+    3. `salvar_croqui()` funciona mesmo sem nunca ter aberto `PaginaDados` nem `PaginaImagens`.
+    """
+    from PIL import Image
+
+    from editor.core.carregador_croqui import carregar_pacote_croqui
+    from editor.core.diario import GerenciadorDiario
+    from editor.core.workspace import ExperimentalWorkspace
+    from scripts.gerenciar_uids_lib import gerar_uid
+    from scripts.migrador import obter_ultima_versao_migracao
+
+    pasta_croqui = tmp_path / "croqui_lazy"
+    pasta_db = pasta_croqui / "database"
+    (pasta_db / "imagens").mkdir(parents=True)
+    Image.new("RGB", (32, 32), (20, 40, 60)).save(pasta_db / "imagens" / "foto.webp", "WEBP")
+    uid_raiz = gerar_uid()
+    (pasta_db / "croqui.yaml").write_text(
+        f"id: croqui_lazy\nuid: {uid_raiz}\nnome: Nome Base\ncaminho_thumbnail: imagens/foto.webp\nultima_migracao: {obter_ultima_versao_migracao()}\n",
+        encoding="utf-8",
+    )
+
+    diario = GerenciadorDiario(pasta_croqui)
+    diario.gravar_comando_pendente(
+        {
+            "classe": "CmdAlterarCampo",
+            "caminho_msg": "node:root",
+            "campo_nome": "nome",
+            "valor_antigo": "Nome Base",
+            "valor_novo": "Nome Pos Show",
+            "context_path": None,
+        }
+    )
+
+    pacote = carregar_pacote_croqui(pasta_db, obter_commit_sha=lambda: "sha_lazy")
+    assert pacote is not None
+
+    visivel_no_dialogo: list[bool] = []
+
+    class _JanelaTeste(JanelaPrincipal):
+        def _perguntar_recuperacao_sessao(self, total_acoes: int) -> bool:
+            _ = total_acoes
+            visivel_no_dialogo.append(self.isVisible())
+            return True
+
+    ws = ExperimentalWorkspace(pasta_croqui)
+    janela = _JanelaTeste(
+        workspace=ws,
+        pacote_croqui=pacote,
+        adiar_recuperacao_sessao=True,
+        iniciar_rede_mcp=False,
+        ativar_trava_croqui=False,
+    )
+    qtbot.addWidget(janela)
+
+    try:
+        # Antes do show(): diálogo de recuperação ainda não foi exibido e abas secundárias estão lazy
+        assert visivel_no_dialogo == []
+        assert janela.pagina_dados.tem_editor_instanciado() is False
+        assert janela.pagina_imagens.tem_editor_instanciado() is False
+        assert janela.pagina_painel.painel.total_atualizacoes_painel == 1
+
+        janela.show()
+        janela.processar_recuperacao_sessao_pendente()
+
+        assert visivel_no_dialogo == [True]
+        assert janela.croqui_model is not None
+        assert janela.croqui_model.obter_croqui_readonly().nome == "Nome Pos Show"
+
+        # Salvar sem abrir Dados nem Imagens mantém ambas lazy e salva o novo nome
+        with qtbot.waitSignal(janela.salvamento_finalizado, timeout=10000):
+            janela.salvar_croqui()
+        assert janela.pagina_dados.tem_editor_instanciado() is False
+        assert janela.pagina_imagens.tem_editor_instanciado() is False
+        assert "Nome Pos Show" in (pasta_db / "croqui.yaml").read_text(encoding="utf-8")
+
+        # Navegar para Dados (1) e Imagens (2) instancia cada editor sob demanda
+        janela._trocar_pagina(1)
+        assert janela.pagina_dados.tem_editor_instanciado() is True
+        janela._trocar_pagina(2)
+        assert janela.pagina_imagens.tem_editor_instanciado() is True
+        assert janela.pagina_imagens.editor.list_widget.count() == 1
+    finally:
+        janela._forcar_fechamento = True
+        janela.close()
+
+    # Caso complementar: usuário descarta recuperação pós-show
+    diario.gravar_comando_pendente(
+        {
+            "classe": "CmdAlterarCampo",
+            "caminho_msg": "node:root",
+            "campo_nome": "nome",
+            "valor_antigo": "Nome Pos Show",
+            "valor_novo": "Descartado",
+            "context_path": None,
+        }
+    )
+
+    class _JanelaRecusa(JanelaPrincipal):
+        def _perguntar_recuperacao_sessao(self, total_acoes: int) -> bool:
+            _ = total_acoes
+            return False
+
+    janela_recusa = _JanelaRecusa(
+        workspace=ExperimentalWorkspace(pasta_croqui),
+        adiar_recuperacao_sessao=True,
+        iniciar_rede_mcp=False,
+        ativar_trava_croqui=False,
+    )
+    qtbot.addWidget(janela_recusa)
+    try:
+        janela_recusa.show()
+        janela_recusa.processar_recuperacao_sessao_pendente()
+        assert diario.tem_alteracoes_pendentes() is False
+    finally:
+        janela_recusa._forcar_fechamento = True
+        janela_recusa.close()

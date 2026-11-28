@@ -23,6 +23,9 @@ class AdaptadorPlataformaFake:
             or ResultadoAtualizacao(status=StatusAtualizacao.NAO_APLICAVEL)
         )
         self.instalacoes_solicitadas: list[ResultadoAtualizacao | None] = []
+        self.identidades_configuradas: list[tuple[str, str, str]] = []
+        self.janelas_barra_tarefas: list[tuple[int, str]] = []
+        self.icones_aplicados: list[tuple[int, str]] = []
 
     def configurar_resultado_atualizacao(self, resultado: ResultadoAtualizacao) -> None:
         """Define o resultado retornado por verificar_atualizacoes_disponiveis."""
@@ -32,12 +35,35 @@ class AdaptadorPlataformaFake:
         """Operação sem efeito em ambiente de teste."""
         return None
 
-    def configurar_presenca_barra_de_tarefas(self, identificador_janela: int) -> bool:
-        _ = identificador_janela
+    def configurar_presenca_barra_de_tarefas(
+        self,
+        identificador_janela: int,
+        caminho_icone: Path | str | None = None,
+    ) -> bool:
+        self.janelas_barra_tarefas.append(
+            (identificador_janela, str(caminho_icone) if caminho_icone else "")
+        )
         return True
 
-    def configurar_identidade_processo(self, identificador_app: str) -> bool:
-        _ = identificador_app
+    def configurar_identidade_processo(
+        self,
+        identificador_app: str,
+        nome_exibicao: str = "",
+        caminho_icone: Path | str | None = None,
+    ) -> bool:
+        self.identidades_configuradas.append(
+            (identificador_app, nome_exibicao, str(caminho_icone) if caminho_icone else "")
+        )
+        return True
+
+    def aplicar_icone_janela_nativa(
+        self,
+        identificador_janela: int,
+        caminho_icone: Path | str | None = None,
+    ) -> bool:
+        self.icones_aplicados.append(
+            (identificador_janela, str(caminho_icone) if caminho_icone else "")
+        )
         return True
 
     def trazer_janela_para_frente(self, identificador_janela: int) -> bool:

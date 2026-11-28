@@ -24,12 +24,23 @@ class AdaptadorMacOS(AdaptadorPlataforma):
         """Configura variáveis de ambiente do subsistema gráfico antes da inicialização do Qt."""
         pass
 
-    def configurar_presenca_barra_de_tarefas(self, identificador_janela: int) -> bool:
+    def configurar_presenca_barra_de_tarefas(
+        self,
+        identificador_janela: int,
+        caminho_icone: Path | str | None = None,
+    ) -> bool:
         """No macOS, a presença na Dock e alternador é gerenciada nativamente pelo sistema operacional."""
+        _ = (identificador_janela, caminho_icone)
         return True
 
-    def configurar_identidade_processo(self, identificador_app: str) -> bool:
+    def configurar_identidade_processo(
+        self,
+        identificador_app: str,
+        nome_exibicao: str = "",
+        caminho_icone: Path | str | None = None,
+    ) -> bool:
         """Configura a identidade de aplicação no shell do sistema operacional."""
+        _ = (nome_exibicao, caminho_icone)
         try:
             from PySide6.QtGui import QGuiApplication
 
@@ -37,6 +48,15 @@ class AdaptadorMacOS(AdaptadorPlataforma):
             return True
         except Exception:
             return False
+
+    def aplicar_icone_janela_nativa(
+        self,
+        identificador_janela: int,
+        caminho_icone: Path | str | None = None,
+    ) -> bool:
+        """No macOS, o ícone na Dock e janelas é gerido pelo bundle / QIcon."""
+        _ = (identificador_janela, caminho_icone)
+        return True
 
     def trazer_janela_para_frente(self, identificador_janela: int) -> bool:
         """Restaura e eleva a janela via APIs padrão do Qt."""

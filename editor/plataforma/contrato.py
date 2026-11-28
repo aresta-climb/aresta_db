@@ -53,12 +53,29 @@ class AdaptadorPlataforma(Protocol):
         """Configura variáveis de ambiente do subsistema gráfico antes da inicialização do Qt."""
         ...
 
-    def configurar_presenca_barra_de_tarefas(self, identificador_janela: int) -> bool:
-        """Garante que a janela sem moldura possua presença na barra de tarefas e alternador."""
+    def configurar_presenca_barra_de_tarefas(
+        self,
+        identificador_janela: int,
+        caminho_icone: Path | str | None = None,
+    ) -> bool:
+        """Garante que a janela sem moldura possua presença e ícone na barra de tarefas e alternador."""
         ...
 
-    def configurar_identidade_processo(self, identificador_app: str) -> bool:
-        """Configura o identificador explícito de aplicação para o shell do sistema operacional."""
+    def configurar_identidade_processo(
+        self,
+        identificador_app: str,
+        nome_exibicao: str = "",
+        caminho_icone: Path | str | None = None,
+    ) -> bool:
+        """Configura o identificador explícito de aplicação e metadados visuais no shell do SO."""
+        ...
+
+    def aplicar_icone_janela_nativa(
+        self,
+        identificador_janela: int,
+        caminho_icone: Path | str | None = None,
+    ) -> bool:
+        """Reforça o ícone nativo na janela de nível superior quando exigido pelo sistema operacional."""
         ...
 
     def trazer_janela_para_frente(self, identificador_janela: int) -> bool:

@@ -62,6 +62,17 @@ class CroquiModel(QObject):
 
         self._indice_uids: Any = IndiceUidsModel(self.__croqui, parent=self)
 
+    @classmethod
+    def criar_de_pacote_carregado(cls, pacote: Any, parent: Any = None) -> "CroquiModel":
+        """
+        Instancia um `CroquiModel` na thread principal do Qt reutilizando a árvore Protobuf
+        e o cache JSON já hidratados em background (`PacoteCroquiCarregado`), sem I/O de disco.
+        """
+        instancia = cls(pacote.croqui_msg, parent=parent)
+        instancia.definir_caminho_db(pacote.caminho_db)
+        instancia._cache_json_original.update(pacote.cache_json_original)
+        return instancia
+
     def _obter_dict_json_original(self, json_str: str) -> dict[str, Any]:
         d_original = self._cache_json_original.get(json_str)
         if d_original is None:
@@ -360,295 +371,20 @@ class CroquiModel(QObject):
         if not caminho_db:
             return
 
-        self._caminho_db_atual = caminho_db
-        from google.protobuf import json_format
+        from pathlib import Path
 
-        from editor.core.serializacao_util import carregar_yaml
+        from editor.core.carregador_croqui import hidratar_arquivos_externos_protobuf
 
-        croqui_msg = self.__croqui
-
-        if not caminho_db.exists():
+        caminho_db_path = Path(caminho_db)
+        self._caminho_db_atual = caminho_db_path
+        if not caminho_db_path.exists():
             return
 
-        import re
-
-        _padrao_frontmatter = re.compile(
-            r"^---([ \t]*\r?\n(?:.*?\r?\n)?)---([ \t]*(?:\r?\n.*)?)$",
-            re.DOTALL,
+        hidratar_arquivos_externos_protobuf(
+            self.__croqui,
+            caminho_db_path,
+            self._cache_json_original,
         )
-
-        def _ler_objeto_com_frontmatter(
-            caminho_arquivo: Any, message_ref: Any, ext_descriptor: Any
-        ) -> dict[str, Any]:
-            with open(caminho_arquivo, encoding="utf-8") as f:
-                content = f.read()
-            match_fm = _padrao_frontmatter.match(content)
-            if match_fm:
-                frontmatter_str = match_fm.group(1)
-                body_str = match_fm.group(2)
-                if body_str.startswith("\r\n"):
-                    body_str = body_str[2:]
-                elif body_str.startswith("\n"):
-                    body_str = body_str[1:]
-
-                try:
-                    dados = carregar_yaml(frontmatter_str) or {}
-                except Exception:
-                    dados = {}
-                # Configura a extensão se não existir e salva os metadados
-                if not message_ref.HasExtension(ext_descriptor):
-                    message_ref.Extensions[ext_descriptor].caminho_original = ""
-
-                import copy
-                import json
-
-                from scripts.deploy_generated import registrar_snapshot_disco_arquivo
-
-                json_str = json.dumps(dados, ensure_ascii=False)
-                message_ref.Extensions[ext_descriptor].dados_json_originais = json_str
-                if isinstance(dados, dict):
-                    self._cache_json_original[json_str] = copy.deepcopy(dados)
-                    registrar_snapshot_disco_arquivo(caminho_arquivo, dados, body_str)
-
-                if body_str:
-                    dados["descricao"] = body_str
-                return dados if isinstance(dados, dict) else {}
-            try:
-                carregado = carregar_yaml(content) or {}
-                return carregado if isinstance(carregado, dict) else {}
-            except Exception:
-                return {}
-
-        def _carregar_arquivo_setor(arq_setor: Any) -> None:
-            if arq_setor.WhichOneof("arquivo") == "caminho" and arq_setor.caminho:
-                nome_relativo = arq_setor.caminho
-                caminho_arquivo = caminho_db / nome_relativo
-                if caminho_arquivo.exists():
-                    try:
-                        from aresta_api.proto.generated.croqui_pb2 import ArquivoSetor
-
-                        dados_setor = _ler_objeto_com_frontmatter(
-                            caminho_arquivo, arq_setor, ArquivoSetor.ext_metadados_arquivo
-                        )
-                        if dados_setor:
-                            json_format.ParseDict(
-                                dados_setor, arq_setor.conteudo, ignore_unknown_fields=True
-                            )
-                            arq_setor.Extensions[
-                                ArquivoSetor.ext_metadados_arquivo
-                            ].caminho_original = nome_relativo
-                            arq_setor.Extensions[
-                                ArquivoSetor.ext_metadados_arquivo
-                            ].caminho_novo = nome_relativo
-                            arq_setor.ClearField("caminho")
-                        else:
-                            if arq_setor.HasExtension(ArquivoSetor.ext_metadados_arquivo):
-                                arq_setor.ClearExtension(ArquivoSetor.ext_metadados_arquivo)
-                    except Exception as e:
-                        from aresta_api.proto.generated.croqui_pb2 import ArquivoSetor
-
-                        if arq_setor.HasExtension(ArquivoSetor.ext_metadados_arquivo):
-                            arq_setor.ClearExtension(ArquivoSetor.ext_metadados_arquivo)
-                        print(f"Erro ao carregar setor externo {arq_setor.caminho}: {e}")
-
-        def _carregar_arquivo_grupo(arq_grupo: Any) -> None:
-            if arq_grupo.WhichOneof("arquivo") == "caminho" and arq_grupo.caminho:
-                nome_relativo = arq_grupo.caminho
-                caminho_arquivo = caminho_db / nome_relativo
-                if caminho_arquivo.exists():
-                    try:
-                        from aresta_api.proto.generated.croqui_pb2 import ArquivoGrupo
-
-                        dados_grupo = _ler_objeto_com_frontmatter(
-                            caminho_arquivo, arq_grupo, ArquivoGrupo.ext_metadados_arquivo
-                        )
-                        if dados_grupo:
-                            json_format.ParseDict(
-                                dados_grupo, arq_grupo.conteudo, ignore_unknown_fields=True
-                            )
-                            arq_grupo.Extensions[
-                                ArquivoGrupo.ext_metadados_arquivo
-                            ].caminho_original = nome_relativo
-                            arq_grupo.Extensions[
-                                ArquivoGrupo.ext_metadados_arquivo
-                            ].caminho_novo = nome_relativo
-                            arq_grupo.ClearField("caminho")
-                            for s in arq_grupo.conteudo.setores:
-                                _carregar_arquivo_setor(s)
-                        else:
-                            if arq_grupo.HasExtension(ArquivoGrupo.ext_metadados_arquivo):
-                                arq_grupo.ClearExtension(ArquivoGrupo.ext_metadados_arquivo)
-                    except Exception as e:
-                        from aresta_api.proto.generated.croqui_pb2 import ArquivoGrupo
-
-                        if arq_grupo.HasExtension(ArquivoGrupo.ext_metadados_arquivo):
-                            arq_grupo.ClearExtension(ArquivoGrupo.ext_metadados_arquivo)
-                        print(f"Erro ao carregar grupo externo {arq_grupo.caminho}: {e}")
-
-        def _carregar_arquivo_mapas(arq_mapas: Any) -> None:
-            if arq_mapas.WhichOneof("arquivo") == "caminho" and arq_mapas.caminho:
-                nome_relativo = arq_mapas.caminho
-                caminho_arquivo = caminho_db / nome_relativo
-                if caminho_arquivo.exists():
-                    try:
-                        from aresta_api.proto.generated.croqui_pb2 import ArquivoMapas
-
-                        dados_mapas = _ler_objeto_com_frontmatter(
-                            caminho_arquivo, arq_mapas, ArquivoMapas.ext_metadados_arquivo
-                        )
-                        if dados_mapas:
-                            json_format.ParseDict(
-                                dados_mapas, arq_mapas.conteudo, ignore_unknown_fields=True
-                            )
-                            arq_mapas.Extensions[
-                                ArquivoMapas.ext_metadados_arquivo
-                            ].caminho_original = nome_relativo
-                            arq_mapas.Extensions[
-                                ArquivoMapas.ext_metadados_arquivo
-                            ].caminho_novo = nome_relativo
-                            arq_mapas.ClearField("caminho")
-                        else:
-                            if arq_mapas.HasExtension(ArquivoMapas.ext_metadados_arquivo):
-                                arq_mapas.ClearExtension(ArquivoMapas.ext_metadados_arquivo)
-                    except Exception as e:
-                        from aresta_api.proto.generated.croqui_pb2 import ArquivoMapas
-
-                        if arq_mapas.HasExtension(ArquivoMapas.ext_metadados_arquivo):
-                            arq_mapas.ClearExtension(ArquivoMapas.ext_metadados_arquivo)
-                        print(f"Erro ao carregar mapas externos {arq_mapas.caminho}: {e}")
-
-        # 1. Carrega Botões (Markdown)
-        for botao in croqui_msg.botoes:
-            if botao.HasField("destino") and botao.destino.WhichOneof("destino") == "secao_textual":
-                md = botao.destino.secao_textual
-                if md.WhichOneof("arquivo") == "caminho" and md.caminho:
-                    nome_relativo = md.caminho
-                    caminho_arquivo = caminho_db / nome_relativo
-                    if caminho_arquivo.exists():
-                        try:
-                            with open(caminho_arquivo, encoding="utf-8") as f:
-                                conteudo_md = f.read()
-
-                            frontmatter_bloco = ""
-                            corpo_md = conteudo_md
-                            match_md = _padrao_frontmatter.match(conteudo_md)
-                            if match_md:
-                                frontmatter_bloco = f"---{match_md.group(1)}---\n"
-                                corpo_md = match_md.group(2)
-                                if corpo_md.startswith("\r\n"):
-                                    corpo_md = corpo_md[2:]
-                                elif corpo_md.startswith("\n"):
-                                    corpo_md = corpo_md[1:]
-
-                            md.conteudo = corpo_md
-                            from aresta_api.proto.generated.croqui_pb2 import ArquivoMarkdown
-
-                            md.Extensions[
-                                ArquivoMarkdown.ext_metadados_arquivo
-                            ].caminho_original = nome_relativo
-                            md.Extensions[
-                                ArquivoMarkdown.ext_metadados_arquivo
-                            ].caminho_novo = nome_relativo
-                            if frontmatter_bloco:
-                                md.Extensions[
-                                    ArquivoMarkdown.ext_metadados_arquivo
-                                ].dados_json_originais = frontmatter_bloco
-                            md.ClearField("caminho")
-                        except Exception as e:
-                            from aresta_api.proto.generated.croqui_pb2 import ArquivoMarkdown
-
-                            if md.HasExtension(ArquivoMarkdown.ext_metadados_arquivo):
-                                md.ClearExtension(ArquivoMarkdown.ext_metadados_arquivo)
-                            print(f"Erro ao carregar markdown externo {nome_relativo}: {e}")
-
-        def _carregar_arquivo_malha_estrada(arq_malha: Any) -> None:
-            if arq_malha.WhichOneof("arquivo") == "caminho" and arq_malha.caminho:
-                nome_relativo = arq_malha.caminho
-                caminho_arquivo = caminho_db / nome_relativo
-                if caminho_arquivo.exists():
-                    try:
-                        from aresta_api.proto.generated.croqui_pb2 import ArquivoMalhaEstrada
-
-                        dados_malha = _ler_objeto_com_frontmatter(
-                            caminho_arquivo, arq_malha, ArquivoMalhaEstrada.ext_metadados_arquivo
-                        )
-                        if dados_malha:
-                            json_format.ParseDict(
-                                dados_malha, arq_malha.conteudo, ignore_unknown_fields=True
-                            )
-                            arq_malha.Extensions[
-                                ArquivoMalhaEstrada.ext_metadados_arquivo
-                            ].caminho_original = nome_relativo
-                            arq_malha.Extensions[
-                                ArquivoMalhaEstrada.ext_metadados_arquivo
-                            ].caminho_novo = nome_relativo
-                            arq_malha.ClearField("caminho")
-                        else:
-                            if arq_malha.HasExtension(ArquivoMalhaEstrada.ext_metadados_arquivo):
-                                arq_malha.ClearExtension(ArquivoMalhaEstrada.ext_metadados_arquivo)
-                    except Exception as e:
-                        from aresta_api.proto.generated.croqui_pb2 import ArquivoMalhaEstrada
-
-                        if arq_malha.HasExtension(ArquivoMalhaEstrada.ext_metadados_arquivo):
-                            arq_malha.ClearExtension(ArquivoMalhaEstrada.ext_metadados_arquivo)
-                        print(f"Erro ao carregar malha de estrada {arq_malha.caminho}: {e}")
-
-        # 2. Carrega Picos -> Setores e Grupos
-        for pico in croqui_msg.picos:
-            if pico.HasField("mapas_gerais"):
-                _carregar_arquivo_mapas(pico.mapas_gerais)
-            if pico.HasField("malha_estrada"):
-                _carregar_arquivo_malha_estrada(pico.malha_estrada)
-            for sg in pico.setores_ou_grupos:
-                if sg.HasField("setor"):
-                    _carregar_arquivo_setor(sg.setor)
-                elif sg.HasField("grupo"):
-                    _carregar_arquivo_grupo(sg.grupo)
-
-        # 3. Carrega Curadoria de Betas (curadoria_betas.yaml ou curadoria_betas.md legado)
-        if croqui_msg.HasField("curadoria_betas"):
-            arq_cur = croqui_msg.curadoria_betas
-            if arq_cur.WhichOneof("arquivo") == "caminho" and arq_cur.caminho:
-                nome_relativo = arq_cur.caminho
-                caminho_arquivo = caminho_db / nome_relativo
-                if not caminho_arquivo.exists() and nome_relativo.endswith(".md"):
-                    alt_yaml = f"{nome_relativo[:-3]}.yaml"
-                    if (caminho_db / alt_yaml).exists():
-                        nome_relativo = alt_yaml
-                        caminho_arquivo = caminho_db / alt_yaml
-                if caminho_arquivo.exists():
-                    try:
-                        from aresta_api.proto.generated.croqui_pb2 import ArquivoCuradoriaBetas
-
-                        dados_cur = _ler_objeto_com_frontmatter(
-                            caminho_arquivo, arq_cur, ArquivoCuradoriaBetas.ext_metadados_arquivo
-                        )
-                        if dados_cur:
-                            dados_cur.pop("uid", None)
-                            dados_cur.pop("id", None)
-                            for item_esc_cur in dados_cur.get("escaladas", []):
-                                if isinstance(item_esc_cur, dict):
-                                    item_esc_cur.pop("uid", None)
-                                    item_esc_cur.pop("id", None)
-                            json_format.ParseDict(
-                                dados_cur, arq_cur.conteudo, ignore_unknown_fields=True
-                            )
-                            arq_cur.Extensions[
-                                ArquivoCuradoriaBetas.ext_metadados_arquivo
-                            ].caminho_original = nome_relativo
-                            arq_cur.Extensions[
-                                ArquivoCuradoriaBetas.ext_metadados_arquivo
-                            ].caminho_novo = "curadoria_betas.yaml"
-                            arq_cur.ClearField("caminho")
-                        else:
-                            if arq_cur.HasExtension(ArquivoCuradoriaBetas.ext_metadados_arquivo):
-                                arq_cur.ClearExtension(ArquivoCuradoriaBetas.ext_metadados_arquivo)
-                    except Exception as e:
-                        from aresta_api.proto.generated.croqui_pb2 import ArquivoCuradoriaBetas
-
-                        if arq_cur.HasExtension(ArquivoCuradoriaBetas.ext_metadados_arquivo):
-                            arq_cur.ClearExtension(ArquivoCuradoriaBetas.ext_metadados_arquivo)
-                        print(f"Erro ao carregar curadoria de betas {arq_cur.caminho}: {e}")
 
         if hasattr(self, "_indice_uids") and self._indice_uids is not None:
             self._indice_uids.carregar_do_croqui(self.__croqui)

@@ -79,11 +79,7 @@ def __getattr__(name: str) -> Any:
     raise AttributeError(f"module '{__name__}' has no attribute '{name}'")
 
 
-# Configuração de identidade do processo no shell da plataforma (preservando MSIX no Windows)
 from editor.core.configuracao_canal import obter_configuracao_canal
-
-config_canal_global = obter_configuracao_canal()
-configurar_identidade_processo(config_canal_global.app_user_model_id)
 
 # Placeholder para o Client ID do GitHub (deve ser substituído por um real em produção)
 ID_CLIENTE_GITHUB: str = "Iv23li5kcnSYgMgEfvAC"
@@ -177,6 +173,7 @@ class ControladorAplicativo:
             if self._caminho_croqui_local is not None:
                 kwargs_tarefa["sincronizar_git"] = False
                 kwargs_tarefa["intervalo_espera_cofre"] = 0.0
+                kwargs_tarefa["caminho_croqui_local"] = self._caminho_croqui_local
             self.tarefa = (
                 tarefa_cls(ID_CLIENTE_GITHUB, **kwargs_tarefa)
                 if kwargs_tarefa
@@ -240,16 +237,14 @@ class ControladorAplicativo:
         # para evitar que o fechamento da abertura/janela anterior ou do diálogo encerre o app.exec()
         self.app.setQuitOnLastWindowClosed(False)
 
-        # Garante que a tela de abertura e a janela principal estejam fechadas
-        if self.abertura:
-            self.abertura.close()
-
         if self.janela_principal:
             self.janela_principal._forcar_fechamento = True
             self.janela_principal.close()
             self.janela_principal = None
 
         if not self.tarefa:
+            if self.abertura:
+                self.abertura.close()
             self.app.setQuitOnLastWindowClosed(True)
             return
 
@@ -257,6 +252,9 @@ class ControladorAplicativo:
             if self._caminho_croqui_local is not None:
                 self.mostrar_janela_principal()
                 return
+
+            if self.abertura:
+                self.abertura.close()
 
             if self._gerenciar_trava_selecao and getattr(self.app, "servidor_local", None) is None:
                 from editor.core.instancia_unica import iniciar_trava_selecao
@@ -314,20 +312,33 @@ class ControladorAplicativo:
             self.janela_principal = None
 
         try:
+            from editor.core.carregador_croqui import PacoteCroquiCarregado
             from editor.core.workspace import ExperimentalWorkspace, LocalRepoWorkspace
             from editor.legacy_views.area_principal import JanelaPrincipal
 
             if self._caminho_croqui_local is not None and self.tarefa:
                 workspace: Any = LocalRepoWorkspace(self._caminho_croqui_local)
+                cand_pacote = getattr(self.tarefa, "pacote_croqui_inicial", None)
+                pacote_inicial = (
+                    cand_pacote if isinstance(cand_pacote, PacoteCroquiCarregado) else None
+                )
+                setattr(self.tarefa, "pacote_croqui_inicial", None)
             else:
                 if (
                     not self.tela_carregamento
                     or not self.tela_carregamento.caminho_croqui_selecionado
                     or not self.tarefa
                 ):
+                    if self.abertura:
+                        self.abertura.close()
                     self.app.setQuitOnLastWindowClosed(True)
                     return
                 workspace = ExperimentalWorkspace(self.tela_carregamento.caminho_croqui_selecionado)
+                cand_pacote = getattr(self.tela_carregamento, "pacote_croqui_selecionado", None)
+                pacote_inicial = (
+                    cand_pacote if isinstance(cand_pacote, PacoteCroquiCarregado) else None
+                )
+                setattr(self.tela_carregamento, "pacote_croqui_selecionado", None)
 
             self._liberar_servidor_local_app()
             self.janela_principal = JanelaPrincipal(
@@ -342,6 +353,8 @@ class ControladorAplicativo:
                 fabrica_servidor_celular=self._fabrica_servidor_celular,
                 servico_loja=self._servico_loja,
                 ativar_trava_croqui=self._ativar_trava_croqui,
+                pacote_croqui=pacote_inicial,
+                adiar_recuperacao_sessao=True,
             )
             if getattr(self.janela_principal, "servidor_mcp", None) is not None:
                 self.servidor_mcp = self.janela_principal.servidor_mcp
@@ -349,6 +362,9 @@ class ControladorAplicativo:
             # Conecta o sinal para permitir voltar para a seleção
             self.janela_principal.solicitar_abrir_novo.connect(self.executar_selecao)
             self.janela_principal.show()
+            if self.abertura:
+                self.abertura.close()
+            self.janela_principal.processar_recuperacao_sessao_pendente()
             self.app.setQuitOnLastWindowClosed(True)
         except Exception as erro:
             self._tratar_falha_fatal_transicao(erro, etapa="mostrar_janela_principal")
@@ -671,20 +687,25 @@ def main(
     argumentos_posicionais = [arg for arg in args_brutos if arg != "--smoke-test"]
 
     # Inicializa telemetria Sentry com sanitização universal de dados
+    from editor.core.configuracao_canal import obter_configuracao_canal
     from editor.core.telemetria import inicializar_telemetria
 
     inicializar_telemetria()
 
+    config_canal = obter_configuracao_canal()
+    caminho_icone_app = config_canal.obter_caminho_icone_aplicacao()
+    configurar_identidade_processo(
+        config_canal.app_user_model_id,
+        nome_exibicao=config_canal.nome_aplicativo,
+        caminho_icone=caminho_icone_app,
+    )
+
     # Garante a instância global do QApplication
     inst = QApplication.instance()
     app: QApplication = inst if isinstance(inst, QApplication) else QApplication(sys.argv)
-    from editor.core.configuracao_canal import obter_configuracao_canal
-
-    config_canal = obter_configuracao_canal()
     app.setApplicationName(config_canal.nome_aplicativo)
     sys.modules[__name__].configurar_tema_claro_aplicacao(app)
 
-    caminho_icone_app = config_canal.obter_caminho_icone_aplicacao()
     app.setWindowIcon(QIcon(str(caminho_icone_app)))
     app.processEvents()
 

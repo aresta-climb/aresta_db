@@ -2,333 +2,266 @@
 # Copyright (C) 2026 Aresta Climb Contributors
 
 """
-Testes unitários para a integração nativa com o Windows em editor.plataforma.windows.integracao.
+Testes orientados a comportamento e de integração para `editor.plataforma.windows.integracao`,
+utilizando Fakes determinísticos (`api_win32_fake`) e validação real no Windows sem mocks.
 """
 
-import ctypes
+from __future__ import annotations
+
 import os
 import sys
 from pathlib import Path
-from unittest.mock import MagicMock, patch
 
-if not hasattr(ctypes, "windll"):
-    ctypes.windll = MagicMock()
-
+from editor.core.configuracao_canal import obter_configuracao_canal
 from editor.plataforma.contrato import ResultadoAtualizacao, StatusAtualizacao
+from editor.plataforma.windows.api_win32_fake import (
+    ApiWin32Fake,
+    ProvedorKeyringWindowsFake,
+    ServicoLojaWindowsFake,
+)
 from editor.plataforma.windows.integracao import (
     ESTILO_ESTENDIDO_APPWINDOW,
     ESTILO_MENU_SISTEMA,
+    INDICE_ESTILO_ESTENDIDO,
+    INDICE_ESTILO_PADRAO,
     AdaptadorWindows,
+    _ApiWin32Sistema,
     _esta_executando_em_pacote_msix,
+    _ProvedorKeyringWindowsSistema,
+    aplicar_icone_janela_nativa,
     configurar_identidade_processo_windows,
     configurar_presenca_barra_de_tarefas,
     trazer_janela_para_frente,
 )
 
 
-def test_configurar_presenca_barra_de_tarefas_no_op_fora_do_windows() -> None:
-    """Garante que em plataformas não-Windows opere como no-op seguro retornando True."""
-    with patch("sys.platform", "linux"):
-        assert configurar_presenca_barra_de_tarefas(12345) is True
+def test_presenca_barra_de_tarefas_estilos_moldura_icone_e_nao_windows(tmp_path: Path) -> None:
+    icone = tmp_path / "logo.ico"
+    icone.write_bytes(b"ico")
 
+    fake_linux = ApiWin32Fake(eh_windows=False)
+    assert configurar_presenca_barra_de_tarefas(123, caminho_icone=icone, api_win32=fake_linux)
 
-def test_configurar_presenca_barra_de_tarefas_sucesso_com_mocks() -> None:
-    """Garante que os estilos WS_EX_APPWINDOW e WS_SYSMENU sejam aplicados no Windows via ctypes."""
-    mock_user32 = MagicMock()
-    mock_user32.GetWindowLongW.side_effect = lambda hwnd, indice: 0x0
-
-    with patch("sys.platform", "win32"):
-        with patch("editor.plataforma.windows.integracao._obter_user32", return_value=mock_user32):
-            resultado = configurar_presenca_barra_de_tarefas(99999)
-            assert resultado is True
-            mock_user32.SetWindowLongW.assert_any_call(99999, -20, ESTILO_ESTENDIDO_APPWINDOW)
-            mock_user32.SetWindowLongW.assert_any_call(99999, -16, ESTILO_MENU_SISTEMA)
-
-
-def test_configurar_presenca_barra_de_tarefas_preserva_estilos_existentes() -> None:
-    """Garante que bits de estilo pré-existentes sejam preservados usando bitwise OR."""
-    mock_user32 = MagicMock()
-    ex_existente = 0x00080000
-    estilo_existente = 0x10000000
-
-    def mock_get_long(hwnd: int, indice: int) -> int:
-        if indice == -20:
-            return ex_existente
-        return estilo_existente
-
-    mock_user32.GetWindowLongW.side_effect = mock_get_long
-
-    with patch("sys.platform", "win32"):
-        with patch("editor.plataforma.windows.integracao._obter_user32", return_value=mock_user32):
-            resultado = configurar_presenca_barra_de_tarefas(123)
-            assert resultado is True
-            mock_user32.SetWindowLongW.assert_any_call(
-                123, -20, ex_existente | ESTILO_ESTENDIDO_APPWINDOW
-            )
-            mock_user32.SetWindowLongW.assert_any_call(
-                123, -16, estilo_existente | ESTILO_MENU_SISTEMA
-            )
-
-
-def test_configurar_presenca_barra_de_tarefas_trata_excecao() -> None:
-    """Garante resiliência caso ocorra erro inesperado nas chamadas da API do Windows."""
-    mock_user32 = MagicMock()
-    mock_user32.GetWindowLongW.side_effect = RuntimeError("Falha de acesso Win32")
-
-    with patch("sys.platform", "win32"):
-        with patch("editor.plataforma.windows.integracao._obter_user32", return_value=mock_user32):
-            assert configurar_presenca_barra_de_tarefas(123) is False
-
-
-def test_configurar_identidade_processo_windows_fora_do_windows() -> None:
-    """Garante que em plataformas não-Windows opere como no-op retornando True."""
-    with patch("sys.platform", "linux"):
-        assert configurar_identidade_processo_windows("aresta.editor.v1") is True
-
-
-def test_configurar_identidade_processo_windows_em_pacote_msix() -> None:
-    """Garante que não sobrescreva o AppUserModelID se já estiver executando dentro de pacote MSIX."""
-    with patch("sys.platform", "win32"):
-        with patch(
-            "editor.plataforma.windows.integracao._esta_executando_em_pacote_msix",
-            return_value=True,
-        ):
-            with patch("ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID") as mock_set:
-                assert configurar_identidade_processo_windows("aresta.editor.v1") is True
-                mock_set.assert_not_called()
-
-
-def test_configurar_identidade_processo_windows_standalone_ou_python() -> None:
-    """Garante que defina o AppUserModelID quando executando fora de pacote MSIX."""
-    with patch("sys.platform", "win32"):
-        with patch(
-            "editor.plataforma.windows.integracao._esta_executando_em_pacote_msix",
-            return_value=False,
-        ):
-            with patch(
-                "ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID", return_value=0
-            ) as mock_set:
-                assert configurar_identidade_processo_windows("aresta.editor.v1") is True
-                mock_set.assert_called_once_with("aresta.editor.v1")
-
-
-def test_configurar_identidade_processo_windows_trata_excecao() -> None:
-    """Garante que falhas na API do Windows sejam tratadas e retornem False."""
-    with patch("sys.platform", "win32"):
-        with patch(
-            "editor.plataforma.windows.integracao._esta_executando_em_pacote_msix",
-            side_effect=RuntimeError("Falha DLL"),
-        ):
-            assert configurar_identidade_processo_windows("aresta.editor.v1") is False
-
-
-def test_esta_executando_em_pacote_msix_fora_do_windows() -> None:
-    """Garante que a detecção de pacote MSIX retorne False fora do Windows."""
-    with patch("sys.platform", "linux"):
-        assert _esta_executando_em_pacote_msix() is False
-
-
-def test_esta_executando_em_pacote_msix_trata_excecao() -> None:
-    """Garante que falha em chamada ctypes no Windows retorne False com resiliência."""
-    with patch("sys.platform", "win32"):
-        with patch(
-            "ctypes.windll.kernel32.GetCurrentPackageFamilyName",
-            side_effect=RuntimeError("Falha DLL"),
-        ):
-            assert _esta_executando_em_pacote_msix() is False
-
-
-def test_trazer_janela_para_frente_no_op_fora_do_windows() -> None:
-    """Garante que fora do Windows seja um no-op seguro retornando True."""
-    with patch("sys.platform", "linux"):
-        assert trazer_janela_para_frente(12345) is True
-
-
-def test_trazer_janela_para_frente_sucesso_com_mocks() -> None:
-    """Garante que ShowWindow e SetForegroundWindow sejam invocados com o HWND."""
-    mock_user32 = MagicMock()
-    with patch("sys.platform", "win32"):
-        with patch("editor.plataforma.windows.integracao._obter_user32", return_value=mock_user32):
-            assert trazer_janela_para_frente(98765) is True
-            mock_user32.ShowWindow.assert_called_once_with(98765, 9)
-            mock_user32.SetForegroundWindow.assert_called_once_with(98765)
-
-
-def test_trazer_janela_para_frente_trata_excecao() -> None:
-    """Garante resiliência caso ocorra falha ao invocar APIs do Win32."""
-    mock_user32 = MagicMock()
-    mock_user32.ShowWindow.side_effect = RuntimeError("Falha ao restaurar")
-    with patch("sys.platform", "win32"):
-        with patch("editor.plataforma.windows.integracao._obter_user32", return_value=mock_user32):
-            assert trazer_janela_para_frente(98765) is False
-
-
-def test_adaptador_windows_metodos() -> None:
-    """Valida as chamadas do AdaptadorWindows aos serviços subjacentes."""
-    mock_loja = MagicMock()
-    mock_loja.verificar_atualizacoes_disponiveis.return_value = ResultadoAtualizacao(
-        status=StatusAtualizacao.SEM_ATUALIZACAO
+    fake_win = ApiWin32Fake(
+        eh_windows=True,
+        estilos_janela={
+            (999, INDICE_ESTILO_ESTENDIDO): 0x00080000,
+            (999, INDICE_ESTILO_PADRAO): 0x10000000,
+        },
     )
-    mock_loja.solicitar_instalacao_atualizacao.return_value = True
+    assert configurar_presenca_barra_de_tarefas(999, caminho_icone=icone, api_win32=fake_win)
+    assert fake_win.estilos_janela[(999, INDICE_ESTILO_ESTENDIDO)] == (
+        0x00080000 | ESTILO_ESTENDIDO_APPWINDOW
+    )
+    assert fake_win.estilos_janela[(999, INDICE_ESTILO_PADRAO)] == (
+        0x10000000 | ESTILO_MENU_SISTEMA
+    )
+    assert fake_win.molduras_atualizadas == [999]
+    assert fake_win.icones_hwnd[999] == str(icone.resolve())
 
-    adaptador = AdaptadorWindows(servico_loja=mock_loja)
-
-    # Teste configurar_ambiente_plataforma
-    with patch.dict(os.environ, {}, clear=True):
-        with patch("sys.platform", "win32"):
-            adaptador.configurar_ambiente_plataforma()
-            assert os.environ.get("QT_QPA_PLATFORM") == "windows:darkmode=0"
-
-    with patch.dict(os.environ, {}, clear=True):
-        with patch("sys.platform", "linux"):
-            adaptador.configurar_ambiente_plataforma()
-            assert "QT_QPA_PLATFORM" not in os.environ
-
-    # Teste configurar_presenca_barra_de_tarefas
-    with patch(
-        "editor.plataforma.windows.integracao.configurar_presenca_barra_de_tarefas",
-        return_value=True,
-    ) as mock_cfg:
-        assert adaptador.configurar_presenca_barra_de_tarefas(10) is True
-        mock_cfg.assert_called_once_with(10)
-
-    # Teste configurar_identidade_processo
-    with patch(
-        "editor.plataforma.windows.integracao.configurar_identidade_processo_windows",
-        return_value=True,
-    ) as mock_id:
-        assert adaptador.configurar_identidade_processo("aresta.app") is True
-        mock_id.assert_called_once_with("aresta.app")
-
-    # Teste trazer_janela_para_frente
-    with patch(
-        "editor.plataforma.windows.integracao.trazer_janela_para_frente", return_value=True
-    ) as mock_frente:
-        assert adaptador.trazer_janela_para_frente(10) is True
-        mock_frente.assert_called_once_with(10)
-
-    # Teste obter_diretorio_dados_usuario
-    diretorio = adaptador.obter_diretorio_dados_usuario()
-    assert isinstance(diretorio, Path)
-
-    # Teste fallback quando QStandardPaths retorna vazio
-    with patch("PySide6.QtCore.QStandardPaths.writableLocation", return_value=""):
-        with patch.dict(os.environ, {"APPDATA": "C:\\Users\\Teste\\AppData\\Roaming"}):
-            dir_appdata = adaptador.obter_diretorio_dados_usuario()
-            assert dir_appdata == Path("C:\\Users\\Teste\\AppData\\Roaming") / "EditorAresta"
-
-        with patch.dict(os.environ, {"USERPROFILE": "C:\\Users\\Teste"}, clear=True):
-            dir_sem_appdata = adaptador.obter_diretorio_dados_usuario()
-            assert "EditorAresta" in str(dir_sem_appdata)
-
-    # Teste delegacao para ServicoLoja
-    res = adaptador.verificar_atualizacoes_disponiveis()
-    assert res.status == StatusAtualizacao.SEM_ATUALIZACAO
-    mock_loja.verificar_atualizacoes_disponiveis.assert_called_once()
-
-    assert adaptador.solicitar_instalacao_atualizacao(res) is True
-    mock_loja.solicitar_instalacao_atualizacao.assert_called_once_with(res)
+    fake_erro = ApiWin32Fake(eh_windows=True, falhar_operacao=True)
+    assert configurar_presenca_barra_de_tarefas(999, api_win32=fake_erro) is False
+    assert aplicar_icone_janela_nativa(999, api_win32=fake_linux) is True
+    assert aplicar_icone_janela_nativa(999, api_win32=fake_erro) is False
 
 
-def test_obter_user32_execucao_real() -> None:
-    """Valida a obtenção e configuração real de tipos da biblioteca user32 no Windows."""
-    from editor.plataforma.windows.integracao import _obter_user32
+def test_configurar_identidade_processo_windows_aumid_e_registro(tmp_path: Path) -> None:
+    icone = tmp_path / "logo.ico"
+    icone.write_bytes(b"ico")
 
-    if sys.platform == "win32":
-        u32 = _obter_user32()
-        assert u32 is not None
+    # Fora do Windows: no-op retornando True
+    assert configurar_identidade_processo_windows(
+        "aresta.editor.v1", api_win32=ApiWin32Fake(eh_windows=False)
+    )
+
+    # Em pacote MSIX: preserva identidade nativa sem sobrescrever AUMID
+    fake_msix = ApiWin32Fake(eh_windows=True, em_msix=True)
+    assert configurar_identidade_processo_windows("aresta.editor.v1", api_win32=fake_msix)
+    assert fake_msix.aumid_processo is None
+    assert fake_msix.registro_aumid == {}
+
+    # Python/Standalone: registra DisplayName + IconUri e define AUMID explícito
+    fake_py = ApiWin32Fake(eh_windows=True, em_msix=False)
+    assert configurar_identidade_processo_windows(
+        "aresta.editor.v1",
+        nome_exibicao="",
+        caminho_icone=icone,
+        api_win32=fake_py,
+    )
+    assert fake_py.aumid_processo == "aresta.editor.v1"
+    assert fake_py.registro_aumid["aresta.editor.v1"]["DisplayName"] == "Editor Aresta"
+    assert fake_py.registro_aumid["aresta.editor.v1"]["IconUri"] == str(icone.resolve())
+
+    # Falha na fronteira retorna False com resiliência
+    assert (
+        configurar_identidade_processo_windows(
+            "aresta.editor.v1", api_win32=ApiWin32Fake(falhar_operacao=True)
+        )
+        is False
+    )
 
 
-def test_esta_executando_em_pacote_msix_execucao_real() -> None:
-    """Valida a execução de _esta_executando_em_pacote_msix no Windows."""
-    if sys.platform == "win32":
-        resultado = _esta_executando_em_pacote_msix()
-        assert isinstance(resultado, bool)
+def test_msix_e_trazer_janela_para_frente_com_fakes() -> None:
+    assert _esta_executando_em_pacote_msix(ApiWin32Fake(eh_windows=False)) is False
+    assert _esta_executando_em_pacote_msix(ApiWin32Fake(eh_windows=True, em_msix=True)) is True
+    assert _esta_executando_em_pacote_msix(ApiWin32Fake(falhar_operacao=True)) is False
+
+    assert trazer_janela_para_frente(50, api_win32=ApiWin32Fake(eh_windows=False)) is True
+    fake_ok = ApiWin32Fake(eh_windows=True)
+    assert trazer_janela_para_frente(50, api_win32=fake_ok) is True
+    assert fake_ok.janelas_focadas == [50]
+    assert trazer_janela_para_frente(50, api_win32=ApiWin32Fake(falhar_operacao=True)) is False
 
 
-def test_adaptador_windows_obter_nome_icone_preferencial() -> None:
-    """Garante que o adaptador Windows retorna logo.ico como ícone preferencial."""
-    adaptador = AdaptadorWindows()
+def test_adaptador_windows_fachada_completa(tmp_path: Path) -> None:
+    loja = ServicoLojaWindowsFake(
+        resultado=ResultadoAtualizacao(
+            status=StatusAtualizacao.ATUALIZACAO_DISPONIVEL, versao_disponivel="2.0.0"
+        )
+    )
+    api = ApiWin32Fake(eh_windows=True, em_msix=False)
+    cofre = ProvedorKeyringWindowsFake(backend_inicial_operacional=False)
+    adaptador = AdaptadorWindows(servico_loja=loja, api_win32=api, provedor_keyring=cofre)
+
+    qt_qpa_antigo = os.environ.pop("QT_QPA_PLATFORM", None)
+    try:
+        adaptador.configurar_ambiente_plataforma()
+        assert os.environ.get("QT_QPA_PLATFORM") == "windows:darkmode=0"
+    finally:
+        os.environ.pop("QT_QPA_PLATFORM", None)
+        if qt_qpa_antigo is not None:
+            os.environ["QT_QPA_PLATFORM"] = qt_qpa_antigo
+
+    adaptador_linux = AdaptadorWindows(
+        servico_loja=loja, api_win32=ApiWin32Fake(eh_windows=False), provedor_keyring=cofre
+    )
+    adaptador_linux.configurar_ambiente_plataforma()
+
+    icone_padrao = obter_configuracao_canal().obter_caminho_icone_aplicacao()
+    assert adaptador.configurar_identidade_processo("aresta.editor.v1", nome_exibicao="Aresta")
+    assert api.registro_aumid["aresta.editor.v1"]["IconUri"] == str(icone_padrao.resolve())
+    assert adaptador.configurar_presenca_barra_de_tarefas(77) is True
+    assert adaptador.aplicar_icone_janela_nativa(77) is True
+    assert adaptador.trazer_janela_para_frente(77) is True
     assert adaptador.obter_nome_icone_preferencial() == "logo.ico"
 
+    # Diretório de dados: Qt válido, fallback APPDATA e fallback Path.home()
+    assert isinstance(adaptador.obter_diretorio_dados_usuario(), Path)
+    assert (
+        adaptador.obter_diretorio_dados_usuario(
+            provedor_appdata_qt=lambda: "",
+            ambiente={"APPDATA": str(tmp_path)},
+        )
+        == tmp_path / "EditorAresta"
+    )
+    dir_home = adaptador.obter_diretorio_dados_usuario(
+        provedor_appdata_qt=lambda: "",
+        ambiente={},
+    )
+    assert dir_home.name == "EditorAresta"
 
-def test_adaptador_windows_configurar_cofre_credenciais() -> None:
-    """Valida a configuração do cofre de credenciais no Windows (sucesso, já válido e falha)."""
-    from keyring.backends.fail import Keyring as FailKeyring
+    # Loja
+    res = adaptador.verificar_atualizacoes_disponiveis()
+    assert res.versao_disponivel == "2.0.0"
+    assert adaptador.solicitar_instalacao_atualizacao(res) is True
+    assert loja.instalacoes == [res]
 
-    adaptador = AdaptadorWindows()
+    # Cofre: instala quando inicialmente inoperante, preserva quando já operacional, e trata falhas
+    assert adaptador.configurar_cofre_credenciais() is True
+    assert cofre.backends_instalados == ["WinVaultKeyring"]
+    assert adaptador.configurar_cofre_credenciais() is True
+    assert len(cofre.backends_instalados) == 1
 
-    # Cenário 1: Já válido
-    with patch("keyring.get_keyring", return_value=MagicMock()):
-        with patch("keyring.set_keyring") as mock_set:
-            assert adaptador.configurar_cofre_credenciais() is True
-            mock_set.assert_not_called()
+    adaptador_falha_consulta = AdaptadorWindows(
+        servico_loja=loja,
+        api_win32=api,
+        provedor_keyring=ProvedorKeyringWindowsFake(falhar_consulta=True),
+    )
+    assert adaptador_falha_consulta.configurar_cofre_credenciais() is False
 
-    # Cenário 2: Erro ao consultar backend
-    with patch("keyring.get_keyring", side_effect=Exception("Erro")):
-        with patch("keyring.set_keyring") as mock_set:
-            assert adaptador.configurar_cofre_credenciais() is False
-            mock_set.assert_not_called()
+    adaptador_falha_inst = AdaptadorWindows(
+        servico_loja=loja,
+        api_win32=api,
+        provedor_keyring=ProvedorKeyringWindowsFake(
+            backend_inicial_operacional=False, falhar_instalacao=True
+        ),
+    )
+    assert adaptador_falha_inst.configurar_cofre_credenciais() is False
 
-    # Cenário 3: Configuração com sucesso
-    with patch("keyring.get_keyring", return_value=FailKeyring()):
-        with patch("keyring.backends.Windows.WinVaultKeyring", return_value=MagicMock()):
-            with patch("keyring.set_keyring") as mock_set:
-                assert adaptador.configurar_cofre_credenciais() is True
-                mock_set.assert_called_once()
-
-    # Cenário 4: Falha ao instanciar backend
-    with patch("keyring.get_keyring", return_value=FailKeyring()):
-        with patch(
-            "keyring.backends.Windows.WinVaultKeyring", side_effect=Exception("WinVault erro")
-        ):
-            with patch("keyring.set_keyring") as mock_set:
-                assert adaptador.configurar_cofre_credenciais() is False
-                mock_set.assert_not_called()
-
-    # Cenário 5: Falha ao importar keyring
-    with patch.dict("sys.modules", {"keyring": None}):
-        assert adaptador.configurar_cofre_credenciais() is False
-
-
-def test_adaptador_windows_normalizar_caminho_estendido() -> None:
-    """Valida o prefixo estendido \\?\\ para caminhos normais, já prefixados, vazios e UNC no Windows."""
-    adaptador = AdaptadorWindows()
-
-    # Vazio
+    # Caminhos estendidos
     assert adaptador.normalizar_caminho_estendido("") == ""
-
-    # Já prefixado com \\?\
-    caminho_ja_prefixado = "\\\\?\\C:\\pasta\\arquivo.txt"
-    assert adaptador.normalizar_caminho_estendido(caminho_ja_prefixado) == caminho_ja_prefixado
-
-    # Caminho local com letra de drive
-    caminho_local = "C:\\aresta\\croqui.yaml"
-    resultado = adaptador.normalizar_caminho_estendido(caminho_local)
-    assert resultado.startswith("\\\\?\\")
-    assert "croqui.yaml" in resultado
-
-    # Path object
-    caminho_path = Path(caminho_local)
-    resultado_path = adaptador.normalizar_caminho_estendido(caminho_path)
-    assert resultado_path.startswith("\\\\?\\")
-
-    # Caminho UNC de rede
-    caminho_unc = "\\\\servidor\\compartilhamento\\arquivo.txt"
-    with patch("pathlib.Path.resolve", return_value=Path(caminho_unc)):
-        resultado_unc = adaptador.normalizar_caminho_estendido(caminho_unc)
-        assert resultado_unc == "\\\\?\\UNC\\servidor\\compartilhamento\\arquivo.txt"
+    assert (
+        adaptador.normalizar_caminho_estendido("\\\\?\\C:\\pasta\\arq.txt")
+        == "\\\\?\\C:\\pasta\\arq.txt"
+    )
+    assert (
+        adaptador.normalizar_caminho_estendido("\\\\servidor\\comp\\arq.txt")
+        == "\\\\?\\UNC\\servidor\\comp\\arq.txt"
+    )
+    assert adaptador.normalizar_caminho_estendido(tmp_path / "croqui.yaml").startswith("\\\\?\\")
 
 
-def test_windows_integracao_quando_windll_eh_none() -> None:
-    """Garante que funções tratam graciosamente a ausência de ctypes.windll."""
-    from editor.plataforma.windows.integracao import _obter_user32
+def test_integracao_real_subsistema_win32_e_keyring(qtbot, tmp_path: Path) -> None:
+    """Exercita a implementação real `_ApiWin32Sistema` e `_ProvedorKeyringWindowsSistema` no Windows."""
+    if sys.platform != "win32":
+        return
 
-    with patch("ctypes.windll", None, create=True), patch("sys.platform", "win32"):
-        assert _obter_user32() is None
-        assert _esta_executando_em_pacote_msix() is False
-        with patch(
-            "editor.plataforma.windows.integracao._esta_executando_em_pacote_msix",
-            return_value=False,
-        ):
-            assert configurar_identidade_processo_windows("app_id") is False
+    import winreg
+
+    from PySide6.QtWidgets import QWidget
+
+    prefixo_teste = r"Software\Classes\AppUserModelId\_ArestaTesteUnitario"
+    api_real = _ApiWin32Sistema(prefixo_registro_aumid=prefixo_teste)
+    assert api_real.plataforma_eh_windows() is True
+    assert isinstance(api_real.esta_em_pacote_msix(), bool)
+
+    try:
+        assert api_real.registrar_metadados_aumid_usuario(
+            "app.teste", "Aresta Teste", "C:\\logo.ico"
+        )
+        with winreg.OpenKey(winreg.HKEY_CURRENT_USER, f"{prefixo_teste}\\app.teste") as chave_lida:
+            assert winreg.QueryValueEx(chave_lida, "DisplayName")[0] == "Aresta Teste"
+            assert winreg.QueryValueEx(chave_lida, "IconUri")[0] == "C:\\logo.ico"
+    finally:
+        try:
+            winreg.DeleteKey(winreg.HKEY_CURRENT_USER, f"{prefixo_teste}\\app.teste")
+        except OSError:
+            pass
+        try:
+            winreg.DeleteKey(winreg.HKEY_CURRENT_USER, prefixo_teste)
+        except OSError:
+            pass
+
+    assert api_real.definir_app_user_model_id("aresta.editor.v1") is True
+
+    janela = QWidget()
+    qtbot.addWidget(janela)
+    hwnd = int(janela.winId())
+
+    estilo_orig = api_real.obter_estilo_janela(hwnd, INDICE_ESTILO_ESTENDIDO)
+    api_real.definir_estilo_janela(
+        hwnd, INDICE_ESTILO_ESTENDIDO, estilo_orig | ESTILO_ESTENDIDO_APPWINDOW
+    )
+    api_real.atualizar_moldura_janela(hwnd)
+    api_real.restaurar_e_focar_janela(hwnd)
+
+    icone_real = str(obter_configuracao_canal().obter_caminho_icone_aplicacao())
+    assert api_real.aplicar_icone_hwnd(hwnd, icone_real) is True
+    assert api_real.aplicar_icone_hwnd(hwnd, "") is False
+
+    ico_invalido = tmp_path / "corrompido.ico"
+    ico_invalido.write_bytes(b"nao-eh-ico")
+    assert api_real.aplicar_icone_hwnd(hwnd, str(ico_invalido)) is False
+
+    provedor_kr = _ProvedorKeyringWindowsSistema()
+    import keyring
+    from keyring.backends import fail
+
+    kr_anterior = keyring.get_keyring()
+    try:
+        keyring.set_keyring(fail.Keyring())
+        assert provedor_kr.backend_atual_eh_operacional() is False
+        provedor_kr.instalar_win_vault_keyring()
+        assert provedor_kr.backend_atual_eh_operacional() is True
+    finally:
+        keyring.set_keyring(kr_anterior)

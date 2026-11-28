@@ -4,6 +4,7 @@
 import threading
 import time
 import traceback
+from collections.abc import Callable
 from pathlib import Path
 from typing import Any
 
@@ -49,6 +50,8 @@ class TarefaInicializacao(QThread):
         sincronizador_git: GerenciadorSincronizacao | None = None,
         intervalo_espera_cofre: float = 1.5,
         sincronizar_git: bool = True,
+        caminho_croqui_local: Path | None = None,
+        pre_aquecer_modulos: bool = True,
     ) -> None:
         super().__init__()
         self.id_cliente: str = id_cliente
@@ -59,6 +62,11 @@ class TarefaInicializacao(QThread):
         self.sincronizador_git: GerenciadorSincronizacao | None = sincronizador_git
         self.intervalo_espera_cofre: float = intervalo_espera_cofre
         self.sincronizar_git: bool = sincronizar_git
+        self.caminho_croqui_local: Path | None = (
+            Path(caminho_croqui_local) if caminho_croqui_local is not None else None
+        )
+        self.pre_aquecer_modulos: bool = pre_aquecer_modulos
+        self.pacote_croqui_inicial: Any | None = None
         self.sessao_usuario: SessaoUsuario | None = None
         self._evento_autenticacao: threading.Event = threading.Event()
         self._login_cancelado: bool = False
@@ -186,6 +194,23 @@ class TarefaInicializacao(QThread):
                         )
                         self.status.emit("GitHub inacessível. Usando dados locais offline...")
 
+            if self.pre_aquecer_modulos:
+                from editor.core.carregador_croqui import pre_aquecer_modulos_editor
+
+                self.status.emit("Preparando interface do editor...")
+                pre_aquecer_modulos_editor()
+
+            if self.caminho_croqui_local is not None:
+                from editor.core.carregador_croqui import carregar_pacote_croqui
+                from editor.core.workspace import LocalRepoWorkspace
+
+                self.status.emit("Carregando dados do croqui...")
+                ws_local = LocalRepoWorkspace(self.caminho_croqui_local, storage=self.storage)
+                self.pacote_croqui_inicial = carregar_pacote_croqui(
+                    ws_local.obter_caminho_database(),
+                    obter_commit_sha=ws_local.obter_commit_base_sha,
+                )
+
             logger.info("[Worker] Inicialização e sincronização finalizadas com sucesso!")
             self.progresso.emit(100)
             self.status.emit("Inicialização concluída!")
@@ -196,6 +221,35 @@ class TarefaInicializacao(QThread):
 
             logger.critical(f"Erro durante a inicialização: {e}", exc_info=True)
             self.erro.emit(str(e))
+
+
+class TarefaCarregamentoCroqui(QThread):
+    """Carrega em segundo plano o `PacoteCroquiCarregado` de um croqui antes de exibir a janela."""
+
+    sucesso: Signal = Signal(object)
+    erro: Signal = Signal(str)
+
+    def __init__(
+        self,
+        caminho_db: Path,
+        obter_commit_sha: Callable[[], str] | None = None,
+        parent: Any = None,
+    ) -> None:
+        super().__init__(parent)
+        self.caminho_db: Path = Path(caminho_db)
+        self.obter_commit_sha: Callable[[], str] | None = obter_commit_sha
+
+    def run(self) -> None:
+        try:
+            from editor.core.carregador_croqui import carregar_pacote_croqui
+
+            pacote = carregar_pacote_croqui(
+                self.caminho_db,
+                obter_commit_sha=self.obter_commit_sha,
+            )
+            self.sucesso.emit(pacote)
+        except Exception as exc:
+            self.erro.emit(str(exc))
 
 
 class TarefaPublicacao(QThread):

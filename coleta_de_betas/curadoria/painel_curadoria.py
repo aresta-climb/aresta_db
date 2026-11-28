@@ -69,13 +69,15 @@ def gerar_prompt_mcp_avaliacao_betas(id_croqui: str = "", nome_croqui: str = "")
 
 
 def gerar_instrucoes_banner_mcp_avaliacao(id_croqui: str = "", nome_croqui: str = "") -> str:
-    """Gera o texto do banner da seção `1. Betas Não Scorados` com os 2 passos MCP."""
-    prompt = gerar_prompt_mcp_avaliacao_betas(id_croqui=id_croqui, nome_croqui=nome_croqui)
+    """Gera o texto resumido do banner da seção `1. Betas Não Scorados` com apenas 2 passos."""
+    _ = id_croqui
+    nome_limpo = nome_croqui.strip()
+    alvo = f' do croqui "{nome_limpo}"' if nome_limpo else " deste croqui"
     return (
         "💡 Passo 1: Conecte seu agente de IA (Cursor, Claude, Antigravity) ao servidor MCP "
         '`editor-aresta` clicando em "🔌 Conectar Agente (MCP)...".\n'
-        "Passo 2: Copie e envie o comando ao agente (ou use a skill `coletar_betas_croqui` para coletar via MCP):\n"
-        f"{prompt}"
+        'Passo 2: Clique em "📋 Copiar Prompt MCP" e cole o comando no chat do agente '
+        f"para avaliar todos os betas não scorados{alvo}."
     )
 
 

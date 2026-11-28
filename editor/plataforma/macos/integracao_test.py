@@ -23,6 +23,7 @@ def test_adaptador_macos_presenca_barra_de_tarefas() -> None:
     """No macOS, a presença na Dock e alternador é gerenciada nativamente."""
     adaptador = AdaptadorMacOS()
     assert adaptador.configurar_presenca_barra_de_tarefas(1234) is True
+    assert adaptador.aplicar_icone_janela_nativa(1234, "logo.icns") is True
 
 
 def test_adaptador_macos_identidade_processo() -> None:

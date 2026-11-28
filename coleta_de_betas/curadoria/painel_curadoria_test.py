@@ -111,10 +111,11 @@ def test_painel_curadoria_exibe_4_secoes_ordena_por_score_e_transiciona_1_a_1_co
     assert painel.secao_rejeitados.esta_expandida() is True
     assert len(painel.cards_rejeitados) == 1
 
-    # Verifica que o banner MCP tem instruções e botão de conectar agente MCP e está visível quando há betas não scorados
+    # Verifica que o banner MCP tem instruções curtas em 2 passos e está visível quando há betas não scorados
     assert not painel.banner_mcp.isHidden()
-    assert "avaliar_betas_croqui" in painel.label_instrucoes_mcp.text()
-    assert "coletar_betas_croqui" in painel.label_instrucoes_mcp.text()
+    assert "editor-aresta" in painel.label_instrucoes_mcp.text()
+    assert "Copiar Prompt MCP" in painel.label_instrucoes_mcp.text()
+    assert "avaliar_betas_croqui" not in painel.label_instrucoes_mcp.text()
     assert len(painel.cards_nao_revisados) == 2
     assert len(painel.cards_nao_scorados) == 1
     assert len(painel.cards_aprovados) == 1
@@ -566,9 +567,9 @@ def test_painel_curadoria_close_event_encerra_workers_e_card_ignora_thumbnail_ap
 
 def test_geracao_prompt_e_banner_mcp_contextual_com_id_croqui_e_filtro(qtbot) -> None:
     """
-    Garante que o banner e o prompt copiado na aba Betas citam o servidor MCP `editor-aresta`,
-    orientam carregar a skill via `aresta_ler_skill` e propagam `id_croqui` para avaliar todo o croqui,
-    mesmo quando há filtro de escalada selecionado no combo.
+    Garante que o banner exibe apenas os 2 passos resumidos (sem vazar o prompt bruto),
+    enquanto o botão de cópia transfere o prompt completo com `editor-aresta`,
+    `aresta_ler_skill` e `id_croqui` para avaliar todo o croqui mesmo com filtro ativo.
     """
     from PySide6.QtWidgets import QApplication
 
@@ -591,10 +592,21 @@ def test_geracao_prompt_e_banner_mcp_contextual_com_id_croqui_e_filtro(qtbot) ->
     assert "id_croqui=" not in prompt_vazio
 
     banner_vazio = gerar_instrucoes_banner_mcp_avaliacao()
-    assert "coletar_betas_croqui" in banner_vazio
     assert "editor-aresta" in banner_vazio
+    assert "Conectar Agente (MCP)..." in banner_vazio
+    assert "Copiar Prompt MCP" in banner_vazio
+    assert "aresta_ler_skill" not in banner_vazio
+    assert "aresta_listar_betas_nao_scorados" not in banner_vazio
+    assert "id_croqui=" not in banner_vazio
 
-    # 2. Painel com croqui carregado e filtro de escalada ativo mantém escopo do croqui inteiro
+    banner_nomeado = gerar_instrucoes_banner_mcp_avaliacao(
+        id_croqui="br_mg_lapinha", nome_croqui="Gruta da Lapinha"
+    )
+    assert "Gruta da Lapinha" in banner_nomeado
+    assert "aresta_ler_skill" not in banner_nomeado
+    assert "id_croqui=" not in banner_nomeado
+
+    # 2. Painel com croqui carregado: banner permanece conciso e botão copia prompt completo
     croqui = _criar_croqui_curadoria()
     model = CroquiModel(croqui)
     stack = QUndoStack()
@@ -604,14 +616,18 @@ def test_geracao_prompt_e_banner_mcp_contextual_com_id_croqui_e_filtro(qtbot) ->
     qtbot.addWidget(painel)
     painel.carregar_dados(model, controller)
 
-    assert "editor-aresta" in painel.label_instrucoes_mcp.text()
-    assert 'id_croqui="serra_cipo"' in painel.label_instrucoes_mcp.text()
-    assert "Serra do Cipó" in painel.label_instrucoes_mcp.text()
+    texto_banner = painel.label_instrucoes_mcp.text()
+    assert "editor-aresta" in texto_banner
+    assert "Copiar Prompt MCP" in texto_banner
+    assert "Serra do Cipó" in texto_banner
+    assert "aresta_ler_skill" not in texto_banner
+    assert "id_croqui=" not in texto_banner
 
     painel.selecionar_escalada_por_uid("esc_2")
     painel.btn_copiar_prompt_mcp.click()
     texto_copiado = QApplication.clipboard().text()
     assert "editor-aresta" in texto_copiado
+    assert 'aresta_ler_skill(nome_skill="avaliar_betas_croqui")' in texto_copiado
     assert 'id_croqui="serra_cipo"' in texto_copiado
     assert "Serra do Cipó" in texto_copiado
     assert "betas_nao_scorados" in texto_copiado

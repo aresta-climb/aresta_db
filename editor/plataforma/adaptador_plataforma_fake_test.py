@@ -19,7 +19,13 @@ def test_adaptador_plataforma_fake_implementa_protocolo_e_simula_atualizacoes(
 
     fake.configurar_ambiente_plataforma()
     assert fake.configurar_presenca_barra_de_tarefas(100) is True
-    assert fake.configurar_identidade_processo("Aresta.Editor") is True
+    assert (
+        fake.configurar_identidade_processo(
+            "Aresta.Editor", nome_exibicao="Editor Aresta", caminho_icone=tmp_path / "logo.ico"
+        )
+        is True
+    )
+    assert fake.aplicar_icone_janela_nativa(100, tmp_path / "logo.ico") is True
     assert fake.trazer_janela_para_frente(100) is True
     assert fake.obter_diretorio_dados_usuario() == tmp_path
     assert fake.obter_nome_icone_preferencial() == "logo_app.png"

@@ -39,7 +39,10 @@ from editor.core.cliente_auth_supabase import (
 )
 from editor.core.gerenciador_sessao import SessaoUsuario
 from editor.core.servidor_oauth_callback import ServidorCallbackOAuth
-from editor.plataforma import configurar_presenca_barra_de_tarefas
+from editor.plataforma import (
+    aplicar_icone_janela_nativa,
+    configurar_presenca_barra_de_tarefas,
+)
 from editor.views.dialogos.dialogo_perfil_autor import DialogoPerfilAutor
 from editor.views.estilo import Icones
 
@@ -107,12 +110,17 @@ class TelaDeAbertura(QWidget):
         self.setWindowTitle(self.config_canal.nome_aplicativo)
         self.setWindowFlags(Qt.WindowType.FramelessWindowHint)
         self.setAttribute(Qt.WidgetAttribute.WA_TranslucentBackground)
+        self.setFixedSize(450, 650)
 
         caminho_logo_janela = self.config_canal.obter_caminho_icone_aplicacao()
-        self.setWindowIcon(QIcon(str(caminho_logo_janela)))
-        self.setFixedSize(450, 650)
+        self._caminho_icone_janela = caminho_logo_janela
         configurar_presenca_barra_de_tarefas(int(self.winId()))
+        self.setWindowIcon(QIcon(str(caminho_logo_janela)))
         self.init_ui()
+
+    def showEvent(self, event: Any) -> None:
+        super().showEvent(event)
+        aplicar_icone_janela_nativa(int(self.winId()), self._caminho_icone_janela)
 
     def init_ui(self) -> None:
         layout = QVBoxLayout()

@@ -129,16 +129,21 @@ Quando o salvamento do croqui falhar durante a persistência em disco ou compila
 - **THEN** a mensagem principal e orientativa da caixa de diálogo não SHALL culpar a existência de picos, grupos ou setores vazios ou incompletos, tratando estruturas em progresso como estados normais do editor.
 
 ### Requirement: Carregamento Sob Demanda das Visões Secundárias da Janela Principal
-A Janela Principal SHALL carregar e instanciar os componentes pesados de suas visões (como o editor interativo de mapas e painéis auxiliares experimentais) sob demanda (lazy loading), instanciando-os somente quando o usuário navegar para a aba correspondente ou quando o recurso for explicitamente habilitado.
+A Janela Principal SHALL abrir na aba inicial ("Painel") reutilizando dados pré-carregados quando fornecidos, instanciando sob demanda (*lazy loading*) os componentes pesados das abas secundárias (**Dados**, **Imagens**, **Mapas** e **Betas**) apenas quando o usuário navegar até elas ou quando uma ação de foco/MCP exigir acesso direto, e iniciando o servidor MCP sem bloquear a thread principal.
 
 #### Scenario: Acesso inicial com página de Dados ativa
-- **WHEN** a Janela Principal é exibida inicialmente com a visão inicial ("Painel" ou "Dados") selecionada
-- **THEN** os componentes pesados da página de Mapas (`WidgetEditorMapas`) não SHALL ser instanciados previamente na inicialização
-- **AND** painéis de abas desativadas ou ocultas (como Betas) não SHALL ser instanciados antecipadamente.
+- **WHEN** a `JanelaPrincipal` é exibida inicialmente com a visão inicial ("Painel") selecionada
+- **THEN** os componentes pesados das abas secundárias (`WidgetEditorDados`, `WidgetEditorImagens`, `WidgetEditorMapas` e `PainelCuradoria`) NÃO SHALL ser instanciados nem decodificar imagens na abertura inicial
+- **AND** se um pacote de croqui pré-carregado com `ResultadoNotaQualidade` for fornecido, o painel inicial SHALL renderizar diretamente sem reexecutar I/O de disco nem `git rev-parse` na thread de UI
+- **AND** caso existam alterações pendentes de recuperação no diário (`diario_pendente.bin`), o `DialogoRecuperacaoSessao` SHALL ser exibido somente após a `JanelaPrincipal` já estar visível na tela com seu ícone aplicado.
 
 #### Scenario: Navegação para a visão de Mapas
-- **WHEN** o usuário clica no ícone "Mapas" na barra lateral pela primeira vez
-- **THEN** a página de Mapas SHALL instanciar o componente do editor de mapas sob demanda e integrá-lo à visualização.
+- **WHEN** o usuário clica no ícone "Dados", "Imagens", "Mapas" ou "Betas" na barra lateral pela primeira vez, ou quando uma navegação de contexto/ferramenta MCP solicita o widget daquela página
+- **THEN** a página correspondente SHALL instanciar seu editor sob demanda, hidratá-lo com o `CroquiModel` e `CroquiController` ativos e integrá-lo imediatamente à visualização.
+
+#### Scenario: Partida não-bloqueante do ServidorMCP na abertura da janela
+- **WHEN** a `JanelaPrincipal` inicializa o `ServidorMCP` com `iniciar_rede=True` durante a abertura da janela
+- **THEN** o catálogo de ferramentas do croqui MUST ser registrado uma única vez por carregamento e o servidor Uvicorn MUST vincular o socket/gravar a sessão imediatamente e iniciar sua thread em segundo plano sem bloquear a thread de UI em loops de espera (`sleep`).
 
 
 

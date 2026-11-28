@@ -532,23 +532,22 @@ def test_integracao_dois_controladores_locais_simultaneos_com_mcp(
         servico_loja=AdaptadorPlataformaFake(diretorio_dados=tmp_path / "loja_a"),
         fabrica_servidor_celular=ServidorCelularFake,
     )
-    ctrl_b = ControladorAplicativo(
-        caminho_croqui_local=pasta_b,
-        diretorio_sessao_mcp=dir_mcp,
-        iniciar_rede_mcp=True,
-        ativar_trava_croqui=True,
-        storage=GerenciadorCaminhos(diretorio_base=dir_dados),
-        gerenciador_sessao=GerenciadorSessaoFake(sessao_inicial=sessao),
-        cliente_auth=auth_fake,
-        servico_loja=AdaptadorPlataformaFake(diretorio_dados=tmp_path / "loja_b"),
-        fabrica_servidor_celular=ServidorCelularFake,
-    )
+    ctrl_b: ControladorAplicativo | None = None
 
     try:
-        qtbot.wait_until(
-            lambda: ctrl_a.janela_principal is not None and ctrl_b.janela_principal is not None,
-            timeout=5000,
+        qtbot.wait_until(lambda: ctrl_a.janela_principal is not None, timeout=5000)
+        ctrl_b = ControladorAplicativo(
+            caminho_croqui_local=pasta_b,
+            diretorio_sessao_mcp=dir_mcp,
+            iniciar_rede_mcp=True,
+            ativar_trava_croqui=True,
+            storage=GerenciadorCaminhos(diretorio_base=dir_dados),
+            gerenciador_sessao=GerenciadorSessaoFake(sessao_inicial=sessao),
+            cliente_auth=auth_fake,
+            servico_loja=AdaptadorPlataformaFake(diretorio_dados=tmp_path / "loja_b"),
+            fabrica_servidor_celular=ServidorCelularFake,
         )
+        qtbot.wait_until(lambda: ctrl_b.janela_principal is not None, timeout=5000)
         assert verificar_croqui_ja_aberto("br_mg_local_a", timeout_ms=300) is True
         assert verificar_croqui_ja_aberto("br_mg_local_b", timeout_ms=300) is True
 
@@ -562,6 +561,8 @@ def test_integracao_dois_controladores_locais_simultaneos_com_mcp(
         assert sessao_principal.porta == ctrl_a.servidor_mcp.porta
     finally:
         for ctrl in (ctrl_a, ctrl_b):
+            if ctrl is None:
+                continue
             if ctrl.tarefa and ctrl.tarefa.isRunning():
                 ctrl.tarefa.wait(1000)
             ctrl.encerrar_servidores_locais()

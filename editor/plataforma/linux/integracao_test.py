@@ -32,6 +32,7 @@ def test_adaptador_linux_presenca_barra_de_tarefas() -> None:
     """No Linux, a qualificação é transparente via QPA, retornando True."""
     adaptador = AdaptadorLinux()
     assert adaptador.configurar_presenca_barra_de_tarefas(1234) is True
+    assert adaptador.aplicar_icone_janela_nativa(1234, "logo_app.png") is True
 
 
 def test_adaptador_linux_identidade_processo() -> None:

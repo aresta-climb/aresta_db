@@ -799,3 +799,69 @@ def test_tela_de_carregamento_bloqueia_e_eleva_croqui_ja_aberto_nos_tres_fluxos(
         encerrar_servidor_local(srv_novo)
         encerrar_servidor_local(srv_oficial)
         encerrar_servidor_local(srv_hist)
+
+
+def test_tela_de_carregamento_exec_modal_carrega_pacote_em_qthread(
+    qtbot, storage_real: GerenciadorCaminhos
+) -> None:
+    """Garante que durante `exec()` modal, selecionar um croqui carrega `pacote_croqui_selecionado` via QThread."""
+    from scripts.gerenciar_uids_lib import gerar_uid
+    from scripts.migrador import obter_ultima_versao_migracao
+
+    pasta = storage_real.obter_caminho_croquis_experimentais() / "croqui_async_modal"
+    (pasta / "database").mkdir(parents=True, exist_ok=True)
+    (pasta / "database" / "croqui.yaml").write_text(
+        f"id: croqui_async_modal\nuid: {gerar_uid()}\nnome: Croqui Modal Async\nultima_migracao: {obter_ultima_versao_migracao()}\n",
+        encoding="utf-8",
+    )
+
+    tela = TelaDeCarregamento(storage=storage_real, verificar_trava_croqui=False)
+    qtbot.addWidget(tela)
+
+    QTimer.singleShot(
+        20, lambda: tela.lista_croquis.itemDoubleClicked.emit(tela.lista_croquis.item(0))
+    )
+    codigo = tela.exec()
+
+    assert codigo == QDialog.DialogCode.Accepted
+    assert tela.caminho_croqui_selecionado == pasta
+    assert tela.pacote_croqui_selecionado is not None
+    assert tela.pacote_croqui_selecionado.croqui_data["nome"] == "Croqui Modal Async"
+
+    # Cenário de erro assíncrono durante exec() modal exibe QMessageBox.critical e reabilita a lista
+    pasta_ruim = storage_real.obter_caminho_croquis_experimentais() / "croqui_ruim_modal"
+    (pasta_ruim / "database").mkdir(parents=True, exist_ok=True)
+    (pasta_ruim / "database" / "croqui.yaml").write_text(": [yaml_invalido", encoding="utf-8")
+
+    tela_erro = TelaDeCarregamento(storage=storage_real, verificar_trava_croqui=False)
+    qtbot.addWidget(tela_erro)
+    erros_vistos: list[str] = []
+
+    timer_err = QTimer(tela_erro)
+    timer_err.setInterval(15)
+
+    def _fechar_erro() -> None:
+        modal = QApplication.activeModalWidget()
+        if isinstance(modal, QMessageBox):
+            erros_vistos.append(modal.text())
+            timer_err.stop()
+            modal.accept()
+            tela_erro.reject()
+
+    timer_err.timeout.connect(_fechar_erro)
+    timer_err.start()
+
+    idx_ruim = next(
+        i
+        for i in range(tela_erro.lista_croquis.count())
+        if Path(tela_erro.lista_croquis.item(i).data(Qt.ItemDataRole.UserRole)) == pasta_ruim
+    )
+    QTimer.singleShot(
+        20,
+        lambda: tela_erro.lista_croquis.itemDoubleClicked.emit(
+            tela_erro.lista_croquis.item(idx_ruim)
+        ),
+    )
+    assert tela_erro.exec() == QDialog.DialogCode.Rejected
+    assert len(erros_vistos) == 1
+    assert tela_erro.lista_croquis.isEnabled() is True

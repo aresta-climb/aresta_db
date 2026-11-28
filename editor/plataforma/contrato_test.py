@@ -20,11 +20,30 @@ class AdaptadorFalso(AdaptadorPlataforma):
     def configurar_ambiente_plataforma(self) -> None:
         pass
 
-    def configurar_presenca_barra_de_tarefas(self, identificador_janela: int) -> bool:
+    def configurar_presenca_barra_de_tarefas(
+        self,
+        identificador_janela: int,
+        caminho_icone: Path | str | None = None,
+    ) -> bool:
+        _ = caminho_icone
         return identificador_janela > 0
 
-    def configurar_identidade_processo(self, identificador_app: str) -> bool:
+    def configurar_identidade_processo(
+        self,
+        identificador_app: str,
+        nome_exibicao: str = "",
+        caminho_icone: Path | str | None = None,
+    ) -> bool:
+        _ = (nome_exibicao, caminho_icone)
         return bool(identificador_app)
+
+    def aplicar_icone_janela_nativa(
+        self,
+        identificador_janela: int,
+        caminho_icone: Path | str | None = None,
+    ) -> bool:
+        _ = caminho_icone
+        return identificador_janela > 0
 
     def trazer_janela_para_frente(self, identificador_janela: int) -> bool:
         return identificador_janela > 0
@@ -77,6 +96,7 @@ def test_adaptador_falso_conforme_contrato() -> None:
     adaptador.configurar_ambiente_plataforma()
     assert adaptador.configurar_presenca_barra_de_tarefas(123) is True
     assert adaptador.configurar_identidade_processo("aresta.app") is True
+    assert adaptador.aplicar_icone_janela_nativa(123, "logo.ico") is True
     assert adaptador.trazer_janela_para_frente(123) is True
     assert isinstance(adaptador.obter_diretorio_dados_usuario(), Path)
     res = adaptador.verificar_atualizacoes_disponiveis()

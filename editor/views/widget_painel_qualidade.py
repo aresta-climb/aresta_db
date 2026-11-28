@@ -30,6 +30,7 @@ from PySide6.QtWidgets import (
 
 from editor.controllers.croqui_controller import CroquiController
 from editor.core.avaliador_nota_qualidade import (
+    ResultadoNotaQualidade,
     ResumoEtapaQualidade,
     TarefaQualidade,
     avaliar_nota_qualidade_croqui,
@@ -395,6 +396,7 @@ class WidgetPainelQualidade(QWidget):
         self,
         model: CroquiModel,
         controller: CroquiController | None = None,
+        resultado_inicial: ResultadoNotaQualidade | None = None,
     ) -> None:
         """Vincula o painel a um `CroquiModel` e `CroquiController` e atualiza o diagnóstico."""
         self.desconectar_sinais()
@@ -417,7 +419,7 @@ class WidgetPainelQualidade(QWidget):
                 sig_nova.connect(self._ao_alterar_indice_undo)
                 self._pilha_conectada = pilha_nova
 
-        self.atualizar_painel()
+        self.atualizar_painel(resultado_precomputado=resultado_inicial)
 
     def _em_macro_ativa(self) -> bool:
         return bool(getattr(self._model, "_pilha_macros", None))
@@ -474,7 +476,9 @@ class WidgetPainelQualidade(QWidget):
                 not publicado_atual,
             )
 
-    def atualizar_painel(self) -> None:
+    def atualizar_painel(
+        self, resultado_precomputado: ResultadoNotaQualidade | None = None
+    ) -> None:
         """Recalcula o `ResultadoNotaQualidade` e sincroniza o cabeçalho e as 3 etapas."""
         self._atualizacao_pendente = False
         if self._model is None:
@@ -482,7 +486,11 @@ class WidgetPainelQualidade(QWidget):
         self.total_atualizacoes_painel += 1
 
         croqui_ro = self._model.obter_croqui_readonly()
-        resultado = avaliar_nota_qualidade_croqui(croqui_ro)
+        resultado = (
+            resultado_precomputado
+            if resultado_precomputado is not None
+            else avaliar_nota_qualidade_croqui(croqui_ro)
+        )
         publicado = bool(croqui_ro.publicar_croqui)
 
         self.label_nota_qualidade.setText(f"{resultado.nota_qualidade} pts")

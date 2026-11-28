@@ -2,8 +2,10 @@
 # Copyright (C) 2026 Aresta Climb Contributors
 
 
+from typing import Any
+
 from PySide6.QtCore import Qt
-from PySide6.QtGui import QFont
+from PySide6.QtGui import QFont, QIcon
 from PySide6.QtWidgets import (
     QDialog,
     QFrame,
@@ -13,6 +15,9 @@ from PySide6.QtWidgets import (
     QVBoxLayout,
     QWidget,
 )
+
+from editor.core.configuracao_canal import obter_configuracao_canal
+from editor.plataforma import aplicar_icone_janela_nativa
 
 
 class DialogoRecuperacaoSessao(QDialog):
@@ -27,6 +32,8 @@ class DialogoRecuperacaoSessao(QDialog):
         self.setModal(True)
         self.setFixedWidth(440)
         self.setFont(QFont("Segoe UI", 9))
+        self._caminho_icone_janela = obter_configuracao_canal().obter_caminho_icone_aplicacao()
+        self.setWindowIcon(QIcon(str(self._caminho_icone_janela)))
 
         layout = QVBoxLayout(self)
         layout.setContentsMargins(20, 20, 20, 20)
@@ -101,3 +108,7 @@ class DialogoRecuperacaoSessao(QDialog):
         botoes_layout.addWidget(self.botao_recuperar)
 
         layout.addLayout(botoes_layout)
+
+    def showEvent(self, event: Any) -> None:
+        super().showEvent(event)
+        aplicar_icone_janela_nativa(int(self.winId()), self._caminho_icone_janela)

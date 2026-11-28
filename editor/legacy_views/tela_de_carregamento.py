@@ -335,19 +335,23 @@ class TelaDeCarregamento(QDialog):
             GerenciadorCroquiExperimental(storage) if storage else None
         )
         self.caminho_croqui_selecionado: Path | None = None
+        self.pacote_croqui_selecionado: Any | None = None
+        self._em_execucao_modal: bool = False
+        self._worker_abertura: Any | None = None
         from editor.core.configuracao_canal import obter_configuracao_canal
 
         config_canal = obter_configuracao_canal()
         self.setWindowTitle(f"Iniciar {config_canal.nome_aplicativo}")
         self.setMinimumSize(650, 600)
         self.resize(750, 700)
+        # Habilitar botões de minimizar/maximizar em QDialog antes de aplicar o ícone
+        self.setWindowFlags(self.windowFlags() | Qt.WindowType.WindowMinMaxButtonsHint)
+
         from PySide6.QtGui import QIcon
 
         caminho_logo_app = config_canal.obter_caminho_icone_aplicacao()
+        self._caminho_icone_janela = caminho_logo_app
         self.setWindowIcon(QIcon(str(caminho_logo_app)))
-
-        # Habilitar botões de minimizar/maximizar em QDialog
-        self.setWindowFlags(self.windowFlags() | Qt.WindowType.WindowMinMaxButtonsHint)
 
         # Estilização
         self.setStyleSheet("""
@@ -702,7 +706,10 @@ class TelaDeCarregamento(QDialog):
                     log_dialog,
                 )
 
+                from editor.core.carregador_croqui import carregar_pacote_croqui
+
                 self.caminho_croqui_selecionado = caminho
+                self.pacote_croqui_selecionado = carregar_pacote_croqui(caminho / "database")
                 self.carregar_croquis()
                 log_dialog.adicionar_log("\n[SUCESSO] Croqui criado e compilado!")
                 log_dialog.accept()
@@ -726,10 +733,13 @@ class TelaDeCarregamento(QDialog):
                 old_stdout = sys.stdout
                 sys.stdout = StreamToCallback(log_dialog.adicionar_log)
                 try:
+                    from editor.core.carregador_croqui import carregar_pacote_croqui
+
                     caminho = self.gerenciador.criar_croqui_a_partir_de_oficial(
                         id_oficial, self.usuario
                     )
                     self.caminho_croqui_selecionado = caminho
+                    self.pacote_croqui_selecionado = carregar_pacote_croqui(caminho / "database")
                     log_dialog.adicionar_log(
                         "\n[SUCESSO] Croqui oficial importado e compilado com sucesso!"
                     )
@@ -744,6 +754,13 @@ class TelaDeCarregamento(QDialog):
                     sys.stdout = old_stdout
                     log_dialog.btn_fechar.setEnabled(True)
 
+    def exec(self) -> int:
+        self._em_execucao_modal = True
+        try:
+            return int(super().exec())
+        finally:
+            self._em_execucao_modal = False
+
     def ao_clicar_item(self, item: QListWidgetItem) -> None:
         assert self.gerenciador is not None
         caminho_str = item.data(Qt.ItemDataRole.UserRole)
@@ -754,6 +771,43 @@ class TelaDeCarregamento(QDialog):
             try:
                 self.gerenciador.abrir_croqui(caminho, self.usuario)
                 self.caminho_croqui_selecionado = caminho
+                if self._em_execucao_modal:
+                    from editor.core.worker import TarefaCarregamentoCroqui
+                    from editor.core.workspace import ExperimentalWorkspace
+
+                    ws_temp = ExperimentalWorkspace(caminho)
+                    self.lista_croquis.setEnabled(False)
+                    worker = TarefaCarregamentoCroqui(
+                        ws_temp.obter_caminho_database(),
+                        obter_commit_sha=ws_temp.obter_commit_base_sha,
+                        parent=self,
+                    )
+                    self._worker_abertura = worker
+
+                    def _ao_concluir(pacote: Any) -> None:
+                        self.pacote_croqui_selecionado = pacote
+                        self.lista_croquis.setEnabled(True)
+                        self._worker_abertura = None
+                        self.accept()
+
+                    def _ao_falhar(msg_erro: str) -> None:
+                        self.lista_croquis.setEnabled(True)
+                        self._worker_abertura = None
+                        QMessageBox.critical(self, "Erro", f"Falha ao abrir croqui: {msg_erro}")
+
+                    worker.sucesso.connect(_ao_concluir)
+                    worker.erro.connect(_ao_falhar)
+                    worker.start()
+                    return
+
+                from editor.core.carregador_croqui import carregar_pacote_croqui
+                from editor.core.workspace import ExperimentalWorkspace
+
+                ws_sync = ExperimentalWorkspace(caminho)
+                self.pacote_croqui_selecionado = carregar_pacote_croqui(
+                    ws_sync.obter_caminho_database(),
+                    obter_commit_sha=ws_sync.obter_commit_base_sha,
+                )
                 self.accept()
             except Exception as e:
                 QMessageBox.critical(self, "Erro", f"Falha ao abrir croqui: {e}")
@@ -762,6 +816,12 @@ class TelaDeCarregamento(QDialog):
         tem_itens = self.lista_croquis.count() > 0
         self.lista_croquis.setVisible(tem_itens)
         self.label_historico_vazio.setVisible(not tem_itens)
+
+    def showEvent(self, event: Any) -> None:
+        super().showEvent(event)
+        from editor.plataforma import aplicar_icone_janela_nativa
+
+        aplicar_icone_janela_nativa(int(self.winId()), self._caminho_icone_janela)
 
     def _abrir_croqui_via_mcp(self, caminho: Path) -> dict[str, Any]:
         """Seleciona o croqui solicitado via MCP e aceita o diálogo de carregamento."""

@@ -117,53 +117,109 @@ class PaginaPainel(PaginaBase):
             layout.addWidget(self.painel)
 
     def carregar_painel(
-        self, model: CroquiModel, controller: CroquiController | None = None
+        self,
+        model: CroquiModel,
+        controller: CroquiController | None = None,
+        resultado_inicial: Any | None = None,
     ) -> None:
-        self.painel.set_model_e_controller(model, controller)
+        self.painel.set_model_e_controller(model, controller, resultado_inicial=resultado_inicial)
 
 
 class PaginaDados(PaginaBase):
     def __init__(self, parent: QWidget | None = None) -> None:
         super().__init__("Dados", parent, criar_placeholder=False)
-        self.editor_dados: Any | None = None
+        self._editor_dados: Any | None = None
+        self._dados_pendentes: tuple[CroquiModel, CroquiController] | None = None
+
+    def tem_editor_instanciado(self) -> bool:
+        return self._editor_dados is not None
+
+    def garantir_editor_criado(self) -> Any:
+        """Instancia `WidgetEditorDados` sob demanda na primeira abertura da aba Dados."""
+        if self._editor_dados is None and self._dados_pendentes is not None:
+            from editor.views.widget_editor_dados import WidgetEditorDados
+
+            model, controller = self._dados_pendentes
+            self._editor_dados = WidgetEditorDados(model, controller, parent=self)
+            layout = self.layout()
+            if layout:
+                layout.addWidget(self._editor_dados)
+        return self._editor_dados
+
+    @property
+    def editor_dados(self) -> Any:
+        return self.garantir_editor_criado()
 
     def carregar_dados(self, model: CroquiModel, controller: CroquiController) -> None:
+        self._dados_pendentes = (model, controller)
+        if self._editor_dados is None:
+            return
         from editor.views.widget_editor_dados import WidgetEditorDados, WidgetEditorMarkdown
 
         layout = self.layout()
-        if self.editor_dados and layout:
-            for w_md in self.editor_dados.findChildren(WidgetEditorMarkdown):
-                w_md.temporizador.descartar()
-            layout.removeWidget(self.editor_dados)
-            self.editor_dados.deleteLater()
-
-        self.editor_dados = WidgetEditorDados(model, controller, parent=self)
         if layout:
-            layout.addWidget(self.editor_dados)
+            for w_md in self._editor_dados.findChildren(WidgetEditorMarkdown):
+                w_md.temporizador.descartar()
+            layout.removeWidget(self._editor_dados)
+            self._editor_dados.deleteLater()
+
+        self._editor_dados = WidgetEditorDados(model, controller, parent=self)
+        if layout:
+            layout.addWidget(self._editor_dados)
 
 
 class PaginaImagens(PaginaBase):
     def __init__(self, parent: QWidget | None = None) -> None:
         super().__init__("Imagens", parent, criar_placeholder=False)
-        layout = self.layout()
+        self._editor: WidgetEditorImagens | None = None
+        self._dados_pendentes: tuple[str | Path | None, Any | None, Any | None] | None = None
 
-        # O folder_path inicial é vazio, será carregado em carregar_imagens
-        self.editor: WidgetEditorImagens = WidgetEditorImagens("", modo_integrado=True, parent=self)
-        if layout:
-            layout.addWidget(self.editor)
+    def tem_editor_instanciado(self) -> bool:
+        return self._editor is not None
+
+    def garantir_editor_criado(self) -> WidgetEditorImagens:
+        """Instancia `WidgetEditorImagens` sob demanda na primeira abertura da aba Imagens."""
+        if self._editor is None:
+            self._editor = WidgetEditorImagens("", modo_integrado=True, parent=self)
+            layout = self.layout()
+            if layout:
+                layout.addWidget(self._editor)
+            if self._dados_pendentes is not None:
+                caminho_db, model, controller = self._dados_pendentes
+                self._aplicar_carregamento(caminho_db, model, controller)
+        return self._editor
+
+    @property
+    def editor(self) -> WidgetEditorImagens:
+        return self.garantir_editor_criado()
+
+    @editor.setter
+    def editor(self, valor: WidgetEditorImagens | None) -> None:
+        self._editor = valor
+
+    def _aplicar_carregamento(
+        self, caminho_db: str | Path | None, model: Any | None = None, controller: Any | None = None
+    ) -> None:
+        assert self._editor is not None
+        if model:
+            self._editor.croqui_model = model
+        if controller:
+            self._editor.croqui_controller = controller
+        if caminho_db:
+            self._editor.folder_path = str(caminho_db)
+            self._editor.imagens_path = str(Path(caminho_db) / "imagens")
+        self._editor.load_images_list()
 
     def carregar_imagens(
         self, caminho_db: str | Path | None, model: Any | None = None, controller: Any | None = None
     ) -> None:
-        if model:
-            self.editor.croqui_model = model
-        if controller:
-            self.editor.croqui_controller = controller
-
-        if caminho_db:
-            self.editor.folder_path = str(caminho_db)
-            self.editor.imagens_path = str(Path(caminho_db) / "imagens")
-        self.editor.load_images_list()
+        if self._editor is None:
+            antigo = self._dados_pendentes
+            model_efetivo = model if model is not None else (antigo[1] if antigo else None)
+            ctrl_efetivo = controller if controller is not None else (antigo[2] if antigo else None)
+            self._dados_pendentes = (caminho_db, model_efetivo, ctrl_efetivo)
+            return
+        self._aplicar_carregamento(caminho_db, model, controller)
 
 
 class PaginaMapas(PaginaBase):
@@ -308,9 +364,15 @@ class JanelaPrincipal(QMainWindow):
         fabrica_servidor_celular: Callable[..., Any] | None = None,
         servico_loja: Any | None = None,
         ativar_trava_croqui: bool | None = None,
+        pacote_croqui: Any | None = None,
+        adiar_recuperacao_sessao: bool = False,
     ) -> None:
         super().__init__(parent)
         self.setFont(QFont("Segoe UI", 9))
+        self._pacote_croqui_inicial: Any | None = pacote_croqui
+        self._adiar_recuperacao_sessao: bool = bool(adiar_recuperacao_sessao)
+        self._recuperacao_sessao_pendente: tuple[Any, int] | None = None
+        self._inicializando_janela: bool = True
         self.storage: Any | None = storage
         if auth is None:
             from editor.core.gerenciador_sessao import GerenciadorSessao
@@ -442,11 +504,14 @@ class JanelaPrincipal(QMainWindow):
         self._setup_ui()
 
         if self.workspace:
-            self.carregar_croqui()
+            self.carregar_croqui(pacote_precarregado=self._pacote_croqui_inicial)
+            self._pacote_croqui_inicial = None
 
+        self._inicializando_janela = False
         self.iniciar_servidor_mcp(
             diretorio_sessao=self._diretorio_sessao_mcp,
             iniciar_rede=self._iniciar_rede_mcp,
+            aguardar_pronto=False,
         )
 
     def _setup_ui(self) -> None:
@@ -515,6 +580,7 @@ class JanelaPrincipal(QMainWindow):
 
         # Define o ícone da janela
         caminho_icone_janela = config_canal.obter_caminho_icone_aplicacao()
+        self._caminho_icone_janela = caminho_icone_janela
         self.setWindowIcon(QIcon(str(caminho_icone_janela)))
 
         self.addToolBar(Qt.ToolBarArea.TopToolBarArea, self.toolbar_superior)
@@ -702,7 +768,11 @@ class JanelaPrincipal(QMainWindow):
         for i, acao in enumerate(self.grupo_nav):
             acao.setChecked(i == indice)
 
-        if indice == 3:
+        if indice == 1:
+            self.pagina_dados.garantir_editor_criado()
+        elif indice == 2:
+            self.pagina_imagens.garantir_editor_criado()
+        elif indice == 3:
             self.pagina_mapas.garantir_editor_criado()
         elif indice == 4:
             self.pagina_betas.garantir_painel_criado()
@@ -1023,107 +1093,108 @@ class JanelaPrincipal(QMainWindow):
         dialogo = DialogoRecuperacaoSessao(total_acoes=total_acoes, parent=self)
         return bool(dialogo.exec() == QDialog.DialogCode.Accepted)
 
-    def carregar_croqui(self, sincronizar_remoto: bool = True) -> None:
-        """Carrega os dados do croqui a partir do sistema de arquivos."""
+    def processar_recuperacao_sessao_pendente(self) -> None:
+        """Exibe o `DialogoRecuperacaoSessao` pendente quando a janela principal já está visível."""
+        if self._recuperacao_sessao_pendente is None or self.croqui_model is None:
+            return
+        diario, total_acoes = self._recuperacao_sessao_pendente
+        self._recuperacao_sessao_pendente = None
+        if self._perguntar_recuperacao_sessao(total_acoes):
+            self.historico.restaurar_do_diario(self.croqui_model, diario)
+            self.pagina_painel.painel.atualizar_painel()
+        else:
+            diario.descartar_pendente()
+
+    def carregar_croqui(
+        self,
+        sincronizar_remoto: bool = True,
+        pacote_precarregado: Any | None = None,
+    ) -> None:
+        """Carrega os dados do croqui reutilizando pacote pré-carregado ou lendo do disco."""
         if not self.workspace:
             return
 
+        from editor.core.carregador_croqui import PacoteCroquiCarregado, carregar_pacote_croqui
+
         caminho_db = self.workspace.obter_caminho_database()
+        pacote = (
+            pacote_precarregado if isinstance(pacote_precarregado, PacoteCroquiCarregado) else None
+        )
+        if pacote is None:
+            obter_sha = (
+                self.workspace.obter_commit_base_sha
+                if hasattr(self.workspace, "obter_commit_base_sha")
+                else None
+            )
+            pacote = carregar_pacote_croqui(caminho_db, obter_commit_sha=obter_sha)
 
-        # Roda as migrações no banco de dados antes de carregar
-        from scripts.migrador import aplicar_migracoes
+        if pacote is not None:
+            houve_migracao = pacote.houve_migracao
+            self.croqui_data = pacote.croqui_data
+            self.croqui_model = CroquiModel.criar_de_pacote_carregado(pacote)
+            if hasattr(self.croqui_model, "foco_requisitado"):
+                self.croqui_model.foco_requisitado.connect(self._on_foco_requisitado)
+            self.croqui_controller = CroquiController(self.croqui_model, self.historico)
+            resultado_qualidade_inicial: Any | None = pacote.resultado_qualidade_inicial
 
-        houve_migracao = aplicar_migracoes(caminho_db)
+            diario = (
+                self.workspace.obter_diario() if hasattr(self.workspace, "obter_diario") else None
+            )
+            from editor.core.diario import GerenciadorDiario
 
-        yaml_path = caminho_db / "croqui.yaml"
-        if yaml_path.exists():
-            with open(yaml_path, encoding="utf-8") as f:
-                self.croqui_data = carregar_yaml(f.read())
+            if isinstance(diario, GerenciadorDiario):
+                if houve_migracao:
+                    diario.invalidar_historico_completo()
+                    self.historico.limpar()
+                else:
+                    self.historico.carregar_diario_salvo(self.croqui_model, diario)
+                    if diario.tem_alteracoes_pendentes():
+                        comandos_pendentes = diario.ler_diario_pendente()
+                        if comandos_pendentes:
+                            if self._adiar_recuperacao_sessao and not self.isVisible():
+                                self._recuperacao_sessao_pendente = (
+                                    diario,
+                                    len(comandos_pendentes),
+                                )
+                            elif self._perguntar_recuperacao_sessao(len(comandos_pendentes)):
+                                self.historico.restaurar_do_diario(self.croqui_model, diario)
+                                resultado_qualidade_inicial = None
+                            else:
+                                diario.descartar_pendente()
 
-                from google.protobuf.json_format import ParseDict
+                self.historico.definir_gerenciador_diario(diario)
 
-                from aresta_api.proto.generated.croqui_pb2 import Croqui
+            self.pagina_painel.carregar_painel(
+                self.croqui_model,
+                self.croqui_controller,
+                resultado_inicial=resultado_qualidade_inicial,
+            )
+            self.pagina_dados.carregar_dados(self.croqui_model, self.croqui_controller)
+            self.pagina_imagens.carregar_imagens(
+                caminho_db, model=self.croqui_model, controller=self.croqui_controller
+            )
+            self.pagina_mapas.carregar_mapas(
+                self.croqui_model, self.historico, caminho_db, controller=self.croqui_controller
+            )
+            self.pagina_betas.carregar_betas(
+                caminho_db, model=self.croqui_model, controller=self.croqui_controller
+            )
 
-                croqui_msg = ParseDict(self.croqui_data, Croqui(), ignore_unknown_fields=True)
-                import json
+            from editor.core.telemetria import anexar_diario_escopo, registrar_contexto_croqui
 
-                from scripts.deploy_generated import registrar_snapshot_disco_arquivo
+            id_croqui = self.croqui_data.get("id", "") if self.croqui_data else ""
+            registrar_contexto_croqui(id_croqui=id_croqui, commit_base_sha=pacote.commit_base_sha)
+            self._atualizar_trava_croqui(id_croqui)
+            if isinstance(diario, GerenciadorDiario):
+                anexar_diario_escopo(diario)
 
-                croqui_msg.Extensions[
-                    Croqui.ext_metadados_arquivo
-                ].dados_json_originais = json.dumps(self.croqui_data, ensure_ascii=False)
-                registrar_snapshot_disco_arquivo(yaml_path, self.croqui_data, None)
+            if self.servidor_mcp is not None and not self._inicializando_janela:
+                self._registrar_ferramentas_mcp()
 
-                self.croqui_model = CroquiModel(croqui_msg)
-                self.croqui_model.definir_caminho_db(caminho_db)
-                if hasattr(self.croqui_model, "foco_requisitado"):
-                    self.croqui_model.foco_requisitado.connect(self._on_foco_requisitado)
-                self.croqui_controller = CroquiController(self.croqui_model, self.historico)
-
-                # Inicializa/limpa rastreadores
-                self.croqui_model.carregar_arquivos_externos(caminho_db)
-
-                # Verifica recuperação de sessão e histórico no diário
-                diario = (
-                    self.workspace.obter_diario()
-                    if hasattr(self.workspace, "obter_diario")
-                    else None
-                )
-                from editor.core.diario import GerenciadorDiario
-
-                if isinstance(diario, GerenciadorDiario):
-                    if houve_migracao:
-                        diario.invalidar_historico_completo()
-                        self.historico.limpar()
-                    else:
-                        # 1. Carrega comandos salvos na pilha de Undo (permitindo Ctrl+Z entre sessões)
-                        self.historico.carregar_diario_salvo(self.croqui_model, diario)
-
-                        # 2. Verifica se há alterações pendentes de crash
-                        if diario.tem_alteracoes_pendentes():
-                            comandos_pendentes = diario.ler_diario_pendente()
-                            if comandos_pendentes:
-                                if self._perguntar_recuperacao_sessao(len(comandos_pendentes)):
-                                    self.historico.restaurar_do_diario(self.croqui_model, diario)
-                                else:
-                                    diario.descartar_pendente()
-
-                    self.historico.definir_gerenciador_diario(diario)
-
-                # Atualiza os componentes com os dados carregados
-                self.pagina_painel.carregar_painel(self.croqui_model, self.croqui_controller)
-                self.pagina_dados.carregar_dados(self.croqui_model, self.croqui_controller)
-                self.pagina_imagens.carregar_imagens(
-                    caminho_db, model=self.croqui_model, controller=self.croqui_controller
-                )
-                self.pagina_mapas.carregar_mapas(
-                    self.croqui_model, self.historico, caminho_db, controller=self.croqui_controller
-                )
-                self.pagina_betas.carregar_betas(
-                    caminho_db, model=self.croqui_model, controller=self.croqui_controller
-                )
-
-                # Registra contexto no escopo de telemetria
-                from editor.core.telemetria import anexar_diario_escopo, registrar_contexto_croqui
-
-                id_croqui = self.croqui_data.get("id", "") if self.croqui_data else ""
-                commit_base_sha = (
-                    self.workspace.obter_commit_base_sha()
-                    if hasattr(self.workspace, "obter_commit_base_sha")
-                    else ""
-                )
-                registrar_contexto_croqui(id_croqui=id_croqui, commit_base_sha=commit_base_sha)
-                self._atualizar_trava_croqui(id_croqui)
-                if isinstance(diario, GerenciadorDiario):
-                    anexar_diario_escopo(diario)
-
-                if self.servidor_mcp is not None:
-                    self._registrar_ferramentas_mcp()
-
-                self.atualizar_titulo()
-                self.atualizar_estado_sincronizacao()
-                if sincronizar_remoto:
-                    self.sincronizar_croqui(silencioso=True)
+            self.atualizar_titulo()
+            self.atualizar_estado_sincronizacao()
+            if sincronizar_remoto:
+                self.sincronizar_croqui(silencioso=True)
 
     def salvar_croqui(self, callback_sucesso: Callable[[], None] | None = None) -> None:
         """Salva as alterações, compila e faz commit no git local se aplicável."""
@@ -1138,7 +1209,7 @@ class JanelaPrincipal(QMainWindow):
             foco_atual.clearFocus()
 
         if (
-            hasattr(self.pagina_dados, "editor_dados")
+            self.pagina_dados.tem_editor_instanciado()
             and self.pagina_dados.editor_dados
             and hasattr(self.pagina_dados.editor_dados, "form_padrao")
             and self.pagina_dados.editor_dados.form_padrao
@@ -1150,11 +1221,7 @@ class JanelaPrincipal(QMainWindow):
         try:
             cache_md_memoria: dict[str, tuple[dict[str, Any] | None, str]] = {}
             corpos_brutos_md: dict[str, str] = {}
-            if (
-                hasattr(self.pagina_dados, "editor_dados")
-                and self.pagina_dados.editor_dados
-                and self.croqui_model
-            ):
+            if self.croqui_model is not None:
                 self.croqui_data = self.croqui_model.extrair_arquivos_e_serializar(
                     caminho_db,
                     cache_md_out=cache_md_memoria,
@@ -1167,7 +1234,8 @@ class JanelaPrincipal(QMainWindow):
             ):
                 self.pagina_mapas.editor.salvar_todas_mudancas(mostrar_mensagem=False)
 
-            self.pagina_imagens.editor.salvar_alteracoes(mostrar_mensagem=False)
+            if self.pagina_imagens.tem_editor_instanciado():
+                self.pagina_imagens.editor.salvar_alteracoes(mostrar_mensagem=False)
 
             novo_id = str(self.croqui_data.get("id", "")) if self.croqui_data else ""
             id_atual_ws = (
@@ -1238,7 +1306,7 @@ class JanelaPrincipal(QMainWindow):
 
         # 1. Guarda a seleção atual da árvore
         caminho_selecionado = None
-        if hasattr(self.pagina_dados, "editor_dados") and self.pagina_dados.editor_dados:
+        if self.pagina_dados.tem_editor_instanciado() and self.pagina_dados.editor_dados:
             if hasattr(self.pagina_dados.editor_dados, "obter_caminho_no_selecionado"):
                 caminho_selecionado = self.pagina_dados.editor_dados.obter_caminho_no_selecionado()
 
@@ -1682,6 +1750,7 @@ class JanelaPrincipal(QMainWindow):
         porta_preferencial: int | None = None,
         diretorio_sessao: Path | None = None,
         iniciar_rede: bool = True,
+        aguardar_pronto: bool = True,
     ) -> Any:
         """Inicializa (se necessário) o servidor MCP local e registra as ferramentas ativas."""
         from editor.mcp.despachante import DespachanteQt
@@ -1711,7 +1780,7 @@ class JanelaPrincipal(QMainWindow):
             )
             self.servidor_mcp.definir_croqui_ativo(id_croqui, caminho_db, croqui_aberto=True)
         if iniciar_rede and not self.servidor_mcp.esta_ativo:
-            self.servidor_mcp.iniciar()
+            self.servidor_mcp.iniciar(aguardar_pronto=aguardar_pronto)
         return self.servidor_mcp
 
     def _registrar_ferramentas_mcp(self) -> None:
@@ -1758,7 +1827,7 @@ class JanelaPrincipal(QMainWindow):
         pagina = mapa_paginas.get(self.stack.currentIndex(), "dados")
         caminho = ""
         if (
-            hasattr(self.pagina_dados, "editor_dados")
+            self.pagina_dados.tem_editor_instanciado()
             and self.pagina_dados.editor_dados
             and hasattr(self.pagina_dados.editor_dados, "obter_caminho_no_selecionado")
         ):
@@ -1911,6 +1980,12 @@ class JanelaPrincipal(QMainWindow):
             x = self.width() - self.label_status_salvamento.width() - margem
             y = self.height() - self.label_status_salvamento.height() - margem
             self.label_status_salvamento.move(x, y)
+
+    def showEvent(self, event: Any) -> None:
+        super().showEvent(event)
+        from editor.plataforma import aplicar_icone_janela_nativa
+
+        aplicar_icone_janela_nativa(int(self.winId()), getattr(self, "_caminho_icone_janela", None))
 
     def resizeEvent(self, event: Any) -> None:
         super().resizeEvent(event)
