@@ -1764,12 +1764,18 @@ class JanelaPrincipal(QMainWindow):
 
     def _exibir_conexao_mcp(self) -> None:
         """Garante que o servidor MCP está ativo e exibe o diálogo de configuração para agentes."""
+        from editor.mcp.sessao import obter_porta_primaria_ativa
         from editor.views.dialogos.dialogo_conexao_mcp import DialogoConexaoMcp
 
         servidor = self.iniciar_servidor_mcp(iniciar_rede=True)
+        porta_exibida, ativo = obter_porta_primaria_ativa(
+            porta_fallback=servidor.porta if servidor.esta_ativo else None,
+            diretorio_base=servidor.diretorio_sessao,
+        )
         dialogo = DialogoConexaoMcp(
-            porta=servidor.porta,
-            servidor_ativo=servidor.esta_ativo,
+            porta=porta_exibida,
+            servidor_ativo=ativo,
+            dir_sessao=servidor.diretorio_sessao,
             parent=self,
         )
         dialogo.exec()

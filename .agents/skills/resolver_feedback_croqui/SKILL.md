@@ -39,7 +39,10 @@ Seja **direto**: não gaste turnos lendo seções textuais, skills não relacion
    - **Boulders (`DificuldadeBoulder`):** `PROJETO`, `V0` até `V16`.
 4. **Campos de Revisão Humana:**
    - **NUNCA** altere campos `revisado_*` para `true`.
-5. **Títulos de Pull Request:**
+5. **Betas de Escalada (`aresta_remover_betas` / `aresta_adicionar_betas_revisao`):**
+   - Para remover um vídeo/beta incorreto citado no feedback, **SEMPRE** use `aresta_remover_betas(itens=[{"escalada_uid": "<uid_via>", "url": "<url>"}])` em vez de `aresta_remover_repeated`, para que a URL seja movida para `betas_rejeitados` e não volte em futuras coletas.
+   - Para encaminhar um novo link sugerido no feedback para revisão humana na aba **Betas**, use `aresta_adicionar_betas_revisao(itens=[{"escalada_uid": "<uid_via>", "url": "<url>", ...}])`.
+6. **Títulos de Pull Request:**
    - Formato curto e descritivo em português: `fix(<id_croqui>): <resumo conciso da correção>`.
 
 ---

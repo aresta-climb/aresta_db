@@ -18,11 +18,15 @@ O Editor Aresta MUST disponibilizar um servidor local compatível com a especifi
 - **THEN** a ponte descobre a porta ativa do editor e repassa mensagens JSON-RPC de forma bidirecional e transparente
 
 ### Requirement: Diálogo de Conexão de Agentes na Interface
-O Editor Aresta MUST exibir na interface gráfica uma opção para abrir o diálogo `Conectar Agente de IA (MCP)`, apresentando o status de execução do servidor local, o endereço ativo e botões para copiar a configuração pronta para os principais clientes MCP.
+O Editor Aresta MUST exibir na interface gráfica uma opção para abrir o diálogo `Conectar Agente de IA (MCP)`, apresentando o status de execução do servidor local, o endereço ativo da sessão primária e botões para copiar a configuração pronta para os principais clientes MCP.
 
 #### Scenario: Cópia de configuração de agente em um clique
 - **WHEN** o usuário abre o diálogo `Conectar Agente de IA (MCP)` e aciona o botão de copiar configuração para Antigravity, Codex, Claude Desktop ou Cursor
 - **THEN** o sistema copia para a área de transferência o bloco de configuração formatado com os caminhos e a porta correspondentes ao ambiente em execução
+
+#### Scenario: Priorização da porta primária ativa em múltiplas janelas abertas
+- **WHEN** existem múltiplas janelas do Editor Aresta abertas (`27378` como sessão primária em `mcp_sessao.json` e `27379` como janela secundária) e o usuário abre `Conectar Agente de IA (MCP)` a partir da janela secundária (ou da `TelaDeCarregamento`)
+- **THEN** o diálogo MUST exibir e copiar a URL da porta da sessão primária ativa (`mcp_sessao.json`), recorrendo à porta local apenas quando não existir sessão primária registrada
 
 ### Requirement: Despacho Thread-Safe Qt e Blindagem do Histórico contra Comandos Inválidos
 Toda requisição de execução de ferramenta recebida pelo servidor MCP que envolva consulta ou alteração do estado da aplicação (`CroquiModel`, `IndiceUidsModel`, `QUndoStack` ou widgets da interface) MUST ser despachada para a thread principal da interface gráfica do PySide6. O `GerenciadorHistorico` MUST registrar seu slot `_on_index_changed` com `@Slot(int)` e proteger `__getattr__` contra atributos privados/internos. O `CmdAlterarCampo` MUST validar os tipos e rejeitar campos `repeated` sem índice no `__init__` antes de qualquer empilhamento em `QUndoStack`. Para evitar *split-brain* entre cliente MCP e histórico local, o `DespachanteQt` MUST distinguir o tempo limite de espera na fila (`timeout`) do tempo limite máximo de conclusão (`timeout_execucao`): se `timeout` expirar e `futuro.cancel()` retornar `True` (tarefa ainda pendente na fila), MUST cancelar e lançar `TimeoutError` sem mutar o modelo; se `futuro.cancel()` retornar `False` porque a execução já iniciou na thread principal do Qt, MUST aguardar até `timeout_execucao` para retornar o resultado real cometido.
@@ -250,3 +254,22 @@ O Editor Aresta MUST centralizar o registro das ferramentas MCP de comandos, vis
 #### Scenario: Retorno descritivo ao capturar viewport de janela em modo headless
 - **WHEN** um cliente invoca `aresta_capturar_canvas` em uma sessão *headless* onde não há widgets de interface gráfica instanciados
 - **THEN** o servidor MCP retorna `isError: True` com mensagem clara informando que o viewport gráfico não está disponível em modo *headless* e orientando o uso de `aresta_renderizar_mapa` ou `aresta_obter_arvore`
+
+### Requirement: Adição e Remoção de Betas por URL na Curadoria via MCP
+O servidor MCP MUST disponibilizar `aresta_adicionar_betas_revisao` e `aresta_remover_betas`, operando por `(escalada_uid, url)` com normalização de URL e reversibilidade atômica via `QUndoStack`.
+
+#### Scenario: Adição de beta para revisão sem nota e com nota (incluindo resgate de rejeitados)
+- **WHEN** o cliente MCP chama `aresta_adicionar_betas_revisao` com itens contendo `escalada_uid`, `url` e opcionalmente `titulo`, `fonte`, `snippets`, `llm_confidence_score` e `llm_reasoning`
+- **THEN** o sistema valida todos os itens previamente (*fail-fast*), normaliza a URL, infere `FonteMidia` quando omitida, resgata o item caso esteja em `betas_rejeitados` (limpando eventual prefixo `[Query: ... | Auto-filtrado: ...]`), mantém intacto se já aprovado em `Escalada.betas`, e insere/atualiza o item em `betas_nao_revisados` (ordenado por score decrescente quando informado score + justificativa) ou em `betas_nao_scorados` (quando sem nota) em um único `CmdMacro`
+
+#### Scenario: Rejeição fail-fast ao informar parâmetros inválidos em aresta_adicionar_betas_revisao
+- **WHEN** um item em `aresta_adicionar_betas_revisao` informa `escalada_uid` inexistente, URL inválida/não classificável, `fonte` inválida, apenas um entre `llm_confidence_score` e `llm_reasoning`, ou score fora de `0..100`
+- **THEN** a chamada falha antes de empilhar qualquer comando no histórico e o `CroquiModel` permanece inalterado
+
+#### Scenario: Remoção de beta por URL com bloqueio contra re-scraping ou exclusão definitiva
+- **WHEN** o cliente MCP chama `aresta_remover_betas` informando `escalada_uid` e `url` (com `bloquear_futura_coleta=True` padrão ou `False`)
+- **THEN** o sistema remove a mídia correspondente de `Escalada.betas`, `betas_nao_revisados` ou `betas_nao_scorados`, movendo-a para `betas_rejeitados` quando `bloquear_futura_coleta=True` ou excluindo-a também de `betas_rejeitados` quando `bloquear_futura_coleta=False`, em um único `CmdMacro` reversível por `undo()`/`redo()`
+
+#### Scenario: Rejeição fail-fast ao tentar remover URL ausente em aresta_remover_betas
+- **WHEN** `aresta_remover_betas` recebe `escalada_uid` inexistente ou `url` não encontrada nas listas aplicáveis da escalada
+- **THEN** a chamada falha antes de alterar qualquer estado no `CroquiModel` e retorna `isError: True`

@@ -2279,6 +2279,72 @@ def test_janela_principal_integra_servidor_mcp_e_dialogo_conexao(
     assert janela.servidor_mcp is None
 
 
+def test_janela_secundaria_exibe_porta_primaria_no_dialogo_mcp(
+    criar_janela, tmp_path: Path
+) -> None:
+    """
+    Quando duas janelas estão abertas simultaneamente compartilhando o diretório de sessão MCP,
+    abrir Conectar Agente (MCP) na janela secundária deve exibir a porta da sessão primária.
+    """
+    from PySide6.QtCore import QTimer
+    from PySide6.QtWidgets import QApplication
+
+    from editor.core.workspace import LocalRepoWorkspace
+    from editor.mcp.sessao import alocar_porta_mcp
+    from editor.views.dialogos.dialogo_conexao_mcp import DialogoConexaoMcp
+
+    dir_sessao = tmp_path / "sessao_multi"
+    pasta_1 = tmp_path / "croqui_1"
+    pasta_2 = tmp_path / "croqui_2"
+    pasta_1.mkdir(parents=True)
+    pasta_2.mkdir(parents=True)
+    (pasta_1 / "croqui.yaml").write_text("id: croqui_1\nnome: Croqui 1\n", encoding="utf-8")
+    (pasta_2 / "croqui.yaml").write_text("id: croqui_2\nnome: Croqui 2\n", encoding="utf-8")
+
+    porta_primaria = alocar_porta_mcp()
+    janela_1 = criar_janela(
+        workspace=LocalRepoWorkspace(pasta_1),
+        iniciar_rede_mcp=False,
+        diretorio_sessao_mcp=dir_sessao,
+    )
+    janela_1.iniciar_servidor_mcp(
+        porta_preferencial=porta_primaria,
+        diretorio_sessao=dir_sessao,
+        iniciar_rede=True,
+    )
+    janela_2 = criar_janela(
+        workspace=LocalRepoWorkspace(pasta_2),
+        iniciar_rede_mcp=False,
+        diretorio_sessao_mcp=dir_sessao,
+    )
+    janela_2.iniciar_servidor_mcp(
+        porta_preferencial=porta_primaria + 1,
+        diretorio_sessao=dir_sessao,
+        iniciar_rede=True,
+    )
+
+    try:
+        assert janela_1.servidor_mcp is not None
+        assert janela_2.servidor_mcp is not None
+        assert janela_1.servidor_mcp.porta != janela_2.servidor_mcp.porta
+
+        portas_exibidas: list[int] = []
+
+        def _capturar_e_fechar() -> None:
+            for widget in QApplication.topLevelWidgets():
+                if isinstance(widget, DialogoConexaoMcp) and widget.isVisible():
+                    portas_exibidas.append(widget.porta)
+                    widget.btn_fechar.click()
+
+        QTimer.singleShot(50, _capturar_e_fechar)
+        janela_2.acao_mcp.trigger()
+
+        assert portas_exibidas == [janela_1.servidor_mcp.porta]
+    finally:
+        janela_2.close()
+        janela_1.close()
+
+
 @patch("editor.legacy_views.area_principal.JanelaPrincipal.carregar_croqui")
 def test_janela_principal_usa_dependencias_injetadas_submissao_loja_e_celular(
     mock_carregar, qtbot, tmp_path

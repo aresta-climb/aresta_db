@@ -490,6 +490,33 @@ def registrar_ferramentas_betas(
             "total_candidatos_pendentes": cands_pendentes,
         }
 
+    def _adicionar_betas_revisao(args: dict[str, Any]) -> dict[str, Any]:
+        itens_brutos = _desserializar_json_se_aplicavel(args.get("itens"))
+        if not isinstance(itens_brutos, list):
+            raise ValueError("Informe uma lista em 'itens' para adicionar betas à revisão.")
+        resumo = controller.adicionar_betas_para_revisao(itens_brutos)
+        esc_pendentes, cands_pendentes = gerenciador._contar_pendentes_globais_na_thread_qt()
+        return {
+            "status": "ok",
+            **resumo,
+            "total_escaladas_pendentes": esc_pendentes,
+            "total_candidatos_pendentes": cands_pendentes,
+        }
+
+    def _remover_betas(args: dict[str, Any]) -> dict[str, Any]:
+        itens_brutos = _desserializar_json_se_aplicavel(args.get("itens"))
+        if not isinstance(itens_brutos, list):
+            raise ValueError("Informe uma lista em 'itens' para remover betas.")
+        bloquear = bool(args.get("bloquear_futura_coleta", True))
+        resumo = controller.remover_betas_por_url(itens_brutos, bloquear_futura_coleta=bloquear)
+        esc_pendentes, cands_pendentes = gerenciador._contar_pendentes_globais_na_thread_qt()
+        return {
+            "status": "ok",
+            **resumo,
+            "total_escaladas_pendentes": esc_pendentes,
+            "total_candidatos_pendentes": cands_pendentes,
+        }
+
     servidor.registrar_ferramenta(
         nome="aresta_coletar_betas",
         descricao=(
@@ -621,6 +648,109 @@ def registrar_ferramentas_betas(
             "required": ["escaladas"],
         },
         manipulador=_pontuar_betas,
+        requer_croqui=True,
+    )
+
+    servidor.registrar_ferramenta(
+        nome="aresta_adicionar_betas_revisao",
+        descricao=(
+            "Adiciona ou atualiza mídias de beta para revisão humana por `(escalada_uid, url)` "
+            "(resgatando de `betas_rejeitados` quando necessário e preservando `Escalada.betas`). "
+            "Com `llm_confidence_score` e `llm_reasoning` entra em `betas_nao_revisados`; sem nota, "
+            "entra em `betas_nao_scorados`."
+        ),
+        esquema_entrada={
+            "type": "object",
+            "properties": {
+                "itens": {
+                    "type": "array",
+                    "description": "Lista de betas a adicionar na fila de curadoria.",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "escalada_uid": {
+                                "type": "string",
+                                "description": "UID NanoID da escalada alvo.",
+                            },
+                            "url": {
+                                "type": "string",
+                                "description": "URL pública do vídeo, postagem ou blog.",
+                            },
+                            "titulo": {
+                                "type": "string",
+                                "description": "Título opcional da mídia.",
+                            },
+                            "fonte": {
+                                "type": "string",
+                                "description": (
+                                    "Opcional: YOUTUBE, INSTAGRAM, BLOG, TIKTOK, FACEBOOK, "
+                                    "TWITTER, REDDIT ou OUTRO_UGC (inferida pela URL se omitida)."
+                                ),
+                            },
+                            "snippets": {
+                                "type": "array",
+                                "items": {"type": "string"},
+                                "description": "Trechos textuais opcionais de contexto.",
+                            },
+                            "llm_confidence_score": {
+                                "type": "integer",
+                                "description": "Nota opcional de 0 a 100 (exige `llm_reasoning`).",
+                            },
+                            "llm_reasoning": {
+                                "type": "string",
+                                "description": "Justificativa opcional (exige `llm_confidence_score`).",
+                            },
+                        },
+                        "required": ["escalada_uid", "url"],
+                    },
+                },
+            },
+            "required": ["itens"],
+        },
+        manipulador=_adicionar_betas_revisao,
+        requer_croqui=True,
+    )
+
+    servidor.registrar_ferramenta(
+        nome="aresta_remover_betas",
+        descricao=(
+            "Remove betas específicos por `(escalada_uid, url)` de `Escalada.betas` ou das filas "
+            "pendentes (movendo para `betas_rejeitados` quando `bloquear_futura_coleta=True`). "
+            "Use apenas sob solicitação explícita do usuário/mantenedor."
+        ),
+        esquema_entrada={
+            "type": "object",
+            "properties": {
+                "itens": {
+                    "type": "array",
+                    "description": "Lista de betas a remover por escalada e URL.",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "escalada_uid": {
+                                "type": "string",
+                                "description": "UID NanoID da escalada alvo.",
+                            },
+                            "url": {
+                                "type": "string",
+                                "description": "URL do beta a remover.",
+                            },
+                            "bloquear_futura_coleta": {
+                                "type": "boolean",
+                                "description": "Se True (padrão), move para `betas_rejeitados`.",
+                            },
+                        },
+                        "required": ["escalada_uid", "url"],
+                    },
+                },
+                "bloquear_futura_coleta": {
+                    "type": "boolean",
+                    "description": "Comportamento padrão para o lote (True move para `betas_rejeitados`).",
+                },
+            },
+            "required": ["itens"],
+        },
+        manipulador=_remover_betas,
         requer_croqui=True,
     )
 

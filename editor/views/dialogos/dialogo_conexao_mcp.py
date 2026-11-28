@@ -20,7 +20,7 @@ from PySide6.QtWidgets import (
 )
 
 from editor.core.configuracao_canal import obter_configuracao_canal
-from editor.mcp.sessao import PORTA_MCP_PADRAO, ler_sessao_mcp
+from editor.mcp.sessao import obter_porta_primaria_ativa
 
 TEXTO_INSTRUCAO_PROMPT_AGENTE = (
     "Copie e cole o prompt abaixo no seu agente para configurar o acesso ao Editor Aresta:"
@@ -51,13 +51,7 @@ class DialogoConexaoMcp(QDialog):
         super().__init__(parent)
 
         if porta is None:
-            sessao = ler_sessao_mcp(diretorio_base=dir_sessao)
-            if sessao is not None:
-                porta = sessao.porta
-                servidor_ativo = True
-            else:
-                porta = PORTA_MCP_PADRAO
-                servidor_ativo = False
+            porta, servidor_ativo = obter_porta_primaria_ativa(diretorio_base=dir_sessao)
 
         self.porta: int = porta
         self.servidor_ativo: bool = servidor_ativo

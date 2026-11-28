@@ -486,6 +486,48 @@ def test_tela_de_carregamento_possui_botao_conectar_mcp_e_abre_croqui_via_mcp(qt
     assert tela.caminho_croqui_selecionado == pasta_croqui
 
 
+def test_tela_de_carregamento_dialogo_mcp_prioriza_porta_primaria(qtbot, tmp_path):
+    """Garante que ao clicar em Conectar MCP na TelaDeCarregamento a porta primária em mcp_sessao.json é exibida."""
+    from PySide6.QtCore import QTimer
+    from PySide6.QtWidgets import QApplication
+
+    from editor.mcp.despachante import DespachanteQt
+    from editor.mcp.servidor import ServidorMCP
+    from editor.mcp.sessao import alocar_porta_mcp
+    from editor.views.dialogos.dialogo_conexao_mcp import DialogoConexaoMcp
+
+    porta_primaria = alocar_porta_mcp()
+    servidor_primario = ServidorMCP(
+        despachante=DespachanteQt(),
+        porta_preferencial=porta_primaria,
+        diretorio_sessao=tmp_path,
+    )
+    servidor_primario.iniciar()
+
+    tela = TelaDeCarregamento(diretorio_sessao_mcp=tmp_path)
+    qtbot.addWidget(tela)
+
+    portas_exibidas: list[int] = []
+
+    def _capturar_e_fechar() -> None:
+        for widget in QApplication.topLevelWidgets():
+            if isinstance(widget, DialogoConexaoMcp) and widget.isVisible():
+                portas_exibidas.append(widget.porta)
+                widget.btn_fechar.click()
+
+    try:
+        QTimer.singleShot(50, _capturar_e_fechar)
+        tela.ao_clicar_conectar_mcp()
+
+        assert tela.servidor_mcp is not None
+        assert tela.servidor_mcp.porta != porta_primaria
+        assert portas_exibidas == [porta_primaria]
+    finally:
+        if tela.servidor_mcp is not None:
+            tela.servidor_mcp.parar()
+        servidor_primario.parar()
+
+
 def test_dialogo_novo_croqui_detecta_id_duplicado_e_campos_vazios(
     qtbot, storage_real: GerenciadorCaminhos
 ):

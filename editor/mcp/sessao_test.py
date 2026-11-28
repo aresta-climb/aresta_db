@@ -17,6 +17,7 @@ from editor.mcp.sessao import (
     listar_sessoes_mcp,
     obter_caminho_sessao_mcp,
     obter_caminho_sessoes_mcp,
+    obter_porta_primaria_ativa,
     porta_disponivel_local,
     registrar_sessao_multi_mcp,
     remover_sessao_mcp,
@@ -232,3 +233,23 @@ def test_gravar_sessao_preserva_primaria_e_sincroniza_atualizacao(tmp_path: Path
     assert principal_preservada is not None
     assert principal_preservada.porta == 27378
     assert principal_preservada.id_croqui == "croqui_prim_atualizado"
+
+
+def test_obter_porta_primaria_ativa_prioriza_sessao_principal_com_fallbacks(tmp_path: Path) -> None:
+    """Garante que obter_porta_primaria_ativa prioriza mcp_sessao.json e usa fallbacks apenas se ausente."""
+    # 1. Sem sessão e sem fallback -> porta padrão inativa
+    assert obter_porta_primaria_ativa(diretorio_base=tmp_path) == (PORTA_MCP_PADRAO, False)
+
+    # 2. Sem sessão mas com porta fallback local -> retorna fallback ativo
+    assert obter_porta_primaria_ativa(porta_fallback=27399, diretorio_base=tmp_path) == (
+        27399,
+        True,
+    )
+
+    # 3. Com sessão primária ativa -> ignora porta fallback da janela secundária e retorna a primária
+    gravar_sessao_mcp(porta=27381, token="tok_prim", diretorio_base=tmp_path, id_croqui="croqui_1")
+    gravar_sessao_mcp(porta=27382, token="tok_sec", diretorio_base=tmp_path, id_croqui="croqui_2")
+    assert obter_porta_primaria_ativa(porta_fallback=27382, diretorio_base=tmp_path) == (
+        27381,
+        True,
+    )

@@ -39,12 +39,47 @@ from coleta_de_betas.curadoria.provedor_imagem_aresta import (
 
 TAMANHO_FATIA_CARDS_PADRAO = 5
 
-INSTRUCOES_MCP_AVALIACAO = (
-    "💡 Passo 1: Conecte seu agente de IA (Cursor, Claude, Antigravity) ao Editor Aresta clicando em "
-    '"🔌 Conectar Agente (MCP)...".\n'
-    "Passo 2: Copie e envie o comando ao agente (ou use a skill coletar_betas_croqui para coletar via MCP):\n"
-    '"Execute a skill avaliar_betas_croqui para avaliar e pontuar os betas_nao_scorados deste croqui."'
-)
+
+def gerar_prompt_mcp_avaliacao_betas(id_croqui: str = "", nome_croqui: str = "") -> str:
+    """
+    Gera o comando MCP contextualizado para o agente avaliar todos os `betas_nao_scorados`
+    do croqui ativo utilizando o servidor `editor-aresta`.
+    """
+    id_limpo = id_croqui.strip()
+    nome_limpo = nome_croqui.strip()
+    if id_limpo:
+        identificacao = (
+            f'"{nome_limpo}" (`id_croqui="{id_limpo}"`)'
+            if nome_limpo
+            else f'`id_croqui="{id_limpo}"`'
+        )
+        return (
+            f"Usando o servidor MCP `editor-aresta`, avalie e pontue todos os `betas_nao_scorados` "
+            f"do croqui {identificacao}:\n"
+            "1. Siga as instruções da skill `avaliar_betas_croqui` (se não estiver no seu workspace local, "
+            'carregue-a chamando `aresta_ler_skill(nome_skill="avaliar_betas_croqui")` no MCP `editor-aresta`).\n'
+            f'2. Passe sempre `id_croqui="{id_limpo}"` em todas as chamadas ao `editor-aresta` '
+            "(`aresta_listar_betas_nao_scorados`, `aresta_pontuar_betas`, `aresta_status_workspace`)."
+        )
+    return (
+        "Usando o servidor MCP `editor-aresta`, avalie e pontue todos os `betas_nao_scorados` deste croqui.\n"
+        "Siga as instruções da skill `avaliar_betas_croqui` (se não estiver no seu workspace local, "
+        'carregue-a chamando `aresta_ler_skill(nome_skill="avaliar_betas_croqui")` no MCP `editor-aresta`).'
+    )
+
+
+def gerar_instrucoes_banner_mcp_avaliacao(id_croqui: str = "", nome_croqui: str = "") -> str:
+    """Gera o texto do banner da seção `1. Betas Não Scorados` com os 2 passos MCP."""
+    prompt = gerar_prompt_mcp_avaliacao_betas(id_croqui=id_croqui, nome_croqui=nome_croqui)
+    return (
+        "💡 Passo 1: Conecte seu agente de IA (Cursor, Claude, Antigravity) ao servidor MCP "
+        '`editor-aresta` clicando em "🔌 Conectar Agente (MCP)...".\n'
+        "Passo 2: Copie e envie o comando ao agente (ou use a skill `coletar_betas_croqui` para coletar via MCP):\n"
+        f"{prompt}"
+    )
+
+
+INSTRUCOES_MCP_AVALIACAO = gerar_instrucoes_banner_mcp_avaliacao()
 
 
 _ROTULOS_POR_FONTE: dict[int, str] = {
@@ -631,11 +666,18 @@ class PainelCuradoria(QWidget):
         if callable(exibir_mcp):
             exibir_mcp()
 
+    def _obter_identificacao_croqui_ativo(self) -> tuple[str, str]:
+        if self.model is None:
+            return "", ""
+        croqui_ro = self.model.obter_croqui_readonly()
+        return str(getattr(croqui_ro, "id", "") or ""), str(getattr(croqui_ro, "nome", "") or "")
+
     def _copiar_prompt_mcp(self) -> None:
+        id_croqui, nome_croqui = self._obter_identificacao_croqui_ativo()
         clipboard = QApplication.clipboard()
         if clipboard is not None:
             clipboard.setText(
-                "Execute a skill avaliar_betas_croqui para avaliar e pontuar os betas_nao_scorados deste croqui."
+                gerar_prompt_mcp_avaliacao_betas(id_croqui=id_croqui, nome_croqui=nome_croqui)
             )
         self.btn_copiar_prompt_mcp.setText("✅ Copiado para a área de transferência!")
         QTimer.singleShot(2000, self._restaurar_botao_copiar_prompt_mcp)
@@ -967,6 +1009,7 @@ class PainelCuradoria(QWidget):
 
             if self.model is None or self.controller is None:
                 self.banner_mcp.setVisible(False)
+                self.label_instrucoes_mcp.setText(gerar_instrucoes_banner_mcp_avaliacao())
                 self._limpar_layout(self.layout_nao_scorados, self.cards_nao_scorados)
                 self._limpar_layout(self.layout_nao_revisados, self.cards_nao_revisados)
                 self._limpar_layout(self.layout_aprovados, self.cards_aprovados)
@@ -977,6 +1020,12 @@ class PainelCuradoria(QWidget):
 
             ctrl = self.controller
             croqui_ro = self.model.obter_croqui_readonly()
+            self.label_instrucoes_mcp.setText(
+                gerar_instrucoes_banner_mcp_avaliacao(
+                    id_croqui=str(getattr(croqui_ro, "id", "") or ""),
+                    nome_croqui=str(getattr(croqui_ro, "nome", "") or ""),
+                )
+            )
             infos_escaladas = extrair_escaladas_do_croqui(croqui_ro)
             self._popular_combo_escaladas(infos_escaladas)
             mapa_info: dict[str, InfoEscaladaColeta] = {

@@ -62,6 +62,9 @@ def test_registrar_catalogo_ferramentas_croqui_unificado_sem_widgets(qapp, tmp_p
             "aresta_salvar",
             "aresta_status_workspace",
             "aresta_listar_betas_nao_scorados",
+            "aresta_pontuar_betas",
+            "aresta_adicionar_betas_revisao",
+            "aresta_remover_betas",
         }
         assert ferramentas_esperadas.issubset(nomes)
 

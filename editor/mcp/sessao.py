@@ -304,3 +304,19 @@ def descobrir_url_mcp_ativa(
     if sessao is not None:
         return sessao.url_http, sessao.token
     return f"http://127.0.0.1:{PORTA_MCP_PADRAO}/mcp", ""
+
+
+def obter_porta_primaria_ativa(
+    porta_fallback: int | None = None,
+    diretorio_base: Path | None = None,
+) -> tuple[int, bool]:
+    """
+    Resolve a porta da sessão MCP primária ativa em `mcp_sessao.json`,
+    recorrendo a `porta_fallback` (ou `PORTA_MCP_PADRAO` inativa) apenas quando ausente.
+    """
+    sessao_principal = ler_sessao_mcp(diretorio_base=diretorio_base)
+    if sessao_principal is not None:
+        return sessao_principal.porta, True
+    if porta_fallback is not None:
+        return int(porta_fallback), True
+    return PORTA_MCP_PADRAO, False

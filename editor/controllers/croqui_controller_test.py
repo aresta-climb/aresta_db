@@ -1964,3 +1964,319 @@ def test_croqui_controller_reavaliar_betas_auto_filtrados_promove_validos_preser
     undo_stack.undo()
     assert len(cur1.betas_nao_scorados) == 0
     assert len(cur1.betas_rejeitados) == 6
+
+
+def test_adicionar_betas_para_revisao_e_remover_por_url_com_undo_redo_e_resgate(qapp):
+    """
+    Valida CroquiController.adicionar_betas_para_revisao e remover_betas_por_url cobrindo:
+    - Adição sem score (betas_nao_scorados) e com score (betas_nao_revisados ordenado)
+    - Inferência automática de FonteMidia e aceitação de fonte explícita
+    - Resgate incondicional de betas_rejeitados (manual e [Auto-filtrado: ...])
+    - Preservação de item já aprovado em Escalada.betas sem duplicar
+    - Atualização/promoção de item já pendente sem duplicar
+    - Remoção por URL de aprovados/pendentes com bloqueio ou exclusão definitiva
+    - Reversibilidade integral via Undo/Redo e validações fail-fast
+    """
+    from aresta_api.proto.generated import beta_pb2, croqui_pb2
+
+    croqui = croqui_pb2.Croqui(uid="croqui_cur_mcp", id="br_mg_teste", nome="Pico Teste")
+    pico = croqui.picos.add(nome="Pico Teste")
+    setor = pico.setores_ou_grupos.add().setor.conteudo
+    setor.uid = "setor_cur_1"
+    esc = setor.escaladas.add(uid="esc_cur_1")
+    esc.via_esportiva.nome = "Via Clássica"
+    esc.betas.add(
+        url="https://youtube.com/watch?v=ja_aprovada",
+        titulo="Já Aprovada",
+        fonte=beta_pb2.FonteMidia.YOUTUBE,
+    )
+
+    cur = croqui.curadoria_betas.conteudo.escaladas.add(escalada_uid="esc_cur_1")
+    cur.betas_rejeitados.add(
+        url="https://youtube.com/watch?v=rejeitada_manual",
+        titulo="Rejeitada Manual",
+        fonte=beta_pb2.FonteMidia.YOUTUBE,
+    )
+    cur.betas_rejeitados.add(
+        url="https://instagram.com/reel/CreelAuto1",
+        titulo="[Query: ig | Auto-filtrado: sem pico] Reel Auto",
+        fonte=beta_pb2.FonteMidia.INSTAGRAM,
+    )
+    cand_nr_ex = cur.betas_nao_revisados.add()
+    cand_nr_ex.midia.url = "https://blog.com/post-existente"
+    cand_nr_ex.midia.titulo = "Post Existente"
+    cand_nr_ex.midia.fonte = beta_pb2.FonteMidia.BLOG
+    cand_nr_ex.resultado_llm.llm_confidence_score = 70
+    cand_nr_ex.resultado_llm.llm_reasoning = "Menção razoável."
+
+    model = CroquiModel(croqui)
+    undo_stack = QUndoStack()
+    controller = CroquiController(model, undo_stack)
+
+    # 1. Lote de adições variado (sem score, com score, resgate manual e auto-filtrado, já aprovada, atualização)
+    res_add = controller.adicionar_betas_para_revisao(
+        [
+            {
+                "escalada_uid": "esc_cur_1",
+                "url": "https://youtu.be/novo_sem_score?si=tracking",
+                "titulo": "Vídeo Sem Score",
+                "snippets": ["Trecho 1"],
+            },
+            {
+                "escalada_uid": "esc_cur_1",
+                "url": "https://youtube.com/watch?v=rejeitada_manual",
+                "llm_confidence_score": 92,
+                "llm_reasoning": "Beta real resgatado manualmente.",
+            },
+            {
+                "escalada_uid": "esc_cur_1",
+                "url": "https://instagram.com/reels/CreelAuto1/",
+            },
+            {
+                "escalada_uid": "esc_cur_1",
+                "url": "https://youtube.com/watch?v=ja_aprovada",
+                "titulo": "Tentativa Duplicada",
+            },
+            {
+                "escalada_uid": "esc_cur_1",
+                "url": "https://instagram.com/escalador_generico",
+                "titulo": "Perfil Escalador",
+                "fonte": "INSTAGRAM",
+                "llm_confidence_score": 55,
+                "llm_reasoning": "Perfil do conquistador.",
+            },
+            {
+                "escalada_uid": "esc_cur_1",
+                "url": "https://blog.com/post-existente",
+                "snippets": ["Trecho extra"],
+            },
+        ]
+    )
+    assert res_add == {
+        "adicionados_nao_revisados": 2,
+        "adicionados_nao_scorados": 2,
+        "resgatados_de_rejeitados": 2,
+        "ja_aprovados": 1,
+    }
+    assert undo_stack.count() == 1
+    assert len(cur.betas_rejeitados) == 0
+    assert [c.midia.url for c in cur.betas_nao_scorados] == [
+        "https://youtube.com/watch?v=novo_sem_score",
+        "https://instagram.com/reel/CreelAuto1",
+    ]
+    assert cur.betas_nao_scorados[1].midia.titulo == "Reel Auto"
+    assert [
+        (c.midia.url, c.resultado_llm.llm_confidence_score) for c in cur.betas_nao_revisados
+    ] == [
+        ("https://youtube.com/watch?v=rejeitada_manual", 92),
+        ("https://blog.com/post-existente", 70),
+        ("https://instagram.com/escalador_generico", 55),
+    ]
+    assert cur.betas_nao_revisados[0].midia.titulo == "Rejeitada Manual"
+    assert list(cur.betas_nao_revisados[1].snippets) == ["Trecho extra"]
+
+    # 2. Promover item existente em betas_nao_scorados com score via adicionar_betas_para_revisao
+    res_prom = controller.adicionar_betas_para_revisao(
+        [
+            {
+                "escalada_uid": "esc_cur_1",
+                "url": "https://youtube.com/watch?v=novo_sem_score",
+                "snippets": ["Trecho 2"],
+                "llm_confidence_score": 88,
+                "llm_reasoning": "Mostra a via inteira.",
+            }
+        ]
+    )
+    assert res_prom["adicionados_nao_revisados"] == 1
+    assert [c.midia.url for c in cur.betas_nao_scorados] == [
+        "https://instagram.com/reel/CreelAuto1"
+    ]
+    promovido = next(
+        c
+        for c in cur.betas_nao_revisados
+        if c.midia.url == "https://youtube.com/watch?v=novo_sem_score"
+    )
+    assert list(promovido.snippets) == ["Trecho 1", "Trecho 2"]
+    assert promovido.resultado_llm.llm_confidence_score == 88
+
+    # 3. Remover beta aprovado (com bloqueio padrão -> betas_rejeitados) e beta pendente (sem bloqueio)
+    res_rem = controller.remover_betas_por_url(
+        [
+            {
+                "escalada_uid": "esc_cur_1",
+                "url": "https://youtube.com/watch?v=ja_aprovada",
+            },
+            {
+                "escalada_uid": "esc_cur_1",
+                "url": "https://instagram.com/reel/CreelAuto1",
+                "bloquear_futura_coleta": False,
+            },
+        ]
+    )
+    assert res_rem == {
+        "removidos_de_aprovados": 1,
+        "removidos_de_pendentes": 1,
+        "movidos_para_rejeitados": 1,
+    }
+    assert len(esc.betas) == 0
+    assert len(cur.betas_nao_scorados) == 0
+    assert [m.url for m in cur.betas_rejeitados] == ["https://youtube.com/watch?v=ja_aprovada"]
+
+    # 4. Remover definitivamente um item que está em betas_rejeitados (bloquear_futura_coleta=False)
+    res_rem_rej = controller.remover_betas_por_url(
+        [
+            {
+                "escalada_uid": "esc_cur_1",
+                "url": "https://youtube.com/watch?v=ja_aprovada",
+                "bloquear_futura_coleta": False,
+            }
+        ]
+    )
+    assert res_rem_rej["movidos_para_rejeitados"] == 0
+    assert len(cur.betas_rejeitados) == 0
+
+    # 5. Undo / Redo integral até o estado inicial
+    while undo_stack.canUndo():
+        undo_stack.undo()
+    assert len(esc.betas) == 1
+    assert len(cur.betas_rejeitados) == 2
+    assert len(cur.betas_nao_scorados) == 0
+    assert len(cur.betas_nao_revisados) == 1
+
+    while undo_stack.canRedo():
+        undo_stack.redo()
+    assert len(esc.betas) == 0
+    assert len(cur.betas_rejeitados) == 0
+
+    # 6. Apenas itens já aprovados não empilha macro vazio no histórico
+    qtd_hist = undo_stack.count()
+    res_noop = controller.adicionar_betas_para_revisao(
+        [
+            {
+                "escalada_uid": "esc_cur_1",
+                "url": "https://youtube.com/watch?v=inexistente",
+                "fonte": beta_pb2.FonteMidia.YOUTUBE,
+            }
+        ]
+    )
+    assert res_noop["adicionados_nao_scorados"] == 1
+    assert undo_stack.count() == qtd_hist + 1
+
+    # Escalar nova adição em nova via que ainda não tinha entrada em curadoria_betas e já aprovada -> no-op
+    esc2 = setor.escaladas.add(uid="esc_cur_2")
+    esc2.betas.add(url="https://youtube.com/watch?v=so_aprovada", fonte=beta_pb2.FonteMidia.YOUTUBE)
+    idx_antes_noop = undo_stack.count()
+    assert controller.adicionar_betas_para_revisao(
+        [{"escalada_uid": "esc_cur_2", "url": "https://youtube.com/watch?v=so_aprovada"}]
+    ) == {
+        "adicionados_nao_revisados": 0,
+        "adicionados_nao_scorados": 0,
+        "resgatados_de_rejeitados": 0,
+        "ja_aprovados": 1,
+    }
+    assert undo_stack.count() == idx_antes_noop
+
+
+def test_adicionar_e_remover_betas_validacoes_fail_fast(qapp):
+    """Garante rejeição fail-fast antes de mutar o modelo em parâmetros inválidos."""
+    import pytest
+
+    from aresta_api.proto.generated import croqui_pb2
+
+    croqui = croqui_pb2.Croqui(uid="croqui_ff", id="br_mg_ff", nome="FF")
+    pico = croqui.picos.add(nome="Pico FF")
+    setor = pico.setores_ou_grupos.add().setor.conteudo
+    setor.uid = "setor_ff"
+    esc_ff = setor.escaladas.add(uid="esc_ff")
+    esc_ff.via_esportiva.nome = "Via FF"
+    esc_ff.betas.add(url="https://youtube.com/watch?v=existente_ff")
+
+    model = CroquiModel(croqui)
+    undo_stack = QUndoStack()
+    controller = CroquiController(model, undo_stack)
+
+    with pytest.raises(ValueError, match="lista não vazia"):
+        controller.adicionar_betas_para_revisao([])
+
+    with pytest.raises(ValueError, match="URL inválida"):
+        controller.adicionar_betas_para_revisao([{"escalada_uid": "esc_ff", "url": "sem_dominio"}])
+
+    with pytest.raises(ValueError, match="duplicada"):
+        controller.adicionar_betas_para_revisao(
+            [
+                {"escalada_uid": "esc_ff", "url": "https://youtube.com/watch?v=abc"},
+                {"escalada_uid": "esc_ff", "url": "https://youtu.be/abc"},
+            ]
+        )
+
+    with pytest.raises(ValueError, match="Fonte"):
+        controller.adicionar_betas_para_revisao(
+            [
+                {
+                    "escalada_uid": "esc_ff",
+                    "url": "https://youtube.com/watch?v=abc",
+                    "fonte": "INVALIDA",
+                }
+            ]
+        )
+
+    with pytest.raises(ValueError, match="Não foi possível inferir"):
+        controller.adicionar_betas_para_revisao(
+            [{"escalada_uid": "esc_ff", "url": "https://instagram.com/apenas_perfil"}]
+        )
+
+    with pytest.raises(ValueError, match="snippets"):
+        controller.adicionar_betas_para_revisao(
+            [
+                {
+                    "escalada_uid": "esc_ff",
+                    "url": "https://youtube.com/watch?v=abc",
+                    "snippets": "texto_solto",
+                }
+            ]
+        )
+
+    with pytest.raises(ValueError, match="llm_confidence_score"):
+        controller.adicionar_betas_para_revisao(
+            [
+                {
+                    "escalada_uid": "esc_ff",
+                    "url": "https://youtube.com/watch?v=abc",
+                    "llm_confidence_score": 85,
+                }
+            ]
+        )
+
+    with pytest.raises(ValueError, match="llm_confidence_score"):
+        controller.adicionar_betas_para_revisao(
+            [
+                {
+                    "escalada_uid": "esc_ff",
+                    "url": "https://youtube.com/watch?v=abc",
+                    "llm_confidence_score": 150,
+                    "llm_reasoning": "Inválido",
+                }
+            ]
+        )
+
+    with pytest.raises(ValueError, match="lista não vazia"):
+        controller.remover_betas_por_url([])
+
+    with pytest.raises(ValueError, match="URL inválida"):
+        controller.remover_betas_por_url([{"escalada_uid": "esc_ff", "url": ""}])
+
+    with pytest.raises(ValueError, match="duplicada"):
+        controller.remover_betas_por_url(
+            [
+                {"escalada_uid": "esc_ff", "url": "https://youtube.com/watch?v=existente_ff"},
+                {"escalada_uid": "esc_ff", "url": "https://youtu.be/existente_ff"},
+            ]
+        )
+
+    with pytest.raises(ValueError, match="não encontrada"):
+        controller.remover_betas_por_url(
+            [{"escalada_uid": "esc_ff", "url": "https://youtube.com/watch?v=nao_existe"}]
+        )
+
+    assert undo_stack.count() == 0
+    assert len(esc_ff.betas) == 1

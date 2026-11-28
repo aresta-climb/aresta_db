@@ -10,6 +10,8 @@ from coleta_de_betas.curadoria.painel_curadoria import (
     TAMANHO_FATIA_CARDS_PADRAO,
     CardBetaCuradoria,
     PainelCuradoria,
+    gerar_instrucoes_banner_mcp_avaliacao,
+    gerar_prompt_mcp_avaliacao_betas,
 )
 from coleta_de_betas.curadoria.provedor_imagem_aresta import ProvedorImagemAresta
 from coleta_de_betas.extratores.cliente_http_fake import ClienteHttpFake
@@ -560,3 +562,64 @@ def test_painel_curadoria_close_event_encerra_workers_e_card_ignora_thumbnail_ap
     card = painel.cards_nao_revisados[0]
     shiboken6.delete(card.label_thumbnail)
     card._ao_carregar_thumbnail(obter_pixmap_fallback(beta_pb2.FonteMidia.YOUTUBE))
+
+
+def test_geracao_prompt_e_banner_mcp_contextual_com_id_croqui_e_filtro(qtbot) -> None:
+    """
+    Garante que o banner e o prompt copiado na aba Betas citam o servidor MCP `editor-aresta`,
+    orientam carregar a skill via `aresta_ler_skill` e propagam `id_croqui` para avaliar todo o croqui,
+    mesmo quando há filtro de escalada selecionado no combo.
+    """
+    from PySide6.QtWidgets import QApplication
+
+    # 1. Funções puras com id+nome, apenas id, e vazio
+    prompt_completo = gerar_prompt_mcp_avaliacao_betas(
+        id_croqui="br_mg_lapinha", nome_croqui="Gruta da Lapinha"
+    )
+    assert "editor-aresta" in prompt_completo
+    assert "avaliar_betas_croqui" in prompt_completo
+    assert 'aresta_ler_skill(nome_skill="avaliar_betas_croqui")' in prompt_completo
+    assert 'id_croqui="br_mg_lapinha"' in prompt_completo
+    assert "Gruta da Lapinha" in prompt_completo
+
+    prompt_so_id = gerar_prompt_mcp_avaliacao_betas(id_croqui="br_sp_pedra_bela", nome_croqui="")
+    assert 'id_croqui="br_sp_pedra_bela"' in prompt_so_id
+    assert "editor-aresta" in prompt_so_id
+
+    prompt_vazio = gerar_prompt_mcp_avaliacao_betas()
+    assert "editor-aresta" in prompt_vazio
+    assert "id_croqui=" not in prompt_vazio
+
+    banner_vazio = gerar_instrucoes_banner_mcp_avaliacao()
+    assert "coletar_betas_croqui" in banner_vazio
+    assert "editor-aresta" in banner_vazio
+
+    # 2. Painel com croqui carregado e filtro de escalada ativo mantém escopo do croqui inteiro
+    croqui = _criar_croqui_curadoria()
+    model = CroquiModel(croqui)
+    stack = QUndoStack()
+    controller = CroquiController(model, stack)
+
+    painel = PainelCuradoria(carregar_assincrono=False)
+    qtbot.addWidget(painel)
+    painel.carregar_dados(model, controller)
+
+    assert "editor-aresta" in painel.label_instrucoes_mcp.text()
+    assert 'id_croqui="serra_cipo"' in painel.label_instrucoes_mcp.text()
+    assert "Serra do Cipó" in painel.label_instrucoes_mcp.text()
+
+    painel.selecionar_escalada_por_uid("esc_2")
+    painel.btn_copiar_prompt_mcp.click()
+    texto_copiado = QApplication.clipboard().text()
+    assert "editor-aresta" in texto_copiado
+    assert 'id_croqui="serra_cipo"' in texto_copiado
+    assert "Serra do Cipó" in texto_copiado
+    assert "betas_nao_scorados" in texto_copiado
+    assert "esc_2" not in texto_copiado
+
+    # 3. Sem modelo carregado, copiar prompt usa fallback sem id_croqui sem falhar
+    painel.carregar_dados(None, None)
+    painel.btn_copiar_prompt_mcp.click()
+    texto_sem_modelo = QApplication.clipboard().text()
+    assert "editor-aresta" in texto_sem_modelo
+    assert "id_croqui=" not in texto_sem_modelo

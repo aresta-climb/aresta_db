@@ -1784,3 +1784,431 @@ class CroquiController:
         finally:
             self.finalizar_grupo_undo()
         return total_promovidos
+
+    @staticmethod
+    def _resolver_fonte_midia_beta(fonte_bruta: Any, url_bruta: str) -> int:
+        from aresta_api.proto.generated import beta_pb2
+        from coleta_de_betas.extratores.blog import classificar_fonte_url
+
+        if fonte_bruta is not None and fonte_bruta != "":
+            desc_enum = beta_pb2.FonteMidia.Enum.DESCRIPTOR
+            if isinstance(fonte_bruta, str):
+                val_enum = desc_enum.values_by_name.get(fonte_bruta.strip().upper())
+                if val_enum is not None and val_enum.number != beta_pb2.FonteMidia.INDEFINIDO:
+                    return int(val_enum.number)
+            elif (
+                isinstance(fonte_bruta, int)
+                and not isinstance(fonte_bruta, bool)
+                and fonte_bruta in desc_enum.values_by_number
+                and fonte_bruta != beta_pb2.FonteMidia.INDEFINIDO
+            ):
+                return int(fonte_bruta)
+            raise ValueError(f"Fonte de mídia '{fonte_bruta}' inválida.")
+
+        inferida = classificar_fonte_url(url_bruta)
+        if inferida is None:
+            raise ValueError(f"Não foi possível inferir a fonte da mídia pela URL '{url_bruta}'.")
+        return int(inferida)
+
+    @staticmethod
+    def _indice_url_em_lista_curadoria(
+        colecao: Sequence[Any], url_norm: str, eh_candidato: bool
+    ) -> int:
+        from coleta_de_betas.extratores.deduplicador import normalizar_url
+
+        for idx, item in enumerate(colecao):
+            url_item = item.midia.url if eh_candidato else item.url
+            if normalizar_url(url_item) == url_norm:
+                return idx
+        return -1
+
+    def adicionar_betas_para_revisao(
+        self,
+        itens: Sequence[dict[str, Any]],
+        context_path: str | None = None,
+    ) -> dict[str, int]:
+        """
+        Adiciona ou atualiza candidatos a beta para revisão humana por `(escalada_uid, url)`.
+        Resgata itens presentes em `betas_rejeitados`, preserva itens já aprovados em
+        `Escalada.betas` e roteia para `betas_nao_revisados` (com score) ou `betas_nao_scorados`.
+        """
+        from aresta_api.proto.generated import beta_pb2
+        from coleta_de_betas.extratores.blog import extrair_titulo_original_auto_filtrado
+        from coleta_de_betas.extratores.deduplicador import normalizar_url
+
+        if not isinstance(itens, Sequence) or isinstance(itens, (str, bytes)) or not itens:
+            raise ValueError("Informe uma lista não vazia em 'itens' para adicionar betas.")
+
+        itens_validados: list[dict[str, Any]] = []
+        pares_vistos: set[tuple[str, str]] = set()
+        for item in itens:
+            esc_uid = str(item.get("escalada_uid") or "").strip()
+            esc_raw = self._obter_escalada_por_uid(esc_uid)
+            url_bruta = str(item.get("url") or "").strip()
+            url_norm = normalizar_url(url_bruta)
+            if not url_norm:
+                raise ValueError(f"URL inválida '{url_bruta}' para a escalada '{esc_uid}'.")
+            if (esc_uid, url_norm) in pares_vistos:
+                raise ValueError(
+                    f"URL duplicada '{url_bruta}' para a escalada '{esc_uid}' no mesmo lote."
+                )
+            pares_vistos.add((esc_uid, url_norm))
+
+            fonte_num = self._resolver_fonte_midia_beta(item.get("fonte"), url_bruta)
+
+            snippets_brutos = item.get("snippets")
+            if snippets_brutos is None:
+                snippets_limpos: list[str] = []
+            elif isinstance(snippets_brutos, Sequence) and not isinstance(
+                snippets_brutos, (str, bytes)
+            ):
+                snippets_limpos = [str(s).strip() for s in snippets_brutos if str(s).strip()]
+            else:
+                raise ValueError(f"O campo 'snippets' de '{url_bruta}' deve ser uma lista.")
+
+            score_bruto = item.get("llm_confidence_score")
+            justif_bruta = str(item.get("llm_reasoning") or "").strip()
+            if (score_bruto is not None) != bool(justif_bruta):
+                raise ValueError(
+                    f"Informe ambos 'llm_confidence_score' e 'llm_reasoning' juntos para '{url_bruta}'."
+                )
+            if score_bruto is not None and (
+                isinstance(score_bruto, bool)
+                or not isinstance(score_bruto, int)
+                or not (0 <= score_bruto <= 100)
+            ):
+                raise ValueError(
+                    f"Score 'llm_confidence_score' inválido ({score_bruto!r}) para '{url_bruta}'; "
+                    "informe um inteiro entre 0 e 100."
+                )
+
+            itens_validados.append(
+                {
+                    "escalada_uid": esc_uid,
+                    "esc_raw": esc_raw,
+                    "url_norm": url_norm,
+                    "titulo": str(item.get("titulo") or "").strip(),
+                    "fonte": fonte_num,
+                    "snippets": snippets_limpos,
+                    "score": score_bruto,
+                    "justificativa": justif_bruta,
+                }
+            )
+
+        resumo = {
+            "adicionados_nao_revisados": 0,
+            "adicionados_nao_scorados": 0,
+            "resgatados_de_rejeitados": 0,
+            "ja_aprovados": 0,
+        }
+        pendentes_mutacao: list[dict[str, Any]] = []
+        for entrada in itens_validados:
+            if (
+                self._indice_url_em_lista_curadoria(
+                    entrada["esc_raw"].betas, entrada["url_norm"], eh_candidato=False
+                )
+                >= 0
+            ):
+                resumo["ja_aprovados"] += 1
+            else:
+                pendentes_mutacao.append(entrada)
+
+        if not pendentes_mutacao:
+            return resumo
+
+        ctx = context_path or self.contexto_atual_path
+        self.iniciar_grupo_undo("Adicionar Betas para Revisão")
+        try:
+            for entrada in pendentes_mutacao:
+                esc_uid = entrada["escalada_uid"]
+                url_norm = entrada["url_norm"]
+                caminho_cur, curadoria_esc = self._garantir_caminho_e_curadoria_escalada(
+                    esc_uid, ctx
+                )
+
+                novo_cand = beta_pb2.CandidatoMidiaBeta()
+                novo_cand.midia.url = url_norm
+                novo_cand.midia.fonte = entrada["fonte"]
+
+                idx_rej = self._indice_url_em_lista_curadoria(
+                    curadoria_esc.betas_rejeitados, url_norm, eh_candidato=False
+                )
+                idx_ns = self._indice_url_em_lista_curadoria(
+                    curadoria_esc.betas_nao_scorados, url_norm, eh_candidato=True
+                )
+                idx_nr = self._indice_url_em_lista_curadoria(
+                    curadoria_esc.betas_nao_revisados, url_norm, eh_candidato=True
+                )
+
+                titulo_herdado = ""
+                snippets_herdados: list[str] = []
+                score_herdado: int | None = None
+                justif_herdada = ""
+
+                if idx_rej >= 0:
+                    midia_rej = curadoria_esc.betas_rejeitados[idx_rej]
+                    titulo_limpo = extrair_titulo_original_auto_filtrado(midia_rej.titulo)
+                    titulo_herdado = (
+                        titulo_limpo if titulo_limpo is not None else str(midia_rej.titulo)
+                    )
+                    self._executar_comando(
+                        CmdRemoverRepeated(
+                            model=self.model,
+                            alvo=caminho_cur,
+                            campo_nome="betas_rejeitados",
+                            index=idx_rej,
+                            valor_removido=midia_rej,
+                            context_path=ctx,
+                        )
+                    )
+                    resumo["resgatados_de_rejeitados"] += 1
+
+                if idx_ns >= 0:
+                    cand_ns = curadoria_esc.betas_nao_scorados[idx_ns]
+                    titulo_herdado = titulo_herdado or str(cand_ns.midia.titulo)
+                    snippets_herdados.extend(cand_ns.snippets)
+                    self._executar_comando(
+                        CmdRemoverRepeated(
+                            model=self.model,
+                            alvo=caminho_cur,
+                            campo_nome="betas_nao_scorados",
+                            index=idx_ns,
+                            valor_removido=cand_ns,
+                            context_path=ctx,
+                        )
+                    )
+
+                estava_em_nr = idx_nr >= 0
+                if estava_em_nr:
+                    cand_nr = curadoria_esc.betas_nao_revisados[idx_nr]
+                    titulo_herdado = titulo_herdado or str(cand_nr.midia.titulo)
+                    snippets_herdados.extend(cand_nr.snippets)
+                    score_herdado = int(cand_nr.resultado_llm.llm_confidence_score)
+                    justif_herdada = str(cand_nr.resultado_llm.llm_reasoning)
+                    self._executar_comando(
+                        CmdRemoverRepeated(
+                            model=self.model,
+                            alvo=caminho_cur,
+                            campo_nome="betas_nao_revisados",
+                            index=idx_nr,
+                            valor_removido=cand_nr,
+                            context_path=ctx,
+                        )
+                    )
+
+                novo_cand.midia.titulo = entrada["titulo"] or titulo_herdado
+                for trecho in [*snippets_herdados, *entrada["snippets"]]:
+                    if trecho not in novo_cand.snippets:
+                        novo_cand.snippets.append(trecho)
+
+                score_final = entrada["score"] if entrada["score"] is not None else score_herdado
+                justif_final = entrada["justificativa"] or justif_herdada
+
+                if score_final is not None:
+                    novo_cand.resultado_llm.llm_confidence_score = int(score_final)
+                    novo_cand.resultado_llm.llm_reasoning = justif_final
+                    idx_ins = len(curadoria_esc.betas_nao_revisados)
+                    for i, existente in enumerate(curadoria_esc.betas_nao_revisados):
+                        if int(score_final) > existente.resultado_llm.llm_confidence_score:
+                            idx_ins = i
+                            break
+                    self._executar_comando(
+                        CmdAdicionarRepeated(
+                            model=self.model,
+                            alvo=caminho_cur,
+                            campo_nome="betas_nao_revisados",
+                            index=idx_ins,
+                            valor=novo_cand,
+                            context_path=ctx,
+                        )
+                    )
+                    if not estava_em_nr:
+                        resumo["adicionados_nao_revisados"] += 1
+                else:
+                    self._executar_comando(
+                        CmdAdicionarRepeated(
+                            model=self.model,
+                            alvo=caminho_cur,
+                            campo_nome="betas_nao_scorados",
+                            index=len(curadoria_esc.betas_nao_scorados),
+                            valor=novo_cand,
+                            context_path=ctx,
+                        )
+                    )
+                    resumo["adicionados_nao_scorados"] += 1
+        finally:
+            self.finalizar_grupo_undo()
+        return resumo
+
+    def remover_betas_por_url(
+        self,
+        itens: Sequence[dict[str, Any]],
+        bloquear_futura_coleta: bool = True,
+        context_path: str | None = None,
+    ) -> dict[str, int]:
+        """
+        Remove betas de uma escalada por `(escalada_uid, url)` de `Escalada.betas` ou das filas
+        pendentes, movendo-os para `betas_rejeitados` quando `bloquear_futura_coleta=True`.
+        """
+        from aresta_api.proto.generated import beta_pb2
+        from coleta_de_betas.extratores.deduplicador import normalizar_url
+
+        if not isinstance(itens, Sequence) or isinstance(itens, (str, bytes)) or not itens:
+            raise ValueError("Informe uma lista não vazia em 'itens' para remover betas.")
+
+        itens_validados: list[dict[str, Any]] = []
+        pares_vistos: set[tuple[str, str]] = set()
+        for item in itens:
+            esc_uid = str(item.get("escalada_uid") or "").strip()
+            esc_raw = self._obter_escalada_por_uid(esc_uid)
+            url_bruta = str(item.get("url") or "").strip()
+            url_norm = normalizar_url(url_bruta)
+            if not url_norm:
+                raise ValueError(f"URL inválida '{url_bruta}' para a escalada '{esc_uid}'.")
+            if (esc_uid, url_norm) in pares_vistos:
+                raise ValueError(
+                    f"URL duplicada '{url_bruta}' para a escalada '{esc_uid}' no mesmo lote."
+                )
+            pares_vistos.add((esc_uid, url_norm))
+
+            bloquear_item = bool(item.get("bloquear_futura_coleta", bloquear_futura_coleta))
+            cur_esc = self._obter_curadoria_escalada(esc_uid)
+            encontrada = (
+                self._indice_url_em_lista_curadoria(esc_raw.betas, url_norm, eh_candidato=False)
+                >= 0
+            )
+            if not encontrada and cur_esc is not None:
+                encontrada = (
+                    self._indice_url_em_lista_curadoria(
+                        cur_esc.betas_nao_revisados, url_norm, eh_candidato=True
+                    )
+                    >= 0
+                    or self._indice_url_em_lista_curadoria(
+                        cur_esc.betas_nao_scorados, url_norm, eh_candidato=True
+                    )
+                    >= 0
+                    or (
+                        not bloquear_item
+                        and self._indice_url_em_lista_curadoria(
+                            cur_esc.betas_rejeitados, url_norm, eh_candidato=False
+                        )
+                        >= 0
+                    )
+                )
+            if not encontrada:
+                raise ValueError(
+                    f"Mídia com URL '{url_bruta}' não encontrada na escalada '{esc_uid}'."
+                )
+
+            itens_validados.append(
+                {
+                    "escalada_uid": esc_uid,
+                    "esc_raw": esc_raw,
+                    "url_norm": url_norm,
+                    "bloquear": bloquear_item,
+                }
+            )
+
+        resumo = {
+            "removidos_de_aprovados": 0,
+            "removidos_de_pendentes": 0,
+            "movidos_para_rejeitados": 0,
+        }
+        ctx = context_path or self.contexto_atual_path
+        self.iniciar_grupo_undo("Remover Betas")
+        try:
+            for entrada in itens_validados:
+                esc_uid = entrada["escalada_uid"]
+                esc_raw = entrada["esc_raw"]
+                url_norm = entrada["url_norm"]
+                bloquear_item = entrada["bloquear"]
+
+                titulo_cap = ""
+                fonte_cap = beta_pb2.FonteMidia.INDEFINIDO
+
+                idx_ap = self._indice_url_em_lista_curadoria(
+                    esc_raw.betas, url_norm, eh_candidato=False
+                )
+                if idx_ap >= 0:
+                    midia_ap = esc_raw.betas[idx_ap]
+                    titulo_cap = str(midia_ap.titulo)
+                    fonte_cap = midia_ap.fonte
+                    self._executar_comando(
+                        CmdRemoverRepeated(
+                            model=self.model,
+                            alvo=esc_uid,
+                            campo_nome="betas",
+                            index=idx_ap,
+                            valor_removido=midia_ap,
+                            context_path=ctx,
+                        )
+                    )
+                    resumo["removidos_de_aprovados"] += 1
+
+                caminho_cur, cur_esc = self._obter_caminho_e_curadoria_escalada(esc_uid)
+                if caminho_cur is not None and cur_esc is not None:
+                    for campo_pend in ("betas_nao_revisados", "betas_nao_scorados"):
+                        colecao = getattr(cur_esc, campo_pend)
+                        idx_p = self._indice_url_em_lista_curadoria(
+                            colecao, url_norm, eh_candidato=True
+                        )
+                        if idx_p >= 0:
+                            cand_p = colecao[idx_p]
+                            titulo_cap = titulo_cap or str(cand_p.midia.titulo)
+                            if fonte_cap == beta_pb2.FonteMidia.INDEFINIDO:
+                                fonte_cap = cand_p.midia.fonte
+                            self._executar_comando(
+                                CmdRemoverRepeated(
+                                    model=self.model,
+                                    alvo=caminho_cur,
+                                    campo_nome=campo_pend,
+                                    index=idx_p,
+                                    valor_removido=cand_p,
+                                    context_path=ctx,
+                                )
+                            )
+                            resumo["removidos_de_pendentes"] += 1
+
+                    if not bloquear_item:
+                        idx_rej = self._indice_url_em_lista_curadoria(
+                            cur_esc.betas_rejeitados, url_norm, eh_candidato=False
+                        )
+                        if idx_rej >= 0:
+                            midia_rej = cur_esc.betas_rejeitados[idx_rej]
+                            self._executar_comando(
+                                CmdRemoverRepeated(
+                                    model=self.model,
+                                    alvo=caminho_cur,
+                                    campo_nome="betas_rejeitados",
+                                    index=idx_rej,
+                                    valor_removido=midia_rej,
+                                    context_path=ctx,
+                                )
+                            )
+
+                if bloquear_item:
+                    caminho_cur, cur_esc = self._garantir_caminho_e_curadoria_escalada(esc_uid, ctx)
+                    if (
+                        self._indice_url_em_lista_curadoria(
+                            cur_esc.betas_rejeitados, url_norm, eh_candidato=False
+                        )
+                        < 0
+                    ):
+                        self._executar_comando(
+                            CmdAdicionarRepeated(
+                                model=self.model,
+                                alvo=caminho_cur,
+                                campo_nome="betas_rejeitados",
+                                index=len(cur_esc.betas_rejeitados),
+                                valor=beta_pb2.MidiaBeta(
+                                    url=url_norm,
+                                    titulo=titulo_cap,
+                                    fonte=fonte_cap,
+                                ),
+                                context_path=ctx,
+                            )
+                        )
+                        resumo["movidos_para_rejeitados"] += 1
+        finally:
+            self.finalizar_grupo_undo()
+        return resumo

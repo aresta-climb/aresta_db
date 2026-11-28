@@ -543,3 +543,148 @@ def test_aresta_coletar_betas_reavalia_auto_filtrados_e_propaga_cidade(qapp, tmp
     assert [c.midia.url for c in cur.betas_nao_scorados] == [
         "https://youtube.com/watch?v=resgatado_lagoa"
     ]
+
+
+def test_aresta_adicionar_betas_revisao_e_remover_betas_via_mcp_e_multi_croqui(
+    qapp, tmp_path: Path
+):
+    """
+    Valida as ferramentas MCP `aresta_adicionar_betas_revisao` e `aresta_remover_betas`,
+    incluindo string JSON, roteamento proxy multi-janela com `id_croqui` e erros fail-fast.
+    """
+    import json
+
+    from editor.mcp.despachante import DespachanteQt
+    from editor.mcp.ferramentas_betas import registrar_ferramentas_betas
+    from editor.mcp.servidor import ServidorMCP
+    from editor.mcp.sessao import alocar_porta_mcp
+
+    dir_sessao = tmp_path / "sessao_betas_multi"
+    model_1, undo_1, ctrl_1, srv_1, _ = _montar_croqui_betas(tmp_path / "c1")
+    raiz_1 = getattr(model_1.obter_croqui_readonly(), "_obj", model_1.obter_croqui_readonly())
+
+    # 1. Chamada com string JSON (Constrained Decoding) adicionando para betas_nao_revisados
+    itens_json = json.dumps(
+        [
+            {
+                "escalada_uid": "uid_via_cova01",
+                "url": "https://youtu.be/beta_manual_01",
+                "titulo": "Beta Adicionado via MCP",
+                "llm_confidence_score": 91,
+                "llm_reasoning": "Vídeo claro da cadena da via.",
+            }
+        ]
+    )
+    res_add = _chamar(srv_1, "aresta_adicionar_betas_revisao", {"itens": itens_json})
+    assert res_add["status"] == "ok"
+    assert res_add["adicionados_nao_revisados"] == 1
+    assert res_add["total_escaladas_pendentes"] == 0
+    assert len(raiz_1.curadoria_betas.conteudo.escaladas[0].betas_nao_revisados) == 1
+
+    # 2. Adiciona item sem score -> entra em betas_nao_scorados e contabiliza pendentes
+    res_add_ns = _chamar(
+        srv_1,
+        "aresta_adicionar_betas_revisao",
+        {
+            "itens": [
+                {
+                    "escalada_uid": "uid_via_cova01",
+                    "url": "https://instagram.com/reel/CreelNovo1",
+                    "titulo": "Reel Pendente",
+                }
+            ]
+        },
+    )
+    assert res_add_ns["adicionados_nao_scorados"] == 1
+    assert res_add_ns["total_escaladas_pendentes"] == 1
+    assert res_add_ns["total_candidatos_pendentes"] == 1
+
+    # 3. Remoção via aresta_remover_betas move para betas_rejeitados por padrão
+    res_rem = _chamar(
+        srv_1,
+        "aresta_remover_betas",
+        {
+            "itens": [
+                {
+                    "escalada_uid": "uid_via_cova01",
+                    "url": "https://youtube.com/watch?v=beta_manual_01",
+                }
+            ]
+        },
+    )
+    assert res_rem["status"] == "ok"
+    assert res_rem["removidos_de_pendentes"] == 1
+    assert res_rem["movidos_para_rejeitados"] == 1
+    assert [m.url for m in raiz_1.curadoria_betas.conteudo.escaladas[0].betas_rejeitados] == [
+        "https://youtube.com/watch?v=beta_manual_01"
+    ]
+
+    # 4. Validação fail-fast de payloads não-lista
+    with pytest.raises(ValueError, match="lista"):
+        _chamar(srv_1, "aresta_adicionar_betas_revisao", {"itens": "invalido"})
+    with pytest.raises(ValueError, match="lista"):
+        _chamar(srv_1, "aresta_remover_betas", {"itens": "invalido"})
+
+    # 5. Roteamento proxy multi-janela com id_croqui entre duas instâncias reais de ServidorMCP
+    porta_1 = alocar_porta_mcp()
+    srv_proxy_1 = ServidorMCP(
+        despachante=DespachanteQt(),
+        porta_preferencial=porta_1,
+        diretorio_sessao=dir_sessao,
+    )
+    srv_proxy_1.definir_croqui_ativo("croqui_alfa", croqui_aberto=True)
+    registrar_ferramentas_betas(srv_proxy_1, model_1, ctrl_1, extratores=[])
+
+    croqui_2 = croqui_pb2.Croqui(uid="uid_croqui_2", id="croqui_beta", nome="Croqui Beta")
+    pico_2 = croqui_2.picos.add(nome="Pico Beta")
+    setor_2 = pico_2.setores_ou_grupos.add().setor.conteudo
+    setor_2.uid = "setor_beta"
+    esc_2 = setor_2.escaladas.add(uid="esc_beta_01")
+    esc_2.via_esportiva.nome = "Via Beta"
+    model_2 = CroquiModel(croqui_2)
+    ctrl_2 = CroquiController(model_2, undo_1.__class__())
+    srv_proxy_2 = ServidorMCP(
+        despachante=DespachanteQt(),
+        porta_preferencial=porta_1 + 1,
+        diretorio_sessao=dir_sessao,
+    )
+    srv_proxy_2.definir_croqui_ativo("croqui_beta", croqui_aberto=True)
+    registrar_ferramentas_betas(srv_proxy_2, model_2, ctrl_2, extratores=[])
+
+    srv_proxy_1.iniciar()
+    srv_proxy_2.iniciar()
+    try:
+        resp_roteada = srv_proxy_1.processar_mensagem_jsonrpc(
+            {
+                "jsonrpc": "2.0",
+                "id": 99,
+                "method": "tools/call",
+                "params": {
+                    "name": "aresta_adicionar_betas_revisao",
+                    "arguments": {
+                        "id_croqui": "croqui_beta",
+                        "itens": [
+                            {
+                                "escalada_uid": "esc_beta_01",
+                                "url": "https://youtube.com/watch?v=beta_croqui_2",
+                                "titulo": "Beta Croqui 2",
+                            }
+                        ],
+                    },
+                },
+            }
+        )
+        assert resp_roteada is not None
+        assert resp_roteada["result"]["isError"] is False
+        assert resp_roteada["result"]["structuredContent"]["adicionados_nao_scorados"] == 1
+        assert (
+            len(
+                model_2.obter_croqui_readonly()
+                .curadoria_betas.conteudo.escaladas[0]
+                .betas_nao_scorados
+            )
+            == 1
+        )
+    finally:
+        srv_proxy_2.parar()
+        srv_proxy_1.parar()

@@ -3,9 +3,9 @@ name: coletar_betas_croqui
 description: Executa e monitora a coleta multi-fonte de candidatos a beta do croqui aberto no Editor Aresta 100% via MCP usando aresta_coletar_betas, suportando desde setores isolados até croquis de 1.000+ vias sem bloquear a UI.
 ---
 
-# Coleta Multi-Fonte de Betas (100% via MCP)
+# Coleta Multi-Fonte de Betas (100% via MCP `editor-aresta`)
 
-Sua missão é acionar e acompanhar a coleta automatizada de candidatos a beta (YouTube via `InnerTube`, além de Instagram, TikTok, Facebook, Twitter/X, Reddit, portais UGC e Blogs via `ddgs` com extração de vídeos embutidos em blogs aprovados) diretamente no **Editor Aresta** via MCP através da ferramenta `aresta_coletar_betas`.
+Sua missão é acionar e acompanhar a coleta automatizada de candidatos a beta (YouTube via `InnerTube`, além de Instagram, TikTok, Facebook, Twitter/X, Reddit, portais UGC e Blogs via `ddgs` com extração de vídeos embutidos em blogs aprovados) diretamente no **Editor Aresta** via servidor MCP **`editor-aresta`** através da ferramenta `aresta_coletar_betas`.
 
 > [!IMPORTANT]
 > **Arquitetura Não-Bloqueante, Incremental e com Reavaliação Offline:**
@@ -17,19 +17,22 @@ Sua missão é acionar e acompanhar a coleta automatizada de candidatos a beta (
 
 ---
 
-## 1. Verificação Inicial do Croqui
+## 1. Verificação Inicial do Croqui (`id_croqui`)
 
-1. Chame `aresta_status_workspace()` para confirmar que há um croqui aberto no Editor Aresta.
-2. Caso o usuário queira coletar apenas um setor específico ou algumas vias, utilize `aresta_listar_escaladas()` (ou filtre pelo nome/UID do setor em `alvo_setor`).
+1. Chame `aresta_listar_croquis()` para identificar os croquis em `abertos`. Se houver mais de um croqui aberto (ou se o usuário informou `id_croqui`), propague `id_croqui="<id_croqui>"` em **todas** as chamadas ao `editor-aresta` (`aresta_status_workspace`, `aresta_listar_escaladas`, `aresta_coletar_betas`, `aresta_listar_betas_nao_scorados`, `aresta_adicionar_betas_revisao`).
+2. Chame `aresta_status_workspace(id_croqui="<id_croqui>")` para confirmar o croqui ativo.
+3. Caso o usuário queira coletar apenas um setor específico ou algumas vias, utilize `aresta_listar_escaladas(id_croqui="<id_croqui>")` (ou filtre pelo nome/UID do setor em `alvo_setor`).
+4. Para inserir manualmente links avulsos encontrados fora da coleta automática diretamente na fila de curadoria humana, utilize `aresta_adicionar_betas_revisao(id_croqui="<id_croqui>", itens=[...])`.
 
 ---
 
 ## 2. Disparo da Coleta (`aresta_coletar_betas`)
 
-Invoque `aresta_coletar_betas` com `acao="iniciar"`:
+Invoque `aresta_coletar_betas` no MCP `editor-aresta` com `acao="iniciar"`:
 
 ```json
 {
+  "id_croqui": "<id_croqui>",
   "acao": "iniciar",
   "alvo_setor": "",
   "apenas_sem_coleta": true,
