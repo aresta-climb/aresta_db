@@ -423,6 +423,67 @@ def test_operacoes_repeated_e_alterar_campo_indexado(qapp, tmp_path: Path):
     assert res_setor_cam_puro["uid"] == ""
     assert grupo_proxy.setores[2].caminho == "setor_referencia.md"
 
+    res_setor_json_str = _chamar(
+        servidor,
+        "aresta_adicionar_repeated",
+        {
+            "alvo": "uid_grupo_base",
+            "campo": "setores",
+            "valor": '{"nome": "Setor Stringificado Gemini"}',
+        },
+    )
+    assert len(res_setor_json_str["uid"]) == 14
+    assert grupo_proxy.setores[3].conteudo.nome == "Setor Stringificado Gemini"
+
+    # Suporta subcaminho pontilhado em 'campo' e coerção de JSON stringificado para listas e inteiros
+    _chamar(
+        servidor,
+        "aresta_alterar_campo",
+        {
+            "alvo": "uid_via_base01",
+            "campo": "via_esportiva.conquistadores",
+            "valor": '["Macena", "Samuel"]',
+        },
+    )
+    esc_base_proxy = raiz.picos[0].setores_ou_grupos[0].setor.conteudo.escaladas[0]
+    assert list(esc_base_proxy.via_esportiva.conquistadores) == ["Macena", "Samuel"]
+
+    _chamar(
+        servidor,
+        "aresta_alterar_campo",
+        {
+            "alvo": "uid_via_base01",
+            "campos": {
+                "via_esportiva.extensao": "28",
+                "nome": "1984",
+            },
+        },
+    )
+    assert esc_base_proxy.via_esportiva.extensao == 28
+    assert esc_base_proxy.via_esportiva.nome == "1984"
+
+    _chamar(
+        servidor,
+        "aresta_alterar_campo",
+        {
+            "alvo": "uid_poi_base01",
+            "campos": {
+                "poligono": '{"coordenadas": [10, 20, 30, 40, 50, 60]}',
+            },
+        },
+    )
+    _chamar(
+        servidor,
+        "aresta_adicionar_repeated",
+        {
+            "alvo": "uid_poi_base01.poligono",
+            "campo": "coordenadas",
+            "valores": ["70", "80"],
+        },
+    )
+    poi_proxy = raiz.picos[0].setores_ou_grupos[0].setor.conteudo.mapas[0].pontos_de_interesse[0]
+    assert list(poi_proxy.poligono.coordenadas) == [10, 20, 30, 40, 50, 60, 70, 80]
+
     with pytest.raises(RuntimeError, match="Esperado um objeto JSON"):
         _chamar(
             servidor,
@@ -430,7 +491,7 @@ def test_operacoes_repeated_e_alterar_campo_indexado(qapp, tmp_path: Path):
             {
                 "alvo": "uid_grupo_base",
                 "campo": "setores",
-                "valor": '{"nome": "String JSON Invalida"}',
+                "valor": "texto_simples_invalido",
             },
         )
 

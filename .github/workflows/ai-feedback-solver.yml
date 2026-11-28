@@ -118,11 +118,11 @@ jobs:
           ASSOCIACAO_AUTOR: ${{ github.event_name == 'issue_comment' && github.event.comment.author_association || '' }}
         run: |
           if [ "${{ github.event_name }}" = "issue_comment" ]; then
-            uv run serving/resolver_feedback_ia.py \
+            uv run --no-sync serving/resolver_feedback_ia.py \
               --numero-alvo "$NUMERO_ALVO" \
               --comentario "$CORPO_COMENTARIO" \
               --associacao-autor "$ASSOCIACAO_AUTOR"
           else
-            uv run serving/resolver_feedback_ia.py \
+            uv run --no-sync serving/resolver_feedback_ia.py \
               --numero-alvo "$NUMERO_ALVO"
           fi

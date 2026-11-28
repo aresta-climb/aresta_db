@@ -23,6 +23,7 @@ from serving.agente_feedback.cliente_gemini_feedback_fake import ClienteGeminiFe
 from serving.agente_feedback.cliente_github_feedback import DadosIssueOuPr
 from serving.agente_feedback.cliente_github_feedback_fake import ClienteGithubFeedbackFake
 from serving.agente_feedback.orquestrador_resolucao_feedback import (
+    MAX_TURNOS_PADRAO,
     OrquestradorResolucaoFeedback,
     validar_diretorio_croqui_pos_edicao,
 )
@@ -198,25 +199,28 @@ def test_resolve_issue_108_multi_turno_criando_setor_do_palanque_e_migrando_via(
         )
     )
 
+    assert MAX_TURNOS_PADRAO == 5
+
     def roteiro_issue_108(
         historico: list[dict[str, Any]], indice_turno: int
     ) -> list[ChamadaFerramentaAgente]:
         if indice_turno == 0:
+            # Payload idêntico ao emitido pelo gemini-3.8-flash no Turno 1 em produção
             return [
                 ChamadaFerramentaAgente(
                     "aresta_adicionar_repeated",
                     {
                         "alvo": "QtxIGEyTkA9Q5c",
                         "campo": "setores",
-                        "valor": {"nome": "Setor do Palanque"},
+                        "valor": '{"nome": "Setor do Palanque"}',
                     },
                 ),
                 ChamadaFerramentaAgente(
                     "aresta_alterar_campo",
                     {
                         "alvo": "TC8Wd0pa4YopiM",
-                        "campo": "conquistadores",
-                        "valor": ["Macena, Samuel"],
+                        "campo": "via_esportiva.conquistadores",
+                        "valor": '["Macena", "Samuel"]',
                     },
                 ),
             ]
@@ -263,7 +267,8 @@ def test_resolve_issue_108_multi_turno_criando_setor_do_palanque_e_migrando_via(
     conteudo_palanque = novos_md[0].read_text(encoding="utf-8")
     assert "Setor do Palanque" in conteudo_palanque
     assert "TC8Wd0pa4YopiM" in conteudo_palanque
-    assert "Macena, Samuel" in conteudo_palanque
+    assert "- Macena\n" in conteudo_palanque
+    assert "- Samuel\n" in conteudo_palanque
     assert "Maceninha" not in conteudo_palanque
 
 

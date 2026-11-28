@@ -2,9 +2,11 @@
 # Copyright (C) 2026 Aresta Climb Contributors
 
 import base64
+import json
 from pathlib import Path
 from typing import Any
 
+from google.protobuf.descriptor import FieldDescriptor
 from google.protobuf.json_format import ParseDict
 
 from aresta_api.proto.generated import croqui_pb2
@@ -102,6 +104,42 @@ def _instanciar_mensagem_de_dict(desc_msg: Any, dados_brutos: dict[str, Any]) ->
     return novo_obj, uid_gerado
 
 
+_TIPOS_TEXTUAIS_PROTO: frozenset[int] = frozenset(
+    {FieldDescriptor.TYPE_STRING, FieldDescriptor.TYPE_BYTES}
+)
+
+
+def _desserializar_json_se_aplicavel(valor_bruto: Any) -> Any:
+    """
+    Desserializa literais JSON stringificados (emitidos por Constrained Decoding de LLMs
+    em propriedades polimórficas sem 'type' fixo) quando o campo Protobuf não é textual.
+    """
+    if not isinstance(valor_bruto, str):
+        return valor_bruto
+    try:
+        return json.loads(valor_bruto)
+    except json.JSONDecodeError:
+        return valor_bruto
+
+
+def _separar_subcaminho_campo(alvo: str, nome_campo: str) -> tuple[str, str]:
+    """
+    Separa prefixos de submensagens em `nome_campo` (ex: 'via_esportiva.conquistadores' ->
+    alvo='<alvo>.via_esportiva', campo='conquistadores'), preservando índices finais de
+    coleções repeated ('creditos.0' -> campo='creditos.0') e extensões ('ext_*').
+    """
+    if "." not in nome_campo or nome_campo.startswith("ext_"):
+        return alvo, nome_campo
+    partes = nome_campo.split(".")
+    quantos_no_campo = 2 if partes[-1].isdigit() else 1
+    prefixo = ".".join(partes[:-quantos_no_campo])
+    campo_folha = ".".join(partes[-quantos_no_campo:])
+    if not prefixo:
+        return alvo, campo_folha
+    alvo_combinado = f"{alvo}.{prefixo}" if alvo else prefixo
+    return alvo_combinado, campo_folha
+
+
 def _instanciar_valor_para_campo_repeated(msg: Any, campo: str, dados_item: Any) -> tuple[Any, str]:
     """
     Constrói o valor tipado (primitivo ou mensagem Protobuf) para inserção ou alteração
@@ -117,20 +155,23 @@ def _instanciar_valor_para_campo_repeated(msg: Any, campo: str, dados_item: Any)
         )
 
     if desc_campo.message_type is None:
+        if desc_campo.enum_type is None and desc_campo.type not in _TIPOS_TEXTUAIS_PROTO:
+            return _desserializar_json_se_aplicavel(dados_item), ""
         return dados_item, ""
 
-    if not isinstance(dados_item, dict):
+    dados_decodificados = _desserializar_json_se_aplicavel(dados_item)
+    if not isinstance(dados_decodificados, dict):
         raise ValueError(
             f"Esperado um objeto JSON (dict) para adicionar em '{campo}' "
-            f"({desc_campo.message_type.name}), mas recebeu {type(dados_item).__name__}."
+            f"({desc_campo.message_type.name}), mas recebeu {type(dados_decodificados).__name__}."
         )
-    return _instanciar_mensagem_de_dict(desc_campo.message_type, dict(dados_item))
+    return _instanciar_mensagem_de_dict(desc_campo.message_type, dict(dados_decodificados))
 
 
 def _coagir_valor_para_campo(msg: Any, nome_campo: str, valor_bruto: Any) -> Any:
     """
-    Converte um valor vindo do JSON-RPC (dict de submensagem, nome textual de Enum, etc.)
-    para o tipo nativo esperado pelo `CmdAlterarCampo` antes de despachar ao Controller.
+    Converte um valor vindo do JSON-RPC (dict de submensagem, JSON stringificado por LLM,
+    nome textual de Enum, etc.) para o tipo nativo esperado pelo `CmdAlterarCampo`.
     """
     if valor_bruto is None:
         return None
@@ -143,6 +184,7 @@ def _coagir_valor_para_campo(msg: Any, nome_campo: str, valor_bruto: Any) -> Any
             return val_item
 
     if nome_campo in desc.oneofs_by_name:
+        valor_bruto = _desserializar_json_se_aplicavel(valor_bruto)
         if isinstance(valor_bruto, dict) and len(valor_bruto) == 1:
             var_nome, dados_var = next(iter(valor_bruto.items()))
             val_var = _coagir_valor_para_campo(msg, str(var_nome), dados_var)
@@ -160,6 +202,7 @@ def _coagir_valor_para_campo(msg: Any, nome_campo: str, valor_bruto: Any) -> Any
         desc_campo, "is_repeated", False
     )
     if eh_repeated:
+        valor_bruto = _desserializar_json_se_aplicavel(valor_bruto)
         if isinstance(valor_bruto, list):
             return [
                 _instanciar_valor_para_campo_repeated(msg, nome_campo, item)[0]
@@ -167,9 +210,11 @@ def _coagir_valor_para_campo(msg: Any, nome_campo: str, valor_bruto: Any) -> Any
             ]
         return valor_bruto
 
-    if desc_campo.message_type is not None and isinstance(valor_bruto, dict):
-        obj_msg, _ = _instanciar_mensagem_de_dict(desc_campo.message_type, valor_bruto)
-        return obj_msg
+    if desc_campo.message_type is not None:
+        valor_bruto = _desserializar_json_se_aplicavel(valor_bruto)
+        if isinstance(valor_bruto, dict):
+            obj_msg, _ = _instanciar_mensagem_de_dict(desc_campo.message_type, valor_bruto)
+            return obj_msg
 
     if desc_campo.enum_type is not None and isinstance(valor_bruto, str):
         val_enum = desc_campo.enum_type.values_by_name.get(
@@ -182,6 +227,9 @@ def _coagir_valor_para_campo(msg: Any, nome_campo: str, valor_bruto: Any) -> Any
                 f"({desc_campo.enum_type.name}). Opções válidas: {opcoes}."
             )
         return int(val_enum.number)
+
+    if desc_campo.enum_type is None and desc_campo.type not in _TIPOS_TEXTUAIS_PROTO:
+        return _desserializar_json_se_aplicavel(valor_bruto)
 
     return valor_bruto
 
@@ -199,28 +247,46 @@ def registrar_ferramentas_comandos(
     model = croqui_controller.model
     ctrl_mapas = mapas_controller or MapasController(model, croqui_controller.undo_stack)
 
-    def _preparar_mapa_coagido(item_args: dict[str, Any]) -> tuple[str, str, dict[str, Any]]:
-        alvo = str(item_args.get("alvo", ""))
+    def _preparar_operacoes_coagidas(
+        item_args: dict[str, Any],
+        preservar_padrao: bool = False,
+    ) -> tuple[str, str, list[str], list[dict[str, Any]]]:
+        alvo_base = str(item_args.get("alvo", ""))
+        preservar = bool(item_args.get("preservar_campos_compativeis", preservar_padrao))
         mapa_entrada: dict[str, Any] = {}
-        if isinstance(item_args.get("campos"), dict):
-            mapa_entrada.update(item_args["campos"])
+        campos_brutos = _desserializar_json_se_aplicavel(item_args.get("campos"))
+        if isinstance(campos_brutos, dict):
+            mapa_entrada.update(campos_brutos)
         if item_args.get("campo"):
             mapa_entrada[str(item_args["campo"])] = item_args.get("valor")
         if not mapa_entrada:
             raise ValueError("Informe 'campo' (com 'valor') ou o dicionário 'campos' para alterar.")
 
-        mapa_coagido: dict[str, Any] = {}
+        por_alvo: dict[str, dict[str, Any]] = {}
+        nomes_alterados: list[str] = []
         ultimo_caminho = ""
-        for nome_c, val_bruto in mapa_entrada.items():
-            msg_c, ultimo_caminho = resolver_alvo_mcp(model, alvo, campo_nome=nome_c)
-            mapa_coagido[nome_c] = _coagir_valor_para_campo(msg_c, nome_c, val_bruto)
-        return alvo, ultimo_caminho, mapa_coagido
+        for nome_c_bruto, val_bruto in mapa_entrada.items():
+            alvo_efetivo, campo_folha = _separar_subcaminho_campo(alvo_base, str(nome_c_bruto))
+            msg_c, ultimo_caminho = resolver_alvo_mcp(model, alvo_efetivo, campo_nome=campo_folha)
+            por_alvo.setdefault(alvo_efetivo, {})[campo_folha] = _coagir_valor_para_campo(
+                msg_c, campo_folha, val_bruto
+            )
+            nomes_alterados.append(campo_folha)
+
+        operacoes = [
+            {
+                "alvo": alvo_op,
+                "campos": mapa_op,
+                "preservar_campos_compativeis": preservar,
+            }
+            for alvo_op, mapa_op in por_alvo.items()
+        ]
+        return alvo_base, ultimo_caminho, nomes_alterados, operacoes
 
     def _alterar_campo(args: dict[str, Any]) -> dict[str, Any]:
-        alvo, ultimo_caminho, mapa_coagido = _preparar_mapa_coagido(args)
-        croqui_controller.alterar_campo(
-            alvo=alvo,
-            campos=mapa_coagido,
+        alvo, ultimo_caminho, nomes_alterados, operacoes = _preparar_operacoes_coagidas(args)
+        croqui_controller.alterar_em_lote(
+            operacoes=operacoes,
             preservar_campos_compativeis=bool(args.get("preservar_campos_compativeis", False)),
         )
         model.indice_uids.carregar_do_croqui(model.obter_croqui_readonly())
@@ -228,7 +294,7 @@ def registrar_ferramentas_comandos(
             "status": "ok",
             "alvo": alvo,
             "caminho": ultimo_caminho,
-            "campos_alterados": list(mapa_coagido.keys()),
+            "campos_alterados": nomes_alterados,
         }
 
     def _alterar_em_lote(args: dict[str, Any]) -> dict[str, Any]:
@@ -241,18 +307,10 @@ def registrar_ferramentas_comandos(
         alvos_alterados: list[str] = []
         total_campos = 0
         for item in operacoes_brutas:
-            alvo_op, _, mapa_coagido = _preparar_mapa_coagido(item)
-            operacoes_coagidas.append(
-                {
-                    "alvo": alvo_op,
-                    "campos": mapa_coagido,
-                    "preservar_campos_compativeis": bool(
-                        item.get("preservar_campos_compativeis", preservar_padrao)
-                    ),
-                }
-            )
+            alvo_op, _, nomes_item, ops_item = _preparar_operacoes_coagidas(item, preservar_padrao)
+            operacoes_coagidas.extend(ops_item)
             alvos_alterados.append(alvo_op)
-            total_campos += len(mapa_coagido)
+            total_campos += len(nomes_item)
 
         croqui_controller.alterar_em_lote(
             operacoes=operacoes_coagidas,
@@ -262,7 +320,7 @@ def registrar_ferramentas_comandos(
         model.indice_uids.carregar_do_croqui(model.obter_croqui_readonly())
         return {
             "status": "ok",
-            "quantidade_operacoes": len(operacoes_coagidas),
+            "quantidade_operacoes": len(operacoes_brutas),
             "total_campos_alterados": total_campos,
             "alvos_alterados": alvos_alterados,
         }

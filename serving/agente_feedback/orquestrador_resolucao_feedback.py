@@ -43,7 +43,7 @@ from serving.agente_feedback.localizador_arquivos_croqui import (
 
 ASSOCIACOES_MANTENEDOR_AUTORIZADAS = frozenset({"OWNER", "MEMBER", "COLLABORATOR"})
 EXTENSOES_RAIZ_PERMITIDAS = (".md", ".yaml")
-MAX_TURNOS_PADRAO = 8
+MAX_TURNOS_PADRAO = 5
 _LIMITE_CHARS_CAMPO_LOG = 2000
 
 
