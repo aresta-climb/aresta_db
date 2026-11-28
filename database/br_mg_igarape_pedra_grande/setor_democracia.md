@@ -25,6 +25,10 @@ escaladas:
   boulder:
     nome: Portátil
     dificuldade: V6
+  betas:
+  - url: https://instagram.com/reel/Dd2FT8uBb70
+    titulo: Pedro Marra | Portátil - V6 / 7a . . . Ainda sobre @igarameca ...
+    fonte: INSTAGRAM
 - uid: tpZlh2cdAgBqAq
   boulder:
     nome: Democracia
@@ -51,6 +55,13 @@ escaladas:
   boulder:
     nome: Maquiavel
     dificuldade: V8
+  betas:
+  - url: https://youtube.com/shorts/VAtpLnP3Flw
+    titulo: Igarapé - Maquiavel V8
+    fonte: YOUTUBE
+  - url: https://facebook.com/Lucas+Rodrigues/videos/1150461289415778
+    titulo: Meu mar é de montanha e minhas ondas são de pedra Maquiavel O ...
+    fonte: FACEBOOK
 - uid: YcNowMFY5WnIqB
   boulder:
     nome: Dejavu SDS
@@ -80,6 +91,13 @@ escaladas:
   boulder:
     nome: Engana bobo
     dificuldade: V2
+  betas:
+  - url: https://instagram.com/reel/C7w4vsiO18B
+    titulo: Gabriella Araújo | Boulder Engana Bobo | V2 Igarapé - MG ...
+    fonte: INSTAGRAM
+  - url: https://facebook.com/Gabriella+Araújo/videos/1104966203912769
+    titulo: Boulder Engana Bobo | V2 Igarapé - MG Foi iraado essa ...
+    fonte: FACEBOOK
 - uid: wqbq8WmwGdnfLw
   boulder:
     nome: Sem nome 29

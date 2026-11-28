@@ -72,6 +72,10 @@ escaladas:
     nome: Sou Fria
     dificuldade: BR_9A
     quantidade_protecoes_intermediarias: 7
+  betas:
+  - url: https://instagram.com/p/BmQ12kGBv2n
+    titulo: Escalada Sete Lagoas | Um clássico da @sinuosaclimb, Sou fria ...
+    fonte: INSTAGRAM
 - uid: 9erVbTGCqi6xaf
   via_esportiva:
     nome: Revivência

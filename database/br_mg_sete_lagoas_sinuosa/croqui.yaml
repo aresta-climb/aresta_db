@@ -52,6 +52,9 @@ picos:
     latitude: -194618320
     longitude: -442793680
   cidade: Sete Lagoas
+  url_google_maps: https://maps.app.goo.gl/KDhnbPsbXLGgQwUf6
+  malha_estrada:
+    caminho: malha_estrada.yaml
 botoes:
 - uid: lgmqCXFyiCB9CF
   texto: Capa
@@ -86,3 +89,5 @@ botoes:
 ultima_migracao: 5
 publicar_croqui: true
 revisado_bounding_circle: true
+curadoria_betas:
+  caminho: curadoria_betas.yaml

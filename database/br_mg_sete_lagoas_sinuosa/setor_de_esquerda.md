@@ -81,6 +81,10 @@ escaladas:
     quantidade_protecoes_intermediarias: 6
     extensao: 15
     descricao: A primeira via do setor.
+  betas:
+  - url: https://facebook.com/sinuosaclimb/posts/inimigos-do-estado-é-uma-queridinha-dos-escaladores-locais-a-via-tem-um-lance-de/1860123547638142
+    titulo: Sinuosa - Inimigos do Estado é uma queridinha dos... - Facebook
+    fonte: FACEBOOK
 - uid: 0KyvQpBMAGSwjA
   via_esportiva:
     nome: Libera a Moça

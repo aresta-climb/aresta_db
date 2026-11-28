@@ -223,6 +223,10 @@ escaladas:
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 8
     extensao: 20
+  betas:
+  - url: https://instagram.com/p/DHHJHdMxB0B
+    titulo: Escalada Sete Lagoas | Escaladora na via "Bebê à Bordo" 7a ...
+    fonte: INSTAGRAM
 - uid: Y0HfMhKKS4XTWG
   via_movel:
     nome: Micuins Me Mordam
@@ -257,18 +261,33 @@ escaladas:
     dificuldade: BR_6
     quantidade_protecoes_intermediarias: 6
     extensao: 15
+  betas:
+  - url: https://youtube.com/shorts/nVMpa7rq4yQ
+    titulo: Escalada Sete Lagoas via inconfidentes
+    fonte: YOUTUBE
 - uid: URJ73aClt1JVOB
   via_esportiva:
     nome: Brenfestival
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 9
     extensao: 15
+  betas:
+  - url: https://instagram.com/p/CW8ZMMipFws
+    titulo: Escalada Sete Lagoas | Eita Sinu sa Brenfestival, 7a no Setor ...
+    fonte: INSTAGRAM
+  - url: https://facebook.com/ge7escalada/photos/gabriel-gama-na-via-brenfestival-7a-sinuosa-setor-7-paralelo/1639741142727359
+    titulo: GE7 - Grupo de Escalada de Sete Lagoas/MG - Facebook
+    fonte: FACEBOOK
 - uid: z15r9Lx9fyk8Sj
   via_esportiva:
     nome: Sociedade dos Insetos
     dificuldade: BR_7C
     quantidade_protecoes_intermediarias: 8
     extensao: 15
+  betas:
+  - url: https://instagram.com/p/DAHlRulyeEc
+    titulo: Escalada Sete Lagoas | Sete Lagoas faz parte do circuito do ...
+    fonte: INSTAGRAM
 - uid: VkEbqfsaD8EZmT
   via_esportiva:
     nome: Dilemas do Futuro

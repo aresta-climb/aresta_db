@@ -497,6 +497,10 @@ escaladas:
     - Moleza
     - Alex
     data_abertura: '2012'
+  betas:
+  - url: https://instagram.com/reel/CkV3hlyg1pI
+    titulo: Igarameca - Pedra Grande Igarapé | @paulaoclimb na cadena da ...
+    fonte: INSTAGRAM
 - uid: PmAcd4OV0p4JEz
   via_esportiva:
     nome: Poneis Malditos
@@ -509,6 +513,16 @@ escaladas:
     - Moleza
     - Alex
     data_abertura: '2011'
+  betas:
+  - url: https://instagram.com/reel/Ci8KuuCg4w-
+    titulo: 'Igarameca - Pedra Grande on Instagram: "@brunoberbari via ...'
+    fonte: INSTAGRAM
+  - url: https://instagram.com/reel/Cj89iOCggy4
+    titulo: Igarameca - Pedra Grande Igarapé | @sandrocalmeida na cadena ...
+    fonte: INSTAGRAM
+  - url: https://youtube.com/watch?v=eC5kTk84Qzk
+    titulo: Via Pôneis Malditos 9b BR/ 7c+ FR/ 5.13 USA. Pedra Grande, Igarapé-MG.
+    fonte: YOUTUBE
 - uid: kGM0034v2495s9
   via_esportiva:
     nome: I Like This
@@ -606,6 +620,10 @@ escaladas:
     - Bunitinho
     - Bolinha
     data_abertura: '2022'
+  betas:
+  - url: https://instagram.com/reel/Cfl9bWpgLiN
+    titulo: Igarameca - Pedra Grande Igarapé | Via coisa linda,setor ...
+    fonte: INSTAGRAM
 - uid: KfulcSJCsVH6BY
   via_esportiva:
     nome: Doce Veneno
@@ -683,6 +701,10 @@ escaladas:
     - Bunitinho
     - Marcão
     data_abertura: '2022'
+  betas:
+  - url: https://instagram.com/reel/CkgIdoIAnIA
+    titulo: Igarameca - Pedra Grande Igarapé | @oliveirajeancristiande na ...
+    fonte: INSTAGRAM
 ---
 
 Sombra após 12h (varia de acordo com a estação).

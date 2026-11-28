@@ -433,6 +433,10 @@ escaladas:
       Via com caminhada de volta do cume, não é necessário fazer rapel.
 
       Veja a trilha para voltar do cume da via de volta para a base: https://loc.wiki/t/162907398?wa=sc
+  betas:
+  - url: https://instagram.com/p/Cj3dcmbAcSu
+    titulo: Igarameca - Pedra Grande Igarapé on Instagram ...
+    fonte: INSTAGRAM
 - uid: fEB2sh15G6486N
   via_movel:
     nome: Outra saída da Igarapé Cascão
@@ -457,6 +461,13 @@ escaladas:
   via_movel:
     nome: Absoluta Inconsequência
     dificuldade: INDEFINIDO
+  betas:
+  - url: https://instagram.com/reel/Clo4kNngUyU
+    titulo: Igarameca - Pedra Grande Igarapé | @mercierleonardo e ...
+    fonte: INSTAGRAM
+  - url: https://youtube.com/watch?v=5MzESE3db7w
+    titulo: Escalada Pedra Grande em Igarapé. - Via absoluta inconsequência (variante)
+    fonte: YOUTUBE
 - uid: Z21mfAnWOTghPr
   via_movel:
     nome: Inconsequência Moderada
@@ -493,6 +504,13 @@ escaladas:
   via_movel:
     nome: Último Dente
     dificuldade: INDEFINIDO
+  betas:
+  - url: https://instagram.com/reel/ClR9QNAAMe3
+    titulo: Igarameca - Pedra Grande Igarapé | Primeira cordada da via ...
+    fonte: INSTAGRAM
+  - url: https://instagram.com/p/CWmKcLiLtSK
+    titulo: Instagram
+    fonte: INSTAGRAM
 - uid: 4ktVVgbiyGRs2C
   via_movel:
     nome: Sem nome 10
@@ -501,10 +519,24 @@ escaladas:
   via_movel:
     nome: Inanição
     dificuldade: INDEFINIDO
+  betas:
+  - url: https://serradaliberdade.com/inanicao-pedra-grande-de-igarape-mg
+    titulo: Inanição (D2 5º VI E3 200m) Pedra Grande de Igarapé, MG
+    fonte: BLOG
+  - url: https://youtube.com/watch?v=JZsMiVEl8YA
+    titulo: Inanição (5º VI D2 E3) Pedra Grande de Igarapé, MG
+    fonte: YOUTUBE
+  - url: https://youtube.com/watch?v=YiNQfzkKZNo
+    titulo: Escalada pedra grande - via inanição - Igarapé/MG
+    fonte: YOUTUBE
 - uid: p9UV2v115WdSxh
   via_movel:
     nome: Lembranças da Vovó
     dificuldade: INDEFINIDO
+  betas:
+  - url: https://tunderclimb.blogspot.com/2010/06/na-linha-azul-inanicao-5-vi-e2-sugerido.html
+    titulo: 'Escaladas em BH e região: Escalada em Pedra Grande'
+    fonte: BLOG
 - uid: IGGT1l93XFJXUt
   via_movel:
     nome: Sem nome 11
@@ -529,6 +561,10 @@ escaladas:
   via_movel:
     nome: Netflix
     dificuldade: INDEFINIDO
+  betas:
+  - url: https://instagram.com/reel/CkjsljaAvHL
+    titulo: Igarameca - Pedra Grande Igarapé | Primeira cordada da via ...
+    fonte: INSTAGRAM
 - uid: N1bYEhgUkAC9NZ
   via_movel:
     nome: Sem nome 15
@@ -541,6 +577,10 @@ escaladas:
   via_movel:
     nome: Wally Caolho
     dificuldade: INDEFINIDO
+  betas:
+  - url: https://youtube.com/watch?v=8bE0eSQuiCk
+    titulo: Via "Wally Caolho" 5° VI - Pedra Grande - Parte 1/5
+    fonte: YOUTUBE
 - uid: sQBuyJX4kDFb7M
   via_movel:
     nome: Me Leve ao Cume
@@ -549,6 +589,37 @@ escaladas:
       Trilha principal para a via no WikiLoc: https://loc.wiki/t/142136363?wa=sc
 
       Trilha alternativa pelo setor Sherpa (pode estar mais sujo / com mais mato): https://loc.wiki/t/255009916?wa=sc
+  betas:
+  - url: https://youtube.com/watch?v=XaNSID1s4Vw
+    titulo: Escalada Pedra Grande Igarapé-mg Via Me Leve ao Cume
+    fonte: YOUTUBE
+  - url: https://youtube.com/watch?v=j-SPvU_4kVU
+    titulo: 'Escalada na Pedra Grande em Igarapé/MG. Via: Me Leve Ao Cume.'
+    fonte: YOUTUBE
+  - url: https://youtube.com/watch?v=tHTS2mCsiqw
+    titulo: Via "Me leve ao cume" VI - Pedra Grande - PT 1 - YouTube
+    fonte: YOUTUBE
+  - url: https://youtube.com/watch?v=iAimT1RTC7w
+    titulo: Via "Me leve ao cume" VI - Pedra Grande - PT 2 - YouTube
+    fonte: YOUTUBE
+  - url: https://facebook.com/betasdoclimb/posts/lembranças-de-um-dia-na-via-me-leve-ao-cume-na-pedra-grande-em-igarapé-mg-uma-de/395338177760025
+    titulo: Lana Outdoors - Lembranças de um dia na via "Me leve ao ...
+    fonte: FACEBOOK
+  - url: https://instagram.com/p/C8kRW4Juk7x
+    titulo: Centro Excursionista Mineiro | E hoje teve escalada na Pedra ...
+    fonte: INSTAGRAM
+  - url: https://youtube.com/watch?v=cEZJqLXl2O0
+    titulo: Via Me leve ao cume - Escalada na Pedra Grande Igarapé
+    fonte: YOUTUBE
+  - url: https://instagram.com/reel/DbQTvi_uofi
+    titulo: Instagram
+    fonte: INSTAGRAM
+  - url: https://facebook.com/marcelo.depaula.37/photos/a-calma-do-fim-do-dia-na-parede-da-pedra-grande-escaladora-debzer-na-segunda-par/1012398135462397
+    titulo: Marcelo - A calma do fim do dia na parede da Pedra Grande ...
+    fonte: FACEBOOK
+  - url: https://youtube.com/shorts/p3tay5GZs70
+    titulo: 'No cume da via : Me Leve ao Cume - Igarapé MG'
+    fonte: YOUTUBE
 - uid: X0RRGSUeNEDYD9
   via_movel:
     nome: Sem nome 16
@@ -565,6 +636,13 @@ escaladas:
   via_movel:
     nome: Mulher do Fim do Mundo
     dificuldade: INDEFINIDO
+  betas:
+  - url: https://youtube.com/watch?v=65SO4qX1Hl4
+    titulo: Via " A mulher do fim do mundo" 5° VI - Pedra Grande - Igarapé - PT 1
+    fonte: YOUTUBE
+  - url: https://youtube.com/watch?v=bcKU_CMniWo
+    titulo: Via " A mulher do fim do mundo" 5° VI - Pedra Grande - Igarapé - PT 2
+    fonte: YOUTUBE
 ---
 
 Este setor engloba as vias tradicionais e de proteção móvel do Complexo Pedra Grande. As informações aqui contidas são provisórias e serão atualizadas conforme o catálogo for sendo refinado.

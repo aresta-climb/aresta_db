@@ -443,6 +443,10 @@ escaladas:
     - Ró
     data_abertura: '2010'
     descricao: Finaliza na via 06 (Cirque du Soleil).
+  betas:
+  - url: https://instagram.com/reel/C7kQ2kyuvpv
+    titulo: Igarameca - Pedra Grande Igarapé | @betaoescalada na via ...
+    fonte: INSTAGRAM
 - uid: 07pscabGabeyhu
   via_esportiva:
     nome: Teto Preto
@@ -466,6 +470,14 @@ escaladas:
     - Berbari
     - Chinha
     data_abertura: '2023'
+  betas:
+  - url: https://instagram.com/reel/DF3AA46uk5S
+    titulo: 'Reinaldo Maia | Via 101 Dálmatas 8a 3ºgo Primeira session de ...Pedra
+      Grande Igarapé (@igarameca) - InstagramEscalada em BH (@daspedras.escalada.bh)
+      - InstagramMarimbondos on Instagram: "Setor da Pedra Preta, em ...Pet Shop 101
+      Dálmatas (@petshop101.dalmatas) - InstagramComplexo Arq. Pedra do Altar (@pedradoaltar)
+      - InstagramPousada Pedra Grande (@pousadapedragrande) - Instagram'
+    fonte: INSTAGRAM
 - uid: OD3hodezGpb6tL
   via_esportiva:
     nome: Fúria de Titãs

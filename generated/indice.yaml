@@ -1,4 +1,4 @@
-versao_catalogo: 9a5daca1a7449ba2
+versao_catalogo: 08bb60bf61409ecb
 croquis:
 - id: br_mg_araxa_bocaina_boulders
   croqui_uid: oyCb72FtUENKNi
@@ -254,18 +254,18 @@ croquis:
   descricao: Este croqui documenta e divulga a prática da escalada no Complexo da
     Pedra Grande em Igarapé/MG, reunindo informações sobre diversos setores e vias.
   caminho_relativo: br_mg_igarape_pedra_grande/compilado.binarypb
-  checksum_sha256_croqui: a3b899a16c29132f2be81223795d07db0a5b2ea14c021373615654265535f331
+  checksum_sha256_croqui: 5022fb4ea899d736ad03a825ce1993588ed487ae13fee9a2beaf6d6e3c601633
   checksum_sha256_thumbnail: d490580138c1b7f24c772f2d6672e895406739da51bd1880ecabb49cd28b7409
-  timestamp_update: '2026-10-25T13:08:44Z'
+  timestamp_update: '2026-11-28T01:58:02Z'
   precomputados:
     total_escaladas: 241
     total_setores: 21
     total_grupos: 2
-    nota_qualidade: 6095
+    nota_qualidade: 8195
     total_esportivas: 95
     total_boulders: 104
     total_multiplas_enfiadas: 1
-    tamanho_download_bytes: 52794605
+    tamanho_download_bytes: 52815485
   localizacao:
     latitude: -201176660
     longitude: -443593480
@@ -552,16 +552,16 @@ croquis:
   nome: Sinuosa
   descricao: ''
   caminho_relativo: br_mg_sete_lagoas_sinuosa/compilado.binarypb
-  checksum_sha256_croqui: aec063845a4a9e643038e593a59f34c414e5e692b641dd75c52e56391b063ea6
+  checksum_sha256_croqui: bc92108617b9646c29f3d2968655946f428839e6150b028b9bd94cee63437130
   checksum_sha256_thumbnail: 2bc1ee7c1538698d4dfbd8014b198048449e9541e08c05ee71469c1354d72bed
-  timestamp_update: '2026-10-25T13:14:39Z'
+  timestamp_update: '2026-11-28T02:02:01Z'
   precomputados:
     total_escaladas: 141
     total_setores: 15
     total_grupos: 1
-    nota_qualidade: 5917
+    nota_qualidade: 8017
     total_esportivas: 135
-    tamanho_download_bytes: 18237266
+    tamanho_download_bytes: 18252904
   localizacao:
     latitude: -194618320
     longitude: -442793680

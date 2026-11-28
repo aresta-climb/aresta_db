@@ -832,7 +832,7 @@ arquivos:
 - caminho_relativo: br_mg_ferros_ferros/compilado.yaml
   checksum_sha256: afa57bbebcd95bb92dc86563e5516385f0b873fbaf13e484491916147eb7f9b8
 - caminho_relativo: br_mg_igarape_pedra_grande/compilado.binarypb
-  checksum_sha256: a3b899a16c29132f2be81223795d07db0a5b2ea14c021373615654265535f331
+  checksum_sha256: 5022fb4ea899d736ad03a825ce1993588ed487ae13fee9a2beaf6d6e3c601633
 - caminho_relativo: thumbnails/br_mg_igarape_pedra_grande.webp
   checksum_sha256: d490580138c1b7f24c772f2d6672e895406739da51bd1880ecabb49cd28b7409
 - caminho_relativo: br_mg_igarape_pedra_grande/imagens/capa_p0.webp
@@ -976,7 +976,7 @@ arquivos:
 - caminho_relativo: br_mg_igarape_pedra_grande/imagens/whatsapp_image_2026_09_20_at_230736.webp
   checksum_sha256: 39f87f0b083f245ee120402bc41beb2ba89c62aa9a4f44af8efccf47f8d60b3e
 - caminho_relativo: br_mg_igarape_pedra_grande/compilado.yaml
-  checksum_sha256: 30919b2d6c8724d5a1772ef0b291134cd759c90cb9a1d9a3ce826357349763ce
+  checksum_sha256: d4df10de0de185121ae1bc82f2aaac285fd77351a7b4166781ecac945b974e92
 - caminho_relativo: br_mg_januaria_salao_encantado/compilado.binarypb
   checksum_sha256: 32868120f698b7c2cd282fb43d9a5fb9e3daad2f504b1c05658db5d0d88156ee
 - caminho_relativo: thumbnails/br_mg_januaria_salao_encantado.webp
@@ -2054,7 +2054,7 @@ arquivos:
 - caminho_relativo: br_mg_sao_joao_del_rei_serra_do_lenheiro_boulders_ave_maria_2017/compilado.yaml
   checksum_sha256: 49442efa62a7ff6361f6d33591cf623b2e911fe78d973dd43b20b558d2ae73c0
 - caminho_relativo: br_mg_sete_lagoas_sinuosa/compilado.binarypb
-  checksum_sha256: aec063845a4a9e643038e593a59f34c414e5e692b641dd75c52e56391b063ea6
+  checksum_sha256: bc92108617b9646c29f3d2968655946f428839e6150b028b9bd94cee63437130
 - caminho_relativo: thumbnails/br_mg_sete_lagoas_sinuosa.webp
   checksum_sha256: 2bc1ee7c1538698d4dfbd8014b198048449e9541e08c05ee71469c1354d72bed
 - caminho_relativo: br_mg_sete_lagoas_sinuosa/imagens/capa_p0_i0.webp
@@ -2182,7 +2182,7 @@ arquivos:
 - caminho_relativo: br_mg_sete_lagoas_sinuosa/imagens/setor_vale_zela_p0_i1.webp
   checksum_sha256: c691a3d668fd943642c6e4a667634d949ecb99510eaddab97f147be0481a9f4d
 - caminho_relativo: br_mg_sete_lagoas_sinuosa/compilado.yaml
-  checksum_sha256: ef8caa2d2cf76a35e03d1f650c9bc26365fdbdaba84919f053f47664f8c5b89d
+  checksum_sha256: 2d787cda80ea9c6f193924a8f33278a2466ca3bbc1a6cbcc3253a1f65b5f3cb1
 - caminho_relativo: br_rj_nova_friburgobom_jardim_capelinha/compilado.binarypb
   checksum_sha256: ec01964268a38e7d57959bebcf641e8b8ddd0bde8632d786f3cb97c585e6f430
 - caminho_relativo: thumbnails/br_rj_nova_friburgobom_jardim_capelinha.webp
@@ -2204,8 +2204,8 @@ arquivos:
 - caminho_relativo: br_rj_nova_friburgobom_jardim_capelinha/compilado.yaml
   checksum_sha256: 6694c2e07f38d92fff2d54cd717c4b2f99121a2f5313c7ff07898a4526c013ee
 - caminho_relativo: indice.binarypb
-  checksum_sha256: 04064b1006404049884812d7241644dcd79d35741bc0709e65f001d9e0bebab8
+  checksum_sha256: af9d6aa2a99dbce784981f6e397a1719aeef5c4c050362327ef28e52cf7825cc
 - caminho_relativo: indice.yaml
-  checksum_sha256: 03836de11a80b0785f383dedfb5646d8a60f6b15de7a896cdecbbfc6872a1255
+  checksum_sha256: 0724a0851e4a298558fbea7cdda86e381178ea893301e4452454346fd0de06d6
 - caminho_relativo: catalogo.db
-  checksum_sha256: 72e6255daebfb642b9420792d4b87b90fe2fd569924d871227ffa4c485c60651
+  checksum_sha256: 8a2d753766cbc0064428bc0cf58c02cb6aa62d4a3bfa5a24ca2ceec987161950

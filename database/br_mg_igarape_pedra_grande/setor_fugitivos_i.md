@@ -20,6 +20,10 @@ escaladas:
   boulder:
     nome: Trolls
     dificuldade: V1
+  betas:
+  - url: https://instagram.com/reel/DdkcaB-huOn
+    titulo: Bem-te-vi Boulder | Trolls V1 - Bloco Fugitivos (Igarapé/MG ...
+    fonte: INSTAGRAM
 - uid: JRWNVEWv9PW7cT
   boulder:
     nome: Calcinha Larga
@@ -32,6 +36,25 @@ escaladas:
   boulder:
     nome: Barriga de Aluguel
     dificuldade: V5
+  betas:
+  - url: https://youtube.com/shorts/wHoDhY6QaR0
+    titulo: Boulder Barriga de Aluguel V5 - Igarameca - Igarapé - MG
+    fonte: YOUTUBE
+  - url: https://instagram.com/reel/C7M64l_ux5g
+    titulo: Reinaldo Maia | Boulder “Barriga de Aluguel - V5” ...
+    fonte: INSTAGRAM
+  - url: https://youtube.com/shorts/6UqWriclvNg
+    titulo: Boulder Barriga de Aluguel V5 | Igarapé - MG
+    fonte: YOUTUBE
+  - url: https://youtube.com/shorts/nBNEDS4-fto
+    titulo: Barriga de Aluguel V4/5 - Igarapé - Setor Fugitivos
+    fonte: YOUTUBE
+  - url: https://youtube.com/watch?v=iieyPY5VH54
+    titulo: Boulder Barriga de Aluguel V4 hard Igarapé
+    fonte: YOUTUBE
+  - url: https://youtube.com/shorts/vWpqZkzswk0
+    titulo: Barriga de aluguel V4 - Igarapé
+    fonte: YOUTUBE
 - uid: OM7GKqux35ulMX
   boulder:
     nome: Primeiro de todos

@@ -8,6 +8,19 @@ escaladas:
   boulder:
     nome: Viva o climb
     dificuldade: V6
+  betas:
+  - url: https://youtube.com/watch?v=Y60PLfjvl_A
+    titulo: Ricardo Couto //  Viva o climb - v6 //  Igarapé - MG // Zai
+    fonte: YOUTUBE
+  - url: https://facebook.com/drozaclimb/videos/viva-o-climb-v6-clássico-de-igarape_bouldersession-incrível-com-as-máquinas-fred/742652232850540
+    titulo: Viva o Climb, V6 clássico de @igarape_boulder! Session ...
+    fonte: FACEBOOK
+  - url: https://youtube.com/watch?v=h_mo0TgdiPk
+    titulo: Viva o Climb [ Igarapé ] - YouTube
+    fonte: YOUTUBE
+  - url: https://instagram.com/p/B1b1FLSA0oy
+    titulo: Escalada Igarapé | A direita do viva o climb V6, inicia-se o ...
+    fonte: INSTAGRAM
 - uid: 9FOTxju26napvJ
   boulder:
     nome: Pérola negra

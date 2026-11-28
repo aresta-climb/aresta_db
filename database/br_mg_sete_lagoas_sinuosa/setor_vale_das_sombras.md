@@ -356,6 +356,10 @@ escaladas:
     nome: Samurai
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 13
+  betas:
+  - url: https://instagram.com/p/DKewQTjMAOg
+    titulo: Poliana & Rafael | ᴠɪᴀɢᴇɴs ᴇ ᴄʟɪᴍʙ | SINUOSA - Sete Lagoas ...
+    fonte: INSTAGRAM
 - uid: 1LMmIEI5mXAqqu
   via_esportiva:
     nome: Ninja
@@ -402,6 +406,10 @@ escaladas:
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 10
     descricao: Número 17 no segundo mapa do setor.
+  betas:
+  - url: https://facebook.com/EsporteGerais/videos/escalada-esportiva-via-lelecafe-7a-pico-a-sinuosacidade-sete-lagoas-esportegerai/2027761527471532
+    titulo: 'Escalada esportiva Via: lelecafe 7a Pico: A Sinuosa Cidade ...'
+    fonte: FACEBOOK
 - uid: RtVKfqXU4d2O5H
   via_esportiva:
     nome: Tiu Marreteiro
@@ -417,6 +425,13 @@ escaladas:
     nome: Moça do Sapo
     dificuldade: BR_6
     quantidade_protecoes_intermediarias: 10
+  betas:
+  - url: https://facebook.com/EsporteGerais/videos/escalada-esportivapico-a-sinuosavia-moça-do-sapo-6supcidade-sete-lagoasesportege/2028217490759269
+    titulo: 'Escalada esportiva Pico: a Sinuosa Via: moça do sapo 6sup ...'
+    fonte: FACEBOOK
+  - url: https://facebook.com/EsporteGerais/videos/escalada-esportiva-pico-a-sinuosavia-moca-do-sapo-6supesporte-radical-esporte-ra/2028037090777309
+    titulo: 'Escalada esportiva Pico: a Sinuosa Via: moca do sapo 6sup # ...'
+    fonte: FACEBOOK
 - uid: sOiNJJZ6QIc3SN
   via_movel:
     nome: Over Tênis
@@ -442,11 +457,19 @@ escaladas:
     nome: Variante Mum-hhazinha
     dificuldade: BR_6SUP
     quantidade_protecoes_intermediarias: 10
+  betas:
+  - url: https://instagram.com/p/DHI_0Dmufui
+    titulo: 'Escalada Sete Lagoas | Já que é dia de #tbt então vamos de ...'
+    fonte: INSTAGRAM
 - uid: 8wskz89uCipecq
   via_esportiva:
     nome: Pedras e Espinhos
     dificuldade: BR_7A
     quantidade_protecoes_intermediarias: 10
+  betas:
+  - url: https://instagram.com/p/CZZqcBAuwgc
+    titulo: Escalada Sete Lagoas | Escaladora na clássica do Vale das ...
+    fonte: INSTAGRAM
 - uid: S2tUYBjwIBwoCm
   via_esportiva:
     nome: Pé de Oreia

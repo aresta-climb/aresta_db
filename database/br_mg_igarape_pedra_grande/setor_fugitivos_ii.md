@@ -63,6 +63,10 @@ escaladas:
   boulder:
     nome: Curandeiros
     dificuldade: V5
+  betas:
+  - url: https://instagram.com/reel/CibJZA5gX-x
+    titulo: Igarameca - Pedra Grande Igarapé | @deiler2011 na cadena do ...
+    fonte: INSTAGRAM
 - uid: 9dZGN3If4u7irB
   boulder:
     nome: Sem nome 20

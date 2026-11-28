@@ -149,6 +149,17 @@ escaladas:
     nome: De Voltas Às Origens
     dificuldade: BR_8A
     quantidade_protecoes_intermediarias: 8
+  betas:
+  - url: https://youtube.com/watch?v=HYq6DHu18aQ
+    titulo: Escalada Esportiva - De Volta As Origens, 8a - Sinuosa - Sete Lagoas/MG
+    fonte: YOUTUBE
+  - url: https://youtube.com/watch?v=A9_kdyU4lb4
+    titulo: Escalada Sete Lagoas MG. De volta às origens 8a Br - Sinuosa/primórdios.
+      Em primeira pessoa (GoPro).
+    fonte: YOUTUBE
+  - url: https://facebook.com/EsporteGerais/videos/escalada-esportiva-via-de-volta-as-origens-8apico-a-sinuosacidade-sete-lagoas-la/2033215006926184
+    titulo: 'Escalada esportiva Via : de volta as origens 8a Pico: a ...'
+    fonte: FACEBOOK
 - uid: lv7SJvayR9EvZk
   via_esportiva:
     nome: Velha Guarda
@@ -169,6 +180,13 @@ escaladas:
     nome: Buraco Louco
     dificuldade: BR_7B
     quantidade_protecoes_intermediarias: 8
+  betas:
+  - url: https://youtube.com/shorts/pxiBcpym5Bo
+    titulo: Escalada Sete Lagoas  via buraco loco 7b
+    fonte: YOUTUBE
+  - url: https://youtube.com/watch?v=Jv7_JFZbdFI
+    titulo: Escalada Sete Lagoas sinuosa buraco loco
+    fonte: YOUTUBE
 - uid: O9Qtjh351VqT1j
   via_esportiva:
     nome: Estufando o Bigode
