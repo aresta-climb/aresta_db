@@ -9,6 +9,7 @@ entre o estado base e o estado compilado de uma Pull Request.
 from __future__ import annotations
 
 import hashlib
+import json
 import shutil
 from dataclasses import dataclass, field
 from pathlib import Path
@@ -16,6 +17,23 @@ from pathlib import Path
 from PIL import Image
 
 from aresta_api.proto.generated import croqui_pb2
+
+ValorCampoExtraido = str | tuple[str, ...]
+
+_ROTULOS_CAMPOS_ESCALADA: dict[str, str] = {
+    "nome": "Nome",
+    "dificuldade": "Dificuldade",
+    "extensao": "Extensão (m)",
+    "quantidade_protecoes_intermediarias": "Proteções Intermediárias",
+    "protecoes_moveis": "Proteções Móveis",
+    "conquistadores": "Conquistadores",
+    "descricao": "Descrição",
+    "dificuldade_maxima": "Dificuldade Máxima",
+    "comprimento_total": "Comprimento Total (m)",
+    "numero_enfiadas": "Número de Enfiadas",
+    "distancia": "Distância (m)",
+    "altura": "Altura (m)",
+}
 
 
 @dataclass(frozen=True)
@@ -194,86 +212,80 @@ def _obter_dimensoes_e_peso_imagem(caminho: Path) -> tuple[int, int, float]:
 def _comparar_valores(
     alteracoes: list[AlteracaoCampo],
     nome_campo: str,
-    antes: str,
-    depois: str,
+    antes: ValorCampoExtraido,
+    depois: ValorCampoExtraido,
     *,
     eh_markdown: bool = False,
 ) -> None:
-    if antes != depois:
-        alteracoes.append(
-            AlteracaoCampo(
-                nome_campo=nome_campo,
-                valor_antes=antes,
-                valor_depois=depois,
-                eh_markdown=eh_markdown,
-            )
+    if antes == depois:
+        return
+    if isinstance(antes, tuple) and isinstance(depois, tuple):
+        junto_antes = ", ".join(antes)
+        junto_depois = ", ".join(depois)
+        if junto_antes != junto_depois:
+            str_antes, str_depois = junto_antes, junto_depois
+        else:
+            str_antes = json.dumps(list(antes), ensure_ascii=False)
+            str_depois = json.dumps(list(depois), ensure_ascii=False)
+    else:
+        str_antes = ", ".join(antes) if isinstance(antes, tuple) else antes
+        str_depois = ", ".join(depois) if isinstance(depois, tuple) else depois
+    alteracoes.append(
+        AlteracaoCampo(
+            nome_campo=nome_campo,
+            valor_antes=str_antes,
+            valor_depois=str_depois,
+            eh_markdown=eh_markdown,
         )
+    )
+
+
+def _resumo_curto_escalada(subtipo: str, escalada: croqui_pb2.Escalada) -> str:
+    if subtipo == "via_esportiva":
+        v = escalada.via_esportiva
+        grau = croqui_pb2.GrauVia.GrauVia.Name(v.dificuldade)
+        return f"{grau} · {v.extensao}m" if v.extensao else grau
+    if subtipo == "via_movel":
+        vm = escalada.via_movel
+        grau = croqui_pb2.GrauVia.GrauVia.Name(vm.dificuldade)
+        return f"{grau} · {vm.extensao}m" if vm.extensao else grau
+    if subtipo == "boulder":
+        return croqui_pb2.GrauBoulder.GrauBoulder.Name(escalada.boulder.dificuldade)
+    if subtipo == "via_multiplas_enfiadas":
+        vme = escalada.via_multiplas_enfiadas
+        grau = croqui_pb2.GrauVia.GrauVia.Name(vme.dificuldade_maxima)
+        return f"{grau} · {vme.comprimento_total}m ({vme.numero_enfiadas} enf.)"
+    hl = escalada.highline
+    return f"{hl.distancia}m · alt {hl.altura}m"
 
 
 def _extrair_campos_escalada(
     escalada: croqui_pb2.Escalada,
-) -> tuple[str, str, str, list[tuple[str, str, bool]]]:
-    """Retorna (subtipo, nome, resumo_curto, lista de (nome_campo, valor, eh_markdown))."""
+) -> tuple[str, str, str, list[tuple[str, ValorCampoExtraido, bool]]]:
+    """Retorna (subtipo, nome, resumo_curto, lista de (nome_campo, valor, eh_markdown)) cobrindo todos os campos da variante e betas."""
     subtipo = escalada.WhichOneof("tipo") or "via_esportiva"
-    if subtipo == "via_esportiva":
-        v = escalada.via_esportiva
-        grau = croqui_pb2.GrauVia.GrauVia.Name(v.dificuldade)
-        resumo = f"{grau} · {v.extensao}m" if v.extensao else grau
-        campos = [
-            ("Nome", v.nome, False),
-            ("Dificuldade", grau, False),
-            ("Extensão (m)", str(v.extensao), False),
-            ("Proteções Intermediárias", str(v.quantidade_protecoes_intermediarias), False),
-            ("Conquistadores", ", ".join(v.conquistadores), False),
-            ("Descrição", v.descricao, True),
-        ]
-        return (subtipo, v.nome, resumo, campos)
-    if subtipo == "via_movel":
-        vm = escalada.via_movel
-        grau = croqui_pb2.GrauVia.GrauVia.Name(vm.dificuldade)
-        resumo = f"{grau} · {vm.extensao}m" if vm.extensao else grau
-        campos = [
-            ("Nome", vm.nome, False),
-            ("Dificuldade", grau, False),
-            ("Extensão (m)", str(vm.extensao), False),
-            ("Proteções Móveis", vm.protecoes_moveis, False),
-            ("Conquistadores", ", ".join(vm.conquistadores), False),
-            ("Descrição", vm.descricao, True),
-        ]
-        return (subtipo, vm.nome, resumo, campos)
-    if subtipo == "boulder":
-        b = escalada.boulder
-        grau = croqui_pb2.GrauBoulder.GrauBoulder.Name(b.dificuldade)
-        campos = [
-            ("Nome", b.nome, False),
-            ("Dificuldade", grau, False),
-            ("Conquistadores", ", ".join(b.conquistadores), False),
-            ("Descrição", b.descricao, True),
-        ]
-        return (subtipo, b.nome, grau, campos)
-    if subtipo == "via_multiplas_enfiadas":
-        vme = escalada.via_multiplas_enfiadas
-        grau = croqui_pb2.GrauVia.GrauVia.Name(vme.dificuldade_maxima)
-        resumo = f"{grau} · {vme.comprimento_total}m ({vme.numero_enfiadas} enf.)"
-        campos = [
-            ("Nome", vme.nome, False),
-            ("Dificuldade Máxima", grau, False),
-            ("Comprimento Total (m)", str(vme.comprimento_total), False),
-            ("Número de Enfiadas", str(vme.numero_enfiadas), False),
-            ("Conquistadores", ", ".join(vme.conquistadores), False),
-            ("Descrição", vme.descricao, True),
-        ]
-        return (subtipo, vme.nome, resumo, campos)
-    hl = escalada.highline
-    resumo = f"{hl.distancia}m · alt {hl.altura}m"
-    campos = [
-        ("Nome", hl.nome, False),
-        ("Distância (m)", str(hl.distancia), False),
-        ("Altura (m)", str(hl.altura), False),
-        ("Conquistadores", ", ".join(hl.conquistadores), False),
-        ("Descrição", hl.descricao, True),
-    ]
-    return ("highline", hl.nome, resumo, campos)
+    msg_var = getattr(escalada, subtipo)
+    nome_esc = str(getattr(msg_var, "nome", ""))
+    resumo = _resumo_curto_escalada(subtipo, escalada)
+
+    campos: list[tuple[str, ValorCampoExtraido, bool]] = []
+    for field_desc in msg_var.DESCRIPTOR.fields:
+        opcoes = field_desc.GetOptions()
+        rotulo = _ROTULOS_CAMPOS_ESCALADA.get(field_desc.name) or str(
+            opcoes.Extensions[croqui_pb2.texto_na_ui] or field_desc.name.replace("_", " ").title()
+        )
+        eh_markdown = bool(opcoes.Extensions[croqui_pb2.conteudo_markdown])
+        val_bruto = getattr(msg_var, field_desc.name)
+        if field_desc.is_repeated:
+            valor: ValorCampoExtraido = tuple(str(item) for item in val_bruto)
+        elif field_desc.enum_type is not None:
+            valor = field_desc.enum_type.values_by_number[int(val_bruto)].name
+        else:
+            valor = str(val_bruto)
+        campos.append((rotulo, valor, eh_markdown))
+
+    campos.append(("Betas da Escalada", tuple(b.url for b in escalada.betas), False))
+    return (subtipo, nome_esc, resumo, campos)
 
 
 def _converter_ponto_visual(ponto: croqui_pb2.Mapa.PontoDeInteresse) -> PontoMapaVisual:
@@ -342,8 +354,8 @@ def _converter_ponto_visual(ponto: croqui_pb2.Mapa.PontoDeInteresse) -> PontoMap
 @dataclass
 class _ColecaoExtraida:
     grupos: dict[str, tuple[str, croqui_pb2.Grupo]] = field(default_factory=dict)
-    setores: dict[str, tuple[str, croqui_pb2.Setor]] = field(default_factory=dict)
-    escaladas: dict[str, tuple[str, croqui_pb2.Escalada]] = field(default_factory=dict)
+    setores: dict[str, tuple[str, str, croqui_pb2.Setor]] = field(default_factory=dict)
+    escaladas: dict[str, tuple[str, str, croqui_pb2.Escalada]] = field(default_factory=dict)
     mapas: dict[str, tuple[str, croqui_pb2.Mapa]] = field(default_factory=dict)
     usos_imagens: dict[str, tuple[str, str]] = field(default_factory=dict)
 
@@ -358,9 +370,9 @@ def _extrair_colecao_croqui(croqui: croqui_pb2.Croqui) -> _ColecaoExtraida:
             col.mapas[mapa.caminho_imagem_mapa] = (contexto, mapa)
             col.usos_imagens[mapa.caminho_imagem_mapa] = ("mapa", f"Mapa ({contexto})")
 
-    def _processar_setor(contexto_pai: str, setor: croqui_pb2.Setor) -> None:
+    def _processar_setor(uid_pai: str, contexto_pai: str, setor: croqui_pb2.Setor) -> None:
         uid_setor = setor.uid or f"setor:{setor.nome}"
-        col.setores[uid_setor] = (contexto_pai, setor)
+        col.setores[uid_setor] = (uid_pai, contexto_pai, setor)
         ctx_setor = f"{contexto_pai} > {setor.nome}"
         if setor.caminho_imagem_capa:
             col.usos_imagens[setor.caminho_imagem_capa] = ("capa", f"Capa do Setor {setor.nome}")
@@ -369,11 +381,12 @@ def _extrair_colecao_croqui(croqui: croqui_pb2.Croqui) -> _ColecaoExtraida:
         for esc in setor.escaladas:
             _, nome_esc, _, _ = _extrair_campos_escalada(esc)
             uid_esc = esc.uid or f"escalada:{nome_esc}"
-            col.escaladas[uid_esc] = (ctx_setor, esc)
+            col.escaladas[uid_esc] = (uid_setor, ctx_setor, esc)
             for m_esc in esc.mapas:
                 _registrar_mapa(f"{ctx_setor} > {nome_esc}", m_esc)
 
-    for pico in croqui.picos:
+    for idx_pico, pico in enumerate(croqui.picos):
+        uid_pico = f"pico:{idx_pico}"
         ctx_pico = pico.nome
         for m_geral in pico.mapas_gerais.conteudo.mapas:
             _registrar_mapa(ctx_pico, m_geral)
@@ -391,9 +404,9 @@ def _extrair_colecao_croqui(croqui: croqui_pb2.Croqui) -> _ColecaoExtraida:
                 for m_grupo in grupo.mapas:
                     _registrar_mapa(ctx_grupo, m_grupo)
                 for arq_setor in grupo.setores:
-                    _processar_setor(ctx_grupo, arq_setor.conteudo)
+                    _processar_setor(uid_grupo, ctx_grupo, arq_setor.conteudo)
             else:
-                _processar_setor(ctx_pico, item.setor.conteudo)
+                _processar_setor(uid_pico, ctx_pico, item.setor.conteudo)
 
     return col
 
@@ -546,7 +559,7 @@ def _processar_diff_croqui(
         setor_b = col_base.setores.get(uid)
         setor_p = col_pr.setores.get(uid)
         if setor_b is None and setor_p is not None:
-            ctx, s_p = setor_p
+            _, ctx, s_p = setor_p
             entidades.append(
                 DiffEntidade(
                     tipo_entidade="setor",
@@ -558,7 +571,7 @@ def _processar_diff_croqui(
                 )
             )
         elif setor_p is None and setor_b is not None:
-            ctx, s_b = setor_b
+            _, ctx, s_b = setor_b
             entidades.append(
                 DiffEntidade(
                     tipo_entidade="setor",
@@ -570,9 +583,11 @@ def _processar_diff_croqui(
                 )
             )
         elif setor_b is not None and setor_p is not None:
-            ctx, s_p = setor_p
-            _, s_b = setor_b
+            uid_pai_b, ctx_b, s_b = setor_b
+            uid_pai_p, ctx_p, s_p = setor_p
             alt_s: list[AlteracaoCampo] = []
+            if uid_pai_b != uid_pai_p:
+                _comparar_valores(alt_s, "Localização", ctx_b, ctx_p)
             _comparar_valores(alt_s, "Nome", s_b.nome, s_p.nome)
             _comparar_valores(alt_s, "Descrição", s_b.descricao, s_p.descricao, eh_markdown=True)
             _comparar_valores(
@@ -588,7 +603,7 @@ def _processar_diff_croqui(
                         uid=uid,
                         nome_antes=s_b.nome,
                         nome_depois=s_p.nome,
-                        contexto=ctx,
+                        contexto=ctx_p,
                         status="modificado",
                         alteracoes_campos=alt_s,
                     )
@@ -602,8 +617,20 @@ def _processar_diff_croqui(
         esc_b = col_base.escaladas.get(uid)
         esc_p = col_pr.escaladas.get(uid)
         if esc_b is None and esc_p is not None:
-            ctx, e_p = esc_p
+            _, ctx, e_p = esc_p
             sub_p, nome_p, resumo_p, campos_p = _extrair_campos_escalada(e_p)
+            alteracoes_nova: list[AlteracaoCampo] = []
+            for nome_c, val_c, md in campos_p:
+                texto_val = ", ".join(val_c) if isinstance(val_c, tuple) else val_c
+                if texto_val not in ("", "0", "False", "INDEFINIDO"):
+                    alteracoes_nova.append(
+                        AlteracaoCampo(
+                            nome_campo=nome_c,
+                            valor_antes="",
+                            valor_depois=texto_val,
+                            eh_markdown=md,
+                        )
+                    )
             entidades.append(
                 DiffEntidade(
                     tipo_entidade="escalada",
@@ -614,15 +641,11 @@ def _processar_diff_croqui(
                     status="adicionado",
                     subtipo_depois=sub_p,
                     resumo_curto=resumo_p,
-                    alteracoes_campos=[
-                        AlteracaoCampo(nome_campo=c, valor_antes="", valor_depois=v, eh_markdown=md)
-                        for c, v, md in campos_p
-                        if v and v != "0" and v != "INDEFINIDO"
-                    ],
+                    alteracoes_campos=alteracoes_nova,
                 )
             )
         elif esc_p is None and esc_b is not None:
-            ctx, e_b = esc_b
+            _, ctx, e_b = esc_b
             sub_b, nome_b, resumo_b, _ = _extrair_campos_escalada(e_b)
             entidades.append(
                 DiffEntidade(
@@ -637,15 +660,18 @@ def _processar_diff_croqui(
                 )
             )
         elif esc_b is not None and esc_p is not None:
-            ctx, e_p = esc_p
-            _, e_b = esc_b
+            uid_setor_b, ctx_b, e_b = esc_b
+            uid_setor_p, ctx_p, e_p = esc_p
             sub_b, nome_b, _, campos_b = _extrair_campos_escalada(e_b)
             sub_p, nome_p, resumo_p, campos_p = _extrair_campos_escalada(e_p)
             alt_e: list[AlteracaoCampo] = []
+            if uid_setor_b != uid_setor_p:
+                _comparar_valores(alt_e, "Setor", ctx_b, ctx_p)
             _comparar_valores(alt_e, "Modalidade", sub_b, sub_p)
             mapa_b = {c: (v, md) for c, v, md in campos_b}
             for nome_c, val_p, md in campos_p:
-                val_b, _ = mapa_b.get(nome_c, ("", md))
+                padrao_vazio: ValorCampoExtraido = () if isinstance(val_p, tuple) else ""
+                val_b, _ = mapa_b.get(nome_c, (padrao_vazio, md))
                 _comparar_valores(alt_e, nome_c, val_b, val_p, eh_markdown=md)
             if alt_e:
                 entidades.append(
@@ -654,7 +680,7 @@ def _processar_diff_croqui(
                         uid=uid,
                         nome_antes=nome_b,
                         nome_depois=nome_p,
-                        contexto=ctx,
+                        contexto=ctx_p,
                         status="modificado",
                         subtipo_antes=sub_b,
                         subtipo_depois=sub_p,

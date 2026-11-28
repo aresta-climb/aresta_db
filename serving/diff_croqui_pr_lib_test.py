@@ -413,3 +413,157 @@ def test_compara_mapas_pontos_de_interesse_e_copia_imagens_modificadas_para_past
     assert (dir_pr / "_base" / "cipo" / "imagens" / "foto_removida.webp").is_file()
     assert (dir_pr / "_base" / "cipo" / "thumbnails" / "cipo.webp").is_file()
     assert not (dir_pr / "_base" / "cipo" / "imagens" / "mapa_inalterado.webp").exists()
+
+
+def test_detecta_escalada_migrada_entre_setores_e_desmembramento_de_conquistadores(
+    tmp_path: Path,
+) -> None:
+    """Reproduz o cenário da PR #111: migração de via preservando UID e separação de conquistadores com vírgula."""
+    dir_base = tmp_path / "base"
+    dir_pr = tmp_path / "pr"
+    dir_base.mkdir()
+    dir_pr.mkdir()
+
+    # Base: via CONFUSAO MENTAL e via PSICOSE no Setor das Treze
+    croqui_base = croqui_pb2.Croqui(
+        id="pedreira_gravata",
+        uid="IueFHQqpIFT4cY",
+        nome="Pedreira Dr. Gravatá",
+    )
+    pico_b = croqui_base.picos.add(nome="Pedreira Dr. Gravatá", cidade="Betim", estado="MG")
+    grupo_b = pico_b.setores_ou_grupos.add().grupo.conteudo
+    grupo_b.uid = "QtxIGEyTkA9Q5c"
+    grupo_b.nome = "Setores"
+    setor_treze_b = grupo_b.setores.add().conteudo
+    setor_treze_b.uid = "8SUSM2sgVKSevu"
+    setor_treze_b.nome = "Setor das Treze"
+
+    via_conf_b = setor_treze_b.escaladas.add(uid="TC8Wd0pa4YopiM")
+    via_conf_b.via_esportiva.nome = "CONFUSAO MENTAL"
+    via_conf_b.via_esportiva.dificuldade = croqui_pb2.GrauVia.BR_7A
+    via_conf_b.via_esportiva.conquistadores.append("Macena, Samuel")
+
+    via_migrada_pura_b = setor_treze_b.escaladas.add(uid="sQsm7pQMj1n0ZP")
+    via_migrada_pura_b.via_esportiva.nome = "PSICOSE"
+    via_migrada_pura_b.via_esportiva.dificuldade = croqui_pb2.GrauVia.BR_7B
+
+    _salvar_croqui_compilado(dir_base, croqui_base)
+
+    # PR: cria Setor do Palanque e migra ambas as vias (uma com desmembramento de conquistadores e outra pura)
+    croqui_pr = croqui_pb2.Croqui(
+        id="pedreira_gravata",
+        uid="IueFHQqpIFT4cY",
+        nome="Pedreira Dr. Gravatá",
+    )
+    pico_p = croqui_pr.picos.add(nome="Pedreira Dr. Gravatá", cidade="Betim", estado="MG")
+    grupo_p = pico_p.setores_ou_grupos.add().grupo.conteudo
+    grupo_p.uid = "QtxIGEyTkA9Q5c"
+    grupo_p.nome = "Setores"
+    setor_treze_p = grupo_p.setores.add().conteudo
+    setor_treze_p.uid = "8SUSM2sgVKSevu"
+    setor_treze_p.nome = "Setor das Treze"
+
+    setor_palanque_p = grupo_p.setores.add().conteudo
+    setor_palanque_p.uid = "JORez2rgpIIxQa"
+    setor_palanque_p.nome = "Setor do Palanque"
+
+    via_conf_p = setor_palanque_p.escaladas.add(uid="TC8Wd0pa4YopiM")
+    via_conf_p.via_esportiva.nome = "CONFUSAO MENTAL"
+    via_conf_p.via_esportiva.dificuldade = croqui_pb2.GrauVia.BR_7A
+    via_conf_p.via_esportiva.conquistadores.extend(["Macena", "Samuel"])
+
+    via_migrada_pura_p = setor_palanque_p.escaladas.add(uid="sQsm7pQMj1n0ZP")
+    via_migrada_pura_p.via_esportiva.nome = "PSICOSE"
+    via_migrada_pura_p.via_esportiva.dificuldade = croqui_pb2.GrauVia.BR_7B
+
+    _salvar_croqui_compilado(dir_pr, croqui_pr)
+
+    resumo = calcular_diff_pull_request(dir_base=dir_base, dir_pr=dir_pr)
+    assert resumo.total_setores_adicionados == 1
+    assert resumo.total_escaladas_modificadas == 2
+    assert resumo.total_escaladas_adicionadas == 0
+    assert resumo.total_escaladas_removidas == 0
+
+    por_uid = {e.uid: e for e in resumo.croquis[0].entidades}
+    diff_conf = por_uid["TC8Wd0pa4YopiM"]
+    assert diff_conf.status == "modificado"
+    campos_conf = {c.nome_campo: c for c in diff_conf.alteracoes_campos}
+    assert "Setor das Treze" in campos_conf["Setor"].valor_antes
+    assert "Setor do Palanque" in campos_conf["Setor"].valor_depois
+    assert campos_conf["Conquistadores"].valor_antes == '["Macena, Samuel"]'
+    assert campos_conf["Conquistadores"].valor_depois == '["Macena", "Samuel"]'
+
+    diff_pura = por_uid["sQsm7pQMj1n0ZP"]
+    assert diff_pura.status == "modificado"
+    assert [c.nome_campo for c in diff_pura.alteracoes_campos] == ["Setor"]
+
+
+def test_detecta_migracao_de_setor_e_edicao_de_campos_complementares_de_escalada(
+    tmp_path: Path,
+) -> None:
+    """Deve detectar setor migrado do Pico para um Grupo e alterações em campos técnicos/betas de escalada."""
+    dir_base = tmp_path / "base"
+    dir_pr = tmp_path / "pr"
+    dir_base.mkdir()
+    dir_pr.mkdir()
+
+    croqui_base = croqui_pb2.Croqui(id="lapinha", uid="uid_lap", nome="Lapinha")
+    pico_b = croqui_base.picos.add(nome="Gruta da Lapinha")
+    grp_b = pico_b.setores_ou_grupos.add().grupo.conteudo
+    grp_b.uid = "uid_grp_lap"
+    grp_b.nome = "Maciço Principal"
+
+    setor_solto_b = pico_b.setores_ou_grupos.add().setor.conteudo
+    setor_solto_b.uid = "uid_setor_migravel"
+    setor_solto_b.nome = "Setor Gruta"
+
+    via_b = setor_solto_b.escaladas.add(uid="uid_via_comp")
+    via_b.via_esportiva.nome = "Clássica"
+    via_b.via_esportiva.dificuldade = croqui_pb2.GrauVia.BR_6
+    via_b.via_esportiva.quantidade_protecoes_parada = 2
+    via_b.via_esportiva.data_abertura = "1998"
+
+    _salvar_croqui_compilado(dir_base, croqui_base)
+
+    # PR: setor_solto foi migrado para dentro de grp_p, e via teve parada, data_abertura, destaque e betas alterados
+    croqui_pr = croqui_pb2.Croqui(id="lapinha", uid="uid_lap", nome="Lapinha")
+    pico_p = croqui_pr.picos.add(nome="Gruta da Lapinha")
+    grp_p = pico_p.setores_ou_grupos.add().grupo.conteudo
+    grp_p.uid = "uid_grp_lap"
+    grp_p.nome = "Maciço Principal"
+
+    setor_migrado_p = grp_p.setores.add().conteudo
+    setor_migrado_p.uid = "uid_setor_migravel"
+    setor_migrado_p.nome = "Setor Gruta"
+
+    via_p = setor_migrado_p.escaladas.add(uid="uid_via_comp")
+    via_p.via_esportiva.nome = "Clássica"
+    via_p.via_esportiva.dificuldade = croqui_pb2.GrauVia.BR_6
+    via_p.via_esportiva.quantidade_protecoes_parada = 3
+    via_p.via_esportiva.data_abertura = "1999"
+    via_p.via_esportiva.destaque = True
+    via_p.via_esportiva.exposicao = croqui_pb2.GrauExposicao.E2
+    via_p.betas.add(url="https://youtube.com/watch?v=abc123")
+
+    _salvar_croqui_compilado(dir_pr, croqui_pr)
+
+    resumo = calcular_diff_pull_request(dir_base=dir_base, dir_pr=dir_pr)
+    assert resumo.total_setores_modificados == 1
+    assert resumo.total_escaladas_modificadas == 1
+
+    por_uid = {e.uid: e for e in resumo.croquis[0].entidades}
+    diff_setor = por_uid["uid_setor_migravel"]
+    assert diff_setor.status == "modificado"
+    campos_setor = {c.nome_campo: c for c in diff_setor.alteracoes_campos}
+    assert campos_setor["Localização"].valor_antes == "Gruta da Lapinha"
+    assert campos_setor["Localização"].valor_depois == "Gruta da Lapinha > Maciço Principal"
+
+    diff_via = por_uid["uid_via_comp"]
+    campos_via = {c.nome_campo: c for c in diff_via.alteracoes_campos}
+    assert campos_via["Quantidade de Proteções na Parada"].valor_antes == "2"
+    assert campos_via["Quantidade de Proteções na Parada"].valor_depois == "3"
+    assert campos_via["Data de Abertura"].valor_antes == "1998"
+    assert campos_via["Data de Abertura"].valor_depois == "1999"
+    assert campos_via["É Destaque"].valor_depois == "True"
+    assert campos_via["Grau de Exposição"].valor_depois == "E2"
+    assert "youtube.com/watch?v=abc123" in campos_via["Betas da Escalada"].valor_depois
