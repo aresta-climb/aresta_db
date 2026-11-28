@@ -121,7 +121,8 @@ def test_ciclo_vida_status_foco_salvar_compilar_sem_expor_undo_redo(qapp, tmp_pa
     )
     assert res_foco_raiz["uri"] == "page:mapas"
 
-    # 4. Salvar e compilar no workspace
+    # 4. Salvar e compilar no workspace (incluindo caso em que o id no modelo mudou em relação ao workspace)
+    controller.alterar_primitivo(model.obter_croqui_readonly(), "id", "cipo_teste", "cipo_novo")
     res_salvar = _chamar(servidor, "aresta_salvar", {})
     assert res_salvar["status"] == "ok"
     assert workspace.compilacoes == 1
@@ -289,6 +290,66 @@ def test_gestao_croquis_listar_criar_importar_e_abrir(qapp, tmp_path: Path):
     )
     assert res_abrir["status"] == "aberto"
     assert res_abrir["id_croqui"] == "br_mg_cipo_setor_sol"
+
+
+def test_gestao_croquis_poda_sessao_zumbi_quando_servidor_rede_ativo(qapp, tmp_path: Path) -> None:
+    """
+    Quando o ServidorMCP está em execução na rede, aresta_listar_croquis e aresta_abrir_croqui_existente
+    devem descartar sessões órfãs cujas portas morreram abruptamente sem desregistro.
+    """
+    from editor.mcp.ferramentas_ciclo_vida import registrar_ferramentas_gestao_croquis
+    from editor.mcp.sessao import DadosSessaoMcp, alocar_porta_mcp, registrar_sessao_multi_mcp
+    from scripts.gerenciar_uids_lib import gerar_uid
+    from scripts.migrador import obter_ultima_versao_migracao
+
+    storage = _StorageFake(tmp_path)
+    pasta_exp = storage.obter_caminho_croquis_experimentais() / "br_mg_zumbi_teste"
+    (pasta_exp / "database").mkdir(parents=True, exist_ok=True)
+    (pasta_exp / "database" / "croqui.yaml").write_text(
+        f"id: br_mg_zumbi_teste\nuid: {gerar_uid()}\nnome: Zumbi Teste\nultima_migracao: {obter_ultima_versao_migracao()}\n",
+        encoding="utf-8",
+    )
+
+    porta_base = alocar_porta_mcp(porta_preferencial=38410)
+    servidor = ServidorMCP(
+        despachante=DespachanteQt(),
+        porta_preferencial=porta_base,
+        diretorio_sessao=tmp_path,
+    )
+    servidor.definir_croqui_ativo("br_mg_ativo", "/db/ativo", croqui_aberto=True)
+    registrar_ferramentas_gestao_croquis(
+        servidor=servidor,
+        storage=storage,
+        usuario="Agente Teste",
+        callback_abrir_croqui=lambda _p: {"janela_aberta": True},
+    )
+    servidor.iniciar()
+    try:
+        # Injeta uma sessão morta (porta 65428 sem socket vinculado) em mcp_sessoes.json
+        registrar_sessao_multi_mcp(
+            DadosSessaoMcp(
+                porta=65428,
+                pid=999998,
+                token="tok_morto",
+                id_croqui="br_mg_zumbi_teste",
+                caminho_database=str(pasta_exp / "database"),
+            ),
+            diretorio_base=tmp_path,
+        )
+
+        res_lista = _chamar(servidor, "aresta_listar_croquis", {})
+        ids_abertos = [item["id_croqui"] for item in res_lista["abertos"]]
+        assert ids_abertos == ["br_mg_ativo"]
+
+        # Como br_mg_zumbi_teste foi podado das sessões vivas, abri-lo abre de verdade (status 'aberto', não 'ja_aberto')
+        res_abrir = _chamar(
+            servidor,
+            "aresta_abrir_croqui_existente",
+            {"identificador": "br_mg_zumbi_teste"},
+        )
+        assert res_abrir["status"] == "aberto"
+    finally:
+        servidor.parar()
 
 
 def test_particionar_pdf_croqui_aloca_e_preserva_uids(qapp, tmp_path: Path):

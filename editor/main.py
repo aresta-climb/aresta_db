@@ -345,12 +345,32 @@ class ControladorAplicativo:
             )
             if getattr(self.janela_principal, "servidor_mcp", None) is not None:
                 self.servidor_mcp = self.janela_principal.servidor_mcp
+            self._conectar_janela_gerenciada(self.janela_principal)
             # Conecta o sinal para permitir voltar para a seleção
             self.janela_principal.solicitar_abrir_novo.connect(self.executar_selecao)
             self.janela_principal.show()
             self.app.setQuitOnLastWindowClosed(True)
         except Exception as erro:
             self._tratar_falha_fatal_transicao(erro, etapa="mostrar_janela_principal")
+
+    def _conectar_janela_gerenciada(self, janela: Any) -> None:
+        if hasattr(janela, "janela_fechada"):
+            janela.janela_fechada.connect(self._ao_fechar_janela_gerenciada)
+
+    def _ao_fechar_janela_gerenciada(self, janela: Any) -> None:
+        if janela in self.janelas_secundarias:
+            self.janelas_secundarias.remove(janela)
+            return
+        if janela is self.janela_principal:
+            if self.servidor_mcp is getattr(janela, "servidor_mcp", None):
+                self.servidor_mcp = None
+            if self.janelas_secundarias:
+                promovida = self.janelas_secundarias.pop(0)
+                self.janela_principal = promovida
+                self.servidor_mcp = getattr(promovida, "servidor_mcp", None)
+                promovida.solicitar_abrir_novo.connect(self.executar_selecao)
+            else:
+                self.janela_principal = None
 
     def abrir_croqui_via_mcp(
         self, caminho_croqui: Path, iniciar_rede_mcp_janela: bool = True
@@ -387,6 +407,9 @@ class ControladorAplicativo:
                     servico_loja=self._servico_loja,
                     ativar_trava_croqui=self._ativar_trava_croqui,
                 )
+                if getattr(self.janela_principal, "servidor_mcp", None) is not None:
+                    self.servidor_mcp = self.janela_principal.servidor_mcp
+                self._conectar_janela_gerenciada(self.janela_principal)
                 self.janela_principal.solicitar_abrir_novo.connect(self.executar_selecao)
                 self.janela_principal.show()
             self.app.setQuitOnLastWindowClosed(True)
@@ -404,12 +427,13 @@ class ControladorAplicativo:
             servico_loja=self._servico_loja,
             ativar_trava_croqui=self._ativar_trava_croqui,
         )
+        self._conectar_janela_gerenciada(nova_janela)
         self.janelas_secundarias.append(nova_janela)
         nova_janela.show()
         return {"janela_aberta": True, "nova_janela": True}
 
     def encerrar_servidor_mcp(self) -> None:
-        """Encerra o servidor MCP primário compartilhado da aplicação."""
+        """Encerra o servidor MCP primário compartilhado e os das janelas secundárias da aplicação."""
         srv_carregamento = getattr(self.tela_carregamento, "servidor_mcp", None)
         if (
             srv_carregamento is not None
@@ -420,6 +444,10 @@ class ControladorAplicativo:
         if self.servidor_mcp is not None and hasattr(self.servidor_mcp, "parar"):
             self.servidor_mcp.parar()
             self.servidor_mcp = None
+        for janela_sec in list(self.janelas_secundarias):
+            srv_sec = getattr(janela_sec, "servidor_mcp", None)
+            if srv_sec is not None and hasattr(srv_sec, "parar"):
+                srv_sec.parar()
 
     def _liberar_servidor_local_app(self) -> None:
         from editor.core.instancia_unica import encerrar_servidor_local

@@ -253,3 +253,95 @@ def test_obter_porta_primaria_ativa_prioriza_sessao_principal_com_fallbacks(tmp_
         27381,
         True,
     )
+
+
+def test_listar_sessoes_mcp_ativas_poda_portas_mortas_e_promove_sobrevivente(
+    tmp_path: Path,
+) -> None:
+    """
+    Quando a janela primária morre abruptamente (sem remover_sessao_mcp), listar_sessoes_mcp_ativas
+    e obter_porta_primaria_ativa devem podar a porta morta e promover a janela sobrevivente real.
+    """
+    from editor.mcp.sessao import (
+        listar_sessoes_mcp_ativas,
+        obter_porta_alvo_primaria_mcp,
+        promover_sessao_porta_mcp,
+        vincular_porta_especifica_mcp,
+    )
+
+    assert obter_porta_alvo_primaria_mcp(porta_preferencial=28001) == 28001
+    assert obter_porta_alvo_primaria_mcp(env={"ARESTA_MCP_PORTA": "28002"}) == 28002
+    assert obter_porta_alvo_primaria_mcp(env={}) == PORTA_MCP_PADRAO
+
+    # Sem sessões -> lista vazia
+    assert listar_sessoes_mcp_ativas(tmp_path) == []
+
+    # Abre dois sockets reais simulando Janela 1 (primária) e Janela 2 (secundária)
+    sock_j1, porta_j1 = alocar_porta_com_socket()
+    sock_j2, porta_j2 = alocar_porta_com_socket()
+    try:
+        # Enquanto sock_j1 segura porta_j1, vincular_porta_especifica_mcp deve retornar None
+        assert vincular_porta_especifica_mcp(porta_j1) is None
+
+        gravar_sessao_mcp(
+            porta=porta_j1,
+            token="tok_j1",
+            diretorio_base=tmp_path,
+            id_croqui="croqui_j1",
+        )
+        s_j2 = gravar_sessao_mcp(
+            porta=porta_j2,
+            token="tok_j2",
+            diretorio_base=tmp_path,
+            id_croqui="croqui_j2",
+        )
+
+        # Ambas vivas -> preserva as duas sem podar
+        ativas_ambas = listar_sessoes_mcp_ativas(tmp_path, porta_local_ativa=porta_j2)
+        assert [s.porta for s in ativas_ambas] == [porta_j1, porta_j2]
+
+        # Simula kill abrupto da Janela 1 fechando apenas o socket (sem chamar remover_sessao_mcp!)
+        sock_j1.close()
+
+        # obter_porta_primaria_ativa deve detectar que porta_j1 morreu e promover porta_j2
+        assert obter_porta_primaria_ativa(porta_fallback=porta_j2, diretorio_base=tmp_path) == (
+            porta_j2,
+            True,
+        )
+        sessao_principal = ler_sessao_mcp(tmp_path)
+        assert sessao_principal is not None
+        assert sessao_principal.porta == porta_j2
+        assert [s.porta for s in listar_sessoes_mcp(tmp_path)] == [porta_j2]
+
+        # Agora Janela 2 readquire a porta_j1 livre e promove seu registro para porta_j1
+        sock_rebind = vincular_porta_especifica_mcp(porta_j1)
+        assert sock_rebind is not None
+        try:
+            promovida = promover_sessao_porta_mcp(s_j2, porta_j1, diretorio_base=tmp_path)
+            assert promovida.porta == porta_j1
+            assert promovida.id_croqui == "croqui_j2"
+            assert ler_sessao_mcp(tmp_path) == promovida
+            assert [s.porta for s in listar_sessoes_mcp(tmp_path)] == [porta_j1]
+
+            # Se o desregistro tardio da janela 1 rodar depois da promoção, o token diferente impede apagar a promovida
+            remover_sessao_mcp(tmp_path, porta=porta_j1, token="tok_j1")
+            assert ler_sessao_mcp(tmp_path) == promovida
+            assert [s.porta for s in listar_sessoes_mcp(tmp_path)] == [porta_j1]
+        finally:
+            sock_rebind.close()
+    finally:
+        sock_j1.close()
+        sock_j2.close()
+
+    # Com ambos os sockets fechados (todas mortas), listar_sessoes_mcp_ativas limpa ambos os arquivos
+    assert listar_sessoes_mcp_ativas(tmp_path) == []
+    assert ler_sessao_mcp(tmp_path) is None
+    assert not obter_caminho_sessoes_mcp(tmp_path).exists()
+
+
+def alocar_porta_com_socket() -> tuple[socket.socket, int]:
+    from editor.mcp.sessao import vincular_socket_mcp
+
+    sock, porta = vincular_socket_mcp(porta_preferencial=38100)
+    sock.listen(1)
+    return sock, porta

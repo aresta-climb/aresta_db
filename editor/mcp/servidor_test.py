@@ -532,3 +532,159 @@ def test_servidor_mcp_inicia_e_responde_quando_stdout_e_stderr_sao_none(
             assert resp.json() == {"jsonrpc": "2.0", "id": 101, "result": {}}
     finally:
         servidor.parar()
+
+
+def test_failover_automatico_porta_primaria_multiplas_janelas_e_poda_morte_abrupta(
+    qapp, tmp_path: Path
+) -> None:
+    """
+    Valida o ciclo completo de failover entre 3 instâncias reais de ServidorMCP:
+    1. Janela 1 vincula a porta primária; Janelas 2 e 3 sobem em portas secundárias.
+    2. Ao encerrar a Janela 1, exatamente uma das janelas sobreviventes readquire automaticamente
+       a porta primária (mantendo também sua porta secundária viva como alias) e faz proxy para a outra.
+    3. Se a outra janela secundária morrer abruptamente sem desregistrar sua sessão (simulando kill),
+       chamadas na porta primária sem id_croqui podam a sessão zumbi e atendem o único croqui vivo,
+       e chamadas explícitas para uma sessão recém-morta retornam isError=True sem IndexError.
+    """
+    import time
+
+    from editor.mcp.sessao import (
+        DadosSessaoMcp,
+        alocar_porta_mcp,
+        ler_sessao_mcp,
+        registrar_sessao_multi_mcp,
+    )
+
+    porta_primaria = alocar_porta_mcp(porta_preferencial=38300)
+
+    def _instanciar_janela(nome_janela: str, id_croqui: str) -> ServidorMCP:
+        srv = ServidorMCP(
+            despachante=DespachanteQt(),
+            porta_preferencial=porta_primaria,
+            diretorio_sessao=tmp_path,
+            intervalo_vigia_primaria_s=0.03,
+        )
+        srv.definir_croqui_ativo(id_croqui, f"/db/{id_croqui}", croqui_aberto=True)
+        srv.registrar_ferramenta(
+            nome="aresta_quem_sou",
+            descricao="Identifica a janela ativa.",
+            esquema_entrada={"type": "object", "properties": {}},
+            manipulador=lambda _args, n=nome_janela: {"janela": n},
+            executar_na_thread_qt=False,
+        )
+        return srv
+
+    srv_1 = _instanciar_janela("janela_1", "croqui_1")
+    srv_2 = _instanciar_janela("janela_2", "croqui_2")
+    srv_3 = _instanciar_janela("janela_3", "croqui_3")
+
+    srv_1.iniciar()
+    srv_2.iniciar()
+    srv_3.iniciar()
+    try:
+        assert srv_1.porta == porta_primaria
+        porta_sec_2 = srv_2.porta
+        porta_sec_3 = srv_3.porta
+        assert porta_sec_2 is not None and porta_sec_2 != porta_primaria
+        assert porta_sec_3 is not None and porta_sec_3 != porta_primaria
+
+        url_primaria = f"http://127.0.0.1:{porta_primaria}/mcp"
+
+        # 1. Encerra a Janela 1 -> Janela 2 ou Janela 3 deve readquirir porta_primaria automaticamente
+        srv_1.parar()
+
+        prazo = time.monotonic() + 3.0
+        while time.monotonic() < prazo:
+            if srv_2.porta == porta_primaria or srv_3.porta == porta_primaria:
+                break
+            time.sleep(0.02)
+
+        eleitos = [s for s in (srv_2, srv_3) if s.porta == porta_primaria]
+        assert len(eleitos) == 1
+        eleito = eleitos[0]
+        outro = srv_3 if eleito is srv_2 else srv_2
+        porta_alias_eleito = porta_sec_2 if eleito is srv_2 else porta_sec_3
+
+        sessao_disco = ler_sessao_mcp(tmp_path)
+        assert sessao_disco is not None
+        assert sessao_disco.porta == porta_primaria
+
+        with httpx.Client(timeout=5.0) as http:
+            # Chamadas na porta primária alcançam tanto croqui_2 quanto croqui_3 (local + proxy HTTP fora da main thread)
+            for req_id, id_alvo, janela_esp in (
+                (10, "croqui_2", "janela_2"),
+                (11, "croqui_3", "janela_3"),
+            ):
+                resp = http.post(
+                    url_primaria,
+                    json={
+                        "jsonrpc": "2.0",
+                        "id": req_id,
+                        "method": "tools/call",
+                        "params": {
+                            "name": "aresta_quem_sou",
+                            "arguments": {"id_croqui": id_alvo},
+                        },
+                    },
+                )
+                assert resp.status_code == 200
+                assert resp.json()["result"]["structuredContent"] == {"janela": janela_esp}
+
+            # A porta secundária original do eleito permanece aberta como alias
+            resp_alias = http.post(
+                f"http://127.0.0.1:{porta_alias_eleito}/mcp",
+                json={"jsonrpc": "2.0", "id": 12, "method": "ping"},
+            )
+            assert resp_alias.status_code == 200
+
+            # 2. Simula morte abrupta (kill) da outra janela secundária: para Uvicorn mas re-injeta sessão zumbi no JSON
+            porta_morta = outro.porta
+            id_morto = outro.id_croqui_ativo
+            assert porta_morta is not None
+            outro.parar()
+            registrar_sessao_multi_mcp(
+                DadosSessaoMcp(
+                    porta=porta_morta,
+                    pid=999999,
+                    token="tok_zumbi",
+                    id_croqui=id_morto,
+                    caminho_database="/db/zumbi",
+                ),
+                diretorio_base=tmp_path,
+            )
+
+            # Sem id_croqui na porta primária -> poda a sessão zumbi automaticamente e responde pelo único vivo!
+            resp_unico = http.post(
+                url_primaria,
+                json={
+                    "jsonrpc": "2.0",
+                    "id": 13,
+                    "method": "tools/call",
+                    "params": {"name": "aresta_quem_sou", "arguments": {}},
+                },
+            )
+            assert resp_unico.status_code == 200
+            assert resp_unico.json()["result"]["isError"] is False
+            janela_esperada = "janela_2" if eleito is srv_2 else "janela_3"
+            assert resp_unico.json()["result"]["structuredContent"] == {"janela": janela_esperada}
+
+            # E se o proxy receber falha de conexão direta para uma porta inacessível, retorna erro estruturado sem IndexError
+            erro_proxy = eleito._encaminhar_via_proxy(
+                f"http://127.0.0.1:{porta_morta}/mcp",
+                {"jsonrpc": "2.0", "id": 14, "method": "ping"},
+                porta_destino=porta_morta,
+            )
+            assert erro_proxy["result"]["isError"] is True
+    finally:
+        srv_3.parar()
+        srv_2.parar()
+        srv_1.parar()
+
+    import pytest
+
+    arq_bloqueio = tmp_path / "arquivo_bloqueando_dir_sessao"
+    arq_bloqueio.write_text("x", encoding="utf-8")
+    srv_falha_gravacao = ServidorMCP(despachante=DespachanteQt(), diretorio_sessao=arq_bloqueio)
+    with pytest.raises(OSError):
+        srv_falha_gravacao.iniciar()
+    srv_falha_gravacao.parar()

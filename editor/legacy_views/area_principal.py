@@ -292,6 +292,7 @@ class JanelaPrincipal(QMainWindow):
     # Sinal emitido quando o usuário deseja voltar para a tela de carregamento
     solicitar_abrir_novo = Signal()
     salvamento_finalizado = Signal()
+    janela_fechada = Signal(object)
 
     def __init__(
         self,
@@ -1666,6 +1667,7 @@ class JanelaPrincipal(QMainWindow):
                 self._encerrar_recursos_janela()
                 self.encerrar_servidor_mcp()
                 event.accept()
+                self.janela_fechada.emit(self)
             else:
                 event.ignore()
         else:
@@ -1673,6 +1675,7 @@ class JanelaPrincipal(QMainWindow):
             self._encerrar_recursos_janela()
             self.encerrar_servidor_mcp()
             event.accept()
+            self.janela_fechada.emit(self)
 
     def iniciar_servidor_mcp(
         self,

@@ -95,6 +95,21 @@ def _extrair_porta_ambiente(env: Mapping[str, str] | None = None) -> int | None:
     return None
 
 
+def vincular_porta_especifica_mcp(porta: int) -> socket.socket | None:
+    """Tenta vincular exclusivamente `127.0.0.1:porta` e retorna o socket aberto, ou `None` se ocupada."""
+    return _tentar_vincular_porta(int(porta))
+
+
+def obter_porta_alvo_primaria_mcp(
+    porta_preferencial: int | None = None,
+    env: Mapping[str, str] | None = None,
+) -> int:
+    """Resolve a porta alvo primária do servidor MCP (`porta_preferencial`, `ARESTA_MCP_PORTA` ou `27378`)."""
+    if porta_preferencial is not None:
+        return int(porta_preferencial)
+    return _extrair_porta_ambiente(env) or PORTA_MCP_PADRAO
+
+
 def vincular_socket_mcp(
     porta_preferencial: int | None = None,
     max_tentativas_sequenciais: int = 15,
@@ -104,11 +119,7 @@ def vincular_socket_mcp(
     Vincula e retorna um socket TCP em `127.0.0.1` na `porta_preferencial`
     (ou `ARESTA_MCP_PORTA` / `27378`) com fallback sequencial ou porta efêmera do SO.
     """
-    porta_inicial = (
-        porta_preferencial
-        if porta_preferencial is not None
-        else (_extrair_porta_ambiente(env) or PORTA_MCP_PADRAO)
-    )
+    porta_inicial = obter_porta_alvo_primaria_mcp(porta_preferencial=porta_preferencial, env=env)
     for deslocamento in range(max_tentativas_sequenciais):
         candidata = porta_inicial + deslocamento
         if 1 <= candidata <= 65535:
@@ -217,14 +228,25 @@ def registrar_sessao_multi_mcp(
 def desregistrar_sessao_multi_mcp(
     porta: int,
     diretorio_base: Path | None = None,
+    token: str | None = None,
 ) -> list[DadosSessaoMcp]:
-    """Remove a sessão da `porta` informada de `mcp_sessoes.json` e promove outra sessão ativa se houver."""
+    """Remove a sessão da `porta` (e `token`, quando informado) de `mcp_sessoes.json` e promove outra ativa."""
     caminho = obter_caminho_sessoes_mcp(diretorio_base)
     with trava_arquivo_operacao(caminho.with_suffix(".lock"), timeout_s=2.0):
-        restantes = [s for s in listar_sessoes_mcp(diretorio_base) if s.porta != int(porta)]
+        restantes = [
+            s
+            for s in listar_sessoes_mcp(diretorio_base)
+            if not (s.porta == int(porta) and (token is None or s.token == token))
+        ]
         if restantes:
             _escrever_lista_sessoes(caminho, restantes)
-            _escrever_sessao_principal(obter_caminho_sessao_mcp(diretorio_base), restantes[0])
+            sessao_principal = ler_sessao_mcp(diretorio_base)
+            primaria_continua = sessao_principal is not None and any(
+                s.porta == sessao_principal.porta and s.token == sessao_principal.token
+                for s in restantes
+            )
+            if not primaria_continua:
+                _escrever_sessao_principal(obter_caminho_sessao_mcp(diretorio_base), restantes[0])
         else:
             caminho.unlink(missing_ok=True)
             obter_caminho_sessao_mcp(diretorio_base).unlink(missing_ok=True)
@@ -279,10 +301,14 @@ def ler_sessao_mcp(diretorio_base: Path | None = None) -> DadosSessaoMcp | None:
         return None
 
 
-def remover_sessao_mcp(diretorio_base: Path | None = None, porta: int | None = None) -> None:
+def remover_sessao_mcp(
+    diretorio_base: Path | None = None,
+    porta: int | None = None,
+    token: str | None = None,
+) -> None:
     """Remove a sessão do servidor MCP e promove outra sessão ativa caso existam múltiplas janelas."""
     if porta is not None:
-        desregistrar_sessao_multi_mcp(porta, diretorio_base)
+        desregistrar_sessao_multi_mcp(porta, diretorio_base, token=token)
         return
 
     obter_caminho_sessao_mcp(diretorio_base).unlink(missing_ok=True)
@@ -306,16 +332,88 @@ def descobrir_url_mcp_ativa(
     return f"http://127.0.0.1:{PORTA_MCP_PADRAO}/mcp", ""
 
 
+def _sessao_porta_ativa(sessao: DadosSessaoMcp, porta_local_ativa: int | None = None) -> bool:
+    if porta_local_ativa is not None and sessao.porta == porta_local_ativa:
+        return True
+    return not porta_disponivel_local(sessao.porta)
+
+
+def listar_sessoes_mcp_ativas(
+    diretorio_base: Path | None = None,
+    porta_local_ativa: int | None = None,
+) -> list[DadosSessaoMcp]:
+    """
+    Lista apenas as sessões MCP cujas portas locais continuam vinculadas no SO,
+    podando atomicamente entradas órfãs de `mcp_sessoes.json` e promovendo `mcp_sessao.json`.
+    """
+    atuais = listar_sessoes_mcp(diretorio_base)
+    if not atuais:
+        return []
+    if all(_sessao_porta_ativa(s, porta_local_ativa) for s in atuais):
+        return atuais
+
+    caminho = obter_caminho_sessoes_mcp(diretorio_base)
+    with trava_arquivo_operacao(caminho.with_suffix(".lock"), timeout_s=2.0):
+        atuais_sob_trava = listar_sessoes_mcp(diretorio_base)
+        vivas = [s for s in atuais_sob_trava if _sessao_porta_ativa(s, porta_local_ativa)]
+        caminho_principal = obter_caminho_sessao_mcp(diretorio_base)
+        if vivas:
+            _escrever_lista_sessoes(caminho, vivas)
+            sessao_principal = ler_sessao_mcp(diretorio_base)
+            if sessao_principal is None or all(s.porta != sessao_principal.porta for s in vivas):
+                _escrever_sessao_principal(caminho_principal, vivas[0])
+        else:
+            caminho.unlink(missing_ok=True)
+            caminho_principal.unlink(missing_ok=True)
+        return vivas
+
+
+def promover_sessao_porta_mcp(
+    sessao_atual: DadosSessaoMcp,
+    nova_porta: int,
+    diretorio_base: Path | None = None,
+) -> DadosSessaoMcp:
+    """
+    Promove atomicamente `sessao_atual` para `nova_porta` (tipicamente a porta primária `27378`),
+    substituindo a entrada antiga e eventual entrada órfã em `mcp_sessoes.json` e `mcp_sessao.json`.
+    """
+    porta_destino = int(nova_porta)
+    promovida = DadosSessaoMcp(
+        porta=porta_destino,
+        pid=sessao_atual.pid,
+        token=sessao_atual.token,
+        id_croqui=sessao_atual.id_croqui,
+        caminho_database=sessao_atual.caminho_database,
+    )
+    caminho = obter_caminho_sessoes_mcp(diretorio_base)
+    with trava_arquivo_operacao(caminho.with_suffix(".lock"), timeout_s=2.0):
+        restantes = [
+            s
+            for s in listar_sessoes_mcp(diretorio_base)
+            if s.porta not in (sessao_atual.porta, porta_destino)
+        ]
+        atualizadas = [promovida, *restantes]
+        _escrever_lista_sessoes(caminho, atualizadas)
+        _escrever_sessao_principal(obter_caminho_sessao_mcp(diretorio_base), promovida)
+    return promovida
+
+
 def obter_porta_primaria_ativa(
     porta_fallback: int | None = None,
     diretorio_base: Path | None = None,
 ) -> tuple[int, bool]:
     """
-    Resolve a porta da sessão MCP primária ativa em `mcp_sessao.json`,
-    recorrendo a `porta_fallback` (ou `PORTA_MCP_PADRAO` inativa) apenas quando ausente.
+    Resolve a porta da sessão MCP primária ativa em `mcp_sessao.json` (promovendo outra
+    sessão com socket ativo caso a primária tenha morrido), recorrendo a `porta_fallback`
+    (ou `PORTA_MCP_PADRAO` inativa) apenas quando ausente.
     """
     sessao_principal = ler_sessao_mcp(diretorio_base=diretorio_base)
     if sessao_principal is not None:
+        if porta_disponivel_local(sessao_principal.porta) and any(
+            not porta_disponivel_local(s.porta) for s in listar_sessoes_mcp(diretorio_base)
+        ):
+            vivas = listar_sessoes_mcp_ativas(diretorio_base=diretorio_base)
+            return vivas[0].porta, True
         return sessao_principal.porta, True
     if porta_fallback is not None:
         return int(porta_fallback), True

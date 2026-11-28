@@ -17,7 +17,6 @@ from editor.core.serializacao_util import carregar_yaml
 from editor.core.storage import GerenciadorCaminhos
 from editor.mcp.resolvedor_alvo import resolver_alvo_mcp
 from editor.mcp.servidor import ServidorMCP
-from editor.mcp.sessao import listar_sessoes_mcp
 from editor.models.croqui_model import CroquiModel
 from scripts.deploy_generated import (
     persistir_contexto_memoria_no_disco,
@@ -145,7 +144,7 @@ def registrar_ferramentas_gestao_croquis(
 
     def _listar_croquis(args: dict[str, Any]) -> dict[str, Any]:
         filtro = str(args.get("filtro") or "").strip()
-        sessoes = listar_sessoes_mcp(servidor.diretorio_sessao)
+        sessoes = servidor.obter_sessoes_registradas()
         abertos = [
             {
                 "id_croqui": s.id_croqui,
@@ -202,7 +201,7 @@ def registrar_ferramentas_gestao_croquis(
         }
 
     def _procurar_sessao_ja_aberta(id_alvo: str) -> dict[str, Any] | None:
-        for s in listar_sessoes_mcp(servidor.diretorio_sessao):
+        for s in servidor.obter_sessoes_registradas():
             if s.id_croqui == id_alvo:
                 verificar_croqui_ja_aberto(id_alvo)
                 return {

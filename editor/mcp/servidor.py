@@ -22,8 +22,12 @@ from editor.mcp.sessao import (
     DadosSessaoMcp,
     gravar_sessao_mcp,
     listar_sessoes_mcp,
+    listar_sessoes_mcp_ativas,
+    obter_porta_alvo_primaria_mcp,
+    promover_sessao_porta_mcp,
     registrar_sessao_multi_mcp,
     remover_sessao_mcp,
+    vincular_porta_especifica_mcp,
     vincular_socket_mcp,
 )
 
@@ -63,11 +67,13 @@ class ServidorMCP:
         porta_preferencial: int | None = None,
         diretorio_sessao: Path | None = None,
         versao_servidor: str = "1.0.0",
+        intervalo_vigia_primaria_s: float = 0.2,
     ) -> None:
         self.despachante: DespachanteQt = despachante or DespachanteQt()
         self.porta_preferencial: int | None = porta_preferencial
         self.diretorio_sessao: Path | None = diretorio_sessao
         self.versao_servidor: str = versao_servidor
+        self.intervalo_vigia_primaria_s: float = float(intervalo_vigia_primaria_s)
         self.ferramentas: dict[str, DefinicaoFerramentaMcp] = {}
         self.recursos: dict[str, DefinicaoRecursoMcp] = {}
         self.sessao: DadosSessaoMcp | None = None
@@ -79,7 +85,21 @@ class ServidorMCP:
         ] = {}
         self._server: uvicorn.Server | None = None
         self._thread: threading.Thread | None = None
+        self._servidores_extras: list[uvicorn.Server] = []
+        self._threads_extras: list[threading.Thread] = []
+        self._portas_vinculadas: list[int] = []
+        self._parar_vigia: threading.Event = threading.Event()
+        self._thread_vigia: threading.Thread | None = None
         self.app: FastAPI = self._criar_app()
+
+    def obter_sessoes_registradas(self) -> list[DadosSessaoMcp]:
+        """Retorna as sessões MCP conhecidas, podando portas órfãs quando este servidor está ativo na rede."""
+        if self.esta_ativo:
+            return listar_sessoes_mcp_ativas(
+                self.diretorio_sessao,
+                porta_local_ativa=self.porta,
+            )
+        return listar_sessoes_mcp(self.diretorio_sessao)
 
     @property
     def porta(self) -> int | None:
@@ -406,16 +426,36 @@ class ServidorMCP:
 
         return app
 
-    def _encaminhar_via_proxy(self, url_http: str, mensagem: dict[str, Any]) -> dict[str, Any]:
-        """Encaminha a mensagem JSON-RPC via HTTP local sem bloquear o loop de eventos do Qt."""
+    def _encaminhar_via_proxy(
+        self,
+        url_http: str,
+        mensagem: dict[str, Any],
+        porta_destino: int,
+    ) -> dict[str, Any]:
+        """Encaminha a mensagem JSON-RPC via HTTP local sem usar processEvents fora da thread principal."""
+        req_id = mensagem.get("id")
+
+        def _executar_post() -> dict[str, Any]:
+            try:
+                with httpx.Client(timeout=30.0) as client:
+                    resp = client.post(url_http, json=mensagem)
+                    dados: dict[str, Any] = resp.json()
+                    return dados
+            except httpx.HTTPError as exc:
+                remover_sessao_mcp(self.diretorio_sessao, porta=porta_destino)
+                return self._erro_ferramenta_mcp(
+                    req_id,
+                    f"Falha ao encaminhar requisição MCP para {url_http}: {exc}",
+                )
+
+        if threading.current_thread() is not threading.main_thread():
+            return _executar_post()
+
         caixa_resposta: list[dict[str, Any]] = []
-
-        def _fazer_post() -> None:
-            with httpx.Client(timeout=30.0) as client:
-                resp = client.post(url_http, json=mensagem)
-                caixa_resposta.append(resp.json())
-
-        thread_proxy = threading.Thread(target=_fazer_post, daemon=True)
+        thread_proxy = threading.Thread(
+            target=lambda: caixa_resposta.append(_executar_post()),
+            daemon=True,
+        )
         thread_proxy.start()
         while thread_proxy.is_alive():
             QCoreApplication.processEvents()
@@ -445,7 +485,7 @@ class ServidorMCP:
         Retorna `None` se a ferramenta deve ser executada localmente nesta instância.
         """
         id_croqui_req = str(argumentos.get("id_croqui") or "").strip()
-        sessoes_com_croqui = [s for s in listar_sessoes_mcp(self.diretorio_sessao) if s.id_croqui]
+        sessoes_com_croqui = [s for s in self.obter_sessoes_registradas() if s.id_croqui]
         ids_abertos = [s.id_croqui for s in sessoes_com_croqui]
 
         if id_croqui_req:
@@ -453,7 +493,11 @@ class ServidorMCP:
                 return None
             for sessao_remota in sessoes_com_croqui:
                 if sessao_remota.id_croqui == id_croqui_req and sessao_remota.porta != self.porta:
-                    return self._encaminhar_via_proxy(sessao_remota.url_http, mensagem)
+                    return self._encaminhar_via_proxy(
+                        sessao_remota.url_http,
+                        mensagem,
+                        porta_destino=sessao_remota.porta,
+                    )
             return self._erro_ferramenta_mcp(
                 req_id,
                 f"Croqui '{id_croqui_req}' não está aberto. Croquis abertos no momento: {ids_abertos}.",
@@ -468,7 +512,12 @@ class ServidorMCP:
 
         if not self.croqui_aberto:
             if len(sessoes_com_croqui) == 1 and sessoes_com_croqui[0].porta != self.porta:
-                return self._encaminhar_via_proxy(sessoes_com_croqui[0].url_http, mensagem)
+                unica = sessoes_com_croqui[0]
+                return self._encaminhar_via_proxy(
+                    unica.url_http,
+                    mensagem,
+                    porta_destino=unica.porta,
+                )
             return self._erro_ferramenta_mcp(
                 req_id,
                 "Nenhum croqui está aberto no Editor Aresta. Use aresta_listar_croquis, "
@@ -478,19 +527,13 @@ class ServidorMCP:
 
         return None
 
-    def iniciar(self, aguardar_pronto: bool = True, timeout: float = 5.0) -> DadosSessaoMcp:
-        """Inicia o servidor Uvicorn em segundo plano vinculado a `127.0.0.1` e grava `mcp_sessao.json`."""
-        if self.esta_ativo and self.sessao is not None:
-            return self.sessao
-
-        sock, porta = vincular_socket_mcp(porta_preferencial=self.porta_preferencial)
-        self.sessao = gravar_sessao_mcp(
-            porta=porta,
-            diretorio_base=self.diretorio_sessao,
-            id_croqui=self.id_croqui_ativo if self.croqui_aberto else "",
-            caminho_database=self.caminho_database_ativo if self.croqui_aberto else "",
-        )
-
+    def _iniciar_instancia_uvicorn(
+        self,
+        sock: Any,
+        porta: int,
+        aguardar_pronto: bool,
+        timeout: float,
+    ) -> tuple[uvicorn.Server, threading.Thread]:
         config = uvicorn.Config(
             app=self.app,
             host="127.0.0.1",
@@ -499,38 +542,113 @@ class ServidorMCP:
             log_config=None,
             ws="none",
         )
-        self._server = uvicorn.Server(config)
+        servidor_uv = uvicorn.Server(config)
 
         def _rodar() -> None:
             try:
-                if self._server is not None:
-                    self._server.run(sockets=[sock])
+                servidor_uv.run(sockets=[sock])
             finally:
                 sock.close()
 
-        self._thread = threading.Thread(target=_rodar, daemon=True)
-        self._thread.start()
-
+        thread_uv = threading.Thread(target=_rodar, daemon=True)
+        thread_uv.start()
         if aguardar_pronto:
             prazo = time.monotonic() + timeout
-            while not self._server.started and time.monotonic() < prazo:
+            while not servidor_uv.started and time.monotonic() < prazo:
                 time.sleep(0.01)
+        return servidor_uv, thread_uv
+
+    def _vigiar_porta_primaria(self, porta_alvo: int) -> None:
+        while not self._parar_vigia.wait(self.intervalo_vigia_primaria_s):
+            sock_primario = vincular_porta_especifica_mcp(porta_alvo)
+            if sock_primario is None:
+                continue
+            srv_extra, thread_extra = self._iniciar_instancia_uvicorn(
+                sock=sock_primario,
+                porta=porta_alvo,
+                aguardar_pronto=True,
+                timeout=2.0,
+            )
+            self._servidores_extras.append(srv_extra)
+            self._threads_extras.append(thread_extra)
+            self._portas_vinculadas.append(porta_alvo)
+            assert self.sessao is not None
+            sessao_base = DadosSessaoMcp(
+                porta=self.sessao.porta,
+                pid=self.sessao.pid,
+                token=self.sessao.token,
+                id_croqui=self.id_croqui_ativo if self.croqui_aberto else "",
+                caminho_database=self.caminho_database_ativo if self.croqui_aberto else "",
+            )
+            self.sessao = promover_sessao_porta_mcp(
+                sessao_base,
+                porta_alvo,
+                diretorio_base=self.diretorio_sessao,
+            )
+            return
+
+    def iniciar(self, aguardar_pronto: bool = True, timeout: float = 5.0) -> DadosSessaoMcp:
+        """Inicia o servidor Uvicorn em segundo plano vinculado a `127.0.0.1` e grava `mcp_sessao.json`."""
+        if self.esta_ativo and self.sessao is not None:
+            return self.sessao
+
+        porta_alvo_primaria = obter_porta_alvo_primaria_mcp(
+            porta_preferencial=self.porta_preferencial
+        )
+        sock, porta = vincular_socket_mcp(porta_preferencial=self.porta_preferencial)
+        try:
+            self.sessao = gravar_sessao_mcp(
+                porta=porta,
+                diretorio_base=self.diretorio_sessao,
+                id_croqui=self.id_croqui_ativo if self.croqui_aberto else "",
+                caminho_database=self.caminho_database_ativo if self.croqui_aberto else "",
+            )
+        except BaseException:
+            sock.close()
+            raise
+        self._parar_vigia.clear()
+        self._portas_vinculadas = [porta]
+        self._server, self._thread = self._iniciar_instancia_uvicorn(
+            sock=sock,
+            porta=porta,
+            aguardar_pronto=aguardar_pronto,
+            timeout=timeout,
+        )
+        if porta != porta_alvo_primaria:
+            self._thread_vigia = threading.Thread(
+                target=self._vigiar_porta_primaria,
+                args=(porta_alvo_primaria,),
+                daemon=True,
+            )
+            self._thread_vigia.start()
 
         return self.sessao
 
     def parar(self) -> None:
         """Encerra o servidor Uvicorn em segundo plano, fecha streams SSE e remove a sessão."""
+        self._parar_vigia.set()
+        if self._thread_vigia is not None and self._thread_vigia.is_alive():
+            self._thread_vigia.join(timeout=1.0)
+        self._thread_vigia = None
+
         for loop_sse, fila_sse in list(self._filas_sse.values()):
             loop_sse.call_soon_threadsafe(fila_sse.put_nowait, None)
         self._filas_sse.clear()
 
-        if self._server is not None:
-            self._server.should_exit = True
-        if self._thread is not None and self._thread.is_alive():
-            self._thread.join(timeout=3.0)
+        for srv in [self._server, *self._servidores_extras]:
+            if srv is not None:
+                srv.should_exit = True
+        for th in [self._thread, *self._threads_extras]:
+            if th is not None and th.is_alive():
+                th.join(timeout=3.0)
 
-        porta_encerrada = self.sessao.porta if self.sessao is not None else None
+        portas_encerradas = list(self._portas_vinculadas)
+        token_encerrado = self.sessao.token if self.sessao is not None else None
         self._server = None
         self._thread = None
+        self._servidores_extras.clear()
+        self._threads_extras.clear()
+        self._portas_vinculadas.clear()
         self.sessao = None
-        remover_sessao_mcp(self.diretorio_sessao, porta=porta_encerrada)
+        for porta_enc in portas_encerradas:
+            remover_sessao_mcp(self.diretorio_sessao, porta=porta_enc, token=token_encerrado)

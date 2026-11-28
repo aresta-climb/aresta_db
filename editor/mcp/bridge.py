@@ -2,6 +2,7 @@
 # Copyright (C) 2026 Aresta Climb Contributors
 
 import json
+import os
 import sys
 from collections.abc import Mapping
 from pathlib import Path
@@ -9,12 +10,43 @@ from typing import Any, TextIO
 
 import httpx
 
-from editor.mcp.sessao import descobrir_url_mcp_ativa
+from editor.mcp.sessao import (
+    VARIAVEL_AMBIENTE_PORTA_MCP,
+    descobrir_url_mcp_ativa,
+    listar_sessoes_mcp_ativas,
+)
 
 
 def _escrever_jsonrpc(saida: TextIO, pacote: dict[str, Any]) -> None:
     saida.write(json.dumps(pacote, ensure_ascii=False) + "\n")
     saida.flush()
+
+
+def _enviar_requisicao_mcp(
+    http: httpx.Client,
+    mensagem: dict[str, Any],
+    diretorio_sessao: Path | None,
+    env: Mapping[str, str] | None,
+) -> tuple[str, httpx.Response]:
+    url_http, token = descobrir_url_mcp_ativa(diretorio_base=diretorio_sessao, env=env)
+    cabecalhos = {"X-Aresta-Mcp-Token": token} if token else {}
+    try:
+        return url_http, http.post(url_http, json=mensagem, headers=cabecalhos)
+    except httpx.HTTPError:
+        ambiente = env if env is not None else os.environ
+        if not ambiente.get(VARIAVEL_AMBIENTE_PORTA_MCP, "").strip():
+            vivas = listar_sessoes_mcp_ativas(diretorio_base=diretorio_sessao)
+            if vivas:
+                sessao_viva = vivas[0]
+                cabecalhos_vivo = (
+                    {"X-Aresta-Mcp-Token": sessao_viva.token} if sessao_viva.token else {}
+                )
+                return sessao_viva.url_http, http.post(
+                    sessao_viva.url_http,
+                    json=mensagem,
+                    headers=cabecalhos_vivo,
+                )
+        raise
 
 
 def executar_ponte_stdio(
@@ -54,11 +86,14 @@ def executar_ponte_stdio(
                 )
                 continue
 
-            url_http, token = descobrir_url_mcp_ativa(diretorio_base=diretorio_sessao, env=env)
-            cabecalhos = {"X-Aresta-Mcp-Token": token} if token else {}
-
+            url_tentada = descobrir_url_mcp_ativa(diretorio_base=diretorio_sessao, env=env)[0]
             try:
-                resposta = http.post(url_http, json=mensagem, headers=cabecalhos)
+                url_tentada, resposta = _enviar_requisicao_mcp(
+                    http=http,
+                    mensagem=mensagem,
+                    diretorio_sessao=diretorio_sessao,
+                    env=env,
+                )
                 if resposta.status_code == 202 or not resposta.content:
                     continue
                 _escrever_jsonrpc(fluxo_out, resposta.json())
@@ -73,7 +108,7 @@ def executar_ponte_stdio(
                             "error": {
                                 "code": -32000,
                                 "message": (
-                                    f"Não foi possível conectar ao Editor Aresta em {url_http}. "
+                                    f"Não foi possível conectar ao Editor Aresta em {url_tentada}. "
                                     f"Verifique se o editor está aberto ({exc})."
                                 ),
                             },

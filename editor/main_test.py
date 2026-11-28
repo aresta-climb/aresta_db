@@ -1545,3 +1545,143 @@ def test_main_modo_headless_sucesso_e_erros_argumento(monkeypatch, tmp_path: Pat
     saida = capsys.readouterr().out.strip()
     resposta = json.loads(saida)
     assert resposta["result"]["structuredContent"]["id_croqui"] == "br_mg_headless_main"
+
+
+def test_controlador_app_multi_janela_promove_secundaria_e_mantem_mcp_ao_fechar_primeira(
+    qtbot, tmp_path: Path, monkeypatch
+) -> None:
+    """
+    Valida que quando duas JanelaPrincipal são abertas no mesmo processo via ControladorAplicativo:
+    1. Ambas respondem via HTTP na porta primária configurada.
+    2. Ao fechar a primeira janela, o ControladorAplicativo promove a segunda janela para janela_principal,
+       limpa janelas_secundarias e a porta primária continua atendendo a segunda janela sem exigir id_croqui.
+    3. Ao abrir uma terceira janela e fechar essa janela secundária, ela é removida de janelas_secundarias.
+    """
+    import httpx
+    from PySide6.QtCore import QObject, Signal
+
+    from editor.mcp.sessao import alocar_porta_mcp
+    from scripts.gerenciar_uids_lib import gerar_uid
+    from scripts.migrador import obter_ultima_versao_migracao
+
+    class _TarefaInerte(QObject):
+        status = Signal(str)
+        progresso = Signal(int)
+        mostrar_progresso = Signal(bool)
+        solicitar_login_ui = Signal()
+        atualizacao_disponivel = Signal(object)
+        sucesso = Signal()
+        erro = Signal(str)
+        storage = None
+        gerenciador_sessao = None
+        sessao_usuario = None
+
+        def start(self) -> None:
+            pass
+
+    def _criar_pasta_exp(nome_id: str) -> Path:
+        p = tmp_path / nome_id
+        (p / "database").mkdir(parents=True, exist_ok=True)
+        (p / "database" / "croqui.yaml").write_text(
+            f"id: {nome_id}\nuid: {gerar_uid()}\nnome: {nome_id}\nultima_migracao: {obter_ultima_versao_migracao()}\n",
+            encoding="utf-8",
+        )
+        return p
+
+    porta_primaria = alocar_porta_mcp(porta_preferencial=38520)
+    monkeypatch.setenv("ARESTA_MCP_PORTA", str(porta_primaria))
+    dir_mcp = tmp_path / "sessoes_mcp"
+
+    pasta_a = _criar_pasta_exp("croqui_proc_a")
+    pasta_b = _criar_pasta_exp("croqui_proc_b")
+    pasta_c = _criar_pasta_exp("croqui_proc_c")
+
+    controlador = ControladorAplicativo(
+        tarefa=_TarefaInerte(),
+        diretorio_sessao_mcp=dir_mcp,
+        iniciar_rede_mcp=True,
+        ativar_trava_croqui=False,
+    )
+    try:
+        controlador.abrir_croqui_via_mcp(pasta_a, iniciar_rede_mcp_janela=True)
+        controlador.abrir_croqui_via_mcp(pasta_b, iniciar_rede_mcp_janela=True)
+
+        janela_1 = controlador.janela_principal
+        assert janela_1 is not None
+        assert len(controlador.janelas_secundarias) == 1
+        janela_2 = controlador.janelas_secundarias[0]
+
+        url_primaria = f"http://127.0.0.1:{porta_primaria}/mcp"
+
+        def _post_mcp_qt(payload: dict) -> dict:
+            import threading
+
+            from PySide6.QtCore import QCoreApplication
+
+            caixa: list[dict] = []
+
+            def _enviar() -> None:
+                with httpx.Client(timeout=5.0) as http:
+                    caixa.append(http.post(url_primaria, json=payload).json())
+
+            th = threading.Thread(target=_enviar, daemon=True)
+            th.start()
+            while th.is_alive():
+                QCoreApplication.processEvents()
+                th.join(timeout=0.01)
+            return caixa[0]
+
+        # Ambas acessíveis pela porta primária
+        for req_id, id_alvo in ((1, "croqui_proc_a"), (2, "croqui_proc_b")):
+            r_json = _post_mcp_qt(
+                {
+                    "jsonrpc": "2.0",
+                    "id": req_id,
+                    "method": "tools/call",
+                    "params": {
+                        "name": "aresta_status_workspace",
+                        "arguments": {"id_croqui": id_alvo},
+                    },
+                }
+            )
+            assert r_json["result"]["structuredContent"]["id_croqui"] == id_alvo
+
+        # Fecha a primeira janela pelo usuário -> janela_2 deve ser promovida a janela_principal!
+        janela_1.close()
+        assert controlador.janela_principal is janela_2
+        assert controlador.janelas_secundarias == []
+
+        # E a porta primária deve ser readquirida pela janela_2 e responder sem exigir id_croqui
+        qtbot.wait_until(
+            lambda: (
+                janela_2.servidor_mcp is not None and janela_2.servidor_mcp.porta == porta_primaria
+            ),
+            timeout=3000,
+        )
+        r_pos_close = _post_mcp_qt(
+            {
+                "jsonrpc": "2.0",
+                "id": 3,
+                "method": "tools/call",
+                "params": {"name": "aresta_status_workspace", "arguments": {}},
+            }
+        )
+        assert r_pos_close["result"]["structuredContent"]["id_croqui"] == "croqui_proc_b"
+
+        # Abre uma 3ª janela (secundária), valida encerrar_servidor_mcp sobre secundárias e fecha a secundária
+        controlador.abrir_croqui_via_mcp(pasta_c, iniciar_rede_mcp_janela=True)
+        assert len(controlador.janelas_secundarias) == 1
+        janela_3 = controlador.janelas_secundarias[0]
+        assert janela_3.servidor_mcp.esta_ativo is True
+        controlador.encerrar_servidor_mcp()
+        assert janela_3.servidor_mcp.esta_ativo is False
+        janela_3.close()
+        assert controlador.janelas_secundarias == []
+        assert controlador.janela_principal is janela_2
+    finally:
+        for j in list(controlador.janelas_secundarias):
+            j.close()
+        if controlador.janela_principal is not None:
+            controlador.janela_principal.close()
+        controlador.encerrar_servidores_locais()
+        controlador.abertura.close()
