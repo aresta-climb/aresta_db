@@ -386,7 +386,7 @@ def test_operacoes_repeated_e_alterar_campo_indexado(qapp, tmp_path: Path):
     assert len(res_boulder["uid"]) == 14
     assert res_boulder["tamanho"] == 3
 
-    # Adicionar setor em grupo e SetorOuGrupo no pico
+    # Adicionar setor em grupo (incluindo atalhos com 'setor', 'caminho' misto e fail-fast para não-dict)
     res_setor_grupo = _chamar(
         servidor,
         "aresta_adicionar_repeated",
@@ -397,6 +397,52 @@ def test_operacoes_repeated_e_alterar_campo_indexado(qapp, tmp_path: Path):
         },
     )
     assert len(res_setor_grupo["uid"]) == 14
+
+    res_setor_env = _chamar(
+        servidor,
+        "aresta_adicionar_repeated",
+        {
+            "alvo": "uid_grupo_base",
+            "campo": "setores",
+            "valor": {"caminho": "setor_palanque.md", "setor": {"nome": "Setor do Palanque"}},
+        },
+    )
+    assert len(res_setor_env["uid"]) == 14
+    grupo_proxy = raiz.picos[0].setores_ou_grupos[1].grupo.conteudo
+    assert grupo_proxy.setores[1].conteudo.nome == "Setor do Palanque"
+
+    res_setor_cam_puro = _chamar(
+        servidor,
+        "aresta_adicionar_repeated",
+        {
+            "alvo": "uid_grupo_base",
+            "campo": "setores",
+            "valor": {"caminho": "setor_referencia.md"},
+        },
+    )
+    assert res_setor_cam_puro["uid"] == ""
+    assert grupo_proxy.setores[2].caminho == "setor_referencia.md"
+
+    with pytest.raises(RuntimeError, match="Esperado um objeto JSON"):
+        _chamar(
+            servidor,
+            "aresta_adicionar_repeated",
+            {
+                "alvo": "uid_grupo_base",
+                "campo": "setores",
+                "valor": '{"nome": "String JSON Invalida"}',
+            },
+        )
+
+    # Verifica que os parâmetros de aresta_adicionar_repeated possuem descrições no schema MCP
+    ferramentas_lista = servidor.processar_mensagem_jsonrpc(
+        {"jsonrpc": "2.0", "id": 77, "method": "tools/list", "params": {}}
+    )["result"]["tools"]
+    schema_add = next(
+        t["inputSchema"] for t in ferramentas_lista if t["name"] == "aresta_adicionar_repeated"
+    )
+    assert "description" in schema_add["properties"]["valor"]
+    assert "description" in schema_add["properties"]["alvo"]
 
     res_sg_pico = _chamar(
         servidor,

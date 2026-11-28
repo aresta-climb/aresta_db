@@ -28,14 +28,21 @@ def test_fake_executa_fila_de_turnos_e_repete_ultimo_quando_esgotado() -> None:
             {"acao": "nao_acionavel", "motivo": "Vago"},
         )
     ]
-    fake = ClienteGeminiFeedbackFake(turnos_programados=[t1, t2])
+    fake = ClienteGeminiFeedbackFake(
+        turnos_programados=[t1, t2],
+        textos_por_turno=[["[pensamento] Analisando árvore."]],
+        metadados_uso_padrao={"totalTokenCount": 500},
+    )
 
     r1 = fake.executar_turno_agente([{"role": "user", "parts": []}], [])
     r2 = fake.executar_turno_agente([{"role": "user", "parts": []}], [])
     r3 = fake.executar_turno_agente([{"role": "user", "parts": []}], [])
 
     assert r1.chamadas == t1
+    assert r1.textos_modelo == ["[pensamento] Analisando árvore."]
+    assert r1.metadados_uso == {"totalTokenCount": 500}
     assert r2.chamadas == t2
+    assert r2.textos_modelo == []
     assert r3.chamadas == t2
     assert len(fake.chamadas_turnos) == 3
 

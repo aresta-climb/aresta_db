@@ -540,8 +540,10 @@ def test_bloqueia_mudanca_maior_em_issue_automatica_e_libera_com_ai_fix_em_issue
 
 def test_circuit_breaker_desistencia_sem_alteracao_pr_direta_e_permissoes(
     tmp_path: Path,
+    capsys: Any,
 ) -> None:
-    """Cobre Circuit Breaker (max_turnos), nao_acionavel, abrir_pr sem mudança, PR direta e bloqueio de usuário sem permissão."""
+    """Cobre Circuit Breaker, link da Action em todos os comentários, logs estruturados, nao_acionavel, PR direta e permissões."""
+    url_run = "https://github.com/aresta-climb/aresta_db/actions/runs/99999"
     pasta_db = _preparar_croqui_gravata(tmp_path)
     github_fake = ClienteGithubFeedbackFake()
     github_fake.registrar_issue_ou_pr(
@@ -579,14 +581,21 @@ def test_circuit_breaker_desistencia_sem_alteracao_pr_direta_e_permissoes(
     )
 
     # 1. Permissão negada e comentário sem /ai-fix
+    gemini_cb = ClienteGeminiFeedbackFake(
+        turnos_programados=[
+            [ChamadaFerramentaAgente("aresta_obter_arvore", {"alvo": "uid_inexistente_xyz"})],
+            [ChamadaFerramentaAgente("aresta_obter_arvore", {"alvo": ""})],
+        ],
+        textos_por_turno=[["[pensamento] Inspecionando alvo."]],
+        metadados_uso_padrao={"promptTokenCount": 100, "totalTokenCount": 150},
+    )
     orq_base = OrquestradorResolucaoFeedback(
         diretorio_database=pasta_db,
-        cliente_gemini=ClienteGeminiFeedbackFake(
-            turnos_programados=[[ChamadaFerramentaAgente("aresta_obter_arvore", {"alvo": ""})]]
-        ),
+        cliente_gemini=gemini_cb,
         cliente_github=github_fake,
         executor_git=lambda b, m, p: None,
         max_turnos=2,
+        url_execucao=url_run,
     )
     assert (
         orq_base.processar_evento(41, corpo_comentario="/ai-fix x", associacao_autor="NONE").status
@@ -599,14 +608,35 @@ def test_circuit_breaker_desistencia_sem_alteracao_pr_direta_e_permissoes(
         == "ignorado"
     )
 
-    # 2. Croqui não identificado
+    # 2. Croqui não identificado (inclui link da Action no comentário)
     assert orq_base.processar_evento(40).status == "croqui_nao_identificado"
+    assert url_run in github_fake.comentarios_publicados[-1][1]
 
-    # 3. Circuit Breaker (2 turnos só inspecionando árvore sem finalizar)
+    # 3. Circuit Breaker (2 turnos: Turno 1 teve erro MCP, Turno 2 recebeu aviso de último turno e não finalizou)
     res_cb = orq_base.processar_evento(41)
     assert res_cb.status == "falha_validacao"
+    assert "uid_inexistente_xyz" in res_cb.detalhe
+    assert url_run in github_fake.comentarios_publicados[-1][1]
+    # Verifica que o aviso de último turno foi injetado na transição do Turno 1 para o Turno 2
+    partes_transicao = gemini_cb.chamadas_turnos[1][-1]["parts"]
+    assert any("ÚLTIMO turno" in p.get("text", "") for p in partes_transicao)
 
-    # 4. Desistência voluntária (nao_acionavel)
+    # 3b. Circuit Breaker sem erro de ferramenta reporta últimas ferramentas executadas
+    orq_cb_limpo = OrquestradorResolucaoFeedback(
+        diretorio_database=pasta_db,
+        cliente_gemini=ClienteGeminiFeedbackFake(
+            turnos_programados=[[ChamadaFerramentaAgente("aresta_listar_skills", {})]]
+        ),
+        cliente_github=github_fake,
+        executor_git=lambda b, m, p: None,
+        max_turnos=1,
+        url_execucao=url_run,
+    )
+    res_cb_limpo = orq_cb_limpo.processar_evento(41)
+    assert res_cb_limpo.status == "falha_validacao"
+    assert "aresta_listar_skills" in res_cb_limpo.detalhe
+
+    # 4. Desistência voluntária (nao_acionavel) inclui link da Action
     orq_desiste = OrquestradorResolucaoFeedback(
         diretorio_database=pasta_db,
         cliente_gemini=ClienteGeminiFeedbackFake(
@@ -621,10 +651,12 @@ def test_circuit_breaker_desistencia_sem_alteracao_pr_direta_e_permissoes(
         ),
         cliente_github=github_fake,
         executor_git=lambda b, m, p: None,
+        url_execucao=url_run,
     )
     assert orq_desiste.processar_evento(41).status == "nao_acionavel"
+    assert url_run in github_fake.comentarios_publicados[-1][1]
 
-    # 5. abrir_pr sem ter modificado nenhum arquivo -> tratado como nao_acionavel sem commit vazio
+    # 5. abrir_pr sem ter modificado nenhum arquivo -> tratado como nao_acionavel com link da Action
     orq_vazio = OrquestradorResolucaoFeedback(
         diretorio_database=pasta_db,
         cliente_gemini=ClienteGeminiFeedbackFake(
@@ -639,15 +671,21 @@ def test_circuit_breaker_desistencia_sem_alteracao_pr_direta_e_permissoes(
         ),
         cliente_github=github_fake,
         executor_git=lambda b, m, p: None,
+        url_execucao=url_run,
     )
     assert orq_vazio.processar_evento(41).status == "nao_acionavel"
+    assert url_run in github_fake.comentarios_publicados[-1][1]
 
-    # 6. /ai-fix diretamente em uma Pull Request existente (extrai croqui_id dos arquivos da PR)
+    # 6. /ai-fix diretamente em uma Pull Request existente (extrai croqui_id dos arquivos da PR + link da Action)
     orq_pr_direta = OrquestradorResolucaoFeedback(
         diretorio_database=pasta_db,
         cliente_gemini=ClienteGeminiFeedbackFake(
             turnos_programados=[
                 [
+                    ChamadaFerramentaAgente(
+                        "aresta_ler_skill",
+                        {"nome_skill": "resolver_feedback_croqui"},
+                    ),
                     ChamadaFerramentaAgente(
                         "aresta_alterar_campo",
                         {"alvo": "TC8Wd0pa4YopiM", "campo": "extensao", "valor": 22},
@@ -661,12 +699,20 @@ def test_circuit_breaker_desistencia_sem_alteracao_pr_direta_e_permissoes(
         ),
         cliente_github=github_fake,
         executor_git=lambda b, m, p: None,
+        url_execucao=url_run,
     )
     res_pr = orq_pr_direta.processar_evento(
         42, corpo_comentario="/ai-fix Extensão 22m", associacao_autor="COLLABORATOR"
     )
     assert res_pr.status == "pr_atualizada"
     assert res_pr.numero_pr == 42
+    assert url_run in github_fake.comentarios_publicados[-1][1]
+
+    saida_logs = capsys.readouterr().out
+    assert "::group::[AI-Feedback-Solver] Pacote Warm-Start" in saida_logs
+    assert "::group::[AI-Feedback-Solver] Turno 1/" in saida_logs
+    assert "[pensamento] Inspecionando alvo." in saida_logs
+    assert "totalTokenCount=150" in saida_logs
 
 
 def test_hard_jail_rejeita_extensao_invalida_subpasta_proibida_e_remocao_de_spdx(

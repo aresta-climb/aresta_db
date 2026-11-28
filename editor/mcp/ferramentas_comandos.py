@@ -38,12 +38,14 @@ def _normalizar_dict_proto(desc_msg: Any, dados_brutos: dict[str, Any]) -> dict[
         tipo_escolhido = str(dados.pop("tipo", "setor")).lower()
         chave_ramo = "grupo" if tipo_escolhido == "grupo" else "setor"
         dados = {chave_ramo: {"conteudo": dados}}
-    elif (
-        nome_tipo in ("ArquivoSetor", "ArquivoGrupo")
-        and "conteudo" not in dados
-        and "caminho" not in dados
-    ):
-        dados = {"conteudo": dados}
+    elif nome_tipo in ("ArquivoSetor", "ArquivoGrupo"):
+        chave_atalho = "setor" if nome_tipo == "ArquivoSetor" else "grupo"
+        if set(dados.keys()) != {"caminho"}:
+            dados.pop("caminho", None)
+            if chave_atalho in dados and "conteudo" not in dados:
+                dados = {"conteudo": dados[chave_atalho]}
+            elif "conteudo" not in dados:
+                dados = {"conteudo": dados}
     elif nome_tipo == "Escalada" and not any(
         k in dados
         for k in (
@@ -117,8 +119,12 @@ def _instanciar_valor_para_campo_repeated(msg: Any, campo: str, dados_item: Any)
     if desc_campo.message_type is None:
         return dados_item, ""
 
-    dados_dict = dict(dados_item) if isinstance(dados_item, dict) else {}
-    return _instanciar_mensagem_de_dict(desc_campo.message_type, dados_dict)
+    if not isinstance(dados_item, dict):
+        raise ValueError(
+            f"Esperado um objeto JSON (dict) para adicionar em '{campo}' "
+            f"({desc_campo.message_type.name}), mas recebeu {type(dados_item).__name__}."
+        )
+    return _instanciar_mensagem_de_dict(desc_campo.message_type, dict(dados_item))
 
 
 def _coagir_valor_para_campo(msg: Any, nome_campo: str, valor_bruto: Any) -> Any:
@@ -638,11 +644,26 @@ def registrar_ferramentas_comandos(
         esquema_entrada={
             "type": "object",
             "properties": {
-                "alvo": {"type": "string"},
-                "campo": {"type": "string"},
-                "valor": {},
-                "valores": {"type": "array", "items": {}},
-                "indice": {"type": "integer"},
+                "alvo": {
+                    "type": "string",
+                    "description": "UID NanoID ou caminho da mensagem pai (ex: UID do Grupo, Pico ou Setor).",
+                },
+                "campo": {
+                    "type": "string",
+                    "description": "Nome do campo repeated (ex: 'setores', 'setores_ou_grupos', 'escaladas', 'pontos_de_interesse', 'conquistadores').",
+                },
+                "valor": {
+                    "description": "Objeto JSON (dict) do item a adicionar (ex: {'nome': 'Setor X'} ou {'nome': 'Via Y', 'dificuldade': 'BR_7A'}) ou valor escalar.",
+                },
+                "valores": {
+                    "type": "array",
+                    "description": "Lista de objetos JSON (dicts) ou escalares para inserção atômica em lote.",
+                    "items": {},
+                },
+                "indice": {
+                    "type": "integer",
+                    "description": "Índice opcional de inserção (padrão: anexa ao final da lista).",
+                },
             },
             "required": ["alvo", "campo"],
         },
@@ -654,9 +675,18 @@ def registrar_ferramentas_comandos(
         esquema_entrada={
             "type": "object",
             "properties": {
-                "alvo": {"type": "string"},
-                "campo": {"type": "string"},
-                "indice": {"type": "integer"},
+                "alvo": {
+                    "type": "string",
+                    "description": "UID NanoID ou caminho da mensagem pai que contém a lista.",
+                },
+                "campo": {
+                    "type": "string",
+                    "description": "Nome do campo repeated.",
+                },
+                "indice": {
+                    "type": "integer",
+                    "description": "Índice 0-based do elemento a remover.",
+                },
             },
             "required": ["alvo", "campo", "indice"],
         },
@@ -668,10 +698,22 @@ def registrar_ferramentas_comandos(
         esquema_entrada={
             "type": "object",
             "properties": {
-                "alvo": {"type": "string"},
-                "campo": {"type": "string"},
-                "indice_origem": {"type": "integer"},
-                "indice_destino": {"type": "integer"},
+                "alvo": {
+                    "type": "string",
+                    "description": "UID NanoID ou caminho da mensagem pai.",
+                },
+                "campo": {
+                    "type": "string",
+                    "description": "Nome do campo repeated.",
+                },
+                "indice_origem": {
+                    "type": "integer",
+                    "description": "Índice atual (0-based) do item.",
+                },
+                "indice_destino": {
+                    "type": "integer",
+                    "description": "Novo índice (0-based) de destino.",
+                },
             },
             "required": ["alvo", "campo", "indice_origem", "indice_destino"],
         },
@@ -683,14 +725,35 @@ def registrar_ferramentas_comandos(
         esquema_entrada={
             "type": "object",
             "properties": {
-                "alvo_origem": {"type": "string"},
-                "campo_origem": {"type": "string"},
-                "indice_origem": {"type": "integer"},
-                "alvo_destino": {"type": "string"},
-                "campo_destino": {"type": "string"},
-                "indice_destino": {"type": "integer"},
-                "caminho_novo": {"type": "string"},
-                "caminho_antigo": {"type": "string"},
+                "alvo_origem": {
+                    "type": "string",
+                    "description": "UID ou caminho do Pico/Grupo de origem.",
+                },
+                "campo_origem": {
+                    "type": "string",
+                    "description": "'setores_ou_grupos' ou 'setores'.",
+                },
+                "indice_origem": {"type": "integer", "description": "Índice 0-based na origem."},
+                "alvo_destino": {
+                    "type": "string",
+                    "description": "UID ou caminho do Pico/Grupo de destino.",
+                },
+                "campo_destino": {
+                    "type": "string",
+                    "description": "'setores_ou_grupos' ou 'setores'.",
+                },
+                "indice_destino": {
+                    "type": "integer",
+                    "description": "Índice 0-based no destino (opcional).",
+                },
+                "caminho_novo": {
+                    "type": "string",
+                    "description": "Novo nome opcional do arquivo .md.",
+                },
+                "caminho_antigo": {
+                    "type": "string",
+                    "description": "Nome anterior opcional do arquivo .md.",
+                },
             },
             "required": [
                 "alvo_origem",

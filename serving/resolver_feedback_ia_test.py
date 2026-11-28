@@ -114,7 +114,9 @@ def test_executa_commit_assinado_e_push_capturando_novos_e_removidos_sem_tocar_f
     assert "README.md" not in arquivos_commit
 
 
-def test_executa_cli_ponta_a_ponta_com_sessao_headless(tmp_path: Path) -> None:
+def test_executa_cli_ponta_a_ponta_com_sessao_headless_link_action_e_codigo_saida_falha(
+    tmp_path: Path,
+) -> None:
     pasta_db = tmp_path / "database"
     pasta_croqui = _criar_croqui_compilavel(pasta_db)
 
@@ -124,6 +126,16 @@ def test_executa_cli_ponta_a_ponta_com_sessao_headless(tmp_path: Path) -> None:
             numero=7,
             titulo="[Croqui | br_mg_teste] Grau Excalibur",
             corpo="- **Pico / Croqui:** `br_mg_teste`\n- **Árvore de Navegação:** `Setor (Setor A)`\n## Descrição\nGrau é 7b",
+            labels=["feedback:croqui"],
+            eh_pull_request=False,
+            branch_head=None,
+        )
+    )
+    github_fake.registrar_issue_ou_pr(
+        DadosIssueOuPr(
+            numero=8,
+            titulo="Sem croqui válido",
+            corpo="Relato sem croqui_id",
             labels=["feedback:croqui"],
             eh_pull_request=False,
             branch_head=None,
@@ -148,6 +160,11 @@ def test_executa_cli_ponta_a_ponta_com_sessao_headless(tmp_path: Path) -> None:
         ]
     )
 
+    ambiente_actions = {
+        "GITHUB_SERVER_URL": "https://github.com",
+        "GITHUB_REPOSITORY": "aresta-climb/aresta_db",
+        "GITHUB_RUN_ID": "46084467316",
+    }
     codigo_saida = executar_cli(
         argv=[
             "--numero-alvo",
@@ -158,8 +175,28 @@ def test_executa_cli_ponta_a_ponta_com_sessao_headless(tmp_path: Path) -> None:
         cliente_gemini=gemini_fake,
         cliente_github=github_fake,
         executor_git=lambda b, m, p: None,
+        ambiente=ambiente_actions,
     )
 
     assert codigo_saida == 0
-    assert "Pull Request #100" in github_fake.comentarios_publicados[-1][1]
+    comentario_sucesso = github_fake.comentarios_publicados[-1][1]
+    assert "Pull Request #100" in comentario_sucesso
+    assert (
+        "https://github.com/aresta-climb/aresta_db/actions/runs/46084467316" in comentario_sucesso
+    )
     assert "BR_7B" in (pasta_croqui / "setor_a.md").read_text(encoding="utf-8")
+
+    # Quando falha (croqui_nao_identificado ou falha_validacao), retorna código de saída 1 e inclui link da Action!
+    codigo_falha = executar_cli(
+        argv=[
+            "--numero-alvo",
+            "8",
+            "--diretorio-database",
+            str(pasta_db),
+        ],
+        cliente_gemini=gemini_fake,
+        cliente_github=github_fake,
+        executor_git=lambda b, m, p: None,
+        ambiente={},
+    )
+    assert codigo_falha == 1

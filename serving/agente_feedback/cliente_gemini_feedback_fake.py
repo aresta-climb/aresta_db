@@ -29,10 +29,14 @@ class ClienteGeminiFeedbackFake:
         roteiro_dinamico: Callable[[list[dict[str, Any]], int], list[ChamadaFerramentaAgente]]
         | None = None,
         erro_simulado: str | None = None,
+        textos_por_turno: list[list[str]] | None = None,
+        metadados_uso_padrao: dict[str, int] | None = None,
     ) -> None:
         self._turnos = [list(t) for t in (turnos_programados or [])]
         self._roteiro_dinamico = roteiro_dinamico
         self._erro_simulado = erro_simulado
+        self._textos_por_turno = [list(t) for t in (textos_por_turno or [])]
+        self._metadados_uso_padrao = dict(metadados_uso_padrao or {})
         self.chamadas_turnos: list[list[dict[str, Any]]] = []
 
     def executar_turno_agente(
@@ -59,7 +63,14 @@ class ClienteGeminiFeedbackFake:
         partes_modelo = [
             {"functionCall": {"name": c.nome, "args": dict(c.argumentos)}} for c in chamadas
         ]
+        textos = (
+            list(self._textos_por_turno[indice_turno])
+            if indice_turno < len(self._textos_por_turno)
+            else []
+        )
         return RespostaTurnoGemini(
             chamadas=chamadas,
             conteudo_modelo_bruto={"role": "model", "parts": partes_modelo},
+            textos_modelo=textos,
+            metadados_uso=dict(self._metadados_uso_padrao),
         )

@@ -70,5 +70,20 @@ O sistema MUST proteger o repositório e a cota de inferência por meio de três
 - **THEN** o diff semântico classifica a operação dentro do limite seguro e o sistema abre a Pull Request normalmente
 
 #### Scenario: Interrupção por Circuit Breaker ao atingir limite máximo de turnos
-- **WHEN** o loop de ferramentas atingir o limite configurado de turnos sem concluir com `aresta_salvar` limpo de erros
-- **THEN** o sistema MUST abortar novas chamadas ao modelo, restaurar o estado original de `database/<croqui_id>/` e publicar comentário na Issue ou Pull Request informando o impedimento encontrado
+- **WHEN** o loop de ferramentas atingir o limite configurado de turnos sem concluir com `aresta_salvar` limpo de erros (mesmo após receber o alerta de último turno disponível na transição final)
+- **THEN** o sistema MUST abortar novas chamadas ao modelo, restaurar o estado original de `database/<croqui_id>/`, publicar comentário na Issue ou Pull Request detalhando o último erro de ferramenta ou as últimas ferramentas executadas junto ao link da execução do workflow, e encerrar o processo CLI com código de saída `1`
+
+### Requirement: Observabilidade Estruturada de Diagnóstico e Rastreabilidade de Execução
+O sistema MUST emitir logs estruturados em grupos colapsáveis (`::group::` / `::endgroup::`) no stdout do workflow contendo todas as entradas e saídas relevantes da sessão, incluir o link direto para a execução do GitHub Actions em todos os comentários publicados pelo bot (tanto em cenários de sucesso quanto de falha, desistência ou solicitação de confirmação) e sinalizar falhas reais ao GitHub Actions por meio de código de saída não-zero (`1`).
+
+#### Scenario: Inclusão do link da execução do workflow em todos os comentários do bot
+- **WHEN** o workflow publicar qualquer comentário na Issue ou Pull Request (`pr_criada`, `pr_atualizada`, `nao_acionavel`, `confirmacao_necessaria`, `croqui_nao_identificado` ou `falha_validacao`) com variáveis de ambiente do GitHub Actions presentes
+- **THEN** o comentário MUST conter um link clicável apontando diretamente para `actions/runs/<GITHUB_RUN_ID>` para depuração imediata
+
+#### Scenario: Falha explícita do job no GitHub Actions em erros de validação ou croqui ausente
+- **WHEN** o processamento encerrar com status `falha_validacao` (incluindo estouro do *Circuit Breaker*) ou `croqui_nao_identificado`
+- **THEN** o ponto de entrada CLI MUST retornar código de saída `1` após publicar o comentário diagnóstico, fazendo o job do GitHub Actions encerrar como falha visível
+
+#### Scenario: Emissão de logs detalhados por turno no output do GitHub Actions
+- **WHEN** o orquestrador executar uma sessão de resolução de feedback
+- **THEN** o stdout sem bufferização (`PYTHONUNBUFFERED=1`) MUST registrar em blocos `::group::` o contexto extraído da Issue/PR, o prompt *Warm-Start* completo enviado no Turno 1 e, para cada turno do modelo, a latência, contadores de tokens (`usageMetadata`), raciocínio/texto emitido, chamadas `functionCall` com argumentos JSON e respostas das ferramentas MCP do Editor Headless

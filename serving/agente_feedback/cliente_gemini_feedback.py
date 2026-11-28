@@ -92,10 +92,12 @@ class ChamadaFerramentaAgente:
 
 @dataclass(frozen=True)
 class RespostaTurnoGemini:
-    """Resultado de um turno de inferência contendo as chamadas emitidas e o bloco bruto `model`."""
+    """Resultado de um turno de inferência contendo chamadas, textos/raciocínio, uso de tokens e bloco bruto `model`."""
 
     chamadas: list[ChamadaFerramentaAgente]
     conteudo_modelo_bruto: dict[str, Any]
+    textos_modelo: list[str] = field(default_factory=list)
+    metadados_uso: dict[str, int] = field(default_factory=dict)
 
 
 @dataclass(frozen=True)
@@ -167,10 +169,12 @@ def montar_turno_inicial_usuario(
 
 def montar_turno_respostas_ferramentas(
     resultados: list[ResultadoFerramentaExecutada],
+    aviso_orcamento: str = "",
 ) -> dict[str, Any]:
     """
     Constrói a mensagem de retorno `role='user'` contendo os `functionResponse`s executados
-    no turno anterior e eventuais imagens PNG Base64 geradas por `aresta_renderizar_mapa`.
+    no turno anterior, eventuais imagens PNG Base64 geradas por `aresta_renderizar_mapa`
+    e aviso opcional de orçamento de turnos.
     """
     partes: list[dict[str, Any]] = []
     for res in resultados:
@@ -191,6 +195,8 @@ def montar_turno_respostas_ferramentas(
                     }
                 }
             )
+    if aviso_orcamento:
+        partes.append({"text": aviso_orcamento})
     return {"role": "user", "parts": partes}
 
 
@@ -244,7 +250,12 @@ class ClienteGeminiFeedback:
         conteudo_modelo: dict[str, Any] = dict(candidatos[0]["content"])
         partes_modelo = conteudo_modelo.get("parts") or []
         chamadas: list[ChamadaFerramentaAgente] = []
+        textos_modelo: list[str] = []
         for parte in partes_modelo:
+            texto_parte = str(parte.get("text") or "").strip()
+            if texto_parte:
+                prefixo = "[pensamento] " if parte.get("thought") else ""
+                textos_modelo.append(f"{prefixo}{texto_parte}")
             fc = parte.get("functionCall")
             if isinstance(fc, dict) and fc.get("name"):
                 chamadas.append(
@@ -259,7 +270,12 @@ class ClienteGeminiFeedback:
                 "O modelo não retornou nenhuma chamada de ferramenta no turno."
             )
 
+        uso_bruto = dados_brutos.get("usageMetadata") or {}
+        metadados_uso = {str(k): int(v) for k, v in uso_bruto.items() if isinstance(v, int)}
+
         return RespostaTurnoGemini(
             chamadas=chamadas,
             conteudo_modelo_bruto=conteudo_modelo,
+            textos_modelo=textos_modelo,
+            metadados_uso=metadados_uso,
         )

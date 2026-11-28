@@ -12,7 +12,7 @@ import argparse
 import os
 import subprocess
 import sys
-from collections.abc import Callable
+from collections.abc import Callable, Mapping
 from pathlib import Path
 
 _RAIZ_REPOSITORIO = Path(__file__).resolve().parent.parent
@@ -28,6 +28,18 @@ from serving.agente_feedback.cliente_github_feedback import (
     InterfaceClienteGithubFeedback,
 )
 from serving.agente_feedback.orquestrador_resolucao_feedback import OrquestradorResolucaoFeedback
+
+STATUS_FALHA_CLI: frozenset[str] = frozenset({"falha_validacao", "croqui_nao_identificado"})
+
+
+def construir_url_execucao_actions(ambiente: Mapping[str, str]) -> str:
+    """Constrói a URL direta para os logs da execução no GitHub Actions quando disponível."""
+    run_id = ambiente.get("GITHUB_RUN_ID", "").strip()
+    repositorio = ambiente.get("GITHUB_REPOSITORY", "").strip()
+    servidor = ambiente.get("GITHUB_SERVER_URL", "https://github.com").strip().rstrip("/")
+    if run_id and repositorio:
+        return f"{servidor}/{repositorio}/actions/runs/{run_id}"
+    return ""
 
 
 def executar_commit_e_push_git(
@@ -69,8 +81,11 @@ def executar_cli(
     cliente_gemini: InterfaceClienteGeminiFeedback | None = None,
     cliente_github: InterfaceClienteGithubFeedback | None = None,
     executor_git: Callable[[str, str, Path], None] | None = None,
+    ambiente: Mapping[str, str] | None = None,
 ) -> int:
-    """Analisa argumentos CLI e executa o `OrquestradorResolucaoFeedback`."""
+    """Analisa argumentos CLI, executa o `OrquestradorResolucaoFeedback` e retorna código de saída POSIX."""
+    env = os.environ if ambiente is None else ambiente
+
     parser = argparse.ArgumentParser(
         description="Agente de IA para resolução de feedbacks de croqui (Editor Headless + Gemini Flash)."
     )
@@ -101,17 +116,23 @@ def executar_cli(
     parser.add_argument(
         "--repositorio",
         type=str,
-        default=os.environ.get("GITHUB_REPOSITORY", "aresta-climb/aresta_db"),
+        default=env.get("GITHUB_REPOSITORY", "aresta-climb/aresta_db"),
         help="Repositório GitHub no formato dono/nome.",
+    )
+    parser.add_argument(
+        "--url-execucao",
+        type=str,
+        default=construir_url_execucao_actions(env),
+        help="URL da execução do workflow no GitHub Actions para inclusão nos comentários.",
     )
 
     args = parser.parse_args(argv)
 
     gemini_inst = cliente_gemini or ClienteGeminiFeedback(  # pragma: no cover
-        api_key=os.environ["GEMINI_API_KEY"],
+        api_key=env["GEMINI_API_KEY"],
     )
     github_inst = cliente_github or ClienteGithubFeedback(  # pragma: no cover
-        token=os.environ["GH_TOKEN"],
+        token=env["GH_TOKEN"],
         repositorio=args.repositorio,
     )
     git_fn = executor_git or executar_commit_e_push_git
@@ -121,6 +142,7 @@ def executar_cli(
         cliente_gemini=gemini_inst,
         cliente_github=github_inst,
         executor_git=git_fn,
+        url_execucao=args.url_execucao,
     )
 
     resultado = orquestrador.processar_evento(
@@ -128,8 +150,12 @@ def executar_cli(
         corpo_comentario=args.comentario,
         associacao_autor=args.associacao_autor,
     )
-    print(f"[AI-Feedback-Solver] Status final: {resultado.status} ({resultado.detalhe})")
-    return 0
+    codigo_saida = 1 if resultado.status in STATUS_FALHA_CLI else 0
+    print(
+        f"[AI-Feedback-Solver] Status final: {resultado.status} ({resultado.detalhe}) | exit_code={codigo_saida}",
+        flush=True,
+    )
+    return codigo_saida
 
 
 if __name__ == "__main__":  # pragma: no cover

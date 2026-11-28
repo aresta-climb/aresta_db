@@ -142,8 +142,38 @@ def test_executa_turno_function_calling_preservando_thought_signature_e_imagens_
             },
         ],
     }
-    estado.respostas_programadas.append((200, {"candidates": [{"content": conteudo_modelo_t1}]}))
-    estado.respostas_programadas.append((200, {"candidates": [{"content": conteudo_modelo_t2}]}))
+    estado.respostas_programadas.append(
+        (
+            200,
+            {
+                "candidates": [{"content": conteudo_modelo_t1}],
+                "usageMetadata": {
+                    "promptTokenCount": 1200,
+                    "candidatesTokenCount": 45,
+                    "thoughtsTokenCount": 80,
+                    "totalTokenCount": 1325,
+                },
+            },
+        )
+    )
+    estado.respostas_programadas.append(
+        (
+            200,
+            {
+                "candidates": [
+                    {
+                        "content": {
+                            "role": "model",
+                            "parts": [
+                                {"text": "Ajustando coordenada do POI."},
+                                *conteudo_modelo_t2["parts"],
+                            ],
+                        }
+                    }
+                ]
+            },
+        )
+    )
 
     cliente = ClienteGeminiFeedback(api_key="chave-teste", url_base=url_base)
     declaracoes = construir_declaracoes_ferramentas_gemini([])
@@ -160,6 +190,8 @@ def test_executa_turno_function_calling_preservando_thought_signature_e_imagens_
         ChamadaFerramentaAgente("aresta_renderizar_mapa", {"alvo": "uid_setor_01"})
     ]
     assert resp_t1.conteudo_modelo_bruto == conteudo_modelo_t1
+    assert resp_t1.textos_modelo == ["[pensamento] Vou renderizar o mapa primeiro."]
+    assert resp_t1.metadados_uso["totalTokenCount"] == 1325
 
     historico.append(resp_t1.conteudo_modelo_bruto)
     historico.append(
@@ -170,13 +202,16 @@ def test_executa_turno_function_calling_preservando_thought_signature_e_imagens_
                     resposta_json={"textos": ["Mapa renderizado"]},
                     imagens_inline=[("image/png", "aW1nX2I2NA==")],
                 )
-            ]
+            ],
+            aviso_orcamento="Último turno disponível.",
         )
     )
 
     resp_t2 = cliente.executar_turno_agente(historico, declaracoes)
     assert len(resp_t2.chamadas) == 2
     assert resp_t2.chamadas[1].nome == NOME_FERRAMENTA_FINALIZAR
+    assert resp_t2.textos_modelo == ["Ajustando coordenada do POI."]
+    assert resp_t2.metadados_uso == {}
 
     req_t2 = estado.requisicoes_recebidas[1]["corpo"]
     assert req_t2["toolConfig"]["functionCallingConfig"]["mode"] == "ANY"
@@ -184,6 +219,7 @@ def test_executa_turno_function_calling_preservando_thought_signature_e_imagens_
     partes_user_t2 = req_t2["contents"][2]["parts"]
     assert partes_user_t2[0]["functionResponse"]["name"] == "aresta_renderizar_mapa"
     assert partes_user_t2[1]["inlineData"]["data"] == "aW1nX2I2NA=="
+    assert partes_user_t2[2]["text"] == "Último turno disponível."
 
 
 def test_lanca_erro_comunicacao_para_falha_http_resposta_vazia_ou_sem_function_call(
