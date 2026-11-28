@@ -12,7 +12,8 @@ from PySide6.QtGui import QUndoStack
 
 from aresta_api.proto.generated import beta_pb2, croqui_pb2
 from coleta_de_betas.extratores.blog import ExtratorBlog
-from coleta_de_betas.extratores.cliente_http_fake import BuscadorWebFake
+from coleta_de_betas.extratores.cliente_http_fake import BuscadorWebFake, ClienteHttpFake
+from coleta_de_betas.extratores.youtube import URL_INNERTUBE_SEARCH, ExtratorYouTube
 from editor.controllers.croqui_controller import CroquiController
 from editor.mcp.despachante import DespachanteQt
 from editor.mcp.ferramentas_betas import registrar_ferramentas_betas
@@ -65,11 +66,6 @@ def _montar_croqui_betas(
         "cova dos leões",
         [
             {
-                "href": "https://youtube.com/watch?v=EQYAydeVEsY",
-                "title": "Brazil climb - Via: Cova dos leões 7b - Gruta da Lapinha",
-                "body": "Via sensacional na Savassinha dentro da Gruta da Lapinha.",
-            },
-            {
                 "href": "https://pt.scribd.com/document/123/Guia-Lapinha",
                 "title": "Guia Gruta da Lapinha PDF",
                 "body": "Cova dos Leões 7b na Gruta da Lapinha.",
@@ -92,7 +88,27 @@ def _montar_croqui_betas(
         ],
     )
 
-    lista_extratores = extratores if extratores is not None else [ExtratorBlog(buscador=buscador)]
+    http_yt = ClienteHttpFake()
+    http_yt.registrar_json(
+        URL_INNERTUBE_SEARCH,
+        {
+            "contents": {
+                "videoRenderer": {
+                    "videoId": "EQYAydeVEsY",
+                    "title": {"simpleText": "Cova dos Leões - Gruta da Lapinha"},
+                }
+            }
+        },
+    )
+
+    lista_extratores = (
+        extratores
+        if extratores is not None
+        else [
+            ExtratorYouTube(cliente_http=http_yt, intervalo_minimo_s=0.0),
+            ExtratorBlog(buscador=buscador, cliente_http=ClienteHttpFake()),
+        ]
+    )
     model = CroquiModel(croqui)
     undo_stack = QUndoStack()
     controller = CroquiController(model, undo_stack)
@@ -434,3 +450,96 @@ def test_validacoes_fail_fast_ferramentas_betas(qapp, tmp_path: Path):
             "aresta_listar_betas_nao_scorados",
             {"alvo_setor": "setor_inexistente"},
         )
+
+
+def test_aresta_pontuar_betas_promove_e_expoe_cidade_croqui_na_listagem(qapp, tmp_path: Path):
+    """
+    Valida que aresta_listar_betas_nao_scorados expõe pico_cidade e croqui_nome, e que
+    aresta_pontuar_betas promove candidatos via MCP preservando snippets sem reenviar a lista completa.
+    """
+    model, undo_stack, controller, servidor, _ = _montar_croqui_betas(tmp_path)
+    raiz_raw = getattr(model.obter_croqui_readonly(), "_obj", model.obter_croqui_readonly())
+    raiz_raw.picos[0].cidade = "Lagoa Santa"
+
+    cand = beta_pb2.CandidatoMidiaBeta()
+    cand.midia.url = "https://youtube.com/watch?v=EQYAydeVEsY"
+    cand.midia.titulo = "Cova dos Leões - Lagoa Santa"
+    cand.midia.fonte = beta_pb2.FonteMidia.YOUTUBE
+    cand.snippets.append("Cadena clássica em Lagoa Santa.")
+    controller.adicionar_candidatos_nao_scorados("uid_via_cova01", [cand])
+
+    pag = _chamar(servidor, "aresta_listar_betas_nao_scorados", {"offset": 0, "limite": 10})
+    assert pag["escaladas"][0]["pico_cidade"] == "Lagoa Santa"
+    assert pag["escaladas"][0]["croqui_nome"] == "Gruta da Lapinha"
+
+    res_pont = _chamar(
+        servidor,
+        "aresta_pontuar_betas",
+        {
+            "escaladas": [
+                {
+                    "escalada_uid": "uid_via_cova01",
+                    "avaliacoes": [
+                        {
+                            "url": "https://youtube.com/watch?v=EQYAydeVEsY",
+                            "llm_confidence_score": 96,
+                            "llm_reasoning": "Cadena exata da via Cova dos Leões na Lapinha.",
+                        }
+                    ],
+                }
+            ]
+        },
+    )
+    assert res_pont["status"] == "ok"
+    assert res_pont["escaladas_atualizadas"] == 1
+    assert res_pont["candidatos_pontuados"] == 1
+    assert res_pont["total_escaladas_pendentes"] == 0
+    assert res_pont["total_candidatos_pendentes"] == 0
+
+    cur = raiz_raw.curadoria_betas.conteudo.escaladas[0]
+    assert len(cur.betas_nao_scorados) == 0
+    assert len(cur.betas_nao_revisados) == 1
+    assert list(cur.betas_nao_revisados[0].snippets) == ["Cadena clássica em Lagoa Santa."]
+    assert cur.betas_nao_revisados[0].resultado_llm.llm_confidence_score == 96
+
+    undo_stack.undo()
+    assert len(cur.betas_nao_scorados) == 1
+    assert len(cur.betas_nao_revisados) == 0
+
+    with pytest.raises(ValueError, match="Informe uma lista em 'escaladas'"):
+        _chamar(servidor, "aresta_pontuar_betas", {"escaladas": "nao_e_lista"})
+
+
+def test_aresta_coletar_betas_reavalia_auto_filtrados_e_propaga_cidade(qapp, tmp_path: Path):
+    """
+    Valida que aresta_coletar_betas reavalia itens [Auto-filtrado: ...] offline no início
+    (incluindo em escaladas que já possuem coleta com apenas_sem_coleta=True) e contabiliza
+    `auto_filtrados_promovidos` na resposta.
+    """
+    model, _, controller, servidor, _ = _montar_croqui_betas(tmp_path)
+    raiz_raw = getattr(model.obter_croqui_readonly(), "_obj", model.obter_croqui_readonly())
+    raiz_raw.picos[0].cidade = "Lagoa Santa"
+
+    cur = raiz_raw.curadoria_betas.conteudo.escaladas.add(escalada_uid="uid_via_cova01")
+    cur.betas_rejeitados.add(
+        url="https://youtube.com/watch?v=resgatado_lagoa",
+        titulo="[Query: youtube | Auto-filtrado: sem menção ao pico] Cova dos Leões Lagoa Santa",
+        fonte=beta_pb2.FonteMidia.YOUTUBE,
+    )
+
+    res = _chamar(
+        servidor,
+        "aresta_coletar_betas",
+        {
+            "acao": "iniciar",
+            "escaladas_uids": ["uid_via_cova01"],
+            "apenas_sem_coleta": True,
+            "aguardar_segundos": 5.0,
+        },
+    )
+    assert res["status"] == "concluido"
+    assert res["auto_filtrados_promovidos"] == 1
+    assert res["total_escaladas"] == 0
+    assert [c.midia.url for c in cur.betas_nao_scorados] == [
+        "https://youtube.com/watch?v=resgatado_lagoa"
+    ]

@@ -14,6 +14,7 @@ from coleta_de_betas.curadoria.dialogo_coletar_betas import (
     extrair_escaladas_do_croqui,
 )
 from coleta_de_betas.extratores.blog import ExtratorBlog
+from coleta_de_betas.extratores.youtube import ExtratorYouTube
 from editor.controllers.croqui_controller import CroquiController
 from editor.models.croqui_model import CroquiModel
 
@@ -33,12 +34,16 @@ class _ExtratorBetaFake:
         nome_setor: str = "",
         nome_pico: str = "",
         max_resultados: int = 10,
+        cidade: str = "",
+        nome_croqui: str = "",
     ) -> list[beta_pb2.CandidatoMidiaBeta]:
         cands, _ = self.buscar_com_rejeitados(
             nome_escalada=nome_escalada,
             nome_setor=nome_setor,
             nome_pico=nome_pico,
             max_resultados=max_resultados,
+            cidade=cidade,
+            nome_croqui=nome_croqui,
         )
         return cands
 
@@ -48,8 +53,10 @@ class _ExtratorBetaFake:
         nome_setor: str = "",
         nome_pico: str = "",
         max_resultados: int = 10,
+        cidade: str = "",
+        nome_croqui: str = "",
     ) -> tuple[list[beta_pb2.CandidatoMidiaBeta], list[beta_pb2.MidiaBeta]]:
-        _ = max_resultados
+        _ = (max_resultados, cidade, nome_croqui)
         self.chamadas.append((nome_escalada, nome_setor, nome_pico))
         if self.falhar_em == nome_escalada:
             raise RuntimeError("Erro de rede simulado")
@@ -61,7 +68,7 @@ class _ExtratorBetaFake:
 
 def _criar_croqui_exemplo() -> croqui_pb2.Croqui:
     croqui = croqui_pb2.Croqui(uid="croqui_1", nome="Serra do Cipó")
-    pico = croqui.picos.add(nome="Morro da Pedreira")
+    pico = croqui.picos.add(nome="Morro da Pedreira", cidade="Santana do Riacho")
 
     sg_setor = pico.setores_ou_grupos.add()
     setor1 = sg_setor.setor.conteudo
@@ -91,6 +98,9 @@ def test_extrair_escaladas_do_croqui_lista_setores_e_grupos() -> None:
     assert itens[0].nome_escalada == "Via do Sol"
     assert itens[0].nome_setor == "Salão Principal"
     assert itens[0].nome_pico == "Morro da Pedreira"
+    assert itens[0].cidade == "Santana do Riacho"
+    assert itens[0].nome_croqui == "Serra do Cipó"
+    assert itens[0].ja_possui_coleta is False
 
     assert itens[1].escalada_uid == "esc_2"
     assert itens[1].nome_escalada == "Boulder da Lua"
@@ -285,8 +295,109 @@ def test_dialogo_coletar_betas_executa_em_background_via_qthread_e_permite_cance
     assert lote_parcial[0][0] == "esc_1"
 
 
-def test_criar_extratores_padrao_usa_busca_unificada_ddgs() -> None:
+def test_criar_extratores_padrao_usa_youtube_e_blog() -> None:
     extratores = criar_extratores_padrao()
-    assert len(extratores) == 1
-    assert isinstance(extratores[0], ExtratorBlog)
+    assert len(extratores) == 2
+    assert isinstance(extratores[0], ExtratorYouTube)
+    assert isinstance(extratores[1], ExtratorBlog)
     _ = QMessageBox
+
+
+def test_dialogo_coletar_betas_reavalia_auto_filtrados_e_respeita_chk_apenas_sem_coleta(
+    qtbot,
+) -> None:
+    croqui = _criar_croqui_exemplo()
+    # Marca esc_1 como já coletada contendo 1 auto-filtrado resgatável pela cidade ("Santana")
+    cur1 = croqui.curadoria_betas.conteudo.escaladas.add(escalada_uid="esc_1")
+    cur1.betas_rejeitados.add(
+        url="https://youtube.com/watch?v=resgatado_santana",
+        titulo="[Query: youtube | Auto-filtrado: sem menção ao pico] Via do Sol em Santana",
+        fonte=beta_pb2.FonteMidia.YOUTUBE,
+    )
+
+    model = CroquiModel(croqui)
+    stack = QUndoStack()
+    controller = CroquiController(model, stack)
+
+    cand_boulder = beta_pb2.CandidatoMidiaBeta()
+    cand_boulder.midia.url = "https://youtube.com/watch?v=boulder_novo"
+    cand_boulder.midia.titulo = "Boulder da Lua Santana"
+    cand_boulder.midia.fonte = beta_pb2.FonteMidia.YOUTUBE
+    extrator = _ExtratorBetaFake(respostas_por_via={"Boulder da Lua": [cand_boulder]})
+
+    dialogo = DialogoColetarBetas(
+        model=model,
+        controller=controller,
+        extratores=[extrator],
+    )
+    qtbot.addWidget(dialogo)
+    dialogo.show()
+
+    # Quando chk_apenas_sem_coleta está marcado, pula busca de rede em esc_1 (já coletada),
+    # mas ainda promove o auto-filtrado offline de esc_1 e busca esc_2 na rede
+    dialogo.chk_apenas_sem_coleta.setChecked(True)
+    adicionados = dialogo.executar_coleta_sincrona()
+    assert adicionados >= 1
+    assert extrator.chamadas == [("Boulder da Lua", "Fendas", "Morro da Pedreira")]
+    assert [c.midia.url for c in cur1.betas_nao_scorados] == [
+        "https://youtube.com/watch?v=resgatado_santana"
+    ]
+    assert len(cur1.betas_rejeitados) == 0
+
+    # Quando só esc_1 (já coletada) está marcada e chk_apenas_sem_coleta=True, finaliza sem travar
+    dialogo2 = DialogoColetarBetas(model=model, controller=controller, extratores=[extrator])
+    qtbot.addWidget(dialogo2)
+    dialogo2.show()
+    dialogo2.checkboxes_por_uid["esc_2"].setChecked(False)
+    dialogo2.chk_apenas_sem_coleta.setChecked(True)
+    dialogo2.executar_coleta_sincrona()
+    assert dialogo2.btn_finalizar.isVisible() is True
+
+    # Fluxo assíncrono quando nada resta para busca na rede também conclui diretamente
+    dialogo2b = DialogoColetarBetas(model=model, controller=controller, extratores=[extrator])
+    qtbot.addWidget(dialogo2b)
+    dialogo2b.show()
+    dialogo2b.checkboxes_por_uid["esc_2"].setChecked(False)
+    dialogo2b.chk_apenas_sem_coleta.setChecked(True)
+    dialogo2b.btn_iniciar.click()
+    assert dialogo2b.btn_finalizar.isVisible() is True
+
+    # E quando chk_apenas_sem_coleta está desmarcado, rebusca esc_1 na rede mesmo já possuindo coleta
+    dialogo3 = DialogoColetarBetas(model=model, controller=controller, extratores=[extrator])
+    qtbot.addWidget(dialogo3)
+    dialogo3.checkboxes_por_uid["esc_2"].setChecked(False)
+    dialogo3.chk_apenas_sem_coleta.setChecked(False)
+    extrator.chamadas.clear()
+    dialogo3.executar_coleta_sincrona()
+    assert extrator.chamadas == [("Via do Sol", "Salão Principal", "Morro da Pedreira")]
+
+    # Extrator sem buscar_com_rejeitados (apenas método buscar) e escalada sem nome no croqui
+    class _ExtratorSimplesFake:
+        def buscar(
+            self,
+            nome_escalada: str,
+            nome_setor: str = "",
+            nome_pico: str = "",
+            max_resultados: int = 10,
+        ) -> list[beta_pb2.CandidatoMidiaBeta]:
+            _ = (nome_escalada, nome_setor, nome_pico, max_resultados)
+            return []
+
+    croqui_sem_nome = croqui_pb2.Croqui(uid="c_sn", nome="Croqui")
+    setor_sn = croqui_sem_nome.picos.add(nome="Pico").setores_ou_grupos.add().setor.conteudo
+    setor_sn.uid = "s_sn"
+    setor_sn.escaladas.add(uid="esc_vazia")
+    assert extrair_escaladas_do_croqui(croqui_sem_nome) == []
+
+    worker_simples = WorkerColetaBetas(
+        escaladas=[extrair_escaladas_do_croqui(croqui)[0]],
+        extratores=[_ExtratorSimplesFake()],
+        max_workers=1,
+    )
+    worker_simples.run()
+    worker_cancel_inicial = WorkerColetaBetas(
+        escaladas=extrair_escaladas_do_croqui(croqui),
+        extratores=[_ExtratorSimplesFake()],
+    )
+    worker_cancel_inicial.solicitar_cancelamento()
+    worker_cancel_inicial.run()

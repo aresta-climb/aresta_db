@@ -22,9 +22,11 @@ from coleta_de_betas.curadoria.dialogo_coletar_betas import (
     ExtratorBetaProtocolo,
     InfoEscaladaColeta,
     criar_extratores_padrao,
+    invocar_extrator_betas,
 )
 from coleta_de_betas.extratores.deduplicador import deduplicar_midias, normalizar_url
 from editor.controllers.croqui_controller import CroquiController
+from editor.mcp.ferramentas_comandos import _desserializar_json_se_aplicavel
 from editor.mcp.servidor import ServidorMCP
 from editor.models.croqui_model import CroquiModel
 
@@ -40,6 +42,8 @@ class MetadadosEscaladaBetas:
     setor_uid: str
     setor_nome: str
     pico_nome: str
+    pico_cidade: str
+    croqui_nome: str
     conquistadores: list[str]
     ja_possui_coleta: bool
 
@@ -59,16 +63,17 @@ def _extrair_dados_modalidade(esc: Any) -> tuple[str, str, str, list[str]]:
     return campo, nome, nome_dif, conquistadores
 
 
-def _iterar_setores_do_croqui(croqui: Any) -> list[tuple[str, Any]]:
-    pares: list[tuple[str, Any]] = []
+def _iterar_setores_do_croqui(croqui: Any) -> list[tuple[str, str, Any]]:
+    pares: list[tuple[str, str, Any]] = []
     for pico in croqui.picos:
         nome_pico = str(pico.nome).strip()
+        cidade_pico = str(getattr(pico, "cidade", "") or "").strip()
         for sg in pico.setores_ou_grupos:
             if sg.HasField("setor"):
-                pares.append((nome_pico, sg.setor.conteudo))
+                pares.append((nome_pico, cidade_pico, sg.setor.conteudo))
             elif sg.HasField("grupo"):
                 for arq_setor in sg.grupo.conteudo.setores:
-                    pares.append((nome_pico, arq_setor.conteudo))
+                    pares.append((nome_pico, cidade_pico, arq_setor.conteudo))
     return pares
 
 
@@ -77,22 +82,23 @@ def _coletar_metadados_escaladas(
     alvo_setor: str = "",
 ) -> dict[str, MetadadosEscaladaBetas]:
     filtro_setor = alvo_setor.strip()
+    nome_croqui = str(getattr(croqui, "nome", "") or "").strip()
     uids_com_curadoria: set[str] = set()
     for ent in croqui.curadoria_betas.conteudo.escaladas:
         if ent.betas_nao_scorados or ent.betas_nao_revisados or ent.betas_rejeitados:
             uids_com_curadoria.add(ent.escalada_uid)
 
-    setores_filtrados: list[tuple[str, Any]] = []
-    for nome_pico, setor in _iterar_setores_do_croqui(croqui):
+    setores_filtrados: list[tuple[str, str, Any]] = []
+    for nome_pico, cidade_pico, setor in _iterar_setores_do_croqui(croqui):
         if filtro_setor and filtro_setor not in (setor.uid, setor.nome):
             continue
-        setores_filtrados.append((nome_pico, setor))
+        setores_filtrados.append((nome_pico, cidade_pico, setor))
 
     if filtro_setor and not setores_filtrados:
         raise ValueError(f"Setor '{filtro_setor}' não encontrado no croqui.")
 
     mapa: dict[str, MetadadosEscaladaBetas] = {}
-    for nome_pico, setor in setores_filtrados:
+    for nome_pico, cidade_pico, setor in setores_filtrados:
         for esc in setor.escaladas:
             modalidade, nome, dificuldade, conquistadores = _extrair_dados_modalidade(esc)
             ja_coletada = bool(esc.betas) or (esc.uid in uids_com_curadoria)
@@ -104,6 +110,8 @@ def _coletar_metadados_escaladas(
                 setor_uid=setor.uid,
                 setor_nome=setor.nome,
                 pico_nome=nome_pico,
+                pico_cidade=cidade_pico,
+                croqui_nome=nome_croqui,
                 conquistadores=conquistadores,
                 ja_possui_coleta=ja_coletada,
             )
@@ -118,11 +126,7 @@ def _coletar_uma_escalada(
     rejeitados_brutos: list[beta_pb2.MidiaBeta] = []
 
     for extrator in extratores:
-        res_cands, res_rejs = extrator.buscar_com_rejeitados(
-            nome_escalada=info.nome_escalada,
-            nome_setor=info.nome_setor,
-            nome_pico=info.nome_pico,
-        )
+        res_cands, res_rejs = invocar_extrator_betas(extrator, info)
         listas_brutas.append(res_cands)
         rejeitados_brutos.extend(res_rejs)
 
@@ -166,6 +170,7 @@ class GerenciadorColetaBetasMcp:
         self._escaladas_processadas: int = 0
         self._novos_candidatos: int = 0
         self._novos_rejeitados: int = 0
+        self._auto_filtrados_promovidos: int = 0
         self._ultima_escalada: str = ""
         self._fila_flushes: list[
             tuple[str, list[beta_pb2.CandidatoMidiaBeta], list[beta_pb2.MidiaBeta]]
@@ -229,6 +234,7 @@ class GerenciadorColetaBetasMcp:
                 "escaladas_restantes": restantes,
                 "novos_candidatos_adicionados": self._novos_candidatos,
                 "novos_rejeitados_adicionados": self._novos_rejeitados,
+                "auto_filtrados_promovidos": self._auto_filtrados_promovidos,
                 "ultima_escalada": self._ultima_escalada,
                 "total_escaladas_com_nao_scorados": esc_pendentes,
                 "total_candidatos_nao_scorados": cands_pendentes,
@@ -280,12 +286,12 @@ class GerenciadorColetaBetasMcp:
                 self._status = "cancelado" if self._cancelado else "concluido"
                 self._evento_finalizado.set()
 
-    def _selecionar_escaladas_na_thread_qt(
+    def _preparar_coleta_na_thread_qt(
         self,
         alvo_setor: str,
         escaladas_uids: list[str] | None,
         apenas_sem_coleta: bool,
-    ) -> list[InfoEscaladaColeta]:
+    ) -> tuple[list[InfoEscaladaColeta], int]:
         croqui = self.model.obter_croqui_readonly()
         mapa = _coletar_metadados_escaladas(croqui, alvo_setor=alvo_setor)
         if escaladas_uids is not None:
@@ -297,18 +303,28 @@ class GerenciadorColetaBetasMcp:
         else:
             itens = list(mapa.values())
 
+        promovidos_offline = self.controller.reavaliar_betas_auto_filtrados(
+            [m.escalada_uid for m in itens]
+        )
+
         if apenas_sem_coleta:
             itens = [m for m in itens if not m.ja_possui_coleta]
 
-        return [
-            InfoEscaladaColeta(
-                escalada_uid=m.escalada_uid,
-                nome_escalada=m.nome,
-                nome_setor=m.setor_nome,
-                nome_pico=m.pico_nome,
-            )
-            for m in itens
-        ]
+        return (
+            [
+                InfoEscaladaColeta(
+                    escalada_uid=m.escalada_uid,
+                    nome_escalada=m.nome,
+                    nome_setor=m.setor_nome,
+                    nome_pico=m.pico_nome,
+                    cidade=m.pico_cidade,
+                    nome_croqui=m.croqui_nome,
+                    ja_possui_coleta=m.ja_possui_coleta,
+                )
+                for m in itens
+            ],
+            promovidos_offline,
+        )
 
     def manipular_coleta(self, args: dict[str, Any]) -> dict[str, Any]:
         acao = str(args.get("acao") or "iniciar").strip().lower()
@@ -347,8 +363,8 @@ class GerenciadorColetaBetasMcp:
         tamanho_lote_flush = max(1, int(args.get("tamanho_lote_flush", 10)))
         max_workers = max(1, int(args.get("max_workers", MAX_WORKERS_COLETA_PARALELA)))
 
-        selecionadas = self.servidor.despachante.executar(
-            self._selecionar_escaladas_na_thread_qt,
+        selecionadas, promovidos_offline = self.servidor.despachante.executar(
+            self._preparar_coleta_na_thread_qt,
             alvo_setor,
             escaladas_uids,
             apenas_sem_coleta,
@@ -360,6 +376,7 @@ class GerenciadorColetaBetasMcp:
             self._escaladas_processadas = 0
             self._novos_candidatos = 0
             self._novos_rejeitados = 0
+            self._auto_filtrados_promovidos = promovidos_offline
             self._ultima_escalada = ""
             self._fila_flushes.clear()
             if not selecionadas:
@@ -442,6 +459,8 @@ def registrar_ferramentas_betas(
                     "setor_uid": meta.setor_uid,
                     "setor_nome": meta.setor_nome,
                     "pico_nome": meta.pico_nome,
+                    "pico_cidade": meta.pico_cidade,
+                    "croqui_nome": meta.croqui_nome,
                     "conquistadores": meta.conquistadores,
                     "betas_nao_scorados": nao_scorados_json,
                     "betas_nao_revisados": nao_revisados_json,
@@ -455,6 +474,20 @@ def registrar_ferramentas_betas(
             "limite": limite,
             "tem_mais": (offset + limite) < len(pendentes),
             "escaladas": escaladas_json,
+        }
+
+    def _pontuar_betas(args: dict[str, Any]) -> dict[str, Any]:
+        escaladas_brutas = _desserializar_json_se_aplicavel(args.get("escaladas"))
+        if not isinstance(escaladas_brutas, list):
+            raise ValueError("Informe uma lista em 'escaladas' para pontuar candidatos.")
+        resumo = controller.pontuar_betas_em_lote(escaladas_brutas)
+        esc_pendentes, cands_pendentes = gerenciador._contar_pendentes_globais_na_thread_qt()
+        return {
+            "status": "ok",
+            "escaladas_atualizadas": resumo["escaladas_atualizadas"],
+            "candidatos_pontuados": resumo["candidatos_pontuados"],
+            "total_escaladas_pendentes": esc_pendentes,
+            "total_candidatos_pendentes": cands_pendentes,
         }
 
     servidor.registrar_ferramenta(
@@ -513,8 +546,9 @@ def registrar_ferramentas_betas(
         nome="aresta_listar_betas_nao_scorados",
         descricao=(
             "Lista de forma paginada e enxuta apenas as escaladas que possuem candidatos em "
-            "`betas_nao_scorados`, já enriquecidas com nome, grau, modalidade, setor, pico e "
-            "`indice_curadoria`, omitindo `betas_rejeitados` para suportar croquis de 1.000+ vias."
+            "`betas_nao_scorados`, já enriquecidas com nome, grau, modalidade, setor, pico, "
+            "cidade, croqui e `indice_curadoria`, omitindo `betas_rejeitados` para suportar "
+            "croquis de 1.000+ vias."
         ),
         esquema_entrada={
             "type": "object",
@@ -534,6 +568,59 @@ def registrar_ferramentas_betas(
             },
         },
         manipulador=_listar_betas_nao_scorados,
+        requer_croqui=True,
+    )
+
+    servidor.registrar_ferramenta(
+        nome="aresta_pontuar_betas",
+        descricao=(
+            "Promove candidatos avaliados de `betas_nao_scorados` para `betas_nao_revisados` "
+            "em um único `CmdMacro`, recebendo apenas `escalada_uid`, `url`, "
+            "`llm_confidence_score` (0..100) e `llm_reasoning` e preservando `midia` e `snippets` "
+            "diretamente da memória RAM."
+        ),
+        esquema_entrada={
+            "type": "object",
+            "properties": {
+                "escaladas": {
+                    "type": "array",
+                    "description": "Lista de escaladas e suas avaliações de score/justificativa.",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "escalada_uid": {
+                                "type": "string",
+                                "description": "UID NanoID da escalada avaliada.",
+                            },
+                            "avaliacoes": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "url": {
+                                            "type": "string",
+                                            "description": "URL do candidato em betas_nao_scorados.",
+                                        },
+                                        "llm_confidence_score": {
+                                            "type": "integer",
+                                            "description": "Nota inteira de 0 a 100.",
+                                        },
+                                        "llm_reasoning": {
+                                            "type": "string",
+                                            "description": "Justificativa objetiva em português.",
+                                        },
+                                    },
+                                    "required": ["url", "llm_confidence_score", "llm_reasoning"],
+                                },
+                            },
+                        },
+                        "required": ["escalada_uid", "avaliacoes"],
+                    },
+                },
+            },
+            "required": ["escaladas"],
+        },
+        manipulador=_pontuar_betas,
         requer_croqui=True,
     )
 

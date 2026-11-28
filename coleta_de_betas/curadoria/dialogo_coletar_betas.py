@@ -7,6 +7,7 @@ paralelo de escaladas via ThreadPoolExecutor, auditoria de descartes em betas_re
 e ciclo de botões Iniciar Coleta -> Cancelar Coleta (com confirmação) -> Finalizar.
 """
 
+import inspect
 from collections.abc import Callable, Sequence
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from dataclasses import dataclass
@@ -39,6 +40,8 @@ class ExtratorBetaProtocolo(Protocol):
         nome_setor: str = "",
         nome_pico: str = "",
         max_resultados: int = 10,
+        cidade: str = "",
+        nome_croqui: str = "",
     ) -> list[beta_pb2.CandidatoMidiaBeta]: ...
 
 
@@ -48,6 +51,38 @@ class InfoEscaladaColeta:
     nome_escalada: str
     nome_setor: str
     nome_pico: str
+    cidade: str = ""
+    nome_croqui: str = ""
+    ja_possui_coleta: bool = False
+
+
+def invocar_extrator_betas(
+    extrator: Any,
+    info: InfoEscaladaColeta,
+) -> tuple[list[beta_pb2.CandidatoMidiaBeta], list[beta_pb2.MidiaBeta]]:
+    """
+    Invoca `buscar_com_rejeitados` (ou `buscar`) no extrator propagando `cidade` e `nome_croqui`
+    quando suportados pela assinatura do extrator.
+    """
+    usar_com_rejeitados = hasattr(extrator, "buscar_com_rejeitados")
+    fn = extrator.buscar_com_rejeitados if usar_com_rejeitados else extrator.buscar
+    params = inspect.signature(fn).parameters
+    kwargs: dict[str, Any] = {
+        "nome_escalada": info.nome_escalada,
+        "nome_setor": info.nome_setor,
+        "nome_pico": info.nome_pico,
+    }
+    if "cidade" in params or any(p.kind == inspect.Parameter.VAR_KEYWORD for p in params.values()):
+        kwargs["cidade"] = info.cidade
+    if "nome_croqui" in params or any(
+        p.kind == inspect.Parameter.VAR_KEYWORD for p in params.values()
+    ):
+        kwargs["nome_croqui"] = info.nome_croqui
+
+    if usar_com_rejeitados:
+        res_cands, res_rejs = fn(**kwargs)
+        return list(res_cands), list(res_rejs)
+    return list(fn(**kwargs)), []
 
 
 def _obter_nome_escalada(esc: Any) -> str:
@@ -68,53 +103,53 @@ def _obter_nome_escalada(esc: Any) -> str:
 
 def extrair_escaladas_do_croqui(croqui: Any) -> list[InfoEscaladaColeta]:
     """Percorre todos os picos, setores e grupos do croqui e extrai os metadados de cada escalada."""
+    nome_croqui = str(getattr(croqui, "nome", "") or "").strip()
+    uids_com_curadoria: set[str] = set()
+    cur_conteudo = getattr(getattr(croqui, "curadoria_betas", None), "conteudo", None)
+    for ent in getattr(cur_conteudo, "escaladas", []):
+        if ent.betas_nao_scorados or ent.betas_nao_revisados or ent.betas_rejeitados:
+            uids_com_curadoria.add(ent.escalada_uid)
+
     resultado: list[InfoEscaladaColeta] = []
     for pico in getattr(croqui, "picos", []):
         nome_pico = str(getattr(pico, "nome", "") or "").strip()
+        cidade = str(getattr(pico, "cidade", "") or "").strip()
         for sg in getattr(pico, "setores_ou_grupos", []):
+            setores = []
             if hasattr(sg, "HasField") and sg.HasField("setor"):
-                setor = sg.setor.conteudo
+                setores.append(sg.setor.conteudo)
+            elif hasattr(sg, "HasField") and sg.HasField("grupo"):
+                setores.extend(arq.conteudo for arq in getattr(sg.grupo.conteudo, "setores", []))
+            for setor in setores:
                 nome_setor = str(getattr(setor, "nome", "") or "").strip()
                 for esc in getattr(setor, "escaladas", []):
                     uid = str(getattr(esc, "uid", "") or "").strip()
                     nome_esc = _obter_nome_escalada(esc)
                     if uid and nome_esc:
+                        ja_coletada = bool(getattr(esc, "betas", [])) or (uid in uids_com_curadoria)
                         resultado.append(
                             InfoEscaladaColeta(
                                 escalada_uid=uid,
                                 nome_escalada=nome_esc,
                                 nome_setor=nome_setor,
                                 nome_pico=nome_pico,
+                                cidade=cidade,
+                                nome_croqui=nome_croqui,
+                                ja_possui_coleta=ja_coletada,
                             )
                         )
-            elif hasattr(sg, "HasField") and sg.HasField("grupo"):
-                grupo = sg.grupo.conteudo
-                for arq_setor in getattr(grupo, "setores", []):
-                    setor = arq_setor.conteudo
-                    nome_setor = str(getattr(setor, "nome", "") or "").strip()
-                    for esc in getattr(setor, "escaladas", []):
-                        uid = str(getattr(esc, "uid", "") or "").strip()
-                        nome_esc = _obter_nome_escalada(esc)
-                        if uid and nome_esc:
-                            resultado.append(
-                                InfoEscaladaColeta(
-                                    escalada_uid=uid,
-                                    nome_escalada=nome_esc,
-                                    nome_setor=nome_setor,
-                                    nome_pico=nome_pico,
-                                )
-                            )
     return resultado
 
 
 def criar_extratores_padrao() -> list[ExtratorBetaProtocolo]:
     """
-    Cria a lista padrão com o extrator web unificado (ddgs), que executa as 5 queries
-    identificadas por escalada e classifica os resultados nas 8 categorias de FonteMidia.Enum.
+    Cria a lista padrão com o extrator dedicado do YouTube (`InnerTube` JSON) e o
+    extrator de redes sociais e blogs (`ddgs` sem YouTube).
     """
     from coleta_de_betas.extratores.blog import ExtratorBlog
+    from coleta_de_betas.extratores.youtube import ExtratorYouTube
 
-    return [ExtratorBlog()]
+    return [ExtratorYouTube(), ExtratorBlog()]
 
 
 class WorkerColetaBetas(QThread):
@@ -161,21 +196,9 @@ class WorkerColetaBetas(QThread):
             if self._cancelado:
                 break
             try:
-                if hasattr(extrator, "buscar_com_rejeitados"):
-                    res_cands, res_rejs = extrator.buscar_com_rejeitados(
-                        nome_escalada=info.nome_escalada,
-                        nome_setor=info.nome_setor,
-                        nome_pico=info.nome_pico,
-                    )
-                    listas_brutas.append(res_cands)
-                    rejeitados_brutos.extend(res_rejs)
-                else:
-                    res_cands = extrator.buscar(
-                        nome_escalada=info.nome_escalada,
-                        nome_setor=info.nome_setor,
-                        nome_pico=info.nome_pico,
-                    )
-                    listas_brutas.append(res_cands)
+                res_cands, res_rejs = invocar_extrator_betas(extrator, info)
+                listas_brutas.append(res_cands)
+                rejeitados_brutos.extend(res_rejs)
             except Exception:
                 continue
 
@@ -314,6 +337,12 @@ class DialogoColetarBetas(QDialog):
             self.checkboxes_por_uid[info.escalada_uid] = cb
             self.layout_escaladas.addWidget(cb)
 
+        self.chk_apenas_sem_coleta = QCheckBox(
+            "Ignorar na busca web escaladas que já possuem coleta"
+        )
+        self.chk_apenas_sem_coleta.setChecked(False)
+        layout.addWidget(self.chk_apenas_sem_coleta)
+
         self.label_progresso = QLabel("Pronto para iniciar a coleta.")
         layout.addWidget(self.label_progresso)
 
@@ -369,6 +398,7 @@ class DialogoColetarBetas(QDialog):
     def _definir_controles_selecao_habilitados(self, habilitado: bool) -> None:
         self.btn_marcar_todas.setEnabled(habilitado)
         self.btn_desmarcar_todas.setEnabled(habilitado)
+        self.chk_apenas_sem_coleta.setEnabled(habilitado)
         for cb in self.checkboxes_por_uid.values():
             cb.setEnabled(habilitado)
 
@@ -408,6 +438,22 @@ class DialogoColetarBetas(QDialog):
             if self.checkboxes_por_uid[info.escalada_uid].isChecked()
         ]
 
+    def _preparar_alvos_e_reavaliar_offline(
+        self, selecionadas: Sequence[InfoEscaladaColeta]
+    ) -> tuple[list[InfoEscaladaColeta], int]:
+        uids_selecionados = [i.escalada_uid for i in selecionadas]
+        promovidos_offline = 0
+        if hasattr(self.controller, "reavaliar_betas_auto_filtrados"):
+            promovidos_offline = int(
+                self.controller.reavaliar_betas_auto_filtrados(uids_selecionados)
+            )
+        alvos_rede = (
+            [i for i in selecionadas if not i.ja_possui_coleta]
+            if self.chk_apenas_sem_coleta.isChecked()
+            else list(selecionadas)
+        )
+        return alvos_rede, promovidos_offline
+
     def _aplicar_lote_coletado(
         self,
         resultados_por_uid: Sequence[tuple[str, list[beta_pb2.CandidatoMidiaBeta]]],
@@ -442,12 +488,23 @@ class DialogoColetarBetas(QDialog):
         if not selecionadas or self.cancelado:
             return
 
-        self.barra_progresso.setMaximum(len(selecionadas))
+        alvos_rede, promovidos_offline = self._preparar_alvos_e_reavaliar_offline(selecionadas)
+        self._promovidos_offline_sessao = promovidos_offline
+        if not alvos_rede:
+            self.barra_progresso.setMaximum(1)
+            self.barra_progresso.setValue(1)
+            self.label_progresso.setText(
+                f"Coleta concluída: {promovidos_offline} candidato(s) resgatado(s) dos filtros."
+            )
+            self._definir_estado_botoes("concluido")
+            return
+
+        self.barra_progresso.setMaximum(len(alvos_rede))
         self.barra_progresso.setValue(0)
         self._definir_estado_botoes("coletando")
 
         worker = WorkerColetaBetas(
-            escaladas=selecionadas,
+            escaladas=alvos_rede,
             extratores=self.extratores,
             parent=self,
         )
@@ -471,6 +528,7 @@ class DialogoColetarBetas(QDialog):
         total_adicionados, total_rejeitados = self._aplicar_lote_coletado(
             resultados_por_uid, rejeitados_map
         )
+        total_geral = total_adicionados + int(getattr(self, "_promovidos_offline_sessao", 0))
         if not foi_cancelado and not self.cancelado:
             self.barra_progresso.setValue(self.barra_progresso.maximum())
             sufixo_rej = (
@@ -479,12 +537,12 @@ class DialogoColetarBetas(QDialog):
                 else "."
             )
             self.label_progresso.setText(
-                f"Coleta concluída: {total_adicionados} novo(s) candidato(s) adicionado(s){sufixo_rej}"
+                f"Coleta concluída: {total_geral} novo(s) candidato(s) adicionado(s){sufixo_rej}"
             )
             self._definir_estado_botoes("concluido")
         else:
             self.label_progresso.setText(
-                f"Coleta cancelada ({total_adicionados} candidato(s) parcial(is) preservado(s))."
+                f"Coleta cancelada ({total_geral} candidato(s) parcial(is) preservado(s))."
             )
             self._definir_estado_botoes("pronto")
         if self.worker_ativo is not None:
@@ -500,12 +558,22 @@ class DialogoColetarBetas(QDialog):
         if not selecionadas or self.cancelado:
             return 0
 
-        self.barra_progresso.setMaximum(len(selecionadas))
+        alvos_rede, promovidos_offline = self._preparar_alvos_e_reavaliar_offline(selecionadas)
+        if not alvos_rede:
+            self.barra_progresso.setMaximum(1)
+            self.barra_progresso.setValue(1)
+            self.label_progresso.setText(
+                f"Coleta concluída: {promovidos_offline} candidato(s) resgatado(s) dos filtros."
+            )
+            self._definir_estado_botoes("concluido")
+            return promovidos_offline
+
+        self.barra_progresso.setMaximum(len(alvos_rede))
         self.barra_progresso.setValue(0)
         self._definir_estado_botoes("coletando")
 
         worker = WorkerColetaBetas(
-            escaladas=selecionadas,
+            escaladas=alvos_rede,
             extratores=self.extratores,
         )
         resultados_capturados: list[list[tuple[str, list[beta_pb2.CandidatoMidiaBeta]]]] = []
@@ -517,6 +585,7 @@ class DialogoColetarBetas(QDialog):
         total_adicionados, total_rejeitados = self._aplicar_lote_coletado(
             lote_final, dict(worker.rejeitados_por_uid)
         )
+        total_geral = total_adicionados + promovidos_offline
         if not self.cancelado:
             sufixo_rej = (
                 f" ({total_rejeitados} item(ns) auto-filtrado(s) em rejeitados)."
@@ -524,7 +593,7 @@ class DialogoColetarBetas(QDialog):
                 else "."
             )
             self.label_progresso.setText(
-                f"Coleta concluída: {total_adicionados} novo(s) candidato(s) adicionado(s){sufixo_rej}"
+                f"Coleta concluída: {total_geral} novo(s) candidato(s) adicionado(s){sufixo_rej}"
             )
             self._definir_estado_botoes("concluido")
-        return total_adicionados
+        return total_geral

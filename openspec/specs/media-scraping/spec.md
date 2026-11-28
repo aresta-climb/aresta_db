@@ -1,22 +1,26 @@
 # media-scraping Specification
 
 ## Purpose
-Define a malha de extratores de mídias de beta (YouTube, Instagram, TikTok, Facebook e Blogs via `ddgs`), a deduplicação contra as 4 listas da escalada e a resolução de thumbnails estilo preview do WhatsApp com cache offline.
+Define a arquitetura dual de extração de mídias de beta (`ExtratorYouTube` via InnerTube JSON + `ExtratorBlog` via `ddgs`), filtragem geográfica ampliada, deduplicação contra as 4 listas da escalada e resolução de thumbnails estilo preview do WhatsApp com cache offline.
 
 ## Requirements
 
 ### Requirement: APIs de Busca Oficiais e Scrapers
-O sistema SHALL extrair candidatos de mídias de beta para as escaladas selecionadas executando buscas direcionadas via pacote `ddgs` (para Instagram, YouTube, TikTok, Facebook e Web/Blogs, usando diretamente `title` e `body` do buscador sem baixar HTML de páginas durante a coleta), higienizando os termos da busca sem incluir o nome técnico do setor, bloqueando domínios agregadores, validando relevância por matching bidirecional de espaços/typos da via + token do pico, encaminhando itens descartados para `betas_rejeitados` para auditoria e isolando sessões HTTP/2 por thread com renovação periódica para evitar bloqueios de carga (`h2 connection driver error`).
+O sistema SHALL extrair candidatos de mídias de beta através de uma arquitetura dual sem chaves de API pagas: (1) `ExtratorYouTube` dedicado utilizando o endpoint `InnerTube` JSON (`/youtubei/v1/search`) com controle de cadência thread-safe para recuperar vídeos (`watch?v=`) e Shorts (`/shorts/`) sem forçar a palavra `"escalada"` na query; e (2) `ExtratorBlog` utilizando o pacote `ddgs` para exatamente 4 queries (`instagram`, `tiktok`, `facebook` e `geral`) ignorando qualquer resultado do domínio YouTube e extraindo vídeos YouTube/Instagram embutidos no HTML exclusivamente para páginas `FonteMidia.BLOG` já aprovadas nos filtros. Ambos os extratores MUST ignorar sem requisições HTTP escaladas cujo nome seja placeholder genérico (ex.: `Sem nome`, `Projeto 1`, `Via inacabada 2`), higienizar os termos de busca removendo prefixos administrativos do pico (ex.: `Complexo`), enriquecer as queries e o filtro geográfico `menciona_contexto_local` com `Pico.cidade` e `Croqui.nome`, validar matching bidirecional de espaços/typos do nome da via, bloquear domínios agregadores, registrar descartes com prefixo `[Query: <origem> | Auto-filtrado: <motivo>]` em `betas_rejeitados`, e isolar sessões HTTP/2 do `ddgs` por thread com renovação periódica.
 
 #### Scenario: Busca bem sucedida por vídeos
-- **WHEN** o coletor recebe uma escalada identificada por seu `uid` e metadados geográficos (Nome da Via, Setor, Pico)
-- **THEN** ele MUST sanitizar o nome da via e do pico (removendo sufixos técnicos como `- Mapa X`, parênteses de projeto e aspas conflitantes) e omitir o nome do setor da query textual para não restringir artificialmente os resultados.
-- **THEN** ele MUST consultar as 5 queries identificadas (`instagram` com `site:instagram.com`, `youtube` com `site:youtube.com`, `tiktok` com `site:tiktok.com`, `facebook` com `site:facebook.com` e `geral` sem restrição `site:`), classificando cada URL retornada nas categorias de `FonteMidia.Enum` e descartando páginas genéricas de perfil, canal ou login sem post/vídeo específico.
-- **THEN** o coletor MUST descartar qualquer URL normalizada que já esteja presente em `escalada.betas` ou nas listas `betas_nao_scorados`, `betas_nao_revisados` ou `betas_rejeitados` daquela escalada.
+- **WHEN** os extratores (`ExtratorYouTube` e `ExtratorBlog`) recebem uma escalada não placeholder identificada por seu `uid` e metadados geográficos (Nome da Via, Setor, Pico, Cidade e Nome do Croqui)
+- **THEN** eles sanitizam o nome da via e do pico (removendo sufixos técnicos como `- Mapa X`, prefixos administrativos como `"Complexo"`, parênteses de projeto e aspas conflitantes), omitem o nome do setor da query textual e enriquecem a busca com `cidade`.
+- **THEN** o `ExtratorYouTube` consulta o endpoint `InnerTube` JSON (`POST /youtubei/v1/search`) sem exigir `"escalada"` na query, recuperando vídeos (`watch?v=`) e Shorts (`/shorts/`); o `ExtratorBlog` consulta apenas as 4 queries identificadas (`instagram`, `tiktok`, `facebook` e `geral`) ignorando URLs do domínio YouTube e descartando páginas genéricas de perfil, canal ou login sem post/vídeo específico.
+- **THEN** o coletor MUST descartar qualquer URL normalizada (incluindo `/embed/<id>` e `/shorts/<id>` do YouTube e `/reels/` do Instagram) que já esteja presente em `escalada.betas` ou nas listas `betas_nao_scorados`, `betas_nao_revisados` ou `betas_rejeitados` daquela escalada.
+
+#### Scenario: Pulo imediato sem requisições HTTP para nomes placeholder de escalada
+- **WHEN** um extrator recebe uma escalada com nome vazio ou placeholder genérico (`"Sem nome 8"`, `"Projeto 1"`, `"Via inacabada 2"`)
+- **THEN** ele retorna `([], [])` imediatamente sem disparar nenhuma chamada ao buscador web ou endpoint do YouTube.
 
 #### Scenario: Scraping de páginas de blog com recorte de janela de contexto
 - **WHEN** a busca retorna uma URL classificada como `FonteMidia.BLOG`, `FonteMidia.REDDIT` ou qualquer outra categoria de `FonteMidia.Enum`
-- **THEN** o coletor NÃO MUST realizar download síncrono do HTML da página durante a coleta, construindo o `CandidatoMidiaBeta` diretamente a partir do `title` e `body` (snippet) retornados pelo buscador para manter latência sub-segundo por via.
+- **THEN** o `ExtratorBlog` constrói o `CandidatoMidiaBeta` inicialmente a partir de `title` e `body` sem baixar HTML antes da filtragem; exclusivamente após um candidato `FonteMidia.BLOG` passar pelos filtros de precisão, o extrator realiza uma requisição GET leve para extrair vídeos embutidos de YouTube (`watch?v=`, `embed/`, `youtu.be/`, `shorts/`) e Instagram (`p/`, `reel/`), preservando o candidato `BLOG` caso o download HTML falhe ou não contenha embeds.
 
 #### Scenario: Busca web via pacote `ddgs` sem RuntimeWarning
 - **WHEN** o adaptador `_BuscadorDuckDuckGoPadrao` executa buscas sucessivas ou concorrentes em múltiplas threads para dezenas ou centenas de escaladas
@@ -24,13 +28,13 @@ O sistema SHALL extrair candidatos de mídias de beta para as escaladas selecion
 - **THEN** quando o buscador responder sem erro de rede mas sem resultados (`No results found`), o adaptador MUST retornar `[]` imediatamente sem repetir a busca em outros backends em cascata.
 
 #### Scenario: Sanitização da query, matching bidirecional de espaços/typos e blocklist de agregadores
-- **WHEN** o coletor avalia os resultados brutos retornados pelo buscador para uma escalada
+- **WHEN** o coletor avalia os resultados brutos retornados pelos extratores para uma escalada
 - **THEN** ele MUST filtrar domínios agregadores de croquis, documentos PDF, trilhas e música (`scribd.com`, `ptdocz.com`, `doceru.com`, `thecrag.com`, `escaladas.com.br`, `wikiloc.com`, `mountainproject.com`, `8a.nu`, `27crags.com`, `thetopo.com`, `tripadvisor`, `wikipedia.org`, `linktr.ee`, `music.youtube.com` e `/reels/audio/`).
-- **THEN** para aprovar um candidato rumo a `betas_nao_scorados`, o texto combinado `título + snippet` MUST mencionar o nome da via (com matching simétrico que colapsa espaços em ambos os lados, de modo que `"Karrenglass"` dê match com `"Karren Glass"` e vice-versa, além de tolerância a pequenos typos) **E** pelo menos um token significativo do nome do pico (ex.: `"lapinha"` para `"Gruta da Lapinha"`).
+- **THEN** para aprovar um candidato rumo a `betas_nao_scorados`, o texto combinado `título + snippet` MUST mencionar o nome da via (com matching simétrico que colapsa espaços em ambos os lados, de modo que `"Karrenglass"` dê match com `"Karren Glass"` e vice-versa, além de tolerância a pequenos typos) **E** corresponder em `menciona_contexto_local` a pelo menos um token significativo (fora `STOPWORDS_PICO`, incluindo `"complexo"`, `"area"`, `"regiao"` e `"nucleo"`) de `nome_pico`, `cidade` ou `nome_croqui`.
 
 #### Scenario: Registro de candidatos auto-filtrados em betas_rejeitados para auditoria
-- **WHEN** uma URL válida de post, vídeo ou artigo é descartada durante a coleta por pertencer à blocklist de agregadores ou por não atingir o filtro de precisão (via + pico no snippet)
-- **THEN** o coletor MUST registrar essa mídia como `MidiaBeta` auto-rejeitada indicando no prefixo do `titulo` tanto a request de origem (`instagram`, `youtube`, `tiktok`, `facebook` ou `geral`) quanto o motivo do filtro (ex.: `"[Query: geral | Auto-filtrado: domínio bloqueado] ..."` ou `"[Query: instagram | Auto-filtrado: sem menção à via] ..."`) para que seja inserida em `betas_rejeitados` da escalada e possa ser auditada ou restaurada pelo curador na seção **4. Betas Rejeitados**.
+- **WHEN** uma URL válida de post, vídeo ou artigo é descartada durante a coleta por pertencer à blocklist de agregadores ou por não atingir o filtro de precisão (via + contexto local no snippet)
+- **THEN** o coletor MUST registrar essa mídia como `MidiaBeta` auto-rejeitada indicando no prefixo do `titulo` tanto a request de origem (`instagram`, `youtube`, `tiktok`, `facebook` ou `geral`) quanto o motivo do filtro (ex.: `"[Query: geral | Auto-filtrado: domínio bloqueado] ..."` ou `"[Query: youtube | Auto-filtrado: sem menção ao pico] ..."`) para que seja inserida em `betas_rejeitados` da escalada, podendo ser reavaliada offline futuramente ou auditada/restaurada na seção **4. Betas Rejeitados**.
 
 ### Requirement: Resolução de Preview Estilo WhatsApp e Cache Offline de Imagens
 O sistema SHALL resolver dinamicamente a imagem de pré-visualização (thumbnail) a partir da URL da mídia (`MidiaBeta.url`) sem armazenar `thumbnail_url` no Protobuf, mantendo cache em memória RAM (`QPixmap`), cache negativo de URLs sem preview e cache persistente em disco no provedor de imagens (`ProvedorImagemAresta`) indexado pela URL canônica da mídia.

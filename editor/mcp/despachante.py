@@ -20,9 +20,14 @@ class DespachanteQt(QObject):
 
     _sinal_executar = Signal(object)
 
-    def __init__(self, parent: QObject | None = None) -> None:
+    def __init__(
+        self,
+        parent: QObject | None = None,
+        timeout_execucao_padrao: float = 60.0,
+    ) -> None:
         super().__init__(parent)
         self._id_thread_principal = threading.get_ident()
+        self._timeout_execucao_padrao = float(timeout_execucao_padrao)
         self._sinal_executar.connect(self._processar_pacote, Qt.ConnectionType.QueuedConnection)
 
     @Slot(object)
@@ -38,10 +43,19 @@ class DespachanteQt(QObject):
         except Exception as exc:
             futuro.set_exception(exc)
 
-    def executar(self, fn: Callable[..., T], *args: Any, timeout: float = 10.0, **kwargs: Any) -> T:
+    def executar(
+        self,
+        fn: Callable[..., T],
+        *args: Any,
+        timeout: float = 10.0,
+        timeout_execucao: float | None = None,
+        **kwargs: Any,
+    ) -> T:
         """
         Executa `fn(*args, **kwargs)` na thread principal associada a este QObject
         e retorna o seu resultado ou relança qualquer exceção ocorrida.
+        Separa o tempo limite de espera na fila (`timeout`) do tempo limite máximo
+        de conclusão (`timeout_execucao`) caso a função já tenha iniciado na thread Qt.
         """
         if threading.get_ident() == self._id_thread_principal:
             return fn(*args, **kwargs)
@@ -51,7 +65,20 @@ class DespachanteQt(QObject):
         try:
             return futuro.result(timeout=timeout)
         except FuturoTimeoutError as exc:
-            futuro.cancel()
-            raise TimeoutError(
-                "Tempo limite excedido ao aguardar execução na thread principal do Qt."
-            ) from exc
+            if futuro.cancel():
+                raise TimeoutError(
+                    "Tempo limite excedido ao aguardar execução na thread principal do Qt."
+                ) from exc
+
+            limite_execucao = (
+                self._timeout_execucao_padrao
+                if timeout_execucao is None
+                else float(timeout_execucao)
+            )
+            try:
+                return futuro.result(timeout=max(0.01, limite_execucao))
+            except FuturoTimeoutError as exc_exec:
+                raise TimeoutError(
+                    "A execução já iniciada na thread principal do Qt excedeu o tempo limite "
+                    "máximo de conclusão."
+                ) from exc_exec

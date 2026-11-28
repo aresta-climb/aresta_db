@@ -11,7 +11,12 @@ from coleta_de_betas.extratores.blog import (
     ExtratorBlog,
     _BuscadorDuckDuckGoPadrao,
     classificar_fonte_url,
+    eh_nome_escalada_placeholder,
     eh_url_bloqueada,
+    extrair_midias_embutidas_html,
+    extrair_titulo_original_auto_filtrado,
+    limpar_nome_pico_para_query,
+    menciona_contexto_local,
     menciona_contexto_pico,
     menciona_nome_via,
     sanitizar_termo_busca,
@@ -100,7 +105,6 @@ def test_extrator_blog_executa_5_queries_sem_setor_e_sem_scrape_html() -> None:
     )
     assert [origem for origem, _ in queries] == [
         "instagram",
-        "youtube",
         "tiktok",
         "facebook",
         "geral",
@@ -110,6 +114,8 @@ def test_extrator_blog_executa_5_queries_sem_setor_e_sem_scrape_html() -> None:
         assert "Mapa 2" not in q
         assert '"' not in q
 
+    # Sem resultados do YouTube e sem chamadas HTML quando já temos 1 candidato BLOG sem embeds
+    http.registrar_texto(url_post, "<html><body><p>Apenas relato textual.</p></body></html>")
     candidatos = extrator.buscar(
         nome_escalada="Via do Sol (Setor Principal - Mapa 2)",
         nome_setor="Setor Principal - Mapa 2",
@@ -122,12 +128,12 @@ def test_extrator_blog_executa_5_queries_sem_setor_e_sem_scrape_html() -> None:
     assert cand.midia.fonte == beta_pb2.FonteMidia.BLOG
     assert cand.match_nome_no_snippet is True
     assert "crux técnico na terceira chapeleta" in cand.snippets[0]
-    # Zero chamadas HTTP de download de HTML durante a coleta
-    assert http.chamadas_get == []
+    assert len(http.chamadas_get) == 1
 
 
 def test_extrator_blog_buscar_com_rejeitados_registra_query_origem_e_motivo() -> None:
     buscador = BuscadorWebFake()
+    http = ClienteHttpFake()
 
     buscador.registrar_resultados(
         "site:instagram.com",
@@ -150,18 +156,18 @@ def test_extrator_blog_buscar_com_rejeitados_registra_query_origem_e_motivo() ->
         ],
     )
     buscador.registrar_resultados(
-        "site:youtube.com",
-        [
-            {
-                "href": "https://www.youtube.com/watch?v=yt_outro_pico",
-                "title": "Via Karren Glass em Itatiaia",
-                "body": "Escalada tradicional no Parque Nacional.",
-            }
-        ],
-    )
-    buscador.registrar_resultados(
         "karren glass gruta da lapinha escalada",
         [
+            {
+                "href": "https://www.youtube.com/watch?v=yt_ignorado_na_serp",
+                "title": "Carrossel de vídeo aleatório",
+                "body": "Karren Glass Lapinha",
+            },
+            {
+                "href": "https://www.tiktok.com/@escalador/video/tok_outro_pico",
+                "title": "Via Karren Glass em Itatiaia",
+                "body": "Escalada tradicional no Parque Nacional.",
+            },
             {
                 "href": "https://pt.scribd.com/document/999/Croqui-Lapinha",
                 "title": "Croqui Gruta da Lapinha PDF - Karren Glass",
@@ -175,7 +181,7 @@ def test_extrator_blog_buscar_com_rejeitados_registra_query_origem_e_motivo() ->
         ],
     )
 
-    extrator = ExtratorBlog(buscador=buscador)
+    extrator = ExtratorBlog(buscador=buscador, cliente_http=http)
     candidatos, rejeitados = extrator.buscar_com_rejeitados(
         nome_escalada="Karren Glass",
         nome_setor="Setor Gruta - Mapa 3",
@@ -188,11 +194,12 @@ def test_extrator_blog_buscar_com_rejeitados_registra_query_origem_e_motivo() ->
 
     urls_rejeitadas = {m.url: m.titulo for m in rejeitados}
     assert "https://www.instagram.com/perfil_generico/" not in urls_rejeitadas
+    assert "https://www.youtube.com/watch?v=yt_ignorado_na_serp" not in urls_rejeitadas
     assert urls_rejeitadas["https://www.instagram.com/p/ig_outra_via/"].startswith(
         "[Query: instagram | Auto-filtrado: sem menção à via]"
     )
-    assert urls_rejeitadas["https://www.youtube.com/watch?v=yt_outro_pico"].startswith(
-        "[Query: youtube | Auto-filtrado: sem menção ao pico]"
+    assert urls_rejeitadas["https://www.tiktok.com/@escalador/video/tok_outro_pico"].startswith(
+        "[Query: tiktok | Auto-filtrado: sem menção ao pico]"
     )
     assert (
         "Auto-filtrado: domínio bloqueado]"
@@ -394,3 +401,137 @@ def test_classificar_fonte_url_8_categorias() -> None:
     assert classificar_fonte_url("https://climbcipo.com.br/via-castelinho/") == (
         beta_pb2.FonteMidia.BLOG
     )
+
+
+def test_helpers_contexto_local_placeholder_e_auto_filtrado() -> None:
+    assert eh_nome_escalada_placeholder("") is True
+    assert eh_nome_escalada_placeholder("Sem nome 8") is True
+    assert eh_nome_escalada_placeholder("Projeto 1") is True
+    assert eh_nome_escalada_placeholder("Via inacabada 2") is True
+    assert eh_nome_escalada_placeholder("Inanição") is False
+
+    assert limpar_nome_pico_para_query("Complexo Pedra Grande (Área Principal)") == "Pedra Grande"
+    assert limpar_nome_pico_para_query("Serra do Cipó") == "Serra do Cipó"
+
+    # Cidade e nome_croqui enriquecem a correspondência geográfica sem confundir com stopword 'complexo'
+    assert (
+        menciona_contexto_local(
+            "Via Inanição em Igarapé MG",
+            nome_pico="Complexo Pedra Grande",
+            cidade="Igarapé",
+            nome_croqui="Pedra Grande - Igarapé (Igarameca)",
+        )
+        is True
+    )
+    assert (
+        menciona_contexto_local(
+            "Escalando no Igarameca neste sábado!",
+            nome_pico="Complexo Pedra Grande",
+            cidade="Igarapé",
+            nome_croqui="Igarameca",
+        )
+        is True
+    )
+    assert (
+        menciona_contexto_local(
+            "Complexo esportivo em Atibaia",
+            nome_pico="Complexo Pedra Grande",
+            cidade="Igarapé",
+            nome_croqui="Pedra Grande",
+        )
+        is False
+    )
+
+    assert (
+        extrair_titulo_original_auto_filtrado(
+            "[Query: instagram | Auto-filtrado: sem menção ao pico] Título Limpo"
+        )
+        == "Título Limpo"
+    )
+    assert extrair_titulo_original_auto_filtrado("Título Rejeitado Manualmente") is None
+
+
+def test_extrator_blog_pula_placeholder_e_extrai_embeds_apenas_de_blogs_aprovados() -> None:
+    buscador = BuscadorWebFake()
+    http = ClienteHttpFake()
+
+    url_blog_ok = "https://serradaliberdade.com/routes-2/inanicao/"
+    url_blog_dup = "https://segundo-blog.com/inanicao/"
+    url_blog_erro = "https://outroblog.com/inanicao"
+    http.registrar_texto(
+        url_blog_ok,
+        (
+            '<html><iframe src="https://www.youtube.com/embed/JZsMiVEl8YA"></iframe>'
+            '<a href="https://youtube.com/watch?v=JZsMiVEl8YA">Dup Embed</a>'
+            '<a href="https://www.instagram.com/reel/CreelABC12/">Instagram Reel</a></html>'
+        ),
+    )
+    http.registrar_texto(
+        url_blog_dup,
+        '<html><iframe src="https://www.youtube.com/embed/JZsMiVEl8YA"></iframe></html>',
+    )
+    http.registrar_erro(url_blog_erro, "Timeout no blog")
+    url_blog_404 = "https://blog404.com/inanicao"
+    buscador.registrar_resultados(
+        "Igarapé",
+        [
+            {
+                "href": url_blog_ok,
+                "title": "Inanição — Serra da Liberdade",
+                "body": "Croqui da via Inanição em Igarapé.",
+            },
+            {
+                "href": url_blog_dup,
+                "title": "Segundo Blog Inanição — Igarapé",
+                "body": "Outro relato da via Inanição em Igarapé.",
+            },
+            {
+                "href": url_blog_erro,
+                "title": "Outro blog da Inanição em Igarapé",
+                "body": "Relato da via Inanição em Igarapé.",
+            },
+            {
+                "href": url_blog_404,
+                "title": "Blog 404 Inanição Igarapé",
+                "body": "Relato da via Inanição em Igarapé.",
+            },
+        ],
+    )
+    http.registrar_texto(url_blog_404, "Not Found", status_code=404)
+
+    extrator = ExtratorBlog(buscador=buscador, cliente_http=http)
+
+    # Placeholder não realiza nenhuma busca
+    c_ph, r_ph = extrator.buscar_com_rejeitados("Sem nome 8", nome_pico="Pedra Grande")
+    assert c_ph == [] and r_ph == []
+    assert buscador.queries_executadas == []
+
+    # Busca normal inclui cidade e extrai embeds da página BLOG aprovada (sem quebrar se outro blog falhar GET)
+    cands, _ = extrator.buscar_com_rejeitados(
+        nome_escalada="Inanição",
+        nome_pico="Complexo Pedra Grande",
+        cidade="Igarapé",
+        nome_croqui="Pedra Grande - Igarapé",
+    )
+    urls = {c.midia.url: c for c in cands}
+    assert url_blog_ok in urls
+    assert url_blog_erro in urls
+    assert url_blog_404 in urls
+    assert "https://youtube.com/watch?v=JZsMiVEl8YA" in urls
+    assert (
+        urls["https://youtube.com/watch?v=JZsMiVEl8YA"].midia.fonte == beta_pb2.FonteMidia.YOUTUBE
+    )
+    assert "https://instagram.com/reel/CreelABC12" in urls
+    assert (
+        urls["https://instagram.com/reel/CreelABC12"].midia.fonte == beta_pb2.FonteMidia.INSTAGRAM
+    )
+
+    # Valida também helper isolado e dedup quando outro blog embutir vídeo já coletado antes
+    assert extrair_midias_embutidas_html("sem links", "Titulo", "https://b.com/p") == []
+    dups = extrair_midias_embutidas_html(
+        '<a href="https://youtube.com/watch?v=dup12345">1</a><a href="https://youtu.be/dup12345">2</a>',
+        "Titulo",
+        "https://b.com/p",
+    )
+    assert len(dups) == 1
+    assert dups[0].midia.url == "https://youtube.com/watch?v=dup12345"

@@ -10,6 +10,10 @@ from editor.core.nomes_arquivos import garantir_nome_arquivo_md_seguro
 from editor.models.readonly_proxy import _copia_segura
 from scripts.gerenciar_uids_lib import gerar_uid, validar_uid
 
+CAMPOS_REPEATED_COM_UID_INDEXADO: frozenset[str] = frozenset(
+    {"botoes", "picos", "setores_ou_grupos", "setores", "escaladas", "enfiadas"}
+)
+
 
 class CroquiModel(QObject):
     """
@@ -222,7 +226,11 @@ class CroquiModel(QObject):
         msg = self.__desembrulhar_proxy(msg)
         repeated_container = getattr(msg, campo_nome)
         repeated_container.insert(index, _copia_segura(valor))
-        if hasattr(self, "_indice_uids") and self._indice_uids is not None:
+        if (
+            campo_nome in CAMPOS_REPEATED_COM_UID_INDEXADO
+            and hasattr(self, "_indice_uids")
+            and self._indice_uids is not None
+        ):
             self._indice_uids.carregar_do_croqui(self.__croqui)
         self.repeated_adicionado.emit(msg, campo_nome, index)
 
@@ -230,7 +238,11 @@ class CroquiModel(QObject):
         msg = self.__desembrulhar_proxy(msg)
         repeated_container = getattr(msg, campo_nome)
         repeated_container.pop(index)
-        if hasattr(self, "_indice_uids") and self._indice_uids is not None:
+        if (
+            campo_nome in CAMPOS_REPEATED_COM_UID_INDEXADO
+            and hasattr(self, "_indice_uids")
+            and self._indice_uids is not None
+        ):
             self._indice_uids.carregar_do_croqui(self.__croqui)
         self.repeated_removido.emit(msg, campo_nome, index)
 
@@ -239,7 +251,11 @@ class CroquiModel(QObject):
         repeated_container = getattr(msg, campo_nome)
         item = repeated_container.pop(index_from)
         repeated_container.insert(index_to, item)
-        if hasattr(self, "_indice_uids") and self._indice_uids is not None:
+        if (
+            campo_nome in CAMPOS_REPEATED_COM_UID_INDEXADO
+            and hasattr(self, "_indice_uids")
+            and self._indice_uids is not None
+        ):
             self._indice_uids.carregar_do_croqui(self.__croqui)
         self.repeated_movido.emit(msg, campo_nome, index_from, index_to)
 
@@ -301,7 +317,11 @@ class CroquiModel(QObject):
             repeated_container[index].CopyFrom(valor_seguro)
         else:
             repeated_container[index] = valor_seguro
-        if hasattr(self, "_indice_uids") and self._indice_uids is not None:
+        if (
+            campo_nome in CAMPOS_REPEATED_COM_UID_INDEXADO
+            and hasattr(self, "_indice_uids")
+            and self._indice_uids is not None
+        ):
             self._indice_uids.carregar_do_croqui(self.__croqui)
         self.repeated_item_alterado.emit(msg, campo_nome, index)
 

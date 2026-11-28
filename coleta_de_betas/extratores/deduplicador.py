@@ -22,19 +22,26 @@ def normalizar_url(url: str) -> str:
     path = parsed.path.rstrip("/")
 
     if "instagram.com" in netloc:
-        match = re.search(r"/(p|reel|tv)/([^/?#]+)", path)
+        match = re.search(r"/(p|reel|reels|tv)/([^/?#]+)", path)
         if match:
             tipo, post_id = match.groups()
-            return f"https://instagram.com/{tipo}/{post_id}"
+            tipo_norm = "reel" if tipo == "reels" else tipo
+            return f"https://instagram.com/{tipo_norm}/{post_id}"
         return f"https://instagram.com{path}"
 
     if "youtube.com" in netloc or "youtu.be" in netloc:
         if "youtu.be" in netloc:
-            video_id = path.lstrip("/")
+            video_id = path.strip("/").split("/")[0]
             return f"https://youtube.com/watch?v={video_id}"
         qs = parse_qs(parsed.query)
         if qs.get("v"):
             video_id = qs["v"][0]
+            return f"https://youtube.com/watch?v={video_id}"
+        match_yt_path = re.match(r"^/(embed|v|shorts)/([^/?#]+)", path)
+        if match_yt_path:
+            tipo_yt, video_id = match_yt_path.groups()
+            if tipo_yt == "shorts":
+                return f"https://youtube.com/shorts/{video_id}"
             return f"https://youtube.com/watch?v={video_id}"
 
     return f"https://{netloc.replace('www.', '')}{path}"

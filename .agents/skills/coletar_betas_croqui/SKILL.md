@@ -5,13 +5,15 @@ description: Executa e monitora a coleta multi-fonte de candidatos a beta do cro
 
 # Coleta Multi-Fonte de Betas (100% via MCP)
 
-Sua missão é acionar e acompanhar a coleta automatizada de candidatos a beta (YouTube, Instagram, TikTok, Facebook, Twitter/X, Reddit, portais UGC e Blogs) diretamente no **Editor Aresta** via MCP através da ferramenta `aresta_coletar_betas`.
+Sua missão é acionar e acompanhar a coleta automatizada de candidatos a beta (YouTube via `InnerTube`, além de Instagram, TikTok, Facebook, Twitter/X, Reddit, portais UGC e Blogs via `ddgs` com extração de vídeos embutidos em blogs aprovados) diretamente no **Editor Aresta** via MCP através da ferramenta `aresta_coletar_betas`.
 
 > [!IMPORTANT]
-> **Arquitetura Não-Bloqueante e Incremental:**
+> **Arquitetura Não-Bloqueante, Incremental e com Reavaliação Offline:**
+> - Antes de disparar requisições na rede, `aresta_coletar_betas` reavalia offline itens em `betas_rejeitados` marcados com `[Query: ... | Auto-filtrado: ...]` usando as regras mais recentes de filtro e contexto geográfico (`Pico.cidade` + `Croqui.nome`), promovendo os recém-aprovados em `auto_filtrados_promovidos` sem refazer scraping nem tocar em rejeições humanas.
+> - Vias com nome placeholder (`Sem nome \d*`, `Projeto \d*`) são ignoradas sem requisições de rede.
 > - A ferramenta `aresta_coletar_betas` roda **fora da thread principal do Qt** em um pool de threads em background e aplica micro-lotes (`tamanho_lote_flush`, padrão 10 vias) incrementalmente no `CroquiController` (preservando Undo/Redo).
 > - Se a coleta for longa ou cancelada no meio, todo o progresso dos micro-lotes já concluídos permanece salvo em memória em `curadoria_betas.conteudo`.
-> - Por padrão (`apenas_sem_coleta=True`), escaladas que já possuem candidatos/rejeitados em `curadoria_betas` ou betas publicados em `Escalada.betas` são automaticamente ignoradas, permitindo retomar coletas de croquis gigantes de onde pararam sem retrabalho.
+> - Por padrão (`apenas_sem_coleta=True`), escaladas que já possuem candidatos/rejeitados em `curadoria_betas` ou betas publicados em `Escalada.betas` são ignoradas na busca web (passando `apenas_sem_coleta=False`, novas buscas descobrem vídeos novos mantendo todos os rejeitados anteriores descartados).
 
 ---
 
@@ -57,6 +59,7 @@ Examine o campo `status` retornado por `aresta_coletar_betas`:
   - `total_escaladas`, `escaladas_processadas`, `escaladas_restantes`
   - `novos_candidatos_adicionados` (em `betas_nao_scorados`)
   - `novos_rejeitados_adicionados` (em `betas_rejeitados`)
+  - `auto_filtrados_promovidos` (resgatados offline de `betas_rejeitados`)
   - `ultima_escalada`
   - `total_escaladas_com_nao_scorados` e `total_candidatos_nao_scorados`
 

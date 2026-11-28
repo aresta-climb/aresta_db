@@ -124,3 +124,79 @@ def test_despachante_lanca_timeout_quando_fila_nao_processa_a_tempo(qapp):
     # Agora que o evento atrasado é drenado pela thread principal, ele deve ser ignorado pois foi cancelado
     QCoreApplication.processEvents()
     assert executou_apos_timeout is False
+
+
+def test_despachante_aguarda_execucao_ja_iniciada_sem_split_brain(qapp):
+    """
+    Se a tarefa já iniciou na thread principal do Qt e ultrapassar o timeout de enfileiramento,
+    mas concluir antes de timeout_execucao, deve retornar o resultado real sem falso TimeoutError.
+    """
+    despachante = DespachanteQt(timeout_execucao_padrao=1.0)
+    resultado_box: dict[str, object] = {}
+    erro_box: list[Exception] = []
+    concluido = threading.Event()
+    iniciou_qt = threading.Event()
+
+    def mutacao_longa() -> str:
+        iniciou_qt.set()
+        time.sleep(0.08)
+        return "mutacao_concluida"
+
+    def trabalhador() -> None:
+        try:
+            resultado_box["res"] = despachante.executar(
+                mutacao_longa, timeout=0.02, timeout_execucao=1.0
+            )
+        except Exception as exc:
+            erro_box.append(exc)
+        finally:
+            concluido.set()
+
+    t = threading.Thread(target=trabalhador, daemon=True)
+    t.start()
+
+    # Drena eventos até a função iniciar na thread principal e bloqueia nela por ~80ms
+    prazo = time.monotonic() + 1.0
+    while not concluido.is_set() and time.monotonic() < prazo:
+        QCoreApplication.processEvents()
+        time.sleep(0.002)
+
+    t.join(timeout=1.0)
+    assert iniciou_qt.is_set()
+    assert erro_box == []
+    assert resultado_box.get("res") == "mutacao_concluida"
+
+
+def test_despachante_lanca_timeout_quando_execucao_iniciada_excede_timeout_execucao(qapp):
+    """
+    Se uma execução já iniciada na thread principal ultrapassar também `timeout_execucao`,
+    deve lançar TimeoutError informando explicitamente que a execução já havia iniciado.
+    """
+    despachante = DespachanteQt(timeout_execucao_padrao=0.05)
+    erro_box: list[Exception] = []
+    concluido = threading.Event()
+
+    def mutacao_travada() -> str:
+        time.sleep(0.15)
+        return "tarde_demais"
+
+    def trabalhador() -> None:
+        try:
+            despachante.executar(mutacao_travada, timeout=0.01, timeout_execucao=0.04)
+        except Exception as exc:
+            erro_box.append(exc)
+        finally:
+            concluido.set()
+
+    t = threading.Thread(target=trabalhador, daemon=True)
+    t.start()
+
+    prazo = time.monotonic() + 1.0
+    while not concluido.is_set() and time.monotonic() < prazo:
+        QCoreApplication.processEvents()
+        time.sleep(0.002)
+
+    t.join(timeout=1.0)
+    assert len(erro_box) == 1
+    assert isinstance(erro_box[0], TimeoutError)
+    assert "já iniciada" in str(erro_box[0])

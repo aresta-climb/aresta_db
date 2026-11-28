@@ -25,17 +25,30 @@ def test_normalizar_url_instagram_youtube_e_blog() -> None:
     yt1 = "https://www.youtube.com/watch?v=vid123&feature=share"
     yt2 = "https://youtu.be/vid123"
     yt3 = "https://youtube.com/watch?v=vid123"
+    yt4 = "https://www.youtube.com/embed/vid123?si=abc"
+    yt5 = "https://youtube.com/v/vid123"
     assert (
         normalizar_url(yt1)
         == normalizar_url(yt2)
         == normalizar_url(yt3)
+        == normalizar_url(yt4)
+        == normalizar_url(yt5)
         == "https://youtube.com/watch?v=vid123"
+    )
+    assert (
+        normalizar_url("https://www.youtube.com/shorts/sh123?feature=share")
+        == "https://youtube.com/shorts/sh123"
+    )
+    assert (
+        normalizar_url("https://www.instagram.com/reels/Creel99/?utm_source=ig")
+        == "https://instagram.com/reel/Creel99"
     )
 
     blog1 = "https://www.blogescalada.com.br/post-via/"
     blog2 = "http://blogescalada.com.br/post-via"
     assert normalizar_url(blog1) == normalizar_url(blog2) == "https://blogescalada.com.br/post-via"
     assert normalizar_url("   ") == ""
+    assert normalizar_url("/caminho/relativo") == ""
 
 
 def test_deduplicar_midias_mescla_informacoes_e_filtra_urls_conhecidas() -> None:
@@ -44,15 +57,15 @@ def test_deduplicar_midias_mescla_informacoes_e_filtra_urls_conhecidas() -> None
     m1.midia.url = "https://www.instagram.com/p/Cxyz123/?utm_source=ig_web"
     m1.midia.titulo = ""
     m1.midia.fonte = beta_pb2.FonteMidia.INSTAGRAM
-    m1.match_nome_no_snippet = True
+    m1.match_nome_no_snippet = False
     m1.snippets.append("Trecho do Vertex")
 
-    # Item 2 do DuckDuckGo (mesma URL base, preenche título)
+    # Item 2 do DuckDuckGo (mesma URL base, preenche título e match_nome_no_snippet)
     m2 = beta_pb2.CandidatoMidiaBeta()
     m2.midia.url = "https://instagram.com/p/Cxyz123"
     m2.midia.titulo = "Vídeo do Crux - DDG"
     m2.midia.fonte = beta_pb2.FonteMidia.INSTAGRAM
-    m2.match_nome_no_snippet = False
+    m2.match_nome_no_snippet = True
     m2.snippets.append("Trecho do DuckDuckGo")
 
     # Item 3 do YouTube (URL diferente)

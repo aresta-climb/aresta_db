@@ -24,6 +24,7 @@ def test_cliente_http_fake_retorna_json_texto_e_bytes_registrados() -> None:
         "https://api.exemplo.com/dados",
         json={"consulta": 1},
         params={"key": "abc"},
+        headers={"Content-Type": "application/json"},
     )
     assert resp_post.status_code == 200
     assert resp_post.json() == {"ok": True}
@@ -41,8 +42,11 @@ def test_cliente_http_fake_retorna_json_texto_e_bytes_registrados() -> None:
     assert resp_404.status_code == 404
     assert resp_404.json() == {}
 
+    resp_post_404 = cliente.post("https://nao.existe.com/404")
+    assert resp_post_404.status_code == 404
+
     assert len(cliente.chamadas_get) == 4
-    assert len(cliente.chamadas_post) == 1
+    assert len(cliente.chamadas_post) == 2
 
 
 def test_cliente_http_fake_simula_erro_de_conexao() -> None:

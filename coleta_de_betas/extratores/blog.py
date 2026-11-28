@@ -2,10 +2,10 @@
 # Copyright (C) 2026 Aresta Climb Contributors
 
 """
-Extrator web unificado de betas de escalada (YouTube, Instagram, TikTok, Facebook,
-Twitter/X, Reddit, portais UGC e Blogs) via ddgs com sessão TLS persistente,
-5 queries identificadas por escalada, sanitização, matching bidirecional de espaços/typos,
-blocklist de agregadores e auditoria de descartes em betas_rejeitados.
+Extrator web de redes sociais e blogs via `ddgs` (Instagram, TikTok, Facebook e Web/Blogs),
+com exclusão de resultados do YouTube (tratados em extrator dedicado), filtragem de vias
+placeholder, contexto geográfico ampliado (Pico + Cidade + Croqui), blocklist de agregadores,
+extração leve de vídeos embutidos apenas em páginas BLOG aprovadas e auditoria de descartes.
 """
 
 import re
@@ -14,7 +14,7 @@ import time
 import unicodedata
 from collections.abc import Callable, Sequence
 from difflib import SequenceMatcher
-from typing import Any
+from typing import Any, cast
 from urllib.parse import parse_qs, urlparse
 
 import primp
@@ -89,6 +89,10 @@ STOPWORDS_PICO: frozenset[str] = frozenset(
         "setor",
         "parede",
         "falesia",
+        "complexo",
+        "area",
+        "regiao",
+        "nucleo",
         "estadual",
         "nacional",
         "municipal",
@@ -105,6 +109,25 @@ STOPWORDS_PICO: frozenset[str] = frozenset(
 )
 
 LIMIAR_SIMILARIDADE_TYPO = 0.86
+
+_PADRAO_PLACEHOLDER = re.compile(
+    r"^(?:sem nome|projeto|via inacabada|via sem nome|boulder sem nome|a definir|desconhecid[ao])(?:\s+\d+)?$"
+)
+_PADRAO_PREFIXO_COMPLEXO = re.compile(
+    r"^(?:complexo(?:\s+d[aeo]s?)?\s+)+",
+    flags=re.IGNORECASE,
+)
+_PADRAO_PREFIXO_AUTO_FILTRADO = re.compile(
+    r"^\[Query:\s*[^|\]]+\|\s*Auto-filtrado:[^\]]+\]\s*(.*)$"
+)
+_PADRAO_EMBED_YOUTUBE = re.compile(
+    r"(?:https?:)?//(?:www\.|m\.)?(?:youtube\.com/(?:embed/|watch\?v=|shorts/)|youtu\.be/)[A-Za-z0-9_-]{6,}",
+    flags=re.IGNORECASE,
+)
+_PADRAO_EMBED_INSTAGRAM = re.compile(
+    r"https?://(?:www\.)?instagram\.com/(?:p|reel|reels)/[A-Za-z0-9_-]+/?",
+    flags=re.IGNORECASE,
+)
 
 # Garante que o motor Yahoo do ddgs suporte tanto classes 'algo-sr' quanto 'relsrch' em desktop
 Yahoo.items_xpath = "//div[contains(@class, 'algo-sr') or contains(@class, 'relsrch')]"
@@ -132,6 +155,32 @@ def _normalizar_texto(texto: str) -> str:
     sem_acentos = "".join(c for c in decomposed if not unicodedata.combining(c))
     alfa = re.sub(r"[^a-z0-9]+", " ", sem_acentos.lower())
     return re.sub(r"\s+", " ", alfa).strip()
+
+
+def eh_nome_escalada_placeholder(nome_escalada: str) -> bool:
+    """Retorna True se o nome da escalada for vazio ou um marcador genérico sem nome próprio."""
+    norm = _normalizar_texto(sanitizar_termo_busca(nome_escalada))
+    if not norm:
+        return True
+    return bool(_PADRAO_PLACEHOLDER.match(norm))
+
+
+def limpar_nome_pico_para_query(nome_pico: str) -> str:
+    """Sanitiza o nome do pico removendo prefixos administrativos como 'Complexo' para busca."""
+    sanitizado = sanitizar_termo_busca(nome_pico)
+    sem_complexo = _PADRAO_PREFIXO_COMPLEXO.sub("", sanitizado).strip()
+    return sem_complexo or sanitizado
+
+
+def extrair_titulo_original_auto_filtrado(titulo: str) -> str | None:
+    """
+    Extrai o título original caso a mídia possua o prefixo `[Query: ... | Auto-filtrado: ...]`.
+    Retorna `None` quando não houver prefixo (indicando rejeição humana que não deve ser reavaliada).
+    """
+    match = _PADRAO_PREFIXO_AUTO_FILTRADO.match(titulo.strip())
+    if match is None:
+        return None
+    return match.group(1).strip()
 
 
 def menciona_nome_via(texto: str, nome_via: str) -> bool:
@@ -171,27 +220,52 @@ def menciona_nome_via(texto: str, nome_via: str) -> bool:
     return False
 
 
-def menciona_contexto_pico(texto: str, nome_pico: str) -> bool:
+def _extrair_tokens_contexto(valor: str) -> tuple[list[str], list[str]]:
+    norm = _normalizar_texto(sanitizar_termo_busca(valor))
+    todos = [t for t in norm.split() if len(t) >= 3]
+    significativos = [t for t in todos if t not in STOPWORDS_PICO]
+    return significativos, todos
+
+
+def menciona_contexto_local(
+    texto: str,
+    nome_pico: str,
+    cidade: str = "",
+    nome_croqui: str = "",
+) -> bool:
     """
-    Verifica se o texto contém pelo menos um token significativo do nome do pico
-    (ex.: 'lapinha' para 'Gruta da Lapinha', 'cipo' para 'Serra do Cipó').
+    Verifica se o texto contém pelo menos um token geográfico significativo do pico,
+    da cidade (`Pico.cidade`) ou do nome do croqui (`Croqui.nome`), incluindo parênteses.
     """
-    pico_norm = _normalizar_texto(sanitizar_termo_busca(nome_pico))
-    if not pico_norm:
+    alvos_sig: list[str] = []
+    alvos_todos: list[str] = []
+    for fonte_ctx in (nome_pico, cidade):
+        sig, todos = _extrair_tokens_contexto(fonte_ctx)
+        alvos_sig.extend(sig)
+        alvos_todos.extend(todos)
+
+    if nome_croqui:
+        croqui_norm = _normalizar_texto(re.sub(r"[\"'“”‘’«»!?,.;:/\\|()+-]+", " ", nome_croqui))
+        todos_c = [t for t in croqui_norm.split() if len(t) >= 3]
+        sig_c = [t for t in todos_c if t not in STOPWORDS_PICO]
+        alvos_sig.extend(sig_c)
+        alvos_todos.extend(todos_c)
+
+    alvos = list(dict.fromkeys(alvos_sig)) or list(dict.fromkeys(alvos_todos))
+    if not alvos:
         return True
 
     texto_norm = _normalizar_texto(texto)
     if not texto_norm:
         return False
 
-    tokens_todos = [t for t in pico_norm.split() if len(t) >= 3]
-    tokens_significativos = [t for t in tokens_todos if t not in STOPWORDS_PICO]
-    alvos = tokens_significativos or tokens_todos
-    if not alvos:
-        return True
-
     texto_compacto = texto_norm.replace(" ", "")
     return any(tok in texto_norm or tok in texto_compacto for tok in alvos)
+
+
+def menciona_contexto_pico(texto: str, nome_pico: str) -> bool:
+    """Atalho compatível que verifica contexto geográfico exclusivamente por `nome_pico`."""
+    return menciona_contexto_local(texto, nome_pico=nome_pico)
 
 
 def eh_url_bloqueada(url: str) -> bool:
@@ -285,6 +359,46 @@ def classificar_fonte_url(url: str) -> beta_pb2.FonteMidia.Enum.ValueType | None
     return beta_pb2.FonteMidia.BLOG
 
 
+def extrair_midias_embutidas_html(
+    html: str,
+    titulo_pagina: str,
+    url_pagina: str,
+) -> list[beta_pb2.CandidatoMidiaBeta]:
+    """
+    Extrai links de vídeos do YouTube e posts/reels do Instagram embutidos no HTML de
+    uma página de Blog já aprovada nos filtros de relevância.
+    """
+    urls_brutas = [
+        *(
+            (f"https:{m.group(0)}" if m.group(0).startswith("//") else m.group(0))
+            for m in _PADRAO_EMBED_YOUTUBE.finditer(html)
+        ),
+        *(m.group(0) for m in _PADRAO_EMBED_INSTAGRAM.finditer(html)),
+    ]
+
+    candidatos: list[beta_pb2.CandidatoMidiaBeta] = []
+    urls_vistas: set[str] = set()
+    titulo_limpo = titulo_pagina.strip() or url_pagina
+
+    for url_bruta in urls_brutas:
+        url_norm = normalizar_url(url_bruta)
+        if not url_norm or url_norm in urls_vistas:
+            continue
+        fonte = classificar_fonte_url(url_norm)
+        assert fonte is not None
+        urls_vistas.add(url_norm)
+
+        cand = beta_pb2.CandidatoMidiaBeta()
+        cand.midia.url = url_norm
+        cand.midia.titulo = f"Vídeo embutido em: {titulo_limpo}"
+        cand.midia.fonte = fonte
+        cand.match_nome_no_snippet = True
+        cand.snippets.append(f"Extraído da página aprovada: {url_pagina}")
+        candidatos.append(cand)
+
+    return candidatos
+
+
 MAX_REQUISICOES_POR_SESSAO_DDGS = 15
 
 
@@ -372,12 +486,30 @@ class _BuscadorDuckDuckGoPadrao:
         raise ultimo_erro
 
 
+def montar_base_query_geografica(
+    nome_escalada: str,
+    nome_pico: str = "",
+    cidade: str = "",
+) -> str:
+    """
+    Constrói os termos base compartilhados entre extratores combinando via sanitizada,
+    pico sem prefixo 'Complexo' e cidade (sem duplicação quando já contida no pico).
+    """
+    via_limpa = sanitizar_termo_busca(nome_escalada)
+    pico_limpo = limpar_nome_pico_para_query(nome_pico)
+    cidade_limpa = sanitizar_termo_busca(cidade)
+    partes = [p for p in (via_limpa, pico_limpo) if p]
+    if cidade_limpa and _normalizar_texto(cidade_limpa) not in _normalizar_texto(pico_limpo):
+        partes.append(cidade_limpa)
+    return " ".join(partes)
+
+
 class ExtratorBlog:
     """
-    Extrator web unificado de betas de escalada que executa 5 queries identificadas por escalada
-    (Instagram, YouTube, TikTok, Facebook e Geral), sem download de HTML durante a coleta,
-    aplicando blocklist de agregadores, filtro de precisão (via + pico) e registrando itens
-    descartados como MidiaBeta auto-rejeitados com identificação da query de origem.
+    Extrator web de redes sociais e blogs via `ddgs` que executa 4 queries identificadas
+    (Instagram, TikTok, Facebook e Geral), ignora URLs do YouTube na SERP, aplica filtros
+    de precisão com contexto local (`Pico.cidade` e `Croqui.nome`), extrai embeds de blogs
+    aprovados e registra descartes auditáveis em `betas_rejeitados`.
     """
 
     def __init__(
@@ -385,25 +517,31 @@ class ExtratorBlog:
         buscador: BuscadorWebProtocolo | None = None,
         cliente_http: ClienteHttpProtocolo | None = None,
     ) -> None:
-        _ = cliente_http
         self._buscador: BuscadorWebProtocolo = buscador or _BuscadorDuckDuckGoPadrao()
+        self._cliente_http: ClienteHttpProtocolo = cliente_http or cast(
+            ClienteHttpProtocolo,
+            primp.Client(
+                impersonate="chrome",
+                impersonate_os="windows",
+                timeout=6,
+                verify=True,
+            ),
+        )
 
     def montar_queries_identificadas(
         self,
         nome_escalada: str,
         nome_pico: str = "",
+        cidade: str = "",
     ) -> list[tuple[str, str]]:
         """
-        Retorna as 5 queries identificadas (origem, query) omitindo o nome do setor:
-        instagram, youtube, tiktok, facebook e geral.
+        Retorna as 4 queries identificadas (origem, query) omitindo YouTube e nome do setor:
+        instagram, tiktok, facebook e geral.
         """
-        via_limpa = sanitizar_termo_busca(nome_escalada)
-        pico_limpo = sanitizar_termo_busca(nome_pico)
-        partes_base = [p for p in (via_limpa, pico_limpo, "escalada") if p]
-        base = " ".join(partes_base)
+        base_geo = montar_base_query_geografica(nome_escalada, nome_pico, cidade)
+        base = f"{base_geo} escalada".strip()
         return [
             ("instagram", f"{base} site:instagram.com"),
-            ("youtube", f"{base} site:youtube.com"),
             ("tiktok", f"{base} site:tiktok.com"),
             ("facebook", f"{base} site:facebook.com"),
             ("geral", base),
@@ -414,10 +552,41 @@ class ExtratorBlog:
         nome_escalada: str,
         nome_setor: str = "",
         nome_pico: str = "",
+        cidade: str = "",
     ) -> str:
         """Retorna a query geral sanitizada (sem o nome do setor)."""
         _ = nome_setor
-        return self.montar_queries_identificadas(nome_escalada, nome_pico)[-1][1]
+        return self.montar_queries_identificadas(nome_escalada, nome_pico, cidade)[-1][1]
+
+    def _coletar_embeds_blog_aprovado(
+        self,
+        url_blog: str,
+        titulo_base: str,
+        candidatos_por_url: dict[str, beta_pb2.CandidatoMidiaBeta],
+        rejeitados_por_url: dict[str, beta_pb2.MidiaBeta],
+    ) -> None:
+        """
+        Busca o HTML de uma página `FonteMidia.BLOG` já aprovada nos filtros para recuperar
+        vídeos embutidos de YouTube/Instagram. Falhas de rede de terceiros são toleradas sem
+        descartar o candidato de blog original.
+        """
+        try:
+            resposta = self._cliente_http.get(url_blog, timeout=6)
+        except Exception:
+            return
+        if resposta.status_code != 200 or not resposta.text:
+            return
+
+        for cand_embed in extrair_midias_embutidas_html(
+            resposta.text,
+            titulo_pagina=titulo_base,
+            url_pagina=url_blog,
+        ):
+            chave_emb = normalizar_url(cand_embed.midia.url)
+            if not chave_emb or chave_emb in candidatos_por_url:
+                continue
+            rejeitados_por_url.pop(chave_emb, None)
+            candidatos_por_url[chave_emb] = cand_embed
 
     def buscar_com_rejeitados(
         self,
@@ -425,13 +594,18 @@ class ExtratorBlog:
         nome_setor: str = "",
         nome_pico: str = "",
         max_resultados: int = 8,
+        cidade: str = "",
+        nome_croqui: str = "",
     ) -> tuple[list[beta_pb2.CandidatoMidiaBeta], list[beta_pb2.MidiaBeta]]:
         """
-        Executa as 5 queries identificadas para a escalada e retorna
+        Executa as 4 queries identificadas para a escalada e retorna
         (candidatos_aprovados_para_avaliacao, midias_auto_rejeitadas_com_motivo).
         """
         _ = nome_setor
-        queries = self.montar_queries_identificadas(nome_escalada, nome_pico)
+        if eh_nome_escalada_placeholder(nome_escalada):
+            return [], []
+
+        queries = self.montar_queries_identificadas(nome_escalada, nome_pico, cidade)
 
         candidatos_por_url: dict[str, beta_pb2.CandidatoMidiaBeta] = {}
         rejeitados_por_url: dict[str, beta_pb2.MidiaBeta] = {}
@@ -450,6 +624,10 @@ class ExtratorBlog:
                 if not link:
                     continue
 
+                fonte = classificar_fonte_url(link)
+                if fonte == beta_pb2.FonteMidia.YOUTUBE:
+                    continue
+
                 chave_url = normalizar_url(link) or link
                 if chave_url in candidatos_por_url:
                     continue
@@ -460,7 +638,7 @@ class ExtratorBlog:
 
                 if eh_url_bloqueada(link):
                     if chave_url not in rejeitados_por_url:
-                        fonte_bloq = classificar_fonte_url(link) or beta_pb2.FonteMidia.BLOG
+                        fonte_bloq = fonte or beta_pb2.FonteMidia.BLOG
                         rejeitados_por_url[chave_url] = beta_pb2.MidiaBeta(
                             url=link,
                             titulo=(
@@ -471,7 +649,6 @@ class ExtratorBlog:
                         )
                     continue
 
-                fonte = classificar_fonte_url(link)
                 if fonte is None:
                     continue
 
@@ -488,7 +665,12 @@ class ExtratorBlog:
                         )
                     continue
 
-                if not menciona_contexto_pico(texto_completo, nome_pico):
+                if not menciona_contexto_local(
+                    texto_completo,
+                    nome_pico=nome_pico,
+                    cidade=cidade,
+                    nome_croqui=nome_croqui,
+                ):
                     if chave_url not in rejeitados_por_url:
                         rejeitados_por_url[chave_url] = beta_pb2.MidiaBeta(
                             url=link,
@@ -510,6 +692,14 @@ class ExtratorBlog:
                     candidato.snippets.append(body_busca)
                 candidatos_por_url[chave_url] = candidato
 
+                if fonte == beta_pb2.FonteMidia.BLOG:
+                    self._coletar_embeds_blog_aprovado(
+                        link,
+                        titulo_base,
+                        candidatos_por_url,
+                        rejeitados_por_url,
+                    )
+
         return list(candidatos_por_url.values()), list(rejeitados_por_url.values())
 
     def buscar(
@@ -518,6 +708,8 @@ class ExtratorBlog:
         nome_setor: str = "",
         nome_pico: str = "",
         max_resultados: int = 8,
+        cidade: str = "",
+        nome_croqui: str = "",
     ) -> list[beta_pb2.CandidatoMidiaBeta]:
         """Executa a busca para a escalada e retorna a lista de candidatos aprovados."""
         candidatos, _ = self.buscar_com_rejeitados(
@@ -525,5 +717,7 @@ class ExtratorBlog:
             nome_setor=nome_setor,
             nome_pico=nome_pico,
             max_resultados=max_resultados,
+            cidade=cidade,
+            nome_croqui=nome_croqui,
         )
         return candidatos

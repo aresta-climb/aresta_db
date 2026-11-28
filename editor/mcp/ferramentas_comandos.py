@@ -3,6 +3,7 @@
 
 import base64
 import json
+from collections.abc import Iterable
 from pathlib import Path
 from typing import Any
 
@@ -15,6 +16,29 @@ from editor.controllers.croqui_controller import CroquiController
 from editor.controllers.mapas_controller import MapasController
 from editor.mcp.resolvedor_alvo import resolver_alvo_mcp
 from editor.mcp.servidor import ServidorMCP
+from editor.models.croqui_model import CAMPOS_REPEATED_COM_UID_INDEXADO
+
+_CAMPOS_QUE_AFETAM_INDICE_UIDS: frozenset[str] = CAMPOS_REPEATED_COM_UID_INDEXADO | {
+    "nome",
+    "texto",
+    "uid",
+    "tipo",
+    "via_esportiva",
+    "via_movel",
+    "boulder",
+    "via_multiplas_enfiadas",
+    "highline",
+    "setor",
+    "grupo",
+    "conteudo",
+}
+
+
+def _campos_exigem_reindexacao_uids(nomes_campos: Iterable[str]) -> bool:
+    """Retorna True se algum campo alterado puder criar, remover ou renomear entidades indexadas."""
+    return any(
+        str(nome).split(".", 1)[0] in _CAMPOS_QUE_AFETAM_INDICE_UIDS for nome in nomes_campos
+    )
 
 
 def _decodificar_bytes_entrada(
@@ -289,7 +313,8 @@ def registrar_ferramentas_comandos(
             operacoes=operacoes,
             preservar_campos_compativeis=bool(args.get("preservar_campos_compativeis", False)),
         )
-        model.indice_uids.carregar_do_croqui(model.obter_croqui_readonly())
+        if _campos_exigem_reindexacao_uids(nomes_alterados):
+            model.indice_uids.carregar_do_croqui(model.obter_croqui_readonly())
         return {
             "status": "ok",
             "alvo": alvo,
@@ -305,11 +330,13 @@ def registrar_ferramentas_comandos(
         preservar_padrao = bool(args.get("preservar_campos_compativeis", False))
         operacoes_coagidas: list[dict[str, Any]] = []
         alvos_alterados: list[str] = []
+        nomes_alterados_lote: list[str] = []
         total_campos = 0
         for item in operacoes_brutas:
             alvo_op, _, nomes_item, ops_item = _preparar_operacoes_coagidas(item, preservar_padrao)
             operacoes_coagidas.extend(ops_item)
             alvos_alterados.append(alvo_op)
+            nomes_alterados_lote.extend(nomes_item)
             total_campos += len(nomes_item)
 
         croqui_controller.alterar_em_lote(
@@ -317,7 +344,8 @@ def registrar_ferramentas_comandos(
             texto_macro=args.get("descricao_macro"),
             preservar_campos_compativeis=preservar_padrao,
         )
-        model.indice_uids.carregar_do_croqui(model.obter_croqui_readonly())
+        if _campos_exigem_reindexacao_uids(nomes_alterados_lote):
+            model.indice_uids.carregar_do_croqui(model.obter_croqui_readonly())
         return {
             "status": "ok",
             "quantidade_operacoes": len(operacoes_brutas),
@@ -350,7 +378,8 @@ def registrar_ferramentas_comandos(
         colecao = getattr(msg, campo)
         idx_final = len(colecao) if indice is None or int(indice) < 0 else int(indice)
         croqui_controller.adicionar_multiplos_repeated(msg, campo, idx_final, itens_proto)
-        model.indice_uids.carregar_do_croqui(model.obter_croqui_readonly())
+        if _campos_exigem_reindexacao_uids([campo]):
+            model.indice_uids.carregar_do_croqui(model.obter_croqui_readonly())
         caminho_item = f"{caminho}.{campo}.{idx_final}" if caminho else f"{campo}.{idx_final}"
         resposta: dict[str, Any] = {
             "status": "ok",
@@ -376,7 +405,8 @@ def registrar_ferramentas_comandos(
                 f"Índice fora de alcance ({indice}) para o campo '{campo}' de tamanho {len(colecao)}."
             )
         croqui_controller.remover_repeated(msg, campo, indice, colecao[indice])
-        model.indice_uids.carregar_do_croqui(model.obter_croqui_readonly())
+        if _campos_exigem_reindexacao_uids([campo]):
+            model.indice_uids.carregar_do_croqui(model.obter_croqui_readonly())
         return {
             "status": "ok",
             "caminho": caminho,

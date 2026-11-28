@@ -37,6 +37,7 @@ class ClienteHttpProtocolo(Protocol):
         url: str,
         json: dict[str, Any] | None = None,
         params: dict[str, Any] | None = None,
+        headers: dict[str, str] | None = None,
         timeout: float = 10,
     ) -> RespostaHttpProtocolo: ...
 
@@ -128,9 +129,10 @@ class ClienteHttpFake:
         url: str,
         json: dict[str, Any] | None = None,
         params: dict[str, Any] | None = None,
+        headers: dict[str, str] | None = None,
         timeout: float = 10,
     ) -> RespostaHttpFake:
-        _ = timeout
+        _ = (headers, timeout)
         self.chamadas_post.append((url, json, params))
         if url in self.erros:
             raise ConnectionError(self.erros[url])

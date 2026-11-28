@@ -1000,3 +1000,42 @@ def test_aresta_gerar_malha_estrada_persiste_com_undo_e_valida_erros(qapp, tmp_p
     registrar_ferramentas_comandos(srv_vazio, ctrl_vazio, cliente_overpass=fake_overpass)
     with pytest.raises(RuntimeError, match="não possui picos"):
         _chamar(srv_vazio, "aresta_gerar_malha_estrada", {})
+
+
+def test_ferramentas_comandos_nao_reconstroem_indice_uids_para_campos_sem_uid(qapp, tmp_path: Path):
+    """Alterar creditos ou betas via MCP não deve reconstruir IndiceUidsModel; alterar escaladas deve."""
+    model, _, _, _, servidor = _montar_ambiente_comandos(tmp_path)
+    emissoes: list[bool] = []
+    model.indice_uids.indice_alterado.connect(lambda: emissoes.append(True))
+
+    _chamar(
+        servidor,
+        "aresta_adicionar_repeated",
+        {"alvo": "uid_croqui_raiz", "campo": "creditos", "valor": "Autor Sem UID"},
+    )
+    _chamar(
+        servidor,
+        "aresta_alterar_campo",
+        {"alvo": "uid_croqui_raiz", "campo": "creditos.0", "valor": "Autor Editado"},
+    )
+    _chamar(
+        servidor,
+        "aresta_remover_repeated",
+        {"alvo": "uid_croqui_raiz", "campo": "creditos", "indice": 0},
+    )
+    assert len(emissoes) == 0
+
+    res_via = _chamar(
+        servidor,
+        "aresta_adicionar_repeated",
+        {"alvo": "uid_setor_base", "campo": "escaladas", "valor": {"nome": "Via Indexada"}},
+    )
+    assert len(emissoes) >= 1
+    assert model.indice_uids.existe(res_via["uid"]) is True
+
+    _chamar(
+        servidor,
+        "aresta_remover_repeated",
+        {"alvo": "uid_setor_base", "campo": "escaladas", "indice": 1},
+    )
+    assert model.indice_uids.existe(res_via["uid"]) is False

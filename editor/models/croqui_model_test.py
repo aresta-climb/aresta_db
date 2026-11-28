@@ -2016,3 +2016,43 @@ def test_croqui_model_carrega_frontmatter_com_tres_hifens_embutidos_em_strings_y
     assert setor.escaladas[0].via_esportiva.nome == "Via --- Crucial"
     assert setor.descricao == "Descrição em markdown --- com travessão triplo."
     assert croqui.botoes[0].destino.secao_textual.conteudo == "Trilha principal --- seguir placas."
+
+
+def test_croqui_model_reconstroi_indice_uids_apenas_para_colecoes_indexadas(qapp):
+    """
+    Mutação repeated em coleções sem UIDs indexados (ex: curadoria_betas) não deve reconstruir
+    IndiceUidsModel nem emitir indice_alterado; mutações em escaladas devem atualizar o índice.
+    """
+    from aresta_api.proto.generated import beta_pb2
+
+    croqui = Croqui(uid="croqui_idx_seletivo")
+    setor = croqui.picos.add(nome="Pico").setores_ou_grupos.add().setor.conteudo
+    setor.uid = "setor_idx_sel"
+    esc = setor.escaladas.add(uid="esc_idx_sel_1")
+    esc.via_esportiva.nome = "Via 1"
+    cur = croqui.curadoria_betas.conteudo.escaladas.add(escalada_uid="esc_idx_sel_1")
+
+    model = CroquiModel(croqui)
+    emissoes_indice: list[bool] = []
+    model.indice_uids.indice_alterado.connect(lambda: emissoes_indice.append(True))
+
+    cand1 = beta_pb2.CandidatoMidiaBeta()
+    cand1.midia.url = "https://youtube.com/watch?v=abc"
+    cand2 = beta_pb2.CandidatoMidiaBeta()
+    cand2.midia.url = "https://youtube.com/watch?v=def"
+
+    model._adicionar_repeated(cur, "betas_nao_scorados", 0, cand1)
+    model._adicionar_repeated(cur, "betas_nao_scorados", 1, cand2)
+    model._mover_repeated(cur, "betas_nao_scorados", 0, 1)
+    cand_alt = beta_pb2.CandidatoMidiaBeta()
+    cand_alt.midia.url = "https://youtube.com/watch?v=xyz"
+    model._alterar_repeated_item(cur, "betas_nao_scorados", 0, cand_alt)
+    model._remover_repeated(cur, "betas_nao_scorados", 0)
+    assert len(emissoes_indice) == 0
+
+    nova_esc = setor.escaladas.add(uid="esc_idx_sel_2")
+    nova_esc.via_esportiva.nome = "Via 2"
+    setor.escaladas.pop()
+    model._adicionar_repeated(setor, "escaladas", 1, nova_esc)
+    assert len(emissoes_indice) == 1
+    assert model.indice_uids.existe("esc_idx_sel_2") is True

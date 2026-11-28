@@ -186,7 +186,7 @@ Os comandos canônicos que introduzem ou substituem mensagens Protobuf na árvor
 - **THEN** o comando preenche automaticamente o `uid` na nova mensagem antes de congelar `valor_novo` e aplica a mutação indexando o novo `uid` no `IndiceUidsModel`
 
 ### Requirement: Migração de Escalada e Alteração Multi-Alvo em Lote via CmdMacro
-O `CroquiController` SHALL disponibilizar os métodos compostos `migrar_escalada` (combinando `CmdRemoverRepeated` no setor de origem e `CmdAdicionarRepeated` no setor de destino sem expurgar imagens da escalada em RAM) e `alterar_em_lote` (instanciando e validando previamente todos os comandos de múltiplos alvos antes de empilhar um único `CmdMacro` na `QUndoStack`).
+O `CroquiController` SHALL disponibilizar os métodos compostos `migrar_escalada` (combinando `CmdRemoverRepeated` no setor de origem e `CmdAdicionarRepeated` no setor de destino sem expurgar imagens da escalada em RAM) e `alterar_em_lote` (instanciando e validando previamente todos os comandos de múltiplos alvos antes de empilhar um único `CmdMacro` na `QUndoStack`). Ao construir subcomandos múltiplos para um mesmo alvo em `_construir_comandos_para_alvo`, `adicionar_multiplos_repeated` e `alterar_multiplos_repeated_items`, o controller SHALL resolver e validar o caminho canônico `caminho_res` uma única vez e repassar a string `alvo=caminho_res` aos comandos folha sem repetir varreduras DFS $O(\text{Croqui})$ na árvore. O `CroquiModel` SHALL reconstruir `IndiceUidsModel` em operações `repeated` (`_adicionar_repeated`, `_remover_repeated`, `_mover_repeated`, `_alterar_repeated_item`) exclusivamente quando `campo_nome` pertencer ao conjunto de coleções com UIDs indexados (`botoes`, `picos`, `setores_ou_grupos`, `setores`, `escaladas`, `enfiadas`), evitando reconstruções repetitivas em coleções de curadoria ou anexos auxiliares.
 
 #### Scenario: Migração de escalada preserva imagens em RAM e reverte em um único Undo
 - **WHEN** `CroquiController.migrar_escalada` move uma `Escalada` contendo imagens associadas de um `Setor` de origem para um `Setor` de destino
@@ -195,6 +195,10 @@ O `CroquiController` SHALL disponibilizar os métodos compostos `migrar_escalada
 #### Scenario: Alteração em lote multi-alvo valida todos os comandos antes de empilhar CmdMacro
 - **WHEN** `CroquiController.alterar_em_lote` recebe uma sequência de operações para diferentes alvos da árvore Protobuf
 - **THEN** todos os comandos folha (`CmdAlterarCampo`, `CmdRemoverRepeated`, `CmdAdicionarRepeated`) são instanciados e validados antes de empilhar um único `CmdMacro` na `QUndoStack`, garantindo reversão integral em um passo de `undo()`
+
+#### Scenario: Alteração em lote sobre coleções de curadoria executa em tempo sub-segundo sem reindexar UIDs
+- **WHEN** `CroquiController.alterar_em_lote` substitui dezenas de listas `betas_nao_scorados` e `betas_nao_revisados` em um croqui populado com milhares de `betas_rejeitados`
+- **THEN** o controller reutiliza o caminho canônico em $O(1)$ nos subcomandos gerados, o `CroquiModel` não dispara reconstrução do `IndiceUidsModel` nem emite `indice_alterado`, e o lote completo conclui em menos de `200 ms` com reversão atômica por um único `undo()`
 
 ### Requirement: Sugestão de Campos Válidos em Erros de Campo Inexistente e Preservação Opt-In em Oneof
 Quando um comando Protobuf ou validação de alvo receber um nome de campo inexistente na mensagem alvo, a exceção `ValueError` SHALL listar em ordem alfabética os nomes de campos e `oneofs` válidos do `DESCRIPTOR` daquela mensagem. Adicionalmente, `CroquiController.alterar_campo` e `alterar_em_lote` SHALL suportar `preservar_campos_compativeis: bool = False` na troca de ramo `oneof`, e `MapasController.remover_referencia` SHALL remover referências via comandos na `QUndoStack`.

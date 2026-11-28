@@ -6,7 +6,7 @@ Define a interface gráfica PySide6 de revisão e curadoria 1 a 1 de betas (`Pai
 ## Requirements
 
 ### Requirement: Interface PySide6 de Curadoria
-O sistema SHALL disponibilizar a aba **Betas** (`PainelCuradoriaBetas`) visível na barra lateral da `JanelaPrincipal` do Editor Desktop, apresentando para as escaladas do croqui 4 seções colapsáveis (estilo Expando `▼` / `▶`) na ordem lógica do pipeline (`betas_nao_scorados`, `betas_nao_revisados`, `betas` e `betas_rejeitados`), botões de aprovação/rejeição em lote baseados em limiar de score da LLM exclusivamente na seção `betas_nao_revisados`, botão para abrir o wizard de conexão MCP na seção `betas_nao_scorados` e um Wizard **"Coletar Betas..."** que executa as buscas em paralelo em background (`QThread` + `ThreadPoolExecutor`) mantendo a interface gráfica responsiva (`< 8ms` na thread principal) e preservando a posição de rolagem vertical.
+O sistema SHALL disponibilizar a aba **Betas** (`PainelCuradoriaBetas`) visível na barra lateral da `JanelaPrincipal` do Editor Desktop, apresentando para as escaladas do croqui 4 seções colapsáveis (estilo Expando `▼` / `▶`) na ordem lógica do pipeline (`betas_nao_scorados`, `betas_nao_revisados`, `betas` e `betas_rejeitados`), botões de aprovação/rejeição em lote baseados em limiar de score da LLM exclusivamente na seção `betas_nao_revisados`, botão para abrir o wizard de conexão MCP na seção `betas_nao_scorados` e um Wizard **"Coletar Betas..."** que executa as buscas em paralelo em background (`QThread` + `ThreadPoolExecutor`), reavalia itens `[Auto-filtrado: ...]` offline mantendo rejeições manuais intactas, oferece controle explícito para ignorar na busca web escaladas que já possuem coleta (`chk_apenas_sem_coleta`), mantém a interface gráfica responsiva (`< 8ms` na thread principal) e preserva a posição de rolagem vertical.
 
 #### Scenario: Apresentação da lista de vídeos e imagens
 - **WHEN** o curador abre a aba **Betas** no Editor Desktop
@@ -26,9 +26,9 @@ O sistema SHALL disponibilizar a aba **Betas** (`PainelCuradoriaBetas`) visível
 
 #### Scenario: Execução do Wizard "Coletar Betas..." com progresso
 - **WHEN** o usuário abre o diálogo **"Coletar Betas..."** na aba **Betas**
-- **THEN** no estado inicial o diálogo MUST exibir os botões **"Cancelar"** e **"Iniciar Coleta"**.
+- **THEN** no estado inicial o diálogo MUST exibir os botões **"Cancelar"**, **"Iniciar Coleta"** e a caixa de seleção `chk_apenas_sem_coleta` permitindo optar por pular na busca web escaladas que já possuam coleta registrada.
 - **THEN** enquanto a coleta estiver em execução, o botão **"Iniciar Coleta"** MUST ficar oculto e apenas o botão **"Cancelar Coleta"** MUST ficar visível.
-- **THEN** ao concluir a coleta (`100%`), os novos candidatos aprovados pelo filtro MUST ser adicionados em `betas_nao_scorados` e os itens auto-filtrados MUST ser adicionados em `betas_rejeitados` em um único grupo de Undo/Redo no `CroquiController`, e o rodapé do diálogo MUST exibir exclusivamente o botão **"Finalizar"** para fechar o modal.
+- **THEN** ao concluir a coleta (`100%`), os itens `[Auto-filtrado: ...]` resgatados offline e os novos candidatos aprovados pelo filtro MUST ser adicionados em `betas_nao_scorados` e os itens auto-filtrados MUST ser adicionados em `betas_rejeitados` em um único grupo de Undo/Redo no `CroquiController` mantendo rejeições humanas intactas, e o rodapé do diálogo MUST exibir exclusivamente o botão **"Finalizar"** para fechar o modal.
 
 #### Scenario: Execução do Wizard "Coletar Betas..." em background sem travar a UI
 - **WHEN** o usuário clica em **"Iniciar Coleta"** no diálogo **"Coletar Betas..."**

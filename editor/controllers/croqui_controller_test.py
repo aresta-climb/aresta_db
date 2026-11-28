@@ -1560,3 +1560,407 @@ def test_croqui_controller_preservar_campos_compativeis_na_troca_de_oneof(qapp):
     assert esc.boulder.nome == "Meio Cubanos"
     assert not esc.boulder.HasField("dificuldade")
     assert list(esc.boulder.conquistadores) == ["Sobrescrito"]
+
+
+def test_croqui_controller_lote_curadoria_reutiliza_caminhos_em_o1_sem_reconstruir_indice(qapp):
+    """
+    Lote com dezenas de CuradoriaBetasEscalada e lotes repeated deve reutilizar caminho_res
+    em O(1), não disparar reconstrução de IndiceUidsModel e concluir em menos de 250ms.
+    """
+    import time
+
+    from aresta_api.proto.generated import beta_pb2, croqui_pb2
+
+    croqui = croqui_pb2.Croqui(uid="croqui_perf_lote")
+    setor = croqui.picos.add(nome="Pico Grande").setores_ou_grupos.add().setor.conteudo
+    setor.uid = "setor_perf_lote"
+
+    operacoes: list[dict[str, object]] = []
+    for i in range(85):
+        esc = setor.escaladas.add(uid=f"esc_perf_{i:03d}")
+        esc.via_esportiva.nome = f"Via {i}"
+        cur = croqui.curadoria_betas.conteudo.escaladas.add(escalada_uid=f"esc_perf_{i:03d}")
+        for r in range(50):
+            cur.betas_rejeitados.add(
+                url=f"https://instagram.com/p/rej_{i}_{r}",
+                titulo=f"[Query: instagram | Auto-filtrado: sem menção à via] Rej {r}",
+                fonte=beta_pb2.FonteMidia.INSTAGRAM,
+            )
+        cand = cur.betas_nao_scorados.add()
+        cand.midia.url = f"https://youtube.com/watch?v=vid_{i:03d}"
+        cand.midia.titulo = f"Via {i} Pico Grande"
+        cand.midia.fonte = beta_pb2.FonteMidia.YOUTUBE
+
+        promovido = beta_pb2.CandidatoMidiaBeta()
+        promovido.CopyFrom(cand)
+        promovido.resultado_llm.llm_confidence_score = 92
+        promovido.resultado_llm.llm_reasoning = "Correspondência exata"
+        operacoes.append(
+            {
+                "alvo": f"curadoria_betas.conteudo.escaladas.{i}",
+                "campos": {
+                    "betas_nao_scorados": [],
+                    "betas_nao_revisados": [promovido],
+                },
+            }
+        )
+
+    model = CroquiModel(croqui)
+    undo_stack = QUndoStack()
+    controller = CroquiController(model, undo_stack)
+    emissoes_indice: list[bool] = []
+    model.indice_uids.indice_alterado.connect(lambda: emissoes_indice.append(True))
+
+    t0 = time.perf_counter()
+    controller.alterar_em_lote(operacoes, texto_macro="Pontuar Lote O(1)")
+    dt_ms = (time.perf_counter() - t0) * 1000.0
+
+    assert dt_ms < 250.0, f"Lote levou {dt_ms:.1f}ms (esperado < 250ms)"
+    assert len(emissoes_indice) == 0
+    assert undo_stack.count() == 1
+    assert len(croqui.curadoria_betas.conteudo.escaladas[0].betas_nao_scorados) == 0
+    assert len(croqui.curadoria_betas.conteudo.escaladas[84].betas_nao_revisados) == 1
+
+    undo_stack.undo()
+    assert len(croqui.curadoria_betas.conteudo.escaladas[0].betas_nao_scorados) == 1
+    assert len(croqui.curadoria_betas.conteudo.escaladas[84].betas_nao_revisados) == 0
+
+    # Também valida adicionar_multiplos_repeated e alterar_multiplos_repeated_items com objeto Message
+    controller.adicionar_multiplos_repeated(croqui, "creditos", 0, ["Autor A", "Autor B"])
+    controller.alterar_multiplos_repeated_items(
+        croqui,
+        "creditos",
+        [(0, "Autor A", "Autor A2"), (1, "Autor B", "Autor B2")],
+    )
+    assert list(croqui.creditos) == ["Autor A2", "Autor B2"]
+    assert len(emissoes_indice) == 0
+
+
+def test_croqui_controller_pontuar_betas_em_lote_preserva_snippets_ordena_e_falha_cedo(qapp):
+    """
+    Valida que pontuar_betas_em_lote promove candidatos de betas_nao_scorados para
+    betas_nao_revisados preservando snippets e metadados originais, mesclando em ordem
+    decrescente com itens existentes, revertendo em 1 undo e validando erros fail-fast.
+    """
+    import pytest
+
+    from aresta_api.proto.generated import beta_pb2, croqui_pb2
+
+    croqui = croqui_pb2.Croqui(uid="croqui_pontuar_lote")
+    setor = croqui.picos.add(nome="Pedra Grande").setores_ou_grupos.add().setor.conteudo
+    setor.uid = "setor_pontuar"
+    esc1 = setor.escaladas.add(uid="esc_pont_1")
+    esc1.via_esportiva.nome = "Via Inanição"
+    esc2 = setor.escaladas.add(uid="esc_pont_2")
+    esc2.boulder.nome = "Via Sem Curadoria"
+
+    cur1 = croqui.curadoria_betas.conteudo.escaladas.add(escalada_uid="esc_pont_1")
+    cand_a = cur1.betas_nao_scorados.add()
+    cand_a.midia.url = "https://www.youtube.com/watch?v=JZsMiVEl8YA&t=5s"
+    cand_a.midia.titulo = "Inanição Pedra Grande de Igarapé"
+    cand_a.midia.fonte = beta_pb2.FonteMidia.YOUTUBE
+    cand_a.match_multiplas_fontes = True
+    cand_a.match_nome_no_snippet = True
+    cand_a.snippets.extend(["Cadena na via Inanição em Igarapé", "Snippet 2"])
+
+    cand_b = cur1.betas_nao_scorados.add()
+    cand_b.midia.url = "https://instagram.com/p/CandB"
+    cand_b.midia.titulo = "Menção ambígua"
+    cand_b.midia.fonte = beta_pb2.FonteMidia.INSTAGRAM
+    cand_b.snippets.append("Foto na base")
+
+    cand_restante = cur1.betas_nao_scorados.add()
+    cand_restante.midia.url = "https://tiktok.com/@user/video/999"
+    cand_restante.midia.titulo = "Não avaliado agora"
+    cand_restante.midia.fonte = beta_pb2.FonteMidia.TIKTOK
+
+    existente = cur1.betas_nao_revisados.add()
+    existente.midia.url = "https://blog.exemplo.com/antigo"
+    existente.midia.titulo = "Existente 80"
+    existente.midia.fonte = beta_pb2.FonteMidia.BLOG
+    existente.resultado_llm.llm_confidence_score = 80
+    existente.resultado_llm.llm_reasoning = "Antigo 80"
+
+    model = CroquiModel(croqui)
+    undo_stack = QUndoStack()
+    controller = CroquiController(model, undo_stack)
+
+    # Erros fail-fast não devem mutar o modelo
+    with pytest.raises(ValueError, match="não vazia"):
+        controller.pontuar_betas_em_lote([])
+
+    with pytest.raises(KeyError, match="esc_inexistente"):
+        controller.pontuar_betas_em_lote(
+            [
+                {
+                    "escalada_uid": "esc_inexistente",
+                    "avaliacoes": [
+                        {
+                            "url": "https://youtube.com/watch?v=JZsMiVEl8YA",
+                            "llm_confidence_score": 90,
+                            "llm_reasoning": "Ok",
+                        }
+                    ],
+                }
+            ]
+        )
+
+    with pytest.raises(ValueError, match="não possui candidatos"):
+        controller.pontuar_betas_em_lote(
+            [
+                {
+                    "escalada_uid": "esc_pont_2",
+                    "avaliacoes": [
+                        {
+                            "url": "https://youtube.com/watch?v=abc",
+                            "llm_confidence_score": 90,
+                            "llm_reasoning": "Ok",
+                        }
+                    ],
+                }
+            ]
+        )
+
+    with pytest.raises(ValueError, match="não vazia"):
+        controller.pontuar_betas_em_lote([{"escalada_uid": "esc_pont_1", "avaliacoes": []}])
+
+    with pytest.raises(ValueError, match="não encontrado em betas_nao_scorados"):
+        controller.pontuar_betas_em_lote(
+            [
+                {
+                    "escalada_uid": "esc_pont_1",
+                    "avaliacoes": [
+                        {
+                            "url": "https://youtube.com/watch?v=DESCONHECIDO",
+                            "llm_confidence_score": 90,
+                            "llm_reasoning": "Ok",
+                        }
+                    ],
+                }
+            ]
+        )
+
+    with pytest.raises(ValueError, match="duplicada"):
+        controller.pontuar_betas_em_lote(
+            [
+                {
+                    "escalada_uid": "esc_pont_1",
+                    "avaliacoes": [
+                        {
+                            "url": "https://youtube.com/watch?v=JZsMiVEl8YA",
+                            "llm_confidence_score": 95,
+                            "llm_reasoning": "Ok",
+                        },
+                        {
+                            "url": "https://youtube.com/watch?v=JZsMiVEl8YA",
+                            "llm_confidence_score": 90,
+                            "llm_reasoning": "Dup",
+                        },
+                    ],
+                }
+            ]
+        )
+
+    with pytest.raises(ValueError, match="0 e 100"):
+        controller.pontuar_betas_em_lote(
+            [
+                {
+                    "escalada_uid": "esc_pont_1",
+                    "avaliacoes": [
+                        {
+                            "url": "https://youtube.com/watch?v=JZsMiVEl8YA",
+                            "llm_confidence_score": True,
+                            "llm_reasoning": "Booleano inválido",
+                        }
+                    ],
+                }
+            ]
+        )
+
+    with pytest.raises(ValueError, match="llm_reasoning"):
+        controller.pontuar_betas_em_lote(
+            [
+                {
+                    "escalada_uid": "esc_pont_1",
+                    "avaliacoes": [
+                        {
+                            "url": "https://youtube.com/watch?v=JZsMiVEl8YA",
+                            "llm_confidence_score": 95,
+                            "llm_reasoning": "   ",
+                        }
+                    ],
+                }
+            ]
+        )
+
+    assert undo_stack.count() == 0
+
+    # Execução válida parcial (2 de 3 candidatos), normalizando a URL e preservando snippets
+    resumo = controller.pontuar_betas_em_lote(
+        [
+            {
+                "escalada_uid": "esc_pont_1",
+                "avaliacoes": [
+                    {
+                        "url": "https://instagram.com/p/CandB",
+                        "llm_confidence_score": 60,
+                        "llm_reasoning": "Apenas foto na base.",
+                    },
+                    {
+                        "url": "https://youtube.com/watch?v=JZsMiVEl8YA",
+                        "llm_confidence_score": 98,
+                        "llm_reasoning": "Vídeo exato da via Inanição em Igarapé.",
+                    },
+                ],
+            }
+        ],
+        context_path="mcp_contexto_teste",
+    )
+    assert resumo == {"escaladas_atualizadas": 1, "candidatos_pontuados": 2}
+    assert undo_stack.count() == 1
+    assert [c.midia.url for c in cur1.betas_nao_scorados] == ["https://tiktok.com/@user/video/999"]
+    assert [c.resultado_llm.llm_confidence_score for c in cur1.betas_nao_revisados] == [98, 80, 60]
+    topo = cur1.betas_nao_revisados[0]
+    assert list(topo.snippets) == ["Cadena na via Inanição em Igarapé", "Snippet 2"]
+    assert topo.match_multiplas_fontes is True
+    assert topo.match_nome_no_snippet is True
+    assert topo.resultado_llm.llm_reasoning == "Vídeo exato da via Inanição em Igarapé."
+
+    # 1 Undo reverte tudo atomicamente
+    undo_stack.undo()
+    assert len(cur1.betas_nao_scorados) == 3
+    assert len(cur1.betas_nao_revisados) == 1
+    assert cur1.betas_nao_revisados[0].midia.url == "https://blog.exemplo.com/antigo"
+
+
+def test_croqui_controller_reavaliar_betas_auto_filtrados_promove_validos_preservando_manuais(
+    qapp,
+):
+    """
+    Valida que reavaliar_betas_auto_filtrados promove apenas itens '[Auto-filtrado: ...]' que
+    agora passam nos filtros (incluindo Pico.cidade e Croqui.nome), restaura título limpo,
+    mantém rejeições manuais e itens ainda inválidos em betas_rejeitados e reverte em 1 undo.
+    """
+    from aresta_api.proto.generated import beta_pb2, croqui_pb2
+
+    croqui = croqui_pb2.Croqui(
+        uid="croqui_reav",
+        nome="Pedra Grande - Igarapé (Igarameca)",
+    )
+    pico = croqui.picos.add(nome="Complexo Pedra Grande", cidade="Igarapé")
+    sg = pico.setores_ou_grupos.add()
+    setor = sg.setor.conteudo
+    setor.uid = "setor_reav"
+
+    esc1 = setor.escaladas.add(uid="esc_reav_1")
+    esc1.via_esportiva.nome = "Inanição"
+    esc_ph = setor.escaladas.add(uid="esc_reav_ph")
+    esc_ph.via_esportiva.nome = "Sem nome 1"
+
+    grupo = pico.setores_ou_grupos.add().grupo.conteudo
+    grupo.uid = "grupo_reav"
+    setor_grp = grupo.setores.add().conteudo
+    setor_grp.uid = "setor_grp_reav"
+    esc_grp = setor_grp.escaladas.add(uid="esc_reav_grp")
+    esc_grp.boulder.nome = "Via do Grupo"
+    cur_grp = croqui.curadoria_betas.conteudo.escaladas.add(escalada_uid="esc_reav_grp")
+    cur_grp.betas_rejeitados.add(
+        url="https://youtube.com/watch?v=grp_passa",
+        titulo="[Query: youtube | Auto-filtrado: sem menção ao pico] Via do Grupo Igarapé",
+        fonte=beta_pb2.FonteMidia.YOUTUBE,
+    )
+
+    cur_orfa = croqui.curadoria_betas.conteudo.escaladas.add(escalada_uid="esc_uid_removida")
+    cur_orfa.betas_rejeitados.add(
+        url="https://youtube.com/watch?v=orfa",
+        titulo="[Query: youtube | Auto-filtrado: sem menção ao pico] Órfã Igarapé",
+        fonte=beta_pb2.FonteMidia.YOUTUBE,
+    )
+
+    cur1 = croqui.curadoria_betas.conteudo.escaladas.add(escalada_uid="esc_reav_1")
+    # 0a. Auto-filtrado com domínio bloqueado (scribd) ou sem menção à via continua bloqueado
+    cur1.betas_rejeitados.add(
+        url="https://pt.scribd.com/doc/123",
+        titulo="[Query: geral | Auto-filtrado: domínio bloqueado] Inanição Igarapé",
+        fonte=beta_pb2.FonteMidia.BLOG,
+    )
+    cur1.betas_rejeitados.add(
+        url="https://youtube.com/watch?v=sem_via",
+        titulo="[Query: youtube | Auto-filtrado: sem menção à via] Igarapé escalada",
+        fonte=beta_pb2.FonteMidia.YOUTUBE,
+    )
+    # 1. Auto-filtrado antigo por não ter "Pedra Grande", mas cita "Igarameca" (nome_croqui) -> deve ser promovido!
+    cur1.betas_rejeitados.add(
+        url="https://youtube.com/watch?v=resgatado_croqui",
+        titulo="[Query: youtube | Auto-filtrado: sem menção ao pico] Inanição no Igarameca",
+        fonte=beta_pb2.FonteMidia.YOUTUBE,
+    )
+    # 2. Auto-filtrado que cita a cidade "Igarapé" -> deve ser promovido!
+    cur1.betas_rejeitados.add(
+        url="https://instagram.com/reel/resgatado_cidade",
+        titulo="[Query: instagram | Auto-filtrado: sem menção ao pico] Via Inanição Igarapé",
+        fonte=beta_pb2.FonteMidia.INSTAGRAM,
+    )
+    # 3. Auto-filtrado que continua fora de contexto (Itatiaia) -> permanece em betas_rejeitados
+    cur1.betas_rejeitados.add(
+        url="https://youtube.com/watch?v=fica_rejeitado",
+        titulo="[Query: youtube | Auto-filtrado: sem menção ao pico] Inanição em Itatiaia",
+        fonte=beta_pb2.FonteMidia.YOUTUBE,
+    )
+    # 4. Rejeição humana (sem prefixo Auto-filtrado) -> NUNCA deve ser promovida!
+    cur1.betas_rejeitados.add(
+        url="https://youtube.com/watch?v=humano_rejeitado",
+        titulo="Inanição Pedra Grande Igarapé (Rejeitado pelo curador)",
+        fonte=beta_pb2.FonteMidia.YOUTUBE,
+    )
+    # 5. Escalada placeholder nunca promove auto-filtrados
+    cur_ph = croqui.curadoria_betas.conteudo.escaladas.add(escalada_uid="esc_reav_ph")
+    cur_ph.betas_rejeitados.add(
+        url="https://youtube.com/watch?v=ph_item",
+        titulo="[Query: youtube | Auto-filtrado: sem menção ao pico] Sem nome 1 Igarapé",
+        fonte=beta_pb2.FonteMidia.YOUTUBE,
+    )
+
+    model = CroquiModel(croqui)
+    undo_stack = QUndoStack()
+    controller = CroquiController(model, undo_stack)
+
+    promovidos = controller.reavaliar_betas_auto_filtrados(
+        escaladas_uids=["esc_reav_1", "esc_reav_ph", "esc_uid_removida"]
+    )
+    assert promovidos == 2
+    assert undo_stack.count() == 1
+
+    urls_nao_scorados = [c.midia.url for c in cur1.betas_nao_scorados]
+    assert urls_nao_scorados == [
+        "https://youtube.com/watch?v=resgatado_croqui",
+        "https://instagram.com/reel/resgatado_cidade",
+    ]
+    assert cur1.betas_nao_scorados[0].midia.titulo == "Inanição no Igarameca"
+    assert cur1.betas_nao_scorados[1].midia.titulo == "Via Inanição Igarapé"
+
+    urls_rejeitados_restantes = [r.url for r in cur1.betas_rejeitados]
+    assert urls_rejeitados_restantes == [
+        "https://pt.scribd.com/doc/123",
+        "https://youtube.com/watch?v=sem_via",
+        "https://youtube.com/watch?v=fica_rejeitado",
+        "https://youtube.com/watch?v=humano_rejeitado",
+    ]
+    assert len(cur_ph.betas_nao_scorados) == 0
+
+    # Chamada global sem filtro promove apenas o item restante (do setor dentro de grupo)
+    assert controller.reavaliar_betas_auto_filtrados() == 1
+    assert [c.midia.url for c in cur_grp.betas_nao_scorados] == [
+        "https://youtube.com/watch?v=grp_passa"
+    ]
+    undo_stack.undo()
+    assert undo_stack.index() == 1
+
+    # Segunda execução imediata sem novidades retorna 0 sem empilhar novo comando
+    assert controller.reavaliar_betas_auto_filtrados(escaladas_uids=["esc_reav_1"]) == 0
+    assert undo_stack.index() == 1
+
+    # Undo único restaura tudo ao estado original
+    undo_stack.undo()
+    assert len(cur1.betas_nao_scorados) == 0
+    assert len(cur1.betas_rejeitados) == 6

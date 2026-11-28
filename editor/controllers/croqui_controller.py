@@ -6,6 +6,7 @@ Controlador da Arquitetura MVC para o Croqui.
 Orquestra intenções da UI gerando comandos canônicos no QUndoStack / histórico.
 """
 
+from collections.abc import Sequence
 from pathlib import Path
 from typing import Any
 
@@ -176,10 +177,16 @@ class CroquiController:
                         c for item_novo in val_c for c in extrair_caminhos_imagens(item_novo)
                     }
                     colecao_atual = getattr(msg_alvo, nome_c)
+                    raiz_raw = getattr(
+                        self.model.obter_croqui_readonly(),
+                        "_obj",
+                        self.model.obter_croqui_readonly(),
+                    )
+                    alvo_cmd = caminho_res if (caminho_res or msg_alvo is raiz_raw) else msg_alvo
                     for idx_rem in range(len(colecao_atual) - 1, -1, -1):
                         cmd_rem = CmdRemoverRepeated(
                             model=self.model,
-                            alvo=msg_alvo,
+                            alvo=alvo_cmd,
                             campo_nome=nome_c,
                             index=idx_rem,
                             valor_removido=colecao_atual[idx_rem],
@@ -192,7 +199,7 @@ class CroquiController:
                         comandos.append(
                             CmdAdicionarRepeated(
                                 model=self.model,
-                                alvo=msg_alvo,
+                                alvo=alvo_cmd,
                                 campo_nome=nome_c,
                                 index=idx_add,
                                 valor=item_novo,
@@ -450,10 +457,18 @@ class CroquiController:
         """Adiciona um ou mais itens consecutivos em coleção repeated (em CmdMacro quando múltiplos)."""
         if not valores:
             return
+        caminho_alvo = validar_pertence_ao_croqui(
+            self.model, msg, campo_nome, nome_comando="CmdAdicionarRepeated"
+        )
+        raiz_raw = getattr(
+            self.model.obter_croqui_readonly(), "_obj", self.model.obter_croqui_readonly()
+        )
+        msg_raw = getattr(msg, "_obj", msg)
+        alvo_cmd = caminho_alvo if (caminho_alvo or msg_raw is raiz_raw) else msg
         comandos: list[ComandoEditor] = [
             CmdAdicionarRepeated(
                 model=self.model,
-                alvo=msg,
+                alvo=alvo_cmd,
                 campo_nome=campo_nome,
                 index=index_inicial + offset,
                 valor=item,
@@ -512,10 +527,18 @@ class CroquiController:
         """Altera múltiplos itens de uma coleção repeated simultaneamente via CmdMacro."""
         if not alteracoes:
             return
+        caminho_alvo = validar_pertence_ao_croqui(
+            self.model, msg, campo_nome, nome_comando="CmdAlterarCampo"
+        )
+        raiz_raw = getattr(
+            self.model.obter_croqui_readonly(), "_obj", self.model.obter_croqui_readonly()
+        )
+        msg_raw = getattr(msg, "_obj", msg)
+        alvo_cmd = caminho_alvo if (caminho_alvo or msg_raw is raiz_raw) else msg
         comandos: list[ComandoEditor] = [
             CmdAlterarCampo(
                 model=self.model,
-                alvo=msg,
+                alvo=alvo_cmd,
                 campo_nome=f"{campo_nome}.{idx}",
                 valor_novo=v_novo,
                 valor_antigo=v_antigo,
@@ -1492,3 +1515,272 @@ class CroquiController:
         finally:
             self.finalizar_grupo_undo()
         return total_rejeitados
+
+    def pontuar_betas_em_lote(
+        self,
+        escaladas: Sequence[dict[str, Any]],
+        context_path: str | None = None,
+    ) -> dict[str, int]:
+        """
+        Promove candidatos avaliados de `betas_nao_scorados` para `betas_nao_revisados`
+        em múltiplas escaladas de forma atômica via um único `CmdMacro`.
+        Preserva `midia`, `snippets` e flags originais da RAM e reordena `betas_nao_revisados`
+        de forma decrescente por `llm_confidence_score`.
+        """
+        from aresta_api.proto.generated import beta_pb2
+        from coleta_de_betas.extratores.deduplicador import normalizar_url
+
+        if (
+            not isinstance(escaladas, Sequence)
+            or isinstance(escaladas, (str, bytes))
+            or not escaladas
+        ):
+            raise ValueError("Informe uma lista não vazia em 'escaladas' para pontuar betas.")
+
+        operacoes: list[dict[str, Any]] = []
+        total_candidatos = 0
+
+        for item_esc in escaladas:
+            esc_uid = str(item_esc.get("escalada_uid") or "").strip()
+            self._obter_escalada_por_uid(esc_uid)
+            caminho_cur, curadoria_esc = self._obter_caminho_e_curadoria_escalada(esc_uid)
+            if caminho_cur is None or curadoria_esc is None:
+                raise ValueError(f"Escalada '{esc_uid}' não possui candidatos em curadoria_betas.")
+
+            avaliacoes = item_esc.get("avaliacoes")
+            if (
+                not isinstance(avaliacoes, Sequence)
+                or isinstance(avaliacoes, (str, bytes))
+                or not avaliacoes
+            ):
+                raise ValueError(
+                    f"Informe uma lista não vazia em 'avaliacoes' para a escalada '{esc_uid}'."
+                )
+
+            mapa_indices_por_url: dict[str, int] = {}
+            for idx_cand, cand in enumerate(curadoria_esc.betas_nao_scorados):
+                chave_url = normalizar_url(cand.midia.url)
+                if chave_url and chave_url not in mapa_indices_por_url:
+                    mapa_indices_por_url[chave_url] = idx_cand
+
+            indices_promovidos: dict[int, tuple[int, str]] = {}
+            for av in avaliacoes:
+                url_raw = str(av.get("url") or "").strip()
+                url_norm = normalizar_url(url_raw)
+                idx_cand = mapa_indices_por_url.get(url_norm, -1)
+                if idx_cand < 0:
+                    raise ValueError(
+                        f"Candidato com URL '{url_raw}' não encontrado em betas_nao_scorados "
+                        f"da escalada '{esc_uid}'."
+                    )
+                if idx_cand in indices_promovidos:
+                    raise ValueError(
+                        f"Avaliação duplicada para a URL '{url_raw}' na escalada '{esc_uid}'."
+                    )
+
+                score_bruto = av.get("llm_confidence_score")
+                if (
+                    isinstance(score_bruto, bool)
+                    or not isinstance(score_bruto, int)
+                    or not (0 <= score_bruto <= 100)
+                ):
+                    raise ValueError(
+                        f"Score 'llm_confidence_score' inválido ({score_bruto!r}) para '{url_raw}'; "
+                        "informe um inteiro entre 0 e 100."
+                    )
+
+                justificativa = str(av.get("llm_reasoning") or "").strip()
+                if not justificativa:
+                    raise ValueError(
+                        f"Campo 'llm_reasoning' obrigatório e não vazio para '{url_raw}' "
+                        f"na escalada '{esc_uid}'."
+                    )
+
+                indices_promovidos[idx_cand] = (score_bruto, justificativa)
+
+            novos_nao_scorados: list[beta_pb2.CandidatoMidiaBeta] = []
+            recem_pontuados: list[beta_pb2.CandidatoMidiaBeta] = []
+            for idx_cand, cand_orig in enumerate(curadoria_esc.betas_nao_scorados):
+                if idx_cand in indices_promovidos:
+                    score_val, justif_val = indices_promovidos[idx_cand]
+                    copia_pont = beta_pb2.CandidatoMidiaBeta()
+                    copia_pont.CopyFrom(cand_orig)
+                    copia_pont.resultado_llm.llm_confidence_score = score_val
+                    copia_pont.resultado_llm.llm_reasoning = justif_val
+                    recem_pontuados.append(copia_pont)
+                else:
+                    copia_mantida = beta_pb2.CandidatoMidiaBeta()
+                    copia_mantida.CopyFrom(cand_orig)
+                    novos_nao_scorados.append(copia_mantida)
+
+            novos_nao_revisados: list[beta_pb2.CandidatoMidiaBeta] = []
+            for item_existente in curadoria_esc.betas_nao_revisados:
+                copia_ex = beta_pb2.CandidatoMidiaBeta()
+                copia_ex.CopyFrom(item_existente)
+                novos_nao_revisados.append(copia_ex)
+            novos_nao_revisados.extend(recem_pontuados)
+            novos_nao_revisados.sort(
+                key=lambda c: int(c.resultado_llm.llm_confidence_score),
+                reverse=True,
+            )
+
+            operacoes.append(
+                {
+                    "alvo": caminho_cur,
+                    "campos": {
+                        "betas_nao_scorados": novos_nao_scorados,
+                        "betas_nao_revisados": novos_nao_revisados,
+                    },
+                }
+            )
+            total_candidatos += len(recem_pontuados)
+
+        ctx_anterior = self.contexto_atual_path
+        if context_path is not None:
+            self.contexto_atual_path = context_path
+        try:
+            self.alterar_em_lote(operacoes, texto_macro="Pontuar Betas (MCP)")
+        finally:
+            self.contexto_atual_path = ctx_anterior
+
+        return {
+            "escaladas_atualizadas": len(operacoes),
+            "candidatos_pontuados": total_candidatos,
+        }
+
+    def reavaliar_betas_auto_filtrados(
+        self,
+        escaladas_uids: Sequence[str] | None = None,
+        context_path: str | None = None,
+    ) -> int:
+        """
+        Reavalia offline itens em `betas_rejeitados` que possuem prefixo `[Query: ... | Auto-filtrado: ...]`,
+        promovendo para `betas_nao_scorados` (com o título limpo restaurado) aqueles que agora passam nos
+        filtros atuais (`eh_url_bloqueada`, `menciona_nome_via` e `menciona_contexto_local`).
+        Rejeições manuais sem prefixo de auto-filtro nunca são tocadas.
+        """
+        from aresta_api.proto.generated import beta_pb2
+        from coleta_de_betas.extratores.blog import (
+            eh_nome_escalada_placeholder,
+            eh_url_bloqueada,
+            extrair_titulo_original_auto_filtrado,
+            menciona_contexto_local,
+            menciona_nome_via,
+        )
+        from coleta_de_betas.extratores.deduplicador import normalizar_url
+
+        raiz = getattr(
+            self.model.obter_croqui_readonly(), "_obj", self.model.obter_croqui_readonly()
+        )
+        filtro_uids = (
+            {str(u).strip() for u in escaladas_uids} if escaladas_uids is not None else None
+        )
+        nome_croqui = str(getattr(raiz, "nome", "") or "").strip()
+
+        meta_por_uid: dict[str, tuple[Any, str, str, str]] = {}
+        for pico in getattr(raiz, "picos", []):
+            nome_pico = str(getattr(pico, "nome", "") or "").strip()
+            cidade = str(getattr(pico, "cidade", "") or "").strip()
+            for sg in getattr(pico, "setores_ou_grupos", []):
+                setores = []
+                if sg.HasField("setor"):
+                    setores.append(sg.setor.conteudo)
+                elif sg.HasField("grupo"):
+                    setores.extend(arq.conteudo for arq in sg.grupo.conteudo.setores)
+                for setor in setores:
+                    for esc in getattr(setor, "escaladas", []):
+                        tipo = esc.WhichOneof("tipo")
+                        nome_esc = (
+                            str(getattr(getattr(esc, tipo), "nome", "") or "").strip()
+                            if tipo
+                            else ""
+                        )
+                        meta_por_uid[esc.uid] = (esc, nome_esc, nome_pico, cidade)
+
+        operacoes_por_escalada: list[
+            tuple[str, Any, list[tuple[int, Any, beta_pb2.CandidatoMidiaBeta]]]
+        ] = []
+        total_promovidos = 0
+
+        for idx_cur, cur_esc in enumerate(raiz.curadoria_betas.conteudo.escaladas):
+            if filtro_uids is not None and cur_esc.escalada_uid not in filtro_uids:
+                continue
+            meta = meta_por_uid.get(cur_esc.escalada_uid)
+            if meta is None:
+                continue
+            esc_raw, nome_esc, nome_pico, cidade = meta
+            if eh_nome_escalada_placeholder(nome_esc):
+                continue
+
+            urls_ativas = (
+                {normalizar_url(m.url) for m in esc_raw.betas if m.url}
+                | {normalizar_url(c.midia.url) for c in cur_esc.betas_nao_scorados if c.midia.url}
+                | {normalizar_url(c.midia.url) for c in cur_esc.betas_nao_revisados if c.midia.url}
+            )
+            urls_ativas.discard("")
+
+            promocoes_esc: list[tuple[int, Any, beta_pb2.CandidatoMidiaBeta]] = []
+            for idx_rej, midia_rej in enumerate(cur_esc.betas_rejeitados):
+                titulo_limpo = extrair_titulo_original_auto_filtrado(midia_rej.titulo)
+                if titulo_limpo is None:
+                    continue
+                url_norm = normalizar_url(midia_rej.url)
+                if not url_norm or url_norm in urls_ativas or eh_url_bloqueada(url_norm):
+                    continue
+                texto = f"{titulo_limpo} {url_norm}"
+                if not menciona_nome_via(texto, nome_esc):
+                    continue
+                if not menciona_contexto_local(
+                    texto,
+                    nome_pico=nome_pico,
+                    cidade=cidade,
+                    nome_croqui=nome_croqui,
+                ):
+                    continue
+
+                urls_ativas.add(url_norm)
+                cand = beta_pb2.CandidatoMidiaBeta()
+                cand.midia.url = url_norm
+                cand.midia.titulo = titulo_limpo
+                cand.midia.fonte = midia_rej.fonte
+                cand.match_nome_no_snippet = True
+                promocoes_esc.append((idx_rej, midia_rej, cand))
+
+            if promocoes_esc:
+                operacoes_por_escalada.append(
+                    (f"curadoria_betas.conteudo.escaladas.{idx_cur}", cur_esc, promocoes_esc)
+                )
+                total_promovidos += len(promocoes_esc)
+
+        if total_promovidos == 0:
+            return 0
+
+        ctx = context_path or self.contexto_atual_path
+        self.iniciar_grupo_undo("Reavaliar Betas Auto-Filtrados")
+        try:
+            for caminho_cur, cur_esc, promocoes_esc in operacoes_por_escalada:
+                for idx_rej, midia_orig, _cand in reversed(promocoes_esc):
+                    self._executar_comando(
+                        CmdRemoverRepeated(
+                            model=self.model,
+                            alvo=caminho_cur,
+                            campo_nome="betas_rejeitados",
+                            index=idx_rej,
+                            valor_removido=midia_orig,
+                            context_path=ctx,
+                        )
+                    )
+                for _idx_rej, _midia_orig, cand in promocoes_esc:
+                    self._executar_comando(
+                        CmdAdicionarRepeated(
+                            model=self.model,
+                            alvo=caminho_cur,
+                            campo_nome="betas_nao_scorados",
+                            index=len(cur_esc.betas_nao_scorados),
+                            valor=cand,
+                            context_path=ctx,
+                        )
+                    )
+        finally:
+            self.finalizar_grupo_undo()
+        return total_promovidos
