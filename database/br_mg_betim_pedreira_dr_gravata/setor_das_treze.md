@@ -50,10 +50,4 @@ escaladas:
     dificuldade: BR_7B
     conquistadores:
     - Macena, Samuel
-- uid: TC8Wd0pa4YopiM
-  via_esportiva:
-    nome: CONFUSAO MENTAL
-    dificuldade: BR_7A
-    conquistadores:
-    - Macena, Samuel
 ---
