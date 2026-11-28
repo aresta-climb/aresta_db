@@ -29,6 +29,7 @@ from PySide6.QtWidgets import (
 
 from editor.core.croqui_experimental import GerenciadorCroquiExperimental
 from editor.core.formatacao import para_snake_case
+from editor.core.instancia_unica import extrair_id_croqui_de_pasta, verificar_croqui_ja_aberto
 from editor.core.serializacao_util import carregar_yaml
 from editor.legacy_views.dialogo_busca_croqui import DialogoBuscaCroqui
 
@@ -320,6 +321,7 @@ class TelaDeCarregamento(QDialog):
         diretorio_sessao_mcp: Path | None = None,
         gerenciador_sessao: Any | None = None,
         cliente_auth: Any | None = None,
+        verificar_trava_croqui: bool = False,
     ) -> None:
         super().__init__(parent)
         self.storage: Any | None = storage
@@ -328,6 +330,7 @@ class TelaDeCarregamento(QDialog):
         self._diretorio_sessao_mcp: Path | None = diretorio_sessao_mcp
         self.gerenciador_sessao: Any | None = gerenciador_sessao
         self.cliente_auth: Any | None = cliente_auth
+        self._verificar_trava_croqui: bool = bool(verificar_trava_croqui)
         self.gerenciador: GerenciadorCroquiExperimental | None = (
             GerenciadorCroquiExperimental(storage) if storage else None
         )
@@ -659,12 +662,31 @@ class TelaDeCarregamento(QDialog):
             self.gerenciador.excluir_croqui(caminho)
             self.carregar_croquis()
 
+    def _bloquear_se_croqui_ja_aberto(self, id_croqui: str) -> bool:
+        """
+        Verifica se o croqui `id_croqui` já está aberto em outra janela.
+        Caso esteja, eleva a janela existente, informa o usuário e retorna True.
+        """
+        if not self._verificar_trava_croqui or not id_croqui:
+            return False
+        if verificar_croqui_ja_aberto(id_croqui):
+            QMessageBox.information(
+                self,
+                "Croqui já Aberto",
+                f"O croqui '{id_croqui}' já está aberto no Aresta Editor. "
+                "A janela correspondente foi trazida para o primeiro plano.",
+            )
+            return True
+        return False
+
     def ao_clicar_novo(self) -> None:
         if not self.gerenciador:
             return
         dialogo = DialogoNovoCroqui(self.storage, self)
         if dialogo.exec() == QDialog.DialogCode.Accepted:
             metadados = dialogo.obter_dados()
+            if self._bloquear_se_croqui_ja_aberto(metadados["id"]):
+                return
 
             log_dialog = DialogoProgressoLog(f"Criando Croqui: {metadados['id']}", self)
             log_dialog.show()
@@ -696,6 +718,8 @@ class TelaDeCarregamento(QDialog):
         if dialogo.exec():
             id_oficial = dialogo.obter_id_selecionado()
             if id_oficial:
+                if self._bloquear_se_croqui_ja_aberto(id_oficial):
+                    return
                 log_dialog = DialogoProgressoLog(f"Importando Oficial: {id_oficial}", self)
                 log_dialog.show()
 
@@ -725,6 +749,8 @@ class TelaDeCarregamento(QDialog):
         caminho_str = item.data(Qt.ItemDataRole.UserRole)
         if caminho_str:
             caminho = Path(caminho_str)
+            if self._bloquear_se_croqui_ja_aberto(extrair_id_croqui_de_pasta(caminho)):
+                return
             try:
                 self.gerenciador.abrir_croqui(caminho, self.usuario)
                 self.caminho_croqui_selecionado = caminho

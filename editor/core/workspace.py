@@ -21,6 +21,7 @@ from collections.abc import Iterator
 
 from editor.core.croqui_experimental import GerenciadorCroquiExperimental
 from editor.core.diario import GerenciadorDiario
+from editor.core.instancia_unica import trava_arquivo_operacao
 from editor.core.storage import GerenciadorCaminhos
 from scripts.deploy_generated import atualizar_saude_croquis, deploy
 
@@ -222,74 +223,81 @@ class LocalRepoWorkspace:
     def processar_renomeacao_e_compilacao(
         self, novo_id: str, id_atual: str, storage: GerenciadorCaminhos | None
     ) -> tuple[Path, list[str], bool]:
+        gerenciador_caminhos = storage or self.storage or GerenciadorCaminhos()
+        caminho_lock = gerenciador_caminhos.obter_diretorio_base() / "compilacao_local.lock"
         caminho = self.caminho_raiz
 
-        if novo_id and id_atual and novo_id != id_atual:
-            novo_caminho_db = caminho.parent / novo_id
+        with trava_arquivo_operacao(caminho_lock, timeout_s=60.0):
+            if novo_id and id_atual and novo_id != id_atual:
+                novo_caminho_db = caminho.parent / novo_id
 
-            caminho_compilado_atual = self.obter_caminho_compilado()
-            novo_caminho_compilado = caminho_compilado_atual.parent / novo_id
+                caminho_compilado_atual = self.obter_caminho_compilado()
+                novo_caminho_compilado = caminho_compilado_atual.parent / novo_id
 
-            try:
-                raiz_repo_git = str(caminho.parent.parent)
-                # Renomeia database/<id>
-                subprocess.run(
-                    ["git", "mv", str(caminho), str(novo_caminho_db)],
-                    cwd=raiz_repo_git,
-                    check=True,
-                )
-
-                # Renomeia generated/<id> se existir
-                if caminho_compilado_atual.is_dir():
+                try:
+                    raiz_repo_git = str(caminho.parent.parent)
+                    # Renomeia database/<id>
                     subprocess.run(
-                        ["git", "mv", str(caminho_compilado_atual), str(novo_caminho_compilado)],
+                        ["git", "mv", str(caminho), str(novo_caminho_db)],
                         cwd=raiz_repo_git,
                         check=True,
                     )
 
-                caminho = novo_caminho_db
-                self.caminho_raiz = caminho
-                gerenciador_caminhos = storage or self.storage or GerenciadorCaminhos()
-                pasta_diario = (
-                    gerenciador_caminhos.obter_caminho_diarios_locais() / self.caminho_raiz.name
-                )
-                self.diario = GerenciadorDiario(pasta_diario, apenas_pendente=True)
-            except subprocess.CalledProcessError as e:
-                raise RuntimeError(f"Falha ao renomear as pastas via git: {e}")
+                    # Renomeia generated/<id> se existir
+                    if caminho_compilado_atual.is_dir():
+                        subprocess.run(
+                            [
+                                "git",
+                                "mv",
+                                str(caminho_compilado_atual),
+                                str(novo_caminho_compilado),
+                            ],
+                            cwd=raiz_repo_git,
+                            check=True,
+                        )
 
-        # No modo local, invocamos a compilação local de forma explícita, sem o wrapper que commita
-        # is_producao=False gera HTMLs que apontam para imagens e assets locais
-
-        caminho_compilado = self.obter_caminho_compilado().parent
-        caminho_base = self.obter_caminho_database()
-        database_modificado = False
-
-        with capturar_saida() as out:
-            try:
-                database_modificado = bool(
-                    deploy(
-                        output_dir=caminho_compilado,
-                        target_paths=[caminho_base],
-                        force_thumbnails=False,
-                        is_producao=False,
-                        sair_ao_falhar=False,
+                    caminho = novo_caminho_db
+                    self.caminho_raiz = caminho
+                    pasta_diario = (
+                        gerenciador_caminhos.obter_caminho_diarios_locais() / self.caminho_raiz.name
                     )
+                    self.diario = GerenciadorDiario(pasta_diario, apenas_pendente=True)
+                except subprocess.CalledProcessError as e:
+                    raise RuntimeError(f"Falha ao renomear as pastas via git: {e}")
+
+            # No modo local, invocamos a compilação local de forma explícita, sem o wrapper que commita
+            # is_producao=False gera HTMLs que apontam para imagens e assets locais
+
+            caminho_compilado = self.obter_caminho_compilado().parent
+            caminho_base = self.obter_caminho_database()
+            database_modificado = False
+
+            with capturar_saida() as out:
+                try:
+                    database_modificado = bool(
+                        deploy(
+                            output_dir=caminho_compilado,
+                            target_paths=[caminho_base],
+                            force_thumbnails=False,
+                            is_producao=False,
+                            sair_ao_falhar=False,
+                        )
+                    )
+                except Exception as e:
+                    print(f"Erro ao compilar croqui: {e}")
+
+                # Atualiza a saúde dos croquis em memória sem invocar subprocesso
+                raiz_repo = self.caminho_raiz.parent.parent
+                atualizar_saude_croquis(
+                    alvos=[caminho_base],
+                    base_path=raiz_repo / "database",
+                    output_path=raiz_repo / "STATUS_CROQUIS.md",
                 )
-            except Exception as e:
-                print(f"Erro ao compilar croqui: {e}")
 
-            # Atualiza a saúde dos croquis em memória sem invocar subprocesso
-            raiz_repo = self.caminho_raiz.parent.parent
-            atualizar_saude_croquis(
-                alvos=[caminho_base],
-                base_path=raiz_repo / "database",
-                output_path=raiz_repo / "STATUS_CROQUIS.md",
-            )
-
-        mensagens = _filtrar_mensagens(out.getvalue())
-        if self.diario:
-            self.diario.consolidar_salvamento()
-        return caminho, mensagens, database_modificado
+            mensagens = _filtrar_mensagens(out.getvalue())
+            if self.diario:
+                self.diario.consolidar_salvamento()
+            return caminho, mensagens, database_modificado
 
 
 class HeadlessWorkspace:

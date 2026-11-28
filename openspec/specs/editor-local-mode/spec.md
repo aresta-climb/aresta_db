@@ -7,7 +7,7 @@ Define o modo de execução local do Editor Aresta operando diretamente sobre um
 ## Requirements
 
 ### Requirement: Editor operates directly on local repository
-O sistema SHALL permitir a edição nativa e compilação de croquis utilizando a estrutura raiz do repositório local quando inicializado com o caminho do banco de dados (ex: `python editor/main.py database/<id>`), garantindo que a sessão de autenticação do usuário esteja validada antes de abrir a janela de edição.
+O sistema SHALL permitir a edição nativa e compilação de croquis utilizando a estrutura raiz do repositório local quando inicializado com o caminho do banco de dados (ex: `python editor/main.py database/<id>`), garantindo que a sessão de autenticação do usuário esteja validada antes de abrir a janela de edição e permitindo múltiplas instâncias simultâneas em croquis distintos com serialização segura de artefatos compartilhados.
 
 #### Scenario: Initialization in Local Mode
 - **WHEN** o usuário inicia o editor apontando para um croqui na pasta `database/<id>` e já possui uma sessão autenticada válida (ou renovável via refresh token) no cofre de credenciais
@@ -20,6 +20,10 @@ O sistema SHALL permitir a edição nativa e compilação de croquis utilizando 
 #### Scenario: Compiling local croqui
 - **WHEN** o usuário salva o croqui no modo local
 - **THEN** o editor invoca o processo de build para compilar as saídas na pasta correspondente em `generated/<id>` sem criar commits automáticos no git
+
+#### Scenario: Edição simultânea de múltiplos croquis em modo local e compilação serializada
+- **WHEN** dois processos do editor estão abertos em modo local sobre `database/<id_a>` e `database/<id_b>` distintos e executam salvamento concorrente
+- **THEN** ambos os processos executam independentemente e a etapa compartilhada de renomeação Git, compilação em `generated/` e atualização de `STATUS_CROQUIS.md` é serializada via arquivo de trava fora do repositório Git
 
 ### Requirement: Workspace interface for path and storage abstraction
 O sistema DEVE abstrair as operações de arquivo e git (salvar, compilar, obter caminho do database) atrás de uma interface polimórfica (Workspace) para permitir que a UI (`JanelaPrincipal`) permaneça agnóstica à topologia de pastas do croqui (Experimental vs. Local Repo).

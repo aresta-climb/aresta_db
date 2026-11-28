@@ -108,7 +108,7 @@ O servidor MCP primário MUST ser iniciado logo na abertura da `TelaDeCarregamen
 - **THEN** o sistema extrai os sub-PDFs, imagens `.webp` e metadados vetoriais via `PyMuPDF`, cria na árvore Protobuf os esqueletos ausentes (`Botao`, `Setor`, `Grupo`, `ColecaoDeMapas`) com `UID`s NanoID válidos (preservando os `UID`s existentes em caso de atualização) e retorna o mapeamento `parte -> {uid, caminho_pdf, imagens}`
 
 ### Requirement: Suporte a Múltiplas Janelas por Croqui e Roteamento Proxy MCP
-O Editor Aresta MUST substituir a trava global de instância única por uma trava escopada por croqui (`ArestaEditorCroqui_<id_croqui>`), permitindo múltiplas janelas abertas simultaneamente em croquis distintos. Cada instância MUST registrar sua porta e `id_croqui` em `mcp_sessoes.json`. O servidor MCP na porta principal `27378` MUST aceitar o parâmetro opcional `id_croqui` em todas as ferramentas de croqui e encaminhar transparentemente via proxy local as chamadas destinadas a outras janelas abertas.
+O Editor Aresta MUST substituir a trava global de instância única por uma trava escopada por croqui (`ArestaEditorCroqui_<id_croqui>`), permitindo múltiplas janelas abertas simultaneamente em croquis distintos. Cada instância MUST registrar sua porta e `id_croqui` em `mcp_sessoes.json`, preservando atomicamente a sessão primária ativa em `mcp_sessao.json` enquanto o processo primário permanecer ativo. O servidor MCP na porta principal `27378` MUST aceitar o parâmetro opcional `id_croqui` em todas as ferramentas de croqui e encaminhar transparentemente via proxy local as chamadas destinadas a outras janelas abertas.
 
 #### Scenario: Abertura de um segundo croqui enquanto outro já está aberto
 - **WHEN** a Janela #1 já está aberta com o croqui `"A"` e o cliente MCP chama `aresta_abrir_croqui_existente`, `aresta_importar_croqui_oficial` ou `aresta_criar_novo_croqui` para um croqui `"B"` diferente de `"A"`
@@ -121,6 +121,10 @@ O Editor Aresta MUST substituir a trava global de instância única por uma trav
 #### Scenario: Roteamento proxy transparente por id_croqui na porta 27378
 - **WHEN** há múltiplas janelas abertas (`"A"` na porta `27378` e `"B"` na porta `27379`) e o cliente MCP envia uma chamada na porta `27378` informando `id_croqui="B"`
 - **THEN** o servidor na porta `27378` encaminha a requisição JSON-RPC para a porta `27379` e retorna a resposta ao cliente; se `id_croqui` for omitido havendo mais de um croqui aberto, retorna erro listando os `id_croqui` abertos
+
+#### Scenario: Preservação da sessão primária em mcp_sessao.json com múltiplos processos ativos
+- **WHEN** um segundo processo do editor inicia seu servidor MCP em uma porta secundária (`27379+`) enquanto o processo primário (`27378`) continua registrado e ativo em `mcp_sessoes.json`
+- **THEN** o arquivo `mcp_sessoes.json` passa a listar ambas as sessões de forma atômica sob lock e `mcp_sessao.json` continua apontando para a sessão primária ativa até que ela seja encerrada
 
 ### Requirement: Renderização de Mapa com Grade Métrica e Recortes de POIs em Lista Intercalada
 O servidor MCP MUST disponibilizar a ferramenta `aresta_renderizar_mapa` para inspecionar mapas sem dependência de `PaddleOCR`. A ferramenta MUST retornar uma sequência intercalada de blocos `[Texto, Imagem]` no array `content`: primeiro o bloco de texto com metadados (`largura`, `altura`, candidatos vetoriais extraídos pelo `PyMuPDF`) seguido da imagem completa do mapa com grade métrica semitransparente (`100px`), réguas graduadas nas bordas (`X`/`Y`) e POIs atuais desenhados em vermelho; em seguida, pares `[Texto, Imagem]` para cada POI com seu `uid`, `rotulo`, coordenadas atuais e o recorte ampliado (`120x120px`) com mira central `(0,0)` e eixos relativos (`-50px` a `+50px`).

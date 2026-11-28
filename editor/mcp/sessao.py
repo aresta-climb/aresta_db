@@ -170,39 +170,61 @@ def listar_sessoes_mcp(diretorio_base: Path | None = None) -> list[DadosSessaoMc
     return resultado
 
 
+def _atualizar_lista_sessoes(
+    atuais: list[DadosSessaoMcp], sessao: DadosSessaoMcp
+) -> list[DadosSessaoMcp]:
+    atualizadas: list[DadosSessaoMcp] = []
+    substituida = False
+    for existente in atuais:
+        if existente.porta == sessao.porta:
+            atualizadas.append(sessao)
+            substituida = True
+        else:
+            atualizadas.append(existente)
+    if not substituida:
+        atualizadas.append(sessao)
+    return atualizadas
+
+
+def _escrever_lista_sessoes(caminho: Path, sessoes: list[DadosSessaoMcp]) -> None:
+    caminho.parent.mkdir(parents=True, exist_ok=True)
+    conteudo = {"sessoes": [s.para_dict() for s in sessoes]}
+    caminho.write_text(json.dumps(conteudo, indent=2, ensure_ascii=False), encoding="utf-8")
+
+
+def _escrever_sessao_principal(caminho_principal: Path, sessao: DadosSessaoMcp) -> None:
+    caminho_principal.parent.mkdir(parents=True, exist_ok=True)
+    caminho_principal.write_text(
+        json.dumps(sessao.para_dict(), indent=2, ensure_ascii=False), encoding="utf-8"
+    )
+
+
 def registrar_sessao_multi_mcp(
     sessao: DadosSessaoMcp,
     diretorio_base: Path | None = None,
 ) -> None:
-    """Registra ou atualiza (por porta) os metadados da sessão em `mcp_sessoes.json`."""
+    """Registra ou atualiza (por porta) os metadados da sessão em `mcp_sessoes.json` e sincroniza `mcp_sessao.json`."""
     caminho = obter_caminho_sessoes_mcp(diretorio_base)
     with trava_arquivo_operacao(caminho.with_suffix(".lock"), timeout_s=2.0):
         atuais = listar_sessoes_mcp(diretorio_base)
-        atualizadas: list[DadosSessaoMcp] = []
-        substituida = False
-        for existente in atuais:
-            if existente.porta == sessao.porta:
-                atualizadas.append(sessao)
-                substituida = True
-            else:
-                atualizadas.append(existente)
-        if not substituida:
-            atualizadas.append(sessao)
-        conteudo = {"sessoes": [s.para_dict() for s in atualizadas]}
-        caminho.write_text(json.dumps(conteudo, indent=2, ensure_ascii=False), encoding="utf-8")
+        atualizadas = _atualizar_lista_sessoes(atuais, sessao)
+        _escrever_lista_sessoes(caminho, atualizadas)
+        sessao_principal = ler_sessao_mcp(diretorio_base)
+        if sessao_principal is not None and sessao_principal.porta == sessao.porta:
+            _escrever_sessao_principal(obter_caminho_sessao_mcp(diretorio_base), sessao)
 
 
 def desregistrar_sessao_multi_mcp(
     porta: int,
     diretorio_base: Path | None = None,
 ) -> list[DadosSessaoMcp]:
-    """Remove a sessão da `porta` informada de `mcp_sessoes.json` e retorna as restantes."""
+    """Remove a sessão da `porta` informada de `mcp_sessoes.json` e promove outra sessão ativa se houver."""
     caminho = obter_caminho_sessoes_mcp(diretorio_base)
     with trava_arquivo_operacao(caminho.with_suffix(".lock"), timeout_s=2.0):
         restantes = [s for s in listar_sessoes_mcp(diretorio_base) if s.porta != int(porta)]
         if restantes:
-            conteudo = {"sessoes": [s.para_dict() for s in restantes]}
-            caminho.write_text(json.dumps(conteudo, indent=2, ensure_ascii=False), encoding="utf-8")
+            _escrever_lista_sessoes(caminho, restantes)
+            _escrever_sessao_principal(obter_caminho_sessao_mcp(diretorio_base), restantes[0])
         else:
             caminho.unlink(missing_ok=True)
             obter_caminho_sessao_mcp(diretorio_base).unlink(missing_ok=True)
@@ -216,7 +238,10 @@ def gravar_sessao_mcp(
     id_croqui: str = "",
     caminho_database: str = "",
 ) -> DadosSessaoMcp:
-    """Persiste os dados da sessão ativa do servidor MCP em `mcp_sessao.json` e `mcp_sessoes.json`."""
+    """
+    Persiste os dados da sessão ativa do servidor MCP em `mcp_sessoes.json` e,
+    quando não houver outra sessão primária viva, também em `mcp_sessao.json`.
+    """
     token_final = token if token is not None else secrets.token_urlsafe(24)
     sessao = DadosSessaoMcp(
         porta=int(porta),
@@ -225,12 +250,20 @@ def gravar_sessao_mcp(
         id_croqui=str(id_croqui),
         caminho_database=str(caminho_database),
     )
-    caminho = obter_caminho_sessao_mcp(diretorio_base)
-    caminho.parent.mkdir(parents=True, exist_ok=True)
-    caminho.write_text(
-        json.dumps(sessao.para_dict(), indent=2, ensure_ascii=False), encoding="utf-8"
-    )
-    registrar_sessao_multi_mcp(sessao, diretorio_base=diretorio_base)
+    caminho_sessoes = obter_caminho_sessoes_mcp(diretorio_base)
+    with trava_arquivo_operacao(caminho_sessoes.with_suffix(".lock"), timeout_s=2.0):
+        atuais = listar_sessoes_mcp(diretorio_base)
+        sessao_principal = ler_sessao_mcp(diretorio_base)
+        atualizadas = _atualizar_lista_sessoes(atuais, sessao)
+        _escrever_lista_sessoes(caminho_sessoes, atualizadas)
+
+        outra_primaria_ativa = (
+            sessao_principal is not None
+            and sessao_principal.porta != sessao.porta
+            and any(s.porta == sessao_principal.porta for s in atuais)
+        )
+        if not outra_primaria_ativa:
+            _escrever_sessao_principal(obter_caminho_sessao_mcp(diretorio_base), sessao)
     return sessao
 
 
@@ -249,13 +282,7 @@ def ler_sessao_mcp(diretorio_base: Path | None = None) -> DadosSessaoMcp | None:
 def remover_sessao_mcp(diretorio_base: Path | None = None, porta: int | None = None) -> None:
     """Remove a sessão do servidor MCP e promove outra sessão ativa caso existam múltiplas janelas."""
     if porta is not None:
-        restantes = desregistrar_sessao_multi_mcp(porta, diretorio_base)
-        if restantes:
-            caminho_principal = obter_caminho_sessao_mcp(diretorio_base)
-            caminho_principal.write_text(
-                json.dumps(restantes[0].para_dict(), indent=2, ensure_ascii=False),
-                encoding="utf-8",
-            )
+        desregistrar_sessao_multi_mcp(porta, diretorio_base)
         return
 
     obter_caminho_sessao_mcp(diretorio_base).unlink(missing_ok=True)

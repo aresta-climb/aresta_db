@@ -27,6 +27,11 @@ from PySide6.QtWidgets import (
 
 from editor.controllers.compilacao_controller import CompilacaoController
 from editor.controllers.croqui_controller import CroquiController
+from editor.core.instancia_unica import (
+    ativar_janela_existente,
+    encerrar_servidor_local,
+    iniciar_trava_croqui,
+)
 from editor.core.serializacao_util import carregar_yaml
 from editor.legacy_views.widget_editor_imagens import WidgetEditorImagens
 from editor.models.compilacao_log import CompilacaoLog
@@ -301,6 +306,7 @@ class JanelaPrincipal(QMainWindow):
         servico_submissao: Any | None = None,
         fabrica_servidor_celular: Callable[..., Any] | None = None,
         servico_loja: Any | None = None,
+        ativar_trava_croqui: bool | None = None,
     ) -> None:
         super().__init__(parent)
         self.setFont(QFont("Segoe UI", 9))
@@ -333,6 +339,11 @@ class JanelaPrincipal(QMainWindow):
         )
         self._diretorio_sessao_mcp: Path | None = diretorio_sessao_mcp
         self._iniciar_rede_mcp: bool = iniciar_rede_mcp
+        self._ativar_trava_croqui: bool = (
+            iniciar_rede_mcp if ativar_trava_croqui is None else bool(ativar_trava_croqui)
+        )
+        self.servidor_trava_croqui: Any | None = None
+        self._id_trava_croqui: str = ""
         self.historico: GerenciadorHistorico = GerenciadorHistorico(self)
         self.historico.obter_pilha().cleanChanged.connect(self._on_clean_changed)
 
@@ -1101,6 +1112,7 @@ class JanelaPrincipal(QMainWindow):
                     else ""
                 )
                 registrar_contexto_croqui(id_croqui=id_croqui, commit_base_sha=commit_base_sha)
+                self._atualizar_trava_croqui(id_croqui)
                 if isinstance(diario, GerenciadorDiario):
                     anexar_diario_escopo(diario)
 
@@ -1298,6 +1310,15 @@ class JanelaPrincipal(QMainWindow):
             if getattr(self, "croqui_model", None):
                 self.pagina_mapas.carregar_mapas(self.croqui_model, self.historico, caminho_db)
             self.pagina_imagens.carregar_imagens(caminho_db)
+
+        id_atualizado = str(self.croqui_data.get("id", "")) if self.croqui_data else ""
+        self._atualizar_trava_croqui(id_atualizado)
+        if self.servidor_mcp is not None and self.workspace is not None and id_atualizado:
+            self.servidor_mcp.definir_croqui_ativo(
+                id_atualizado,
+                str(self.workspace.obter_caminho_database()),
+                croqui_aberto=True,
+            )
 
         if hasattr(self, "salvamento_finalizado"):
             self.salvamento_finalizado.emit()
@@ -1565,8 +1586,37 @@ class JanelaPrincipal(QMainWindow):
         self.solicitar_abrir_novo.emit()
         self.close()
 
+    def _atualizar_trava_croqui(self, id_croqui: str) -> None:
+        """Mantém a trava IPC local sincronizada com o `id_croqui` atualmente aberto nesta janela."""
+        id_limpo = str(id_croqui or "").strip()
+        if not self._ativar_trava_croqui or not id_limpo:
+            return
+        if (
+            self._id_trava_croqui == id_limpo
+            and self.servidor_trava_croqui is not None
+            and self.servidor_trava_croqui.isListening()
+        ):
+            return
+        self.encerrar_trava_croqui()
+
+        def _ativar_esta_janela() -> None:
+            ativar_janela_existente(self)
+
+        self.servidor_trava_croqui = iniciar_trava_croqui(
+            id_limpo,
+            callback_ativacao=_ativar_esta_janela,
+        )
+        self._id_trava_croqui = id_limpo if self.servidor_trava_croqui is not None else ""
+
+    def encerrar_trava_croqui(self) -> None:
+        """Libera a trava IPC local associada ao croqui desta janela."""
+        encerrar_servidor_local(self.servidor_trava_croqui)
+        self.servidor_trava_croqui = None
+        self._id_trava_croqui = ""
+
     def _encerrar_recursos_janela(self) -> None:
         """Encerra servidores locais e worker threads de curadoria antes da destruição da janela."""
+        self.encerrar_trava_croqui()
         self._encerrar_servidor_celular()
         tarefa_sync = getattr(self, "_tarefa_sincronizacao", None)
         if tarefa_sync is not None and tarefa_sync.isRunning():

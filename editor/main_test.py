@@ -153,122 +153,423 @@ def test_application_version_is_set(qtbot):
         controlador.abertura.close()
 
 
-def test_main_impede_multiplas_instancias(qtbot, capsys):
-    with patch(
-        "editor.core.instancia_unica.verificar_se_ja_em_execucao", return_value=True
-    ) as mock_verif:
-        with patch("editor.main.QMessageBox.information") as mock_info:
-            with patch("editor.main.sys.exit", side_effect=SystemExit) as mock_exit:
-                from editor.main import main
+def test_main_bloqueia_mesmo_croqui_e_permite_segundo_croqui_distinto(
+    qtbot, tmp_path: Path, monkeypatch: pytest.MonkeyPatch, capsys
+) -> None:
+    """
+    Valida sem mocks internos que main() bloqueia e eleva quando o mesmo croqui já está aberto,
+    mas abre normalmente quando informado um segundo croqui distinto (pasta ou croqui.yaml).
+    """
+    import time
+    import uuid
 
-                with pytest.raises(SystemExit):
-                    main()
+    from PySide6.QtCore import QTimer
+    from PySide6.QtWidgets import QApplication, QMessageBox
 
-                mock_verif.assert_called_once()
-                mock_info.assert_called_once()
-                mock_exit.assert_called_once_with(0)
-                captured = capsys.readouterr()
-                assert "O Aresta Editor já está em execução" in captured.err
+    from editor.core.instancia_unica import encerrar_servidor_local, iniciar_trava_croqui
+    from editor.main import main
 
+    monkeypatch.setenv("ARESTA_PREFIXO_IPC", f"MainMulti_{uuid.uuid4().hex[:8]}_")
 
-def test_main_inicia_servidor_quando_primeira_instancia(qtbot):
-    with patch("editor.core.instancia_unica.verificar_se_ja_em_execucao", return_value=False):
-        with patch(
-            "editor.core.instancia_unica.iniciar_servidor_instancia_unica"
-        ) as mock_iniciar_srv:
-            with patch("editor.main.ControladorAplicativo") as MockControlador:
-                with patch("editor.main.sys.exit", side_effect=SystemExit) as mock_exit:
-                    mock_controlador_inst = MockControlador.return_value
-                    mock_controlador_inst.executar.return_value = 0
+    pasta_a = tmp_path / "br_mg_ouro_preto_croqui_a"
+    pasta_a.mkdir()
+    (pasta_a / "croqui.yaml").write_text("id: croqui_a\nnome: Croqui A\n", encoding="utf-8")
 
-                    from editor.main import main
+    pasta_b = tmp_path / "br_mg_ouro_preto_croqui_b"
+    pasta_b.mkdir()
+    yaml_b = pasta_b / "croqui.yaml"
+    yaml_b.write_text("id: croqui_b\nnome: Croqui B\n", encoding="utf-8")
 
-                    with patch("sys.argv", ["editor/main.py"]):
-                        with pytest.raises(SystemExit):
-                            main()
+    ativacoes_a: list[str] = []
+    srv_a = iniciar_trava_croqui(
+        "croqui_a", callback_ativacao=lambda: ativacoes_a.append("croqui_a")
+    )
+    assert srv_a is not None
 
-                    mock_iniciar_srv.assert_called_once()
-                    MockControlador.assert_called_once()
-                    mock_exit.assert_called_once_with(0)
+    avisos: list[str] = []
+    modais_vistos: list[QMessageBox] = []
+    prazo = time.monotonic() + 5.0
+    app = QApplication.instance()
+    assert app is not None
 
+    timer_msg = QTimer()
+    timer_msg.setInterval(15)
 
-def test_main_configura_icone_global_antecipadamente(qtbot):
-    with patch("editor.core.instancia_unica.verificar_se_ja_em_execucao", return_value=False):
-        with patch("editor.core.instancia_unica.iniciar_servidor_instancia_unica"):
-            with patch("editor.main.ControladorAplicativo") as MockControlador:
-                with patch("editor.main.sys.exit", side_effect=SystemExit):
-                    mock_controlador_inst = MockControlador.return_value
-                    mock_controlador_inst.executar.return_value = 0
+    def _fechar_msg() -> None:
+        modal = QApplication.activeModalWidget()
+        if time.monotonic() > prazo:
+            timer_msg.stop()
+            if modal is not None:
+                modal.reject()
+            return
+        if isinstance(modal, QMessageBox) and not any(m is modal for m in modais_vistos):
+            modais_vistos.append(modal)
+            avisos.append(modal.text())
+            modal.accept()
 
-                    from PySide6.QtWidgets import QApplication
+    timer_msg.timeout.connect(_fechar_msg)
+    timer_msg.start()
 
-                    from editor.main import main
+    chamadas_ctrl: list[dict[str, object]] = []
 
-                    with patch("sys.argv", ["editor/main.py"]):
-                        with patch.object(QApplication, "setWindowIcon") as mock_set_icon:
-                            with patch.object(QApplication, "processEvents") as mock_process_events:
-                                with pytest.raises(SystemExit):
-                                    main()
-                                mock_set_icon.assert_called()
-                                mock_process_events.assert_called()
+    class _ControladorFake:
+        def __init__(self, **kwargs: object) -> None:
+            chamadas_ctrl.append(kwargs)
 
+        def executar(self) -> int:
+            return 0
 
-def test_main_abre_modo_local_repo_com_sucesso(qtbot, tmp_path):
-    pasta_croqui = tmp_path / "br_mg_ouro_preto_ouroboulder"
-    pasta_croqui.mkdir()
-    arquivo_yaml = pasta_croqui / "croqui.yaml"
-    arquivo_yaml.write_text("id: ouroboulder\n", encoding="utf-8")
+    try:
+        # 1. Mesmo croqui -> bloqueia, eleva e sai com código 0
+        with pytest.raises(SystemExit) as exc_dup:
+            main([str(pasta_a)], fabrica_controlador=_ControladorFake)  # type: ignore[arg-type]
+        assert exc_dup.value.code == 0
+        assert ativacoes_a == ["croqui_a"]
+        assert len(avisos) == 1 and "croqui_a" in avisos[0]
+        assert "croqui_a" in capsys.readouterr().err
+        assert chamadas_ctrl == []
 
-    with patch("editor.core.instancia_unica.verificar_se_ja_em_execucao", return_value=False):
-        with patch("editor.core.instancia_unica.iniciar_servidor_instancia_unica"):
-            with patch("editor.main.ControladorAplicativo") as MockControlador:
-                with patch("editor.main.sys.exit", side_effect=SystemExit) as mock_exit:
-                    with patch("editor.main.QMessageBox.critical") as mock_crit:
-                        mock_ctrl_inst = MockControlador.return_value
-                        mock_ctrl_inst.executar.return_value = 0
+        # 2. Croqui B distinto (pasta) -> não bloqueia e inicia trava de croqui_b
+        with pytest.raises(SystemExit) as exc_b:
+            main([str(pasta_b)], fabrica_controlador=_ControladorFake)  # type: ignore[arg-type]
+        assert exc_b.value.code == 0
+        assert len(chamadas_ctrl) == 1
+        assert chamadas_ctrl[0]["caminho_croqui_local"] == pasta_b.resolve()
+        assert chamadas_ctrl[0]["ativar_trava_croqui"] is True
+        encerrar_servidor_local(getattr(app, "servidor_local", None))
+        setattr(app, "servidor_local", None)
 
-                        from editor.main import main
-
-                        # 1. Passando o diretório do croqui
-                        with patch("sys.argv", ["editor/main.py", str(pasta_croqui)]):
-                            with pytest.raises(SystemExit):
-                                main()
-
-                        MockControlador.assert_called_once_with(
-                            caminho_croqui_local=pasta_croqui.resolve()
-                        )
-                        mock_ctrl_inst.executar.assert_called_once()
-                        mock_exit.assert_called_once_with(0)
-                        mock_crit.assert_not_called()
-
-                        # 2. Passando diretamente o arquivo croqui.yaml
-                        MockControlador.reset_mock()
-                        mock_ctrl_inst.executar.reset_mock()
-                        mock_exit.reset_mock()
-                        with patch("sys.argv", ["editor/main.py", str(arquivo_yaml)]):
-                            with pytest.raises(SystemExit):
-                                main()
-
-                        MockControlador.assert_called_once_with(
-                            caminho_croqui_local=pasta_croqui.resolve()
-                        )
+        # 3. Croqui B distinto (passando diretamente croqui.yaml) -> resolve pasta pai
+        with pytest.raises(SystemExit) as exc_yaml:
+            main([str(yaml_b)], fabrica_controlador=_ControladorFake)  # type: ignore[arg-type]
+        assert exc_yaml.value.code == 0
+        assert len(chamadas_ctrl) == 2
+        assert chamadas_ctrl[1]["caminho_croqui_local"] == pasta_b.resolve()
+    finally:
+        timer_msg.stop()
+        encerrar_servidor_local(getattr(app, "servidor_local", None))
+        setattr(app, "servidor_local", None)
+        encerrar_servidor_local(srv_a)
 
 
-def test_main_erro_quando_caminho_database_invalido(qtbot, capsys):
-    with patch("editor.core.instancia_unica.verificar_se_ja_em_execucao", return_value=False):
-        with patch("editor.core.instancia_unica.iniciar_servidor_instancia_unica"):
-            with patch("editor.main.QMessageBox.critical") as mock_crit:
-                with patch("editor.main.sys.exit", side_effect=SystemExit) as mock_exit:
-                    from editor.main import main
+def test_main_modo_padrao_bloqueia_segunda_selecao_e_libera_ao_abrir_croqui(
+    qtbot, tmp_path: Path, monkeypatch: pytest.MonkeyPatch, capsys
+) -> None:
+    """
+    Valida no modo padrão sem argumentos que a trava de seleção impede duas TelaDeCarregamento
+    simultâneas, é liberada ao abrir um croqui e readquirida ao voltar via Abrir Novo.
+    """
+    import time
+    import uuid
 
-                    with patch("sys.argv", ["editor/main.py", "database/caminho_inexistente_123"]):
-                        with pytest.raises(SystemExit):
-                            main()
+    from PySide6.QtCore import QObject, QTimer, Signal
+    from PySide6.QtWidgets import QApplication, QMessageBox
 
-                    mock_crit.assert_called_once()
-                    mock_exit.assert_called_once_with(1)
-                    captured = capsys.readouterr()
-                    assert "Erro: O caminho especificado" in captured.err
+    from editor.core.gerenciador_sessao import SessaoUsuario
+    from editor.core.gerenciador_sessao_fake import GerenciadorSessaoFake
+    from editor.core.instancia_unica import (
+        encerrar_servidor_local,
+        verificar_croqui_ja_aberto,
+        verificar_selecao_ja_aberta,
+    )
+    from editor.core.storage import GerenciadorCaminhos
+    from editor.main import main
+    from scripts.gerenciar_uids_lib import gerar_uid
+    from scripts.migrador import obter_ultima_versao_migracao
+
+    monkeypatch.setenv("ARESTA_PREFIXO_IPC", f"MainSel_{uuid.uuid4().hex[:8]}_")
+    app = QApplication.instance()
+    assert app is not None
+
+    chamadas_ctrl: list[dict[str, object]] = []
+
+    class _ControladorSelecaoFake:
+        def __init__(self, **kwargs: object) -> None:
+            chamadas_ctrl.append(kwargs)
+
+        def executar(self) -> int:
+            return 0
+
+    modais_vistos: list[QMessageBox] = []
+    prazo = time.monotonic() + 5.0
+    timer_msg = QTimer()
+    timer_msg.setInterval(15)
+
+    def _fechar_msg() -> None:
+        modal = QApplication.activeModalWidget()
+        if time.monotonic() > prazo:
+            timer_msg.stop()
+            if modal is not None:
+                modal.reject()
+            return
+        if isinstance(modal, QMessageBox) and not any(m is modal for m in modais_vistos):
+            modais_vistos.append(modal)
+            modal.accept()
+
+    timer_msg.timeout.connect(_fechar_msg)
+    timer_msg.start()
+
+    try:
+        # 1. Primeira instância sem argumentos adquire trava de seleção
+        with pytest.raises(SystemExit) as exc1:
+            main([], fabrica_controlador=_ControladorSelecaoFake)  # type: ignore[arg-type]
+        assert exc1.value.code == 0
+        assert chamadas_ctrl[0]["gerenciar_trava_selecao"] is True
+        assert getattr(app, "servidor_local", None) is not None
+
+        # 2. Segunda instância sem argumentos enquanto seleção está ativa é bloqueada
+        with pytest.raises(SystemExit) as exc2:
+            main([], fabrica_controlador=_ControladorSelecaoFake)  # type: ignore[arg-type]
+        assert exc2.value.code == 0
+        assert len(chamadas_ctrl) == 1
+        assert "tela de seleção" in capsys.readouterr().err.lower()
+    finally:
+        timer_msg.stop()
+        encerrar_servidor_local(getattr(app, "servidor_local", None))
+        setattr(app, "servidor_local", None)
+
+    # 3. Fluxo real com ControladorAplicativo: abre seleção -> abre croqui (libera seleção) -> Abrir Novo (readquire seleção)
+    storage = GerenciadorCaminhos(diretorio_base=tmp_path / "appdata")
+    storage.inicializar_diretorios()
+    pasta_exp = storage.obter_caminho_croquis_experimentais() / "001_croqui_sel"
+    (pasta_exp / "database").mkdir(parents=True, exist_ok=True)
+    (pasta_exp / "database" / "croqui.yaml").write_text(
+        f"id: croqui_sel_fluxo\nuid: {gerar_uid()}\nnome: Croqui Sel\n"
+        f"ultima_migracao: {obter_ultima_versao_migracao()}\n",
+        encoding="utf-8",
+    )
+
+    class _TarefaRapida(QObject):
+        progresso = Signal(int)
+        mostrar_progresso = Signal(bool)
+        status = Signal(str)
+        atualizacao_disponivel = Signal(object)
+        solicitar_login_ui = Signal()
+        sucesso = Signal()
+        erro = Signal(str)
+
+        def __init__(self) -> None:
+            super().__init__()
+            self.storage = storage
+            self.gerenciador_sessao = GerenciadorSessaoFake(
+                sessao_inicial=SessaoUsuario(
+                    email="sel@arestaclimb.com",
+                    nome_completo="Teste Sel",
+                    jwt_supabase="jwt",
+                    token_atualizacao="ref",
+                )
+            )
+            self.sessao_usuario = self.gerenciador_sessao.obter_sessao()
+
+        def start(self) -> None:
+            pass
+
+    controlador = ControladorAplicativo(
+        tarefa=_TarefaRapida(),
+        iniciar_rede_mcp=False,
+        ativar_trava_croqui=True,
+        gerenciar_trava_selecao=True,
+        diretorio_sessao_mcp=tmp_path / "mcp_sel",
+    )
+
+    etapa = {
+        "passo": 0,
+        "selecao_ativa_na_tela1": False,
+        "selecao_livre_na_janela": False,
+        "selecao_readquirida": False,
+    }
+    timer_ciclo = QTimer()
+    timer_ciclo.setInterval(20)
+
+    def _conduzir() -> None:
+        if (
+            etapa["passo"] == 0
+            and controlador.tela_carregamento is not None
+            and controlador.tela_carregamento.isVisible()
+        ):
+            etapa["passo"] = 1
+            etapa["selecao_ativa_na_tela1"] = verificar_selecao_ja_aberta(timeout_ms=200)
+            controlador.tela_carregamento.caminho_croqui_selecionado = pasta_exp
+            controlador.tela_carregamento.accept()
+            return
+        if (
+            etapa["passo"] == 1
+            and controlador.janela_principal is not None
+            and controlador.janela_principal.isVisible()
+        ):
+            etapa["passo"] = 2
+            etapa["selecao_livre_na_janela"] = not verificar_selecao_ja_aberta(timeout_ms=50)
+            assert verificar_croqui_ja_aberto("croqui_sel_fluxo", timeout_ms=200) is True
+            QTimer.singleShot(0, controlador.janela_principal._on_abrir_novo_clicado)
+            return
+        if (
+            etapa["passo"] == 2
+            and controlador.tela_carregamento is not None
+            and controlador.tela_carregamento.isVisible()
+        ):
+            etapa["passo"] = 3
+            etapa["selecao_readquirida"] = verificar_selecao_ja_aberta(timeout_ms=200)
+            controlador.tela_carregamento.reject()
+
+    timer_ciclo.timeout.connect(_conduzir)
+    timer_ciclo.start()
+    timer_limite = QTimer()
+    timer_limite.setSingleShot(True)
+    timer_limite.timeout.connect(controlador.app.quit)
+    timer_limite.start(8000)
+
+    QTimer.singleShot(0, controlador.executar_selecao)
+    try:
+        codigo = controlador.executar()
+        assert codigo == 0
+        assert etapa["selecao_ativa_na_tela1"] is True
+        assert etapa["selecao_livre_na_janela"] is True
+        assert etapa["selecao_readquirida"] is True
+    finally:
+        timer_ciclo.stop()
+        timer_limite.stop()
+        controlador.encerrar_servidores_locais()
+        if controlador.janela_principal:
+            controlador.janela_principal._forcar_fechamento = True
+            controlador.janela_principal.close()
+        if controlador.abertura:
+            controlador.abertura.close()
+
+
+def test_main_erro_quando_caminho_database_invalido(
+    qtbot, monkeypatch: pytest.MonkeyPatch, capsys
+) -> None:
+    """Garante que caminho inválido com 'database' falha antes da trava IPC e exibe erro crítico."""
+    import time
+    import uuid
+
+    from PySide6.QtCore import QTimer
+    from PySide6.QtWidgets import QApplication, QMessageBox
+
+    from editor.main import main
+
+    monkeypatch.setenv("ARESTA_PREFIXO_IPC", f"MainErr_{uuid.uuid4().hex[:8]}_")
+    modais_vistos: list[QMessageBox] = []
+    prazo = time.monotonic() + 5.0
+    timer_msg = QTimer()
+    timer_msg.setInterval(15)
+
+    def _fechar_critico() -> None:
+        modal = QApplication.activeModalWidget()
+        if time.monotonic() > prazo:
+            timer_msg.stop()
+            if modal is not None:
+                modal.reject()
+            return
+        if isinstance(modal, QMessageBox) and not any(m is modal for m in modais_vistos):
+            modais_vistos.append(modal)
+            modal.accept()
+
+    timer_msg.timeout.connect(_fechar_critico)
+    timer_msg.start()
+    try:
+        with pytest.raises(SystemExit) as exc_err:
+            main(["database/caminho_inexistente_123"])
+        assert exc_err.value.code == 1
+        assert len(modais_vistos) == 1
+        assert "Erro: O caminho especificado" in capsys.readouterr().err
+    finally:
+        timer_msg.stop()
+
+
+def test_integracao_dois_controladores_locais_simultaneos_com_mcp(
+    qtbot, tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    """
+    Valida que dois ControladorAplicativo em modo local com croquis distintos executam
+    simultaneamente, mantêm travas IPC independentes e preservam a sessão primária MCP.
+    """
+    import uuid
+
+    from editor.core.cliente_auth_supabase_fake import ClienteAuthSupabaseFake
+    from editor.core.gerenciador_sessao import SessaoUsuario
+    from editor.core.gerenciador_sessao_fake import GerenciadorSessaoFake
+    from editor.core.instancia_unica import verificar_croqui_ja_aberto
+    from editor.core.servidor_celular_fake import ServidorCelularFake
+    from editor.core.storage import GerenciadorCaminhos
+    from editor.mcp.sessao import ler_sessao_mcp, listar_sessoes_mcp
+    from editor.plataforma.adaptador_plataforma_fake import AdaptadorPlataformaFake
+    from scripts.gerenciar_uids_lib import gerar_uid
+    from scripts.migrador import obter_ultima_versao_migracao
+
+    monkeypatch.setenv("ARESTA_PREFIXO_IPC", f"MainInt_{uuid.uuid4().hex[:8]}_")
+    dir_dados = tmp_path / "appdata"
+    monkeypatch.setenv("ARESTA_DIRETORIO_DADOS", str(dir_dados))
+
+    pasta_a = tmp_path / "aresta_db" / "database" / "br_mg_local_a"
+    pasta_b = tmp_path / "aresta_db" / "database" / "br_mg_local_b"
+    for pasta, cid in ((pasta_a, "br_mg_local_a"), (pasta_b, "br_mg_local_b")):
+        pasta.mkdir(parents=True, exist_ok=True)
+        (pasta / "croqui.yaml").write_text(
+            f"id: {cid}\nuid: {gerar_uid()}\nnome: {cid}\n"
+            f"ultima_migracao: {obter_ultima_versao_migracao()}\n",
+            encoding="utf-8",
+        )
+
+    sessao = SessaoUsuario(
+        email="multi@arestaclimb.com",
+        nome_completo="Escalador Multi",
+        jwt_supabase="jwt_multi",
+        token_atualizacao="refresh_multi",
+    )
+    auth_fake = ClienteAuthSupabaseFake()
+    auth_fake.usuarios_por_jwt["jwt_multi"] = {"email": "multi@arestaclimb.com"}
+    dir_mcp = tmp_path / "mcp_compartilhado"
+
+    ctrl_a = ControladorAplicativo(
+        caminho_croqui_local=pasta_a,
+        diretorio_sessao_mcp=dir_mcp,
+        iniciar_rede_mcp=True,
+        ativar_trava_croqui=True,
+        storage=GerenciadorCaminhos(diretorio_base=dir_dados),
+        gerenciador_sessao=GerenciadorSessaoFake(sessao_inicial=sessao),
+        cliente_auth=auth_fake,
+        servico_loja=AdaptadorPlataformaFake(diretorio_dados=tmp_path / "loja_a"),
+        fabrica_servidor_celular=ServidorCelularFake,
+    )
+    ctrl_b = ControladorAplicativo(
+        caminho_croqui_local=pasta_b,
+        diretorio_sessao_mcp=dir_mcp,
+        iniciar_rede_mcp=True,
+        ativar_trava_croqui=True,
+        storage=GerenciadorCaminhos(diretorio_base=dir_dados),
+        gerenciador_sessao=GerenciadorSessaoFake(sessao_inicial=sessao),
+        cliente_auth=auth_fake,
+        servico_loja=AdaptadorPlataformaFake(diretorio_dados=tmp_path / "loja_b"),
+        fabrica_servidor_celular=ServidorCelularFake,
+    )
+
+    try:
+        qtbot.wait_until(
+            lambda: ctrl_a.janela_principal is not None and ctrl_b.janela_principal is not None,
+            timeout=5000,
+        )
+        assert verificar_croqui_ja_aberto("br_mg_local_a", timeout_ms=300) is True
+        assert verificar_croqui_ja_aberto("br_mg_local_b", timeout_ms=300) is True
+
+        sessoes = listar_sessoes_mcp(dir_mcp)
+        assert {s.id_croqui for s in sessoes} == {"br_mg_local_a", "br_mg_local_b"}
+        assert len({s.porta for s in sessoes}) == 2
+
+        sessao_principal = ler_sessao_mcp(dir_mcp)
+        assert sessao_principal is not None
+        assert ctrl_a.servidor_mcp is not None
+        assert sessao_principal.porta == ctrl_a.servidor_mcp.porta
+    finally:
+        for ctrl in (ctrl_a, ctrl_b):
+            if ctrl.tarefa and ctrl.tarefa.isRunning():
+                ctrl.tarefa.wait(1000)
+            ctrl.encerrar_servidores_locais()
+            if ctrl.janela_principal:
+                ctrl.janela_principal._forcar_fechamento = True
+                ctrl.janela_principal.close()
+            if ctrl.abertura:
+                ctrl.abertura.close()
 
 
 def test_qlocalserver_ciclo_vida_e_bloqueio_real(qtbot):

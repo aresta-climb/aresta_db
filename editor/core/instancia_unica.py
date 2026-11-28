@@ -11,20 +11,53 @@ from typing import Any
 
 from PySide6.QtNetwork import QLocalServer, QLocalSocket
 from PySide6.QtWidgets import QApplication
+from yaml import YAMLError
 
+from editor.core.serializacao_util import carregar_yaml
 from editor.plataforma import trazer_janela_para_frente
 
-NOME_SERVIDOR_PADRAO = "ArestaEditorSingleInstanceServer"
+NOME_SERVIDOR_SELECAO = "ArestaEditorTelaSelecao"
 PREFIXO_SERVIDOR_CROQUI = "ArestaEditorCroqui_"
+VARIAVEL_AMBIENTE_PREFIXO_IPC = "ARESTA_PREFIXO_IPC"
+
+
+def _aplicar_prefixo_ipc(nome_base: str) -> str:
+    prefixo = os.environ.get(VARIAVEL_AMBIENTE_PREFIXO_IPC, "").strip()
+    return f"{prefixo}{nome_base}" if prefixo else nome_base
+
+
+def obter_nome_servidor_selecao() -> str:
+    """Retorna o nome do servidor local IPC dedicado à Tela de Carregamento/Seleção."""
+    return _aplicar_prefixo_ipc(NOME_SERVIDOR_SELECAO)
 
 
 def obter_nome_servidor_croqui(id_croqui: str) -> str:
     """
     Retorna o nome do servidor local IPC escopado para um croqui específico (`ArestaEditorCroqui_<id>`).
-    Retorna `NOME_SERVIDOR_PADRAO` caso o identificador seja vazio.
+    Lança `ValueError` caso o identificador seja vazio após sanitização.
     """
-    id_limpo = "".join(c if c.isalnum() or c in ("_", "-") else "_" for c in id_croqui.strip())
-    return f"{PREFIXO_SERVIDOR_CROQUI}{id_limpo}" if id_limpo else NOME_SERVIDOR_PADRAO
+    id_limpo = "".join(
+        c if c.isalnum() or c in ("_", "-") else "_" for c in id_croqui.strip()
+    ).strip("_")
+    if not id_limpo:
+        raise ValueError("O identificador do croqui não pode ser vazio.")
+    return _aplicar_prefixo_ipc(f"{PREFIXO_SERVIDOR_CROQUI}{id_limpo}")
+
+
+def extrair_id_croqui_de_pasta(caminho_croqui: Path) -> str:
+    """
+    Extrai o identificador lógico (`id`) de uma pasta de croqui (modo local ou experimental),
+    recorrendo ao nome da pasta caso o YAML esteja ausente, inválido ou sem campo `id`.
+    """
+    for candidato in (caminho_croqui / "croqui.yaml", caminho_croqui / "database" / "croqui.yaml"):
+        if candidato.is_file():
+            try:
+                dados = carregar_yaml(candidato.read_text(encoding="utf-8"))
+                if isinstance(dados, dict) and str(dados.get("id") or "").strip():
+                    return str(dados["id"]).strip()
+            except YAMLError:
+                pass
+    return caminho_croqui.name
 
 
 def ativar_janela_existente(janela_alvo: Any = None) -> bool:
@@ -50,9 +83,7 @@ def ativar_janela_existente(janela_alvo: Any = None) -> bool:
     return False
 
 
-def verificar_se_ja_em_execucao(
-    nome_servidor: str = NOME_SERVIDOR_PADRAO, timeout_ms: int = 500
-) -> bool:
+def verificar_se_ja_em_execucao(nome_servidor: str, timeout_ms: int = 500) -> bool:
     """
     Verifica se já existe uma instância do Aresta Editor escutando em `nome_servidor` ativa e responsiva.
     Envia um ping para o servidor local. Se o servidor responder PONG, confirma que
@@ -99,7 +130,7 @@ def verificar_se_ja_em_execucao(
 
 
 def iniciar_servidor_instancia_unica(
-    nome_servidor: str = NOME_SERVIDOR_PADRAO,
+    nome_servidor: str,
     callback_ativacao: Callable[[], None] | None = None,
     tempo_tolerancia_inicializacao_s: float = 5.0,
 ) -> QLocalServer | None:
@@ -176,6 +207,38 @@ def iniciar_trava_croqui(
         callback_ativacao=callback_ativacao,
         tempo_tolerancia_inicializacao_s=tempo_tolerancia_inicializacao_s,
     )
+
+
+def verificar_selecao_ja_aberta(timeout_ms: int = 500) -> bool:
+    """
+    Verifica se já existe uma Tela de Carregamento/Seleção aberta sem croqui carregado.
+    Se existir, traz a janela correspondente para o primeiro plano.
+    """
+    return verificar_se_ja_em_execucao(obter_nome_servidor_selecao(), timeout_ms=timeout_ms)
+
+
+def iniciar_trava_selecao(
+    callback_ativacao: Callable[[], None] | None = None,
+    tempo_tolerancia_inicializacao_s: float = 5.0,
+) -> QLocalServer | None:
+    """
+    Inicia o servidor de trava local dedicado à Tela de Carregamento/Seleção.
+    """
+    return iniciar_servidor_instancia_unica(
+        obter_nome_servidor_selecao(),
+        callback_ativacao=callback_ativacao,
+        tempo_tolerancia_inicializacao_s=tempo_tolerancia_inicializacao_s,
+    )
+
+
+def encerrar_servidor_local(servidor: QLocalServer | None) -> None:
+    """Encerra o QLocalServer informado com segurança e remove o pipe/socket do SO."""
+    if servidor is None:
+        return
+    nome_servidor = servidor.serverName()
+    servidor.close()
+    if nome_servidor:
+        QLocalServer.removeServer(nome_servidor)
 
 
 @contextlib.contextmanager

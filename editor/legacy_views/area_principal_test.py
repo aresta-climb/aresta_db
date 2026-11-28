@@ -2766,3 +2766,110 @@ def test_sincronizacao_externa_mesclada_invalida_diarios_e_recarrega_croqui_sem_
     assert janela.croqui_model.obter_croqui_readonly().nome == "Nome Trazido Pelo Merge Remoto"
     janela._forcar_fechamento = True
     janela.close()
+
+
+def test_janela_principal_ciclo_vida_trava_por_croqui_e_renomeacao(
+    qtbot, tmp_path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    """
+    Valida em modo real (sem mocks internos) que duas JanelaPrincipal com croquis distintos
+    coexistem, cada uma responde à sua própria trava IPC, atualiza a trava ao renomear o ID
+    no salvamento e libera a trava ao fechar.
+    """
+    import uuid
+
+    from PySide6.QtCore import QTimer
+    from PySide6.QtWidgets import QApplication, QDialog
+
+    from editor.core.gerenciador_sessao_fake import GerenciadorSessaoFake
+    from editor.core.instancia_unica import verificar_croqui_ja_aberto
+    from editor.core.servidor_celular_fake import ServidorCelularFake
+    from editor.core.storage import GerenciadorCaminhos
+    from editor.core.workspace import ExperimentalWorkspace
+    from editor.plataforma.adaptador_plataforma_fake import AdaptadorPlataformaFake
+
+    monkeypatch.setenv("ARESTA_PREFIXO_IPC", f"JanTrava_{uuid.uuid4().hex[:8]}_")
+    storage = GerenciadorCaminhos(diretorio_base=tmp_path / "appdata")
+    storage.inicializar_diretorios()
+    gerenciador = GerenciadorCroquiExperimental(storage)
+
+    pasta_a = gerenciador.criar_novo_croqui("croqui_trava_a", "Pico A", "MG", "Autor Teste")
+    pasta_b = gerenciador.criar_novo_croqui("croqui_trava_b", "Pico B", "SP", "Autor Teste")
+
+    janela_a = JanelaPrincipal(
+        storage=storage,
+        auth=GerenciadorSessaoFake(),
+        workspace=ExperimentalWorkspace(pasta_a),
+        iniciar_rede_mcp=False,
+        ativar_trava_croqui=True,
+        fabrica_servidor_celular=ServidorCelularFake,
+        servico_loja=AdaptadorPlataformaFake(diretorio_dados=tmp_path / "loja_a"),
+    )
+    janela_b = JanelaPrincipal(
+        storage=storage,
+        auth=GerenciadorSessaoFake(),
+        workspace=ExperimentalWorkspace(pasta_b),
+        iniciar_rede_mcp=False,
+        ativar_trava_croqui=True,
+        fabrica_servidor_celular=ServidorCelularFake,
+        servico_loja=AdaptadorPlataformaFake(diretorio_dados=tmp_path / "loja_b"),
+    )
+    qtbot.addWidget(janela_a)
+    qtbot.addWidget(janela_b)
+
+    modais_inesperados: list[str] = []
+    watchdog_modais = QTimer(janela_a)
+    watchdog_modais.setInterval(25)
+
+    def _fechar_modal_inesperado() -> None:
+        modal = QApplication.activeModalWidget()
+        if isinstance(modal, QDialog):
+            modais_inesperados.append(modal.windowTitle())
+            modal.reject()
+
+    watchdog_modais.timeout.connect(_fechar_modal_inesperado)
+    watchdog_modais.start()
+
+    try:
+        janela_a.showMinimized()
+        janela_b.showMinimized()
+        assert janela_a.isMinimized() is True
+        assert janela_b.isMinimized() is True
+
+        # Ping no croqui A restaura apenas a janela A
+        assert verificar_croqui_ja_aberto("croqui_trava_a", timeout_ms=500) is True
+        assert janela_a.isMinimized() is False
+        assert janela_b.isMinimized() is True
+
+        # Ping no croqui B restaura a janela B
+        assert verificar_croqui_ja_aberto("croqui_trava_b", timeout_ms=500) is True
+        assert janela_b.isMinimized() is False
+
+        # Renomear ID no salvamento migra a trava para o novo ID
+        assert janela_a.croqui_controller is not None and janela_a.croqui_model is not None
+        janela_a.croqui_controller.alterar_campo(
+            janela_a.croqui_model.obter_croqui_readonly(),
+            campo_nome="id",
+            valor_novo="croqui_trava_a_novo",
+        )
+        with qtbot.waitSignal(janela_a.salvamento_finalizado, timeout=10000):
+            janela_a.salvar_croqui()
+
+        assert modais_inesperados == []
+        assert verificar_croqui_ja_aberto("croqui_trava_a", timeout_ms=80) is False
+        assert verificar_croqui_ja_aberto("croqui_trava_a_novo", timeout_ms=500) is True
+
+        # Chamada idempotente para o mesmo ID e para ID vazio mantém a trava ativa intacta
+        srv_atual = janela_a.servidor_trava_croqui
+        janela_a._atualizar_trava_croqui("croqui_trava_a_novo")
+        janela_a._atualizar_trava_croqui("")
+        assert janela_a.servidor_trava_croqui is srv_atual
+    finally:
+        watchdog_modais.stop()
+        janela_a._forcar_fechamento = True
+        janela_b._forcar_fechamento = True
+        janela_a.close()
+        janela_b.close()
+
+    assert verificar_croqui_ja_aberto("croqui_trava_a_novo", timeout_ms=80) is False
+    assert verificar_croqui_ja_aberto("croqui_trava_b", timeout_ms=80) is False

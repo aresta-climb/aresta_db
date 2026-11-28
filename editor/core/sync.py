@@ -1,12 +1,15 @@
 # SPDX-License-Identifier: MPL-2.0
 # Copyright (C) 2026 Aresta Climb Contributors
 
+import contextlib
 import os
-from collections.abc import Callable
+from collections.abc import Callable, Iterator
 from pathlib import Path
 from typing import Any, cast
 
 import pygit2
+
+from editor.core.instancia_unica import trava_arquivo_operacao
 
 
 class ErroSincronizacaoGit(Exception):
@@ -36,6 +39,12 @@ class GerenciadorSincronizacao:
         self.caminho_repo: Path = caminho_repo
         self.token: str | None = token
         self.url_upstream: str | None = url_upstream
+
+    @contextlib.contextmanager
+    def _trava_operacao(self) -> Iterator[None]:
+        caminho_lock = self.caminho_repo.parent / f".{self.caminho_repo.name}_git.lock"
+        with trava_arquivo_operacao(caminho_lock, timeout_s=60.0):
+            yield
 
     def _obter_callbacks(
         self, progresso_callback: Callable[[float], None] | None = None
@@ -74,40 +83,41 @@ class GerenciadorSincronizacao:
         """
         Clona um repositório para o caminho especificado garantindo suporte a caminhos longos (core.longpaths).
         """
-        callbacks = self._obter_callbacks(progresso_callback)
+        with self._trava_operacao():
+            callbacks = self._obter_callbacks(progresso_callback)
 
-        # 1. Inicializa o repositório
-        repo = pygit2.init_repository(str(self.caminho_repo), False)
+            # 1. Inicializa o repositório
+            repo = pygit2.init_repository(str(self.caminho_repo), False)
 
-        # 2. Configura suporte a MAX_PATH no Windows e preserva LF estrito
-        repo.config["core.longpaths"] = True
-        repo.config["core.autocrlf"] = False
+            # 2. Configura suporte a MAX_PATH no Windows e preserva LF estrito
+            repo.config["core.longpaths"] = True
+            repo.config["core.autocrlf"] = False
 
-        # 3. Configura remote e faz fetch (clone raso para URLs HTTP/HTTPS; completo para caminho local)
-        remote = repo.remotes.create("origin", url_repositorio)
-        try:
-            if url_repositorio.startswith(("http://", "https://")):
-                remote.fetch(callbacks=callbacks, depth=1)
+            # 3. Configura remote e faz fetch (clone raso para URLs HTTP/HTTPS; completo para caminho local)
+            remote = repo.remotes.create("origin", url_repositorio)
+            try:
+                if url_repositorio.startswith(("http://", "https://")):
+                    remote.fetch(callbacks=callbacks, depth=1)
+                else:
+                    remote.fetch(callbacks=callbacks)
+            except pygit2.GitError as e:
+                raise _tratar_erro_git(e) from e
+
+            # 4. Faz checkout da main
+            branch_remota = repo.branches.remote.get("origin/main")
+            if not branch_remota:
+                branch_remota = repo.branches.remote.get("origin/master")
+
+            if branch_remota:
+                nome_local = branch_remota.branch_name.replace("origin/", "")
+                branch_local = repo.branches.local.create(
+                    nome_local, cast(pygit2.Commit, repo[branch_remota.target])
+                )
+                repo.checkout(branch_local)
             else:
-                remote.fetch(callbacks=callbacks)
-        except pygit2.GitError as e:
-            raise _tratar_erro_git(e) from e
-
-        # 4. Faz checkout da main
-        branch_remota = repo.branches.remote.get("origin/main")
-        if not branch_remota:
-            branch_remota = repo.branches.remote.get("origin/master")
-
-        if branch_remota:
-            nome_local = branch_remota.branch_name.replace("origin/", "")
-            branch_local = repo.branches.local.create(
-                nome_local, cast(pygit2.Commit, repo[branch_remota.target])
-            )
-            repo.checkout(branch_local)
-        else:
-            raise RuntimeError(
-                f"Não foi possível encontrar a branch main ou master no repositório {url_repositorio}"
-            )
+                raise RuntimeError(
+                    f"Não foi possível encontrar a branch main ou master no repositório {url_repositorio}"
+                )
 
     def obter_url_clone(self, repositorio_base: str = "aresta-climb/aresta_db") -> str:
         """
@@ -126,57 +136,61 @@ class GerenciadorSincronizacao:
         Garante que o repositório local possui exclusivamente o remote oficial 'origin',
         removendo remotes legados ('upstream') ou efêmeros ('proxy').
         """
-        url_alvo = url_upstream or self.obter_url_clone()
-        repo = pygit2.Repository(str(self.caminho_repo))
-        remotes_names = [r.name for r in repo.remotes]
+        with self._trava_operacao():
+            url_alvo = url_upstream or self.obter_url_clone()
+            repo = pygit2.Repository(str(self.caminho_repo))
+            remotes_names = [r.name for r in repo.remotes]
 
-        if "origin" not in remotes_names:
-            repo.remotes.create("origin", url_alvo)
-        else:
-            repo.remotes.set_url("origin", url_alvo)
+            if "origin" not in remotes_names:
+                repo.remotes.create("origin", url_alvo)
+            else:
+                repo.remotes.set_url("origin", url_alvo)
 
-        for nome_obsoleto in ("upstream", "proxy"):
-            if nome_obsoleto in remotes_names:
-                repo.remotes.delete(nome_obsoleto)
+            for nome_obsoleto in ("upstream", "proxy"):
+                if nome_obsoleto in remotes_names:
+                    repo.remotes.delete(nome_obsoleto)
 
     def fazer_fetch(self, progresso_callback: Callable[[float], None] | None = None) -> None:
         """
         Faz fetch do remote oficial (origin).
         """
-        repo = pygit2.Repository(str(self.caminho_repo))
-        callbacks = self._obter_callbacks(progresso_callback)
-        remote = repo.remotes["origin"]
+        with self._trava_operacao():
+            repo = pygit2.Repository(str(self.caminho_repo))
+            callbacks = self._obter_callbacks(progresso_callback)
+            remote = repo.remotes["origin"]
 
-        try:
-            remote.fetch(callbacks=callbacks)
-        except pygit2.GitError as e:
-            raise _tratar_erro_git(e) from e
+            try:
+                remote.fetch(callbacks=callbacks)
+            except pygit2.GitError as e:
+                raise _tratar_erro_git(e) from e
 
     def fazer_checkout_main_upstream(self) -> None:
         """
         Faz checkout da branch main a partir de origin/main de forma limpa.
         """
-        repo = pygit2.Repository(str(self.caminho_repo))
-        repo.config["core.autocrlf"] = False
-        branch_remota = repo.branches.remote.get("origin/main")
-        if not branch_remota:
-            return
+        with self._trava_operacao():
+            repo = pygit2.Repository(str(self.caminho_repo))
+            repo.config["core.autocrlf"] = False
+            branch_remota = repo.branches.remote.get("origin/main")
+            if not branch_remota:
+                return
 
-        # Atualiza ou cria a branch local 'main' apontando para a branch remota
-        if "main" not in repo.branches.local:
-            branch_local = repo.branches.local.create(
-                "main", cast(pygit2.Commit, repo[branch_remota.target])
-            )
-        else:
-            branch_local = repo.branches.local["main"]
-            branch_local.set_target(branch_remota.target)
+            # Atualiza ou cria a branch local 'main' apontando para a branch remota
+            if "main" not in repo.branches.local:
+                branch_local = repo.branches.local.create(
+                    "main", cast(pygit2.Commit, repo[branch_remota.target])
+                )
+            else:
+                branch_local = repo.branches.local["main"]
+                branch_local.set_target(branch_remota.target)
 
-        # Faz o checkout forçado
-        repo.checkout(branch_local, strategy=pygit2.GIT_CHECKOUT_FORCE)
+            # Faz o checkout forçado
+            repo.checkout(branch_local, strategy=pygit2.GIT_CHECKOUT_FORCE)
 
     def reset_hard(self) -> None:
         """
         Reseta o workspace local para o commit atual da branch HEAD.
         """
-        repo = pygit2.Repository(str(self.caminho_repo))
-        repo.reset(repo.head.target, cast(Any, pygit2.GIT_RESET_HARD))
+        with self._trava_operacao():
+            repo = pygit2.Repository(str(self.caminho_repo))
+            repo.reset(repo.head.target, cast(Any, pygit2.GIT_RESET_HARD))

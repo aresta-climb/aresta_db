@@ -11,22 +11,94 @@ from PySide6.QtNetwork import QLocalServer, QLocalSocket
 from PySide6.QtWidgets import QMainWindow
 
 from editor.core.instancia_unica import (
-    NOME_SERVIDOR_PADRAO,
+    NOME_SERVIDOR_SELECAO,
     ativar_janela_existente,
+    encerrar_servidor_local,
+    extrair_id_croqui_de_pasta,
     iniciar_servidor_instancia_unica,
     iniciar_trava_croqui,
+    iniciar_trava_selecao,
     obter_nome_servidor_croqui,
+    obter_nome_servidor_selecao,
     trava_arquivo_operacao,
     verificar_croqui_ja_aberto,
     verificar_se_ja_em_execucao,
+    verificar_selecao_ja_aberta,
 )
 
 
-def test_obter_nome_servidor_croqui_normaliza_identificador():
-    """Verifica geração do nome de servidor escopado por croqui e fallback padrão."""
+def test_obter_nomes_servidor_com_e_sem_prefixo_e_validacao_vazia(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    """Verifica geração de nomes escopados, prefixo IPC em testes e ValueError para ID vazio."""
+    monkeypatch.delenv("ARESTA_PREFIXO_IPC", raising=False)
+    assert obter_nome_servidor_selecao() == NOME_SERVIDOR_SELECAO
     assert obter_nome_servidor_croqui("br_mg_cipo") == "ArestaEditorCroqui_br_mg_cipo"
     assert obter_nome_servidor_croqui("croqui/com espaco") == "ArestaEditorCroqui_croqui_com_espaco"
-    assert obter_nome_servidor_croqui("   ") == NOME_SERVIDOR_PADRAO
+
+    monkeypatch.setenv("ARESTA_PREFIXO_IPC", "TesteUnit_")
+    assert obter_nome_servidor_selecao() == f"TesteUnit_{NOME_SERVIDOR_SELECAO}"
+    assert obter_nome_servidor_croqui("br_mg_cipo") == "TesteUnit_ArestaEditorCroqui_br_mg_cipo"
+
+    for invalido in ("   ", "///"):
+        with pytest.raises(ValueError, match="identificador do croqui"):
+            obter_nome_servidor_croqui(invalido)
+
+
+def test_extrair_id_croqui_de_pasta_cinco_cenarios(tmp_path: Path) -> None:
+    """Valida extração de id em modo local, experimental, YAML inválido, sem id e sem arquivo."""
+    pasta_local = tmp_path / "pasta_local"
+    pasta_local.mkdir()
+    (pasta_local / "croqui.yaml").write_text(
+        "id: br_mg_local_real\nnome: Local\n", encoding="utf-8"
+    )
+    assert extrair_id_croqui_de_pasta(pasta_local) == "br_mg_local_real"
+
+    pasta_exp = tmp_path / "uuid_exp"
+    (pasta_exp / "database").mkdir(parents=True)
+    (pasta_exp / "database" / "croqui.yaml").write_text(
+        "id: br_sp_experimental\nnome: Exp\n", encoding="utf-8"
+    )
+    assert extrair_id_croqui_de_pasta(pasta_exp) == "br_sp_experimental"
+
+    pasta_yaml_erro = tmp_path / "pasta_yaml_invalido"
+    pasta_yaml_erro.mkdir()
+    (pasta_yaml_erro / "croqui.yaml").write_text("::: [invalido\n", encoding="utf-8")
+    assert extrair_id_croqui_de_pasta(pasta_yaml_erro) == "pasta_yaml_invalido"
+
+    pasta_sem_id = tmp_path / "pasta_sem_id"
+    pasta_sem_id.mkdir()
+    (pasta_sem_id / "croqui.yaml").write_text("nome: Sem ID\n", encoding="utf-8")
+    assert extrair_id_croqui_de_pasta(pasta_sem_id) == "pasta_sem_id"
+
+    pasta_vazia = tmp_path / "pasta_sem_yaml"
+    pasta_vazia.mkdir()
+    assert extrair_id_croqui_de_pasta(pasta_vazia) == "pasta_sem_yaml"
+
+
+def test_trava_selecao_e_encerrar_servidor_local(qtbot, monkeypatch: pytest.MonkeyPatch) -> None:
+    """Verifica ciclo de vida da trava da tela de seleção isolada e encerramento seguro."""
+    prefixo = f"Sel_{uuid.uuid4().hex[:8]}_"
+    monkeypatch.setenv("ARESTA_PREFIXO_IPC", prefixo)
+
+    ativacoes: list[str] = []
+    assert verificar_selecao_ja_aberta(timeout_ms=50) is False
+
+    srv = iniciar_trava_selecao(callback_ativacao=lambda: ativacoes.append("selecao"))
+    assert srv is not None
+    try:
+        assert verificar_selecao_ja_aberta(timeout_ms=500) is True
+        assert ativacoes == ["selecao"]
+    finally:
+        encerrar_servidor_local(srv)
+
+    assert verificar_selecao_ja_aberta(timeout_ms=50) is False
+
+    # Casos de fronteira de encerrar_servidor_local: None e QLocalServer não iniciado
+    encerrar_servidor_local(None)
+    srv_nao_iniciado = QLocalServer()
+    assert srv_nao_iniciado.serverName() == ""
+    encerrar_servidor_local(srv_nao_iniciado)
 
 
 def test_travas_independentes_por_croqui_permitem_multiplos_croquis(qtbot):

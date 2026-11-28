@@ -632,3 +632,128 @@ def test_tela_de_carregamento_alterar_nome_offline_e_dialogo_mcp(qtbot, tmp_path
         assert servidor_injetado.esta_ativo is True
     finally:
         servidor_injetado.parar()
+
+
+def test_tela_de_carregamento_bloqueia_e_eleva_croqui_ja_aberto_nos_tres_fluxos(
+    qtbot, storage_real: GerenciadorCaminhos, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    """Garante que Novo, Oficial e Histórico bloqueiam e elevam croqui já aberto quando verificar_trava_croqui=True."""
+    import time
+    import uuid
+
+    from editor.core.instancia_unica import encerrar_servidor_local, iniciar_trava_croqui
+    from scripts.gerenciar_uids_lib import gerar_uid
+    from scripts.migrador import obter_ultima_versao_migracao
+
+    monkeypatch.setenv("ARESTA_PREFIXO_IPC", f"TelaSel_{uuid.uuid4().hex[:8]}_")
+
+    id_novo = "br_sp_sao_bento_do_sapucai_pedra_do_bau"
+    id_oficial = "br_mg_oficial_aberto"
+    id_hist_aberto = "br_mg_hist_aberto"
+    id_hist_livre = "br_mg_hist_livre"
+
+    # Prepara oficial e histórico
+    pasta_oficial = storage_real.obter_caminho_base_repo() / "database" / id_oficial
+    pasta_oficial.mkdir(parents=True, exist_ok=True)
+    (pasta_oficial / "croqui.yaml").write_text(
+        f"id: {id_oficial}\nuid: {gerar_uid()}\nnome: Oficial Aberto\n"
+        f"ultima_migracao: {obter_ultima_versao_migracao()}\n"
+        "picos:\n  - nome: Pico Oficial\n    estado: MG\n",
+        encoding="utf-8",
+    )
+
+    pasta_hist_aberto = storage_real.obter_caminho_croquis_experimentais() / "001_hist_aberto"
+    (pasta_hist_aberto / "database").mkdir(parents=True, exist_ok=True)
+    (pasta_hist_aberto / "database" / "croqui.yaml").write_text(
+        f"id: {id_hist_aberto}\nuid: {gerar_uid()}\nnome: Hist Aberto\n"
+        f"ultima_migracao: {obter_ultima_versao_migracao()}\n",
+        encoding="utf-8",
+    )
+    (pasta_hist_aberto / "croqui_experimental.yaml").write_text(
+        'ultima_edicao: "2026-05-02T10:00:00Z"\n', encoding="utf-8"
+    )
+
+    pasta_hist_livre = storage_real.obter_caminho_croquis_experimentais() / "002_hist_livre"
+    (pasta_hist_livre / "database").mkdir(parents=True, exist_ok=True)
+    (pasta_hist_livre / "database" / "croqui.yaml").write_text(
+        f"id: {id_hist_livre}\nuid: {gerar_uid()}\nnome: Hist Livre\n"
+        f"ultima_migracao: {obter_ultima_versao_migracao()}\n",
+        encoding="utf-8",
+    )
+    (pasta_hist_livre / "croqui_experimental.yaml").write_text(
+        'ultima_edicao: "2026-05-01T10:00:00Z"\n', encoding="utf-8"
+    )
+
+    ativacoes: list[str] = []
+    srv_novo = iniciar_trava_croqui(id_novo, callback_ativacao=lambda: ativacoes.append(id_novo))
+    srv_oficial = iniciar_trava_croqui(
+        id_oficial, callback_ativacao=lambda: ativacoes.append(id_oficial)
+    )
+    srv_hist = iniciar_trava_croqui(
+        id_hist_aberto, callback_ativacao=lambda: ativacoes.append(id_hist_aberto)
+    )
+    assert srv_novo is not None and srv_oficial is not None and srv_hist is not None
+
+    tela = TelaDeCarregamento(
+        storage=storage_real,
+        usuario="TesteUser",
+        verificar_trava_croqui=True,
+    )
+    qtbot.addWidget(tela)
+    avisos_exibidos: list[str] = []
+    modais_tratados: list[QWidget] = []
+    prazo = time.monotonic() + 5.0
+
+    timer_modais = QTimer(tela)
+    timer_modais.setInterval(15)
+
+    def _tratar_modais() -> None:
+        modal = QApplication.activeModalWidget()
+        if time.monotonic() > prazo:
+            timer_modais.stop()
+            if modal is not None and modal is not tela:
+                modal.reject()
+            return
+        if modal is None or modal is tela or any(m is modal for m in modais_tratados):
+            return
+        modais_tratados.append(modal)
+        if isinstance(modal, DialogoNovoCroqui):
+            modal.edit_pico.setText("Pedra do Baú")
+            modal.edit_cidade.setText("São Bento do Sapucaí")
+            modal.edit_estado.setText("SP")
+            modal.edit_pais.setText("BR")
+            modal.accept()
+        elif isinstance(modal, DialogoBuscaCroqui):
+            modal.accept()
+        elif isinstance(modal, QMessageBox):
+            avisos_exibidos.append(modal.text())
+            modal.accept()
+
+    timer_modais.timeout.connect(_tratar_modais)
+    timer_modais.start()
+
+    try:
+        # 1. Novo croqui bloqueado
+        qtbot.mouseClick(tela.btn_novo, Qt.MouseButton.LeftButton)
+        assert tela.caminho_croqui_selecionado is None
+
+        # 2. Oficial bloqueado
+        qtbot.mouseClick(tela.btn_oficial, Qt.MouseButton.LeftButton)
+        assert tela.caminho_croqui_selecionado is None
+
+        # 3. Histórico já aberto bloqueado
+        tela.lista_croquis.itemDoubleClicked.emit(tela.lista_croquis.item(0))
+        assert tela.caminho_croqui_selecionado is None
+
+        assert ativacoes == [id_novo, id_oficial, id_hist_aberto]
+        assert len(avisos_exibidos) == 3
+
+        # 4. Histórico livre abre normalmente mesmo com verificar_trava_croqui=True
+        tela.lista_croquis.itemDoubleClicked.emit(tela.lista_croquis.item(1))
+        assert tela.caminho_croqui_selecionado == pasta_hist_livre
+        assert len(avisos_exibidos) == 3
+    finally:
+        timer_modais.stop()
+        encerrar_servidor_local(srv_novo)
+        encerrar_servidor_local(srv_oficial)
+        encerrar_servidor_local(srv_hist)

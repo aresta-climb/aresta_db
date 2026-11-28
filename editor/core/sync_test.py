@@ -227,3 +227,39 @@ def test_callbacks_credenciais_e_progresso(tmp_path: Path) -> None:
 
     callbacks.transfer_progress(SimpleNamespace(total_objects=0, received_objects=0))
     assert len(progresso_valores) == 1
+
+
+def test_gerenciador_sincronizacao_serializa_com_lock_externo(tmp_path: Path) -> None:
+    """Deve serializar operações Git usando lockfile externo sem poluir a pasta do repositório."""
+    import threading
+    import time
+
+    from editor.core.instancia_unica import trava_arquivo_operacao
+
+    caminho_repo = tmp_path / "aresta_db"
+    repo = pygit2.init_repository(str(caminho_repo), False)
+    _criar_commit_em_repo_local(repo, "README.md", "base\n")
+
+    lock_esperado = tmp_path / ".aresta_db_git.lock"
+    eventos: list[str] = []
+    lock_adquirido = threading.Event()
+
+    def _segurar_lock() -> None:
+        with trava_arquivo_operacao(lock_esperado, timeout_s=2.0):
+            eventos.append("lock_inicio")
+            lock_adquirido.set()
+            time.sleep(0.12)
+            eventos.append("lock_fim")
+
+    t = threading.Thread(target=_segurar_lock)
+    t.start()
+    assert lock_adquirido.wait(timeout=1.0)
+
+    sync = GerenciadorSincronizacao(caminho_repo, url_upstream=str(tmp_path / "remoto.git"))
+    sync.configurar_remotes()
+    eventos.append("remotes_fim")
+    t.join()
+
+    assert eventos == ["lock_inicio", "lock_fim", "remotes_fim"]
+    assert not lock_esperado.exists()
+    assert not list(caminho_repo.glob("*.lock"))

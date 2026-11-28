@@ -39,7 +39,7 @@ A aplicação MUST preservar o loop principal de eventos (`app.exec()`) ativo du
 - **THEN** a `JanelaPrincipal` anterior MUST ser fechada e a `TelaDeCarregamento` MUST ser reaberta sem encerrar o loop principal de eventos da aplicação
 
 ### Requirement: Tratamento de Falhas na Inicialização
-A aplicação MUST informar ao usuário se ocorrer um erro crítico que impeça a abertura do editor (inclusive durante a transição da `TelaDeAbertura` para a `TelaDeCarregamento` ou `JanelaPrincipal`), encerrando limpo o processo e liberando a trava de instância única sem deixar processos invisíveis em segundo plano, e MUST continuar a inicialização em modo offline caso a falha de sincronização remota ocorra sobre uma base local já existente.
+A aplicação MUST informar ao usuário se ocorrer um erro crítico que impeça a abertura do editor (inclusive durante a transição da `TelaDeAbertura` para a `TelaDeCarregamento` ou `JanelaPrincipal`), encerrando limpo o processo e liberando as travas locais de seleção ou de croqui sem deixar processos invisíveis em segundo plano, e MUST continuar a inicialização em modo offline caso a falha de sincronização remota ocorra sobre uma base local já existente.
 
 #### Scenario: Erro de Rede ou Disco
 - **WHEN** ocorrer uma falha irrecuperável durante a inicialização
@@ -101,3 +101,18 @@ O executável do Editor Aresta MUST suportar um modo de autoverificação automa
 #### Scenario: Falha imediata em caso de dependência nativa ausente no smoke test
 - **WHEN** o binário empacotado iniciado com `--smoke-test` encontra qualquer exceção não tratada, falha de importação ou erro de execução em alguma etapa
 - **THEN** o processo MUST registrar o erro em `stderr` e encerrar imediatamente com código de saída diferente de zero sem travar em diálogos modais.
+
+### Requirement: Trava de Instância Escopada por Seleção e por Croqui
+O Editor Aresta MUST substituir a trava global única por uma trava dedicada à tela de seleção (`ArestaEditorTelaSelecao`) e uma trava escopada por croqui (`ArestaEditorCroqui_<id_croqui>`), permitindo a execução simultânea de múltiplas instâncias independentes em croquis distintos.
+
+#### Scenario: Abertura simultânea de croquis distintos via linha de comando
+- **WHEN** uma primeira instância do editor está executando com o croqui `"A"` e o usuário executa um segundo processo informando o croqui `"B"` diferente de `"A"`
+- **THEN** o segundo processo MUST validar o caminho de `"B"` antes da checagem de instância, adquirir a trava `ArestaEditorCroqui_B` e abrir normalmente uma segunda `JanelaPrincipal` independente
+
+#### Scenario: Bloqueio e elevação ao tentar reabrir o mesmo croqui via linha de comando
+- **WHEN** o croqui `"A"` já está aberto em uma janela ativa e o usuário executa outro processo informando o mesmo croqui `"A"`
+- **THEN** o segundo processo MUST detectar a trava `ArestaEditorCroqui_A` responsiva, trazer especificamente a janela de `"A"` para o primeiro plano, informar ao usuário que o croqui já está aberto e encerrar com código `0`
+
+#### Scenario: Bloqueio de tela de seleção duplicada e liberação após abertura de croqui
+- **WHEN** uma instância está aguardando seleção na `TelaDeCarregamento` sem croqui aberto e outro processo é iniciado sem argumentos de croqui
+- **THEN** o segundo processo MUST elevar a `TelaDeCarregamento` existente e encerrar; assim que o primeiro processo abrir um croqui na `JanelaPrincipal`, a trava de seleção MUST ser liberada para que novas instâncias possam abrir outra `TelaDeCarregamento`

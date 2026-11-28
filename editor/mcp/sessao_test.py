@@ -177,3 +177,58 @@ def test_registro_multi_sessao_mcp(tmp_path: Path):
     # Arquivo mcp_sessoes.json corrompido retorna lista vazia de forma resiliente
     obter_caminho_sessoes_mcp(tmp_path).write_text("{corrompido", encoding="utf-8")
     assert listar_sessoes_mcp(tmp_path) == []
+
+
+def test_gravar_sessao_preserva_primaria_e_sincroniza_atualizacao(tmp_path: Path) -> None:
+    """Garante que sessões secundárias não sobrescrevem mcp_sessao.json e que updates da primária propagam."""
+    s_prim = gravar_sessao_mcp(
+        porta=27378,
+        token="tok_prim",
+        diretorio_base=tmp_path,
+        id_croqui="croqui_prim",
+        caminho_database="/db/prim",
+    )
+    gravar_sessao_mcp(
+        porta=27379,
+        token="tok_sec",
+        diretorio_base=tmp_path,
+        id_croqui="croqui_sec",
+        caminho_database="/db/sec",
+    )
+
+    principal_atual = ler_sessao_mcp(tmp_path)
+    assert principal_atual is not None
+    assert principal_atual.porta == 27378
+    assert principal_atual.id_croqui == "croqui_prim"
+
+    # Atualizar a sessão primária via registrar_sessao_multi_mcp sincroniza também mcp_sessao.json
+    registrar_sessao_multi_mcp(
+        DadosSessaoMcp(
+            porta=27378,
+            pid=s_prim.pid,
+            token="tok_prim",
+            id_croqui="croqui_prim_atualizado",
+            caminho_database="/db/prim2",
+        ),
+        diretorio_base=tmp_path,
+    )
+    principal_apos_update = ler_sessao_mcp(tmp_path)
+    assert principal_apos_update is not None
+    assert principal_apos_update.porta == 27378
+    assert principal_apos_update.id_croqui == "croqui_prim_atualizado"
+
+    # Atualizar a sessão secundária mantém mcp_sessao.json na primária
+    registrar_sessao_multi_mcp(
+        DadosSessaoMcp(
+            porta=27379,
+            pid=s_prim.pid,
+            token="tok_sec",
+            id_croqui="croqui_sec_atualizado",
+            caminho_database="/db/sec2",
+        ),
+        diretorio_base=tmp_path,
+    )
+    principal_preservada = ler_sessao_mcp(tmp_path)
+    assert principal_preservada is not None
+    assert principal_preservada.porta == 27378
+    assert principal_preservada.id_croqui == "croqui_prim_atualizado"

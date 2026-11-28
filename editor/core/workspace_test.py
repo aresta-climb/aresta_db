@@ -378,3 +378,40 @@ def test_headless_workspace_renomeacao_erro_compilacao_e_diretorio_explicito(
         )
         assert mod_err is False
         assert any("Erro" in m for m in msgs_err)
+
+
+def test_local_repo_workspace_serializa_compilacao_via_lock_fora_do_repo(tmp_path: Path) -> None:
+    """Garante que LocalRepoWorkspace serializa compilação em compilacao_local.lock fora do repo Git."""
+    import threading
+    import time
+
+    from editor.core.instancia_unica import trava_arquivo_operacao
+
+    storage = CaminhosTemp(tmp_path / "appdata")
+    aresta_db = tmp_path / "aresta_db"
+    croqui_dir = aresta_db / "database" / "croqui_serial"
+    _criar_croqui_valido(croqui_dir, "croqui_serial")
+
+    lock_compilacao = storage.obter_diretorio_base() / "compilacao_local.lock"
+    eventos: list[str] = []
+    lock_adquirido = threading.Event()
+
+    def _segurar_lock_compilacao() -> None:
+        with trava_arquivo_operacao(lock_compilacao, timeout_s=5.0):
+            eventos.append("lock_inicio")
+            lock_adquirido.set()
+            time.sleep(0.12)
+            eventos.append("lock_fim")
+
+    t = threading.Thread(target=_segurar_lock_compilacao)
+    t.start()
+    assert lock_adquirido.wait(timeout=1.0)
+
+    ws = LocalRepoWorkspace(croqui_dir, storage=storage)
+    ws.processar_renomeacao_e_compilacao("croqui_serial", "croqui_serial", storage)
+    eventos.append("compilacao_fim")
+    t.join()
+
+    assert eventos == ["lock_inicio", "lock_fim", "compilacao_fim"]
+    assert not lock_compilacao.exists()
+    assert not list(aresta_db.rglob("*.lock"))

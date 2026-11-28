@@ -46,6 +46,7 @@ from editor.plataforma import (
 
 configurar_ambiente_plataforma()
 
+from collections.abc import Callable
 from pathlib import Path
 from typing import Any
 
@@ -106,6 +107,8 @@ class ControladorAplicativo:
         servico_submissao: Any | None = None,
         fabrica_servidor_celular: Any | None = None,
         caminho_croqui_local: Path | None = None,
+        ativar_trava_croqui: bool | None = None,
+        gerenciar_trava_selecao: bool = False,
     ) -> None:
         inst = QApplication.instance()
         self.app: QApplication = inst if isinstance(inst, QApplication) else QApplication(sys.argv)
@@ -144,6 +147,10 @@ class ControladorAplicativo:
         self._tarefa_injetada: Any | None = tarefa
         self._diretorio_sessao_mcp: Path | None = diretorio_sessao_mcp
         self._iniciar_rede_mcp: bool = iniciar_rede_mcp
+        self._ativar_trava_croqui: bool = (
+            iniciar_rede_mcp if ativar_trava_croqui is None else bool(ativar_trava_croqui)
+        )
+        self._gerenciar_trava_selecao: bool = bool(gerenciar_trava_selecao)
         self.servidor_mcp: Any | None = None
         self._logout_em_andamento: bool = False
         self._modo_smoke_test: bool = False
@@ -251,6 +258,11 @@ class ControladorAplicativo:
                 self.mostrar_janela_principal()
                 return
 
+            if self._gerenciar_trava_selecao and getattr(self.app, "servidor_local", None) is None:
+                from editor.core.instancia_unica import iniciar_trava_selecao
+
+                setattr(self.app, "servidor_local", iniciar_trava_selecao())
+
             usuario = self.tarefa.sessao_usuario.nome_completo if self.tarefa.sessao_usuario else ""
             tela_carregamento_cls = sys.modules[__name__].TelaDeCarregamento
             self.tela_carregamento = tela_carregamento_cls(
@@ -258,6 +270,7 @@ class ControladorAplicativo:
                 usuario=usuario,
                 servidor_mcp=self.servidor_mcp,
                 diretorio_sessao_mcp=self._diretorio_sessao_mcp,
+                verificar_trava_croqui=self._ativar_trava_croqui,
             )
 
             if hasattr(self.tela_carregamento, "garantir_servidor_mcp"):
@@ -316,6 +329,7 @@ class ControladorAplicativo:
                     return
                 workspace = ExperimentalWorkspace(self.tela_carregamento.caminho_croqui_selecionado)
 
+            self._liberar_servidor_local_app()
             self.janela_principal = JanelaPrincipal(
                 storage=self.tarefa.storage,
                 auth=getattr(self.tarefa, "gerenciador_sessao", None),
@@ -327,6 +341,7 @@ class ControladorAplicativo:
                 servico_submissao=self._servico_submissao,
                 fabrica_servidor_celular=self._fabrica_servidor_celular,
                 servico_loja=self._servico_loja,
+                ativar_trava_croqui=self._ativar_trava_croqui,
             )
             if getattr(self.janela_principal, "servidor_mcp", None) is not None:
                 self.servidor_mcp = self.janela_principal.servidor_mcp
@@ -358,6 +373,7 @@ class ControladorAplicativo:
                 self.tela_carregamento.caminho_croqui_selecionado = caminho_croqui
                 self.tela_carregamento.accept()
             if self.janela_principal is None:
+                self._liberar_servidor_local_app()
                 self.janela_principal = JanelaPrincipal(
                     storage=storage,
                     auth=auth,
@@ -369,6 +385,7 @@ class ControladorAplicativo:
                     servico_submissao=self._servico_submissao,
                     fabrica_servidor_celular=self._fabrica_servidor_celular,
                     servico_loja=self._servico_loja,
+                    ativar_trava_croqui=self._ativar_trava_croqui,
                 )
                 self.janela_principal.solicitar_abrir_novo.connect(self.executar_selecao)
                 self.janela_principal.show()
@@ -385,6 +402,7 @@ class ControladorAplicativo:
             servico_submissao=self._servico_submissao,
             fabrica_servidor_celular=self._fabrica_servidor_celular,
             servico_loja=self._servico_loja,
+            ativar_trava_croqui=self._ativar_trava_croqui,
         )
         self.janelas_secundarias.append(nova_janela)
         nova_janela.show()
@@ -403,13 +421,16 @@ class ControladorAplicativo:
             self.servidor_mcp.parar()
             self.servidor_mcp = None
 
+    def _liberar_servidor_local_app(self) -> None:
+        from editor.core.instancia_unica import encerrar_servidor_local
+
+        encerrar_servidor_local(getattr(self.app, "servidor_local", None))
+        setattr(self.app, "servidor_local", None)
+
     def encerrar_servidores_locais(self) -> None:
-        """Encerra o servidor MCP e libera o QLocalServer de instância única se presente."""
+        """Encerra o servidor MCP e libera a trava IPC local se presente."""
         self.encerrar_servidor_mcp()
-        servidor_local = getattr(self.app, "servidor_local", None)
-        if servidor_local is not None and hasattr(servidor_local, "close"):
-            servidor_local.close()
-            setattr(self.app, "servidor_local", None)
+        self._liberar_servidor_local_app()
 
     def _tratar_falha_fatal_transicao(self, erro: Exception, etapa: str) -> None:
         """
@@ -590,10 +611,14 @@ def _instalar_condutor_smoke_test(
     return timer
 
 
-def main() -> None:
+def main(
+    argv: list[str] | None = None,
+    fabrica_controlador: Callable[..., ControladorAplicativo] | None = None,
+) -> None:
     configurar_streams_utf8()
-    if "--headless" in sys.argv[1:]:
-        args_headless = [arg for arg in sys.argv[1:] if arg not in ("--headless", "--smoke-test")]
+    args_brutos = list(argv) if argv is not None else sys.argv[1:]
+    if "--headless" in args_brutos:
+        args_headless = [arg for arg in args_brutos if arg not in ("--headless", "--smoke-test")]
         if not args_headless:
             print(
                 "Erro: Informe o caminho do croqui ao utilizar --headless "
@@ -614,8 +639,8 @@ def main() -> None:
             print(f"Erro: {erro_hl}", file=sys.stderr)
             sys.exit(1)
 
-    modo_smoke_test = "--smoke-test" in sys.argv[1:]
-    argumentos_posicionais = [arg for arg in sys.argv[1:] if arg != "--smoke-test"]
+    modo_smoke_test = "--smoke-test" in args_brutos
+    argumentos_posicionais = [arg for arg in args_brutos if arg != "--smoke-test"]
 
     # Inicializa telemetria Sentry com sanitização universal de dados
     from editor.core.telemetria import inicializar_telemetria
@@ -634,30 +659,6 @@ def main() -> None:
     caminho_icone_app = config_canal.obter_caminho_icone_aplicacao()
     app.setWindowIcon(QIcon(str(caminho_icone_app)))
     app.processEvents()
-
-    # Previne múltiplas instâncias do editor usando QLocalServer / QLocalSocket
-    # com health-check ativo e recuperação de processos zumbis
-    from editor.core.instancia_unica import (
-        NOME_SERVIDOR_PADRAO,
-        iniciar_servidor_instancia_unica,
-        verificar_se_ja_em_execucao,
-    )
-
-    nome_servidor = (
-        f"{NOME_SERVIDOR_PADRAO}_Smoke_{os.getpid()}" if modo_smoke_test else NOME_SERVIDOR_PADRAO
-    )
-
-    if verificar_se_ja_em_execucao(nome_servidor):
-        msg = (
-            "O Aresta Editor já está em execução. A janela ativa foi trazida para o primeiro plano."
-        )
-        print(msg, file=sys.stderr)
-        QMessageBox.information(None, "Aresta Editor", msg)
-        sys.exit(0)
-
-    servidor_local = iniciar_servidor_instancia_unica(nome_servidor)
-    if servidor_local:
-        setattr(app, "servidor_local", servidor_local)
 
     # Verificação de modo LocalRepo: argumento fornecido na linha de comando
     caminho_croqui_local: Path | None = None
@@ -679,11 +680,57 @@ def main() -> None:
             QMessageBox.critical(None, "Erro ao Abrir Croqui", msg_erro)
             sys.exit(1)
 
+    # Previne duplicação por tela de seleção ou por croqui usando QLocalServer / QLocalSocket
+    from editor.core.instancia_unica import (
+        extrair_id_croqui_de_pasta,
+        iniciar_servidor_instancia_unica,
+        iniciar_trava_croqui,
+        iniciar_trava_selecao,
+        obter_nome_servidor_selecao,
+        verificar_croqui_ja_aberto,
+        verificar_selecao_ja_aberta,
+    )
+
+    if modo_smoke_test:
+        servidor_local = iniciar_servidor_instancia_unica(
+            f"{obter_nome_servidor_selecao()}_Smoke_{os.getpid()}"
+        )
+    elif caminho_croqui_local is not None:
+        id_croqui_local = extrair_id_croqui_de_pasta(caminho_croqui_local)
+        if verificar_croqui_ja_aberto(id_croqui_local):
+            msg = (
+                f"O croqui '{id_croqui_local}' já está aberto no Aresta Editor. "
+                "A janela correspondente foi trazida para o primeiro plano."
+            )
+            print(msg, file=sys.stderr)
+            QMessageBox.information(None, "Aresta Editor", msg)
+            sys.exit(0)
+        servidor_local = iniciar_trava_croqui(id_croqui_local)
+    else:
+        if verificar_selecao_ja_aberta():
+            msg = (
+                "A tela de seleção do Aresta Editor já está aberta e foi trazida "
+                "para o primeiro plano."
+            )
+            print(msg, file=sys.stderr)
+            QMessageBox.information(None, "Aresta Editor", msg)
+            sys.exit(0)
+        servidor_local = iniciar_trava_selecao()
+
+    setattr(app, "servidor_local", servidor_local)
+
     # Inicialização Unificada (com Autenticação; sincronização Git apenas no modo padrão)
+    construtor_ctrl = fabrica_controlador or ControladorAplicativo
     controlador = (
-        ControladorAplicativo(caminho_croqui_local=caminho_croqui_local)
+        construtor_ctrl(
+            caminho_croqui_local=caminho_croqui_local,
+            ativar_trava_croqui=not modo_smoke_test,
+        )
         if caminho_croqui_local is not None
-        else ControladorAplicativo()
+        else construtor_ctrl(
+            ativar_trava_croqui=not modo_smoke_test,
+            gerenciar_trava_selecao=not modo_smoke_test,
+        )
     )
     if modo_smoke_test:
         _instalar_condutor_smoke_test(controlador)
